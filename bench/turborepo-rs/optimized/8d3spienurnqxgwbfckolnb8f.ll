@@ -83,37 +83,37 @@ define void @_RNvXCscmPyG4XWoQZ_3vteINtB2_14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15tu
   %6 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8, !noalias !15
   %7 = icmp ult i64 %6, 6
   tail call void @llvm.assume(i1 %7)
-  %switch.i = icmp samesign ult i64 %6, 4
-  br i1 %switch.i, label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, label %8
+  %8 = icmp samesign ult i64 %6, 4
+  br i1 %8, label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, label %9
 
-8:                                                ; preds = %1
+9:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !15
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !15
   store ptr %4, ptr %2, align 8, !noalias !15
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17had20a7ed3c94869aE", ptr %.sroa.44.0..sroa_idx.i, align 8, !noalias !15
   store ptr @anon.dd4a4cc85c4b54152f949afa2eb23aea.10.llvm.17971349766402577642, ptr %3, align 8, !noalias !15
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 1, ptr %9, align 8, !noalias !15
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr null, ptr %10, align 8, !noalias !15
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %2, ptr %11, align 8, !noalias !15
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store i64 1, ptr %12, align 8, !noalias !15
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 1, ptr %10, align 8, !noalias !15
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr null, ptr %11, align 8, !noalias !15
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %2, ptr %12, align 8, !noalias !15
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store i64 1, ptr %13, align 8, !noalias !15
   call void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %3, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.dd4a4cc85c4b54152f949afa2eb23aea.13.llvm.17971349766402577642, i32 noundef 6, ptr noalias noundef readonly align 8 null, i64 undef), !noalias !15
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !15
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !15
   %.pre = load i32, ptr %4, align 4, !range !18, !noalias !15
   br label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit
 
-_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit: ; preds = %1, %8
-  %13 = phi i32 [ 65533, %1 ], [ %.pre, %8 ]
-  call void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen4text(ptr noalias noundef nonnull align 8 dereferenceable(344) %5, i32 noundef %13)
+_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit: ; preds = %1, %9
+  %14 = phi i32 [ 65533, %1 ], [ %.pre, %9 ]
+  call void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen4text(ptr noalias noundef nonnull align 8 dereferenceable(344) %5, i32 noundef %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load ptr, ptr %14, align 8, !nonnull !7, !align !19, !noundef !7
-  store i8 12, ptr %15, align 1
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !nonnull !7, !align !19, !noundef !7
+  store i8 12, ptr %16, align 1
   ret void
 }
 
@@ -136,36 +136,36 @@ define void @_RNvXCscmPyG4XWoQZ_3vteINtB2_14VtUtf8ReceiverNtNtCs8mTrBI1stz4_15tu
   %11 = load atomic i64, ptr @_RNvCs4XtYKdFCiz1_3log20MAX_LOG_LEVEL_FILTER monotonic, align 8, !noalias !20
   %12 = icmp ult i64 %11, 6
   call void @llvm.assume(i1 %12)
-  %switch.i = icmp samesign ult i64 %11, 4
-  br i1 %switch.i, label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, label %13
+  %13 = icmp samesign ult i64 %11, 4
+  br i1 %13, label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit, label %14
 
-13:                                               ; preds = %10
+14:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !20
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !20
   store ptr %5, ptr %3, align 8, !noalias !20
   %.sroa.44.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @"_ZN43_$LT$char$u20$as$u20$core..fmt..Display$GT$3fmt17had20a7ed3c94869aE", ptr %.sroa.44.0..sroa_idx.i, align 8, !noalias !20
   store ptr @anon.dd4a4cc85c4b54152f949afa2eb23aea.10.llvm.17971349766402577642, ptr %4, align 8, !noalias !20
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 1, ptr %14, align 8, !noalias !20
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %15, align 8, !noalias !20
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %16, align 8, !noalias !20
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 1, ptr %17, align 8, !noalias !20
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 1, ptr %15, align 8, !noalias !20
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %16, align 8, !noalias !20
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %17, align 8, !noalias !20
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 1, ptr %18, align 8, !noalias !20
   call void @_RNvNtCs4XtYKdFCiz1_3log13___private_api3log(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, i64 noundef 4, ptr noalias noundef readonly align 8 dereferenceable(48) @anon.dd4a4cc85c4b54152f949afa2eb23aea.13.llvm.17971349766402577642, i32 noundef 6, ptr noalias noundef readonly align 8 null, i64 undef), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !20
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !20
   br label %_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit
 
-_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit: ; preds = %8, %10, %13
-  %18 = load i32, ptr %5, align 4, !range !18, !noalias !20, !noundef !7
-  call void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen4text(ptr noalias noundef nonnull align 8 dereferenceable(344) %6, i32 noundef %18)
+_RNvXNtCs8mTrBI1stz4_15turborepo_vt1007performNtB2_13WrappedScreenNtCscmPyG4XWoQZ_3vte7Perform5print.exit: ; preds = %8, %10, %14
+  %19 = load i32, ptr %5, align 4, !range !18, !noalias !20, !noundef !7
+  call void @_RNvMs1_NtCs8mTrBI1stz4_15turborepo_vt1006screenNtB5_6Screen4text(ptr noalias noundef nonnull align 8 dereferenceable(344) %6, i32 noundef %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !nonnull !7, !align !19, !noundef !7
-  store i8 12, ptr %20, align 1
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %21 = load ptr, ptr %20, align 8, !nonnull !7, !align !19, !noundef !7
+  store i8 12, ptr %21, align 1
   ret void
 }
 

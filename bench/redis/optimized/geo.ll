@@ -535,7 +535,7 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
   %21 = load i32, ptr %0, align 8
   %22 = lshr i32 %21, 4
   %23 = and i32 %22, 15
-  switch i32 %23, label %.loopexit95 [
+  switch i32 %23, label %.loopexit92 [
     i32 11, label %24
     i32 7, label %75
   ]
@@ -577,10 +577,10 @@ define dso_local i32 @geoGetPointsInRange(ptr noundef readonly captures(none) %0
   %38 = call ptr @lpGetValue(ptr noundef %37, ptr noundef nonnull %10, ptr noundef nonnull %11) #14
   %39 = call i32 @geoWithinShape(ptr noundef %3, double noundef %34, ptr noundef nonnull %12, ptr noundef nonnull %13)
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %41, label %._crit_edge97
+  br i1 %40, label %41, label %._crit_edge94
 
-._crit_edge97:                                    ; preds = %36
-  %.pre98 = load i64, ptr %19, align 8, !tbaa !5
+._crit_edge94:                                    ; preds = %36
+  %.pre95 = load i64, ptr %19, align 8, !tbaa !5
   br label %71
 
 41:                                               ; preds = %36
@@ -637,10 +637,10 @@ geoArrayAppend.exit:                              ; preds = %50, %56
   store i64 %70, ptr %19, align 8, !tbaa !5
   br label %71
 
-71:                                               ; preds = %._crit_edge97, %geoArrayAppend.exit
-  %72 = phi i64 [ %.pre98, %._crit_edge97 ], [ %70, %geoArrayAppend.exit ]
-  %.not93 = icmp ult i64 %31, %72
-  br i1 %.not93, label %.thread, label %73
+71:                                               ; preds = %._crit_edge94, %geoArrayAppend.exit
+  %72 = phi i64 [ %.pre95, %._crit_edge94 ], [ %70, %geoArrayAppend.exit ]
+  %.not90 = icmp ult i64 %31, %72
+  br i1 %.not90, label %.thread, label %73
 
 .thread:                                          ; preds = %32, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -660,7 +660,7 @@ geoArrayAppend.exit:                              ; preds = %50, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.loopexit95
+  br label %.loopexit92
 
 75:                                               ; preds = %6
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -669,24 +669,24 @@ geoArrayAppend.exit:                              ; preds = %50, %56
   %79 = load ptr, ptr %78, align 8, !tbaa !44
   %80 = call ptr @zslNthInRange(ptr noundef %79, ptr noundef nonnull %7, i64 noundef 0) #14
   %.not61 = icmp eq ptr %80, null
-  br i1 %.not61, label %.critedge71, label %.preheader94
+  br i1 %.not61, label %.critedge70, label %.preheader91
 
-.preheader94:                                     ; preds = %75
+.preheader91:                                     ; preds = %75
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %83 = add i64 %5, -1
   br label %84
 
-84:                                               ; preds = %.preheader94, %117
-  %.096 = phi ptr [ %80, %.preheader94 ], [ %119, %117 ]
+84:                                               ; preds = %.preheader91, %117
+  %.093 = phi ptr [ %80, %.preheader91 ], [ %119, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store double 0.000000e+00, ptr %15, align 8, !tbaa !14
-  %85 = getelementptr inbounds nuw i8, ptr %.096, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.093, i64 8
   %86 = load double, ptr %85, align 8, !tbaa !14
   %87 = call i32 @zslValueLteMax(double noundef %86, ptr noundef nonnull %7) #14
   %.not59 = icmp eq i32 %87, 0
-  br i1 %.not59, label %.thread82, label %88
+  br i1 %.not59, label %.thread80, label %88
 
 88:                                               ; preds = %84
   %89 = load double, ptr %85, align 8, !tbaa !14
@@ -701,28 +701,28 @@ geoArrayAppend.exit:                              ; preds = %50, %56
 92:                                               ; preds = %88
   %93 = load double, ptr %15, align 8, !tbaa !14
   %94 = load double, ptr %85, align 8, !tbaa !14
-  %95 = load ptr, ptr %.096, align 8, !tbaa !43
+  %95 = load ptr, ptr %.093, align 8, !tbaa !43
   %96 = call ptr @sdsdup(ptr noundef %95) #14
   %97 = load i64, ptr %19, align 8, !tbaa !5
   %98 = load i64, ptr %81, align 8, !tbaa !12
   %99 = icmp eq i64 %97, %98
-  %.pre.i73 = load ptr, ptr %4, align 8, !tbaa !13
-  br i1 %99, label %100, label %geoArrayAppend.exit76
+  %.pre.i72 = load ptr, ptr %4, align 8, !tbaa !13
+  br i1 %99, label %100, label %geoArrayAppend.exit75
 
 100:                                              ; preds = %92
   %101 = icmp eq i64 %97, 0
   %102 = shl i64 %97, 1
-  %spec.select.i74 = select i1 %101, i64 8, i64 %102
-  store i64 %spec.select.i74, ptr %81, align 8, !tbaa !12
-  %103 = mul i64 %spec.select.i74, 40
-  %104 = call ptr @zrealloc(ptr noundef %.pre.i73, i64 noundef %103) #13
+  %spec.select.i73 = select i1 %101, i64 8, i64 %102
+  store i64 %spec.select.i73, ptr %81, align 8, !tbaa !12
+  %103 = mul i64 %spec.select.i73, 40
+  %104 = call ptr @zrealloc(ptr noundef %.pre.i72, i64 noundef %103) #13
   store ptr %104, ptr %4, align 8, !tbaa !13
-  %.pre22.i75 = load i64, ptr %19, align 8, !tbaa !5
-  br label %geoArrayAppend.exit76
+  %.pre22.i74 = load i64, ptr %19, align 8, !tbaa !5
+  br label %geoArrayAppend.exit75
 
-geoArrayAppend.exit76:                            ; preds = %92, %100
-  %105 = phi i64 [ %.pre22.i75, %100 ], [ %97, %92 ]
-  %106 = phi ptr [ %104, %100 ], [ %.pre.i73, %92 ]
+geoArrayAppend.exit75:                            ; preds = %92, %100
+  %105 = phi i64 [ %.pre22.i74, %100 ], [ %97, %92 ]
+  %106 = phi ptr [ %104, %100 ], [ %.pre.i72, %92 ]
   %107 = getelementptr inbounds nuw %struct.geoPoint, ptr %106, i64 %105
   %108 = load double, ptr %14, align 16, !tbaa !14
   store double %108, ptr %107, align 8, !tbaa !16
@@ -739,39 +739,39 @@ geoArrayAppend.exit76:                            ; preds = %92, %100
   store i64 %114, ptr %19, align 8, !tbaa !5
   br label %115
 
-115:                                              ; preds = %._crit_edge, %geoArrayAppend.exit76
-  %116 = phi i64 [ %.pre, %._crit_edge ], [ %114, %geoArrayAppend.exit76 ]
-  %.not89 = icmp ult i64 %83, %116
-  br i1 %.not89, label %.thread82, label %117
+115:                                              ; preds = %._crit_edge, %geoArrayAppend.exit75
+  %116 = phi i64 [ %.pre, %._crit_edge ], [ %114, %geoArrayAppend.exit75 ]
+  %.not86 = icmp ult i64 %83, %116
+  br i1 %.not86, label %.thread80, label %117
 
-.thread82:                                        ; preds = %84, %115
+.thread80:                                        ; preds = %84, %115
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %.loopexit95
+  br label %.loopexit92
 
 117:                                              ; preds = %115
-  %118 = getelementptr inbounds nuw i8, ptr %.096, i64 24
+  %118 = getelementptr inbounds nuw i8, ptr %.093, i64 24
   %119 = load ptr, ptr %118, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %.not = icmp eq ptr %119, null
-  br i1 %.not, label %.loopexit95, label %84
+  br i1 %.not, label %.loopexit92, label %84
 
-.loopexit95:                                      ; preds = %117, %.thread82, %.loopexit, %6
+.loopexit92:                                      ; preds = %117, %.thread80, %.loopexit, %6
   %120 = load i64, ptr %19, align 8, !tbaa !5
   %121 = sub i64 %120, %20
   %122 = trunc i64 %121 to i32
-  br label %.critedge71
+  br label %.critedge70
 
 .critedge:                                        ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.critedge71
+  br label %.critedge70
 
-.critedge71:                                      ; preds = %75, %.critedge, %.loopexit95
-  %.147 = phi i32 [ %122, %.loopexit95 ], [ 0, %.critedge ], [ 0, %75 ]
+.critedge70:                                      ; preds = %75, %.critedge, %.loopexit92
+  %.147 = phi i32 [ %122, %.loopexit92 ], [ 0, %.critedge ], [ 0, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.147
 }
@@ -938,8 +938,8 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %.097 = phi i32 [ 0, %.lr.ph ], [ %.2, %19 ]
-  %.06296 = phi i32 [ 0, %.lr.ph ], [ %.264, %19 ]
+  %.096 = phi i32 [ 0, %.lr.ph ], [ %.2, %19 ]
+  %.06295 = phi i32 [ 0, %.lr.ph ], [ %.264, %19 ]
   %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -956,23 +956,23 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 17:                                               ; preds = %15
   %18 = tail call i32 @strcasecmp(ptr noundef %13, ptr noundef nonnull @.str.25) #15
   %.not77 = icmp eq i32 %18, 0
-  br i1 %.not77, label %19, label %.thread.split.loop.exit143
+  br i1 %.not77, label %19, label %.thread.split.loop.exit142
 
 19:                                               ; preds = %17, %9, %15
-  %.264 = phi i32 [ %.06296, %17 ], [ 1, %9 ], [ %.06296, %15 ]
-  %.2 = phi i32 [ %.097, %17 ], [ %.097, %9 ], [ 1, %15 ]
+  %.264 = phi i32 [ %.06295, %17 ], [ 1, %9 ], [ %.06295, %15 ]
+  %.2 = phi i32 [ %.096, %17 ], [ %.096, %9 ], [ 1, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %9
 
-.thread.split.loop.exit143:                       ; preds = %17
+.thread.split.loop.exit142:                       ; preds = %17
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread
 
-.thread:                                          ; preds = %19, %.thread.split.loop.exit143
-  %.066.lcssa.ph = phi i32 [ %20, %.thread.split.loop.exit143 ], [ %5, %19 ]
-  %.062.lcssa.ph = phi i32 [ %.06296, %.thread.split.loop.exit143 ], [ %.264, %19 ]
-  %.0.lcssa.ph = phi i32 [ %.097, %.thread.split.loop.exit143 ], [ %.2, %19 ]
+.thread:                                          ; preds = %19, %.thread.split.loop.exit142
+  %.066.lcssa.ph = phi i32 [ %20, %.thread.split.loop.exit142 ], [ %5, %19 ]
+  %.062.lcssa.ph = phi i32 [ %.06295, %.thread.split.loop.exit142 ], [ %.264, %19 ]
+  %.0.lcssa.ph = phi i32 [ %.096, %.thread.split.loop.exit142 ], [ %.2, %19 ]
   %21 = icmp ne i32 %.0.lcssa.ph, 0
   %22 = icmp ne i32 %.062.lcssa.ph, 0
   %23 = select i1 %21, i1 %22, i1 false
@@ -980,69 +980,69 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
   %25 = srem i32 %24, 3
   %.not78 = icmp ne i32 %25, 0
   %brmerge = select i1 %.not78, i1 true, i1 %23
-  br i1 %brmerge, label %28, label %.lr.ph107
+  br i1 %brmerge, label %28, label %.lr.ph106
 
 .thread.thread:                                   ; preds = %1
   %26 = add nsw i32 %5, -2
   %.nonneg = sub i32 2, %5
   %27 = urem i32 %.nonneg, 3
-  %.not78134 = icmp eq i32 %27, 0
-  br i1 %.not78134, label %.lr.ph107, label %28
+  %.not78133 = icmp eq i32 %27, 0
+  br i1 %.not78133, label %.lr.ph106, label %28
 
 28:                                               ; preds = %.thread, %.thread.thread
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 216), align 8, !tbaa !72
   tail call void @addReplyErrorObject(ptr noundef nonnull %0, ptr noundef %29) #14
   br label %82
 
-.lr.ph107:                                        ; preds = %.thread, %.thread.thread
-  %.066.lcssa135140 = phi i32 [ 2, %.thread.thread ], [ %.066.lcssa.ph, %.thread ]
+.lr.ph106:                                        ; preds = %.thread, %.thread.thread
+  %.066.lcssa134139 = phi i32 [ 2, %.thread.thread ], [ %.066.lcssa.ph, %.thread ]
   %30 = phi i32 [ %26, %.thread.thread ], [ %24, %.thread ]
   %31 = sdiv i32 %30, 3
   %32 = shl nsw i32 %31, 1
-  %33 = add nsw i32 %32, %.066.lcssa135140
+  %33 = add nsw i32 %32, %.066.lcssa134139
   %34 = sext i32 %33 to i64
   %35 = shl nsw i64 %34, 3
   %36 = tail call noalias ptr @zcalloc(i64 noundef %35) #12
   %37 = tail call ptr @createRawStringObject(ptr noundef nonnull @.str.26, i64 noundef 4) #14
   store ptr %37, ptr %36, align 8, !tbaa !26
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %umax = tail call i32 @llvm.umax.i32(i32 %.066.lcssa135140, i32 2)
-  %wide.trip.count118 = zext i32 %umax to i64
+  %umax = tail call i32 @llvm.umax.i32(i32 %.066.lcssa134139, i32 2)
+  %wide.trip.count117 = zext i32 %umax to i64
   br label %45
 
 .preheader:                                       ; preds = %45
   %39 = icmp sgt i32 %30, 2
-  br i1 %39, label %.lr.ph109, label %._crit_edge
+  br i1 %39, label %.lr.ph108, label %._crit_edge
 
-.lr.ph109:                                        ; preds = %.preheader
+.lr.ph108:                                        ; preds = %.preheader
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %41 = zext i32 %.066.lcssa135140 to i64
+  %41 = zext i32 %.066.lcssa134139 to i64
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %43 = add nuw nsw i32 %.066.lcssa135140, 1
+  %43 = add nuw nsw i32 %.066.lcssa134139, 1
   %44 = zext i32 %43 to i64
-  %wide.trip.count123 = zext nneg i32 %31 to i64
+  %wide.trip.count122 = zext nneg i32 %31 to i64
   %invariant.gep = getelementptr inbounds nuw ptr, ptr %36, i64 %41
-  %invariant.gep147 = getelementptr inbounds nuw ptr, ptr %36, i64 %44
+  %invariant.gep146 = getelementptr inbounds nuw ptr, ptr %36, i64 %44
   br label %50
 
-45:                                               ; preds = %.lr.ph107, %45
-  %indvars.iv115 = phi i64 [ 1, %.lr.ph107 ], [ %indvars.iv.next116, %45 ]
+45:                                               ; preds = %.lr.ph106, %45
+  %indvars.iv114 = phi i64 [ 1, %.lr.ph106 ], [ %indvars.iv.next115, %45 ]
   %46 = load ptr, ptr %38, align 8, !tbaa !71
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv115
+  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv114
   %48 = load ptr, ptr %47, align 8, !tbaa !26
-  %49 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv115
+  %49 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv114
   store ptr %48, ptr %49, align 8, !tbaa !26
   tail call void @incrRefCount(ptr noundef %48) #14
-  %indvars.iv.next116 = add nuw nsw i64 %indvars.iv115, 1
-  %exitcond119.not = icmp eq i64 %indvars.iv.next116, %wide.trip.count118
-  br i1 %exitcond119.not, label %.preheader, label %45, !llvm.loop !74
+  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
+  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
+  br i1 %exitcond118.not, label %.preheader, label %45, !llvm.loop !74
 
-50:                                               ; preds = %.lr.ph109, %70
-  %indvars.iv120 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next121, %70 ]
+50:                                               ; preds = %.lr.ph108, %70
+  %indvars.iv119 = phi i64 [ 0, %.lr.ph108 ], [ %indvars.iv.next120, %70 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %51 = load ptr, ptr %40, align 8, !tbaa !71
   %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %41
-  %53 = mul nuw nsw i64 %indvars.iv120, 3
+  %53 = mul nuw nsw i64 %indvars.iv119, 3
   %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
   br label %56
 
@@ -1075,29 +1075,29 @@ define dso_local void @geoaddCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
   %65 = icmp sgt i32 %33, 0
-  br i1 %65, label %.lr.ph111.preheader, label %.thread91
+  br i1 %65, label %.lr.ph110.preheader, label %.thread90
 
-.lr.ph111.preheader:                              ; preds = %extractLongLatOrReply.exit
-  %wide.trip.count128 = zext nneg i32 %33 to i64
-  br label %.lr.ph111
+.lr.ph110.preheader:                              ; preds = %extractLongLatOrReply.exit
+  %wide.trip.count127 = zext nneg i32 %33 to i64
+  br label %.lr.ph110
 
-.lr.ph111:                                        ; preds = %.lr.ph111.preheader, %69
-  %indvars.iv125 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next126, %69 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv125
+.lr.ph110:                                        ; preds = %.lr.ph110.preheader, %69
+  %indvars.iv124 = phi i64 [ 0, %.lr.ph110.preheader ], [ %indvars.iv.next125, %69 ]
+  %66 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv124
   %67 = load ptr, ptr %66, align 8, !tbaa !26
   %.not80 = icmp eq ptr %67, null
   br i1 %.not80, label %69, label %68
 
-68:                                               ; preds = %.lr.ph111
+68:                                               ; preds = %.lr.ph110
   call void @decrRefCount(ptr noundef nonnull %67) #14
   br label %69
 
-69:                                               ; preds = %.lr.ph111, %68
-  %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %exitcond129.not = icmp eq i64 %indvars.iv.next126, %wide.trip.count128
-  br i1 %exitcond129.not, label %.thread91, label %.lr.ph111, !llvm.loop !75
+69:                                               ; preds = %.lr.ph110, %68
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %exitcond128.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count127
+  br i1 %exitcond128.not, label %.thread90, label %.lr.ph110, !llvm.loop !75
 
-.thread91:                                        ; preds = %69, %extractLongLatOrReply.exit
+.thread90:                                        ; preds = %69, %extractLongLatOrReply.exit
   call void @zfree(ptr noundef nonnull %36) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %82
@@ -1114,24 +1114,24 @@ extractLongLatOrReply.exit:                       ; preds = %56, %._crit_edge.i
   %78 = getelementptr ptr, ptr %77, i64 %41
   %79 = getelementptr i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !26
-  %81 = shl nuw nsw i64 %indvars.iv120, 1
+  %81 = shl nuw nsw i64 %indvars.iv119, 1
   %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %81
   store ptr %75, ptr %gep, align 8, !tbaa !26
-  %gep148 = getelementptr inbounds nuw ptr, ptr %invariant.gep147, i64 %81
-  store ptr %80, ptr %gep148, align 8, !tbaa !26
+  %gep147 = getelementptr inbounds nuw ptr, ptr %invariant.gep146, i64 %81
+  store ptr %80, ptr %gep147, align 8, !tbaa !26
   call void @incrRefCount(ptr noundef %80) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
-  %exitcond124.not = icmp eq i64 %indvars.iv.next121, %wide.trip.count123
-  br i1 %exitcond124.not, label %._crit_edge, label %50, !llvm.loop !76
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond123.not = icmp eq i64 %indvars.iv.next120, %wide.trip.count122
+  br i1 %exitcond123.not, label %._crit_edge, label %50, !llvm.loop !76
 
 ._crit_edge:                                      ; preds = %70, %.preheader
   call void @replaceClientCommandVector(ptr noundef nonnull %0, i32 noundef %33, ptr noundef nonnull %36) #14
   call void @zaddCommand(ptr noundef nonnull %0) #14
   br label %82
 
-82:                                               ; preds = %.thread91, %._crit_edge, %28
+82:                                               ; preds = %.thread90, %._crit_edge, %28
   ret void
 }
 

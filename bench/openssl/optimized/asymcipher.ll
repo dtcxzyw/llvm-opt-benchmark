@@ -28,7 +28,7 @@ define internal fastcc i32 @evp_pkey_asym_cipher_init(ptr noundef %0, i32 nounde
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 42, ptr noundef nonnull @__func__.evp_pkey_asym_cipher_init) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #5
-  br label %142
+  br label %143
 
 7:                                                ; preds = %3
   tail call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %0) #5
@@ -84,9 +84,9 @@ define internal fastcc i32 @evp_pkey_asym_cipher_init(ptr noundef %0, i32 nounde
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #5
   br label %.thread115
 
-32:                                               ; preds = %.preheader, %69
-  %.069123 = phi i32 [ 1, %.preheader ], [ %70, %69 ]
-  %.071122 = phi ptr [ null, %.preheader ], [ %.273.ph, %69 ]
+32:                                               ; preds = %.preheader, %70
+  %.069123 = phi i32 [ 1, %.preheader ], [ %71, %70 ]
+  %.071122 = phi ptr [ null, %.preheader ], [ %.273.ph, %70 ]
   %33 = icmp eq ptr %.071122, null
   br i1 %33, label %EVP_ASYM_CIPHER_free.exit, label %34
 
@@ -117,229 +117,229 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %34
 EVP_ASYM_CIPHER_free.exit:                        ; preds = %32, %CRYPTO_DOWN_REF.exit.i, %39
   %44 = load ptr, ptr %4, align 8, !tbaa !3
   call void @EVP_KEYMGMT_free(ptr noundef %44) #5
-  %switch = icmp eq i32 %.069123, 1
-  br i1 %switch, label %45, label %52
+  %45 = icmp eq i32 %.069123, 1
+  br i1 %45, label %46, label %53
 
-45:                                               ; preds = %EVP_ASYM_CIPHER_free.exit
-  %46 = load ptr, ptr %29, align 8, !tbaa !36
-  %47 = load ptr, ptr %28, align 8, !tbaa !37
-  %48 = call ptr @evp_generic_fetch(ptr noundef %46, i32 noundef 13, ptr noundef nonnull %26, ptr noundef %47, ptr noundef nonnull @evp_asym_cipher_from_algorithm, ptr noundef nonnull @evp_asym_cipher_up_ref, ptr noundef nonnull @evp_asym_cipher_free) #5
-  %.not = icmp eq ptr %48, null
-  br i1 %.not, label %69, label %49
+46:                                               ; preds = %EVP_ASYM_CIPHER_free.exit
+  %47 = load ptr, ptr %29, align 8, !tbaa !36
+  %48 = load ptr, ptr %28, align 8, !tbaa !37
+  %49 = call ptr @evp_generic_fetch(ptr noundef %47, i32 noundef 13, ptr noundef nonnull %26, ptr noundef %48, ptr noundef nonnull @evp_asym_cipher_from_algorithm, ptr noundef nonnull @evp_asym_cipher_up_ref, ptr noundef nonnull @evp_asym_cipher_free) #5
+  %.not = icmp eq ptr %49, null
+  br i1 %.not, label %70, label %50
 
-49:                                               ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %51 = load ptr, ptr %50, align 8, !tbaa !35
-  br label %58
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 24
+  %52 = load ptr, ptr %51, align 8, !tbaa !35
+  br label %59
 
-52:                                               ; preds = %EVP_ASYM_CIPHER_free.exit
-  %53 = load ptr, ptr %9, align 8, !tbaa !20
-  %54 = call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %53) #5
-  %55 = load ptr, ptr %28, align 8, !tbaa !37
-  %56 = call ptr @evp_generic_fetch_from_prov(ptr noundef %54, i32 noundef 13, ptr noundef nonnull %26, ptr noundef %55, ptr noundef nonnull @evp_asym_cipher_from_algorithm, ptr noundef nonnull @evp_asym_cipher_up_ref, ptr noundef nonnull @evp_asym_cipher_free) #5
-  %57 = icmp eq ptr %56, null
-  br i1 %57, label %EVP_ASYM_CIPHER_free.exit97, label %58
+53:                                               ; preds = %EVP_ASYM_CIPHER_free.exit
+  %54 = load ptr, ptr %9, align 8, !tbaa !20
+  %55 = call ptr @EVP_KEYMGMT_get0_provider(ptr noundef %54) #5
+  %56 = load ptr, ptr %28, align 8, !tbaa !37
+  %57 = call ptr @evp_generic_fetch_from_prov(ptr noundef %55, i32 noundef 13, ptr noundef nonnull %26, ptr noundef %56, ptr noundef nonnull @evp_asym_cipher_from_algorithm, ptr noundef nonnull @evp_asym_cipher_up_ref, ptr noundef nonnull @evp_asym_cipher_free) #5
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %EVP_ASYM_CIPHER_free.exit97, label %59
 
-58:                                               ; preds = %49, %52
-  %.172.ph = phi ptr [ %56, %52 ], [ %48, %49 ]
-  %.1.ph = phi ptr [ %54, %52 ], [ %51, %49 ]
-  %59 = load ptr, ptr %9, align 8, !tbaa !20
-  %60 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %59) #5
-  %61 = load ptr, ptr %28, align 8, !tbaa !37
-  %62 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %.1.ph, ptr noundef %60, ptr noundef %61) #5
-  store ptr %62, ptr %4, align 8, !tbaa !3
-  %.not94 = icmp eq ptr %62, null
-  br i1 %.not94, label %.thread102, label %63
+59:                                               ; preds = %50, %53
+  %.172.ph = phi ptr [ %57, %53 ], [ %49, %50 ]
+  %.1.ph = phi ptr [ %55, %53 ], [ %52, %50 ]
+  %60 = load ptr, ptr %9, align 8, !tbaa !20
+  %61 = call ptr @EVP_KEYMGMT_get0_name(ptr noundef %60) #5
+  %62 = load ptr, ptr %28, align 8, !tbaa !37
+  %63 = call ptr @evp_keymgmt_fetch_from_prov(ptr noundef %.1.ph, ptr noundef %61, ptr noundef %62) #5
+  store ptr %63, ptr %4, align 8, !tbaa !3
+  %.not94 = icmp eq ptr %63, null
+  br i1 %.not94, label %.thread102, label %64
 
-63:                                               ; preds = %58
-  %64 = load ptr, ptr %13, align 8, !tbaa !21
-  %65 = load ptr, ptr %29, align 8, !tbaa !36
-  %66 = load ptr, ptr %28, align 8, !tbaa !37
-  %67 = call ptr @evp_pkey_export_to_provider(ptr noundef %64, ptr noundef %65, ptr noundef nonnull %4, ptr noundef %66) #5
+64:                                               ; preds = %59
+  %65 = load ptr, ptr %13, align 8, !tbaa !21
+  %66 = load ptr, ptr %29, align 8, !tbaa !36
+  %67 = load ptr, ptr %28, align 8, !tbaa !37
+  %68 = call ptr @evp_pkey_export_to_provider(ptr noundef %65, ptr noundef %66, ptr noundef nonnull %4, ptr noundef %67) #5
   %.pr = load ptr, ptr %4, align 8, !tbaa !3
-  %68 = icmp eq ptr %.pr, null
-  br i1 %68, label %.thread102, label %69
+  %69 = icmp eq ptr %.pr, null
+  br i1 %69, label %.thread102, label %70
 
-.thread102:                                       ; preds = %58, %63
-  %.276104 = phi ptr [ %67, %63 ], [ null, %58 ]
-  call void @EVP_KEYMGMT_free(ptr noundef %62) #5
-  br label %69
+.thread102:                                       ; preds = %59, %64
+  %.276104 = phi ptr [ %68, %64 ], [ null, %59 ]
+  call void @EVP_KEYMGMT_free(ptr noundef %63) #5
+  br label %70
 
-69:                                               ; preds = %.thread102, %63, %45
-  %.175.ph = phi ptr [ null, %45 ], [ %67, %63 ], [ %.276104, %.thread102 ]
-  %.273.ph = phi ptr [ null, %45 ], [ %.172.ph, %63 ], [ %.172.ph, %.thread102 ]
-  %70 = add nuw nsw i32 %.069123, 1
-  %71 = icmp samesign ult i32 %.069123, 2
-  %72 = icmp eq ptr %.175.ph, null
-  %73 = select i1 %71, i1 %72, i1 false
-  br i1 %73, label %32, label %74, !llvm.loop !38
+70:                                               ; preds = %.thread102, %64, %46
+  %.175.ph = phi ptr [ null, %46 ], [ %68, %64 ], [ %.276104, %.thread102 ]
+  %.273.ph = phi ptr [ null, %46 ], [ %.172.ph, %64 ], [ %.172.ph, %.thread102 ]
+  %71 = add nuw nsw i32 %.069123, 1
+  %72 = icmp samesign ult i32 %.069123, 2
+  %73 = icmp eq ptr %.175.ph, null
+  %74 = select i1 %72, i1 %73, i1 false
+  br i1 %74, label %32, label %75, !llvm.loop !38
 
-74:                                               ; preds = %69
-  br i1 %72, label %75, label %87
+75:                                               ; preds = %70
+  br i1 %73, label %76, label %88
 
-75:                                               ; preds = %74
-  %76 = icmp eq ptr %.273.ph, null
-  br i1 %76, label %EVP_ASYM_CIPHER_free.exit97, label %77
+76:                                               ; preds = %75
+  %77 = icmp eq ptr %.273.ph, null
+  br i1 %77, label %EVP_ASYM_CIPHER_free.exit97, label %78
 
-77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 32
-  %79 = atomicrmw sub ptr %78, i32 1 release, align 4
-  %80 = icmp eq i32 %79, 1
-  br i1 %80, label %CRYPTO_DOWN_REF.exit.thread.i96, label %CRYPTO_DOWN_REF.exit.i95
+78:                                               ; preds = %76
+  %79 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 32
+  %80 = atomicrmw sub ptr %79, i32 1 release, align 4
+  %81 = icmp eq i32 %80, 1
+  br i1 %81, label %CRYPTO_DOWN_REF.exit.thread.i96, label %CRYPTO_DOWN_REF.exit.i95
 
-CRYPTO_DOWN_REF.exit.thread.i96:                  ; preds = %77
+CRYPTO_DOWN_REF.exit.thread.i96:                  ; preds = %78
   fence acquire
-  br label %82
+  br label %83
 
-CRYPTO_DOWN_REF.exit.i95:                         ; preds = %77
-  %81 = icmp sgt i32 %79, 1
-  br i1 %81, label %EVP_ASYM_CIPHER_free.exit97, label %82
+CRYPTO_DOWN_REF.exit.i95:                         ; preds = %78
+  %82 = icmp sgt i32 %80, 1
+  br i1 %82, label %EVP_ASYM_CIPHER_free.exit97, label %83
 
-82:                                               ; preds = %CRYPTO_DOWN_REF.exit.i95, %CRYPTO_DOWN_REF.exit.thread.i96
-  %83 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !32
-  call void @CRYPTO_free(ptr noundef %84, ptr noundef nonnull @.str, i32 noundef 473) #5
-  %85 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 24
-  %86 = load ptr, ptr %85, align 8, !tbaa !35
-  call void @ossl_provider_free(ptr noundef %86) #5
+83:                                               ; preds = %CRYPTO_DOWN_REF.exit.i95, %CRYPTO_DOWN_REF.exit.thread.i96
+  %84 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !32
+  call void @CRYPTO_free(ptr noundef %85, ptr noundef nonnull @.str, i32 noundef 473) #5
+  %86 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 24
+  %87 = load ptr, ptr %86, align 8, !tbaa !35
+  call void @ossl_provider_free(ptr noundef %87) #5
   call void @CRYPTO_free(ptr noundef nonnull %.273.ph, ptr noundef nonnull @.str, i32 noundef 476) #5
   br label %EVP_ASYM_CIPHER_free.exit97
 
-87:                                               ; preds = %74
-  %88 = call i32 @ERR_pop_to_mark() #5
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.273.ph, ptr %89, align 8, !tbaa !40
-  %90 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 40
-  %91 = load ptr, ptr %90, align 8, !tbaa !41
-  %92 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 24
-  %93 = load ptr, ptr %92, align 8, !tbaa !35
-  %94 = call ptr @ossl_provider_ctx(ptr noundef %93) #5
-  %95 = call ptr %91(ptr noundef %94) #5
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %95, ptr %96, align 8, !tbaa !40
-  %97 = icmp eq ptr %95, null
-  br i1 %97, label %98, label %99
+88:                                               ; preds = %75
+  %89 = call i32 @ERR_pop_to_mark() #5
+  %90 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store ptr %.273.ph, ptr %90, align 8, !tbaa !40
+  %91 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 40
+  %92 = load ptr, ptr %91, align 8, !tbaa !41
+  %93 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 24
+  %94 = load ptr, ptr %93, align 8, !tbaa !35
+  %95 = call ptr @ossl_provider_ctx(ptr noundef %94) #5
+  %96 = call ptr %92(ptr noundef %95) #5
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %96, ptr %97, align 8, !tbaa !40
+  %98 = icmp eq ptr %96, null
+  br i1 %98, label %99, label %100
 
-98:                                               ; preds = %87
+99:                                               ; preds = %88
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 158, ptr noundef nonnull @__func__.evp_pkey_asym_cipher_init) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #5
   br label %.thread115
 
-99:                                               ; preds = %87
-  switch i32 %1, label %110 [
-    i32 512, label %100
-    i32 1024, label %105
+100:                                              ; preds = %88
+  switch i32 %1, label %111 [
+    i32 512, label %101
+    i32 1024, label %106
   ]
 
-100:                                              ; preds = %99
-  %101 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 48
-  %102 = load ptr, ptr %101, align 8, !tbaa !42
-  %103 = icmp eq ptr %102, null
-  br i1 %103, label %104, label %111
+101:                                              ; preds = %100
+  %102 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 48
+  %103 = load ptr, ptr %102, align 8, !tbaa !42
+  %104 = icmp eq ptr %103, null
+  br i1 %104, label %105, label %112
 
-104:                                              ; preds = %100
+105:                                              ; preds = %101
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 165, ptr noundef nonnull @__func__.evp_pkey_asym_cipher_init) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #5
   br label %.thread115
 
-105:                                              ; preds = %99
-  %106 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 64
-  %107 = load ptr, ptr %106, align 8, !tbaa !43
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %109, label %111
+106:                                              ; preds = %100
+  %107 = getelementptr inbounds nuw i8, ptr %.273.ph, i64 64
+  %108 = load ptr, ptr %107, align 8, !tbaa !43
+  %109 = icmp eq ptr %108, null
+  br i1 %109, label %110, label %112
 
-109:                                              ; preds = %105
+110:                                              ; preds = %106
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 173, ptr noundef nonnull @__func__.evp_pkey_asym_cipher_init) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #5
   br label %.thread115
 
-110:                                              ; preds = %99
+111:                                              ; preds = %100
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 180, ptr noundef nonnull @__func__.evp_pkey_asym_cipher_init) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #5
   br label %.thread115
 
-111:                                              ; preds = %105, %100
-  %.sink = phi ptr [ %102, %100 ], [ %107, %105 ]
-  %112 = call i32 %.sink(ptr noundef nonnull %95, ptr noundef nonnull %.175.ph, ptr noundef %2) #5
-  %113 = icmp slt i32 %112, 1
-  br i1 %113, label %.thread115, label %114
+112:                                              ; preds = %106, %101
+  %.sink = phi ptr [ %103, %101 ], [ %108, %106 ]
+  %113 = call i32 %.sink(ptr noundef nonnull %96, ptr noundef nonnull %.175.ph, ptr noundef %2) #5
+  %114 = icmp slt i32 %113, 1
+  br i1 %114, label %.thread115, label %115
 
-114:                                              ; preds = %111
-  %115 = load ptr, ptr %4, align 8, !tbaa !3
-  call void @EVP_KEYMGMT_free(ptr noundef %115) #5
-  br label %142
+115:                                              ; preds = %112
+  %116 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @EVP_KEYMGMT_free(ptr noundef %116) #5
+  br label %143
 
-EVP_ASYM_CIPHER_free.exit97:                      ; preds = %52, %82, %CRYPTO_DOWN_REF.exit.i95, %75, %7
-  %116 = call i32 @ERR_pop_to_mark() #5
-  %117 = load ptr, ptr %4, align 8, !tbaa !3
-  call void @EVP_KEYMGMT_free(ptr noundef %117) #5
+EVP_ASYM_CIPHER_free.exit97:                      ; preds = %53, %83, %CRYPTO_DOWN_REF.exit.i95, %76, %7
+  %117 = call i32 @ERR_pop_to_mark() #5
+  %118 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @EVP_KEYMGMT_free(ptr noundef %118) #5
   store ptr null, ptr %4, align 8, !tbaa !3
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %119 = load ptr, ptr %118, align 8, !tbaa !44
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %125, label %121
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %120 = load ptr, ptr %119, align 8, !tbaa !44
+  %121 = icmp eq ptr %120, null
+  br i1 %121, label %126, label %122
 
-121:                                              ; preds = %EVP_ASYM_CIPHER_free.exit97
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 152
-  %123 = load ptr, ptr %122, align 8, !tbaa !45
-  %124 = icmp eq ptr %123, null
-  br i1 %124, label %125, label %126
+122:                                              ; preds = %EVP_ASYM_CIPHER_free.exit97
+  %123 = getelementptr inbounds nuw i8, ptr %120, i64 152
+  %124 = load ptr, ptr %123, align 8, !tbaa !45
+  %125 = icmp eq ptr %124, null
+  br i1 %125, label %126, label %127
 
-125:                                              ; preds = %121, %EVP_ASYM_CIPHER_free.exit97
+126:                                              ; preds = %122, %EVP_ASYM_CIPHER_free.exit97
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 199, ptr noundef nonnull @__func__.evp_pkey_asym_cipher_init) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #5
-  br label %142
+  br label %143
 
-126:                                              ; preds = %121
-  %127 = load i32, ptr %0, align 8, !tbaa !8
-  switch i32 %127, label %136 [
-    i32 512, label %128
-    i32 1024, label %132
+127:                                              ; preds = %122
+  %128 = load i32, ptr %0, align 8, !tbaa !8
+  switch i32 %128, label %137 [
+    i32 512, label %129
+    i32 1024, label %133
   ]
 
-128:                                              ; preds = %126
-  %129 = getelementptr inbounds nuw i8, ptr %119, i64 144
-  %130 = load ptr, ptr %129, align 8, !tbaa !47
-  %131 = icmp eq ptr %130, null
-  br i1 %131, label %142, label %137
+129:                                              ; preds = %127
+  %130 = getelementptr inbounds nuw i8, ptr %120, i64 144
+  %131 = load ptr, ptr %130, align 8, !tbaa !47
+  %132 = icmp eq ptr %131, null
+  br i1 %132, label %143, label %138
 
-132:                                              ; preds = %126
-  %133 = getelementptr inbounds nuw i8, ptr %119, i64 160
-  %134 = load ptr, ptr %133, align 8, !tbaa !48
-  %135 = icmp eq ptr %134, null
-  br i1 %135, label %142, label %137
+133:                                              ; preds = %127
+  %134 = getelementptr inbounds nuw i8, ptr %120, i64 160
+  %135 = load ptr, ptr %134, align 8, !tbaa !48
+  %136 = icmp eq ptr %135, null
+  br i1 %136, label %143, label %138
 
-136:                                              ; preds = %126
+137:                                              ; preds = %127
   call void @ERR_new() #5
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 214, ptr noundef nonnull @__func__.evp_pkey_asym_cipher_init) #5
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 134, ptr noundef null) #5
   br label %.thread115
 
-137:                                              ; preds = %132, %128
-  %.sink138 = phi ptr [ %130, %128 ], [ %134, %132 ]
-  %138 = call i32 %.sink138(ptr noundef nonnull %0) #5
-  %139 = icmp slt i32 %138, 1
-  br i1 %139, label %.thread115, label %140
+138:                                              ; preds = %133, %129
+  %.sink138 = phi ptr [ %131, %129 ], [ %135, %133 ]
+  %139 = call i32 %.sink138(ptr noundef nonnull %0) #5
+  %140 = icmp slt i32 %139, 1
+  br i1 %140, label %.thread115, label %141
 
-.thread115:                                       ; preds = %23, %109, %111, %104, %110, %98, %30, %16, %136, %137
-  %.077118 = phi i32 [ %138, %137 ], [ 0, %23 ], [ -2, %109 ], [ %112, %111 ], [ -2, %104 ], [ 0, %110 ], [ 0, %98 ], [ 0, %30 ], [ 0, %16 ], [ -1, %136 ]
+.thread115:                                       ; preds = %23, %110, %112, %105, %111, %99, %30, %16, %137, %138
+  %.077118 = phi i32 [ %139, %138 ], [ 0, %23 ], [ -2, %110 ], [ %113, %112 ], [ -2, %105 ], [ 0, %111 ], [ 0, %99 ], [ 0, %30 ], [ 0, %16 ], [ -1, %137 ]
   call void @evp_pkey_ctx_free_old_ops(ptr noundef nonnull %0) #5
   store i32 0, ptr %0, align 8, !tbaa !8
-  br label %140
+  br label %141
 
-140:                                              ; preds = %.thread115, %137
-  %.077117 = phi i32 [ %.077118, %.thread115 ], [ %138, %137 ]
-  %141 = load ptr, ptr %4, align 8, !tbaa !3
-  call void @EVP_KEYMGMT_free(ptr noundef %141) #5
-  br label %142
+141:                                              ; preds = %.thread115, %138
+  %.077117 = phi i32 [ %.077118, %.thread115 ], [ %139, %138 ]
+  %142 = load ptr, ptr %4, align 8, !tbaa !3
+  call void @EVP_KEYMGMT_free(ptr noundef %142) #5
+  br label %143
 
-142:                                              ; preds = %132, %128, %140, %125, %114, %6
-  %.0 = phi i32 [ -2, %6 ], [ -2, %125 ], [ %.077117, %140 ], [ 1, %114 ], [ 1, %128 ], [ 1, %132 ]
+143:                                              ; preds = %133, %129, %141, %126, %115, %6
+  %.0 = phi i32 [ -2, %6 ], [ -2, %126 ], [ %.077117, %141 ], [ 1, %115 ], [ 1, %129 ], [ 1, %133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
 }

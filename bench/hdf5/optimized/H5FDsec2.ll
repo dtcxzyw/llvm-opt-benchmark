@@ -293,7 +293,7 @@ define internal ptr @H5FD__sec2_open(ptr noundef %0, i32 noundef %1, i64 noundef
   br label %.thread91
 
 25:                                               ; preds = %19
-  %26 = icmp slt i64 %3, 1
+  %26 = icmp slt i64 %3, -1
   br i1 %26, label %27, label %31
 
 27:                                               ; preds = %25
@@ -633,11 +633,12 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_read(ptr noundef %0, i32 %1, i6
   br label %.thread
 
 19:                                               ; preds = %14
-  %20 = or i64 %4, %3
-  %or.cond = icmp slt i64 %20, 0
+  %20 = icmp slt i64 %3, -1
+  %.not65 = icmp slt i64 %4, 0
+  %or.cond.not97 = or i1 %20, %.not65
   %21 = add nuw i64 %4, %3
   %22 = icmp slt i64 %21, %3
-  %or.cond76 = select i1 %or.cond, i1 true, i1 %22
+  %or.cond76 = select i1 %or.cond.not97, i1 true, i1 %22
   br i1 %or.cond76, label %24, label %.preheader
 
 .preheader:                                       ; preds = %19
@@ -666,7 +667,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_read(ptr noundef %0, i32 %1, i6
   %30 = load i32, ptr %23, align 8, !tbaa !18
   %31 = tail call i64 @pread64(i32 noundef %30, ptr noundef %.05694, i64 noundef %..058, i64 noundef %.152) #15
   %32 = tail call i64 @llvm.smax.i64(i64 %31, i64 0)
-  %spec.select = add nsw i64 %32, %.152
+  %spec.select = add nuw nsw i64 %32, %.152
   switch i64 %31, label %46 [
     i64 -1, label %33
     i64 0, label %45
@@ -729,11 +730,12 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
   br label %54
 
 19:                                               ; preds = %14
-  %20 = or i64 %4, %3
-  %or.cond = icmp slt i64 %20, 0
+  %20 = icmp slt i64 %3, -1
+  %.not66 = icmp slt i64 %4, 0
+  %or.cond.not93 = or i1 %20, %.not66
   %21 = add nuw i64 %4, %3
   %22 = icmp slt i64 %21, %3
-  %or.cond77 = select i1 %or.cond, i1 true, i1 %22
+  %or.cond77 = select i1 %or.cond.not93, i1 true, i1 %22
   br i1 %or.cond77, label %24, label %.preheader
 
 .preheader:                                       ; preds = %19
@@ -763,7 +765,7 @@ define internal range(i32 -1, 1) i32 @H5FD__sec2_write(ptr noundef %0, i32 %1, i
   %30 = load i32, ptr %23, align 8, !tbaa !18
   %31 = tail call i64 @pwrite64(i32 noundef %30, ptr noundef %.05889, i64 noundef %..060, i64 noundef %.154) #15
   %32 = tail call i64 @llvm.smax.i64(i64 %31, i64 0)
-  %spec.select = add nsw i64 %32, %.154
+  %spec.select = add nuw nsw i64 %32, %.154
   %33 = icmp eq i64 %31, -1
   br i1 %33, label %34, label %46
 

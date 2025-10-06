@@ -1928,18 +1928,18 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   br i1 %9, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %6
-  %.01621 = add nsw i32 %8, -1
+  %.01620 = add nsw i32 %8, -1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !32
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %13 = load i32, ptr %12, align 8, !tbaa !28
-  %.fr79 = freeze i32 %13
-  %.not.i = icmp eq i32 %.fr79, 2
+  %.fr78 = freeze i32 %13
+  %.not.i = icmp eq i32 %.fr78, 2
   %14 = sitofp i32 %2 to double
-  %15 = icmp eq i32 %.fr79, 0
+  %15 = icmp eq i32 %.fr78, 0
   %16 = sitofp i32 %3 to double
   %.not = icmp eq i8 %4, 0
-  %17 = zext nneg i32 %.01621 to i64
+  %17 = zext nneg i32 %.01620 to i64
   %18 = getelementptr inbounds nuw double, ptr %11, i64 %17
   %19 = load double, ptr %18, align 8, !tbaa !24
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
@@ -1948,44 +1948,44 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   br i1 %.not, label %.lr.ph.split.us.split.split.preheader, label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.split.preheader:            ; preds = %.lr.ph.split.us
-  %or.cond76159 = fcmp ugt double %19, %1
-  br i1 %or.cond76159, label %.lr.ph161, label %.thread
+  %or.cond75158 = fcmp ugt double %19, %1
+  br i1 %or.cond75158, label %.lr.ph160, label %.thread
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us
   %20 = fcmp olt double %19, %1
-  br i1 %20, label %.thread, label %.lr.ph71.split.preheader
+  br i1 %20, label %.thread, label %.lr.ph70.split.preheader
 
-.lr.ph71.split.preheader:                         ; preds = %.lr.ph.split.us.split.us
+.lr.ph70.split.preheader:                         ; preds = %.lr.ph.split.us.split.us
   %21 = fsub double %19, %16
-  %.1.i.us.us68 = select i1 %15, double %21, double %19
-  br label %.lr.ph71.split
+  %.1.i.us.us67 = select i1 %15, double %21, double %19
+  br label %.lr.ph70.split
 
-22:                                               ; preds = %.lr.ph71.split
-  %indvars.iv.next101 = add nsw i64 %indvars.iv100, -1
-  %23 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next101
+22:                                               ; preds = %.lr.ph70.split
+  %indvars.iv.next100 = add nsw i64 %indvars.iv99, -1
+  %23 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next100
   %24 = load double, ptr %23, align 8, !tbaa !24
   %25 = fcmp olt double %24, %1
-  br i1 %25, label %.thread.loopexit124.split.loop.exit, label %.lr.ph71.split, !llvm.loop !37
+  br i1 %25, label %.thread.loopexit123.split.loop.exit, label %.lr.ph70.split, !llvm.loop !37
 
-.lr.ph71.split:                                   ; preds = %.lr.ph71.split.preheader, %22
-  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %22 ], [ %17, %.lr.ph71.split.preheader ]
-  %.1.i.us.us70 = phi double [ %24, %22 ], [ %.1.i.us.us68, %.lr.ph71.split.preheader ]
-  store double %.1.i.us.us70, ptr %5, align 8, !tbaa !24
-  %26 = icmp sgt i64 %indvars.iv100, 0
+.lr.ph70.split:                                   ; preds = %.lr.ph70.split.preheader, %22
+  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %22 ], [ %17, %.lr.ph70.split.preheader ]
+  %.1.i.us.us69 = phi double [ %24, %22 ], [ %.1.i.us.us67, %.lr.ph70.split.preheader ]
+  store double %.1.i.us.us69, ptr %5, align 8, !tbaa !24
+  %26 = icmp sgt i64 %indvars.iv99, 0
   br i1 %26, label %22, label %.thread, !llvm.loop !37
 
-.lr.ph.split.us.split.split:                      ; preds = %.lr.ph161
-  %indvars.iv.next107 = add nsw i64 %indvars.iv106160, -1
-  %27 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next107
+.lr.ph.split.us.split.split:                      ; preds = %.lr.ph160
+  %indvars.iv.next106 = add nsw i64 %indvars.iv105159, -1
+  %27 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next106
   %28 = load double, ptr %27, align 8, !tbaa !24
-  %or.cond76 = fcmp ugt double %28, %1
-  br i1 %or.cond76, label %.lr.ph161, label %.lr.ph.split.us.split.split..thread.loopexit_crit_edge, !llvm.loop !37
+  %or.cond75 = fcmp ugt double %28, %1
+  br i1 %or.cond75, label %.lr.ph160, label %.lr.ph.split.us.split.split..thread.loopexit_crit_edge, !llvm.loop !37
 
-.lr.ph161:                                        ; preds = %.lr.ph.split.us.split.split.preheader, %.lr.ph.split.us.split.split
+.lr.ph160:                                        ; preds = %.lr.ph.split.us.split.split.preheader, %.lr.ph.split.us.split.split
   %29 = phi double [ %28, %.lr.ph.split.us.split.split ], [ %19, %.lr.ph.split.us.split.split.preheader ]
-  %indvars.iv106160 = phi i64 [ %indvars.iv.next107, %.lr.ph.split.us.split.split ], [ %17, %.lr.ph.split.us.split.split.preheader ]
+  %indvars.iv105159 = phi i64 [ %indvars.iv.next106, %.lr.ph.split.us.split.split ], [ %17, %.lr.ph.split.us.split.split.preheader ]
   store double %29, ptr %5, align 8, !tbaa !24
-  %30 = icmp sgt i64 %indvars.iv106160, 0
+  %30 = icmp sgt i64 %indvars.iv105159, 0
   br i1 %30, label %.lr.ph.split.us.split.split, label %..thread.loopexit_crit_edge, !llvm.loop !37
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -1997,121 +1997,121 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   br i1 %.not, label %.lr.ph.split.split.us.split.preheader, label %.lr.ph.split.split.us.split.us
 
 .lr.ph.split.split.us.split.preheader:            ; preds = %.lr.ph.split.split.us
-  %or.cond77154 = fcmp ugt double %32, %1
-  br i1 %or.cond77154, label %.lr.ph156, label %.thread
+  %or.cond76153 = fcmp ugt double %32, %1
+  br i1 %or.cond76153, label %.lr.ph155, label %.thread
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us
   %33 = fcmp olt double %32, %1
-  br i1 %33, label %.thread, label %.lr.ph55
+  br i1 %33, label %.thread, label %.lr.ph54
 
-34:                                               ; preds = %.lr.ph55
-  %indvars.iv.next95 = add nsw i64 %indvars.iv94, -1
-  %35 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next95
+34:                                               ; preds = %.lr.ph54
+  %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
+  %35 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next94
   %36 = load double, ptr %35, align 8, !tbaa !24
   %37 = fsub double %36, %14
   %38 = fsub double %37, %16
   %39 = fcmp olt double %38, %1
-  br i1 %39, label %.thread.loopexit128.split.loop.exit, label %.lr.ph55, !llvm.loop !37
+  br i1 %39, label %.thread.loopexit127.split.loop.exit, label %.lr.ph54, !llvm.loop !37
 
-.lr.ph55:                                         ; preds = %.lr.ph.split.split.us.split.us, %34
-  %indvars.iv94 = phi i64 [ %indvars.iv.next95, %34 ], [ %17, %.lr.ph.split.split.us.split.us ]
+.lr.ph54:                                         ; preds = %.lr.ph.split.split.us.split.us, %34
+  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %34 ], [ %17, %.lr.ph.split.split.us.split.us ]
   %40 = phi double [ %38, %34 ], [ %32, %.lr.ph.split.split.us.split.us ]
   store double %40, ptr %5, align 8, !tbaa !24
-  %41 = icmp sgt i64 %indvars.iv94, 0
+  %41 = icmp sgt i64 %indvars.iv93, 0
   br i1 %41, label %34, label %.thread, !llvm.loop !37
 
-.lr.ph.split.split.us.split:                      ; preds = %.lr.ph156
-  %indvars.iv.next98 = add nsw i64 %indvars.iv97155, -1
-  %42 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next98
+.lr.ph.split.split.us.split:                      ; preds = %.lr.ph155
+  %indvars.iv.next97 = add nsw i64 %indvars.iv96154, -1
+  %42 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next97
   %43 = load double, ptr %42, align 8, !tbaa !24
   %44 = fsub double %43, %14
   %45 = fsub double %44, %16
-  %or.cond77 = fcmp ugt double %45, %1
-  br i1 %or.cond77, label %.lr.ph156, label %.lr.ph.split.split.us.split..thread.loopexit141_crit_edge, !llvm.loop !37
+  %or.cond76 = fcmp ugt double %45, %1
+  br i1 %or.cond76, label %.lr.ph155, label %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge, !llvm.loop !37
 
-.lr.ph156:                                        ; preds = %.lr.ph.split.split.us.split.preheader, %.lr.ph.split.split.us.split
+.lr.ph155:                                        ; preds = %.lr.ph.split.split.us.split.preheader, %.lr.ph.split.split.us.split
   %46 = phi double [ %45, %.lr.ph.split.split.us.split ], [ %32, %.lr.ph.split.split.us.split.preheader ]
-  %indvars.iv97155 = phi i64 [ %indvars.iv.next98, %.lr.ph.split.split.us.split ], [ %17, %.lr.ph.split.split.us.split.preheader ]
+  %indvars.iv96154 = phi i64 [ %indvars.iv.next97, %.lr.ph.split.split.us.split ], [ %17, %.lr.ph.split.split.us.split.preheader ]
   store double %46, ptr %5, align 8, !tbaa !24
-  %47 = icmp sgt i64 %indvars.iv97155, 0
-  br i1 %47, label %.lr.ph.split.split.us.split, label %..thread.loopexit141_crit_edge, !llvm.loop !37
+  %47 = icmp sgt i64 %indvars.iv96154, 0
+  br i1 %47, label %.lr.ph.split.split.us.split, label %..thread.loopexit140_crit_edge, !llvm.loop !37
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not, label %.lr.ph.split.split.split.preheader, label %.lr.ph.split.split.split.us
 
 .lr.ph.split.split.split.preheader:               ; preds = %.lr.ph.split.split
-  %or.cond78150 = fcmp ugt double %31, %1
-  br i1 %or.cond78150, label %.lr.ph152, label %.thread
+  %or.cond77149 = fcmp ugt double %31, %1
+  br i1 %or.cond77149, label %.lr.ph151, label %.thread
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split
   %48 = fcmp olt double %31, %1
-  br i1 %48, label %.thread, label %.lr.ph50
+  br i1 %48, label %.thread, label %.lr.ph49
 
-49:                                               ; preds = %.lr.ph50
+49:                                               ; preds = %.lr.ph49
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %50 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next
   %51 = load double, ptr %50, align 8, !tbaa !24
   %52 = fsub double %51, %14
   %53 = fcmp olt double %52, %1
-  br i1 %53, label %.thread.loopexit132.split.loop.exit, label %.lr.ph50, !llvm.loop !37
+  br i1 %53, label %.thread.loopexit131.split.loop.exit, label %.lr.ph49, !llvm.loop !37
 
-.lr.ph50:                                         ; preds = %.lr.ph.split.split.split.us, %49
+.lr.ph49:                                         ; preds = %.lr.ph.split.split.split.us, %49
   %indvars.iv = phi i64 [ %indvars.iv.next, %49 ], [ %17, %.lr.ph.split.split.split.us ]
   %54 = phi double [ %52, %49 ], [ %31, %.lr.ph.split.split.split.us ]
   store double %54, ptr %5, align 8, !tbaa !24
   %55 = icmp sgt i64 %indvars.iv, 0
   br i1 %55, label %49, label %.thread, !llvm.loop !37
 
-.lr.ph.split.split.split:                         ; preds = %.lr.ph152
-  %indvars.iv.next92 = add nsw i64 %indvars.iv91151, -1
-  %56 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next92
+.lr.ph.split.split.split:                         ; preds = %.lr.ph151
+  %indvars.iv.next91 = add nsw i64 %indvars.iv90150, -1
+  %56 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next91
   %57 = load double, ptr %56, align 8, !tbaa !24
   %58 = fsub double %57, %14
-  %or.cond78 = fcmp ugt double %58, %1
-  br i1 %or.cond78, label %.lr.ph152, label %.lr.ph.split.split.split..thread.loopexit144_crit_edge, !llvm.loop !37
+  %or.cond77 = fcmp ugt double %58, %1
+  br i1 %or.cond77, label %.lr.ph151, label %.lr.ph.split.split.split..thread.loopexit143_crit_edge, !llvm.loop !37
 
-.lr.ph152:                                        ; preds = %.lr.ph.split.split.split.preheader, %.lr.ph.split.split.split
+.lr.ph151:                                        ; preds = %.lr.ph.split.split.split.preheader, %.lr.ph.split.split.split
   %59 = phi double [ %58, %.lr.ph.split.split.split ], [ %31, %.lr.ph.split.split.split.preheader ]
-  %indvars.iv91151 = phi i64 [ %indvars.iv.next92, %.lr.ph.split.split.split ], [ %17, %.lr.ph.split.split.split.preheader ]
+  %indvars.iv90150 = phi i64 [ %indvars.iv.next91, %.lr.ph.split.split.split ], [ %17, %.lr.ph.split.split.split.preheader ]
   store double %59, ptr %5, align 8, !tbaa !24
-  %60 = icmp sgt i64 %indvars.iv91151, 0
-  br i1 %60, label %.lr.ph.split.split.split, label %..thread.loopexit144_crit_edge, !llvm.loop !37
+  %60 = icmp sgt i64 %indvars.iv90150, 0
+  br i1 %60, label %.lr.ph.split.split.split, label %..thread.loopexit143_crit_edge, !llvm.loop !37
 
-.thread.loopexit124.split.loop.exit:              ; preds = %22
-  %61 = trunc nuw nsw i64 %indvars.iv100 to i32
+.thread.loopexit123.split.loop.exit:              ; preds = %22
+  %61 = trunc nuw nsw i64 %indvars.iv99 to i32
   br label %.thread
 
-.thread.loopexit128.split.loop.exit:              ; preds = %34
-  %62 = trunc nuw nsw i64 %indvars.iv94 to i32
+.thread.loopexit127.split.loop.exit:              ; preds = %34
+  %62 = trunc nuw nsw i64 %indvars.iv93 to i32
   br label %.thread
 
-.thread.loopexit132.split.loop.exit:              ; preds = %49
+.thread.loopexit131.split.loop.exit:              ; preds = %49
   %63 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread
 
 .lr.ph.split.us.split.split..thread.loopexit_crit_edge: ; preds = %.lr.ph.split.us.split.split
-  %64 = trunc nuw nsw i64 %indvars.iv106160 to i32
+  %64 = trunc nuw nsw i64 %indvars.iv105159 to i32
   br label %.thread
 
-..thread.loopexit_crit_edge:                      ; preds = %.lr.ph161
+..thread.loopexit_crit_edge:                      ; preds = %.lr.ph160
   br label %.thread, !llvm.loop !37
 
-.lr.ph.split.split.us.split..thread.loopexit141_crit_edge: ; preds = %.lr.ph.split.split.us.split
-  %65 = trunc nuw nsw i64 %indvars.iv97155 to i32
+.lr.ph.split.split.us.split..thread.loopexit140_crit_edge: ; preds = %.lr.ph.split.split.us.split
+  %65 = trunc nuw nsw i64 %indvars.iv96154 to i32
   br label %.thread
 
-..thread.loopexit141_crit_edge:                   ; preds = %.lr.ph156
+..thread.loopexit140_crit_edge:                   ; preds = %.lr.ph155
   br label %.thread, !llvm.loop !37
 
-.lr.ph.split.split.split..thread.loopexit144_crit_edge: ; preds = %.lr.ph.split.split.split
-  %66 = trunc nuw nsw i64 %indvars.iv91151 to i32
+.lr.ph.split.split.split..thread.loopexit143_crit_edge: ; preds = %.lr.ph.split.split.split
+  %66 = trunc nuw nsw i64 %indvars.iv90150 to i32
   br label %.thread
 
-..thread.loopexit144_crit_edge:                   ; preds = %.lr.ph152
+..thread.loopexit143_crit_edge:                   ; preds = %.lr.ph151
   br label %.thread, !llvm.loop !37
 
-.thread:                                          ; preds = %.lr.ph50, %.lr.ph55, %.lr.ph71.split, %.lr.ph.split.split.split.preheader, %.lr.ph.split.split.split..thread.loopexit144_crit_edge, %..thread.loopexit144_crit_edge, %.lr.ph.split.split.us.split.preheader, %.lr.ph.split.split.us.split..thread.loopexit141_crit_edge, %..thread.loopexit141_crit_edge, %.lr.ph.split.us.split.split.preheader, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge, %..thread.loopexit_crit_edge, %.thread.loopexit132.split.loop.exit, %.thread.loopexit128.split.loop.exit, %.thread.loopexit124.split.loop.exit, %.lr.ph.split.us.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split.us, %6
-  %.016.in.lcssa = phi i32 [ %8, %6 ], [ %8, %.lr.ph.split.us.split.us ], [ %8, %.lr.ph.split.split.us.split.us ], [ %8, %.lr.ph.split.split.split.us ], [ %61, %.thread.loopexit124.split.loop.exit ], [ %62, %.thread.loopexit128.split.loop.exit ], [ %63, %.thread.loopexit132.split.loop.exit ], [ 0, %..thread.loopexit_crit_edge ], [ %64, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge ], [ %8, %.lr.ph.split.us.split.split.preheader ], [ 0, %..thread.loopexit141_crit_edge ], [ %65, %.lr.ph.split.split.us.split..thread.loopexit141_crit_edge ], [ %8, %.lr.ph.split.split.us.split.preheader ], [ 0, %..thread.loopexit144_crit_edge ], [ %66, %.lr.ph.split.split.split..thread.loopexit144_crit_edge ], [ %8, %.lr.ph.split.split.split.preheader ], [ 0, %.lr.ph71.split ], [ 0, %.lr.ph55 ], [ 0, %.lr.ph50 ]
+.thread:                                          ; preds = %.lr.ph49, %.lr.ph54, %.lr.ph70.split, %.lr.ph.split.split.split.preheader, %.lr.ph.split.split.split..thread.loopexit143_crit_edge, %..thread.loopexit143_crit_edge, %.lr.ph.split.split.us.split.preheader, %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge, %..thread.loopexit140_crit_edge, %.lr.ph.split.us.split.split.preheader, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge, %..thread.loopexit_crit_edge, %.thread.loopexit131.split.loop.exit, %.thread.loopexit127.split.loop.exit, %.thread.loopexit123.split.loop.exit, %.lr.ph.split.us.split.us, %.lr.ph.split.split.split.us, %.lr.ph.split.split.us.split.us, %6
+  %.016.in.lcssa = phi i32 [ %8, %6 ], [ %8, %.lr.ph.split.us.split.us ], [ %8, %.lr.ph.split.split.us.split.us ], [ %8, %.lr.ph.split.split.split.us ], [ %61, %.thread.loopexit123.split.loop.exit ], [ %62, %.thread.loopexit127.split.loop.exit ], [ %63, %.thread.loopexit131.split.loop.exit ], [ 0, %..thread.loopexit_crit_edge ], [ %64, %.lr.ph.split.us.split.split..thread.loopexit_crit_edge ], [ %8, %.lr.ph.split.us.split.split.preheader ], [ 0, %..thread.loopexit140_crit_edge ], [ %65, %.lr.ph.split.split.us.split..thread.loopexit140_crit_edge ], [ %8, %.lr.ph.split.split.us.split.preheader ], [ 0, %..thread.loopexit143_crit_edge ], [ %66, %.lr.ph.split.split.split..thread.loopexit143_crit_edge ], [ %8, %.lr.ph.split.split.split.preheader ], [ 0, %.lr.ph70.split ], [ 0, %.lr.ph54 ], [ 0, %.lr.ph49 ]
   %67 = icmp ne i32 %.016.in.lcssa, %8
   %. = zext i1 %67 to i8
   ret i8 %.

@@ -181,11 +181,11 @@ define internal fastcc range(i32 0, 2) i32 @tls1_check_duplicate_extensions(ptr 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 16, i1 false), !tbaa.struct !50
   %6 = call i64 @CBS_len(ptr noundef nonnull %2) #21
-  %.not52 = icmp eq i64 %6, 0
-  br i1 %.not52, label %._crit_edge.thread, label %.lr.ph
+  %.not49 = icmp eq i64 %6, 0
+  br i1 %.not49, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %10
-  %.02853 = phi i64 [ %11, %10 ], [ 0, %1 ]
+  %.02850 = phi i64 [ %11, %10 ], [ 0, %1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = call i32 @CBS_get_u16(ptr noundef nonnull %2, ptr noundef nonnull %3) #21
@@ -203,7 +203,7 @@ define internal fastcc range(i32 0, 2) i32 @tls1_check_duplicate_extensions(ptr 
   br label %.loopexit
 
 10:                                               ; preds = %8
-  %11 = add i64 %.02853, 1
+  %11 = add i64 %.02850, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %12 = call i64 @CBS_len(ptr noundef nonnull %2) #21
@@ -229,50 +229,50 @@ define internal fastcc range(i32 0, 2) i32 @tls1_check_duplicate_extensions(ptr 
   br label %20
 
 20:                                               ; preds = %19, %25
-  %.02654 = phi i64 [ 0, %19 ], [ %26, %25 ]
+  %.02651 = phi i64 [ 0, %19 ], [ %26, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %21 = getelementptr inbounds nuw i16, ptr %16, i64 %.02654
+  %21 = getelementptr inbounds nuw i16, ptr %16, i64 %.02651
   %22 = call i32 @CBS_get_u16(ptr noundef nonnull %2, ptr noundef nonnull %21) #21
   %.not33 = icmp eq i32 %22, 0
-  br i1 %.not33, label %.thread48, label %23
+  br i1 %.not33, label %.thread46, label %23
 
 23:                                               ; preds = %20
   %24 = call i32 @CBS_get_u16_length_prefixed(ptr noundef nonnull %2, ptr noundef nonnull %5) #21
   %.not34 = icmp eq i32 %24, 0
-  br i1 %.not34, label %.thread48, label %25
+  br i1 %.not34, label %.thread46, label %25
 
-.thread48:                                        ; preds = %20, %23
+.thread46:                                        ; preds = %20, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %26 = add nuw i64 %.02654, 1
-  %exitcond.not = icmp eq i64 %.02654, %.02853
+  %26 = add nuw i64 %.02651, 1
+  %exitcond.not = icmp eq i64 %.02651, %.02850
   br i1 %exitcond.not, label %27, label %20, !llvm.loop !53
 
 27:                                               ; preds = %25
   call void @qsort(ptr noundef nonnull %16, i64 noundef %11, i64 noundef 2, ptr noundef nonnull @compare_uint16_t) #21
-  %.not61 = icmp eq i64 %.02853, 0
-  br i1 %.not61, label %.loopexit, label %.lr.ph57
+  %.not58 = icmp eq i64 %.02850, 0
+  br i1 %.not58, label %.loopexit, label %.lr.ph54
 
-28:                                               ; preds = %.lr.ph57
-  %29 = add nuw i64 %.12755, 1
-  %exitcond62.not = icmp eq i64 %.12755, %.02853
-  br i1 %exitcond62.not, label %.loopexit, label %.lr.ph57, !llvm.loop !55
+28:                                               ; preds = %.lr.ph54
+  %29 = add nuw i64 %.12752, 1
+  %exitcond59.not = icmp eq i64 %.12752, %.02850
+  br i1 %exitcond59.not, label %.loopexit, label %.lr.ph54, !llvm.loop !55
 
-.lr.ph57:                                         ; preds = %27, %28
-  %.12755 = phi i64 [ %29, %28 ], [ 1, %27 ]
-  %30 = getelementptr i16, ptr %16, i64 %.12755
+.lr.ph54:                                         ; preds = %27, %28
+  %.12752 = phi i64 [ %29, %28 ], [ 1, %27 ]
+  %30 = getelementptr i16, ptr %16, i64 %.12752
   %31 = getelementptr i8, ptr %30, i64 -2
   %32 = load i16, ptr %31, align 2, !tbaa !56
   %33 = load i16, ptr %30, align 2, !tbaa !56
   %34 = icmp eq i16 %32, %33
   br i1 %34, label %.loopexit, label %28
 
-.loopexit:                                        ; preds = %.lr.ph57, %28, %27, %.thread48, %.thread, %18
-  %.025 = phi ptr [ null, %18 ], [ null, %.thread ], [ %16, %.thread48 ], [ %16, %27 ], [ %16, %28 ], [ %16, %.lr.ph57 ]
-  %.024 = phi i32 [ 0, %18 ], [ 0, %.thread ], [ 0, %.thread48 ], [ 1, %27 ], [ 0, %.lr.ph57 ], [ 1, %28 ]
+.loopexit:                                        ; preds = %.lr.ph54, %28, %27, %.thread46, %.thread, %18
+  %.025 = phi ptr [ null, %18 ], [ null, %.thread ], [ %16, %.thread46 ], [ %16, %27 ], [ %16, %28 ], [ %16, %.lr.ph54 ]
+  %.024 = phi i32 [ 0, %18 ], [ 0, %.thread ], [ 0, %.thread46 ], [ 1, %27 ], [ 0, %.lr.ph54 ], [ 1, %28 ]
   call void @free(ptr noundef %.025) #21
   br label %._crit_edge.thread
 
@@ -951,28 +951,28 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
   br label %22
 
 22:                                               ; preds = %16, %29
-  %.03761 = phi i64 [ 0, %16 ], [ %30, %29 ]
-  %23 = shl nuw nsw i64 1, %.03761
+  %.03758 = phi i64 [ 0, %16 ], [ %30, %29 ]
+  %23 = shl nuw nsw i64 1, %.03758
   %24 = and i64 %23, 2201
   %.not50.not = icmp eq i64 %24, 0
   br i1 %.not50.not, label %25, label %29
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03761
+  %26 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.03758
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !111
   call void %28(ptr noundef %0) #21
   br label %29
 
 29:                                               ; preds = %22, %25
-  %30 = add nuw nsw i64 %.03761, 1
+  %30 = add nuw nsw i64 %.03758, 1
   %exitcond.not = icmp eq i64 %30, 13
   br i1 %exitcond.not, label %.preheader, label %22, !llvm.loop !112
 
 .preheader:                                       ; preds = %29, %48
-  %.13862 = phi i64 [ %49, %48 ], [ 0, %29 ]
+  %.13859 = phi i64 [ %49, %48 ], [ 0, %29 ]
   %31 = call i64 @CBB_len(ptr noundef nonnull %4) #21
-  %32 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13862
+  %32 = getelementptr inbounds nuw %struct.tls_extension, ptr @kExtensions, i64 %.13859
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 16, !tbaa !113
   %35 = call i32 %34(ptr noundef %0, ptr noundef nonnull %4) #21
@@ -985,7 +985,7 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
   br i1 %.not49, label %48, label %38
 
 38:                                               ; preds = %36
-  %39 = trunc nuw nsw i64 %.13862 to i32
+  %39 = trunc nuw nsw i64 %.13859 to i32
   %40 = shl nuw nsw i32 1, %39
   %41 = load ptr, ptr %17, align 8, !tbaa !58
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 456
@@ -1002,9 +1002,9 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
   br label %78
 
 48:                                               ; preds = %38, %36
-  %49 = add nuw nsw i64 %.13862, 1
-  %exitcond64.not = icmp eq i64 %49, 13
-  br i1 %exitcond64.not, label %50, label %.preheader, !llvm.loop !114
+  %49 = add nuw nsw i64 %.13859, 1
+  %exitcond61.not = icmp eq i64 %49, 13
+  br i1 %exitcond61.not, label %50, label %.preheader, !llvm.loop !114
 
 50:                                               ; preds = %48
   %51 = call i32 @custom_ext_add_clienthello(ptr noundef %0, ptr noundef nonnull %4) #21
@@ -1033,20 +1033,20 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %64 = call i32 @CBB_add_u16(ptr noundef nonnull %4, i16 noundef zeroext 21) #21
   %.not45 = icmp eq i32 %64, 0
-  br i1 %.not45, label %.thread58, label %65
+  br i1 %.not45, label %.thread56, label %65
 
 65:                                               ; preds = %61
   %66 = trunc nuw nsw i64 %.0 to i16
   %67 = call i32 @CBB_add_u16(ptr noundef nonnull %4, i16 noundef zeroext %66) #21
   %.not46 = icmp eq i32 %67, 0
-  br i1 %.not46, label %.thread58, label %68
+  br i1 %.not46, label %.thread56, label %68
 
 68:                                               ; preds = %65
   %69 = call i32 @CBB_add_space(ptr noundef nonnull %4, ptr noundef nonnull %5, i64 noundef %.0) #21
   %.not47 = icmp eq i32 %69, 0
-  br i1 %.not47, label %.thread58, label %70
+  br i1 %.not47, label %.thread56, label %70
 
-.thread58:                                        ; preds = %68, %65, %61
+.thread56:                                        ; preds = %68, %65, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
@@ -1069,7 +1069,7 @@ define hidden i32 @ssl_add_clienthello_tlsext(ptr noundef %0, ptr noundef %1, i6
   %77 = call i32 @CBB_flush(ptr noundef %1) #21
   br label %79
 
-78:                                               ; preds = %.thread58, %45, %50, %14
+78:                                               ; preds = %.thread56, %45, %50, %14
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 68, ptr noundef nonnull @.str, i32 noundef 2120) #21
   br label %79
 
@@ -1780,8 +1780,8 @@ define hidden range(i32 0, 2) i32 @tls_process_ticket(ptr noundef %0, ptr nounde
 
 49:                                               ; preds = %43
   %50 = getelementptr inbounds nuw i8, ptr %18, i64 %38
-  %.neg77 = add i64 %4, -16
-  %51 = sub i64 %.neg77, %40
+  %.neg76 = add i64 %4, -16
+  %51 = sub i64 %.neg76, %40
   %52 = call noalias ptr @malloc(i64 noundef %51) #22
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.thread, label %54

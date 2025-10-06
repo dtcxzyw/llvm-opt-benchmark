@@ -1001,7 +1001,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   %21 = shl nuw i32 1, %19
   %22 = and i32 %20, %21
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %23, label %.thread111thread-pre-split
+  br i1 %.not.i, label %23, label %.thread110thread-pre-split
 
 23:                                               ; preds = %15
   %24 = or i32 %20, %21
@@ -1037,7 +1037,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   %40 = lshr i32 %39, %32
   %41 = tail call fastcc i32 @DecodeImageStream(i32 noundef %37, i32 noundef %40, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %27)
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.thread111thread-pre-split, label %13
+  br i1 %42, label %.thread110thread-pre-split, label %13
 
 43:                                               ; preds = %23
   %44 = tail call i32 @VP8LReadBits(ptr noundef nonnull %8, i32 noundef 8) #8
@@ -1057,7 +1057,7 @@ define internal fastcc range(i32 0, 2) i32 @DecodeImageStream(i32 noundef %0, i3
   store i32 %51, ptr %57, align 4, !tbaa !83
   %58 = tail call fastcc i32 @DecodeImageStream(i32 noundef %45, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %3, ptr noundef nonnull %27)
   %.not46.i = icmp eq i32 %58, 0
-  br i1 %.not46.i, label %.thread111thread-pre-split, label %59
+  br i1 %.not46.i, label %.thread110thread-pre-split, label %59
 
 59:                                               ; preds = %43
   %60 = load i32, ptr %57, align 4, !tbaa !83
@@ -1118,7 +1118,7 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
 
 .critedge.i:                                      ; preds = %59
   %84 = load i32, ptr %3, align 8, !tbaa !13
-  switch i32 %84, label %.thread111 [
+  switch i32 %84, label %.thread110 [
     i32 0, label %VP8LSetError.exit.thread.sink.split
     i32 5, label %VP8LSetError.exit.thread.sink.split
   ]
@@ -1184,14 +1184,14 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
 
 111:                                              ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %.268.i133 = phi i32 [ 1, %.lr.ph ], [ %spec.select.i, %111 ]
+  %.268.i131 = phi i32 [ 1, %.lr.ph ], [ %spec.select.i, %111 ]
   %112 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4, !tbaa !6
   %114 = lshr i32 %113, 8
   %115 = and i32 %114, 65535
   store i32 %115, ptr %112, align 4, !tbaa !6
   %116 = add nuw nsw i32 %115, 1
-  %spec.select.i = call i32 @llvm.smax.i32(i32 %.268.i133, i32 %116)
+  %spec.select.i = call i32 @llvm.smax.i32(i32 %.268.i131, i32 %116)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %111, !llvm.loop !87
@@ -1224,17 +1224,17 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
 127:                                              ; preds = %120
   %128 = shl nuw nsw i64 %121, 2
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %122, i8 -1, i64 %128, i1 false)
-  br i1 %109, label %.lr.ph138, label %VP8LSetError.exit77
+  br i1 %109, label %.lr.ph136, label %VP8LSetError.exit77
 
-.lr.ph138:                                        ; preds = %127
+.lr.ph136:                                        ; preds = %127
   %129 = load ptr, ptr %6, align 8, !tbaa !85
-  %wide.trip.count146 = zext nneg i32 %105 to i64
+  %wide.trip.count144 = zext nneg i32 %105 to i64
   br label %130
 
-130:                                              ; preds = %.lr.ph138, %139
-  %indvars.iv143 = phi i64 [ 0, %.lr.ph138 ], [ %indvars.iv.next144, %139 ]
-  %.2.i135 = phi i32 [ 0, %.lr.ph138 ], [ %.3.i, %139 ]
-  %131 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv143
+130:                                              ; preds = %.lr.ph136, %139
+  %indvars.iv141 = phi i64 [ 0, %.lr.ph136 ], [ %indvars.iv.next142, %139 ]
+  %.2.i133 = phi i32 [ 0, %.lr.ph136 ], [ %.3.i, %139 ]
+  %131 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv141
   %132 = load i32, ptr %131, align 4, !tbaa !6
   %133 = zext i32 %132 to i64
   %134 = getelementptr inbounds nuw i32, ptr %122, i64 %133
@@ -1243,17 +1243,17 @@ ExpandColorMap.exit:                              ; preds = %.preheader.i, %.lr.
   br i1 %136, label %137, label %139
 
 137:                                              ; preds = %130
-  %138 = add nsw i32 %.2.i135, 1
-  store i32 %.2.i135, ptr %134, align 4, !tbaa !6
+  %138 = add nsw i32 %.2.i133, 1
+  store i32 %.2.i133, ptr %134, align 4, !tbaa !6
   br label %139
 
 139:                                              ; preds = %137, %130
-  %140 = phi i32 [ %.2.i135, %137 ], [ %135, %130 ]
-  %.3.i = phi i32 [ %138, %137 ], [ %.2.i135, %130 ]
+  %140 = phi i32 [ %.2.i133, %137 ], [ %135, %130 ]
+  %.3.i = phi i32 [ %138, %137 ], [ %.2.i133, %130 ]
   store i32 %140, ptr %131, align 4, !tbaa !6
-  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
-  %exitcond147.not = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
-  br i1 %exitcond147.not, label %VP8LSetError.exit77, label %130, !llvm.loop !88
+  %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
+  %exitcond145.not = icmp eq i64 %indvars.iv.next142, %wide.trip.count144
+  br i1 %exitcond145.not, label %VP8LSetError.exit77, label %130, !llvm.loop !88
 
 VP8LSetError.exit77:                              ; preds = %139, %127, %._crit_edge, %93, %.critedge68
   %.070.i = phi ptr [ null, %93 ], [ null, %.critedge68 ], [ null, %._crit_edge ], [ %122, %127 ], [ %122, %139 ]
@@ -1279,14 +1279,14 @@ VP8LSetError.exit77.thread:                       ; preds = %126, %124, %95, %14
   call void @VP8LHtreeGroupsFree(ptr noundef %146) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread111thread-pre-split
+  br label %.thread110thread-pre-split
 
-.thread111thread-pre-split:                       ; preds = %43, %15, %30, %VP8LSetError.exit77.thread
+.thread110thread-pre-split:                       ; preds = %43, %15, %30, %VP8LSetError.exit77.thread
   %.pr = load i32, ptr %3, align 8, !tbaa !13
-  br label %.thread111
+  br label %.thread110
 
-.thread111:                                       ; preds = %.thread111thread-pre-split, %.critedge.i
-  %147 = phi i32 [ %.pr, %.thread111thread-pre-split ], [ %84, %.critedge.i ]
+.thread110:                                       ; preds = %.thread110thread-pre-split, %.critedge.i
+  %147 = phi i32 [ %.pr, %.thread110thread-pre-split ], [ %84, %.critedge.i ]
   switch i32 %147, label %VP8LSetError.exit.thread [
     i32 0, label %VP8LSetError.exit.thread.sink.split
     i32 5, label %VP8LSetError.exit.thread.sink.split
@@ -1345,9 +1345,9 @@ VP8LSetError.exit77.thread:                       ; preds = %126, %124, %95, %14
   %174 = select i1 %172, i32 -1, i32 %173
   %175 = getelementptr inbounds nuw i8, ptr %3, i64 192
   store i32 %174, ptr %175, align 8, !tbaa !90
-  br i1 %.not, label %177, label %VP8LSetError.exit.thread125
+  br i1 %.not, label %177, label %VP8LSetError.exit.thread123
 
-VP8LSetError.exit.thread125:                      ; preds = %162
+VP8LSetError.exit.thread123:                      ; preds = %162
   %176 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 1, ptr %176, align 4, !tbaa !52
   br label %191
@@ -1377,14 +1377,14 @@ VP8LSetError.exit:                                ; preds = %VP8LSetError.exit74
   %.not65.not = icmp eq i32 %186, 0
   br i1 %.not65.not, label %191, label %VP8LSetError.exit.thread
 
-VP8LSetError.exit.thread.sink.split:              ; preds = %183, %183, %159, %159, %.thread111, %.thread111, %90, %90, %.critedge.i, %.critedge.i
-  %.sink = phi i32 [ 1, %.critedge.i ], [ 1, %.critedge.i ], [ 3, %90 ], [ 3, %90 ], [ 3, %.thread111 ], [ 3, %.thread111 ], [ 1, %159 ], [ 1, %159 ], [ 1, %183 ], [ 1, %183 ]
+VP8LSetError.exit.thread.sink.split:              ; preds = %183, %183, %159, %159, %.thread110, %.thread110, %90, %90, %.critedge.i, %.critedge.i
+  %.sink = phi i32 [ 1, %.critedge.i ], [ 1, %.critedge.i ], [ 3, %90 ], [ 3, %90 ], [ 3, %.thread110 ], [ 3, %.thread110 ], [ 1, %159 ], [ 1, %159 ], [ 1, %183 ], [ 1, %183 ]
   store i32 %.sink, ptr %3, align 8, !tbaa !13
   br label %VP8LSetError.exit.thread
 
-VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.thread.sink.split, %183, %159, %.thread111, %90, %VP8LSetError.exit74, %VP8LSetError.exit
-  %.053124 = phi ptr [ %181, %VP8LSetError.exit ], [ null, %159 ], [ null, %.thread111 ], [ null, %90 ], [ %181, %VP8LSetError.exit74 ], [ null, %183 ], [ null, %VP8LSetError.exit.thread.sink.split ]
-  call void @WebPSafeFree(ptr noundef %.053124) #8
+VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.thread.sink.split, %183, %159, %.thread110, %90, %VP8LSetError.exit74, %VP8LSetError.exit
+  %.053122 = phi ptr [ %181, %VP8LSetError.exit ], [ null, %159 ], [ null, %.thread110 ], [ null, %90 ], [ %181, %VP8LSetError.exit74 ], [ null, %183 ], [ null, %VP8LSetError.exit.thread.sink.split ]
+  call void @WebPSafeFree(ptr noundef %.053122) #8
   %187 = getelementptr inbounds nuw i8, ptr %3, i64 208
   %188 = load ptr, ptr %187, align 8, !tbaa !53
   call void @WebPSafeFree(ptr noundef %188) #8
@@ -1393,13 +1393,13 @@ VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.t
   %190 = getelementptr inbounds nuw i8, ptr %3, i64 224
   br label %.sink.split
 
-191:                                              ; preds = %VP8LSetError.exit.thread125, %VP8LSetError.exit
-  %.053130 = phi ptr [ null, %VP8LSetError.exit.thread125 ], [ %181, %VP8LSetError.exit ]
+191:                                              ; preds = %VP8LSetError.exit.thread123, %VP8LSetError.exit
+  %.053128 = phi ptr [ null, %VP8LSetError.exit.thread123 ], [ %181, %VP8LSetError.exit ]
   %.not67 = icmp eq ptr %4, null
   br i1 %.not67, label %193, label %192
 
 192:                                              ; preds = %191
-  store ptr %.053130, ptr %4, align 8, !tbaa !85
+  store ptr %.053128, ptr %4, align 8, !tbaa !85
   br label %193
 
 193:                                              ; preds = %191, %192
@@ -1414,10 +1414,10 @@ VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.t
   br label %.sink.split
 
 .sink.split:                                      ; preds = %195, %VP8LSetError.exit.thread
-  %.sink168.in = phi ptr [ %190, %VP8LSetError.exit.thread ], [ %153, %195 ]
-  %.3122.ph = phi i32 [ 0, %VP8LSetError.exit.thread ], [ 1, %195 ]
-  %.sink168 = load ptr, ptr %.sink168.in, align 8, !tbaa !54
-  call void @VP8LHtreeGroupsFree(ptr noundef %.sink168) #8
+  %.sink166.in = phi ptr [ %190, %VP8LSetError.exit.thread ], [ %153, %195 ]
+  %.3120.ph = phi i32 [ 0, %VP8LSetError.exit.thread ], [ 1, %195 ]
+  %.sink166 = load ptr, ptr %.sink166.in, align 8, !tbaa !54
+  call void @VP8LHtreeGroupsFree(ptr noundef %.sink166) #8
   %197 = getelementptr inbounds nuw i8, ptr %3, i64 160
   call void @VP8LColorCacheClear(ptr noundef nonnull %197) #8
   %198 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -1426,8 +1426,8 @@ VP8LSetError.exit.thread:                         ; preds = %VP8LSetError.exit.t
   br label %199
 
 199:                                              ; preds = %.sink.split, %193
-  %.3122 = phi i32 [ 1, %193 ], [ %.3122.ph, %.sink.split ]
-  ret i32 %.3122
+  %.3120 = phi i32 [ 1, %193 ], [ %.3120.ph, %.sink.split ]
+  ret i32 %.3120
 }
 
 ; Function Attrs: nounwind uwtable

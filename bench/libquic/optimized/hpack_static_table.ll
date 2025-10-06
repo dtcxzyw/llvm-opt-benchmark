@@ -841,8 +841,8 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN3net10HpackEntryES2_SaIS2_E
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %5, align 8, !tbaa !72
-  %.not38 = icmp eq i64 %20, 0
-  br i1 %.not38, label %.critedge, label %21
+  %.not36 = icmp eq i64 %20, 0
+  br i1 %.not36, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !3

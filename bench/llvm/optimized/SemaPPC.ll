@@ -4523,7 +4523,7 @@ define internal fastcc i64 @_ZN5clangL23DecodePPCMMATypeFromStrERNS_10ASTContext
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   store ptr %9, ptr %1, align 8, !tbaa !466
   %10 = load i8, ptr %8, align 1, !tbaa !19
-  switch i8 %10, label %34 [
+  switch i8 %10, label %35 [
     i8 86, label %11
     i8 105, label %14
     i8 87, label %19
@@ -4533,7 +4533,7 @@ define internal fastcc i64 @_ZN5clangL23DecodePPCMMATypeFromStrERNS_10ASTContext
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 18592
   %.sroa.0.0.copyload.i = load i64, ptr %12, align 8, !tbaa !19
   %13 = tail call i64 @_ZNK5clang10ASTContext13getVectorTypeENS_8QualTypeEjNS_10VectorKindE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.0.0.copyload.i, i32 noundef 16, i32 noundef 1) #14
-  br label %36
+  br label %37
 
 14:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -4545,7 +4545,7 @@ define internal fastcc i64 @_ZN5clangL23DecodePPCMMATypeFromStrERNS_10ASTContext
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 18560
   %.sroa.0.0.copyload.i24 = load i64, ptr %18, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %36
+  br label %37
 
 19:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4553,49 +4553,49 @@ define internal fastcc i64 @_ZN5clangL23DecodePPCMMATypeFromStrERNS_10ASTContext
   %21 = load ptr, ptr %7, align 8, !tbaa !466
   store ptr %21, ptr %1, align 8, !tbaa !466
   %22 = and i64 %20, 4294967295
-  %switch = icmp eq i64 %22, 512
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 19928
-  %.sroa.0.0.copyload.i26 = load i64, ptr %23, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 19920
-  %.sroa.0.0.copyload.i25 = load i64, ptr %24, align 8
-  %storemerge = select i1 %switch, i64 %.sroa.0.0.copyload.i25, i64 %.sroa.0.0.copyload.i26
-  br label %25
+  %23 = icmp eq i64 %22, 512
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 19928
+  %.sroa.0.0.copyload.i26 = load i64, ptr %24, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 19920
+  %.sroa.0.0.copyload.i25 = load i64, ptr %25, align 8
+  %storemerge = select i1 %23, i64 %.sroa.0.0.copyload.i25, i64 %.sroa.0.0.copyload.i26
+  br label %26
 
-25:                                               ; preds = %.backedge, %19
+26:                                               ; preds = %.backedge, %19
   %.sroa.0.129 = phi i64 [ %storemerge, %19 ], [ %.sroa.0.129.be, %.backedge ]
-  %26 = load ptr, ptr %1, align 8, !tbaa !466
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  store ptr %27, ptr %1, align 8, !tbaa !466
-  %28 = load i8, ptr %26, align 1, !tbaa !19
-  switch i8 %28, label %33 [
-    i8 42, label %29
-    i8 67, label %31
+  %27 = load ptr, ptr %1, align 8, !tbaa !466
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store ptr %28, ptr %1, align 8, !tbaa !466
+  %29 = load i8, ptr %27, align 1, !tbaa !19
+  switch i8 %29, label %34 [
+    i8 42, label %30
+    i8 67, label %32
   ]
 
-29:                                               ; preds = %25
-  %30 = tail call i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.0.129) #14
+30:                                               ; preds = %26
+  %31 = tail call i64 @_ZNK5clang10ASTContext14getPointerTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216) %0, i64 %.sroa.0.129) #14
   br label %.backedge
 
-31:                                               ; preds = %25
-  %32 = or i64 %.sroa.0.129, 1
+32:                                               ; preds = %26
+  %33 = or i64 %.sroa.0.129, 1
   br label %.backedge
 
-.backedge:                                        ; preds = %31, %29
-  %.sroa.0.129.be = phi i64 [ %30, %29 ], [ %32, %31 ]
-  br label %25, !llvm.loop !470
+.backedge:                                        ; preds = %32, %30
+  %.sroa.0.129.be = phi i64 [ %31, %30 ], [ %33, %32 ]
+  br label %26, !llvm.loop !470
 
-33:                                               ; preds = %25
-  store ptr %26, ptr %1, align 8, !tbaa !466
+34:                                               ; preds = %26
+  store ptr %27, ptr %1, align 8, !tbaa !466
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %36
+  br label %37
 
-34:                                               ; preds = %3
+35:                                               ; preds = %3
   store ptr %8, ptr %1, align 8, !tbaa !466
-  %35 = call i64 @_ZNK5clang10ASTContext13DecodeTypeStrERPKcRKS0_RNS0_19GetBuiltinTypeErrorERbb(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext true) #14
-  br label %36
+  %36 = call i64 @_ZNK5clang10ASTContext13DecodeTypeStrERPKcRKS0_RNS0_19GetBuiltinTypeErrorERbb(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext true) #14
+  br label %37
 
-36:                                               ; preds = %34, %33, %14, %11
-  %.sroa.0.0 = phi i64 [ %35, %34 ], [ %13, %11 ], [ %.sroa.0.0.copyload.i24, %14 ], [ %.sroa.0.129, %33 ]
+37:                                               ; preds = %35, %34, %14, %11
+  %.sroa.0.0 = phi i64 [ %36, %35 ], [ %13, %11 ], [ %.sroa.0.0.copyload.i24, %14 ], [ %.sroa.0.129, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i64 %.sroa.0.0

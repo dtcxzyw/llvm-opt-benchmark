@@ -610,7 +610,7 @@ define void @_ZNK3zmq12radix_tree_t5matchEPKhmb(ptr dead_on_unwind noalias writa
 15:                                               ; preds = %64, %12
   %.sroa.070.0 = phi ptr [ %14, %12 ], [ %70, %64 ]
   %.048 = phi i64 [ 0, %12 ], [ %.044, %64 ]
-  %.044 = phi i64 [ 0, %12 ], [ %.052108, %64 ]
+  %.044 = phi i64 [ 0, %12 ], [ %.052107, %64 ]
   %.041 = phi i64 [ 0, %12 ], [ %32, %64 ]
   %.0 = phi i64 [ 0, %12 ], [ %.2.lcssa, %64 ]
   %.sroa.029.0 = phi ptr [ %14, %12 ], [ %.sroa.031.0, %64 ]
@@ -633,18 +633,18 @@ define void @_ZNK3zmq12radix_tree_t5matchEPKhmb(ptr dead_on_unwind noalias writa
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge, %26
-  %.2103 = phi i64 [ %28, %26 ], [ %.0, %.critedge ]
-  %.243102 = phi i64 [ %27, %26 ], [ 0, %.critedge ]
-  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.243102
+  %.2102 = phi i64 [ %28, %26 ], [ %.0, %.critedge ]
+  %.243101 = phi i64 [ %27, %26 ], [ 0, %.critedge ]
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.243101
   %23 = load i8, ptr %22, align 1, !tbaa !12
-  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %.2103
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 %.2102
   %25 = load i8, ptr %24, align 1, !tbaa !12
   %.not57 = icmp eq i8 %23, %25
   br i1 %.not57, label %26, label %._crit_edge
 
 26:                                               ; preds = %.lr.ph
-  %27 = add nuw nsw i64 %.243102, 1
-  %28 = add nuw i64 %.2103, 1
+  %27 = add nuw nsw i64 %.243101, 1
+  %28 = add nuw i64 %.2102, 1
   %29 = icmp samesign ult i64 %27, %20
   %30 = icmp ult i64 %28, %3
   %31 = select i1 %29, i1 %30, i1 false
@@ -652,8 +652,8 @@ define void @_ZNK3zmq12radix_tree_t5matchEPKhmb(ptr dead_on_unwind noalias writa
 
 ._crit_edge:                                      ; preds = %26, %.lr.ph, %17, %.critedge
   %32 = phi i64 [ %20, %.critedge ], [ 0, %17 ], [ %20, %.lr.ph ], [ %20, %26 ]
-  %.243.lcssa = phi i64 [ 0, %.critedge ], [ 0, %17 ], [ %27, %26 ], [ %.243102, %.lr.ph ]
-  %.2.lcssa = phi i64 [ %.0, %.critedge ], [ %.0, %17 ], [ %28, %26 ], [ %.2103, %.lr.ph ]
+  %.243.lcssa = phi i64 [ 0, %.critedge ], [ 0, %17 ], [ %27, %26 ], [ %.243101, %.lr.ph ]
+  %.2.lcssa = phi i64 [ %.0, %.critedge ], [ %.0, %17 ], [ %28, %26 ], [ %.2102, %.lr.ph ]
   %33 = icmp eq i64 %.243.lcssa, %32
   %or.cond = and i1 %4, %33
   br i1 %or.cond, label %34, label %35
@@ -673,20 +673,20 @@ define void @_ZNK3zmq12radix_tree_t5matchEPKhmb(ptr dead_on_unwind noalias writa
   %38 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 8
   %.0.copyload.i64 = load i32, ptr %38, align 1
   %39 = zext i32 %.0.copyload.i64 to i64
-  %.not126 = icmp eq i32 %.0.copyload.i64, 0
-  br i1 %.not126, label %.thread83, label %.lr.ph110
+  %.not125 = icmp eq i32 %.0.copyload.i64, 0
+  br i1 %.not125, label %.thread83, label %.lr.ph109
 
-.lr.ph110:                                        ; preds = %37
+.lr.ph109:                                        ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 %.2.lcssa
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 12
   br label %42
 
-42:                                               ; preds = %.lr.ph110, %62
-  %.0.copyload.i.i.i137 = phi i32 [ %.0.copyload.i, %.lr.ph110 ], [ %.0.copyload.i.i.i, %62 ]
-  %.052108 = phi i64 [ 0, %.lr.ph110 ], [ %63, %62 ]
+42:                                               ; preds = %.lr.ph109, %62
+  %.0.copyload.i.i.i136 = phi i32 [ %.0.copyload.i, %.lr.ph109 ], [ %.0.copyload.i.i.i, %62 ]
+  %.052107 = phi i64 [ 0, %.lr.ph109 ], [ %63, %62 ]
   %.0.copyload.i.i = load i32, ptr %38, align 1
   %43 = zext i32 %.0.copyload.i.i to i64
-  %.not.i = icmp samesign ult i64 %.052108, %43
+  %.not.i = icmp samesign ult i64 %.052107, %43
   br i1 %.not.i, label %_ZN6node_t13first_byte_atEm.exit, label %44, !prof !9
 
 44:                                               ; preds = %42
@@ -699,10 +699,10 @@ define void @_ZNK3zmq12radix_tree_t5matchEPKhmb(ptr dead_on_unwind noalias writa
   br label %_ZN6node_t13first_byte_atEm.exit
 
 _ZN6node_t13first_byte_atEm.exit:                 ; preds = %42, %44
-  %.0.copyload.i.i.i = phi i32 [ %.0.copyload.i.i.i137, %42 ], [ %.0.copyload.i.i.i.pre, %44 ]
+  %.0.copyload.i.i.i = phi i32 [ %.0.copyload.i.i.i136, %42 ], [ %.0.copyload.i.i.i.pre, %44 ]
   %49 = zext i32 %.0.copyload.i.i.i to i64
   %50 = getelementptr inbounds nuw i8, ptr %41, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.052108
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %.052107
   %52 = load i8, ptr %51, align 1, !tbaa !12
   %53 = load i8, ptr %40, align 1, !tbaa !12
   %54 = icmp eq i8 %52, %53
@@ -712,7 +712,7 @@ _ZN6node_t13first_byte_atEm.exit:                 ; preds = %42, %44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.0.copyload.i.i65 = load i32, ptr %38, align 1
   %56 = zext i32 %.0.copyload.i.i65 to i64
-  %.not.i66 = icmp samesign ult i64 %.052108, %56
+  %.not.i66 = icmp samesign ult i64 %.052107, %56
   br i1 %.not.i66, label %64, label %57, !prof !9
 
 57:                                               ; preds = %55
@@ -728,7 +728,7 @@ _ZN6node_t13first_byte_atEm.exit:                 ; preds = %42, %44
   br label %64
 
 62:                                               ; preds = %_ZN6node_t13first_byte_atEm.exit
-  %63 = add nuw nsw i64 %.052108, 1
+  %63 = add nuw nsw i64 %.052107, 1
   %exitcond.not = icmp eq i64 %63, %39
   br i1 %exitcond.not, label %.thread83, label %42, !llvm.loop !27
 
@@ -738,7 +738,7 @@ _ZN6node_t13first_byte_atEm.exit:                 ; preds = %42, %44
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.070.0, i64 12
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.pre-phi
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.pre-phi.i
-  %68 = shl i64 %.052108, 3
+  %68 = shl i64 %.052107, 3
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
   %.0.copyload.i69 = load ptr, ptr %69, align 1
   call void @_ZN6node_tC1EPh(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %.0.copyload.i69)
@@ -749,7 +749,7 @@ _ZN6node_t13first_byte_atEm.exit:                 ; preds = %42, %44
 
 .thread83:                                        ; preds = %64, %35, %34, %17, %37, %62
   %.149 = phi i64 [ %.048, %62 ], [ %.048, %37 ], [ %.048, %34 ], [ %.048, %35 ], [ %.044, %64 ], [ %.048, %17 ]
-  %.145 = phi i64 [ %.044, %62 ], [ %.044, %37 ], [ %.044, %34 ], [ %.044, %35 ], [ %.052108, %64 ], [ %.044, %17 ]
+  %.145 = phi i64 [ %.044, %62 ], [ %.044, %37 ], [ %.044, %34 ], [ %.044, %35 ], [ %.052107, %64 ], [ %.044, %17 ]
   %.142 = phi i64 [ %32, %62 ], [ %32, %37 ], [ %32, %34 ], [ %.243.lcssa, %35 ], [ %32, %64 ], [ %.041, %17 ]
   %.1 = phi i64 [ %.2.lcssa, %62 ], [ %.2.lcssa, %37 ], [ %3, %34 ], [ %.2.lcssa, %35 ], [ %.2.lcssa, %64 ], [ %.0, %17 ]
   %72 = ptrtoint ptr %.sroa.031.0 to i64

@@ -1954,15 +1954,15 @@ _ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit: ; preds = %50
   tail call void @_ZN3p2t12SweepContext18MapTriangleToNodesERNS_8TriangleE(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(57) %13)
   br label %81
 
-81:                                               ; preds = %78, %80
-  store i8 0, ptr %74, align 1
-  store i8 0, ptr %75, align 1
-  br label %.loopexit
-
 .thread65:                                        ; preds = %50, %30, %_ZNK3p2t5Sweep8IncircleERKNS_5PointES3_S3_S3_.exit, %11, %28, %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !12
+
+81:                                               ; preds = %80, %78
+  store i8 0, ptr %74, align 1
+  store i8 0, ptr %75, align 1
+  br label %.loopexit
 
 .loopexit:                                        ; preds = %.thread65, %81
   %82 = phi i1 [ true, %81 ], [ false, %.thread65 ]
@@ -2469,8 +2469,8 @@ define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(pt
   %8 = load ptr, ptr %2, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load double, ptr %9, align 8
-  %..i45 = select i1 %7, i64 24, i64 40
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %..i45
+  %..i42 = select i1 %7, i64 24, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 %..i42
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -2485,14 +2485,14 @@ define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(pt
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %21
 
-21:                                               ; preds = %.lr.ph, %.thread37
-  %.tr4446 = phi ptr [ %2, %.lr.ph ], [ %.2, %.thread37 ]
-  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(40) %.tr4446)
-  %22 = getelementptr inbounds nuw i8, ptr %.tr4446, i64 24
+21:                                               ; preds = %.lr.ph, %.thread36
+  %.tr4143 = phi ptr [ %2, %.lr.ph ], [ %.2, %.thread36 ]
+  tail call void @_ZN3p2t5Sweep4FillERNS_12SweepContextERNS_4NodeE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef nonnull align 8 dereferenceable(40) %.tr4143)
+  %22 = getelementptr inbounds nuw i8, ptr %.tr4143, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = load ptr, ptr %19, align 8
   %25 = icmp eq ptr %23, %24
-  %26 = getelementptr inbounds nuw i8, ptr %.tr4446, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.tr4143, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %20, align 8
   %29 = icmp eq ptr %27, %28
@@ -2502,7 +2502,7 @@ define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(pt
   br i1 %29, label %._crit_edge, label %31
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr %.tr4446, align 8
+  %32 = load ptr, ptr %.tr4143, align 8
   %33 = load ptr, ptr %27, align 8
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %35 = load ptr, ptr %34, align 8
@@ -2524,13 +2524,13 @@ define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(pt
   %51 = fmul double %48, %50
   %52 = fsub double %45, %51
   %53 = fcmp ult double %52, 0.000000e+00
-  br i1 %53, label %._crit_edge, label %.thread37
+  br i1 %53, label %._crit_edge, label %.thread36
 
 54:                                               ; preds = %21
   br i1 %29, label %55, label %77
 
 55:                                               ; preds = %54
-  %56 = load ptr, ptr %.tr4446, align 8
+  %56 = load ptr, ptr %.tr4143, align 8
   %57 = load ptr, ptr %23, align 8
   %58 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %59 = load ptr, ptr %58, align 8
@@ -2551,7 +2551,7 @@ define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(pt
   %74 = fsub double %73, %62
   %75 = fmul double %72, %74
   %76 = fcmp ogt double %69, %75
-  br i1 %76, label %._crit_edge, label %.thread37
+  br i1 %76, label %._crit_edge, label %.thread36
 
 77:                                               ; preds = %54
   %78 = load ptr, ptr %23, align 8
@@ -2565,9 +2565,9 @@ define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(pt
   %. = select i1 %84, ptr %23, ptr %27
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %85, i64 8
   %.pre = load double, ptr %.phi.trans.insert, align 8
-  br label %.thread37
+  br label %.thread36
 
-.thread37:                                        ; preds = %55, %31, %77
+.thread36:                                        ; preds = %55, %31, %77
   %86 = phi double [ %.pre, %77 ], [ %41, %31 ], [ %65, %55 ]
   %.2 = phi ptr [ %., %77 ], [ %27, %31 ], [ %23, %55 ]
   %87 = load i8, ptr %4, align 8, !range !6, !noundef !7
@@ -2583,7 +2583,7 @@ define hidden void @_ZN3p2t5Sweep12FillBasinReqERNS_12SweepContextEPNS_4NodeE(pt
   %96 = fcmp ogt double %95, %94
   br i1 %96, label %._crit_edge, label %21
 
-._crit_edge:                                      ; preds = %.thread37, %30, %31, %55, %3
+._crit_edge:                                      ; preds = %.thread36, %30, %31, %55, %3
   ret void
 }
 

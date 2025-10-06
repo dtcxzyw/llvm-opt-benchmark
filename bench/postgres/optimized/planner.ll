@@ -3242,27 +3242,27 @@ list_length.exit.i:                               ; preds = %.lr.ph193.i, %remap
   br i1 %423, label %.lr.ph189.i, label %reorder_grouping_sets.exit.i
 
 .lr.ph189.i:                                      ; preds = %.lr.ph.i.i, %.thread44.i.i
-  %.03653.i188.i = phi ptr [ %467, %.thread44.i.i ], [ null, %.lr.ph.i.i ]
-  %.02954.i187.i = phi ptr [ %464, %.thread44.i.i ], [ null, %.lr.ph.i.i ]
-  %.055.i186.i = phi ptr [ %.us-phi51.i.i, %.thread44.i.i ], [ %419, %.lr.ph.i.i ]
+  %.03652.i188.i = phi ptr [ %467, %.thread44.i.i ], [ null, %.lr.ph.i.i ]
+  %.02953.i187.i = phi ptr [ %464, %.thread44.i.i ], [ null, %.lr.ph.i.i ]
+  %.054.i186.i = phi ptr [ %.us-phi50.i.i, %.thread44.i.i ], [ %419, %.lr.ph.i.i ]
   %indvars.iv.i185.i = phi i64 [ %indvars.iv.next.i.i, %.thread44.i.i ], [ 0, %.lr.ph.i.i ]
   %424 = load ptr, ptr %421, align 8
   %425 = getelementptr inbounds nuw %union.ListCell, ptr %424, i64 %indvars.iv.i185.i
   %426 = load ptr, ptr %425, align 8
-  %427 = tail call ptr @list_difference_int(ptr noundef %426, ptr noundef %.02954.i187.i) #11
+  %427 = tail call ptr @list_difference_int(ptr noundef %426, ptr noundef %.02953.i187.i) #11
   %428 = tail call noundef ptr @palloc0(i64 noundef 24) #11
   store i32 307, ptr %428, align 4
-  %.not.i.i.i = icmp eq ptr %.055.i186.i, null
-  %429 = getelementptr inbounds nuw i8, ptr %.055.i186.i, i64 4
-  %430 = getelementptr i8, ptr %.055.i186.i, i64 16
+  %.not.i.i.i = icmp eq ptr %.054.i186.i, null
+  %429 = getelementptr inbounds nuw i8, ptr %.054.i186.i, i64 4
+  %430 = getelementptr i8, ptr %.054.i186.i, i64 16
   br i1 %.not.i.i.i, label %list_length.exit.us.i.preheader.i, label %list_length.exit.i.i
 
 list_length.exit.us.i.preheader.i:                ; preds = %.lr.ph189.i
-  %.not.i40.us.i176.i = icmp eq ptr %.02954.i187.i, null
+  %.not.i40.us.i176.i = icmp eq ptr %.02953.i187.i, null
   br i1 %.not.i40.us.i176.i, label %.thread44.i.i, label %list_length.exit41.thread.us.i.i
 
 list_length.exit41.thread.us.i.i:                 ; preds = %list_length.exit.us.i.preheader.i, %list_length.exit.us.i.i
-  %.130.us.i178.i = phi ptr [ %442, %list_length.exit.us.i.i ], [ %.02954.i187.i, %list_length.exit.us.i.preheader.i ]
+  %.130.us.i178.i = phi ptr [ %442, %list_length.exit.us.i.i ], [ %.02953.i187.i, %list_length.exit.us.i.preheader.i ]
   %.033.us.i177.i = phi ptr [ %443, %list_length.exit.us.i.i ], [ %427, %list_length.exit.us.i.preheader.i ]
   %431 = getelementptr inbounds nuw i8, ptr %.130.us.i178.i, i64 4
   %432 = load i32, ptr %431, align 4
@@ -3289,7 +3289,7 @@ list_length.exit.us.i.i:                          ; preds = %list_length.exit43.
 
 list_length.exit.i.i:                             ; preds = %.lr.ph189.i, %461
   %.033.i.i = phi ptr [ %463, %461 ], [ %427, %.lr.ph189.i ]
-  %.130.i.i = phi ptr [ %462, %461 ], [ %.02954.i187.i, %.lr.ph189.i ]
+  %.130.i.i = phi ptr [ %462, %461 ], [ %.02953.i187.i, %.lr.ph189.i ]
   %444 = load i32, ptr %429, align 4
   %.not.i40.i.i = icmp eq ptr %.130.i.i, null
   br i1 %.not.i40.i.i, label %list_length.exit41.i.i, label %list_length.exit41.thread.i.i
@@ -3329,13 +3329,13 @@ list_length.exit43.i.i:                           ; preds = %453, %list_length.e
 
 .thread44.i.i:                                    ; preds = %list_length.exit43.i.i, %list_length.exit41.thread.i.i, %list_length.exit41.i.i, %list_length.exit.us.i.i, %list_length.exit43.us.i.i, %list_length.exit41.thread.us.i.i, %list_length.exit.us.i.preheader.i
   %.us-phi.i.i = phi ptr [ %427, %list_length.exit.us.i.preheader.i ], [ %.033.us.i177.i, %list_length.exit43.us.i.i ], [ %.033.us.i177.i, %list_length.exit41.thread.us.i.i ], [ %443, %list_length.exit.us.i.i ], [ %.033.i.i, %list_length.exit41.i.i ], [ %.033.i.i, %list_length.exit41.thread.i.i ], [ %.033.i.i, %list_length.exit43.i.i ]
-  %.us-phi50.i.i = phi ptr [ null, %list_length.exit.us.i.preheader.i ], [ %.130.us.i178.i, %list_length.exit43.us.i.i ], [ %.130.us.i178.i, %list_length.exit41.thread.us.i.i ], [ null, %list_length.exit.us.i.i ], [ %.130.i.i, %list_length.exit43.i.i ], [ %.130.i.i, %list_length.exit41.thread.i.i ], [ null, %list_length.exit41.i.i ]
-  %.us-phi51.i.i = phi ptr [ null, %list_length.exit.us.i.preheader.i ], [ null, %list_length.exit41.thread.us.i.i ], [ null, %list_length.exit43.us.i.i ], [ null, %list_length.exit.us.i.i ], [ null, %list_length.exit43.i.i ], [ %.055.i186.i, %list_length.exit41.thread.i.i ], [ %.055.i186.i, %list_length.exit41.i.i ]
-  %464 = tail call ptr @list_concat(ptr noundef %.us-phi50.i.i, ptr noundef %.us-phi.i.i) #11
+  %.us-phi49.i.i = phi ptr [ null, %list_length.exit.us.i.preheader.i ], [ %.130.us.i178.i, %list_length.exit43.us.i.i ], [ %.130.us.i178.i, %list_length.exit41.thread.us.i.i ], [ null, %list_length.exit.us.i.i ], [ %.130.i.i, %list_length.exit43.i.i ], [ %.130.i.i, %list_length.exit41.thread.i.i ], [ null, %list_length.exit41.i.i ]
+  %.us-phi50.i.i = phi ptr [ null, %list_length.exit.us.i.preheader.i ], [ null, %list_length.exit41.thread.us.i.i ], [ null, %list_length.exit43.us.i.i ], [ null, %list_length.exit.us.i.i ], [ null, %list_length.exit43.i.i ], [ %.054.i186.i, %list_length.exit41.thread.i.i ], [ %.054.i186.i, %list_length.exit41.i.i ]
+  %464 = tail call ptr @list_concat(ptr noundef %.us-phi49.i.i, ptr noundef %.us-phi.i.i) #11
   %465 = tail call ptr @list_copy(ptr noundef %464) #11
   %466 = getelementptr inbounds nuw i8, ptr %428, i64 8
   store ptr %465, ptr %466, align 8
-  %467 = tail call ptr @lcons(ptr noundef nonnull %428, ptr noundef %.03653.i188.i) #11
+  %467 = tail call ptr @lcons(ptr noundef nonnull %428, ptr noundef %.03652.i188.i) #11
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i185.i, 1
   %468 = load i32, ptr %420, align 4
   %469 = sext i32 %468 to i64

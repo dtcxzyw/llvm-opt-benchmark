@@ -2279,9 +2279,9 @@ define internal fastcc noundef zeroext i1 @inc_lex_level(ptr noundef captures(no
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8
   %7 = add i32 %6, 1
-  br i1 %4, label %8, label %.thread40
+  br i1 %4, label %8, label %.thread39
 
-.thread40:                                        ; preds = %1
+.thread39:                                        ; preds = %1
   store i32 %7, ptr %5, align 8
   br label %.thread
 
@@ -2290,9 +2290,9 @@ define internal fastcc noundef zeroext i1 @inc_lex_level(ptr noundef captures(no
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr %10, align 8
   %.not = icmp slt i32 %7, %11
-  br i1 %.not, label %.thread39, label %15
+  br i1 %.not, label %.thread38, label %15
 
-.thread39:                                        ; preds = %8
+.thread38:                                        ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %13 = load i32, ptr %12, align 8
   %14 = add i32 %13, 1
@@ -2346,8 +2346,8 @@ define internal fastcc noundef zeroext i1 @inc_lex_level(ptr noundef captures(no
   store i32 %44, ptr %42, align 8
   br i1 %41, label %45, label %.thread
 
-45:                                               ; preds = %.thread39, %37
-  %46 = phi i32 [ %14, %.thread39 ], [ %44, %37 ]
+45:                                               ; preds = %.thread38, %37
+  %46 = phi i32 [ %14, %.thread38 ], [ %44, %37 ]
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -2357,8 +2357,8 @@ define internal fastcc noundef zeroext i1 @inc_lex_level(ptr noundef captures(no
   store ptr null, ptr %52, align 8
   br label %.thread
 
-.thread:                                          ; preds = %.thread40, %30, %22, %15, %37, %45
-  %.1 = phi i1 [ true, %45 ], [ true, %37 ], [ false, %15 ], [ false, %22 ], [ false, %30 ], [ true, %.thread40 ]
+.thread:                                          ; preds = %.thread39, %30, %22, %15, %37, %45
+  %.1 = phi i1 [ true, %45 ], [ true, %37 ], [ false, %15 ], [ false, %22 ], [ false, %30 ], [ true, %.thread39 ]
   ret i1 %.1
 }
 

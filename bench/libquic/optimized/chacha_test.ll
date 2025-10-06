@@ -19,19 +19,19 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef read
   br label %3
 
 3:                                                ; preds = %2, %24
-  %.0525 = phi i64 [ 0, %2 ], [ %25, %24 ]
-  %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef range(i64 0, 1025) %.0525) #8
-  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %4, ptr noundef nonnull @_ZL6kInput, i64 noundef range(i64 0, 1025) %.0525, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
+  %.0523 = phi i64 [ 0, %2 ], [ %25, %24 ]
+  %4 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef range(i64 0, 1025) %.0523) #8
+  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %4, ptr noundef nonnull @_ZL6kInput, i64 noundef range(i64 0, 1025) %.0523, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
           to label %5 unwind label %10
 
 5:                                                ; preds = %3
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %4, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %.0525)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %4, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %.0523)
   %.not.i = icmp eq i32 %bcmp.i, 0
   br i1 %.not.i, label %.preheader.i, label %6
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %8 = trunc nuw nsw i64 %.0525 to i32
+  %8 = trunc nuw nsw i64 %.0523 to i32
   %9 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef %8) #9
   br label %26
 
@@ -50,25 +50,25 @@ define hidden noundef range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef read
   %.sroa.0.246.i = phi ptr [ %15, %12 ], [ %4, %5 ]
   %.023.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZL12TestChaCha20mE8kOffsets, i64 %.023.idx47.i
   %13 = load i64, ptr %.023.ptr.i, align 8, !tbaa !11
-  %14 = add i64 %13, %.0525
+  %14 = add i64 %13, %.0523
   %15 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %14) #8
           to label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i unwind label %22
 
 _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i: ; preds = %.preheader.i
   tail call void @_ZdaPv(ptr noundef nonnull %.sroa.0.246.i) #10
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %13
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 16 @_ZL6kInput, i64 range(i64 0, 1025) %.0525, i1 false)
-  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef range(i64 0, 1025) %.0525, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr nonnull align 16 @_ZL6kInput, i64 range(i64 0, 1025) %.0523, i1 false)
+  invoke void @CRYPTO_chacha_20(ptr noundef nonnull %15, ptr noundef nonnull %16, i64 noundef range(i64 0, 1025) %.0523, ptr noundef nonnull @_ZL4kKey, ptr noundef nonnull @_ZL6kNonce, i32 noundef 42)
           to label %.critedge.i unwind label %22
 
 .critedge.i:                                      ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit.i
-  %bcmp29.i = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %.0525)
+  %bcmp29.i = tail call i32 @bcmp(ptr nonnull %15, ptr nonnull @_ZL7kOutput, i64 range(i64 0, 1025) %.0523)
   %.not30.i = icmp eq i32 %bcmp29.i, 0
   br i1 %.not30.i, label %12, label %17
 
 17:                                               ; preds = %.critedge.i
   %18 = load ptr, ptr @stderr, align 8, !tbaa !6
-  %19 = trunc nuw nsw i64 %.0525 to i32
+  %19 = trunc nuw nsw i64 %.0523 to i32
   %20 = trunc i64 %13 to i32
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %18, ptr noundef nonnull @.str.2, i32 noundef %19, i32 noundef %20) #9
   br label %26
@@ -87,7 +87,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit33.i: ; preds = %22, %10
 
 24:                                               ; preds = %12
   tail call void @_ZdaPv(ptr noundef nonnull %15) #10
-  %25 = add nuw nsw i64 %.0525, 1
+  %25 = add nuw nsw i64 %.0523, 1
   %exitcond.not = icmp eq i64 %25, 1025
   br i1 %exitcond.not, label %27, label %3, !llvm.loop !13
 

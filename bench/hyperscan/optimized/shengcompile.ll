@@ -2277,9 +2277,9 @@ define hidden void @_ZN3ue212shengCompileERNS_7raw_dfaERKNS_14CompileContextERKN
   %41 = ptrtoint ptr %32 to i64
   %42 = sub i64 %40, %41
   %43 = sdiv exact i64 %42, 96
-  %.not2024.not.i.i = icmp eq ptr %39, %32
+  %.not2026.not.i.i = icmp eq ptr %39, %32
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 46
-  br i1 %.not2024.not.i.i, label %_ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit, label %.preheader.us.i.i
+  br i1 %.not2026.not.i.i, label %_ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit, label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %.noexc, %._crit_edge.us.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.us.i.i ], [ 0, %.noexc ]
@@ -2289,14 +2289,14 @@ define hidden void @_ZN3ue212shengCompileERNS_7raw_dfaERKNS_14CompileContextERKN
   br label %51
 
 48:                                               ; preds = %51
-  %49 = add i16 %.01425.us.i.i, 1
+  %49 = add i16 %.01427.us.i.i, 1
   %50 = zext i16 %49 to i64
   %.not20.us.i.i = icmp ugt i64 %43, %50
   br i1 %.not20.us.i.i, label %51, label %._crit_edge.us.i.i, !llvm.loop !169
 
 51:                                               ; preds = %48, %.preheader.us.i.i
   %52 = phi i64 [ 0, %.preheader.us.i.i ], [ %50, %48 ]
-  %.01425.us.i.i = phi i16 [ 0, %.preheader.us.i.i ], [ %49, %48 ]
+  %.01427.us.i.i = phi i16 [ 0, %.preheader.us.i.i ], [ %49, %48 ]
   %53 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %32, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i16, ptr %54, i64 %47
@@ -3287,9 +3287,9 @@ define hidden void @_ZN3ue214sheng32CompileERNS_7raw_dfaERKNS_14CompileContextER
   %45 = ptrtoint ptr %36 to i64
   %46 = sub i64 %44, %45
   %47 = sdiv exact i64 %46, 96
-  %.not2024.not.i.i = icmp eq ptr %43, %36
+  %.not2026.not.i.i = icmp eq ptr %43, %36
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 46
-  br i1 %.not2024.not.i.i, label %_ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit, label %.preheader.us.i.i
+  br i1 %.not2026.not.i.i, label %_ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit, label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %.noexc, %._crit_edge.us.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.us.i.i ], [ 0, %.noexc ]
@@ -3299,14 +3299,14 @@ define hidden void @_ZN3ue214sheng32CompileERNS_7raw_dfaERKNS_14CompileContextER
   br label %55
 
 52:                                               ; preds = %55
-  %53 = add i16 %.01425.us.i.i, 1
+  %53 = add i16 %.01427.us.i.i, 1
   %54 = zext i16 %53 to i64
   %.not20.us.i.i = icmp ugt i64 %47, %54
   br i1 %.not20.us.i.i, label %55, label %._crit_edge.us.i.i, !llvm.loop !169
 
 55:                                               ; preds = %52, %.preheader.us.i.i
   %56 = phi i64 [ 0, %.preheader.us.i.i ], [ %54, %52 ]
-  %.01425.us.i.i = phi i16 [ 0, %.preheader.us.i.i ], [ %53, %52 ]
+  %.01427.us.i.i = phi i16 [ 0, %.preheader.us.i.i ], [ %53, %52 ]
   %57 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %36, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i16, ptr %58, i64 %51
@@ -4301,9 +4301,9 @@ define hidden void @_ZN3ue214sheng64CompileERNS_7raw_dfaERKNS_14CompileContextER
   %46 = ptrtoint ptr %37 to i64
   %47 = sub i64 %45, %46
   %48 = sdiv exact i64 %47, 96
-  %.not2024.not.i.i = icmp eq ptr %44, %37
+  %.not2026.not.i.i = icmp eq ptr %44, %37
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 46
-  br i1 %.not2024.not.i.i, label %_ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit, label %.preheader.us.i.i
+  br i1 %.not2026.not.i.i, label %_ZN3ue28dfa_infoC2ERNS_21accel_dfa_build_stratE.exit, label %.preheader.us.i.i
 
 .preheader.us.i.i:                                ; preds = %.noexc, %._crit_edge.us.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %._crit_edge.us.i.i ], [ 0, %.noexc ]
@@ -4313,14 +4313,14 @@ define hidden void @_ZN3ue214sheng64CompileERNS_7raw_dfaERKNS_14CompileContextER
   br label %56
 
 53:                                               ; preds = %56
-  %54 = add i16 %.01425.us.i.i, 1
+  %54 = add i16 %.01427.us.i.i, 1
   %55 = zext i16 %54 to i64
   %.not20.us.i.i = icmp ugt i64 %48, %55
   br i1 %.not20.us.i.i, label %56, label %._crit_edge.us.i.i, !llvm.loop !169
 
 56:                                               ; preds = %53, %.preheader.us.i.i
   %57 = phi i64 [ 0, %.preheader.us.i.i ], [ %55, %53 ]
-  %.01425.us.i.i = phi i16 [ 0, %.preheader.us.i.i ], [ %54, %53 ]
+  %.01427.us.i.i = phi i16 [ 0, %.preheader.us.i.i ], [ %54, %53 ]
   %58 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %37, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i16, ptr %59, i64 %52

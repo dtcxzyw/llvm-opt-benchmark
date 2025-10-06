@@ -507,8 +507,8 @@ define noundef zeroext i1 @"_ZN73_$LT$xml5ever..tree_builder..NamespaceMap$u20$a
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 64
   store i64 %.sink.i, ptr %.sroa.12.0..sroa_idx, align 8
   %20 = call { ptr, ptr } @"_ZN108_$LT$alloc..collections..btree..map..Iter$LT$K$C$V$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2d138577cf1859ecE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %8)
-  %.fca.0.extract18 = extractvalue { ptr, ptr } %20, 0
-  %21 = icmp eq ptr %.fca.0.extract18, null
+  %.fca.0.extract17 = extractvalue { ptr, ptr } %20, 0
+  %21 = icmp eq ptr %.fca.0.extract17, null
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$4iter17h700d9b38be1ffee7E.exit"
@@ -538,11 +538,11 @@ define noundef zeroext i1 @"_ZN73_$LT$xml5ever..tree_builder..NamespaceMap$u20$a
   br label %38
 
 34:                                               ; preds = %.lr.ph, %39
-  %.fca.0.extract19 = phi ptr [ %.fca.0.extract18, %.lr.ph ], [ %.fca.0.extract, %39 ]
+  %.fca.0.extract18 = phi ptr [ %.fca.0.extract17, %.lr.ph ], [ %.fca.0.extract, %39 ]
   %35 = phi { ptr, ptr } [ %20, %.lr.ph ], [ %40, %39 ]
   %.fca.1.extract = extractvalue { ptr, ptr } %35, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %.fca.0.extract19, ptr %7, align 8
+  store ptr %.fca.0.extract18, ptr %7, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %36 = icmp ne ptr %.fca.1.extract, null
   call void @llvm.assume(i1 %36)

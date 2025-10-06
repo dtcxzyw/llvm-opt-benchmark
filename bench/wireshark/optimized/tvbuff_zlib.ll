@@ -37,9 +37,9 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %15, ptr %21, align 8
   %22 = tail call i32 @inflateInit2_(ptr noundef %16, i32 noundef 15, ptr noundef nonnull @.str, i32 noundef 112)
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %.preheader259, label %29
+  br i1 %.not, label %.preheader258, label %29
 
-.preheader259:                                    ; preds = %11
+.preheader258:                                    ; preds = %11
   %23 = getelementptr i8, ptr %9, i64 1
   %24 = getelementptr i8, ptr %9, i64 2
   %25 = getelementptr i8, ptr %9, i64 3
@@ -113,7 +113,7 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   %56 = tail call i32 @inflateEnd(ptr noundef %16)
   tail call void @g_free(ptr noundef %16)
   tail call void @g_free(ptr noundef %19)
-  br i1 %.not241, label %57, label %.thread252
+  br i1 %.not241, label %57, label %.thread251
 
 57:                                               ; preds = %55
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %9)
@@ -198,30 +198,30 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   %.0198 = phi ptr [ %95, %93 ], [ %26, %74 ]
   %97 = and i32 %76, 8
   %.not237 = icmp eq i32 %97, 0
-  br i1 %.not237, label %109, label %.preheader258
+  br i1 %.not237, label %109, label %.preheader257
 
-.preheader258:                                    ; preds = %96
+.preheader257:                                    ; preds = %96
   %98 = zext nneg i32 %.0204.ph to i64
   %99 = ptrtoint ptr %.0198 to i64
   %100 = sub i64 %99, %27
   %101 = icmp slt i64 %100, %98
   br i1 %101, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.preheader258, %103
-  %.4278 = phi ptr [ %104, %103 ], [ %.0198, %.preheader258 ]
-  %102 = load i8, ptr %.4278, align 1
+.lr.ph:                                           ; preds = %.preheader257, %103
+  %.4277 = phi ptr [ %104, %103 ], [ %.0198, %.preheader257 ]
+  %102 = load i8, ptr %.4277, align 1
   %.not238 = icmp eq i8 %102, 0
   br i1 %.not238, label %.critedge, label %103
 
 103:                                              ; preds = %.lr.ph
-  %104 = getelementptr i8, ptr %.4278, i64 1
+  %104 = getelementptr i8, ptr %.4277, i64 1
   %105 = ptrtoint ptr %104 to i64
   %106 = sub i64 %105, %27
   %107 = icmp slt i64 %106, %98
   br i1 %107, label %.lr.ph, label %.critedge, !llvm.loop !6
 
-.critedge:                                        ; preds = %.lr.ph, %103, %.preheader258
-  %.4.lcssa = phi ptr [ %.0198, %.preheader258 ], [ %104, %103 ], [ %.4278, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %103, %.preheader257
+  %.4.lcssa = phi ptr [ %.0198, %.preheader257 ], [ %104, %103 ], [ %.4277, %.lr.ph ]
   %108 = getelementptr i8, ptr %.4.lcssa, i64 1
   br label %109
 
@@ -229,30 +229,30 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   %.3 = phi ptr [ %108, %.critedge ], [ %.0198, %96 ]
   %110 = and i32 %76, 16
   %.not239 = icmp eq i32 %110, 0
-  %.pre304 = zext nneg i32 %.0204.ph to i64
+  %.pre303 = zext nneg i32 %.0204.ph to i64
   br i1 %.not239, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %109
   %111 = ptrtoint ptr %.3 to i64
   %112 = sub i64 %111, %27
-  %113 = icmp slt i64 %112, %.pre304
-  br i1 %113, label %.lr.ph282, label %.critedge13
+  %113 = icmp slt i64 %112, %.pre303
+  br i1 %113, label %.lr.ph281, label %.critedge13
 
-.lr.ph282:                                        ; preds = %.preheader, %115
-  %.6281 = phi ptr [ %116, %115 ], [ %.3, %.preheader ]
-  %114 = load i8, ptr %.6281, align 1
+.lr.ph281:                                        ; preds = %.preheader, %115
+  %.6280 = phi ptr [ %116, %115 ], [ %.3, %.preheader ]
+  %114 = load i8, ptr %.6280, align 1
   %.not240 = icmp eq i8 %114, 0
   br i1 %.not240, label %.critedge13, label %115
 
-115:                                              ; preds = %.lr.ph282
-  %116 = getelementptr i8, ptr %.6281, i64 1
+115:                                              ; preds = %.lr.ph281
+  %116 = getelementptr i8, ptr %.6280, i64 1
   %117 = ptrtoint ptr %116 to i64
   %118 = sub i64 %117, %27
-  %119 = icmp slt i64 %118, %.pre304
-  br i1 %119, label %.lr.ph282, label %.critedge13, !llvm.loop !8
+  %119 = icmp slt i64 %118, %.pre303
+  br i1 %119, label %.lr.ph281, label %.critedge13, !llvm.loop !8
 
-.critedge13:                                      ; preds = %.lr.ph282, %115, %.preheader
-  %.6.lcssa = phi ptr [ %.3, %.preheader ], [ %116, %115 ], [ %.6281, %.lr.ph282 ]
+.critedge13:                                      ; preds = %.lr.ph281, %115, %.preheader
+  %.6.lcssa = phi ptr [ %.3, %.preheader ], [ %116, %115 ], [ %.6280, %.lr.ph281 ]
   %120 = getelementptr i8, ptr %.6.lcssa, i64 1
   br label %._crit_edge
 
@@ -260,7 +260,7 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   %.5 = phi ptr [ %120, %.critedge13 ], [ %.3, %109 ]
   %121 = ptrtoint ptr %.5 to i64
   %122 = sub i64 %121, %27
-  %123 = icmp sgt i64 %122, %.pre304
+  %123 = icmp sgt i64 %122, %.pre303
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %._crit_edge
@@ -306,12 +306,12 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   %.not233 = icmp eq i32 %137, 0
   br i1 %.not233, label %.thread248.outer.outer, label %139
 
-.thread248.outer.outer:                           ; preds = %.preheader259, %134
-  %.0224.ph.ph = phi i32 [ 1, %.preheader259 ], [ %138, %134 ]
-  %.0222.ph.ph = phi i32 [ 15, %.preheader259 ], [ -15, %134 ]
-  %.0219.ph.ph = phi ptr [ %9, %.preheader259 ], [ %.0219.ph, %134 ]
-  %.0208.ph.ph = phi i32 [ 0, %.preheader259 ], [ %.0208, %134 ]
-  %.0204.ph.ph = phi i32 [ %2, %.preheader259 ], [ %.0204.ph, %134 ]
+.thread248.outer.outer:                           ; preds = %.preheader258, %134
+  %.0224.ph.ph = phi i32 [ 1, %.preheader258 ], [ %138, %134 ]
+  %.0222.ph.ph = phi i32 [ 15, %.preheader258 ], [ -15, %134 ]
+  %.0219.ph.ph = phi ptr [ %9, %.preheader258 ], [ %.0219.ph, %134 ]
+  %.0208.ph.ph = phi i32 [ 0, %.preheader258 ], [ %.0208, %134 ]
+  %.0204.ph.ph = phi i32 [ %2, %.preheader258 ], [ %.0204.ph, %134 ]
   br label %.thread248.outer
 
 139:                                              ; preds = %134
@@ -325,7 +325,7 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   %141 = tail call i32 @inflateEnd(ptr noundef %16)
   tail call void @g_free(ptr noundef %16)
   tail call void @g_free(ptr noundef %19)
-  br i1 %.not241, label %142, label %.thread252
+  br i1 %.not241, label %142, label %.thread251
 
 142:                                              ; preds = %140
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %9)
@@ -338,17 +338,17 @@ define noundef ptr @tvb_uncompress_zlib(ptr noundef %0, i32 noundef %1, i32 noun
   tail call void @g_free(ptr noundef %16)
   tail call void @g_free(ptr noundef %19)
   %.not242 = icmp eq ptr %.1214247, null
-  br i1 %.not242, label %146, label %.thread252
+  br i1 %.not242, label %146, label %.thread251
 
-.thread252:                                       ; preds = %140, %55, %.loopexit
-  %.2210257 = phi i32 [ %143, %.loopexit ], [ %.0208, %55 ], [ %.0208, %140 ]
-  %.3216256 = phi ptr [ %.1214247, %.loopexit ], [ %.0213, %55 ], [ %.0213, %140 ]
-  %145 = tail call ptr @tvb_new_real_data(ptr noundef nonnull %.3216256, i32 noundef %.2210257, i32 noundef %.2210257)
+.thread251:                                       ; preds = %140, %55, %.loopexit
+  %.2210256 = phi i32 [ %143, %.loopexit ], [ %.0208, %55 ], [ %.0208, %140 ]
+  %.3216255 = phi ptr [ %.1214247, %.loopexit ], [ %.0213, %55 ], [ %.0213, %140 ]
+  %145 = tail call ptr @tvb_new_real_data(ptr noundef nonnull %.3216255, i32 noundef %.2210256, i32 noundef %.2210256)
   tail call void @tvb_set_free_cb(ptr noundef %145, ptr noundef nonnull @g_free)
   br label %146
 
-146:                                              ; preds = %.thread252, %.loopexit
-  %.0227 = phi ptr [ %145, %.thread252 ], [ null, %.loopexit ]
+146:                                              ; preds = %.thread251, %.loopexit
+  %.0227 = phi ptr [ %145, %.thread251 ], [ null, %.loopexit ]
   tail call void @wmem_free(ptr noundef null, ptr noundef nonnull %9)
   br label %.critedge244
 

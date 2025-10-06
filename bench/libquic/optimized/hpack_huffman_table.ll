@@ -747,8 +747,8 @@ define void @_ZN3net17HpackHuffmanTable17BuildDecodeTablesERKSt6vectorINS_18Hpac
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !59, !noalias !60
   %37 = load ptr, ptr %1, align 8, !tbaa !59, !noalias !63
-  %.not110116 = icmp eq ptr %36, %37
-  br i1 %.not110116, label %.preheader, label %.lr.ph
+  %.not109115 = icmp eq ptr %36, %37
+  br i1 %.not109115, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -761,20 +761,20 @@ define void @_ZN3net17HpackHuffmanTable17BuildDecodeTablesERKSt6vectorINS_18Hpac
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !66
   %44 = load ptr, ptr %0, align 8, !tbaa !23
-  %.not122 = icmp eq ptr %43, %44
-  br i1 %.not122, label %._crit_edge, label %.lr.ph124
+  %.not121 = icmp eq ptr %43, %44
+  br i1 %.not121, label %._crit_edge, label %.lr.ph123
 
-.lr.ph124:                                        ; preds = %.preheader
+.lr.ph123:                                        ; preds = %.preheader
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %146
 
 47:                                               ; preds = %.lr.ph, %138
-  %.sroa.093.0117 = phi ptr [ %36, %.lr.ph ], [ %48, %138 ]
+  %.sroa.093.0116 = phi ptr [ %36, %.lr.ph ], [ %48, %138 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store i8 0, ptr %21, align 1, !tbaa !67
-  %48 = getelementptr inbounds i8, ptr %.sroa.093.0117, i64 -8
-  %49 = getelementptr inbounds i8, ptr %.sroa.093.0117, i64 -4
+  %48 = getelementptr inbounds i8, ptr %.sroa.093.0116, i64 -8
+  %49 = getelementptr inbounds i8, ptr %.sroa.093.0116, i64 -4
   br label %50
 
 50:                                               ; preds = %_ZN7logging11CheckNEImplIhhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread, %47
@@ -837,7 +837,7 @@ _ZN7logging11CheckLTImplIjmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 77:                                               ; preds = %67
   store i8 %75, ptr %39, align 1, !tbaa !8
-  %78 = getelementptr inbounds i8, ptr %.sroa.093.0117, i64 -2
+  %78 = getelementptr inbounds i8, ptr %.sroa.093.0116, i64 -2
   %79 = load i16, ptr %78, align 2, !tbaa !34
   store i16 %79, ptr %41, align 2, !tbaa !9
   %80 = load i8, ptr %21, align 1, !tbaa !67
@@ -1049,16 +1049,16 @@ _ZN7logging11CheckNEImplIhhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %145 = load ptr, ptr %1, align 8, !tbaa !59, !noalias !63
-  %.not110 = icmp eq ptr %48, %145
-  br i1 %.not110, label %.preheader, label %47, !llvm.loop !71
+  %.not109 = icmp eq ptr %48, %145
+  br i1 %.not109, label %.preheader, label %47, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %218, %.preheader
   ret void
 
-146:                                              ; preds = %.lr.ph124, %218
-  %147 = phi ptr [ %44, %.lr.ph124 ], [ %221, %218 ]
-  %.037123 = phi i64 [ 0, %.lr.ph124 ], [ %219, %218 ]
-  %148 = getelementptr inbounds nuw %"struct.net::HpackHuffmanTable::DecodeTable", ptr %147, i64 %.037123
+146:                                              ; preds = %.lr.ph123, %218
+  %147 = phi ptr [ %44, %.lr.ph123 ], [ %221, %218 ]
+  %.037122 = phi i64 [ 0, %.lr.ph123 ], [ %219, %218 ]
+  %148 = getelementptr inbounds nuw %"struct.net::HpackHuffmanTable::DecodeTable", ptr %147, i64 %.037122
   %149 = load i8, ptr %148, align 8, !tbaa !72
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 1
   %151 = load i8, ptr %150, align 1, !tbaa !10
@@ -1068,9 +1068,9 @@ _ZN7logging11CheckNEImplIhhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 154:                                              ; preds = %146, %.loopexit
   %155 = phi i8 [ %151, %146 ], [ %215, %.loopexit ]
-  %.038121 = phi i64 [ 0, %146 ], [ %.1, %.loopexit ]
+  %.038120 = phi i64 [ 0, %146 ], [ %.1, %.loopexit ]
   %156 = load i64, ptr %153, align 8, !tbaa !73
-  %157 = and i64 %.038121, 4294967295
+  %157 = and i64 %.038120, 4294967295
   %158 = load ptr, ptr %45, align 8, !tbaa !20
   %159 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %158, i64 %156
   %160 = getelementptr %"struct.net::HpackHuffmanTable::DecodeEntry", ptr %159, i64 %157
@@ -1086,7 +1086,7 @@ _ZN7logging11CheckNEImplIhhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %165 = zext nneg i8 %narrow to i64
   %166 = shl nuw i64 1, %165
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %167 = add i64 %166, %.038121
+  %167 = add i64 %166, %.038120
   store i64 %167, ptr %29, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %168 = zext nneg i8 %155 to i64
@@ -1098,28 +1098,28 @@ _ZN7logging11CheckNEImplIhhEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread: ; preds = %164
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %.lr.ph120.preheader
+  br label %.lr.ph119.preheader
 
 _ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit: ; preds = %164
   %170 = call noundef ptr @_ZN7logging17MakeCheckOpStringImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.6)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   %.not.i60 = icmp eq ptr %170, null
-  br i1 %.not.i60, label %.lr.ph120.preheader, label %171
+  br i1 %.not.i60, label %.lr.ph119.preheader, label %171
 
 171:                                              ; preds = %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @_ZN7logging10LogMessageC1EPKciPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(404) %31, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull %170)
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %31) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br label %.lr.ph120.preheader
+  br label %.lr.ph119.preheader
 
-.lr.ph120.preheader:                              ; preds = %171, %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
-  br label %.lr.ph120
+.lr.ph119.preheader:                              ; preds = %171, %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit, %_ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
+  br label %.lr.ph119
 
-.lr.ph120:                                        ; preds = %.lr.ph120.preheader, %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit70
-  %.0119 = phi i64 [ %212, %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit70 ], [ 1, %.lr.ph120.preheader ]
-  %172 = add i64 %.0119, %.038121
+.lr.ph119:                                        ; preds = %.lr.ph119.preheader, %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit70
+  %.0118 = phi i64 [ %212, %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit70 ], [ 1, %.lr.ph119.preheader ]
+  %172 = add i64 %.0118, %.038120
   %173 = trunc i64 %172 to i32
   %174 = load i64, ptr %153, align 8, !tbaa !73
   %175 = and i64 %172, 4294967295
@@ -1133,11 +1133,11 @@ _ZN7logging11CheckLEImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %181 = icmp eq i8 %180, 0
   br i1 %181, label %_ZN7logging11CheckEQImplIhiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit62.thread, label %_ZN7logging11CheckEQImplIhiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit62
 
-_ZN7logging11CheckEQImplIhiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit62.thread: ; preds = %.lr.ph120
+_ZN7logging11CheckEQImplIhiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit62.thread: ; preds = %.lr.ph119
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %184
 
-_ZN7logging11CheckEQImplIhiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit62: ; preds = %.lr.ph120
+_ZN7logging11CheckEQImplIhiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit62: ; preds = %.lr.ph119
   %182 = call noundef ptr @_ZN7logging17MakeCheckOpStringIhiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc(ptr noundef nonnull align 1 dereferenceable(1) %179, ptr noundef nonnull align 4 dereferenceable(4) %32, ptr noundef nonnull @.str.7)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %.not.i63 = icmp eq ptr %182, null
@@ -1225,12 +1225,12 @@ _ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.ex
   %211 = load i32, ptr %160, align 2
   store i32 %211, ptr %210, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %212 = add i64 %.0119, 1
+  %212 = add i64 %.0118, 1
   %.not44 = icmp eq i64 %212, %166
-  br i1 %.not44, label %.loopexit, label %.lr.ph120, !llvm.loop !74
+  br i1 %.not44, label %.loopexit, label %.lr.ph119, !llvm.loop !74
 
 213:                                              ; preds = %154
-  %214 = add i64 %.038121, 1
+  %214 = add i64 %.038120, 1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.exit70, %213
@@ -1242,7 +1242,7 @@ _ZN3net17HpackHuffmanTable8SetEntryERKNS0_11DecodeTableEjRKNS0_11DecodeEntryE.ex
   br i1 %.not42, label %218, label %154, !llvm.loop !75
 
 218:                                              ; preds = %.loopexit
-  %219 = add i64 %.037123, 1
+  %219 = add i64 %.037122, 1
   %220 = load ptr, ptr %42, align 8, !tbaa !66
   %221 = load ptr, ptr %0, align 8, !tbaa !23
   %222 = ptrtoint ptr %220 to i64

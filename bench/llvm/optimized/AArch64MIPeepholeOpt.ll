@@ -2183,17 +2183,17 @@ _ZNK4llvm12MachineInstr10isFullCopyEv.exit.i:     ; preds = %818
   %843 = zext i32 %842 to i64
   %.idx.i.i50.i = shl nuw nsw i64 %843, 3
   %844 = getelementptr inbounds nuw i8, ptr %841, i64 %.idx.i.i50.i
-  %.not36.i.i51.i = icmp eq i32 %842, 0
-  br i1 %.not36.i.i51.i, label %._crit_edge.i.i57.i, label %.lr.ph.i.i52.i
+  %.not34.i.i51.i = icmp eq i32 %842, 0
+  br i1 %.not34.i.i51.i, label %._crit_edge.i.i57.i, label %.lr.ph.i.i52.i
 
 .lr.ph.i.i52.i:                                   ; preds = %840, %.critedge.i.i55.i
-  %.02937.i.i53.i = phi ptr [ %846, %.critedge.i.i55.i ], [ %841, %840 ]
-  %845 = load ptr, ptr %.02937.i.i53.i, align 8, !tbaa !3, !noalias !263
+  %.02935.i.i53.i = phi ptr [ %846, %.critedge.i.i55.i ], [ %841, %840 ]
+  %845 = load ptr, ptr %.02935.i.i53.i, align 8, !tbaa !3, !noalias !263
   %.not17.i.i54.i = icmp eq ptr %845, %837
   br i1 %.not17.i.i54.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit62.i, label %.critedge.i.i55.i
 
 .critedge.i.i55.i:                                ; preds = %.lr.ph.i.i52.i
-  %846 = getelementptr inbounds nuw i8, ptr %.02937.i.i53.i, i64 8
+  %846 = getelementptr inbounds nuw i8, ptr %.02935.i.i53.i, i64 8
   %.not.i.i56.i = icmp eq ptr %846, %844
   br i1 %.not.i.i56.i, label %._crit_edge.i.i57.i, label %.lr.ph.i.i52.i, !llvm.loop !267
 
@@ -6743,17 +6743,17 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %.not36.i = icmp eq i32 %10, 0
-  br i1 %.not36.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not34.i = icmp eq i32 %10, 0
+  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %.critedge.i
-  %.02937.i = phi ptr [ %14, %.critedge.i ], [ %8, %7 ]
-  %13 = load ptr, ptr %.02937.i, align 8, !tbaa !3
+  %.02935.i = phi ptr [ %14, %.critedge.i ], [ %8, %7 ]
+  %13 = load ptr, ptr %.02935.i, align 8, !tbaa !3
   %.not17.i = icmp eq ptr %13, %2
   br i1 %.not17.i, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.02937.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.02935.i, i64 8
   %.not.i = icmp eq ptr %14, %12
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !267
 
@@ -6772,7 +6772,7 @@ define linkonce_odr hidden void @_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6
   br label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread
 
 _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.thread: ; preds = %.lr.ph.i, %18
-  %.sink18 = phi ptr [ %21, %18 ], [ %.02937.i, %.lr.ph.i ]
+  %.sink18 = phi ptr [ %21, %18 ], [ %.02935.i, %.lr.ph.i ]
   %.sink17 = phi i8 [ 1, %18 ], [ 0, %.lr.ph.i ]
   %.ph = phi ptr [ %20, %18 ], [ %8, %.lr.ph.i ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 12

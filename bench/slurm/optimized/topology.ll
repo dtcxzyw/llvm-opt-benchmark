@@ -414,9 +414,9 @@ define dso_local range(i32 -1, 1) i32 @topology_g_topology_unpack(ptr noundef wr
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 96), align 8
   %21 = call i32 %20(ptr noundef %6, ptr noundef %1, i16 noundef zeroext %2) #9
   %.not17 = icmp eq i32 %21, 0
-  br i1 %.not17, label %30, label %.thread21
+  br i1 %.not17, label %30, label %.thread20
 
-.thread21:                                        ; preds = %18
+.thread20:                                        ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %6, ptr %4, align 8
   br label %23
@@ -427,7 +427,7 @@ define dso_local range(i32 -1, 1) i32 @topology_g_topology_unpack(ptr noundef wr
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %topology_g_topology_free.exit, label %23
 
-23:                                               ; preds = %.thread21, %22
+23:                                               ; preds = %.thread20, %22
   %24 = load ptr, ptr %6, align 8
   %.not3.i = icmp eq ptr %24, null
   br i1 %.not3.i, label %28, label %25

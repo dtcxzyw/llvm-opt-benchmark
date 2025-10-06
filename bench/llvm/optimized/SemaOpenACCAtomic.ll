@@ -4009,12 +4009,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_120AtomicOperandChecker21GetBinaryO
   %12 = load i32, ptr %1, align 8
   %13 = lshr i32 %12, 19
   %14 = and i32 %13, 63
-  br label %.thread6.sink.split
+  br label %.thread5.sink.split
 
 15:                                               ; preds = %2
   %16 = and i16 %3, 511
   %17 = icmp eq i16 %16, 93
-  br i1 %17, label %18, label %.thread6
+  br i1 %17, label %18, label %.thread5
 
 18:                                               ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -4022,19 +4022,19 @@ define internal fastcc void @_ZN12_GLOBAL__N_120AtomicOperandChecker21GetBinaryO
   %21 = and i8 %20, 63
   %switch.tableidx = add nsw i8 %21, -5
   %22 = icmp ult i8 %switch.tableidx, 36
-  br i1 %22, label %switch.hole_check, label %.thread6
+  br i1 %22, label %switch.hole_check, label %.thread5
 
 switch.hole_check:                                ; preds = %18
   %switch.maskindex = zext nneg i8 %switch.tableidx to i64
   %switch.shifted = lshr i64 55834574079, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %.thread6
+  br i1 %switch.lobit, label %switch.lookup, label %.thread5
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i32, ptr %23, align 8, !tbaa !468
   %.not17 = icmp eq i32 %24, 2
-  br i1 %.not17, label %25, label %.thread6
+  br i1 %.not17, label %25, label %.thread5
 
 25:                                               ; preds = %switch.lookup
   %26 = zext nneg i8 %switch.tableidx to i64
@@ -4054,23 +4054,23 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !419
   %40 = tail call noundef ptr @_ZN5clang4Expr14IgnoreImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #16
-  br label %.thread6.sink.split
+  br label %.thread5.sink.split
 
-.thread6.sink.split:                              ; preds = %5, %25
-  %.sink10 = phi ptr [ %37, %25 ], [ %8, %5 ]
-  %.sink9 = phi ptr [ %40, %25 ], [ %11, %5 ]
+.thread5.sink.split:                              ; preds = %5, %25
+  %.sink8 = phi ptr [ %37, %25 ], [ %8, %5 ]
+  %.sink7 = phi ptr [ %40, %25 ], [ %11, %5 ]
   %.sroa.7.0.sink = phi i32 [ %switch.load, %25 ], [ %14, %5 ]
   store ptr %1, ptr %0, align 8, !tbaa !419
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink10, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !419
+  store ptr %.sink8, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !419
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink9, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !419
+  store ptr %.sink7, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !419
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %.sroa.7.0.sink, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !473
-  br label %.thread6
+  br label %.thread5
 
-.thread6:                                         ; preds = %switch.hole_check, %18, %.thread6.sink.split, %15, %switch.lookup
-  %.sink = phi i8 [ 0, %18 ], [ 0, %switch.lookup ], [ 0, %15 ], [ 1, %.thread6.sink.split ], [ 0, %switch.hole_check ]
+.thread5:                                         ; preds = %switch.hole_check, %18, %.thread5.sink.split, %15, %switch.lookup
+  %.sink = phi i8 [ 0, %18 ], [ 0, %switch.lookup ], [ 0, %15 ], [ 1, %.thread5.sink.split ], [ 0, %switch.hole_check ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i8 %.sink, ptr %41, align 8, !tbaa !50
   ret void
@@ -4102,13 +4102,13 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_120AtomicOperandCheck
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i8, ptr %17, align 16
   %19 = icmp ne i8 %18, 13
-  %.not.not27.i = icmp eq ptr %16, null
-  %.not.not.i = or i1 %.not.not27.i, %19
+  %.not.not24.i = icmp eq ptr %16, null
+  %.not.not.i = or i1 %.not.not24.i, %19
   br i1 %.not.not.i, label %20, label %_ZNK5clang4Type12isScalarTypeEv.exit
 
 20:                                               ; preds = %12
   %21 = icmp ne i8 %18, 46
-  %.not12.not.i = or i1 %.not.not27.i, %21
+  %.not12.not.i = or i1 %.not.not24.i, %21
   br i1 %.not12.not.i, label %30, label %22
 
 22:                                               ; preds = %20
@@ -4275,7 +4275,7 @@ select.unfold.i:                                  ; preds = %64, %63, %62, %61, 
   br i1 %.not19.i, label %67, label %164
 
 67:                                               ; preds = %select.unfold.i, %55, %51
-  %.sroa.6.09.i = phi i32 [ %.sroa.6.0.ph.i, %select.unfold.i ], [ 0, %51 ], [ 1, %55 ]
+  %.sroa.6.08.i = phi i32 [ %.sroa.6.0.ph.i, %select.unfold.i ], [ 0, %51 ], [ 1, %55 ]
   %68 = load i32, ptr %1, align 8, !noalias !477
   %69 = lshr i32 %68, 24
   %70 = zext nneg i32 %69 to i64
@@ -4290,7 +4290,7 @@ select.unfold.i:                                  ; preds = %64, %63, %62, %61, 
 
 _ZN12_GLOBAL__N_120AtomicOperandChecker20GetUnaryOperatorInfoEPKN5clang4ExprE.exit: ; preds = %67, %40
   %.sroa.4.0 = phi ptr [ %77, %67 ], [ %43, %40 ]
-  %.sroa.5.0 = phi i32 [ %.sroa.6.09.i, %67 ], [ %46, %40 ]
+  %.sroa.5.0 = phi i32 [ %.sroa.6.08.i, %67 ], [ %46, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %78 = icmp samesign ult i32 %.sroa.5.0, 4

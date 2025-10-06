@@ -156,7 +156,7 @@ define hidden i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28))
 12:                                               ; preds = %9
   %13 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %14 = icmp sgt i32 %13, -1
-  br i1 %14, label %.thread41.i, label %.thread113
+  br i1 %14, label %.thread41.i, label %.thread110
 
 15:                                               ; preds = %9
   %16 = load i32, ptr %5, align 4
@@ -179,7 +179,7 @@ define hidden i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28))
   store i32 %25, ptr %2, align 8
   %26 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %27 = icmp slt i32 %26, 0
-  br i1 %27, label %.thread113, label %.thread41.i
+  br i1 %27, label %.thread110, label %.thread41.i
 
 .thread41.i:                                      ; preds = %9, %12, %15, %19, %23, %1
   %.0.i = phi i32 [ 0, %1 ], [ 1, %23 ], [ 1, %19 ], [ 1, %15 ], [ 1, %12 ], [ 1, %9 ]
@@ -196,8 +196,8 @@ define hidden i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28))
   store i32 %32, ptr %7, align 8
   %34 = add i32 %32, -2
   %35 = load i32, ptr %4, align 8
-  %.not.i71 = icmp sgt i32 %34, %35
-  br i1 %.not.i71, label %36, label %94
+  %.not.i70 = icmp sgt i32 %34, %35
+  br i1 %.not.i70, label %36, label %94
 
 36:                                               ; preds = %30
   %37 = load ptr, ptr %0, align 8
@@ -231,8 +231,8 @@ define hidden i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28))
   store i32 %52, ptr %7, align 8
   %53 = add i32 %52, -2
   %54 = load i32, ptr %4, align 8
-  %.not.i73 = icmp sgt i32 %53, %54
-  br i1 %.not.i73, label %55, label %94
+  %.not.i72 = icmp sgt i32 %53, %54
+  br i1 %.not.i72, label %55, label %94
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %0, align 8
@@ -241,8 +241,8 @@ define hidden i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28))
   %59 = getelementptr inbounds i8, ptr %56, i64 %58
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
-  %.mask.i75 = and i32 %61, 224
-  %.not44.i = icmp eq i32 %.mask.i75, 128
+  %.mask.i74 = and i32 %61, 224
+  %.not44.i = icmp eq i32 %.mask.i74, 128
   br i1 %.not44.i, label %62, label %94
 
 62:                                               ; preds = %55
@@ -299,7 +299,7 @@ define hidden i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28))
 86:                                               ; preds = %82, %78, %74, %70
   %87 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %88 = icmp sgt i32 %87, -1
-  br i1 %88, label %94, label %.thread113
+  br i1 %88, label %94, label %.thread110
 
 89:                                               ; preds = %68
   %90 = tail call i32 @eq_s_b(ptr noundef nonnull %0, i32 noundef 9, ptr noundef nonnull @s_6) #2
@@ -309,7 +309,7 @@ define hidden i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28))
 91:                                               ; preds = %89
   %92 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %93 = icmp sgt i32 %92, -1
-  br i1 %93, label %94, label %.thread113
+  br i1 %93, label %94, label %.thread110
 
 94:                                               ; preds = %91, %86, %68, %82, %89, %66, %49, %55, %62, %47, %30, %36, %43
   %95 = load i32, ptr %5, align 4
@@ -317,8 +317,8 @@ define hidden i32 @nepali_UTF_8_stem(ptr noundef initializes((16, 20), (24, 28))
   store i32 %96, ptr %2, align 8
   store i32 %96, ptr %7, align 8
   %97 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_3, i32 noundef 91) #2
-  %.not.i76 = icmp eq i32 %97, 0
-  br i1 %.not.i76, label %.loopexit, label %r_remove_category_3.exit
+  %.not.i75 = icmp eq i32 %97, 0
+  br i1 %.not.i75, label %.loopexit, label %r_remove_category_3.exit
 
 r_remove_category_3.exit:                         ; preds = %94
   %98 = load i32, ptr %2, align 8
@@ -326,15 +326,15 @@ r_remove_category_3.exit:                         ; preds = %94
   %99 = tail call i32 @slice_del(ptr noundef nonnull %0) #2
   %100 = icmp slt i32 %99, 0
   %..4 = select i1 %100, i32 %99, i32 %.2
-  %cond128 = icmp sgt i32 %99, -1
-  br i1 %cond128, label %30, label %.thread113
+  %cond = icmp sgt i32 %99, -1
+  br i1 %cond, label %30, label %.thread110
 
 .loopexit:                                        ; preds = %94
   %101 = load i32, ptr %4, align 8
   store i32 %101, ptr %2, align 8
-  br label %.thread113
+  br label %.thread110
 
-.thread113:                                       ; preds = %91, %86, %r_remove_category_3.exit, %23, %12, %.loopexit
+.thread110:                                       ; preds = %91, %86, %r_remove_category_3.exit, %23, %12, %.loopexit
   %.1 = phi i32 [ 1, %.loopexit ], [ %26, %23 ], [ %13, %12 ], [ %..4, %r_remove_category_3.exit ], [ %87, %86 ], [ %92, %91 ]
   ret i32 %.1
 }

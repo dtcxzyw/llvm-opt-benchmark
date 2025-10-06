@@ -1295,21 +1295,21 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16: ; preds = %26
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.not4752 = icmp eq ptr %28, %29
-  br i1 %.not4752, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread, label %.lr.ph
+  %.not4651 = icmp eq ptr %28, %29
+  br i1 %.not4651, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16, %43
-  %.sroa.028.153 = phi ptr [ %34, %43 ], [ %28, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.028.153, i64 48
+  %.sroa.028.152 = phi ptr [ %34, %43 ], [ %28, %_ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.028.152, i64 48
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %31, align 8
   %33 = icmp eq i32 %32, %11
-  %34 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.028.153) #30
-  %.not48 = icmp eq ptr %34, %29
+  %34 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.028.152) #30
+  %.not47 = icmp eq ptr %34, %29
   br i1 %33, label %35, label %43
 
 35:                                               ; preds = %.lr.ph
-  br i1 %.not48, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread, label %36
+  br i1 %.not47, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread, label %36
 
 36:                                               ; preds = %35
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -1322,7 +1322,7 @@ _ZNK9QMultiMapId11WSCPSeqDataE10constBeginEv.exit16: ; preds = %26
   br label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread
 
 43:                                               ; preds = %.lr.ph
-  br i1 %.not48, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread, label %.lr.ph, !llvm.loop !11
+  br i1 %.not47, label %_ZNK9QMultiMapId11WSCPSeqDataE4sizeEv.exit.thread, label %.lr.ph, !llvm.loop !11
 
 .split:                                           ; preds = %26
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 16

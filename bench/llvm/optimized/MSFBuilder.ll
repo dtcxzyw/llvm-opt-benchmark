@@ -702,8 +702,8 @@ define dso_local void @_ZN4llvm3msf10MSFBuilder22setDirectoryBlocksHintENS_8Arra
   %7 = load ptr, ptr %6, align 8, !tbaa !77
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %9 = load ptr, ptr %8, align 8, !tbaa !77
-  %.not4143 = icmp eq ptr %7, %9
-  br i1 %.not4143, label %._crit_edge, label %.lr.ph
+  %.not3941 = icmp eq ptr %7, %9
+  br i1 %.not3941, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -713,17 +713,17 @@ define dso_local void @_ZN4llvm3msf10MSFBuilder22setDirectoryBlocksHintENS_8Arra
 ._crit_edge:                                      ; preds = %15, %4
   %.idx = shl nuw nsw i64 %3, 2
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %.not45 = icmp eq i64 %3, 0
-  br i1 %.not45, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i, label %.lr.ph48
+  %.not43 = icmp eq i64 %3, 0
+  br i1 %.not43, label %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i, label %.lr.ph46
 
-.lr.ph48:                                         ; preds = %._crit_edge
+.lr.ph46:                                         ; preds = %._crit_edge
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   br label %26
 
 15:                                               ; preds = %.lr.ph, %15
-  %.sroa.029.044 = phi ptr [ %7, %.lr.ph ], [ %25, %15 ]
-  %16 = load i32, ptr %.sroa.029.044, align 4, !tbaa !78
+  %.sroa.029.042 = phi ptr [ %7, %.lr.ph ], [ %25, %15 ]
+  %16 = load i32, ptr %.sroa.029.042, align 4, !tbaa !78
   %17 = lshr i32 %16, 6
   %18 = zext nneg i32 %17 to i64
   %19 = getelementptr inbounds nuw i64, ptr %11, i64 %18
@@ -733,13 +733,13 @@ define dso_local void @_ZN4llvm3msf10MSFBuilder22setDirectoryBlocksHintENS_8Arra
   %23 = load i64, ptr %19, align 8, !tbaa !36
   %24 = or i64 %22, %23
   store i64 %24, ptr %19, align 8, !tbaa !36
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.029.044, i64 4
-  %.not41 = icmp eq ptr %25, %9
-  br i1 %.not41, label %._crit_edge, label %15
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.029.042, i64 4
+  %.not39 = icmp eq ptr %25, %9
+  br i1 %.not39, label %._crit_edge, label %15
 
-26:                                               ; preds = %.lr.ph48, %36
-  %.046 = phi ptr [ %2, %.lr.ph48 ], [ %39, %36 ]
-  %27 = load i32, ptr %.046, align 4, !tbaa !78
+26:                                               ; preds = %.lr.ph46, %36
+  %.044 = phi ptr [ %2, %.lr.ph46 ], [ %39, %36 ]
+  %27 = load i32, ptr %.044, align 4, !tbaa !78
   %28 = and i32 %27, 63
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw i64 1, %29
@@ -748,16 +748,16 @@ define dso_local void @_ZN4llvm3msf10MSFBuilder22setDirectoryBlocksHintENS_8Arra
   %33 = getelementptr inbounds nuw i64, ptr %14, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !36
   %35 = and i64 %30, %34
-  %.not42 = icmp eq i64 %35, 0
-  br i1 %.not42, label %40, label %36
+  %.not40 = icmp eq i64 %35, 0
+  br i1 %.not40, label %40, label %36
 
 36:                                               ; preds = %26
   %37 = xor i64 %30, -1
   %38 = and i64 %34, %37
   store i64 %38, ptr %33, align 8, !tbaa !36
-  %39 = getelementptr inbounds nuw i8, ptr %.046, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.044, i64 4
   %.not = icmp eq ptr %39, %12
-  br i1 %.not, label %._crit_edge49, label %26
+  br i1 %.not, label %._crit_edge47, label %26
 
 40:                                               ; preds = %26
   %41 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21, !noalias !79
@@ -777,15 +777,15 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i: ; preds = %._crit_
   %45 = getelementptr inbounds nuw i8, ptr null, i64 %.idx
   br label %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit
 
-._crit_edge49:                                    ; preds = %36
+._crit_edge47:                                    ; preds = %36
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %.idx) #21, !noalias !84
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %46, ptr align 4 %2, i64 %.idx, i1 false), !noalias !84
   br label %_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit
 
-_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit:  ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i, %._crit_edge49
-  %.sroa.021.0 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i ], [ %46, %._crit_edge49 ]
-  %.sink.i = phi ptr [ %45, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i ], [ %47, %._crit_edge49 ]
+_ZNK4llvm8ArrayRefIjEcvSt6vectorIjSaIjEEEv.exit:  ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i, %._crit_edge47
+  %.sroa.021.0 = phi ptr [ null, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i ], [ %46, %._crit_edge47 ]
+  %.sink.i = phi ptr [ %45, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.thread.i.i.i ], [ %47, %._crit_edge47 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %49 = load ptr, ptr %48, align 8, !tbaa !58
   store ptr %.sroa.021.0, ptr %6, align 8, !tbaa !56

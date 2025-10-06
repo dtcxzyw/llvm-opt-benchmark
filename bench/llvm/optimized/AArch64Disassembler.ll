@@ -546,11 +546,11 @@ define dso_local noundef i32 @_ZNK4llvm19AArch64Disassembler14getInstructionERNS
   br i1 %215, label %216, label %thread-pre-split.i.i.i.i, !prof !30
 
 216:                                              ; preds = %211
-  %.not44.i.i.i.i = icmp eq i32 %.028.i.i.i.i, 63
+  %.not43.i.i.i.i = icmp eq i32 %.028.i.i.i.i, 63
   %.not.i.i.i.i = icmp samesign ugt i8 %213, 1
   %217 = icmp ne i8 %213, 0
-  %or.cond43.i.i.i.i = select i1 %.not44.i.i.i.i, i1 %.not.i.i.i.i, i1 %217
-  br i1 %or.cond43.i.i.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i, label %thread-pre-split.i.i.i.i
+  %or.cond42.i.i.i.i = select i1 %.not43.i.i.i.i, i1 %.not.i.i.i.i, i1 %217
+  br i1 %or.cond42.i.i.i.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i, label %thread-pre-split.i.i.i.i
 
 thread-pre-split.i.i.i.i:                         ; preds = %216, %211
   %218 = zext nneg i32 %.028.i.i.i.i to i64
@@ -598,11 +598,11 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit.i:  ; preds = %thread-pre-split.i.
   br i1 %245, label %246, label %thread-pre-split.i.i.i64.i, !prof !30
 
 246:                                              ; preds = %241
-  %.not44.i.i.i67.i = icmp eq i32 %.028.i.i.i62.i, 63
+  %.not43.i.i.i67.i = icmp eq i32 %.028.i.i.i62.i, 63
   %.not.i.i.i68.i = icmp samesign ugt i8 %243, 1
   %247 = icmp ne i8 %243, 0
-  %or.cond43.i.i.i69.i = select i1 %.not44.i.i.i67.i, i1 %.not.i.i.i68.i, i1 %247
-  br i1 %or.cond43.i.i.i69.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i, label %thread-pre-split.i.i.i64.i
+  %or.cond42.i.i.i69.i = select i1 %.not43.i.i.i67.i, i1 %.not.i.i.i68.i, i1 %247
+  br i1 %or.cond42.i.i.i69.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i, label %thread-pre-split.i.i.i64.i
 
 thread-pre-split.i.i.i64.i:                       ; preds = %246, %241
   %248 = zext nneg i32 %.028.i.i.i62.i to i64
@@ -656,11 +656,11 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit70.i: ; preds = %thread-pre-split.i
   br i1 %280, label %281, label %thread-pre-split.i.i.i75.i, !prof !30
 
 281:                                              ; preds = %276
-  %.not44.i.i.i78.i = icmp eq i32 %.028.i.i.i73.i, 63
+  %.not43.i.i.i78.i = icmp eq i32 %.028.i.i.i73.i, 63
   %.not.i.i.i79.i = icmp samesign ugt i8 %278, 1
   %282 = icmp ne i8 %278, 0
-  %or.cond43.i.i.i80.i = select i1 %.not44.i.i.i78.i, i1 %.not.i.i.i79.i, i1 %282
-  br i1 %or.cond43.i.i.i80.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i, label %thread-pre-split.i.i.i75.i
+  %or.cond42.i.i.i80.i = select i1 %.not43.i.i.i78.i, i1 %.not.i.i.i79.i, i1 %282
+  br i1 %or.cond42.i.i.i80.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i, label %thread-pre-split.i.i.i75.i
 
 thread-pre-split.i.i.i75.i:                       ; preds = %281, %276
   %283 = zext nneg i32 %.028.i.i.i73.i to i64
@@ -704,11 +704,11 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit81.i: ; preds = %thread-pre-split.i
   br i1 %308, label %309, label %thread-pre-split.i.i, !prof !30
 
 309:                                              ; preds = %304
-  %.not44.i.i = icmp eq i32 %.028.i.i, 63
+  %.not43.i.i = icmp eq i32 %.028.i.i, 63
   %.not.i.i = icmp samesign ugt i8 %306, 1
   %310 = icmp ne i8 %306, 0
-  %or.cond43.i.i = select i1 %.not44.i.i, i1 %.not.i.i, i1 %310
-  br i1 %or.cond43.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i, label %thread-pre-split.i.i
+  %or.cond42.i.i = select i1 %.not43.i.i, i1 %.not.i.i, i1 %310
+  br i1 %or.cond42.i.i, label %_ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i, label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %309, %304
   %311 = zext nneg i32 %.028.i.i to i64
@@ -762,11 +762,11 @@ _ZN4llvm13decodeULEB128EPKhPjS1_PPKc.exit.i:      ; preds = %thread-pre-split.i.
   br i1 %343, label %344, label %thread-pre-split.i.i.i88.i, !prof !30
 
 344:                                              ; preds = %339
-  %.not44.i.i.i91.i = icmp eq i32 %.028.i.i.i86.i, 63
+  %.not43.i.i.i91.i = icmp eq i32 %.028.i.i.i86.i, 63
   %.not.i.i.i92.i = icmp samesign ugt i8 %341, 1
   %345 = icmp ne i8 %341, 0
-  %or.cond43.i.i.i93.i = select i1 %.not44.i.i.i91.i, i1 %.not.i.i.i92.i, i1 %345
-  br i1 %or.cond43.i.i.i93.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.thread.i, label %thread-pre-split.i.i.i88.i
+  %or.cond42.i.i.i93.i = select i1 %.not43.i.i.i91.i, i1 %.not.i.i.i92.i, i1 %345
+  br i1 %or.cond42.i.i.i93.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.thread.i, label %thread-pre-split.i.i.i88.i
 
 _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit94.thread.i: ; preds = %344
   %346 = ptrtoint ptr %.027.i.i.i87.i to i64
@@ -1464,11 +1464,11 @@ _ZN4llvmL21checkDecoderPredicateEjRKNS_13FeatureBitsetE.exit.thread199.i: ; pred
   br i1 %560, label %561, label %thread-pre-split.i.i.i100.i, !prof !30
 
 561:                                              ; preds = %556
-  %.not44.i.i.i103.i = icmp eq i32 %.028.i.i.i98.i, 63
+  %.not43.i.i.i103.i = icmp eq i32 %.028.i.i.i98.i, 63
   %.not.i.i.i104.i = icmp samesign ugt i8 %558, 1
   %562 = icmp ne i8 %558, 0
-  %or.cond43.i.i.i105.i = select i1 %.not44.i.i.i103.i, i1 %.not.i.i.i104.i, i1 %562
-  br i1 %or.cond43.i.i.i105.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit106.i, label %thread-pre-split.i.i.i100.i
+  %or.cond42.i.i.i105.i = select i1 %.not43.i.i.i103.i, i1 %.not.i.i.i104.i, i1 %562
+  br i1 %or.cond42.i.i.i105.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit106.i, label %thread-pre-split.i.i.i100.i
 
 thread-pre-split.i.i.i100.i:                      ; preds = %561, %556
   %563 = zext nneg i32 %.028.i.i.i98.i to i64
@@ -1500,11 +1500,11 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit106.i: ; preds = %thread-pre-split.
   br i1 %578, label %579, label %thread-pre-split.i.i.i111.i, !prof !30
 
 579:                                              ; preds = %574
-  %.not44.i.i.i114.i = icmp eq i32 %.028.i.i.i109.i, 63
+  %.not43.i.i.i114.i = icmp eq i32 %.028.i.i.i109.i, 63
   %.not.i.i.i115.i = icmp samesign ugt i8 %576, 1
   %580 = icmp ne i8 %576, 0
-  %or.cond43.i.i.i116.i = select i1 %.not44.i.i.i114.i, i1 %.not.i.i.i115.i, i1 %580
-  br i1 %or.cond43.i.i.i116.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit117.i, label %thread-pre-split.i.i.i111.i
+  %or.cond42.i.i.i116.i = select i1 %.not43.i.i.i114.i, i1 %.not.i.i.i115.i, i1 %580
+  br i1 %or.cond42.i.i.i116.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit117.i, label %thread-pre-split.i.i.i111.i
 
 thread-pre-split.i.i.i111.i:                      ; preds = %579, %574
   %581 = zext nneg i32 %.028.i.i.i109.i to i64
@@ -1541,11 +1541,11 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit117.i: ; preds = %thread-pre-split.
   br i1 %596, label %597, label %thread-pre-split.i.i.i122.i, !prof !30
 
 597:                                              ; preds = %592
-  %.not44.i.i.i125.i = icmp eq i32 %.028.i.i.i120.i, 63
+  %.not43.i.i.i125.i = icmp eq i32 %.028.i.i.i120.i, 63
   %.not.i.i.i126.i = icmp samesign ugt i8 %594, 1
   %598 = icmp ne i8 %594, 0
-  %or.cond43.i.i.i127.i = select i1 %.not44.i.i.i125.i, i1 %.not.i.i.i126.i, i1 %598
-  br i1 %or.cond43.i.i.i127.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit128.i, label %thread-pre-split.i.i.i122.i
+  %or.cond42.i.i.i127.i = select i1 %.not43.i.i.i125.i, i1 %.not.i.i.i126.i, i1 %598
+  br i1 %or.cond42.i.i.i127.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit128.i, label %thread-pre-split.i.i.i122.i
 
 thread-pre-split.i.i.i122.i:                      ; preds = %597, %592
   %599 = zext nneg i32 %.028.i.i.i120.i to i64
@@ -1578,11 +1578,11 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit128.i: ; preds = %thread-pre-split.
   br i1 %615, label %616, label %thread-pre-split.i.i.i133.i, !prof !30
 
 616:                                              ; preds = %611
-  %.not44.i.i.i136.i = icmp eq i32 %.028.i.i.i131.i, 63
+  %.not43.i.i.i136.i = icmp eq i32 %.028.i.i.i131.i, 63
   %.not.i.i.i137.i = icmp samesign ugt i8 %613, 1
   %617 = icmp ne i8 %613, 0
-  %or.cond43.i.i.i138.i = select i1 %.not44.i.i.i136.i, i1 %.not.i.i.i137.i, i1 %617
-  br i1 %or.cond43.i.i.i138.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit139.i, label %thread-pre-split.i.i.i133.i
+  %or.cond42.i.i.i138.i = select i1 %.not43.i.i.i136.i, i1 %.not.i.i.i137.i, i1 %617
+  br i1 %or.cond42.i.i.i138.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit139.i, label %thread-pre-split.i.i.i133.i
 
 thread-pre-split.i.i.i133.i:                      ; preds = %616, %611
   %618 = zext nneg i32 %.028.i.i.i131.i to i64
@@ -1729,11 +1729,11 @@ _ZN4llvm6MCInstD2Ev.exit.i:                       ; preds = %675, %_ZN4llvm6MCIn
   br i1 %683, label %684, label %thread-pre-split.i.i.i145.i, !prof !30
 
 684:                                              ; preds = %679
-  %.not44.i.i.i148.i = icmp eq i32 %.028.i.i.i143.i, 63
+  %.not43.i.i.i148.i = icmp eq i32 %.028.i.i.i143.i, 63
   %.not.i.i.i149.i = icmp samesign ugt i8 %681, 1
   %685 = icmp ne i8 %681, 0
-  %or.cond43.i.i.i150.i = select i1 %.not44.i.i.i148.i, i1 %.not.i.i.i149.i, i1 %685
-  br i1 %or.cond43.i.i.i150.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit151.i, label %thread-pre-split.i.i.i145.i
+  %or.cond42.i.i.i150.i = select i1 %.not43.i.i.i148.i, i1 %.not.i.i.i149.i, i1 %685
+  br i1 %or.cond42.i.i.i150.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit151.i, label %thread-pre-split.i.i.i145.i
 
 thread-pre-split.i.i.i145.i:                      ; preds = %684, %679
   %686 = zext nneg i32 %.028.i.i.i143.i to i64
@@ -1765,11 +1765,11 @@ _ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit151.i: ; preds = %thread-pre-split.
   br i1 %701, label %702, label %thread-pre-split.i.i.i156.i, !prof !30
 
 702:                                              ; preds = %697
-  %.not44.i.i.i159.i = icmp eq i32 %.028.i.i.i154.i, 63
+  %.not43.i.i.i159.i = icmp eq i32 %.028.i.i.i154.i, 63
   %.not.i.i.i160.i = icmp samesign ugt i8 %699, 1
   %703 = icmp ne i8 %699, 0
-  %or.cond43.i.i.i161.i = select i1 %.not44.i.i.i159.i, i1 %.not.i.i.i160.i, i1 %703
-  br i1 %or.cond43.i.i.i161.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit162.i, label %thread-pre-split.i.i.i156.i
+  %or.cond42.i.i.i161.i = select i1 %.not43.i.i.i159.i, i1 %.not.i.i.i160.i, i1 %703
+  br i1 %or.cond42.i.i.i161.i, label %_ZN4llvm25decodeULEB128AndIncUnsafeERPKh.exit162.i, label %thread-pre-split.i.i.i156.i
 
 thread-pre-split.i.i.i156.i:                      ; preds = %702, %697
   %704 = zext nneg i32 %.028.i.i.i154.i to i64

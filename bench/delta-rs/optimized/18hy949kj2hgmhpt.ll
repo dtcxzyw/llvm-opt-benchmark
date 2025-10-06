@@ -220,11 +220,11 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %9 = load i64, ptr %5, align 8, !range !24, !alias.scope !25, !noalias !21, !noundef !7
   switch i64 %9, label %10 [
     i64 18, label %13
-    i64 17, label %.thread35
+    i64 17, label %.thread34
     i64 16, label %11
   ]
 
-.thread35:                                        ; preds = %8
+.thread34:                                        ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -261,7 +261,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   store i64 17, ptr %0, align 8
   br label %15
 
-.loopexit:                                        ; preds = %11, %.thread35
+.loopexit:                                        ; preds = %11, %.thread34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 0, ptr %6, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -307,11 +307,11 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %9 = load i64, ptr %5, align 8, !range !24, !alias.scope !41, !noalias !38, !noundef !7
   switch i64 %9, label %10 [
     i64 18, label %13
-    i64 17, label %.thread35
+    i64 17, label %.thread34
     i64 16, label %11
   ]
 
-.thread35:                                        ; preds = %8
+.thread34:                                        ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -348,7 +348,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   store i64 17, ptr %0, align 8
   br label %15
 
-.loopexit:                                        ; preds = %11, %.thread35
+.loopexit:                                        ; preds = %11, %.thread34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 0, ptr %6, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -394,11 +394,11 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   %9 = load i64, ptr %5, align 8, !range !24, !alias.scope !57, !noalias !54, !noundef !7
   switch i64 %9, label %10 [
     i64 18, label %13
-    i64 17, label %.thread35
+    i64 17, label %.thread34
     i64 16, label %11
   ]
 
-.thread35:                                        ; preds = %8
+.thread34:                                        ; preds = %8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -435,7 +435,7 @@ define hidden void @"_ZN120_$LT$futures_util..stream..try_stream..try_collect..T
   store i64 17, ptr %0, align 8
   br label %15
 
-.loopexit:                                        ; preds = %11, %.thread35
+.loopexit:                                        ; preds = %11, %.thread34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.53, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)
   store i64 0, ptr %6, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 120
@@ -3929,15 +3929,15 @@ _ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.
   %29 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h4ec8965564fc5d6cE.llvm.10399565284327844239(ptr noundef nonnull %0, i64 noundef %.0, i64 noundef %28, i8 noundef %1, i8 noundef %2)
   %30 = extractvalue { i64, i64 } %29, 0
   %31 = extractvalue { i64, i64 } %29, 1
-  %switch = icmp eq i64 %30, 0
-  br i1 %switch, label %_ZN4core3ops8function5FnMut8call_mut17h2277261309f8f8edE.exit, label %_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit
+  %32 = icmp eq i64 %30, 0
+  br i1 %32, label %_ZN4core3ops8function5FnMut8call_mut17h2277261309f8f8edE.exit, label %_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h2277261309f8f8edE.exit: ; preds = %_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit, %27
   %.sroa.3.0 = phi i64 [ %31, %27 ], [ 0, %_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit ]
   %.sroa.0.0 = phi i64 [ 0, %27 ], [ 1, %_ZN4core4sync6atomic11atomic_load17h6c9191c649739c7fE.llvm.10399565284327844239.exit ]
-  %32 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %33 = insertvalue { i64, i64 } %32, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %33
+  %33 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %34 = insertvalue { i64, i64 } %33, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %34
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

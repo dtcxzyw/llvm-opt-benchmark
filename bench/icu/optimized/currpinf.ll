@@ -1317,22 +1317,22 @@ thread-pre-split:                                 ; preds = %62, %68
   %.068 = phi ptr [ %.068.ph, %thread-pre-split ], [ %56, %57 ]
   %80 = load i32, ptr %8, align 4, !tbaa !23
   %81 = icmp sgt i32 %79, 0
-  br i1 %81, label %._crit_edge.thread250, label %.preheader147
+  br i1 %81, label %._crit_edge.thread249, label %.preheader146
 
-.preheader147:                                    ; preds = %78
+.preheader146:                                    ; preds = %78
   %82 = icmp sgt i32 %80, 0
   br i1 %82, label %.lr.ph.preheader, label %._crit_edge.thread
 
-.lr.ph.preheader:                                 ; preds = %.preheader147
+.lr.ph.preheader:                                 ; preds = %.preheader146
   %wide.trip.count = zext nneg i32 %80 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %91 ]
-  %.171187 = phi i8 [ 0, %.lr.ph.preheader ], [ %.272, %91 ]
-  %.174186 = phi i32 [ 0, %.lr.ph.preheader ], [ %.275, %91 ]
-  %.177185 = phi ptr [ null, %.lr.ph.preheader ], [ %.278, %91 ]
-  %.180184 = phi i32 [ %80, %.lr.ph.preheader ], [ %.281, %91 ]
+  %.171186 = phi i8 [ 0, %.lr.ph.preheader ], [ %.272, %91 ]
+  %.174185 = phi i32 [ 0, %.lr.ph.preheader ], [ %.275, %91 ]
+  %.177184 = phi ptr [ null, %.lr.ph.preheader ], [ %.278, %91 ]
+  %.180183 = phi i32 [ %80, %.lr.ph.preheader ], [ %.281, %91 ]
   %83 = getelementptr inbounds nuw i16, ptr %.068, i64 %indvars.iv
   %84 = load i16, ptr %83, align 2, !tbaa !44
   %85 = icmp eq i16 %84, 59
@@ -1346,10 +1346,10 @@ thread-pre-split:                                 ; preds = %62, %68
   br label %91
 
 91:                                               ; preds = %.lr.ph, %86
-  %.281 = phi i32 [ %88, %86 ], [ %.180184, %.lr.ph ]
-  %.278 = phi ptr [ %87, %86 ], [ %.177185, %.lr.ph ]
-  %.275 = phi i32 [ %90, %86 ], [ %.174186, %.lr.ph ]
-  %.272 = phi i8 [ 1, %86 ], [ %.171187, %.lr.ph ]
+  %.281 = phi i32 [ %88, %86 ], [ %.180183, %.lr.ph ]
+  %.278 = phi ptr [ %87, %86 ], [ %.177184, %.lr.ph ]
+  %.275 = phi i32 [ %90, %86 ], [ %.174185, %.lr.ph ]
+  %.272 = phi i8 [ 1, %86 ], [ %.171186, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !46
@@ -1358,19 +1358,19 @@ thread-pre-split:                                 ; preds = %62, %68
   %92 = icmp eq i8 %.272, 0
   br label %._crit_edge.thread
 
-._crit_edge.thread250:                            ; preds = %78
+._crit_edge.thread249:                            ; preds = %78
   %93 = icmp eq i32 %79, 7
   br i1 %93, label %94, label %248
 
-94:                                               ; preds = %._crit_edge.thread250
+94:                                               ; preds = %._crit_edge.thread249
   store i32 7, ptr %2, align 4, !tbaa !6
   br label %248
 
-._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader147
-  %.070249 = phi i1 [ %92, %._crit_edge ], [ true, %.preheader147 ]
-  %.073248 = phi i32 [ %.275, %._crit_edge ], [ 0, %.preheader147 ]
-  %.076247 = phi ptr [ %.278, %._crit_edge ], [ null, %.preheader147 ]
-  %.079246 = phi i32 [ %.281, %._crit_edge ], [ %80, %.preheader147 ]
+._crit_edge.thread:                               ; preds = %._crit_edge, %.preheader146
+  %.070248 = phi i1 [ %92, %._crit_edge ], [ true, %.preheader146 ]
+  %.073247 = phi i32 [ %.275, %._crit_edge ], [ 0, %.preheader146 ]
+  %.076246 = phi ptr [ %.278, %._crit_edge ], [ null, %.preheader146 ]
+  %.079245 = phi i32 [ %.281, %._crit_edge ], [ %80, %.preheader146 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %95 = load ptr, ptr %44, align 8, !tbaa !40
   %96 = invoke ptr @ures_open_77(ptr noundef nonnull @.str, ptr noundef %95, ptr noundef nonnull %5)
@@ -1418,10 +1418,10 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
 
 115:                                              ; preds = %110
   %.not96 = icmp eq ptr %114, null
-  %.pr146.pre = load i32, ptr %5, align 4, !tbaa !6
-  %116 = icmp sgt i32 %.pr146.pre, 0
-  %or.cond291 = select i1 %.not96, i1 true, i1 %116
-  br i1 %or.cond291, label %.critedge, label %117
+  %.pr145.pre = load i32, ptr %5, align 4, !tbaa !6
+  %116 = icmp sgt i32 %.pr145.pre, 0
+  %or.cond290 = select i1 %.not96, i1 true, i1 %116
+  br i1 %or.cond290, label %.critedge, label %117
 
 117:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1494,7 +1494,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
 
 146:                                              ; preds = %145
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  invoke void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %.068, i32 noundef %.079246)
+  invoke void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %.068, i32 noundef %.079245)
           to label %147 unwind label %182
 
 147:                                              ; preds = %146
@@ -1532,7 +1532,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
   %156 = load ptr, ptr %17, align 8, !tbaa !37
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %156) #12, !srcloc !36
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.070249, label %224, label %157
+  br i1 %.070248, label %224, label %157
 
 157:                                              ; preds = %154
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -1548,7 +1548,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit: ; pr
 
 160:                                              ; preds = %159
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  invoke void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef %.076247, i32 noundef %.073248)
+  invoke void @_ZN6icu_7713UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef %.076246, i32 noundef %.073247)
           to label %161 unwind label %203
 
 161:                                              ; preds = %160
@@ -1805,7 +1805,7 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit: ; preds = %235, %130
   br label %265
 
 .critedge:                                        ; preds = %115, %.thread143, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit
-  %239 = phi i32 [ %105, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ %storemerge, %.thread143 ], [ %.pr146.pre, %115 ]
+  %239 = phi i32 [ %105, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEEC2EPS1_R10UErrorCode.exit ], [ %storemerge, %.thread143 ], [ %.pr145.pre, %115 ]
   %240 = icmp eq i32 %239, 7
   br i1 %240, label %241, label %242
 
@@ -1832,8 +1832,8 @@ _ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127: ; preds = %242, %
   %.pre = load ptr, ptr %7, align 8, !tbaa !41
   br label %248
 
-248:                                              ; preds = %._crit_edge.thread250, %94, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127
-  %249 = phi ptr [ %48, %._crit_edge.thread250 ], [ %48, %94 ], [ %.pre, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127 ]
+248:                                              ; preds = %._crit_edge.thread249, %94, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127
+  %249 = phi ptr [ %48, %._crit_edge.thread249 ], [ %48, %94 ], [ %.pre, %_ZN6icu_7712LocalPointerINS_17StringEnumerationEED2Ev.exit127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.not.i = icmp eq ptr %249, null
   br i1 %.not.i, label %_ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED2Ev.exit, label %250

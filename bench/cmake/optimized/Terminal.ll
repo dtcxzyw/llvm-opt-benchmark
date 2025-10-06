@@ -111,30 +111,30 @@ define dso_local void @cmsysTerminal_cfprintf(i32 noundef %0, ptr noundef captur
 12:                                               ; preds = %.tail.i, %7, %3
   %13 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #9
   %.not37.i = icmp eq ptr %13, null
-  br i1 %.not37.i, label %.tail81.thread.i, label %sub_082.i
+  br i1 %.not37.i, label %.tail72.thread.i, label %sub_073.i
 
-sub_082.i:                                        ; preds = %12
+sub_073.i:                                        ; preds = %12
   %14 = load i8, ptr %13, align 1
-  %.not87.i = icmp eq i8 %14, 48
-  br i1 %.not87.i, label %.tail81.i, label %.tail81.thread.i
+  %.not78.i = icmp eq i8 %14, 48
+  br i1 %.not78.i, label %.tail72.i, label %.tail72.thread.i
 
-.tail81.i:                                        ; preds = %sub_082.i
+.tail72.i:                                        ; preds = %sub_073.i
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.critedge, label %.tail81.thread.i
+  br i1 %17, label %.critedge, label %.tail72.thread.i
 
-.tail81.thread.i:                                 ; preds = %.tail81.i, %sub_082.i, %12
+.tail72.thread.i:                                 ; preds = %.tail72.i, %sub_073.i, %12
   %18 = tail call ptr @getenv(ptr noundef nonnull @.str.3) #9
   %.not38.i = icmp eq ptr %18, null
   br i1 %.not38.i, label %21, label %19
 
-19:                                               ; preds = %.tail81.thread.i
+19:                                               ; preds = %.tail72.thread.i
   %20 = load i8, ptr %18, align 1, !tbaa !4
   %.not39.i = icmp eq i8 %20, 0
   br i1 %.not39.i, label %21, label %kwsysTerminalStreamIsVT100.exit.thread15
 
-21:                                               ; preds = %19, %.tail81.thread.i
+21:                                               ; preds = %19, %.tail72.thread.i
   %22 = tail call ptr @getenv(ptr noundef nonnull @.str.4) #9
   %.not40.i = icmp eq ptr %22, null
   br i1 %.not40.i, label %26, label %23
@@ -155,19 +155,19 @@ sub_082.i:                                        ; preds = %12
 
 .preheader.i:                                     ; preds = %27, %31
   %29 = phi ptr [ %33, %31 ], [ @.str.6, %27 ]
-  %.12485.i = phi ptr [ %32, %31 ], [ @kwsysTerminalVT100Names, %27 ]
+  %.12476.i = phi ptr [ %32, %31 ], [ @kwsysTerminalVT100Names, %27 ]
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %28, ptr noundef nonnull dereferenceable(1) %29) #10
   %.not44.i = icmp eq i32 %30, 0
   br i1 %.not44.i, label %.critedge.i, label %31
 
 31:                                               ; preds = %.preheader.i
-  %32 = getelementptr inbounds nuw i8, ptr %.12485.i, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.12476.i, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !7
   %.not43.i = icmp eq ptr %33, null
   br i1 %.not43.i, label %.critedge.i, label %.preheader.i, !llvm.loop !10
 
 .critedge.i:                                      ; preds = %31, %.preheader.i
-  %.124.lcssa.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @kwsysTerminalVT100Names, i64 448), %31 ], [ %.12485.i, %.preheader.i ]
+  %.124.lcssa.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @kwsysTerminalVT100Names, i64 448), %31 ], [ %.12476.i, %.preheader.i ]
   %34 = load ptr, ptr %.124.lcssa.i, align 8, !tbaa !7
   %.not46.not.i = icmp eq ptr %34, null
   br i1 %.not46.not.i, label %.critedge, label %kwsysTerminalStreamIsVT100.exit
@@ -188,7 +188,7 @@ kwsysTerminalStreamIsVT100.exit.thread15:         ; preds = %7, %19, %.tail.i, %
   %38 = call i64 @fwrite(ptr nonnull @.str.62, i64 4, i64 1, ptr %1)
   br label %40
 
-.critedge:                                        ; preds = %27, %23, %.tail81.i, %.critedge.i, %kwsysTerminalStreamIsVT100.exit
+.critedge:                                        ; preds = %27, %23, %.tail72.i, %.critedge.i, %kwsysTerminalStreamIsVT100.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.va_start.p0(ptr nonnull %4)
   %39 = call i32 @vfprintf(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4) #9

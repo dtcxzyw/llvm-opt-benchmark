@@ -110,30 +110,28 @@ define void @_ZN11GLLogStream11realTimeLogERK7QStringS2_S2_(ptr noundef nonnull 
   %7 = load ptr, ptr %2, align 8, !noalias !5
   store ptr %7, ptr %5, align 8, !alias.scope !5
   %8 = load atomic i32, ptr %7 monotonic, align 4, !noalias !5
-  switch i32 %8, label %9 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i
-  ]
+  %.off.i.i.i.i = add i32 %8, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %9, label %_ZN7QStringC2ERKS_.exit.i.i
 
 9:                                                ; preds = %4
   %10 = atomicrmw add ptr %7, i32 1 seq_cst, align 4, !noalias !5
   br label %_ZN7QStringC2ERKS_.exit.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %9, %4, %4
+_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %9, %4
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load ptr, ptr %3, align 8, !noalias !5
   store ptr %12, ptr %11, align 8, !alias.scope !5
   %13 = load atomic i32, ptr %12 monotonic, align 4, !noalias !5
-  switch i32 %13, label %14 [
-    i32 -1, label %_Z9qMakePairI7QStringS0_E5QPairIT_T0_ERKS2_RKS3_.exit
-    i32 0, label %_Z9qMakePairI7QStringS0_E5QPairIT_T0_ERKS2_RKS3_.exit
-  ]
+  %.off.i.i3.i.i = add i32 %13, -1
+  %switch.i.i4.i.i = icmp ult i32 %.off.i.i3.i.i, -2
+  br i1 %switch.i.i4.i.i, label %14, label %_Z9qMakePairI7QStringS0_E5QPairIT_T0_ERKS2_RKS3_.exit
 
 14:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   %15 = atomicrmw add ptr %12, i32 1 seq_cst, align 4, !noalias !5
   br label %_Z9qMakePairI7QStringS0_E5QPairIT_T0_ERKS2_RKS3_.exit
 
-_Z9qMakePairI7QStringS0_E5QPairIT_T0_ERKS2_RKS3_.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i, %_ZN7QStringC2ERKS_.exit.i.i, %14
+_Z9qMakePairI7QStringS0_E5QPairIT_T0_ERKS2_RKS3_.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i, %14
   %16 = invoke ptr @_ZN9QMultiMapI7QString5QPairIS0_S0_EE6insertERKS0_RKS2_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %17 unwind label %26
 
@@ -235,45 +233,42 @@ _ZN4QMapI7QString5QPairIS0_S0_EE6detachEv.exit:   ; preds = %3, %7
   %18 = load ptr, ptr %1, align 8
   store ptr %18, ptr %17, align 8
   %19 = load atomic i32, ptr %18 monotonic, align 4
-  switch i32 %19, label %20 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i
-  ]
+  %.off.i.i.i = add i32 %19, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %20, label %_ZN7QStringC2ERKS_.exit.i
 
 20:                                               ; preds = %14
   %21 = atomicrmw add ptr %18, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i
 
-_ZN7QStringC2ERKS_.exit.i:                        ; preds = %20, %14, %14
+_ZN7QStringC2ERKS_.exit.i:                        ; preds = %20, %14
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %23 = load ptr, ptr %2, align 8
   store ptr %23, ptr %22, align 8
   %24 = load atomic i32, ptr %23 monotonic, align 4
-  switch i32 %24, label %25 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i
-  ]
+  %.off.i.i.i.i = add i32 %24, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %25, label %_ZN7QStringC2ERKS_.exit.i.i
 
 25:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i
   %26 = atomicrmw add ptr %23, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %25, %_ZN7QStringC2ERKS_.exit.i, %_ZN7QStringC2ERKS_.exit.i
+_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %25, %_ZN7QStringC2ERKS_.exit.i
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %27, align 8
   %30 = load atomic i32, ptr %29 monotonic, align 4
-  switch i32 %30, label %31 [
-    i32 -1, label %_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-    i32 0, label %_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-  ]
+  %.off.i.i3.i.i = add i32 %30, -1
+  %switch.i.i4.i.i = icmp ult i32 %.off.i.i3.i.i, -2
+  br i1 %switch.i.i4.i.i, label %31, label %_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
 31:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   %32 = atomicrmw add ptr %29, i32 1 seq_cst, align 4
   br label %_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
-_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i, %_ZN7QStringC2ERKS_.exit.i.i, %31
+_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i, %31
   ret ptr %16
 }
 
@@ -412,45 +407,42 @@ define linkonce_odr noundef ptr @_ZNK8QMapNodeI7QString5QPairIS0_S0_EE4copyEP8QM
   %7 = load ptr, ptr %3, align 8
   store ptr %7, ptr %6, align 8
   %8 = load atomic i32, ptr %7 monotonic, align 4
-  switch i32 %8, label %9 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i
-  ]
+  %.off.i.i.i = add i32 %8, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %9, label %_ZN7QStringC2ERKS_.exit.i
 
 9:                                                ; preds = %2
   %10 = atomicrmw add ptr %7, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i
 
-_ZN7QStringC2ERKS_.exit.i:                        ; preds = %9, %2, %2
+_ZN7QStringC2ERKS_.exit.i:                        ; preds = %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %12 = load ptr, ptr %4, align 8
   store ptr %12, ptr %11, align 8
   %13 = load atomic i32, ptr %12 monotonic, align 4
-  switch i32 %13, label %14 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i
-  ]
+  %.off.i.i.i.i = add i32 %13, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %14, label %_ZN7QStringC2ERKS_.exit.i.i
 
 14:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i
   %15 = atomicrmw add ptr %12, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %14, %_ZN7QStringC2ERKS_.exit.i, %_ZN7QStringC2ERKS_.exit.i
+_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %14, %_ZN7QStringC2ERKS_.exit.i
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %16, align 8
   %19 = load atomic i32, ptr %18 monotonic, align 4
-  switch i32 %19, label %20 [
-    i32 -1, label %_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-    i32 0, label %_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
-  ]
+  %.off.i.i3.i.i = add i32 %19, -1
+  %switch.i.i4.i.i = icmp ult i32 %.off.i.i3.i.i, -2
+  br i1 %switch.i.i4.i.i, label %20, label %_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
 20:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i.i
   %21 = atomicrmw add ptr %18, i32 1 seq_cst, align 4
   br label %_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit
 
-_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i, %_ZN7QStringC2ERKS_.exit.i.i, %20
+_ZN8QMapDataI7QString5QPairIS0_S0_EE10createNodeERKS0_RKS2_P8QMapNodeIS0_S2_Eb.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i, %20
   %22 = load i64, ptr %0, align 8
   %23 = and i64 %22, 1
   %24 = load i64, ptr %5, align 8
@@ -911,16 +903,15 @@ define linkonce_odr void @_ZN5QListISt4pairIi7QStringEE9node_copyEPNS3_4NodeES5_
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   %12 = load atomic i32, ptr %11 monotonic, align 4
-  switch i32 %12, label %13 [
-    i32 -1, label %_ZNSt4pairIi7QStringEC2ERKS1_.exit
-    i32 0, label %_ZNSt4pairIi7QStringEC2ERKS1_.exit
-  ]
+  %.off.i.i.i = add i32 %12, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %13, label %_ZNSt4pairIi7QStringEC2ERKS1_.exit
 
 13:                                               ; preds = %6
   %14 = atomicrmw add ptr %11, i32 1 seq_cst, align 4
   br label %_ZNSt4pairIi7QStringEC2ERKS1_.exit
 
-_ZNSt4pairIi7QStringEC2ERKS1_.exit:               ; preds = %6, %6, %13
+_ZNSt4pairIi7QStringEC2ERKS1_.exit:               ; preds = %6, %13
   store ptr %5, ptr %.018, align 8
   %15 = getelementptr inbounds nuw i8, ptr %.018, i64 8
   %16 = getelementptr inbounds nuw i8, ptr %.01217, i64 8
@@ -1540,10 +1531,9 @@ define linkonce_odr void @_ZN5QListI7QStringE6appendERKS0_(ptr noundef nonnull a
   %9 = load ptr, ptr %1, align 8
   store ptr %9, ptr %8, align 8
   %10 = load atomic i32, ptr %9 monotonic, align 4
-  switch i32 %10, label %11 [
-    i32 -1, label %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit
-    i32 0, label %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit
-  ]
+  %.off.i.i.i = add i32 %10, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %11, label %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit
 
 11:                                               ; preds = %7
   %12 = atomicrmw add ptr %9, i32 1 seq_cst, align 4
@@ -1553,25 +1543,24 @@ define linkonce_odr void @_ZN5QListI7QStringE6appendERKS0_(ptr noundef nonnull a
   %14 = load ptr, ptr %1, align 8
   store ptr %14, ptr %3, align 8
   %15 = load atomic i32, ptr %14 monotonic, align 4
-  switch i32 %15, label %16 [
-    i32 -1, label %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit7
-    i32 0, label %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit7
-  ]
+  %.off.i.i.i7 = add i32 %15, -1
+  %switch.i.i.i8 = icmp ult i32 %.off.i.i.i7, -2
+  br i1 %switch.i.i.i8, label %16, label %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit9
 
 16:                                               ; preds = %13
   %17 = atomicrmw add ptr %14, i32 1 seq_cst, align 4
-  br label %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit7
+  br label %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit9
 
-_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit7: ; preds = %13, %13, %16
+_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit9: ; preds = %13, %16
   %18 = invoke noundef ptr @_ZN9QListData6appendEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %19 unwind label %21
 
-19:                                               ; preds = %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit7
+19:                                               ; preds = %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit9
   %20 = load i64, ptr %3, align 8
   store i64 %20, ptr %18, align 8
   br label %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit
 
-21:                                               ; preds = %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit7
+21:                                               ; preds = %_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit9
   %22 = landingpad { ptr, i32 }
           catch ptr null
   %23 = extractvalue { ptr, i32 } %22, 0
@@ -1586,7 +1575,7 @@ _ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit7: ; preds = %13, %13, 
   invoke void @__cxa_end_catch()
           to label %27 unwind label %28
 
-_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit: ; preds = %11, %7, %7, %19
+_ZN5QListI7QStringE14node_constructEPNS1_4NodeERKS0_.exit: ; preds = %11, %7, %19
   ret void
 
 27:                                               ; preds = %25
@@ -1633,16 +1622,15 @@ define linkonce_odr noundef ptr @_ZN5QListI7QStringE18detach_helper_growEii(ptr 
   %21 = load ptr, ptr %.079.i, align 8
   store ptr %21, ptr %.010.i, align 8
   %22 = load atomic i32, ptr %21 monotonic, align 4
-  switch i32 %22, label %23 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i
-  ]
+  %.off.i.i.i = add i32 %22, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %23, label %_ZN7QStringC2ERKS_.exit.i
 
 23:                                               ; preds = %.lr.ph.i
   %24 = atomicrmw add ptr %21, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i
 
-_ZN7QStringC2ERKS_.exit.i:                        ; preds = %23, %.lr.ph.i, %.lr.ph.i
+_ZN7QStringC2ERKS_.exit.i:                        ; preds = %23, %.lr.ph.i
   %25 = getelementptr inbounds nuw i8, ptr %.010.i, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %.079.i, i64 8
   %.not.i = icmp eq ptr %25, %20
@@ -1651,68 +1639,67 @@ _ZN7QStringC2ERKS_.exit.i:                        ; preds = %23, %.lr.ph.i, %.lr
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit: ; preds = %_ZN7QStringC2ERKS_.exit.i
   %.pre = load ptr, ptr %0, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre21 = load i32, ptr %.phi.trans.insert, align 8
-  %.pre22 = load i32, ptr %4, align 4
-  %.pre23 = sext i32 %.pre21 to i64
-  %27 = sext i32 %.pre22 to i64
+  %.pre23 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre24 = load i32, ptr %4, align 4
+  %.pre25 = sext i32 %.pre23 to i64
+  %27 = sext i32 %.pre24 to i64
   br label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
 
 _ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit: ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit, %3
-  %.pre-phi = phi i64 [ %.pre23, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %16, %3 ]
+  %.pre-phi = phi i64 [ %.pre25, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %16, %3 ]
   %28 = phi i64 [ %27, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ 0, %3 ]
   %29 = phi ptr [ %.pre, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit.loopexit ], [ %12, %3 ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = sext i32 %2 to i64
-  %.idx1620 = add nsw i64 %.pre-phi, %31
-  %32 = add nsw i64 %.idx1620, %28
+  %.idx1822 = add nsw i64 %.pre-phi, %31
+  %32 = add nsw i64 %.idx1822, %28
   %33 = shl nsw i64 %32, 3
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 12
   %35 = load i32, ptr %34, align 4
   %36 = sext i32 %35 to i64
-  %.idx19 = shl nsw i64 %36, 3
-  %37 = getelementptr inbounds i8, ptr %30, i64 %.idx19
-  %.not8.i6 = icmp eq i64 %33, %.idx19
-  br i1 %.not8.i6, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit12, label %.lr.ph.i7.preheader
+  %.idx21 = shl nsw i64 %36, 3
+  %37 = getelementptr inbounds i8, ptr %30, i64 %.idx21
+  %.not8.i6 = icmp eq i64 %33, %.idx21
+  br i1 %.not8.i6, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit14, label %.lr.ph.i7.preheader
 
 .lr.ph.i7.preheader:                              ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
   %38 = getelementptr inbounds %"struct.QList<QString>::Node", ptr %10, i64 %28
   %39 = getelementptr inbounds i8, ptr %30, i64 %33
   br label %.lr.ph.i7
 
-.lr.ph.i7:                                        ; preds = %.lr.ph.i7.preheader, %_ZN7QStringC2ERKS_.exit.i10
-  %.010.i8 = phi ptr [ %44, %_ZN7QStringC2ERKS_.exit.i10 ], [ %39, %.lr.ph.i7.preheader ]
-  %.079.i9 = phi ptr [ %45, %_ZN7QStringC2ERKS_.exit.i10 ], [ %38, %.lr.ph.i7.preheader ]
+.lr.ph.i7:                                        ; preds = %.lr.ph.i7.preheader, %_ZN7QStringC2ERKS_.exit.i12
+  %.010.i8 = phi ptr [ %44, %_ZN7QStringC2ERKS_.exit.i12 ], [ %39, %.lr.ph.i7.preheader ]
+  %.079.i9 = phi ptr [ %45, %_ZN7QStringC2ERKS_.exit.i12 ], [ %38, %.lr.ph.i7.preheader ]
   %40 = load ptr, ptr %.079.i9, align 8
   store ptr %40, ptr %.010.i8, align 8
   %41 = load atomic i32, ptr %40 monotonic, align 4
-  switch i32 %41, label %42 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i10
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i10
-  ]
+  %.off.i.i.i10 = add i32 %41, -1
+  %switch.i.i.i11 = icmp ult i32 %.off.i.i.i10, -2
+  br i1 %switch.i.i.i11, label %42, label %_ZN7QStringC2ERKS_.exit.i12
 
 42:                                               ; preds = %.lr.ph.i7
   %43 = atomicrmw add ptr %40, i32 1 seq_cst, align 4
-  br label %_ZN7QStringC2ERKS_.exit.i10
+  br label %_ZN7QStringC2ERKS_.exit.i12
 
-_ZN7QStringC2ERKS_.exit.i10:                      ; preds = %42, %.lr.ph.i7, %.lr.ph.i7
+_ZN7QStringC2ERKS_.exit.i12:                      ; preds = %42, %.lr.ph.i7
   %44 = getelementptr inbounds nuw i8, ptr %.010.i8, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %.079.i9, i64 8
-  %.not.i11 = icmp eq ptr %44, %37
-  br i1 %.not.i11, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit12, label %.lr.ph.i7, !llvm.loop !34
+  %.not.i13 = icmp eq ptr %44, %37
+  br i1 %.not.i13, label %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit14, label %.lr.ph.i7, !llvm.loop !34
 
-_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit12: ; preds = %_ZN7QStringC2ERKS_.exit.i10, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
+_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit14: ; preds = %_ZN7QStringC2ERKS_.exit.i12, %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit
   %46 = load atomic i32, ptr %11 monotonic, align 4
   switch i32 %46, label %_ZN9QtPrivate8RefCount5derefEv.exit [
-    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread14
+    i32 0, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
     i32 -1, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
   ]
 
-_ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit12
+_ZN9QtPrivate8RefCount5derefEv.exit:              ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit14
   %47 = atomicrmw sub ptr %11, i32 1 seq_cst, align 4
   %.not = icmp eq i32 %47, 1
-  br i1 %.not, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread14, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
+  br i1 %.not, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread16, label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread14:     ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit12, %_ZN9QtPrivate8RefCount5derefEv.exit
+_ZN9QtPrivate8RefCount5derefEv.exit.thread16:     ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit14, %_ZN9QtPrivate8RefCount5derefEv.exit
   %48 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %50 = load i32, ptr %49, align 8
@@ -1723,7 +1710,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread14:     ; preds = %_ZN5QListI7QStringE
   %.not4.i.i = icmp eq i32 %50, %54
   br i1 %.not4.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.preheader.i
 
-.lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread14
+.lr.ph.i.preheader.i:                             ; preds = %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds ptr, ptr %48, i64 %55
   br label %.lr.ph.i.i
@@ -1756,11 +1743,11 @@ _ZN7QStringD2Ev.exit.i.i:                         ; preds = %_ZN9QtPrivate8RefCo
   %.not.i.i = icmp eq ptr %52, %57
   br i1 %.not.i.i, label %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, label %.lr.ph.i.i, !llvm.loop !33
 
-_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit: ; preds = %_ZN7QStringD2Ev.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread14
+_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit: ; preds = %_ZN7QStringD2Ev.exit.i.i, %_ZN9QtPrivate8RefCount5derefEv.exit.thread16
   call void @_ZN9QListData7disposeEPNS_4DataE(ptr noundef nonnull %11)
   br label %_ZN9QtPrivate8RefCount5derefEv.exit.thread
 
-_ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit12, %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
+_ZN9QtPrivate8RefCount5derefEv.exit.thread:       ; preds = %_ZN5QListI7QStringE9node_copyEPNS1_4NodeES3_S3_.exit14, %_ZN5QListI7QStringE7deallocEPN9QListData4DataE.exit, %_ZN9QtPrivate8RefCount5derefEv.exit
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -1932,16 +1919,15 @@ _ZN7QStringC2EPKc.exit:                           ; preds = %3, %7
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %11, ptr %12, align 8, !alias.scope !35
   %13 = load atomic i32, ptr %11 monotonic, align 4, !noalias !35
-  switch i32 %13, label %14 [
-    i32 -1, label %_ZSt9make_pairIRiR7QStringESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit
-    i32 0, label %_ZSt9make_pairIRiR7QStringESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit
-  ]
+  %.off.i.i.i.i = add i32 %13, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %14, label %_ZSt9make_pairIRiR7QStringESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit
 
 14:                                               ; preds = %_ZN7QStringC2EPKc.exit
   %15 = atomicrmw add ptr %11, i32 1 seq_cst, align 4, !noalias !35
   br label %_ZSt9make_pairIRiR7QStringESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit
 
-_ZSt9make_pairIRiR7QStringESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit: ; preds = %14, %_ZN7QStringC2EPKc.exit, %_ZN7QStringC2EPKc.exit
+_ZSt9make_pairIRiR7QStringESt4pairINSt25__strip_reference_wrapperINSt5decayIT_E4typeEE6__typeENS4_INS5_IT0_E4typeEE6__typeEEOS6_OSB_.exit: ; preds = %14, %_ZN7QStringC2EPKc.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN5QListISt4pairIi7QStringEE6appendERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %_ZN5QListISt4pairIi7QStringEE9push_backERKS2_.exit unwind label %31
@@ -2052,16 +2038,15 @@ define linkonce_odr void @_ZN5QListISt4pairIi7QStringEE6appendERKS2_(ptr noundef
   %12 = load ptr, ptr %11, align 8
   store ptr %12, ptr %10, align 8
   %13 = load atomic i32, ptr %12 monotonic, align 4
-  switch i32 %13, label %14 [
-    i32 -1, label %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit
-    i32 0, label %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit
-  ]
+  %.off.i.i.i.i = add i32 %13, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %14, label %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit
 
 14:                                               ; preds = %.noexc
   %15 = atomicrmw add ptr %12, i32 1 seq_cst, align 4
   br label %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit
 
-_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit: ; preds = %.noexc, %.noexc, %14
+_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit: ; preds = %.noexc, %14
   store ptr %8, ptr %7, align 8
   br label %46
 
@@ -2087,9 +2072,9 @@ _ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit: ; preds = %
 26:                                               ; preds = %2
   %27 = tail call noundef ptr @_ZN9QListData6appendEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %28 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21
-          to label %.noexc10 unwind label %36
+          to label %.noexc12 unwind label %36
 
-.noexc10:                                         ; preds = %26
+.noexc12:                                         ; preds = %26
   %29 = load i32, ptr %1, align 8
   store i32 %29, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -2097,16 +2082,15 @@ _ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit: ; preds = %
   %32 = load ptr, ptr %31, align 8
   store ptr %32, ptr %30, align 8
   %33 = load atomic i32, ptr %32 monotonic, align 4
-  switch i32 %33, label %34 [
-    i32 -1, label %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit11
-    i32 0, label %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit11
-  ]
+  %.off.i.i.i.i10 = add i32 %33, -1
+  %switch.i.i.i.i11 = icmp ult i32 %.off.i.i.i.i10, -2
+  br i1 %switch.i.i.i.i11, label %34, label %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit13
 
-34:                                               ; preds = %.noexc10
+34:                                               ; preds = %.noexc12
   %35 = atomicrmw add ptr %32, i32 1 seq_cst, align 4
-  br label %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit11
+  br label %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit13
 
-_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit11: ; preds = %.noexc10, %.noexc10, %34
+_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit13: ; preds = %.noexc12, %34
   store ptr %28, ptr %27, align 8
   br label %46
 
@@ -2129,7 +2113,7 @@ _ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit11: ; preds =
   invoke void @__cxa_end_catch()
           to label %47 unwind label %48
 
-46:                                               ; preds = %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit11, %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit
+46:                                               ; preds = %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit13, %_ZN5QListISt4pairIi7QStringEE14node_constructEPNS3_4NodeERKS2_.exit
   ret void
 
 47:                                               ; preds = %44, %24

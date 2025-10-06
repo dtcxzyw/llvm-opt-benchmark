@@ -1490,8 +1490,8 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %16, %27, %32
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 7288
   %110 = load i32, ptr %109, align 8
   %111 = icmp ult i32 %110, %107
-  %or.cond77 = select i1 %108, i1 true, i1 %111
-  br i1 %or.cond77, label %.critedge, label %112
+  %or.cond76 = select i1 %108, i1 true, i1 %111
+  br i1 %or.cond76, label %.critedge, label %112
 
 112:                                              ; preds = %.thread.thread
   %113 = trunc i64 %105 to i32
@@ -1500,11 +1500,11 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %16, %27, %32
   %116 = icmp ugt i32 %115, %107
   %117 = and i32 %113, -16384
   %.not65 = icmp ne i32 %117, 83886080
-  %or.cond78.not92 = and i1 %.not65, %116
+  %or.cond77.not87 = and i1 %.not65, %116
   %118 = and i32 %113, 16128
   %119 = icmp samesign ult i32 %118, 1280
-  %or.cond80 = select i1 %or.cond78.not92, i1 true, i1 %119
-  br i1 %or.cond80, label %.critedge, label %120
+  %or.cond79 = select i1 %or.cond77.not87, i1 true, i1 %119
+  br i1 %or.cond79, label %.critedge, label %120
 
 120:                                              ; preds = %112
   %121 = load i64, ptr %10, align 8, !tbaa !52
@@ -1532,24 +1532,24 @@ _ZN6icu_779Collation10ceFromCE32Ej.exit:          ; preds = %16, %27, %32
 
 132:                                              ; preds = %129
   %133 = icmp ule i32 %115, %124
-  %or.cond.not94 = select i1 %125, i1 true, i1 %133
+  %or.cond.not89 = select i1 %125, i1 true, i1 %133
   %134 = and i32 %130, -16384
   %.not69 = icmp eq i32 %134, 83886080
-  %or.cond81 = or i1 %.not69, %or.cond.not94
+  %or.cond80 = or i1 %.not69, %or.cond.not89
   %135 = and i32 %130, 16128
   %136 = icmp samesign ugt i32 %135, 1279
-  %or.cond = select i1 %or.cond81, i1 %136, i1 false
+  %or.cond = select i1 %or.cond80, i1 %136, i1 false
   br i1 %or.cond, label %137, label %.critedge
 
 137:                                              ; preds = %132, %120
   %138 = or i64 %121, %105
   %139 = and i64 %138, 192
   %.not70 = icmp eq i64 %139, 0
-  %.74 = zext i1 %.not70 to i8
+  %.73 = zext i1 %.not70 to i8
   br label %.critedge
 
 .critedge:                                        ; preds = %69, %51, %132, %112, %.thread.thread, %127, %126, %129, %137, %36, %5, %101, %85
-  %.0 = phi i8 [ %104, %101 ], [ %86, %85 ], [ 0, %5 ], [ 0, %36 ], [ 0, %.thread.thread ], [ %.74, %137 ], [ 0, %129 ], [ 0, %126 ], [ 0, %127 ], [ 0, %112 ], [ 0, %132 ], [ 0, %51 ], [ 0, %69 ]
+  %.0 = phi i8 [ %104, %101 ], [ %86, %85 ], [ 0, %5 ], [ 0, %36 ], [ 0, %.thread.thread ], [ %.73, %137 ], [ 0, %129 ], [ 0, %126 ], [ 0, %127 ], [ 0, %112 ], [ 0, %132 ], [ 0, %51 ], [ 0, %69 ]
   ret i8 %.0
 }
 

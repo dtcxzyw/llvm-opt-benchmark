@@ -586,7 +586,7 @@ define internal fastcc void @MinimizeChangeRectangle(ptr noundef nonnull readonl
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %16 = load i32, ptr %15, align 4, !tbaa !47
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph, label %.loopexit131
+  br i1 %17, label %.lr.ph, label %.loopexit124
 
 .lr.ph:                                           ; preds = %5
   %18 = load i32, ptr %2, align 4, !tbaa !45
@@ -599,25 +599,25 @@ define internal fastcc void @MinimizeChangeRectangle(ptr noundef nonnull readonl
   br label %25
 
 25:                                               ; preds = %.lr.ph, %41
-  %.0139 = phi i32 [ %18, %.lr.ph ], [ %45, %41 ]
+  %.0132 = phi i32 [ %18, %.lr.ph ], [ %45, %41 ]
   %26 = load ptr, ptr %19, align 8, !tbaa !49
   %27 = load i32, ptr %20, align 4, !tbaa !46
   %28 = load i32, ptr %21, align 8, !tbaa !50
   %29 = mul nsw i32 %28, %27
-  %30 = add nsw i32 %29, %.0139
+  %30 = add nsw i32 %29, %.0132
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i32, ptr %26, i64 %31
   %33 = load ptr, ptr %22, align 8, !tbaa !49
   %34 = load i32, ptr %23, align 8, !tbaa !50
   %35 = mul nsw i32 %34, %27
-  %36 = add nsw i32 %35, %.0139
+  %36 = add nsw i32 %35, %.0132
   %37 = sext i32 %36 to i64
   %38 = getelementptr inbounds i32, ptr %33, i64 %37
   %39 = load i32, ptr %24, align 4, !tbaa !48
   %40 = tail call i32 %6(ptr noundef %32, i32 noundef %28, ptr noundef %38, i32 noundef %34, i32 noundef %39, i32 noundef %14) #14, !callees !60
   %.not104 = icmp eq i32 %40, 0
   %.pr = load i32, ptr %15, align 4, !tbaa !47
-  br i1 %.not104, label %.loopexit131, label %41
+  br i1 %.not104, label %.loopexit124, label %41
 
 41:                                               ; preds = %25
   %42 = add nsw i32 %.pr, -1
@@ -625,22 +625,22 @@ define internal fastcc void @MinimizeChangeRectangle(ptr noundef nonnull readonl
   %43 = load i32, ptr %2, align 4, !tbaa !45
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %2, align 4, !tbaa !45
-  %45 = add nsw i32 %.0139, 1
+  %45 = add nsw i32 %.0132, 1
   %46 = add i32 %.pr, %43
   %47 = icmp slt i32 %45, %46
-  br i1 %47, label %25, label %.loopexit131, !llvm.loop !61
+  br i1 %47, label %25, label %.loopexit124, !llvm.loop !61
 
-.loopexit131:                                     ; preds = %41, %25, %5
+.loopexit124:                                     ; preds = %41, %25, %5
   %48 = phi i32 [ %16, %5 ], [ %.pr, %25 ], [ %42, %41 ]
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %IsEmptyRect.exit, label %50
 
-50:                                               ; preds = %.loopexit131
+50:                                               ; preds = %.loopexit124
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not105.not142 = icmp sgt i32 %48, 0
-  br i1 %.not105.not142, label %.lr.ph144, label %.thread119.thread
+  %.not105.not135 = icmp sgt i32 %48, 0
+  br i1 %.not105.not135, label %.lr.ph137, label %.thread115.thread
 
-.lr.ph144:                                        ; preds = %50
+.lr.ph137:                                        ; preds = %50
   %52 = load i32, ptr %2, align 4, !tbaa !45
   %53 = add nsw i32 %52, %48
   %54 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -650,96 +650,96 @@ define internal fastcc void @MinimizeChangeRectangle(ptr noundef nonnull readonl
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 12
   br label %59
 
-59:                                               ; preds = %.lr.ph144, %75
-  %.1143.in = phi i32 [ %53, %.lr.ph144 ], [ %.1143, %75 ]
-  %.1143 = add nsw i32 %.1143.in, -1
+59:                                               ; preds = %.lr.ph137, %75
+  %.1136.in = phi i32 [ %53, %.lr.ph137 ], [ %.1136, %75 ]
+  %.1136 = add nsw i32 %.1136.in, -1
   %60 = load ptr, ptr %51, align 8, !tbaa !49
   %61 = load i32, ptr %54, align 4, !tbaa !46
   %62 = load i32, ptr %55, align 8, !tbaa !50
   %63 = mul nsw i32 %62, %61
-  %64 = add nsw i32 %63, %.1143
+  %64 = add nsw i32 %63, %.1136
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds i32, ptr %60, i64 %65
   %67 = load ptr, ptr %56, align 8, !tbaa !49
   %68 = load i32, ptr %57, align 8, !tbaa !50
   %69 = mul nsw i32 %68, %61
-  %70 = add nsw i32 %69, %.1143
+  %70 = add nsw i32 %69, %.1136
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i32, ptr %67, i64 %71
   %73 = load i32, ptr %58, align 4, !tbaa !48
   %74 = tail call i32 %6(ptr noundef %66, i32 noundef %62, ptr noundef %72, i32 noundef %68, i32 noundef %73, i32 noundef %14) #14, !callees !60
   %.not106 = icmp eq i32 %74, 0
   %.pre.pre = load i32, ptr %15, align 4, !tbaa !47
-  br i1 %.not106, label %.thread119, label %75
+  br i1 %.not106, label %.thread115, label %75
 
 75:                                               ; preds = %59
   %76 = add nsw i32 %.pre.pre, -1
   store i32 %76, ptr %15, align 4, !tbaa !47
   %77 = load i32, ptr %2, align 4, !tbaa !45
-  %.not105.not = icmp sgt i32 %.1143, %77
-  br i1 %.not105.not, label %59, label %.thread119, !llvm.loop !62
+  %.not105.not = icmp sgt i32 %.1136, %77
+  br i1 %.not105.not, label %59, label %.thread115, !llvm.loop !62
 
-.thread119:                                       ; preds = %75, %59
+.thread115:                                       ; preds = %75, %59
   %.pre = phi i32 [ %.pre.pre, %59 ], [ %76, %75 ]
   %78 = icmp eq i32 %.pre, 0
-  br i1 %78, label %IsEmptyRect.exit, label %.thread119.thread
+  br i1 %78, label %IsEmptyRect.exit, label %.thread115.thread
 
-.thread119.thread:                                ; preds = %50, %.thread119
+.thread115.thread:                                ; preds = %50, %.thread115
   %79 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %81 = load i32, ptr %80, align 4, !tbaa !48
   %82 = icmp sgt i32 %81, 0
-  br i1 %82, label %.lr.ph147, label %.loopexit
+  br i1 %82, label %.lr.ph140, label %.loopexit
 
-.lr.ph147:                                        ; preds = %.thread119.thread
+.lr.ph140:                                        ; preds = %.thread115.thread
   %83 = load i32, ptr %79, align 4, !tbaa !46
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %85 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %87
 
-87:                                               ; preds = %.lr.ph147, %103
-  %.098146 = phi i32 [ %83, %.lr.ph147 ], [ %107, %103 ]
+87:                                               ; preds = %.lr.ph140, %103
+  %.098139 = phi i32 [ %83, %.lr.ph140 ], [ %107, %103 ]
   %88 = load ptr, ptr %51, align 8, !tbaa !49
   %89 = load i32, ptr %84, align 8, !tbaa !50
-  %90 = mul nsw i32 %89, %.098146
+  %90 = mul nsw i32 %89, %.098139
   %91 = load i32, ptr %2, align 4, !tbaa !45
   %92 = add nsw i32 %90, %91
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i32, ptr %88, i64 %93
   %95 = load ptr, ptr %85, align 8, !tbaa !49
   %96 = load i32, ptr %86, align 8, !tbaa !50
-  %97 = mul nsw i32 %96, %.098146
+  %97 = mul nsw i32 %96, %.098139
   %98 = add nsw i32 %97, %91
   %99 = sext i32 %98 to i64
   %100 = getelementptr inbounds i32, ptr %95, i64 %99
   %101 = load i32, ptr %15, align 4, !tbaa !47
   %102 = tail call i32 %6(ptr noundef %94, i32 noundef 1, ptr noundef %100, i32 noundef 1, i32 noundef %101, i32 noundef %14) #14, !callees !60
   %.not107 = icmp eq i32 %102, 0
-  %.pr126 = load i32, ptr %80, align 4, !tbaa !48
+  %.pr120 = load i32, ptr %80, align 4, !tbaa !48
   br i1 %.not107, label %.loopexit, label %103
 
 103:                                              ; preds = %87
-  %104 = add nsw i32 %.pr126, -1
+  %104 = add nsw i32 %.pr120, -1
   store i32 %104, ptr %80, align 4, !tbaa !48
   %105 = load i32, ptr %79, align 4, !tbaa !46
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %79, align 4, !tbaa !46
-  %107 = add nsw i32 %.098146, 1
-  %108 = add i32 %.pr126, %105
+  %107 = add nsw i32 %.098139, 1
+  %108 = add i32 %.pr120, %105
   %109 = icmp slt i32 %107, %108
   br i1 %109, label %87, label %.loopexit, !llvm.loop !63
 
-.loopexit:                                        ; preds = %103, %87, %.thread119.thread
-  %110 = phi i32 [ %81, %.thread119.thread ], [ %.pr126, %87 ], [ %104, %103 ]
+.loopexit:                                        ; preds = %103, %87, %.thread115.thread
+  %110 = phi i32 [ %81, %.thread115.thread ], [ %.pr120, %87 ], [ %104, %103 ]
   %111 = icmp eq i32 %110, 0
   br i1 %111, label %IsEmptyRect.exit, label %112
 
 112:                                              ; preds = %.loopexit
-  %.not108.not151 = icmp sgt i32 %110, 0
-  br i1 %.not108.not151, label %.lr.ph153, label %.thread127.thread
+  %.not108.not144 = icmp sgt i32 %110, 0
+  br i1 %.not108.not144, label %.lr.ph146, label %.thread121.thread
 
-.lr.ph153:                                        ; preds = %112
+.lr.ph146:                                        ; preds = %112
   %113 = load i32, ptr %79, align 4, !tbaa !46
   %114 = add nsw i32 %113, %110
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -747,50 +747,50 @@ define internal fastcc void @MinimizeChangeRectangle(ptr noundef nonnull readonl
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 80
   br label %118
 
-118:                                              ; preds = %.lr.ph153, %134
-  %.199152.in = phi i32 [ %114, %.lr.ph153 ], [ %.199152, %134 ]
-  %.199152 = add nsw i32 %.199152.in, -1
+118:                                              ; preds = %.lr.ph146, %134
+  %.199145.in = phi i32 [ %114, %.lr.ph146 ], [ %.199145, %134 ]
+  %.199145 = add nsw i32 %.199145.in, -1
   %119 = load ptr, ptr %51, align 8, !tbaa !49
   %120 = load i32, ptr %115, align 8, !tbaa !50
-  %121 = mul nsw i32 %120, %.199152
+  %121 = mul nsw i32 %120, %.199145
   %122 = load i32, ptr %2, align 4, !tbaa !45
   %123 = add nsw i32 %121, %122
   %124 = sext i32 %123 to i64
   %125 = getelementptr inbounds i32, ptr %119, i64 %124
   %126 = load ptr, ptr %116, align 8, !tbaa !49
   %127 = load i32, ptr %117, align 8, !tbaa !50
-  %128 = mul nsw i32 %127, %.199152
+  %128 = mul nsw i32 %127, %.199145
   %129 = add nsw i32 %128, %122
   %130 = sext i32 %129 to i64
   %131 = getelementptr inbounds i32, ptr %126, i64 %130
   %132 = load i32, ptr %15, align 4, !tbaa !47
   %133 = tail call i32 %6(ptr noundef %125, i32 noundef 1, ptr noundef %131, i32 noundef 1, i32 noundef %132, i32 noundef %14) #14, !callees !60
   %.not109 = icmp eq i32 %133, 0
-  %.pre156.pre = load i32, ptr %80, align 4, !tbaa !48
-  br i1 %.not109, label %.thread127, label %134
+  %.pre149.pre = load i32, ptr %80, align 4, !tbaa !48
+  br i1 %.not109, label %.thread121, label %134
 
 134:                                              ; preds = %118
-  %135 = add nsw i32 %.pre156.pre, -1
+  %135 = add nsw i32 %.pre149.pre, -1
   store i32 %135, ptr %80, align 4, !tbaa !48
   %136 = load i32, ptr %79, align 4, !tbaa !46
-  %.not108.not = icmp sgt i32 %.199152, %136
-  br i1 %.not108.not, label %118, label %.thread127, !llvm.loop !64
+  %.not108.not = icmp sgt i32 %.199145, %136
+  br i1 %.not108.not, label %118, label %.thread121, !llvm.loop !64
 
-.thread127:                                       ; preds = %134, %118
-  %.pre156 = phi i32 [ %.pre156.pre, %118 ], [ %135, %134 ]
-  %137 = icmp eq i32 %.pre156, 0
-  br i1 %137, label %IsEmptyRect.exit, label %.thread127.thread
+.thread121:                                       ; preds = %134, %118
+  %.pre149 = phi i32 [ %.pre149.pre, %118 ], [ %135, %134 ]
+  %137 = icmp eq i32 %.pre149, 0
+  br i1 %137, label %IsEmptyRect.exit, label %.thread121.thread
 
-.thread127.thread:                                ; preds = %112, %.thread127
+.thread121.thread:                                ; preds = %112, %.thread121
   %138 = load i32, ptr %15, align 4, !tbaa !47
   %139 = icmp eq i32 %138, 0
   br i1 %139, label %IsEmptyRect.exit, label %IsEmptyRect.exit.thread
 
-IsEmptyRect.exit:                                 ; preds = %.thread127.thread, %.thread127, %.loopexit, %.thread119, %.loopexit131
+IsEmptyRect.exit:                                 ; preds = %.thread121.thread, %.thread121, %.loopexit, %.thread115, %.loopexit124
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   br label %IsEmptyRect.exit.thread
 
-IsEmptyRect.exit.thread:                          ; preds = %.thread127.thread, %IsEmptyRect.exit
+IsEmptyRect.exit.thread:                          ; preds = %.thread121.thread, %IsEmptyRect.exit
   ret void
 }
 
@@ -1352,8 +1352,8 @@ define internal fastcc range(i32 0, 2) i32 @FlushFrames(ptr noundef nonnull capt
   %2 = alloca %struct.EncodedFrame, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   %4 = load i64, ptr %3, align 8, !tbaa !84
-  %.not48 = icmp eq i64 %4, 0
-  br i1 %.not48, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not47 = icmp eq i64 %4, 0
+  br i1 %.not47, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1112
@@ -2061,7 +2061,7 @@ define internal fastcc i32 @SetFrame(ptr noundef nonnull initializes((68, 300)) 
   %16 = icmp ne i32 %15, 0
   %not..not = xor i1 %.not, true
   %. = select i1 %not..not, i1 true, i1 %16
-  %.128 = select i1 %.not, i1 true, i1 %16
+  %.127 = select i1 %.not, i1 true, i1 %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 1156
   %18 = load i32, ptr %17, align 4, !tbaa !43
   %.not63 = icmp eq i32 %18, 0
@@ -2090,8 +2090,8 @@ define internal fastcc i32 @SetFrame(ptr noundef nonnull initializes((68, 300)) 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %27 = load i32, ptr %1, align 4, !tbaa !74
   %.not66 = icmp eq i32 %27, 0
-  %.129 = select i1 %.not66, ptr %9, ptr %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(116) %26, ptr noundef nonnull align 4 dereferenceable(116) %.129, i64 116, i1 false)
+  %.128 = select i1 %.not66, ptr %9, ptr %10
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(116) %26, ptr noundef nonnull align 4 dereferenceable(116) %.128, i64 116, i1 false)
   store i32 0, ptr %4, align 4, !tbaa !16
   store i32 1, ptr %7, align 8, !tbaa !125
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -2139,12 +2139,12 @@ SubFrameParamsInit.exit91:                        ; preds = %33
   %47 = icmp eq i32 %46, 0
   %48 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %49 = load i32, ptr %48, align 4
-  %.not112 = icmp eq i32 %49, 0
-  %or.cond = select i1 %47, i1 true, i1 %.not112
+  %.not111 = icmp eq i32 %49, 0
+  %or.cond = select i1 %47, i1 true, i1 %.not111
   br i1 %or.cond, label %IsEmptyRect.exit.thread, label %50
 
 50:                                               ; preds = %44, %43
-  br i1 %.128, label %51, label %57
+  br i1 %.127, label %51, label %57
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 288
@@ -2152,9 +2152,9 @@ SubFrameParamsInit.exit91:                        ; preds = %33
   %54 = icmp eq i32 %53, 0
   %55 = getelementptr inbounds nuw i8, ptr %7, i64 292
   %56 = load i32, ptr %55, align 4
-  %.not113 = icmp eq i32 %56, 0
-  %or.cond116 = select i1 %54, i1 true, i1 %.not113
-  br i1 %or.cond116, label %IsEmptyRect.exit.thread, label %57
+  %.not112 = icmp eq i32 %56, 0
+  %or.cond115 = select i1 %54, i1 true, i1 %.not112
+  br i1 %or.cond115, label %IsEmptyRect.exit.thread, label %57
 
 IsEmptyRect.exit.thread:                          ; preds = %51, %44
   store i32 1, ptr %4, align 4, !tbaa !16
@@ -2220,9 +2220,9 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %92 = load i32, ptr %91, align 8, !tbaa !129
   %.not73 = icmp eq i32 %92, 0
-  br i1 %.not73, label %93, label %.thread101.thread106
+  br i1 %.not73, label %93, label %.thread101.thread105
 
-.thread101.thread106:                             ; preds = %90
+.thread101.thread105:                             ; preds = %90
   store i32 1, ptr %8, align 8, !tbaa !125
   store i32 1, ptr %7, align 8, !tbaa !125
   br label %109
@@ -2242,7 +2242,7 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   %.val82 = load i32, ptr %99, align 4, !tbaa !48
   %100 = mul i32 %.val82, %.val81
   %101 = icmp ult i32 %97, %100
-  br i1 %101, label %.thread109, label %.thread101
+  br i1 %101, label %.thread108, label %.thread101
 
 .critedge:                                        ; preds = %93
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 288
@@ -2256,9 +2256,9 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   %.val86 = load i32, ptr %106, align 4, !tbaa !48
   %107 = mul i32 %.val86, %.val85
   %108 = icmp ult i32 %104, %107
-  br i1 %108, label %.thread109, label %.thread101
+  br i1 %108, label %.thread108, label %.thread101
 
-.thread109:                                       ; preds = %.critedge, %94
+.thread108:                                       ; preds = %.critedge, %94
   store i32 1, ptr %8, align 8, !tbaa !125
   store i32 0, ptr %7, align 8, !tbaa !125
   br label %112
@@ -2268,20 +2268,20 @@ DisposeFrameRectangle.exit:                       ; preds = %.lr.ph.us.i.i.i, %5
   %.not74 = icmp eq i32 %.pr, 0
   br i1 %.not74, label %111, label %109
 
-109:                                              ; preds = %.thread101.thread106, %.thread101
+109:                                              ; preds = %.thread101.thread105, %.thread101
   %110 = call fastcc i32 @GenerateCandidates(ptr noundef %0, ptr noundef %6, i32 noundef 0, i32 noundef %13, i32 noundef %2, ptr noundef %7, ptr noundef %9, ptr noundef %10)
   %.not75 = icmp eq i32 %110, 0
   br i1 %.not75, label %111, label %168
 
 111:                                              ; preds = %109, %.thread101
-  %.pr108 = load i32, ptr %8, align 8, !tbaa !125
-  %.not76 = icmp eq i32 %.pr108, 0
+  %.pr107 = load i32, ptr %8, align 8, !tbaa !125
+  %.not76 = icmp eq i32 %.pr107, 0
   br i1 %.not76, label %.preheader, label %112
 
 .preheader:                                       ; preds = %112, %111
   br label %148
 
-112:                                              ; preds = %.thread109, %111
+112:                                              ; preds = %.thread108, %111
   %113 = call fastcc i32 @GenerateCandidates(ptr noundef %0, ptr noundef %6, i32 noundef 1, i32 noundef %13, i32 noundef %2, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   %.not77 = icmp eq i32 %113, 0
   br i1 %.not77, label %.preheader, label %168
@@ -2489,7 +2489,7 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %23 = tail call double @pow(double noundef %22, double noundef 5.000000e-01) #14, !tbaa !16
   %24 = load i32, ptr %11, align 4, !tbaa !47
   %25 = icmp sgt i32 %24, 0
-  br i1 %25, label %.lr.ph.i, label %.loopexit131.i
+  br i1 %25, label %.lr.ph.i, label %.loopexit124.i
 
 .lr.ph.i:                                         ; preds = %20
   %26 = load i32, ptr %7, align 4, !tbaa !45
@@ -2533,7 +2533,7 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %47 = load i32, ptr %.0811.i86.us, align 4, !tbaa !16
   %48 = load i32, ptr %.0910.i87.us, align 4, !tbaa !16
   %.not.i88.us = icmp eq i32 %47, %48
-  br i1 %.not.i88.us, label %49, label %.loopexit131.i
+  br i1 %.not.i88.us, label %49, label %.loopexit124.i
 
 49:                                               ; preds = %46
   %50 = add nsw i32 %.in.i85.us, -1
@@ -2551,7 +2551,7 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %56 = add i32 %45, %.pr.i125.us
   %57 = sext i32 %56 to i64
   %58 = icmp slt i64 %indvars.iv.next, %57
-  br i1 %58, label %.lr.ph.i84.us, label %.loopexit131.i, !llvm.loop !61
+  br i1 %58, label %.lr.ph.i84.us, label %.loopexit124.i, !llvm.loop !61
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i
   %59 = add i32 %24, %26
@@ -2560,26 +2560,26 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %61 = sub i32 %59, %smax
   store i32 %61, ptr %11, align 4, !tbaa !47
   store i32 %smax, ptr %7, align 4, !tbaa !45
-  br label %.loopexit131.i
+  br label %.loopexit124.i
 
-.loopexit131.i:                                   ; preds = %.loopexit159.us, %46, %.lr.ph.i.split, %20
+.loopexit124.i:                                   ; preds = %.loopexit159.us, %46, %.lr.ph.i.split, %20
   %.promoted171 = phi i32 [ %24, %20 ], [ %61, %.lr.ph.i.split ], [ %.pr.i125.us, %46 ], [ %54, %.loopexit159.us ]
   %62 = icmp eq i32 %.promoted171, 0
   br i1 %62, label %MinimizeChangeRectangle.exit.thread, label %63
 
-63:                                               ; preds = %.loopexit131.i
+63:                                               ; preds = %.loopexit124.i
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not105.not142.i = icmp sgt i32 %.promoted171, 0
+  %.not105.not135.i = icmp sgt i32 %.promoted171, 0
   %.pre = load i32, ptr %14, align 4, !tbaa !48
-  br i1 %.not105.not142.i, label %.lr.ph144.i, label %.thread119.thread.i
+  br i1 %.not105.not135.i, label %.lr.ph137.i, label %.thread115.thread.i
 
-.lr.ph144.i:                                      ; preds = %63
+.lr.ph137.i:                                      ; preds = %63
   %65 = load i32, ptr %7, align 4, !tbaa !45
   %66 = add i32 %65, %.promoted171
   %67 = icmp sgt i32 %.pre, 0
-  br i1 %67, label %.lr.ph144.i.split.us, label %.lr.ph144.i.split
+  br i1 %67, label %.lr.ph137.i.split.us, label %.lr.ph137.i.split
 
-.lr.ph144.i.split.us:                             ; preds = %.lr.ph144.i
+.lr.ph137.i.split.us:                             ; preds = %.lr.ph137.i
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2600,9 +2600,9 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %invariant.gep276 = getelementptr i32, ptr %75, i64 %82
   br label %.lr.ph.i77.us
 
-.lr.ph.i77.us:                                    ; preds = %.loopexit158.us, %.lr.ph144.i.split.us
-  %.pre.pre.i129.us = phi i32 [ %92, %.loopexit158.us ], [ %.promoted171, %.lr.ph144.i.split.us ]
-  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %.loopexit158.us ], [ %80, %.lr.ph144.i.split.us ]
+.lr.ph.i77.us:                                    ; preds = %.loopexit158.us, %.lr.ph137.i.split.us
+  %.pre.pre.i129.us = phi i32 [ %92, %.loopexit158.us ], [ %.promoted171, %.lr.ph137.i.split.us ]
+  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %.loopexit158.us ], [ %80, %.lr.ph137.i.split.us ]
   %indvars.iv.next195 = add nsw i64 %indvars.iv194, -1
   %gep275 = getelementptr i32, ptr %invariant.gep274, i64 %indvars.iv.next195
   %gep277 = getelementptr i32, ptr %invariant.gep276, i64 %indvars.iv.next195
@@ -2615,7 +2615,7 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %85 = load i32, ptr %.0811.i79.us, align 4, !tbaa !16
   %86 = load i32, ptr %.0910.i80.us, align 4, !tbaa !16
   %.not.i81.us = icmp eq i32 %85, %86
-  br i1 %.not.i81.us, label %87, label %.thread119.i
+  br i1 %.not.i81.us, label %87, label %.thread115.i
 
 87:                                               ; preds = %84
   %88 = add nsw i32 %.in.i78.us, -1
@@ -2628,26 +2628,26 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %92 = add nsw i32 %.pre.pre.i129.us, -1
   store i32 %92, ptr %11, align 4, !tbaa !47
   %.not105.not.i.us = icmp sgt i64 %indvars.iv.next195, %83
-  br i1 %.not105.not.i.us, label %.lr.ph.i77.us, label %.thread119.i, !llvm.loop !62
+  br i1 %.not105.not.i.us, label %.lr.ph.i77.us, label %.thread115.i, !llvm.loop !62
 
-.lr.ph144.i.split:                                ; preds = %.lr.ph144.i
+.lr.ph137.i.split:                                ; preds = %.lr.ph137.i
   %93 = add i32 %66, -1
   %smin = tail call i32 @llvm.smin.i32(i32 %65, i32 %93)
   %94 = sub i32 %smin, %65
   store i32 %94, ptr %11, align 4, !tbaa !47
-  br label %.thread119.i
+  br label %.thread115.i
 
-.thread119.i:                                     ; preds = %.loopexit158.us, %84, %.lr.ph144.i.split
-  %.pre.i = phi i32 [ %94, %.lr.ph144.i.split ], [ %.pre.pre.i129.us, %84 ], [ %92, %.loopexit158.us ]
+.thread115.i:                                     ; preds = %.loopexit158.us, %84, %.lr.ph137.i.split
+  %.pre.i = phi i32 [ %94, %.lr.ph137.i.split ], [ %.pre.pre.i129.us, %84 ], [ %92, %.loopexit158.us ]
   %95 = icmp eq i32 %.pre.i, 0
-  br i1 %95, label %MinimizeChangeRectangle.exit.thread, label %.thread119.thread.i
+  br i1 %95, label %MinimizeChangeRectangle.exit.thread, label %.thread115.thread.i
 
-.thread119.thread.i:                              ; preds = %.thread119.i, %63
-  %96 = phi i32 [ %.pre.i, %.thread119.i ], [ %.promoted171, %63 ]
+.thread115.thread.i:                              ; preds = %.thread115.i, %63
+  %96 = phi i32 [ %.pre.i, %.thread115.i ], [ %.promoted171, %63 ]
   %97 = icmp sgt i32 %.pre, 0
-  br i1 %97, label %.lr.ph147.i, label %.loopexit.i
+  br i1 %97, label %.lr.ph140.i, label %.loopexit.i
 
-.lr.ph147.i:                                      ; preds = %.thread119.thread.i
+.lr.ph140.i:                                      ; preds = %.thread115.thread.i
   %98 = load i32, ptr %8, align 4, !tbaa !46
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %100 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -2666,10 +2666,10 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %invariant.gep280 = getelementptr i32, ptr %102, i64 %110
   br label %112
 
-112:                                              ; preds = %.loopexit157, %.lr.ph147.i
-  %113 = phi i32 [ %124, %.loopexit157 ], [ %98, %.lr.ph147.i ]
-  %.pr126.i133 = phi i32 [ %123, %.loopexit157 ], [ %.pre, %.lr.ph147.i ]
-  %indvars.iv197 = phi i64 [ %indvars.iv.next198, %.loopexit157 ], [ %108, %.lr.ph147.i ]
+112:                                              ; preds = %.loopexit157, %.lr.ph140.i
+  %113 = phi i32 [ %124, %.loopexit157 ], [ %98, %.lr.ph140.i ]
+  %.pr120.i133 = phi i32 [ %123, %.loopexit157 ], [ %.pre, %.lr.ph140.i ]
+  %indvars.iv197 = phi i64 [ %indvars.iv.next198, %.loopexit157 ], [ %108, %.lr.ph140.i ]
   br i1 %107, label %.lr.ph.i70.preheader, label %.loopexit157
 
 .lr.ph.i70.preheader:                             ; preds = %112
@@ -2696,26 +2696,26 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   br i1 %122, label %.lr.ph.i70, label %.loopexit157, !llvm.loop !123
 
 .loopexit157:                                     ; preds = %118, %112
-  %123 = add nsw i32 %.pr126.i133, -1
+  %123 = add nsw i32 %.pr120.i133, -1
   store i32 %123, ptr %14, align 4, !tbaa !48
   %124 = add nsw i32 %113, 1
   store i32 %124, ptr %8, align 4, !tbaa !46
   %indvars.iv.next198 = add nsw i64 %indvars.iv197, 1
-  %125 = add i32 %113, %.pr126.i133
+  %125 = add i32 %113, %.pr120.i133
   %126 = sext i32 %125 to i64
   %127 = icmp slt i64 %indvars.iv.next198, %126
   br i1 %127, label %112, label %.loopexit.i, !llvm.loop !63
 
-.loopexit.i:                                      ; preds = %.loopexit157, %.lr.ph.i70, %.thread119.thread.i
-  %128 = phi i32 [ %.pre, %.thread119.thread.i ], [ %.pr126.i133, %.lr.ph.i70 ], [ %123, %.loopexit157 ]
+.loopexit.i:                                      ; preds = %.loopexit157, %.lr.ph.i70, %.thread115.thread.i
+  %128 = phi i32 [ %.pre, %.thread115.thread.i ], [ %.pr120.i133, %.lr.ph.i70 ], [ %123, %.loopexit157 ]
   %129 = icmp eq i32 %128, 0
   br i1 %129, label %MinimizeChangeRectangle.exit.thread, label %130
 
 130:                                              ; preds = %.loopexit.i
-  %.not108.not151.i = icmp sgt i32 %128, 0
-  br i1 %.not108.not151.i, label %.lr.ph153.i, label %MinimizeChangeRectangle.exit
+  %.not108.not144.i = icmp sgt i32 %128, 0
+  br i1 %.not108.not144.i, label %.lr.ph146.i, label %MinimizeChangeRectangle.exit
 
-.lr.ph153.i:                                      ; preds = %130
+.lr.ph146.i:                                      ; preds = %130
   %131 = load i32, ptr %8, align 4, !tbaa !46
   %132 = add i32 %131, %128
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2736,9 +2736,9 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %invariant.gep284 = getelementptr i32, ptr %136, i64 %144
   br label %147
 
-147:                                              ; preds = %.loopexit156, %.lr.ph153.i
-  %.pre156.pre.i137 = phi i32 [ %157, %.loopexit156 ], [ %128, %.lr.ph153.i ]
-  %indvars.iv200 = phi i64 [ %indvars.iv.next201, %.loopexit156 ], [ %142, %.lr.ph153.i ]
+147:                                              ; preds = %.loopexit156, %.lr.ph146.i
+  %.pre149.pre.i137 = phi i32 [ %157, %.loopexit156 ], [ %128, %.lr.ph146.i ]
+  %indvars.iv200 = phi i64 [ %indvars.iv.next201, %.loopexit156 ], [ %142, %.lr.ph146.i ]
   %indvars.iv.next201 = add nsw i64 %indvars.iv200, -1
   br i1 %141, label %.lr.ph.i67.preheader, label %.loopexit156
 
@@ -2756,7 +2756,7 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   %150 = load i32, ptr %.0811.i, align 4, !tbaa !16
   %151 = load i32, ptr %.0910.i, align 4, !tbaa !16
   %.not.i68 = icmp eq i32 %150, %151
-  br i1 %.not.i68, label %152, label %.thread127.i
+  br i1 %.not.i68, label %152, label %.thread121.i
 
 152:                                              ; preds = %.lr.ph.i67
   %153 = add nsw i32 %.in.i, -1
@@ -2766,23 +2766,23 @@ define internal fastcc i32 @GetSubRects(ptr noundef nonnull readonly captures(no
   br i1 %156, label %.lr.ph.i67, label %.loopexit156, !llvm.loop !123
 
 .loopexit156:                                     ; preds = %152, %147
-  %157 = add nsw i32 %.pre156.pre.i137, -1
+  %157 = add nsw i32 %.pre149.pre.i137, -1
   store i32 %157, ptr %14, align 4, !tbaa !48
   %.not108.not.i = icmp sgt i64 %indvars.iv.next201, %146
-  br i1 %.not108.not.i, label %147, label %.thread127.i, !llvm.loop !64
+  br i1 %.not108.not.i, label %147, label %.thread121.i, !llvm.loop !64
 
-.thread127.i:                                     ; preds = %.loopexit156, %.lr.ph.i67
-  %.pre156.i = phi i32 [ %.pre156.pre.i137, %.lr.ph.i67 ], [ %157, %.loopexit156 ]
-  %158 = icmp eq i32 %.pre156.i, 0
+.thread121.i:                                     ; preds = %.loopexit156, %.lr.ph.i67
+  %.pre149.i = phi i32 [ %.pre149.pre.i137, %.lr.ph.i67 ], [ %157, %.loopexit156 ]
+  %158 = icmp eq i32 %.pre149.i, 0
   br i1 %158, label %MinimizeChangeRectangle.exit.thread, label %MinimizeChangeRectangle.exit
 
-MinimizeChangeRectangle.exit.thread:              ; preds = %.loopexit131.i, %.thread119.i, %.loopexit.i, %.thread127.i
+MinimizeChangeRectangle.exit.thread:              ; preds = %.loopexit124.i, %.thread115.i, %.loopexit.i, %.thread121.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, i8 0, i64 16, i1 false)
   br label %IsEmptyRect.exit.thread.i
 
-MinimizeChangeRectangle.exit:                     ; preds = %130, %.thread127.i, %6
-  %159 = phi i32 [ %13, %6 ], [ %.pre156.i, %.thread127.i ], [ %128, %130 ]
-  %160 = phi i32 [ %10, %6 ], [ %96, %.thread127.i ], [ %96, %130 ]
+MinimizeChangeRectangle.exit:                     ; preds = %130, %.thread121.i, %6
+  %159 = phi i32 [ %13, %6 ], [ %.pre149.i, %.thread121.i ], [ %128, %130 ]
+  %160 = phi i32 [ %10, %6 ], [ %96, %.thread121.i ], [ %96, %130 ]
   %161 = icmp eq i32 %160, 0
   %.not.i = icmp eq i32 %159, 0
   %or.cond = select i1 %161, i1 true, i1 %.not.i
@@ -2834,7 +2834,7 @@ GetSubRect.exit.thread.MinimizeChangeRectangle.exit65_crit_edge: ; preds = %GetS
   %184 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %185 = load i32, ptr %184, align 4, !tbaa !47
   %186 = icmp sgt i32 %185, 0
-  br i1 %186, label %.lr.ph.i61, label %.loopexit131.i33
+  br i1 %186, label %.lr.ph.i61, label %.loopexit124.i33
 
 .lr.ph.i61:                                       ; preds = %176
   %187 = load i32, ptr %173, align 4, !tbaa !45
@@ -2852,7 +2852,7 @@ GetSubRect.exit.thread.MinimizeChangeRectangle.exit65_crit_edge: ; preds = %GetS
 197:                                              ; preds = %.loopexit155, %.lr.ph.i61
   %198 = phi i32 [ %187, %.lr.ph.i61 ], [ %247, %.loopexit155 ]
   %.pr.i64143 = phi i32 [ %185, %.lr.ph.i61 ], [ %246, %.loopexit155 ]
-  %.0139.i62 = phi i32 [ %187, %.lr.ph.i61 ], [ %248, %.loopexit155 ]
+  %.0132.i62 = phi i32 [ %187, %.lr.ph.i61 ], [ %248, %.loopexit155 ]
   br i1 %195, label %.lr.ph.i114, label %.loopexit155
 
 .lr.ph.i114:                                      ; preds = %197
@@ -2860,13 +2860,13 @@ GetSubRect.exit.thread.MinimizeChangeRectangle.exit65_crit_edge: ; preds = %GetS
   %200 = load i32, ptr %192, align 8, !tbaa !50
   %201 = load i32, ptr %189, align 4, !tbaa !46
   %202 = mul nsw i32 %201, %200
-  %203 = add nsw i32 %202, %.0139.i62
+  %203 = add nsw i32 %202, %.0132.i62
   %204 = sext i32 %203 to i64
   %205 = getelementptr inbounds i32, ptr %199, i64 %204
   %206 = load ptr, ptr %188, align 8, !tbaa !49
   %207 = load i32, ptr %190, align 8, !tbaa !50
   %208 = mul nsw i32 %207, %201
-  %209 = add nsw i32 %208, %.0139.i62
+  %209 = add nsw i32 %208, %.0132.i62
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i32, ptr %206, i64 %210
   %212 = sext i32 %207 to i64
@@ -2889,7 +2889,7 @@ GetSubRect.exit.thread.MinimizeChangeRectangle.exit65_crit_edge: ; preds = %GetS
   %224 = and i32 %223, 255
   %225 = and i32 %217, 255
   %226 = icmp eq i32 %218, %222
-  br i1 %226, label %227, label %.loopexit131.i33
+  br i1 %226, label %227, label %.loopexit124.i33
 
 227:                                              ; preds = %214
   %228 = lshr i32 %217, 16
@@ -2900,21 +2900,21 @@ GetSubRect.exit.thread.MinimizeChangeRectangle.exit65_crit_edge: ; preds = %GetS
   %233 = tail call i32 @llvm.abs.i32(i32 %232, i1 true)
   %234 = mul nuw nsw i32 %233, %218
   %.not.i.i118 = icmp sgt i32 %234, %196
-  br i1 %.not.i.i118, label %.loopexit131.i33, label %235
+  br i1 %.not.i.i118, label %.loopexit124.i33, label %235
 
 235:                                              ; preds = %227
   %236 = sub nsw i32 %220, %224
   %237 = tail call i32 @llvm.abs.i32(i32 %236, i1 true)
   %238 = mul nuw nsw i32 %237, %218
   %.not23.i.i119 = icmp samesign ugt i32 %238, %196
-  br i1 %.not23.i.i119, label %.loopexit131.i33, label %PixelsAreSimilar.exit.i120
+  br i1 %.not23.i.i119, label %.loopexit124.i33, label %PixelsAreSimilar.exit.i120
 
 PixelsAreSimilar.exit.i120:                       ; preds = %235
   %239 = sub nsw i32 %221, %225
   %240 = tail call i32 @llvm.abs.i32(i32 %239, i1 true)
   %241 = mul nuw nsw i32 %240, %218
   %.not12.i121 = icmp samesign ugt i32 %241, %196
-  br i1 %.not12.i121, label %.loopexit131.i33, label %242
+  br i1 %.not12.i121, label %.loopexit124.i33, label %242
 
 242:                                              ; preds = %PixelsAreSimilar.exit.i120
   %243 = getelementptr inbounds i32, ptr %.0914.i116, i64 %212
@@ -2927,36 +2927,36 @@ PixelsAreSimilar.exit.i120:                       ; preds = %235
   store i32 %246, ptr %184, align 4, !tbaa !47
   %247 = add nsw i32 %198, 1
   store i32 %247, ptr %173, align 4, !tbaa !45
-  %248 = add nsw i32 %.0139.i62, 1
+  %248 = add nsw i32 %.0132.i62, 1
   %249 = add i32 %198, %.pr.i64143
   %250 = icmp slt i32 %248, %249
-  br i1 %250, label %197, label %.loopexit131.i33, !llvm.loop !61
+  br i1 %250, label %197, label %.loopexit124.i33, !llvm.loop !61
 
-.loopexit131.i33:                                 ; preds = %.loopexit155, %PixelsAreSimilar.exit.i120, %235, %227, %214, %176
+.loopexit124.i33:                                 ; preds = %.loopexit155, %PixelsAreSimilar.exit.i120, %235, %227, %214, %176
   %.promoted174 = phi i32 [ %185, %176 ], [ %.pr.i64143, %214 ], [ %.pr.i64143, %227 ], [ %.pr.i64143, %235 ], [ %.pr.i64143, %PixelsAreSimilar.exit.i120 ], [ %246, %.loopexit155 ]
   %251 = icmp eq i32 %.promoted174, 0
   br i1 %251, label %MinimizeChangeRectangle.exit65.thread, label %252
 
-252:                                              ; preds = %.loopexit131.i33
+252:                                              ; preds = %.loopexit124.i33
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not105.not142.i34 = icmp sgt i32 %.promoted174, 0
-  br i1 %.not105.not142.i34, label %.lr.ph144.i53, label %..thread119.thread.i35_crit_edge
+  %.not105.not135.i34 = icmp sgt i32 %.promoted174, 0
+  br i1 %.not105.not135.i34, label %.lr.ph137.i53, label %..thread115.thread.i35_crit_edge
 
-..thread119.thread.i35_crit_edge:                 ; preds = %252
+..thread115.thread.i35_crit_edge:                 ; preds = %252
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %5, i64 292
   %.pre217 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !48
-  br label %.thread119.thread.i35
+  br label %.thread115.thread.i35
 
-.lr.ph144.i53:                                    ; preds = %252
+.lr.ph137.i53:                                    ; preds = %252
   %254 = load i32, ptr %173, align 4, !tbaa !45
   %255 = add i32 %254, %.promoted174
   %256 = getelementptr inbounds nuw i8, ptr %5, i64 292
   %257 = load i32, ptr %256, align 4, !tbaa !48
   %258 = icmp sgt i32 %257, 0
   %259 = mul nsw i32 %183, 255
-  br i1 %258, label %.lr.ph144.i53.split.us, label %.lr.ph144.i53.split
+  br i1 %258, label %.lr.ph137.i53.split.us, label %.lr.ph137.i53.split
 
-.lr.ph144.i53.split.us:                           ; preds = %.lr.ph144.i53
+.lr.ph137.i53.split.us:                           ; preds = %.lr.ph137.i53
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %261 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %262 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2978,9 +2978,9 @@ PixelsAreSimilar.exit.i120:                       ; preds = %235
   %invariant.gep288 = getelementptr i32, ptr %268, i64 %275
   br label %.lr.ph.i104.us
 
-.lr.ph.i104.us:                                   ; preds = %.loopexit154.us, %.lr.ph144.i53.split.us
-  %.pre.pre.i57146 = phi i32 [ %309, %.loopexit154.us ], [ %.promoted174, %.lr.ph144.i53.split.us ]
-  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.loopexit154.us ], [ %273, %.lr.ph144.i53.split.us ]
+.lr.ph.i104.us:                                   ; preds = %.loopexit154.us, %.lr.ph137.i53.split.us
+  %.pre.pre.i57146 = phi i32 [ %309, %.loopexit154.us ], [ %.promoted174, %.lr.ph137.i53.split.us ]
+  %indvars.iv204 = phi i64 [ %indvars.iv.next205, %.loopexit154.us ], [ %273, %.lr.ph137.i53.split.us ]
   %indvars.iv.next205 = add nsw i64 %indvars.iv204, -1
   %gep287 = getelementptr i32, ptr %invariant.gep286, i64 %indvars.iv.next205
   %gep289 = getelementptr i32, ptr %invariant.gep288, i64 %indvars.iv.next205
@@ -3002,7 +3002,7 @@ PixelsAreSimilar.exit.i120:                       ; preds = %235
   %287 = and i32 %286, 255
   %288 = and i32 %280, 255
   %289 = icmp eq i32 %281, %285
-  br i1 %289, label %290, label %.thread119.i59
+  br i1 %289, label %290, label %.thread115.i59
 
 290:                                              ; preds = %277
   %291 = lshr i32 %280, 16
@@ -3013,21 +3013,21 @@ PixelsAreSimilar.exit.i120:                       ; preds = %235
   %296 = tail call i32 @llvm.abs.i32(i32 %295, i1 true)
   %297 = mul nuw nsw i32 %296, %281
   %.not.i.i108.us = icmp sgt i32 %297, %259
-  br i1 %.not.i.i108.us, label %.thread119.i59, label %298
+  br i1 %.not.i.i108.us, label %.thread115.i59, label %298
 
 298:                                              ; preds = %290
   %299 = sub nsw i32 %283, %287
   %300 = tail call i32 @llvm.abs.i32(i32 %299, i1 true)
   %301 = mul nuw nsw i32 %300, %281
   %.not23.i.i109.us = icmp samesign ugt i32 %301, %259
-  br i1 %.not23.i.i109.us, label %.thread119.i59, label %PixelsAreSimilar.exit.i110.us
+  br i1 %.not23.i.i109.us, label %.thread115.i59, label %PixelsAreSimilar.exit.i110.us
 
 PixelsAreSimilar.exit.i110.us:                    ; preds = %298
   %302 = sub nsw i32 %284, %288
   %303 = tail call i32 @llvm.abs.i32(i32 %302, i1 true)
   %304 = mul nuw nsw i32 %303, %281
   %.not12.i111.us = icmp samesign ugt i32 %304, %259
-  br i1 %.not12.i111.us, label %.thread119.i59, label %305
+  br i1 %.not12.i111.us, label %.thread115.i59, label %305
 
 305:                                              ; preds = %PixelsAreSimilar.exit.i110.us
   %306 = getelementptr inbounds i32, ptr %.0914.i106.us, i64 %271
@@ -3039,29 +3039,29 @@ PixelsAreSimilar.exit.i110.us:                    ; preds = %298
   %309 = add nsw i32 %.pre.pre.i57146, -1
   store i32 %309, ptr %184, align 4, !tbaa !47
   %.not105.not.i58.us = icmp sgt i64 %indvars.iv.next205, %276
-  br i1 %.not105.not.i58.us, label %.lr.ph.i104.us, label %.thread119.i59, !llvm.loop !62
+  br i1 %.not105.not.i58.us, label %.lr.ph.i104.us, label %.thread115.i59, !llvm.loop !62
 
-.lr.ph144.i53.split:                              ; preds = %.lr.ph144.i53
+.lr.ph137.i53.split:                              ; preds = %.lr.ph137.i53
   %310 = add i32 %255, -1
   %smin203 = tail call i32 @llvm.smin.i32(i32 %254, i32 %310)
   %311 = sub i32 %smin203, %254
   store i32 %311, ptr %184, align 4, !tbaa !47
-  br label %.thread119.i59
+  br label %.thread115.i59
 
-.thread119.i59:                                   ; preds = %.loopexit154.us, %PixelsAreSimilar.exit.i110.us, %298, %290, %277, %.lr.ph144.i53.split
-  %.pre.i60 = phi i32 [ %311, %.lr.ph144.i53.split ], [ %.pre.pre.i57146, %277 ], [ %.pre.pre.i57146, %290 ], [ %.pre.pre.i57146, %298 ], [ %.pre.pre.i57146, %PixelsAreSimilar.exit.i110.us ], [ %309, %.loopexit154.us ]
+.thread115.i59:                                   ; preds = %.loopexit154.us, %PixelsAreSimilar.exit.i110.us, %298, %290, %277, %.lr.ph137.i53.split
+  %.pre.i60 = phi i32 [ %311, %.lr.ph137.i53.split ], [ %.pre.pre.i57146, %277 ], [ %.pre.pre.i57146, %290 ], [ %.pre.pre.i57146, %298 ], [ %.pre.pre.i57146, %PixelsAreSimilar.exit.i110.us ], [ %309, %.loopexit154.us ]
   %312 = icmp eq i32 %.pre.i60, 0
-  br i1 %312, label %MinimizeChangeRectangle.exit65.thread, label %.thread119.thread.i35
+  br i1 %312, label %MinimizeChangeRectangle.exit65.thread, label %.thread115.thread.i35
 
-.thread119.thread.i35:                            ; preds = %..thread119.thread.i35_crit_edge, %.thread119.i59
-  %313 = phi i32 [ %.promoted174, %..thread119.thread.i35_crit_edge ], [ %.pre.i60, %.thread119.i59 ]
-  %314 = phi i32 [ %.pre217, %..thread119.thread.i35_crit_edge ], [ %257, %.thread119.i59 ]
+.thread115.thread.i35:                            ; preds = %..thread115.thread.i35_crit_edge, %.thread115.i59
+  %313 = phi i32 [ %.promoted174, %..thread115.thread.i35_crit_edge ], [ %.pre.i60, %.thread115.i59 ]
+  %314 = phi i32 [ %.pre217, %..thread115.thread.i35_crit_edge ], [ %257, %.thread115.i59 ]
   %315 = getelementptr inbounds nuw i8, ptr %5, i64 284
   %316 = getelementptr inbounds nuw i8, ptr %5, i64 292
   %317 = icmp sgt i32 %314, 0
-  br i1 %317, label %.lr.ph147.i49, label %.loopexit.i36
+  br i1 %317, label %.lr.ph140.i49, label %.loopexit.i36
 
-.lr.ph147.i49:                                    ; preds = %.thread119.thread.i35
+.lr.ph140.i49:                                    ; preds = %.thread115.thread.i35
   %318 = load i32, ptr %315, align 4, !tbaa !46
   %319 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %320 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -3070,23 +3070,23 @@ PixelsAreSimilar.exit.i110.us:                    ; preds = %298
   %323 = mul nsw i32 %183, 255
   br label %324
 
-324:                                              ; preds = %.loopexit153, %.lr.ph147.i49
-  %325 = phi i32 [ %318, %.lr.ph147.i49 ], [ %372, %.loopexit153 ]
-  %.pr126.i52149 = phi i32 [ %314, %.lr.ph147.i49 ], [ %371, %.loopexit153 ]
-  %.098146.i50 = phi i32 [ %318, %.lr.ph147.i49 ], [ %373, %.loopexit153 ]
+324:                                              ; preds = %.loopexit153, %.lr.ph140.i49
+  %325 = phi i32 [ %318, %.lr.ph140.i49 ], [ %372, %.loopexit153 ]
+  %.pr120.i52149 = phi i32 [ %314, %.lr.ph140.i49 ], [ %371, %.loopexit153 ]
+  %.098139.i50 = phi i32 [ %318, %.lr.ph140.i49 ], [ %373, %.loopexit153 ]
   br i1 %322, label %.lr.ph.i94, label %.loopexit153
 
 .lr.ph.i94:                                       ; preds = %324
   %326 = load ptr, ptr %320, align 8, !tbaa !49
   %327 = load i32, ptr %321, align 8, !tbaa !50
-  %328 = mul nsw i32 %327, %.098146.i50
+  %328 = mul nsw i32 %327, %.098139.i50
   %329 = load i32, ptr %173, align 4, !tbaa !45
   %330 = add nsw i32 %328, %329
   %331 = sext i32 %330 to i64
   %332 = getelementptr inbounds i32, ptr %326, i64 %331
   %333 = load ptr, ptr %253, align 8, !tbaa !49
   %334 = load i32, ptr %319, align 8, !tbaa !50
-  %335 = mul nsw i32 %334, %.098146.i50
+  %335 = mul nsw i32 %334, %.098139.i50
   %336 = add nsw i32 %335, %329
   %337 = sext i32 %336 to i64
   %338 = getelementptr inbounds i32, ptr %333, i64 %337
@@ -3142,32 +3142,32 @@ PixelsAreSimilar.exit.i100:                       ; preds = %360
   br i1 %370, label %339, label %.loopexit153, !llvm.loop !124
 
 .loopexit153:                                     ; preds = %367, %324
-  %371 = add nsw i32 %.pr126.i52149, -1
+  %371 = add nsw i32 %.pr120.i52149, -1
   store i32 %371, ptr %316, align 4, !tbaa !48
   %372 = add nsw i32 %325, 1
   store i32 %372, ptr %315, align 4, !tbaa !46
-  %373 = add nsw i32 %.098146.i50, 1
-  %374 = add i32 %325, %.pr126.i52149
+  %373 = add nsw i32 %.098139.i50, 1
+  %374 = add i32 %325, %.pr120.i52149
   %375 = icmp slt i32 %373, %374
   br i1 %375, label %324, label %.loopexit.i36, !llvm.loop !63
 
-.loopexit.i36:                                    ; preds = %.loopexit153, %PixelsAreSimilar.exit.i100, %360, %352, %339, %.thread119.thread.i35
-  %.promoted178 = phi i32 [ %314, %.thread119.thread.i35 ], [ %.pr126.i52149, %339 ], [ %.pr126.i52149, %352 ], [ %.pr126.i52149, %360 ], [ %.pr126.i52149, %PixelsAreSimilar.exit.i100 ], [ %371, %.loopexit153 ]
+.loopexit.i36:                                    ; preds = %.loopexit153, %PixelsAreSimilar.exit.i100, %360, %352, %339, %.thread115.thread.i35
+  %.promoted178 = phi i32 [ %314, %.thread115.thread.i35 ], [ %.pr120.i52149, %339 ], [ %.pr120.i52149, %352 ], [ %.pr120.i52149, %360 ], [ %.pr120.i52149, %PixelsAreSimilar.exit.i100 ], [ %371, %.loopexit153 ]
   %376 = icmp eq i32 %.promoted178, 0
   br i1 %376, label %MinimizeChangeRectangle.exit65.thread, label %377
 
 377:                                              ; preds = %.loopexit.i36
-  %.not108.not151.i37 = icmp sgt i32 %.promoted178, 0
-  br i1 %.not108.not151.i37, label %.lr.ph153.i41, label %MinimizeChangeRectangle.exit65
+  %.not108.not144.i37 = icmp sgt i32 %.promoted178, 0
+  br i1 %.not108.not144.i37, label %.lr.ph146.i41, label %MinimizeChangeRectangle.exit65
 
-.lr.ph153.i41:                                    ; preds = %377
+.lr.ph146.i41:                                    ; preds = %377
   %378 = load i32, ptr %315, align 4, !tbaa !46
   %379 = add i32 %378, %.promoted178
   %380 = icmp sgt i32 %313, 0
   %381 = mul nsw i32 %183, 255
-  br i1 %380, label %.lr.ph153.i41.split.us, label %.lr.ph153.i41.split
+  br i1 %380, label %.lr.ph146.i41.split.us, label %.lr.ph146.i41.split
 
-.lr.ph153.i41.split.us:                           ; preds = %.lr.ph153.i41
+.lr.ph146.i41.split.us:                           ; preds = %.lr.ph146.i41
   %382 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %383 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3185,9 +3185,9 @@ PixelsAreSimilar.exit.i100:                       ; preds = %360
   %invariant.gep292 = getelementptr i32, ptr %388, i64 %392
   br label %.lr.ph.i91.us
 
-.lr.ph.i91.us:                                    ; preds = %.loopexit.us, %.lr.ph153.i41.split.us
-  %.pre156.pre.i45152 = phi i32 [ %429, %.loopexit.us ], [ %.promoted178, %.lr.ph153.i41.split.us ]
-  %indvars.iv208 = phi i64 [ %indvars.iv.next209, %.loopexit.us ], [ %390, %.lr.ph153.i41.split.us ]
+.lr.ph.i91.us:                                    ; preds = %.loopexit.us, %.lr.ph146.i41.split.us
+  %.pre149.pre.i45152 = phi i32 [ %429, %.loopexit.us ], [ %.promoted178, %.lr.ph146.i41.split.us ]
+  %indvars.iv208 = phi i64 [ %indvars.iv.next209, %.loopexit.us ], [ %390, %.lr.ph146.i41.split.us ]
   %indvars.iv.next209 = add nsw i64 %indvars.iv208, -1
   %395 = mul nsw i64 %indvars.iv.next209, %391
   %gep291 = getelementptr i32, ptr %invariant.gep290, i64 %395
@@ -3211,7 +3211,7 @@ PixelsAreSimilar.exit.i100:                       ; preds = %360
   %407 = and i32 %406, 255
   %408 = and i32 %400, 255
   %409 = icmp eq i32 %401, %405
-  br i1 %409, label %410, label %.thread127.i47
+  br i1 %409, label %410, label %.thread121.i47
 
 410:                                              ; preds = %397
   %411 = lshr i32 %400, 16
@@ -3222,21 +3222,21 @@ PixelsAreSimilar.exit.i100:                       ; preds = %360
   %416 = tail call i32 @llvm.abs.i32(i32 %415, i1 true)
   %417 = mul nuw nsw i32 %416, %401
   %.not.i.i.us = icmp sgt i32 %417, %381
-  br i1 %.not.i.i.us, label %.thread127.i47, label %418
+  br i1 %.not.i.i.us, label %.thread121.i47, label %418
 
 418:                                              ; preds = %410
   %419 = sub nsw i32 %403, %407
   %420 = tail call i32 @llvm.abs.i32(i32 %419, i1 true)
   %421 = mul nuw nsw i32 %420, %401
   %.not23.i.i.us = icmp samesign ugt i32 %421, %381
-  br i1 %.not23.i.i.us, label %.thread127.i47, label %PixelsAreSimilar.exit.i.us
+  br i1 %.not23.i.i.us, label %.thread121.i47, label %PixelsAreSimilar.exit.i.us
 
 PixelsAreSimilar.exit.i.us:                       ; preds = %418
   %422 = sub nsw i32 %404, %408
   %423 = tail call i32 @llvm.abs.i32(i32 %422, i1 true)
   %424 = mul nuw nsw i32 %423, %401
   %.not12.i.us = icmp samesign ugt i32 %424, %381
-  br i1 %.not12.i.us, label %.thread127.i47, label %425
+  br i1 %.not12.i.us, label %.thread121.i47, label %425
 
 425:                                              ; preds = %PixelsAreSimilar.exit.i.us
   %426 = getelementptr inbounds nuw i8, ptr %.0914.i.us, i64 4
@@ -3245,30 +3245,30 @@ PixelsAreSimilar.exit.i.us:                       ; preds = %418
   br i1 %428, label %397, label %.loopexit.us, !llvm.loop !124
 
 .loopexit.us:                                     ; preds = %425
-  %429 = add nsw i32 %.pre156.pre.i45152, -1
+  %429 = add nsw i32 %.pre149.pre.i45152, -1
   store i32 %429, ptr %316, align 4, !tbaa !48
   %.not108.not.i46.us = icmp sgt i64 %indvars.iv.next209, %394
-  br i1 %.not108.not.i46.us, label %.lr.ph.i91.us, label %.thread127.i47, !llvm.loop !64
+  br i1 %.not108.not.i46.us, label %.lr.ph.i91.us, label %.thread121.i47, !llvm.loop !64
 
-.lr.ph153.i41.split:                              ; preds = %.lr.ph153.i41
+.lr.ph146.i41.split:                              ; preds = %.lr.ph146.i41
   %430 = add i32 %379, -1
   %smin207 = tail call i32 @llvm.smin.i32(i32 %378, i32 %430)
   %431 = sub i32 %smin207, %378
   store i32 %431, ptr %316, align 4, !tbaa !48
-  br label %.thread127.i47
+  br label %.thread121.i47
 
-.thread127.i47:                                   ; preds = %.loopexit.us, %PixelsAreSimilar.exit.i.us, %418, %410, %397, %.lr.ph153.i41.split
-  %.pre156.i48 = phi i32 [ %431, %.lr.ph153.i41.split ], [ %.pre156.pre.i45152, %397 ], [ %.pre156.pre.i45152, %410 ], [ %.pre156.pre.i45152, %418 ], [ %.pre156.pre.i45152, %PixelsAreSimilar.exit.i.us ], [ %429, %.loopexit.us ]
-  %432 = icmp eq i32 %.pre156.i48, 0
+.thread121.i47:                                   ; preds = %.loopexit.us, %PixelsAreSimilar.exit.i.us, %418, %410, %397, %.lr.ph146.i41.split
+  %.pre149.i48 = phi i32 [ %431, %.lr.ph146.i41.split ], [ %.pre149.pre.i45152, %397 ], [ %.pre149.pre.i45152, %410 ], [ %.pre149.pre.i45152, %418 ], [ %.pre149.pre.i45152, %PixelsAreSimilar.exit.i.us ], [ %429, %.loopexit.us ]
+  %432 = icmp eq i32 %.pre149.i48, 0
   br i1 %432, label %MinimizeChangeRectangle.exit65.thread, label %MinimizeChangeRectangle.exit65
 
-MinimizeChangeRectangle.exit65.thread:            ; preds = %.loopexit131.i33, %.thread119.i59, %.loopexit.i36, %.thread127.i47
+MinimizeChangeRectangle.exit65.thread:            ; preds = %.loopexit124.i33, %.thread115.i59, %.loopexit.i36, %.thread121.i47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %173, i8 0, i64 16, i1 false)
   %433 = getelementptr inbounds nuw i8, ptr %5, i64 288
   br label %IsEmptyRect.exit.thread.i28
 
-MinimizeChangeRectangle.exit65:                   ; preds = %377, %.thread127.i47, %GetSubRect.exit.thread.MinimizeChangeRectangle.exit65_crit_edge
-  %434 = phi i32 [ %.pre221, %GetSubRect.exit.thread.MinimizeChangeRectangle.exit65_crit_edge ], [ %313, %.thread127.i47 ], [ %313, %377 ]
+MinimizeChangeRectangle.exit65:                   ; preds = %377, %.thread121.i47, %GetSubRect.exit.thread.MinimizeChangeRectangle.exit65_crit_edge
+  %434 = phi i32 [ %.pre221, %GetSubRect.exit.thread.MinimizeChangeRectangle.exit65_crit_edge ], [ %313, %.thread121.i47 ], [ %313, %377 ]
   %435 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %436 = icmp eq i32 %434, 0
   br i1 %436, label %IsEmptyRect.exit.thread.i28, label %IsEmptyRect.exit.i25

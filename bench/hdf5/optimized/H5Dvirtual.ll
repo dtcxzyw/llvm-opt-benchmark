@@ -4908,20 +4908,20 @@ define range(i32 -1, 1) i32 @H5D__virtual_hold_source_dset_files(ptr noundef rea
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 2184
   %13 = load i64, ptr %12, align 8, !tbaa !20
-  %.not70 = icmp eq i64 %13, 0
-  br i1 %.not70, label %H5D__virtual_release_source_dset_files.exit.thread, label %.lr.ph69
+  %.not69 = icmp eq i64 %13, 0
+  br i1 %.not69, label %H5D__virtual_release_source_dset_files.exit.thread, label %.lr.ph68
 
-.lr.ph69:                                         ; preds = %9
+.lr.ph68:                                         ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 2192
   %.pre = load ptr, ptr %14, align 8, !tbaa !27
   br label %15
 
-15:                                               ; preds = %.lr.ph69, %.thread
-  %16 = phi ptr [ %.pre, %.lr.ph69 ], [ %76, %.thread ]
-  %17 = phi ptr [ %.pre, %.lr.ph69 ], [ %77, %.thread ]
-  %18 = phi ptr [ %.pre, %.lr.ph69 ], [ %78, %.thread ]
-  %.04767 = phi i64 [ 0, %.lr.ph69 ], [ %79, %.thread ]
-  %19 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %18, i64 %.04767
+15:                                               ; preds = %.lr.ph68, %.thread
+  %16 = phi ptr [ %.pre, %.lr.ph68 ], [ %76, %.thread ]
+  %17 = phi ptr [ %.pre, %.lr.ph68 ], [ %77, %.thread ]
+  %18 = phi ptr [ %.pre, %.lr.ph68 ], [ %78, %.thread ]
+  %.04766 = phi i64 [ 0, %.lr.ph68 ], [ %79, %.thread ]
+  %19 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %18, i64 %.04766
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 144
   %21 = load i64, ptr %20, align 8, !tbaa !69
   %.not = icmp eq i64 %21, 0
@@ -4934,20 +4934,20 @@ define range(i32 -1, 1) i32 @H5D__virtual_hold_source_dset_files(ptr noundef rea
   br i1 %.not54, label %60, label %25
 
 25:                                               ; preds = %22, %15
-  %26 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %17, i64 %.04767
+  %26 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %17, i64 %.04766
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load i64, ptr %27, align 8, !tbaa !112
-  %.not71 = icmp eq i64 %28, 0
-  br i1 %.not71, label %.thread, label %.lr.ph
+  %.not70 = icmp eq i64 %28, 0
+  br i1 %.not70, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %53
   %29 = phi ptr [ %54, %53 ], [ %16, %25 ]
   %30 = phi ptr [ %54, %53 ], [ %17, %25 ]
-  %.04566 = phi i64 [ %55, %53 ], [ 0, %25 ]
-  %31 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %30, i64 %.04767
+  %.04565 = phi i64 [ %55, %53 ], [ 0, %25 ]
+  %31 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %30, i64 %.04766
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !73
-  %34 = getelementptr inbounds nuw %struct.H5O_storage_virtual_srcdset_t, ptr %33, i64 %.04566
+  %34 = getelementptr inbounds nuw %struct.H5O_storage_virtual_srcdset_t, ptr %33, i64 %.04565
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !74
   %.not56 = icmp eq ptr %36, null
@@ -4962,10 +4962,10 @@ define range(i32 -1, 1) i32 @H5D__virtual_hold_source_dset_files(ptr noundef rea
 
 42:                                               ; preds = %37
   %43 = load ptr, ptr %14, align 8, !tbaa !27
-  %44 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %43, i64 %.04767
+  %44 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %43, i64 %.04766
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 88
   %46 = load ptr, ptr %45, align 8, !tbaa !73
-  %47 = getelementptr inbounds nuw %struct.H5O_storage_virtual_srcdset_t, ptr %46, i64 %.04566
+  %47 = getelementptr inbounds nuw %struct.H5O_storage_virtual_srcdset_t, ptr %46, i64 %.04565
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !74
   %50 = load ptr, ptr %49, align 8, !tbaa !158
@@ -4978,8 +4978,8 @@ define range(i32 -1, 1) i32 @H5D__virtual_hold_source_dset_files(ptr noundef rea
 
 53:                                               ; preds = %.lr.ph, %42
   %54 = phi ptr [ %29, %.lr.ph ], [ %43, %42 ]
-  %55 = add nuw i64 %.04566, 1
-  %56 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %54, i64 %.04767
+  %55 = add nuw i64 %.04565, 1
+  %56 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %54, i64 %.04766
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 104
   %58 = load i64, ptr %57, align 8, !tbaa !112
   %59 = icmp ult i64 %55, %58
@@ -5000,7 +5000,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_hold_source_dset_files(ptr noundef rea
 
 68:                                               ; preds = %63
   %69 = load ptr, ptr %14, align 8, !tbaa !27
-  %70 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %69, i64 %.04767
+  %70 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %69, i64 %.04766
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 40
   %72 = load ptr, ptr %71, align 8, !tbaa !79
   %73 = load ptr, ptr %72, align 8, !tbaa !158
@@ -5015,7 +5015,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_hold_source_dset_files(ptr noundef rea
   %76 = phi ptr [ %16, %25 ], [ %69, %68 ], [ %16, %60 ], [ %54, %53 ]
   %77 = phi ptr [ %17, %25 ], [ %69, %68 ], [ %17, %60 ], [ %54, %53 ]
   %78 = phi ptr [ %17, %25 ], [ %69, %68 ], [ %18, %60 ], [ %54, %53 ]
-  %79 = add nuw i64 %.04767, 1
+  %79 = add nuw i64 %.04766, 1
   %80 = load i64, ptr %12, align 8, !tbaa !20
   %81 = icmp ult i64 %79, %80
   br i1 %81, label %15, label %H5D__virtual_release_source_dset_files.exit.thread, !llvm.loop !176
@@ -5126,17 +5126,17 @@ define range(i32 -1, 1) i32 @H5D__virtual_refresh_source_dsets(ptr noundef reado
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2184
   %12 = load i64, ptr %11, align 8, !tbaa !20
-  %.not41 = icmp eq i64 %12, 0
-  br i1 %.not41, label %.loopexit, label %.lr.ph40
+  %.not40 = icmp eq i64 %12, 0
+  br i1 %.not40, label %.loopexit, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %8
+.lr.ph39:                                         ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 2192
   br label %14
 
-14:                                               ; preds = %.lr.ph40, %.thread
-  %.02838 = phi i64 [ 0, %.lr.ph40 ], [ %48, %.thread ]
+14:                                               ; preds = %.lr.ph39, %.thread
+  %.02837 = phi i64 [ 0, %.lr.ph39 ], [ %48, %.thread ]
   %15 = load ptr, ptr %13, align 8, !tbaa !27
-  %16 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %15, i64 %.02838
+  %16 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %15, i64 %.02837
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %18 = load i64, ptr %17, align 8, !tbaa !69
   %.not = icmp eq i64 %18, 0
@@ -5151,16 +5151,16 @@ define range(i32 -1, 1) i32 @H5D__virtual_refresh_source_dsets(ptr noundef reado
 22:                                               ; preds = %19, %14
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %24 = load i64, ptr %23, align 8, !tbaa !112
-  %.not42 = icmp eq i64 %24, 0
-  br i1 %.not42, label %.thread, label %.lr.ph
+  %.not41 = icmp eq i64 %24, 0
+  br i1 %.not41, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %35
   %25 = phi ptr [ %36, %35 ], [ %15, %22 ]
-  %.02637 = phi i64 [ %37, %35 ], [ 0, %22 ]
-  %26 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %25, i64 %.02838
+  %.02636 = phi i64 [ %37, %35 ], [ 0, %22 ]
+  %26 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %25, i64 %.02837
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 88
   %28 = load ptr, ptr %27, align 8, !tbaa !73
-  %29 = getelementptr inbounds nuw %struct.H5O_storage_virtual_srcdset_t, ptr %28, i64 %.02637
+  %29 = getelementptr inbounds nuw %struct.H5O_storage_virtual_srcdset_t, ptr %28, i64 %.02636
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   %.not32 = icmp eq ptr %31, null
@@ -5177,8 +5177,8 @@ define range(i32 -1, 1) i32 @H5D__virtual_refresh_source_dsets(ptr noundef reado
 
 35:                                               ; preds = %._crit_edge, %.lr.ph
   %36 = phi ptr [ %.pre, %._crit_edge ], [ %25, %.lr.ph ]
-  %37 = add nuw i64 %.02637, 1
-  %38 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %36, i64 %.02838
+  %37 = add nuw i64 %.02636, 1
+  %38 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %36, i64 %.02837
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %40 = load i64, ptr %39, align 8, !tbaa !112
   %41 = icmp ult i64 %37, %40
@@ -5196,7 +5196,7 @@ define range(i32 -1, 1) i32 @H5D__virtual_refresh_source_dsets(ptr noundef reado
   br i1 %47, label %.loopexit.sink.split, label %.thread
 
 .thread:                                          ; preds = %35, %22, %45, %42
-  %48 = add nuw i64 %.02838, 1
+  %48 = add nuw i64 %.02837, 1
   %49 = load i64, ptr %11, align 8, !tbaa !20
   %50 = icmp ult i64 %48, %49
   br i1 %50, label %14, label %.loopexit, !llvm.loop !178

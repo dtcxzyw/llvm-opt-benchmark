@@ -37,7 +37,7 @@ define internal fastcc { ptr, i64 } @"_ZN106_$LT$core..iter..adapters..chain..Ch
   br label %13
 
 13:                                               ; preds = %15, %12
-  %.sroa.01.09.i.i.i.i.i.i = phi i64 [ 0, %12 ], [ %16, %15 ]
+  %.sroa.01.08.i.i.i.i.i.i = phi i64 [ 0, %12 ], [ %16, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !22
   call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1c227d18bde37d9E"(ptr noalias noundef nonnull sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull align 8 dereferenceable(64) %11), !noalias !28
   %14 = load i8, ptr %4, align 8, !range !29, !noalias !22, !noundef !8
@@ -45,14 +45,14 @@ define internal fastcc { ptr, i64 } @"_ZN106_$LT$core..iter..adapters..chain..Ch
   br i1 %.not.i.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h58822d045fea5086E.exit.i.i.i.i.i, label %15
 
 15:                                               ; preds = %13
-  %16 = add nuw i64 %.sroa.01.09.i.i.i.i.i.i, 1
+  %16 = add nuw i64 %.sroa.01.08.i.i.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %16, %10
   br i1 %exitcond.not.i.i.i.i.i.i, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf34353c400b45b05E.exit.i.i.i", label %13
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h58822d045fea5086E.exit.i.i.i.i.i: ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !22
-  %17 = icmp eq i64 %10, %.sroa.01.09.i.i.i.i.i.i
+  %17 = icmp eq i64 %10, %.sroa.01.08.i.i.i.i.i.i
   br i1 %17, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf34353c400b45b05E.exit.i.i.i", label %select.unfold.i
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf34353c400b45b05E.exit.i.i.i": ; preds = %15, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h58822d045fea5086E.exit.i.i.i.i.i, %9
@@ -93,7 +93,7 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc43e2992a0ef65a4E.exit: ; pred
   br label %28
 
 28:                                               ; preds = %30, %27
-  %.sroa.01.09.i.i.i.i.i.i2 = phi i64 [ 0, %27 ], [ %31, %30 ]
+  %.sroa.01.08.i.i.i.i.i.i2 = phi i64 [ 0, %27 ], [ %31, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !49
   call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf1c227d18bde37d9E"(ptr noalias noundef nonnull sret({ i8, [55 x i8] }) align 8 captures(none) dereferenceable(56) %2, ptr noalias noundef nonnull align 8 dereferenceable(64) %26), !noalias !55
   %29 = load i8, ptr %2, align 8, !range !29, !noalias !49, !noundef !8
@@ -101,14 +101,14 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17hc43e2992a0ef65a4E.exit: ; pred
   br i1 %.not.i.i.i.i.i.i3, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h58822d045fea5086E.exit.i.i.i.i.i7, label %30
 
 30:                                               ; preds = %28
-  %31 = add nuw i64 %.sroa.01.09.i.i.i.i.i.i2, 1
+  %31 = add nuw i64 %.sroa.01.08.i.i.i.i.i.i2, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !49
   %exitcond.not.i.i.i.i.i.i4 = icmp eq i64 %31, %25
   br i1 %exitcond.not.i.i.i.i.i.i4, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf34353c400b45b05E.exit.i.i.i5", label %28
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h58822d045fea5086E.exit.i.i.i.i.i7: ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !49
-  %32 = icmp eq i64 %25, %.sroa.01.09.i.i.i.i.i.i2
+  %32 = icmp eq i64 %25, %.sroa.01.08.i.i.i.i.i.i2
   br i1 %32, label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf34353c400b45b05E.exit.i.i.i5", label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h60f8ecfe50d76039E.exit.i.i"
 
 "_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hf34353c400b45b05E.exit.i.i.i5": ; preds = %30, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h58822d045fea5086E.exit.i.i.i.i.i7, %24

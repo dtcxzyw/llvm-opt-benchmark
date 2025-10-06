@@ -837,92 +837,92 @@ _ZN10duckdb_hllL6sdslenEPc.exit:                  ; preds = %12, %16, %20, %24
   br i1 %33, label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41, label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread
 
 _ZN10duckdb_hllL10sdsHdrSizeEc.exit41:            ; preds = %_ZN10duckdb_hllL6sdslenEPc.exit.thread, %_ZN10duckdb_hllL6sdslenEPc.exit, %32
-  %switch = phi i1 [ false, %32 ], [ true, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ true, %_ZN10duckdb_hllL6sdslenEPc.exit.thread ]
-  %34 = phi i8 [ 1, %32 ], [ 0, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ 0, %_ZN10duckdb_hllL6sdslenEPc.exit.thread ]
+  %34 = phi i1 [ false, %32 ], [ true, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ true, %_ZN10duckdb_hllL6sdslenEPc.exit.thread ]
+  %35 = phi i8 [ 1, %32 ], [ 0, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ 0, %_ZN10duckdb_hllL6sdslenEPc.exit.thread ]
   %.0.i384348 = phi i64 [ %.0.i38, %32 ], [ %.0.i38, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ %.0.i38.ph, %_ZN10duckdb_hllL6sdslenEPc.exit.thread ]
-  %35 = phi ptr [ %30, %32 ], [ %30, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ %28, %_ZN10duckdb_hllL6sdslenEPc.exit.thread ]
+  %36 = phi ptr [ %30, %32 ], [ %30, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ %28, %_ZN10duckdb_hllL6sdslenEPc.exit.thread ]
   %.0.i40 = phi i64 [ 4, %32 ], [ 2, %_ZN10duckdb_hllL6sdslenEPc.exit ], [ 2, %_ZN10duckdb_hllL6sdslenEPc.exit.thread ]
-  %36 = icmp eq i8 %4, %34
-  br i1 %36, label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread, label %44
+  %37 = icmp eq i8 %4, %35
+  br i1 %37, label %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread, label %45
 
 _ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread:     ; preds = %32, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41
-  %37 = phi ptr [ %35, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41 ], [ %30, %32 ]
+  %38 = phi ptr [ %36, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41 ], [ %30, %32 ]
   %.0.i38434865 = phi i64 [ %.0.i384348, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41 ], [ %.0.i38, %32 ]
-  %38 = or disjoint i64 %.0.i, 1
-  %39 = add i64 %38, %.0.i38434865
-  %40 = tail call ptr @realloc(ptr noundef %37, i64 noundef %39) #31
-  %41 = icmp eq ptr %40, null
-  br i1 %41, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %42
+  %39 = or disjoint i64 %.0.i, 1
+  %40 = add i64 %39, %.0.i38434865
+  %41 = tail call ptr @realloc(ptr noundef %38, i64 noundef %40) #31
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %43
 
-42:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread
-  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %.0.i
-  %.phi.trans.insert = getelementptr inbounds i8, ptr %43, i64 -1
+43:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.0.i
+  %.phi.trans.insert = getelementptr inbounds i8, ptr %44, i64 -1
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !20
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
-44:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41
-  %45 = add nuw nsw i64 %.0.i384348, 1
-  %46 = add nuw nsw i64 %45, %.0.i40
-  %47 = tail call noalias ptr @malloc(i64 noundef %46) #28
-  %48 = icmp eq ptr %47, null
-  br i1 %48, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %49
+45:                                               ; preds = %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41
+  %46 = add nuw nsw i64 %.0.i384348, 1
+  %47 = add nuw nsw i64 %46, %.0.i40
+  %48 = tail call noalias ptr @malloc(i64 noundef %47) #28
+  %49 = icmp eq ptr %48, null
+  br i1 %49, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit, label %50
 
-49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 %.0.i40
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %50, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %45, i1 false)
-  tail call void @free(ptr noundef %35) #30
-  %51 = getelementptr inbounds i8, ptr %50, i64 -1
-  store i8 %34, ptr %51, align 1, !tbaa !20
+50:                                               ; preds = %45
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 %.0.i40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %51, ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %46, i1 false)
+  tail call void @free(ptr noundef %36) #30
+  %52 = getelementptr inbounds i8, ptr %51, i64 -1
+  store i8 %35, ptr %52, align 1, !tbaa !20
   %.tr.i = trunc nuw i64 %.0.i384348 to i8
-  br i1 %switch, label %52, label %54
+  br i1 %34, label %53, label %55
 
-52:                                               ; preds = %49
-  %53 = shl i8 %.tr.i, 3
-  store i8 %53, ptr %51, align 1, !tbaa !20
+53:                                               ; preds = %50
+  %54 = shl i8 %.tr.i, 3
+  store i8 %54, ptr %52, align 1, !tbaa !20
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
-54:                                               ; preds = %49
-  %55 = getelementptr inbounds i8, ptr %50, i64 -4
-  store i8 %.tr.i, ptr %55, align 1, !tbaa !3
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds i8, ptr %51, i64 -4
+  store i8 %.tr.i, ptr %56, align 1, !tbaa !3
   br label %_ZN10duckdb_hllL9sdssetlenEPcm.exit
 
-_ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %54, %52, %42
-  %56 = phi i8 [ %.pre, %42 ], [ %53, %52 ], [ %34, %54 ]
-  %.0.i3844 = phi i64 [ %.0.i38434865, %42 ], [ %.0.i384348, %52 ], [ %.0.i384348, %54 ]
-  %.035 = phi ptr [ %43, %42 ], [ %50, %52 ], [ %50, %54 ]
-  %57 = and i8 %56, 7
-  switch i8 %57, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit [
-    i8 4, label %67
-    i8 1, label %58
-    i8 2, label %61
-    i8 3, label %64
+_ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %55, %53, %43
+  %57 = phi i8 [ %.pre, %43 ], [ %54, %53 ], [ %35, %55 ]
+  %.0.i3844 = phi i64 [ %.0.i38434865, %43 ], [ %.0.i384348, %53 ], [ %.0.i384348, %55 ]
+  %.035 = phi ptr [ %44, %43 ], [ %51, %53 ], [ %51, %55 ]
+  %58 = and i8 %57, 7
+  switch i8 %58, label %_ZN10duckdb_hllL11sdssetallocEPcm.exit [
+    i8 4, label %68
+    i8 1, label %59
+    i8 2, label %62
+    i8 3, label %65
   ]
 
-58:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit
-  %59 = trunc i64 %.0.i3844 to i8
-  %60 = getelementptr inbounds i8, ptr %.035, i64 -3
-  store i8 %59, ptr %60, align 1, !tbaa !7
+59:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+  %60 = trunc i64 %.0.i3844 to i8
+  %61 = getelementptr inbounds i8, ptr %.035, i64 -3
+  store i8 %60, ptr %61, align 1, !tbaa !7
   br label %_ZN10duckdb_hllL11sdssetallocEPcm.exit
 
-61:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit
-  %62 = trunc i64 %.0.i3844 to i16
-  %63 = getelementptr inbounds i8, ptr %.035, i64 -4
-  store i16 %62, ptr %63, align 1, !tbaa !11
+62:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+  %63 = trunc i64 %.0.i3844 to i16
+  %64 = getelementptr inbounds i8, ptr %.035, i64 -4
+  store i16 %63, ptr %64, align 1, !tbaa !11
   br label %_ZN10duckdb_hllL11sdssetallocEPcm.exit
 
-64:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit
-  %65 = trunc i64 %.0.i3844 to i32
-  %66 = getelementptr inbounds i8, ptr %.035, i64 -6
-  store i32 %65, ptr %66, align 1, !tbaa !15
+65:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+  %66 = trunc i64 %.0.i3844 to i32
+  %67 = getelementptr inbounds i8, ptr %.035, i64 -6
+  store i32 %66, ptr %67, align 1, !tbaa !15
   br label %_ZN10duckdb_hllL11sdssetallocEPcm.exit
 
-67:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit
-  %68 = getelementptr inbounds i8, ptr %.035, i64 -10
-  store i64 %.0.i3844, ptr %68, align 1, !tbaa !19
+68:                                               ; preds = %_ZN10duckdb_hllL9sdssetlenEPcm.exit
+  %69 = getelementptr inbounds i8, ptr %.035, i64 -10
+  store i64 %.0.i3844, ptr %69, align 1, !tbaa !19
   br label %_ZN10duckdb_hllL11sdssetallocEPcm.exit
 
-_ZN10duckdb_hllL11sdssetallocEPcm.exit:           ; preds = %67, %64, %61, %58, %_ZN10duckdb_hllL9sdssetlenEPcm.exit, %44, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread
-  %.0 = phi ptr [ null, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread ], [ null, %44 ], [ %.035, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ], [ %.035, %58 ], [ %.035, %61 ], [ %.035, %64 ], [ %.035, %67 ]
+_ZN10duckdb_hllL11sdssetallocEPcm.exit:           ; preds = %68, %65, %62, %59, %_ZN10duckdb_hllL9sdssetlenEPcm.exit, %45, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread
+  %.0 = phi ptr [ null, %_ZN10duckdb_hllL10sdsHdrSizeEc.exit41.thread ], [ null, %45 ], [ %.035, %_ZN10duckdb_hllL9sdssetlenEPcm.exit ], [ %.035, %59 ], [ %.035, %62 ], [ %.035, %65 ], [ %.035, %68 ]
   ret ptr %.0
 }
 

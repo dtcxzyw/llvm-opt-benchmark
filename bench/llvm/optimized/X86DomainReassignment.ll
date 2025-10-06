@@ -5396,8 +5396,8 @@ define internal noundef double @_ZNK12_GLOBAL__N_117InstrCOPYReplacer12getExtraC
   %8 = zext i24 %7 to i64
   %.idx = shl nuw nsw i64 %8, 5
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx
-  %.not25 = icmp eq i24 %7, 0
-  br i1 %.not25, label %.thread, label %.lr.ph
+  %.not28 = icmp eq i24 %7, 0
+  br i1 %.not28, label %.thread24, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -5405,17 +5405,17 @@ define internal noundef double @_ZNK12_GLOBAL__N_117InstrCOPYReplacer12getExtraC
   br label %14
 
 12:                                               ; preds = %48
-  %13 = getelementptr inbounds nuw i8, ptr %.01726, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %.01729, i64 32
   %.not = icmp eq ptr %13, %9
-  br i1 %.not, label %.thread, label %14
+  br i1 %.not, label %.thread24, label %14
 
 14:                                               ; preds = %.lr.ph, %12
-  %.01726 = phi ptr [ %5, %.lr.ph ], [ %13, %12 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.01726, i64 4
+  %.01729 = phi ptr [ %5, %.lr.ph ], [ %13, %12 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.01729, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !617
   %17 = add i32 %16, -1
   %18 = icmp ult i32 %17, 1073741823
-  br i1 %18, label %.thread, label %19
+  br i1 %18, label %.thread24, label %19
 
 19:                                               ; preds = %14
   %20 = and i32 %16, 2147483647
@@ -5458,12 +5458,12 @@ define internal noundef double @_ZNK12_GLOBAL__N_117InstrCOPYReplacer12getExtraC
 48:                                               ; preds = %37, %19
   %.0.i = phi i32 [ 0, %19 ], [ %..i, %37 ]
   %49 = load i32, ptr %11, align 8, !tbaa !360
-  %.not24 = icmp eq i32 %.0.i, %49
-  br i1 %.not24, label %.thread, label %12
+  %.not27 = icmp eq i32 %.0.i, %49
+  br i1 %.not27, label %.thread24, label %12
 
-.thread:                                          ; preds = %48, %12, %14, %3
-  %.4 = phi double [ 0.000000e+00, %3 ], [ 1.000000e+00, %14 ], [ 0.000000e+00, %12 ], [ -1.000000e+00, %48 ]
-  ret double %.4
+.thread24:                                        ; preds = %12, %48, %14, %3
+  %50 = phi double [ 0.000000e+00, %3 ], [ 1.000000e+00, %14 ], [ -1.000000e+00, %48 ], [ 0.000000e+00, %12 ]
+  ret double %50
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

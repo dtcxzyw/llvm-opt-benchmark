@@ -3319,17 +3319,17 @@ define linkonce_odr hidden void @_ZN10GCPUStereo5setupERKN2cv8GMatDescES3_NS0_4g
   %9 = load ptr, ptr %4, align 8, !tbaa !147, !noalias !144
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !147, !noalias !144
-  %.not13.i = icmp eq ptr %9, %11
-  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not11.i = icmp eq ptr %9, %11
+  br i1 %.not11.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.critedge.i
-  %.sroa.06.014.i = phi ptr [ %22, %.critedge.i ], [ %9, %5 ]
-  %12 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.014.i, ptr noundef nonnull @.str.7) #24, !noalias !144
+  %.sroa.06.012.i = phi ptr [ %22, %.critedge.i ], [ %9, %5 ]
+  %12 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.012.i, ptr noundef nonnull @.str.7) #24, !noalias !144
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %.critedge.i
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 64
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 64
   %16 = load ptr, ptr %15, align 8, !tbaa !40, !noalias !144
   %17 = icmp eq ptr %16, null
   br i1 %17, label %_ZN2cv4util8any_castINS_4gapi7calib3d3cpu15StereoInitParamEEEPKT_PKNS0_3anyE.exit.thread.i.i.i, label %_ZN2cv4util8any_castINS_4gapi7calib3d3cpu15StereoInitParamEEEPKT_PKNS0_3anyE.exit.i.i.i
@@ -3360,7 +3360,7 @@ common.resume:                                    ; preds = %97, %20
   br label %common.resume
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 72
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 72
   %.not.i = icmp eq ptr %22, %11
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 

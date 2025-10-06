@@ -1952,23 +1952,23 @@ define linkonce_odr hidden void @_ZN2lp8dioph_eq3imp17add_term_callbackEPKNS_8la
 _ZNK2lp8lar_term5beginEv.exit.i:                  ; preds = %17, %.lr.ph.i.i.i.i.i.i, %8
   %.sroa.0.1.i.i.i.i = phi ptr [ %9, %8 ], [ %13, %17 ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %19 = getelementptr inbounds nuw %class.default_map_entry, ptr %9, i64 %12
-  %.not21.i = icmp eq ptr %.sroa.0.1.i.i.i.i, %19
-  br i1 %.not21.i, label %_ZNK2lp8dioph_eq3imp16all_vars_are_intERKNS_8lar_termE.exit, label %.lr.ph.i
+  %.not19.i = icmp eq ptr %.sroa.0.1.i.i.i.i, %19
+  br i1 %.not19.i, label %_ZNK2lp8dioph_eq3imp16all_vars_are_intERKNS_8lar_termE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK2lp8lar_term5beginEv.exit.i
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 456
   br label %21
 
 21:                                               ; preds = %_ZN2lp8lar_term14const_iteratorppEv.exit.i, %.lr.ph.i
-  %.sroa.016.022.i = phi ptr [ %.sroa.0.1.i.i.i.i, %.lr.ph.i ], [ %.sroa.016.2.i, %_ZN2lp8lar_term14const_iteratorppEv.exit.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.016.022.i, i64 8
+  %.sroa.016.020.i = phi ptr [ %.sroa.0.1.i.i.i.i, %.lr.ph.i ], [ %.sroa.016.2.i, %_ZN2lp8lar_term14const_iteratorppEv.exit.i ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.016.020.i, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !238
   %24 = load ptr, ptr %20, align 8, !tbaa !239
   %25 = tail call noundef zeroext i1 @_ZNK2lp10int_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(32) %24, i32 noundef %23)
   br i1 %25, label %26, label %_ZNK2lp8dioph_eq3imp16all_vars_are_intERKNS_8lar_termE.exit.thread
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.016.022.i, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.016.020.i, i64 48
   %.not1.i.i.i.i.i = icmp eq ptr %27, %13
   br i1 %.not1.i.i.i.i.i, label %_ZN2lp8lar_term14const_iteratorppEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -15899,9 +15899,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPKN2lp8lar_termES3_SaI
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !266
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread37
+  br i1 %.not.not, label %15, label %.thread35
 
-.thread37:                                        ; preds = %4
+.thread35:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !219
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15937,7 +15937,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPKN2lp8lar_termES3_SaI
   %28 = urem i64 %25, %27
   br label %.critedge
 
-29:                                               ; preds = %.thread37
+29:                                               ; preds = %.thread35
   %30 = load ptr, ptr %14, align 8, !tbaa !187
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !219
@@ -15965,10 +15965,10 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPKN2lp8lar_termES3_SaI
 ..loopexit_crit_edge21.i.i:                       ; preds = %37
   br label %.critedge, !llvm.loop !541
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread37
-  %42 = phi i64 [ %28, %24 ], [ %11, %.thread37 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %43 = phi i64 [ %25, %24 ], [ %8, %.thread37 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %44 = phi ptr [ %17, %24 ], [ %7, %.thread37 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread35
+  %42 = phi i64 [ %28, %24 ], [ %11, %.thread35 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %43 = phi i64 [ %25, %24 ], [ %8, %.thread35 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %44 = phi ptr [ %17, %24 ], [ %7, %.thread35 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   store ptr null, ptr %45, align 8, !tbaa !187
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -16590,9 +16590,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identity
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !279
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread37
+  br i1 %.not.not, label %15, label %.thread35
 
-.thread37:                                        ; preds = %4
+.thread35:                                        ; preds = %4
   %7 = load i32, ptr %1, align 4, !tbaa !177
   %8 = zext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16628,7 +16628,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identity
   %28 = urem i64 %25, %27
   br label %.critedge
 
-29:                                               ; preds = %.thread37
+29:                                               ; preds = %.thread35
   %30 = load ptr, ptr %14, align 8, !tbaa !187
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 4, !tbaa !177
@@ -16656,10 +16656,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjjSaIjENSt8__detail9_Identity
 ..loopexit_crit_edge21.i.i:                       ; preds = %37
   br label %.critedge, !llvm.loop !571
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread37
-  %42 = phi i64 [ %28, %24 ], [ %11, %.thread37 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %43 = phi i64 [ %25, %24 ], [ %8, %.thread37 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %44 = phi i32 [ %17, %24 ], [ %7, %.thread37 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %24, %..loopexit_crit_edge21.i.i, %.thread35
+  %42 = phi i64 [ %28, %24 ], [ %11, %.thread35 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %43 = phi i64 [ %25, %24 ], [ %8, %.thread35 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %44 = phi i32 [ %17, %24 ], [ %7, %.thread35 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %45 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   store ptr null, ptr %45, align 8, !tbaa !187
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -20864,9 +20864,9 @@ define linkonce_odr hidden void @_ZN2lp8dioph_eq3imp13gcd_of_coeffsISt6vectorINS
   br i1 %11, label %.thread34, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %_ZNK8rational12is_minus_oneEv.exit.thread
-  %.sroa.031.038 = phi ptr [ %39, %_ZNK8rational12is_minus_oneEv.exit.thread ], [ %8, %7 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 8
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 12
+  %.sroa.031.036 = phi ptr [ %39, %_ZNK8rational12is_minus_oneEv.exit.thread ], [ %8, %7 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 12
   %14 = load i8, ptr %13, align 4
   %15 = and i8 %14, 1
   %16 = icmp eq i8 %15, 0
@@ -20876,8 +20876,8 @@ define linkonce_odr hidden void @_ZN2lp8dioph_eq3imp13gcd_of_coeffsISt6vectorINS
   br i1 %19, label %_ZNK8rational6is_oneEv.exit, label %28
 
 _ZNK8rational6is_oneEv.exit:                      ; preds = %.lr.ph
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 24
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 28
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 28
   %22 = load i8, ptr %21, align 4
   %23 = and i8 %22, 1
   %24 = icmp eq i8 %23, 0
@@ -20892,8 +20892,8 @@ _ZNK8rational6is_oneEv.exit:                      ; preds = %.lr.ph
   br i1 %30, label %_ZNK8rational12is_minus_oneEv.exit, label %_ZNK8rational12is_minus_oneEv.exit.thread
 
 _ZNK8rational12is_minus_oneEv.exit:               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 28
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 28
   %33 = load i8, ptr %32, align 4
   %34 = and i8 %33, 1
   %35 = icmp eq i8 %34, 0
@@ -20903,7 +20903,7 @@ _ZNK8rational12is_minus_oneEv.exit:               ; preds = %28
   br i1 %38, label %41, label %_ZNK8rational12is_minus_oneEv.exit.thread
 
 _ZNK8rational12is_minus_oneEv.exit.thread:        ; preds = %_ZNK8rational6is_oneEv.exit, %28, %_ZNK8rational12is_minus_oneEv.exit
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 40
   %40 = icmp eq ptr %39, %10
   br i1 %40, label %.thread34, label %.lr.ph
 
@@ -20957,9 +20957,9 @@ _ZNK8rational12is_minus_oneEv.exit.thread:        ; preds = %_ZNK8rational6is_on
   %67 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !299
   %69 = icmp eq ptr %66, %68
-  br i1 %69, label %.loopexit, label %.lr.ph40
+  br i1 %69, label %.loopexit, label %.lr.ph38
 
-.lr.ph40:                                         ; preds = %.thread34
+.lr.ph38:                                         ; preds = %.thread34
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -20973,11 +20973,11 @@ _ZNK8rational12is_minus_oneEv.exit.thread:        ; preds = %_ZNK8rational6is_on
   %.pre = load i32, ptr %0, align 8, !tbaa !128
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph40
-  %80 = phi i32 [ %.pre, %.lr.ph40 ], [ %.be, %.backedge.backedge ]
-  %.sroa.027.039 = phi ptr [ %66, %.lr.ph40 ], [ %.sroa.027.039.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph38
+  %80 = phi i32 [ %.pre, %.lr.ph38 ], [ %.be, %.backedge.backedge ]
+  %.sroa.027.037 = phi ptr [ %66, %.lr.ph38 ], [ %.sroa.027.037.be, %.backedge.backedge ]
   %81 = icmp eq i32 %80, 0
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 8
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 8
   br i1 %81, label %83, label %139
 
 83:                                               ; preds = %.backedge
@@ -20994,7 +20994,7 @@ _ZNK8rational12is_minus_oneEv.exit.thread:        ; preds = %_ZNK8rational6is_on
   store i8 %87, ptr %78, align 4, !alias.scope !635
   store ptr null, ptr %79, align 8, !tbaa !129, !alias.scope !635
   %88 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !175, !noalias !635
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 12
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 12
   %90 = load i8, ptr %89, align 4, !noalias !635
   %91 = and i8 %90, 1
   %92 = icmp eq i8 %91, 0
@@ -21011,8 +21011,8 @@ _ZNK8rational12is_minus_oneEv.exit.thread:        ; preds = %_ZNK8rational6is_on
           to label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i unwind label %137
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i: ; preds = %95, %93
-  %96 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 24
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 28
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 24
+  %97 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 28
   %98 = load i8, ptr %97, align 4, !noalias !635
   %99 = and i8 %98, 1
   %100 = icmp eq i8 %99, 0
@@ -21206,19 +21206,19 @@ _ZNK8rational6is_oneEv.exit26:                    ; preds = %174
   %184 = load i32, ptr %58, align 8
   %185 = icmp eq i32 %184, 1
   %186 = select i1 %183, i1 %185, i1 false
-  %187 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 40
+  %187 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 40
   %188 = icmp eq ptr %187, %68
   %or.cond = select i1 %186, i1 true, i1 %188
   br i1 %or.cond, label %.loopexit, label %.backedge.backedge
 
 _ZNK8rational6is_oneEv.exit26.thread:             ; preds = %174
-  %.old = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 40
-  %.old41 = icmp eq ptr %.old, %68
-  br i1 %.old41, label %.loopexit, label %.backedge.backedge
+  %.old = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 40
+  %.old39 = icmp eq ptr %.old, %68
+  br i1 %.old39, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZNK8rational6is_oneEv.exit26.thread, %_ZNK8rational6is_oneEv.exit26
   %.be = phi i32 [ %178, %_ZNK8rational6is_oneEv.exit26.thread ], [ 1, %_ZNK8rational6is_oneEv.exit26 ]
-  %.sroa.027.039.be = phi ptr [ %.old, %_ZNK8rational6is_oneEv.exit26.thread ], [ %187, %_ZNK8rational6is_oneEv.exit26 ]
+  %.sroa.027.037.be = phi ptr [ %.old, %_ZNK8rational6is_oneEv.exit26.thread ], [ %187, %_ZNK8rational6is_oneEv.exit26 ]
   br label %.backedge
 
 189:                                              ; preds = %.body22, %.body
@@ -24126,16 +24126,16 @@ _ZN2lp8dioph_eq3imp6term_oC2ERKNS_8lar_termE.exit: ; preds = %2
 _ZNK2lp8lar_term5beginEv.exit.i:                  ; preds = %37, %.lr.ph.i.i.i.i.i.i, %_ZN2lp8dioph_eq3imp6term_oC2ERKNS_8lar_termE.exit
   %.sroa.0.1.i.i.i.i = phi ptr [ %29, %_ZN2lp8dioph_eq3imp6term_oC2ERKNS_8lar_termE.exit ], [ %33, %37 ], [ %.sroa.0.0.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %39 = getelementptr inbounds nuw %class.default_map_entry, ptr %29, i64 %32
-  %.not21.i = icmp eq ptr %.sroa.0.1.i.i.i.i, %39
-  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not19.i = icmp eq ptr %.sroa.0.1.i.i.i.i, %39
+  br i1 %.not19.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK2lp8lar_term5beginEv.exit.i
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 456
   br label %41
 
 41:                                               ; preds = %_ZN2lp8lar_term14const_iteratorppEv.exit.i, %.lr.ph.i
-  %.sroa.016.022.i = phi ptr [ %.sroa.0.1.i.i.i.i, %.lr.ph.i ], [ %.sroa.016.2.i, %_ZN2lp8lar_term14const_iteratorppEv.exit.i ]
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.016.022.i, i64 8
+  %.sroa.016.020.i = phi ptr [ %.sroa.0.1.i.i.i.i, %.lr.ph.i ], [ %.sroa.016.2.i, %_ZN2lp8lar_term14const_iteratorppEv.exit.i ]
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.016.020.i, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !238
   %44 = load ptr, ptr %40, align 8, !tbaa !239
   %45 = invoke noundef zeroext i1 @_ZNK2lp10int_solver13column_is_intEj(ptr noundef nonnull align 8 dereferenceable(32) %44, i32 noundef %43)
@@ -24145,7 +24145,7 @@ _ZNK2lp8lar_term5beginEv.exit.i:                  ; preds = %37, %.lr.ph.i.i.i.i
   br i1 %45, label %46, label %_ZNK2lp8dioph_eq3imp16all_vars_are_intERKNS_8lar_termE.exit.thread
 
 46:                                               ; preds = %.noexc
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.016.022.i, i64 48
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.016.020.i, i64 48
   %.not1.i.i.i.i.i = icmp eq ptr %47, %33
   br i1 %.not1.i.i.i.i.i, label %_ZN2lp8lar_term14const_iteratorppEv.exit.i, label %.lr.ph.i.i.i.i.i
 
@@ -26966,19 +26966,19 @@ define linkonce_odr hidden void @_ZN2lp8dioph_eq3imp13gcd_of_coeffsISt6vectorINS
   br i1 %11, label %.thread34, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %_ZNK8rational12is_minus_oneEv.exit.thread
-  %.sroa.031.038 = phi ptr [ %38, %_ZNK8rational12is_minus_oneEv.exit.thread ], [ %8, %7 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 4
+  %.sroa.031.036 = phi ptr [ %38, %_ZNK8rational12is_minus_oneEv.exit.thread ], [ %8, %7 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 4
   %13 = load i8, ptr %12, align 4
   %14 = and i8 %13, 1
   %15 = icmp eq i8 %14, 0
-  %16 = load i32, ptr %.sroa.031.038, align 8
+  %16 = load i32, ptr %.sroa.031.036, align 8
   %17 = icmp eq i32 %16, 1
   %18 = select i1 %15, i1 %17, i1 false
   br i1 %18, label %_ZNK8rational6is_oneEv.exit, label %27
 
 _ZNK8rational6is_oneEv.exit:                      ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 16
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 20
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 20
   %21 = load i8, ptr %20, align 4
   %22 = and i8 %21, 1
   %23 = icmp eq i8 %22, 0
@@ -26993,8 +26993,8 @@ _ZNK8rational6is_oneEv.exit:                      ; preds = %.lr.ph
   br i1 %29, label %_ZNK8rational12is_minus_oneEv.exit, label %_ZNK8rational12is_minus_oneEv.exit.thread
 
 _ZNK8rational12is_minus_oneEv.exit:               ; preds = %27
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 16
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 20
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 20
   %32 = load i8, ptr %31, align 4
   %33 = and i8 %32, 1
   %34 = icmp eq i8 %33, 0
@@ -27004,7 +27004,7 @@ _ZNK8rational12is_minus_oneEv.exit:               ; preds = %27
   br i1 %37, label %40, label %_ZNK8rational12is_minus_oneEv.exit.thread
 
 _ZNK8rational12is_minus_oneEv.exit.thread:        ; preds = %_ZNK8rational6is_oneEv.exit, %27, %_ZNK8rational12is_minus_oneEv.exit
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.031.038, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.031.036, i64 40
   %39 = icmp eq ptr %38, %10
   br i1 %39, label %.thread34, label %.lr.ph
 
@@ -27058,9 +27058,9 @@ _ZNK8rational12is_minus_oneEv.exit.thread:        ; preds = %_ZNK8rational6is_on
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !441
   %68 = icmp eq ptr %65, %67
-  br i1 %68, label %.loopexit, label %.lr.ph40
+  br i1 %68, label %.loopexit, label %.lr.ph38
 
-.lr.ph40:                                         ; preds = %.thread34
+.lr.ph38:                                         ; preds = %.thread34
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %70 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -27074,9 +27074,9 @@ _ZNK8rational12is_minus_oneEv.exit.thread:        ; preds = %_ZNK8rational6is_on
   %.pre = load i32, ptr %0, align 8, !tbaa !128
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph40
-  %79 = phi i32 [ %.pre, %.lr.ph40 ], [ %.be, %.backedge.backedge ]
-  %.sroa.027.039 = phi ptr [ %65, %.lr.ph40 ], [ %.sroa.027.039.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph38
+  %79 = phi i32 [ %.pre, %.lr.ph38 ], [ %.be, %.backedge.backedge ]
+  %.sroa.027.037 = phi ptr [ %65, %.lr.ph38 ], [ %.sroa.027.037.be, %.backedge.backedge ]
   %80 = icmp eq i32 %79, 0
   br i1 %80, label %81, label %137
 
@@ -27094,25 +27094,25 @@ _ZNK8rational12is_minus_oneEv.exit.thread:        ; preds = %_ZNK8rational6is_on
   store i8 %85, ptr %77, align 4, !alias.scope !693
   store ptr null, ptr %78, align 8, !tbaa !129, !alias.scope !693
   %86 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !175, !noalias !693
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 4
   %88 = load i8, ptr %87, align 4, !noalias !693
   %89 = and i8 %88, 1
   %90 = icmp eq i8 %89, 0
   br i1 %90, label %91, label %93
 
 91:                                               ; preds = %81
-  %92 = load i32, ptr %.sroa.027.039, align 8, !tbaa !128, !noalias !693
+  %92 = load i32, ptr %.sroa.027.037, align 8, !tbaa !128, !noalias !693
   store i32 %92, ptr %5, align 8, !tbaa !128, !alias.scope !693
   store i8 %83, ptr %74, align 4, !alias.scope !693
   br label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i
 
 93:                                               ; preds = %81
-  invoke void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %86, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.027.039)
+  invoke void @_ZN11mpz_managerILb1EE7big_setER3mpzRKS1_(ptr noundef nonnull align 8 dereferenceable(728) %86, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.027.037)
           to label %_ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i unwind label %135
 
 _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i: ; preds = %93, %91
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 16
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 20
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 20
   %96 = load i8, ptr %95, align 4, !noalias !693
   %97 = and i8 %96, 1
   %98 = icmp eq i8 %97, 0
@@ -27221,7 +27221,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   store i8 %141, ptr %72, align 4, !alias.scope !696
   store ptr null, ptr %73, align 8, !tbaa !129, !alias.scope !696
   %142 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !175, !noalias !696
-  invoke void @_ZN11mpz_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %142, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.027.039, ptr noundef nonnull align 8 dereferenceable(32) %6)
+  invoke void @_ZN11mpz_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %142, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.027.037, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %.noexc.i21 unwind label %.body22
 
 .noexc.i21:                                       ; preds = %137
@@ -27306,19 +27306,19 @@ _ZNK8rational6is_oneEv.exit26:                    ; preds = %172
   %182 = load i32, ptr %57, align 8
   %183 = icmp eq i32 %182, 1
   %184 = select i1 %181, i1 %183, i1 false
-  %185 = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 40
+  %185 = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 40
   %186 = icmp eq ptr %185, %67
   %or.cond = select i1 %184, i1 true, i1 %186
   br i1 %or.cond, label %.loopexit, label %.backedge.backedge
 
 _ZNK8rational6is_oneEv.exit26.thread:             ; preds = %172
-  %.old = getelementptr inbounds nuw i8, ptr %.sroa.027.039, i64 40
-  %.old41 = icmp eq ptr %.old, %67
-  br i1 %.old41, label %.loopexit, label %.backedge.backedge
+  %.old = getelementptr inbounds nuw i8, ptr %.sroa.027.037, i64 40
+  %.old39 = icmp eq ptr %.old, %67
+  br i1 %.old39, label %.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %_ZNK8rational6is_oneEv.exit26.thread, %_ZNK8rational6is_oneEv.exit26
   %.be = phi i32 [ %176, %_ZNK8rational6is_oneEv.exit26.thread ], [ 1, %_ZNK8rational6is_oneEv.exit26 ]
-  %.sroa.027.039.be = phi ptr [ %.old, %_ZNK8rational6is_oneEv.exit26.thread ], [ %185, %_ZNK8rational6is_oneEv.exit26 ]
+  %.sroa.027.037.be = phi ptr [ %.old, %_ZNK8rational6is_oneEv.exit26.thread ], [ %185, %_ZNK8rational6is_oneEv.exit26 ]
   br label %.backedge
 
 187:                                              ; preds = %.body22, %.body

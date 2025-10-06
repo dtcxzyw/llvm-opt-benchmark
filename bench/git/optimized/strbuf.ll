@@ -3944,14 +3944,14 @@ define dso_local void @strbuf_add_lines(ptr noundef captures(none) %0, ptr nound
 ; Function Attrs: nounwind uwtable
 define dso_local void @strbuf_addstr_xml_quoted(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = load i8, ptr %1, align 1, !tbaa !4
-  %.not17 = icmp eq i8 %3, 0
-  br i1 %.not17, label %.thread, label %.lr.ph
+  %.not16 = icmp eq i8 %3, 0
+  br i1 %.not16, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %11
-  %.01318 = phi ptr [ %12, %11 ], [ %1, %2 ]
-  %4 = tail call i64 @strcspn(ptr noundef nonnull %.01318, ptr noundef nonnull @.str.15) #26
-  tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.01318, i64 noundef %4)
-  %5 = getelementptr inbounds nuw i8, ptr %.01318, i64 %4
+  %.01317 = phi ptr [ %12, %11 ], [ %1, %2 ]
+  %4 = tail call i64 @strcspn(ptr noundef nonnull %.01317, ptr noundef nonnull @.str.15) #26
+  tail call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %.01317, i64 noundef %4)
+  %5 = getelementptr inbounds nuw i8, ptr %.01317, i64 %4
   %6 = load i8, ptr %5, align 1, !tbaa !4
   switch i8 %6, label %11 [
     i8 34, label %7

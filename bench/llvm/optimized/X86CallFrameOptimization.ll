@@ -1074,8 +1074,8 @@ _ZN4llvm15SmallVectorImplIPNS_12MachineInstrEE6resizeEmS2_.exit.i: ; preds = %.s
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 16
   %304 = load i64, ptr %303, align 8, !tbaa !393
   %305 = and i64 %304, 128
-  %.not29.i.i = icmp eq i64 %305, 0
-  br i1 %.not29.i.i, label %307, label %.critedge73.i
+  %.not32.i.i = icmp eq i64 %305, 0
+  br i1 %.not32.i.i, label %307, label %.critedge73.i
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i: ; preds = %293
   %306 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.020.160.i, i64 noundef 128, i32 noundef 1) #18
@@ -1115,8 +1115,8 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge.i.i: ; preds = %_
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 16
   %326 = load i64, ptr %325, align 8, !tbaa !393
   %327 = and i64 %326, 1048576
-  %.not30.i.i = icmp eq i64 %327, 0
-  br i1 %.not30.i.i, label %329, label %.critedge73.i
+  %.not33.i.i = icmp eq i64 %327, 0
+  br i1 %.not33.i.i, label %329, label %.critedge73.i
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i: ; preds = %316
   %328 = call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %.sroa.020.160.i, i64 noundef 1048576, i32 noundef 1) #18
@@ -1130,18 +1130,18 @@ _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i: ; preds = %316
   %334 = zext i24 %333 to i64
   %.idx.i.i = shl nuw nsw i64 %334, 5
   %335 = getelementptr inbounds nuw i8, ptr %331, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i24 %333, 0
-  br i1 %.not36.i.i, label %.critedge73.i, label %.lr.ph38.i.i
+  %.not39.i.i = icmp eq i24 %333, 0
+  br i1 %.not39.i.i, label %.critedge73.i, label %.lr.ph41.i.i
 
-.lr.ph38.i.i:                                     ; preds = %329, %.loopexit.i.i
-  %.02837.i.i = phi ptr [ %375, %.loopexit.i.i ], [ %331, %329 ]
-  %336 = load i32, ptr %.02837.i.i, align 8
+.lr.ph41.i.i:                                     ; preds = %329, %.loopexit.i.i
+  %.02840.i.i = phi ptr [ %375, %.loopexit.i.i ], [ %331, %329 ]
+  %336 = load i32, ptr %.02840.i.i, align 8
   %337 = and i32 %336, 255
   %338 = icmp eq i32 %337, 0
   br i1 %338, label %339, label %.loopexit.i.i
 
-339:                                              ; preds = %.lr.ph38.i.i
-  %340 = getelementptr inbounds nuw i8, ptr %.02837.i.i, i64 4
+339:                                              ; preds = %.lr.ph41.i.i
+  %340 = getelementptr inbounds nuw i8, ptr %.02840.i.i, i64 4
   %341 = load i32, ptr %340, align 4, !tbaa !355
   %342 = add i32 %341, -1
   %343 = icmp ult i32 %342, 1073741823
@@ -1162,14 +1162,14 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i: ; preds = 
   br i1 %350, label %.critedge73.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20_crit_edge.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20_crit_edge.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i
-  %.pre43.i.i = load i32, ptr %.02837.i.i, align 8
+  %.pre46.i.i = load i32, ptr %.02840.i.i, align 8
   br label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20_crit_edge.i.i, %347
-  %351 = phi i32 [ %.pre43.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20_crit_edge.i.i ], [ %336, %347 ]
+  %351 = phi i32 [ %.pre46.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit._ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20_crit_edge.i.i ], [ %336, %347 ]
   %352 = and i32 %351, 16777216
-  %.not31.i.i = icmp eq i32 %352, 0
-  br i1 %.not31.i.i, label %.loopexit.i.i, label %353
+  %.not34.i.i = icmp eq i32 %352, 0
+  br i1 %.not34.i.i, label %.loopexit.i.i, label %353
 
 353:                                              ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20.i.i
   %354 = load i32, ptr %137, align 8, !tbaa !398
@@ -1204,12 +1204,12 @@ _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapIn
   %.pn14.i.i.i.i = phi ptr [ %360, %359 ], [ %356, %361 ], [ %362, %.critedge2.i8.i14.i9.i.i.i.i ], [ %.sroa.0.3.i4.i.i.i.i, %.lr.ph.i6.i12.i3.i.i.i.i ]
   %.pn12.i.i.i.i = phi ptr [ %360, %359 ], [ %362, %361 ], [ %362, %.lr.ph.i6.i12.i3.i.i.i.i ], [ %362, %.critedge2.i8.i14.i9.i.i.i.i ]
   %365 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %356, i64 %358
-  %.not3234.i.i = icmp eq ptr %.pn14.i.i.i.i, %365
-  br i1 %.not3234.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
+  %.not3537.i.i = icmp eq ptr %.pn14.i.i.i.i, %365
+  br i1 %.not3537.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E5beginEv.exit.i.i, %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8IteratorppEv.exit.i.i
-  %.sroa.02.035.i.i = phi ptr [ %.sroa.02.2.i.i, %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8IteratorppEv.exit.i.i ], [ %.pn14.i.i.i.i, %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E5beginEv.exit.i.i ]
-  %366 = load i32, ptr %.sroa.02.035.i.i, align 4, !tbaa !403
+  %.sroa.02.038.i.i = phi ptr [ %.sroa.02.2.i.i, %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8IteratorppEv.exit.i.i ], [ %.pn14.i.i.i.i, %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E5beginEv.exit.i.i ]
+  %366 = load i32, ptr %.sroa.02.038.i.i, align 4, !tbaa !403
   %367 = icmp eq i32 %341, %366
   br i1 %367, label %.critedge73.i, label %368
 
@@ -1223,7 +1223,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.i.i: ; preds 
   br i1 %371, label %.critedge73.i, label %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.thread23.i.i
 
 _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.thread23.i.i: ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.i.i, %368
-  %372 = getelementptr inbounds nuw i8, ptr %.sroa.02.035.i.i, i64 4
+  %372 = getelementptr inbounds nuw i8, ptr %.sroa.02.038.i.i, i64 4
   %.not4.i3.i.i.i.i = icmp eq ptr %372, %.pn12.i.i.i.i
   br i1 %.not4.i3.i.i.i.i, label %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8IteratorppEv.exit.i.i, label %.lr.ph.i4.i.i.i.i
 
@@ -1240,21 +1240,21 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.thread23.i.i:
 
 _ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8IteratorppEv.exit.i.i: ; preds = %.critedge2.i6.i.i.i.i, %.lr.ph.i4.i.i.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.thread23.i.i
   %.sroa.02.2.i.i = phi ptr [ %372, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.thread23.i.i ], [ %.sroa.02.1.i.i, %.lr.ph.i4.i.i.i.i ], [ %374, %.critedge2.i6.i.i.i.i ]
-  %.not32.i.i = icmp eq ptr %.sroa.02.2.i.i, %365
-  br i1 %.not32.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
+  %.not35.i.i = icmp eq ptr %.sroa.02.2.i.i, %365
+  br i1 %.not35.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
-.loopexit.i.i:                                    ; preds = %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8IteratorppEv.exit.i.i, %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E5beginEv.exit.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20.i.i, %339, %.lr.ph38.i.i
-  %375 = getelementptr inbounds nuw i8, ptr %.02837.i.i, i64 32
+.loopexit.i.i:                                    ; preds = %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E8IteratorppEv.exit.i.i, %_ZN4llvm6detail12DenseSetImplIjNS_8DenseMapIjNS0_13DenseSetEmptyENS_12DenseMapInfoIjvEENS0_12DenseSetPairIjEEEES5_E5beginEv.exit.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.thread20.i.i, %339, %.lr.ph41.i.i
+  %375 = getelementptr inbounds nuw i8, ptr %.02840.i.i, i64 32
   %.not.i.i57 = icmp eq ptr %375, %335
-  br i1 %.not.i.i57, label %.critedge73.i, label %.lr.ph38.i.i
+  br i1 %.not.i.i57, label %.critedge73.i, label %.lr.ph41.i.i
 
 _ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread.sink.split.i.i: ; preds = %292, %289, %289, %289
-  %.sink57.i.i = phi i64 [ -1, %292 ], [ 0, %289 ], [ 0, %289 ], [ 0, %289 ]
+  %.sink60.i.i = phi i64 [ -1, %292 ], [ 0, %289 ], [ 0, %289 ], [ 0, %289 ]
   %376 = getelementptr inbounds nuw i8, ptr %.sroa.020.160.i, i64 32
   %377 = load ptr, ptr %376, align 8, !tbaa !354
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 176
   %379 = load i64, ptr %378, align 8, !tbaa !355
-  %380 = icmp eq i64 %379, %.sink57.i.i
+  %380 = icmp eq i64 %379, %.sink60.i.i
   br i1 %380, label %_ZN12_GLOBAL__N_124X86CallFrameOptimization19classifyInstructionERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_15X86RegisterInfoERNS1_8DenseSetIjNS1_12DenseMapInfoIjvEEEE.exit.i, label %.critedge73.i
 
 _ZN12_GLOBAL__N_124X86CallFrameOptimization19classifyInstructionERN4llvm17MachineBasicBlockENS1_26MachineInstrBundleIteratorINS1_12MachineInstrELb0EEERKNS1_15X86RegisterInfoERNS1_8DenseSetIjNS1_12DenseMapInfoIjvEEEE.exit.i: ; preds = %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread.sink.split.i.i, %289, %289, %289, %289
@@ -1492,7 +1492,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   br i1 %.not67.i, label %.critedge73.i, label %.lr.ph.i52
 
 .critedge73.i:                                    ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbEOjDpOT_.exit, %.loopexit.i.i, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i, %344, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.i.i, %.lr.ph.i.i, %422, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread.sink.split.i.i, %329, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i, %322, %310, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i, %300, %287, %285
-  %.157.i = phi i32 [ %.05661.i, %285 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread.sink.split.i.i ], [ 1, %329 ], [ 2, %310 ], [ 2, %322 ], [ 2, %300 ], [ 2, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i ], [ 2, %287 ], [ 0, %422 ], [ 2, %.lr.ph.i.i ], [ 2, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.i.i ], [ 1, %.loopexit.i.i ], [ 2, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i ], [ 2, %344 ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbEOjDpOT_.exit ]
+  %.157.i = phi i32 [ %.05661.i, %285 ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.thread.sink.split.i.i ], [ 1, %329 ], [ 2, %310 ], [ 2, %322 ], [ 2, %300 ], [ 2, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i.i ], [ 2, %_ZNK4llvm12MachineInstr8mayStoreENS0_9QueryTypeE.exit.i.i ], [ 2, %287 ], [ 0, %422 ], [ 2, %.lr.ph.i.i ], [ 2, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit37.i.i ], [ 2, %344 ], [ 2, %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i ], [ 1, %.loopexit.i.i ], [ 0, %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E11try_emplaceIJRS3_EEESt4pairINS_16DenseMapIteratorIjS3_S5_S7_Lb0EEEbEOjDpOT_.exit ]
   %509 = icmp ne ptr %.sroa.020.160.i, null
   call void @llvm.assume(i1 %509)
   %.0.copyload.i.i.i.i.i.i.i.i.i99.i = load i64, ptr %.sroa.020.160.i, align 8

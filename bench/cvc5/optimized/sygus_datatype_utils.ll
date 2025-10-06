@@ -6540,8 +6540,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %._crit_edge, %86, %
   %158 = load i64, ptr %13, align 8, !tbaa !270
   %159 = urem i64 %157, %158
   %160 = load i64, ptr %20, align 8, !tbaa !278
-  %.not32.i = icmp eq i64 %160, 0
-  br i1 %.not32.i, label %.critedge.i, label %161
+  %.not30.i = icmp eq i64 %160, 0
+  br i1 %.not30.i, label %.critedge.i, label %161
 
 161:                                              ; preds = %.noexc97
   %162 = load ptr, ptr %6, align 8, !tbaa !268
@@ -14030,8 +14030,8 @@ _ZNSt6vectorIN4cvc58internal8TypeNodeESaIS2_EE9push_backERKS2_.exit78: ; preds =
   %359 = load i64, ptr %17, align 8, !tbaa !270
   %360 = urem i64 %358, %359
   %361 = load i64, ptr %26, align 8, !tbaa !278
-  %.not32.i = icmp eq i64 %361, 0
-  br i1 %.not32.i, label %.critedge.i, label %362
+  %.not30.i = icmp eq i64 %361, 0
+  br i1 %.not30.i, label %.critedge.i, label %362
 
 362:                                              ; preds = %.noexc110
   %363 = load ptr, ptr %5, align 8, !tbaa !268

@@ -2335,28 +2335,26 @@ declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 -1, 1) i32 @verifyClusterNodeId(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq i32 %1, 40
-  br i1 %.not, label %.preheader, label %8
+  br i1 %.not, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %2, %.preheader
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %4 = load i8, ptr %3, align 1, !tbaa !5
-  %5 = add i8 %4, -123
-  %or.cond = icmp ult i8 %5, -26
-  %6 = add i8 %4, -58
-  %or.cond18 = icmp ult i8 %6, -10
-  %or.cond19.not = and i1 %or.cond, %or.cond18
+3:                                                ; preds = %.preheader
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 40
-  %or.cond22 = select i1 %or.cond19.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond22, label %7, label %.preheader, !llvm.loop !97
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !97
 
-7:                                                ; preds = %.preheader
-  %spec.select = sext i1 %or.cond19.not to i32
-  br label %8
+.preheader:                                       ; preds = %2, %3
+  %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %5 = load i8, ptr %4, align 1, !tbaa !5
+  %6 = add i8 %5, -97
+  %or.cond = icmp ult i8 %6, 26
+  %7 = add i8 %5, -48
+  %or.cond18 = icmp ult i8 %7, 10
+  %or.cond20 = or i1 %or.cond, %or.cond18
+  br i1 %or.cond20, label %3, label %.loopexit
 
-8:                                                ; preds = %7, %2
-  %.014 = phi i32 [ -1, %2 ], [ %spec.select, %7 ]
+.loopexit:                                        ; preds = %.preheader, %3, %2
+  %.014 = phi i32 [ -1, %2 ], [ -1, %.preheader ], [ 0, %3 ]
   ret i32 %.014
 }
 
@@ -2387,8 +2385,8 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local range(i32 0, 2) i32 @isValidAuxString(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #9 {
-  %.not910 = icmp eq i32 %1, 0
-  br i1 %.not910, label %isValidAuxChar.exit._crit_edge, label %.lr.ph
+  %.not12 = icmp eq i32 %1, 0
+  br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %3 = tail call ptr @__ctype_b_loc() #21
@@ -2411,16 +2409,16 @@ isValidAuxChar.exit:                              ; preds = %5
   %12 = sext i8 %7 to i32
   %memchr.i = tail call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.47, i32 %12, i64 23)
   %.not = icmp eq ptr %memchr.i, null
-  br i1 %.not, label %isValidAuxChar.exit.thread, label %isValidAuxChar.exit._crit_edge
+  br i1 %.not, label %isValidAuxChar.exit.thread, label %._crit_edge
 
 isValidAuxChar.exit.thread:                       ; preds = %5, %isValidAuxChar.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %isValidAuxChar.exit._crit_edge, label %5, !llvm.loop !100
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !100
 
-isValidAuxChar.exit._crit_edge:                   ; preds = %isValidAuxChar.exit.thread, %isValidAuxChar.exit, %2
-  %.not9.lcssa = phi i32 [ 1, %2 ], [ 0, %isValidAuxChar.exit ], [ 1, %isValidAuxChar.exit.thread ]
-  ret i32 %.not9.lcssa
+._crit_edge:                                      ; preds = %isValidAuxChar.exit, %isValidAuxChar.exit.thread, %2
+  %13 = phi i32 [ 1, %2 ], [ 1, %isValidAuxChar.exit.thread ], [ 0, %isValidAuxChar.exit ]
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable

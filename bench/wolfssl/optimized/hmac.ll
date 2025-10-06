@@ -1149,8 +1149,8 @@ switch.lookup:                                    ; preds = %9
 
 .lr.ph:                                           ; preds = %23, %38
   %25 = phi i8 [ %45, %38 ], [ 1, %23 ]
-  %.04065 = phi i32 [ %43, %38 ], [ 0, %23 ]
-  %26 = sub nuw i32 %6, %.04065
+  %.04064 = phi i32 [ %43, %38 ], [ 0, %23 ]
+  %26 = sub nuw i32 %6, %.04064
   %27 = call i32 @wc_HmacSetKey_ex(ptr noundef nonnull %11, i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef 1)
   %.not54 = icmp eq i32 %27, 0
   br i1 %.not54, label %28, label %.thread
@@ -1179,11 +1179,11 @@ switch.lookup:                                    ; preds = %9
 
 38:                                               ; preds = %36
   %39 = call range(i32 0, -2147483648) i32 @llvm.umin.i32(i32 %26, i32 range(i32 0, -2147483648) %switch.load)
-  %40 = zext i32 %.04065 to i64
+  %40 = zext i32 %.04064 to i64
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 %40
   %42 = zext nneg i32 %39 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 16 %10, i64 %42, i1 false)
-  %43 = add i32 %.04065, %switch.load
+  %43 = add i32 %.04064, %switch.load
   %44 = load i8, ptr %12, align 1, !tbaa !10
   %45 = add i8 %44, 1
   store i8 %45, ptr %12, align 1, !tbaa !10

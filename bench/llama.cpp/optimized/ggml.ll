@@ -1507,30 +1507,30 @@ define zeroext i1 @ggml_is_3d(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 1, 0) i32 @ggml_n_dims(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
+define range(i32 1, -2147483648) i32 @ggml_n_dims(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %3
 
-3:                                                ; preds = %1, %10
-  %.069 = phi i32 [ 3, %1 ], [ %11, %10 ]
-  %4 = zext nneg i32 %.069 to i64
+3:                                                ; preds = %1, %8
+  %.0611 = phi i32 [ 3, %1 ], [ %9, %8 ]
+  %4 = zext nneg i32 %.0611 to i64
   %5 = getelementptr inbounds nuw i64, ptr %2, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !39
   %7 = icmp sgt i64 %6, 1
-  br i1 %7, label %8, label %10
+  br i1 %7, label %11, label %8
 
 8:                                                ; preds = %3
-  %9 = add nuw nsw i32 %.069, 1
+  %9 = add nsw i32 %.0611, -1
+  %10 = icmp samesign ugt i32 %.0611, 1
+  br i1 %10, label %3, label %.loopexit, !llvm.loop !56
+
+11:                                               ; preds = %3
+  %12 = add nuw nsw i32 %.0611, 1
   br label %.loopexit
 
-10:                                               ; preds = %3
-  %11 = add nsw i32 %.069, -1
-  %12 = icmp samesign ult i32 %.069, 2
-  br i1 %12, label %.loopexit, label %3, !llvm.loop !56
-
-.loopexit:                                        ; preds = %10, %8
-  %spec.select = phi i32 [ %9, %8 ], [ 1, %10 ]
-  ret i32 %spec.select
+.loopexit:                                        ; preds = %8, %11
+  %13 = phi i32 [ %12, %11 ], [ 1, %8 ]
+  ret i32 %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -16716,50 +16716,50 @@ define ptr @ggml_graph_get_tensor(ptr noundef readonly captures(none) %0, ptr no
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !115
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %13
+  br label %14
 
-8:                                                ; preds = %13
+8:                                                ; preds = %14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %13, !llvm.loop !124
+  br i1 %exitcond.not, label %.preheader, label %14, !llvm.loop !124
 
 .preheader:                                       ; preds = %8, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !98
-  %.not3437 = icmp sgt i32 %10, 0
-  br i1 %.not3437, label %.lr.ph39, label %.thread
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %.lr.ph37, label %.thread
 
-.lr.ph39:                                         ; preds = %.preheader
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load ptr, ptr %11, align 8, !tbaa !100
-  %wide.trip.count48 = zext nneg i32 %10 to i64
-  br label %19
+.lr.ph37:                                         ; preds = %.preheader
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load ptr, ptr %12, align 8, !tbaa !100
+  %wide.trip.count46 = zext nneg i32 %10 to i64
+  br label %20
 
-13:                                               ; preds = %.lr.ph, %8
+14:                                               ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8, !tbaa !81
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 256
-  %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %1) #49
-  %.not = icmp eq i32 %17, 0
+  %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %16 = load ptr, ptr %15, align 8, !tbaa !81
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 256
+  %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %1) #49
+  %.not = icmp eq i32 %18, 0
   br i1 %.not, label %.thread, label %8
 
-18:                                               ; preds = %19
-  %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
-  %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
-  br i1 %exitcond49.not, label %.thread, label %19, !llvm.loop !125
+19:                                               ; preds = %20
+  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %exitcond47.not = icmp eq i64 %indvars.iv.next44, %wide.trip.count46
+  br i1 %exitcond47.not, label %.thread, label %20, !llvm.loop !125
 
-19:                                               ; preds = %.lr.ph39, %18
-  %indvars.iv45 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next46, %18 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv45
-  %21 = load ptr, ptr %20, align 8, !tbaa !81
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 256
-  %23 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %1) #49
-  %.not27 = icmp eq i32 %23, 0
-  br i1 %.not27, label %.thread, label %18
+20:                                               ; preds = %.lr.ph37, %19
+  %indvars.iv43 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next44, %19 ]
+  %21 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv43
+  %22 = load ptr, ptr %21, align 8, !tbaa !81
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 256
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %1) #49
+  %.not27 = icmp eq i32 %24, 0
+  br i1 %.not27, label %.thread, label %19
 
-.thread:                                          ; preds = %13, %18, %19, %.preheader
-  %.3 = phi ptr [ null, %.preheader ], [ null, %18 ], [ %21, %19 ], [ %15, %13 ]
+.thread:                                          ; preds = %14, %19, %20, %.preheader
+  %.3 = phi ptr [ null, %.preheader ], [ null, %19 ], [ %22, %20 ], [ %16, %14 ]
   ret ptr %.3
 }
 
@@ -16984,7 +16984,7 @@ define void @ggml_graph_dump_dot(ptr noundef readonly captures(none) %0, ptr nou
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !98
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph, label %.preheader139
+  br i1 %15, label %.lr.ph, label %.preheader138
 
 .lr.ph:                                           ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -16997,20 +16997,20 @@ define void @ggml_graph_dump_dot(ptr noundef readonly captures(none) %0, ptr nou
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %29
 
-.preheader139:                                    ; preds = %165, %9
-  %24 = phi i32 [ %14, %9 ], [ %166, %165 ]
+.preheader138:                                    ; preds = %167, %9
+  %24 = phi i32 [ %14, %9 ], [ %168, %167 ]
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !114
   %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph151, label %.preheader138
+  br i1 %27, label %.lr.ph150, label %.preheader137
 
-.lr.ph151:                                        ; preds = %.preheader139
+.lr.ph150:                                        ; preds = %.preheader138
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %177
+  br label %179
 
-29:                                               ; preds = %.lr.ph, %165
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
-  %30 = phi i32 [ %14, %.lr.ph ], [ %166, %165 ]
+29:                                               ; preds = %.lr.ph, %167
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %167 ]
+  %30 = phi i32 [ %14, %.lr.ph ], [ %168, %167 ]
   %31 = load ptr, ptr %16, align 8, !tbaa !100
   %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !81
@@ -17064,607 +17064,607 @@ ggml_hash_find.exit.thread15.i:                   ; preds = %47
 
 ggml_graph_get_grad.exit:                         ; preds = %39, %51, %ggml_hash_find.exit.thread15.i, %56, %58
   %61 = phi ptr [ %60, %58 ], [ null, %56 ], [ null, %ggml_hash_find.exit.thread15.i ], [ null, %51 ], [ null, %39 ]
-  %.not1517.i = icmp sgt i32 %30, 0
-  br i1 %.not1517.i, label %.lr.ph.i, label %ggml_graph_get_parent.exit.thread
+  %62 = icmp sgt i32 %30, 0
+  br i1 %62, label %.lr.ph.i, label %ggml_graph_get_parent.exit.thread
 
 .lr.ph.i:                                         ; preds = %ggml_graph_get_grad.exit
   %wide.trip.count.i = zext nneg i32 %30 to i64
-  br label %63
+  br label %64
 
-62:                                               ; preds = %ggml_graph_get_grad.exit.i
+63:                                               ; preds = %ggml_graph_get_grad.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ggml_graph_get_parent.exit.thread, label %63, !llvm.loop !128
+  br i1 %exitcond.not.i, label %ggml_graph_get_parent.exit.thread, label %64, !llvm.loop !128
 
-63:                                               ; preds = %62, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %62 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
-  %65 = load ptr, ptr %64, align 8, !tbaa !81
-  %66 = ptrtoint ptr %65 to i64
-  %67 = lshr i64 %66, 4
-  %68 = urem i64 %67, %36
-  br label %69
+64:                                               ; preds = %63, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %63 ]
+  %65 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i
+  %66 = load ptr, ptr %65, align 8, !tbaa !81
+  %67 = ptrtoint ptr %66 to i64
+  %68 = lshr i64 %67, 4
+  %69 = urem i64 %68, %36
+  br label %70
 
-69:                                               ; preds = %81, %63
-  %.0.i.i.i = phi i64 [ %68, %63 ], [ %84, %81 ]
+70:                                               ; preds = %82, %64
+  %.0.i.i.i = phi i64 [ %69, %64 ], [ %85, %82 ]
   %.0.fr.i.i.i = freeze i64 %.0.i.i.i
-  %70 = lshr i64 %.0.fr.i.i.i, 5
-  %71 = getelementptr inbounds nuw i32, ptr %38, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !8
-  %73 = trunc i64 %.0.fr.i.i.i to i32
-  %74 = and i32 %73, 31
-  %75 = shl nuw i32 1, %74
-  %76 = and i32 %75, %72
-  %.not15.i.i.i = icmp eq i32 %76, 0
-  br i1 %.not15.i.i.i, label %ggml_graph_get_grad.exit.i, label %77
+  %71 = lshr i64 %.0.fr.i.i.i, 5
+  %72 = getelementptr inbounds nuw i32, ptr %38, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !8
+  %74 = trunc i64 %.0.fr.i.i.i to i32
+  %75 = and i32 %74, 31
+  %76 = shl nuw i32 1, %75
+  %77 = and i32 %76, %73
+  %.not15.i.i.i = icmp eq i32 %77, 0
+  br i1 %.not15.i.i.i, label %ggml_graph_get_grad.exit.i, label %78
 
-77:                                               ; preds = %69
-  %78 = load ptr, ptr %18, align 8, !tbaa !96
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %.0.fr.i.i.i
-  %80 = load ptr, ptr %79, align 8, !tbaa !81
-  %.not.i.i.i = icmp eq ptr %80, %65
-  br i1 %.not.i.i.i, label %ggml_hash_find.exit.thread15.i.i, label %81
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %18, align 8, !tbaa !96
+  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %.0.fr.i.i.i
+  %81 = load ptr, ptr %80, align 8, !tbaa !81
+  %.not.i.i.i = icmp eq ptr %81, %66
+  br i1 %.not.i.i.i, label %ggml_hash_find.exit.thread15.i.i, label %82
 
-81:                                               ; preds = %77
-  %82 = add i64 %.0.fr.i.i.i, 1
-  %83 = icmp eq i64 %82, %36
-  %84 = select i1 %83, i64 0, i64 %82
-  %85 = icmp eq i64 %84, %68
-  br i1 %85, label %ggml_graph_get_grad.exit.i, label %69, !llvm.loop !105
+82:                                               ; preds = %78
+  %83 = add i64 %.0.fr.i.i.i, 1
+  %84 = icmp eq i64 %83, %36
+  %85 = select i1 %84, i64 0, i64 %83
+  %86 = icmp eq i64 %85, %69
+  br i1 %86, label %ggml_graph_get_grad.exit.i, label %70, !llvm.loop !105
 
-ggml_hash_find.exit.thread15.i.i:                 ; preds = %77
+ggml_hash_find.exit.thread15.i.i:                 ; preds = %78
   %.not16.i.i = icmp eq i64 %.0.fr.i.i.i, -1
-  br i1 %.not16.i.i, label %ggml_graph_get_grad.exit.i, label %86
+  br i1 %.not16.i.i, label %ggml_graph_get_grad.exit.i, label %87
 
-86:                                               ; preds = %ggml_hash_find.exit.thread15.i.i
-  %87 = load ptr, ptr %20, align 8, !tbaa !101
-  %.not8.i.i = icmp eq ptr %87, null
-  br i1 %.not8.i.i, label %ggml_graph_get_grad.exit.i, label %88
+87:                                               ; preds = %ggml_hash_find.exit.thread15.i.i
+  %88 = load ptr, ptr %20, align 8, !tbaa !101
+  %.not8.i.i = icmp eq ptr %88, null
+  br i1 %.not8.i.i, label %ggml_graph_get_grad.exit.i, label %89
 
-88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %.0.fr.i.i.i
-  %90 = load ptr, ptr %89, align 8, !tbaa !81
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds nuw ptr, ptr %88, i64 %.0.fr.i.i.i
+  %91 = load ptr, ptr %90, align 8, !tbaa !81
   br label %ggml_graph_get_grad.exit.i
 
-ggml_graph_get_grad.exit.i:                       ; preds = %81, %69, %88, %86, %ggml_hash_find.exit.thread15.i.i
-  %91 = phi ptr [ %90, %88 ], [ null, %86 ], [ null, %ggml_hash_find.exit.thread15.i.i ], [ null, %69 ], [ null, %81 ]
-  %.not.i = icmp eq ptr %91, %33
-  br i1 %.not.i, label %ggml_graph_get_parent.exit, label %62
+ggml_graph_get_grad.exit.i:                       ; preds = %82, %70, %89, %87, %ggml_hash_find.exit.thread15.i.i
+  %92 = phi ptr [ %91, %89 ], [ null, %87 ], [ null, %ggml_hash_find.exit.thread15.i.i ], [ null, %70 ], [ null, %82 ]
+  %.not.i = icmp eq ptr %92, %33
+  br i1 %.not.i, label %ggml_graph_get_parent.exit, label %63
 
 ggml_graph_get_parent.exit:                       ; preds = %ggml_graph_get_grad.exit.i
-  %.not118 = icmp eq ptr %65, null
-  br i1 %.not118, label %ggml_graph_get_parent.exit.thread, label %165
+  %.not118 = icmp eq ptr %66, null
+  br i1 %.not118, label %ggml_graph_get_parent.exit.thread, label %167
 
-ggml_graph_get_parent.exit.thread:                ; preds = %62, %ggml_graph_get_grad.exit, %ggml_graph_get_parent.exit
-  %92 = getelementptr inbounds nuw i8, ptr %33, i64 148
-  %93 = load i32, ptr %92, align 4, !tbaa !89
-  %94 = and i32 %93, 4
-  %.not119 = icmp eq i32 %94, 0
-  br i1 %.not119, label %96, label %95
-
-95:                                               ; preds = %ggml_graph_get_parent.exit.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @.str.192, i64 7, i1 false)
-  br label %106
+ggml_graph_get_parent.exit.thread:                ; preds = %63, %ggml_graph_get_grad.exit, %ggml_graph_get_parent.exit
+  %93 = getelementptr inbounds nuw i8, ptr %33, i64 148
+  %94 = load i32, ptr %93, align 4, !tbaa !89
+  %95 = and i32 %94, 4
+  %.not119 = icmp eq i32 %95, 0
+  br i1 %.not119, label %97, label %96
 
 96:                                               ; preds = %ggml_graph_get_parent.exit.thread
-  %.not120 = icmp eq ptr %61, null
-  br i1 %.not120, label %105, label %97
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @.str.192, i64 7, i1 false)
+  br label %108
 
-97:                                               ; preds = %96
+97:                                               ; preds = %ggml_graph_get_parent.exit.thread
+  %.not120 = icmp eq ptr %61, null
+  br i1 %.not120, label %107, label %98
+
+98:                                               ; preds = %97
   br i1 %21, label %.loopexit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %97
-  %98 = load i32, ptr %22, align 4, !tbaa !98
-  %.not11.i = icmp sgt i32 %98, 0
-  br i1 %.not11.i, label %.lr.ph.i124, label %ggml_graph_find.exit
+.preheader.i:                                     ; preds = %98
+  %99 = load i32, ptr %22, align 4, !tbaa !98
+  %100 = icmp sgt i32 %99, 0
+  br i1 %100, label %.lr.ph.i124, label %ggml_graph_find.exit
 
 .lr.ph.i124:                                      ; preds = %.preheader.i
-  %99 = load ptr, ptr %23, align 8, !tbaa !100
-  %wide.trip.count.i125 = zext nneg i32 %98 to i64
-  br label %101
+  %101 = load ptr, ptr %23, align 8, !tbaa !100
+  %wide.trip.count.i125 = zext nneg i32 %99 to i64
+  br label %103
 
-100:                                              ; preds = %101
+102:                                              ; preds = %103
   %indvars.iv.next.i127 = add nuw nsw i64 %indvars.iv.i126, 1
   %exitcond.not.i128 = icmp eq i64 %indvars.iv.next.i127, %wide.trip.count.i125
-  br i1 %exitcond.not.i128, label %ggml_graph_find.exit, label %101, !llvm.loop !129
+  br i1 %exitcond.not.i128, label %ggml_graph_find.exit, label %103, !llvm.loop !129
 
-101:                                              ; preds = %100, %.lr.ph.i124
-  %indvars.iv.i126 = phi i64 [ 0, %.lr.ph.i124 ], [ %indvars.iv.next.i127, %100 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv.i126
-  %103 = load ptr, ptr %102, align 8, !tbaa !81
-  %104 = icmp eq ptr %103, %33
-  br i1 %104, label %.loopexit, label %100
+103:                                              ; preds = %102, %.lr.ph.i124
+  %indvars.iv.i126 = phi i64 [ 0, %.lr.ph.i124 ], [ %indvars.iv.next.i127, %102 ]
+  %104 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i126
+  %105 = load ptr, ptr %104, align 8, !tbaa !81
+  %106 = icmp eq ptr %105, %33
+  br i1 %106, label %.loopexit, label %102
 
-.loopexit:                                        ; preds = %101, %97
+.loopexit:                                        ; preds = %103, %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str.193, i64 6, i1 false)
-  br label %106
+  br label %108
 
-ggml_graph_find.exit:                             ; preds = %100, %.preheader.i
+ggml_graph_find.exit:                             ; preds = %102, %.preheader.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %4, ptr noundef nonnull align 1 dereferenceable(10) @.str.194, i64 10, i1 false)
-  br label %106
+  br label %108
 
-105:                                              ; preds = %96
+107:                                              ; preds = %97
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @.str.195, i64 6, i1 false)
-  br label %106
+  br label %108
 
-106:                                              ; preds = %105, %ggml_graph_find.exit, %.loopexit, %95
-  %107 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.196, ptr noundef %33, ptr noundef nonnull %4) #43
-  %108 = getelementptr inbounds nuw i8, ptr %33, i64 256
-  %char0121 = load i8, ptr %108, align 1
+108:                                              ; preds = %107, %ggml_graph_find.exit, %.loopexit, %96
+  %109 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.196, ptr noundef %33, ptr noundef nonnull %4) #43
+  %110 = getelementptr inbounds nuw i8, ptr %33, i64 256
+  %char0121 = load i8, ptr %110, align 1
   %.not122 = icmp eq i8 %char0121, 0
-  %109 = load i32, ptr %33, align 8, !tbaa !40
-  %110 = icmp ult i32 %109, 39
-  br i1 %.not122, label %118, label %111
+  %111 = load i32, ptr %33, align 8, !tbaa !40
+  %112 = icmp ult i32 %111, 39
+  br i1 %.not122, label %120, label %113
 
-111:                                              ; preds = %106
-  br i1 %110, label %112, label %ggml_type_name.exit
+113:                                              ; preds = %108
+  br i1 %112, label %114, label %ggml_type_name.exit
 
-112:                                              ; preds = %111
-  %113 = zext nneg i32 %109 to i64
-  %114 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %113
-  %115 = load ptr, ptr %114, align 8, !tbaa !50
+114:                                              ; preds = %113
+  %115 = zext nneg i32 %111 to i64
+  %116 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %115
+  %117 = load ptr, ptr %116, align 8, !tbaa !50
   br label %ggml_type_name.exit
 
-ggml_type_name.exit:                              ; preds = %111, %112
-  %116 = phi ptr [ %115, %112 ], [ @.str.18, %111 ]
-  %117 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, ptr noundef nonnull %108, ptr noundef %116) #43
-  br label %125
+ggml_type_name.exit:                              ; preds = %113, %114
+  %118 = phi ptr [ %117, %114 ], [ @.str.18, %113 ]
+  %119 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, ptr noundef nonnull %110, ptr noundef %118) #43
+  br label %127
 
-118:                                              ; preds = %106
-  br i1 %110, label %119, label %ggml_type_name.exit129
+120:                                              ; preds = %108
+  br i1 %112, label %121, label %ggml_type_name.exit129
 
-119:                                              ; preds = %118
-  %120 = zext nneg i32 %109 to i64
-  %121 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %120
-  %122 = load ptr, ptr %121, align 8, !tbaa !50
+121:                                              ; preds = %120
+  %122 = zext nneg i32 %111 to i64
+  %123 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %122
+  %124 = load ptr, ptr %123, align 8, !tbaa !50
   br label %ggml_type_name.exit129
 
-ggml_type_name.exit129:                           ; preds = %118, %119
-  %123 = phi ptr [ %122, %119 ], [ @.str.18, %118 ]
-  %124 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.198, ptr noundef %123) #43
-  br label %125
+ggml_type_name.exit129:                           ; preds = %120, %121
+  %125 = phi ptr [ %124, %121 ], [ @.str.18, %120 ]
+  %126 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.198, ptr noundef %125) #43
+  br label %127
 
-125:                                              ; preds = %ggml_type_name.exit129, %ggml_type_name.exit
-  %126 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %127 = load i64, ptr %126, align 8, !tbaa !39
-  %128 = icmp eq i64 %127, 1
-  br i1 %128, label %ggml_is_matrix.exit, label %ggml_is_matrix.exit.thread
+127:                                              ; preds = %ggml_type_name.exit129, %ggml_type_name.exit
+  %128 = getelementptr inbounds nuw i8, ptr %33, i64 32
+  %129 = load i64, ptr %128, align 8, !tbaa !39
+  %130 = icmp eq i64 %129, 1
+  br i1 %130, label %ggml_is_matrix.exit, label %ggml_is_matrix.exit.thread
 
-ggml_is_matrix.exit:                              ; preds = %125
-  %129 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %130 = load i64, ptr %129, align 8, !tbaa !39
-  %131 = icmp eq i64 %130, 1
-  br i1 %131, label %132, label %ggml_is_matrix.exit.thread
+ggml_is_matrix.exit:                              ; preds = %127
+  %131 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %132 = load i64, ptr %131, align 8, !tbaa !39
+  %133 = icmp eq i64 %132, 1
+  br i1 %133, label %134, label %ggml_is_matrix.exit.thread
 
-132:                                              ; preds = %ggml_is_matrix.exit
-  %133 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %134 = load i64, ptr %133, align 8, !tbaa !39
-  %135 = getelementptr inbounds nuw i8, ptr %33, i64 24
+134:                                              ; preds = %ggml_is_matrix.exit
+  %135 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %136 = load i64, ptr %135, align 8, !tbaa !39
-  %137 = getelementptr inbounds nuw i8, ptr %33, i64 80
-  %138 = load i32, ptr %137, align 8, !tbaa !55
-  %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw ptr, ptr @GGML_OP_SYMBOL, i64 %139
-  %141 = load ptr, ptr %140, align 8, !tbaa !54
-  %142 = trunc nuw nsw i64 %indvars.iv to i32
-  %143 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.199, i32 noundef %142, i64 noundef %134, i64 noundef %136, ptr noundef %141) #43
-  br label %155
+  %137 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %138 = load i64, ptr %137, align 8, !tbaa !39
+  %139 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  %140 = load i32, ptr %139, align 8, !tbaa !55
+  %141 = zext i32 %140 to i64
+  %142 = getelementptr inbounds nuw ptr, ptr @GGML_OP_SYMBOL, i64 %141
+  %143 = load ptr, ptr %142, align 8, !tbaa !54
+  %144 = trunc nuw nsw i64 %indvars.iv to i32
+  %145 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.199, i32 noundef %144, i64 noundef %136, i64 noundef %138, ptr noundef %143) #43
+  br label %157
 
-ggml_is_matrix.exit.thread:                       ; preds = %125, %ggml_is_matrix.exit
-  %144 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  %145 = load i64, ptr %144, align 8, !tbaa !39
-  %146 = getelementptr inbounds nuw i8, ptr %33, i64 24
+ggml_is_matrix.exit.thread:                       ; preds = %127, %ggml_is_matrix.exit
+  %146 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %147 = load i64, ptr %146, align 8, !tbaa !39
-  %148 = getelementptr inbounds nuw i8, ptr %33, i64 80
-  %149 = load i32, ptr %148, align 8, !tbaa !55
-  %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw ptr, ptr @GGML_OP_SYMBOL, i64 %150
-  %152 = load ptr, ptr %151, align 8, !tbaa !54
-  %153 = trunc nuw nsw i64 %indvars.iv to i32
-  %154 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.200, i32 noundef %153, i64 noundef %145, i64 noundef %147, i64 noundef %127, ptr noundef %152) #43
-  br label %155
+  %148 = getelementptr inbounds nuw i8, ptr %33, i64 24
+  %149 = load i64, ptr %148, align 8, !tbaa !39
+  %150 = getelementptr inbounds nuw i8, ptr %33, i64 80
+  %151 = load i32, ptr %150, align 8, !tbaa !55
+  %152 = zext i32 %151 to i64
+  %153 = getelementptr inbounds nuw ptr, ptr @GGML_OP_SYMBOL, i64 %152
+  %154 = load ptr, ptr %153, align 8, !tbaa !54
+  %155 = trunc nuw nsw i64 %indvars.iv to i32
+  %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.200, i32 noundef %155, i64 noundef %147, i64 noundef %149, i64 noundef %129, ptr noundef %154) #43
+  br label %157
 
-155:                                              ; preds = %ggml_is_matrix.exit.thread, %132
+157:                                              ; preds = %ggml_is_matrix.exit.thread, %134
   %.not123 = icmp eq ptr %61, null
-  br i1 %.not123, label %163, label %156
+  br i1 %.not123, label %165, label %158
 
-156:                                              ; preds = %155
-  %157 = getelementptr inbounds nuw i8, ptr %61, i64 80
-  %158 = load i32, ptr %157, align 8, !tbaa !55
-  %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr @GGML_OP_SYMBOL, i64 %159
-  %161 = load ptr, ptr %160, align 8, !tbaa !54
-  %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.201, ptr noundef %161) #43
-  br label %165
+158:                                              ; preds = %157
+  %159 = getelementptr inbounds nuw i8, ptr %61, i64 80
+  %160 = load i32, ptr %159, align 8, !tbaa !55
+  %161 = zext i32 %160 to i64
+  %162 = getelementptr inbounds nuw ptr, ptr @GGML_OP_SYMBOL, i64 %161
+  %163 = load ptr, ptr %162, align 8, !tbaa !54
+  %164 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.201, ptr noundef %163) #43
+  br label %167
 
-163:                                              ; preds = %155
-  %164 = call i64 @fwrite(ptr nonnull @.str.202, i64 5, i64 1, ptr nonnull %7)
-  br label %165
+165:                                              ; preds = %157
+  %166 = call i64 @fwrite(ptr nonnull @.str.202, i64 5, i64 1, ptr nonnull %7)
+  br label %167
 
-165:                                              ; preds = %156, %163, %ggml_graph_get_parent.exit
+167:                                              ; preds = %158, %165, %ggml_graph_get_parent.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %166 = load i32, ptr %13, align 4, !tbaa !98
-  %167 = sext i32 %166 to i64
-  %168 = icmp slt i64 %indvars.iv.next, %167
-  br i1 %168, label %29, label %.preheader139, !llvm.loop !130
+  %168 = load i32, ptr %13, align 4, !tbaa !98
+  %169 = sext i32 %168 to i64
+  %170 = icmp slt i64 %indvars.iv.next, %169
+  br i1 %170, label %29, label %.preheader138, !llvm.loop !130
 
-.preheader138.loopexit:                           ; preds = %242
-  %.pre187 = load i32, ptr %13, align 4, !tbaa !98
-  br label %.preheader138
+.preheader137.loopexit:                           ; preds = %244
+  %.pre186 = load i32, ptr %13, align 4, !tbaa !98
+  br label %.preheader137
 
-.preheader138:                                    ; preds = %.preheader138.loopexit, %.preheader139
-  %169 = phi i32 [ %244, %.preheader138.loopexit ], [ %26, %.preheader139 ]
-  %170 = phi i32 [ %.pre187, %.preheader138.loopexit ], [ %24, %.preheader139 ]
-  %171 = icmp sgt i32 %170, 0
-  br i1 %171, label %.lr.ph154, label %.preheader
+.preheader137:                                    ; preds = %.preheader137.loopexit, %.preheader138
+  %171 = phi i32 [ %246, %.preheader137.loopexit ], [ %26, %.preheader138 ]
+  %172 = phi i32 [ %.pre186, %.preheader137.loopexit ], [ %24, %.preheader138 ]
+  %173 = icmp sgt i32 %172, 0
+  br i1 %173, label %.lr.ph153, label %.preheader
 
-.lr.ph154:                                        ; preds = %.preheader138
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %173 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %174 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %175 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %250
+.lr.ph153:                                        ; preds = %.preheader137
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %177 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %178 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %252
 
-177:                                              ; preds = %.lr.ph151, %242
-  %indvars.iv168 = phi i64 [ 0, %.lr.ph151 ], [ %indvars.iv.next169, %242 ]
-  %178 = load ptr, ptr %28, align 8, !tbaa !115
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %indvars.iv168
-  %180 = load ptr, ptr %179, align 8, !tbaa !81
+179:                                              ; preds = %.lr.ph150, %244
+  %indvars.iv167 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next168, %244 ]
+  %180 = load ptr, ptr %28, align 8, !tbaa !115
+  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv167
+  %182 = load ptr, ptr %181, align 8, !tbaa !81
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %4, ptr noundef nonnull align 1 dereferenceable(5) @.str.203, i64 5, i1 false)
-  %181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.204, ptr noundef %180, ptr noundef nonnull %4) #43
-  %182 = getelementptr inbounds nuw i8, ptr %180, i64 256
-  %char0 = load i8, ptr %182, align 1
+  %183 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.204, ptr noundef %182, ptr noundef nonnull %4) #43
+  %184 = getelementptr inbounds nuw i8, ptr %182, i64 256
+  %char0 = load i8, ptr %184, align 1
   %.not115 = icmp eq i8 %char0, 0
-  %183 = load i32, ptr %180, align 8, !tbaa !40
-  %184 = icmp ult i32 %183, 39
-  br i1 %.not115, label %192, label %185
+  %185 = load i32, ptr %182, align 8, !tbaa !40
+  %186 = icmp ult i32 %185, 39
+  br i1 %.not115, label %194, label %187
 
-185:                                              ; preds = %177
-  br i1 %184, label %186, label %ggml_type_name.exit130
+187:                                              ; preds = %179
+  br i1 %186, label %188, label %ggml_type_name.exit130
 
-186:                                              ; preds = %185
-  %187 = zext nneg i32 %183 to i64
-  %188 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %187
-  %189 = load ptr, ptr %188, align 8, !tbaa !50
+188:                                              ; preds = %187
+  %189 = zext nneg i32 %185 to i64
+  %190 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %189
+  %191 = load ptr, ptr %190, align 8, !tbaa !50
   br label %ggml_type_name.exit130
 
-ggml_type_name.exit130:                           ; preds = %185, %186
-  %190 = phi ptr [ %189, %186 ], [ @.str.18, %185 ]
-  %191 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, ptr noundef nonnull %182, ptr noundef %190) #43
-  br label %199
+ggml_type_name.exit130:                           ; preds = %187, %188
+  %192 = phi ptr [ %191, %188 ], [ @.str.18, %187 ]
+  %193 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.197, ptr noundef nonnull %184, ptr noundef %192) #43
+  br label %201
 
-192:                                              ; preds = %177
-  br i1 %184, label %193, label %ggml_type_name.exit131
+194:                                              ; preds = %179
+  br i1 %186, label %195, label %ggml_type_name.exit131
 
-193:                                              ; preds = %192
-  %194 = zext nneg i32 %183 to i64
-  %195 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %194
-  %196 = load ptr, ptr %195, align 8, !tbaa !50
+195:                                              ; preds = %194
+  %196 = zext nneg i32 %185 to i64
+  %197 = getelementptr inbounds nuw %struct.ggml_type_traits, ptr @type_traits, i64 %196
+  %198 = load ptr, ptr %197, align 8, !tbaa !50
   br label %ggml_type_name.exit131
 
-ggml_type_name.exit131:                           ; preds = %192, %193
-  %197 = phi ptr [ %196, %193 ], [ @.str.18, %192 ]
-  %198 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.198, ptr noundef %197) #43
-  br label %199
+ggml_type_name.exit131:                           ; preds = %194, %195
+  %199 = phi ptr [ %198, %195 ], [ @.str.18, %194 ]
+  %200 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.198, ptr noundef %199) #43
+  br label %201
 
-199:                                              ; preds = %ggml_type_name.exit131, %ggml_type_name.exit130
-  %200 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  %201 = load i64, ptr %200, align 8, !tbaa !39
-  %202 = getelementptr inbounds nuw i8, ptr %180, i64 24
+201:                                              ; preds = %ggml_type_name.exit131, %ggml_type_name.exit130
+  %202 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %203 = load i64, ptr %202, align 8, !tbaa !39
-  %204 = trunc nuw nsw i64 %indvars.iv168 to i32
-  %205 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.205, i32 noundef %204, i64 noundef %201, i64 noundef %203) #43
-  %206 = load i64, ptr %200, align 8, !tbaa !39
-  %207 = load i64, ptr %202, align 8, !tbaa !39
-  %208 = mul nsw i64 %207, %206
-  %209 = getelementptr inbounds nuw i8, ptr %180, i64 32
-  %210 = load i64, ptr %209, align 8, !tbaa !39
-  %211 = mul nsw i64 %208, %210
-  %212 = getelementptr inbounds nuw i8, ptr %180, i64 40
-  %213 = load i64, ptr %212, align 8, !tbaa !39
-  %214 = mul nsw i64 %211, %213
-  %215 = icmp slt i64 %214, 5
-  br i1 %215, label %216, label %242
+  %204 = getelementptr inbounds nuw i8, ptr %182, i64 24
+  %205 = load i64, ptr %204, align 8, !tbaa !39
+  %206 = trunc nuw nsw i64 %indvars.iv167 to i32
+  %207 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.205, i32 noundef %206, i64 noundef %203, i64 noundef %205) #43
+  %208 = load i64, ptr %202, align 8, !tbaa !39
+  %209 = load i64, ptr %204, align 8, !tbaa !39
+  %210 = mul nsw i64 %209, %208
+  %211 = getelementptr inbounds nuw i8, ptr %182, i64 32
+  %212 = load i64, ptr %211, align 8, !tbaa !39
+  %213 = mul nsw i64 %210, %212
+  %214 = getelementptr inbounds nuw i8, ptr %182, i64 40
+  %215 = load i64, ptr %214, align 8, !tbaa !39
+  %216 = mul nsw i64 %213, %215
+  %217 = icmp slt i64 %216, 5
+  br i1 %217, label %218, label %244
 
-216:                                              ; preds = %199
-  %217 = getelementptr inbounds nuw i8, ptr %180, i64 248
-  %218 = load ptr, ptr %217, align 8, !tbaa !77
-  %.not116 = icmp eq ptr %218, null
-  br i1 %.not116, label %242, label %219
+218:                                              ; preds = %201
+  %219 = getelementptr inbounds nuw i8, ptr %182, i64 248
+  %220 = load ptr, ptr %219, align 8, !tbaa !77
+  %.not116 = icmp eq ptr %220, null
+  br i1 %.not116, label %244, label %221
 
-219:                                              ; preds = %216
-  %220 = call i64 @fwrite(ptr nonnull @.str.206, i64 4, i64 1, ptr nonnull %7)
-  %221 = load i64, ptr %200, align 8, !tbaa !39
-  %222 = load i64, ptr %202, align 8, !tbaa !39
-  %223 = mul nsw i64 %222, %221
-  %224 = load i64, ptr %209, align 8, !tbaa !39
-  %225 = mul nsw i64 %223, %224
-  %226 = load i64, ptr %212, align 8, !tbaa !39
+221:                                              ; preds = %218
+  %222 = call i64 @fwrite(ptr nonnull @.str.206, i64 4, i64 1, ptr nonnull %7)
+  %223 = load i64, ptr %202, align 8, !tbaa !39
+  %224 = load i64, ptr %204, align 8, !tbaa !39
+  %225 = mul nsw i64 %224, %223
+  %226 = load i64, ptr %211, align 8, !tbaa !39
   %227 = mul nsw i64 %225, %226
-  %228 = icmp sgt i64 %227, 0
-  br i1 %228, label %.lr.ph149, label %._crit_edge
+  %228 = load i64, ptr %214, align 8, !tbaa !39
+  %229 = mul nsw i64 %227, %228
+  %230 = icmp sgt i64 %229, 0
+  br i1 %230, label %.lr.ph148, label %._crit_edge
 
-._crit_edge:                                      ; preds = %240, %219
+._crit_edge:                                      ; preds = %242, %221
   %fputc = call i32 @fputc(i32 41, ptr nonnull %7)
+  br label %244
+
+.lr.ph148:                                        ; preds = %221, %242
+  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %242 ], [ 0, %221 ]
+  %fputc117 = call i32 @fputc(i32 35, ptr nonnull %7)
+  %231 = load i64, ptr %202, align 8, !tbaa !39
+  %232 = load i64, ptr %204, align 8, !tbaa !39
+  %233 = mul nsw i64 %232, %231
+  %234 = load i64, ptr %211, align 8, !tbaa !39
+  %235 = mul nsw i64 %233, %234
+  %236 = load i64, ptr %214, align 8, !tbaa !39
+  %237 = mul nsw i64 %235, %236
+  %238 = add nsw i64 %237, -1
+  %239 = icmp sgt i64 %238, %indvars.iv164
+  br i1 %239, label %240, label %242
+
+240:                                              ; preds = %.lr.ph148
+  %241 = call i64 @fwrite(ptr nonnull @.str.208, i64 2, i64 1, ptr nonnull %7)
+  %.pre = load i64, ptr %202, align 8, !tbaa !39
+  %.pre183 = load i64, ptr %204, align 8, !tbaa !39
+  %.pre184 = load i64, ptr %211, align 8, !tbaa !39
+  %.pre185 = load i64, ptr %214, align 8, !tbaa !39
+  %.pre188 = mul nsw i64 %.pre183, %.pre
+  %.pre189 = mul nsw i64 %.pre188, %.pre184
+  %.pre191 = mul nsw i64 %.pre189, %.pre185
   br label %242
 
-.lr.ph149:                                        ; preds = %219, %240
-  %indvars.iv165 = phi i64 [ %indvars.iv.next166, %240 ], [ 0, %219 ]
-  %fputc117 = call i32 @fputc(i32 35, ptr nonnull %7)
-  %229 = load i64, ptr %200, align 8, !tbaa !39
-  %230 = load i64, ptr %202, align 8, !tbaa !39
-  %231 = mul nsw i64 %230, %229
-  %232 = load i64, ptr %209, align 8, !tbaa !39
-  %233 = mul nsw i64 %231, %232
-  %234 = load i64, ptr %212, align 8, !tbaa !39
-  %235 = mul nsw i64 %233, %234
-  %236 = add nsw i64 %235, -1
-  %237 = icmp sgt i64 %236, %indvars.iv165
-  br i1 %237, label %238, label %240
+242:                                              ; preds = %.lr.ph148, %240
+  %.pre-phi192 = phi i64 [ %237, %.lr.ph148 ], [ %.pre191, %240 ]
+  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+  %243 = icmp sgt i64 %.pre-phi192, %indvars.iv.next165
+  br i1 %243, label %.lr.ph148, label %._crit_edge, !llvm.loop !131
 
-238:                                              ; preds = %.lr.ph149
-  %239 = call i64 @fwrite(ptr nonnull @.str.208, i64 2, i64 1, ptr nonnull %7)
-  %.pre = load i64, ptr %200, align 8, !tbaa !39
-  %.pre184 = load i64, ptr %202, align 8, !tbaa !39
-  %.pre185 = load i64, ptr %209, align 8, !tbaa !39
-  %.pre186 = load i64, ptr %212, align 8, !tbaa !39
-  %.pre189 = mul nsw i64 %.pre184, %.pre
-  %.pre190 = mul nsw i64 %.pre189, %.pre185
-  %.pre192 = mul nsw i64 %.pre190, %.pre186
-  br label %240
+244:                                              ; preds = %._crit_edge, %218, %201
+  %245 = call i64 @fwrite(ptr nonnull @.str.202, i64 5, i64 1, ptr nonnull %7)
+  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %246 = load i32, ptr %25, align 8, !tbaa !114
+  %247 = sext i32 %246 to i64
+  %248 = icmp slt i64 %indvars.iv.next168, %247
+  br i1 %248, label %179, label %.preheader137.loopexit, !llvm.loop !132
 
-240:                                              ; preds = %.lr.ph149, %238
-  %.pre-phi193 = phi i64 [ %235, %.lr.ph149 ], [ %.pre192, %238 ]
-  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
-  %241 = icmp sgt i64 %.pre-phi193, %indvars.iv.next166
-  br i1 %241, label %.lr.ph149, label %._crit_edge, !llvm.loop !131
-
-242:                                              ; preds = %._crit_edge, %216, %199
-  %243 = call i64 @fwrite(ptr nonnull @.str.202, i64 5, i64 1, ptr nonnull %7)
-  %indvars.iv.next169 = add nuw nsw i64 %indvars.iv168, 1
-  %244 = load i32, ptr %25, align 8, !tbaa !114
-  %245 = sext i32 %244 to i64
-  %246 = icmp slt i64 %indvars.iv.next169, %245
-  br i1 %246, label %177, label %.preheader138.loopexit, !llvm.loop !132
-
-.preheader.loopexit:                              ; preds = %255
-  %.pre188 = load i32, ptr %25, align 8, !tbaa !114
+.preheader.loopexit:                              ; preds = %257
+  %.pre187 = load i32, ptr %25, align 8, !tbaa !114
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.loopexit, %.preheader138
-  %247 = phi i32 [ %.pre188, %.preheader.loopexit ], [ %169, %.preheader138 ]
-  %248 = icmp sgt i32 %247, 0
-  br i1 %248, label %.lr.ph157, label %._crit_edge158
+.preheader:                                       ; preds = %.preheader.loopexit, %.preheader137
+  %249 = phi i32 [ %.pre187, %.preheader.loopexit ], [ %171, %.preheader137 ]
+  %250 = icmp sgt i32 %249, 0
+  br i1 %250, label %.lr.ph156, label %._crit_edge157
 
-.lr.ph157:                                        ; preds = %.preheader
-  %249 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %340
+.lr.ph156:                                        ; preds = %.preheader
+  %251 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %346
 
-250:                                              ; preds = %.lr.ph154, %255
-  %indvars.iv174 = phi i64 [ 0, %.lr.ph154 ], [ %indvars.iv.next175, %255 ]
-  %251 = load ptr, ptr %172, align 8, !tbaa !100
-  %252 = getelementptr inbounds nuw ptr, ptr %251, i64 %indvars.iv174
-  %253 = load ptr, ptr %252, align 8, !tbaa !81
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 152
-  br label %259
+252:                                              ; preds = %.lr.ph153, %257
+  %indvars.iv173 = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next174, %257 ]
+  %253 = load ptr, ptr %174, align 8, !tbaa !100
+  %254 = getelementptr inbounds nuw ptr, ptr %253, i64 %indvars.iv173
+  %255 = load ptr, ptr %254, align 8, !tbaa !81
+  %256 = getelementptr inbounds nuw i8, ptr %255, i64 152
+  br label %261
 
-255:                                              ; preds = %337
-  %indvars.iv.next175 = add nuw nsw i64 %indvars.iv174, 1
-  %256 = load i32, ptr %13, align 4, !tbaa !98
-  %257 = sext i32 %256 to i64
-  %258 = icmp slt i64 %indvars.iv.next175, %257
-  br i1 %258, label %250, label %.preheader.loopexit, !llvm.loop !133
+257:                                              ; preds = %343
+  %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
+  %258 = load i32, ptr %13, align 4, !tbaa !98
+  %259 = sext i32 %258 to i64
+  %260 = icmp slt i64 %indvars.iv.next174, %259
+  br i1 %260, label %252, label %.preheader.loopexit, !llvm.loop !133
 
-259:                                              ; preds = %250, %337
-  %indvars.iv171 = phi i64 [ 0, %250 ], [ %indvars.iv.next172, %337 ]
-  %260 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv171
-  %261 = load ptr, ptr %260, align 8, !tbaa !81
-  %.not114 = icmp eq ptr %261, null
-  br i1 %.not114, label %337, label %262
+261:                                              ; preds = %252, %343
+  %indvars.iv170 = phi i64 [ 0, %252 ], [ %indvars.iv.next171, %343 ]
+  %262 = getelementptr inbounds nuw ptr, ptr %256, i64 %indvars.iv170
+  %263 = load ptr, ptr %262, align 8, !tbaa !81
+  %.not114 = icmp eq ptr %263, null
+  br i1 %.not114, label %343, label %264
 
-262:                                              ; preds = %259
+264:                                              ; preds = %261
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %263 = trunc nuw nsw i64 %indvars.iv171 to i32
-  %264 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.210, i32 noundef %263) #43
-  %265 = load ptr, ptr %260, align 8, !tbaa !81
-  %266 = load i32, ptr %13, align 4, !tbaa !98
-  %.not1517.i.i = icmp sgt i32 %266, 0
-  br i1 %.not1517.i.i, label %.lr.ph.i.i, label %ggml_graph_dump_dot_node_edge.exit
+  %265 = trunc nuw nsw i64 %indvars.iv170 to i32
+  %266 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 16, ptr noundef nonnull @.str.210, i32 noundef %265) #43
+  %267 = load ptr, ptr %262, align 8, !tbaa !81
+  %268 = load i32, ptr %13, align 4, !tbaa !98
+  %269 = icmp sgt i32 %268, 0
+  br i1 %269, label %.lr.ph.i.i, label %ggml_graph_dump_dot_node_edge.exit
 
-.lr.ph.i.i:                                       ; preds = %262
-  %267 = load ptr, ptr %172, align 8, !tbaa !100
-  %268 = load i64, ptr %173, align 8, !tbaa !91
-  %269 = load ptr, ptr %175, align 8, !tbaa !97
-  %wide.trip.count.i.i = zext nneg i32 %266 to i64
-  br label %271
+.lr.ph.i.i:                                       ; preds = %264
+  %270 = load ptr, ptr %174, align 8, !tbaa !100
+  %271 = load i64, ptr %175, align 8, !tbaa !91
+  %272 = load ptr, ptr %177, align 8, !tbaa !97
+  %wide.trip.count.i.i = zext nneg i32 %268 to i64
+  br label %274
 
-270:                                              ; preds = %ggml_graph_get_grad.exit.i.i
+273:                                              ; preds = %ggml_graph_get_grad.exit.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %.lr.ph.i19.i, label %271, !llvm.loop !128
+  br i1 %exitcond.not.i.i, label %.lr.ph.i17.i, label %274, !llvm.loop !128
 
-271:                                              ; preds = %270, %.lr.ph.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %270 ]
-  %272 = getelementptr inbounds nuw ptr, ptr %267, i64 %indvars.iv.i.i
-  %273 = load ptr, ptr %272, align 8, !tbaa !81
-  %274 = ptrtoint ptr %273 to i64
-  %275 = lshr i64 %274, 4
-  %276 = urem i64 %275, %268
-  br label %277
+274:                                              ; preds = %273, %.lr.ph.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %273 ]
+  %275 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv.i.i
+  %276 = load ptr, ptr %275, align 8, !tbaa !81
+  %277 = ptrtoint ptr %276 to i64
+  %278 = lshr i64 %277, 4
+  %279 = urem i64 %278, %271
+  br label %280
 
-277:                                              ; preds = %289, %271
-  %.0.i.i.i.i = phi i64 [ %276, %271 ], [ %292, %289 ]
+280:                                              ; preds = %292, %274
+  %.0.i.i.i.i = phi i64 [ %279, %274 ], [ %295, %292 ]
   %.0.fr.i.i.i.i = freeze i64 %.0.i.i.i.i
-  %278 = lshr i64 %.0.fr.i.i.i.i, 5
-  %279 = getelementptr inbounds nuw i32, ptr %269, i64 %278
-  %280 = load i32, ptr %279, align 4, !tbaa !8
-  %281 = trunc i64 %.0.fr.i.i.i.i to i32
-  %282 = and i32 %281, 31
-  %283 = shl nuw i32 1, %282
-  %284 = and i32 %283, %280
-  %.not15.i.i.i.i = icmp eq i32 %284, 0
-  br i1 %.not15.i.i.i.i, label %ggml_graph_get_grad.exit.i.i, label %285
+  %281 = lshr i64 %.0.fr.i.i.i.i, 5
+  %282 = getelementptr inbounds nuw i32, ptr %272, i64 %281
+  %283 = load i32, ptr %282, align 4, !tbaa !8
+  %284 = trunc i64 %.0.fr.i.i.i.i to i32
+  %285 = and i32 %284, 31
+  %286 = shl nuw i32 1, %285
+  %287 = and i32 %286, %283
+  %.not15.i.i.i.i = icmp eq i32 %287, 0
+  br i1 %.not15.i.i.i.i, label %ggml_graph_get_grad.exit.i.i, label %288
 
-285:                                              ; preds = %277
-  %286 = load ptr, ptr %174, align 8, !tbaa !96
-  %287 = getelementptr inbounds nuw ptr, ptr %286, i64 %.0.fr.i.i.i.i
-  %288 = load ptr, ptr %287, align 8, !tbaa !81
-  %.not.i.i.i.i = icmp eq ptr %288, %273
-  br i1 %.not.i.i.i.i, label %ggml_hash_find.exit.thread15.i.i.i, label %289
+288:                                              ; preds = %280
+  %289 = load ptr, ptr %176, align 8, !tbaa !96
+  %290 = getelementptr inbounds nuw ptr, ptr %289, i64 %.0.fr.i.i.i.i
+  %291 = load ptr, ptr %290, align 8, !tbaa !81
+  %.not.i.i.i.i = icmp eq ptr %291, %276
+  br i1 %.not.i.i.i.i, label %ggml_hash_find.exit.thread15.i.i.i, label %292
 
-289:                                              ; preds = %285
-  %290 = add i64 %.0.fr.i.i.i.i, 1
-  %291 = icmp eq i64 %290, %268
-  %292 = select i1 %291, i64 0, i64 %290
-  %293 = icmp eq i64 %292, %276
-  br i1 %293, label %ggml_graph_get_grad.exit.i.i, label %277, !llvm.loop !105
+292:                                              ; preds = %288
+  %293 = add i64 %.0.fr.i.i.i.i, 1
+  %294 = icmp eq i64 %293, %271
+  %295 = select i1 %294, i64 0, i64 %293
+  %296 = icmp eq i64 %295, %279
+  br i1 %296, label %ggml_graph_get_grad.exit.i.i, label %280, !llvm.loop !105
 
-ggml_hash_find.exit.thread15.i.i.i:               ; preds = %285
+ggml_hash_find.exit.thread15.i.i.i:               ; preds = %288
   %.not16.i.i.i = icmp eq i64 %.0.fr.i.i.i.i, -1
-  br i1 %.not16.i.i.i, label %ggml_graph_get_grad.exit.i.i, label %294
+  br i1 %.not16.i.i.i, label %ggml_graph_get_grad.exit.i.i, label %297
 
-294:                                              ; preds = %ggml_hash_find.exit.thread15.i.i.i
-  %295 = load ptr, ptr %176, align 8, !tbaa !101
-  %.not8.i.i.i = icmp eq ptr %295, null
-  br i1 %.not8.i.i.i, label %ggml_graph_get_grad.exit.i.i, label %296
+297:                                              ; preds = %ggml_hash_find.exit.thread15.i.i.i
+  %298 = load ptr, ptr %178, align 8, !tbaa !101
+  %.not8.i.i.i = icmp eq ptr %298, null
+  br i1 %.not8.i.i.i, label %ggml_graph_get_grad.exit.i.i, label %299
 
-296:                                              ; preds = %294
-  %297 = getelementptr inbounds nuw ptr, ptr %295, i64 %.0.fr.i.i.i.i
-  %298 = load ptr, ptr %297, align 8, !tbaa !81
+299:                                              ; preds = %297
+  %300 = getelementptr inbounds nuw ptr, ptr %298, i64 %.0.fr.i.i.i.i
+  %301 = load ptr, ptr %300, align 8, !tbaa !81
   br label %ggml_graph_get_grad.exit.i.i
 
-ggml_graph_get_grad.exit.i.i:                     ; preds = %289, %277, %296, %294, %ggml_hash_find.exit.thread15.i.i.i
-  %299 = phi ptr [ %298, %296 ], [ null, %294 ], [ null, %ggml_hash_find.exit.thread15.i.i.i ], [ null, %277 ], [ null, %289 ]
-  %.not.i.i134 = icmp eq ptr %299, %253
-  br i1 %.not.i.i134, label %.lr.ph.i19.i, label %270
+ggml_graph_get_grad.exit.i.i:                     ; preds = %292, %280, %299, %297, %ggml_hash_find.exit.thread15.i.i.i
+  %302 = phi ptr [ %301, %299 ], [ null, %297 ], [ null, %ggml_hash_find.exit.thread15.i.i.i ], [ null, %280 ], [ null, %292 ]
+  %.not.i.i134 = icmp eq ptr %302, %255
+  br i1 %.not.i.i134, label %.lr.ph.i17.i, label %273
 
-.lr.ph.i19.i:                                     ; preds = %ggml_graph_get_grad.exit.i.i, %270
-  %spec.select.i.i = phi ptr [ null, %270 ], [ %273, %ggml_graph_get_grad.exit.i.i ]
-  br label %301
+.lr.ph.i17.i:                                     ; preds = %ggml_graph_get_grad.exit.i.i, %273
+  %303 = phi ptr [ null, %273 ], [ %276, %ggml_graph_get_grad.exit.i.i ]
+  br label %305
 
-300:                                              ; preds = %ggml_graph_get_grad.exit.i26.i
-  %indvars.iv.next.i28.i = add nuw nsw i64 %indvars.iv.i21.i, 1
-  %exitcond.not.i29.i = icmp eq i64 %indvars.iv.next.i28.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i29.i, label %ggml_graph_dump_dot_node_edge.exit, label %301, !llvm.loop !128
+304:                                              ; preds = %ggml_graph_get_grad.exit.i24.i
+  %indvars.iv.next.i26.i = add nuw nsw i64 %indvars.iv.i19.i, 1
+  %exitcond.not.i27.i = icmp eq i64 %indvars.iv.next.i26.i, %wide.trip.count.i.i
+  br i1 %exitcond.not.i27.i, label %ggml_graph_dump_dot_node_edge.exit, label %305, !llvm.loop !128
 
-301:                                              ; preds = %300, %.lr.ph.i19.i
-  %indvars.iv.i21.i = phi i64 [ 0, %.lr.ph.i19.i ], [ %indvars.iv.next.i28.i, %300 ]
-  %302 = getelementptr inbounds nuw ptr, ptr %267, i64 %indvars.iv.i21.i
-  %303 = load ptr, ptr %302, align 8, !tbaa !81
-  %304 = ptrtoint ptr %303 to i64
-  %305 = lshr i64 %304, 4
-  %306 = urem i64 %305, %268
-  br label %307
+305:                                              ; preds = %304, %.lr.ph.i17.i
+  %indvars.iv.i19.i = phi i64 [ 0, %.lr.ph.i17.i ], [ %indvars.iv.next.i26.i, %304 ]
+  %306 = getelementptr inbounds nuw ptr, ptr %270, i64 %indvars.iv.i19.i
+  %307 = load ptr, ptr %306, align 8, !tbaa !81
+  %308 = ptrtoint ptr %307 to i64
+  %309 = lshr i64 %308, 4
+  %310 = urem i64 %309, %271
+  br label %311
 
-307:                                              ; preds = %319, %301
-  %.0.i.i.i22.i = phi i64 [ %306, %301 ], [ %322, %319 ]
-  %.0.fr.i.i.i23.i = freeze i64 %.0.i.i.i22.i
-  %308 = lshr i64 %.0.fr.i.i.i23.i, 5
-  %309 = getelementptr inbounds nuw i32, ptr %269, i64 %308
-  %310 = load i32, ptr %309, align 4, !tbaa !8
-  %311 = trunc i64 %.0.fr.i.i.i23.i to i32
-  %312 = and i32 %311, 31
-  %313 = shl nuw i32 1, %312
-  %314 = and i32 %313, %310
-  %.not15.i.i.i24.i = icmp eq i32 %314, 0
-  br i1 %.not15.i.i.i24.i, label %ggml_graph_get_grad.exit.i26.i, label %315
+311:                                              ; preds = %323, %305
+  %.0.i.i.i20.i = phi i64 [ %310, %305 ], [ %326, %323 ]
+  %.0.fr.i.i.i21.i = freeze i64 %.0.i.i.i20.i
+  %312 = lshr i64 %.0.fr.i.i.i21.i, 5
+  %313 = getelementptr inbounds nuw i32, ptr %272, i64 %312
+  %314 = load i32, ptr %313, align 4, !tbaa !8
+  %315 = trunc i64 %.0.fr.i.i.i21.i to i32
+  %316 = and i32 %315, 31
+  %317 = shl nuw i32 1, %316
+  %318 = and i32 %317, %314
+  %.not15.i.i.i22.i = icmp eq i32 %318, 0
+  br i1 %.not15.i.i.i22.i, label %ggml_graph_get_grad.exit.i24.i, label %319
 
-315:                                              ; preds = %307
-  %316 = load ptr, ptr %174, align 8, !tbaa !96
-  %317 = getelementptr inbounds nuw ptr, ptr %316, i64 %.0.fr.i.i.i23.i
-  %318 = load ptr, ptr %317, align 8, !tbaa !81
-  %.not.i.i.i25.i = icmp eq ptr %318, %303
-  br i1 %.not.i.i.i25.i, label %ggml_hash_find.exit.thread15.i.i30.i, label %319
+319:                                              ; preds = %311
+  %320 = load ptr, ptr %176, align 8, !tbaa !96
+  %321 = getelementptr inbounds nuw ptr, ptr %320, i64 %.0.fr.i.i.i21.i
+  %322 = load ptr, ptr %321, align 8, !tbaa !81
+  %.not.i.i.i23.i = icmp eq ptr %322, %307
+  br i1 %.not.i.i.i23.i, label %ggml_hash_find.exit.thread15.i.i28.i, label %323
 
-319:                                              ; preds = %315
-  %320 = add i64 %.0.fr.i.i.i23.i, 1
-  %321 = icmp eq i64 %320, %268
-  %322 = select i1 %321, i64 0, i64 %320
-  %323 = icmp eq i64 %322, %306
-  br i1 %323, label %ggml_graph_get_grad.exit.i26.i, label %307, !llvm.loop !105
+323:                                              ; preds = %319
+  %324 = add i64 %.0.fr.i.i.i21.i, 1
+  %325 = icmp eq i64 %324, %271
+  %326 = select i1 %325, i64 0, i64 %324
+  %327 = icmp eq i64 %326, %310
+  br i1 %327, label %ggml_graph_get_grad.exit.i24.i, label %311, !llvm.loop !105
 
-ggml_hash_find.exit.thread15.i.i30.i:             ; preds = %315
-  %.not16.i.i31.i = icmp eq i64 %.0.fr.i.i.i23.i, -1
-  br i1 %.not16.i.i31.i, label %ggml_graph_get_grad.exit.i26.i, label %324
+ggml_hash_find.exit.thread15.i.i28.i:             ; preds = %319
+  %.not16.i.i29.i = icmp eq i64 %.0.fr.i.i.i21.i, -1
+  br i1 %.not16.i.i29.i, label %ggml_graph_get_grad.exit.i24.i, label %328
 
-324:                                              ; preds = %ggml_hash_find.exit.thread15.i.i30.i
-  %325 = load ptr, ptr %176, align 8, !tbaa !101
-  %.not8.i.i32.i = icmp eq ptr %325, null
-  br i1 %.not8.i.i32.i, label %ggml_graph_get_grad.exit.i26.i, label %326
+328:                                              ; preds = %ggml_hash_find.exit.thread15.i.i28.i
+  %329 = load ptr, ptr %178, align 8, !tbaa !101
+  %.not8.i.i30.i = icmp eq ptr %329, null
+  br i1 %.not8.i.i30.i, label %ggml_graph_get_grad.exit.i24.i, label %330
 
-326:                                              ; preds = %324
-  %327 = getelementptr inbounds nuw ptr, ptr %325, i64 %.0.fr.i.i.i23.i
-  %328 = load ptr, ptr %327, align 8, !tbaa !81
-  br label %ggml_graph_get_grad.exit.i26.i
+330:                                              ; preds = %328
+  %331 = getelementptr inbounds nuw ptr, ptr %329, i64 %.0.fr.i.i.i21.i
+  %332 = load ptr, ptr %331, align 8, !tbaa !81
+  br label %ggml_graph_get_grad.exit.i24.i
 
-ggml_graph_get_grad.exit.i26.i:                   ; preds = %319, %307, %326, %324, %ggml_hash_find.exit.thread15.i.i30.i
-  %329 = phi ptr [ %328, %326 ], [ null, %324 ], [ null, %ggml_hash_find.exit.thread15.i.i30.i ], [ null, %307 ], [ null, %319 ]
-  %.not.i27.i = icmp eq ptr %329, %265
-  br i1 %.not.i27.i, label %ggml_graph_dump_dot_node_edge.exit, label %300
+ggml_graph_get_grad.exit.i24.i:                   ; preds = %323, %311, %330, %328, %ggml_hash_find.exit.thread15.i.i28.i
+  %333 = phi ptr [ %332, %330 ], [ null, %328 ], [ null, %ggml_hash_find.exit.thread15.i.i28.i ], [ null, %311 ], [ null, %323 ]
+  %.not.i25.i = icmp eq ptr %333, %267
+  br i1 %.not.i25.i, label %ggml_graph_dump_dot_node_edge.exit, label %304
 
-ggml_graph_dump_dot_node_edge.exit:               ; preds = %300, %ggml_graph_get_grad.exit.i26.i, %262
-  %spec.select.i35.i = phi ptr [ null, %262 ], [ %spec.select.i.i, %ggml_graph_get_grad.exit.i26.i ], [ %spec.select.i.i, %300 ]
-  %spec.select.i18.i = phi ptr [ null, %262 ], [ null, %300 ], [ %303, %ggml_graph_get_grad.exit.i26.i ]
-  %.not.i132 = icmp eq ptr %spec.select.i18.i, null
-  %330 = select i1 %.not.i132, ptr %265, ptr %spec.select.i18.i
-  %331 = select i1 %.not.i132, ptr @.str.181, ptr @.str.182
-  %.not16.i133 = icmp eq ptr %spec.select.i35.i, null
-  %332 = select i1 %.not16.i133, ptr %253, ptr %spec.select.i35.i
-  %333 = select i1 %.not16.i133, ptr @.str.181, ptr @.str.182
-  %334 = select i1 %.not16.i133, ptr @.str.523, ptr @.str.522
-  %335 = select i1 %.not16.i133, ptr @.str.525, ptr @.str.524
-  %336 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.521, ptr noundef %330, ptr noundef nonnull %331, ptr noundef %332, ptr noundef nonnull %333, ptr noundef nonnull %334, ptr noundef nonnull %335, ptr noundef nonnull %5) #43
+ggml_graph_dump_dot_node_edge.exit:               ; preds = %304, %ggml_graph_get_grad.exit.i24.i, %264
+  %334 = phi ptr [ null, %264 ], [ %303, %ggml_graph_get_grad.exit.i24.i ], [ %303, %304 ]
+  %335 = phi ptr [ null, %264 ], [ null, %304 ], [ %307, %ggml_graph_get_grad.exit.i24.i ]
+  %.not.i132 = icmp eq ptr %335, null
+  %336 = select i1 %.not.i132, ptr %267, ptr %335
+  %337 = select i1 %.not.i132, ptr @.str.181, ptr @.str.182
+  %.not16.i133 = icmp eq ptr %334, null
+  %338 = select i1 %.not16.i133, ptr %255, ptr %334
+  %339 = select i1 %.not16.i133, ptr @.str.181, ptr @.str.182
+  %340 = select i1 %.not16.i133, ptr @.str.523, ptr @.str.522
+  %341 = select i1 %.not16.i133, ptr @.str.525, ptr @.str.524
+  %342 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.521, ptr noundef %336, ptr noundef nonnull %337, ptr noundef %338, ptr noundef nonnull %339, ptr noundef nonnull %340, ptr noundef nonnull %341, ptr noundef nonnull %5) #43
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %337
+  br label %343
 
-337:                                              ; preds = %259, %ggml_graph_dump_dot_node_edge.exit
-  %indvars.iv.next172 = add nuw nsw i64 %indvars.iv171, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next172, 10
-  br i1 %exitcond.not, label %255, label %259, !llvm.loop !134
+343:                                              ; preds = %261, %ggml_graph_dump_dot_node_edge.exit
+  %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next171, 10
+  br i1 %exitcond.not, label %257, label %261, !llvm.loop !134
 
-._crit_edge158:                                   ; preds = %345, %.preheader
-  %338 = call i64 @fwrite(ptr nonnull @.str.211, i64 2, i64 1, ptr nonnull %7)
-  %339 = call i32 @fclose(ptr noundef nonnull %7)
+._crit_edge157:                                   ; preds = %351, %.preheader
+  %344 = call i64 @fwrite(ptr nonnull @.str.211, i64 2, i64 1, ptr nonnull %7)
+  %345 = call i32 @fclose(ptr noundef nonnull %7)
   call void (i32, ptr, ...) @ggml_log_internal(i32 noundef 2, ptr noundef nonnull @.str.212, ptr noundef nonnull @__func__.ggml_graph_dump_dot, ptr noundef %2, ptr noundef %2, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-340:                                              ; preds = %.lr.ph157, %345
-  %indvars.iv181 = phi i64 [ 0, %.lr.ph157 ], [ %indvars.iv.next182, %345 ]
-  %341 = load ptr, ptr %249, align 8, !tbaa !115
-  %342 = getelementptr inbounds nuw ptr, ptr %341, i64 %indvars.iv181
-  %343 = load ptr, ptr %342, align 8, !tbaa !81
-  %344 = getelementptr inbounds nuw i8, ptr %343, i64 152
-  br label %349
+346:                                              ; preds = %.lr.ph156, %351
+  %indvars.iv180 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next181, %351 ]
+  %347 = load ptr, ptr %251, align 8, !tbaa !115
+  %348 = getelementptr inbounds nuw ptr, ptr %347, i64 %indvars.iv180
+  %349 = load ptr, ptr %348, align 8, !tbaa !81
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 152
+  br label %355
 
-345:                                              ; preds = %357
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %346 = load i32, ptr %25, align 8, !tbaa !114
-  %347 = sext i32 %346 to i64
-  %348 = icmp slt i64 %indvars.iv.next182, %347
-  br i1 %348, label %340, label %._crit_edge158, !llvm.loop !135
+351:                                              ; preds = %363
+  %indvars.iv.next181 = add nuw nsw i64 %indvars.iv180, 1
+  %352 = load i32, ptr %25, align 8, !tbaa !114
+  %353 = sext i32 %352 to i64
+  %354 = icmp slt i64 %indvars.iv.next181, %353
+  br i1 %354, label %346, label %._crit_edge157, !llvm.loop !135
 
-349:                                              ; preds = %340, %357
-  %indvars.iv177 = phi i64 [ 0, %340 ], [ %indvars.iv.next178, %357 ]
-  %350 = getelementptr inbounds nuw ptr, ptr %344, i64 %indvars.iv177
-  %351 = load ptr, ptr %350, align 8, !tbaa !81
-  %.not113 = icmp eq ptr %351, null
-  br i1 %.not113, label %357, label %352
+355:                                              ; preds = %346, %363
+  %indvars.iv176 = phi i64 [ 0, %346 ], [ %indvars.iv.next177, %363 ]
+  %356 = getelementptr inbounds nuw ptr, ptr %350, i64 %indvars.iv176
+  %357 = load ptr, ptr %356, align 8, !tbaa !81
+  %.not113 = icmp eq ptr %357, null
+  br i1 %.not113, label %363, label %358
 
-352:                                              ; preds = %349
+358:                                              ; preds = %355
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %353 = trunc nuw nsw i64 %indvars.iv177 to i32
-  %354 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 16, ptr noundef nonnull @.str.210, i32 noundef %353) #43
-  %355 = load ptr, ptr %350, align 8, !tbaa !81
-  %356 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.526, ptr noundef %355, ptr noundef nonnull @.str.181, ptr noundef nonnull %343, ptr noundef nonnull @.str.181, ptr noundef nonnull %6) #43
+  %359 = trunc nuw nsw i64 %indvars.iv176 to i32
+  %360 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 16, ptr noundef nonnull @.str.210, i32 noundef %359) #43
+  %361 = load ptr, ptr %356, align 8, !tbaa !81
+  %362 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.526, ptr noundef %361, ptr noundef nonnull @.str.181, ptr noundef nonnull %349, ptr noundef nonnull @.str.181, ptr noundef nonnull %6) #43
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %357
+  br label %363
 
-357:                                              ; preds = %349, %352
-  %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
-  %exitcond180.not = icmp eq i64 %indvars.iv.next178, 10
-  br i1 %exitcond180.not, label %345, label %349, !llvm.loop !136
+363:                                              ; preds = %355, %358
+  %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, 1
+  %exitcond179.not = icmp eq i64 %indvars.iv.next177, 10
+  br i1 %exitcond179.not, label %351, label %355, !llvm.loop !136
 }
 
 ; Function Attrs: nofree nounwind

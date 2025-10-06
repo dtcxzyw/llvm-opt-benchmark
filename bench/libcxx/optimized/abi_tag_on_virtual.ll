@@ -240,8 +240,8 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %4
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %11
   %18 = phi ptr [ %17, %11 ], [ null, %_ZNK5clang4Decl10attr_beginEv.exit.i ]
-  %.not15.not = icmp eq ptr %9, %18
-  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
+  %.not16.not = icmp eq ptr %9, %18
+  br i1 %.not16.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang4Decl5attrsEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -249,13 +249,13 @@ _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10at
   br label %21
 
 21:                                               ; preds = %21, %.lr.ph
-  %.01316 = phi ptr [ %9, %.lr.ph ], [ %26, %21 ]
-  %22 = load ptr, ptr %.01316, align 8, !tbaa !25
+  %.01317 = phi ptr [ %9, %.lr.ph ], [ %26, %21 ]
+  %22 = load ptr, ptr %.01317, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i16, ptr %23, align 8
   %25 = zext i16 %24 to i32
   %.not14 = icmp eq i32 %20, %25
-  %26 = getelementptr inbounds nuw i8, ptr %.01316, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.01317, i64 8
   %.not.not = icmp eq ptr %26, %18
   %or.cond = select i1 %.not14, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %21

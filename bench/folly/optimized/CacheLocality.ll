@@ -5737,8 +5737,8 @@ _ZN5folly12_GLOBAL__N_19Allocator9sizeClassEm.exit.i: ; preds = %27
   br i1 %30, label %_ZN5folly12_GLOBAL__N_19Allocator9sizeClassEm.exit.thread.i, label %103
 
 _ZN5folly12_GLOBAL__N_19Allocator9sizeClassEm.exit.thread.i: ; preds = %_ZN5folly12_GLOBAL__N_19Allocator9sizeClassEm.exit.i, %27, %20
-  %.sroa.0.0.i28.i = phi i64 [ %spec.select.i, %_ZN5folly12_GLOBAL__N_19Allocator9sizeClassEm.exit.i ], [ 1, %27 ], [ 0, %20 ]
-  %31 = getelementptr inbounds nuw %"class.folly::(anonymous namespace)::SimpleAllocator", ptr %25, i64 %.sroa.0.0.i28.i
+  %.sroa.0.0.i27.i = phi i64 [ %spec.select.i, %_ZN5folly12_GLOBAL__N_19Allocator9sizeClassEm.exit.i ], [ 1, %27 ], [ 0, %20 ]
+  %31 = getelementptr inbounds nuw %"class.folly::(anonymous namespace)::SimpleAllocator", ptr %25, i64 %.sroa.0.0.i27.i
   %32 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(96) %31) #33
   %.not.i.i.i.i = icmp eq i32 %32, 0
   br i1 %.not.i.i.i.i, label %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i, label %33

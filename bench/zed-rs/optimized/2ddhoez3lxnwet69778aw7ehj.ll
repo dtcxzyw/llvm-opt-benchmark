@@ -1656,8 +1656,8 @@ common.resume.i:                                  ; preds = %80, %76, %72, %.bod
   br label %"_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17hc912533ff954d6a8E.exit"
 
 "_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17hc912533ff954d6a8E.exit": ; preds = %.thread, %93
-  %.sroa.5.036 = phi ptr [ %.sroa.0.0.i.i, %.thread ], [ %98, %93 ]
-  ret ptr %.sroa.5.036
+  %.sroa.5.035 = phi ptr [ %.sroa.0.0.i.i, %.thread ], [ %98, %93 ]
+  ret ptr %.sroa.5.035
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -2069,8 +2069,8 @@ common.resume.i:                                  ; preds = %80, %76, %72, %.bod
   br label %"_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17hc912533ff954d6a8E.exit"
 
 "_ZN132_$LT$core..result..Result$LT$core..result..Result$LT$T$C$anyhow..Error$GT$$C$anyhow..Error$GT$$u20$as$u20$gpui..Flatten$LT$T$GT$$GT$7flatten17hc912533ff954d6a8E.exit": ; preds = %.thread, %93
-  %.sroa.5.036 = phi ptr [ %.sroa.0.0.i.i, %.thread ], [ %98, %93 ]
-  ret ptr %.sroa.5.036
+  %.sroa.5.035 = phi ptr [ %.sroa.0.0.i.i, %.thread ], [ %98, %93 ]
+  ret ptr %.sroa.5.035
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3329,29 +3329,29 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h00935291298b7245E
   %.sroa.5.0..sroa.01.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa.01.0..sroa_idx.i, align 8, !noalias !774
   store i32 1, ptr %20, align 8, !noalias !774
-  %switch7.not.not.i = icmp eq i32 %21, 0
-  br i1 %switch7.not.not.i, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
+  %32 = icmp eq i32 %21, 0
+  br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread": ; preds = %4, %25, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %33
+  br label %34
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit": ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %32 = icmp eq ptr %.sroa.45.0.copyload.i, null
-  br i1 %32, label %33, label %34
+  %33 = icmp eq ptr %.sroa.45.0.copyload.i, null
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
   call void @_ZN4gpui3app10entity_map18double_lease_panic17hf6588ab14cd2dce0E.llvm.10411562366445529575(ptr noalias noundef nonnull readonly align 1 @anon.c34552a07b0122036704cbc55cd836e0.33.llvm.10411562366445529575, i64 noundef 6) #29
   unreachable
 
-34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
-  %35 = icmp ne ptr %.sroa.5.0.copyload.i, null
-  call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.45.0.copyload.i, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.5.0.copyload.i, ptr %37, align 8
+35:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+  %36 = icmp ne ptr %.sroa.5.0.copyload.i, null
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.45.0.copyload.i, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.5.0.copyload.i, ptr %38, align 8
   store ptr %2, ptr %0, align 8
   ret void
 }
@@ -3407,29 +3407,29 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h63eeef559db125f2E
   %.sroa.5.0..sroa.01.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa.01.0..sroa_idx.i, align 8, !noalias !778
   store i32 1, ptr %20, align 8, !noalias !778
-  %switch7.not.not.i = icmp eq i32 %21, 0
-  br i1 %switch7.not.not.i, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
+  %32 = icmp eq i32 %21, 0
+  br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread": ; preds = %4, %25, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %33
+  br label %34
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit": ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %32 = icmp eq ptr %.sroa.45.0.copyload.i, null
-  br i1 %32, label %33, label %34
+  %33 = icmp eq ptr %.sroa.45.0.copyload.i, null
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
   call void @_ZN4gpui3app10entity_map18double_lease_panic17hae19f0ec3d8eace7E.llvm.10411562366445529575(ptr noalias noundef nonnull readonly align 1 @anon.c34552a07b0122036704cbc55cd836e0.33.llvm.10411562366445529575, i64 noundef 6) #29
   unreachable
 
-34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
-  %35 = icmp ne ptr %.sroa.5.0.copyload.i, null
-  call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.45.0.copyload.i, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.5.0.copyload.i, ptr %37, align 8
+35:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+  %36 = icmp ne ptr %.sroa.5.0.copyload.i, null
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.45.0.copyload.i, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.5.0.copyload.i, ptr %38, align 8
   store ptr %2, ptr %0, align 8
   ret void
 }
@@ -3485,29 +3485,29 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17h7c38131a8ea8f55bE
   %.sroa.5.0..sroa.01.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa.01.0..sroa_idx.i, align 8, !noalias !781
   store i32 1, ptr %20, align 8, !noalias !781
-  %switch7.not.not.i = icmp eq i32 %21, 0
-  br i1 %switch7.not.not.i, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
+  %32 = icmp eq i32 %21, 0
+  br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread": ; preds = %4, %25, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %33
+  br label %34
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit": ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %32 = icmp eq ptr %.sroa.45.0.copyload.i, null
-  br i1 %32, label %33, label %34
+  %33 = icmp eq ptr %.sroa.45.0.copyload.i, null
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
   call void @_ZN4gpui3app10entity_map18double_lease_panic17h4d4117a96c31eb49E.llvm.10411562366445529575(ptr noalias noundef nonnull readonly align 1 @anon.c34552a07b0122036704cbc55cd836e0.33.llvm.10411562366445529575, i64 noundef 6) #29
   unreachable
 
-34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
-  %35 = icmp ne ptr %.sroa.5.0.copyload.i, null
-  call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.45.0.copyload.i, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.5.0.copyload.i, ptr %37, align 8
+35:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+  %36 = icmp ne ptr %.sroa.5.0.copyload.i, null
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.45.0.copyload.i, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.5.0.copyload.i, ptr %38, align 8
   store ptr %2, ptr %0, align 8
   ret void
 }
@@ -3563,29 +3563,29 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17hd87cf4764c0d55eaE
   %.sroa.5.0..sroa.01.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa.01.0..sroa_idx.i, align 8, !noalias !784
   store i32 1, ptr %20, align 8, !noalias !784
-  %switch7.not.not.i = icmp eq i32 %21, 0
-  br i1 %switch7.not.not.i, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
+  %32 = icmp eq i32 %21, 0
+  br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread": ; preds = %4, %25, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %33
+  br label %34
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit": ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %32 = icmp eq ptr %.sroa.45.0.copyload.i, null
-  br i1 %32, label %33, label %34
+  %33 = icmp eq ptr %.sroa.45.0.copyload.i, null
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
   call void @_ZN4gpui3app10entity_map18double_lease_panic17h5babb368dc1b9230E.llvm.10411562366445529575(ptr noalias noundef nonnull readonly align 1 @anon.c34552a07b0122036704cbc55cd836e0.33.llvm.10411562366445529575, i64 noundef 6) #29
   unreachable
 
-34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
-  %35 = icmp ne ptr %.sroa.5.0.copyload.i, null
-  call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.45.0.copyload.i, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.5.0.copyload.i, ptr %37, align 8
+35:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+  %36 = icmp ne ptr %.sroa.5.0.copyload.i, null
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.45.0.copyload.i, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.5.0.copyload.i, ptr %38, align 8
   store ptr %2, ptr %0, align 8
   ret void
 }
@@ -3641,29 +3641,29 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap5lease17he7d450bee795663eE
   %.sroa.5.0..sroa.01.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 16
   %.sroa.5.0.copyload.i = load ptr, ptr %.sroa.5.0..sroa.01.0..sroa_idx.i, align 8, !noalias !787
   store i32 1, ptr %20, align 8, !noalias !787
-  %switch7.not.not.i = icmp eq i32 %21, 0
-  br i1 %switch7.not.not.i, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
+  %32 = icmp eq i32 %21, 0
+  br i1 %32, label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit", label %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread"
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread": ; preds = %4, %25, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %33
+  br label %34
 
 "_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit": ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %32 = icmp eq ptr %.sroa.45.0.copyload.i, null
-  br i1 %32, label %33, label %34
+  %33 = icmp eq ptr %.sroa.45.0.copyload.i, null
+  br i1 %33, label %34, label %35
 
-33:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit.thread", %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
   call void @_ZN4gpui3app10entity_map18double_lease_panic17ha8fd0096294398faE.llvm.10411562366445529575(ptr noalias noundef nonnull readonly align 1 @anon.c34552a07b0122036704cbc55cd836e0.33.llvm.10411562366445529575, i64 noundef 6) #29
   unreachable
 
-34:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
-  %35 = icmp ne ptr %.sroa.5.0.copyload.i, null
-  call void @llvm.assume(i1 %35)
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.45.0.copyload.i, ptr %36, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.5.0.copyload.i, ptr %37, align 8
+35:                                               ; preds = %"_ZN7slotmap9secondary25SecondaryMap$LT$K$C$V$GT$6remove17h8f0adc7f16723e33E.exit"
+  %36 = icmp ne ptr %.sroa.5.0.copyload.i, null
+  call void @llvm.assume(i1 %36)
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.45.0.copyload.i, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.5.0.copyload.i, ptr %38, align 8
   store ptr %2, ptr %0, align 8
   ret void
 }
@@ -3913,7 +3913,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap7reserve17h0ed0fabe1e67c44
 
 17:                                               ; preds = %13
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h0999f08c13c13c39E(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr138drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$17h42c27c61e27b1353E.exit" unwind label %38
+          to label %"_ZN4core3ptr138drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$17h42c27c61e27b1353E.exit" unwind label %39
 
 18:                                               ; preds = %10
   %19 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
@@ -3951,25 +3951,25 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap7reserve17h0ed0fabe1e67c44
   %31 = add nuw i64 %.sroa.0.0.i, 1
   %32 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h7ad9a2944b65353eE.llvm.4872724473563907510(ptr noundef nonnull %22, i64 noundef %.sroa.0.0.i, i64 noundef %31, i8 noundef 2, i8 noundef 0), !noalias !818
   %33 = extractvalue { i64, i64 } %32, 0
-  %switch.i = icmp eq i64 %33, 0
-  br i1 %switch.i, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17ha1bdabc4361f7528E.exit", label %34
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17ha1bdabc4361f7528E.exit", label %35
 
-34:                                               ; preds = %30
-  %35 = extractvalue { i64, i64 } %32, 1
+35:                                               ; preds = %30
+  %36 = extractvalue { i64, i64 } %32, 1
   br label %.backedge.i.backedge
 
-.backedge.i.backedge:                             ; preds = %34, %27
-  %.sroa.0.0.i.be = phi i64 [ %28, %27 ], [ %35, %34 ]
+.backedge.i.backedge:                             ; preds = %35, %27
+  %.sroa.0.0.i.be = phi i64 [ %28, %27 ], [ %36, %35 ]
   br label %.backedge.i
 
 "_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17ha1bdabc4361f7528E.exit": ; preds = %30
-  %36 = extractvalue { i32, i32 } %12, 1
-  %37 = extractvalue { i32, i32 } %12, 0
-  tail call void @_ZN4gpui3app10entity_map8AnyModel3new17hb413abf1b8cdd177E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i32 noundef %37, i32 noundef %36, i64 noundef 3280692690427619877, i64 noundef 7303511377050075927, ptr noundef nonnull %4)
+  %37 = extractvalue { i32, i32 } %12, 1
+  %38 = extractvalue { i32, i32 } %12, 0
+  tail call void @_ZN4gpui3app10entity_map8AnyModel3new17hb413abf1b8cdd177E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i32 noundef %38, i32 noundef %37, i64 noundef 3280692690427619877, i64 noundef 7303511377050075927, ptr noundef nonnull %4)
   ret void
 
-38:                                               ; preds = %17
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %17
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
   unreachable
@@ -4005,7 +4005,7 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap7reserve17h3032cf963e78759
 
 17:                                               ; preds = %13
   invoke void @_ZN11parking_lot10raw_rwlock9RawRwLock21unlock_exclusive_slow17h0999f08c13c13c39E(ptr noundef nonnull align 8 %5, i1 noundef zeroext false)
-          to label %"_ZN4core3ptr138drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$17h42c27c61e27b1353E.exit" unwind label %38
+          to label %"_ZN4core3ptr138drop_in_place$LT$lock_api..rwlock..RwLockWriteGuard$LT$parking_lot..raw_rwlock..RawRwLock$C$gpui..app..entity_map..EntityRefCounts$GT$$GT$17h42c27c61e27b1353E.exit" unwind label %39
 
 18:                                               ; preds = %10
   %19 = cmpxchg ptr %5, i64 8, i64 0 release monotonic, align 8
@@ -4043,25 +4043,25 @@ define hidden void @_ZN4gpui3app10entity_map9EntityMap7reserve17h3032cf963e78759
   %31 = add nuw i64 %.sroa.0.0.i, 1
   %32 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h7ad9a2944b65353eE.llvm.4872724473563907510(ptr noundef nonnull %22, i64 noundef %.sroa.0.0.i, i64 noundef %31, i8 noundef 2, i8 noundef 0), !noalias !821
   %33 = extractvalue { i64, i64 } %32, 0
-  %switch.i = icmp eq i64 %33, 0
-  br i1 %switch.i, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17ha1bdabc4361f7528E.exit", label %34
+  %34 = icmp eq i64 %33, 0
+  br i1 %34, label %"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17ha1bdabc4361f7528E.exit", label %35
 
-34:                                               ; preds = %30
-  %35 = extractvalue { i64, i64 } %32, 1
+35:                                               ; preds = %30
+  %36 = extractvalue { i64, i64 } %32, 1
   br label %.backedge.i.backedge
 
-.backedge.i.backedge:                             ; preds = %34, %27
-  %.sroa.0.0.i.be = phi i64 [ %28, %27 ], [ %35, %34 ]
+.backedge.i.backedge:                             ; preds = %35, %27
+  %.sroa.0.0.i.be = phi i64 [ %28, %27 ], [ %36, %35 ]
   br label %.backedge.i
 
 "_ZN5alloc4sync16Arc$LT$T$C$A$GT$9downgrade17ha1bdabc4361f7528E.exit": ; preds = %30
-  %36 = extractvalue { i32, i32 } %12, 1
-  %37 = extractvalue { i32, i32 } %12, 0
-  tail call void @_ZN4gpui3app10entity_map8AnyModel3new17hb413abf1b8cdd177E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i32 noundef %37, i32 noundef %36, i64 noundef -5073973559359168027, i64 noundef 7286822186604539212, ptr noundef nonnull %4)
+  %37 = extractvalue { i32, i32 } %12, 1
+  %38 = extractvalue { i32, i32 } %12, 0
+  tail call void @_ZN4gpui3app10entity_map8AnyModel3new17hb413abf1b8cdd177E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, i32 noundef %38, i32 noundef %37, i64 noundef -5073973559359168027, i64 noundef 7286822186604539212, ptr noundef nonnull %4)
   ret void
 
-38:                                               ; preds = %17
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %17
+  %40 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #28
   unreachable
@@ -8266,15 +8266,15 @@ define hidden void @_ZN7project14worktree_store13WorktreeStore15create_worktree1
   %.pn.i.i.i = phi i64 [ %77, %.noexc ], [ %106, %104 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %81
   %84 = getelementptr inbounds i8, ptr %82, i64 %.sroa.01.0.i.i.i
-  %.sroa.0.0.copyload.i23.i.i = load <16 x i8>, ptr %84, align 1, !noalias !1709
-  %85 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, %.sroa.0.15.vec.insert.i.i.i
+  %.sroa.0.0.copyload.i22.i.i = load <16 x i8>, ptr %84, align 1, !noalias !1709
+  %85 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, %.sroa.0.15.vec.insert.i.i.i
   %86 = bitcast <16 x i1> %85 to i16
   %87 = icmp eq i16 %86, 0
   br i1 %87, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %83, %100
-  %.sroa.06.0.i26.i.i = phi i16 [ %102, %100 ], [ %86, %83 ]
-  %88 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i26.i.i, i1 true)
+  %.sroa.06.0.i25.i.i = phi i16 [ %102, %100 ], [ %86, %83 ]
+  %88 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i25.i.i, i1 true)
   %89 = zext nneg i16 %88 to i64
   %90 = add i64 %.sroa.01.0.i.i.i, %89
   %91 = and i64 %90, %81
@@ -8304,14 +8304,14 @@ define hidden void @_ZN7project14worktree_store13WorktreeStore15create_worktree1
   br i1 %97, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5dd3bb1cff54b496E.exit", label %100
 
 ._crit_edge.i.i:                                  ; preds = %100, %83
-  %98 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i, splat (i8 -1)
+  %98 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i, splat (i8 -1)
   %99 = bitcast <16 x i1> %98 to i16
   %.not.i.i.i = icmp eq i16 %99, 0
   br i1 %.not.i.i.i, label %104, label %select.unfold
 
 100:                                              ; preds = %.noexc29
-  %101 = add i16 %.sroa.06.0.i26.i.i, -1
-  %102 = and i16 %101, %.sroa.06.0.i26.i.i
+  %101 = add i16 %.sroa.06.0.i25.i.i, -1
+  %102 = and i16 %101, %.sroa.06.0.i25.i.i
   %103 = icmp eq i16 %102, 0
   br i1 %103, label %._crit_edge.i.i, label %.lr.ph.i.i
 
@@ -8383,15 +8383,15 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %"
   %.pn.i.i.i33 = phi i64 [ %115, %.noexc45 ], [ %144, %142 ]
   %.sroa.01.0.i.i.i34 = and i64 %.pn.i.i.i33, %119
   %122 = getelementptr inbounds i8, ptr %120, i64 %.sroa.01.0.i.i.i34
-  %.sroa.0.0.copyload.i23.i.i35 = load <16 x i8>, ptr %122, align 1, !noalias !1757
-  %123 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i35, %.sroa.0.15.vec.insert.i.i.i31
+  %.sroa.0.0.copyload.i22.i.i35 = load <16 x i8>, ptr %122, align 1, !noalias !1757
+  %123 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i35, %.sroa.0.15.vec.insert.i.i.i31
   %124 = bitcast <16 x i1> %123 to i16
   %125 = icmp eq i16 %124, 0
   br i1 %125, label %._crit_edge.i.i40, label %.lr.ph.i.i36
 
 .lr.ph.i.i36:                                     ; preds = %121, %138
-  %.sroa.06.0.i26.i.i37 = phi i16 [ %140, %138 ], [ %124, %121 ]
-  %126 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i26.i.i37, i1 true)
+  %.sroa.06.0.i25.i.i37 = phi i16 [ %140, %138 ], [ %124, %121 ]
+  %126 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.06.0.i25.i.i37, i1 true)
   %127 = zext nneg i16 %126 to i64
   %128 = add i64 %.sroa.01.0.i.i.i34, %127
   %129 = and i64 %128, %119
@@ -8421,14 +8421,14 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %"
   br i1 %135, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h5dd3bb1cff54b496E.exit49", label %138
 
 ._crit_edge.i.i40:                                ; preds = %138, %121
-  %136 = icmp eq <16 x i8> %.sroa.0.0.copyload.i23.i.i35, splat (i8 -1)
+  %136 = icmp eq <16 x i8> %.sroa.0.0.copyload.i22.i.i35, splat (i8 -1)
   %137 = bitcast <16 x i1> %136 to i16
   %.not.i.i.i41 = icmp eq i16 %137, 0
   br i1 %.not.i.i.i41, label %142, label %select.unfold116
 
 138:                                              ; preds = %.noexc48
-  %139 = add i16 %.sroa.06.0.i26.i.i37, -1
-  %140 = and i16 %139, %.sroa.06.0.i26.i.i37
+  %139 = add i16 %.sroa.06.0.i25.i.i37, -1
+  %140 = and i16 %139, %.sroa.06.0.i25.i.i37
   %141 = icmp eq i16 %140, 0
   br i1 %141, label %._crit_edge.i.i40, label %.lr.ph.i.i36
 

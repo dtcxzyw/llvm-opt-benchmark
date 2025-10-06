@@ -606,11 +606,11 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit
-  %.narrow.i.i.i.i.i.i20.i.i.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.narrow.i.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i, %_ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEC2Ev.exit ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i
   %52 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i.i.i = add i128 %52, 1442695040888963407
@@ -757,11 +757,11 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %93, %_ZNKSt14defaul
   br label %.split.i.i.i.i.i55
 
 .split.i.i.i.i.i55:                               ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i, %_ZN7testing15AssertionResultD2Ev.exit
-  %.narrow.i.i.i.i.i.i20.i.i.i.i.i56 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i65, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i54, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i57 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i63, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.promoted.i.i.i.i.i53, %_ZN7testing15AssertionResultD2Ev.exit ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i58 = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i.i.i56 to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i.i.i56 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i65, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i54, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i57 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i63, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.promoted.i.i.i.i.i53, %_ZN7testing15AssertionResultD2Ev.exit ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i58 = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i.i.i56 to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i59 = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i58, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i60 = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i57 to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i60 = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i57 to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i61 = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i59, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i60
   %102 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i61, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i.i.i62 = add i128 %102, 1442695040888963407
@@ -1556,11 +1556,11 @@ _ZN7testing15AssertionResultD2Ev.exit151:         ; preds = %346, %_ZNKSt14defau
   br label %.split.i.i.i.i.i155
 
 .split.i.i.i.i.i155:                              ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i167, %_ZN7testing15AssertionResultD2Ev.exit151
-  %.narrow.i.i.i.i.i.i20.i.i.i.i.i156 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i165, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i167 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i154, %_ZN7testing15AssertionResultD2Ev.exit151 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i157 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i163, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i167 ], [ %.promoted.i.i.i.i.i153, %_ZN7testing15AssertionResultD2Ev.exit151 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i158 = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i.i.i156 to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i.i.i156 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i165, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i167 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i154, %_ZN7testing15AssertionResultD2Ev.exit151 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i157 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i163, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i167 ], [ %.promoted.i.i.i.i.i153, %_ZN7testing15AssertionResultD2Ev.exit151 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i158 = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i.i.i156 to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i159 = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i158, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i160 = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i157 to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i160 = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i157 to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i161 = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i159, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i160
   %355 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i161, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i.i.i162 = add i128 %355, 1442695040888963407
@@ -1803,11 +1803,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
   br label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagEffEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 .split.i.i.i:                                     ; preds = %11, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
-  %.narrow.i.i.i.i.i.i20.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i, %11 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.promoted.i.i.i, %11 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i, %11 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.promoted.i.i.i, %11 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i
   %31 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %31, 1442695040888963407
@@ -1842,14 +1842,14 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagEffEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
   %.us-phi.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi23.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi24.i.i.i = phi float [ %30, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %46, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  store i64 %.us-phi23.i.i.i, ptr %0, align 16, !tbaa !12
+  %.us-phi22.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  %.us-phi23.i.i.i = phi float [ %30, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %46, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  store i64 %.us-phi22.i.i.i, ptr %0, align 16, !tbaa !12
   store i64 %.us-phi.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !12
   br label %48
 
 48:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagEffEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
-  %.0 = phi float [ %.us-phi24.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagEffEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %4, %3 ]
+  %.0 = phi float [ %.us-phi23.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagEffEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %4, %3 ]
   ret float %.0
 }
 
@@ -1907,11 +1907,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 .split.i.i.i:                                     ; preds = %11, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
-  %.narrow.i.i.i.i.i.i20.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i, %11 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.promoted.i.i.i, %11 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i, %11 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.promoted.i.i.i, %11 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i
   %29 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %29, 1442695040888963407
@@ -1944,14 +1944,14 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
   %.us-phi.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi23.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi24.i.i.i = phi double [ %28, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %42, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  store i64 %.us-phi23.i.i.i, ptr %0, align 16, !tbaa !12
+  %.us-phi22.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  %.us-phi23.i.i.i = phi double [ %28, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %42, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  store i64 %.us-phi22.i.i.i, ptr %0, align 16, !tbaa !12
   store i64 %.us-phi.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !12
   br label %44
 
 44:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
-  %.0 = phi double [ %.us-phi24.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %4, %3 ]
+  %.0 = phi double [ %.us-phi23.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagEddEEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %4, %3 ]
   ret double %.0
 }
 
@@ -2008,11 +2008,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 .split.i.i.i:                                     ; preds = %10, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
-  %.narrow.i.i.i.i.i.i20.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i, %10 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.promoted.i.i.i, %10 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i, %10 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.promoted.i.i.i, %10 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i
   %28 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %28, 1442695040888963407
@@ -2045,14 +2045,14 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
   %.us-phi.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi23.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi24.i.i.i = phi double [ %27, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %41, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  store i64 %.us-phi23.i.i.i, ptr %0, align 16, !tbaa !12
+  %.us-phi22.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  %.us-phi23.i.i.i = phi double [ %27, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %41, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  store i64 %.us-phi22.i.i.i, ptr %0, align 16, !tbaa !12
   store i64 %.us-phi.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !12
   br label %43
 
 43:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
-  %.0 = phi double [ %.us-phi24.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %1, %3 ]
+  %.0 = phi double [ %.us-phi23.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIdEEJRNS_19IntervalOpenOpenTagERdSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %1, %3 ]
   ret double %.0
 }
 
@@ -2111,11 +2111,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
   br label %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagERfSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
 
 .split.i.i.i:                                     ; preds = %10, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i
-  %.narrow.i.i.i.i.i.i20.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i, %10 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.promoted.i.i.i, %10 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i, %10 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ], [ %.promoted.i.i.i, %10 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i
   %30 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i = add i128 %30, 1442695040888963407
@@ -2150,14 +2150,14 @@ _ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagERfSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i
   %.us-phi.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi23.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  %.us-phi24.i.i.i = phi float [ %29, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %45, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
-  store i64 %.us-phi23.i.i.i, ptr %0, align 16, !tbaa !12
+  %.us-phi22.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  %.us-phi23.i.i.i = phi float [ %29, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i ], [ %45, %_ZN4absl15random_internal20GenerateRealFromBitsIfNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i ]
+  store i64 %.us-phi22.i.i.i, ptr %0, align 16, !tbaa !12
   store i64 %.us-phi.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i.i, align 8, !tbaa !12
   br label %47
 
 47:                                               ; preds = %3, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagERfSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit
-  %.0 = phi float [ %.us-phi24.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagERfSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %1, %3 ]
+  %.0 = phi float [ %.us-phi23.i.i.i, %_ZN4absl15random_internal18DistributionCallerINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEE4ImplINS0_26UniformDistributionWrapperIfEEJRNS_19IntervalOpenOpenTagERfSG_EEENT_11result_typeESt17integral_constantIbLb0EEPS9_DpOT0_.exit ], [ %1, %3 ]
   ret float %.0
 }
 
@@ -7041,11 +7041,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit
 
 .split.i.i.i.i.i:                                 ; preds = %942, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
-  %.narrow.i.i.i.i.i.i20.i.i.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i, %942 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.promoted.i.i.i.i.i, %942 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i, %942 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.promoted.i.i.i.i.i, %942 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i
   %958 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i.i.i = add i128 %958, 1442695040888963407
@@ -7078,12 +7078,12 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i
   %.us-phi.i.i.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ]
-  %.us-phi23.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ]
-  %.us-phi24.i.i.i.i.i = phi double [ %957, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i ], [ %971, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ]
-  store i64 %.us-phi23.i.i.i.i.i, ptr %3, align 16, !tbaa !12
+  %.us-phi22.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ]
+  %.us-phi23.i.i.i.i.i = phi double [ %957, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i ], [ %971, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ]
+  store i64 %.us-phi22.i.i.i.i.i, ptr %3, align 16, !tbaa !12
   store i64 %.us-phi.i.i.i.i.i, ptr %124, align 8, !tbaa !12
-  store double %.us-phi24.i.i.i.i.i, ptr %86, align 8, !tbaa !40
-  %973 = fcmp oeq double %.us-phi24.i.i.i.i.i, 1.000000e+00
+  store double %.us-phi23.i.i.i.i.i, ptr %86, align 8, !tbaa !40
+  %973 = fcmp oeq double %.us-phi23.i.i.i.i.i, 1.000000e+00
   br i1 %973, label %974, label %975
 
 974:                                              ; preds = %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit.thread, %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit
@@ -7261,11 +7261,11 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit537
 
 .split.i.i.i.i.i522:                              ; preds = %1017, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535
-  %.narrow.i.i.i.i.i.i20.i.i.i.i.i523 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i532, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i504, %1017 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i524 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i530, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535 ], [ %.promoted.i.i.i.i.i503, %1017 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i525 = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i.i.i523 to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i.i.i523 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i532, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i504, %1017 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i524 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i530, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535 ], [ %.promoted.i.i.i.i.i503, %1017 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i525 = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i.i.i523 to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i526 = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i525, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i527 = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i524 to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i527 = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i524 to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i528 = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i526, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i527
   %1033 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i528, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i.i.i529 = add i128 %1033, 1442695040888963407
@@ -7298,12 +7298,12 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
 
 _ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit537: ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i516
   %.us-phi.i.i.i.i.i519 = phi i64 [ %.narrow.i.i.i.i.i.i.us.i.i.i.i.i513, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i516 ], [ %.narrow.i.i.i.i.i.i.i.i.i.i.i532, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535 ]
-  %.us-phi23.i.i.i.i.i520 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i.i.i511, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i516 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i530, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535 ]
-  %.us-phi24.i.i.i.i.i521 = phi double [ %1032, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i516 ], [ %1046, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535 ]
-  store i64 %.us-phi23.i.i.i.i.i520, ptr %3, align 16, !tbaa !12
+  %.us-phi22.i.i.i.i.i520 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.us.i.i.i.i.i511, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i516 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i530, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535 ]
+  %.us-phi23.i.i.i.i.i521 = phi double [ %1032, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.us.i.i.i.i.i516 ], [ %1046, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i535 ]
+  store i64 %.us-phi22.i.i.i.i.i520, ptr %3, align 16, !tbaa !12
   store i64 %.us-phi.i.i.i.i.i519, ptr %124, align 8, !tbaa !12
-  store double %.us-phi24.i.i.i.i.i521, ptr %91, align 8, !tbaa !40
-  %1048 = fcmp oeq double %.us-phi24.i.i.i.i.i521, 1.000000e+00
+  store double %.us-phi23.i.i.i.i.i521, ptr %91, align 8, !tbaa !40
+  %1048 = fcmp oeq double %.us-phi23.i.i.i.i.i521, 1.000000e+00
   br i1 %1048, label %1049, label %1050
 
 1049:                                             ; preds = %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit537.thread, %_ZN4absl7UniformIdRNS_15random_internal17NonsecureURBGBaseINS1_10pcg_engineINS1_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS1_17pcg_xsl_rr_128_64EEENS1_17RandenPoolSeedSeqEEEEENSt9enable_ifIXntsr3std7is_sameIT_vEE5valueESC_E4typeEOT0_SC_SC_.exit537
@@ -7434,11 +7434,11 @@ _ZN7testing15AssertionResultD2Ev.exit551:         ; preds = %1077, %_ZNKSt14defa
   br label %.split.i.i.i.i.i555
 
 .split.i.i.i.i.i555:                              ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i568, %_ZN7testing15AssertionResultD2Ev.exit551
-  %.narrow.i.i.i.i.i.i20.i.i.i.i.i556 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i565, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i568 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i554, %_ZN7testing15AssertionResultD2Ev.exit551 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i557 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i563, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i568 ], [ %.promoted.i.i.i.i.i553, %_ZN7testing15AssertionResultD2Ev.exit551 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i558 = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i.i.i556 to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i.i.i556 = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i565, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i568 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.i.i.i554, %_ZN7testing15AssertionResultD2Ev.exit551 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i557 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i563, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i568 ], [ %.promoted.i.i.i.i.i553, %_ZN7testing15AssertionResultD2Ev.exit551 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i558 = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i.i.i556 to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i559 = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i558, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i560 = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i557 to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i560 = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i557 to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i561 = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i559, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i560
   %1086 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i561, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i.i.i562 = add i128 %1086, 1442695040888963407
@@ -8593,11 +8593,11 @@ _ZN4absl15random_internal17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_param
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit84
 
 .split.i.i.i.i.i:                                 ; preds = %.split.i.i.i.i.i.preheader, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i
-  %.narrow.i.i.i.i.i.i20.i.i.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.6.092, %.split.i.i.i.i.i.preheader ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.085.093, %.split.i.i.i.i.i.preheader ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i.i.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i.i.i.i = phi i64 [ %.narrow.i.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.6.092, %.split.i.i.i.i.i.preheader ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i.i.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i.i.i.i ], [ %.sroa.085.093, %.split.i.i.i.i.i.preheader ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i.i.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i.i.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i.i.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i.i.i.i
   %33 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i.i.i.i = add i128 %33, 1442695040888963407
@@ -14044,11 +14044,11 @@ define linkonce_odr dso_local noundef i64 @_ZN4absl17zipf_distributionIlEclINS_1
   br label %.split.i.i
 
 .split.i.i:                                       ; preds = %.split.i.i.backedge, %3
-  %.narrow.i.i.i.i.i.i20.i.i = phi i64 [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.pre, %3 ], [ %.narrow.i.i.i.i.i.i.i.i, %.split.i.i.backedge ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i = phi i64 [ %.promoted.i.i.pre, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %.split.i.i.backedge ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i = phi i64 [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted.i.i.pre, %3 ], [ %.narrow.i.i.i.i.i.i.i.i, %.split.i.i.backedge ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i = phi i64 [ %.promoted.i.i.pre, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %.split.i.i.backedge ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i
   %21 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i = add i128 %21, 1442695040888963407
@@ -14079,10 +14079,10 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !215
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i31 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %.0.i.i.i29 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, ptr %1, align 16, !tbaa !12
   store i64 %.narrow.i.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !12
-  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %7, double %5)
+  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %7, double %5)
   br i1 %12, label %36, label %38
 
 36:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -14108,7 +14108,7 @@ _ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit: ; preds = %36, %38
 49:                                               ; preds = %_ZNK4absl17zipf_distributionIlE10param_type4hinvEd.exit
   %50 = fsub double %45, %44
   %51 = fcmp ugt double %50, %16
-  br i1 %51, label %52, label %.thread
+  br i1 %51, label %52, label %74
 
 52:                                               ; preds = %49
   %53 = fadd double %45, 5.000000e-01
@@ -14146,11 +14146,11 @@ _ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit: ; preds = %6
   %71 = phi double [ %66, %64 ], [ %70, %67 ]
   %72 = fsub double %62, %71
   %73 = fcmp ult double %35, %72
-  br i1 %73, label %.split.i.i.backedge, label %.thread
+  br i1 %73, label %.split.i.i.backedge, label %74
 
-.thread:                                          ; preds = %49, %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit
-  %74 = fptosi double %45 to i64
-  ret i64 %74
+74:                                               ; preds = %_ZNK4absl17zipf_distributionIlE10param_type14pow_negative_qEd.exit, %49
+  %75 = fptosi double %45 to i64
+  ret i64 %75
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -14512,11 +14512,11 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclINS_1
   br label %.split.i.i
 
 .split.i.i:                                       ; preds = %.split.i.i.backedge, %3
-  %.narrow.i.i.i.i.i.i20.i.i = phi i64 [ %.sroa.22.0..sroa_idx.i.i.i.i.i.i.promoted, %3 ], [ %.narrow.i.i.i.i.i.i.i.i, %.split.i.i.backedge ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i = phi i64 [ %.promoted, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %.split.i.i.backedge ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i20.i.i to i128
+  %.narrow.i.i.i.i.i.i19.i.i = phi i64 [ %.sroa.22.0..sroa_idx.i.i.i.i.i.i.promoted, %3 ], [ %.narrow.i.i.i.i.i.i.i.i, %.split.i.i.backedge ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i = phi i64 [ %.promoted, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, %.split.i.i.backedge ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i19.i.i to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i19.i.i to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i18.i.i to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i.i.i
   %21 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i.i.i = add i128 %21, 1442695040888963407
@@ -14547,8 +14547,8 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   br label %.split.i.i, !llvm.loop !231
 
 _ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit: ; preds = %.split.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i31 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
-  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i31, double %7, double %5)
+  %.0.i.i.i29 = phi double [ %33, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %.split.i.i ]
+  %35 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i29, double %7, double %5)
   br i1 %12, label %36, label %38
 
 36:                                               ; preds = %_ZN4absl25uniform_real_distributionIdEclINS_15random_internal17NonsecureURBGBaseINS3_10pcg_engineINS3_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS3_17pcg_xsl_rr_128_64EEENS3_17RandenPoolSeedSeqEEEEEdRT_.exit
@@ -14574,7 +14574,7 @@ _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %36, %38
 49:                                               ; preds = %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
   %50 = fsub double %45, %44
   %51 = fcmp ugt double %50, %16
-  br i1 %51, label %52, label %.thread
+  br i1 %51, label %52, label %74
 
 52:                                               ; preds = %49
   %53 = fadd double %45, 5.000000e-01
@@ -14612,13 +14612,13 @@ _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %6
   %71 = phi double [ %66, %64 ], [ %70, %67 ]
   %72 = fsub double %62, %71
   %73 = fcmp ult double %35, %72
-  br i1 %73, label %.split.i.i.backedge, label %.thread
+  br i1 %73, label %.split.i.i.backedge, label %74
 
-.thread:                                          ; preds = %49, %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
+74:                                               ; preds = %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit, %49
   store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i.i.i, ptr %1, align 16, !tbaa !12
   store i64 %.narrow.i.i.i.i.i.i.i.i, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !12
-  %74 = fptosi double %45 to i32
-  ret i32 %74
+  %75 = fptosi double %45 to i32
+  ret i32 %75
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -15286,11 +15286,11 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   br label %3
 
 3:                                                ; preds = %69, %2
-  %.narrow.i.i.i.i.i.i3349 = phi i64 [ %.narrow.i.i.i.i.i.i33, %69 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted, %2 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3147 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i31, %69 ], [ %.promoted, %2 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i3349 to i128
+  %.narrow.i.i.i.i.i.i3348 = phi i64 [ %.narrow.i.i.i.i.i.i33, %69 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted, %2 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3146 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i31, %69 ], [ %.promoted, %2 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i3348 to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3147 to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3146 to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i
   %4 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i = add i128 %4, 1442695040888963407
@@ -15353,8 +15353,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %41 = lshr i64 %40, 11
   %42 = and i64 %41, 4503599627370495
   %43 = shl nuw nsw i64 %38, 52
-  %reass.sub52 = sub nsw i64 %42, %43
-  %44 = add nsw i64 %reass.sub52, 4602678819172646912
+  %reass.sub51 = sub nsw i64 %42, %43
+  %44 = add nsw i64 %reass.sub51, 4602678819172646912
   %45 = bitcast i64 %44 to double
   %46 = tail call double @llvm.log.f64(double %45), !tbaa !7
   %47 = fmul double %46, 0x3FD2972A8AFC6175
@@ -15377,8 +15377,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4503599627370495
   %57 = shl nuw nsw i64 %52, 52
-  %reass.sub53 = sub nsw i64 %56, %57
-  %58 = add nsw i64 %reass.sub53, 4602678819172646912
+  %reass.sub52 = sub nsw i64 %56, %57
+  %58 = add nsw i64 %reass.sub52, 4602678819172646912
   %59 = bitcast i64 %58 to double
   %60 = tail call double @llvm.log.f64(double %59), !tbaa !7
   %61 = fneg double %60
@@ -15432,10 +15432,10 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17Non
   br i1 %91, label %select.unfold.loopexit, label %3
 
 select.unfold.loopexit:                           ; preds = %3, %69
-  %.narrow.i.i.i.i.i.i3350 = phi i64 [ %.narrow.i.i.i.i.i.i, %3 ], [ %.narrow.i.i.i.i.i.i33, %69 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3148 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i31, %69 ]
-  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3148, ptr %1, align 16, !tbaa !12
-  store i64 %.narrow.i.i.i.i.i.i3350, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !12
+  %.narrow.i.i.i.i.i.i3349 = phi i64 [ %.narrow.i.i.i.i.i.i, %3 ], [ %.narrow.i.i.i.i.i.i33, %69 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3147 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i31, %69 ]
+  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3147, ptr %1, align 16, !tbaa !12
+  store i64 %.narrow.i.i.i.i.i.i3349, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !12
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.loopexit, %_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_b.exit

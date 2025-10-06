@@ -99,7 +99,7 @@ define void @_ZN6icu_779RCEBuffer3putEjiiR10UErrorCode(ptr noundef nonnull align
 
 ._crit_edge:                                      ; preds = %8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %.pre15 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3
+  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !3
   br label %29
 
 13:                                               ; preds = %8
@@ -130,7 +130,7 @@ define void @_ZN6icu_779RCEBuffer3putEjiiR10UErrorCode(ptr noundef nonnull align
   store ptr %17, ptr %20, align 8, !tbaa !3
   %27 = add nsw i32 %26, 8
   store i32 %27, ptr %11, align 4, !tbaa !11
-  %.pre16 = load i32, ptr %9, align 8, !tbaa !10
+  %.pre15 = load i32, ptr %9, align 8, !tbaa !10
   br label %29
 
 28:                                               ; preds = %13
@@ -138,8 +138,8 @@ define void @_ZN6icu_779RCEBuffer3putEjiiR10UErrorCode(ptr noundef nonnull align
   br label %37
 
 29:                                               ; preds = %._crit_edge, %.thread
-  %30 = phi i32 [ %10, %._crit_edge ], [ %.pre16, %.thread ]
-  %31 = phi ptr [ %.pre15, %._crit_edge ], [ %17, %.thread ]
+  %30 = phi i32 [ %10, %._crit_edge ], [ %.pre15, %.thread ]
+  %31 = phi ptr [ %.pre14, %._crit_edge ], [ %17, %.thread ]
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds %struct.RCEI, ptr %31, i64 %32
   store i32 %1, ptr %33, align 4, !tbaa !14
@@ -247,7 +247,7 @@ define void @_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode(ptr noundef nonnull align
 
 ._crit_edge:                                      ; preds = %8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %.pre15 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !18
+  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !18
   br label %29
 
 13:                                               ; preds = %8
@@ -278,7 +278,7 @@ define void @_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode(ptr noundef nonnull align
   store ptr %17, ptr %20, align 8, !tbaa !18
   %27 = add nsw i32 %26, 8
   store i32 %27, ptr %11, align 4, !tbaa !22
-  %.pre16 = load i32, ptr %9, align 8, !tbaa !21
+  %.pre15 = load i32, ptr %9, align 8, !tbaa !21
   br label %29
 
 28:                                               ; preds = %13
@@ -286,8 +286,8 @@ define void @_ZN6icu_779PCEBuffer3putEmiiR10UErrorCode(ptr noundef nonnull align
   br label %37
 
 29:                                               ; preds = %._crit_edge, %.thread
-  %30 = phi i32 [ %10, %._crit_edge ], [ %.pre16, %.thread ]
-  %31 = phi ptr [ %.pre15, %._crit_edge ], [ %17, %.thread ]
+  %30 = phi i32 [ %10, %._crit_edge ], [ %.pre15, %.thread ]
+  %31 = phi ptr [ %.pre14, %._crit_edge ], [ %17, %.thread ]
   %32 = sext i32 %30 to i64
   %33 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %31, i64 %32
   store i64 %1, ptr %33, align 8, !tbaa !23
@@ -858,7 +858,7 @@ _ZN6icu_7713UCollationPCE9processCEEj.exit:       ; preds = %52, %41
   br i1 %55, label %14, label %_ZN6icu_7713UCollationPCE9processCEEj.exit.thread, !llvm.loop !50
 
 _ZN6icu_7713UCollationPCE9processCEEj.exit.thread: ; preds = %14, %_ZN6icu_7713UCollationPCE9processCEEj.exit
-  %.01525 = phi i64 [ %.015, %_ZN6icu_7713UCollationPCE9processCEEj.exit ], [ 9223372036854775807, %14 ]
+  %.01524 = phi i64 [ %.015, %_ZN6icu_7713UCollationPCE9processCEEj.exit ], [ 9223372036854775807, %14 ]
   %.not19 = icmp eq ptr %1, null
   br i1 %.not19, label %57, label %56
 
@@ -875,7 +875,7 @@ _ZN6icu_7713UCollationPCE9processCEEj.exit.thread: ; preds = %14, %_ZN6icu_7713U
   br label %59
 
 59:                                               ; preds = %57, %58, %4
-  %.0 = phi i64 [ 9223372036854775807, %4 ], [ %.01525, %58 ], [ %.01525, %57 ]
+  %.0 = phi i64 [ 9223372036854775807, %4 ], [ %.01524, %58 ], [ %.01524, %57 ]
   ret i64 %.0
 }
 
@@ -970,7 +970,7 @@ define noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorC
   br i1 %.not12.i, label %._crit_edge.i, label %44
 
 ._crit_edge.i:                                    ; preds = %41
-  %.pre15.i = load ptr, ptr %14, align 8, !tbaa !3
+  %.pre14.i = load ptr, ptr %14, align 8, !tbaa !3
   br label %_ZN6icu_779RCEBuffer3putEjiiR10UErrorCode.exit
 
 44:                                               ; preds = %41
@@ -1006,14 +1006,14 @@ define noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorC
   store ptr %48, ptr %14, align 8, !tbaa !3
   %57 = add nsw i32 %56, 8
   store i32 %57, ptr %13, align 4, !tbaa !11
-  %.pre16.i = load i32, ptr %12, align 8, !tbaa !10
+  %.pre15.i = load i32, ptr %12, align 8, !tbaa !10
   %.pre.pre = load i32, ptr %3, align 4, !tbaa !12
   br label %_ZN6icu_779RCEBuffer3putEjiiR10UErrorCode.exit
 
 _ZN6icu_779RCEBuffer3putEjiiR10UErrorCode.exit:   ; preds = %._crit_edge.i, %.thread.i
   %.pre = phi i32 [ %39, %._crit_edge.i ], [ %.pre.pre, %.thread.i ]
-  %58 = phi i32 [ %42, %._crit_edge.i ], [ %.pre16.i, %.thread.i ]
-  %59 = phi ptr [ %.pre15.i, %._crit_edge.i ], [ %48, %.thread.i ]
+  %58 = phi i32 [ %42, %._crit_edge.i ], [ %.pre15.i, %.thread.i ]
+  %59 = phi ptr [ %.pre14.i, %._crit_edge.i ], [ %48, %.thread.i ]
   %60 = sext i32 %58 to i64
   %61 = getelementptr inbounds %struct.RCEI, ptr %59, i64 %60
   store i32 %27, ptr %61, align 4, !tbaa !14
@@ -1132,7 +1132,7 @@ _ZN6icu_7713UCollationPCE9processCEEj.exit:       ; preds = %102, %104
   br i1 %.not12.i59, label %._crit_edge.i64, label %118
 
 ._crit_edge.i64:                                  ; preds = %111
-  %.pre15.i66 = load ptr, ptr %20, align 8, !tbaa !18
+  %.pre14.i66 = load ptr, ptr %20, align 8, !tbaa !18
   br label %132
 
 118:                                              ; preds = %111
@@ -1168,14 +1168,14 @@ _ZN6icu_7713UCollationPCE9processCEEj.exit:       ; preds = %102, %104
   store ptr %122, ptr %20, align 8, !tbaa !18
   %131 = add nsw i32 %130, 8
   store i32 %131, ptr %19, align 4, !tbaa !22
-  %.pre16.i63 = load i32, ptr %8, align 8, !tbaa !21
+  %.pre15.i63 = load i32, ptr %8, align 8, !tbaa !21
   %.pre93.pre = load i32, ptr %3, align 4, !tbaa !12
   br label %132
 
 132:                                              ; preds = %.thread.i62, %._crit_edge.i64
   %.pre93 = phi i32 [ %.pre9395, %._crit_edge.i64 ], [ %.pre93.pre, %.thread.i62 ]
-  %133 = phi i32 [ %116, %._crit_edge.i64 ], [ %.pre16.i63, %.thread.i62 ]
-  %134 = phi ptr [ %.pre15.i66, %._crit_edge.i64 ], [ %122, %.thread.i62 ]
+  %133 = phi i32 [ %116, %._crit_edge.i64 ], [ %.pre15.i63, %.thread.i62 ]
+  %134 = phi ptr [ %.pre14.i66, %._crit_edge.i64 ], [ %122, %.thread.i62 ]
   %135 = sext i32 %133 to i64
   %136 = getelementptr inbounds %"struct.icu_77::PCEI", ptr %134, i64 %135
   store i64 %110, ptr %136, align 8, !tbaa !23

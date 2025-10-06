@@ -927,16 +927,16 @@ define hidden void @_ZN10serde_json5value8to_value17h1c4ad9ec3d51fd54E(ptr dead_
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !87
   %4 = tail call { i64, i64 } @_ZN9uv_pep5086marker4tree10MarkerTree8contents17h9e615292ff77e898E(i64 noundef %1), !noalias !87
   %5 = extractvalue { i64, i64 } %4, 0
-  %switch.i.i = icmp eq i64 %5, 0
-  br i1 %switch.i.i, label %6, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17h8a96a8a8dc43afceE.exit"
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17h8a96a8a8dc43afceE.exit"
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2188aee53a536064ee2ff91da2637814.89.llvm.13733232736960424610) #43, !noalias !87
   unreachable
 
 "_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17h8a96a8a8dc43afceE.exit": ; preds = %2
-  %7 = extractvalue { i64, i64 } %4, 1
-  store i64 %7, ptr %3, align 8, !noalias !87
+  %8 = extractvalue { i64, i64 } %4, 1
+  store i64 %8, ptr %3, align 8, !noalias !87
   call void @"_ZN85_$LT$uv_pep508..marker..tree..MarkerTreeContents$u20$as$u20$serde..ser..Serialize$GT$9serialize17h1be5848f03da4f45E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !94
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !87
   ret void
@@ -999,16 +999,16 @@ define hidden void @_ZN10serde_json5value8to_value17h5b96a359a9157e4cE(ptr dead_
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !136
   %4 = tail call { i64, i64 } @_ZN9uv_pep5086marker4tree10MarkerTree8contents17h9e615292ff77e898E(i64 noundef %1), !noalias !136
   %5 = extractvalue { i64, i64 } %4, 0
-  %switch.i.i = icmp eq i64 %5, 0
-  br i1 %switch.i.i, label %6, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17he5a2c791dce781cbE.exit"
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17he5a2c791dce781cbE.exit"
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2188aee53a536064ee2ff91da2637814.89.llvm.13733232736960424610) #43, !noalias !136
   unreachable
 
 "_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17he5a2c791dce781cbE.exit": ; preds = %2
-  %7 = extractvalue { i64, i64 } %4, 1
-  store i64 %7, ptr %3, align 8, !noalias !136
+  %8 = extractvalue { i64, i64 } %4, 1
+  store i64 %8, ptr %3, align 8, !noalias !136
   call void @"_ZN85_$LT$uv_pep508..marker..tree..MarkerTreeContents$u20$as$u20$serde..ser..Serialize$GT$9serialize17h1be5848f03da4f45E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !143
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !136
   ret void
@@ -1026,16 +1026,16 @@ define hidden void @_ZN10serde_json5value8to_value17h905d8d21c1d48c81E(ptr dead_
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !147
   %4 = tail call { i64, i64 } @_ZN9uv_pep5086marker4tree10MarkerTree8contents17h9e615292ff77e898E(i64 noundef %1), !noalias !147
   %5 = extractvalue { i64, i64 } %4, 0
-  %switch.i.i = icmp eq i64 %5, 0
-  br i1 %switch.i.i, label %6, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17hd1e1f19e6a453bf6E.exit"
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17hd1e1f19e6a453bf6E.exit"
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2188aee53a536064ee2ff91da2637814.89.llvm.13733232736960424610) #43, !noalias !147
   unreachable
 
 "_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17hd1e1f19e6a453bf6E.exit": ; preds = %2
-  %7 = extractvalue { i64, i64 } %4, 1
-  store i64 %7, ptr %3, align 8, !noalias !147
+  %8 = extractvalue { i64, i64 } %4, 1
+  store i64 %8, ptr %3, align 8, !noalias !147
   call void @"_ZN85_$LT$uv_pep508..marker..tree..MarkerTreeContents$u20$as$u20$serde..ser..Serialize$GT$9serialize17h1be5848f03da4f45E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !154
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !147
   ret void
@@ -1092,16 +1092,16 @@ define hidden void @_ZN10serde_json5value8to_value17hc929cc70e44236aeE(ptr dead_
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !172
   %4 = tail call { i64, i64 } @_ZN9uv_pep5086marker4tree10MarkerTree8contents17h9e615292ff77e898E(i64 noundef %1), !noalias !172
   %5 = extractvalue { i64, i64 } %4, 0
-  %switch.i.i = icmp eq i64 %5, 0
-  br i1 %switch.i.i, label %6, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17h04530a15286fc289E.exit"
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17h04530a15286fc289E.exit"
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2188aee53a536064ee2ff91da2637814.89.llvm.13733232736960424610) #43, !noalias !172
   unreachable
 
 "_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17h04530a15286fc289E.exit": ; preds = %2
-  %7 = extractvalue { i64, i64 } %4, 1
-  store i64 %7, ptr %3, align 8, !noalias !172
+  %8 = extractvalue { i64, i64 } %4, 1
+  store i64 %8, ptr %3, align 8, !noalias !172
   call void @"_ZN85_$LT$uv_pep508..marker..tree..MarkerTreeContents$u20$as$u20$serde..ser..Serialize$GT$9serialize17h1be5848f03da4f45E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !179
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !172
   ret void
@@ -1131,16 +1131,16 @@ define hidden void @_ZN10serde_json5value8to_value17hda1915a53d103748E(ptr dead_
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !202
   %4 = tail call { i64, i64 } @_ZN9uv_pep5086marker4tree10MarkerTree8contents17h9e615292ff77e898E(i64 noundef %1), !noalias !202
   %5 = extractvalue { i64, i64 } %4, 0
-  %switch.i.i = icmp eq i64 %5, 0
-  br i1 %switch.i.i, label %6, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17h4528d43014f74bf6E.exit"
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %"_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17h4528d43014f74bf6E.exit"
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2188aee53a536064ee2ff91da2637814.89.llvm.13733232736960424610) #43, !noalias !202
   unreachable
 
 "_ZN234_$LT$uv_workspace..pyproject.._..$LT$impl$u20$schemars..JsonSchema$u20$for$u20$uv_workspace..pyproject..Source$GT$..json_schema.._SchemarsDefaultSerialize$LT$uv_pep508..marker..tree..MarkerTree$GT$$u20$as$u20$serde..ser..Serialize$GT$9serialize17h4528d43014f74bf6E.exit": ; preds = %2
-  %7 = extractvalue { i64, i64 } %4, 1
-  store i64 %7, ptr %3, align 8, !noalias !202
+  %8 = extractvalue { i64, i64 } %4, 1
+  store i64 %8, ptr %3, align 8, !noalias !202
   call void @"_ZN85_$LT$uv_pep508..marker..tree..MarkerTreeContents$u20$as$u20$serde..ser..Serialize$GT$9serialize17h1be5848f03da4f45E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %3), !noalias !209
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !202
   ret void
@@ -17052,9 +17052,9 @@ define internal fastcc void @"_ZN71_$LT$uv_workspace..pyproject..Project$u20$as$
 
 81:                                               ; preds = %77
   invoke void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f688a1986d38d7ea69e4d70c14cc4ac.91.llvm.15999240481245598038) #43
-          to label %.noexc30 unwind label %99
+          to label %.noexc28 unwind label %99
 
-.noexc30:                                         ; preds = %81
+.noexc28:                                         ; preds = %81
   unreachable
 
 82:                                               ; preds = %77
@@ -17166,7 +17166,7 @@ define internal fastcc void @"_ZN79_$LT$uv_workspace..workspace..WorkspaceMember
   %34 = alloca [24 x i8], align 8
   %35 = alloca [32 x i8], align 8
   %36 = alloca [24 x i8], align 8
-  %.sroa.416.i = alloca [216 x i8], align 8
+  %.sroa.415.i = alloca [216 x i8], align 8
   %.sroa.20.i = alloca [55 x i8], align 1
   %.sroa.5.sroa.12.i = alloca [24 x i8], align 8
   %37 = alloca [24 x i8], align 8
@@ -17213,7 +17213,7 @@ define internal fastcc void @"_ZN79_$LT$uv_workspace..workspace..WorkspaceMember
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3022)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.462.i.i)
-  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.416.i)
+  call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.415.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.20.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.sroa.12.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %40), !noalias !3025
@@ -18101,7 +18101,7 @@ define internal fastcc void @"_ZN79_$LT$uv_workspace..workspace..WorkspaceMember
   %.sroa.01.0.i = phi i64 [ %storemerge.i.i, %369 ], [ %62, %.noexc ]
   store i64 %.sroa.01.0.i, ptr %39, align 8, !noalias !3025
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.416.i, i64 216, i1 false), !noalias !3025
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %.sroa.4.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(216) %.sroa.415.i, i64 216, i1 false), !noalias !3025
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 224
   store i64 %.sroa.5.sroa.4.0.i, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !3025
   %.sroa.4.sroa.5.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %39, i64 232
@@ -18148,27 +18148,27 @@ define internal fastcc void @"_ZN79_$LT$uv_workspace..workspace..WorkspaceMember
   %.sroa.5.sroa.7.0.i.i = phi i64 [ undef, %257 ], [ %.sroa.6.0.i.i.i, %359 ]
   %.sroa.5.sroa.8.0.i.i = phi i8 [ undef, %257 ], [ %294, %359 ]
   %.sroa.02.0.i.i = phi i64 [ -9223372036854775808, %257 ], [ %270, %359 ]
-  %.sroa.416.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.0..sroa_idx.i, i64 24, i1 false), !noalias !3025
-  %.sroa.416.32..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.416.i, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.32..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !3025
+  %.sroa.415.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %35, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.0..sroa_idx.i, i64 24, i1 false), !noalias !3025
+  %.sroa.415.32..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.415.i, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.32..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false), !noalias !3025
   %.sroa.20.464..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.20.i, i64 7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %.sroa.20.464..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(48) %33, i64 48, i1 false), !noalias !3025
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.sroa.12.i, ptr noundef nonnull align 8 dereferenceable(24) %32, i64 24, i1 false), !noalias !3025
-  %.sroa.416.56..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.416.i, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.56..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false), !noalias !3025
-  %.sroa.416.80..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.416.i, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.80..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !3025
-  %.sroa.416.104..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.416.i, i64 96
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.104..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !noalias !3025
-  %.sroa.416.128..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.416.i, i64 120
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.128..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !noalias !3025
-  %.sroa.416.152..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.416.i, i64 144
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.152..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !3025
-  %.sroa.416.176..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.416.i, i64 168
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.176..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !3025
-  %.sroa.416.200..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.416.i, i64 192
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.416.200..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !3025
+  %.sroa.415.56..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.415.i, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.56..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false), !noalias !3025
+  %.sroa.415.80..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.415.i, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.80..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false), !noalias !3025
+  %.sroa.415.104..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.415.i, i64 96
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.104..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !noalias !3025
+  %.sroa.415.128..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.415.i, i64 120
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.128..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %28, i64 24, i1 false), !noalias !3025
+  %.sroa.415.152..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.415.i, i64 144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.152..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %27, i64 24, i1 false), !noalias !3025
+  %.sroa.415.176..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.415.i, i64 168
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.176..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %26, i64 24, i1 false), !noalias !3025
+  %.sroa.415.200..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.415.i, i64 192
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.415.200..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(24) %25, i64 24, i1 false), !noalias !3025
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !3032
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !3032
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !3032
@@ -18205,9 +18205,9 @@ define internal fastcc void @"_ZN79_$LT$uv_workspace..workspace..WorkspaceMember
 
 380:                                              ; preds = %376
   invoke void @_ZN4core6option13unwrap_failed17hb62b1ad0e5e99b27E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.7f688a1986d38d7ea69e4d70c14cc4ac.91.llvm.15999240481245598038) #43
-          to label %.noexc13.i unwind label %388, !noalias !3027
+          to label %.noexc12.i unwind label %388, !noalias !3027
 
-.noexc13.i:                                       ; preds = %380
+.noexc12.i:                                       ; preds = %380
   unreachable
 
 381:                                              ; preds = %376
@@ -18281,7 +18281,7 @@ define internal fastcc void @"_ZN79_$LT$uv_workspace..workspace..WorkspaceMember
   call void @llvm.lifetime.end.p0(ptr nonnull %40), !noalias !3025
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.i.i.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.462.i.i)
-  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.416.i)
+  call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.415.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.20.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.5.sroa.12.i)
   %400 = getelementptr inbounds nuw i8, ptr %0, i64 832

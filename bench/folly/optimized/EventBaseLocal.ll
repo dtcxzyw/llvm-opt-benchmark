@@ -222,11 +222,11 @@ define void @_ZN5folly6detail18EventBaseLocalBaseD2Ev(ptr noundef nonnull align 
           to label %.noexc8 unwind label %.loopexit
 
 .noexc8:                                          ; preds = %21
-  %.pre36.i = load i32, ptr %4, align 4, !tbaa !10
+  %.pre35.i = load i32, ptr %4, align 4, !tbaa !10
   br label %23
 
 23:                                               ; preds = %.noexc8, %.critedge.i.i.i.i.i.i
-  %24 = phi i32 [ %.pre36.i, %.noexc8 ], [ %19, %.critedge.i.i.i.i.i.i ]
+  %24 = phi i32 [ %.pre35.i, %.noexc8 ], [ %19, %.critedge.i.i.i.i.i.i ]
   %25 = lshr i32 %24, 1
   %26 = and i32 %25, 256
   %27 = and i32 %24, -673
@@ -524,11 +524,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomi
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %.pre36 = load i32, ptr %1, align 4, !tbaa !10
+  %.pre35 = load i32, ptr %1, align 4, !tbaa !10
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = phi i32 [ %.pre36, %8 ], [ %6, %5 ]
+  %11 = phi i32 [ %.pre35, %8 ], [ %6, %5 ]
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 256
   %14 = and i32 %11, -673
@@ -1021,7 +1021,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE8clearTagEm.exit.i: ; preds = %_ZN
 
 .lr.ph.i:                                         ; preds = %57, %78
   %72 = phi i64 [ %80, %78 ], [ %64, %57 ]
-  %.01027.i = phi i64 [ %79, %78 ], [ %3, %57 ]
+  %.01026.i = phi i64 [ %79, %78 ], [ %3, %57 ]
   %73 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %60, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 15
   %75 = load i8, ptr %74, align 1, !tbaa !60
@@ -1034,7 +1034,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_9EventBaseEE8clearTagEm.exit.i: ; preds = %_ZN
   br label %78
 
 78:                                               ; preds = %76, %.lr.ph.i
-  %79 = add i64 %59, %.01027.i
+  %79 = add i64 %59, %.01026.i
   %80 = and i64 %79, %63
   %81 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %60, i64 %80
   %82 = icmp eq ptr %81, %51
@@ -1096,9 +1096,9 @@ define noundef ptr @_ZN5folly6detail18EventBaseLocalBase7getVoidERNS_9EventBaseE
   br label %19
 
 19:                                               ; preds = %2, %43
-  %.0.i48 = phi i64 [ %.sroa.0.0.copyload.i, %2 ], [ %44, %43 ]
-  %.022.i47 = phi i64 [ %13, %2 ], [ %45, %43 ]
-  %20 = and i64 %.0.i48, %16
+  %.0.i47 = phi i64 [ %.sroa.0.0.copyload.i, %2 ], [ %44, %43 ]
+  %.022.i46 = phi i64 [ %13, %2 ], [ %45, %43 ]
+  %20 = and i64 %.0.i47, %16
   %21 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.130", ptr %15, i64 %20
   %22 = load <16 x i8>, ptr %21, align 16
   %23 = icmp eq <16 x i8> %22, %9
@@ -1134,8 +1134,8 @@ define noundef ptr @_ZN5folly6detail18EventBaseLocalBase7getVoidERNS_9EventBaseE
   br i1 %42, label %.thread23, label %43, !prof !14
 
 43:                                               ; preds = %41
-  %44 = add i64 %6, %.0.i48
-  %45 = add i64 %.022.i47, -1
+  %44 = add i64 %6, %.0.i47
+  %45 = add i64 %.022.i46, -1
   %.not.i = icmp eq i64 %45, 0
   br i1 %.not.i, label %.thread23, label %19, !llvm.loop !68
 
@@ -1788,7 +1788,7 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i: ; preds = %26
 
 .lr.ph.i.i:                                       ; preds = %37, %57
   %51 = phi i64 [ %59, %57 ], [ %43, %37 ]
-  %.01027.i.i = phi i64 [ %58, %57 ], [ %.sroa.04.0, %37 ]
+  %.01026.i.i = phi i64 [ %58, %57 ], [ %.sroa.04.0, %37 ]
   %52 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.130", ptr %39, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 15
   %54 = load i8, ptr %53, align 1, !tbaa !103
@@ -1801,7 +1801,7 @@ _ZN5folly3f146detail8F14ChunkIjE8clearTagEm.exit.i.i: ; preds = %26
   br label %57
 
 57:                                               ; preds = %55, %.lr.ph.i.i
-  %58 = add i64 %.01027.i.i, %.sroa.5.0
+  %58 = add i64 %.01026.i.i, %.sroa.5.0
   %59 = and i64 %58, %42
   %60 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.130", ptr %39, i64 %59
   %61 = icmp eq ptr %60, %6
@@ -1937,7 +1937,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE8clearTagEm.exit.
 
 .lr.ph.i:                                         ; preds = %57, %78
   %72 = phi i64 [ %80, %78 ], [ %64, %57 ]
-  %.01027.i = phi i64 [ %79, %78 ], [ %3, %57 ]
+  %.01026.i = phi i64 [ %79, %78 ], [ %3, %57 ]
   %73 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.137", ptr %60, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 15
   %75 = load i8, ptr %74, align 1, !tbaa !109
@@ -1950,7 +1950,7 @@ _ZN5folly3f146detail8F14ChunkIPNS_6detail18EventBaseLocalBaseEE8clearTagEm.exit.
   br label %78
 
 78:                                               ; preds = %76, %.lr.ph.i
-  %79 = add i64 %59, %.01027.i
+  %79 = add i64 %59, %.01026.i
   %80 = and i64 %79, %63
   %81 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk.137", ptr %60, i64 %80
   %82 = icmp eq ptr %81, %51

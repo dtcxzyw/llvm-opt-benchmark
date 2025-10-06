@@ -277,8 +277,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   %20 = load i16, ptr %19, align 4
   %21 = xor i16 %20, %18
   %22 = and i16 %21, 14
-  %or.cond157 = icmp eq i16 %22, 0
-  br i1 %or.cond157, label %23, label %.thread
+  %or.cond154 = icmp eq i16 %22, 0
+  br i1 %or.cond154, label %23, label %.thread
 
 23:                                               ; preds = %16
   br i1 %3, label %.critedge, label %24
@@ -289,8 +289,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   %27 = zext i32 %13 to i64
   %.idx = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 %.idx
-  %.not57112 = icmp eq i32 %13, 0
-  br i1 %.not57112, label %.critedge, label %.lr.ph.preheader
+  %.not57109 = icmp eq i32 %13, 0
+  br i1 %.not57109, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -298,24 +298,24 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
-  %.049114 = phi ptr [ %34, %33 ], [ %26, %.lr.ph.preheader ]
-  %.051113 = phi ptr [ %35, %33 ], [ %30, %.lr.ph.preheader ]
-  %31 = load ptr, ptr %.049114, align 8, !tbaa !34
-  %32 = load ptr, ptr %.051113, align 8, !tbaa !34
+  %.049111 = phi ptr [ %34, %33 ], [ %26, %.lr.ph.preheader ]
+  %.051110 = phi ptr [ %35, %33 ], [ %30, %.lr.ph.preheader ]
+  %31 = load ptr, ptr %.049111, align 8, !tbaa !34
+  %32 = load ptr, ptr %.051110, align 8, !tbaa !34
   %.not58 = icmp eq ptr %31, %32
   br i1 %.not58, label %33, label %.thread
 
 33:                                               ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.049114, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %.051113, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.049111, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.051110, i64 8
   %.not57 = icmp eq ptr %34, %28
   br i1 %.not57, label %.critedge, label %.lr.ph, !llvm.loop !36
 
 .critedge:                                        ; preds = %33, %24, %23
-  %.not59115 = icmp eq i32 %8, 0
-  br i1 %.not59115, label %.thread, label %.lr.ph117
+  %.not59112 = icmp eq i32 %8, 0
+  br i1 %.not59112, label %.thread, label %.lr.ph114
 
-.lr.ph117:                                        ; preds = %.critedge
+.lr.ph114:                                        ; preds = %.critedge
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -328,11 +328,11 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 16
   br label %46
 
-46:                                               ; preds = %.lr.ph117, %.thread97
-  %47 = phi i32 [ %8, %.lr.ph117 ], [ %140, %.thread97 ]
-  %.050116 = phi i32 [ 0, %.lr.ph117 ], [ %141, %.thread97 ]
+46:                                               ; preds = %.lr.ph114, %.thread95
+  %47 = phi i32 [ %8, %.lr.ph114 ], [ %140, %.thread95 ]
+  %.050113 = phi i32 [ 0, %.lr.ph114 ], [ %141, %.thread95 ]
   %48 = load ptr, ptr %36, align 8, !tbaa !15
-  %49 = zext i32 %.050116 to i64
+  %49 = zext i32 %.050113 to i64
   %50 = getelementptr inbounds nuw %"class.clang::Token", ptr %48, i64 %49
   %51 = load ptr, ptr %37, align 8, !tbaa !15
   %52 = getelementptr inbounds nuw %"class.clang::Token", ptr %51, i64 %49
@@ -344,7 +344,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   br i1 %.not60, label %57, label %.thread
 
 57:                                               ; preds = %46
-  %.not61 = icmp eq i32 %.050116, 0
+  %.not61 = icmp eq i32 %.050113, 0
   br i1 %.not61, label %65, label %58
 
 58:                                               ; preds = %57
@@ -354,8 +354,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang9MacroInfo13isIdenticalToERKS0_RN
   %62 = load i16, ptr %61, align 2, !tbaa !38
   %63 = xor i16 %62, %60
   %64 = and i16 %63, 3
-  %or.cond158 = icmp eq i16 %64, 0
-  br i1 %or.cond158, label %65, label %.thread
+  %or.cond155 = icmp eq i16 %64, 0
+  br i1 %or.cond155, label %65, label %.thread
 
 65:                                               ; preds = %58, %57
   switch i16 %54, label %_ZNK5clang5Token17getIdentifierInfoEv.exit [
@@ -445,44 +445,44 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit74:     ; preds = %switch.hole_check, 
   br i1 %brmerge.not, label %79, label %139
 
 79:                                               ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit74
-  %switch.tableidx164 = add i16 %54, -1
-  %80 = icmp ult i16 %switch.tableidx164, 19
-  br i1 %80, label %switch.hole_check165, label %81
+  %switch.tableidx161 = add i16 %54, -1
+  %80 = icmp ult i16 %switch.tableidx161, 19
+  br i1 %80, label %switch.hole_check162, label %81
 
-81:                                               ; preds = %switch.hole_check165, %79
+81:                                               ; preds = %switch.hole_check162, %79
   %82 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !39
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit76
 
-switch.hole_check165:                             ; preds = %79
-  %switch.maskindex166 = zext nneg i16 %switch.tableidx164 to i32
-  %switch.shifted167 = lshr i32 524225, %switch.maskindex166
-  %switch.lobit168 = trunc i32 %switch.shifted167 to i1
-  br i1 %switch.lobit168, label %_ZNK5clang5Token17getIdentifierInfoEv.exit76, label %81
+switch.hole_check162:                             ; preds = %79
+  %switch.maskindex163 = zext nneg i16 %switch.tableidx161 to i32
+  %switch.shifted164 = lshr i32 524225, %switch.maskindex163
+  %switch.lobit165 = trunc i32 %switch.shifted164 to i1
+  br i1 %switch.lobit165, label %_ZNK5clang5Token17getIdentifierInfoEv.exit76, label %81
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit76:     ; preds = %switch.hole_check165, %81
-  %.0.i75 = phi ptr [ %83, %81 ], [ null, %switch.hole_check165 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit76:     ; preds = %switch.hole_check162, %81
+  %.0.i75 = phi ptr [ %83, %81 ], [ null, %switch.hole_check162 ]
   %84 = load ptr, ptr %38, align 8, !tbaa !33
   %85 = load i32, ptr %12, align 8, !tbaa !32
   %86 = zext i32 %85 to i64
   %.idx.i = shl nuw nsw i64 %86, 3
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 %.idx.i
-  %.not11.i = icmp eq i32 %85, 0
-  br i1 %.not11.i, label %.thread, label %.lr.ph.i
+  %.not13.i = icmp eq i32 %85, 0
+  br i1 %.not13.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit76, %90
-  %.0912.i = phi ptr [ %91, %90 ], [ %84, %_ZNK5clang5Token17getIdentifierInfoEv.exit76 ]
-  %88 = load ptr, ptr %.0912.i, align 8, !tbaa !34
+  %.0914.i = phi ptr [ %91, %90 ], [ %84, %_ZNK5clang5Token17getIdentifierInfoEv.exit76 ]
+  %88 = load ptr, ptr %.0914.i, align 8, !tbaa !34
   %89 = icmp eq ptr %88, %.0.i75
   br i1 %89, label %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit, label %90
 
 90:                                               ; preds = %.lr.ph.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 8
   %.not.i = icmp eq ptr %91, %87
   br i1 %.not.i, label %.thread, label %.lr.ph.i, !llvm.loop !40
 
 _ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit: ; preds = %.lr.ph.i
-  %92 = ptrtoint ptr %.0912.i to i64
+  %92 = ptrtoint ptr %.0914.i to i64
   %93 = ptrtoint ptr %84 to i64
   %94 = sub i64 %92, %93
   %95 = lshr exact i64 %94, 3
@@ -491,50 +491,50 @@ _ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit: ; preds = %.l
   br i1 %97, label %.thread, label %98
 
 98:                                               ; preds = %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit
-  %switch.tableidx169 = add i16 %54, -1
-  %99 = icmp ult i16 %switch.tableidx169, 19
-  br i1 %99, label %switch.hole_check170, label %100
+  %switch.tableidx166 = add i16 %54, -1
+  %99 = icmp ult i16 %switch.tableidx166, 19
+  br i1 %99, label %switch.hole_check167, label %100
 
-100:                                              ; preds = %switch.hole_check170, %98
+100:                                              ; preds = %switch.hole_check167, %98
   %101 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !39
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit78
 
-switch.hole_check170:                             ; preds = %98
-  %switch.maskindex171 = zext nneg i16 %switch.tableidx169 to i32
-  %switch.shifted172 = lshr i32 524225, %switch.maskindex171
-  %switch.lobit173 = trunc i32 %switch.shifted172 to i1
-  br i1 %switch.lobit173, label %_ZNK5clang5Token17getIdentifierInfoEv.exit78, label %100
+switch.hole_check167:                             ; preds = %98
+  %switch.maskindex168 = zext nneg i16 %switch.tableidx166 to i32
+  %switch.shifted169 = lshr i32 524225, %switch.maskindex168
+  %switch.lobit170 = trunc i32 %switch.shifted169 to i1
+  br i1 %switch.lobit170, label %_ZNK5clang5Token17getIdentifierInfoEv.exit78, label %100
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit78:     ; preds = %switch.hole_check170, %100
-  %.0.i77 = phi ptr [ %102, %100 ], [ null, %switch.hole_check170 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit78:     ; preds = %switch.hole_check167, %100
+  %.0.i77 = phi ptr [ %102, %100 ], [ null, %switch.hole_check167 ]
   %103 = load ptr, ptr %39, align 8, !tbaa !33
   %104 = load i32, ptr %14, align 8, !tbaa !32
   %105 = zext i32 %104 to i64
   %.idx.i79 = shl nuw nsw i64 %105, 3
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx.i79
-  %.not11.i80 = icmp eq i32 %104, 0
-  br i1 %.not11.i80, label %.thread, label %.lr.ph.i81
+  %.not13.i80 = icmp eq i32 %104, 0
+  br i1 %.not13.i80, label %.thread, label %.lr.ph.i81
 
-.lr.ph.i81:                                       ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit78, %115
-  %.0912.i82 = phi ptr [ %116, %115 ], [ %103, %_ZNK5clang5Token17getIdentifierInfoEv.exit78 ]
-  %107 = load ptr, ptr %.0912.i82, align 8, !tbaa !34
+.lr.ph.i81:                                       ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit78, %109
+  %.0914.i82 = phi ptr [ %110, %109 ], [ %103, %_ZNK5clang5Token17getIdentifierInfoEv.exit78 ]
+  %107 = load ptr, ptr %.0914.i82, align 8, !tbaa !34
   %108 = icmp eq ptr %107, %.0.i77
-  br i1 %108, label %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit85, label %115
+  br i1 %108, label %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84, label %109
 
-_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit85: ; preds = %.lr.ph.i81
-  %109 = ptrtoint ptr %.0912.i82 to i64
-  %110 = ptrtoint ptr %103 to i64
-  %111 = sub i64 %109, %110
-  %112 = lshr exact i64 %111, 3
-  %113 = trunc i64 %112 to i32
-  %114 = icmp eq i32 %113, %96
-  br i1 %114, label %.thread97, label %.thread
-
-115:                                              ; preds = %.lr.ph.i81
-  %116 = getelementptr inbounds nuw i8, ptr %.0912.i82, i64 8
-  %.not.i83 = icmp eq ptr %116, %106
+109:                                              ; preds = %.lr.ph.i81
+  %110 = getelementptr inbounds nuw i8, ptr %.0914.i82, i64 8
+  %.not.i83 = icmp eq ptr %110, %106
   br i1 %.not.i83, label %.thread, label %.lr.ph.i81, !llvm.loop !40
+
+_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84: ; preds = %.lr.ph.i81
+  %111 = ptrtoint ptr %.0914.i82 to i64
+  %112 = ptrtoint ptr %103 to i64
+  %113 = sub i64 %111, %112
+  %114 = lshr exact i64 %113, 3
+  %115 = trunc i64 %114 to i32
+  %116 = icmp eq i32 %115, %96
+  br i1 %116, label %.thread95, label %.thread
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit70.thread: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %_ZNK5clang5Token17getIdentifierInfoEv.exit70
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -556,17 +556,17 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESa
 
 124:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread
   %125 = icmp eq i64 %121, 0
-  %.pre136 = load ptr, ptr %6, align 8, !tbaa !279
+  %.pre133 = load ptr, ptr %6, align 8, !tbaa !279
   br i1 %125, label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit, label %126
 
 126:                                              ; preds = %124
   %127 = load ptr, ptr %5, align 8, !tbaa !279
-  %bcmp.i.i = call i32 @bcmp(ptr %127, ptr %.pre136, i64 %121)
+  %bcmp.i.i = call i32 @bcmp(ptr %127, ptr %.pre133, i64 %121)
   %128 = icmp ne i32 %bcmp.i.i, 0
   br label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit
 
 _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit: ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge, %124, %126
-  %129 = phi ptr [ %.pre, %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge ], [ %.pre136, %126 ], [ %.pre136, %124 ]
+  %129 = phi ptr [ %.pre, %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge ], [ %.pre133, %126 ], [ %.pre133, %124 ]
   %130 = phi i1 [ true, %_ZNK5clang5Token17getIdentifierInfoEv.exit70.thread._ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit_crit_edge ], [ %128, %126 ], [ false, %124 ]
   %131 = icmp eq ptr %129, %44
   br i1 %131, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -586,33 +586,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %135 = load ptr, ptr %5, align 8, !tbaa !279
   %136 = icmp eq ptr %135, %45
-  br i1 %136, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86
+  br i1 %136, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %137 = load i64, ptr %45, align 8, !tbaa !280
   %138 = add i64 %137, 1
   call void @_ZdlPvm(ptr noundef %135, i64 noundef %138) #16
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i86
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i85
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %130, label %.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88..thread97_crit_edge
+  br i1 %130, label %.thread, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_edge
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88..thread97_crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88
-  %.pre137 = load i32, ptr %7, align 4, !tbaa !7
-  br label %.thread97
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_edge: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87
+  %.pre134 = load i32, ptr %7, align 4, !tbaa !7
+  br label %.thread95
 
 139:                                              ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit74
-  br i1 %78, label %.thread, label %.thread97
+  br i1 %78, label %.thread, label %.thread95
 
-.thread97:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88..thread97_crit_edge, %139, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit85
-  %140 = phi i32 [ %.pre137, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88..thread97_crit_edge ], [ %47, %139 ], [ %47, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit85 ]
-  %141 = add i32 %.050116, 1
+.thread95:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_edge, %139, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84
+  %140 = phi i32 [ %.pre134, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87..thread95_crit_edge ], [ %47, %139 ], [ %47, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84 ]
+  %141 = add i32 %.050113, 1
   %.not59 = icmp eq i32 %141, %140
   br i1 %.not59, label %.thread, label %46, !llvm.loop !281
 
-.thread:                                          ; preds = %.lr.ph, %.thread97, %46, %58, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit85, %_ZNK5clang5Token17getIdentifierInfoEv.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88, %_ZNK5clang5Token17getIdentifierInfoEv.exit78, %139, %90, %115, %.critedge, %4, %11, %16
-  %.0 = phi i1 [ false, %16 ], [ false, %11 ], [ false, %4 ], [ true, %.critedge ], [ false, %115 ], [ false, %90 ], [ true, %.thread97 ], [ false, %46 ], [ false, %58 ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit85 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit76 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit78 ], [ false, %139 ], [ false, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.thread95, %46, %58, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84, %_ZNK5clang5Token17getIdentifierInfoEv.exit76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87, %_ZNK5clang5Token17getIdentifierInfoEv.exit78, %139, %90, %109, %.critedge, %4, %11, %16
+  %.0 = phi i1 [ false, %16 ], [ false, %11 ], [ false, %4 ], [ true, %.critedge ], [ false, %109 ], [ false, %90 ], [ true, %.thread95 ], [ false, %46 ], [ false, %58 ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit ], [ false, %_ZNK5clang9MacroInfo15getParameterNumEPKNS_14IdentifierInfoE.exit84 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit76 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit87 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit78 ], [ false, %139 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -1208,11 +1208,11 @@ define dso_local { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr no
   br label %2
 
 2:                                                ; preds = %1, %11
-  %.045 = phi ptr [ %0, %1 ], [ %12, %11 ]
-  %.sroa.020.044 = phi i8 [ undef, %1 ], [ %.sroa.020.1, %11 ]
-  %.sroa.5.043 = phi i8 [ 0, %1 ], [ %.sroa.5.1, %11 ]
-  %.sroa.024.042 = phi i32 [ 0, %1 ], [ %.sroa.024.130, %11 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.045, i64 12
+  %.044 = phi ptr [ %0, %1 ], [ %12, %11 ]
+  %.sroa.020.043 = phi i8 [ undef, %1 ], [ %.sroa.020.1, %11 ]
+  %.sroa.5.042 = phi i8 [ 0, %1 ], [ %.sroa.5.1, %11 ]
+  %.sroa.024.041 = phi i32 [ 0, %1 ], [ %.sroa.024.129, %11 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.044, i64 12
   %4 = load i8, ptr %3, align 4
   %5 = and i8 %4, 3
   switch i8 %5, label %8 [
@@ -1221,36 +1221,36 @@ define dso_local { ptr, i64 } @_ZN5clang14MacroDirective13getDefinitionEv(ptr no
   ]
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %.045, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.044, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %7, align 8, !tbaa !3
   br label %11
 
 8:                                                ; preds = %2
-  %9 = trunc nuw i8 %.sroa.5.043 to i1
+  %9 = trunc nuw i8 %.sroa.5.042 to i1
   %10 = lshr i8 %4, 3
-  %spec.select = select i1 %9, i8 %.sroa.020.044, i8 %10
+  %spec.select = select i1 %9, i8 %.sroa.020.043, i8 %10
   br label %11
 
 11:                                               ; preds = %8, %6
-  %.sroa.024.130 = phi i32 [ %.sroa.0.0.copyload.i, %6 ], [ %.sroa.024.042, %8 ]
-  %.sroa.5.1 = phi i8 [ %.sroa.5.043, %6 ], [ 1, %8 ]
-  %.sroa.020.1 = phi i8 [ %.sroa.020.044, %6 ], [ %spec.select, %8 ]
-  %12 = load ptr, ptr %.045, align 8, !tbaa !293
+  %.sroa.024.129 = phi i32 [ %.sroa.0.0.copyload.i, %6 ], [ %.sroa.024.041, %8 ]
+  %.sroa.5.1 = phi i8 [ %.sroa.5.042, %6 ], [ 1, %8 ]
+  %.sroa.020.1 = phi i8 [ %.sroa.020.043, %6 ], [ %spec.select, %8 ]
+  %12 = load ptr, ptr %.044, align 8, !tbaa !293
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %13, label %2, !llvm.loop !296
 
 13:                                               ; preds = %11, %2
-  %.sroa.5.043.lcssa.sink = phi i8 [ %.sroa.5.043, %2 ], [ %.sroa.5.1, %11 ]
-  %.sroa.020.044.lcssa.sink = phi i8 [ %.sroa.020.044, %2 ], [ %.sroa.020.1, %11 ]
-  %.sroa.024.041 = phi i32 [ %.sroa.024.042, %2 ], [ %.sroa.024.130, %11 ]
-  %.sroa.026.0 = phi ptr [ %.045, %2 ], [ null, %11 ]
-  %14 = trunc nuw i8 %.sroa.5.043.lcssa.sink to i1
-  %15 = and i8 %.sroa.020.044.lcssa.sink, 1
+  %.sroa.5.042.lcssa.sink = phi i8 [ %.sroa.5.042, %2 ], [ %.sroa.5.1, %11 ]
+  %.sroa.020.043.lcssa.sink = phi i8 [ %.sroa.020.043, %2 ], [ %.sroa.020.1, %11 ]
+  %.sroa.024.040 = phi i32 [ %.sroa.024.041, %2 ], [ %.sroa.024.129, %11 ]
+  %.sroa.026.0 = phi ptr [ %.044, %2 ], [ null, %11 ]
+  %14 = trunc nuw i8 %.sroa.5.042.lcssa.sink to i1
+  %15 = and i8 %.sroa.020.043.lcssa.sink, 1
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.026.0, 0
   %16 = zext nneg i8 %15 to i64
   %17 = shl nuw nsw i64 %16, 32
   %.sroa.6.8.insert.shift = select i1 %14, i64 %17, i64 4294967296
-  %.sroa.3.8.insert.ext = zext i32 %.sroa.024.041 to i64
+  %.sroa.3.8.insert.ext = zext i32 %.sroa.024.040 to i64
   %.sroa.3.8.insert.insert = or disjoint i64 %.sroa.6.8.insert.shift, %.sroa.3.8.insert.ext
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.8.insert.insert, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -1261,11 +1261,11 @@ define dso_local { ptr, i64 } @_ZNK5clang14MacroDirective18findDirectiveAtLocENS
   br label %4
 
 4:                                                ; preds = %19, %3
-  %.045.i.i = phi ptr [ %0, %3 ], [ %20, %19 ]
-  %.sroa.020.044.i.i = phi i8 [ undef, %3 ], [ %.sroa.020.1.i.i, %19 ]
-  %.sroa.5.043.i.i = phi i8 [ 0, %3 ], [ %.sroa.5.1.i.i, %19 ]
-  %.sroa.024.042.i.i = phi i32 [ 0, %3 ], [ %.sroa.024.130.i.i, %19 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 12
+  %.044.i.i = phi ptr [ %0, %3 ], [ %20, %19 ]
+  %.sroa.020.043.i.i = phi i8 [ undef, %3 ], [ %.sroa.020.1.i.i, %19 ]
+  %.sroa.5.042.i.i = phi i8 [ 0, %3 ], [ %.sroa.5.1.i.i, %19 ]
+  %.sroa.024.041.i.i = phi i32 [ 0, %3 ], [ %.sroa.024.129.i.i, %19 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.044.i.i, i64 12
   %6 = load i8, ptr %5, align 4
   %7 = and i8 %6, 3
   switch i8 %7, label %16 [
@@ -1274,83 +1274,83 @@ define dso_local { ptr, i64 } @_ZNK5clang14MacroDirective18findDirectiveAtLocENS
   ]
 
 _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader: ; preds = %4
-  %8 = trunc nuw i8 %.sroa.5.043.i.i to i1
-  %9 = and i8 %.sroa.020.044.i.i, 1
+  %8 = trunc nuw i8 %.sroa.5.042.i.i to i1
+  %9 = and i8 %.sroa.020.043.i.i, 1
   %10 = zext nneg i8 %9 to i64
   %11 = shl nuw nsw i64 %10, 32
-  %.sroa.6.8.insert.shift.i.i32123 = select i1 %8, i64 %11, i64 4294967296
-  %.sroa.3.8.insert.ext.i.i33124 = zext i32 %.sroa.024.042.i.i to i64
-  %.sroa.3.8.insert.insert.i.i34125 = or disjoint i64 %.sroa.6.8.insert.shift.i.i32123, %.sroa.3.8.insert.ext.i.i33124
-  %12 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 8
-  %.sroa.0.0.copyload.i.i126 = load i32, ptr %12, align 8, !tbaa !3
-  %13 = icmp eq i32 %.sroa.0.0.copyload.i.i126, 0
+  %.sroa.6.8.insert.shift.i.i32121 = select i1 %8, i64 %11, i64 4294967296
+  %.sroa.3.8.insert.ext.i.i33122 = zext i32 %.sroa.024.041.i.i to i64
+  %.sroa.3.8.insert.insert.i.i34123 = or disjoint i64 %.sroa.6.8.insert.shift.i.i32121, %.sroa.3.8.insert.ext.i.i33122
+  %12 = getelementptr inbounds nuw i8, ptr %.044.i.i, i64 8
+  %.sroa.0.0.copyload.i.i124 = load i32, ptr %12, align 8, !tbaa !3
+  %13 = icmp eq i32 %.sroa.0.0.copyload.i.i124, 0
   br i1 %13, label %.critedge, label %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18
 
 14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.044.i.i, i64 8
   %.sroa.0.0.copyload.i.i.i = load i32, ptr %15, align 8, !tbaa !3
   br label %19
 
 16:                                               ; preds = %4
-  %17 = trunc nuw i8 %.sroa.5.043.i.i to i1
+  %17 = trunc nuw i8 %.sroa.5.042.i.i to i1
   %18 = lshr i8 %6, 3
-  %spec.select.i.i = select i1 %17, i8 %.sroa.020.044.i.i, i8 %18
+  %spec.select.i.i = select i1 %17, i8 %.sroa.020.043.i.i, i8 %18
   br label %19
 
 19:                                               ; preds = %16, %14
-  %.sroa.024.130.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %14 ], [ %.sroa.024.042.i.i, %16 ]
-  %.sroa.5.1.i.i = phi i8 [ %.sroa.5.043.i.i, %14 ], [ 1, %16 ]
-  %.sroa.020.1.i.i = phi i8 [ %.sroa.020.044.i.i, %14 ], [ %spec.select.i.i, %16 ]
-  %20 = load ptr, ptr %.045.i.i, align 8, !tbaa !293
+  %.sroa.024.129.i.i = phi i32 [ %.sroa.0.0.copyload.i.i.i, %14 ], [ %.sroa.024.041.i.i, %16 ]
+  %.sroa.5.1.i.i = phi i8 [ %.sroa.5.042.i.i, %14 ], [ 1, %16 ]
+  %.sroa.020.1.i.i = phi i8 [ %.sroa.020.043.i.i, %14 ], [ %spec.select.i.i, %16 ]
+  %20 = load ptr, ptr %.044.i.i, align 8, !tbaa !293
   %.not.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i, label %.thread, label %4, !llvm.loop !296
 
 _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit: ; preds = %.preheader.i
-  %21 = trunc nuw i8 %.sroa.5.043.i.i22 to i1
-  %22 = and i8 %.sroa.020.044.i.i21, 1
+  %21 = trunc nuw i8 %.sroa.5.042.i.i22 to i1
+  %22 = and i8 %.sroa.020.043.i.i21, 1
   %23 = zext nneg i8 %22 to i64
   %24 = shl nuw nsw i64 %23, 32
   %.sroa.6.8.insert.shift.i.i32 = select i1 %21, i64 %24, i64 4294967296
-  %.sroa.3.8.insert.ext.i.i33 = zext i32 %.sroa.024.042.i.i23 to i64
+  %.sroa.3.8.insert.ext.i.i33 = zext i32 %.sroa.024.041.i.i23 to i64
   %.sroa.3.8.insert.insert.i.i34 = or disjoint i64 %.sroa.6.8.insert.shift.i.i32, %.sroa.3.8.insert.ext.i.i33
-  %25 = getelementptr inbounds nuw i8, ptr %.045.i.i20, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.044.i.i20, i64 8
   %.sroa.0.0.copyload.i.i = load i32, ptr %25, align 8, !tbaa !3
   %26 = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
   br i1 %26, label %.critedge, label %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18, !llvm.loop !297
 
 _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18: ; preds = %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit
-  %.sroa.0.0.copyload.i.i130 = phi i32 [ %.sroa.0.0.copyload.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.0.0.copyload.i.i126, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %.sroa.3.8.insert.insert.i.i34129 = phi i64 [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.3.8.insert.insert.i.i34125, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %.sroa.038.067128 = phi ptr [ %.045.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.045.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %.sroa.024.042.i.i23.lcssa.sink127 = phi i32 [ %.sroa.024.042.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.024.042.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
-  %27 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.copyload.i.i130, i32 %1) #15
+  %.sroa.0.0.copyload.i.i128 = phi i32 [ %.sroa.0.0.copyload.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.0.0.copyload.i.i124, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %.sroa.3.8.insert.insert.i.i34127 = phi i64 [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.3.8.insert.insert.i.i34123, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %.sroa.038.065126 = phi ptr [ %.044.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.044.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %.sroa.024.041.i.i23.lcssa.sink125 = phi i32 [ %.sroa.024.041.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ], [ %.sroa.024.041.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ]
+  %27 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.copyload.i.i128, i32 %1) #15
   br i1 %27, label %.critedge, label %31
 
 .critedge:                                        ; preds = %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader
-  %.sroa.024.042.i.i23.lcssa.sink.lcssa = phi i32 [ %.sroa.024.042.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.024.042.i.i23.lcssa.sink127, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.024.042.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
-  %.sroa.038.067.lcssa = phi ptr [ %.045.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.038.067128, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.045.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
-  %.sroa.3.8.insert.insert.i.i34.lcssa = phi i64 [ %.sroa.3.8.insert.insert.i.i34125, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.3.8.insert.insert.i.i34129, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
-  %.not63 = icmp eq i32 %.sroa.024.042.i.i23.lcssa.sink.lcssa, 0
-  br i1 %.not63, label %30, label %28
+  %.sroa.024.041.i.i23.lcssa.sink.lcssa = phi i32 [ %.sroa.024.041.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.024.041.i.i23.lcssa.sink125, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.024.041.i.i23, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
+  %.sroa.038.065.lcssa = phi ptr [ %.044.i.i, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.038.065126, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.044.i.i20, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
+  %.sroa.3.8.insert.insert.i.i34.lcssa = phi i64 [ %.sroa.3.8.insert.insert.i.i34123, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.preheader ], [ %.sroa.3.8.insert.insert.i.i34127, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18 ], [ %.sroa.3.8.insert.insert.i.i34, %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit.loopexit ]
+  %.not61 = icmp eq i32 %.sroa.024.041.i.i23.lcssa.sink.lcssa, 0
+  br i1 %.not61, label %30, label %28
 
 28:                                               ; preds = %.critedge
-  %29 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %1, i32 %.sroa.024.042.i.i23.lcssa.sink.lcssa) #15
+  %29 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager25isBeforeInTranslationUnitENS_14SourceLocationES1_(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %1, i32 %.sroa.024.041.i.i23.lcssa.sink.lcssa) #15
   br i1 %29, label %30, label %.thread
 
 30:                                               ; preds = %28, %.critedge
   br label %.thread
 
 31:                                               ; preds = %_ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18
-  %32 = load ptr, ptr %.sroa.038.067128, align 8, !tbaa !293
+  %32 = load ptr, ptr %.sroa.038.065126, align 8, !tbaa !293
   %33 = icmp eq ptr %32, null
   br i1 %33, label %.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %31, %42
-  %.045.i.i20 = phi ptr [ %43, %42 ], [ %32, %31 ]
-  %.sroa.020.044.i.i21 = phi i8 [ %.sroa.020.1.i.i27, %42 ], [ undef, %31 ]
-  %.sroa.5.043.i.i22 = phi i8 [ %.sroa.5.1.i.i26, %42 ], [ 0, %31 ]
-  %.sroa.024.042.i.i23 = phi i32 [ %.sroa.024.130.i.i25, %42 ], [ 0, %31 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.045.i.i20, i64 12
+  %.044.i.i20 = phi ptr [ %43, %42 ], [ %32, %31 ]
+  %.sroa.020.043.i.i21 = phi i8 [ %.sroa.020.1.i.i27, %42 ], [ undef, %31 ]
+  %.sroa.5.042.i.i22 = phi i8 [ %.sroa.5.1.i.i26, %42 ], [ 0, %31 ]
+  %.sroa.024.041.i.i23 = phi i32 [ %.sroa.024.129.i.i25, %42 ], [ 0, %31 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.044.i.i20, i64 12
   %35 = load i8, ptr %34, align 4
   %36 = and i8 %35, 3
   switch i8 %36, label %39 [
@@ -1359,27 +1359,27 @@ _ZNK5clang14MacroDirective7DefInfo11getLocationEv.exit18: ; preds = %_ZNK5clang1
   ]
 
 37:                                               ; preds = %.preheader.i
-  %38 = getelementptr inbounds nuw i8, ptr %.045.i.i20, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.044.i.i20, i64 8
   %.sroa.0.0.copyload.i.i.i24 = load i32, ptr %38, align 8, !tbaa !3
   br label %42
 
 39:                                               ; preds = %.preheader.i
-  %40 = trunc nuw i8 %.sroa.5.043.i.i22 to i1
+  %40 = trunc nuw i8 %.sroa.5.042.i.i22 to i1
   %41 = lshr i8 %35, 3
-  %spec.select.i.i37 = select i1 %40, i8 %.sroa.020.044.i.i21, i8 %41
+  %spec.select.i.i37 = select i1 %40, i8 %.sroa.020.043.i.i21, i8 %41
   br label %42
 
 42:                                               ; preds = %39, %37
-  %.sroa.024.130.i.i25 = phi i32 [ %.sroa.0.0.copyload.i.i.i24, %37 ], [ %.sroa.024.042.i.i23, %39 ]
-  %.sroa.5.1.i.i26 = phi i8 [ %.sroa.5.043.i.i22, %37 ], [ 1, %39 ]
-  %.sroa.020.1.i.i27 = phi i8 [ %.sroa.020.044.i.i21, %37 ], [ %spec.select.i.i37, %39 ]
-  %43 = load ptr, ptr %.045.i.i20, align 8, !tbaa !293
+  %.sroa.024.129.i.i25 = phi i32 [ %.sroa.0.0.copyload.i.i.i24, %37 ], [ %.sroa.024.041.i.i23, %39 ]
+  %.sroa.5.1.i.i26 = phi i8 [ %.sroa.5.042.i.i22, %37 ], [ 1, %39 ]
+  %.sroa.020.1.i.i27 = phi i8 [ %.sroa.020.043.i.i21, %37 ], [ %spec.select.i.i37, %39 ]
+  %43 = load ptr, ptr %.044.i.i20, align 8, !tbaa !293
   %.not.i1.i = icmp eq ptr %43, null
   br i1 %.not.i1.i, label %.thread, label %.preheader.i, !llvm.loop !296
 
 .thread:                                          ; preds = %19, %31, %42, %28, %30
   %.sroa.6.1 = phi i64 [ 4294967296, %28 ], [ %.sroa.3.8.insert.insert.i.i34.lcssa, %30 ], [ 4294967296, %42 ], [ 4294967296, %31 ], [ 4294967296, %19 ]
-  %.sroa.045.1 = phi ptr [ null, %28 ], [ %.sroa.038.067.lcssa, %30 ], [ null, %42 ], [ null, %31 ], [ null, %19 ]
+  %.sroa.045.1 = phi ptr [ null, %28 ], [ %.sroa.038.065.lcssa, %30 ], [ null, %42 ], [ null, %31 ], [ null, %19 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.045.1, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.6.1, 1
   ret { ptr, i64 } %.fca.1.insert

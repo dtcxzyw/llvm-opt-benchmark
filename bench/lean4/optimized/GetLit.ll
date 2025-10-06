@@ -206,8 +206,8 @@ define ptr @l_Array_toListLitAux___rarg(ptr noundef readonly captures(none) %0, 
   br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !14
 
 lean_nat_eq.exit:                                 ; preds = %8
-  %.not37 = icmp eq ptr %.018, inttoptr (i64 1 to ptr)
-  br i1 %.not37, label %.loopexit, label %12
+  %.not35 = icmp eq ptr %.018, inttoptr (i64 1 to ptr)
+  br i1 %.not35, label %.loopexit, label %12
 
 lean_nat_eq.exit.thread:                          ; preds = %8
   %11 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %.018, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3

@@ -1344,15 +1344,15 @@ define hidden i32 @_PyPegen_seq_count_dots(ptr noundef readonly captures(address
 
 8:                                                ; preds = %.lr.ph, %8
   %.013 = phi i32 [ 0, %.lr.ph ], [ %.1, %8 ]
-  %.01012 = phi i64 [ 0, %.lr.ph ], [ %12, %8 ]
+  %.01012 = phi i64 [ 0, %.lr.ph ], [ %13, %8 ]
   %9 = getelementptr ptr, ptr %7, i64 %.01012
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = load i32, ptr %10, align 8, !tbaa !45
-  %switch = icmp eq i32 %11, 52
-  %.1.v = select i1 %switch, i32 3, i32 1
+  %12 = icmp eq i32 %11, 52
+  %.1.v = select i1 %12, i32 3, i32 1
   %.1 = add i32 %.1.v, %.013
-  %12 = add nuw nsw i64 %.01012, 1
-  %exitcond.not = icmp eq i64 %12, %4
+  %13 = add nuw nsw i64 %.01012, 1
+  %exitcond.not = icmp eq i64 %13, %4
   br i1 %exitcond.not, label %._crit_edge, label %8, !llvm.loop !48
 }
 
@@ -4462,98 +4462,98 @@ define hidden ptr @_PyPegen_get_invalid_target(ptr noundef readonly captures(add
   br i1 %3, label %.split.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse.outer
-  %.tr64.ph110 = phi i32 [ 2, %tailrecurse.outer ], [ %1, %2 ]
-  %.tr.ph109 = phi ptr [ %40, %tailrecurse.outer ], [ %0, %2 ]
-  %4 = icmp eq i32 %.tr64.ph110, 1
+  %.tr63.ph109 = phi i32 [ 2, %tailrecurse.outer ], [ %1, %2 ]
+  %.tr.ph108 = phi ptr [ %40, %tailrecurse.outer ], [ %0, %2 ]
+  %4 = icmp eq i32 %.tr63.ph109, 1
   br i1 %4, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %5 = load i32, ptr %.tr.ph109, align 8, !tbaa !60
+  %5 = load i32, ptr %.tr.ph108, align 8, !tbaa !60
   switch i32 %5, label %.split.us [
-    i32 25, label %.split89.us
-    i32 26, label %.split93.us
-    i32 21, label %.loopexit67.loopexit130
-    i32 22, label %.loopexit67.loopexit130
-    i32 24, label %.loopexit67.loopexit130
+    i32 25, label %.split88.us
+    i32 26, label %.split92.us
+    i32 21, label %.loopexit66.loopexit129
+    i32 22, label %.loopexit66.loopexit129
+    i32 24, label %.loopexit66.loopexit129
   ]
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %tailrecurse
-  %.tr79 = phi ptr [ %30, %tailrecurse ], [ %.tr.ph109, %.lr.ph ]
-  %6 = load i32, ptr %.tr79, align 8, !tbaa !60
+  %.tr78 = phi ptr [ %30, %tailrecurse ], [ %.tr.ph108, %.lr.ph ]
+  %6 = load i32, ptr %.tr78, align 8, !tbaa !60
   switch i32 %6, label %.split.us [
-    i32 25, label %.split89.us
-    i32 26, label %.split93.us
+    i32 25, label %.split88.us
+    i32 26, label %.split92.us
     i32 23, label %tailrecurse
-    i32 16, label %.split97.us
-    i32 24, label %.split.us.loopexit213
-    i32 22, label %.split.us.loopexit213
-    i32 21, label %.split.us.loopexit213
+    i32 16, label %.split96.us
+    i32 24, label %.split.us.loopexit212
+    i32 22, label %.split.us.loopexit212
+    i32 21, label %.split.us.loopexit212
   ]
 
-.split89.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi91 = phi ptr [ %.tr.ph109, %.lr.ph.split.us ], [ %.tr79, %.lr.ph.split ]
-  %7 = getelementptr inbounds nuw i8, ptr %.us-phi91, i64 8
+.split88.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
+  %.us-phi90 = phi ptr [ %.tr.ph108, %.lr.ph.split.us ], [ %.tr78, %.lr.ph.split ]
+  %7 = getelementptr inbounds nuw i8, ptr %.us-phi90, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.split.us, label %10
 
-10:                                               ; preds = %.split89.us
+10:                                               ; preds = %.split88.us
   %11 = load i64, ptr %8, align 8, !tbaa !49
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.not60.not118 = icmp sgt i64 %11, 0
-  br i1 %.not60.not118, label %.lr.ph120, label %.split.us
+  %.not60.not117 = icmp sgt i64 %11, 0
+  br i1 %.not60.not117, label %.lr.ph119, label %.split.us
 
-13:                                               ; preds = %.lr.ph120
-  %14 = add nuw nsw i64 %.045119, 1
-  %exitcond153.not = icmp eq i64 %14, %11
-  br i1 %exitcond153.not, label %.split.us, label %.lr.ph120, !llvm.loop !153
+13:                                               ; preds = %.lr.ph119
+  %14 = add nuw nsw i64 %.045118, 1
+  %exitcond152.not = icmp eq i64 %14, %11
+  br i1 %exitcond152.not, label %.split.us, label %.lr.ph119, !llvm.loop !153
 
-.lr.ph120:                                        ; preds = %10, %13
-  %.045119 = phi i64 [ %14, %13 ], [ 0, %10 ]
-  %15 = getelementptr ptr, ptr %12, i64 %.045119
+.lr.ph119:                                        ; preds = %10, %13
+  %.045118 = phi i64 [ %14, %13 ], [ 0, %10 ]
+  %15 = getelementptr ptr, ptr %12, i64 %.045118
   %16 = load ptr, ptr %15, align 8, !tbaa !51
-  %17 = tail call ptr @_PyPegen_get_invalid_target(ptr noundef %16, i32 noundef %.tr64.ph110)
+  %17 = tail call ptr @_PyPegen_get_invalid_target(ptr noundef %16, i32 noundef %.tr63.ph109)
   %.not59 = icmp eq ptr %17, null
   br i1 %.not59, label %13, label %.split.us
 
-.split93.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi95 = phi ptr [ %.tr.ph109, %.lr.ph.split.us ], [ %.tr79, %.lr.ph.split ]
-  %18 = getelementptr inbounds nuw i8, ptr %.us-phi95, i64 8
+.split92.us:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us
+  %.us-phi94 = phi ptr [ %.tr.ph108, %.lr.ph.split.us ], [ %.tr78, %.lr.ph.split ]
+  %18 = getelementptr inbounds nuw i8, ptr %.us-phi94, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !27
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.split.us, label %21
 
-21:                                               ; preds = %.split93.us
+21:                                               ; preds = %.split92.us
   %22 = load i64, ptr %19, align 8, !tbaa !49
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.not58.not112 = icmp sgt i64 %22, 0
-  br i1 %.not58.not112, label %.lr.ph114, label %.split.us
+  %.not58.not111 = icmp sgt i64 %22, 0
+  br i1 %.not58.not111, label %.lr.ph113, label %.split.us
 
-24:                                               ; preds = %.lr.ph114
-  %25 = add nuw nsw i64 %.050113, 1
+24:                                               ; preds = %.lr.ph113
+  %25 = add nuw nsw i64 %.050112, 1
   %exitcond.not = icmp eq i64 %25, %22
-  br i1 %exitcond.not, label %.split.us, label %.lr.ph114, !llvm.loop !154
+  br i1 %exitcond.not, label %.split.us, label %.lr.ph113, !llvm.loop !154
 
-.lr.ph114:                                        ; preds = %21, %24
-  %.050113 = phi i64 [ %25, %24 ], [ 0, %21 ]
-  %26 = getelementptr ptr, ptr %23, i64 %.050113
+.lr.ph113:                                        ; preds = %21, %24
+  %.050112 = phi i64 [ %25, %24 ], [ 0, %21 ]
+  %26 = getelementptr ptr, ptr %23, i64 %.050112
   %27 = load ptr, ptr %26, align 8, !tbaa !51
-  %28 = tail call ptr @_PyPegen_get_invalid_target(ptr noundef %27, i32 noundef %.tr64.ph110)
+  %28 = tail call ptr @_PyPegen_get_invalid_target(ptr noundef %27, i32 noundef %.tr63.ph109)
   %.not = icmp eq ptr %28, null
   br i1 %.not, label %24, label %.split.us
 
 tailrecurse:                                      ; preds = %.lr.ph.split
-  %29 = getelementptr inbounds nuw i8, ptr %.tr79, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.tr78, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !27
   %31 = icmp eq ptr %30, null
-  br i1 %31, label %.split.us.loopexit213, label %.lr.ph.split
+  br i1 %31, label %.split.us.loopexit212, label %.lr.ph.split
 
-.split97.us:                                      ; preds = %.lr.ph.split
-  %32 = icmp eq i32 %.tr64.ph110, 2
+.split96.us:                                      ; preds = %.lr.ph.split
+  %32 = icmp eq i32 %.tr63.ph109, 2
   br i1 %32, label %33, label %.split.us
 
-33:                                               ; preds = %.split97.us
-  %34 = getelementptr inbounds nuw i8, ptr %.tr79, i64 16
+33:                                               ; preds = %.split96.us
+  %34 = getelementptr inbounds nuw i8, ptr %.tr78, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !27
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8, !tbaa !57
@@ -4561,19 +4561,19 @@ tailrecurse:                                      ; preds = %.lr.ph.split
   br i1 %38, label %tailrecurse.outer, label %.split.us
 
 tailrecurse.outer:                                ; preds = %33
-  %39 = getelementptr inbounds nuw i8, ptr %.tr79, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.tr78, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !27
   %41 = icmp eq ptr %40, null
   br i1 %41, label %.split.us, label %.lr.ph
 
-.loopexit67.loopexit130:                          ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
+.loopexit66.loopexit129:                          ; preds = %.lr.ph.split.us, %.lr.ph.split.us, %.lr.ph.split.us
   br label %.split.us
 
-.split.us.loopexit213:                            ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %tailrecurse
+.split.us.loopexit212:                            ; preds = %.lr.ph.split, %.lr.ph.split, %.lr.ph.split, %tailrecurse
   br label %.split.us
 
-.split.us:                                        ; preds = %tailrecurse.outer, %.split97.us, %33, %24, %.lr.ph114, %13, %.lr.ph120, %.lr.ph.split, %.split.us.loopexit213, %.split93.us, %.split89.us, %.lr.ph.split.us, %2, %.loopexit67.loopexit130, %21, %10
-  %.0 = phi ptr [ null, %10 ], [ null, %21 ], [ null, %2 ], [ null, %.loopexit67.loopexit130 ], [ %.tr.ph109, %.lr.ph.split.us ], [ null, %.split89.us ], [ null, %.split93.us ], [ null, %.split.us.loopexit213 ], [ %.tr79, %.lr.ph.split ], [ null, %13 ], [ %17, %.lr.ph120 ], [ null, %24 ], [ %28, %.lr.ph114 ], [ null, %tailrecurse.outer ], [ null, %33 ], [ %.tr79, %.split97.us ]
+.split.us:                                        ; preds = %tailrecurse.outer, %.split96.us, %33, %24, %.lr.ph113, %13, %.lr.ph119, %.lr.ph.split, %.split.us.loopexit212, %.split92.us, %.split88.us, %.lr.ph.split.us, %2, %.loopexit66.loopexit129, %21, %10
+  %.0 = phi ptr [ null, %10 ], [ null, %21 ], [ null, %2 ], [ null, %.loopexit66.loopexit129 ], [ %.tr.ph108, %.lr.ph.split.us ], [ null, %.split88.us ], [ null, %.split92.us ], [ null, %.split.us.loopexit212 ], [ %.tr78, %.lr.ph.split ], [ null, %13 ], [ %17, %.lr.ph119 ], [ null, %24 ], [ %28, %.lr.ph113 ], [ null, %tailrecurse.outer ], [ null, %33 ], [ %.tr78, %.split96.us ]
   ret ptr %.0
 }
 

@@ -3147,8 +3147,8 @@ _ZNK4pbrt8Material15GetDisplacementEv.exit:       ; preds = %29, %35, %37, %39, 
 
 57:                                               ; preds = %_ZNK4pbrt8Material15GetDisplacementEv.exit
   %58 = and i64 %storemerge.i.sink.i.i.i, 144115188075855871
-  %.not27 = icmp eq i64 %58, 0
-  br i1 %.not27, label %.critedge.i, label %.lr.ph.i
+  %.not26 = icmp eq i64 %58, 0
+  br i1 %.not26, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %57
   %.mask.i.i20 = and i64 %storemerge.i.sink.i.i.i, -144115188075855872
@@ -6832,12 +6832,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge.i.i.i, %12
-  %.01856.i.idx.i.i = phi i64 [ %.01856.i.add.i.i, %.critedge.i.i.i ], [ 0, %12 ]
-  %.01856.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.01856.i.idx.i.i
-  %29 = load i64, ptr %.01856.i.ptr.i.i, align 8, !tbaa !272
+  %.01853.i.idx.i.i = phi i64 [ %.01853.i.add.i.i, %.critedge.i.i.i ], [ 0, %12 ]
+  %.01853.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.01853.i.idx.i.i
+  %29 = load i64, ptr %.01853.i.ptr.i.i, align 8, !tbaa !272
   %30 = and i64 %29, 144115188075855871
-  %.not52.i.i.i = icmp eq i64 %30, 0
-  br i1 %.not52.i.i.i, label %.critedge.i.i.i, label %31
+  %.not49.i.i.i = icmp eq i64 %30, 0
+  br i1 %.not49.i.i.i, label %.critedge.i.i.i, label %31
 
 31:                                               ; preds = %.lr.ph.i.i.i
   %.mask.i.i.i.i = and i64 %29, -144115188075855872
@@ -6849,31 +6849,31 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS
   ]
 
 .critedge.i.i.i:                                  ; preds = %31, %31, %31, %31, %.lr.ph.i.i.i
-  %.01856.i.add.i.i = add nuw nsw i64 %.01856.i.idx.i.i, 8
-  %.not.i.i.i = icmp eq i64 %.01856.i.add.i.i, 32
-  br i1 %.not.i.i.i, label %.lr.ph60.i.i.i, label %.lr.ph.i.i.i
+  %.01853.i.add.i.i = add nuw nsw i64 %.01853.i.idx.i.i, 8
+  %.not.i.i.i = icmp eq i64 %.01853.i.add.i.i, 32
+  br i1 %.not.i.i.i, label %.lr.ph57.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph60.i.i.i:                                   ; preds = %.critedge.i.i.i, %.critedge25.i.i.i
-  %.01758.i.idx.i.i = phi i64 [ %.01758.i.add.i.i, %.critedge25.i.i.i ], [ 0, %.critedge.i.i.i ]
-  %.01758.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.01758.i.idx.i.i
-  %32 = load i64, ptr %.01758.i.ptr.i.i, align 8, !tbaa !523
+.lr.ph57.i.i.i:                                   ; preds = %.critedge.i.i.i, %.critedge25.i.i.i
+  %.01755.i.idx.i.i = phi i64 [ %.01755.i.add.i.i, %.critedge25.i.i.i ], [ 0, %.critedge.i.i.i ]
+  %.01755.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.01755.i.idx.i.i
+  %32 = load i64, ptr %.01755.i.ptr.i.i, align 8, !tbaa !523
   %33 = and i64 %32, 144115188075855871
-  %.not53.i.i.i = icmp eq i64 %33, 0
-  br i1 %.not53.i.i.i, label %.critedge25.i.i.i, label %34
+  %.not50.i.i.i = icmp eq i64 %33, 0
+  br i1 %.not50.i.i.i, label %.critedge25.i.i.i, label %34
 
-34:                                               ; preds = %.lr.ph60.i.i.i
-  %.mask.i31.i.i.i = and i64 %32, -144115188075855872
-  switch i64 %.mask.i31.i.i.i, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit [
+34:                                               ; preds = %.lr.ph57.i.i.i
+  %.mask.i30.i.i.i = and i64 %32, -144115188075855872
+  switch i64 %.mask.i30.i.i.i, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit [
     i64 864691128455135232, label %.critedge25.i.i.i
     i64 144115188075855872, label %.critedge25.i.i.i
     i64 1729382256910270464, label %.critedge25.i.i.i
     i64 288230376151711744, label %.critedge25.i.i.i
   ]
 
-.critedge25.i.i.i:                                ; preds = %34, %34, %34, %34, %.lr.ph60.i.i.i
-  %.01758.i.add.i.i = add nuw nsw i64 %.01758.i.idx.i.i, 8
-  %.not23.i.i.i = icmp eq i64 %.01758.i.add.i.i, 16
-  br i1 %.not23.i.i.i, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit, label %.lr.ph60.i.i.i
+.critedge25.i.i.i:                                ; preds = %34, %34, %34, %34, %.lr.ph57.i.i.i
+  %.01755.i.add.i.i = add nuw nsw i64 %.01755.i.idx.i.i, 8
+  %.not23.i.i.i = icmp eq i64 %.01755.i.add.i.i, 16
+  br i1 %.not23.i.i.i, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit, label %.lr.ph57.i.i.i
 
 _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_21CoatedDiffuseMaterialEEEDaS3_.exit: ; preds = %31, %34, %.critedge25.i.i.i
   %.3.i.i.i = phi i1 [ true, %.critedge25.i.i.i ], [ false, %34 ], [ false, %31 ]
@@ -6909,12 +6909,12 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   br label %.lr.ph.i.i.i20
 
 .lr.ph.i.i.i20:                                   ; preds = %.critedge.i.i.i25, %37
-  %.01856.i.idx.i.i21 = phi i64 [ %.01856.i.add.i.i26, %.critedge.i.i.i25 ], [ 0, %37 ]
-  %.01856.i.ptr.i.i22 = getelementptr inbounds nuw i8, ptr %8, i64 %.01856.i.idx.i.i21
-  %51 = load i64, ptr %.01856.i.ptr.i.i22, align 8, !tbaa !272
+  %.01853.i.idx.i.i21 = phi i64 [ %.01853.i.add.i.i26, %.critedge.i.i.i25 ], [ 0, %37 ]
+  %.01853.i.ptr.i.i22 = getelementptr inbounds nuw i8, ptr %8, i64 %.01853.i.idx.i.i21
+  %51 = load i64, ptr %.01853.i.ptr.i.i22, align 8, !tbaa !272
   %52 = and i64 %51, 144115188075855871
-  %.not52.i.i.i23 = icmp eq i64 %52, 0
-  br i1 %.not52.i.i.i23, label %.critedge.i.i.i25, label %53
+  %.not49.i.i.i23 = icmp eq i64 %52, 0
+  br i1 %.not49.i.i.i23, label %.critedge.i.i.i25, label %53
 
 53:                                               ; preds = %.lr.ph.i.i.i20
   %.mask.i.i.i.i24 = and i64 %51, -144115188075855872
@@ -6926,31 +6926,31 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   ]
 
 .critedge.i.i.i25:                                ; preds = %53, %53, %53, %53, %.lr.ph.i.i.i20
-  %.01856.i.add.i.i26 = add nuw nsw i64 %.01856.i.idx.i.i21, 8
-  %.not.i.i.i27 = icmp eq i64 %.01856.i.add.i.i26, 16
-  br i1 %.not.i.i.i27, label %.lr.ph60.i.i.i28, label %.lr.ph.i.i.i20
+  %.01853.i.add.i.i26 = add nuw nsw i64 %.01853.i.idx.i.i21, 8
+  %.not.i.i.i27 = icmp eq i64 %.01853.i.add.i.i26, 16
+  br i1 %.not.i.i.i27, label %.lr.ph57.i.i.i28, label %.lr.ph.i.i.i20
 
-.lr.ph60.i.i.i28:                                 ; preds = %.critedge.i.i.i25, %.critedge25.i.i.i33
-  %.01758.i.idx.i.i29 = phi i64 [ %.01758.i.add.i.i34, %.critedge25.i.i.i33 ], [ 0, %.critedge.i.i.i25 ]
-  %.01758.i.ptr.i.i30 = getelementptr inbounds nuw i8, ptr %9, i64 %.01758.i.idx.i.i29
-  %54 = load i64, ptr %.01758.i.ptr.i.i30, align 8, !tbaa !523
+.lr.ph57.i.i.i28:                                 ; preds = %.critedge.i.i.i25, %.critedge25.i.i.i33
+  %.01755.i.idx.i.i29 = phi i64 [ %.01755.i.add.i.i34, %.critedge25.i.i.i33 ], [ 0, %.critedge.i.i.i25 ]
+  %.01755.i.ptr.i.i30 = getelementptr inbounds nuw i8, ptr %9, i64 %.01755.i.idx.i.i29
+  %54 = load i64, ptr %.01755.i.ptr.i.i30, align 8, !tbaa !523
   %55 = and i64 %54, 144115188075855871
-  %.not53.i.i.i31 = icmp eq i64 %55, 0
-  br i1 %.not53.i.i.i31, label %.critedge25.i.i.i33, label %56
+  %.not50.i.i.i31 = icmp eq i64 %55, 0
+  br i1 %.not50.i.i.i31, label %.critedge25.i.i.i33, label %56
 
-56:                                               ; preds = %.lr.ph60.i.i.i28
-  %.mask.i31.i.i.i32 = and i64 %54, -144115188075855872
-  switch i64 %.mask.i31.i.i.i32, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit [
+56:                                               ; preds = %.lr.ph57.i.i.i28
+  %.mask.i30.i.i.i32 = and i64 %54, -144115188075855872
+  switch i64 %.mask.i30.i.i.i32, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit [
     i64 864691128455135232, label %.critedge25.i.i.i33
     i64 144115188075855872, label %.critedge25.i.i.i33
     i64 1729382256910270464, label %.critedge25.i.i.i33
     i64 288230376151711744, label %.critedge25.i.i.i33
   ]
 
-.critedge25.i.i.i33:                              ; preds = %56, %56, %56, %56, %.lr.ph60.i.i.i28
-  %.01758.i.add.i.i34 = add nuw nsw i64 %.01758.i.idx.i.i29, 8
-  %.not23.i.i.i35 = icmp eq i64 %.01758.i.add.i.i34, 24
-  br i1 %.not23.i.i.i35, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit, label %.lr.ph60.i.i.i28
+.critedge25.i.i.i33:                              ; preds = %56, %56, %56, %56, %.lr.ph57.i.i.i28
+  %.01755.i.add.i.i34 = add nuw nsw i64 %.01755.i.idx.i.i29, 8
+  %.not23.i.i.i35 = icmp eq i64 %.01755.i.add.i.i34, 24
+  br i1 %.not23.i.i.i35, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit, label %.lr.ph57.i.i.i28
 
 _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_17ConductorMaterialEEEDaS3_.exit: ; preds = %53, %56, %.critedge25.i.i.i33
   %.3.i.i.i36 = phi i1 [ true, %.critedge25.i.i.i33 ], [ false, %56 ], [ false, %53 ]
@@ -6970,12 +6970,12 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   br label %.lr.ph.i.i.i37
 
 .lr.ph.i.i.i37:                                   ; preds = %.critedge.i.i.i42, %57
-  %.01856.i.idx.i.i38 = phi i64 [ %.01856.i.add.i.i43, %.critedge.i.i.i42 ], [ 0, %57 ]
-  %.01856.i.ptr.i.i39 = getelementptr inbounds nuw i8, ptr %7, i64 %.01856.i.idx.i.i38
-  %63 = load i64, ptr %.01856.i.ptr.i.i39, align 8, !tbaa !272
+  %.01853.i.idx.i.i38 = phi i64 [ %.01853.i.add.i.i43, %.critedge.i.i.i42 ], [ 0, %57 ]
+  %.01853.i.ptr.i.i39 = getelementptr inbounds nuw i8, ptr %7, i64 %.01853.i.idx.i.i38
+  %63 = load i64, ptr %.01853.i.ptr.i.i39, align 8, !tbaa !272
   %64 = and i64 %63, 144115188075855871
-  %.not52.i.i.i40 = icmp eq i64 %64, 0
-  br i1 %.not52.i.i.i40, label %.critedge.i.i.i42, label %65
+  %.not49.i.i.i40 = icmp eq i64 %64, 0
+  br i1 %.not49.i.i.i40, label %.critedge.i.i.i42, label %65
 
 65:                                               ; preds = %.lr.ph.i.i.i37
   %.mask.i.i.i.i41 = and i64 %63, -144115188075855872
@@ -6987,8 +6987,8 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   ]
 
 .critedge.i.i.i42:                                ; preds = %65, %65, %65, %65, %.lr.ph.i.i.i37
-  %.01856.i.add.i.i43 = add nuw nsw i64 %.01856.i.idx.i.i38, 8
-  %.not.i.i.i44 = icmp eq i64 %.01856.i.add.i.i43, 16
+  %.01853.i.add.i.i43 = add nuw nsw i64 %.01853.i.idx.i.i38, 8
+  %.not.i.i.i44 = icmp eq i64 %.01853.i.add.i.i43, 16
   br i1 %.not.i.i.i44, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit, label %.lr.ph.i.i.i37
 
 _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18DielectricMaterialEEEDaS3_.exit: ; preds = %65, %.critedge.i.i.i42
@@ -7000,12 +7000,12 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %68 = load i64, ptr %67, align 8, !tbaa !523
   %69 = and i64 %68, 144115188075855871
-  %.not53.i.i.i46 = icmp eq i64 %69, 0
-  br i1 %.not53.i.i.i46, label %.critedge25.i.i.i48, label %70
+  %.not50.i.i.i46 = icmp eq i64 %69, 0
+  br i1 %.not50.i.i.i46, label %.critedge25.i.i.i48, label %70
 
 70:                                               ; preds = %66
-  %.mask.i31.i.i.i47 = and i64 %68, -144115188075855872
-  switch i64 %.mask.i31.i.i.i47, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_15DiffuseMaterialEEEDaS3_.exit [
+  %.mask.i30.i.i.i47 = and i64 %68, -144115188075855872
+  switch i64 %.mask.i30.i.i.i47, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_15DiffuseMaterialEEEDaS3_.exit [
     i64 864691128455135232, label %.critedge25.i.i.i48
     i64 144115188075855872, label %.critedge25.i.i.i48
     i64 1729382256910270464, label %.critedge25.i.i.i48
@@ -7024,29 +7024,29 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %76 = load i64, ptr %75, align 8, !tbaa !523
   store i64 %76, ptr %74, align 8, !tbaa !523
-  br label %.lr.ph60.i.i.i50
+  br label %.lr.ph57.i.i.i50
 
-.lr.ph60.i.i.i50:                                 ; preds = %.critedge25.i.i.i55, %71
-  %.01758.i.idx.i.i51 = phi i64 [ %.01758.i.add.i.i56, %.critedge25.i.i.i55 ], [ 0, %71 ]
-  %.01758.i.ptr.i.i52 = getelementptr inbounds nuw i8, ptr %6, i64 %.01758.i.idx.i.i51
-  %77 = load i64, ptr %.01758.i.ptr.i.i52, align 8, !tbaa !523
+.lr.ph57.i.i.i50:                                 ; preds = %.critedge25.i.i.i55, %71
+  %.01755.i.idx.i.i51 = phi i64 [ %.01755.i.add.i.i56, %.critedge25.i.i.i55 ], [ 0, %71 ]
+  %.01755.i.ptr.i.i52 = getelementptr inbounds nuw i8, ptr %6, i64 %.01755.i.idx.i.i51
+  %77 = load i64, ptr %.01755.i.ptr.i.i52, align 8, !tbaa !523
   %78 = and i64 %77, 144115188075855871
-  %.not53.i.i.i53 = icmp eq i64 %78, 0
-  br i1 %.not53.i.i.i53, label %.critedge25.i.i.i55, label %79
+  %.not50.i.i.i53 = icmp eq i64 %78, 0
+  br i1 %.not50.i.i.i53, label %.critedge25.i.i.i55, label %79
 
-79:                                               ; preds = %.lr.ph60.i.i.i50
-  %.mask.i31.i.i.i54 = and i64 %77, -144115188075855872
-  switch i64 %.mask.i31.i.i.i54, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit [
+79:                                               ; preds = %.lr.ph57.i.i.i50
+  %.mask.i30.i.i.i54 = and i64 %77, -144115188075855872
+  switch i64 %.mask.i30.i.i.i54, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit [
     i64 864691128455135232, label %.critedge25.i.i.i55
     i64 144115188075855872, label %.critedge25.i.i.i55
     i64 1729382256910270464, label %.critedge25.i.i.i55
     i64 288230376151711744, label %.critedge25.i.i.i55
   ]
 
-.critedge25.i.i.i55:                              ; preds = %79, %79, %79, %79, %.lr.ph60.i.i.i50
-  %.01758.i.add.i.i56 = add nuw nsw i64 %.01758.i.idx.i.i51, 8
-  %.not23.i.i.i57 = icmp eq i64 %.01758.i.add.i.i56, 16
-  br i1 %.not23.i.i.i57, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit, label %.lr.ph60.i.i.i50
+.critedge25.i.i.i55:                              ; preds = %79, %79, %79, %79, %.lr.ph57.i.i.i50
+  %.01755.i.add.i.i56 = add nuw nsw i64 %.01755.i.idx.i.i51, 8
+  %.not23.i.i.i57 = icmp eq i64 %.01755.i.add.i.i56, 16
+  br i1 %.not23.i.i.i57, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit, label %.lr.ph57.i.i.i50
 
 _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_27DiffuseTransmissionMaterialEEEDaS3_.exit: ; preds = %79, %.critedge25.i.i.i55
   %.3.i.i.i58 = phi i1 [ false, %79 ], [ true, %.critedge25.i.i.i55 ]
@@ -7088,12 +7088,12 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   br label %.lr.ph.i.i.i59
 
 .lr.ph.i.i.i59:                                   ; preds = %.critedge.i.i.i64, %80
-  %.01856.i.idx.i.i60 = phi i64 [ %.01856.i.add.i.i65, %.critedge.i.i.i64 ], [ 0, %80 ]
-  %.01856.i.ptr.i.i61 = getelementptr inbounds nuw i8, ptr %4, i64 %.01856.i.idx.i.i60
-  %102 = load i64, ptr %.01856.i.ptr.i.i61, align 8, !tbaa !272
+  %.01853.i.idx.i.i60 = phi i64 [ %.01853.i.add.i.i65, %.critedge.i.i.i64 ], [ 0, %80 ]
+  %.01853.i.ptr.i.i61 = getelementptr inbounds nuw i8, ptr %4, i64 %.01853.i.idx.i.i60
+  %102 = load i64, ptr %.01853.i.ptr.i.i61, align 8, !tbaa !272
   %103 = and i64 %102, 144115188075855871
-  %.not52.i.i.i62 = icmp eq i64 %103, 0
-  br i1 %.not52.i.i.i62, label %.critedge.i.i.i64, label %104
+  %.not49.i.i.i62 = icmp eq i64 %103, 0
+  br i1 %.not49.i.i.i62, label %.critedge.i.i.i64, label %104
 
 104:                                              ; preds = %.lr.ph.i.i.i59
   %.mask.i.i.i.i63 = and i64 %102, -144115188075855872
@@ -7105,31 +7105,31 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
   ]
 
 .critedge.i.i.i64:                                ; preds = %104, %104, %104, %104, %.lr.ph.i.i.i59
-  %.01856.i.add.i.i65 = add nuw nsw i64 %.01856.i.idx.i.i60, 8
-  %.not.i.i.i66 = icmp eq i64 %.01856.i.add.i.i65, 48
-  br i1 %.not.i.i.i66, label %.lr.ph60.i.i.i67, label %.lr.ph.i.i.i59
+  %.01853.i.add.i.i65 = add nuw nsw i64 %.01853.i.idx.i.i60, 8
+  %.not.i.i.i66 = icmp eq i64 %.01853.i.add.i.i65, 48
+  br i1 %.not.i.i.i66, label %.lr.ph57.i.i.i67, label %.lr.ph.i.i.i59
 
-.lr.ph60.i.i.i67:                                 ; preds = %.critedge.i.i.i64, %.critedge25.i.i.i72
-  %.01758.i.idx.i.i68 = phi i64 [ %.01758.i.add.i.i73, %.critedge25.i.i.i72 ], [ 0, %.critedge.i.i.i64 ]
-  %.01758.i.ptr.i.i69 = getelementptr inbounds nuw i8, ptr %5, i64 %.01758.i.idx.i.i68
-  %105 = load i64, ptr %.01758.i.ptr.i.i69, align 8, !tbaa !523
+.lr.ph57.i.i.i67:                                 ; preds = %.critedge.i.i.i64, %.critedge25.i.i.i72
+  %.01755.i.idx.i.i68 = phi i64 [ %.01755.i.add.i.i73, %.critedge25.i.i.i72 ], [ 0, %.critedge.i.i.i64 ]
+  %.01755.i.ptr.i.i69 = getelementptr inbounds nuw i8, ptr %5, i64 %.01755.i.idx.i.i68
+  %105 = load i64, ptr %.01755.i.ptr.i.i69, align 8, !tbaa !523
   %106 = and i64 %105, 144115188075855871
-  %.not53.i.i.i70 = icmp eq i64 %106, 0
-  br i1 %.not53.i.i.i70, label %.critedge25.i.i.i72, label %107
+  %.not50.i.i.i70 = icmp eq i64 %106, 0
+  br i1 %.not50.i.i.i70, label %.critedge25.i.i.i72, label %107
 
-107:                                              ; preds = %.lr.ph60.i.i.i67
-  %.mask.i31.i.i.i71 = and i64 %105, -144115188075855872
-  switch i64 %.mask.i31.i.i.i71, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit [
+107:                                              ; preds = %.lr.ph57.i.i.i67
+  %.mask.i30.i.i.i71 = and i64 %105, -144115188075855872
+  switch i64 %.mask.i30.i.i.i71, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit [
     i64 864691128455135232, label %.critedge25.i.i.i72
     i64 144115188075855872, label %.critedge25.i.i.i72
     i64 1729382256910270464, label %.critedge25.i.i.i72
     i64 288230376151711744, label %.critedge25.i.i.i72
   ]
 
-.critedge25.i.i.i72:                              ; preds = %107, %107, %107, %107, %.lr.ph60.i.i.i67
-  %.01758.i.add.i.i73 = add nuw nsw i64 %.01758.i.idx.i.i68, 8
-  %.not23.i.i.i74 = icmp eq i64 %.01758.i.add.i.i73, 16
-  br i1 %.not23.i.i.i74, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit, label %.lr.ph60.i.i.i67
+.critedge25.i.i.i72:                              ; preds = %107, %107, %107, %107, %.lr.ph57.i.i.i67
+  %.01755.i.add.i.i73 = add nuw nsw i64 %.01755.i.idx.i.i68, 8
+  %.not23.i.i.i74 = icmp eq i64 %.01755.i.add.i.i73, 16
+  br i1 %.not23.i.i.i74, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit, label %.lr.ph57.i.i.i67
 
 _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_12HairMaterialEEEDaS3_.exit: ; preds = %104, %107, %.critedge25.i.i.i72
   %.3.i.i.i75 = phi i1 [ true, %.critedge25.i.i.i72 ], [ false, %107 ], [ false, %104 ]
@@ -7176,12 +7176,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.critedge.i.i.i, %6
-  %.01856.i.idx.i.i = phi i64 [ %.01856.i.add.i.i, %.critedge.i.i.i ], [ 0, %6 ]
-  %.01856.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.01856.i.idx.i.i
-  %17 = load i64, ptr %.01856.i.ptr.i.i, align 8, !tbaa !272
+  %.01853.i.idx.i.i = phi i64 [ %.01853.i.add.i.i, %.critedge.i.i.i ], [ 0, %6 ]
+  %.01853.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %4, i64 %.01853.i.idx.i.i
+  %17 = load i64, ptr %.01853.i.ptr.i.i, align 8, !tbaa !272
   %18 = and i64 %17, 144115188075855871
-  %.not52.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not52.i.i.i, label %.critedge.i.i.i, label %19
+  %.not49.i.i.i = icmp eq i64 %18, 0
+  br i1 %.not49.i.i.i, label %.critedge.i.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i.i.i
   %.mask.i.i.i.i = and i64 %17, -144115188075855872
@@ -7193,31 +7193,31 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4pbrt6detail8DispatchIRZNKS
   ]
 
 .critedge.i.i.i:                                  ; preds = %19, %19, %19, %19, %.lr.ph.i.i.i
-  %.01856.i.add.i.i = add nuw nsw i64 %.01856.i.idx.i.i, 8
-  %.not.i.i.i = icmp eq i64 %.01856.i.add.i.i, 16
-  br i1 %.not.i.i.i, label %.lr.ph60.i.i.i, label %.lr.ph.i.i.i
+  %.01853.i.add.i.i = add nuw nsw i64 %.01853.i.idx.i.i, 8
+  %.not.i.i.i = icmp eq i64 %.01853.i.add.i.i, 16
+  br i1 %.not.i.i.i, label %.lr.ph57.i.i.i, label %.lr.ph.i.i.i
 
-.lr.ph60.i.i.i:                                   ; preds = %.critedge.i.i.i, %.critedge25.i.i.i
-  %.01758.i.idx.i.i = phi i64 [ %.01758.i.add.i.i, %.critedge25.i.i.i ], [ 0, %.critedge.i.i.i ]
-  %.01758.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.01758.i.idx.i.i
-  %20 = load i64, ptr %.01758.i.ptr.i.i, align 8, !tbaa !523
+.lr.ph57.i.i.i:                                   ; preds = %.critedge.i.i.i, %.critedge25.i.i.i
+  %.01755.i.idx.i.i = phi i64 [ %.01755.i.add.i.i, %.critedge25.i.i.i ], [ 0, %.critedge.i.i.i ]
+  %.01755.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.01755.i.idx.i.i
+  %20 = load i64, ptr %.01755.i.ptr.i.i, align 8, !tbaa !523
   %21 = and i64 %20, 144115188075855871
-  %.not53.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not53.i.i.i, label %.critedge25.i.i.i, label %22
+  %.not50.i.i.i = icmp eq i64 %21, 0
+  br i1 %.not50.i.i.i, label %.critedge25.i.i.i, label %22
 
-22:                                               ; preds = %.lr.ph60.i.i.i
-  %.mask.i31.i.i.i = and i64 %20, -144115188075855872
-  switch i64 %.mask.i31.i.i.i, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit [
+22:                                               ; preds = %.lr.ph57.i.i.i
+  %.mask.i30.i.i.i = and i64 %20, -144115188075855872
+  switch i64 %.mask.i30.i.i.i, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit [
     i64 864691128455135232, label %.critedge25.i.i.i
     i64 144115188075855872, label %.critedge25.i.i.i
     i64 1729382256910270464, label %.critedge25.i.i.i
     i64 288230376151711744, label %.critedge25.i.i.i
   ]
 
-.critedge25.i.i.i:                                ; preds = %22, %22, %22, %22, %.lr.ph60.i.i.i
-  %.01758.i.add.i.i = add nuw nsw i64 %.01758.i.idx.i.i, 8
-  %.not23.i.i.i = icmp eq i64 %.01758.i.add.i.i, 16
-  br i1 %.not23.i.i.i, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit, label %.lr.ph60.i.i.i
+.critedge25.i.i.i:                                ; preds = %22, %22, %22, %22, %.lr.ph57.i.i.i
+  %.01755.i.add.i.i = add nuw nsw i64 %.01755.i.idx.i.i, 8
+  %.not23.i.i.i = icmp eq i64 %.01755.i.add.i.i, 16
+  br i1 %.not23.i.i.i, label %_ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit, label %.lr.ph57.i.i.i
 
 _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3_E_clIPKNS_18SubsurfaceMaterialEEEDaS3_.exit: ; preds = %19, %22, %.critedge25.i.i.i
   %.3.i.i.i = phi i1 [ true, %.critedge25.i.i.i ], [ false, %22 ], [ false, %19 ]
@@ -7228,8 +7228,8 @@ _ZZNK4pbrt8Material19CanEvaluateTexturesINS_21BasicTextureEvaluatorEEEbT_ENKUlS3
 23:                                               ; preds = %3
   %24 = load i64, ptr %1, align 8, !tbaa !272
   %25 = and i64 %24, 144115188075855871
-  %.not52.i.i.i7 = icmp eq i64 %25, 0
-  br i1 %.not52.i.i.i7, label %.critedge.i.i.i9, label %26
+  %.not49.i.i.i7 = icmp eq i64 %25, 0
+  br i1 %.not49.i.i.i7, label %.critedge.i.i.i9, label %26
 
 26:                                               ; preds = %23
   %.mask.i.i.i.i8 = and i64 %24, -144115188075855872
@@ -7295,12 +7295,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4pbrt23CoatedConductorMate
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %1
-  %.01856.i.idx = phi i64 [ %.01856.i.add, %.critedge.i ], [ 0, %1 ]
-  %.01856.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.01856.i.idx
-  %32 = load i64, ptr %.01856.i.ptr, align 8, !tbaa !272
+  %.01853.i.idx = phi i64 [ %.01853.i.add, %.critedge.i ], [ 0, %1 ]
+  %.01853.i.ptr = getelementptr inbounds nuw i8, ptr %2, i64 %.01853.i.idx
+  %32 = load i64, ptr %.01853.i.ptr, align 8, !tbaa !272
   %33 = and i64 %32, 144115188075855871
-  %.not52.i = icmp eq i64 %33, 0
-  br i1 %.not52.i, label %.critedge.i, label %34
+  %.not49.i = icmp eq i64 %33, 0
+  br i1 %.not49.i, label %.critedge.i, label %34
 
 34:                                               ; preds = %.lr.ph.i
   %.mask.i.i = and i64 %32, -144115188075855872
@@ -7312,31 +7312,31 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4pbrt23CoatedConductorMate
   ]
 
 .critedge.i:                                      ; preds = %34, %34, %34, %34, %.lr.ph.i
-  %.01856.i.add = add nuw nsw i64 %.01856.i.idx, 8
-  %.not.i = icmp eq i64 %.01856.i.add, 48
-  br i1 %.not.i, label %.lr.ph60.i, label %.lr.ph.i
+  %.01853.i.add = add nuw nsw i64 %.01853.i.idx, 8
+  %.not.i = icmp eq i64 %.01853.i.add, 48
+  br i1 %.not.i, label %.lr.ph57.i, label %.lr.ph.i
 
-.lr.ph60.i:                                       ; preds = %.critedge.i, %.critedge25.i
-  %.01758.i.idx = phi i64 [ %.01758.i.add, %.critedge25.i ], [ 0, %.critedge.i ]
-  %.01758.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.01758.i.idx
-  %35 = load i64, ptr %.01758.i.ptr, align 8, !tbaa !523
+.lr.ph57.i:                                       ; preds = %.critedge.i, %.critedge25.i
+  %.01755.i.idx = phi i64 [ %.01755.i.add, %.critedge25.i ], [ 0, %.critedge.i ]
+  %.01755.i.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.01755.i.idx
+  %35 = load i64, ptr %.01755.i.ptr, align 8, !tbaa !523
   %36 = and i64 %35, 144115188075855871
-  %.not53.i = icmp eq i64 %36, 0
-  br i1 %.not53.i, label %.critedge25.i, label %37
+  %.not50.i = icmp eq i64 %36, 0
+  br i1 %.not50.i, label %.critedge25.i, label %37
 
-37:                                               ; preds = %.lr.ph60.i
-  %.mask.i31.i = and i64 %35, -144115188075855872
-  switch i64 %.mask.i31.i, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit [
+37:                                               ; preds = %.lr.ph57.i
+  %.mask.i30.i = and i64 %35, -144115188075855872
+  switch i64 %.mask.i30.i, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit [
     i64 864691128455135232, label %.critedge25.i
     i64 144115188075855872, label %.critedge25.i
     i64 1729382256910270464, label %.critedge25.i
     i64 288230376151711744, label %.critedge25.i
   ]
 
-.critedge25.i:                                    ; preds = %37, %37, %37, %37, %.lr.ph60.i
-  %.01758.i.add = add nuw nsw i64 %.01758.i.idx, 8
-  %.not23.i = icmp eq i64 %.01758.i.add, 32
-  br i1 %.not23.i, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit, label %.lr.ph60.i
+.critedge25.i:                                    ; preds = %37, %37, %37, %37, %.lr.ph57.i
+  %.01755.i.add = add nuw nsw i64 %.01755.i.idx, 8
+  %.not23.i = icmp eq i64 %.01755.i.add, 32
+  br i1 %.not23.i, label %_ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit, label %.lr.ph57.i
 
 _ZNK4pbrt21BasicTextureEvaluator11CanEvaluateESt16initializer_listINS_12FloatTextureEES1_INS_15SpectrumTextureEE.exit: ; preds = %34, %37, %.critedge25.i
   %.3.i = phi i1 [ true, %.critedge25.i ], [ false, %37 ], [ false, %34 ]

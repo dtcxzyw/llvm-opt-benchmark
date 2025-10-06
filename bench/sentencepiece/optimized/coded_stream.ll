@@ -394,15 +394,15 @@ _ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread: ; preds =
   br i1 %.not26.i.i.i, label %.loopexit.i.i, label %.preheader.i.i
 
 54:                                               ; preds = %.preheader.i.i
-  %55 = add nuw nsw i32 %.022.i21.i.i, 1
+  %55 = add nuw nsw i32 %.022.i19.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %55, 5
   br i1 %exitcond.not.i.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit, label %.preheader.i.i, !llvm.loop !28
 
 .preheader.i.i:                                   ; preds = %47, %54
-  %.022.i21.i.i = phi i32 [ %55, %54 ], [ 0, %47 ]
-  %.01120.i.i = phi ptr [ %56, %54 ], [ %49, %47 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.01120.i.i, i64 1
-  %57 = load i8, ptr %.01120.i.i, align 1, !tbaa !27
+  %.022.i19.i.i = phi i32 [ %55, %54 ], [ 0, %47 ]
+  %.01118.i.i = phi ptr [ %56, %54 ], [ %49, %47 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.01118.i.i, i64 1
+  %57 = load i8, ptr %.01118.i.i, align 1, !tbaa !27
   %.not27.i.i.i = icmp sgt i8 %57, -1
   br i1 %.not27.i.i.i, label %.loopexit.i.i, label %54
 
@@ -1685,15 +1685,15 @@ define noundef range(i64 -1, 4294967296) i64 @_ZN6google8protobuf2io16CodedInput
   br i1 %.not26.i, label %.loopexit, label %.preheader
 
 45:                                               ; preds = %.preheader
-  %46 = add nuw nsw i32 %.022.i21, 1
+  %46 = add nuw nsw i32 %.022.i19, 1
   %exitcond.not = icmp eq i32 %46, 5
   br i1 %exitcond.not, label %_ZN6google8protobuf2io12_GLOBAL__N_121ReadVarint32FromArrayEjPKhPj.exit, label %.preheader, !llvm.loop !28
 
 .preheader:                                       ; preds = %38, %45
-  %.022.i21 = phi i32 [ %46, %45 ], [ 0, %38 ]
-  %.01120 = phi ptr [ %47, %45 ], [ %40, %38 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.01120, i64 1
-  %48 = load i8, ptr %.01120, align 1, !tbaa !27
+  %.022.i19 = phi i32 [ %46, %45 ], [ 0, %38 ]
+  %.01118 = phi ptr [ %47, %45 ], [ %40, %38 ]
+  %47 = getelementptr inbounds nuw i8, ptr %.01118, i64 1
+  %48 = load i8, ptr %.01118, align 1, !tbaa !27
   %.not27.i = icmp sgt i8 %48, -1
   br i1 %.not27.i, label %.loopexit, label %45
 
@@ -2097,7 +2097,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
   %14 = getelementptr inbounds i8, ptr %4, i64 -1
   %15 = load i8, ptr %14, align 1, !tbaa !27
   %.not = icmp sgt i8 %15, -1
-  br i1 %.not, label %16, label %.thread25
+  br i1 %.not, label %16, label %.thread23
 
 16:                                               ; preds = %13, %2
   %17 = icmp eq i32 %1, 0
@@ -2150,15 +2150,15 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
   br i1 %.not26.i, label %.loopexit, label %.preheader
 
 49:                                               ; preds = %.preheader
-  %50 = add nuw nsw i32 %.022.i27, 1
+  %50 = add nuw nsw i32 %.022.i25, 1
   %exitcond.not = icmp eq i32 %50, 5
   br i1 %exitcond.not, label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit, label %.preheader, !llvm.loop !28
 
 .preheader:                                       ; preds = %42, %49
-  %.022.i27 = phi i32 [ %50, %49 ], [ 0, %42 ]
-  %.01826 = phi ptr [ %51, %49 ], [ %44, %42 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.01826, i64 1
-  %52 = load i8, ptr %.01826, align 1, !tbaa !27
+  %.022.i25 = phi i32 [ %50, %49 ], [ 0, %42 ]
+  %.01824 = phi ptr [ %51, %49 ], [ %44, %42 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.01824, i64 1
+  %52 = load i8, ptr %.01824, align 1, !tbaa !27
   %.not27.i = icmp sgt i8 %52, -1
   br i1 %.not27.i, label %.loopexit, label %49
 
@@ -2170,7 +2170,7 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
 
 53:                                               ; preds = %11
   %54 = icmp eq i32 %9, 0
-  br i1 %54, label %55, label %.thread25
+  br i1 %54, label %55, label %.thread23
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -2182,25 +2182,25 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
   %60 = load i32, ptr %59, align 8
   %61 = icmp eq i32 %.pre, %60
   %or.cond = select i1 %58, i1 true, i1 %61
-  br i1 %or.cond, label %._crit_edge, label %.thread25
+  br i1 %or.cond, label %._crit_edge, label %.thread23
 
 ._crit_edge:                                      ; preds = %55
   %62 = sub nsw i32 %.pre, %57
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %64 = load i32, ptr %63, align 8, !tbaa !32
   %65 = icmp slt i32 %62, %64
-  br i1 %65, label %66, label %.thread25
+  br i1 %65, label %66, label %.thread23
 
 66:                                               ; preds = %._crit_edge
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i8 1, ptr %67, align 4, !tbaa !24
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
-.thread25:                                        ; preds = %55, %13, %._crit_edge, %53
+.thread23:                                        ; preds = %55, %13, %._crit_edge, %53
   %68 = icmp eq ptr %5, %4
   br i1 %68, label %69, label %87
 
-69:                                               ; preds = %.thread25
+69:                                               ; preds = %.thread23
   %70 = tail call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7RefreshEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
   br i1 %70, label %._crit_edge.i, label %71
 
@@ -2234,9 +2234,9 @@ define noundef i32 @_ZN6google8protobuf2io16CodedInputStream15ReadTagFallbackEj(
   store i8 1, ptr %86, align 4, !tbaa !24
   br label %_ZN6google8protobuf2io16CodedInputStream11ReadTagSlowEv.exit
 
-87:                                               ; preds = %._crit_edge.i, %.thread25
-  %88 = phi ptr [ %.pre7.i, %._crit_edge.i ], [ %4, %.thread25 ]
-  %89 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %5, %.thread25 ]
+87:                                               ; preds = %._crit_edge.i, %.thread23
+  %88 = phi ptr [ %.pre7.i, %._crit_edge.i ], [ %4, %.thread23 ]
+  %89 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %5, %.thread23 ]
   %90 = icmp ult ptr %89, %88
   br i1 %90, label %91, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.i, !prof !26
 

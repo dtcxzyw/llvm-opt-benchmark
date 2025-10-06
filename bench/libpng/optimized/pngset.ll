@@ -1851,7 +1851,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   %or.cond3 = or i1 %or.cond, %7
   %8 = icmp eq ptr %2, null
   %or.cond5 = or i1 %8, %or.cond3
-  br i1 %or.cond5, label %.thread72, label %9
+  br i1 %or.cond5, label %.thread70, label %9
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 272
@@ -1860,7 +1860,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   %13 = load i32, ptr %12, align 8, !tbaa !175
   %14 = tail call noalias ptr @png_realloc_array(ptr noundef nonnull %0, ptr noundef %11, i32 noundef %13, i32 noundef %3, i64 noundef 32) #12
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.thread72.sink.split, label %16
+  br i1 %15, label %.thread70.sink.split, label %16
 
 16:                                               ; preds = %9
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef %11) #12
@@ -1903,7 +1903,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   %38 = tail call noalias ptr @png_malloc_base(ptr noundef nonnull %0, i64 noundef %37) #12
   store ptr %38, ptr %.055, align 8, !tbaa !176
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread72.sink.split, label %40
+  br i1 %39, label %.thread70.sink.split, label %40
 
 40:                                               ; preds = %32
   %41 = load ptr, ptr %.0, align 8, !tbaa !176
@@ -1920,7 +1920,7 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   %48 = load ptr, ptr %.055, align 8, !tbaa !176
   tail call void @png_free(ptr noundef nonnull %0, ptr noundef %48) #12
   store ptr null, ptr %.055, align 8, !tbaa !176
-  br label %.thread72.sink.split
+  br label %.thread70.sink.split
 
 49:                                               ; preds = %40
   %50 = load i32, ptr %42, align 8, !tbaa !181
@@ -1945,14 +1945,14 @@ define void @png_set_sPLT(ptr noalias noundef %0, ptr noalias noundef captures(a
   %.1 = phi ptr [ %.0, %31 ], [ %59, %49 ]
   %62 = add nsw i32 %.057, -1
   %.not = icmp eq i32 %62, 0
-  br i1 %.not, label %.thread72, label %23, !llvm.loop !182
+  br i1 %.not, label %.thread70, label %23, !llvm.loop !182
 
-.thread72.sink.split:                             ; preds = %32, %47, %9
+.thread70.sink.split:                             ; preds = %32, %47, %9
   %.str.59.sink = phi ptr [ @.str.57, %9 ], [ @.str.59, %47 ], [ @.str.59, %32 ]
   tail call void @png_chunk_report(ptr noundef nonnull %0, ptr noundef nonnull %.str.59.sink, i32 noundef 1) #12
-  br label %.thread72
+  br label %.thread70
 
-.thread72:                                        ; preds = %60, %.thread72.sink.split, %4
+.thread70:                                        ; preds = %60, %.thread70.sink.split, %4
   ret void
 }
 

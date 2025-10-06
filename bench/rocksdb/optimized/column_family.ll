@@ -3059,8 +3059,8 @@ define void @_ZN7rocksdb25CheckCompressionSupportedERKNS_19ColumnFamilyOptionsE(
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %105
-  %.026144 = phi i64 [ %106, %105 ], [ 0, %.lr.ph.preheader ]
-  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.026144
+  %.026142 = phi i64 [ %106, %105 ], [ 0, %.lr.ph.preheader ]
+  %28 = getelementptr inbounds nuw i8, ptr %21, i64 %.026142
   %29 = load i8, ptr %28, align 1, !tbaa !384
   switch i8 %29, label %_ZN7rocksdb24CompressionTypeSupportedENS_15CompressionTypeE.exit [
     i8 0, label %105
@@ -3302,7 +3302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59: ; preds = %_ZN
   br label %285
 
 105:                                              ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph, %.lr.ph
-  %106 = add nuw i64 %.026144, 1
+  %106 = add nuw i64 %.026142, 1
   %exitcond.not = icmp eq i64 %106, %27
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !394
 

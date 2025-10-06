@@ -1651,8 +1651,8 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
 43:                                               ; preds = %39
   store i8 0, ptr %41, align 1, !tbaa !26
   %44 = load i8, ptr %2, align 1, !tbaa !26
-  %.not48 = icmp eq i8 %44, 0
-  br i1 %.not48, label %.loopexit, label %.lr.ph
+  %.not47 = icmp eq i8 %44, 0
+  br i1 %.not47, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %43
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1661,14 +1661,14 @@ define range(i32 -1, 1) i32 @UI_set_result_ex(ptr noundef captures(none) %0, ptr
   br label %51
 
 48:                                               ; preds = %58
-  %49 = getelementptr inbounds nuw i8, ptr %.03649, i64 1
+  %49 = getelementptr inbounds nuw i8, ptr %.03648, i64 1
   %50 = load i8, ptr %49, align 1, !tbaa !26
   %.not = icmp eq i8 %50, 0
   br i1 %.not, label %.loopexit, label %51, !llvm.loop !42
 
 51:                                               ; preds = %.lr.ph, %48
   %52 = phi i8 [ %44, %.lr.ph ], [ %50, %48 ]
-  %.03649 = phi ptr [ %2, %.lr.ph ], [ %49, %48 ]
+  %.03648 = phi ptr [ %2, %.lr.ph ], [ %49, %48 ]
   %53 = sext i8 %52 to i32
   %54 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %46, i32 noundef %53) #9
   %.not42 = icmp eq ptr %54, null

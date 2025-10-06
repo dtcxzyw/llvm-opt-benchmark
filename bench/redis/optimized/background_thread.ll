@@ -1135,7 +1135,7 @@ atomic_store_b.exit:                              ; preds = %5, %2
   %7 = load i8, ptr @je_opt_background_thread, align 1, !tbaa !30, !range !31, !noundef !32
   store atomic i8 %7, ptr @je_background_thread_enabled_state monotonic, align 1
   %8 = tail call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull @je_background_thread_lock, ptr noundef nonnull @.str, i32 noundef 5, i32 noundef 0) #12
-  br i1 %8, label %.loopexit, label %9
+  br i1 %8, label %.thread, label %9
 
 9:                                                ; preds = %atomic_store_b.exit
   %10 = load i64, ptr @je_opt_max_background_threads, align 8, !tbaa !17
@@ -1143,27 +1143,27 @@ atomic_store_b.exit:                              ; preds = %5, %2
   %12 = tail call ptr @je_base_alloc(ptr noundef %0, ptr noundef %1, i64 noundef %11, i64 noundef 64) #12
   store ptr %12, ptr @je_background_thread_info, align 8, !tbaa !18
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.loopexit, label %.preheader
+  br i1 %13, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %9
   %14 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
-  %.not2223.not = icmp eq i64 %14, 0
-  br i1 %.not2223.not, label %.loopexit, label %.lr.ph
+  %.not28 = icmp eq i64 %14, 0
+  br i1 %.not28, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %malloc_mutex_lock.exit
   %15 = phi i64 [ %44, %malloc_mutex_lock.exit ], [ 0, %.preheader ]
-  %.01924 = phi i32 [ %43, %malloc_mutex_lock.exit ], [ 0, %.preheader ]
+  %.01923 = phi i32 [ %43, %malloc_mutex_lock.exit ], [ 0, %.preheader ]
   %16 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
   %17 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = tail call zeroext i1 @je_malloc_mutex_init(ptr noundef nonnull %18, ptr noundef nonnull @.str.1, i32 noundef 13, i32 noundef 1) #12
-  br i1 %19, label %.loopexit, label %20
+  br i1 %19, label %.thread, label %20
 
 20:                                               ; preds = %.lr.ph
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %22 = tail call i32 @pthread_cond_init(ptr noundef nonnull %21, ptr noundef null) #12
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %.critedge, label %.loopexit
+  br i1 %.not, label %.critedge, label %.thread
 
 .critedge:                                        ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 120
@@ -1209,14 +1209,14 @@ malloc_mutex_lock.exit:                           ; preds = %26, %32
   %41 = getelementptr inbounds nuw i8, ptr %17, i64 160
   store atomic i8 0, ptr %41 monotonic, align 8
   %42 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #12
-  %43 = add i32 %.01924, 1
+  %43 = add i32 %.01923, 1
   %44 = zext i32 %43 to i64
   %45 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
-  %.not22 = icmp ugt i64 %45, %44
-  br i1 %.not22, label %.lr.ph, label %.loopexit, !llvm.loop !51
+  %46 = icmp ugt i64 %45, %44
+  br i1 %46, label %.lr.ph, label %.thread, !llvm.loop !51
 
-.loopexit:                                        ; preds = %.lr.ph, %20, %malloc_mutex_lock.exit, %.preheader, %9, %atomic_store_b.exit
-  %.0 = phi i1 [ true, %atomic_store_b.exit ], [ true, %9 ], [ false, %.preheader ], [ true, %.lr.ph ], [ true, %20 ], [ false, %malloc_mutex_lock.exit ]
+.thread:                                          ; preds = %malloc_mutex_lock.exit, %20, %.lr.ph, %.preheader, %9, %atomic_store_b.exit
+  %.0 = phi i1 [ true, %atomic_store_b.exit ], [ true, %9 ], [ false, %.preheader ], [ false, %malloc_mutex_lock.exit ], [ true, %20 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 

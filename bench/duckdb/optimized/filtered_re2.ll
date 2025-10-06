@@ -707,18 +707,18 @@ define hidden noundef i32 @_ZNK10duckdb_re211FilteredRE214SlowFirstMatchERKNS_11
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !11
   %6 = load ptr, ptr %0, align 8, !tbaa !8
-  %.not10.not = icmp eq ptr %5, %6
-  br i1 %.not10.not, label %.loopexit, label %.lr.ph
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph, %15
-  %9 = phi ptr [ %6, %.lr.ph ], [ %18, %15 ]
-  %.0711 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.0711
+8:                                                ; preds = %.lr.ph, %13
+  %9 = phi ptr [ %6, %.lr.ph ], [ %16, %13 ]
+  %.0712 = phi i64 [ 0, %.lr.ph ], [ %14, %13 ]
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.0712
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !68
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !69
@@ -727,26 +727,26 @@ define hidden noundef i32 @_ZNK10duckdb_re211FilteredRE214SlowFirstMatchERKNS_11
   store i64 %.sroa.2.0.copyload.i, ptr %7, align 8
   %12 = call noundef zeroext i1 @_ZN10duckdb_re23RE213PartialMatchNERKNS_11StringPieceERKS0_PKPKNS0_3ArgEi(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(148) %11, ptr noundef null, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %12, label %13, label %15
+  br i1 %12, label %22, label %13
 
 13:                                               ; preds = %8
-  %14 = trunc i64 %.0711 to i32
+  %14 = add nuw i64 %.0712, 1
+  %15 = load ptr, ptr %4, align 8, !tbaa !11
+  %16 = load ptr, ptr %0, align 8, !tbaa !8
+  %17 = ptrtoint ptr %15 to i64
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = ashr exact i64 %19, 3
+  %21 = icmp ult i64 %14, %20
+  br i1 %21, label %8, label %.loopexit, !llvm.loop !70
+
+22:                                               ; preds = %8
+  %23 = trunc i64 %.0712 to i32
   br label %.loopexit
 
-15:                                               ; preds = %8
-  %16 = add nuw i64 %.0711, 1
-  %17 = load ptr, ptr %4, align 8, !tbaa !11
-  %18 = load ptr, ptr %0, align 8, !tbaa !8
-  %19 = ptrtoint ptr %17 to i64
-  %20 = ptrtoint ptr %18 to i64
-  %21 = sub i64 %19, %20
-  %22 = ashr exact i64 %21, 3
-  %.not = icmp ult i64 %16, %22
-  br i1 %.not, label %8, label %.loopexit, !llvm.loop !70
-
-.loopexit:                                        ; preds = %15, %2, %13
-  %spec.select = phi i32 [ %14, %13 ], [ -1, %2 ], [ -1, %15 ]
-  ret i32 %spec.select
+.loopexit:                                        ; preds = %13, %2, %22
+  %24 = phi i32 [ %23, %22 ], [ -1, %2 ], [ -1, %13 ]
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress uwtable

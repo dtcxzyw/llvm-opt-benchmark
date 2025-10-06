@@ -812,14 +812,14 @@ define hidden void @macro_parse(ptr noundef captures(none) initializes((48, 56))
   store ptr %7, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   tail call void @g_ptr_array_add(ptr noundef %3, ptr noundef %7)
-  %.not76 = icmp eq ptr %9, null
-  br i1 %.not76, label %.critedge, label %.lr.ph
+  %.not75 = icmp eq ptr %9, null
+  br i1 %.not75, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %46
-  %.04779 = phi ptr [ %.1, %46 ], [ %9, %1 ]
-  %.05078 = phi i32 [ %.151, %46 ], [ 0, %1 ]
-  %.05377 = phi ptr [ %.154, %46 ], [ %7, %1 ]
-  %10 = load i8, ptr %.04779, align 1
+  %.04778 = phi ptr [ %.1, %46 ], [ %9, %1 ]
+  %.05077 = phi i32 [ %.151, %46 ], [ 0, %1 ]
+  %.05376 = phi ptr [ %.154, %46 ], [ %7, %1 ]
+  %10 = load i8, ptr %.04778, align 1
   switch i8 %10, label %11 [
     i8 0, label %.critedge
     i8 36, label %21
@@ -827,22 +827,22 @@ define hidden void @macro_parse(ptr noundef captures(none) initializes((48, 56))
   ]
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr i8, ptr %.04779, i64 1
-  %13 = getelementptr i8, ptr %.05377, i64 1
-  store i8 %10, ptr %.05377, align 1
+  %12 = getelementptr i8, ptr %.04778, i64 1
+  %13 = getelementptr i8, ptr %.05376, i64 1
+  store i8 %10, ptr %.05376, align 1
   br label %46
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr i8, ptr %.04779, i64 1
-  %16 = getelementptr i8, ptr %.05377, i64 1
-  store i8 92, ptr %.05377, align 1
+  %15 = getelementptr i8, ptr %.04778, i64 1
+  %16 = getelementptr i8, ptr %.05376, i64 1
+  store i8 92, ptr %.05376, align 1
   %17 = load i8, ptr %15, align 1
   %.not64 = icmp eq i8 %17, 0
   br i1 %.not64, label %46, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr i8, ptr %.04779, i64 2
-  %20 = getelementptr i8, ptr %.05377, i64 2
+  %19 = getelementptr i8, ptr %.04778, i64 2
+  %20 = getelementptr i8, ptr %.05376, i64 2
   store i8 %17, ptr %16, align 1
   br label %46
 
@@ -852,9 +852,9 @@ define hidden void @macro_parse(ptr noundef captures(none) initializes((48, 56))
   br label %22
 
 22:                                               ; preds = %26, %21
-  %.255 = phi ptr [ %.05377, %21 ], [ %29, %26 ]
+  %.255 = phi ptr [ %.05376, %21 ], [ %29, %26 ]
   %.048 = phi i32 [ 0, %21 ], [ %28, %26 ]
-  %.2 = phi ptr [ %.04779, %21 ], [ %23, %26 ]
+  %.2 = phi ptr [ %.04778, %21 ], [ %23, %26 ]
   %23 = getelementptr i8, ptr %.2, i64 1
   %24 = load i8, ptr %23, align 1
   %25 = add i8 %24, -48
@@ -876,17 +876,17 @@ define hidden void @macro_parse(ptr noundef captures(none) initializes((48, 56))
   br i1 %.not62, label %35, label %22, !llvm.loop !12
 
 35:                                               ; preds = %22, %26
-  %.375 = phi ptr [ %23, %26 ], [ %.2, %22 ]
-  %.14973 = phi i32 [ %28, %26 ], [ %.048, %22 ]
-  %.35671 = phi ptr [ %29, %26 ], [ %.255, %22 ]
-  %.not63 = icmp eq i32 %.14973, 0
+  %.374 = phi ptr [ %23, %26 ], [ %.2, %22 ]
+  %.14972 = phi i32 [ %28, %26 ], [ %.048, %22 ]
+  %.35670 = phi ptr [ %29, %26 ], [ %.255, %22 ]
+  %.not63 = icmp eq i32 %.14972, 0
   br i1 %.not63, label %42, label %36
 
 36:                                               ; preds = %35
-  %37 = getelementptr i8, ptr %.35671, i64 1
-  store i8 0, ptr %.35671, align 1
+  %37 = getelementptr i8, ptr %.35670, i64 1
+  store i8 0, ptr %.35670, align 1
   %38 = load i32, ptr %2, align 4
-  %39 = call i32 @llvm.smax.i32(i32 %.05078, i32 %38)
+  %39 = call i32 @llvm.smax.i32(i32 %.05077, i32 %38)
   %40 = add i32 %38, -1
   store i32 %40, ptr %2, align 4
   %41 = call ptr @g_array_append_vals(ptr noundef %4, ptr noundef nonnull %2, i32 noundef 1)
@@ -894,27 +894,27 @@ define hidden void @macro_parse(ptr noundef captures(none) initializes((48, 56))
   br label %45
 
 42:                                               ; preds = %35
-  %43 = load i8, ptr %.375, align 1
-  %44 = getelementptr i8, ptr %.35671, i64 1
-  store i8 %43, ptr %.35671, align 1
+  %43 = load i8, ptr %.374, align 1
+  %44 = getelementptr i8, ptr %.35670, i64 1
+  store i8 %43, ptr %.35670, align 1
   br label %45
 
 45:                                               ; preds = %42, %36
   %.457 = phi ptr [ %37, %36 ], [ %44, %42 ]
-  %.252 = phi i32 [ %39, %36 ], [ %.05078, %42 ]
-  %.4 = getelementptr i8, ptr %.375, i64 1
+  %.252 = phi i32 [ %39, %36 ], [ %.05077, %42 ]
+  %.4 = getelementptr i8, ptr %.374, i64 1
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %46
 
 46:                                               ; preds = %14, %18, %45, %11
   %.154 = phi ptr [ %13, %11 ], [ %20, %18 ], [ %16, %14 ], [ %.457, %45 ]
-  %.151 = phi i32 [ %.05078, %11 ], [ %.05078, %18 ], [ %.05078, %14 ], [ %.252, %45 ]
+  %.151 = phi i32 [ %.05077, %11 ], [ %.05077, %18 ], [ %.05077, %14 ], [ %.252, %45 ]
   %.1 = phi ptr [ %12, %11 ], [ %19, %18 ], [ %15, %14 ], [ %.4, %45 ]
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !13
 
 .critedge:                                        ; preds = %46, %.lr.ph, %1
-  %.050.lcssa = phi i32 [ 0, %1 ], [ %.05078, %.lr.ph ], [ %.151, %46 ]
+  %.050.lcssa = phi i32 [ 0, %1 ], [ %.05077, %.lr.ph ], [ %.151, %46 ]
   call void @g_ptr_array_add(ptr noundef %3, ptr noundef null)
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load ptr, ptr %47, align 8
@@ -1044,7 +1044,7 @@ define void @dfilter_macro_reload() local_unnamed_addr #0 {
   br i1 %13, label %.sink.split.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %10, %20
-  %.01321.i = phi ptr [ %21, %20 ], [ %6, %10 ]
+  %.01319.i = phi ptr [ %21, %20 ], [ %6, %10 ]
   %14 = phi i8 [ %.pr.i, %20 ], [ %8, %10 ]
   %15 = zext i8 %14 to i64
   %16 = getelementptr i16, ptr %3, i64 %15
@@ -1056,7 +1056,7 @@ define void @dfilter_macro_reload() local_unnamed_addr #0 {
   br i1 %or.cond.i, label %20, label %.sink.split.i
 
 20:                                               ; preds = %.preheader.i
-  %21 = getelementptr i8, ptr %.01321.i, i64 1
+  %21 = getelementptr i8, ptr %.01319.i, i64 1
   %.pr.i = load i8, ptr %21, align 1
   %.not.i = icmp eq i8 %.pr.i, 0
   br i1 %.not.i, label %22, label %.preheader.i, !llvm.loop !14

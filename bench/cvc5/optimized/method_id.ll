@@ -274,14 +274,14 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal12getMethodIdsERKSt6vectorINS
   br label %9
 
 9:                                                ; preds = %5, %.critedge
-  %.02964 = phi i64 [ 0, %5 ], [ %26, %.critedge ]
+  %.02962 = phi i64 [ 0, %5 ], [ %26, %.critedge ]
   %10 = load ptr, ptr %8, align 8, !tbaa !13
   %11 = load ptr, ptr %0, align 8, !tbaa !16
   %12 = ptrtoint ptr %10 to i64
   %13 = ptrtoint ptr %11 to i64
   %14 = sub i64 %12, %13
   %15 = ashr exact i64 %14, 3
-  %16 = add nuw i64 %.02964, %4
+  %16 = add nuw i64 %.02962, %4
   %17 = icmp ugt i64 %15, %16
   br i1 %17, label %.noexc, label %.loopexit
 
@@ -295,15 +295,15 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal12getMethodIdsERKSt6vectorINS
   br i1 %20, label %.critedge, label %27
 
 .critedge:                                        ; preds = %.noexc
-  %21 = icmp eq i64 %.02964, 0
-  %22 = icmp eq i64 %.02964, 1
+  %21 = icmp eq i64 %.02962, 0
+  %22 = icmp eq i64 %.02962, 1
   %23 = select i1 %22, ptr %2, ptr %3
   %24 = select i1 %21, ptr %1, ptr %23
   %25 = load i32, ptr %6, align 4, !tbaa !9
   store i32 %25, ptr %24, align 4, !tbaa !11
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %26 = add nuw nsw i64 %.02964, 1
+  %26 = add nuw nsw i64 %.02962, 1
   %exitcond.not = icmp eq i64 %26, 3
   br i1 %exitcond.not, label %.loopexit, label %9, !llvm.loop !19
 

@@ -1401,9 +1401,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
 
 .thread:                                          ; preds = %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit4, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit
-  %.sink38 = phi i32 [ 1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 2, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit4 ]
+  %.sink37 = phi i32 [ 1, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit ], [ 2, %_ZNK4llvm9StringRef18equals_insensitiveES0_.exit4 ]
   %66 = load i32, ptr %20, align 8, !tbaa !235
-  %67 = or i32 %66, %.sink38
+  %67 = or i32 %66, %.sink37
   store i32 %67, ptr %20, align 8, !tbaa !235
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
@@ -1420,8 +1420,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %70, label %21, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread28, !llvm.loop !236
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread28: ; preds = %68, %_ZNK4llvm9StringRef11starts_withES0_.exit, %34
-  %.pre33 = load i8, ptr %12, align 8, !tbaa !222, !range !223
-  %71 = trunc nuw i8 %.pre33 to i1
+  %.pre32 = load i8, ptr %12, align 8, !tbaa !222, !range !223
+  %71 = trunc nuw i8 %.pre32 to i1
   br i1 %71, label %88, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread28.thread
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread28.thread: ; preds = %2, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread28

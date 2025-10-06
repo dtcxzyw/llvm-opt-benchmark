@@ -258,8 +258,8 @@ _ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit96: ;
   %72 = load ptr, ptr %71, align 8, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %64, i64 72
   %74 = load ptr, ptr %73, align 8, !tbaa !38
-  %.not28.i = icmp eq ptr %72, %74
-  br i1 %.not28.i, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit.thread, label %.lr.ph.i
+  %.not26.i = icmp eq ptr %72, %74
+  br i1 %.not26.i, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit96
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 176
@@ -267,13 +267,13 @@ _ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit96: ;
   br label %79
 
 77:                                               ; preds = %86
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.015.029.i, i64 4
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i, i64 4
   %.not.i = icmp eq ptr %78, %74
   br i1 %.not.i, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit.thread, label %79
 
 79:                                               ; preds = %77, %.lr.ph.i
-  %.sroa.015.029.i = phi ptr [ %72, %.lr.ph.i ], [ %78, %77 ]
-  %80 = load i32, ptr %.sroa.015.029.i, align 4, !tbaa !43
+  %.sroa.015.027.i = phi ptr [ %72, %.lr.ph.i ], [ %78, %77 ]
+  %80 = load i32, ptr %.sroa.015.027.i, align 4, !tbaa !43
   %81 = zext i32 %80 to i64
   %82 = getelementptr inbounds nuw %"class.llvm::PBQP::Graph<llvm::PBQP::RegAlloc::RegAllocSolverImpl>::EdgeEntry", ptr %76, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 20
@@ -284,8 +284,8 @@ _ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit96: ;
 86:                                               ; preds = %79
   %87 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %88 = load i32, ptr %87, align 4, !tbaa !43
-  %.not27.i = icmp eq i32 %88, %.0.i95
-  br i1 %.not27.i, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit, label %77
+  %.not25.i = icmp eq i32 %88, %.0.i95
+  br i1 %.not25.i, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit, label %77
 
 _ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit: ; preds = %79, %86
   %89 = icmp eq i32 %80, -1
@@ -1458,18 +1458,18 @@ _ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit92: ;
   %157 = load ptr, ptr %156, align 8, !tbaa !38
   %158 = getelementptr inbounds nuw i8, ptr %125, i64 72
   %159 = load ptr, ptr %158, align 8, !tbaa !38
-  %.not28.i = icmp eq ptr %157, %159
+  %.not26.i = icmp eq ptr %157, %159
   %.pre = load ptr, ptr %84, align 8, !tbaa !40
-  br i1 %.not28.i, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit, label %.lr.ph.i
+  br i1 %.not26.i, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit, label %.lr.ph.i
 
 160:                                              ; preds = %168
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.015.029.i, i64 4
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.015.027.i, i64 4
   %.not.i93 = icmp eq ptr %161, %159
   br i1 %.not.i93, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit92, %160
-  %.sroa.015.029.i = phi ptr [ %161, %160 ], [ %157, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit92 ]
-  %162 = load i32, ptr %.sroa.015.029.i, align 4, !tbaa !43
+  %.sroa.015.027.i = phi ptr [ %161, %160 ], [ %157, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit92 ]
+  %162 = load i32, ptr %.sroa.015.027.i, align 4, !tbaa !43
   %163 = zext i32 %162 to i64
   %164 = getelementptr inbounds nuw %"class.llvm::PBQP::Graph<llvm::PBQP::RegAlloc::RegAllocSolverImpl>::EdgeEntry", ptr %.pre, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 20
@@ -1480,11 +1480,11 @@ _ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit92: ;
 168:                                              ; preds = %.lr.ph.i
   %169 = getelementptr inbounds nuw i8, ptr %164, i64 24
   %170 = load i32, ptr %169, align 4, !tbaa !43
-  %.not27.i = icmp eq i32 %170, %.0.i91
-  br i1 %.not27.i, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit, label %160
+  %.not25.i = icmp eq i32 %170, %.0.i91
+  br i1 %.not25.i, label %_ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit, label %160
 
 _ZN4llvm4PBQP5GraphINS0_8RegAlloc18RegAllocSolverImplEE8findEdgeEjj.exit: ; preds = %160, %.lr.ph.i, %168, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit92
-  %.3.i = phi i32 [ -1, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit92 ], [ %162, %168 ], [ %162, %.lr.ph.i ], [ -1, %160 ]
+  %.3.i = phi i32 [ -1, %_ZNK4llvm4PBQP8RegAlloc13GraphMetadata16getNodeIdForVRegENS_8RegisterE.exit92 ], [ -1, %160 ], [ %162, %168 ], [ %162, %.lr.ph.i ]
   %171 = zext i32 %.3.i to i64
   %172 = getelementptr inbounds nuw %"class.llvm::PBQP::Graph<llvm::PBQP::RegAlloc::RegAllocSolverImpl>::EdgeEntry", ptr %.pre, i64 %171
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 20

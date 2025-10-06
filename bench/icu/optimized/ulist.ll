@@ -186,14 +186,14 @@ define signext range(i8 0, 2) i8 @ulist_containsString_77(ptr noundef readonly c
 
 .preheader:                                       ; preds = %3
   %4 = sext i32 %2 to i64
-  %.010.in16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.01017 = load ptr, ptr %.010.in16, align 8, !tbaa !19
-  %.not14.not18 = icmp eq ptr %.01017, null
-  br i1 %.not14.not18, label %.thread, label %.lr.ph
+  %.010.in15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.01016 = load ptr, ptr %.010.in15, align 8, !tbaa !19
+  %.not14.not17 = icmp eq ptr %.01016, null
+  br i1 %.not14.not17, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %11
-  %.01019 = phi ptr [ %.010, %11 ], [ %.01017, %.preheader ]
-  %5 = load ptr, ptr %.01019, align 8, !tbaa !7
+  %.01018 = phi ptr [ %.010, %11 ], [ %.01016, %.preheader ]
+  %5 = load ptr, ptr %.01018, align 8, !tbaa !7
   %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #14
   %7 = trunc i64 %6 to i32
   %8 = icmp eq i32 %2, %7
@@ -205,7 +205,7 @@ define signext range(i8 0, 2) i8 @ulist_containsString_77(ptr noundef readonly c
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %.lr.ph, %9
-  %.010.in = getelementptr inbounds nuw i8, ptr %.01019, i64 8
+  %.010.in = getelementptr inbounds nuw i8, ptr %.01018, i64 8
   %.010 = load ptr, ptr %.010.in, align 8, !tbaa !19
   %.not14.not = icmp eq ptr %.010, null
   br i1 %.not14.not, label %.thread, label %.lr.ph, !llvm.loop !20

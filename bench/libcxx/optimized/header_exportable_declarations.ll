@@ -779,29 +779,29 @@ _ZN4llvm11raw_ostreamlsEPKc.exit58:               ; preds = %.invoke, %167, %147
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 %177
   %179 = ptrtoint ptr %178 to i64
   %180 = icmp samesign eq i64 %177, 0
-  br i1 %180, label %.loopexit196, label %.preheader40.i.i.i.i
+  br i1 %180, label %.loopexit196, label %.preheader39.i.i.i.i
 
-.preheader40.i.i.i.i:                             ; preds = %174, %184
-  %.146.i.i.i.i = phi ptr [ %183, %184 ], [ %175, %174 ]
-  %181 = load i8, ptr %.146.i.i.i.i, align 1, !tbaa !52, !noalias !49
+.preheader39.i.i.i.i:                             ; preds = %174, %184
+  %.145.i.i.i.i = phi ptr [ %183, %184 ], [ %175, %174 ]
+  %181 = load i8, ptr %.145.i.i.i.i, align 1, !tbaa !52, !noalias !49
   %182 = icmp eq i8 %181, 32
-  %183 = getelementptr inbounds nuw i8, ptr %.146.i.i.i.i, i64 1
+  %183 = getelementptr inbounds nuw i8, ptr %.145.i.i.i.i, i64 1
   br i1 %182, label %.lr.ph, label %184
 
-184:                                              ; preds = %.preheader40.i.i.i.i
+184:                                              ; preds = %.preheader39.i.i.i.i
   %185 = icmp eq ptr %183, %178
-  br i1 %185, label %.thread.loopexit72.i.i.i.i, label %.preheader40.i.i.i.i, !llvm.loop !53
+  br i1 %185, label %.thread.loopexit71.i.i.i.i, label %.preheader39.i.i.i.i, !llvm.loop !53
 
-.thread.loopexit72.i.i.i.i:                       ; preds = %184
-  %.0284963.le90.i.i.i.i = ptrtoint ptr %175 to i64
+.thread.loopexit71.i.i.i.i:                       ; preds = %184
+  %.0284862.le89.i.i.i.i = ptrtoint ptr %175 to i64
   %scevgep.le.i.i.i.i = getelementptr i8, ptr %175, i64 %179
-  %186 = sub i64 0, %.0284963.le90.i.i.i.i
-  %scevgep61.le83.i.i.i.i = getelementptr i8, ptr %scevgep.le.i.i.i.i, i64 %186
+  %186 = sub i64 0, %.0284862.le89.i.i.i.i
+  %scevgep60.le82.i.i.i.i = getelementptr i8, ptr %scevgep.le.i.i.i.i, i64 %186
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader40.i.i.i.i, %.thread.loopexit72.i.i.i.i
-  %.sroa.5.0.i.i.i.i = phi ptr [ %scevgep61.le83.i.i.i.i, %.thread.loopexit72.i.i.i.i ], [ %183, %.preheader40.i.i.i.i ]
-  %.sroa.0.0.i.i.i.i = phi ptr [ %scevgep61.le83.i.i.i.i, %.thread.loopexit72.i.i.i.i ], [ %.146.i.i.i.i, %.preheader40.i.i.i.i ]
+.lr.ph:                                           ; preds = %.preheader39.i.i.i.i, %.thread.loopexit71.i.i.i.i
+  %.sroa.5.0.i.i.i.i = phi ptr [ %scevgep60.le82.i.i.i.i, %.thread.loopexit71.i.i.i.i ], [ %183, %.preheader39.i.i.i.i ]
+  %.sroa.0.0.i.i.i.i = phi ptr [ %scevgep60.le82.i.i.i.i, %.thread.loopexit71.i.i.i.i ], [ %.145.i.i.i.i, %.preheader39.i.i.i.i ]
   %187 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %188 = getelementptr inbounds nuw i8, ptr %8, i64 8
   br label %191
@@ -953,35 +953,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 237:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %238 = icmp eq ptr %.sroa.15155.0220, %236
-  br i1 %238, label %_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit, label %.preheader40.i.i.i.i66
+  br i1 %238, label %_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit, label %.preheader39.i.i.i.i66
 
-.preheader40.i.i.i.i66:                           ; preds = %237
+.preheader39.i.i.i.i66:                           ; preds = %237
   %239 = ptrtoint ptr %236 to i64
   br label %240
 
-240:                                              ; preds = %244, %.preheader40.i.i.i.i66
-  %.146.i.i.i.i67 = phi ptr [ %.sroa.15155.0220, %.preheader40.i.i.i.i66 ], [ %243, %244 ]
-  %241 = load i8, ptr %.146.i.i.i.i67, align 1, !tbaa !52
+240:                                              ; preds = %244, %.preheader39.i.i.i.i66
+  %.145.i.i.i.i67 = phi ptr [ %.sroa.15155.0220, %.preheader39.i.i.i.i66 ], [ %243, %244 ]
+  %241 = load i8, ptr %.145.i.i.i.i67, align 1, !tbaa !52
   %242 = icmp eq i8 %241, 32
-  %243 = getelementptr inbounds nuw i8, ptr %.146.i.i.i.i67, i64 1
+  %243 = getelementptr inbounds nuw i8, ptr %.145.i.i.i.i67, i64 1
   br i1 %242, label %_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit, label %244
 
 244:                                              ; preds = %240
   %245 = icmp eq ptr %243, %236
-  br i1 %245, label %.thread.loopexit72.i.i.i.i68, label %240, !llvm.loop !53
+  br i1 %245, label %.thread.loopexit71.i.i.i.i68, label %240, !llvm.loop !53
 
-.thread.loopexit72.i.i.i.i68:                     ; preds = %244
-  %.0284963.le90.i.i.i.i69 = ptrtoint ptr %.sroa.15155.0220 to i64
+.thread.loopexit71.i.i.i.i68:                     ; preds = %244
+  %.0284862.le89.i.i.i.i69 = ptrtoint ptr %.sroa.15155.0220 to i64
   %scevgep.le.i.i.i.i70 = getelementptr i8, ptr %.sroa.15155.0220, i64 %239
-  %246 = sub i64 0, %.0284963.le90.i.i.i.i69
-  %scevgep61.le83.i.i.i.i71 = getelementptr i8, ptr %scevgep.le.i.i.i.i70, i64 %246
+  %246 = sub i64 0, %.0284862.le89.i.i.i.i69
+  %scevgep60.le82.i.i.i.i71 = getelementptr i8, ptr %scevgep.le.i.i.i.i70, i64 %246
   br label %_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit
 
-_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit: ; preds = %240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread.loopexit72.i.i.i.i68, %237
-  %.sroa.5151.1 = phi ptr [ %.sroa.15155.0220, %237 ], [ %.sroa.15155.0220, %.thread.loopexit72.i.i.i.i68 ], [ %.sroa.10153.0219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.15155.0220, %240 ]
-  %.sroa.10153.1 = phi ptr [ %.sroa.15155.0220, %237 ], [ %scevgep61.le83.i.i.i.i71, %.thread.loopexit72.i.i.i.i68 ], [ %.sroa.10153.0219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.146.i.i.i.i67, %240 ]
-  %.sroa.15155.1 = phi ptr [ %.sroa.15155.0220, %237 ], [ %scevgep61.le83.i.i.i.i71, %.thread.loopexit72.i.i.i.i68 ], [ %.sroa.15155.0220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %243, %240 ]
-  %.sroa.18156.1 = phi i8 [ 1, %237 ], [ %.sroa.18156.0221, %.thread.loopexit72.i.i.i.i68 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.18156.0221, %240 ]
+_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit: ; preds = %240, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread.loopexit71.i.i.i.i68, %237
+  %.sroa.5151.1 = phi ptr [ %.sroa.15155.0220, %237 ], [ %.sroa.15155.0220, %.thread.loopexit71.i.i.i.i68 ], [ %.sroa.10153.0219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.15155.0220, %240 ]
+  %.sroa.10153.1 = phi ptr [ %.sroa.15155.0220, %237 ], [ %scevgep60.le82.i.i.i.i71, %.thread.loopexit71.i.i.i.i68 ], [ %.sroa.10153.0219, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.145.i.i.i.i67, %240 ]
+  %.sroa.15155.1 = phi ptr [ %.sroa.15155.0220, %237 ], [ %scevgep60.le82.i.i.i.i71, %.thread.loopexit71.i.i.i.i68 ], [ %.sroa.15155.0220, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %243, %240 ]
+  %.sroa.18156.1 = phi i8 [ 1, %237 ], [ %.sroa.18156.0221, %.thread.loopexit71.i.i.i.i68 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %.sroa.18156.0221, %240 ]
   %247 = icmp eq ptr %.sroa.5151.1, %178
   %248 = icmp eq i8 %.sroa.18156.1, 0
   %249 = select i1 %247, i1 %248, i1 false
@@ -1041,29 +1041,29 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %262 = getelementptr inbounds nuw i8, ptr %259, i64 %261
   %263 = ptrtoint ptr %262 to i64
   %264 = icmp samesign eq i64 %261, 0
-  br i1 %264, label %.loopexit, label %.preheader40.i.i.i.i81
+  br i1 %264, label %.loopexit, label %.preheader39.i.i.i.i81
 
-.preheader40.i.i.i.i81:                           ; preds = %258, %268
-  %.146.i.i.i.i82 = phi ptr [ %267, %268 ], [ %259, %258 ]
-  %265 = load i8, ptr %.146.i.i.i.i82, align 1, !tbaa !52, !noalias !60
+.preheader39.i.i.i.i81:                           ; preds = %258, %268
+  %.145.i.i.i.i82 = phi ptr [ %267, %268 ], [ %259, %258 ]
+  %265 = load i8, ptr %.145.i.i.i.i82, align 1, !tbaa !52, !noalias !60
   %266 = icmp eq i8 %265, 32
-  %267 = getelementptr inbounds nuw i8, ptr %.146.i.i.i.i82, i64 1
+  %267 = getelementptr inbounds nuw i8, ptr %.145.i.i.i.i82, i64 1
   br i1 %266, label %.lr.ph226, label %268
 
-268:                                              ; preds = %.preheader40.i.i.i.i81
+268:                                              ; preds = %.preheader39.i.i.i.i81
   %269 = icmp eq ptr %267, %262
-  br i1 %269, label %.thread.loopexit72.i.i.i.i83, label %.preheader40.i.i.i.i81, !llvm.loop !53
+  br i1 %269, label %.thread.loopexit71.i.i.i.i83, label %.preheader39.i.i.i.i81, !llvm.loop !53
 
-.thread.loopexit72.i.i.i.i83:                     ; preds = %268
-  %.0284963.le90.i.i.i.i84 = ptrtoint ptr %259 to i64
+.thread.loopexit71.i.i.i.i83:                     ; preds = %268
+  %.0284862.le89.i.i.i.i84 = ptrtoint ptr %259 to i64
   %scevgep.le.i.i.i.i85 = getelementptr i8, ptr %259, i64 %263
-  %270 = sub i64 0, %.0284963.le90.i.i.i.i84
-  %scevgep61.le83.i.i.i.i86 = getelementptr i8, ptr %scevgep.le.i.i.i.i85, i64 %270
+  %270 = sub i64 0, %.0284862.le89.i.i.i.i84
+  %scevgep60.le82.i.i.i.i86 = getelementptr i8, ptr %scevgep.le.i.i.i.i85, i64 %270
   br label %.lr.ph226
 
-.lr.ph226:                                        ; preds = %.preheader40.i.i.i.i81, %.thread.loopexit72.i.i.i.i83
-  %.sroa.5.0.i.i.i.i88 = phi ptr [ %scevgep61.le83.i.i.i.i86, %.thread.loopexit72.i.i.i.i83 ], [ %267, %.preheader40.i.i.i.i81 ]
-  %.sroa.0.0.i.i.i.i89 = phi ptr [ %scevgep61.le83.i.i.i.i86, %.thread.loopexit72.i.i.i.i83 ], [ %.146.i.i.i.i82, %.preheader40.i.i.i.i81 ]
+.lr.ph226:                                        ; preds = %.preheader39.i.i.i.i81, %.thread.loopexit71.i.i.i.i83
+  %.sroa.5.0.i.i.i.i88 = phi ptr [ %scevgep60.le82.i.i.i.i86, %.thread.loopexit71.i.i.i.i83 ], [ %267, %.preheader39.i.i.i.i81 ]
+  %.sroa.0.0.i.i.i.i89 = phi ptr [ %scevgep60.le82.i.i.i.i86, %.thread.loopexit71.i.i.i.i83 ], [ %.145.i.i.i.i82, %.preheader39.i.i.i.i81 ]
   %271 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %272 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %275
@@ -1174,35 +1174,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %_Z
 
 304:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113
   %305 = icmp eq ptr %.sroa.15.0224, %303
-  br i1 %305, label %_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit125, label %.preheader40.i.i.i.i115
+  br i1 %305, label %_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit125, label %.preheader39.i.i.i.i115
 
-.preheader40.i.i.i.i115:                          ; preds = %304
+.preheader39.i.i.i.i115:                          ; preds = %304
   %306 = ptrtoint ptr %303 to i64
   br label %307
 
-307:                                              ; preds = %311, %.preheader40.i.i.i.i115
-  %.146.i.i.i.i116 = phi ptr [ %.sroa.15.0224, %.preheader40.i.i.i.i115 ], [ %310, %311 ]
-  %308 = load i8, ptr %.146.i.i.i.i116, align 1, !tbaa !52
+307:                                              ; preds = %311, %.preheader39.i.i.i.i115
+  %.145.i.i.i.i116 = phi ptr [ %.sroa.15.0224, %.preheader39.i.i.i.i115 ], [ %310, %311 ]
+  %308 = load i8, ptr %.145.i.i.i.i116, align 1, !tbaa !52
   %309 = icmp eq i8 %308, 32
-  %310 = getelementptr inbounds nuw i8, ptr %.146.i.i.i.i116, i64 1
+  %310 = getelementptr inbounds nuw i8, ptr %.145.i.i.i.i116, i64 1
   br i1 %309, label %_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit125, label %311
 
 311:                                              ; preds = %307
   %312 = icmp eq ptr %310, %303
-  br i1 %312, label %.thread.loopexit72.i.i.i.i117, label %307, !llvm.loop !53
+  br i1 %312, label %.thread.loopexit71.i.i.i.i117, label %307, !llvm.loop !53
 
-.thread.loopexit72.i.i.i.i117:                    ; preds = %311
-  %.0284963.le90.i.i.i.i118 = ptrtoint ptr %.sroa.15.0224 to i64
+.thread.loopexit71.i.i.i.i117:                    ; preds = %311
+  %.0284862.le89.i.i.i.i118 = ptrtoint ptr %.sroa.15.0224 to i64
   %scevgep.le.i.i.i.i119 = getelementptr i8, ptr %.sroa.15.0224, i64 %306
-  %313 = sub i64 0, %.0284963.le90.i.i.i.i118
-  %scevgep61.le83.i.i.i.i120 = getelementptr i8, ptr %scevgep.le.i.i.i.i119, i64 %313
+  %313 = sub i64 0, %.0284862.le89.i.i.i.i118
+  %scevgep60.le82.i.i.i.i120 = getelementptr i8, ptr %scevgep.le.i.i.i.i119, i64 %313
   br label %_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit125
 
-_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit125: ; preds = %307, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113, %.thread.loopexit72.i.i.i.i117, %304
-  %.sroa.5139.1 = phi ptr [ %.sroa.15.0224, %304 ], [ %.sroa.15.0224, %.thread.loopexit72.i.i.i.i117 ], [ %.sroa.10.0223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113 ], [ %.sroa.15.0224, %307 ]
-  %.sroa.10.1 = phi ptr [ %.sroa.15.0224, %304 ], [ %scevgep61.le83.i.i.i.i120, %.thread.loopexit72.i.i.i.i117 ], [ %.sroa.10.0223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113 ], [ %.146.i.i.i.i116, %307 ]
-  %.sroa.15.1 = phi ptr [ %.sroa.15.0224, %304 ], [ %scevgep61.le83.i.i.i.i120, %.thread.loopexit72.i.i.i.i117 ], [ %.sroa.15.0224, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113 ], [ %310, %307 ]
-  %.sroa.18.1 = phi i8 [ 1, %304 ], [ %.sroa.18.0225, %.thread.loopexit72.i.i.i.i117 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113 ], [ %.sroa.18.0225, %307 ]
+_ZNSt6ranges10split_viewINS_8ref_viewIN4llvm9StringRefEEENS_11single_viewIcEEE9_IteratorppEv.exit125: ; preds = %307, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113, %.thread.loopexit71.i.i.i.i117, %304
+  %.sroa.5139.1 = phi ptr [ %.sroa.15.0224, %304 ], [ %.sroa.15.0224, %.thread.loopexit71.i.i.i.i117 ], [ %.sroa.10.0223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113 ], [ %.sroa.15.0224, %307 ]
+  %.sroa.10.1 = phi ptr [ %.sroa.15.0224, %304 ], [ %scevgep60.le82.i.i.i.i120, %.thread.loopexit71.i.i.i.i117 ], [ %.sroa.10.0223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113 ], [ %.145.i.i.i.i116, %307 ]
+  %.sroa.15.1 = phi ptr [ %.sroa.15.0224, %304 ], [ %scevgep60.le82.i.i.i.i120, %.thread.loopexit71.i.i.i.i117 ], [ %.sroa.15.0224, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113 ], [ %310, %307 ]
+  %.sroa.18.1 = phi i8 [ 1, %304 ], [ %.sroa.18.0225, %.thread.loopexit71.i.i.i.i117 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113 ], [ %.sroa.18.0225, %307 ]
   %314 = icmp eq ptr %.sroa.5139.1, %262
   %315 = icmp eq i8 %.sroa.18.1, 0
   %316 = select i1 %314, i1 %315, i1 false
@@ -7582,8 +7582,8 @@ _ZNSt6vectorISt4pairIlN4llvm9StringRefEESaIS3_EED2Ev.exit: ; preds = %13, %15
   %22 = extractvalue { i64, i8 } %12, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = trunc nuw i8 %21 to i1
-  %spec.select14 = and i8 %21, 1
-  %.sroa.29.0.insert.ext = zext nneg i8 %spec.select14 to i64
+  %spec.select13 = and i8 %21, 1
+  %.sroa.29.0.insert.ext = zext nneg i8 %spec.select13 to i64
   %.sroa.29.0.insert.shift = shl nuw nsw i64 %.sroa.29.0.insert.ext, 32
   %24 = and i64 %22, 4294967295
   %.sroa.08.0.insert.ext = select i1 %23, i64 %24, i64 0

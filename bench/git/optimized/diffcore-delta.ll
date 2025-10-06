@@ -352,17 +352,17 @@ st_mult.exit.i:                                   ; preds = %20
   store i32 %34, ptr %35, align 4, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %36, i8 0, i64 %27, i1 false)
-  %.not45.i = icmp eq i32 %21, 31
-  br i1 %.not45.i, label %spanhash_rehash.exit, label %.lr.ph44.i
+  %.not44.i = icmp eq i32 %21, 31
+  br i1 %.not44.i, label %spanhash_rehash.exit, label %.lr.ph43.i
 
-.lr.ph44.i:                                       ; preds = %st_mult.exit.i
+.lr.ph43.i:                                       ; preds = %st_mult.exit.i
   %37 = add nsw i32 %23, -1
   %smax.i = tail call i32 @llvm.smax.i32(i32 %22, i32 1)
   %wide.trip.count.i = zext nneg i32 %smax.i to i64
   br label %38
 
-38:                                               ; preds = %57, %.lr.ph44.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph44.i ], [ %indvars.iv.next.i, %57 ]
+38:                                               ; preds = %57, %.lr.ph43.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next.i, %57 ]
   %39 = getelementptr inbounds nuw %struct.spanhash, ptr %8, i64 %indvars.iv.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !8
@@ -376,13 +376,13 @@ st_mult.exit.i:                                   ; preds = %20
   %46 = getelementptr inbounds %struct.spanhash, ptr %36, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !8
-  %.not3340.i = icmp eq i32 %48, 0
-  br i1 %.not3340.i, label %.thread.i, label %.lr.ph.i
+  %.not3339.i = icmp eq i32 %48, 0
+  br i1 %.not3339.i, label %.thread.i, label %.lr.ph.i
 
 .thread.i:                                        ; preds = %.lr.ph.i, %42
-  %.lcssa39.i = phi ptr [ %46, %42 ], [ %54, %.lr.ph.i ]
-  %49 = getelementptr inbounds nuw i8, ptr %.lcssa39.i, i64 4
-  store i32 %43, ptr %.lcssa39.i, align 4, !tbaa !11
+  %.lcssa38.i = phi ptr [ %46, %42 ], [ %54, %.lr.ph.i ]
+  %49 = getelementptr inbounds nuw i8, ptr %.lcssa38.i, i64 4
+  store i32 %43, ptr %.lcssa38.i, align 4, !tbaa !11
   store i32 %41, ptr %49, align 4, !tbaa !8
   %50 = load i32, ptr %35, align 4, !tbaa !24
   %51 = add nsw i32 %50, -1
@@ -390,8 +390,8 @@ st_mult.exit.i:                                   ; preds = %20
   br label %57
 
 .lr.ph.i:                                         ; preds = %42, %.lr.ph.i
-  %.03241.i = phi i32 [ %spec.store.select.i, %.lr.ph.i ], [ %44, %42 ]
-  %52 = add nsw i32 %.03241.i, 1
+  %.03240.i = phi i32 [ %spec.store.select.i, %.lr.ph.i ], [ %44, %42 ]
+  %52 = add nsw i32 %.03240.i, 1
   %.not34.i = icmp sgt i32 %23, %52
   %spec.store.select.i = select i1 %.not34.i, i32 %52, i32 0
   %53 = sext i32 %spec.store.select.i to i64

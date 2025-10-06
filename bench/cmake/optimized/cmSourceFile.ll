@@ -565,8 +565,8 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN12cmSourceF
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i8, ptr %18, align 8, !range !71
   %20 = trunc nuw i8 %19 to i1
-  %or.cond16 = select i1 %or.cond, i1 %20, i1 false
-  br i1 %or.cond16, label %21, label %24
+  %or.cond15 = select i1 %or.cond, i1 %20, i1 false
+  br i1 %or.cond15, label %21, label %24
 
 21:                                               ; preds = %11
   %22 = tail call noundef zeroext i1 @_ZN12cmSourceFile12FindFullPathEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_(ptr noundef nonnull align 8 dereferenceable(370) %0, ptr noundef null, ptr noundef null)

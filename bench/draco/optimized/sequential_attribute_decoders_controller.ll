@@ -382,8 +382,8 @@ define noundef zeroext i1 @_ZN5draco37SequentialAttributeDecodersController35Tra
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 %7(ptr noundef nonnull align 8 dereferenceable(72) %0)
-  %.not3447 = icmp slt i32 %8, 1
-  br i1 %.not3447, label %.critedge38, label %.lr.ph
+  %.not3446 = icmp slt i32 %8, 1
+  br i1 %.not3446, label %.critedge38, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72

@@ -300,13 +300,13 @@ define dso_local ptr @FetchStatementTargetList(ptr noundef readonly captures(add
   br i1 %2, label %FetchPortalTargetList.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
-  %.tr55 = phi ptr [ %49, %tailrecurse ], [ %0, %1 ]
-  %3 = load i32, ptr %.tr55, align 4
+  %.tr52 = phi ptr [ %49, %tailrecurse ], [ %0, %1 ]
+  %3 = load i32, ptr %.tr52, align 4
   %4 = icmp eq i32 %3, 67
   br i1 %4, label %5, label %17
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.tr55, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.tr52, i64 4
   %7 = load i32, ptr %6, align 4
   switch i32 %7, label %11 [
     i32 6, label %14
@@ -314,24 +314,24 @@ define dso_local ptr @FetchStatementTargetList(ptr noundef readonly captures(add
   ]
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %.tr55, i64 112
+  %9 = getelementptr inbounds nuw i8, ptr %.tr52, i64 112
   %10 = load ptr, ptr %9, align 8
   br label %FetchPortalTargetList.exit
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %.tr55, i64 152
+  %12 = getelementptr inbounds nuw i8, ptr %.tr52, i64 152
   %13 = load ptr, ptr %12, align 8
   br label %FetchPortalTargetList.exit
 
 14:                                               ; preds = %5
-  %15 = getelementptr inbounds nuw i8, ptr %.tr55, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %.tr52, i64 32
   %16 = load ptr, ptr %15, align 8
   %.pr = load i32, ptr %16, align 4
   br label %17
 
 17:                                               ; preds = %14, %.lr.ph
   %18 = phi i32 [ %.pr, %14 ], [ %3, %.lr.ph ]
-  %.027 = phi ptr [ %16, %14 ], [ %.tr55, %.lr.ph ]
+  %.027 = phi ptr [ %16, %14 ], [ %.tr52, %.lr.ph ]
   %19 = icmp eq i32 %18, 329
   br i1 %19, label %20, label %40
 
@@ -1913,7 +1913,7 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   br i1 %20, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.split.us, %23
-  %.1.us31 = phi i64 [ %27, %23 ], [ 0, %.split.us ]
+  %.1.us30 = phi i64 [ %27, %23 ], [ 0, %.split.us ]
   %21 = load ptr, ptr %3, align 8
   %22 = tail call zeroext i1 %21(ptr noundef %7, ptr noundef nonnull %3) #10
   br i1 %22, label %23, label %.thread
@@ -1923,7 +1923,7 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load ptr, ptr %25, align 8
   tail call void %26(ptr noundef %7) #10
-  %27 = add i64 %.1.us31, 1
+  %27 = add i64 %.1.us30, 1
   %28 = load ptr, ptr %14, align 8
   %29 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %28, ptr @CurrentMemoryContext, align 8
@@ -1957,7 +1957,7 @@ define internal fastcc i64 @RunFromStore(ptr noundef readonly captures(none) %0,
   br i1 %44, label %.thread, label %.split
 
 .thread:                                          ; preds = %.split, %36, %39, %23, %.lr.ph, %.split.us, %4
-  %.024 = phi i64 [ 0, %4 ], [ 0, %.split.us ], [ %.1.us31, %.lr.ph ], [ %27, %23 ], [ %2, %39 ], [ %.1, %.split ], [ %.1, %36 ]
+  %.024 = phi i64 [ 0, %4 ], [ 0, %.split.us ], [ %.1.us30, %.lr.ph ], [ %27, %23 ], [ %2, %39 ], [ %.1, %.split ], [ %.1, %36 ]
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %46 = load ptr, ptr %45, align 8
   tail call void %46(ptr noundef nonnull %3) #10

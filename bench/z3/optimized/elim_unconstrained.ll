@@ -951,17 +951,17 @@ _ZNK18elim_unconstrained4node11num_parentsEv.exit: ; preds = %43
   %61 = zext i32 %60 to i64
   %.idx.i.i = shl nuw nsw i64 %61, 3
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i
-  %.not1.not.i.i = icmp eq i32 %60, 0
-  br i1 %.not1.not.i.i, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.thread, label %.lr.ph.i.i
+  %.not2.not.i.i = icmp eq i32 %60, 0
+  br i1 %.not2.not.i.i, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.thread, label %.lr.ph.i.i
 
 63:                                               ; preds = %"_ZZN18elim_unconstrained8is_childERKNS_4nodeES2_ENK3$_0clEP4expr.exit.i.i"
-  %64 = getelementptr inbounds nuw i8, ptr %.0132.i.i, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.0133.i.i, i64 8
   %.not.not.i.i = icmp eq ptr %64, %62
   br i1 %.not.not.i.i, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %57, %63
-  %.0132.i.i = phi ptr [ %64, %63 ], [ %58, %57 ]
-  %65 = load ptr, ptr %.0132.i.i, align 8, !tbaa !34
+  %.0133.i.i = phi ptr [ %64, %63 ], [ %58, %57 ]
+  %65 = load ptr, ptr %.0133.i.i, align 8, !tbaa !34
   %66 = invoke noundef nonnull align 8 dereferenceable(57) ptr @_ZN18elim_unconstrained8get_nodeEP4expr(ptr noundef nonnull align 8 dereferenceable(182) %0, ptr noundef %65)
           to label %.noexc unwind label %75
 
@@ -1728,7 +1728,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
   br label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.thread
 
 _ZNK18elim_unconstrained4node11num_parentsEv.exit.thread: ; preds = %63, %57, %50, %43, %49, %_ZNK18elim_unconstrained4node11num_parentsEv.exit, %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %84, %79, %77, %_ZN18elim_unconstrained8is_childERKNS_4nodeES2_.exit, %29, %37
-  %switch = phi i1 [ false, %37 ], [ false, %29 ], [ true, %49 ], [ false, %_ZNK18elim_unconstrained4node11num_parentsEv.exit ], [ false, %_ZN18elim_unconstrained8is_childERKNS_4nodeES2_.exit ], [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %84 ], [ false, %79 ], [ false, %77 ], [ false, %43 ], [ false, %50 ], [ false, %57 ], [ false, %63 ]
+  %.068 = phi i1 [ false, %37 ], [ false, %29 ], [ true, %49 ], [ false, %_ZNK18elim_unconstrained4node11num_parentsEv.exit ], [ false, %_ZN18elim_unconstrained8is_childERKNS_4nodeES2_.exit ], [ false, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ], [ false, %84 ], [ false, %79 ], [ false, %77 ], [ false, %43 ], [ false, %50 ], [ false, %57 ], [ false, %63 ]
   %366 = load ptr, ptr %3, align 8, !tbaa !45
   %.not.i.i154 = icmp eq ptr %366, null
   br i1 %.not.i.i154, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit155, label %367
@@ -1755,7 +1755,7 @@ _ZNK18elim_unconstrained4node11num_parentsEv.exit.thread: ; preds = %63, %57, %5
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit155:      ; preds = %_ZNK18elim_unconstrained4node11num_parentsEv.exit.thread, %367, %373
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %switch, label %380, label %21
+  br i1 %.068, label %380, label %21
 
 .loopexit.split-lp:                               ; preds = %.loopexit254, %.loopexit.split-lp255, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit183, %.loopexit.split-lp184, %257, %261, %259, %240, %244, %242, %192, %196, %198, %194
   %.pn87.pn = phi { ptr, i32 } [ %193, %192 ], [ %195, %194 ], [ %199, %198 ], [ %197, %196 ], [ %241, %240 ], [ %245, %244 ], [ %243, %242 ], [ %258, %257 ], [ %262, %261 ], [ %260, %259 ], [ %lpad.loopexit185, %.loopexit183 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp184 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit180, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp181, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit256, %.loopexit254 ], [ %lpad.loopexit.split-lp257, %.loopexit.split-lp255 ]
@@ -1824,11 +1824,11 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
   %26 = add i32 %25, -1
   store i32 %26, ptr %5, align 4, !tbaa !23
   %27 = load i32, ptr %3, align 4, !tbaa !23
-  %.not39.i = icmp sgt i32 %26, 2
-  br i1 %.not39.i, label %.lr.ph.i, label %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i
+  %.not38.i = icmp sgt i32 %26, 2
+  br i1 %.not38.i, label %.lr.ph.i, label %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i: ; preds = %_ZN6vectorIiLb0EjE4backEv.exit
-  %.pre69.i = zext i32 %27 to i64
+  %.pre68.i = zext i32 %27 to i64
   br label %_ZN4heapIN18elim_unconstrained6var_ltEE9move_downEi.exit
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIiLb0EjE4backEv.exit
@@ -1847,7 +1847,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_th
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %76
   %39 = phi i32 [ %80, %76 ], [ 2, %.lr.ph.i ]
-  %.040.i = phi i32 [ %72, %76 ], [ 1, %.lr.ph.i ]
+  %.039.i = phi i32 [ %72, %76 ], [ 1, %.lr.ph.i ]
   %40 = or disjoint i32 %39, 1
   %41 = icmp slt i32 %40, %26
   br i1 %41, label %42, label %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i
@@ -1855,12 +1855,12 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_th
 .lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i: ; preds = %.lr.ph.split.i
   %.pre.phi.trans.insert.i = zext i32 %39 to i64
   %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %2, i64 %.pre.phi.trans.insert.i
-  %.pre43.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !23
-  %.phi.trans.insert44.phi.trans.insert.i = zext i32 %.pre43.pre.i to i64
-  %.phi.trans.insert45.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %30, i64 %.phi.trans.insert44.phi.trans.insert.i
-  %.pre46.pre.i = load ptr, ptr %.phi.trans.insert45.phi.trans.insert.i, align 8, !tbaa !41
-  %.phi.trans.insert47.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre46.pre.i, i64 40
-  %.pre48.pre.i = load ptr, ptr %.phi.trans.insert47.phi.trans.insert.i, align 8, !tbaa !14
+  %.pre42.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !23
+  %.phi.trans.insert43.phi.trans.insert.i = zext i32 %.pre42.pre.i to i64
+  %.phi.trans.insert44.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %30, i64 %.phi.trans.insert43.phi.trans.insert.i
+  %.pre45.pre.i = load ptr, ptr %.phi.trans.insert44.phi.trans.insert.i, align 8, !tbaa !41
+  %.phi.trans.insert46.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.pre45.pre.i, i64 40
+  %.pre47.pre.i = load ptr, ptr %.phi.trans.insert46.phi.trans.insert.i, align 8, !tbaa !14
   br label %67
 
 42:                                               ; preds = %.lr.ph.split.i
@@ -1900,50 +1900,50 @@ _ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i: ; preds = %_ZNK18e
   br i1 %66, label %67, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i
 
 67:                                               ; preds = %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i
-  %.pre-phi71.i = phi i64 [ %49, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %.phi.trans.insert44.phi.trans.insert.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ]
-  %68 = phi ptr [ %53, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %.pre48.pre.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ]
-  %69 = phi i32 [ %45, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %.pre43.pre.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ]
+  %.pre-phi70.i = phi i64 [ %49, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %.phi.trans.insert43.phi.trans.insert.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ]
+  %68 = phi ptr [ %53, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %.pre47.pre.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ]
+  %69 = phi i32 [ %45, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %.pre42.pre.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ]
   %70 = phi i32 [ %40, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %39, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ]
   %71 = icmp eq ptr %68, null
-  br i1 %71, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i, label %..thread85.i_crit_edge
+  br i1 %71, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i, label %..thread84.i_crit_edge
 
-..thread85.i_crit_edge:                           ; preds = %67
+..thread84.i_crit_edge:                           ; preds = %67
   %.phi.trans.insert = getelementptr inbounds i8, ptr %68, i64 -4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !23
   br label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i
 
-_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i: ; preds = %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i, %..thread85.i_crit_edge, %67, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i
-  %72 = phi i32 [ %70, %67 ], [ %39, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %70, %..thread85.i_crit_edge ], [ %39, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ]
-  %73 = phi i32 [ %69, %67 ], [ %48, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %69, %..thread85.i_crit_edge ], [ %48, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ]
-  %.pre-phi7184.i = phi i64 [ %.pre-phi71.i, %67 ], [ %58, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %.pre-phi71.i, %..thread85.i_crit_edge ], [ %58, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ]
-  %.0.i.i.i.i.i30.i = phi i32 [ 0, %67 ], [ 0, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %.pre, %..thread85.i_crit_edge ], [ %65, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ]
+_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i: ; preds = %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i, %..thread84.i_crit_edge, %67, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i
+  %72 = phi i32 [ %70, %67 ], [ %39, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %70, %..thread84.i_crit_edge ], [ %39, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ]
+  %73 = phi i32 [ %69, %67 ], [ %48, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %69, %..thread84.i_crit_edge ], [ %48, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ]
+  %.pre-phi7083.i = phi i64 [ %.pre-phi70.i, %67 ], [ %58, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %.pre-phi70.i, %..thread84.i_crit_edge ], [ %58, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ]
+  %.0.i.i.i.i.i30.i = phi i32 [ 0, %67 ], [ 0, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %.pre, %..thread84.i_crit_edge ], [ %65, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ]
   %74 = load i32, ptr %37, align 4, !tbaa !23
   %75 = icmp ult i32 %.0.i.i.i.i.i30.i, %74
   br i1 %75, label %76, label %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i
 
 76:                                               ; preds = %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i
-  %77 = zext i32 %.040.i to i64
+  %77 = zext i32 %.039.i to i64
   %78 = getelementptr inbounds nuw i32, ptr %2, i64 %77
   store i32 %73, ptr %78, align 4, !tbaa !23
-  %79 = getelementptr inbounds nuw i32, ptr %38, i64 %.pre-phi7184.i
-  store i32 %.040.i, ptr %79, align 4, !tbaa !23
+  %79 = getelementptr inbounds nuw i32, ptr %38, i64 %.pre-phi7083.i
+  store i32 %.039.i, ptr %79, align 4, !tbaa !23
   %80 = shl i32 %72, 1
   %.not.i = icmp slt i32 %80, %26
   br i1 %.not.i, label %.lr.ph.split.i, label %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i
 
 _ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i: ; preds = %76, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i
-  %.0.lcssa.ph.i = phi i32 [ %.040.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i ], [ %72, %76 ]
-  %.pre67.i = zext i32 %.0.lcssa.ph.i to i64
+  %.0.lcssa.ph.i = phi i32 [ %.039.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i ], [ %72, %76 ]
+  %.pre66.i = zext i32 %.0.lcssa.ph.i to i64
   br label %_ZN4heapIN18elim_unconstrained6var_ltEE9move_downEi.exit
 
 _ZN4heapIN18elim_unconstrained6var_ltEE9move_downEi.exit: ; preds = %.lr.ph.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i
-  %.pre-phi70.i = phi i64 [ %.pre69.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i ], [ %31, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i ], [ %31, %.lr.ph.i ]
-  %.pre-phi68.i = phi i64 [ 1, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i ], [ %.pre67.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i ], [ 1, %.lr.ph.i ]
+  %.pre-phi69.i = phi i64 [ %.pre68.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i ], [ %31, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i ], [ %31, %.lr.ph.i ]
+  %.pre-phi67.i = phi i64 [ 1, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i ], [ %.pre66.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i ], [ 1, %.lr.ph.i ]
   %81 = phi ptr [ %20, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i ], [ %38, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i ], [ %38, %.lr.ph.i ]
   %.0.lcssa.i = phi i32 [ 1, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i ], [ %.0.lcssa.ph.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i ], [ 1, %.lr.ph.i ]
-  %82 = getelementptr inbounds nuw i32, ptr %2, i64 %.pre-phi68.i
+  %82 = getelementptr inbounds nuw i32, ptr %2, i64 %.pre-phi67.i
   store i32 %27, ptr %82, align 4, !tbaa !23
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %.pre-phi70.i
+  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %.pre-phi69.i
   store i32 %.0.lcssa.i, ptr %83, align 4, !tbaa !23
   br label %84
 
@@ -1967,12 +1967,12 @@ define hidden noundef zeroext i1 @_ZN18elim_unconstrained8is_childERKNS_4nodeES2
   %13 = zext i32 %12 to i64
   %.idx.i = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i
-  %.not1.not.i = icmp eq i32 %12, 0
-  br i1 %.not1.not.i, label %"_Z6any_ofI3appZN18elim_unconstrained8is_childERKNS1_4nodeES4_E3$_0EbRKT_RKT0_.exit", label %.lr.ph.i
+  %.not2.not.i = icmp eq i32 %12, 0
+  br i1 %.not2.not.i, label %"_Z6any_ofI3appZN18elim_unconstrained8is_childERKNS1_4nodeES4_E3$_0EbRKT_RKT0_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %"_ZZN18elim_unconstrained8is_childERKNS_4nodeES2_ENK3$_0clEP4expr.exit.i"
-  %.0132.i = phi ptr [ %22, %"_ZZN18elim_unconstrained8is_childERKNS_4nodeES2_ENK3$_0clEP4expr.exit.i" ], [ %10, %9 ]
-  %15 = load ptr, ptr %.0132.i, align 8, !tbaa !34
+  %.0133.i = phi ptr [ %22, %"_ZZN18elim_unconstrained8is_childERKNS_4nodeES2_ENK3$_0clEP4expr.exit.i" ], [ %10, %9 ]
+  %15 = load ptr, ptr %.0133.i, align 8, !tbaa !34
   %16 = tail call noundef nonnull align 8 dereferenceable(57) ptr @_ZN18elim_unconstrained8get_nodeEP4expr(ptr noundef nonnull align 8 dereferenceable(182) %0, ptr noundef %15)
   %.0.in.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %16, i64 48
   %.0.pre.i.i.i.i = load ptr, ptr %.0.in.phi.trans.insert.i.i.i.i, align 8, !tbaa !47
@@ -1987,7 +1987,7 @@ define hidden noundef zeroext i1 @_ZN18elim_unconstrained8is_childERKNS_4nodeES2
 
 "_ZZN18elim_unconstrained8is_childERKNS_4nodeES2_ENK3$_0clEP4expr.exit.i": ; preds = %17
   %21 = icmp eq ptr %.0.i.i.i.i, %1
-  %22 = getelementptr inbounds nuw i8, ptr %.0132.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 8
   %.not.not.i = icmp eq ptr %22, %14
   %or.cond = select i1 %21, i1 true, i1 %.not.not.i
   br i1 %or.cond, label %"_Z6any_ofI3appZN18elim_unconstrained8is_childERKNS1_4nodeES4_E3$_0EbRKT_RKT0_.exit", label %.lr.ph.i
@@ -2891,7 +2891,7 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit:            ; preds = %10, %20
 
 ._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i: ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit
   %.pre.i3 = load ptr, ptr %22, align 8, !tbaa !20
-  %.pre29.i = zext i32 %31 to i64
+  %.pre28.i = zext i32 %31 to i64
   br label %_ZN4heapIN18elim_unconstrained6var_ltEE7move_upEi.exit
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit
@@ -2911,7 +2911,7 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit:            ; preds = %10, %20
 
 _ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.us.i: ; preds = %.lr.ph.i, %57
   %45 = phi i32 [ %61, %57 ], [ %33, %.lr.ph.i ]
-  %.01522.us.i = phi i32 [ %45, %57 ], [ %.0.i6, %.lr.ph.i ]
+  %.01521.us.i = phi i32 [ %45, %57 ], [ %.0.i6, %.lr.ph.i ]
   %46 = zext i32 %45 to i64
   %47 = getelementptr inbounds nuw i32, ptr %24, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !23
@@ -2930,18 +2930,18 @@ _ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.us.i: ; preds = %_ZNK
   br i1 %.not.i, label %_ZN4heapIN18elim_unconstrained6var_ltEE7move_upEi.exit, label %57
 
 57:                                               ; preds = %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.us.i
-  %58 = zext i32 %.01522.us.i to i64
+  %58 = zext i32 %.01521.us.i to i64
   %59 = getelementptr inbounds nuw i32, ptr %24, i64 %58
   store i32 %48, ptr %59, align 4, !tbaa !23
   %60 = getelementptr inbounds nuw i32, ptr %44, i64 %49
-  store i32 %.01522.us.i, ptr %60, align 4, !tbaa !23
+  store i32 %.01521.us.i, ptr %60, align 4, !tbaa !23
   %61 = ashr i32 %45, 1
   %62 = icmp ult i32 %45, 2
   br i1 %62, label %_ZN4heapIN18elim_unconstrained6var_ltEE7move_upEi.exit, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.us.i
 
 _ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i: ; preds = %.lr.ph.i, %77
   %63 = phi i32 [ %81, %77 ], [ %33, %.lr.ph.i ]
-  %.01522.i = phi i32 [ %63, %77 ], [ %.0.i6, %.lr.ph.i ]
+  %.01521.i = phi i32 [ %63, %77 ], [ %.0.i6, %.lr.ph.i ]
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw i32, ptr %24, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !23
@@ -2961,19 +2961,19 @@ _ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i: ; preds = %_ZNK18e
   br i1 %76, label %77, label %_ZN4heapIN18elim_unconstrained6var_ltEE7move_upEi.exit
 
 77:                                               ; preds = %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i
-  %78 = zext i32 %.01522.i to i64
+  %78 = zext i32 %.01521.i to i64
   %79 = getelementptr inbounds nuw i32, ptr %24, i64 %78
   store i32 %66, ptr %79, align 4, !tbaa !23
   %80 = getelementptr inbounds nuw i32, ptr %44, i64 %67
-  store i32 %.01522.i, ptr %80, align 4, !tbaa !23
+  store i32 %.01521.i, ptr %80, align 4, !tbaa !23
   %81 = ashr i32 %63, 1
   %82 = icmp ult i32 %63, 2
   br i1 %82, label %_ZN4heapIN18elim_unconstrained6var_ltEE7move_upEi.exit, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i
 
 _ZN4heapIN18elim_unconstrained6var_ltEE7move_upEi.exit: ; preds = %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i, %77, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.us.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.us.i, %57, %._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre29.i, %._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ], [ %37, %57 ], [ %37, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.us.i ], [ %37, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.us.i ], [ %37, %77 ], [ %37, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %37, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ]
+  %.pre-phi.i = phi i64 [ %.pre28.i, %._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ], [ %37, %57 ], [ %37, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.us.i ], [ %37, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.us.i ], [ %37, %77 ], [ %37, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %37, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ]
   %83 = phi ptr [ %.pre.i3, %._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ], [ %44, %57 ], [ %44, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.us.i ], [ %44, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.us.i ], [ %44, %77 ], [ %44, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %44, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ]
-  %.015.lcssa.i = phi i32 [ %.0.i6, %._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ], [ %.01522.us.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.us.i ], [ %.01522.us.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.us.i ], [ %45, %57 ], [ %.01522.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %.01522.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %63, %77 ]
+  %.015.lcssa.i = phi i32 [ %.0.i6, %._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i ], [ %.01521.us.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.us.i ], [ %.01521.us.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.us.i ], [ %45, %57 ], [ %.01521.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i ], [ %.01521.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i ], [ %63, %77 ]
   %84 = zext i32 %.015.lcssa.i to i64
   %85 = getelementptr inbounds nuw i32, ptr %24, i64 %84
   store i32 %31, ptr %85, align 4, !tbaa !23
@@ -3417,11 +3417,11 @@ _Z17is_uninterp_constPK4expr.exit.thread37:       ; preds = %81, %_Z17is_uninter
   %98 = getelementptr inbounds i8, ptr %94, i64 -4
   %99 = load i32, ptr %98, align 4, !tbaa !23
   %100 = shl i32 %93, 1
-  %.not39.i.i = icmp slt i32 %100, %99
-  br i1 %.not39.i.i, label %.lr.ph.i.i, label %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i.i
+  %.not38.i.i = icmp slt i32 %100, %99
+  br i1 %.not38.i.i, label %.lr.ph.i.i, label %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i.i
 
 _ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i.i: ; preds = %_Z17is_uninterp_constPK4expr.exit.thread37
-  %.pre69.i.i = zext i32 %97 to i64
+  %.pre68.i.i = zext i32 %97 to i64
   br label %_ZN4heapIN18elim_unconstrained6var_ltEE9increasedEi.exit
 
 .lr.ph.i.i:                                       ; preds = %_Z17is_uninterp_constPK4expr.exit.thread37
@@ -3439,7 +3439,7 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_th
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %148
   %111 = phi i32 [ %152, %148 ], [ %100, %.lr.ph.i.i ]
-  %.040.i.i = phi i32 [ %144, %148 ], [ %93, %.lr.ph.i.i ]
+  %.039.i.i = phi i32 [ %144, %148 ], [ %93, %.lr.ph.i.i ]
   %112 = or disjoint i32 %111, 1
   %113 = icmp slt i32 %112, %99
   br i1 %113, label %114, label %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i
@@ -3447,12 +3447,12 @@ _ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_th
 .lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i: ; preds = %.lr.ph.split.i.i
   %.pre.phi.trans.insert.i.i = zext i32 %111 to i64
   %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %94, i64 %.pre.phi.trans.insert.i.i
-  %.pre43.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !23
-  %.phi.trans.insert44.phi.trans.insert.i.i = zext i32 %.pre43.pre.i.i to i64
-  %.phi.trans.insert45.phi.trans.insert.i.i = getelementptr inbounds nuw ptr, ptr %103, i64 %.phi.trans.insert44.phi.trans.insert.i.i
-  %.pre46.pre.i.i = load ptr, ptr %.phi.trans.insert45.phi.trans.insert.i.i, align 8, !tbaa !41
-  %.phi.trans.insert47.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre46.pre.i.i, i64 40
-  %.pre48.pre.i.i = load ptr, ptr %.phi.trans.insert47.phi.trans.insert.i.i, align 8, !tbaa !14
+  %.pre42.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !23
+  %.phi.trans.insert43.phi.trans.insert.i.i = zext i32 %.pre42.pre.i.i to i64
+  %.phi.trans.insert44.phi.trans.insert.i.i = getelementptr inbounds nuw ptr, ptr %103, i64 %.phi.trans.insert43.phi.trans.insert.i.i
+  %.pre45.pre.i.i = load ptr, ptr %.phi.trans.insert44.phi.trans.insert.i.i, align 8, !tbaa !41
+  %.phi.trans.insert46.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre45.pre.i.i, i64 40
+  %.pre47.pre.i.i = load ptr, ptr %.phi.trans.insert46.phi.trans.insert.i.i, align 8, !tbaa !14
   br label %139
 
 114:                                              ; preds = %.lr.ph.split.i.i
@@ -3492,49 +3492,49 @@ _ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i: ; preds = %_ZNK1
   br i1 %138, label %139, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i
 
 139:                                              ; preds = %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i
-  %.pre-phi71.i.i = phi i64 [ %121, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ], [ %.phi.trans.insert44.phi.trans.insert.i.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i ]
-  %140 = phi ptr [ %125, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ], [ %.pre48.pre.i.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i ]
-  %141 = phi i32 [ %117, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ], [ %.pre43.pre.i.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i ]
+  %.pre-phi70.i.i = phi i64 [ %121, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ], [ %.phi.trans.insert43.phi.trans.insert.i.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i ]
+  %140 = phi ptr [ %125, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ], [ %.pre47.pre.i.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i ]
+  %141 = phi i32 [ %117, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ], [ %.pre42.pre.i.i, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i ]
   %142 = phi i32 [ %112, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ], [ %111, %.lr.ph.split._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.thread_crit_edge.i.i ]
   %143 = icmp eq ptr %140, null
-  br i1 %143, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i, label %..thread85.i_crit_edge.i
+  br i1 %143, label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i, label %..thread84.i_crit_edge.i
 
-..thread85.i_crit_edge.i:                         ; preds = %139
+..thread84.i_crit_edge.i:                         ; preds = %139
   %.phi.trans.insert.i = getelementptr inbounds i8, ptr %140, i64 -4
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !23
   br label %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i
 
-_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i: ; preds = %..thread85.i_crit_edge.i, %139, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i
-  %144 = phi i32 [ %142, %139 ], [ %111, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i ], [ %142, %..thread85.i_crit_edge.i ], [ %111, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ]
-  %145 = phi i32 [ %141, %139 ], [ %120, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i ], [ %141, %..thread85.i_crit_edge.i ], [ %120, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ]
-  %.pre-phi7184.i.i = phi i64 [ %.pre-phi71.i.i, %139 ], [ %130, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i ], [ %.pre-phi71.i.i, %..thread85.i_crit_edge.i ], [ %130, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ]
-  %.0.i.i.i.i.i30.i.i = phi i32 [ 0, %139 ], [ 0, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i ], [ %.pre.i, %..thread85.i_crit_edge.i ], [ %137, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ]
+_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i: ; preds = %..thread84.i_crit_edge.i, %139, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i
+  %144 = phi i32 [ %142, %139 ], [ %111, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i ], [ %142, %..thread84.i_crit_edge.i ], [ %111, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ]
+  %145 = phi i32 [ %141, %139 ], [ %120, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i ], [ %141, %..thread84.i_crit_edge.i ], [ %120, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ]
+  %.pre-phi7083.i.i = phi i64 [ %.pre-phi70.i.i, %139 ], [ %130, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i ], [ %.pre-phi70.i.i, %..thread84.i_crit_edge.i ], [ %130, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ]
+  %.0.i.i.i.i.i30.i.i = phi i32 [ 0, %139 ], [ 0, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i.i.i ], [ %.pre.i, %..thread84.i_crit_edge.i ], [ %137, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit.i.i ]
   %146 = load i32, ptr %110, align 4, !tbaa !23
   %147 = icmp ult i32 %.0.i.i.i.i.i30.i.i, %146
   br i1 %147, label %148, label %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i.i
 
 148:                                              ; preds = %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i
-  %149 = zext i32 %.040.i.i to i64
+  %149 = zext i32 %.039.i.i to i64
   %150 = getelementptr inbounds nuw i32, ptr %94, i64 %149
   store i32 %145, ptr %150, align 4, !tbaa !23
-  %151 = getelementptr inbounds nuw i32, ptr %90, i64 %.pre-phi7184.i.i
-  store i32 %.040.i.i, ptr %151, align 4, !tbaa !23
+  %151 = getelementptr inbounds nuw i32, ptr %90, i64 %.pre-phi7083.i.i
+  store i32 %.039.i.i, ptr %151, align 4, !tbaa !23
   %152 = shl i32 %144, 1
   %.not.i.i = icmp slt i32 %152, %99
   br i1 %.not.i.i, label %.lr.ph.split.i.i, label %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i.i
 
 _ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i.i: ; preds = %148, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i
-  %.0.lcssa.ph.i.i = phi i32 [ %.040.i.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i ], [ %144, %148 ]
-  %.pre67.i.i = zext i32 %.0.lcssa.ph.i.i to i64
+  %.0.lcssa.ph.i.i = phi i32 [ %.039.i.i, %_ZNK18elim_unconstrained4node11num_parentsEv.exit.i.i.i29.i.i ], [ %144, %148 ]
+  %.pre66.i.i = zext i32 %.0.lcssa.ph.i.i to i64
   br label %_ZN4heapIN18elim_unconstrained6var_ltEE9increasedEi.exit
 
 _ZN4heapIN18elim_unconstrained6var_ltEE9increasedEi.exit: ; preds = %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i.i, %.lr.ph.i.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i.i
-  %.pre-phi70.i.i = phi i64 [ %.pre69.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i.i ], [ %104, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i.i ], [ %104, %.lr.ph.i.i ]
-  %.pre-phi68.i.i = phi i64 [ %95, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i.i ], [ %.pre67.i.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i.i ], [ %95, %.lr.ph.i.i ]
+  %.pre-phi69.i.i = phi i64 [ %.pre68.i.i, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i.i ], [ %104, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i.i ], [ %104, %.lr.ph.i.i ]
+  %.pre-phi67.i.i = phi i64 [ %95, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i.i ], [ %.pre66.i.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i.i ], [ %95, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i32 [ %93, %_ZNK6vectorIiLb0EjE4sizeEv.exit._ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread_crit_edge.i.i ], [ %.0.lcssa.ph.i.i, %_ZNK4heapIN18elim_unconstrained6var_ltEE9less_thanEii.exit32.thread.loopexit.i.i ], [ %93, %.lr.ph.i.i ]
-  %153 = getelementptr inbounds nuw i32, ptr %94, i64 %.pre-phi68.i.i
+  %153 = getelementptr inbounds nuw i32, ptr %94, i64 %.pre-phi67.i.i
   store i32 %97, ptr %153, align 4, !tbaa !23
-  %154 = getelementptr inbounds nuw i32, ptr %90, i64 %.pre-phi70.i.i
+  %154 = getelementptr inbounds nuw i32, ptr %90, i64 %.pre-phi69.i.i
   store i32 %.0.lcssa.i.i, ptr %154, align 4, !tbaa !23
   br label %_Z17is_uninterp_constPK4expr.exit.thread
 

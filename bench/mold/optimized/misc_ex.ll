@@ -244,8 +244,8 @@ define noundef i32 @_ZN3tbb6detail2r122AvailableHwConcurrencyEv() local_unnamed_
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i32 0, ptr %32, align 8, !tbaa !10
   %33 = load i32, ptr @_ZN3tbb6detail2r1L9num_masksE, align 4
-  %.not63.i = icmp eq i32 %33, 0
-  br i1 %.not63.i, label %_ZN3tbb6detail2r115affinity_helper21protect_affinity_maskEb.exit.i, label %34
+  %.not62.i = icmp eq i32 %33, 0
+  br i1 %.not62.i, label %_ZN3tbb6detail2r115affinity_helper21protect_affinity_maskEb.exit.i, label %34
 
 34:                                               ; preds = %31
   %35 = sext i32 %33 to i64
@@ -338,7 +338,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
 
 .preheader.i:                                     ; preds = %60, %65
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %60 ]
-  %.071.i = phi i32 [ %spec.select.i, %65 ], [ 0, %60 ]
+  %.070.i = phi i32 [ %spec.select.i, %65 ], [ 0, %60 ]
   %64 = getelementptr inbounds nuw %struct.cpu_set_t, ptr %18, i64 %indvars.iv.i
   br label %68
 
@@ -355,19 +355,19 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
   br i1 %67, label %.preheader.i, label %._crit_edge.i, !llvm.loop !12
 
 68:                                               ; preds = %68, %.preheader.i
-  %.169.i = phi i32 [ %.071.i, %.preheader.i ], [ %spec.select.i, %68 ]
-  %.04568.i = phi i64 [ 0, %.preheader.i ], [ %76, %68 ]
-  %69 = and i64 %.04568.i, 63
-  %70 = lshr i64 %.04568.i, 6
+  %.168.i = phi i32 [ %.070.i, %.preheader.i ], [ %spec.select.i, %68 ]
+  %.04567.i = phi i64 [ 0, %.preheader.i ], [ %76, %68 ]
+  %69 = and i64 %.04567.i, 63
+  %70 = lshr i64 %.04567.i, 6
   %71 = getelementptr inbounds nuw i64, ptr %64, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !14
   %73 = lshr i64 %72, %69
   %74 = trunc i64 %73 to i32
   %75 = and i32 %74, 1
-  %spec.select.i = add nsw i32 %75, %.169.i
-  %76 = add nuw nsw i64 %.04568.i, 1
+  %spec.select.i = add nsw i32 %75, %.168.i
+  %76 = add nuw nsw i64 %.04567.i, 1
   %77 = icmp slt i32 %spec.select.i, %11
-  %78 = icmp samesign ult i64 %.04568.i, 1023
+  %78 = icmp samesign ult i64 %.04567.i, 1023
   %79 = select i1 %77, i1 %78, i1 false
   br i1 %79, label %68, label %65, !llvm.loop !16
 

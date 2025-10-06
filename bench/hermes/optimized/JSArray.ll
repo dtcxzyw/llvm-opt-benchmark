@@ -3374,8 +3374,8 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEO
   %50 = inttoptr i64 %and.i.i.i.i.i77 to ptr
   %iterationKind_123 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %51 = load i32, ptr %iterationKind_123, align 8
-  %switch = icmp eq i32 %51, 2
-  br i1 %switch, label %sw.bb136, label %sw.bb124
+  %52 = icmp eq i32 %51, 2
+  br i1 %52, label %sw.bb136, label %sw.bb124
 
 sw.bb124:                                         ; preds = %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_11HermesValueEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit75
   %call130 = tail call ptr @_ZN6hermes2vm22createIterResultObjectERNS0_7RuntimeENS0_6HandleINS0_11HermesValueEEEb(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr %retval.0.i.i.i.i.i.i72, i1 noundef zeroext false) #11

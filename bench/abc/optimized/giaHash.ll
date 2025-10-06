@@ -38,8 +38,8 @@ define range(i32 -2147483648, 2147483647) i32 @Gia_ManHashLookupInt(ptr noundef 
   %20 = getelementptr inbounds i32, ptr %.val23.i, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %22 = load i32, ptr %20, align 4, !tbaa !11
-  %.not30.i = icmp eq i32 %22, 0
-  br i1 %.not30.i, label %Gia_ManHashFind.exit, label %.lr.ph.i
+  %.not29.i = icmp eq i32 %22, 0
+  br i1 %.not29.i, label %Gia_ManHashFind.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %23 = getelementptr i8, ptr %0, i64 32
@@ -129,8 +129,8 @@ define internal fastcc noundef ptr @Gia_ManHashFind(ptr noundef readonly capture
   %22 = getelementptr inbounds i32, ptr %.val23, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i32, ptr %22, align 4, !tbaa !11
-  %.not30 = icmp eq i32 %24, 0
-  br i1 %.not30, label %.thread, label %.lr.ph
+  %.not29 = icmp eq i32 %24, 0
+  br i1 %.not29, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %25 = getelementptr i8, ptr %0, i64 32
@@ -140,7 +140,7 @@ define internal fastcc noundef ptr @Gia_ManHashFind(ptr noundef readonly capture
 
 27:                                               ; preds = %.lr.ph, %57
   %28 = phi i32 [ %24, %.lr.ph ], [ %59, %57 ]
-  %.02131 = phi ptr [ %22, %.lr.ph ], [ %58, %57 ]
+  %.02130 = phi ptr [ %22, %.lr.ph ], [ %58, %57 ]
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val25, i64 %29
   %.val26 = load i64, ptr %30, align 4
@@ -189,7 +189,7 @@ Gia_ObjFaninLit2p.exit:                           ; preds = %50
   br i1 %.not, label %.thread, label %27, !llvm.loop !32
 
 .thread:                                          ; preds = %57, %Gia_ObjFaninLit2p.exit, %50, %4
-  %.021.lcssa = phi ptr [ %22, %4 ], [ %.02131, %50 ], [ %.02131, %Gia_ObjFaninLit2p.exit ], [ %58, %57 ]
+  %.021.lcssa = phi ptr [ %22, %4 ], [ %.02130, %50 ], [ %.02130, %Gia_ObjFaninLit2p.exit ], [ %58, %57 ]
   ret ptr %.021.lcssa
 }
 
@@ -239,8 +239,8 @@ define range(i32 -2147483648, 2147483647) i32 @Gia_ManHashLookup(ptr noundef rea
   %40 = getelementptr inbounds i32, ptr %.val23.i.i, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %42 = load i32, ptr %40, align 4, !tbaa !11
-  %.not30.i.i = icmp eq i32 %42, 0
-  br i1 %.not30.i.i, label %Gia_ManHashLookupInt.exit, label %.lr.ph.i.i
+  %.not29.i.i = icmp eq i32 %42, 0
+  br i1 %.not29.i.i, label %Gia_ManHashLookupInt.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3
   %43 = getelementptr i8, ptr %0, i64 88
@@ -560,15 +560,15 @@ Gia_ObjFaninLit2.exit:                            ; preds = %15, %33
   %49 = sext i32 %48 to i64
   %50 = getelementptr inbounds i32, ptr %.val23.i, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !11
-  %.not30.i = icmp eq i32 %51, 0
-  br i1 %.not30.i, label %Gia_ManHashFind.exit, label %.lr.ph.i
+  %.not29.i = icmp eq i32 %51, 0
+  br i1 %.not29.i, label %Gia_ManHashFind.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %Gia_ObjFaninLit2.exit
   br i1 %.not.i21, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %74
   %52 = phi i32 [ %76, %74 ], [ %51, %.lr.ph.i ]
-  %.02131.i.us = phi ptr [ %75, %74 ], [ %50, %.lr.ph.i ]
+  %.02130.i.us = phi ptr [ %75, %74 ], [ %50, %.lr.ph.i ]
   %53 = sext i32 %52 to i64
   %54 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %53
   %.val26.i.us = load i64, ptr %54, align 4
@@ -604,7 +604,7 @@ Gia_ObjFaninLit2.exit:                            ; preds = %15, %33
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %103
   %77 = phi i32 [ %105, %103 ], [ %51, %.lr.ph.i ]
-  %.02131.i = phi ptr [ %104, %103 ], [ %50, %.lr.ph.i ]
+  %.02130.i = phi ptr [ %104, %103 ], [ %50, %.lr.ph.i ]
   %78 = sext i32 %77 to i64
   %79 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %78
   %.val26.i = load i64, ptr %79, align 4
@@ -648,7 +648,7 @@ Gia_ObjFaninLit2p.exit.i:                         ; preds = %88
   br i1 %.not.i22, label %Gia_ManHashFind.exit, label %.lr.ph.i.split, !llvm.loop !32
 
 Gia_ManHashFind.exit:                             ; preds = %103, %Gia_ObjFaninLit2p.exit.i, %74, %63, %Gia_ObjFaninLit2.exit
-  %.021.lcssa.i = phi ptr [ %50, %Gia_ObjFaninLit2.exit ], [ %.02131.i.us, %63 ], [ %75, %74 ], [ %104, %103 ], [ %.02131.i, %Gia_ObjFaninLit2p.exit.i ]
+  %.021.lcssa.i = phi ptr [ %50, %Gia_ObjFaninLit2.exit ], [ %.02130.i.us, %63 ], [ %75, %74 ], [ %104, %103 ], [ %.02130.i, %Gia_ObjFaninLit2p.exit.i ]
   store i32 %18, ptr %.021.lcssa.i, align 4, !tbaa !11
   %.pre = load i32, ptr %2, align 8, !tbaa !34
   br label %106
@@ -844,15 +844,15 @@ Gia_ObjFaninLit2p.exit:                           ; preds = %36, %54
   %71 = sext i32 %70 to i64
   %72 = getelementptr inbounds i32, ptr %.val23.i86, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !11
-  %.not30.i = icmp eq i32 %73, 0
-  br i1 %.not30.i, label %Gia_ManHashFind.exit, label %.lr.ph.i43
+  %.not29.i = icmp eq i32 %73, 0
+  br i1 %.not29.i, label %Gia_ManHashFind.exit, label %.lr.ph.i43
 
 .lr.ph.i43:                                       ; preds = %Gia_ObjFaninLit2p.exit
   br i1 %.not.i40, label %.lr.ph.i43.split.us, label %.lr.ph.i43.split
 
 .lr.ph.i43.split.us:                              ; preds = %.lr.ph.i43, %96
   %74 = phi i32 [ %98, %96 ], [ %73, %.lr.ph.i43 ]
-  %.02131.i.us = phi ptr [ %97, %96 ], [ %72, %.lr.ph.i43 ]
+  %.02130.i.us = phi ptr [ %97, %96 ], [ %72, %.lr.ph.i43 ]
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val31, i64 %75
   %.val26.i.us = load i64, ptr %76, align 4
@@ -887,7 +887,7 @@ Gia_ObjFaninLit2p.exit:                           ; preds = %36, %54
 
 .lr.ph.i43.split:                                 ; preds = %.lr.ph.i43, %125
   %99 = phi i32 [ %127, %125 ], [ %73, %.lr.ph.i43 ]
-  %.02131.i = phi ptr [ %126, %125 ], [ %72, %.lr.ph.i43 ]
+  %.02130.i = phi ptr [ %126, %125 ], [ %72, %.lr.ph.i43 ]
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val31, i64 %100
   %.val26.i = load i64, ptr %101, align 4
@@ -930,7 +930,7 @@ Gia_ObjFaninLit2p.exit.i:                         ; preds = %110
   br i1 %.not.i44, label %Gia_ManHashFind.exit, label %.lr.ph.i43.split, !llvm.loop !32
 
 Gia_ManHashFind.exit:                             ; preds = %125, %Gia_ObjFaninLit2p.exit.i, %96, %85, %Gia_ObjFaninLit2p.exit
-  %.021.lcssa.i = phi ptr [ %72, %Gia_ObjFaninLit2p.exit ], [ %.02131.i.us, %85 ], [ %97, %96 ], [ %126, %125 ], [ %.02131.i, %Gia_ObjFaninLit2p.exit.i ]
+  %.021.lcssa.i = phi ptr [ %72, %Gia_ObjFaninLit2p.exit ], [ %.02130.i.us, %85 ], [ %97, %96 ], [ %126, %125 ], [ %.02130.i, %Gia_ObjFaninLit2p.exit.i ]
   store i32 %.02858, ptr %.021.lcssa.i, align 4, !tbaa !11
   %.not = icmp eq i32 %.02959, 0
   br i1 %.not, label %._crit_edge, label %36, !llvm.loop !43
@@ -1110,8 +1110,8 @@ define i32 @Gia_ManHashXorReal(ptr noundef captures(none) %0, i32 noundef %1, i3
   %46 = getelementptr inbounds i32, ptr %.val23.i, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %48 = load i32, ptr %46, align 4, !tbaa !11
-  %.not30.i = icmp eq i32 %48, 0
-  br i1 %.not30.i, label %Gia_ManHashFind.exit.thread, label %.lr.ph.i
+  %.not29.i = icmp eq i32 %48, 0
+  br i1 %.not29.i, label %Gia_ManHashFind.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35
   %49 = getelementptr i8, ptr %0, i64 32
@@ -1589,9 +1589,9 @@ define i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %1, i32 noundef %2) local
   br label %90
 
 90:                                               ; preds = %80, %88
-  %.sink86 = phi ptr [ %89, %88 ], [ %73, %80 ]
+  %.sink85 = phi ptr [ %89, %88 ], [ %73, %80 ]
   %91 = ashr i32 %87, 1
-  store i32 %91, ptr %.sink86, align 4, !tbaa !11
+  store i32 %91, ptr %.sink85, align 4, !tbaa !11
   %92 = and i32 %87, -2
   br label %93
 
@@ -2365,8 +2365,8 @@ define i32 @Gia_ManHashAndTry(ptr noundef readonly captures(none) %0, i32 nounde
   %33 = getelementptr inbounds i32, ptr %.val23.i, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i32, ptr %33, align 4, !tbaa !11
-  %.not30.i = icmp eq i32 %35, 0
-  br i1 %.not30.i, label %Gia_ManHashFind.exit.thread, label %.lr.ph.i
+  %.not29.i = icmp eq i32 %35, 0
+  br i1 %.not29.i, label %Gia_ManHashFind.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
   %36 = getelementptr i8, ptr %0, i64 32

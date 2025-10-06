@@ -75,13 +75,13 @@ define dso_local range(i16 0, 260) i16 @_ZN5clang34getComparisonCategoryForBuilt
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 16
   %11 = icmp ne i8 %10, 13
-  %.not.not22.i = icmp eq ptr %8, null
-  %.not.not.i = or i1 %.not.not22.i, %11
+  %.not.not19.i = icmp eq ptr %8, null
+  %.not.not.i = or i1 %.not.not19.i, %11
   br i1 %.not.not.i, label %12, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
 
 12:                                               ; preds = %1
   %13 = icmp ne i8 %10, 46
-  %.not12.not.i = or i1 %.not.not22.i, %13
+  %.not12.not.i = or i1 %.not.not19.i, %13
   br i1 %.not12.not.i, label %22, label %14
 
 14:                                               ; preds = %12
@@ -242,8 +242,8 @@ _ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i8, ptr %37, align 16
   %39 = icmp ne i8 %38, 13
-  %.not.not22.i = icmp eq ptr %36, null
-  %.not.not.i = or i1 %.not.not22.i, %39
+  %.not.not19.i = icmp eq ptr %36, null
+  %.not.not.i = or i1 %.not.not19.i, %39
   br i1 %.not.not.i, label %45, label %40
 
 40:                                               ; preds = %27
@@ -256,7 +256,7 @@ _ZSt8distanceIN5clang11DeclContext22specific_decl_iteratorINS0_9FieldDeclEEEENSt
 
 45:                                               ; preds = %27
   %46 = icmp ne i8 %38, 46
-  %.not12.not.i = or i1 %.not.not22.i, %46
+  %.not12.not.i = or i1 %.not.not19.i, %46
   br i1 %.not12.not.i, label %55, label %47
 
 47:                                               ; preds = %45
@@ -1469,8 +1469,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

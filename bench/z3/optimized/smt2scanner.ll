@@ -1203,7 +1203,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
   br label %85
 
 85:                                               ; preds = %.lr.ph, %200
-  %.01470 = phi i8 [ 0, %.lr.ph ], [ %.317, %200 ]
+  %.01469 = phi i8 [ 0, %.lr.ph ], [ %.317, %200 ]
   %86 = load i8, ptr %17, align 8, !tbaa !28
   %87 = add i8 %86, -48
   %or.cond = icmp ult i8 %87, 10
@@ -1365,7 +1365,7 @@ _ZN8rationalD2Ev.exit46:                          ; preds = %.noexc.i45
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %148 = trunc nuw i8 %.01470 to i1
+  %148 = trunc nuw i8 %.01469 to i1
   br i1 %148, label %149, label %195
 
 149:                                              ; preds = %_ZN8rationalD2Ev.exit46
@@ -1514,7 +1514,7 @@ _ZN8rationalD2Ev.exit51:                          ; preds = %.noexc.i50
 
 196:                                              ; preds = %85
   %197 = icmp ne i8 %86, 46
-  %198 = trunc nuw i8 %.01470 to i1
+  %198 = trunc nuw i8 %.01469 to i1
   %or.cond36 = select i1 %197, i1 true, i1 %198
   br i1 %or.cond36, label %.thread, label %199
 
@@ -1523,13 +1523,13 @@ _ZN8rationalD2Ev.exit51:                          ; preds = %.noexc.i50
           to label %200 unwind label %177
 
 200:                                              ; preds = %195, %199
-  %.317 = phi i8 [ %.01470, %195 ], [ 1, %199 ]
+  %.317 = phi i8 [ %.01469, %195 ], [ 1, %199 ]
   %201 = load i8, ptr %61, align 1, !tbaa !25, !range !20, !noundef !21
   %202 = trunc nuw i8 %201 to i1
   br i1 %202, label %.thread, label %85
 
 .thread:                                          ; preds = %200, %196
-  %.014.lcssa.ph = phi i8 [ %.317, %200 ], [ %.01470, %196 ]
+  %.014.lcssa.ph = phi i8 [ %.317, %200 ], [ %.01469, %196 ]
   %203 = trunc nuw i8 %.014.lcssa.ph to i1
   br i1 %203, label %204, label %_ZN8rationaldVERKS_.exit
 
@@ -3683,11 +3683,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %148, ptr %146, align 8, !tbaa !49
   %154 = load i64, ptr %130, align 8, !tbaa !24
   store i64 %154, ptr %147, align 8, !tbaa !24
-  %.pre74 = load i64, ptr %141, align 8, !tbaa !51
+  %.pre73 = load i64, ptr %141, align 8, !tbaa !51
   br label %_ZN13cmd_exceptionC2EOS_.exit
 
 _ZN13cmd_exceptionC2EOS_.exit:                    ; preds = %150, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i29
-  %155 = phi i64 [ %151, %150 ], [ %.pre74, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i29 ]
+  %155 = phi i64 [ %151, %150 ], [ %.pre73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i29 ]
   %156 = getelementptr inbounds nuw i8, ptr %145, i64 16
   store i64 %155, ptr %156, align 8, !tbaa !51
   store ptr %130, ptr %129, align 8, !tbaa !49

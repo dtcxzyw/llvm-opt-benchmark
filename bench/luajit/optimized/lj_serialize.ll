@@ -274,11 +274,11 @@ serialize_more.exit215:                           ; preds = %34, %42
 56:                                               ; preds = %48
   store ptr %0, ptr %1, align 8, !tbaa !22
   %57 = tail call ptr @lj_buf_more2(ptr noundef nonnull %1, i32 noundef 1) #11
-  %.pre275 = load i64, ptr %2, align 8, !tbaa !14
+  %.pre274 = load i64, ptr %2, align 8, !tbaa !14
   br label %serialize_more.exit217
 
 serialize_more.exit217:                           ; preds = %48, %56
-  %58 = phi i64 [ %.pre275, %56 ], [ %4, %48 ]
+  %58 = phi i64 [ %.pre274, %56 ], [ %4, %48 ]
   %.0.i216 = phi ptr [ %57, %56 ], [ %0, %48 ]
   %59 = lshr i64 %58, 47
   %60 = trunc i64 %59 to i8
@@ -288,17 +288,17 @@ serialize_more.exit217:                           ; preds = %48, %56
   br label %.thread247
 
 63:                                               ; preds = %46
-  switch i64 %5, label %._crit_edge273 [
+  switch i64 %5, label %._crit_edge272 [
     i64 -12, label %64
     i64 -11, label %297
     i64 -4, label %362
   ]
 
-._crit_edge273:                                   ; preds = %63
+._crit_edge272:                                   ; preds = %63
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.pre274 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !28
-  %.pre276 = and i64 %.pre274, -8
-  %.pre277 = inttoptr i64 %.pre276 to ptr
+  %.pre273 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !28
+  %.pre275 = and i64 %.pre273, -8
+  %.pre276 = inttoptr i64 %.pre275 to ptr
   br label %406
 
 64:                                               ; preds = %63
@@ -323,7 +323,7 @@ serialize_more.exit217:                           ; preds = %48, %56
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 48
   %78 = load i32, ptr %77, align 8, !tbaa !12
   %.not200 = icmp eq i32 %78, 0
-  br i1 %.not200, label %.loopexit301, label %79
+  br i1 %.not200, label %.loopexit300, label %79
 
 79:                                               ; preds = %75
   %80 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -335,7 +335,7 @@ serialize_more.exit217:                           ; preds = %48, %56
 84:                                               ; preds = %86, %79
   %.0183.in = phi i64 [ %83, %79 ], [ %.0183, %86 ]
   %85 = icmp sgt i64 %.0183.in, 0
-  br i1 %85, label %86, label %.loopexit301
+  br i1 %85, label %86, label %.loopexit300
 
 86:                                               ; preds = %84
   %.0183 = add nsw i64 %.0183.in, -1
@@ -349,17 +349,17 @@ serialize_more.exit217:                           ; preds = %48, %56
   %91 = load i64, ptr %82, align 8, !tbaa !14
   %92 = icmp eq i64 %91, -1
   %spec.select = select i1 %92, i32 4, i32 2
-  br label %.loopexit301
+  br label %.loopexit300
 
-.loopexit301:                                     ; preds = %84, %.thread, %75
+.loopexit300:                                     ; preds = %84, %.thread, %75
   %.0181 = phi i32 [ 2, %75 ], [ %spec.select, %.thread ], [ 2, %84 ]
   %.0174 = phi i32 [ 0, %75 ], [ %90, %.thread ], [ 0, %84 ]
   %93 = getelementptr inbounds nuw i8, ptr %66, i64 52
   %94 = load i32, ptr %93, align 4, !tbaa !4
   %.not202 = icmp eq i32 %94, 0
-  br i1 %.not202, label %.loopexit254, label %95
+  br i1 %.not202, label %.loopexit253, label %95
 
-95:                                               ; preds = %.loopexit301
+95:                                               ; preds = %.loopexit300
   %96 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %97 = load i64, ptr %96, align 8, !tbaa !30
   %98 = inttoptr i64 %97 to ptr
@@ -370,24 +370,24 @@ serialize_more.exit217:                           ; preds = %48, %56
 
 100:                                              ; preds = %95, %100
   %indvars.iv = phi i64 [ 0, %95 ], [ %indvars.iv.next, %100 ]
-  %.1176261 = phi i32 [ 0, %95 ], [ %105, %100 ]
+  %.1176260 = phi i32 [ 0, %95 ], [ %105, %100 ]
   %101 = getelementptr inbounds nuw %struct.Node, ptr %98, i64 %indvars.iv
   %102 = load i64, ptr %101, align 8, !tbaa !14
   %103 = icmp ne i64 %102, -1
   %104 = zext i1 %103 to i32
-  %105 = add i32 %.1176261, %104
+  %105 = add i32 %.1176260, %104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %.loopexit254, label %100, !llvm.loop !31
+  br i1 %exitcond, label %.loopexit253, label %100, !llvm.loop !31
 
-.loopexit254:                                     ; preds = %100, %.loopexit301
-  %.0175 = phi i32 [ 0, %.loopexit301 ], [ %105, %100 ]
+.loopexit253:                                     ; preds = %100, %.loopexit300
+  %.0175 = phi i32 [ 0, %.loopexit300 ], [ %105, %100 ]
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %107 = load i64, ptr %106, align 8, !tbaa !32
   %.not204 = icmp eq i64 %107, 0
   br i1 %.not204, label %serialize_wu124.exit234, label %108, !prof !23
 
-108:                                              ; preds = %.loopexit254
+108:                                              ; preds = %.loopexit253
   %109 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %110 = load i64, ptr %109, align 8, !tbaa !33
   %.not205 = icmp eq i64 %110, 0
@@ -463,8 +463,8 @@ serialize_more.exit219:                           ; preds = %136, %145
   %.not206 = icmp eq i64 %156, 0
   br i1 %.not206, label %serialize_wu124.exit234, label %132, !llvm.loop !36
 
-serialize_wu124.exit234:                          ; preds = %154, %149, %152, %108, %.loopexit254
-  %.1 = phi ptr [ %0, %108 ], [ %0, %.loopexit254 ], [ %151, %149 ], [ %153, %152 ], [ %0, %154 ]
+serialize_wu124.exit234:                          ; preds = %154, %149, %152, %108, %.loopexit253
+  %.1 = phi ptr [ %0, %108 ], [ %0, %.loopexit253 ], [ %151, %149 ], [ %153, %152 ], [ %0, %154 ]
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !26
   %160 = ptrtoint ptr %159 to i64
@@ -525,7 +525,7 @@ serialize_wu124.exit236:                          ; preds = %177, %174, %seriali
 
 serialize_wu124.exit238:                          ; preds = %184, %181, %serialize_wu124.exit236
   %.4 = phi ptr [ %.3, %serialize_wu124.exit236 ], [ %183, %181 ], [ %185, %184 ]
-  br i1 %.not208, label %.loopexit253, label %186
+  br i1 %.not208, label %.loopexit252, label %186
 
 186:                                              ; preds = %serialize_wu124.exit238
   %187 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -535,7 +535,7 @@ serialize_wu124.exit238:                          ; preds = %184, %181, %seriali
   %191 = zext i32 %.0174 to i64
   %192 = getelementptr inbounds nuw %union.TValue, ptr %189, i64 %191
   %193 = icmp ult i32 %190, %.0174
-  br i1 %193, label %.lr.ph.preheader, label %.loopexit253
+  br i1 %193, label %.lr.ph.preheader, label %.loopexit252
 
 .lr.ph.preheader:                                 ; preds = %186
   %194 = zext nneg i32 %190 to i64
@@ -543,18 +543,18 @@ serialize_wu124.exit238:                          ; preds = %184, %181, %seriali
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.6263 = phi ptr [ %197, %.lr.ph ], [ %.4, %.lr.ph.preheader ]
-  %.0187262 = phi ptr [ %196, %.lr.ph ], [ %195, %.lr.ph.preheader ]
-  %196 = getelementptr inbounds nuw i8, ptr %.0187262, i64 8
-  %197 = tail call fastcc ptr @serialize_put(ptr noundef %.6263, ptr noundef nonnull %1, ptr noundef %.0187262)
+  %.6262 = phi ptr [ %197, %.lr.ph ], [ %.4, %.lr.ph.preheader ]
+  %.0187261 = phi ptr [ %196, %.lr.ph ], [ %195, %.lr.ph.preheader ]
+  %196 = getelementptr inbounds nuw i8, ptr %.0187261, i64 8
+  %197 = tail call fastcc ptr @serialize_put(ptr noundef %.6262, ptr noundef nonnull %1, ptr noundef %.0187261)
   %198 = icmp ult ptr %196, %192
-  br i1 %198, label %.lr.ph, label %.loopexit253, !llvm.loop !37
+  br i1 %198, label %.lr.ph, label %.loopexit252, !llvm.loop !37
 
-.loopexit253:                                     ; preds = %.lr.ph, %186, %serialize_wu124.exit238
+.loopexit252:                                     ; preds = %.lr.ph, %186, %serialize_wu124.exit238
   %.5 = phi ptr [ %.4, %serialize_wu124.exit238 ], [ %.4, %186 ], [ %197, %.lr.ph ]
   br i1 %.not207.not, label %.loopexit, label %199
 
-199:                                              ; preds = %.loopexit253
+199:                                              ; preds = %.loopexit252
   %200 = getelementptr inbounds nuw i8, ptr %66, i64 40
   %201 = load i64, ptr %200, align 8, !tbaa !30
   %202 = inttoptr i64 %201 to ptr
@@ -564,18 +564,18 @@ serialize_wu124.exit238:                          ; preds = %184, %181, %seriali
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %207 = load i64, ptr %206, align 8, !tbaa !38
   %.not209 = icmp eq i64 %207, 0
-  br i1 %.not209, label %.preheader, label %.preheader251, !prof !23
+  br i1 %.not209, label %.preheader, label %.preheader250, !prof !23
 
-.preheader251:                                    ; preds = %199
+.preheader250:                                    ; preds = %199
   %208 = inttoptr i64 %207 to ptr
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 40
   %210 = getelementptr inbounds nuw i8, ptr %208, i64 52
   br label %211
 
-211:                                              ; preds = %.preheader251, %283
-  %.0188 = phi ptr [ %284, %283 ], [ %205, %.preheader251 ]
-  %.2177 = phi i32 [ %.3178, %283 ], [ %.0175, %.preheader251 ]
-  %.8 = phi ptr [ %.11, %283 ], [ %.5, %.preheader251 ]
+211:                                              ; preds = %.preheader250, %283
+  %.0188 = phi ptr [ %284, %283 ], [ %205, %.preheader250 ]
+  %.2177 = phi i32 [ %.3178, %283 ], [ %.0175, %.preheader250 ]
+  %.8 = phi ptr [ %.11, %283 ], [ %.5, %.preheader250 ]
   %212 = load i64, ptr %.0188, align 8, !tbaa !14
   %213 = icmp eq i64 %212, -1
   br i1 %213, label %283, label %214
@@ -730,8 +730,8 @@ serialize_wu124.exit240:                          ; preds = %250, %247, %seriali
   %294 = getelementptr inbounds i8, ptr %.1189, i64 -24
   br label %.preheader
 
-.loopexit:                                        ; preds = %serialize_wu124.exit240, %287, %.loopexit253
-  %.7 = phi ptr [ %.5, %.loopexit253 ], [ %290, %287 ], [ %280, %serialize_wu124.exit240 ]
+.loopexit:                                        ; preds = %serialize_wu124.exit240, %287, %.loopexit252
+  %.7 = phi ptr [ %.5, %.loopexit252 ], [ %290, %287 ], [ %280, %serialize_wu124.exit240 ]
   %295 = load i32, ptr %67, align 8, !tbaa !18
   %296 = add nsw i32 %295, 1
   store i32 %296, ptr %67, align 8, !tbaa !18
@@ -914,15 +914,15 @@ serialize_more.exit231:                           ; preds = %lightudV.exit, %392
   %405 = getelementptr inbounds nuw i8, ptr %.0.i230, i64 9
   br label %.thread247
 
-406:                                              ; preds = %._crit_edge273, %346, %343
-  %.pre-phi278 = phi ptr [ %.pre277, %._crit_edge273 ], [ %301, %346 ], [ %301, %343 ]
-  %407 = phi i64 [ %4, %._crit_edge273 ], [ %309, %346 ], [ %309, %343 ]
+406:                                              ; preds = %._crit_edge272, %346, %343
+  %.pre-phi277 = phi ptr [ %.pre276, %._crit_edge272 ], [ %301, %346 ], [ %301, %343 ]
+  %407 = phi i64 [ %4, %._crit_edge272 ], [ %309, %346 ], [ %309, %343 ]
   %408 = ashr i64 %407, 47
   %409 = tail call i64 @llvm.umax.i64(i64 %408, i64 -14)
   %spec.select213 = xor i64 %409, -1
   %410 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select213
   %411 = load ptr, ptr %410, align 8, !tbaa !68
-  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %.pre-phi278, i32 noundef 3810, ptr noundef %411) #12
+  tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %.pre-phi277, i32 noundef 3810, ptr noundef %411) #12
   unreachable
 
 .thread247:                                       ; preds = %serialize_more.exit227, %serialize_more.exit229, %395, %403, %399, %serialize_more.exit215, %.loopexit, %serialize_more.exit217, %serialize_wu124.exit
@@ -959,7 +959,7 @@ define internal fastcc ptr @serialize_get(ptr noundef %0, ptr noundef %1, ptr no
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1
   store i32 %14, ptr %4, align 4, !tbaa !67
   %16 = icmp ugt i8 %13, -33
-  br i1 %16, label %serialize_ru124.exit, label %serialize_ru124.exit.thread189, !prof !27
+  br i1 %16, label %serialize_ru124.exit, label %serialize_ru124.exit.thread187, !prof !27
 
 serialize_ru124.exit:                             ; preds = %12
   %17 = call fastcc ptr @serialize_ru124_(ptr noundef nonnull %15, ptr noundef nonnull %10, ptr noundef nonnull %4)
@@ -968,18 +968,18 @@ serialize_ru124.exit:                             ; preds = %12
 
 thread-pre-split:                                 ; preds = %serialize_ru124.exit
   %.pr = load i32, ptr %4, align 4, !tbaa !67
-  br label %serialize_ru124.exit.thread189
+  br label %serialize_ru124.exit.thread187
 
-serialize_ru124.exit.thread189:                   ; preds = %12, %thread-pre-split
-  %.pr226 = phi i32 [ %.pr, %thread-pre-split ], [ %14, %12 ]
-  %.0.i192 = phi ptr [ %17, %thread-pre-split ], [ %15, %12 ]
-  %18 = icmp ugt i32 %.pr226, 31
+serialize_ru124.exit.thread187:                   ; preds = %12, %thread-pre-split
+  %.pr222 = phi i32 [ %.pr, %thread-pre-split ], [ %14, %12 ]
+  %.0.i190 = phi ptr [ %17, %thread-pre-split ], [ %15, %12 ]
+  %18 = icmp ugt i32 %.pr222, 31
   br i1 %18, label %19, label %35, !prof !23
 
-19:                                               ; preds = %serialize_ru124.exit.thread189
-  %20 = add i32 %.pr226, -32
+19:                                               ; preds = %serialize_ru124.exit.thread187
+  %20 = add i32 %.pr222, -32
   %21 = ptrtoint ptr %10 to i64
-  %22 = ptrtoint ptr %.0.i192 to i64
+  %22 = ptrtoint ptr %.0.i190 to i64
   %23 = sub i64 %21, %22
   %24 = trunc i64 %23 to i32
   %25 = icmp ugt i32 %20, %24
@@ -991,82 +991,82 @@ serialize_ru124.exit.thread189:                   ; preds = %12, %thread-pre-spl
   %28 = and i64 %27, -8
   %29 = inttoptr i64 %28 to ptr
   %30 = zext i32 %20 to i64
-  %31 = tail call ptr @lj_str_new(ptr noundef %29, ptr noundef nonnull %.0.i192, i64 noundef %30) #11
+  %31 = tail call ptr @lj_str_new(ptr noundef %29, ptr noundef nonnull %.0.i190, i64 noundef %30) #11
   %32 = ptrtoint ptr %31 to i64
   %33 = or i64 %32, -703687441776640
   store i64 %33, ptr %2, align 8, !tbaa !14
-  %34 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 %30
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i190, i64 %30
   br label %282
 
-35:                                               ; preds = %serialize_ru124.exit.thread189
-  switch i32 %.pr226, label %48 [
+35:                                               ; preds = %serialize_ru124.exit.thread187
+  switch i32 %.pr222, label %48 [
     i32 6, label %36
     i32 7, label %42
   ]
 
 36:                                               ; preds = %35
-  %37 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.0.i190, i64 4
   %38 = icmp ugt ptr %37, %10
   br i1 %38, label %serialize_ru124.exit.thread, label %39, !prof !27
 
 39:                                               ; preds = %36
-  %40 = load i32, ptr %.0.i192, align 1, !tbaa !14
+  %40 = load i32, ptr %.0.i190, align 1, !tbaa !14
   %41 = sitofp i32 %40 to double
   store double %41, ptr %2, align 8, !tbaa !14
   br label %282
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.0.i190, i64 8
   %44 = icmp ugt ptr %43, %10
   br i1 %44, label %serialize_ru124.exit.thread, label %45, !prof !27
 
 45:                                               ; preds = %42
-  %46 = load i64, ptr %.0.i192, align 1
+  %46 = load i64, ptr %.0.i190, align 1
   %47 = icmp ult i64 %46, -1970324836974592
   %spec.store.select = select i1 %47, i64 %46, i64 -2251799813685248
   store i64 %spec.store.select, ptr %2, align 8
   br label %282
 
 48:                                               ; preds = %35
-  %49 = icmp samesign ult i32 %.pr226, 3
+  %49 = icmp samesign ult i32 %.pr222, 3
   br i1 %49, label %50, label %54
 
 50:                                               ; preds = %48
-  %51 = zext nneg i32 %.pr226 to i64
+  %51 = zext nneg i32 %.pr222 to i64
   %52 = shl nuw nsw i64 %51, 47
   %53 = xor i64 %52, -1
   store i64 %53, ptr %2, align 8, !tbaa !14
   br label %282
 
 54:                                               ; preds = %48
-  %55 = icmp eq i32 %.pr226, 15
+  %55 = icmp eq i32 %.pr222, 15
   br i1 %55, label %56, label %87
 
 56:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %57 = icmp ult ptr %.0.i192, %10
-  br i1 %57, label %58, label %.thread203, !prof !23
+  %57 = icmp ult ptr %.0.i190, %10
+  br i1 %57, label %58, label %.thread200, !prof !23
 
 58:                                               ; preds = %56
-  %59 = load i8, ptr %.0.i192, align 1, !tbaa !14
+  %59 = load i8, ptr %.0.i190, align 1, !tbaa !14
   %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 1
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i190, i64 1
   store i32 %60, ptr %5, align 4, !tbaa !67
   %62 = icmp ugt i8 %59, -33
-  br i1 %62, label %serialize_ru124.exit178, label %serialize_ru124.exit178.thread199, !prof !27
+  br i1 %62, label %serialize_ru124.exit176, label %serialize_ru124.exit176.thread196, !prof !27
 
-serialize_ru124.exit178:                          ; preds = %58
+serialize_ru124.exit176:                          ; preds = %58
   %63 = call fastcc ptr @serialize_ru124_(ptr noundef nonnull %61, ptr noundef nonnull %10, ptr noundef nonnull %5)
   %.not165 = icmp eq ptr %63, null
-  br i1 %.not165, label %.thread203, label %serialize_ru124.exit178.serialize_ru124.exit178.thread199_crit_edge, !prof !70
+  br i1 %.not165, label %.thread200, label %serialize_ru124.exit176.serialize_ru124.exit176.thread196_crit_edge, !prof !70
 
-serialize_ru124.exit178.serialize_ru124.exit178.thread199_crit_edge: ; preds = %serialize_ru124.exit178
-  %.pre262 = load i32, ptr %5, align 4, !tbaa !67
-  br label %serialize_ru124.exit178.thread199
+serialize_ru124.exit176.serialize_ru124.exit176.thread196_crit_edge: ; preds = %serialize_ru124.exit176
+  %.pre257 = load i32, ptr %5, align 4, !tbaa !67
+  br label %serialize_ru124.exit176.thread196
 
-serialize_ru124.exit178.thread199:                ; preds = %serialize_ru124.exit178.serialize_ru124.exit178.thread199_crit_edge, %58
-  %64 = phi i32 [ %.pre262, %serialize_ru124.exit178.serialize_ru124.exit178.thread199_crit_edge ], [ %60, %58 ]
-  %.0.i177202 = phi ptr [ %63, %serialize_ru124.exit178.serialize_ru124.exit178.thread199_crit_edge ], [ %61, %58 ]
+serialize_ru124.exit176.thread196:                ; preds = %serialize_ru124.exit176.serialize_ru124.exit176.thread196_crit_edge, %58
+  %64 = phi i32 [ %.pre257, %serialize_ru124.exit176.serialize_ru124.exit176.thread196_crit_edge ], [ %60, %58 ]
+  %.0.i175199 = phi ptr [ %63, %serialize_ru124.exit176.serialize_ru124.exit176.thread196_crit_edge ], [ %61, %58 ]
   %65 = add i32 %64, 1
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %67 = load i64, ptr %66, align 8, !tbaa !38
@@ -1074,7 +1074,7 @@ serialize_ru124.exit178.thread199:                ; preds = %serialize_ru124.exi
   %.not166 = icmp eq i64 %67, 0
   br i1 %.not166, label %81, label %69
 
-69:                                               ; preds = %serialize_ru124.exit178.thread199
+69:                                               ; preds = %serialize_ru124.exit176.thread196
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 48
   %71 = load i32, ptr %70, align 8, !tbaa !12
   %72 = icmp ult i32 %65, %71
@@ -1091,7 +1091,7 @@ serialize_ru124.exit178.thread199:                ; preds = %serialize_ru124.exi
   %80 = icmp eq i64 %.mask167, -703687441776640
   br i1 %80, label %86, label %81
 
-81:                                               ; preds = %73, %69, %serialize_ru124.exit178.thread199
+81:                                               ; preds = %73, %69, %serialize_ru124.exit176.thread196
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %83 = load i64, ptr %82, align 8, !tbaa !28
   %84 = and i64 %83, -8
@@ -1099,7 +1099,7 @@ serialize_ru124.exit178.thread199:                ; preds = %serialize_ru124.exi
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %85, i32 noundef 3862, i32 noundef %65) #12
   unreachable
 
-.thread203:                                       ; preds = %serialize_ru124.exit178, %56
+.thread200:                                       ; preds = %serialize_ru124.exit176, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %serialize_ru124.exit.thread
 
@@ -1109,7 +1109,7 @@ serialize_ru124.exit178.thread199:                ; preds = %serialize_ru124.exi
   br label %282
 
 87:                                               ; preds = %54
-  %88 = add nsw i32 %.pr226, -8
+  %88 = add nsw i32 %.pr222, -8
   %or.cond = icmp ult i32 %88, 7
   br i1 %or.cond, label %89, label %212
 
@@ -1134,34 +1134,34 @@ serialize_ru124.exit178.thread199:                ; preds = %serialize_ru124.exi
 98:                                               ; preds = %89
   %99 = add nsw i32 %91, -1
   store i32 %99, ptr %90, align 8, !tbaa !18
-  %100 = icmp eq i32 %.pr226, 14
-  br i1 %100, label %101, label %thread-pre-split225
+  %100 = icmp eq i32 %.pr222, 14
+  br i1 %100, label %101, label %thread-pre-split221
 
 101:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %102 = icmp ult ptr %.0.i192, %10
-  br i1 %102, label %103, label %.thread220, !prof !23
+  %102 = icmp ult ptr %.0.i190, %10
+  br i1 %102, label %103, label %.thread216, !prof !23
 
 103:                                              ; preds = %101
-  %104 = load i8, ptr %.0.i192, align 1, !tbaa !14
+  %104 = load i8, ptr %.0.i190, align 1, !tbaa !14
   %105 = zext i8 %104 to i32
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %.0.i190, i64 1
   store i32 %105, ptr %8, align 4, !tbaa !67
   %107 = icmp ugt i8 %104, -33
-  br i1 %107, label %serialize_ru124.exit180, label %serialize_ru124.exit180.thread209, !prof !27
+  br i1 %107, label %serialize_ru124.exit178, label %serialize_ru124.exit178.thread205, !prof !27
 
-serialize_ru124.exit180:                          ; preds = %103
+serialize_ru124.exit178:                          ; preds = %103
   %108 = call fastcc ptr @serialize_ru124_(ptr noundef nonnull %106, ptr noundef nonnull %10, ptr noundef nonnull %8)
   %.not154 = icmp eq ptr %108, null
-  br i1 %.not154, label %.thread220, label %serialize_ru124.exit180.serialize_ru124.exit180.thread209_crit_edge, !prof !70
+  br i1 %.not154, label %.thread216, label %serialize_ru124.exit178.serialize_ru124.exit178.thread205_crit_edge, !prof !70
 
-serialize_ru124.exit180.serialize_ru124.exit180.thread209_crit_edge: ; preds = %serialize_ru124.exit180
+serialize_ru124.exit178.serialize_ru124.exit178.thread205_crit_edge: ; preds = %serialize_ru124.exit178
   %.pre = load i32, ptr %8, align 4, !tbaa !67
-  br label %serialize_ru124.exit180.thread209
+  br label %serialize_ru124.exit178.thread205
 
-serialize_ru124.exit180.thread209:                ; preds = %serialize_ru124.exit180.serialize_ru124.exit180.thread209_crit_edge, %103
-  %109 = phi i32 [ %.pre, %serialize_ru124.exit180.serialize_ru124.exit180.thread209_crit_edge ], [ %105, %103 ]
-  %.0.i179212 = phi ptr [ %108, %serialize_ru124.exit180.serialize_ru124.exit180.thread209_crit_edge ], [ %106, %103 ]
+serialize_ru124.exit178.thread205:                ; preds = %serialize_ru124.exit178.serialize_ru124.exit178.thread205_crit_edge, %103
+  %109 = phi i32 [ %.pre, %serialize_ru124.exit178.serialize_ru124.exit178.thread205_crit_edge ], [ %105, %103 ]
+  %.0.i177208 = phi ptr [ %108, %serialize_ru124.exit178.serialize_ru124.exit178.thread205_crit_edge ], [ %106, %103 ]
   %110 = add i32 %109, 1
   store i32 %110, ptr %8, align 4, !tbaa !67
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1170,7 +1170,7 @@ serialize_ru124.exit180.thread209:                ; preds = %serialize_ru124.exi
   %.not155 = icmp eq i64 %112, 0
   br i1 %.not155, label %135, label %114
 
-114:                                              ; preds = %serialize_ru124.exit180.thread209
+114:                                              ; preds = %serialize_ru124.exit178.thread205
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 48
   %116 = load i32, ptr %115, align 8, !tbaa !12
   %117 = icmp ult i32 %110, %116
@@ -1189,27 +1189,27 @@ serialize_ru124.exit180.thread209:                ; preds = %serialize_ru124.exi
 
 126:                                              ; preds = %118
   %127 = and i64 %124, 140737488355327
-  %128 = icmp ult ptr %.0.i179212, %10
-  br i1 %128, label %129, label %.thread220, !prof !23
+  %128 = icmp ult ptr %.0.i177208, %10
+  br i1 %128, label %129, label %.thread216, !prof !23
 
 129:                                              ; preds = %126
-  %130 = load i8, ptr %.0.i179212, align 1, !tbaa !14
+  %130 = load i8, ptr %.0.i177208, align 1, !tbaa !14
   %131 = zext i8 %130 to i32
-  %132 = getelementptr inbounds nuw i8, ptr %.0.i179212, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %.0.i177208, i64 1
   store i32 %131, ptr %4, align 4, !tbaa !67
   %133 = icmp ugt i8 %130, -33
-  br i1 %133, label %serialize_ru124.exit182, label %serialize_ru124.exit182.thread215, !prof !27
+  br i1 %133, label %serialize_ru124.exit180, label %serialize_ru124.exit180.thread211, !prof !27
 
-serialize_ru124.exit182:                          ; preds = %129
+serialize_ru124.exit180:                          ; preds = %129
   %134 = call fastcc ptr @serialize_ru124_(ptr noundef nonnull %132, ptr noundef nonnull %10, ptr noundef nonnull %4)
   %.not156 = icmp eq ptr %134, null
-  br i1 %.not156, label %.thread220, label %serialize_ru124.exit182.serialize_ru124.exit182.thread215_crit_edge, !prof !70
+  br i1 %.not156, label %.thread216, label %serialize_ru124.exit180.serialize_ru124.exit180.thread211_crit_edge, !prof !70
 
-serialize_ru124.exit182.serialize_ru124.exit182.thread215_crit_edge: ; preds = %serialize_ru124.exit182
-  %.pre260 = load i32, ptr %4, align 4, !tbaa !67
-  br label %serialize_ru124.exit182.thread215
+serialize_ru124.exit180.serialize_ru124.exit180.thread211_crit_edge: ; preds = %serialize_ru124.exit180
+  %.pre255 = load i32, ptr %4, align 4, !tbaa !67
+  br label %serialize_ru124.exit180.thread211
 
-135:                                              ; preds = %118, %114, %serialize_ru124.exit180.thread209
+135:                                              ; preds = %118, %114, %serialize_ru124.exit178.thread205
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %137 = load i64, ptr %136, align 8, !tbaa !28
   %138 = and i64 %137, -8
@@ -1217,28 +1217,28 @@ serialize_ru124.exit182.serialize_ru124.exit182.thread215_crit_edge: ; preds = %
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %139, i32 noundef 3862, i32 noundef %110) #12
   unreachable
 
-.thread220:                                       ; preds = %serialize_ru124.exit180, %serialize_ru124.exit182, %101, %126
+.thread216:                                       ; preds = %serialize_ru124.exit178, %serialize_ru124.exit180, %101, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread240
+  br label %.thread236
 
-serialize_ru124.exit182.thread215:                ; preds = %serialize_ru124.exit182.serialize_ru124.exit182.thread215_crit_edge, %129
-  %140 = phi i32 [ %.pre260, %serialize_ru124.exit182.serialize_ru124.exit182.thread215_crit_edge ], [ %131, %129 ]
-  %.0.i181218 = phi ptr [ %134, %serialize_ru124.exit182.serialize_ru124.exit182.thread215_crit_edge ], [ %132, %129 ]
+serialize_ru124.exit180.thread211:                ; preds = %serialize_ru124.exit180.serialize_ru124.exit180.thread211_crit_edge, %129
+  %140 = phi i32 [ %.pre255, %serialize_ru124.exit180.serialize_ru124.exit180.thread211_crit_edge ], [ %131, %129 ]
+  %.0.i179214 = phi ptr [ %134, %serialize_ru124.exit180.serialize_ru124.exit180.thread211_crit_edge ], [ %132, %129 ]
   %141 = add i32 %140, -8
   %or.cond3 = icmp ult i32 %141, 6
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %or.cond3, label %thread-pre-split225, label %211
+  br i1 %or.cond3, label %thread-pre-split221, label %211
 
-thread-pre-split225:                              ; preds = %98, %serialize_ru124.exit182.thread215
-  %142 = phi i32 [ %140, %serialize_ru124.exit182.thread215 ], [ %.pr226, %98 ]
-  %.0135 = phi i64 [ %127, %serialize_ru124.exit182.thread215 ], [ 0, %98 ]
-  %.2 = phi ptr [ %.0.i181218, %serialize_ru124.exit182.thread215 ], [ %.0.i192, %98 ]
+thread-pre-split221:                              ; preds = %98, %serialize_ru124.exit180.thread211
+  %142 = phi i32 [ %140, %serialize_ru124.exit180.thread211 ], [ %.pr222, %98 ]
+  %.0135 = phi i64 [ %127, %serialize_ru124.exit180.thread211 ], [ 0, %98 ]
+  %.2 = phi ptr [ %.0.i179214, %serialize_ru124.exit180.thread211 ], [ %.0.i190, %98 ]
   %143 = icmp samesign ugt i32 %142, 9
-  br i1 %143, label %144, label %serialize_ru124.exit184.thread229
+  br i1 %143, label %144, label %serialize_ru124.exit182.thread225
 
-144:                                              ; preds = %thread-pre-split225
+144:                                              ; preds = %thread-pre-split221
   %145 = icmp ult ptr %.2, %10
-  br i1 %145, label %146, label %.thread240, !prof !23
+  br i1 %145, label %146, label %.thread236, !prof !23
 
 146:                                              ; preds = %144
   %147 = load i8, ptr %.2, align 1, !tbaa !14
@@ -1246,28 +1246,28 @@ thread-pre-split225:                              ; preds = %98, %serialize_ru12
   %149 = getelementptr inbounds nuw i8, ptr %.2, i64 1
   store i32 %148, ptr %6, align 4, !tbaa !67
   %150 = icmp ugt i8 %147, -33
-  br i1 %150, label %serialize_ru124.exit184, label %serialize_ru124.exit184.thread229, !prof !27
+  br i1 %150, label %serialize_ru124.exit182, label %serialize_ru124.exit182.thread225, !prof !27
 
-serialize_ru124.exit184:                          ; preds = %146
+serialize_ru124.exit182:                          ; preds = %146
   %151 = call fastcc ptr @serialize_ru124_(ptr noundef nonnull %149, ptr noundef nonnull %10, ptr noundef nonnull %6)
   %.not157 = icmp eq ptr %151, null
-  br i1 %.not157, label %.thread240, label %serialize_ru124.exit184.thread229, !prof !70
+  br i1 %.not157, label %.thread236, label %serialize_ru124.exit182.thread225, !prof !70
 
-serialize_ru124.exit184.thread229:                ; preds = %146, %serialize_ru124.exit184, %thread-pre-split225
-  %.5 = phi ptr [ %151, %serialize_ru124.exit184 ], [ %.2, %thread-pre-split225 ], [ %149, %146 ]
+serialize_ru124.exit182.thread225:                ; preds = %146, %serialize_ru124.exit182, %thread-pre-split221
+  %.5 = phi ptr [ %151, %serialize_ru124.exit182 ], [ %.2, %thread-pre-split221 ], [ %149, %146 ]
   %152 = and i32 %142, 1
   %.not158 = icmp eq i32 %152, 0
-  br i1 %.not158, label %serialize_ru124.exit186.thread234.thread, label %156
+  br i1 %.not158, label %serialize_ru124.exit184.thread230.thread, label %156
 
-serialize_ru124.exit186.thread234.thread:         ; preds = %serialize_ru124.exit184.thread229
+serialize_ru124.exit184.thread230.thread:         ; preds = %serialize_ru124.exit182.thread225
   %153 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %154 = load i64, ptr %153, align 8, !tbaa !28
   %155 = load i32, ptr %6, align 4, !tbaa !67
   br label %173
 
-156:                                              ; preds = %serialize_ru124.exit184.thread229
+156:                                              ; preds = %serialize_ru124.exit182.thread225
   %157 = icmp ult ptr %.5, %10
-  br i1 %157, label %158, label %.thread240, !prof !23
+  br i1 %157, label %158, label %.thread236, !prof !23
 
 158:                                              ; preds = %156
   %159 = load i8, ptr %.5, align 1, !tbaa !14
@@ -1275,20 +1275,20 @@ serialize_ru124.exit186.thread234.thread:         ; preds = %serialize_ru124.exi
   %161 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   store i32 %160, ptr %7, align 4, !tbaa !67
   %162 = icmp ugt i8 %159, -33
-  br i1 %162, label %serialize_ru124.exit186, label %serialize_ru124.exit186.thread234, !prof !27
+  br i1 %162, label %serialize_ru124.exit184, label %serialize_ru124.exit184.thread230, !prof !27
 
-serialize_ru124.exit186:                          ; preds = %158
+serialize_ru124.exit184:                          ; preds = %158
   %163 = call fastcc ptr @serialize_ru124_(ptr noundef nonnull %161, ptr noundef nonnull %10, ptr noundef nonnull %7)
   %.not159 = icmp eq ptr %163, null
-  br i1 %.not159, label %.thread240, label %serialize_ru124.exit186.thread-pre-split237_crit_edge, !prof !70
+  br i1 %.not159, label %.thread236, label %serialize_ru124.exit184.thread-pre-split233_crit_edge, !prof !70
 
-serialize_ru124.exit186.thread-pre-split237_crit_edge: ; preds = %serialize_ru124.exit186
-  %.pr238.pre = load i32, ptr %7, align 4, !tbaa !67
-  br label %serialize_ru124.exit186.thread234
+serialize_ru124.exit184.thread-pre-split233_crit_edge: ; preds = %serialize_ru124.exit184
+  %.pr234.pre = load i32, ptr %7, align 4, !tbaa !67
+  br label %serialize_ru124.exit184.thread230
 
-serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exit186.thread-pre-split237_crit_edge, %158
-  %164 = phi i32 [ %160, %158 ], [ %.pr238.pre, %serialize_ru124.exit186.thread-pre-split237_crit_edge ]
-  %.6 = phi ptr [ %161, %158 ], [ %163, %serialize_ru124.exit186.thread-pre-split237_crit_edge ]
+serialize_ru124.exit184.thread230:                ; preds = %serialize_ru124.exit184.thread-pre-split233_crit_edge, %158
+  %164 = phi i32 [ %160, %158 ], [ %.pr234.pre, %serialize_ru124.exit184.thread-pre-split233_crit_edge ]
+  %.6 = phi ptr [ %161, %158 ], [ %163, %serialize_ru124.exit184.thread-pre-split233_crit_edge ]
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %166 = load i64, ptr %165, align 8, !tbaa !28
   %167 = load i32, ptr %6, align 4, !tbaa !67
@@ -1297,23 +1297,23 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
     i32 1, label %.fold.split
   ]
 
-168:                                              ; preds = %serialize_ru124.exit186.thread234
+168:                                              ; preds = %serialize_ru124.exit184.thread230
   %169 = add i32 %164, -1
   %170 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %169, i1 true)
   %171 = sub nuw nsw i32 32, %170
   %172 = icmp eq i32 %164, 0
   br label %173
 
-.fold.split:                                      ; preds = %serialize_ru124.exit186.thread234
+.fold.split:                                      ; preds = %serialize_ru124.exit184.thread230
   br label %173
 
-173:                                              ; preds = %serialize_ru124.exit186.thread234.thread, %serialize_ru124.exit186.thread234, %.fold.split, %168
-  %174 = phi i32 [ %167, %168 ], [ %167, %serialize_ru124.exit186.thread234 ], [ %167, %.fold.split ], [ %155, %serialize_ru124.exit186.thread234.thread ]
-  %.in.in = phi i64 [ %166, %168 ], [ %166, %serialize_ru124.exit186.thread234 ], [ %166, %.fold.split ], [ %154, %serialize_ru124.exit186.thread234.thread ]
-  %175 = phi ptr [ %165, %168 ], [ %165, %serialize_ru124.exit186.thread234 ], [ %165, %.fold.split ], [ %153, %serialize_ru124.exit186.thread234.thread ]
-  %.6282 = phi ptr [ %.6, %168 ], [ %.6, %serialize_ru124.exit186.thread234 ], [ %.6, %.fold.split ], [ %.5, %serialize_ru124.exit186.thread234.thread ]
-  %.not162 = phi i1 [ %172, %168 ], [ true, %serialize_ru124.exit186.thread234 ], [ false, %.fold.split ], [ true, %serialize_ru124.exit186.thread234.thread ]
-  %176 = phi i32 [ %171, %168 ], [ %164, %serialize_ru124.exit186.thread234 ], [ %164, %.fold.split ], [ 0, %serialize_ru124.exit186.thread234.thread ]
+173:                                              ; preds = %serialize_ru124.exit184.thread230.thread, %serialize_ru124.exit184.thread230, %.fold.split, %168
+  %174 = phi i32 [ %167, %168 ], [ %167, %serialize_ru124.exit184.thread230 ], [ %167, %.fold.split ], [ %155, %serialize_ru124.exit184.thread230.thread ]
+  %.in.in = phi i64 [ %166, %168 ], [ %166, %serialize_ru124.exit184.thread230 ], [ %166, %.fold.split ], [ %154, %serialize_ru124.exit184.thread230.thread ]
+  %175 = phi ptr [ %165, %168 ], [ %165, %serialize_ru124.exit184.thread230 ], [ %165, %.fold.split ], [ %153, %serialize_ru124.exit184.thread230.thread ]
+  %.6277 = phi ptr [ %.6, %168 ], [ %.6, %serialize_ru124.exit184.thread230 ], [ %.6, %.fold.split ], [ %.5, %serialize_ru124.exit184.thread230.thread ]
+  %.not162 = phi i1 [ %172, %168 ], [ true, %serialize_ru124.exit184.thread230 ], [ false, %.fold.split ], [ true, %serialize_ru124.exit184.thread230.thread ]
+  %176 = phi i32 [ %171, %168 ], [ %164, %serialize_ru124.exit184.thread230 ], [ %164, %.fold.split ], [ 0, %serialize_ru124.exit184.thread230.thread ]
   %.in = and i64 %.in.in, -8
   %177 = inttoptr i64 %.in to ptr
   %178 = tail call ptr @lj_tab_new(ptr noundef %177, i32 noundef %174, i32 noundef %176) #11
@@ -1341,16 +1341,16 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.8258 = phi ptr [ %193, %.lr.ph ], [ %.6282, %.lr.ph.preheader ]
-  %.0137257 = phi ptr [ %192, %.lr.ph ], [ %191, %.lr.ph.preheader ]
-  %192 = getelementptr inbounds nuw i8, ptr %.0137257, i64 8
-  %193 = tail call fastcc ptr @serialize_get(ptr noundef %.8258, ptr noundef nonnull %1, ptr noundef %.0137257)
+  %.8253 = phi ptr [ %193, %.lr.ph ], [ %.6277, %.lr.ph.preheader ]
+  %.0137252 = phi ptr [ %192, %.lr.ph ], [ %191, %.lr.ph.preheader ]
+  %192 = getelementptr inbounds nuw i8, ptr %.0137252, i64 8
+  %193 = tail call fastcc ptr @serialize_get(ptr noundef %.8253, ptr noundef nonnull %1, ptr noundef %.0137252)
   %194 = icmp ult ptr %192, %189
   br i1 %194, label %.lr.ph, label %.loopexit, !llvm.loop !71
 
 .loopexit:                                        ; preds = %.lr.ph, %182, %173
-  %.7 = phi ptr [ %.6282, %173 ], [ %.6282, %182 ], [ %193, %.lr.ph ]
-  br i1 %.not162, label %.thread243, label %.preheader
+  %.7 = phi ptr [ %.6277, %173 ], [ %.6277, %182 ], [ %193, %.lr.ph ]
+  br i1 %.not162, label %.thread239, label %.preheader
 
 .preheader:                                       ; preds = %.loopexit, %205
   %.10 = phi ptr [ %206, %205 ], [ %.7, %.loopexit ]
@@ -1378,9 +1378,9 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   %208 = add i32 %207, -1
   store i32 %208, ptr %7, align 4, !tbaa !67
   %.not164 = icmp eq i32 %208, 0
-  br i1 %.not164, label %.thread243, label %.preheader, !llvm.loop !72
+  br i1 %.not164, label %.thread239, label %.preheader, !llvm.loop !72
 
-.thread243:                                       ; preds = %205, %.loopexit
+.thread239:                                       ; preds = %205, %.loopexit
   %.9 = phi ptr [ %.7, %.loopexit ], [ %206, %205 ]
   %209 = load i32, ptr %90, align 8, !tbaa !18
   %210 = add nsw i32 %209, 1
@@ -1389,26 +1389,26 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %282
 
-.thread240:                                       ; preds = %serialize_ru124.exit184, %serialize_ru124.exit186, %.thread220, %144, %156
+.thread236:                                       ; preds = %serialize_ru124.exit182, %serialize_ru124.exit184, %.thread216, %144, %156
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %serialize_ru124.exit.thread
 
-211:                                              ; preds = %serialize_ru124.exit182.thread215
+211:                                              ; preds = %serialize_ru124.exit180.thread211
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread249
+  br label %.thread245
 
 212:                                              ; preds = %87
-  %213 = add nsw i32 %.pr226, -16
+  %213 = add nsw i32 %.pr222, -16
   %or.cond5 = icmp ult i32 %213, 3
   br i1 %or.cond5, label %214, label %251
 
 214:                                              ; preds = %212
-  %215 = icmp eq i32 %.pr226, 18
+  %215 = icmp eq i32 %.pr222, 18
   %216 = select i1 %215, i32 16, i32 8
   %217 = zext nneg i32 %216 to i64
-  %218 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 %217
+  %218 = getelementptr inbounds nuw i8, ptr %.0.i190, i64 %217
   %219 = icmp ugt ptr %218, %10
   br i1 %219, label %serialize_ru124.exit.thread, label %220, !prof !27
 
@@ -1423,11 +1423,11 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 384
   %229 = load i64, ptr %228, align 8, !tbaa !43
   %.not153 = icmp eq i64 %229, 0
-  br i1 %.not153, label %.thread249, label %230, !prof !27
+  br i1 %.not153, label %.thread245, label %230, !prof !27
 
 230:                                              ; preds = %220
-  %231 = icmp eq i32 %.pr226, 16
-  %232 = icmp eq i32 %.pr226, 17
+  %231 = icmp eq i32 %.pr222, 16
+  %232 = icmp eq i32 %.pr222, 17
   %narrow.i = add nuw nsw i32 %216, 16
   %233 = zext nneg i32 %narrow.i to i64
   %234 = tail call ptr @lj_mem_newgco(ptr noundef nonnull %224, i64 noundef %233) #11
@@ -1438,8 +1438,8 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   %238 = getelementptr inbounds nuw i8, ptr %234, i64 10
   store i16 %237, ptr %238, align 2, !tbaa !75
   %239 = getelementptr inbounds nuw i8, ptr %234, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %239, ptr noundef nonnull align 1 dereferenceable(1) %.0.i192, i64 %217, i1 false)
-  br i1 %215, label %240, label %.thread246
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %239, ptr noundef nonnull align 1 dereferenceable(1) %.0.i190, i64 %217, i1 false)
+  br i1 %215, label %240, label %.thread242
 
 240:                                              ; preds = %230
   %241 = load i64, ptr %239, align 8, !tbaa !14
@@ -1454,49 +1454,49 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   %245 = getelementptr inbounds nuw i8, ptr %234, i64 24
   %246 = load i64, ptr %245, align 8, !tbaa !14
   %247 = icmp ult i64 %246, -1970324836974592
-  br i1 %247, label %.thread246, label %248
+  br i1 %247, label %.thread242, label %248
 
 248:                                              ; preds = %244
   store i64 -2251799813685248, ptr %245, align 8, !tbaa !14
-  br label %.thread246
+  br label %.thread242
 
-.thread246:                                       ; preds = %230, %248, %244
+.thread242:                                       ; preds = %230, %248, %244
   %249 = ptrtoint ptr %234 to i64
   %250 = or i64 %249, -1548112371908608
   store i64 %250, ptr %2, align 8, !tbaa !14
   br label %282
 
 251:                                              ; preds = %212
-  %252 = icmp samesign ult i32 %.pr226, 6
-  br i1 %252, label %253, label %.thread249
+  %252 = icmp samesign ult i32 %.pr222, 6
+  br i1 %252, label %253, label %.thread245
 
 253:                                              ; preds = %251
-  switch i32 %.pr226, label %264 [
+  switch i32 %.pr222, label %264 [
     i32 4, label %254
     i32 5, label %260
   ]
 
 254:                                              ; preds = %253
-  %255 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 4
+  %255 = getelementptr inbounds nuw i8, ptr %.0.i190, i64 4
   %256 = icmp ugt ptr %255, %10
   br i1 %256, label %serialize_ru124.exit.thread, label %257, !prof !27
 
 257:                                              ; preds = %254
-  %258 = load i32, ptr %.0.i192, align 1, !tbaa !14
+  %258 = load i32, ptr %.0.i190, align 1, !tbaa !14
   %259 = zext i32 %258 to i64
   br label %264
 
 260:                                              ; preds = %253
-  %261 = getelementptr inbounds nuw i8, ptr %.0.i192, i64 8
+  %261 = getelementptr inbounds nuw i8, ptr %.0.i190, i64 8
   %262 = icmp ugt ptr %261, %10
   br i1 %262, label %serialize_ru124.exit.thread, label %263, !prof !27
 
 263:                                              ; preds = %260
-  %.0.copyload = load i64, ptr %.0.i192, align 1
+  %.0.copyload = load i64, ptr %.0.i190, align 1
   br label %264
 
 264:                                              ; preds = %257, %263, %253
-  %.13 = phi ptr [ %255, %257 ], [ %261, %263 ], [ %.0.i192, %253 ]
+  %.13 = phi ptr [ %255, %257 ], [ %261, %263 ], [ %.0.i190, %253 ]
   %.0 = phi i64 [ %259, %257 ], [ %.0.copyload, %263 ], [ 0, %253 ]
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %266 = load i64, ptr %265, align 8, !tbaa !28
@@ -1509,8 +1509,8 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   store i64 %272, ptr %2, align 8, !tbaa !14
   br label %282
 
-.thread249:                                       ; preds = %211, %220, %251
-  %273 = phi i32 [ %140, %211 ], [ %.pr226, %220 ], [ %.pr226, %251 ]
+.thread245:                                       ; preds = %211, %220, %251
+  %273 = phi i32 [ %140, %211 ], [ %.pr222, %220 ], [ %.pr222, %251 ]
   %274 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %275 = load i64, ptr %274, align 8, !tbaa !28
   %276 = and i64 %275, -8
@@ -1518,7 +1518,7 @@ serialize_ru124.exit186.thread234:                ; preds = %serialize_ru124.exi
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %277, i32 noundef 3832, i32 noundef %273) #12
   unreachable
 
-serialize_ru124.exit.thread:                      ; preds = %260, %254, %3, %214, %.thread240, %.thread203, %19, %42, %36, %serialize_ru124.exit
+serialize_ru124.exit.thread:                      ; preds = %260, %254, %3, %214, %.thread236, %.thread200, %19, %42, %36, %serialize_ru124.exit
   %278 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %279 = load i64, ptr %278, align 8, !tbaa !28
   %280 = and i64 %279, -8
@@ -1526,8 +1526,8 @@ serialize_ru124.exit.thread:                      ; preds = %260, %254, %3, %214
   tail call void @lj_err_caller(ptr noundef %281, i32 noundef 3943) #12
   unreachable
 
-282:                                              ; preds = %264, %.thread246, %.thread243, %86, %.thread, %45, %50, %39
-  %.0127 = phi ptr [ %37, %39 ], [ %.0.i192, %50 ], [ %.0.i177202, %86 ], [ %.13, %264 ], [ %43, %45 ], [ %34, %.thread ], [ %.9, %.thread243 ], [ %218, %.thread246 ]
+282:                                              ; preds = %264, %.thread242, %.thread239, %86, %.thread, %45, %50, %39
+  %.0127 = phi ptr [ %37, %39 ], [ %.0.i190, %50 ], [ %.0.i175199, %86 ], [ %.13, %264 ], [ %43, %45 ], [ %34, %.thread ], [ %.9, %.thread239 ], [ %218, %.thread242 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.0127
 }

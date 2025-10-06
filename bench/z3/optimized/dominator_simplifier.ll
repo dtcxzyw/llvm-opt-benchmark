@@ -784,7 +784,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit56:       ; preds = %68
   %89 = icmp eq i32 %88, %75
   %90 = icmp eq ptr %85, %2
   %or.cond.i.i.i = and i1 %90, %89
-  br i1 %or.cond.i.i.i, label %.loopexit13.i, label %91
+  br i1 %or.cond.i.i.i, label %.loopexit12.i, label %91
 
 91:                                               ; preds = %86, %.lr.ph.i.i.i
   %92 = getelementptr inbounds nuw i8, ptr %.036.i.i.i, i64 16
@@ -806,14 +806,14 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit56:       ; preds = %68
   %97 = icmp eq i32 %96, %75
   %98 = icmp eq ptr %93, %2
   %or.cond31.i.i.i = and i1 %98, %97
-  br i1 %or.cond31.i.i.i, label %.loopexit13.i, label %99
+  br i1 %or.cond31.i.i.i, label %.loopexit12.i, label %99
 
 99:                                               ; preds = %94, %.lr.ph39.i.i.i
   %100 = getelementptr inbounds nuw i8, ptr %.138.i.i.i, i64 16
   %.not27.i.i.i = icmp eq ptr %100, %82
   br i1 %.not27.i.i.i, label %.loopexit.i, label %.lr.ph39.i.i.i, !llvm.loop !141
 
-.loopexit13.i:                                    ; preds = %86, %94
+.loopexit12.i:                                    ; preds = %86, %94
   %.026.i.i.i = phi ptr [ %.138.i.i.i, %94 ], [ %.036.i.i.i, %86 ]
   %101 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
   br label %_ZN20dominator_simplifier4treeEP4expr.exit
@@ -822,8 +822,8 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit56:       ; preds = %68
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 248
   br label %_ZN20dominator_simplifier4treeEP4expr.exit
 
-_ZN20dominator_simplifier4treeEP4expr.exit:       ; preds = %.loopexit.i, %.loopexit13.i
-  %103 = phi ptr [ %102, %.loopexit.i ], [ %101, %.loopexit13.i ]
+_ZN20dominator_simplifier4treeEP4expr.exit:       ; preds = %.loopexit.i, %.loopexit12.i
+  %103 = phi ptr [ %102, %.loopexit.i ], [ %101, %.loopexit12.i ]
   %104 = load ptr, ptr %103, align 8, !tbaa !42
   %105 = icmp eq ptr %104, null
   br i1 %105, label %._crit_edge, label %_ZNK6vectorIP4exprLb0EjE3endEv.exit
@@ -1056,7 +1056,7 @@ _ZN20dominator_simplifier11assert_exprEP4exprb.exit67: ; preds = %_ZN20dominator
   %200 = icmp eq i32 %199, %187
   %201 = icmp eq ptr %196, %2
   %or.cond.i.i.i84 = and i1 %201, %200
-  br i1 %or.cond.i.i.i84, label %.loopexit13.i82, label %202
+  br i1 %or.cond.i.i.i84, label %.loopexit12.i82, label %202
 
 202:                                              ; preds = %197, %.lr.ph.i.i.i70
   %203 = getelementptr inbounds nuw i8, ptr %.036.i.i.i71, i64 16
@@ -1078,14 +1078,14 @@ _ZN20dominator_simplifier11assert_exprEP4exprb.exit67: ; preds = %_ZN20dominator
   %208 = icmp eq i32 %207, %187
   %209 = icmp eq ptr %204, %2
   %or.cond31.i.i.i81 = and i1 %209, %208
-  br i1 %or.cond31.i.i.i81, label %.loopexit13.i82, label %210
+  br i1 %or.cond31.i.i.i81, label %.loopexit12.i82, label %210
 
 210:                                              ; preds = %205, %.lr.ph39.i.i.i76
   %211 = getelementptr inbounds nuw i8, ptr %.138.i.i.i77, i64 16
   %.not27.i.i.i79 = icmp eq ptr %211, %193
   br i1 %.not27.i.i.i79, label %.loopexit.i80, label %.lr.ph39.i.i.i76, !llvm.loop !141
 
-.loopexit13.i82:                                  ; preds = %197, %205
+.loopexit12.i82:                                  ; preds = %197, %205
   %.026.i.i.i83 = phi ptr [ %.138.i.i.i77, %205 ], [ %.036.i.i.i71, %197 ]
   %212 = getelementptr inbounds nuw i8, ptr %.026.i.i.i83, i64 8
   br label %_ZN20dominator_simplifier4treeEP4expr.exit85
@@ -1094,8 +1094,8 @@ _ZN20dominator_simplifier11assert_exprEP4exprb.exit67: ; preds = %_ZN20dominator
   %213 = getelementptr inbounds nuw i8, ptr %1, i64 248
   br label %_ZN20dominator_simplifier4treeEP4expr.exit85
 
-_ZN20dominator_simplifier4treeEP4expr.exit85:     ; preds = %.loopexit.i80, %.loopexit13.i82
-  %214 = phi ptr [ %213, %.loopexit.i80 ], [ %212, %.loopexit13.i82 ]
+_ZN20dominator_simplifier4treeEP4expr.exit85:     ; preds = %.loopexit.i80, %.loopexit12.i82
+  %214 = phi ptr [ %213, %.loopexit.i80 ], [ %212, %.loopexit12.i82 ]
   %215 = load ptr, ptr %214, align 8, !tbaa !42
   %216 = icmp eq ptr %215, null
   br i1 %216, label %._crit_edge171, label %_ZNK6vectorIP4exprLb0EjE3endEv.exit87
@@ -1652,7 +1652,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN20dominator_sim
   %19 = icmp eq i32 %18, %5
   %20 = icmp eq ptr %15, %1
   %or.cond.i.i = and i1 %20, %19
-  br i1 %or.cond.i.i, label %.loopexit13, label %21
+  br i1 %or.cond.i.i, label %.loopexit12, label %21
 
 21:                                               ; preds = %16, %.lr.ph.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.036.i.i, i64 16
@@ -1674,14 +1674,14 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN20dominator_sim
   %27 = icmp eq i32 %26, %5
   %28 = icmp eq ptr %23, %1
   %or.cond31.i.i = and i1 %28, %27
-  br i1 %or.cond31.i.i, label %.loopexit13, label %29
+  br i1 %or.cond31.i.i, label %.loopexit12, label %29
 
 29:                                               ; preds = %24, %.lr.ph39.i.i
   %30 = getelementptr inbounds nuw i8, ptr %.138.i.i, i64 16
   %.not27.i.i = icmp eq ptr %30, %12
   br i1 %.not27.i.i, label %.loopexit, label %.lr.ph39.i.i, !llvm.loop !141
 
-.loopexit13:                                      ; preds = %16, %24
+.loopexit12:                                      ; preds = %16, %24
   %.026.i.i = phi ptr [ %.138.i.i, %24 ], [ %.036.i.i, %16 ]
   %31 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 8
   br label %33
@@ -1690,8 +1690,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN20dominator_sim
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 248
   br label %33
 
-33:                                               ; preds = %.loopexit13, %.loopexit
-  %34 = phi ptr [ %32, %.loopexit ], [ %31, %.loopexit13 ]
+33:                                               ; preds = %.loopexit12, %.loopexit
+  %34 = phi ptr [ %32, %.loopexit ], [ %31, %.loopexit12 ]
   ret ptr %34
 }
 
@@ -2303,7 +2303,7 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %59, %54, %_ZNK11ast
   %158 = icmp eq i32 %157, %144
   %159 = icmp eq ptr %154, %.0106
   %or.cond.i.i.i77 = and i1 %159, %158
-  br i1 %or.cond.i.i.i77, label %.loopexit13.i, label %160
+  br i1 %or.cond.i.i.i77, label %.loopexit12.i, label %160
 
 160:                                              ; preds = %155, %.lr.ph.i.i.i65
   %161 = getelementptr inbounds nuw i8, ptr %.036.i.i.i66, i64 16
@@ -2325,14 +2325,14 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %59, %54, %_ZNK11ast
   %166 = icmp eq i32 %165, %144
   %167 = icmp eq ptr %162, %.0106
   %or.cond31.i.i.i75 = and i1 %167, %166
-  br i1 %or.cond31.i.i.i75, label %.loopexit13.i, label %168
+  br i1 %or.cond31.i.i.i75, label %.loopexit12.i, label %168
 
 168:                                              ; preds = %163, %.lr.ph39.i.i.i71
   %169 = getelementptr inbounds nuw i8, ptr %.138.i.i.i72, i64 16
   %.not27.i.i.i74 = icmp eq ptr %169, %151
   br i1 %.not27.i.i.i74, label %.loopexit.i, label %.lr.ph39.i.i.i71, !llvm.loop !141
 
-.loopexit13.i:                                    ; preds = %155, %163
+.loopexit12.i:                                    ; preds = %155, %163
   %.026.i.i.i76 = phi ptr [ %.138.i.i.i72, %163 ], [ %.036.i.i.i66, %155 ]
   %170 = getelementptr inbounds nuw i8, ptr %.026.i.i.i76, i64 8
   br label %_ZN20dominator_simplifier4treeEP4expr.exit
@@ -2341,8 +2341,8 @@ _ZNK11ast_manager6is_notEPK4expr.exit.thread:     ; preds = %59, %54, %_ZNK11ast
   %171 = getelementptr inbounds nuw i8, ptr %1, i64 248
   br label %_ZN20dominator_simplifier4treeEP4expr.exit
 
-_ZN20dominator_simplifier4treeEP4expr.exit:       ; preds = %.loopexit.i, %.loopexit13.i
-  %172 = phi ptr [ %171, %.loopexit.i ], [ %170, %.loopexit13.i ]
+_ZN20dominator_simplifier4treeEP4expr.exit:       ; preds = %.loopexit.i, %.loopexit12.i
+  %172 = phi ptr [ %171, %.loopexit.i ], [ %170, %.loopexit12.i ]
   %173 = load ptr, ptr %172, align 8, !tbaa !42
   %174 = icmp eq ptr %173, null
   br i1 %174, label %._crit_edge, label %_ZNK6vectorIP4exprLb0EjE3endEv.exit
@@ -3583,7 +3583,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN20dominator_simplifier15simplify
   %22 = icmp eq i32 %21, %8
   %23 = icmp eq ptr %18, %1
   %or.cond.i.i.i = and i1 %23, %22
-  br i1 %or.cond.i.i.i, label %.loopexit13.i, label %24
+  br i1 %or.cond.i.i.i, label %.loopexit12.i, label %24
 
 24:                                               ; preds = %19, %.lr.ph.i.i.i
   %25 = getelementptr inbounds nuw i8, ptr %.036.i.i.i, i64 16
@@ -3605,14 +3605,14 @@ define internal fastcc noundef zeroext i1 @"_ZZN20dominator_simplifier15simplify
   %30 = icmp eq i32 %29, %8
   %31 = icmp eq ptr %26, %1
   %or.cond31.i.i.i = and i1 %31, %30
-  br i1 %or.cond31.i.i.i, label %.loopexit13.i, label %32
+  br i1 %or.cond31.i.i.i, label %.loopexit12.i, label %32
 
 32:                                               ; preds = %27, %.lr.ph39.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %.138.i.i.i, i64 16
   %.not27.i.i.i = icmp eq ptr %33, %15
   br i1 %.not27.i.i.i, label %.loopexit.i, label %.lr.ph39.i.i.i, !llvm.loop !141
 
-.loopexit13.i:                                    ; preds = %19, %27
+.loopexit12.i:                                    ; preds = %19, %27
   %.026.i.i.i = phi ptr [ %.138.i.i.i, %27 ], [ %.036.i.i.i, %19 ]
   %34 = getelementptr inbounds nuw i8, ptr %.026.i.i.i, i64 8
   br label %_ZN20dominator_simplifier4treeEP4expr.exit
@@ -3621,8 +3621,8 @@ define internal fastcc noundef zeroext i1 @"_ZZN20dominator_simplifier15simplify
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 248
   br label %_ZN20dominator_simplifier4treeEP4expr.exit
 
-_ZN20dominator_simplifier4treeEP4expr.exit:       ; preds = %.loopexit13.i, %.loopexit.i
-  %36 = phi ptr [ %35, %.loopexit.i ], [ %34, %.loopexit13.i ]
+_ZN20dominator_simplifier4treeEP4expr.exit:       ; preds = %.loopexit12.i, %.loopexit.i
+  %36 = phi ptr [ %35, %.loopexit.i ], [ %34, %.loopexit12.i ]
   %37 = load ptr, ptr %36, align 8, !tbaa !42
   %38 = icmp eq ptr %37, null
   br i1 %38, label %._crit_edge, label %_ZNK6vectorIP4exprLb0EjE3endEv.exit

@@ -510,8 +510,8 @@ define hidden noundef zeroext i1 @_ZNK2pb3pbc11is_watchingEN3sat7literalE(ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %5 = load i32, ptr %4, align 4, !tbaa !30
-  %.not8.not = icmp eq i32 %5, 0
-  br i1 %.not8.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext i32 %5 to i64
@@ -530,8 +530,8 @@ define hidden noundef zeroext i1 @_ZNK2pb3pbc11is_watchingEN3sat7literalE(ptr no
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !48
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %7, %.lr.ph ]
-  ret i1 %.not.lcssa
+  %.lcssa = phi i1 [ false, %2 ], [ %7, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable

@@ -164,7 +164,7 @@ define i32 @EVP_PKEY_generate(ptr noundef %0, ptr noundef captures(address_is_nu
   %9 = load i32, ptr %0, align 8, !tbaa !3
   %10 = and i32 %9, 6
   %11 = icmp eq i32 %10, 0
-  br i1 %11, label %.thread65.thread, label %12
+  br i1 %11, label %.thread64.thread, label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %1, align 8, !tbaa !31
@@ -199,7 +199,7 @@ define i32 @EVP_PKEY_generate(ptr noundef %0, ptr noundef captures(address_is_nu
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %27 = load ptr, ptr %26, align 8, !tbaa !34
   %.not = icmp eq ptr %27, null
-  br i1 %.not, label %.thread61, label %28
+  br i1 %.not, label %.thread60, label %28
 
 28:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -225,34 +225,34 @@ define i32 @EVP_PKEY_generate(ptr noundef %0, ptr noundef captures(address_is_nu
   %42 = call i32 @evp_keymgmt_gen_set_template(ptr noundef %40, ptr noundef %41, ptr noundef %35) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not50 = icmp eq i32 %42, 0
-  br i1 %.not50, label %.thread64, label %..thread61_crit_edge
+  br i1 %.not50, label %.thread63, label %..thread60_crit_edge
 
-..thread61_crit_edge:                             ; preds = %39
+..thread60_crit_edge:                             ; preds = %39
   %.pre = load ptr, ptr %1, align 8, !tbaa !31
-  %.pre76 = load ptr, ptr %20, align 8, !tbaa !24
-  br label %.thread61
+  %.pre75 = load ptr, ptr %20, align 8, !tbaa !24
+  br label %.thread60
 
-.thread64:                                        ; preds = %39
+.thread63:                                        ; preds = %39
   store ptr null, ptr %24, align 8, !tbaa !32
   br label %50
 
-.thread61:                                        ; preds = %..thread61_crit_edge, %23
-  %43 = phi ptr [ %.pre76, %..thread61_crit_edge ], [ %21, %23 ]
-  %44 = phi ptr [ %.pre, %..thread61_crit_edge ], [ %19, %23 ]
+.thread60:                                        ; preds = %..thread60_crit_edge, %23
+  %43 = phi ptr [ %.pre75, %..thread60_crit_edge ], [ %21, %23 ]
+  %44 = phi ptr [ %.pre, %..thread60_crit_edge ], [ %19, %23 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !19
   %47 = call ptr @evp_keymgmt_util_gen(ptr noundef %44, ptr noundef %46, ptr noundef %43, ptr noundef nonnull @ossl_callback_to_pkey_gencb, ptr noundef nonnull %0) #6
-  %.not75 = icmp eq ptr %47, null
+  %.not74 = icmp eq ptr %47, null
   store ptr null, ptr %24, align 8, !tbaa !32
-  br i1 %.not75, label %50, label %48
+  br i1 %.not74, label %50, label %48
 
-48:                                               ; preds = %.thread61
+48:                                               ; preds = %.thread60
   %49 = load ptr, ptr %1, align 8, !tbaa !31
   call void @evp_pkey_free_legacy(ptr noundef %49) #6
   br label %50
 
-50:                                               ; preds = %.thread64, %48, %.thread61
-  %51 = phi i32 [ 0, %.thread64 ], [ 1, %48 ], [ 0, %.thread61 ]
+50:                                               ; preds = %.thread63, %48, %.thread60
+  %51 = phi i32 [ 0, %.thread63 ], [ 1, %48 ], [ 0, %.thread60 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %53 = load i32, ptr %52, align 4, !tbaa !38
   %54 = load ptr, ptr %1, align 8, !tbaa !31
@@ -297,22 +297,22 @@ define i32 @EVP_PKEY_generate(ptr noundef %0, ptr noundef captures(address_is_nu
 75:                                               ; preds = %63, %69, %50
   %.246 = phi i32 [ %68, %63 ], [ %74, %69 ], [ %51, %50 ]
   %76 = icmp slt i32 %.246, 1
-  br i1 %76, label %.thread65, label %81
+  br i1 %76, label %.thread64, label %81
 
-.thread65:                                        ; preds = %80, %79, %75
-  %.269 = phi ptr [ %.156, %75 ], [ %.156, %80 ], [ %.043, %79 ]
-  %.24668 = phi i32 [ %.246, %75 ], [ -1, %80 ], [ -2, %79 ]
-  %.not53 = icmp eq ptr %.269, null
+.thread64:                                        ; preds = %80, %79, %75
+  %.268 = phi ptr [ %.156, %75 ], [ %.156, %80 ], [ %.043, %79 ]
+  %.24667 = phi i32 [ %.246, %75 ], [ -1, %80 ], [ -2, %79 ]
+  %.not53 = icmp eq ptr %.268, null
   br i1 %.not53, label %78, label %77
 
-77:                                               ; preds = %.thread65
+77:                                               ; preds = %.thread64
   store ptr null, ptr %1, align 8, !tbaa !31
   br label %78
 
-78:                                               ; preds = %.thread65.thread, %77, %.thread65
-  %.2466874 = phi i32 [ -1, %.thread65.thread ], [ %.24668, %77 ], [ %.24668, %.thread65 ]
-  %.26973 = phi ptr [ null, %.thread65.thread ], [ %.269, %77 ], [ null, %.thread65 ]
-  call void @EVP_PKEY_free(ptr noundef %.26973) #6
+78:                                               ; preds = %.thread64.thread, %77, %.thread64
+  %.2466773 = phi i32 [ -1, %.thread64.thread ], [ %.24667, %77 ], [ %.24667, %.thread64 ]
+  %.26872 = phi ptr [ null, %.thread64.thread ], [ %.268, %77 ], [ null, %.thread64 ]
+  call void @EVP_PKEY_free(ptr noundef %.26872) #6
   br label %81
 
 79:                                               ; preds = %38, %61, %6
@@ -320,9 +320,9 @@ define i32 @EVP_PKEY_generate(ptr noundef %0, ptr noundef captures(address_is_nu
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 244, ptr noundef nonnull @__func__.EVP_PKEY_generate) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 150, ptr noundef null) #6
-  br label %.thread65
+  br label %.thread64
 
-.thread65.thread:                                 ; preds = %8
+.thread64.thread:                                 ; preds = %8
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 248, ptr noundef nonnull @__func__.EVP_PKEY_generate) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 151, ptr noundef null) #6
@@ -332,10 +332,10 @@ define i32 @EVP_PKEY_generate(ptr noundef %0, ptr noundef captures(address_is_nu
   tail call void @ERR_new() #6
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 253, ptr noundef nonnull @__func__.EVP_PKEY_generate) #6
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 204, ptr noundef null) #6
-  br label %.thread65
+  br label %.thread64
 
 81:                                               ; preds = %75, %78, %2, %18
-  %.0 = phi i32 [ -1, %18 ], [ -1, %2 ], [ %.2466874, %78 ], [ %.246, %75 ]
+  %.0 = phi i32 [ -1, %18 ], [ -1, %2 ], [ %.2466773, %78 ], [ %.246, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

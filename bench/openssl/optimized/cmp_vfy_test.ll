@@ -1585,11 +1585,11 @@ define internal fastcc i32 @execute_verify_popo_test(ptr noundef nonnull capture
 
 ._crit_edge:                                      ; preds = %18
   %.pre = load i32, ptr %8, align 8, !tbaa !24
-  %.pre16 = load ptr, ptr %5, align 8, !tbaa !27
+  %.pre15 = load ptr, ptr %5, align 8, !tbaa !27
   br label %28
 
 28:                                               ; preds = %._crit_edge, %7
-  %29 = phi ptr [ %.pre16, %._crit_edge ], [ %4, %7 ]
+  %29 = phi ptr [ %.pre15, %._crit_edge ], [ %4, %7 ]
   %30 = phi i32 [ %.pre, %._crit_edge ], [ %9, %7 ]
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !28

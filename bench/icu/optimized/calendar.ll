@@ -2750,7 +2750,7 @@ define internal fastcc noundef i32 @_ZN6icu_77L24getCalendarTypeForLocaleEPKc(pt
   call void @_Z23ulocimp_canonicalize_77St17basic_string_viewIcSt11char_traitsIcEER10UErrorCode(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::CharString") align 8 %3, i64 %7, ptr nonnull %0, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %8 = load i32, ptr %2, align 4, !tbaa !13
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %82
+  br i1 %9, label %10, label %83
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2785,17 +2785,17 @@ define internal fastcc noundef i32 @_ZN6icu_77L24getCalendarTypeForLocaleEPKc(pt
 
 _ZN6icu_77L15getCalendarTypeEPKc.exit:            ; preds = %.noexc
   %23 = trunc nuw nsw i64 %indvars.iv.i to i32
-  br label %79
+  br label %80
 
 24:                                               ; preds = %10
   %25 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %82
 
 26:                                               ; preds = %17
   %27 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %81
 
 _ZN6icu_77L15getCalendarTypeEPKc.exit.thread:     ; preds = %22, %12
   store i32 0, ptr %2, align 4, !tbaa !13
@@ -2807,12 +2807,12 @@ _ZN6icu_77L15getCalendarTypeEPKc.exit.thread:     ; preds = %22, %12
 29:                                               ; preds = %_ZN6icu_77L15getCalendarTypeEPKc.exit.thread
   %30 = load i32, ptr %2, align 4, !tbaa !13
   %31 = icmp slt i32 %30, 1
-  br i1 %31, label %34, label %77
+  br i1 %31, label %34, label %78
 
 32:                                               ; preds = %_ZN6icu_77L15getCalendarTypeEPKc.exit.thread
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %78
+  br label %79
 
 34:                                               ; preds = %29
   %35 = invoke ptr @ures_openDirect_77(ptr noundef null, ptr noundef nonnull @.str.4, ptr noundef nonnull %2)
@@ -2842,12 +2842,12 @@ _ZN6icu_77L15getCalendarTypeEPKc.exit.thread:     ; preds = %22, %12
 47:                                               ; preds = %36, %34
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %77
 
-49:                                               ; preds = %73, %72, %45, %38
+49:                                               ; preds = %74, %73, %45, %38
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %76
+  br label %77
 
 51:                                               ; preds = %45, %41
   %.020 = phi ptr [ %40, %41 ], [ %46, %45 ]
@@ -2859,7 +2859,7 @@ _ZN6icu_77L15getCalendarTypeEPKc.exit.thread:     ; preds = %22, %12
   %55 = icmp slt i32 %54, 1
   %56 = icmp ne ptr %.020, null
   %or.cond3 = select i1 %55, i1 %56, i1 false
-  br i1 %or.cond3, label %57, label %72
+  br i1 %or.cond3, label %57, label %73
 
 57:                                               ; preds = %51
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -2881,92 +2881,92 @@ _ZN6icu_77L15getCalendarTypeEPKc.exit.thread:     ; preds = %22, %12
   %65 = getelementptr inbounds nuw ptr, ptr @_ZL9gCalTypes, i64 %indvars.iv.i42
   %66 = load ptr, ptr %65, align 8, !tbaa !58
   %67 = invoke i32 @uprv_stricmp_77(ptr noundef %63, ptr noundef %66)
-          to label %.noexc47 unwind label %.loopexit
+          to label %.noexc46 unwind label %.loopexit
 
-.noexc47:                                         ; preds = %64
+.noexc46:                                         ; preds = %64
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %.split.loop.exit.i46, label %69
+  br i1 %68, label %.split.loop.exit12.i45, label %69
 
-69:                                               ; preds = %.noexc47
+69:                                               ; preds = %.noexc46
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %.not.i44 = icmp eq i64 %indvars.iv.next.i43, 18
-  br i1 %.not.i44, label %_ZN6icu_77L15getCalendarTypeEPKc.exit48, label %64, !llvm.loop !59
+  br i1 %.not.i44, label %_ZN6icu_77L15getCalendarTypeEPKc.exit47, label %64, !llvm.loop !59
 
-.split.loop.exit.i46:                             ; preds = %.noexc47
+.split.loop.exit12.i45:                           ; preds = %.noexc46
   %70 = trunc nuw nsw i64 %indvars.iv.i42 to i32
-  br label %_ZN6icu_77L15getCalendarTypeEPKc.exit48
+  br label %_ZN6icu_77L15getCalendarTypeEPKc.exit47
 
-_ZN6icu_77L15getCalendarTypeEPKc.exit48:          ; preds = %69, %.split.loop.exit.i46
-  %spec.select.i45 = phi i32 [ %70, %.split.loop.exit.i46 ], [ -1, %69 ]
+_ZN6icu_77L15getCalendarTypeEPKc.exit47:          ; preds = %69, %.split.loop.exit12.i45
+  %71 = phi i32 [ %70, %.split.loop.exit12.i45 ], [ -1, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %72
+  br label %73
 
 .loopexit:                                        ; preds = %64
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %72
 
 .loopexit.split-lp:                               ; preds = %57, %59
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %72
 
-71:                                               ; preds = %.loopexit.split-lp, %.loopexit
+72:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %76
+  br label %77
 
-72:                                               ; preds = %_ZN6icu_77L15getCalendarTypeEPKc.exit48, %51
-  %.122 = phi i32 [ %spec.select.i45, %_ZN6icu_77L15getCalendarTypeEPKc.exit48 ], [ -1, %51 ]
+73:                                               ; preds = %_ZN6icu_77L15getCalendarTypeEPKc.exit47, %51
+  %.122 = phi i32 [ %71, %_ZN6icu_77L15getCalendarTypeEPKc.exit47 ], [ -1, %51 ]
   invoke void @ures_close_77(ptr noundef %.020)
-          to label %73 unwind label %49
-
-73:                                               ; preds = %72
-  invoke void @ures_close_77(ptr noundef %35)
           to label %74 unwind label %49
 
 74:                                               ; preds = %73
-  %75 = icmp eq i32 %.122, -1
-  %spec.store.select = select i1 %75, i32 0, i32 %.122
-  br label %77
+  invoke void @ures_close_77(ptr noundef %35)
+          to label %75 unwind label %49
 
-76:                                               ; preds = %49, %71, %47
-  %.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %lpad.phi, %71 ]
-  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #25
+75:                                               ; preds = %74
+  %76 = icmp eq i32 %.122, -1
+  %spec.store.select = select i1 %76, i32 0, i32 %.122
   br label %78
 
-77:                                               ; preds = %29, %74
-  %.2 = phi i32 [ %spec.store.select, %74 ], [ 0, %29 ]
+77:                                               ; preds = %49, %72, %47
+  %.pn.pn = phi { ptr, i32 } [ %48, %47 ], [ %50, %49 ], [ %lpad.phi, %72 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #25
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %79
 
-78:                                               ; preds = %76, %32
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %76 ], [ %33, %32 ]
+78:                                               ; preds = %29, %75
+  %.2 = phi i32 [ %spec.store.select, %75 ], [ 0, %29 ]
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %80
 
-79:                                               ; preds = %_ZN6icu_77L15getCalendarTypeEPKc.exit, %77
-  %.1 = phi i32 [ %.2, %77 ], [ %23, %_ZN6icu_77L15getCalendarTypeEPKc.exit ]
-  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #25
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %82
-
-80:                                               ; preds = %78, %26
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %78 ], [ %27, %26 ]
-  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #25
+79:                                               ; preds = %77, %32
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %77 ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %81
 
-81:                                               ; preds = %80, %24
-  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %80 ], [ %25, %24 ]
+80:                                               ; preds = %_ZN6icu_77L15getCalendarTypeEPKc.exit, %78
+  %.1 = phi i32 [ %.2, %78 ], [ %23, %_ZN6icu_77L15getCalendarTypeEPKc.exit ]
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #25
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %83
+
+81:                                               ; preds = %79, %26
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %79 ], [ %27, %26 ]
+  call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #25
+  br label %82
+
+82:                                               ; preds = %81, %24
+  %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn, %81 ], [ %25, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 
-82:                                               ; preds = %1, %79
-  %.0 = phi i32 [ %.1, %79 ], [ 0, %1 ]
+83:                                               ; preds = %1, %80
+  %.0 = phi i32 [ %.1, %80 ], [ 0, %1 ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -9367,8 +9367,8 @@ define noundef i32 @_ZNK6icu_778Calendar10newerFieldE19UCalendarDateFieldsS1_(pt
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFieldsEPA12_A8_Ki(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 align 2 {
   %3 = load i32, ptr %1, align 4, !tbaa !12
-  %.not89 = icmp eq i32 %3, -1
-  br i1 %.not89, label %._crit_edge85, label %.preheader.lr.ph
+  %.not82 = icmp eq i32 %3, -1
+  br i1 %.not82, label %._crit_edge78, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -9376,154 +9376,151 @@ define noundef range(i32 -2147483648, 32) i32 @_ZNK6icu_778Calendar13resolveFiel
   %6 = load i8, ptr %5, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %8 = load i8, ptr %7, align 1
-  %.fr90 = freeze i8 %6
-  %.fr91 = freeze i8 %8
-  %9 = icmp slt i8 %.fr90, %.fr91
-  br i1 %9, label %.lr.ph75.us.preheader, label %.lr.ph75.preheader
+  %.fr83 = freeze i8 %6
+  %.fr84 = freeze i8 %8
+  %9 = icmp slt i8 %.fr83, %.fr84
+  br i1 %9, label %.lr.ph74.us.preheader, label %.lr.ph74.preheader
 
-.lr.ph75.us.preheader:                            ; preds = %.preheader.lr.ph, %._crit_edge76.split.us.us
-  %10 = phi i32 [ %13, %._crit_edge76.split.us.us ], [ %3, %.preheader.lr.ph ]
-  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %._crit_edge76.split.us.us ], [ 0, %.preheader.lr.ph ]
-  %11 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv107
-  br label %.lr.ph75.us
+.lr.ph74.us.preheader:                            ; preds = %.preheader.lr.ph, %._crit_edge75.split.us.us
+  %10 = phi i32 [ %13, %._crit_edge75.split.us.us ], [ %3, %.preheader.lr.ph ]
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %._crit_edge75.split.us.us ], [ 0, %.preheader.lr.ph ]
+  %11 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv101
+  br label %.lr.ph74.us
 
-._crit_edge76.split.us.us:                        ; preds = %._crit_edge.us.us
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
-  %12 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next108
+._crit_edge75.split.us.us:                        ; preds = %.thread.us.us
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %12 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next102
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = icmp ne i32 %13, -1
   %15 = icmp eq i32 %.2.us.us, 24
   %16 = select i1 %14, i1 %15, i1 false
-  br i1 %16, label %.lr.ph75.us.preheader, label %._crit_edge85, !llvm.loop !82
+  br i1 %16, label %.lr.ph74.us.preheader, label %._crit_edge78, !llvm.loop !82
 
-.lr.ph75.us:                                      ; preds = %.lr.ph75.us.preheader, %._crit_edge.us.us
-  %indvars.iv104 = phi i64 [ 0, %.lr.ph75.us.preheader ], [ %indvars.iv.next105, %._crit_edge.us.us ]
-  %17 = phi i32 [ %10, %.lr.ph75.us.preheader ], [ %34, %._crit_edge.us.us ]
-  %.174.us.us = phi i32 [ 24, %.lr.ph75.us.preheader ], [ %.2.us.us, %._crit_edge.us.us ]
-  %.04772.us.us = phi i32 [ 0, %.lr.ph75.us.preheader ], [ %.148.us.us, %._crit_edge.us.us ]
-  %18 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 %indvars.iv104
+.lr.ph74.us:                                      ; preds = %.lr.ph74.us.preheader, %.thread.us.us
+  %indvars.iv98 = phi i64 [ 0, %.lr.ph74.us.preheader ], [ %indvars.iv.next99, %.thread.us.us ]
+  %17 = phi i32 [ %10, %.lr.ph74.us.preheader ], [ %35, %.thread.us.us ]
+  %.173.us.us = phi i32 [ 24, %.lr.ph74.us.preheader ], [ %.2.us.us, %.thread.us.us ]
+  %.04771.us.us = phi i32 [ 0, %.lr.ph74.us.preheader ], [ %.148.us.us, %.thread.us.us ]
+  %18 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 %indvars.iv98
   %19 = icmp sgt i32 %17, 31
   %20 = zext i1 %19 to i64
   %21 = getelementptr inbounds nuw i32, ptr %18, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
-  %.not5963.us.us = icmp eq i32 %22, -1
-  br i1 %.not5963.us.us, label %._crit_edge.us.us, label %.lr.ph.us.us
+  %.not5967.us.us = icmp eq i32 %22, -1
+  br i1 %.not5967.us.us, label %._crit_edge.us.us, label %.lr.ph.us.us
 
-23:                                               ; preds = %.lr.ph81.us
-  %24 = sext i32 %30 to i64
+.lr.ph.us.us:                                     ; preds = %.lr.ph74.us, %27
+  %indvars.iv95 = phi i64 [ %indvars.iv.next96, %27 ], [ %20, %.lr.ph74.us ]
+  %23 = phi i32 [ %30, %27 ], [ %22, %.lr.ph74.us ]
+  %.04268.us.us = phi i32 [ %spec.select.us.us, %27 ], [ 0, %.lr.ph74.us ]
+  %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i8, ptr %4, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !47
   %.not60.us.us = icmp eq i8 %26, 0
-  br i1 %.not60.us.us, label %._crit_edge.us.us, label %.lr.ph81.us, !llvm.loop !83
+  br i1 %.not60.us.us, label %.thread.us.us, label %27
 
-.lr.ph81.us:                                      ; preds = %.lr.ph.us.us, %23
-  %indvars.iv102 = phi i64 [ %indvars.iv.next103, %23 ], [ %20, %.lr.ph.us.us ]
-  %27 = phi i8 [ %26, %23 ], [ %37, %.lr.ph.us.us ]
-  %.04264.us80.us = phi i32 [ %spec.select.us.us, %23 ], [ 0, %.lr.ph.us.us ]
-  %28 = sext i8 %27 to i32
-  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %.04264.us80.us, i32 %28)
-  %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
-  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next103
+27:                                               ; preds = %.lr.ph.us.us
+  %28 = sext i8 %26 to i32
+  %spec.select.us.us = tail call i32 @llvm.smax.i32(i32 %.04268.us.us, i32 %28)
+  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
+  %29 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.next96
   %30 = load i32, ptr %29, align 4, !tbaa !12
   %.not59.us.us = icmp eq i32 %30, -1
-  br i1 %.not59.us.us, label %._crit_edge.us.us, label %23, !llvm.loop !83
+  br i1 %.not59.us.us, label %._crit_edge.us.us, label %.lr.ph.us.us, !llvm.loop !83
 
-._crit_edge.us.us:                                ; preds = %23, %.lr.ph81.us, %.lr.ph.us.us, %.lr.ph75.us
-  %.042.lcssa.us.us = phi i32 [ 0, %.lr.ph75.us ], [ 0, %.lr.ph.us.us ], [ %spec.select.us.us, %.lr.ph81.us ], [ %spec.select.us.us, %23 ]
-  %.not59.lcssa.us.us = phi i1 [ true, %.lr.ph75.us ], [ false, %.lr.ph.us.us ], [ %.not59.us.us, %.lr.ph81.us ], [ %.not59.us.us, %23 ]
-  %31 = icmp sgt i32 %.042.lcssa.us.us, %.04772.us.us
-  %or.cond.us.us = select i1 %.not59.lcssa.us.us, i1 %31, i1 false
-  %32 = and i32 %17, 31
-  %spec.select88 = select i1 %19, i32 %32, i32 %17
-  %.148.us.us = select i1 %or.cond.us.us, i32 %.042.lcssa.us.us, i32 %.04772.us.us
-  %.2.us.us = select i1 %or.cond.us.us, i32 %spec.select88, i32 %.174.us.us
-  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
-  %33 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 %indvars.iv.next105
-  %34 = load i32, ptr %33, align 4, !tbaa !12
-  %.not.us.us = icmp eq i32 %34, -1
-  br i1 %.not.us.us, label %._crit_edge76.split.us.us, label %.lr.ph75.us, !llvm.loop !84
+._crit_edge.us.us:                                ; preds = %27, %.lr.ph74.us
+  %.042.lcssa.us.us = phi i32 [ 0, %.lr.ph74.us ], [ %spec.select.us.us, %27 ]
+  %31 = icmp sgt i32 %.042.lcssa.us.us, %.04771.us.us
+  br i1 %31, label %32, label %.thread.us.us
 
-.lr.ph.us.us:                                     ; preds = %.lr.ph75.us
-  %35 = sext i32 %22 to i64
-  %36 = getelementptr inbounds i8, ptr %4, i64 %35
-  %37 = load i8, ptr %36, align 1, !tbaa !47
-  %.not60.us78.us = icmp eq i8 %37, 0
-  br i1 %.not60.us78.us, label %._crit_edge.us.us, label %.lr.ph81.us
+32:                                               ; preds = %._crit_edge.us.us
+  %33 = and i32 %17, 31
+  %spec.select81 = select i1 %19, i32 %33, i32 %17
+  br label %.thread.us.us
 
-.lr.ph75.preheader:                               ; preds = %.preheader.lr.ph, %._crit_edge76.split
-  %38 = phi i32 [ %41, %._crit_edge76.split ], [ %3, %.preheader.lr.ph ]
-  %indvars.iv99 = phi i64 [ %indvars.iv.next100, %._crit_edge76.split ], [ 0, %.preheader.lr.ph ]
-  %39 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv99
-  br label %.lr.ph75
+.thread.us.us:                                    ; preds = %.lr.ph.us.us, %32, %._crit_edge.us.us
+  %.148.us.us = phi i32 [ %.04771.us.us, %._crit_edge.us.us ], [ %.042.lcssa.us.us, %32 ], [ %.04771.us.us, %.lr.ph.us.us ]
+  %.2.us.us = phi i32 [ %.173.us.us, %._crit_edge.us.us ], [ %spec.select81, %32 ], [ %.173.us.us, %.lr.ph.us.us ]
+  %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
+  %34 = getelementptr inbounds nuw [8 x i32], ptr %11, i64 %indvars.iv.next99
+  %35 = load i32, ptr %34, align 4, !tbaa !12
+  %.not.us.us = icmp eq i32 %35, -1
+  br i1 %.not.us.us, label %._crit_edge75.split.us.us, label %.lr.ph74.us, !llvm.loop !84
 
-._crit_edge85:                                    ; preds = %._crit_edge76.split, %._crit_edge76.split.us.us, %2
-  %.0.lcssa = phi i32 [ 24, %2 ], [ %.2.us.us, %._crit_edge76.split.us.us ], [ %.2, %._crit_edge76.split ]
+.lr.ph74.preheader:                               ; preds = %.preheader.lr.ph, %._crit_edge75.split
+  %36 = phi i32 [ %39, %._crit_edge75.split ], [ %3, %.preheader.lr.ph ]
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %._crit_edge75.split ], [ 0, %.preheader.lr.ph ]
+  %37 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv92
+  br label %.lr.ph74
+
+._crit_edge78:                                    ; preds = %._crit_edge75.split, %._crit_edge75.split.us.us, %2
+  %.0.lcssa = phi i32 [ 24, %2 ], [ %.2.us.us, %._crit_edge75.split.us.us ], [ %.2, %._crit_edge75.split ]
   ret i32 %.0.lcssa
 
-._crit_edge76.split:                              ; preds = %._crit_edge.thread
-  %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %40 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next100
-  %41 = load i32, ptr %40, align 4, !tbaa !12
-  %42 = icmp ne i32 %41, -1
-  %43 = icmp eq i32 %.2, 24
-  %44 = select i1 %42, i1 %43, i1 false
-  br i1 %44, label %.lr.ph75.preheader, label %._crit_edge85, !llvm.loop !82
+._crit_edge75.split:                              ; preds = %.thread
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %38 = getelementptr inbounds nuw [12 x [8 x i32]], ptr %1, i64 %indvars.iv.next93
+  %39 = load i32, ptr %38, align 4, !tbaa !12
+  %40 = icmp ne i32 %39, -1
+  %41 = icmp eq i32 %.2, 24
+  %42 = select i1 %40, i1 %41, i1 false
+  br i1 %42, label %.lr.ph74.preheader, label %._crit_edge78, !llvm.loop !82
 
-.lr.ph75:                                         ; preds = %.lr.ph75.preheader, %._crit_edge.thread
-  %indvars.iv96 = phi i64 [ 0, %.lr.ph75.preheader ], [ %indvars.iv.next97, %._crit_edge.thread ]
-  %45 = phi i32 [ %38, %.lr.ph75.preheader ], [ %64, %._crit_edge.thread ]
-  %.174 = phi i32 [ 24, %.lr.ph75.preheader ], [ %.2, %._crit_edge.thread ]
-  %.04772 = phi i32 [ 0, %.lr.ph75.preheader ], [ %.148, %._crit_edge.thread ]
-  %46 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 %indvars.iv96
-  %47 = icmp sgt i32 %45, 31
-  %48 = zext i1 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %48
-  %50 = load i32, ptr %49, align 4, !tbaa !12
-  %.not5963 = icmp eq i32 %50, -1
-  br i1 %.not5963, label %._crit_edge, label %.lr.ph
+.lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.thread
+  %indvars.iv89 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next90, %.thread ]
+  %43 = phi i32 [ %36, %.lr.ph74.preheader ], [ %62, %.thread ]
+  %.173 = phi i32 [ 24, %.lr.ph74.preheader ], [ %.2, %.thread ]
+  %.04771 = phi i32 [ 0, %.lr.ph74.preheader ], [ %.148, %.thread ]
+  %44 = getelementptr inbounds nuw [8 x i32], ptr %37, i64 %indvars.iv89
+  %45 = icmp sgt i32 %43, 31
+  %46 = zext i1 %45 to i64
+  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %46
+  %48 = load i32, ptr %47, align 4, !tbaa !12
+  %.not5967 = icmp eq i32 %48, -1
+  br i1 %.not5967, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph75, %55
-  %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ %48, %.lr.ph75 ]
-  %51 = phi i32 [ %58, %55 ], [ %50, %.lr.ph75 ]
-  %.04264 = phi i32 [ %spec.select, %55 ], [ 0, %.lr.ph75 ]
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i8, ptr %4, i64 %52
-  %54 = load i8, ptr %53, align 1, !tbaa !47
-  %.not60.not = icmp eq i8 %54, 0
-  br i1 %.not60.not, label %._crit_edge.thread, label %55
+.lr.ph:                                           ; preds = %.lr.ph74, %53
+  %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ %46, %.lr.ph74 ]
+  %49 = phi i32 [ %56, %53 ], [ %48, %.lr.ph74 ]
+  %.04268 = phi i32 [ %spec.select, %53 ], [ 0, %.lr.ph74 ]
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds i8, ptr %4, i64 %50
+  %52 = load i8, ptr %51, align 1, !tbaa !47
+  %.not60 = icmp eq i8 %52, 0
+  br i1 %.not60, label %.thread, label %53
 
-55:                                               ; preds = %.lr.ph
-  %56 = sext i8 %54 to i32
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %.04264, i32 %56)
+53:                                               ; preds = %.lr.ph
+  %54 = sext i8 %52 to i32
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %.04268, i32 %54)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %57 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv.next
-  %58 = load i32, ptr %57, align 4, !tbaa !12
-  %.not59 = icmp eq i32 %58, -1
+  %55 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.next
+  %56 = load i32, ptr %55, align 4, !tbaa !12
+  %.not59 = icmp eq i32 %56, -1
   br i1 %.not59, label %._crit_edge, label %.lr.ph, !llvm.loop !83
 
-._crit_edge:                                      ; preds = %55, %.lr.ph75
-  %.042.lcssa = phi i32 [ 0, %.lr.ph75 ], [ %spec.select, %55 ]
-  %59 = icmp sgt i32 %.042.lcssa, %.04772
-  br i1 %59, label %60, label %._crit_edge.thread
+._crit_edge:                                      ; preds = %53, %.lr.ph74
+  %.042.lcssa = phi i32 [ 0, %.lr.ph74 ], [ %spec.select, %53 ]
+  %57 = icmp sgt i32 %.042.lcssa, %.04771
+  br i1 %57, label %58, label %.thread
 
-60:                                               ; preds = %._crit_edge
-  %61 = and i32 %45, 31
-  %.not61 = icmp eq i32 %61, 5
-  %.174. = select i1 %.not61, i32 %.174, i32 %61
-  %.3 = select i1 %47, i32 %.174., i32 %45
-  %62 = icmp ne i32 %.174., %61
-  %.not93 = select i1 %47, i1 %62, i1 false
-  %spec.select62 = select i1 %.not93, i32 %.04772, i32 %.042.lcssa
-  br label %._crit_edge.thread
+58:                                               ; preds = %._crit_edge
+  %59 = and i32 %43, 31
+  %.not61 = icmp eq i32 %59, 5
+  %.173. = select i1 %.not61, i32 %.173, i32 %59
+  %.3 = select i1 %45, i32 %.173., i32 %43
+  %60 = icmp ne i32 %.173., %59
+  %.not86 = select i1 %45, i1 %60, i1 false
+  %spec.select62 = select i1 %.not86, i32 %.04771, i32 %.042.lcssa
+  br label %.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph, %60, %._crit_edge
-  %.148 = phi i32 [ %.04772, %._crit_edge ], [ %spec.select62, %60 ], [ %.04772, %.lr.ph ]
-  %.2 = phi i32 [ %.174, %._crit_edge ], [ %.3, %60 ], [ %.174, %.lr.ph ]
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %63 = getelementptr inbounds nuw [8 x i32], ptr %39, i64 %indvars.iv.next97
-  %64 = load i32, ptr %63, align 4, !tbaa !12
-  %.not = icmp eq i32 %64, -1
-  br i1 %.not, label %._crit_edge76.split, label %.lr.ph75, !llvm.loop !84
+.thread:                                          ; preds = %.lr.ph, %58, %._crit_edge
+  %.148 = phi i32 [ %.04771, %._crit_edge ], [ %spec.select62, %58 ], [ %.04771, %.lr.ph ]
+  %.2 = phi i32 [ %.173, %._crit_edge ], [ %.3, %58 ], [ %.173, %.lr.ph ]
+  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
+  %61 = getelementptr inbounds nuw [8 x i32], ptr %37, i64 %indvars.iv.next90
+  %62 = load i32, ptr %61, align 4, !tbaa !12
+  %.not = icmp eq i32 %62, -1
+  br i1 %.not, label %._crit_edge75.split, label %.lr.ph74, !llvm.loop !84
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9603,8 +9600,8 @@ _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i: ; preds = %3
   %40 = sext i8 %39 to i32
   %spec.select.i11.i = tail call i32 @llvm.smax.i32(i32 %.0912.i10.i, i32 %40)
   %indvars.iv.next.i12.i = add nuw nsw i64 %indvars.iv.i9.i, 1
-  %exitcond25.i = icmp eq i64 %indvars.iv.next.i12.i, 20
-  br i1 %exitcond25.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i, !llvm.loop !70
+  %exitcond24.i = icmp eq i64 %indvars.iv.next.i12.i, 20
+  br i1 %exitcond24.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader.i, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i, !llvm.loop !70
 
 _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader.i: ; preds = %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit.i
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 127
@@ -9869,8 +9866,8 @@ _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit: ; preds = %8, 
   %14 = sext i8 %13 to i32
   %spec.select.i11 = tail call i32 @llvm.smax.i32(i32 %.0912.i10, i32 %14)
   %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i9, 1
-  %exitcond25 = icmp eq i64 %indvars.iv.next.i12, 20
-  br i1 %exitcond25, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, !llvm.loop !70
+  %exitcond24 = icmp eq i64 %indvars.iv.next.i12, 20
+  br i1 %exitcond24, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader, label %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit, !llvm.loop !70
 
 _ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit15.preheader: ; preds = %_ZNK6icu_778Calendar11newestStampE19UCalendarDateFieldsS1_i.exit
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 127
@@ -12399,7 +12396,7 @@ define linkonce_odr noundef ptr @_ZNK6icu_7720BasicCalendarFactory6createERKNS_1
   %7 = alloca [157 x i8], align 16
   %8 = load i32, ptr %3, align 4, !tbaa !13
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %43
+  br i1 %9, label %10, label %44
 
 10:                                               ; preds = %4
   %11 = tail call ptr @__dynamic_cast(ptr nonnull %1, ptr nonnull @_ZTIN6icu_7713ICUServiceKeyE, ptr nonnull @_ZTIN6icu_779LocaleKeyE, i64 0) #25
@@ -12453,12 +12450,12 @@ _ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit: ; preds = %.noexc
 30:                                               ; preds = %10
   %31 = landingpad { ptr, i32 }
           cleanup
-  br label %42
+  br label %43
 
 32:                                               ; preds = %17, %12
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %41
+  br label %42
 
 .loopexit:                                        ; preds = %.preheader
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -12478,7 +12475,7 @@ _ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit: ; preds = %.noexc
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %41
+  br label %42
 
 .preheader:                                       ; preds = %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit, %38
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit ]
@@ -12489,44 +12486,44 @@ _ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit: ; preds = %.noexc
 
 .noexc16:                                         ; preds = %.preheader
   %37 = icmp eq i32 %36, 0
-  br i1 %37, label %.split.loop.exit.i, label %38
+  br i1 %37, label %.split.loop.exit12.i, label %38
 
 38:                                               ; preds = %.noexc16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 18
   br i1 %.not.i, label %_ZN6icu_77L15getCalendarTypeEPKc.exit, label %.preheader, !llvm.loop !59
 
-.split.loop.exit.i:                               ; preds = %.noexc16
+.split.loop.exit12.i:                             ; preds = %.noexc16
   %39 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN6icu_77L15getCalendarTypeEPKc.exit
 
-_ZN6icu_77L15getCalendarTypeEPKc.exit:            ; preds = %38, %.split.loop.exit.i
-  %spec.select.i = phi i32 [ %39, %.split.loop.exit.i ], [ -1, %38 ]
-  %40 = invoke fastcc noundef ptr @_ZN6icu_77L22createStandardCalendarE8ECalTypeRKNS_6LocaleER10UErrorCode(i32 noundef %spec.select.i, ptr noundef nonnull align 8 dereferenceable(217) %6, ptr noundef nonnull align 4 dereferenceable(4) %3)
+_ZN6icu_77L15getCalendarTypeEPKc.exit:            ; preds = %38, %.split.loop.exit12.i
+  %40 = phi i32 [ %39, %.split.loop.exit12.i ], [ -1, %38 ]
+  %41 = invoke fastcc noundef ptr @_ZN6icu_77L22createStandardCalendarE8ECalTypeRKNS_6LocaleER10UErrorCode(i32 noundef %40, ptr noundef nonnull align 8 dereferenceable(217) %6, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit.thread unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit.thread: ; preds = %24, %_ZN6icu_77L15getCalendarTypeEPKc.exit, %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit
-  %.112 = phi ptr [ null, %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit ], [ %40, %_ZN6icu_77L15getCalendarTypeEPKc.exit ], [ null, %24 ]
+  %.112 = phi ptr [ null, %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit ], [ %41, %_ZN6icu_77L15getCalendarTypeEPKc.exit ], [ null, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %6) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %43
+  br label %44
 
-41:                                               ; preds = %.loopexit.split-lp, %32
+42:                                               ; preds = %.loopexit.split-lp, %32
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %33, %32 ]
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %6) #25
-  br label %42
+  br label %43
 
-42:                                               ; preds = %41, %30
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %41 ], [ %31, %30 ]
+43:                                               ; preds = %42, %30
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %42 ], [ %31, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN6icu_776LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %5) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn.pn
 
-43:                                               ; preds = %4, %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit.thread
+44:                                               ; preds = %4, %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit.thread
   %.011 = phi ptr [ %.112, %_ZN6icu_77L26isStandardSupportedKeywordEPKcR10UErrorCode.exit.thread ], [ null, %4 ]
   ret ptr %.011
 }

@@ -356,8 +356,8 @@ list_length.exit.thread._crit_edge.i.thread:      ; preds = %.lr.ph.i, %151
 list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_length.exit.i, %list_length.exit.i.preheader, %.thread, %list_length.exit.thread._crit_edge.i.thread
   %164 = phi i1 [ true, %list_length.exit.thread._crit_edge.i.thread ], [ false, %.thread ], [ false, %list_length.exit.i.preheader ], [ false, %list_length.exit.i ], [ false, %.critedge.i ]
   %165 = phi i32 [ %39, %list_length.exit.thread._crit_edge.i.thread ], [ 0, %.thread ], [ %34, %list_length.exit.i.preheader ], [ 0, %.critedge.i ], [ %37, %list_length.exit.i ]
-  %.1116281290.i = phi ptr [ %45, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %45, %list_length.exit.i ], [ %45, %.critedge.i ]
-  %.1114283289.i = phi ptr [ %44, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %44, %list_length.exit.i ], [ %44, %.critedge.i ]
+  %.1116279288.i = phi ptr [ %45, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %45, %list_length.exit.i ], [ %45, %.critedge.i ]
+  %.1114281287.i = phi ptr [ %44, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ %44, %list_length.exit.i ], [ %44, %.critedge.i ]
   %.0.i = phi ptr [ %163, %list_length.exit.thread._crit_edge.i.thread ], [ null, %.thread ], [ null, %list_length.exit.i.preheader ], [ null, %list_length.exit.i ], [ null, %.critedge.i ]
   %166 = load ptr, ptr @CurTransactionContext, align 8
   %167 = call ptr @AllocSetContextCreateInternal(ptr noundef %166, ptr noundef nonnull @.str.5, i64 noundef 0, i64 noundef 1024, i64 noundef 8192) #5
@@ -394,35 +394,35 @@ list_length.exit.thread._crit_edge.thread.i:      ; preds = %.critedge.i, %list_
   %187 = getelementptr inbounds nuw i8, ptr %172, i64 16
   store ptr %186, ptr %187, align 8
   %188 = icmp sgt i32 %165, 0
-  br i1 %188, label %.lr.ph220.i, label %._crit_edge221.i
+  br i1 %188, label %.lr.ph218.i, label %._crit_edge219.i
 
-.lr.ph220.i:                                      ; preds = %175, %.lr.ph220.i
-  %indvars.iv262.i = phi i64 [ %indvars.iv.next263.i, %.lr.ph220.i ], [ 0, %175 ]
+.lr.ph218.i:                                      ; preds = %175, %.lr.ph218.i
+  %indvars.iv260.i = phi i64 [ %indvars.iv.next261.i, %.lr.ph218.i ], [ 0, %175 ]
   %189 = load ptr, ptr %5, align 8
-  %190 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv262.i
+  %190 = getelementptr inbounds nuw i32, ptr %189, i64 %indvars.iv260.i
   %191 = load i32, ptr %190, align 4
-  %192 = getelementptr inbounds nuw i32, ptr %.1114283289.i, i64 %indvars.iv262.i
+  %192 = getelementptr inbounds nuw i32, ptr %.1114281287.i, i64 %indvars.iv260.i
   %193 = load i32, ptr %192, align 4
   %194 = load ptr, ptr %185, align 8
   %195 = sext i32 %191 to i64
   %196 = getelementptr inbounds i32, ptr %194, i64 %195
   store i32 %193, ptr %196, align 4
-  %197 = getelementptr inbounds nuw i8, ptr %.1116281290.i, i64 %indvars.iv262.i
+  %197 = getelementptr inbounds nuw i8, ptr %.1116279288.i, i64 %indvars.iv260.i
   %198 = load i8, ptr %197, align 1, !range !4, !noundef !5
   %199 = load ptr, ptr %187, align 8
   %200 = getelementptr inbounds i8, ptr %199, i64 %195
   store i8 %198, ptr %200, align 1
-  %indvars.iv.next263.i = add nuw nsw i64 %indvars.iv262.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next263.i, %182
-  br i1 %exitcond.not.i, label %._crit_edge221.i, label %.lr.ph220.i, !llvm.loop !7
+  %indvars.iv.next261.i = add nuw nsw i64 %indvars.iv260.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next261.i, %182
+  br i1 %exitcond.not.i, label %._crit_edge219.i, label %.lr.ph218.i, !llvm.loop !7
 
-._crit_edge221.i:                                 ; preds = %.lr.ph220.i, %175
+._crit_edge219.i:                                 ; preds = %.lr.ph218.i, %175
   store ptr %176, ptr @CurrentMemoryContext, align 8
   %.pre.i = load i8, ptr %3, align 1, !range !4
   br label %201
 
-201:                                              ; preds = %._crit_edge221.i, %list_length.exit.thread._crit_edge.thread.i
-  %202 = phi i8 [ %.pre.i, %._crit_edge221.i ], [ %173, %list_length.exit.thread._crit_edge.thread.i ]
+201:                                              ; preds = %._crit_edge219.i, %list_length.exit.thread._crit_edge.thread.i
+  %202 = phi i8 [ %.pre.i, %._crit_edge219.i ], [ %173, %list_length.exit.thread._crit_edge.thread.i ]
   %203 = trunc nuw i8 %202 to i1
   %or.cond4.i = select i1 %1, i1 %203, i1 false
   br i1 %or.cond4.i, label %204, label %.critedge149.i

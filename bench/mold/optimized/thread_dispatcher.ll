@@ -593,8 +593,8 @@ _ZN3tbb6detail2d18rw_mutex4lockEv.exit:           ; preds = %_ZN3tbb6detail2d18r
   %.pn = phi ptr [ %33, %_ZN3tbb6detail2d18rw_mutex4lockEv.exit ], [ %.sroa.023.0, %34 ]
   %.sroa.023.0.in = getelementptr inbounds nuw i8, ptr %.pn, i64 8
   %.sroa.023.0 = load ptr, ptr %.sroa.023.0.in, align 8, !tbaa !83
-  %.not34 = icmp eq ptr %.sroa.023.0, %33
-  br i1 %.not34, label %.thread, label %34
+  %.not32 = icmp eq ptr %.sroa.023.0, %33
+  br i1 %.not32, label %.thread, label %34
 
 34:                                               ; preds = %.thread27
   %.not18 = icmp eq ptr %1, %.sroa.023.0
@@ -618,8 +618,8 @@ _ZN3tbb6detail2d18rw_mutex4lockEv.exit:           ; preds = %_ZN3tbb6detail2d18r
   %45 = load ptr, ptr %40, align 8, !tbaa !39
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 216
   %47 = load i32, ptr %46, align 8, !tbaa !91
-  %.not35 = icmp eq i32 %47, 0
-  br i1 %.not35, label %48, label %.thread
+  %.not33 = icmp eq i32 %47, 0
+  br i1 %.not33, label %48, label %.thread
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 220
@@ -706,7 +706,7 @@ _ZN3tbb6detail2r117thread_dispatcher13remove_clientERNS1_24thread_dispatcher_cli
   call void @_ZN3tbb6detail2r121notify_by_address_allEPv(ptr noundef nonnull align 8 dereferenceable(8) %7)
   br label %_ZN3tbb6detail2d18rw_mutex6unlockEv.exit22
 
-_ZN3tbb6detail2d18rw_mutex6unlockEv.exit22:       ; preds = %84, %83, %80
+_ZN3tbb6detail2d18rw_mutex6unlockEv.exit22:       ; preds = %80, %84, %83
   %.3 = phi i1 [ true, %80 ], [ false, %83 ], [ false, %84 ]
   ret i1 %.3
 }
@@ -781,30 +781,30 @@ declare void @_ZN3tbb6detail2r124cache_aligned_deallocateEPv(ptr noundef) local_
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN3tbb6detail2r117thread_dispatcher15is_client_aliveEPNS1_24thread_dispatcher_clientE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(152) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 align 2 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %.thread, label %.preheader
+  br i1 %.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %2, %5
-  %.019.idx34 = phi i64 [ %.019.add, %5 ], [ 16, %2 ]
-  %.019.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.019.idx34
+  %.019.idx35 = phi i64 [ %.019.add, %5 ], [ 16, %2 ]
+  %.019.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.019.idx35
   br label %3
 
 3:                                                ; preds = %4, %.preheader
   %.019.ptr.pn = phi ptr [ %.019.ptr, %.preheader ], [ %.sroa.027.0, %4 ]
   %.sroa.027.0.in = getelementptr inbounds nuw i8, ptr %.019.ptr.pn, i64 8
   %.sroa.027.0 = load ptr, ptr %.sroa.027.0.in, align 8, !tbaa !83
-  %.not31 = icmp eq ptr %.sroa.027.0, %.019.ptr
-  br i1 %.not31, label %5, label %4
+  %.not33 = icmp eq ptr %.sroa.027.0, %.019.ptr
+  br i1 %.not33, label %5, label %4
 
 4:                                                ; preds = %3
   %.not26 = icmp eq ptr %1, %.sroa.027.0
-  br i1 %.not26, label %.thread, label %3
+  br i1 %.not26, label %.loopexit, label %3
 
 5:                                                ; preds = %3
-  %.019.add = add nuw nsw i64 %.019.idx34, 24
-  %.not24.not = icmp eq i64 %.019.add, 88
-  br i1 %.not24.not, label %.thread, label %.preheader
+  %.019.add = add nuw nsw i64 %.019.idx35, 24
+  %.not24 = icmp eq i64 %.019.add, 88
+  br i1 %.not24, label %.loopexit, label %.preheader
 
-.thread:                                          ; preds = %5, %4, %2
+.loopexit:                                        ; preds = %5, %4, %2
   %.0 = phi i1 [ false, %2 ], [ true, %4 ], [ false, %5 ]
   ret i1 %.0
 }
@@ -909,25 +909,25 @@ define noundef ptr @_ZN3tbb6detail2r117thread_dispatcher14client_in_needEPNS1_24
   br i1 %.not.i, label %.loopexit41, label %.preheader.i
 
 .preheader.i:                                     ; preds = %2, %8
-  %.019.idx34.i = phi i64 [ %.019.add.i, %8 ], [ 16, %2 ]
-  %.019.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.019.idx34.i
+  %.019.idx35.i = phi i64 [ %.019.add.i, %8 ], [ 16, %2 ]
+  %.019.ptr.i = getelementptr inbounds nuw i8, ptr %0, i64 %.019.idx35.i
   br label %6
 
 6:                                                ; preds = %7, %.preheader.i
   %.019.ptr.pn.i = phi ptr [ %.019.ptr.i, %.preheader.i ], [ %.sroa.027.0.i, %7 ]
   %.sroa.027.0.in.i = getelementptr inbounds nuw i8, ptr %.019.ptr.pn.i, i64 8
   %.sroa.027.0.i = load ptr, ptr %.sroa.027.0.in.i, align 8, !tbaa !83
-  %.not31.i = icmp eq ptr %.sroa.027.0.i, %.019.ptr.i
-  br i1 %.not31.i, label %8, label %7
+  %.not33.i = icmp eq ptr %.sroa.027.0.i, %.019.ptr.i
+  br i1 %.not33.i, label %8, label %7
 
 7:                                                ; preds = %6
   %.not26.i = icmp eq ptr %1, %.sroa.027.0.i
   br i1 %.not26.i, label %_ZN3tbb6detail2r117thread_dispatcher15is_client_aliveEPNS1_24thread_dispatcher_clientE.exit, label %6
 
 8:                                                ; preds = %6
-  %.019.add.i = add nuw nsw i64 %.019.idx34.i, 24
-  %.not24.not.i = icmp eq i64 %.019.add.i, 88
-  br i1 %.not24.not.i, label %.loopexit41, label %.preheader.i
+  %.019.add.i = add nuw nsw i64 %.019.idx35.i, 24
+  %.not24.i = icmp eq i64 %.019.add.i, 88
+  br i1 %.not24.i, label %.loopexit41, label %.preheader.i
 
 _ZN3tbb6detail2r117thread_dispatcher15is_client_aliveEPNS1_24thread_dispatcher_clientE.exit: ; preds = %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16

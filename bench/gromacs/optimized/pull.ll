@@ -10777,28 +10777,28 @@ define noundef zeroext i1 @_Z20pull_have_constraintRK6pull_t(ptr noundef nonnull
 define noundef zeroext i1 @_Z20pull_have_constraintRK13pull_params_t(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %0) local_unnamed_addr #23 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !571
-  %.not8 = icmp sgt i32 %3, 0
-  br i1 %.not8, label %.lr.ph, label %._crit_edge
+  %4 = icmp sgt i32 %3, 0
+  br i1 %4, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %5 = load ptr, ptr %4, align 8, !tbaa !443
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %6 = load ptr, ptr %5, align 8, !tbaa !443
   %wide.trip.count = zext nneg i32 %3 to i64
-  br label %6
+  br label %7
 
-6:                                                ; preds = %6, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.t_pull_coord, ptr %5, i64 %indvars.iv
-  %8 = load i32, ptr %7, align 8, !tbaa !538
-  %9 = icmp eq i32 %8, 1
+7:                                                ; preds = %7, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
+  %8 = getelementptr inbounds nuw %struct.t_pull_coord, ptr %6, i64 %indvars.iv
+  %9 = load i32, ptr %8, align 8, !tbaa !538
+  %10 = icmp eq i32 %9, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %9, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %6, !llvm.loop !572
+  %or.cond = select i1 %10, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %7, !llvm.loop !572
 
-._crit_edge:                                      ; preds = %6, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ %9, %6 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %7, %1
+  %.lcssa = phi i1 [ false, %1 ], [ %10, %7 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: uwtable

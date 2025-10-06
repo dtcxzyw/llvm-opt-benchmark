@@ -1316,17 +1316,17 @@ define dso_local noundef zeroext i1 @_ZN4llvm9Localizer18localizeIntraBlockERNS_
   %56 = zext i32 %46 to i64
   %.idx.i.i = shl nuw nsw i64 %56, 3
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %46, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %46, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %55, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %59, %.critedge.i.i ], [ %47, %55 ]
-  %58 = load ptr, ptr %.02937.i.i, align 8, !tbaa !3, !noalias !239
+  %.02935.i.i = phi ptr [ %59, %.critedge.i.i ], [ %47, %55 ]
+  %58 = load ptr, ptr %.02935.i.i, align 8, !tbaa !3, !noalias !239
   %.not17.i.i = icmp eq ptr %58, %50
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %59 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %59, %57
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !242
 

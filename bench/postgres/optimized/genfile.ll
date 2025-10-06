@@ -958,15 +958,15 @@ define internal fastcc ptr @read_binary_file(ptr noundef %0, i64 noundef %1, i64
   %42 = add i32 %41, 4
   store i32 %42, ptr %40, align 8
   %43 = call i32 @feof(ptr noundef nonnull %13) #8
-  %.not3443 = icmp eq i32 %43, 0
-  br i1 %.not3443, label %.lr.ph, label %.critedge
+  %.not3442 = icmp eq i32 %43, 0
+  br i1 %.not3442, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 12
   br label %45
 
 45:                                               ; preds = %.lr.ph, %59
-  %.144 = phi i64 [ 0, %.lr.ph ], [ %72, %59 ]
+  %.143 = phi i64 [ 0, %.lr.ph ], [ %72, %59 ]
   %46 = call i32 @ferror(ptr noundef nonnull %13) #8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %.critedge
@@ -1013,19 +1013,19 @@ define internal fastcc ptr @read_binary_file(ptr noundef %0, i64 noundef %1, i64
   %70 = trunc i64 %68 to i32
   %71 = add i32 %69, %70
   store i32 %71, ptr %40, align 8
-  %72 = add i64 %68, %.144
+  %72 = add i64 %68, %.143
   %73 = call i32 @feof(ptr noundef nonnull %13) #8
   %.not34 = icmp eq i32 %73, 0
   br i1 %.not34, label %45, label %.critedge
 
 .critedge:                                        ; preds = %45, %59, %39, %.thread
-  %.142 = phi i64 [ %.144, %.thread ], [ 0, %39 ], [ %.144, %45 ], [ %72, %59 ]
+  %.141 = phi i64 [ %.143, %.thread ], [ 0, %39 ], [ %.143, %45 ], [ %72, %59 ]
   %74 = load ptr, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %75
 
 75:                                               ; preds = %.critedge, %34
-  %.031 = phi i64 [ %38, %34 ], [ %.142, %.critedge ]
+  %.031 = phi i64 [ %38, %34 ], [ %.141, %.critedge ]
   %.030 = phi ptr [ %36, %34 ], [ %74, %.critedge ]
   %76 = call i32 @ferror(ptr noundef nonnull %13) #8
   %.not37 = icmp eq i32 %76, 0

@@ -21730,7 +21730,7 @@ define noundef zeroext i1 @_ZN10PacketList15haveNextHistoryEb(ptr noundef align 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %4, 1
-  br i1 %5, label %.loopexit, label %6
+  br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -21738,39 +21738,39 @@ define noundef zeroext i1 @_ZN10PacketList15haveNextHistoryEb(ptr noundef align 
   %9 = sext i32 %8 to i64
   %10 = add nsw i64 %4, -1
   %.not = icmp sgt i64 %10, %9
-  br i1 %.not, label %.preheader, label %.loopexit
+  br i1 %.not, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 392
   br label %13
 
-13:                                               ; preds = %.preheader, %16
-  %.07.in = phi i32 [ %.07, %16 ], [ %8, %.preheader ]
+13:                                               ; preds = %.preheader, %17
+  %.07.in = phi i32 [ %.07, %17 ], [ %8, %.preheader ]
   %.07 = add i32 %.07.in, 1
   %14 = sext i32 %.07 to i64
   %15 = load i64, ptr %3, align 8
-  %.not10 = icmp sgt i64 %15, %14
-  br i1 %.not10, label %16, label %.loopexit
+  %16 = icmp sgt i64 %15, %14
+  br i1 %16, label %17, label %.thread
 
-16:                                               ; preds = %13
-  %17 = load ptr, ptr %11, align 8
-  %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr i32, ptr %18, i64 %14
-  %20 = load i32, ptr %19, align 4
-  %21 = tail call noundef i32 @_ZNK15PacketListModel17packetNumberToRowEi(ptr noundef align 8 dereferenceable_or_null(156) %17, i32 noundef %20)
-  %22 = icmp sgt i32 %21, -1
-  br i1 %22, label %23, label %13, !llvm.loop !299
+17:                                               ; preds = %13
+  %18 = load ptr, ptr %11, align 8
+  %19 = load ptr, ptr %12, align 8
+  %20 = getelementptr i32, ptr %19, i64 %14
+  %21 = load i32, ptr %20, align 4
+  %22 = tail call noundef i32 @_ZNK15PacketListModel17packetNumberToRowEi(ptr noundef align 8 dereferenceable_or_null(156) %18, i32 noundef %21)
+  %23 = icmp sgt i32 %22, -1
+  br i1 %23, label %24, label %13, !llvm.loop !299
 
-23:                                               ; preds = %16
-  br i1 %1, label %24, label %.loopexit
+24:                                               ; preds = %17
+  br i1 %1, label %25, label %.thread
 
-24:                                               ; preds = %23
+25:                                               ; preds = %24
   store i32 %.07, ptr %7, align 8
-  br label %.loopexit
+  br label %.thread
 
-.loopexit:                                        ; preds = %13, %24, %23, %2, %6
-  %.08 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %23 ], [ true, %24 ], [ false, %13 ]
+.thread:                                          ; preds = %13, %24, %25, %2, %6
+  %.08 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %25 ], [ true, %24 ], [ false, %13 ]
   ret i1 %.08
 }
 
@@ -21782,13 +21782,13 @@ define noundef zeroext i1 @_ZN10PacketList19havePreviousHistoryEb(ptr noundef al
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %4 = load i64, ptr %3, align 8
   %5 = icmp slt i64 %4, 1
-  br i1 %5, label %.loopexit, label %6
+  br i1 %5, label %.thread, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %8 = load i32, ptr %7, align 8
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %.loopexit, label %.preheader
+  br i1 %9, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -21799,7 +21799,7 @@ define noundef zeroext i1 @_ZN10PacketList19havePreviousHistoryEb(ptr noundef al
 13:                                               ; preds = %.preheader, %15
   %indvars.iv = phi i64 [ %12, %.preheader ], [ %indvars.iv.next, %15 ]
   %14 = icmp sgt i64 %indvars.iv, 0
-  br i1 %14, label %15, label %.loopexit
+  br i1 %14, label %15, label %.thread
 
 15:                                               ; preds = %13
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -21812,15 +21812,15 @@ define noundef zeroext i1 @_ZN10PacketList19havePreviousHistoryEb(ptr noundef al
   br i1 %21, label %22, label %13, !llvm.loop !300
 
 22:                                               ; preds = %15
-  br i1 %1, label %23, label %.loopexit
+  br i1 %1, label %23, label %.thread
 
 23:                                               ; preds = %22
   %24 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %24, ptr %7, align 8
-  br label %.loopexit
+  br label %.thread
 
-.loopexit:                                        ; preds = %13, %23, %22, %2, %6
-  %.08 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %22 ], [ true, %23 ], [ false, %13 ]
+.thread:                                          ; preds = %13, %22, %23, %2, %6
+  %.08 = phi i1 [ false, %6 ], [ false, %2 ], [ true, %23 ], [ true, %22 ], [ false, %13 ]
   ret i1 %.08
 }
 
@@ -23481,7 +23481,7 @@ define void @_ZN10PacketList12goNextPacketEv(ptr noundef align 8 dereferenceable
   %5 = tail call i32 @_ZN15QGuiApplication17keyboardModifiersEv()
   %6 = and i32 %5, 134217728
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %41, label %7
+  br i1 %.not, label %42, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -23502,96 +23502,96 @@ define void @_ZN10PacketList12goNextPacketEv(ptr noundef align 8 dereferenceable
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 392
   br label %18
 
-18:                                               ; preds = %21, %.preheader.i.i
-  %.07.in.i.i = phi i32 [ %.07.i.i, %21 ], [ %13, %.preheader.i.i ]
+18:                                               ; preds = %22, %.preheader.i.i
+  %.07.in.i.i = phi i32 [ %.07.i.i, %22 ], [ %13, %.preheader.i.i ]
   %.07.i.i = add i32 %.07.in.i.i, 1
   %19 = sext i32 %.07.i.i to i64
   %20 = load i64, ptr %8, align 8
-  %.not10.i.i = icmp sgt i64 %20, %19
-  br i1 %.not10.i.i, label %21, label %_ZN10PacketList19goNextHistoryPacketEv.exit
+  %21 = icmp sgt i64 %20, %19
+  br i1 %21, label %22, label %_ZN10PacketList19goNextHistoryPacketEv.exit
 
-21:                                               ; preds = %18
-  %22 = load ptr, ptr %16, align 8
-  %23 = load ptr, ptr %17, align 8
-  %24 = getelementptr i32, ptr %23, i64 %19
-  %25 = load i32, ptr %24, align 4
-  %26 = tail call noundef i32 @_ZNK15PacketListModel17packetNumberToRowEi(ptr noundef align 8 dereferenceable_or_null(156) %22, i32 noundef %25)
-  %27 = icmp sgt i32 %26, -1
-  br i1 %27, label %28, label %18, !llvm.loop !299
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %16, align 8
+  %24 = load ptr, ptr %17, align 8
+  %25 = getelementptr i32, ptr %24, i64 %19
+  %26 = load i32, ptr %25, align 4
+  %27 = tail call noundef i32 @_ZNK15PacketListModel17packetNumberToRowEi(ptr noundef align 8 dereferenceable_or_null(156) %23, i32 noundef %26)
+  %28 = icmp sgt i32 %27, -1
+  br i1 %28, label %29, label %18, !llvm.loop !299
 
-28:                                               ; preds = %21
+29:                                               ; preds = %22
   store i32 %.07.i.i, ptr %12, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  store i8 1, ptr %29, align 4
-  %30 = load ptr, ptr %17, align 8
-  %31 = getelementptr i32, ptr %30, i64 %19
-  %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %34 = load ptr, ptr %33, align 8
-  %35 = tail call zeroext i1 @cf_goto_frame(ptr noundef %34, i32 noundef %32, i1 noundef zeroext false)
-  br i1 %35, label %36, label %_ZN10PacketList10goToPacketEii.exit.i
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 412
+  store i8 1, ptr %30, align 4
+  %31 = load ptr, ptr %17, align 8
+  %32 = getelementptr i32, ptr %31, i64 %19
+  %33 = load i32, ptr %32, align 4
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %35 = load ptr, ptr %34, align 8
+  %36 = tail call zeroext i1 @cf_goto_frame(ptr noundef %35, i32 noundef %33, i1 noundef zeroext false)
+  br i1 %36, label %37, label %_ZN10PacketList10goToPacketEii.exit.i
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %38 = load i8, ptr %37, align 8, !range !6, !noundef !7
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %_ZN10PacketList10goToPacketEii.exit.i
+37:                                               ; preds = %29
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %39 = load i8, ptr %38, align 8, !range !6, !noundef !7
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %41, label %_ZN10PacketList10goToPacketEii.exit.i
 
-40:                                               ; preds = %36
+41:                                               ; preds = %37
   tail call void @_ZN10PacketList18packetListScrolledEb(ptr noundef align 8 dereferenceable_or_null(432) %0, i1 noundef zeroext false)
   br label %_ZN10PacketList10goToPacketEii.exit.i
 
-_ZN10PacketList10goToPacketEii.exit.i:            ; preds = %40, %36, %28
-  store i8 0, ptr %29, align 4
+_ZN10PacketList10goToPacketEii.exit.i:            ; preds = %41, %37, %29
+  store i8 0, ptr %30, align 4
   br label %_ZN10PacketList19goNextHistoryPacketEv.exit
 
-41:                                               ; preds = %1
-  %42 = tail call noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
-  %43 = tail call noundef zeroext i1 @_ZNK19QItemSelectionModel12hasSelectionEv(ptr noundef align 8 dereferenceable_or_null(16) %42)
-  %44 = tail call noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
-  br i1 %43, label %45, label %52
+42:                                               ; preds = %1
+  %43 = tail call noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
+  %44 = tail call noundef zeroext i1 @_ZNK19QItemSelectionModel12hasSelectionEv(ptr noundef align 8 dereferenceable_or_null(16) %43)
+  %45 = tail call noundef ptr @_ZNK17QAbstractItemView14selectionModelEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
+  br i1 %44, label %46, label %53
 
-45:                                               ; preds = %41
+46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %46 = load ptr, ptr %0, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 680
-  %48 = load ptr, ptr %47, align 8
-  call void %48(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %2, ptr noundef align 8 dereferenceable_or_null(40) %0, i32 noundef 1, i32 0)
-  %49 = load ptr, ptr %44, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 96
-  %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef align 8 dereferenceable_or_null(16) %44, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 35)
+  %47 = load ptr, ptr %0, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 680
+  %49 = load ptr, ptr %48, align 8
+  call void %49(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %2, ptr noundef align 8 dereferenceable_or_null(40) %0, i32 noundef 1, i32 0)
+  %50 = load ptr, ptr %45, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 96
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef align 8 dereferenceable_or_null(16) %45, ptr noundef nonnull align 8 dereferenceable(24) %2, i32 35)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %60
+  br label %61
 
-52:                                               ; preds = %41
+53:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %53 = tail call noundef ptr @_ZNK19QAbstractScrollArea8viewportEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
+  %54 = tail call noundef ptr @_ZNK19QAbstractScrollArea8viewportEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   store i64 0, ptr %4, align 8
-  %54 = load ptr, ptr %0, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 496
-  %56 = load ptr, ptr %55, align 8
-  call void %56(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %3, ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %4)
-  %57 = load ptr, ptr %44, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
-  %59 = load ptr, ptr %58, align 8
-  call void %59(ptr noundef align 8 dereferenceable_or_null(16) %44, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 35)
+  %55 = load ptr, ptr %0, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 496
+  %57 = load ptr, ptr %56, align 8
+  call void %57(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %3, ptr noundef align 8 dereferenceable_or_null(40) %0, ptr noundef nonnull align 4 dereferenceable(8) %4)
+  %58 = load ptr, ptr %45, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 96
+  %60 = load ptr, ptr %59, align 8
+  call void %60(ptr noundef align 8 dereferenceable_or_null(16) %45, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 35)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %60
+  br label %61
 
-60:                                               ; preds = %52, %45
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %62 = load i8, ptr %61, align 8, !range !6, !noundef !7
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %_ZN10PacketList19goNextHistoryPacketEv.exit
+61:                                               ; preds = %53, %46
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %63 = load i8, ptr %62, align 8, !range !6, !noundef !7
+  %64 = trunc nuw i8 %63 to i1
+  br i1 %64, label %65, label %_ZN10PacketList19goNextHistoryPacketEv.exit
 
-64:                                               ; preds = %60
+65:                                               ; preds = %61
   call void @_ZN10PacketList18packetListScrolledEb(ptr noundef align 8 dereferenceable_or_null(432) %0, i1 noundef zeroext false)
   br label %_ZN10PacketList19goNextHistoryPacketEv.exit
 
-_ZN10PacketList19goNextHistoryPacketEv.exit:      ; preds = %18, %64, %60, %_ZN10PacketList10goToPacketEii.exit.i, %11, %7
+_ZN10PacketList19goNextHistoryPacketEv.exit:      ; preds = %18, %65, %61, %_ZN10PacketList10goToPacketEii.exit.i, %11, %7
   ret void
 }
 
@@ -23618,47 +23618,47 @@ define void @_ZN10PacketList19goNextHistoryPacketEv(ptr noundef align 8 derefere
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 392
   br label %12
 
-12:                                               ; preds = %15, %.preheader.i
-  %.07.in.i = phi i32 [ %.07.i, %15 ], [ %7, %.preheader.i ]
+12:                                               ; preds = %16, %.preheader.i
+  %.07.in.i = phi i32 [ %.07.i, %16 ], [ %7, %.preheader.i ]
   %.07.i = add i32 %.07.in.i, 1
   %13 = sext i32 %.07.i to i64
   %14 = load i64, ptr %2, align 8
-  %.not10.i = icmp sgt i64 %14, %13
-  br i1 %.not10.i, label %15, label %_ZN10PacketList15haveNextHistoryEb.exit.thread
+  %15 = icmp sgt i64 %14, %13
+  br i1 %15, label %16, label %_ZN10PacketList15haveNextHistoryEb.exit.thread
 
-15:                                               ; preds = %12
-  %16 = load ptr, ptr %10, align 8
-  %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr i32, ptr %17, i64 %13
-  %19 = load i32, ptr %18, align 4
-  %20 = tail call noundef i32 @_ZNK15PacketListModel17packetNumberToRowEi(ptr noundef align 8 dereferenceable_or_null(156) %16, i32 noundef %19)
-  %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %22, label %12, !llvm.loop !299
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %10, align 8
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr i32, ptr %18, i64 %13
+  %20 = load i32, ptr %19, align 4
+  %21 = tail call noundef i32 @_ZNK15PacketListModel17packetNumberToRowEi(ptr noundef align 8 dereferenceable_or_null(156) %17, i32 noundef %20)
+  %22 = icmp sgt i32 %21, -1
+  br i1 %22, label %23, label %12, !llvm.loop !299
 
-22:                                               ; preds = %15
+23:                                               ; preds = %16
   store i32 %.07.i, ptr %6, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 412
-  store i8 1, ptr %23, align 4
-  %24 = load ptr, ptr %11, align 8
-  %25 = getelementptr i32, ptr %24, i64 %13
-  %26 = load i32, ptr %25, align 4
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %28 = load ptr, ptr %27, align 8
-  %29 = tail call zeroext i1 @cf_goto_frame(ptr noundef %28, i32 noundef %26, i1 noundef zeroext false)
-  br i1 %29, label %30, label %_ZN10PacketList10goToPacketEii.exit
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 412
+  store i8 1, ptr %24, align 4
+  %25 = load ptr, ptr %11, align 8
+  %26 = getelementptr i32, ptr %25, i64 %13
+  %27 = load i32, ptr %26, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %29 = load ptr, ptr %28, align 8
+  %30 = tail call zeroext i1 @cf_goto_frame(ptr noundef %29, i32 noundef %27, i1 noundef zeroext false)
+  br i1 %30, label %31, label %_ZN10PacketList10goToPacketEii.exit
 
-30:                                               ; preds = %22
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  %32 = load i8, ptr %31, align 8, !range !6, !noundef !7
-  %33 = trunc nuw i8 %32 to i1
-  br i1 %33, label %34, label %_ZN10PacketList10goToPacketEii.exit
+31:                                               ; preds = %23
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  %33 = load i8, ptr %32, align 8, !range !6, !noundef !7
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %35, label %_ZN10PacketList10goToPacketEii.exit
 
-34:                                               ; preds = %30
+35:                                               ; preds = %31
   tail call void @_ZN10PacketList18packetListScrolledEb(ptr noundef align 8 dereferenceable_or_null(432) %0, i1 noundef zeroext false)
   br label %_ZN10PacketList10goToPacketEii.exit
 
-_ZN10PacketList10goToPacketEii.exit:              ; preds = %22, %30, %34
-  store i8 0, ptr %23, align 4
+_ZN10PacketList10goToPacketEii.exit:              ; preds = %23, %31, %35
+  store i8 0, ptr %24, align 4
   br label %_ZN10PacketList15haveNextHistoryEb.exit.thread
 
 _ZN10PacketList15haveNextHistoryEb.exit.thread:   ; preds = %12, %1, %5, %_ZN10PacketList10goToPacketEii.exit
@@ -28446,29 +28446,29 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %13 = add i64 %2, 1
   %14 = load i64, ptr %12, align 8
   %15 = icmp eq i64 %13, %14
-  %spec.store.select.i51 = select i1 %15, i64 0, i64 %13
-  %16 = lshr i64 %spec.store.select.i51, 7
-  %17 = and i64 %spec.store.select.i51, 127
+  %spec.store.select.i50 = select i1 %15, i64 0, i64 %13
+  %16 = lshr i64 %spec.store.select.i50, 7
+  %17 = and i64 %spec.store.select.i50, 127
   %18 = load ptr, ptr %6, align 8
   %19 = getelementptr %"struct.QHashPrivate::Span.142", ptr %18, i64 %16
   %20 = getelementptr i8, ptr %19, i64 %17
   %21 = load i8, ptr %20, align 1
-  %.not52 = icmp eq i8 %21, -1
-  br i1 %.not52, label %._crit_edge, label %.lr.ph55
+  %.not51 = icmp eq i8 %21, -1
+  br i1 %.not51, label %._crit_edge, label %.lr.ph54
 
-.lr.ph55:                                         ; preds = %3
+.lr.ph54:                                         ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %23
 
-23:                                               ; preds = %.lr.ph55, %.loopexit
-  %24 = phi i8 [ %21, %.lr.ph55 ], [ %73, %.loopexit ]
-  %25 = phi ptr [ %19, %.lr.ph55 ], [ %71, %.loopexit ]
-  %26 = phi ptr [ %18, %.lr.ph55 ], [ %70, %.loopexit ]
-  %27 = phi i64 [ %17, %.lr.ph55 ], [ %69, %.loopexit ]
-  %28 = phi i64 [ %16, %.lr.ph55 ], [ %68, %.loopexit ]
-  %spec.store.select.i54 = phi i64 [ %spec.store.select.i51, %.lr.ph55 ], [ %spec.store.select.i, %.loopexit ]
-  %29 = phi i64 [ %14, %.lr.ph55 ], [ %66, %.loopexit ]
-  %.053 = phi i64 [ %2, %.lr.ph55 ], [ %.1, %.loopexit ]
+23:                                               ; preds = %.lr.ph54, %.loopexit
+  %24 = phi i8 [ %21, %.lr.ph54 ], [ %73, %.loopexit ]
+  %25 = phi ptr [ %19, %.lr.ph54 ], [ %71, %.loopexit ]
+  %26 = phi ptr [ %18, %.lr.ph54 ], [ %70, %.loopexit ]
+  %27 = phi i64 [ %17, %.lr.ph54 ], [ %69, %.loopexit ]
+  %28 = phi i64 [ %16, %.lr.ph54 ], [ %68, %.loopexit ]
+  %spec.store.select.i53 = phi i64 [ %spec.store.select.i50, %.lr.ph54 ], [ %spec.store.select.i, %.loopexit ]
+  %29 = phi i64 [ %14, %.lr.ph54 ], [ %66, %.loopexit ]
+  %.052 = phi i64 [ %2, %.lr.ph54 ], [ %.1, %.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %31 = load ptr, ptr %30, align 8
   %32 = zext i8 %24 to i64
@@ -28488,17 +28488,17 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %46 = xor i64 %45, %44
   %47 = add i64 %29, -1
   %48 = and i64 %46, %47
-  %49 = icmp eq i64 %48, %spec.store.select.i54
+  %49 = icmp eq i64 %48, %spec.store.select.i53
   br i1 %49, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %61
-  %.03850 = phi i64 [ %spec.store.select.i43, %61 ], [ %48, %23 ]
-  %50 = icmp eq i64 %.03850, %.053
+  %.03849 = phi i64 [ %spec.store.select.i43, %61 ], [ %48, %23 ]
+  %50 = icmp eq i64 %.03849, %.052
   br i1 %50, label %51, label %61
 
 51:                                               ; preds = %.lr.ph
-  %52 = lshr i64 %.053, 7
-  %53 = and i64 %.053, 127
+  %52 = lshr i64 %.052, 7
+  %53 = and i64 %.052, 127
   %54 = icmp eq i64 %28, %52
   br i1 %54, label %55, label %59
 
@@ -28516,15 +28516,15 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
           to label %.loopexit unwind label %97
 
 61:                                               ; preds = %.lr.ph
-  %62 = add i64 %.03850, 1
+  %62 = add i64 %.03849, 1
   %63 = icmp eq i64 %62, %29
   %spec.store.select.i43 = select i1 %63, i64 0, i64 %62
-  %64 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i54
+  %64 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i53
   br i1 %64, label %.loopexit, label %.lr.ph, !llvm.loop !330
 
 .loopexit:                                        ; preds = %61, %23, %59, %55
-  %.1 = phi i64 [ %spec.store.select.i54, %59 ], [ %spec.store.select.i54, %55 ], [ %.053, %23 ], [ %.053, %61 ]
-  %65 = add i64 %spec.store.select.i54, 1
+  %.1 = phi i64 [ %spec.store.select.i53, %59 ], [ %spec.store.select.i53, %55 ], [ %.052, %23 ], [ %.052, %61 ]
+  %65 = add i64 %spec.store.select.i53, 1
   %66 = load i64, ptr %12, align 8
   %67 = icmp eq i64 %65, %66
   %spec.store.select.i = select i1 %67, i64 0, i64 %65
@@ -28548,8 +28548,8 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %79 = getelementptr %"struct.QHashPrivate::Span.142", ptr %74, i64 %4
   %80 = getelementptr i8, ptr %79, i64 %5
   %81 = load i8, ptr %80, align 1
-  %.not48 = icmp eq i8 %81, -1
-  br i1 %.not48, label %82, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit
+  %.not47 = icmp eq i8 %81, -1
+  br i1 %.not47, label %82, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit
 
 82:                                               ; preds = %78, %._crit_edge
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 16

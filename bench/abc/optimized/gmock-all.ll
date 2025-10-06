@@ -3286,20 +3286,20 @@ _ZNSt6vectorImSaImEED2Ev.exit2:                   ; preds = %_ZNSt6vectorImSaImE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define noundef zeroext i1 @_ZN7testing8internal11MatchMatrix9NextGraphEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0) local_unnamed_addr #13 align 2 {
   %2 = load i64, ptr %0, align 8, !tbaa !110
-  %.not2026.not = icmp eq i64 %2, 0
-  br i1 %.not2026.not, label %.thread, label %.preheader.lr.ph
+  %.not27 = icmp eq i64 %2, 0
+  br i1 %.not27, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %3, align 8, !tbaa !119
-  %.not29 = icmp eq i64 %5, 0
-  br i1 %.not29, label %.thread, label %.preheader
+  %.not28 = icmp eq i64 %5, 0
+  br i1 %.not28, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge
   %6 = phi i64 [ %17, %._crit_edge ], [ %2, %.preheader.lr.ph ]
   %7 = phi i64 [ %18, %._crit_edge ], [ %5, %.preheader.lr.ph ]
-  %.01827 = phi i64 [ %19, %._crit_edge ], [ 0, %.preheader.lr.ph ]
+  %.01826 = phi i64 [ %19, %._crit_edge ], [ 0, %.preheader.lr.ph ]
   %.not24.not = icmp eq i64 %7, 0
   br i1 %.not24.not, label %._crit_edge, label %.lr.ph
 
@@ -3312,7 +3312,7 @@ define noundef zeroext i1 @_ZN7testing8internal11MatchMatrix9NextGraphEv(ptr nou
 .lr.ph:                                           ; preds = %.preheader, %8
   %11 = phi i64 [ %10, %8 ], [ %7, %.preheader ]
   %.01425 = phi i64 [ %9, %8 ], [ 0, %.preheader ]
-  %12 = mul i64 %11, %.01827
+  %12 = mul i64 %11, %.01826
   %13 = load ptr, ptr %4, align 8, !tbaa !121
   %14 = getelementptr i8, ptr %13, i64 %12
   %15 = getelementptr i8, ptr %14, i64 %.01425
@@ -3320,7 +3320,7 @@ define noundef zeroext i1 @_ZN7testing8internal11MatchMatrix9NextGraphEv(ptr nou
   %.not.not = icmp eq i8 %16, 0
   %. = zext i1 %.not.not to i8
   store i8 %., ptr %15, align 1, !tbaa !12
-  br i1 %.not.not, label %.thread, label %8
+  br i1 %.not.not, label %.loopexit, label %8
 
 ._crit_edge.loopexit:                             ; preds = %8
   %.pre = load i64, ptr %0, align 8, !tbaa !110
@@ -3329,13 +3329,13 @@ define noundef zeroext i1 @_ZN7testing8internal11MatchMatrix9NextGraphEv(ptr nou
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %17 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %6, %.preheader ]
   %18 = phi i64 [ %10, %._crit_edge.loopexit ], [ 0, %.preheader ]
-  %19 = add nuw i64 %.01827, 1
-  %.not20 = icmp ult i64 %19, %17
-  br i1 %.not20, label %.preheader, label %.thread, !llvm.loop !135
+  %19 = add nuw i64 %.01826, 1
+  %20 = icmp ult i64 %19, %17
+  br i1 %20, label %.preheader, label %.loopexit, !llvm.loop !135
 
-.thread:                                          ; preds = %._crit_edge, %.lr.ph, %.preheader.lr.ph, %1
-  %.not2023 = phi i1 [ false, %1 ], [ false, %.preheader.lr.ph ], [ true, %.lr.ph ], [ false, %._crit_edge ]
-  ret i1 %.not2023
+.loopexit:                                        ; preds = %._crit_edge, %.lr.ph, %.preheader.lr.ph, %1
+  %21 = phi i1 [ false, %1 ], [ false, %.preheader.lr.ph ], [ true, %.lr.ph ], [ false, %._crit_edge ]
+  ret i1 %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -8174,22 +8174,22 @@ define void @_ZN7testing8internal25UntypedFunctionMockerBase11GetHandleOfEPNS0_1
   %7 = load ptr, ptr %6, align 8, !tbaa !296
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !296
-  %.not21 = icmp eq ptr %7, %9
-  br i1 %.not21, label %.noexc.i, label %.lr.ph
+  %.not19 = icmp eq ptr %7, %9
+  br i1 %.not19, label %.noexc.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %12
-  %.sroa.013.022 = phi ptr [ %13, %12 ], [ %7, %3 ]
-  %10 = load ptr, ptr %.sroa.013.022, align 8, !tbaa !248
+  %.sroa.013.020 = phi ptr [ %13, %12 ], [ %7, %3 ]
+  %10 = load ptr, ptr %.sroa.013.020, align 8, !tbaa !248
   %11 = icmp eq ptr %10, %2
   br i1 %11, label %14, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.013.022, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.013.020, i64 16
   %.not = icmp eq ptr %13, %9
   br i1 %.not, label %.noexc.i, label %.lr.ph, !llvm.loop !297
 
 14:                                               ; preds = %.lr.ph
-  tail call void @_ZN7testing11ExpectationC1ERKSt10shared_ptrINS_8internal15ExpectationBaseEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013.022)
+  tail call void @_ZN7testing11ExpectationC1ERKSt10shared_ptrINS_8internal15ExpectationBaseEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.013.020)
   br label %45
 
 .noexc.i:                                         ; preds = %12, %3
@@ -11786,74 +11786,74 @@ define linkonce_odr noundef zeroext i1 @_ZN7testing8internal22MaxBipartiteMatchS
   %4 = load ptr, ptr %0, align 8, !tbaa !102
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !119
-  %.not1923.not = icmp eq i64 %6, 0
-  br i1 %.not1923.not, label %.loopexit, label %.lr.ph
+  %.not24 = icmp eq i64 %6, 0
+  br i1 %.not24, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %8
 
-8:                                                ; preds = %.lr.ph, %34
-  %9 = phi ptr [ %4, %.lr.ph ], [ %35, %34 ]
-  %10 = phi i64 [ %6, %.lr.ph ], [ %38, %34 ]
-  %.01724 = phi i64 [ 0, %.lr.ph ], [ %36, %34 ]
+8:                                                ; preds = %.lr.ph, %29
+  %9 = phi ptr [ %4, %.lr.ph ], [ %30, %29 ]
+  %10 = phi i64 [ %6, %.lr.ph ], [ %33, %29 ]
+  %.01723 = phi i64 [ 0, %.lr.ph ], [ %31, %29 ]
   %11 = load ptr, ptr %2, align 8, !tbaa !121
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.01724
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 %.01723
   %13 = load i8, ptr %12, align 1, !tbaa !12
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %14, label %34
+  br i1 %.not, label %14, label %29
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %16 = mul i64 %10, %1
   %17 = load ptr, ptr %15, align 8, !tbaa !121
   %18 = getelementptr i8, ptr %17, i64 %16
-  %19 = getelementptr i8, ptr %18, i64 %.01724
+  %19 = getelementptr i8, ptr %18, i64 %.01723
   %20 = load i8, ptr %19, align 1, !tbaa !12
   %21 = icmp eq i8 %20, 1
-  br i1 %21, label %22, label %34
+  br i1 %21, label %22, label %29
 
 22:                                               ; preds = %14
   store i8 1, ptr %12, align 1, !tbaa !12
   %23 = load ptr, ptr %7, align 8, !tbaa !116
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %.01724
+  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %.01723
   %25 = load i64, ptr %24, align 8, !tbaa !85
   %26 = icmp eq i64 %25, -1
   br i1 %26, label %split, label %27
 
 27:                                               ; preds = %22
   %28 = tail call noundef zeroext i1 @_ZN7testing8internal22MaxBipartiteMatchState10TryAugmentEmPSt6vectorIcSaIcEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %25, ptr noundef nonnull %2)
-  br i1 %28, label %._crit_edge27, label %._crit_edge
+  br i1 %28, label %._crit_edge26, label %._crit_edge
 
-._crit_edge27:                                    ; preds = %27
-  %.pre28 = load ptr, ptr %7, align 8, !tbaa !116
+._crit_edge26:                                    ; preds = %27
+  %.pre27 = load ptr, ptr %7, align 8, !tbaa !116
   br label %split
 
 ._crit_edge:                                      ; preds = %27
   %.pre = load ptr, ptr %0, align 8, !tbaa !102
-  br label %34
+  br label %29
 
-split:                                            ; preds = %22, %._crit_edge27
-  %29 = phi ptr [ %.pre28, %._crit_edge27 ], [ %23, %22 ]
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !116
-  %32 = getelementptr inbounds nuw i64, ptr %31, i64 %1
-  store i64 %.01724, ptr %32, align 8, !tbaa !85
-  %33 = getelementptr inbounds nuw i64, ptr %29, i64 %.01724
-  store i64 %1, ptr %33, align 8, !tbaa !85
+29:                                               ; preds = %._crit_edge, %14, %8
+  %30 = phi ptr [ %.pre, %._crit_edge ], [ %9, %14 ], [ %9, %8 ]
+  %31 = add nuw i64 %.01723, 1
+  %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !119
+  %34 = icmp ult i64 %31, %33
+  br i1 %34, label %8, label %.loopexit, !llvm.loop !369
+
+split:                                            ; preds = %22, %._crit_edge26
+  %35 = phi ptr [ %.pre27, %._crit_edge26 ], [ %23, %22 ]
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !116
+  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %1
+  store i64 %.01723, ptr %38, align 8, !tbaa !85
+  %39 = getelementptr inbounds nuw i64, ptr %35, i64 %.01723
+  store i64 %1, ptr %39, align 8, !tbaa !85
   br label %.loopexit
 
-34:                                               ; preds = %._crit_edge, %14, %8
-  %35 = phi ptr [ %.pre, %._crit_edge ], [ %9, %14 ], [ %9, %8 ]
-  %36 = add nuw i64 %.01724, 1
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %38 = load i64, ptr %37, align 8, !tbaa !119
-  %.not19 = icmp ult i64 %36, %38
-  br i1 %.not19, label %8, label %.loopexit, !llvm.loop !369
-
-.loopexit:                                        ; preds = %34, %3, %split
-  %.not1921 = phi i1 [ true, %split ], [ false, %3 ], [ false, %34 ]
-  ret i1 %.not1921
+.loopexit:                                        ; preds = %29, %3, %split
+  %40 = phi i1 [ true, %split ], [ false, %3 ], [ false, %29 ]
+  ret i1 %40
 }
 
 declare void @_ZNK7testing7Message9GetStringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

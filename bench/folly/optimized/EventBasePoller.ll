@@ -2015,8 +2015,8 @@ _ZNSt6atomicIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEE21compare
 _ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exit.i.i.i.i.i.i: ; preds = %_ZNSt6atomicIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEE21compare_exchange_weakERS5_S5_St12memory_orderS8_.exit.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i
   %.06.in.lcssa.i.i.i.i.i.i.i = phi i64 [ %20, %.loopexit.i.i.i.i.i.i ], [ %25, %_ZNSt6atomicIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEE21compare_exchange_weakERS5_S5_St12memory_orderS8_.exit.i.i.i.i.i.i.i ]
   %switch.lcssa.i.i.i.i.i.i.i = phi i1 [ %switch10.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i ], [ %switch.i.i.i.i.i.i.i, %_ZNSt6atomicIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEE21compare_exchange_weakERS5_S5_St12memory_orderS8_.exit.i.i.i.i.i.i.i ]
-  %.not11.i.i.i.i.i.i = icmp eq i64 %.06.in.lcssa.i.i.i.i.i.i.i, 0
-  %.not.i.i.i.i.i.i = select i1 %switch.lcssa.i.i.i.i.i.i.i, i1 true, i1 %.not11.i.i.i.i.i.i
+  %.not10.i.i.i.i.i.i = icmp eq i64 %.06.in.lcssa.i.i.i.i.i.i.i, 0
+  %.not.i.i.i.i.i.i = select i1 %switch.lcssa.i.i.i.i.i.i.i, i1 true, i1 %.not10.i.i.i.i.i.i
   br i1 %.not.i.i.i.i.i.i, label %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl18handleNotificationEv.exit.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %_ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exit.i.i.i.i.i.i
@@ -2024,14 +2024,14 @@ _ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exi
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i
-  %.013.i.i.i.i.i.i = phi ptr [ %30, %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i ], [ %.06.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i ]
-  %29 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 32
+  %.012.i.i.i.i.i.i = phi ptr [ %30, %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i ], [ %.06.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !154
   store ptr null, ptr %29, align 8, !tbaa !154
-  %31 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 40
   %32 = load i8, ptr %31, align 8, !tbaa !93, !range !44, !noundef !45
   %33 = trunc nuw i8 %32 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !89
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !136
@@ -2041,8 +2041,8 @@ _ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exi
 39:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %41 = load ptr, ptr %40, align 8
-  tail call void %41(ptr noundef nonnull align 8 dereferenceable(248) %37, ptr noundef nonnull align 8 dereferenceable(48) %.013.i.i.i.i.i.i)
-  %42 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i, i64 44
+  tail call void %41(ptr noundef nonnull align 8 dereferenceable(248) %37, ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i.i.i.i)
+  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 44
   %43 = load atomic i32, ptr %42 acquire, align 4
   switch i32 %43, label %49 [
     i32 0, label %44
@@ -2072,7 +2072,7 @@ _ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exi
 54:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   %55 = getelementptr inbounds nuw i8, ptr %38, i64 40
   %56 = load ptr, ptr %55, align 8
-  tail call void %56(ptr noundef nonnull align 8 dereferenceable(248) %37, ptr noundef nonnull align 8 dereferenceable(48) %.013.i.i.i.i.i.i)
+  tail call void %56(ptr noundef nonnull align 8 dereferenceable(248) %37, ptr noundef nonnull align 8 dereferenceable(48) %.012.i.i.i.i.i.i)
   br label %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i
 
 _ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i: ; preds = %54, %49, %44, %39
@@ -2133,7 +2133,7 @@ _ZN5folly5BatonILb1ESt6atomicE4postEv.exit.i.i.i.i.i.i: ; preds = %67, %62, %_ZN
   br label %.outer.i.i.i.i.i.i
 
 .outer.i.i.i.i.i.i:                               ; preds = %_ZN5folly9LockedPtrINS_12SynchronizedINS_6detail15EventBasePoller5StatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS2_22SynchronizedLockPolicyILNS2_22SynchronizedMutexLevelE1ELNS2_23SynchronizedMutexMethodE0EEEED2Ev.exit.i.i.i.i.i.i, %_ZN5folly5BatonILb1ESt6atomicE4postEv.exit.i.i.i.i.i.i
-  %.sroa.013.0.ph.i.i.i.i.i.i = phi i64 [ %283, %_ZN5folly9LockedPtrINS_12SynchronizedINS_6detail15EventBasePoller5StatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS2_22SynchronizedLockPolicyILNS2_22SynchronizedMutexLevelE1ELNS2_23SynchronizedMutexMethodE0EEEED2Ev.exit.i.i.i.i.i.i ], [ %72, %_ZN5folly5BatonILb1ESt6atomicE4postEv.exit.i.i.i.i.i.i ]
+  %.sroa.014.0.ph.i.i.i.i.i.i = phi i64 [ %283, %_ZN5folly9LockedPtrINS_12SynchronizedINS_6detail15EventBasePoller5StatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS2_22SynchronizedLockPolicyILNS2_22SynchronizedMutexLevelE1ELNS2_23SynchronizedMutexMethodE0EEEED2Ev.exit.i.i.i.i.i.i ], [ %72, %_ZN5folly5BatonILb1ESt6atomicE4postEv.exit.i.i.i.i.i.i ]
   br label %90
 
 90:                                               ; preds = %93, %.outer.i.i.i.i.i.i
@@ -2145,7 +2145,7 @@ _ZN5folly5BatonILb1ESt6atomicE4postEv.exit.i.i.i.i.i.i: ; preds = %67, %62, %_ZN
   %94 = load ptr, ptr %.val, align 8, !tbaa !31
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %96 = load ptr, ptr %95, align 8
-  %97 = call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(248) %.val, i64 %.sroa.013.0.ph.i.i.i.i.i.i)
+  %97 = call noundef zeroext i1 %96(ptr noundef nonnull align 8 dereferenceable(248) %.val, i64 %.sroa.014.0.ph.i.i.i.i.i.i)
   br i1 %97, label %98, label %90, !llvm.loop !167
 
 98:                                               ; preds = %93
@@ -2444,8 +2444,8 @@ _ZNSt6atomicIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEE21compare
 _ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt6atomicIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEE21compare_exchange_weakERS5_S5_St12memory_orderS8_.exit.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i
   %.06.in.lcssa.i.i.i.i.i.i.i.i = phi i64 [ %188, %.loopexit.i.i.i.i.i.i.i ], [ %193, %_ZNSt6atomicIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEE21compare_exchange_weakERS5_S5_St12memory_orderS8_.exit.i.i.i.i.i.i.i.i ]
   %switch.lcssa.i.i.i.i.i.i.i.i = phi i1 [ %switch10.i.i.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i.i ], [ %switch.i.i.i.i.i.i.i.i, %_ZNSt6atomicIPN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5EventEE21compare_exchange_weakERS5_S5_St12memory_orderS8_.exit.i.i.i.i.i.i.i.i ]
-  %.not11.i.i.i.i.i.i.i = icmp eq i64 %.06.in.lcssa.i.i.i.i.i.i.i.i, 0
-  %.not.i9.i.i.i.i.i.i = select i1 %switch.lcssa.i.i.i.i.i.i.i.i, i1 true, i1 %.not11.i.i.i.i.i.i.i
+  %.not10.i.i.i.i.i.i.i = icmp eq i64 %.06.in.lcssa.i.i.i.i.i.i.i.i, 0
+  %.not.i9.i.i.i.i.i.i = select i1 %switch.lcssa.i.i.i.i.i.i.i.i, i1 true, i1 %.not10.i.i.i.i.i.i.i
   br i1 %.not.i9.i.i.i.i.i.i, label %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl18handleNotificationEv.exit.i.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i
 
 .lr.ph.preheader.i.i.i.i.i.i.i:                   ; preds = %_ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exit.i.i.i.i.i.i.i
@@ -2453,14 +2453,14 @@ _ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exi
   br label %.lr.ph.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i
-  %.013.i.i.i.i.i.i.i = phi ptr [ %198, %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i.i ], [ %.06.i.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i ]
-  %197 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 32
+  %.012.i10.i.i.i.i.i.i = phi ptr [ %198, %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i.i ], [ %.06.i.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i ]
+  %197 = getelementptr inbounds nuw i8, ptr %.012.i10.i.i.i.i.i.i, i64 32
   %198 = load ptr, ptr %197, align 8, !tbaa !154
   store ptr null, ptr %197, align 8, !tbaa !154
-  %199 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 40
+  %199 = getelementptr inbounds nuw i8, ptr %.012.i10.i.i.i.i.i.i, i64 40
   %200 = load i8, ptr %199, align 8, !tbaa !93, !range !44, !noundef !45
   %201 = trunc nuw i8 %200 to i1
-  %202 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 16
+  %202 = getelementptr inbounds nuw i8, ptr %.012.i10.i.i.i.i.i.i, i64 16
   %203 = load ptr, ptr %202, align 8, !tbaa !89
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   %205 = load ptr, ptr %204, align 8, !tbaa !136
@@ -2470,8 +2470,8 @@ _ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exi
 207:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 48
   %209 = load ptr, ptr %208, align 8
-  call void %209(ptr noundef nonnull align 8 dereferenceable(248) %205, ptr noundef nonnull align 8 dereferenceable(48) %.013.i.i.i.i.i.i.i)
-  %210 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i.i.i, i64 44
+  call void %209(ptr noundef nonnull align 8 dereferenceable(248) %205, ptr noundef nonnull align 8 dereferenceable(48) %.012.i10.i.i.i.i.i.i)
+  %210 = getelementptr inbounds nuw i8, ptr %.012.i10.i.i.i.i.i.i, i64 44
   %211 = load atomic i32, ptr %210 acquire, align 4
   switch i32 %211, label %217 [
     i32 0, label %212
@@ -2501,7 +2501,7 @@ _ZN5folly6detail12_GLOBAL__N_15QueueINS1_19EventBasePollerImpl5EventEE3armEv.exi
 222:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i
   %223 = getelementptr inbounds nuw i8, ptr %206, i64 40
   %224 = load ptr, ptr %223, align 8
-  call void %224(ptr noundef nonnull align 8 dereferenceable(248) %205, ptr noundef nonnull align 8 dereferenceable(48) %.013.i.i.i.i.i.i.i)
+  call void %224(ptr noundef nonnull align 8 dereferenceable(248) %205, ptr noundef nonnull align 8 dereferenceable(48) %.012.i10.i.i.i.i.i.i)
   br label %_ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i.i
 
 _ZN5folly6detail12_GLOBAL__N_119EventBasePollerImpl5Event13handleHandoffEv.exit.i.i.i.i.i.i.i: ; preds = %222, %217, %212, %207
@@ -2676,7 +2676,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_order.exit.i.i.i.
   %296 = sub i64 %294, %295
   %297 = lshr exact i64 %296, 3
   %298 = trunc i64 %297 to i32
-  %299 = sub nsw i64 %99, %.sroa.013.0.ph.i.i.i.i.i.i
+  %299 = sub nsw i64 %99, %.sroa.014.0.ph.i.i.i.i.i.i
   %300 = sub nsw i64 %283, %99
   %301 = load i32, ptr %80, align 8, !tbaa !22
   %.sroa.speculated10.i.i.i.i.i.i.i = call i32 @llvm.smin.i32(i32 %298, i32 %301)
@@ -3239,11 +3239,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomi
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %.pre36 = load i32, ptr %1, align 4, !tbaa !22
+  %.pre35 = load i32, ptr %1, align 4, !tbaa !22
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = phi i32 [ %.pre36, %8 ], [ %6, %5 ]
+  %11 = phi i32 [ %.pre35, %8 ], [ %6, %5 ]
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 256
   %14 = and i32 %11, -673
@@ -3736,12 +3736,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6detail11MemoryIdler16futexWait
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %.not32 = icmp eq i64 %5, 0
-  br i1 %.not32, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %12
+  %.not31 = icmp eq i64 %5, 0
+  br i1 %.not31, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %12
 
 12:                                               ; preds = %11
   %13 = fcmp ugt float %7, 0.000000e+00
-  br i1 %13, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39
+  br i1 %13, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38
 
 _ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit: ; preds = %12
   %14 = tail call noundef i64 @_ZN5folly18getCurrentThreadIDEv()
@@ -3775,18 +3775,18 @@ _ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratio
   %42 = fmul float %41, %40
   %43 = fptoui float %42 to i64
   %44 = tail call i64 @llvm.smax.i64(i64 %43, i64 0)
-  %.not33 = icmp slt i64 %43, 1
-  br i1 %.not33, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39
+  %.not32 = icmp slt i64 %43, 1
+  br i1 %.not32, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38
 
-_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39: ; preds = %12, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit
-  %.sroa.024.042 = phi i64 [ %44, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit ], [ %5, %12 ]
+_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38: ; preds = %12, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit
+  %.sroa.024.041 = phi i64 [ %44, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit ], [ %5, %12 ]
   %45 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #26
-  %46 = add nsw i64 %45, %.sroa.024.042
+  %46 = add nsw i64 %45, %.sroa.024.041
   %.sroa.0.0.copyload.i2.i = load i64, ptr %3, align 8, !tbaa !13
   %47 = icmp slt i64 %46, %.sroa.0.0.copyload.i2.i
   br i1 %47, label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, label %.thread
 
-_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit: ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39
+_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit: ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %46, ptr %9, align 8
   %48 = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %4)
@@ -3803,8 +3803,8 @@ _ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratio
   call void @_ZN5folly6detail11MemoryIdler16unmapUnusedStackEm(i64 noundef %6)
   br label %.thread
 
-.thread:                                          ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39, %49, %8, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread
-  %.011 = phi i1 [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread ], [ false, %8 ], [ true, %49 ], [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39 ]
+.thread:                                          ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38, %49, %8, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread
+  %.011 = phi i1 [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread ], [ false, %8 ], [ true, %49 ], [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38 ]
   ret i1 %.011
 }
 

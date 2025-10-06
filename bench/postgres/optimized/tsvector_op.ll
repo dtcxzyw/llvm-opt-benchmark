@@ -3831,8 +3831,8 @@ define internal range(i32 0, 3) i32 @checkcondition_str(ptr noundef readonly cap
   br label %tsCompareString.exit.us
 
 tsCompareString.exit.us:                          ; preds = %tsCompareString.exit.thread.us, %.lr.ph.split.us
-  %.0111178.us = phi ptr [ %6, %.lr.ph.split.us ], [ %24, %tsCompareString.exit.thread.us ]
-  %20 = ptrtoint ptr %.0111178.us to i64
+  %.0111175.us = phi ptr [ %6, %.lr.ph.split.us ], [ %24, %tsCompareString.exit.thread.us ]
+  %20 = ptrtoint ptr %.0111175.us to i64
   %21 = sub i64 %20, %19
   %22 = ashr exact i64 %21, 2
   %23 = sdiv i64 %22, 2
@@ -3840,22 +3840,22 @@ tsCompareString.exit.us:                          ; preds = %tsCompareString.exi
   %24 = getelementptr inbounds i8, ptr %4, i64 %.idx
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 4094
-  %.not162.us = icmp eq i32 %26, 0
-  br i1 %.not162.us, label %.thread, label %tsCompareString.exit.thread.us
+  %.not159.us = icmp eq i32 %26, 0
+  br i1 %.not159.us, label %.thread, label %tsCompareString.exit.thread.us
 
 tsCompareString.exit.thread.us:                   ; preds = %tsCompareString.exit.us
   %27 = icmp sgt i64 %22, 1
   br i1 %27, label %tsCompareString.exit.us, label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %tsCompareString.exit.thread
-  %.0179 = phi ptr [ %.3, %tsCompareString.exit.thread ], [ %4, %.lr.ph ]
-  %.0111178 = phi ptr [ %.3114, %tsCompareString.exit.thread ], [ %6, %.lr.ph ]
-  %28 = ptrtoint ptr %.0111178 to i64
-  %29 = ptrtoint ptr %.0179 to i64
+  %.0176 = phi ptr [ %.3, %tsCompareString.exit.thread ], [ %4, %.lr.ph ]
+  %.0111175 = phi ptr [ %.3114, %tsCompareString.exit.thread ], [ %6, %.lr.ph ]
+  %28 = ptrtoint ptr %.0111175 to i64
+  %29 = ptrtoint ptr %.0176 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 2
   %32 = sdiv i64 %31, 2
-  %33 = getelementptr inbounds %struct.WordEntry, ptr %.0179, i64 %32
+  %33 = getelementptr inbounds %struct.WordEntry, ptr %.0176, i64 %32
   %34 = load i32, ptr %33, align 4
   %35 = lshr i32 %34, 1
   %36 = and i32 %35, 2047
@@ -3883,24 +3883,24 @@ tsCompareString.exit.thread.us:                   ; preds = %tsCompareString.exi
 
 .thread:                                          ; preds = %46, %tsCompareString.exit.us
   %.us-phi = phi ptr [ %24, %tsCompareString.exit.us ], [ %33, %46 ]
-  %.us-phi182 = phi i32 [ %25, %tsCompareString.exit.us ], [ %34, %46 ]
-  %.us-phi183 = phi ptr [ %.0111178.us, %tsCompareString.exit.us ], [ %.0111178, %46 ]
-  %.us-phi184 = phi ptr [ %4, %tsCompareString.exit.us ], [ %.0179, %46 ]
-  %50 = tail call fastcc i32 @checkclass_str(ptr noundef nonnull %0, i32 %.us-phi182, ptr noundef %1, ptr noundef %2)
+  %.us-phi179 = phi i32 [ %25, %tsCompareString.exit.us ], [ %34, %46 ]
+  %.us-phi180 = phi ptr [ %.0111175.us, %tsCompareString.exit.us ], [ %.0111175, %46 ]
+  %.us-phi181 = phi ptr [ %4, %tsCompareString.exit.us ], [ %.0176, %46 ]
+  %50 = tail call fastcc i32 @checkclass_str(ptr noundef nonnull %0, i32 %.us-phi179, ptr noundef %1, ptr noundef %2)
   br label %.loopexit
 
 tsCompareString.exit.thread:                      ; preds = %.lr.ph.split, %38, %47
-  %.0.i140 = phi i32 [ 1, %.lr.ph.split ], [ %44, %38 ], [ %49, %47 ]
-  %51 = icmp sgt i32 %.0.i140, 0
+  %.0.i139 = phi i32 [ 1, %.lr.ph.split ], [ %44, %38 ], [ %49, %47 ]
+  %51 = icmp sgt i32 %.0.i139, 0
   %52 = getelementptr inbounds nuw i8, ptr %33, i64 4
-  %.3114 = select i1 %51, ptr %.0111178, ptr %33
-  %.3 = select i1 %51, ptr %52, ptr %.0179
+  %.3114 = select i1 %51, ptr %.0111175, ptr %33
+  %.3 = select i1 %51, ptr %52, ptr %.0176
   %53 = icmp ult ptr %.3, %.3114
   br i1 %53, label %.lr.ph.split, label %.loopexit
 
 .loopexit:                                        ; preds = %tsCompareString.exit.thread, %tsCompareString.exit.thread.us, %3, %.thread
-  %.0111174 = phi ptr [ %.us-phi183, %.thread ], [ %6, %3 ], [ %24, %tsCompareString.exit.thread.us ], [ %.3114, %tsCompareString.exit.thread ]
-  %.0172 = phi ptr [ %.us-phi184, %.thread ], [ %4, %3 ], [ %4, %tsCompareString.exit.thread.us ], [ %.3, %tsCompareString.exit.thread ]
+  %.0111171 = phi ptr [ %.us-phi180, %.thread ], [ %6, %3 ], [ %24, %tsCompareString.exit.thread.us ], [ %.3114, %tsCompareString.exit.thread ]
+  %.0169 = phi ptr [ %.us-phi181, %.thread ], [ %4, %3 ], [ %4, %tsCompareString.exit.thread.us ], [ %.3, %tsCompareString.exit.thread ]
   %.1122 = phi ptr [ %.us-phi, %.thread ], [ %6, %3 ], [ %24, %tsCompareString.exit.thread.us ], [ %33, %tsCompareString.exit.thread ]
   %.1116 = phi i32 [ %50, %.thread ], [ 0, %3 ], [ 0, %tsCompareString.exit.thread.us ], [ 0, %tsCompareString.exit.thread ]
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 2
@@ -3915,8 +3915,8 @@ tsCompareString.exit.thread:                      ; preds = %.lr.ph.split, %38, 
   br i1 %or.cond, label %60, label %.critedge.thread
 
 60:                                               ; preds = %57
-  %.not = icmp ult ptr %.0172, %.0111174
-  %spec.select = select i1 %.not, ptr %.1122, ptr %.0111174
+  %.not = icmp ult ptr %.0169, %.0111171
+  %spec.select = select i1 %.not, ptr %.1122, ptr %.0111171
   br i1 %59, label %61, label %70
 
 61:                                               ; preds = %60
@@ -3947,13 +3947,13 @@ tsCompareString.exit.thread:                      ; preds = %.lr.ph.split, %38, 
   br label %76
 
 76:                                               ; preds = %70, %136
-  %.096204 = phi i32 [ 0, %70 ], [ %.197, %136 ]
-  %.0100203 = phi i32 [ 0, %70 ], [ %.2102, %136 ]
-  %.0104202 = phi ptr [ null, %70 ], [ %.2106, %136 ]
-  %.4119201 = phi i32 [ 0, %70 ], [ %.6, %136 ]
-  %.3124200 = phi ptr [ %spec.select, %70 ], [ %137, %136 ]
+  %.096201 = phi i32 [ 0, %70 ], [ %.197, %136 ]
+  %.0100200 = phi i32 [ 0, %70 ], [ %.2102, %136 ]
+  %.0104199 = phi ptr [ null, %70 ], [ %.2106, %136 ]
+  %.4119198 = phi i32 [ 0, %70 ], [ %.6, %136 ]
+  %.3124197 = phi ptr [ %spec.select, %70 ], [ %137, %136 ]
   %77 = load ptr, ptr %5, align 8
-  %78 = icmp ult ptr %.3124200, %77
+  %78 = icmp ult ptr %.3124197, %77
   br i1 %78, label %79, label %.critedge
 
 79:                                               ; preds = %76
@@ -3964,14 +3964,14 @@ tsCompareString.exit.thread:                      ; preds = %.lr.ph.split, %38, 
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 %83
   %85 = and i32 %81, 4095
   %86 = load ptr, ptr %73, align 8
-  %87 = load i32, ptr %.3124200, align 4
+  %87 = load i32, ptr %.3124197, align 4
   %88 = lshr i32 %87, 12
   %89 = zext nneg i32 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 %89
   %91 = lshr i32 %87, 1
   %92 = and i32 %91, 2047
   %93 = icmp eq i32 %85, 0
-  br i1 %93, label %tsCompareString.exit137.thread149, label %94
+  br i1 %93, label %tsCompareString.exit136.thread147, label %94
 
 94:                                               ; preds = %79
   %95 = icmp eq i32 %92, 0
@@ -3982,16 +3982,16 @@ tsCompareString.exit.thread:                      ; preds = %.lr.ph.split, %38, 
   %98 = zext nneg i32 %97 to i64
   %bcmp = tail call i32 @bcmp(ptr %84, ptr %90, i64 %98)
   %99 = icmp ne i32 %bcmp, 0
-  %.not163 = icmp samesign ugt i32 %85, %92
-  %or.cond164 = select i1 %99, i1 true, i1 %.not163
-  br i1 %or.cond164, label %.critedge, label %tsCompareString.exit137.thread149
+  %.not160 = icmp samesign ugt i32 %85, %92
+  %or.cond161 = select i1 %99, i1 true, i1 %.not160
+  br i1 %or.cond161, label %.critedge, label %tsCompareString.exit136.thread147
 
-tsCompareString.exit137.thread149:                ; preds = %96, %79
+tsCompareString.exit136.thread147:                ; preds = %96, %79
   %100 = tail call fastcc i32 @checkclass_str(ptr noundef nonnull %0, i32 %87, ptr noundef nonnull %1, ptr noundef %2)
   %.not131 = icmp eq i32 %100, 0
   br i1 %.not131, label %136, label %101
 
-101:                                              ; preds = %tsCompareString.exit137.thread149
+101:                                              ; preds = %tsCompareString.exit136.thread147
   br i1 %59, label %102, label %133
 
 102:                                              ; preds = %101
@@ -4000,55 +4000,55 @@ tsCompareString.exit137.thread149:                ; preds = %96, %79
 
 .preheader:                                       ; preds = %102
   %104 = load i32, ptr %2, align 8
-  %105 = add i32 %104, %.0100203
-  %106 = icmp sgt i32 %105, %.096204
-  br i1 %106, label %.lr.ph196, label %._crit_edge
+  %105 = add i32 %104, %.0100200
+  %106 = icmp sgt i32 %105, %.096201
+  br i1 %106, label %.lr.ph193, label %._crit_edge
 
 107:                                              ; preds = %102
-  %.not132 = icmp eq ptr %.0104202, null
+  %.not132 = icmp eq ptr %.0104199, null
   br i1 %.not132, label %.critedge.thread, label %108
 
 108:                                              ; preds = %107
-  tail call void @pfree(ptr noundef nonnull %.0104202) #14
+  tail call void @pfree(ptr noundef nonnull %.0104199) #14
   br label %.critedge.thread
 
-.lr.ph196:                                        ; preds = %.preheader, %117
-  %.399195 = phi i32 [ %.4, %117 ], [ %.096204, %.preheader ]
-  %.4108194 = phi ptr [ %.5, %117 ], [ %.0104202, %.preheader ]
-  %109 = icmp eq i32 %.399195, 0
+.lr.ph193:                                        ; preds = %.preheader, %117
+  %.399192 = phi i32 [ %.4, %117 ], [ %.096201, %.preheader ]
+  %.4108191 = phi ptr [ %.5, %117 ], [ %.0104199, %.preheader ]
+  %109 = icmp eq i32 %.399192, 0
   br i1 %109, label %110, label %112
 
-110:                                              ; preds = %.lr.ph196
+110:                                              ; preds = %.lr.ph193
   %111 = tail call ptr @palloc(i64 noundef 512) #14
   br label %117
 
-112:                                              ; preds = %.lr.ph196
-  %113 = shl i32 %.399195, 1
+112:                                              ; preds = %.lr.ph193
+  %113 = shl i32 %.399192, 1
   %114 = sext i32 %113 to i64
   %115 = shl nsw i64 %114, 1
-  %116 = tail call ptr @repalloc(ptr noundef %.4108194, i64 noundef %115) #14
+  %116 = tail call ptr @repalloc(ptr noundef %.4108191, i64 noundef %115) #14
   br label %117
 
 117:                                              ; preds = %112, %110
   %.5 = phi ptr [ %111, %110 ], [ %116, %112 ]
   %.4 = phi i32 [ 256, %110 ], [ %113, %112 ]
   %118 = load i32, ptr %2, align 8
-  %119 = add i32 %118, %.0100203
+  %119 = add i32 %118, %.0100200
   %120 = icmp sgt i32 %119, %.4
-  br i1 %120, label %.lr.ph196, label %._crit_edge, !llvm.loop !38
+  br i1 %120, label %.lr.ph193, label %._crit_edge, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %117, %.preheader
-  %.4108.lcssa = phi ptr [ %.0104202, %.preheader ], [ %.5, %117 ]
-  %.399.lcssa = phi i32 [ %.096204, %.preheader ], [ %.4, %117 ]
+  %.4108.lcssa = phi ptr [ %.0104199, %.preheader ], [ %.5, %117 ]
+  %.399.lcssa = phi i32 [ %.096201, %.preheader ], [ %.4, %117 ]
   %.lcssa = phi i32 [ %104, %.preheader ], [ %118, %117 ]
-  %121 = sext i32 %.0100203 to i64
+  %121 = sext i32 %.0100200 to i64
   %122 = getelementptr inbounds i16, ptr %.4108.lcssa, i64 %121
   %123 = load ptr, ptr %74, align 8
   %124 = sext i32 %.lcssa to i64
   %125 = shl nsw i64 %124, 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %122, ptr align 2 %123, i64 %125, i1 false)
   %126 = load i32, ptr %2, align 8
-  %127 = add i32 %126, %.0100203
+  %127 = add i32 %126, %.0100200
   %128 = load i8, ptr %75, align 4, !range !11, !noundef !12
   %129 = trunc nuw i8 %128 to i1
   br i1 %129, label %130, label %132
@@ -4066,32 +4066,32 @@ tsCompareString.exit137.thread149:                ; preds = %96, %79
 
 133:                                              ; preds = %101
   %134 = icmp eq i32 %100, 1
-  %135 = icmp eq i32 %.4119201, 0
+  %135 = icmp eq i32 %.4119198, 0
   %or.cond5 = or i1 %135, %134
-  %spec.select133 = select i1 %or.cond5, i32 %100, i32 %.4119201
+  %spec.select133 = select i1 %or.cond5, i32 %100, i32 %.4119198
   br label %136
 
-136:                                              ; preds = %tsCompareString.exit137.thread149, %132, %133
-  %.6 = phi i32 [ %.4119201, %132 ], [ %.4119201, %tsCompareString.exit137.thread149 ], [ %spec.select133, %133 ]
-  %.2106 = phi ptr [ %.4108.lcssa, %132 ], [ %.0104202, %tsCompareString.exit137.thread149 ], [ %.0104202, %133 ]
-  %.2102 = phi i32 [ %127, %132 ], [ %.0100203, %tsCompareString.exit137.thread149 ], [ %.0100203, %133 ]
-  %.197 = phi i32 [ %.399.lcssa, %132 ], [ %.096204, %tsCompareString.exit137.thread149 ], [ %.096204, %133 ]
-  %137 = getelementptr inbounds nuw i8, ptr %.3124200, i64 4
+136:                                              ; preds = %tsCompareString.exit136.thread147, %132, %133
+  %.6 = phi i32 [ %.4119198, %132 ], [ %.4119198, %tsCompareString.exit136.thread147 ], [ %spec.select133, %133 ]
+  %.2106 = phi ptr [ %.4108.lcssa, %132 ], [ %.0104199, %tsCompareString.exit136.thread147 ], [ %.0104199, %133 ]
+  %.2102 = phi i32 [ %127, %132 ], [ %.0100200, %tsCompareString.exit136.thread147 ], [ %.0100200, %133 ]
+  %.197 = phi i32 [ %.399.lcssa, %132 ], [ %.096201, %tsCompareString.exit136.thread147 ], [ %.096201, %133 ]
+  %137 = getelementptr inbounds nuw i8, ptr %.3124197, i64 4
   %138 = icmp ne i32 %.6, 1
   %or.cond3 = or i1 %59, %138
   br i1 %or.cond3, label %76, label %.critedge.thread
 
 .critedge:                                        ; preds = %94, %96, %76
-  %139 = icmp sgt i32 %.0100203, 0
+  %139 = icmp sgt i32 %.0100200, 0
   %or.cond7 = select i1 %59, i1 %139, i1 false
   br i1 %or.cond7, label %140, label %.critedge.thread
 
 140:                                              ; preds = %.critedge
-  store ptr %.0104202, ptr %74, align 8
-  %141 = zext nneg i32 %.0100203 to i64
-  tail call void @pg_qsort(ptr noundef %.0104202, i64 noundef %141, i64 noundef 2, ptr noundef nonnull @compareWordEntryPos) #14
+  store ptr %.0104199, ptr %74, align 8
+  %141 = zext nneg i32 %.0100200 to i64
+  tail call void @pg_qsort(ptr noundef %.0104199, i64 noundef %141, i64 noundef 2, ptr noundef nonnull @compareWordEntryPos) #14
   %142 = load ptr, ptr %74, align 8
-  %143 = icmp samesign ult i32 %.0100203, 2
+  %143 = icmp samesign ult i32 %.0100200, 2
   br i1 %143, label %qunique.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %140, %155
@@ -4102,8 +4102,8 @@ tsCompareString.exit137.thread149:                ; preds = %96, %79
   %146 = shl i64 %.031.i, 1
   %147 = getelementptr inbounds nuw i8, ptr %142, i64 %146
   %148 = tail call i32 @compareWordEntryPos(ptr noundef nonnull %145, ptr noundef %147) #14, !callees !22
-  %.not.i138 = icmp eq i32 %148, 0
-  br i1 %.not.i138, label %155, label %149
+  %.not.i137 = icmp eq i32 %148, 0
+  br i1 %.not.i137, label %155, label %149
 
 149:                                              ; preds = %.preheader.i
   %150 = add i64 %.031.i, 1
@@ -4135,7 +4135,7 @@ qunique.exit:                                     ; preds = %140, %157
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %136, %107, %108, %.critedge, %qunique.exit, %57, %.loopexit
-  %.3118 = phi i32 [ 1, %57 ], [ %.1116, %.loopexit ], [ 1, %qunique.exit ], [ %.4119201, %.critedge ], [ 2, %108 ], [ 2, %107 ], [ 1, %136 ]
+  %.3118 = phi i32 [ 1, %57 ], [ %.1116, %.loopexit ], [ 1, %qunique.exit ], [ %.4119198, %.critedge ], [ 2, %108 ], [ 2, %107 ], [ 1, %136 ]
   ret i32 %.3118
 }
 

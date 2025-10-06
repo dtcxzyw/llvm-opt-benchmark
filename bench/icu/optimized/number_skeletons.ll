@@ -5808,15 +5808,15 @@ define void @_ZN6icu_776number4impl17blueprint_helpers19parseScientificStemERKNS
   br i1 %33, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %31, %35
-  %.24557 = phi i32 [ %37, %35 ], [ %.144, %31 ]
-  %.04956 = phi i32 [ %36, %35 ], [ 0, %31 ]
-  %34 = tail call noundef zeroext i16 @_ZNK6icu_7713StringSegment6charAtEi(ptr noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %.24557)
+  %.24555 = phi i32 [ %37, %35 ], [ %.144, %31 ]
+  %.04954 = phi i32 [ %36, %35 ], [ 0, %31 ]
+  %34 = tail call noundef zeroext i16 @_ZNK6icu_7713StringSegment6charAtEi(ptr noundef nonnull align 8 dereferenceable(17) %0, i32 noundef %.24555)
   %.not = icmp eq i16 %34, 48
   br i1 %.not, label %35, label %.loopexit
 
 35:                                               ; preds = %.lr.ph
-  %36 = add nuw nsw i32 %.04956, 1
-  %37 = add nuw nsw i32 %.24557, 1
+  %36 = add nuw nsw i32 %.04954, 1
+  %37 = add nuw nsw i32 %.24555, 1
   %38 = tail call noundef i32 @_ZNK6icu_7713StringSegment6lengthEv(ptr noundef nonnull align 8 dereferenceable(17) %0)
   %39 = icmp slt i32 %37, %38
   br i1 %39, label %.lr.ph, label %._crit_edge, !llvm.loop !107

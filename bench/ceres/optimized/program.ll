@@ -792,13 +792,13 @@ _ZNSt14_Function_baseD2Ev.exit25.i.i.i:           ; preds = %115, %112, %110
   %125 = load i32, ptr %124, align 8, !tbaa !108
   %126 = getelementptr inbounds nuw i8, ptr %64, i64 36
   %127 = atomicrmw add ptr %126, i32 1 seq_cst, align 4
-  %.not1943.i.i.i = icmp slt i32 %127, %81
-  br i1 %.not1943.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %.not1942.i.i.i = icmp slt i32 %127, %81
+  br i1 %.not1942.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %120, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_7Program4PlusEPKdS4_PdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
   %128 = phi i32 [ %228, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_7Program4PlusEPKdS4_PdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %127, %120 ]
-  %.044.i.i.i = phi i32 [ %129, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_7Program4PlusEPKdS4_PdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %120 ]
-  %129 = add nuw nsw i32 %.044.i.i.i, 1
+  %.043.i.i.i = phi i32 [ %129, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_7Program4PlusEPKdS4_PdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %120 ]
+  %129 = add nuw nsw i32 %.043.i.i.i, 1
   %130 = mul nsw i32 %128, %123
   %131 = add nsw i32 %130, %121
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %125, i32 %128)
@@ -1248,8 +1248,8 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal7Program7IsValidEv(ptr noun
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !137
   %12 = load ptr, ptr %9, align 8, !tbaa !138
-  %.not81 = icmp eq ptr %11, %12
-  br i1 %.not81, label %.preheader, label %.lr.ph.preheader
+  %.not79 = icmp eq ptr %11, %12
+  br i1 %.not79, label %.preheader, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %13 = ptrtoint ptr %11 to i64
@@ -1262,8 +1262,8 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal7Program7IsValidEv(ptr noun
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !53
   %19 = load ptr, ptr %0, align 8, !tbaa !52
-  %.not55.not76.not = icmp eq ptr %18, %19
-  br i1 %.not55.not76.not, label %.critedge59, label %.lr.ph80
+  %.not55.not74.not = icmp eq ptr %18, %19
+  br i1 %.not55.not74.not, label %.critedge59, label %.lr.ph78
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge ]
@@ -1319,33 +1319,33 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi23EEERS2_RAT__Kc.exit: ; pr
   %exitcond.not = icmp eq i64 %indvars.iv.next, %16
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !140
 
-.lr.ph80:                                         ; preds = %.preheader, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit
+.lr.ph78:                                         ; preds = %.preheader, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit
   %34 = phi ptr [ %110, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ], [ %19, %.preheader ]
   %35 = phi ptr [ %111, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ], [ %18, %.preheader ]
-  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ], [ 0, %.preheader ]
-  %.03278 = phi i32 [ %113, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ], [ 0, %.preheader ]
-  %.03477 = phi i32 [ %101, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ], [ 0, %.preheader ]
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv88
+  %indvars.iv86 = phi i64 [ %indvars.iv.next87, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ], [ 0, %.preheader ]
+  %.03276 = phi i32 [ %113, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ], [ 0, %.preheader ]
+  %.03475 = phi i32 [ %101, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ], [ 0, %.preheader ]
+  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv86
   %37 = load ptr, ptr %36, align 8, !tbaa !20
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load i32, ptr %38, align 8, !tbaa !134
   %40 = zext i32 %39 to i64
-  %.not49 = icmp eq i64 %indvars.iv88, %40
+  %.not49 = icmp eq i64 %indvars.iv86, %40
   br i1 %.not49, label %41, label %47
 
-41:                                               ; preds = %.lr.ph80
+41:                                               ; preds = %.lr.ph78
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 44
   %43 = load i32, ptr %42, align 4, !tbaa !69
-  %.not50 = icmp eq i32 %43, %.03477
+  %.not50 = icmp eq i32 %43, %.03475
   br i1 %.not50, label %44, label %47
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %46 = load i32, ptr %45, align 8, !tbaa !70
-  %.not51 = icmp eq i32 %46, %.03278
+  %.not51 = icmp eq i32 %46, %.03276
   br i1 %.not51, label %98, label %47
 
-47:                                               ; preds = %44, %41, %.lr.ph80
+47:                                               ; preds = %44, %41, %.lr.ph78
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024011612log_internal10LogMessageC1EPKciNS2_10WarningTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str, i32 noundef 181) #33
@@ -1353,7 +1353,7 @@ _ZN4absl12lts_2024011612log_internal10LogMessagelsILi23EEERS2_RAT__Kc.exit: ; pr
           to label %_ZN4absl12lts_2024011612log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit unwind label %86
 
 _ZN4absl12lts_2024011612log_internal10LogMessagelsILi18EEERS2_RAT__Kc.exit: ; preds = %47
-  %49 = trunc nuw nsw i64 %indvars.iv88 to i32
+  %49 = trunc nuw nsw i64 %indvars.iv86 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %49, ptr %3, align 4, !tbaa !85
   %50 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024011612log_internal10LogMessagelsIiTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
@@ -1484,7 +1484,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %90,
 98:                                               ; preds = %44
   %99 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %100 = load i32, ptr %99, align 8, !tbaa !44
-  %101 = add nsw i32 %100, %.03477
+  %101 = add nsw i32 %100, %.03475
   %102 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !43
   %104 = icmp eq ptr %103, null
@@ -1496,21 +1496,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %90,
   %108 = load ptr, ptr %107, align 8
   %109 = tail call noundef i32 %108(ptr noundef nonnull align 8 dereferenceable(8) %103)
   %.pre = load ptr, ptr %17, align 8, !tbaa !53
-  %.pre91 = load ptr, ptr %0, align 8, !tbaa !52
+  %.pre89 = load ptr, ptr %0, align 8, !tbaa !52
   br label %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit
 
 _ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit: ; preds = %98, %105
-  %110 = phi ptr [ %.pre91, %105 ], [ %34, %98 ]
+  %110 = phi ptr [ %.pre89, %105 ], [ %34, %98 ]
   %111 = phi ptr [ %.pre, %105 ], [ %35, %98 ]
   %112 = phi i32 [ %109, %105 ], [ %100, %98 ]
-  %113 = add nsw i32 %112, %.03278
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %113 = add nsw i32 %112, %.03276
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
   %114 = ptrtoint ptr %111 to i64
   %115 = ptrtoint ptr %110 to i64
   %116 = sub i64 %114, %115
   %117 = ashr exact i64 %116, 3
-  %.not55.not = icmp ugt i64 %117, %indvars.iv.next89
-  br i1 %.not55.not, label %.lr.ph80, label %.critedge59, !llvm.loop !148
+  %.not55.not = icmp ugt i64 %117, %indvars.iv.next87
+  br i1 %.not55.not, label %.lr.ph78, label %.critedge59, !llvm.loop !148
 
 .critedge59:                                      ; preds = %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit, %.preheader, %.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.3 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %.thread ], [ true, %.preheader ], [ true, %_ZNK5ceres8internal14ParameterBlock11TangentSizeEv.exit ]
@@ -1708,18 +1708,18 @@ define hidden noundef zeroext i1 @_ZNK5ceres8internal7Program19IsBoundsConstrain
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !19
-  %.not4258.not = icmp eq ptr %2, %4
-  br i1 %.not4258.not, label %.thread34, label %.lr.ph61
+  %.not4460.not = icmp eq ptr %2, %4
+  br i1 %.not4460.not, label %.loopexit, label %.lr.ph63
 
-.lr.ph61:                                         ; preds = %1, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
-  %.sroa.028.059 = phi ptr [ %43, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread ], [ %2, %1 ]
-  %5 = load ptr, ptr %.sroa.028.059, align 8, !tbaa !20
+.lr.ph63:                                         ; preds = %1, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
+  %.sroa.028.061 = phi ptr [ %43, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread ], [ %2, %1 ]
+  %5 = load ptr, ptr %.sroa.028.061, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i8, ptr %6, align 4, !tbaa !22, !range !41, !noundef !42
   %8 = trunc nuw i8 %7 to i1
   br i1 %8, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %9
 
-9:                                                ; preds = %.lr.ph61
+9:                                                ; preds = %.lr.ph63
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !43
   %12 = icmp eq ptr %11, null
@@ -1745,8 +1745,8 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit: ; preds = %13, %16
 23:                                               ; preds = %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !44
-  %.not46 = icmp sgt i32 %25, 0
-  br i1 %.not46, label %.lr.ph, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
+  %.not48 = icmp sgt i32 %25, 0
+  br i1 %.not48, label %.lr.ph, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread
 
 .lr.ph:                                           ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 72
@@ -1761,63 +1761,63 @@ _ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit: ; preds = %13, %16
   br i1 %31, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us.preheader
 
 _ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us.preheader: ; preds = %.lr.ph.split.us
-  %wide.trip.count77 = zext nneg i32 %25 to i64
+  %wide.trip.count79 = zext nneg i32 %25 to i64
   br label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us
 
 _ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us: ; preds = %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us.preheader, %.critedge.us
-  %indvars.iv74 = phi i64 [ 0, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us.preheader ], [ %indvars.iv.next75, %.critedge.us ]
-  %32 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv74
+  %indvars.iv76 = phi i64 [ 0, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us.preheader ], [ %indvars.iv.next77, %.critedge.us ]
+  %32 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv76
   %.0.i2732.us = load double, ptr %32, align 8, !tbaa !109
   %33 = fcmp olt double %.0.i2732.us, 0x7FEFFFFFFFFFFFFF
-  br i1 %33, label %.thread34, label %.critedge.us
+  br i1 %33, label %.loopexit, label %.critedge.us
 
 .critedge.us:                                     ; preds = %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us
-  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
-  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
-  br i1 %exitcond78.not, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us, !llvm.loop !152
+  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
+  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count79
+  br i1 %exitcond80.not, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us, !llvm.loop !152
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %wide.trip.count72 = zext nneg i32 %25 to i64
+  %wide.trip.count74 = zext nneg i32 %25 to i64
   br i1 %31, label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us, label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit
 
-_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us: ; preds = %.lr.ph.split, %.critedge.us50
-  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.critedge.us50 ], [ 0, %.lr.ph.split ]
-  %34 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv69
+_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us: ; preds = %.lr.ph.split, %.critedge.us52
+  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %.critedge.us52 ], [ 0, %.lr.ph.split ]
+  %34 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv71
   %35 = load double, ptr %34, align 8, !tbaa !109
   %36 = fcmp ogt double %35, 0xFFEFFFFFFFFFFFFF
-  br i1 %36, label %.thread34, label %.critedge.us50
+  br i1 %36, label %.loopexit, label %.critedge.us52
 
-.critedge.us50:                                   ; preds = %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us
-  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
-  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
-  br i1 %exitcond73.not, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us, !llvm.loop !152
+.critedge.us52:                                   ; preds = %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us
+  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
+  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count74
+  br i1 %exitcond75.not, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us, !llvm.loop !152
 
 _ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit: ; preds = %.lr.ph.split, %.critedge
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.lr.ph.split ]
   %37 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv
   %38 = load double, ptr %37, align 8, !tbaa !109
   %39 = fcmp ogt double %38, 0xFFEFFFFFFFFFFFFF
-  br i1 %39, label %.thread34, label %40
+  br i1 %39, label %.loopexit, label %40
 
 40:                                               ; preds = %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit
   %41 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv
   %.0.i2732 = load double, ptr %41, align 8, !tbaa !109
   %42 = fcmp olt double %.0.i2732, 0x7FEFFFFFFFFFFFFF
-  br i1 %42, label %.thread34, label %.critedge
+  br i1 %42, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count72
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count74
   br i1 %exitcond.not, label %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, label %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit, !llvm.loop !152
 
-_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread: ; preds = %.critedge, %.critedge.us50, %.critedge.us, %.lr.ph.split.us, %23, %.lr.ph61, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.028.059, i64 8
-  %.not42.not = icmp eq ptr %43, %4
-  br i1 %.not42.not, label %.thread34, label %.lr.ph61
+_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread: ; preds = %.critedge, %.critedge.us52, %.critedge.us, %.lr.ph.split.us, %23, %.lr.ph63, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.028.061, i64 8
+  %.not44.not = icmp eq ptr %43, %4
+  br i1 %.not44.not, label %.loopexit, label %.lr.ph63
 
-.thread34:                                        ; preds = %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, %40, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us, %1
-  %.not4245 = phi i1 [ false, %1 ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit ], [ true, %40 ], [ false, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread ]
-  ret i1 %.not4245
+.loopexit:                                        ; preds = %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread, %40, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us, %1
+  %.not4447 = phi i1 [ false, %1 ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.thread.us ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit.us ], [ true, %_ZNK5ceres8internal14ParameterBlock22LowerBoundForParameterEi.exit ], [ true, %40 ], [ false, %_ZNK5ceres8internal14ParameterBlock10IsConstantEv.exit.thread ]
+  ret i1 %.not4447
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7647,8 +7647,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !108
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1943 = icmp slt i32 %98, %13
-  br i1 %.not1943, label %.lr.ph, label %._crit_edge
+  %.not1942 = icmp slt i32 %98, %13
+  br i1 %.not1942, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -7656,8 +7656,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_7Program4PlusEPKdS4_PdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit"
   %101 = phi i32 [ %98, %.lr.ph ], [ %142, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_7Program4PlusEPKdS4_PdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %.044 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_7Program4PlusEPKdS4_PdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %102 = add nuw nsw i32 %.044, 1
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNKS0_7Program4PlusEPKdS4_PdPNS0_11ContextImplEiE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %102 = add nuw nsw i32 %.043, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)

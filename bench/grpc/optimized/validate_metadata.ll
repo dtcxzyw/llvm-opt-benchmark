@@ -48,13 +48,13 @@ define noundef zeroext range(i8 0, 4) i8 @_ZN9grpc_core24ValidateHeaderKeyIsLega
   br label %.lr.ph.i
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 1
+  %9 = getelementptr inbounds nuw i8, ptr %.01319.i, i64 1
   %.not.i = icmp eq ptr %9, %7
   br i1 %.not.i, label %_ZN9grpc_core12_GLOBAL__N_110ConformsToESt17basic_string_viewIcSt11char_traitsIcEERKNS_6BitSetILm256ELm64EEENS_22ValidateMetadataResultE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %8
-  %.01317.i = phi ptr [ %9, %8 ], [ %1, %6 ]
-  %10 = load i8, ptr %.01317.i, align 1, !tbaa !3
+  %.01319.i = phi ptr [ %9, %8 ], [ %1, %6 ]
+  %10 = load i8, ptr %.01319.i, align 1, !tbaa !3
   %11 = zext i8 %10 to i64
   %12 = lshr i64 %11, 6
   %13 = getelementptr inbounds nuw i64, ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 %12
@@ -62,8 +62,8 @@ define noundef zeroext range(i8 0, 4) i8 @_ZN9grpc_core24ValidateHeaderKeyIsLega
   %15 = and i64 %11, 63
   %16 = shl nuw i64 1, %15
   %17 = and i64 %16, %14
-  %.not15.i = icmp eq i64 %17, 0
-  br i1 %.not15.i, label %_ZN9grpc_core12_GLOBAL__N_110ConformsToESt17basic_string_viewIcSt11char_traitsIcEERKNS_6BitSetILm256ELm64EEENS_22ValidateMetadataResultE.exit, label %8
+  %.not17.i = icmp eq i64 %17, 0
+  br i1 %.not17.i, label %_ZN9grpc_core12_GLOBAL__N_110ConformsToESt17basic_string_viewIcSt11char_traitsIcEERKNS_6BitSetILm256ELm64EEENS_22ValidateMetadataResultE.exit, label %8
 
 _ZN9grpc_core12_GLOBAL__N_110ConformsToESt17basic_string_viewIcSt11char_traitsIcEERKNS_6BitSetILm256ELm64EEENS_22ValidateMetadataResultE.exit: ; preds = %.lr.ph.i, %8, %4, %2
   %.0 = phi i8 [ 1, %2 ], [ 2, %4 ], [ 3, %.lr.ph.i ], [ 0, %8 ]
@@ -113,13 +113,13 @@ define void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr dead_on_unw
   br label %.lr.ph.i.i
 
 17:                                               ; preds = %.lr.ph.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %.01317.i.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01319.i.i, i64 1
   %.not.i.i = icmp eq ptr %18, %16
   br i1 %.not.i.i, label %27, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %15
-  %.01317.i.i = phi ptr [ %18, %17 ], [ %7, %15 ]
-  %19 = load i8, ptr %.01317.i.i, align 1, !tbaa !3
+  %.01319.i.i = phi ptr [ %18, %17 ], [ %7, %15 ]
+  %19 = load i8, ptr %.01319.i.i, align 1, !tbaa !3
   %20 = zext i8 %19 to i64
   %21 = lshr i64 %20, 6
   %22 = getelementptr inbounds nuw i64, ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 %21
@@ -127,8 +127,8 @@ define void @_Z33grpc_validate_header_key_is_legalRK10grpc_slice(ptr dead_on_unw
   %24 = and i64 %20, 63
   %25 = shl nuw i64 1, %24
   %26 = and i64 %25, %23
-  %.not15.i.i = icmp eq i64 %26, 0
-  br i1 %.not15.i.i, label %28, label %17
+  %.not17.i.i = icmp eq i64 %26, 0
+  br i1 %.not17.i.i, label %28, label %17
 
 27:                                               ; preds = %17
   store i64 1, ptr %0, align 8, !tbaa !12, !alias.scope !14
@@ -173,13 +173,13 @@ define range(i32 0, 2) i32 @grpc_header_key_is_legal(ptr noundef readonly byval(
   br label %.lr.ph.i.i.i
 
 17:                                               ; preds = %.lr.ph.i.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %.01317.i.i.i, i64 1
+  %18 = getelementptr inbounds nuw i8, ptr %.01319.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %18, %16
   br i1 %.not.i.i.i, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %17, %15
-  %.01317.i.i.i = phi ptr [ %18, %17 ], [ %7, %15 ]
-  %19 = load i8, ptr %.01317.i.i.i, align 1, !tbaa !3, !noalias !20
+  %.01319.i.i.i = phi ptr [ %18, %17 ], [ %7, %15 ]
+  %19 = load i8, ptr %.01319.i.i.i, align 1, !tbaa !3, !noalias !20
   %20 = zext i8 %19 to i64
   %21 = lshr i64 %20, 6
   %22 = getelementptr inbounds nuw i64, ptr @_ZN9grpc_core12_GLOBAL__N_123g_legal_header_key_bitsE, i64 %21
@@ -187,8 +187,8 @@ define range(i32 0, 2) i32 @grpc_header_key_is_legal(ptr noundef readonly byval(
   %24 = and i64 %20, 63
   %25 = shl nuw i64 1, %24
   %26 = and i64 %25, %23
-  %.not15.i.i.i = icmp eq i64 %26, 0
-  br i1 %.not15.i.i.i, label %.loopexit, label %17
+  %.not17.i.i.i = icmp eq i64 %26, 0
+  br i1 %.not17.i.i.i, label %.loopexit, label %17
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i, %1, %13
   %.0.i.i.i = phi ptr [ @.str.1, %1 ], [ @.str.2, %13 ], [ @.str.3, %.lr.ph.i.i.i ]
@@ -233,17 +233,17 @@ define void @_Z42grpc_validate_header_nonbin_value_is_legalRK10grpc_slice(ptr de
   %10 = and i64 %9, 255
   %11 = select i1 %.not.i, i64 %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
-  %.not16.i = icmp samesign eq i64 %11, 0
-  br i1 %.not16.i, label %.loopexit, label %.lr.ph.i
+  %.not18.i = icmp samesign eq i64 %11, 0
+  br i1 %.not18.i, label %.loopexit, label %.lr.ph.i
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01319.i, i64 1
   %.not.i1 = icmp eq ptr %14, %12
   br i1 %.not.i1, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %13
-  %.01317.i = phi ptr [ %14, %13 ], [ %7, %2 ]
-  %15 = load i8, ptr %.01317.i, align 1, !tbaa !3
+  %.01319.i = phi ptr [ %14, %13 ], [ %7, %2 ]
+  %15 = load i8, ptr %.01319.i, align 1, !tbaa !3
   %16 = zext i8 %15 to i64
   %17 = lshr i64 %16, 6
   %18 = getelementptr inbounds nuw i64, ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 %17
@@ -251,8 +251,8 @@ define void @_Z42grpc_validate_header_nonbin_value_is_legalRK10grpc_slice(ptr de
   %20 = and i64 %16, 63
   %21 = shl nuw i64 1, %20
   %22 = and i64 %21, %19
-  %.not15.i = icmp eq i64 %22, 0
-  br i1 %.not15.i, label %_ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE.exit.i, label %13
+  %.not17.i = icmp eq i64 %22, 0
+  br i1 %.not17.i, label %_ZN9grpc_core30ValidateMetadataResultToStringENS_22ValidateMetadataResultE.exit.i, label %13
 
 .loopexit:                                        ; preds = %13, %2
   store i64 1, ptr %0, align 8, !tbaa !12, !alias.scope !26
@@ -280,17 +280,17 @@ define range(i32 0, 2) i32 @grpc_header_nonbin_value_is_legal(ptr noundef readon
   %10 = and i64 %9, 255
   %11 = select i1 %.not.i.i, i64 %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 %11
-  %.not16.i.i = icmp samesign eq i64 %11, 0
-  br i1 %.not16.i.i, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %.lr.ph.i.i
+  %.not18.i.i = icmp samesign eq i64 %11, 0
+  br i1 %.not18.i.i, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %.lr.ph.i.i
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %.01317.i.i, i64 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01319.i.i, i64 1
   %.not.i1.i = icmp eq ptr %14, %12
   br i1 %.not.i1.i, label %_ZN4absl12lts_202407226StatusD2Ev.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %13
-  %.01317.i.i = phi ptr [ %14, %13 ], [ %7, %1 ]
-  %15 = load i8, ptr %.01317.i.i, align 1, !tbaa !3, !noalias !31
+  %.01319.i.i = phi ptr [ %14, %13 ], [ %7, %1 ]
+  %15 = load i8, ptr %.01319.i.i, align 1, !tbaa !3, !noalias !31
   %16 = zext i8 %15 to i64
   %17 = lshr i64 %16, 6
   %18 = getelementptr inbounds nuw i64, ptr @_ZN12_GLOBAL__N_133g_legal_header_non_bin_value_bitsE, i64 %17
@@ -298,8 +298,8 @@ define range(i32 0, 2) i32 @grpc_header_nonbin_value_is_legal(ptr noundef readon
   %20 = and i64 %16, 63
   %21 = shl nuw i64 1, %20
   %22 = and i64 %21, %19
-  %.not15.i.i = icmp eq i64 %22, 0
-  br i1 %.not15.i.i, label %23, label %13
+  %.not17.i.i = icmp eq i64 %22, 0
+  br i1 %.not17.i.i, label %23, label %13
 
 23:                                               ; preds = %.lr.ph.i.i
   call void @_ZN4absl12lts_2024072213InternalErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::Status") align 8 %2, i64 20, ptr nonnull @.str.4)

@@ -3754,7 +3754,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %37, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %switch = phi i32 [ %40, %39 ], [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 50, %37 ]
+  %spec.select = phi i32 [ %40, %39 ], [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 50, %37 ]
   %42 = getelementptr inbounds nuw i8, ptr %11, i64 408
   %43 = load ptr, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
@@ -3803,7 +3803,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %66
 
 66:                                               ; preds = %2, %_ZN17HandleMarkCleanerD2Ev.exit, %64, %62, %.critedge, %17, %4
-  %.0 = phi i32 [ 116, %4 ], [ 115, %17 ], [ 50, %.critedge ], [ 50, %62 ], [ %65, %64 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
+  %.0 = phi i32 [ 116, %4 ], [ 115, %17 ], [ 50, %.critedge ], [ 50, %62 ], [ %65, %64 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ], [ 112, %2 ]
   ret i32 %.0
 }
 
@@ -4051,7 +4051,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %39
 
 39:                                               ; preds = %35, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %37
-  %switch = phi i32 [ %38, %37 ], [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 50, %35 ]
+  %spec.select = phi i32 [ %38, %37 ], [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 50, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -4100,7 +4100,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   br label %64
 
 64:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %62, %60, %.critedge, %15, %2
-  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ 50, %60 ], [ %63, %62 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ]
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ 50, %60 ], [ %63, %62 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.0
 }
 
@@ -4183,7 +4183,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %39
 
 39:                                               ; preds = %35, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %37
-  %switch = phi i32 [ %38, %37 ], [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 50, %35 ]
+  %spec.select = phi i32 [ %38, %37 ], [ 50, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 50, %35 ]
   %40 = getelementptr inbounds nuw i8, ptr %9, i64 408
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -4232,7 +4232,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %39, %45
   br label %64
 
 64:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %62, %60, %.critedge, %15, %2
-  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ 50, %60 ], [ %63, %62 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ]
+  %.0 = phi i32 [ 116, %2 ], [ 115, %15 ], [ 50, %.critedge ], [ 50, %60 ], [ %63, %62 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.0
 }
 
@@ -9711,7 +9711,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit:   ; preds = %_ZN18SafepointMecha
   br label %41
 
 41:                                               ; preds = %37, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit, %39
-  %switch = phi i32 [ %40, %39 ], [ 103, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %37 ]
+  %spec.select = phi i32 [ %40, %39 ], [ 103, %_ZN20ThreadInVMfromNativeC2EP10JavaThread.exit ], [ 100, %37 ]
   call void @_ZN21PreserveExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 408
   %43 = load ptr, ptr %42, align 8
@@ -9761,7 +9761,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %41, %47
   br label %67
 
 67:                                               ; preds = %_ZN17HandleMarkCleanerD2Ev.exit, %65, %63, %61, %13, %17, %6, %3
-  %.022 = phi i32 [ 116, %3 ], [ 99, %6 ], [ 115, %17 ], [ 115, %13 ], [ 103, %61 ], [ 100, %63 ], [ %66, %65 ], [ %switch, %_ZN17HandleMarkCleanerD2Ev.exit ]
+  %.022 = phi i32 [ 116, %3 ], [ 99, %6 ], [ 115, %17 ], [ 115, %13 ], [ 103, %61 ], [ 100, %63 ], [ %66, %65 ], [ %spec.select, %_ZN17HandleMarkCleanerD2Ev.exit ]
   ret i32 %.022
 }
 

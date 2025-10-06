@@ -2009,8 +2009,8 @@ object_file_to_archive.exit.thread7:              ; preds = %134
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.reject_entry.sb, i64 24, i1 false)
   %152 = call ptr @strbuf_detach(ptr noundef nonnull %9, ptr noundef null) #19
   %153 = call ptr @memmem(ptr noundef %148, i64 noundef %149, ptr noundef nonnull @.str.10, i64 noundef 8) #21
-  %.not44.i.i = icmp eq ptr %153, null
-  br i1 %.not44.i.i, label %format_subst.exit.i, label %.lr.ph.i.i
+  %.not43.i.i = icmp eq ptr %153, null
+  br i1 %.not43.i.i, label %format_subst.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %147
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -2019,10 +2019,10 @@ object_file_to_archive.exit.thread7:              ; preds = %134
 
 156:                                              ; preds = %167, %.lr.ph.i.i
   %157 = phi ptr [ %153, %.lr.ph.i.i ], [ %177, %167 ]
-  %.02946.i.i = phi ptr [ %148, %.lr.ph.i.i ], [ %174, %167 ]
-  %.03045.i.i = phi i64 [ %149, %.lr.ph.i.i ], [ %176, %167 ]
+  %.02945.i.i = phi ptr [ %148, %.lr.ph.i.i ], [ %174, %167 ]
+  %.03044.i.i = phi i64 [ %149, %.lr.ph.i.i ], [ %176, %167 ]
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
-  %159 = getelementptr inbounds nuw i8, ptr %.02946.i.i, i64 %.03045.i.i
+  %159 = getelementptr inbounds nuw i8, ptr %.02945.i.i, i64 %.03044.i.i
   %160 = ptrtoint ptr %159 to i64
   %161 = ptrtoint ptr %157 to i64
   %reass.sub = sub i64 %160, %161
@@ -2046,23 +2046,23 @@ object_file_to_archive.exit.thread7:              ; preds = %134
   %reass.sub15 = sub i64 %168, %161
   %169 = add i64 %reass.sub15, -8
   call void @strbuf_add(ptr noundef nonnull %6, ptr noundef nonnull %158, i64 noundef %169) #19
-  %170 = ptrtoint ptr %.02946.i.i to i64
+  %170 = ptrtoint ptr %.02945.i.i to i64
   %171 = sub i64 %161, %170
-  call void @strbuf_add(ptr noundef nonnull %9, ptr noundef %.02946.i.i, i64 noundef %171) #19
+  call void @strbuf_add(ptr noundef nonnull %9, ptr noundef %.02945.i.i, i64 noundef %171) #19
   %172 = load ptr, ptr @the_repository, align 8, !tbaa !89
   %173 = load ptr, ptr %155, align 8, !tbaa !55
   call void @repo_format_commit_message(ptr noundef %172, ptr noundef nonnull %119, ptr noundef %173, ptr noundef nonnull %9, ptr noundef %151) #19
   %174 = getelementptr inbounds nuw i8, ptr %163, i64 1
   %175 = ptrtoint ptr %174 to i64
-  %.neg.i.i = add i64 %.03045.i.i, %170
+  %.neg.i.i = add i64 %.03044.i.i, %170
   %176 = sub i64 %.neg.i.i, %175
   %177 = call ptr @memmem(ptr noundef nonnull %174, i64 noundef %176, ptr noundef nonnull @.str.10, i64 noundef 8) #21
   %.not.i.i82 = icmp eq ptr %177, null
   br i1 %.not.i.i82, label %format_subst.exit.i, label %156
 
 format_subst.exit.i:                              ; preds = %167, %156, %147
-  %.030.lcssa.i.i = phi i64 [ %149, %147 ], [ %176, %167 ], [ %.03045.i.i, %156 ]
-  %.029.lcssa.i.i = phi ptr [ %148, %147 ], [ %174, %167 ], [ %.02946.i.i, %156 ]
+  %.030.lcssa.i.i = phi i64 [ %149, %147 ], [ %176, %167 ], [ %.03044.i.i, %156 ]
+  %.029.lcssa.i.i = phi ptr [ %148, %147 ], [ %174, %167 ], [ %.02945.i.i, %156 ]
   call void @strbuf_add(ptr noundef nonnull %9, ptr noundef %.029.lcssa.i.i, i64 noundef %.030.lcssa.i.i) #19
   call void @strbuf_release(ptr noundef nonnull %6) #19
   call void @free(ptr noundef %152) #19

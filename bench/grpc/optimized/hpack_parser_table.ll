@@ -1429,8 +1429,8 @@ define void @_ZN9grpc_core10HPackTable17MementoRingBufferD2Ev(ptr noundef nonnul
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !3
-  %.not.i12.not.i = icmp eq i32 %4, 0
-  br i1 %.not.i12.not.i, label %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit", label %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i
+  %.not.i11.not.i = icmp eq i32 %4, 0
+  br i1 %.not.i11.not.i, label %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit", label %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i
 
 _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i: ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1439,13 +1439,13 @@ _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i: ; preds = %1
 _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i: ; preds = %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i", %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i
   %6 = phi i32 [ %4, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %24, %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
   %7 = phi i32 [ 1, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %25, %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
-  %.0513.i = phi i32 [ 0, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %7, %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
+  %.0512.i = phi i32 [ 0, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %7, %"_ZZN9grpc_core10HPackTable17MementoRingBufferD1EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
   %8 = load ptr, ptr %2, align 8, !tbaa !19
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNS1_D1EvE3$_0EEvT_.exit", label %9
 
 9:                                                ; preds = %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i
-  %10 = xor i32 %.0513.i, -1
+  %10 = xor i32 %.0512.i, -1
   %11 = add i32 %6, %10
   %12 = load i32, ptr %0, align 8, !tbaa !35
   %13 = add i32 %11, %12
@@ -2002,8 +2002,8 @@ define void @_ZNK9grpc_core10HPackTable28TestOnlyDynamicTableAsStringB5cxx11Ev(p
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %18 = load i32, ptr %17, align 4, !tbaa !3
-  %.not.i13.not.i = icmp eq i32 %18, 0
-  br i1 %.not.i13.not.i, label %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNKS0_28TestOnlyDynamicTableAsStringB5cxx11EvE3$_0EEvT_.exit", label %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i
+  %.not.i12.not.i = icmp eq i32 %18, 0
+  br i1 %.not.i12.not.i, label %"_ZNK9grpc_core10HPackTable17MementoRingBuffer7ForEachIZNKS0_28TestOnlyDynamicTableAsStringB5cxx11EvE3$_0EEvT_.exit", label %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i
 
 _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i: ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -2030,8 +2030,8 @@ _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i: ; preds = %2
 _ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.i: ; preds = %"_ZZNK9grpc_core10HPackTable28TestOnlyDynamicTableAsStringB5cxx11EvENK3$_0clEjRKNS0_7MementoE.exit.i", %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i
   %37 = phi i32 [ %18, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %107, %"_ZZNK9grpc_core10HPackTable28TestOnlyDynamicTableAsStringB5cxx11EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
   %38 = phi i32 [ 1, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %106, %"_ZZNK9grpc_core10HPackTable28TestOnlyDynamicTableAsStringB5cxx11EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
-  %.0514.i = phi i32 [ 0, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %38, %"_ZZNK9grpc_core10HPackTable28TestOnlyDynamicTableAsStringB5cxx11EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
-  %39 = xor i32 %.0514.i, -1
+  %.0513.i = phi i32 [ 0, %_ZNK9grpc_core10HPackTable17MementoRingBuffer4PeekEj.exit.lr.ph.i ], [ %38, %"_ZZNK9grpc_core10HPackTable28TestOnlyDynamicTableAsStringB5cxx11EvENK3$_0clEjRKNS0_7MementoE.exit.i" ]
+  %39 = xor i32 %.0513.i, -1
   %40 = add i32 %37, %39
   %41 = load i32, ptr %16, align 8, !tbaa !35
   %42 = add i32 %40, %41

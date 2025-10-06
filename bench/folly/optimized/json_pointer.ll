@@ -2639,40 +2639,40 @@ _ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorE
 
 _ZNR5folly8ExpectedINS_12json_pointerENS1_11parse_errorEE5errorEv.exit: ; preds = %3
   %39 = load i32, ptr %4, align 8, !tbaa !113
-  %switch = icmp eq i32 %39, 0
-  %40 = tail call ptr @__cxa_allocate_exception(i64 16) #23
-  br i1 %switch, label %41, label %44
+  %40 = icmp eq i32 %39, 0
+  %41 = tail call ptr @__cxa_allocate_exception(i64 16) #23
+  br i1 %40, label %42, label %45
 
-41:                                               ; preds = %_ZNR5folly8ExpectedINS_12json_pointerENS1_11parse_errorEE5errorEv.exit
-  invoke void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull @.str.5)
-          to label %.invoke unwind label %42
+42:                                               ; preds = %_ZNR5folly8ExpectedINS_12json_pointerENS1_11parse_errorEE5errorEv.exit
+  invoke void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull @.str.5)
+          to label %.invoke unwind label %43
 
-42:                                               ; preds = %41
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %42
+  %44 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %40) #23
+  tail call void @__cxa_free_exception(ptr nonnull %41) #23
   br label %.body
 
-44:                                               ; preds = %_ZNR5folly8ExpectedINS_12json_pointerENS1_11parse_errorEE5errorEv.exit
-  invoke void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull @.str.6)
-          to label %.invoke unwind label %45
+45:                                               ; preds = %_ZNR5folly8ExpectedINS_12json_pointerENS1_11parse_errorEE5errorEv.exit
+  invoke void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull @.str.6)
+          to label %.invoke unwind label %46
 
-.invoke:                                          ; preds = %44, %41
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly12json_pointer15parse_exceptionE, i64 16), ptr %40, align 8, !tbaa !33
-  invoke void @__cxa_throw(ptr nonnull %40, ptr nonnull @_ZTIN5folly12json_pointer15parse_exceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #24
+.invoke:                                          ; preds = %45, %42
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN5folly12json_pointer15parse_exceptionE, i64 16), ptr %41, align 8, !tbaa !33
+  invoke void @__cxa_throw(ptr nonnull %41, ptr nonnull @_ZTIN5folly12json_pointer15parse_exceptionE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #24
           to label %.cont unwind label %36
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-45:                                               ; preds = %44
-  %46 = landingpad { ptr, i32 }
+46:                                               ; preds = %45
+  %47 = landingpad { ptr, i32 }
           cleanup
-  tail call void @__cxa_free_exception(ptr nonnull %40) #23
+  tail call void @__cxa_free_exception(ptr nonnull %41) #23
   br label %.body
 
-.body:                                            ; preds = %36, %23, %21, %45, %42
-  %.pn = phi { ptr, i32 } [ %43, %42 ], [ %46, %45 ], [ %37, %36 ], [ %22, %23 ], [ %22, %21 ]
+.body:                                            ; preds = %36, %23, %21, %46, %43
+  %.pn = phi { ptr, i32 } [ %44, %43 ], [ %47, %46 ], [ %37, %36 ], [ %22, %23 ], [ %22, %21 ]
   call void @_ZN5folly15expected_detail15ExpectedStorageINS_12json_pointerENS2_11parse_errorELNS0_11StorageTypeE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %.pn

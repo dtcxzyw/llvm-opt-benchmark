@@ -954,7 +954,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt4pairIP11lean_object
 
 ..thread_crit_edge:                               ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre44 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !53
+  %.pre42 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !53
   br label %.thread
 
 7:                                                ; preds = %4
@@ -980,7 +980,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt4pairIP11lean_object
   br i1 %19, label %_ZNKSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_EN4lean10expr_eq_fnILb0EE10key_hasherENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %11, !llvm.loop !64
 
 .thread:                                          ; preds = %11, %..thread_crit_edge
-  %20 = phi ptr [ %.pre44, %..thread_crit_edge ], [ %10, %11 ]
+  %20 = phi ptr [ %.pre42, %..thread_crit_edge ], [ %10, %11 ]
   %21 = ptrtoint ptr %.pre to i64
   %22 = lshr i64 %21, 3
   %23 = ptrtoint ptr %20 to i64
@@ -1903,7 +1903,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt4pairIP11lean_object
 
 ..thread_crit_edge:                               ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre44 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !53
+  %.pre42 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !53
   br label %.thread
 
 7:                                                ; preds = %4
@@ -1929,7 +1929,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt4pairIP11lean_object
   br i1 %19, label %_ZNKSt10_HashtableISt4pairIP11lean_objectS2_ES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_EN4lean10expr_eq_fnILb1EE10key_hasherENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %11, !llvm.loop !77
 
 .thread:                                          ; preds = %11, %..thread_crit_edge
-  %20 = phi ptr [ %.pre44, %..thread_crit_edge ], [ %10, %11 ]
+  %20 = phi ptr [ %.pre42, %..thread_crit_edge ], [ %10, %11 ]
   %21 = ptrtoint ptr %.pre to i64
   %22 = lshr i64 %21, 3
   %23 = ptrtoint ptr %20 to i64

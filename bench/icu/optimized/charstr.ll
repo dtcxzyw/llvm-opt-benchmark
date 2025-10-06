@@ -785,7 +785,7 @@ define noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString8c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK6icu_7710CharString11lastIndexOfEc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, i8 noundef signext %1) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 2147483647) i32 @_ZNK6icu_7710CharString11lastIndexOfEc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, i8 noundef signext %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load i32, ptr %3, align 8, !tbaa !15
   %5 = load ptr, ptr %0, align 8
@@ -795,8 +795,8 @@ define noundef i32 @_ZNK6icu_7710CharString11lastIndexOfEc(ptr noundef nonnull r
 7:                                                ; preds = %10, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ %6, %2 ]
   %8 = trunc nuw i64 %indvars.iv to i32
-  %9 = icmp slt i32 %8, 1
-  br i1 %9, label %.split.loop.exit9, label %10
+  %9 = icmp sgt i32 %8, 0
+  br i1 %9, label %10, label %.split.loop.exit
 
 10:                                               ; preds = %7
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -804,15 +804,15 @@ define noundef i32 @_ZNK6icu_7710CharString11lastIndexOfEc(ptr noundef nonnull r
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 %11
   %13 = load i8, ptr %12, align 1, !tbaa !17
   %14 = icmp eq i8 %13, %1
-  br i1 %14, label %.split.loop.exit, label %7, !llvm.loop !18
+  br i1 %14, label %.split.loop.exit11, label %7, !llvm.loop !18
 
-.split.loop.exit:                                 ; preds = %10
+.split.loop.exit11:                               ; preds = %10
   %indvars.le = trunc i64 %indvars.iv.next to i32
-  br label %.split.loop.exit9
+  br label %.split.loop.exit
 
-.split.loop.exit9:                                ; preds = %7, %.split.loop.exit
-  %spec.select = phi i32 [ %indvars.le, %.split.loop.exit ], [ -1, %7 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %7, %.split.loop.exit11
+  %15 = phi i32 [ %indvars.le, %.split.loop.exit11 ], [ -1, %7 ]
+  ret i32 %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable

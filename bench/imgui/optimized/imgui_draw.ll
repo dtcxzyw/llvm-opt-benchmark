@@ -9647,7 +9647,7 @@ define void @_ZN6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(pt
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %20 = load float, ptr %19, align 4, !tbaa !148
   %21 = fcmp olt float %20, %18
-  br i1 %21, label %288, label %22
+  br i1 %21, label %289, label %22
 
 22:                                               ; preds = %10
   %.not = icmp eq ptr %7, null
@@ -9670,8 +9670,8 @@ define void @_ZN6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(pt
   %34 = load float, ptr %33, align 4, !tbaa !146
   %35 = fcmp olt float %32, %34
   %36 = icmp ult ptr %6, %.0
-  %or.cond482 = select i1 %35, i1 %36, i1 false
-  br i1 %or.cond482, label %.lr.ph, label %.loopexit375
+  %or.cond495 = select i1 %35, i1 %36, i1 false
+  br i1 %or.cond495, label %.lr.ph, label %.loopexit381
 
 .lr.ph:                                           ; preds = %26
   %37 = ptrtoint ptr %.0 to i64
@@ -9679,13 +9679,13 @@ define void @_ZN6ImFont10RenderTextEP10ImDrawListfRK6ImVec2jRK6ImVec4PKcS9_fb(pt
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us
   %38 = phi float [ %52, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %32, %.lr.ph ]
-  %.1306383.us = phi ptr [ %spec.select.i.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %6, %.lr.ph ]
-  %39 = ptrtoint ptr %.1306383.us to i64
+  %.1306392.us = phi ptr [ %spec.select.i.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %6, %.lr.ph ]
+  %39 = ptrtoint ptr %.1306392.us to i64
   %40 = sub i64 %37, %39
-  %41 = tail call noundef ptr @memchr(ptr noundef %.1306383.us, i32 noundef 10, i64 noundef %40) #44
+  %41 = tail call noundef ptr @memchr(ptr noundef %.1306392.us, i32 noundef 10, i64 noundef %40) #44
   %.not338.us = icmp eq ptr %41, null
   %42 = select i1 %.not338.us, ptr %.0, ptr %41
-  %43 = tail call noundef ptr @_ZN6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull align 8 dereferenceable(114) %0, float noundef %29, ptr noundef %.1306383.us, ptr noundef nonnull %42, float noundef %8)
+  %43 = tail call noundef ptr @_ZN6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull align 8 dereferenceable(114) %0, float noundef %29, ptr noundef %.1306392.us, ptr noundef nonnull %42, float noundef %8)
   %44 = icmp ult ptr %43, %.0
   br i1 %44, label %.lr.ph.preheader.i.us, label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us
 
@@ -9719,14 +9719,14 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %48, %
   %54 = fcmp olt float %52, %53
   %55 = icmp ult ptr %spec.select.i.us, %.0
   %56 = select i1 %54, i1 %55, i1 false
-  br i1 %56, label %.lr.ph.split.us, label %.loopexit375, !llvm.loop !159
+  br i1 %56, label %.lr.ph.split.us, label %.loopexit381, !llvm.loop !159
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %57 = phi float [ %63, %.lr.ph.split ], [ %32, %.lr.ph ]
-  %.1306383 = phi ptr [ %62, %.lr.ph.split ], [ %6, %.lr.ph ]
-  %58 = ptrtoint ptr %.1306383 to i64
+  %.1306392 = phi ptr [ %62, %.lr.ph.split ], [ %6, %.lr.ph ]
+  %58 = ptrtoint ptr %.1306392 to i64
   %59 = sub i64 %37, %58
-  %60 = tail call noundef ptr @memchr(ptr noundef %.1306383, i32 noundef 10, i64 noundef %59) #44
+  %60 = tail call noundef ptr @memchr(ptr noundef %.1306392, i32 noundef 10, i64 noundef %59) #44
   %.not337 = icmp eq ptr %60, null
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1
   %62 = select i1 %.not337, ptr %.0, ptr %61
@@ -9734,9 +9734,9 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %48, %
   %64 = fcmp olt float %63, %34
   %65 = icmp ult ptr %62, %.0
   %66 = select i1 %64, i1 %65, i1 false
-  br i1 %66, label %.lr.ph.split, label %.loopexit375, !llvm.loop !159
+  br i1 %66, label %.lr.ph.split, label %.loopexit381, !llvm.loop !159
 
-.loopexit375:                                     ; preds = %.lr.ph.split, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us, %26
+.loopexit381:                                     ; preds = %.lr.ph.split, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us, %26
   %.0305 = phi ptr [ %6, %26 ], [ %spec.select.i.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %62, %.lr.ph.split ]
   %.0267 = phi float [ %18, %26 ], [ %38, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %57, %.lr.ph.split ]
   %67 = ptrtoint ptr %.0 to i64
@@ -9744,36 +9744,36 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %48, %
   %69 = sub i64 %67, %68
   %70 = icmp slt i64 %69, 10001
   %or.cond = or i1 %31, %70
-  br i1 %or.cond, label %.loopexit373, label %.preheader
+  br i1 %or.cond, label %.loopexit379, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit375
+.preheader:                                       ; preds = %.loopexit381
   %71 = load float, ptr %19, align 4, !tbaa !148
   %72 = fcmp olt float %.0267, %71
   %73 = icmp ult ptr %.0305, %.0
   %74 = select i1 %72, i1 %73, i1 false
-  br i1 %74, label %.lr.ph388, label %.loopexit373
+  br i1 %74, label %.lr.ph397, label %.loopexit379
 
-.lr.ph388:                                        ; preds = %.preheader, %.lr.ph388
-  %.0310387 = phi ptr [ %79, %.lr.ph388 ], [ %.0305, %.preheader ]
-  %.0311386 = phi float [ %80, %.lr.ph388 ], [ %.0267, %.preheader ]
-  %75 = ptrtoint ptr %.0310387 to i64
+.lr.ph397:                                        ; preds = %.preheader, %.lr.ph397
+  %.0310396 = phi ptr [ %79, %.lr.ph397 ], [ %.0305, %.preheader ]
+  %.0311395 = phi float [ %80, %.lr.ph397 ], [ %.0267, %.preheader ]
+  %75 = ptrtoint ptr %.0310396 to i64
   %76 = sub i64 %67, %75
-  %77 = tail call noundef ptr @memchr(ptr noundef %.0310387, i32 noundef 10, i64 noundef %76) #44
+  %77 = tail call noundef ptr @memchr(ptr noundef %.0310396, i32 noundef 10, i64 noundef %76) #44
   %.not332 = icmp eq ptr %77, null
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 1
   %79 = select i1 %.not332, ptr %.0, ptr %78
-  %80 = fadd float %30, %.0311386
+  %80 = fadd float %30, %.0311395
   %81 = fcmp olt float %80, %71
   %82 = icmp ult ptr %79, %.0
   %83 = select i1 %81, i1 %82, i1 false
-  br i1 %83, label %.lr.ph388, label %.loopexit373, !llvm.loop !160
+  br i1 %83, label %.lr.ph397, label %.loopexit379, !llvm.loop !160
 
-.loopexit373:                                     ; preds = %.lr.ph388, %.preheader, %.loopexit375
-  %.1 = phi ptr [ %.0, %.loopexit375 ], [ %.0305, %.preheader ], [ %79, %.lr.ph388 ]
+.loopexit379:                                     ; preds = %.lr.ph397, %.preheader, %.loopexit381
+  %.1 = phi ptr [ %.0, %.loopexit381 ], [ %.0305, %.preheader ], [ %79, %.lr.ph397 ]
   %84 = icmp eq ptr %.0305, %.1
-  br i1 %84, label %288, label %85
+  br i1 %84, label %289, label %85
 
-85:                                               ; preds = %.loopexit373
+85:                                               ; preds = %.loopexit379
   %86 = ptrtoint ptr %.1 to i64
   %87 = sub i64 %86, %68
   %88 = trunc i64 %87 to i32
@@ -9789,67 +9789,60 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %48, %
   %97 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %98 = load i32, ptr %97, align 4, !tbaa !59
   %99 = or i32 %4, 16777215
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %103 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %104 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  br label %.outer.outer
+  %100 = icmp ult ptr %.0305, %.1
+  br i1 %100, label %.lr.ph403.lr.ph, label %.loopexit
 
-.outer.outer:                                     ; preds = %85, %.loopexit455
-  %.3308.ph.ph = phi ptr [ %.0305, %85 ], [ %.4309, %.loopexit455 ]
-  %.0296.ph.ph = phi ptr [ %94, %85 ], [ %.2298, %.loopexit455 ]
-  %.0287.ph.ph = phi ptr [ %96, %85 ], [ %.2289, %.loopexit455 ]
-  %.0279.ph.ph = phi i32 [ %98, %85 ], [ %.2281, %.loopexit455 ]
-  %.0271.ph.ph = phi ptr [ null, %85 ], [ %.us-phi408, %.loopexit455 ]
-  %.2269.ph.ph = phi float [ %.0267, %85 ], [ %.us-phi406, %.loopexit455 ]
-  %.0265.ph.ph = phi float [ %14, %85 ], [ %.1266, %.loopexit455 ]
-  br label %.outer
+.lr.ph403.lr.ph:                                  ; preds = %85
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %105 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  br label %.lr.ph403
 
-.outer:                                           ; preds = %.outer.outer, %136
-  %.3308.ph = phi ptr [ %.4309, %136 ], [ %.3308.ph.ph, %.outer.outer ]
-  %.0271.ph = phi ptr [ %.us-phi408, %136 ], [ %.0271.ph.ph, %.outer.outer ]
-  %.2269.ph = phi float [ %137, %136 ], [ %.2269.ph.ph, %.outer.outer ]
-  %.0265.ph = phi float [ %14, %136 ], [ %.0265.ph.ph, %.outer.outer ]
-  %105 = icmp ult ptr %.3308.ph, %.1
-  br i1 %105, label %.lr.ph394, label %.loopexit
+.lr.ph403:                                        ; preds = %.lr.ph403.lr.ph, %.outer
+  %.0265.ph430 = phi float [ %14, %.lr.ph403.lr.ph ], [ %.1266, %.outer ]
+  %.2269.ph429 = phi float [ %.0267, %.lr.ph403.lr.ph ], [ %.3270, %.outer ]
+  %.0271.ph428 = phi ptr [ null, %.lr.ph403.lr.ph ], [ %.us-phi417, %.outer ]
+  %.0279.ph427 = phi i32 [ %98, %.lr.ph403.lr.ph ], [ %.2281, %.outer ]
+  %.0287.ph426 = phi ptr [ %96, %.lr.ph403.lr.ph ], [ %.2289, %.outer ]
+  %.0296.ph425 = phi ptr [ %94, %.lr.ph403.lr.ph ], [ %.2298, %.outer ]
+  %.3308.ph424 = phi ptr [ %.0305, %.lr.ph403.lr.ph ], [ %.4309, %.outer ]
+  br i1 %31, label %.lr.ph403.split.us, label %.split.us
 
-.lr.ph394:                                        ; preds = %.outer
-  br i1 %31, label %.lr.ph394.split.us, label %.split.us
-
-.lr.ph394.split.us:                               ; preds = %.lr.ph394, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us
-  %.0265393.us = phi float [ %14, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.0265.ph, %.lr.ph394 ]
-  %.2269392.us = phi float [ %112, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.2269.ph, %.lr.ph394 ]
-  %.0271391.us = phi ptr [ null, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.0271.ph, %.lr.ph394 ]
-  %.3308390.us = phi ptr [ %spec.select.i341.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.3308.ph, %.lr.ph394 ]
-  %.not333.us = icmp eq ptr %.0271391.us, null
+.lr.ph403.split.us:                               ; preds = %.lr.ph403, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us
+  %.0265402.us = phi float [ %14, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.0265.ph430, %.lr.ph403 ]
+  %.2269401.us = phi float [ %112, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.2269.ph429, %.lr.ph403 ]
+  %.0271400.us = phi ptr [ null, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.0271.ph428, %.lr.ph403 ]
+  %.3308399.us = phi ptr [ %spec.select.i341.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.3308.ph424, %.lr.ph403 ]
+  %.not333.us = icmp eq ptr %.0271400.us, null
   br i1 %.not333.us, label %106, label %110
 
-106:                                              ; preds = %.lr.ph394.split.us
-  %107 = fsub float %14, %.0265393.us
+106:                                              ; preds = %.lr.ph403.split.us
+  %107 = fsub float %14, %.0265402.us
   %108 = fadd float %8, %107
-  %109 = call noundef ptr @_ZN6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull align 8 dereferenceable(114) %0, float noundef %29, ptr noundef %.3308390.us, ptr noundef nonnull %.1, float noundef %108)
+  %109 = call noundef ptr @_ZN6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull align 8 dereferenceable(114) %0, float noundef %29, ptr noundef %.3308399.us, ptr noundef nonnull %.1, float noundef %108)
   br label %110
 
-110:                                              ; preds = %106, %.lr.ph394.split.us
-  %.2273.us = phi ptr [ %.0271391.us, %.lr.ph394.split.us ], [ %109, %106 ]
-  %.not334.us = icmp ult ptr %.3308390.us, %.2273.us
+110:                                              ; preds = %106, %.lr.ph403.split.us
+  %.2273.us = phi ptr [ %.0271400.us, %.lr.ph403.split.us ], [ %109, %106 ]
+  %.not334.us = icmp ult ptr %.3308399.us, %.2273.us
   br i1 %.not334.us, label %.split.us, label %111
 
 111:                                              ; preds = %110
-  %112 = fadd float %30, %.2269392.us
+  %112 = fadd float %30, %.2269401.us
   %113 = load float, ptr %19, align 4, !tbaa !148
   %114 = fcmp ogt float %112, %113
   br i1 %114, label %.loopexit, label %.lr.ph.preheader.i342.us
 
 .lr.ph.preheader.i342.us:                         ; preds = %111
-  %115 = ptrtoint ptr %.3308390.us to i64
+  %115 = ptrtoint ptr %.3308399.us to i64
   %116 = sub i64 %86, %115
-  %scevgep.i343.us = getelementptr i8, ptr %.3308390.us, i64 %116
+  %scevgep.i343.us = getelementptr i8, ptr %.3308399.us, i64 %116
   br label %.lr.ph.i344.us
 
 .lr.ph.i344.us:                                   ; preds = %118, %.lr.ph.preheader.i342.us
-  %.07.i345.us = phi ptr [ %119, %118 ], [ %.3308390.us, %.lr.ph.preheader.i342.us ]
+  %.07.i345.us = phi ptr [ %119, %118 ], [ %.3308399.us, %.lr.ph.preheader.i342.us ]
   %117 = load i8, ptr %.07.i345.us, align 1, !tbaa !23
   switch i8 %117, label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us [
     i8 32, label %118
@@ -9872,28 +9865,28 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us: ; preds = %.lr.ph.i344.us, %._
   %spec.select.idx.i340.us = zext i1 %121 to i64
   %spec.select.i341.us = getelementptr inbounds nuw i8, ptr %.0.lcssa.i339.us, i64 %spec.select.idx.i340.us
   %122 = icmp ult ptr %spec.select.i341.us, %.1
-  br i1 %122, label %.lr.ph394.split.us, label %.loopexit, !llvm.loop !161
+  br i1 %122, label %.lr.ph403.split.us, label %.loopexit, !llvm.loop !161
 
-.split.us:                                        ; preds = %110, %.lr.ph394
-  %.us-phi405 = phi ptr [ %.3308.ph, %.lr.ph394 ], [ %.3308390.us, %110 ]
-  %.us-phi406 = phi float [ %.2269.ph, %.lr.ph394 ], [ %.2269392.us, %110 ]
-  %.us-phi407 = phi float [ %.0265.ph, %.lr.ph394 ], [ %.0265393.us, %110 ]
-  %.us-phi408 = phi ptr [ %.0271.ph, %.lr.ph394 ], [ %.2273.us, %110 ]
+.split.us:                                        ; preds = %110, %.lr.ph403
+  %.us-phi414 = phi ptr [ %.3308.ph424, %.lr.ph403 ], [ %.3308399.us, %110 ]
+  %.us-phi415 = phi float [ %.2269.ph429, %.lr.ph403 ], [ %.2269401.us, %110 ]
+  %.us-phi416 = phi float [ %.0265.ph430, %.lr.ph403 ], [ %.0265402.us, %110 ]
+  %.us-phi417 = phi ptr [ %.0271.ph428, %.lr.ph403 ], [ %.2273.us, %110 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %123 = load i8, ptr %.us-phi405, align 1, !tbaa !23
+  %123 = load i8, ptr %.us-phi414, align 1, !tbaa !23
   %124 = sext i8 %123 to i32
   store i32 %124, ptr %11, align 4, !tbaa !19
   %125 = icmp sgt i8 %123, -1
   br i1 %125, label %126, label %128
 
 126:                                              ; preds = %.split.us
-  %127 = getelementptr inbounds nuw i8, ptr %.us-phi405, i64 1
+  %127 = getelementptr inbounds nuw i8, ptr %.us-phi414, i64 1
   br label %132
 
 128:                                              ; preds = %.split.us
-  %129 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %11, ptr noundef nonnull %.us-phi405, ptr noundef nonnull %.1)
+  %129 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %11, ptr noundef nonnull %.us-phi414, ptr noundef nonnull %.1)
   %130 = sext i32 %129 to i64
-  %131 = getelementptr inbounds i8, ptr %.us-phi405, i64 %130
+  %131 = getelementptr inbounds i8, ptr %.us-phi414, i64 %130
   %.pr = load i32, ptr %11, align 4, !tbaa !19
   br label %132
 
@@ -9906,34 +9899,33 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us: ; preds = %.lr.ph.i344.us, %._
 135:                                              ; preds = %132
   switch i32 %133, label %140 [
     i32 10, label %136
-    i32 13, label %.loopexit455
+    i32 13, label %.outer
   ], !llvm.loop !161
 
 136:                                              ; preds = %135
-  %137 = fadd float %30, %.us-phi406
+  %137 = fadd float %30, %.us-phi415
   %138 = load float, ptr %19, align 4, !tbaa !148
   %139 = fcmp ogt float %137, %138
-  call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %139, label %.loopexit, label %.outer
+  br i1 %139, label %.thread369, label %.outer
 
 140:                                              ; preds = %135, %132
   %141 = and i32 %133, 65535
-  %142 = load i32, ptr %100, align 8, !tbaa !162
+  %142 = load i32, ptr %101, align 8, !tbaa !162
   %.not.i = icmp ult i32 %141, %142
   br i1 %.not.i, label %145, label %143
 
 143:                                              ; preds = %140
-  %144 = load ptr, ptr %101, align 8, !tbaa !163
+  %144 = load ptr, ptr %102, align 8, !tbaa !163
   br label %_ZN6ImFont9FindGlyphEt.exit
 
 145:                                              ; preds = %140
   %146 = zext nneg i32 %141 to i64
-  %147 = load ptr, ptr %102, align 8, !tbaa !164
+  %147 = load ptr, ptr %103, align 8, !tbaa !164
   %148 = getelementptr inbounds nuw i16, ptr %147, i64 %146
   %149 = load i16, ptr %148, align 2, !tbaa !114
   %150 = icmp eq i16 %149, -1
-  %151 = load ptr, ptr %101, align 8
-  %152 = load ptr, ptr %103, align 8
+  %151 = load ptr, ptr %102, align 8
+  %152 = load ptr, ptr %104, align 8
   %153 = zext i16 %149 to i64
   %154 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %152, i64 %153
   %.1.i = select i1 %150, ptr %151, ptr %154
@@ -9942,7 +9934,7 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us: ; preds = %.lr.ph.i344.us, %._
 _ZN6ImFont9FindGlyphEt.exit:                      ; preds = %143, %145
   %.0.i = phi ptr [ %144, %143 ], [ %.1.i, %145 ]
   %155 = icmp eq ptr %.0.i, null
-  br i1 %155, label %.loopexit455, label %156, !llvm.loop !161
+  br i1 %155, label %.outer, label %156, !llvm.loop !161
 
 156:                                              ; preds = %_ZN6ImFont9FindGlyphEt.exit
   %157 = getelementptr inbounds nuw i8, ptr %.0.i, i64 4
@@ -9956,17 +9948,17 @@ _ZN6ImFont9FindGlyphEt.exit:                      ; preds = %143, %145
 162:                                              ; preds = %156
   %163 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %164 = load float, ptr %163, align 4, !tbaa !167
-  %165 = call float @llvm.fmuladd.f32(float %164, float %29, float %.us-phi407)
+  %165 = call float @llvm.fmuladd.f32(float %164, float %29, float %.us-phi416)
   %166 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   %167 = load float, ptr %166, align 4, !tbaa !168
-  %168 = call float @llvm.fmuladd.f32(float %167, float %29, float %.us-phi407)
+  %168 = call float @llvm.fmuladd.f32(float %167, float %29, float %.us-phi416)
   %169 = getelementptr inbounds nuw i8, ptr %.0.i, i64 12
   %170 = load float, ptr %169, align 4, !tbaa !169
-  %171 = call float @llvm.fmuladd.f32(float %170, float %29, float %.us-phi406)
+  %171 = call float @llvm.fmuladd.f32(float %170, float %29, float %.us-phi415)
   %172 = getelementptr inbounds nuw i8, ptr %.0.i, i64 20
   %173 = load float, ptr %172, align 4, !tbaa !170
-  %174 = call float @llvm.fmuladd.f32(float %173, float %29, float %.us-phi406)
-  %175 = load float, ptr %104, align 4, !tbaa !147
+  %174 = call float @llvm.fmuladd.f32(float %173, float %29, float %.us-phi415)
+  %175 = load float, ptr %105, align 4, !tbaa !147
   %176 = fcmp ugt float %165, %175
   br i1 %176, label %.thread362, label %177
 
@@ -10062,119 +10054,128 @@ _ZN6ImFont9FindGlyphEt.exit:                      ; preds = %143, %145
   %228 = and i32 %160, 1
   %.not336 = icmp eq i32 %228, 0
   %229 = select i1 %.not336, i32 %4, i32 %99
-  store float %.0263, ptr %.0296.ph.ph, align 4, !tbaa !126
-  %230 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 4
+  store float %.0263, ptr %.0296.ph425, align 4, !tbaa !126
+  %230 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 4
   store float %.0259, ptr %230, align 4, !tbaa !127
-  %231 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 16
   store i32 %229, ptr %231, align 4, !tbaa !116
-  %232 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 8
+  %232 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 8
   store float %.0255, ptr %232, align 4, !tbaa !175
-  %233 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 12
+  %233 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 12
   store float %.0253, ptr %233, align 4, !tbaa !176
-  %234 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 20
+  %234 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 20
   store float %.0261, ptr %234, align 4, !tbaa !126
-  %235 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 24
+  %235 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 24
   store float %.0259, ptr %235, align 4, !tbaa !127
-  %236 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 36
+  %236 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 36
   store i32 %229, ptr %236, align 4, !tbaa !116
-  %237 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 28
+  %237 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 28
   store float %.0251, ptr %237, align 4, !tbaa !175
-  %238 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 32
+  %238 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 32
   store float %.0253, ptr %238, align 4, !tbaa !176
-  %239 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 40
+  %239 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 40
   store float %.0261, ptr %239, align 4, !tbaa !126
-  %240 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 44
+  %240 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 44
   store float %.0257, ptr %240, align 4, !tbaa !127
-  %241 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 56
+  %241 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 56
   store i32 %229, ptr %241, align 4, !tbaa !116
-  %242 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 48
+  %242 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 48
   store float %.0251, ptr %242, align 4, !tbaa !175
-  %243 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 52
+  %243 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 52
   store float %.0249, ptr %243, align 4, !tbaa !176
-  %244 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 60
+  %244 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 60
   store float %.0263, ptr %244, align 4, !tbaa !126
-  %245 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 64
+  %245 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 64
   store float %.0257, ptr %245, align 4, !tbaa !127
-  %246 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 76
+  %246 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 76
   store i32 %229, ptr %246, align 4, !tbaa !116
-  %247 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 68
+  %247 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 68
   store float %.0255, ptr %247, align 4, !tbaa !175
-  %248 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 72
+  %248 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 72
   store float %.0249, ptr %248, align 4, !tbaa !176
-  %249 = trunc i32 %.0279.ph.ph to i16
-  store i16 %249, ptr %.0287.ph.ph, align 2, !tbaa !114
+  %249 = trunc i32 %.0279.ph427 to i16
+  store i16 %249, ptr %.0287.ph426, align 2, !tbaa !114
   %250 = add i16 %249, 1
-  %251 = getelementptr inbounds nuw i8, ptr %.0287.ph.ph, i64 2
+  %251 = getelementptr inbounds nuw i8, ptr %.0287.ph426, i64 2
   store i16 %250, ptr %251, align 2, !tbaa !114
   %252 = add i16 %249, 2
-  %253 = getelementptr inbounds nuw i8, ptr %.0287.ph.ph, i64 4
+  %253 = getelementptr inbounds nuw i8, ptr %.0287.ph426, i64 4
   store i16 %252, ptr %253, align 2, !tbaa !114
-  %254 = getelementptr inbounds nuw i8, ptr %.0287.ph.ph, i64 6
+  %254 = getelementptr inbounds nuw i8, ptr %.0287.ph426, i64 6
   store i16 %249, ptr %254, align 2, !tbaa !114
-  %255 = getelementptr inbounds nuw i8, ptr %.0287.ph.ph, i64 8
+  %255 = getelementptr inbounds nuw i8, ptr %.0287.ph426, i64 8
   store i16 %252, ptr %255, align 2, !tbaa !114
   %256 = add i16 %249, 3
-  %257 = getelementptr inbounds nuw i8, ptr %.0287.ph.ph, i64 10
+  %257 = getelementptr inbounds nuw i8, ptr %.0287.ph426, i64 10
   store i16 %256, ptr %257, align 2, !tbaa !114
-  %258 = getelementptr inbounds nuw i8, ptr %.0296.ph.ph, i64 80
-  %259 = add i32 %.0279.ph.ph, 4
-  %260 = getelementptr inbounds nuw i8, ptr %.0287.ph.ph, i64 12
+  %258 = getelementptr inbounds nuw i8, ptr %.0296.ph425, i64 80
+  %259 = add i32 %.0279.ph427, 4
+  %260 = getelementptr inbounds nuw i8, ptr %.0287.ph426, i64 12
   br label %.thread362
 
 261:                                              ; preds = %225
-  %262 = fadd float %.us-phi407, %159
-  br label %.loopexit455
+  %262 = fadd float %.us-phi416, %159
+  br label %.outer
 
 .thread362:                                       ; preds = %227, %162, %177, %156
-  %.4300 = phi ptr [ %.0296.ph.ph, %156 ], [ %258, %227 ], [ %.0296.ph.ph, %162 ], [ %.0296.ph.ph, %177 ]
-  %.4291 = phi ptr [ %.0287.ph.ph, %156 ], [ %260, %227 ], [ %.0287.ph.ph, %162 ], [ %.0287.ph.ph, %177 ]
-  %.4283 = phi i32 [ %.0279.ph.ph, %156 ], [ %259, %227 ], [ %.0279.ph.ph, %162 ], [ %.0279.ph.ph, %177 ]
-  %263 = fadd float %.us-phi407, %159
-  br label %.loopexit455
+  %.4300 = phi ptr [ %.0296.ph425, %156 ], [ %258, %227 ], [ %.0296.ph425, %162 ], [ %.0296.ph425, %177 ]
+  %.4291 = phi ptr [ %.0287.ph426, %156 ], [ %260, %227 ], [ %.0287.ph426, %162 ], [ %.0287.ph426, %177 ]
+  %.4283 = phi i32 [ %.0279.ph427, %156 ], [ %259, %227 ], [ %.0279.ph427, %162 ], [ %.0279.ph427, %177 ]
+  %263 = fadd float %.us-phi416, %159
+  br label %.outer
 
-.loopexit455:                                     ; preds = %135, %261, %_ZN6ImFont9FindGlyphEt.exit, %.thread362
-  %.2298 = phi ptr [ %.0296.ph.ph, %_ZN6ImFont9FindGlyphEt.exit ], [ %.4300, %.thread362 ], [ %.0296.ph.ph, %261 ], [ %.0296.ph.ph, %135 ]
-  %.2289 = phi ptr [ %.0287.ph.ph, %_ZN6ImFont9FindGlyphEt.exit ], [ %.4291, %.thread362 ], [ %.0287.ph.ph, %261 ], [ %.0287.ph.ph, %135 ]
-  %.2281 = phi i32 [ %.0279.ph.ph, %_ZN6ImFont9FindGlyphEt.exit ], [ %.4283, %.thread362 ], [ %.0279.ph.ph, %261 ], [ %.0279.ph.ph, %135 ]
-  %.1266 = phi float [ %.us-phi407, %_ZN6ImFont9FindGlyphEt.exit ], [ %263, %.thread362 ], [ %262, %261 ], [ %.us-phi407, %135 ]
+.thread369:                                       ; preds = %136
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.outer.outer
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %.outer, %136, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us, %111
-  %264 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %265 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %266 = load ptr, ptr %265, align 8, !tbaa !112
-  %267 = ptrtoint ptr %.0296.ph.ph to i64
-  %268 = ptrtoint ptr %266 to i64
-  %269 = sub i64 %267, %268
-  %270 = sdiv exact i64 %269, 20
-  %271 = trunc i64 %270 to i32
-  store i32 %271, ptr %264, align 8, !tbaa !111
-  %272 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %273 = load ptr, ptr %272, align 8, !tbaa !80
-  %274 = ptrtoint ptr %.0287.ph.ph to i64
-  %275 = ptrtoint ptr %273 to i64
-  %276 = sub i64 %274, %275
-  %277 = lshr exact i64 %276, 1
-  %278 = trunc i64 %277 to i32
-  store i32 %278, ptr %91, align 8, !tbaa !79
-  %279 = add i32 %92, %90
-  %.neg = sub i32 %278, %279
-  %280 = load i32, ptr %1, align 8, !tbaa !73
-  %281 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %282 = load ptr, ptr %281, align 8, !tbaa !51
-  %283 = sext i32 %280 to i64
-  %284 = getelementptr %struct.ImDrawCmd, ptr %282, i64 %283
-  %285 = getelementptr i8, ptr %284, i64 -32
-  %286 = load i32, ptr %285, align 8, !tbaa !75
-  %287 = add i32 %.neg, %286
-  store i32 %287, ptr %285, align 8, !tbaa !75
-  store ptr %.0296.ph.ph, ptr %93, align 8, !tbaa !113
-  store ptr %.0287.ph.ph, ptr %95, align 8, !tbaa !87
-  store i32 %.0279.ph.ph, ptr %97, align 4, !tbaa !59
-  br label %288
+.outer:                                           ; preds = %136, %261, %_ZN6ImFont9FindGlyphEt.exit, %.thread362, %135
+  %.2298 = phi ptr [ %.0296.ph425, %136 ], [ %.0296.ph425, %135 ], [ %.0296.ph425, %_ZN6ImFont9FindGlyphEt.exit ], [ %.4300, %.thread362 ], [ %.0296.ph425, %261 ]
+  %.2289 = phi ptr [ %.0287.ph426, %136 ], [ %.0287.ph426, %135 ], [ %.0287.ph426, %_ZN6ImFont9FindGlyphEt.exit ], [ %.4291, %.thread362 ], [ %.0287.ph426, %261 ]
+  %.2281 = phi i32 [ %.0279.ph427, %136 ], [ %.0279.ph427, %135 ], [ %.0279.ph427, %_ZN6ImFont9FindGlyphEt.exit ], [ %.4283, %.thread362 ], [ %.0279.ph427, %261 ]
+  %.3270 = phi float [ %137, %136 ], [ %.us-phi415, %135 ], [ %.us-phi415, %_ZN6ImFont9FindGlyphEt.exit ], [ %.us-phi415, %.thread362 ], [ %.us-phi415, %261 ]
+  %.1266 = phi float [ %14, %136 ], [ %.us-phi416, %135 ], [ %.us-phi416, %_ZN6ImFont9FindGlyphEt.exit ], [ %263, %.thread362 ], [ %262, %261 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %11)
+  %264 = icmp ult ptr %.4309, %.1
+  br i1 %264, label %.lr.ph403, label %.loopexit
 
-288:                                              ; preds = %.loopexit, %.loopexit373, %10
+.loopexit:                                        ; preds = %.outer, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us, %111, %85, %.thread369
+  %.0296.ph391 = phi ptr [ %.0296.ph425, %.thread369 ], [ %94, %85 ], [ %.0296.ph425, %111 ], [ %.0296.ph425, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.2298, %.outer ]
+  %.0287.ph389 = phi ptr [ %.0287.ph426, %.thread369 ], [ %96, %85 ], [ %.0287.ph426, %111 ], [ %.0287.ph426, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.2289, %.outer ]
+  %.0279.ph387 = phi i32 [ %.0279.ph427, %.thread369 ], [ %98, %85 ], [ %.0279.ph427, %111 ], [ %.0279.ph427, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit347.us ], [ %.2281, %.outer ]
+  %265 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %266 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %267 = load ptr, ptr %266, align 8, !tbaa !112
+  %268 = ptrtoint ptr %.0296.ph391 to i64
+  %269 = ptrtoint ptr %267 to i64
+  %270 = sub i64 %268, %269
+  %271 = sdiv exact i64 %270, 20
+  %272 = trunc i64 %271 to i32
+  store i32 %272, ptr %265, align 8, !tbaa !111
+  %273 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %274 = load ptr, ptr %273, align 8, !tbaa !80
+  %275 = ptrtoint ptr %.0287.ph389 to i64
+  %276 = ptrtoint ptr %274 to i64
+  %277 = sub i64 %275, %276
+  %278 = lshr exact i64 %277, 1
+  %279 = trunc i64 %278 to i32
+  store i32 %279, ptr %91, align 8, !tbaa !79
+  %280 = add i32 %92, %90
+  %.neg = sub i32 %279, %280
+  %281 = load i32, ptr %1, align 8, !tbaa !73
+  %282 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %283 = load ptr, ptr %282, align 8, !tbaa !51
+  %284 = sext i32 %281 to i64
+  %285 = getelementptr %struct.ImDrawCmd, ptr %283, i64 %284
+  %286 = getelementptr i8, ptr %285, i64 -32
+  %287 = load i32, ptr %286, align 8, !tbaa !75
+  %288 = add i32 %.neg, %287
+  store i32 %288, ptr %286, align 8, !tbaa !75
+  store ptr %.0296.ph391, ptr %93, align 8, !tbaa !113
+  store ptr %.0287.ph389, ptr %95, align 8, !tbaa !87
+  store i32 %.0279.ph387, ptr %97, align 4, !tbaa !59
+  br label %289
+
+289:                                              ; preds = %.loopexit, %.loopexit379, %10
   ret void
 }
 
@@ -18998,13 +18999,13 @@ _ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i: ;
 
 .lr.ph.i.i.i.i445:                                ; preds = %.lr.ph.i.i.i.i445, %.lr.ph.preheader.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i445 ]
-  %.0949.i.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i445 ]
+  %.0948.i.i.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i.i.i ], [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i445 ]
   %1869 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %1867, i64 %indvars.iv.i.i.i.i
   %1870 = getelementptr inbounds nuw i8, ptr %1869, i64 12
   %1871 = load i8, ptr %1870, align 2, !tbaa !430
   %1872 = icmp eq i8 %1871, 1
   %1873 = zext i1 %1872 to i32
-  %spec.select.i.i.i.i = add nuw nsw i32 %.0949.i.i.i.i, %1873
+  %spec.select.i.i.i.i = add nuw nsw i32 %.0948.i.i.i.i, %1873
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i446 = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
   br i1 %exitcond.not.i.i.i.i446, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i445, !llvm.loop !432
@@ -19023,13 +19024,13 @@ _ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i: ;
   %1879 = icmp eq ptr %1878, null
   br i1 %1879, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i, label %.preheader.split.us.i.i.i.i
 
-.preheader.split.us.i.i.i.i:                      ; preds = %.noexc454, %._crit_edge17.us.i.i.i.i
-  %1880 = phi i32 [ %1960, %._crit_edge17.us.i.i.i.i ], [ 0, %.noexc454 ]
-  %1881 = phi i1 [ true, %._crit_edge17.us.i.i.i.i ], [ false, %.noexc454 ]
-  %1882 = phi i1 [ false, %._crit_edge17.us.i.i.i.i ], [ true, %.noexc454 ]
-  %.09221.us.i.i.i.i = phi i32 [ %.3.us.i.i.i.i, %._crit_edge17.us.i.i.i.i ], [ 0, %.noexc454 ]
-  %.010120.us.i.i.i.i = phi ptr [ %.1102.us.i.i.i.i, %._crit_edge17.us.i.i.i.i ], [ null, %.noexc454 ]
-  br i1 %1881, label %1883, label %.lr.ph16.us.i.i.i.i
+.preheader.split.us.i.i.i.i:                      ; preds = %.noexc454, %._crit_edge16.us.i.i.i.i
+  %1880 = phi i32 [ %1960, %._crit_edge16.us.i.i.i.i ], [ 0, %.noexc454 ]
+  %1881 = phi i1 [ true, %._crit_edge16.us.i.i.i.i ], [ false, %.noexc454 ]
+  %1882 = phi i1 [ false, %._crit_edge16.us.i.i.i.i ], [ true, %.noexc454 ]
+  %.09220.us.i.i.i.i = phi i32 [ %.3.us.i.i.i.i, %._crit_edge16.us.i.i.i.i ], [ 0, %.noexc454 ]
+  %.010119.us.i.i.i.i = phi ptr [ %.1102.us.i.i.i.i, %._crit_edge16.us.i.i.i.i ], [ null, %.noexc454 ]
+  br i1 %1881, label %1883, label %.lr.ph15.us.i.i.i.i
 
 1883:                                             ; preds = %.preheader.split.us.i.i.i.i
   %1884 = sext i32 %1880 to i64
@@ -19039,21 +19040,21 @@ _ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i: ;
 
 .noexc455:                                        ; preds = %1883
   %1887 = icmp eq ptr %1886, null
-  br i1 %1887, label %.split.us.i.i.i.i, label %.lr.ph16.us.i.i.i.i
+  br i1 %1887, label %.split.us.i.i.i.i, label %.lr.ph15.us.i.i.i.i
 
-.lr.ph16.us.i.i.i.i:                              ; preds = %.noexc455, %.preheader.split.us.i.i.i.i
-  %.1102.us.i.i.i.i = phi ptr [ %1886, %.noexc455 ], [ %.010120.us.i.i.i.i, %.preheader.split.us.i.i.i.i ]
+.lr.ph15.us.i.i.i.i:                              ; preds = %.noexc455, %.preheader.split.us.i.i.i.i
+  %.1102.us.i.i.i.i = phi ptr [ %1886, %.noexc455 ], [ %.010119.us.i.i.i.i, %.preheader.split.us.i.i.i.i ]
   store i32 0, ptr %7, align 4, !tbaa !19
   %.not.i108.us.i.i.i.i = icmp eq ptr %.1102.us.i.i.i.i, null
   br label %1888
 
-1888:                                             ; preds = %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i, %.lr.ph16.us.i.i.i.i
-  %indvars.iv25.i.i.i.i = phi i64 [ 0, %.lr.ph16.us.i.i.i.i ], [ %indvars.iv.next26.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
-  %.014.us.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph16.us.i.i.i.i ], [ %.1.us.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
-  %.08813.us.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph16.us.i.i.i.i ], [ %.189.us.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
-  %.212.us.i.i.i.i = phi i32 [ %.09221.us.i.i.i.i, %.lr.ph16.us.i.i.i.i ], [ %.3.us.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
-  %.29611.us.i.i.i.i = phi i32 [ -1, %.lr.ph16.us.i.i.i.i ], [ %.397.us.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
-  %1889 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %1867, i64 %indvars.iv25.i.i.i.i
+1888:                                             ; preds = %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i, %.lr.ph15.us.i.i.i.i
+  %indvars.iv24.i.i.i.i = phi i64 [ 0, %.lr.ph15.us.i.i.i.i ], [ %indvars.iv.next25.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
+  %.013.us.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph15.us.i.i.i.i ], [ %.1.us.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
+  %.08812.us.i.i.i.i = phi float [ 0.000000e+00, %.lr.ph15.us.i.i.i.i ], [ %.189.us.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
+  %.211.us.i.i.i.i = phi i32 [ %.09220.us.i.i.i.i, %.lr.ph15.us.i.i.i.i ], [ %.3.us.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
+  %.29610.us.i.i.i.i = phi i32 [ -1, %.lr.ph15.us.i.i.i.i ], [ %.397.us.i.i.i.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i ]
+  %1889 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %1867, i64 %indvars.iv24.i.i.i.i
   %1890 = getelementptr inbounds nuw i8, ptr %1889, i64 12
   %1891 = load i8, ptr %1890, align 2, !tbaa !430
   switch i8 %1891, label %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i [
@@ -19081,7 +19082,7 @@ _ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i: ;
   %1907 = getelementptr inbounds nuw i8, ptr %1889, i64 2
   %1908 = load i16, ptr %1907, align 2, !tbaa !438
   %1909 = sitofp i16 %1908 to float
-  call fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef %.1102.us.i.i.i.i, ptr noundef %7, float noundef %.08813.us.i.i.i.i, float noundef %.014.us.i.i.i.i, float noundef %1895, float noundef %1898, float noundef %1901, float noundef %1904, float noundef %1906, float noundef %1909, float noundef %1671, i32 noundef 0)
+  call fastcc void @_ZL22stbtt__tesselate_cubicP12stbtt__pointPifffffffffi(ptr noundef %.1102.us.i.i.i.i, ptr noundef %7, float noundef %.08812.us.i.i.i.i, float noundef %.013.us.i.i.i.i, float noundef %1895, float noundef %1898, float noundef %1901, float noundef %1904, float noundef %1906, float noundef %1909, float noundef %1671, i32 noundef 0)
   %1910 = load i16, ptr %1889, align 2, !tbaa !437
   %1911 = sitofp i16 %1910 to float
   %1912 = load i16, ptr %1907, align 2, !tbaa !438
@@ -19100,7 +19101,7 @@ _ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i: ;
   %1923 = getelementptr inbounds nuw i8, ptr %1889, i64 2
   %1924 = load i16, ptr %1923, align 2, !tbaa !438
   %1925 = sitofp i16 %1924 to float
-  call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %.1102.us.i.i.i.i, ptr noundef %7, float noundef %.08813.us.i.i.i.i, float noundef %.014.us.i.i.i.i, float noundef %1917, float noundef %1920, float noundef %1922, float noundef %1925, float noundef %1671, i32 noundef 0)
+  call fastcc void @_ZL22stbtt__tesselate_curveP12stbtt__pointPifffffffi(ptr noundef %.1102.us.i.i.i.i, ptr noundef %7, float noundef %.08812.us.i.i.i.i, float noundef %.013.us.i.i.i.i, float noundef %1917, float noundef %1920, float noundef %1922, float noundef %1925, float noundef %1671, i32 noundef 0)
   %1926 = load i16, ptr %1889, align 2, !tbaa !437
   %1927 = sitofp i16 %1926 to float
   %1928 = load i16, ptr %1923, align 2, !tbaa !438
@@ -19127,30 +19128,30 @@ _ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i: ;
   br label %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i
 
 1942:                                             ; preds = %1888
-  %1943 = icmp sgt i32 %.29611.us.i.i.i.i, -1
-  %.pre31.i.i.i.i = load i32, ptr %7, align 4, !tbaa !19
+  %1943 = icmp sgt i32 %.29610.us.i.i.i.i, -1
+  %.pre30.i.i.i.i = load i32, ptr %7, align 4, !tbaa !19
   br i1 %1943, label %1944, label %1948
 
 1944:                                             ; preds = %1942
-  %1945 = sub nsw i32 %.pre31.i.i.i.i, %.212.us.i.i.i.i
-  %1946 = zext nneg i32 %.29611.us.i.i.i.i to i64
+  %1945 = sub nsw i32 %.pre30.i.i.i.i, %.211.us.i.i.i.i
+  %1946 = zext nneg i32 %.29610.us.i.i.i.i to i64
   %1947 = getelementptr inbounds nuw i32, ptr %1878, i64 %1946
   store i32 %1945, ptr %1947, align 4, !tbaa !19
   br label %1948
 
 1948:                                             ; preds = %1944, %1942
-  %1949 = add nsw i32 %.29611.us.i.i.i.i, 1
+  %1949 = add nsw i32 %.29610.us.i.i.i.i, 1
   %1950 = load i16, ptr %1889, align 2, !tbaa !437
   %1951 = sitofp i16 %1950 to float
   %1952 = getelementptr inbounds nuw i8, ptr %1889, i64 2
   %1953 = load i16, ptr %1952, align 2, !tbaa !438
   %1954 = sitofp i16 %1953 to float
-  %1955 = add nsw i32 %.pre31.i.i.i.i, 1
+  %1955 = add nsw i32 %.pre30.i.i.i.i, 1
   store i32 %1955, ptr %7, align 4, !tbaa !19
   br i1 %.not.i108.us.i.i.i.i, label %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i, label %1956
 
 1956:                                             ; preds = %1948
-  %1957 = sext i32 %.pre31.i.i.i.i to i64
+  %1957 = sext i32 %.pre30.i.i.i.i to i64
   %1958 = getelementptr inbounds %struct.stbtt__point, ptr %.1102.us.i.i.i.i, i64 %1957
   store float %1951, ptr %1958, align 4, !tbaa !439
   %1959 = getelementptr inbounds nuw i8, ptr %1958, i64 4
@@ -19158,15 +19159,15 @@ _ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_.exit.i: ;
   br label %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i
 
 _ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i: ; preds = %1956, %1948, %1938, %1930, %1914, %1892, %1888
-  %.397.us.i.i.i.i = phi i32 [ %.29611.us.i.i.i.i, %1888 ], [ %.29611.us.i.i.i.i, %1914 ], [ %.29611.us.i.i.i.i, %1892 ], [ %1949, %1948 ], [ %1949, %1956 ], [ %.29611.us.i.i.i.i, %1930 ], [ %.29611.us.i.i.i.i, %1938 ]
-  %.3.us.i.i.i.i = phi i32 [ %.212.us.i.i.i.i, %1888 ], [ %.212.us.i.i.i.i, %1914 ], [ %.212.us.i.i.i.i, %1892 ], [ %.pre31.i.i.i.i, %1948 ], [ %.pre31.i.i.i.i, %1956 ], [ %.212.us.i.i.i.i, %1930 ], [ %.212.us.i.i.i.i, %1938 ]
-  %.189.us.i.i.i.i = phi float [ %.08813.us.i.i.i.i, %1888 ], [ %1927, %1914 ], [ %1911, %1892 ], [ %1951, %1948 ], [ %1951, %1956 ], [ %1932, %1930 ], [ %1932, %1938 ]
-  %.1.us.i.i.i.i = phi float [ %.014.us.i.i.i.i, %1888 ], [ %1929, %1914 ], [ %1913, %1892 ], [ %1954, %1948 ], [ %1954, %1956 ], [ %1935, %1930 ], [ %1935, %1938 ]
-  %indvars.iv.next26.i.i.i.i = add nuw nsw i64 %indvars.iv25.i.i.i.i, 1
-  %exitcond29.not.i.i.i.i = icmp eq i64 %indvars.iv.next26.i.i.i.i, %wide.trip.count.i.i.i.i
-  br i1 %exitcond29.not.i.i.i.i, label %._crit_edge17.us.i.i.i.i, label %1888, !llvm.loop !442
+  %.397.us.i.i.i.i = phi i32 [ %.29610.us.i.i.i.i, %1888 ], [ %.29610.us.i.i.i.i, %1914 ], [ %.29610.us.i.i.i.i, %1892 ], [ %1949, %1948 ], [ %1949, %1956 ], [ %.29610.us.i.i.i.i, %1930 ], [ %.29610.us.i.i.i.i, %1938 ]
+  %.3.us.i.i.i.i = phi i32 [ %.211.us.i.i.i.i, %1888 ], [ %.211.us.i.i.i.i, %1914 ], [ %.211.us.i.i.i.i, %1892 ], [ %.pre30.i.i.i.i, %1948 ], [ %.pre30.i.i.i.i, %1956 ], [ %.211.us.i.i.i.i, %1930 ], [ %.211.us.i.i.i.i, %1938 ]
+  %.189.us.i.i.i.i = phi float [ %.08812.us.i.i.i.i, %1888 ], [ %1927, %1914 ], [ %1911, %1892 ], [ %1951, %1948 ], [ %1951, %1956 ], [ %1932, %1930 ], [ %1932, %1938 ]
+  %.1.us.i.i.i.i = phi float [ %.013.us.i.i.i.i, %1888 ], [ %1929, %1914 ], [ %1913, %1892 ], [ %1954, %1948 ], [ %1954, %1956 ], [ %1935, %1930 ], [ %1935, %1938 ]
+  %indvars.iv.next25.i.i.i.i = add nuw nsw i64 %indvars.iv24.i.i.i.i, 1
+  %exitcond28.not.i.i.i.i = icmp eq i64 %indvars.iv.next25.i.i.i.i, %wide.trip.count.i.i.i.i
+  br i1 %exitcond28.not.i.i.i.i, label %._crit_edge16.us.i.i.i.i, label %1888, !llvm.loop !442
 
-._crit_edge17.us.i.i.i.i:                         ; preds = %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i
+._crit_edge16.us.i.i.i.i:                         ; preds = %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i.i.i.i
   %1960 = load i32, ptr %7, align 4, !tbaa !19
   %1961 = sub nsw i32 %1960, %.3.us.i.i.i.i
   %1962 = sext i32 %.397.us.i.i.i.i to i64
@@ -19186,7 +19187,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.thread.i.i.i: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i
 
-_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_edge17.us.i.i.i.i
+_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_edge16.us.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %.not.i108.us.i.i.i.i, label %_ZL29stbtt_MakeGlyphBitmapSubpixelPK14stbtt_fontinfoPhiiiffffi.exit.i, label %.lr.ph.i22.i.i.i
 
@@ -19229,21 +19230,21 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
 
 .lr.ph10.i.i.i.i:                                 ; preds = %2012, %.lr.ph10.preheader.i.i.i.i
   %1979 = phi i32 [ %1975, %.lr.ph10.preheader.i.i.i.i ], [ %2013, %2012 ]
-  %indvars.iv24.i.i.i.i = phi i64 [ 0, %.lr.ph10.preheader.i.i.i.i ], [ %indvars.iv.next25.i.i.i.i, %2012 ]
+  %indvars.iv24.i27.i.i.i = phi i64 [ 0, %.lr.ph10.preheader.i.i.i.i ], [ %indvars.iv.next25.i28.i.i.i, %2012 ]
   %.28.i.i.i.i = phi i32 [ %.115.i.i.i.i, %.lr.ph10.preheader.i.i.i.i ], [ %.3.i.i.i.i, %2012 ]
   %.0886.i.i.i.i = phi i32 [ %1978, %.lr.ph10.preheader.i.i.i.i ], [ %.pre-phi.i.i.i.i, %2012 ]
   %1980 = zext nneg i32 %.0886.i.i.i.i to i64
   %1981 = getelementptr inbounds nuw %struct.stbtt__point, ptr %1973, i64 %1980
   %1982 = getelementptr inbounds nuw i8, ptr %1981, i64 4
   %1983 = load float, ptr %1982, align 4, !tbaa !441
-  %1984 = getelementptr inbounds nuw %struct.stbtt__point, ptr %1973, i64 %indvars.iv24.i.i.i.i
+  %1984 = getelementptr inbounds nuw %struct.stbtt__point, ptr %1973, i64 %indvars.iv24.i27.i.i.i
   %1985 = getelementptr inbounds nuw i8, ptr %1984, i64 4
   %1986 = load float, ptr %1985, align 4, !tbaa !441
   %1987 = fcmp oeq float %1983, %1986
   br i1 %1987, label %.lr.ph10._crit_edge.i.i.i.i, label %1988
 
 .lr.ph10._crit_edge.i.i.i.i:                      ; preds = %.lr.ph10.i.i.i.i
-  %.pre32.i.i.i.i = trunc nuw nsw i64 %indvars.iv24.i.i.i.i to i32
+  %.pre32.i.i.i.i = trunc nuw nsw i64 %indvars.iv24.i27.i.i.i to i32
   br label %2012
 
 1988:                                             ; preds = %.lr.ph10.i.i.i.i
@@ -19252,7 +19253,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
   %1991 = getelementptr inbounds nuw i8, ptr %1990, i64 16
   %1992 = fcmp ogt float %1983, %1986
   %storemerge.i.i.i.i = zext i1 %1992 to i32
-  %1993 = trunc nuw nsw i64 %indvars.iv24.i.i.i.i to i32
+  %1993 = trunc nuw nsw i64 %indvars.iv24.i27.i.i.i to i32
   %.082.i.i.i.i = select i1 %1992, i32 %.0886.i.i.i.i, i32 %1993
   %.0.i.i.i.i449 = select i1 %1992, i32 %1993, i32 %.0886.i.i.i.i
   store i32 %storemerge.i.i.i.i, ptr %1991, align 4, !tbaa !445
@@ -19285,9 +19286,9 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
   %.pre-phi.i.i.i.i = phi i32 [ %.pre32.i.i.i.i, %.lr.ph10._crit_edge.i.i.i.i ], [ %1993, %1988 ]
   %2013 = phi i32 [ %1979, %.lr.ph10._crit_edge.i.i.i.i ], [ %.pre.i.i.i.i, %1988 ]
   %.3.i.i.i.i = phi i32 [ %.28.i.i.i.i, %.lr.ph10._crit_edge.i.i.i.i ], [ %2011, %1988 ]
-  %indvars.iv.next25.i.i.i.i = add nuw nsw i64 %indvars.iv24.i.i.i.i, 1
+  %indvars.iv.next25.i28.i.i.i = add nuw nsw i64 %indvars.iv24.i27.i.i.i, 1
   %2014 = sext i32 %2013 to i64
-  %2015 = icmp slt i64 %indvars.iv.next25.i.i.i.i, %2014
+  %2015 = icmp slt i64 %indvars.iv.next25.i28.i.i.i, %2014
   br i1 %2015, label %.lr.ph10.i.i.i.i, label %._crit_edge11.i.i.i.i, !llvm.loop !451
 
 ._crit_edge11.i.i.i.i:                            ; preds = %2012, %.lr.ph16.i.i.i.i
@@ -19317,8 +19318,8 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
   br label %2018
 
 2018:                                             ; preds = %2023, %.lr.ph.i.i.i.i.i.i
-  %indvars.iv32.i.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %indvars.iv.next33.i.i.i.i.i.i, %2023 ]
-  %2019 = getelementptr %struct.stbtt__edge, ptr %1970, i64 %indvars.iv32.i.i.i.i.i.i
+  %indvars.iv31.i.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ], [ %indvars.iv.next32.i.i.i.i.i.i, %2023 ]
+  %2019 = getelementptr %struct.stbtt__edge, ptr %1970, i64 %indvars.iv31.i.i.i.i.i.i
   %2020 = getelementptr i8, ptr %2019, i64 -16
   %2021 = load float, ptr %2020, align 4, !tbaa !448
   %2022 = fcmp olt float %.sroa.4.0.copyload.i.i.i.i.i.i, %2021
@@ -19327,12 +19328,12 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit.i.i.i: ; preds = %._crit_
 2023:                                             ; preds = %2018
   %2024 = getelementptr i8, ptr %2019, i64 -20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %2019, ptr noundef nonnull align 4 dereferenceable(20) %2024, i64 20, i1 false), !tbaa.struct !226
-  %indvars.iv.next33.i.i.i.i.i.i = add nsw i64 %indvars.iv32.i.i.i.i.i.i, -1
-  %2025 = icmp sgt i64 %indvars.iv32.i.i.i.i.i.i, 1
+  %indvars.iv.next32.i.i.i.i.i.i = add nsw i64 %indvars.iv31.i.i.i.i.i.i, -1
+  %2025 = icmp sgt i64 %indvars.iv31.i.i.i.i.i.i, 1
   br i1 %2025, label %2018, label %.thread.i.i.i.i.i.i
 
 .thread.split.loop.exit.i.i.i.i.i.i:              ; preds = %2018
-  %2026 = trunc nuw nsw i64 %indvars.iv32.i.i.i.i.i.i to i32
+  %2026 = trunc nuw nsw i64 %indvars.iv31.i.i.i.i.i.i to i32
   br label %.thread.i.i.i.i.i.i
 
 .thread.i.i.i.i.i.i:                              ; preds = %2023, %.thread.split.loop.exit.i.i.i.i.i.i
@@ -24259,8 +24260,8 @@ define void @_ZN6ImFont16BuildLookupTableEv(ptr noundef nonnull align 8 derefere
   %2 = alloca [3 x i16], align 2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !522
-  %.not110 = icmp eq i32 %4, 0
-  br i1 %.not110, label %._crit_edge, label %.lr.ph
+  %.not105 = icmp eq i32 %4, 0
+  br i1 %.not105, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -24310,9 +24311,9 @@ _ZN8ImVectorItE5clearEv.exit:                     ; preds = %_ZN8ImVectorIfE5cle
   tail call void @_ZN6ImFont9GrowIndexEi(ptr noundef nonnull align 8 dereferenceable(114) %0, i32 noundef %.0.lcssa)
   %20 = load i32, ptr %3, align 8, !tbaa !522
   %21 = icmp sgt i32 %20, 0
-  br i1 %21, label %.lr.ph114, label %._crit_edge115
+  br i1 %21, label %.lr.ph109, label %._crit_edge110
 
-.lr.ph114:                                        ; preds = %_ZN8ImVectorItE5clearEv.exit
+.lr.ph109:                                        ; preds = %_ZN8ImVectorItE5clearEv.exit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %23 = load ptr, ptr %22, align 8, !tbaa !508
   %24 = load ptr, ptr %9, align 8, !tbaa !511
@@ -24322,26 +24323,26 @@ _ZN8ImVectorItE5clearEv.exit:                     ; preds = %_ZN8ImVectorIfE5cle
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %.0112 = phi i32 [ 0, %.lr.ph ], [ %30, %26 ]
+  %.0107 = phi i32 [ 0, %.lr.ph ], [ %30, %26 ]
   %27 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %6, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4
   %29 = lshr i32 %28, 2
-  %30 = tail call noundef i32 @llvm.smax.i32(i32 %.0112, i32 %29)
+  %30 = tail call noundef i32 @llvm.smax.i32(i32 %.0107, i32 %29)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %7
   br i1 %.not, label %._crit_edge.loopexit, label %26, !llvm.loop !548
 
-._crit_edge115:                                   ; preds = %46, %_ZN8ImVectorItE5clearEv.exit
+._crit_edge110:                                   ; preds = %46, %_ZN8ImVectorItE5clearEv.exit
   %31 = load i32, ptr %13, align 8, !tbaa !162
   %.not.i50 = icmp ugt i32 %31, 32
   br i1 %.not.i50, label %35, label %32
 
-32:                                               ; preds = %._crit_edge115
+32:                                               ; preds = %._crit_edge110
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %34 = load ptr, ptr %33, align 8, !tbaa !163
   br label %_ZN6ImFont9FindGlyphEt.exit
 
-35:                                               ; preds = %._crit_edge115
+35:                                               ; preds = %._crit_edge110
   %36 = load ptr, ptr %14, align 8, !tbaa !164
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
   %38 = load i16, ptr %37, align 2, !tbaa !114
@@ -24360,9 +24361,9 @@ _ZN6ImFont9FindGlyphEt.exit:                      ; preds = %32, %35
   %.not42 = icmp eq ptr %.0.i, null
   br i1 %.not42, label %126, label %65
 
-46:                                               ; preds = %.lr.ph114, %46
-  %indvars.iv129 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next130, %46 ]
-  %47 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %23, i64 %indvars.iv129
+46:                                               ; preds = %.lr.ph109, %46
+  %indvars.iv124 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next125, %46 ]
+  %47 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %23, i64 %indvars.iv124
   %48 = load i32, ptr %47, align 4
   %49 = lshr i32 %48, 2
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
@@ -24370,7 +24371,7 @@ _ZN6ImFont9FindGlyphEt.exit:                      ; preds = %32, %35
   %52 = zext nneg i32 %49 to i64
   %53 = getelementptr inbounds nuw float, ptr %24, i64 %52
   store float %51, ptr %53, align 4, !tbaa !3
-  %54 = trunc i64 %indvars.iv129 to i16
+  %54 = trunc i64 %indvars.iv124 to i16
   %55 = getelementptr inbounds nuw i16, ptr %25, i64 %52
   store i16 %54, ptr %55, align 2, !tbaa !114
   %56 = lshr i32 %48, 15
@@ -24383,9 +24384,9 @@ _ZN6ImFont9FindGlyphEt.exit:                      ; preds = %32, %35
   %63 = trunc nuw i32 %58 to i8
   %64 = or i8 %62, %63
   store i8 %64, ptr %61, align 1, !tbaa !23
-  %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next130, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge115, label %46, !llvm.loop !549
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next125, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge110, label %46, !llvm.loop !549
 
 65:                                               ; preds = %_ZN6ImFont9FindGlyphEt.exit
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -24402,8 +24403,8 @@ _ZN6ImFont9FindGlyphEt.exit:                      ; preds = %32, %35
   %73 = add nsw i32 %20, 1
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %75 = load i32, ptr %74, align 4, !tbaa !509
-  %.not106 = icmp slt i32 %20, %75
-  br i1 %.not106, label %_ZN8ImVectorI11ImFontGlyphE6resizeEi.exit, label %76
+  %.not101 = icmp slt i32 %20, %75
+  br i1 %.not101, label %_ZN8ImVectorI11ImFontGlyphE6resizeEi.exit, label %76
 
 76:                                               ; preds = %72
   %.not.i.i = icmp eq i32 %75, 0
@@ -24443,11 +24444,11 @@ _ZN8ImVectorI11ImFontGlyphE6resizeEi.exit:        ; preds = %72, %91
   %.pre = phi i32 [ %31, %72 ], [ %.pre.pre, %91 ]
   %92 = phi ptr [ %67, %72 ], [ %84, %91 ]
   store i32 %73, ptr %3, align 8, !tbaa !510
-  %.pre147 = sext i32 %73 to i64
+  %.pre142 = sext i32 %73 to i64
   br label %93
 
 93:                                               ; preds = %_ZN8ImVectorI11ImFontGlyphE6resizeEi.exit, %65
-  %.pre-phi = phi i64 [ %.pre147, %_ZN8ImVectorI11ImFontGlyphE6resizeEi.exit ], [ %68, %65 ]
+  %.pre-phi = phi i64 [ %.pre142, %_ZN8ImVectorI11ImFontGlyphE6resizeEi.exit ], [ %68, %65 ]
   %94 = phi i32 [ %.pre, %_ZN8ImVectorI11ImFontGlyphE6resizeEi.exit ], [ %31, %65 ]
   %95 = phi ptr [ %92, %_ZN8ImVectorI11ImFontGlyphE6resizeEi.exit ], [ %67, %65 ]
   %96 = getelementptr %struct.ImFontGlyph, ptr %95, i64 %.pre-phi
@@ -24495,11 +24496,11 @@ _ZN6ImFont9FindGlyphEt.exit54:                    ; preds = %98, %101
   %124 = zext nneg i32 %122 to i64
   %125 = getelementptr inbounds nuw i16, ptr %123, i64 %124
   store i16 %120, ptr %125, align 2, !tbaa !114
-  %.pre137 = load i32, ptr %13, align 8, !tbaa !162
+  %.pre132 = load i32, ptr %13, align 8, !tbaa !162
   br label %126
 
 126:                                              ; preds = %_ZN6ImFont9FindGlyphEt.exit54, %_ZN6ImFont9FindGlyphEt.exit
-  %127 = phi i32 [ %.pre137, %_ZN6ImFont9FindGlyphEt.exit54 ], [ %31, %_ZN6ImFont9FindGlyphEt.exit ]
+  %127 = phi i32 [ %.pre132, %_ZN6ImFont9FindGlyphEt.exit54 ], [ %31, %_ZN6ImFont9FindGlyphEt.exit ]
   %.not.i55 = icmp ugt i32 %127, 32
   br i1 %.not.i55, label %131, label %128
 
@@ -24531,11 +24532,11 @@ _ZN6ImFont9FindGlyphEt.exit58:                    ; preds = %128, %131
   %143 = load i32, ptr %.0.i56, align 4
   %144 = and i32 %143, -3
   store i32 %144, ptr %.0.i56, align 4
-  %.pre138 = load i32, ptr %13, align 8, !tbaa !162
+  %.pre133 = load i32, ptr %13, align 8, !tbaa !162
   br label %145
 
 145:                                              ; preds = %142, %_ZN6ImFont9FindGlyphEt.exit58
-  %146 = phi i32 [ %.pre138, %142 ], [ %127, %_ZN6ImFont9FindGlyphEt.exit58 ]
+  %146 = phi i32 [ %.pre133, %142 ], [ %127, %_ZN6ImFont9FindGlyphEt.exit58 ]
   %.not.i59 = icmp ugt i32 %146, 9
   br i1 %.not.i59, label %150, label %147
 
@@ -24567,21 +24568,21 @@ _ZN6ImFont9FindGlyphEt.exit62:                    ; preds = %147, %150
   %162 = load i32, ptr %.0.i60, align 4
   %163 = and i32 %162, -3
   store i32 %163, ptr %.0.i60, align 4
-  %.pre139 = load i32, ptr %13, align 8, !tbaa !162
+  %.pre134 = load i32, ptr %13, align 8, !tbaa !162
   br label %164
 
 164:                                              ; preds = %161, %_ZN6ImFont9FindGlyphEt.exit62
-  %165 = phi i32 [ %.pre139, %161 ], [ %146, %_ZN6ImFont9FindGlyphEt.exit62 ]
+  %165 = phi i32 [ %.pre134, %161 ], [ %146, %_ZN6ImFont9FindGlyphEt.exit62 ]
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 86
   %167 = load i16, ptr %166, align 2, !tbaa !551
   %168 = zext i16 %167 to i64
   %169 = sext i32 %165 to i64
   %.not.i63 = icmp ult i64 %168, %169
-  %.pre140.pre = load ptr, ptr %14, align 8
+  %.pre135.pre = load ptr, ptr %14, align 8
   br i1 %.not.i63, label %170, label %180
 
 170:                                              ; preds = %164
-  %171 = getelementptr inbounds nuw i16, ptr %.pre140.pre, i64 %168
+  %171 = getelementptr inbounds nuw i16, ptr %.pre135.pre, i64 %168
   %172 = load i16, ptr %171, align 2, !tbaa !114
   %173 = icmp eq i16 %172, -1
   br i1 %173, label %180, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit
@@ -24599,8 +24600,8 @@ _ZN6ImFont19FindGlyphNoFallbackEt.exit:           ; preds = %170
 180:                                              ; preds = %170, %164
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre141 = load ptr, ptr %.phi.trans.insert, align 8
-  %182 = freeze ptr %.pre141
+  %.pre136 = load ptr, ptr %.phi.trans.insert, align 8
+  %182 = freeze ptr %.pre136
   %.not.i67 = icmp eq ptr %182, null
   br i1 %.not.i67, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit, label %.split
 
@@ -24613,7 +24614,7 @@ _ZN6ImFont19FindGlyphNoFallbackEt.exit:           ; preds = %170
   br i1 %.not.i.i66, label %186, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i
 
 186:                                              ; preds = %.split
-  %187 = getelementptr inbounds nuw i16, ptr %.pre140.pre, i64 %185
+  %187 = getelementptr inbounds nuw i16, ptr %.pre135.pre, i64 %185
   %188 = load i16, ptr %187, align 2, !tbaa !114
   %189 = icmp eq i16 %188, -1
   br i1 %189, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit
@@ -24625,7 +24626,7 @@ _ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i:  ; preds = %186, %.split
 
 _ZL22FindFirstExistingGlyphP6ImFontPKti.exit:     ; preds = %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i, %186, %_ZN6ImFont19FindGlyphNoFallbackEt.exit, %180
   %190 = phi ptr [ %181, %180 ], [ %178, %_ZN6ImFont19FindGlyphNoFallbackEt.exit ], [ %181, %186 ], [ %181, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i ]
-  %.fr167 = phi ptr [ null, %180 ], [ null, %_ZN6ImFont19FindGlyphNoFallbackEt.exit ], [ %182, %186 ], [ %182, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i ]
+  %.fr162 = phi ptr [ null, %180 ], [ null, %_ZN6ImFont19FindGlyphNoFallbackEt.exit ], [ %182, %186 ], [ %182, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i ]
   %.us-phi = phi i16 [ 0, %180 ], [ 0, %_ZN6ImFont19FindGlyphNoFallbackEt.exit ], [ 0, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i ], [ %184, %186 ]
   store i16 %.us-phi, ptr %166, align 2, !tbaa !551
   %191 = zext i16 %.us-phi to i64
@@ -24633,22 +24634,22 @@ _ZL22FindFirstExistingGlyphP6ImFontPKti.exit:     ; preds = %_ZN6ImFont19FindGly
   br i1 %.not.i68, label %192, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit71.thread
 
 192:                                              ; preds = %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit
-  %193 = getelementptr inbounds nuw i16, ptr %.pre140.pre, i64 %191
+  %193 = getelementptr inbounds nuw i16, ptr %.pre135.pre, i64 %191
   %194 = load i16, ptr %193, align 2, !tbaa !114
   %195 = icmp eq i16 %194, -1
   br i1 %195, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit71.thread, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit71
 
 _ZN6ImFont19FindGlyphNoFallbackEt.exit71:         ; preds = %192
   %196 = zext i16 %194 to i64
-  %197 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %.fr167, i64 %196
+  %197 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %.fr162, i64 %196
   store ptr %197, ptr %190, align 8, !tbaa !163
-  %198 = icmp eq ptr %.fr167, null
+  %198 = icmp eq ptr %.fr162, null
   br i1 %198, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit71.thread, label %206
 
 _ZN6ImFont19FindGlyphNoFallbackEt.exit71.thread:  ; preds = %192, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit, %_ZN6ImFont19FindGlyphNoFallbackEt.exit71
   %199 = load i32, ptr %3, align 8, !tbaa !510
   %200 = sext i32 %199 to i64
-  %201 = getelementptr %struct.ImFontGlyph, ptr %.fr167, i64 %200
+  %201 = getelementptr %struct.ImFontGlyph, ptr %.fr162, i64 %200
   %202 = getelementptr i8, ptr %201, i64 -40
   store ptr %202, ptr %190, align 8, !tbaa !163
   %203 = load i32, ptr %202, align 4
@@ -24665,7 +24666,7 @@ _ZN6ImFont19FindGlyphNoFallbackEt.exit71.thread:  ; preds = %192, %_ZL22FindFirs
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store float %210, ptr %211, align 8, !tbaa !507
   %212 = load ptr, ptr %9, align 8, !tbaa !511
-  %wide.trip.count135 = zext nneg i32 %.0.lcssa to i64
+  %wide.trip.count130 = zext nneg i32 %.0.lcssa to i64
   br label %225
 
 213:                                              ; preds = %230
@@ -24682,15 +24683,15 @@ _ZN6ImFont19FindGlyphNoFallbackEt.exit71.thread:  ; preds = %192, %_ZL22FindFirs
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %221 = load i16, ptr %220, align 4, !tbaa !553
   %222 = icmp eq i16 %221, 0
-  %.pre142 = load ptr, ptr %14, align 8
+  %.pre137 = load ptr, ptr %14, align 8
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %224 = load ptr, ptr %223, align 8
-  %.fr121 = freeze ptr %224
-  br i1 %222, label %231, label %._crit_edge143
+  %.fr116 = freeze ptr %224
+  br i1 %222, label %231, label %._crit_edge138
 
 225:                                              ; preds = %206, %230
-  %indvars.iv132 = phi i64 [ 0, %206 ], [ %indvars.iv.next133, %230 ]
-  %226 = getelementptr inbounds nuw float, ptr %212, i64 %indvars.iv132
+  %indvars.iv127 = phi i64 [ 0, %206 ], [ %indvars.iv.next128, %230 ]
+  %226 = getelementptr inbounds nuw float, ptr %212, i64 %indvars.iv127
   %227 = load float, ptr %226, align 4, !tbaa !3
   %228 = fcmp olt float %227, 0.000000e+00
   br i1 %228, label %229, label %230
@@ -24700,15 +24701,15 @@ _ZN6ImFont19FindGlyphNoFallbackEt.exit71.thread:  ; preds = %192, %_ZL22FindFirs
   br label %230
 
 230:                                              ; preds = %225, %229
-  %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 1
-  %exitcond136.not = icmp eq i64 %indvars.iv.next133, %wide.trip.count135
-  br i1 %exitcond136.not, label %213, label %225, !llvm.loop !554
+  %indvars.iv.next128 = add nuw nsw i64 %indvars.iv127, 1
+  %exitcond131.not = icmp eq i64 %indvars.iv.next128, %wide.trip.count130
+  br i1 %exitcond131.not, label %213, label %225, !llvm.loop !554
 
 231:                                              ; preds = %213
-  %.not.i78 = icmp eq ptr %.fr121, null
-  br i1 %.not.i78, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit80, label %.split118
+  %.not.i77 = icmp eq ptr %.fr116, null
+  br i1 %.not.i77, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit79, label %.split113
 
-.split118:                                        ; preds = %231, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74
+.split113:                                        ; preds = %231, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74
   %indvars.iv.i72 = phi i64 [ %indvars.iv.next.i75, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74 ], [ 0, %231 ]
   %232 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv.i72
   %233 = load i16, ptr %232, align 2, !tbaa !114
@@ -24716,80 +24717,80 @@ _ZN6ImFont19FindGlyphNoFallbackEt.exit71.thread:  ; preds = %192, %_ZL22FindFirs
   %.not.i.i73 = icmp ult i64 %234, %169
   br i1 %.not.i.i73, label %235, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74
 
-235:                                              ; preds = %.split118
-  %236 = getelementptr inbounds nuw i16, ptr %.pre142, i64 %234
+235:                                              ; preds = %.split113
+  %236 = getelementptr inbounds nuw i16, ptr %.pre137, i64 %234
   %237 = load i16, ptr %236, align 2, !tbaa !114
   %238 = icmp eq i16 %237, -1
-  br i1 %238, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit80
+  br i1 %238, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit79
 
-_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74: ; preds = %235, %.split118
+_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74: ; preds = %235, %.split113
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i72, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, 3
-  br i1 %exitcond.not.i76, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit80, label %.split118, !llvm.loop !552
+  br i1 %exitcond.not.i76, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit79, label %.split113, !llvm.loop !552
 
-_ZL22FindFirstExistingGlyphP6ImFontPKti.exit80:   ; preds = %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74, %235, %231
-  %.us-phi119 = phi i16 [ 0, %231 ], [ 0, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74 ], [ %233, %235 ]
-  store i16 %.us-phi119, ptr %220, align 4, !tbaa !553
-  br label %._crit_edge143
+_ZL22FindFirstExistingGlyphP6ImFontPKti.exit79:   ; preds = %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74, %235, %231
+  %.us-phi114 = phi i16 [ 0, %231 ], [ 0, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i74 ], [ %233, %235 ]
+  store i16 %.us-phi114, ptr %220, align 4, !tbaa !553
+  br label %._crit_edge138
 
-._crit_edge143:                                   ; preds = %213, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit80
-  %239 = phi i16 [ %.us-phi119, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit80 ], [ %221, %213 ]
-  %.not.i87 = icmp eq ptr %.fr121, null
-  br i1 %.not.i87, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit89.thread, label %.split120
+._crit_edge138:                                   ; preds = %213, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit79
+  %239 = phi i16 [ %.us-phi114, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit79 ], [ %221, %213 ]
+  %.not.i85 = icmp eq ptr %.fr116, null
+  br i1 %.not.i85, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit87.thread, label %.split115
 
-.split120:                                        ; preds = %._crit_edge143, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i83
-  %exitcond.not.i85 = phi i1 [ true, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i83 ], [ false, %._crit_edge143 ]
-  %indvars.iv.i81.sroa.phi.sroa.speculated = phi i16 [ -242, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i83 ], [ 46, %._crit_edge143 ]
-  %240 = zext i16 %indvars.iv.i81.sroa.phi.sroa.speculated to i64
-  %.not.i.i82 = icmp ult i64 %240, %169
-  br i1 %.not.i.i82, label %241, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i83
+.split115:                                        ; preds = %._crit_edge138, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i82
+  %exitcond.not.i84 = phi i1 [ true, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i82 ], [ false, %._crit_edge138 ]
+  %indvars.iv.i80.sroa.phi.sroa.speculated = phi i16 [ -242, %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i82 ], [ 46, %._crit_edge138 ]
+  %240 = zext i16 %indvars.iv.i80.sroa.phi.sroa.speculated to i64
+  %.not.i.i81 = icmp ult i64 %240, %169
+  br i1 %.not.i.i81, label %241, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i82
 
-241:                                              ; preds = %.split120
-  %242 = getelementptr inbounds nuw i16, ptr %.pre142, i64 %240
+241:                                              ; preds = %.split115
+  %242 = getelementptr inbounds nuw i16, ptr %.pre137, i64 %240
   %243 = load i16, ptr %242, align 2, !tbaa !114
   %244 = icmp eq i16 %243, -1
-  br i1 %244, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i83, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit89
+  br i1 %244, label %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i82, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit87
 
-_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i83: ; preds = %241, %.split120
-  br i1 %exitcond.not.i85, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit89.thread, label %.split120, !llvm.loop !552
+_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i82: ; preds = %241, %.split115
+  br i1 %exitcond.not.i84, label %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit87.thread, label %.split115, !llvm.loop !552
 
-_ZL22FindFirstExistingGlyphP6ImFontPKti.exit89:   ; preds = %241
+_ZL22FindFirstExistingGlyphP6ImFontPKti.exit87:   ; preds = %241
   %.not47 = icmp eq i16 %239, 0
-  br i1 %.not47, label %_ZN6ImFont9FindGlyphEt.exit97, label %245
+  br i1 %.not47, label %_ZN6ImFont9FindGlyphEt.exit95, label %245
 
-_ZL22FindFirstExistingGlyphP6ImFontPKti.exit89.thread: ; preds = %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i83, %._crit_edge143
-  %.not47102 = icmp eq i16 %239, 0
-  br i1 %.not47102, label %.thread, label %245
+_ZL22FindFirstExistingGlyphP6ImFontPKti.exit87.thread: ; preds = %_ZN6ImFont19FindGlyphNoFallbackEt.exit.thread.i82, %._crit_edge138
+  %.not4799 = icmp eq i16 %239, 0
+  br i1 %.not4799, label %.thread, label %245
 
-245:                                              ; preds = %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit89.thread, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit89
+245:                                              ; preds = %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit87.thread, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit87
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i16 1, ptr %246, align 2, !tbaa !555
   %247 = zext i16 %239 to i64
-  %.not.i90 = icmp ult i64 %247, %169
-  br i1 %.not.i90, label %248, label %_ZN6ImFont9FindGlyphEt.exit93
+  %.not.i88 = icmp ult i64 %247, %169
+  br i1 %.not.i88, label %248, label %_ZN6ImFont9FindGlyphEt.exit91
 
 248:                                              ; preds = %245
-  %249 = getelementptr inbounds nuw i16, ptr %.pre142, i64 %247
+  %249 = getelementptr inbounds nuw i16, ptr %.pre137, i64 %247
   %250 = load i16, ptr %249, align 2, !tbaa !114
   %251 = icmp eq i16 %250, -1
   %252 = load ptr, ptr %208, align 8
   %253 = zext i16 %250 to i64
-  %254 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %.fr121, i64 %253
-  %.1.i92 = select i1 %251, ptr %252, ptr %254
-  br label %_ZN6ImFont9FindGlyphEt.exit93
+  %254 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %.fr116, i64 %253
+  %.1.i90 = select i1 %251, ptr %252, ptr %254
+  br label %_ZN6ImFont9FindGlyphEt.exit91
 
-_ZN6ImFont9FindGlyphEt.exit93:                    ; preds = %245, %248
-  %.0.i91 = phi ptr [ %.1.i92, %248 ], [ %207, %245 ]
-  %255 = getelementptr inbounds nuw i8, ptr %.0.i91, i64 16
+_ZN6ImFont9FindGlyphEt.exit91:                    ; preds = %245, %248
+  %.0.i89 = phi ptr [ %.1.i90, %248 ], [ %207, %245 ]
+  %255 = getelementptr inbounds nuw i8, ptr %.0.i89, i64 16
   %256 = load float, ptr %255, align 4, !tbaa !168
   %257 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store float %256, ptr %257, align 4, !tbaa !556
   br label %.thread.sink.split
 
-_ZN6ImFont9FindGlyphEt.exit97:                    ; preds = %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit89
+_ZN6ImFont9FindGlyphEt.exit95:                    ; preds = %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit87
   %258 = zext i16 %243 to i64
-  %259 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %.fr121, i64 %258
-  store i16 %indvars.iv.i81.sroa.phi.sroa.speculated, ptr %220, align 4, !tbaa !553
+  %259 = getelementptr inbounds nuw %struct.ImFontGlyph, ptr %.fr116, i64 %258
+  store i16 %indvars.iv.i80.sroa.phi.sroa.speculated, ptr %220, align 4, !tbaa !553
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 82
   store i16 3, ptr %260, align 2, !tbaa !555
   %261 = getelementptr inbounds nuw i8, ptr %259, i64 16
@@ -24810,13 +24811,13 @@ _ZN6ImFont9FindGlyphEt.exit97:                    ; preds = %_ZL22FindFirstExist
   %275 = select i1 %274, float %271, float %273
   br label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %_ZN6ImFont9FindGlyphEt.exit93, %_ZN6ImFont9FindGlyphEt.exit97
-  %.sink = phi float [ %275, %_ZN6ImFont9FindGlyphEt.exit97 ], [ %256, %_ZN6ImFont9FindGlyphEt.exit93 ]
+.thread.sink.split:                               ; preds = %_ZN6ImFont9FindGlyphEt.exit91, %_ZN6ImFont9FindGlyphEt.exit95
+  %.sink = phi float [ %275, %_ZN6ImFont9FindGlyphEt.exit95 ], [ %256, %_ZN6ImFont9FindGlyphEt.exit91 ]
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store float %.sink, ptr %276, align 8, !tbaa !557
   br label %.thread
 
-.thread:                                          ; preds = %.thread.sink.split, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit89.thread
+.thread:                                          ; preds = %.thread.sink.split, %_ZL22FindFirstExistingGlyphP6ImFontPKti.exit87.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -24927,19 +24928,19 @@ define void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef nonnull re
 .split.us:                                        ; preds = %3
   %6 = load i8, ptr %1, align 1, !tbaa !23
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %.loopexit, label %.lr.ph19
+  br i1 %7, label %.loopexit, label %.lr.ph18
 
-.lr.ph19:                                         ; preds = %.split.us, %10
-  %.010.us18 = phi ptr [ %12, %10 ], [ %1, %.split.us ]
+.lr.ph18:                                         ; preds = %.split.us, %10
+  %.010.us17 = phi ptr [ %12, %10 ], [ %1, %.split.us ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !19
-  %8 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull %.010.us18, ptr noundef null)
+  %8 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %4, ptr noundef nonnull %.010.us17, ptr noundef null)
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.thread, label %10
 
-10:                                               ; preds = %.lr.ph19
+10:                                               ; preds = %.lr.ph18
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds i8, ptr %.010.us18, i64 %11
+  %12 = getelementptr inbounds i8, ptr %.010.us17, i64 %11
   %13 = load i32, ptr %4, align 4, !tbaa !19
   %14 = and i32 %13, 31
   %15 = shl nuw i32 1, %14
@@ -24954,27 +24955,27 @@ define void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef nonnull re
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %23 = load i8, ptr %12, align 1, !tbaa !23
   %24 = icmp eq i8 %23, 0
-  br i1 %24, label %.loopexit, label %.lr.ph19
+  br i1 %24, label %.loopexit, label %.lr.ph18
 
 .split:                                           ; preds = %3
-  %.not1516 = icmp ult ptr %1, %2
-  br i1 %.not1516, label %.lr.ph, label %.loopexit
+  %.not1415 = icmp ult ptr %1, %2
+  br i1 %.not1415, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.split, %27
-  %.01017 = phi ptr [ %29, %27 ], [ %1, %.split ]
+  %.01016 = phi ptr [ %29, %27 ], [ %1, %.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !19
-  %25 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %4, ptr noundef %.01017, ptr noundef nonnull %2)
+  %25 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %4, ptr noundef %.01016, ptr noundef nonnull %2)
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %.thread, label %27
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph19
+.thread:                                          ; preds = %.lr.ph, %.lr.ph18
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
 27:                                               ; preds = %.lr.ph
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds i8, ptr %.01017, i64 %28
+  %29 = getelementptr inbounds i8, ptr %.01016, i64 %28
   %30 = load i32, ptr %4, align 4, !tbaa !19
   %31 = and i32 %30, 31
   %32 = shl nuw i32 1, %31
@@ -24987,8 +24988,8 @@ define void @_ZN24ImFontGlyphRangesBuilder7AddTextEPKcS1_(ptr noundef nonnull re
   %39 = or i32 %38, %32
   store i32 %39, ptr %37, align 4, !tbaa !19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not15 = icmp ult ptr %29, %2
-  br i1 %.not15, label %.lr.ph, label %.loopexit
+  %.not14 = icmp ult ptr %29, %2
+  br i1 %.not14, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %27, %10, %.split.us, %.split, %.thread
   ret void
@@ -25710,28 +25711,28 @@ define noundef ptr @_ZN6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnu
   br label %11
 
 11:                                               ; preds = %.lr.ph, %51
-  %.053104 = phi ptr [ %2, %.lr.ph ], [ %.052, %51 ]
-  %.055103 = phi i8 [ 1, %.lr.ph ], [ %.156, %51 ]
-  %.058102 = phi ptr [ null, %.lr.ph ], [ %.159, %51 ]
-  %.062101 = phi ptr [ %2, %.lr.ph ], [ %.163, %51 ]
-  %.067100 = phi float [ 0.000000e+00, %.lr.ph ], [ %.168, %51 ]
-  %.07299 = phi float [ 0.000000e+00, %.lr.ph ], [ %.173, %51 ]
-  %.07698 = phi float [ 0.000000e+00, %.lr.ph ], [ %.177, %51 ]
+  %.053102 = phi ptr [ %2, %.lr.ph ], [ %.052, %51 ]
+  %.055101 = phi i8 [ 1, %.lr.ph ], [ %.156, %51 ]
+  %.058100 = phi ptr [ null, %.lr.ph ], [ %.159, %51 ]
+  %.06299 = phi ptr [ %2, %.lr.ph ], [ %.163, %51 ]
+  %.06798 = phi float [ 0.000000e+00, %.lr.ph ], [ %.168, %51 ]
+  %.07297 = phi float [ 0.000000e+00, %.lr.ph ], [ %.173, %51 ]
+  %.07696 = phi float [ 0.000000e+00, %.lr.ph ], [ %.177, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %12 = load i8, ptr %.053104, align 1, !tbaa !23
+  %12 = load i8, ptr %.053102, align 1, !tbaa !23
   %13 = sext i8 %12 to i32
   store i32 %13, ptr %6, align 4, !tbaa !19
   %14 = icmp sgt i8 %12, -1
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %.053104, i64 1
+  %16 = getelementptr inbounds nuw i8, ptr %.053102, i64 1
   br label %21
 
 17:                                               ; preds = %11
-  %18 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %6, ptr noundef nonnull %.053104, ptr noundef nonnull %3)
+  %18 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %6, ptr noundef nonnull %.053102, ptr noundef nonnull %3)
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i8, ptr %.053104, i64 %19
+  %20 = getelementptr inbounds i8, ptr %.053102, i64 %19
   %.pr = load i32, ptr %6, align 4, !tbaa !19
   br label %21
 
@@ -25765,30 +25766,30 @@ define noundef ptr @_ZN6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnu
   ]
 
 33:                                               ; preds = %26, %26, %26
-  %34 = trunc nuw i8 %.055103 to i1
-  %35 = fadd float %.07698, %.067100
-  %.278 = select i1 %34, float %35, float %.07698
-  %.269 = select i1 %34, float 0.000000e+00, float %.067100
-  %.264 = select i1 %34, ptr %.053104, ptr %.062101
+  %34 = trunc nuw i8 %.055101 to i1
+  %35 = fadd float %.07696, %.06798
+  %.278 = select i1 %34, float %35, float %.07696
+  %.269 = select i1 %34, float 0.000000e+00, float %.06798
+  %.264 = select i1 %34, ptr %.053102, ptr %.06299
   %36 = fadd float %.269, %32
   br label %46
 
 _ZL14ImCharIsBlankWj.exit:                        ; preds = %26
-  %37 = fadd float %.07299, %32
-  %38 = trunc nuw i8 %.055103 to i1
+  %37 = fadd float %.07297, %32
+  %38 = trunc nuw i8 %.055101 to i1
   br i1 %38, label %42, label %39
 
 39:                                               ; preds = %_ZL14ImCharIsBlankWj.exit
-  %40 = fadd float %.067100, %37
-  %41 = fadd float %.07698, %40
+  %40 = fadd float %.06798, %37
+  %41 = fadd float %.07696, %40
   br label %42
 
 42:                                               ; preds = %_ZL14ImCharIsBlankWj.exit, %39
-  %.480 = phi float [ %41, %39 ], [ %.07698, %_ZL14ImCharIsBlankWj.exit ]
+  %.480 = phi float [ %41, %39 ], [ %.07696, %_ZL14ImCharIsBlankWj.exit ]
   %.375 = phi float [ 0.000000e+00, %39 ], [ %37, %_ZL14ImCharIsBlankWj.exit ]
-  %.471 = phi float [ 0.000000e+00, %39 ], [ %.067100, %_ZL14ImCharIsBlankWj.exit ]
-  %.466 = phi ptr [ %.062101, %39 ], [ %.052, %_ZL14ImCharIsBlankWj.exit ]
-  %.361 = phi ptr [ %.062101, %39 ], [ %.058102, %_ZL14ImCharIsBlankWj.exit ]
+  %.471 = phi float [ 0.000000e+00, %39 ], [ %.06798, %_ZL14ImCharIsBlankWj.exit ]
+  %.466 = phi ptr [ %.06299, %39 ], [ %.052, %_ZL14ImCharIsBlankWj.exit ]
+  %.361 = phi ptr [ %.06299, %39 ], [ %.058100, %_ZL14ImCharIsBlankWj.exit ]
   switch i32 %22, label %43 [
     i32 63, label %46
     i32 59, label %46
@@ -25804,10 +25805,10 @@ _ZL14ImCharIsBlankWj.exit:                        ; preds = %26
 
 46:                                               ; preds = %43, %42, %42, %42, %42, %42, %33
   %.379 = phi float [ %.278, %33 ], [ %.480, %42 ], [ %.480, %42 ], [ %.480, %42 ], [ %.480, %42 ], [ %.480, %42 ], [ %.480, %43 ]
-  %.274 = phi float [ %.07299, %33 ], [ %.375, %42 ], [ %.375, %42 ], [ %.375, %42 ], [ %.375, %42 ], [ %.375, %42 ], [ %.375, %43 ]
+  %.274 = phi float [ %.07297, %33 ], [ %.375, %42 ], [ %.375, %42 ], [ %.375, %42 ], [ %.375, %42 ], [ %.375, %42 ], [ %.375, %43 ]
   %.370 = phi float [ %36, %33 ], [ %.471, %42 ], [ %.471, %42 ], [ %.471, %42 ], [ %.471, %42 ], [ %.471, %42 ], [ %.471, %43 ]
   %.365 = phi ptr [ %.264, %33 ], [ %.466, %42 ], [ %.466, %42 ], [ %.466, %42 ], [ %.466, %42 ], [ %.466, %42 ], [ %.466, %43 ]
-  %.260 = phi ptr [ %.058102, %33 ], [ %.361, %42 ], [ %.361, %42 ], [ %.361, %42 ], [ %.361, %42 ], [ %.361, %42 ], [ %.361, %43 ]
+  %.260 = phi ptr [ %.058100, %33 ], [ %.361, %42 ], [ %.361, %42 ], [ %.361, %42 ], [ %.361, %42 ], [ %.361, %42 ], [ %.361, %43 ]
   %.257 = phi i8 [ 0, %33 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ 0, %42 ], [ %45, %43 ]
   %47 = fadd float %.379, %.274
   %48 = fcmp ogt float %47, %7
@@ -25817,17 +25818,17 @@ _ZL14ImCharIsBlankWj.exit:                        ; preds = %26
   %49 = fcmp olt float %.274, %7
   %.not = icmp eq ptr %.260, null
   %50 = select i1 %.not, ptr %.365, ptr %.260
-  %.3 = select i1 %49, ptr %50, ptr %.053104
+  %.3 = select i1 %49, ptr %50, ptr %.053102
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit
 
 51:                                               ; preds = %46, %24, %25
-  %.177 = phi float [ %.07698, %25 ], [ 0.000000e+00, %24 ], [ %.379, %46 ]
-  %.173 = phi float [ %.07299, %25 ], [ 0.000000e+00, %24 ], [ %.274, %46 ]
-  %.168 = phi float [ %.067100, %25 ], [ 0.000000e+00, %24 ], [ %.370, %46 ]
-  %.163 = phi ptr [ %.062101, %25 ], [ %.062101, %24 ], [ %.365, %46 ]
-  %.159 = phi ptr [ %.058102, %25 ], [ %.058102, %24 ], [ %.260, %46 ]
-  %.156 = phi i8 [ %.055103, %25 ], [ 1, %24 ], [ %.257, %46 ]
+  %.177 = phi float [ %.07696, %25 ], [ 0.000000e+00, %24 ], [ %.379, %46 ]
+  %.173 = phi float [ %.07297, %25 ], [ 0.000000e+00, %24 ], [ %.274, %46 ]
+  %.168 = phi float [ %.06798, %25 ], [ 0.000000e+00, %24 ], [ %.370, %46 ]
+  %.163 = phi ptr [ %.06299, %25 ], [ %.06299, %24 ], [ %.365, %46 ]
+  %.159 = phi ptr [ %.058100, %25 ], [ %.058100, %24 ], [ %.260, %46 ]
+  %.156 = phi i8 [ %.055101, %25 ], [ 1, %24 ], [ %.257, %46 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %52 = icmp ult ptr %.052, %3
   br i1 %52, label %11, label %.loopexit
@@ -25858,7 +25859,7 @@ define <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull 
   %14 = load float, ptr %13, align 4, !tbaa !149
   %15 = fdiv float %1, %14
   %16 = icmp ult ptr %4, %.0
-  br i1 %16, label %.lr.ph, label %._crit_edge
+  br i1 %16, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %12
   %17 = fcmp ogt float %3, 0.000000e+00
@@ -25868,38 +25869,38 @@ define <2 x float> @_ZN6ImFont13CalcTextSizeAEfffPKcS1_PS1_(ptr noundef nonnull 
   br i1 %17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.backedge.us
-  %.04993.us = phi float [ %.049.be.us, %.backedge.us ], [ 0.000000e+00, %.lr.ph ]
-  %.05192.us = phi ptr [ %.051.be.us, %.backedge.us ], [ %4, %.lr.ph ]
-  %.05591.us = phi ptr [ %.055.be.us, %.backedge.us ], [ null, %.lr.ph ]
-  %.sroa.0.090.us = phi <2 x float> [ %.sroa.0.0.be.us, %.backedge.us ], [ zeroinitializer, %.lr.ph ]
-  %.not64.us = icmp eq ptr %.05591.us, null
+  %.049103.us = phi float [ %.049.be.us, %.backedge.us ], [ 0.000000e+00, %.lr.ph ]
+  %.051102.us = phi ptr [ %.051.be.us, %.backedge.us ], [ %4, %.lr.ph ]
+  %.055101.us = phi ptr [ %.055.be.us, %.backedge.us ], [ null, %.lr.ph ]
+  %.sroa.0.0100.us = phi <2 x float> [ %.sroa.0.0.be.us, %.backedge.us ], [ zeroinitializer, %.lr.ph ]
+  %.not64.us = icmp eq ptr %.055101.us, null
   br i1 %.not64.us, label %21, label %24
 
 21:                                               ; preds = %.lr.ph.split.us
-  %22 = fsub float %3, %.04993.us
-  %23 = call noundef ptr @_ZN6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull align 8 dereferenceable(114) %0, float noundef %15, ptr noundef %.05192.us, ptr noundef nonnull %.0, float noundef %22)
+  %22 = fsub float %3, %.049103.us
+  %23 = call noundef ptr @_ZN6ImFont21CalcWordWrapPositionAEfPKcS1_f(ptr noundef nonnull align 8 dereferenceable(114) %0, float noundef %15, ptr noundef %.051102.us, ptr noundef nonnull %.0, float noundef %22)
   br label %24
 
 24:                                               ; preds = %21, %.lr.ph.split.us
-  %.257.us = phi ptr [ %.05591.us, %.lr.ph.split.us ], [ %23, %21 ]
-  %.not65.us = icmp ult ptr %.05192.us, %.257.us
+  %.257.us = phi ptr [ %.055101.us, %.lr.ph.split.us ], [ %23, %21 ]
+  %.not65.us = icmp ult ptr %.051102.us, %.257.us
   br i1 %.not65.us, label %34, label %.lr.ph.preheader.i.us
 
 .lr.ph.preheader.i.us:                            ; preds = %24
-  %.sroa.0.0.vec.extract.us = extractelement <2 x float> %.sroa.0.090.us, i64 0
-  %25 = fcmp olt float %.sroa.0.0.vec.extract.us, %.04993.us
-  %.sroa.0.0.vec.insert.us = insertelement <2 x float> %.sroa.0.090.us, float %.04993.us, i64 0
-  %.sroa.0.2.us = select i1 %25, <2 x float> %.sroa.0.0.vec.insert.us, <2 x float> %.sroa.0.090.us
+  %.sroa.0.0.vec.extract.us = extractelement <2 x float> %.sroa.0.0100.us, i64 0
+  %25 = fcmp olt float %.sroa.0.0.vec.extract.us, %.049103.us
+  %.sroa.0.0.vec.insert.us = insertelement <2 x float> %.sroa.0.0100.us, float %.049103.us, i64 0
+  %.sroa.0.2.us = select i1 %25, <2 x float> %.sroa.0.0.vec.insert.us, <2 x float> %.sroa.0.0100.us
   %.sroa.0.4.vec.extract87.us = extractelement <2 x float> %.sroa.0.2.us, i64 1
   %26 = fadd float %1, %.sroa.0.4.vec.extract87.us
   %.sroa.0.4.vec.insert85.us = insertelement <2 x float> %.sroa.0.2.us, float %26, i64 1
-  %27 = ptrtoint ptr %.05192.us to i64
+  %27 = ptrtoint ptr %.051102.us to i64
   %28 = sub i64 %18, %27
-  %scevgep.i.us = getelementptr i8, ptr %.05192.us, i64 %28
+  %scevgep.i.us = getelementptr i8, ptr %.051102.us, i64 %28
   br label %.lr.ph.i.us
 
 .lr.ph.i.us:                                      ; preds = %30, %.lr.ph.preheader.i.us
-  %.07.i.us = phi ptr [ %31, %30 ], [ %.05192.us, %.lr.ph.preheader.i.us ]
+  %.07.i.us = phi ptr [ %31, %30 ], [ %.051102.us, %.lr.ph.preheader.i.us ]
   %29 = load i8, ptr %.07.i.us, align 1, !tbaa !23
   switch i8 %29, label %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us [
     i8 32, label %30
@@ -25925,21 +25926,21 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
 
 34:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %35 = load i8, ptr %.05192.us, align 1, !tbaa !23
+  %35 = load i8, ptr %.051102.us, align 1, !tbaa !23
   %36 = sext i8 %35 to i32
   store i32 %36, ptr %8, align 4, !tbaa !19
   %37 = icmp sgt i8 %35, -1
   br i1 %37, label %42, label %38
 
 38:                                               ; preds = %34
-  %39 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %8, ptr noundef nonnull %.05192.us, ptr noundef nonnull %.0)
+  %39 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %8, ptr noundef nonnull %.051102.us, ptr noundef nonnull %.0)
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i8, ptr %.05192.us, i64 %40
+  %41 = getelementptr inbounds i8, ptr %.051102.us, i64 %40
   %.pr.us = load i32, ptr %8, align 4, !tbaa !19
   br label %44
 
 42:                                               ; preds = %34
-  %43 = getelementptr inbounds nuw i8, ptr %.05192.us, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.051102.us, i64 1
   br label %44
 
 44:                                               ; preds = %42, %38
@@ -25951,26 +25952,20 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
 47:                                               ; preds = %44
   switch i32 %45, label %52 [
     i32 10, label %48
-    i32 13, label %.thread
+    i32 13, label %select.unfold.us
   ], !llvm.loop !570
 
 48:                                               ; preds = %47
-  %.sroa.0.0.vec.extract70.us = extractelement <2 x float> %.sroa.0.090.us, i64 0
-  %49 = fcmp oge float %.sroa.0.0.vec.extract70.us, %.04993.us
-  %50 = select i1 %49, float %.sroa.0.0.vec.extract70.us, float %.04993.us
+  %.sroa.0.0.vec.extract70.us = extractelement <2 x float> %.sroa.0.0100.us, i64 0
+  %49 = fcmp oge float %.sroa.0.0.vec.extract70.us, %.049103.us
+  %50 = select i1 %49, float %.sroa.0.0.vec.extract70.us, float %.049103.us
   %.sroa.0.0.vec.insert72.us = insertelement <2 x float> poison, float %50, i64 0
-  %.sroa.0.4.vec.extract.us = extractelement <2 x float> %.sroa.0.090.us, i64 1
+  %.sroa.0.4.vec.extract.us = extractelement <2 x float> %.sroa.0.0100.us, i64 1
   %51 = fadd float %1, %.sroa.0.4.vec.extract.us
   %.sroa.0.4.vec.insert.us = insertelement <2 x float> %.sroa.0.0.vec.insert72.us, float %51, i64 1
-  br label %.thread, !llvm.loop !570
+  br label %select.unfold.us, !llvm.loop !570
 
-.thread:                                          ; preds = %48, %47
-  %.sroa.0.3.us.ph = phi <2 x float> [ %.sroa.0.090.us, %47 ], [ %.sroa.0.4.vec.insert.us, %48 ]
-  %.2.us.ph = phi float [ %.04993.us, %47 ], [ 0.000000e+00, %48 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.backedge.us
-
-52:                                               ; preds = %44, %47
+52:                                               ; preds = %47, %44
   %53 = load i32, ptr %0, align 8, !tbaa !569
   %54 = icmp slt i32 %45, %53
   %55 = load ptr, ptr %19, align 8
@@ -25979,38 +25974,43 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
   %.in.us = select i1 %54, ptr %57, ptr %20
   %58 = load float, ptr %.in.us, align 4, !tbaa !3
   %59 = fmul float %15, %58
-  %60 = fadd float %.04993.us, %59
+  %60 = fadd float %.049103.us, %59
   %61 = fcmp ult float %60, %2
+  br i1 %61, label %select.unfold.us, label %.thread
+
+select.unfold.us:                                 ; preds = %52, %48, %47
+  %.sroa.0.3.us = phi <2 x float> [ %.sroa.0.4.vec.insert.us, %48 ], [ %.sroa.0.0100.us, %47 ], [ %.sroa.0.0100.us, %52 ]
+  %.2.us = phi float [ 0.000000e+00, %48 ], [ %.049103.us, %47 ], [ %60, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %61, label %.backedge.us, label %._crit_edge
+  br label %.backedge.us
 
-.backedge.us:                                     ; preds = %.thread, %52, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us
-  %.sroa.0.0.be.us = phi <2 x float> [ %.sroa.0.090.us, %52 ], [ %.sroa.0.4.vec.insert85.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %.sroa.0.3.us.ph, %.thread ]
-  %.055.be.us = phi ptr [ %.257.us, %52 ], [ null, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %.257.us, %.thread ]
-  %.051.be.us = phi ptr [ %.253.us, %52 ], [ %spec.select.i.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %.253.us, %.thread ]
-  %.049.be.us = phi float [ %60, %52 ], [ 0.000000e+00, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ], [ %.2.us.ph, %.thread ]
+.backedge.us:                                     ; preds = %select.unfold.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us
+  %.sroa.0.0.be.us = phi <2 x float> [ %.sroa.0.3.us, %select.unfold.us ], [ %.sroa.0.4.vec.insert85.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ]
+  %.055.be.us = phi ptr [ %.257.us, %select.unfold.us ], [ null, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ]
+  %.051.be.us = phi ptr [ %.253.us, %select.unfold.us ], [ %spec.select.i.us, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ]
+  %.049.be.us = phi float [ %.2.us, %select.unfold.us ], [ 0.000000e+00, %_ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us ]
   %62 = icmp ult ptr %.051.be.us, %.0
-  br i1 %62, label %.lr.ph.split.us, label %._crit_edge, !llvm.loop !570
+  br i1 %62, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !570
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %90
-  %.04993 = phi float [ %.2, %90 ], [ 0.000000e+00, %.lr.ph ]
-  %.05192 = phi ptr [ %.354, %90 ], [ %4, %.lr.ph ]
-  %.sroa.0.090 = phi <2 x float> [ %.sroa.0.3, %90 ], [ zeroinitializer, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
+  %.049103 = phi float [ %.2, %select.unfold ], [ 0.000000e+00, %.lr.ph ]
+  %.051102 = phi ptr [ %.253, %select.unfold ], [ %4, %.lr.ph ]
+  %.sroa.0.0100 = phi <2 x float> [ %.sroa.0.3, %select.unfold ], [ zeroinitializer, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %63 = load i8, ptr %.05192, align 1, !tbaa !23
+  %63 = load i8, ptr %.051102, align 1, !tbaa !23
   %64 = sext i8 %63 to i32
   store i32 %64, ptr %8, align 4, !tbaa !19
   %65 = icmp sgt i8 %63, -1
   br i1 %65, label %66, label %68
 
 66:                                               ; preds = %.lr.ph.split
-  %67 = getelementptr inbounds nuw i8, ptr %.05192, i64 1
+  %67 = getelementptr inbounds nuw i8, ptr %.051102, i64 1
   br label %72
 
 68:                                               ; preds = %.lr.ph.split
-  %69 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %8, ptr noundef nonnull %.05192, ptr noundef nonnull %.0)
+  %69 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %8, ptr noundef nonnull %.051102, ptr noundef nonnull %.0)
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i8, ptr %.05192, i64 %70
+  %71 = getelementptr inbounds i8, ptr %.051102, i64 %70
   %.pr = load i32, ptr %8, align 4, !tbaa !19
   br label %72
 
@@ -26023,18 +26023,18 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
 75:                                               ; preds = %72
   switch i32 %73, label %80 [
     i32 10, label %76
-    i32 13, label %90
+    i32 13, label %select.unfold
   ], !llvm.loop !570
 
 76:                                               ; preds = %75
-  %.sroa.0.0.vec.extract70 = extractelement <2 x float> %.sroa.0.090, i64 0
-  %77 = fcmp oge float %.sroa.0.0.vec.extract70, %.04993
-  %78 = select i1 %77, float %.sroa.0.0.vec.extract70, float %.04993
+  %.sroa.0.0.vec.extract70 = extractelement <2 x float> %.sroa.0.0100, i64 0
+  %77 = fcmp oge float %.sroa.0.0.vec.extract70, %.049103
+  %78 = select i1 %77, float %.sroa.0.0.vec.extract70, float %.049103
   %.sroa.0.0.vec.insert72 = insertelement <2 x float> poison, float %78, i64 0
-  %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.090, i64 1
+  %.sroa.0.4.vec.extract = extractelement <2 x float> %.sroa.0.0100, i64 1
   %79 = fadd float %1, %.sroa.0.4.vec.extract
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert72, float %79, i64 1
-  br label %90, !llvm.loop !570
+  br label %select.unfold, !llvm.loop !570
 
 80:                                               ; preds = %75, %72
   %81 = load i32, ptr %0, align 8, !tbaa !569
@@ -26045,44 +26045,46 @@ _ZL26CalcWordWrapNextLineStartAPKcS0_.exit.us:    ; preds = %.lr.ph.i.us, %._ZL2
   %.in = select i1 %82, ptr %85, ptr %20
   %86 = load float, ptr %.in, align 4, !tbaa !3
   %87 = fmul float %15, %86
-  %88 = fadd float %.04993, %87
+  %88 = fadd float %.049103, %87
   %89 = fcmp ult float %88, %2
-  %.4 = select i1 %89, ptr %.253, ptr %.05192
-  %.3 = select i1 %89, float %88, float %.04993
-  br label %90
+  br i1 %89, label %select.unfold, label %.thread
 
-90:                                               ; preds = %75, %80, %76
-  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.090, %80 ], [ %.sroa.0.4.vec.insert, %76 ], [ %.sroa.0.090, %75 ]
-  %.354 = phi ptr [ %.4, %80 ], [ %.253, %76 ], [ %.253, %75 ]
-  %.2 = phi float [ %.3, %80 ], [ 0.000000e+00, %76 ], [ %.04993, %75 ]
-  %.048 = phi i1 [ %89, %80 ], [ true, %76 ], [ true, %75 ]
+.thread:                                          ; preds = %80, %52
+  %.us-phi = phi <2 x float> [ %.sroa.0.0100.us, %52 ], [ %.sroa.0.0100, %80 ]
+  %.us-phi106 = phi ptr [ %.051102.us, %52 ], [ %.051102, %80 ]
+  %.us-phi107 = phi float [ %.049103.us, %52 ], [ %.049103, %80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %91 = icmp ult ptr %.354, %.0
-  %or.cond105 = select i1 %.048, i1 %91, i1 false
-  br i1 %or.cond105, label %.lr.ph.split, label %._crit_edge, !llvm.loop !570
+  br label %.loopexit
 
-._crit_edge:                                      ; preds = %90, %.backedge.us, %52, %12
-  %.sroa.0.1 = phi <2 x float> [ zeroinitializer, %12 ], [ %.sroa.0.090.us, %52 ], [ %.sroa.0.0.be.us, %.backedge.us ], [ %.sroa.0.3, %90 ]
-  %.152 = phi ptr [ %4, %12 ], [ %.05192.us, %52 ], [ %.051.be.us, %.backedge.us ], [ %.354, %90 ]
-  %.150 = phi float [ 0.000000e+00, %12 ], [ %.04993.us, %52 ], [ %.049.be.us, %.backedge.us ], [ %.2, %90 ]
+select.unfold:                                    ; preds = %80, %75, %76
+  %.sroa.0.3 = phi <2 x float> [ %.sroa.0.4.vec.insert, %76 ], [ %.sroa.0.0100, %75 ], [ %.sroa.0.0100, %80 ]
+  %.2 = phi float [ 0.000000e+00, %76 ], [ %.049103, %75 ], [ %88, %80 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %90 = icmp ult ptr %.253, %.0
+  br i1 %90, label %.lr.ph.split, label %.loopexit, !llvm.loop !570
+
+.loopexit:                                        ; preds = %select.unfold, %.backedge.us, %12, %.thread
+  %.sroa.0.099 = phi <2 x float> [ %.us-phi, %.thread ], [ zeroinitializer, %12 ], [ %.sroa.0.0.be.us, %.backedge.us ], [ %.sroa.0.3, %select.unfold ]
+  %.05197 = phi ptr [ %.us-phi106, %.thread ], [ %4, %12 ], [ %.051.be.us, %.backedge.us ], [ %.253, %select.unfold ]
+  %.04995 = phi float [ %.us-phi107, %.thread ], [ 0.000000e+00, %12 ], [ %.049.be.us, %.backedge.us ], [ %.2, %select.unfold ]
   %.not66 = icmp eq ptr %6, null
-  br i1 %.not66, label %93, label %92
+  br i1 %.not66, label %92, label %91
 
-92:                                               ; preds = %._crit_edge
-  store ptr %.152, ptr %6, align 8, !tbaa !282
-  br label %93
+91:                                               ; preds = %.loopexit
+  store ptr %.05197, ptr %6, align 8, !tbaa !282
+  br label %92
 
-93:                                               ; preds = %92, %._crit_edge
-  %94 = fcmp ogt float %.150, 0.000000e+00
-  %.sroa.0.0.vec.extract74 = extractelement <2 x float> %.sroa.0.1, i64 0
-  %95 = fcmp olt float %.sroa.0.0.vec.extract74, %.150
-  %.sroa.0.0.vec.insert76 = insertelement <2 x float> %.sroa.0.1, float %.150, i64 0
-  %.sroa.0.4 = select i1 %95, <2 x float> %.sroa.0.0.vec.insert76, <2 x float> %.sroa.0.1
+92:                                               ; preds = %91, %.loopexit
+  %93 = fcmp ogt float %.04995, 0.000000e+00
+  %.sroa.0.0.vec.extract74 = extractelement <2 x float> %.sroa.0.099, i64 0
+  %94 = fcmp olt float %.sroa.0.0.vec.extract74, %.04995
+  %.sroa.0.0.vec.insert76 = insertelement <2 x float> %.sroa.0.099, float %.04995, i64 0
+  %.sroa.0.4 = select i1 %94, <2 x float> %.sroa.0.0.vec.insert76, <2 x float> %.sroa.0.099
   %.sroa.0.4.vec.extract83 = extractelement <2 x float> %.sroa.0.4, i64 1
-  %96 = fcmp oeq float %.sroa.0.4.vec.extract83, 0.000000e+00
-  %or.cond = select i1 %94, i1 true, i1 %96
-  %97 = fadd float %1, %.sroa.0.4.vec.extract83
-  %.sroa.0.4.vec.insert81 = insertelement <2 x float> %.sroa.0.4, float %97, i64 1
+  %95 = fcmp oeq float %.sroa.0.4.vec.extract83, 0.000000e+00
+  %or.cond = select i1 %93, i1 true, i1 %95
+  %96 = fadd float %1, %.sroa.0.4.vec.extract83
+  %.sroa.0.4.vec.insert81 = insertelement <2 x float> %.sroa.0.4, float %96, i64 1
   %.sroa.0.5 = select i1 %or.cond, <2 x float> %.sroa.0.4.vec.insert81, <2 x float> %.sroa.0.4
   ret <2 x float> %.sroa.0.5
 }
@@ -28620,19 +28622,19 @@ define internal fastcc void @_ZL20stbtt__dict_get_intsP10stbtt__bufiiPj(ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 8, !tbaa !344
   %9 = icmp sgt i32 %6, 0
-  br i1 %9, label %.preheader47.i, label %._crit_edge
+  br i1 %9, label %.preheader46.i, label %._crit_edge
 
-.preheader47.i:                                   ; preds = %4, %.thread38.i
-  %.promoted5560.i = phi i32 [ %.promoted53.i, %.thread38.i ], [ %7, %4 ]
-  %.not.i51.i = icmp slt i32 %.promoted5560.i, %6
-  br i1 %.not.i51.i, label %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.lr.ph.i, label %.thread38.i
+.preheader46.i:                                   ; preds = %4, %.thread38.i
+  %.promoted5459.i = phi i32 [ %.promoted52.i, %.thread38.i ], [ %7, %4 ]
+  %.not.i50.i = icmp slt i32 %.promoted5459.i, %6
+  br i1 %.not.i50.i, label %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.lr.ph.i, label %.thread38.i
 
-_ZL16stbtt__buf_peek8P10stbtt__buf.exit.lr.ph.i:  ; preds = %.preheader47.i
+_ZL16stbtt__buf_peek8P10stbtt__buf.exit.lr.ph.i:  ; preds = %.preheader46.i
   %10 = load ptr, ptr %0, align 8, !tbaa !580
   br label %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.i
 
 _ZL16stbtt__buf_peek8P10stbtt__buf.exit.i:        ; preds = %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i, %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.lr.ph.i
-  %11 = phi i32 [ %.promoted5560.i, %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.lr.ph.i ], [ %.promoted57.i, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i ]
+  %11 = phi i32 [ %.promoted5459.i, %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.lr.ph.i ], [ %.promoted56.i, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i ]
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds i8, ptr %10, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !23
@@ -28700,7 +28702,7 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i34.i:     ; preds = %_ZL16stbtt__buf_pee
 36:                                               ; preds = %33
   switch i8 %28, label %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i [
     i8 28, label %.preheader.i
-    i8 29, label %.preheader45.i
+    i8 29, label %.preheader44.i
   ]
 
 .preheader.i:                                     ; preds = %36, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i
@@ -28718,22 +28720,22 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i:     ; preds = %38, %.preheader.i
   %40 = phi i32 [ %39, %38 ], [ %37, %.preheader.i ]
   br i1 %exitcond.not.i.i.i, label %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i, label %.preheader.i, !llvm.loop !346
 
-.preheader45.i:                                   ; preds = %36, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i
+.preheader44.i:                                   ; preds = %36, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i
   %41 = phi i32 [ %44, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i ], [ %17, %36 ]
   %.07.i29.i.i = phi i32 [ %45, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i ], [ 0, %36 ]
   %.not.i.i31.i.i = icmp slt i32 %41, %6
   br i1 %.not.i.i31.i.i, label %42, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i
 
-42:                                               ; preds = %.preheader45.i
+42:                                               ; preds = %.preheader44.i
   %43 = add nsw i32 %41, 1
   store i32 %43, ptr %8, align 8, !tbaa !344
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i
 
-_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i:   ; preds = %42, %.preheader45.i
-  %44 = phi i32 [ %43, %42 ], [ %41, %.preheader45.i ]
+_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i:   ; preds = %42, %.preheader44.i
+  %44 = phi i32 [ %43, %42 ], [ %41, %.preheader44.i ]
   %45 = add nuw nsw i32 %.07.i29.i.i, 1
   %exitcond.not.i34.i.i = icmp eq i32 %45, 4
-  br i1 %exitcond.not.i34.i.i, label %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i, label %.preheader45.i, !llvm.loop !346
+  br i1 %exitcond.not.i34.i.i, label %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i, label %.preheader44.i, !llvm.loop !346
 
 _ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i: ; preds = %35, %32
   %46 = add nsw i32 %11, 2
@@ -28741,8 +28743,8 @@ _ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i: ; preds = %35, %32
   br label %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i
 
 _ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i: ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i, %36, %35, %32, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i34.i
-  %.promoted57.i = phi i32 [ %17, %35 ], [ %17, %32 ], [ %17, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i34.i ], [ %17, %36 ], [ %46, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i ], [ %indvars.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ %40, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ], [ %44, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i ]
-  %.not.i.i = icmp slt i32 %.promoted57.i, %6
+  %.promoted56.i = phi i32 [ %17, %35 ], [ %17, %32 ], [ %17, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i34.i ], [ %17, %36 ], [ %46, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.sink.split.i ], [ %indvars.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i ], [ %40, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i.i.i ], [ %44, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i32.i.i ]
+  %.not.i.i = icmp slt i32 %.promoted56.i, %6
   br i1 %.not.i.i, label %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.i, label %.thread38.i, !llvm.loop !582
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.i:         ; preds = %_ZL16stbtt__buf_peek8P10stbtt__buf.exit.i
@@ -28768,26 +28770,26 @@ _ZL15stbtt__buf_get8P10stbtt__buf.exit.i:         ; preds = %_ZL16stbtt__buf_pee
   br label %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit24.i:       ; preds = %52, %51, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i
-  %.promoted56.i = phi i32 [ %47, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %53, %52 ], [ %47, %51 ]
+  %.promoted55.i = phi i32 [ %47, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %53, %52 ], [ %47, %51 ]
   %.017.i = phi i32 [ %49, %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i ], [ %58, %52 ], [ 256, %51 ]
   %59 = icmp eq i32 %.017.i, %1
   br i1 %59, label %60, label %.thread38.i
 
 60:                                               ; preds = %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i
-  %61 = sub nsw i32 %11, %.promoted5560.i
-  %62 = or i32 %61, %.promoted5560.i
+  %61 = sub nsw i32 %11, %.promoted5459.i
+  %62 = or i32 %61, %.promoted5459.i
   %or.cond.not.i.i = icmp slt i32 %62, 0
   br i1 %or.cond.not.i.i, label %._crit_edge, label %_ZL15stbtt__dict_getP10stbtt__bufi.exit
 
-.thread38.i:                                      ; preds = %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i, %.preheader47.i
-  %.promoted53.i = phi i32 [ %.promoted56.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i ], [ %.promoted5560.i, %.preheader47.i ], [ %.promoted57.i, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i ]
-  %63 = icmp slt i32 %.promoted53.i, %6
-  br i1 %63, label %.preheader47.i, label %._crit_edge
+.thread38.i:                                      ; preds = %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i, %.preheader46.i
+  %.promoted52.i = phi i32 [ %.promoted55.i, %_ZL15stbtt__buf_get8P10stbtt__buf.exit24.i ], [ %.promoted5459.i, %.preheader46.i ], [ %.promoted56.i, %_ZL23stbtt__cff_skip_operandP10stbtt__buf.exit.i ]
+  %63 = icmp slt i32 %.promoted52.i, %6
+  br i1 %63, label %.preheader46.i, label %._crit_edge
 
 _ZL15stbtt__dict_getP10stbtt__bufi.exit:          ; preds = %60
-  %64 = zext nneg i32 %.promoted5560.i to i64
+  %64 = zext nneg i32 %.promoted5459.i to i64
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 %64
-  %.not = icmp eq i32 %11, %.promoted5560.i
+  %.not = icmp eq i32 %11, %.promoted5459.i
   br i1 %.not, label %._crit_edge, label %_ZL15stbtt__buf_get8P10stbtt__buf.exit.i7.preheader
 
 _ZL15stbtt__buf_get8P10stbtt__buf.exit.i7.preheader: ; preds = %_ZL15stbtt__dict_getP10stbtt__bufi.exit

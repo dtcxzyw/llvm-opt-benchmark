@@ -4561,12 +4561,12 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink
 ; Function Attrs: nounwind uwtable
 define internal i32 @local_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val64 = load ptr, ptr %4, align 8, !tbaa !42
-  %.not = icmp eq ptr %.val64, null
+  %.val60 = load ptr, ptr %4, align 8, !tbaa !42
+  %.not = icmp eq ptr %.val60, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val64, ptr noundef %2) #11
+  %6 = tail call i32 %1(ptr noundef nonnull %.val60, ptr noundef %2) #11
   %.not47.not = icmp eq i32 %6, 0
   br i1 %.not47.not, label %7, label %28
 

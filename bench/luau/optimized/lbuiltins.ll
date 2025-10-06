@@ -1321,9 +1321,9 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_extractP9lua_StateP10lu
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %24, %.critedge
-  %.sink48 = phi i32 [ %40, %.critedge ], [ 1, %24 ]
+  %.sink47 = phi i32 [ %40, %.critedge ], [ 1, %24 ]
   %41 = lshr i32 %21, %22
-  %42 = and i32 %41, %.sink48
+  %42 = and i32 %41, %.sink47
   %43 = uitofp i32 %42 to double
   store double %43, ptr %1, align 8, !tbaa !9
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1485,12 +1485,12 @@ define internal noundef range(i32 -1, 2) i32 @_ZL13luauF_replaceP9lua_StateP10lu
   br label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %.critedge, %34
-  %.sink58 = phi i32 [ %35, %34 ], [ %51, %.critedge ]
-  %.pn59 = phi i32 [ 1, %34 ], [ %50, %.critedge ]
-  %.pn.in = shl i32 %.pn59, %30
+  %.sink57 = phi i32 [ %35, %34 ], [ %51, %.critedge ]
+  %.pn58 = phi i32 [ 1, %34 ], [ %50, %.critedge ]
+  %.pn.in = shl i32 %.pn58, %30
   %.pn = xor i32 %.pn.in, -1
   %.sink = and i32 %.pn, %27
-  %52 = shl i32 %.sink58, %30
+  %52 = shl i32 %.sink57, %30
   %53 = or i32 %.sink, %52
   %54 = uitofp i32 %53 to double
   store double %54, ptr %1, align 8, !tbaa !9
@@ -2285,8 +2285,8 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL13luauF_tunpackP9lua_
 47:                                               ; preds = %37
   %48 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %49 = load ptr, ptr %48, align 8, !tbaa !59
-  %.not54 = icmp eq i32 %.039, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph.preheader
+  %.not53 = icmp eq i32 %.039, 0
+  br i1 %.not53, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %47
   %wide.trip.count = zext nneg i32 %.039 to i64

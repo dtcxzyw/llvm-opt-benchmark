@@ -20410,16 +20410,16 @@ define internal fastcc void @SDL_InitDynamicAPI() unnamed_addr #0 {
 1:                                                ; preds = %0
   %2 = tail call ptr @getenv(ptr noundef nonnull @.str.1) #12
   %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %.critedge.i, label %.preheader42.i
+  br i1 %.not.i, label %.critedge.i, label %.preheader41.i
 
-.preheader42.i:                                   ; preds = %1
+.preheader41.i:                                   ; preds = %1
   %3 = load i8, ptr %2, align 1
-  %.not48.i = icmp eq i8 %3, 0
-  br i1 %.not48.i, label %.critedge.sink.split.i, label %.preheader.i
+  %.not47.i = icmp eq i8 %3, 0
+  br i1 %.not47.i, label %.critedge.sink.split.i, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader42.i, %17
-  %4 = phi i8 [ %19, %17 ], [ %3, %.preheader42.i ]
-  %.02145.i = phi ptr [ %18, %17 ], [ %2, %.preheader42.i ]
+.preheader.i:                                     ; preds = %.preheader41.i, %17
+  %4 = phi i8 [ %19, %17 ], [ %3, %.preheader41.i ]
+  %.02144.i = phi ptr [ %18, %17 ], [ %2, %.preheader41.i ]
   br label %6
 
 thread-pre-split.i:                               ; preds = %6
@@ -20429,7 +20429,7 @@ thread-pre-split.i:                               ; preds = %6
 
 6:                                                ; preds = %thread-pre-split.i, %.preheader.i
   %7 = phi i8 [ %.pr.i, %thread-pre-split.i ], [ %4, %.preheader.i ]
-  %.022.i = phi ptr [ %5, %thread-pre-split.i ], [ %.02145.i, %.preheader.i ]
+  %.022.i = phi ptr [ %5, %thread-pre-split.i ], [ %.02144.i, %.preheader.i ]
   switch i8 %7, label %thread-pre-split.i [
     i8 44, label %8
     i8 0, label %8
@@ -20438,7 +20438,7 @@ thread-pre-split.i:                               ; preds = %6
 8:                                                ; preds = %6, %6
   %9 = icmp ne i8 %7, 0
   store i8 0, ptr %.022.i, align 1
-  %10 = tail call ptr @dlopen(ptr noundef nonnull %.02145.i, i32 noundef 2) #12
+  %10 = tail call ptr @dlopen(ptr noundef nonnull %.02144.i, i32 noundef 2) #12
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %17, label %11
 
@@ -20462,11 +20462,11 @@ thread-pre-split.i:                               ; preds = %6
   %.idx.i = zext i1 %9 to i64
   %18 = getelementptr inbounds nuw i8, ptr %.022.i, i64 %.idx.i
   %19 = load i8, ptr %18, align 1
-  %.not64.i = icmp eq i8 %19, 0
-  br i1 %.not64.i, label %.critedge.sink.split.i, label %.preheader.i, !llvm.loop !3
+  %.not63.i = icmp eq i8 %19, 0
+  br i1 %.not63.i, label %.critedge.sink.split.i, label %.preheader.i, !llvm.loop !3
 
-.critedge.sink.split.i:                           ; preds = %17, %._crit_edge.thread.i, %.preheader42.i
-  %.str.3.sink.i = phi ptr [ @.str.3, %.preheader42.i ], [ @.str.4, %._crit_edge.thread.i ], [ @.str.3, %17 ]
+.critedge.sink.split.i:                           ; preds = %17, %._crit_edge.thread.i, %.preheader41.i
+  %.str.3.sink.i = phi ptr [ @.str.3, %.preheader41.i ], [ @.str.4, %._crit_edge.thread.i ], [ @.str.3, %17 ]
   tail call fastcc void @dynapi_warn(ptr noundef nonnull %.str.3.sink.i)
   br label %.critedge.i
 

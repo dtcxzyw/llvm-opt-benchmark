@@ -2021,8 +2021,8 @@ declare void @ggml_abort(ptr noundef, i32 noundef, ptr noundef, ...) local_unnam
 define noundef i32 @_Z23llama_kv_cache_cell_maxRK14llama_kv_cache(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4, !tbaa !50
-  %.not16 = icmp eq i32 %3, 0
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq i32 %3, 0
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2043,19 +2043,19 @@ define noundef i32 @_Z23llama_kv_cache_cell_maxRK14llama_kv_cache(ptr noundef no
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %14 = load i64, ptr %13, align 8, !tbaa !67
   %15 = icmp eq i64 %14, 0
-  br i1 %15, label %16, label %._crit_edge.loopexit.split.loop.exit
+  br i1 %15, label %16, label %._crit_edge.loopexit.split.loop.exit24
 
 16:                                               ; preds = %7, %12
   %17 = and i64 %indvars.iv.next, 4294967295
   %.not = icmp eq i64 %17, 0
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !153
 
-._crit_edge.loopexit.split.loop.exit:             ; preds = %12
+._crit_edge.loopexit.split.loop.exit24:           ; preds = %12
   %18 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %16, %._crit_edge.loopexit.split.loop.exit, %1
-  %.012.lcssa = phi i32 [ 0, %1 ], [ %18, %._crit_edge.loopexit.split.loop.exit ], [ 0, %16 ]
+._crit_edge:                                      ; preds = %16, %._crit_edge.loopexit.split.loop.exit24, %1
+  %.012.lcssa = phi i32 [ 0, %1 ], [ %18, %._crit_edge.loopexit.split.loop.exit24 ], [ 0, %16 ]
   ret i32 %.012.lcssa
 }
 

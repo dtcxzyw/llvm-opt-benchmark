@@ -1335,17 +1335,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_15DILocalVariableENS_12DenseMapInfoIjvE
   %406 = zext i32 %405 to i64
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %406, 3
   %407 = getelementptr inbounds nuw i8, ptr %404, i64 %.idx.i.i.i.i.i.i
-  %.not36.i.i.i.i.i.i = icmp eq i32 %405, 0
-  br i1 %.not36.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i210.i.i.i.i
+  %.not34.i.i.i.i.i.i = icmp eq i32 %405, 0
+  br i1 %.not34.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i210.i.i.i.i
 
 .lr.ph.i.i210.i.i.i.i:                            ; preds = %403, %.critedge.i.i.i.i.i.i
-  %.02937.i.i.i.i.i.i = phi ptr [ %409, %.critedge.i.i.i.i.i.i ], [ %404, %403 ]
-  %408 = load ptr, ptr %.02937.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !380
+  %.02935.i.i.i.i.i.i = phi ptr [ %409, %.critedge.i.i.i.i.i.i ], [ %404, %403 ]
+  %408 = load ptr, ptr %.02935.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !380
   %.not17.i.i.i.i.i.i = icmp eq ptr %408, %400
   br i1 %.not17.i.i.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_15DILocalVariableEE6insertES2_.exit.i.i.i.i, label %.critedge.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %.lr.ph.i.i210.i.i.i.i
-  %409 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i.i.i, i64 8
+  %409 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i.i.i, i64 8
   %.not.i.i211.i.i.i.i = icmp eq ptr %409, %407
   br i1 %.not.i.i211.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i210.i.i.i.i, !llvm.loop !384
 

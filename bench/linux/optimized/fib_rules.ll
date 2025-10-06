@@ -1730,23 +1730,20 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.4
 255:                                              ; preds = %250
   %256 = getelementptr i8, ptr %248, i64 6
   %257 = load i16, ptr %256, align 2
-  switch i16 %257, label %258 [
-    i16 0, label %263
-    i16 -1, label %263
-  ]
-
-258:                                              ; preds = %255
+  %258 = add i16 %257, 1
+  %switch = icmp ult i16 %258, 2
   %259 = icmp ugt i16 %253, %257
-  br i1 %259, label %263, label %260
+  %or.cond30 = or i1 %259, %switch
+  br i1 %or.cond30, label %263, label %260
 
-260:                                              ; preds = %258
+260:                                              ; preds = %255
   store i16 %253, ptr %251, align 8
   %261 = load i16, ptr %256, align 2
   %262 = getelementptr inbounds nuw i8, ptr %55, i64 130
   store i16 %261, ptr %262, align 2
   br label %265
 
-263:                                              ; preds = %258, %250, %255, %255
+263:                                              ; preds = %250, %255
   call void @do_trace_netlink_extack(ptr noundef nonnull @fib_nl2rule.__msg.15) #16
   %264 = icmp eq ptr %1, null
   br i1 %264, label %288, label %285
@@ -1767,23 +1764,20 @@ define internal fastcc noundef range(i32 -22, 1) i32 @fib_nl2rule(ptr %.24.val.4
 274:                                              ; preds = %269
   %275 = getelementptr i8, ptr %267, i64 6
   %276 = load i16, ptr %275, align 2
-  switch i16 %276, label %277 [
-    i16 0, label %282
-    i16 -1, label %282
-  ]
-
-277:                                              ; preds = %274
+  %277 = add i16 %276, 1
+  %switch32 = icmp ult i16 %277, 2
   %278 = icmp ugt i16 %272, %276
-  br i1 %278, label %282, label %279
+  %or.cond33 = or i1 %278, %switch32
+  br i1 %or.cond33, label %282, label %279
 
-279:                                              ; preds = %277
+279:                                              ; preds = %274
   store i16 %272, ptr %270, align 4
   %280 = load i16, ptr %275, align 2
   %281 = getelementptr inbounds nuw i8, ptr %55, i64 134
   store i16 %280, ptr %281, align 2
   br label %284
 
-282:                                              ; preds = %277, %269, %274, %274
+282:                                              ; preds = %269, %274
   call void @do_trace_netlink_extack(ptr noundef nonnull @fib_nl2rule.__msg.16) #16
   %283 = icmp eq ptr %1, null
   br i1 %283, label %288, label %285

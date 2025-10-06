@@ -14510,9 +14510,9 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit3422: ; preds = %5201, %.loopexit
   %5290 = and i64 %5289, 1099511627775
   %5291 = load i64, ptr %315, align 8, !tbaa !35
   %.not.not.i = icmp eq i64 %5291, 0
-  br i1 %.not.not.i, label %.preheader5152, label %.thread36.i
+  br i1 %.not.not.i, label %.preheader5152, label %.thread34.i
 
-.thread36.i:                                      ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit3422
+.thread34.i:                                      ; preds = %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit3422
   %5292 = load i64, ptr %189, align 8, !tbaa !44
   %5293 = urem i64 %5290, %5292
   %5294 = load ptr, ptr %77, align 8, !tbaa !45
@@ -14538,7 +14538,7 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit3422: ; preds = %5201, %.loopexit
   %5303 = urem i64 %5290, %5302
   br label %.critedge.i4128
 
-5304:                                             ; preds = %.thread36.i
+5304:                                             ; preds = %.thread34.i
   %5305 = load ptr, ptr %5296, align 8, !tbaa !42
   %5306 = getelementptr inbounds nuw i8, ptr %5305, i64 8
   %5307 = load i64, ptr %5306, align 8, !tbaa !16
@@ -14565,8 +14565,8 @@ _ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit3422: ; preds = %5201, %.loopexit
 ..loopexit_crit_edge21.i.i.i4127:                 ; preds = %5312
   br label %.critedge.i4128, !llvm.loop !649
 
-.critedge.i4128:                                  ; preds = %.lr.ph.i.i.i4123, %..loopexit_crit_edge21.i.i.i4127, %5301, %.thread36.i
-  %5316 = phi i64 [ %5303, %5301 ], [ %5293, %.thread36.i ], [ %5293, %..loopexit_crit_edge21.i.i.i4127 ], [ %5293, %.lr.ph.i.i.i4123 ]
+.critedge.i4128:                                  ; preds = %.lr.ph.i.i.i4123, %..loopexit_crit_edge21.i.i.i4127, %5301, %.thread34.i
+  %5316 = phi i64 [ %5303, %5301 ], [ %5293, %.thread34.i ], [ %5293, %..loopexit_crit_edge21.i.i.i4127 ], [ %5293, %.lr.ph.i.i.i4123 ]
   %5317 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
           to label %.noexc4130 unwind label %5322
 
@@ -22250,8 +22250,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %17 = load i64, ptr %16, align 8, !tbaa !77
   %18 = urem i64 %15, %17
   %19 = load i64, ptr %5, align 8, !tbaa !88
-  %.not38 = icmp eq i64 %19, 0
-  br i1 %.not38, label %.thread..critedge_crit_edge, label %20
+  %.not36 = icmp eq i64 %19, 0
+  br i1 %.not36, label %.thread..critedge_crit_edge, label %20
 
 .thread..critedge_crit_edge:                      ; preds = %.thread
   %.pre = load ptr, ptr %1, align 8, !tbaa !48
@@ -22262,7 +22262,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %18
   %23 = load ptr, ptr %22, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %23, null
-  %.pre47 = load ptr, ptr %1, align 8, !tbaa !48
+  %.pre45 = load ptr, ptr %1, align 8, !tbaa !48
   br i1 %.not.i.i, label %.critedge, label %24
 
 24:                                               ; preds = %20
@@ -22272,7 +22272,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %28 = load i64, ptr %27, align 8, !tbaa !90
   %29 = icmp eq i64 %15, %28
   %30 = load ptr, ptr %26, align 8
-  %31 = icmp eq ptr %.pre47, %30
+  %31 = icmp eq ptr %.pre45, %30
   %32 = select i1 %29, i1 %31, i1 false
   br i1 %32, label %_ZNKSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i
 
@@ -22280,7 +22280,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %34 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %35 = icmp eq i64 %15, %42
   %36 = load ptr, ptr %34, align 8
-  %37 = icmp eq ptr %.pre47, %36
+  %37 = icmp eq ptr %.pre45, %36
   %38 = select i1 %35, i1 %37, i1 false
   br i1 %38, label %_ZNKSt10_HashtableIN4cvc58internal12NodeTemplateILb0EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS3_EEPNS5_10_Hash_nodeIS3_Lb1EEEmRKT_m.exit, label %.lr.ph.i.i, !llvm.loop !820
 
@@ -22301,7 +22301,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   br label %.critedge, !llvm.loop !820
 
 .critedge:                                        ; preds = %.lr.ph.i.i, %.thread..critedge_crit_edge, %..loopexit_crit_edge21.i.i, %20
-  %44 = phi ptr [ %.pre, %.thread..critedge_crit_edge ], [ %.pre47, %..loopexit_crit_edge21.i.i ], [ %.pre47, %20 ], [ %.pre47, %.lr.ph.i.i ]
+  %44 = phi ptr [ %.pre, %.thread..critedge_crit_edge ], [ %.pre45, %..loopexit_crit_edge21.i.i ], [ %.pre45, %20 ], [ %.pre45, %.lr.ph.i.i ]
   %45 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #28
   store ptr null, ptr %45, align 8, !tbaa !42
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8

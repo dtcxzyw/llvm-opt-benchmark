@@ -181,10 +181,10 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17h6de29ab
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !align !22
   br label %10
 
-10:                                               ; preds = %58, %4
-  %11 = phi i64 [ %7, %4 ], [ %.pre50, %58 ]
-  %12 = phi ptr [ %2, %4 ], [ %.pre, %58 ]
-  %storemerge = phi i64 [ %7, %4 ], [ %59, %58 ]
+10:                                               ; preds = %59, %4
+  %11 = phi i64 [ %7, %4 ], [ %.pre50, %59 ]
+  %12 = phi ptr [ %2, %4 ], [ %.pre, %59 ]
+  %storemerge = phi i64 [ %7, %4 ], [ %60, %59 ]
   store i64 %storemerge, ptr %8, align 8
   %13 = icmp eq i64 %storemerge, %11
   br i1 %13, label %14, label %18
@@ -266,7 +266,7 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17h6de29ab
 39:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN87_$LT$futures_lite..io..read_to_end_internal..Guard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7eac2bf4046b4777E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-          to label %"_ZN4core3ptr66drop_in_place$LT$futures_lite..io..read_to_end_internal..Guard$GT$17h0d29f8265df2fb5dE.exit" unwind label %62
+          to label %"_ZN4core3ptr66drop_in_place$LT$futures_lite..io..read_to_end_internal..Guard$GT$17h0d29f8265df2fb5dE.exit" unwind label %63
 
 40:                                               ; preds = %18
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -278,7 +278,7 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17h6de29ab
 
 46:                                               ; preds = %18
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %20, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.733f069f1d60d1099a90c45c596c1ffc.2) #18
-          to label %61 unwind label %.loopexit.split-lp
+          to label %62 unwind label %.loopexit.split-lp
 
 "_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17hc40d4b454c0fafc0E.exit": ; preds = %40
   %47 = extractvalue { i64, ptr } %45, 0
@@ -288,38 +288,38 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17h6de29ab
 
 50:                                               ; preds = %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17hc40d4b454c0fafc0E.exit"
   %51 = ptrtoint ptr %48 to i64
-  %switch = icmp eq i64 %47, 0
-  br i1 %switch, label %52, label %.loopexit23
+  %52 = icmp eq i64 %47, 0
+  br i1 %52, label %53, label %.loopexit23
 
-52:                                               ; preds = %50
-  %53 = icmp eq ptr %48, null
-  %54 = load i64, ptr %8, align 8, !noundef !5
-  br i1 %53, label %55, label %58
+53:                                               ; preds = %50
+  %54 = icmp eq ptr %48, null
+  %55 = load i64, ptr %8, align 8, !noundef !5
+  br i1 %54, label %56, label %59
 
-55:                                               ; preds = %52
-  %56 = sub i64 %54, %3
-  %57 = inttoptr i64 %56 to ptr
+56:                                               ; preds = %53
+  %57 = sub i64 %55, %3
+  %58 = inttoptr i64 %57 to ptr
   br label %.loopexit23
 
-58:                                               ; preds = %52
-  %59 = add i64 %54, %51
+59:                                               ; preds = %53
+  %60 = add i64 %55, %51
   %.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre50 = load i64, ptr %.phi.trans.insert, align 8
   br label %10
 
-.loopexit23:                                      ; preds = %50, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17hc40d4b454c0fafc0E.exit", %55
-  %.sroa.3.0 = phi ptr [ %57, %55 ], [ undef, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17hc40d4b454c0fafc0E.exit" ], [ %48, %50 ]
+.loopexit23:                                      ; preds = %50, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17hc40d4b454c0fafc0E.exit", %56
+  %.sroa.3.0 = phi ptr [ %58, %56 ], [ undef, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17hc40d4b454c0fafc0E.exit" ], [ %48, %50 ]
   call void @"_ZN87_$LT$futures_lite..io..read_to_end_internal..Guard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7eac2bf4046b4777E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = insertvalue { i64, ptr } %45, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %60
+  %61 = insertvalue { i64, ptr } %45, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %61
 
-61:                                               ; preds = %46
+62:                                               ; preds = %46
   unreachable
 
-62:                                               ; preds = %39
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %39
+  %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #17
   unreachable
@@ -339,10 +339,10 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17he0845b1
   %9 = load ptr, ptr %0, align 8, !nonnull !5, !align !22
   br label %10
 
-10:                                               ; preds = %58, %4
-  %11 = phi i64 [ %7, %4 ], [ %.pre50, %58 ]
-  %12 = phi ptr [ %2, %4 ], [ %.pre, %58 ]
-  %storemerge = phi i64 [ %7, %4 ], [ %59, %58 ]
+10:                                               ; preds = %59, %4
+  %11 = phi i64 [ %7, %4 ], [ %.pre50, %59 ]
+  %12 = phi ptr [ %2, %4 ], [ %.pre, %59 ]
+  %storemerge = phi i64 [ %7, %4 ], [ %60, %59 ]
   store i64 %storemerge, ptr %8, align 8
   %13 = icmp eq i64 %storemerge, %11
   br i1 %13, label %14, label %18
@@ -424,7 +424,7 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17he0845b1
 39:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN87_$LT$futures_lite..io..read_to_end_internal..Guard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7eac2bf4046b4777E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-          to label %"_ZN4core3ptr66drop_in_place$LT$futures_lite..io..read_to_end_internal..Guard$GT$17h0d29f8265df2fb5dE.exit" unwind label %62
+          to label %"_ZN4core3ptr66drop_in_place$LT$futures_lite..io..read_to_end_internal..Guard$GT$17h0d29f8265df2fb5dE.exit" unwind label %63
 
 40:                                               ; preds = %18
   %41 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -436,7 +436,7 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17he0845b1
 
 46:                                               ; preds = %18
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17h98d5080ba351a62cE(i64 noundef %20, i64 noundef %19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.733f069f1d60d1099a90c45c596c1ffc.2) #18
-          to label %61 unwind label %.loopexit.split-lp
+          to label %62 unwind label %.loopexit.split-lp
 
 "_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1b6b5ba4f3d31767E.exit": ; preds = %40
   %47 = extractvalue { i64, ptr } %45, 0
@@ -446,38 +446,38 @@ define hidden { i64, ptr } @_ZN12futures_lite2io20read_to_end_internal17he0845b1
 
 50:                                               ; preds = %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1b6b5ba4f3d31767E.exit"
   %51 = ptrtoint ptr %48 to i64
-  %switch = icmp eq i64 %47, 0
-  br i1 %switch, label %52, label %.loopexit23
+  %52 = icmp eq i64 %47, 0
+  br i1 %52, label %53, label %.loopexit23
 
-52:                                               ; preds = %50
-  %53 = icmp eq ptr %48, null
-  %54 = load i64, ptr %8, align 8, !noundef !5
-  br i1 %53, label %55, label %58
+53:                                               ; preds = %50
+  %54 = icmp eq ptr %48, null
+  %55 = load i64, ptr %8, align 8, !noundef !5
+  br i1 %54, label %56, label %59
 
-55:                                               ; preds = %52
-  %56 = sub i64 %54, %3
-  %57 = inttoptr i64 %56 to ptr
+56:                                               ; preds = %53
+  %57 = sub i64 %55, %3
+  %58 = inttoptr i64 %57 to ptr
   br label %.loopexit23
 
-58:                                               ; preds = %52
-  %59 = add i64 %54, %51
+59:                                               ; preds = %53
+  %60 = add i64 %55, %51
   %.pre = load ptr, ptr %5, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre50 = load i64, ptr %.phi.trans.insert, align 8
   br label %10
 
-.loopexit23:                                      ; preds = %50, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1b6b5ba4f3d31767E.exit", %55
-  %.sroa.3.0 = phi ptr [ %57, %55 ], [ undef, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1b6b5ba4f3d31767E.exit" ], [ %48, %50 ]
+.loopexit23:                                      ; preds = %50, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1b6b5ba4f3d31767E.exit", %56
+  %.sroa.3.0 = phi ptr [ %58, %56 ], [ undef, %"_ZN63_$LT$$RF$mut$u20$T$u20$as$u20$futures_io..if_std..AsyncRead$GT$9poll_read17h1b6b5ba4f3d31767E.exit" ], [ %48, %50 ]
   call void @"_ZN87_$LT$futures_lite..io..read_to_end_internal..Guard$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7eac2bf4046b4777E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = insertvalue { i64, ptr } %45, ptr %.sroa.3.0, 1
-  ret { i64, ptr } %60
+  %61 = insertvalue { i64, ptr } %45, ptr %.sroa.3.0, 1
+  ret { i64, ptr } %61
 
-61:                                               ; preds = %46
+62:                                               ; preds = %46
   unreachable
 
-62:                                               ; preds = %39
-  %63 = landingpad { ptr, i32 }
+63:                                               ; preds = %39
+  %64 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #17
   unreachable

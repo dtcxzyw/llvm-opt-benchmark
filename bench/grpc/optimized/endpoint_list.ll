@@ -2440,8 +2440,8 @@ define noundef i64 @_ZNK9grpc_core12EndpointList8Endpoint5IndexEv(ptr noundef no
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %6 = load ptr, ptr %5, align 8, !tbaa !131
   %7 = load ptr, ptr %4, align 8, !tbaa !132
-  %.not8.not = icmp eq ptr %6, %7
-  br i1 %.not8.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq ptr %6, %7
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %8 = ptrtoint ptr %6 to i64
@@ -2462,9 +2462,9 @@ define noundef i64 @_ZNK9grpc_core12EndpointList8Endpoint5IndexEv(ptr noundef no
   %exitcond.not = icmp eq i64 %16, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !133
 
-._crit_edge:                                      ; preds = %15, %.lr.ph, %1
-  %spec.select = phi i64 [ -1, %1 ], [ %.069, %.lr.ph ], [ -1, %15 ]
-  ret i64 %spec.select
+._crit_edge:                                      ; preds = %.lr.ph, %15, %1
+  %17 = phi i64 [ -1, %1 ], [ -1, %15 ], [ %.069, %.lr.ph ]
+  ret i64 %17
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -6504,39 +6504,39 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixISt7complexIdELin1ELi1ELi0ELin1ELi1EEEE6res
 
 .lr.ph:                                           ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixISt7complexIdELin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit, %.thread
   %104 = phi i64 [ %194, %.thread ], [ %102, %_ZN5Eigen15PlainObjectBaseINS_6MatrixISt7complexIdELin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit ]
-  %.05589 = phi i64 [ %193, %.thread ], [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixISt7complexIdELin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit ]
+  %.05588 = phi i64 [ %193, %.thread ], [ 0, %_ZN5Eigen15PlainObjectBaseINS_6MatrixISt7complexIdELin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit ]
   %105 = add nsw i64 %104, -1
-  %106 = icmp eq i64 %.05589, %105
-  %.pre92 = load ptr, ptr %12, align 8, !tbaa !34
-  %.pre93 = load i64, ptr %20, align 8, !tbaa !37
+  %106 = icmp eq i64 %.05588, %105
+  %.pre91 = load ptr, ptr %12, align 8, !tbaa !34
+  %.pre92 = load i64, ptr %20, align 8, !tbaa !37
   br i1 %106, label %.lr.ph._crit_edge, label %107
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph
-  %.pre94 = load ptr, ptr %85, align 8, !tbaa !70
+  %.pre93 = load ptr, ptr %85, align 8, !tbaa !70
   br label %114
 
 107:                                              ; preds = %.lr.ph
-  %108 = add nuw nsw i64 %.05589, 1
-  %109 = mul nsw i64 %.pre93, %108
-  %110 = getelementptr double, ptr %.pre92, i64 %.05589
+  %108 = add nuw nsw i64 %.05588, 1
+  %109 = mul nsw i64 %.pre92, %108
+  %110 = getelementptr double, ptr %.pre91, i64 %.05588
   %111 = getelementptr double, ptr %110, i64 %109
   %112 = load double, ptr %111, align 8, !tbaa !19
   %113 = fcmp oeq double %112, 0.000000e+00
-  %.pre95 = load ptr, ptr %85, align 8, !tbaa !70
+  %.pre94 = load ptr, ptr %85, align 8, !tbaa !70
   br i1 %113, label %114, label %135
 
 114:                                              ; preds = %.lr.ph._crit_edge, %107
-  %115 = phi ptr [ %.pre94, %.lr.ph._crit_edge ], [ %.pre95, %107 ]
-  %116 = mul nsw i64 %.pre93, %.05589
-  %117 = getelementptr double, ptr %.pre92, i64 %.05589
+  %115 = phi ptr [ %.pre93, %.lr.ph._crit_edge ], [ %.pre94, %107 ]
+  %116 = mul nsw i64 %.pre92, %.05588
+  %117 = getelementptr double, ptr %.pre91, i64 %.05588
   %118 = getelementptr double, ptr %117, i64 %116
   %119 = load double, ptr %118, align 8, !tbaa !19
-  %120 = getelementptr inbounds nuw %"class.std::complex", ptr %115, i64 %.05589
+  %120 = getelementptr inbounds nuw %"class.std::complex", ptr %115, i64 %.05588
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store double %119, ptr %120, align 8
   store double 0.000000e+00, ptr %121, align 8
   %122 = load ptr, ptr %85, align 8, !tbaa !70
-  %123 = getelementptr inbounds nuw %"class.std::complex", ptr %122, i64 %.05589
+  %123 = getelementptr inbounds nuw %"class.std::complex", ptr %122, i64 %.05588
   %124 = load double, ptr %123, align 8, !tbaa !19
   %125 = tail call double @llvm.fabs.f64(double %124)
   %126 = fcmp one double %125, 0x7FF0000000000000
@@ -6556,10 +6556,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixISt7complexIdELin1ELi1ELi0ELin1ELi1EEEE6res
   br label %199
 
 135:                                              ; preds = %107
-  %136 = mul nsw i64 %.pre93, %.05589
+  %136 = mul nsw i64 %.pre92, %.05588
   %137 = getelementptr double, ptr %110, i64 %136
   %138 = load double, ptr %137, align 8, !tbaa !19
-  %139 = getelementptr double, ptr %.pre92, i64 %108
+  %139 = getelementptr double, ptr %.pre91, i64 %108
   %140 = getelementptr double, ptr %139, i64 %109
   %141 = load double, ptr %140, align 8, !tbaa !19
   %142 = fsub double %138, %141
@@ -6582,7 +6582,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixISt7complexIdELin1ELi1ELi0ELin1ELi1EEEE6res
   %sqrt = tail call double @llvm.sqrt.f64(double %156)
   %157 = fmul double %.sroa.speculated79, %sqrt
   %158 = fadd double %141, %143
-  %159 = getelementptr inbounds nuw %"class.std::complex", ptr %.pre95, i64 %.05589
+  %159 = getelementptr inbounds nuw %"class.std::complex", ptr %.pre94, i64 %.05588
   store double %158, ptr %159, align 8
   %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %159, i64 8
   store double %157, ptr %.sroa.477.0..sroa_idx, align 8, !tbaa !22
@@ -6600,7 +6600,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixISt7complexIdELin1ELi1ELi0ELin1ELi1EEEE6res
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %169, i64 8
   store double %167, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !22
   %170 = load ptr, ptr %85, align 8, !tbaa !70
-  %171 = getelementptr inbounds nuw %"class.std::complex", ptr %170, i64 %.05589
+  %171 = getelementptr inbounds nuw %"class.std::complex", ptr %170, i64 %.05588
   %172 = load double, ptr %171, align 8, !tbaa !19
   %173 = tail call double @llvm.fabs.f64(double %172)
   %174 = fcmp one double %173, 0x7FF0000000000000
@@ -6633,7 +6633,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixISt7complexIdELin1ELi1ELi0ELin1ELi1EEEE6res
 
 .thread:                                          ; preds = %180, %114
   %.sink = phi i64 [ 1, %114 ], [ 2, %180 ]
-  %193 = add nuw nsw i64 %.05589, %.sink
+  %193 = add nuw nsw i64 %.05588, %.sink
   %194 = load i64, ptr %86, align 8, !tbaa !37
   %195 = icmp slt i64 %193, %194
   br i1 %195, label %.lr.ph, label %._crit_edge, !llvm.loop !207
@@ -8975,8 +8975,8 @@ _ZN5Eigen9RealSchurINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE12computeShiftEllRdRN
 
 211:                                              ; preds = %_ZN5Eigen9RealSchurINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE12computeShiftEllRdRNS1_IdLi3ELi1ELi0ELi3ELi1EEE.exit
   %212 = add nsw i64 %.045, -2
-  %.not49.i = icmp slt i64 %212, %.014.lcssa.i
-  br i1 %.not49.i, label %_ZN5Eigen9RealSchurINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE17initFrancisQRStepEllRKNS1_IdLi3ELi1ELi0ELi3ELi1EEERlRS4_.exit, label %.lr.ph.i61
+  %.not48.i = icmp slt i64 %212, %.014.lcssa.i
+  br i1 %.not48.i, label %_ZN5Eigen9RealSchurINS_6MatrixIdLin1ELin1ELi1ELin1ELin1EEEE17initFrancisQRStepEllRKNS1_IdLi3ELi1ELi0ELi3ELi1EEERlRS4_.exit, label %.lr.ph.i61
 
 .lr.ph.i61:                                       ; preds = %211
   %213 = load double, ptr %7, align 8, !tbaa !19

@@ -1009,8 +1009,8 @@ parallel_transfers.exit:                          ; preds = %23, %42, %162
 
 174:                                              ; preds = %170
   %175 = load ptr, ptr @transfers, align 8, !tbaa !56
-  %.not6181.i = icmp eq ptr %175, null
-  br i1 %.not6181.i, label %serial_transfers.exit, label %.lr.ph.i26
+  %.not6179.i = icmp eq ptr %175, null
+  br i1 %.not6179.i, label %serial_transfers.exit, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %174
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1019,21 +1019,21 @@ parallel_transfers.exit:                          ; preds = %23, %42, %162
   br label %179
 
 179:                                              ; preds = %232, %.lr.ph.i26
-  %.04484.i = phi i32 [ 0, %.lr.ph.i26 ], [ %.2.i, %232 ]
-  %.04583.i = phi i32 [ 0, %.lr.ph.i26 ], [ %.348.i, %232 ]
-  %.04982.i = phi ptr [ %175, %.lr.ph.i26 ], [ %.150.i, %232 ]
+  %.04482.i = phi i32 [ 0, %.lr.ph.i26 ], [ %.2.i, %232 ]
+  %.04581.i = phi i32 [ 0, %.lr.ph.i26 ], [ %.348.i, %232 ]
+  %.04980.i = phi ptr [ %175, %.lr.ph.i26 ], [ %.150.i, %232 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %180 = tail call { i64, i64 } @tvnow() #16
   %181 = extractvalue { i64, i64 } %180, 0
   %182 = extractvalue { i64, i64 } %180, 1
-  %183 = getelementptr inbounds nuw i8, ptr %.04982.i, i64 477
+  %183 = getelementptr inbounds nuw i8, ptr %.04980.i, i64 477
   %184 = load i8, ptr %183, align 1, !tbaa !78, !range !34, !noundef !40
   %185 = trunc nuw i8 %184 to i1
   br i1 %185, label %196, label %186
 
 186:                                              ; preds = %179
-  %187 = tail call fastcc i32 @pre_transfer(ptr noundef nonnull %0, ptr noundef %.04982.i)
+  %187 = tail call fastcc i32 @pre_transfer(ptr noundef nonnull %0, ptr noundef %.04980.i)
   %.not62.i27 = icmp eq i32 %187, 0
   br i1 %.not62.i27, label %188, label %.loopexit.i
 
@@ -1048,14 +1048,14 @@ parallel_transfers.exit:                          ; preds = %23, %42, %162
   br i1 %.not64.i, label %192, label %.loopexit.i
 
 192:                                              ; preds = %190, %188
-  %193 = getelementptr inbounds nuw i8, ptr %.04982.i, i64 32
+  %193 = getelementptr inbounds nuw i8, ptr %.04980.i, i64 32
   %194 = load ptr, ptr %193, align 8, !tbaa !79
   %195 = tail call i32 @curl_easy_perform(ptr noundef %194) #16
   br label %196
 
 196:                                              ; preds = %192, %179
-  %.247.i = phi i32 [ %.04583.i, %179 ], [ %195, %192 ]
-  %197 = call fastcc i32 @post_per_transfer(ptr noundef nonnull %0, ptr noundef nonnull %.04982.i, i32 noundef %.247.i, ptr noundef %6, ptr noundef %7)
+  %.247.i = phi i32 [ %.04581.i, %179 ], [ %195, %192 ]
+  %197 = call fastcc i32 @post_per_transfer(ptr noundef nonnull %0, ptr noundef nonnull %.04980.i, i32 noundef %.247.i, ptr noundef %6, ptr noundef %7)
   %198 = load i8, ptr %6, align 1, !tbaa !71, !range !34, !noundef !40
   %199 = trunc nuw i8 %198 to i1
   br i1 %199, label %200, label %202
@@ -1095,8 +1095,8 @@ is_fatal_error.exit.thread.i:                     ; preds = %208, %206, %203, %2
   %.052.i = phi i1 [ true, %203 ], [ true, %202 ], [ true, %202 ], [ true, %202 ], [ true, %202 ], [ %.not66.not.i.not.not, %206 ], [ %.not66.not.i.not.not, %208 ]
   %.4.i = phi i32 [ %.247.i, %203 ], [ %.247.i, %202 ], [ %.247.i, %202 ], [ %.247.i, %202 ], [ %.247.i, %202 ], [ 0, %208 ], [ %207, %206 ]
   %.3.i28 = phi i32 [ %197, %203 ], [ %197, %202 ], [ %197, %202 ], [ %197, %202 ], [ %197, %202 ], [ %197, %208 ], [ %207, %206 ]
-  %211 = load ptr, ptr %.04982.i, align 8, !tbaa !74
-  %212 = getelementptr inbounds nuw i8, ptr %.04982.i, i64 8
+  %211 = load ptr, ptr %.04980.i, align 8, !tbaa !74
+  %212 = getelementptr inbounds nuw i8, ptr %.04980.i, i64 8
   %213 = load ptr, ptr %212, align 8, !tbaa !75
   %.not.i.i29 = icmp eq ptr %213, null
   %transfers..i.i = select i1 %.not.i.i29, ptr @transfers, ptr %213
@@ -1114,7 +1114,7 @@ is_fatal_error.exit.thread.i:                     ; preds = %208, %206, %203, %2
   br label %del_per_transfer.exit.i
 
 del_per_transfer.exit.i:                          ; preds = %216, %214
-  tail call void @free(ptr noundef nonnull %.04982.i) #16
+  tail call void @free(ptr noundef nonnull %.04980.i) #16
   %217 = load i64, ptr @all_pers, align 8, !tbaa !49
   %218 = add nsw i64 %217, -1
   store i64 %218, ptr @all_pers, align 8, !tbaa !49
@@ -1144,23 +1144,23 @@ del_per_transfer.exit.i:                          ; preds = %216, %214
 
 .sink.split.i:                                    ; preds = %228, %200
   %.sink.i = phi i64 [ %231, %228 ], [ %201, %200 ]
-  %.150.ph.i = phi ptr [ %211, %228 ], [ %.04982.i, %200 ]
-  %.348.ph110.i = phi i32 [ %.4.i, %228 ], [ %.247.i, %200 ]
-  %.2.ph111.i = phi i32 [ %.3.i28, %228 ], [ %197, %200 ]
+  %.150.ph.i = phi ptr [ %211, %228 ], [ %.04980.i, %200 ]
+  %.348.ph108.i = phi i32 [ %.4.i, %228 ], [ %.247.i, %200 ]
+  %.2.ph109.i = phi i32 [ %.3.i28, %228 ], [ %197, %200 ]
   tail call void @tool_go_sleep(i64 noundef %.sink.i) #16
   br label %232
 
 232:                                              ; preds = %.sink.split.i, %221, %219
   %.150.i = phi ptr [ %211, %221 ], [ %211, %219 ], [ %.150.ph.i, %.sink.split.i ]
-  %.348.i = phi i32 [ %.4.i, %221 ], [ %.4.i, %219 ], [ %.348.ph110.i, %.sink.split.i ]
-  %.2.i = phi i32 [ %.3.i28, %221 ], [ %.3.i28, %219 ], [ %.2.ph111.i, %.sink.split.i ]
+  %.348.i = phi i32 [ %.4.i, %221 ], [ %.4.i, %219 ], [ %.348.ph108.i, %.sink.split.i ]
+  %.2.i = phi i32 [ %.3.i28, %221 ], [ %.3.i28, %219 ], [ %.2.ph109.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %179
 
 .loopexit.i:                                      ; preds = %del_per_transfer.exit.i, %190, %186
   %.146.i = phi i32 [ %.4.i, %del_per_transfer.exit.i ], [ %191, %190 ], [ %187, %186 ]
-  %.1.i = phi i32 [ %.3.i28, %del_per_transfer.exit.i ], [ %.04484.i, %190 ], [ %.04484.i, %186 ]
+  %.1.i = phi i32 [ %.3.i28, %del_per_transfer.exit.i ], [ %.04482.i, %190 ], [ %.04482.i, %186 ]
   %.1.fr.i = freeze i32 %.1.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

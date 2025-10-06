@@ -1141,8 +1141,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 16
   %14 = icmp ne i8 %13, 13
-  %.not.not24.i = icmp eq ptr %11, null
-  %.not.not.i = or i1 %.not.not24.i, %14
+  %.not.not21.i = icmp eq ptr %11, null
+  %.not.not.i = or i1 %.not.not21.i, %14
   br i1 %.not.not.i, label %20, label %15
 
 15:                                               ; preds = %4
@@ -1155,7 +1155,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal
 
 20:                                               ; preds = %4
   %21 = icmp ne i8 %13, 46
-  %.not13.not.i = or i1 %.not.not24.i, %21
+  %.not13.not.i = or i1 %.not.not21.i, %21
   br i1 %.not13.not.i, label %35, label %22
 
 22:                                               ; preds = %20

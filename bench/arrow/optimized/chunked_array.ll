@@ -1042,17 +1042,17 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit: ; preds = %_ZNSt16_Sp_counted
   %59 = load ptr, ptr %1, align 8, !tbaa !58
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !58
-  %.not16 = icmp eq ptr %59, %61
-  br i1 %.not16, label %._crit_edge, label %.critedge
+  %.not14 = icmp eq ptr %59, %61
+  br i1 %.not14, label %._crit_edge, label %.critedge
 
 62:                                               ; preds = %.critedge
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 16
   %.not = icmp eq ptr %63, %61
   br i1 %.not, label %._crit_edge, label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit, %62
-  %.sroa.010.017 = phi ptr [ %63, %62 ], [ %59, %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit ]
-  %64 = load ptr, ptr %.sroa.010.017, align 8, !tbaa !45
+  %.sroa.010.015 = phi ptr [ %63, %62 ], [ %59, %_ZNSt10shared_ptrIN5arrow8DataTypeEEaSERKS2_.exit ]
+  %64 = load ptr, ptr %.sroa.010.015, align 8, !tbaa !45
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !48
   %67 = load ptr, ptr %66, align 8, !tbaa !38
@@ -1960,18 +1960,18 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_110mayHaveNaNER
   br label %.loopexit
 
 14:                                               ; preds = %1
-  %.not13.not = icmp eq ptr %5, %4
-  br i1 %.not13.not, label %.loopexit, label %.lr.ph
+  %.not14 = icmp eq ptr %5, %4
+  br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14, %.lr.ph
-  %.sroa.010.014 = phi ptr [ %19, %.lr.ph ], [ %5, %14 ]
-  %15 = load ptr, ptr %.sroa.010.014, align 8, !tbaa !158
+  %.sroa.010.015 = phi ptr [ %19, %.lr.ph ], [ %5, %14 ]
+  %15 = load ptr, ptr %.sroa.010.015, align 8, !tbaa !158
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !38
   %18 = tail call fastcc noundef zeroext i1 @_ZN5arrow12_GLOBAL__N_110mayHaveNaNERKNS_8DataTypeE(ptr noundef nonnull align 8 dereferenceable(72) %17)
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 16
-  %.not.not = icmp eq ptr %19, %4
-  %or.cond = select i1 %18, i1 true, i1 %.not.not
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 16
+  %.not = icmp eq ptr %19, %4
+  %or.cond = select i1 %18, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %14, %11

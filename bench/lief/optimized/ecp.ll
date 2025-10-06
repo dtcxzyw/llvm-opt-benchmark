@@ -541,47 +541,47 @@ mbedtls_ecp_get_type.exit51:                      ; preds = %13, %21
   br label %mbedtls_ecp_get_type.exit51.thread
 
 29:                                               ; preds = %mbedtls_ecp_get_type.exit51
-  %switch = icmp eq i32 %2, 0
-  br i1 %switch, label %30, label %40
+  %30 = icmp eq i32 %2, 0
+  br i1 %30, label %31, label %41
 
-30:                                               ; preds = %29
-  %31 = shl i64 %9, 1
-  %32 = or disjoint i64 %31, 1
-  store i64 %32, ptr %3, align 8, !tbaa !33
-  %.not47 = icmp ugt i64 %5, %31
-  br i1 %.not47, label %33, label %mbedtls_ecp_get_type.exit51.thread
+31:                                               ; preds = %29
+  %32 = shl i64 %9, 1
+  %33 = or disjoint i64 %32, 1
+  store i64 %33, ptr %3, align 8, !tbaa !33
+  %.not47 = icmp ugt i64 %5, %32
+  br i1 %.not47, label %34, label %mbedtls_ecp_get_type.exit51.thread
 
-33:                                               ; preds = %30
+34:                                               ; preds = %31
   store i8 4, ptr %4, align 1, !tbaa !34
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %35 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %1, ptr noundef nonnull %34, i64 noundef %9) #20
-  %.not48 = icmp eq i32 %35, 0
-  br i1 %.not48, label %36, label %mbedtls_ecp_get_type.exit51.thread
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %36 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %1, ptr noundef nonnull %35, i64 noundef %9) #20
+  %.not48 = icmp eq i32 %36, 0
+  br i1 %.not48, label %37, label %mbedtls_ecp_get_type.exit51.thread
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 %9
-  %39 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %37, ptr noundef nonnull %38, i64 noundef %9) #20
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 %9
+  %40 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %38, ptr noundef nonnull %39, i64 noundef %9) #20
   br label %mbedtls_ecp_get_type.exit51.thread
 
-40:                                               ; preds = %29
-  %41 = add i64 %9, 1
-  store i64 %41, ptr %3, align 8, !tbaa !33
-  %42 = icmp ult i64 %5, %41
-  br i1 %42, label %mbedtls_ecp_get_type.exit51.thread, label %43
+41:                                               ; preds = %29
+  %42 = add i64 %9, 1
+  store i64 %42, ptr %3, align 8, !tbaa !33
+  %43 = icmp ult i64 %5, %42
+  br i1 %43, label %mbedtls_ecp_get_type.exit51.thread, label %44
 
-43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %45 = tail call i32 @mbedtls_mpi_get_bit(ptr noundef nonnull %44, i64 noundef 0) #20
-  %46 = trunc i32 %45 to i8
-  %47 = add i8 %46, 2
-  store i8 %47, ptr %4, align 1, !tbaa !34
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %49 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %1, ptr noundef nonnull %48, i64 noundef %9) #20
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %46 = tail call i32 @mbedtls_mpi_get_bit(ptr noundef nonnull %45, i64 noundef 0) #20
+  %47 = trunc i32 %46 to i8
+  %48 = add i8 %47, 2
+  store i8 %48, ptr %4, align 1, !tbaa !34
+  %49 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %50 = tail call i32 @mbedtls_mpi_write_binary(ptr noundef nonnull %1, ptr noundef nonnull %49, i64 noundef %9) #20
   br label %mbedtls_ecp_get_type.exit51.thread
 
-mbedtls_ecp_get_type.exit51.thread:               ; preds = %7, %21, %mbedtls_ecp_get_type.exit.thread, %18, %33, %36, %43, %40, %30, %26, %mbedtls_ecp_get_type.exit, %6, %28
-  %.0 = phi i32 [ 0, %28 ], [ -20352, %6 ], [ -20224, %mbedtls_ecp_get_type.exit ], [ -20224, %26 ], [ -20224, %30 ], [ -20224, %40 ], [ %19, %18 ], [ %35, %33 ], [ %39, %36 ], [ %49, %43 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %21 ], [ -20096, %7 ]
+mbedtls_ecp_get_type.exit51.thread:               ; preds = %7, %21, %mbedtls_ecp_get_type.exit.thread, %18, %34, %37, %44, %41, %31, %26, %mbedtls_ecp_get_type.exit, %6, %28
+  %.0 = phi i32 [ 0, %28 ], [ -20352, %6 ], [ -20224, %mbedtls_ecp_get_type.exit ], [ -20224, %26 ], [ -20224, %31 ], [ -20224, %41 ], [ %19, %18 ], [ %36, %34 ], [ %40, %37 ], [ %50, %44 ], [ 0, %mbedtls_ecp_get_type.exit.thread ], [ 0, %21 ], [ -20096, %7 ]
   ret i32 %.0
 }
 

@@ -368,7 +368,7 @@ define { i64, i64 } @_ZN12grep_printer4util17trim_ascii_prefix17h89201b5f705bab5
   br label %24
 
 24:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hacad82c71a0e839fE.exit.i.i.i", %.lr.ph.i.i.i
-  %.018.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %33, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hacad82c71a0e839fE.exit.i.i.i" ]
+  %.017.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %33, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hacad82c71a0e839fE.exit.i.i.i" ]
   %25 = phi ptr [ %23, %.lr.ph.i.i.i ], [ %26, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hacad82c71a0e839fE.exit.i.i.i" ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -399,12 +399,12 @@ define { i64, i64 } @_ZN12grep_printer4util17trim_ascii_prefix17h89201b5f705bab5
   br i1 %31, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hacad82c71a0e839fE.exit.i.i.i", label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hed27b64ba4a73510E.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hacad82c71a0e839fE.exit.i.i.i": ; preds = %"_ZN12grep_printer4util17trim_ascii_prefix28_$u7b$$u7b$closure$u7d$$u7d$17h34ac8f4e4c1fdcdfE.exit.i.i.i.i"
-  %33 = add nuw i64 %.018.i.i.i, 1
+  %33 = add nuw i64 %.017.i.i.i, 1
   %34 = icmp eq ptr %26, %21
   br i1 %34, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hed27b64ba4a73510E.exit", label %24
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hed27b64ba4a73510E.exit": ; preds = %24, %"_ZN12grep_printer4util17trim_ascii_prefix28_$u7b$$u7b$closure$u7d$$u7d$17h34ac8f4e4c1fdcdfE.exit.i.i.i.i", %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hacad82c71a0e839fE.exit.i.i.i", %20
-  %.1.i.i = phi i64 [ 0, %20 ], [ %.018.i.i.i, %24 ], [ %.018.i.i.i, %"_ZN12grep_printer4util17trim_ascii_prefix28_$u7b$$u7b$closure$u7d$$u7d$17h34ac8f4e4c1fdcdfE.exit.i.i.i.i" ], [ %gepdiff, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hacad82c71a0e839fE.exit.i.i.i" ]
+  %.1.i.i = phi i64 [ 0, %20 ], [ %.017.i.i.i, %24 ], [ %.017.i.i.i, %"_ZN12grep_printer4util17trim_ascii_prefix28_$u7b$$u7b$closure$u7d$$u7d$17h34ac8f4e4c1fdcdfE.exit.i.i.i.i" ], [ %gepdiff, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hacad82c71a0e839fE.exit.i.i.i" ]
   %35 = add i64 %.1.i.i, %4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %35, ptr %9, align 8, !noalias !53

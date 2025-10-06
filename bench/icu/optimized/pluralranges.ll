@@ -883,40 +883,40 @@ _ZN6icu_7715MaybeStackArrayINS_20StandardPluralRanges25StandardPluralRangeTriple
 define noundef i32 @_ZNK6icu_7720StandardPluralRanges7resolveENS_14StandardPlural4FormES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8, !tbaa !20
-  %.not17 = icmp sgt i32 %5, 0
-  br i1 %.not17, label %.lr.ph, label %.loopexit
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
-  %6 = load ptr, ptr %0, align 8, !tbaa !15
+  %7 = load ptr, ptr %0, align 8, !tbaa !15
   %wide.trip.count = zext nneg i32 %5 to i64
-  br label %7
+  br label %8
 
-7:                                                ; preds = %.lr.ph, %18
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %8 = getelementptr inbounds nuw %"struct.icu_77::StandardPluralRanges::StandardPluralRangeTriple", ptr %6, i64 %indvars.iv
-  %9 = load i32, ptr %8, align 4, !tbaa !36
-  %10 = icmp eq i32 %9, %1
-  br i1 %10, label %11, label %18
+8:                                                ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
+  %9 = getelementptr inbounds nuw %"struct.icu_77::StandardPluralRanges::StandardPluralRangeTriple", ptr %7, i64 %indvars.iv
+  %10 = load i32, ptr %9, align 4, !tbaa !36
+  %11 = icmp eq i32 %10, %1
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !38
-  %14 = icmp eq i32 %13, %2
-  br i1 %14, label %15, label %18
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !38
+  %15 = icmp eq i32 %14, %2
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %11
-  %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %17 = load i32, ptr %16, align 4, !tbaa !39
-  br label %.loopexit
-
-18:                                               ; preds = %11, %7
+16:                                               ; preds = %12, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %7, !llvm.loop !40
+  br i1 %exitcond.not, label %.loopexit, label %8, !llvm.loop !39
 
-.loopexit:                                        ; preds = %18, %3, %15
-  %spec.select = phi i32 [ %17, %15 ], [ 5, %3 ], [ 5, %18 ]
-  ret i32 %spec.select
+17:                                               ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %19 = load i32, ptr %18, align 4, !tbaa !41
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %16, %3, %17
+  %20 = phi i32 [ %19, %17 ], [ 5, %3 ], [ 5, %16 ]
+  ret i32 %20
 }
 
 declare ptr @ures_openDirect_77(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
@@ -1317,9 +1317,9 @@ attributes #16 = { noreturn nounwind }
 !36 = !{!37, !35, i64 0}
 !37 = !{!"_ZTSN6icu_7720StandardPluralRanges25StandardPluralRangeTripleE", !35, i64 0, !35, i64 4, !35, i64 8}
 !38 = !{!37, !35, i64 4}
-!39 = !{!37, !35, i64 8}
-!40 = distinct !{!40, !41}
-!41 = !{!"llvm.loop.mustprogress"}
+!39 = distinct !{!39, !40}
+!40 = !{!"llvm.loop.mustprogress"}
+!41 = !{!37, !35, i64 8}
 !42 = !{!43, !31, i64 8}
 !43 = !{!"_ZTSN6icu_7712_GLOBAL__N_120PluralRangesDataSinkE", !44, i64 0, !31, i64 8}
 !44 = !{!"_ZTSN6icu_7712ResourceSinkE", !45, i64 0}
@@ -1342,4 +1342,4 @@ attributes #16 = { noreturn nounwind }
 !61 = !{!62}
 !62 = distinct !{!62, !63, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode: argument 0"}
 !63 = distinct !{!63, !"_ZNK6icu_7713ResourceValue16getUnicodeStringER10UErrorCode"}
-!64 = distinct !{!64, !41}
+!64 = distinct !{!64, !40}

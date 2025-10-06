@@ -588,23 +588,23 @@ define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2
   store i16 0, ptr %2, align 2, !tbaa !50
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %.backedge73.sink.split
+  br label %.backedge71.sink.split
 
-.backedge73.sink.split:                           ; preds = %1, %21
+.backedge71.sink.split:                           ; preds = %1, %21
   %.sink.in = phi ptr [ %22, %21 ], [ %3, %1 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !26
   %4 = load ptr, ptr %.sink, align 8, !tbaa !30
-  br label %.backedge73
+  br label %.backedge71
 
-.backedge73:                                      ; preds = %.backedge73.sink.split, %9
-  %.018.i = phi ptr [ %11, %9 ], [ %4, %.backedge73.sink.split ]
+.backedge71:                                      ; preds = %.backedge71.sink.split, %9
+  %.018.i = phi ptr [ %11, %9 ], [ %4, %.backedge71.sink.split ]
   %5 = load i8, ptr %.018.i, align 8, !tbaa !31
   switch i8 %5, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit [
     i8 5, label %6
     i8 24, label %13
   ]
 
-6:                                                ; preds = %.backedge73
+6:                                                ; preds = %.backedge71
   %7 = getelementptr inbounds nuw i8, ptr %.018.i, i64 2
   %8 = load i16, ptr %7, align 2, !tbaa !50
   %.not23.i = icmp eq i16 %8, 0
@@ -616,9 +616,9 @@ define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3
   %12 = load i8, ptr %11, align 8, !tbaa !31
   %.off.i.i = add i8 %12, -3
   %switch.i.i = icmp ult i8 %.off.i.i, 3
-  br i1 %switch.i.i, label %.backedge73, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
+  br i1 %switch.i.i, label %.backedge71, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
 
-13:                                               ; preds = %.backedge73
+13:                                               ; preds = %.backedge71
   %14 = getelementptr inbounds nuw i8, ptr %.018.i, i64 2
   %15 = load i16, ptr %14, align 2, !tbaa !50
   %16 = icmp eq i16 %15, 2
@@ -636,94 +636,90 @@ define dso_local void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3
 
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %.018.i, i64 16
-  br label %.backedge73.sink.split
+  br label %.backedge71.sink.split
 
-_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds = %18, %.backedge73, %9, %6
+_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit: ; preds = %18, %.backedge71, %9, %6
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %24 = load i64, ptr %23, align 8, !tbaa !29
   %25 = and i64 %24, 4294967294
-  %.not1674.not = icmp eq i64 %25, 0
-  br i1 %.not1674.not, label %.critedge, label %.lr.ph.preheader
+  %.not1672.not = icmp eq i64 %25, 0
+  br i1 %.not1672.not, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
   %wide.trip.count = and i64 %24, 4294967295
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %50
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %26 = load ptr, ptr %3, align 8, !tbaa !26
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
-  %28 = load ptr, ptr %27, align 8, !tbaa !30
-  br label %.backedge
-
-.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.018.i17 = phi ptr [ %28, %.lr.ph ], [ %.018.i17.be, %.backedge.backedge ]
-  %29 = load i8, ptr %.018.i17, align 8, !tbaa !31
-  switch i8 %29, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit34 [
-    i8 5, label %30
-    i8 24, label %37
-  ]
-
-30:                                               ; preds = %.backedge
-  %31 = getelementptr inbounds nuw i8, ptr %.018.i17, i64 2
-  %32 = load i16, ptr %31, align 2, !tbaa !50
-  %.not23.i21 = icmp eq i16 %32, 0
-  br i1 %.not23.i21, label %33, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit34
-
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %.018.i17, i64 32
-  %35 = load ptr, ptr %34, align 8, !tbaa !51
-  %36 = load i8, ptr %35, align 8, !tbaa !31
-  %.off.i.i32 = add i8 %36, -3
-  %switch.i.i33 = icmp ult i8 %.off.i.i32, 3
-  br i1 %switch.i.i33, label %.backedge.backedge, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit34
-
-37:                                               ; preds = %.backedge
-  %38 = getelementptr inbounds nuw i8, ptr %.018.i17, i64 2
-  %39 = load i16, ptr %38, align 2, !tbaa !50
-  %40 = icmp eq i16 %39, 2
-  br i1 %40, label %41, label %42
-
-41:                                               ; preds = %37
-  tail call void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3PhiE(ptr noundef nonnull %.018.i17)
-  %.pre77 = load i16, ptr %38, align 2, !tbaa !50
-  br label %42
-
-42:                                               ; preds = %41, %37
-  %43 = phi i16 [ %.pre77, %41 ], [ %39, %37 ]
-  %44 = icmp eq i16 %43, 1
-  br i1 %44, label %45, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit34
-
-45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw i8, ptr %.018.i17, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !26
-  %48 = load ptr, ptr %47, align 8, !tbaa !30
-  br label %.backedge.backedge
-
-.backedge.backedge:                               ; preds = %45, %33
-  %.018.i17.be = phi ptr [ %48, %45 ], [ %35, %33 ]
-  br label %.backedge
-
-_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit34: ; preds = %.backedge, %42, %33, %30
-  %49 = icmp eq ptr %.018.i17, %0
-  %.not = icmp ne ptr %.018.i17, %.018.i
-  %. = zext i1 %.not to i32
-  %.1 = select i1 %49, i32 4, i32 %.
-  switch i32 %.1, label %.loopexit [
-    i32 0, label %50
-    i32 4, label %50
-  ]
-
-50:                                               ; preds = %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit34, %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit34
+26:                                               ; preds = %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !55
 
-.critedge:                                        ; preds = %50, %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %26
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
+  %27 = load ptr, ptr %3, align 8, !tbaa !26
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %29 = load ptr, ptr %28, align 8, !tbaa !30
+  br label %.backedge
+
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
+  %.018.i17 = phi ptr [ %29, %.lr.ph ], [ %.018.i17.be, %.backedge.backedge ]
+  %30 = load i8, ptr %.018.i17, align 8, !tbaa !31
+  switch i8 %30, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit33 [
+    i8 5, label %31
+    i8 24, label %38
+  ]
+
+31:                                               ; preds = %.backedge
+  %32 = getelementptr inbounds nuw i8, ptr %.018.i17, i64 2
+  %33 = load i16, ptr %32, align 2, !tbaa !50
+  %.not23.i21 = icmp eq i16 %33, 0
+  br i1 %.not23.i21, label %34, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit33
+
+34:                                               ; preds = %31
+  %35 = getelementptr inbounds nuw i8, ptr %.018.i17, i64 32
+  %36 = load ptr, ptr %35, align 8, !tbaa !51
+  %37 = load i8, ptr %36, align 8, !tbaa !31
+  %.off.i.i31 = add i8 %37, -3
+  %switch.i.i32 = icmp ult i8 %.off.i.i31, 3
+  br i1 %switch.i.i32, label %.backedge.backedge, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit33
+
+38:                                               ; preds = %.backedge
+  %39 = getelementptr inbounds nuw i8, ptr %.018.i17, i64 2
+  %40 = load i16, ptr %39, align 2, !tbaa !50
+  %41 = icmp eq i16 %40, 2
+  br i1 %41, label %42, label %43
+
+42:                                               ; preds = %38
+  tail call void @_ZN5clang12threadSafety3til21simplifyIncompleteArgEPNS1_3PhiE(ptr noundef nonnull %.018.i17)
+  %.pre75 = load i16, ptr %39, align 2, !tbaa !50
+  br label %43
+
+43:                                               ; preds = %42, %38
+  %44 = phi i16 [ %.pre75, %42 ], [ %40, %38 ]
+  %45 = icmp eq i16 %44, 1
+  br i1 %45, label %46, label %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit33
+
+46:                                               ; preds = %43
+  %47 = getelementptr inbounds nuw i8, ptr %.018.i17, i64 16
+  %48 = load ptr, ptr %47, align 8, !tbaa !26
+  %49 = load ptr, ptr %48, align 8, !tbaa !30
+  br label %.backedge.backedge
+
+.backedge.backedge:                               ; preds = %46, %34
+  %.018.i17.be = phi ptr [ %49, %46 ], [ %36, %34 ]
+  br label %.backedge
+
+_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit33: ; preds = %.backedge, %43, %34, %31
+  %50 = icmp ne ptr %.018.i17, %0
+  %.not.not = icmp ne ptr %.018.i17, %.018.i
+  %switch = and i1 %50, %.not.not
+  br i1 %switch, label %.loopexit, label %26
+
+.critedge:                                        ; preds = %26, %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit
   store i16 1, ptr %2, align 2, !tbaa !50
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit34, %.critedge
+.loopexit:                                        ; preds = %_ZN5clang12threadSafety3til22simplifyToCanonicalValEPNS1_5SExprE.exit33, %.critedge
   ret void
 }
 

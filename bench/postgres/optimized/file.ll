@@ -339,18 +339,18 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %22 = load i64, ptr %21, align 8
   %23 = icmp sgt i64 %22, 0
-  br i1 %23, label %.lr.ph109, label %._crit_edge110
+  br i1 %23, label %.lr.ph108, label %._crit_edge109
 
-.lr.ph109:                                        ; preds = %20
+.lr.ph108:                                        ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.072.ptr101 = getelementptr inbounds nuw i8, ptr %6, i64 4108
+  %.072.ptr100 = getelementptr inbounds nuw i8, ptr %6, i64 4108
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %27
 
-27:                                               ; preds = %.lr.ph109, %.thread
-  %.063107 = phi i64 [ 0, %.lr.ph109 ], [ %34, %.thread ]
-  %.064106 = phi i32 [ 0, %.lr.ph109 ], [ %.165.lcssa, %.thread ]
+27:                                               ; preds = %.lr.ph108, %.thread
+  %.063106 = phi i64 [ 0, %.lr.ph108 ], [ %34, %.thread ]
+  %.064105 = phi i32 [ 0, %.lr.ph108 ], [ %.165.lcssa, %.thread ]
   %28 = call i64 @read(i32 noundef %9, ptr noundef nonnull %6, i64 noundef 8192) #10
   %.not80 = icmp eq i64 %28, 8192
   br i1 %.not80, label %33, label %29
@@ -368,55 +368,55 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
   unreachable
 
 33:                                               ; preds = %27
-  %34 = add i64 %.063107, 8192
+  %34 = add i64 %.063106, 8192
   %35 = icmp eq i64 %34, %22
   br label %36
 
 36:                                               ; preds = %33, %91
-  %.072.ptr105 = phi ptr [ %.072.ptr101, %33 ], [ %.072.ptr, %91 ]
-  %.165104 = phi i32 [ %.064106, %33 ], [ %92, %91 ]
-  %.070103 = phi ptr [ %24, %33 ], [ %.171.lcssa, %91 ]
-  %.072.idx102 = phi i64 [ 4108, %33 ], [ %.072.add, %91 ]
+  %.072.ptr104 = phi ptr [ %.072.ptr100, %33 ], [ %.072.ptr, %91 ]
+  %.165103 = phi i32 [ %.064105, %33 ], [ %92, %91 ]
+  %.070102 = phi ptr [ %24, %33 ], [ %.171.lcssa, %91 ]
+  %.072.idx101 = phi i64 [ 4108, %33 ], [ %.072.add, %91 ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4096 dereferenceable(24) %7, ptr noundef nonnull align 4096 dereferenceable(24) %6, i64 24, i1 false)
-  %37 = icmp samesign eq i64 %.072.idx102, 8192
+  %37 = icmp samesign eq i64 %.072.idx101, 8192
   %38 = select i1 %35, i1 %37, i1 false
-  %39 = icmp ult ptr %.070103, %.072.ptr105
+  %39 = icmp ult ptr %.070102, %.072.ptr104
   br i1 %39, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %36, %50
-  %.06699 = phi i1 [ %.268, %50 ], [ true, %36 ]
-  %.06998 = phi ptr [ %52, %50 ], [ %25, %36 ]
-  %.17197 = phi ptr [ %51, %50 ], [ %.070103, %36 ]
-  %40 = load i8, ptr %.17197, align 1
+  %.06698 = phi i1 [ %.268, %50 ], [ true, %36 ]
+  %.06997 = phi ptr [ %52, %50 ], [ %25, %36 ]
+  %.17196 = phi ptr [ %51, %50 ], [ %.070102, %36 ]
+  %40 = load i8, ptr %.17196, align 1
   %41 = zext i8 %40 to i32
   br label %42
 
 42:                                               ; preds = %.lr.ph, %42
-  %.06196 = phi i32 [ 0, %.lr.ph ], [ %49, %42 ]
-  %.06295 = phi i16 [ 0, %.lr.ph ], [ %.1, %42 ]
-  %.16794 = phi i1 [ %.06699, %.lr.ph ], [ %.268, %42 ]
-  %43 = shl nuw nsw i32 1, %.06196
+  %.06195 = phi i32 [ 0, %.lr.ph ], [ %49, %42 ]
+  %.06294 = phi i16 [ 0, %.lr.ph ], [ %.1, %42 ]
+  %.16793 = phi i1 [ %.06698, %.lr.ph ], [ %.268, %42 ]
+  %43 = shl nuw nsw i32 1, %.06195
   %44 = and i32 %43, %41
   %.not85 = icmp eq i32 %44, 0
-  %45 = shl nuw nsw i32 %.06196, 1
+  %45 = shl nuw nsw i32 %.06195, 1
   %46 = shl nuw nsw i32 1, %45
   %47 = trunc nuw nsw i32 %46 to i16
-  %.268 = select i1 %.not85, i1 %.16794, i1 false
+  %.268 = select i1 %.not85, i1 %.16793, i1 false
   %48 = select i1 %.not85, i16 0, i16 %47
-  %.1 = or i16 %48, %.06295
-  %49 = add nuw nsw i32 %.06196, 1
+  %.1 = or i16 %48, %.06294
+  %49 = add nuw nsw i32 %.06195, 1
   %exitcond.not = icmp eq i32 %49, 8
   br i1 %exitcond.not, label %50, label %42, !llvm.loop !11
 
 50:                                               ; preds = %42
-  store i16 %.1, ptr %.06998, align 1
-  %51 = getelementptr inbounds nuw i8, ptr %.17197, i64 1
-  %52 = getelementptr inbounds nuw i8, ptr %.06998, i64 2
-  %53 = icmp ult ptr %51, %.072.ptr105
+  store i16 %.1, ptr %.06997, align 1
+  %51 = getelementptr inbounds nuw i8, ptr %.17196, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.06997, i64 2
+  %53 = icmp ult ptr %51, %.072.ptr104
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %50, %36
-  %.171.lcssa = phi ptr [ %.070103, %36 ], [ %51, %50 ]
+  %.171.lcssa = phi ptr [ %.070102, %36 ], [ %51, %50 ]
   %.066.lcssa = phi i1 [ true, %36 ], [ %.268, %50 ]
   %or.cond = select i1 %38, i1 %.066.lcssa, i1 false
   br i1 %or.cond, label %.thread, label %54
@@ -488,7 +488,7 @@ define dso_local void @rewriteVisibilityMap(ptr noundef %0, ptr noundef %1, ptr 
 
 pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %79 = xor i32 %78, %.165104
+  %79 = xor i32 %78, %.165103
   %80 = urem i32 %79, 65535
   %81 = trunc nuw i32 %80 to i16
   %82 = add nuw i16 %81, 1
@@ -516,18 +516,18 @@ pg_checksum_page.exit:                            ; preds = %.preheader.i.i
   unreachable
 
 91:                                               ; preds = %83
-  %.072.add = add nuw nsw i64 %.072.idx102, 4084
-  %92 = add i32 %.165104, 1
+  %.072.add = add nuw nsw i64 %.072.idx101, 4084
+  %92 = add i32 %.165103, 1
   %.072.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.072.add
-  %.not81 = icmp samesign ugt i64 %.072.idx102, 4108
+  %.not81 = icmp samesign ugt i64 %.072.idx101, 4108
   br i1 %.not81, label %.thread, label %36
 
 .thread:                                          ; preds = %._crit_edge, %91
-  %.165.lcssa = phi i32 [ %.165104, %._crit_edge ], [ %92, %91 ]
+  %.165.lcssa = phi i32 [ %.165103, %._crit_edge ], [ %92, %91 ]
   %93 = icmp slt i64 %34, %22
-  br i1 %93, label %27, label %._crit_edge110, !llvm.loop !13
+  br i1 %93, label %27, label %._crit_edge109, !llvm.loop !13
 
-._crit_edge110:                                   ; preds = %.thread, %20
+._crit_edge109:                                   ; preds = %.thread, %20
   %94 = call i32 @close(i32 noundef %17) #10
   %95 = call i32 @close(i32 noundef %9) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

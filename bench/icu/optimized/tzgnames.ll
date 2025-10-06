@@ -725,14 +725,14 @@ _ZNK6icu_7713CharacterNode11countValuesEv.exit:   ; preds = %9
   br label %19
 
 19:                                               ; preds = %.lr.ph, %.critedge52
-  %.03870 = phi i32 [ 0, %.lr.ph ], [ %60, %.critedge52 ]
+  %.03869 = phi i32 [ 0, %.lr.ph ], [ %60, %.critedge52 ]
   %20 = load i8, ptr %10, align 2, !tbaa !46
   %.not.i53 = icmp eq i8 %20, 0
   %21 = load ptr, ptr %2, align 8, !tbaa !42
   br i1 %.not.i53, label %_ZNK6icu_7713CharacterNode8getValueEi.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %21, i32 noundef %.03870)
+  %23 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %21, i32 noundef %.03869)
   br label %_ZNK6icu_7713CharacterNode8getValueEi.exit
 
 _ZNK6icu_7713CharacterNode8getValueEi.exit:       ; preds = %19, %22
@@ -823,7 +823,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %_ZN6icu_7712LocalPo
   br label %.thread67
 
 .critedge52:                                      ; preds = %56, %53, %25
-  %60 = add nuw nsw i32 %.03870, 1
+  %60 = add nuw nsw i32 %.03869, 1
   %exitcond.not = icmp eq i32 %60, %15
   br i1 %exitcond.not, label %.thread67, label %19, !llvm.loop !48
 

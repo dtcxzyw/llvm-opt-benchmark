@@ -9294,9 +9294,9 @@ define noundef i64 @_ZN7rocksdb34FindMinPrepLogReferencedByMemTableEPNS_10Versio
   %46 = load i64, ptr %20, align 8, !tbaa !952
   %.not.not.i = icmp eq i64 %46, 0
   %47 = load ptr, ptr %.0.i.i.i.i.i, align 8
-  br i1 %.not.not.i, label %.preheader, label %.thread36.i
+  br i1 %.not.not.i, label %.preheader, label %.thread34.i
 
-.thread36.i:                                      ; preds = %.lr.ph.i.i.i
+.thread34.i:                                      ; preds = %.lr.ph.i.i.i
   %48 = ptrtoint ptr %47 to i64
   %49 = load i64, ptr %5, align 8, !tbaa !933
   %50 = urem i64 %48, %49
@@ -9324,7 +9324,7 @@ define noundef i64 @_ZN7rocksdb34FindMinPrepLogReferencedByMemTableEPNS_10Versio
   %61 = urem i64 %59, %60
   br label %.critedge.i
 
-62:                                               ; preds = %.thread36.i
+62:                                               ; preds = %.thread34.i
   %63 = load ptr, ptr %53, align 8, !tbaa !556
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load ptr, ptr %64, align 8, !tbaa !690
@@ -9352,9 +9352,9 @@ define noundef i64 @_ZN7rocksdb34FindMinPrepLogReferencedByMemTableEPNS_10Versio
 ..loopexit_crit_edge21.i.i.i:                     ; preds = %70
   br label %.critedge.i, !llvm.loop !954
 
-.critedge.i:                                      ; preds = %.lr.ph.i.i.i50, %..loopexit_crit_edge21.i.i.i, %58, %.thread36.i
-  %75 = phi i64 [ %61, %58 ], [ %50, %.thread36.i ], [ %50, %..loopexit_crit_edge21.i.i.i ], [ %50, %.lr.ph.i.i.i50 ]
-  %76 = phi i64 [ %59, %58 ], [ %48, %.thread36.i ], [ %48, %..loopexit_crit_edge21.i.i.i ], [ %48, %.lr.ph.i.i.i50 ]
+.critedge.i:                                      ; preds = %.lr.ph.i.i.i50, %..loopexit_crit_edge21.i.i.i, %58, %.thread34.i
+  %75 = phi i64 [ %61, %58 ], [ %50, %.thread34.i ], [ %50, %..loopexit_crit_edge21.i.i.i ], [ %50, %.lr.ph.i.i.i50 ]
+  %76 = phi i64 [ %59, %58 ], [ %48, %.thread34.i ], [ %48, %..loopexit_crit_edge21.i.i.i ], [ %48, %.lr.ph.i.i.i50 ]
   %77 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
           to label %.noexc51 unwind label %83
 
@@ -18102,9 +18102,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !648
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %14, label %.thread36
+  br i1 %.not.not, label %14, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load i64, ptr %1, align 8, !tbaa !396
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !647
@@ -18138,7 +18138,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %25 = urem i64 %16, %24
   br label %.critedge
 
-26:                                               ; preds = %.thread36
+26:                                               ; preds = %.thread34
   %27 = load ptr, ptr %13, align 8, !tbaa !556
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !396
@@ -18165,9 +18165,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
 ..loopexit_crit_edge21.i.i:                       ; preds = %34
   br label %.critedge, !llvm.loop !1196
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread34
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread34 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
   store ptr null, ptr %40, align 8, !tbaa !556
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -23649,9 +23649,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN7rocksdb16ReadOnlyMemTableE
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !952
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !690
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23687,7 +23687,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN7rocksdb16ReadOnlyMemTableE
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !556
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !690
@@ -23715,10 +23715,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN7rocksdb16ReadOnlyMemTableE
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !954
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
   store ptr null, ptr %44, align 8, !tbaa !556
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -24061,9 +24061,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPKN7rocksdb16ColumnFamilyData
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !979
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !977
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -24099,7 +24099,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPKN7rocksdb16ColumnFamilyData
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !556
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !977
@@ -24127,10 +24127,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPKN7rocksdb16ColumnFamilyData
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !1270
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #34
   store ptr null, ptr %44, align 8, !tbaa !556
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

@@ -591,17 +591,17 @@ define void @lv_gridnav_set_focused(ptr noundef %0, ptr noundef %1, i1 noundef z
 
 4:                                                ; preds = %3
   %5 = tail call i32 @lv_obj_get_event_count(ptr noundef %0) #4
-  %.not31 = icmp eq i32 %5, 0
-  br i1 %.not31, label %.thread27, label %.lr.ph
+  %.not30 = icmp eq i32 %5, 0
+  br i1 %.not30, label %.thread26, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
-  %7 = add nuw i32 %.01830, 1
+  %7 = add nuw i32 %.01829, 1
   %exitcond.not = icmp eq i32 %7, %5
-  br i1 %exitcond.not, label %.thread27, label %.lr.ph, !llvm.loop !15
+  br i1 %exitcond.not, label %.thread26, label %.lr.ph, !llvm.loop !15
 
 .lr.ph:                                           ; preds = %4, %6
-  %.01830 = phi i32 [ %7, %6 ], [ 0, %4 ]
-  %8 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %0, i32 noundef %.01830) #4
+  %.01829 = phi i32 [ %7, %6 ], [ 0, %4 ]
+  %8 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %0, i32 noundef %.01829) #4
   %9 = tail call ptr @lv_event_dsc_get_cb(ptr noundef %8) #4
   %10 = icmp eq ptr %9, @gridnav_event_cb
   br i1 %10, label %11, label %6
@@ -609,15 +609,15 @@ define void @lv_gridnav_set_focused(ptr noundef %0, ptr noundef %1, i1 noundef z
 11:                                               ; preds = %.lr.ph
   %12 = tail call ptr @lv_event_dsc_get_user_data(ptr noundef %8) #4
   %13 = icmp eq ptr %12, null
-  br i1 %13, label %.thread27, label %14
+  br i1 %13, label %.thread26, label %14
 
 14:                                               ; preds = %11
   %15 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %1, i32 noundef 1) #4
-  br i1 %15, label %.thread27, label %obj_is_focusable.exit
+  br i1 %15, label %.thread26, label %obj_is_focusable.exit
 
 obj_is_focusable.exit:                            ; preds = %14
   %16 = tail call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %1, i32 noundef 6) #4
-  br i1 %16, label %17, label %.thread27
+  br i1 %16, label %17, label %.thread26
 
 17:                                               ; preds = %obj_is_focusable.exit
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -633,9 +633,9 @@ obj_is_focusable.exit:                            ; preds = %14
   tail call void @lv_obj_add_state(ptr noundef nonnull %1, i16 noundef zeroext 6) #4
   tail call void @lv_obj_scroll_to_view(ptr noundef nonnull %1, i1 noundef zeroext %2) #4
   store ptr %1, ptr %18, align 8, !tbaa !12
-  br label %.thread27
+  br label %.thread26
 
-.thread27:                                        ; preds = %6, %4, %14, %obj_is_focusable.exit, %11, %21
+.thread26:                                        ; preds = %6, %4, %14, %obj_is_focusable.exit, %11, %21
   ret void
 }
 

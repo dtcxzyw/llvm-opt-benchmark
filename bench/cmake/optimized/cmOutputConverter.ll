@@ -1544,13 +1544,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit109: ; preds = %_Z
   %78 = load i8, ptr %73, align 1, !tbaa !27
   %79 = icmp ne i8 %78, 40
   %80 = getelementptr inbounds nuw i8, ptr %.019.i, i64 2
-  %.not2336.i = icmp eq ptr %80, %62
-  %or.cond.i = select i1 %79, i1 true, i1 %.not2336.i
+  %.not2335.i = icmp eq ptr %80, %62
+  %or.cond.i = select i1 %79, i1 true, i1 %.not2335.i
   br i1 %or.cond.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %77, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i
-  %.01837.i = phi ptr [ %84, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i ], [ %80, %77 ]
-  %81 = load i8, ptr %.01837.i, align 1, !tbaa !27
+  %.01836.i = phi ptr [ %84, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i ], [ %80, %77 ]
+  %81 = load i8, ptr %.01836.i, align 1, !tbaa !27
   switch i8 %81, label %_ZL28Shell_CharIsMakeVariableNamec.exit.i [
     i8 0, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit
     i8 95, label %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i
@@ -1559,17 +1559,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit109: ; preds = %_Z
 _ZL28Shell_CharIsMakeVariableNamec.exit.i:        ; preds = %.lr.ph.i
   %82 = sext i8 %81 to i32
   %83 = tail call i32 @isalpha(i32 noundef %82) #24
-  %.not31.i = icmp eq i32 %83, 0
-  br i1 %.not31.i, label %.critedge2.i, label %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i
+  %.not30.i = icmp eq i32 %83, 0
+  br i1 %.not30.i, label %.critedge2.i, label %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i
 
 _ZL28Shell_CharIsMakeVariableNamec.exit.thread.i: ; preds = %_ZL28Shell_CharIsMakeVariableNamec.exit.i, %.lr.ph.i
-  %84 = getelementptr inbounds nuw i8, ptr %.01837.i, i64 1
+  %84 = getelementptr inbounds nuw i8, ptr %.01836.i, i64 1
   %.not23.i = icmp eq ptr %84, %62
   br i1 %.not23.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit, label %.lr.ph.i, !llvm.loop !46
 
 .critedge2.i:                                     ; preds = %_ZL28Shell_CharIsMakeVariableNamec.exit.i
   %85 = icmp eq i8 %81, 41
-  %86 = getelementptr inbounds nuw i8, ptr %.01837.i, i64 1
+  %86 = getelementptr inbounds nuw i8, ptr %.01836.i, i64 1
   br i1 %85, label %.critedge24.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit
 
 _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit: ; preds = %.critedge2.i, %77, %74, %72, %.critedge24.i, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i, %.lr.ph.i
@@ -2735,13 +2735,13 @@ define dso_local noundef ptr @_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPK
   %9 = load i8, ptr %4, align 1, !tbaa !27
   %10 = icmp ne i8 %9, 40
   %11 = getelementptr inbounds nuw i8, ptr %.019, i64 2
-  %.not2336 = icmp eq ptr %11, %1
-  %or.cond = select i1 %10, i1 true, i1 %.not2336
+  %.not2335 = icmp eq ptr %11, %1
+  %or.cond = select i1 %10, i1 true, i1 %.not2335
   br i1 %or.cond, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread
-  %.01837 = phi ptr [ %15, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread ], [ %11, %8 ]
-  %12 = load i8, ptr %.01837, align 1, !tbaa !27
+  %.01836 = phi ptr [ %15, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread ], [ %11, %8 ]
+  %12 = load i8, ptr %.01836, align 1, !tbaa !27
   switch i8 %12, label %_ZL28Shell_CharIsMakeVariableNamec.exit [
     i8 0, label %.critedge
     i8 95, label %_ZL28Shell_CharIsMakeVariableNamec.exit.thread
@@ -2750,17 +2750,17 @@ define dso_local noundef ptr @_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPK
 _ZL28Shell_CharIsMakeVariableNamec.exit:          ; preds = %.lr.ph
   %13 = sext i8 %12 to i32
   %14 = tail call i32 @isalpha(i32 noundef %13) #24
-  %.not31 = icmp eq i32 %14, 0
-  br i1 %.not31, label %.critedge2, label %_ZL28Shell_CharIsMakeVariableNamec.exit.thread
+  %.not30 = icmp eq i32 %14, 0
+  br i1 %.not30, label %.critedge2, label %_ZL28Shell_CharIsMakeVariableNamec.exit.thread
 
 _ZL28Shell_CharIsMakeVariableNamec.exit.thread:   ; preds = %.lr.ph, %_ZL28Shell_CharIsMakeVariableNamec.exit
-  %15 = getelementptr inbounds nuw i8, ptr %.01837, i64 1
+  %15 = getelementptr inbounds nuw i8, ptr %.01836, i64 1
   %.not23 = icmp eq ptr %15, %1
   br i1 %.not23, label %.critedge, label %.lr.ph, !llvm.loop !46
 
 .critedge2:                                       ; preds = %_ZL28Shell_CharIsMakeVariableNamec.exit
   %16 = icmp eq i8 %12, 41
-  %17 = getelementptr inbounds nuw i8, ptr %.01837, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01836, i64 1
   br i1 %16, label %.critedge24, label %.critedge
 
 .critedge:                                        ; preds = %.critedge2, %3, %.critedge24, %5, %8, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread, %.lr.ph
@@ -2779,20 +2779,20 @@ define dso_local noundef zeroext i1 @_ZN17cmOutputConverter25Shell_ArgumentNeeds
   br i1 %.not37, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us, label %.critedge24.i
 
 _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us: ; preds = %.lr.ph, %9
-  %.03377.us = phi ptr [ %10, %9 ], [ %1, %.lr.ph ]
-  %7 = load i8, ptr %.03377.us, align 1, !tbaa !27
+  %.03374.us = phi ptr [ %10, %9 ], [ %1, %.lr.ph ]
+  %7 = load i8, ptr %.03374.us, align 1, !tbaa !27
   %8 = tail call noundef zeroext i1 @_ZN17cmOutputConverter21Shell_CharNeedsQuotesEci(i8 noundef signext %7, i32 noundef %2)
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us
-  %10 = getelementptr inbounds nuw i8, ptr %.03377.us, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.03374.us, i64 1
   %.not.us = icmp eq ptr %10, %5
-  br i1 %.not.us, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread50, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us, !llvm.loop !55
+  br i1 %.not.us, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread49, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us, !llvm.loop !55
 
 .critedge24.i:                                    ; preds = %.lr.ph, %.critedge24.i.backedge
   %.019.i = phi ptr [ %.019.i.be, %.critedge24.i.backedge ], [ %1, %.lr.ph ]
   %.not.i = icmp eq ptr %.019.i, %5
-  br i1 %.not.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread50, label %11
+  br i1 %.not.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread49, label %11
 
 11:                                               ; preds = %.critedge24.i
   %12 = getelementptr inbounds nuw i8, ptr %.019.i, i64 1
@@ -2808,13 +2808,13 @@ _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us: ; preds =
   %16 = load i8, ptr %12, align 1, !tbaa !27
   %17 = icmp ne i8 %16, 40
   %18 = getelementptr inbounds nuw i8, ptr %.019.i, i64 2
-  %.not2336.i = icmp eq ptr %18, %5
-  %or.cond.i = select i1 %17, i1 true, i1 %.not2336.i
+  %.not2335.i = icmp eq ptr %18, %5
+  %or.cond.i = select i1 %17, i1 true, i1 %.not2335.i
   br i1 %or.cond.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i
-  %.01837.i = phi ptr [ %22, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i ], [ %18, %15 ]
-  %19 = load i8, ptr %.01837.i, align 1, !tbaa !27
+  %.01836.i = phi ptr [ %22, %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i ], [ %18, %15 ]
+  %19 = load i8, ptr %.01836.i, align 1, !tbaa !27
   switch i8 %19, label %_ZL28Shell_CharIsMakeVariableNamec.exit.i [
     i8 0, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread
     i8 95, label %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i
@@ -2823,17 +2823,17 @@ _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us: ; preds =
 _ZL28Shell_CharIsMakeVariableNamec.exit.i:        ; preds = %.lr.ph.i
   %20 = sext i8 %19 to i32
   %21 = tail call i32 @isalpha(i32 noundef %20) #24
-  %.not31.i = icmp eq i32 %21, 0
-  br i1 %.not31.i, label %.critedge2.i, label %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i
+  %.not30.i = icmp eq i32 %21, 0
+  br i1 %.not30.i, label %.critedge2.i, label %_ZL28Shell_CharIsMakeVariableNamec.exit.thread.i
 
 _ZL28Shell_CharIsMakeVariableNamec.exit.thread.i: ; preds = %_ZL28Shell_CharIsMakeVariableNamec.exit.i, %.lr.ph.i
-  %22 = getelementptr inbounds nuw i8, ptr %.01837.i, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.01836.i, i64 1
   %.not23.i = icmp eq ptr %22, %5
   br i1 %.not23.i, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread, label %.lr.ph.i, !llvm.loop !46
 
 .critedge2.i:                                     ; preds = %_ZL28Shell_CharIsMakeVariableNamec.exit.i
   %23 = icmp eq i8 %19, 41
-  %24 = getelementptr inbounds nuw i8, ptr %.01837.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.01836.i, i64 1
   br i1 %23, label %.critedge24.i.backedge, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread
 
 .critedge24.i.backedge:                           ; preds = %.critedge2.i, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread
@@ -2847,18 +2847,18 @@ _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread: ; preds = %_
 
 _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread: ; preds = %11
   %27 = tail call noundef zeroext i1 @_ZN17cmOutputConverter21Shell_CharNeedsQuotesEci(i8 noundef signext %.pre.pre, i32 noundef %2)
-  br i1 %27, label %.loopexit, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread50
+  br i1 %27, label %.loopexit, label %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread49
 
-_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread50: ; preds = %.critedge24.i, %9, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread
+_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread49: ; preds = %.critedge24.i, %9, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread
   %28 = and i32 %2, 256
   %.not38 = icmp ne i32 %28, 0
   %29 = icmp eq i64 %0, 1
-  %or.cond59 = and i1 %29, %.not38
-  br i1 %or.cond59, label %30, label %32
+  %or.cond56 = and i1 %29, %.not38
+  br i1 %or.cond56, label %30, label %32
 
-30:                                               ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread50
+30:                                               ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread49
   %31 = load i8, ptr %1, align 1, !tbaa !27
-  switch i8 %31, label %.thread58 [
+  switch i8 %31, label %.thread55 [
     i8 124, label %.loopexit
     i8 94, label %.loopexit
     i8 63, label %.loopexit
@@ -2866,29 +2866,29 @@ _ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread50: ; preds = 
     i8 35, label %.loopexit
   ]
 
-32:                                               ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread50
+32:                                               ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread49
   %33 = and i32 %2, 17
-  %or.cond41.not61 = icmp eq i32 %33, 17
+  %or.cond41.not58 = icmp eq i32 %33, 17
   %34 = icmp ne i64 %0, 1
-  %or.cond60 = and i1 %34, %or.cond41.not61
-  br i1 %or.cond60, label %35, label %.thread58
+  %or.cond57 = and i1 %34, %or.cond41.not58
+  br i1 %or.cond57, label %35, label %.thread55
 
 35:                                               ; preds = %32
   %36 = load i8, ptr %1, align 1, !tbaa !27
   %37 = icmp eq i8 %36, 92
-  br i1 %37, label %38, label %.thread58
+  br i1 %37, label %38, label %.thread55
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %40 = load i8, ptr %39, align 1, !tbaa !27
   %41 = icmp eq i8 %40, 92
-  br i1 %41, label %.loopexit, label %.thread58
+  br i1 %41, label %.loopexit, label %.thread55
 
-.thread58:                                        ; preds = %30, %35, %38, %32
+.thread55:                                        ; preds = %30, %35, %38, %32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread, %30, %30, %30, %30, %30, %38, %3, %.thread58
-  %.0 = phi i1 [ false, %.thread58 ], [ true, %30 ], [ true, %3 ], [ true, %38 ], [ true, %30 ], [ true, %30 ], [ true, %30 ], [ true, %30 ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread ]
+.loopexit:                                        ; preds = %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread, %30, %30, %30, %30, %30, %38, %3, %.thread55
+  %.0 = phi i1 [ false, %.thread55 ], [ true, %30 ], [ true, %3 ], [ true, %38 ], [ true, %30 ], [ true, %30 ], [ true, %30 ], [ true, %30 ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.thread ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread.us ], [ true, %_ZN17cmOutputConverter23Shell_SkipMakeVariablesEPKcS1_.exit.thread ]
   ret i1 %.0
 }
 

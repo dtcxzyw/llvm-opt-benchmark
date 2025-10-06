@@ -1084,8 +1084,8 @@ _ZN12_GLOBAL__N_129IsMemOpCompatibleWithPrefetchERKN4llvm12MachineInstrEi.exit.t
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %178 = getelementptr inbounds nuw i8, ptr %.sroa.085.0112, i64 56
   %179 = load ptr, ptr %178, align 8, !tbaa !369, !noalias !370
-  %.not12.i.i = icmp eq ptr %179, null
-  br i1 %.not12.i.i, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit.thread94, label %180
+  %.not11.i.i = icmp eq ptr %179, null
+  br i1 %.not11.i.i, label %_ZNK12_GLOBAL__N_117X86InsertPrefetch16findPrefetchInfoEPKN4llvm10sampleprof15FunctionSamplesERKNS1_12MachineInstrERNS1_15SmallVectorImplINS0_12PrefetchInfoEEE.exit.thread94, label %180
 
 180:                                              ; preds = %177
   %181 = call noundef ptr @_ZNK4llvm8DebugLoc3getEv(ptr noundef nonnull align 8 dereferenceable(8) %178) #19, !noalias !370

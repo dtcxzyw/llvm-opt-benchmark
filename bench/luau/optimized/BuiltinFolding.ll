@@ -1757,29 +1757,29 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 223:                                              ; preds = %220
   %224 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %225 = load double, ptr %224, align 8, !tbaa !11
-  %.not402481.not = icmp eq i64 %3, 1
-  br i1 %.not402481.not, label %.critedge, label %.lr.ph484
+  %.not402468.not = icmp eq i64 %3, 1
+  br i1 %.not402468.not, label %.critedge, label %.lr.ph471
 
-.lr.ph484:                                        ; preds = %223, %229
-  %.0483 = phi double [ %233, %229 ], [ %225, %223 ]
-  %.0348482 = phi i64 [ %234, %229 ], [ 1, %223 ]
-  %226 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0348482
+.lr.ph471:                                        ; preds = %223, %229
+  %.0470 = phi double [ %233, %229 ], [ %225, %223 ]
+  %.0348469 = phi i64 [ %234, %229 ], [ 1, %223 ]
+  %226 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0348469
   %227 = load i32, ptr %226, align 8, !tbaa !8
   %.not401 = icmp eq i32 %227, 3
   br i1 %.not401, label %229, label %228
 
-228:                                              ; preds = %.lr.ph484
+228:                                              ; preds = %.lr.ph471
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !67
   br label %844
 
-229:                                              ; preds = %.lr.ph484
+229:                                              ; preds = %.lr.ph471
   %230 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %231 = load double, ptr %230, align 8, !tbaa !11
-  %232 = fcmp ogt double %231, %.0483
-  %233 = select i1 %232, double %231, double %.0483
-  %234 = add nuw i64 %.0348482, 1
-  %exitcond495.not = icmp eq i64 %234, %3
-  br i1 %exitcond495.not, label %.critedge, label %.lr.ph484, !llvm.loop !70
+  %232 = fcmp ogt double %231, %.0470
+  %233 = select i1 %232, double %231, double %.0470
+  %234 = add nuw i64 %.0348469, 1
+  %exitcond482.not = icmp eq i64 %234, %3
+  br i1 %exitcond482.not, label %.critedge, label %.lr.ph471, !llvm.loop !70
 
 .critedge:                                        ; preds = %229, %223
   %.0.lcssa = phi double [ %225, %223 ], [ %233, %229 ]
@@ -1802,29 +1802,29 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 241:                                              ; preds = %238
   %242 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %243 = load double, ptr %242, align 8, !tbaa !11
-  %.not399476.not = icmp eq i64 %3, 1
-  br i1 %.not399476.not, label %.critedge404, label %.lr.ph479
+  %.not399463.not = icmp eq i64 %3, 1
+  br i1 %.not399463.not, label %.critedge404, label %.lr.ph466
 
-.lr.ph479:                                        ; preds = %241, %247
-  %.0350478 = phi double [ %251, %247 ], [ %243, %241 ]
-  %.0351477 = phi i64 [ %252, %247 ], [ 1, %241 ]
-  %244 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0351477
+.lr.ph466:                                        ; preds = %241, %247
+  %.0350465 = phi double [ %251, %247 ], [ %243, %241 ]
+  %.0351464 = phi i64 [ %252, %247 ], [ 1, %241 ]
+  %244 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0351464
   %245 = load i32, ptr %244, align 8, !tbaa !8
   %.not398 = icmp eq i32 %245, 3
   br i1 %.not398, label %247, label %246
 
-246:                                              ; preds = %.lr.ph479
+246:                                              ; preds = %.lr.ph466
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !75
   br label %844
 
-247:                                              ; preds = %.lr.ph479
+247:                                              ; preds = %.lr.ph466
   %248 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %249 = load double, ptr %248, align 8, !tbaa !11
-  %250 = fcmp olt double %249, %.0350478
-  %251 = select i1 %250, double %249, double %.0350478
-  %252 = add nuw i64 %.0351477, 1
-  %exitcond494.not = icmp eq i64 %252, %3
-  br i1 %exitcond494.not, label %.critedge404, label %.lr.ph479, !llvm.loop !78
+  %250 = fcmp olt double %249, %.0350465
+  %251 = select i1 %250, double %249, double %.0350465
+  %252 = add nuw i64 %.0351464, 1
+  %exitcond481.not = icmp eq i64 %252, %3
+  br i1 %exitcond481.not, label %.critedge404, label %.lr.ph466, !llvm.loop !78
 
 .critedge404:                                     ; preds = %247, %241
   %.0350.lcssa = phi double [ %243, %241 ], [ %251, %247 ]
@@ -2033,30 +2033,30 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %367 = load double, ptr %366, align 8, !tbaa !11
   %368 = fptosi double %367 to i64
   %369 = trunc i64 %368 to i32
-  %.not396471.not = icmp eq i64 %3, 1
-  br i1 %.not396471.not, label %.critedge406, label %.lr.ph474
+  %.not396458.not = icmp eq i64 %3, 1
+  br i1 %.not396458.not, label %.critedge406, label %.lr.ph461
 
-.lr.ph474:                                        ; preds = %365, %373
-  %.0352473 = phi i32 [ %378, %373 ], [ %369, %365 ]
-  %.0353472 = phi i64 [ %379, %373 ], [ 1, %365 ]
-  %370 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0353472
+.lr.ph461:                                        ; preds = %365, %373
+  %.0352460 = phi i32 [ %378, %373 ], [ %369, %365 ]
+  %.0353459 = phi i64 [ %379, %373 ], [ 1, %365 ]
+  %370 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0353459
   %371 = load i32, ptr %370, align 8, !tbaa !8
   %.not395 = icmp eq i32 %371, 3
   br i1 %.not395, label %373, label %372
 
-372:                                              ; preds = %.lr.ph474
+372:                                              ; preds = %.lr.ph461
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !106
   br label %844
 
-373:                                              ; preds = %.lr.ph474
+373:                                              ; preds = %.lr.ph461
   %374 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %375 = load double, ptr %374, align 8, !tbaa !11
   %376 = fptosi double %375 to i64
   %377 = trunc i64 %376 to i32
-  %378 = and i32 %.0352473, %377
-  %379 = add nuw i64 %.0353472, 1
-  %exitcond493.not = icmp eq i64 %379, %3
-  br i1 %exitcond493.not, label %.critedge406, label %.lr.ph474, !llvm.loop !109
+  %378 = and i32 %.0352460, %377
+  %379 = add nuw i64 %.0353459, 1
+  %exitcond480.not = icmp eq i64 %379, %3
+  br i1 %exitcond480.not, label %.critedge406, label %.lr.ph461, !llvm.loop !109
 
 .critedge406:                                     ; preds = %373, %365
   %.0352.lcssa = phi i32 [ %369, %365 ], [ %378, %373 ]
@@ -2105,30 +2105,30 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %403 = load double, ptr %402, align 8, !tbaa !11
   %404 = fptosi double %403 to i64
   %405 = trunc i64 %404 to i32
-  %.not393466.not = icmp eq i64 %3, 1
-  br i1 %.not393466.not, label %.critedge408, label %.lr.ph469
+  %.not393453.not = icmp eq i64 %3, 1
+  br i1 %.not393453.not, label %.critedge408, label %.lr.ph456
 
-.lr.ph469:                                        ; preds = %401, %409
-  %.0354468 = phi i32 [ %414, %409 ], [ %405, %401 ]
-  %.0355467 = phi i64 [ %415, %409 ], [ 1, %401 ]
-  %406 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0355467
+.lr.ph456:                                        ; preds = %401, %409
+  %.0354455 = phi i32 [ %414, %409 ], [ %405, %401 ]
+  %.0355454 = phi i64 [ %415, %409 ], [ 1, %401 ]
+  %406 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0355454
   %407 = load i32, ptr %406, align 8, !tbaa !8
   %.not392 = icmp eq i32 %407, 3
   br i1 %.not392, label %409, label %408
 
-408:                                              ; preds = %.lr.ph469
+408:                                              ; preds = %.lr.ph456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !116
   br label %844
 
-409:                                              ; preds = %.lr.ph469
+409:                                              ; preds = %.lr.ph456
   %410 = getelementptr inbounds nuw i8, ptr %406, i64 8
   %411 = load double, ptr %410, align 8, !tbaa !11
   %412 = fptosi double %411 to i64
   %413 = trunc i64 %412 to i32
-  %414 = or i32 %.0354468, %413
-  %415 = add nuw i64 %.0355467, 1
-  %exitcond492.not = icmp eq i64 %415, %3
-  br i1 %exitcond492.not, label %.critedge408, label %.lr.ph469, !llvm.loop !119
+  %414 = or i32 %.0354455, %413
+  %415 = add nuw i64 %.0355454, 1
+  %exitcond479.not = icmp eq i64 %415, %3
+  br i1 %exitcond479.not, label %.critedge408, label %.lr.ph456, !llvm.loop !119
 
 .critedge408:                                     ; preds = %409, %401
   %.0354.lcssa = phi i32 [ %405, %401 ], [ %414, %409 ]
@@ -2154,30 +2154,30 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %425 = load double, ptr %424, align 8, !tbaa !11
   %426 = fptosi double %425 to i64
   %427 = trunc i64 %426 to i32
-  %.not390461.not = icmp eq i64 %3, 1
-  br i1 %.not390461.not, label %.critedge410, label %.lr.ph464
+  %.not390448.not = icmp eq i64 %3, 1
+  br i1 %.not390448.not, label %.critedge410, label %.lr.ph451
 
-.lr.ph464:                                        ; preds = %423, %431
-  %.0356463 = phi i32 [ %436, %431 ], [ %427, %423 ]
-  %.0357462 = phi i64 [ %437, %431 ], [ 1, %423 ]
-  %428 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0357462
+.lr.ph451:                                        ; preds = %423, %431
+  %.0356450 = phi i32 [ %436, %431 ], [ %427, %423 ]
+  %.0357449 = phi i64 [ %437, %431 ], [ 1, %423 ]
+  %428 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0357449
   %429 = load i32, ptr %428, align 8, !tbaa !8
   %.not389 = icmp eq i32 %429, 3
   br i1 %.not389, label %431, label %430
 
-430:                                              ; preds = %.lr.ph464
+430:                                              ; preds = %.lr.ph451
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !123
   br label %844
 
-431:                                              ; preds = %.lr.ph464
+431:                                              ; preds = %.lr.ph451
   %432 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %433 = load double, ptr %432, align 8, !tbaa !11
   %434 = fptosi double %433 to i64
   %435 = trunc i64 %434 to i32
-  %436 = xor i32 %.0356463, %435
-  %437 = add nuw i64 %.0357462, 1
-  %exitcond491.not = icmp eq i64 %437, %3
-  br i1 %exitcond491.not, label %.critedge410, label %.lr.ph464, !llvm.loop !126
+  %436 = xor i32 %.0356450, %435
+  %437 = add nuw i64 %.0357449, 1
+  %exitcond478.not = icmp eq i64 %437, %3
+  br i1 %exitcond478.not, label %.critedge410, label %.lr.ph451, !llvm.loop !126
 
 .critedge410:                                     ; preds = %431, %423
   %.0356.lcssa = phi i32 [ %427, %423 ], [ %436, %431 ]
@@ -2203,13 +2203,13 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %447 = load double, ptr %446, align 8, !tbaa !11
   %448 = fptosi double %447 to i64
   %449 = trunc i64 %448 to i32
-  %.not387458.not = icmp eq i64 %3, 1
-  br i1 %.not387458.not, label %.critedge412, label %.lr.ph
+  %.not387445.not = icmp eq i64 %3, 1
+  br i1 %.not387445.not, label %.critedge412, label %.lr.ph
 
 .lr.ph:                                           ; preds = %445, %453
-  %.0358460 = phi i32 [ %458, %453 ], [ %449, %445 ]
-  %.0359459 = phi i64 [ %459, %453 ], [ 1, %445 ]
-  %450 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0359459
+  %.0358447 = phi i32 [ %458, %453 ], [ %449, %445 ]
+  %.0359446 = phi i64 [ %459, %453 ], [ 1, %445 ]
+  %450 = getelementptr inbounds nuw %"struct.Luau::Compile::Constant", ptr %2, i64 %.0359446
   %451 = load i32, ptr %450, align 8, !tbaa !8
   %.not386 = icmp eq i32 %451, 3
   br i1 %.not386, label %453, label %452
@@ -2223,8 +2223,8 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %455 = load double, ptr %454, align 8, !tbaa !11
   %456 = fptosi double %455 to i64
   %457 = trunc i64 %456 to i32
-  %458 = and i32 %.0358460, %457
-  %459 = add nuw i64 %.0359459, 1
+  %458 = and i32 %.0358447, %457
+  %459 = add nuw i64 %.0359446, 1
   %exitcond.not = icmp eq i64 %459, %3
   br i1 %exitcond.not, label %.critedge412, label %.lr.ph, !llvm.loop !133
 
@@ -2257,7 +2257,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 473:                                              ; preds = %469
   %474 = icmp eq i64 %3, 2
-  br i1 %474, label %.thread431, label %475
+  br i1 %474, label %.thread424, label %475
 
 475:                                              ; preds = %473
   %476 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -2269,13 +2269,13 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %480 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %481 = load double, ptr %480, align 8, !tbaa !11
   %482 = fptosi double %481 to i32
-  br label %.thread431
+  br label %.thread424
 
-.thread431:                                       ; preds = %473, %479
+.thread424:                                       ; preds = %473, %479
   %483 = phi i32 [ %482, %479 ], [ 1, %473 ]
-  %.in450.in = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.in450 = load double, ptr %.in450.in, align 8, !tbaa !11
-  %484 = fptosi double %.in450 to i32
+  %.in437.in = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.in437 = load double, ptr %.in437.in, align 8, !tbaa !11
+  %484 = fptosi double %.in437 to i32
   %485 = icmp sgt i32 %484, -1
   %486 = icmp sgt i32 %483, 0
   %or.cond = select i1 %485, i1 %486, i1 false
@@ -2284,11 +2284,11 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %or.cond414 = select i1 %or.cond, i1 %488, i1 false
   br i1 %or.cond414, label %489, label %.thread
 
-489:                                              ; preds = %.thread431
-  %.in451.in.in = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.in451.in = load double, ptr %.in451.in.in, align 8, !tbaa !11
-  %.in451 = fptosi double %.in451.in to i64
-  %490 = trunc i64 %.in451 to i32
+489:                                              ; preds = %.thread424
+  %.in438.in.in = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.in438.in = load double, ptr %.in438.in.in, align 8, !tbaa !11
+  %.in438 = fptosi double %.in438.in to i64
+  %490 = trunc i64 %.in438 to i32
   %491 = add nsw i32 %483, -1
   %492 = shl i32 -2, %491
   %493 = xor i32 %492, -1
@@ -2393,7 +2393,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 
 556:                                              ; preds = %552
   %557 = icmp eq i64 %3, 3
-  br i1 %557, label %.thread437, label %558
+  br i1 %557, label %.thread428, label %558
 
 558:                                              ; preds = %556
   %559 = getelementptr inbounds nuw i8, ptr %2, i64 72
@@ -2405,9 +2405,9 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %563 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %564 = load double, ptr %563, align 8, !tbaa !11
   %565 = fptosi double %564 to i32
-  br label %.thread437
+  br label %.thread428
 
-.thread437:                                       ; preds = %556, %562
+.thread428:                                       ; preds = %556, %562
   %566 = phi i32 [ %565, %562 ], [ 1, %556 ]
   %.in.in = getelementptr inbounds nuw i8, ptr %2, i64 56
   %.in = load double, ptr %.in.in, align 8, !tbaa !11
@@ -2417,18 +2417,18 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %or.cond8 = select i1 %568, i1 %569, i1 false
   %570 = add nuw nsw i32 %566, %567
   %571 = icmp slt i32 %570, 33
-  %or.cond420 = select i1 %or.cond8, i1 %571, i1 false
-  br i1 %or.cond420, label %572, label %.thread
+  %or.cond418 = select i1 %or.cond8, i1 %571, i1 false
+  br i1 %or.cond418, label %572, label %.thread
 
-572:                                              ; preds = %.thread437
-  %.in449.in.in = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.in449.in = load double, ptr %.in449.in.in, align 8, !tbaa !11
-  %.in449 = fptosi double %.in449.in to i64
-  %573 = trunc i64 %.in449 to i32
-  %.in448.in.in = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %.in448.in = load double, ptr %.in448.in.in, align 8, !tbaa !11
-  %.in448 = fptosi double %.in448.in to i64
-  %574 = trunc i64 %.in448 to i32
+572:                                              ; preds = %.thread428
+  %.in436.in.in = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.in436.in = load double, ptr %.in436.in.in, align 8, !tbaa !11
+  %.in436 = fptosi double %.in436.in to i64
+  %573 = trunc i64 %.in436 to i32
+  %.in435.in.in = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.in435.in = load double, ptr %.in435.in.in, align 8, !tbaa !11
+  %.in435 = fptosi double %.in435.in to i64
+  %574 = trunc i64 %.in435 to i32
   %575 = add nsw i32 %566, -1
   %576 = shl i32 -2, %575
   %577 = xor i32 %576, -1
@@ -2876,7 +2876,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   store double %841, ptr %843, align 8, !tbaa !11, !alias.scope !190
   br label %844
 
-.thread:                                          ; preds = %704, %657, %662, %617, %.thread437, %529, %.thread431, %347, %769, %754, %637, %179, %753, %636, %178, %814, %818, %821, %825, %744, %746, %749, %792, %788, %733, %735, %719, %721, %691, %693, %696, %700, %686, %688, %675, %677, %640, %653, %650, %631, %633, %608, %610, %613, %587, %589, %592, %543, %545, %548, %552, %558, %520, %522, %525, %499, %501, %504, %464, %466, %469, %475, %441, %442, %419, %420, %397, %398, %383, %385, %361, %362, %338, %340, %343, %327, %329, %316, %318, %305, %307, %294, %296, %283, %285, %272, %274, %255, %257, %260, %237, %238, %219, %220, %191, %188, %167, %169, %149, %151, %154, %132, %134, %137, %121, %123, %110, %112, %99, %101, %88, %90, %77, %79, %66, %68, %55, %57, %38, %40, %43, %27, %29, %16, %18, %5, %7, %4
+.thread:                                          ; preds = %704, %657, %662, %617, %.thread428, %529, %.thread424, %347, %769, %754, %637, %179, %753, %636, %178, %814, %818, %821, %825, %744, %746, %749, %792, %788, %733, %735, %719, %721, %691, %693, %696, %700, %686, %688, %675, %677, %640, %653, %650, %631, %633, %608, %610, %613, %587, %589, %592, %543, %545, %548, %552, %558, %520, %522, %525, %499, %501, %504, %464, %466, %469, %475, %441, %442, %419, %420, %397, %398, %383, %385, %361, %362, %338, %340, %343, %327, %329, %316, %318, %305, %307, %294, %296, %283, %285, %272, %274, %255, %257, %260, %237, %238, %219, %220, %191, %188, %167, %169, %149, %151, %154, %132, %134, %137, %121, %123, %110, %112, %99, %101, %88, %90, %77, %79, %66, %68, %55, %57, %38, %40, %43, %27, %29, %16, %18, %5, %7, %4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false), !alias.scope !193
   br label %844
 

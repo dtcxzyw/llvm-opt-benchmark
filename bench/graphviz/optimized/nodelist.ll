@@ -18,7 +18,7 @@ define void @appendNodelist(ptr noundef captures(none) %0, i64 noundef %1, ptr n
 ._crit_edge.i.i:                                  ; preds = %3
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !11
-  %.pre46.i.i = load ptr, ptr %0, align 8, !tbaa !12
+  %.pre45.i.i = load ptr, ptr %0, align 8, !tbaa !12
   br label %nodelist_append.exit
 
 9:                                                ; preds = %3
@@ -73,7 +73,7 @@ define void @appendNodelist(ptr noundef captures(none) %0, i64 noundef %1, ptr n
   unreachable
 
 nodelist_append.exit:                             ; preds = %._crit_edge.i.i, %33
-  %39 = phi ptr [ %.pre46.i.i, %._crit_edge.i.i ], [ %15, %33 ]
+  %39 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %15, %33 ]
   %40 = phi i64 [ %7, %._crit_edge.i.i ], [ %spec.select.i.i, %33 ]
   %41 = phi i64 [ %5, %._crit_edge.i.i ], [ %24, %33 ]
   %.promoted.i = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %34, %33 ]
@@ -408,7 +408,7 @@ nodelist_reverse.exit:                            ; preds = %2
 
 ._crit_edge.i.i.i:                                ; preds = %24
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !11
-  %.pre46.i.i.i = load ptr, ptr %0, align 8, !tbaa !12
+  %.pre45.i.i.i = load ptr, ptr %0, align 8, !tbaa !12
   br label %nodelist_append.exit.i
 
 35:                                               ; preds = %24
@@ -463,7 +463,7 @@ nodelist_reverse.exit:                            ; preds = %2
 
 nodelist_append.exit.i:                           ; preds = %58, %._crit_edge.i.i.i
   %64 = phi i64 [ %25, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %58 ]
-  %65 = phi ptr [ %.pre46.i.i.i, %._crit_edge.i.i.i ], [ %41, %58 ]
+  %65 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %41, %58 ]
   %66 = phi i64 [ %26, %._crit_edge.i.i.i ], [ %49, %58 ]
   %67 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %59, %58 ]
   %68 = add i64 %67, %66

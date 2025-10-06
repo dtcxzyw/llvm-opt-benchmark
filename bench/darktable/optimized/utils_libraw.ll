@@ -976,22 +976,24 @@ define void @_ZN6LibRaw11checkCancelEv(ptr noundef nonnull align 8 captures(none
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef range(i32 0, 2) i32 @_ZN6LibRaw15is_curve_linearEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 5504
-  br label %3
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
-  %5 = load i16, ptr %4, align 2, !tbaa !106
-  %6 = zext i16 %5 to i64
-  %.not = icmp eq i64 %indvars.iv, %6
+3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp ne i64 %indvars.iv.next, 65536
-  %or.cond.not = select i1 %.not, i1 %exitcond, i1 false
-  br i1 %or.cond.not, label %3, label %7, !llvm.loop !107
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !106
 
-7:                                                ; preds = %3
-  %spec.select = zext i1 %.not to i32
-  ret i32 %spec.select
+4:                                                ; preds = %1, %3
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
+  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %6 = load i16, ptr %5, align 2, !tbaa !107
+  %7 = zext i16 %6 to i64
+  %.not = icmp eq i64 %indvars.iv, %7
+  br i1 %.not, label %3, label %8
+
+8:                                                ; preds = %3, %4
+  %9 = phi i32 [ 0, %4 ], [ 1, %3 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1692,39 +1694,37 @@ define noundef i32 @_ZN6LibRaw6streadEPcmP26LibRaw_abstract_datastream(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN6LibRaw18find_ifd_by_offsetEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
+define noundef range(i32 -1, 10) i32 @_ZN6LibRaw18find_ifd_by_offsetEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, i32 noundef %1) local_unnamed_addr #11 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 381536
   %4 = load i32, ptr %3, align 8, !tbaa !136
-  %5 = icmp eq i32 %4, 0
-  br i1 %5, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
-  %6 = add i32 %4, -1
-  %umin = tail call i32 @llvm.umin.i32(i32 %6, i32 9)
-  %7 = add nuw nsw i32 %umin, 1
-  %wide.trip.count = zext nneg i32 %7 to i64
+  %invariant.umin = tail call i32 @llvm.umin.i32(i32 %4, i32 10)
+  %wide.trip.count = zext nneg i32 %invariant.umin to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %12
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %8 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %0, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 433356
-  %10 = load i32, ptr %9, align 4, !tbaa !137
-  %11 = icmp eq i32 %10, %1
-  br i1 %11, label %._crit_edge.loopexit.split.loop.exit, label %12
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
+  %5 = getelementptr inbounds nuw %struct.tiff_ifd_t, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 433356
+  %7 = load i32, ptr %6, align 4, !tbaa !137
+  %8 = icmp eq i32 %7, %1
+  br i1 %8, label %._crit_edge.loopexit.split.loop.exit15, label %9
 
-12:                                               ; preds = %.lr.ph
+9:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond, label %._crit_edge, label %.lr.ph, !llvm.loop !139
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !139
 
-._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %13 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.loopexit.split.loop.exit15:           ; preds = %.lr.ph
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %12, %._crit_edge.loopexit.split.loop.exit, %2
-  %spec.select = phi i32 [ -1, %2 ], [ %13, %._crit_edge.loopexit.split.loop.exit ], [ -1, %12 ]
-  ret i32 %spec.select
+._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit.split.loop.exit15, %2
+  %11 = phi i32 [ -1, %2 ], [ %10, %._crit_edge.loopexit.split.loop.exit15 ], [ -1, %9 ]
+  ret i32 %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2656,8 +2656,8 @@ attributes #34 = { builtin allocsize(0) }
 !103 = !{!42, !9, i64 767584}
 !104 = !{!42, !94, i64 381644}
 !105 = !{!42, !15, i64 381432}
-!106 = !{!27, !27, i64 0}
-!107 = distinct !{!107, !18}
+!106 = distinct !{!106, !18}
+!107 = !{!27, !27, i64 0}
 !108 = !{!42, !44, i64 8}
 !109 = !{!42, !15, i64 5496}
 !110 = !{!42, !15, i64 5404}

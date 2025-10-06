@@ -4072,8 +4072,8 @@ _xlate_signal_name.exit.i:                        ; preds = %226, %220
   %243 = icmp eq ptr %242, null
   %244 = load i32, ptr @global_error_code, align 4
   %245 = icmp ne i32 %244, 0
-  %or.cond317.i = select i1 %243, i1 true, i1 %245
-  br i1 %or.cond317.i, label %._crit_edge.i, label %.lr.ph.i
+  %or.cond316.i = select i1 %243, i1 true, i1 %245
+  br i1 %or.cond316.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread.i
   %246 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4086,8 +4086,8 @@ _xlate_signal_name.exit.i:                        ; preds = %226, %220
   switch i32 %.052, label %.lr.ph.split.i [
     i32 1, label %.lr.ph.split.us.i.preheader
     i32 3, label %.lr.ph.split.us.i.preheader
-    i32 5, label %.lr.ph.split.us18.i
-    i32 6, label %.lr.ph.split.us22.i
+    i32 5, label %.lr.ph.split.us17.i
+    i32 6, label %.lr.ph.split.us21.i
   ]
 
 .lr.ph.split.us.i.preheader:                      ; preds = %.lr.ph.i, %.lr.ph.i
@@ -4219,7 +4219,7 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   %or.cond3.us.i = select i1 %294, i1 true, i1 %296
   br i1 %or.cond3.us.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !32
 
-.lr.ph.split.us18.i:                              ; preds = %.lr.ph.i, %304
+.lr.ph.split.us17.i:                              ; preds = %.lr.ph.i, %304
   %297 = phi ptr [ %305, %304 ], [ %242, %.lr.ph.i ]
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 16
   %299 = load i32, ptr %298, align 8
@@ -4227,7 +4227,7 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   %.not50.us.i = icmp eq i32 %300, 0
   br i1 %.not50.us.i, label %304, label %301
 
-301:                                              ; preds = %.lr.ph.split.us18.i
+301:                                              ; preds = %.lr.ph.split.us17.i
   store i32 %300, ptr @global_error_code, align 4
   %302 = call ptr @slurm_strerror(i32 noundef %300) #17
   %303 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.263, i32 noundef %299, ptr noundef %302) #17
@@ -4235,15 +4235,15 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   call void @g_free(ptr noundef %303) #17
   br label %304
 
-304:                                              ; preds = %301, %.lr.ph.split.us18.i
+304:                                              ; preds = %301, %.lr.ph.split.us17.i
   %305 = call ptr @list_next(ptr noundef %241) #17
   %306 = icmp eq ptr %305, null
   %307 = load i32, ptr @global_error_code, align 4
   %308 = icmp ne i32 %307, 0
-  %or.cond3.us19.i = select i1 %306, i1 true, i1 %308
-  br i1 %or.cond3.us19.i, label %._crit_edge.i, label %.lr.ph.split.us18.i, !llvm.loop !32
+  %or.cond3.us18.i = select i1 %306, i1 true, i1 %308
+  br i1 %or.cond3.us18.i, label %._crit_edge.i, label %.lr.ph.split.us17.i, !llvm.loop !32
 
-.lr.ph.split.us22.i:                              ; preds = %.lr.ph.i, %321
+.lr.ph.split.us21.i:                              ; preds = %.lr.ph.i, %321
   %309 = phi ptr [ %322, %321 ], [ %242, %.lr.ph.i ]
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 16
   %311 = load i32, ptr %310, align 8
@@ -4251,11 +4251,11 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   %313 = icmp eq i32 %312, 2
   br i1 %313, label %316, label %314
 
-314:                                              ; preds = %.lr.ph.split.us22.i
+314:                                              ; preds = %.lr.ph.split.us21.i
   %315 = call i32 @slurm_suspend(i32 noundef %311) #17
   br label %318
 
-316:                                              ; preds = %.lr.ph.split.us22.i
+316:                                              ; preds = %.lr.ph.split.us21.i
   %317 = call i32 @slurm_resume(i32 noundef %311) #17
   br label %318
 
@@ -4276,8 +4276,8 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   %323 = icmp eq ptr %322, null
   %324 = load i32, ptr @global_error_code, align 4
   %325 = icmp ne i32 %324, 0
-  %or.cond3.us23.i = select i1 %323, i1 true, i1 %325
-  br i1 %or.cond3.us23.i, label %._crit_edge.i, label %.lr.ph.split.us22.i, !llvm.loop !32
+  %or.cond3.us22.i = select i1 %323, i1 true, i1 %325
+  br i1 %or.cond3.us22.i, label %._crit_edge.i, label %.lr.ph.split.us21.i, !llvm.loop !32
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.lr.ph.split.i
   %326 = call ptr @list_next(ptr noundef %241) #17
@@ -4288,10 +4288,10 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   br i1 %or.cond3.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !32
 
 ._crit_edge.i:                                    ; preds = %321, %304, %_cancel_job_id.exit.us.i, %.lr.ph.split.i, %.thread.i
-  %.lcssa14.i = phi i1 [ %245, %.thread.i ], [ %329, %.lr.ph.split.i ], [ %296, %_cancel_job_id.exit.us.i ], [ %308, %304 ], [ %325, %321 ]
+  %.lcssa13.i = phi i1 [ %245, %.thread.i ], [ %329, %.lr.ph.split.i ], [ %296, %_cancel_job_id.exit.us.i ], [ %308, %304 ], [ %325, %321 ]
   %330 = load i8, ptr @global_edit_error, align 1, !range !18, !noundef !19
   %331 = trunc nuw i8 %330 to i1
-  %or.cond.i = select i1 %331, i1 true, i1 %.lcssa14.i
+  %or.cond.i = select i1 %331, i1 true, i1 %.lcssa13.i
   br i1 %or.cond.i, label %process_foreach_list.exit, label %332
 
 332:                                              ; preds = %._crit_edge.i
@@ -4323,9 +4323,9 @@ _cancel_job_id.exit.us.i:                         ; preds = %.preheader.i, %292,
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %342, %339, %336, %333, %238
-  %.sink67.i = phi ptr [ %239, %238 ], [ %335, %333 ], [ %338, %336 ], [ %341, %339 ], [ %344, %342 ]
-  call void @display_edit_note(ptr noundef %.sink67.i) #17
-  call void @g_free(ptr noundef %.sink67.i) #17
+  %.sink66.i = phi ptr [ %239, %238 ], [ %335, %333 ], [ %338, %336 ], [ %341, %339 ], [ %344, %342 ]
+  call void @display_edit_note(ptr noundef %.sink66.i) #17
+  call void @g_free(ptr noundef %.sink66.i) #17
   br label %process_foreach_list.exit
 
 process_foreach_list.exit:                        ; preds = %._crit_edge.i, %332, %.sink.split.i
@@ -5211,8 +5211,8 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   tail call void @set_for_update(ptr noundef %4, i32 noundef 91) #17
   %5 = tail call ptr @list_iterator_create(ptr noundef %0) #17
   %6 = tail call ptr @list_next(ptr noundef %5) #17
-  %.not42 = icmp eq ptr %6, null
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq ptr %6, null
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
   %7 = phi ptr [ %45, %.backedge ], [ %6, %2 ]
@@ -5221,18 +5221,18 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   %10 = load ptr, ptr @last_model, align 8
   %.not34 = icmp eq ptr %10, %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br i1 %.not34, label %12, label %.thread47
+  br i1 %.not34, label %12, label %.thread46
 
-.thread47:                                        ; preds = %.lr.ph
+.thread46:                                        ; preds = %.lr.ph
   store i8 0, ptr %.phi.trans.insert, align 8
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br label %.thread48
+  br label %.thread47
 
 12:                                               ; preds = %.lr.ph
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !18
   %13 = trunc nuw i8 %.pre to i1
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  br i1 %13, label %15, label %.thread48
+  br i1 %13, label %15, label %.thread47
 
 15:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5279,9 +5279,9 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
 
 34:                                               ; preds = %18, %26, %29, %32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.pre43 = load i8, ptr %14, align 8, !range !18
-  %35 = trunc nuw i8 %.pre43 to i1
-  br i1 %35, label %36, label %.thread48
+  %.pre42 = load i8, ptr %14, align 8, !range !18
+  %35 = trunc nuw i8 %.pre42 to i1
+  br i1 %35, label %36, label %.thread47
 
 36:                                               ; preds = %34
   %37 = tail call i64 @gtk_tree_store_get_type() #18
@@ -5289,8 +5289,8 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   call fastcc void @_update_job_record(ptr noundef %7, ptr noundef %38, ptr noundef null, i1 noundef zeroext true, i1 noundef zeroext false)
   br label %.backedge
 
-.thread48:                                        ; preds = %.thread47, %12, %34
-  %39 = phi ptr [ %14, %34 ], [ %11, %.thread47 ], [ %14, %12 ]
+.thread47:                                        ; preds = %.thread46, %12, %34
+  %39 = phi ptr [ %14, %34 ], [ %11, %.thread46 ], [ %14, %12 ]
   %40 = tail call i64 @gtk_tree_store_get_type() #18
   %41 = call ptr @g_type_check_instance_cast(ptr noundef %4, i64 noundef %40) #17
   %42 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -5302,7 +5302,7 @@ define internal fastcc void @_update_info_job(ptr noundef %0, ptr noundef %1) un
   store i8 1, ptr %39, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %36, %.thread48, %33
+.backedge:                                        ; preds = %36, %.thread47, %33
   %45 = call ptr @list_next(ptr noundef %5) #17
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39

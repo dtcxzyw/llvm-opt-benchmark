@@ -2185,43 +2185,43 @@ _ZN5faiss3nsg5GraphIlED2Ev.exit:                  ; preds = %1, %5, %9
 define linkonce_odr noundef i64 @_ZNK5faiss3nsg5GraphIlE13get_neighborsEiPl(ptr noundef nonnull align 8 dereferenceable(25) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !77
-  %.not19 = icmp sgt i32 %5, 0
-  br i1 %.not19, label %.lr.ph, label %.loopexit.thread
+  %6 = icmp sgt i32 %5, 0
+  br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !75
-  %8 = mul nsw i32 %5, %1
-  %9 = sext i32 %8 to i64
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !75
+  %9 = mul nsw i32 %5, %1
+  %10 = sext i32 %9 to i64
   %wide.trip.count = zext nneg i32 %5 to i64
-  %invariant.gep = getelementptr i64, ptr %7, i64 %9
-  br label %10
+  %invariant.gep = getelementptr i64, ptr %8, i64 %10
+  br label %11
 
-10:                                               ; preds = %.lr.ph, %13
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+11:                                               ; preds = %.lr.ph, %14
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
-  %11 = load i64, ptr %gep, align 8, !tbaa !41
-  %12 = icmp slt i64 %11, 0
-  br i1 %12, label %16, label %13
+  %12 = load i64, ptr %gep, align 8, !tbaa !41
+  %13 = icmp slt i64 %12, 0
+  br i1 %13, label %16, label %14
 
-13:                                               ; preds = %10
-  %14 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
-  store i64 %11, ptr %14, align 8, !tbaa !41
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  store i64 %12, ptr %15, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit.thread, label %10, !llvm.loop !108
+  br i1 %exitcond.not, label %._crit_edge, label %11, !llvm.loop !108
 
-.loopexit.thread:                                 ; preds = %13, %3
-  %15 = sext i32 %5 to i64
-  br label %18
-
-16:                                               ; preds = %10
+16:                                               ; preds = %11
   %17 = and i64 %indvars.iv, 4294967295
-  br label %18
+  br label %19
 
-18:                                               ; preds = %.loopexit.thread, %16
-  %19 = phi i64 [ %17, %16 ], [ %15, %.loopexit.thread ]
-  ret i64 %19
+._crit_edge:                                      ; preds = %14, %3
+  %18 = sext i32 %5 to i64
+  br label %19
+
+19:                                               ; preds = %16, %._crit_edge
+  %20 = phi i64 [ %18, %._crit_edge ], [ %17, %16 ]
+  ret i64 %20
 }
 
 ; Function Attrs: nobuiltin nounwind

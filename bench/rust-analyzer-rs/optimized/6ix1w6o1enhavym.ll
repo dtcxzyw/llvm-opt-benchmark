@@ -519,8 +519,8 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
   br i1 %31, label %26, label %34
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %.037 = phi ptr [ %44, %40 ], [ %29, %.lr.ph.preheader ]
-  %.sroa.07.036 = phi i64 [ %41, %40 ], [ 0, %.lr.ph.preheader ]
+  %.034 = phi ptr [ %44, %40 ], [ %29, %.lr.ph.preheader ]
+  %.sroa.07.033 = phi i64 [ %41, %40 ], [ 0, %.lr.ph.preheader ]
   %32 = call noundef align 8 dereferenceable_or_null(16) ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdc9d23bda0922037E.llvm.17596014262530528876"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5), !noalias !89
   %33 = icmp eq ptr %32, null
   br i1 %33, label %39, label %40
@@ -543,11 +543,11 @@ define hidden { ptr, i64 } @"_ZN8triomphe6header96_$LT$impl$u20$triomphe..arc..A
   unreachable
 
 40:                                               ; preds = %.lr.ph
-  %41 = add nuw nsw i64 %.sroa.07.036, 1
+  %41 = add nuw nsw i64 %.sroa.07.033, 1
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %43 = load i64, ptr %42, align 8, !noalias !89
-  store i64 %43, ptr %.037, align 4
-  %44 = getelementptr inbounds nuw i8, ptr %.037, i64 8
+  store i64 %43, ptr %.034, align 4
+  %44 = getelementptr inbounds nuw i8, ptr %.034, i64 8
   %exitcond.not = icmp eq i64 %41, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 }

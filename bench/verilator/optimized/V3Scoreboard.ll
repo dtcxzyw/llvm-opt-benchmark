@@ -422,27 +422,27 @@ define linkonce_odr dso_local noundef ptr @_ZN11PairingHeapI3KeyE6reduceEPNS1_4N
   %.not.i35 = icmp eq ptr %2, null
   br i1 %.not.i35, label %.loopexit, label %.preheader.preheader
 
-.preheaderthread-pre-split:                       ; preds = %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread77, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33
+.preheaderthread-pre-split:                       ; preds = %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread76, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33
   %.pr = load ptr, ptr %5, align 8, !tbaa !20
   %.not.i34 = icmp eq ptr %.pr, null
-  br i1 %.not.i34, label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread73, label %.preheader.preheader
+  br i1 %.not.i34, label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread72, label %.preheader.preheader
 
-_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread73: ; preds = %.preheaderthread-pre-split
+_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread72: ; preds = %.preheaderthread-pre-split
   store ptr %.0.i, ptr %5, align 8, !tbaa !20
   br label %.lr.ph.sink.split
 
 .preheader.preheader:                             ; preds = %1, %.preheaderthread-pre-split
   %3 = phi ptr [ %.0.i, %.preheaderthread-pre-split ], [ null, %1 ]
-  %.0265399 = phi ptr [ %5, %.preheaderthread-pre-split ], [ %0, %1 ]
+  %.0265298 = phi ptr [ %5, %.preheaderthread-pre-split ], [ %0, %1 ]
   %4 = phi ptr [ %.pr, %.preheaderthread-pre-split ], [ %2, %1 ]
-  store ptr null, ptr %.0265399, align 8, !tbaa !20
+  store ptr null, ptr %.0265298, align 8, !tbaa !20
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   store ptr null, ptr %4, align 8, !tbaa !20
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %7 = getelementptr inbounds nuw i8, ptr %.0265399, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.0265298, i64 24
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !29
-  %10 = getelementptr inbounds nuw i8, ptr %.0265399, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %.0265298, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !29
   %12 = icmp ugt i32 %9, %11
   br i1 %12, label %_ZNK3KeyltERKS_.exit.thread, label %13
@@ -458,7 +458,7 @@ _ZNK3KeyltERKS_.exit:                             ; preds = %13
   br i1 %17, label %_ZNK3KeyltERKS_.exit.thread, label %_ZNK3KeyltERKS_.exit.thread43
 
 _ZNK3KeyltERKS_.exit.thread:                      ; preds = %.preheader.preheader, %_ZNK3KeyltERKS_.exit
-  %18 = getelementptr inbounds nuw i8, ptr %.0265399, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.0265298, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !20
   store ptr %19, ptr %4, align 8, !tbaa !20
   %.not.i13.i = icmp eq ptr %19, null
@@ -476,28 +476,28 @@ _ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i: ; preds = %20, %_ZNK3Keyl
 _ZNK3KeyltERKS_.exit.thread43:                    ; preds = %13, %_ZNK3KeyltERKS_.exit
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !20
-  store ptr %23, ptr %.0265399, align 8, !tbaa !20
+  store ptr %23, ptr %.0265298, align 8, !tbaa !20
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i, label %24
 
 24:                                               ; preds = %_ZNK3KeyltERKS_.exit.thread43
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %.0265399, ptr %25, align 8, !tbaa !22
+  store ptr %.0265298, ptr %25, align 8, !tbaa !22
   br label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i
 
 _ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i: ; preds = %24, %_ZNK3KeyltERKS_.exit.thread43
-  store ptr %.0265399, ptr %22, align 8, !tbaa !20
+  store ptr %.0265298, ptr %22, align 8, !tbaa !20
   br label %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit
 
 _ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit: ; preds = %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i
-  %.sink89 = phi ptr [ %4, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i ], [ %.0265399, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i ]
+  %.sink88 = phi ptr [ %4, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i ], [ %.0265298, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i ]
   %.sink = phi ptr [ %18, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i ], [ %22, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i ]
-  %.0.i = phi ptr [ %.0265399, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i ], [ %4, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sink89, i64 16
+  %.0.i = phi ptr [ %.0265298, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i ], [ %4, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sink88, i64 16
   store ptr %.sink, ptr %26, align 8, !tbaa !22
   store ptr %3, ptr %.0.i, align 8, !tbaa !20
   %.not.i30 = icmp eq ptr %3, null
-  br i1 %.not.i30, label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread77, label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33
+  br i1 %.not.i30, label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread76, label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33
 
 _ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33: ; preds = %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -505,44 +505,44 @@ _ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33: ; preds = %_ZN11PairingHeap
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.lr.ph, label %.preheaderthread-pre-split
 
-_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread77: ; preds = %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit
-  %.not78 = icmp eq ptr %5, null
-  br i1 %.not78, label %.loopexit, label %.preheaderthread-pre-split
+_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread76: ; preds = %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit
+  %.not77 = icmp eq ptr %5, null
+  br i1 %.not77, label %.loopexit, label %.preheaderthread-pre-split
 
-.lr.ph.sink.split:                                ; preds = %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread73
-  %.0.i.sink = phi ptr [ %.0.i, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread73 ], [ %30, %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41 ]
-  %.sink100 = phi ptr [ %5, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread73 ], [ %.0.i38, %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41 ]
+.lr.ph.sink.split:                                ; preds = %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread72
+  %.0.i.sink = phi ptr [ %.0.i, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread72 ], [ %30, %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41 ]
+  %.sink99 = phi ptr [ %5, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread.thread72 ], [ %.0.i38, %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41 ]
   %28 = getelementptr inbounds nuw i8, ptr %.0.i.sink, i64 16
-  store ptr %.sink100, ptr %28, align 8, !tbaa !22
+  store ptr %.sink99, ptr %28, align 8, !tbaa !22
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33, %.lr.ph.sink.split
   %29 = phi ptr [ %.0.i.sink, %.lr.ph.sink.split ], [ %3, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33 ]
-  %.355 = phi ptr [ %.sink100, %.lr.ph.sink.split ], [ %.0.i, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33 ]
-  store ptr null, ptr %.355, align 8, !tbaa !20
+  %.354 = phi ptr [ %.sink99, %.lr.ph.sink.split ], [ %.0.i, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33 ]
+  store ptr null, ptr %.354, align 8, !tbaa !20
   %30 = load ptr, ptr %29, align 8, !tbaa !20
   store ptr null, ptr %29, align 8, !tbaa !20
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %32 = getelementptr inbounds nuw i8, ptr %.355, i64 24
+  %32 = getelementptr inbounds nuw i8, ptr %.354, i64 24
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %34 = load i32, ptr %33, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw i8, ptr %.355, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.354, i64 32
   %36 = load i32, ptr %35, align 8, !tbaa !29
   %37 = icmp ugt i32 %34, %36
   br i1 %37, label %_ZNK3KeyltERKS_.exit42.thread, label %38
 
 38:                                               ; preds = %.lr.ph
   %39 = icmp eq i32 %34, %36
-  br i1 %39, label %_ZNK3KeyltERKS_.exit42, label %_ZNK3KeyltERKS_.exit42.thread48
+  br i1 %39, label %_ZNK3KeyltERKS_.exit42, label %_ZNK3KeyltERKS_.exit42.thread47
 
 _ZNK3KeyltERKS_.exit42:                           ; preds = %38
   %40 = load i64, ptr %31, align 8, !tbaa !30
   %41 = load i64, ptr %32, align 8, !tbaa !30
   %42 = icmp ugt i64 %40, %41
-  br i1 %42, label %_ZNK3KeyltERKS_.exit42.thread, label %_ZNK3KeyltERKS_.exit42.thread48
+  br i1 %42, label %_ZNK3KeyltERKS_.exit42.thread, label %_ZNK3KeyltERKS_.exit42.thread47
 
 _ZNK3KeyltERKS_.exit42.thread:                    ; preds = %.lr.ph, %_ZNK3KeyltERKS_.exit42
-  %43 = getelementptr inbounds nuw i8, ptr %.355, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.354, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !20
   store ptr %44, ptr %29, align 8, !tbaa !20
   %.not.i13.i39 = icmp eq ptr %44, null
@@ -557,34 +557,34 @@ _ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i40: ; preds = %45, %_ZNK3Ke
   store ptr %29, ptr %43, align 8, !tbaa !20
   br label %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41
 
-_ZNK3KeyltERKS_.exit42.thread48:                  ; preds = %38, %_ZNK3KeyltERKS_.exit42
+_ZNK3KeyltERKS_.exit42.thread47:                  ; preds = %38, %_ZNK3KeyltERKS_.exit42
   %47 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !20
-  store ptr %48, ptr %.355, align 8, !tbaa !20
+  store ptr %48, ptr %.354, align 8, !tbaa !20
   %.not.i.i36 = icmp eq ptr %48, null
   br i1 %.not.i.i36, label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37, label %49
 
-49:                                               ; preds = %_ZNK3KeyltERKS_.exit42.thread48
+49:                                               ; preds = %_ZNK3KeyltERKS_.exit42.thread47
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store ptr %.355, ptr %50, align 8, !tbaa !22
+  store ptr %.354, ptr %50, align 8, !tbaa !22
   br label %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37
 
-_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37: ; preds = %49, %_ZNK3KeyltERKS_.exit42.thread48
-  store ptr %.355, ptr %47, align 8, !tbaa !20
+_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37: ; preds = %49, %_ZNK3KeyltERKS_.exit42.thread47
+  store ptr %.354, ptr %47, align 8, !tbaa !20
   br label %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41
 
 _ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41: ; preds = %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i40, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37
-  %.sink92 = phi ptr [ %29, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i40 ], [ %.355, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37 ]
-  %.sink90 = phi ptr [ %43, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i40 ], [ %47, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37 ]
-  %.0.i38 = phi ptr [ %.355, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i40 ], [ %29, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sink92, i64 16
-  store ptr %.sink90, ptr %51, align 8, !tbaa !22
+  %.sink91 = phi ptr [ %29, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i40 ], [ %.354, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37 ]
+  %.sink89 = phi ptr [ %43, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i40 ], [ %47, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37 ]
+  %.0.i38 = phi ptr [ %.354, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit14.i40 ], [ %29, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit.i37 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sink91, i64 16
+  store ptr %.sink89, ptr %51, align 8, !tbaa !22
   store ptr %30, ptr %.0.i38, align 8, !tbaa !20
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %.loopexit, label %.lr.ph.sink.split, !llvm.loop !31
 
-.loopexit:                                        ; preds = %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread77, %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41, %1
-  %.0 = phi ptr [ %0, %1 ], [ %.0.i38, %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41 ], [ %.0.i, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread77 ]
+.loopexit:                                        ; preds = %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread76, %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41, %1
+  %.0 = phi ptr [ %0, %1 ], [ %.0.i38, %_ZN11PairingHeapI3KeyE5mergeEPNS1_4NodeES3_.exit41 ], [ %.0.i, %_ZN11PairingHeapI3KeyE4Link4linkEPNS1_4NodeE.exit33.thread76 ]
   ret ptr %.0
 }
 

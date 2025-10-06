@@ -136,18 +136,18 @@ define hidden noundef range(i64 1, 0) i64 @"_ZN104_$LT$tracing_subscriber..regis
   %.0 = phi i64 [ %.2, %18 ], [ 0, %2 ], [ %15, %14 ], [ 0, %8 ]
   %20 = call { i64, i64 } @"_ZN12sharded_slab4pool17Pool$LT$T$C$C$GT$11create_with17h00d0c4448e4c437dE"(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %4, i64 noundef %.0)
   %.fca.0.extract = extractvalue { i64, i64 } %20, 0
-  %switch = icmp eq i64 %.fca.0.extract, 0
-  br i1 %switch, label %21, label %22
+  %21 = icmp eq i64 %.fca.0.extract, 0
+  br i1 %21, label %22, label %23
 
-21:                                               ; preds = %19
+22:                                               ; preds = %19
   call void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.592f8326e9add4c7230bc811ddc92547.0, i64 noundef 31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.592f8326e9add4c7230bc811ddc92547.2) #23
   unreachable
 
-22:                                               ; preds = %19
+23:                                               ; preds = %19
   %.fca.1.extract = extractvalue { i64, i64 } %20, 1
-  %23 = add i64 %.fca.1.extract, 1
-  %24 = call noundef i64 @_ZN12tracing_core4span2Id8from_u6417h9c68fe7770190b46E(i64 noundef %23), !range !14
-  ret i64 %24
+  %24 = add i64 %.fca.1.extract, 1
+  %25 = call noundef i64 @_ZN12tracing_core4span2Id8from_u6417h9c68fe7770190b46E(i64 noundef %24), !range !14
+  ret i64 %25
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1087,19 +1087,19 @@ define hidden void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$9init_with17h54a
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = atomicrmw xchg ptr %9, i64 274877906944 acquire, align 8
   %.not.i = icmp eq i64 %10, 274877906944
-  br i1 %.not.i, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread", label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread34"
+  br i1 %.not.i, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread", label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread31"
 
 "_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit": ; preds = %4
-  %.not44.not = icmp eq i64 %.val, 274877906944
-  br i1 %.not44.not, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread", label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread34"
+  %.not39.not = icmp eq i64 %.val, 274877906944
+  br i1 %.not39.not, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread", label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread31"
 
-"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread34": ; preds = %8, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit"
-  %.0.i39 = phi i64 [ %.val, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit" ], [ %10, %8 ]
+"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread31": ; preds = %8, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit"
+  %.0.i34 = phi i64 [ %.val, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit" ], [ %10, %8 ]
   %11 = load ptr, ptr %1, align 8, !noundef !6
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %.thread
 
-12:                                               ; preds = %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread34"
+12:                                               ; preds = %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread31"
   tail call fastcc void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$8allocate17h9581b04fe64702acE"(ptr noundef nonnull align 8 %1)
   %.pre = load ptr, ptr %1, align 8, !noalias !133
   %13 = icmp eq ptr %.pre, null
@@ -1109,18 +1109,18 @@ define hidden void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$9init_with17h54a
   tail call void @_ZN4core6option13expect_failed17h92d9ca41185c3cd6E(ptr noalias noundef nonnull readonly align 1 @anon.592f8326e9add4c7230bc811ddc92547.5, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.592f8326e9add4c7230bc811ddc92547.7) #23, !noalias !133
   unreachable
 
-.thread:                                          ; preds = %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread34", %12
-  %15 = phi ptr [ %.pre, %12 ], [ %11, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread34" ]
+.thread:                                          ; preds = %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread31", %12
+  %15 = phi ptr [ %.pre, %12 ], [ %11, %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread31" ]
   %.pn.in = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.pn = load i64, ptr %.pn.in, align 8, !noundef !6
-  %16 = add i64 %.pn, %.0.i39
+  %16 = add i64 %.pn, %.0.i34
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !noalias !133, !noundef !6
-  %19 = icmp ult i64 %.0.i39, %18
+  %19 = icmp ult i64 %.0.i34, %18
   br i1 %19, label %20, label %26, !prof !137
 
 20:                                               ; preds = %.thread
-  %21 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %15, i64 %.0.i39
+  %21 = getelementptr inbounds { { { { ptr, i64, i64, { i64 }, { { { i32 }, { i32 } }, { { i8 } }, [7 x i8], { { { { { { ptr, i64, i64, i64, {} }, {} }, { {} } } } } } } } } }, { i64 }, i64, {} }, ptr %15, i64 %.0.i34
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %23 = tail call noundef i64 @_ZN4core4sync6atomic11atomic_load17h133eb4a7cc8ea4ceE.llvm.11052903800730486598(ptr noundef nonnull %22, i8 noundef 2), !noalias !138
   %24 = and i64 %23, 2251799813685244
@@ -1128,7 +1128,7 @@ define hidden void @"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$9init_with17h54a
   br i1 %25, label %27, label %"_ZN12sharded_slab4page19Shared$LT$T$C$C$GT$3pop17haa3221e398030a6cE.exit.thread"
 
 26:                                               ; preds = %.thread
-  tail call void @_ZN4core9panicking18panic_bounds_check17hb0ff58c889dba9eeE(i64 noundef %.0.i39, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.592f8326e9add4c7230bc811ddc92547.8) #23, !noalias !133
+  tail call void @_ZN4core9panicking18panic_bounds_check17hb0ff58c889dba9eeE(i64 noundef %.0.i34, i64 noundef %18, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.592f8326e9add4c7230bc811ddc92547.8) #23, !noalias !133
   unreachable
 
 27:                                               ; preds = %20
@@ -1294,68 +1294,59 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 557
   %10 = load i8, ptr %9, align 1, !range !21, !noundef !6
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %13, label %20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 558
+  %13 = load i8, ptr %12, align 2, !range !21
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %11, label %16, label %.thread
 
-12:                                               ; preds = %13
+15:                                               ; preds = %16
   %.not = icmp eq i64 %2, 6
-  br i1 %.not, label %.critedge, label %.thread50
+  br i1 %.not, label %.critedge, label %.thread.thread
 
-.thread50:                                        ; preds = %12
-  %.not3552 = icmp eq i64 %1, 6
-  br label %22
+16:                                               ; preds = %8
+  br i1 %14, label %17, label %15
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 558
-  %15 = load i8, ptr %14, align 2, !range !21, !noundef !6
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %12
-
-17:                                               ; preds = %13
+17:                                               ; preds = %16
   %18 = icmp eq i64 %1, 6
   %19 = icmp eq i64 %2, 6
-  %or.cond47 = or i1 %18, %19
-  br i1 %or.cond47, label %.critedge, label %33
+  %or.cond46 = or i1 %18, %19
+  br i1 %or.cond46, label %.critedge, label %30
 
-20:                                               ; preds = %8
-  %.not44 = icmp eq i64 %2, 6
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 558
-  %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !21
-  %21 = trunc nuw i8 %.pre to i1
+.thread:                                          ; preds = %8
   %.not35 = icmp eq i64 %1, 6
-  %or.cond36 = and i1 %.not35, %21
-  br i1 %or.cond36, label %.critedge, label %22
+  %or.cond36 = and i1 %.not35, %14
+  br i1 %or.cond36, label %.critedge, label %.thread.thread
 
-22:                                               ; preds = %.thread50, %20
-  %.not3555 = phi i1 [ %.not3552, %.thread50 ], [ %.not35, %20 ]
-  %.not4654 = phi i1 [ false, %.thread50 ], [ %.not44, %20 ]
+.thread.thread:                                   ; preds = %15, %.thread
   %cond = icmp eq i64 %2, 5
   %or.cond39 = and i1 %3, %cond
-  br i1 %or.cond39, label %.critedge, label %23
+  br i1 %or.cond39, label %.critedge, label %20
 
-.critedge:                                        ; preds = %31, %30, %28, %23, %22, %17, %33, %20, %12, %4
-  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %33 ], [ %1, %22 ], [ %32, %31 ], [ %1, %28 ], [ %2, %30 ], [ %2, %23 ]
+.critedge:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, %27, %20, %.thread.thread, %17, %30, %.thread, %15, %4
+  %.028 = phi i64 [ %1, %4 ], [ 6, %15 ], [ 6, %.thread ], [ 6, %17 ], [ %.0.sroa.speculated.i, %30 ], [ %1, %.thread.thread ], [ %1, %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41 ], [ %2, %27 ], [ %2, %20 ]
   ret i64 %.028
 
-23:                                               ; preds = %22
-  %24 = icmp ne i64 %1, 6
-  %25 = icmp ne i64 %2, 6
-  %26 = xor i1 %24, true
-  %27 = and i1 %25, %26
-  br i1 %27, label %.critedge, label %28
+20:                                               ; preds = %.thread.thread
+  %21 = icmp ne i64 %1, 6
+  %22 = icmp ne i64 %2, 6
+  %23 = xor i1 %21, true
+  %24 = and i1 %22, %23
+  br i1 %24, label %.critedge, label %25
 
-28:                                               ; preds = %23
-  %29 = xor i1 %24, %25
-  br i1 %29, label %.critedge, label %30
+25:                                               ; preds = %20
+  %26 = xor i1 %21, %22
+  br i1 %26, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %27
 
-30:                                               ; preds = %28
-  %or.cond.i.i.i41 = or i1 %.not3555, %.not4654
-  br i1 %or.cond.i.i.i41, label %.critedge, label %31
+27:                                               ; preds = %25
+  %28 = icmp ugt i64 %2, %1
+  %29 = and i1 %22, %28
+  %or.cond.i40 = and i1 %21, %29
+  br i1 %or.cond.i40, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %.critedge
 
-31:                                               ; preds = %30
-  %32 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
+_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41: ; preds = %27, %25
   br label %.critedge
 
-33:                                               ; preds = %17
+30:                                               ; preds = %17
   %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 range(i64 7, 6) %2, i64 range(i64 7, 6) %1)
   br label %.critedge
 }
@@ -1371,68 +1362,59 @@ define hidden noundef i64 @"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2345
   %10 = load i8, ptr %9, align 1, !range !21, !noundef !6
   %11 = trunc nuw i8 %10 to i1
-  br i1 %11, label %13, label %20
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 2346
+  %13 = load i8, ptr %12, align 2, !range !21
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %11, label %16, label %.thread
 
-12:                                               ; preds = %13
+15:                                               ; preds = %16
   %.not = icmp eq i64 %2, 6
-  br i1 %.not, label %.critedge, label %.thread50
+  br i1 %.not, label %.critedge, label %.thread.thread
 
-.thread50:                                        ; preds = %12
-  %.not3552 = icmp eq i64 %1, 6
-  br label %22
+16:                                               ; preds = %8
+  br i1 %14, label %17, label %15
 
-13:                                               ; preds = %8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 2346
-  %15 = load i8, ptr %14, align 2, !range !21, !noundef !6
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %12
-
-17:                                               ; preds = %13
+17:                                               ; preds = %16
   %18 = icmp eq i64 %1, 6
   %19 = icmp eq i64 %2, 6
-  %or.cond47 = or i1 %18, %19
-  br i1 %or.cond47, label %.critedge, label %33
+  %or.cond48 = or i1 %18, %19
+  br i1 %or.cond48, label %.critedge, label %30
 
-20:                                               ; preds = %8
-  %.not44 = icmp eq i64 %2, 6
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 2346
-  %.pre = load i8, ptr %.phi.trans.insert, align 2, !range !21
-  %21 = trunc nuw i8 %.pre to i1
+.thread:                                          ; preds = %8
   %.not35 = icmp eq i64 %1, 6
-  %or.cond36 = and i1 %.not35, %21
-  br i1 %or.cond36, label %.critedge, label %22
+  %or.cond36 = and i1 %.not35, %14
+  br i1 %or.cond36, label %.critedge, label %.thread.thread
 
-22:                                               ; preds = %.thread50, %20
-  %.not3555 = phi i1 [ %.not3552, %.thread50 ], [ %.not35, %20 ]
-  %.not4654 = phi i1 [ false, %.thread50 ], [ %.not44, %20 ]
+.thread.thread:                                   ; preds = %15, %.thread
   %cond = icmp eq i64 %2, 5
   %or.cond39 = and i1 %3, %cond
-  br i1 %or.cond39, label %.critedge, label %23
+  br i1 %or.cond39, label %.critedge, label %20
 
-.critedge:                                        ; preds = %31, %30, %28, %23, %22, %17, %33, %20, %12, %4
-  %.028 = phi i64 [ %1, %4 ], [ 6, %12 ], [ 6, %20 ], [ 6, %17 ], [ %.0.sroa.speculated.i, %33 ], [ %1, %22 ], [ %32, %31 ], [ %1, %28 ], [ %2, %30 ], [ %2, %23 ]
+.critedge:                                        ; preds = %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, %27, %20, %.thread.thread, %17, %30, %.thread, %15, %4
+  %.028 = phi i64 [ %1, %4 ], [ 6, %15 ], [ 6, %.thread ], [ 6, %17 ], [ %.0.sroa.speculated.i, %30 ], [ %1, %.thread.thread ], [ %1, %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41 ], [ %2, %27 ], [ %2, %20 ]
   ret i64 %.028
 
-23:                                               ; preds = %22
-  %24 = icmp ne i64 %1, 6
-  %25 = icmp ne i64 %2, 6
-  %26 = xor i1 %24, true
-  %27 = and i1 %25, %26
-  br i1 %27, label %.critedge, label %28
+20:                                               ; preds = %.thread.thread
+  %21 = icmp ne i64 %1, 6
+  %22 = icmp ne i64 %2, 6
+  %23 = xor i1 %21, true
+  %24 = and i1 %22, %23
+  br i1 %24, label %.critedge, label %25
 
-28:                                               ; preds = %23
-  %29 = xor i1 %24, %25
-  br i1 %29, label %.critedge, label %30
+25:                                               ; preds = %20
+  %26 = xor i1 %21, %22
+  br i1 %26, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %27
 
-30:                                               ; preds = %28
-  %or.cond.i.i.i41 = or i1 %.not3555, %.not4654
-  br i1 %or.cond.i.i.i41, label %.critedge, label %31
+27:                                               ; preds = %25
+  %28 = icmp ugt i64 %2, %1
+  %29 = and i1 %22, %28
+  %or.cond.i40 = and i1 %21, %29
+  br i1 %or.cond.i40, label %_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41, label %.critedge
 
-31:                                               ; preds = %30
-  %32 = tail call i64 @llvm.umin.i64(i64 %2, i64 %1)
+_ZN4core3ops8function6FnOnce9call_once17h64391b8ab3ff3e3fE.exit.thread9.i41: ; preds = %27, %25
   br label %.critedge
 
-33:                                               ; preds = %17
+30:                                               ; preds = %17
   %.0.sroa.speculated.i = tail call noundef range(i64 0, 6) i64 @llvm.umin.i64(i64 range(i64 7, 6) %2, i64 range(i64 7, 6) %1)
   br label %.critedge
 }

@@ -4785,7 +4785,7 @@ define internal fastcc range(i32 0, 2) i32 @_lib_masks_selection_change_r(ptr no
 20:                                               ; preds = %18
   %21 = call fastcc i32 @_lib_masks_selection_change_r(ptr noundef %0, ptr noundef %1, ptr noundef %10, ptr noundef %3, i32 noundef %4, i32 noundef %15)
   %.not25.us = icmp eq i32 %21, 0
-  br i1 %.not25.us, label %select.unfold.us, label %.split37.us
+  br i1 %.not25.us, label %select.unfold.us, label %.split35.us
 
 select.unfold.us:                                 ; preds = %20, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -4834,9 +4834,9 @@ select.unfold.us:                                 ; preds = %20, %18
 35:                                               ; preds = %33
   %36 = call fastcc i32 @_lib_masks_selection_change_r(ptr noundef %0, ptr noundef %1, ptr noundef %10, ptr noundef %3, i32 noundef %4, i32 noundef %15)
   %.not25 = icmp eq i32 %36, 0
-  br i1 %.not25, label %select.unfold, label %.split37.us
+  br i1 %.not25, label %select.unfold, label %.split35.us
 
-.split37.us:                                      ; preds = %35, %20
+.split35.us:                                      ; preds = %35, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit.sink.split
@@ -4850,15 +4850,15 @@ select.unfold:                                    ; preds = %35, %33
   %38 = icmp eq i32 %37, 1
   br i1 %38, label %.split, label %.loopexit
 
-.loopexit.sink.split:                             ; preds = %.thread, %.split37.us
+.loopexit.sink.split:                             ; preds = %.thread, %.split35.us
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %select.unfold, %select.unfold.us, %.loopexit.sink.split
-  %.11830 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %select.unfold.us ], [ 0, %select.unfold ]
+  %.11829 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %select.unfold.us ], [ 0, %select.unfold ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  ret i32 %.11830
+  ret i32 %.11829
 }
 
 declare void @gtk_tree_view_collapse_all(ptr noundef) local_unnamed_addr #3

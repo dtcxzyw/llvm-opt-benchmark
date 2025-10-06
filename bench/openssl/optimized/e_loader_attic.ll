@@ -1398,9 +1398,9 @@ file_read_pem.exit.thread162:                     ; preds = %188, %file_read_asn
 
 .preheader188:                                    ; preds = %248, %301
   %.5144 = phi i32 [ %.6145, %301 ], [ 0, %248 ]
-  %.05687.i = phi i64 [ %302, %301 ], [ 0, %248 ]
-  %.286.i = phi ptr [ %.7.ph.i, %301 ], [ null, %248 ]
-  %251 = getelementptr inbounds nuw ptr, ptr @file_handlers, i64 %.05687.i
+  %.05686.i = phi i64 [ %302, %301 ], [ 0, %248 ]
+  %.285.i = phi ptr [ %.7.ph.i, %301 ], [ null, %248 ]
+  %251 = getelementptr inbounds nuw ptr, ptr @file_handlers, i64 %.05686.i
   %252 = load ptr, ptr %251, align 8, !tbaa !61
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !12
@@ -1455,11 +1455,11 @@ file_read_pem.exit.thread162:                     ; preds = %188, %file_read_asn
   br i1 %280, label %281, label %298
 
 281:                                              ; preds = %276
-  %.not.i70.i = icmp eq ptr %.286.i, null
+  %.not.i70.i = icmp eq ptr %.285.i, null
   br i1 %.not.i70.i, label %store_info_free.exit.i, label %282
 
 282:                                              ; preds = %281
-  %283 = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %.286.i) #10
+  %283 = call ptr @OSSL_STORE_INFO_get0_data(i32 noundef -1, ptr noundef nonnull %.285.i) #10
   %.not7.i.i = icmp eq ptr %283, null
   br i1 %.not7.i.i, label %store_info_free.exit.i, label %284
 
@@ -1473,7 +1473,7 @@ file_read_pem.exit.thread162:                     ; preds = %188, %file_read_asn
   br label %store_info_free.exit.i
 
 store_info_free.exit.i:                           ; preds = %284, %282, %281
-  call void @OSSL_STORE_INFO_free(ptr noundef %.286.i) #10
+  call void @OSSL_STORE_INFO_free(ptr noundef %.285.i) #10
   %.not.i71.i = icmp eq ptr %259, null
   br i1 %.not.i71.i, label %store_info_free.exit73.i, label %288
 
@@ -1507,24 +1507,24 @@ store_info_free.exit73.i:                         ; preds = %290, %288, %store_i
   br label %298
 
 298:                                              ; preds = %297, %276
-  %.5.i = phi ptr [ null, %297 ], [ %.286.i, %276 ]
+  %.5.i = phi ptr [ null, %297 ], [ %.285.i, %276 ]
   %.053.i = phi ptr [ null, %297 ], [ %259, %276 ]
   %299 = icmp eq ptr %.5.i, null
   %spec.select.i115 = select i1 %299, ptr %.053.i, ptr %.5.i
   %300 = icmp eq ptr %spec.select.i115, null
-  br i1 %300, label %.thread81.i, label %301
+  br i1 %300, label %.thread80.i, label %301
 
-.thread81.i:                                      ; preds = %298
+.thread80.i:                                      ; preds = %298
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %312
 
 301:                                              ; preds = %298, %266
   %.6145 = phi i32 [ %279, %298 ], [ %.5144, %266 ]
-  %.7.ph.i = phi ptr [ %spec.select.i115, %298 ], [ %.286.i, %266 ]
+  %.7.ph.i = phi ptr [ %spec.select.i115, %298 ], [ %.285.i, %266 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %302 = add nuw nsw i64 %.05687.i, 1
+  %302 = add nuw nsw i64 %.05686.i, 1
   %exitcond.not.i = icmp eq i64 %302, 7
   br i1 %exitcond.not.i, label %303, label %.preheader188, !llvm.loop !66
 
@@ -1549,15 +1549,15 @@ store_info_free.exit73.i:                         ; preds = %290, %288, %store_i
   store ptr %311, ptr %31, align 8, !tbaa !19
   br label %312
 
-312:                                              ; preds = %310, %306, %304, %303, %.thread81.i
-  %.7 = phi i32 [ %279, %.thread81.i ], [ %.6145, %303 ], [ 1, %306 ], [ 1, %310 ], [ %.6145, %304 ]
-  %.384.i = phi ptr [ null, %.thread81.i ], [ null, %303 ], [ %.7.ph.i, %306 ], [ %.7.ph.i, %310 ], [ %.7.ph.i, %304 ]
+312:                                              ; preds = %310, %306, %304, %303, %.thread80.i
+  %.7 = phi i32 [ %279, %.thread80.i ], [ %.6145, %303 ], [ 1, %306 ], [ 1, %310 ], [ %.6145, %304 ]
+  %.383.i = phi ptr [ null, %.thread80.i ], [ null, %303 ], [ %.7.ph.i, %306 ], [ %.7.ph.i, %310 ], [ %.7.ph.i, %304 ]
   call void @CRYPTO_free(ptr noundef nonnull %249, ptr noundef nonnull @.str.2, i32 noundef 1236) #10
   br label %313
 
 313:                                              ; preds = %312, %248
   %.8 = phi i32 [ %.4143, %248 ], [ %.7, %312 ]
-  %.160.i = phi ptr [ null, %248 ], [ %.384.i, %312 ]
+  %.160.i = phi ptr [ null, %248 ], [ %.383.i, %312 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @CRYPTO_free(ptr noundef %.057.i, ptr noundef nonnull @.str.2, i32 noundef 1240) #10
   call void @BUF_MEM_free(ptr noundef %.058.i) #10

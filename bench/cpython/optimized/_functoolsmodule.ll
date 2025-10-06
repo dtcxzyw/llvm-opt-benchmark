@@ -5449,12 +5449,12 @@ _Py_NewRef.exit11:                                ; preds = %_Py_NewRef.exit, %2
 ; Function Attrs: nounwind uwtable
 define internal i32 @keyobject_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val36 = load ptr, ptr %4, align 8, !tbaa !113
-  %.not = icmp eq ptr %.val36, null
+  %.val34 = load ptr, ptr %4, align 8, !tbaa !113
+  %.not = icmp eq ptr %.val34, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val36, ptr noundef %2) #10
+  %6 = tail call i32 %1(ptr noundef nonnull %.val34, ptr noundef %2) #10
   %.not27.not = icmp eq i32 %6, 0
   br i1 %.not27.not, label %7, label %18
 

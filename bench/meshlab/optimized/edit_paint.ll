@@ -2750,16 +2750,19 @@ define linkonce_odr void @_ZN6GLArea24updateAllSiblingsGLAreasEv(ptr noundef non
   %8 = load ptr, ptr %7, align 8, !noalias !14
   store ptr %8, ptr %2, align 8, !alias.scope !14
   %9 = load atomic i32, ptr %8 monotonic, align 4, !noalias !14
-  switch i32 %9, label %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i [
-    i32 0, label %11
-    i32 -1, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
-  ]
+  %.off.i.i.i.i = add i32 %9, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, label %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
 
 _ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i:   ; preds = %6
   %10 = atomicrmw add ptr %8, i32 1 seq_cst, align 4, !noalias !14
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
-11:                                               ; preds = %6
+_ZN9QtPrivate8RefCount3refEv.exit.i.i.i:          ; preds = %6
+  %.not.i.i.i = icmp eq i32 %9, 0
+  br i1 %.not.i.i.i, label %11, label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
+
+11:                                               ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %13 = load i32, ptr %12, align 4, !noalias !14
   %14 = call noundef ptr @_ZN9QListData6detachEi(ptr noundef nonnull align 8 dereferenceable(28) %2, i32 noundef %13)
@@ -2792,7 +2795,7 @@ _ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i:   ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %26, i64 %gepdiff.i.i.i, i1 false)
   br label %_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit
 
-_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %6, %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %11, %27, %33
+_ZN9QtPrivate21qMakeForeachContainerIR5QListIP6GLAreaEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_.exit: ; preds = %_ZN9QtPrivate8RefCount3refEv.exit.thread.i.i.i, %_ZN9QtPrivate8RefCount3refEv.exit.i.i.i, %11, %27, %33
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !17)
   %35 = load ptr, ptr %2, align 8, !alias.scope !14, !noalias !17

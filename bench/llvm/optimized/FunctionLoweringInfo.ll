@@ -3387,17 +3387,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17M
   %1598 = zext i32 %1597 to i64
   %.idx.i.i449 = shl nuw nsw i64 %1598, 3
   %1599 = getelementptr inbounds nuw i8, ptr %1595, i64 %.idx.i.i449
-  %.not36.i.i = icmp eq i32 %1597, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i450
+  %.not34.i.i = icmp eq i32 %1597, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i450
 
 .lr.ph.i.i450:                                    ; preds = %1594, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %1601, %.critedge.i.i ], [ %1595, %1594 ]
-  %1600 = load ptr, ptr %.02937.i.i, align 8, !tbaa !564, !noalias !569
+  %.02935.i.i = phi ptr [ %1601, %.critedge.i.i ], [ %1595, %1594 ]
+  %1600 = load ptr, ptr %.02935.i.i, align 8, !tbaa !564, !noalias !569
   %.not17.i.i = icmp eq ptr %1600, %1590
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplINS_12PointerUnionIJPKNS_10BasicBlockEPNS_17MachineBasicBlockEEEEE6insertES7_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i450
-  %1601 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %1601 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i451 = icmp eq ptr %1601, %1599
   br i1 %.not.i.i451, label %._crit_edge.i.i, label %.lr.ph.i.i450, !llvm.loop !572
 

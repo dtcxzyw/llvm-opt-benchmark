@@ -119,7 +119,7 @@ define noundef i32 @_ZNK6icu_7716CollationWeights9incWeightEji(ptr noundef nonnu
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = phi i32 [ %6, %.lr.ph ], [ %28, %14 ]
   %16 = phi i32 [ %5, %.lr.ph ], [ %27, %14 ]
-  %.01627 = phi i32 [ %1, %.lr.ph ], [ %25, %14 ]
+  %.01626 = phi i32 [ %1, %.lr.ph ], [ %25, %14 ]
   %17 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !9
   %19 = icmp slt i64 %indvars.iv, 4
@@ -127,7 +127,7 @@ define noundef i32 @_ZNK6icu_7716CollationWeights9incWeightEji(ptr noundef nonnu
   %.0.i19 = select i1 %19, i32 %20, i32 0
   %21 = shl i32 -256, %15
   %22 = or i32 %.0.i19, %21
-  %23 = and i32 %22, %.01627
+  %23 = and i32 %22, %.01626
   %24 = shl i32 %18, %15
   %25 = or i32 %24, %23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -144,17 +144,17 @@ define noundef i32 @_ZNK6icu_7716CollationWeights9incWeightEji(ptr noundef nonnu
 ._crit_edge:                                      ; preds = %14, %3
   %.016.lcssa = phi i32 [ %1, %3 ], [ %25, %14 ]
   %.014.lcssa = phi i32 [ %2, %3 ], [ %26, %14 ]
-  %.lcssa26 = phi i32 [ %5, %3 ], [ %27, %14 ]
-  %.lcssa25 = phi i32 [ %6, %3 ], [ %28, %14 ]
+  %.lcssa25 = phi i32 [ %5, %3 ], [ %27, %14 ]
+  %.lcssa24 = phi i32 [ %6, %3 ], [ %28, %14 ]
   %.lcssa = phi i32 [ %8, %3 ], [ %30, %14 ]
   %34 = add nuw nsw i32 %.lcssa, 1
   %35 = icmp slt i32 %.014.lcssa, 4
-  %36 = lshr i32 -1, %.lcssa26
+  %36 = lshr i32 -1, %.lcssa25
   %.0.i = select i1 %35, i32 %36, i32 0
-  %37 = shl i32 -256, %.lcssa25
+  %37 = shl i32 -256, %.lcssa24
   %38 = or i32 %.0.i, %37
   %39 = and i32 %38, %.016.lcssa
-  %40 = shl i32 %34, %.lcssa25
+  %40 = shl i32 %34, %.lcssa24
   %41 = or i32 %40, %39
   ret i32 %41
 }
@@ -516,7 +516,7 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716C
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %indvars.iv205, %143 ]
   %152 = phi i32 [ %165, %.lr.ph.i ], [ %146, %143 ]
   %153 = phi i32 [ %164, %.lr.ph.i ], [ %145, %143 ]
-  %.01627.i = phi i32 [ %162, %.lr.ph.i ], [ %124, %143 ]
+  %.01626.i = phi i32 [ %162, %.lr.ph.i ], [ %124, %143 ]
   %154 = getelementptr inbounds i32, ptr %81, i64 %indvars.iv.i
   %155 = load i32, ptr %154, align 4, !tbaa !9
   %156 = icmp slt i64 %indvars.iv.i, 4
@@ -524,7 +524,7 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716C
   %.0.i19.i = select i1 %156, i32 %157, i32 0
   %158 = shl i32 -256, %152
   %159 = or i32 %.0.i19.i, %158
-  %160 = and i32 %159, %.01627.i
+  %160 = and i32 %159, %.01626.i
   %161 = shl i32 %155, %152
   %162 = or i32 %160, %161
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -541,17 +541,17 @@ _ZN6icu_7716CollationWeights14lengthOfWeightEj.exit124: ; preds = %_ZN6icu_7716C
 _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %.lr.ph.i, %143
   %.016.lcssa.i = phi i32 [ %124, %143 ], [ %162, %.lr.ph.i ]
   %.014.lcssa.i = phi i32 [ %144, %143 ], [ %163, %.lr.ph.i ]
-  %.lcssa26.i = phi i32 [ %145, %143 ], [ %164, %.lr.ph.i ]
-  %.lcssa25.i = phi i32 [ %146, %143 ], [ %165, %.lr.ph.i ]
+  %.lcssa25.i = phi i32 [ %145, %143 ], [ %164, %.lr.ph.i ]
+  %.lcssa24.i = phi i32 [ %146, %143 ], [ %165, %.lr.ph.i ]
   %.lcssa.i = phi i32 [ %148, %143 ], [ %167, %.lr.ph.i ]
   %171 = add nuw nsw i32 %.lcssa.i, 1
   %172 = icmp slt i32 %.014.lcssa.i, 4
-  %173 = lshr i32 -1, %.lcssa26.i
+  %173 = lshr i32 -1, %.lcssa25.i
   %.0.i.i = select i1 %172, i32 %173, i32 0
-  %174 = shl i32 -256, %.lcssa25.i
+  %174 = shl i32 -256, %.lcssa24.i
   %175 = or i32 %.0.i.i, %174
   %176 = and i32 %175, %.016.lcssa.i
-  %177 = shl i32 %171, %.lcssa25.i
+  %177 = shl i32 %171, %.lcssa24.i
   %178 = or i32 %177, %176
   %179 = icmp eq i32 %178, %125
   br i1 %179, label %180, label %.thread128
@@ -710,7 +710,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights25allocWei
 
 10:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %.01728 = phi i32 [ %1, %.lr.ph ], [ %26, %25 ]
+  %.01729 = phi i32 [ %1, %.lr.ph ], [ %26, %25 ]
   %11 = getelementptr inbounds nuw %"struct.icu_77::CollationWeights::WeightRange", ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 4, !tbaa !14
@@ -720,7 +720,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights25allocWei
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 12
   %16 = load i32, ptr %15, align 4, !tbaa !18
-  %.not20 = icmp sgt i32 %.01728, %16
+  %.not20 = icmp sgt i32 %.01729, %16
   br i1 %.not20, label %25, label %17
 
 17:                                               ; preds = %14
@@ -730,7 +730,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights25allocWei
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 %.01728, ptr %21, align 4, !tbaa !18
+  store i32 %.01729, ptr %21, align 4, !tbaa !18
   br label %22
 
 22:                                               ; preds = %20, %17
@@ -747,14 +747,14 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights25allocWei
   br label %.critedge
 
 25:                                               ; preds = %14
-  %26 = sub nsw i32 %.01728, %16
+  %26 = sub nsw i32 %.01729, %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %10, !llvm.loop !26
 
-.critedge:                                        ; preds = %25, %10, %3, %22, %24
-  %not.switch = phi i8 [ 1, %24 ], [ 1, %22 ], [ 0, %3 ], [ 0, %10 ], [ 0, %25 ]
-  ret i8 %not.switch
+.critedge:                                        ; preds = %25, %10, %3, %24, %22
+  %27 = phi i8 [ 1, %22 ], [ 1, %24 ], [ 0, %3 ], [ 0, %10 ], [ 0, %25 ]
+  ret i8 %27
 }
 
 declare void @uprv_sortArray_77(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #8
@@ -977,7 +977,7 @@ _ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit: ; preds = %.lr.ph.i, 
   %indvars.iv.i57 = phi i64 [ %indvars.iv.next.i58, %.lr.ph.i56 ], [ %83, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ]
   %125 = phi i32 [ %138, %.lr.ph.i56 ], [ %78, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ]
   %126 = phi i32 [ %137, %.lr.ph.i56 ], [ %77, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ]
-  %.01627.i = phi i32 [ %135, %.lr.ph.i56 ], [ %119, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ]
+  %.01626.i = phi i32 [ %135, %.lr.ph.i56 ], [ %119, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ]
   %127 = getelementptr inbounds i32, ptr %22, i64 %indvars.iv.i57
   %128 = load i32, ptr %127, align 4, !tbaa !9
   %129 = icmp slt i64 %indvars.iv.i57, 4
@@ -985,7 +985,7 @@ _ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit: ; preds = %.lr.ph.i, 
   %.0.i19.i = select i1 %129, i32 %130, i32 0
   %131 = shl i32 -256, %125
   %132 = or i32 %.0.i19.i, %131
-  %133 = and i32 %132, %.01627.i
+  %133 = and i32 %132, %.01626.i
   %134 = shl i32 %128, %125
   %135 = or i32 %133, %134
   %indvars.iv.next.i58 = add nsw i64 %indvars.iv.i57, -1
@@ -1002,17 +1002,17 @@ _ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit: ; preds = %.lr.ph.i, 
 _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %.lr.ph.i56, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit
   %.016.lcssa.i = phi i32 [ %119, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ], [ %135, %.lr.ph.i56 ]
   %.014.lcssa.i = phi i32 [ %2, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ], [ %136, %.lr.ph.i56 ]
-  %.lcssa26.i = phi i32 [ %77, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ], [ %137, %.lr.ph.i56 ]
-  %.lcssa25.i = phi i32 [ %78, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ], [ %138, %.lr.ph.i56 ]
+  %.lcssa25.i = phi i32 [ %77, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ], [ %137, %.lr.ph.i56 ]
+  %.lcssa24.i = phi i32 [ %78, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ], [ %138, %.lr.ph.i56 ]
   %.lcssa.i59 = phi i32 [ %122, %_ZNK6icu_7716CollationWeights17incWeightByOffsetEjii.exit ], [ %140, %.lr.ph.i56 ]
   %144 = add nuw nsw i32 %.lcssa.i59, 1
   %145 = icmp slt i32 %.014.lcssa.i, 4
-  %146 = lshr i32 -1, %.lcssa26.i
+  %146 = lshr i32 -1, %.lcssa25.i
   %.0.i.i60 = select i1 %145, i32 %146, i32 0
-  %147 = shl i32 -256, %.lcssa25.i
+  %147 = shl i32 -256, %.lcssa24.i
   %148 = or i32 %.0.i.i60, %147
   %149 = and i32 %148, %.016.lcssa.i
-  %150 = shl i32 %144, %.lcssa25.i
+  %150 = shl i32 %144, %.lcssa24.i
   %151 = or i32 %150, %149
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 60
   store i32 %151, ptr %152, align 4, !tbaa !16
@@ -1059,9 +1059,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWei
   %5 = alloca i32, align 4
   %6 = tail call noundef signext i8 @_ZN6icu_7716CollationWeights15getWeightRangesEjj(ptr noundef nonnull align 4 dereferenceable(164) %0, i32 noundef %1, i32 noundef %2)
   %.not = icmp eq i8 %6, 0
-  br i1 %.not, label %.critedge.thread22, label %.preheader24
+  br i1 %.not, label %.critedge.thread21, label %.preheader23
 
-.preheader24:                                     ; preds = %4
+.preheader23:                                     ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1070,8 +1070,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWei
   %.pre = load i32, ptr %9, align 4, !tbaa !8
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.backedge, %.preheader24
-  %12 = phi i32 [ %.pre, %.preheader24 ], [ %36, %.critedge.backedge ]
+.critedge:                                        ; preds = %.critedge.backedge, %.preheader23
+  %12 = phi i32 [ %.pre, %.preheader23 ], [ %36, %.critedge.backedge ]
   %13 = load i32, ptr %8, align 4, !tbaa !14
   %14 = icmp sgt i32 %12, 0
   br i1 %14, label %.lr.ph.i, label %.loopexit
@@ -1083,7 +1083,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWei
 
 16:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
-  %.01728.i = phi i32 [ %3, %.lr.ph.i ], [ %32, %31 ]
+  %.01729.i = phi i32 [ %3, %.lr.ph.i ], [ %32, %31 ]
   %17 = getelementptr inbounds nuw %"struct.icu_77::CollationWeights::WeightRange", ptr %7, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !14
@@ -1093,7 +1093,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWei
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !18
-  %.not20.i = icmp sgt i32 %.01728.i, %22
+  %.not20.i = icmp sgt i32 %.01729.i, %22
   br i1 %.not20.i, label %31, label %23
 
 23:                                               ; preds = %20
@@ -1103,36 +1103,36 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWei
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i32 %.01728.i, ptr %27, align 4, !tbaa !18
+  store i32 %.01729.i, ptr %27, align 4, !tbaa !18
   br label %28
 
 28:                                               ; preds = %26, %23
   %29 = add nuw nsw i32 %24, 1
   store i32 %29, ptr %9, align 4, !tbaa !8
   %.not21.i = icmp eq i64 %indvars.iv.i, 0
-  br i1 %.not21.i, label %.loopexit25, label %30
+  br i1 %.not21.i, label %.loopexit24, label %30
 
 30:                                               ; preds = %28
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !24
   call void @uprv_sortArray_77(ptr noundef nonnull %7, i32 noundef %29, i32 noundef 16, ptr noundef nonnull @_ZN6icu_77L13compareRangesEPKvS1_S1_, ptr noundef null, i8 noundef signext 0, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit25
+  br label %.loopexit24
 
 31:                                               ; preds = %20
-  %32 = sub nsw i32 %.01728.i, %22
+  %32 = sub nsw i32 %.01729.i, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %16, !llvm.loop !26
 
 .loopexit:                                        ; preds = %16, %31, %.critedge
   %33 = icmp eq i32 %13, 4
-  br i1 %33, label %.critedge.thread22, label %34
+  br i1 %33, label %.critedge.thread21, label %34
 
 34:                                               ; preds = %.loopexit
   %35 = tail call noundef signext i8 @_ZN6icu_7716CollationWeights29allocWeightsInMinLengthRangesEii(ptr noundef nonnull align 4 dereferenceable(164) %0, i32 noundef %3, i32 noundef %13)
   %.not18 = icmp eq i8 %35, 0
-  br i1 %.not18, label %.preheader, label %.loopexit25
+  br i1 %.not18, label %.preheader, label %.loopexit24
 
 .preheader:                                       ; preds = %34
   %36 = load i32, ptr %9, align 4, !tbaa !8
@@ -1188,13 +1188,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7716CollationWeights12allocWei
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.backedge, label %.lr.ph, !llvm.loop !29
 
-.loopexit25:                                      ; preds = %34, %28, %30
+.loopexit24:                                      ; preds = %34, %28, %30
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 156
   store i32 0, ptr %68, align 4, !tbaa !3
-  br label %.critedge.thread22
+  br label %.critedge.thread21
 
-.critedge.thread22:                               ; preds = %.loopexit, %4, %.loopexit25
-  %.015 = phi i8 [ 1, %.loopexit25 ], [ 0, %4 ], [ 0, %.loopexit ]
+.critedge.thread21:                               ; preds = %.loopexit, %4, %.loopexit24
+  %.015 = phi i8 [ 1, %.loopexit24 ], [ 0, %4 ], [ 0, %.loopexit ]
   ret i8 %.015
 }
 
@@ -1246,7 +1246,7 @@ define noundef i32 @_ZN6icu_7716CollationWeights10nextWeightEv(ptr noundef nonnu
   %indvars.iv.i = phi i64 [ %25, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %31 = phi i32 [ %22, %.lr.ph.i ], [ %44, %30 ]
   %32 = phi i32 [ %21, %.lr.ph.i ], [ %43, %30 ]
-  %.01627.i = phi i32 [ %10, %.lr.ph.i ], [ %41, %30 ]
+  %.01626.i = phi i32 [ %10, %.lr.ph.i ], [ %41, %30 ]
   %33 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4, !tbaa !9
   %35 = icmp slt i64 %indvars.iv.i, 4
@@ -1254,7 +1254,7 @@ define noundef i32 @_ZN6icu_7716CollationWeights10nextWeightEv(ptr noundef nonnu
   %.0.i19.i = select i1 %35, i32 %36, i32 0
   %37 = shl i32 -256, %31
   %38 = or i32 %.0.i19.i, %37
-  %39 = and i32 %38, %.01627.i
+  %39 = and i32 %38, %.01626.i
   %40 = shl i32 %34, %31
   %41 = or i32 %39, %40
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -1271,17 +1271,17 @@ define noundef i32 @_ZN6icu_7716CollationWeights10nextWeightEv(ptr noundef nonnu
 _ZNK6icu_7716CollationWeights9incWeightEji.exit:  ; preds = %30, %17
   %.016.lcssa.i = phi i32 [ %10, %17 ], [ %41, %30 ]
   %.014.lcssa.i = phi i32 [ %19, %17 ], [ %42, %30 ]
-  %.lcssa26.i = phi i32 [ %21, %17 ], [ %43, %30 ]
-  %.lcssa25.i = phi i32 [ %22, %17 ], [ %44, %30 ]
+  %.lcssa25.i = phi i32 [ %21, %17 ], [ %43, %30 ]
+  %.lcssa24.i = phi i32 [ %22, %17 ], [ %44, %30 ]
   %.lcssa.i = phi i32 [ %24, %17 ], [ %46, %30 ]
   %50 = add nuw nsw i32 %.lcssa.i, 1
   %51 = icmp slt i32 %.014.lcssa.i, 4
-  %52 = lshr i32 -1, %.lcssa26.i
+  %52 = lshr i32 -1, %.lcssa25.i
   %.0.i.i = select i1 %51, i32 %52, i32 0
-  %53 = shl i32 -256, %.lcssa25.i
+  %53 = shl i32 -256, %.lcssa24.i
   %54 = or i32 %.0.i.i, %53
   %55 = and i32 %54, %.016.lcssa.i
-  %56 = shl i32 %50, %.lcssa25.i
+  %56 = shl i32 %50, %.lcssa24.i
   %57 = or i32 %56, %55
   store i32 %57, ptr %9, align 4, !tbaa !16
   br label %58

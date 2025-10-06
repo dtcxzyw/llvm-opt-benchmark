@@ -817,9 +817,9 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %11
   store ptr %19, ptr %0, align 8, !tbaa !83, !alias.scope !90
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %_ZN5arrow6StatusD2Ev.exit17, label %66
+  br i1 %20, label %_ZN5arrow6StatusD2Ev.exit16, label %66
 
-_ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
+_ZN5arrow6StatusD2Ev.exit16:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %22 = load ptr, ptr %21, align 8, !tbaa !55
@@ -835,7 +835,7 @@ _ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2E
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %66
 
-29:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit17
+29:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit16
   %30 = load ptr, ptr %21, align 8, !tbaa !55
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 112
   %32 = load i64, ptr %31, align 8, !tbaa !77
@@ -912,7 +912,7 @@ _ZNSt12__shared_ptrIKN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit:
   store ptr null, ptr %0, align 8, !tbaa !83
   br label %66
 
-66:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit17, %_ZN5arrow6StatusD2Ev.exit
+66:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit16, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -935,9 +935,9 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
   store ptr %11, ptr %0, align 8, !tbaa !83, !alias.scope !99
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = icmp eq ptr %11, null
-  br i1 %12, label %_ZN5arrow6StatusD2Ev.exit19, label %39
+  br i1 %12, label %_ZN5arrow6StatusD2Ev.exit17, label %39
 
-_ZN5arrow6StatusD2Ev.exit19:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
+_ZN5arrow6StatusD2Ev.exit17:                      ; preds = %_ZN5arrow6StatusD2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = load ptr, ptr %1, align 8, !tbaa !53
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
@@ -948,9 +948,9 @@ _ZN5arrow6StatusD2Ev.exit19:                      ; preds = %_ZN5arrow6StatusD2E
   store ptr %16, ptr %0, align 8, !tbaa !83, !alias.scope !102
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %_ZN5arrow6StatusD2Ev.exit23, label %39
+  br i1 %17, label %_ZN5arrow6StatusD2Ev.exit21, label %39
 
-_ZN5arrow6StatusD2Ev.exit23:                      ; preds = %_ZN5arrow6StatusD2Ev.exit19
+_ZN5arrow6StatusD2Ev.exit21:                      ; preds = %_ZN5arrow6StatusD2Ev.exit17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %19 = load ptr, ptr %18, align 8, !tbaa !55
@@ -965,7 +965,7 @@ _ZN5arrow6StatusD2Ev.exit23:                      ; preds = %_ZN5arrow6StatusD2E
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %39
 
-25:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit23
+25:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit21
   %26 = load ptr, ptr %18, align 8, !tbaa !55
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 112
   %28 = load i64, ptr %27, align 8, !tbaa !77
@@ -988,7 +988,7 @@ _ZN5arrow6StatusD2Ev.exit23:                      ; preds = %_ZN5arrow6StatusD2E
   store ptr null, ptr %0, align 8, !tbaa !83
   br label %39
 
-39:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit23, %_ZN5arrow6StatusD2Ev.exit19, %_ZN5arrow6StatusD2Ev.exit
+39:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit21, %_ZN5arrow6StatusD2Ev.exit17, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -1053,7 +1053,7 @@ define void @_ZN5arrow8internal20RunCompressorBuilder12AppendScalarERKNS_6Scalar
   store ptr null, ptr %33, align 8, !tbaa !127, !alias.scope !120
   %34 = call noundef zeroext i1 @_ZNK5arrow6Scalar6EqualsERKS0_RKNS_12EqualOptionsE(ptr noundef nonnull align 8 dereferenceable(41) %26, ptr noundef nonnull align 8 dereferenceable(41) %2, ptr noundef nonnull align 8 dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre34 = load i64, ptr %11, align 8, !tbaa !70
+  %.pre33 = load i64, ptr %11, align 8, !tbaa !70
   br i1 %34, label %._crit_edge, label %_ZN5arrow6StatusD2Ev.exit
 
 .critedge:                                        ; preds = %24
@@ -1061,7 +1061,7 @@ define void @_ZN5arrow8internal20RunCompressorBuilder12AppendScalarERKNS_6Scalar
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %31, %.critedge
-  %35 = phi i64 [ %12, %.critedge ], [ %.pre34, %31 ]
+  %35 = phi i64 [ %12, %.critedge ], [ %.pre33, %31 ]
   %36 = add nsw i64 %35, %3
   br label %_ZNSt12__shared_ptrIKN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
@@ -1070,7 +1070,7 @@ define void @_ZN5arrow8internal20RunCompressorBuilder12AppendScalarERKNS_6Scalar
   br label %_ZN5arrow6StatusD2Ev.exit
 
 _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.critedge2, %31
-  %37 = phi i64 [ %12, %.critedge2 ], [ %.pre34, %31 ]
+  %37 = phi i64 [ %12, %.critedge2 ], [ %.pre33, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = load ptr, ptr %1, align 8, !tbaa !53
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
@@ -1086,25 +1086,25 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.critedge2, %31
 43:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %44 = load ptr, ptr %25, align 8, !tbaa !89
-  %.not33 = icmp eq ptr %44, null
+  %.not32 = icmp eq ptr %44, null
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %46 = load ptr, ptr %45, align 8, !tbaa !55
   %47 = load ptr, ptr %46, align 8, !tbaa !53
-  br i1 %.not33, label %51, label %48
+  br i1 %.not32, label %51, label %48
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 72
   %50 = load ptr, ptr %49, align 8, !noalias !131
   call void %50(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %8, ptr noundef nonnull align 8 dereferenceable(144) %46, ptr noundef nonnull align 8 dereferenceable(41) %44, i64 noundef 1)
-  br label %_ZN5arrow6StatusD2Ev.exit27
+  br label %_ZN5arrow6StatusD2Ev.exit26
 
 51:                                               ; preds = %43
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %53 = load ptr, ptr %52, align 8
   call void %53(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %8, ptr noundef nonnull align 8 dereferenceable(144) %46)
-  br label %_ZN5arrow6StatusD2Ev.exit27
+  br label %_ZN5arrow6StatusD2Ev.exit26
 
-_ZN5arrow6StatusD2Ev.exit27:                      ; preds = %48, %51
+_ZN5arrow6StatusD2Ev.exit26:                      ; preds = %48, %51
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
   %54 = load ptr, ptr %8, align 8, !tbaa !83, !noalias !134
   store ptr %54, ptr %0, align 8, !tbaa !83, !alias.scope !134
@@ -1112,7 +1112,7 @@ _ZN5arrow6StatusD2Ev.exit27:                      ; preds = %48, %51
   %55 = icmp eq ptr %54, null
   br i1 %55, label %56, label %113
 
-56:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit27
+56:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit26
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %58 = load ptr, ptr %57, align 8, !tbaa !55
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 112
@@ -1231,7 +1231,7 @@ _ZNSt12__shared_ptrIKN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; p
   store ptr null, ptr %0, align 8, !tbaa !83
   br label %113
 
-113:                                              ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit27, %_ZN5arrow6StatusD2Ev.exit
+113:                                              ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit26, %_ZN5arrow6StatusD2Ev.exit
   ret void
 }
 
@@ -1463,15 +1463,15 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %21 = load ptr, ptr %20, align 8, !noalias !157
   call void %21(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %17, ptr noundef nonnull align 8 dereferenceable(41) %15, i64 noundef 1)
-  br label %_ZN5arrow6StatusD2Ev.exit11
+  br label %_ZN5arrow6StatusD2Ev.exit10
 
 22:                                               ; preds = %14
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %24 = load ptr, ptr %23, align 8
   call void %24(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(144) %17)
-  br label %_ZN5arrow6StatusD2Ev.exit11
+  br label %_ZN5arrow6StatusD2Ev.exit10
 
-_ZN5arrow6StatusD2Ev.exit11:                      ; preds = %19, %22
+_ZN5arrow6StatusD2Ev.exit10:                      ; preds = %19, %22
   call void @llvm.experimental.noalias.scope.decl(metadata !160)
   %25 = load ptr, ptr %4, align 8, !tbaa !83, !noalias !160
   store ptr %25, ptr %0, align 8, !tbaa !83, !alias.scope !160
@@ -1479,7 +1479,7 @@ _ZN5arrow6StatusD2Ev.exit11:                      ; preds = %19, %22
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %66
 
-27:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit11
+27:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %29 = load ptr, ptr %28, align 8, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 112
@@ -1556,7 +1556,7 @@ _ZNSt12__shared_ptrIKN5arrow6ScalarELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit:
   store ptr null, ptr %0, align 8, !tbaa !83, !alias.scope !163
   br label %66
 
-66:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit11, %_ZN5arrow6StatusD2Ev.exit, %65
+66:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit10, %_ZN5arrow6StatusD2Ev.exit, %65
   ret void
 }
 
@@ -2231,9 +2231,9 @@ define void @_ZN5arrow20RunEndEncodedBuilder14ResizePhysicalEl(ptr dead_on_unwin
   %13 = load ptr, ptr %4, align 8, !tbaa !83, !noalias !205
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !202
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit13, label %.sink.split
+  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit12, label %.sink.split
 
-_ZN5arrow6StatusD2Ev.exit13:                      ; preds = %3
+_ZN5arrow6StatusD2Ev.exit12:                      ; preds = %3
   %15 = load ptr, ptr %8, align 8, !tbaa !55, !noalias !202
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load i64, ptr %16, align 8, !tbaa !77, !noalias !202
@@ -2265,7 +2265,7 @@ _ZN5arrow6StatusD2Ev.exit13:                      ; preds = %3
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %45
 
-36:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13
+36:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit12
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %38 = load i64, ptr %37, align 8, !tbaa !185
   %39 = load ptr, ptr %28, align 8, !tbaa !65
@@ -2283,7 +2283,7 @@ _ZN5arrow6StatusD2Ev.exit13:                      ; preds = %3
   store ptr %.sink, ptr %0, align 8, !tbaa !83
   br label %45
 
-45:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit13
+45:                                               ; preds = %.sink.split, %_ZN5arrow6StatusD2Ev.exit12
   ret void
 }
 
@@ -2535,12 +2535,12 @@ _ZN5arrow6StatusD2Ev.exit:
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i32, ptr %27, align 8, !tbaa !223
   switch i32 %28, label %35 [
-    i32 5, label %_ZN5arrow6StatusD2Ev.exit32
-    i32 7, label %_ZN5arrow6StatusD2Ev.exit36
-    i32 9, label %_ZN5arrow6StatusD2Ev.exit40
+    i32 5, label %_ZN5arrow6StatusD2Ev.exit29
+    i32 7, label %_ZN5arrow6StatusD2Ev.exit33
+    i32 9, label %_ZN5arrow6StatusD2Ev.exit37
   ]
 
-_ZN5arrow6StatusD2Ev.exit32:                      ; preds = %19
+_ZN5arrow6StatusD2Ev.exit29:                      ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5arrow20RunEndEncodedBuilder18DoAppendArraySliceIsEENS_6StatusERKNS_9ArraySpanEll(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, i64 noundef %3, i64 noundef %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !256)
@@ -2550,7 +2550,7 @@ _ZN5arrow6StatusD2Ev.exit32:                      ; preds = %19
   %30 = icmp eq ptr %29, null
   br i1 %30, label %36, label %37
 
-_ZN5arrow6StatusD2Ev.exit36:                      ; preds = %19
+_ZN5arrow6StatusD2Ev.exit33:                      ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN5arrow20RunEndEncodedBuilder18DoAppendArraySliceIiEENS_6StatusERKNS_9ArraySpanEll(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %7, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, i64 noundef %3, i64 noundef %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !259)
@@ -2560,7 +2560,7 @@ _ZN5arrow6StatusD2Ev.exit36:                      ; preds = %19
   %32 = icmp eq ptr %31, null
   br i1 %32, label %36, label %37
 
-_ZN5arrow6StatusD2Ev.exit40:                      ; preds = %19
+_ZN5arrow6StatusD2Ev.exit37:                      ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN5arrow20RunEndEncodedBuilder18DoAppendArraySliceIlEENS_6StatusERKNS_9ArraySpanEll(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %8, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, i64 noundef %3, i64 noundef %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !262)
@@ -2574,11 +2574,11 @@ _ZN5arrow6StatusD2Ev.exit40:                      ; preds = %19
   call void @_ZN5arrow6Status8FromArgsIJRA34_KcRKSt10shared_ptrINS_8DataTypeEEEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %0, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(34) @.str, ptr noundef nonnull align 8 dereferenceable(16) %25)
   br label %37
 
-36:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit40, %_ZN5arrow6StatusD2Ev.exit36, %_ZN5arrow6StatusD2Ev.exit32
+36:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit37, %_ZN5arrow6StatusD2Ev.exit33, %_ZN5arrow6StatusD2Ev.exit29
   store ptr null, ptr %0, align 8, !tbaa !83, !alias.scope !265
   br label %37
 
-37:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit40, %_ZN5arrow6StatusD2Ev.exit36, %_ZN5arrow6StatusD2Ev.exit32, %_ZN5arrow6StatusD2Ev.exit, %36, %35, %18
+37:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit37, %_ZN5arrow6StatusD2Ev.exit33, %_ZN5arrow6StatusD2Ev.exit29, %_ZN5arrow6StatusD2Ev.exit, %36, %35, %18
   ret void
 }
 
@@ -4162,7 +4162,7 @@ define void @_ZN5arrow20RunEndEncodedBuilder12AppendRunEndEl(ptr dead_on_unwind 
   %15 = load i32, ptr %14, align 8, !tbaa !223
   switch i32 %15, label %60 [
     i32 5, label %_ZN5arrow6StatusD2Ev.exit
-    i32 7, label %_ZN5arrow6StatusD2Ev.exit19
+    i32 7, label %_ZN5arrow6StatusD2Ev.exit17
     i32 9, label %20
   ]
 
@@ -4176,7 +4176,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %3
   %17 = icmp eq ptr %16, null
   br i1 %17, label %61, label %62
 
-_ZN5arrow6StatusD2Ev.exit19:                      ; preds = %3
+_ZN5arrow6StatusD2Ev.exit17:                      ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZN5arrow20RunEndEncodedBuilder14DoAppendRunEndIiEENS_6StatusEl(ptr dead_on_unwind nonnull writable sret(%"class.arrow::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(176) %1, i64 noundef %2)
   call void @llvm.experimental.noalias.scope.decl(metadata !396)
@@ -4256,11 +4256,11 @@ _ZN5arrow6StatusD2Ev.exit.i.i:                    ; preds = %20
   tail call void @_ZN5arrow6Status8FromArgsIJRA34_KcRKSt10shared_ptrINS_8DataTypeEEEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(34) @.str, ptr noundef nonnull align 8 dereferenceable(16) %12)
   br label %62
 
-61:                                               ; preds = %.thread, %_ZN5arrow6StatusD2Ev.exit19, %_ZN5arrow6StatusD2Ev.exit
+61:                                               ; preds = %.thread, %_ZN5arrow6StatusD2Ev.exit17, %_ZN5arrow6StatusD2Ev.exit
   store ptr null, ptr %0, align 8, !tbaa !83, !alias.scope !414
   br label %62
 
-62:                                               ; preds = %59, %_ZN5arrow6StatusD2Ev.exit19, %_ZN5arrow6StatusD2Ev.exit, %61, %60
+62:                                               ; preds = %59, %_ZN5arrow6StatusD2Ev.exit17, %_ZN5arrow6StatusD2Ev.exit, %61, %60
   ret void
 }
 
@@ -4793,9 +4793,9 @@ define linkonce_odr void @_ZN5arrow20RunEndEncodedBuilder6ResizeEl(ptr dead_on_u
   %13 = load ptr, ptr %4, align 8, !tbaa !83, !noalias !471
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !468
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit13.i, label %.sink.split.i
+  br i1 %14, label %_ZN5arrow6StatusD2Ev.exit12.i, label %.sink.split.i
 
-_ZN5arrow6StatusD2Ev.exit13.i:                    ; preds = %3
+_ZN5arrow6StatusD2Ev.exit12.i:                    ; preds = %3
   %15 = load ptr, ptr %8, align 8, !tbaa !55, !noalias !468
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
   %17 = load i64, ptr %16, align 8, !tbaa !77, !noalias !468
@@ -4827,7 +4827,7 @@ _ZN5arrow6StatusD2Ev.exit13.i:                    ; preds = %3
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %_ZN5arrow20RunEndEncodedBuilder14ResizePhysicalEl.exit
 
-36:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit13.i
+36:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit12.i
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %38 = load i64, ptr %37, align 8, !tbaa !185, !noalias !465
   %39 = load ptr, ptr %28, align 8, !tbaa !65, !noalias !465
@@ -4844,7 +4844,7 @@ _ZN5arrow6StatusD2Ev.exit13.i:                    ; preds = %3
   store ptr %13, ptr %0, align 8, !tbaa !83, !alias.scope !465
   br label %_ZN5arrow20RunEndEncodedBuilder14ResizePhysicalEl.exit
 
-_ZN5arrow20RunEndEncodedBuilder14ResizePhysicalEl.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit13.i, %.sink.split.i
+_ZN5arrow20RunEndEncodedBuilder14ResizePhysicalEl.exit: ; preds = %_ZN5arrow6StatusD2Ev.exit12.i, %.sink.split.i
   ret void
 }
 

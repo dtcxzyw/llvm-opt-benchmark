@@ -1695,13 +1695,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %74, %76
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load i8, ptr %89, align 16
   %91 = icmp ne i8 %90, 13
-  %.not.not24.i.i.i = icmp eq ptr %88, null
-  %.not.not.i.i.i = or i1 %.not.not24.i.i.i, %91
+  %.not.not21.i.i.i = icmp eq ptr %88, null
+  %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %91
   br i1 %.not.not.i.i.i, label %92, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i
 
 92:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %93 = icmp ne i8 %90, 46
-  %.not13.not.i.i.i = or i1 %.not.not24.i.i.i, %93
+  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %93
   br i1 %.not13.not.i.i.i, label %107, label %94
 
 94:                                               ; preds = %92
@@ -3210,8 +3210,8 @@ _ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exi
   br i1 %.not.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i49.i, label %65
 
 65:                                               ; preds = %_ZNSt4pairIN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEES6_ED2Ev.exit.i
-  %.not91.i = icmp eq ptr %62, null
-  br i1 %.not91.i, label %66, label %70
+  %.not90.i = icmp eq ptr %62, null
+  br i1 %.not90.i, label %66, label %70
 
 66:                                               ; preds = %65
   %67 = call fastcc noundef ptr @_ZL18getDereferenceExprPKN5clang4StmtEb(ptr noundef %5, i1 noundef zeroext true)

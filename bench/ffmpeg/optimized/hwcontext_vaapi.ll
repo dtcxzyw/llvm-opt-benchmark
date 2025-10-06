@@ -152,12 +152,12 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
 18:                                               ; preds = %14
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(4) @.str.3) #13
   %.not148 = icmp eq i32 %19, 0
-  br i1 %.not148, label %.critedge197, label %20
+  br i1 %.not148, label %.critedge195, label %20
 
 20:                                               ; preds = %18
   %21 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.4) #13
   %.not149 = icmp eq i32 %21, 0
-  br i1 %.not149, label %.thread194, label %22
+  br i1 %.not149, label %.thread192, label %22
 
 22:                                               ; preds = %20
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.5, ptr noundef nonnull %16) #12
@@ -190,8 +190,8 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br i1 %.not154, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %29, %73
-  %.0127207.us = phi i32 [ %74, %73 ], [ 0, %29 ]
-  %34 = or disjoint i32 %.0127207.us, 128
+  %.0127205.us = phi i32 [ %74, %73 ], [ 0, %29 ]
+  %34 = or disjoint i32 %.0127205.us, 128
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.9, i32 noundef %34) #12
   %36 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %5, i32 noundef 2) #12
   store i32 %36, ptr %10, align 8, !tbaa !4
@@ -211,7 +211,7 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br i1 %.not155.us, label %61, label %44
 
 44:                                               ; preds = %40
-  br i1 %.not156, label %.split210.us, label %45
+  br i1 %.not156, label %.split208.us, label %45
 
 45:                                               ; preds = %44
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -222,7 +222,7 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br i1 %.not157.us, label %49, label %48
 
 48:                                               ; preds = %45
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.18, i32 noundef %.0127207.us) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.18, i32 noundef %.0127205.us) #12
   br label %.thread170.us
 
 49:                                               ; preds = %45
@@ -235,10 +235,10 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   %56 = load ptr, ptr %33, align 8, !tbaa !15
   %57 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %56, ptr noundef nonnull dereferenceable(1) %7) #13
   %.not158.us = icmp eq i32 %57, 0
-  br i1 %.not158.us, label %.split213.us, label %58
+  br i1 %.not158.us, label %.split211.us, label %58
 
 58:                                               ; preds = %49
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.20, i32 noundef %.0127207.us, ptr noundef nonnull %56) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.20, i32 noundef %.0127205.us, ptr noundef nonnull %56) #12
   call void @drmFreeDevice(ptr noundef nonnull %6) #12
   br label %.thread170.us
 
@@ -251,7 +251,7 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br label %73
 
 61:                                               ; preds = %40
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.17, i32 noundef %.0127207.us) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.17, i32 noundef %.0127205.us) #12
   call void @drmFreeVersion(ptr noundef nonnull %39) #12
   %62 = load i32, ptr %10, align 8, !tbaa !4
   %63 = call i32 @close(i32 noundef %62) #12
@@ -259,7 +259,7 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br label %73
 
 64:                                               ; preds = %38
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.13, i32 noundef %.0127207.us) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.13, i32 noundef %.0127205.us) #12
   %65 = load i32, ptr %10, align 8, !tbaa !4
   %66 = call i32 @close(i32 noundef %65) #12
   store i32 -1, ptr %10, align 8, !tbaa !4
@@ -269,24 +269,24 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   %68 = tail call ptr @__errno_location() #14
   %69 = load i32, ptr %68, align 4, !tbaa !26
   %70 = icmp eq i32 %69, 2
-  br i1 %70, label %71, label %.split217.us
+  br i1 %70, label %71, label %.split215.us
 
 71:                                               ; preds = %67
-  %.not160.us = icmp eq i32 %.0127207.us, 7
-  br i1 %.not160.us, label %.split220.us, label %72
+  %.not160.us = icmp eq i32 %.0127205.us, 7
+  br i1 %.not160.us, label %.split218.us, label %72
 
 72:                                               ; preds = %71
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.10, ptr noundef nonnull %5) #12
   br label %73
 
 73:                                               ; preds = %72, %64, %61, %.thread170.us
-  %74 = add nuw nsw i32 %.0127207.us, 1
-  %exitcond237.not = icmp eq i32 %74, 8
-  br i1 %exitcond237.not, label %.split222.us, label %.split.us, !llvm.loop !27
+  %74 = add nuw nsw i32 %.0127205.us, 1
+  %exitcond235.not = icmp eq i32 %74, 8
+  br i1 %exitcond235.not, label %.split220.us, label %.split.us, !llvm.loop !27
 
 .split:                                           ; preds = %29, %99
-  %.0127207 = phi i32 [ %100, %99 ], [ 0, %29 ]
-  %75 = or disjoint i32 %.0127207, 128
+  %.0127205 = phi i32 [ %100, %99 ], [ 0, %29 ]
+  %75 = or disjoint i32 %.0127205, 128
   %76 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull @.str.9, i32 noundef %75) #12
   %77 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %5, i32 noundef 2) #12
   store i32 %77, ptr %10, align 8, !tbaa !4
@@ -297,24 +297,24 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   %80 = tail call ptr @__errno_location() #14
   %81 = load i32, ptr %80, align 4, !tbaa !26
   %82 = icmp eq i32 %81, 2
-  br i1 %82, label %83, label %.split217.us
+  br i1 %82, label %83, label %.split215.us
 
 83:                                               ; preds = %79
-  %.not160 = icmp eq i32 %.0127207, 7
-  br i1 %.not160, label %.split220.us, label %84
+  %.not160 = icmp eq i32 %.0127205, 7
+  br i1 %.not160, label %.split218.us, label %84
 
 84:                                               ; preds = %83
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.10, ptr noundef nonnull %5) #12
   br label %99
 
-.split220.us:                                     ; preds = %83, %71
+.split218.us:                                     ; preds = %83, %71
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.11) #12
-  br label %.thread175
+  br label %.thread173
 
-.split217.us:                                     ; preds = %79, %67
-  %.us-phi218 = phi i32 [ %.0127207.us, %67 ], [ %.0127207, %79 ]
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.12, i32 noundef %.us-phi218) #12
-  br label %.thread175
+.split215.us:                                     ; preds = %79, %67
+  %.us-phi216 = phi i32 [ %.0127205.us, %67 ], [ %.0127205, %79 ]
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.12, i32 noundef %.us-phi216) #12
+  br label %.thread173
 
 85:                                               ; preds = %.split
   %86 = call ptr @drmGetVersion(i32 noundef %77) #12
@@ -322,7 +322,7 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br i1 %.not153, label %87, label %90
 
 87:                                               ; preds = %85
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.13, i32 noundef %.0127207) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.13, i32 noundef %.0127205) #12
   %88 = load i32, ptr %10, align 8, !tbaa !4
   %89 = call i32 @close(i32 noundef %88) #12
   store i32 -1, ptr %10, align 8, !tbaa !4
@@ -337,7 +337,7 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br i1 %.not159, label %98, label %95
 
 95:                                               ; preds = %90
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.14, i32 noundef %.0127207, ptr noundef nonnull %93) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.14, i32 noundef %.0127205, ptr noundef nonnull %93) #12
   call void @drmFreeVersion(ptr noundef nonnull %86) #12
   %96 = load i32, ptr %10, align 8, !tbaa !4
   %97 = call i32 @close(i32 noundef %96) #12
@@ -345,38 +345,38 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   br label %99
 
 98:                                               ; preds = %90
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.15, i32 noundef %.0127207, ptr noundef nonnull %93) #12
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.15, i32 noundef %.0127205, ptr noundef nonnull %93) #12
   call void @drmFreeVersion(ptr noundef nonnull %86) #12
-  br label %.thread175
+  br label %.thread173
 
-.split213.us:                                     ; preds = %49
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.21, i32 noundef %.0127207.us, ptr noundef nonnull %56) #12
+.split211.us:                                     ; preds = %49
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.21, i32 noundef %.0127205.us, ptr noundef nonnull %56) #12
   call void @drmFreeDevice(ptr noundef nonnull %6) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread175
+  br label %.thread173
 
-.split210.us:                                     ; preds = %44
+.split208.us:                                     ; preds = %44
   call void @drmFreeVersion(ptr noundef nonnull %39) #12
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.22, i32 noundef %.0127207.us) #12
-  br label %.thread175
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.22, i32 noundef %.0127205.us) #12
+  br label %.thread173
 
 99:                                               ; preds = %95, %87, %84
-  %100 = add nuw nsw i32 %.0127207, 1
+  %100 = add nuw nsw i32 %.0127205, 1
   %exitcond.not = icmp eq i32 %100, 8
-  br i1 %exitcond.not, label %.split222.us, label %.split, !llvm.loop !27
+  br i1 %exitcond.not, label %.split220.us, label %.split, !llvm.loop !27
 
-.thread175:                                       ; preds = %.split213.us, %.split220.us, %.split217.us, %.split210.us, %98
+.thread173:                                       ; preds = %.split211.us, %.split218.us, %.split215.us, %.split208.us, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.pre = load i32, ptr %10, align 8, !tbaa !4
   br label %101
 
-.split222.us:                                     ; preds = %99, %73
+.split220.us:                                     ; preds = %99, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
-101:                                              ; preds = %.thread175, %25
-  %102 = phi i32 [ %.pre, %.thread175 ], [ %26, %25 ]
+101:                                              ; preds = %.thread173, %25
+  %102 = phi i32 [ %.pre, %.thread173 ], [ %26, %25 ]
   %103 = call ptr @vaGetDisplayDRM(i32 noundef %102) #12
   %.not161 = icmp eq ptr %103, null
   br i1 %.not161, label %104, label %113
@@ -385,48 +385,48 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.23, ptr noundef %1) #12
   br label %124
 
-.thread:                                          ; preds = %.split222.us, %28
-  br i1 %.not146.not, label %.critedge197, label %.thread194
+.thread:                                          ; preds = %.split220.us, %28
+  br i1 %.not146.not, label %.critedge195, label %.thread192
 
-.critedge197:                                     ; preds = %18, %.thread
+.critedge195:                                     ; preds = %18, %.thread
   %105 = call ptr @XOpenDisplay(ptr noundef %1) #12
   store ptr %105, ptr %8, align 8, !tbaa !29
   %.not162 = icmp eq ptr %105, null
-  br i1 %.not162, label %.thread182, label %107
+  br i1 %.not162, label %.thread180, label %107
 
-.thread182:                                       ; preds = %.critedge197
+.thread180:                                       ; preds = %.critedge195
   %106 = call ptr @XDisplayName(ptr noundef %1) #12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.24, ptr noundef %106) #12
-  br label %.thread194
+  br label %.thread192
 
-107:                                              ; preds = %.critedge197
+107:                                              ; preds = %.critedge195
   %108 = call ptr @vaGetDisplay(ptr noundef nonnull %105) #12
   %.not163 = icmp eq ptr %108, null
   %109 = call ptr @XDisplayName(ptr noundef %1) #12
-  br i1 %.not163, label %110, label %.thread185
+  br i1 %.not163, label %110, label %.thread183
 
 110:                                              ; preds = %107
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.25, ptr noundef %109) #12
   br label %124
 
-.thread185:                                       ; preds = %107
+.thread183:                                       ; preds = %107
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.26, ptr noundef %109) #12
   br label %113
 
-.thread194:                                       ; preds = %.thread, %20, %.thread182
+.thread192:                                       ; preds = %.thread, %20, %.thread180
   %.not165 = icmp eq ptr %1, null
   br i1 %.not165, label %112, label %111
 
-111:                                              ; preds = %.thread194
+111:                                              ; preds = %.thread192
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.27, ptr noundef nonnull %1) #12
   br label %124
 
-112:                                              ; preds = %.thread194
+112:                                              ; preds = %.thread192
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.28) #12
   br label %124
 
-113:                                              ; preds = %101, %.thread185
-  %.2124188 = phi ptr [ %108, %.thread185 ], [ %103, %101 ]
+113:                                              ; preds = %101, %.thread183
+  %.2124186 = phi ptr [ %108, %.thread183 ], [ %103, %101 ]
   %114 = call ptr @av_dict_get(ptr noundef %2, ptr noundef nonnull @.str.29, ptr noundef null, i32 noundef 0) #12
   %.not166 = icmp eq ptr %114, null
   br i1 %.not166, label %.critedge, label %115
@@ -434,7 +434,7 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
 115:                                              ; preds = %113
   %116 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %117 = load ptr, ptr %116, align 8, !tbaa !15
-  %118 = call i32 @vaSetDriverName(ptr noundef nonnull %.2124188, ptr noundef %117) #12
+  %118 = call i32 @vaSetDriverName(ptr noundef nonnull %.2124186, ptr noundef %117) #12
   %.not167 = icmp eq i32 %118, 0
   br i1 %.not167, label %.critedge, label %119
 
@@ -442,11 +442,11 @@ define internal range(i32 -1313558101, 1) i32 @vaapi_device_create(ptr noundef %
   %120 = load ptr, ptr %116, align 8, !tbaa !15
   %121 = call ptr @vaErrorStr(i32 noundef %118) #12
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.30, ptr noundef %120, i32 noundef %118, ptr noundef %121) #12
-  %122 = call i32 @vaTerminate(ptr noundef nonnull %.2124188) #12
+  %122 = call i32 @vaTerminate(ptr noundef nonnull %.2124186) #12
   br label %124
 
 .critedge:                                        ; preds = %115, %113
-  %123 = call fastcc i32 @vaapi_device_connect(ptr noundef %0, ptr noundef %.2124188)
+  %123 = call fastcc i32 @vaapi_device_connect(ptr noundef %0, ptr noundef %.2124186)
   br label %124
 
 124:                                              ; preds = %104, %119, %111, %112, %4, %.critedge, %110, %22

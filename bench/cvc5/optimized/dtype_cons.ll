@@ -6562,8 +6562,8 @@ _ZNSt3mapIN4cvc58internal8TypeNodeES_INS1_12NodeTemplateILb1EEEjSt4lessIS4_ESaIS
 213:                                              ; preds = %.noexc45, %206
   %.sroa.06.0.i42 = phi ptr [ %212, %.noexc45 ], [ %.19.i.i.i.i36, %206 ]
   %214 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i42, i64 48
-  %.not53 = icmp eq ptr %.sroa.0.0.i.i, %214
-  br i1 %.not53, label %228, label %215
+  %.not52 = icmp eq ptr %.sroa.0.0.i.i, %214
+  br i1 %.not52, label %228, label %215
 
 215:                                              ; preds = %213
   %216 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 40
@@ -6658,8 +6658,8 @@ define hidden noundef i32 @_ZNK4cvc58internal16DTypeConstructor23getSelectorInde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8, !tbaa !49
   %7 = load ptr, ptr %4, align 8, !tbaa !48
-  %.not11.not = icmp eq ptr %6, %7
-  br i1 %.not11.not, label %.loopexit, label %.lr.ph
+  %.not = icmp eq ptr %6, %7
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = ptrtoint ptr %6 to i64
@@ -6671,11 +6671,11 @@ define hidden noundef i32 @_ZNK4cvc58internal16DTypeConstructor23getSelectorInde
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
   br label %15
 
-15:                                               ; preds = %.lr.ph, %35
-  %.0912 = phi i64 [ 0, %.lr.ph ], [ %36, %35 ]
+15:                                               ; preds = %.lr.ph, %33
+  %.0913 = phi i64 [ 0, %.lr.ph ], [ %34, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = load ptr, ptr %4, align 8, !tbaa !48
-  %17 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %16, i64 %.0912
+  %17 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %16, i64 %.0913
   %18 = load ptr, ptr %17, align 8, !tbaa !68
   call void @_ZNK4cvc58internal13DTypeSelector7getNameB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(57) %18)
   %19 = load i64, ptr %12, align 8, !tbaa !12
@@ -6689,17 +6689,17 @@ define hidden noundef i32 @_ZNK4cvc58internal16DTypeConstructor23getSelectorInde
 
 22:                                               ; preds = %15
   %23 = icmp eq i64 %19, 0
-  %.pre14 = load ptr, ptr %3, align 8, !tbaa !9
+  %.pre15 = load ptr, ptr %3, align 8, !tbaa !9
   br i1 %23, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit, label %24
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %1, align 8, !tbaa !9
-  %bcmp.i = call i32 @bcmp(ptr %.pre14, ptr %25, i64 %19)
+  %bcmp.i = call i32 @bcmp(ptr %.pre15, ptr %25, i64 %19)
   %26 = icmp eq i32 %bcmp.i, 0
   br label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit: ; preds = %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge, %22, %24
-  %27 = phi ptr [ %.pre, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge ], [ %.pre14, %24 ], [ %.pre14, %22 ]
+  %27 = phi ptr [ %.pre, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge ], [ %.pre15, %24 ], [ %.pre15, %22 ]
   %28 = phi i1 [ false, %._ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit_crit_edge ], [ %26, %24 ], [ true, %22 ]
   %29 = icmp eq ptr %27, %14
   br i1 %29, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -6717,20 +6717,20 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %28, label %33, label %35
+  br i1 %28, label %35, label %33
 
 33:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %34 = trunc i64 %.0912 to i32
-  br label %.loopexit
-
-35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %36 = add nuw i64 %.0912, 1
-  %exitcond.not = icmp eq i64 %36, %11
+  %34 = add nuw i64 %.0913, 1
+  %exitcond.not = icmp eq i64 %34, %11
   br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !248
 
-.loopexit:                                        ; preds = %35, %2, %33
-  %spec.select = phi i32 [ %34, %33 ], [ -1, %2 ], [ -1, %35 ]
-  ret i32 %spec.select
+35:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %36 = trunc i64 %.0913 to i32
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %33, %2, %35
+  %37 = phi i32 [ %36, %35 ], [ -1, %2 ], [ -1, %33 ]
+  ret i32 %37
 }
 
 declare void @_ZNK4cvc58internal13DTypeSelector7getNameB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(57)) local_unnamed_addr #0
@@ -6742,8 +6742,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal16DTypeConstructor20involves
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = load ptr, ptr %3, align 8, !tbaa !48
-  %.not12.not = icmp eq ptr %5, %6
-  br i1 %.not12.not, label %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %7 = ptrtoint ptr %5 to i64
@@ -6791,7 +6791,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %12, %16, %22
   %26 = add nuw i64 %.0813, 1
   %exitcond.not = icmp ne i64 %26, %10
   %or.cond.not = select i1 %11, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit, !llvm.loop !249
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !249
 
 27:                                               ; preds = %.lr.ph
   %28 = landingpad { ptr, i32 }
@@ -6800,13 +6800,13 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %12, %16, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %28
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit: ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  %.not.lcssa.ph = xor i1 %11, true
-  br label %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge
+._crit_edge.loopexit:                             ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
+  %.lcssa.ph = xor i1 %11, true
+  br label %._crit_edge
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge:   ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ %.not.lcssa.ph, %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %.lcssa = phi i1 [ false, %1 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6816,8 +6816,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal16DTypeConstructor25involves
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !49
   %6 = load ptr, ptr %3, align 8, !tbaa !48
-  %.not12.not = icmp eq ptr %5, %6
-  br i1 %.not12.not, label %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %7 = ptrtoint ptr %5 to i64
@@ -6865,7 +6865,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %12, %16, %22
   %26 = add nuw i64 %.0813, 1
   %exitcond.not = icmp ne i64 %26, %10
   %or.cond.not = select i1 %11, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not, label %.lr.ph, label %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit, !llvm.loop !250
+  br i1 %or.cond.not, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !250
 
 27:                                               ; preds = %.lr.ph
   %28 = landingpad { ptr, i32 }
@@ -6874,13 +6874,13 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %12, %16, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %28
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit: ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  %.not.lcssa.ph = xor i1 %11, true
-  br label %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge
+._crit_edge.loopexit:                             ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
+  %.lcssa.ph = xor i1 %11, true
+  br label %._crit_edge
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge:   ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ %.not.lcssa.ph, %_ZN4cvc58internal8TypeNodeD2Ev.exit._crit_edge.loopexit ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
+  %.lcssa = phi i1 [ false, %1 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
+  ret i1 %.lcssa
 }
 
 declare noundef zeroext i1 @_ZNK4cvc58internal8TypeNode19isUninterpretedSortEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0

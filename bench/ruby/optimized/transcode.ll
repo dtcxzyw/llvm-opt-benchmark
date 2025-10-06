@@ -1285,24 +1285,24 @@ ruby_nonempty_memcpy.exit199.i:                   ; preds = %73, %72
 128:                                              ; preds = %127
   %129 = load i32, ptr %15, align 8, !tbaa !46
   %130 = icmp eq i32 %129, 1
-  br i1 %130, label %.thread208.i, label %.preheader64
+  br i1 %130, label %.thread208.i, label %.preheader63
 
 .thread208.i:                                     ; preds = %128, %127, %122
   %131 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef nonnull %spec.select24, ptr noundef %spec.select, ptr noundef nonnull %.020, ptr noundef %.019, i32 noundef %5, ptr noundef %10)
   br label %select.unfold210.i
 
-.preheader64:                                     ; preds = %128, %.preheader64
+.preheader63:                                     ; preds = %128, %.preheader63
   %132 = call fastcc i32 @rb_trans_conv(ptr noundef nonnull %0, ptr noundef nonnull %spec.select24, ptr noundef %spec.select, ptr noundef nonnull %.020, ptr noundef %.019, i32 noundef %24, ptr noundef %10)
   %133 = icmp eq i32 %132, 5
-  br i1 %133, label %.preheader64, label %select.unfold210.i, !llvm.loop !86
+  br i1 %133, label %.preheader63, label %select.unfold210.i, !llvm.loop !86
 
 .thread212.i:                                     ; preds = %124, %109, %ruby_nonempty_memcpy.exit199.i, %67, %ruby_nonempty_memcpy.exit196.i, %ruby_nonempty_memcpy.exit.i
   %.2159.ph.i = phi i32 [ 5, %ruby_nonempty_memcpy.exit196.i ], [ 2, %ruby_nonempty_memcpy.exit199.i ], [ 5, %67 ], [ 2, %ruby_nonempty_memcpy.exit.i ], [ 2, %109 ], [ 5, %124 ]
   store i32 %.2159.ph.i, ptr %14, align 8, !tbaa !50
   br label %rb_econv_convert0.exit
 
-select.unfold210.i:                               ; preds = %.preheader64, %.thread208.i, %124, %119, %ruby_nonempty_memcpy.exit199.i
-  %.2159.i = phi i32 [ %120, %119 ], [ %125, %124 ], [ %131, %.thread208.i ], [ %.192.i, %ruby_nonempty_memcpy.exit199.i ], [ %132, %.preheader64 ]
+select.unfold210.i:                               ; preds = %.preheader63, %.thread208.i, %124, %119, %ruby_nonempty_memcpy.exit199.i
+  %.2159.i = phi i32 [ %120, %119 ], [ %125, %124 ], [ %131, %.thread208.i ], [ %.192.i, %ruby_nonempty_memcpy.exit199.i ], [ %132, %.preheader63 ]
   store i32 %.2159.i, ptr %14, align 8, !tbaa !50
   switch i32 %.2159.i, label %rb_econv_convert0.exit [
     i32 6, label %134
@@ -1347,7 +1347,7 @@ select.unfold210.i:                               ; preds = %.preheader64, %.thr
 rb_econv_convert0.exit:                           ; preds = %.thread212.i, %select.unfold210.i, %150
   %.0.i = phi i32 [ %.2159.i, %select.unfold210.i ], [ %.2159.i, %150 ], [ %.2159.ph.i, %.thread212.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  switch i32 %.0.i, label %.loopexit49 [
+  switch i32 %.0.i, label %.loopexit48 [
     i32 6, label %156
     i32 0, label %156
     i32 1, label %189
@@ -1366,7 +1366,7 @@ rb_econv_convert0.exit:                           ; preds = %.thread212.i, %sele
 
 .make_replacement.exit_crit_edge:                 ; preds = %159
   %.pre = load i64, ptr %35, align 8, !tbaa !96
-  %.pre78 = load ptr, ptr %36, align 8, !tbaa !97
+  %.pre77 = load ptr, ptr %36, align 8, !tbaa !97
   br label %make_replacement.exit
 
 161:                                              ; preds = %159
@@ -1419,25 +1419,25 @@ rb_econv_encoding_to_insert_output.exit.i:        ; preds = %171, %169, %161
   br label %make_replacement.exit
 
 make_replacement.exit:                            ; preds = %.make_replacement.exit_crit_edge, %182
-  %183 = phi ptr [ %.pre78, %.make_replacement.exit_crit_edge ], [ %.014.i, %182 ]
+  %183 = phi ptr [ %.pre77, %.make_replacement.exit_crit_edge ], [ %.014.i, %182 ]
   %184 = phi i64 [ %.pre, %.make_replacement.exit_crit_edge ], [ %.0.i30, %182 ]
   %185 = phi ptr [ %160, %.make_replacement.exit_crit_edge ], [ %.012.i, %182 ]
   %186 = call i32 @rb_econv_insert_output(ptr noundef nonnull %0, ptr noundef %185, i64 noundef %184, ptr noundef %183)
-  %.not47 = icmp eq i32 %186, -1
-  br i1 %.not47, label %187, label %.backedge.backedge
+  %.not46 = icmp eq i32 %186, -1
+  br i1 %.not46, label %187, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %make_replacement.exit, %make_replacement.exit41, %output_hex_charref.exit
   br label %.backedge
 
 187:                                              ; preds = %156, %make_replacement.exit
   %188 = icmp eq i32 %.0.i, 1
-  br i1 %188, label %189, label %.loopexit49
+  br i1 %188, label %189, label %.loopexit48
 
 189:                                              ; preds = %rb_econv_convert0.exit, %187
   %190 = load i32, ptr %0, align 8, !tbaa !55
   %191 = trunc i32 %190 to i8
   %trunc = and i8 %191, -16
-  switch i8 %trunc, label %.loopexit49 [
+  switch i8 %trunc, label %.loopexit48 [
     i8 32, label %192
     i8 48, label %220
   ]
@@ -1448,8 +1448,8 @@ make_replacement.exit:                            ; preds = %.make_replacement.e
   br i1 %.not.i31, label %194, label %.make_replacement.exit41_crit_edge
 
 .make_replacement.exit41_crit_edge:               ; preds = %192
-  %.pre79 = load i64, ptr %35, align 8, !tbaa !96
-  %.pre80 = load ptr, ptr %36, align 8, !tbaa !97
+  %.pre78 = load i64, ptr %35, align 8, !tbaa !96
+  %.pre79 = load ptr, ptr %36, align 8, !tbaa !97
   br label %make_replacement.exit41
 
 194:                                              ; preds = %192
@@ -1502,12 +1502,12 @@ rb_econv_encoding_to_insert_output.exit.i32:      ; preds = %204, %202, %194
   br label %make_replacement.exit41
 
 make_replacement.exit41:                          ; preds = %.make_replacement.exit41_crit_edge, %215
-  %216 = phi ptr [ %.pre80, %.make_replacement.exit41_crit_edge ], [ %.014.i38, %215 ]
-  %217 = phi i64 [ %.pre79, %.make_replacement.exit41_crit_edge ], [ %.0.i39, %215 ]
+  %216 = phi ptr [ %.pre79, %.make_replacement.exit41_crit_edge ], [ %.014.i38, %215 ]
+  %217 = phi i64 [ %.pre78, %.make_replacement.exit41_crit_edge ], [ %.0.i39, %215 ]
   %218 = phi ptr [ %193, %.make_replacement.exit41_crit_edge ], [ %.012.i40, %215 ]
   %219 = call i32 @rb_econv_insert_output(ptr noundef nonnull %0, ptr noundef %218, i64 noundef %217, ptr noundef %216)
-  %.not48 = icmp eq i32 %219, -1
-  br i1 %.not48, label %.loopexit49, label %.backedge.backedge
+  %.not47 = icmp eq i32 %219, -1
+  br i1 %.not47, label %.loopexit48, label %.backedge.backedge
 
 220:                                              ; preds = %189
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1527,53 +1527,53 @@ make_replacement.exit41:                          ; preds = %.make_replacement.e
 
 228:                                              ; preds = %226
   %.not33.i = icmp eq ptr %227, %7
-  br i1 %.not33.i, label %thread-pre-split104, label %229
+  br i1 %.not33.i, label %thread-pre-split103, label %229
 
 229:                                              ; preds = %228
   %230 = load ptr, ptr %30, align 8, !tbaa !91
   %.not34.i = icmp eq ptr %227, %230
-  br label %thread-pre-split104
+  br label %thread-pre-split103
 
-thread-pre-split104:                              ; preds = %228, %229
+thread-pre-split103:                              ; preds = %228, %229
   %.not36.i.ph = phi i1 [ %.not34.i, %229 ], [ true, %228 ]
   %.pr = load i64, ptr %8, align 8, !tbaa !22
   br label %231
 
-231:                                              ; preds = %220, %thread-pre-split104
-  %232 = phi i64 [ %.pr, %thread-pre-split104 ], [ %225, %220 ]
-  %.031.i = phi ptr [ %227, %thread-pre-split104 ], [ %224, %220 ]
-  %.not36.i = phi i1 [ %.not36.i.ph, %thread-pre-split104 ], [ true, %220 ]
+231:                                              ; preds = %220, %thread-pre-split103
+  %232 = phi i64 [ %.pr, %thread-pre-split103 ], [ %225, %220 ]
+  %.031.i = phi ptr [ %227, %thread-pre-split103 ], [ %224, %220 ]
+  %.not36.i = phi i1 [ %.not36.i.ph, %thread-pre-split103 ], [ true, %220 ]
   %233 = and i64 %232, 3
   %.not35.i = icmp eq i64 %233, 0
-  br i1 %.not35.i, label %.preheader, label %.loopexit50
+  br i1 %.not35.i, label %.preheader, label %.loopexit49
 
 .preheader:                                       ; preds = %231
   %234 = icmp ugt i64 %232, 3
   br i1 %234, label %.lr.ph, label %._crit_edge
 
 thread-pre-split:                                 ; preds = %.lr.ph
-  %235 = getelementptr i8, ptr %.029.i63, i64 4
+  %235 = getelementptr i8, ptr %.029.i62, i64 4
   %236 = add i64 %238, -4
   %237 = icmp ugt i64 %236, 3
   br i1 %237, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %thread-pre-split
-  %.029.i63 = phi ptr [ %235, %thread-pre-split ], [ %.031.i, %.preheader ]
+  %.029.i62 = phi ptr [ %235, %thread-pre-split ], [ %.031.i, %.preheader ]
   %238 = phi i64 [ %236, %thread-pre-split ], [ %232, %.preheader ]
-  %239 = load i8, ptr %.029.i63, align 1, !tbaa !27
+  %239 = load i8, ptr %.029.i62, align 1, !tbaa !27
   %240 = zext i8 %239 to i32
   %241 = shl nuw i32 %240, 24
-  %242 = getelementptr i8, ptr %.029.i63, i64 1
+  %242 = getelementptr i8, ptr %.029.i62, i64 1
   %243 = load i8, ptr %242, align 1, !tbaa !27
   %244 = zext i8 %243 to i32
   %245 = shl nuw nsw i32 %244, 16
   %246 = or disjoint i32 %245, %241
-  %247 = getelementptr i8, ptr %.029.i63, i64 2
+  %247 = getelementptr i8, ptr %.029.i62, i64 2
   %248 = load i8, ptr %247, align 1, !tbaa !27
   %249 = zext i8 %248 to i32
   %250 = shl nuw nsw i32 %249, 8
   %251 = or disjoint i32 %246, %250
-  %252 = getelementptr i8, ptr %.029.i63, i64 3
+  %252 = getelementptr i8, ptr %.029.i62, i64 3
   %253 = load i8, ptr %252, align 1, !tbaa !27
   %254 = zext i8 %253 to i32
   %255 = or disjoint i32 %251, %254
@@ -1581,7 +1581,7 @@ thread-pre-split:                                 ; preds = %.lr.ph
   %257 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #24
   %258 = call i32 @rb_econv_insert_output(ptr noundef nonnull %0, ptr noundef nonnull %9, i64 noundef %257, ptr noundef nonnull @.str.82)
   %259 = icmp eq i32 %258, -1
-  br i1 %259, label %.loopexit50, label %thread-pre-split
+  br i1 %259, label %.loopexit49, label %thread-pre-split
 
 ._crit_edge:                                      ; preds = %thread-pre-split, %.preheader
   br i1 %.not36.i, label %output_hex_charref.exit, label %260
@@ -1590,18 +1590,18 @@ thread-pre-split:                                 ; preds = %.lr.ph
   call void @ruby_xfree(ptr noundef %.031.i) #21
   br label %output_hex_charref.exit
 
-.loopexit50:                                      ; preds = %231, %.lr.ph
+.loopexit49:                                      ; preds = %231, %.lr.ph
   br i1 %.not36.i, label %output_hex_charref.exit.thread, label %261
 
-261:                                              ; preds = %.loopexit50
+261:                                              ; preds = %.loopexit49
   call void @ruby_xfree(ptr noundef %.031.i) #21
   br label %output_hex_charref.exit.thread
 
-output_hex_charref.exit.thread:                   ; preds = %226, %261, %.loopexit50
+output_hex_charref.exit.thread:                   ; preds = %226, %261, %.loopexit49
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit49
+  br label %.loopexit48
 
 output_hex_charref.exit:                          ; preds = %._crit_edge, %260
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1609,7 +1609,7 @@ output_hex_charref.exit:                          ; preds = %._crit_edge, %260
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge.backedge
 
-.loopexit49:                                      ; preds = %rb_econv_convert0.exit, %189, %make_replacement.exit41, %187, %output_hex_charref.exit.thread
+.loopexit48:                                      ; preds = %rb_econv_convert0.exit, %189, %make_replacement.exit41, %187, %output_hex_charref.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i32 %.0.i
@@ -1879,13 +1879,13 @@ ruby_nonempty_memcpy.exit:                        ; preds = %115, %117
   %138 = load i64, ptr %137, align 8, !tbaa !92
   %139 = getelementptr i8, ptr %133, i64 %138
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %119, ptr noundef nonnull readonly align 1 %139, i64 noundef range(i64 1, 0) %135, i1 noundef false) #21
-  %.pre138 = load i64, ptr %134, align 8, !tbaa !94
-  %.pre139 = load ptr, ptr %.0124, align 8, !tbaa !26
+  %.pre137 = load i64, ptr %134, align 8, !tbaa !94
+  %.pre138 = load ptr, ptr %.0124, align 8, !tbaa !26
   br label %ruby_nonempty_memcpy.exit135
 
 ruby_nonempty_memcpy.exit135:                     ; preds = %132, %136
-  %140 = phi ptr [ %119, %132 ], [ %.pre139, %136 ]
-  %141 = phi i64 [ 0, %132 ], [ %.pre138, %136 ]
+  %140 = phi ptr [ %119, %132 ], [ %.pre138, %136 ]
+  %141 = phi i64 [ 0, %132 ], [ %.pre137, %136 ]
   %142 = getelementptr i8, ptr %140, i64 %141
   store ptr %142, ptr %.0124, align 8, !tbaa !26
   store i64 0, ptr %134, align 8, !tbaa !94
@@ -1895,21 +1895,21 @@ ruby_nonempty_memcpy.exit135:                     ; preds = %132, %136
   %144 = icmp ne ptr %.0117, %1
   %145 = icmp ne ptr %.0117, %5
   %or.cond = and i1 %144, %145
-  br i1 %or.cond, label %.sink.split149, label %149
+  br i1 %or.cond, label %.sink.split148, label %149
 
 146:                                              ; preds = %104, %50
   %147 = icmp ne ptr %.0117, %1
   %148 = icmp ne ptr %.0117, %5
   %or.cond5 = and i1 %147, %148
-  br i1 %or.cond5, label %.sink.split149, label %149
+  br i1 %or.cond5, label %.sink.split148, label %149
 
-.sink.split149:                                   ; preds = %146, %143
+.sink.split148:                                   ; preds = %146, %143
   %.0.ph = phi i32 [ 0, %143 ], [ -1, %146 ]
   call void @ruby_xfree(ptr noundef %.0117) #21
   br label %149
 
-149:                                              ; preds = %.sink.split149, %146, %143, %26, %rb_econv_encoding_to_insert_output.exit
-  %.0 = phi i32 [ 0, %rb_econv_encoding_to_insert_output.exit ], [ -1, %26 ], [ 0, %143 ], [ -1, %146 ], [ %.0.ph, %.sink.split149 ]
+149:                                              ; preds = %.sink.split148, %146, %143, %26, %rb_econv_encoding_to_insert_output.exit
+  %.0 = phi i32 [ 0, %rb_econv_encoding_to_insert_output.exit ], [ -1, %26 ], [ 0, %143 ], [ -1, %146 ], [ %.0.ph, %.sink.split148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
@@ -4121,8 +4121,8 @@ more_output_buffer.exit.us.i:                     ; preds = %173, %163
   %182 = call i64 %.048.i(i64 noundef %.049.fr.i, i64 noundef %181) #21, !callees !161
   store i64 %182, ptr %6, align 8, !tbaa !22
   switch i64 %182, label %183 [
-    i64 36, label %.thread10.i
-    i64 4, label %.thread10.i
+    i64 36, label %.thread9.i
+    i64 4, label %.thread9.i
   ]
 
 183:                                              ; preds = %.lr.ph.i
@@ -4155,15 +4155,15 @@ RSTRING_PTR.exit.i:                               ; preds = %190, %183
   call void (i64, ptr, ...) @rb_raise(i64 noundef %197, ptr noundef nonnull @.str.100) #22
   unreachable
 
-.thread10.i:                                      ; preds = %.lr.ph.i, %.lr.ph.i
+.thread9.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.loopexit.i
 
 198:                                              ; preds = %RSTRING_PTR.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %199 = call i32 @rb_econv_convert(ptr noundef nonnull %121, ptr noundef nonnull %10, ptr noundef %119, ptr noundef nonnull %9, ptr noundef %.04.ph.i, i32 noundef 0)
-  %.not27.i = icmp eq i32 %199, 1
-  br i1 %.not27.i, label %.lr.ph.i, label %._crit_edge.split.i
+  %.not26.i = icmp eq i32 %199, 1
+  br i1 %.not26.i, label %.lr.ph.i, label %._crit_edge.split.i
 
 ._crit_edge.split.i:                              ; preds = %198, %.outer.i
   %.lcssa.i = phi i32 [ %176, %.outer.i ], [ %199, %198 ]
@@ -4173,7 +4173,7 @@ RSTRING_PTR.exit.i:                               ; preds = %190, %183
     i32 0, label %.loopexit.i
   ]
 
-.loopexit.i:                                      ; preds = %._crit_edge.split.i, %._crit_edge.split.i, %.outer.us.i, %.outer.us.i, %.outer.us.i, %.thread10.i
+.loopexit.i:                                      ; preds = %._crit_edge.split.i, %._crit_edge.split.i, %.outer.us.i, %.outer.us.i, %.outer.us.i, %.thread9.i
   %200 = call fastcc i64 @make_econv_exception(ptr noundef nonnull %121)
   call void @rb_econv_close(ptr noundef nonnull %121)
   call void @rb_exc_raise(i64 noundef %200) #22
@@ -7827,18 +7827,18 @@ rb_transcoding_open_by_transcoder.exit:           ; preds = %60, %64
   %78 = load ptr, ptr %1, align 8, !tbaa !12
   %79 = load i8, ptr %78, align 1, !tbaa !27
   %80 = icmp eq i8 %79, 0
-  %.not49 = icmp sgt i32 %2, %76
-  %or.cond = select i1 %80, i1 true, i1 %.not49
+  %.not48 = icmp sgt i32 %2, %76
+  %or.cond = select i1 %80, i1 true, i1 %.not48
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 81:                                               ; preds = %.lr.ph
-  %82 = add i32 %.04550, -1
+  %82 = add i32 %.04549, -1
   %.not = icmp sgt i32 %2, %82
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !254
 
 .lr.ph:                                           ; preds = %rb_transcoding_open_by_transcoder.exit, %81
-  %.04550 = phi i32 [ %82, %81 ], [ %76, %rb_transcoding_open_by_transcoder.exit ]
-  %83 = sext i32 %.04550 to i64
+  %.04549 = phi i32 [ %82, %81 ], [ %76, %rb_transcoding_open_by_transcoder.exit ]
+  %83 = sext i32 %.04549 to i64
   %84 = getelementptr %struct.rb_econv_elem_t, ptr %68, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !63
   %86 = load ptr, ptr %85, align 8, !tbaa !65

@@ -3961,8 +3961,8 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE6Bucket9cas_fir
   br label %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
 
 _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %116, %111, %.thread, %117
-  %.1.ph91 = phi i1 [ true, %117 ], [ true, %.thread ], [ false, %111 ], [ false, %116 ]
-  %.1.i63.ph88 = phi i64 [ %.1.i64, %117 ], [ %.1.i64, %.thread ], [ %55, %111 ], [ %55, %116 ]
+  %.1.ph90 = phi i1 [ true, %117 ], [ true, %.thread ], [ false, %111 ], [ false, %116 ]
+  %.1.i63.ph87 = phi i64 [ %.1.i64, %117 ], [ %.1.i64, %.thread ], [ %55, %111 ], [ %55, %116 ]
   %.157 = phi i8 [ 0, %117 ], [ %.462, %.thread ], [ %.2, %111 ], [ %.2, %116 ]
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %129, label %124
@@ -3970,7 +3970,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_
 124:                                              ; preds = %_ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_nodeEPvPS3_.exit
   %125 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %126 = load i64, ptr %125, align 8
-  %127 = icmp ugt i64 %.1.i63.ph88, %126
+  %127 = icmp ugt i64 %.1.i63.ph87, %126
   %128 = zext i1 %127 to i8
   store i8 %128, ptr %5, align 1
   br label %129
@@ -3984,7 +3984,7 @@ _ZN19ConcurrentHashTableI25ResolvedMethodTableConfigL8MEMFLAGS1EE4Node12destroy_
   br label %131
 
 131:                                              ; preds = %130, %129
-  ret i1 %.1.ph91
+  ret i1 %.1.ph90
 }
 
 declare void @_ZN2os11naked_yieldEv() local_unnamed_addr #1

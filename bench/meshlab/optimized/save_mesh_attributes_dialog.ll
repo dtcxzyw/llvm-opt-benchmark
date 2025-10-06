@@ -586,16 +586,15 @@ define void @_ZN24SaveMeshAttributesDialogC2EP7QWidgetP9MeshModeliiRK17RichParam
   %43 = load ptr, ptr %42, align 8, !noalias !10
   store ptr %43, ptr %9, align 8, !alias.scope !10
   %44 = load atomic i32, ptr %43 monotonic, align 4, !noalias !10
-  switch i32 %44, label %45 [
-    i32 -1, label %_ZNK9MeshModel8fullNameEv.exit
-    i32 0, label %_ZNK9MeshModel8fullNameEv.exit
-  ]
+  %.off.i.i.i = add i32 %44, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %45, label %_ZNK9MeshModel8fullNameEv.exit
 
 45:                                               ; preds = %41
   %46 = atomicrmw add ptr %43, i32 1 seq_cst, align 4, !noalias !10
   br label %_ZNK9MeshModel8fullNameEv.exit
 
-_ZNK9MeshModel8fullNameEv.exit:                   ; preds = %41, %41, %45
+_ZNK9MeshModel8fullNameEv.exit:                   ; preds = %41, %45
   invoke void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
           to label %47 unwind label %84
 
@@ -3472,16 +3471,15 @@ define linkonce_odr void @_ZplRK7QStringPKc(ptr dead_on_unwind noalias writable 
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = load atomic i32, ptr %5 monotonic, align 4
-  switch i32 %6, label %7 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %6, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %7, label %_ZN7QStringC2ERKS_.exit
 
 7:                                                ; preds = %3
   %8 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %3, %7
+_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %9
 

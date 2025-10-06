@@ -3800,7 +3800,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIPKN22hb_seri
 _ZL9hb_memsetPvij.exit:                           ; preds = %24, %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %29 = load i32, ptr %28, align 4, !tbaa !286
-  %30 = add i32 %29, 1
+  %.fr = freeze i32 %29
+  %30 = add i32 %.fr, 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %32 = load ptr, ptr %31, align 8, !tbaa !169
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3826,17 +3827,15 @@ _ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit: 
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %41, ptr %42, align 2, !tbaa !294
   store ptr %22, ptr %31, align 8, !tbaa !169
-  switch i32 %29, label %.lr.ph.split.preheader [
-    i32 -1, label %._crit_edge
-    i32 0, label %._crit_edge
-  ]
+  %.off = add i32 %.fr, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
-  %umax = tail call i32 @llvm.umax.i32(i32 %30, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %30 to i64
   br label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %51, %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit, %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
+._crit_edge:                                      ; preds = %51, %_ZN12hb_hashmap_tIPKN22hb_serialize_context_t8object_tEjLb0EE9prime_forEj.exit
   tail call void @free(ptr noundef %32) #16
   br label %52
 
@@ -7480,13 +7479,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i: ; preds = 
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i: ; preds = %236, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i
   %222 = phi i32 [ %220, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %237, %236 ]
-  %.030.i.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %.2.i.i.i.i, %236 ]
-  %223 = zext i32 %.030.i.i.i.i to i64
+  %.028.i.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %.2.i.i.i.i, %236 ]
+  %223 = zext i32 %.028.i.i.i.i to i64
   %224 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %221, i64 %223
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 20
   %226 = load i32, ptr %225, align 4, !tbaa !434
-  %.not29.i.i.i.i = icmp eq i32 %226, 0
-  br i1 %.not29.i.i.i.i, label %234, label %227
+  %.not27.i.i.i.i = icmp eq i32 %226, 0
+  br i1 %.not27.i.i.i.i, label %234, label %227
 
 227:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i
   %228 = getelementptr inbounds nuw i8, ptr %224, i64 8
@@ -7497,7 +7496,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i: ; preds = %236, 
   br i1 %or.cond.not.i.i.i.i, label %232, label %239, !prof !435
 
 232:                                              ; preds = %227
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %224, i32 noundef %.030.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %224, i32 noundef %.028.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %233 = load i32, ptr %228, align 8, !tbaa !432
   br label %236
 
@@ -7511,7 +7510,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i: ; preds = %236, 
 
 236:                                              ; preds = %234, %232
   %.pn.i.i.i.i = phi i32 [ %233, %232 ], [ 1, %234 ]
-  %.2.i.i.i.i = add i32 %.pn.i.i.i.i, %.030.i.i.i.i
+  %.2.i.i.i.i = add i32 %.pn.i.i.i.i, %.028.i.i.i.i
   %237 = load i32, ptr %219, align 4, !tbaa !332
   %238 = icmp ult i32 %.2.i.i.i.i, %237
   br i1 %238, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !437
@@ -7568,13 +7567,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i148: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i149: ; preds = %275, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i148
   %261 = phi i32 [ %259, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i148 ], [ %276, %275 ]
-  %.030.i.i.i.i150 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i148 ], [ %.2.i.i.i.i154, %275 ]
-  %262 = zext i32 %.030.i.i.i.i150 to i64
+  %.028.i.i.i.i150 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i148 ], [ %.2.i.i.i.i154, %275 ]
+  %262 = zext i32 %.028.i.i.i.i150 to i64
   %263 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %260, i64 %262
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 20
   %265 = load i32, ptr %264, align 4, !tbaa !434
-  %.not29.i.i.i.i151 = icmp eq i32 %265, 0
-  br i1 %.not29.i.i.i.i151, label %273, label %266
+  %.not27.i.i.i.i151 = icmp eq i32 %265, 0
+  br i1 %.not27.i.i.i.i151, label %273, label %266
 
 266:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i149
   %267 = getelementptr inbounds nuw i8, ptr %263, i64 8
@@ -7585,7 +7584,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i149: ; preds = %27
   br i1 %or.cond.not.i.i.i.i152, label %271, label %278, !prof !435
 
 271:                                              ; preds = %266
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %263, i32 noundef %.030.i.i.i.i150, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %263, i32 noundef %.028.i.i.i.i150, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %272 = load i32, ptr %267, align 8, !tbaa !432
   br label %275
 
@@ -7599,7 +7598,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i149: ; preds = %27
 
 275:                                              ; preds = %273, %271
   %.pn.i.i.i.i153 = phi i32 [ %272, %271 ], [ 1, %273 ]
-  %.2.i.i.i.i154 = add i32 %.pn.i.i.i.i153, %.030.i.i.i.i150
+  %.2.i.i.i.i154 = add i32 %.pn.i.i.i.i153, %.028.i.i.i.i150
   %276 = load i32, ptr %258, align 4, !tbaa !332
   %277 = icmp ult i32 %.2.i.i.i.i154, %276
   br i1 %277, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i149, label %._crit_edge.i.i.i.i155, !llvm.loop !437
@@ -7656,13 +7655,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i158: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i159: ; preds = %314, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i158
   %300 = phi i32 [ %298, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i158 ], [ %315, %314 ]
-  %.030.i.i.i.i160 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i158 ], [ %.2.i.i.i.i164, %314 ]
-  %301 = zext i32 %.030.i.i.i.i160 to i64
+  %.028.i.i.i.i160 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i158 ], [ %.2.i.i.i.i164, %314 ]
+  %301 = zext i32 %.028.i.i.i.i160 to i64
   %302 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %299, i64 %301
   %303 = getelementptr inbounds nuw i8, ptr %302, i64 20
   %304 = load i32, ptr %303, align 4, !tbaa !434
-  %.not29.i.i.i.i161 = icmp eq i32 %304, 0
-  br i1 %.not29.i.i.i.i161, label %312, label %305
+  %.not27.i.i.i.i161 = icmp eq i32 %304, 0
+  br i1 %.not27.i.i.i.i161, label %312, label %305
 
 305:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i159
   %306 = getelementptr inbounds nuw i8, ptr %302, i64 8
@@ -7673,7 +7672,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i159: ; preds = %31
   br i1 %or.cond.not.i.i.i.i162, label %310, label %317, !prof !435
 
 310:                                              ; preds = %305
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %302, i32 noundef %.030.i.i.i.i160, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %302, i32 noundef %.028.i.i.i.i160, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %311 = load i32, ptr %306, align 8, !tbaa !432
   br label %314
 
@@ -7687,7 +7686,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i159: ; preds = %31
 
 314:                                              ; preds = %312, %310
   %.pn.i.i.i.i163 = phi i32 [ %311, %310 ], [ 1, %312 ]
-  %.2.i.i.i.i164 = add i32 %.pn.i.i.i.i163, %.030.i.i.i.i160
+  %.2.i.i.i.i164 = add i32 %.pn.i.i.i.i163, %.028.i.i.i.i160
   %315 = load i32, ptr %297, align 4, !tbaa !332
   %316 = icmp ult i32 %.2.i.i.i.i164, %315
   br i1 %316, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i159, label %._crit_edge.i.i.i.i165, !llvm.loop !437
@@ -7744,13 +7743,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i168: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i169: ; preds = %353, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i168
   %339 = phi i32 [ %337, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i168 ], [ %354, %353 ]
-  %.030.i.i.i.i170 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i168 ], [ %.2.i.i.i.i174, %353 ]
-  %340 = zext i32 %.030.i.i.i.i170 to i64
+  %.028.i.i.i.i170 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i168 ], [ %.2.i.i.i.i174, %353 ]
+  %340 = zext i32 %.028.i.i.i.i170 to i64
   %341 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %338, i64 %340
   %342 = getelementptr inbounds nuw i8, ptr %341, i64 20
   %343 = load i32, ptr %342, align 4, !tbaa !434
-  %.not29.i.i.i.i171 = icmp eq i32 %343, 0
-  br i1 %.not29.i.i.i.i171, label %351, label %344
+  %.not27.i.i.i.i171 = icmp eq i32 %343, 0
+  br i1 %.not27.i.i.i.i171, label %351, label %344
 
 344:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i169
   %345 = getelementptr inbounds nuw i8, ptr %341, i64 8
@@ -7761,7 +7760,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i169: ; preds = %35
   br i1 %or.cond.not.i.i.i.i172, label %349, label %356, !prof !435
 
 349:                                              ; preds = %344
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %341, i32 noundef %.030.i.i.i.i170, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %341, i32 noundef %.028.i.i.i.i170, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %350 = load i32, ptr %345, align 8, !tbaa !432
   br label %353
 
@@ -7775,7 +7774,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i169: ; preds = %35
 
 353:                                              ; preds = %351, %349
   %.pn.i.i.i.i173 = phi i32 [ %350, %349 ], [ 1, %351 ]
-  %.2.i.i.i.i174 = add i32 %.pn.i.i.i.i173, %.030.i.i.i.i170
+  %.2.i.i.i.i174 = add i32 %.pn.i.i.i.i173, %.028.i.i.i.i170
   %354 = load i32, ptr %336, align 4, !tbaa !332
   %355 = icmp ult i32 %.2.i.i.i.i174, %354
   br i1 %355, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i169, label %._crit_edge.i.i.i.i175, !llvm.loop !437
@@ -7832,13 +7831,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i178: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i179: ; preds = %392, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i178
   %378 = phi i32 [ %376, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i178 ], [ %393, %392 ]
-  %.030.i.i.i.i180 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i178 ], [ %.2.i.i.i.i184, %392 ]
-  %379 = zext i32 %.030.i.i.i.i180 to i64
+  %.028.i.i.i.i180 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i178 ], [ %.2.i.i.i.i184, %392 ]
+  %379 = zext i32 %.028.i.i.i.i180 to i64
   %380 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %377, i64 %379
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 20
   %382 = load i32, ptr %381, align 4, !tbaa !434
-  %.not29.i.i.i.i181 = icmp eq i32 %382, 0
-  br i1 %.not29.i.i.i.i181, label %390, label %383
+  %.not27.i.i.i.i181 = icmp eq i32 %382, 0
+  br i1 %.not27.i.i.i.i181, label %390, label %383
 
 383:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i179
   %384 = getelementptr inbounds nuw i8, ptr %380, i64 8
@@ -7849,7 +7848,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i179: ; preds = %39
   br i1 %or.cond.not.i.i.i.i182, label %388, label %395, !prof !435
 
 388:                                              ; preds = %383
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %380, i32 noundef %.030.i.i.i.i180, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %380, i32 noundef %.028.i.i.i.i180, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %389 = load i32, ptr %384, align 8, !tbaa !432
   br label %392
 
@@ -7863,7 +7862,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i179: ; preds = %39
 
 392:                                              ; preds = %390, %388
   %.pn.i.i.i.i183 = phi i32 [ %389, %388 ], [ 1, %390 ]
-  %.2.i.i.i.i184 = add i32 %.pn.i.i.i.i183, %.030.i.i.i.i180
+  %.2.i.i.i.i184 = add i32 %.pn.i.i.i.i183, %.028.i.i.i.i180
   %393 = load i32, ptr %375, align 4, !tbaa !332
   %394 = icmp ult i32 %.2.i.i.i.i184, %393
   br i1 %394, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i179, label %._crit_edge.i.i.i.i185, !llvm.loop !437
@@ -7920,13 +7919,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i188: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i189: ; preds = %431, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i188
   %417 = phi i32 [ %415, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i188 ], [ %432, %431 ]
-  %.030.i.i.i.i190 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i188 ], [ %.2.i.i.i.i194, %431 ]
-  %418 = zext i32 %.030.i.i.i.i190 to i64
+  %.028.i.i.i.i190 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i188 ], [ %.2.i.i.i.i194, %431 ]
+  %418 = zext i32 %.028.i.i.i.i190 to i64
   %419 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %416, i64 %418
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 20
   %421 = load i32, ptr %420, align 4, !tbaa !434
-  %.not29.i.i.i.i191 = icmp eq i32 %421, 0
-  br i1 %.not29.i.i.i.i191, label %429, label %422
+  %.not27.i.i.i.i191 = icmp eq i32 %421, 0
+  br i1 %.not27.i.i.i.i191, label %429, label %422
 
 422:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i189
   %423 = getelementptr inbounds nuw i8, ptr %419, i64 8
@@ -7937,7 +7936,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i189: ; preds = %43
   br i1 %or.cond.not.i.i.i.i192, label %427, label %434, !prof !435
 
 427:                                              ; preds = %422
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %419, i32 noundef %.030.i.i.i.i190, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %419, i32 noundef %.028.i.i.i.i190, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %428 = load i32, ptr %423, align 8, !tbaa !432
   br label %431
 
@@ -7951,7 +7950,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i189: ; preds = %43
 
 431:                                              ; preds = %429, %427
   %.pn.i.i.i.i193 = phi i32 [ %428, %427 ], [ 1, %429 ]
-  %.2.i.i.i.i194 = add i32 %.pn.i.i.i.i193, %.030.i.i.i.i190
+  %.2.i.i.i.i194 = add i32 %.pn.i.i.i.i193, %.028.i.i.i.i190
   %432 = load i32, ptr %414, align 4, !tbaa !332
   %433 = icmp ult i32 %.2.i.i.i.i194, %432
   br i1 %433, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i189, label %._crit_edge.i.i.i.i195, !llvm.loop !437
@@ -8008,13 +8007,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i198: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i199: ; preds = %470, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i198
   %456 = phi i32 [ %454, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i198 ], [ %471, %470 ]
-  %.030.i.i.i.i200 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i198 ], [ %.2.i.i.i.i204, %470 ]
-  %457 = zext i32 %.030.i.i.i.i200 to i64
+  %.028.i.i.i.i200 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i198 ], [ %.2.i.i.i.i204, %470 ]
+  %457 = zext i32 %.028.i.i.i.i200 to i64
   %458 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %455, i64 %457
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 20
   %460 = load i32, ptr %459, align 4, !tbaa !434
-  %.not29.i.i.i.i201 = icmp eq i32 %460, 0
-  br i1 %.not29.i.i.i.i201, label %468, label %461
+  %.not27.i.i.i.i201 = icmp eq i32 %460, 0
+  br i1 %.not27.i.i.i.i201, label %468, label %461
 
 461:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i199
   %462 = getelementptr inbounds nuw i8, ptr %458, i64 8
@@ -8025,7 +8024,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i199: ; preds = %47
   br i1 %or.cond.not.i.i.i.i202, label %466, label %473, !prof !435
 
 466:                                              ; preds = %461
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %458, i32 noundef %.030.i.i.i.i200, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %458, i32 noundef %.028.i.i.i.i200, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %467 = load i32, ptr %462, align 8, !tbaa !432
   br label %470
 
@@ -8039,7 +8038,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i199: ; preds = %47
 
 470:                                              ; preds = %468, %466
   %.pn.i.i.i.i203 = phi i32 [ %467, %466 ], [ 1, %468 ]
-  %.2.i.i.i.i204 = add i32 %.pn.i.i.i.i203, %.030.i.i.i.i200
+  %.2.i.i.i.i204 = add i32 %.pn.i.i.i.i203, %.028.i.i.i.i200
   %471 = load i32, ptr %453, align 4, !tbaa !332
   %472 = icmp ult i32 %.2.i.i.i.i204, %471
   br i1 %472, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i199, label %._crit_edge.i.i.i.i205, !llvm.loop !437
@@ -8096,13 +8095,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i208: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i209: ; preds = %509, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i208
   %495 = phi i32 [ %493, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i208 ], [ %510, %509 ]
-  %.030.i.i.i.i210 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i208 ], [ %.2.i.i.i.i214, %509 ]
-  %496 = zext i32 %.030.i.i.i.i210 to i64
+  %.028.i.i.i.i210 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i208 ], [ %.2.i.i.i.i214, %509 ]
+  %496 = zext i32 %.028.i.i.i.i210 to i64
   %497 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %494, i64 %496
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 20
   %499 = load i32, ptr %498, align 4, !tbaa !434
-  %.not29.i.i.i.i211 = icmp eq i32 %499, 0
-  br i1 %.not29.i.i.i.i211, label %507, label %500
+  %.not27.i.i.i.i211 = icmp eq i32 %499, 0
+  br i1 %.not27.i.i.i.i211, label %507, label %500
 
 500:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i209
   %501 = getelementptr inbounds nuw i8, ptr %497, i64 8
@@ -8113,7 +8112,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i209: ; preds = %50
   br i1 %or.cond.not.i.i.i.i212, label %505, label %512, !prof !435
 
 505:                                              ; preds = %500
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %497, i32 noundef %.030.i.i.i.i210, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %497, i32 noundef %.028.i.i.i.i210, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %506 = load i32, ptr %501, align 8, !tbaa !432
   br label %509
 
@@ -8127,7 +8126,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i209: ; preds = %50
 
 509:                                              ; preds = %507, %505
   %.pn.i.i.i.i213 = phi i32 [ %506, %505 ], [ 1, %507 ]
-  %.2.i.i.i.i214 = add i32 %.pn.i.i.i.i213, %.030.i.i.i.i210
+  %.2.i.i.i.i214 = add i32 %.pn.i.i.i.i213, %.028.i.i.i.i210
   %510 = load i32, ptr %492, align 4, !tbaa !332
   %511 = icmp ult i32 %.2.i.i.i.i214, %510
   br i1 %511, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i209, label %._crit_edge.i.i.i.i215, !llvm.loop !437
@@ -8184,13 +8183,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i218: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i219: ; preds = %548, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i218
   %534 = phi i32 [ %532, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i218 ], [ %549, %548 ]
-  %.030.i.i.i.i220 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i218 ], [ %.2.i.i.i.i224, %548 ]
-  %535 = zext i32 %.030.i.i.i.i220 to i64
+  %.028.i.i.i.i220 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i218 ], [ %.2.i.i.i.i224, %548 ]
+  %535 = zext i32 %.028.i.i.i.i220 to i64
   %536 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %533, i64 %535
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 20
   %538 = load i32, ptr %537, align 4, !tbaa !434
-  %.not29.i.i.i.i221 = icmp eq i32 %538, 0
-  br i1 %.not29.i.i.i.i221, label %546, label %539
+  %.not27.i.i.i.i221 = icmp eq i32 %538, 0
+  br i1 %.not27.i.i.i.i221, label %546, label %539
 
 539:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i219
   %540 = getelementptr inbounds nuw i8, ptr %536, i64 8
@@ -8201,7 +8200,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i219: ; preds = %54
   br i1 %or.cond.not.i.i.i.i222, label %544, label %551, !prof !435
 
 544:                                              ; preds = %539
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %536, i32 noundef %.030.i.i.i.i220, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %536, i32 noundef %.028.i.i.i.i220, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %545 = load i32, ptr %540, align 8, !tbaa !432
   br label %548
 
@@ -8215,7 +8214,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i219: ; preds = %54
 
 548:                                              ; preds = %546, %544
   %.pn.i.i.i.i223 = phi i32 [ %545, %544 ], [ 1, %546 ]
-  %.2.i.i.i.i224 = add i32 %.pn.i.i.i.i223, %.030.i.i.i.i220
+  %.2.i.i.i.i224 = add i32 %.pn.i.i.i.i223, %.028.i.i.i.i220
   %549 = load i32, ptr %531, align 4, !tbaa !332
   %550 = icmp ult i32 %.2.i.i.i.i224, %549
   br i1 %550, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i219, label %._crit_edge.i.i.i.i225, !llvm.loop !437
@@ -8272,13 +8271,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i228: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i229: ; preds = %587, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i228
   %573 = phi i32 [ %571, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i228 ], [ %588, %587 ]
-  %.030.i.i.i.i230 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i228 ], [ %.2.i.i.i.i234, %587 ]
-  %574 = zext i32 %.030.i.i.i.i230 to i64
+  %.028.i.i.i.i230 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i228 ], [ %.2.i.i.i.i234, %587 ]
+  %574 = zext i32 %.028.i.i.i.i230 to i64
   %575 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %572, i64 %574
   %576 = getelementptr inbounds nuw i8, ptr %575, i64 20
   %577 = load i32, ptr %576, align 4, !tbaa !434
-  %.not29.i.i.i.i231 = icmp eq i32 %577, 0
-  br i1 %.not29.i.i.i.i231, label %585, label %578
+  %.not27.i.i.i.i231 = icmp eq i32 %577, 0
+  br i1 %.not27.i.i.i.i231, label %585, label %578
 
 578:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i229
   %579 = getelementptr inbounds nuw i8, ptr %575, i64 8
@@ -8289,7 +8288,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i229: ; preds = %58
   br i1 %or.cond.not.i.i.i.i232, label %583, label %590, !prof !435
 
 583:                                              ; preds = %578
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %575, i32 noundef %.030.i.i.i.i230, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %575, i32 noundef %.028.i.i.i.i230, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %584 = load i32, ptr %579, align 8, !tbaa !432
   br label %587
 
@@ -8303,7 +8302,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i229: ; preds = %58
 
 587:                                              ; preds = %585, %583
   %.pn.i.i.i.i233 = phi i32 [ %584, %583 ], [ 1, %585 ]
-  %.2.i.i.i.i234 = add i32 %.pn.i.i.i.i233, %.030.i.i.i.i230
+  %.2.i.i.i.i234 = add i32 %.pn.i.i.i.i233, %.028.i.i.i.i230
   %588 = load i32, ptr %570, align 4, !tbaa !332
   %589 = icmp ult i32 %.2.i.i.i.i234, %588
   br i1 %589, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i229, label %._crit_edge.i.i.i.i235, !llvm.loop !437
@@ -8360,13 +8359,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i238: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i239: ; preds = %626, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i238
   %612 = phi i32 [ %610, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i238 ], [ %627, %626 ]
-  %.030.i.i.i.i240 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i238 ], [ %.2.i.i.i.i244, %626 ]
-  %613 = zext i32 %.030.i.i.i.i240 to i64
+  %.028.i.i.i.i240 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i238 ], [ %.2.i.i.i.i244, %626 ]
+  %613 = zext i32 %.028.i.i.i.i240 to i64
   %614 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %611, i64 %613
   %615 = getelementptr inbounds nuw i8, ptr %614, i64 20
   %616 = load i32, ptr %615, align 4, !tbaa !434
-  %.not29.i.i.i.i241 = icmp eq i32 %616, 0
-  br i1 %.not29.i.i.i.i241, label %624, label %617
+  %.not27.i.i.i.i241 = icmp eq i32 %616, 0
+  br i1 %.not27.i.i.i.i241, label %624, label %617
 
 617:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i239
   %618 = getelementptr inbounds nuw i8, ptr %614, i64 8
@@ -8377,7 +8376,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i239: ; preds = %62
   br i1 %or.cond.not.i.i.i.i242, label %622, label %629, !prof !435
 
 622:                                              ; preds = %617
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %614, i32 noundef %.030.i.i.i.i240, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %614, i32 noundef %.028.i.i.i.i240, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %623 = load i32, ptr %618, align 8, !tbaa !432
   br label %626
 
@@ -8391,7 +8390,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i239: ; preds = %62
 
 626:                                              ; preds = %624, %622
   %.pn.i.i.i.i243 = phi i32 [ %623, %622 ], [ 1, %624 ]
-  %.2.i.i.i.i244 = add i32 %.pn.i.i.i.i243, %.030.i.i.i.i240
+  %.2.i.i.i.i244 = add i32 %.pn.i.i.i.i243, %.028.i.i.i.i240
   %627 = load i32, ptr %609, align 4, !tbaa !332
   %628 = icmp ult i32 %.2.i.i.i.i244, %627
   br i1 %628, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i239, label %._crit_edge.i.i.i.i245, !llvm.loop !437
@@ -8471,13 +8470,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i247: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i248: ; preds = %676, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i247
   %662 = phi i32 [ %660, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i247 ], [ %677, %676 ]
-  %.030.i.i.i.i249 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i247 ], [ %.2.i.i.i.i253, %676 ]
-  %663 = zext i32 %.030.i.i.i.i249 to i64
+  %.028.i.i.i.i249 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i247 ], [ %.2.i.i.i.i253, %676 ]
+  %663 = zext i32 %.028.i.i.i.i249 to i64
   %664 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %661, i64 %663
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 20
   %666 = load i32, ptr %665, align 4, !tbaa !434
-  %.not29.i.i.i.i250 = icmp eq i32 %666, 0
-  br i1 %.not29.i.i.i.i250, label %674, label %667
+  %.not27.i.i.i.i250 = icmp eq i32 %666, 0
+  br i1 %.not27.i.i.i.i250, label %674, label %667
 
 667:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i248
   %668 = getelementptr inbounds nuw i8, ptr %664, i64 8
@@ -8488,7 +8487,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i248: ; preds = %67
   br i1 %or.cond.not.i.i.i.i251, label %672, label %679, !prof !435
 
 672:                                              ; preds = %667
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %664, i32 noundef %.030.i.i.i.i249, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %664, i32 noundef %.028.i.i.i.i249, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %673 = load i32, ptr %668, align 8, !tbaa !432
   br label %676
 
@@ -8502,7 +8501,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i248: ; preds = %67
 
 676:                                              ; preds = %674, %672
   %.pn.i.i.i.i252 = phi i32 [ %673, %672 ], [ 1, %674 ]
-  %.2.i.i.i.i253 = add i32 %.pn.i.i.i.i252, %.030.i.i.i.i249
+  %.2.i.i.i.i253 = add i32 %.pn.i.i.i.i252, %.028.i.i.i.i249
   %677 = load i32, ptr %659, align 4, !tbaa !332
   %678 = icmp ult i32 %.2.i.i.i.i253, %677
   br i1 %678, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i248, label %._crit_edge.i.i.i.i254, !llvm.loop !437
@@ -8582,13 +8581,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i257: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i258: ; preds = %726, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i257
   %712 = phi i32 [ %710, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i257 ], [ %727, %726 ]
-  %.030.i.i.i.i259 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i257 ], [ %.2.i.i.i.i263, %726 ]
-  %713 = zext i32 %.030.i.i.i.i259 to i64
+  %.028.i.i.i.i259 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i257 ], [ %.2.i.i.i.i263, %726 ]
+  %713 = zext i32 %.028.i.i.i.i259 to i64
   %714 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %711, i64 %713
   %715 = getelementptr inbounds nuw i8, ptr %714, i64 20
   %716 = load i32, ptr %715, align 4, !tbaa !434
-  %.not29.i.i.i.i260 = icmp eq i32 %716, 0
-  br i1 %.not29.i.i.i.i260, label %724, label %717
+  %.not27.i.i.i.i260 = icmp eq i32 %716, 0
+  br i1 %.not27.i.i.i.i260, label %724, label %717
 
 717:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i258
   %718 = getelementptr inbounds nuw i8, ptr %714, i64 8
@@ -8599,7 +8598,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i258: ; preds = %72
   br i1 %or.cond.not.i.i.i.i261, label %722, label %729, !prof !435
 
 722:                                              ; preds = %717
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %714, i32 noundef %.030.i.i.i.i259, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %714, i32 noundef %.028.i.i.i.i259, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %723 = load i32, ptr %718, align 8, !tbaa !432
   br label %726
 
@@ -8613,7 +8612,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i258: ; preds = %72
 
 726:                                              ; preds = %724, %722
   %.pn.i.i.i.i262 = phi i32 [ %723, %722 ], [ 1, %724 ]
-  %.2.i.i.i.i263 = add i32 %.pn.i.i.i.i262, %.030.i.i.i.i259
+  %.2.i.i.i.i263 = add i32 %.pn.i.i.i.i262, %.028.i.i.i.i259
   %727 = load i32, ptr %709, align 4, !tbaa !332
   %728 = icmp ult i32 %.2.i.i.i.i263, %727
   br i1 %728, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i258, label %._crit_edge.i.i.i.i264, !llvm.loop !437
@@ -8693,13 +8692,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i267: ; preds
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i268: ; preds = %776, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i267
   %762 = phi i32 [ %760, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i267 ], [ %777, %776 ]
-  %.030.i.i.i.i269 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i267 ], [ %.2.i.i.i.i273, %776 ]
-  %763 = zext i32 %.030.i.i.i.i269 to i64
+  %.028.i.i.i.i269 = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i267 ], [ %.2.i.i.i.i273, %776 ]
+  %763 = zext i32 %.028.i.i.i.i269 to i64
   %764 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %761, i64 %763
   %765 = getelementptr inbounds nuw i8, ptr %764, i64 20
   %766 = load i32, ptr %765, align 4, !tbaa !434
-  %.not29.i.i.i.i270 = icmp eq i32 %766, 0
-  br i1 %.not29.i.i.i.i270, label %774, label %767
+  %.not27.i.i.i.i270 = icmp eq i32 %766, 0
+  br i1 %.not27.i.i.i.i270, label %774, label %767
 
 767:                                              ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i268
   %768 = getelementptr inbounds nuw i8, ptr %764, i64 8
@@ -8710,7 +8709,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i268: ; preds = %77
   br i1 %or.cond.not.i.i.i.i271, label %772, label %779, !prof !435
 
 772:                                              ; preds = %767
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %764, i32 noundef %.030.i.i.i.i269, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %764, i32 noundef %.028.i.i.i.i269, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %773 = load i32, ptr %768, align 8, !tbaa !432
   br label %776
 
@@ -8724,7 +8723,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i268: ; preds = %77
 
 776:                                              ; preds = %774, %772
   %.pn.i.i.i.i272 = phi i32 [ %773, %772 ], [ 1, %774 ]
-  %.2.i.i.i.i273 = add i32 %.pn.i.i.i.i272, %.030.i.i.i.i269
+  %.2.i.i.i.i273 = add i32 %.pn.i.i.i.i272, %.028.i.i.i.i269
   %777 = load i32, ptr %759, align 4, !tbaa !332
   %778 = icmp ult i32 %.2.i.i.i.i273, %777
   br i1 %778, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i268, label %._crit_edge.i.i.i.i274, !llvm.loop !437
@@ -9035,13 +9034,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i: ; preds = %1
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %32, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i
   %18 = phi i32 [ %6, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %33, %32 ]
-  %.030.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %32 ]
-  %19 = zext i32 %.030.i.i.i to i64
+  %.028.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %32 ]
+  %19 = zext i32 %.028.i.i.i to i64
   %20 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !434
-  %.not29.i.i.i = icmp eq i32 %22, 0
-  br i1 %.not29.i.i.i, label %30, label %23
+  %.not27.i.i.i = icmp eq i32 %22, 0
+  br i1 %.not27.i.i.i, label %30, label %23
 
 23:                                               ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -9052,7 +9051,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %32, %_Z
   br i1 %or.cond.not.i.i.i, label %28, label %35, !prof !435
 
 28:                                               ; preds = %23
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef %.030.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef %.028.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %29 = load i32, ptr %24, align 8, !tbaa !432
   br label %32
 
@@ -9066,7 +9065,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %32, %_Z
 
 32:                                               ; preds = %30, %28
   %.pn.i.i.i = phi i32 [ %29, %28 ], [ 1, %30 ]
-  %.2.i.i.i = add i32 %.pn.i.i.i, %.030.i.i.i
+  %.2.i.i.i = add i32 %.pn.i.i.i, %.028.i.i.i
   %33 = load i32, ptr %5, align 4, !tbaa !332
   %34 = icmp ult i32 %.2.i.i.i, %33
   br i1 %34, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !437
@@ -9132,13 +9131,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i: ; preds = %1
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %32, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i
   %18 = phi i32 [ %6, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %33, %32 ]
-  %.030.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %32 ]
-  %19 = zext i32 %.030.i.i.i to i64
+  %.028.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %32 ]
+  %19 = zext i32 %.028.i.i.i to i64
   %20 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %22 = load i32, ptr %21, align 4, !tbaa !434
-  %.not29.i.i.i = icmp eq i32 %22, 0
-  br i1 %.not29.i.i.i, label %30, label %23
+  %.not27.i.i.i = icmp eq i32 %22, 0
+  br i1 %.not27.i.i.i, label %30, label %23
 
 23:                                               ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -9149,7 +9148,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %32, %_Z
   br i1 %or.cond.not.i.i.i, label %28, label %35, !prof !435
 
 28:                                               ; preds = %23
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef %.030.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %20, i32 noundef %.028.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %29 = load i32, ptr %24, align 8, !tbaa !432
   br label %32
 
@@ -9163,7 +9162,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %32, %_Z
 
 32:                                               ; preds = %30, %28
   %.pn.i.i.i = phi i32 [ %29, %28 ], [ 1, %30 ]
-  %.2.i.i.i = add i32 %.pn.i.i.i, %.030.i.i.i
+  %.2.i.i.i = add i32 %.pn.i.i.i, %.028.i.i.i
   %33 = load i32, ptr %5, align 4, !tbaa !332
   %34 = icmp ult i32 %.2.i.i.i, %33
   br i1 %34, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !437
@@ -9259,13 +9258,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i: ; preds = %3
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %50, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i
   %36 = phi i32 [ %34, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %51, %50 ]
-  %.030.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %50 ]
-  %37 = zext i32 %.030.i.i.i to i64
+  %.028.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i ], [ %.2.i.i.i, %50 ]
+  %37 = zext i32 %.028.i.i.i to i64
   %38 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %35, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %40 = load i32, ptr %39, align 4, !tbaa !434
-  %.not29.i.i.i = icmp eq i32 %40, 0
-  br i1 %.not29.i.i.i, label %48, label %41
+  %.not27.i.i.i = icmp eq i32 %40, 0
+  br i1 %.not27.i.i.i, label %48, label %41
 
 41:                                               ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -9276,7 +9275,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %50, %_Z
   br i1 %or.cond.not.i.i.i, label %46, label %53, !prof !435
 
 46:                                               ; preds = %41
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef %.030.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef %.028.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %47 = load i32, ptr %42, align 8, !tbaa !432
   br label %50
 
@@ -9290,7 +9289,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i: ; preds = %50, %_Z
 
 50:                                               ; preds = %48, %46
   %.pn.i.i.i = phi i32 [ %47, %46 ], [ 1, %48 ]
-  %.2.i.i.i = add i32 %.pn.i.i.i, %.030.i.i.i
+  %.2.i.i.i = add i32 %.pn.i.i.i, %.028.i.i.i
   %51 = load i32, ptr %33, align 4, !tbaa !332
   %52 = icmp ult i32 %.2.i.i.i, %51
   br i1 %52, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !437
@@ -10458,13 +10457,13 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i: ; preds = 
 
 _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i: ; preds = %30, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i
   %16 = phi i32 [ %14, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %31, %30 ]
-  %.030.i.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %.2.i.i.i.i, %30 ]
-  %17 = zext i32 %.030.i.i.i.i to i64
+  %.028.i.i.i.i = phi i32 [ 0, %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.lr.ph.i.i.i.i ], [ %.2.i.i.i.i, %30 ]
+  %17 = zext i32 %.028.i.i.i.i to i64
   %18 = getelementptr inbounds nuw %"struct.CFF::blend_arg_t", ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %20 = load i32, ptr %19, align 4, !tbaa !434
-  %.not29.i.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not29.i.i.i.i, label %28, label %21
+  %.not27.i.i.i.i = icmp eq i32 %20, 0
+  br i1 %.not27.i.i.i.i, label %28, label %21
 
 21:                                               ; preds = %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -10475,7 +10474,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i: ; preds = %30, %
   br i1 %or.cond.not.i.i.i.i, label %26, label %33, !prof !435
 
 26:                                               ; preds = %21
-  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %.030.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  call void @_ZN23cff2_cs_opset_flatten_t14flatten_blendsERKN3CFF11blend_arg_tEjRNS0_20cff2_cs_interp_env_tIS1_EERNS0_15flatten_param_tE(ptr noundef nonnull align 8 dereferenceable(32) %18, i32 noundef %.028.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16827) %1, ptr noundef nonnull align 8 dereferenceable(24) %2)
   %27 = load i32, ptr %22, align 8, !tbaa !432
   br label %30
 
@@ -10489,7 +10488,7 @@ _ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i: ; preds = %30, %
 
 30:                                               ; preds = %28, %26
   %.pn.i.i.i.i = phi i32 [ %27, %26 ], [ 1, %28 ]
-  %.2.i.i.i.i = add i32 %.pn.i.i.i.i, %.030.i.i.i.i
+  %.2.i.i.i.i = add i32 %.pn.i.i.i.i, %.028.i.i.i.i
   %31 = load i32, ptr %13, align 4, !tbaa !332
   %32 = icmp ult i32 %.2.i.i.i.i, %31
   br i1 %32, label %_ZN3CFF11cff_stack_tINS_11blend_arg_tELi513EEixEj.exit.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !437
@@ -15323,7 +15322,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE5allo
 _ZL9hb_memsetPvij.exit:                           ; preds = %23, %25
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !273
-  %28 = add i32 %27, 1
+  %.fr = freeze i32 %27
+  %28 = add i32 %.fr, 1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !91
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -15349,17 +15349,15 @@ _ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit:       ; preds = %_ZL9hb_memsetPvij.e
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 18
   store i16 %38, ptr %39, align 2, !tbaa !548
   store ptr %21, ptr %29, align 8, !tbaa !91
-  switch i32 %27, label %.lr.ph.split.preheader [
-    i32 -1, label %._crit_edge
-    i32 0, label %._crit_edge
-  ]
+  %.off = add i32 %.fr, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %.lr.ph.split.preheader, label %._crit_edge
 
 .lr.ph.split.preheader:                           ; preds = %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
-  %umax = tail call i32 @llvm.umax.i32(i32 %28, i32 1)
-  %wide.trip.count = zext i32 %umax to i64
+  %wide.trip.count = zext i32 %28 to i64
   br label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %48, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
+._crit_edge:                                      ; preds = %48, %_ZN12hb_hashmap_tIjjLb1EE9prime_forEj.exit
   tail call void @free(ptr noundef %30) #16
   br label %49
 
@@ -15828,7 +15826,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
 41:                                               ; preds = %.thread, %37
   %.pn = phi i64 [ %17, %.thread ], [ %.pre, %37 ]
   %42 = phi ptr [ %21, %.thread ], [ %40, %37 ]
-  %.04383 = phi i32 [ %13, %.thread ], [ %storemerge.i.i.ph.sink.i.i, %37 ]
+  %.04483 = phi i32 [ %13, %.thread ], [ %storemerge.i.i.ph.sink.i.i, %37 ]
   %43 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %10, i64 %.pn
   %44 = load i32, ptr %1, align 4, !tbaa !93
   %45 = and i32 %44, 511
@@ -15886,19 +15884,19 @@ thread-pre-split.i:                               ; preds = %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %41
   store i32 -1, ptr %1, align 4, !tbaa !93
-  %70 = add i32 %.04383, 1
+  %70 = add i32 %.04483, 1
   %.pre71 = load i32, ptr %14, align 4, !tbaa !522
   br label %71
 
 71:                                               ; preds = %.loopexit, %37
   %72 = phi ptr [ %42, %.loopexit ], [ %40, %37 ]
   %73 = phi i32 [ %.pre71, %.loopexit ], [ %15, %37 ]
-  %.144 = phi i32 [ %70, %.loopexit ], [ %storemerge.i.i.ph.sink.i.i, %37 ]
-  %74 = icmp ult i32 %.144, %73
+  %.145 = phi i32 [ %70, %.loopexit ], [ %storemerge.i.i.ph.sink.i.i, %37 ]
+  %74 = icmp ult i32 %.145, %73
   br i1 %74, label %.lr.ph62, label %._crit_edge63
 
 .lr.ph62:                                         ; preds = %71, %.critedge31
-  %.260 = phi i32 [ %94, %.critedge31 ], [ %.144, %71 ]
+  %.260 = phi i32 [ %94, %.critedge31 ], [ %.145, %71 ]
   %75 = zext i32 %.260 to i64
   %76 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %10, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
@@ -15917,8 +15915,8 @@ thread-pre-split.i:                               ; preds = %.lr.ph
 
 85:                                               ; preds = %82
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i32, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i34, 8
-  br i1 %exitcond.i, label %.critedge31, label %82, !llvm.loop !558
+  %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 8
+  br i1 %exitcond.not.i35, label %.critedge31, label %82, !llvm.loop !558
 
 _ZNK13hb_bit_page_t7get_minEv.exit:               ; preds = %82
   %86 = trunc nuw nsw i64 %indvars.iv.i32 to i32
@@ -16039,29 +16037,29 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18:     ; preds = %8, %_ZNK16hb_vector
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %23
 
-23:                                               ; preds = %32, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18
-  %indvars.iv.i = phi i64 [ 0, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18 ], [ %indvars.iv.next.i, %32 ]
+23:                                               ; preds = %26, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18
+  %indvars.iv.i = phi i64 [ 0, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18 ], [ %indvars.iv.next.i, %26 ]
   %24 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8, !tbaa !528
   %.not.i15 = icmp eq i64 %25, 0
-  br i1 %.not.i15, label %32, label %26
+  br i1 %.not.i15, label %26, label %27
 
 26:                                               ; preds = %23
-  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %28 = shl nuw nsw i32 %27, 6
-  %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %25, i1 true)
-  %30 = trunc nuw nsw i64 %29 to i32
-  %31 = or disjoint i32 %28, %30
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %exitcond.not.i, label %.loopexit, label %23, !llvm.loop !558
+
+27:                                               ; preds = %23
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %29 = shl nuw nsw i32 %28, 6
+  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %25, i1 true)
+  %31 = trunc nuw nsw i64 %30 to i32
+  %32 = or disjoint i32 %29, %31
   br label %.loopexit
 
-32:                                               ; preds = %23
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %.loopexit, label %23, !llvm.loop !558
-
-.loopexit:                                        ; preds = %32, %26
-  %spec.select.i = phi i32 [ %31, %26 ], [ -1, %32 ]
-  %33 = add i32 %spec.select.i, %21
+.loopexit:                                        ; preds = %26, %27
+  %33 = phi i32 [ %32, %27 ], [ -1, %26 ]
+  %34 = add i32 %33, %21
   br label %.loopexit24
 
 .thread:                                          ; preds = %8, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread
@@ -16070,7 +16068,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18:     ; preds = %8, %_ZNK16hb_vector
   br i1 %exitcond.not, label %.loopexit24, label %8, !llvm.loop !562
 
 .loopexit24:                                      ; preds = %.thread, %1, %.loopexit
-  %spec.select = phi i32 [ %33, %.loopexit ], [ -1, %1 ], [ -1, %.thread ]
+  %spec.select = phi i32 [ %34, %.loopexit ], [ -1, %1 ], [ -1, %.thread ]
   ret i32 %spec.select
 }
 

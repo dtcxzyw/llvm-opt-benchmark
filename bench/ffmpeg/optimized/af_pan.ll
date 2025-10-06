@@ -111,8 +111,8 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %30
   %33 = call ptr @av_strtok(ptr noundef null, ptr noundef nonnull @.str.18, ptr noundef nonnull %5) #8
   store ptr %33, ptr %4, align 8, !tbaa !26
-  %.not5190 = icmp eq ptr %33, null
-  br i1 %.not5190, label %._crit_edge, label %.lr.ph
+  %.not5189 = icmp eq ptr %33, null
+  br i1 %.not5189, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %34 = getelementptr inbounds nuw i8, ptr %15, i64 32808

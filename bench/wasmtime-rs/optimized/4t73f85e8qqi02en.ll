@@ -2812,8 +2812,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   %.pn.i.i.i.i.i = phi i64 [ 4251908455624454872, %6 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %8
   %11 = getelementptr inbounds i8, ptr %9, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i33.i.i.i.i = load <16 x i8>, ptr %11, align 1, !noalias !475
-  %12 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i.i, splat (i8 29)
+  %.0.copyload.i29.i.i.i.i = load <16 x i8>, ptr %11, align 1, !noalias !475
+  %12 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 29)
   %13 = bitcast <16 x i1> %12 to i16
   br label %14
 
@@ -2823,7 +2823,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   br i1 %.not.i4.i.i.i.i, label %15, label %18
 
 15:                                               ; preds = %14
-  %16 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i.i, splat (i8 -1)
+  %16 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 -1)
   %17 = bitcast <16 x i1> %16 to i16
   %.not.i.i.i.i.i = icmp eq i16 %17, 0
   br i1 %.not.i.i.i.i.i, label %29, label %_ZN18tracing_subscriber8registry10extensions15ExtensionsInner3get17hc0c509c43810c668E.llvm.1804880793895523134.exit
@@ -2889,8 +2889,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   %.pn.i.i.i.i.i = phi i64 [ 6682099342275806383, %6 ], [ %31, %29 ]
   %.sroa.01.0.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %8
   %11 = getelementptr inbounds i8, ptr %9, i64 %.sroa.01.0.i.i.i.i.i
-  %.0.copyload.i33.i.i.i.i = load <16 x i8>, ptr %11, align 1, !noalias !514
-  %12 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i.i, splat (i8 46)
+  %.0.copyload.i29.i.i.i.i = load <16 x i8>, ptr %11, align 1, !noalias !514
+  %12 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 46)
   %13 = bitcast <16 x i1> %12 to i16
   br label %14
 
@@ -2900,7 +2900,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   br i1 %.not.i4.i.i.i.i, label %15, label %18
 
 15:                                               ; preds = %14
-  %16 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i.i, splat (i8 -1)
+  %16 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i.i, splat (i8 -1)
   %17 = bitcast <16 x i1> %16 to i16
   %.not.i.i.i.i.i = icmp eq i16 %17, 0
   br i1 %.not.i.i.i.i.i, label %29, label %_ZN18tracing_subscriber8registry10extensions15ExtensionsInner3get17h737d5dbf1a3d24ffE.llvm.1804880793895523134.exit
@@ -3099,8 +3099,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   %.pn.i.i.i.i = phi i64 [ 6682099342275806383, %5 ], [ %30, %28 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i33.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !585
-  %11 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i, splat (i8 46)
+  %.0.copyload.i29.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !585
+  %11 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 46)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
@@ -3110,7 +3110,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   br i1 %.not.i4.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %28, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5c85fd7a4ae56b7cE.llvm.1804880793895523134.exit.thread"
@@ -3174,8 +3174,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   %.pn.i.i.i.i = phi i64 [ 4251908455624454872, %5 ], [ %30, %28 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %7
   %10 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i33.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !619
-  %11 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i, splat (i8 29)
+  %.0.copyload.i29.i.i.i = load <16 x i8>, ptr %10, align 1, !noalias !619
+  %11 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 29)
   %12 = bitcast <16 x i1> %11 to i16
   br label %13
 
@@ -3185,7 +3185,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN18tracing_subs
   br i1 %.not.i4.i.i.i, label %14, label %17
 
 14:                                               ; preds = %13
-  %15 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i, splat (i8 -1)
+  %15 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %16 = bitcast <16 x i1> %15 to i16
   %.not.i.i.i.i = icmp eq i16 %16, 0
   br i1 %.not.i.i.i.i, label %28, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17h5c85fd7a4ae56b7cE.llvm.1804880793895523134.exit.thread"
@@ -4502,8 +4502,8 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ma
   %.pn.i.i.i = phi i64 [ %8, %6 ], [ %35, %33 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %12
   %15 = getelementptr inbounds i8, ptr %13, i64 %.sroa.01.0.i.i.i
-  %.0.copyload.i33.i.i = load <16 x i8>, ptr %15, align 1, !noalias !778
-  %16 = icmp eq <16 x i8> %.0.copyload.i33.i.i, %.15.vec.insert.i.i.i
+  %.0.copyload.i29.i.i = load <16 x i8>, ptr %15, align 1, !noalias !778
+  %16 = icmp eq <16 x i8> %.0.copyload.i29.i.i, %.15.vec.insert.i.i.i
   %17 = bitcast <16 x i1> %16 to i16
   br label %18
 
@@ -4513,7 +4513,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN9hashbrown3ma
   br i1 %.not.i4.i.i, label %19, label %22
 
 19:                                               ; preds = %18
-  %20 = icmp eq <16 x i8> %.0.copyload.i33.i.i, splat (i8 -1)
+  %20 = icmp eq <16 x i8> %.0.copyload.i29.i.i, splat (i8 -1)
   %21 = bitcast <16 x i1> %20 to i16
   %.not.i.i.i = icmp eq i16 %21, 0
   br i1 %.not.i.i.i, label %33, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hf416bc1ed8efc2efE.llvm.1804880793895523134.exit"
@@ -4572,8 +4572,8 @@ define hidden noundef align 16 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3r
   %.pn.i.i = phi i64 [ %1, %3 ], [ %31, %29 ]
   %.sroa.01.0.i.i = and i64 %.pn.i.i, %7
   %11 = getelementptr inbounds i8, ptr %8, i64 %.sroa.01.0.i.i
-  %.0.copyload.i33.i = load <16 x i8>, ptr %11, align 1, !noalias !800
-  %12 = icmp eq <16 x i8> %.0.copyload.i33.i, %.15.vec.insert.i.i
+  %.0.copyload.i29.i = load <16 x i8>, ptr %11, align 1, !noalias !800
+  %12 = icmp eq <16 x i8> %.0.copyload.i29.i, %.15.vec.insert.i.i
   %13 = bitcast <16 x i1> %12 to i16
   br label %14
 
@@ -4583,7 +4583,7 @@ define hidden noundef align 16 dereferenceable_or_null(32) ptr @"_ZN9hashbrown3r
   br i1 %.not.i4.i, label %15, label %18
 
 15:                                               ; preds = %14
-  %16 = icmp eq <16 x i8> %.0.copyload.i33.i, splat (i8 -1)
+  %16 = icmp eq <16 x i8> %.0.copyload.i29.i, splat (i8 -1)
   %17 = bitcast <16 x i1> %16 to i16
   %.not.i.i = icmp eq i16 %17, 0
   br i1 %.not.i.i, label %29, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h3394005d262c9bf8E.exit"

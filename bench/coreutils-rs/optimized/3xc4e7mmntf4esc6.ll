@@ -46,212 +46,212 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
-  %.034.ph117 = phi i64 [ %4, %.lr.ph.lr.ph ], [ %62, %.outer.backedge ]
-  %.035.in.ph116 = phi i64 [ %6, %.lr.ph.lr.ph ], [ %63, %.outer.backedge ]
+  %.034.ph117 = phi i64 [ %4, %.lr.ph.lr.ph ], [ %61, %.outer.backedge ]
+  %.035.in.ph116 = phi i64 [ %6, %.lr.ph.lr.ph ], [ %62, %.outer.backedge ]
   %.0.ph115 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.0.ph.be, %.outer.backedge ]
   %.068.ph114 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.068.ph.be, %.outer.backedge ]
   %10 = lshr exact i64 %.034.ph117, 1
   %11 = and i64 %10, 31
   %12 = icmp eq i64 %11, 31
-  br i1 %12, label %.lr.ph191, label %._crit_edge
+  br i1 %12, label %.lr.ph188, label %._crit_edge
 
 13:                                               ; preds = %.loopexit
-  %14 = add i32 %.0110190, 1
-  %15 = lshr exact i64 %66, 1
+  %14 = add i32 %.0110187, 1
+  %15 = lshr exact i64 %65, 1
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 31
-  br i1 %17, label %.lr.ph191, label %._crit_edge
+  br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
   %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
-  br label %74
+  br label %73
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.034112.lcssa = phi i64 [ %.034.ph117, %.lr.ph ], [ %66, %13 ]
-  %.035.in111.lcssa = phi i64 [ %.035.in.ph116, %.lr.ph ], [ %67, %13 ]
+  %.034112.lcssa = phi i64 [ %.034.ph117, %.lr.ph ], [ %65, %13 ]
+  %.035.in111.lcssa = phi i64 [ %.035.in.ph116, %.lr.ph ], [ %66, %13 ]
   %.0110.lcssa = phi i32 [ %.0.ph115, %.lr.ph ], [ %14, %13 ]
   %.lcssa = phi i64 [ %11, %.lr.ph ], [ %16, %13 ]
   %.035.le = inttoptr i64 %.035.in111.lcssa to ptr
-  %19 = icmp samesign ugt i64 %.lcssa, 29
+  %.not90 = icmp eq i64 %.lcssa, 30
   %.not = icmp eq ptr %.068.ph114, null
-  %or.cond = select i1 %19, i1 %.not, i1 false
-  br i1 %or.cond, label %27, label %25
+  %or.cond = select i1 %.not90, i1 %.not, i1 false
+  br i1 %or.cond, label %26, label %24
 
-.lr.ph191:                                        ; preds = %.lr.ph, %13
-  %.0110190 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
-  %20 = icmp ult i32 %.0110190, 7
-  br i1 %20, label %22, label %21
+.lr.ph188:                                        ; preds = %.lr.ph, %13
+  %.0110187 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
+  %19 = icmp ult i32 %.0110187, 7
+  br i1 %19, label %21, label %20
 
-21:                                               ; preds = %.lr.ph191
+20:                                               ; preds = %.lr.ph188
   invoke void @_ZN3std6thread9yield_now17h644406618513f1f1E()
-          to label %.loopexit unwind label %.loopexit90
+          to label %.loopexit unwind label %.loopexit91
 
-22:                                               ; preds = %.lr.ph191
-  %23 = mul nuw nsw i32 %.0110190, %.0110190
-  %.not.i = icmp eq i32 %.0110190, 0
+21:                                               ; preds = %.lr.ph188
+  %22 = mul nuw nsw i32 %.0110187, %.0110187
+  %.not.i = icmp eq i32 %.0110187, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
-  %.sroa.01.07.i = phi i32 [ %24, %.lr.ph.i ], [ 0, %22 ]
-  %24 = add nuw i32 %.sroa.01.07.i, 1
+.lr.ph.i:                                         ; preds = %21, %.lr.ph.i
+  %.sroa.01.06.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %21 ]
+  %23 = add nuw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #12
-  %exitcond.not.i = icmp eq i32 %24, %23
+  %exitcond.not.i = icmp eq i32 %23, %22
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
-25:                                               ; preds = %31, %._crit_edge
-  %.169 = phi ptr [ %29, %31 ], [ %.068.ph114, %._crit_edge ]
-  %26 = icmp eq i64 %.035.in111.lcssa, 0
-  br i1 %26, label %32, label %45
+24:                                               ; preds = %30, %._crit_edge
+  %.169 = phi ptr [ %28, %30 ], [ %.068.ph114, %._crit_edge ]
+  %25 = icmp eq i64 %.035.in111.lcssa, 0
+  br i1 %25, label %31, label %44
 
-27:                                               ; preds = %._crit_edge
-  %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %29 = tail call noundef align 8 dereferenceable_or_null(4224) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 4224, i64 noundef 8) #12
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.noexc46, label %31
+26:                                               ; preds = %._crit_edge
+  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %28 = tail call noundef align 8 dereferenceable_or_null(4224) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 4224, i64 noundef 8) #12
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.noexc46, label %30
 
-.noexc46:                                         ; preds = %27
+.noexc46:                                         ; preds = %26
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 4224) #19
   unreachable
 
-31:                                               ; preds = %27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4224) %29, i8 0, i64 4224, i1 false)
-  br label %25
+30:                                               ; preds = %26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4224) %28, i8 0, i64 4224, i1 false)
+  br label %24
 
-32:                                               ; preds = %25
-  %33 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %34 = tail call noundef align 8 dereferenceable_or_null(4224) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 4224, i64 noundef 8) #12
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %37
+31:                                               ; preds = %24
+  %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %33 = tail call noundef align 8 dereferenceable_or_null(4224) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 4224, i64 noundef 8) #12
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %32
+35:                                               ; preds = %31
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 4224) #19
           to label %.noexc47 unwind label %.loopexit.split-lp
 
-.noexc47:                                         ; preds = %36
+.noexc47:                                         ; preds = %35
   unreachable
 
-37:                                               ; preds = %32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4224) %34, i8 0, i64 4224, i1 false)
-  %38 = ptrtoint ptr %34 to i64
-  %39 = cmpxchg ptr %5, i64 0, i64 %38 release monotonic, align 8
-  %40 = extractvalue { i64, i1 } %39, 1
-  br i1 %40, label %41, label %42
+36:                                               ; preds = %31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(4224) %33, i8 0, i64 4224, i1 false)
+  %37 = ptrtoint ptr %33 to i64
+  %38 = cmpxchg ptr %5, i64 0, i64 %37 release monotonic, align 8
+  %39 = extractvalue { i64, i1 } %38, 1
+  br i1 %39, label %40, label %41
 
-41:                                               ; preds = %37
-  store atomic i64 %38, ptr %9 release, align 8
-  br label %45
+40:                                               ; preds = %36
+  store atomic i64 %37, ptr %9 release, align 8
+  br label %44
 
-42:                                               ; preds = %37
-  %43 = icmp eq ptr %.169, null
-  br i1 %43, label %.outer.backedge, label %44
+41:                                               ; preds = %36
+  %42 = icmp eq ptr %.169, null
+  br i1 %42, label %.outer.backedge, label %43
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   tail call void @__rust_dealloc(ptr noundef nonnull %.169, i64 noundef 4224, i64 noundef 8) #12
   br label %.outer.backedge
 
-45:                                               ; preds = %25, %41
-  %.1 = phi ptr [ %.035.le, %25 ], [ %34, %41 ]
-  %46 = add i64 %.034112.lcssa, 2
-  %47 = cmpxchg weak ptr %3, i64 %.034112.lcssa, i64 %46 seq_cst acquire, align 8
-  %48 = extractvalue { i64, i1 } %47, 1
-  br i1 %48, label %49, label %50
+44:                                               ; preds = %24, %40
+  %.1 = phi ptr [ %.035.le, %24 ], [ %33, %40 ]
+  %45 = add i64 %.034112.lcssa, 2
+  %46 = cmpxchg weak ptr %3, i64 %.034112.lcssa, i64 %45 seq_cst acquire, align 8
+  %47 = extractvalue { i64, i1 } %46, 1
+  br i1 %47, label %48, label %49
 
-49:                                               ; preds = %45
-  br i1 %19, label %59, label %.critedge41
+48:                                               ; preds = %44
+  br i1 %.not90, label %58, label %.critedge41
 
-50:                                               ; preds = %45
+49:                                               ; preds = %44
   %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0110.lcssa, i32 6)
-  %51 = mul nuw nsw i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i
+  %50 = mul nuw nsw i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i
   %.not.i54 = icmp eq i32 %.0110.lcssa, 0
   br i1 %.not.i54, label %.outer.backedge, label %.lr.ph.i55
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i55
-  %52 = add i32 %.0110.lcssa, 1
+  %51 = add i32 %.0110.lcssa, 1
   br label %.outer.backedge
 
-.lr.ph.i55:                                       ; preds = %50, %.lr.ph.i55
-  %.sroa.01.07.i56 = phi i32 [ %53, %.lr.ph.i55 ], [ 0, %50 ]
-  %53 = add nuw nsw i32 %.sroa.01.07.i56, 1
+.lr.ph.i55:                                       ; preds = %49, %.lr.ph.i55
+  %.sroa.01.06.i56 = phi i32 [ %52, %.lr.ph.i55 ], [ 0, %49 ]
+  %52 = add nuw nsw i32 %.sroa.01.06.i56, 1
   tail call void @llvm.x86.sse2.pause() #12
-  %exitcond.not.i57 = icmp eq i32 %53, %51
+  %exitcond.not.i57 = icmp eq i32 %52, %50
   br i1 %exitcond.not.i57, label %._crit_edge.loopexit.i, label %.lr.ph.i55
 
-54:                                               ; preds = %59
-  %55 = ptrtoint ptr %.169 to i64
-  store atomic i64 %55, ptr %5 release, align 8
-  %56 = atomicrmw add ptr %3, i64 2 release, align 8
-  store atomic i64 %55, ptr %.1 release, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.1, ptr %57, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 30, ptr %58, align 8
+53:                                               ; preds = %58
+  %54 = ptrtoint ptr %.169 to i64
+  store atomic i64 %54, ptr %5 release, align 8
+  %55 = atomicrmw add ptr %3, i64 2 release, align 8
+  store atomic i64 %54, ptr %.1 release, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %.1, ptr %56, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 30, ptr %57, align 8
   br label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit63"
 
-59:                                               ; preds = %49
-  %60 = icmp eq ptr %.169, null
-  br i1 %60, label %61, label %54
+58:                                               ; preds = %48
+  %59 = icmp eq ptr %.169, null
+  br i1 %59, label %60, label %53
 
-61:                                               ; preds = %59
+60:                                               ; preds = %58
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8eeaf8233fbd2de92f933fd42f957d3.2) #19
   unreachable
 
-.outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %50, %44, %42
-  %.068.ph.be = phi ptr [ %34, %42 ], [ %34, %44 ], [ %.169, %50 ], [ %.169, %._crit_edge.loopexit.i ]
-  %.0.ph.be = phi i32 [ %.0110.lcssa, %42 ], [ %.0110.lcssa, %44 ], [ 1, %50 ], [ %52, %._crit_edge.loopexit.i ]
-  %62 = load atomic i64, ptr %3 acquire, align 128
-  %63 = load atomic i64, ptr %5 acquire, align 8
-  %64 = and i64 %62, 1
-  %65 = icmp eq i64 %64, 0
-  br i1 %65, label %.lr.ph, label %.critedge
+.outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %49, %43, %41
+  %.068.ph.be = phi ptr [ %33, %41 ], [ %33, %43 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
+  %.0.ph.be = phi i32 [ %.0110.lcssa, %41 ], [ %.0110.lcssa, %43 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
+  %61 = load atomic i64, ptr %3 acquire, align 128
+  %62 = load atomic i64, ptr %5 acquire, align 8
+  %63 = and i64 %61, 1
+  %64 = icmp eq i64 %63, 0
+  br i1 %64, label %.lr.ph, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph.i, %21, %22
-  %66 = load atomic i64, ptr %3 acquire, align 128
-  %67 = load atomic i64, ptr %5 acquire, align 8
-  %68 = and i64 %66, 1
-  %69 = icmp eq i64 %68, 0
-  br i1 %69, label %13, label %.critedge
+.loopexit:                                        ; preds = %.lr.ph.i, %20, %21
+  %65 = load atomic i64, ptr %3 acquire, align 128
+  %66 = load atomic i64, ptr %5 acquire, align 8
+  %67 = and i64 %65, 1
+  %68 = icmp eq i64 %67, 0
+  br i1 %68, label %13, label %.critedge
 
-"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit62": ; preds = %.thread81, %70
+"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit62": ; preds = %.thread81, %69
   resume { ptr, i32 } %lpad.phi
 
-.loopexit90:                                      ; preds = %21
+.loopexit91:                                      ; preds = %20
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %69
 
-.loopexit.split-lp:                               ; preds = %36
+.loopexit.split-lp:                               ; preds = %35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %69
 
-70:                                               ; preds = %.loopexit.split-lp, %.loopexit90
-  %.2.ph = phi ptr [ %.068.ph114, %.loopexit90 ], [ %.169, %.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %71 = icmp eq ptr %.2.ph, null
-  br i1 %71, label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit62", label %.thread81
+69:                                               ; preds = %.loopexit.split-lp, %.loopexit91
+  %.2.ph = phi ptr [ %.068.ph114, %.loopexit91 ], [ %.169, %.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit91 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %70 = icmp eq ptr %.2.ph, null
+  br i1 %70, label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit62", label %.thread81
 
-.thread81:                                        ; preds = %70
+.thread81:                                        ; preds = %69
   tail call void @__rust_dealloc(ptr noundef nonnull %.2.ph, i64 noundef 4224, i64 noundef 8) #12
   br label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit62"
 
-"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit63": ; preds = %76, %74, %54
+"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit63": ; preds = %75, %73, %53
   ret i1 true
 
-.critedge41:                                      ; preds = %49
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.1, ptr %72, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.lcssa, ptr %73, align 8
-  br label %74
+.critedge41:                                      ; preds = %48
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %.1, ptr %71, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.lcssa, ptr %72, align 8
+  br label %73
 
-74:                                               ; preds = %.critedge41, %.critedge
+73:                                               ; preds = %.critedge41, %.critedge
   %.370 = phi ptr [ %.169, %.critedge41 ], [ %.068.ph.lcssa109, %.critedge ]
-  %75 = icmp eq ptr %.370, null
-  br i1 %75, label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit63", label %76
+  %74 = icmp eq ptr %.370, null
+  br i1 %74, label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit63", label %75
 
-76:                                               ; preds = %74
+75:                                               ; preds = %73
   tail call void @__rust_dealloc(ptr noundef nonnull %.370, i64 noundef 4224, i64 noundef 8) #12
   br label %"_ZN4core3ptr156drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$$LP$usize$C$uu_sort..chunks..RecycledChunk$RP$$GT$$GT$$GT$$GT$17hba5911d02fa3d37bE.exit63"
 }
@@ -271,213 +271,213 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
-  %.034.ph117 = phi i64 [ %4, %.lr.ph.lr.ph ], [ %63, %.outer.backedge ]
-  %.035.in.ph116 = phi i64 [ %6, %.lr.ph.lr.ph ], [ %64, %.outer.backedge ]
+  %.034.ph117 = phi i64 [ %4, %.lr.ph.lr.ph ], [ %62, %.outer.backedge ]
+  %.035.in.ph116 = phi i64 [ %6, %.lr.ph.lr.ph ], [ %63, %.outer.backedge ]
   %.0.ph115 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.0.ph.be, %.outer.backedge ]
   %.068.ph114 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.068.ph.be, %.outer.backedge ]
   %10 = lshr exact i64 %.034.ph117, 1
   %11 = and i64 %10, 31
   %12 = icmp eq i64 %11, 31
-  br i1 %12, label %.lr.ph191, label %._crit_edge
+  br i1 %12, label %.lr.ph188, label %._crit_edge
 
 13:                                               ; preds = %.loopexit
-  %14 = add i32 %.0110190, 1
-  %15 = lshr exact i64 %67, 1
+  %14 = add i32 %.0110187, 1
+  %15 = lshr exact i64 %66, 1
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 31
-  br i1 %17, label %.lr.ph191, label %._crit_edge
+  br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
   %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
-  br label %75
+  br label %74
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.034112.lcssa = phi i64 [ %.034.ph117, %.lr.ph ], [ %67, %13 ]
-  %.035.in111.lcssa = phi i64 [ %.035.in.ph116, %.lr.ph ], [ %68, %13 ]
+  %.034112.lcssa = phi i64 [ %.034.ph117, %.lr.ph ], [ %66, %13 ]
+  %.035.in111.lcssa = phi i64 [ %.035.in.ph116, %.lr.ph ], [ %67, %13 ]
   %.0110.lcssa = phi i32 [ %.0.ph115, %.lr.ph ], [ %14, %13 ]
   %.lcssa = phi i64 [ %11, %.lr.ph ], [ %16, %13 ]
   %.035.le = inttoptr i64 %.035.in111.lcssa to ptr
-  %19 = icmp samesign ugt i64 %.lcssa, 29
+  %.not90 = icmp eq i64 %.lcssa, 30
   %.not = icmp eq ptr %.068.ph114, null
-  %or.cond = select i1 %19, i1 %.not, i1 false
-  br i1 %or.cond, label %27, label %25
+  %or.cond = select i1 %.not90, i1 %.not, i1 false
+  br i1 %or.cond, label %26, label %24
 
-.lr.ph191:                                        ; preds = %.lr.ph, %13
-  %.0110190 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
-  %20 = icmp ult i32 %.0110190, 7
-  br i1 %20, label %22, label %21
+.lr.ph188:                                        ; preds = %.lr.ph, %13
+  %.0110187 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
+  %19 = icmp ult i32 %.0110187, 7
+  br i1 %19, label %21, label %20
 
-21:                                               ; preds = %.lr.ph191
+20:                                               ; preds = %.lr.ph188
   invoke void @_ZN3std6thread9yield_now17h644406618513f1f1E()
-          to label %.loopexit unwind label %.loopexit90
+          to label %.loopexit unwind label %.loopexit91
 
-22:                                               ; preds = %.lr.ph191
-  %23 = mul nuw nsw i32 %.0110190, %.0110190
-  %.not.i = icmp eq i32 %.0110190, 0
+21:                                               ; preds = %.lr.ph188
+  %22 = mul nuw nsw i32 %.0110187, %.0110187
+  %.not.i = icmp eq i32 %.0110187, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
-  %.sroa.01.07.i = phi i32 [ %24, %.lr.ph.i ], [ 0, %22 ]
-  %24 = add nuw i32 %.sroa.01.07.i, 1
+.lr.ph.i:                                         ; preds = %21, %.lr.ph.i
+  %.sroa.01.06.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %21 ]
+  %23 = add nuw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #12
-  %exitcond.not.i = icmp eq i32 %24, %23
+  %exitcond.not.i = icmp eq i32 %23, %22
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
-25:                                               ; preds = %31, %._crit_edge
-  %.169 = phi ptr [ %29, %31 ], [ %.068.ph114, %._crit_edge ]
-  %26 = icmp eq i64 %.035.in111.lcssa, 0
-  br i1 %26, label %32, label %45
+24:                                               ; preds = %30, %._crit_edge
+  %.169 = phi ptr [ %28, %30 ], [ %.068.ph114, %._crit_edge ]
+  %25 = icmp eq i64 %.035.in111.lcssa, 0
+  br i1 %25, label %31, label %44
 
-27:                                               ; preds = %._crit_edge
-  %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %29 = tail call noundef align 8 dereferenceable_or_null(3976) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 3976, i64 noundef 8) #12
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.noexc46, label %31
+26:                                               ; preds = %._crit_edge
+  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %28 = tail call noundef align 8 dereferenceable_or_null(3976) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 3976, i64 noundef 8) #12
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.noexc46, label %30
 
-.noexc46:                                         ; preds = %27
+.noexc46:                                         ; preds = %26
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 3976) #19
   unreachable
 
-31:                                               ; preds = %27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3976) %29, i8 0, i64 3976, i1 false)
-  br label %25
+30:                                               ; preds = %26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3976) %28, i8 0, i64 3976, i1 false)
+  br label %24
 
-32:                                               ; preds = %25
-  %33 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %34 = tail call noundef align 8 dereferenceable_or_null(3976) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 3976, i64 noundef 8) #12
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %37
+31:                                               ; preds = %24
+  %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %33 = tail call noundef align 8 dereferenceable_or_null(3976) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 3976, i64 noundef 8) #12
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %32
+35:                                               ; preds = %31
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 3976) #19
           to label %.noexc47 unwind label %.loopexit.split-lp
 
-.noexc47:                                         ; preds = %36
+.noexc47:                                         ; preds = %35
   unreachable
 
-37:                                               ; preds = %32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3976) %34, i8 0, i64 3976, i1 false)
-  %38 = ptrtoint ptr %34 to i64
-  %39 = cmpxchg ptr %5, i64 0, i64 %38 release monotonic, align 8
-  %40 = extractvalue { i64, i1 } %39, 1
-  br i1 %40, label %41, label %42
+36:                                               ; preds = %31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(3976) %33, i8 0, i64 3976, i1 false)
+  %37 = ptrtoint ptr %33 to i64
+  %38 = cmpxchg ptr %5, i64 0, i64 %37 release monotonic, align 8
+  %39 = extractvalue { i64, i1 } %38, 1
+  br i1 %39, label %40, label %41
 
-41:                                               ; preds = %37
-  store atomic i64 %38, ptr %9 release, align 8
-  br label %45
+40:                                               ; preds = %36
+  store atomic i64 %37, ptr %9 release, align 8
+  br label %44
 
-42:                                               ; preds = %37
-  %43 = icmp eq ptr %.169, null
-  br i1 %43, label %.outer.backedge, label %44
+41:                                               ; preds = %36
+  %42 = icmp eq ptr %.169, null
+  br i1 %42, label %.outer.backedge, label %43
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   tail call void @__rust_dealloc(ptr noundef nonnull %.169, i64 noundef 3976, i64 noundef 8) #12
   br label %.outer.backedge
 
-45:                                               ; preds = %25, %41
-  %.1 = phi ptr [ %.035.le, %25 ], [ %34, %41 ]
-  %46 = add i64 %.034112.lcssa, 2
-  %47 = cmpxchg weak ptr %3, i64 %.034112.lcssa, i64 %46 seq_cst acquire, align 8
-  %48 = extractvalue { i64, i1 } %47, 1
-  br i1 %48, label %49, label %50
+44:                                               ; preds = %24, %40
+  %.1 = phi ptr [ %.035.le, %24 ], [ %33, %40 ]
+  %45 = add i64 %.034112.lcssa, 2
+  %46 = cmpxchg weak ptr %3, i64 %.034112.lcssa, i64 %45 seq_cst acquire, align 8
+  %47 = extractvalue { i64, i1 } %46, 1
+  br i1 %47, label %48, label %49
 
-49:                                               ; preds = %45
-  br i1 %19, label %60, label %.critedge41
+48:                                               ; preds = %44
+  br i1 %.not90, label %59, label %.critedge41
 
-50:                                               ; preds = %45
+49:                                               ; preds = %44
   %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0110.lcssa, i32 6)
-  %51 = mul nuw nsw i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i
+  %50 = mul nuw nsw i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i
   %.not.i54 = icmp eq i32 %.0110.lcssa, 0
   br i1 %.not.i54, label %.outer.backedge, label %.lr.ph.i55
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i55
-  %52 = add i32 %.0110.lcssa, 1
+  %51 = add i32 %.0110.lcssa, 1
   br label %.outer.backedge
 
-.lr.ph.i55:                                       ; preds = %50, %.lr.ph.i55
-  %.sroa.01.07.i56 = phi i32 [ %53, %.lr.ph.i55 ], [ 0, %50 ]
-  %53 = add nuw nsw i32 %.sroa.01.07.i56, 1
+.lr.ph.i55:                                       ; preds = %49, %.lr.ph.i55
+  %.sroa.01.06.i56 = phi i32 [ %52, %.lr.ph.i55 ], [ 0, %49 ]
+  %52 = add nuw nsw i32 %.sroa.01.06.i56, 1
   tail call void @llvm.x86.sse2.pause() #12
-  %exitcond.not.i57 = icmp eq i32 %53, %51
+  %exitcond.not.i57 = icmp eq i32 %52, %50
   br i1 %exitcond.not.i57, label %._crit_edge.loopexit.i, label %.lr.ph.i55
 
-54:                                               ; preds = %60
-  %55 = ptrtoint ptr %.169 to i64
-  store atomic i64 %55, ptr %5 release, align 8
-  %56 = atomicrmw add ptr %3, i64 2 release, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %.1, i64 3968
-  store atomic i64 %55, ptr %57 release, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.1, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 30, ptr %59, align 8
+53:                                               ; preds = %59
+  %54 = ptrtoint ptr %.169 to i64
+  store atomic i64 %54, ptr %5 release, align 8
+  %55 = atomicrmw add ptr %3, i64 2 release, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %.1, i64 3968
+  store atomic i64 %54, ptr %56 release, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %.1, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 30, ptr %58, align 8
   br label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit63"
 
-60:                                               ; preds = %49
-  %61 = icmp eq ptr %.169, null
-  br i1 %61, label %62, label %54
+59:                                               ; preds = %48
+  %60 = icmp eq ptr %.169, null
+  br i1 %60, label %61, label %53
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8eeaf8233fbd2de92f933fd42f957d3.2) #19
   unreachable
 
-.outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %50, %44, %42
-  %.068.ph.be = phi ptr [ %34, %42 ], [ %34, %44 ], [ %.169, %50 ], [ %.169, %._crit_edge.loopexit.i ]
-  %.0.ph.be = phi i32 [ %.0110.lcssa, %42 ], [ %.0110.lcssa, %44 ], [ 1, %50 ], [ %52, %._crit_edge.loopexit.i ]
-  %63 = load atomic i64, ptr %3 acquire, align 128
-  %64 = load atomic i64, ptr %5 acquire, align 8
-  %65 = and i64 %63, 1
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %.lr.ph, label %.critedge
+.outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %49, %43, %41
+  %.068.ph.be = phi ptr [ %33, %41 ], [ %33, %43 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
+  %.0.ph.be = phi i32 [ %.0110.lcssa, %41 ], [ %.0110.lcssa, %43 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
+  %62 = load atomic i64, ptr %3 acquire, align 128
+  %63 = load atomic i64, ptr %5 acquire, align 8
+  %64 = and i64 %62, 1
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %.lr.ph, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph.i, %21, %22
-  %67 = load atomic i64, ptr %3 acquire, align 128
-  %68 = load atomic i64, ptr %5 acquire, align 8
-  %69 = and i64 %67, 1
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %13, label %.critedge
+.loopexit:                                        ; preds = %.lr.ph.i, %20, %21
+  %66 = load atomic i64, ptr %3 acquire, align 128
+  %67 = load atomic i64, ptr %5 acquire, align 8
+  %68 = and i64 %66, 1
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %13, label %.critedge
 
-"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit62": ; preds = %.thread81, %71
+"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit62": ; preds = %.thread81, %70
   resume { ptr, i32 } %lpad.phi
 
-.loopexit90:                                      ; preds = %21
+.loopexit91:                                      ; preds = %20
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %70
 
-.loopexit.split-lp:                               ; preds = %36
+.loopexit.split-lp:                               ; preds = %35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %70
 
-71:                                               ; preds = %.loopexit.split-lp, %.loopexit90
-  %.2.ph = phi ptr [ %.068.ph114, %.loopexit90 ], [ %.169, %.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %72 = icmp eq ptr %.2.ph, null
-  br i1 %72, label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit62", label %.thread81
+70:                                               ; preds = %.loopexit.split-lp, %.loopexit91
+  %.2.ph = phi ptr [ %.068.ph114, %.loopexit91 ], [ %.169, %.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit91 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %71 = icmp eq ptr %.2.ph, null
+  br i1 %71, label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit62", label %.thread81
 
-.thread81:                                        ; preds = %71
+.thread81:                                        ; preds = %70
   tail call void @__rust_dealloc(ptr noundef nonnull %.2.ph, i64 noundef 3976, i64 noundef 8) #12
   br label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit62"
 
-"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit63": ; preds = %77, %75, %54
+"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit63": ; preds = %76, %74, %53
   ret i1 true
 
-.critedge41:                                      ; preds = %49
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.1, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.lcssa, ptr %74, align 8
-  br label %75
+.critedge41:                                      ; preds = %48
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %.1, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.lcssa, ptr %73, align 8
+  br label %74
 
-75:                                               ; preds = %.critedge41, %.critedge
+74:                                               ; preds = %.critedge41, %.critedge
   %.370 = phi ptr [ %.169, %.critedge41 ], [ %.068.ph.lcssa109, %.critedge ]
-  %76 = icmp eq ptr %.370, null
-  br i1 %76, label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit63", label %77
+  %75 = icmp eq ptr %.370, null
+  br i1 %75, label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit63", label %76
 
-77:                                               ; preds = %75
+76:                                               ; preds = %74
   tail call void @__rust_dealloc(ptr noundef nonnull %.370, i64 noundef 3976, i64 noundef 8) #12
   br label %"_ZN4core3ptr140drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..RecycledChunk$GT$$GT$$GT$$GT$17h9bda705531398f5cE.exit63"
 }
@@ -497,213 +497,213 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$10sta
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer.backedge
-  %.034.ph117 = phi i64 [ %4, %.lr.ph.lr.ph ], [ %63, %.outer.backedge ]
-  %.035.in.ph116 = phi i64 [ %6, %.lr.ph.lr.ph ], [ %64, %.outer.backedge ]
+  %.034.ph117 = phi i64 [ %4, %.lr.ph.lr.ph ], [ %62, %.outer.backedge ]
+  %.035.in.ph116 = phi i64 [ %6, %.lr.ph.lr.ph ], [ %63, %.outer.backedge ]
   %.0.ph115 = phi i32 [ 0, %.lr.ph.lr.ph ], [ %.0.ph.be, %.outer.backedge ]
   %.068.ph114 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.068.ph.be, %.outer.backedge ]
   %10 = lshr exact i64 %.034.ph117, 1
   %11 = and i64 %10, 31
   %12 = icmp eq i64 %11, 31
-  br i1 %12, label %.lr.ph191, label %._crit_edge
+  br i1 %12, label %.lr.ph188, label %._crit_edge
 
 13:                                               ; preds = %.loopexit
-  %14 = add i32 %.0110190, 1
-  %15 = lshr exact i64 %67, 1
+  %14 = add i32 %.0110187, 1
+  %15 = lshr exact i64 %66, 1
   %16 = and i64 %15, 31
   %17 = icmp eq i64 %16, 31
-  br i1 %17, label %.lr.ph191, label %._crit_edge
+  br i1 %17, label %.lr.ph188, label %._crit_edge
 
 .critedge:                                        ; preds = %.outer.backedge, %.loopexit, %2
   %.068.ph.lcssa109 = phi ptr [ null, %2 ], [ %.068.ph114, %.loopexit ], [ %.068.ph.be, %.outer.backedge ]
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr null, ptr %18, align 8
-  br label %75
+  br label %74
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph
-  %.034112.lcssa = phi i64 [ %.034.ph117, %.lr.ph ], [ %67, %13 ]
-  %.035.in111.lcssa = phi i64 [ %.035.in.ph116, %.lr.ph ], [ %68, %13 ]
+  %.034112.lcssa = phi i64 [ %.034.ph117, %.lr.ph ], [ %66, %13 ]
+  %.035.in111.lcssa = phi i64 [ %.035.in.ph116, %.lr.ph ], [ %67, %13 ]
   %.0110.lcssa = phi i32 [ %.0.ph115, %.lr.ph ], [ %14, %13 ]
   %.lcssa = phi i64 [ %11, %.lr.ph ], [ %16, %13 ]
   %.035.le = inttoptr i64 %.035.in111.lcssa to ptr
-  %19 = icmp samesign ugt i64 %.lcssa, 29
+  %.not90 = icmp eq i64 %.lcssa, 30
   %.not = icmp eq ptr %.068.ph114, null
-  %or.cond = select i1 %19, i1 %.not, i1 false
-  br i1 %or.cond, label %27, label %25
+  %or.cond = select i1 %.not90, i1 %.not, i1 false
+  br i1 %or.cond, label %26, label %24
 
-.lr.ph191:                                        ; preds = %.lr.ph, %13
-  %.0110190 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
-  %20 = icmp ult i32 %.0110190, 7
-  br i1 %20, label %22, label %21
+.lr.ph188:                                        ; preds = %.lr.ph, %13
+  %.0110187 = phi i32 [ %14, %13 ], [ %.0.ph115, %.lr.ph ]
+  %19 = icmp ult i32 %.0110187, 7
+  br i1 %19, label %21, label %20
 
-21:                                               ; preds = %.lr.ph191
+20:                                               ; preds = %.lr.ph188
   invoke void @_ZN3std6thread9yield_now17h644406618513f1f1E()
-          to label %.loopexit unwind label %.loopexit90
+          to label %.loopexit unwind label %.loopexit91
 
-22:                                               ; preds = %.lr.ph191
-  %23 = mul nuw nsw i32 %.0110190, %.0110190
-  %.not.i = icmp eq i32 %.0110190, 0
+21:                                               ; preds = %.lr.ph188
+  %22 = mul nuw nsw i32 %.0110187, %.0110187
+  %.not.i = icmp eq i32 %.0110187, 0
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %22, %.lr.ph.i
-  %.sroa.01.07.i = phi i32 [ %24, %.lr.ph.i ], [ 0, %22 ]
-  %24 = add nuw i32 %.sroa.01.07.i, 1
+.lr.ph.i:                                         ; preds = %21, %.lr.ph.i
+  %.sroa.01.06.i = phi i32 [ %23, %.lr.ph.i ], [ 0, %21 ]
+  %23 = add nuw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #12
-  %exitcond.not.i = icmp eq i32 %24, %23
+  %exitcond.not.i = icmp eq i32 %23, %22
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
-25:                                               ; preds = %31, %._crit_edge
-  %.169 = phi ptr [ %29, %31 ], [ %.068.ph114, %._crit_edge ]
-  %26 = icmp eq i64 %.035.in111.lcssa, 0
-  br i1 %26, label %32, label %45
+24:                                               ; preds = %30, %._crit_edge
+  %.169 = phi ptr [ %28, %30 ], [ %.068.ph114, %._crit_edge ]
+  %25 = icmp eq i64 %.035.in111.lcssa, 0
+  br i1 %25, label %31, label %44
 
-27:                                               ; preds = %._crit_edge
-  %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %29 = tail call noundef align 8 dereferenceable_or_null(504) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 504, i64 noundef 8) #12
-  %30 = icmp eq ptr %29, null
-  br i1 %30, label %.noexc46, label %31
+26:                                               ; preds = %._crit_edge
+  %27 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %28 = tail call noundef align 8 dereferenceable_or_null(504) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 504, i64 noundef 8) #12
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %.noexc46, label %30
 
-.noexc46:                                         ; preds = %27
+.noexc46:                                         ; preds = %26
   tail call void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 504) #19
   unreachable
 
-31:                                               ; preds = %27
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %29, i8 0, i64 504, i1 false)
-  br label %25
+30:                                               ; preds = %26
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %28, i8 0, i64 504, i1 false)
+  br label %24
 
-32:                                               ; preds = %25
-  %33 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
-  %34 = tail call noundef align 8 dereferenceable_or_null(504) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 504, i64 noundef 8) #12
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %36, label %37
+31:                                               ; preds = %24
+  %32 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
+  %33 = tail call noundef align 8 dereferenceable_or_null(504) ptr @__rust_alloc(i64 noundef range(i64 504, 4225) 504, i64 noundef 8) #12
+  %34 = icmp eq ptr %33, null
+  br i1 %34, label %35, label %36
 
-36:                                               ; preds = %32
+35:                                               ; preds = %31
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h426354a964e0805cE(i64 noundef 8, i64 noundef 504) #19
           to label %.noexc47 unwind label %.loopexit.split-lp
 
-.noexc47:                                         ; preds = %36
+.noexc47:                                         ; preds = %35
   unreachable
 
-37:                                               ; preds = %32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %34, i8 0, i64 504, i1 false)
-  %38 = ptrtoint ptr %34 to i64
-  %39 = cmpxchg ptr %5, i64 0, i64 %38 release monotonic, align 8
-  %40 = extractvalue { i64, i1 } %39, 1
-  br i1 %40, label %41, label %42
+36:                                               ; preds = %31
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(504) %33, i8 0, i64 504, i1 false)
+  %37 = ptrtoint ptr %33 to i64
+  %38 = cmpxchg ptr %5, i64 0, i64 %37 release monotonic, align 8
+  %39 = extractvalue { i64, i1 } %38, 1
+  br i1 %39, label %40, label %41
 
-41:                                               ; preds = %37
-  store atomic i64 %38, ptr %9 release, align 8
-  br label %45
+40:                                               ; preds = %36
+  store atomic i64 %37, ptr %9 release, align 8
+  br label %44
 
-42:                                               ; preds = %37
-  %43 = icmp eq ptr %.169, null
-  br i1 %43, label %.outer.backedge, label %44
+41:                                               ; preds = %36
+  %42 = icmp eq ptr %.169, null
+  br i1 %42, label %.outer.backedge, label %43
 
-44:                                               ; preds = %42
+43:                                               ; preds = %41
   tail call void @__rust_dealloc(ptr noundef nonnull %.169, i64 noundef 504, i64 noundef 8) #12
   br label %.outer.backedge
 
-45:                                               ; preds = %25, %41
-  %.1 = phi ptr [ %.035.le, %25 ], [ %34, %41 ]
-  %46 = add i64 %.034112.lcssa, 2
-  %47 = cmpxchg weak ptr %3, i64 %.034112.lcssa, i64 %46 seq_cst acquire, align 8
-  %48 = extractvalue { i64, i1 } %47, 1
-  br i1 %48, label %49, label %50
+44:                                               ; preds = %24, %40
+  %.1 = phi ptr [ %.035.le, %24 ], [ %33, %40 ]
+  %45 = add i64 %.034112.lcssa, 2
+  %46 = cmpxchg weak ptr %3, i64 %.034112.lcssa, i64 %45 seq_cst acquire, align 8
+  %47 = extractvalue { i64, i1 } %46, 1
+  br i1 %47, label %48, label %49
 
-49:                                               ; preds = %45
-  br i1 %19, label %60, label %.critedge41
+48:                                               ; preds = %44
+  br i1 %.not90, label %59, label %.critedge41
 
-50:                                               ; preds = %45
+49:                                               ; preds = %44
   %.0.sroa.speculated.i.i = tail call noundef range(i32 0, 7) i32 @llvm.umin.i32(i32 %.0110.lcssa, i32 6)
-  %51 = mul nuw nsw i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i
+  %50 = mul nuw nsw i32 %.0.sroa.speculated.i.i, %.0.sroa.speculated.i.i
   %.not.i54 = icmp eq i32 %.0110.lcssa, 0
   br i1 %.not.i54, label %.outer.backedge, label %.lr.ph.i55
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i55
-  %52 = add i32 %.0110.lcssa, 1
+  %51 = add i32 %.0110.lcssa, 1
   br label %.outer.backedge
 
-.lr.ph.i55:                                       ; preds = %50, %.lr.ph.i55
-  %.sroa.01.07.i56 = phi i32 [ %53, %.lr.ph.i55 ], [ 0, %50 ]
-  %53 = add nuw nsw i32 %.sroa.01.07.i56, 1
+.lr.ph.i55:                                       ; preds = %49, %.lr.ph.i55
+  %.sroa.01.06.i56 = phi i32 [ %52, %.lr.ph.i55 ], [ 0, %49 ]
+  %52 = add nuw nsw i32 %.sroa.01.06.i56, 1
   tail call void @llvm.x86.sse2.pause() #12
-  %exitcond.not.i57 = icmp eq i32 %53, %51
+  %exitcond.not.i57 = icmp eq i32 %52, %50
   br i1 %exitcond.not.i57, label %._crit_edge.loopexit.i, label %.lr.ph.i55
 
-54:                                               ; preds = %60
-  %55 = ptrtoint ptr %.169 to i64
-  store atomic i64 %55, ptr %5 release, align 8
-  %56 = atomicrmw add ptr %3, i64 2 release, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %.1, i64 496
-  store atomic i64 %55, ptr %57 release, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.1, ptr %58, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 30, ptr %59, align 8
+53:                                               ; preds = %59
+  %54 = ptrtoint ptr %.169 to i64
+  store atomic i64 %54, ptr %5 release, align 8
+  %55 = atomicrmw add ptr %3, i64 2 release, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %.1, i64 496
+  store atomic i64 %54, ptr %56 release, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %.1, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 30, ptr %58, align 8
   br label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit63"
 
-60:                                               ; preds = %49
-  %61 = icmp eq ptr %.169, null
-  br i1 %61, label %62, label %54
+59:                                               ; preds = %48
+  %60 = icmp eq ptr %.169, null
+  br i1 %60, label %61, label %53
 
-62:                                               ; preds = %60
+61:                                               ; preds = %59
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a8eeaf8233fbd2de92f933fd42f957d3.2) #19
   unreachable
 
-.outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %50, %44, %42
-  %.068.ph.be = phi ptr [ %34, %42 ], [ %34, %44 ], [ %.169, %50 ], [ %.169, %._crit_edge.loopexit.i ]
-  %.0.ph.be = phi i32 [ %.0110.lcssa, %42 ], [ %.0110.lcssa, %44 ], [ 1, %50 ], [ %52, %._crit_edge.loopexit.i ]
-  %63 = load atomic i64, ptr %3 acquire, align 128
-  %64 = load atomic i64, ptr %5 acquire, align 8
-  %65 = and i64 %63, 1
-  %66 = icmp eq i64 %65, 0
-  br i1 %66, label %.lr.ph, label %.critedge
+.outer.backedge:                                  ; preds = %._crit_edge.loopexit.i, %49, %43, %41
+  %.068.ph.be = phi ptr [ %33, %41 ], [ %33, %43 ], [ %.169, %49 ], [ %.169, %._crit_edge.loopexit.i ]
+  %.0.ph.be = phi i32 [ %.0110.lcssa, %41 ], [ %.0110.lcssa, %43 ], [ 1, %49 ], [ %51, %._crit_edge.loopexit.i ]
+  %62 = load atomic i64, ptr %3 acquire, align 128
+  %63 = load atomic i64, ptr %5 acquire, align 8
+  %64 = and i64 %62, 1
+  %65 = icmp eq i64 %64, 0
+  br i1 %65, label %.lr.ph, label %.critedge
 
-.loopexit:                                        ; preds = %.lr.ph.i, %21, %22
-  %67 = load atomic i64, ptr %3 acquire, align 128
-  %68 = load atomic i64, ptr %5 acquire, align 8
-  %69 = and i64 %67, 1
-  %70 = icmp eq i64 %69, 0
-  br i1 %70, label %13, label %.critedge
+.loopexit:                                        ; preds = %.lr.ph.i, %20, %21
+  %66 = load atomic i64, ptr %3 acquire, align 128
+  %67 = load atomic i64, ptr %5 acquire, align 8
+  %68 = and i64 %66, 1
+  %69 = icmp eq i64 %68, 0
+  br i1 %69, label %13, label %.critedge
 
-"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit62": ; preds = %.thread81, %71
+"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit62": ; preds = %.thread81, %70
   resume { ptr, i32 } %lpad.phi
 
-.loopexit90:                                      ; preds = %21
+.loopexit91:                                      ; preds = %20
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %70
 
-.loopexit.split-lp:                               ; preds = %36
+.loopexit.split-lp:                               ; preds = %35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %70
 
-71:                                               ; preds = %.loopexit.split-lp, %.loopexit90
-  %.2.ph = phi ptr [ %.068.ph114, %.loopexit90 ], [ %.169, %.loopexit.split-lp ]
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit90 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %72 = icmp eq ptr %.2.ph, null
-  br i1 %72, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit62", label %.thread81
+70:                                               ; preds = %.loopexit.split-lp, %.loopexit91
+  %.2.ph = phi ptr [ %.068.ph114, %.loopexit91 ], [ %.169, %.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit91 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %71 = icmp eq ptr %.2.ph, null
+  br i1 %71, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit62", label %.thread81
 
-.thread81:                                        ; preds = %71
+.thread81:                                        ; preds = %70
   tail call void @__rust_dealloc(ptr noundef nonnull %.2.ph, i64 noundef 504, i64 noundef 8) #12
   br label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit62"
 
-"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit63": ; preds = %77, %75, %54
+"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit63": ; preds = %76, %74, %53
   ret i1 true
 
-.critedge41:                                      ; preds = %49
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store ptr %.1, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i64 %.lcssa, ptr %74, align 8
-  br label %75
+.critedge41:                                      ; preds = %48
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store ptr %.1, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i64 %.lcssa, ptr %73, align 8
+  br label %74
 
-75:                                               ; preds = %.critedge41, %.critedge
+74:                                               ; preds = %.critedge41, %.critedge
   %.370 = phi ptr [ %.169, %.critedge41 ], [ %.068.ph.lcssa109, %.critedge ]
-  %76 = icmp eq ptr %.370, null
-  br i1 %76, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit63", label %77
+  %75 = icmp eq ptr %.370, null
+  br i1 %75, label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit63", label %76
 
-77:                                               ; preds = %75
+76:                                               ; preds = %74
   tail call void @__rust_dealloc(ptr noundef nonnull %.370, i64 noundef 504, i64 noundef 8) #12
   br label %"_ZN4core3ptr132drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$std..sync..mpmc..list..Block$LT$uu_sort..chunks..Chunk$GT$$GT$$GT$$GT$17had8248b0a6d3d321E.exit63"
 }
@@ -782,8 +782,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$20discard_all_messa
   br i1 %.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %.sroa.01.07.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %7 ]
-  %9 = add nuw i32 %.sroa.01.07.i, 1
+  %.sroa.01.06.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %7 ]
+  %9 = add nuw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i = icmp eq i32 %9, %8
   br i1 %exitcond.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
@@ -829,8 +829,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit: ; preds = 
   br i1 %.not.i30, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %22, %.lr.ph.i31
-  %.sroa.01.07.i32 = phi i32 [ %24, %.lr.ph.i31 ], [ 0, %22 ]
-  %24 = add nuw i32 %.sroa.01.07.i32, 1
+  %.sroa.01.06.i32 = phi i32 [ %24, %.lr.ph.i31 ], [ 0, %22 ]
+  %24 = add nuw i32 %.sroa.01.06.i32, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i33 = icmp eq i32 %24, %23
   br i1 %exitcond.not.i33, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34, label %.lr.ph.i31
@@ -886,8 +886,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34: ; preds 
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %39, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 0, %39 ]
-  %41 = add nuw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 0, %39 ]
+  %41 = add nuw i32 %.sroa.01.06.i.i, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i.i = icmp eq i32 %41, %40
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -927,8 +927,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %.not.i.i41, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i40, label %.lr.ph.i.i42
 
 .lr.ph.i.i42:                                     ; preds = %54, %.lr.ph.i.i42
-  %.sroa.01.07.i.i43 = phi i32 [ %56, %.lr.ph.i.i42 ], [ 0, %54 ]
-  %56 = add nuw i32 %.sroa.01.07.i.i43, 1
+  %.sroa.01.06.i.i43 = phi i32 [ %56, %.lr.ph.i.i42 ], [ 0, %54 ]
+  %56 = add nuw i32 %.sroa.01.06.i.i43, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i.i44 = icmp eq i32 %56, %55
   br i1 %exitcond.not.i.i44, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i40, label %.lr.ph.i.i42
@@ -975,8 +975,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$20discard_all_messa
   br i1 %.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %.sroa.01.07.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %7 ]
-  %9 = add nuw i32 %.sroa.01.07.i, 1
+  %.sroa.01.06.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %7 ]
+  %9 = add nuw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i = icmp eq i32 %9, %8
   br i1 %exitcond.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
@@ -1022,8 +1022,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit: ; preds = 
   br i1 %.not.i30, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %22, %.lr.ph.i31
-  %.sroa.01.07.i32 = phi i32 [ %24, %.lr.ph.i31 ], [ 0, %22 ]
-  %24 = add nuw i32 %.sroa.01.07.i32, 1
+  %.sroa.01.06.i32 = phi i32 [ %24, %.lr.ph.i31 ], [ 0, %22 ]
+  %24 = add nuw i32 %.sroa.01.06.i32, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i33 = icmp eq i32 %24, %23
   br i1 %exitcond.not.i33, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34, label %.lr.ph.i31
@@ -1078,8 +1078,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34: ; preds 
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %38, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %40, %.lr.ph.i.i ], [ 0, %38 ]
-  %40 = add nuw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %40, %.lr.ph.i.i ], [ 0, %38 ]
+  %40 = add nuw i32 %.sroa.01.06.i.i, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i.i = icmp eq i32 %40, %39
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -1120,8 +1120,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %.not.i.i41, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i40, label %.lr.ph.i.i42
 
 .lr.ph.i.i42:                                     ; preds = %54, %.lr.ph.i.i42
-  %.sroa.01.07.i.i43 = phi i32 [ %56, %.lr.ph.i.i42 ], [ 0, %54 ]
-  %56 = add nuw i32 %.sroa.01.07.i.i43, 1
+  %.sroa.01.06.i.i43 = phi i32 [ %56, %.lr.ph.i.i42 ], [ 0, %54 ]
+  %56 = add nuw i32 %.sroa.01.06.i.i43, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i.i44 = icmp eq i32 %56, %55
   br i1 %exitcond.not.i.i44, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i40, label %.lr.ph.i.i42
@@ -1169,8 +1169,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$20discard_all_messa
   br i1 %.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %.lr.ph.i
-  %.sroa.01.07.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %7 ]
-  %9 = add nuw i32 %.sroa.01.07.i, 1
+  %.sroa.01.06.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %7 ]
+  %9 = add nuw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i = icmp eq i32 %9, %8
   br i1 %exitcond.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
@@ -1216,8 +1216,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit: ; preds = 
   br i1 %.not.i30, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %22, %.lr.ph.i31
-  %.sroa.01.07.i32 = phi i32 [ %24, %.lr.ph.i31 ], [ 0, %22 ]
-  %24 = add nuw i32 %.sroa.01.07.i32, 1
+  %.sroa.01.06.i32 = phi i32 [ %24, %.lr.ph.i31 ], [ 0, %22 ]
+  %24 = add nuw i32 %.sroa.01.06.i32, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i33 = icmp eq i32 %24, %23
   br i1 %exitcond.not.i33, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34, label %.lr.ph.i31
@@ -1273,8 +1273,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit34: ; preds 
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %39, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 0, %39 ]
-  %41 = add nuw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %41, %.lr.ph.i.i ], [ 0, %39 ]
+  %41 = add nuw i32 %.sroa.01.06.i.i, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i.i = icmp eq i32 %41, %40
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -1314,8 +1314,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %.not.i.i41, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i40, label %.lr.ph.i.i42
 
 .lr.ph.i.i42:                                     ; preds = %54, %.lr.ph.i.i42
-  %.sroa.01.07.i.i43 = phi i32 [ %56, %.lr.ph.i.i42 ], [ 0, %54 ]
-  %56 = add nuw i32 %.sroa.01.07.i.i43, 1
+  %.sroa.01.06.i.i43 = phi i32 [ %56, %.lr.ph.i.i42 ], [ 0, %54 ]
+  %56 = add nuw i32 %.sroa.01.06.i.i43, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i.i44 = icmp eq i32 %56, %55
   br i1 %exitcond.not.i.i44, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i40, label %.lr.ph.i.i42
@@ -1447,8 +1447,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv17h8666c087071
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %31 ]
-  %33 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %31 ]
+  %33 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !4
   %exitcond.not.i.i = icmp eq i32 %33, %32
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -1495,8 +1495,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %.not.i27.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i, label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %48, %.lr.ph.i28.i
-  %.sroa.01.07.i29.i = phi i32 [ %50, %.lr.ph.i28.i ], [ 0, %48 ]
-  %50 = add nuw nsw i32 %.sroa.01.07.i29.i, 1
+  %.sroa.01.06.i29.i = phi i32 [ %50, %.lr.ph.i28.i ], [ 0, %48 ]
+  %50 = add nuw nsw i32 %.sroa.01.06.i29.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !4
   %exitcond.not.i30.i = icmp eq i32 %50, %49
   br i1 %exitcond.not.i30.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i, label %.lr.ph.i28.i
@@ -1512,7 +1512,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
 
 55:                                               ; preds = %52
   %.017.le.i = inttoptr i64 %20 to ptr
-  %56 = icmp samesign ugt i64 %22, 29
+  %56 = icmp eq i64 %22, 30
   br i1 %56, label %61, label %78
 
 57:                                               ; preds = %52
@@ -1530,8 +1530,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br label %.backedge.i
 
 .lr.ph.i35.i:                                     ; preds = %57, %.lr.ph.i35.i
-  %.sroa.01.07.i36.i = phi i32 [ %60, %.lr.ph.i35.i ], [ 0, %57 ]
-  %60 = add nuw nsw i32 %.sroa.01.07.i36.i, 1
+  %.sroa.01.06.i36.i = phi i32 [ %60, %.lr.ph.i35.i ], [ 0, %57 ]
+  %60 = add nuw nsw i32 %.sroa.01.06.i36.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !4
   %exitcond.not.i37.i = icmp eq i32 %60, %58
   br i1 %exitcond.not.i37.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i35.i
@@ -1556,8 +1556,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br i1 %.not.i.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %66, %.lr.ph.i.i.i
-  %.sroa.01.07.i.i.i = phi i32 [ %68, %.lr.ph.i.i.i ], [ 0, %66 ]
-  %68 = add nuw i32 %.sroa.01.07.i.i.i, 1
+  %.sroa.01.06.i.i.i = phi i32 [ %68, %.lr.ph.i.i.i ], [ 0, %66 ]
+  %68 = add nuw i32 %.sroa.01.06.i.i.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !4
   %exitcond.not.i.i.i = icmp eq i32 %68, %67
   br i1 %exitcond.not.i.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i, label %.lr.ph.i.i.i
@@ -1613,8 +1613,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   br i1 %.not.i.i.i19, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18, label %.lr.ph.i.i.i20
 
 .lr.ph.i.i.i20:                                   ; preds = %87, %.lr.ph.i.i.i20
-  %.sroa.01.07.i.i.i21 = phi i32 [ %89, %.lr.ph.i.i.i20 ], [ 0, %87 ]
-  %89 = add nuw i32 %.sroa.01.07.i.i.i21, 1
+  %.sroa.01.06.i.i.i21 = phi i32 [ %89, %.lr.ph.i.i.i20 ], [ 0, %87 ]
+  %89 = add nuw i32 %.sroa.01.06.i.i.i21, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !9
   %exitcond.not.i.i.i22 = icmp eq i32 %89, %88
   br i1 %exitcond.not.i.i.i22, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18, label %.lr.ph.i.i.i20
@@ -1643,9 +1643,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %99, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read17hc1e5c87a6d1cd7cbE.exit", label %111
 
 .lr.ph.i4.i:                                      ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h182849b1c28c03c2E.exit.i", %110
-  %.sroa.01.09.i.i = phi i64 [ %100, %110 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h182849b1c28c03c2E.exit.i" ]
-  %100 = add nuw nsw i64 %.sroa.01.09.i.i, 1
-  %101 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.09.i.i
+  %.sroa.01.08.i.i = phi i64 [ %100, %110 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h182849b1c28c03c2E.exit.i" ]
+  %100 = add nuw nsw i64 %.sroa.01.08.i.i, 1
+  %101 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.08.i.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 136
   %103 = load atomic i64, ptr %102 acquire, align 8, !noalias !9
   %104 = and i64 %103, 2
@@ -1667,9 +1667,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %112, label %.lr.ph.i6.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h404cd6b530ba00f0E.exit.sink.split.i"
 
 .lr.ph.i6.i:                                      ; preds = %111, %123
-  %.sroa.01.09.i7.i = phi i64 [ %113, %123 ], [ %94, %111 ]
-  %113 = add nuw nsw i64 %.sroa.01.09.i7.i, 1
-  %114 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.09.i7.i
+  %.sroa.01.08.i7.i = phi i64 [ %113, %123 ], [ %94, %111 ]
+  %113 = add nuw nsw i64 %.sroa.01.08.i7.i, 1
+  %114 = getelementptr inbounds nuw { { { [16 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.08.i7.i
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 136
   %116 = load atomic i64, ptr %115 acquire, align 8, !noalias !9
   %117 = and i64 %116, 2
@@ -1914,8 +1914,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv17h9c6be755353
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %31 ]
-  %33 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %31 ]
+  %33 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !50
   %exitcond.not.i.i = icmp eq i32 %33, %32
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -1962,8 +1962,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %.not.i27.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i, label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %48, %.lr.ph.i28.i
-  %.sroa.01.07.i29.i = phi i32 [ %50, %.lr.ph.i28.i ], [ 0, %48 ]
-  %50 = add nuw nsw i32 %.sroa.01.07.i29.i, 1
+  %.sroa.01.06.i29.i = phi i32 [ %50, %.lr.ph.i28.i ], [ 0, %48 ]
+  %50 = add nuw nsw i32 %.sroa.01.06.i29.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !50
   %exitcond.not.i30.i = icmp eq i32 %50, %49
   br i1 %exitcond.not.i30.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i, label %.lr.ph.i28.i
@@ -1979,7 +1979,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
 
 55:                                               ; preds = %52
   %.017.le.i = inttoptr i64 %20 to ptr
-  %56 = icmp samesign ugt i64 %22, 29
+  %56 = icmp eq i64 %22, 30
   br i1 %56, label %61, label %80
 
 57:                                               ; preds = %52
@@ -1997,8 +1997,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br label %.backedge.i
 
 .lr.ph.i35.i:                                     ; preds = %57, %.lr.ph.i35.i
-  %.sroa.01.07.i36.i = phi i32 [ %60, %.lr.ph.i35.i ], [ 0, %57 ]
-  %60 = add nuw nsw i32 %.sroa.01.07.i36.i, 1
+  %.sroa.01.06.i36.i = phi i32 [ %60, %.lr.ph.i35.i ], [ 0, %57 ]
+  %60 = add nuw nsw i32 %.sroa.01.06.i36.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !50
   %exitcond.not.i37.i = icmp eq i32 %60, %58
   br i1 %exitcond.not.i37.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i35.i
@@ -2024,8 +2024,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br i1 %.not.i.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %67, %.lr.ph.i.i.i
-  %.sroa.01.07.i.i.i = phi i32 [ %69, %.lr.ph.i.i.i ], [ 0, %67 ]
-  %69 = add nuw i32 %.sroa.01.07.i.i.i, 1
+  %.sroa.01.06.i.i.i = phi i32 [ %69, %.lr.ph.i.i.i ], [ 0, %67 ]
+  %69 = add nuw i32 %.sroa.01.06.i.i.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !50
   %exitcond.not.i.i.i = icmp eq i32 %69, %68
   br i1 %exitcond.not.i.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i, label %.lr.ph.i.i.i
@@ -2081,8 +2081,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   br i1 %.not.i.i.i19, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18, label %.lr.ph.i.i.i20
 
 .lr.ph.i.i.i20:                                   ; preds = %88, %.lr.ph.i.i.i20
-  %.sroa.01.07.i.i.i21 = phi i32 [ %90, %.lr.ph.i.i.i20 ], [ 0, %88 ]
-  %90 = add nuw i32 %.sroa.01.07.i.i.i21, 1
+  %.sroa.01.06.i.i.i21 = phi i32 [ %90, %.lr.ph.i.i.i20 ], [ 0, %88 ]
+  %90 = add nuw i32 %.sroa.01.06.i.i.i21, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !53
   %exitcond.not.i.i.i22 = icmp eq i32 %90, %89
   br i1 %exitcond.not.i.i.i22, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18, label %.lr.ph.i.i.i20
@@ -2109,9 +2109,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %100, label %"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4read17h500cde76697cd23eE.exit", label %112
 
 .lr.ph.i4.i:                                      ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h4cc99ac600cfe432E.exit.i", %111
-  %.sroa.01.09.i.i = phi i64 [ %101, %111 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h4cc99ac600cfe432E.exit.i" ]
-  %101 = add nuw nsw i64 %.sroa.01.09.i.i, 1
-  %102 = getelementptr inbounds nuw { { { [15 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.09.i.i
+  %.sroa.01.08.i.i = phi i64 [ %101, %111 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17h4cc99ac600cfe432E.exit.i" ]
+  %101 = add nuw nsw i64 %.sroa.01.08.i.i, 1
+  %102 = getelementptr inbounds nuw { { { [15 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.08.i.i
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 120
   %104 = load atomic i64, ptr %103 acquire, align 8, !noalias !53
   %105 = and i64 %104, 2
@@ -2133,9 +2133,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i18: ; pr
   br i1 %113, label %.lr.ph.i6.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17hcfedde6b197fcfcaE.exit.sink.split.i"
 
 .lr.ph.i6.i:                                      ; preds = %112, %124
-  %.sroa.01.09.i7.i = phi i64 [ %114, %124 ], [ %95, %112 ]
-  %114 = add nuw nsw i64 %.sroa.01.09.i7.i, 1
-  %115 = getelementptr inbounds nuw { { { [15 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.09.i7.i
+  %.sroa.01.08.i7.i = phi i64 [ %114, %124 ], [ %95, %112 ]
+  %114 = add nuw nsw i64 %.sroa.01.08.i7.i, 1
+  %115 = getelementptr inbounds nuw { { { [15 x i64] } }, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.08.i7.i
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 120
   %117 = load atomic i64, ptr %116 acquire, align 8, !noalias !53
   %118 = and i64 %117, 2
@@ -2377,8 +2377,8 @@ define hidden void @"_ZN3std4sync4mpmc4list16Channel$LT$T$GT$4recv17hd087b2f5885
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %31, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %31 ]
-  %33 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %33, %.lr.ph.i.i ], [ 0, %31 ]
+  %33 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !93
   %exitcond.not.i.i = icmp eq i32 %33, %32
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -2430,8 +2430,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br i1 %.not.i27.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i, label %.lr.ph.i28.i
 
 .lr.ph.i28.i:                                     ; preds = %49, %.lr.ph.i28.i
-  %.sroa.01.07.i29.i = phi i32 [ %51, %.lr.ph.i28.i ], [ 0, %49 ]
-  %51 = add nuw nsw i32 %.sroa.01.07.i29.i, 1
+  %.sroa.01.06.i29.i = phi i32 [ %51, %.lr.ph.i28.i ], [ 0, %49 ]
+  %51 = add nuw nsw i32 %.sroa.01.06.i29.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !93
   %exitcond.not.i30.i = icmp eq i32 %51, %50
   br i1 %exitcond.not.i30.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i, label %.lr.ph.i28.i
@@ -2447,7 +2447,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
 
 56:                                               ; preds = %53
   %.017.le.i = inttoptr i64 %20 to ptr
-  %57 = icmp samesign ugt i64 %22, 29
+  %57 = icmp eq i64 %22, 30
   br i1 %57, label %62, label %81
 
 58:                                               ; preds = %53
@@ -2465,8 +2465,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br label %.backedge.i
 
 .lr.ph.i35.i:                                     ; preds = %58, %.lr.ph.i35.i
-  %.sroa.01.07.i36.i = phi i32 [ %61, %.lr.ph.i35.i ], [ 0, %58 ]
-  %61 = add nuw nsw i32 %.sroa.01.07.i36.i, 1
+  %.sroa.01.06.i36.i = phi i32 [ %61, %.lr.ph.i35.i ], [ 0, %58 ]
+  %61 = add nuw nsw i32 %.sroa.01.06.i36.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !93
   %exitcond.not.i37.i = icmp eq i32 %61, %59
   br i1 %exitcond.not.i37.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i35.i
@@ -2492,8 +2492,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit31.i: ; pred
   br i1 %.not.i.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %68, %.lr.ph.i.i.i
-  %.sroa.01.07.i.i.i = phi i32 [ %70, %.lr.ph.i.i.i ], [ 0, %68 ]
-  %70 = add nuw i32 %.sroa.01.07.i.i.i, 1
+  %.sroa.01.06.i.i.i = phi i32 [ %70, %.lr.ph.i.i.i ], [ 0, %68 ]
+  %70 = add nuw i32 %.sroa.01.06.i.i.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !93
   %exitcond.not.i.i.i = icmp eq i32 %70, %69
   br i1 %exitcond.not.i.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i, label %.lr.ph.i.i.i
@@ -2548,8 +2548,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i: ; pred
   br i1 %.not.i.i.i20, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i19, label %.lr.ph.i.i.i21
 
 .lr.ph.i.i.i21:                                   ; preds = %89, %.lr.ph.i.i.i21
-  %.sroa.01.07.i.i.i22 = phi i32 [ %91, %.lr.ph.i.i.i21 ], [ 0, %89 ]
-  %91 = add nuw i32 %.sroa.01.07.i.i.i22, 1
+  %.sroa.01.06.i.i.i22 = phi i32 [ %91, %.lr.ph.i.i.i21 ], [ 0, %89 ]
+  %91 = add nuw i32 %.sroa.01.06.i.i.i22, 1
   call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i.i.i23 = icmp eq i32 %91, %90
   br i1 %exitcond.not.i.i.i23, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i19, label %.lr.ph.i.i.i21
@@ -2574,9 +2574,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i19: ; pr
   br i1 %102, label %.loopexit, label %114
 
 .lr.ph.i3.i:                                      ; preds = %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17hef983171fdfda653E.exit.i", %113
-  %.sroa.01.09.i.i = phi i64 [ %103, %113 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17hef983171fdfda653E.exit.i" ]
-  %103 = add nuw nsw i64 %.sroa.01.09.i.i, 1
-  %104 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.09.i.i
+  %.sroa.01.08.i.i = phi i64 [ %103, %113 ], [ 0, %"_ZN3std4sync4mpmc4list13Slot$LT$T$GT$10wait_write17hef983171fdfda653E.exit.i" ]
+  %103 = add nuw nsw i64 %.sroa.01.08.i.i, 1
+  %104 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.08.i.i
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load atomic i64, ptr %105 acquire, align 8
   %107 = and i64 %106, 2
@@ -2598,9 +2598,9 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i.i19: ; pr
   br i1 %115, label %.lr.ph.i5.i, label %"_ZN3std4sync4mpmc4list14Block$LT$T$GT$7destroy17h260f4543353eb387E.exit.sink.split.i"
 
 .lr.ph.i5.i:                                      ; preds = %114, %126
-  %.sroa.01.09.i6.i = phi i64 [ %116, %126 ], [ %97, %114 ]
-  %116 = add nuw nsw i64 %.sroa.01.09.i6.i, 1
-  %117 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.09.i6.i
+  %.sroa.01.08.i6.i = phi i64 [ %116, %126 ], [ %97, %114 ]
+  %116 = add nuw nsw i64 %.sroa.01.08.i6.i, 1
+  %117 = getelementptr inbounds nuw { ptr, { i64 } }, ptr %.017.le.i, i64 %.sroa.01.08.i6.i
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load atomic i64, ptr %118 acquire, align 8
   %120 = and i64 %119, 2

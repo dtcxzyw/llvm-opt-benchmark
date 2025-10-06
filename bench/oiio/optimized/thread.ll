@@ -3029,26 +3029,26 @@ _ZNK11OpenImageIO6v3_1_011thread_pool9is_workerENSt6thread2idE.exit: ; preds = %
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %33, align 8, !tbaa !180
   %36 = load ptr, ptr %34, align 8, !tbaa !180
-  %.not4273 = icmp eq ptr %35, %36
-  br i1 %.not4273, label %.thread, label %.lr.ph.outer.preheader
+  %.not4071 = icmp eq ptr %35, %36
+  br i1 %.not4071, label %.thread, label %.lr.ph.outer.preheader
 
 .lr.ph.outer.preheader:                           ; preds = %.preheader, %60
   %37 = phi ptr [ %62, %60 ], [ %36, %.preheader ]
   %38 = phi ptr [ %61, %60 ], [ %35, %.preheader ]
-  %.01274 = phi i32 [ %51, %60 ], [ 0, %.preheader ]
+  %.01272 = phi i32 [ %51, %60 ], [ 0, %.preheader ]
   br label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %.lr.ph.outer.preheader, %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.thread
-  %.01344.ph = phi i1 [ false, %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.thread ], [ true, %.lr.ph.outer.preheader ]
-  %.sroa.028.043.ph = phi ptr [ %50, %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.thread ], [ %38, %.lr.ph.outer.preheader ]
+  %.01342.ph = phi i1 [ false, %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.thread ], [ true, %.lr.ph.outer.preheader ]
+  %.sroa.028.041.ph = phi ptr [ %50, %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.thread ], [ %38, %.lr.ph.outer.preheader ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
-  br i1 %.01344.ph, label %.thread, label %._crit_edge.thread
+  br i1 %.01342.ph, label %.thread, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit
-  %.sroa.028.043 = phi ptr [ %45, %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit ], [ %.sroa.028.043.ph, %.lr.ph.outer ]
-  %39 = load ptr, ptr %.sroa.028.043, align 8, !tbaa !171
+  %.sroa.028.041 = phi ptr [ %45, %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit ], [ %.sroa.028.041.ph, %.lr.ph.outer ]
+  %39 = load ptr, ptr %.sroa.028.041, align 8, !tbaa !171
   %.not.i.i = icmp eq ptr %39, null
   br i1 %.not.i.i, label %40, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
 
@@ -3064,7 +3064,7 @@ _ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i: 
   br i1 %44, label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit, label %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.thread
 
 _ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit: ; preds = %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.028.043, i64 16
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.028.041, i64 16
   %.not = icmp eq ptr %45, %37
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -3073,13 +3073,13 @@ _ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNS
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = load ptr, ptr %47, align 8
   %49 = call noundef zeroext i1 %48(ptr noundef nonnull align 8 dereferenceable(28) %39)
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.028.043, i64 16
-  %.not58 = icmp eq ptr %50, %37
-  br i1 %.not58, label %._crit_edge.thread, label %.lr.ph.outer
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.028.041, i64 16
+  %.not56 = icmp eq ptr %50, %37
+  br i1 %.not56, label %._crit_edge.thread, label %.lr.ph.outer
 
 ._crit_edge.thread:                               ; preds = %_ZNKSt14__basic_futureIvE8wait_forIlSt5ratioILl1ELl1000EEEESt13future_statusRKNSt6chrono8durationIT_T0_EE.exit.thread, %._crit_edge
-  %51 = add nuw nsw i32 %.01274, 1
-  %52 = icmp samesign ult i32 %.01274, 3
+  %51 = add nuw nsw i32 %.01272, 1
+  %52 = icmp samesign ult i32 %.01272, 3
   br i1 %52, label %.lr.ph.i, label %54
 
 .lr.ph.i:                                         ; preds = %._crit_edge.thread, %.lr.ph.i
@@ -3106,27 +3106,27 @@ _ZN11OpenImageIO6v3_1_05pauseEi.exit:             ; preds = %.lr.ph.i
 60:                                               ; preds = %54, %58, %_ZN11OpenImageIO6v3_1_05pauseEi.exit
   %61 = load ptr, ptr %33, align 8, !tbaa !180
   %62 = load ptr, ptr %34, align 8, !tbaa !180
-  %.not42 = icmp eq ptr %61, %62
-  br i1 %.not42, label %.thread, label %.lr.ph.outer.preheader
+  %.not40 = icmp eq ptr %61, %62
+  br i1 %.not40, label %.thread, label %.lr.ph.outer.preheader
 
 63:                                               ; preds = %_ZNK11OpenImageIO6v3_1_011thread_pool9is_workerENSt6thread2idE.exit
   %64 = load ptr, ptr %33, align 8, !tbaa !180
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load ptr, ptr %65, align 8, !tbaa !180
-  %.not3945 = icmp eq ptr %64, %66
-  br i1 %.not3945, label %.thread, label %.lr.ph48
+  %.not3743 = icmp eq ptr %64, %66
+  br i1 %.not3743, label %.thread, label %.lr.ph46
 
-.lr.ph48:                                         ; preds = %63, %_ZNKSt14__basic_futureIvE4waitEv.exit
-  %.sroa.024.046 = phi ptr [ %82, %_ZNKSt14__basic_futureIvE4waitEv.exit ], [ %64, %63 ]
-  %67 = load ptr, ptr %.sroa.024.046, align 8, !tbaa !171
+.lr.ph46:                                         ; preds = %63, %_ZNKSt14__basic_futureIvE4waitEv.exit
+  %.sroa.024.044 = phi ptr [ %82, %_ZNKSt14__basic_futureIvE4waitEv.exit ], [ %64, %63 ]
+  %67 = load ptr, ptr %.sroa.024.044, align 8, !tbaa !171
   %.not.i.i19 = icmp eq ptr %67, null
   br i1 %.not.i.i19, label %68, label %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i20
 
-68:                                               ; preds = %.lr.ph48
+68:                                               ; preds = %.lr.ph46
   call void @_ZSt20__throw_future_errori(i32 noundef 3) #33
   unreachable
 
-_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i20: ; preds = %.lr.ph48
+_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i20: ; preds = %.lr.ph46
   %69 = load ptr, ptr %67, align 8, !tbaa !86
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8
@@ -3149,9 +3149,9 @@ _ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i.i21: ; preds = %_ZNSt
   br i1 %or.cond.not.us.i.i.i23, label %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i.i21, label %_ZNKSt14__basic_futureIvE4waitEv.exit
 
 _ZNKSt14__basic_futureIvE4waitEv.exit:            ; preds = %_ZNKSt13__atomic_baseIjE4loadESt12memory_order.exit.us.i.i.i21, %_ZNSt13__future_base13_State_baseV28_S_checkIS0_EEvRKSt10shared_ptrIT_E.exit.i20
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.024.046, i64 16
-  %.not39 = icmp eq ptr %82, %66
-  br i1 %.not39, label %.thread, label %.lr.ph48
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.024.044, i64 16
+  %.not37 = icmp eq ptr %82, %66
+  br i1 %.not37, label %.thread, label %.lr.ph46
 
 .thread:                                          ; preds = %60, %._crit_edge, %_ZNKSt14__basic_futureIvE4waitEv.exit, %.preheader, %63
   ret void

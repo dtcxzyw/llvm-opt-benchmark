@@ -1523,7 +1523,7 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
 
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.pre55 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !100
+  %.pre54 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !100
   br label %33
 
 9:                                                ; preds = %4
@@ -1569,7 +1569,7 @@ define range(i32 -1, 1) i32 @symlink_visit_add(ptr noundef captures(none) %0, i3
   br label %33
 
 33:                                               ; preds = %._crit_edge, %32
-  %34 = phi ptr [ %14, %32 ], [ %.pre55, %._crit_edge ]
+  %34 = phi ptr [ %14, %32 ], [ %.pre54, %._crit_edge ]
   %35 = phi i64 [ %.pre, %32 ], [ %6, %._crit_edge ]
   %36 = add i64 %35, 1
   store i64 %36, ptr %5, align 8, !tbaa !98

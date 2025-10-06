@@ -3471,15 +3471,15 @@ define void @Gia_PolynBuild(ptr noundef %0, ptr noundef readonly captures(addres
 
 10:                                               ; preds = %5
   %11 = load i64, ptr %7, align 8, !tbaa !94
-  %.neg129 = mul i64 %11, -1000000
+  %.neg127 = mul i64 %11, -1000000
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !96
   %.neg = sdiv i64 %13, -1000
-  %.neg130 = add i64 %.neg, %.neg129
+  %.neg128 = add i64 %.neg, %.neg127
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %5, %10
-  %.0.i.neg = phi i64 [ %.neg130, %10 ], [ 1, %5 ]
+  %.0.i.neg = phi i64 [ %.neg128, %10 ], [ 1, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %14 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %14, align 8, !tbaa !36
@@ -3695,11 +3695,11 @@ Vec_IntGrow.exit.i111:                            ; preds = %Vec_IntGrow.exit.i1
   %114 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %115 = load ptr, ptr %114, align 8, !tbaa !23
   %116 = getelementptr i8, ptr %115, i64 4
-  %.val100138 = load i32, ptr %116, align 4, !tbaa !16
-  %117 = icmp eq i32 %.val100138, 1
-  br i1 %117, label %._crit_edge, label %.lr.ph143
+  %.val100136 = load i32, ptr %116, align 4, !tbaa !16
+  %117 = icmp eq i32 %.val100136, 1
+  br i1 %117, label %._crit_edge, label %.lr.ph141
 
-.lr.ph143:                                        ; preds = %.critedge
+.lr.ph141:                                        ; preds = %.critedge
   %118 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %119 = icmp ne i32 %3, 0
   %.not82 = icmp eq i32 %4, 0
@@ -3709,15 +3709,15 @@ Vec_IntGrow.exit.i111:                            ; preds = %Vec_IntGrow.exit.i1
   %123 = getelementptr inbounds nuw i8, ptr %29, i64 108
   br label %124
 
-124:                                              ; preds = %.lr.ph143, %332
-  %125 = phi ptr [ %115, %.lr.ph143 ], [ %333, %332 ]
-  %126 = phi ptr [ %26, %.lr.ph143 ], [ %334, %332 ]
-  %127 = phi ptr [ %26, %.lr.ph143 ], [ %335, %332 ]
-  %.val101 = phi ptr [ %26, %.lr.ph143 ], [ %.val101152, %332 ]
-  %128 = phi ptr [ %116, %.lr.ph143 ], [ %337, %332 ]
-  %.074142 = phi i32 [ -1, %.lr.ph143 ], [ %.1.ph, %332 ]
-  %.075141 = phi i32 [ 0, %.lr.ph143 ], [ %.176.ph, %332 ]
-  %.077139 = phi i32 [ 0, %.lr.ph143 ], [ %336, %332 ]
+124:                                              ; preds = %.lr.ph141, %332
+  %125 = phi ptr [ %115, %.lr.ph141 ], [ %333, %332 ]
+  %126 = phi ptr [ %26, %.lr.ph141 ], [ %334, %332 ]
+  %127 = phi ptr [ %26, %.lr.ph141 ], [ %335, %332 ]
+  %.val101 = phi ptr [ %26, %.lr.ph141 ], [ %.val101150, %332 ]
+  %128 = phi ptr [ %116, %.lr.ph141 ], [ %337, %332 ]
+  %.074140 = phi i32 [ -1, %.lr.ph141 ], [ %.1.ph, %332 ]
+  %.075139 = phi i32 [ 0, %.lr.ph141 ], [ %.176.ph, %332 ]
+  %.077137 = phi i32 [ 0, %.lr.ph141 ], [ %336, %332 ]
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !21
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 4
@@ -3906,7 +3906,7 @@ Vec_QuePop.exit:                                  ; preds = %140, %Vec_QueMoveDo
   br i1 %narrow.i.not, label %332, label %236
 
 236:                                              ; preds = %Vec_QuePop.exit
-  %.not81 = icmp eq i32 %.074142, %230
+  %.not81 = icmp eq i32 %.074140, %230
   br i1 %.not81, label %329, label %237
 
 237:                                              ; preds = %236
@@ -3955,11 +3955,11 @@ Vec_QuePop.exit:                                  ; preds = %140, %Vec_QueMoveDo
   br label %Vec_BitGrow.exit.sink.split.i.i
 
 Vec_BitGrow.exit.sink.split.i.i:                  ; preds = %259, %255
-  %.sink180 = phi i32 [ %261, %259 ], [ %257, %255 ]
-  %.sink178 = phi i32 [ %260, %259 ], [ %256, %255 ]
-  %262 = icmp ne i32 %.sink180, 0
+  %.sink178 = phi i32 [ %261, %259 ], [ %257, %255 ]
+  %.sink176 = phi i32 [ %260, %259 ], [ %256, %255 ]
+  %262 = icmp ne i32 %.sink178, 0
   %263 = zext i1 %262 to i32
-  %264 = add nsw i32 %.sink178, %263
+  %264 = add nsw i32 %.sink176, %263
   %265 = sext i32 %264 to i64
   %266 = shl nsw i64 %265, 2
   %267 = call ptr @realloc(ptr noundef nonnull %.val101, i64 noundef %266) #24
@@ -4026,16 +4026,16 @@ Vec_BitGrow.exit.i.i:                             ; preds = %Vec_BitGrow.exit.si
 .loopexit.i.i:                                    ; preds = %.lr.ph.preheader.i.i, %284, %274
   %307 = phi ptr [ %270, %.lr.ph.preheader.i.i ], [ %270, %284 ], [ %269, %274 ]
   store i32 %249, ptr %27, align 4, !tbaa !100
-  %.phi.trans.insert156 = getelementptr inbounds i32, ptr %307, i64 %239
-  %.pre157 = load i32, ptr %.phi.trans.insert156, align 4, !tbaa !52
+  %.phi.trans.insert154 = getelementptr inbounds i32, ptr %307, i64 %239
+  %.pre155 = load i32, ptr %.phi.trans.insert154, align 4, !tbaa !52
   br label %Vec_BitSetEntry.exit
 
 Vec_BitSetEntry.exit:                             ; preds = %248, %.loopexit.i.i
-  %308 = phi i32 [ %.pre157, %.loopexit.i.i ], [ %241, %248 ]
+  %308 = phi i32 [ %.pre155, %.loopexit.i.i ], [ %241, %248 ]
   %309 = phi ptr [ %269, %.loopexit.i.i ], [ %126, %248 ]
   %310 = phi ptr [ %307, %.loopexit.i.i ], [ %127, %248 ]
-  %.val101155 = phi ptr [ %307, %.loopexit.i.i ], [ %.val101, %248 ]
-  %311 = getelementptr inbounds i32, ptr %.val101155, i64 %239
+  %.val101153 = phi ptr [ %307, %.loopexit.i.i ], [ %.val101, %248 ]
+  %311 = getelementptr inbounds i32, ptr %.val101153, i64 %239
   %312 = or i32 %308, %243
   store i32 %312, ptr %311, align 4, !tbaa !52
   br label %313
@@ -4043,11 +4043,11 @@ Vec_BitSetEntry.exit:                             ; preds = %248, %.loopexit.i.i
 313:                                              ; preds = %Vec_BitSetEntry.exit, %246
   %314 = phi ptr [ %309, %Vec_BitSetEntry.exit ], [ %126, %246 ]
   %315 = phi ptr [ %310, %Vec_BitSetEntry.exit ], [ %127, %246 ]
-  %.val101154 = phi ptr [ %.val101155, %Vec_BitSetEntry.exit ], [ %.val101, %246 ]
+  %.val101152 = phi ptr [ %.val101153, %Vec_BitSetEntry.exit ], [ %.val101, %246 ]
   br i1 %.not82, label %329, label %316
 
 316:                                              ; preds = %313
-  %317 = add nsw i32 %.075141, 1
+  %317 = add nsw i32 %.075139, 1
   %318 = load ptr, ptr %120, align 8, !tbaa !55
   %319 = getelementptr i8, ptr %318, i64 8
   %.val87 = load ptr, ptr %319, align 8, !tbaa !33
@@ -4063,26 +4063,26 @@ Vec_BitSetEntry.exit:                             ; preds = %248, %.loopexit.i.i
   %.val88.val = load i32, ptr %325, align 4, !tbaa !30
   %326 = load i32, ptr %122, align 8, !tbaa !78
   %327 = load i32, ptr %123, align 4, !tbaa !80
-  %328 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.075141, i32 noundef %.077139, i32 noundef %230, i32 noundef %321, i32 noundef %.val89.val, i32 noundef %.val88.val, i32 noundef %326, i32 noundef %327)
+  %328 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.075139, i32 noundef %.077137, i32 noundef %230, i32 noundef %321, i32 noundef %.val89.val, i32 noundef %.val88.val, i32 noundef %326, i32 noundef %327)
   br label %329
 
 329:                                              ; preds = %313, %316, %236
   %330 = phi ptr [ %314, %316 ], [ %314, %313 ], [ %126, %236 ]
   %331 = phi ptr [ %315, %316 ], [ %315, %313 ], [ %127, %236 ]
-  %.val101153 = phi ptr [ %.val101154, %316 ], [ %.val101154, %313 ], [ %.val101, %236 ]
-  %.2 = phi i32 [ %317, %316 ], [ %.075141, %313 ], [ %.075141, %236 ]
+  %.val101151 = phi ptr [ %.val101152, %316 ], [ %.val101152, %313 ], [ %.val101, %236 ]
+  %.2 = phi i32 [ %317, %316 ], [ %.075139, %313 ], [ %.075139, %236 ]
   call void @Gia_PolynBuildOne(ptr noundef nonnull %29, i32 noundef %132)
-  %.pre158 = load ptr, ptr %114, align 8, !tbaa !23
+  %.pre156 = load ptr, ptr %114, align 8, !tbaa !23
   br label %332
 
 332:                                              ; preds = %329, %Vec_QuePop.exit
-  %333 = phi ptr [ %125, %Vec_QuePop.exit ], [ %.pre158, %329 ]
+  %333 = phi ptr [ %125, %Vec_QuePop.exit ], [ %.pre156, %329 ]
   %334 = phi ptr [ %126, %Vec_QuePop.exit ], [ %330, %329 ]
   %335 = phi ptr [ %127, %Vec_QuePop.exit ], [ %331, %329 ]
-  %.val101152 = phi ptr [ %.val101, %Vec_QuePop.exit ], [ %.val101153, %329 ]
-  %.176.ph = phi i32 [ %.075141, %Vec_QuePop.exit ], [ %.2, %329 ]
-  %.1.ph = phi i32 [ %.074142, %Vec_QuePop.exit ], [ %230, %329 ]
-  %336 = add nuw nsw i32 %.077139, 1
+  %.val101150 = phi ptr [ %.val101, %Vec_QuePop.exit ], [ %.val101151, %329 ]
+  %.176.ph = phi i32 [ %.075139, %Vec_QuePop.exit ], [ %.2, %329 ]
+  %.1.ph = phi i32 [ %.074140, %Vec_QuePop.exit ], [ %230, %329 ]
+  %336 = add nuw nsw i32 %.077137, 1
   %337 = getelementptr i8, ptr %333, i64 4
   %.val100 = load i32, ptr %337, align 4, !tbaa !16
   %338 = icmp eq i32 %.val100, 1

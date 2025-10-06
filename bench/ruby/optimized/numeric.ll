@@ -8926,43 +8926,43 @@ declare i64 @rb_big_norm(i64 noundef) local_unnamed_addr #3
 define hidden i64 @rb_int_abs(i64 noundef %0) local_unnamed_addr #2 {
   %2 = and i64 %0, 1
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %10, label %3
+  br i1 %.not, label %11, label %3
 
 3:                                                ; preds = %1
   %4 = ashr i64 %0, 1
   %spec.select.i = tail call i64 @llvm.abs.i64(i64 %4, i1 true)
-  %.not.i = icmp eq i64 %spec.select.i, 4611686018427387904
-  br i1 %.not.i, label %8, label %5
+  %5 = icmp samesign ult i64 %spec.select.i, 4611686018427387904
+  br i1 %5, label %6, label %9
 
-5:                                                ; preds = %3
-  %6 = shl nuw nsw i64 %spec.select.i, 1
-  %7 = or disjoint i64 %6, 1
+6:                                                ; preds = %3
+  %7 = shl nuw nsw i64 %spec.select.i, 1
+  %8 = or disjoint i64 %7, 1
   br label %fix_abs.exit
 
-8:                                                ; preds = %3
-  %9 = tail call i64 @rb_int2big(i64 noundef 4611686018427387904) #26
+9:                                                ; preds = %3
+  %10 = tail call i64 @rb_int2big(i64 noundef 4611686018427387904) #26
   br label %fix_abs.exit
 
-10:                                               ; preds = %1
-  %11 = icmp eq i64 %0, 0
-  %12 = and i64 %0, 6
-  %13 = icmp ne i64 %12, 0
-  %14 = or i1 %11, %13
-  br i1 %14, label %fix_abs.exit, label %rbimpl_RB_TYPE_P_fastpath.exit
+11:                                               ; preds = %1
+  %12 = icmp eq i64 %0, 0
+  %13 = and i64 %0, 6
+  %14 = icmp ne i64 %13, 0
+  %15 = or i1 %12, %14
+  br i1 %15, label %fix_abs.exit, label %rbimpl_RB_TYPE_P_fastpath.exit
 
-rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %10
-  %15 = inttoptr i64 %0 to ptr
-  %16 = load i64, ptr %15, align 8, !tbaa !11
-  %17 = and i64 %16, 31
-  %18 = icmp eq i64 %17, 10
-  br i1 %18, label %19, label %fix_abs.exit
+rbimpl_RB_TYPE_P_fastpath.exit:                   ; preds = %11
+  %16 = inttoptr i64 %0 to ptr
+  %17 = load i64, ptr %16, align 8, !tbaa !11
+  %18 = and i64 %17, 31
+  %19 = icmp eq i64 %18, 10
+  br i1 %19, label %20, label %fix_abs.exit
 
-19:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
-  %20 = tail call i64 @rb_big_abs(i64 noundef %0) #26
+20:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit
+  %21 = tail call i64 @rb_big_abs(i64 noundef %0) #26
   br label %fix_abs.exit
 
-fix_abs.exit:                                     ; preds = %10, %8, %5, %rbimpl_RB_TYPE_P_fastpath.exit, %19
-  %.0 = phi i64 [ %20, %19 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %7, %5 ], [ %9, %8 ], [ 4, %10 ]
+fix_abs.exit:                                     ; preds = %11, %9, %6, %rbimpl_RB_TYPE_P_fastpath.exit, %20
+  %.0 = phi i64 [ %21, %20 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit ], [ %8, %6 ], [ %10, %9 ], [ 4, %11 ]
   ret i64 %.0
 }
 
@@ -14575,43 +14575,43 @@ rb_int_comp.exit:                                 ; preds = %4, %7, %rbimpl_RB_T
 define internal i64 @builtin_inline_class_134(ptr readnone captures(none) %0, i64 noundef %1) #2 {
   %3 = and i64 %1, 1
   %.not.i = icmp eq i64 %3, 0
-  br i1 %.not.i, label %11, label %4
+  br i1 %.not.i, label %12, label %4
 
 4:                                                ; preds = %2
   %5 = ashr i64 %1, 1
   %spec.select.i.i = tail call i64 @llvm.abs.i64(i64 %5, i1 true)
-  %.not.i.i = icmp eq i64 %spec.select.i.i, 4611686018427387904
-  br i1 %.not.i.i, label %9, label %6
+  %6 = icmp samesign ult i64 %spec.select.i.i, 4611686018427387904
+  br i1 %6, label %7, label %10
 
-6:                                                ; preds = %4
-  %7 = shl nuw nsw i64 %spec.select.i.i, 1
-  %8 = or disjoint i64 %7, 1
+7:                                                ; preds = %4
+  %8 = shl nuw nsw i64 %spec.select.i.i, 1
+  %9 = or disjoint i64 %8, 1
   br label %rb_int_abs.exit
 
-9:                                                ; preds = %4
-  %10 = tail call i64 @rb_int2big(i64 noundef 4611686018427387904) #26
+10:                                               ; preds = %4
+  %11 = tail call i64 @rb_int2big(i64 noundef 4611686018427387904) #26
   br label %rb_int_abs.exit
 
-11:                                               ; preds = %2
-  %12 = icmp eq i64 %1, 0
-  %13 = and i64 %1, 6
-  %14 = icmp ne i64 %13, 0
-  %15 = or i1 %12, %14
-  br i1 %15, label %rb_int_abs.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.i
+12:                                               ; preds = %2
+  %13 = icmp eq i64 %1, 0
+  %14 = and i64 %1, 6
+  %15 = icmp ne i64 %14, 0
+  %16 = or i1 %13, %15
+  br i1 %16, label %rb_int_abs.exit, label %rbimpl_RB_TYPE_P_fastpath.exit.i
 
-rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %11
-  %16 = inttoptr i64 %1 to ptr
-  %17 = load i64, ptr %16, align 8, !tbaa !11
-  %18 = and i64 %17, 31
-  %19 = icmp eq i64 %18, 10
-  br i1 %19, label %20, label %rb_int_abs.exit
+rbimpl_RB_TYPE_P_fastpath.exit.i:                 ; preds = %12
+  %17 = inttoptr i64 %1 to ptr
+  %18 = load i64, ptr %17, align 8, !tbaa !11
+  %19 = and i64 %18, 31
+  %20 = icmp eq i64 %19, 10
+  br i1 %20, label %21, label %rb_int_abs.exit
 
-20:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
-  %21 = tail call i64 @rb_big_abs(i64 noundef %1) #26
+21:                                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i
+  %22 = tail call i64 @rb_big_abs(i64 noundef %1) #26
   br label %rb_int_abs.exit
 
-rb_int_abs.exit:                                  ; preds = %6, %9, %11, %rbimpl_RB_TYPE_P_fastpath.exit.i, %20
-  %.0.i = phi i64 [ %21, %20 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %8, %6 ], [ %10, %9 ], [ 4, %11 ]
+rb_int_abs.exit:                                  ; preds = %7, %10, %12, %rbimpl_RB_TYPE_P_fastpath.exit.i, %21
+  %.0.i = phi i64 [ %22, %21 ], [ 4, %rbimpl_RB_TYPE_P_fastpath.exit.i ], [ %9, %7 ], [ %11, %10 ], [ 4, %12 ]
   ret i64 %.0.i
 }
 

@@ -759,17 +759,17 @@ _ZNK5clang13CXXRecordDecl14isDynamicClassEv.exit.thread: ; preds = %_ZNK5clang16
   %68 = zext i32 %67 to i64
   %.idx.i.i = shl nuw nsw i64 %68, 3
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %67, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %67, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %65, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %71, %.critedge.i.i ], [ %66, %65 ]
-  %70 = load ptr, ptr %.02937.i.i, align 8, !tbaa !137, !noalias !134
+  %.02935.i.i = phi ptr [ %71, %.critedge.i.i ], [ %66, %65 ]
+  %70 = load ptr, ptr %.02935.i.i, align 8, !tbaa !137, !noalias !134
   %.not17.i.i = icmp eq ptr %70, %44
   br i1 %.not17.i.i, label %.critedge89, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %71 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i44 = icmp eq ptr %71, %69
   br i1 %.not.i.i44, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !138
 
@@ -993,17 +993,17 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %12, %20
   %39 = zext i32 %38 to i64
   %.idx.i.i = shl nuw nsw i64 %39, 3
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %38, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %38, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %36, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %42, %.critedge.i.i ], [ %37, %36 ]
-  %41 = load ptr, ptr %.02937.i.i, align 8, !tbaa !137, !noalias !140
+  %.02935.i.i = phi ptr [ %42, %.critedge.i.i ], [ %37, %36 ]
+  %41 = load ptr, ptr %.02935.i.i, align 8, !tbaa !137, !noalias !140
   %.not17.i.i = icmp eq ptr %41, %29
   br i1 %.not17.i.i, label %.critedge37, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i20 = icmp eq ptr %42, %40
   br i1 %.not.i.i20, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !138
 
@@ -1161,8 +1161,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

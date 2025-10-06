@@ -7122,7 +7122,7 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
 164:                                              ; preds = %155
   %165 = load i32, ptr %5, align 4, !tbaa !13
   %166 = icmp slt i32 %165, 1
-  br i1 %166, label %169, label %.thread113
+  br i1 %166, label %169, label %.thread112
 
 167:                                              ; preds = %155
   %168 = landingpad { ptr, i32 }
@@ -7137,9 +7137,9 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
 172:                                              ; preds = %169
   store i32 6, ptr %2, align 4, !tbaa !12
   store i32 %131, ptr %30, align 4, !tbaa !12
-  br label %.thread113
+  br label %.thread112
 
-.thread113:                                       ; preds = %172, %164
+.thread112:                                       ; preds = %172, %164
   %.4.ph = phi i32 [ 0, %164 ], [ %4, %172 ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -7173,8 +7173,8 @@ define noundef i32 @_ZNK6icu_7717RuleBasedCollator23internalNextSortKeyPartEP13U
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 0, i64 %182, i1 false), !tbaa !65
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.preheader, %175, %.thread113, %122
-  %.3 = phi i32 [ %.2, %122 ], [ %.4.ph, %.thread113 ], [ %176, %175 ], [ %176, %.lr.ph.preheader ]
+.loopexit:                                        ; preds = %.lr.ph.preheader, %175, %.thread112, %122
+  %.3 = phi i32 [ %.2, %122 ], [ %.4.ph, %.thread112 ], [ %176, %175 ], [ %176, %.lr.ph.preheader ]
   call void @_ZN6icu_7715SortKeyByteSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %8) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %184

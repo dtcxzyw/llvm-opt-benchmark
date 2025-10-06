@@ -420,8 +420,8 @@ define void @_Z19grpc_iomgr_shutdownv() local_unnamed_addr #3 personality ptr @_
   tail call void @_Z25grpc_iomgr_platform_flushv()
   tail call void @gpr_mu_lock(ptr noundef nonnull @_ZL4g_mu)
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL13g_root_object, i64 8), align 8, !tbaa !30
-  %.not106 = icmp eq ptr %17, @_ZL13g_root_object
-  br i1 %.not106, label %.loopexit, label %.lr.ph
+  %.not105 = icmp eq ptr %17, @_ZL13g_root_object
+  br i1 %.not105, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0
   %18 = extractvalue { i64, i64 } %16, 1
@@ -433,12 +433,12 @@ define void @_Z19grpc_iomgr_shutdownv() local_unnamed_addr #3 personality ptr @_
   br label %22
 
 22:                                               ; preds = %.lr.ph, %.backedge
-  %.sroa.6.0108 = phi i64 [ %18, %.lr.ph ], [ %.sroa.6.1, %.backedge ]
-  %.sroa.032.0107 = phi i64 [ %19, %.lr.ph ], [ %.sroa.032.1, %.backedge ]
+  %.sroa.6.0107 = phi i64 [ %18, %.lr.ph ], [ %.sroa.6.1, %.backedge ]
+  %.sroa.032.0106 = phi i64 [ %19, %.lr.ph ], [ %.sroa.032.1, %.backedge ]
   %23 = call { i64, i64 } @gpr_now(i32 noundef 1)
   %24 = extractvalue { i64, i64 } %23, 0
   %25 = extractvalue { i64, i64 } %23, 1
-  %26 = call { i64, i64 } @gpr_time_sub(i64 %24, i64 %25, i64 %.sroa.032.0107, i64 %.sroa.6.0108)
+  %26 = call { i64, i64 } @gpr_time_sub(i64 %24, i64 %25, i64 %.sroa.032.0106, i64 %.sroa.6.0107)
   %27 = extractvalue { i64, i64 } %26, 0
   %28 = extractvalue { i64, i64 } %26, 1
   %29 = call { i64, i64 } @gpr_time_from_seconds(i64 noundef 1, i32 noundef 3)
@@ -517,8 +517,8 @@ _ZL13count_objectsv.exit:                         ; preds = %.lr.ph.i, %_ZN4absl
   br label %52
 
 52:                                               ; preds = %.critedge52, %22
-  %.sroa.032.1 = phi i64 [ %50, %.critedge52 ], [ %.sroa.032.0107, %22 ]
-  %.sroa.6.1 = phi i64 [ %51, %.critedge52 ], [ %.sroa.6.0108, %22 ]
+  %.sroa.032.1 = phi i64 [ %50, %.critedge52 ], [ %.sroa.032.0106, %22 ]
+  %.sroa.6.1 = phi i64 [ %51, %.critedge52 ], [ %.sroa.6.0107, %22 ]
   br i1 %.not.i.i, label %_ZN9grpc_core7ExecCtx3GetEv.exit, label %53
 
 53:                                               ; preds = %52

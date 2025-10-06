@@ -154935,7 +154935,7 @@ define internal void @_ZN12_GLOBAL__N_143Duration_ToDoubleSecondsCheckEdgeCases_
   br label %.preheader
 
 .preheader:                                       ; preds = %1, %53
-  %.0374 = phi i64 [ 0, %1 ], [ %54, %53 ]
+  %.0373 = phi i64 [ 0, %1 ], [ %54, %53 ]
   br label %55
 
 52:                                               ; preds = %53
@@ -154944,13 +154944,13 @@ define internal void @_ZN12_GLOBAL__N_143Duration_ToDoubleSecondsCheckEdgeCases_
   ret void
 
 53:                                               ; preds = %69
-  %54 = add nuw nsw i64 %.0374, 1
+  %54 = add nuw nsw i64 %.0373, 1
   %exitcond.not = icmp eq i64 %54, 99
   br i1 %exitcond.not, label %52, label %.preheader, !llvm.loop !2945
 
 55:                                               ; preds = %.preheader, %69
-  %.0114.idx373 = phi i64 [ 0, %.preheader ], [ %.0114.add, %69 ]
-  %.0114.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN12_GLOBAL__N_143Duration_ToDoubleSecondsCheckEdgeCases_Test8TestBodyEv.tick_vals, i64 %.0114.idx373
+  %.0114.idx372 = phi i64 [ 0, %.preheader ], [ %.0114.add, %69 ]
+  %.0114.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN12_GLOBAL__N_143Duration_ToDoubleSecondsCheckEdgeCases_Test8TestBodyEv.tick_vals, i64 %.0114.idx372
   %56 = load i32, ptr %.0114.ptr, align 4, !tbaa !44
   %.sroa.091.0.copyload = load i64, ptr %14, align 8
   %.sroa.292.0.copyload = load i32, ptr %.sroa.292.0..sroa_idx, align 8, !tbaa !44
@@ -154964,7 +154964,7 @@ define internal void @_ZN12_GLOBAL__N_143Duration_ToDoubleSecondsCheckEdgeCases_
   %.sroa.24.0.copyload.i = load i32, ptr %.sroa.24.0..sroa_idx.i, align 4, !tbaa !44
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  store i64 %.0374, ptr %12, align 8
+  store i64 %.0373, ptr %12, align 8
   store i32 0, ptr %.sroa.210.0..sroa_idx.i, align 8
   %59 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationpLES0_(ptr noundef nonnull align 4 dereferenceable(12) %12, i64 %.sroa.03.0.copyload.i, i32 %.sroa.24.0.copyload.i) #27
   %.sroa.011.0.copyload.i = load i64, ptr %59, align 4
@@ -155011,13 +155011,13 @@ _ZN4abslngENS_8DurationE.exit:                    ; preds = %60, %62, %64, %66
 
 69:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.0114.add = add nuw nsw i64 %.0114.idx373, 4
+  %.0114.add = add nuw nsw i64 %.0114.idx372, 4
   %.not = icmp eq i64 %.0114.add, 140
   br i1 %.not, label %53, label %55
 
 70:                                               ; preds = %_ZN4abslngENS_8DurationE.exit, %._crit_edge
-  %.0115.idx372 = phi i64 [ 0, %_ZN4abslngENS_8DurationE.exit ], [ %.0115.add, %._crit_edge ]
-  %.0115.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.0115.idx372
+  %.0115.idx371 = phi i64 [ 0, %_ZN4abslngENS_8DurationE.exit ], [ %.0115.add, %._crit_edge ]
+  %.0115.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.0115.idx371
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %17, ptr noundef nonnull align 4 dereferenceable(12) %.0115.ptr, i64 12, i1 false), !tbaa.struct !1400
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
@@ -156011,13 +156011,13 @@ _ZN7testing15AssertionResultD2Ev.exit266:         ; preds = %386, %_ZNKSt14defau
   %396 = fadd double %182, %395
   %397 = fcmp oeq double %396, %182
   %398 = fcmp oeq double %396, %288
-  %or.cond368 = or i1 %397, %398
-  br i1 %or.cond368, label %._crit_edge, label %.lr.ph
+  %or.cond367 = or i1 %397, %398
+  br i1 %or.cond367, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7testing15AssertionResultD2Ev.exit266, %508
   %399 = phi double [ %511, %508 ], [ %396, %_ZN7testing15AssertionResultD2Ev.exit266 ]
-  %.0130370 = phi double [ %.2132, %508 ], [ %182, %_ZN7testing15AssertionResultD2Ev.exit266 ]
-  %.0133369 = phi double [ %.2135, %508 ], [ %288, %_ZN7testing15AssertionResultD2Ev.exit266 ]
+  %.0130369 = phi double [ %.2132, %508 ], [ %182, %_ZN7testing15AssertionResultD2Ev.exit266 ]
+  %.0133368 = phi double [ %.2135, %508 ], [ %288, %_ZN7testing15AssertionResultD2Ev.exit266 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %400 = fcmp ult double %399, 0.000000e+00
   br i1 %400, label %413, label %401
@@ -156326,8 +156326,8 @@ _ZN7testing15AssertionResultD2Ev.exit307:         ; preds = %500, %_ZNKSt14defau
   br label %508
 
 508:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit307, %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit280
-  %.2135 = phi double [ %399, %_ZN7testing15AssertionResultD2Ev.exit307 ], [ %.0133369, %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit280 ]
-  %.2132 = phi double [ %.0130370, %_ZN7testing15AssertionResultD2Ev.exit307 ], [ %399, %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit280 ]
+  %.2135 = phi double [ %399, %_ZN7testing15AssertionResultD2Ev.exit307 ], [ %.0133368, %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit280 ]
+  %.2132 = phi double [ %.0130369, %_ZN7testing15AssertionResultD2Ev.exit307 ], [ %399, %_ZN4absl7SecondsIdTnNSt9enable_ifIXsr3std17is_floating_pointIT_EE5valueEiE4typeELi0EEENS_8DurationES2_.exit280 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %509 = fsub double %.2135, %.2132
   %510 = fmul double %509, 5.000000e-01
@@ -156344,7 +156344,7 @@ _ZN7testing15AssertionResultD2Ev.exit307:         ; preds = %500, %_ZNKSt14defau
   call fastcc void @_ZN12_GLOBAL__N_121VerifyApproxSameAsMulEdPi(double noundef %.0133.lcssa, ptr noundef %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.0115.add = add nuw nsw i64 %.0115.idx372, 12
+  %.0115.add = add nuw nsw i64 %.0115.idx371, 12
   %.not137 = icmp eq i64 %.0115.add, 24
   br i1 %.not137, label %69, label %70
 

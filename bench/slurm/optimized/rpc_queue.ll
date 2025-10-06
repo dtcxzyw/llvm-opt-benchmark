@@ -940,8 +940,8 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
 
 .preheader:                                       ; preds = %1
   %4 = load i16, ptr @slurmctld_rpcs, align 8
-  %.not52 = icmp eq i16 %4, 0
-  br i1 %.not52, label %.loopexit, label %.lr.ph
+  %.not54 = icmp eq i16 %4, 0
+  br i1 %.not54, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 212
@@ -950,24 +950,24 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
 
 7:                                                ; preds = %.lr.ph, %59
   %8 = phi i16 [ %4, %.lr.ph ], [ %61, %59 ]
-  %.03453 = phi ptr [ @slurmctld_rpcs, %.lr.ph ], [ %60, %59 ]
+  %.03455 = phi ptr [ @slurmctld_rpcs, %.lr.ph ], [ %60, %59 ]
   %9 = icmp eq i16 %8, %6
   br i1 %9, label %10, label %59
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %.03453, i64 57
+  %11 = getelementptr inbounds nuw i8, ptr %.03455, i64 57
   %12 = load i8, ptr %11, align 1, !range !8, !noundef !9
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %14, label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i8, ptr %.03453, i64 72
+  %15 = getelementptr inbounds nuw i8, ptr %.03455, i64 72
   %16 = load i16, ptr %15, align 8
   %.not43 = icmp eq i16 %16, 0
   br i1 %.not43, label %42, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %.03453, i64 136
+  %18 = getelementptr inbounds nuw i8, ptr %.03455, i64 136
   %19 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %18) #9
   %.not44 = icmp eq i32 %19, 0
   br i1 %.not44, label %22, label %20
@@ -979,18 +979,18 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
   unreachable
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %.03453, i64 184
+  %23 = getelementptr inbounds nuw i8, ptr %.03455, i64 184
   %24 = load i16, ptr %23, align 8
   %25 = load i16, ptr %15, align 8
   %.not45 = icmp ult i16 %24, %25
   br i1 %.not45, label %37, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %.03453, i64 192
+  %27 = getelementptr inbounds nuw i8, ptr %.03455, i64 192
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8
-  tail call void @record_rpc_queue_stats(ptr noundef nonnull %.03453) #9
+  tail call void @record_rpc_queue_stats(ptr noundef nonnull %.03455) #9
   %30 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #9
   %.not50 = icmp eq i32 %30, 0
   br i1 %.not50, label %33, label %31
@@ -1002,7 +1002,7 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
   unreachable
 
 33:                                               ; preds = %26
-  %34 = getelementptr inbounds nuw i8, ptr %.03453, i64 58
+  %34 = getelementptr inbounds nuw i8, ptr %.03455, i64 58
   %35 = load i8, ptr %34, align 2, !range !8, !noundef !9
   %36 = trunc nuw i8 %35 to i1
   %. = select i1 %36, i32 1805, i32 1804
@@ -1011,7 +1011,7 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
 37:                                               ; preds = %22
   %38 = add nuw i16 %24, 1
   store i16 %38, ptr %23, align 8
-  tail call void @record_rpc_queue_stats(ptr noundef nonnull %.03453) #9
+  tail call void @record_rpc_queue_stats(ptr noundef nonnull %.03455) #9
   %39 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %18) #9
   %.not46 = icmp eq i32 %39, 0
   br i1 %.not46, label %42, label %40
@@ -1023,10 +1023,10 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
   unreachable
 
 42:                                               ; preds = %37, %14
-  %43 = getelementptr inbounds nuw i8, ptr %.03453, i64 176
+  %43 = getelementptr inbounds nuw i8, ptr %.03455, i64 176
   %44 = load ptr, ptr %43, align 8
   tail call void @list_enqueue(ptr noundef %44, ptr noundef nonnull %0) #9
-  %45 = getelementptr inbounds nuw i8, ptr %.03453, i64 136
+  %45 = getelementptr inbounds nuw i8, ptr %.03455, i64 136
   %46 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %45) #9
   %.not47 = icmp eq i32 %46, 0
   br i1 %.not47, label %49, label %47
@@ -1038,7 +1038,7 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
   unreachable
 
 49:                                               ; preds = %42
-  %50 = getelementptr inbounds nuw i8, ptr %.03453, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %.03455, i64 88
   %51 = tail call i32 @pthread_cond_signal(ptr noundef nonnull %50) #9
   %.not48 = icmp eq i32 %51, 0
   br i1 %.not48, label %55, label %52
@@ -1061,13 +1061,13 @@ define dso_local range(i32 0, 2037) i32 @rpc_enqueue(ptr noundef %0) local_unnam
   unreachable
 
 59:                                               ; preds = %7
-  %60 = getelementptr inbounds nuw i8, ptr %.03453, i64 208
+  %60 = getelementptr inbounds nuw i8, ptr %.03455, i64 208
   %61 = load i16, ptr %60, align 8
   %.not = icmp eq i16 %61, 0
   br i1 %.not, label %.loopexit, label %7, !llvm.loop !16
 
-.loopexit:                                        ; preds = %59, %.preheader, %10, %33, %55, %1
-  %.0 = phi i32 [ 2036, %1 ], [ 2036, %10 ], [ %., %33 ], [ 0, %55 ], [ 2036, %.preheader ], [ 2036, %59 ]
+.loopexit:                                        ; preds = %59, %.preheader, %55, %33, %10, %1
+  %.0 = phi i32 [ 2036, %1 ], [ %., %33 ], [ 0, %55 ], [ 2036, %10 ], [ 2036, %.preheader ], [ 2036, %59 ]
   ret i32 %.0
 }
 

@@ -3948,8 +3948,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18CheckOpcodeMatcher19isContradict
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !12
   %5 = icmp ne i32 %4, 12
-  %.not.not40 = icmp eq ptr %1, null
-  %.not.not = or i1 %.not.not40, %5
+  %.not.not37 = icmp eq ptr %1, null
+  %.not.not = or i1 %.not.not37, %5
   br i1 %.not.not, label %_ZN4llvmneENS_9StringRefES0_.exit, label %6
 
 6:                                                ; preds = %2
@@ -3962,10 +3962,10 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18CheckOpcodeMatcher19isContradict
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !67
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.0.0.copyload.i27 = load ptr, ptr %12, align 8, !tbaa !69
-  %.sroa.2.0..sroa_idx.i28 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.sroa.2.0.copyload.i29 = load i64, ptr %.sroa.2.0..sroa_idx.i28, align 8, !tbaa !70
-  %.not.i.i = icmp eq i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i29
+  %.sroa.0.0.copyload.i26 = load ptr, ptr %12, align 8, !tbaa !69
+  %.sroa.2.0..sroa_idx.i27 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.sroa.2.0.copyload.i28 = load i64, ptr %.sroa.2.0..sroa_idx.i27, align 8, !tbaa !70
+  %.not.i.i = icmp eq i64 %.sroa.2.0.copyload.i, %.sroa.2.0.copyload.i28
   br i1 %.not.i.i, label %13, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 13:                                               ; preds = %6
@@ -3973,13 +3973,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm18CheckOpcodeMatcher19isContradict
   br i1 %14, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %15
 
 15:                                               ; preds = %13
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0.0.copyload.i27, i64 %.sroa.2.0.copyload.i)
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.0.0.copyload.i, ptr %.sroa.0.0.copyload.i26, i64 %.sroa.2.0.copyload.i)
   %16 = icmp ne i32 %bcmp.i.i, 0
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %2
   %17 = icmp ne i32 %4, 14
-  %.not21 = or i1 %.not.not40, %17
+  %.not21 = or i1 %.not.not37, %17
   br i1 %.not21, label %_ZN4llvmneENS_9StringRefES0_.exit.thread, label %18
 
 18:                                               ; preds = %_ZN4llvmneENS_9StringRefES0_.exit
@@ -4014,8 +4014,8 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %2
   %or.cond3.i.i = icmp ugt i16 %35, 70
   %or.cond4.i.not23.i = and i1 %or.cond.i.i, %or.cond3.i.i
   %36 = add i16 %29, -170
-  %spec.select.i.i33 = icmp ult i16 %36, -32
-  %or.cond.not.i = and i1 %spec.select.i.i33, %or.cond4.i.not23.i
+  %spec.select.i.i32 = icmp ult i16 %36, -32
+  %or.cond.not.i = and i1 %spec.select.i.i32, %or.cond4.i.not23.i
   %spec.select.i10.i = icmp ult i16 %35, 174
   %spec.select.i = or i1 %spec.select.i10.i, %or.cond.not.i
   br label %_ZN4llvmneENS_9StringRefES0_.exit.thread

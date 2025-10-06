@@ -4572,25 +4572,25 @@ define noundef ptr @find_user_shape(ptr noundef readonly captures(none) %0) loca
 
 .preheader:                                       ; preds = %1
   %3 = load i64, ptr @N_UserShape, align 8, !tbaa !111
-  %.not15 = icmp eq i64 %3, 0
-  br i1 %.not15, label %.thread, label %.lr.ph
+  %.not13 = icmp eq i64 %3, 0
+  br i1 %.not13, label %.thread, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
-  %5 = add nuw i64 %.0612, 1
+  %5 = add nuw i64 %.0610, 1
   %exitcond.not = icmp eq i64 %5, %3
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !112
 
 .lr.ph:                                           ; preds = %.preheader, %4
-  %.0612 = phi i64 [ %5, %4 ], [ 0, %.preheader ]
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %.0612
+  %.0610 = phi i64 [ %5, %4 ], [ 0, %.preheader ]
+  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %.0610
   %7 = load ptr, ptr %6, align 8, !tbaa !113
   %8 = load ptr, ptr %7, align 8, !tbaa !79
   %9 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %8, ptr noundef nonnull readonly dereferenceable(1) %0) #32
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %.thread, label %4
 
-.thread:                                          ; preds = %4, %.lr.ph, %.preheader, %1
-  %.1 = phi ptr [ null, %1 ], [ null, %.preheader ], [ null, %4 ], [ %7, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %4, %.preheader, %1
+  %.1 = phi ptr [ null, %1 ], [ null, %.preheader ], [ %7, %.lr.ph ], [ null, %4 ]
   ret ptr %.1
 }
 
@@ -4636,17 +4636,17 @@ define noundef ptr @bind_shape(ptr noundef readonly captures(none) %0, ptr nound
   br i1 %.not.i.i, label %.loopexit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.loopexit
-  %.not15.i.i = icmp eq i64 %.pre.i, 0
-  br i1 %.not15.i.i, label %.thread17, label %.lr.ph.i.i
+  %.not13.i.i = icmp eq i64 %.pre.i, 0
+  br i1 %.not13.i.i, label %.thread17, label %.lr.ph.i.i
 
 19:                                               ; preds = %.lr.ph.i.i
-  %20 = add nuw i64 %.0612.i.i, 1
+  %20 = add nuw i64 %.0610.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %20, %.pre.i
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !112
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %19
-  %.0612.i.i = phi i64 [ %20, %19 ], [ 0, %.preheader.i.i ]
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %.0612.i.i
+  %.0610.i.i = phi i64 [ %20, %19 ], [ 0, %.preheader.i.i ]
+  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %.0610.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !113
   %23 = load ptr, ptr %22, align 8, !tbaa !79
   %24 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %.0) #32

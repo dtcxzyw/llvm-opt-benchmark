@@ -129,10 +129,10 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 
 54:                                               ; preds = %73, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %73 ]
-  %.078111.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %73 ]
-  %.083109.i = phi i32 [ 0, %.lr.ph.i ], [ %.285.i, %73 ]
+  %.078110.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %73 ]
+  %.083108.i = phi i32 [ 0, %.lr.ph.i ], [ %.285.i, %73 ]
   %55 = load i32, ptr %32, align 4
-  %56 = icmp slt i32 %.078111.i, %55
+  %56 = icmp slt i32 %.078110.i, %55
   br i1 %56, label %57, label %.critedge.i
 
 57:                                               ; preds = %54
@@ -140,7 +140,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %53, align 8
-  %62 = sext i32 %.078111.i to i64
+  %62 = sext i32 %.078110.i to i64
   %63 = getelementptr inbounds ptr, ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   %65 = tail call i32 @QTNodeCompare(ptr noundef %60, ptr noundef %64) #4
@@ -150,8 +150,8 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 67:                                               ; preds = %57
   %68 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv.i
   store i8 1, ptr %68, align 1
-  %69 = add i32 %.083109.i, 1
-  %70 = add nsw i32 %.078111.i, 1
+  %69 = add i32 %.083108.i, 1
+  %70 = add nsw i32 %.078110.i, 1
   br label %73
 
 71:                                               ; preds = %57
@@ -159,8 +159,8 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %72, label %73, label %.critedge.i
 
 73:                                               ; preds = %71, %67
-  %.285.i = phi i32 [ %69, %67 ], [ %.083109.i, %71 ]
-  %.1.i = phi i32 [ %70, %67 ], [ %.078111.i, %71 ]
+  %.285.i = phi i32 [ %69, %67 ], [ %.083108.i, %71 ]
+  %.1.i = phi i32 [ %70, %67 ], [ %.078110.i, %71 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %74 = load i32, ptr %30, align 4
   %75 = sext i32 %74 to i64
@@ -168,7 +168,7 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %76, label %54, label %.critedge.i
 
 .critedge.i:                                      ; preds = %73, %71, %54, %47
-  %.083.lcssa.i = phi i32 [ 0, %47 ], [ %.083109.i, %54 ], [ %.285.i, %73 ], [ %.083109.i, %71 ]
+  %.083.lcssa.i = phi i32 [ 0, %47 ], [ %.083108.i, %54 ], [ %.285.i, %73 ], [ %.083108.i, %71 ]
   %77 = load i32, ptr %32, align 4
   %78 = icmp eq i32 %.083.lcssa.i, %77
   br i1 %78, label %.preheader.i, label %109
@@ -176,20 +176,20 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
 .preheader.i:                                     ; preds = %.critedge.i
   %79 = load i32, ptr %30, align 4
   %80 = icmp sgt i32 %79, 0
-  br i1 %80, label %.lr.ph118.i, label %._crit_edge.i
+  br i1 %80, label %.lr.ph117.i, label %._crit_edge.i
 
-.lr.ph118.i:                                      ; preds = %.preheader.i
+.lr.ph117.i:                                      ; preds = %.preheader.i
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %82
 
-82:                                               ; preds = %94, %.lr.ph118.i
-  %indvars.iv121.i = phi i64 [ 0, %.lr.ph118.i ], [ %indvars.iv.next122.i, %94 ]
-  %.3117.i = phi i32 [ 0, %.lr.ph118.i ], [ %.4.i, %94 ]
-  %83 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv121.i
+82:                                               ; preds = %94, %.lr.ph117.i
+  %indvars.iv120.i = phi i64 [ 0, %.lr.ph117.i ], [ %indvars.iv.next121.i, %94 ]
+  %.3116.i = phi i32 [ 0, %.lr.ph117.i ], [ %.4.i, %94 ]
+  %83 = getelementptr inbounds nuw i8, ptr %49, i64 %indvars.iv120.i
   %84 = load i8, ptr %83, align 1, !range !4, !noundef !5
   %85 = trunc nuw i8 %84 to i1
   %86 = load ptr, ptr %81, align 8
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv121.i
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv120.i
   %88 = load ptr, ptr %87, align 8
   br i1 %85, label %89, label %90
 
@@ -198,18 +198,18 @@ define internal fastcc ptr @dofindsubquery(ptr noundef %0, ptr noundef %1, ptr n
   br label %94
 
 90:                                               ; preds = %82
-  %91 = add i32 %.3117.i, 1
-  %92 = sext i32 %.3117.i to i64
+  %91 = add i32 %.3116.i, 1
+  %92 = sext i32 %.3116.i to i64
   %93 = getelementptr inbounds ptr, ptr %86, i64 %92
   store ptr %88, ptr %93, align 8
   br label %94
 
 94:                                               ; preds = %90, %89
-  %.4.i = phi i32 [ %.3117.i, %89 ], [ %91, %90 ]
-  %indvars.iv.next122.i = add nuw nsw i64 %indvars.iv121.i, 1
+  %.4.i = phi i32 [ %.3116.i, %89 ], [ %91, %90 ]
+  %indvars.iv.next121.i = add nuw nsw i64 %indvars.iv120.i, 1
   %95 = load i32, ptr %30, align 4
   %96 = sext i32 %95 to i64
-  %97 = icmp slt i64 %indvars.iv.next122.i, %96
+  %97 = icmp slt i64 %indvars.iv.next121.i, %96
   br i1 %97, label %82, label %._crit_edge.i, !llvm.loop !7
 
 ._crit_edge.i:                                    ; preds = %94, %.preheader.i

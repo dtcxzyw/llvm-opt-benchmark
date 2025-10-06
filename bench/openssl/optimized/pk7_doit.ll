@@ -2253,8 +2253,8 @@ define range(i32 -1, 2) i32 @PKCS7_signatureVerify(ptr noundef %0, ptr noundef %
   br i1 %30, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %47
-  %.05687 = phi ptr [ %48, %47 ], [ %0, %25 ]
-  %31 = call ptr @BIO_find_type(ptr noundef nonnull %.05687, i32 noundef 520) #4
+  %.05686 = phi ptr [ %48, %47 ], [ %0, %25 ]
+  %31 = call ptr @BIO_find_type(ptr noundef nonnull %.05686, i32 noundef 520) #4
   %32 = icmp eq ptr %31, null
   br i1 %32, label %._crit_edge, label %33
 

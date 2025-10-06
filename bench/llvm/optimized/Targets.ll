@@ -11887,479 +11887,479 @@ define dso_local noundef zeroext i1 @_ZNK5clang10TargetInfo20validateOpenCLTarge
 
 27:                                               ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit12"
   %28 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %switch.i = icmp eq i32 %28, 200
-  br i1 %switch.i, label %29, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit"
+  %29 = icmp eq i32 %28, 200
+  br i1 %29, label %30, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit"
 
-29:                                               ; preds = %27
-  %30 = load ptr, ptr %0, align 8, !tbaa !158
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 528
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr nonnull @.str.27, i64 22) #21
-  br i1 %33, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit", label %34
+30:                                               ; preds = %27
+  %31 = load ptr, ptr %0, align 8, !tbaa !158
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 528
+  %33 = load ptr, ptr %32, align 8
+  %34 = tail call noundef zeroext i1 %33(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr nonnull @.str.27, i64 22) #21
+  br i1 %34, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit", label %35
 
-34:                                               ; preds = %29
+35:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr noundef nonnull align 8 dereferenceable(15248) %2, i32 0, i32 noundef 148) #21
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr nonnull @.str.27, i64 22)
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %36 = load i64, ptr %35, align 8
-  %37 = lshr i64 %36, 32
-  %38 = and i64 %37, 1
-  %39 = load ptr, ptr %4, align 8, !tbaa !634
-  %.not.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i, label %40, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit.i
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %37 = load i64, ptr %36, align 8
+  %38 = lshr i64 %37, 32
+  %39 = and i64 %38, 1
+  %40 = load ptr, ptr %4, align 8, !tbaa !634
+  %.not.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i, label %41, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit.i
 
-40:                                               ; preds = %34
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !635
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 14976
-  %44 = load i32, ptr %43, align 8, !tbaa !685
-  %45 = icmp eq i32 %44, 0
-  br i1 %45, label %46, label %60
+41:                                               ; preds = %35
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !635
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 14976
+  %45 = load i32, ptr %44, align 8, !tbaa !685
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %61
 
-46:                                               ; preds = %40
-  %47 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #24
-  store i8 0, ptr %47, align 8, !tbaa !687
-  br label %48
+47:                                               ; preds = %41
+  %48 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #24
+  store i8 0, ptr %48, align 8, !tbaa !687
+  br label %49
 
-48:                                               ; preds = %48, %46
-  %.idx.i.i.i.i.i = phi i64 [ 96, %46 ], [ %.add.i.i.i.i.i, %48 ]
-  %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 %.idx.i.i.i.i.i
-  %49 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i.i, i64 16
-  store ptr %49, ptr %.ptr.i.i.i.i.i, align 8, !tbaa !52
-  %50 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i.i, i64 8
-  store i64 0, ptr %50, align 8, !tbaa !58
-  store i8 0, ptr %49, align 8, !tbaa !9
+49:                                               ; preds = %49, %47
+  %.idx.i.i.i.i.i = phi i64 [ 96, %47 ], [ %.add.i.i.i.i.i, %49 ]
+  %.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %48, i64 %.idx.i.i.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i.i, i64 16
+  store ptr %50, ptr %.ptr.i.i.i.i.i, align 8, !tbaa !52
+  %51 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i.i, i64 8
+  store i64 0, ptr %51, align 8, !tbaa !58
+  store i8 0, ptr %50, align 8, !tbaa !9
   %.add.i.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i.i, 32
-  %51 = icmp eq i64 %.add.i.i.i.i.i, 416
-  br i1 %51, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i.i, label %48
+  %52 = icmp eq i64 %.add.i.i.i.i.i, 416
+  br i1 %52, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i.i, label %49
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i.i:    ; preds = %48
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 416
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 432
-  store ptr %53, ptr %52, align 8, !tbaa !642
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 424
-  store i32 0, ptr %54, align 8, !tbaa !644
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 428
-  store i32 8, ptr %55, align 4, !tbaa !645
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 528
-  %57 = getelementptr inbounds nuw i8, ptr %47, i64 544
-  store ptr %57, ptr %56, align 8, !tbaa !642
-  %58 = getelementptr inbounds nuw i8, ptr %47, i64 536
-  store i32 0, ptr %58, align 8, !tbaa !644
-  %59 = getelementptr inbounds nuw i8, ptr %47, i64 540
-  store i32 6, ptr %59, align 4, !tbaa !645
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i.i:    ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 416
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 432
+  store ptr %54, ptr %53, align 8, !tbaa !642
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 424
+  store i32 0, ptr %55, align 8, !tbaa !644
+  %56 = getelementptr inbounds nuw i8, ptr %48, i64 428
+  store i32 8, ptr %56, align 4, !tbaa !645
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 528
+  %58 = getelementptr inbounds nuw i8, ptr %48, i64 544
+  store ptr %58, ptr %57, align 8, !tbaa !642
+  %59 = getelementptr inbounds nuw i8, ptr %48, i64 536
+  store i32 0, ptr %59, align 8, !tbaa !644
+  %60 = getelementptr inbounds nuw i8, ptr %48, i64 540
+  store i32 6, ptr %60, align 4, !tbaa !645
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i
 
-60:                                               ; preds = %40
-  %61 = getelementptr inbounds nuw i8, ptr %42, i64 14848
-  %62 = add i32 %44, -1
-  store i32 %62, ptr %43, align 8, !tbaa !685
-  %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %63
-  %65 = load ptr, ptr %64, align 8, !tbaa !699
-  store i8 0, ptr %65, align 8, !tbaa !687
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 424
-  store i32 0, ptr %66, align 8, !tbaa !644
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 528
-  %68 = load ptr, ptr %67, align 8, !tbaa !642
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 536
-  %70 = load i32, ptr %69, align 8, !tbaa !644
-  %.not4.i.i.i.i.i.i = icmp eq i32 %70, 0
+61:                                               ; preds = %41
+  %62 = getelementptr inbounds nuw i8, ptr %43, i64 14848
+  %63 = add i32 %45, -1
+  store i32 %63, ptr %44, align 8, !tbaa !685
+  %64 = zext i32 %63 to i64
+  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %64
+  %66 = load ptr, ptr %65, align 8, !tbaa !699
+  store i8 0, ptr %66, align 8, !tbaa !687
+  %67 = getelementptr inbounds nuw i8, ptr %66, i64 424
+  store i32 0, ptr %67, align 8, !tbaa !644
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 528
+  %69 = load ptr, ptr %68, align 8, !tbaa !642
+  %70 = getelementptr inbounds nuw i8, ptr %66, i64 536
+  %71 = load i32, ptr %70, align 8, !tbaa !644
+  %.not4.i.i.i.i.i.i = icmp eq i32 %71, 0
   br i1 %.not4.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i.i, label %.lr.ph.i.preheader.i.i.i.i.i
 
-.lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %60
-  %71 = zext i32 %70 to i64
-  %.idx.i7.i.i.i.i = shl nuw nsw i64 %71, 6
-  %72 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i7.i.i.i.i
+.lr.ph.i.preheader.i.i.i.i.i:                     ; preds = %61
+  %72 = zext i32 %71 to i64
+  %.idx.i7.i.i.i.i = shl nuw nsw i64 %72, 6
+  %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i7.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %73, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i.i ], [ %72, %.lr.ph.i.preheader.i.i.i.i.i ]
-  %73 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 -64
-  %74 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 -40
-  %75 = load ptr, ptr %74, align 8, !tbaa !56
-  %76 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 -24
-  %77 = icmp eq ptr %75, %76
-  br i1 %77, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i.i = phi ptr [ %74, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i.i ], [ %73, %.lr.ph.i.preheader.i.i.i.i.i ]
+  %74 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 -64
+  %75 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 -40
+  %76 = load ptr, ptr %75, align 8, !tbaa !56
+  %77 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i.i, i64 -24
+  %78 = icmp eq ptr %76, %77
+  br i1 %78, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i
-  %78 = load i64, ptr %76, align 8, !tbaa !9
-  %79 = add i64 %78, 1
-  call void @_ZdlPvm(ptr noundef %75, i64 noundef %79) #23
+  %79 = load i64, ptr %77, align 8, !tbaa !9
+  %80 = add i64 %79, 1
+  call void @_ZdlPvm(ptr noundef %76, i64 noundef %80) #23
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i.i
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i.i:         ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
-  %.not.i.i.i.i.i.i = icmp eq ptr %68, %73
+  %.not.i.i.i.i.i.i = icmp eq ptr %69, %74
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !700
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i.i, %60
-  store i32 0, ptr %69, align 8, !tbaa !644
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i.i, %61
+  store i32 0, ptr %70, align 8, !tbaa !644
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i.i, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i.i
-  %.0.i.i.i.i = phi ptr [ %47, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i.i ], [ %65, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i.i ]
+  %.0.i.i.i.i = phi ptr [ %48, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i.i ], [ %66, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i.i ]
   store ptr %.0.i.i.i.i, ptr %4, align 8, !tbaa !634
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit.i
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit.i: ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i, %34
-  %80 = phi ptr [ %.0.i.i.i.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i ], [ %39, %34 ]
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 1
-  %82 = load i8, ptr %80, align 8, !tbaa !687
-  %83 = zext i8 %82 to i64
-  %84 = getelementptr inbounds nuw i8, ptr %81, i64 %83
-  store i8 3, ptr %84, align 1, !tbaa !9
-  %85 = load ptr, ptr %4, align 8, !tbaa !634
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %87 = load i8, ptr %85, align 8, !tbaa !687
-  %88 = add i8 %87, 1
-  store i8 %88, ptr %85, align 8, !tbaa !687
-  %89 = zext i8 %87 to i64
-  %90 = getelementptr inbounds nuw i64, ptr %86, i64 %89
-  store i64 %38, ptr %90, align 8, !tbaa !54
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit.i: ; preds = %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i, %35
+  %81 = phi ptr [ %.0.i.i.i.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i.i ], [ %40, %35 ]
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 1
+  %83 = load i8, ptr %81, align 8, !tbaa !687
+  %84 = zext i8 %83 to i64
+  %85 = getelementptr inbounds nuw i8, ptr %82, i64 %84
+  store i8 3, ptr %85, align 1, !tbaa !9
+  %86 = load ptr, ptr %4, align 8, !tbaa !634
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 16
+  %88 = load i8, ptr %86, align 8, !tbaa !687
+  %89 = add i8 %88, 1
+  store i8 %89, ptr %86, align 8, !tbaa !687
+  %90 = zext i8 %88 to i64
+  %91 = getelementptr inbounds nuw i64, ptr %87, i64 %90
+  store i64 %39, ptr %91, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %91 = call { i64, i64 } @_ZNK5clang11LangOptions21getOpenCLVersionTupleEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %92 = extractvalue { i64, i64 } %91, 0
-  store i64 %92, ptr %6, align 8
-  %93 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %94 = extractvalue { i64, i64 } %91, 1
-  store i64 %94, ptr %93, align 8
+  %92 = call { i64, i64 } @_ZNK5clang11LangOptions21getOpenCLVersionTupleEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %93 = extractvalue { i64, i64 } %92, 0
+  store i64 %93, ptr %6, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %95 = extractvalue { i64, i64 } %92, 1
+  store i64 %95, ptr %94, align 8
   call void @_ZNK4llvm12VersionTuple11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 4 dereferenceable(16) %6) #21
-  %95 = load ptr, ptr %5, align 8, !tbaa !56
-  %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %97 = load i64, ptr %96, align 8, !tbaa !58
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr %95, i64 %97)
-  %98 = load ptr, ptr %5, align 8, !tbaa !56
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %100 = icmp eq ptr %98, %99
-  br i1 %100, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %96 = load ptr, ptr %5, align 8, !tbaa !56
+  %97 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %98 = load i64, ptr %97, align 8, !tbaa !58
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr %96, i64 %98)
+  %99 = load ptr, ptr %5, align 8, !tbaa !56
+  %100 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %101 = icmp eq ptr %99, %100
+  br i1 %101, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit.i
-  %101 = load i64, ptr %99, align 8, !tbaa !9
-  %102 = add i64 %101, 1
-  call void @_ZdlPvm(ptr noundef %98, i64 noundef %102) #23
+  %102 = load i64, ptr %100, align 8, !tbaa !9
+  %103 = add i64 %102, 1
+  call void @_ZdlPvm(ptr noundef %99, i64 noundef %103) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %103 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %104 = load i8, ptr %103, align 8, !tbaa !624, !range !631, !noundef !120
-  %105 = trunc nuw i8 %104 to i1
-  br i1 %105, label %106, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %105 = load i8, ptr %104, align 8, !tbaa !624, !range !631, !noundef !120
+  %106 = trunc nuw i8 %105 to i1
+  br i1 %106, label %107, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i
 
-106:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %108 = load ptr, ptr %107, align 8, !tbaa !632
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  %110 = load i8, ptr %109, align 1, !tbaa !633, !range !631, !noundef !120
-  %111 = trunc nuw i8 %110 to i1
-  %112 = call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine14EmitDiagnosticERKNS_17DiagnosticBuilderEb(ptr noundef nonnull align 8 dereferenceable(15248) %108, ptr noundef nonnull align 8 dereferenceable(66) %4, i1 noundef zeroext %111) #21
-  store ptr null, ptr %107, align 8, !tbaa !632
-  store i8 0, ptr %103, align 8, !tbaa !624
-  store i8 0, ptr %109, align 1, !tbaa !633
+107:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %109 = load ptr, ptr %108, align 8, !tbaa !632
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 65
+  %111 = load i8, ptr %110, align 1, !tbaa !633, !range !631, !noundef !120
+  %112 = trunc nuw i8 %111 to i1
+  %113 = call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine14EmitDiagnosticERKNS_17DiagnosticBuilderEb(ptr noundef nonnull align 8 dereferenceable(15248) %109, ptr noundef nonnull align 8 dereferenceable(66) %4, i1 noundef zeroext %112) #21
+  store ptr null, ptr %108, align 8, !tbaa !632
+  store i8 0, ptr %104, align 8, !tbaa !624
+  store i8 0, ptr %110, align 1, !tbaa !633
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i:     ; preds = %106, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %114 = load ptr, ptr %113, align 8, !tbaa !56
-  %115 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %116 = icmp eq ptr %114, %115
-  br i1 %116, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i:     ; preds = %107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %114 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %115 = load ptr, ptr %114, align 8, !tbaa !56
+  %116 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %117 = icmp eq ptr %115, %116
+  br i1 %117, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i: ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i
-  %117 = load i64, ptr %115, align 8, !tbaa !9
-  %118 = add i64 %117, 1
-  call void @_ZdlPvm(ptr noundef %114, i64 noundef %118) #23
+  %118 = load i64, ptr %116, align 8, !tbaa !9
+  %119 = add i64 %118, 1
+  call void @_ZdlPvm(ptr noundef %115, i64 noundef %119) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i
-  %119 = load ptr, ptr %4, align 8, !tbaa !634
-  %.not.i.i.i.i = icmp eq ptr %119, null
-  br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, label %120
+  %120 = load ptr, ptr %4, align 8, !tbaa !634
+  %.not.i.i.i.i = icmp eq ptr %120, null
+  br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, label %121
 
-120:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !635
-  %.not.i.i.i.i.i = icmp eq ptr %122, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, label %123
+121:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+  %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %123 = load ptr, ptr %122, align 8, !tbaa !635
+  %.not.i.i.i.i.i = icmp eq ptr %123, null
+  br i1 %.not.i.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit.i, label %124
 
-123:                                              ; preds = %120
-  call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %122, ptr noundef nonnull %119)
+124:                                              ; preds = %121
+  call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %123, ptr noundef nonnull %120)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit.i
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %123, %120, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
+_ZN5clang17DiagnosticBuilderD2Ev.exit.i:          ; preds = %124, %121, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit12", %27, %29, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i
-  %124 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i14 = icmp ult i32 %124, 110
-  br i1 %.not.i.i.i14, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit15", label %125
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit12", %27, %30, %_ZN5clang17DiagnosticBuilderD2Ev.exit.i
+  %125 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i14 = icmp ult i32 %125, 110
+  br i1 %.not.i.i.i14, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit15", label %126
 
-125:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit"
-  %126 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+126:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit"
+  %127 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit15"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit15": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit", %125
-  %127 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i16 = icmp ult i32 %127, 120
-  br i1 %.not.i.i.i16, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit17", label %128
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit15": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbiNS_12_GLOBAL__N_115OpenCLVersionIDES9_EEEDaN4llvm9StringRefEDpT_.exit", %126
+  %128 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i16 = icmp ult i32 %128, 120
+  br i1 %.not.i.i.i16, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit17", label %129
 
-128:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit15"
-  %129 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+129:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit15"
+  %130 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit17"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit17": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit15", %128
-  %130 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i18 = icmp ult i32 %130, 120
-  br i1 %.not.i.i.i18, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit19", label %131
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit17": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit15", %129
+  %131 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i18 = icmp ult i32 %131, 120
+  br i1 %.not.i.i.i18, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit19", label %132
 
-131:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit17"
-  %132 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+132:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit17"
+  %133 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit19"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit19": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit17", %131
-  %133 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i20 = icmp ult i32 %133, 200
-  br i1 %.not.i.i.i20, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit21", label %134
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit19": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit17", %132
+  %134 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i20 = icmp ult i32 %134, 200
+  br i1 %.not.i.i.i20, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit21", label %135
 
-134:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit19"
-  %135 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+135:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit19"
+  %136 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit21"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit21": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit19", %134
-  %136 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i22 = icmp ult i32 %136, 200
-  br i1 %.not.i.i.i22, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit23", label %137
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit21": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit19", %135
+  %137 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i22 = icmp ult i32 %137, 200
+  br i1 %.not.i.i.i22, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit23", label %138
 
-137:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit21"
-  %138 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+138:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit21"
+  %139 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit23"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit23": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit21", %137
-  %139 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i24 = icmp ult i32 %139, 200
-  br i1 %.not.i.i.i24, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit25", label %140
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit23": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit21", %138
+  %140 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i24 = icmp ult i32 %140, 200
+  br i1 %.not.i.i.i24, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit25", label %141
 
-140:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit23"
-  %141 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+141:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit23"
+  %142 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit25"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit25": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit23", %140
-  %142 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i26 = icmp ult i32 %142, 200
-  br i1 %.not.i.i.i26, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit27", label %143
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit25": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit23", %141
+  %143 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i26 = icmp ult i32 %143, 200
+  br i1 %.not.i.i.i26, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit27", label %144
 
-143:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit25"
-  %144 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+144:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit25"
+  %145 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit27"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit27": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit25", %143
-  %145 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i28 = icmp ult i32 %145, 100
-  br i1 %.not.i.i.i28, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit29", label %146
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit27": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit25", %144
+  %146 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i28 = icmp ult i32 %146, 100
+  br i1 %.not.i.i.i28, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit29", label %147
 
-146:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit27"
-  %147 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+147:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit27"
+  %148 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit29"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit29": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit27", %146
-  %148 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i30 = icmp ult i32 %148, 100
-  br i1 %.not.i.i.i30, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit31", label %149
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit29": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit27", %147
+  %149 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i30 = icmp ult i32 %149, 100
+  br i1 %.not.i.i.i30, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit31", label %150
 
-149:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit29"
-  %150 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+150:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit29"
+  %151 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit31"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit31": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit29", %149
-  %151 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i32 = icmp ult i32 %151, 100
-  br i1 %.not.i.i.i32, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit33", label %152
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit31": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit29", %150
+  %152 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i32 = icmp ult i32 %152, 100
+  br i1 %.not.i.i.i32, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit33", label %153
 
-152:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit31"
-  %153 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+153:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit31"
+  %154 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit33"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit33": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit31", %152
-  %154 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i34 = icmp ult i32 %154, 100
-  br i1 %.not.i.i.i34, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit35", label %155
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit33": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit31", %153
+  %155 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i34 = icmp ult i32 %155, 100
+  br i1 %.not.i.i.i34, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit35", label %156
 
-155:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit33"
-  %156 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+156:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit33"
+  %157 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit35"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit35": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit33", %155
-  %157 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i36 = icmp ult i32 %157, 100
-  br i1 %.not.i.i.i36, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit37", label %158
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit35": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit33", %156
+  %158 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i36 = icmp ult i32 %158, 100
+  br i1 %.not.i.i.i36, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit37", label %159
 
-158:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit35"
-  %159 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+159:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit35"
+  %160 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit37"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit37": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit35", %158
-  %160 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i38 = icmp ult i32 %160, 100
-  br i1 %.not.i.i.i38, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit39", label %161
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit37": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit35", %159
+  %161 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i38 = icmp ult i32 %161, 100
+  br i1 %.not.i.i.i38, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit39", label %162
 
-161:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit37"
-  %162 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+162:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit37"
+  %163 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit39"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit39": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit37", %161
-  %163 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i40 = icmp ult i32 %163, 100
-  br i1 %.not.i.i.i40, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit41", label %164
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit39": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit37", %162
+  %164 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i40 = icmp ult i32 %164, 100
+  br i1 %.not.i.i.i40, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit41", label %165
 
-164:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit39"
-  %165 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+165:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit39"
+  %166 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit41"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit41": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit39", %164
-  %166 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i42 = icmp ult i32 %166, 120
-  br i1 %.not.i.i.i42, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit43", label %167
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit41": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit39", %165
+  %167 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i42 = icmp ult i32 %167, 120
+  br i1 %.not.i.i.i42, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit43", label %168
 
-167:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit41"
-  %168 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+168:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit41"
+  %169 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit43"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit43": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit41", %167
-  %169 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i44 = icmp ult i32 %169, 120
-  br i1 %.not.i.i.i44, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit45", label %170
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit43": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit41", %168
+  %170 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i44 = icmp ult i32 %170, 120
+  br i1 %.not.i.i.i44, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit45", label %171
 
-170:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit43"
-  %171 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+171:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit43"
+  %172 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit45"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit45": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit43", %170
-  %172 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i46 = icmp ult i32 %172, 120
-  br i1 %.not.i.i.i46, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit47", label %173
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit45": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit43", %171
+  %173 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i46 = icmp ult i32 %173, 120
+  br i1 %.not.i.i.i46, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit47", label %174
 
-173:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit45"
-  %174 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+174:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit45"
+  %175 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit47"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit47": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit45", %173
-  %175 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i48 = icmp ult i32 %175, 300
-  br i1 %.not.i.i.i48, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit49", label %176
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit47": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit45", %174
+  %176 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i48 = icmp ult i32 %176, 300
+  br i1 %.not.i.i.i48, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit49", label %177
 
-176:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit47"
-  %177 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+177:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit47"
+  %178 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit49"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit49": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit47", %176
-  %178 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i50 = icmp ult i32 %178, 300
-  br i1 %.not.i.i.i50, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit51", label %179
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit49": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijjEEEDaN4llvm9StringRefEDpT_.exit47", %177
+  %179 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i50 = icmp ult i32 %179, 300
+  br i1 %.not.i.i.i50, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit51", label %180
 
-179:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit49"
-  %180 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+180:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit49"
+  %181 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit51"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit51": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit49", %179
-  %181 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i52 = icmp ult i32 %181, 300
-  br i1 %.not.i.i.i52, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit53", label %182
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit51": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit49", %180
+  %182 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i52 = icmp ult i32 %182, 300
+  br i1 %.not.i.i.i52, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit53", label %183
 
-182:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit51"
-  %183 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+183:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit51"
+  %184 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit53"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit53": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit51", %182
-  %184 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i54 = icmp ult i32 %184, 300
-  br i1 %.not.i.i.i54, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit55", label %185
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit53": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit51", %183
+  %185 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i54 = icmp ult i32 %185, 300
+  br i1 %.not.i.i.i54, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit55", label %186
 
-185:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit53"
-  %186 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+186:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit53"
+  %187 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit55"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit55": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit53", %185
-  %187 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i56 = icmp ult i32 %187, 300
-  br i1 %.not.i.i.i56, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit57", label %188
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit55": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit53", %186
+  %188 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i56 = icmp ult i32 %188, 300
+  br i1 %.not.i.i.i56, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit57", label %189
 
-188:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit55"
-  %189 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+189:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit55"
+  %190 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit57"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit57": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit55", %188
-  %190 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i58 = icmp ult i32 %190, 300
-  br i1 %.not.i.i.i58, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit59", label %191
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit57": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit55", %189
+  %191 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i58 = icmp ult i32 %191, 300
+  br i1 %.not.i.i.i58, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit59", label %192
 
-191:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit57"
-  %192 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+192:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit57"
+  %193 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit59"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit59": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit57", %191
-  %193 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i60 = icmp ult i32 %193, 300
-  br i1 %.not.i.i.i60, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit61", label %194
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit59": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit57", %192
+  %194 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i60 = icmp ult i32 %194, 300
+  br i1 %.not.i.i.i60, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit61", label %195
 
-194:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit59"
-  %195 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+195:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit59"
+  %196 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit61"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit61": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit59", %194
-  %196 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i62 = icmp ult i32 %196, 300
-  br i1 %.not.i.i.i62, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit63", label %197
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit61": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit59", %195
+  %197 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i62 = icmp ult i32 %197, 300
+  br i1 %.not.i.i.i62, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit63", label %198
 
-197:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit61"
-  %198 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+198:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit61"
+  %199 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit63"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit63": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit61", %197
-  %199 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i64 = icmp ult i32 %199, 300
-  br i1 %.not.i.i.i64, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit65", label %200
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit63": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit61", %198
+  %200 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i64 = icmp ult i32 %200, 300
+  br i1 %.not.i.i.i64, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit65", label %201
 
-200:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit63"
-  %201 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+201:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit63"
+  %202 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit65"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit65": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit63", %200
-  %202 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i66 = icmp ult i32 %202, 300
-  br i1 %.not.i.i.i66, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit67", label %203
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit65": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit63", %201
+  %203 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i66 = icmp ult i32 %203, 300
+  br i1 %.not.i.i.i66, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit67", label %204
 
-203:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit65"
-  %204 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+204:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit65"
+  %205 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit67"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit67": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit65", %203
-  %205 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %.not.i.i.i68 = icmp ult i32 %205, 300
-  br i1 %.not.i.i.i68, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69", label %206
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit67": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit65", %204
+  %206 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %.not.i.i.i68 = icmp ult i32 %206, 300
+  br i1 %.not.i.i.i68, label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69", label %207
 
-206:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit67"
-  %207 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+207:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit67"
+  %208 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
   br label %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69"
 
-"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit67", %206
-  %208 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
-  %209 = icmp ult i32 %208, 300
-  br i1 %209, label %214, label %210
+"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69": ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit67", %207
+  %209 = call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %1) #21
+  %210 = icmp ult i32 %209, 300
+  br i1 %210, label %215, label %211
 
-210:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69"
-  %211 = call noundef zeroext i1 @_ZN5clang13OpenCLOptions38diagnoseUnsupportedFeatureDependenciesERKNS_10TargetInfoERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(15248) %2) #21
-  br i1 %211, label %212, label %214
+211:                                              ; preds = %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69"
+  %212 = call noundef zeroext i1 @_ZN5clang13OpenCLOptions38diagnoseUnsupportedFeatureDependenciesERKNS_10TargetInfoERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(15248) %2) #21
+  br i1 %212, label %213, label %215
 
-212:                                              ; preds = %210
-  %213 = call noundef zeroext i1 @_ZN5clang13OpenCLOptions35diagnoseFeatureExtensionDifferencesERKNS_10TargetInfoERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(15248) %2) #21
-  br label %214
+213:                                              ; preds = %211
+  %214 = call noundef zeroext i1 @_ZN5clang13OpenCLOptions35diagnoseFeatureExtensionDifferencesERKNS_10TargetInfoERNS_17DiagnosticsEngineE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(15248) %2) #21
+  br label %215
 
-214:                                              ; preds = %210, %212, %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69"
-  %.0 = phi i1 [ true, %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69" ], [ false, %210 ], [ %213, %212 ]
+215:                                              ; preds = %211, %213, %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69"
+  %.0 = phi i1 [ true, %"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS_11LangOptionsERNS_17DiagnosticsEngineEENK3$_0clIJbijNS_12_GLOBAL__N_115OpenCLVersionIDEEEEDaN4llvm9StringRefEDpT_.exit69" ], [ false, %211 ], [ %214, %213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i1 %.0
 }
@@ -12378,219 +12378,219 @@ define internal fastcc void @"_ZZNK5clang10TargetInfo20validateOpenCLTargetERKNS
 
 11:                                               ; preds = %3
   %12 = tail call noundef i32 @_ZNK5clang11LangOptions26getOpenCLCompatibleVersionEv(ptr noundef nonnull align 8 dereferenceable(849) %9) #21
-  %switch = icmp eq i32 %12, 100
-  br i1 %switch, label %_ZN5clang13OpenCLOptions20isOpenCLOptionCoreInIJRbRiRNS_12_GLOBAL__N_115OpenCLVersionIDERjEEEbRKNS_11LangOptionsEDpOT_.exit.thread, label %13
+  %13 = icmp eq i32 %12, 100
+  br i1 %13, label %_ZN5clang13OpenCLOptions20isOpenCLOptionCoreInIJRbRiRNS_12_GLOBAL__N_115OpenCLVersionIDERjEEEbRKNS_11LangOptionsEDpOT_.exit.thread, label %14
 
-13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !702
-  %16 = load ptr, ptr %7, align 8, !tbaa !158
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 528
-  %18 = load ptr, ptr %17, align 8
-  %19 = tail call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(489) %7, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr %1, i64 %2) #21
-  br i1 %19, label %_ZN5clang13OpenCLOptions20isOpenCLOptionCoreInIJRbRiRNS_12_GLOBAL__N_115OpenCLVersionIDERjEEEbRKNS_11LangOptionsEDpOT_.exit.thread, label %20
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !702
+  %17 = load ptr, ptr %7, align 8, !tbaa !158
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 528
+  %19 = load ptr, ptr %18, align 8
+  %20 = tail call noundef zeroext i1 %19(ptr noundef nonnull align 8 dereferenceable(489) %7, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr %1, i64 %2) #21
+  br i1 %20, label %_ZN5clang13OpenCLOptions20isOpenCLOptionCoreInIJRbRiRNS_12_GLOBAL__N_115OpenCLVersionIDERjEEEbRKNS_11LangOptionsEDpOT_.exit.thread, label %21
 
-20:                                               ; preds = %13
+21:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %22 = load ptr, ptr %21, align 8, !tbaa !703
-  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr noundef nonnull align 8 dereferenceable(15248) %22, i32 0, i32 noundef 148) #21
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %23 = load ptr, ptr %22, align 8, !tbaa !703
+  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr noundef nonnull align 8 dereferenceable(15248) %23, i32 0, i32 noundef 148) #21
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr %1, i64 %2)
-  %23 = load ptr, ptr %8, align 8, !tbaa !701
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  %25 = load i64, ptr %24, align 8
-  %26 = lshr i64 %25, 32
-  %27 = and i64 %26, 1
-  %28 = load ptr, ptr %4, align 8, !tbaa !634
-  %.not.i = icmp eq ptr %28, null
-  br i1 %.not.i, label %29, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
+  %24 = load ptr, ptr %8, align 8, !tbaa !701
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  %26 = load i64, ptr %25, align 8
+  %27 = lshr i64 %26, 32
+  %28 = and i64 %27, 1
+  %29 = load ptr, ptr %4, align 8, !tbaa !634
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %30, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
 
-29:                                               ; preds = %20
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !635
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 14976
-  %33 = load i32, ptr %32, align 8, !tbaa !685
-  %34 = icmp eq i32 %33, 0
-  br i1 %34, label %35, label %49
+30:                                               ; preds = %21
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !635
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 14976
+  %34 = load i32, ptr %33, align 8, !tbaa !685
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %50
 
-35:                                               ; preds = %29
-  %36 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #24
-  store i8 0, ptr %36, align 8, !tbaa !687
-  br label %37
+36:                                               ; preds = %30
+  %37 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #24
+  store i8 0, ptr %37, align 8, !tbaa !687
+  br label %38
 
-37:                                               ; preds = %37, %35
-  %.idx.i.i.i.i = phi i64 [ 96, %35 ], [ %.add.i.i.i.i, %37 ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 16
-  store ptr %38, ptr %.ptr.i.i.i.i, align 8, !tbaa !52
-  %39 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
-  store i64 0, ptr %39, align 8, !tbaa !58
-  store i8 0, ptr %38, align 8, !tbaa !9
+38:                                               ; preds = %38, %36
+  %.idx.i.i.i.i = phi i64 [ 96, %36 ], [ %.add.i.i.i.i, %38 ]
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i.i
+  %39 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 16
+  store ptr %39, ptr %.ptr.i.i.i.i, align 8, !tbaa !52
+  %40 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
+  store i64 0, ptr %40, align 8, !tbaa !58
+  store i8 0, ptr %39, align 8, !tbaa !9
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
-  %40 = icmp eq i64 %.add.i.i.i.i, 416
-  br i1 %40, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %37
+  %41 = icmp eq i64 %.add.i.i.i.i, 416
+  br i1 %41, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %38
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 416
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 432
-  store ptr %42, ptr %41, align 8, !tbaa !642
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 424
-  store i32 0, ptr %43, align 8, !tbaa !644
-  %44 = getelementptr inbounds nuw i8, ptr %36, i64 428
-  store i32 8, ptr %44, align 4, !tbaa !645
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 528
-  %46 = getelementptr inbounds nuw i8, ptr %36, i64 544
-  store ptr %46, ptr %45, align 8, !tbaa !642
-  %47 = getelementptr inbounds nuw i8, ptr %36, i64 536
-  store i32 0, ptr %47, align 8, !tbaa !644
-  %48 = getelementptr inbounds nuw i8, ptr %36, i64 540
-  store i32 6, ptr %48, align 4, !tbaa !645
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %38
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 416
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 432
+  store ptr %43, ptr %42, align 8, !tbaa !642
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 424
+  store i32 0, ptr %44, align 8, !tbaa !644
+  %45 = getelementptr inbounds nuw i8, ptr %37, i64 428
+  store i32 8, ptr %45, align 4, !tbaa !645
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 528
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 544
+  store ptr %47, ptr %46, align 8, !tbaa !642
+  %48 = getelementptr inbounds nuw i8, ptr %37, i64 536
+  store i32 0, ptr %48, align 8, !tbaa !644
+  %49 = getelementptr inbounds nuw i8, ptr %37, i64 540
+  store i32 6, ptr %49, align 4, !tbaa !645
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
 
-49:                                               ; preds = %29
-  %50 = getelementptr inbounds nuw i8, ptr %31, i64 14848
-  %51 = add i32 %33, -1
-  store i32 %51, ptr %32, align 8, !tbaa !685
-  %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %50, i64 %52
-  %54 = load ptr, ptr %53, align 8, !tbaa !699
-  store i8 0, ptr %54, align 8, !tbaa !687
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 424
-  store i32 0, ptr %55, align 8, !tbaa !644
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 528
-  %57 = load ptr, ptr %56, align 8, !tbaa !642
-  %58 = getelementptr inbounds nuw i8, ptr %54, i64 536
-  %59 = load i32, ptr %58, align 8, !tbaa !644
-  %.not4.i.i.i.i.i = icmp eq i32 %59, 0
+50:                                               ; preds = %30
+  %51 = getelementptr inbounds nuw i8, ptr %32, i64 14848
+  %52 = add i32 %34, -1
+  store i32 %52, ptr %33, align 8, !tbaa !685
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr inbounds nuw ptr, ptr %51, i64 %53
+  %55 = load ptr, ptr %54, align 8, !tbaa !699
+  store i8 0, ptr %55, align 8, !tbaa !687
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 424
+  store i32 0, ptr %56, align 8, !tbaa !644
+  %57 = getelementptr inbounds nuw i8, ptr %55, i64 528
+  %58 = load ptr, ptr %57, align 8, !tbaa !642
+  %59 = getelementptr inbounds nuw i8, ptr %55, i64 536
+  %60 = load i32, ptr %59, align 8, !tbaa !644
+  %.not4.i.i.i.i.i = icmp eq i32 %60, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
-.lr.ph.i.preheader.i.i.i.i:                       ; preds = %49
-  %60 = zext i32 %59 to i64
-  %.idx.i7.i.i.i = shl nuw nsw i64 %60, 6
-  %61 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i7.i.i.i
+.lr.ph.i.preheader.i.i.i.i:                       ; preds = %50
+  %61 = zext i32 %60 to i64
+  %.idx.i7.i.i.i = shl nuw nsw i64 %61, 6
+  %62 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %62, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i ], [ %61, %.lr.ph.i.preheader.i.i.i.i ]
-  %62 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -64
-  %63 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -40
-  %64 = load ptr, ptr %63, align 8, !tbaa !56
-  %65 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -24
-  %66 = icmp eq ptr %64, %65
-  br i1 %66, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %63, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i ], [ %62, %.lr.ph.i.preheader.i.i.i.i ]
+  %63 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -64
+  %64 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -40
+  %65 = load ptr, ptr %64, align 8, !tbaa !56
+  %66 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -24
+  %67 = icmp eq ptr %65, %66
+  br i1 %67, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
-  %67 = load i64, ptr %65, align 8, !tbaa !9
-  %68 = add i64 %67, 1
-  call void @_ZdlPvm(ptr noundef %64, i64 noundef %68) #23
+  %68 = load i64, ptr %66, align 8, !tbaa !9
+  %69 = add i64 %68, 1
+  call void @_ZdlPvm(ptr noundef %65, i64 noundef %69) #23
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
-  %.not.i.i.i.i.i = icmp eq ptr %57, %62
+  %.not.i.i.i.i.i = icmp eq ptr %58, %63
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !700
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %49
-  store i32 0, ptr %58, align 8, !tbaa !644
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %50
+  store i32 0, ptr %59, align 8, !tbaa !644
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i
-  %.0.i.i.i = phi ptr [ %36, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i ], [ %54, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i ]
+  %.0.i.i.i = phi ptr [ %37, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i ], [ %55, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i ]
   store ptr %.0.i.i.i, ptr %4, align 8, !tbaa !634
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit: ; preds = %20, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
-  %69 = phi ptr [ %.0.i.i.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i ], [ %28, %20 ]
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 1
-  %71 = load i8, ptr %69, align 8, !tbaa !687
-  %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw i8, ptr %70, i64 %72
-  store i8 3, ptr %73, align 1, !tbaa !9
-  %74 = load ptr, ptr %4, align 8, !tbaa !634
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %76 = load i8, ptr %74, align 8, !tbaa !687
-  %77 = add i8 %76, 1
-  store i8 %77, ptr %74, align 8, !tbaa !687
-  %78 = zext i8 %76 to i64
-  %79 = getelementptr inbounds nuw i64, ptr %75, i64 %78
-  store i64 %27, ptr %79, align 8, !tbaa !54
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit: ; preds = %21, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
+  %70 = phi ptr [ %.0.i.i.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i ], [ %29, %21 ]
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
+  %72 = load i8, ptr %70, align 8, !tbaa !687
+  %73 = zext i8 %72 to i64
+  %74 = getelementptr inbounds nuw i8, ptr %71, i64 %73
+  store i8 3, ptr %74, align 1, !tbaa !9
+  %75 = load ptr, ptr %4, align 8, !tbaa !634
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %77 = load i8, ptr %75, align 8, !tbaa !687
+  %78 = add i8 %77, 1
+  store i8 %78, ptr %75, align 8, !tbaa !687
+  %79 = zext i8 %77 to i64
+  %80 = getelementptr inbounds nuw i64, ptr %76, i64 %79
+  store i64 %28, ptr %80, align 8, !tbaa !54
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %80 = load ptr, ptr %8, align 8, !tbaa !701
-  %81 = call { i64, i64 } @_ZNK5clang11LangOptions21getOpenCLVersionTupleEv(ptr noundef nonnull align 8 dereferenceable(849) %80) #21
-  %82 = extractvalue { i64, i64 } %81, 0
-  store i64 %82, ptr %6, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %84 = extractvalue { i64, i64 } %81, 1
-  store i64 %84, ptr %83, align 8
+  %81 = load ptr, ptr %8, align 8, !tbaa !701
+  %82 = call { i64, i64 } @_ZNK5clang11LangOptions21getOpenCLVersionTupleEv(ptr noundef nonnull align 8 dereferenceable(849) %81) #21
+  %83 = extractvalue { i64, i64 } %82, 0
+  store i64 %83, ptr %6, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %85 = extractvalue { i64, i64 } %82, 1
+  store i64 %85, ptr %84, align 8
   call void @_ZNK4llvm12VersionTuple11getAsStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 4 dereferenceable(16) %6) #21
-  %85 = load ptr, ptr %5, align 8, !tbaa !56
-  %86 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %87 = load i64, ptr %86, align 8, !tbaa !58
-  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr %85, i64 %87)
-  %88 = load ptr, ptr %5, align 8, !tbaa !56
-  %89 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %90 = icmp eq ptr %88, %89
-  br i1 %90, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %86 = load ptr, ptr %5, align 8, !tbaa !56
+  %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %88 = load i64, ptr %87, align 8, !tbaa !58
+  call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %4, ptr %86, i64 %88)
+  %89 = load ptr, ptr %5, align 8, !tbaa !56
+  %90 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %91 = icmp eq ptr %89, %90
+  br i1 %91, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
-  %91 = load i64, ptr %89, align 8, !tbaa !9
-  %92 = add i64 %91, 1
-  call void @_ZdlPvm(ptr noundef %88, i64 noundef %92) #23
+  %92 = load i64, ptr %90, align 8, !tbaa !9
+  %93 = add i64 %92, 1
+  call void @_ZdlPvm(ptr noundef %89, i64 noundef %93) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %93 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  %94 = load i8, ptr %93, align 8, !tbaa !624, !range !631, !noundef !120
-  %95 = trunc nuw i8 %94 to i1
-  br i1 %95, label %96, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
+  %94 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  %95 = load i8, ptr %94, align 8, !tbaa !624, !range !631, !noundef !120
+  %96 = trunc nuw i8 %95 to i1
+  br i1 %96, label %97, label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
-96:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %97 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %98 = load ptr, ptr %97, align 8, !tbaa !632
-  %99 = getelementptr inbounds nuw i8, ptr %4, i64 65
-  %100 = load i8, ptr %99, align 1, !tbaa !633, !range !631, !noundef !120
-  %101 = trunc nuw i8 %100 to i1
-  %102 = call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine14EmitDiagnosticERKNS_17DiagnosticBuilderEb(ptr noundef nonnull align 8 dereferenceable(15248) %98, ptr noundef nonnull align 8 dereferenceable(66) %4, i1 noundef zeroext %101) #21
-  store ptr null, ptr %97, align 8, !tbaa !632
-  store i8 0, ptr %93, align 8, !tbaa !624
-  store i8 0, ptr %99, align 1, !tbaa !633
+97:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %98 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %99 = load ptr, ptr %98, align 8, !tbaa !632
+  %100 = getelementptr inbounds nuw i8, ptr %4, i64 65
+  %101 = load i8, ptr %100, align 1, !tbaa !633, !range !631, !noundef !120
+  %102 = trunc nuw i8 %101 to i1
+  %103 = call noundef zeroext i1 @_ZN5clang17DiagnosticsEngine14EmitDiagnosticERKNS_17DiagnosticBuilderEb(ptr noundef nonnull align 8 dereferenceable(15248) %99, ptr noundef nonnull align 8 dereferenceable(66) %4, i1 noundef zeroext %102) #21
+  store ptr null, ptr %98, align 8, !tbaa !632
+  store i8 0, ptr %94, align 8, !tbaa !624
+  store i8 0, ptr %100, align 1, !tbaa !633
   br label %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
 
-_ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %96, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %103 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %104 = load ptr, ptr %103, align 8, !tbaa !56
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %106 = icmp eq ptr %104, %105
-  br i1 %106, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN5clang17DiagnosticBuilder4EmitEv.exit.i:       ; preds = %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %104 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %105 = load ptr, ptr %104, align 8, !tbaa !56
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %107 = icmp eq ptr %105, %106
+  br i1 %107, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i
-  %107 = load i64, ptr %105, align 8, !tbaa !9
-  %108 = add i64 %107, 1
-  call void @_ZdlPvm(ptr noundef %104, i64 noundef %108) #23
+  %108 = load i64, ptr %106, align 8, !tbaa !9
+  %109 = add i64 %108, 1
+  call void @_ZdlPvm(ptr noundef %105, i64 noundef %109) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZN5clang17DiagnosticBuilder4EmitEv.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %109 = load ptr, ptr %4, align 8, !tbaa !634
-  %.not.i.i.i = icmp eq ptr %109, null
-  br i1 %.not.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %110
+  %110 = load ptr, ptr %4, align 8, !tbaa !634
+  %.not.i.i.i = icmp eq ptr %110, null
+  br i1 %.not.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %111
 
-110:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %111 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %112 = load ptr, ptr %111, align 8, !tbaa !635
-  %.not.i.i.i.i = icmp eq ptr %112, null
-  br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %113
+111:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %113 = load ptr, ptr %112, align 8, !tbaa !635
+  %.not.i.i.i.i = icmp eq ptr %113, null
+  br i1 %.not.i.i.i.i, label %_ZN5clang17DiagnosticBuilderD2Ev.exit, label %114
 
-113:                                              ; preds = %110
-  call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %112, ptr noundef nonnull %109)
+114:                                              ; preds = %111
+  call void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS_17DiagnosticStorageE(ptr noundef nonnull align 8 dereferenceable(14980) %113, ptr noundef nonnull %110)
   br label %_ZN5clang17DiagnosticBuilderD2Ev.exit
 
-_ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %110, %113
+_ZN5clang17DiagnosticBuilderD2Ev.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %111, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5clang13OpenCLOptions20isOpenCLOptionCoreInIJRbRiRNS_12_GLOBAL__N_115OpenCLVersionIDERjEEEbRKNS_11LangOptionsEDpOT_.exit.thread
 
-_ZN5clang13OpenCLOptions20isOpenCLOptionCoreInIJRbRiRNS_12_GLOBAL__N_115OpenCLVersionIDERjEEEbRKNS_11LangOptionsEDpOT_.exit.thread: ; preds = %11, %3, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %13
+_ZN5clang13OpenCLOptions20isOpenCLOptionCoreInIJRbRiRNS_12_GLOBAL__N_115OpenCLVersionIDERjEEEbRKNS_11LangOptionsEDpOT_.exit.thread: ; preds = %11, %3, %_ZN5clang17DiagnosticBuilderD2Ev.exit, %14
   ret void
 }
 

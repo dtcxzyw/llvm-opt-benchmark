@@ -132,8 +132,8 @@ define dso_local i32 @write_chunkfile(ptr noundef readonly captures(none) %0, pt
   %15 = add nuw nsw i64 %10, 12
   %16 = add i64 %15, %.val48
   %17 = add i64 %16, %14
-  %.not72 = icmp eq i64 %13, 0
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+  %.not71 = icmp eq i64 %13, 0
+  br i1 %.not71, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -143,7 +143,7 @@ define dso_local i32 @write_chunkfile(ptr noundef readonly captures(none) %0, pt
 hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_be32.exit
   %19 = phi ptr [ %.pre, %.lr.ph ], [ %26, %hashwrite_be32.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hashwrite_be32.exit ]
-  %.03965 = phi i64 [ %17, %.lr.ph ], [ %30, %hashwrite_be32.exit ]
+  %.03964 = phi i64 [ %17, %.lr.ph ], [ %30, %hashwrite_be32.exit ]
   %20 = load ptr, ptr %0, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw %struct.chunk_info, ptr %19, i64 %indvars.iv
   %22 = load i32, ptr %21, align 8, !tbaa !15
@@ -154,7 +154,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %24 = load ptr, ptr %0, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %25 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.03965) #13, !srcloc !30
+  %25 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %.03964) #13, !srcloc !30
   store i64 %25, ptr %5, align 8, !tbaa !31
   call void @hashwrite(ptr noundef %24, ptr noundef nonnull %5, i32 noundef 8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -162,7 +162,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   %27 = getelementptr inbounds nuw %struct.chunk_info, ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !19
-  %30 = add i64 %29, %.03965
+  %30 = add i64 %29, %.03964
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = load i64, ptr %12, align 8, !tbaa !13
   %32 = icmp ugt i64 %31, %indvars.iv.next
@@ -182,37 +182,37 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   call void @hashwrite(ptr noundef %34, ptr noundef nonnull %3, i32 noundef 8) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %36 = load i64, ptr %12, align 8, !tbaa !13
-  %.not73 = icmp eq i64 %36, 0
-  br i1 %.not73, label %._crit_edge68, label %.lr.ph67
+  %.not72 = icmp eq i64 %36, 0
+  br i1 %.not72, label %._crit_edge67, label %.lr.ph66
 
-.lr.ph67:                                         ; preds = %._crit_edge
+.lr.ph66:                                         ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre81 = load ptr, ptr %0, align 8, !tbaa !4
-  %.phi.trans.insert = getelementptr i8, ptr %.pre81, i64 8
+  %.pre80 = load ptr, ptr %0, align 8, !tbaa !4
+  %.phi.trans.insert = getelementptr i8, ptr %.pre80, i64 8
   %.val49.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !20
-  %.phi.trans.insert83 = getelementptr i8, ptr %.pre81, i64 2416
-  %.val50.pre = load i64, ptr %.phi.trans.insert83, align 8, !tbaa !25
-  %.pre85 = load ptr, ptr %37, align 8, !tbaa !12
+  %.phi.trans.insert82 = getelementptr i8, ptr %.pre80, i64 2416
+  %.val50.pre = load i64, ptr %.phi.trans.insert82, align 8, !tbaa !25
+  %.pre84 = load ptr, ptr %37, align 8, !tbaa !12
   br label %41
 
 38:                                               ; preds = %48
-  %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
+  %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %39 = load i64, ptr %12, align 8, !tbaa !13
-  %40 = icmp ugt i64 %39, %indvars.iv.next79
-  br i1 %40, label %41, label %._crit_edge68, !llvm.loop !34
+  %40 = icmp ugt i64 %39, %indvars.iv.next78
+  br i1 %40, label %41, label %._crit_edge67, !llvm.loop !34
 
-41:                                               ; preds = %.lr.ph67, %38
-  %42 = phi ptr [ %.pre85, %.lr.ph67 ], [ %57, %38 ]
-  %.val50 = phi i64 [ %.val50.pre, %.lr.ph67 ], [ %.val52, %38 ]
-  %.val49 = phi i32 [ %.val49.pre, %.lr.ph67 ], [ %.val51, %38 ]
-  %43 = phi ptr [ %.pre81, %.lr.ph67 ], [ %50, %38 ]
-  %indvars.iv78 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next79, %38 ]
-  %44 = getelementptr inbounds nuw %struct.chunk_info, ptr %42, i64 %indvars.iv78
+41:                                               ; preds = %.lr.ph66, %38
+  %42 = phi ptr [ %.pre84, %.lr.ph66 ], [ %57, %38 ]
+  %.val50 = phi i64 [ %.val50.pre, %.lr.ph66 ], [ %.val52, %38 ]
+  %.val49 = phi i32 [ %.val49.pre, %.lr.ph66 ], [ %.val51, %38 ]
+  %43 = phi ptr [ %.pre80, %.lr.ph66 ], [ %50, %38 ]
+  %indvars.iv77 = phi i64 [ 0, %.lr.ph66 ], [ %indvars.iv.next78, %38 ]
+  %44 = getelementptr inbounds nuw %struct.chunk_info, ptr %42, i64 %indvars.iv77
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !18
   %47 = call i32 %46(ptr noundef nonnull %43, ptr noundef %1) #11
   %.not = icmp eq i32 %47, 0
-  br i1 %.not, label %48, label %._crit_edge68
+  br i1 %.not, label %48, label %._crit_edge67
 
 48:                                               ; preds = %41
   %49 = zext i32 %.val49 to i64
@@ -226,7 +226,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   %55 = sub i64 %53, %54
   %56 = add i64 %55, %.val52
   %57 = load ptr, ptr %37, align 8, !tbaa !12
-  %58 = getelementptr inbounds nuw %struct.chunk_info, ptr %57, i64 %indvars.iv78
+  %58 = getelementptr inbounds nuw %struct.chunk_info, ptr %57, i64 %indvars.iv77
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !19
   %.not46 = icmp eq i64 %56, %60
@@ -237,7 +237,7 @@ hashwrite_be32.exit:                              ; preds = %.lr.ph, %hashwrite_
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str, i32 noundef 96, ptr noundef nonnull @.str.3, i64 noundef %60, i32 noundef %62, i64 noundef %56) #12
   unreachable
 
-._crit_edge68:                                    ; preds = %38, %41, %._crit_edge
+._crit_edge67:                                    ; preds = %38, %41, %._crit_edge
   %.1 = phi i32 [ 0, %._crit_edge ], [ %47, %41 ], [ 0, %38 ]
   %63 = load ptr, ptr @the_repository, align 8, !tbaa !26
   call void (ptr, i32, ptr, ptr, ptr, ...) @trace2_region_leave_fl(ptr noundef nonnull @.str, i32 noundef 100, ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, ptr noundef %63) #11

@@ -2567,7 +2567,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit58: ; preds = %80, %74, %82
   %101 = or i64 %87, 1152920405095219200
   store i64 %101, ptr %86, align 8
   invoke void @_ZN4cvc58internal4expr9NodeValue20markRefCountMaxedOutEv(ptr noundef nonnull align 8 dereferenceable(24) %86)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit60 unwind label %.loopexit.loopexit197
+          to label %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit60 unwind label %.loopexit.loopexit196
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit60: ; preds = %98, %92, %100
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
@@ -2821,7 +2821,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit77: ; preds = %_ZN4cvc58internal12
           cleanup
   br label %218
 
-.loopexit.loopexit197:                            ; preds = %100
+.loopexit.loopexit196:                            ; preds = %100
   %211 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #25
@@ -2844,8 +2844,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit77: ; preds = %_ZN4cvc58internal12
   %217 = icmp eq ptr %216, %16
   br i1 %217, label %.loopexit, label %214
 
-.loopexit:                                        ; preds = %214, %.loopexit.loopexit197, %.thread
-  %.pn.pn = phi { ptr, i32 } [ %84, %.thread ], [ %211, %.loopexit.loopexit197 ], [ %.pn, %214 ]
+.loopexit:                                        ; preds = %214, %.loopexit.loopexit196, %.thread
+  %.pn.pn = phi { ptr, i32 } [ %84, %.thread ], [ %211, %.loopexit.loopexit196 ], [ %.pn, %214 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #25
@@ -5048,9 +5048,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPN4cvc58internal9Proof
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !85
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !73
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5086,7 +5086,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPN4cvc58internal9Proof
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !80
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !73
@@ -5114,10 +5114,10 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPN4cvc58internal9Proof
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !191
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr null, ptr %44, align 8, !tbaa !80
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

@@ -5083,8 +5083,8 @@ _ZN6vectorIN2lp12int_gcd_test6parityELb1EjE3endEv.exit: ; preds = %_ZN6vectorIS_
   %23 = zext i32 %22 to i64
   %24 = mul nuw nsw i64 %23, 72
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 %24
-  %.not40 = icmp eq i32 %22, 0
-  br i1 %.not40, label %._crit_edge, label %.lr.ph
+  %.not38 = icmp eq i32 %22, 0
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIN2lp12int_gcd_test6parityELb1EjE3endEv.exit
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -5098,10 +5098,10 @@ _ZN6vectorIN2lp12int_gcd_test6parityELb1EjE3endEv.exit: ; preds = %_ZN6vectorIS_
   br label %34
 
 34:                                               ; preds = %.lr.ph, %_ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERKSt6vectorINS_8row_cellI8rationalEE13std_allocatorIS4_EE.exit26.thread
-  %.02041 = phi ptr [ %19, %.lr.ph ], [ %124, %_ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERKSt6vectorINS_8row_cellI8rationalEE13std_allocatorIS4_EE.exit26.thread ]
-  %35 = getelementptr inbounds nuw i8, ptr %.02041, i64 32
+  %.02039 = phi ptr [ %19, %.lr.ph ], [ %124, %_ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERKSt6vectorINS_8row_cellI8rationalEE13std_allocatorIS4_EE.exit26.thread ]
+  %35 = getelementptr inbounds nuw i8, ptr %.02039, i64 32
   %36 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !31
-  %37 = getelementptr inbounds nuw i8, ptr %.02041, i64 36
+  %37 = getelementptr inbounds nuw i8, ptr %.02039, i64 36
   %38 = load i8, ptr %37, align 4
   %39 = and i8 %38, 1
   %40 = icmp eq i8 %39, 0
@@ -5125,8 +5125,8 @@ _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i:   ; preds = %41, %34
   br i1 %50, label %51, label %_ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERKSt6vectorINS_8row_cellI8rationalEE13std_allocatorIS4_EE.exit26.thread
 
 51:                                               ; preds = %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i, %45
-  %52 = getelementptr inbounds nuw i8, ptr %.02041, i64 48
-  %53 = getelementptr inbounds nuw i8, ptr %.02041, i64 52
+  %52 = getelementptr inbounds nuw i8, ptr %.02039, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.02039, i64 52
   %54 = load i8, ptr %53, align 4
   %55 = and i8 %54, 1
   %56 = icmp eq i8 %55, 0
@@ -5151,7 +5151,7 @@ _ZneRK8rationalS1_.exit:                          ; preds = %51, %57
 
 67:                                               ; preds = %61, %_ZneRK8rationalS1_.exit
   %68 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !31
-  %69 = getelementptr inbounds nuw i8, ptr %.02041, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.02039, i64 4
   %70 = load i8, ptr %69, align 4
   %71 = and i8 %70, 1
   %72 = icmp eq i8 %71, 0
@@ -5164,19 +5164,19 @@ _ZneRK8rationalS1_.exit:                          ; preds = %51, %57
   br i1 %76, label %77, label %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i
 
 77:                                               ; preds = %73
-  %78 = load i32, ptr %.02041, align 8, !tbaa !29
+  %78 = load i32, ptr %.02039, align 8, !tbaa !29
   %79 = load i32, ptr %3, align 8, !tbaa !29
   %80 = icmp eq i32 %78, %79
   br i1 %80, label %83, label %_ZeqRK8rationalS1_.exit.thread
 
 _ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i:     ; preds = %73, %67
-  %81 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %68, ptr noundef nonnull align 8 dereferenceable(32) %.02041, ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %81 = tail call noundef i32 @_ZN11mpz_managerILb1EE11big_compareERK3mpzS3_(ptr noundef nonnull align 8 dereferenceable(728) %68, ptr noundef nonnull align 8 dereferenceable(32) %.02039, ptr noundef nonnull align 8 dereferenceable(32) %3)
   %82 = icmp eq i32 %81, 0
   br i1 %82, label %83, label %_ZeqRK8rationalS1_.exit.thread
 
 83:                                               ; preds = %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i, %77
-  %84 = getelementptr inbounds nuw i8, ptr %.02041, i64 16
-  %85 = getelementptr inbounds nuw i8, ptr %.02041, i64 20
+  %84 = getelementptr inbounds nuw i8, ptr %.02039, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.02039, i64 20
   %86 = load i8, ptr %85, align 4
   %87 = and i8 %86, 1
   %88 = icmp eq i8 %87, 0
@@ -5223,7 +5223,7 @@ _ZeqRK8rationalS1_.exit.thread:                   ; preds = %77, %_ZN11mpq_manag
   br i1 %109, label %_ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERKSt6vectorINS_8row_cellI8rationalEE13std_allocatorIS4_EE.exit, label %.lr.ph.i
 
 _ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERKSt6vectorINS_8row_cellI8rationalEE13std_allocatorIS4_EE.exit: ; preds = %107, %_ZeqRK8rationalS1_.exit.thread
-  %110 = getelementptr inbounds nuw i8, ptr %.02041, i64 64
+  %110 = getelementptr inbounds nuw i8, ptr %.02039, i64 64
   %111 = load ptr, ptr %110, align 8, !tbaa !152
   %112 = load ptr, ptr %111, align 8, !tbaa !81
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -5249,7 +5249,7 @@ _ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERKSt6vectorINS_8row_ce
   br i1 %123, label %.thread, label %.lr.ph.i24
 
 _ZN2lp12int_gcd_test35fill_explanation_from_fixed_columnsERKSt6vectorINS_8row_cellI8rationalEE13std_allocatorIS4_EE.exit26.thread: ; preds = %61, %45, %_ZN11mpq_managerILb1EE2eqERK3mpzS3_.exit.i.i.i, %_ZneRK8rationalS1_.exit
-  %124 = getelementptr inbounds nuw i8, ptr %.02041, i64 72
+  %124 = getelementptr inbounds nuw i8, ptr %.02039, i64 72
   %.not = icmp eq ptr %124, %25
   br i1 %.not, label %._crit_edge, label %34
 

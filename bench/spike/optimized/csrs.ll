@@ -6872,8 +6872,8 @@ define noundef i64 @_ZNK14base_atp_csr_t16compute_new_satpEm(ptr noundef nonnull
 
 14:                                               ; preds = %2
   %15 = and i64 %1, 2147483648
-  %trunc.not.not.i = icmp eq i64 %15, 0
-  br i1 %trunc.not.not.i, label %.thread26, label %17
+  %trunc.not.i = icmp eq i64 %15, 0
+  br i1 %trunc.not.i, label %.thread26, label %17
 
 .thread26:                                        ; preds = %14
   %16 = or disjoint i64 %13, 2151677951
@@ -6976,8 +6976,8 @@ define noundef zeroext i1 @_ZNK14base_atp_csr_t10satp_validEm(ptr noundef nonnul
 
 8:                                                ; preds = %2
   %9 = and i64 %1, 2147483648
-  %trunc.not.not = icmp eq i64 %9, 0
-  br i1 %trunc.not.not, label %37, label %10
+  %trunc.not = icmp eq i64 %9, 0
+  br i1 %trunc.not, label %37, label %10
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 4264
@@ -7380,8 +7380,8 @@ define noundef zeroext i1 @_ZN22virtualized_satp_csr_t14unlogged_writeEm(ptr nou
 
 10:                                               ; preds = %2
   %11 = and i64 %1, 2147483648
-  %trunc.not.not.i = icmp eq i64 %11, 0
-  br i1 %trunc.not.not.i, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread, label %12
+  %trunc.not.i = icmp eq i64 %11, 0
+  br i1 %trunc.not.i, label %_ZNK14base_atp_csr_t10satp_validEm.exit.thread, label %12
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 4264

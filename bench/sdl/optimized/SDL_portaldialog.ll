@@ -412,12 +412,12 @@ define hidden void @SDL_Portal_ShowFileDialogWithProperties(i32 noundef %0, ptr 
 
 189:                                              ; preds = %176
   %190 = call ptr @SDL_strtok_r_REAL(ptr noundef nonnull %188, ptr noundef nonnull @.str.46, ptr noundef nonnull %17) #5
-  %.not2431.i.i = icmp eq ptr %190, null
-  br i1 %.not2431.i.i, label %DBus_AppendFilter.exit.i, label %.lr.ph.i.i
+  %.not2430.i.i = icmp eq ptr %190, null
+  br i1 %.not2430.i.i, label %DBus_AppendFilter.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %189, %207
-  %.02132.i.i = phi ptr [ %213, %207 ], [ %190, %189 ]
-  %191 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %.02132.i.i) #5
+  %.02131.i.i = phi ptr [ %213, %207 ], [ %190, %189 ]
+  %191 = call i64 @SDL_strlen_REAL(ptr noundef nonnull %.02131.i.i) #5
   %192 = add i64 %191, 3
   %193 = load ptr, ptr %99, align 8
   %194 = call i32 %193(ptr noundef nonnull %15, i32 noundef 114, ptr noundef null, ptr noundef nonnull %16) #5
@@ -430,12 +430,12 @@ define hidden void @SDL_Portal_ShowFileDialogWithProperties(i32 noundef %0, ptr 
 
 198:                                              ; preds = %.lr.ph.i.i
   store i8 42, ptr %197, align 1
-  %199 = load i8, ptr %.02132.i.i, align 1
+  %199 = load i8, ptr %.02131.i.i, align 1
   %.not26.i.i = icmp eq i8 %199, 42
   br i1 %.not26.i.i, label %200, label %203
 
 200:                                              ; preds = %198
-  %201 = getelementptr inbounds nuw i8, ptr %.02132.i.i, i64 1
+  %201 = getelementptr inbounds nuw i8, ptr %.02131.i.i, i64 1
   %202 = load i8, ptr %201, align 1
   %.not27.i.i = icmp eq i8 %202, 0
   br i1 %.not27.i.i, label %207, label %203
@@ -444,7 +444,7 @@ define hidden void @SDL_Portal_ShowFileDialogWithProperties(i32 noundef %0, ptr 
   %204 = getelementptr inbounds nuw i8, ptr %197, i64 1
   store i8 46, ptr %204, align 1
   %205 = getelementptr inbounds nuw i8, ptr %197, i64 2
-  %206 = call i64 @SDL_strlcat_REAL(ptr noundef nonnull %205, ptr noundef nonnull %.02132.i.i, i64 noundef %192) #5
+  %206 = call i64 @SDL_strlcat_REAL(ptr noundef nonnull %205, ptr noundef nonnull %.02131.i.i, i64 noundef %192) #5
   br label %207
 
 207:                                              ; preds = %203, %200

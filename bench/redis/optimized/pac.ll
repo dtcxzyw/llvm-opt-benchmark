@@ -516,7 +516,7 @@ tsdn_witness_tsdp_get.exit:
   %10 = trunc nuw i8 %9 to i1
   %11 = icmp eq i64 %7, 0
   %or.cond = or i1 %11, %10
-  br i1 %or.cond, label %124, label %12
+  br i1 %or.cond, label %125, label %12
 
 12:                                               ; preds = %tsdn_witness_tsdp_get.exit
   store i8 1, ptr %8, align 8, !tbaa !61
@@ -531,7 +531,7 @@ tsdn_witness_tsdp_get.exit:
 
 18:                                               ; preds = %35, %12
   %.sroa.0.0 = phi ptr [ null, %12 ], [ %36, %35 ]
-  %.01521.i = phi i64 [ 0, %12 ], [ %39, %35 ]
+  %.01520.i = phi i64 [ 0, %12 ], [ %39, %35 ]
   %19 = tail call ptr @je_ecache_evict(ptr noundef %0, ptr noundef %1, ptr noundef %17, ptr noundef %4, i64 noundef %6) #9
   %20 = icmp eq ptr %19, null
   br i1 %20, label %pac_stash_decayed.exit, label %21
@@ -567,13 +567,13 @@ tsdn_witness_tsdp_get.exit:
   %37 = getelementptr i8, ptr %19, i64 16
   %.val17.i = load i64, ptr %37, align 8, !tbaa !62
   %38 = lshr i64 %.val17.i, 12
-  %39 = add i64 %38, %.01521.i
+  %39 = add i64 %38, %.01520.i
   %40 = icmp ult i64 %39, %7
   br i1 %40, label %18, label %pac_stash_decayed.exit.thread
 
 pac_stash_decayed.exit:                           ; preds = %18
-  %.not = icmp eq i64 %.01521.i, 0
-  br i1 %.not, label %111, label %pac_stash_decayed.exit.thread
+  %.not = icmp eq i64 %.01520.i, 0
+  br i1 %.not, label %112, label %pac_stash_decayed.exit.thread
 
 pac_stash_decayed.exit.thread:                    ; preds = %35, %pac_stash_decayed.exit
   %.sroa.0.128 = phi ptr [ %.sroa.0.0, %pac_stash_decayed.exit ], [ %36, %35 ]
@@ -647,11 +647,11 @@ edata_list_inactive_remove.exit.us.i:             ; preds = %.lr.ph.split.us.pre
   %.not.us.i = icmp eq ptr %.sroa.0.3, null
   br i1 %.not.us.i, label %pac_decay_stashed.exit, label %.lr.ph.split.us.preheader.i, !llvm.loop !63
 
-.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i, %100
-  %71 = phi ptr [ %.sroa.0.2, %100 ], [ %.sroa.0.128, %.lr.ph.i ]
-  %.05.i = phi i64 [ %91, %100 ], [ 0, %.lr.ph.i ]
-  %.0414.i = phi i64 [ %.1.i, %100 ], [ 0, %.lr.ph.i ]
-  %.0433.i = phi i64 [ %92, %100 ], [ 0, %.lr.ph.i ]
+.lr.ph.split.preheader.i:                         ; preds = %.lr.ph.i, %101
+  %71 = phi ptr [ %.sroa.0.2, %101 ], [ %.sroa.0.128, %.lr.ph.i ]
+  %.05.i = phi i64 [ %91, %101 ], [ 0, %.lr.ph.i ]
+  %.0414.i = phi i64 [ %.1.i, %101 ], [ 0, %.lr.ph.i ]
+  %.0433.i = phi i64 [ %92, %101 ], [ 0, %.lr.ph.i ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 64
   %73 = load ptr, ptr %72, align 8, !tbaa !62
   %74 = icmp eq ptr %73, %71
@@ -689,77 +689,77 @@ edata_list_inactive_remove.exit.i:                ; preds = %.lr.ph.split.prehea
   %91 = add i64 %.05.i, 1
   %92 = add i64 %90, %.0433.i
   %93 = load i32, ptr %46, align 8, !tbaa !65
-  %switch.i = icmp eq i32 %93, 2
-  br i1 %switch.i, label %98, label %94
+  %94 = icmp eq i32 %93, 2
+  br i1 %94, label %99, label %95
 
-94:                                               ; preds = %edata_list_inactive_remove.exit.i
-  %95 = and i64 %.042.val.i, -4096
-  %96 = tail call zeroext i1 @je_extent_purge_lazy_wrapper(ptr noundef %0, ptr noundef %41, ptr noundef nonnull %71, i64 noundef 0, i64 noundef %95) #9
-  br i1 %96, label %98, label %97
+95:                                               ; preds = %edata_list_inactive_remove.exit.i
+  %96 = and i64 %.042.val.i, -4096
+  %97 = tail call zeroext i1 @je_extent_purge_lazy_wrapper(ptr noundef %0, ptr noundef %41, ptr noundef nonnull %71, i64 noundef 0, i64 noundef %96) #9
+  br i1 %97, label %99, label %98
 
-97:                                               ; preds = %94
+98:                                               ; preds = %95
   tail call void @je_ecache_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %47, ptr noundef nonnull %71) #9
-  br label %100
+  br label %101
 
-98:                                               ; preds = %94, %edata_list_inactive_remove.exit.i
+99:                                               ; preds = %95, %edata_list_inactive_remove.exit.i
   tail call void @je_extent_dalloc_wrapper(ptr noundef %0, ptr noundef %1, ptr noundef %41, ptr noundef nonnull %71) #9
-  %99 = add i64 %90, %.0414.i
-  br label %100
+  %100 = add i64 %90, %.0414.i
+  br label %101
 
-100:                                              ; preds = %98, %97
-  %.1.i = phi i64 [ %99, %98 ], [ %.0414.i, %97 ]
+101:                                              ; preds = %99, %98
+  %.1.i = phi i64 [ %100, %99 ], [ %.0414.i, %98 ]
   %.not.i = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i, label %pac_decay_stashed.exit, label %.lr.ph.split.preheader.i, !llvm.loop !63
 
-pac_decay_stashed.exit:                           ; preds = %100, %edata_list_inactive_remove.exit.us.i, %42, %.thread.i
-  %.043.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %69, %edata_list_inactive_remove.exit.us.i ], [ %92, %100 ]
-  %.041.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %70, %edata_list_inactive_remove.exit.us.i ], [ %.1.i, %100 ]
-  %.0.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %68, %edata_list_inactive_remove.exit.us.i ], [ %91, %100 ]
-  %101 = atomicrmw add ptr %3, i64 1 monotonic, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %103 = atomicrmw add ptr %102, i64 %.0.lcssa.i monotonic, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %105 = atomicrmw add ptr %104, i64 %.043.lcssa.i monotonic, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 62224
-  %107 = load ptr, ptr %106, align 8, !tbaa !34
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 56
-  %109 = shl i64 %.041.lcssa.i, 12
-  %110 = atomicrmw sub ptr %108, i64 %109 monotonic, align 8
-  br label %111
+pac_decay_stashed.exit:                           ; preds = %101, %edata_list_inactive_remove.exit.us.i, %42, %.thread.i
+  %.043.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %69, %edata_list_inactive_remove.exit.us.i ], [ %92, %101 ]
+  %.041.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %70, %edata_list_inactive_remove.exit.us.i ], [ %.1.i, %101 ]
+  %.0.lcssa.i = phi i64 [ 0, %42 ], [ 0, %.thread.i ], [ %68, %edata_list_inactive_remove.exit.us.i ], [ %91, %101 ]
+  %102 = atomicrmw add ptr %3, i64 1 monotonic, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %104 = atomicrmw add ptr %103, i64 %.0.lcssa.i monotonic, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %106 = atomicrmw add ptr %105, i64 %.043.lcssa.i monotonic, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %1, i64 62224
+  %108 = load ptr, ptr %107, align 8, !tbaa !34
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
+  %110 = shl i64 %.041.lcssa.i, 12
+  %111 = atomicrmw sub ptr %109, i64 %110 monotonic, align 8
+  br label %112
 
-111:                                              ; preds = %pac_decay_stashed.exit, %pac_stash_decayed.exit
-  %112 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %14) #9
-  %.not.i22 = icmp eq i32 %112, 0
-  br i1 %.not.i22, label %114, label %113
+112:                                              ; preds = %pac_decay_stashed.exit, %pac_stash_decayed.exit
+  %113 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %14) #9
+  %.not.i22 = icmp eq i32 %113, 0
+  br i1 %.not.i22, label %115, label %114
 
-113:                                              ; preds = %111
+114:                                              ; preds = %112
   tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %2) #9
   store atomic i8 1, ptr %13 monotonic, align 1
-  br label %114
+  br label %115
 
-114:                                              ; preds = %113, %111
-  %115 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %116 = load i64, ptr %115, align 8, !tbaa !52
-  %117 = add i64 %116, 1
-  store i64 %117, ptr %115, align 8, !tbaa !52
-  %118 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %119 = load ptr, ptr %118, align 8, !tbaa !56
-  %.not.i.i = icmp eq ptr %119, %0
-  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %120
+115:                                              ; preds = %114, %112
+  %116 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %117 = load i64, ptr %116, align 8, !tbaa !52
+  %118 = add i64 %117, 1
+  store i64 %118, ptr %116, align 8, !tbaa !52
+  %119 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %120 = load ptr, ptr %119, align 8, !tbaa !56
+  %.not.i.i = icmp eq ptr %120, %0
+  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %121
 
-120:                                              ; preds = %114
-  store ptr %0, ptr %118, align 8, !tbaa !56
-  %121 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %122 = load i64, ptr %121, align 8, !tbaa !57
-  %123 = add i64 %122, 1
-  store i64 %123, ptr %121, align 8, !tbaa !57
+121:                                              ; preds = %115
+  store ptr %0, ptr %119, align 8, !tbaa !56
+  %122 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %123 = load i64, ptr %122, align 8, !tbaa !57
+  %124 = add i64 %123, 1
+  store i64 %124, ptr %122, align 8, !tbaa !57
   br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.exit:                           ; preds = %114, %120
+malloc_mutex_lock.exit:                           ; preds = %115, %121
   store i8 0, ptr %8, align 8, !tbaa !61
-  br label %124
+  br label %125
 
-124:                                              ; preds = %tsdn_witness_tsdp_get.exit, %malloc_mutex_lock.exit
+125:                                              ; preds = %tsdn_witness_tsdp_get.exit, %malloc_mutex_lock.exit
   ret void
 }
 
@@ -826,61 +826,61 @@ declare zeroext i1 @je_decay_maybe_advance_epoch(ptr noundef, ptr noundef, i64 n
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @je_pac_decay_ms_set(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.nstime_t, align 8
-  %switch.i = icmp eq i32 %2, 1
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 62224
-  %8 = load ptr, ptr %7, align 8, !tbaa !34
-  %.sink13.i = select i1 %switch.i, i64 56, i64 19496
-  %.sink12.v.i = select i1 %switch.i, i64 58648, i64 60432
+  %7 = icmp eq i32 %2, 1
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 62224
+  %9 = load ptr, ptr %8, align 8, !tbaa !34
+  %.sink13.i = select i1 %7, i64 56, i64 19496
+  %.sink12.v.i = select i1 %7, i64 58648, i64 60432
   %.sink12.i = getelementptr inbounds nuw i8, ptr %1, i64 %.sink12.v.i
-  %.sink.idx.i = select i1 %switch.i, i64 0, i64 24
-  %.sink.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sink.idx.i
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink13.i
-  %10 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %3) #9
-  br i1 %10, label %11, label %29
+  %.sink.idx.i = select i1 %7, i64 0, i64 24
+  %.sink.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sink.idx.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink13.i
+  %11 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %3) #9
+  br i1 %11, label %12, label %30
 
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 64
-  %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %12) #9
-  %.not.i = icmp eq i32 %13, 0
-  br i1 %.not.i, label %16, label %14
+12:                                               ; preds = %5
+  %13 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 64
+  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %13) #9
+  %.not.i = icmp eq i32 %14, 0
+  br i1 %.not.i, label %17, label %15
 
-14:                                               ; preds = %11
+15:                                               ; preds = %12
   tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.sink12.i) #9
-  %15 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 104
-  store atomic i8 1, ptr %15 monotonic, align 1
-  br label %16
+  %16 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 104
+  store atomic i8 1, ptr %16 monotonic, align 1
+  br label %17
 
-16:                                               ; preds = %14, %11
-  %17 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 56
-  %18 = load i64, ptr %17, align 8, !tbaa !52
-  %19 = add i64 %18, 1
-  store i64 %19, ptr %17, align 8, !tbaa !52
-  %20 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 48
-  %21 = load ptr, ptr %20, align 8, !tbaa !56
-  %.not.i.i = icmp eq ptr %21, %0
-  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %22
+17:                                               ; preds = %15, %12
+  %18 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 56
+  %19 = load i64, ptr %18, align 8, !tbaa !52
+  %20 = add i64 %19, 1
+  store i64 %20, ptr %18, align 8, !tbaa !52
+  %21 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 48
+  %22 = load ptr, ptr %21, align 8, !tbaa !56
+  %.not.i.i = icmp eq ptr %22, %0
+  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %23
 
-22:                                               ; preds = %16
-  store ptr %0, ptr %20, align 8, !tbaa !56
-  %23 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 40
-  %24 = load i64, ptr %23, align 8, !tbaa !57
-  %25 = add i64 %24, 1
-  store i64 %25, ptr %23, align 8, !tbaa !57
+23:                                               ; preds = %17
+  store ptr %0, ptr %21, align 8, !tbaa !56
+  %24 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 40
+  %25 = load i64, ptr %24, align 8, !tbaa !57
+  %26 = add i64 %25, 1
+  store i64 %26, ptr %24, align 8, !tbaa !57
   br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.exit:                           ; preds = %16, %22
+malloc_mutex_lock.exit:                           ; preds = %17, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @je_nstime_init_update(ptr noundef nonnull %6) #9
   call void @je_decay_reinit(ptr noundef nonnull %.sink12.i, ptr noundef nonnull %6, i64 noundef %3) #9
-  %26 = call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink12.i, ptr noundef %.sink.i, ptr noundef nonnull %9, i32 noundef %4)
-  %27 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 104
-  store atomic i8 0, ptr %27 monotonic, align 1
-  %28 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %12) #9
+  %27 = call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink12.i, ptr noundef %.sink.i, ptr noundef nonnull %10, i32 noundef %4)
+  %28 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 104
+  store atomic i8 0, ptr %28 monotonic, align 1
+  %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %29
+  br label %30
 
-29:                                               ; preds = %5, %malloc_mutex_lock.exit
-  %.0 = xor i1 %10, true
+30:                                               ; preds = %5, %malloc_mutex_lock.exit
+  %.0 = xor i1 %11, true
   ret i1 %.0
 }
 
@@ -890,12 +890,12 @@ declare void @je_decay_reinit(ptr noundef, ptr noundef, i64 noundef) local_unnam
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden i64 @je_pac_decay_ms_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
-  %switch.i = icmp eq i32 %1, 1
-  %.sink12.v.i = select i1 %switch.i, i64 58648, i64 60432
+  %3 = icmp eq i32 %1, 1
+  %.sink12.v.i = select i1 %3, i64 58648, i64 60432
   %.sink12.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink12.v.i
-  %3 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 120
-  %4 = load atomic i64, ptr %3 monotonic, align 8
-  ret i64 %4
+  %4 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 120
+  %5 = load atomic i64, ptr %4 monotonic, align 8
+  ret i64 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

@@ -61,10 +61,10 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
 
 15:                                               ; preds = %13
   %16 = trunc nuw nsw i64 %0 to i32
-  %.lhs.trunc36 = add nuw nsw i32 %16, 99
-  %17 = udiv i32 %.lhs.trunc36, 100
-  %.lhs.trunc38 = trunc nuw nsw i32 %17 to i16
-  %18 = urem i16 %.lhs.trunc38, 10
+  %.lhs.trunc33 = add nuw nsw i32 %16, 99
+  %17 = udiv i32 %.lhs.trunc33, 100
+  %.lhs.trunc35 = trunc nuw nsw i32 %17 to i16
+  %18 = urem i16 %.lhs.trunc35, 10
   %.not.not = icmp eq i16 %18, 0
   br i1 %.not.not, label %.thread.thread, label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
@@ -74,8 +74,8 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
 
 .thread.thread:                                   ; preds = %15, %9
   %21 = trunc i64 %0 to i32
-  %.lhs.trunc41 = add i32 %21, 999
-  %22 = udiv i32 %.lhs.trunc41, 1000
+  %.lhs.trunc38 = add i32 %21, 999
+  %22 = udiv i32 %.lhs.trunc38, 1000
   %.zext = zext nneg i32 %22 to i64
   br label %26
 
@@ -87,8 +87,8 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
 
 26:                                               ; preds = %.thread.thread, %.thread
   %27 = phi i64 [ %.zext, %.thread.thread ], [ %24, %.thread ]
-  %.lhs.trunc30 = trunc nuw i64 %27 to i16
-  %28 = urem i16 %.lhs.trunc30, 60
+  %.lhs.trunc27 = trunc nuw i64 %27 to i16
+  %28 = urem i16 %.lhs.trunc27, 60
   %.not17.i = icmp eq i16 %28, 0
   br i1 %.not17.i, label %.thread.thread.i, label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
@@ -100,8 +100,8 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
   %32 = trunc nuw i64 %24 to i16
   %.lhs.trunc.i = add nuw nsw i16 %32, 9
   %33 = udiv i16 %.lhs.trunc.i, 10
-  %.lhs.trunc27.i = mul nuw nsw i16 %33, 10
-  %34 = urem i16 %.lhs.trunc27.i, 60
+  %.lhs.trunc24.i = mul nuw nsw i16 %33, 10
+  %34 = urem i16 %.lhs.trunc24.i, 60
   %.not16.not.i = icmp eq i16 %34, 0
   br i1 %.not16.not.i, label %.thread.thread.i, label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
@@ -111,10 +111,10 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
 
 37:                                               ; preds = %35
   %38 = trunc nuw nsw i64 %24 to i32
-  %.lhs.trunc29.i = add nuw nsw i32 %38, 99
-  %39 = udiv i32 %.lhs.trunc29.i, 100
-  %.lhs.trunc31.i = mul nuw nsw i32 %39, 100
-  %40 = urem i32 %.lhs.trunc31.i, 60
+  %.lhs.trunc26.i = add nuw nsw i32 %38, 99
+  %39 = udiv i32 %.lhs.trunc26.i, 100
+  %.lhs.trunc28.i = mul nuw nsw i32 %39, 100
+  %40 = urem i32 %.lhs.trunc28.i, 60
   %.not.not.i = icmp eq i32 %40, 0
   br i1 %.not.not.i, label %.thread.i, label %41
 
@@ -123,23 +123,23 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
   br label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
 .thread.thread.i:                                 ; preds = %31, %26
-  %.pre-phi = phi i16 [ %32, %31 ], [ %.lhs.trunc30, %26 ]
-  %.lhs.trunc32 = add i16 %.pre-phi, 59
-  %43 = udiv i16 %.lhs.trunc32, 60
-  %.zext33 = zext nneg i16 %43 to i64
+  %.pre-phi = phi i16 [ %32, %31 ], [ %.lhs.trunc27, %26 ]
+  %.lhs.trunc29 = add i16 %.pre-phi, 59
+  %43 = udiv i16 %.lhs.trunc29, 60
+  %.zext30 = zext nneg i16 %43 to i64
   br label %46
 
 .thread.i:                                        ; preds = %37
-  %.lhs.trunc38.i = add nuw nsw i32 %38, 59
-  %44 = udiv i32 %.lhs.trunc38.i, 60
+  %.lhs.trunc35.i = add nuw nsw i32 %38, 59
+  %44 = udiv i32 %.lhs.trunc35.i, 60
   %.zext.i = zext nneg i32 %44 to i64
   %45 = icmp samesign ult i64 %0, 59940001
-  br i1 %45, label %46, label %.thread37.i
+  br i1 %45, label %46, label %.thread34.i
 
 46:                                               ; preds = %.thread.i, %.thread.thread.i
-  %47 = phi i64 [ %.zext33, %.thread.thread.i ], [ %.zext.i, %.thread.i ]
-  %.lhs.trunc34 = trunc i64 %47 to i16
-  %48 = urem i16 %.lhs.trunc34, 60
+  %47 = phi i64 [ %.zext30, %.thread.thread.i ], [ %.zext.i, %.thread.i ]
+  %.lhs.trunc31 = trunc i64 %47 to i16
+  %48 = urem i16 %.lhs.trunc31, 60
   %.not17.i.i = icmp eq i16 %48, 0
   br i1 %.not17.i.i, label %.thread.i.i, label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
@@ -147,15 +147,15 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
   %50 = add nuw nsw i64 %24, 59
   %51 = udiv i64 %50, 60
   %52 = icmp samesign ult i64 %0, 599940001
-  br i1 %52, label %.thread37.i, label %57
+  br i1 %52, label %.thread34.i, label %57
 
-.thread37.i:                                      ; preds = %49, %.thread.i
+.thread34.i:                                      ; preds = %49, %.thread.i
   %53 = phi i64 [ %51, %49 ], [ %.zext.i, %.thread.i ]
   %54 = trunc nuw nsw i64 %53 to i16
   %.lhs.trunc.i.i = add nuw nsw i16 %54, 9
   %55 = udiv i16 %.lhs.trunc.i.i, 10
-  %.lhs.trunc27.i.i = mul nuw nsw i16 %55, 10
-  %56 = urem i16 %.lhs.trunc27.i.i, 60
+  %.lhs.trunc24.i.i = mul nuw nsw i16 %55, 10
+  %56 = urem i16 %.lhs.trunc24.i.i, 60
   %.not16.not.i.i = icmp eq i16 %56, 0
   br i1 %.not16.not.i.i, label %.thread.i.i, label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
@@ -165,10 +165,10 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
 
 59:                                               ; preds = %57
   %60 = trunc nuw nsw i64 %51 to i32
-  %.lhs.trunc29.i.i = add nuw nsw i32 %60, 99
-  %61 = udiv i32 %.lhs.trunc29.i.i, 100
-  %.lhs.trunc31.i.i = mul nuw nsw i32 %61, 100
-  %62 = urem i32 %.lhs.trunc31.i.i, 60
+  %.lhs.trunc26.i.i = add nuw nsw i32 %60, 99
+  %61 = udiv i32 %.lhs.trunc26.i.i, 100
+  %.lhs.trunc28.i.i = mul nuw nsw i32 %61, 100
+  %62 = urem i32 %.lhs.trunc28.i.i, 60
   %.not.not.i.i = icmp eq i32 %62, 0
   br i1 %.not.not.i.i, label %.thread.i.i, label %63
 
@@ -176,17 +176,17 @@ define range(i32 0, 720896) i32 @_ZN9grpc_core7Timeout10FromMillisEl(i64 noundef
   %64 = trunc nuw nsw i32 %61 to i16
   br label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
-.thread.i.i:                                      ; preds = %59, %57, %.thread37.i, %46
-  %65 = phi i64 [ %51, %59 ], [ %51, %57 ], [ %53, %.thread37.i ], [ %47, %46 ]
+.thread.i.i:                                      ; preds = %59, %57, %.thread34.i, %46
+  %65 = phi i64 [ %51, %59 ], [ %51, %57 ], [ %53, %.thread34.i ], [ %47, %46 ]
   %66 = add nuw nsw i64 %65, 59
   %67 = udiv i64 %66, 60
   %68 = tail call i64 @llvm.umin.i64(i64 %67, i64 27000)
   %spec.select.i.i.i = trunc nuw nsw i64 %68 to i16
   br label %_ZN9grpc_core7Timeout11FromSecondsEl.exit
 
-_ZN9grpc_core7Timeout11FromSecondsEl.exit:        ; preds = %46, %26, %15, %.thread.i.i, %63, %.thread37.i, %41, %31, %9, %19, %1, %5
-  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ 1, %1 ], [ 27000, %19 ], [ %11, %9 ], [ %42, %41 ], [ %33, %31 ], [ %spec.select.i.i.i, %.thread.i.i ], [ %64, %63 ], [ %55, %.thread37.i ], [ %.lhs.trunc38, %15 ], [ %.lhs.trunc30, %26 ], [ %.lhs.trunc34, %46 ]
-  %.sroa.0.sroa.7.0 = phi i32 [ 65536, %5 ], [ 0, %1 ], [ 655360, %19 ], [ 131072, %9 ], [ 393216, %41 ], [ 327680, %31 ], [ 655360, %.thread.i.i ], [ 589824, %63 ], [ 524288, %.thread37.i ], [ 196608, %15 ], [ 262144, %26 ], [ 458752, %46 ]
+_ZN9grpc_core7Timeout11FromSecondsEl.exit:        ; preds = %46, %26, %15, %.thread.i.i, %63, %.thread34.i, %41, %31, %9, %19, %1, %5
+  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ 1, %1 ], [ 27000, %19 ], [ %11, %9 ], [ %42, %41 ], [ %33, %31 ], [ %spec.select.i.i.i, %.thread.i.i ], [ %64, %63 ], [ %55, %.thread34.i ], [ %.lhs.trunc35, %15 ], [ %.lhs.trunc27, %26 ], [ %.lhs.trunc31, %46 ]
+  %.sroa.0.sroa.7.0 = phi i32 [ 65536, %5 ], [ 0, %1 ], [ 655360, %19 ], [ 131072, %9 ], [ 393216, %41 ], [ 327680, %31 ], [ 655360, %.thread.i.i ], [ 589824, %63 ], [ 524288, %.thread34.i ], [ 196608, %15 ], [ 262144, %26 ], [ 458752, %46 ]
   %.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.0 to i32
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.7.0, %.sroa.0.sroa.0.0.insert.ext
   ret i32 %.sroa.0.sroa.0.0.insert.insert
@@ -590,8 +590,8 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
   %10 = trunc nuw nsw i64 %0 to i16
   %.lhs.trunc = add nuw nsw i16 %10, 9
   %11 = udiv i16 %.lhs.trunc, 10
-  %.lhs.trunc27 = mul nuw nsw i16 %11, 10
-  %12 = urem i16 %.lhs.trunc27, 60
+  %.lhs.trunc24 = mul nuw nsw i16 %11, 10
+  %12 = urem i16 %.lhs.trunc24, 60
   %.not16.not = icmp eq i16 %12, 0
   br i1 %.not16.not, label %.thread.thread, label %_ZN9grpc_core7Timeout11FromMinutesEl.exit
 
@@ -601,10 +601,10 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
 
 15:                                               ; preds = %13
   %16 = trunc nuw nsw i64 %0 to i32
-  %.lhs.trunc29 = add nuw nsw i32 %16, 99
-  %17 = udiv i32 %.lhs.trunc29, 100
-  %.lhs.trunc31 = mul nuw nsw i32 %17, 100
-  %18 = urem i32 %.lhs.trunc31, 60
+  %.lhs.trunc26 = add nuw nsw i32 %16, 99
+  %17 = udiv i32 %.lhs.trunc26, 100
+  %.lhs.trunc28 = mul nuw nsw i32 %17, 100
+  %18 = urem i32 %.lhs.trunc28, 60
   %.not.not = icmp eq i32 %18, 0
   br i1 %.not.not, label %.thread, label %19
 
@@ -619,11 +619,11 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
 
 .thread:                                          ; preds = %15
   %23 = trunc nuw i64 %0 to i32
-  %.lhs.trunc38 = add nuw nsw i32 %23, 59
-  %24 = udiv i32 %.lhs.trunc38, 60
+  %.lhs.trunc35 = add nuw nsw i32 %23, 59
+  %24 = udiv i32 %.lhs.trunc35, 60
   %.zext = zext nneg i32 %24 to i64
   %25 = icmp samesign ult i64 %0, 59941
-  br i1 %25, label %26, label %.thread37
+  br i1 %25, label %26, label %.thread34
 
 26:                                               ; preds = %.thread.thread, %.thread
   %27 = phi i64 [ %22, %.thread.thread ], [ %.zext, %.thread ]
@@ -639,15 +639,15 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
   %32 = add nuw nsw i64 %0, 59
   %33 = udiv i64 %32, 60
   %34 = icmp ult i64 %0, 599941
-  br i1 %34, label %.thread37, label %39
+  br i1 %34, label %.thread34, label %39
 
-.thread37:                                        ; preds = %.thread, %31
+.thread34:                                        ; preds = %.thread, %31
   %35 = phi i64 [ %33, %31 ], [ %.zext, %.thread ]
   %36 = trunc nuw nsw i64 %35 to i16
   %.lhs.trunc.i = add nuw nsw i16 %36, 9
   %37 = udiv i16 %.lhs.trunc.i, 10
-  %.lhs.trunc27.i = mul nuw nsw i16 %37, 10
-  %38 = urem i16 %.lhs.trunc27.i, 60
+  %.lhs.trunc24.i = mul nuw nsw i16 %37, 10
+  %38 = urem i16 %.lhs.trunc24.i, 60
   %.not16.not.i = icmp eq i16 %38, 0
   br i1 %.not16.not.i, label %.thread.i, label %_ZN9grpc_core7Timeout11FromMinutesEl.exit
 
@@ -657,10 +657,10 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
 
 41:                                               ; preds = %39
   %42 = trunc nuw nsw i64 %33 to i32
-  %.lhs.trunc29.i = add nuw nsw i32 %42, 99
-  %43 = udiv i32 %.lhs.trunc29.i, 100
-  %.lhs.trunc31.i = mul nuw nsw i32 %43, 100
-  %44 = urem i32 %.lhs.trunc31.i, 60
+  %.lhs.trunc26.i = add nuw nsw i32 %42, 99
+  %43 = udiv i32 %.lhs.trunc26.i, 100
+  %.lhs.trunc28.i = mul nuw nsw i32 %43, 100
+  %44 = urem i32 %.lhs.trunc28.i, 60
   %.not.not.i = icmp eq i32 %44, 0
   br i1 %.not.not.i, label %.thread.i, label %45
 
@@ -668,17 +668,17 @@ define range(i32 262144, 720896) i32 @_ZN9grpc_core7Timeout11FromSecondsEl(i64 n
   %46 = trunc nuw nsw i32 %43 to i16
   br label %_ZN9grpc_core7Timeout11FromMinutesEl.exit
 
-.thread.i:                                        ; preds = %41, %39, %.thread37, %26
-  %47 = phi i64 [ %33, %41 ], [ %33, %39 ], [ %35, %.thread37 ], [ %27, %26 ]
+.thread.i:                                        ; preds = %41, %39, %.thread34, %26
+  %47 = phi i64 [ %33, %41 ], [ %33, %39 ], [ %35, %.thread34 ], [ %27, %26 ]
   %48 = add nsw i64 %47, 59
   %49 = sdiv i64 %48, 60
   %spec.select2.i.i = tail call i64 @llvm.smin.i64(i64 %49, i64 27000)
   %spec.select.i.i = trunc i64 %spec.select2.i.i to i16
   br label %_ZN9grpc_core7Timeout11FromMinutesEl.exit
 
-_ZN9grpc_core7Timeout11FromMinutesEl.exit:        ; preds = %.thread.i, %45, %.thread37, %29, %9, %19, %5
-  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ %20, %19 ], [ %11, %9 ], [ %spec.select.i.i, %.thread.i ], [ %30, %29 ], [ %46, %45 ], [ %37, %.thread37 ]
-  %.sroa.0.sroa.5.0 = phi i32 [ 262144, %5 ], [ 393216, %19 ], [ 327680, %9 ], [ 655360, %.thread.i ], [ 458752, %29 ], [ 589824, %45 ], [ 524288, %.thread37 ]
+_ZN9grpc_core7Timeout11FromMinutesEl.exit:        ; preds = %.thread.i, %45, %.thread34, %29, %9, %19, %5
+  %.sroa.0.sroa.0.0 = phi i16 [ %6, %5 ], [ %20, %19 ], [ %11, %9 ], [ %spec.select.i.i, %.thread.i ], [ %30, %29 ], [ %46, %45 ], [ %37, %.thread34 ]
+  %.sroa.0.sroa.5.0 = phi i32 [ 262144, %5 ], [ 393216, %19 ], [ 327680, %9 ], [ 655360, %.thread.i ], [ 458752, %29 ], [ 589824, %45 ], [ 524288, %.thread34 ]
   %.sroa.0.sroa.0.0.insert.ext = zext i16 %.sroa.0.sroa.0.0 to i32
   %.sroa.0.sroa.0.0.insert.insert = or disjoint i32 %.sroa.0.sroa.5.0, %.sroa.0.sroa.0.0.insert.ext
   ret i32 %.sroa.0.sroa.0.0.insert.insert
@@ -706,8 +706,8 @@ define range(i32 458752, 720896) i32 @_ZN9grpc_core7Timeout11FromMinutesEl(i64 n
   %10 = trunc nuw nsw i64 %0 to i16
   %.lhs.trunc = add nuw nsw i16 %10, 9
   %11 = udiv i16 %.lhs.trunc, 10
-  %.lhs.trunc27 = mul nuw nsw i16 %11, 10
-  %12 = urem i16 %.lhs.trunc27, 60
+  %.lhs.trunc24 = mul nuw nsw i16 %11, 10
+  %12 = urem i16 %.lhs.trunc24, 60
   %.not16.not = icmp eq i16 %12, 0
   br i1 %.not16.not, label %.thread, label %23
 
@@ -717,10 +717,10 @@ define range(i32 458752, 720896) i32 @_ZN9grpc_core7Timeout11FromMinutesEl(i64 n
 
 15:                                               ; preds = %13
   %16 = trunc nuw nsw i64 %0 to i32
-  %.lhs.trunc29 = add nuw nsw i32 %16, 99
-  %17 = udiv i32 %.lhs.trunc29, 100
-  %.lhs.trunc31 = mul nuw nsw i32 %17, 100
-  %18 = urem i32 %.lhs.trunc31, 60
+  %.lhs.trunc26 = add nuw nsw i32 %16, 99
+  %17 = udiv i32 %.lhs.trunc26, 100
+  %.lhs.trunc28 = mul nuw nsw i32 %17, 100
+  %18 = urem i32 %.lhs.trunc28, 60
   %.not.not = icmp eq i32 %18, 0
   br i1 %.not.not, label %.thread, label %19
 

@@ -34,10 +34,9 @@ define dso_local noundef ptr @jvp_utf8_backtrack(ptr noundef readonly captures(a
 .critedge:                                        ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr @utf8_coding_length, i64 %6
   %13 = load i8, ptr %12, align 1, !tbaa !4
-  switch i8 %13, label %14 [
-    i8 -1, label %.critedge.thread
-    i8 0, label %.critedge.thread
-  ]
+  %trunc.off = add i8 %13, -1
+  %switch = icmp ult i8 %trunc.off, -2
+  br i1 %switch, label %14, label %.critedge.thread
 
 14:                                               ; preds = %.critedge
   %15 = zext i8 %13 to i32
@@ -53,8 +52,8 @@ define dso_local noundef ptr @jvp_utf8_backtrack(ptr noundef readonly captures(a
   store i32 %16, ptr %2, align 4, !tbaa !9
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %9, %.preheader, %.critedge, %.critedge, %14, %19, %18, %3
-  %.019 = phi ptr [ %1, %3 ], [ null, %.critedge ], [ null, %.critedge ], [ null, %14 ], [ %.02136, %19 ], [ %.02136, %18 ], [ null, %.preheader ], [ null, %9 ]
+.critedge.thread:                                 ; preds = %9, %.critedge, %.preheader, %14, %19, %18, %3
+  %.019 = phi ptr [ %1, %3 ], [ null, %.critedge ], [ null, %14 ], [ %.02136, %19 ], [ %.02136, %18 ], [ null, %.preheader ], [ null, %9 ]
   ret ptr %.019
 }
 

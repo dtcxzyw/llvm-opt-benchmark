@@ -270,7 +270,7 @@ Py_XDECREF.exitthread-pre-split:                  ; preds = %73, %70
 Py_XDECREF.exit:                                  ; preds = %Py_XDECREF.exitthread-pre-split, %stmt_reset.exit, %68
   %74 = phi ptr [ %.pr, %Py_XDECREF.exitthread-pre-split ], [ %66, %stmt_reset.exit ], [ %66, %68 ]
   %.not164 = icmp eq ptr %74, null
-  br i1 %.not164, label %Py_XDECREF.exit242.thread272, label %75
+  br i1 %.not164, label %Py_XDECREF.exit242.thread271, label %75
 
 75:                                               ; preds = %Py_XDECREF.exit
   %76 = load ptr, ptr %63, align 8, !tbaa !19
@@ -283,9 +283,9 @@ Py_XDECREF.exit:                                  ; preds = %Py_XDECREF.exitthre
   %81 = load ptr, ptr %80, align 8, !tbaa !16
   %82 = call i32 @sqlite3_stmt_readonly(ptr noundef %81) #7
   %.not165 = icmp eq i32 %82, 0
-  br i1 %.not165, label %._crit_edge347, label %83
+  br i1 %.not165, label %._crit_edge346, label %83
 
-._crit_edge347:                                   ; preds = %79
+._crit_edge346:                                   ; preds = %79
   %.pre = load ptr, ptr %54, align 8, !tbaa !15
   br label %86
 
@@ -293,33 +293,33 @@ Py_XDECREF.exit:                                  ; preds = %Py_XDECREF.exitthre
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %85 = load ptr, ptr %84, align 8, !tbaa !27
   call void @PyErr_SetString(ptr noundef %85, ptr noundef nonnull @.str) #7
-  br label %Py_XDECREF.exit242.thread272
+  br label %Py_XDECREF.exit242.thread271
 
-86:                                               ; preds = %._crit_edge347, %75
-  %87 = phi ptr [ %.pre, %._crit_edge347 ], [ %74, %75 ]
+86:                                               ; preds = %._crit_edge346, %75
+  %87 = phi ptr [ %.pre, %._crit_edge346 ], [ %74, %75 ]
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load ptr, ptr %88, align 8, !tbaa !16
   %90 = call i32 @sqlite3_stmt_busy(ptr noundef %89) #7
   %.not166 = icmp eq i32 %90, 0
-  %.pre348 = load ptr, ptr %54, align 8, !tbaa !15
+  %.pre347 = load ptr, ptr %54, align 8, !tbaa !15
   br i1 %.not166, label %101, label %91
 
 91:                                               ; preds = %86
   %92 = load ptr, ptr %63, align 8, !tbaa !19
   %93 = call ptr @pysqlite_statement_create(ptr noundef %92, ptr noundef %2) #7
   store ptr %93, ptr %54, align 8, !tbaa !25
-  %94 = load i32, ptr %.pre348, align 8, !tbaa !13
+  %94 = load i32, ptr %.pre347, align 8, !tbaa !13
   %.not.i190 = icmp sgt i32 %94, -1
   br i1 %.not.i190, label %95, label %Py_DECREF.exit191
 
 95:                                               ; preds = %91
   %96 = add nsw i32 %94, -1
-  store i32 %96, ptr %.pre348, align 8, !tbaa !13
+  store i32 %96, ptr %.pre347, align 8, !tbaa !13
   %97 = icmp eq i32 %96, 0
   br i1 %97, label %98, label %Py_DECREF.exit191thread-pre-split
 
 98:                                               ; preds = %95
-  call void @_Py_Dealloc(ptr noundef nonnull %.pre348) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %.pre347) #7
   br label %Py_DECREF.exit191thread-pre-split
 
 Py_DECREF.exit191thread-pre-split:                ; preds = %98, %95
@@ -329,10 +329,10 @@ Py_DECREF.exit191thread-pre-split:                ; preds = %98, %95
 Py_DECREF.exit191:                                ; preds = %Py_DECREF.exit191thread-pre-split, %91
   %99 = phi ptr [ %.pr255, %Py_DECREF.exit191thread-pre-split ], [ %93, %91 ]
   %100 = icmp eq ptr %99, null
-  br i1 %100, label %Py_XDECREF.exit242.thread272, label %101
+  br i1 %100, label %Py_XDECREF.exit242.thread271, label %101
 
 101:                                              ; preds = %Py_DECREF.exit191, %86
-  %102 = phi ptr [ %99, %Py_DECREF.exit191 ], [ %.pre348, %86 ]
+  %102 = phi ptr [ %99, %Py_DECREF.exit191 ], [ %.pre347, %86 ]
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %104 = load ptr, ptr %103, align 8, !tbaa !16
   %.not.i213 = icmp eq ptr %104, null
@@ -343,11 +343,11 @@ Py_DECREF.exit191:                                ; preds = %Py_DECREF.exit191th
   %107 = load ptr, ptr %103, align 8, !tbaa !16
   %108 = call i32 @sqlite3_reset(ptr noundef %107) #7
   call void @PyEval_RestoreThread(ptr noundef %106) #7
-  %.pre349 = load ptr, ptr %54, align 8, !tbaa !15
+  %.pre348 = load ptr, ptr %54, align 8, !tbaa !15
   br label %stmt_reset.exit215
 
 stmt_reset.exit215:                               ; preds = %101, %105
-  %109 = phi ptr [ %102, %101 ], [ %.pre349, %105 ]
+  %109 = phi ptr [ %102, %101 ], [ %.pre348, %105 ]
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %111 = load i32, ptr %110, align 8, !tbaa !29
   %.not167 = icmp eq i32 %111, 0
@@ -378,22 +378,22 @@ stmt_reset.exit215:                               ; preds = %101, %105
   %126 = load ptr, ptr %63, align 8, !tbaa !19
   %127 = call fastcc i32 @begin_transaction(ptr noundef %126)
   %128 = icmp slt i32 %127, 0
-  br i1 %128, label %Py_XDECREF.exit242.thread272, label %129
+  br i1 %128, label %Py_XDECREF.exit242.thread271, label %129
 
 129:                                              ; preds = %118, %125, %121, %stmt_reset.exit215
   %130 = call ptr @PyIter_Next(ptr noundef nonnull %.1130) #7
-  %.not171318 = icmp eq ptr %130, null
-  br i1 %.not171318, label %._crit_edge, label %.lr.ph319
+  %.not171317 = icmp eq ptr %130, null
+  br i1 %.not171317, label %._crit_edge, label %.lr.ph318
 
-.lr.ph319:                                        ; preds = %129
+.lr.ph318:                                        ; preds = %129
   %131 = getelementptr i8, ptr %78, i64 104
   %132 = getelementptr inbounds nuw i8, ptr %78, i64 136
   %133 = getelementptr inbounds nuw i8, ptr %78, i64 64
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %135
 
-135:                                              ; preds = %.lr.ph319, %Py_XDECREF.exit238
-  %136 = phi ptr [ %130, %.lr.ph319 ], [ %462, %Py_XDECREF.exit238 ]
+135:                                              ; preds = %.lr.ph318, %Py_XDECREF.exit238
+  %136 = phi ptr [ %130, %.lr.ph318 ], [ %462, %Py_XDECREF.exit238 ]
   %137 = load ptr, ptr %54, align 8, !tbaa !15
   %138 = call ptr @PyEval_SaveThread() #7
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 16
@@ -795,7 +795,7 @@ Py_XDECREF.exitthread-pre-split.i:                ; preds = %283, %280
 Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthread-pre-split.i, %278, %275
   %284 = phi ptr [ %.pr.i, %Py_XDECREF.exitthread-pre-split.i ], [ %277, %275 ], [ %277, %278 ]
   %.not93.i = icmp eq ptr %284, null
-  br i1 %.not93.i, label %.loopexit287, label %.preheader125.i
+  br i1 %.not93.i, label %.loopexit286, label %.preheader125.i
 
 .preheader125.i:                                  ; preds = %Py_XDECREF.exit.i
   %285 = load ptr, ptr %54, align 8, !tbaa !15
@@ -835,19 +835,19 @@ Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthre
   %308 = call ptr @PyErr_NoMemory() #7
   %309 = load ptr, ptr %134, align 8, !tbaa !14
   %.not99.i = icmp eq ptr %309, null
-  br i1 %.not99.i, label %.loopexit287, label %310
+  br i1 %.not99.i, label %.loopexit286, label %310
 
 310:                                              ; preds = %307
   store ptr null, ptr %134, align 8, !tbaa !14
   %311 = load i32, ptr %309, align 8, !tbaa !13
   %.not.i116.i = icmp sgt i32 %311, -1
-  br i1 %.not.i116.i, label %312, label %.loopexit287
+  br i1 %.not.i116.i, label %312, label %.loopexit286
 
 312:                                              ; preds = %310
   %313 = add nsw i32 %311, -1
   store i32 %313, ptr %309, align 8, !tbaa !13
   %314 = icmp eq i32 %313, 0
-  br i1 %314, label %.critedge109.sink.split.i, label %.loopexit287
+  br i1 %314, label %.critedge109.sink.split.i, label %.loopexit286
 
 .preheader124.i:                                  ; preds = %301, %338
   %.083.i = phi ptr [ %.184.i, %338 ], [ null, %301 ]
@@ -887,19 +887,19 @@ Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthre
 331:                                              ; preds = %329
   %332 = load ptr, ptr %134, align 8, !tbaa !14
   %.not98.i = icmp eq ptr %332, null
-  br i1 %.not98.i, label %.loopexit287, label %333
+  br i1 %.not98.i, label %.loopexit286, label %333
 
 333:                                              ; preds = %331
   store ptr null, ptr %134, align 8, !tbaa !14
   %334 = load i32, ptr %332, align 8, !tbaa !13
   %.not.i114.i = icmp sgt i32 %334, -1
-  br i1 %.not.i114.i, label %335, label %.loopexit287
+  br i1 %.not.i114.i, label %335, label %.loopexit286
 
 335:                                              ; preds = %333
   %336 = add nsw i32 %334, -1
   store i32 %336, ptr %332, align 8, !tbaa !13
   %337 = icmp eq i32 %336, 0
-  br i1 %337, label %.critedge109.sink.split.i, label %.loopexit287
+  br i1 %337, label %.critedge109.sink.split.i, label %.loopexit286
 
 338:                                              ; preds = %318, %316
   %.184.i = phi ptr [ %317, %316 ], [ %.083.i, %318 ]
@@ -950,19 +950,19 @@ Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthre
 360:                                              ; preds = %358
   %361 = load ptr, ptr %134, align 8, !tbaa !14
   %.not105.i = icmp eq ptr %361, null
-  br i1 %.not105.i, label %.loopexit287, label %362
+  br i1 %.not105.i, label %.loopexit286, label %362
 
 362:                                              ; preds = %360
   store ptr null, ptr %134, align 8, !tbaa !14
   %363 = load i32, ptr %361, align 8, !tbaa !13
   %.not.i112.i = icmp sgt i32 %363, -1
-  br i1 %.not.i112.i, label %364, label %.loopexit287
+  br i1 %.not.i112.i, label %364, label %.loopexit286
 
 364:                                              ; preds = %362
   %365 = add nsw i32 %363, -1
   store i32 %365, ptr %361, align 8, !tbaa !13
   %366 = icmp eq i32 %365, 0
-  br i1 %366, label %.critedge109.sink.split.i, label %.loopexit287
+  br i1 %366, label %.critedge109.sink.split.i, label %.loopexit286
 
 367:                                              ; preds = %.preheader.i222
   %368 = getelementptr i8, ptr %.173.i, i64 1
@@ -980,26 +980,26 @@ Py_XDECREF.exit.i:                                ; preds = %Py_XDECREF.exitthre
 371:                                              ; preds = %.critedge.i
   %372 = load ptr, ptr %134, align 8, !tbaa !14
   %.not108.i224 = icmp eq ptr %372, null
-  br i1 %.not108.i224, label %.loopexit287, label %373
+  br i1 %.not108.i224, label %.loopexit286, label %373
 
 373:                                              ; preds = %371
   store ptr null, ptr %134, align 8, !tbaa !14
   %374 = load i32, ptr %372, align 8, !tbaa !13
   %.not.i.i225 = icmp sgt i32 %374, -1
-  br i1 %.not.i.i225, label %375, label %.loopexit287
+  br i1 %.not.i.i225, label %375, label %.loopexit286
 
 375:                                              ; preds = %373
   %376 = add nsw i32 %374, -1
   store i32 %376, ptr %372, align 8, !tbaa !13
   %377 = icmp eq i32 %376, 0
-  br i1 %377, label %.critedge109.sink.split.i, label %.loopexit287
+  br i1 %377, label %.critedge109.sink.split.i, label %.loopexit286
 
 .critedge109.sink.split.i:                        ; preds = %375, %364, %335, %312
   %.sink.i = phi ptr [ %309, %312 ], [ %332, %335 ], [ %361, %364 ], [ %372, %375 ]
   call void @_Py_Dealloc(ptr noundef nonnull %.sink.i) #7
-  br label %.loopexit287
+  br label %.loopexit286
 
-.loopexit287:                                     ; preds = %Py_XDECREF.exit.i, %371, %331, %307, %360, %310, %312, %333, %335, %362, %364, %373, %375, %.critedge109.sink.split.i
+.loopexit286:                                     ; preds = %Py_XDECREF.exit.i, %371, %331, %307, %360, %310, %312, %333, %335, %362, %364, %373, %375, %.critedge109.sink.split.i
   %378 = getelementptr inbounds nuw i8, ptr %78, i64 56
   %379 = load ptr, ptr %378, align 8, !tbaa !53
   %380 = call ptr (ptr, ptr, ...) @_PyErr_FormatFromCause(ptr noundef %379, ptr noundef nonnull @.str.1) #7
@@ -1157,11 +1157,11 @@ Py_DECREF.exit195:                                ; preds = %424, %427, %430
   %447 = load i64, ptr %113, align 8, !tbaa !30
   %448 = add i64 %447, %446
   store i64 %448, ptr %113, align 8, !tbaa !30
-  %.pre351 = load ptr, ptr %54, align 8, !tbaa !15
+  %.pre350 = load ptr, ptr %54, align 8, !tbaa !15
   br label %449
 
 449:                                              ; preds = %441, %437
-  %450 = phi ptr [ %.pre351, %441 ], [ %438, %437 ]
+  %450 = phi ptr [ %.pre350, %441 ], [ %438, %437 ]
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 16
   %452 = load ptr, ptr %451, align 8, !tbaa !16
   %.not.i232 = icmp eq ptr %452, null
@@ -1195,7 +1195,7 @@ Py_XDECREF.exit238:                               ; preds = %stmt_reset.exit234,
   br i1 %.not171, label %._crit_edge, label %135
 
 ._crit_edge:                                      ; preds = %Py_XDECREF.exit238, %129
-  br i1 %.not156, label %463, label %Py_XDECREF.exit242.thread272
+  br i1 %.not156, label %463, label %Py_XDECREF.exit242.thread271
 
 463:                                              ; preds = %._crit_edge
   %464 = call ptr @PyEval_SaveThread() #7
@@ -1210,39 +1210,39 @@ Py_XDECREF.exit238:                               ; preds = %stmt_reset.exit234,
   store ptr %471, ptr %469, align 8, !tbaa !14
   %472 = load i32, ptr %470, align 8, !tbaa !13
   %.not.i196 = icmp sgt i32 %472, -1
-  br i1 %.not.i196, label %473, label %Py_XDECREF.exit242.thread272
+  br i1 %.not.i196, label %473, label %Py_XDECREF.exit242.thread271
 
 473:                                              ; preds = %463
   %474 = add nsw i32 %472, -1
   store i32 %474, ptr %470, align 8, !tbaa !13
   %475 = icmp eq i32 %474, 0
-  br i1 %475, label %476, label %Py_XDECREF.exit242.thread272
+  br i1 %475, label %476, label %Py_XDECREF.exit242.thread271
 
 476:                                              ; preds = %473
   call void @_Py_Dealloc(ptr noundef nonnull %470) #7
-  br label %Py_XDECREF.exit242.thread272
+  br label %Py_XDECREF.exit242.thread271
 
-Py_DECREF.exit:                                   ; preds = %bind_parameters.exit, %Py_DECREF.exit193, %_pysqlite_build_column_name.exit, %Py_DECREF.exit195, %266, %.loopexit287, %404
+Py_DECREF.exit:                                   ; preds = %bind_parameters.exit, %Py_DECREF.exit193, %_pysqlite_build_column_name.exit, %Py_DECREF.exit195, %266, %.loopexit286, %404
   %477 = load i32, ptr %136, align 8, !tbaa !13
   %.not.i.i240 = icmp sgt i32 %477, -1
-  br i1 %.not.i.i240, label %478, label %Py_XDECREF.exit242.thread272
+  br i1 %.not.i.i240, label %478, label %Py_XDECREF.exit242.thread271
 
 478:                                              ; preds = %Py_DECREF.exit
   %479 = add nsw i32 %477, -1
   store i32 %479, ptr %136, align 8, !tbaa !13
   %480 = icmp eq i32 %479, 0
-  br i1 %480, label %481, label %Py_XDECREF.exit242.thread272
+  br i1 %480, label %481, label %Py_XDECREF.exit242.thread271
 
 481:                                              ; preds = %478
   call void @_Py_Dealloc(ptr noundef nonnull %136) #7
-  br label %Py_XDECREF.exit242.thread272
+  br label %Py_XDECREF.exit242.thread271
 
-Py_XDECREF.exit242.thread272:                     ; preds = %481, %478, %Py_DECREF.exit, %._crit_edge, %463, %473, %476, %83, %Py_DECREF.exit191, %125, %Py_XDECREF.exit
+Py_XDECREF.exit242.thread271:                     ; preds = %481, %478, %Py_DECREF.exit, %._crit_edge, %463, %473, %476, %83, %Py_DECREF.exit191, %125, %Py_XDECREF.exit
   %482 = load i32, ptr %.1130, align 8, !tbaa !13
   %.not.i.i244 = icmp sgt i32 %482, -1
   br i1 %.not.i.i244, label %483, label %Py_XDECREF.exit246
 
-483:                                              ; preds = %Py_XDECREF.exit242.thread272
+483:                                              ; preds = %Py_XDECREF.exit242.thread271
   %484 = add nsw i32 %482, -1
   store i32 %484, ptr %.1130, align 8, !tbaa !13
   %485 = icmp eq i32 %484, 0
@@ -1252,24 +1252,24 @@ Py_XDECREF.exit242.thread272:                     ; preds = %481, %478, %Py_DECR
   call void @_Py_Dealloc(ptr noundef nonnull %.1130) #7
   br label %Py_XDECREF.exit246
 
-Py_XDECREF.exit246:                               ; preds = %Py_XDECREF.exit242.thread272, %483, %486
+Py_XDECREF.exit246:                               ; preds = %Py_XDECREF.exit242.thread271, %483, %486
   %.not.i247 = icmp eq ptr %.1, null
   br i1 %.not.i247, label %Py_XDECREF.exit250, label %Py_XDECREF.exit246.thread
 
 Py_XDECREF.exit246.thread:                        ; preds = %36, %33, %32, %23, %Py_DECREF.exit187, %Py_XDECREF.exit246
-  %.0128266270280 = phi ptr [ %.1, %Py_XDECREF.exit246 ], [ %20, %Py_DECREF.exit187 ], [ %20, %23 ], [ %20, %32 ], [ %20, %33 ], [ %20, %36 ]
-  %487 = load i32, ptr %.0128266270280, align 8, !tbaa !13
+  %.0128265269279 = phi ptr [ %.1, %Py_XDECREF.exit246 ], [ %20, %Py_DECREF.exit187 ], [ %20, %23 ], [ %20, %32 ], [ %20, %33 ], [ %20, %36 ]
+  %487 = load i32, ptr %.0128265269279, align 8, !tbaa !13
   %.not.i.i248 = icmp sgt i32 %487, -1
   br i1 %.not.i.i248, label %488, label %Py_XDECREF.exit250
 
 488:                                              ; preds = %Py_XDECREF.exit246.thread
   %489 = add nsw i32 %487, -1
-  store i32 %489, ptr %.0128266270280, align 8, !tbaa !13
+  store i32 %489, ptr %.0128265269279, align 8, !tbaa !13
   %490 = icmp eq i32 %489, 0
   br i1 %490, label %491, label %Py_XDECREF.exit250
 
 491:                                              ; preds = %488
-  call void @_Py_Dealloc(ptr noundef nonnull %.0128266270280) #7
+  call void @_Py_Dealloc(ptr noundef nonnull %.0128265269279) #7
   br label %Py_XDECREF.exit250
 
 Py_XDECREF.exit250:                               ; preds = %4, %19, %17, %Py_XDECREF.exit246, %Py_XDECREF.exit246.thread, %488, %491
@@ -1296,12 +1296,12 @@ stmt_reset.exit253:                               ; preds = %497
   %501 = load ptr, ptr %498, align 8, !tbaa !16
   %502 = call i32 @sqlite3_reset(ptr noundef %501) #7
   call void @PyEval_RestoreThread(ptr noundef %500) #7
-  %.pre352 = load ptr, ptr %494, align 8, !tbaa !25
-  %.not183 = icmp eq ptr %.pre352, null
+  %.pre351 = load ptr, ptr %494, align 8, !tbaa !25
+  %.not183 = icmp eq ptr %.pre351, null
   br i1 %.not183, label %Py_DECREF.exit199, label %stmt_reset.exit253.thread
 
 stmt_reset.exit253.thread:                        ; preds = %497, %stmt_reset.exit253
-  %503 = phi ptr [ %.pre352, %stmt_reset.exit253 ], [ %495, %497 ]
+  %503 = phi ptr [ %.pre351, %stmt_reset.exit253 ], [ %495, %497 ]
   store ptr null, ptr %494, align 8, !tbaa !25
   %504 = load i32, ptr %503, align 8, !tbaa !13
   %.not.i198 = icmp sgt i32 %504, -1

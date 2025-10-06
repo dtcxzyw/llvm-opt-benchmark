@@ -1225,8 +1225,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @PKCS12_handle_content_infos(
 
 .preheader:                                       ; preds = %40
   %42 = call i64 @CBS_len(ptr noundef nonnull %26) #12
-  %.not1431 = icmp eq i64 %42, 0
-  br i1 %.not1431, label %.loopexit, label %.lr.ph
+  %.not1430 = icmp eq i64 %42, 0
+  br i1 %.not1430, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8

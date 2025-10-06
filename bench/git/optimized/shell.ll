@@ -287,7 +287,7 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 104
   br label %20
 
-.critedge62:                                      ; preds = %55, %85, %84
+.critedge60:                                      ; preds = %55, %85, %84
   %19 = load ptr, ptr %3, align 8, !tbaa !14
   call void @free(ptr noundef %19) #14
   br label %.backedge
@@ -360,7 +360,7 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
   %54 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %52, ptr noundef nonnull @.str.17, ptr noundef nonnull %25, ptr noundef %53) #17
   br label %.backedge
 
-.backedge:                                        ; preds = %.critedge, %.critedge62
+.backedge:                                        ; preds = %.critedge, %.critedge60
   call void @free(ptr noundef %49) #14
   call void @free(ptr noundef nonnull %25) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -371,7 +371,7 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %strcmpload = load i8, ptr %57, align 1
   %.not47 = icmp eq i8 %strcmpload, 0
-  br i1 %.not47, label %.critedge62, label %58
+  br i1 %.not47, label %.critedge60, label %58
 
 58:                                               ; preds = %55
   %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %57, ptr noundef nonnull dereferenceable(5) @.str.19) #13
@@ -397,8 +397,8 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
   %67 = call i64 @strcspn(ptr noundef nonnull readonly %57, ptr noundef nonnull @.str.31) #13
   %68 = getelementptr inbounds nuw i8, ptr %57, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !9
-  %.not60 = icmp eq i8 %69, 0
-  br i1 %.not60, label %70, label %85
+  %.not58 = icmp eq i8 %69, 0
+  br i1 %.not58, label %70, label %85
 
 70:                                               ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -428,12 +428,12 @@ define internal fastcc void @run_shell() unnamed_addr #0 {
 84:                                               ; preds = %81, %77, %70
   call void @free(ptr noundef %71) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.critedge62
+  br label %.critedge60
 
 85:                                               ; preds = %66
   %86 = load ptr, ptr @stderr, align 8, !tbaa !17
   %87 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %86, ptr noundef nonnull @.str.24, ptr noundef nonnull %57) #17
-  br label %.critedge62
+  br label %.critedge60
 
 88:                                               ; preds = %58, %60, %62, %64
   call void @free(ptr noundef nonnull %56) #14

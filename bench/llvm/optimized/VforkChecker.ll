@@ -911,17 +911,17 @@ _ZN4llvm9StringRefC2EPKc.exit.i.i:                ; preds = %_ZN4llvm15SmallPtrS
   %53 = zext i32 %52 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %53, 3
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i.i.i
-  %.not36.i.i.i.i = icmp eq i32 %52, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not34.i.i.i.i = icmp eq i32 %52, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %50, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %56, %.critedge.i.i.i.i ], [ %51, %50 ]
-  %55 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !3, !noalias !567
+  %.02935.i.i.i.i = phi ptr [ %56, %.critedge.i.i.i.i ], [ %51, %50 ]
+  %55 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !3, !noalias !567
   %.not17.i.i.i.i = icmp eq ptr %55, %47
   br i1 %.not17.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang14IdentifierInfoEE6insertES4_.exit.i.i, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i.i9.i = icmp eq ptr %56, %54
   br i1 %.not.i.i.i9.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !570
 

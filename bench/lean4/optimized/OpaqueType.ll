@@ -286,14 +286,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______macroRules__Lake__declareOpaqueType__1___spec__1(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not48 = icmp ult i64 %2, %1
-  br i1 %.not48, label %.lr.ph, label %._crit_edge
+  %.not46 = icmp ult i64 %2, %1
+  br i1 %.not46, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %61
-  %.02450 = phi i64 [ %45, %61 ], [ %2, %4 ]
-  %.02649 = phi ptr [ %.0.i.i35, %61 ], [ %3, %4 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.02649, i64 24
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02450
+  %.02448 = phi i64 [ %45, %61 ], [ %2, %4 ]
+  %.02647 = phi ptr [ %.0.i.i35, %61 ], [ %3, %4 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.02647, i64 24
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02448
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -319,18 +319,18 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %.lr.ph, %12, %14, %15
-  %.val.i.i29 = load i32, ptr %.02649, align 4, !tbaa !8
+  %.val.i.i29 = load i32, ptr %.02647, align 4, !tbaa !8
   %16 = icmp eq i32 %.val.i.i29, 1
   br i1 %16, label %lean_ensure_exclusive_array.exit.i, label %17
 
 17:                                               ; preds = %lean_array_uget.exit
-  %18 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.02649, i1 noundef zeroext false) #4
+  %18 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.02647, i1 noundef zeroext false) #4
   br label %lean_ensure_exclusive_array.exit.i
 
 lean_ensure_exclusive_array.exit.i:               ; preds = %17, %lean_array_uget.exit
-  %.0.i.i = phi ptr [ %18, %17 ], [ %.02649, %lean_array_uget.exit ]
+  %.0.i.i = phi ptr [ %18, %17 ], [ %.02647, %lean_array_uget.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02450
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02448
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -397,7 +397,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
   store ptr %37, ptr %43, align 8, !tbaa !4
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %38, ptr %44, align 8, !tbaa !4
-  %45 = add nuw i64 %.02450, 1
+  %45 = add nuw i64 %.02448, 1
   %.val.i.i33 = load i32, ptr %.0.i.i, align 4, !tbaa !8
   %46 = icmp eq i32 %.val.i.i33, 1
   br i1 %46, label %lean_ensure_exclusive_array.exit.i34, label %47
@@ -409,7 +409,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 lean_ensure_exclusive_array.exit.i34:             ; preds = %47, %lean_alloc_ctor.exit
   %.0.i.i35 = phi ptr [ %48, %47 ], [ %.0.i.i, %lean_alloc_ctor.exit ]
   %49 = getelementptr inbounds nuw i8, ptr %.0.i.i35, i64 24
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %.02450
+  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %.02448
   %51 = load ptr, ptr %50, align 8, !tbaa !4
   %52 = ptrtoint ptr %51 to i64
   %53 = and i64 %52, 1
@@ -450,14 +450,14 @@ declare ptr @l_Lake_BinderSyntaxView_mkArgument(ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______macroRules__Lake__declareOpaqueType__1___spec__2(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not38 = icmp ult i64 %2, %1
-  br i1 %.not38, label %.lr.ph, label %._crit_edge
+  %.not36 = icmp ult i64 %2, %1
+  br i1 %.not36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %47
-  %.01740 = phi i64 [ %31, %47 ], [ %2, %4 ]
-  %.01939 = phi ptr [ %.0.i.i27, %47 ], [ %3, %4 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01740
+  %.01738 = phi i64 [ %31, %47 ], [ %2, %4 ]
+  %.01937 = phi ptr [ %.0.i.i27, %47 ], [ %3, %4 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.01937, i64 24
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01738
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -483,18 +483,18 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %.lr.ph, %12, %14, %15
-  %.val.i.i22 = load i32, ptr %.01939, align 4, !tbaa !8
+  %.val.i.i22 = load i32, ptr %.01937, align 4, !tbaa !8
   %16 = icmp eq i32 %.val.i.i22, 1
   br i1 %16, label %lean_ensure_exclusive_array.exit.i, label %17
 
 17:                                               ; preds = %lean_array_uget.exit
-  %18 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01939, i1 noundef zeroext false) #4
+  %18 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01937, i1 noundef zeroext false) #4
   br label %lean_ensure_exclusive_array.exit.i
 
 lean_ensure_exclusive_array.exit.i:               ; preds = %17, %lean_array_uget.exit
-  %.0.i.i = phi ptr [ %18, %17 ], [ %.01939, %lean_array_uget.exit ]
+  %.0.i.i = phi ptr [ %18, %17 ], [ %.01937, %lean_array_uget.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01740
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01738
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -521,7 +521,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %17, %lean_array_uge
 
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %27, %29, %30
   store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !4
-  %31 = add nuw i64 %.01740, 1
+  %31 = add nuw i64 %.01738, 1
   %.val.i.i25 = load i32, ptr %.0.i.i, align 4, !tbaa !8
   %32 = icmp eq i32 %.val.i.i25, 1
   br i1 %32, label %lean_ensure_exclusive_array.exit.i26, label %33
@@ -529,15 +529,15 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 33:                                               ; preds = %lean_array_uset.exit
   %34 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.0.i.i, i1 noundef zeroext false) #4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %.phi.trans.insert41 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01740
-  %.pre = load ptr, ptr %.phi.trans.insert41, align 8, !tbaa !4
+  %.phi.trans.insert39 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01738
+  %.pre = load ptr, ptr %.phi.trans.insert39, align 8, !tbaa !4
   br label %lean_ensure_exclusive_array.exit.i26
 
 lean_ensure_exclusive_array.exit.i26:             ; preds = %33, %lean_array_uset.exit
   %35 = phi ptr [ %.pre, %33 ], [ inttoptr (i64 1 to ptr), %lean_array_uset.exit ]
   %.0.i.i27 = phi ptr [ %34, %33 ], [ %.0.i.i, %lean_array_uset.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 24
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.01740
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.01738
   %38 = ptrtoint ptr %35 to i64
   %39 = and i64 %38, 1
   %.not.i28 = icmp eq i64 %39, 0
@@ -573,14 +573,14 @@ lean_ensure_exclusive_array.exit.i26:             ; preds = %33, %lean_array_use
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______macroRules__Lake__declareOpaqueType__1___spec__3(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %.not38 = icmp ult i64 %3, %2
-  br i1 %.not38, label %.lr.ph, label %._crit_edge
+  %.not36 = icmp ult i64 %3, %2
+  br i1 %.not36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %48
-  %.01740 = phi i64 [ %32, %48 ], [ %3, %5 ]
-  %.01939 = phi ptr [ %.0.i.i27, %48 ], [ %4, %5 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01740
+  %.01738 = phi i64 [ %32, %48 ], [ %3, %5 ]
+  %.01937 = phi ptr [ %.0.i.i27, %48 ], [ %4, %5 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.01937, i64 24
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01738
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -606,18 +606,18 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %.lr.ph, %13, %15, %16
-  %.val.i.i22 = load i32, ptr %.01939, align 4, !tbaa !8
+  %.val.i.i22 = load i32, ptr %.01937, align 4, !tbaa !8
   %17 = icmp eq i32 %.val.i.i22, 1
   br i1 %17, label %lean_ensure_exclusive_array.exit.i, label %18
 
 18:                                               ; preds = %lean_array_uget.exit
-  %19 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01939, i1 noundef zeroext false) #4
+  %19 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01937, i1 noundef zeroext false) #4
   br label %lean_ensure_exclusive_array.exit.i
 
 lean_ensure_exclusive_array.exit.i:               ; preds = %18, %lean_array_uget.exit
-  %.0.i.i = phi ptr [ %19, %18 ], [ %.01939, %lean_array_uget.exit ]
+  %.0.i.i = phi ptr [ %19, %18 ], [ %.01937, %lean_array_uget.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01740
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01738
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -644,7 +644,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %18, %lean_array_uge
 
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %28, %30, %31
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8, !tbaa !4
-  %32 = add nuw i64 %.01740, 1
+  %32 = add nuw i64 %.01738, 1
   %.val.i.i25 = load i32, ptr %.0.i.i, align 4, !tbaa !8
   %33 = icmp eq i32 %.val.i.i25, 1
   br i1 %33, label %lean_ensure_exclusive_array.exit.i26, label %34
@@ -652,15 +652,15 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 34:                                               ; preds = %lean_array_uset.exit
   %35 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.0.i.i, i1 noundef zeroext false) #4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %.phi.trans.insert41 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01740
-  %.pre = load ptr, ptr %.phi.trans.insert41, align 8, !tbaa !4
+  %.phi.trans.insert39 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01738
+  %.pre = load ptr, ptr %.phi.trans.insert39, align 8, !tbaa !4
   br label %lean_ensure_exclusive_array.exit.i26
 
 lean_ensure_exclusive_array.exit.i26:             ; preds = %34, %lean_array_uset.exit
   %36 = phi ptr [ %.pre, %34 ], [ inttoptr (i64 1 to ptr), %lean_array_uset.exit ]
   %.0.i.i27 = phi ptr [ %35, %34 ], [ %.0.i.i, %lean_array_uset.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 24
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.01740
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.01738
   %39 = ptrtoint ptr %36 to i64
   %40 = and i64 %39, 1
   %.not.i28 = icmp eq i64 %40, 0
@@ -696,14 +696,14 @@ lean_ensure_exclusive_array.exit.i26:             ; preds = %34, %lean_array_use
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______macroRules__Lake__declareOpaqueType__1___spec__4(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %.not38 = icmp ult i64 %1, %0
-  br i1 %.not38, label %.lr.ph, label %._crit_edge
+  %.not36 = icmp ult i64 %1, %0
+  br i1 %.not36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %46
-  %.01740 = phi i64 [ %30, %46 ], [ %1, %3 ]
-  %.01939 = phi ptr [ %.0.i.i27, %46 ], [ %2, %3 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01740
+  %.01738 = phi i64 [ %30, %46 ], [ %1, %3 ]
+  %.01937 = phi ptr [ %.0.i.i27, %46 ], [ %2, %3 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.01937, i64 24
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01738
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -729,18 +729,18 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %14
-  %.val.i.i22 = load i32, ptr %.01939, align 4, !tbaa !8
+  %.val.i.i22 = load i32, ptr %.01937, align 4, !tbaa !8
   %15 = icmp eq i32 %.val.i.i22, 1
   br i1 %15, label %lean_ensure_exclusive_array.exit.i, label %16
 
 16:                                               ; preds = %lean_array_uget.exit
-  %17 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01939, i1 noundef zeroext false) #4
+  %17 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01937, i1 noundef zeroext false) #4
   br label %lean_ensure_exclusive_array.exit.i
 
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
-  %.0.i.i = phi ptr [ %17, %16 ], [ %.01939, %lean_array_uget.exit ]
+  %.0.i.i = phi ptr [ %17, %16 ], [ %.01937, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01740
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01738
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
@@ -767,7 +767,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uge
 
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %26, %28, %29
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !tbaa !4
-  %30 = add nuw i64 %.01740, 1
+  %30 = add nuw i64 %.01738, 1
   %.val.i.i25 = load i32, ptr %.0.i.i, align 4, !tbaa !8
   %31 = icmp eq i32 %.val.i.i25, 1
   br i1 %31, label %lean_ensure_exclusive_array.exit.i26, label %32
@@ -775,15 +775,15 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 32:                                               ; preds = %lean_array_uset.exit
   %33 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.0.i.i, i1 noundef zeroext false) #4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %.phi.trans.insert41 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01740
-  %.pre = load ptr, ptr %.phi.trans.insert41, align 8, !tbaa !4
+  %.phi.trans.insert39 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01738
+  %.pre = load ptr, ptr %.phi.trans.insert39, align 8, !tbaa !4
   br label %lean_ensure_exclusive_array.exit.i26
 
 lean_ensure_exclusive_array.exit.i26:             ; preds = %32, %lean_array_uset.exit
   %34 = phi ptr [ %.pre, %32 ], [ inttoptr (i64 1 to ptr), %lean_array_uset.exit ]
   %.0.i.i27 = phi ptr [ %33, %32 ], [ %.0.i.i, %lean_array_uset.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 24
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01740
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01738
   %37 = ptrtoint ptr %34 to i64
   %38 = and i64 %37, 1
   %.not.i28 = icmp eq i64 %38, 0
@@ -4633,14 +4633,14 @@ lean_dec.exit:                                    ; preds = %23, %22, %20, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______macroRules__Lake__hydrateOpaqueType__1___spec__1(ptr readnone captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not38 = icmp ult i64 %2, %1
-  br i1 %.not38, label %.lr.ph, label %._crit_edge
+  %.not36 = icmp ult i64 %2, %1
+  br i1 %.not36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %47
-  %.01740 = phi i64 [ %31, %47 ], [ %2, %4 ]
-  %.01939 = phi ptr [ %.0.i.i27, %47 ], [ %3, %4 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01740
+  %.01738 = phi i64 [ %31, %47 ], [ %2, %4 ]
+  %.01937 = phi ptr [ %.0.i.i27, %47 ], [ %3, %4 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.01937, i64 24
+  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01738
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -4666,18 +4666,18 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %.lr.ph, %12, %14, %15
-  %.val.i.i22 = load i32, ptr %.01939, align 4, !tbaa !8
+  %.val.i.i22 = load i32, ptr %.01937, align 4, !tbaa !8
   %16 = icmp eq i32 %.val.i.i22, 1
   br i1 %16, label %lean_ensure_exclusive_array.exit.i, label %17
 
 17:                                               ; preds = %lean_array_uget.exit
-  %18 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01939, i1 noundef zeroext false) #4
+  %18 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01937, i1 noundef zeroext false) #4
   br label %lean_ensure_exclusive_array.exit.i
 
 lean_ensure_exclusive_array.exit.i:               ; preds = %17, %lean_array_uget.exit
-  %.0.i.i = phi ptr [ %18, %17 ], [ %.01939, %lean_array_uget.exit ]
+  %.0.i.i = phi ptr [ %18, %17 ], [ %.01937, %lean_array_uget.exit ]
   %19 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01740
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01738
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = ptrtoint ptr %21 to i64
   %23 = and i64 %22, 1
@@ -4704,7 +4704,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %17, %lean_array_uge
 
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %27, %29, %30
   store ptr inttoptr (i64 1 to ptr), ptr %20, align 8, !tbaa !4
-  %31 = add nuw i64 %.01740, 1
+  %31 = add nuw i64 %.01738, 1
   %.val.i.i25 = load i32, ptr %.0.i.i, align 4, !tbaa !8
   %32 = icmp eq i32 %.val.i.i25, 1
   br i1 %32, label %lean_ensure_exclusive_array.exit.i26, label %33
@@ -4712,15 +4712,15 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 33:                                               ; preds = %lean_array_uset.exit
   %34 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.0.i.i, i1 noundef zeroext false) #4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %34, i64 24
-  %.phi.trans.insert41 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01740
-  %.pre = load ptr, ptr %.phi.trans.insert41, align 8, !tbaa !4
+  %.phi.trans.insert39 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01738
+  %.pre = load ptr, ptr %.phi.trans.insert39, align 8, !tbaa !4
   br label %lean_ensure_exclusive_array.exit.i26
 
 lean_ensure_exclusive_array.exit.i26:             ; preds = %33, %lean_array_uset.exit
   %35 = phi ptr [ %.pre, %33 ], [ inttoptr (i64 1 to ptr), %lean_array_uset.exit ]
   %.0.i.i27 = phi ptr [ %34, %33 ], [ %.0.i.i, %lean_array_uset.exit ]
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 24
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.01740
+  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.01738
   %38 = ptrtoint ptr %35 to i64
   %39 = and i64 %38, 1
   %.not.i28 = icmp eq i64 %39, 0
@@ -4756,14 +4756,14 @@ lean_ensure_exclusive_array.exit.i26:             ; preds = %33, %lean_array_use
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______macroRules__Lake__hydrateOpaqueType__1___spec__2(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
-  %.not38 = icmp ult i64 %3, %2
-  br i1 %.not38, label %.lr.ph, label %._crit_edge
+  %.not36 = icmp ult i64 %3, %2
+  br i1 %.not36, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %5, %48
-  %.01740 = phi i64 [ %32, %48 ], [ %3, %5 ]
-  %.01939 = phi ptr [ %.0.i.i27, %48 ], [ %4, %5 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.01939, i64 24
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01740
+  %.01738 = phi i64 [ %32, %48 ], [ %3, %5 ]
+  %.01937 = phi ptr [ %.0.i.i27, %48 ], [ %4, %5 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.01937, i64 24
+  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01738
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -4789,18 +4789,18 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %.lr.ph, %13, %15, %16
-  %.val.i.i22 = load i32, ptr %.01939, align 4, !tbaa !8
+  %.val.i.i22 = load i32, ptr %.01937, align 4, !tbaa !8
   %17 = icmp eq i32 %.val.i.i22, 1
   br i1 %17, label %lean_ensure_exclusive_array.exit.i, label %18
 
 18:                                               ; preds = %lean_array_uget.exit
-  %19 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01939, i1 noundef zeroext false) #4
+  %19 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.01937, i1 noundef zeroext false) #4
   br label %lean_ensure_exclusive_array.exit.i
 
 lean_ensure_exclusive_array.exit.i:               ; preds = %18, %lean_array_uget.exit
-  %.0.i.i = phi ptr [ %19, %18 ], [ %.01939, %lean_array_uget.exit ]
+  %.0.i.i = phi ptr [ %19, %18 ], [ %.01937, %lean_array_uget.exit ]
   %20 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01740
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01738
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
@@ -4827,7 +4827,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %18, %lean_array_uge
 
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %28, %30, %31
   store ptr inttoptr (i64 1 to ptr), ptr %21, align 8, !tbaa !4
-  %32 = add nuw i64 %.01740, 1
+  %32 = add nuw i64 %.01738, 1
   %.val.i.i25 = load i32, ptr %.0.i.i, align 4, !tbaa !8
   %33 = icmp eq i32 %.val.i.i25, 1
   br i1 %33, label %lean_ensure_exclusive_array.exit.i26, label %34
@@ -4835,15 +4835,15 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 34:                                               ; preds = %lean_array_uset.exit
   %35 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.0.i.i, i1 noundef zeroext false) #4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 24
-  %.phi.trans.insert41 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01740
-  %.pre = load ptr, ptr %.phi.trans.insert41, align 8, !tbaa !4
+  %.phi.trans.insert39 = getelementptr inbounds nuw ptr, ptr %.phi.trans.insert, i64 %.01738
+  %.pre = load ptr, ptr %.phi.trans.insert39, align 8, !tbaa !4
   br label %lean_ensure_exclusive_array.exit.i26
 
 lean_ensure_exclusive_array.exit.i26:             ; preds = %34, %lean_array_uset.exit
   %36 = phi ptr [ %.pre, %34 ], [ inttoptr (i64 1 to ptr), %lean_array_uset.exit ]
   %.0.i.i27 = phi ptr [ %35, %34 ], [ %.0.i.i, %lean_array_uset.exit ]
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i27, i64 24
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.01740
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.01738
   %39 = ptrtoint ptr %36 to i64
   %40 = and i64 %39, 1
   %.not.i28 = icmp eq i64 %40, 0
@@ -4879,31 +4879,31 @@ lean_ensure_exclusive_array.exit.i26:             ; preds = %34, %lean_array_use
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______macroRules__Lake__hydrateOpaqueType__1___spec__3(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %.not101 = icmp ult i64 %4, %3
-  br i1 %.not101, label %.lr.ph, label %.._crit_edge_crit_edge
+  %.not99 = icmp ult i64 %4, %3
+  br i1 %.not99, label %.lr.ph, label %.._crit_edge_crit_edge
 
 .._crit_edge_crit_edge:                           ; preds = %6
   %.pre = ptrtoint ptr %2 to i64
-  %.pre104 = and i64 %.pre, 1
+  %.pre102 = and i64 %.pre, 1
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %7 = ptrtoint ptr %0 to i64
   %8 = and i64 %7, 1
-  %.not93 = icmp eq i64 %8, 0
+  %.not91 = icmp eq i64 %8, 0
   %9 = ptrtoint ptr %1 to i64
   %10 = and i64 %9, 1
-  %.not94 = icmp eq i64 %10, 0
+  %.not92 = icmp eq i64 %10, 0
   %11 = ptrtoint ptr %2 to i64
   %12 = and i64 %11, 1
-  %.not95 = icmp eq i64 %12, 0
+  %.not93 = icmp eq i64 %12, 0
   br label %38
 
 ._crit_edge:                                      ; preds = %lean_dec.exit, %.._crit_edge_crit_edge
-  %.pre-phi105 = phi i64 [ %.pre104, %.._crit_edge_crit_edge ], [ %12, %lean_dec.exit ]
+  %.pre-phi103 = phi i64 [ %.pre102, %.._crit_edge_crit_edge ], [ %12, %lean_dec.exit ]
   %.045.lcssa = phi ptr [ %5, %.._crit_edge_crit_edge ], [ %.0.i.i82, %lean_dec.exit ]
-  %.not96 = icmp eq i64 %.pre-phi105, 0
-  br i1 %.not96, label %13, label %lean_dec.exit54
+  %.not94 = icmp eq i64 %.pre-phi103, 0
+  br i1 %.not94, label %13, label %lean_dec.exit54
 
 13:                                               ; preds = %._crit_edge
   %14 = load i32, ptr %2, align 4, !tbaa !8
@@ -4926,8 +4926,8 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______
 lean_dec.exit54:                                  ; preds = %19, %18, %16, %._crit_edge
   %20 = ptrtoint ptr %1 to i64
   %21 = and i64 %20, 1
-  %.not97 = icmp eq i64 %21, 0
-  br i1 %.not97, label %22, label %lean_dec.exit53
+  %.not95 = icmp eq i64 %21, 0
+  br i1 %.not95, label %22, label %lean_dec.exit53
 
 22:                                               ; preds = %lean_dec.exit54
   %23 = load i32, ptr %1, align 4, !tbaa !8
@@ -4950,8 +4950,8 @@ lean_dec.exit54:                                  ; preds = %19, %18, %16, %._cr
 lean_dec.exit53:                                  ; preds = %28, %27, %25, %lean_dec.exit54
   %29 = ptrtoint ptr %0 to i64
   %30 = and i64 %29, 1
-  %.not98 = icmp eq i64 %30, 0
-  br i1 %.not98, label %31, label %138
+  %.not96 = icmp eq i64 %30, 0
+  br i1 %.not96, label %31, label %138
 
 31:                                               ; preds = %lean_dec.exit53
   %32 = load i32, ptr %0, align 4, !tbaa !8
@@ -4972,10 +4972,10 @@ lean_dec.exit53:                                  ; preds = %28, %27, %25, %lean
   br label %138
 
 38:                                               ; preds = %.lr.ph, %lean_dec.exit
-  %.043103 = phi i64 [ %4, %.lr.ph ], [ %122, %lean_dec.exit ]
-  %.045102 = phi ptr [ %5, %.lr.ph ], [ %.0.i.i82, %lean_dec.exit ]
-  %39 = getelementptr inbounds nuw i8, ptr %.045102, i64 24
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.043103
+  %.043101 = phi i64 [ %4, %.lr.ph ], [ %122, %lean_dec.exit ]
+  %.045100 = phi ptr [ %5, %.lr.ph ], [ %.0.i.i82, %lean_dec.exit ]
+  %39 = getelementptr inbounds nuw i8, ptr %.045100, i64 24
+  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %.043101
   %41 = load ptr, ptr %40, align 8, !tbaa !4
   %42 = ptrtoint ptr %41 to i64
   %43 = and i64 %42, 1
@@ -5001,18 +5001,18 @@ lean_dec.exit53:                                  ; preds = %28, %27, %25, %lean
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %38, %46, %48, %49
-  %.val.i.i60 = load i32, ptr %.045102, align 4, !tbaa !8
+  %.val.i.i60 = load i32, ptr %.045100, align 4, !tbaa !8
   %50 = icmp eq i32 %.val.i.i60, 1
   br i1 %50, label %lean_ensure_exclusive_array.exit.i, label %51
 
 51:                                               ; preds = %lean_array_uget.exit
-  %52 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.045102, i1 noundef zeroext false) #4
+  %52 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.045100, i1 noundef zeroext false) #4
   br label %lean_ensure_exclusive_array.exit.i
 
 lean_ensure_exclusive_array.exit.i:               ; preds = %51, %lean_array_uget.exit
-  %.0.i.i = phi ptr [ %52, %51 ], [ %.045102, %lean_array_uget.exit ]
+  %.0.i.i = phi ptr [ %52, %51 ], [ %.045100, %lean_array_uget.exit ]
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.043103
+  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.043101
   %55 = load ptr, ptr %54, align 8, !tbaa !4
   %56 = ptrtoint ptr %55 to i64
   %57 = and i64 %56, 1
@@ -5040,7 +5040,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %51, %lean_array_uge
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %61, %63, %64
   store ptr inttoptr (i64 1 to ptr), ptr %54, align 8, !tbaa !4
   %65 = load ptr, ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______macroRules__Lake__hydrateOpaqueType__1___spec__3___closed__3, align 8, !tbaa !4
-  br i1 %.not93, label %66, label %lean_inc.exit52
+  br i1 %.not91, label %66, label %lean_inc.exit52
 
 66:                                               ; preds = %lean_array_uset.exit
   %.val.i = load i32, ptr %0, align 4, !tbaa !8
@@ -5078,7 +5078,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit52
   store ptr %0, ptr %76, align 8, !tbaa !4
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %65, ptr %77, align 8, !tbaa !4
-  br i1 %.not94, label %78, label %lean_inc.exit51
+  br i1 %.not92, label %78, label %lean_inc.exit51
 
 78:                                               ; preds = %lean_alloc_ctor.exit
   %.val.i64 = load i32, ptr %1, align 4, !tbaa !8
@@ -5099,7 +5099,7 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit52
   br label %lean_inc.exit51
 
 lean_inc.exit51:                                  ; preds = %83, %82, %80, %lean_alloc_ctor.exit
-  br i1 %.not93, label %84, label %lean_inc.exit50
+  br i1 %.not91, label %84, label %lean_inc.exit50
 
 84:                                               ; preds = %lean_inc.exit51
   %.val.i67 = load i32, ptr %0, align 4, !tbaa !8
@@ -5165,7 +5165,7 @@ lean_alloc_ctor.exit73:                           ; preds = %lean_inc.exit49
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
   store ptr %100, ptr %107, align 8, !tbaa !4
   %108 = load ptr, ptr @l_Array_mapMUnsafe_map___at_Lake___aux__Lake__Util__OpaqueType______macroRules__Lake__hydrateOpaqueType__1___spec__3___closed__2, align 8, !tbaa !4
-  br i1 %.not95, label %109, label %lean_inc.exit48
+  br i1 %.not93, label %109, label %lean_inc.exit48
 
 109:                                              ; preds = %lean_alloc_ctor.exit73
   %.val.i74 = load i32, ptr %2, align 4, !tbaa !8
@@ -5186,7 +5186,7 @@ lean_alloc_ctor.exit73:                           ; preds = %lean_inc.exit49
   br label %lean_inc.exit48
 
 lean_inc.exit48:                                  ; preds = %114, %113, %111, %lean_alloc_ctor.exit73
-  br i1 %.not93, label %115, label %lean_inc.exit
+  br i1 %.not91, label %115, label %lean_inc.exit
 
 115:                                              ; preds = %lean_inc.exit48
   %.val.i77 = load i32, ptr %0, align 4, !tbaa !8
@@ -5208,7 +5208,7 @@ lean_inc.exit48:                                  ; preds = %114, %113, %111, %l
 
 lean_inc.exit:                                    ; preds = %120, %119, %117, %lean_inc.exit48
   %121 = tail call ptr @l_Lean_Syntax_node4(ptr noundef %0, ptr noundef %108, ptr noundef nonnull %72, ptr noundef %101, ptr noundef %2, ptr noundef nonnull %102) #4
-  %122 = add nuw i64 %.043103, 1
+  %122 = add nuw i64 %.043101, 1
   %.val.i.i80 = load i32, ptr %.0.i.i, align 4, !tbaa !8
   %123 = icmp eq i32 %.val.i.i80, 1
   br i1 %123, label %lean_ensure_exclusive_array.exit.i81, label %124
@@ -5220,7 +5220,7 @@ lean_inc.exit:                                    ; preds = %120, %119, %117, %l
 lean_ensure_exclusive_array.exit.i81:             ; preds = %124, %lean_inc.exit
   %.0.i.i82 = phi ptr [ %125, %124 ], [ %.0.i.i, %lean_inc.exit ]
   %126 = getelementptr inbounds nuw i8, ptr %.0.i.i82, i64 24
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %.043103
+  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %.043101
   %128 = load ptr, ptr %127, align 8, !tbaa !4
   %129 = ptrtoint ptr %128 to i64
   %130 = and i64 %129, 1

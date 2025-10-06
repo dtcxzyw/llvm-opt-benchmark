@@ -8254,8 +8254,8 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45
   br label %16
 
 16:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
-  %.0216.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.0216.i
+  %.02110.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
+  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.02110.i
   %18 = load ptr, ptr %17, align 8, !tbaa !255
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %19
@@ -8272,8 +8272,8 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45
   %24 = load ptr, ptr %23, align 8, !tbaa !324
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !338
-  %.not4.i = icmp eq ptr %26, null
-  br i1 %.not4.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %27
+  %.not8.i = icmp eq ptr %26, null
+  br i1 %.not8.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %27
 
 27:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i"
   %28 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core11retry_traceE, i64 16) monotonic, align 8
@@ -8314,7 +8314,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i: ; p
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit.i: ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %.0216.i, ptr %6, align 8, !tbaa !196
+  store i64 %.02110.i, ptr %6, align 8, !tbaa !196
   %37 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %39 unwind label %42
 
@@ -8328,9 +8328,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit.i: ; 
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load ptr, ptr %11, align 8, !tbaa !269
-  %.pre18 = load ptr, ptr %17, align 8, !tbaa !255
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre18, i64 8
-  %.pre19 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !324
+  %.pre16 = load ptr, ptr %17, align 8, !tbaa !255
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre16, i64 8
+  %.pre17 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !324
   br label %46
 
 40:                                               ; preds = %32, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit.i, %30
@@ -8355,16 +8355,16 @@ common.resume:                                    ; preds = %106, %44
   br label %common.resume
 
 "_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i": ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i", %19, %16
-  %45 = add nuw nsw i64 %.0216.i, 1
-  %exitcond.i = icmp eq i64 %45, 6
-  br i1 %exitcond.i, label %"_ZN9grpc_core11RetryFilter14LegacyCallData16PendingBatchFindIZNS1_11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEE3$_0EEPNS1_12PendingBatchEPKcT_.exit", label %16, !llvm.loop !364
+  %45 = add nuw nsw i64 %.02110.i, 1
+  %exitcond.not.i = icmp eq i64 %45, 6
+  br i1 %exitcond.not.i, label %"_ZN9grpc_core11RetryFilter14LegacyCallData16PendingBatchFindIZNS1_11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEE3$_0EEPNS1_12PendingBatchEPKcT_.exit", label %16, !llvm.loop !364
 
 "_ZN9grpc_core11RetryFilter14LegacyCallData16PendingBatchFindIZNS1_11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEE3$_0EEPNS1_12PendingBatchEPKcT_.exit": ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData45MaybeAddClosureForRecvInitialMetadataCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
 46:                                               ; preds = %39, %38
-  %47 = phi ptr [ %.pre19, %39 ], [ %24, %38 ]
+  %47 = phi ptr [ %.pre17, %39 ], [ %24, %38 ]
   %48 = phi ptr [ %.pre, %39 ], [ %12, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1664
@@ -8470,11 +8470,11 @@ _ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClo
           to label %._crit_edge unwind label %106
 
 ._crit_edge:                                      ; preds = %96
-  %.pre20 = load i64, ptr %10, align 8, !tbaa !154
+  %.pre18 = load i64, ptr %10, align 8, !tbaa !154
   br label %98
 
 98:                                               ; preds = %._crit_edge, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i
-  %99 = phi i64 [ %.pre20, %._crit_edge ], [ %69, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i ]
+  %99 = phi i64 [ %.pre18, %._crit_edge ], [ %69, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %100 = and i64 %99, 1
@@ -9202,8 +9202,8 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37
   br label %16
 
 16:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
-  %.0216.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.0216.i
+  %.02110.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
+  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.02110.i
   %18 = load ptr, ptr %17, align 8, !tbaa !255
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %19
@@ -9220,8 +9220,8 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37
   %24 = load ptr, ptr %23, align 8, !tbaa !324
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %26 = load ptr, ptr %25, align 8, !tbaa !322
-  %.not4.i = icmp eq ptr %26, null
-  br i1 %.not4.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %27
+  %.not8.i = icmp eq ptr %26, null
+  br i1 %.not8.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %27
 
 27:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i"
   %28 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core11retry_traceE, i64 16) monotonic, align 8
@@ -9262,7 +9262,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i: ; p
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit.i: ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %.0216.i, ptr %6, align 8, !tbaa !196
+  store i64 %.02110.i, ptr %6, align 8, !tbaa !196
   %37 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %39 unwind label %42
 
@@ -9276,9 +9276,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit.i: ; 
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load ptr, ptr %11, align 8, !tbaa !269
-  %.pre18 = load ptr, ptr %17, align 8, !tbaa !255
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre18, i64 8
-  %.pre19 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !324
+  %.pre16 = load ptr, ptr %17, align 8, !tbaa !255
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre16, i64 8
+  %.pre17 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !324
   br label %46
 
 40:                                               ; preds = %32, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit.i, %30
@@ -9303,16 +9303,16 @@ common.resume:                                    ; preds = %101, %44
   br label %common.resume
 
 "_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i": ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i", %19, %16
-  %45 = add nuw nsw i64 %.0216.i, 1
-  %exitcond.i = icmp eq i64 %45, 6
-  br i1 %exitcond.i, label %"_ZN9grpc_core11RetryFilter14LegacyCallData16PendingBatchFindIZNS1_11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEE3$_0EEPNS1_12PendingBatchEPKcT_.exit", label %16, !llvm.loop !368
+  %45 = add nuw nsw i64 %.02110.i, 1
+  %exitcond.not.i = icmp eq i64 %45, 6
+  br i1 %exitcond.not.i, label %"_ZN9grpc_core11RetryFilter14LegacyCallData16PendingBatchFindIZNS1_11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEE3$_0EEPNS1_12PendingBatchEPKcT_.exit", label %16, !llvm.loop !368
 
 "_ZN9grpc_core11RetryFilter14LegacyCallData16PendingBatchFindIZNS1_11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEE3$_0EEPNS1_12PendingBatchEPKcT_.exit": ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData37MaybeAddClosureForRecvMessageCallbackEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN4absl12lts_202407226StatusD2Ev.exit
 
 46:                                               ; preds = %39, %38
-  %47 = phi ptr [ %.pre19, %39 ], [ %24, %38 ]
+  %47 = phi ptr [ %.pre17, %39 ], [ %24, %38 ]
   %48 = phi ptr [ %.pre, %39 ], [ %12, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 2336
@@ -9405,11 +9405,11 @@ _ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClo
           to label %._crit_edge unwind label %101
 
 ._crit_edge:                                      ; preds = %91
-  %.pre20 = load i64, ptr %10, align 8, !tbaa !154
+  %.pre18 = load i64, ptr %10, align 8, !tbaa !154
   br label %93
 
 93:                                               ; preds = %._crit_edge, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i
-  %94 = phi i64 [ %.pre20, %._crit_edge ], [ %64, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i ]
+  %94 = phi i64 [ %.pre18, %._crit_edge ], [ %64, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %95 = and i64 %94, 1
@@ -9959,8 +9959,8 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43
   br label %16
 
 16:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
-  %.0216.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.0216.i
+  %.02110.i = phi i64 [ 0, %3 ], [ %45, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
+  %17 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.02110.i
   %18 = load ptr, ptr %17, align 8, !tbaa !255
   %.not.i = icmp eq ptr %18, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %19
@@ -9977,8 +9977,8 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43
   %24 = load ptr, ptr %23, align 8, !tbaa !324
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 112
   %26 = load ptr, ptr %25, align 8, !tbaa !311
-  %.not4.i = icmp eq ptr %26, null
-  br i1 %.not4.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %27
+  %.not8.i = icmp eq ptr %26, null
+  br i1 %.not8.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %27
 
 27:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i"
   %28 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core11retry_traceE, i64 16) monotonic, align 8
@@ -10019,7 +10019,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i: ; p
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit.i: ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %.0216.i, ptr %6, align 8, !tbaa !196
+  store i64 %.02110.i, ptr %6, align 8, !tbaa !196
   %37 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %39 unwind label %42
 
@@ -10033,9 +10033,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit.i: ; 
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load ptr, ptr %11, align 8, !tbaa !269
-  %.pre22 = load ptr, ptr %17, align 8, !tbaa !255
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre22, i64 8
-  %.pre23 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !324
+  %.pre20 = load ptr, ptr %17, align 8, !tbaa !255
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre20, i64 8
+  %.pre21 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !324
   br label %59
 
 40:                                               ; preds = %32, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit.i, %30
@@ -10060,9 +10060,9 @@ common.resume:                                    ; preds = %123, %44
   br label %common.resume
 
 "_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i": ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.i", %19, %16
-  %45 = add nuw nsw i64 %.0216.i, 1
-  %exitcond.i = icmp eq i64 %45, 6
-  br i1 %exitcond.i, label %46, label %16, !llvm.loop !373
+  %45 = add nuw nsw i64 %.02110.i, 1
+  %exitcond.not.i = icmp eq i64 %45, 6
+  br i1 %exitcond.not.i, label %46, label %16, !llvm.loop !373
 
 46:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData43MaybeAddClosureForRecvTrailingMetadataReadyEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -10096,7 +10096,7 @@ _ZN4absl12lts_202407226Status3RefEm.exit.i:       ; preds = %52, %50
   br label %_ZN4absl12lts_202407226StatusaSERKS1_.exit
 
 59:                                               ; preds = %39, %38
-  %60 = phi ptr [ %.pre23, %39 ], [ %24, %38 ]
+  %60 = phi ptr [ %.pre21, %39 ], [ %24, %38 ]
   %61 = phi ptr [ %.pre, %39 ], [ %12, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 3184
@@ -10200,11 +10200,11 @@ _ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClo
           to label %._crit_edge unwind label %123
 
 ._crit_edge:                                      ; preds = %109
-  %.pre24 = load i64, ptr %10, align 8, !tbaa !154
+  %.pre22 = load i64, ptr %10, align 8, !tbaa !154
   br label %111
 
 111:                                              ; preds = %._crit_edge, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i
-  %112 = phi i64 [ %.pre24, %._crit_edge ], [ %82, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i ]
+  %112 = phi i64 [ %.pre22, %._crit_edge ], [ %82, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %113 = and i64 %112, 1
@@ -11223,10 +11223,10 @@ _ZN4absl12lts_202407226StatusD2Ev.exit18.i:       ; preds = %118, %112
   %135 = icmp slt i16 %134, 0
   %136 = getelementptr inbounds nuw i8, ptr %90, i64 64
   %137 = load i64, ptr %136, align 8
-  %.sroa.0.06.i.i = select i1 %135, i64 %137, i64 undef
+  %.sroa.0.05.i.i = select i1 %135, i64 %137, i64 undef
   %.lobit.i.i = lshr i16 %134, 15
   %.sroa.2.1.i.i = trunc nuw nsw i16 %.lobit.i.i to i8
-  store i64 %.sroa.0.06.i.i, ptr %13, align 8
+  store i64 %.sroa.0.05.i.i, ptr %13, align 8
   store i8 %.sroa.2.1.i.i, ptr %86, align 8
   %138 = getelementptr inbounds nuw i8, ptr %90, i64 2
   %139 = load i16, ptr %138, align 2, !tbaa !156
@@ -12202,8 +12202,8 @@ define void @_ZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35
   br label %18
 
 18:                                               ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", %3
-  %.0217.i = phi i64 [ 0, %3 ], [ %46, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
-  %19 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.0217.i
+  %.02111.i = phi i64 [ 0, %3 ], [ %46, %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i" ]
+  %19 = getelementptr inbounds nuw %"struct.grpc_core::RetryFilter::LegacyCallData::PendingBatch", ptr %15, i64 %.02111.i
   %20 = load ptr, ptr %19, align 8, !tbaa !255
   %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i", label %21
@@ -12260,7 +12260,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi3EEERS2_RAT__Kc.exit.i: ; p
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit.i: ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %.0217.i, ptr %6, align 8, !tbaa !196
+  store i64 %.02111.i, ptr %6, align 8, !tbaa !196
   %38 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4absl12lts_2024072212log_internal10LogMessagelsImTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS5_(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %40 unwind label %43
 
@@ -12274,7 +12274,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi25EEERS2_RAT__Kc.exit.i: ; 
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.pre = load i8, ptr %16, align 8
-  %.pre18.pre = load ptr, ptr %19, align 8, !tbaa !255
+  %.pre16.pre = load ptr, ptr %19, align 8, !tbaa !255
   br label %47
 
 41:                                               ; preds = %33, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit.i, %31
@@ -12299,16 +12299,16 @@ common.resume:                                    ; preds = %99, %45
   br label %common.resume
 
 "_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i": ; preds = %23, %21, %18
-  %46 = add nuw nsw i64 %.0217.i, 1
-  %exitcond.i = icmp eq i64 %46, 6
-  br i1 %exitcond.i, label %"_ZN9grpc_core11RetryFilter14LegacyCallData16PendingBatchFindIZNS1_11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEE3$_0EEPNS1_12PendingBatchEPKcT_.exit", label %18, !llvm.loop !404
+  %46 = add nuw nsw i64 %.02111.i, 1
+  %exitcond.not.i = icmp eq i64 %46, 6
+  br i1 %exitcond.not.i, label %"_ZN9grpc_core11RetryFilter14LegacyCallData16PendingBatchFindIZNS1_11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEE3$_0EEPNS1_12PendingBatchEPKcT_.exit", label %18, !llvm.loop !404
 
 "_ZN9grpc_core11RetryFilter14LegacyCallData16PendingBatchFindIZNS1_11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEE3$_0EEPNS1_12PendingBatchEPKcT_.exit": ; preds = %"_ZZN9grpc_core11RetryFilter14LegacyCallData11CallAttempt9BatchData35AddClosuresForCompletedPendingBatchEN4absl12lts_202407226StatusEPNS_23CallCombinerClosureListEENK3$_0clEP30grpc_transport_stream_op_batch.exit.thread.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %98
 
 47:                                               ; preds = %40, %39
-  %.pre18 = phi ptr [ %.pre18.pre, %40 ], [ %20, %39 ]
+  %.pre16 = phi ptr [ %.pre16.pre, %40 ], [ %20, %39 ]
   %48 = phi i8 [ %.pre, %40 ], [ %17, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %49 = and i8 %48, 4
@@ -12320,14 +12320,14 @@ common.resume:                                    ; preds = %99, %45
   %52 = load ptr, ptr %51, align 8, !tbaa !280
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 36
   %54 = load i8, ptr %53, align 4, !tbaa !405, !range !206, !noundef !207
-  %55 = getelementptr inbounds nuw i8, ptr %.pre18, i64 8
+  %55 = getelementptr inbounds nuw i8, ptr %.pre16, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !324
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 36
   store i8 %54, ptr %57, align 4, !tbaa !405
   br label %58
 
 58:                                               ; preds = %50, %47
-  %59 = load ptr, ptr %.pre18, align 8, !tbaa !258
+  %59 = load ptr, ptr %.pre16, align 8, !tbaa !258
   %60 = load i64, ptr %1, align 8, !tbaa !154
   store i64 %60, ptr %10, align 8, !tbaa !154
   %61 = and i64 %60, 1
@@ -12399,11 +12399,11 @@ _ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClo
           to label %._crit_edge unwind label %99
 
 ._crit_edge:                                      ; preds = %87
-  %.pre19 = load i64, ptr %10, align 8, !tbaa !154
+  %.pre17 = load i64, ptr %10, align 8, !tbaa !154
   br label %89
 
 89:                                               ; preds = %._crit_edge, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i
-  %90 = phi i64 [ %.pre19, %._crit_edge ], [ %60, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i ]
+  %90 = phi i64 [ %.pre17, %._crit_edge ], [ %60, %_ZNSt16allocator_traitsISaIN9grpc_core23CallCombinerClosureList19CallCombinerClosureEEE9constructIS2_JRP12grpc_closureRN4absl12lts_202407226StatusERPKcEEEvRS3_PT_DpOT0_.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %91 = and i64 %90, 1

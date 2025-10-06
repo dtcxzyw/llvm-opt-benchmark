@@ -751,7 +751,7 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef writeonly c
 
 12:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
-  %.01321 = phi i32 [ 0, %.lr.ph ], [ %.2.ph, %36 ]
+  %.01319 = phi i32 [ 0, %.lr.ph ], [ %.2.ph, %36 ]
   %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 52
@@ -777,7 +777,7 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef writeonly c
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %27
-  %.not = icmp eq i32 %.01321, 0
+  %.not = icmp eq i32 %.01319, 0
   br i1 %.not, label %32, label %35
 
 32:                                               ; preds = %31
@@ -790,17 +790,17 @@ define dso_local i32 @TwoPhaseGetXidByVirtualXID(i64 %0, ptr noundef writeonly c
   br label %.loopexit
 
 36:                                               ; preds = %12, %32, %27, %18
-  %.2.ph = phi i32 [ %.01321, %18 ], [ %.01321, %27 ], [ %34, %32 ], [ %.01321, %12 ]
+  %.2.ph = phi i32 [ %.01319, %18 ], [ %.01319, %27 ], [ %34, %32 ], [ %.01319, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %12, !llvm.loop !13
 
 .loopexit:                                        ; preds = %36, %2, %35
-  %.01320 = phi i32 [ %.01321, %35 ], [ 0, %2 ], [ %.2.ph, %36 ]
+  %.01318 = phi i32 [ %.01319, %35 ], [ 0, %2 ], [ %.2.ph, %36 ]
   %37 = load ptr, ptr @MainLWLockArray, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 2304
   tail call void @LWLockRelease(ptr noundef nonnull %38) #13
-  ret i32 %.01320
+  ret i32 %.01318
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2335,8 +2335,8 @@ RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
 
 .lr.ph.i82:                                       ; preds = %197, %213
   %204 = phi i8 [ %220, %213 ], [ %202, %197 ]
-  %.01318.i = phi ptr [ %218, %213 ], [ %125, %197 ]
-  %205 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
+  %.01317.i = phi ptr [ %218, %213 ], [ %125, %197 ]
+  %205 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 8
   %206 = zext i8 %204 to i64
   %207 = getelementptr inbounds nuw ptr, ptr @twophase_postcommit_callbacks, i64 %206
   %208 = load ptr, ptr %207, align 8
@@ -2344,14 +2344,14 @@ RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
   br i1 %.not.i83, label %213, label %209
 
 209:                                              ; preds = %.lr.ph.i82
-  %210 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 6
+  %210 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 6
   %211 = load i16, ptr %210, align 2
-  %212 = load i32, ptr %.01318.i, align 4
+  %212 = load i32, ptr %.01317.i, align 4
   tail call void %208(i32 noundef %72, i16 noundef zeroext %211, ptr noundef nonnull %205, i32 noundef %212) #13
   br label %213
 
 213:                                              ; preds = %209, %.lr.ph.i82
-  %214 = load i32, ptr %.01318.i, align 4
+  %214 = load i32, ptr %.01317.i, align 4
   %215 = zext i32 %214 to i64
   %216 = add nuw nsw i64 %215, 7
   %217 = and i64 %216, 8589934584
@@ -2374,8 +2374,8 @@ RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
 
 .lr.ph.i85:                                       ; preds = %222, %239
   %230 = phi i8 [ %246, %239 ], [ %228, %222 ]
-  %.01318.i86 = phi ptr [ %244, %239 ], [ %125, %222 ]
-  %231 = getelementptr inbounds nuw i8, ptr %.01318.i86, i64 8
+  %.01317.i86 = phi ptr [ %244, %239 ], [ %125, %222 ]
+  %231 = getelementptr inbounds nuw i8, ptr %.01317.i86, i64 8
   %232 = zext i8 %230 to i64
   %233 = getelementptr inbounds nuw ptr, ptr @twophase_postabort_callbacks, i64 %232
   %234 = load ptr, ptr %233, align 8
@@ -2383,14 +2383,14 @@ RecordTransactionAbortPrepared.exit:              ; preds = %171, %180
   br i1 %.not.i87, label %239, label %235
 
 235:                                              ; preds = %.lr.ph.i85
-  %236 = getelementptr inbounds nuw i8, ptr %.01318.i86, i64 6
+  %236 = getelementptr inbounds nuw i8, ptr %.01317.i86, i64 6
   %237 = load i16, ptr %236, align 2
-  %238 = load i32, ptr %.01318.i86, align 4
+  %238 = load i32, ptr %.01317.i86, align 4
   tail call void %234(i32 noundef %72, i16 noundef zeroext %237, ptr noundef nonnull %231, i32 noundef %238) #13
   br label %239
 
 239:                                              ; preds = %235, %.lr.ph.i85
-  %240 = load i32, ptr %.01318.i86, align 4
+  %240 = load i32, ptr %.01317.i86, align 4
   %241 = zext i32 %240 to i64
   %242 = add nuw nsw i64 %241, 7
   %243 = and i64 %242, 8589934584
@@ -2896,8 +2896,8 @@ define dso_local void @restoreTwoPhaseData() local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %2, i32 noundef 0) #13
   %4 = tail call ptr @AllocateDir(ptr noundef nonnull @.str.14) #13
   %5 = tail call ptr @ReadDir(ptr noundef %4, ptr noundef nonnull @.str.14) #13
-  %.not13 = icmp eq ptr %5, null
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not12 = icmp eq ptr %5, null
+  br i1 %.not12, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %.backedge
   %6 = phi ptr [ %18, %.backedge ], [ %5, %0 ]
@@ -3691,8 +3691,8 @@ GXactLoadSubxactData.exit:                        ; preds = %122, %124
 
 .lr.ph.i:                                         ; preds = %GXactLoadSubxactData.exit, %147
   %138 = phi i8 [ %154, %147 ], [ %136, %GXactLoadSubxactData.exit ]
-  %.01318.i = phi ptr [ %152, %147 ], [ %67, %GXactLoadSubxactData.exit ]
-  %139 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
+  %.01317.i = phi ptr [ %152, %147 ], [ %67, %GXactLoadSubxactData.exit ]
+  %139 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 8
   %140 = zext i8 %138 to i64
   %141 = getelementptr inbounds nuw ptr, ptr @twophase_recover_callbacks, i64 %140
   %142 = load ptr, ptr %141, align 8
@@ -3700,14 +3700,14 @@ GXactLoadSubxactData.exit:                        ; preds = %122, %124
   br i1 %.not.i44, label %147, label %143
 
 143:                                              ; preds = %.lr.ph.i
-  %144 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 6
+  %144 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 6
   %145 = load i16, ptr %144, align 2
-  %146 = load i32, ptr %.01318.i, align 4
+  %146 = load i32, ptr %.01317.i, align 4
   tail call void %142(i32 noundef %13, i16 noundef zeroext %145, ptr noundef nonnull %139, i32 noundef %146) #13
   br label %147
 
 147:                                              ; preds = %143, %.lr.ph.i
-  %148 = load i32, ptr %.01318.i, align 4
+  %148 = load i32, ptr %.01317.i, align 4
   %149 = zext i32 %148 to i64
   %150 = add nuw nsw i64 %149, 7
   %151 = and i64 %150, 8589934584
@@ -3937,7 +3937,7 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(n
 43:                                               ; preds = %34, %39
   tail call void @pfree(ptr noundef nonnull %35) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre32 = load ptr, ptr @TwoPhaseState, align 8
+  %.pre31 = load ptr, ptr @TwoPhaseState, align 8
   br label %45
 
 44:                                               ; preds = %39
@@ -3946,7 +3946,7 @@ define dso_local noundef zeroext i1 @LookupGXact(ptr noundef readonly captures(n
   br label %.loopexit
 
 45:                                               ; preds = %19, %.lr.ph, %43
-  %46 = phi ptr [ %12, %19 ], [ %12, %.lr.ph ], [ %.pre32, %43 ]
+  %46 = phi ptr [ %12, %19 ], [ %12, %.lr.ph ], [ %.pre31, %43 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8

@@ -162,10 +162,10 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   %85 = zext nneg i32 %84 to i64
   %86 = getelementptr inbounds nuw i16, ptr @hist_start, i64 %85
   %87 = load i16, ptr %86, align 2
-  %.not20.i = icmp eq i16 %87, 0
-  br i1 %.not20.i, label %.thread.i.thread, label %.lr.ph26.split.us.preheader.i
+  %.not19.i = icmp eq i16 %87, 0
+  br i1 %.not19.i, label %.thread.i.thread, label %.lr.ph25.split.us.preheader.i
 
-.lr.ph26.split.us.preheader.i:                    ; preds = %82
+.lr.ph25.split.us.preheader.i:                    ; preds = %82
   %88 = sext i16 %87 to i64
   %.idx.i = shl nsw i64 %88, 5
   %89 = getelementptr inbounds i8, ptr @hist_entries, i64 %.idx.i
@@ -179,36 +179,36 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   %97 = icmp sgt i32 %96, 4094
   br i1 %97, label %.thread.i.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph26.split.us.preheader.i, %.lr.ph26.split.us.i
-  %98 = phi i32 [ %128, %.lr.ph26.split.us.i ], [ %96, %.lr.ph26.split.us.preheader.i ]
-  %99 = phi ptr [ %125, %.lr.ph26.split.us.i ], [ %93, %.lr.ph26.split.us.preheader.i ]
-  %.07921.us.i234 = phi ptr [ %121, %.lr.ph26.split.us.i ], [ %89, %.lr.ph26.split.us.preheader.i ]
-  %.07622.us.i233 = phi i32 [ %123, %.lr.ph26.split.us.i ], [ %.0166, %.lr.ph26.split.us.preheader.i ]
-  %.07223.us.i232 = phi i32 [ %spec.select.us.i, %.lr.ph26.split.us.i ], [ 0, %.lr.ph26.split.us.preheader.i ]
-  %.06925.us.i231 = phi i32 [ %spec.select85.us.i, %.lr.ph26.split.us.i ], [ 0, %.lr.ph26.split.us.preheader.i ]
-  %100 = icmp sgt i32 %.07223.us.i232, 15
+.lr.ph:                                           ; preds = %.lr.ph25.split.us.preheader.i, %.lr.ph25.split.us.i
+  %98 = phi i32 [ %128, %.lr.ph25.split.us.i ], [ %96, %.lr.ph25.split.us.preheader.i ]
+  %99 = phi ptr [ %125, %.lr.ph25.split.us.i ], [ %93, %.lr.ph25.split.us.preheader.i ]
+  %.07920.us.i234 = phi ptr [ %121, %.lr.ph25.split.us.i ], [ %89, %.lr.ph25.split.us.preheader.i ]
+  %.07621.us.i233 = phi i32 [ %123, %.lr.ph25.split.us.i ], [ %.0166, %.lr.ph25.split.us.preheader.i ]
+  %.07222.us.i232 = phi i32 [ %spec.select.us.i, %.lr.ph25.split.us.i ], [ 0, %.lr.ph25.split.us.preheader.i ]
+  %.06924.us.i231 = phi i32 [ %spec.select85.us.i, %.lr.ph25.split.us.i ], [ 0, %.lr.ph25.split.us.preheader.i ]
+  %100 = icmp sgt i32 %.07222.us.i232, 15
   br i1 %100, label %109, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %.lr.ph, %105
-  %.210.us.i = phi i32 [ %106, %105 ], [ 0, %.lr.ph ]
-  %.1669.us.i = phi ptr [ %108, %105 ], [ %99, %.lr.ph ]
-  %.1688.us.i = phi ptr [ %107, %105 ], [ %.0151245, %.lr.ph ]
-  %101 = load i8, ptr %.1688.us.i, align 1
-  %102 = load i8, ptr %.1669.us.i, align 1
+  %.29.us.i = phi i32 [ %106, %105 ], [ 0, %.lr.ph ]
+  %.1668.us.i = phi ptr [ %108, %105 ], [ %99, %.lr.ph ]
+  %.1687.us.i = phi ptr [ %107, %105 ], [ %.0151245, %.lr.ph ]
+  %101 = load i8, ptr %.1687.us.i, align 1
+  %102 = load i8, ptr %.1668.us.i, align 1
   %103 = icmp eq i8 %101, %102
-  %104 = icmp samesign ult i32 %.210.us.i, 273
+  %104 = icmp samesign ult i32 %.29.us.i, 273
   %or.cond5.us.i = select i1 %103, i1 %104, i1 false
   br i1 %or.cond5.us.i, label %105, label %.critedge.us.i
 
 105:                                              ; preds = %.preheader.us.i
-  %106 = add nuw nsw i32 %.210.us.i, 1
-  %107 = getelementptr inbounds nuw i8, ptr %.1688.us.i, i64 1
-  %108 = getelementptr inbounds nuw i8, ptr %.1669.us.i, i64 1
+  %106 = add nuw nsw i32 %.29.us.i, 1
+  %107 = getelementptr inbounds nuw i8, ptr %.1687.us.i, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.1668.us.i, i64 1
   %exitcond.not.i = icmp eq ptr %107, %7
   br i1 %exitcond.not.i, label %.critedge.us.i, label %.preheader.us.i, !llvm.loop !4
 
 109:                                              ; preds = %.lr.ph
-  %110 = zext nneg i32 %.07223.us.i232 to i64
+  %110 = zext nneg i32 %.07222.us.i232 to i64
   %bcmp.us.i = tail call i32 @bcmp(ptr nonnull %.0151245, ptr %99, i64 %110)
   %111 = icmp eq i32 %bcmp.us.i, 0
   br i1 %111, label %112, label %.critedge.us.i
@@ -216,38 +216,38 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
 112:                                              ; preds = %109
   %113 = getelementptr inbounds nuw i8, ptr %.0151245, i64 %110
   %114 = icmp ult ptr %113, %7
-  br i1 %114, label %.lr.ph16.us.preheader.i, label %.critedge.us.i
+  br i1 %114, label %.lr.ph15.us.preheader.i, label %.critedge.us.i
 
-.lr.ph16.us.preheader.i:                          ; preds = %112
+.lr.ph15.us.preheader.i:                          ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %99, i64 %110
-  br label %.lr.ph16.us.i
+  br label %.lr.ph15.us.i
 
-.lr.ph16.us.i:                                    ; preds = %130, %.lr.ph16.us.preheader.i
-  %.06315.us.i = phi i32 [ %131, %130 ], [ %.07223.us.i232, %.lr.ph16.us.preheader.i ]
-  %.06514.us.i = phi ptr [ %133, %130 ], [ %115, %.lr.ph16.us.preheader.i ]
-  %.06713.us.i = phi ptr [ %132, %130 ], [ %113, %.lr.ph16.us.preheader.i ]
-  %116 = load i8, ptr %.06713.us.i, align 1
-  %117 = load i8, ptr %.06514.us.i, align 1
+.lr.ph15.us.i:                                    ; preds = %130, %.lr.ph15.us.preheader.i
+  %.06314.us.i = phi i32 [ %131, %130 ], [ %.07222.us.i232, %.lr.ph15.us.preheader.i ]
+  %.06513.us.i = phi ptr [ %133, %130 ], [ %115, %.lr.ph15.us.preheader.i ]
+  %.06712.us.i = phi ptr [ %132, %130 ], [ %113, %.lr.ph15.us.preheader.i ]
+  %116 = load i8, ptr %.06712.us.i, align 1
+  %117 = load i8, ptr %.06513.us.i, align 1
   %118 = icmp eq i8 %116, %117
-  %119 = icmp slt i32 %.06315.us.i, 273
+  %119 = icmp slt i32 %.06314.us.i, 273
   %or.cond.us.i = select i1 %118, i1 %119, i1 false
   br i1 %or.cond.us.i, label %130, label %.critedge.us.i
 
-.critedge.us.i:                                   ; preds = %105, %.preheader.us.i, %130, %.lr.ph16.us.i, %112, %109
-  %.1.us.i = phi i32 [ 0, %109 ], [ %.07223.us.i232, %112 ], [ %.06315.us.i, %.lr.ph16.us.i ], [ %91, %130 ], [ %91, %105 ], [ %.210.us.i, %.preheader.us.i ]
-  %120 = icmp sgt i32 %.1.us.i, %.07223.us.i232
-  %spec.select.us.i = tail call i32 @llvm.smax.i32(i32 %.1.us.i, i32 %.07223.us.i232)
-  %spec.select85.us.i = select i1 %120, i32 %98, i32 %.06925.us.i231
-  %121 = load ptr, ptr %.07921.us.i234, align 8
+.critedge.us.i:                                   ; preds = %105, %.preheader.us.i, %130, %.lr.ph15.us.i, %112, %109
+  %.1.us.i = phi i32 [ 0, %109 ], [ %.07222.us.i232, %112 ], [ %.06314.us.i, %.lr.ph15.us.i ], [ %91, %130 ], [ %91, %105 ], [ %.29.us.i, %.preheader.us.i ]
+  %120 = icmp sgt i32 %.1.us.i, %.07222.us.i232
+  %spec.select.us.i = tail call i32 @llvm.smax.i32(i32 %.1.us.i, i32 %.07222.us.i232)
+  %spec.select85.us.i = select i1 %120, i32 %98, i32 %.06924.us.i231
+  %121 = load ptr, ptr %.07920.us.i234, align 8
   %.not83.us.i = icmp ne ptr %121, @hist_entries
-  %.not84.us.i = icmp slt i32 %spec.select.us.i, %.07622.us.i233
+  %.not84.us.i = icmp slt i32 %spec.select.us.i, %.07621.us.i233
   %or.cond.i = select i1 %.not83.us.i, i1 %.not84.us.i, i1 false
-  br i1 %or.cond.i, label %.lr.ph26.split.us.i, label %.thread.i
+  br i1 %or.cond.i, label %.lr.ph25.split.us.i, label %.thread.i
 
-.lr.ph26.split.us.i:                              ; preds = %.critedge.us.i
-  %122 = mul nuw nsw i32 %.07622.us.i233, %24
+.lr.ph25.split.us.i:                              ; preds = %.critedge.us.i
+  %122 = mul nuw nsw i32 %.07621.us.i233, %24
   %.neg.us.i = sdiv i32 %122, -100
-  %123 = add nsw i32 %.neg.us.i, %.07622.us.i233
+  %123 = add nsw i32 %.neg.us.i, %.07621.us.i233
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %125 = load ptr, ptr %124, align 8
   %126 = ptrtoint ptr %125 to i64
@@ -256,14 +256,14 @@ define dso_local i32 @pglz_compress(ptr noundef %0, i32 noundef %1, ptr noundef 
   %129 = icmp sgt i32 %128, 4094
   br i1 %129, label %.thread.i, label %.lr.ph
 
-130:                                              ; preds = %.lr.ph16.us.i
-  %131 = add nuw nsw i32 %.06315.us.i, 1
-  %132 = getelementptr inbounds nuw i8, ptr %.06713.us.i, i64 1
-  %133 = getelementptr inbounds nuw i8, ptr %.06514.us.i, i64 1
+130:                                              ; preds = %.lr.ph15.us.i
+  %131 = add nuw nsw i32 %.06314.us.i, 1
+  %132 = getelementptr inbounds nuw i8, ptr %.06712.us.i, i64 1
+  %133 = getelementptr inbounds nuw i8, ptr %.06513.us.i, i64 1
   %134 = icmp ult ptr %132, %7
-  br i1 %134, label %.lr.ph16.us.i, label %.critedge.us.i, !llvm.loop !6
+  br i1 %134, label %.lr.ph15.us.i, label %.critedge.us.i, !llvm.loop !6
 
-.thread.i:                                        ; preds = %.lr.ph26.split.us.i, %.critedge.us.i
+.thread.i:                                        ; preds = %.lr.ph25.split.us.i, %.critedge.us.i
   %135 = icmp sgt i32 %spec.select.us.i, 2
   br i1 %135, label %pglz_find_match.exit, label %.thread.i.thread
 
@@ -409,7 +409,7 @@ pglz_find_match.exit:                             ; preds = %.thread.i
   %.not191 = icmp eq i32 %158, 0
   br i1 %.not191, label %.loopexit, label %157, !llvm.loop !7
 
-.thread.i.thread:                                 ; preds = %.lr.ph26.split.us.preheader.i, %.thread.i, %82
+.thread.i.thread:                                 ; preds = %.lr.ph25.split.us.preheader.i, %.thread.i, %82
   %219 = icmp eq i8 %.0169241, 0
   br i1 %219, label %220, label %222
 

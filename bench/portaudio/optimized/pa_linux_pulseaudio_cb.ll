@@ -1054,8 +1054,8 @@ PaPulseAudio_Lock.exit:                           ; preds = %1, %18
   store i32 0, ptr %23, align 4, !tbaa !67
   %24 = load ptr, ptr %15, align 8, !tbaa !17
   %25 = tail call i32 @pa_threaded_mainloop_in_thread(ptr noundef %24) #5
-  %.not.i115 = icmp eq i32 %25, 0
-  br i1 %.not.i115, label %26, label %PaPulseAudio_UnLock.exit
+  %.not.i114 = icmp eq i32 %25, 0
+  br i1 %.not.i114, label %26, label %PaPulseAudio_UnLock.exit
 
 26:                                               ; preds = %PaPulseAudio_Lock.exit
   tail call void @pa_threaded_mainloop_unlock(ptr noundef %24) #5
@@ -1098,48 +1098,48 @@ PaPulseAudio_UnLock.exit:                         ; preds = %PaPulseAudio_Lock.e
   %.092 = phi ptr [ %46, %42 ], [ null, %38 ]
   %48 = load ptr, ptr %15, align 8, !tbaa !17
   %49 = call i32 @pa_threaded_mainloop_in_thread(ptr noundef %48) #5
-  %.not.i116 = icmp eq i32 %49, 0
-  br i1 %.not.i116, label %50, label %PaPulseAudio_Lock.exit117
+  %.not.i115 = icmp eq i32 %49, 0
+  br i1 %.not.i115, label %50, label %PaPulseAudio_Lock.exit116
 
 50:                                               ; preds = %47
   call void @pa_threaded_mainloop_lock(ptr noundef %48) #5
-  br label %PaPulseAudio_Lock.exit117
+  br label %PaPulseAudio_Lock.exit116
 
-PaPulseAudio_Lock.exit117:                        ; preds = %47, %50
+PaPulseAudio_Lock.exit116:                        ; preds = %47, %50
   %51 = load ptr, ptr %27, align 8, !tbaa !33
   %52 = call i32 @pa_stream_connect_record(ptr noundef %51, ptr noundef %.092, ptr noundef nonnull %20, i32 noundef 8762) #5
   %.not98 = icmp eq i32 %52, 0
   %53 = load ptr, ptr %15, align 8, !tbaa !17
   %54 = call i32 @pa_threaded_mainloop_in_thread(ptr noundef %53) #5
-  %.not.i120 = icmp eq i32 %54, 0
+  %.not.i119 = icmp eq i32 %54, 0
   br i1 %.not98, label %57, label %55
 
-55:                                               ; preds = %PaPulseAudio_Lock.exit117
-  br i1 %.not.i120, label %56, label %.critedge.thread
+55:                                               ; preds = %PaPulseAudio_Lock.exit116
+  br i1 %.not.i119, label %56, label %.critedge.thread
 
 56:                                               ; preds = %55
   call void @pa_threaded_mainloop_unlock(ptr noundef %53) #5
   br label %.critedge.thread
 
-57:                                               ; preds = %PaPulseAudio_Lock.exit117
-  br i1 %.not.i120, label %58, label %PaPulseAudio_UnLock.exit121
+57:                                               ; preds = %PaPulseAudio_Lock.exit116
+  br i1 %.not.i119, label %58, label %PaPulseAudio_UnLock.exit120
 
 58:                                               ; preds = %57
   call void @pa_threaded_mainloop_unlock(ptr noundef %53) #5
-  br label %PaPulseAudio_UnLock.exit121
+  br label %PaPulseAudio_UnLock.exit120
 
-PaPulseAudio_UnLock.exit121:                      ; preds = %57, %58
+PaPulseAudio_UnLock.exit120:                      ; preds = %57, %58
   %59 = load ptr, ptr %15, align 8, !tbaa !17
   %60 = load ptr, ptr %27, align 8, !tbaa !33
   %61 = call i32 @_PaPulseAudio_WaitStreamState(ptr noundef %59, ptr noundef %60)
   %.not99 = icmp eq i32 %61, 0
   br i1 %.not99, label %.critedge, label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %PaPulseAudio_UnLock.exit121, %29, %55, %56
+.critedge.thread:                                 ; preds = %PaPulseAudio_UnLock.exit120, %29, %55, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %121
 
-.critedge:                                        ; preds = %PaPulseAudio_UnLock.exit121
+.critedge:                                        ; preds = %PaPulseAudio_UnLock.exit120
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %62
 
@@ -1168,27 +1168,27 @@ PaPulseAudio_UnLock.exit121:                      ; preds = %57, %58
 75:                                               ; preds = %72
   %76 = load ptr, ptr %15, align 8, !tbaa !17
   %77 = call i32 @pa_threaded_mainloop_in_thread(ptr noundef %76) #5
-  %.not.i122 = icmp eq i32 %77, 0
-  br i1 %.not.i122, label %78, label %PaPulseAudio_Lock.exit123
+  %.not.i121 = icmp eq i32 %77, 0
+  br i1 %.not.i121, label %78, label %PaPulseAudio_Lock.exit122
 
 78:                                               ; preds = %75
   call void @pa_threaded_mainloop_lock(ptr noundef %76) #5
-  br label %PaPulseAudio_Lock.exit123
+  br label %PaPulseAudio_Lock.exit122
 
-PaPulseAudio_Lock.exit123:                        ; preds = %75, %78
+PaPulseAudio_Lock.exit122:                        ; preds = %75, %78
   %79 = load ptr, ptr %63, align 8, !tbaa !49
   %80 = call ptr @pa_stream_cork(ptr noundef %79, i32 noundef 0, ptr noundef nonnull @PaPulseAudio_CorkSuccessCb, ptr noundef nonnull %0) #5
   store ptr %80, ptr %2, align 8, !tbaa !14
   %81 = load ptr, ptr %15, align 8, !tbaa !17
   %82 = call i32 @pa_threaded_mainloop_in_thread(ptr noundef %81) #5
-  %.not.i124 = icmp eq i32 %82, 0
-  br i1 %.not.i124, label %83, label %PaPulseAudio_UnLock.exit125
+  %.not.i123 = icmp eq i32 %82, 0
+  br i1 %.not.i123, label %83, label %PaPulseAudio_UnLock.exit124
 
-83:                                               ; preds = %PaPulseAudio_Lock.exit123
+83:                                               ; preds = %PaPulseAudio_Lock.exit122
   call void @pa_threaded_mainloop_unlock(ptr noundef %81) #5
-  br label %PaPulseAudio_UnLock.exit125
+  br label %PaPulseAudio_UnLock.exit124
 
-PaPulseAudio_UnLock.exit125:                      ; preds = %PaPulseAudio_Lock.exit123, %83
+PaPulseAudio_UnLock.exit124:                      ; preds = %PaPulseAudio_Lock.exit122, %83
   call void @PaPulseAudio_ReleaseOperation(ptr noundef nonnull %6, ptr noundef nonnull %2)
   br label %116
 
@@ -1218,24 +1218,24 @@ PaPulseAudio_UnLock.exit125:                      ; preds = %PaPulseAudio_Lock.e
   %.193 = phi ptr [ %97, %93 ], [ null, %89 ]
   %99 = load ptr, ptr %15, align 8, !tbaa !17
   %100 = call i32 @pa_threaded_mainloop_in_thread(ptr noundef %99) #5
-  %.not.i126 = icmp eq i32 %100, 0
-  br i1 %.not.i126, label %101, label %PaPulseAudio_Lock.exit127
+  %.not.i125 = icmp eq i32 %100, 0
+  br i1 %.not.i125, label %101, label %PaPulseAudio_Lock.exit126
 
 101:                                              ; preds = %98
   call void @pa_threaded_mainloop_lock(ptr noundef %99) #5
-  br label %PaPulseAudio_Lock.exit127
+  br label %PaPulseAudio_Lock.exit126
 
-PaPulseAudio_Lock.exit127:                        ; preds = %98, %101
+PaPulseAudio_Lock.exit126:                        ; preds = %98, %101
   %102 = load ptr, ptr %27, align 8, !tbaa !33
   %.not103 = icmp eq ptr %102, null
   br i1 %.not103, label %103, label %105
 
-103:                                              ; preds = %PaPulseAudio_Lock.exit127
+103:                                              ; preds = %PaPulseAudio_Lock.exit126
   %104 = load ptr, ptr %63, align 8, !tbaa !49
   call void @pa_stream_set_write_callback(ptr noundef %104, ptr noundef nonnull @PaPulseAudio_StreamPlaybackCb, ptr noundef nonnull %0) #5
   br label %105
 
-105:                                              ; preds = %103, %PaPulseAudio_Lock.exit127
+105:                                              ; preds = %103, %PaPulseAudio_Lock.exit126
   %106 = load ptr, ptr %63, align 8, !tbaa !49
   %107 = call i32 @pa_stream_connect_playback(ptr noundef %106, ptr noundef %.193, ptr noundef nonnull %19, i32 noundef 8762, ptr noundef null, ptr noundef null) #5
   %.not104 = icmp eq i32 %107, 0
@@ -1244,8 +1244,8 @@ PaPulseAudio_Lock.exit127:                        ; preds = %98, %101
 
 109:                                              ; preds = %105
   %110 = call i32 @pa_threaded_mainloop_in_thread(ptr noundef %108) #5
-  %.not.i128 = icmp eq i32 %110, 0
-  br i1 %.not.i128, label %111, label %.critedge111.thread
+  %.not.i127 = icmp eq i32 %110, 0
+  br i1 %.not.i127, label %111, label %.critedge111.thread
 
 111:                                              ; preds = %109
   call void @pa_threaded_mainloop_unlock(ptr noundef %108) #5
@@ -1267,7 +1267,7 @@ PaPulseAudio_Lock.exit127:                        ; preds = %98, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %116
 
-116:                                              ; preds = %.critedge111, %PaPulseAudio_UnLock.exit125
+116:                                              ; preds = %.critedge111, %PaPulseAudio_UnLock.exit124
   %.pr = load ptr, ptr %63, align 8, !tbaa !49
   %.not106 = icmp eq ptr %.pr, null
   br i1 %.not106, label %.thread, label %118

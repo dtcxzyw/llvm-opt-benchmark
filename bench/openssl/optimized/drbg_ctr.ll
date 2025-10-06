@@ -1231,17 +1231,17 @@ ctr_BCC_blocks.exit:                              ; preds = %25
   br label %44
 
 44:                                               ; preds = %.lr.ph, %57
-  %.364 = phi i64 [ %.032, %.lr.ph ], [ %59, %57 ]
-  %.33763 = phi ptr [ %.034, %.lr.ph ], [ %58, %57 ]
+  %.363 = phi i64 [ %.032, %.lr.ph ], [ %59, %57 ]
+  %.33762 = phi ptr [ %.034, %.lr.ph ], [ %58, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 1 dereferenceable(16) %.33763, i64 16, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %39, ptr noundef nonnull readonly align 1 dereferenceable(16) %.33763, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull readonly align 1 dereferenceable(16) %.33762, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %39, ptr noundef nonnull readonly align 1 dereferenceable(16) %.33762, i64 16, i1 false)
   %45 = load i64, ptr %40, align 8, !tbaa !37
   %.not.i46 = icmp eq i64 %45, 16
   br i1 %.not.i46, label %47, label %46
 
 46:                                               ; preds = %44
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %41, ptr noundef nonnull readonly align 1 dereferenceable(16) %.33763, i64 16, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %41, ptr noundef nonnull readonly align 1 dereferenceable(16) %.33762, i64 16, i1 false)
   br label %47
 
 47:                                               ; preds = %46, %44
@@ -1275,8 +1275,8 @@ ctr_BCC_blocks.exit56:                            ; preds = %48
   br i1 %or.cond.i.i54.not, label %.loopexit, label %57
 
 57:                                               ; preds = %ctr_BCC_blocks.exit56
-  %58 = getelementptr inbounds nuw i8, ptr %.33763, i64 16
-  %59 = add i64 %.364, -16
+  %58 = getelementptr inbounds nuw i8, ptr %.33762, i64 16
+  %59 = add i64 %.363, -16
   %60 = icmp ugt i64 %59, 15
   br i1 %60, label %44, label %._crit_edge, !llvm.loop !47
 

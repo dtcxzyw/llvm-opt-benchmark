@@ -29841,9 +29841,9 @@ _ZN4llvm5SDLocC2EPKNS_6SDNodeE.exit:              ; preds = %_ZNK4llvm9MemSDNode
   br label %"_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.exit"
 
 "_ZZN4llvm16DAGTypeLegalizer18SplitVecOp_ScatterEPNS_9MemSDNodeEjENK3$_0clEv.exit": ; preds = %59, %66
-  %.sink4.i = phi ptr [ %60, %59 ], [ %69, %66 ]
+  %.sink3.i = phi ptr [ %60, %59 ], [ %69, %66 ]
   %77 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  %78 = getelementptr inbounds nuw i8, ptr %.sink4.i, i64 40
+  %78 = getelementptr inbounds nuw i8, ptr %.sink3.i, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %77, ptr noundef nonnull align 8 dereferenceable(12) %78, i64 12, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 8

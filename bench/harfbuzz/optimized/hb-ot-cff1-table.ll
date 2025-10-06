@@ -3233,117 +3233,117 @@ define linkonce_odr dso_local noundef i32 @_ZNK3CFF7Charset9get_glyphEjj(ptr nou
   %4 = load i8, ptr %0, align 1, !tbaa !54
   switch i8 %4, label %_ZNK3CFF8Charset09get_glyphEjj.exit [
     i8 0, label %5
-    i8 1, label %15
-    i8 2, label %30
+    i8 1, label %16
+    i8 2, label %31
   ]
 
 5:                                                ; preds = %3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !56
   %6 = icmp ne i32 %1, 0
-  %.not12.i = icmp ugt i32 %2, 1
-  %or.cond.i = and i1 %6, %.not12.i
+  %7 = icmp ugt i32 %2, 1
+  %or.cond.i = and i1 %6, %7
   br i1 %or.cond.i, label %.lr.ph.preheader.i, label %_ZNK3CFF8Charset09get_glyphEjj.exit
 
 .lr.ph.preheader.i:                               ; preds = %5
   %wide.trip.count.i = zext i32 %2 to i64
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %13, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %13 ]
-  %7 = getelementptr %"struct.OT::IntType.8", ptr %0, i64 %indvars.iv.i
-  %8 = getelementptr i8, ptr %7, i64 -1
-  %9 = load i16, ptr %8, align 1, !tbaa !57
-  %10 = tail call noundef i16 @llvm.bswap.i16(i16 %9)
-  %11 = zext i16 %10 to i32
-  %12 = icmp eq i32 %1, %11
-  br i1 %12, label %.loopexit.loopexit.split.loop.exit18.i, label %13
+.lr.ph.i:                                         ; preds = %14, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %14 ]
+  %8 = getelementptr %"struct.OT::IntType.8", ptr %0, i64 %indvars.iv.i
+  %9 = getelementptr i8, ptr %8, i64 -1
+  %10 = load i16, ptr %9, align 1, !tbaa !57
+  %11 = tail call noundef i16 @llvm.bswap.i16(i16 %10)
+  %12 = zext i16 %11 to i32
+  %13 = icmp eq i32 %1, %12
+  br i1 %13, label %.loopexit.loopexit.split.loop.exit.i, label %14
 
-13:                                               ; preds = %.lr.ph.i
+14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %_ZNK3CFF8Charset09get_glyphEjj.exit, label %.lr.ph.i, !llvm.loop !205
 
-.loopexit.loopexit.split.loop.exit18.i:           ; preds = %.lr.ph.i
-  %14 = trunc nuw i64 %indvars.iv.i to i32
+.loopexit.loopexit.split.loop.exit.i:             ; preds = %.lr.ph.i
+  %15 = trunc nuw i64 %indvars.iv.i to i32
   br label %_ZNK3CFF8Charset09get_glyphEjj.exit
 
-15:                                               ; preds = %3
+16:                                               ; preds = %3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !56
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %17 = icmp ne i32 %1, 0
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %18 = icmp ne i32 %1, 0
   %.not21.i = icmp ugt i32 %2, 1
-  %or.cond.i7 = and i1 %17, %.not21.i
+  %or.cond.i7 = and i1 %18, %.not21.i
   br i1 %or.cond.i7, label %.lr.ph.i8, label %_ZNK3CFF8Charset09get_glyphEjj.exit
 
-.lr.ph.i8:                                        ; preds = %15, %.lr.ph._crit_edge.i
-  %.023.i = phi i32 [ %29, %.lr.ph._crit_edge.i ], [ 0, %15 ]
-  %.01522.i = phi i32 [ %28, %.lr.ph._crit_edge.i ], [ 1, %15 ]
-  %18 = zext i32 %.023.i to i64
-  %19 = getelementptr inbounds nuw %"struct.CFF::Charset_Range", ptr %16, i64 %18
-  %20 = load i16, ptr %19, align 1, !tbaa !57
-  %21 = tail call noundef i16 @llvm.bswap.i16(i16 %20)
-  %22 = zext i16 %21 to i32
-  %.not18.i = icmp ult i32 %1, %22
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %19, i64 2
+.lr.ph.i8:                                        ; preds = %16, %.lr.ph._crit_edge.i
+  %.023.i = phi i32 [ %30, %.lr.ph._crit_edge.i ], [ 0, %16 ]
+  %.01522.i = phi i32 [ %29, %.lr.ph._crit_edge.i ], [ 1, %16 ]
+  %19 = zext i32 %.023.i to i64
+  %20 = getelementptr inbounds nuw %"struct.CFF::Charset_Range", ptr %17, i64 %19
+  %21 = load i16, ptr %20, align 1, !tbaa !57
+  %22 = tail call noundef i16 @llvm.bswap.i16(i16 %21)
+  %23 = zext i16 %22 to i32
+  %.not18.i = icmp ult i32 %1, %23
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %20, i64 2
   %.pre.i = load i8, ptr %.phi.trans.insert.i, align 1, !tbaa !54
   %.pre26.i = zext i8 %.pre.i to i32
-  %23 = add nuw nsw i32 %.pre26.i, %22
-  %.not19.i = icmp ugt i32 %1, %23
+  %24 = add nuw nsw i32 %.pre26.i, %23
+  %.not19.i = icmp ugt i32 %1, %24
   %or.cond32.i = select i1 %.not18.i, i1 true, i1 %.not19.i
-  br i1 %or.cond32.i, label %.lr.ph._crit_edge.i, label %24
+  br i1 %or.cond32.i, label %.lr.ph._crit_edge.i, label %25
 
-24:                                               ; preds = %.lr.ph.i8
-  %25 = add i32 %.01522.i, %1
-  %26 = sub i32 %25, %22
+25:                                               ; preds = %.lr.ph.i8
+  %26 = add i32 %.01522.i, %1
+  %27 = sub i32 %26, %23
   br label %_ZNK3CFF8Charset09get_glyphEjj.exit
 
 .lr.ph._crit_edge.i:                              ; preds = %.lr.ph.i8
-  %27 = add nuw i32 %.01522.i, 1
-  %28 = add i32 %27, %.pre26.i
-  %29 = add i32 %.023.i, 1
-  %.not.i = icmp ult i32 %28, %2
+  %28 = add nuw i32 %.01522.i, 1
+  %29 = add i32 %28, %.pre26.i
+  %30 = add i32 %.023.i, 1
+  %.not.i = icmp ult i32 %29, %2
   br i1 %.not.i, label %.lr.ph.i8, label %_ZNK3CFF8Charset09get_glyphEjj.exit, !llvm.loop !206
 
-30:                                               ; preds = %3
+31:                                               ; preds = %3
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #7, !srcloc !56
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %32 = icmp ne i32 %1, 0
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %33 = icmp ne i32 %1, 0
   %.not21.i9 = icmp ugt i32 %2, 1
-  %or.cond.i10 = and i1 %32, %.not21.i9
+  %or.cond.i10 = and i1 %33, %.not21.i9
   br i1 %or.cond.i10, label %.lr.ph.i12, label %_ZNK3CFF8Charset09get_glyphEjj.exit
 
-.lr.ph.i12:                                       ; preds = %30, %.lr.ph._crit_edge.i20
-  %.023.i13 = phi i32 [ %44, %.lr.ph._crit_edge.i20 ], [ 0, %30 ]
-  %.01522.i14 = phi i32 [ %43, %.lr.ph._crit_edge.i20 ], [ 1, %30 ]
-  %33 = zext i32 %.023.i13 to i64
-  %34 = getelementptr inbounds nuw %"struct.CFF::Charset_Range.26", ptr %31, i64 %33
-  %35 = load i16, ptr %34, align 1, !tbaa !57
-  %36 = tail call noundef i16 @llvm.bswap.i16(i16 %35)
-  %37 = zext i16 %36 to i32
-  %.not18.i15 = icmp ult i32 %1, %37
-  %.phi.trans.insert.i16 = getelementptr inbounds nuw i8, ptr %34, i64 2
+.lr.ph.i12:                                       ; preds = %31, %.lr.ph._crit_edge.i20
+  %.023.i13 = phi i32 [ %45, %.lr.ph._crit_edge.i20 ], [ 0, %31 ]
+  %.01522.i14 = phi i32 [ %44, %.lr.ph._crit_edge.i20 ], [ 1, %31 ]
+  %34 = zext i32 %.023.i13 to i64
+  %35 = getelementptr inbounds nuw %"struct.CFF::Charset_Range.26", ptr %32, i64 %34
+  %36 = load i16, ptr %35, align 1, !tbaa !57
+  %37 = tail call noundef i16 @llvm.bswap.i16(i16 %36)
+  %38 = zext i16 %37 to i32
+  %.not18.i15 = icmp ult i32 %1, %38
+  %.phi.trans.insert.i16 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %.pre.i17 = load i16, ptr %.phi.trans.insert.i16, align 1, !tbaa !57
   %.pre26.i18 = tail call noundef i16 @llvm.bswap.i16(i16 %.pre.i17)
   %.pre27.i = zext i16 %.pre26.i18 to i32
-  %38 = add nuw nsw i32 %.pre27.i, %37
-  %.not19.i19 = icmp ugt i32 %1, %38
+  %39 = add nuw nsw i32 %.pre27.i, %38
+  %.not19.i19 = icmp ugt i32 %1, %39
   %or.cond34.i = select i1 %.not18.i15, i1 true, i1 %.not19.i19
-  br i1 %or.cond34.i, label %.lr.ph._crit_edge.i20, label %39
+  br i1 %or.cond34.i, label %.lr.ph._crit_edge.i20, label %40
 
-39:                                               ; preds = %.lr.ph.i12
-  %40 = add i32 %.01522.i14, %1
-  %41 = sub i32 %40, %37
+40:                                               ; preds = %.lr.ph.i12
+  %41 = add i32 %.01522.i14, %1
+  %42 = sub i32 %41, %38
   br label %_ZNK3CFF8Charset09get_glyphEjj.exit
 
 .lr.ph._crit_edge.i20:                            ; preds = %.lr.ph.i12
-  %42 = add nuw i32 %.01522.i14, 1
-  %43 = add i32 %42, %.pre27.i
-  %44 = add i32 %.023.i13, 1
-  %.not.i21 = icmp ult i32 %43, %2
+  %43 = add nuw i32 %.01522.i14, 1
+  %44 = add i32 %43, %.pre27.i
+  %45 = add i32 %.023.i13, 1
+  %.not.i21 = icmp ult i32 %44, %2
   br i1 %.not.i21, label %.lr.ph.i12, label %_ZNK3CFF8Charset09get_glyphEjj.exit, !llvm.loop !207
 
-_ZNK3CFF8Charset09get_glyphEjj.exit:              ; preds = %.lr.ph._crit_edge.i20, %.lr.ph._crit_edge.i, %13, %39, %30, %24, %15, %.loopexit.loopexit.split.loop.exit18.i, %5, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %14, %.loopexit.loopexit.split.loop.exit18.i ], [ 0, %15 ], [ %26, %24 ], [ 0, %30 ], [ %41, %39 ], [ 0, %13 ], [ 0, %.lr.ph._crit_edge.i ], [ 0, %.lr.ph._crit_edge.i20 ]
+_ZNK3CFF8Charset09get_glyphEjj.exit:              ; preds = %.lr.ph._crit_edge.i20, %.lr.ph._crit_edge.i, %14, %40, %31, %25, %16, %.loopexit.loopexit.split.loop.exit.i, %5, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %5 ], [ %15, %.loopexit.loopexit.split.loop.exit.i ], [ 0, %16 ], [ %27, %25 ], [ 0, %31 ], [ %42, %40 ], [ 0, %14 ], [ 0, %.lr.ph._crit_edge.i ], [ 0, %.lr.ph._crit_edge.i20 ]
   ret i32 %.0
 }
 

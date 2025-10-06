@@ -2050,9 +2050,9 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver9eliminat
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 892
   %6 = load i8, ptr %5, align 4, !tbaa !277, !range !67, !noundef !68
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %.preheader56, label %202
+  br i1 %7, label %.preheader54, label %202
 
-.preheader56:                                     ; preds = %4
+.preheader54:                                     ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1100
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1096
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 560
@@ -2074,7 +2074,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver9eliminat
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 712
   br label %.critedge2
 
-.critedge2:                                       ; preds = %.critedge2.backedge, %.preheader56
+.critedge2:                                       ; preds = %.critedge2.backedge, %.preheader54
   %27 = load i32, ptr %8, align 4, !tbaa !321
   %28 = icmp sgt i32 %27, 0
   br i1 %28, label %.critedge, label %29
@@ -2085,8 +2085,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver9eliminat
   %32 = icmp slt i32 %30, %31
   %33 = load i32, ptr %11, align 8
   %34 = icmp sgt i32 %33, 0
-  %or.cond53 = select i1 %32, i1 true, i1 %34
-  br i1 %or.cond53, label %.critedge, label %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE5clearEb.exit
+  %or.cond51 = select i1 %32, i1 true, i1 %34
+  br i1 %or.cond51, label %.critedge, label %_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE5clearEb.exit
 
 .critedge:                                        ; preds = %29, %.critedge2
   tail call void @_ZN4cvc58internal7Minisat10SimpSolver20gatherTouchedClausesEv(ptr noundef nonnull align 8 dereferenceable(1108) %0)
@@ -2160,7 +2160,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal7Minisat10SimpSolver9eliminat
 
 .lr.ph:                                           ; preds = %.preheader, %143
   %66 = phi i32 [ %145, %143 ], [ %53, %.preheader ]
-  %.02157 = phi i32 [ %144, %143 ], [ 0, %.preheader ]
+  %.02155 = phi i32 [ %144, %143 ], [ 0, %.preheader ]
   %67 = load ptr, ptr %17, align 8, !tbaa !293
   %68 = load i32, ptr %67, align 4, !tbaa !6
   %69 = sext i32 %66 to i64
@@ -2194,8 +2194,8 @@ _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE9removeMinEv.exit: ; pre
   %85 = load ptr, ptr %19, align 8, !tbaa !289
   %86 = getelementptr inbounds i8, ptr %85, i64 %76
   %87 = load i8, ptr %86, align 1, !tbaa !290
-  %.not54 = icmp eq i8 %87, 0
-  br i1 %.not54, label %88, label %143
+  %.not52 = icmp eq i8 %87, 0
+  br i1 %.not52, label %88, label %143
 
 88:                                               ; preds = %84
   %89 = load ptr, ptr %20, align 8, !tbaa !315
@@ -2208,7 +2208,7 @@ _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE9removeMinEv.exit: ; pre
 92:                                               ; preds = %88
   %93 = load i32, ptr %21, align 8, !tbaa !314
   %94 = icmp sgt i32 %93, 1
-  %95 = urem i32 %.02157, 100
+  %95 = urem i32 %.02155, 100
   %96 = icmp eq i32 %95, 0
   %or.cond = select i1 %94, i1 %96, i1 false
   br i1 %or.cond, label %97, label %100
@@ -2258,8 +2258,8 @@ _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE9removeMinEv.exit: ; pre
   %122 = getelementptr inbounds %"class.cvc5::internal::Minisat::lbool", ptr %121, i64 %76
   %.sroa.0.0.copyload.i26 = load i8, ptr %122, align 1, !tbaa !290
   %123 = and i8 %.sroa.0.0.copyload.i26, 2
-  %.not55 = icmp eq i8 %123, 0
-  br i1 %.not55, label %.critedge4, label %124
+  %.not53 = icmp eq i8 %123, 0
+  br i1 %.not53, label %.critedge4, label %124
 
 124:                                              ; preds = %120
   %125 = load ptr, ptr %23, align 8, !tbaa !289
@@ -2295,7 +2295,7 @@ _ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver6ElimLtEE9removeMinEv.exit: ; pre
   br label %143
 
 143:                                              ; preds = %88, %84, %.critedge4, %139
-  %144 = add nuw nsw i32 %.02157, 1
+  %144 = add nuw nsw i32 %.02155, 1
   %145 = load i32, ptr %11, align 8, !tbaa !291
   %146 = icmp eq i32 %145, 0
   br i1 %146, label %.critedge2.backedge, label %.lr.ph, !llvm.loop !329
@@ -2779,11 +2779,11 @@ _ZN4cvc58internal7Minisat3vecIiE4pushERKi.exit:   ; preds = %._ZN4cvc58internal7
 50:                                               ; preds = %48
   %51 = xor i32 %.sroa.03.0.copyload, 1
   tail call void @_ZN4cvc58internal7Minisat6Solver16uncheckedEnqueueENS1_3LitEj(ptr noundef nonnull align 8 dereferenceable(850) %0, i32 %51, i32 noundef -1)
-  %.pre25 = load i32, ptr %32, align 8, !tbaa !282
+  %.pre23 = load i32, ptr %32, align 8, !tbaa !282
   br label %52
 
 52:                                               ; preds = %50, %48
-  %53 = phi i32 [ %.pre25, %50 ], [ %37, %48 ]
+  %53 = phi i32 [ %.pre23, %50 ], [ %37, %48 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = sext i32 %53 to i64
   %55 = icmp slt i64 %indvars.iv.next, %54
@@ -7315,8 +7315,8 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver
   br i1 %12, label %.lr.ph, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %2
-  %.phi.trans.insert27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre28 = load ptr, ptr %.phi.trans.insert27, align 8, !tbaa !293
+  %.phi.trans.insert26 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre27 = load ptr, ptr %.phi.trans.insert26, align 8, !tbaa !293
   br label %.thread
 
 .lr.ph:                                           ; preds = %2
@@ -7334,7 +7334,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver
   %22 = phi i32 [ %11, %.lr.ph ], [ %73, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
   %23 = phi i32 [ %10, %.lr.ph ], [ %72, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
   %24 = phi i32 [ %9, %.lr.ph ], [ %71, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
-  %.01924 = phi i32 [ %1, %.lr.ph ], [ %54, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
+  %.01923 = phi i32 [ %1, %.lr.ph ], [ %54, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ]
   %25 = add nsw i32 %24, 2
   %26 = icmp slt i32 %25, %22
   br i1 %26, label %27, label %._crit_edge
@@ -7342,9 +7342,9 @@ define linkonce_odr hidden void @_ZN4cvc58internal7Minisat4HeapINS1_10SimpSolver
 ._crit_edge:                                      ; preds = %21
   %.pre.phi.trans.insert = sext i32 %23 to i64
   %.phi.trans.insert.phi.trans.insert = getelementptr inbounds i32, ptr %4, i64 %.pre.phi.trans.insert
-  %.pre26.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 4, !tbaa !6
-  %.pre = shl nsw i32 %.pre26.pre, 1
-  %.pre36 = sext i32 %.pre to i64
+  %.pre25.pre = load i32, ptr %.phi.trans.insert.phi.trans.insert, align 4, !tbaa !6
+  %.pre = shl nsw i32 %.pre25.pre, 1
+  %.pre35 = sext i32 %.pre to i64
   br label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread
 
 27:                                               ; preds = %21
@@ -7381,10 +7381,10 @@ _ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit: ; preds = %27
   br label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread
 
 _ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread: ; preds = %._crit_edge, %27, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit, %52
-  %.pre-phi33 = phi i64 [ %35, %27 ], [ %35, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre36, %._crit_edge ], [ %42, %52 ]
-  %53 = phi i32 [ %30, %27 ], [ %30, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre26.pre, %._crit_edge ], [ %33, %52 ]
+  %.pre-phi32 = phi i64 [ %35, %27 ], [ %35, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre35, %._crit_edge ], [ %42, %52 ]
+  %53 = phi i32 [ %30, %27 ], [ %30, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %.pre25.pre, %._crit_edge ], [ %33, %52 ]
   %54 = phi i32 [ %25, %27 ], [ %25, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit ], [ %23, %._crit_edge ], [ %23, %52 ]
-  %55 = getelementptr i32, ptr %14, i64 %.pre-phi33
+  %55 = getelementptr i32, ptr %14, i64 %.pre-phi32
   %56 = load i32, ptr %55, align 4, !tbaa !6
   %57 = getelementptr i8, ptr %55, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !6
@@ -7402,12 +7402,12 @@ _ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20: ; preds = %_ZNK4cvc58
   br i1 %66, label %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread, label %.thread.loopexit
 
 _ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread: ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit.thread, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20
-  %67 = sext i32 %.01924 to i64
+  %67 = sext i32 %.01923 to i64
   %68 = getelementptr inbounds i32, ptr %4, i64 %67
   store i32 %53, ptr %68, align 4, !tbaa !6
   %69 = sext i32 %53 to i64
   %70 = getelementptr inbounds i32, ptr %20, i64 %69
-  store i32 %.01924, ptr %70, align 4, !tbaa !6
+  store i32 %.01923, ptr %70, align 4, !tbaa !6
   %71 = shl nsw i32 %54, 1
   %72 = or disjoint i32 %71, 1
   %73 = load i32, ptr %8, align 8, !tbaa !291
@@ -7415,15 +7415,15 @@ _ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread: ; preds = %_ZN
   br i1 %74, label %21, label %.thread.loopexit
 
 .thread.loopexit:                                 ; preds = %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread
-  %.019.lcssa.ph = phi i32 [ %54, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ], [ %.01924, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20 ]
-  %.pre34 = sext i32 %.019.lcssa.ph to i64
+  %.019.lcssa.ph = phi i32 [ %54, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20.thread ], [ %.01923, %_ZNK4cvc58internal7Minisat10SimpSolver6ElimLtclEii.exit20 ]
+  %.pre33 = sext i32 %.019.lcssa.ph to i64
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %.thread.loopexit
-  %.pre-phi35 = phi i64 [ %5, %..thread_crit_edge ], [ %.pre34, %.thread.loopexit ]
-  %75 = phi ptr [ %.pre28, %..thread_crit_edge ], [ %20, %.thread.loopexit ]
+  %.pre-phi34 = phi i64 [ %5, %..thread_crit_edge ], [ %.pre33, %.thread.loopexit ]
+  %75 = phi ptr [ %.pre27, %..thread_crit_edge ], [ %20, %.thread.loopexit ]
   %.019.lcssa = phi i32 [ %1, %..thread_crit_edge ], [ %.019.lcssa.ph, %.thread.loopexit ]
-  %76 = getelementptr inbounds i32, ptr %4, i64 %.pre-phi35
+  %76 = getelementptr inbounds i32, ptr %4, i64 %.pre-phi34
   store i32 %7, ptr %76, align 4, !tbaa !6
   %77 = sext i32 %7 to i64
   %78 = getelementptr inbounds i32, ptr %75, i64 %77

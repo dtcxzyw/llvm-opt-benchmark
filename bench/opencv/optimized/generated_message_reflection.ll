@@ -15881,8 +15881,8 @@ _ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit: ; preds = %24, %_ZN6googl
 43:                                               ; preds = %41, %_ZNK6google8protobuf15FieldDescriptor8cpp_typeEv.exit
   %44 = load i8, ptr %19, align 1
   %45 = and i8 %44, 8
-  %.not44 = icmp eq i8 %45, 0
-  br i1 %.not44, label %71, label %46
+  %.not43 = icmp eq i8 %45, 0
+  br i1 %.not43, label %71, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 40

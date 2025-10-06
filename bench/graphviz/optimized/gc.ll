@@ -321,7 +321,7 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef nonnull %0, i32 nou
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %29
   %.pre.i.i.i.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8, !tbaa !37
-  %.pre4.i.i.i.i.i.i = load ptr, ptr @Stk, align 8, !tbaa !38
+  %.pre3.i.i.i.i.i.i = load ptr, ptr @Stk, align 8, !tbaa !38
   br label %push.exit.i.i
 
 34:                                               ; preds = %29
@@ -375,7 +375,7 @@ define internal fastcc range(i32 0, 2) i32 @eval(ptr noundef nonnull %0, i32 nou
   unreachable
 
 push.exit.i.i:                                    ; preds = %57, %._crit_edge.i.i.i.i.i.i
-  %63 = phi ptr [ %.pre4.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %40, %57 ]
+  %63 = phi ptr [ %.pre3.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %40, %57 ]
   %64 = phi i64 [ %32, %._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %57 ]
   %65 = phi i64 [ %31, %._crit_edge.i.i.i.i.i.i ], [ %48, %57 ]
   %66 = phi i64 [ %.pre.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ], [ %58, %57 ]
@@ -454,7 +454,7 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
 
 ._crit_edge.i.i.i.i.i.i.i:                        ; preds = %106
   %.pre.i.i.i.i.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @Stk, i64 8), align 8, !tbaa !37
-  %.pre4.i.i.i.i.i.i.i = load ptr, ptr @Stk, align 8, !tbaa !38
+  %.pre3.i.i.i.i.i.i.i = load ptr, ptr @Stk, align 8, !tbaa !38
   br label %push.exit.i.i.i
 
 110:                                              ; preds = %106
@@ -508,7 +508,7 @@ pop.exit.i.i.i:                                   ; preds = %push.exit.i.i, %.lo
   unreachable
 
 push.exit.i.i.i:                                  ; preds = %133, %._crit_edge.i.i.i.i.i.i.i
-  %139 = phi ptr [ %.pre4.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %116, %133 ]
+  %139 = phi ptr [ %.pre3.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %116, %133 ]
   %140 = phi i64 [ %108, %._crit_edge.i.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i.i, %133 ]
   %141 = phi i64 [ %107, %._crit_edge.i.i.i.i.i.i.i ], [ %124, %133 ]
   %142 = phi i64 [ %.pre.i.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i.i ], [ %134, %133 ]

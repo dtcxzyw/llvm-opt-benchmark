@@ -378,9 +378,9 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
 127:                                              ; preds = %122
   %128 = call i64 @ossl_time_now() #7
   %129 = call i64 @ossl_time_now() #7
-  %..i275.i = call i64 @llvm.usub.sat.i64(i64 %129, i64 %128)
-  %.not274276.i = icmp ult i64 %..i275.i, 10000000000
-  br i1 %.not274276.i, label %.lr.ph.i, label %._crit_edge.i
+  %..i272.i = call i64 @llvm.usub.sat.i64(i64 %129, i64 %128)
+  %.not271273.i = icmp ult i64 %..i272.i, 10000000000
+  br i1 %.not271273.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %127
   %or.cond13.i = and i1 %18, %60
@@ -394,20 +394,20 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
   br label %.loopexit.i
 
 133:                                              ; preds = %286, %.lr.ph.i
-  %.0149289.i = phi i64 [ 10000, %.lr.ph.i ], [ %.1150.i, %286 ]
-  %.0153288.i = phi i32 [ 0, %.lr.ph.i ], [ %.1154.i, %286 ]
-  %.0155287.i = phi i64 [ 0, %.lr.ph.i ], [ %.1156.ph269.i, %286 ]
-  %.0158286.i = phi i64 [ 0, %.lr.ph.i ], [ %.1159.i, %286 ]
-  %.0160285.i = phi i64 [ 0, %.lr.ph.i ], [ %.1161.i, %286 ]
-  %.0162284.i = phi i64 [ 0, %.lr.ph.i ], [ %.1163.i, %286 ]
-  %.0166283.i = phi i32 [ 0, %.lr.ph.i ], [ %.1167.i, %286 ]
-  %.0170282.i = phi i32 [ 0, %.lr.ph.i ], [ %.1171.i, %286 ]
-  %.0174281.i = phi i32 [ 0, %.lr.ph.i ], [ %.1175.i, %286 ]
-  %.0176280.i = phi i32 [ 0, %.lr.ph.i ], [ %.1177.i, %286 ]
-  %.0178279.i = phi i32 [ 0, %.lr.ph.i ], [ %.1179.i, %286 ]
-  %.0180278.i = phi i32 [ 0, %.lr.ph.i ], [ %.1181.i, %286 ]
-  %.0182277.i = phi i32 [ 0, %.lr.ph.i ], [ %.1183.i, %286 ]
-  %.not216.i = icmp eq i32 %.0166283.i, 0
+  %.0149286.i = phi i64 [ 10000, %.lr.ph.i ], [ %.1150.i, %286 ]
+  %.0153285.i = phi i32 [ 0, %.lr.ph.i ], [ %.1154.i, %286 ]
+  %.0155284.i = phi i64 [ 0, %.lr.ph.i ], [ %.1156.ph267.i, %286 ]
+  %.0158283.i = phi i64 [ 0, %.lr.ph.i ], [ %.1159.i, %286 ]
+  %.0160282.i = phi i64 [ 0, %.lr.ph.i ], [ %.1161.i, %286 ]
+  %.0162281.i = phi i64 [ 0, %.lr.ph.i ], [ %.1163.i, %286 ]
+  %.0166280.i = phi i32 [ 0, %.lr.ph.i ], [ %.1167.i, %286 ]
+  %.0170279.i = phi i32 [ 0, %.lr.ph.i ], [ %.1171.i, %286 ]
+  %.0174278.i = phi i32 [ 0, %.lr.ph.i ], [ %.1175.i, %286 ]
+  %.0176277.i = phi i32 [ 0, %.lr.ph.i ], [ %.1177.i, %286 ]
+  %.0178276.i = phi i32 [ 0, %.lr.ph.i ], [ %.1179.i, %286 ]
+  %.0180275.i = phi i32 [ 0, %.lr.ph.i ], [ %.1181.i, %286 ]
+  %.0182274.i = phi i32 [ 0, %.lr.ph.i ], [ %.1183.i, %286 ]
+  %.not216.i = icmp eq i32 %.0166280.i, 0
   br i1 %.not216.i, label %134, label %146
 
 134:                                              ; preds = %133
@@ -429,13 +429,13 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
   br i1 %.not217.i, label %.loopexit.i, label %145
 
 145:                                              ; preds = %142
-  %spec.select.i = select i1 %136, i32 1, i32 %.0182277.i
+  %spec.select.i = select i1 %136, i32 1, i32 %.0182274.i
   br label %146
 
 146:                                              ; preds = %145, %133
-  %.1183.i = phi i32 [ %.0182277.i, %133 ], [ %spec.select.i, %145 ]
+  %.1183.i = phi i32 [ %.0182274.i, %133 ], [ %spec.select.i, %145 ]
   %147 = icmp eq i32 %.1183.i, 0
-  %148 = icmp ne i32 %.0180278.i, 0
+  %148 = icmp ne i32 %.0180275.i, 0
   %or.cond.i = select i1 %147, i1 true, i1 %148
   br i1 %or.cond.i, label %157, label %149
 
@@ -454,16 +454,16 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
   br i1 %.not219.i, label %.loopexit.i, label %157
 
 157:                                              ; preds = %152, %146
-  %.1181.i = phi i32 [ %.0180278.i, %146 ], [ 1, %152 ]
+  %.1181.i = phi i32 [ %.0180275.i, %146 ], [ 1, %152 ]
   %158 = icmp eq i32 %.1181.i, 0
   %or.cond3.not222.i = select i1 %147, i1 true, i1 %158
-  %159 = icmp ne i32 %.0176280.i, 0
+  %159 = icmp ne i32 %.0176277.i, 0
   %or.cond5.i = select i1 %or.cond3.not222.i, i1 true, i1 %159
   br i1 %or.cond5.i, label %175, label %160
 
 160:                                              ; preds = %157
-  %161 = getelementptr inbounds nuw i8, ptr @msg2, i64 %.0162284.i
-  %162 = sub i64 1024, %.0162284.i
+  %161 = getelementptr inbounds nuw i8, ptr @msg2, i64 %.0162281.i
+  %162 = sub i64 1024, %.0162281.i
   %163 = call i32 @ossl_quic_tserver_read(ptr noundef %66, i64 noundef 0, ptr noundef nonnull %161, i64 noundef %162, ptr noundef nonnull %7) #7
   %.not223.i = icmp eq i32 %163, 0
   br i1 %.not223.i, label %164, label %171
@@ -477,29 +477,29 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
   br i1 %.not224.i, label %.loopexit.i, label %169
 
 169:                                              ; preds = %164
-  %170 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 236, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @msg1, i64 noundef 46, ptr noundef nonnull @msg2, i64 noundef %.0162284.i) #7
+  %170 = call i32 @test_mem_eq(ptr noundef nonnull @.str.14, i32 noundef 236, ptr noundef nonnull @.str.45, ptr noundef nonnull @.str.46, ptr noundef nonnull @msg1, i64 noundef 46, ptr noundef nonnull @msg2, i64 noundef %.0162281.i) #7
   %.not225.i = icmp eq i32 %170, 0
   br i1 %.not225.i, label %.loopexit.i, label %175
 
 171:                                              ; preds = %160
   %172 = load i64, ptr %7, align 8, !tbaa !12
-  %173 = add i64 %172, %.0162284.i
+  %173 = add i64 %172, %.0162281.i
   %174 = call i32 @test_size_t_le(ptr noundef nonnull @.str.14, i32 noundef 243, ptr noundef nonnull @.str.47, ptr noundef nonnull @.str.48, i64 noundef %173, i64 noundef 46) #7
   %.not226.i = icmp eq i32 %174, 0
   br i1 %.not226.i, label %.loopexit.i, label %175
 
 175:                                              ; preds = %171, %169, %157
-  %.1177.i = phi i32 [ %.0176280.i, %157 ], [ 0, %171 ], [ 1, %169 ]
-  %.1163.i = phi i64 [ %.0162284.i, %157 ], [ %173, %171 ], [ %.0162284.i, %169 ]
-  %.1154.i = phi i32 [ %.0153288.i, %157 ], [ %.0153288.i, %171 ], [ 1, %169 ]
+  %.1177.i = phi i32 [ %.0176277.i, %157 ], [ 0, %171 ], [ 1, %169 ]
+  %.1163.i = phi i64 [ %.0162281.i, %157 ], [ %173, %171 ], [ %.0162281.i, %169 ]
+  %.1154.i = phi i32 [ %.0153285.i, %157 ], [ %.0153285.i, %171 ], [ 1, %169 ]
   %176 = icmp ne i32 %.1154.i, 0
-  %177 = icmp ult i64 %.0160285.i, 46
+  %177 = icmp ult i64 %.0160282.i, 46
   %or.cond7.i = select i1 %176, i1 %177, i1 false
   br i1 %or.cond7.i, label %178, label %191
 
 178:                                              ; preds = %175
-  %179 = getelementptr inbounds nuw i8, ptr @msg2, i64 %.0160285.i
-  %180 = sub nuw nsw i64 46, %.0160285.i
+  %179 = getelementptr inbounds nuw i8, ptr @msg2, i64 %.0160282.i
+  %180 = sub nuw nsw i64 46, %.0160282.i
   %181 = call i32 @ossl_quic_tserver_write(ptr noundef %66, i64 noundef 0, ptr noundef nonnull %179, i64 noundef %180, ptr noundef nonnull %7) #7
   %182 = icmp ne i32 %181, 0
   %183 = zext i1 %182 to i32
@@ -509,7 +509,7 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
 
 185:                                              ; preds = %178
   %186 = load i64, ptr %7, align 8, !tbaa !12
-  %187 = add i64 %186, %.0160285.i
+  %187 = add i64 %186, %.0160282.i
   %188 = icmp eq i64 %187, 46
   br i1 %188, label %189, label %191
 
@@ -518,16 +518,16 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
   br label %191
 
 191:                                              ; preds = %189, %185, %175
-  %.1179.i = phi i32 [ 1, %189 ], [ %.0178279.i, %185 ], [ %.0178279.i, %175 ]
-  %.1161.i = phi i64 [ 46, %189 ], [ %187, %185 ], [ %.0160285.i, %175 ]
+  %.1179.i = phi i32 [ 1, %189 ], [ %.0178276.i, %185 ], [ %.0178276.i, %175 ]
+  %.1161.i = phi i64 [ 46, %189 ], [ %187, %185 ], [ %.0160282.i, %175 ]
   %192 = icmp ne i32 %.1179.i, 0
-  %193 = icmp ult i64 %.0158286.i, 46
+  %193 = icmp ult i64 %.0158283.i, 46
   %or.cond9.i = select i1 %192, i1 %193, i1 false
   br i1 %or.cond9.i, label %194, label %213
 
 194:                                              ; preds = %191
-  %195 = getelementptr inbounds nuw i8, ptr @msg3, i64 %.0158286.i
-  %196 = sub nuw nsw i64 46, %.0158286.i
+  %195 = getelementptr inbounds nuw i8, ptr @msg3, i64 %.0158283.i
+  %196 = sub nuw nsw i64 46, %.0158283.i
   %197 = call i32 @SSL_read_ex(ptr noundef %101, ptr noundef nonnull %195, i64 noundef %196, ptr noundef nonnull %7) #7
   %198 = icmp eq i32 %197, 1
   br i1 %198, label %204, label %199
@@ -547,7 +547,7 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
 
 207:                                              ; preds = %204
   %208 = load i64, ptr %7, align 8, !tbaa !12
-  %209 = add i64 %208, %.0158286.i
+  %209 = add i64 %208, %.0158283.i
   %210 = icmp eq i64 %209, 46
   br i1 %210, label %211, label %213
 
@@ -557,10 +557,10 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
   br i1 %.not229.i, label %.loopexit.i, label %213
 
 213:                                              ; preds = %211, %207, %191
-  %.1175.i = phi i32 [ %.0174281.i, %207 ], [ %.0174281.i, %191 ], [ 1, %211 ]
-  %.1159.i = phi i64 [ %209, %207 ], [ %.0158286.i, %191 ], [ 46, %211 ]
+  %.1175.i = phi i32 [ %.0174278.i, %207 ], [ %.0174278.i, %191 ], [ 1, %211 ]
+  %.1159.i = phi i64 [ %209, %207 ], [ %.0158283.i, %191 ], [ 46, %211 ]
   %214 = icmp eq i32 %.1175.i, 0
-  %215 = icmp ne i32 %.0170282.i, 0
+  %215 = icmp ne i32 %.0170279.i, 0
   %or.cond11.i = select i1 %214, i1 true, i1 %215
   br i1 %or.cond11.i, label %233, label %216
 
@@ -576,7 +576,7 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
 221:                                              ; preds = %216
   %222 = call i32 @SSL_get_error(ptr noundef %101, i32 noundef %217) #7
   %.not231.i = icmp eq i32 %222, 2
-  br i1 %.not231.i, label %.thread252.i, label %223
+  br i1 %.not231.i, label %.thread251.i, label %223
 
 223:                                              ; preds = %221
   %224 = call i32 @SSL_get_error(ptr noundef %101, i32 noundef %217) #7
@@ -593,16 +593,16 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
   %230 = zext i1 %229 to i32
   %231 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 297, ptr noundef nonnull @.str.54, i32 noundef %230) #7
   %.not233.i = icmp eq i32 %231, 0
-  br i1 %.not233.i, label %.thread.i, label %.thread252.i
+  br i1 %.not233.i, label %.thread.i, label %.thread251.i
 
 .thread.i:                                        ; preds = %227, %223, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit.i
 
-.thread252.i:                                     ; preds = %227, %221
+.thread251.i:                                     ; preds = %227, %221
   %.2172.ph.i = phi i32 [ 0, %221 ], [ 1, %227 ]
-  %.2168.ph.i = phi i32 [ %.0166283.i, %221 ], [ 1, %227 ]
-  %.2151.ph.i = phi i64 [ %.0149289.i, %221 ], [ 120000, %227 ]
+  %.2168.ph.i = phi i32 [ %.0166280.i, %221 ], [ 1, %227 ]
+  %.2151.ph.i = phi i64 [ %.0149286.i, %221 ], [ 120000, %227 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %233
 
@@ -610,15 +610,15 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %289
 
-233:                                              ; preds = %.thread252.i, %213
-  %.1171.i = phi i32 [ %.0170282.i, %213 ], [ %.2172.ph.i, %.thread252.i ]
-  %.1167.i = phi i32 [ %.0166283.i, %213 ], [ %.2168.ph.i, %.thread252.i ]
-  %.1150.i = phi i64 [ %.0149289.i, %213 ], [ %.2151.ph.i, %.thread252.i ]
+233:                                              ; preds = %.thread251.i, %213
+  %.1171.i = phi i32 [ %.0170279.i, %213 ], [ %.2172.ph.i, %.thread251.i ]
+  %.1167.i = phi i32 [ %.0166280.i, %213 ], [ %.2168.ph.i, %.thread251.i ]
+  %.1150.i = phi i64 [ %.0149286.i, %213 ], [ %.2151.ph.i, %.thread251.i ]
   %234 = icmp eq i32 %.1167.i, 0
   br i1 %234, label %267, label %235
 
 235:                                              ; preds = %233
-  %236 = icmp ult i64 %.0155287.i, 600
+  %236 = icmp ult i64 %.0155284.i, 600
   br i1 %236, label %237, label %261
 
 237:                                              ; preds = %235
@@ -638,7 +638,7 @@ define internal range(i32 0, 2) i32 @test_tserver(i32 noundef %0) #1 {
   store i64 %.sroa.03.0.i.i, ptr @fake_time.0, align 8, !tbaa !12
   %245 = load ptr, ptr @fake_time_lock, align 8, !tbaa !9
   %246 = call i32 @CRYPTO_THREAD_unlock(ptr noundef %245) #7
-  %247 = add nuw nsw i64 %.0155287.i, 1
+  %247 = add nuw nsw i64 %.0155284.i, 1
   call void @ossl_quic_conn_force_assist_thread_wake(ptr noundef %101) #7
   %248 = call i32 @SSL_get_event_timeout(ptr noundef %101, ptr noundef nonnull %10, ptr noundef nonnull %11) #7
   %249 = icmp ne i32 %248, 0
@@ -691,7 +691,7 @@ ossl_time_from_timeval.exit.i:                    ; preds = %254
   br label %269
 
 269:                                              ; preds = %267, %266
-  %.1156.ph269.i = phi i64 [ %247, %266 ], [ %.0155287.i, %267 ]
+  %.1156.ph267.i = phi i64 [ %247, %266 ], [ %.0155284.i, %267 ]
   %270 = call i32 @ossl_quic_tserver_tick(ptr noundef %66) #7
   br i1 %.not204.i, label %286, label %271
 
@@ -713,9 +713,9 @@ ossl_time_from_timeval.exit.i:                    ; preds = %254
   %277 = load i64, ptr %131, align 8
   %278 = icmp eq i64 %277, 0
   %or.cond22.i = select i1 %or.cond19.i, i1 true, i1 %278
-  br i1 %or.cond22.i, label %.thread271.i, label %279
+  br i1 %or.cond22.i, label %.thread269.i, label %279
 
-.thread271.i:                                     ; preds = %272
+.thread269.i:                                     ; preds = %272
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %286
@@ -734,12 +734,12 @@ ossl_time_from_timeval.exit.i:                    ; preds = %254
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit.i
 
-286:                                              ; preds = %.thread271.i, %269
+286:                                              ; preds = %.thread269.i, %269
   %287 = call i64 @ossl_time_now() #7
   %..i.i = call i64 @llvm.usub.sat.i64(i64 %287, i64 %128)
   %288 = mul nuw nsw i64 %.1150.i, 1000000
-  %.not274.i = icmp ult i64 %..i.i, %288
-  br i1 %.not274.i, label %133, label %._crit_edge.i
+  %.not271.i = icmp ult i64 %..i.i, %288
+  br i1 %.not271.i, label %133, label %._crit_edge.i
 
 289:                                              ; preds = %261, %232
   br label %.loopexit.i

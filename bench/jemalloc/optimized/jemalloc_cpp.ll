@@ -1331,7 +1331,7 @@ define internal fastcc noalias noundef ptr @_ZL9handleOOMmb(i64 noundef %0, i1 n
   %6 = icmp ugt i64 %0, 1073741823
   %7 = select i1 %6, ptr @.str.5, ptr @.str.6
   tail call void (ptr, ...) @je_safety_check_fail(ptr noundef nonnull @.str.7, i64 noundef %0, ptr noundef nonnull %7)
-  br label %.thread23
+  br label %.thread22
 
 .preheader:                                       ; preds = %2, %23
   %8 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZL9handleOOMmbE3mtx) #18
@@ -1371,19 +1371,19 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %.preheader
 23:                                               ; preds = %14
   %24 = tail call noalias ptr @malloc(i64 noundef %0) #20
   %25 = icmp eq ptr %24, null
-  br i1 %25, label %.preheader, label %.thread23
+  br i1 %25, label %.preheader, label %.thread22
 
 26:                                               ; preds = %15
   resume { ptr, i32 } %16
 
 .loopexit:                                        ; preds = %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit, %20
-  br i1 %1, label %.thread23, label %27
+  br i1 %1, label %.thread22, label %27
 
 27:                                               ; preds = %.loopexit
   tail call void @_ZSt17__throw_bad_allocv() #19
   unreachable
 
-.thread23:                                        ; preds = %23, %.loopexit, %5
+.thread22:                                        ; preds = %23, %.loopexit, %5
   %.0 = phi ptr [ null, %5 ], [ null, %.loopexit ], [ %24, %23 ]
   ret ptr %.0
 }

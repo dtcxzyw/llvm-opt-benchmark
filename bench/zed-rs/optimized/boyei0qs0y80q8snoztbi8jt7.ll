@@ -590,9 +590,9 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(264) %7, ptr noundef nonnull align 8 dereferenceable(264) %1, i64 264, i1 false)
   invoke void @"_ZN5tokio4sync7oneshot15Sender$LT$T$GT$4send17h040f412be30805fbE"(ptr noalias noundef nonnull sret([264 x i8]) align 8 captures(none) dereferenceable(264) %8, ptr noundef %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(264) %7)
-          to label %21 unwind label %.thread32
+          to label %21 unwind label %.thread30
 
-.thread32:                                        ; preds = %20, %23, %25, %60
+.thread30:                                        ; preds = %20, %23, %25, %60
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -608,11 +608,11 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
 23:                                               ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   invoke void @"_ZN4core3ptr84drop_in_place$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$GT$17hc81980931763a541E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %24)
-          to label %"_ZN4core3ptr260drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..client..dispatch..TrySendError$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$$GT$$GT$17h55e77464bc01193dE.exit" unwind label %.thread32
+          to label %"_ZN4core3ptr260drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..client..dispatch..TrySendError$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$$GT$$GT$17h55e77464bc01193dE.exit" unwind label %.thread30
 
 25:                                               ; preds = %21
   invoke void @"_ZN4core3ptr127drop_in_place$LT$hyper..client..dispatch..TrySendError$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$17hef9669c2529edc12E"(ptr noalias noundef nonnull align 8 dereferenceable(264) %8)
-          to label %"_ZN4core3ptr260drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..client..dispatch..TrySendError$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$$GT$$GT$17h55e77464bc01193dE.exit" unwind label %.thread32
+          to label %"_ZN4core3ptr260drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..client..dispatch..TrySendError$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$$GT$$GT$17h55e77464bc01193dE.exit" unwind label %.thread30
 
 "_ZN4core3ptr260drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..client..dispatch..TrySendError$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$$GT$$GT$17h55e77464bc01193dE.exit": ; preds = %21, %23, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -685,12 +685,12 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 240
   %49 = load i64, ptr %48, align 8, !alias.scope !108, !noundef !4
   invoke void %44(ptr noalias noundef nonnull align 8 dereferenceable(8) %45, ptr noundef %47, i64 noundef %49)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$17h760d444a10c0e64fE.exit" unwind label %.body.thread41
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$17h760d444a10c0e64fE.exit" unwind label %.body.thread39
 
 50:                                               ; preds = %39
   %51 = getelementptr inbounds nuw i8, ptr %3, i64 232
   invoke void @"_ZN4core3ptr280drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$http_body..Body$u2b$Data$u20$$u3d$$u20$bytes..bytes..Bytes$u2b$Error$u20$$u3d$$u20$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h0631732814485907E.llvm.16659958247667724540"(ptr noalias noundef nonnull align 8 dereferenceable(16) %51)
-          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$17h760d444a10c0e64fE.exit" unwind label %.body.thread41
+          to label %"_ZN4core3ptr110drop_in_place$LT$core..option..Option$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$GT$$GT$17h760d444a10c0e64fE.exit" unwind label %.body.thread39
 
 52:                                               ; preds = %36
   %53 = landingpad { ptr, i32 }
@@ -702,13 +702,13 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
   invoke void @"_ZN5tokio4sync7oneshot15Sender$LT$T$GT$4send17h1f484c41596b109dE"(ptr noalias noundef nonnull sret([152 x i8]) align 8 captures(none) dereferenceable(152) %6, ptr noundef %19, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(152) %4)
           to label %56 unwind label %.body
 
-.body.thread41:                                   ; preds = %42, %50
-  %lpad.thr_comm39 = landingpad { ptr, i32 }
+.body.thread39:                                   ; preds = %42, %50
+  %lpad.thr_comm37 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread
 
 .body:                                            ; preds = %54
-  %lpad.thr_comm.split-lp40 = landingpad { ptr, i32 }
+  %lpad.thr_comm.split-lp38 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
 
@@ -734,7 +734,7 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
 
 60:                                               ; preds = %59
   invoke void @"_ZN4core3ptr84drop_in_place$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$GT$17hc81980931763a541E"(ptr noalias noundef nonnull align 8 dereferenceable(152) %6)
-          to label %"_ZN4core3ptr173drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..error..Error$GT$$GT$$GT$17h7ba45d3f1b6194c1E.exit" unwind label %.thread32
+          to label %"_ZN4core3ptr173drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..error..Error$GT$$GT$$GT$17h7ba45d3f1b6194c1E.exit" unwind label %.thread30
 
 61:                                               ; preds = %59
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -747,9 +747,9 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
 
 66:                                               ; preds = %61
   invoke void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h7760229e6b74559cE.llvm.16659958247667724540"(ptr noalias noundef nonnull align 8 dereferenceable(24) %63)
-          to label %"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17h8a6101f6941fcdf3E.exit.i.i" unwind label %.thread28, !noalias !121
+          to label %"_ZN4core3ptr40drop_in_place$LT$hyper..error..Error$GT$17h8a6101f6941fcdf3E.exit.i.i" unwind label %.thread26, !noalias !121
 
-.thread28:                                        ; preds = %66
+.thread26:                                        ; preds = %66
   %67 = landingpad { ptr, i32 }
           cleanup
   call void @__rust_dealloc(ptr noundef nonnull %63, i64 noundef 24, i64 noundef 8) #22, !noalias !127
@@ -763,8 +763,8 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %26
 
-.body.thread:                                     ; preds = %36, %.body.thread41
-  %eh.lpad-body38 = phi { ptr, i32 } [ %lpad.thr_comm39, %.body.thread41 ], [ %37, %36 ]
+.body.thread:                                     ; preds = %36, %.body.thread39
+  %eh.lpad-body36 = phi { ptr, i32 } [ %lpad.thr_comm37, %.body.thread39 ], [ %37, %36 ]
   invoke void @"_ZN4core3ptr170drop_in_place$LT$tokio..sync..oneshot..Sender$LT$core..result..Result$LT$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$C$hyper..error..Error$GT$$GT$$GT$17h867743177ed75b27E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5) #24
           to label %.thread unwind label %68
 
@@ -774,8 +774,8 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #25
   unreachable
 
-.thread:                                          ; preds = %.body, %.body.thread, %.thread32, %.thread28, %70
-  %.pn27 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %70 ], [ %67, %.thread28 ], [ %lpad.thr_comm, %.thread32 ], [ %lpad.thr_comm.split-lp40, %.body ], [ %eh.lpad-body38, %.body.thread ]
+.thread:                                          ; preds = %.body, %.body.thread, %.thread30, %.thread26, %70
+  %.pn25 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %70 ], [ %67, %.thread26 ], [ %lpad.thr_comm, %.thread30 ], [ %lpad.thr_comm.split-lp38, %.body ], [ %eh.lpad-body36, %.body.thread ]
   invoke void @"_ZN4core3ptr189drop_in_place$LT$hyper..client..dispatch..Callback$LT$http..request..Request$LT$reqwest..async_impl..body..Body$GT$$C$http..response..Response$LT$hyper..body..incoming..Incoming$GT$$GT$$GT$17h6b44bbdd39ec61e6E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0) #24
           to label %71 unwind label %68
 
@@ -786,7 +786,7 @@ define hidden void @"_ZN5hyper6client8dispatch21Callback$LT$T$C$U$GT$4send17hb69
           to label %.thread unwind label %68
 
 71:                                               ; preds = %.thread
-  resume { ptr, i32 } %.pn27
+  resume { ptr, i32 } %.pn25
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

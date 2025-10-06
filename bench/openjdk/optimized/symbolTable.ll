@@ -4349,8 +4349,8 @@ _ZN11MutexLockerD2Ev.exit.i.i:                    ; preds = %115, %_ZN5Arena5Afr
   br label %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4Node12destroy_nodeEPvPS3_.exit
 
 _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %_ZN11MutexLockerD2Ev.exit.i.i, %89, %.thread, %118
-  %.1.ph91 = phi i1 [ true, %118 ], [ true, %.thread ], [ false, %89 ], [ false, %_ZN11MutexLockerD2Ev.exit.i.i ]
-  %.1.i63.ph88 = phi i64 [ %.1.i64, %118 ], [ %.1.i64, %.thread ], [ %54, %89 ], [ %54, %_ZN11MutexLockerD2Ev.exit.i.i ]
+  %.1.ph90 = phi i1 [ true, %118 ], [ true, %.thread ], [ false, %89 ], [ false, %_ZN11MutexLockerD2Ev.exit.i.i ]
+  %.1.i63.ph87 = phi i64 [ %.1.i64, %118 ], [ %.1.i64, %.thread ], [ %54, %89 ], [ %54, %_ZN11MutexLockerD2Ev.exit.i.i ]
   %.157 = phi i8 [ 0, %118 ], [ %.462, %.thread ], [ %.2, %89 ], [ %.2, %_ZN11MutexLockerD2Ev.exit.i.i ]
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %130, label %125
@@ -4358,7 +4358,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4Node12destroy_nodeEPv
 125:                                              ; preds = %_ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4Node12destroy_nodeEPvPS3_.exit
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %127 = load i64, ptr %126, align 8
-  %128 = icmp ugt i64 %.1.i63.ph88, %127
+  %128 = icmp ugt i64 %.1.i63.ph87, %127
   %129 = zext i1 %128 to i8
   store i8 %129, ptr %5, align 1
   br label %130
@@ -4372,7 +4372,7 @@ _ZN19ConcurrentHashTableI17SymbolTableConfigL8MEMFLAGS11EE4Node12destroy_nodeEPv
   br label %132
 
 132:                                              ; preds = %131, %130
-  ret i1 %.1.ph91
+  ret i1 %.1.ph90
 }
 
 declare void @_ZN2os11naked_yieldEv() local_unnamed_addr #1

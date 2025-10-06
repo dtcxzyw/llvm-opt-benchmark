@@ -1234,10 +1234,10 @@ update_canvas_size.exit:                          ; preds = %50, %53
   %79 = shl nuw nsw i32 7, %76
   %80 = and i32 %79, %75
   %.not95 = icmp eq i32 %80, 0
-  br i1 %.not95, label %._crit_edge188, label %.loopexit.sink.split
+  br i1 %.not95, label %._crit_edge187, label %.loopexit.sink.split
 
-._crit_edge188:                                   ; preds = %57
-  %.pre189 = load i32, ptr %47, align 4, !tbaa !50
+._crit_edge187:                                   ; preds = %57
+  %.pre188 = load i32, ptr %47, align 4, !tbaa !50
   br label %87
 
 81:                                               ; preds = %27
@@ -1252,13 +1252,13 @@ update_canvas_size.exit:                          ; preds = %50, %53
   %.not97 = icmp eq i32 %86, 0
   br i1 %.not97, label %.loopexit, label %87
 
-87:                                               ; preds = %._crit_edge188, %84
-  %88 = phi i32 [ %64, %._crit_edge188 ], [ %21, %84 ]
-  %89 = phi ptr [ %59, %._crit_edge188 ], [ %.017.i.i, %84 ]
-  %90 = phi i32 [ %78, %._crit_edge188 ], [ 0, %84 ]
-  %91 = phi i32 [ %.pre189, %._crit_edge188 ], [ %83, %84 ]
-  %.085 = phi i32 [ %36, %._crit_edge188 ], [ %83, %84 ]
-  %.084 = phi i32 [ %46, %._crit_edge188 ], [ %86, %84 ]
+87:                                               ; preds = %._crit_edge187, %84
+  %88 = phi i32 [ %64, %._crit_edge187 ], [ %21, %84 ]
+  %89 = phi ptr [ %59, %._crit_edge187 ], [ %.017.i.i, %84 ]
+  %90 = phi i32 [ %78, %._crit_edge187 ], [ 0, %84 ]
+  %91 = phi i32 [ %.pre188, %._crit_edge187 ], [ %83, %84 ]
+  %.085 = phi i32 [ %36, %._crit_edge187 ], [ %83, %84 ]
+  %.084 = phi i32 [ %46, %._crit_edge187 ], [ %86, %84 ]
   %92 = getelementptr inbounds nuw i8, ptr %10, i64 6664
   store i32 0, ptr %92, align 8, !tbaa !106
   %93 = getelementptr inbounds nuw i8, ptr %10, i64 6652
@@ -1270,14 +1270,14 @@ update_canvas_size.exit:                          ; preds = %50, %53
   %98 = load i8, ptr %97, align 1, !tbaa !59
   %99 = icmp slt i32 %90, %88
   %100 = zext i1 %99 to i32
-  %spec.select.i102158 = add i32 %90, %100
+  %spec.select.i102157 = add i32 %90, %100
   %101 = zext i8 %98 to i32
   %102 = and i32 %90, 7
-  store i32 %spec.select.i102158, ptr %26, align 8, !tbaa !105
+  store i32 %spec.select.i102157, ptr %26, align 8, !tbaa !105
   %103 = shl nuw nsw i32 1, %102
   %104 = and i32 %103, %101
-  %.not98159 = icmp eq i32 %104, 0
-  br i1 %.not98159, label %._crit_edge, label %.lr.ph
+  %.not98158 = icmp eq i32 %104, 0
+  br i1 %.not98158, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %87
   %105 = getelementptr inbounds nuw i8, ptr %10, i64 6668
@@ -1288,23 +1288,23 @@ update_canvas_size.exit:                          ; preds = %50, %53
   %110 = getelementptr inbounds nuw i8, ptr %10, i64 6856
   br label %111
 
-111:                                              ; preds = %.lr.ph, %.loopexit147
-  %spec.select.i102161 = phi i32 [ %spec.select.i102158, %.lr.ph ], [ %spec.select.i102, %.loopexit147 ]
-  %112 = phi i32 [ %88, %.lr.ph ], [ %238, %.loopexit147 ]
-  %113 = phi ptr [ %89, %.lr.ph ], [ %233, %.loopexit147 ]
-  %.079160 = phi i32 [ 0, %.lr.ph ], [ %127, %.loopexit147 ]
-  %114 = lshr i32 %spec.select.i102161, 3
+111:                                              ; preds = %.lr.ph, %.loopexit146
+  %spec.select.i102160 = phi i32 [ %spec.select.i102157, %.lr.ph ], [ %spec.select.i102, %.loopexit146 ]
+  %112 = phi i32 [ %88, %.lr.ph ], [ %238, %.loopexit146 ]
+  %113 = phi ptr [ %89, %.lr.ph ], [ %233, %.loopexit146 ]
+  %.079159 = phi i32 [ 0, %.lr.ph ], [ %127, %.loopexit146 ]
+  %114 = lshr i32 %spec.select.i102160, 3
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds nuw i8, ptr %113, i64 %115
   %117 = load i32, ptr %116, align 1, !tbaa !59
-  %118 = and i32 %spec.select.i102161, 7
+  %118 = and i32 %spec.select.i102160, 7
   %119 = lshr i32 %117, %118
   %120 = and i32 %119, 3
-  %121 = add i32 %spec.select.i102161, 2
+  %121 = add i32 %spec.select.i102160, 2
   %122 = tail call i32 @llvm.umin.i32(i32 %112, i32 %121)
   store i32 %122, ptr %26, align 8, !tbaa !105
   %123 = shl nuw nsw i32 1, %120
-  %124 = and i32 %123, %.079160
+  %124 = and i32 %123, %.079159
   %.not99 = icmp eq i32 %124, 0
   br i1 %.not99, label %126, label %125
 
@@ -1313,7 +1313,7 @@ update_canvas_size.exit:                          ; preds = %50, %53
   br label %.thread
 
 126:                                              ; preds = %111
-  %127 = or i32 %123, %.079160
+  %127 = or i32 %123, %.079159
   %128 = load i32, ptr %92, align 8, !tbaa !106
   %129 = add nsw i32 %128, 1
   store i32 %129, ptr %92, align 8, !tbaa !106
@@ -1324,7 +1324,7 @@ update_canvas_size.exit:                          ; preds = %50, %53
     i32 0, label %132
     i32 1, label %159
     i32 3, label %186
-    i32 2, label %.loopexit147
+    i32 2, label %.loopexit146
   ]
 
 132:                                              ; preds = %126
@@ -1358,7 +1358,7 @@ update_canvas_size.exit:                          ; preds = %50, %53
 
 158:                                              ; preds = %132
   store i32 %144, ptr %110, align 8, !tbaa !108
-  br label %.loopexit147
+  br label %.loopexit146
 
 159:                                              ; preds = %126
   %160 = load i32, ptr %26, align 8, !tbaa !105
@@ -1391,7 +1391,7 @@ update_canvas_size.exit:                          ; preds = %50, %53
 
 185:                                              ; preds = %159
   store i32 %171, ptr %109, align 8, !tbaa !108
-  br label %.loopexit147
+  br label %.loopexit146
 
 186:                                              ; preds = %126
   %187 = load i32, ptr %26, align 8, !tbaa !105
@@ -1444,7 +1444,7 @@ update_canvas_size.exit:                          ; preds = %50, %53
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 104
   %217 = load i32, ptr %216, align 8, !tbaa !88
   %218 = icmp sgt i32 %217, 1
-  br i1 %218, label %.lr.ph.preheader.i, label %.loopexit147
+  br i1 %218, label %.lr.ph.preheader.i, label %.loopexit146
 
 .lr.ph.preheader.i:                               ; preds = %214
   %219 = load ptr, ptr %215, align 8, !tbaa !81
@@ -1466,12 +1466,12 @@ update_canvas_size.exit:                          ; preds = %50, %53
   %229 = load i32, ptr %228, align 8, !tbaa !88
   %230 = shl nsw i32 %229, 2
   %231 = icmp slt i32 %225, %230
-  br i1 %231, label %.lr.ph.i, label %.loopexit147, !llvm.loop !112
+  br i1 %231, label %.lr.ph.i, label %.loopexit146, !llvm.loop !112
 
 default.unreachable:                              ; preds = %126
   unreachable
 
-.loopexit147:                                     ; preds = %.lr.ph.i, %126, %158, %185, %214
+.loopexit146:                                     ; preds = %.lr.ph.i, %126, %158, %185, %214
   %232 = load i32, ptr %26, align 8, !tbaa !105
   %233 = load ptr, ptr %15, align 8, !tbaa !101
   %234 = lshr i32 %232, 3
@@ -1490,7 +1490,7 @@ default.unreachable:                              ; preds = %126
   %.not98 = icmp eq i32 %244, 0
   br i1 %.not98, label %._crit_edge, label %111
 
-._crit_edge:                                      ; preds = %.loopexit147, %87
+._crit_edge:                                      ; preds = %.loopexit146, %87
   %245 = getelementptr inbounds nuw i8, ptr %10, i64 6704
   store ptr %1, ptr %245, align 8, !tbaa !111
   br i1 %.not, label %248, label %246
@@ -1508,9 +1508,9 @@ default.unreachable:                              ; preds = %126
 251:                                              ; preds = %248
   %252 = load i32, ptr %92, align 8, !tbaa !106
   %253 = icmp sgt i32 %252, 0
-  br i1 %253, label %.lr.ph165, label %._crit_edge166
+  br i1 %253, label %.lr.ph164, label %._crit_edge165
 
-.lr.ph165:                                        ; preds = %251
+.lr.ph164:                                        ; preds = %251
   %254 = getelementptr inbounds nuw i8, ptr %10, i64 6668
   %255 = getelementptr inbounds nuw i8, ptr %10, i64 6968
   %256 = getelementptr inbounds nuw i8, ptr %10, i64 6928
@@ -1524,8 +1524,8 @@ default.unreachable:                              ; preds = %126
   %264 = zext nneg i32 %252 to i64
   br label %265
 
-265:                                              ; preds = %.lr.ph165, %apply_predictor_transform.exit
-  %indvars.iv = phi i64 [ %264, %.lr.ph165 ], [ %indvars.iv.next, %apply_predictor_transform.exit ]
+265:                                              ; preds = %.lr.ph164, %apply_predictor_transform.exit
+  %indvars.iv = phi i64 [ %264, %.lr.ph164 ], [ %indvars.iv.next, %apply_predictor_transform.exit ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %266 = getelementptr inbounds nuw i32, ptr %254, i64 %indvars.iv.next
   %267 = load i32, ptr %266, align 4, !tbaa !52
@@ -1883,12 +1883,12 @@ default.unreachable:                              ; preds = %126
 509:                                              ; preds = %265
   %510 = load i32, ptr %255, align 8, !tbaa !108
   %511 = icmp sgt i32 %510, 0
-  %.pre191 = load ptr, ptr %245, align 8, !tbaa !111
+  %.pre190 = load ptr, ptr %245, align 8, !tbaa !111
   br i1 %511, label %512, label %577
 
 512:                                              ; preds = %509
   %513 = lshr i32 8, %510
-  %514 = getelementptr inbounds nuw i8, ptr %.pre191, i64 64
+  %514 = getelementptr inbounds nuw i8, ptr %.pre190, i64 64
   %515 = load i32, ptr %514, align 8, !tbaa !52
   %516 = add nsw i32 %515, 64
   %517 = sext i32 %516 to i64
@@ -1985,11 +1985,11 @@ default.unreachable:                              ; preds = %126
   call void @av_free(ptr noundef nonnull %518) #11
   %576 = load i32, ptr %93, align 4, !tbaa !50
   store i32 %576, ptr %94, align 4, !tbaa !107
-  %.pre190 = load ptr, ptr %245, align 8, !tbaa !111
+  %.pre189 = load ptr, ptr %245, align 8, !tbaa !111
   br label %577
 
 577:                                              ; preds = %._crit_edge97.i, %509
-  %578 = phi ptr [ %.pre190, %._crit_edge97.i ], [ %.pre191, %509 ]
+  %578 = phi ptr [ %.pre189, %._crit_edge97.i ], [ %.pre190, %509 ]
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 108
   %580 = load i32, ptr %579, align 4, !tbaa !93
   %581 = getelementptr inbounds nuw i8, ptr %578, i64 104
@@ -2137,9 +2137,9 @@ default.unreachable:                              ; preds = %126
 
 apply_predictor_transform.exit:                   ; preds = %._crit_edge100.i, %._crit_edge.i115, %._crit_edge.i107, %._crit_edge.i, %._crit_edge106.i, %.preheader90.i, %.preheader.lr.ph.i113, %473, %.preheader.lr.ph.i105, %402, %.preheader.lr.ph.i, %268, %265
   %668 = icmp sgt i64 %indvars.iv, 1
-  br i1 %668, label %265, label %._crit_edge166, !llvm.loop !127
+  br i1 %668, label %265, label %._crit_edge165, !llvm.loop !127
 
-._crit_edge166:                                   ; preds = %apply_predictor_transform.exit, %251
+._crit_edge165:                                   ; preds = %apply_predictor_transform.exit, %251
   store i32 1, ptr %2, align 4, !tbaa !52
   %669 = getelementptr inbounds nuw i8, ptr %1, i64 120
   store i32 1, ptr %669, align 8, !tbaa !128
@@ -2149,14 +2149,14 @@ apply_predictor_transform.exit:                   ; preds = %._crit_edge100.i, %
   store i32 %672, ptr %670, align 4, !tbaa !129
   br label %.thread
 
-.thread:                                          ; preds = %204, %159, %132, %512, %346, %125, %248, %._crit_edge166
-  %.4 = phi i32 [ %249, %248 ], [ %4, %._crit_edge166 ], [ -1094995529, %125 ], [ -1094995529, %346 ], [ -12, %512 ], [ %206, %204 ], [ %183, %159 ], [ %156, %132 ]
+.thread:                                          ; preds = %204, %159, %132, %512, %346, %125, %248, %._crit_edge165
+  %.4 = phi i32 [ %249, %248 ], [ %4, %._crit_edge165 ], [ -1094995529, %125 ], [ -1094995529, %346 ], [ -12, %512 ], [ %206, %204 ], [ %183, %159 ], [ %156, %132 ]
   %673 = getelementptr inbounds nuw i8, ptr %10, i64 6696
   br label %674
 
 674:                                              ; preds = %.thread, %image_ctx_free.exit
-  %indvars.iv185 = phi i64 [ 0, %.thread ], [ %indvars.iv.next186, %image_ctx_free.exit ]
-  %675 = getelementptr inbounds nuw %struct.ImageContext, ptr %673, i64 %indvars.iv185
+  %indvars.iv184 = phi i64 [ 0, %.thread ], [ %indvars.iv.next185, %image_ctx_free.exit ]
+  %675 = getelementptr inbounds nuw %struct.ImageContext, ptr %673, i64 %indvars.iv184
   %676 = getelementptr inbounds nuw i8, ptr %675, i64 24
   %677 = load ptr, ptr %676, align 8, !tbaa !130
   call void @av_free(ptr noundef %677) #11
@@ -2220,8 +2220,8 @@ apply_predictor_transform.exit:                   ; preds = %._crit_edge100.i, %
 
 image_ctx_free.exit:                              ; preds = %684, %._crit_edge.i131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %675, i8 0, i64 56, i1 false)
-  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next186, 5
+  %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next185, 5
   br i1 %exitcond.not, label %.loopexit, label %674, !llvm.loop !136
 
 .loopexit.sink.split:                             ; preds = %57, %28

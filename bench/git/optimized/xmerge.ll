@@ -1067,39 +1067,39 @@ xdl_append_merge.exit335:                         ; preds = %387
 
 456:                                              ; preds = %._crit_edge
   %457 = icmp slt i32 %.0210, 2
-  %.not74.i = icmp eq ptr %spec.select274, null
-  %or.cond423 = select i1 %457, i1 true, i1 %.not74.i
-  br i1 %or.cond423, label %xdl_refine_zdiff3_conflicts.exit, label %.lr.ph77.i
+  %.not72.i = icmp eq ptr %spec.select274, null
+  %or.cond423 = select i1 %457, i1 true, i1 %.not72.i
+  br i1 %or.cond423, label %xdl_refine_zdiff3_conflicts.exit, label %.lr.ph75.i
 
-.lr.ph77.i:                                       ; preds = %456
+.lr.ph75.i:                                       ; preds = %456
   %458 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %459 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %460 = getelementptr inbounds nuw i8, ptr %9, i64 136
   br label %461
 
-461:                                              ; preds = %561, %.lr.ph77.i
-  %.05275.i = phi ptr [ %spec.select274, %.lr.ph77.i ], [ %562, %561 ]
+461:                                              ; preds = %561, %.lr.ph75.i
+  %.05273.i = phi ptr [ %spec.select274, %.lr.ph75.i ], [ %562, %561 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %462 = getelementptr inbounds nuw i8, ptr %.05275.i, i64 16
+  %462 = getelementptr inbounds nuw i8, ptr %.05273.i, i64 16
   %463 = load i64, ptr %462, align 8, !tbaa !34
-  %464 = getelementptr inbounds nuw i8, ptr %.05275.i, i64 24
+  %464 = getelementptr inbounds nuw i8, ptr %.05273.i, i64 24
   %465 = load i64, ptr %464, align 8, !tbaa !38
-  %466 = getelementptr inbounds nuw i8, ptr %.05275.i, i64 8
+  %466 = getelementptr inbounds nuw i8, ptr %.05273.i, i64 8
   %467 = load i32, ptr %466, align 8, !tbaa !40
   %.not58.i = icmp eq i32 %467, 0
   br i1 %.not58.i, label %468, label %561
 
 468:                                              ; preds = %461
-  %469 = getelementptr inbounds nuw i8, ptr %.05275.i, i64 32
+  %469 = getelementptr inbounds nuw i8, ptr %.05273.i, i64 32
   %470 = load i64, ptr %469, align 8, !tbaa !37
   %471 = icmp eq i64 %470, 0
   br i1 %471, label %561, label %472
 
 472:                                              ; preds = %468
-  %473 = getelementptr inbounds nuw i8, ptr %.05275.i, i64 40
+  %473 = getelementptr inbounds nuw i8, ptr %.05273.i, i64 40
   %474 = load i64, ptr %473, align 8, !tbaa !39
   %475 = icmp eq i64 %474, 0
   br i1 %475, label %561, label %476
@@ -1196,11 +1196,11 @@ xdl_append_merge.exit335:                         ; preds = %387
   %538 = load i64, ptr %537, align 8, !tbaa !33
   store i64 %538, ptr %473, align 8, !tbaa !39
   %539 = load ptr, ptr %524, align 8, !tbaa !46
-  %.not6172.i = icmp eq ptr %539, null
-  br i1 %.not6172.i, label %._crit_edge.i, label %.lr.ph.i347
+  %.not6170.i = icmp eq ptr %539, null
+  br i1 %.not6170.i, label %._crit_edge.i, label %.lr.ph.i347
 
 .lr.ph.i347:                                      ; preds = %526, %541
-  %.25473.i = phi ptr [ %540, %541 ], [ %.05275.i, %526 ]
+  %.25471.i = phi ptr [ %540, %541 ], [ %.05273.i, %526 ]
   %540 = call ptr @xmalloc(i64 noundef 64) #10
   %.not62.not.i = icmp eq ptr %540, null
   br i1 %.not62.not.i, label %.thread.i, label %541
@@ -1214,9 +1214,9 @@ xdl_append_merge.exit335:                         ; preds = %387
   %542 = load ptr, ptr %10, align 8, !tbaa !4
   %543 = load ptr, ptr %542, align 8, !tbaa !46
   store ptr %543, ptr %10, align 8, !tbaa !4
-  %544 = load ptr, ptr %.25473.i, align 8, !tbaa !43
+  %544 = load ptr, ptr %.25471.i, align 8, !tbaa !43
   store ptr %544, ptr %540, align 8, !tbaa !43
-  store ptr %540, ptr %.25473.i, align 8, !tbaa !43
+  store ptr %540, ptr %.25471.i, align 8, !tbaa !43
   %545 = getelementptr inbounds nuw i8, ptr %540, i64 8
   store i32 0, ptr %545, align 8, !tbaa !40
   %546 = getelementptr inbounds nuw i8, ptr %543, i64 8
@@ -1242,13 +1242,13 @@ xdl_append_merge.exit335:                         ; preds = %387
   br i1 %.not61.i, label %._crit_edge.i, label %.lr.ph.i347, !llvm.loop !68
 
 ._crit_edge.i:                                    ; preds = %541, %526
-  %.254.lcssa.i = phi ptr [ %.05275.i, %526 ], [ %540, %541 ]
+  %.254.lcssa.i = phi ptr [ %.05273.i, %526 ], [ %540, %541 ]
   call void @xdl_free_env(ptr noundef nonnull %9) #10
   call void @xdl_free_script(ptr noundef nonnull %524) #10
   br label %561
 
 561:                                              ; preds = %._crit_edge.i, %525, %472, %468, %461
-  %.153.ph.i = phi ptr [ %.05275.i, %468 ], [ %.05275.i, %472 ], [ %.05275.i, %461 ], [ %.05275.i, %525 ], [ %.254.lcssa.i, %._crit_edge.i ]
+  %.153.ph.i = phi ptr [ %.05273.i, %468 ], [ %.05273.i, %472 ], [ %.05273.i, %461 ], [ %.05273.i, %525 ], [ %.254.lcssa.i, %._crit_edge.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

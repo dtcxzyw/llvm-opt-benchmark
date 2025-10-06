@@ -921,7 +921,7 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit.i:      ; preds = %20
   %.pre.i = load i32, ptr %2, align 4, !tbaa !13
   %22 = icmp slt i32 %.pre.i, 1
   store ptr %10, ptr @_ZL19LocaleUtility_cache, align 8, !tbaa !34
-  %.pre69 = load ptr, ptr %10, align 8, !tbaa !28
+  %.pre68 = load ptr, ptr %10, align 8, !tbaa !28
   br i1 %22, label %34, label %25
 
 _ZN6icu_779HashtableC2ER10UErrorCode.exit.thread.i: ; preds = %9
@@ -931,7 +931,7 @@ _ZN6icu_779HashtableC2ER10UErrorCode.exit.thread.i: ; preds = %9
   br i1 %24, label %33, label %.thread.i
 
 25:                                               ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit.i, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i
-  %26 = phi ptr [ %.pre69, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.i ], [ %.pre, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i ]
+  %26 = phi ptr [ %.pre68, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.i ], [ %.pre, %_ZN6icu_779HashtableC2ER10UErrorCode.exit.thread13.i ]
   %.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i, label %_ZN6icu_779HashtableD2Ev.exit.i, label %27
 
@@ -969,7 +969,7 @@ common.resume:                                    ; preds = %138, %31
   br label %_ZL19locale_utility_initR10UErrorCode.exit
 
 34:                                               ; preds = %_ZN6icu_779HashtableC2ER10UErrorCode.exit.i
-  %35 = call noundef ptr @uhash_setValueDeleter_77(ptr noundef %.pre69, ptr noundef nonnull @uhash_deleteHashtable_77)
+  %35 = call noundef ptr @uhash_setValueDeleter_77(ptr noundef %.pre68, ptr noundef nonnull @uhash_deleteHashtable_77)
   br label %_ZL19locale_utility_initR10UErrorCode.exit
 
 _ZL19locale_utility_initR10UErrorCode.exit:       ; preds = %.thread.i, %33, %34
@@ -1027,8 +1027,8 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_
           to label %60 unwind label %76
 
 60:                                               ; preds = %58
-  %.pre70 = load i32, ptr %2, align 4, !tbaa !13
-  %61 = icmp sgt i32 %.pre70, 0
+  %.pre69 = load i32, ptr %2, align 4, !tbaa !13
+  %61 = icmp sgt i32 %.pre69, 0
   br i1 %61, label %_ZN6icu_779HashtableC2ER10UErrorCode.exit, label %62
 
 62:                                               ; preds = %60
@@ -1045,9 +1045,9 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %_
   %67 = load i32, ptr %63, align 8, !tbaa !21
   %.not = icmp eq i32 %67, 0
   %68 = load ptr, ptr %3, align 8
-  %spec.select66 = select i1 %.not, ptr null, ptr %68
+  %spec.select65 = select i1 %.not, ptr null, ptr %68
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %69 = invoke ptr @ures_openAvailableLocales_77(ptr noundef %spec.select66, ptr noundef nonnull %2)
+  %69 = invoke ptr @ures_openAvailableLocales_77(ptr noundef %spec.select65, ptr noundef nonnull %2)
           to label %70 unwind label %80
 
 70:                                               ; preds = %66

@@ -6391,22 +6391,22 @@ define internal noundef zeroext i1 @_ZN5clang4ento4eval4Call9_evalCallIN12_GLOBA
   %.val.i = load ptr, ptr %6, align 8, !tbaa !767
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.val47.i = load ptr, ptr %7, align 8, !tbaa !767
-  %.not4.i.i = icmp eq ptr %.val.i, %.val47.i
-  br i1 %.not4.i.i, label %_ZNK12_GLOBAL__N_116CastValueChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
+  %.not6.i.i = icmp eq ptr %.val.i, %.val47.i
+  br i1 %.not6.i.i, label %_ZNK12_GLOBAL__N_116CastValueChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %9
-  %.sroa.01.05.i.i = phi ptr [ %10, %9 ], [ %.val.i, %3 ]
-  %8 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.01.05.i.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #19
+  %.sroa.01.07.i.i = phi ptr [ %10, %9 ], [ %.val.i, %3 ]
+  %8 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.01.07.i.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #19
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %.lr.ph.i.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 104
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 104
   %.not.i.i = icmp eq ptr %10, %.val47.i
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_116CastValueChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
 
 11:                                               ; preds = %.lr.ph.i.i
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 64
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 96
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 96
   %14 = load i32, ptr %13, align 8, !tbaa !15
   switch i32 %14, label %_ZNK12_GLOBAL__N_116CastValueChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit [
     i32 0, label %15
@@ -6529,16 +6529,16 @@ _ZN4llvm14CastIsPossibleIN5clang4ento15CXXInstanceCallEPKNS2_9CallEventEvE10isPo
   br i1 %.not.i.i.i65.not.i, label %_ZNK12_GLOBAL__N_116CastValueChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %90
 
 90:                                               ; preds = %85, %.critedge44.i, %.critedge.i
-  %.sroa.697.0118.i = phi i8 [ %.fca.1.extract13.i, %.critedge.i ], [ %.fca.1.extract.i, %85 ], [ %.fca.1.extract7.i, %.critedge44.i ]
+  %.sroa.697.0117.i = phi i8 [ %.fca.1.extract13.i, %.critedge.i ], [ %.fca.1.extract.i, %85 ], [ %.fca.1.extract7.i, %.critedge44.i ]
   %.pn.i = phi { ptr, i8 } [ %61, %.critedge.i ], [ %89, %85 ], [ %73, %.critedge44.i ]
-  %.sroa.096.0117.i = extractvalue { ptr, i8 } %.pn.i, 0
+  %.sroa.096.0116.i = extractvalue { ptr, i8 } %.pn.i, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %.sroa.096.0117.i, ptr %4, align 8
+  store ptr %.sroa.096.0116.i, ptr %4, align 8
   %91 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 %.sroa.697.0118.i, ptr %91, align 8
+  store i8 %.sroa.697.0117.i, ptr %91, align 8
   store ptr %0, ptr %5, align 8, !tbaa !382
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 80
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 80
   %93 = load ptr, ptr %92, align 8, !tbaa !14
   %.not.i.i.i = icmp eq ptr %93, null
   br i1 %.not.i.i.i, label %94, label %_ZNKSt8functionIFvPKN12_GLOBAL__N_116CastValueCheckerERKN5clang4ento9CallEventENS5_20DefinedOrUnknownSValERNS5_14CheckerContextEEEclES3_S8_S9_SB_.exit.i
@@ -6548,7 +6548,7 @@ _ZN4llvm14CastIsPossibleIN5clang4ento15CXXInstanceCallEPKNS2_9CallEventEvE10isPo
   unreachable
 
 _ZNKSt8functionIFvPKN12_GLOBAL__N_116CastValueCheckerERKN5clang4ento9CallEventENS5_20DefinedOrUnknownSValERNS5_14CheckerContextEEEclES3_S8_S9_SB_.exit.i: ; preds = %90
-  %95 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 88
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 88
   %96 = load ptr, ptr %95, align 8, !tbaa !11
   call void %96(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(9) %4, ptr noundef nonnull align 8 dereferenceable(81) %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

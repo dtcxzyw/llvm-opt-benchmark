@@ -773,25 +773,25 @@ define void @_ZN6icu_7722UTF16CollationIterator20forwardNumCodePointsEiR10UError
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 408
   %7 = load ptr, ptr %6, align 8, !tbaa !29
-  %.fr17 = freeze ptr %7
-  %8 = icmp eq ptr %.fr17, null
+  %.fr16 = freeze ptr %7
+  %8 = icmp eq ptr %.fr16, null
   %.promoted = load ptr, ptr %5, align 8, !tbaa !28
   br i1 %8, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %22
   %9 = phi ptr [ %23, %22 ], [ %.promoted, %.lr.ph ]
-  %.0515.us = phi i32 [ %13, %22 ], [ %1, %.lr.ph ]
-  %.not.us = icmp eq ptr %9, %.fr17
+  %.0514.us = phi i32 [ %13, %22 ], [ %1, %.lr.ph ]
+  %.not.us = icmp eq ptr %9, %.fr16
   br i1 %.not.us, label %.critedge, label %10
 
 10:                                               ; preds = %.lr.ph.split.us
   %11 = load i16, ptr %9, align 2, !tbaa !30
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 2
   store ptr %12, ptr %5, align 8, !tbaa !28
-  %13 = add nsw i32 %.0515.us, -1
+  %13 = add nsw i32 %.0514.us, -1
   %14 = and i16 %11, -1024
   %15 = icmp ne i16 %14, -10240
-  %.not9.us = icmp eq ptr %12, %.fr17
+  %.not9.us = icmp eq ptr %12, %.fr16
   %or.cond10.us = select i1 %15, i1 true, i1 %.not9.us
   br i1 %or.cond10.us, label %22, label %16
 
@@ -808,12 +808,12 @@ define void @_ZN6icu_7722UTF16CollationIterator20forwardNumCodePointsEiR10UError
 
 22:                                               ; preds = %20, %16, %10
   %23 = phi ptr [ %12, %10 ], [ %12, %16 ], [ %21, %20 ]
-  %24 = icmp samesign ugt i32 %.0515.us, 1
+  %24 = icmp samesign ugt i32 %.0514.us, 1
   br i1 %24, label %.lr.ph.split.us, label %.critedge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %39
   %25 = phi ptr [ %40, %39 ], [ %.promoted, %.lr.ph ]
-  %.0515 = phi i32 [ %31, %39 ], [ %1, %.lr.ph ]
+  %.0514 = phi i32 [ %31, %39 ], [ %1, %.lr.ph ]
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %.critedge, label %26
 
@@ -829,10 +829,10 @@ define void @_ZN6icu_7722UTF16CollationIterator20forwardNumCodePointsEiR10UError
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 2
   store ptr %30, ptr %5, align 8, !tbaa !28
-  %31 = add nsw i32 %.0515, -1
+  %31 = add nsw i32 %.0514, -1
   %32 = and i16 %27, -1024
-  %.not24 = icmp eq i16 %32, -10240
-  br i1 %.not24, label %33, label %39
+  %.not23 = icmp eq i16 %32, -10240
+  br i1 %.not23, label %33, label %39
 
 33:                                               ; preds = %29
   %34 = load i16, ptr %30, align 2, !tbaa !30
@@ -847,7 +847,7 @@ define void @_ZN6icu_7722UTF16CollationIterator20forwardNumCodePointsEiR10UError
 
 39:                                               ; preds = %29, %33, %37
   %40 = phi ptr [ %30, %29 ], [ %30, %33 ], [ %38, %37 ]
-  %41 = icmp samesign ugt i32 %.0515, 1
+  %41 = icmp samesign ugt i32 %.0514, 1
   br i1 %41, label %.lr.ph.split, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split.us, %22, %.lr.ph.split, %39, %3, %.thread

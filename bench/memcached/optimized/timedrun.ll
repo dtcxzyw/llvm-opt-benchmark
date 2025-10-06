@@ -67,7 +67,7 @@ define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) loc
   br i1 %28, label %wait_for_process.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %57
-  %.01526.i.i = phi i32 [ %.116.ph.i.i, %57 ], [ 0, %19 ]
+  %.01524.i.i = phi i32 [ %.116.ph.i.i, %57 ], [ 0, %19 ]
   %29 = load volatile i32, ptr @caught_sig, align 4, !tbaa !9
   %30 = icmp eq i32 %29, 1
   br i1 %30, label %31, label %36
@@ -83,7 +83,7 @@ define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) loc
   br label %57
 
 36:                                               ; preds = %.lr.ph.i.i
-  switch i32 %.01526.i.i, label %49 [
+  switch i32 %.01524.i.i, label %49 [
     i32 0, label %37
     i32 1, label %50
   ]
@@ -123,7 +123,7 @@ define dso_local range(i32 0, 256) i32 @main(i32 noundef %0, ptr noundef %1) loc
 
 54:                                               ; preds = %53, %50
   %55 = call i32 @alarm(i32 noundef 5) #11
-  %56 = add nsw i32 %.01526.i.i, 1
+  %56 = add nsw i32 %.01524.i.i, 1
   br label %57
 
 57:                                               ; preds = %54, %35, %31

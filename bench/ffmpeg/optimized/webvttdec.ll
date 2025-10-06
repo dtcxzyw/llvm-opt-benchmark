@@ -114,7 +114,7 @@ thread-pre-split.i:                               ; preds = %10, %32
   %27 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   %28 = load i8, ptr %27, align 1, !tbaa !30
   %.not38.i = icmp eq i8 %28, 0
-  br i1 %.not38.i, label %.thread47.i, label %29
+  br i1 %.not38.i, label %.thread46.i, label %29
 
 29:                                               ; preds = %26
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %5, ptr noundef nonnull @.str.3) #4
@@ -124,20 +124,20 @@ thread-pre-split.i:                               ; preds = %10, %32
   %.not39.i = icmp eq i32 %.026.i, 0
   br i1 %.not39.i, label %31, label %32
 
-.thread47.i:                                      ; preds = %26
-  %.not3948.i = icmp eq i32 %.026.i, 0
-  br i1 %.not3948.i, label %.thread49.i, label %32
+.thread46.i:                                      ; preds = %26
+  %.not3947.i = icmp eq i32 %.026.i, 0
+  br i1 %.not3947.i, label %.thread48.i, label %32
 
 31:                                               ; preds = %30
   %.not40.i = icmp eq i8 %16, 13
-  br i1 %.not40.i, label %32, label %.thread49.i
+  br i1 %.not40.i, label %32, label %.thread48.i
 
-.thread49.i:                                      ; preds = %31, %.thread47.i
+.thread48.i:                                      ; preds = %31, %.thread46.i
   call void @av_bprint_chars(ptr noundef nonnull %5, i8 noundef signext %16, i32 noundef 1) #4
   br label %32
 
-32:                                               ; preds = %.thread49.i, %31, %.thread47.i, %30, %29, %25, %.loopexit.thread.i
-  %.127.i = phi i32 [ 0, %25 ], [ %.026.i, %29 ], [ 1, %30 ], [ 0, %.thread49.i ], [ 0, %31 ], [ 1, %.thread47.i ], [ 1, %.loopexit.thread.i ]
+32:                                               ; preds = %.thread48.i, %31, %.thread46.i, %30, %29, %25, %.loopexit.thread.i
+  %.127.i = phi i32 [ 0, %25 ], [ %.026.i, %29 ], [ 1, %30 ], [ 0, %.thread48.i ], [ 0, %31 ], [ 1, %.thread46.i ], [ 1, %.loopexit.thread.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
   br label %thread-pre-split.i, !llvm.loop !36
 

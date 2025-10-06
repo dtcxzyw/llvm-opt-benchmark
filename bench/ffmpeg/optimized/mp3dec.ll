@@ -43,39 +43,39 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
   br i1 %10, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %1, %12
-  %.074105 = phi ptr [ %13, %12 ], [ %4, %1 ]
-  %11 = load i8, ptr %.074105, align 1, !tbaa !12
+  %.074104 = phi ptr [ %13, %12 ], [ %4, %1 ]
+  %11 = load i8, ptr %.074104, align 1, !tbaa !12
   %.not = icmp eq i8 %11, 0
   br i1 %.not, label %12, label %.critedge
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.074105, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.074104, i64 1
   %14 = icmp ult ptr %13, %9
   br i1 %14, label %.lr.ph, label %.critedge, !llvm.loop !13
 
 .critedge:                                        ; preds = %.lr.ph, %12, %1
-  %.074.lcssa = phi ptr [ %4, %1 ], [ %13, %12 ], [ %.074105, %.lr.ph ]
+  %.074.lcssa = phi ptr [ %4, %1 ], [ %13, %12 ], [ %.074104, %.lr.ph ]
   %15 = icmp ult ptr %.074.lcssa, %9
-  br i1 %15, label %.preheader.lr.ph, label %.thread174
+  br i1 %15, label %.preheader.lr.ph, label %.thread173
 
 .preheader.lr.ph:                                 ; preds = %.critedge
   %16 = ptrtoint ptr %9 to i64
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
-  %.068119 = phi i32 [ 0, %.preheader.lr.ph ], [ %50, %.loopexit ]
-  %.070118 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %.loopexit ]
-  %.075117 = phi ptr [ %.074.lcssa, %.preheader.lr.ph ], [ %55, %.loopexit ]
-  %.076116 = phi i32 [ 0, %.preheader.lr.ph ], [ %.177, %.loopexit ]
-  %.078115 = phi i32 [ 0, %.preheader.lr.ph ], [ %51, %.loopexit ]
+  %.068118 = phi i32 [ 0, %.preheader.lr.ph ], [ %50, %.loopexit ]
+  %.070117 = phi i32 [ 0, %.preheader.lr.ph ], [ %.1, %.loopexit ]
+  %.075116 = phi ptr [ %.074.lcssa, %.preheader.lr.ph ], [ %55, %.loopexit ]
+  %.076115 = phi i32 [ 0, %.preheader.lr.ph ], [ %.177, %.loopexit ]
+  %.078114 = phi i32 [ 0, %.preheader.lr.ph ], [ %51, %.loopexit ]
   br label %17
 
 17:                                               ; preds = %.preheader, %46
-  %.072114 = phi ptr [ %.075117, %.preheader ], [ %47, %46 ]
-  %.079113 = phi i32 [ 0, %.preheader ], [ %42, %46 ]
-  %.082112 = phi i32 [ 0, %.preheader ], [ %48, %46 ]
+  %.072113 = phi ptr [ %.075116, %.preheader ], [ %47, %46 ]
+  %.079112 = phi i32 [ 0, %.preheader ], [ %42, %46 ]
+  %.082111 = phi i32 [ 0, %.preheader ], [ %48, %46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %18 = load i32, ptr %.072114, align 1, !tbaa !12
+  %18 = load i32, ptr %.072113, align 1, !tbaa !12
   %19 = call i32 @llvm.bswap.i32(i32 %18)
   %20 = call i32 @avpriv_mpegaudio_decode_header(ptr noundef nonnull %2, i32 noundef %19) #6
   %.not90 = icmp eq i32 %20, 0
@@ -84,81 +84,81 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
 21:                                               ; preds = %17
   %22 = load i32, ptr %2, align 4, !tbaa !15
   %23 = sext i32 %22 to i64
-  %24 = ptrtoint ptr %.072114 to i64
+  %24 = ptrtoint ptr %.072113 to i64
   %25 = sub i64 %16, %24
   %26 = call i64 @llvm.smin.i64(i64 %25, i64 %23)
   %27 = trunc i64 %26 to i32
   %sext = shl i64 %26, 32
   %28 = ashr exact i64 %sext, 32
-  %29 = getelementptr inbounds i8, ptr %.072114, i64 %28
+  %29 = getelementptr inbounds i8, ptr %.072113, i64 %28
   %30 = icmp sgt i64 %28, 4
-  br i1 %30, label %.lr.ph110.preheader, label %._crit_edge.thread
+  br i1 %30, label %.lr.ph109.preheader, label %._crit_edge.thread
 
-.lr.ph110.preheader:                              ; preds = %21
-  %31 = getelementptr inbounds nuw i8, ptr %.072114, i64 4
-  br label %.lr.ph110
+.lr.ph109.preheader:                              ; preds = %21
+  %31 = getelementptr inbounds nuw i8, ptr %.072113, i64 4
+  br label %.lr.ph109
 
-.lr.ph110:                                        ; preds = %.lr.ph110.preheader, %.lr.ph110
-  %.069109 = phi i32 [ %38, %.lr.ph110 ], [ 0, %.lr.ph110.preheader ]
-  %.071108 = phi ptr [ %39, %.lr.ph110 ], [ %31, %.lr.ph110.preheader ]
-  %32 = load i32, ptr %.071108, align 1, !tbaa !12
+.lr.ph109:                                        ; preds = %.lr.ph109.preheader, %.lr.ph109
+  %.069108 = phi i32 [ %38, %.lr.ph109 ], [ 0, %.lr.ph109.preheader ]
+  %.071107 = phi ptr [ %39, %.lr.ph109 ], [ %31, %.lr.ph109.preheader ]
+  %32 = load i32, ptr %.071107, align 1, !tbaa !12
   %33 = call i32 @llvm.bswap.i32(i32 %32)
   %34 = xor i32 %33, %19
   %35 = and i32 %34, -127793
   %36 = icmp eq i32 %35, 0
   %37 = zext i1 %36 to i32
-  %38 = add nuw nsw i32 %.069109, %37
-  %39 = getelementptr inbounds nuw i8, ptr %.071108, i64 1
+  %38 = add nuw nsw i32 %.069108, %37
+  %39 = getelementptr inbounds nuw i8, ptr %.071107, i64 1
   %40 = icmp ult ptr %39, %29
-  br i1 %40, label %.lr.ph110, label %._crit_edge, !llvm.loop !17
+  br i1 %40, label %.lr.ph109, label %._crit_edge, !llvm.loop !17
 
-._crit_edge:                                      ; preds = %.lr.ph110
+._crit_edge:                                      ; preds = %.lr.ph109
   %41 = icmp samesign ugt i32 %38, 2
   br i1 %41, label %.thread, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %21, %._crit_edge
-  %42 = add nsw i32 %22, %.079113
+  %42 = add nsw i32 %22, %.079112
   %43 = icmp sgt i32 %22, %27
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %._crit_edge.thread
-  %45 = add nuw nsw i32 %.082112, 1
+  %45 = add nuw nsw i32 %.082111, 1
   br label %.thread
 
 .thread:                                          ; preds = %17, %._crit_edge, %44
-  %.284.ph = phi i32 [ %45, %44 ], [ %.082112, %._crit_edge ], [ %.082112, %17 ]
-  %.281.ph = phi i32 [ %42, %44 ], [ %.079113, %._crit_edge ], [ %.079113, %17 ]
+  %.284.ph = phi i32 [ %45, %44 ], [ %.082111, %._crit_edge ], [ %.082111, %17 ]
+  %.281.ph = phi i32 [ %42, %44 ], [ %.079112, %._crit_edge ], [ %.079112, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 46:                                               ; preds = %._crit_edge.thread
-  %47 = getelementptr inbounds i8, ptr %.072114, i64 %23
+  %47 = getelementptr inbounds i8, ptr %.072113, i64 %23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %48 = add nuw nsw i32 %.082112, 1
+  %48 = add nuw nsw i32 %.082111, 1
   %49 = icmp ult ptr %47, %9
   br i1 %49, label %17, label %.loopexit, !llvm.loop !18
 
 .loopexit:                                        ; preds = %46, %.thread
-  %.07299 = phi ptr [ %.072114, %.thread ], [ %47, %46 ]
+  %.07298 = phi ptr [ %.072113, %.thread ], [ %47, %46 ]
   %.183 = phi i32 [ %.284.ph, %.thread ], [ %48, %46 ]
   %.180 = phi i32 [ %.281.ph, %.thread ], [ %42, %46 ]
-  %50 = call i32 @llvm.smax.i32(i32 %.068119, i32 %.183)
-  %51 = call i32 @llvm.smax.i32(i32 %.078115, i32 %.180)
-  %52 = icmp eq ptr %.075117, %.074.lcssa
-  %53 = icmp eq ptr %.07299, %8
+  %50 = call i32 @llvm.smax.i32(i32 %.068118, i32 %.183)
+  %51 = call i32 @llvm.smax.i32(i32 %.078114, i32 %.180)
+  %52 = icmp eq ptr %.075116, %.074.lcssa
+  %53 = icmp eq ptr %.07298, %8
   %54 = and i1 %52, %53
-  %.177 = select i1 %54, i32 1, i32 %.076116
-  %.1 = select i1 %52, i32 %.183, i32 %.070118
-  %55 = getelementptr inbounds nuw i8, ptr %.07299, i64 1
+  %.177 = select i1 %54, i32 1, i32 %.076115
+  %.1 = select i1 %52, i32 %.183, i32 %.070117
+  %55 = getelementptr inbounds nuw i8, ptr %.07298, i64 1
   %56 = icmp ult ptr %55, %9
-  br i1 %56, label %.preheader, label %._crit_edge120, !llvm.loop !19
+  br i1 %56, label %.preheader, label %._crit_edge119, !llvm.loop !19
 
-._crit_edge120:                                   ; preds = %.loopexit
+._crit_edge119:                                   ; preds = %.loopexit
   %57 = icmp ne i32 %.177, 0
   %58 = icmp sgt i32 %.1, 6
   br i1 %58, label %85, label %59
 
-59:                                               ; preds = %._crit_edge120
+59:                                               ; preds = %._crit_edge119
   %60 = icmp sgt i32 %50, 200
   br i1 %60, label %61, label %65
 
@@ -166,28 +166,28 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
   %62 = load i32, ptr %5, align 8, !tbaa !11
   %63 = shl nuw nsw i32 %51, 1
   %64 = icmp slt i32 %62, %63
-  br i1 %64, label %85, label %.thread174
+  br i1 %64, label %85, label %.thread173
 
 65:                                               ; preds = %59
   %66 = icmp sgt i32 %50, 3
-  br i1 %66, label %.thread96, label %.thread174
+  br i1 %66, label %.thread95, label %.thread173
 
-.thread96:                                        ; preds = %65
+.thread95:                                        ; preds = %65
   %.pre = load i32, ptr %5, align 8, !tbaa !11
-  %.pre138 = shl nuw nsw i32 %51, 1
-  %67 = icmp slt i32 %.pre, %.pre138
-  br i1 %67, label %85, label %.thread174
+  %.pre137 = shl nuw nsw i32 %51, 1
+  %67 = icmp slt i32 %.pre, %.pre137
+  br i1 %67, label %85, label %.thread173
 
-.thread174:                                       ; preds = %61, %.critedge, %.thread96, %65
-  %.076.lcssa155169 = phi i1 [ %57, %.thread96 ], [ %57, %65 ], [ false, %.critedge ], [ %57, %61 ]
-  %.070.lcssa156166 = phi i32 [ %.1, %.thread96 ], [ %.1, %65 ], [ 0, %.critedge ], [ %.1, %61 ]
-  %.068.lcssa157163 = phi i32 [ %50, %.thread96 ], [ %50, %65 ], [ 0, %.critedge ], [ %50, %61 ]
-  %.078.lcssa154 = phi i32 [ %51, %.thread96 ], [ %51, %65 ], [ 0, %.critedge ], [ %51, %61 ]
+.thread173:                                       ; preds = %61, %.critedge, %.thread95, %65
+  %.076.lcssa154168 = phi i1 [ %57, %.thread95 ], [ %57, %65 ], [ false, %.critedge ], [ %57, %61 ]
+  %.070.lcssa155165 = phi i32 [ %.1, %.thread95 ], [ %.1, %65 ], [ 0, %.critedge ], [ %.1, %61 ]
+  %.068.lcssa156162 = phi i32 [ %50, %.thread95 ], [ %50, %65 ], [ 0, %.critedge ], [ %50, %61 ]
+  %.078.lcssa153 = phi i32 [ %51, %.thread95 ], [ %51, %65 ], [ 0, %.critedge ], [ %51, %61 ]
   %68 = call i32 @ff_id3v2_match(ptr noundef %.074.lcssa, ptr noundef nonnull @.str.8) #6
   %.not88 = icmp eq i32 %68, 0
   br i1 %.not88, label %76, label %69
 
-69:                                               ; preds = %.thread174
+69:                                               ; preds = %.thread173
   %70 = call i32 @ff_id3v2_tag_len(ptr noundef %.074.lcssa) #6
   %71 = shl nsw i32 %70, 1
   %72 = load i32, ptr %5, align 8, !tbaa !11
@@ -199,26 +199,26 @@ define internal range(i32 0, 52) i32 @mp3_read_probe(ptr noundef readonly captur
   %75 = select i1 %74, i32 12, i32 48
   br label %85
 
-76:                                               ; preds = %69, %.thread174
-  %77 = icmp sgt i32 %.070.lcssa156166, 1
-  %or.cond = select i1 %77, i1 %.076.lcssa155169, i1 false
+76:                                               ; preds = %69, %.thread173
+  %77 = icmp sgt i32 %.070.lcssa155165, 1
+  %or.cond = select i1 %77, i1 %.076.lcssa154168, i1 false
   br i1 %or.cond, label %85, label %78
 
 78:                                               ; preds = %76
-  %79 = icmp sgt i32 %.068.lcssa157163, 0
+  %79 = icmp sgt i32 %.068.lcssa156162, 0
   br i1 %79, label %80, label %84
 
 80:                                               ; preds = %78
   %81 = load i32, ptr %5, align 8, !tbaa !11
-  %82 = mul nsw i32 %.078.lcssa154, 10
+  %82 = mul nsw i32 %.078.lcssa153, 10
   %83 = icmp slt i32 %81, %82
   br i1 %83, label %85, label %84
 
 84:                                               ; preds = %80, %78
   br label %85
 
-85:                                               ; preds = %80, %76, %.thread96, %61, %._crit_edge120, %84, %73
-  %.0 = phi i32 [ %75, %73 ], [ 0, %84 ], [ 51, %._crit_edge120 ], [ 50, %61 ], [ 25, %.thread96 ], [ 5, %76 ], [ 1, %80 ]
+85:                                               ; preds = %80, %76, %.thread95, %61, %._crit_edge119, %84, %73
+  %.0 = phi i32 [ %75, %73 ], [ 0, %84 ], [ 51, %._crit_edge119 ], [ 50, %61 ], [ 25, %.thread95 ], [ 5, %76 ], [ 1, %80 ]
   ret i32 %.0
 }
 

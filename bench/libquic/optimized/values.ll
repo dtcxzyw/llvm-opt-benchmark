@@ -6054,12 +6054,12 @@ define noundef zeroext i1 @_ZN4base9ListValue6RemoveERKNS_5ValueEPm(ptr noundef 
   %5 = load ptr, ptr %4, align 8, !tbaa !213
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !213
-  %.not1419.not = icmp eq ptr %5, %7
-  br i1 %.not1419.not, label %.loopexit, label %.lr.ph
+  %.not1520.not = icmp eq ptr %5, %7
+  br i1 %.not1520.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %44
-  %.sroa.09.020 = phi ptr [ %45, %44 ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.09.020, align 8, !tbaa !3
+  %.sroa.09.021 = phi ptr [ %45, %44 ], [ %5, %3 ]
+  %8 = load ptr, ptr %.sroa.09.021, align 8, !tbaa !3
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load ptr, ptr %10, align 8
@@ -6068,7 +6068,7 @@ define noundef zeroext i1 @_ZN4base9ListValue6RemoveERKNS_5ValueEPm(ptr noundef 
 
 13:                                               ; preds = %.lr.ph
   %14 = load ptr, ptr %4, align 8, !tbaa !213
-  %15 = ptrtoint ptr %.sroa.09.020 to i64
+  %15 = ptrtoint ptr %.sroa.09.021 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 3
@@ -6133,21 +6133,21 @@ _ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i.i.i.i.i: ; preds = %_ZSt4mov
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit: ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN4base5ValueESt14default_deleteIS4_EESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit.i.i, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i.i.i.i.i
   store ptr null, ptr %38, align 8, !tbaa !3
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %.loopexit, label %43
+  br i1 %.not, label %.thread, label %43
 
 43:                                               ; preds = %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit
   store i64 %18, ptr %2, align 8, !tbaa !41
-  br label %.loopexit
+  br label %.thread
 
 44:                                               ; preds = %.lr.ph
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.09.020, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.09.021, i64 8
   %46 = load ptr, ptr %6, align 8, !tbaa !213
-  %.not14.not = icmp eq ptr %45, %46
-  br i1 %.not14.not, label %.loopexit, label %.lr.ph, !llvm.loop !215
+  %.not15.not = icmp eq ptr %45, %46
+  br i1 %.not15.not, label %.thread, label %.lr.ph, !llvm.loop !215
 
-.loopexit:                                        ; preds = %44, %3, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit, %43
-  %.not1416 = phi i1 [ true, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ true, %43 ], [ false, %3 ], [ false, %44 ]
-  ret i1 %.not1416
+.thread:                                          ; preds = %44, %3, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit, %43
+  %.not1517 = phi i1 [ true, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS5_S7_EE.exit ], [ true, %43 ], [ false, %3 ], [ false, %44 ]
+  ret i1 %.not1517
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -7054,17 +7054,17 @@ define noundef zeroext i1 @_ZN4base9ListValue18AppendIfNotPresentESt10unique_ptr
   %4 = load ptr, ptr %3, align 8, !tbaa !213
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !213
-  %.not16 = icmp eq ptr %4, %6
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not14 = icmp eq ptr %4, %6
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.017, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.015, i64 8
   %.not = icmp eq ptr %8, %6
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %7
-  %.sroa.08.017 = phi ptr [ %8, %7 ], [ %4, %2 ]
-  %9 = load ptr, ptr %.sroa.08.017, align 8, !tbaa !3
+  %.sroa.08.015 = phi ptr [ %8, %7 ], [ %4, %2 ]
+  %9 = load ptr, ptr %.sroa.08.015, align 8, !tbaa !3
   %10 = load ptr, ptr %1, align 8, !tbaa !3
   %11 = load ptr, ptr %9, align 8, !tbaa !16
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
@@ -7152,8 +7152,8 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_re
   br label %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit
 
 _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE9push_backEOS5_.exit: ; preds = %.lr.ph, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i, %18
-  %.not15 = phi i1 [ true, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ true, %18 ], [ false, %.lr.ph ]
-  ret i1 %.not15
+  %.not13 = phi i1 [ true, %_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i ], [ true, %18 ], [ false, %.lr.ph ]
+  ret i1 %.not13
 }
 
 ; Function Attrs: mustprogress uwtable

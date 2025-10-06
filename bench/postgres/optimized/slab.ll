@@ -312,7 +312,7 @@ define dso_local ptr @SlabAlloc(ptr noundef %0, i64 noundef %1, i32 noundef %2) 
 
 12:                                               ; preds = %8
   %13 = tail call fastcc ptr @SlabAllocFromNewBlock(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2)
-  br label %78
+  br label %79
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -359,7 +359,7 @@ SlabGetNextFreeChunk.exit:                        ; preds = %22, %25
   %41 = sub i32 0, %40
   %42 = load i32, ptr %9, align 8
   %.not33 = icmp eq i32 %42, %41
-  br i1 %.not33, label %66, label %43, !prof !10
+  br i1 %.not33, label %67, label %43, !prof !10
 
 43:                                               ; preds = %SlabGetNextFreeChunk.exit
   %44 = getelementptr inbounds nuw i8, ptr %.val35, i64 8
@@ -390,10 +390,10 @@ dlist_push_head.exit:                             ; preds = %43, %54
   %57 = icmp eq ptr %56, null
   %58 = icmp eq ptr %56, %17
   %spec.select.i = or i1 %57, %58
-  br i1 %spec.select.i, label %.preheader, label %66
+  br i1 %spec.select.i, label %.preheader, label %67
 
 .preheader:                                       ; preds = %dlist_push_head.exit, %64
-  %exitcond.i = phi i1 [ true, %64 ], [ false, %dlist_push_head.exit ]
+  %exitcond.not.i = phi i1 [ true, %64 ], [ false, %dlist_push_head.exit ]
   %indvars.iv.i = phi i64 [ 2, %64 ], [ 1, %dlist_push_head.exit ]
   %59 = getelementptr inbounds nuw %struct.dlist_head, ptr %15, i64 %indvars.iv.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -401,38 +401,38 @@ dlist_push_head.exit:                             ; preds = %43, %54
   %62 = icmp eq ptr %61, null
   %63 = icmp eq ptr %61, %59
   %spec.select.i.i = or i1 %62, %63
-  br i1 %spec.select.i.i, label %64, label %.split.loop.exit.i
+  br i1 %spec.select.i.i, label %64, label %.split.loop.exit11.i
 
 64:                                               ; preds = %.preheader
-  br i1 %exitcond.i, label %SlabFindNextBlockListIndex.exit, label %.preheader, !llvm.loop !12
+  br i1 %exitcond.not.i, label %SlabFindNextBlockListIndex.exit, label %.preheader, !llvm.loop !12
 
-.split.loop.exit.i:                               ; preds = %.preheader
+.split.loop.exit11.i:                             ; preds = %.preheader
   %65 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %SlabFindNextBlockListIndex.exit
 
-SlabFindNextBlockListIndex.exit:                  ; preds = %64, %.split.loop.exit.i
-  %spec.select.i36 = phi i32 [ %65, %.split.loop.exit.i ], [ 0, %64 ]
-  store i32 %spec.select.i36, ptr %9, align 8
-  br label %66
+SlabFindNextBlockListIndex.exit:                  ; preds = %64, %.split.loop.exit11.i
+  %66 = phi i32 [ %65, %.split.loop.exit11.i ], [ 0, %64 ]
+  store i32 %66, ptr %9, align 8
+  br label %67
 
-66:                                               ; preds = %dlist_push_head.exit, %SlabFindNextBlockListIndex.exit, %SlabGetNextFreeChunk.exit
+67:                                               ; preds = %dlist_push_head.exit, %SlabFindNextBlockListIndex.exit, %SlabGetNextFreeChunk.exit
   %.val34 = load i32, ptr %4, align 8
-  %67 = zext i32 %.val34 to i64
-  %68 = ptrtoint ptr %.0.i to i64
-  %69 = ptrtoint ptr %19 to i64
-  %70 = sub i64 %68, %69
-  %71 = shl i64 %70, 34
-  %72 = shl nuw nsw i64 %67, 5
-  %73 = add nuw nsw i64 %72, 224
-  %74 = and i64 %73, 274877906688
-  %75 = or i64 %71, %74
-  %76 = or disjoint i64 %75, 5
-  store i64 %76, ptr %.0.i, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  br label %78
+  %68 = zext i32 %.val34 to i64
+  %69 = ptrtoint ptr %.0.i to i64
+  %70 = ptrtoint ptr %19 to i64
+  %71 = sub i64 %69, %70
+  %72 = shl i64 %71, 34
+  %73 = shl nuw nsw i64 %68, 5
+  %74 = add nuw nsw i64 %73, 224
+  %75 = and i64 %74, 274877906688
+  %76 = or i64 %72, %75
+  %77 = or disjoint i64 %76, 5
+  store i64 %77, ptr %.0.i, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  br label %79
 
-78:                                               ; preds = %66, %12
-  %.0 = phi ptr [ %13, %12 ], [ %77, %66 ]
+79:                                               ; preds = %67, %12
+  %.0 = phi ptr [ %13, %12 ], [ %78, %67 ]
   ret ptr %.0
 }
 
@@ -610,10 +610,10 @@ define dso_local void @SlabFree(ptr noundef %0) local_unnamed_addr #0 {
   %15 = sub i32 0, %12
   %16 = ashr i32 %15, %.val43
   %17 = sub i32 0, %16
-  %.not51 = ashr i32 %12, %.val43
-  %.neg = add i32 %.not51, 1
+  %.not49 = ashr i32 %12, %.val43
+  %.neg = add i32 %.not49, 1
   %.not = icmp eq i32 %.neg, %17
-  br i1 %.not, label %42, label %18, !prof !10
+  br i1 %.not, label %43, label %18, !prof !10
 
 18:                                               ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 128
@@ -645,10 +645,10 @@ dlist_push_head.exit:                             ; preds = %18, %31
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 96
   %34 = load i32, ptr %33, align 8
   %.not41 = icmp slt i32 %34, %17
-  br i1 %.not41, label %42, label %.preheader52
+  br i1 %.not41, label %43, label %.preheader50
 
-.preheader52:                                     ; preds = %dlist_push_head.exit, %40
-  %exitcond.i = phi i1 [ true, %40 ], [ false, %dlist_push_head.exit ]
+.preheader50:                                     ; preds = %dlist_push_head.exit, %40
+  %exitcond.not.i = phi i1 [ true, %40 ], [ false, %dlist_push_head.exit ]
   %indvars.iv.i = phi i64 [ 2, %40 ], [ 1, %dlist_push_head.exit ]
   %35 = getelementptr inbounds nuw %struct.dlist_head, ptr %19, i64 %indvars.iv.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -656,116 +656,116 @@ dlist_push_head.exit:                             ; preds = %18, %31
   %38 = icmp eq ptr %37, null
   %39 = icmp eq ptr %37, %35
   %spec.select.i.i = or i1 %38, %39
-  br i1 %spec.select.i.i, label %40, label %.split.loop.exit.i
+  br i1 %spec.select.i.i, label %40, label %.split.loop.exit11.i
 
-40:                                               ; preds = %.preheader52
-  br i1 %exitcond.i, label %SlabFindNextBlockListIndex.exit, label %.preheader52, !llvm.loop !12
+40:                                               ; preds = %.preheader50
+  br i1 %exitcond.not.i, label %SlabFindNextBlockListIndex.exit, label %.preheader50, !llvm.loop !12
 
-.split.loop.exit.i:                               ; preds = %.preheader52
+.split.loop.exit11.i:                             ; preds = %.preheader50
   %41 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %SlabFindNextBlockListIndex.exit
 
-SlabFindNextBlockListIndex.exit:                  ; preds = %40, %.split.loop.exit.i
-  %spec.select.i = phi i32 [ %41, %.split.loop.exit.i ], [ 0, %40 ]
-  store i32 %spec.select.i, ptr %33, align 8
-  br label %42
+SlabFindNextBlockListIndex.exit:                  ; preds = %40, %.split.loop.exit11.i
+  %42 = phi i32 [ %41, %.split.loop.exit11.i ], [ 0, %40 ]
+  store i32 %42, ptr %33, align 8
+  br label %43
 
-42:                                               ; preds = %dlist_push_head.exit, %SlabFindNextBlockListIndex.exit, %1
-  %43 = load i32, ptr %11, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %8, i64 92
-  %45 = load i32, ptr %44, align 4
-  %46 = icmp eq i32 %43, %45
-  br i1 %46, label %47, label %91, !prof !11
+43:                                               ; preds = %dlist_push_head.exit, %SlabFindNextBlockListIndex.exit, %1
+  %44 = load i32, ptr %11, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %8, i64 92
+  %46 = load i32, ptr %45, align 4
+  %47 = icmp eq i32 %44, %46
+  br i1 %47, label %48, label %93, !prof !11
 
-47:                                               ; preds = %42
-  %48 = getelementptr inbounds nuw i8, ptr %8, i64 128
-  %49 = sext i32 %.neg to i64
-  %50 = getelementptr inbounds %struct.dlist_head, ptr %48, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %52 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %53 = load ptr, ptr %52, align 8
-  %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store ptr %53, ptr %55, align 8
-  %56 = load ptr, ptr %51, align 8
-  store ptr %56, ptr %53, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %8, i64 104
-  %58 = getelementptr i8, ptr %8, i64 120
-  %.val = load i32, ptr %58, align 8
-  %59 = icmp ult i32 %.val, 10
-  br i1 %59, label %60, label %68
+48:                                               ; preds = %43
+  %49 = getelementptr inbounds nuw i8, ptr %8, i64 128
+  %50 = sext i32 %.neg to i64
+  %51 = getelementptr inbounds %struct.dlist_head, ptr %49, i64 %50
+  %52 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %54 = load ptr, ptr %53, align 8
+  %55 = load ptr, ptr %52, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store ptr %54, ptr %56, align 8
+  %57 = load ptr, ptr %52, align 8
+  store ptr %57, ptr %54, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %8, i64 104
+  %59 = getelementptr i8, ptr %8, i64 120
+  %.val = load i32, ptr %59, align 8
+  %60 = icmp ult i32 %.val, 10
+  br i1 %60, label %61, label %69
 
-60:                                               ; preds = %47
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 112
-  %62 = load ptr, ptr %61, align 8
-  %63 = icmp eq ptr %62, null
-  br i1 %63, label %64, label %dclist_push_head.exit
+61:                                               ; preds = %48
+  %62 = getelementptr inbounds nuw i8, ptr %8, i64 112
+  %63 = load ptr, ptr %62, align 8
+  %64 = icmp eq ptr %63, null
+  br i1 %64, label %65, label %dclist_push_head.exit
 
-64:                                               ; preds = %60
-  store ptr %57, ptr %57, align 8
-  store i32 0, ptr %58, align 8
+65:                                               ; preds = %61
+  store ptr %58, ptr %58, align 8
+  store i32 0, ptr %59, align 8
   br label %dclist_push_head.exit
 
-dclist_push_head.exit:                            ; preds = %60, %64
-  %65 = phi ptr [ %57, %64 ], [ %62, %60 ]
-  store ptr %65, ptr %52, align 8
-  store ptr %57, ptr %51, align 8
-  store ptr %51, ptr %65, align 8
-  store ptr %51, ptr %61, align 8
-  %66 = load i32, ptr %58, align 8
-  %67 = add i32 %66, 1
-  store i32 %67, ptr %58, align 8
-  br label %75
+dclist_push_head.exit:                            ; preds = %61, %65
+  %66 = phi ptr [ %58, %65 ], [ %63, %61 ]
+  store ptr %66, ptr %53, align 8
+  store ptr %58, ptr %52, align 8
+  store ptr %52, ptr %66, align 8
+  store ptr %52, ptr %62, align 8
+  %67 = load i32, ptr %59, align 8
+  %68 = add i32 %67, 1
+  store i32 %68, ptr %59, align 8
+  br label %76
 
-68:                                               ; preds = %47
+69:                                               ; preds = %48
   tail call void @free(ptr noundef nonnull %7) #12
-  %69 = getelementptr inbounds nuw i8, ptr %8, i64 88
-  %70 = load i32, ptr %69, align 8
-  %71 = zext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %73 = load i64, ptr %72, align 8
-  %74 = sub i64 %73, %71
-  store i64 %74, ptr %72, align 8
-  br label %75
+  %70 = getelementptr inbounds nuw i8, ptr %8, i64 88
+  %71 = load i32, ptr %70, align 8
+  %72 = zext i32 %71 to i64
+  %73 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %74 = load i64, ptr %73, align 8
+  %75 = sub i64 %74, %72
+  store i64 %75, ptr %73, align 8
+  br label %76
 
-75:                                               ; preds = %68, %dclist_push_head.exit
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 96
-  %77 = load i32, ptr %76, align 8
-  %78 = icmp eq i32 %77, %.neg
-  br i1 %78, label %79, label %91
+76:                                               ; preds = %69, %dclist_push_head.exit
+  %77 = getelementptr inbounds nuw i8, ptr %8, i64 96
+  %78 = load i32, ptr %77, align 8
+  %79 = icmp eq i32 %78, %.neg
+  br i1 %79, label %80, label %93
 
-79:                                               ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %81 = load ptr, ptr %80, align 8
-  %82 = icmp eq ptr %81, null
-  %83 = icmp eq ptr %81, %50
-  %spec.select.i44 = or i1 %82, %83
-  br i1 %spec.select.i44, label %.preheader, label %91
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  %82 = load ptr, ptr %81, align 8
+  %83 = icmp eq ptr %82, null
+  %84 = icmp eq ptr %82, %51
+  %spec.select.i = or i1 %83, %84
+  br i1 %spec.select.i, label %.preheader, label %93
 
-.preheader:                                       ; preds = %79, %89
-  %exitcond.i45 = phi i1 [ true, %89 ], [ false, %79 ]
-  %indvars.iv.i46 = phi i64 [ 2, %89 ], [ 1, %79 ]
-  %84 = getelementptr inbounds nuw %struct.dlist_head, ptr %48, i64 %indvars.iv.i46
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = icmp eq ptr %86, null
-  %88 = icmp eq ptr %86, %84
-  %spec.select.i.i47 = or i1 %87, %88
-  br i1 %spec.select.i.i47, label %89, label %.split.loop.exit.i48
+.preheader:                                       ; preds = %80, %90
+  %exitcond.not.i44 = phi i1 [ true, %90 ], [ false, %80 ]
+  %indvars.iv.i45 = phi i64 [ 2, %90 ], [ 1, %80 ]
+  %85 = getelementptr inbounds nuw %struct.dlist_head, ptr %49, i64 %indvars.iv.i45
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
+  %87 = load ptr, ptr %86, align 8
+  %88 = icmp eq ptr %87, null
+  %89 = icmp eq ptr %87, %85
+  %spec.select.i.i46 = or i1 %88, %89
+  br i1 %spec.select.i.i46, label %90, label %.split.loop.exit11.i47
 
-89:                                               ; preds = %.preheader
-  br i1 %exitcond.i45, label %SlabFindNextBlockListIndex.exit50, label %.preheader, !llvm.loop !12
+90:                                               ; preds = %.preheader
+  br i1 %exitcond.not.i44, label %SlabFindNextBlockListIndex.exit48, label %.preheader, !llvm.loop !12
 
-.split.loop.exit.i48:                             ; preds = %.preheader
-  %90 = trunc nuw nsw i64 %indvars.iv.i46 to i32
-  br label %SlabFindNextBlockListIndex.exit50
+.split.loop.exit11.i47:                           ; preds = %.preheader
+  %91 = trunc nuw nsw i64 %indvars.iv.i45 to i32
+  br label %SlabFindNextBlockListIndex.exit48
 
-SlabFindNextBlockListIndex.exit50:                ; preds = %89, %.split.loop.exit.i48
-  %spec.select.i49 = phi i32 [ %90, %.split.loop.exit.i48 ], [ 0, %89 ]
-  store i32 %spec.select.i49, ptr %76, align 8
-  br label %91
+SlabFindNextBlockListIndex.exit48:                ; preds = %90, %.split.loop.exit11.i47
+  %92 = phi i32 [ %91, %.split.loop.exit11.i47 ], [ 0, %90 ]
+  store i32 %92, ptr %77, align 8
+  br label %93
 
-91:                                               ; preds = %75, %79, %SlabFindNextBlockListIndex.exit50, %42
+93:                                               ; preds = %76, %80, %SlabFindNextBlockListIndex.exit48, %43
   ret void
 }
 

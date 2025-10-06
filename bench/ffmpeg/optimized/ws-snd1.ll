@@ -74,8 +74,8 @@ define internal range(i32 4, 1) i32 @ws_snd_decode_frame(ptr noundef %0, ptr nou
   br i1 %29, label %32, label %.preheader
 
 .preheader:                                       ; preds = %25
-  %.not190 = icmp eq i16 %13, 0
-  br i1 %.not190, label %.critedge, label %.lr.ph
+  %.not189 = icmp eq i16 %13, 0
+  br i1 %.not189, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %30 = zext nneg i32 %8 to i64
@@ -88,21 +88,21 @@ define internal range(i32 4, 1) i32 @ws_snd_decode_frame(ptr noundef %0, ptr nou
   br label %167
 
 33:                                               ; preds = %.lr.ph, %.loopexit
-  %.0120183 = phi ptr [ %17, %.lr.ph ], [ %.1121, %.loopexit ]
-  %.0124182 = phi i32 [ 128, %.lr.ph ], [ %.1125, %.loopexit ]
-  %.0129181 = phi ptr [ %26, %.lr.ph ], [ %.2131, %.loopexit ]
+  %.0120182 = phi ptr [ %17, %.lr.ph ], [ %.1121, %.loopexit ]
+  %.0124181 = phi i32 [ 128, %.lr.ph ], [ %.1125, %.loopexit ]
+  %.0129180 = phi ptr [ %26, %.lr.ph ], [ %.2131, %.loopexit ]
   %34 = load ptr, ptr %5, align 8, !tbaa !30
-  %35 = ptrtoint ptr %.0120183 to i64
+  %35 = ptrtoint ptr %.0120182 to i64
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = icmp slt i64 %37, %30
   br i1 %38, label %39, label %.critedge.loopexit
 
 39:                                               ; preds = %33
-  %40 = load i8, ptr %.0120183, align 1, !tbaa !8
+  %40 = load i8, ptr %.0120182, align 1, !tbaa !8
   %41 = lshr i8 %40, 6
   %42 = and i8 %40, 63
-  %43 = getelementptr inbounds nuw i8, ptr %.0120183, i64 1
+  %43 = getelementptr inbounds nuw i8, ptr %.0120182, i64 1
   switch i8 %41, label %default.unreachable [
     i8 0, label %44
     i8 1, label %47
@@ -139,7 +139,7 @@ default.unreachable:                              ; preds = %69, %39
 
 54:                                               ; preds = %52, %50, %47, %44
   %.0122 = phi i64 [ %53, %52 ], [ %46, %44 ], [ %49, %47 ], [ %51, %50 ]
-  %55 = ptrtoint ptr %.0129181 to i64
+  %55 = ptrtoint ptr %.0129180 to i64
   %56 = sub i64 %31, %55
   %57 = icmp slt i64 %56, %.0122
   br i1 %57, label %.critedge.loopexit, label %58
@@ -181,15 +181,15 @@ default.unreachable:                              ; preds = %69, %39
   br label %72
 
 72:                                               ; preds = %70, %72
-  %.0119180 = phi i8 [ %71, %70 ], [ %110, %72 ]
-  %.2179 = phi ptr [ %43, %70 ], [ %73, %72 ]
-  %.2126178 = phi i32 [ %.0124182, %70 ], [ %108, %72 ]
-  %.3132177 = phi ptr [ %.0129181, %70 ], [ %109, %72 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.2179, i64 1
-  %74 = load i8, ptr %.2179, align 1, !tbaa !8
+  %.0119179 = phi i8 [ %71, %70 ], [ %110, %72 ]
+  %.2178 = phi ptr [ %43, %70 ], [ %73, %72 ]
+  %.2126177 = phi i32 [ %.0124181, %70 ], [ %108, %72 ]
+  %.3132176 = phi ptr [ %.0129180, %70 ], [ %109, %72 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.2178, i64 1
+  %74 = load i8, ptr %.2178, align 1, !tbaa !8
   %75 = zext i8 %74 to i32
   %76 = and i32 %75, 3
-  %77 = add nsw i32 %.2126178, -2
+  %77 = add nsw i32 %.2126177, -2
   %78 = add nsw i32 %77, %76
   %79 = icmp ugt i32 %78, 255
   %isnotneg.i = icmp sgt i32 %78, -1
@@ -197,8 +197,8 @@ default.unreachable:                              ; preds = %69, %39
   %81 = trunc nuw i32 %78 to i8
   %.0.i = select i1 %79, i8 %80, i8 %81
   %82 = zext i8 %.0.i to i32
-  %83 = getelementptr inbounds nuw i8, ptr %.3132177, i64 1
-  store i8 %.0.i, ptr %.3132177, align 1, !tbaa !8
+  %83 = getelementptr inbounds nuw i8, ptr %.3132176, i64 1
+  store i8 %.0.i, ptr %.3132176, align 1, !tbaa !8
   %84 = lshr i32 %75, 2
   %85 = and i32 %84, 3
   %86 = add nsw i32 %85, -2
@@ -209,7 +209,7 @@ default.unreachable:                              ; preds = %69, %39
   %90 = trunc nuw i32 %87 to i8
   %.0.i154 = select i1 %88, i8 %89, i8 %90
   %91 = zext i8 %.0.i154 to i32
-  %92 = getelementptr inbounds nuw i8, ptr %.3132177, i64 2
+  %92 = getelementptr inbounds nuw i8, ptr %.3132176, i64 2
   store i8 %.0.i154, ptr %83, align 1, !tbaa !8
   %93 = lshr i32 %75, 4
   %94 = and i32 %93, 3
@@ -221,7 +221,7 @@ default.unreachable:                              ; preds = %69, %39
   %99 = trunc nuw i32 %96 to i8
   %.0.i156 = select i1 %97, i8 %98, i8 %99
   %100 = zext i8 %.0.i156 to i32
-  %101 = getelementptr inbounds nuw i8, ptr %.3132177, i64 3
+  %101 = getelementptr inbounds nuw i8, ptr %.3132176, i64 3
   store i8 %.0.i156, ptr %92, align 1, !tbaa !8
   %102 = lshr i32 %75, 6
   %103 = add nsw i32 %102, -2
@@ -232,9 +232,9 @@ default.unreachable:                              ; preds = %69, %39
   %107 = trunc nuw i32 %104 to i8
   %.0.i158 = select i1 %105, i8 %106, i8 %107
   %108 = zext i8 %.0.i158 to i32
-  %109 = getelementptr inbounds nuw i8, ptr %.3132177, i64 4
+  %109 = getelementptr inbounds nuw i8, ptr %.3132176, i64 4
   store i8 %.0.i158, ptr %101, align 1, !tbaa !8
-  %110 = add nsw i8 %.0119180, -1
+  %110 = add nsw i8 %.0119179, -1
   %.not150 = icmp eq i8 %110, 0
   br i1 %.not150, label %.loopexit, label %72, !llvm.loop !39
 
@@ -243,27 +243,27 @@ default.unreachable:                              ; preds = %69, %39
   br label %113
 
 113:                                              ; preds = %111, %113
-  %.1176 = phi i8 [ %112, %111 ], [ %139, %113 ]
-  %.4175 = phi ptr [ %43, %111 ], [ %114, %113 ]
-  %.4128174 = phi i32 [ %.0124182, %111 ], [ %137, %113 ]
-  %.5173 = phi ptr [ %.0129181, %111 ], [ %138, %113 ]
-  %114 = getelementptr inbounds nuw i8, ptr %.4175, i64 1
-  %115 = load i8, ptr %.4175, align 1, !tbaa !8
+  %.1175 = phi i8 [ %112, %111 ], [ %139, %113 ]
+  %.4174 = phi ptr [ %43, %111 ], [ %114, %113 ]
+  %.4128173 = phi i32 [ %.0124181, %111 ], [ %137, %113 ]
+  %.5172 = phi ptr [ %.0129180, %111 ], [ %138, %113 ]
+  %114 = getelementptr inbounds nuw i8, ptr %.4174, i64 1
+  %115 = load i8, ptr %.4174, align 1, !tbaa !8
   %116 = zext i8 %115 to i32
   %117 = and i32 %116, 15
   %118 = zext nneg i32 %117 to i64
   %119 = getelementptr inbounds nuw i8, ptr @ws_adpcm_4bit, i64 %118
   %120 = load i8, ptr %119, align 1, !tbaa !8
   %121 = sext i8 %120 to i32
-  %122 = add nsw i32 %.4128174, %121
+  %122 = add nsw i32 %.4128173, %121
   %123 = icmp ugt i32 %122, 255
   %isnotneg.i159 = icmp sgt i32 %122, -1
   %124 = sext i1 %isnotneg.i159 to i8
   %125 = trunc nuw i32 %122 to i8
   %.0.i160 = select i1 %123, i8 %124, i8 %125
   %126 = zext i8 %.0.i160 to i32
-  %127 = getelementptr inbounds nuw i8, ptr %.5173, i64 1
-  store i8 %.0.i160, ptr %.5173, align 1, !tbaa !8
+  %127 = getelementptr inbounds nuw i8, ptr %.5172, i64 1
+  store i8 %.0.i160, ptr %.5172, align 1, !tbaa !8
   %128 = lshr i32 %116, 4
   %129 = zext nneg i32 %128 to i64
   %130 = getelementptr inbounds nuw i8, ptr @ws_adpcm_4bit, i64 %129
@@ -276,9 +276,9 @@ default.unreachable:                              ; preds = %69, %39
   %136 = trunc nuw i32 %133 to i8
   %.0.i162 = select i1 %134, i8 %135, i8 %136
   %137 = zext i8 %.0.i162 to i32
-  %138 = getelementptr inbounds nuw i8, ptr %.5173, i64 2
+  %138 = getelementptr inbounds nuw i8, ptr %.5172, i64 2
   store i8 %.0.i162, ptr %127, align 1, !tbaa !8
-  %139 = add nsw i8 %.1176, -1
+  %139 = add nsw i8 %.1175, -1
   %.not149 = icmp eq i8 %139, 0
   br i1 %.not149, label %.loopexit, label %113, !llvm.loop !41
 
@@ -291,20 +291,20 @@ default.unreachable:                              ; preds = %69, %39
   %143 = shl i8 %40, 3
   %144 = ashr exact i8 %143, 3
   %145 = sext i8 %144 to i32
-  %146 = add nsw i32 %.0124182, %145
+  %146 = add nsw i32 %.0124181, %145
   %147 = icmp ugt i32 %146, 255
   %isnotneg.i163 = icmp sgt i32 %146, -1
   %148 = sext i1 %isnotneg.i163 to i8
   %149 = trunc nuw i32 %146 to i8
   %.0.i164 = select i1 %147, i8 %148, i8 %149
   %150 = zext i8 %.0.i164 to i32
-  %151 = getelementptr inbounds nuw i8, ptr %.0129181, i64 1
-  store i8 %.0.i164, ptr %.0129181, align 1, !tbaa !8
+  %151 = getelementptr inbounds nuw i8, ptr %.0129180, i64 1
+  store i8 %.0.i164, ptr %.0129180, align 1, !tbaa !8
   br label %.loopexit
 
 152:                                              ; preds = %140
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0129181, ptr nonnull align 1 %43, i64 %.0122, i1 false)
-  %153 = getelementptr inbounds nuw i8, ptr %.0129181, i64 %.0122
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0129180, ptr nonnull align 1 %43, i64 %.0122, i1 false)
+  %153 = getelementptr inbounds nuw i8, ptr %.0129180, i64 %.0122
   %154 = getelementptr inbounds nuw i8, ptr %43, i64 %.0122
   %155 = getelementptr inbounds i8, ptr %154, i64 -1
   %156 = load i8, ptr %155, align 1, !tbaa !8
@@ -312,20 +312,20 @@ default.unreachable:                              ; preds = %69, %39
   br label %.loopexit
 
 158:                                              ; preds = %69
-  %159 = trunc nuw i32 %.0124182 to i8
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0129181, i8 %159, i64 %.0122, i1 false)
-  %160 = getelementptr inbounds nuw i8, ptr %.0129181, i64 %.0122
+  %159 = trunc nuw i32 %.0124181 to i8
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0129180, i8 %159, i64 %.0122, i1 false)
+  %160 = getelementptr inbounds nuw i8, ptr %.0129180, i64 %.0122
   br label %.loopexit
 
 .loopexit:                                        ; preds = %113, %72, %158, %152, %142
   %.2131 = phi ptr [ %160, %158 ], [ %151, %142 ], [ %153, %152 ], [ %109, %72 ], [ %138, %113 ]
-  %.1125 = phi i32 [ %.0124182, %158 ], [ %150, %142 ], [ %157, %152 ], [ %108, %72 ], [ %137, %113 ]
+  %.1125 = phi i32 [ %.0124181, %158 ], [ %150, %142 ], [ %157, %152 ], [ %108, %72 ], [ %137, %113 ]
   %.1121 = phi ptr [ %43, %158 ], [ %43, %142 ], [ %154, %152 ], [ %73, %72 ], [ %114, %113 ]
   %161 = icmp ult ptr %.2131, %28
   br i1 %161, label %33, label %.critedge.loopexit
 
 .critedge.loopexit:                               ; preds = %63, %54, %.loopexit, %33
-  %.0129.lcssa.ph = phi ptr [ %.0129181, %33 ], [ %.2131, %.loopexit ], [ %.0129181, %54 ], [ %.0129181, %63 ]
+  %.0129.lcssa.ph = phi ptr [ %.0129180, %33 ], [ %.2131, %.loopexit ], [ %.0129180, %54 ], [ %.0129180, %63 ]
   %.pre = load ptr, ptr %1, align 8, !tbaa !38
   br label %.critedge
 

@@ -1489,7 +1489,7 @@ iconv_open_cached.exit.thread:                    ; preds = %73, %51, %86, %icon
 
 .lr.ph.split.i:                                   ; preds = %119, %155
   %124 = phi i64 [ %156, %155 ], [ %spec.select.i, %119 ]
-  %.15.i = phi i64 [ %.2.i, %155 ], [ %.025.i, %119 ]
+  %.13.i = phi i64 [ %.2.i, %155 ], [ %.025.i, %119 ]
   %125 = call i64 @iconv(ptr noundef %.0.i36, ptr noundef nonnull %6, ptr noundef nonnull %5, ptr noundef nonnull %8, ptr noundef nonnull %7) #16
   %126 = icmp eq i64 %125, -1
   br i1 %126, label %127, label %131
@@ -1507,7 +1507,7 @@ iconv_open_cached.exit.thread:                    ; preds = %73, %51, %86, %icon
 
 134:                                              ; preds = %131
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.805) #16
-  %.not36.i = icmp eq i64 %.15.i, 0
+  %.not36.i = icmp eq i64 %.13.i, 0
   br i1 %.not36.i, label %.thread.loopexit.i, label %thread-pre-split.i
 
 135:                                              ; preds = %131
@@ -1543,7 +1543,7 @@ iconv_open_cached.exit.thread:                    ; preds = %73, %51, %86, %icon
   %152 = add i64 %151, -1
   store i64 %152, ptr %5, align 8, !tbaa !29
   %153 = icmp eq i64 %152, 0
-  %154 = icmp ne i64 %.15.i, 0
+  %154 = icmp ne i64 %.13.i, 0
   %or.cond.i = select i1 %153, i1 %154, i1 false
   br i1 %or.cond.i, label %thread-pre-split.i, label %.thread.loopexit.i
 
@@ -1555,7 +1555,7 @@ thread-pre-split.i:                               ; preds = %142, %134
 
 155:                                              ; preds = %thread-pre-split.i, %135
   %156 = phi i64 [ %.pr.i, %thread-pre-split.i ], [ %136, %135 ]
-  %.2.i = phi i64 [ 0, %thread-pre-split.i ], [ %.15.i, %135 ]
+  %.2.i = phi i64 [ 0, %thread-pre-split.i ], [ %.13.i, %135 ]
   %157 = icmp ugt i64 %156, 1
   br i1 %157, label %.lr.ph.split.i, label %.thread.loopexit.i
 
@@ -1659,12 +1659,12 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
 
 14:                                               ; preds = %5
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.3) #16
-  br label %.thread159
+  br label %.thread157
 
 15:                                               ; preds = %5
   store ptr null, ptr %3, align 8, !tbaa !28
   store i64 0, ptr %4, align 8, !tbaa !29
-  switch i16 %2, label %.preheader168 [
+  switch i16 %2, label %.preheader166 [
     i16 20127, label %16
     i16 -535, label %16
   ]
@@ -1685,26 +1685,26 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   %24 = getelementptr inbounds i8, ptr %18, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !3
   %.not = icmp sgt i8 %25, -1
-  br i1 %.not, label %.thread, label %.preheader170
+  br i1 %.not, label %.thread, label %.preheader168
 
-.preheader170:                                    ; preds = %22
-  %.not128191 = icmp eq i64 %23, 0
-  br i1 %.not128191, label %._crit_edge, label %.lr.ph.preheader
+.preheader168:                                    ; preds = %22
+  %.not128189 = icmp eq i64 %23, 0
+  br i1 %.not128189, label %._crit_edge, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader170
+.lr.ph.preheader:                                 ; preds = %.preheader168
   %26 = trunc i64 %1 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
-  %.089193 = phi i32 [ %30, %28 ], [ 1, %.lr.ph.preheader ]
-  %.091192 = phi ptr [ %29, %28 ], [ %24, %.lr.ph.preheader ]
-  %27 = load i8, ptr %.091192, align 1, !tbaa !3
+  %.089191 = phi i32 [ %30, %28 ], [ 1, %.lr.ph.preheader ]
+  %.091190 = phi ptr [ %29, %28 ], [ %24, %.lr.ph.preheader ]
+  %27 = load i8, ptr %.091190, align 1, !tbaa !3
   %.not129 = icmp slt i8 %27, -64
   br i1 %.not129, label %28, label %._crit_edge
 
 28:                                               ; preds = %.lr.ph
-  %29 = getelementptr inbounds i8, ptr %.091192, i64 -1
-  %30 = add nuw nsw i32 %.089193, 1
+  %29 = getelementptr inbounds i8, ptr %.091190, i64 -1
+  %30 = add nuw nsw i32 %.089191, 1
   %.not128 = icmp eq ptr %29, %18
   br i1 %.not128, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph
 
@@ -1712,31 +1712,31 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   %.pre.pre = load i8, ptr %18, align 1, !tbaa !3
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge.loopexit_crit_edge, %.preheader170
-  %31 = phi i8 [ %25, %.preheader170 ], [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.ph ]
-  %.091.lcssa = phi ptr [ %24, %.preheader170 ], [ %18, %.._crit_edge.loopexit_crit_edge ], [ %.091192, %.lr.ph ]
-  %.089.lcssa = phi i32 [ 1, %.preheader170 ], [ %26, %.._crit_edge.loopexit_crit_edge ], [ %.089193, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.._crit_edge.loopexit_crit_edge, %.preheader168
+  %31 = phi i8 [ %25, %.preheader168 ], [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %27, %.lr.ph ]
+  %.091.lcssa = phi ptr [ %24, %.preheader168 ], [ %18, %.._crit_edge.loopexit_crit_edge ], [ %.091190, %.lr.ph ]
+  %.089.lcssa = phi i32 [ 1, %.preheader168 ], [ %26, %.._crit_edge.loopexit_crit_edge ], [ %.089191, %.lr.ph ]
   %32 = zext i8 %31 to i32
   br label %33
 
 33:                                               ; preds = %._crit_edge, %37
-  %.088198 = phi i32 [ 0, %._crit_edge ], [ %38, %37 ]
-  %34 = lshr exact i32 128, %.088198
+  %.088196 = phi i32 [ 0, %._crit_edge ], [ %38, %37 ]
+  %34 = lshr exact i32 128, %.088196
   %35 = and i32 %34, %32
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %39, label %37
 
 37:                                               ; preds = %33
-  %38 = add nuw nsw i32 %.088198, 1
+  %38 = add nuw nsw i32 %.088196, 1
   %exitcond.not = icmp eq i32 %38, 8
   br i1 %exitcond.not, label %39, label %33
 
 39:                                               ; preds = %33, %37
-  %.088.lcssa = phi i32 [ %.088198, %33 ], [ 8, %37 ]
+  %.088.lcssa = phi i32 [ %.088196, %33 ], [ 8, %37 ]
   %.not130 = icmp eq i32 %.089.lcssa, %.088.lcssa
-  br i1 %.not130, label %.thread, label %.thread.loopexit203
+  br i1 %.not130, label %.thread, label %.thread.loopexit201
 
-.thread.loopexit203:                              ; preds = %39
+.thread.loopexit201:                              ; preds = %39
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %.089.lcssa, i32 noundef %.088.lcssa) #16
   %smin = tail call i32 @llvm.smin.i32(i32 %.089.lcssa, i32 1)
   %40 = sub i32 %.089.lcssa, %smin
@@ -1747,38 +1747,38 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
 
 43:                                               ; preds = %16
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.4) #16
-  br label %.thread159
+  br label %.thread157
 
-.preheader168:                                    ; preds = %15, %47
+.preheader166:                                    ; preds = %15, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %15 ]
   %44 = getelementptr inbounds nuw %struct.codepage_entry, ptr @codepage_entries, i64 %indvars.iv
   %45 = load i16, ptr %44, align 16, !tbaa !30
   %46 = icmp eq i16 %2, %45
   br i1 %46, label %49, label %47
 
-47:                                               ; preds = %.preheader168
+47:                                               ; preds = %.preheader166
   %48 = icmp ult i16 %2, %45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond223.not = icmp eq i64 %indvars.iv.next, 152
-  %or.cond273 = select i1 %48, i1 true, i1 %exitcond223.not
-  br i1 %or.cond273, label %.thread136, label %.preheader168
+  %exitcond221.not = icmp eq i64 %indvars.iv.next, 152
+  %or.cond271 = select i1 %48, i1 true, i1 %exitcond221.not
+  br i1 %or.cond271, label %.thread134, label %.preheader166
 
-49:                                               ; preds = %.preheader168
+49:                                               ; preds = %.preheader166
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !33
   %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread136, label %.preheader
+  br i1 %52, label %.thread134, label %.preheader
 
 .preheader:                                       ; preds = %49
   %53 = shl i64 %1, 1
   br label %54
 
-.thread136:                                       ; preds = %47, %49
+.thread134:                                       ; preds = %47, %49
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.6) #16
-  br label %.thread159
+  br label %.thread157
 
 54:                                               ; preds = %.preheader, %82
-  %indvars.iv224 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next225, %82 ]
+  %indvars.iv222 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next223, %82 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %0, ptr %6, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1786,20 +1786,20 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !28
-  %55 = mul i64 %53, %indvars.iv224
+  %55 = mul i64 %53, %indvars.iv222
   store i64 %55, ptr %8, align 8, !tbaa !29
   %56 = or disjoint i64 %55, 1
   %57 = call ptr @cli_max_calloc(i64 noundef 1, i64 noundef %56) #16
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.thread164, label %59
+  br i1 %58, label %.thread162, label %59
 
-.thread164:                                       ; preds = %54
+.thread162:                                       ; preds = %54
   call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.7) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread159
+  br label %.thread157
 
 59:                                               ; preds = %54
   store ptr %57, ptr %9, align 8, !tbaa !28
@@ -1862,9 +1862,9 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %exitcond227.not = icmp eq i64 %indvars.iv.next225, 4
-  br i1 %exitcond227.not, label %.thread, label %54
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %exitcond225.not = icmp eq i64 %indvars.iv.next223, 4
+  br i1 %exitcond225.not, label %.thread, label %54
 
 83:                                               ; preds = %76
   %84 = load i64, ptr %8, align 8, !tbaa !29
@@ -1875,12 +1875,12 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread
 
-.thread:                                          ; preds = %82, %.thread.loopexit203, %83, %20, %22, %39
-  %.1102 = phi ptr [ %18, %39 ], [ %18, %22 ], [ %18, %20 ], [ %79, %83 ], [ %18, %.thread.loopexit203 ], [ null, %82 ]
-  %.096 = phi i64 [ %1, %39 ], [ %1, %22 ], [ %1, %20 ], [ %85, %83 ], [ %1, %.thread.loopexit203 ], [ %55, %82 ]
+.thread:                                          ; preds = %82, %.thread.loopexit201, %83, %20, %22, %39
+  %.1102 = phi ptr [ %18, %39 ], [ %18, %22 ], [ %18, %20 ], [ %79, %83 ], [ %18, %.thread.loopexit201 ], [ null, %82 ]
+  %.096 = phi i64 [ %1, %39 ], [ %1, %22 ], [ %1, %20 ], [ %85, %83 ], [ %1, %.thread.loopexit201 ], [ %55, %82 ]
   store ptr %.1102, ptr %3, align 8, !tbaa !28
   store i64 %.096, ptr %4, align 8, !tbaa !29
-  br label %.thread159
+  br label %.thread157
 
 86:                                               ; preds = %65, %81, %75, %74, %73
   %.5112.ph = phi i32 [ 27, %73 ], [ 27, %74 ], [ 27, %75 ], [ 20, %81 ], [ 22, %65 ]
@@ -1889,11 +1889,11 @@ define range(i32 0, 28) i32 @cli_codepage_to_utf8(ptr noundef %0, i64 noundef %1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @free(ptr noundef nonnull %57) #16
-  br label %.thread159
+  br label %.thread157
 
-.thread159:                                       ; preds = %.thread136, %43, %14, %.thread, %.thread164, %86
-  %.0107163 = phi i32 [ %.5112.ph, %86 ], [ 20, %.thread164 ], [ 22, %.thread136 ], [ 20, %43 ], [ 0, %.thread ], [ 3, %14 ]
-  ret i32 %.0107163
+.thread157:                                       ; preds = %.thread134, %43, %14, %.thread, %.thread162, %86
+  %.0107161 = phi i32 [ %.5112.ph, %86 ], [ 20, %.thread162 ], [ 22, %.thread134 ], [ 20, %43 ], [ 0, %.thread ], [ 3, %14 ]
+  ret i32 %.0107161
 }
 
 declare ptr @cli_max_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1

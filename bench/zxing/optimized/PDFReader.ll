@@ -206,7 +206,7 @@ _ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread: ; preds = %20
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !10
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !10
   %44 = call noundef zeroext i1 @_ZNK5ZXing9BitMatrix15findBoundingBoxERiS1_S1_S1_i(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, i32 noundef 9)
-  br i1 %44, label %45, label %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread46
+  br i1 %44, label %45, label %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread45
 
 45:                                               ; preds = %43
   %46 = load i32, ptr %6, align 4, !tbaa !26, !noalias !10
@@ -214,7 +214,7 @@ _ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread: ; preds = %20
   %48 = load i32, ptr %7, align 4, !noalias !10
   %49 = icmp slt i32 %48, 51
   %or.cond.i = select i1 %47, i1 %49, i1 false
-  br i1 %or.cond.i, label %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread46, label %50
+  br i1 %or.cond.i, label %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread45, label %50
 
 50:                                               ; preds = %45
   %51 = load i32, ptr %4, align 4, !tbaa !26, !noalias !10
@@ -285,7 +285,7 @@ _ZNK5ZXing6Pdf41710SymbolInfocvbEv.exit.thread.i: ; preds = %61
   store i32 %68, ptr %7, align 4, !tbaa !26, !noalias !10
   %77 = add nuw nsw i32 %.01495.i, 1
   %exitcond.not.i = icmp eq i32 %77, 4
-  br i1 %exitcond.not.i, label %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread46, label %61, !llvm.loop !47
+  br i1 %exitcond.not.i, label %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread45, label %61, !llvm.loop !47
 
 78:                                               ; preds = %61
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !10
@@ -430,7 +430,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit24.i:                ; preds = %112, %110
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !10
   br label %common.resume
 
-_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread46: ; preds = %_ZNK5ZXing6Pdf41710SymbolInfocvbEv.exit.thread.i, %43, %45
+_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread45: ; preds = %_ZNK5ZXing6Pdf41710SymbolInfocvbEv.exit.thread.i, %43, %45
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(216) %0, i8 0, i64 216, i1 false), !alias.scope !10
   call void @_ZN5ZXing7ContentC1Ev(ptr noundef nonnull align 8 dereferenceable(211) %0)
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -574,7 +574,7 @@ _ZN5ZXing6ResultD2Ev.exit.thread:                 ; preds = %_ZNSt6vectorIN5ZXin
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %common.resume
 
-_ZN5ZXing6ResultD2Ev.exit:                        ; preds = %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread46, %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread, %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit, %174
+_ZN5ZXing6ResultD2Ev.exit:                        ; preds = %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread45, %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit.thread, %_ZN5ZXing6Pdf417L10DecodePureERKNS_12BinaryBitmapE.exit, %174
   ret void
 }
 

@@ -1847,8 +1847,8 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   %329 = call ptr @proto_item_add_subtree(ptr noundef %327, i32 noundef %328)
   %330 = load i32, ptr @hf_reload_length_uint32, align 4
   %331 = call ptr @proto_tree_add_item(ptr noundef %329, i32 noundef %330, ptr noundef %0, i32 noundef %325, i32 noundef 4, i32 noundef 0)
-  %.not594 = icmp eq i32 %12, 0
-  br i1 %.not594, label %.loopexit, label %.lr.ph
+  %.not593 = icmp eq i32 %12, 0
+  br i1 %.not593, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread583
   %332 = add i16 %323, 4
@@ -1861,12 +1861,12 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br label %338
 
 338:                                              ; preds = %.lr.ph, %393
-  %.0537592 = phi i32 [ 0, %.lr.ph ], [ %395, %393 ]
-  %.0540591 = phi i32 [ 0, %.lr.ph ], [ %394, %393 ]
-  %339 = add nuw i32 %.0540591, %333
+  %.0537591 = phi i32 [ 0, %.lr.ph ], [ %395, %393 ]
+  %.0540590 = phi i32 [ 0, %.lr.ph ], [ %394, %393 ]
+  %339 = add nuw i32 %.0540590, %333
   %340 = add nuw i32 %339, 3
   %341 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %340)
-  %342 = add nuw i32 %.0540591, 7
+  %342 = add nuw i32 %.0540590, 7
   %343 = add i32 %342, %341
   %344 = icmp ugt i32 %343, %12
   br i1 %344, label %.thread584, label %346
@@ -1945,16 +1945,16 @@ define hidden range(i32 0, 65536) i32 @dissect_reload_messagecontents(ptr nounde
   br label %393
 
 393:                                              ; preds = %377, %389, %362, %358, %385, %387
-  %394 = add i32 %348, %.0540591
-  %395 = add i32 %.0537592, 1
+  %394 = add i32 %348, %.0540590
+  %395 = add i32 %.0537591, 1
   %396 = icmp sgt i32 %394, -1
   %397 = icmp ult i32 %394, %12
   %398 = and i1 %396, %397
   br i1 %398, label %338, label %.loopexit
 
 .loopexit:                                        ; preds = %393, %.thread583, %.thread584
-  %.0537590 = phi i32 [ %.0537592, %.thread584 ], [ 0, %.thread583 ], [ %395, %393 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %327, ptr noundef nonnull @.str.44, i32 noundef %.0537590)
+  %.0537589 = phi i32 [ %.0537591, %.thread584 ], [ 0, %.thread583 ], [ %395, %393 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %327, ptr noundef nonnull @.str.44, i32 noundef %.0537589)
   br label %399
 
 399:                                              ; preds = %320, %.loopexit, %18
@@ -2389,17 +2389,17 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %19 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %18)
   %20 = load i32, ptr @hf_reload_length_uint16, align 4
   %21 = tail call ptr @proto_tree_add_uint(ptr noundef %19, i32 noundef %20, ptr noundef %0, i32 noundef %6, i32 noundef 2, i32 noundef %8)
-  %.not263 = icmp eq i16 %7, 0
-  br i1 %.not263, label %.thread245, label %.lr.ph259
+  %.not259 = icmp eq i16 %7, 0
+  br i1 %.not259, label %.thread242, label %.lr.ph255
 
-.lr.ph259:                                        ; preds = %16
+.lr.ph255:                                        ; preds = %16
   %22 = add nuw nsw i32 %6, 2
   br label %23
 
-23:                                               ; preds = %.lr.ph259, %138
-  %.0218258 = phi i32 [ 0, %.lr.ph259 ], [ %140, %138 ]
-  %.0220257 = phi i32 [ 0, %.lr.ph259 ], [ %141, %138 ]
-  %24 = add nuw nsw i32 %22, %.0218258
+23:                                               ; preds = %.lr.ph255, %138
+  %.0218254 = phi i32 [ 0, %.lr.ph255 ], [ %140, %138 ]
+  %.0220253 = phi i32 [ 0, %.lr.ph255 ], [ %141, %138 ]
+  %24 = add nuw nsw i32 %22, %.0218254
   %25 = add nuw nsw i32 %24, 1
   %26 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %25)
   %27 = zext i8 %26 to i32
@@ -2439,13 +2439,13 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %54 = trunc i32 %53 to i16
   %55 = add i16 %.0229, %54
   %56 = zext i16 %55 to i32
-  %57 = add nuw nsw i32 %.0218258, %56
+  %57 = add nuw nsw i32 %.0218254, %56
   %58 = icmp samesign ugt i32 %57, %8
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %48
   %60 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %17, ptr noundef nonnull @ei_reload_truncated_field, ptr noundef nonnull @.str.662)
-  br label %.thread245
+  br label %.thread242
 
 61:                                               ; preds = %48
   %62 = load i32, ptr @hf_reload_icecandidate, align 4
@@ -2476,8 +2476,8 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %86 = trunc i32 %76 to i16
   %87 = add i16 %86, 5
   %88 = load i32, ptr @hf_reload_icecandidate_relay_addr, align 4
-  %.not250 = icmp eq i32 %88, -1
-  %.not = select i1 %switch, i1 true, i1 %.not250
+  %.not246 = icmp eq i32 %88, -1
+  %.not = select i1 %switch, i1 true, i1 %.not246
   br i1 %.not, label %93, label %89
 
 89:                                               ; preds = %61
@@ -2498,8 +2498,8 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %100 = load i32, ptr @hf_reload_length_uint16, align 4
   %101 = tail call ptr @proto_tree_add_item(ptr noundef %99, i32 noundef %100, ptr noundef %0, i32 noundef %96, i32 noundef 2, i32 noundef 0)
   %102 = add i16 %.1230, 2
-  %.not264 = icmp eq i16 %51, 0
-  br i1 %.not264, label %.loopexit, label %.lr.ph
+  %.not260 = icmp eq i16 %51, 0
+  br i1 %.not260, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %93
   %103 = zext i16 %102 to i32
@@ -2507,15 +2507,15 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   br label %105
 
 105:                                              ; preds = %.lr.ph, %118
-  %.0217256 = phi i32 [ 0, %.lr.ph ], [ %134, %118 ]
-  %.0226255 = phi i32 [ 0, %.lr.ph ], [ %133, %118 ]
-  %106 = add nuw nsw i32 %104, %.0226255
+  %.0217252 = phi i32 [ 0, %.lr.ph ], [ %134, %118 ]
+  %.0226251 = phi i32 [ 0, %.lr.ph ], [ %133, %118 ]
+  %106 = add nuw nsw i32 %104, %.0226251
   %107 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %106)
   %108 = zext i16 %107 to i32
   %109 = add nuw nsw i32 %108, 2
   %110 = add nuw nsw i32 %109, %106
   %111 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %110)
-  %112 = add nuw nsw i32 %.0226255, 4
+  %112 = add nuw nsw i32 %.0226251, 4
   %113 = add nuw nsw i32 %112, %108
   %114 = zext i16 %111 to i32
   %115 = add nuw nsw i32 %113, %114
@@ -2541,32 +2541,32 @@ define internal fastcc range(i32 0, 65536) i32 @dissect_icecandidates(ptr nounde
   %130 = add i16 %129, %107
   %131 = add nuw nsw i32 %114, 2
   %132 = tail call fastcc i32 @dissect_opaque_string_or_data(ptr noundef %0, ptr noundef %1, ptr noundef %124, i32 noundef %128, i16 noundef zeroext %130, i16 noundef zeroext 2, i32 noundef %131, i1 noundef zeroext false)
-  %133 = add nuw nsw i32 %121, %.0226255
-  %134 = add i32 %.0217256, 1
+  %133 = add nuw nsw i32 %121, %.0226251
+  %134 = add i32 %.0217252, 1
   %135 = icmp samesign ult i32 %133, %52
   br i1 %135, label %105, label %.loopexit
 
 .loopexit:                                        ; preds = %118, %93, %.thread
-  %.0217252 = phi i32 [ %.0217256, %.thread ], [ 0, %93 ], [ %134, %118 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.17, i32 noundef %.0217252)
+  %.0217248 = phi i32 [ %.0217252, %.thread ], [ 0, %93 ], [ %134, %118 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull @.str.17, i32 noundef %.0217248)
   %136 = add i16 %102, %51
   %137 = icmp eq i16 %136, 0
-  br i1 %137, label %.thread245, label %138
+  br i1 %137, label %.thread242, label %138
 
 138:                                              ; preds = %.loopexit
   %139 = zext i16 %136 to i32
-  %140 = add nuw nsw i32 %.0218258, %139
-  %141 = add i32 %.0220257, 1
+  %140 = add nuw nsw i32 %.0218254, %139
+  %141 = add i32 %.0220253, 1
   %142 = icmp samesign ult i32 %140, %8
-  br i1 %142, label %23, label %.thread245
+  br i1 %142, label %23, label %.thread242
 
-.thread245:                                       ; preds = %138, %.loopexit, %16, %59
-  %.0220254 = phi i32 [ %.0220257, %59 ], [ 0, %16 ], [ %141, %138 ], [ %.0220257, %.loopexit ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.17, i32 noundef %.0220254)
+.thread242:                                       ; preds = %138, %.loopexit, %16, %59
+  %.0220250 = phi i32 [ %.0220253, %59 ], [ 0, %16 ], [ %141, %138 ], [ %.0220253, %.loopexit ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.17, i32 noundef %.0220250)
   br label %143
 
-143:                                              ; preds = %.thread245, %13
-  %.0 = phi i32 [ %10, %13 ], [ %9, %.thread245 ]
+143:                                              ; preds = %.thread242, %13
+  %.0 = phi i32 [ %10, %13 ], [ %9, %.thread242 ]
   ret i32 %.0
 }
 
@@ -3240,21 +3240,21 @@ define internal fastcc void @dissect_findans(ptr noundef %0, ptr noundef %1, ptr
   br label %23
 
 23:                                               ; preds = %.lr.ph, %63
-  %.05877 = phi i32 [ 0, %.lr.ph ], [ %29, %63 ]
-  %.05976 = phi i32 [ 0, %.lr.ph ], [ %69, %63 ]
-  %24 = add nuw nsw i32 %21, %.05877
+  %.05876 = phi i32 [ 0, %.lr.ph ], [ %29, %63 ]
+  %.05975 = phi i32 [ 0, %.lr.ph ], [ %69, %63 ]
+  %24 = add nuw nsw i32 %21, %.05876
   %25 = add nuw nsw i32 %24, 4
   %26 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %25)
   %27 = zext i8 %26 to i32
   %28 = add nuw nsw i32 %27, 5
-  %29 = add nuw nsw i32 %28, %.05877
+  %29 = add nuw nsw i32 %28, %.05876
   %30 = icmp samesign ugt i32 %29, %13
   %31 = load i32, ptr @hf_reload_findkinddata, align 4
   br i1 %30, label %.thread, label %36
 
 .thread:                                          ; preds = %23
-  %32 = add nuw nsw i32 %.05877, %7
-  %33 = sub nsw i32 %13, %.05877
+  %32 = add nuw nsw i32 %.05876, %7
+  %33 = sub nsw i32 %13, %.05876
   %34 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef %33, i32 noundef 0)
   %35 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %34, ptr noundef nonnull @ei_reload_truncated_field, ptr noundef nonnull @.str.726)
   br label %.loopexit
@@ -3329,16 +3329,16 @@ getKindFromId.exit.i:                             ; preds = %48, %.preheader.i.i
 63:                                               ; preds = %62, %60, %getKindFromId.exit.i, %getKindFromId.exit.i.thread
   %64 = load i32, ptr @hf_reload_findkinddata_closest, align 4
   %65 = trunc i32 %25 to i16
-  %66 = sub nsw i32 %22, %.05877
+  %66 = sub nsw i32 %22, %.05876
   %67 = trunc i32 %66 to i16
   %68 = tail call fastcc i32 @dissect_resourceid(i32 noundef %64, ptr noundef %0, ptr noundef %1, ptr noundef %39, i16 noundef zeroext %65, i16 noundef zeroext %67)
-  %69 = add i32 %.05976, 1
+  %69 = add i32 %.05975, 1
   %70 = icmp samesign ult i32 %29, %13
   br i1 %70, label %23, label %.loopexit
 
 .loopexit:                                        ; preds = %63, %18, %.thread
-  %.05975 = phi i32 [ %.05976, %.thread ], [ 0, %18 ], [ %69, %63 ]
-  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %.05975)
+  %.05974 = phi i32 [ %.05975, %.thread ], [ 0, %18 ], [ %69, %63 ]
+  tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %9, ptr noundef nonnull @.str.17, i32 noundef %.05974)
   ret void
 }
 
@@ -5055,20 +5055,20 @@ proto_item_set_generated.exit456.thread:          ; preds = %proto_item_set_gene
   %446 = call ptr @proto_item_add_subtree(ptr noundef %444, i32 noundef %445)
   %447 = load i32, ptr @hf_reload_length_uint16, align 4
   %448 = call ptr @proto_tree_add_uint(ptr noundef %446, i32 noundef %447, ptr noundef %.0385, i32 noundef %423, i32 noundef 2, i32 noundef %425)
-  %.not492 = icmp eq i16 %424, 0
-  br i1 %.not492, label %.loopexit, label %.lr.ph
+  %.not491 = icmp eq i16 %424, 0
+  br i1 %.not491, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %417
   %449 = add nuw nsw i32 %423, 2
   br label %450
 
 450:                                              ; preds = %.lr.ph, %478
-  %.0387491 = phi i32 [ 0, %.lr.ph ], [ %480, %478 ]
-  %.0389490 = phi i32 [ 0, %.lr.ph ], [ %479, %478 ]
-  %451 = add nuw nsw i32 %449, %.0389490
+  %.0387490 = phi i32 [ 0, %.lr.ph ], [ %480, %478 ]
+  %.0389489 = phi i32 [ 0, %.lr.ph ], [ %479, %478 ]
+  %451 = add nuw nsw i32 %449, %.0389489
   %452 = add nuw nsw i32 %451, 1
   %453 = call zeroext i16 @tvb_get_ntohs(ptr noundef %.0385, i32 noundef %452)
-  %454 = add nuw nsw i32 %.0389490, 3
+  %454 = add nuw nsw i32 %.0389489, 3
   %455 = zext i16 %453 to i32
   %456 = add nuw nsw i32 %454, %455
   %457 = icmp samesign ugt i32 %456, %425
@@ -5108,14 +5108,14 @@ proto_item_set_generated.exit456.thread:          ; preds = %proto_item_set_gene
   br label %478
 
 478:                                              ; preds = %470, %474
-  %479 = add nuw nsw i32 %461, %.0389490
-  %480 = add i32 %.0387491, 1
+  %479 = add nuw nsw i32 %461, %.0389489
+  %480 = add i32 %.0387490, 1
   %481 = icmp samesign ult i32 %479, %425
   br i1 %481, label %450, label %.loopexit
 
 .loopexit:                                        ; preds = %478, %417, %.thread483
-  %.0387489 = phi i32 [ %.0387491, %.thread483 ], [ 0, %417 ], [ %480, %478 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %444, ptr noundef nonnull @.str.17, i32 noundef %.0387489)
+  %.0387488 = phi i32 [ %.0387490, %.thread483 ], [ 0, %417 ], [ %480, %478 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %444, ptr noundef nonnull @.str.17, i32 noundef %.0387488)
   %482 = trunc i32 %426 to i16
   %483 = add i16 %422, %482
   call fastcc void @dissect_signature(ptr noundef %.0385, ptr noundef %1, ptr noundef %442, i16 noundef zeroext %483)
@@ -5221,60 +5221,60 @@ define internal fastcc i32 @dissect_nodeid(i32 noundef %0, ptr noundef %1, ptr n
 16:                                               ; preds = %6
   %17 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %spec.select, ptr noundef %1, i32 noundef %12, i32 noundef %10, i32 noundef 0)
   %18 = load i32, ptr @reload_nodeid_length, align 4
-  %.not71 = icmp eq i32 %18, 0
-  br i1 %.not71, label %select.unfold.thread, label %.lr.ph
+  %.not70 = icmp eq i32 %18, 0
+  br i1 %.not70, label %select.unfold.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %24
-  %.02967 = phi i32 [ %25, %24 ], [ 0, %16 ]
-  %.03066 = phi i8 [ %.2.ph, %24 ], [ 1, %16 ]
-  %.03165 = phi i8 [ %.334.ph, %24 ], [ 1, %16 ]
-  %19 = add i32 %.02967, %12
+  %.02966 = phi i32 [ %25, %24 ], [ 0, %16 ]
+  %.03065 = phi i8 [ %.2.ph, %24 ], [ 1, %16 ]
+  %.03164 = phi i8 [ %.334.ph, %24 ], [ 1, %16 ]
+  %19 = add i32 %.02966, %12
   %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %19)
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %.thread, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = icmp ne i8 %.03066, 0
+  %22 = icmp ne i8 %.03065, 0
   %.not40 = icmp eq i8 %20, -1
   %or.cond = and i1 %22, %.not40
-  br i1 %or.cond, label %24, label %.thread52.thread
+  br i1 %or.cond, label %24, label %.thread51.thread
 
 .thread:                                          ; preds = %.lr.ph
-  %23 = icmp eq i8 %.03165, 0
-  br i1 %23, label %.thread52.thread, label %24
+  %23 = icmp eq i8 %.03164, 0
+  br i1 %23, label %.thread51.thread, label %24
 
 24:                                               ; preds = %21, %.thread
   %.334.ph = phi i8 [ 1, %.thread ], [ 0, %21 ]
   %.2.ph = phi i8 [ 0, %.thread ], [ 1, %21 ]
-  %25 = add nuw i32 %.02967, 1
+  %25 = add nuw i32 %.02966, 1
   %26 = load i32, ptr @reload_nodeid_length, align 4
   %27 = icmp ult i32 %25, %26
   br i1 %27, label %.lr.ph, label %select.unfold, !llvm.loop !21
 
 select.unfold:                                    ; preds = %24
   %28 = trunc nuw i8 %.334.ph to i1
-  br i1 %28, label %select.unfold.thread, label %.thread52
+  br i1 %28, label %select.unfold.thread, label %.thread51
 
 select.unfold.thread:                             ; preds = %16, %select.unfold
-  %.180 = phi i8 [ %.2.ph, %select.unfold ], [ 1, %16 ]
+  %.179 = phi i8 [ %.2.ph, %select.unfold ], [ 1, %16 ]
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.645)
-  br label %.thread52
+  br label %.thread51
 
-.thread52:                                        ; preds = %select.unfold.thread, %select.unfold
-  %.155 = phi i8 [ %.180, %select.unfold.thread ], [ %.2.ph, %select.unfold ]
-  %29 = trunc nuw i8 %.155 to i1
-  br i1 %29, label %30, label %.thread52.thread
+.thread51:                                        ; preds = %select.unfold.thread, %select.unfold
+  %.154 = phi i8 [ %.179, %select.unfold.thread ], [ %.2.ph, %select.unfold ]
+  %29 = trunc nuw i8 %.154 to i1
+  br i1 %29, label %30, label %.thread51.thread
 
-30:                                               ; preds = %.thread52
+30:                                               ; preds = %.thread51
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %17, ptr noundef nonnull @.str.646)
-  br label %.thread52.thread
+  br label %.thread51.thread
 
-.thread52.thread:                                 ; preds = %.thread, %21, %30, %.thread52
+.thread51.thread:                                 ; preds = %.thread, %21, %30, %.thread51
   %31 = load i32, ptr @reload_nodeid_length, align 4
   br label %32
 
-32:                                               ; preds = %.thread52.thread, %13
-  %.0 = phi i32 [ %9, %13 ], [ %31, %.thread52.thread ]
+32:                                               ; preds = %.thread51.thread, %13
+  %.0 = phi i32 [ %9, %13 ], [ %31, %.thread51.thread ]
   ret i32 %.0
 }
 

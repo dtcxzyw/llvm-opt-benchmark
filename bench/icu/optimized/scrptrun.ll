@@ -99,9 +99,9 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %8 = load i32, ptr %7, align 4, !tbaa !19
   %.not = icmp slt i32 %6, %8
-  br i1 %.not, label %.lr.ph66, label %.loopexit62
+  br i1 %.not, label %.lr.ph65, label %.loopexit61
 
-.lr.ph66:                                         ; preds = %1
+.lr.ph65:                                         ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 0, ptr %9, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -110,10 +110,10 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZN6icu_779ScriptRun4nextEv(
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
   br label %13
 
-13:                                               ; preds = %.lr.ph66, %101
-  %14 = phi i32 [ %8, %.lr.ph66 ], [ %104, %101 ]
-  %15 = phi i32 [ %6, %.lr.ph66 ], [ %103, %101 ]
-  %.03365 = phi i32 [ %4, %.lr.ph66 ], [ %.6.ph, %101 ]
+13:                                               ; preds = %.lr.ph65, %101
+  %14 = phi i32 [ %8, %.lr.ph65 ], [ %104, %101 ]
+  %15 = phi i32 [ %6, %.lr.ph65 ], [ %103, %101 ]
+  %.03364 = phi i32 [ %4, %.lr.ph65 ], [ %.6.ph, %101 ]
   %16 = load ptr, ptr %11, align 8, !tbaa !22
   %17 = sext i32 %15 to i64
   %18 = getelementptr inbounds i16, ptr %16, i64 %17
@@ -213,11 +213,11 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
   br i1 %70, label %63, label %.critedge, !llvm.loop !28
 
 .critedge:                                        ; preds = %68
-  %spec.select = call i32 @llvm.smin.i32(i32 %.03365, i32 -1)
+  %spec.select = call i32 @llvm.smin.i32(i32 %.03364, i32 -1)
   br label %75
 
 71:                                               ; preds = %63
-  %spec.select56 = call i32 @llvm.smin.i32(i32 %64, i32 %.03365)
+  %spec.select56 = call i32 @llvm.smin.i32(i32 %64, i32 %.03364)
   %72 = getelementptr inbounds nuw %"struct.icu_77::ParenStackEntry", ptr %0, i64 %65
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load i32, ptr %73, align 8, !tbaa !27
@@ -225,7 +225,7 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
 
 75:                                               ; preds = %.critedge, %71, %53, %59, %_ZN6icu_779ScriptRun12getPairIndexEi.exit
   %.034 = phi i32 [ %36, %53 ], [ %36, %59 ], [ %36, %_ZN6icu_779ScriptRun12getPairIndexEi.exit ], [ %74, %71 ], [ %36, %.critedge ]
-  %.1 = phi i32 [ %.03365, %53 ], [ %.03365, %59 ], [ %.03365, %_ZN6icu_779ScriptRun12getPairIndexEi.exit ], [ %spec.select56, %71 ], [ %spec.select, %.critedge ]
+  %.1 = phi i32 [ %.03364, %53 ], [ %.03364, %59 ], [ %.03364, %_ZN6icu_779ScriptRun12getPairIndexEi.exit ], [ %spec.select56, %71 ], [ %spec.select, %.critedge ]
   %76 = load i32, ptr %9, align 8, !tbaa !20
   %77 = icmp slt i32 %76, 2
   %78 = icmp slt i32 %.034, 2
@@ -278,13 +278,13 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
 
 96:                                               ; preds = %75
   %97 = icmp sgt i32 %.037, 65535
-  br i1 %97, label %98, label %.loopexit62
+  br i1 %97, label %98, label %.loopexit61
 
 98:                                               ; preds = %96
   %99 = load i32, ptr %5, align 4, !tbaa !18
   %100 = add nsw i32 %99, -1
   store i32 %100, ptr %5, align 4, !tbaa !18
-  br label %.loopexit62
+  br label %.loopexit61
 
 101:                                              ; preds = %.loopexit, %90, %93
   %.6.ph = phi i32 [ %.3, %.loopexit ], [ %.3, %90 ], [ %95, %93 ]
@@ -293,9 +293,9 @@ _ZN6icu_779ScriptRun12getPairIndexEi.exit:        ; preds = %38
   store i32 %103, ptr %5, align 4, !tbaa !18
   %104 = load i32, ptr %7, align 4, !tbaa !19
   %105 = icmp slt i32 %103, %104
-  br i1 %105, label %13, label %.loopexit62, !llvm.loop !30
+  br i1 %105, label %13, label %.loopexit61, !llvm.loop !30
 
-.loopexit62:                                      ; preds = %101, %98, %96, %1
+.loopexit61:                                      ; preds = %101, %98, %96, %1
   %.0 = phi i8 [ 0, %1 ], [ 1, %96 ], [ 1, %98 ], [ 1, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i8 %.0

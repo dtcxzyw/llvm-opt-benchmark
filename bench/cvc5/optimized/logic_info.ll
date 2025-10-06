@@ -2239,8 +2239,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
   %39 = load i64, ptr %38, align 8, !tbaa !39
   %40 = xor i64 %39, %36
   %41 = and i64 %40, %35
-  %.not51 = icmp eq i64 %41, 0
-  br i1 %.not51, label %42, label %45
+  %.not49 = icmp eq i64 %41, 0
+  br i1 %.not49, label %42, label %45
 
 42:                                               ; preds = %28
   %43 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -3367,16 +3367,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
   %35 = shl nuw i64 1, %34
   %36 = load i64, ptr %32, align 8, !tbaa !39
   %37 = and i64 %36, %35
-  %.not77 = icmp eq i64 %37, 0
-  br i1 %.not77, label %43, label %38
+  %.not75 = icmp eq i64 %37, 0
+  br i1 %.not75, label %43, label %38
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %27, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.zext
   %41 = load i64, ptr %40, align 8, !tbaa !39
   %42 = and i64 %41, %35
-  %.not78 = icmp eq i64 %42, 0
-  br i1 %.not78, label %46, label %43
+  %.not76 = icmp eq i64 %42, 0
+  br i1 %.not76, label %46, label %43
 
 43:                                               ; preds = %28, %38
   %44 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -3521,8 +3521,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %58
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %118 = load i8, ptr %117, align 4, !range !36
   %119 = trunc nuw i8 %118 to i1
-  %.not76 = xor i1 %119, true
-  %not.or.cond56 = select i1 %116, i1 true, i1 %.not76
+  %.not74 = xor i1 %119, true
+  %not.or.cond56 = select i1 %116, i1 true, i1 %.not74
   %spec.select = select i1 %not.or.cond56, i1 %81, i1 false
   br label %120
 
@@ -3617,16 +3617,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %18
   %35 = shl nuw i64 1, %34
   %36 = load i64, ptr %32, align 8, !tbaa !39
   %37 = and i64 %36, %35
-  %.not76 = icmp eq i64 %37, 0
-  br i1 %.not76, label %38, label %43
+  %.not74 = icmp eq i64 %37, 0
+  br i1 %.not74, label %38, label %43
 
 38:                                               ; preds = %28
   %39 = load ptr, ptr %27, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.zext
   %41 = load i64, ptr %40, align 8, !tbaa !39
   %42 = and i64 %41, %35
-  %.not77 = icmp eq i64 %42, 0
-  br i1 %.not77, label %43, label %46
+  %.not75 = icmp eq i64 %42, 0
+  br i1 %.not75, label %43, label %46
 
 43:                                               ; preds = %28, %38
   %44 = call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull align 4 dereferenceable(4) %4)

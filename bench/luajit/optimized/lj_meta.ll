@@ -1795,16 +1795,16 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %.1.i = phi ptr [ %49, %45 ], [ %44, %36 ]
   %50 = load i64, ptr %.1.i, align 8, !tbaa !14
   %51 = icmp eq i64 %50, -1
-  br i1 %51, label %.thread107, label %52, !prof !29
+  br i1 %51, label %.thread104, label %52, !prof !29
 
 52:                                               ; preds = %lj_meta_lookup.exit
   %53 = and i32 %3, 1
   %.not71 = icmp eq i32 %53, 0
   %54 = getelementptr i8, ptr %0, i64 32
-  %.val77 = load ptr, ptr %54, align 8, !tbaa !21
+  %.val76 = load ptr, ptr %54, align 8, !tbaa !21
   %55 = getelementptr i8, ptr %0, i64 40
-  %.val78 = load ptr, ptr %55, align 8, !tbaa !22
-  %56 = getelementptr inbounds i8, ptr %.val77, i64 -16
+  %.val77 = load ptr, ptr %55, align 8, !tbaa !22
+  %56 = getelementptr inbounds i8, ptr %.val76, i64 -16
   %57 = load i64, ptr %56, align 8, !tbaa !14
   %58 = and i64 %57, 140737488355327
   %59 = inttoptr i64 %58 to ptr
@@ -1820,11 +1820,11 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %67 = getelementptr inbounds i8, ptr %66, i64 -93
   %68 = load i8, ptr %67, align 1, !tbaa !26
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw %union.TValue, ptr %.val77, i64 %69
+  %70 = getelementptr inbounds nuw %union.TValue, ptr %.val76, i64 %69
   br label %.thread
 
 .thread:                                          ; preds = %63, %52
-  %.0.i = phi ptr [ %70, %63 ], [ %.val78, %52 ]
+  %.0.i = phi ptr [ %70, %63 ], [ %.val77, %52 ]
   %71 = select i1 %.not71, i64 ptrtoint (ptr @lj_cont_condt to i64), i64 ptrtoint (ptr @lj_cont_condf to i64)
   %72 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   store i64 %71, ptr %.0.i, align 8, !tbaa !14
@@ -1904,41 +1904,41 @@ lj_meta_lookup.exit:                              ; preds = %36, %45
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 424
   %117 = icmp ult i64 %104, -13
   %118 = sub nsw i64 21, %104
-  %spec.select.i85 = select i1 %117, i64 35, i64 %118
-  %119 = getelementptr inbounds nuw %struct.GCRef, ptr %116, i64 %spec.select.i85
+  %spec.select.i84 = select i1 %117, i64 35, i64 %118
+  %119 = getelementptr inbounds nuw %struct.GCRef, ptr %116, i64 %spec.select.i84
   br label %120
 
 120:                                              ; preds = %113, %109, %105
-  %.016.in.in.i79 = phi ptr [ %108, %105 ], [ %112, %109 ], [ %119, %113 ]
-  %.016.in.i80 = load i64, ptr %.016.in.in.i79, align 8, !tbaa !14
-  %.not.i81 = icmp eq i64 %.016.in.i80, 0
-  %.pre123 = load i64, ptr %99, align 8, !tbaa !4
-  br i1 %.not.i81, label %129, label %121
+  %.016.in.in.i78 = phi ptr [ %108, %105 ], [ %112, %109 ], [ %119, %113 ]
+  %.016.in.i79 = load i64, ptr %.016.in.in.i78, align 8, !tbaa !14
+  %.not.i80 = icmp eq i64 %.016.in.i79, 0
+  %.pre120 = load i64, ptr %99, align 8, !tbaa !4
+  br i1 %.not.i80, label %129, label %121
 
 121:                                              ; preds = %120
-  %.016.i82 = inttoptr i64 %.016.in.i80 to ptr
-  %122 = inttoptr i64 %.pre123 to ptr
+  %.016.i81 = inttoptr i64 %.016.in.i79 to ptr
+  %122 = inttoptr i64 %.pre120 to ptr
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 424
   %124 = zext nneg i32 %103 to i64
   %125 = getelementptr inbounds nuw %struct.GCRef, ptr %123, i64 %124
   %126 = load i64, ptr %125, align 8, !tbaa !17
   %127 = inttoptr i64 %126 to ptr
-  %128 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i82, ptr noundef %127) #6
-  %.not18.i83 = icmp eq ptr %128, null
-  br i1 %.not18.i83, label %._crit_edge, label %lj_meta_lookup.exit86
+  %128 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i81, ptr noundef %127) #6
+  %.not18.i82 = icmp eq ptr %128, null
+  br i1 %.not18.i82, label %._crit_edge, label %lj_meta_lookup.exit85
 
 ._crit_edge:                                      ; preds = %121
-  %.pre122 = load i64, ptr %99, align 8, !tbaa !4
+  %.pre119 = load i64, ptr %99, align 8, !tbaa !4
   br label %129
 
 129:                                              ; preds = %._crit_edge, %120
-  %130 = phi i64 [ %.pre122, %._crit_edge ], [ %.pre123, %120 ]
+  %130 = phi i64 [ %.pre119, %._crit_edge ], [ %.pre120, %120 ]
   %131 = inttoptr i64 %130 to ptr
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 248
-  br label %lj_meta_lookup.exit86
+  br label %lj_meta_lookup.exit85
 
-lj_meta_lookup.exit86:                            ; preds = %121, %129
-  %.1.i84 = phi ptr [ %132, %129 ], [ %128, %121 ]
+lj_meta_lookup.exit85:                            ; preds = %121, %129
+  %.1.i83 = phi ptr [ %132, %129 ], [ %128, %121 ]
   %133 = load i64, ptr %.159, align 8, !tbaa !14
   %134 = ashr i64 %133, 47
   switch i64 %134, label %143 [
@@ -1946,70 +1946,70 @@ lj_meta_lookup.exit86:                            ; preds = %121, %129
     i64 -13, label %139
   ]
 
-135:                                              ; preds = %lj_meta_lookup.exit86
+135:                                              ; preds = %lj_meta_lookup.exit85
   %136 = and i64 %133, 140737488355327
   %137 = inttoptr i64 %136 to ptr
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
   br label %150
 
-139:                                              ; preds = %lj_meta_lookup.exit86
+139:                                              ; preds = %lj_meta_lookup.exit85
   %140 = and i64 %133, 140737488355327
   %141 = inttoptr i64 %140 to ptr
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 32
   br label %150
 
-143:                                              ; preds = %lj_meta_lookup.exit86
+143:                                              ; preds = %lj_meta_lookup.exit85
   %144 = load i64, ptr %99, align 8, !tbaa !4
   %145 = inttoptr i64 %144 to ptr
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 424
   %147 = icmp ult i64 %134, -13
   %148 = sub nsw i64 21, %134
-  %spec.select.i93 = select i1 %147, i64 35, i64 %148
-  %149 = getelementptr inbounds nuw %struct.GCRef, ptr %146, i64 %spec.select.i93
+  %spec.select.i92 = select i1 %147, i64 35, i64 %148
+  %149 = getelementptr inbounds nuw %struct.GCRef, ptr %146, i64 %spec.select.i92
   br label %150
 
 150:                                              ; preds = %143, %139, %135
-  %.016.in.in.i87 = phi ptr [ %138, %135 ], [ %142, %139 ], [ %149, %143 ]
-  %.016.in.i88 = load i64, ptr %.016.in.in.i87, align 8, !tbaa !14
-  %.not.i89 = icmp eq i64 %.016.in.i88, 0
-  %.pre126 = load i64, ptr %99, align 8, !tbaa !4
-  br i1 %.not.i89, label %159, label %151
+  %.016.in.in.i86 = phi ptr [ %138, %135 ], [ %142, %139 ], [ %149, %143 ]
+  %.016.in.i87 = load i64, ptr %.016.in.in.i86, align 8, !tbaa !14
+  %.not.i88 = icmp eq i64 %.016.in.i87, 0
+  %.pre123 = load i64, ptr %99, align 8, !tbaa !4
+  br i1 %.not.i88, label %159, label %151
 
 151:                                              ; preds = %150
-  %.016.i90 = inttoptr i64 %.016.in.i88 to ptr
-  %152 = inttoptr i64 %.pre126 to ptr
+  %.016.i89 = inttoptr i64 %.016.in.i87 to ptr
+  %152 = inttoptr i64 %.pre123 to ptr
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 424
   %154 = zext nneg i32 %103 to i64
   %155 = getelementptr inbounds nuw %struct.GCRef, ptr %153, i64 %154
   %156 = load i64, ptr %155, align 8, !tbaa !17
   %157 = inttoptr i64 %156 to ptr
-  %158 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i90, ptr noundef %157) #6
-  %.not18.i91 = icmp eq ptr %158, null
-  br i1 %.not18.i91, label %._crit_edge124, label %lj_meta_lookup.exit94
+  %158 = tail call ptr @lj_tab_getstr(ptr noundef nonnull %.016.i89, ptr noundef %157) #6
+  %.not18.i90 = icmp eq ptr %158, null
+  br i1 %.not18.i90, label %._crit_edge121, label %lj_meta_lookup.exit93
 
-._crit_edge124:                                   ; preds = %151
-  %.pre125 = load i64, ptr %99, align 8, !tbaa !4
+._crit_edge121:                                   ; preds = %151
+  %.pre122 = load i64, ptr %99, align 8, !tbaa !4
   br label %159
 
-159:                                              ; preds = %._crit_edge124, %150
-  %160 = phi i64 [ %.pre125, %._crit_edge124 ], [ %.pre126, %150 ]
+159:                                              ; preds = %._crit_edge121, %150
+  %160 = phi i64 [ %.pre122, %._crit_edge121 ], [ %.pre123, %150 ]
   %161 = inttoptr i64 %160 to ptr
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 248
-  br label %lj_meta_lookup.exit94
+  br label %lj_meta_lookup.exit93
 
-lj_meta_lookup.exit94:                            ; preds = %151, %159
-  %.1.i92 = phi ptr [ %162, %159 ], [ %158, %151 ]
-  %163 = load i64, ptr %.1.i84, align 8, !tbaa !14
+lj_meta_lookup.exit93:                            ; preds = %151, %159
+  %.1.i91 = phi ptr [ %162, %159 ], [ %158, %151 ]
+  %163 = load i64, ptr %.1.i83, align 8, !tbaa !14
   %164 = icmp eq i64 %163, -1
   br i1 %164, label %167, label %165
 
-165:                                              ; preds = %lj_meta_lookup.exit94
-  %166 = tail call i32 @lj_obj_equal(ptr noundef nonnull %.1.i84, ptr noundef nonnull %.1.i92) #6
+165:                                              ; preds = %lj_meta_lookup.exit93
+  %166 = tail call i32 @lj_obj_equal(ptr noundef nonnull %.1.i83, ptr noundef nonnull %.1.i91) #6
   %.not69 = icmp eq i32 %166, 0
   br i1 %.not69, label %167, label %168
 
-167:                                              ; preds = %165, %lj_meta_lookup.exit94
-  br i1 %.not68, label %.thread107, label %196
+167:                                              ; preds = %165, %lj_meta_lookup.exit93
+  br i1 %.not68, label %.thread104, label %196
 
 168:                                              ; preds = %165
   %169 = and i32 %.061, 1
@@ -2017,7 +2017,7 @@ lj_meta_lookup.exit94:                            ; preds = %151, %159
   %170 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %170, align 8, !tbaa !21
   %171 = getelementptr i8, ptr %0, i64 40
-  %.val76 = load ptr, ptr %171, align 8, !tbaa !22
+  %.val75 = load ptr, ptr %171, align 8, !tbaa !22
   %172 = getelementptr inbounds i8, ptr %.val, i64 -16
   %173 = load i64, ptr %172, align 8, !tbaa !14
   %174 = and i64 %173, 140737488355327
@@ -2025,7 +2025,7 @@ lj_meta_lookup.exit94:                            ; preds = %151, %159
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 10
   %177 = load i8, ptr %176, align 2, !tbaa !14
   %178 = icmp eq i8 %177, 0
-  br i1 %178, label %179, label %.thread101
+  br i1 %178, label %179, label %.thread98
 
 179:                                              ; preds = %168
   %180 = getelementptr inbounds nuw i8, ptr %175, i64 32
@@ -2035,23 +2035,23 @@ lj_meta_lookup.exit94:                            ; preds = %151, %159
   %184 = load i8, ptr %183, align 1, !tbaa !26
   %185 = zext i8 %184 to i64
   %186 = getelementptr inbounds nuw %union.TValue, ptr %.val, i64 %185
-  br label %.thread101
+  br label %.thread98
 
-.thread101:                                       ; preds = %179, %168
-  %.0.i95 = phi ptr [ %186, %179 ], [ %.val76, %168 ]
+.thread98:                                        ; preds = %179, %168
+  %.0.i94 = phi ptr [ %186, %179 ], [ %.val75, %168 ]
   %187 = select i1 %.not.le, i64 ptrtoint (ptr @lj_cont_condt to i64), i64 ptrtoint (ptr @lj_cont_condf to i64)
-  %188 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 8
-  store i64 %187, ptr %.0.i95, align 8, !tbaa !14
-  %189 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 16
+  %188 = getelementptr inbounds nuw i8, ptr %.0.i94, i64 8
+  store i64 %187, ptr %.0.i94, align 8, !tbaa !14
+  %189 = getelementptr inbounds nuw i8, ptr %.0.i94, i64 16
   store i64 -1, ptr %188, align 8, !tbaa !14
-  %190 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 24
-  %191 = load i64, ptr %.1.i84, align 8, !tbaa !14
+  %190 = getelementptr inbounds nuw i8, ptr %.0.i94, i64 24
+  %191 = load i64, ptr %.1.i83, align 8, !tbaa !14
   store i64 %191, ptr %189, align 8, !tbaa !14
-  %192 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 32
+  %192 = getelementptr inbounds nuw i8, ptr %.0.i94, i64 32
   store i64 -1, ptr %190, align 8, !tbaa !14
   %193 = load i64, ptr %.156, align 8, !tbaa !14
   store i64 %193, ptr %192, align 8, !tbaa !14
-  %194 = getelementptr inbounds nuw i8, ptr %.0.i95, i64 40
+  %194 = getelementptr inbounds nuw i8, ptr %.0.i94, i64 40
   %195 = load i64, ptr %.159, align 8, !tbaa !14
   store i64 %195, ptr %194, align 8, !tbaa !14
   br label %199
@@ -2063,20 +2063,20 @@ lj_meta_lookup.exit94:                            ; preds = %151, %159
 
 198:                                              ; preds = %80
   %.off = add nsw i64 %6, 3
-  %switch73 = icmp ult i64 %.off, 2
-  %.off74 = add nsw i64 %10, 3
-  %switch75 = icmp ult i64 %.off74, 2
-  %or.cond113 = select i1 %switch73, i1 %switch75, i1 false
-  br i1 %or.cond113, label %98, label %.thread107
+  %switch = icmp ult i64 %.off, 2
+  %.off73 = add nsw i64 %10, 3
+  %switch74 = icmp ult i64 %.off73, 2
+  %or.cond110 = select i1 %switch, i1 %switch74, i1 false
+  br i1 %or.cond110, label %98, label %.thread104
 
-.thread107:                                       ; preds = %167, %lj_meta_lookup.exit, %198
+.thread104:                                       ; preds = %167, %lj_meta_lookup.exit, %198
   %.058 = phi ptr [ %2, %198 ], [ %2, %lj_meta_lookup.exit ], [ %.159, %167 ]
   %.055 = phi ptr [ %1, %198 ], [ %1, %lj_meta_lookup.exit ], [ %.156, %167 ]
   tail call void @lj_err_comp(ptr noundef %0, ptr noundef nonnull %.055, ptr noundef %.058) #7
   unreachable
 
-199:                                              ; preds = %.thread101, %.thread, %84
-  %.1 = phi ptr [ %97, %84 ], [ %76, %.thread ], [ %192, %.thread101 ]
+199:                                              ; preds = %.thread98, %.thread, %84
+  %.1 = phi ptr [ %97, %84 ], [ %76, %.thread ], [ %192, %.thread98 ]
   ret ptr %.1
 }
 

@@ -667,8 +667,8 @@ define internal void @_ZN5clang4ento5check11ASTCodeBody10_checkBodyIN12_GLOBAL__
   %12 = and i32 %11, 126
   %13 = add nsw i32 %12, -38
   %14 = icmp ult i32 %13, -6
-  %.not34.i = icmp eq ptr %1, null
-  %.not.i = or i1 %.not34.i, %14
+  %.not33.i = icmp eq ptr %1, null
+  %.not.i = or i1 %.not33.i, %14
   br i1 %.not.i, label %17, label %15
 
 15:                                               ; preds = %4
@@ -1001,17 +1001,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang9ValueDeclEPNS2_9FieldDeclENS_12Den
   %179 = zext i32 %178 to i64
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %179, 3
   %180 = getelementptr inbounds nuw i8, ptr %177, i64 %.idx.i.i.i.i.i.i
-  %.not36.i.i.i.i.i.i = icmp eq i32 %178, 0
-  br i1 %.not36.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
+  %.not34.i.i.i.i.i.i = icmp eq i32 %178, 0
+  br i1 %.not34.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %176, %.critedge.i.i.i.i.i.i
-  %.02937.i.i.i.i.i.i = phi ptr [ %182, %.critedge.i.i.i.i.i.i ], [ %177, %176 ]
-  %181 = load ptr, ptr %.02937.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !261
+  %.02935.i.i.i.i.i.i = phi ptr [ %182, %.critedge.i.i.i.i.i.i ], [ %177, %176 ]
+  %181 = load ptr, ptr %.02935.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !261
   %.not17.i.i.i.i.i.i = icmp eq ptr %181, %74
   br i1 %.not17.i.i.i.i.i.i, label %_ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i, label %.critedge.i.i.i.i.i.i
 
 .critedge.i.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i.i
-  %182 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i.i.i, i64 8
+  %182 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i27.i = icmp eq ptr %182, %180
   br i1 %.not.i.i.i.i.i27.i, label %._crit_edge.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !265
 
@@ -1057,8 +1057,8 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i: ; preds = %.l
   %199 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %198) #23
   %200 = load i16, ptr %199, align 8
   %201 = and i16 %200, 511
-  %.not27.i.i.i = icmp eq i16 %201, 73
-  br i1 %.not27.i.i.i, label %202, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i
+  %.not26.i.i.i = icmp eq i16 %201, 73
+  br i1 %.not26.i.i.i, label %202, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i
 
 202:                                              ; preds = %196
   %203 = getelementptr inbounds nuw i8, ptr %199, i64 16
@@ -1068,8 +1068,8 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i: ; preds = %.l
   %207 = and i32 %206, 127
   %208 = add nsw i32 %207, -45
   %209 = icmp ult i32 %208, -7
-  %.not2028.i.i.i = icmp eq ptr %204, null
-  %.not20.i.i.i = or i1 %.not2028.i.i.i, %209
+  %.not2027.i.i.i = icmp eq ptr %204, null
+  %.not20.i.i.i = or i1 %.not2027.i.i.i, %209
   br i1 %.not20.i.i.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i, label %210
 
 210:                                              ; preds = %202
@@ -1083,17 +1083,17 @@ _ZNK5clang13LambdaCapture16capturesVariableEv.exit.thread.i.i.i.i: ; preds = %.l
   %216 = zext i32 %215 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %216, 3
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 %.idx.i.i.i.i.i
-  %.not36.i.i.i.i.i = icmp eq i32 %215, 0
-  br i1 %.not36.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  %.not34.i.i.i.i.i = icmp eq i32 %215, 0
+  br i1 %.not34.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %213, %.critedge.i.i.i.i.i
-  %.02937.i.i.i.i.i = phi ptr [ %219, %.critedge.i.i.i.i.i ], [ %214, %213 ]
-  %218 = load ptr, ptr %.02937.i.i.i.i.i, align 8, !tbaa !3, !noalias !275
+  %.02935.i.i.i.i.i = phi ptr [ %219, %.critedge.i.i.i.i.i ], [ %214, %213 ]
+  %218 = load ptr, ptr %.02935.i.i.i.i.i, align 8, !tbaa !3, !noalias !275
   %.not17.i.i.i.i.i = icmp eq ptr %218, %204
   br i1 %.not17.i.i.i.i.i, label %_ZNK5clang10CFGElement5getAsINS_7CFGStmtEEESt8optionalIT_Ev.exit.i.i, label %.critedge.i.i.i.i.i
 
 .critedge.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i
-  %219 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i.i, i64 8
+  %219 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %219, %217
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !265
 
@@ -1498,19 +1498,19 @@ define internal void @_ZN12_GLOBAL__N_112DeadStoreObs11observeStmtEPKN5clang4Stm
   %29 = and i32 %28, 127
   %30 = add nsw i32 %29, -45
   %31 = icmp ult i32 %30, -7
-  %.not111193 = icmp eq ptr %26, null
-  %.not111 = or i1 %.not111193, %31
+  %.not111192 = icmp eq ptr %26, null
+  %.not111 = or i1 %.not111192, %31
   br i1 %.not111, label %.critedge131, label %32
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !337
-  %.not19.i = icmp eq ptr %34, null
-  br i1 %.not19.i, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit, label %.lr.ph.i
+  %.not17.i = icmp eq ptr %34, null
+  br i1 %.not17.i, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32, %42
-  %.020.i = phi ptr [ %44, %42 ], [ %34, %32 ]
-  %35 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.020.i) #23
+  %.018.i = phi ptr [ %44, %42 ], [ %34, %32 ]
+  %35 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.018.i) #23
   %36 = load i16, ptr %35, align 8
   %37 = and i16 %36, 510
   %spec.select.i.i.i.i.i.i.i.i.not.i = icmp eq i16 %37, 120
@@ -1545,8 +1545,8 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %_ZL49LookThroughTra
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %.0.copyload.i.i.i.i.i1.i = load i64, ptr %49, align 8
   %50 = and i64 %.0.copyload.i.i.i.i.i1.i, 4
-  %.not194 = icmp eq i64 %50, 0
-  br i1 %.not194, label %51, label %.critedge131
+  %.not193 = icmp eq i64 %50, 0
+  br i1 %.not193, label %51, label %.critedge131
 
 51:                                               ; preds = %_ZNK5clang8QualType19isVolatileQualifiedEv.exit
   %52 = load ptr, ptr %48, align 16, !tbaa !254
@@ -1572,8 +1572,8 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %_ZL49LookThroughTra
 63:                                               ; preds = %51, %59
   %64 = load i16, ptr %.1.i, align 8
   %65 = and i16 %64, 511
-  %.not196 = icmp eq i16 %65, 73
-  br i1 %.not196, label %66, label %.critedge115
+  %.not195 = icmp eq i16 %65, 73
+  br i1 %.not195, label %66, label %.critedge115
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
@@ -1639,8 +1639,8 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %_ZL49LookThroughTra
   %102 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %101) #23
   %103 = load i16, ptr %102, align 8
   %104 = and i16 %103, 511
-  %.not199 = icmp eq i16 %104, 73
-  br i1 %.not199, label %105, label %.critedge131
+  %.not198 = icmp eq i16 %104, 73
+  br i1 %.not198, label %105, label %.critedge131
 
 105:                                              ; preds = %99
   tail call fastcc void @_ZN12_GLOBAL__N_112DeadStoreObs12CheckDeclRefEPKN5clang11DeclRefExprEPKNS1_4ExprENS0_13DeadStoreKindERKNS1_13LiveVariables14LivenessValuesE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %102, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -1673,23 +1673,23 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %_ZL49LookThroughTra
 _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %112, %116
   %.0.i.i.i = phi ptr [ %113, %112 ], [ %119, %116 ]
   %.0.i.i1.i = phi ptr [ %115, %112 ], [ %122, %116 ]
-  %.not101209 = icmp eq ptr %.0.i.i.i, %.0.i.i1.i
-  br i1 %.not101209, label %.critedge131, label %.lr.ph211
+  %.not101208 = icmp eq ptr %.0.i.i.i, %.0.i.i1.i
+  br i1 %.not101208, label %.critedge131, label %.lr.ph210
 
-.lr.ph211:                                        ; preds = %_ZNK5clang8DeclStmt5declsEv.exit
+.lr.ph210:                                        ; preds = %_ZNK5clang8DeclStmt5declsEv.exit
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %124
 
-124:                                              ; preds = %.lr.ph211, %.critedge129
-  %.087210 = phi ptr [ %.0.i.i.i, %.lr.ph211 ], [ %217, %.critedge129 ]
-  %125 = load ptr, ptr %.087210, align 8, !tbaa !344
+124:                                              ; preds = %.lr.ph210, %.critedge129
+  %.087209 = phi ptr [ %.0.i.i.i, %.lr.ph210 ], [ %217, %.critedge129 ]
+  %125 = load ptr, ptr %.087209, align 8, !tbaa !344
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 28
   %127 = load i32, ptr %126, align 4
   %128 = and i32 %127, 127
   %129 = add nsw i32 %128, -45
   %130 = icmp ult i32 %129, -7
-  %.not102201 = icmp eq ptr %125, null
-  %.not102 = or i1 %.not102201, %130
+  %.not102200 = icmp eq ptr %125, null
+  %.not102 = or i1 %.not102200, %130
   br i1 %.not102, label %.critedge129, label %131
 
 131:                                              ; preds = %124
@@ -1733,12 +1733,12 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %141, %_
 .preheader:                                       ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread
   %151 = load i16, ptr %150, align 8
   %152 = and i16 %151, 510
-  %spec.select.i.i.i.i.i.i.i.i148.not207 = icmp eq i16 %152, 62
-  br i1 %spec.select.i.i.i.i.i.i.i.i148.not207, label %.lr.ph, label %.lr.ph.i151.preheader
+  %spec.select.i.i.i.i.i.i.i.i148.not206 = icmp eq i16 %152, 62
+  br i1 %spec.select.i.i.i.i.i.i.i.i148.not206, label %.lr.ph, label %.lr.ph.i151.preheader
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0208 = phi ptr [ %154, %.lr.ph ], [ %150, %.preheader ]
-  %153 = getelementptr inbounds nuw i8, ptr %.0208, i64 16
+  %.0207 = phi ptr [ %154, %.lr.ph ], [ %150, %.preheader ]
+  %153 = getelementptr inbounds nuw i8, ptr %.0207, i64 16
   %154 = load ptr, ptr %153, align 8, !tbaa !345
   %155 = load i16, ptr %154, align 8
   %156 = and i16 %155, 510
@@ -1746,12 +1746,12 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %141, %_
   br i1 %spec.select.i.i.i.i.i.i.i.i148.not, label %.lr.ph, label %.lr.ph.i151.preheader
 
 .lr.ph.i151.preheader:                            ; preds = %.lr.ph, %.preheader
-  %.020.i152.ph = phi ptr [ %150, %.preheader ], [ %154, %.lr.ph ]
+  %.018.i152.ph = phi ptr [ %150, %.preheader ], [ %154, %.lr.ph ]
   br label %.lr.ph.i151
 
 .lr.ph.i151:                                      ; preds = %.lr.ph.i151.preheader, %164
-  %.020.i152 = phi ptr [ %166, %164 ], [ %.020.i152.ph, %.lr.ph.i151.preheader ]
-  %157 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.020.i152) #23
+  %.018.i152 = phi ptr [ %166, %164 ], [ %.018.i152.ph, %.lr.ph.i151.preheader ]
+  %157 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.018.i152) #23
   %158 = load i16, ptr %157, align 8
   %159 = and i16 %158, 510
   %spec.select.i.i.i.i.i.i.i.i.not.i153 = icmp eq i16 %159, 120
@@ -1761,7 +1761,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %141, %_
   %161 = load i32, ptr %157, align 8
   %162 = lshr i32 %161, 19
   %163 = and i32 %162, 63
-  switch i32 %163, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit230 [
+  switch i32 %163, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit229 [
     i32 32, label %164
     i32 21, label %164
   ]
@@ -1772,19 +1772,19 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread: ; preds = %141, %_
   %.not.i155 = icmp eq ptr %166, null
   br i1 %.not.i155, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.thread, label %.lr.ph.i151
 
-_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit230: ; preds = %160
+_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit229: ; preds = %160
   %167 = trunc i32 %161 to i16
   br label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156
 
-_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156: ; preds = %.lr.ph.i151, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit230
-  %168 = phi i16 [ %167, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit230 ], [ %158, %.lr.ph.i151 ]
+_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156: ; preds = %.lr.ph.i151, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit229
+  %168 = phi i16 [ %167, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.split.loop.exit229 ], [ %158, %.lr.ph.i151 ]
   %169 = and i16 %168, 511
   %170 = add nsw i16 %169, -115
   %171 = icmp ult i16 %170, 2
   br i1 %171, label %.critedge131, label %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.thread
 
 _ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.thread: ; preds = %164, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156
-  %.1.i154227 = phi ptr [ %157, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156 ], [ null, %164 ]
+  %.1.i154226 = phi ptr [ %157, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156 ], [ null, %164 ]
   %172 = call fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112DeadStoreObs6isLiveERKN5clang13LiveVariables14LivenessValuesEPKNS1_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %125)
   br i1 %172, label %.critedge129, label %173
 
@@ -1797,25 +1797,25 @@ _ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.th
   br i1 %176, label %.critedge129, label %177
 
 177:                                              ; preds = %175
-  %178 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang4ExprE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.1.i154227)
+  %178 = call fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang4ExprE(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef %.1.i154226)
   br i1 %178, label %.critedge131, label %179
 
 179:                                              ; preds = %177
-  %180 = load i16, ptr %.1.i154227, align 8
+  %180 = load i16, ptr %.1.i154226, align 8
   %181 = and i16 %180, 511
-  %.not204 = icmp eq i16 %181, 73
-  br i1 %.not204, label %182, label %.critedge125
+  %.not203 = icmp eq i16 %181, 73
+  br i1 %.not203, label %182, label %.critedge125
 
 182:                                              ; preds = %179
-  %183 = getelementptr inbounds nuw i8, ptr %.1.i154227, i64 16
+  %183 = getelementptr inbounds nuw i8, ptr %.1.i154226, i64 16
   %184 = load ptr, ptr %183, align 8, !tbaa !272
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 28
   %186 = load i32, ptr %185, align 4
   %187 = and i32 %186, 127
   %188 = add nsw i32 %187, -45
   %189 = icmp ult i32 %188, -7
-  %.not107205 = icmp eq ptr %184, null
-  %.not107 = or i1 %.not107205, %189
+  %.not107204 = icmp eq ptr %184, null
+  %.not107 = or i1 %.not107204, %189
   br i1 %.not107, label %.critedge125, label %190
 
 190:                                              ; preds = %182
@@ -1835,8 +1835,8 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %192
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %.0.copyload.i.i.i.i.i1.i163 = load i64, ptr %197, align 8
   %198 = and i64 %.0.copyload.i.i.i.i.i1.i163, 1
-  %.not206 = icmp eq i64 %198, 0
-  br i1 %.not206, label %.critedge, label %.critedge131
+  %.not205 = icmp eq i64 %198, 0
+  br i1 %.not205, label %.critedge, label %.critedge131
 
 .critedge:                                        ; preds = %190, %_ZNK5clang8QualType16isConstQualifiedEv.exit
   %199 = load i32, ptr %185, align 4
@@ -1871,7 +1871,7 @@ _ZNK5clang8QualType16isConstQualifiedEv.exit:     ; preds = %192
   br label %.critedge129
 
 .critedge129:                                     ; preds = %124, %131, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread, %.critedge125, %175, %173, %_ZL49LookThroughTransitiveAssignmentsAndCommaOperatorsPKN5clang4ExprE.exit156.thread
-  %217 = getelementptr inbounds nuw i8, ptr %.087210, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %.087209, i64 8
   %.not101 = icmp eq ptr %217, %.0.i.i1.i
   br i1 %.not101, label %.critedge131, label %124
 
@@ -2512,8 +2512,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type12isScalarTypeEv(p
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
   %8 = icmp ne i8 %7, 13
-  %.not.not27 = icmp eq ptr %5, null
-  %.not.not = or i1 %.not.not27, %8
+  %.not.not24 = icmp eq ptr %5, null
+  %.not.not = or i1 %.not.not24, %8
   br i1 %.not.not, label %14, label %9
 
 9:                                                ; preds = %1
@@ -2526,7 +2526,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type12isScalarTypeEv(p
 
 14:                                               ; preds = %1
   %15 = icmp ne i8 %7, 46
-  %.not12.not = or i1 %.not.not27, %15
+  %.not12.not = or i1 %.not.not24, %15
   br i1 %.not12.not, label %24, label %16
 
 16:                                               ; preds = %14
@@ -6204,10 +6204,10 @@ define internal fastcc noundef zeroext i1 @_ZN4llvm6all_ofINS_8ArrayRefIPN5clang
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i.thread
-  %.0.i78 = phi i64 [ %15, %.lr.ph ], [ %98, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i.thread ]
-  %.029.i77 = phi ptr [ %10, %.lr.ph ], [ %97, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i.thread ]
-  %22 = load ptr, ptr %.029.i77, align 8, !tbaa !878
+21:                                               ; preds = %.lr.ph, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i.thread
+  %.0.i71 = phi i64 [ %15, %.lr.ph ], [ %98, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i.thread ]
+  %.029.i70 = phi ptr [ %10, %.lr.ph ], [ %97, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i.thread ]
+  %22 = load ptr, ptr %.029.i70, align 8, !tbaa !878
   %23 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %22) #23
   %24 = load ptr, ptr %16, align 8, !tbaa !338
   %25 = tail call noundef zeroext i1 @_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(23216) %24, i32 noundef 0) #22
@@ -6237,20 +6237,20 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   br i1 %39, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
 _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i.thread: ; preds = %21, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !878
   %42 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %41) #23
   %43 = load ptr, ptr %16, align 8, !tbaa !338
   %44 = tail call noundef zeroext i1 @_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE(ptr noundef nonnull align 8 dereferenceable(16) %42, ptr noundef nonnull align 8 dereferenceable(23216) %43, i32 noundef 0) #22
-  br i1 %44, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit36.i.thread, label %45
+  br i1 %44, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit35.i.thread, label %45
 
 45:                                               ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i.thread
   %46 = load i16, ptr %42, align 8
   %47 = and i16 %46, 511
   %48 = icmp eq i16 %47, 55
-  br i1 %48, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit36.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit90
+  br i1 %48, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit35.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit83
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit36.i: ; preds = %45
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit35.i: ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !369
@@ -6265,23 +6265,23 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   store i64 %57, ptr %18, align 8
   %58 = call fastcc noundef zeroext i1 @_ZN4llvm6all_ofINS_8ArrayRefIPN5clang4ExprEEEZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS2_12InitListExprEEUlPKS3_E_EEbOT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr nonnull align 8 dereferenceable(360) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %58, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit36.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit88
+  br i1 %58, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit35.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit81
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit36.i.thread: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i.thread, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit36.i
-  %59 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 16
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit35.i.thread: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i.thread, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit35.i
+  %59 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !878
   %61 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %60) #23
   %62 = load ptr, ptr %16, align 8, !tbaa !338
   %63 = tail call noundef zeroext i1 @_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(23216) %62, i32 noundef 0) #22
-  br i1 %63, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit43.i.thread, label %64
+  br i1 %63, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit41.i.thread, label %64
 
-64:                                               ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit36.i.thread
+64:                                               ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit35.i.thread
   %65 = load i16, ptr %61, align 8
   %66 = and i16 %65, 511
   %67 = icmp eq i16 %66, 55
-  br i1 %67, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit43.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit92
+  br i1 %67, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit41.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit85
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit43.i: ; preds = %64
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit41.i: ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %69 = load ptr, ptr %68, align 8, !tbaa !369
@@ -6296,23 +6296,23 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   store i64 %76, ptr %19, align 8
   %77 = call fastcc noundef zeroext i1 @_ZN4llvm6all_ofINS_8ArrayRefIPN5clang4ExprEEEZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS2_12InitListExprEEUlPKS3_E_EEbOT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr nonnull align 8 dereferenceable(360) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %77, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit43.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit86
+  br i1 %77, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit41.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit79
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit43.i.thread: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit36.i.thread, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit43.i
-  %78 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 24
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit41.i.thread: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit35.i.thread, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit41.i
+  %78 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 24
   %79 = load ptr, ptr %78, align 8, !tbaa !878
   %80 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %79) #23
   %81 = load ptr, ptr %16, align 8, !tbaa !338
   %82 = tail call noundef zeroext i1 @_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE(ptr noundef nonnull align 8 dereferenceable(16) %80, ptr noundef nonnull align 8 dereferenceable(23216) %81, i32 noundef 0) #22
-  br i1 %82, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i.thread, label %83
+  br i1 %82, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i.thread, label %83
 
-83:                                               ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit43.i.thread
+83:                                               ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit41.i.thread
   %84 = load i16, ptr %80, align 8
   %85 = and i16 %84, 511
   %86 = icmp eq i16 %85, 55
-  br i1 %86, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit94
+  br i1 %86, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit87
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i: ; preds = %83
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i: ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %87 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %88 = load ptr, ptr %87, align 8, !tbaa !369
@@ -6327,20 +6327,20 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   store i64 %95, ptr %20, align 8
   %96 = call fastcc noundef zeroext i1 @_ZN4llvm6all_ofINS_8ArrayRefIPN5clang4ExprEEEZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS2_12InitListExprEEUlPKS3_E_EEbOT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr nonnull align 8 dereferenceable(360) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %96, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit
+  br i1 %96, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i.thread: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit43.i.thread, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i
-  %97 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 32
-  %98 = add nsw i64 %.0.i78, -1
-  %99 = icmp sgt i64 %.0.i78, 1
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i.thread: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit41.i.thread, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i
+  %97 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 32
+  %98 = add nsw i64 %.0.i71, -1
+  %99 = icmp sgt i64 %.0.i71, 1
   br i1 %99, label %21, label %._crit_edge, !llvm.loop !879
 
-._crit_edge:                                      ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i.thread, %2
-  %.029.i.lcssa = phi ptr [ %10, %2 ], [ %97, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i.thread ]
+._crit_edge:                                      ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i.thread, %2
+  %.029.i.lcssa = phi ptr [ %10, %2 ], [ %97, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i.thread ]
   %100 = ptrtoint ptr %.029.i.lcssa to i64
   %101 = sub i64 %14, %100
   %102 = ashr exact i64 %101, 3
-  switch i64 %102, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i.thread [
+  switch i64 %102, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i.thread [
     i64 3, label %103
     i64 2, label %125
     i64 1, label %147
@@ -6352,15 +6352,15 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   %106 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %107 = load ptr, ptr %106, align 8, !tbaa !338
   %108 = tail call noundef zeroext i1 @_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(23216) %107, i32 noundef 0) #22
-  br i1 %108, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i.thread, label %109
+  br i1 %108, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i.thread, label %109
 
 109:                                              ; preds = %103
   %110 = load i16, ptr %105, align 8
   %111 = and i16 %110, 511
   %112 = icmp eq i16 %111, 55
-  br i1 %112, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
+  br i1 %112, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i: ; preds = %109
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i: ; preds = %109
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %113 = getelementptr inbounds nuw i8, ptr %105, i64 16
   %114 = load ptr, ptr %113, align 8, !tbaa !369
@@ -6376,28 +6376,28 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   store i64 %121, ptr %122, align 8
   %123 = call fastcc noundef zeroext i1 @_ZN4llvm6all_ofINS_8ArrayRefIPN5clang4ExprEEEZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS2_12InitListExprEEUlPKS3_E_EEbOT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull align 8 dereferenceable(360) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %123, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
+  br i1 %123, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i.thread: ; preds = %103, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i.thread: ; preds = %103, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i
   %124 = getelementptr inbounds nuw i8, ptr %.029.i.lcssa, i64 8
   br label %125
 
-125:                                              ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i.thread, %._crit_edge
-  %.1.i = phi ptr [ %124, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i.thread ], [ %.029.i.lcssa, %._crit_edge ]
+125:                                              ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i.thread, %._crit_edge
+  %.1.i = phi ptr [ %124, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i.thread ], [ %.029.i.lcssa, %._crit_edge ]
   %126 = load ptr, ptr %.1.i, align 8, !tbaa !878
   %127 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %126) #23
   %128 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !338
   %130 = tail call noundef zeroext i1 @_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE(ptr noundef nonnull align 8 dereferenceable(16) %127, ptr noundef nonnull align 8 dereferenceable(23216) %129, i32 noundef 0) #22
-  br i1 %130, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i.thread, label %131
+  br i1 %130, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i.thread, label %131
 
 131:                                              ; preds = %125
   %132 = load i16, ptr %127, align 8
   %133 = and i16 %132, 511
   %134 = icmp eq i16 %133, 55
-  br i1 %134, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
+  br i1 %134, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i: ; preds = %131
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i: ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %135 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !369
@@ -6413,28 +6413,28 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   store i64 %143, ptr %144, align 8
   %145 = call fastcc noundef zeroext i1 @_ZN4llvm6all_ofINS_8ArrayRefIPN5clang4ExprEEEZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS2_12InitListExprEEUlPKS3_E_EEbOT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull align 8 dereferenceable(360) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %145, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
+  br i1 %145, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i.thread: ; preds = %125, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i.thread: ; preds = %125, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i
   %146 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   br label %147
 
-147:                                              ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i.thread, %._crit_edge
-  %.2.i = phi ptr [ %146, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i.thread ], [ %.029.i.lcssa, %._crit_edge ]
+147:                                              ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i.thread, %._crit_edge
+  %.2.i = phi ptr [ %146, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i.thread ], [ %.029.i.lcssa, %._crit_edge ]
   %148 = load ptr, ptr %.2.i, align 8, !tbaa !878
   %149 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %148) #23
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %151 = load ptr, ptr %150, align 8, !tbaa !338
   %152 = tail call noundef zeroext i1 @_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE(ptr noundef nonnull align 8 dereferenceable(16) %149, ptr noundef nonnull align 8 dereferenceable(23216) %151, i32 noundef 0) #22
-  br i1 %152, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i.thread, label %153
+  br i1 %152, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i.thread, label %153
 
 153:                                              ; preds = %147
   %154 = load i16, ptr %149, align 8
   %155 = and i16 %154, 511
   %156 = icmp eq i16 %155, 55
-  br i1 %156, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
+  br i1 %156, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i: ; preds = %153
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i: ; preds = %153
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %157 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %158 = load ptr, ptr %157, align 8, !tbaa !369
@@ -6450,37 +6450,37 @@ _ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1
   store i64 %165, ptr %166, align 8
   %167 = call fastcc noundef zeroext i1 @_ZN4llvm6all_ofINS_8ArrayRefIPN5clang4ExprEEEZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS2_12InitListExprEEUlPKS3_E_EEbOT_T0_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr nonnull align 8 dereferenceable(360) %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %167, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
+  br i1 %167, label %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i.thread, label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i.thread: ; preds = %147, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i, %._crit_edge
+_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i.thread: ; preds = %147, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i, %._crit_edge
   br label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit50.i
-  %168 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 24
+_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit47.i
+  %168 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 24
   br label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit86: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit43.i
-  %169 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 16
+_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit79: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit41.i
+  %169 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 16
   br label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit88: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit36.i
-  %170 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 8
+_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit81: ; preds = %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit35.i
+  %170 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 8
   br label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit90: ; preds = %45
-  %171 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 8
+_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit83: ; preds = %45
+  %171 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 8
   br label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit92: ; preds = %64
-  %172 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 16
+_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit85: ; preds = %64
+  %172 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 16
   br label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit94: ; preds = %83
-  %173 = getelementptr inbounds nuw i8, ptr %.029.i77, i64 24
+_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit87: ; preds = %83
+  %173 = getelementptr inbounds nuw i8, ptr %.029.i70, i64 24
   br label %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit
 
-_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit: ; preds = %26, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit86, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit88, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit90, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit92, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit94, %153, %131, %109, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i.thread
-  %.028.i = phi ptr [ %13, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i.thread ], [ %.029.i.lcssa, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit57.i ], [ %.1.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit64.i ], [ %.2.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit71.i ], [ %.029.i.lcssa, %109 ], [ %.1.i, %131 ], [ %.2.i, %153 ], [ %168, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit ], [ %169, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit86 ], [ %170, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit88 ], [ %171, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit90 ], [ %172, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit92 ], [ %173, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit94 ], [ %.029.i77, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i ], [ %.029.i77, %26 ]
+_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit: ; preds = %26, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit79, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit81, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit83, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit85, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit87, %153, %131, %109, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i.thread
+  %.028.i = phi ptr [ %13, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i.thread ], [ %.029.i.lcssa, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit53.i ], [ %.1.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit59.i ], [ %.2.i, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit65.i ], [ %.029.i.lcssa, %109 ], [ %.1.i, %131 ], [ %.2.i, %153 ], [ %168, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit ], [ %169, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit79 ], [ %170, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit81 ], [ %171, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit83 ], [ %172, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit85 ], [ %173, %_ZSt9__find_ifIPKPN5clang4ExprEN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKNS0_12InitListExprEEUlPKS1_E_EEET_SH_SH_T0_St26random_access_iterator_tag.exit.loopexit.split.loop.exit87 ], [ %.029.i70, %_ZZNK12_GLOBAL__N_112DeadStoreObs10isConstantEPKN5clang12InitListExprEENKUlPKNS1_4ExprEE_clES7_.exit.i ], [ %.029.i70, %26 ]
   %174 = icmp eq ptr %13, %.028.i
   ret i1 %174
 }

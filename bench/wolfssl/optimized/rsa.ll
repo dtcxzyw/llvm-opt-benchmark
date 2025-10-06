@@ -350,7 +350,7 @@ define i32 @wc_RsaPad_ex(ptr noundef readonly captures(address_is_null) %0, i32 
   %33 = zext i32 %32 to i64
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %31, i8 -1, i64 %33, i1 false)
   %.pre.i = xor i32 %1, -1
-  %.pre52.i = add i32 %28, %.pre.i
+  %.pre51.i = add i32 %28, %.pre.i
   br label %.loopexit.i
 
 34:                                               ; preds = %26
@@ -386,8 +386,8 @@ define i32 @wc_RsaPad_ex(ptr noundef readonly captures(address_is_null) %0, i32 
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %44, %.preheader.i, %30
-  %.pre-phi53.i = phi i32 [ %36, %.preheader.i ], [ %.pre52.i, %30 ], [ %36, %44 ]
-  %45 = zext i32 %.pre-phi53.i to i64
+  %.pre-phi52.i = phi i32 [ %36, %.preheader.i ], [ %.pre51.i, %30 ], [ %36, %44 ]
+  %45 = zext i32 %.pre-phi52.i to i64
   %46 = getelementptr inbounds nuw i8, ptr %27, i64 %45
   store i8 0, ptr %46, align 1, !tbaa !20
   %47 = zext i32 %28 to i64

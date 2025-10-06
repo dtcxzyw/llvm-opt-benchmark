@@ -355,8 +355,8 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %.pre9.i = sub i64 %.pre.i, %13
   %22 = icmp ule i64 %10, %.pre9.i
   %.pre = load i64, ptr %12, align 8, !alias.scope !117, !noalias !124
-  %.pre21 = sub i64 %.pre.i, %.pre
-  %23 = icmp ugt i64 %10, %.pre21
+  %.pre20 = sub i64 %.pre.i, %.pre
+  %23 = icmp ugt i64 %10, %.pre20
   tail call void @llvm.assume(i1 %22)
   br i1 %23, label %24, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$17extend_from_slice17hbb7ce0700a43a05fE.exit"
 
@@ -382,8 +382,8 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %34, align 8, !nonnull !4, !align !98, !noundef !4
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.val17 = load ptr, ptr %35, align 8, !nonnull !4, !align !60, !noundef !4
-  %36 = getelementptr inbounds nuw i8, ptr %.val17, i64 48
+  %.val16 = load ptr, ptr %35, align 8, !nonnull !4, !align !60, !noundef !4
+  %36 = getelementptr inbounds nuw i8, ptr %.val16, i64 48
   %37 = load ptr, ptr %36, align 8, !invariant.load !4, !noalias !127, !nonnull !4
   call void %37(ptr noalias noundef nonnull sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %4, ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   %38 = load i64, ptr %4, align 8, !range !41, !noundef !4

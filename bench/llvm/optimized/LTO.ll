@@ -10457,8 +10457,8 @@ _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt
   %123 = load ptr, ptr %122, align 8, !tbaa !908
   %124 = getelementptr inbounds nuw i8, ptr %19, i64 112
   %125 = load ptr, ptr %124, align 8, !tbaa !911
-  %.not8.i = icmp eq ptr %123, %125
-  br i1 %.not8.i, label %"_ZZN4llvm3lto3LTO13addRegularLTOENS_13BitcodeModuleENS_8ArrayRefINS0_9InputFile6SymbolEEERPKNS0_16SymbolResolutionES9_ENK3$_0clEv.exit", label %.lr.ph.i
+  %.not7.i = icmp eq ptr %123, %125
+  br i1 %.not7.i, label %"_ZZN4llvm3lto3LTO13addRegularLTOENS_13BitcodeModuleENS_8ArrayRefINS0_9InputFile6SymbolEEERPKNS0_16SymbolResolutionES9_ENK3$_0clEv.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %._crit_edge290, %128
   %.1 = phi ptr [ %129, %128 ], [ %123, %._crit_edge290 ]
@@ -10560,8 +10560,8 @@ _ZNSt6vectorIPN4llvm11GlobalValueESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt
   %.sroa.015.0.copyload = load i8, ptr %157, align 4, !tbaa !62
   %159 = getelementptr inbounds nuw i8, ptr %.0292, i64 8
   %160 = load i64, ptr %.0292, align 8
-  %.not8.i83 = icmp eq ptr %159, %125
-  br i1 %.not8.i83, label %"_ZZN4llvm3lto3LTO13addRegularLTOENS_13BitcodeModuleENS_8ArrayRefINS0_9InputFile6SymbolEEERPKNS0_16SymbolResolutionES9_ENK3$_0clEv.exit88", label %.lr.ph.i84
+  %.not7.i83 = icmp eq ptr %159, %125
+  br i1 %.not7.i83, label %"_ZZN4llvm3lto3LTO13addRegularLTOENS_13BitcodeModuleENS_8ArrayRefINS0_9InputFile6SymbolEEERPKNS0_16SymbolResolutionES9_ENK3$_0clEv.exit88", label %.lr.ph.i84
 
 .lr.ph.i84:                                       ; preds = %156, %163
   %.3 = phi ptr [ %164, %163 ], [ %159, %156 ]
@@ -26606,49 +26606,49 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_
   %15 = zext i32 %14 to i64
   %.idx.i = shl nuw nsw i64 %15, 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
-  %.not18.i = icmp eq i32 %14, 0
+  %.not16.i = icmp eq i32 %14, 0
   %.sroa.05.0.copyload.pre = load ptr, ptr %2, align 8, !tbaa !54
   %.sroa.26.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.26.0.copyload.pre = load i64, ptr %.sroa.26.0..sroa_idx.phi.trans.insert, align 8, !tbaa !55
   %.sroa.2.0.copyload.i.fr = freeze i64 %.sroa.26.0.copyload.pre
-  br i1 %.not18.i, label %.thread, label %.lr.ph.i
+  br i1 %.not16.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
   %17 = icmp eq i64 %.sroa.2.0.copyload.i.fr, 0
   br i1 %17, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us
-  %.01019.i.us = phi ptr [ %18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us ], [ %12, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.01019.i.us, i64 8
+  %.01017.i.us = phi ptr [ %18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us ], [ %12, %.lr.ph.i ]
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.01017.i.us, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !55
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us:  ; preds = %.lr.ph.i.split.us
-  %18 = getelementptr inbounds nuw i8, ptr %.01019.i.us, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.01017.i.us, i64 16
   %.not.i.us = icmp eq ptr %18, %16
   br i1 %.not.i.us, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %.lr.ph.i.split.us, !llvm.loop !1860
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
-  %.01019.i = phi ptr [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ], [ %12, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.01019.i, i64 8
+  %.01017.i = phi ptr [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ], [ %12, %.lr.ph.i ]
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.01017.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !55
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.sroa.2.0.copyload.i.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %.01019.i, align 8, !tbaa !54
+  %.sroa.01.0.copyload.i = load ptr, ptr %.01017.i, align 8, !tbaa !54
   %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %.sroa.05.0.copyload.pre, i64 %.sroa.2.0.copyload.i.fr)
   %19 = icmp eq i32 %bcmp.i.i, 0
   br i1 %19, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %20 = getelementptr inbounds nuw i8, ptr %.01019.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.01017.i, i64 16
   %.not.i = icmp eq ptr %20, %16
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %.lr.ph.i.split, !llvm.loop !1860
 
 _ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %.us-phi = phi ptr [ %.01019.i.us, %.lr.ph.i.split.us ], [ %.01019.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.us-phi = phi ptr [ %.01017.i.us, %.lr.ph.i.split.us ], [ %.01017.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %.not = icmp eq ptr %.us-phi, %16
   br i1 %.not, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %41
 
@@ -27723,45 +27723,45 @@ define internal void @"_ZN4llvm12function_refIFvNS_9StringRefES1_EE11callback_fn
   %25 = zext i32 %24 to i64
   %.idx.i.i.i = shl nuw nsw i64 %25, 4
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i.i
-  %.not18.i.i.i = icmp eq i32 %24, 0
-  br i1 %.not18.i.i.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i
+  %.not16.i.i.i = icmp eq i32 %24, 0
+  br i1 %.not16.i.i.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %21
   %27 = icmp eq i64 %.sroa.2.0.copyload.i.fr.i.i, 0
   br i1 %27, label %.lr.ph.i.split.us.i.i, label %.lr.ph.i.split.i.i
 
 .lr.ph.i.split.us.i.i:                            ; preds = %.lr.ph.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i.i
-  %.01019.i.us.i.i = phi ptr [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i.i ], [ %22, %.lr.ph.i.i.i ]
-  %.sroa.22.0..sroa_idx.i.us.i.i = getelementptr inbounds nuw i8, ptr %.01019.i.us.i.i, i64 8
+  %.01017.i.us.i.i = phi ptr [ %28, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i.i ], [ %22, %.lr.ph.i.i.i ]
+  %.sroa.22.0..sroa_idx.i.us.i.i = getelementptr inbounds nuw i8, ptr %.01017.i.us.i.i, i64 8
   %.sroa.22.0.copyload.i.us.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.us.i.i, align 8, !tbaa !55
   %.not.i.i.us.i.i = icmp eq i64 %.sroa.22.0.copyload.i.us.i.i, 0
   br i1 %.not.i.i.us.i.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i.i: ; preds = %.lr.ph.i.split.us.i.i
-  %28 = getelementptr inbounds nuw i8, ptr %.01019.i.us.i.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.01017.i.us.i.i, i64 16
   %.not.i.us.i.i = icmp eq ptr %28, %26
   br i1 %.not.i.us.i.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.split.us.i.i, !llvm.loop !1860
 
 .lr.ph.i.split.i.i:                               ; preds = %.lr.ph.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i
-  %.01019.i.i.i = phi ptr [ %30, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i ], [ %22, %.lr.ph.i.i.i ]
-  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.01019.i.i.i, i64 8
+  %.01017.i.i.i = phi ptr [ %30, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i ], [ %22, %.lr.ph.i.i.i ]
+  %.sroa.22.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %.01017.i.i.i, i64 8
   %.sroa.22.0.copyload.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !55
   %.not.i.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i, %.sroa.2.0.copyload.i.fr.i.i
   br i1 %.not.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i:          ; preds = %.lr.ph.i.split.i.i
-  %.sroa.01.0.copyload.i.i.i = load ptr, ptr %.01019.i.i.i, align 8, !tbaa !54
+  %.sroa.01.0.copyload.i.i.i = load ptr, ptr %.01017.i.i.i, align 8, !tbaa !54
   %bcmp.i.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i.i, ptr %1, i64 %.sroa.2.0.copyload.i.fr.i.i)
   %29 = icmp eq i32 %bcmp.i.i.i.i, 0
   br i1 %29, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %.lr.ph.i.split.i.i
-  %30 = getelementptr inbounds nuw i8, ptr %.01019.i.i.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.01017.i.i.i, i64 16
   %.not.i.i.i = icmp eq ptr %30, %26
   br i1 %.not.i.i.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.split.i.i, !llvm.loop !1860
 
 _ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i.i, %.lr.ph.i.split.us.i.i, %21
-  %.1.i.i.i = phi ptr [ %26, %21 ], [ %.01019.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %26, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i.i ], [ %.01019.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ], [ %26, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i ]
+  %.1.i.i.i = phi ptr [ %26, %21 ], [ %.01017.i.us.i.i, %.lr.ph.i.split.us.i.i ], [ %26, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i.i ], [ %26, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i ], [ %.01017.i.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i ]
   %31 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %22, i64 %25
   %.not.not.i.i = icmp eq ptr %.1.i.i.i, %31
   br i1 %.not.not.i.i, label %"_ZZN4llvm3lto3LTO13addRegularLTOENS_13BitcodeModuleENS_8ArrayRefINS0_9InputFile6SymbolEEERPKNS0_16SymbolResolutionES9_ENK3$_1clENS_9StringRefESC_.exit", label %32
@@ -27805,8 +27805,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8SmallSetINS_9StringRefE
   %10 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %10, 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
-  %.not18.i = icmp eq i32 %9, 0
-  br i1 %.not18.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i
+  %.not16.i = icmp eq i32 %9, 0
+  br i1 %.not16.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %.sroa.0.0.copyload.i = load ptr, ptr %1, align 8, !tbaa !54
@@ -27817,37 +27817,37 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm8SmallSetINS_9StringRefE
   br i1 %12, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us
-  %.01019.i.us = phi ptr [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us ], [ %7, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.01019.i.us, i64 8
+  %.01017.i.us = phi ptr [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us ], [ %7, %.lr.ph.i ]
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.01017.i.us, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !55
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us:  ; preds = %.lr.ph.i.split.us
-  %13 = getelementptr inbounds nuw i8, ptr %.01019.i.us, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.01017.i.us, i64 16
   %.not.i.us = icmp eq ptr %13, %11
   br i1 %.not.i.us, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i.split.us, !llvm.loop !1860
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
-  %.01019.i = phi ptr [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ], [ %7, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.01019.i, i64 8
+  %.01017.i = phi ptr [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ], [ %7, %.lr.ph.i ]
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.01017.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !55
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.sroa.2.0.copyload.i.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %.01019.i, align 8, !tbaa !54
+  %.sroa.01.0.copyload.i = load ptr, ptr %.01017.i, align 8, !tbaa !54
   %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i.fr)
   %14 = icmp eq i32 %bcmp.i.i, 0
   br i1 %14, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %15 = getelementptr inbounds nuw i8, ptr %.01019.i, i64 16
+  %15 = getelementptr inbounds nuw i8, ptr %.01017.i, i64 16
   %.not.i = icmp eq ptr %15, %11
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i.split, !llvm.loop !1860
 
 _ZNK4llvm8SmallSetINS_9StringRefELj2ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us, %.lr.ph.i.split.us, %6
-  %.1.i = phi ptr [ %11, %6 ], [ %.01019.i.us, %.lr.ph.i.split.us ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us ], [ %.01019.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ]
+  %.1.i = phi ptr [ %11, %6 ], [ %.01017.i.us, %.lr.ph.i.split.us ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us ], [ %11, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ], [ %.01017.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %16 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %7, i64 %10
   %17 = icmp ne ptr %.1.i, %16
   br label %_ZNKSt3setIN4llvm9StringRefESt4lessIS1_ESaIS1_EE4findERKS1_.exit

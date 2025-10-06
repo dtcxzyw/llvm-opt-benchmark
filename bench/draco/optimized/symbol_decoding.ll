@@ -634,8 +634,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi5EE6Creat
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -651,17 +651,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !51
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -687,7 +687,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !51
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !51
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -704,27 +704,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -736,7 +736,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -748,46 +748,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !54
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !54
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !55
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !51
   %87 = icmp ult i32 %85, %86
@@ -865,11 +865,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -885,12 +885,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !58
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -905,8 +905,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 4096
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -4281,8 +4281,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi1EE6Creat
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4298,17 +4298,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !105
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -4334,7 +4334,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !105
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !105
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -4351,27 +4351,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -4383,7 +4383,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -4395,46 +4395,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !107
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !107
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !108
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !105
   %87 = icmp ult i32 %85, %86
@@ -4512,11 +4512,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -4532,12 +4532,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !58
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -4552,8 +4552,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 4096
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -4770,8 +4770,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi2EE6Creat
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -4787,17 +4787,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !110
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -4823,7 +4823,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !110
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !110
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -4840,27 +4840,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -4872,7 +4872,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -4884,46 +4884,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !112
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !112
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !113
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !110
   %87 = icmp ult i32 %85, %86
@@ -5001,11 +5001,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -5021,12 +5021,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !58
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -5041,8 +5041,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 4096
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -5259,8 +5259,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi3EE6Creat
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5276,17 +5276,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !115
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -5312,7 +5312,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !115
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !115
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -5329,27 +5329,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -5361,7 +5361,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -5373,46 +5373,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !117
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !117
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !118
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !115
   %87 = icmp ult i32 %85, %86
@@ -5490,11 +5490,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -5510,12 +5510,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !58
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -5530,8 +5530,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 4096
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -5748,8 +5748,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi4EE6Creat
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5765,17 +5765,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !120
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -5801,7 +5801,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !120
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !120
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -5818,27 +5818,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -5850,7 +5850,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -5862,46 +5862,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !122
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !122
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !123
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !120
   %87 = icmp ult i32 %85, %86
@@ -5979,11 +5979,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -5999,12 +5999,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !58
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -6019,8 +6019,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 4096
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -6237,8 +6237,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi6EE6Creat
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6254,17 +6254,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !125
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -6290,7 +6290,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !125
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !125
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -6307,27 +6307,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -6339,7 +6339,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -6351,46 +6351,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !127
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !127
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !128
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !125
   %87 = icmp ult i32 %85, %86
@@ -6468,11 +6468,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -6488,12 +6488,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !58
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -6508,8 +6508,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 4096
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -6726,8 +6726,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi7EE6Creat
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6743,17 +6743,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !130
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -6779,7 +6779,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !130
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !130
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -6796,27 +6796,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -6828,7 +6828,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -6840,46 +6840,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !132
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !132
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !133
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !130
   %87 = icmp ult i32 %85, %86
@@ -6957,11 +6957,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -6977,12 +6977,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !58
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -6997,8 +6997,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 4096
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -7215,8 +7215,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi8EE6Creat
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7232,17 +7232,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !135
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -7268,7 +7268,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !135
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !135
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -7285,27 +7285,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -7317,7 +7317,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -7329,46 +7329,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !137
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !137
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !138
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !135
   %87 = icmp ult i32 %85, %86
@@ -7446,11 +7446,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -7466,12 +7466,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !58
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -7486,8 +7486,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 4096
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -7704,8 +7704,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi9EE6Creat
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -7721,17 +7721,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !140
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -7757,7 +7757,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !140
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !140
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -7774,27 +7774,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -7806,7 +7806,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -7818,46 +7818,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !142
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !142
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !143
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !140
   %87 = icmp ult i32 %85, %86
@@ -7935,11 +7935,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -7955,12 +7955,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !145
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -7975,8 +7975,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 8192
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -8193,8 +8193,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi10EE6Crea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8210,17 +8210,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !148
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -8246,7 +8246,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !148
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !148
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -8263,27 +8263,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -8295,7 +8295,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -8307,46 +8307,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !150
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !150
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !151
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !148
   %87 = icmp ult i32 %85, %86
@@ -8424,11 +8424,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -8444,12 +8444,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !153
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -8464,8 +8464,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 32768
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -8682,8 +8682,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi11EE6Crea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -8699,17 +8699,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !156
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -8735,7 +8735,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !156
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !156
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -8752,27 +8752,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -8784,7 +8784,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -8796,46 +8796,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !158
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !158
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !159
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !156
   %87 = icmp ult i32 %85, %86
@@ -8913,11 +8913,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -8933,12 +8933,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !161
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -8953,8 +8953,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 65536
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -9171,8 +9171,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi12EE6Crea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9188,17 +9188,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !164
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -9224,7 +9224,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !164
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !164
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -9241,27 +9241,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -9273,7 +9273,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -9285,46 +9285,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !166
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !166
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !167
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !164
   %87 = icmp ult i32 %85, %86
@@ -9402,11 +9402,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -9422,12 +9422,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !169
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -9442,8 +9442,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 262144
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -9660,8 +9660,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi13EE6Crea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9677,17 +9677,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !172
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -9713,7 +9713,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !172
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !172
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -9730,27 +9730,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -9762,7 +9762,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -9774,46 +9774,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !174
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !174
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !175
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !172
   %87 = icmp ult i32 %85, %86
@@ -9891,11 +9891,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -9911,12 +9911,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !177
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -9931,8 +9931,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 524288
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -10149,8 +10149,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi14EE6Crea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10166,17 +10166,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !180
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -10202,7 +10202,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !180
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !180
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -10219,27 +10219,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -10251,7 +10251,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -10263,46 +10263,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !182
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !182
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !183
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !180
   %87 = icmp ult i32 %85, %86
@@ -10380,11 +10380,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -10400,12 +10400,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !185
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -10420,8 +10420,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 1048576
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -10638,8 +10638,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi15EE6Crea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10655,17 +10655,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !188
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -10691,7 +10691,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !188
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !188
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -10708,27 +10708,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -10740,7 +10740,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -10752,46 +10752,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !190
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !190
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !191
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !188
   %87 = icmp ult i32 %85, %86
@@ -10869,11 +10869,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -10889,12 +10889,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !185
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -10909,8 +10909,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 1048576
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -11127,8 +11127,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi16EE6Crea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11144,17 +11144,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !193
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -11180,7 +11180,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !193
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !193
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -11197,27 +11197,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -11229,7 +11229,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -11241,46 +11241,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !195
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !195
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !196
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !193
   %87 = icmp ult i32 %85, %86
@@ -11358,11 +11358,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -11378,12 +11378,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !185
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -11398,8 +11398,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 1048576
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -11616,8 +11616,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi17EE6Crea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11633,17 +11633,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !198
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -11669,7 +11669,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !198
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !198
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -11686,27 +11686,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -11718,7 +11718,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -11730,46 +11730,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !200
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !200
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !201
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !198
   %87 = icmp ult i32 %85, %86
@@ -11847,11 +11847,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -11867,12 +11867,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !185
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -11887,8 +11887,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 1048576
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 
@@ -12105,8 +12105,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco17RAnsSymbolDecoderILi18EE6Crea
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !13
   %13 = add i64 %12, 4
-  %.not94 = icmp slt i64 %10, %13
-  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %.not92 = icmp slt i64 %10, %13
+  br i1 %.not92, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
 
 _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12122,17 +12122,17 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %22 = tail call fastcc noundef zeroext i1 @_ZN5draco12_GLOBAL__N_120DecodeVarintUnsignedIjEEbiPT_PNS_13DecoderBufferE(i32 noundef 1, ptr noundef nonnull %21, ptr noundef nonnull %1)
-  br i1 %22, label %._crit_edge124, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
+  br i1 %22, label %._crit_edge122, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-._crit_edge124:                                   ; preds = %20
+._crit_edge122:                                   ; preds = %20
   %.pre = load i32, ptr %21, align 8, !tbaa !203
-  %.phi.trans.insert125 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre126 = load i64, ptr %.phi.trans.insert125, align 8, !tbaa !13
+  %.phi.trans.insert123 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre124 = load i64, ptr %.phi.trans.insert123, align 8, !tbaa !13
   br label %23
 
-23:                                               ; preds = %._crit_edge124, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
-  %24 = phi i64 [ %.pre126, %._crit_edge124 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
-  %25 = phi i32 [ %.pre, %._crit_edge124 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+23:                                               ; preds = %._crit_edge122, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread
+  %24 = phi i64 [ %.pre124, %._crit_edge122 ], [ %19, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
+  %25 = phi i32 [ %.pre, %._crit_edge122 ], [ %17, %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = lshr i32 %25, 6
   %28 = zext nneg i32 %27 to i64
@@ -12158,7 +12158,7 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
 44:                                               ; preds = %34
   %45 = sub nuw nsw i64 %35, %42
   tail call void @_ZNSt6vectorIjSaIjEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %45)
-  %.pre127 = load i32, ptr %26, align 8, !tbaa !203
+  %.pre125 = load i32, ptr %26, align 8, !tbaa !203
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 46:                                               ; preds = %34
@@ -12175,27 +12175,27 @@ _ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit.thread: ; preds = %8
   br label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
-  %51 = phi i32 [ %.pre127, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
+  %51 = phi i32 [ %.pre125, %44 ], [ %25, %46 ], [ %25, %48 ], [ %25, %50 ]
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph107
+  br i1 %52, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %.lr.ph105
 
-.lr.ph107:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
+.lr.ph105:                                        ; preds = %_ZNSt6vectorIjSaIjEE6resizeEm.exit
   %53 = load i64, ptr %29, align 8, !tbaa !3
   %54 = load ptr, ptr %0, align 8
-  %.promoted108 = load i64, ptr %31, align 8, !tbaa !13
+  %.promoted106 = load i64, ptr %31, align 8, !tbaa !13
   br label %55
 
-55:                                               ; preds = %.lr.ph107, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
-  %.promoted109 = phi i64 [ %.promoted108, %.lr.ph107 ], [ %.promoted110, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %56 = phi i32 [ %51, %.lr.ph107 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %.043106 = phi i32 [ 0, %.lr.ph107 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
-  %57 = add i64 %.promoted109, 1
-  %.not95 = icmp slt i64 %53, %57
-  br i1 %.not95, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
+55:                                               ; preds = %.lr.ph105, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
+  %.promoted107 = phi i64 [ %.promoted106, %.lr.ph105 ], [ %.promoted108, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %56 = phi i32 [ %51, %.lr.ph105 ], [ %86, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %.043104 = phi i32 [ 0, %.lr.ph105 ], [ %85, %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit ]
+  %57 = add i64 %.promoted107, 1
+  %.not93 = icmp slt i64 %53, %57
+  br i1 %.not93, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %58
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %1, align 8, !tbaa !14
-  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted109
+  %60 = getelementptr inbounds i8, ptr %59, i64 %.promoted107
   %61 = load i8, ptr %60, align 1
   store i64 %57, ptr %31, align 8, !tbaa !13
   %62 = zext i8 %61 to i32
@@ -12207,7 +12207,7 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
   ]
 
 65:                                               ; preds = %58
-  %66 = add i32 %64, %.043106
+  %66 = add i32 %64, %.043104
   %.not57 = icmp ult i32 %66, %56
   br i1 %.not57, label %.preheader.preheader, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
@@ -12219,46 +12219,46 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %44, %46, %48, %50
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %68 = trunc nuw nsw i64 %indvars.iv to i32
-  %69 = add i32 %.043106, %68
+  %69 = add i32 %.043104, %68
   %70 = zext i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %54, i64 %70
   store i32 0, ptr %71, align 4, !tbaa !33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond120.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond120.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !205
+  %exitcond118.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond118.not, label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit, label %.preheader, !llvm.loop !205
 
 .lr.ph:                                           ; preds = %58, %74
   %72 = phi i64 [ %73, %74 ], [ %57, %58 ]
-  %.0104 = phi i32 [ %82, %74 ], [ 0, %58 ]
-  %.038103 = phi i32 [ %81, %74 ], [ %64, %58 ]
+  %.0102 = phi i32 [ %82, %74 ], [ 0, %58 ]
+  %.038101 = phi i32 [ %81, %74 ], [ %64, %58 ]
   %73 = add i64 %72, 1
-  %.not96 = icmp slt i64 %53, %73
-  br i1 %.not96, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
+  %.not94 = icmp slt i64 %53, %73
+  br i1 %.not94, label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit, label %74
 
 74:                                               ; preds = %.lr.ph
   %75 = getelementptr inbounds i8, ptr %59, i64 %72
   %76 = load i8, ptr %75, align 1
   store i64 %73, ptr %31, align 8, !tbaa !13
   %77 = zext i8 %76 to i32
-  %78 = shl i32 %.0104, 3
+  %78 = shl i32 %.0102, 3
   %79 = or disjoint i32 %78, 6
   %80 = shl nuw nsw i32 %77, %79
-  %81 = or i32 %80, %.038103
-  %82 = add nuw nsw i32 %.0104, 1
+  %81 = or i32 %80, %.038101
+  %82 = add nuw nsw i32 %.0102, 1
   %exitcond.not = icmp eq i32 %82, %63
   br i1 %exitcond.not, label %.thread81, label %.lr.ph, !llvm.loop !206
 
 .thread81:                                        ; preds = %74, %58
-  %.promoted111 = phi i64 [ %57, %58 ], [ %73, %74 ]
+  %.promoted109 = phi i64 [ %57, %58 ], [ %73, %74 ]
   %.038.lcssa = phi i32 [ %64, %58 ], [ %81, %74 ]
-  %83 = zext i32 %.043106 to i64
+  %83 = zext i32 %.043104 to i64
   %84 = getelementptr inbounds nuw i32, ptr %54, i64 %83
   store i32 %.038.lcssa, ptr %84, align 4, !tbaa !33
   br label %_ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit
 
 _ZN5draco13DecoderBuffer6DecodeIhEEbPT_.exit:     ; preds = %.preheader, %.thread81
-  %.promoted110 = phi i64 [ %.promoted111, %.thread81 ], [ %57, %.preheader ]
-  %.144 = phi i32 [ %.043106, %.thread81 ], [ %66, %.preheader ]
+  %.promoted108 = phi i64 [ %.promoted109, %.thread81 ], [ %57, %.preheader ]
+  %.144 = phi i32 [ %.043104, %.thread81 ], [ %66, %.preheader ]
   %85 = add i32 %.144, 1
   %86 = load i32, ptr %26, align 8, !tbaa !203
   %87 = icmp ult i32 %85, %86
@@ -12336,11 +12336,11 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   br label %123
 
 123:                                              ; preds = %._crit_edge.i, %.lr.ph40.i
-  %indvars.iv121 = phi i64 [ %indvars.iv.next122, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
+  %indvars.iv119 = phi i64 [ %indvars.iv.next120, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
   %.02538.i = phi i32 [ %129, %._crit_edge.i ], [ 0, %.lr.ph40.i ]
-  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv121
+  %124 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv119
   %125 = load i32, ptr %124, align 4, !tbaa !33
-  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv121
+  %126 = getelementptr inbounds nuw %"struct.draco::rans_sym", ptr %121, i64 %indvars.iv119
   store i32 %125, ptr %126, align 4, !tbaa !34
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4
   store i32 %.02538.i, ptr %127, align 4, !tbaa !36
@@ -12356,12 +12356,12 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
   %132 = zext nneg i32 %.02538.i to i64
   %wide.trip.count.i = zext nneg i32 %129 to i64
-  %133 = trunc nuw i64 %indvars.iv121 to i32
+  %133 = trunc nuw i64 %indvars.iv119 to i32
   br label %.lr.ph.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
-  %indvars.iv.next122 = add nuw nsw i64 %indvars.iv121, 1
-  %exitcond44.not.i = icmp eq i64 %indvars.iv.next122, %105
+  %indvars.iv.next120 = add nuw nsw i64 %indvars.iv119, 1
+  %exitcond44.not.i = icmp eq i64 %indvars.iv.next120, %105
   br i1 %exitcond44.not.i, label %._crit_edge41.loopexit.i, label %123, !llvm.loop !185
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -12376,8 +12376,8 @@ _ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i: ; preds = %120, %118, %1
   %135 = icmp eq i32 %129, 1048576
   br label %_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit
 
-_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %55, %65, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
-  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %65 ], [ false, %55 ]
+_ZN5draco13DecoderBuffer6DecodeIjEEbPT_.exit:     ; preds = %65, %55, %.lr.ph, %123, %._crit_edge41.loopexit.i, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i, %8, %_ZNSt6vectorIjSaIjEE6resizeEm.exit, %23, %20, %2
+  %.039 = phi i1 [ false, %2 ], [ false, %20 ], [ false, %23 ], [ true, %_ZNSt6vectorIjSaIjEE6resizeEm.exit ], [ false, %8 ], [ false, %_ZNSt6vectorIN5draco8rans_symESaIS1_EE6resizeEm.exit.i ], [ %135, %._crit_edge41.loopexit.i ], [ false, %123 ], [ false, %.lr.ph ], [ false, %55 ], [ false, %65 ]
   ret i1 %.039
 }
 

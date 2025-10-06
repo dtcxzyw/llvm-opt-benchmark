@@ -186,25 +186,25 @@ define dso_local noundef ptr @strtokx(ptr noundef readonly captures(address_is_n
   %.026.idx.i = zext i1 %82 to i64
   %.026.i = getelementptr inbounds nuw i8, ptr %20, i64 %.026.idx.i
   %83 = load i8, ptr %.026.i, align 1
-  %.not3446.i = icmp eq i8 %83, 0
-  br i1 %.not3446.i, label %strip_quotes.exit, label %.lr.ph49.i
+  %.not3445.i = icmp eq i8 %83, 0
+  br i1 %.not3445.i, label %strip_quotes.exit, label %.lr.ph48.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.i, %97
-  %.330.lcssa.i = phi ptr [ %.02747.i, %97 ], [ %102, %.lr.ph.i ]
+  %.330.lcssa.i = phi ptr [ %.02746.i, %97 ], [ %102, %.lr.ph.i ]
   %.4.lcssa.i = phi ptr [ %.3.i, %97 ], [ %100, %.lr.ph.i ]
   %84 = load i8, ptr %.4.lcssa.i, align 1
   %.not34.i = icmp eq i8 %84, 0
-  br i1 %.not34.i, label %strip_quotes.exit, label %.lr.ph49.i
+  br i1 %.not34.i, label %strip_quotes.exit, label %.lr.ph48.i
 
-.lr.ph49.i:                                       ; preds = %80, %.loopexit.i
+.lr.ph48.i:                                       ; preds = %80, %.loopexit.i
   %85 = phi i8 [ %84, %.loopexit.i ], [ %83, %80 ]
-  %.148.i = phi ptr [ %.4.lcssa.i, %.loopexit.i ], [ %.026.i, %80 ]
-  %.02747.i = phi ptr [ %.330.lcssa.i, %.loopexit.i ], [ %20, %80 ]
+  %.147.i = phi ptr [ %.4.lcssa.i, %.loopexit.i ], [ %.026.i, %80 ]
+  %.02746.i = phi ptr [ %.330.lcssa.i, %.loopexit.i ], [ %20, %80 ]
   %86 = icmp eq i8 %85, %48
   br i1 %86, label %87, label %.critedge.i
 
-87:                                               ; preds = %.lr.ph49.i
-  %88 = getelementptr inbounds nuw i8, ptr %.148.i, i64 1
+87:                                               ; preds = %.lr.ph48.i
+  %88 = getelementptr inbounds nuw i8, ptr %.147.i, i64 1
   %89 = load i8, ptr %88, align 1
   %90 = icmp eq i8 %89, 0
   br i1 %90, label %strip_quotes.exit, label %91
@@ -213,37 +213,37 @@ define dso_local noundef ptr @strtokx(ptr noundef readonly captures(address_is_n
   %92 = icmp eq i8 %89, %48
   br i1 %92, label %97, label %.critedge.i
 
-.critedge.i:                                      ; preds = %91, %.lr.ph49.i
+.critedge.i:                                      ; preds = %91, %.lr.ph48.i
   %93 = icmp eq i8 %85, %.088131
   br i1 %93, label %94, label %97
 
 94:                                               ; preds = %.critedge.i
-  %95 = getelementptr inbounds nuw i8, ptr %.148.i, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.147.i, i64 1
   %96 = load i8, ptr %95, align 1
   %.not35.i = icmp eq i8 %96, 0
-  %spec.select.i = select i1 %.not35.i, ptr %.148.i, ptr %95
+  %spec.select.i = select i1 %.not35.i, ptr %.147.i, ptr %95
   br label %97
 
 97:                                               ; preds = %94, %.critedge.i, %91
-  %.3.i = phi ptr [ %.148.i, %.critedge.i ], [ %88, %91 ], [ %spec.select.i, %94 ]
+  %.3.i = phi ptr [ %.147.i, %.critedge.i ], [ %88, %91 ], [ %spec.select.i, %94 ]
   %98 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.3.i, i32 noundef %7) #7
-  %.not3641.i = icmp eq i32 %98, 0
-  br i1 %.not3641.i, label %.loopexit.i, label %.lr.ph.i
+  %.not3640.i = icmp eq i32 %98, 0
+  br i1 %.not3640.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %97, %.lr.ph.i
-  %.02544.i = phi i32 [ %99, %.lr.ph.i ], [ %98, %97 ]
-  %.443.i = phi ptr [ %100, %.lr.ph.i ], [ %.3.i, %97 ]
-  %.33042.i = phi ptr [ %102, %.lr.ph.i ], [ %.02747.i, %97 ]
-  %99 = add i32 %.02544.i, -1
-  %100 = getelementptr inbounds nuw i8, ptr %.443.i, i64 1
-  %101 = load i8, ptr %.443.i, align 1
-  %102 = getelementptr inbounds nuw i8, ptr %.33042.i, i64 1
-  store i8 %101, ptr %.33042.i, align 1
+  %.02543.i = phi i32 [ %99, %.lr.ph.i ], [ %98, %97 ]
+  %.442.i = phi ptr [ %100, %.lr.ph.i ], [ %.3.i, %97 ]
+  %.33041.i = phi ptr [ %102, %.lr.ph.i ], [ %.02746.i, %97 ]
+  %99 = add i32 %.02543.i, -1
+  %100 = getelementptr inbounds nuw i8, ptr %.442.i, i64 1
+  %101 = load i8, ptr %.442.i, align 1
+  %102 = getelementptr inbounds nuw i8, ptr %.33041.i, i64 1
+  store i8 %101, ptr %.33041.i, align 1
   %.not36.i = icmp eq i32 %99, 0
   br i1 %.not36.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !6
 
 strip_quotes.exit:                                ; preds = %.loopexit.i, %87, %80
-  %.027.lcssa.i = phi ptr [ %20, %80 ], [ %.330.lcssa.i, %.loopexit.i ], [ %.02747.i, %87 ]
+  %.027.lcssa.i = phi ptr [ %20, %80 ], [ %.330.lcssa.i, %.loopexit.i ], [ %.02746.i, %87 ]
   store i8 0, ptr %.027.lcssa.i, align 1
   br label %127
 
@@ -337,25 +337,25 @@ define dso_local void @strip_quotes(ptr noundef %0, i8 noundef signext %1, i8 no
   %.026.idx = zext i1 %or.cond to i64
   %.026 = getelementptr inbounds nuw i8, ptr %0, i64 %.026.idx
   %7 = load i8, ptr %.026, align 1
-  %.not3446 = icmp eq i8 %7, 0
-  br i1 %.not3446, label %.thread, label %.lr.ph49
+  %.not3445 = icmp eq i8 %7, 0
+  br i1 %.not3445, label %.thread, label %.lr.ph48
 
 .loopexit:                                        ; preds = %.lr.ph, %21
-  %.330.lcssa = phi ptr [ %.02747, %21 ], [ %26, %.lr.ph ]
+  %.330.lcssa = phi ptr [ %.02746, %21 ], [ %26, %.lr.ph ]
   %.4.lcssa = phi ptr [ %.3, %21 ], [ %24, %.lr.ph ]
   %8 = load i8, ptr %.4.lcssa, align 1
   %.not34 = icmp eq i8 %8, 0
-  br i1 %.not34, label %.thread, label %.lr.ph49
+  br i1 %.not34, label %.thread, label %.lr.ph48
 
-.lr.ph49:                                         ; preds = %4, %.loopexit
+.lr.ph48:                                         ; preds = %4, %.loopexit
   %9 = phi i8 [ %8, %.loopexit ], [ %7, %4 ]
-  %.148 = phi ptr [ %.4.lcssa, %.loopexit ], [ %.026, %4 ]
-  %.02747 = phi ptr [ %.330.lcssa, %.loopexit ], [ %0, %4 ]
+  %.147 = phi ptr [ %.4.lcssa, %.loopexit ], [ %.026, %4 ]
+  %.02746 = phi ptr [ %.330.lcssa, %.loopexit ], [ %0, %4 ]
   %10 = icmp eq i8 %9, %1
   br i1 %10, label %11, label %.critedge
 
-11:                                               ; preds = %.lr.ph49
-  %12 = getelementptr inbounds nuw i8, ptr %.148, i64 1
+11:                                               ; preds = %.lr.ph48
+  %12 = getelementptr inbounds nuw i8, ptr %.147, i64 1
   %13 = load i8, ptr %12, align 1
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %.thread, label %15
@@ -364,37 +364,37 @@ define dso_local void @strip_quotes(ptr noundef %0, i8 noundef signext %1, i8 no
   %16 = icmp eq i8 %13, %1
   br i1 %16, label %21, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph49, %15
+.critedge:                                        ; preds = %.lr.ph48, %15
   %17 = icmp eq i8 %9, %2
   br i1 %17, label %18, label %21
 
 18:                                               ; preds = %.critedge
-  %19 = getelementptr inbounds nuw i8, ptr %.148, i64 1
+  %19 = getelementptr inbounds nuw i8, ptr %.147, i64 1
   %20 = load i8, ptr %19, align 1
   %.not35 = icmp eq i8 %20, 0
-  %spec.select = select i1 %.not35, ptr %.148, ptr %19
+  %spec.select = select i1 %.not35, ptr %.147, ptr %19
   br label %21
 
 21:                                               ; preds = %18, %15, %.critedge
-  %.3 = phi ptr [ %.148, %.critedge ], [ %12, %15 ], [ %spec.select, %18 ]
+  %.3 = phi ptr [ %.147, %.critedge ], [ %12, %15 ], [ %spec.select, %18 ]
   %22 = tail call i32 @PQmblenBounded(ptr noundef nonnull %.3, i32 noundef %3) #7
-  %.not3641 = icmp eq i32 %22, 0
-  br i1 %.not3641, label %.loopexit, label %.lr.ph
+  %.not3640 = icmp eq i32 %22, 0
+  br i1 %.not3640, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %21, %.lr.ph
-  %.02544 = phi i32 [ %23, %.lr.ph ], [ %22, %21 ]
-  %.443 = phi ptr [ %24, %.lr.ph ], [ %.3, %21 ]
-  %.33042 = phi ptr [ %26, %.lr.ph ], [ %.02747, %21 ]
-  %23 = add i32 %.02544, -1
-  %24 = getelementptr inbounds nuw i8, ptr %.443, i64 1
-  %25 = load i8, ptr %.443, align 1
-  %26 = getelementptr inbounds nuw i8, ptr %.33042, i64 1
-  store i8 %25, ptr %.33042, align 1
+  %.02543 = phi i32 [ %23, %.lr.ph ], [ %22, %21 ]
+  %.442 = phi ptr [ %24, %.lr.ph ], [ %.3, %21 ]
+  %.33041 = phi ptr [ %26, %.lr.ph ], [ %.02746, %21 ]
+  %23 = add i32 %.02543, -1
+  %24 = getelementptr inbounds nuw i8, ptr %.442, i64 1
+  %25 = load i8, ptr %.442, align 1
+  %26 = getelementptr inbounds nuw i8, ptr %.33041, i64 1
+  store i8 %25, ptr %.33041, align 1
   %.not36 = icmp eq i32 %23, 0
   br i1 %.not36, label %.loopexit, label %.lr.ph, !llvm.loop !6
 
 .thread:                                          ; preds = %.loopexit, %11, %4
-  %.027.lcssa = phi ptr [ %0, %4 ], [ %.02747, %11 ], [ %.330.lcssa, %.loopexit ]
+  %.027.lcssa = phi ptr [ %0, %4 ], [ %.02746, %11 ], [ %.330.lcssa, %.loopexit ]
   store i8 0, ptr %.027.lcssa, align 1
   ret void
 }

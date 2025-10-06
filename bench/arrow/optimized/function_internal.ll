@@ -6821,12 +6821,12 @@ define void @_ZN5arrow7compute8internal21CheckAllArrayOrScalarERKSt6vectorINS_5D
   %6 = load ptr, ptr %1, align 8, !tbaa !265
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !265
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.sroa.014.022 = phi ptr [ %47, %.critedge ], [ %6, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 16
+  %.sroa.014.020 = phi ptr [ %47, %.critedge ], [ %6, %2 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 16
   %10 = load i8, ptr %9, align 8, !tbaa !267
   %11 = add i8 %10, -1
   %spec.select.i = icmp ult i8 %11, 3
@@ -6834,7 +6834,7 @@ define void @_ZN5arrow7compute8internal21CheckAllArrayOrScalarERKSt6vectorINS_5D
 
 12:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZNK5arrow5Datum8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.014.022)
+  call void @_ZNK5arrow5Datum8ToStringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.014.020)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !269
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !274
   invoke void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -6936,7 +6936,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %.bo
   resume { ptr, i32 } %eh.lpad-body
 
 .critedge:                                        ; preds = %.lr.ph
-  %47 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 24
+  %47 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 24
   %.not = icmp eq ptr %47, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

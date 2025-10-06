@@ -12278,7 +12278,7 @@ _Z12usageMessageRSoPKcb.exit:                     ; preds = %_ZNSt6vectorIPKcSaI
   %.sroa.28.0443 = phi ptr [ %.sroa.28.0.lcssa548, %._crit_edge.thread ], [ %.sroa.28.3, %432 ], [ %.sroa.28.0460, %.noexc91 ], [ %.sroa.28.0460, %.noexc258 ], [ %.sroa.28.3, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit ], [ %.sroa.28.3, %378 ], [ %.sroa.28.3, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit214 ]
   %.sroa.0.0435 = phi ptr [ %.sroa.0.0.lcssa551, %._crit_edge.thread ], [ %.sroa.0.1, %432 ], [ %.sroa.0.0461, %.noexc91 ], [ %.sroa.0.0461, %.noexc258 ], [ %.sroa.0.1, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit ], [ %.sroa.0.1, %378 ], [ %.sroa.0.1, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit214 ]
   %.sroa.21.0416 = phi ptr [ %.sroa.21.0.lcssa554, %._crit_edge.thread ], [ %.sroa.21.1, %432 ], [ %.sroa.21.0463, %.noexc91 ], [ %.sroa.21.0463, %.noexc258 ], [ %.sroa.21.1, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit ], [ %.sroa.21.1, %378 ], [ %.sroa.21.1, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit214 ]
-  %switch = phi i32 [ 1, %._crit_edge.thread ], [ 0, %432 ], [ 0, %.noexc91 ], [ 0, %.noexc258 ], [ 0, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit ], [ 0, %378 ], [ 0, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit214 ]
+  %spec.select = phi i32 [ 1, %._crit_edge.thread ], [ 0, %432 ], [ 0, %.noexc91 ], [ 0, %.noexc258 ], [ 0, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit ], [ 0, %378 ], [ 0, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit214 ]
   %.not.i.i.i221 = icmp eq ptr %.sroa.0.0435, null
   br i1 %.not.i.i.i221, label %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit222, label %434
 
@@ -12367,7 +12367,7 @@ _ZNSolsEPFRSoS_E.exit232:                         ; preds = %463
           to label %467 unwind label %468
 
 _ZNSt6vectorIPKcSaIS1_EED2Ev.exit224:             ; preds = %438, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit222, %_ZNSolsEPFRSoS_E.exit232
-  %.1 = phi i32 [ 1, %_ZNSolsEPFRSoS_E.exit232 ], [ %switch, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit222 ], [ %switch, %438 ]
+  %.1 = phi i32 [ 1, %_ZNSolsEPFRSoS_E.exit232 ], [ %spec.select, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit222 ], [ %spec.select, %438 ]
   ret i32 %.1
 
 467:                                              ; preds = %465, %_ZNSt6vectorIPKcSaIS1_EED2Ev.exit228

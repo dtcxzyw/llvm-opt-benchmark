@@ -1008,7 +1008,7 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 176:                                              ; preds = %173
   %177 = load i32, ptr %97, align 8, !tbaa !157
   %178 = icmp sgt i32 %177, 2
-  br i1 %178, label %179, label %.thread164
+  br i1 %178, label %179, label %.thread163
 
 179:                                              ; preds = %176
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1064,12 +1064,12 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
 
 200:                                              ; preds = %198
   %201 = icmp eq i32 %.pr, 3
-  br i1 %201, label %202, label %.thread164
+  br i1 %201, label %202, label %.thread163
 
 202:                                              ; preds = %200
   %203 = load i32, ptr %98, align 4, !tbaa !158
   %204 = icmp sgt i32 %203, 1
-  br i1 %204, label %205, label %.thread164
+  br i1 %204, label %205, label %.thread163
 
 205:                                              ; preds = %202, %198
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1078,53 +1078,53 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   %207 = load i32, ptr %4, align 4, !tbaa !160
   %208 = and i32 %207, 2
   %.not108 = icmp eq i32 %208, 0
-  br i1 %.not108, label %209, label %.sink.split187
+  br i1 %.not108, label %209, label %.sink.split186
 
 209:                                              ; preds = %205
   %210 = and i32 %207, 1
   %.not109 = icmp eq i32 %210, 0
-  br i1 %.not109, label %211, label %.sink.split187
+  br i1 %.not109, label %211, label %.sink.split186
 
 211:                                              ; preds = %209
   %212 = call i32 @glfwExtensionSupported(ptr noundef nonnull @.str.25)
   %.not110 = icmp eq i32 %212, 0
-  br i1 %.not110, label %214, label %.sink.split187
+  br i1 %.not110, label %214, label %.sink.split186
 
-.sink.split187:                                   ; preds = %211, %209, %205
+.sink.split186:                                   ; preds = %211, %209, %205
   %.sink = phi i32 [ 204802, %205 ], [ 204801, %209 ], [ 204802, %211 ]
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 560
   store i32 %.sink, ptr %213, align 8, !tbaa !165
   br label %214
 
-214:                                              ; preds = %.sink.split187, %211
+214:                                              ; preds = %.sink.split186, %211
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread164
+  br label %.thread163
 
-.thread164:                                       ; preds = %176, %214, %202, %200
+.thread163:                                       ; preds = %176, %214, %202, %200
   %215 = call i32 @glfwExtensionSupported(ptr noundef nonnull @.str.26)
   %.not111 = icmp eq i32 %215, 0
   br i1 %.not111, label %230, label %216
 
-216:                                              ; preds = %.thread164
+216:                                              ; preds = %.thread163
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %217 = load ptr, ptr %34, align 8, !tbaa !154
   call void %217(i32 noundef 33366, ptr noundef nonnull %5) #7
   %218 = load i32, ptr %5, align 4, !tbaa !160
   switch i32 %218, label %221 [
-    i32 33362, label %.sink.split189
+    i32 33362, label %.sink.split188
     i32 33377, label %219
   ]
 
 219:                                              ; preds = %216
-  br label %.sink.split189
+  br label %.sink.split188
 
-.sink.split189:                                   ; preds = %216, %219
-  %.sink190 = phi i32 [ 200705, %219 ], [ 200706, %216 ]
+.sink.split188:                                   ; preds = %216, %219
+  %.sink189 = phi i32 [ 200705, %219 ], [ 200706, %216 ]
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  store i32 %.sink190, ptr %220, align 4, !tbaa !166
+  store i32 %.sink189, ptr %220, align 4, !tbaa !166
   br label %221
 
-221:                                              ; preds = %.sink.split189, %216
+221:                                              ; preds = %.sink.split188, %216
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %230
 
@@ -1139,24 +1139,24 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   call void %225(i32 noundef 33366, ptr noundef nonnull %6) #7
   %226 = load i32, ptr %6, align 4, !tbaa !160
   switch i32 %226, label %229 [
-    i32 33362, label %.sink.split192
+    i32 33362, label %.sink.split191
     i32 33377, label %227
   ]
 
 227:                                              ; preds = %224
-  br label %.sink.split192
+  br label %.sink.split191
 
-.sink.split192:                                   ; preds = %224, %227
-  %.sink193 = phi i32 [ 200705, %227 ], [ 200706, %224 ]
+.sink.split191:                                   ; preds = %224, %227
+  %.sink192 = phi i32 [ 200705, %227 ], [ 200706, %224 ]
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 564
-  store i32 %.sink193, ptr %228, align 4, !tbaa !166
+  store i32 %.sink192, ptr %228, align 4, !tbaa !166
   br label %229
 
-229:                                              ; preds = %.sink.split192, %224
+229:                                              ; preds = %.sink.split191, %224
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %230
 
-230:                                              ; preds = %222, %229, %.thread164, %221
+230:                                              ; preds = %222, %229, %.thread163, %221
   %231 = call i32 @glfwExtensionSupported(ptr noundef nonnull @.str.28)
   %.not112 = icmp eq i32 %231, 0
   br i1 %.not112, label %238, label %232
@@ -1167,20 +1167,20 @@ glfwMakeContextCurrent.exit:                      ; preds = %14, %19, %.thread17
   call void %233(i32 noundef 33531, ptr noundef nonnull %7) #7
   %234 = load i32, ptr %7, align 4, !tbaa !160
   switch i32 %234, label %237 [
-    i32 0, label %.sink.split195
+    i32 0, label %.sink.split194
     i32 33532, label %235
   ]
 
 235:                                              ; preds = %232
-  br label %.sink.split195
+  br label %.sink.split194
 
-.sink.split195:                                   ; preds = %232, %235
-  %.sink196 = phi i32 [ 217089, %235 ], [ 217090, %232 ]
+.sink.split194:                                   ; preds = %232, %235
+  %.sink195 = phi i32 [ 217089, %235 ], [ 217090, %232 ]
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store i32 %.sink196, ptr %236, align 8, !tbaa !167
+  store i32 %.sink195, ptr %236, align 8, !tbaa !167
   br label %237
 
-237:                                              ; preds = %.sink.split195, %232
+237:                                              ; preds = %.sink.split194, %232
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %238
 

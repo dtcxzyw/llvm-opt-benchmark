@@ -950,18 +950,18 @@ _ZNSt6vectorIN4llvm15BitstreamWriter5BlockESaIS2_EE12emplace_backIJRjRmEEERS2_Dp
   br i1 %129, label %_ZN4llvm15BitstreamWriter12getBlockInfoEj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %126, %131
-  %.sroa.011.016.i = phi ptr [ %132, %131 ], [ %122, %126 ]
-  %130 = load i32, ptr %.sroa.011.016.i, align 8, !tbaa !86
+  %.sroa.011.018.i = phi ptr [ %132, %131 ], [ %122, %126 ]
+  %130 = load i32, ptr %.sroa.011.018.i, align 8, !tbaa !86
   %.not.i12 = icmp eq i32 %130, %1
   br i1 %.not.i12, label %_ZN4llvm15BitstreamWriter12getBlockInfoEj.exit, label %131
 
 131:                                              ; preds = %.lr.ph.i
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.011.016.i, i64 32
-  %.not14.i = icmp eq ptr %132, %124
-  br i1 %.not14.i, label %_ZN4llvm15BitstreamWriter12getBlockInfoEj.exit.thread, label %.lr.ph.i
+  %132 = getelementptr inbounds nuw i8, ptr %.sroa.011.018.i, i64 32
+  %.not16.i = icmp eq ptr %132, %124
+  br i1 %.not16.i, label %_ZN4llvm15BitstreamWriter12getBlockInfoEj.exit.thread, label %.lr.ph.i
 
 _ZN4llvm15BitstreamWriter12getBlockInfoEj.exit:   ; preds = %.lr.ph.i, %126
-  %.0.i = phi ptr [ %127, %126 ], [ %.sroa.011.016.i, %.lr.ph.i ]
+  %.0.i = phi ptr [ %127, %126 ], [ %.sroa.011.018.i, %.lr.ph.i ]
   %133 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %134 = load ptr, ptr %133, align 8, !tbaa !88
   %135 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16

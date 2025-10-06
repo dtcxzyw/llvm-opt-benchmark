@@ -410,7 +410,7 @@ thread-pre-split.us:                              ; preds = %sapi_read_post_bloc
   %.pr.us = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_module, i64 112), align 8, !tbaa !60
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %.not.i.us = icmp eq ptr %.pr.us, null
-  br i1 %.not.i.us, label %sapi_read_post_block.exit.thread.thread.loopexit36, label %.preheader.split.us
+  br i1 %.not.i.us, label %sapi_read_post_block.exit.thread.thread.loopexit35, label %.preheader.split.us
 
 thread-pre-split:                                 ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -423,7 +423,7 @@ thread-pre-split:                                 ; preds = %41
   %25 = phi ptr [ %.pr, %thread-pre-split ], [ %15, %.preheader ]
   %26 = call i64 %25(ptr noundef nonnull %1, i64 noundef 16384) #19
   %.not9.i = icmp eq i64 %26, 0
-  br i1 %.not9.i, label %sapi_read_post_block.exit.thread.thread43, label %27
+  br i1 %.not9.i, label %sapi_read_post_block.exit.thread.thread42, label %27
 
 27:                                               ; preds = %.preheader.split
   %28 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8, !tbaa !61
@@ -453,23 +453,23 @@ sapi_read_post_block.exit.thread:                 ; preds = %sapi_read_post_bloc
   %36 = icmp sgt i64 %35, %6
   br i1 %36, label %.loopexit, label %41
 
-sapi_read_post_block.exit.thread.thread43:        ; preds = %.preheader.split
+sapi_read_post_block.exit.thread.thread42:        ; preds = %.preheader.split
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 248), align 8, !tbaa !62
   %37 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8
   %38 = icmp sgt i64 %37, %6
   br i1 %38, label %.loopexit, label %select.unfold
 
-sapi_read_post_block.exit.thread.thread.loopexit36: ; preds = %thread-pre-split.us
+sapi_read_post_block.exit.thread.thread.loopexit35: ; preds = %thread-pre-split.us
   %.pre = load i64, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 240), align 8
   br label %sapi_read_post_block.exit.thread.thread
 
-sapi_read_post_block.exit.thread.thread:          ; preds = %thread-pre-split, %sapi_read_post_block.exit.thread.thread.loopexit36
-  %39 = phi i64 [ %.pre, %sapi_read_post_block.exit.thread.thread.loopexit36 ], [ %35, %thread-pre-split ]
+sapi_read_post_block.exit.thread.thread:          ; preds = %thread-pre-split, %sapi_read_post_block.exit.thread.thread.loopexit35
+  %39 = phi i64 [ %.pre, %sapi_read_post_block.exit.thread.thread.loopexit35 ], [ %35, %thread-pre-split ]
   %40 = icmp sgt i64 %39, %6
-  %or.cond30 = select i1 %7, i1 %40, i1 false
-  br i1 %or.cond30, label %.loopexit, label %select.unfold
+  %or.cond29 = select i1 %7, i1 %40, i1 false
+  br i1 %or.cond29, label %.loopexit, label %select.unfold
 
-.loopexit:                                        ; preds = %sapi_read_post_block.exit.thread, %sapi_read_post_block.exit.thread.thread43, %sapi_read_post_block.exit.thread.thread
+.loopexit:                                        ; preds = %sapi_read_post_block.exit.thread, %sapi_read_post_block.exit.thread.thread42, %sapi_read_post_block.exit.thread.thread
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull @.str.4, i64 noundef %6) #19
   br label %select.unfold
 
@@ -477,7 +477,7 @@ sapi_read_post_block.exit.thread.thread:          ; preds = %thread-pre-split, %
   %42 = icmp ult i64 %26, 16384
   br i1 %42, label %select.unfold, label %thread-pre-split
 
-select.unfold:                                    ; preds = %sapi_read_post_block.exit.thread.us, %41, %sapi_read_post_block.exit.thread.thread43, %sapi_read_post_block.exit.thread.us.thread, %sapi_read_post_block.exit.thread.thread, %.split.us, %.loopexit
+select.unfold:                                    ; preds = %sapi_read_post_block.exit.thread.us, %41, %sapi_read_post_block.exit.thread.thread42, %sapi_read_post_block.exit.thread.us.thread, %sapi_read_post_block.exit.thread.thread, %.split.us, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sapi_globals, i64 56), align 8, !tbaa !72
   %44 = call i32 @_php_stream_seek(ptr noundef %43, i64 noundef 0, i32 noundef 0) #19

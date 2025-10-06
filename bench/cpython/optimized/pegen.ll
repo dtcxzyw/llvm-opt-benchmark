@@ -213,28 +213,28 @@ define hidden range(i32 -1, 1) i32 @_PyPegen_update_memo(ptr noundef readonly ca
   %8 = getelementptr ptr, ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !36
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %.01521 = load ptr, ptr %10, align 8, !tbaa !40
-  %.not22 = icmp eq ptr %.01521, null
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %.01519 = load ptr, ptr %10, align 8, !tbaa !40
+  %.not20 = icmp eq ptr %.01519, null
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %13
-  %.01523 = phi ptr [ %.015, %13 ], [ %.01521, %4 ]
-  %11 = load i32, ptr %.01523, align 8, !tbaa !29
+  %.01521 = phi ptr [ %.015, %13 ], [ %.01519, %4 ]
+  %11 = load i32, ptr %.01521, align 8, !tbaa !29
   %12 = icmp eq i32 %11, %2
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %.01523, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.01521, i64 24
   %.015 = load ptr, ptr %14, align 8, !tbaa !40
   %.not = icmp eq ptr %.015, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !41
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.01523, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.01521, i64 8
   store ptr %3, ptr %16, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw i8, ptr %.01523, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.01521, i64 16
   store i32 %18, ptr %19, align 8, !tbaa !34
   br label %_PyPegen_insert_memo.exit
 
@@ -323,13 +323,13 @@ define hidden i32 @_PyPegen_fill_token(ptr noundef %0) local_unnamed_addr #1 {
   %32 = shl i64 %28, 1
   store ptr %31, ptr %9, align 8, !tbaa !53
   store i64 %32, ptr %11, align 8, !tbaa !52
-  %.pre23.i = load i64, ptr %10, align 8, !tbaa !51
+  %.pre22.i = load i64, ptr %10, align 8, !tbaa !51
   %.pre = load ptr, ptr %0, align 8, !tbaa !42
   br label %33
 
 33:                                               ; preds = %20, %.thread.i
   %34 = phi ptr [ %.pre, %.thread.i ], [ %24, %20 ]
-  %35 = phi i64 [ %.pre23.i, %.thread.i ], [ %27, %20 ]
+  %35 = phi i64 [ %.pre22.i, %.thread.i ], [ %27, %20 ]
   %36 = phi ptr [ %31, %.thread.i ], [ %.pre.i, %20 ]
   %37 = getelementptr %struct.anon.2, ptr %36, i64 %35
   store i32 %26, ptr %37, align 8, !tbaa !54
@@ -390,11 +390,11 @@ define hidden i32 @_PyPegen_fill_token(ptr noundef %0) local_unnamed_addr #1 {
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %66 = load i32, ptr %65, align 8, !tbaa !63
   %67 = icmp eq i32 %64, %66
-  br i1 %67, label %68, label %._crit_edge54
+  br i1 %67, label %68, label %._crit_edge53
 
-._crit_edge54:                                    ; preds = %62
+._crit_edge53:                                    ; preds = %62
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.pre55 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
+  %.pre54 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
   br label %90
 
 68:                                               ; preds = %62
@@ -442,12 +442,12 @@ define hidden i32 @_PyPegen_fill_token(ptr noundef %0) local_unnamed_addr #1 {
 _resize_tokens_array.exit:                        ; preds = %88, %76
   %89 = phi ptr [ %74, %76 ], [ %82, %88 ]
   store i32 %69, ptr %65, align 8, !tbaa !63
-  %.pre56 = load i32, ptr %63, align 4, !tbaa !62
+  %.pre55 = load i32, ptr %63, align 4, !tbaa !62
   br label %90
 
-90:                                               ; preds = %._crit_edge54, %_resize_tokens_array.exit
-  %91 = phi i32 [ %64, %._crit_edge54 ], [ %.pre56, %_resize_tokens_array.exit ]
-  %92 = phi ptr [ %.pre55, %._crit_edge54 ], [ %89, %_resize_tokens_array.exit ]
+90:                                               ; preds = %._crit_edge53, %_resize_tokens_array.exit
+  %91 = phi i32 [ %64, %._crit_edge53 ], [ %.pre55, %_resize_tokens_array.exit ]
+  %92 = phi ptr [ %.pre54, %._crit_edge53 ], [ %89, %_resize_tokens_array.exit ]
   %93 = sext i32 %91 to i64
   %94 = getelementptr ptr, ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !36

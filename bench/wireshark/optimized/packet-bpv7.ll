@@ -1529,10 +1529,10 @@ define internal i32 @dissect_bp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 55:                                               ; preds = %50, %53
   %56 = load i32, ptr %13, align 4
-  %.not313407 = icmp slt i32 %56, %38
-  br i1 %.not313407, label %.lr.ph409, label %._crit_edge
+  %.not313406 = icmp slt i32 %56, %38
+  br i1 %.not313406, label %.lr.ph408, label %._crit_edge
 
-.lr.ph409:                                        ; preds = %55
+.lr.ph408:                                        ; preds = %55
   %57 = getelementptr inbounds nuw i8, ptr %30, i64 56
   %58 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %30, i64 48
@@ -1543,14 +1543,14 @@ define internal i32 @dissect_bp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 ._crit_edge:                                      ; preds = %proto_item_set_generated.exit363, %55
   %.0272.lcssa = phi i64 [ 0, %55 ], [ %547, %proto_item_set_generated.exit363 ]
-  %.lcssa394 = phi i32 [ %56, %55 ], [ %548, %proto_item_set_generated.exit363 ]
+  %.lcssa393 = phi i32 [ %56, %55 ], [ %548, %proto_item_set_generated.exit363 ]
   %63 = load i32, ptr @hf_bundle_break, align 4
-  %64 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %63, ptr noundef %0, i32 noundef %.lcssa394, i32 noundef -1, i32 noundef 0)
+  %64 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %63, ptr noundef %0, i32 noundef %.lcssa393, i32 noundef -1, i32 noundef 0)
   %65 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %64, ptr noundef nonnull @ei_invalid_framing, ptr noundef nonnull @.str.317)
   br label %.thread387
 
-66:                                               ; preds = %.lr.ph409, %proto_item_set_generated.exit363
-  %.0272408 = phi i64 [ 0, %.lr.ph409 ], [ %547, %proto_item_set_generated.exit363 ]
+66:                                               ; preds = %.lr.ph408, %proto_item_set_generated.exit363
+  %.0272407 = phi i64 [ 0, %.lr.ph408 ], [ %547, %proto_item_set_generated.exit363 ]
   %67 = load ptr, ptr %39, align 8
   %68 = call ptr @wscbor_chunk_read(ptr noundef %67, ptr noundef %0, ptr noundef nonnull %13)
   %69 = call zeroext i1 @wscbor_is_indefinite_break(ptr noundef %68)
@@ -1569,7 +1569,7 @@ define internal i32 @dissect_bp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %77 = call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %76, ptr noundef %0, i32 noundef %75, i32 noundef -1, i32 noundef 0)
   %78 = load i32, ptr @ett_block, align 4
   %79 = call ptr @proto_item_add_subtree(ptr noundef %77, i32 noundef %78)
-  %80 = icmp eq i64 %.0272408, 0
+  %80 = icmp eq i64 %.0272407, 0
   br i1 %80, label %81, label %374
 
 81:                                               ; preds = %73
@@ -2016,12 +2016,12 @@ proto_item_set_generated.exit357:                 ; preds = %proto_item_set_gene
 
 326:                                              ; preds = %303, %301
   %327 = call ptr @wmem_list_frame_next(ptr noundef nonnull %300)
-  %.not319405 = icmp eq ptr %327, null
-  br i1 %.not319405, label %.thread, label %.lr.ph
+  %.not319404 = icmp eq ptr %327, null
+  br i1 %.not319404, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %326, %proto_item_set_generated.exit360
-  %.0278406 = phi ptr [ %342, %proto_item_set_generated.exit360 ], [ %327, %326 ]
-  %328 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0278406)
+  %.0278405 = phi ptr [ %342, %proto_item_set_generated.exit360 ], [ %327, %326 ]
+  %328 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0278405)
   %.not320 = icmp eq ptr %328, null
   br i1 %.not320, label %proto_item_set_generated.exit360, label %329
 
@@ -2051,7 +2051,7 @@ proto_item_set_generated.exit357:                 ; preds = %proto_item_set_gene
   br label %proto_item_set_generated.exit360
 
 proto_item_set_generated.exit360:                 ; preds = %338, %335, %332, %329, %.lr.ph
-  %342 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0278406)
+  %342 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0278405)
   %.not319 = icmp eq ptr %342, null
   br i1 %.not319, label %.thread, label %.lr.ph, !llvm.loop !8
 
@@ -2120,7 +2120,7 @@ proto_item_set_generated.exit360:                 ; preds = %338, %335, %332, %3
   call void (ptr, ptr, ...) @proto_item_prepend_text(ptr noundef %77, ptr noundef nonnull @.str.319)
   %375 = call ptr @wmem_file_scope()
   %376 = call noalias dereferenceable_or_null(88) ptr @wmem_alloc0(ptr noundef %375, i64 noundef 88) #16
-  store i64 %.0272408, ptr %376, align 8
+  store i64 %.0272407, ptr %376, align 8
   %377 = call noalias ptr @wmem_map_new(ptr noundef %375, ptr noundef nonnull @g_int64_hash, ptr noundef nonnull @g_int64_equal)
   %378 = getelementptr inbounds nuw i8, ptr %376, i64 72
   store ptr %377, ptr %378, align 8
@@ -2449,13 +2449,13 @@ proto_item_set_generated.exit363:                 ; preds = %366, %349, %367, %3
   %545 = load i32, ptr %13, align 4
   %546 = sub i32 %545, %75
   call void @proto_item_set_len(ptr noundef %77, i32 noundef %546)
-  %547 = add i64 %.0272408, 1
+  %547 = add i64 %.0272407, 1
   %548 = load i32, ptr %13, align 4
   %.not313 = icmp slt i32 %548, %38
   br i1 %.not313, label %66, label %._crit_edge
 
 .thread387:                                       ; preds = %dissect_block_primary.exit, %dissect_block_canonical.exit, %70, %._crit_edge
-  %.0272401 = phi i64 [ %.0272408, %70 ], [ %.0272.lcssa, %._crit_edge ], [ 0, %dissect_block_primary.exit ], [ %.0272408, %dissect_block_canonical.exit ]
+  %.0272400 = phi i64 [ %.0272407, %70 ], [ %.0272.lcssa, %._crit_edge ], [ 0, %dissect_block_primary.exit ], [ %.0272407, %dissect_block_canonical.exit ]
   %549 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %550 = load ptr, ptr %549, align 8
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 24
@@ -2484,7 +2484,7 @@ proto_item_set_generated.exit363:                 ; preds = %366, %349, %367, %3
   br label %567
 
 567:                                              ; preds = %561, %.thread387
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.324, i64 noundef %.0272401)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %26, ptr noundef nonnull @.str.324, i64 noundef %.0272400)
   %568 = load ptr, ptr %39, align 8
   %569 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %570 = load ptr, ptr %551, align 8
@@ -2555,11 +2555,11 @@ copy_address_wmem.exit369:                        ; preds = %copy_address_wmem.e
 
 608:                                              ; preds = %604
   %609 = icmp sgt i32 %603, %607
-  br i1 %609, label %.thread525, label %610
+  br i1 %609, label %.thread524, label %610
 
 610:                                              ; preds = %608
   %611 = icmp slt i32 %603, %607
-  br i1 %611, label %.thread525, label %612
+  br i1 %611, label %.thread524, label %612
 
 612:                                              ; preds = %610
   %613 = getelementptr inbounds nuw i8, ptr %601, i64 20
@@ -2567,15 +2567,15 @@ copy_address_wmem.exit369:                        ; preds = %copy_address_wmem.e
   %615 = getelementptr inbounds nuw i8, ptr %605, i64 20
   %616 = load i32, ptr %615, align 4
   %617 = icmp sgt i32 %614, %616
-  br i1 %617, label %.thread525, label %618
+  br i1 %617, label %.thread524, label %618
 
 618:                                              ; preds = %612
   %619 = icmp slt i32 %614, %616
-  br i1 %619, label %.thread525, label %620
+  br i1 %619, label %.thread524, label %620
 
 620:                                              ; preds = %618
   %621 = icmp eq i32 %614, 0
-  br i1 %621, label %.thread525, label %cmp_address.exit
+  br i1 %621, label %.thread524, label %cmp_address.exit
 
 cmp_address.exit:                                 ; preds = %620
   %622 = getelementptr inbounds nuw i8, ptr %601, i64 24
@@ -2586,13 +2586,13 @@ cmp_address.exit:                                 ; preds = %620
   %627 = call i32 @memcmp(ptr noundef %623, ptr noundef %625, i64 noundef %626) #19
   %.fr = freeze i32 %627
   %628 = icmp slt i32 %.fr, 0
-  %spec.select550 = select i1 %628, ptr %555, ptr %551
-  %spec.select551 = select i1 %628, ptr %551, ptr %555
-  br label %.thread525
+  %spec.select549 = select i1 %628, ptr %555, ptr %551
+  %spec.select550 = select i1 %628, ptr %551, ptr %555
+  br label %.thread524
 
-.thread525:                                       ; preds = %cmp_address.exit, %618, %610, %608, %612, %620
-  %629 = phi ptr [ %551, %620 ], [ %551, %612 ], [ %551, %608 ], [ %555, %618 ], [ %555, %610 ], [ %spec.select550, %cmp_address.exit ]
-  %630 = phi ptr [ %555, %620 ], [ %555, %612 ], [ %555, %608 ], [ %551, %618 ], [ %551, %610 ], [ %spec.select551, %cmp_address.exit ]
+.thread524:                                       ; preds = %cmp_address.exit, %618, %610, %608, %612, %620
+  %629 = phi ptr [ %551, %620 ], [ %551, %612 ], [ %551, %608 ], [ %555, %618 ], [ %555, %610 ], [ %spec.select549, %cmp_address.exit ]
+  %630 = phi ptr [ %555, %620 ], [ %555, %612 ], [ %555, %608 ], [ %551, %618 ], [ %551, %610 ], [ %spec.select550, %cmp_address.exit ]
   %.pn330 = load ptr, ptr %630, align 8
   %.0283 = getelementptr inbounds nuw i8, ptr %.pn330, i64 16
   %.pn = load ptr, ptr %629, align 8
@@ -2641,31 +2641,31 @@ cmp_address.exit:                                 ; preds = %620
   %657 = call ptr @find_or_create_conversation(ptr noundef %1)
   br label %658
 
-658:                                              ; preds = %.thread525, %604, %copy_address_wmem.exit369
+658:                                              ; preds = %.thread524, %604, %copy_address_wmem.exit369
   %659 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %660 = load ptr, ptr %659, align 8
   %661 = call ptr @wmem_list_head(ptr noundef %660)
-  %.not331411 = icmp eq ptr %661, null
-  br i1 %.not331411, label %._crit_edge415, label %.lr.ph414
+  %.not331410 = icmp eq ptr %661, null
+  br i1 %.not331410, label %._crit_edge414, label %.lr.ph413
 
-.lr.ph414:                                        ; preds = %658
+.lr.ph413:                                        ; preds = %658
   %662 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %663 = getelementptr inbounds nuw i8, ptr %30, i64 72
   br label %670
 
-._crit_edge415:                                   ; preds = %699, %658
+._crit_edge414:                                   ; preds = %699, %658
   %664 = load ptr, ptr %39, align 8
   %665 = load ptr, ptr %659, align 8
   %666 = call i32 @wmem_list_count(ptr noundef %665)
   %667 = call noalias ptr @wmem_array_sized_new(ptr noundef %664, i64 noundef 8, i32 noundef %666)
   %668 = load ptr, ptr %659, align 8
   %669 = call ptr @wmem_list_head(ptr noundef %668)
-  %.not332416 = icmp eq ptr %669, null
-  br i1 %.not332416, label %._crit_edge420, label %.lr.ph419
+  %.not332415 = icmp eq ptr %669, null
+  br i1 %.not332415, label %._crit_edge419, label %.lr.ph418
 
-670:                                              ; preds = %.lr.ph414, %699
-  %.0285412 = phi ptr [ %661, %.lr.ph414 ], [ %700, %699 ]
-  %671 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0285412)
+670:                                              ; preds = %.lr.ph413, %699
+  %.0285411 = phi ptr [ %661, %.lr.ph413 ], [ %700, %699 ]
+  %671 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0285411)
   %672 = getelementptr inbounds nuw i8, ptr %671, i64 16
   %673 = load ptr, ptr %672, align 8
   %.not349 = icmp eq ptr %673, null
@@ -2677,7 +2677,7 @@ cmp_address.exit:                                 ; preds = %620
   br i1 %676, label %677, label %699
 
 677:                                              ; preds = %674
-  %678 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0285412)
+  %678 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0285411)
   %.not350 = icmp eq ptr %678, null
   br i1 %.not350, label %683, label %679
 
@@ -2713,35 +2713,35 @@ cmp_address.exit:                                 ; preds = %620
   br label %699
 
 699:                                              ; preds = %683, %686, %674, %670
-  %700 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0285412)
+  %700 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0285411)
   %.not331 = icmp eq ptr %700, null
-  br i1 %.not331, label %._crit_edge415, label %670, !llvm.loop !10
+  br i1 %.not331, label %._crit_edge414, label %670, !llvm.loop !10
 
-._crit_edge420:                                   ; preds = %.lr.ph419, %._crit_edge415
+._crit_edge419:                                   ; preds = %.lr.ph418, %._crit_edge414
   call void @wmem_array_sort(ptr noundef %667, ptr noundef nonnull @block_dissect_sort)
   %701 = call i32 @wmem_array_get_count(ptr noundef %667)
-  %.not430 = icmp eq i32 %701, 0
-  br i1 %.not430, label %._crit_edge424, label %.lr.ph423
+  %.not429 = icmp eq i32 %701, 0
+  br i1 %.not429, label %._crit_edge423, label %.lr.ph422
 
-.lr.ph423:                                        ; preds = %._crit_edge420
+.lr.ph422:                                        ; preds = %._crit_edge419
   %702 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %703 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %706
 
-.lr.ph419:                                        ; preds = %._crit_edge415, %.lr.ph419
-  %.0280417 = phi ptr [ %705, %.lr.ph419 ], [ %669, %._crit_edge415 ]
+.lr.ph418:                                        ; preds = %._crit_edge414, %.lr.ph418
+  %.0280416 = phi ptr [ %705, %.lr.ph418 ], [ %669, %._crit_edge414 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %704 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0280417)
+  %704 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0280416)
   store ptr %704, ptr %15, align 8
   call void @wmem_array_append(ptr noundef %667, ptr noundef nonnull %15, i32 noundef 1)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %705 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0280417)
+  %705 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0280416)
   %.not332 = icmp eq ptr %705, null
-  br i1 %.not332, label %._crit_edge420, label %.lr.ph419, !llvm.loop !11
+  br i1 %.not332, label %._crit_edge419, label %.lr.ph418, !llvm.loop !11
 
-706:                                              ; preds = %.lr.ph423, %767
-  %.1282421 = phi i32 [ 0, %.lr.ph423 ], [ %768, %767 ]
-  %707 = call ptr @wmem_array_index(ptr noundef %667, i32 noundef %.1282421)
+706:                                              ; preds = %.lr.ph422, %767
+  %.1282420 = phi i32 [ 0, %.lr.ph422 ], [ %768, %767 ]
+  %707 = call ptr @wmem_array_index(ptr noundef %667, i32 noundef %.1282420)
   %708 = load ptr, ptr %707, align 8
   %709 = getelementptr inbounds nuw i8, ptr %708, i64 16
   %710 = load ptr, ptr %709, align 8
@@ -2861,12 +2861,12 @@ cmp_address.exit:                                 ; preds = %620
   br label %767
 
 767:                                              ; preds = %747, %750, %762
-  %768 = add nuw i32 %.1282421, 1
+  %768 = add nuw i32 %.1282420, 1
   %769 = call i32 @wmem_array_get_count(ptr noundef %667)
   %770 = icmp ult i32 %768, %769
-  br i1 %770, label %706, label %._crit_edge424, !llvm.loop !12
+  br i1 %770, label %706, label %._crit_edge423, !llvm.loop !12
 
-._crit_edge424:                                   ; preds = %767, %._crit_edge420
+._crit_edge423:                                   ; preds = %767, %._crit_edge419
   %771 = load ptr, ptr %549, align 8
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 104
   %773 = load ptr, ptr %771, align 8
@@ -2895,10 +2895,10 @@ cmp_address.exit:                                 ; preds = %620
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %783 = load ptr, ptr %659, align 8
   %784 = call ptr @wmem_list_head(ptr noundef %783)
-  %.not333425 = icmp eq ptr %784, null
-  br i1 %.not333425, label %._crit_edge429, label %.lr.ph428
+  %.not333424 = icmp eq ptr %784, null
+  br i1 %.not333424, label %._crit_edge428, label %.lr.ph427
 
-.lr.ph428:                                        ; preds = %._crit_edge424
+.lr.ph427:                                        ; preds = %._crit_edge423
   %785 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %786 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %787 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -2907,15 +2907,15 @@ cmp_address.exit:                                 ; preds = %620
   %790 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %793
 
-._crit_edge429:                                   ; preds = %793, %._crit_edge424
+._crit_edge428:                                   ; preds = %793, %._crit_edge423
   %791 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %792 = load ptr, ptr %791, align 8
   %.not334 = icmp eq ptr %792, null
   br i1 %.not334, label %811, label %802
 
-793:                                              ; preds = %.lr.ph428, %793
-  %.0275426 = phi ptr [ %784, %.lr.ph428 ], [ %801, %793 ]
-  %794 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0275426)
+793:                                              ; preds = %.lr.ph427, %793
+  %.0275425 = phi ptr [ %784, %.lr.ph427 ], [ %801, %793 ]
+  %794 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.0275425)
   %795 = getelementptr inbounds nuw i8, ptr %794, i64 72
   %796 = getelementptr inbounds nuw i8, ptr %794, i64 8
   %797 = load ptr, ptr %796, align 8
@@ -2936,11 +2936,11 @@ cmp_address.exit:                                 ; preds = %620
   %800 = load ptr, ptr %799, align 8
   call void @wmem_map_foreach(ptr noundef %800, ptr noundef nonnull @mark_target_block, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %801 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0275426)
+  %801 = call ptr @wmem_list_frame_next(ptr noundef nonnull %.0275425)
   %.not333 = icmp eq ptr %801, null
-  br i1 %.not333, label %._crit_edge429, label %793, !llvm.loop !13
+  br i1 %.not333, label %._crit_edge428, label %793, !llvm.loop !13
 
-802:                                              ; preds = %._crit_edge429
+802:                                              ; preds = %._crit_edge428
   %803 = getelementptr inbounds nuw i8, ptr %30, i64 72
   %804 = load ptr, ptr %803, align 8
   %.not335 = icmp eq ptr %804, null
@@ -2956,7 +2956,7 @@ cmp_address.exit:                                 ; preds = %620
   call void @proto_tree_set_appendix(ptr noundef %28, ptr noundef %0, i32 noundef %808, i32 noundef %810)
   br label %813
 
-811:                                              ; preds = %802, %._crit_edge429
+811:                                              ; preds = %802, %._crit_edge428
   %812 = load i32, ptr %13, align 4
   call void @proto_item_set_len(ptr noundef %26, i32 noundef %812)
   br label %813
@@ -2986,14 +2986,14 @@ cmp_address.exit:                                 ; preds = %620
   %.0268 = phi ptr [ %818, %815 ], [ %821, %819 ]
   %827 = call ptr @wmem_list_find_custom(ptr noundef %.0268, ptr noundef %30, ptr noundef nonnull @bp_bundle_frameloc_compare)
   %.not338 = icmp eq ptr %827, null
-  br i1 %.not338, label %.thread391, label %828
+  br i1 %.not338, label %.thread390, label %828
 
 828:                                              ; preds = %826
   %829 = call ptr @wmem_list_frame_data(ptr noundef nonnull %827)
   %.not339 = icmp eq ptr %829, null
-  br i1 %.not339, label %.thread391, label %830
+  br i1 %.not339, label %.thread390, label %830
 
-.thread391:                                       ; preds = %826, %828
+.thread390:                                       ; preds = %826, %828
   call void @wmem_list_append(ptr noundef %.0268, ptr noundef %30)
   br label %835
 
@@ -3008,8 +3008,8 @@ cmp_address.exit:                                 ; preds = %620
   call void @wmem_free(ptr noundef %831, ptr noundef %30)
   br label %835
 
-835:                                              ; preds = %.thread391, %830, %813
-  %.0269 = phi ptr [ %30, %813 ], [ %829, %830 ], [ %30, %.thread391 ]
+835:                                              ; preds = %.thread390, %830, %813
+  %.0269 = phi ptr [ %30, %813 ], [ %829, %830 ], [ %30, %.thread390 ]
   %836 = load ptr, ptr %39, align 8
   %837 = load i32, ptr @proto_bp, align 4
   call void @p_add_proto_data(ptr noundef %836, ptr noundef %1, i32 noundef %837, i32 noundef 1, ptr noundef %.0269)

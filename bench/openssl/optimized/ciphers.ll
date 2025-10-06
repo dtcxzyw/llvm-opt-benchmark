@@ -88,7 +88,7 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   switch i32 %7, label %.backedge [
     i32 0, label %28
     i32 1602, label %26
-    i32 -1, label %.loopexit125
+    i32 -1, label %.loopexit123
     i32 1, label %10
     i32 12, label %11
     i32 13, label %12
@@ -121,7 +121,7 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   %.075.be = phi i32 [ 1, %11 ], [ 1, %12 ], [ %.075, %13 ], [ 1, %14 ], [ %.075, %15 ], [ %.075, %17 ], [ %.075, %18 ], [ %.075, %19 ], [ %.075, %20 ], [ %.075, %21 ], [ %.075, %22 ], [ %.075, %23 ], [ %.075, %24 ], [ %.075, %26 ], [ %.075, %6 ]
   br label %6, !llvm.loop !4
 
-.loopexit125:                                     ; preds = %6, %34
+.loopexit123:                                     ; preds = %6, %34
   %8 = load ptr, ptr @bio_err, align 8, !tbaa !6
   %9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %8, ptr noundef nonnull @.str.42, ptr noundef %5) #4
   br label %.loopexit
@@ -189,7 +189,7 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
 34:                                               ; preds = %28
   %35 = tail call i32 @opt_check_rest_arg(ptr noundef null) #4
   %.not104 = icmp eq i32 %35, 0
-  br i1 %.not104, label %.loopexit125, label %36
+  br i1 %.not104, label %.loopexit123, label %36
 
 36:                                               ; preds = %34, %32
   %.092 = phi ptr [ %33, %32 ], [ null, %34 ]
@@ -275,14 +275,14 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
 72:                                               ; preds = %70, %68
   %.171 = phi ptr [ %69, %68 ], [ %71, %70 ]
   %.not113 = icmp eq i32 %.075, 0
-  br i1 %.not113, label %.preheader, label %.preheader124
+  br i1 %.not113, label %.preheader, label %.preheader122
 
-.preheader124:                                    ; preds = %72
+.preheader122:                                    ; preds = %72
   %73 = tail call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader124
+.lr.ph:                                           ; preds = %.preheader122
   %.not117 = icmp eq i32 %.078, 0
   %.not118 = icmp eq i32 %.090, 0
   br i1 %.not117, label %.lr.ph.split.us, label %.lr.ph.split
@@ -291,8 +291,8 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   br i1 %.not118, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %80
-  %.174159.us.us = phi i32 [ %81, %80 ], [ 0, %.lr.ph.split.us ]
-  %75 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174159.us.us) #4
+  %.174157.us.us = phi i32 [ %81, %80 ], [ 0, %.lr.ph.split.us ]
+  %75 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174157.us.us) #4
   %.not116.us.us = icmp eq ptr %75, null
   br i1 %.not116.us.us, label %80, label %76, !prof !13
 
@@ -303,14 +303,14 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   br label %80
 
 80:                                               ; preds = %76, %.lr.ph.split.us.split.us
-  %81 = add nuw nsw i32 %.174159.us.us, 1
+  %81 = add nuw nsw i32 %.174157.us.us, 1
   %82 = call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
   %83 = icmp slt i32 %81, %82
   br i1 %83, label %.lr.ph.split.us.split.us, label %.loopexit, !llvm.loop !14
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %93
-  %.174159.us = phi i32 [ %94, %93 ], [ 0, %.lr.ph.split.us ]
-  %84 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174159.us) #4
+  %.174157.us = phi i32 [ %94, %93 ], [ 0, %.lr.ph.split.us ]
+  %84 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174157.us) #4
   %.not116.us = icmp eq ptr %84, null
   br i1 %.not116.us, label %93, label %85, !prof !13
 
@@ -326,7 +326,7 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   br label %93
 
 93:                                               ; preds = %85, %.lr.ph.split.us.split
-  %94 = add nuw nsw i32 %.174159.us, 1
+  %94 = add nuw nsw i32 %.174157.us, 1
   %95 = call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
   %96 = icmp slt i32 %94, %95
   br i1 %96, label %.lr.ph.split.us.split, label %.loopexit, !llvm.loop !14
@@ -334,21 +334,21 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
 .preheader:                                       ; preds = %72
   %97 = tail call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
   %98 = icmp sgt i32 %97, 0
-  br i1 %98, label %.lr.ph161, label %._crit_edge
+  br i1 %98, label %.lr.ph159, label %._crit_edge
 
-.lr.ph161:                                        ; preds = %.preheader, %110
-  %.073160 = phi i32 [ %111, %110 ], [ 0, %.preheader ]
-  %99 = tail call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.073160) #4
+.lr.ph159:                                        ; preds = %.preheader, %110
+  %.073158 = phi i32 [ %111, %110 ], [ 0, %.preheader ]
+  %99 = tail call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.073158) #4
   %.not114 = icmp eq ptr %99, null
   br i1 %.not114, label %110, label %100, !prof !13
 
-100:                                              ; preds = %.lr.ph161
+100:                                              ; preds = %.lr.ph159
   %101 = tail call ptr @SSL_CIPHER_get_name(ptr noundef nonnull %99) #4
   %102 = icmp eq ptr %101, null
   br i1 %102, label %._crit_edge, label %103
 
 103:                                              ; preds = %100
-  %.not115 = icmp eq i32 %.073160, 0
+  %.not115 = icmp eq i32 %.073158, 0
   br i1 %.not115, label %107, label %104
 
 104:                                              ; preds = %103
@@ -361,11 +361,11 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   %109 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %108, ptr noundef nonnull @.str.47, ptr noundef nonnull %101) #4
   br label %110
 
-110:                                              ; preds = %107, %.lr.ph161
-  %111 = add nuw nsw i32 %.073160, 1
+110:                                              ; preds = %107, %.lr.ph159
+  %111 = add nuw nsw i32 %.073158, 1
   %112 = tail call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
   %113 = icmp slt i32 %111, %112
-  br i1 %113, label %.lr.ph161, label %._crit_edge, !llvm.loop !15
+  br i1 %113, label %.lr.ph159, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %110, %100, %.preheader
   %114 = load ptr, ptr @bio_out, align 8, !tbaa !6
@@ -373,8 +373,8 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %143
-  %.174159 = phi i32 [ %144, %143 ], [ 0, %.lr.ph ]
-  %116 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174159) #4
+  %.174157 = phi i32 [ %144, %143 ], [ 0, %.lr.ph ]
+  %116 = call ptr @OPENSSL_sk_value(ptr noundef %.171, i32 noundef %.174157) #4
   %.not116 = icmp eq ptr %116, null
   br i1 %.not116, label %143, label %117, !prof !13
 
@@ -418,7 +418,7 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   br label %143
 
 143:                                              ; preds = %.lr.ph.split, %139
-  %144 = add nuw nsw i32 %.174159, 1
+  %144 = add nuw nsw i32 %.174157, 1
   %145 = call i32 @OPENSSL_sk_num(ptr noundef %.171) #4
   %146 = icmp slt i32 %144, %145
   br i1 %146, label %.lr.ph.split, label %.loopexit, !llvm.loop !14
@@ -434,11 +434,11 @@ define dso_local range(i32 0, 2) i32 @ciphers_main(i32 noundef %0, ptr noundef %
   tail call void @ERR_print_errors(ptr noundef %150) #4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %26, %143, %93, %80, %.preheader124, %._crit_edge, %149, %37, %10, %.loopexit125
-  %.072 = phi i32 [ 1, %.loopexit125 ], [ 0, %10 ], [ 0, %37 ], [ 1, %149 ], [ 0, %._crit_edge ], [ 0, %.preheader124 ], [ 0, %80 ], [ 0, %93 ], [ 0, %143 ], [ 1, %26 ]
-  %.070 = phi ptr [ null, %.loopexit125 ], [ null, %10 ], [ null, %37 ], [ null, %149 ], [ %.171, %._crit_edge ], [ %.171, %.preheader124 ], [ %.171, %80 ], [ %.171, %93 ], [ %.171, %143 ], [ null, %26 ]
-  %.069 = phi ptr [ null, %.loopexit125 ], [ null, %10 ], [ null, %37 ], [ null, %149 ], [ %65, %._crit_edge ], [ %65, %.preheader124 ], [ %65, %80 ], [ %65, %93 ], [ %65, %143 ], [ null, %26 ]
-  %.0 = phi ptr [ null, %.loopexit125 ], [ null, %10 ], [ null, %37 ], [ %44, %149 ], [ %44, %._crit_edge ], [ %44, %.preheader124 ], [ %44, %80 ], [ %44, %93 ], [ %44, %143 ], [ null, %26 ]
+.loopexit:                                        ; preds = %26, %143, %93, %80, %.preheader122, %._crit_edge, %149, %37, %10, %.loopexit123
+  %.072 = phi i32 [ 1, %.loopexit123 ], [ 0, %10 ], [ 0, %37 ], [ 1, %149 ], [ 0, %._crit_edge ], [ 0, %.preheader122 ], [ 0, %80 ], [ 0, %93 ], [ 0, %143 ], [ 1, %26 ]
+  %.070 = phi ptr [ null, %.loopexit123 ], [ null, %10 ], [ null, %37 ], [ null, %149 ], [ %.171, %._crit_edge ], [ %.171, %.preheader122 ], [ %.171, %80 ], [ %.171, %93 ], [ %.171, %143 ], [ null, %26 ]
+  %.069 = phi ptr [ null, %.loopexit123 ], [ null, %10 ], [ null, %37 ], [ null, %149 ], [ %65, %._crit_edge ], [ %65, %.preheader122 ], [ %65, %80 ], [ %65, %93 ], [ %65, %143 ], [ null, %26 ]
+  %.0 = phi ptr [ null, %.loopexit123 ], [ null, %10 ], [ null, %37 ], [ %44, %149 ], [ %44, %._crit_edge ], [ %44, %.preheader122 ], [ %44, %80 ], [ %44, %93 ], [ %44, %143 ], [ null, %26 ]
   %.not120 = icmp eq i32 %.084, 0
   br i1 %.not120, label %152, label %151
 

@@ -1988,12 +1988,12 @@ define hidden noalias ptr @cf_get_basename(ptr noundef readonly captures(none) %
   %9 = tail call noalias ptr @g_filename_display_basename(ptr noundef nonnull %7)
   %10 = tail call i64 @strlen(ptr noundef %9) #26
   %11 = tail call ptr @wtap_get_all_file_extensions_list()
-  %.not3237 = icmp eq ptr %11, null
-  br i1 %.not3237, label %.loopexit, label %.lr.ph
+  %.not3236 = icmp eq ptr %11, null
+  br i1 %.not3236, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %26
-  %.02738 = phi ptr [ %28, %26 ], [ %11, %8 ]
-  %12 = load ptr, ptr %.02738, align 8
+  %.02737 = phi ptr [ %28, %26 ], [ %11, %8 ]
+  %12 = load ptr, ptr %.02737, align 8
   %13 = tail call i64 @strlen(ptr noundef %12) #26
   %14 = icmp ugt i64 %10, %13
   br i1 %14, label %15, label %26
@@ -2017,7 +2017,7 @@ define hidden noalias ptr @cf_get_basename(ptr noundef readonly captures(none) %
   br label %.loopexit
 
 26:                                               ; preds = %21, %15, %.lr.ph
-  %27 = getelementptr inbounds nuw i8, ptr %.02738, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.02737, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not32 = icmp eq ptr %28, null
   br i1 %.not32, label %.loopexit, label %.lr.ph, !llvm.loop !15
@@ -7122,13 +7122,13 @@ define hidden noundef zeroext i1 @cf_goto_frame(ptr noundef readonly captures(ad
   %factor = shl i32 %1, 1
   %30 = xor i32 %25, -1
   %31 = add i32 %factor, %30
-  %.not6173 = icmp ugt i32 %29, %31
-  br i1 %.not6173, label %._crit_edge, label %.lr.ph
+  %.not6171 = icmp ugt i32 %29, %31
+  br i1 %.not6171, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %49
-  %.04375 = phi i32 [ %.144, %49 ], [ %31, %28 ]
-  %.04674 = phi i32 [ %.147, %49 ], [ %29, %28 ]
-  %32 = add i32 %.04375, %.04674
+  %.04373 = phi i32 [ %.144, %49 ], [ %31, %28 ]
+  %.04672 = phi i32 [ %.147, %49 ], [ %29, %28 ]
+  %32 = add i32 %.04373, %.04672
   %33 = lshr i32 %32, 1
   %34 = load ptr, ptr %6, align 8
   %35 = tail call ptr @frame_data_sequence_find(ptr noundef %34, i32 noundef %33)
@@ -7150,19 +7150,19 @@ define hidden noundef zeroext i1 @cf_goto_frame(ptr noundef readonly captures(ad
   %45 = load i16, ptr %44, align 1
   %46 = and i16 %45, 1
   %.not62 = icmp eq i16 %46, 0
-  br i1 %.not62, label %47, label %.thread69
+  br i1 %.not62, label %47, label %.thread67
 
 47:                                               ; preds = %43
   %48 = add nuw i32 %33, 1
   br label %49
 
 49:                                               ; preds = %47, %39, %37
-  %.147 = phi i32 [ %.04674, %37 ], [ %48, %47 ], [ %.04674, %39 ]
-  %.144 = phi i32 [ %38, %37 ], [ %.04375, %47 ], [ %41, %39 ]
+  %.147 = phi i32 [ %.04672, %37 ], [ %48, %47 ], [ %.04672, %39 ]
+  %.144 = phi i32 [ %38, %37 ], [ %.04373, %47 ], [ %41, %39 ]
   %.not61 = icmp ugt i32 %.147, %.144
   br i1 %.not61, label %._crit_edge.loopexit, label %.lr.ph
 
-.thread69:                                        ; preds = %43
+.thread67:                                        ; preds = %43
   %50 = load i32, ptr %35, align 8
   tail call void (ptr, ...) @statusbar_push_temporary_msg(ptr noundef nonnull @.str.39, i32 noundef %1, i32 noundef %50)
   br label %55
@@ -7179,8 +7179,8 @@ define hidden noundef zeroext i1 @cf_goto_frame(ptr noundef readonly captures(ad
   %54 = tail call ptr @frame_data_sequence_find(ptr noundef %52, i32 noundef %53)
   br label %55
 
-55:                                               ; preds = %.thread69, %._crit_edge, %27, %14
-  %.051 = phi ptr [ %11, %14 ], [ null, %27 ], [ %35, %.thread69 ], [ %54, %._crit_edge ]
+55:                                               ; preds = %.thread67, %._crit_edge, %27, %14
+  %.051 = phi ptr [ %11, %14 ], [ null, %27 ], [ %35, %.thread67 ], [ %54, %._crit_edge ]
   %56 = tail call zeroext i1 @packet_list_select_row_from_data(ptr noundef %.051)
   br i1 %56, label %58, label %57
 

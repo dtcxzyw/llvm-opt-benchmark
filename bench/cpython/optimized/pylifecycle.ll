@@ -518,8 +518,8 @@ define hidden range(i32 0, 2) i32 @_Py_LegacyLocaleDetected(i32 noundef %0) loca
 
 sub_0:                                            ; preds = %.thread
   %7 = load i8, ptr %6, align 1
-  %.not13 = icmp eq i8 %7, 67
-  br i1 %.not13, label %sub_1, label %.tail
+  %.not12 = icmp eq i8 %7, 67
+  br i1 %.not12, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 1
@@ -6093,8 +6093,8 @@ define internal fastcc void @emit_stderr_warning_for_legacy_locale(i32 %.10456.v
 
 sub_0.i:                                          ; preds = %1
   %3 = load i8, ptr %2, align 1
-  %.not13.i = icmp eq i8 %3, 67
-  br i1 %.not13.i, label %_Py_LegacyLocaleDetected.exit, label %_Py_LegacyLocaleDetected.exit.thread
+  %.not12.i = icmp eq i8 %3, 67
+  br i1 %.not12.i, label %_Py_LegacyLocaleDetected.exit, label %_Py_LegacyLocaleDetected.exit.thread
 
 _Py_LegacyLocaleDetected.exit:                    ; preds = %sub_0.i
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 1

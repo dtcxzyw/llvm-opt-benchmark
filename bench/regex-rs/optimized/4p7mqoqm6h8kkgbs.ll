@@ -66,23 +66,23 @@ define hidden { i32, ptr } @"_ZN119_$LT$regex_automata..util..primitives..WithPa
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = tail call { i32, i32 } @"_ZN106_$LT$regex_automata..util..primitives..PatternIDIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hb476d50b7744b674E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8)
   %.fca.0.extract = extractvalue { i32, i32 } %9, 0
-  %switch = icmp eq i32 %.fca.0.extract, 0
-  br i1 %switch, label %10, label %11
+  %10 = icmp eq i32 %.fca.0.extract, 0
+  br i1 %10, label %11, label %12
 
-10:                                               ; preds = %6
+11:                                               ; preds = %6
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.47f0a5a52828d2b742d36ebdc600f332.3.llvm.11839231457967886541, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.47f0a5a52828d2b742d36ebdc600f332.5.llvm.11839231457967886541) #13
   unreachable
 
-11:                                               ; preds = %6
+12:                                               ; preds = %6
   %.fca.1.extract = extractvalue { i32, i32 } %9, 1
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b08b6956a4bb315E.llvm.11839231457967886541.exit.thread"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b08b6956a4bb315E.llvm.11839231457967886541.exit.thread": ; preds = %1, %11
-  %.sroa.2.0 = phi ptr [ %4, %11 ], [ null, %1 ]
-  %.sroa.0.0 = phi i32 [ %.fca.1.extract, %11 ], [ undef, %1 ]
-  %12 = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
-  %13 = insertvalue { i32, ptr } %12, ptr %.sroa.2.0, 1
-  ret { i32, ptr } %13
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h7b08b6956a4bb315E.llvm.11839231457967886541.exit.thread": ; preds = %1, %12
+  %.sroa.2.0 = phi ptr [ %4, %12 ], [ null, %1 ]
+  %.sroa.0.0 = phi i32 [ %.fca.1.extract, %12 ], [ undef, %1 ]
+  %13 = insertvalue { i32, ptr } poison, i32 %.sroa.0.0, 0
+  %14 = insertvalue { i32, ptr } %13, ptr %.sroa.2.0, 1
+  ret { i32, ptr } %14
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -872,8 +872,8 @@ define void @"_ZN79_$LT$$RF$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$regex..regex..b
   %9 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !149
   %10 = tail call { i64, ptr } %9(i8 noundef 36, ptr noundef nonnull readonly align 1 %5, ptr noundef nonnull readonly %8), !noalias !156
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %10, 0
-  %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %11, label %12
+  %.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %11, label %12
 
 11:                                               ; preds = %2
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -920,8 +920,8 @@ define void @"_ZN75_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$regex..regex..bytes
   %8 = tail call noundef ptr @_ZN4core4sync6atomic11atomic_load17h705600093d4b62c0E.llvm.15639794734364571569(ptr noundef nonnull @_ZN6memchr4arch6x86_646memchr10memchr_raw2FN17h16b0072529d6b791E, i8 noundef 0), !noalias !166
   %9 = tail call { i64, ptr } %8(i8 noundef 36, ptr noundef nonnull readonly align 1 %4, ptr noundef nonnull readonly %7), !noalias !173
   %.fca.0.extract.i.i.i.i = extractvalue { i64, ptr } %9, 0
-  %switch8.i.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
-  br i1 %switch8.i.not.i.i.i, label %10, label %11
+  %.not.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i.i, 0
+  br i1 %.not.i.i.i, label %10, label %11
 
 10:                                               ; preds = %2
   %.sroa.42.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8

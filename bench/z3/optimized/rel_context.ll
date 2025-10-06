@@ -1201,8 +1201,8 @@ _ZN7datalog11rel_context12scoped_query5resetEv.exit: ; preds = %.noexc46, %2
 
 _ZNK6symbol19is_non_empty_stringEv.exit:          ; preds = %35
   %40 = load i8, ptr %34, align 1, !tbaa !210
-  %.not86 = icmp eq i8 %40, 0
-  br i1 %.not86, label %_ZNK6symbol19is_non_empty_stringEv.exit.thread, label %41
+  %.not85 = icmp eq i8 %40, 0
+  br i1 %.not85, label %_ZNK6symbol19is_non_empty_stringEv.exit.thread, label %41
 
 41:                                               ; preds = %_ZNK6symbol19is_non_empty_stringEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1321,14 +1321,14 @@ _ZNK6symbol19is_non_empty_stringEv.exit.thread:   ; preds = %35, %_ZNK6symbol19i
 77:                                               ; preds = %.noexc39
   call void @_ZN7datalog8compilerD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %3) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not87 = icmp eq i32 %.074, 0
+  %.not86 = icmp eq i32 %.074, 0
   br i1 %.not, label %78, label %79
 
 78:                                               ; preds = %77
-  br i1 %.not87, label %89, label %82
+  br i1 %.not86, label %89, label %82
 
 79:                                               ; preds = %77
-  br i1 %.not87, label %82, label %80
+  br i1 %.not86, label %82, label %80
 
 80:                                               ; preds = %79
   %81 = icmp ule i32 %.071, %.074
@@ -1516,10 +1516,10 @@ _ZNK6symbol19is_non_empty_stringEv.exit.thread:   ; preds = %35, %_ZNK6symbol19i
   br label %.body
 
 _ZN7datalog11rel_context12scoped_query5resetEv.exit.thread: ; preds = %.noexc42, %.noexc, %133, %141, %138
-  %.lcssa134.sink = phi ptr [ %134, %133 ], [ %142, %141 ], [ %139, %138 ], [ %29, %.noexc ], [ %129, %.noexc42 ]
+  %.lcssa133.sink = phi ptr [ %134, %133 ], [ %142, %141 ], [ %139, %138 ], [ %29, %.noexc ], [ %129, %.noexc42 ]
   %.sink = phi i32 [ 0, %133 ], [ 1, %141 ], [ 2, %138 ], [ 6, %.noexc ], [ 6, %.noexc42 ]
   %.1 = phi i32 [ 1, %133 ], [ 0, %141 ], [ 0, %138 ], [ 0, %.noexc ], [ 0, %.noexc42 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.lcssa134.sink, i64 2988
+  %155 = getelementptr inbounds nuw i8, ptr %.lcssa133.sink, i64 2988
   store i32 %.sink, ptr %155, align 4, !tbaa !340
   %156 = load ptr, ptr %9, align 8, !tbaa !271
   invoke void @_ZN7datalog7context24record_transformed_rulesEv(ptr noundef nonnull align 8 dereferenceable(3028) %156)

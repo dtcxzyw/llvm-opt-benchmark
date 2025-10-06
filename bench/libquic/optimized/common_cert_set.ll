@@ -229,8 +229,8 @@ define internal { ptr, i64 } @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC7GetCert
 
 5:                                                ; preds = %3, %4
   %6 = phi i1 [ true, %3 ], [ false, %4 ]
-  %.01118 = phi i64 [ 0, %3 ], [ 1, %4 ]
-  %7 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertSet", ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 %.01118
+  %.01116 = phi i64 [ 0, %3 ], [ 1, %4 ]
+  %7 = getelementptr inbounds nuw %"struct.net::(anonymous namespace)::CertSet", ptr @_ZN3net12_GLOBAL__N_15kSetsE, i64 %.01116
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !11
   %10 = icmp eq i64 %9, %1
@@ -269,12 +269,12 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
 
 .preheader:                                       ; preds = %7
   %9 = lshr exact i64 %4, 3
-  %.not7176.not = icmp eq i64 %4, 0
-  br i1 %.not7176.not, label %.loopexit, label %.lr.ph
+  %.not77 = icmp eq i64 %4, 0
+  br i1 %.not77, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %43
-  %.03677 = phi i64 [ %44, %43 ], [ 0, %.preheader ]
-  %10 = shl nuw i64 %.03677, 3
+.lr.ph:                                           ; preds = %.preheader, %41
+  %.03676 = phi i64 [ %42, %41 ], [ 0, %.preheader ]
+  %10 = shl nuw i64 %.03676, 3
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 %10
   %.0.copyload = load i64, ptr %11, align 1
   br label %12
@@ -322,7 +322,7 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
 
 37:                                               ; preds = %24
   %.not53 = icmp eq i32 %.0.i, 0
-  br i1 %.not53, label %41, label %38
+  br i1 %.not53, label %43, label %38
 
 38:                                               ; preds = %37
   %39 = add i64 %27, 1
@@ -335,21 +335,21 @@ define internal noundef zeroext i1 @_ZNK3net12_GLOBAL__N_118CommonCertSetsQUIC9M
   br i1 %.not52, label %.thread64, label %24
 
 .thread64:                                        ; preds = %34, %40, %12
-  br i1 %13, label %12, label %43, !llvm.loop !21
+  br i1 %13, label %12, label %41, !llvm.loop !21
 
-41:                                               ; preds = %37
+41:                                               ; preds = %.thread64
+  %42 = add nuw nsw i64 %.03676, 1
+  %exitcond.not = icmp eq i64 %42, %9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
+
+43:                                               ; preds = %37
   store i64 %.0.copyload, ptr %5, align 8, !tbaa !6
-  %42 = trunc i64 %27 to i32
-  store i32 %42, ptr %6, align 4, !tbaa !22
+  %44 = trunc i64 %27 to i32
+  store i32 %44, ptr %6, align 4, !tbaa !23
   br label %.loopexit
 
-43:                                               ; preds = %.thread64
-  %44 = add nuw nsw i64 %.03677, 1
-  %exitcond.not = icmp eq i64 %44, %9
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !24
-
-.loopexit:                                        ; preds = %43, %.preheader, %41, %7
-  %.0 = phi i1 [ false, %7 ], [ true, %41 ], [ false, %.preheader ], [ false, %43 ]
+.loopexit:                                        ; preds = %41, %.preheader, %43, %7
+  %.0 = phi i1 [ false, %7 ], [ true, %43 ], [ false, %.preheader ], [ false, %41 ]
   ret i1 %.0
 }
 
@@ -404,6 +404,6 @@ attributes #16 = { nounwind willreturn memory(read) }
 !19 = !{!"p1 omnipotent char", !14, i64 0}
 !20 = !{!12, !15, i64 16}
 !21 = distinct !{!21, !10}
-!22 = !{!23, !23, i64 0}
-!23 = !{!"int", !8, i64 0}
-!24 = distinct !{!24, !10}
+!22 = distinct !{!22, !10}
+!23 = !{!24, !24, i64 0}
+!24 = !{!"int", !8, i64 0}

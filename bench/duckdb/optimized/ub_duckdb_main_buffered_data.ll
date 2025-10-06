@@ -1187,8 +1187,8 @@ define void @_ZN6duckdb18SimpleBufferedData12UnblockSinksEv(ptr noundef nonnull 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @_ZNK6duckdb8weak_ptrINS_13ClientContextELb1EE4lockEv(ptr dead_on_unwind nonnull writable sret(%"class.duckdb::shared_ptr") align 8 %2, ptr noundef nonnull align 8 dereferenceable(16) %3)
   %4 = load ptr, ptr %2, align 8, !tbaa !56
-  %.not11 = icmp eq ptr %4, null
-  br i1 %.not11, label %33, label %5
+  %.not10 = icmp eq ptr %4, null
+  br i1 %.not10, label %33, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240

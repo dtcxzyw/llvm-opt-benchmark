@@ -8138,8 +8138,8 @@ define linkonce_odr void @_ZNK7rocksdb14ObjectRegistry11FindFactoryINS_13EventLi
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %19, %3
-  %.tr22 = phi ptr [ %1, %3 ], [ %22, %19 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.tr22, i64 152
+  %.tr21 = phi ptr [ %1, %3 ], [ %22, %19 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.tr21, i64 152
   %6 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %5) #25
   %.not.i.i.i = icmp eq i32 %6, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %7
@@ -8149,13 +8149,13 @@ tailrecurse:                                      ; preds = %19, %3
   unreachable
 
 _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %tailrecurse
-  %8 = getelementptr inbounds nuw i8, ptr %.tr22, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.tr21, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !225, !noalias !227
   br label %_ZNSt14_Function_baseD2Ev.exit
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %14, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit
   %.sroa.017.0 = phi ptr [ %9, %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit ], [ %12, %14 ]
-  %10 = load ptr, ptr %.tr22, align 8, !tbaa !225, !noalias !230
+  %10 = load ptr, ptr %.tr21, align 8, !tbaa !225, !noalias !230
   %.not = icmp eq ptr %.sroa.017.0, %10
   br i1 %.not, label %19, label %11
 
@@ -8182,7 +8182,7 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %14
 
 19:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
   %20 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %5) #25
-  %21 = getelementptr inbounds nuw i8, ptr %.tr22, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %.tr21, i64 96
   %22 = load ptr, ptr %21, align 8, !tbaa !65
   %.not.i16 = icmp eq ptr %22, null
   br i1 %.not.i16, label %23, label %tailrecurse

@@ -33,82 +33,82 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 declare ptr @llvm.invariant.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   br label %2
 
-2:                                                ; preds = %1, %8
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
+2:                                                ; preds = %1, %6
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
   %3 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #9
   %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %6, label %8
+  br i1 %.not, label %7, label %6
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %indvars.iv to i8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !9
+
+7:                                                ; preds = %2
+  %8 = trunc i64 %indvars.iv to i8
   br label %.loopexit
 
-8:                                                ; preds = %2
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !9
-
-.loopexit:                                        ; preds = %8, %6
-  %spec.select = phi i8 [ %7, %6 ], [ 0, %8 ]
-  ret i8 %spec.select
+.loopexit:                                        ; preds = %6, %7
+  %9 = phi i8 [ %8, %7 ], [ 0, %6 ]
+  ret i8 %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeENS0_7ustringE(ptr readnone captures(address) %0) local_unnamed_addr #6 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeENS0_7ustringE(ptr readnone captures(address) %0) local_unnamed_addr #6 {
   br label %2
 
-2:                                                ; preds = %1, %8
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
+2:                                                ; preds = %1, %6
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
   %3 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %0, %4
-  br i1 %5, label %6, label %8
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %indvars.iv to i8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !11
+
+7:                                                ; preds = %2
+  %8 = trunc i64 %indvars.iv to i8
   br label %.loopexit
 
-8:                                                ; preds = %2
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !11
-
-.loopexit:                                        ; preds = %8, %6
-  %spec.select = phi i8 [ %7, %6 ], [ 0, %8 ]
-  ret i8 %spec.select
+.loopexit:                                        ; preds = %6, %7
+  %9 = phi i8 [ %8, %7 ], [ 0, %6 ]
+  ret i8 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define noundef zeroext i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeENS0_11ustringhashE(i64 %0) local_unnamed_addr #6 {
+define noundef zeroext range(i8 0, 7) i8 @_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeENS0_11ustringhashE(i64 %0) local_unnamed_addr #6 {
   br label %2
 
-2:                                                ; preds = %1, %8
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
+2:                                                ; preds = %1, %6
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
   %3 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustringhash", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_hashE, i64 %indvars.iv
   %4 = load i64, ptr %3, align 8, !tbaa !12
   %5 = icmp eq i64 %0, %4
-  br i1 %5, label %6, label %8
+  br i1 %5, label %7, label %6
 
 6:                                                ; preds = %2
-  %7 = trunc i64 %indvars.iv to i8
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.loopexit, label %2, !llvm.loop !15
+
+7:                                                ; preds = %2
+  %8 = trunc i64 %indvars.iv to i8
   br label %.loopexit
 
-8:                                                ; preds = %2
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %.loopexit, label %2, !llvm.loop !15
-
-.loopexit:                                        ; preds = %8, %6
-  %spec.select = phi i8 [ %7, %6 ], [ 0, %8 ]
-  ret i8 %spec.select
+.loopexit:                                        ; preds = %6, %7
+  %9 = phi i8 [ %8, %7 ], [ 0, %6 ]
+  ret i8 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -150,48 +150,48 @@ define void @_ZN11OpenImageIO6v3_1_03Tex15parse_wrapmodesEPKcRNS1_4WrapES5_(ptr 
   %.021 = select i1 %17, ptr %18, ptr %9
   br label %19
 
-19:                                               ; preds = %25, %.critedge
-  %indvars.iv.i = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i, %25 ]
+19:                                               ; preds = %23, %.critedge
+  %indvars.iv.i = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i, %23 ]
   %20 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8, !tbaa !3
   %22 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %21) #9
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %23, label %25
+  br i1 %.not.i, label %24, label %23
 
 23:                                               ; preds = %19
-  %24 = trunc i64 %indvars.iv.i to i8
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
+  br i1 %exitcond.not.i, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit, label %19, !llvm.loop !9
+
+24:                                               ; preds = %19
+  %25 = trunc i64 %indvars.iv.i to i8
   br label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
 
-25:                                               ; preds = %19
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.i, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit, label %19, !llvm.loop !9
+_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit: ; preds = %23, %24
+  %26 = phi i8 [ %25, %24 ], [ 0, %23 ]
+  store i8 %26, ptr %1, align 1, !tbaa !18
+  br label %27
 
-_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit: ; preds = %25, %23
-  %spec.select.i = phi i8 [ %24, %23 ], [ 0, %25 ]
-  store i8 %spec.select.i, ptr %1, align 1, !tbaa !18
-  br label %26
+27:                                               ; preds = %31, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
+  %indvars.iv.i26 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit ], [ %indvars.iv.next.i28, %31 ]
+  %28 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv.i26
+  %29 = load ptr, ptr %28, align 8, !tbaa !3
+  %30 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.021, ptr noundef nonnull dereferenceable(1) %29) #9
+  %.not.i27 = icmp eq i32 %30, 0
+  br i1 %.not.i27, label %32, label %31
 
-26:                                               ; preds = %32, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit
-  %indvars.iv.i26 = phi i64 [ 0, %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit ], [ %indvars.iv.next.i28, %32 ]
-  %27 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ustring", ptr @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_114wrap_type_nameE, i64 %indvars.iv.i26
-  %28 = load ptr, ptr %27, align 8, !tbaa !3
-  %29 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.021, ptr noundef nonnull dereferenceable(1) %28) #9
-  %.not.i27 = icmp eq i32 %29, 0
-  br i1 %.not.i27, label %30, label %32
-
-30:                                               ; preds = %26
-  %31 = trunc i64 %indvars.iv.i26 to i8
-  br label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit31
-
-32:                                               ; preds = %26
+31:                                               ; preds = %27
   %indvars.iv.next.i28 = add nuw nsw i64 %indvars.iv.i26, 1
-  %exitcond.i29 = icmp eq i64 %indvars.iv.next.i28, 7
-  br i1 %exitcond.i29, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit31, label %26, !llvm.loop !9
+  %exitcond.not.i29 = icmp eq i64 %indvars.iv.next.i28, 7
+  br i1 %exitcond.not.i29, label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit30, label %27, !llvm.loop !9
 
-_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit31: ; preds = %32, %30
-  %spec.select.i30 = phi i8 [ %31, %30 ], [ 0, %32 ]
-  store i8 %spec.select.i30, ptr %2, align 1, !tbaa !18
+32:                                               ; preds = %27
+  %33 = trunc i64 %indvars.iv.i26 to i8
+  br label %_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit30
+
+_ZN11OpenImageIO6v3_1_03Tex15decode_wrapmodeEPKc.exit30: ; preds = %31, %32
+  %34 = phi i8 [ %33, %32 ], [ 0, %31 ]
+  store i8 %34, ptr %2, align 1, !tbaa !18
   ret void
 }
 

@@ -981,8 +981,8 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   %381 = load ptr, ptr @job_buffer_ptr, align 8
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 16
   %383 = load i32, ptr %382, align 8
-  %.not104.i = icmp eq i32 %383, 0
-  br i1 %.not104.i, label %._crit_edge.i36, label %.lr.ph.preheader.i
+  %.not101.i = icmp eq i32 %383, 0
+  br i1 %.not101.i, label %._crit_edge.i36, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_has_filter_opt.exit.thread
   %384 = getelementptr inbounds nuw i8, ptr %381, i64 24
@@ -990,32 +990,32 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %480, %.lr.ph.preheader.i
-  %.056103.i = phi i32 [ %481, %480 ], [ 0, %.lr.ph.preheader.i ]
-  %.057102.i = phi i32 [ %.158.i, %480 ], [ 0, %.lr.ph.preheader.i ]
-  %.059101.i = phi ptr [ %.160.i, %480 ], [ null, %.lr.ph.preheader.i ]
-  %.061100.i = phi ptr [ %482, %480 ], [ %385, %.lr.ph.preheader.i ]
-  %386 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 396
+  %.056100.i = phi i32 [ %481, %480 ], [ 0, %.lr.ph.preheader.i ]
+  %.05799.i = phi i32 [ %.158.i, %480 ], [ 0, %.lr.ph.preheader.i ]
+  %.05998.i = phi ptr [ %.160.i, %480 ], [ null, %.lr.ph.preheader.i ]
+  %.06197.i = phi ptr [ %482, %480 ], [ %385, %.lr.ph.preheader.i ]
+  %386 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 396
   %387 = load i32, ptr %386, align 4
   %.not.i30 = icmp eq i32 %387, 0
   br i1 %.not.i30, label %391, label %388
 
 388:                                              ; preds = %.lr.ph.i29
-  %389 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 408
+  %389 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 408
   %390 = load i32, ptr %389, align 8
   %.not70.i31 = icmp eq i32 %390, 0
-  %spec.select.i32 = select i1 %.not70.i31, ptr %.061100.i, ptr %.059101.i
+  %spec.select.i32 = select i1 %.not70.i31, ptr %.06197.i, ptr %.05998.i
   br label %391
 
 391:                                              ; preds = %388, %.lr.ph.i29
-  %.160.i = phi ptr [ %.059101.i, %.lr.ph.i29 ], [ %spec.select.i32, %388 ]
-  %392 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 432
+  %.160.i = phi ptr [ %.05998.i, %.lr.ph.i29 ], [ %spec.select.i32, %388 ]
+  %392 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 432
   %393 = load i32, ptr %392, align 8
   %394 = and i32 %393, 255
   %395 = icmp samesign ugt i32 %394, 2
-  %396 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 412
-  br i1 %395, label %.thread115.i, label %397
+  %396 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 412
+  br i1 %395, label %.thread112.i, label %397
 
-.thread115.i:                                     ; preds = %391
+.thread112.i:                                     ; preds = %391
   store i32 0, ptr %396, align 4
   br label %480
 
@@ -1030,7 +1030,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br i1 %.not71.i34, label %405, label %401
 
 401:                                              ; preds = %399
-  %402 = load ptr, ptr %.061100.i, align 8
+  %402 = load ptr, ptr %.06197.i, align 8
   %403 = call i32 @xstrcmp(ptr noundef %402, ptr noundef nonnull %400) #12
   %.not72.i = icmp eq i32 %403, 0
   br i1 %.not72.i, label %405, label %404
@@ -1045,7 +1045,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br i1 %.not73.i, label %412, label %407
 
 407:                                              ; preds = %405
-  %408 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 496
+  %408 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 496
   %409 = load ptr, ptr %408, align 8
   %410 = call i32 @xstrcmp(ptr noundef %409, ptr noundef nonnull %406) #12
   %.not74.i = icmp eq i32 %410, 0
@@ -1061,7 +1061,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br i1 %.not75.i, label %419, label %414
 
 414:                                              ; preds = %412
-  %415 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 568
+  %415 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 568
   %416 = load ptr, ptr %415, align 8
   %417 = call i32 @xstrcmp(ptr noundef %416, ptr noundef nonnull %413) #12
   %.not76.i = icmp eq i32 %417, 0
@@ -1077,7 +1077,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br i1 %.not77.i, label %426, label %421
 
 421:                                              ; preds = %419
-  %422 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 656
+  %422 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 656
   %423 = load ptr, ptr %422, align 8
   %424 = call i32 @xstrcmp(ptr noundef %423, ptr noundef nonnull %420) #12
   %.not78.i = icmp eq i32 %424, 0
@@ -1093,7 +1093,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br i1 %.not79.i, label %433, label %428
 
 428:                                              ; preds = %426
-  %429 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 712
+  %429 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 712
   %430 = load ptr, ptr %429, align 8
   %431 = call i32 @xstrcmp(ptr noundef %430, ptr noundef nonnull %427) #12
   %.not80.i = icmp eq i32 %431, 0
@@ -1120,7 +1120,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br i1 %.not83.i, label %443, label %438
 
 438:                                              ; preds = %436
-  %439 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 928
+  %439 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 928
   %440 = load i32, ptr %439, align 8
   %441 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 88), align 8
   %.not84.i = icmp eq i32 %440, %441
@@ -1136,7 +1136,7 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   br i1 %.not85.i, label %452, label %445
 
 445:                                              ; preds = %443
-  %446 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 512
+  %446 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 512
   %447 = load ptr, ptr %446, align 8
   %448 = call ptr @hostset_create(ptr noundef %447) #12
   %449 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 120), align 8
@@ -1156,10 +1156,10 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
 452:                                              ; preds = %.thread.i39, %443
   %453 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 112), align 8
   %.not87.i = icmp eq ptr %453, null
-  br i1 %.not87.i, label %.thread97.i, label %454
+  br i1 %.not87.i, label %.thread95.i, label %454
 
 454:                                              ; preds = %452
-  %455 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 952
+  %455 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 952
   %456 = load ptr, ptr %455, align 8
   %457 = load i8, ptr %453, align 1
   %458 = icmp ne i8 %457, 42
@@ -1178,24 +1178,24 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   %.0.i41 = phi ptr [ %456, %454 ], [ %spec.select92.i, %460 ]
   %464 = call i32 @xstrcmp(ptr noundef %.0.i41, ptr noundef nonnull %453) #12
   %.not88.i = icmp eq i32 %464, 0
-  br i1 %.not88.i, label %.thread97.i, label %465
+  br i1 %.not88.i, label %.thread95.i, label %465
 
 465:                                              ; preds = %463
   store i32 0, ptr %396, align 4
   br label %480
 
-.thread97.i:                                      ; preds = %463, %452
+.thread95.i:                                      ; preds = %463, %452
   %.not89.i = icmp eq ptr %.160.i, null
   br i1 %.not89.i, label %478, label %466
 
-466:                                              ; preds = %.thread97.i
+466:                                              ; preds = %.thread95.i
   %467 = getelementptr inbounds nuw i8, ptr %.160.i, i64 412
   %468 = load i32, ptr %467, align 4
   %.not90.i = icmp eq i32 %468, 0
   br i1 %.not90.i, label %478, label %469
 
 469:                                              ; preds = %466
-  %470 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 408
+  %470 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 408
   %471 = load i32, ptr %470, align 8
   %.not91.i = icmp eq i32 %471, 0
   br i1 %.not91.i, label %478, label %472
@@ -1211,14 +1211,14 @@ _has_filter_opt.exit.thread:                      ; preds = %_verify_job_ids.exi
   store i32 0, ptr %396, align 4
   br label %480
 
-478:                                              ; preds = %472, %469, %466, %.thread97.i
-  %479 = add nsw i32 %.057102.i, 1
+478:                                              ; preds = %472, %469, %466, %.thread95.i
+  %479 = add nsw i32 %.05799.i, 1
   br label %480
 
-480:                                              ; preds = %478, %477, %465, %451, %442, %435, %432, %425, %418, %411, %404, %397, %.thread115.i
-  %.158.i = phi i32 [ %.057102.i, %397 ], [ %.057102.i, %404 ], [ %.057102.i, %411 ], [ %.057102.i, %418 ], [ %.057102.i, %425 ], [ %.057102.i, %432 ], [ %.057102.i, %435 ], [ %.057102.i, %442 ], [ %.057102.i, %477 ], [ %479, %478 ], [ %.057102.i, %465 ], [ %.057102.i, %451 ], [ %.057102.i, %.thread115.i ]
-  %481 = add nuw nsw i32 %.056103.i, 1
-  %482 = getelementptr inbounds nuw i8, ptr %.061100.i, i64 968
+480:                                              ; preds = %478, %477, %465, %451, %442, %435, %432, %425, %418, %411, %404, %397, %.thread112.i
+  %.158.i = phi i32 [ %.05799.i, %397 ], [ %.05799.i, %404 ], [ %.05799.i, %411 ], [ %.05799.i, %418 ], [ %.05799.i, %425 ], [ %.05799.i, %432 ], [ %.05799.i, %435 ], [ %.05799.i, %442 ], [ %.05799.i, %477 ], [ %479, %478 ], [ %.05799.i, %465 ], [ %.05799.i, %451 ], [ %.05799.i, %.thread112.i ]
+  %481 = add nuw nsw i32 %.056100.i, 1
+  %482 = getelementptr inbounds nuw i8, ptr %.06197.i, i64 968
   %483 = load ptr, ptr @job_buffer_ptr, align 8
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 16
   %485 = load i32, ptr %484, align 8

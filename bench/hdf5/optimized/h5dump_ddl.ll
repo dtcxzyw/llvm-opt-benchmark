@@ -4317,12 +4317,12 @@ define dso_local void @handle_datatypes(i64 noundef %0, ptr noundef %1, ptr read
   %.pre58 = load ptr, ptr @type_table, align 8, !tbaa !15
   %11 = getelementptr inbounds nuw i8, ptr %.pre58, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !98
-  %.not100 = icmp eq i64 %12, 0
-  br i1 %.not100, label %split, label %.lr.ph
+  %.not99 = icmp eq i64 %12, 0
+  br i1 %.not99, label %split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
   %13 = phi i64 [ %30, %.preheader ], [ 0, %.preheader.preheader ]
-  %.03096 = phi i32 [ %29, %.preheader ], [ 0, %.preheader.preheader ]
+  %.03095 = phi i32 [ %29, %.preheader ], [ 0, %.preheader.preheader ]
   %14 = phi ptr [ %28, %.preheader ], [ %.pre58, %.preheader.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -4349,7 +4349,7 @@ define dso_local void @handle_datatypes(i64 noundef %0, ptr noundef %1, ptr read
 
 .preheader:                                       ; preds = %.lr.ph, %21
   %28 = phi ptr [ %.pre, %21 ], [ %14, %.lr.ph ]
-  %29 = add i32 %.03096, 1
+  %29 = add i32 %.03095, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %30 = zext i32 %29 to i64
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -4361,7 +4361,7 @@ define dso_local void @handle_datatypes(i64 noundef %0, ptr noundef %1, ptr read
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %.pre59 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !98
-  %.pre65 = zext i32 %.03096 to i64
+  %.pre65 = zext i32 %.03095 to i64
   br label %split
 
 split:                                            ; preds = %.preheader, %.preheader.preheader, %._crit_edge
@@ -4436,7 +4436,7 @@ split:                                            ; preds = %.preheader, %.prehe
 
 64:                                               ; preds = %.thread
   %.not52 = icmp eq ptr %.pre64, null
-  br i1 %.not52, label %.thread81, label %65
+  br i1 %.not52, label %.thread80, label %65
 
 65:                                               ; preds = %64
   %fputs = call i32 @fputs(ptr nonnull %63, ptr nonnull %.pre64)
@@ -4465,13 +4465,13 @@ split:                                            ; preds = %.preheader, %.prehe
   %76 = icmp ne i8 %char055, 0
   %77 = icmp ne ptr %72, null
   %or.cond3 = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond3, label %78, label %.thread81
+  br i1 %or.cond3, label %78, label %.thread80
 
 78:                                               ; preds = %71
   %fputs56 = call i32 @fputs(ptr nonnull %75, ptr nonnull %72)
-  br label %.thread81
+  br label %.thread80
 
-.thread81:                                        ; preds = %64, %78, %71
+.thread80:                                        ; preds = %64, %78, %71
   call void @h5tools_setstatus(i32 noundef 1) #15
   br label %101
 
@@ -4510,7 +4510,7 @@ split:                                            ; preds = %.preheader, %.prehe
   tail call void @h5tools_setstatus(i32 noundef 1) #15
   br label %101
 
-101:                                              ; preds = %79, %.thread81, %37, %93, %100
+101:                                              ; preds = %79, %.thread80, %37, %93, %100
   ret void
 }
 

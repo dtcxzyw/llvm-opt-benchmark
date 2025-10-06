@@ -226,10 +226,10 @@ define dso_local void @activeExpireCycle(i32 noundef %0) local_unnamed_addr #0 {
 .preheader:                                       ; preds = %26
   %38 = icmp slt i32 %spec.select, 1
   %39 = icmp slt i32 %27, 1
-  %or.cond113.not147 = select i1 %38, i1 true, i1 %39
-  br i1 %or.cond113.not147, label %.critedge, label %.lr.ph153
+  %or.cond113.not146 = select i1 %38, i1 true, i1 %39
+  br i1 %or.cond113.not146, label %.critedge, label %.lr.ph152
 
-.lr.ph153:                                        ; preds = %.preheader
+.lr.ph152:                                        ; preds = %.preheader
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %42 = icmp eq i32 %0, 0
@@ -244,13 +244,13 @@ define dso_local void @activeExpireCycle(i32 noundef %0) local_unnamed_addr #0 {
   tail call void @abort() #11
   unreachable
 
-48:                                               ; preds = %.lr.ph153, %.thread119
-  %49 = phi i32 [ %27, %.lr.ph153 ], [ %166, %.thread119 ]
-  %.071152 = phi i32 [ 0, %.lr.ph153 ], [ %164, %.thread119 ]
-  %.072151 = phi i32 [ 0, %.lr.ph153 ], [ %93, %.thread119 ]
-  %.083150 = phi i32 [ 0, %.lr.ph153 ], [ %spec.select114, %.thread119 ]
-  %.085149 = phi i64 [ 0, %.lr.ph153 ], [ %.287130, %.thread119 ]
-  %.088148 = phi i64 [ 0, %.lr.ph153 ], [ %.290129, %.thread119 ]
+48:                                               ; preds = %.lr.ph152, %.thread119
+  %49 = phi i32 [ %27, %.lr.ph152 ], [ %166, %.thread119 ]
+  %.071151 = phi i32 [ 0, %.lr.ph152 ], [ %164, %.thread119 ]
+  %.072150 = phi i32 [ 0, %.lr.ph152 ], [ %93, %.thread119 ]
+  %.083149 = phi i32 [ 0, %.lr.ph152 ], [ %spec.select114, %.thread119 ]
+  %.085148 = phi i64 [ 0, %.lr.ph152 ], [ %.287129, %.thread119 ]
+  %.088147 = phi i64 [ 0, %.lr.ph152 ], [ %.290128, %.thread119 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %40, align 8, !tbaa !21
   store i32 0, ptr %41, align 8, !tbaa !22
@@ -320,17 +320,17 @@ activeExpireHashFieldCycle.exit:                  ; preds = %61, %78, %81
   %88 = call i64 @kvstoreSize(ptr noundef %87) #10
   %.not108 = icmp ne i64 %88, 0
   %89 = zext i1 %.not108 to i32
-  %spec.select114 = add nuw nsw i32 %.083150, %89
+  %spec.select114 = add nuw nsw i32 %.083149, %89
   %90 = getelementptr inbounds nuw i8, ptr %54, i64 72
   %91 = getelementptr inbounds nuw i8, ptr %54, i64 64
   br label %92
 
 92:                                               ; preds = %163, %activeExpireHashFieldCycle.exit
-  %.189 = phi i64 [ %.088148, %activeExpireHashFieldCycle.exit ], [ %118, %163 ]
-  %.186 = phi i64 [ %.085149, %activeExpireHashFieldCycle.exit ], [ %117, %163 ]
+  %.189 = phi i64 [ %.088147, %activeExpireHashFieldCycle.exit ], [ %118, %163 ]
+  %.186 = phi i64 [ %.085148, %activeExpireHashFieldCycle.exit ], [ %117, %163 ]
   %.080 = phi i32 [ 0, %activeExpireHashFieldCycle.exit ], [ %.282, %163 ]
   %.078 = phi i32 [ 0, %activeExpireHashFieldCycle.exit ], [ %.179, %163 ]
-  %.1 = phi i32 [ %.072151, %activeExpireHashFieldCycle.exit ], [ %93, %163 ]
+  %.1 = phi i32 [ %.072150, %activeExpireHashFieldCycle.exit ], [ %93, %163 ]
   %93 = add nsw i32 %.1, 1
   %94 = load ptr, ptr %86, align 8, !tbaa !59
   %95 = call i64 @kvstoreSize(ptr noundef %94) #10
@@ -357,7 +357,7 @@ activeExpireHashFieldCycle.exit:                  ; preds = %61, %78, %81
   br label %.lr.ph
 
 104:                                              ; preds = %.lr.ph
-  %105 = add nuw nsw i64 %.073144, 1
+  %105 = add nuw nsw i64 %.073143, 1
   %106 = load i64, ptr %44, align 8, !tbaa !23
   %107 = icmp ult i64 %106, %spec.select115
   %108 = icmp slt i64 %105, %100
@@ -366,7 +366,7 @@ activeExpireHashFieldCycle.exit:                  ; preds = %61, %78, %81
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %104
   %110 = phi i64 [ %112, %104 ], [ %.pre, %.lr.ph.preheader ]
-  %.073144 = phi i64 [ %105, %104 ], [ 0, %.lr.ph.preheader ]
+  %.073143 = phi i64 [ %105, %104 ], [ 0, %.lr.ph.preheader ]
   %111 = load ptr, ptr %86, align 8, !tbaa !59
   %112 = call i64 @kvstoreScan(ptr noundef %111, i64 noundef %110, i32 noundef -1, ptr noundef nonnull @expireScanCallback, ptr noundef nonnull @isExpiryDictValidForSamplingCb, ptr noundef nonnull %2) #10
   store i64 %112, ptr %90, align 8, !tbaa !61
@@ -380,11 +380,11 @@ thread-pre-split:                                 ; preds = %.lr.ph
 .loopexitthread-pre-split:                        ; preds = %104, %thread-pre-split
   %.ph = phi i64 [ %.pr, %thread-pre-split ], [ %106, %104 ]
   %.282.ph = phi i32 [ 1, %thread-pre-split ], [ %.080, %104 ]
-  %.pr182 = load i32, ptr %41, align 8, !tbaa !22
+  %.pr181 = load i32, ptr %41, align 8, !tbaa !22
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexitthread-pre-split, %98
-  %114 = phi i32 [ %.pr182, %.loopexitthread-pre-split ], [ %101, %98 ]
+  %114 = phi i32 [ %.pr181, %.loopexitthread-pre-split ], [ %101, %98 ]
   %115 = phi i64 [ %.ph, %.loopexitthread-pre-split ], [ 0, %98 ]
   %.282 = phi i32 [ %.282.ph, %.loopexitthread-pre-split ], [ %.080, %98 ]
   %116 = load i64, ptr %45, align 8, !tbaa !20
@@ -477,10 +477,10 @@ thread-pre-split:                                 ; preds = %.lr.ph
   br i1 %.not111, label %.thread119, label %92, !llvm.loop !66
 
 .thread119:                                       ; preds = %163, %160, %97
-  %.287130 = phi i64 [ %117, %160 ], [ %.186, %97 ], [ %117, %163 ]
-  %.290129 = phi i64 [ %118, %160 ], [ %.189, %97 ], [ %118, %163 ]
+  %.287129 = phi i64 [ %117, %160 ], [ %.186, %97 ], [ %117, %163 ]
+  %.290128 = phi i64 [ %118, %160 ], [ %.189, %97 ], [ %118, %163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %164 = add nuw nsw i32 %.071152, 1
+  %164 = add nuw nsw i32 %.071151, 1
   %165 = icmp sge i32 %spec.select114, %spec.select
   %.b = load i1, ptr @activeExpireCycle.timelimit_exit, align 4
   %or.cond3.not = select i1 %165, i1 true, i1 %.b
@@ -490,11 +490,11 @@ thread-pre-split:                                 ; preds = %.lr.ph
   br i1 %or.cond113.not, label %.critedge.loopexit, label %48, !llvm.loop !67
 
 .critedge.loopexit:                               ; preds = %.thread119
-  %168 = sitofp i64 %.287130 to double
+  %168 = sitofp i64 %.287129 to double
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %.preheader
-  %.088.lcssa = phi i64 [ 0, %.preheader ], [ %.290129, %.critedge.loopexit ]
+  %.088.lcssa = phi i64 [ 0, %.preheader ], [ %.290128, %.critedge.loopexit ]
   %.085.lcssa = phi double [ 0.000000e+00, %.preheader ], [ %168, %.critedge.loopexit ]
   %169 = call i64 @ustime() #10
   %170 = sub nsw i64 %169, %11
@@ -601,7 +601,7 @@ define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
 
 12:                                               ; preds = %79, %10
   %13 = phi ptr [ %.pre, %10 ], [ %80, %79 ]
-  %.029 = phi i32 [ 0, %10 ], [ %.1.lcssa56, %79 ]
+  %.029 = phi i32 [ 0, %10 ], [ %.1.lcssa55, %79 ]
   %.028 = phi i32 [ 0, %10 ], [ %70, %79 ]
   %14 = tail call ptr @dictGetRandomKey(ptr noundef %13) #10
   %15 = tail call ptr @dictGetKey(ptr noundef %14) #10
@@ -615,10 +615,10 @@ define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %12, %59
   %21 = phi i32 [ %60, %59 ], [ %18, %12 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %12 ]
-  %.144 = phi i32 [ %.2, %59 ], [ %.029, %12 ]
-  %.03043 = phi i64 [ %61, %59 ], [ %16, %12 ]
-  %.03241 = phi i64 [ %.133, %59 ], [ 0, %12 ]
-  %22 = and i64 %.03043, 1
+  %.143 = phi i32 [ %.2, %59 ], [ %.029, %12 ]
+  %.03042 = phi i64 [ %61, %59 ], [ %16, %12 ]
+  %.03240 = phi i64 [ %.133, %59 ], [ 0, %12 ]
+  %22 = and i64 %.03042, 1
   %.not37 = icmp eq i64 %22, 0
   br i1 %.not37, label %59, label %23
 
@@ -633,8 +633,8 @@ define dso_local void @expireSlaveKeys() local_unnamed_addr #0 {
   %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !56
   %29 = getelementptr inbounds nuw %struct.redisDb, ptr %28, i64 %indvars.iv
   %30 = tail call i64 @dictGetSignedIntegerVal(ptr noundef nonnull %26) #10
-  %.not46 = icmp slt i64 %11, %30
-  br i1 %.not46, label %activeExpireCycleTryExpire.exit, label %31
+  %.not45 = icmp slt i64 %11, %30
+  br i1 %.not45, label %activeExpireCycleTryExpire.exit, label %31
 
 31:                                               ; preds = %27
   tail call void @enterExecutionUnit(i32 noundef 1, i64 noundef 0) #10
@@ -689,23 +689,23 @@ sdslen.exit.i:                                    ; preds = %52, %48, %44, %40, 
   br label %activeExpireCycleTryExpire.exit
 
 activeExpireCycleTryExpire.exit:                  ; preds = %sdslen.exit.i, %27, %23
-  %.not47 = phi i1 [ true, %23 ], [ true, %27 ], [ false, %sdslen.exit.i ]
-  %or.cond.not = and i1 %.not38, %.not47
+  %.not46 = phi i1 [ true, %23 ], [ true, %27 ], [ false, %sdslen.exit.i ]
+  %or.cond.not = and i1 %.not38, %.not46
   %56 = shl nuw i64 1, %indvars.iv
   %57 = select i1 %or.cond.not, i64 %56, i64 0
-  %.234 = or i64 %57, %.03241
+  %.234 = or i64 %57, %.03240
   %58 = zext i1 %or.cond.not to i32
-  %.3 = add nsw i32 %.144, %58
-  %.pre49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8
+  %.3 = add nsw i32 %.143, %58
+  %.pre48 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6376), align 8
   br label %59
 
 59:                                               ; preds = %activeExpireCycleTryExpire.exit, %.lr.ph
-  %60 = phi i32 [ %.pre49, %activeExpireCycleTryExpire.exit ], [ %21, %.lr.ph ]
-  %.133 = phi i64 [ %.234, %activeExpireCycleTryExpire.exit ], [ %.03241, %.lr.ph ]
-  %.2 = phi i32 [ %.3, %activeExpireCycleTryExpire.exit ], [ %.144, %.lr.ph ]
+  %60 = phi i32 [ %.pre48, %activeExpireCycleTryExpire.exit ], [ %21, %.lr.ph ]
+  %.133 = phi i64 [ %.234, %activeExpireCycleTryExpire.exit ], [ %.03240, %.lr.ph ]
+  %.2 = phi i32 [ %.3, %activeExpireCycleTryExpire.exit ], [ %.143, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = lshr i64 %.03043, 1
-  %62 = icmp ugt i64 %.03043, 1
+  %61 = lshr i64 %.03042, 1
+  %62 = icmp ugt i64 %.03042, 1
   %63 = sext i32 %60 to i64
   %64 = icmp slt i64 %indvars.iv.next, %63
   %65 = select i1 %62, i1 %64, i1 false
@@ -720,15 +720,15 @@ activeExpireCycleTryExpire.exit:                  ; preds = %sdslen.exit.i, %27,
   br label %69
 
 ._crit_edge.thread:                               ; preds = %12, %._crit_edge
-  %.1.lcssa57 = phi i32 [ %.2, %._crit_edge ], [ %.029, %12 ]
+  %.1.lcssa56 = phi i32 [ %.2, %._crit_edge ], [ %.029, %12 ]
   %67 = load ptr, ptr @slaveKeysWithExpire, align 8, !tbaa !70
   %68 = tail call i32 @dictDelete(ptr noundef %67, ptr noundef %15) #10
   br label %69
 
 69:                                               ; preds = %._crit_edge.thread, %66
-  %.1.lcssa56 = phi i32 [ %.1.lcssa57, %._crit_edge.thread ], [ %.2, %66 ]
+  %.1.lcssa55 = phi i32 [ %.1.lcssa56, %._crit_edge.thread ], [ %.2, %66 ]
   %70 = add nuw nsw i32 %.028, 1
-  %71 = icmp sgt i32 %.1.lcssa56, 3
+  %71 = icmp sgt i32 %.1.lcssa55, 3
   br i1 %71, label %.thread, label %72
 
 72:                                               ; preds = %69

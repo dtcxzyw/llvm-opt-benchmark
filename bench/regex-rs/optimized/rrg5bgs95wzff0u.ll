@@ -148,8 +148,8 @@ define hidden { i64, i64 } @_ZN6memchr4arch7generic6memchr21search_slice_with_ra
   %.0.i.i = inttoptr i64 %6 to ptr
   %7 = tail call { i64, ptr } %.0.i.i(i8 noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %4), !noalias !15
   %.fca.0.extract = extractvalue { i64, ptr } %7, 0
-  %switch8.not = icmp eq i64 %.fca.0.extract, 0
-  br i1 %switch8.not, label %13, label %8
+  %.not = icmp eq i64 %.fca.0.extract, 0
+  br i1 %.not, label %13, label %8
 
 8:                                                ; preds = %3
   %.fca.1.extract = extractvalue { i64, ptr } %7, 1
@@ -229,8 +229,8 @@ define { i64, i64 } @_ZN5regex9find_byte9find_byte17hc254a81dfb98b19dE(i8 nounde
   %.0.i.i.i = inttoptr i64 %5 to ptr
   %6 = tail call { i64, ptr } %.0.i.i.i(i8 noundef %0, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %4), !noalias !30
   %.fca.0.extract.i.i = extractvalue { i64, ptr } %6, 0
-  %switch8.i.not.i = icmp eq i64 %.fca.0.extract.i.i, 0
-  br i1 %switch8.i.not.i, label %_ZN5regex9find_byte9find_byte3imp17h1a86779a7b56a56bE.llvm.15639794734364571569.exit, label %7
+  %.not.i = icmp eq i64 %.fca.0.extract.i.i, 0
+  br i1 %.not.i, label %_ZN5regex9find_byte9find_byte3imp17h1a86779a7b56a56bE.llvm.15639794734364571569.exit, label %7
 
 7:                                                ; preds = %3
   %.fca.1.extract.i.i = extractvalue { i64, ptr } %6, 1
@@ -256,8 +256,8 @@ define hidden { i64, i64 } @_ZN5regex9find_byte9find_byte3imp17h1a86779a7b56a56b
   %.0.i.i = inttoptr i64 %5 to ptr
   %6 = tail call { i64, ptr } %.0.i.i(i8 noundef %0, ptr noundef nonnull readonly align 1 %1, ptr noundef nonnull readonly %4), !noalias !31
   %.fca.0.extract.i = extractvalue { i64, ptr } %6, 0
-  %switch8.i.not = icmp eq i64 %.fca.0.extract.i, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h19ca94b3ee7805e8E.llvm.15639794734364571569.exit, label %7
+  %.not = icmp eq i64 %.fca.0.extract.i, 0
+  br i1 %.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h19ca94b3ee7805e8E.llvm.15639794734364571569.exit, label %7
 
 7:                                                ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, ptr } %6, 1
@@ -495,10 +495,10 @@ define { i64, i64 } @"_ZN116_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$
   br i1 %11, label %"_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h469977ee721db3c7E.exit.thread", label %4
 
 "_ZN89_$LT$core..ops..range..Range$LT$T$GT$$u20$as$u20$core..iter..range..RangeIteratorImpl$GT$14spec_next_back17h469977ee721db3c7E.exit.thread": ; preds = %4, %8
-  %.sroa.3.0.i7 = phi i64 [ %9, %8 ], [ undef, %4 ]
+  %.sroa.3.0.i6 = phi i64 [ %9, %8 ], [ undef, %4 ]
   %.sroa.0.0 = phi i64 [ 1, %8 ], [ 0, %4 ]
   %12 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.3.0.i7, 1
+  %13 = insertvalue { i64, i64 } %12, i64 %.sroa.3.0.i6, 1
   ret { i64, i64 } %13
 }
 
@@ -506,14 +506,14 @@ define { i64, i64 } @"_ZN116_$LT$regex..regexset..bytes..SetMatchesIntoIter$u20$
 define { i64, i64 } @"_ZN97_$LT$regex..regexset..bytes..SetMatchesIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6e08cce343b1f74aE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = tail call { i32, i32 } @"_ZN103_$LT$regex_automata..util..search..PatternSetIter$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc05b73abc92a7d65E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   %.fca.0.extract = extractvalue { i32, i32 } %2, 0
-  %switch = icmp ne i32 %.fca.0.extract, 0
+  %3 = icmp ne i32 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i32, i32 } %2, 1
-  %3 = zext i32 %.fca.1.extract to i64
-  %.sroa.3.0 = select i1 %switch, i64 %3, i64 undef
-  %.sroa.0.0 = zext i1 %switch to i64
-  %4 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %5
+  %4 = zext i32 %.fca.1.extract to i64
+  %.sroa.3.0 = select i1 %3, i64 %4, i64 undef
+  %.sroa.0.0 = zext i1 %3 to i64
+  %5 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -526,14 +526,14 @@ define void @"_ZN97_$LT$regex..regexset..bytes..SetMatchesIter$u20$as$u20$core..
 define { i64, i64 } @"_ZN112_$LT$regex..regexset..bytes..SetMatchesIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17h874823bb314a5ceaE"(ptr noalias noundef align 8 dereferenceable(24) %0) unnamed_addr #1 {
   %2 = tail call { i32, i32 } @"_ZN118_$LT$regex_automata..util..search..PatternSetIter$u20$as$u20$core..iter..traits..double_ended..DoubleEndedIterator$GT$9next_back17heefaa2353978914bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0)
   %.fca.0.extract = extractvalue { i32, i32 } %2, 0
-  %switch = icmp ne i32 %.fca.0.extract, 0
+  %3 = icmp ne i32 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i32, i32 } %2, 1
-  %3 = zext i32 %.fca.1.extract to i64
-  %.sroa.3.0 = select i1 %switch, i64 %3, i64 undef
-  %.sroa.0.0 = zext i1 %switch to i64
-  %4 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %5 = insertvalue { i64, i64 } %4, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %5
+  %4 = zext i32 %.fca.1.extract to i64
+  %.sroa.3.0 = select i1 %3, i64 %4, i64 undef
+  %.sroa.0.0 = zext i1 %3 to i64
+  %5 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %6 = insertvalue { i64, i64 } %5, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %6
 }
 
 ; Function Attrs: nonlazybind uwtable

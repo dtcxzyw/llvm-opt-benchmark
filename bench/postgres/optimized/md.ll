@@ -1229,27 +1229,27 @@ define dso_local noundef zeroext i1 @mdprefetch(ptr noundef captures(none) %0, i
   br i1 %9, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader, %14
-  %.02130 = phi i32 [ %24, %14 ], [ %2, %.preheader ]
-  %.02329 = phi i32 [ %25, %14 ], [ %3, %.preheader ]
+  %.02129 = phi i32 [ %24, %14 ], [ %2, %.preheader ]
+  %.02328 = phi i32 [ %25, %14 ], [ %3, %.preheader ]
   %10 = load i8, ptr @InRecovery, align 1, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
   %12 = select i1 %11, i32 2, i32 1
-  %13 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.02130, i1 noundef zeroext false, i32 noundef %12)
+  %13 = tail call fastcc ptr @_mdfd_getseg(ptr noundef %0, i32 noundef %1, i32 noundef %.02129, i1 noundef zeroext false, i32 noundef %12)
   %.not.not = icmp ne ptr %13, null
   br i1 %.not.not, label %14, label %.thread
 
 14:                                               ; preds = %.lr.ph
-  %15 = and i32 %.02130, 131071
+  %15 = and i32 %.02129, 131071
   %16 = shl nuw nsw i32 %15, 13
   %17 = zext nneg i32 %16 to i64
   %18 = sub nuw nsw i32 131072, %15
-  %19 = tail call i32 @llvm.umin.i32(i32 %.02329, i32 %18)
+  %19 = tail call i32 @llvm.umin.i32(i32 %.02328, i32 %18)
   %20 = load i32, ptr %13, align 4
   %21 = shl nuw nsw i32 %19, 13
   %22 = zext nneg i32 %21 to i64
   %23 = tail call i32 @FilePrefetch(i32 noundef %20, i64 noundef %17, i64 noundef %22, i32 noundef 167772176) #14
-  %24 = add i32 %19, %.02130
-  %25 = sub nsw i32 %.02329, %19
+  %24 = add i32 %19, %.02129
+  %25 = sub nsw i32 %.02328, %19
   %26 = icmp sgt i32 %25, 0
   br i1 %26, label %.lr.ph, label %.thread
 
@@ -1586,8 +1586,8 @@ define dso_local void @mdwriteback(ptr noundef readonly captures(none) %0, i32 n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = sext i32 %1 to i64
   %7 = getelementptr inbounds ptr, ptr %5, i64 %6
-  %.not34 = icmp eq i32 %3, 0
-  br i1 %.not34, label %.thread, label %.lr.ph
+  %.not33 = icmp eq i32 %3, 0
+  br i1 %.not33, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1595,9 +1595,9 @@ define dso_local void @mdwriteback(ptr noundef readonly captures(none) %0, i32 n
   br label %10
 
 10:                                               ; preds = %.lr.ph, %15
-  %.02036 = phi i32 [ %2, %.lr.ph ], [ %29, %15 ]
-  %.02135 = phi i32 [ %3, %.lr.ph ], [ %28, %15 ]
-  %11 = lshr i32 %.02036, 17
+  %.02035 = phi i32 [ %2, %.lr.ph ], [ %29, %15 ]
+  %.02134 = phi i32 [ %3, %.lr.ph ], [ %28, %15 ]
+  %11 = lshr i32 %.02035, 17
   %12 = load i32, ptr %9, align 4
   %13 = icmp ult i32 %11, %12
   br i1 %13, label %_mdfd_getseg.exit, label %.thread
@@ -1610,22 +1610,22 @@ _mdfd_getseg.exit:                                ; preds = %10
 15:                                               ; preds = %_mdfd_getseg.exit
   %16 = zext nneg i32 %11 to i64
   %17 = getelementptr inbounds nuw %struct._MdfdVec, ptr %14, i64 %16
-  %18 = add i32 %.02135, -1
-  %19 = add i32 %18, %.02036
-  %.not26.unshifted = xor i32 %19, %.02036
+  %18 = add i32 %.02134, -1
+  %19 = add i32 %18, %.02035
+  %.not26.unshifted = xor i32 %19, %.02035
   %.not26 = icmp ult i32 %.not26.unshifted, 131072
-  %20 = and i32 %.02036, 131071
+  %20 = and i32 %.02035, 131071
   %21 = sub nuw nsw i32 131072, %20
-  %.023 = select i1 %.not26, i32 %.02135, i32 %21
-  %22 = shl i32 %.02036, 13
+  %.023 = select i1 %.not26, i32 %.02134, i32 %21
+  %22 = shl i32 %.02035, 13
   %23 = and i32 %22, 1073733632
   %24 = zext nneg i32 %23 to i64
   %25 = load i32, ptr %17, align 4
   %26 = zext i32 %.023 to i64
   %27 = shl nuw nsw i64 %26, 13
   tail call void @FileWriteback(i32 noundef %25, i64 noundef %24, i64 noundef %27, i32 noundef 167772174) #14
-  %28 = sub i32 %.02135, %.023
-  %29 = add i32 %.023, %.02036
+  %28 = sub i32 %.02134, %.023
+  %29 = add i32 %.023, %.02035
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %.thread, label %10
 

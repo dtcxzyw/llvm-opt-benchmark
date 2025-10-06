@@ -4435,18 +4435,18 @@ define internal fastcc void @disect_ptp_v2_tlvs(ptr noundef %0, i32 noundef %1, 
   store ptr %3, ptr %10, align 8
   %18 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1)
   %19 = icmp slt i32 %18, 4
-  br i1 %19, label %._crit_edge778, label %.lr.ph777
+  br i1 %19, label %._crit_edge777, label %.lr.ph776
 
-.lr.ph777:                                        ; preds = %8
+.lr.ph776:                                        ; preds = %8
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.not.i750 = icmp eq ptr %4, null
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   br label %23
 
-23:                                               ; preds = %.lr.ph777, %1677
-  %24 = phi i32 [ %1, %.lr.ph777 ], [ %1678, %1677 ]
-  %.0775 = phi i8 [ 0, %.lr.ph777 ], [ %.2760, %1677 ]
+23:                                               ; preds = %.lr.ph776, %1677
+  %24 = phi i32 [ %1, %.lr.ph776 ], [ %1678, %1677 ]
+  %.0774 = phi i8 [ 0, %.lr.ph776 ], [ %.2760, %1677 ]
   %25 = load i32, ptr %9, align 4
   %26 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %25)
   %27 = load i32, ptr %9, align 4
@@ -4537,12 +4537,12 @@ define internal fastcc void @disect_ptp_v2_tlvs(ptr noundef %0, i32 noundef %1, 
 
 .preheader:                                       ; preds = %49
   %56 = lshr i32 %32, 3
-  %.not779 = icmp ult i16 %29, 8
-  br i1 %.not779, label %.loopexit, label %.lr.ph772.preheader
+  %.not778 = icmp ult i16 %29, 8
+  br i1 %.not778, label %.loopexit, label %.lr.ph771.preheader
 
-.lr.ph772.preheader:                              ; preds = %.preheader
-  %.pre783 = load i32, ptr %9, align 4
-  br label %.lr.ph772
+.lr.ph771.preheader:                              ; preds = %.preheader
+  %.pre782 = load i32, ptr %9, align 4
+  br label %.lr.ph771
 
 57:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -4691,11 +4691,11 @@ define internal fastcc void @disect_ptp_v2_tlvs(ptr noundef %0, i32 noundef %1, 
   %169 = load i32, ptr %9, align 4
   %170 = add i32 %169, 2
   store i32 %170, ptr %9, align 4
-  %.not780 = icmp eq i16 %165, 0
-  br i1 %.not780, label %._crit_edge, label %.lr.ph774
+  %.not779 = icmp eq i16 %165, 0
+  br i1 %.not779, label %._crit_edge, label %.lr.ph773
 
-.lr.ph774:                                        ; preds = %163, %dissect_ptp_v2_text.exit749
-  %.0725773 = phi i16 [ %247, %dissect_ptp_v2_text.exit749 ], [ 0, %163 ]
+.lr.ph773:                                        ; preds = %163, %dissect_ptp_v2_text.exit749
+  %.0725772 = phi i16 [ %247, %dissect_ptp_v2_text.exit749 ], [ 0, %163 ]
   %171 = load i32, ptr %9, align 4
   %172 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %171)
   %173 = zext i16 %172 to i32
@@ -4729,13 +4729,13 @@ define internal fastcc void @disect_ptp_v2_tlvs(ptr noundef %0, i32 noundef %1, 
   %196 = load i32, ptr %9, align 4
   br i1 %.not.i, label %dissect_ptp_v2_text.exit747.thread, label %199
 
-dissect_ptp_v2_text.exit747.thread:               ; preds = %.lr.ph774
+dissect_ptp_v2_text.exit747.thread:               ; preds = %.lr.ph773
   %197 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %196)
-  %.pre784 = load i32, ptr %9, align 4
-  %198 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.pre784)
+  %.pre783 = load i32, ptr %9, align 4
+  %198 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.pre783)
   br label %dissect_ptp_v2_text.exit749
 
-199:                                              ; preds = %.lr.ph774
+199:                                              ; preds = %.lr.ph773
   %200 = add i32 %196, 1
   %201 = zext i8 %195 to i32
   %202 = call ptr @proto_tree_add_item(ptr noundef nonnull %175, i32 noundef %193, ptr noundef %0, i32 noundef %200, i32 noundef %201, i32 noundef 0)
@@ -4789,16 +4789,16 @@ dissect_ptp_v2_text.exit747.thread:               ; preds = %.lr.ph774
   br label %dissect_ptp_v2_text.exit749
 
 dissect_ptp_v2_text.exit749:                      ; preds = %dissect_ptp_v2_text.exit747.thread, %199
-  %247 = add nuw i16 %.0725773, 1
-  %exitcond782.not = icmp eq i16 %247, %165
-  br i1 %exitcond782.not, label %._crit_edge.loopexit, label %.lr.ph774, !llvm.loop !8
+  %247 = add nuw i16 %.0725772, 1
+  %exitcond781.not = icmp eq i16 %247, %165
+  br i1 %exitcond781.not, label %._crit_edge.loopexit, label %.lr.ph773, !llvm.loop !8
 
 ._crit_edge.loopexit:                             ; preds = %dissect_ptp_v2_text.exit749
-  %.pre785 = load i32, ptr %9, align 4
+  %.pre784 = load i32, ptr %9, align 4
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %163
-  %248 = phi i32 [ %.pre785, %._crit_edge.loopexit ], [ %170, %163 ]
+  %248 = phi i32 [ %.pre784, %._crit_edge.loopexit ], [ %170, %163 ]
   %249 = sub i32 %248, %24
   %250 = and i32 %249, 1
   %.not740 = icmp eq i32 %250, 0
@@ -5255,9 +5255,9 @@ dissect_ptp_v2_text.exit749:                      ; preds = %dissect_ptp_v2_text
   store i32 %591, ptr %9, align 4
   br label %.loopexit
 
-.lr.ph772:                                        ; preds = %.lr.ph772.preheader, %.lr.ph772
-  %592 = phi i32 [ %.pre783, %.lr.ph772.preheader ], [ %596, %.lr.ph772 ]
-  %indvars.iv = phi i32 [ 0, %.lr.ph772.preheader ], [ %indvars.iv.next, %.lr.ph772 ]
+.lr.ph771:                                        ; preds = %.lr.ph771.preheader, %.lr.ph771
+  %592 = phi i32 [ %.pre782, %.lr.ph771.preheader ], [ %596, %.lr.ph771 ]
+  %indvars.iv = phi i32 [ 0, %.lr.ph771.preheader ], [ %indvars.iv.next, %.lr.ph771 ]
   %593 = load i32, ptr @hf_ptp_v2_mm_clockidentity, align 4
   %594 = call ptr @proto_tree_add_item(ptr noundef %54, i32 noundef %593, ptr noundef %0, i32 noundef %592, i32 noundef 8, i32 noundef 0)
   %595 = load i32, ptr %9, align 4
@@ -5265,7 +5265,7 @@ dissect_ptp_v2_text.exit749:                      ; preds = %dissect_ptp_v2_text
   store i32 %596, ptr %9, align 4
   %indvars.iv.next = add nuw nsw i32 %indvars.iv, 1
   %exitcond.not = icmp eq i32 %indvars.iv.next, %56
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph772, !llvm.loop !10
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph771, !llvm.loop !10
 
 597:                                              ; preds = %49
   %598 = load i32, ptr @hf_ptp_v2_mm_ptEN, align 4
@@ -5488,7 +5488,7 @@ dissect_ptp_v2_text.exit749:                      ; preds = %dissect_ptp_v2_text
   store i32 %759, ptr %9, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph772, %.preheader, %145, %157, %256, %305, %315, %365, %394, %439, %449, %459, %469, %479, %489, %499, %509, %519, %529, %539, %559, %572, %582, %597, %607, %633, %643, %661, %692, %710, %730, %740, %750, %152, %146, %628, %617, %49, %251, %._crit_edge, %30
+.loopexit:                                        ; preds = %.lr.ph771, %.preheader, %145, %157, %256, %305, %315, %365, %394, %439, %449, %459, %469, %479, %489, %499, %509, %519, %529, %539, %559, %572, %582, %597, %607, %633, %643, %661, %692, %710, %730, %740, %750, %152, %146, %628, %617, %49, %251, %._crit_edge, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %dissect_ptp_v2_text.exit757
 
@@ -5839,7 +5839,7 @@ proto_item_set_generated.exit755:                 ; preds = %953, %1007, %1010
   br label %1016
 
 1016:                                             ; preds = %proto_item_set_generated.exit755, %913, %872, %proto_item_set_generated.exit, %821
-  %.4 = phi i8 [ %.0775, %821 ], [ 1, %proto_item_set_generated.exit ], [ %.0775, %872 ], [ %.0775, %913 ], [ %.0775, %proto_item_set_generated.exit755 ]
+  %.4 = phi i8 [ %.0774, %821 ], [ 1, %proto_item_set_generated.exit ], [ %.0774, %872 ], [ %.0774, %913 ], [ %.0774, %proto_item_set_generated.exit755 ]
   br i1 %7, label %dissect_ptp_v2_text.exit757, label %1017
 
 1017:                                             ; preds = %1016
@@ -6149,9 +6149,9 @@ proto_item_set_generated.exit755:                 ; preds = %953, %1007, %1010
   br label %.sink.split
 
 .sink.split:                                      ; preds = %1230, %1235, %1247
-  %.sink808 = phi i32 [ 8, %1247 ], [ 4, %1235 ], [ 2, %1230 ]
+  %.sink807 = phi i32 [ 8, %1247 ], [ 4, %1235 ], [ 2, %1230 ]
   %1261 = load i32, ptr %9, align 4
-  %1262 = add i32 %1261, %.sink808
+  %1262 = add i32 %1261, %.sink807
   store i32 %1262, ptr %9, align 4
   br label %1263
 
@@ -6330,8 +6330,8 @@ proto_item_set_generated.exit755:                 ; preds = %953, %1007, %1010
   store i32 %1394, ptr %9, align 4
   %1395 = add i32 %1384, %1394
   %1396 = add i32 %1393, 12
-  %.not737770 = icmp sgt i32 %1396, %1395
-  br i1 %.not737770, label %dissect_ptp_v2_text.exit757.thread, label %.lr.ph
+  %.not737769 = icmp sgt i32 %1396, %1395
+  br i1 %.not737769, label %dissect_ptp_v2_text.exit757.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1381, %.lr.ph
   %1397 = phi i32 [ %1401, %.lr.ph ], [ %1394, %1381 ]
@@ -6609,7 +6609,7 @@ proto_item_set_generated.exit755:                 ; preds = %953, %1007, %1010
   br label %dissect_ptp_v2_text.exit757.thread
 
 dissect_ptp_v2_text.exit757:                      ; preds = %814, %1017, %1016, %1057, %1021, %1020, %1097, %1098, %1200, %1263, %1264, %1265, %.loopexit
-  %.2 = phi i8 [ %.0775, %.loopexit ], [ %.0775, %814 ], [ %.4, %1016 ], [ %.4, %1017 ], [ %.0775, %1020 ], [ %.0775, %1021 ], [ %.0775, %1057 ], [ %.0775, %1098 ], [ %.0775, %1097 ], [ %.0775, %1263 ], [ %.0775, %1200 ], [ %.0775, %1265 ], [ %.0775, %1264 ]
+  %.2 = phi i8 [ %.0774, %.loopexit ], [ %.0774, %814 ], [ %.4, %1016 ], [ %.4, %1017 ], [ %.0774, %1020 ], [ %.0774, %1021 ], [ %.0774, %1057 ], [ %.0774, %1098 ], [ %.0774, %1097 ], [ %.0774, %1263 ], [ %.0774, %1200 ], [ %.0774, %1265 ], [ %.0774, %1264 ]
   %1623 = load i32, ptr %9, align 4
   %1624 = icmp eq i32 %1623, %24
   %1625 = icmp eq i16 %26, 3
@@ -6642,7 +6642,7 @@ dissect_ptp_v2_text.exit757:                      ; preds = %814, %1017, %1016, 
 
 dissect_ptp_v2_text.exit757.thread:               ; preds = %.lr.ph, %1381, %1353, %dissect_ptp_v2_text.exit751, %809, %760, %1343, %1335, %23, %1458, %1459, %1491, %1451, %1542, %1537, %1403, %1436, %1626, %1631, %dissect_ptp_v2_text.exit757
   %1639 = phi i1 [ true, %1626 ], [ true, %1631 ], [ %1625, %dissect_ptp_v2_text.exit757 ], [ false, %1436 ], [ false, %1403 ], [ false, %1537 ], [ false, %1542 ], [ false, %1451 ], [ false, %1491 ], [ false, %1459 ], [ false, %1458 ], [ false, %23 ], [ false, %1335 ], [ false, %1343 ], [ false, %760 ], [ false, %809 ], [ false, %dissect_ptp_v2_text.exit751 ], [ false, %1353 ], [ false, %1381 ], [ false, %.lr.ph ]
-  %.2760 = phi i8 [ %.2, %1626 ], [ %.2, %1631 ], [ %.2, %dissect_ptp_v2_text.exit757 ], [ %.0775, %1436 ], [ %.0775, %1403 ], [ %.0775, %1537 ], [ %.0775, %1542 ], [ %.0775, %1451 ], [ %.0775, %1491 ], [ %.0775, %1459 ], [ %.0775, %1458 ], [ %.0775, %23 ], [ %.0775, %1335 ], [ %.0775, %1343 ], [ %.0775, %760 ], [ %.0775, %809 ], [ %.0775, %dissect_ptp_v2_text.exit751 ], [ %.0775, %1353 ], [ %.0775, %1381 ], [ %.0775, %.lr.ph ]
+  %.2760 = phi i8 [ %.2, %1626 ], [ %.2, %1631 ], [ %.2, %dissect_ptp_v2_text.exit757 ], [ %.0774, %1436 ], [ %.0774, %1403 ], [ %.0774, %1537 ], [ %.0774, %1542 ], [ %.0774, %1451 ], [ %.0774, %1491 ], [ %.0774, %1459 ], [ %.0774, %1458 ], [ %.0774, %23 ], [ %.0774, %1335 ], [ %.0774, %1343 ], [ %.0774, %760 ], [ %.0774, %809 ], [ %.0774, %dissect_ptp_v2_text.exit751 ], [ %.0774, %1353 ], [ %.0774, %1381 ], [ %.0774, %.lr.ph ]
   %1640 = load i32, ptr %9, align 4
   %1641 = icmp eq i32 %1640, %24
   %1642 = zext i16 %29 to i32
@@ -6678,9 +6678,9 @@ dissect_ptp_v2_text.exit757.thread:               ; preds = %.lr.ph, %1381, %135
   br label %1666
 
 1666:                                             ; preds = %1660, %1648
-  %.sink815 = phi i32 [ 4, %1660 ], [ 10, %1648 ]
+  %.sink814 = phi i32 [ 4, %1660 ], [ 10, %1648 ]
   %1667 = load i32, ptr %9, align 4
-  %1668 = add i32 %1667, %.sink815
+  %1668 = add i32 %1667, %.sink814
   store i32 %1668, ptr %9, align 4
   %1669 = load i32, ptr @hf_ptp_tlv_unparsed_payload, align 4
   %.neg744 = add i32 %1644, %24
@@ -6704,17 +6704,17 @@ dissect_ptp_v2_text.exit757.thread._crit_edge:    ; preds = %dissect_ptp_v2_text
   %1678 = phi i32 [ %1672, %dissect_ptp_v2_text.exit757.thread._crit_edge ], [ %1674, %1676 ]
   %1679 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %1678)
   %1680 = icmp slt i32 %1679, 4
-  br i1 %1680, label %._crit_edge778.loopexit, label %23
+  br i1 %1680, label %._crit_edge777.loopexit, label %23
 
-._crit_edge778.loopexit:                          ; preds = %1677
+._crit_edge777.loopexit:                          ; preds = %1677
   %1681 = trunc nuw i8 %.2760 to i1
-  br label %._crit_edge778
+  br label %._crit_edge777
 
-._crit_edge778:                                   ; preds = %._crit_edge778.loopexit, %8
-  %.0.lcssa = phi i1 [ false, %8 ], [ %1681, %._crit_edge778.loopexit ]
+._crit_edge777:                                   ; preds = %._crit_edge777.loopexit, %8
+  %.0.lcssa = phi i1 [ false, %8 ], [ %1681, %._crit_edge777.loopexit ]
   br i1 %7, label %1682, label %.critedge.thread
 
-1682:                                             ; preds = %._crit_edge778
+1682:                                             ; preds = %._crit_edge777
   %1683 = icmp eq i8 %5, 0
   br i1 %1683, label %1684, label %.critedge
 
@@ -6739,7 +6739,7 @@ dissect_ptp_v2_text.exit757.thread._crit_edge:    ; preds = %dissect_ptp_v2_text
   %1690 = call ptr @expert_add_info(ptr noundef %2, ptr noundef %1689, ptr noundef nonnull %ei_ptp_v2_sync_with_fup_tlv.sink)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %1687, %.critedge, %._crit_edge778
+.critedge.thread:                                 ; preds = %.critedge.thread.sink.split, %1687, %.critedge, %._crit_edge777
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret void
 }

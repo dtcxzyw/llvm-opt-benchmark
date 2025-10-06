@@ -812,9 +812,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm5SUnit7addPredERKNS_4SDepEb(ptr nou
   %10 = zext i32 %9 to i64
   %.idx = shl nuw nsw i64 %10, 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx
-  %.not102 = icmp eq i32 %9, 0
+  %.not100 = icmp eq i32 %9, 0
   %.sroa.0.0.copyload88.pre = load i64, ptr %1, align 8, !tbaa !186
-  br i1 %.not102, label %._crit_edge, label %.lr.ph
+  br i1 %.not100, label %.critedge56, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -822,47 +822,47 @@ define dso_local noundef zeroext i1 @_ZN4llvm5SUnit7addPredERKNS_4SDepEb(ptr nou
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.0.copyload.i.i.i.i58.us109 = load i64, ptr %7, align 8
-  %.not.i.us110 = icmp eq i64 %.0.copyload.i.i.i.i58.us109, %.sroa.0.0.copyload88.pre
+  %.0.copyload.i.i.i.i58.us107 = load i64, ptr %7, align 8
+  %.not.i.us108 = icmp eq i64 %.0.copyload.i.i.i.i58.us107, %.sroa.0.0.copyload88.pre
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %13
-  %.0.i.us111 = select i1 %.not.i.us110, i1 %16, i1 false
-  br i1 %.0.i.us111, label %.split.us, label %.lr.ph113
+  %.0.i.us109 = select i1 %.not.i.us108, i1 %16, i1 false
+  br i1 %.0.i.us109, label %.split.us, label %.lr.ph111
 
-17:                                               ; preds = %.lr.ph113
+17:                                               ; preds = %.lr.ph111
   %.0.copyload.i.i.i.i58.us = load i64, ptr %21, align 8
   %.not.i.us = icmp eq i64 %.0.copyload.i.i.i.i58.us, %.sroa.0.0.copyload88.pre
-  %18 = getelementptr inbounds nuw i8, ptr %.047103.us112, i64 24
+  %18 = getelementptr inbounds nuw i8, ptr %.047101.us110, i64 24
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, %13
   %.0.i.us = select i1 %.not.i.us, i1 %20, i1 false
-  br i1 %.0.i.us, label %.split.us, label %.lr.ph113
+  br i1 %.0.i.us, label %.split.us, label %.lr.ph111
 
-.lr.ph113:                                        ; preds = %.lr.ph.split.us, %17
-  %.047103.us112 = phi ptr [ %21, %17 ], [ %7, %.lr.ph.split.us ]
-  %21 = getelementptr inbounds nuw i8, ptr %.047103.us112, i64 16
+.lr.ph111:                                        ; preds = %.lr.ph.split.us, %17
+  %.047101.us110 = phi ptr [ %21, %17 ], [ %7, %.lr.ph.split.us ]
+  %21 = getelementptr inbounds nuw i8, ptr %.047101.us110, i64 16
   %.not.us = icmp eq ptr %21, %11
-  br i1 %.not.us, label %._crit_edge, label %17
+  br i1 %.not.us, label %.critedge56, label %17
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %106
-  %.047103 = phi ptr [ %107, %106 ], [ %7, %.lr.ph ]
-  %.0.copyload.i.i.i.i = load i64, ptr %.047103, align 8
+  %.047101 = phi ptr [ %107, %106 ], [ %7, %.lr.ph ]
+  %.0.copyload.i.i.i.i = load i64, ptr %.047101, align 8
   %22 = xor i64 %.sroa.0.0.copyload88.pre, %.0.copyload.i.i.i.i
   %23 = icmp ult i64 %22, 8
   br i1 %23, label %.critedge56.thread, label %24
 
 24:                                               ; preds = %.lr.ph.split
   %.not.i = icmp eq i64 %.0.copyload.i.i.i.i, %.sroa.0.0.copyload88.pre
-  %25 = getelementptr inbounds nuw i8, ptr %.047103, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.047101, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = icmp eq i32 %26, %13
   %.0.i = select i1 %.not.i, i1 %27, i1 false
   br i1 %.0.i, label %.split.us, label %106
 
 .split.us:                                        ; preds = %24, %17, %.lr.ph.split.us
-  %.us-phi106 = phi ptr [ %7, %.lr.ph.split.us ], [ %21, %17 ], [ %.047103, %24 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.us-phi106, i64 12
+  %.us-phi104 = phi ptr [ %7, %.lr.ph.split.us ], [ %21, %17 ], [ %.047101, %24 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.us-phi104, i64 12
   %29 = load i32, ptr %28, align 4, !tbaa !182
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !182
@@ -880,35 +880,35 @@ define dso_local noundef zeroext i1 @_ZN4llvm5SUnit7addPredERKNS_4SDepEb(ptr nou
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 128
   %42 = load i32, ptr %41, align 8, !tbaa !154
   %43 = zext i32 %42 to i64
-  %.idx122 = shl nuw nsw i64 %43, 4
-  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx122
-  %.not52118 = icmp eq i32 %42, 0
-  br i1 %.not52118, label %.loopexit, label %.lr.ph121
+  %.idx119 = shl nuw nsw i64 %43, 4
+  %44 = getelementptr inbounds nuw i8, ptr %40, i64 %.idx119
+  %.not52116 = icmp eq i32 %42, 0
+  br i1 %.not52116, label %.loopexit, label %.lr.ph118
 
-.lr.ph121:                                        ; preds = %33, %.critedge
-  %.051119 = phi ptr [ %54, %.critedge ], [ %40, %33 ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %.051119, align 8
+.lr.ph118:                                        ; preds = %33, %.critedge
+  %.051117 = phi ptr [ %54, %.critedge ], [ %40, %33 ]
+  %.0.copyload.i.i.i.i.i = load i64, ptr %.051117, align 8
   %.not.i.i = icmp eq i64 %.0.copyload.i.i.i.i.i, %38
-  %45 = getelementptr inbounds nuw i8, ptr %.051119, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.051117, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = icmp eq i32 %46, %13
   %.0.i.i = select i1 %.not.i.i, i1 %47, i1 false
-  %48 = getelementptr inbounds nuw i8, ptr %.051119, i64 12
+  %48 = getelementptr inbounds nuw i8, ptr %.051117, i64 12
   %49 = load i32, ptr %48, align 4
   %50 = icmp eq i32 %49, %29
   %51 = select i1 %.0.i.i, i1 %50, i1 false
   br i1 %51, label %52, label %.critedge
 
-52:                                               ; preds = %.lr.ph121
-  %53 = getelementptr inbounds nuw i8, ptr %.051119, i64 12
+52:                                               ; preds = %.lr.ph118
+  %53 = getelementptr inbounds nuw i8, ptr %.051117, i64 12
   store i32 %31, ptr %53, align 4, !tbaa !182
   %.pre = load i32, ptr %30, align 4, !tbaa !182
   br label %.loopexit
 
-.critedge:                                        ; preds = %.lr.ph121
-  %54 = getelementptr inbounds nuw i8, ptr %.051119, i64 16
+.critedge:                                        ; preds = %.lr.ph118
+  %54 = getelementptr inbounds nuw i8, ptr %.051117, i64 16
   %.not52 = icmp eq ptr %54, %44
-  br i1 %.not52, label %.loopexit, label %.lr.ph121
+  br i1 %.not52, label %.loopexit, label %.lr.ph118
 
 .loopexit:                                        ; preds = %.critedge, %33, %52
   %55 = phi i32 [ %31, %33 ], [ %.pre, %52 ], [ %31, %.critedge ]
@@ -1016,11 +1016,11 @@ _ZN4llvm5SUnit13setDepthDirtyEv.exit:             ; preds = %.loopexit, %_ZN4llv
   br label %.critedge56.thread.sink.split
 
 106:                                              ; preds = %24
-  %107 = getelementptr inbounds nuw i8, ptr %.047103, i64 16
+  %107 = getelementptr inbounds nuw i8, ptr %.047101, i64 16
   %.not = icmp eq ptr %107, %11
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not, label %.critedge56, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %106, %.lr.ph113, %3
+.critedge56:                                      ; preds = %106, %.lr.ph111, %3
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.6.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %108 = ptrtoint ptr %0 to i64
@@ -1032,7 +1032,7 @@ _ZN4llvm5SUnit13setDepthDirtyEv.exit:             ; preds = %.loopexit, %_ZN4llv
   %114 = icmp eq i64 %113, 0
   br i1 %114, label %115, label %122
 
-115:                                              ; preds = %._crit_edge
+115:                                              ; preds = %.critedge56
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %117 = load i32, ptr %116, align 8, !tbaa !194
   %118 = add i32 %117, 1
@@ -1043,7 +1043,7 @@ _ZN4llvm5SUnit13setDepthDirtyEv.exit:             ; preds = %.loopexit, %_ZN4llv
   store i32 %121, ptr %119, align 4, !tbaa !195
   br label %122
 
-122:                                              ; preds = %115, %._crit_edge
+122:                                              ; preds = %115, %.critedge56
   %123 = getelementptr inbounds nuw i8, ptr %112, i64 248
   %124 = load i16, ptr %123, align 8
   %125 = and i16 %124, 1024
@@ -1069,23 +1069,23 @@ _ZN4llvm5SUnit13setDepthDirtyEv.exit:             ; preds = %.loopexit, %_ZN4llv
   %136 = load i16, ptr %135, align 8
   %137 = and i16 %136, 1024
   %.not54 = icmp eq i16 %137, 0
-  br i1 %.not54, label %.sink.split165, label %146
+  br i1 %.not54, label %.sink.split162, label %146
 
-.sink.split165:                                   ; preds = %134
+.sink.split162:                                   ; preds = %134
   %.0.copyload.i.i.i.i.i69 = load i64, ptr %1, align 8
   %138 = and i64 %.0.copyload.i.i.i.i.i69, 6
   %139 = icmp eq i64 %138, 6
   %140 = load i32, ptr %.sroa.6.0..sroa_idx, align 8
   %141 = icmp ugt i32 %140, 3
   %142 = select i1 %139, i1 %141, i1 false
-  %.169 = select i1 %142, i64 228, i64 220
-  %143 = getelementptr inbounds nuw i8, ptr %112, i64 %.169
+  %.166 = select i1 %142, i64 228, i64 220
+  %143 = getelementptr inbounds nuw i8, ptr %112, i64 %.166
   %144 = load i32, ptr %143, align 4, !tbaa !196
   %145 = add i32 %144, 1
   store i32 %145, ptr %143, align 4, !tbaa !196
   br label %146
 
-146:                                              ; preds = %.sink.split165, %134
+146:                                              ; preds = %.sink.split162, %134
   %.sroa.02.0.copyload = load i64, ptr %1, align 8, !tbaa !186
   %.sroa.23.0.copyload = load i64, ptr %.sroa.6.0..sroa_idx, align 8
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -1098,13 +1098,13 @@ _ZN4llvm5SUnit13setDepthDirtyEv.exit:             ; preds = %.loopexit, %_ZN4llv
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 56
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull %151, i64 noundef %150, i64 noundef 16) #18
   %.pre.i = load i32, ptr %8, align 8, !tbaa !154
-  %.pre135 = load ptr, ptr %6, align 8, !tbaa !153
-  %.pre136 = zext i32 %.pre.i to i64
+  %.pre132 = load ptr, ptr %6, align 8, !tbaa !153
+  %.pre133 = zext i32 %.pre.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_4SDepELb1EE9push_backES1_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseINS_4SDepELb1EE9push_backES1_.exit: ; preds = %146, %149
-  %.pre-phi = phi i64 [ %10, %146 ], [ %.pre136, %149 ]
-  %152 = phi ptr [ %7, %146 ], [ %.pre135, %149 ]
+  %.pre-phi = phi i64 [ %10, %146 ], [ %.pre133, %149 ]
+  %152 = phi ptr [ %7, %146 ], [ %.pre132, %149 ]
   %153 = getelementptr inbounds nuw %"class.llvm::SDep", ptr %152, i64 %.pre-phi
   store i64 %.sroa.02.0.copyload, ptr %153, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %153, i64 8
@@ -1237,13 +1237,13 @@ _ZN4llvm11SmallVectorIPNS_5SUnitELj8EED2Ev.exit.i83: ; preds = %218, %215
 
 .critedge56.thread.sink.split:                    ; preds = %_ZN4llvm11SmallVectorIPNS_5SUnitELj8EED2Ev.exit.i83, %_ZN4llvm23SmallVectorTemplateBaseINS_4SDepELb1EE9push_backES1_.exit73, %_ZN4llvm5SUnit13setDepthDirtyEv.exit
   %.sink = phi ptr [ %105, %_ZN4llvm5SUnit13setDepthDirtyEv.exit ], [ %112, %_ZN4llvm23SmallVectorTemplateBaseINS_4SDepELb1EE9push_backES1_.exit73 ], [ %112, %_ZN4llvm11SmallVectorIPNS_5SUnitELj8EED2Ev.exit.i83 ]
-  %.not98.ph = phi i1 [ false, %_ZN4llvm5SUnit13setDepthDirtyEv.exit ], [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_4SDepELb1EE9push_backES1_.exit73 ], [ true, %_ZN4llvm11SmallVectorIPNS_5SUnitELj8EED2Ev.exit.i83 ]
+  %.not96.ph = phi i1 [ false, %_ZN4llvm5SUnit13setDepthDirtyEv.exit ], [ true, %_ZN4llvm23SmallVectorTemplateBaseINS_4SDepELb1EE9push_backES1_.exit73 ], [ true, %_ZN4llvm11SmallVectorIPNS_5SUnitELj8EED2Ev.exit.i83 ]
   call void @_ZN4llvm5SUnit14setHeightDirtyEv(ptr noundef nonnull align 8 dereferenceable(255) %.sink)
   br label %.critedge56.thread
 
 .critedge56.thread:                               ; preds = %.lr.ph.split, %.critedge56.thread.sink.split, %.split.us
-  %.not98 = phi i1 [ false, %.split.us ], [ %.not98.ph, %.critedge56.thread.sink.split ], [ false, %.lr.ph.split ]
-  ret i1 %.not98
+  %.not96 = phi i1 [ false, %.split.us ], [ %.not96.ph, %.critedge56.thread.sink.split ], [ false, %.lr.ph.split ]
+  ret i1 %.not96
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -3998,15 +3998,15 @@ _ZN4llvm26ScheduleDAGTopologicalSort8FixOrderEv.exit: ; preds = %8, %._crit_edge
   %46 = zext i32 %45 to i64
   %.idx = shl nuw nsw i64 %46, 4
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx
-  %.not18.not = icmp eq i32 %45, 0
-  br i1 %.not18.not, label %.loopexit, label %.lr.ph
+  %.not19 = icmp eq i32 %45, 0
+  br i1 %.not19, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %41, %.critedge
-  %.01719 = phi ptr [ %58, %.critedge ], [ %43, %41 ]
-  %.0.copyload.i.i.i.i.i = load i64, ptr %.01719, align 8
+  %.01720 = phi ptr [ %58, %.critedge ], [ %43, %41 ]
+  %.0.copyload.i.i.i.i.i = load i64, ptr %.01720, align 8
   %48 = and i64 %.0.copyload.i.i.i.i.i, 6
   %49 = icmp eq i64 %48, 0
-  %50 = getelementptr inbounds nuw i8, ptr %.01719, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.01720, i64 8
   %51 = load i32, ptr %50, align 8
   %52 = icmp ne i32 %51, 0
   %53 = select i1 %49, i1 %52, i1 false
@@ -4019,12 +4019,12 @@ _ZN4llvm26ScheduleDAGTopologicalSort8FixOrderEv.exit: ; preds = %8, %._crit_edge
   br i1 %57, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %54, %.lr.ph
-  %58 = getelementptr inbounds nuw i8, ptr %.01719, i64 16
-  %.not.not = icmp eq ptr %58, %47
-  br i1 %.not.not, label %.loopexit, label %.lr.ph
+  %58 = getelementptr inbounds nuw i8, ptr %.01720, i64 16
+  %.not = icmp eq ptr %58, %47
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %54, %.critedge, %41, %_ZN4llvm26ScheduleDAGTopologicalSort8FixOrderEv.exit
-  %.0 = phi i1 [ true, %_ZN4llvm26ScheduleDAGTopologicalSort8FixOrderEv.exit ], [ false, %41 ], [ true, %54 ], [ false, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %54, %41, %_ZN4llvm26ScheduleDAGTopologicalSort8FixOrderEv.exit
+  %.0 = phi i1 [ true, %_ZN4llvm26ScheduleDAGTopologicalSort8FixOrderEv.exit ], [ false, %41 ], [ false, %.critedge ], [ true, %54 ]
   ret i1 %.0
 }
 

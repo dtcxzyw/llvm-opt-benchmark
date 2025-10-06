@@ -4783,7 +4783,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__15HdPrimvarSchema15GetPrimvarV
   %9 = alloca %"class.std::shared_ptr.9", align 8
   %10 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %10, null
-  br i1 %.not, label %271, label %11
+  br i1 %.not, label %272, label %11
 
 11:                                               ; preds = %2
   %12 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21HdPrimvarSchemaTokensE seq_cst, align 8
@@ -5341,19 +5341,19 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit59
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit59: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit, %253, %266, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i58
-  %switch = icmp eq i32 %.0, 0
-  br i1 %switch, label %271, label %272
+  %271 = icmp eq i32 %.0, 0
+  br i1 %271, label %272, label %273
 
 .body:                                            ; preds = %145, %140, %138, %64, %.body29
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body29 ], [ %139, %138 ], [ %65, %64 ], [ %141, %140 ], [ %141, %145 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br label %common.resume
 
-271:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit59, %2
+272:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit59, %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %272
+  br label %273
 
-272:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit59, %271
+273:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEED2Ev.exit59, %272
   ret void
 }
 

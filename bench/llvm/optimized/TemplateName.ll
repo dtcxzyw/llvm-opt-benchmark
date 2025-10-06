@@ -758,8 +758,8 @@ define dso_local noundef range(i32 0, 9) i32 @_ZNK5clang12TemplateName7getKindEv
   %3 = icmp ne i64 %2, 0
   %4 = and i64 %.sroa.0.0.copyload.i.i, -8
   %5 = inttoptr i64 %4 to ptr
-  %.not.not19 = icmp eq i64 %4, 0
-  %.not.not = or i1 %3, %.not.not19
+  %.not.not18 = icmp eq i64 %4, 0
+  %.not.not = or i1 %3, %.not.not18
   br i1 %.not.not, label %12, label %6
 
 6:                                                ; preds = %1
@@ -782,26 +782,26 @@ define dso_local noundef range(i32 0, 9) i32 @_ZNK5clang12TemplateName7getKindEv
   %15 = and i32 %14, 7
   switch i32 %15, label %16 [
     i32 0, label %17
-    i32 1, label %.fold.split27
-    i32 3, label %.fold.split28
+    i32 1, label %.fold.split26
+    i32 3, label %.fold.split27
   ]
 
 16:                                               ; preds = %13
-  %.not26 = icmp eq i32 %15, 2
-  %.11 = select i1 %.not26, i32 8, i32 6
+  %.not25 = icmp eq i32 %15, 2
+  %.11 = select i1 %.not25, i32 8, i32 6
   br label %17
 
 .fold.split:                                      ; preds = %12
   br label %17
 
+.fold.split26:                                    ; preds = %13
+  br label %17
+
 .fold.split27:                                    ; preds = %13
   br label %17
 
-.fold.split28:                                    ; preds = %13
-  br label %17
-
-17:                                               ; preds = %13, %.fold.split28, %.fold.split27, %12, %.fold.split, %6, %16
-  %.1 = phi i32 [ %., %6 ], [ 4, %12 ], [ 1, %13 ], [ %.11, %16 ], [ 3, %.fold.split ], [ 2, %.fold.split27 ], [ 5, %.fold.split28 ]
+17:                                               ; preds = %13, %.fold.split27, %.fold.split26, %12, %.fold.split, %6, %16
+  %.1 = phi i32 [ %., %6 ], [ 4, %12 ], [ 1, %13 ], [ %.11, %16 ], [ 3, %.fold.split ], [ 2, %.fold.split26 ], [ 5, %.fold.split27 ]
   ret i32 %.1
 }
 
@@ -816,8 +816,8 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
   %5 = and i64 %.sroa.03.0.us, 6
   %6 = icmp ne i64 %5, 0
   %7 = and i64 %.sroa.03.0.us, -8
-  %.not.not71.i.us = icmp eq i64 %7, 0
-  %.not.not.i.us = or i1 %6, %.not.not71.i.us
+  %.not.not64.i.us = icmp eq i64 %7, 0
+  %.not.not.i.us = or i1 %6, %.not.not64.i.us
   br i1 %.not.not.i.us, label %.critedge.i.us, label %8
 
 8:                                                ; preds = %.split.us
@@ -827,7 +827,7 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
   %12 = and i32 %11, 127
   %13 = add nsw i32 %12, -53
   %14 = icmp ult i32 %13, -2
-  br i1 %14, label %.split15.us, label %15
+  br i1 %14, label %.split14.us, label %15
 
 15:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -841,7 +841,7 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
 .critedge.i.us:                                   ; preds = %.split.us
   %19 = icmp ne i64 %5, 4
   %20 = inttoptr i64 %7 to ptr
-  %.not22.not.i.us = or i1 %19, %.not.not71.i.us
+  %.not22.not.i.us = or i1 %19, %.not.not64.i.us
   br i1 %.not22.not.i.us, label %23, label %21
 
 21:                                               ; preds = %.critedge.i.us
@@ -851,22 +851,22 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
 
 23:                                               ; preds = %.critedge.i.us
   %24 = icmp ne i64 %5, 2
-  %.not.not.i.i.us = or i1 %24, %.not.not71.i.us
-  br i1 %.not.not.i.i.us, label %.split15.us, label %25
+  %.not.not.i.i.us = or i1 %24, %.not.not64.i.us
+  br i1 %.not.not.i.i.us, label %.split14.us, label %25
 
 25:                                               ; preds = %23
   %26 = load i32, ptr %20, align 8
   %27 = and i32 %26, 7
   %28 = icmp eq i32 %27, 3
-  br i1 %28, label %29, label %.split15.us
+  br i1 %28, label %29, label %.split14.us
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %.sroa.0.0.copyload.i32.i.us = load i64, ptr %30, align 8
+  %.sroa.0.0.copyload.i29.i.us = load i64, ptr %30, align 8
   br label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %29, %21, %15
-  %.sroa.03.0.us.be = phi i64 [ %18, %15 ], [ %.sroa.0.0.copyload.i.i.us, %21 ], [ %.sroa.0.0.copyload.i32.i.us, %29 ]
+  %.sroa.03.0.us.be = phi i64 [ %18, %15 ], [ %.sroa.0.0.copyload.i.i.us, %21 ], [ %.sroa.0.0.copyload.i29.i.us, %29 ]
   br label %.split.us
 
 .split:                                           ; preds = %2, %.split.backedge
@@ -874,8 +874,8 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
   %31 = and i64 %.sroa.03.0, 6
   %32 = icmp ne i64 %31, 0
   %33 = and i64 %.sroa.03.0, -8
-  %.not.not71.i = icmp eq i64 %33, 0
-  %.not.not.i = or i1 %32, %.not.not71.i
+  %.not.not64.i = icmp eq i64 %33, 0
+  %.not.not.i = or i1 %32, %.not.not64.i
   br i1 %.not.not.i, label %.critedge.i, label %34
 
 34:                                               ; preds = %.split
@@ -885,7 +885,7 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
   %38 = and i32 %37, 127
   %39 = add nsw i32 %38, -53
   %40 = icmp ult i32 %39, -2
-  br i1 %40, label %.split15.us, label %41
+  br i1 %40, label %.split14.us, label %41
 
 41:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -897,13 +897,13 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %47, %54, %56
-  %.sroa.03.0.be = phi i64 [ %44, %41 ], [ %.sroa.0.0.copyload.i.i, %47 ], [ %.sroa.0.0.copyload.i32.i, %54 ], [ %.sroa.0.0.copyload.i38.i, %56 ]
+  %.sroa.03.0.be = phi i64 [ %44, %41 ], [ %.sroa.0.0.copyload.i.i, %47 ], [ %.sroa.0.0.copyload.i29.i, %54 ], [ %.sroa.0.0.copyload.i35.i, %56 ]
   br label %.split
 
 .critedge.i:                                      ; preds = %.split
   %45 = icmp ne i64 %31, 4
   %46 = inttoptr i64 %33 to ptr
-  %.not22.not.i = or i1 %45, %.not.not71.i
+  %.not22.not.i = or i1 %45, %.not.not64.i
   br i1 %.not22.not.i, label %49, label %47
 
 47:                                               ; preds = %.critedge.i
@@ -913,32 +913,32 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName17getAsTemplateDeclEb(ptr 
 
 49:                                               ; preds = %.critedge.i
   %50 = icmp ne i64 %31, 2
-  %.not.not.i.i = or i1 %50, %.not.not71.i
-  br i1 %.not.not.i.i, label %.split15.us, label %51
+  %.not.not.i.i = or i1 %50, %.not.not64.i
+  br i1 %.not.not.i.i, label %.split14.us, label %51
 
 51:                                               ; preds = %49
   %52 = load i32, ptr %46, align 8
   %53 = and i32 %52, 7
-  switch i32 %53, label %.split15.us [
+  switch i32 %53, label %.split14.us [
     i32 3, label %54
     i32 2, label %56
   ]
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %.sroa.0.0.copyload.i32.i = load i64, ptr %55, align 8
+  %.sroa.0.0.copyload.i29.i = load i64, ptr %55, align 8
   br label %.split.backedge
 
 56:                                               ; preds = %51
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  %.sroa.0.0.copyload.i38.i = load i64, ptr %57, align 8
+  %.sroa.0.0.copyload.i35.i = load i64, ptr %57, align 8
   br label %.split.backedge
 
-.split15.us:                                      ; preds = %25, %8, %23, %34, %49, %51
-  %.pre-phi18 = phi i64 [ %33, %51 ], [ %33, %49 ], [ %33, %34 ], [ %7, %23 ], [ %7, %8 ], [ %7, %25 ]
+.split14.us:                                      ; preds = %25, %8, %23, %34, %49, %51
+  %.pre-phi17 = phi i64 [ %33, %51 ], [ %33, %49 ], [ %33, %34 ], [ %7, %23 ], [ %7, %8 ], [ %7, %25 ]
   %.pre-phi = phi i64 [ 0, %34 ], [ %31, %49 ], [ 2, %51 ], [ 2, %25 ], [ 0, %8 ], [ %5, %23 ]
   %58 = icmp eq i64 %.pre-phi, 0
-  %59 = inttoptr i64 %.pre-phi18 to ptr
+  %59 = inttoptr i64 %.pre-phi17 to ptr
   %.0.i.i = select i1 %58, ptr %59, ptr null
   ret ptr %.0.i.i
 }
@@ -950,8 +950,8 @@ define dso_local { i64, i8 } @_ZNK5clang12TemplateName7desugarEb(ptr noundef non
   %4 = and i64 %.sroa.0.0.copyload.i.i.i, 6
   %5 = icmp ne i64 %4, 0
   %6 = and i64 %.sroa.0.0.copyload.i.i.i, -8
-  %.not.not71 = icmp eq i64 %6, 0
-  %.not.not = or i1 %5, %.not.not71
+  %.not.not64 = icmp eq i64 %6, 0
+  %.not.not = or i1 %5, %.not.not64
   br i1 %.not.not, label %.critedge, label %7
 
 7:                                                ; preds = %2
@@ -975,7 +975,7 @@ define dso_local { i64, i8 } @_ZNK5clang12TemplateName7desugarEb(ptr noundef non
 .critedge:                                        ; preds = %2
   %18 = icmp ne i64 %4, 4
   %19 = inttoptr i64 %6 to ptr
-  %.not22.not = or i1 %18, %.not.not71
+  %.not22.not = or i1 %18, %.not.not64
   br i1 %.not22.not, label %22, label %20
 
 20:                                               ; preds = %.critedge
@@ -985,34 +985,34 @@ define dso_local { i64, i8 } @_ZNK5clang12TemplateName7desugarEb(ptr noundef non
 
 22:                                               ; preds = %.critedge
   %23 = icmp ne i64 %4, 2
-  %.not.not.i = or i1 %23, %.not.not71
+  %.not.not.i = or i1 %23, %.not.not64
   br i1 %.not.not.i, label %.critedge.thread, label %24
 
 24:                                               ; preds = %22
   %25 = load i32, ptr %19, align 8
   %26 = and i32 %25, 7
   %27 = icmp eq i32 %26, 3
-  br i1 %27, label %28, label %.thread60
+  br i1 %27, label %28, label %.thread54
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sroa.0.0.copyload.i32 = load i64, ptr %29, align 8
+  %.sroa.0.0.copyload.i29 = load i64, ptr %29, align 8
   br label %.critedge.thread
 
-.thread60:                                        ; preds = %24
+.thread54:                                        ; preds = %24
   %30 = icmp eq i32 %26, 2
   %or.cond = and i1 %1, %30
   br i1 %or.cond, label %31, label %.critedge.thread
 
-31:                                               ; preds = %.thread60
+31:                                               ; preds = %.thread54
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %.sroa.0.0.copyload.i38 = load i64, ptr %32, align 8
+  %.sroa.0.0.copyload.i35 = load i64, ptr %32, align 8
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %22, %14, %7, %.thread60, %31, %28, %20
-  %.sroa.041.1 = phi i64 [ %.sroa.0.0.copyload.i38, %31 ], [ %.sroa.0.0.copyload.i32, %28 ], [ %.sroa.0.0.copyload.i, %20 ], [ undef, %.thread60 ], [ undef, %7 ], [ %17, %14 ], [ undef, %22 ]
-  %.sroa.5.1 = phi i8 [ 1, %31 ], [ 1, %28 ], [ 1, %20 ], [ 0, %.thread60 ], [ 0, %7 ], [ 1, %14 ], [ 0, %22 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.041.1, 0
+.critedge.thread:                                 ; preds = %22, %14, %7, %.thread54, %31, %28, %20
+  %.sroa.038.1 = phi i64 [ %.sroa.0.0.copyload.i35, %31 ], [ %.sroa.0.0.copyload.i29, %28 ], [ %.sroa.0.0.copyload.i, %20 ], [ undef, %.thread54 ], [ undef, %7 ], [ %17, %14 ], [ undef, %22 ]
+  %.sroa.5.1 = phi i8 [ 1, %31 ], [ 1, %28 ], [ 1, %20 ], [ 0, %.thread54 ], [ 0, %7 ], [ 1, %14 ], [ 0, %22 ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.038.1, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.5.1, 1
   ret { i64, i8 } %.fca.1.insert
 }
@@ -1031,8 +1031,8 @@ define dso_local void @_ZNK5clang12TemplateName29getTemplateDeclAndDefaultArgsEv
   %8 = icmp ne i64 %7, 0
   %9 = and i64 %.sroa.023.0, -8
   %10 = inttoptr i64 %9 to ptr
-  %.not.not19.i = icmp eq i64 %9, 0
-  %.not.not.i = or i1 %8, %.not.not19.i
+  %.not.not18.i = icmp eq i64 %9, 0
+  %.not.not.i = or i1 %8, %.not.not18.i
   br i1 %.not.not.i, label %11, label %50
 
 11:                                               ; preds = %6
@@ -1060,8 +1060,8 @@ _ZNK5clang12TemplateName7getKindEv.exit:          ; preds = %12
   %16 = and i64 %.sroa.03.0.i.fr, 6
   %17 = icmp ne i64 %16, 0
   %18 = and i64 %.sroa.03.0.i.fr, -8
-  %.not.not71.i.i = icmp eq i64 %18, 0
-  %.not.not.i.i = or i1 %17, %.not.not71.i.i
+  %.not.not64.i.i = icmp eq i64 %18, 0
+  %.not.not.i.i = or i1 %17, %.not.not64.i.i
   br i1 %.not.not.i.i, label %.critedge.i.i, label %19
 
 19:                                               ; preds = %.split.i
@@ -1085,7 +1085,7 @@ _ZNK5clang12TemplateName7getKindEv.exit:          ; preds = %12
 .critedge.i.i:                                    ; preds = %.split.i
   %30 = icmp ne i64 %16, 4
   %31 = inttoptr i64 %18 to ptr
-  %.not22.not.i.i = or i1 %30, %.not.not71.i.i
+  %.not22.not.i.i = or i1 %30, %.not.not64.i.i
   br i1 %.not22.not.i.i, label %34, label %32
 
 32:                                               ; preds = %.critedge.i.i
@@ -1095,7 +1095,7 @@ _ZNK5clang12TemplateName7getKindEv.exit:          ; preds = %12
 
 34:                                               ; preds = %.critedge.i.i
   %35 = icmp ne i64 %16, 2
-  %.not.not.i.i.i = or i1 %35, %.not.not71.i.i
+  %.not.not.i.i.i = or i1 %35, %.not.not64.i.i
   br i1 %.not.not.i.i.i, label %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit, label %36
 
 36:                                               ; preds = %34
@@ -1108,25 +1108,25 @@ _ZNK5clang12TemplateName7getKindEv.exit:          ; preds = %12
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %.sroa.0.0.copyload.i32.i.i = load i64, ptr %40, align 8
+  %.sroa.0.0.copyload.i29.i.i = load i64, ptr %40, align 8
   br label %.split.i.backedge
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  %.sroa.0.0.copyload.i38.i.i = load i64, ptr %42, align 8
+  %.sroa.0.0.copyload.i35.i.i = load i64, ptr %42, align 8
   br label %.split.i.backedge
 
 .split.i.backedge:                                ; preds = %41, %39, %32, %26
-  %.sroa.03.0.i.be = phi i64 [ %29, %26 ], [ %.sroa.0.0.copyload.i.i.i5, %32 ], [ %.sroa.0.0.copyload.i32.i.i, %39 ], [ %.sroa.0.0.copyload.i38.i.i, %41 ]
+  %.sroa.03.0.i.be = phi i64 [ %29, %26 ], [ %.sroa.0.0.copyload.i.i.i5, %32 ], [ %.sroa.0.0.copyload.i29.i.i, %39 ], [ %.sroa.0.0.copyload.i35.i.i, %41 ]
   br label %.split.i
 
 _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %34
   %43 = icmp eq i64 %16, 0
-  %spec.select80 = select i1 %43, ptr %31, ptr null
+  %spec.select79 = select i1 %43, ptr %31, ptr null
   br label %.thread
 
 .thread:                                          ; preds = %36, %19, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit
-  %44 = phi ptr [ %spec.select80, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit ], [ null, %36 ], [ %20, %19 ]
+  %44 = phi ptr [ %spec.select79, %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit ], [ null, %36 ], [ %20, %19 ]
   %.in.in = load i32, ptr %10, align 8, !noalias !67
   %45 = lshr i32 %.in.in, 3
   %.in = lshr i32 %.in.in, 17
@@ -1160,12 +1160,12 @@ _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %34
   br label %.backedge
 
 .backedge:                                        ; preds = %56, %61, %69
-  %.sroa.023.0.be = phi i64 [ %.sroa.0.0.copyload.i32.i, %69 ], [ %.sroa.0.0.copyload.i.i, %61 ], [ %59, %56 ]
+  %.sroa.023.0.be = phi i64 [ %.sroa.0.0.copyload.i29.i, %69 ], [ %.sroa.0.0.copyload.i.i, %61 ], [ %59, %56 ]
   br label %6
 
 .critedge.i:                                      ; preds = %12, %11
   %60 = icmp ne i64 %7, 4
-  %.not22.not.i = or i1 %60, %.not.not19.i
+  %.not22.not.i = or i1 %60, %.not.not18.i
   br i1 %.not22.not.i, label %63, label %61
 
 61:                                               ; preds = %.critedge.i
@@ -1175,7 +1175,7 @@ _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %34
 
 63:                                               ; preds = %.critedge.i
   %64 = icmp ne i64 %7, 2
-  %.not.not.i.i8 = or i1 %64, %.not.not19.i
+  %.not.not.i.i8 = or i1 %64, %.not.not18.i
   br i1 %.not.not.i.i8, label %.thread37, label %65
 
 65:                                               ; preds = %63
@@ -1186,7 +1186,7 @@ _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %34
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.0.0.copyload.i32.i = load i64, ptr %70, align 8
+  %.sroa.0.0.copyload.i29.i = load i64, ptr %70, align 8
   br label %.backedge
 
 .thread37:                                        ; preds = %11, %50, %63, %65
@@ -1355,8 +1355,8 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName20getAsUsingShadowDeclEv(p
   %4 = icmp ne i64 %3, 0
   %5 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %6 = inttoptr i64 %5 to ptr
-  %.not29 = icmp eq i64 %5, 0
-  %.not = or i1 %4, %.not29
+  %.not27 = icmp eq i64 %5, 0
+  %.not = or i1 %4, %.not27
   br i1 %.not, label %select.unfold, label %7
 
 7:                                                ; preds = %1
@@ -1369,8 +1369,8 @@ define dso_local noundef ptr @_ZNK5clang12TemplateName20getAsUsingShadowDeclEv(p
 
 select.unfold:                                    ; preds = %7, %1
   %13 = icmp ne i64 %3, 4
-  %.not1627 = icmp eq i64 %5, 0
-  %.not16.not = or i1 %13, %.not1627
+  %.not1625 = icmp eq i64 %5, 0
+  %.not16.not = or i1 %13, %.not1625
   br i1 %.not16.not, label %17, label %14
 
 14:                                               ; preds = %select.unfold
@@ -1398,8 +1398,8 @@ define dso_local noundef zeroext range(i8 0, 16) i8 @_ZNK5clang12TemplateName13g
   %7 = icmp ne i64 %6, 0
   %8 = and i64 %.sroa.0.0.copyload.i.i.i, -8
   %9 = inttoptr i64 %8 to ptr
-  %.not.not19.i = icmp eq i64 %8, 0
-  %.not.not.i = or i1 %7, %.not.not19.i
+  %.not.not18.i = icmp eq i64 %8, 0
+  %.not.not.i = or i1 %7, %.not.not18.i
   br i1 %.not.not.i, label %10, label %.split.us.i
 
 10:                                               ; preds = %1
@@ -1423,8 +1423,8 @@ define dso_local noundef zeroext range(i8 0, 16) i8 @_ZNK5clang12TemplateName13g
   %14 = and i64 %.sroa.03.0.us.i.fr, 6
   %15 = icmp ne i64 %14, 0
   %16 = and i64 %.sroa.03.0.us.i.fr, -8
-  %.not.not71.i.us.i = icmp eq i64 %16, 0
-  %.not.not.i.us.i = or i1 %15, %.not.not71.i.us.i
+  %.not.not64.i.us.i = icmp eq i64 %16, 0
+  %.not.not.i.us.i = or i1 %15, %.not.not64.i.us.i
   br i1 %.not.not.i.us.i, label %.critedge.i.us.i, label %17
 
 17:                                               ; preds = %.split.us.i
@@ -1448,7 +1448,7 @@ define dso_local noundef zeroext range(i8 0, 16) i8 @_ZNK5clang12TemplateName13g
 .critedge.i.us.i:                                 ; preds = %.split.us.i
   %28 = icmp ne i64 %14, 4
   %29 = inttoptr i64 %16 to ptr
-  %.not22.not.i.us.i = or i1 %28, %.not.not71.i.us.i
+  %.not22.not.i.us.i = or i1 %28, %.not.not64.i.us.i
   br i1 %.not22.not.i.us.i, label %32, label %30
 
 30:                                               ; preds = %.critedge.i.us.i
@@ -1458,16 +1458,16 @@ define dso_local noundef zeroext range(i8 0, 16) i8 @_ZNK5clang12TemplateName13g
 
 32:                                               ; preds = %.critedge.i.us.i
   %33 = icmp ne i64 %14, 2
-  %.not.not.i.i.us.i = or i1 %33, %.not.not71.i.us.i
+  %.not.not.i.i.us.i = or i1 %33, %.not.not64.i.us.i
   br i1 %.not.not.i.i.us.i, label %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit, label %34
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %.sroa.0.0.copyload.i32.i.us.i = load i64, ptr %35, align 8
+  %.sroa.0.0.copyload.i29.i.us.i = load i64, ptr %35, align 8
   br label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %34, %30, %24
-  %.sroa.03.0.us.i.be = phi i64 [ %27, %24 ], [ %.sroa.0.0.copyload.i.i.us.i, %30 ], [ %.sroa.0.0.copyload.i32.i.us.i, %34 ]
+  %.sroa.03.0.us.i.be = phi i64 [ %27, %24 ], [ %.sroa.0.0.copyload.i.i.us.i, %30 ], [ %.sroa.0.0.copyload.i29.i.us.i, %34 ]
   br label %.split.us.i
 
 _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %32
@@ -1481,7 +1481,7 @@ _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit.thread70: ; preds = %17, %_ZN
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 127
   %40 = icmp ne i32 %39, 66
-  %.not25 = or i1 %.not.not71.i.us.i, %40
+  %.not25 = or i1 %.not.not64.i.us.i, %40
   br i1 %.not25, label %45, label %41
 
 41:                                               ; preds = %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit.thread70
@@ -1551,7 +1551,7 @@ _ZN5clang4Decl14getDeclContextEv.exit29:          ; preds = %_ZN5clang4Decl14get
 _ZNK5clang12TemplateName30getAsSubstTemplateTemplateParmEv.exit: ; preds = %11
   %71 = icmp eq i64 %6, 2
   tail call void @llvm.assume(i1 %71)
-  %72 = xor i1 %.not.not19.i, true
+  %72 = xor i1 %.not.not18.i, true
   tail call void @llvm.assume(i1 %72)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -1639,13 +1639,13 @@ define dso_local void @_ZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_
   %11 = icmp ne i64 %10, 0
   %12 = and i64 %.sroa.0.0.copyload.i.i.i, -8
   %13 = inttoptr i64 %12 to ptr
-  %.not.not19.i = icmp eq i64 %12, 0
-  %.not.not.i = or i1 %11, %.not.not19.i
+  %.not.not18.i = icmp eq i64 %12, 0
+  %.not.not.i = or i1 %11, %.not.not18.i
   br i1 %.not.not.i, label %.fold.split.i, label %.split.us.i
 
 .fold.split.i:                                    ; preds = %4
   %14 = icmp ne i64 %10, 4
-  %.not = or i1 %14, %.not.not19.i
+  %.not = or i1 %14, %.not.not18.i
   br i1 %.not, label %203, label %89
 
 .split.us.i:                                      ; preds = %4, %.split.us.i.backedge
@@ -1654,8 +1654,8 @@ define dso_local void @_ZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_
   %15 = and i64 %.sroa.03.0.us.i.fr, 6
   %16 = icmp ne i64 %15, 0
   %17 = and i64 %.sroa.03.0.us.i.fr, -8
-  %.not.not71.i.us.i = icmp eq i64 %17, 0
-  %.not.not.i.us.i = or i1 %16, %.not.not71.i.us.i
+  %.not.not64.i.us.i = icmp eq i64 %17, 0
+  %.not.not.i.us.i = or i1 %16, %.not.not64.i.us.i
   br i1 %.not.not.i.us.i, label %.critedge.i.us.i, label %18
 
 18:                                               ; preds = %.split.us.i
@@ -1679,7 +1679,7 @@ define dso_local void @_ZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_
 .critedge.i.us.i:                                 ; preds = %.split.us.i
   %29 = icmp ne i64 %15, 4
   %30 = inttoptr i64 %17 to ptr
-  %.not22.not.i.us.i = or i1 %29, %.not.not71.i.us.i
+  %.not22.not.i.us.i = or i1 %29, %.not.not64.i.us.i
   br i1 %.not22.not.i.us.i, label %33, label %31
 
 31:                                               ; preds = %.critedge.i.us.i
@@ -1689,7 +1689,7 @@ define dso_local void @_ZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_
 
 33:                                               ; preds = %.critedge.i.us.i
   %34 = icmp ne i64 %15, 2
-  %.not.not.i.i.us.i = or i1 %34, %.not.not71.i.us.i
+  %.not.not.i.i.us.i = or i1 %34, %.not.not64.i.us.i
   br i1 %.not.not.i.i.us.i, label %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit, label %35
 
 35:                                               ; preds = %33
@@ -1700,11 +1700,11 @@ define dso_local void @_ZNK5clang12TemplateName5printERN4llvm11raw_ostreamERKNS_
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %.sroa.0.0.copyload.i32.i.us.i = load i64, ptr %40, align 8
+  %.sroa.0.0.copyload.i29.i.us.i = load i64, ptr %40, align 8
   br label %.split.us.i.backedge
 
 .split.us.i.backedge:                             ; preds = %39, %31, %25
-  %.sroa.03.0.us.i.be = phi i64 [ %28, %25 ], [ %.sroa.0.0.copyload.i.i.us.i, %31 ], [ %.sroa.0.0.copyload.i32.i.us.i, %39 ]
+  %.sroa.03.0.us.i.be = phi i64 [ %28, %25 ], [ %.sroa.0.0.copyload.i.i.us.i, %31 ], [ %.sroa.0.0.copyload.i29.i.us.i, %39 ]
   br label %.split.us.i
 
 _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit: ; preds = %33
@@ -1717,7 +1717,7 @@ _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit.thread: ; preds = %18, %_ZNK5
   %43 = load i32, ptr %42, align 4
   %44 = and i32 %43, 127
   %45 = icmp ne i32 %44, 66
-  %.not.i = or i1 %.not.not71.i.us.i, %45
+  %.not.i = or i1 %.not.not64.i.us.i, %45
   br i1 %.not.i, label %.thread, label %46
 
 46:                                               ; preds = %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit.thread
@@ -1851,8 +1851,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %109, %107, %96
   %113 = and i64 %.sroa.03.0.us.i98.fr, 6
   %114 = icmp ne i64 %113, 0
   %115 = and i64 %.sroa.03.0.us.i98.fr, -8
-  %.not.not71.i.us.i99 = icmp eq i64 %115, 0
-  %.not.not.i.us.i100 = or i1 %114, %.not.not71.i.us.i99
+  %.not.not64.i.us.i99 = icmp eq i64 %115, 0
+  %.not.not.i.us.i100 = or i1 %114, %.not.not64.i.us.i99
   br i1 %.not.not.i.us.i100, label %.critedge.i.us.i104, label %116
 
 116:                                              ; preds = %.split.us.i97
@@ -1876,7 +1876,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %109, %107, %96
 .critedge.i.us.i104:                              ; preds = %.split.us.i97
   %127 = icmp ne i64 %113, 4
   %128 = inttoptr i64 %115 to ptr
-  %.not22.not.i.us.i105 = or i1 %127, %.not.not71.i.us.i99
+  %.not22.not.i.us.i105 = or i1 %127, %.not.not64.i.us.i99
   br i1 %.not22.not.i.us.i105, label %131, label %129
 
 129:                                              ; preds = %.critedge.i.us.i104
@@ -1886,16 +1886,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %109, %107, %96
 
 131:                                              ; preds = %.critedge.i.us.i104
   %132 = icmp ne i64 %113, 2
-  %.not.not.i.i.us.i107 = or i1 %132, %.not.not71.i.us.i99
+  %.not.not.i.i.us.i107 = or i1 %132, %.not.not64.i.us.i99
   br i1 %.not.not.i.i.us.i107, label %_ZNK5clang12TemplateName17getAsTemplateDeclEb.exit109, label %133
 
 133:                                              ; preds = %131
   %134 = getelementptr inbounds nuw i8, ptr %128, i64 16
-  %.sroa.0.0.copyload.i32.i.us.i108 = load i64, ptr %134, align 8
+  %.sroa.0.0.copyload.i29.i.us.i108 = load i64, ptr %134, align 8
   br label %.split.us.i97.backedge
 
 .split.us.i97.backedge:                           ; preds = %133, %129, %123
-  %.sroa.03.0.us.i98.be = phi i64 [ %126, %123 ], [ %.sroa.0.0.copyload.i.i.us.i106, %129 ], [ %.sroa.0.0.copyload.i32.i.us.i108, %133 ]
+  %.sroa.03.0.us.i98.be = phi i64 [ %126, %123 ], [ %.sroa.0.0.copyload.i.i.us.i106, %129 ], [ %.sroa.0.0.copyload.i29.i.us.i108, %133 ]
   br label %.split.us.i97
 
 _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit109: ; preds = %131
@@ -1909,7 +1909,7 @@ _ZNK5clang12TemplateName17getAsTemplateDeclEb.exit109.thread: ; preds = %116, %_
   %137 = load i32, ptr %136, align 4
   %138 = and i32 %137, 127
   %139 = icmp ne i32 %138, 66
-  %.not.i111 = or i1 %.not.not71.i.us.i99, %139
+  %.not.i111 = or i1 %.not.not64.i.us.i99, %139
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 40
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !81
   br i1 %.not.i111, label %.thread183, label %140
@@ -2018,7 +2018,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i113:            ; preds = %156, %154
 
 203:                                              ; preds = %.fold.split.i
   %204 = icmp ne i64 %10, 6
-  %.not86 = or i1 %204, %.not.not19.i
+  %.not86 = or i1 %204, %.not.not18.i
   br i1 %.not86, label %275, label %205
 
 205:                                              ; preds = %203
@@ -2150,7 +2150,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %_ZN4llvm11raw_ostre
 275:                                              ; preds = %203
   %276 = icmp eq i64 %10, 2
   tail call void @llvm.assume(i1 %276)
-  %277 = xor i1 %.not.not19.i, true
+  %277 = xor i1 %.not.not18.i, true
   tail call void @llvm.assume(i1 %277)
   %278 = load i32, ptr %13, align 8
   %279 = and i32 %278, 7

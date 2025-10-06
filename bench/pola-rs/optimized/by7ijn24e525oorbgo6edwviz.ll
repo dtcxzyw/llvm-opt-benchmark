@@ -488,9 +488,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %16 = icmp ugt i64 %15, 2
   %17 = icmp ne i64 %15, 1
   tail call void @llvm.assume(i1 %17)
-  %switch1.i.i.i = icmp eq i64 %14, 71
-  %switch.i.i.i = or i1 %switch1.i.i.i, %16
-  %..i.i.i = select i1 %switch.i.i.i, i64 328, i64 8
+  %..i.i.i = select i1 %16, i64 328, i64 8
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 %..i.i.i
   %19 = getelementptr inbounds nuw ptr, ptr %.sroa.8.0.copyload, i64 %12
   store ptr %18, ptr %19, align 8, !noalias !75

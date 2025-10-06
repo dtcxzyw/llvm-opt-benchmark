@@ -480,11 +480,11 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load i32, ptr %41, align 8, !tbaa !4
-  br i1 %34, label %.preheader.i, label %._crit_edge66.i
+  br i1 %34, label %.preheader.i, label %._crit_edge65.i
 
 .preheader.i:                                     ; preds = %40
-  %.not59.i = icmp eq i32 %42, 0
-  br i1 %.not59.i, label %._crit_edge.thread.i, label %.lr.ph.i
+  %.not58.i = icmp eq i32 %42, 0
+  br i1 %.not58.i, label %._crit_edge.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %43 = load ptr, ptr %4, align 8, !tbaa !12
@@ -493,7 +493,7 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
 
 44:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %.055.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.ph.i, %55 ]
+  %.054.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.ph.i, %55 ]
   %45 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %43, i64 %indvars.iv.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load i32, ptr %46, align 8, !tbaa !41
@@ -507,13 +507,13 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
   br i1 %51, label %queue_head_update.exit, label %52
 
 52:                                               ; preds = %48
-  %53 = icmp eq i32 %.055.i, -1
+  %53 = icmp eq i32 %.054.i, -1
   %54 = trunc nuw i64 %indvars.iv.i to i32
-  %spec.select.i = select i1 %53, i32 %54, i32 %.055.i
+  %spec.select.i = select i1 %53, i32 %54, i32 %.054.i
   br label %55
 
 55:                                               ; preds = %52, %44
-  %.2.ph.i = phi i32 [ %.055.i, %44 ], [ %spec.select.i, %52 ]
+  %.2.ph.i = phi i32 [ %.054.i, %44 ], [ %spec.select.i, %52 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %44, !llvm.loop !49
@@ -529,25 +529,25 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
 
 .thread49.i:                                      ; preds = %._crit_edge.i
   store i32 %.2.ph.i, ptr %32, align 4, !tbaa !47
-  br label %._crit_edge66.i
+  br label %._crit_edge65.i
 
-._crit_edge66.i:                                  ; preds = %.thread49.i, %40
-  %.not60.i = icmp eq i32 %42, 0
-  br i1 %.not60.i, label %queue_head_update.exit, label %.lr.ph58.i
+._crit_edge65.i:                                  ; preds = %.thread49.i, %40
+  %.not59.i = icmp eq i32 %42, 0
+  br i1 %.not59.i, label %queue_head_update.exit, label %.lr.ph57.i
 
-.lr.ph58.i:                                       ; preds = %._crit_edge66.i, %77
-  %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %77 ], [ 0, %._crit_edge66.i ]
+.lr.ph57.i:                                       ; preds = %._crit_edge65.i, %77
+  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %77 ], [ 0, %._crit_edge65.i ]
   %56 = load ptr, ptr %4, align 8, !tbaa !12
   %57 = load i32, ptr %32, align 4, !tbaa !47
   %58 = sext i32 %57 to i64
   %59 = getelementptr inbounds %struct.SyncQueueStream, ptr %56, i64 %58
-  %60 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %56, i64 %indvars.iv63.i
+  %60 = getelementptr inbounds nuw %struct.SyncQueueStream, ptr %56, i64 %indvars.iv62.i
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
   %62 = load i32, ptr %61, align 8, !tbaa !41
   %.not39.i = icmp eq i32 %62, 0
   br i1 %.not39.i, label %77, label %63
 
-63:                                               ; preds = %.lr.ph58.i
+63:                                               ; preds = %.lr.ph57.i
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 24
   %65 = load i64, ptr %64, align 8, !tbaa !23
   %.not40.i = icmp eq i64 %65, -9223372036854775808
@@ -565,18 +565,18 @@ define internal fastcc void @stream_update_ts(ptr noundef captures(none) %0, i32
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %66
-  %76 = trunc nuw i64 %indvars.iv63.i to i32
+  %76 = trunc nuw i64 %indvars.iv62.i to i32
   store i32 %76, ptr %32, align 4, !tbaa !47
   br label %77
 
-77:                                               ; preds = %75, %66, %63, %.lr.ph58.i
-  %indvars.iv.next64.i = add nuw nsw i64 %indvars.iv63.i, 1
+77:                                               ; preds = %75, %66, %63, %.lr.ph57.i
+  %indvars.iv.next63.i = add nuw nsw i64 %indvars.iv62.i, 1
   %78 = load i32, ptr %41, align 8, !tbaa !4
   %79 = zext i32 %78 to i64
-  %80 = icmp samesign ult i64 %indvars.iv.next64.i, %79
-  br i1 %80, label %.lr.ph58.i, label %queue_head_update.exit, !llvm.loop !50
+  %80 = icmp samesign ult i64 %indvars.iv.next63.i, %79
+  br i1 %80, label %.lr.ph57.i, label %queue_head_update.exit, !llvm.loop !50
 
-queue_head_update.exit:                           ; preds = %48, %77, %._crit_edge66.i, %28, %31, %3, %9
+queue_head_update.exit:                           ; preds = %48, %77, %._crit_edge65.i, %28, %31, %3, %9
   ret void
 }
 

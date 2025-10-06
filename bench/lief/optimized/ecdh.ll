@@ -285,29 +285,29 @@ define hidden i32 @mbedtls_ecdh_get_params(ptr noundef %0, ptr noundef %1, i32 n
   br i1 %cond, label %20, label %ecdh_get_params_internal.exit
 
 20:                                               ; preds = %17
-  %switch = icmp eq i32 %2, 1
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  br i1 %switch, label %22, label %25
+  %21 = icmp eq i32 %2, 1
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  br i1 %21, label %23, label %26
 
-22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %24 = tail call i32 @mbedtls_ecp_copy(ptr noundef nonnull %23, ptr noundef nonnull %21) #7
+23:                                               ; preds = %20
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %25 = tail call i32 @mbedtls_ecp_copy(ptr noundef nonnull %24, ptr noundef nonnull %22) #7
   br label %ecdh_get_params_internal.exit
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %27 = tail call i32 @mbedtls_ecp_copy(ptr noundef nonnull %26, ptr noundef nonnull %21) #7
-  %.not13.i = icmp eq i32 %27, 0
-  br i1 %.not13.i, label %28, label %ecdh_get_params_internal.exit
+26:                                               ; preds = %20
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  %28 = tail call i32 @mbedtls_ecp_copy(ptr noundef nonnull %27, ptr noundef nonnull %22) #7
+  %.not13.i = icmp eq i32 %28, 0
+  br i1 %.not13.i, label %29, label %ecdh_get_params_internal.exit
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %31 = tail call i32 @mbedtls_mpi_copy(ptr noundef nonnull %29, ptr noundef nonnull %30) #7
+29:                                               ; preds = %26
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %32 = tail call i32 @mbedtls_mpi_copy(ptr noundef nonnull %30, ptr noundef nonnull %31) #7
   br label %ecdh_get_params_internal.exit
 
-ecdh_get_params_internal.exit:                    ; preds = %28, %25, %22, %17, %16, %8, %3
-  %.0 = phi i32 [ -20352, %3 ], [ -20096, %8 ], [ -20352, %16 ], [ -20352, %17 ], [ %24, %22 ], [ %27, %25 ], [ %31, %28 ]
+ecdh_get_params_internal.exit:                    ; preds = %29, %26, %23, %17, %16, %8, %3
+  %.0 = phi i32 [ -20352, %3 ], [ -20096, %8 ], [ -20352, %16 ], [ -20352, %17 ], [ %25, %23 ], [ %28, %26 ], [ %32, %29 ]
   ret i32 %.0
 }
 

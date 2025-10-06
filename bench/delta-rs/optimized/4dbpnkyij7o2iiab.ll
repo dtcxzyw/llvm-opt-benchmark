@@ -3308,10 +3308,10 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert40 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre41 = load i64, ptr %.phi.trans.insert40, align 8
-  %.phi.trans.insert42 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
-  %.pre43 = load i64, ptr %.phi.trans.insert42, align 8
+  %.phi.trans.insert39 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre40 = load i64, ptr %.phi.trans.insert39, align 8
+  %.phi.trans.insert41 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
+  %.pre42 = load i64, ptr %.phi.trans.insert41, align 8
   %3 = icmp eq i64 %2, 1
   br label %12
 
@@ -3324,83 +3324,83 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i64, ptr %10, align 8, !noundef !5
   %.not34 = icmp ult i64 %7, %11
-  br i1 %.not34, label %17, label %43
+  br i1 %.not34, label %18, label %45
 
-12:                                               ; preds = %._crit_edge, %17
-  %.off = phi i1 [ %3, %._crit_edge ], [ false, %17 ]
-  %13 = phi i64 [ %.pre43, %._crit_edge ], [ %11, %17 ]
-  %14 = phi i64 [ %.pre41, %._crit_edge ], [ %7, %17 ]
-  %15 = phi ptr [ %.pre, %._crit_edge ], [ %9, %17 ]
-  %16 = icmp ult i64 %14, %13
-  br i1 %16, label %18, label %24, !prof !458
+12:                                               ; preds = %._crit_edge, %18
+  %13 = phi i1 [ %3, %._crit_edge ], [ false, %18 ]
+  %14 = phi i64 [ %.pre42, %._crit_edge ], [ %11, %18 ]
+  %15 = phi i64 [ %.pre40, %._crit_edge ], [ %7, %18 ]
+  %16 = phi ptr [ %.pre, %._crit_edge ], [ %9, %18 ]
+  %17 = icmp ult i64 %15, %14
+  br i1 %17, label %19, label %25, !prof !458
 
-17:                                               ; preds = %4
+18:                                               ; preds = %4
   store i64 %7, ptr %5, align 8
   store i64 0, ptr %0, align 8
   br label %12
 
-18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %20 = load ptr, ptr %19, align 8, !nonnull !5, !noundef !5
-  %21 = getelementptr inbounds { { { i64, [5 x i64] } }, { i64, [2 x i64] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %20, i64 %14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %23 = load i64, ptr %22, align 8
-  br i1 %.off, label %27, label %25
+19:                                               ; preds = %12
+  %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  %21 = load ptr, ptr %20, align 8, !nonnull !5, !noundef !5
+  %22 = getelementptr inbounds { { { i64, [5 x i64] } }, { i64, [2 x i64] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %21, i64 %15
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %24 = load i64, ptr %23, align 8
+  br i1 %13, label %29, label %26
 
-24:                                               ; preds = %12
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %14, i64 noundef %13, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b104ed89325d1be2d44684ba2b5b6ba2.141) #20
+25:                                               ; preds = %12
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %15, i64 noundef %14, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b104ed89325d1be2d44684ba2b5b6ba2.141) #20
   unreachable
 
-25:                                               ; preds = %18
-  %26 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %.sroa.07.0.copyload = load i64, ptr %26, align 8
-  %switch = icmp eq i64 %.sroa.07.0.copyload, 0
-  br i1 %switch, label %32, label %31
+26:                                               ; preds = %19
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %.sroa.07.0.copyload = load i64, ptr %27, align 8
+  %28 = icmp eq i64 %.sroa.07.0.copyload, 0
+  br i1 %28, label %34, label %33
 
-27:                                               ; preds = %18
-  %28 = getelementptr inbounds nuw i8, ptr %15, i64 64
-  %29 = load i64, ptr %28, align 8, !noundef !5
-  %30 = icmp ult i64 %23, %29
-  br i1 %30, label %33, label %39, !prof !458
+29:                                               ; preds = %19
+  %30 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  %31 = load i64, ptr %30, align 8, !noundef !5
+  %32 = icmp ult i64 %24, %31
+  br i1 %32, label %35, label %41, !prof !458
 
-31:                                               ; preds = %25
-  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 56
+33:                                               ; preds = %26
+  %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 56
   %.sroa.48.0.copyload = load i64, ptr %.sroa.48.0..sroa_idx, align 8
-  br label %32
+  br label %34
 
-32:                                               ; preds = %40, %33, %31, %25
-  %storemerge39 = phi i64 [ 1, %31 ], [ 2, %25 ], [ 1, %40 ], [ 2, %33 ]
-  %storemerge38 = phi i64 [ %.sroa.48.0.copyload, %31 ], [ undef, %25 ], [ %42, %40 ], [ undef, %33 ]
-  %.sroa.4.1 = phi ptr [ %21, %31 ], [ %21, %25 ], [ %36, %40 ], [ %36, %33 ]
-  store i64 %storemerge39, ptr %0, align 8
-  store i64 %storemerge38, ptr %22, align 8
-  %.sroa.0.1 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  br label %43
+34:                                               ; preds = %42, %35, %33, %26
+  %storemerge38 = phi i64 [ 1, %33 ], [ 2, %26 ], [ 1, %42 ], [ 2, %35 ]
+  %storemerge37 = phi i64 [ %.sroa.48.0.copyload, %33 ], [ undef, %26 ], [ %44, %42 ], [ undef, %35 ]
+  %.sroa.4.1 = phi ptr [ %22, %33 ], [ %22, %26 ], [ %38, %42 ], [ %38, %35 ]
+  store i64 %storemerge38, ptr %0, align 8
+  store i64 %storemerge37, ptr %23, align 8
+  %.sroa.0.1 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  br label %45
 
-33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %35 = load ptr, ptr %34, align 8, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds { { { i64, [5 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %35, i64 %23
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %38 = load i64, ptr %37, align 8, !range !459, !noundef !5
-  %trunc = trunc nuw i64 %38 to i1
-  br i1 %trunc, label %40, label %32
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %37 = load ptr, ptr %36, align 8, !nonnull !5, !noundef !5
+  %38 = getelementptr inbounds { { { i64, [5 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] } }, ptr %37, i64 %24
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %40 = load i64, ptr %39, align 8, !range !459, !noundef !5
+  %trunc = trunc nuw i64 %40 to i1
+  br i1 %trunc, label %42, label %34
 
-39:                                               ; preds = %27
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %23, i64 noundef %29, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b104ed89325d1be2d44684ba2b5b6ba2.143) #20
+41:                                               ; preds = %29
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %24, i64 noundef %31, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b104ed89325d1be2d44684ba2b5b6ba2.143) #20
   unreachable
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 72
-  %42 = load i64, ptr %41, align 8, !noundef !5
-  br label %32
+42:                                               ; preds = %35
+  %43 = getelementptr inbounds nuw i8, ptr %38, i64 72
+  %44 = load i64, ptr %43, align 8, !noundef !5
+  br label %34
 
-43:                                               ; preds = %4, %32
-  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %32 ], [ undef, %4 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %32 ], [ null, %4 ]
-  %44 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %45 = insertvalue { ptr, ptr } %44, ptr %.sroa.4.0, 1
-  ret { ptr, ptr } %45
+45:                                               ; preds = %4, %34
+  %.sroa.4.0 = phi ptr [ %.sroa.4.1, %34 ], [ undef, %4 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1, %34 ], [ null, %4 ]
+  %46 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %47 = insertvalue { ptr, ptr } %46, ptr %.sroa.4.0, 1
+  ret { ptr, ptr } %47
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

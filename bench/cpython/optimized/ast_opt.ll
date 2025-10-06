@@ -971,17 +971,17 @@ define hidden range(i32 0, 2) i32 @_PyAST_Optimize(ptr noundef readonly captures
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %25 = load i64, ptr %22, align 8, !tbaa !29
   %26 = icmp sgt i64 %25, 0
-  br i1 %26, label %.lr.ph33.i, label %astfold_mod.exit
+  br i1 %26, label %.lr.ph32.i, label %astfold_mod.exit
 
-.lr.ph33.i:                                       ; preds = %.lr.ph.i, %.critedge.i
+.lr.ph32.i:                                       ; preds = %.lr.ph.i, %.critedge.i
   %27 = phi i64 [ %32, %.critedge.i ], [ %25, %.lr.ph.i ]
-  %.0223032.i = phi i64 [ %33, %.critedge.i ], [ 0, %.lr.ph.i ]
-  %28 = getelementptr ptr, ptr %24, i64 %.0223032.i
+  %.0222931.i = phi i64 [ %33, %.critedge.i ], [ 0, %.lr.ph.i ]
+  %28 = getelementptr ptr, ptr %24, i64 %.0222931.i
   %29 = load ptr, ptr %28, align 8, !tbaa !31
   %.not25.i = icmp eq ptr %29, null
   br i1 %.not25.i, label %.critedge.i, label %30
 
-30:                                               ; preds = %.lr.ph33.i
+30:                                               ; preds = %.lr.ph32.i
   %31 = call fastcc i32 @astfold_stmt(ptr noundef %29, ptr noundef %1, ptr noundef nonnull %5)
   %.not26.i = icmp eq i32 %31, 0
   br i1 %.not26.i, label %astfold_mod.exit.thread, label %..critedge_crit_edge.i
@@ -990,11 +990,11 @@ define hidden range(i32 0, 2) i32 @_PyAST_Optimize(ptr noundef readonly captures
   %.pre.i = load i64, ptr %22, align 8, !tbaa !29
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %..critedge_crit_edge.i, %.lr.ph33.i
-  %32 = phi i64 [ %.pre.i, %..critedge_crit_edge.i ], [ %27, %.lr.ph33.i ]
-  %33 = add nuw nsw i64 %.0223032.i, 1
+.critedge.i:                                      ; preds = %..critedge_crit_edge.i, %.lr.ph32.i
+  %32 = phi i64 [ %.pre.i, %..critedge_crit_edge.i ], [ %27, %.lr.ph32.i ]
+  %33 = add nuw nsw i64 %.0222931.i, 1
   %34 = icmp slt i64 %33, %32
-  br i1 %34, label %.lr.ph33.i, label %astfold_mod.exit
+  br i1 %34, label %.lr.ph32.i, label %astfold_mod.exit
 
 35:                                               ; preds = %9
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1155,11 +1155,11 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 10:                                               ; preds = %3
   %11 = load ptr, ptr @PyExc_RecursionError, align 8, !tbaa !33
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.1) #8
-  br label %.thread1019
+  br label %.thread960
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %0, align 8, !tbaa !41
-  switch i32 %13, label %.thread975 [
+  switch i32 %13, label %.thread935 [
     i32 1, label %14
     i32 2, label %59
     i32 3, label %104
@@ -1187,463 +1187,463 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.critedge1048, label %.lr.ph1300
+  br i1 %17, label %.critedge977, label %.lr.ph1229
 
-.lr.ph1300:                                       ; preds = %14
+.lr.ph1229:                                       ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load i64, ptr %16, align 8, !tbaa !29
   %20 = icmp sgt i64 %19, 0
-  br i1 %20, label %.lr.ph1303, label %.critedge1048
+  br i1 %20, label %.lr.ph1232, label %.critedge977
 
-.lr.ph1303:                                       ; preds = %.lr.ph1300, %.critedge
-  %21 = phi i64 [ %26, %.critedge ], [ %19, %.lr.ph1300 ]
-  %.054812991302 = phi i64 [ %27, %.critedge ], [ 0, %.lr.ph1300 ]
-  %22 = getelementptr ptr, ptr %18, i64 %.054812991302
+.lr.ph1232:                                       ; preds = %.lr.ph1229, %.critedge
+  %21 = phi i64 [ %26, %.critedge ], [ %19, %.lr.ph1229 ]
+  %.054812281231 = phi i64 [ %27, %.critedge ], [ 0, %.lr.ph1229 ]
+  %22 = getelementptr ptr, ptr %18, i64 %.054812281231
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   %.not808 = icmp eq ptr %23, null
   br i1 %.not808, label %.critedge, label %24
 
-24:                                               ; preds = %.lr.ph1303
+24:                                               ; preds = %.lr.ph1232
   %25 = tail call fastcc i32 @astfold_type_param(ptr noundef %23, ptr noundef %1, ptr noundef %2)
   %.not809 = icmp eq i32 %25, 0
-  br i1 %.not809, label %.thread1019, label %..critedge_crit_edge
+  br i1 %.not809, label %.thread960, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %24
-  %.pre1379 = load i64, ptr %16, align 8, !tbaa !29
+  %.pre1308 = load i64, ptr %16, align 8, !tbaa !29
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph1303
-  %26 = phi i64 [ %.pre1379, %..critedge_crit_edge ], [ %21, %.lr.ph1303 ]
-  %27 = add nuw nsw i64 %.054812991302, 1
+.critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph1232
+  %26 = phi i64 [ %.pre1308, %..critedge_crit_edge ], [ %21, %.lr.ph1232 ]
+  %27 = add nuw nsw i64 %.054812281231, 1
   %28 = icmp slt i64 %27, %26
-  br i1 %28, label %.lr.ph1303, label %.critedge1048
+  br i1 %28, label %.lr.ph1232, label %.critedge977
 
-.critedge1048:                                    ; preds = %.critedge, %.lr.ph1300, %14
+.critedge977:                                     ; preds = %.critedge, %.lr.ph1229, %14
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !28
   %31 = tail call fastcc i32 @astfold_arguments(ptr noundef %30, ptr noundef %1, ptr noundef %2)
   %.not810 = icmp eq i32 %31, 0
-  br i1 %.not810, label %.thread1019, label %32
+  br i1 %.not810, label %.thread960, label %32
 
-32:                                               ; preds = %.critedge1048
+32:                                               ; preds = %.critedge977
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = tail call fastcc i32 @astfold_body(ptr noundef %34, ptr noundef %1, ptr noundef %2)
   %.not811 = icmp eq i32 %35, 0
-  br i1 %.not811, label %.thread1019, label %36
+  br i1 %.not811, label %.thread960, label %36
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !28
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.critedge1050, label %.lr.ph1305
+  br i1 %39, label %.critedge979, label %.lr.ph1234
 
-.lr.ph1305:                                       ; preds = %36
+.lr.ph1234:                                       ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %41 = load i64, ptr %38, align 8, !tbaa !29
   %42 = icmp sgt i64 %41, 0
-  br i1 %42, label %.lr.ph1308, label %.critedge1050
+  br i1 %42, label %.lr.ph1237, label %.critedge979
 
-.lr.ph1308:                                       ; preds = %.lr.ph1305, %.critedge818
-  %43 = phi i64 [ %48, %.critedge818 ], [ %41, %.lr.ph1305 ]
-  %.061413041307 = phi i64 [ %49, %.critedge818 ], [ 0, %.lr.ph1305 ]
-  %44 = getelementptr ptr, ptr %40, i64 %.061413041307
+.lr.ph1237:                                       ; preds = %.lr.ph1234, %.critedge818
+  %43 = phi i64 [ %48, %.critedge818 ], [ %41, %.lr.ph1234 ]
+  %.061412331236 = phi i64 [ %49, %.critedge818 ], [ 0, %.lr.ph1234 ]
+  %44 = getelementptr ptr, ptr %40, i64 %.061412331236
   %45 = load ptr, ptr %44, align 8, !tbaa !34
   %.not812 = icmp eq ptr %45, null
   br i1 %.not812, label %.critedge818, label %46
 
-46:                                               ; preds = %.lr.ph1308
+46:                                               ; preds = %.lr.ph1237
   %47 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %45, ptr noundef %1, ptr noundef %2)
   %.not813 = icmp eq i32 %47, 0
-  br i1 %.not813, label %.thread1019, label %..critedge818_crit_edge
+  br i1 %.not813, label %.thread960, label %..critedge818_crit_edge
 
 ..critedge818_crit_edge:                          ; preds = %46
-  %.pre1380 = load i64, ptr %38, align 8, !tbaa !29
+  %.pre1309 = load i64, ptr %38, align 8, !tbaa !29
   br label %.critedge818
 
-.critedge818:                                     ; preds = %..critedge818_crit_edge, %.lr.ph1308
-  %48 = phi i64 [ %.pre1380, %..critedge818_crit_edge ], [ %43, %.lr.ph1308 ]
-  %49 = add nuw nsw i64 %.061413041307, 1
+.critedge818:                                     ; preds = %..critedge818_crit_edge, %.lr.ph1237
+  %48 = phi i64 [ %.pre1309, %..critedge818_crit_edge ], [ %43, %.lr.ph1237 ]
+  %49 = add nuw nsw i64 %.061412331236, 1
   %50 = icmp slt i64 %49, %48
-  br i1 %50, label %.lr.ph1308, label %.critedge1050
+  br i1 %50, label %.lr.ph1237, label %.critedge979
 
-.critedge1050:                                    ; preds = %.critedge818, %.lr.ph1305, %36
+.critedge979:                                     ; preds = %.critedge818, %.lr.ph1234, %36
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !9
   %53 = and i32 %52, 16777216
   %.not814 = icmp eq i32 %53, 0
-  br i1 %.not814, label %54, label %.thread975
+  br i1 %.not814, label %54, label %.thread935
 
-54:                                               ; preds = %.critedge1050
+54:                                               ; preds = %.critedge979
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8, !tbaa !28
   %.not815 = icmp eq ptr %56, null
-  br i1 %.not815, label %.thread975, label %57
+  br i1 %.not815, label %.thread935, label %57
 
 57:                                               ; preds = %54
   %58 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %56, ptr noundef %1, ptr noundef %2)
   %.not816 = icmp eq i32 %58, 0
-  br i1 %.not816, label %.thread1019, label %.thread975
+  br i1 %.not816, label %.thread960, label %.thread935
 
 59:                                               ; preds = %12
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = load ptr, ptr %60, align 8, !tbaa !28
   %62 = icmp eq ptr %61, null
-  br i1 %62, label %.critedge1052, label %.lr.ph1290
+  br i1 %62, label %.critedge981, label %.lr.ph1219
 
-.lr.ph1290:                                       ; preds = %59
+.lr.ph1219:                                       ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %64 = load i64, ptr %61, align 8, !tbaa !29
   %65 = icmp sgt i64 %64, 0
-  br i1 %65, label %.lr.ph1293, label %.critedge1052
+  br i1 %65, label %.lr.ph1222, label %.critedge981
 
-.lr.ph1293:                                       ; preds = %.lr.ph1290, %.critedge822
-  %66 = phi i64 [ %71, %.critedge822 ], [ %64, %.lr.ph1290 ]
-  %.061612891292 = phi i64 [ %72, %.critedge822 ], [ 0, %.lr.ph1290 ]
-  %67 = getelementptr ptr, ptr %63, i64 %.061612891292
+.lr.ph1222:                                       ; preds = %.lr.ph1219, %.critedge821
+  %66 = phi i64 [ %71, %.critedge821 ], [ %64, %.lr.ph1219 ]
+  %.061612181221 = phi i64 [ %72, %.critedge821 ], [ 0, %.lr.ph1219 ]
+  %67 = getelementptr ptr, ptr %63, i64 %.061612181221
   %68 = load ptr, ptr %67, align 8, !tbaa !42
   %.not799 = icmp eq ptr %68, null
-  br i1 %.not799, label %.critedge822, label %69
+  br i1 %.not799, label %.critedge821, label %69
 
-69:                                               ; preds = %.lr.ph1293
+69:                                               ; preds = %.lr.ph1222
   %70 = tail call fastcc i32 @astfold_type_param(ptr noundef %68, ptr noundef %1, ptr noundef %2)
   %.not800 = icmp eq i32 %70, 0
-  br i1 %.not800, label %.thread1019, label %..critedge822_crit_edge
+  br i1 %.not800, label %.thread960, label %..critedge821_crit_edge
 
-..critedge822_crit_edge:                          ; preds = %69
-  %.pre1377 = load i64, ptr %61, align 8, !tbaa !29
-  br label %.critedge822
+..critedge821_crit_edge:                          ; preds = %69
+  %.pre1306 = load i64, ptr %61, align 8, !tbaa !29
+  br label %.critedge821
 
-.critedge822:                                     ; preds = %..critedge822_crit_edge, %.lr.ph1293
-  %71 = phi i64 [ %.pre1377, %..critedge822_crit_edge ], [ %66, %.lr.ph1293 ]
-  %72 = add nuw nsw i64 %.061612891292, 1
+.critedge821:                                     ; preds = %..critedge821_crit_edge, %.lr.ph1222
+  %71 = phi i64 [ %.pre1306, %..critedge821_crit_edge ], [ %66, %.lr.ph1222 ]
+  %72 = add nuw nsw i64 %.061612181221, 1
   %73 = icmp slt i64 %72, %71
-  br i1 %73, label %.lr.ph1293, label %.critedge1052
+  br i1 %73, label %.lr.ph1222, label %.critedge981
 
-.critedge1052:                                    ; preds = %.critedge822, %.lr.ph1290, %59
+.critedge981:                                     ; preds = %.critedge821, %.lr.ph1219, %59
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %75 = load ptr, ptr %74, align 8, !tbaa !28
   %76 = tail call fastcc i32 @astfold_arguments(ptr noundef %75, ptr noundef %1, ptr noundef %2)
   %.not801 = icmp eq i32 %76, 0
-  br i1 %.not801, label %.thread1019, label %77
+  br i1 %.not801, label %.thread960, label %77
 
-77:                                               ; preds = %.critedge1052
+77:                                               ; preds = %.critedge981
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8, !tbaa !28
   %80 = tail call fastcc i32 @astfold_body(ptr noundef %79, ptr noundef %1, ptr noundef %2)
   %.not802 = icmp eq i32 %80, 0
-  br i1 %.not802, label %.thread1019, label %81
+  br i1 %.not802, label %.thread960, label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %83 = load ptr, ptr %82, align 8, !tbaa !28
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %.critedge1054, label %.lr.ph1295
+  br i1 %84, label %.critedge983, label %.lr.ph1224
 
-.lr.ph1295:                                       ; preds = %81
+.lr.ph1224:                                       ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %86 = load i64, ptr %83, align 8, !tbaa !29
   %87 = icmp sgt i64 %86, 0
-  br i1 %87, label %.lr.ph1298, label %.critedge1054
+  br i1 %87, label %.lr.ph1227, label %.critedge983
 
-.lr.ph1298:                                       ; preds = %.lr.ph1295, %.critedge826
-  %88 = phi i64 [ %93, %.critedge826 ], [ %86, %.lr.ph1295 ]
-  %.061712941297 = phi i64 [ %94, %.critedge826 ], [ 0, %.lr.ph1295 ]
-  %89 = getelementptr ptr, ptr %85, i64 %.061712941297
+.lr.ph1227:                                       ; preds = %.lr.ph1224, %.critedge824
+  %88 = phi i64 [ %93, %.critedge824 ], [ %86, %.lr.ph1224 ]
+  %.061712231226 = phi i64 [ %94, %.critedge824 ], [ 0, %.lr.ph1224 ]
+  %89 = getelementptr ptr, ptr %85, i64 %.061712231226
   %90 = load ptr, ptr %89, align 8, !tbaa !34
   %.not803 = icmp eq ptr %90, null
-  br i1 %.not803, label %.critedge826, label %91
+  br i1 %.not803, label %.critedge824, label %91
 
-91:                                               ; preds = %.lr.ph1298
+91:                                               ; preds = %.lr.ph1227
   %92 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %90, ptr noundef %1, ptr noundef %2)
   %.not804 = icmp eq i32 %92, 0
-  br i1 %.not804, label %.thread1019, label %..critedge826_crit_edge
+  br i1 %.not804, label %.thread960, label %..critedge824_crit_edge
 
-..critedge826_crit_edge:                          ; preds = %91
-  %.pre1378 = load i64, ptr %83, align 8, !tbaa !29
-  br label %.critedge826
+..critedge824_crit_edge:                          ; preds = %91
+  %.pre1307 = load i64, ptr %83, align 8, !tbaa !29
+  br label %.critedge824
 
-.critedge826:                                     ; preds = %..critedge826_crit_edge, %.lr.ph1298
-  %93 = phi i64 [ %.pre1378, %..critedge826_crit_edge ], [ %88, %.lr.ph1298 ]
-  %94 = add nuw nsw i64 %.061712941297, 1
+.critedge824:                                     ; preds = %..critedge824_crit_edge, %.lr.ph1227
+  %93 = phi i64 [ %.pre1307, %..critedge824_crit_edge ], [ %88, %.lr.ph1227 ]
+  %94 = add nuw nsw i64 %.061712231226, 1
   %95 = icmp slt i64 %94, %93
-  br i1 %95, label %.lr.ph1298, label %.critedge1054
+  br i1 %95, label %.lr.ph1227, label %.critedge983
 
-.critedge1054:                                    ; preds = %.critedge826, %.lr.ph1295, %81
+.critedge983:                                     ; preds = %.critedge824, %.lr.ph1224, %81
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !9
   %98 = and i32 %97, 16777216
   %.not805 = icmp eq i32 %98, 0
-  br i1 %.not805, label %99, label %.thread975
+  br i1 %.not805, label %99, label %.thread935
 
-99:                                               ; preds = %.critedge1054
+99:                                               ; preds = %.critedge983
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load ptr, ptr %100, align 8, !tbaa !28
   %.not806 = icmp eq ptr %101, null
-  br i1 %.not806, label %.thread975, label %102
+  br i1 %.not806, label %.thread935, label %102
 
 102:                                              ; preds = %99
   %103 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %101, ptr noundef %1, ptr noundef %2)
   %.not807 = icmp eq i32 %103, 0
-  br i1 %.not807, label %.thread1019, label %.thread975
+  br i1 %.not807, label %.thread960, label %.thread935
 
 104:                                              ; preds = %12
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %106 = load ptr, ptr %105, align 8, !tbaa !28
   %107 = icmp eq ptr %106, null
-  br i1 %107, label %.critedge1056, label %.lr.ph1270
+  br i1 %107, label %.critedge985, label %.lr.ph1199
 
-.lr.ph1270:                                       ; preds = %104
+.lr.ph1199:                                       ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 16
   %109 = load i64, ptr %106, align 8, !tbaa !29
   %110 = icmp sgt i64 %109, 0
-  br i1 %110, label %.lr.ph1273, label %.critedge1056
+  br i1 %110, label %.lr.ph1202, label %.critedge985
 
-.lr.ph1273:                                       ; preds = %.lr.ph1270, %.critedge830
-  %111 = phi i64 [ %116, %.critedge830 ], [ %109, %.lr.ph1270 ]
-  %.061912691272 = phi i64 [ %117, %.critedge830 ], [ 0, %.lr.ph1270 ]
-  %112 = getelementptr ptr, ptr %108, i64 %.061912691272
+.lr.ph1202:                                       ; preds = %.lr.ph1199, %.critedge827
+  %111 = phi i64 [ %116, %.critedge827 ], [ %109, %.lr.ph1199 ]
+  %.061911981201 = phi i64 [ %117, %.critedge827 ], [ 0, %.lr.ph1199 ]
+  %112 = getelementptr ptr, ptr %108, i64 %.061911981201
   %113 = load ptr, ptr %112, align 8, !tbaa !42
   %.not790 = icmp eq ptr %113, null
-  br i1 %.not790, label %.critedge830, label %114
+  br i1 %.not790, label %.critedge827, label %114
 
-114:                                              ; preds = %.lr.ph1273
+114:                                              ; preds = %.lr.ph1202
   %115 = tail call fastcc i32 @astfold_type_param(ptr noundef %113, ptr noundef %1, ptr noundef %2)
   %.not791 = icmp eq i32 %115, 0
-  br i1 %.not791, label %.thread1019, label %..critedge830_crit_edge
+  br i1 %.not791, label %.thread960, label %..critedge827_crit_edge
 
-..critedge830_crit_edge:                          ; preds = %114
-  %.pre1373 = load i64, ptr %106, align 8, !tbaa !29
-  br label %.critedge830
+..critedge827_crit_edge:                          ; preds = %114
+  %.pre1302 = load i64, ptr %106, align 8, !tbaa !29
+  br label %.critedge827
 
-.critedge830:                                     ; preds = %..critedge830_crit_edge, %.lr.ph1273
-  %116 = phi i64 [ %.pre1373, %..critedge830_crit_edge ], [ %111, %.lr.ph1273 ]
-  %117 = add nuw nsw i64 %.061912691272, 1
+.critedge827:                                     ; preds = %..critedge827_crit_edge, %.lr.ph1202
+  %116 = phi i64 [ %.pre1302, %..critedge827_crit_edge ], [ %111, %.lr.ph1202 ]
+  %117 = add nuw nsw i64 %.061911981201, 1
   %118 = icmp slt i64 %117, %116
-  br i1 %118, label %.lr.ph1273, label %.critedge1056
+  br i1 %118, label %.lr.ph1202, label %.critedge985
 
-.critedge1056:                                    ; preds = %.critedge830, %.lr.ph1270, %104
+.critedge985:                                     ; preds = %.critedge827, %.lr.ph1199, %104
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %120 = load ptr, ptr %119, align 8, !tbaa !28
   %121 = icmp eq ptr %120, null
-  br i1 %121, label %.critedge1058, label %.lr.ph1275
+  br i1 %121, label %.critedge987, label %.lr.ph1204
 
-.lr.ph1275:                                       ; preds = %.critedge1056
+.lr.ph1204:                                       ; preds = %.critedge985
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %123 = load i64, ptr %120, align 8, !tbaa !29
   %124 = icmp sgt i64 %123, 0
-  br i1 %124, label %.lr.ph1278, label %.critedge1058
+  br i1 %124, label %.lr.ph1207, label %.critedge987
 
-.lr.ph1278:                                       ; preds = %.lr.ph1275, %.critedge834
-  %125 = phi i64 [ %130, %.critedge834 ], [ %123, %.lr.ph1275 ]
-  %.062012741277 = phi i64 [ %131, %.critedge834 ], [ 0, %.lr.ph1275 ]
-  %126 = getelementptr ptr, ptr %122, i64 %.062012741277
+.lr.ph1207:                                       ; preds = %.lr.ph1204, %.critedge830
+  %125 = phi i64 [ %130, %.critedge830 ], [ %123, %.lr.ph1204 ]
+  %.062012031206 = phi i64 [ %131, %.critedge830 ], [ 0, %.lr.ph1204 ]
+  %126 = getelementptr ptr, ptr %122, i64 %.062012031206
   %127 = load ptr, ptr %126, align 8, !tbaa !34
   %.not792 = icmp eq ptr %127, null
-  br i1 %.not792, label %.critedge834, label %128
+  br i1 %.not792, label %.critedge830, label %128
 
-128:                                              ; preds = %.lr.ph1278
+128:                                              ; preds = %.lr.ph1207
   %129 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %127, ptr noundef %1, ptr noundef %2)
   %.not793 = icmp eq i32 %129, 0
-  br i1 %.not793, label %.thread1019, label %..critedge834_crit_edge
+  br i1 %.not793, label %.thread960, label %..critedge830_crit_edge
 
-..critedge834_crit_edge:                          ; preds = %128
-  %.pre1374 = load i64, ptr %120, align 8, !tbaa !29
-  br label %.critedge834
+..critedge830_crit_edge:                          ; preds = %128
+  %.pre1303 = load i64, ptr %120, align 8, !tbaa !29
+  br label %.critedge830
 
-.critedge834:                                     ; preds = %..critedge834_crit_edge, %.lr.ph1278
-  %130 = phi i64 [ %.pre1374, %..critedge834_crit_edge ], [ %125, %.lr.ph1278 ]
-  %131 = add nuw nsw i64 %.062012741277, 1
+.critedge830:                                     ; preds = %..critedge830_crit_edge, %.lr.ph1207
+  %130 = phi i64 [ %.pre1303, %..critedge830_crit_edge ], [ %125, %.lr.ph1207 ]
+  %131 = add nuw nsw i64 %.062012031206, 1
   %132 = icmp slt i64 %131, %130
-  br i1 %132, label %.lr.ph1278, label %.critedge1058
+  br i1 %132, label %.lr.ph1207, label %.critedge987
 
-.critedge1058:                                    ; preds = %.critedge834, %.lr.ph1275, %.critedge1056
+.critedge987:                                     ; preds = %.critedge830, %.lr.ph1204, %.critedge985
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load ptr, ptr %133, align 8, !tbaa !28
   %135 = icmp eq ptr %134, null
-  br i1 %135, label %.critedge1060, label %.lr.ph1280
+  br i1 %135, label %.critedge989, label %.lr.ph1209
 
-.lr.ph1280:                                       ; preds = %.critedge1058
+.lr.ph1209:                                       ; preds = %.critedge987
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %137 = load i64, ptr %134, align 8, !tbaa !29
   %138 = icmp sgt i64 %137, 0
-  br i1 %138, label %.lr.ph1283, label %.critedge1060
+  br i1 %138, label %.lr.ph1212, label %.critedge989
 
-.lr.ph1283:                                       ; preds = %.lr.ph1280, %.critedge838
-  %139 = phi i64 [ %145, %.critedge838 ], [ %137, %.lr.ph1280 ]
-  %.062212791282 = phi i64 [ %146, %.critedge838 ], [ 0, %.lr.ph1280 ]
-  %140 = getelementptr ptr, ptr %136, i64 %.062212791282
+.lr.ph1212:                                       ; preds = %.lr.ph1209, %.critedge833
+  %139 = phi i64 [ %145, %.critedge833 ], [ %137, %.lr.ph1209 ]
+  %.062212081211 = phi i64 [ %146, %.critedge833 ], [ 0, %.lr.ph1209 ]
+  %140 = getelementptr ptr, ptr %136, i64 %.062212081211
   %141 = load ptr, ptr %140, align 8, !tbaa !44
   %.not794 = icmp eq ptr %141, null
-  br i1 %.not794, label %.critedge838, label %142
+  br i1 %.not794, label %.critedge833, label %142
 
-142:                                              ; preds = %.lr.ph1283
+142:                                              ; preds = %.lr.ph1212
   %143 = getelementptr i8, ptr %141, i64 8
   %.val = load ptr, ptr %143, align 8, !tbaa !46
   %144 = tail call fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef %.val, ptr noundef %1, ptr noundef nonnull %2)
   %.not795 = icmp eq i32 %144, 0
-  br i1 %.not795, label %.thread1019, label %..critedge838_crit_edge
+  br i1 %.not795, label %.thread960, label %..critedge833_crit_edge
 
-..critedge838_crit_edge:                          ; preds = %142
-  %.pre1375 = load i64, ptr %134, align 8, !tbaa !29
-  br label %.critedge838
+..critedge833_crit_edge:                          ; preds = %142
+  %.pre1304 = load i64, ptr %134, align 8, !tbaa !29
+  br label %.critedge833
 
-.critedge838:                                     ; preds = %..critedge838_crit_edge, %.lr.ph1283
-  %145 = phi i64 [ %.pre1375, %..critedge838_crit_edge ], [ %139, %.lr.ph1283 ]
-  %146 = add nuw nsw i64 %.062212791282, 1
+.critedge833:                                     ; preds = %..critedge833_crit_edge, %.lr.ph1212
+  %145 = phi i64 [ %.pre1304, %..critedge833_crit_edge ], [ %139, %.lr.ph1212 ]
+  %146 = add nuw nsw i64 %.062212081211, 1
   %147 = icmp slt i64 %146, %145
-  br i1 %147, label %.lr.ph1283, label %.critedge1060
+  br i1 %147, label %.lr.ph1212, label %.critedge989
 
-.critedge1060:                                    ; preds = %.critedge838, %.lr.ph1280, %.critedge1058
+.critedge989:                                     ; preds = %.critedge833, %.lr.ph1209, %.critedge987
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %149 = load ptr, ptr %148, align 8, !tbaa !28
   %150 = tail call fastcc i32 @astfold_body(ptr noundef %149, ptr noundef %1, ptr noundef %2)
   %.not796 = icmp eq i32 %150, 0
-  br i1 %.not796, label %.thread1019, label %151
+  br i1 %.not796, label %.thread960, label %151
 
-151:                                              ; preds = %.critedge1060
+151:                                              ; preds = %.critedge989
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %153 = load ptr, ptr %152, align 8, !tbaa !28
   %154 = icmp eq ptr %153, null
-  br i1 %154, label %.thread975, label %.lr.ph1285
+  br i1 %154, label %.thread935, label %.lr.ph1214
 
-.lr.ph1285:                                       ; preds = %151
+.lr.ph1214:                                       ; preds = %151
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %156 = load i64, ptr %153, align 8, !tbaa !29
   %157 = icmp sgt i64 %156, 0
-  br i1 %157, label %.lr.ph1288, label %.thread975
+  br i1 %157, label %.lr.ph1217, label %.thread935
 
-.lr.ph1288:                                       ; preds = %.lr.ph1285, %.critedge842
-  %158 = phi i64 [ %163, %.critedge842 ], [ %156, %.lr.ph1285 ]
-  %.062312841287 = phi i64 [ %164, %.critedge842 ], [ 0, %.lr.ph1285 ]
-  %159 = getelementptr ptr, ptr %155, i64 %.062312841287
+.lr.ph1217:                                       ; preds = %.lr.ph1214, %.critedge836
+  %158 = phi i64 [ %163, %.critedge836 ], [ %156, %.lr.ph1214 ]
+  %.062312131216 = phi i64 [ %164, %.critedge836 ], [ 0, %.lr.ph1214 ]
+  %159 = getelementptr ptr, ptr %155, i64 %.062312131216
   %160 = load ptr, ptr %159, align 8, !tbaa !34
   %.not797 = icmp eq ptr %160, null
-  br i1 %.not797, label %.critedge842, label %161
+  br i1 %.not797, label %.critedge836, label %161
 
-161:                                              ; preds = %.lr.ph1288
+161:                                              ; preds = %.lr.ph1217
   %162 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %160, ptr noundef %1, ptr noundef %2)
   %.not798 = icmp eq i32 %162, 0
-  br i1 %.not798, label %.thread1019, label %..critedge842_crit_edge
+  br i1 %.not798, label %.thread960, label %..critedge836_crit_edge
 
-..critedge842_crit_edge:                          ; preds = %161
-  %.pre1376 = load i64, ptr %153, align 8, !tbaa !29
-  br label %.critedge842
+..critedge836_crit_edge:                          ; preds = %161
+  %.pre1305 = load i64, ptr %153, align 8, !tbaa !29
+  br label %.critedge836
 
-.critedge842:                                     ; preds = %..critedge842_crit_edge, %.lr.ph1288
-  %163 = phi i64 [ %.pre1376, %..critedge842_crit_edge ], [ %158, %.lr.ph1288 ]
-  %164 = add nuw nsw i64 %.062312841287, 1
+.critedge836:                                     ; preds = %..critedge836_crit_edge, %.lr.ph1217
+  %163 = phi i64 [ %.pre1305, %..critedge836_crit_edge ], [ %158, %.lr.ph1217 ]
+  %164 = add nuw nsw i64 %.062312131216, 1
   %165 = icmp slt i64 %164, %163
-  br i1 %165, label %.lr.ph1288, label %.thread975
+  br i1 %165, label %.lr.ph1217, label %.thread935
 
 166:                                              ; preds = %12
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %168 = load ptr, ptr %167, align 8, !tbaa !28
   %.not788 = icmp eq ptr %168, null
-  br i1 %.not788, label %.thread975, label %169
+  br i1 %.not788, label %.thread935, label %169
 
 169:                                              ; preds = %166
   %170 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %168, ptr noundef %1, ptr noundef %2)
   %.not789 = icmp eq i32 %170, 0
-  br i1 %.not789, label %.thread1019, label %.thread975
+  br i1 %.not789, label %.thread960, label %.thread935
 
 171:                                              ; preds = %12
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %173 = load ptr, ptr %172, align 8, !tbaa !28
   %174 = icmp eq ptr %173, null
-  br i1 %174, label %.thread975, label %.lr.ph1265
+  br i1 %174, label %.thread935, label %.lr.ph1194
 
-.lr.ph1265:                                       ; preds = %171
+.lr.ph1194:                                       ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 16
   %176 = load i64, ptr %173, align 8, !tbaa !29
   %177 = icmp sgt i64 %176, 0
-  br i1 %177, label %.lr.ph1268, label %.thread975
+  br i1 %177, label %.lr.ph1197, label %.thread935
 
-.lr.ph1268:                                       ; preds = %.lr.ph1265, %.critedge846
-  %178 = phi i64 [ %183, %.critedge846 ], [ %176, %.lr.ph1265 ]
-  %.062512641267 = phi i64 [ %184, %.critedge846 ], [ 0, %.lr.ph1265 ]
-  %179 = getelementptr ptr, ptr %175, i64 %.062512641267
+.lr.ph1197:                                       ; preds = %.lr.ph1194, %.critedge839
+  %178 = phi i64 [ %183, %.critedge839 ], [ %176, %.lr.ph1194 ]
+  %.062511931196 = phi i64 [ %184, %.critedge839 ], [ 0, %.lr.ph1194 ]
+  %179 = getelementptr ptr, ptr %175, i64 %.062511931196
   %180 = load ptr, ptr %179, align 8, !tbaa !34
   %.not786 = icmp eq ptr %180, null
-  br i1 %.not786, label %.critedge846, label %181
+  br i1 %.not786, label %.critedge839, label %181
 
-181:                                              ; preds = %.lr.ph1268
+181:                                              ; preds = %.lr.ph1197
   %182 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %180, ptr noundef %1, ptr noundef %2)
   %.not787 = icmp eq i32 %182, 0
-  br i1 %.not787, label %.thread1019, label %..critedge846_crit_edge
+  br i1 %.not787, label %.thread960, label %..critedge839_crit_edge
 
-..critedge846_crit_edge:                          ; preds = %181
-  %.pre1372 = load i64, ptr %173, align 8, !tbaa !29
-  br label %.critedge846
+..critedge839_crit_edge:                          ; preds = %181
+  %.pre1301 = load i64, ptr %173, align 8, !tbaa !29
+  br label %.critedge839
 
-.critedge846:                                     ; preds = %..critedge846_crit_edge, %.lr.ph1268
-  %183 = phi i64 [ %.pre1372, %..critedge846_crit_edge ], [ %178, %.lr.ph1268 ]
-  %184 = add nuw nsw i64 %.062512641267, 1
+.critedge839:                                     ; preds = %..critedge839_crit_edge, %.lr.ph1197
+  %183 = phi i64 [ %.pre1301, %..critedge839_crit_edge ], [ %178, %.lr.ph1197 ]
+  %184 = add nuw nsw i64 %.062511931196, 1
   %185 = icmp slt i64 %184, %183
-  br i1 %185, label %.lr.ph1268, label %.thread975
+  br i1 %185, label %.lr.ph1197, label %.thread935
 
 186:                                              ; preds = %12
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %188 = load ptr, ptr %187, align 8, !tbaa !28
   %189 = icmp eq ptr %188, null
-  br i1 %189, label %.critedge1065, label %.lr.ph1260
+  br i1 %189, label %.critedge994, label %.lr.ph1189
 
-.lr.ph1260:                                       ; preds = %186
+.lr.ph1189:                                       ; preds = %186
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 16
   %191 = load i64, ptr %188, align 8, !tbaa !29
   %192 = icmp sgt i64 %191, 0
-  br i1 %192, label %.lr.ph1263, label %.critedge1065
+  br i1 %192, label %.lr.ph1192, label %.critedge994
 
-.lr.ph1263:                                       ; preds = %.lr.ph1260, %.critedge850
-  %193 = phi i64 [ %198, %.critedge850 ], [ %191, %.lr.ph1260 ]
-  %.062612591262 = phi i64 [ %199, %.critedge850 ], [ 0, %.lr.ph1260 ]
-  %194 = getelementptr ptr, ptr %190, i64 %.062612591262
+.lr.ph1192:                                       ; preds = %.lr.ph1189, %.critedge842
+  %193 = phi i64 [ %198, %.critedge842 ], [ %191, %.lr.ph1189 ]
+  %.062611881191 = phi i64 [ %199, %.critedge842 ], [ 0, %.lr.ph1189 ]
+  %194 = getelementptr ptr, ptr %190, i64 %.062611881191
   %195 = load ptr, ptr %194, align 8, !tbaa !34
   %.not783 = icmp eq ptr %195, null
-  br i1 %.not783, label %.critedge850, label %196
+  br i1 %.not783, label %.critedge842, label %196
 
-196:                                              ; preds = %.lr.ph1263
+196:                                              ; preds = %.lr.ph1192
   %197 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %195, ptr noundef %1, ptr noundef %2)
   %.not784 = icmp eq i32 %197, 0
-  br i1 %.not784, label %.thread1019, label %..critedge850_crit_edge
+  br i1 %.not784, label %.thread960, label %..critedge842_crit_edge
 
-..critedge850_crit_edge:                          ; preds = %196
-  %.pre1371 = load i64, ptr %188, align 8, !tbaa !29
-  br label %.critedge850
+..critedge842_crit_edge:                          ; preds = %196
+  %.pre1300 = load i64, ptr %188, align 8, !tbaa !29
+  br label %.critedge842
 
-.critedge850:                                     ; preds = %..critedge850_crit_edge, %.lr.ph1263
-  %198 = phi i64 [ %.pre1371, %..critedge850_crit_edge ], [ %193, %.lr.ph1263 ]
-  %199 = add nuw nsw i64 %.062612591262, 1
+.critedge842:                                     ; preds = %..critedge842_crit_edge, %.lr.ph1192
+  %198 = phi i64 [ %.pre1300, %..critedge842_crit_edge ], [ %193, %.lr.ph1192 ]
+  %199 = add nuw nsw i64 %.062611881191, 1
   %200 = icmp slt i64 %199, %198
-  br i1 %200, label %.lr.ph1263, label %.critedge1065
+  br i1 %200, label %.lr.ph1192, label %.critedge994
 
-.critedge1065:                                    ; preds = %.critedge850, %.lr.ph1260, %186
+.critedge994:                                     ; preds = %.critedge842, %.lr.ph1189, %186
   %201 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %202 = load ptr, ptr %201, align 8, !tbaa !28
   %203 = tail call fastcc i32 @astfold_expr(ptr noundef %202, ptr noundef %1, ptr noundef %2)
   %.not785 = icmp eq i32 %203, 0
-  br i1 %.not785, label %.thread1019, label %.thread975
+  br i1 %.not785, label %.thread960, label %.thread935
 
 204:                                              ; preds = %12
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !28
   %207 = tail call fastcc i32 @astfold_expr(ptr noundef %206, ptr noundef %1, ptr noundef %2)
   %.not781 = icmp eq i32 %207, 0
-  br i1 %.not781, label %.thread1019, label %208
+  br i1 %.not781, label %.thread960, label %208
 
 208:                                              ; preds = %204
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %210 = load ptr, ptr %209, align 8, !tbaa !28
   %211 = tail call fastcc i32 @astfold_expr(ptr noundef %210, ptr noundef %1, ptr noundef %2)
   %.not782 = icmp eq i32 %211, 0
-  br i1 %.not782, label %.thread1019, label %.thread975
+  br i1 %.not782, label %.thread960, label %.thread935
 
 212:                                              ; preds = %12
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !28
   %215 = tail call fastcc i32 @astfold_expr(ptr noundef %214, ptr noundef %1, ptr noundef %2)
   %.not776 = icmp eq i32 %215, 0
-  br i1 %.not776, label %.thread1019, label %216
+  br i1 %.not776, label %.thread960, label %216
 
 216:                                              ; preds = %212
   %217 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -1657,549 +1657,549 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
   %222 = load ptr, ptr %221, align 8, !tbaa !28
   %223 = tail call fastcc i32 @astfold_expr(ptr noundef %222, ptr noundef %1, ptr noundef %2)
   %.not778 = icmp eq i32 %223, 0
-  br i1 %.not778, label %.thread1019, label %224
+  br i1 %.not778, label %.thread960, label %224
 
 224:                                              ; preds = %220, %216
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %226 = load ptr, ptr %225, align 8, !tbaa !28
   %.not779 = icmp eq ptr %226, null
-  br i1 %.not779, label %.thread975, label %227
+  br i1 %.not779, label %.thread935, label %227
 
 227:                                              ; preds = %224
   %228 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %226, ptr noundef %1, ptr noundef %2)
   %.not780 = icmp eq i32 %228, 0
-  br i1 %.not780, label %.thread1019, label %.thread975
+  br i1 %.not780, label %.thread960, label %.thread935
 
 229:                                              ; preds = %12
   %230 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %231 = load ptr, ptr %230, align 8, !tbaa !28
   %232 = tail call fastcc i32 @astfold_expr(ptr noundef %231, ptr noundef %1, ptr noundef %2)
   %.not772 = icmp eq i32 %232, 0
-  br i1 %.not772, label %.thread1019, label %233
+  br i1 %.not772, label %.thread960, label %233
 
 233:                                              ; preds = %229
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %235 = load ptr, ptr %234, align 8, !tbaa !28
   %236 = icmp eq ptr %235, null
-  br i1 %236, label %.critedge1067, label %.lr.ph1255
+  br i1 %236, label %.critedge996, label %.lr.ph1184
 
-.lr.ph1255:                                       ; preds = %233
+.lr.ph1184:                                       ; preds = %233
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %238 = load i64, ptr %235, align 8, !tbaa !29
   %239 = icmp sgt i64 %238, 0
-  br i1 %239, label %.lr.ph1258, label %.critedge1067
+  br i1 %239, label %.lr.ph1187, label %.critedge996
 
-.lr.ph1258:                                       ; preds = %.lr.ph1255, %.critedge854
-  %240 = phi i64 [ %245, %.critedge854 ], [ %238, %.lr.ph1255 ]
-  %.062812541257 = phi i64 [ %246, %.critedge854 ], [ 0, %.lr.ph1255 ]
-  %241 = getelementptr ptr, ptr %237, i64 %.062812541257
+.lr.ph1187:                                       ; preds = %.lr.ph1184, %.critedge845
+  %240 = phi i64 [ %245, %.critedge845 ], [ %238, %.lr.ph1184 ]
+  %.062811831186 = phi i64 [ %246, %.critedge845 ], [ 0, %.lr.ph1184 ]
+  %241 = getelementptr ptr, ptr %237, i64 %.062811831186
   %242 = load ptr, ptr %241, align 8, !tbaa !42
   %.not773 = icmp eq ptr %242, null
-  br i1 %.not773, label %.critedge854, label %243
+  br i1 %.not773, label %.critedge845, label %243
 
-243:                                              ; preds = %.lr.ph1258
+243:                                              ; preds = %.lr.ph1187
   %244 = tail call fastcc i32 @astfold_type_param(ptr noundef %242, ptr noundef %1, ptr noundef %2)
   %.not774 = icmp eq i32 %244, 0
-  br i1 %.not774, label %.thread1019, label %..critedge854_crit_edge
+  br i1 %.not774, label %.thread960, label %..critedge845_crit_edge
 
-..critedge854_crit_edge:                          ; preds = %243
-  %.pre1370 = load i64, ptr %235, align 8, !tbaa !29
-  br label %.critedge854
+..critedge845_crit_edge:                          ; preds = %243
+  %.pre1299 = load i64, ptr %235, align 8, !tbaa !29
+  br label %.critedge845
 
-.critedge854:                                     ; preds = %..critedge854_crit_edge, %.lr.ph1258
-  %245 = phi i64 [ %.pre1370, %..critedge854_crit_edge ], [ %240, %.lr.ph1258 ]
-  %246 = add nuw nsw i64 %.062812541257, 1
+.critedge845:                                     ; preds = %..critedge845_crit_edge, %.lr.ph1187
+  %245 = phi i64 [ %.pre1299, %..critedge845_crit_edge ], [ %240, %.lr.ph1187 ]
+  %246 = add nuw nsw i64 %.062811831186, 1
   %247 = icmp slt i64 %246, %245
-  br i1 %247, label %.lr.ph1258, label %.critedge1067
+  br i1 %247, label %.lr.ph1187, label %.critedge996
 
-.critedge1067:                                    ; preds = %.critedge854, %.lr.ph1255, %233
+.critedge996:                                     ; preds = %.critedge845, %.lr.ph1184, %233
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %249 = load ptr, ptr %248, align 8, !tbaa !28
   %250 = tail call fastcc i32 @astfold_expr(ptr noundef %249, ptr noundef %1, ptr noundef %2)
   %.not775 = icmp eq i32 %250, 0
-  br i1 %.not775, label %.thread1019, label %.thread975
+  br i1 %.not775, label %.thread960, label %.thread935
 
 251:                                              ; preds = %12
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %253 = load ptr, ptr %252, align 8, !tbaa !28
   %254 = tail call fastcc i32 @astfold_expr(ptr noundef %253, ptr noundef %1, ptr noundef %2)
   %.not765 = icmp eq i32 %254, 0
-  br i1 %.not765, label %.thread1019, label %255
+  br i1 %.not765, label %.thread960, label %255
 
 255:                                              ; preds = %251
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %257 = load ptr, ptr %256, align 8, !tbaa !28
   %258 = tail call fastcc i32 @astfold_expr(ptr noundef %257, ptr noundef %1, ptr noundef %2)
   %.not766 = icmp eq i32 %258, 0
-  br i1 %.not766, label %.thread1019, label %259
+  br i1 %.not766, label %.thread960, label %259
 
 259:                                              ; preds = %255
   %260 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %261 = load ptr, ptr %260, align 8, !tbaa !28
   %262 = icmp eq ptr %261, null
-  br i1 %262, label %.critedge1069, label %.lr.ph1245
+  br i1 %262, label %.critedge998, label %.lr.ph1174
 
-.lr.ph1245:                                       ; preds = %259
+.lr.ph1174:                                       ; preds = %259
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %264 = load i64, ptr %261, align 8, !tbaa !29
   %265 = icmp sgt i64 %264, 0
-  br i1 %265, label %.lr.ph1248, label %.critedge1069
+  br i1 %265, label %.lr.ph1177, label %.critedge998
 
-.lr.ph1248:                                       ; preds = %.lr.ph1245, %.critedge858
-  %266 = phi i64 [ %271, %.critedge858 ], [ %264, %.lr.ph1245 ]
-  %.062912441247 = phi i64 [ %272, %.critedge858 ], [ 0, %.lr.ph1245 ]
-  %267 = getelementptr ptr, ptr %263, i64 %.062912441247
+.lr.ph1177:                                       ; preds = %.lr.ph1174, %.critedge848
+  %266 = phi i64 [ %271, %.critedge848 ], [ %264, %.lr.ph1174 ]
+  %.062911731176 = phi i64 [ %272, %.critedge848 ], [ 0, %.lr.ph1174 ]
+  %267 = getelementptr ptr, ptr %263, i64 %.062911731176
   %268 = load ptr, ptr %267, align 8, !tbaa !31
   %.not767 = icmp eq ptr %268, null
-  br i1 %.not767, label %.critedge858, label %269
+  br i1 %.not767, label %.critedge848, label %269
 
-269:                                              ; preds = %.lr.ph1248
+269:                                              ; preds = %.lr.ph1177
   %270 = tail call fastcc i32 @astfold_stmt(ptr noundef %268, ptr noundef %1, ptr noundef %2)
   %.not768 = icmp eq i32 %270, 0
-  br i1 %.not768, label %.thread1019, label %..critedge858_crit_edge
+  br i1 %.not768, label %.thread960, label %..critedge848_crit_edge
 
-..critedge858_crit_edge:                          ; preds = %269
-  %.pre1368 = load i64, ptr %261, align 8, !tbaa !29
-  br label %.critedge858
+..critedge848_crit_edge:                          ; preds = %269
+  %.pre1297 = load i64, ptr %261, align 8, !tbaa !29
+  br label %.critedge848
 
-.critedge858:                                     ; preds = %..critedge858_crit_edge, %.lr.ph1248
-  %271 = phi i64 [ %.pre1368, %..critedge858_crit_edge ], [ %266, %.lr.ph1248 ]
-  %272 = add nuw nsw i64 %.062912441247, 1
+.critedge848:                                     ; preds = %..critedge848_crit_edge, %.lr.ph1177
+  %271 = phi i64 [ %.pre1297, %..critedge848_crit_edge ], [ %266, %.lr.ph1177 ]
+  %272 = add nuw nsw i64 %.062911731176, 1
   %273 = icmp slt i64 %272, %271
-  br i1 %273, label %.lr.ph1248, label %.critedge1069
+  br i1 %273, label %.lr.ph1177, label %.critedge998
 
-.critedge1069:                                    ; preds = %.critedge858, %.lr.ph1245, %259
+.critedge998:                                     ; preds = %.critedge848, %.lr.ph1174, %259
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %275 = load ptr, ptr %274, align 8, !tbaa !28
   %276 = icmp eq ptr %275, null
-  br i1 %276, label %.critedge1071, label %.lr.ph1250
+  br i1 %276, label %.critedge1000, label %.lr.ph1179
 
-.lr.ph1250:                                       ; preds = %.critedge1069
+.lr.ph1179:                                       ; preds = %.critedge998
   %277 = getelementptr inbounds nuw i8, ptr %275, i64 16
   %278 = load i64, ptr %275, align 8, !tbaa !29
   %279 = icmp sgt i64 %278, 0
-  br i1 %279, label %.lr.ph1253, label %.critedge1071
+  br i1 %279, label %.lr.ph1182, label %.critedge1000
 
-.lr.ph1253:                                       ; preds = %.lr.ph1250, %.critedge862
-  %280 = phi i64 [ %285, %.critedge862 ], [ %278, %.lr.ph1250 ]
-  %.063112491252 = phi i64 [ %286, %.critedge862 ], [ 0, %.lr.ph1250 ]
-  %281 = getelementptr ptr, ptr %277, i64 %.063112491252
+.lr.ph1182:                                       ; preds = %.lr.ph1179, %.critedge851
+  %280 = phi i64 [ %285, %.critedge851 ], [ %278, %.lr.ph1179 ]
+  %.063111781181 = phi i64 [ %286, %.critedge851 ], [ 0, %.lr.ph1179 ]
+  %281 = getelementptr ptr, ptr %277, i64 %.063111781181
   %282 = load ptr, ptr %281, align 8, !tbaa !31
   %.not769 = icmp eq ptr %282, null
-  br i1 %.not769, label %.critedge862, label %283
+  br i1 %.not769, label %.critedge851, label %283
 
-283:                                              ; preds = %.lr.ph1253
+283:                                              ; preds = %.lr.ph1182
   %284 = tail call fastcc i32 @astfold_stmt(ptr noundef %282, ptr noundef %1, ptr noundef %2)
   %.not770 = icmp eq i32 %284, 0
-  br i1 %.not770, label %.thread1019, label %..critedge862_crit_edge
+  br i1 %.not770, label %.thread960, label %..critedge851_crit_edge
 
-..critedge862_crit_edge:                          ; preds = %283
-  %.pre1369 = load i64, ptr %275, align 8, !tbaa !29
-  br label %.critedge862
+..critedge851_crit_edge:                          ; preds = %283
+  %.pre1298 = load i64, ptr %275, align 8, !tbaa !29
+  br label %.critedge851
 
-.critedge862:                                     ; preds = %..critedge862_crit_edge, %.lr.ph1253
-  %285 = phi i64 [ %.pre1369, %..critedge862_crit_edge ], [ %280, %.lr.ph1253 ]
-  %286 = add nuw nsw i64 %.063112491252, 1
+.critedge851:                                     ; preds = %..critedge851_crit_edge, %.lr.ph1182
+  %285 = phi i64 [ %.pre1298, %..critedge851_crit_edge ], [ %280, %.lr.ph1182 ]
+  %286 = add nuw nsw i64 %.063111781181, 1
   %287 = icmp slt i64 %286, %285
-  br i1 %287, label %.lr.ph1253, label %.critedge1071
+  br i1 %287, label %.lr.ph1182, label %.critedge1000
 
-.critedge1071:                                    ; preds = %.critedge862, %.lr.ph1250, %.critedge1069
+.critedge1000:                                    ; preds = %.critedge851, %.lr.ph1179, %.critedge998
   %288 = load ptr, ptr %256, align 8, !tbaa !28
   %289 = tail call fastcc i32 @fold_iter(ptr noundef %288, ptr noundef %1)
   %.not771 = icmp eq i32 %289, 0
-  br i1 %.not771, label %.thread1019, label %.thread975
+  br i1 %.not771, label %.thread960, label %.thread935
 
 290:                                              ; preds = %12
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %292 = load ptr, ptr %291, align 8, !tbaa !28
   %293 = tail call fastcc i32 @astfold_expr(ptr noundef %292, ptr noundef %1, ptr noundef %2)
   %.not759 = icmp eq i32 %293, 0
-  br i1 %.not759, label %.thread1019, label %294
+  br i1 %.not759, label %.thread960, label %294
 
 294:                                              ; preds = %290
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %296 = load ptr, ptr %295, align 8, !tbaa !28
   %297 = tail call fastcc i32 @astfold_expr(ptr noundef %296, ptr noundef %1, ptr noundef %2)
   %.not760 = icmp eq i32 %297, 0
-  br i1 %.not760, label %.thread1019, label %298
+  br i1 %.not760, label %.thread960, label %298
 
 298:                                              ; preds = %294
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %300 = load ptr, ptr %299, align 8, !tbaa !28
   %301 = icmp eq ptr %300, null
-  br i1 %301, label %.critedge1073, label %.lr.ph1235
+  br i1 %301, label %.critedge1002, label %.lr.ph1164
 
-.lr.ph1235:                                       ; preds = %298
+.lr.ph1164:                                       ; preds = %298
   %302 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %303 = load i64, ptr %300, align 8, !tbaa !29
   %304 = icmp sgt i64 %303, 0
-  br i1 %304, label %.lr.ph1238, label %.critedge1073
+  br i1 %304, label %.lr.ph1167, label %.critedge1002
 
-.lr.ph1238:                                       ; preds = %.lr.ph1235, %.critedge866
-  %305 = phi i64 [ %310, %.critedge866 ], [ %303, %.lr.ph1235 ]
-  %.063212341237 = phi i64 [ %311, %.critedge866 ], [ 0, %.lr.ph1235 ]
-  %306 = getelementptr ptr, ptr %302, i64 %.063212341237
+.lr.ph1167:                                       ; preds = %.lr.ph1164, %.critedge854
+  %305 = phi i64 [ %310, %.critedge854 ], [ %303, %.lr.ph1164 ]
+  %.063211631166 = phi i64 [ %311, %.critedge854 ], [ 0, %.lr.ph1164 ]
+  %306 = getelementptr ptr, ptr %302, i64 %.063211631166
   %307 = load ptr, ptr %306, align 8, !tbaa !31
   %.not761 = icmp eq ptr %307, null
-  br i1 %.not761, label %.critedge866, label %308
+  br i1 %.not761, label %.critedge854, label %308
 
-308:                                              ; preds = %.lr.ph1238
+308:                                              ; preds = %.lr.ph1167
   %309 = tail call fastcc i32 @astfold_stmt(ptr noundef %307, ptr noundef %1, ptr noundef %2)
   %.not762 = icmp eq i32 %309, 0
-  br i1 %.not762, label %.thread1019, label %..critedge866_crit_edge
+  br i1 %.not762, label %.thread960, label %..critedge854_crit_edge
 
-..critedge866_crit_edge:                          ; preds = %308
-  %.pre1366 = load i64, ptr %300, align 8, !tbaa !29
-  br label %.critedge866
+..critedge854_crit_edge:                          ; preds = %308
+  %.pre1295 = load i64, ptr %300, align 8, !tbaa !29
+  br label %.critedge854
 
-.critedge866:                                     ; preds = %..critedge866_crit_edge, %.lr.ph1238
-  %310 = phi i64 [ %.pre1366, %..critedge866_crit_edge ], [ %305, %.lr.ph1238 ]
-  %311 = add nuw nsw i64 %.063212341237, 1
+.critedge854:                                     ; preds = %..critedge854_crit_edge, %.lr.ph1167
+  %310 = phi i64 [ %.pre1295, %..critedge854_crit_edge ], [ %305, %.lr.ph1167 ]
+  %311 = add nuw nsw i64 %.063211631166, 1
   %312 = icmp slt i64 %311, %310
-  br i1 %312, label %.lr.ph1238, label %.critedge1073
+  br i1 %312, label %.lr.ph1167, label %.critedge1002
 
-.critedge1073:                                    ; preds = %.critedge866, %.lr.ph1235, %298
+.critedge1002:                                    ; preds = %.critedge854, %.lr.ph1164, %298
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %314 = load ptr, ptr %313, align 8, !tbaa !28
   %315 = icmp eq ptr %314, null
-  br i1 %315, label %.thread975, label %.lr.ph1240
+  br i1 %315, label %.thread935, label %.lr.ph1169
 
-.lr.ph1240:                                       ; preds = %.critedge1073
+.lr.ph1169:                                       ; preds = %.critedge1002
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %317 = load i64, ptr %314, align 8, !tbaa !29
   %318 = icmp sgt i64 %317, 0
-  br i1 %318, label %.lr.ph1243, label %.thread975
+  br i1 %318, label %.lr.ph1172, label %.thread935
 
-.lr.ph1243:                                       ; preds = %.lr.ph1240, %.critedge870
-  %319 = phi i64 [ %324, %.critedge870 ], [ %317, %.lr.ph1240 ]
-  %.063412391242 = phi i64 [ %325, %.critedge870 ], [ 0, %.lr.ph1240 ]
-  %320 = getelementptr ptr, ptr %316, i64 %.063412391242
+.lr.ph1172:                                       ; preds = %.lr.ph1169, %.critedge857
+  %319 = phi i64 [ %324, %.critedge857 ], [ %317, %.lr.ph1169 ]
+  %.063411681171 = phi i64 [ %325, %.critedge857 ], [ 0, %.lr.ph1169 ]
+  %320 = getelementptr ptr, ptr %316, i64 %.063411681171
   %321 = load ptr, ptr %320, align 8, !tbaa !31
   %.not763 = icmp eq ptr %321, null
-  br i1 %.not763, label %.critedge870, label %322
+  br i1 %.not763, label %.critedge857, label %322
 
-322:                                              ; preds = %.lr.ph1243
+322:                                              ; preds = %.lr.ph1172
   %323 = tail call fastcc i32 @astfold_stmt(ptr noundef %321, ptr noundef %1, ptr noundef %2)
   %.not764 = icmp eq i32 %323, 0
-  br i1 %.not764, label %.thread1019, label %..critedge870_crit_edge
+  br i1 %.not764, label %.thread960, label %..critedge857_crit_edge
 
-..critedge870_crit_edge:                          ; preds = %322
-  %.pre1367 = load i64, ptr %314, align 8, !tbaa !29
-  br label %.critedge870
+..critedge857_crit_edge:                          ; preds = %322
+  %.pre1296 = load i64, ptr %314, align 8, !tbaa !29
+  br label %.critedge857
 
-.critedge870:                                     ; preds = %..critedge870_crit_edge, %.lr.ph1243
-  %324 = phi i64 [ %.pre1367, %..critedge870_crit_edge ], [ %319, %.lr.ph1243 ]
-  %325 = add nuw nsw i64 %.063412391242, 1
+.critedge857:                                     ; preds = %..critedge857_crit_edge, %.lr.ph1172
+  %324 = phi i64 [ %.pre1296, %..critedge857_crit_edge ], [ %319, %.lr.ph1172 ]
+  %325 = add nuw nsw i64 %.063411681171, 1
   %326 = icmp slt i64 %325, %324
-  br i1 %326, label %.lr.ph1243, label %.thread975
+  br i1 %326, label %.lr.ph1172, label %.thread935
 
 327:                                              ; preds = %12
   %328 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %329 = load ptr, ptr %328, align 8, !tbaa !28
   %330 = tail call fastcc i32 @astfold_expr(ptr noundef %329, ptr noundef %1, ptr noundef %2)
   %.not754 = icmp eq i32 %330, 0
-  br i1 %.not754, label %.thread1019, label %331
+  br i1 %.not754, label %.thread960, label %331
 
 331:                                              ; preds = %327
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %333 = load ptr, ptr %332, align 8, !tbaa !28
   %334 = icmp eq ptr %333, null
-  br i1 %334, label %.critedge1077, label %.lr.ph1225
+  br i1 %334, label %.critedge1006, label %.lr.ph1154
 
-.lr.ph1225:                                       ; preds = %331
+.lr.ph1154:                                       ; preds = %331
   %335 = getelementptr inbounds nuw i8, ptr %333, i64 16
   %336 = load i64, ptr %333, align 8, !tbaa !29
   %337 = icmp sgt i64 %336, 0
-  br i1 %337, label %.lr.ph1228, label %.critedge1077
+  br i1 %337, label %.lr.ph1157, label %.critedge1006
 
-.lr.ph1228:                                       ; preds = %.lr.ph1225, %.critedge874
-  %338 = phi i64 [ %343, %.critedge874 ], [ %336, %.lr.ph1225 ]
-  %.063512241227 = phi i64 [ %344, %.critedge874 ], [ 0, %.lr.ph1225 ]
-  %339 = getelementptr ptr, ptr %335, i64 %.063512241227
+.lr.ph1157:                                       ; preds = %.lr.ph1154, %.critedge860
+  %338 = phi i64 [ %343, %.critedge860 ], [ %336, %.lr.ph1154 ]
+  %.063511531156 = phi i64 [ %344, %.critedge860 ], [ 0, %.lr.ph1154 ]
+  %339 = getelementptr ptr, ptr %335, i64 %.063511531156
   %340 = load ptr, ptr %339, align 8, !tbaa !31
   %.not755 = icmp eq ptr %340, null
-  br i1 %.not755, label %.critedge874, label %341
+  br i1 %.not755, label %.critedge860, label %341
 
-341:                                              ; preds = %.lr.ph1228
+341:                                              ; preds = %.lr.ph1157
   %342 = tail call fastcc i32 @astfold_stmt(ptr noundef %340, ptr noundef %1, ptr noundef %2)
   %.not756 = icmp eq i32 %342, 0
-  br i1 %.not756, label %.thread1019, label %..critedge874_crit_edge
+  br i1 %.not756, label %.thread960, label %..critedge860_crit_edge
 
-..critedge874_crit_edge:                          ; preds = %341
-  %.pre1364 = load i64, ptr %333, align 8, !tbaa !29
-  br label %.critedge874
+..critedge860_crit_edge:                          ; preds = %341
+  %.pre1293 = load i64, ptr %333, align 8, !tbaa !29
+  br label %.critedge860
 
-.critedge874:                                     ; preds = %..critedge874_crit_edge, %.lr.ph1228
-  %343 = phi i64 [ %.pre1364, %..critedge874_crit_edge ], [ %338, %.lr.ph1228 ]
-  %344 = add nuw nsw i64 %.063512241227, 1
+.critedge860:                                     ; preds = %..critedge860_crit_edge, %.lr.ph1157
+  %343 = phi i64 [ %.pre1293, %..critedge860_crit_edge ], [ %338, %.lr.ph1157 ]
+  %344 = add nuw nsw i64 %.063511531156, 1
   %345 = icmp slt i64 %344, %343
-  br i1 %345, label %.lr.ph1228, label %.critedge1077
+  br i1 %345, label %.lr.ph1157, label %.critedge1006
 
-.critedge1077:                                    ; preds = %.critedge874, %.lr.ph1225, %331
+.critedge1006:                                    ; preds = %.critedge860, %.lr.ph1154, %331
   %346 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %347 = load ptr, ptr %346, align 8, !tbaa !28
   %348 = icmp eq ptr %347, null
-  br i1 %348, label %.thread975, label %.lr.ph1230
+  br i1 %348, label %.thread935, label %.lr.ph1159
 
-.lr.ph1230:                                       ; preds = %.critedge1077
+.lr.ph1159:                                       ; preds = %.critedge1006
   %349 = getelementptr inbounds nuw i8, ptr %347, i64 16
   %350 = load i64, ptr %347, align 8, !tbaa !29
   %351 = icmp sgt i64 %350, 0
-  br i1 %351, label %.lr.ph1233, label %.thread975
+  br i1 %351, label %.lr.ph1162, label %.thread935
 
-.lr.ph1233:                                       ; preds = %.lr.ph1230, %.critedge878
-  %352 = phi i64 [ %357, %.critedge878 ], [ %350, %.lr.ph1230 ]
-  %.063712291232 = phi i64 [ %358, %.critedge878 ], [ 0, %.lr.ph1230 ]
-  %353 = getelementptr ptr, ptr %349, i64 %.063712291232
+.lr.ph1162:                                       ; preds = %.lr.ph1159, %.critedge863
+  %352 = phi i64 [ %357, %.critedge863 ], [ %350, %.lr.ph1159 ]
+  %.063711581161 = phi i64 [ %358, %.critedge863 ], [ 0, %.lr.ph1159 ]
+  %353 = getelementptr ptr, ptr %349, i64 %.063711581161
   %354 = load ptr, ptr %353, align 8, !tbaa !31
   %.not757 = icmp eq ptr %354, null
-  br i1 %.not757, label %.critedge878, label %355
+  br i1 %.not757, label %.critedge863, label %355
 
-355:                                              ; preds = %.lr.ph1233
+355:                                              ; preds = %.lr.ph1162
   %356 = tail call fastcc i32 @astfold_stmt(ptr noundef %354, ptr noundef %1, ptr noundef %2)
   %.not758 = icmp eq i32 %356, 0
-  br i1 %.not758, label %.thread1019, label %..critedge878_crit_edge
+  br i1 %.not758, label %.thread960, label %..critedge863_crit_edge
 
-..critedge878_crit_edge:                          ; preds = %355
-  %.pre1365 = load i64, ptr %347, align 8, !tbaa !29
-  br label %.critedge878
+..critedge863_crit_edge:                          ; preds = %355
+  %.pre1294 = load i64, ptr %347, align 8, !tbaa !29
+  br label %.critedge863
 
-.critedge878:                                     ; preds = %..critedge878_crit_edge, %.lr.ph1233
-  %357 = phi i64 [ %.pre1365, %..critedge878_crit_edge ], [ %352, %.lr.ph1233 ]
-  %358 = add nuw nsw i64 %.063712291232, 1
+.critedge863:                                     ; preds = %..critedge863_crit_edge, %.lr.ph1162
+  %357 = phi i64 [ %.pre1294, %..critedge863_crit_edge ], [ %352, %.lr.ph1162 ]
+  %358 = add nuw nsw i64 %.063711581161, 1
   %359 = icmp slt i64 %358, %357
-  br i1 %359, label %.lr.ph1233, label %.thread975
+  br i1 %359, label %.lr.ph1162, label %.thread935
 
 360:                                              ; preds = %12
   %361 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %362 = load ptr, ptr %361, align 8, !tbaa !28
   %363 = tail call fastcc i32 @astfold_expr(ptr noundef %362, ptr noundef %1, ptr noundef %2)
   %.not749 = icmp eq i32 %363, 0
-  br i1 %.not749, label %.thread1019, label %364
+  br i1 %.not749, label %.thread960, label %364
 
 364:                                              ; preds = %360
   %365 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %366 = load ptr, ptr %365, align 8, !tbaa !28
   %367 = icmp eq ptr %366, null
-  br i1 %367, label %.critedge1081, label %.lr.ph1215
+  br i1 %367, label %.critedge1010, label %.lr.ph1144
 
-.lr.ph1215:                                       ; preds = %364
+.lr.ph1144:                                       ; preds = %364
   %368 = getelementptr inbounds nuw i8, ptr %366, i64 16
   %369 = load i64, ptr %366, align 8, !tbaa !29
   %370 = icmp sgt i64 %369, 0
-  br i1 %370, label %.lr.ph1218, label %.critedge1081
+  br i1 %370, label %.lr.ph1147, label %.critedge1010
 
-.lr.ph1218:                                       ; preds = %.lr.ph1215, %.critedge882
-  %371 = phi i64 [ %376, %.critedge882 ], [ %369, %.lr.ph1215 ]
-  %.063812141217 = phi i64 [ %377, %.critedge882 ], [ 0, %.lr.ph1215 ]
-  %372 = getelementptr ptr, ptr %368, i64 %.063812141217
+.lr.ph1147:                                       ; preds = %.lr.ph1144, %.critedge866
+  %371 = phi i64 [ %376, %.critedge866 ], [ %369, %.lr.ph1144 ]
+  %.063811431146 = phi i64 [ %377, %.critedge866 ], [ 0, %.lr.ph1144 ]
+  %372 = getelementptr ptr, ptr %368, i64 %.063811431146
   %373 = load ptr, ptr %372, align 8, !tbaa !31
   %.not750 = icmp eq ptr %373, null
-  br i1 %.not750, label %.critedge882, label %374
+  br i1 %.not750, label %.critedge866, label %374
 
-374:                                              ; preds = %.lr.ph1218
+374:                                              ; preds = %.lr.ph1147
   %375 = tail call fastcc i32 @astfold_stmt(ptr noundef %373, ptr noundef %1, ptr noundef %2)
   %.not751 = icmp eq i32 %375, 0
-  br i1 %.not751, label %.thread1019, label %..critedge882_crit_edge
+  br i1 %.not751, label %.thread960, label %..critedge866_crit_edge
 
-..critedge882_crit_edge:                          ; preds = %374
-  %.pre1362 = load i64, ptr %366, align 8, !tbaa !29
-  br label %.critedge882
+..critedge866_crit_edge:                          ; preds = %374
+  %.pre1291 = load i64, ptr %366, align 8, !tbaa !29
+  br label %.critedge866
 
-.critedge882:                                     ; preds = %..critedge882_crit_edge, %.lr.ph1218
-  %376 = phi i64 [ %.pre1362, %..critedge882_crit_edge ], [ %371, %.lr.ph1218 ]
-  %377 = add nuw nsw i64 %.063812141217, 1
+.critedge866:                                     ; preds = %..critedge866_crit_edge, %.lr.ph1147
+  %376 = phi i64 [ %.pre1291, %..critedge866_crit_edge ], [ %371, %.lr.ph1147 ]
+  %377 = add nuw nsw i64 %.063811431146, 1
   %378 = icmp slt i64 %377, %376
-  br i1 %378, label %.lr.ph1218, label %.critedge1081
+  br i1 %378, label %.lr.ph1147, label %.critedge1010
 
-.critedge1081:                                    ; preds = %.critedge882, %.lr.ph1215, %364
+.critedge1010:                                    ; preds = %.critedge866, %.lr.ph1144, %364
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %380 = load ptr, ptr %379, align 8, !tbaa !28
   %381 = icmp eq ptr %380, null
-  br i1 %381, label %.thread975, label %.lr.ph1220
+  br i1 %381, label %.thread935, label %.lr.ph1149
 
-.lr.ph1220:                                       ; preds = %.critedge1081
+.lr.ph1149:                                       ; preds = %.critedge1010
   %382 = getelementptr inbounds nuw i8, ptr %380, i64 16
   %383 = load i64, ptr %380, align 8, !tbaa !29
   %384 = icmp sgt i64 %383, 0
-  br i1 %384, label %.lr.ph1223, label %.thread975
+  br i1 %384, label %.lr.ph1152, label %.thread935
 
-.lr.ph1223:                                       ; preds = %.lr.ph1220, %.critedge886
-  %385 = phi i64 [ %390, %.critedge886 ], [ %383, %.lr.ph1220 ]
-  %.064012191222 = phi i64 [ %391, %.critedge886 ], [ 0, %.lr.ph1220 ]
-  %386 = getelementptr ptr, ptr %382, i64 %.064012191222
+.lr.ph1152:                                       ; preds = %.lr.ph1149, %.critedge869
+  %385 = phi i64 [ %390, %.critedge869 ], [ %383, %.lr.ph1149 ]
+  %.064011481151 = phi i64 [ %391, %.critedge869 ], [ 0, %.lr.ph1149 ]
+  %386 = getelementptr ptr, ptr %382, i64 %.064011481151
   %387 = load ptr, ptr %386, align 8, !tbaa !31
   %.not752 = icmp eq ptr %387, null
-  br i1 %.not752, label %.critedge886, label %388
+  br i1 %.not752, label %.critedge869, label %388
 
-388:                                              ; preds = %.lr.ph1223
+388:                                              ; preds = %.lr.ph1152
   %389 = tail call fastcc i32 @astfold_stmt(ptr noundef %387, ptr noundef %1, ptr noundef %2)
   %.not753 = icmp eq i32 %389, 0
-  br i1 %.not753, label %.thread1019, label %..critedge886_crit_edge
+  br i1 %.not753, label %.thread960, label %..critedge869_crit_edge
 
-..critedge886_crit_edge:                          ; preds = %388
-  %.pre1363 = load i64, ptr %380, align 8, !tbaa !29
-  br label %.critedge886
+..critedge869_crit_edge:                          ; preds = %388
+  %.pre1292 = load i64, ptr %380, align 8, !tbaa !29
+  br label %.critedge869
 
-.critedge886:                                     ; preds = %..critedge886_crit_edge, %.lr.ph1223
-  %390 = phi i64 [ %.pre1363, %..critedge886_crit_edge ], [ %385, %.lr.ph1223 ]
-  %391 = add nuw nsw i64 %.064012191222, 1
+.critedge869:                                     ; preds = %..critedge869_crit_edge, %.lr.ph1152
+  %390 = phi i64 [ %.pre1292, %..critedge869_crit_edge ], [ %385, %.lr.ph1152 ]
+  %391 = add nuw nsw i64 %.064011481151, 1
   %392 = icmp slt i64 %391, %390
-  br i1 %392, label %.lr.ph1223, label %.thread975
+  br i1 %392, label %.lr.ph1152, label %.thread935
 
 393:                                              ; preds = %12
   %394 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %395 = load ptr, ptr %394, align 8, !tbaa !28
   %396 = icmp eq ptr %395, null
-  br i1 %396, label %.critedge1085, label %.lr.ph1205
+  br i1 %396, label %.critedge1014, label %.lr.ph1134
 
-.lr.ph1205:                                       ; preds = %393
+.lr.ph1134:                                       ; preds = %393
   %397 = getelementptr inbounds nuw i8, ptr %395, i64 16
   %398 = load i64, ptr %395, align 8, !tbaa !29
   %399 = icmp sgt i64 %398, 0
-  br i1 %399, label %.lr.ph1208, label %.critedge1085
+  br i1 %399, label %.lr.ph1137, label %.critedge1014
 
-.lr.ph1208:                                       ; preds = %.lr.ph1205, %.critedge890
-  %.064112041207 = phi i64 [ %410, %.critedge890 ], [ 0, %.lr.ph1205 ]
-  %400 = getelementptr ptr, ptr %397, i64 %.064112041207
+.lr.ph1137:                                       ; preds = %.lr.ph1134, %.critedge872
+  %.064111331136 = phi i64 [ %410, %.critedge872 ], [ 0, %.lr.ph1134 ]
+  %400 = getelementptr ptr, ptr %397, i64 %.064111331136
   %401 = load ptr, ptr %400, align 8, !tbaa !48
   %.not745 = icmp eq ptr %401, null
-  br i1 %.not745, label %.critedge890, label %402
+  br i1 %.not745, label %.critedge872, label %402
 
-402:                                              ; preds = %.lr.ph1208
+402:                                              ; preds = %.lr.ph1137
   %403 = load ptr, ptr %401, align 8, !tbaa !50
   %404 = tail call fastcc i32 @astfold_expr(ptr noundef %403, ptr noundef %1, ptr noundef nonnull %2)
   %.not.i = icmp eq i32 %404, 0
-  br i1 %.not.i, label %.thread1019, label %405
+  br i1 %.not.i, label %.thread960, label %405
 
 405:                                              ; preds = %402
   %406 = getelementptr inbounds nuw i8, ptr %401, i64 8
   %407 = load ptr, ptr %406, align 8, !tbaa !52
   %.not8.i = icmp eq ptr %407, null
-  br i1 %.not8.i, label %.critedge890, label %408
+  br i1 %.not8.i, label %.critedge872, label %408
 
 408:                                              ; preds = %405
   %409 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %407, ptr noundef %1, ptr noundef nonnull %2)
   %.not9.i = icmp eq i32 %409, 0
-  br i1 %.not9.i, label %.thread1019, label %.critedge890
+  br i1 %.not9.i, label %.thread960, label %.critedge872
 
-.critedge890:                                     ; preds = %408, %405, %.lr.ph1208
-  %410 = add nuw nsw i64 %.064112041207, 1
+.critedge872:                                     ; preds = %408, %405, %.lr.ph1137
+  %410 = add nuw nsw i64 %.064111331136, 1
   %411 = load i64, ptr %395, align 8, !tbaa !29
   %412 = icmp slt i64 %410, %411
-  br i1 %412, label %.lr.ph1208, label %.critedge1085
+  br i1 %412, label %.lr.ph1137, label %.critedge1014
 
-.critedge1085:                                    ; preds = %.critedge890, %.lr.ph1205, %393
+.critedge1014:                                    ; preds = %.critedge872, %.lr.ph1134, %393
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %414 = load ptr, ptr %413, align 8, !tbaa !28
   %415 = icmp eq ptr %414, null
-  br i1 %415, label %.thread975, label %.lr.ph1210
+  br i1 %415, label %.thread935, label %.lr.ph1139
 
-.lr.ph1210:                                       ; preds = %.critedge1085
+.lr.ph1139:                                       ; preds = %.critedge1014
   %416 = getelementptr inbounds nuw i8, ptr %414, i64 16
   %417 = load i64, ptr %414, align 8, !tbaa !29
   %418 = icmp sgt i64 %417, 0
-  br i1 %418, label %.lr.ph1213, label %.thread975
+  br i1 %418, label %.lr.ph1142, label %.thread935
 
-.lr.ph1213:                                       ; preds = %.lr.ph1210, %.critedge894
-  %419 = phi i64 [ %424, %.critedge894 ], [ %417, %.lr.ph1210 ]
-  %.064312091212 = phi i64 [ %425, %.critedge894 ], [ 0, %.lr.ph1210 ]
-  %420 = getelementptr ptr, ptr %416, i64 %.064312091212
+.lr.ph1142:                                       ; preds = %.lr.ph1139, %.critedge875
+  %419 = phi i64 [ %424, %.critedge875 ], [ %417, %.lr.ph1139 ]
+  %.064311381141 = phi i64 [ %425, %.critedge875 ], [ 0, %.lr.ph1139 ]
+  %420 = getelementptr ptr, ptr %416, i64 %.064311381141
   %421 = load ptr, ptr %420, align 8, !tbaa !31
   %.not747 = icmp eq ptr %421, null
-  br i1 %.not747, label %.critedge894, label %422
+  br i1 %.not747, label %.critedge875, label %422
 
-422:                                              ; preds = %.lr.ph1213
+422:                                              ; preds = %.lr.ph1142
   %423 = tail call fastcc i32 @astfold_stmt(ptr noundef %421, ptr noundef %1, ptr noundef %2)
   %.not748 = icmp eq i32 %423, 0
-  br i1 %.not748, label %.thread1019, label %..critedge894_crit_edge
+  br i1 %.not748, label %.thread960, label %..critedge875_crit_edge
 
-..critedge894_crit_edge:                          ; preds = %422
-  %.pre1361 = load i64, ptr %414, align 8, !tbaa !29
-  br label %.critedge894
+..critedge875_crit_edge:                          ; preds = %422
+  %.pre1290 = load i64, ptr %414, align 8, !tbaa !29
+  br label %.critedge875
 
-.critedge894:                                     ; preds = %..critedge894_crit_edge, %.lr.ph1213
-  %424 = phi i64 [ %.pre1361, %..critedge894_crit_edge ], [ %419, %.lr.ph1213 ]
-  %425 = add nuw nsw i64 %.064312091212, 1
+.critedge875:                                     ; preds = %..critedge875_crit_edge, %.lr.ph1142
+  %424 = phi i64 [ %.pre1290, %..critedge875_crit_edge ], [ %419, %.lr.ph1142 ]
+  %425 = add nuw nsw i64 %.064311381141, 1
   %426 = icmp slt i64 %425, %424
-  br i1 %426, label %.lr.ph1213, label %.thread975
+  br i1 %426, label %.lr.ph1142, label %.thread935
 
 427:                                              ; preds = %12
   %428 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %429 = load ptr, ptr %428, align 8, !tbaa !28
   %430 = icmp eq ptr %429, null
-  br i1 %430, label %.critedge1089, label %.lr.ph1195
+  br i1 %430, label %.critedge1018, label %.lr.ph1124
 
-.lr.ph1195:                                       ; preds = %427
+.lr.ph1124:                                       ; preds = %427
   %431 = getelementptr inbounds nuw i8, ptr %429, i64 16
   %432 = load i64, ptr %429, align 8, !tbaa !29
   %433 = icmp sgt i64 %432, 0
-  br i1 %433, label %.lr.ph1198, label %.critedge1089
+  br i1 %433, label %.lr.ph1127, label %.critedge1018
 
-.lr.ph1198:                                       ; preds = %.lr.ph1195, %.critedge898
-  %.064211941197 = phi i64 [ %444, %.critedge898 ], [ 0, %.lr.ph1195 ]
-  %434 = getelementptr ptr, ptr %431, i64 %.064211941197
+.lr.ph1127:                                       ; preds = %.lr.ph1124, %.critedge878
+  %.064211231126 = phi i64 [ %444, %.critedge878 ], [ 0, %.lr.ph1124 ]
+  %434 = getelementptr ptr, ptr %431, i64 %.064211231126
   %435 = load ptr, ptr %434, align 8, !tbaa !48
   %.not741 = icmp eq ptr %435, null
-  br i1 %.not741, label %.critedge898, label %436
+  br i1 %.not741, label %.critedge878, label %436
 
-436:                                              ; preds = %.lr.ph1198
+436:                                              ; preds = %.lr.ph1127
   %437 = load ptr, ptr %435, align 8, !tbaa !50
   %438 = tail call fastcc i32 @astfold_expr(ptr noundef %437, ptr noundef %1, ptr noundef nonnull %2)
-  %.not.i941 = icmp eq i32 %438, 0
-  br i1 %.not.i941, label %.thread1019, label %439
+  %.not.i910 = icmp eq i32 %438, 0
+  br i1 %.not.i910, label %.thread960, label %439
 
 439:                                              ; preds = %436
   %440 = getelementptr inbounds nuw i8, ptr %435, i64 8
   %441 = load ptr, ptr %440, align 8, !tbaa !52
-  %.not8.i942 = icmp eq ptr %441, null
-  br i1 %.not8.i942, label %.critedge898, label %442
+  %.not8.i911 = icmp eq ptr %441, null
+  br i1 %.not8.i911, label %.critedge878, label %442
 
 442:                                              ; preds = %439
   %443 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %441, ptr noundef %1, ptr noundef nonnull %2)
-  %.not9.i943 = icmp eq i32 %443, 0
-  br i1 %.not9.i943, label %.thread1019, label %.critedge898
+  %.not9.i912 = icmp eq i32 %443, 0
+  br i1 %.not9.i912, label %.thread960, label %.critedge878
 
-.critedge898:                                     ; preds = %442, %439, %.lr.ph1198
-  %444 = add nuw nsw i64 %.064211941197, 1
+.critedge878:                                     ; preds = %442, %439, %.lr.ph1127
+  %444 = add nuw nsw i64 %.064211231126, 1
   %445 = load i64, ptr %429, align 8, !tbaa !29
   %446 = icmp slt i64 %444, %445
-  br i1 %446, label %.lr.ph1198, label %.critedge1089
+  br i1 %446, label %.lr.ph1127, label %.critedge1018
 
-.critedge1089:                                    ; preds = %.critedge898, %.lr.ph1195, %427
+.critedge1018:                                    ; preds = %.critedge878, %.lr.ph1124, %427
   %447 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %448 = load ptr, ptr %447, align 8, !tbaa !28
   %449 = icmp eq ptr %448, null
-  br i1 %449, label %.thread975, label %.lr.ph1200
+  br i1 %449, label %.thread935, label %.lr.ph1129
 
-.lr.ph1200:                                       ; preds = %.critedge1089
+.lr.ph1129:                                       ; preds = %.critedge1018
   %450 = getelementptr inbounds nuw i8, ptr %448, i64 16
   %451 = load i64, ptr %448, align 8, !tbaa !29
   %452 = icmp sgt i64 %451, 0
-  br i1 %452, label %.lr.ph1203, label %.thread975
+  br i1 %452, label %.lr.ph1132, label %.thread935
 
-.lr.ph1203:                                       ; preds = %.lr.ph1200, %.critedge902
-  %453 = phi i64 [ %458, %.critedge902 ], [ %451, %.lr.ph1200 ]
-  %.063911991202 = phi i64 [ %459, %.critedge902 ], [ 0, %.lr.ph1200 ]
-  %454 = getelementptr ptr, ptr %450, i64 %.063911991202
+.lr.ph1132:                                       ; preds = %.lr.ph1129, %.critedge881
+  %453 = phi i64 [ %458, %.critedge881 ], [ %451, %.lr.ph1129 ]
+  %.063911281131 = phi i64 [ %459, %.critedge881 ], [ 0, %.lr.ph1129 ]
+  %454 = getelementptr ptr, ptr %450, i64 %.063911281131
   %455 = load ptr, ptr %454, align 8, !tbaa !31
   %.not743 = icmp eq ptr %455, null
-  br i1 %.not743, label %.critedge902, label %456
+  br i1 %.not743, label %.critedge881, label %456
 
-456:                                              ; preds = %.lr.ph1203
+456:                                              ; preds = %.lr.ph1132
   %457 = tail call fastcc i32 @astfold_stmt(ptr noundef %455, ptr noundef %1, ptr noundef %2)
   %.not744 = icmp eq i32 %457, 0
-  br i1 %.not744, label %.thread1019, label %..critedge902_crit_edge
+  br i1 %.not744, label %.thread960, label %..critedge881_crit_edge
 
-..critedge902_crit_edge:                          ; preds = %456
-  %.pre1360 = load i64, ptr %448, align 8, !tbaa !29
-  br label %.critedge902
+..critedge881_crit_edge:                          ; preds = %456
+  %.pre1289 = load i64, ptr %448, align 8, !tbaa !29
+  br label %.critedge881
 
-.critedge902:                                     ; preds = %..critedge902_crit_edge, %.lr.ph1203
-  %458 = phi i64 [ %.pre1360, %..critedge902_crit_edge ], [ %453, %.lr.ph1203 ]
-  %459 = add nuw nsw i64 %.063911991202, 1
+.critedge881:                                     ; preds = %..critedge881_crit_edge, %.lr.ph1132
+  %458 = phi i64 [ %.pre1289, %..critedge881_crit_edge ], [ %453, %.lr.ph1132 ]
+  %459 = add nuw nsw i64 %.063911281131, 1
   %460 = icmp slt i64 %459, %458
-  br i1 %460, label %.lr.ph1203, label %.thread975
+  br i1 %460, label %.lr.ph1132, label %.thread935
 
 461:                                              ; preds = %12
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2210,63 +2210,63 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 464:                                              ; preds = %461
   %465 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %463, ptr noundef %1, ptr noundef %2)
   %.not738 = icmp eq i32 %465, 0
-  br i1 %.not738, label %.thread1019, label %466
+  br i1 %.not738, label %.thread960, label %466
 
 466:                                              ; preds = %464, %461
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %468 = load ptr, ptr %467, align 8, !tbaa !28
   %.not739 = icmp eq ptr %468, null
-  br i1 %.not739, label %.thread975, label %469
+  br i1 %.not739, label %.thread935, label %469
 
 469:                                              ; preds = %466
   %470 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %468, ptr noundef %1, ptr noundef %2)
   %.not740 = icmp eq i32 %470, 0
-  br i1 %.not740, label %.thread1019, label %.thread975
+  br i1 %.not740, label %.thread960, label %.thread935
 
 471:                                              ; preds = %12
   %472 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %473 = load ptr, ptr %472, align 8, !tbaa !28
   %474 = icmp eq ptr %473, null
-  br i1 %474, label %.critedge1093, label %.lr.ph1175
+  br i1 %474, label %.critedge1022, label %.lr.ph1104
 
-.lr.ph1175:                                       ; preds = %471
+.lr.ph1104:                                       ; preds = %471
   %475 = getelementptr inbounds nuw i8, ptr %473, i64 16
   %476 = load i64, ptr %473, align 8, !tbaa !29
   %477 = icmp sgt i64 %476, 0
-  br i1 %477, label %.lr.ph1178, label %.critedge1093
+  br i1 %477, label %.lr.ph1107, label %.critedge1022
 
-.lr.ph1178:                                       ; preds = %.lr.ph1175, %.critedge906
-  %478 = phi i64 [ %483, %.critedge906 ], [ %476, %.lr.ph1175 ]
-  %.063611741177 = phi i64 [ %484, %.critedge906 ], [ 0, %.lr.ph1175 ]
-  %479 = getelementptr ptr, ptr %475, i64 %.063611741177
+.lr.ph1107:                                       ; preds = %.lr.ph1104, %.critedge884
+  %478 = phi i64 [ %483, %.critedge884 ], [ %476, %.lr.ph1104 ]
+  %.063611031106 = phi i64 [ %484, %.critedge884 ], [ 0, %.lr.ph1104 ]
+  %479 = getelementptr ptr, ptr %475, i64 %.063611031106
   %480 = load ptr, ptr %479, align 8, !tbaa !31
   %.not729 = icmp eq ptr %480, null
-  br i1 %.not729, label %.critedge906, label %481
+  br i1 %.not729, label %.critedge884, label %481
 
-481:                                              ; preds = %.lr.ph1178
+481:                                              ; preds = %.lr.ph1107
   %482 = tail call fastcc i32 @astfold_stmt(ptr noundef %480, ptr noundef %1, ptr noundef %2)
   %.not730 = icmp eq i32 %482, 0
-  br i1 %.not730, label %.thread1019, label %..critedge906_crit_edge
+  br i1 %.not730, label %.thread960, label %..critedge884_crit_edge
 
-..critedge906_crit_edge:                          ; preds = %481
-  %.pre1356 = load i64, ptr %473, align 8, !tbaa !29
-  br label %.critedge906
+..critedge884_crit_edge:                          ; preds = %481
+  %.pre1285 = load i64, ptr %473, align 8, !tbaa !29
+  br label %.critedge884
 
-.critedge906:                                     ; preds = %..critedge906_crit_edge, %.lr.ph1178
-  %483 = phi i64 [ %.pre1356, %..critedge906_crit_edge ], [ %478, %.lr.ph1178 ]
-  %484 = add nuw nsw i64 %.063611741177, 1
+.critedge884:                                     ; preds = %..critedge884_crit_edge, %.lr.ph1107
+  %483 = phi i64 [ %.pre1285, %..critedge884_crit_edge ], [ %478, %.lr.ph1107 ]
+  %484 = add nuw nsw i64 %.063611031106, 1
   %485 = icmp slt i64 %484, %483
-  br i1 %485, label %.lr.ph1178, label %.critedge1093
+  br i1 %485, label %.lr.ph1107, label %.critedge1022
 
-.critedge1093:                                    ; preds = %.critedge906, %.lr.ph1175, %471
+.critedge1022:                                    ; preds = %.critedge884, %.lr.ph1104, %471
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %487 = load ptr, ptr %486, align 8, !tbaa !28
   %488 = icmp eq ptr %487, null
   %489 = getelementptr inbounds nuw i8, ptr %487, i64 16
   br label %490
 
-490:                                              ; preds = %.critedge910, %.critedge1093
-  %.0633 = phi i64 [ 0, %.critedge1093 ], [ %521, %.critedge910 ]
+490:                                              ; preds = %.critedge887, %.critedge1022
+  %.0633 = phi i64 [ 0, %.critedge1022 ], [ %521, %.critedge887 ]
   br i1 %488, label %493, label %491
 
 491:                                              ; preds = %490
@@ -2276,183 +2276,183 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 493:                                              ; preds = %490, %491
   %494 = phi i64 [ %492, %491 ], [ 0, %490 ]
   %495 = icmp slt i64 %.0633, %494
-  br i1 %495, label %496, label %.thread1017
+  br i1 %495, label %496, label %.thread959
 
 496:                                              ; preds = %493
   %497 = getelementptr ptr, ptr %489, i64 %.0633
   %498 = load ptr, ptr %497, align 8, !tbaa !53
   %.not731 = icmp eq ptr %498, null
-  br i1 %.not731, label %.critedge910, label %499
+  br i1 %.not731, label %.critedge887, label %499
 
 499:                                              ; preds = %496
   %500 = load i32, ptr %498, align 8, !tbaa !55
   %cond.i = icmp eq i32 %500, 1
-  br i1 %cond.i, label %501, label %.critedge910
+  br i1 %cond.i, label %501, label %.critedge887
 
 501:                                              ; preds = %499
   %502 = getelementptr inbounds nuw i8, ptr %498, i64 8
   %503 = load ptr, ptr %502, align 8, !tbaa !28
-  %.not.i946 = icmp eq ptr %503, null
-  br i1 %.not.i946, label %506, label %504
+  %.not.i915 = icmp eq ptr %503, null
+  br i1 %.not.i915, label %506, label %504
 
 504:                                              ; preds = %501
   %505 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %503, ptr noundef %1, ptr noundef nonnull %2)
   %.not25.i = icmp eq i32 %505, 0
-  br i1 %.not25.i, label %.thread1019, label %506
+  br i1 %.not25.i, label %.thread960, label %506
 
 506:                                              ; preds = %504, %501
   %507 = getelementptr inbounds nuw i8, ptr %498, i64 24
   %508 = load ptr, ptr %507, align 8, !tbaa !28
   %509 = icmp eq ptr %508, null
-  br i1 %509, label %.critedge910, label %.lr.ph1180
+  br i1 %509, label %.critedge887, label %.lr.ph1109
 
-.lr.ph1180:                                       ; preds = %506
+.lr.ph1109:                                       ; preds = %506
   %510 = getelementptr inbounds nuw i8, ptr %508, i64 16
   %511 = load i64, ptr %508, align 8, !tbaa !29
   %512 = icmp sgt i64 %511, 0
-  br i1 %512, label %.lr.ph1183, label %.critedge910
+  br i1 %512, label %.lr.ph1112, label %.critedge887
 
-.lr.ph1183:                                       ; preds = %.lr.ph1180, %.critedge.i
-  %513 = phi i64 [ %518, %.critedge.i ], [ %511, %.lr.ph1180 ]
-  %.021.i11791182 = phi i64 [ %519, %.critedge.i ], [ 0, %.lr.ph1180 ]
-  %514 = getelementptr ptr, ptr %510, i64 %.021.i11791182
+.lr.ph1112:                                       ; preds = %.lr.ph1109, %.critedge.i
+  %513 = phi i64 [ %518, %.critedge.i ], [ %511, %.lr.ph1109 ]
+  %.021.i11081111 = phi i64 [ %519, %.critedge.i ], [ 0, %.lr.ph1109 ]
+  %514 = getelementptr ptr, ptr %510, i64 %.021.i11081111
   %515 = load ptr, ptr %514, align 8, !tbaa !31
   %.not26.i = icmp eq ptr %515, null
   br i1 %.not26.i, label %.critedge.i, label %516
 
-516:                                              ; preds = %.lr.ph1183
+516:                                              ; preds = %.lr.ph1112
   %517 = tail call fastcc i32 @astfold_stmt(ptr noundef %515, ptr noundef %1, ptr noundef nonnull %2)
   %.not27.i = icmp eq i32 %517, 0
-  br i1 %.not27.i, label %.thread1019, label %..critedge.i_crit_edge
+  br i1 %.not27.i, label %.thread960, label %..critedge.i_crit_edge
 
 ..critedge.i_crit_edge:                           ; preds = %516
-  %.pre1359 = load i64, ptr %508, align 8, !tbaa !29
+  %.pre1288 = load i64, ptr %508, align 8, !tbaa !29
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %..critedge.i_crit_edge, %.lr.ph1183
-  %518 = phi i64 [ %.pre1359, %..critedge.i_crit_edge ], [ %513, %.lr.ph1183 ]
-  %519 = add nuw nsw i64 %.021.i11791182, 1
+.critedge.i:                                      ; preds = %..critedge.i_crit_edge, %.lr.ph1112
+  %518 = phi i64 [ %.pre1288, %..critedge.i_crit_edge ], [ %513, %.lr.ph1112 ]
+  %519 = add nuw nsw i64 %.021.i11081111, 1
   %520 = icmp slt i64 %519, %518
-  br i1 %520, label %.lr.ph1183, label %.critedge910
+  br i1 %520, label %.lr.ph1112, label %.critedge887
 
-.critedge910:                                     ; preds = %.critedge.i, %506, %.lr.ph1180, %499, %496
+.critedge887:                                     ; preds = %.critedge.i, %506, %.lr.ph1109, %499, %496
   %521 = add nuw i64 %.0633, 1
   br label %490, !llvm.loop !57
 
-.thread1017:                                      ; preds = %493
+.thread959:                                       ; preds = %493
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %523 = load ptr, ptr %522, align 8, !tbaa !28
   %524 = icmp eq ptr %523, null
-  br i1 %524, label %.critedge1096, label %.lr.ph1185
+  br i1 %524, label %.critedge1025, label %.lr.ph1114
 
-.lr.ph1185:                                       ; preds = %.thread1017
+.lr.ph1114:                                       ; preds = %.thread959
   %525 = getelementptr inbounds nuw i8, ptr %523, i64 16
   %526 = load i64, ptr %523, align 8, !tbaa !29
   %527 = icmp sgt i64 %526, 0
-  br i1 %527, label %.lr.ph1188, label %.critedge1096
+  br i1 %527, label %.lr.ph1117, label %.critedge1025
 
-.lr.ph1188:                                       ; preds = %.lr.ph1185, %.critedge914
-  %528 = phi i64 [ %533, %.critedge914 ], [ %526, %.lr.ph1185 ]
-  %.063011841187 = phi i64 [ %534, %.critedge914 ], [ 0, %.lr.ph1185 ]
-  %529 = getelementptr ptr, ptr %525, i64 %.063011841187
+.lr.ph1117:                                       ; preds = %.lr.ph1114, %.critedge890
+  %528 = phi i64 [ %533, %.critedge890 ], [ %526, %.lr.ph1114 ]
+  %.063011131116 = phi i64 [ %534, %.critedge890 ], [ 0, %.lr.ph1114 ]
+  %529 = getelementptr ptr, ptr %525, i64 %.063011131116
   %530 = load ptr, ptr %529, align 8, !tbaa !31
   %.not733 = icmp eq ptr %530, null
-  br i1 %.not733, label %.critedge914, label %531
+  br i1 %.not733, label %.critedge890, label %531
 
-531:                                              ; preds = %.lr.ph1188
+531:                                              ; preds = %.lr.ph1117
   %532 = tail call fastcc i32 @astfold_stmt(ptr noundef %530, ptr noundef %1, ptr noundef %2)
   %.not734 = icmp eq i32 %532, 0
-  br i1 %.not734, label %.thread1019, label %..critedge914_crit_edge
+  br i1 %.not734, label %.thread960, label %..critedge890_crit_edge
 
-..critedge914_crit_edge:                          ; preds = %531
-  %.pre1357 = load i64, ptr %523, align 8, !tbaa !29
-  br label %.critedge914
+..critedge890_crit_edge:                          ; preds = %531
+  %.pre1286 = load i64, ptr %523, align 8, !tbaa !29
+  br label %.critedge890
 
-.critedge914:                                     ; preds = %..critedge914_crit_edge, %.lr.ph1188
-  %533 = phi i64 [ %.pre1357, %..critedge914_crit_edge ], [ %528, %.lr.ph1188 ]
-  %534 = add nuw nsw i64 %.063011841187, 1
+.critedge890:                                     ; preds = %..critedge890_crit_edge, %.lr.ph1117
+  %533 = phi i64 [ %.pre1286, %..critedge890_crit_edge ], [ %528, %.lr.ph1117 ]
+  %534 = add nuw nsw i64 %.063011131116, 1
   %535 = icmp slt i64 %534, %533
-  br i1 %535, label %.lr.ph1188, label %.critedge1096
+  br i1 %535, label %.lr.ph1117, label %.critedge1025
 
-.critedge1096:                                    ; preds = %.critedge914, %.lr.ph1185, %.thread1017
+.critedge1025:                                    ; preds = %.critedge890, %.lr.ph1114, %.thread959
   %536 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %537 = load ptr, ptr %536, align 8, !tbaa !28
   %538 = icmp eq ptr %537, null
-  br i1 %538, label %.thread975, label %.lr.ph1190
+  br i1 %538, label %.thread935, label %.lr.ph1119
 
-.lr.ph1190:                                       ; preds = %.critedge1096
+.lr.ph1119:                                       ; preds = %.critedge1025
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 16
   %540 = load i64, ptr %537, align 8, !tbaa !29
   %541 = icmp sgt i64 %540, 0
-  br i1 %541, label %.lr.ph1193, label %.thread975
+  br i1 %541, label %.lr.ph1122, label %.thread935
 
-.lr.ph1193:                                       ; preds = %.lr.ph1190, %.critedge918
-  %542 = phi i64 [ %547, %.critedge918 ], [ %540, %.lr.ph1190 ]
-  %.062711891192 = phi i64 [ %548, %.critedge918 ], [ 0, %.lr.ph1190 ]
-  %543 = getelementptr ptr, ptr %539, i64 %.062711891192
+.lr.ph1122:                                       ; preds = %.lr.ph1119, %.critedge893
+  %542 = phi i64 [ %547, %.critedge893 ], [ %540, %.lr.ph1119 ]
+  %.062711181121 = phi i64 [ %548, %.critedge893 ], [ 0, %.lr.ph1119 ]
+  %543 = getelementptr ptr, ptr %539, i64 %.062711181121
   %544 = load ptr, ptr %543, align 8, !tbaa !31
   %.not735 = icmp eq ptr %544, null
-  br i1 %.not735, label %.critedge918, label %545
+  br i1 %.not735, label %.critedge893, label %545
 
-545:                                              ; preds = %.lr.ph1193
+545:                                              ; preds = %.lr.ph1122
   %546 = tail call fastcc i32 @astfold_stmt(ptr noundef %544, ptr noundef %1, ptr noundef %2)
   %.not736 = icmp eq i32 %546, 0
-  br i1 %.not736, label %.thread1019, label %..critedge918_crit_edge
+  br i1 %.not736, label %.thread960, label %..critedge893_crit_edge
 
-..critedge918_crit_edge:                          ; preds = %545
-  %.pre1358 = load i64, ptr %537, align 8, !tbaa !29
-  br label %.critedge918
+..critedge893_crit_edge:                          ; preds = %545
+  %.pre1287 = load i64, ptr %537, align 8, !tbaa !29
+  br label %.critedge893
 
-.critedge918:                                     ; preds = %..critedge918_crit_edge, %.lr.ph1193
-  %547 = phi i64 [ %.pre1358, %..critedge918_crit_edge ], [ %542, %.lr.ph1193 ]
-  %548 = add nuw nsw i64 %.062711891192, 1
+.critedge893:                                     ; preds = %..critedge893_crit_edge, %.lr.ph1122
+  %547 = phi i64 [ %.pre1287, %..critedge893_crit_edge ], [ %542, %.lr.ph1122 ]
+  %548 = add nuw nsw i64 %.062711181121, 1
   %549 = icmp slt i64 %548, %547
-  br i1 %549, label %.lr.ph1193, label %.thread975
+  br i1 %549, label %.lr.ph1122, label %.thread935
 
 550:                                              ; preds = %12
   %551 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %552 = load ptr, ptr %551, align 8, !tbaa !28
   %553 = icmp eq ptr %552, null
-  br i1 %553, label %.critedge1100, label %.lr.ph1155
+  br i1 %553, label %.critedge1029, label %.lr.ph1084
 
-.lr.ph1155:                                       ; preds = %550
+.lr.ph1084:                                       ; preds = %550
   %554 = getelementptr inbounds nuw i8, ptr %552, i64 16
   %555 = load i64, ptr %552, align 8, !tbaa !29
   %556 = icmp sgt i64 %555, 0
-  br i1 %556, label %.lr.ph1158, label %.critedge1100
+  br i1 %556, label %.lr.ph1087, label %.critedge1029
 
-.lr.ph1158:                                       ; preds = %.lr.ph1155, %.critedge922
-  %557 = phi i64 [ %562, %.critedge922 ], [ %555, %.lr.ph1155 ]
-  %.062411541157 = phi i64 [ %563, %.critedge922 ], [ 0, %.lr.ph1155 ]
-  %558 = getelementptr ptr, ptr %554, i64 %.062411541157
+.lr.ph1087:                                       ; preds = %.lr.ph1084, %.critedge896
+  %557 = phi i64 [ %562, %.critedge896 ], [ %555, %.lr.ph1084 ]
+  %.062410831086 = phi i64 [ %563, %.critedge896 ], [ 0, %.lr.ph1084 ]
+  %558 = getelementptr ptr, ptr %554, i64 %.062410831086
   %559 = load ptr, ptr %558, align 8, !tbaa !31
   %.not721 = icmp eq ptr %559, null
-  br i1 %.not721, label %.critedge922, label %560
+  br i1 %.not721, label %.critedge896, label %560
 
-560:                                              ; preds = %.lr.ph1158
+560:                                              ; preds = %.lr.ph1087
   %561 = tail call fastcc i32 @astfold_stmt(ptr noundef %559, ptr noundef %1, ptr noundef %2)
   %.not722 = icmp eq i32 %561, 0
-  br i1 %.not722, label %.thread1019, label %..critedge922_crit_edge
+  br i1 %.not722, label %.thread960, label %..critedge896_crit_edge
 
-..critedge922_crit_edge:                          ; preds = %560
-  %.pre1352 = load i64, ptr %552, align 8, !tbaa !29
-  br label %.critedge922
+..critedge896_crit_edge:                          ; preds = %560
+  %.pre1281 = load i64, ptr %552, align 8, !tbaa !29
+  br label %.critedge896
 
-.critedge922:                                     ; preds = %..critedge922_crit_edge, %.lr.ph1158
-  %562 = phi i64 [ %.pre1352, %..critedge922_crit_edge ], [ %557, %.lr.ph1158 ]
-  %563 = add nuw nsw i64 %.062411541157, 1
+.critedge896:                                     ; preds = %..critedge896_crit_edge, %.lr.ph1087
+  %562 = phi i64 [ %.pre1281, %..critedge896_crit_edge ], [ %557, %.lr.ph1087 ]
+  %563 = add nuw nsw i64 %.062410831086, 1
   %564 = icmp slt i64 %563, %562
-  br i1 %564, label %.lr.ph1158, label %.critedge1100
+  br i1 %564, label %.lr.ph1087, label %.critedge1029
 
-.critedge1100:                                    ; preds = %.critedge922, %.lr.ph1155, %550
+.critedge1029:                                    ; preds = %.critedge896, %.lr.ph1084, %550
   %565 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %566 = load ptr, ptr %565, align 8, !tbaa !28
   %567 = icmp eq ptr %566, null
   %568 = getelementptr inbounds nuw i8, ptr %566, i64 16
   br label %569
 
-569:                                              ; preds = %.critedge926, %.critedge1100
-  %.0621 = phi i64 [ 0, %.critedge1100 ], [ %600, %.critedge926 ]
+569:                                              ; preds = %.critedge899, %.critedge1029
+  %.0621 = phi i64 [ 0, %.critedge1029 ], [ %600, %.critedge899 ]
   br i1 %567, label %572, label %570
 
 570:                                              ; preds = %569
@@ -2462,170 +2462,170 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 572:                                              ; preds = %569, %570
   %573 = phi i64 [ %571, %570 ], [ 0, %569 ]
   %574 = icmp slt i64 %.0621, %573
-  br i1 %574, label %575, label %.thread1031
+  br i1 %574, label %575, label %.thread967
 
 575:                                              ; preds = %572
   %576 = getelementptr ptr, ptr %568, i64 %.0621
   %577 = load ptr, ptr %576, align 8, !tbaa !53
   %.not723 = icmp eq ptr %577, null
-  br i1 %.not723, label %.critedge926, label %578
+  br i1 %.not723, label %.critedge899, label %578
 
 578:                                              ; preds = %575
   %579 = load i32, ptr %577, align 8, !tbaa !55
-  %cond.i947 = icmp eq i32 %579, 1
-  br i1 %cond.i947, label %580, label %.critedge926
+  %cond.i916 = icmp eq i32 %579, 1
+  br i1 %cond.i916, label %580, label %.critedge899
 
 580:                                              ; preds = %578
   %581 = getelementptr inbounds nuw i8, ptr %577, i64 8
   %582 = load ptr, ptr %581, align 8, !tbaa !28
-  %.not.i949 = icmp eq ptr %582, null
-  br i1 %.not.i949, label %585, label %583
+  %.not.i918 = icmp eq ptr %582, null
+  br i1 %.not.i918, label %585, label %583
 
 583:                                              ; preds = %580
   %584 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %582, ptr noundef %1, ptr noundef nonnull %2)
-  %.not25.i950 = icmp eq i32 %584, 0
-  br i1 %.not25.i950, label %.thread1019, label %585
+  %.not25.i919 = icmp eq i32 %584, 0
+  br i1 %.not25.i919, label %.thread960, label %585
 
 585:                                              ; preds = %583, %580
   %586 = getelementptr inbounds nuw i8, ptr %577, i64 24
   %587 = load ptr, ptr %586, align 8, !tbaa !28
   %588 = icmp eq ptr %587, null
-  br i1 %588, label %.critedge926, label %.lr.ph1160
+  br i1 %588, label %.critedge899, label %.lr.ph1089
 
-.lr.ph1160:                                       ; preds = %585
+.lr.ph1089:                                       ; preds = %585
   %589 = getelementptr inbounds nuw i8, ptr %587, i64 16
   %590 = load i64, ptr %587, align 8, !tbaa !29
   %591 = icmp sgt i64 %590, 0
-  br i1 %591, label %.lr.ph1163, label %.critedge926
+  br i1 %591, label %.lr.ph1092, label %.critedge899
 
-.lr.ph1163:                                       ; preds = %.lr.ph1160, %.critedge.i955
-  %592 = phi i64 [ %597, %.critedge.i955 ], [ %590, %.lr.ph1160 ]
-  %.021.i95111591162 = phi i64 [ %598, %.critedge.i955 ], [ 0, %.lr.ph1160 ]
-  %593 = getelementptr ptr, ptr %589, i64 %.021.i95111591162
+.lr.ph1092:                                       ; preds = %.lr.ph1089, %.critedge.i923
+  %592 = phi i64 [ %597, %.critedge.i923 ], [ %590, %.lr.ph1089 ]
+  %.021.i92010881091 = phi i64 [ %598, %.critedge.i923 ], [ 0, %.lr.ph1089 ]
+  %593 = getelementptr ptr, ptr %589, i64 %.021.i92010881091
   %594 = load ptr, ptr %593, align 8, !tbaa !31
-  %.not26.i953 = icmp eq ptr %594, null
-  br i1 %.not26.i953, label %.critedge.i955, label %595
+  %.not26.i921 = icmp eq ptr %594, null
+  br i1 %.not26.i921, label %.critedge.i923, label %595
 
-595:                                              ; preds = %.lr.ph1163
+595:                                              ; preds = %.lr.ph1092
   %596 = tail call fastcc i32 @astfold_stmt(ptr noundef %594, ptr noundef %1, ptr noundef nonnull %2)
-  %.not27.i954 = icmp eq i32 %596, 0
-  br i1 %.not27.i954, label %.thread1019, label %..critedge.i955_crit_edge
+  %.not27.i922 = icmp eq i32 %596, 0
+  br i1 %.not27.i922, label %.thread960, label %..critedge.i923_crit_edge
 
-..critedge.i955_crit_edge:                        ; preds = %595
-  %.pre1355 = load i64, ptr %587, align 8, !tbaa !29
-  br label %.critedge.i955
+..critedge.i923_crit_edge:                        ; preds = %595
+  %.pre1284 = load i64, ptr %587, align 8, !tbaa !29
+  br label %.critedge.i923
 
-.critedge.i955:                                   ; preds = %..critedge.i955_crit_edge, %.lr.ph1163
-  %597 = phi i64 [ %.pre1355, %..critedge.i955_crit_edge ], [ %592, %.lr.ph1163 ]
-  %598 = add nuw nsw i64 %.021.i95111591162, 1
+.critedge.i923:                                   ; preds = %..critedge.i923_crit_edge, %.lr.ph1092
+  %597 = phi i64 [ %.pre1284, %..critedge.i923_crit_edge ], [ %592, %.lr.ph1092 ]
+  %598 = add nuw nsw i64 %.021.i92010881091, 1
   %599 = icmp slt i64 %598, %597
-  br i1 %599, label %.lr.ph1163, label %.critedge926
+  br i1 %599, label %.lr.ph1092, label %.critedge899
 
-.critedge926:                                     ; preds = %.critedge.i955, %585, %.lr.ph1160, %578, %575
+.critedge899:                                     ; preds = %.critedge.i923, %585, %.lr.ph1089, %578, %575
   %600 = add nuw i64 %.0621, 1
   br label %569, !llvm.loop !59
 
-.thread1031:                                      ; preds = %572
+.thread967:                                       ; preds = %572
   %601 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %602 = load ptr, ptr %601, align 8, !tbaa !28
   %603 = icmp eq ptr %602, null
-  br i1 %603, label %.critedge1103, label %.lr.ph1165
+  br i1 %603, label %.critedge1032, label %.lr.ph1094
 
-.lr.ph1165:                                       ; preds = %.thread1031
+.lr.ph1094:                                       ; preds = %.thread967
   %604 = getelementptr inbounds nuw i8, ptr %602, i64 16
   %605 = load i64, ptr %602, align 8, !tbaa !29
   %606 = icmp sgt i64 %605, 0
-  br i1 %606, label %.lr.ph1168, label %.critedge1103
+  br i1 %606, label %.lr.ph1097, label %.critedge1032
 
-.lr.ph1168:                                       ; preds = %.lr.ph1165, %.critedge930
-  %607 = phi i64 [ %612, %.critedge930 ], [ %605, %.lr.ph1165 ]
-  %.061811641167 = phi i64 [ %613, %.critedge930 ], [ 0, %.lr.ph1165 ]
-  %608 = getelementptr ptr, ptr %604, i64 %.061811641167
+.lr.ph1097:                                       ; preds = %.lr.ph1094, %.critedge902
+  %607 = phi i64 [ %612, %.critedge902 ], [ %605, %.lr.ph1094 ]
+  %.061810931096 = phi i64 [ %613, %.critedge902 ], [ 0, %.lr.ph1094 ]
+  %608 = getelementptr ptr, ptr %604, i64 %.061810931096
   %609 = load ptr, ptr %608, align 8, !tbaa !31
   %.not725 = icmp eq ptr %609, null
-  br i1 %.not725, label %.critedge930, label %610
+  br i1 %.not725, label %.critedge902, label %610
 
-610:                                              ; preds = %.lr.ph1168
+610:                                              ; preds = %.lr.ph1097
   %611 = tail call fastcc i32 @astfold_stmt(ptr noundef %609, ptr noundef %1, ptr noundef %2)
   %.not726 = icmp eq i32 %611, 0
-  br i1 %.not726, label %.thread1019, label %..critedge930_crit_edge
+  br i1 %.not726, label %.thread960, label %..critedge902_crit_edge
 
-..critedge930_crit_edge:                          ; preds = %610
-  %.pre1353 = load i64, ptr %602, align 8, !tbaa !29
-  br label %.critedge930
+..critedge902_crit_edge:                          ; preds = %610
+  %.pre1282 = load i64, ptr %602, align 8, !tbaa !29
+  br label %.critedge902
 
-.critedge930:                                     ; preds = %..critedge930_crit_edge, %.lr.ph1168
-  %612 = phi i64 [ %.pre1353, %..critedge930_crit_edge ], [ %607, %.lr.ph1168 ]
-  %613 = add nuw nsw i64 %.061811641167, 1
+.critedge902:                                     ; preds = %..critedge902_crit_edge, %.lr.ph1097
+  %612 = phi i64 [ %.pre1282, %..critedge902_crit_edge ], [ %607, %.lr.ph1097 ]
+  %613 = add nuw nsw i64 %.061810931096, 1
   %614 = icmp slt i64 %613, %612
-  br i1 %614, label %.lr.ph1168, label %.critedge1103
+  br i1 %614, label %.lr.ph1097, label %.critedge1032
 
-.critedge1103:                                    ; preds = %.critedge930, %.lr.ph1165, %.thread1031
+.critedge1032:                                    ; preds = %.critedge902, %.lr.ph1094, %.thread967
   %615 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %616 = load ptr, ptr %615, align 8, !tbaa !28
   %617 = icmp eq ptr %616, null
-  br i1 %617, label %.thread975, label %.lr.ph1170
+  br i1 %617, label %.thread935, label %.lr.ph1099
 
-.lr.ph1170:                                       ; preds = %.critedge1103
+.lr.ph1099:                                       ; preds = %.critedge1032
   %618 = getelementptr inbounds nuw i8, ptr %616, i64 16
   %619 = load i64, ptr %616, align 8, !tbaa !29
   %620 = icmp sgt i64 %619, 0
-  br i1 %620, label %.lr.ph1173, label %.thread975
+  br i1 %620, label %.lr.ph1102, label %.thread935
 
-.lr.ph1173:                                       ; preds = %.lr.ph1170, %.critedge934
-  %621 = phi i64 [ %626, %.critedge934 ], [ %619, %.lr.ph1170 ]
-  %.061511691172 = phi i64 [ %627, %.critedge934 ], [ 0, %.lr.ph1170 ]
-  %622 = getelementptr ptr, ptr %618, i64 %.061511691172
+.lr.ph1102:                                       ; preds = %.lr.ph1099, %.critedge905
+  %621 = phi i64 [ %626, %.critedge905 ], [ %619, %.lr.ph1099 ]
+  %.061510981101 = phi i64 [ %627, %.critedge905 ], [ 0, %.lr.ph1099 ]
+  %622 = getelementptr ptr, ptr %618, i64 %.061510981101
   %623 = load ptr, ptr %622, align 8, !tbaa !31
   %.not727 = icmp eq ptr %623, null
-  br i1 %.not727, label %.critedge934, label %624
+  br i1 %.not727, label %.critedge905, label %624
 
-624:                                              ; preds = %.lr.ph1173
+624:                                              ; preds = %.lr.ph1102
   %625 = tail call fastcc i32 @astfold_stmt(ptr noundef %623, ptr noundef %1, ptr noundef %2)
   %.not728 = icmp eq i32 %625, 0
-  br i1 %.not728, label %.thread1019, label %..critedge934_crit_edge
+  br i1 %.not728, label %.thread960, label %..critedge905_crit_edge
 
-..critedge934_crit_edge:                          ; preds = %624
-  %.pre1354 = load i64, ptr %616, align 8, !tbaa !29
-  br label %.critedge934
+..critedge905_crit_edge:                          ; preds = %624
+  %.pre1283 = load i64, ptr %616, align 8, !tbaa !29
+  br label %.critedge905
 
-.critedge934:                                     ; preds = %..critedge934_crit_edge, %.lr.ph1173
-  %626 = phi i64 [ %.pre1354, %..critedge934_crit_edge ], [ %621, %.lr.ph1173 ]
-  %627 = add nuw nsw i64 %.061511691172, 1
+.critedge905:                                     ; preds = %..critedge905_crit_edge, %.lr.ph1102
+  %626 = phi i64 [ %.pre1283, %..critedge905_crit_edge ], [ %621, %.lr.ph1102 ]
+  %627 = add nuw nsw i64 %.061510981101, 1
   %628 = icmp slt i64 %627, %626
-  br i1 %628, label %.lr.ph1173, label %.thread975
+  br i1 %628, label %.lr.ph1102, label %.thread935
 
 629:                                              ; preds = %12
   %630 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %631 = load ptr, ptr %630, align 8, !tbaa !28
   %632 = tail call fastcc i32 @astfold_expr(ptr noundef %631, ptr noundef %1, ptr noundef %2)
   %.not718 = icmp eq i32 %632, 0
-  br i1 %.not718, label %.thread1019, label %633
+  br i1 %.not718, label %.thread960, label %633
 
 633:                                              ; preds = %629
   %634 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %635 = load ptr, ptr %634, align 8, !tbaa !28
   %.not719 = icmp eq ptr %635, null
-  br i1 %.not719, label %.thread975, label %636
+  br i1 %.not719, label %.thread935, label %636
 
 636:                                              ; preds = %633
   %637 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %635, ptr noundef %1, ptr noundef %2)
   %.not720 = icmp eq i32 %637, 0
-  br i1 %.not720, label %.thread1019, label %.thread975
+  br i1 %.not720, label %.thread960, label %.thread935
 
 638:                                              ; preds = %12
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %640 = load ptr, ptr %639, align 8, !tbaa !28
   %641 = tail call fastcc i32 @astfold_expr(ptr noundef %640, ptr noundef %1, ptr noundef %2)
   %.not717 = icmp eq i32 %641, 0
-  br i1 %.not717, label %.thread1019, label %.thread975
+  br i1 %.not717, label %.thread960, label %.thread935
 
 642:                                              ; preds = %12
   %643 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %644 = load ptr, ptr %643, align 8, !tbaa !28
   %645 = tail call fastcc i32 @astfold_expr(ptr noundef %644, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %645, 0
-  br i1 %.not, label %.thread1019, label %646
+  br i1 %.not, label %.thread960, label %646
 
 646:                                              ; preds = %642
   %647 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2634,8 +2634,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
   %650 = getelementptr inbounds nuw i8, ptr %648, i64 16
   br label %651
 
-651:                                              ; preds = %.critedge938, %646
-  %.0549 = phi i64 [ 0, %646 ], [ %683, %.critedge938 ]
+651:                                              ; preds = %.critedge908, %646
+  %.0549 = phi i64 [ 0, %646 ], [ %683, %.critedge908 ]
   br i1 %649, label %654, label %652
 
 652:                                              ; preds = %651
@@ -2645,78 +2645,78 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_stmt(ptr noundef non
 654:                                              ; preds = %651, %652
   %655 = phi i64 [ %653, %652 ], [ 0, %651 ]
   %656 = icmp slt i64 %.0549, %655
-  br i1 %656, label %657, label %.thread975
+  br i1 %656, label %657, label %.thread935
 
 657:                                              ; preds = %654
   %658 = getelementptr ptr, ptr %650, i64 %.0549
   %659 = load ptr, ptr %658, align 8, !tbaa !60
   %.not715 = icmp eq ptr %659, null
-  br i1 %.not715, label %.critedge938, label %660
+  br i1 %.not715, label %.critedge908, label %660
 
 660:                                              ; preds = %657
   %661 = load ptr, ptr %659, align 8, !tbaa !62
   %662 = tail call fastcc i32 @astfold_pattern(ptr noundef %661, ptr noundef %1, ptr noundef nonnull %2)
-  %.not.i957 = icmp eq i32 %662, 0
-  br i1 %.not.i957, label %.thread1019, label %663
+  %.not.i925 = icmp eq i32 %662, 0
+  br i1 %.not.i925, label %.thread960, label %663
 
 663:                                              ; preds = %660
   %664 = getelementptr inbounds nuw i8, ptr %659, i64 8
   %665 = load ptr, ptr %664, align 8, !tbaa !65
-  %.not26.i958 = icmp eq ptr %665, null
-  br i1 %.not26.i958, label %668, label %666
+  %.not26.i926 = icmp eq ptr %665, null
+  br i1 %.not26.i926, label %668, label %666
 
 666:                                              ; preds = %663
   %667 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %665, ptr noundef %1, ptr noundef nonnull %2)
-  %.not27.i959 = icmp eq i32 %667, 0
-  br i1 %.not27.i959, label %.thread1019, label %668
+  %.not27.i927 = icmp eq i32 %667, 0
+  br i1 %.not27.i927, label %.thread960, label %668
 
 668:                                              ; preds = %666, %663
   %669 = getelementptr inbounds nuw i8, ptr %659, i64 16
   %670 = load ptr, ptr %669, align 8, !tbaa !66
   %671 = icmp eq ptr %670, null
-  br i1 %671, label %.critedge938, label %.lr.ph
+  br i1 %671, label %.critedge908, label %.lr.ph
 
 .lr.ph:                                           ; preds = %668
   %672 = getelementptr inbounds nuw i8, ptr %670, i64 16
   %673 = load i64, ptr %670, align 8, !tbaa !29
   %674 = icmp sgt i64 %673, 0
-  br i1 %674, label %.lr.ph1153, label %.critedge938
+  br i1 %674, label %.lr.ph1082, label %.critedge908
 
-.lr.ph1153:                                       ; preds = %.lr.ph, %.critedge.i961
-  %675 = phi i64 [ %680, %.critedge.i961 ], [ %673, %.lr.ph ]
-  %.022.i11501152 = phi i64 [ %681, %.critedge.i961 ], [ 0, %.lr.ph ]
-  %676 = getelementptr ptr, ptr %672, i64 %.022.i11501152
+.lr.ph1082:                                       ; preds = %.lr.ph, %.critedge.i928
+  %675 = phi i64 [ %680, %.critedge.i928 ], [ %673, %.lr.ph ]
+  %.022.i10791081 = phi i64 [ %681, %.critedge.i928 ], [ 0, %.lr.ph ]
+  %676 = getelementptr ptr, ptr %672, i64 %.022.i10791081
   %677 = load ptr, ptr %676, align 8, !tbaa !31
   %.not28.i = icmp eq ptr %677, null
-  br i1 %.not28.i, label %.critedge.i961, label %678
+  br i1 %.not28.i, label %.critedge.i928, label %678
 
-678:                                              ; preds = %.lr.ph1153
+678:                                              ; preds = %.lr.ph1082
   %679 = tail call fastcc i32 @astfold_stmt(ptr noundef %677, ptr noundef %1, ptr noundef nonnull %2)
   %.not29.i = icmp eq i32 %679, 0
-  br i1 %.not29.i, label %.thread1019, label %..critedge.i961_crit_edge
+  br i1 %.not29.i, label %.thread960, label %..critedge.i928_crit_edge
 
-..critedge.i961_crit_edge:                        ; preds = %678
+..critedge.i928_crit_edge:                        ; preds = %678
   %.pre = load i64, ptr %670, align 8, !tbaa !29
-  br label %.critedge.i961
+  br label %.critedge.i928
 
-.critedge.i961:                                   ; preds = %..critedge.i961_crit_edge, %.lr.ph1153
-  %680 = phi i64 [ %.pre, %..critedge.i961_crit_edge ], [ %675, %.lr.ph1153 ]
-  %681 = add nuw nsw i64 %.022.i11501152, 1
+.critedge.i928:                                   ; preds = %..critedge.i928_crit_edge, %.lr.ph1082
+  %680 = phi i64 [ %.pre, %..critedge.i928_crit_edge ], [ %675, %.lr.ph1082 ]
+  %681 = add nuw nsw i64 %.022.i10791081, 1
   %682 = icmp slt i64 %681, %680
-  br i1 %682, label %.lr.ph1153, label %.critedge938
+  br i1 %682, label %.lr.ph1082, label %.critedge908
 
-.critedge938:                                     ; preds = %.critedge.i961, %668, %.lr.ph, %657
+.critedge908:                                     ; preds = %.critedge.i928, %668, %.lr.ph, %657
   %683 = add nuw i64 %.0549, 1
   br label %651, !llvm.loop !67
 
-.thread975:                                       ; preds = %654, %.critedge934, %.critedge918, %.critedge902, %.critedge894, %.critedge886, %.critedge878, %.critedge870, %.critedge846, %.critedge842, %.critedge1103, %.lr.ph1170, %.critedge1096, %.lr.ph1190, %.critedge1089, %.lr.ph1200, %.critedge1085, %.lr.ph1210, %.critedge1081, %.lr.ph1220, %.critedge1077, %.lr.ph1230, %.critedge1073, %.lr.ph1240, %171, %.lr.ph1265, %151, %.lr.ph1285, %12, %54, %57, %.critedge1050, %99, %102, %.critedge1054, %169, %166, %.critedge1065, %208, %227, %224, %.critedge1067, %.critedge1071, %469, %466, %636, %633, %638
+.thread935:                                       ; preds = %654, %.critedge905, %.critedge893, %.critedge881, %.critedge875, %.critedge869, %.critedge863, %.critedge857, %.critedge839, %.critedge836, %.critedge1032, %.lr.ph1099, %.critedge1025, %.lr.ph1119, %.critedge1018, %.lr.ph1129, %.critedge1014, %.lr.ph1139, %.critedge1010, %.lr.ph1149, %.critedge1006, %.lr.ph1159, %.critedge1002, %.lr.ph1169, %171, %.lr.ph1194, %151, %.lr.ph1214, %12, %54, %57, %.critedge979, %99, %102, %.critedge983, %169, %166, %.critedge994, %208, %227, %224, %.critedge996, %.critedge1000, %469, %466, %636, %633, %638
   %684 = load i32, ptr %4, align 4, !tbaa !24
   %685 = add i32 %684, -1
   store i32 %685, ptr %4, align 4, !tbaa !24
-  br label %.thread1019
+  br label %.thread960
 
-.thread1019:                                      ; preds = %666, %660, %678, %560, %583, %595, %610, %624, %481, %504, %516, %531, %545, %436, %442, %456, %402, %408, %422, %374, %388, %341, %355, %308, %322, %269, %283, %243, %196, %181, %114, %128, %142, %161, %69, %91, %24, %46, %642, %638, %636, %629, %469, %464, %360, %327, %294, %290, %.critedge1071, %255, %251, %.critedge1067, %229, %227, %220, %212, %208, %204, %.critedge1065, %169, %.critedge1060, %102, %77, %.critedge1052, %57, %32, %.critedge1048, %.thread975, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread975 ], [ 0, %.critedge1048 ], [ 0, %32 ], [ 0, %57 ], [ 0, %.critedge1052 ], [ 0, %77 ], [ 0, %102 ], [ 0, %.critedge1060 ], [ 0, %169 ], [ 0, %.critedge1065 ], [ 0, %204 ], [ 0, %208 ], [ 0, %212 ], [ 0, %220 ], [ 0, %227 ], [ 0, %229 ], [ 0, %.critedge1067 ], [ 0, %251 ], [ 0, %255 ], [ 0, %.critedge1071 ], [ 0, %290 ], [ 0, %294 ], [ 0, %327 ], [ 0, %360 ], [ 0, %464 ], [ 0, %469 ], [ 0, %629 ], [ 0, %636 ], [ 0, %638 ], [ 0, %642 ], [ 0, %46 ], [ 0, %24 ], [ 0, %91 ], [ 0, %69 ], [ 0, %161 ], [ 0, %142 ], [ 0, %128 ], [ 0, %114 ], [ 0, %181 ], [ 0, %196 ], [ 0, %243 ], [ 0, %283 ], [ 0, %269 ], [ 0, %322 ], [ 0, %308 ], [ 0, %355 ], [ 0, %341 ], [ 0, %388 ], [ 0, %374 ], [ 0, %422 ], [ 0, %408 ], [ 0, %402 ], [ 0, %456 ], [ 0, %442 ], [ 0, %436 ], [ 0, %545 ], [ 0, %531 ], [ 0, %516 ], [ 0, %504 ], [ 0, %481 ], [ 0, %624 ], [ 0, %610 ], [ 0, %595 ], [ 0, %583 ], [ 0, %560 ], [ 0, %678 ], [ 0, %660 ], [ 0, %666 ]
+.thread960:                                       ; preds = %666, %660, %678, %560, %583, %595, %610, %624, %481, %504, %516, %531, %545, %436, %442, %456, %402, %408, %422, %374, %388, %341, %355, %308, %322, %269, %283, %243, %196, %181, %114, %128, %142, %161, %69, %91, %24, %46, %642, %638, %636, %629, %469, %464, %360, %327, %294, %290, %.critedge1000, %255, %251, %.critedge996, %229, %227, %220, %212, %208, %204, %.critedge994, %169, %.critedge989, %102, %77, %.critedge981, %57, %32, %.critedge977, %.thread935, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread935 ], [ 0, %.critedge977 ], [ 0, %32 ], [ 0, %57 ], [ 0, %.critedge981 ], [ 0, %77 ], [ 0, %102 ], [ 0, %.critedge989 ], [ 0, %169 ], [ 0, %.critedge994 ], [ 0, %204 ], [ 0, %208 ], [ 0, %212 ], [ 0, %220 ], [ 0, %227 ], [ 0, %229 ], [ 0, %.critedge996 ], [ 0, %251 ], [ 0, %255 ], [ 0, %.critedge1000 ], [ 0, %290 ], [ 0, %294 ], [ 0, %327 ], [ 0, %360 ], [ 0, %464 ], [ 0, %469 ], [ 0, %629 ], [ 0, %636 ], [ 0, %638 ], [ 0, %642 ], [ 0, %46 ], [ 0, %24 ], [ 0, %91 ], [ 0, %69 ], [ 0, %161 ], [ 0, %142 ], [ 0, %128 ], [ 0, %114 ], [ 0, %181 ], [ 0, %196 ], [ 0, %243 ], [ 0, %283 ], [ 0, %269 ], [ 0, %322 ], [ 0, %308 ], [ 0, %355 ], [ 0, %341 ], [ 0, %388 ], [ 0, %374 ], [ 0, %422 ], [ 0, %408 ], [ 0, %402 ], [ 0, %456 ], [ 0, %442 ], [ 0, %436 ], [ 0, %545 ], [ 0, %531 ], [ 0, %516 ], [ 0, %504 ], [ 0, %481 ], [ 0, %624 ], [ 0, %610 ], [ 0, %595 ], [ 0, %583 ], [ 0, %560 ], [ 0, %678 ], [ 0, %660 ], [ 0, %666 ]
   ret i32 %.0
 }
 
@@ -2734,7 +2734,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 10:                                               ; preds = %3
   %11 = load ptr, ptr @PyExc_RecursionError, align 8, !tbaa !33
   tail call void @PyErr_SetString(ptr noundef %11, ptr noundef nonnull @.str.1) #8
-  br label %.thread552
+  br label %.thread530
 
 12:                                               ; preds = %3
   %13 = load i32, ptr %0, align 8, !tbaa !68
@@ -2771,214 +2771,214 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !28
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread, label %.lr.ph714
+  br i1 %17, label %.thread, label %.lr.ph676
 
-.lr.ph714:                                        ; preds = %14
+.lr.ph676:                                        ; preds = %14
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = load i64, ptr %16, align 8, !tbaa !29
   %20 = icmp sgt i64 %19, 0
-  br i1 %20, label %.lr.ph717, label %.thread
+  br i1 %20, label %.lr.ph679, label %.thread
 
-.lr.ph717:                                        ; preds = %.lr.ph714, %.critedge
-  %21 = phi i64 [ %26, %.critedge ], [ %19, %.lr.ph714 ]
-  %.0309713716 = phi i64 [ %27, %.critedge ], [ 0, %.lr.ph714 ]
-  %22 = getelementptr ptr, ptr %18, i64 %.0309713716
+.lr.ph679:                                        ; preds = %.lr.ph676, %.critedge
+  %21 = phi i64 [ %26, %.critedge ], [ %19, %.lr.ph676 ]
+  %.0309675678 = phi i64 [ %27, %.critedge ], [ 0, %.lr.ph676 ]
+  %22 = getelementptr ptr, ptr %18, i64 %.0309675678
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %.not449 = icmp eq ptr %23, null
   br i1 %.not449, label %.critedge, label %24
 
-24:                                               ; preds = %.lr.ph717
+24:                                               ; preds = %.lr.ph679
   %25 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %23, ptr noundef %1, ptr noundef %2)
   %.not450 = icmp eq i32 %25, 0
-  br i1 %.not450, label %.thread552, label %..critedge_crit_edge
+  br i1 %.not450, label %.thread530, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %24
-  %.pre757 = load i64, ptr %16, align 8, !tbaa !29
+  %.pre719 = load i64, ptr %16, align 8, !tbaa !29
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph717
-  %26 = phi i64 [ %.pre757, %..critedge_crit_edge ], [ %21, %.lr.ph717 ]
-  %27 = add nuw nsw i64 %.0309713716, 1
+.critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph679
+  %26 = phi i64 [ %.pre719, %..critedge_crit_edge ], [ %21, %.lr.ph679 ]
+  %27 = add nuw nsw i64 %.0309675678, 1
   %28 = icmp slt i64 %27, %26
-  br i1 %28, label %.lr.ph717, label %.thread
+  br i1 %28, label %.lr.ph679, label %.thread
 
 29:                                               ; preds = %12
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !28
   %32 = tail call fastcc i32 @astfold_expr(ptr noundef %31, ptr noundef %1, ptr noundef %2)
   %.not446 = icmp eq i32 %32, 0
-  br i1 %.not446, label %.thread552, label %33
+  br i1 %.not446, label %.thread530, label %33
 
 33:                                               ; preds = %29
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !28
   %36 = tail call fastcc i32 @astfold_expr(ptr noundef %35, ptr noundef %1, ptr noundef %2)
   %.not447 = icmp eq i32 %36, 0
-  br i1 %.not447, label %.thread552, label %37
+  br i1 %.not447, label %.thread530, label %37
 
 37:                                               ; preds = %33
   %38 = tail call fastcc i32 @fold_binop(ptr noundef nonnull %0, ptr noundef %1)
   %.not448 = icmp eq i32 %38, 0
-  br i1 %.not448, label %.thread552, label %.thread
+  br i1 %.not448, label %.thread530, label %.thread
 
 39:                                               ; preds = %12
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !28
   %42 = tail call fastcc i32 @astfold_expr(ptr noundef %41, ptr noundef %1, ptr noundef %2)
   %.not444 = icmp eq i32 %42, 0
-  br i1 %.not444, label %.thread552, label %43
+  br i1 %.not444, label %.thread530, label %43
 
 43:                                               ; preds = %39
   %44 = tail call fastcc i32 @fold_unaryop(ptr noundef nonnull %0, ptr noundef %1)
   %.not445 = icmp eq i32 %44, 0
-  br i1 %.not445, label %.thread552, label %.thread
+  br i1 %.not445, label %.thread530, label %.thread
 
 45:                                               ; preds = %12
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !28
   %48 = tail call fastcc i32 @astfold_arguments(ptr noundef %47, ptr noundef %1, ptr noundef %2)
   %.not442 = icmp eq i32 %48, 0
-  br i1 %.not442, label %.thread552, label %49
+  br i1 %.not442, label %.thread530, label %49
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !28
   %52 = tail call fastcc i32 @astfold_expr(ptr noundef %51, ptr noundef %1, ptr noundef %2)
   %.not443 = icmp eq i32 %52, 0
-  br i1 %.not443, label %.thread552, label %.thread
+  br i1 %.not443, label %.thread530, label %.thread
 
 53:                                               ; preds = %12
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !28
   %56 = tail call fastcc i32 @astfold_expr(ptr noundef %55, ptr noundef %1, ptr noundef %2)
   %.not439 = icmp eq i32 %56, 0
-  br i1 %.not439, label %.thread552, label %57
+  br i1 %.not439, label %.thread530, label %57
 
 57:                                               ; preds = %53
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !28
   %60 = tail call fastcc i32 @astfold_expr(ptr noundef %59, ptr noundef %1, ptr noundef %2)
   %.not440 = icmp eq i32 %60, 0
-  br i1 %.not440, label %.thread552, label %61
+  br i1 %.not440, label %.thread530, label %61
 
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %63 = load ptr, ptr %62, align 8, !tbaa !28
   %64 = tail call fastcc i32 @astfold_expr(ptr noundef %63, ptr noundef %1, ptr noundef %2)
   %.not441 = icmp eq i32 %64, 0
-  br i1 %.not441, label %.thread552, label %.thread
+  br i1 %.not441, label %.thread530, label %.thread
 
 65:                                               ; preds = %12
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !28
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %.critedge598, label %.lr.ph704
+  br i1 %68, label %.critedge560, label %.lr.ph666
 
-.lr.ph704:                                        ; preds = %65
+.lr.ph666:                                        ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 16
   %70 = load i64, ptr %67, align 8, !tbaa !29
   %71 = icmp sgt i64 %70, 0
-  br i1 %71, label %.lr.ph707, label %.critedge598
+  br i1 %71, label %.lr.ph669, label %.critedge560
 
-.lr.ph707:                                        ; preds = %.lr.ph704, %.critedge452
-  %72 = phi i64 [ %77, %.critedge452 ], [ %70, %.lr.ph704 ]
-  %.0339703706 = phi i64 [ %78, %.critedge452 ], [ 0, %.lr.ph704 ]
-  %73 = getelementptr ptr, ptr %69, i64 %.0339703706
+.lr.ph669:                                        ; preds = %.lr.ph666, %.critedge452
+  %72 = phi i64 [ %77, %.critedge452 ], [ %70, %.lr.ph666 ]
+  %.0339665668 = phi i64 [ %78, %.critedge452 ], [ 0, %.lr.ph666 ]
+  %73 = getelementptr ptr, ptr %69, i64 %.0339665668
   %74 = load ptr, ptr %73, align 8, !tbaa !34
   %.not435 = icmp eq ptr %74, null
   br i1 %.not435, label %.critedge452, label %75
 
-75:                                               ; preds = %.lr.ph707
+75:                                               ; preds = %.lr.ph669
   %76 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %74, ptr noundef %1, ptr noundef %2)
   %.not436 = icmp eq i32 %76, 0
-  br i1 %.not436, label %.thread552, label %..critedge452_crit_edge
+  br i1 %.not436, label %.thread530, label %..critedge452_crit_edge
 
 ..critedge452_crit_edge:                          ; preds = %75
-  %.pre755 = load i64, ptr %67, align 8, !tbaa !29
+  %.pre717 = load i64, ptr %67, align 8, !tbaa !29
   br label %.critedge452
 
-.critedge452:                                     ; preds = %..critedge452_crit_edge, %.lr.ph707
-  %77 = phi i64 [ %.pre755, %..critedge452_crit_edge ], [ %72, %.lr.ph707 ]
-  %78 = add nuw nsw i64 %.0339703706, 1
+.critedge452:                                     ; preds = %..critedge452_crit_edge, %.lr.ph669
+  %77 = phi i64 [ %.pre717, %..critedge452_crit_edge ], [ %72, %.lr.ph669 ]
+  %78 = add nuw nsw i64 %.0339665668, 1
   %79 = icmp slt i64 %78, %77
-  br i1 %79, label %.lr.ph707, label %.critedge598
+  br i1 %79, label %.lr.ph669, label %.critedge560
 
-.critedge598:                                     ; preds = %.critedge452, %.lr.ph704, %65
+.critedge560:                                     ; preds = %.critedge452, %.lr.ph666, %65
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !28
   %82 = icmp eq ptr %81, null
-  br i1 %82, label %.thread, label %.lr.ph709
+  br i1 %82, label %.thread, label %.lr.ph671
 
-.lr.ph709:                                        ; preds = %.critedge598
+.lr.ph671:                                        ; preds = %.critedge560
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %84 = load i64, ptr %81, align 8, !tbaa !29
   %85 = icmp sgt i64 %84, 0
-  br i1 %85, label %.lr.ph712, label %.thread
+  br i1 %85, label %.lr.ph674, label %.thread
 
-.lr.ph712:                                        ; preds = %.lr.ph709, %.critedge456
-  %86 = phi i64 [ %91, %.critedge456 ], [ %84, %.lr.ph709 ]
-  %.0341708711 = phi i64 [ %92, %.critedge456 ], [ 0, %.lr.ph709 ]
-  %87 = getelementptr ptr, ptr %83, i64 %.0341708711
+.lr.ph674:                                        ; preds = %.lr.ph671, %.critedge455
+  %86 = phi i64 [ %91, %.critedge455 ], [ %84, %.lr.ph671 ]
+  %.0341670673 = phi i64 [ %92, %.critedge455 ], [ 0, %.lr.ph671 ]
+  %87 = getelementptr ptr, ptr %83, i64 %.0341670673
   %88 = load ptr, ptr %87, align 8, !tbaa !34
   %.not437 = icmp eq ptr %88, null
-  br i1 %.not437, label %.critedge456, label %89
+  br i1 %.not437, label %.critedge455, label %89
 
-89:                                               ; preds = %.lr.ph712
+89:                                               ; preds = %.lr.ph674
   %90 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %88, ptr noundef %1, ptr noundef %2)
   %.not438 = icmp eq i32 %90, 0
-  br i1 %.not438, label %.thread552, label %..critedge456_crit_edge
+  br i1 %.not438, label %.thread530, label %..critedge455_crit_edge
 
-..critedge456_crit_edge:                          ; preds = %89
-  %.pre756 = load i64, ptr %81, align 8, !tbaa !29
-  br label %.critedge456
+..critedge455_crit_edge:                          ; preds = %89
+  %.pre718 = load i64, ptr %81, align 8, !tbaa !29
+  br label %.critedge455
 
-.critedge456:                                     ; preds = %..critedge456_crit_edge, %.lr.ph712
-  %91 = phi i64 [ %.pre756, %..critedge456_crit_edge ], [ %86, %.lr.ph712 ]
-  %92 = add nuw nsw i64 %.0341708711, 1
+.critedge455:                                     ; preds = %..critedge455_crit_edge, %.lr.ph674
+  %91 = phi i64 [ %.pre718, %..critedge455_crit_edge ], [ %86, %.lr.ph674 ]
+  %92 = add nuw nsw i64 %.0341670673, 1
   %93 = icmp slt i64 %92, %91
-  br i1 %93, label %.lr.ph712, label %.thread
+  br i1 %93, label %.lr.ph674, label %.thread
 
 94:                                               ; preds = %12
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !28
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %.thread, label %.lr.ph699
+  br i1 %97, label %.thread, label %.lr.ph661
 
-.lr.ph699:                                        ; preds = %94
+.lr.ph661:                                        ; preds = %94
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %99 = load i64, ptr %96, align 8, !tbaa !29
   %100 = icmp sgt i64 %99, 0
-  br i1 %100, label %.lr.ph702, label %.thread
+  br i1 %100, label %.lr.ph664, label %.thread
 
-.lr.ph702:                                        ; preds = %.lr.ph699, %.critedge460
-  %101 = phi i64 [ %106, %.critedge460 ], [ %99, %.lr.ph699 ]
-  %.0342698701 = phi i64 [ %107, %.critedge460 ], [ 0, %.lr.ph699 ]
-  %102 = getelementptr ptr, ptr %98, i64 %.0342698701
+.lr.ph664:                                        ; preds = %.lr.ph661, %.critedge458
+  %101 = phi i64 [ %106, %.critedge458 ], [ %99, %.lr.ph661 ]
+  %.0342660663 = phi i64 [ %107, %.critedge458 ], [ 0, %.lr.ph661 ]
+  %102 = getelementptr ptr, ptr %98, i64 %.0342660663
   %103 = load ptr, ptr %102, align 8, !tbaa !34
   %.not433 = icmp eq ptr %103, null
-  br i1 %.not433, label %.critedge460, label %104
+  br i1 %.not433, label %.critedge458, label %104
 
-104:                                              ; preds = %.lr.ph702
+104:                                              ; preds = %.lr.ph664
   %105 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %103, ptr noundef %1, ptr noundef %2)
   %.not434 = icmp eq i32 %105, 0
-  br i1 %.not434, label %.thread552, label %..critedge460_crit_edge
+  br i1 %.not434, label %.thread530, label %..critedge458_crit_edge
 
-..critedge460_crit_edge:                          ; preds = %104
-  %.pre754 = load i64, ptr %96, align 8, !tbaa !29
-  br label %.critedge460
+..critedge458_crit_edge:                          ; preds = %104
+  %.pre716 = load i64, ptr %96, align 8, !tbaa !29
+  br label %.critedge458
 
-.critedge460:                                     ; preds = %..critedge460_crit_edge, %.lr.ph702
-  %106 = phi i64 [ %.pre754, %..critedge460_crit_edge ], [ %101, %.lr.ph702 ]
-  %107 = add nuw nsw i64 %.0342698701, 1
+.critedge458:                                     ; preds = %..critedge458_crit_edge, %.lr.ph664
+  %106 = phi i64 [ %.pre716, %..critedge458_crit_edge ], [ %101, %.lr.ph664 ]
+  %107 = add nuw nsw i64 %.0342660663, 1
   %108 = icmp slt i64 %107, %106
-  br i1 %108, label %.lr.ph702, label %.thread
+  br i1 %108, label %.lr.ph664, label %.thread
 
 109:                                              ; preds = %12
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !28
   %112 = tail call fastcc i32 @astfold_expr(ptr noundef %111, ptr noundef %1, ptr noundef %2)
   %.not430 = icmp eq i32 %112, 0
-  br i1 %.not430, label %.thread552, label %113
+  br i1 %.not430, label %.thread530, label %113
 
 113:                                              ; preds = %109
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2987,8 +2987,8 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 16
   br label %118
 
-118:                                              ; preds = %.critedge464, %113
-  %.0344 = phi i64 [ 0, %113 ], [ %151, %.critedge464 ]
+118:                                              ; preds = %.critedge461, %113
+  %.0344 = phi i64 [ 0, %113 ], [ %151, %.critedge461 ]
   br i1 %116, label %121, label %119
 
 119:                                              ; preds = %118
@@ -3004,63 +3004,63 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %125 = getelementptr ptr, ptr %117, i64 %.0344
   %126 = load ptr, ptr %125, align 8, !tbaa !70
   %.not431 = icmp eq ptr %126, null
-  br i1 %.not431, label %.critedge464, label %127
+  br i1 %.not431, label %.critedge461, label %127
 
 127:                                              ; preds = %124
   %128 = load ptr, ptr %126, align 8, !tbaa !72
   %129 = tail call fastcc i32 @astfold_expr(ptr noundef %128, ptr noundef %1, ptr noundef nonnull %2)
   %.not.i = icmp eq i32 %129, 0
-  br i1 %.not.i, label %.thread552, label %130
+  br i1 %.not.i, label %.thread530, label %130
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !74
   %133 = tail call fastcc i32 @astfold_expr(ptr noundef %132, ptr noundef %1, ptr noundef nonnull %2)
   %.not27.i = icmp eq i32 %133, 0
-  br i1 %.not27.i, label %.thread552, label %134
+  br i1 %.not27.i, label %.thread530, label %134
 
 134:                                              ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %126, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !75
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %.critedge604, label %.lr.ph694
+  br i1 %137, label %.critedge566, label %.lr.ph656
 
-.lr.ph694:                                        ; preds = %134
+.lr.ph656:                                        ; preds = %134
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 16
   %139 = load i64, ptr %136, align 8, !tbaa !29
   %140 = icmp sgt i64 %139, 0
-  br i1 %140, label %.lr.ph697, label %.critedge604
+  br i1 %140, label %.lr.ph659, label %.critedge566
 
-.lr.ph697:                                        ; preds = %.lr.ph694, %.critedge.i
-  %141 = phi i64 [ %146, %.critedge.i ], [ %139, %.lr.ph694 ]
-  %.024.i693696 = phi i64 [ %147, %.critedge.i ], [ 0, %.lr.ph694 ]
-  %142 = getelementptr ptr, ptr %138, i64 %.024.i693696
+.lr.ph659:                                        ; preds = %.lr.ph656, %.critedge.i
+  %141 = phi i64 [ %146, %.critedge.i ], [ %139, %.lr.ph656 ]
+  %.024.i655658 = phi i64 [ %147, %.critedge.i ], [ 0, %.lr.ph656 ]
+  %142 = getelementptr ptr, ptr %138, i64 %.024.i655658
   %143 = load ptr, ptr %142, align 8, !tbaa !34
   %.not28.i = icmp eq ptr %143, null
   br i1 %.not28.i, label %.critedge.i, label %144
 
-144:                                              ; preds = %.lr.ph697
+144:                                              ; preds = %.lr.ph659
   %145 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %143, ptr noundef %1, ptr noundef nonnull %2)
   %.not29.i = icmp eq i32 %145, 0
-  br i1 %.not29.i, label %.thread552, label %..critedge.i_crit_edge
+  br i1 %.not29.i, label %.thread530, label %..critedge.i_crit_edge
 
 ..critedge.i_crit_edge:                           ; preds = %144
-  %.pre753 = load i64, ptr %136, align 8, !tbaa !29
+  %.pre715 = load i64, ptr %136, align 8, !tbaa !29
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %..critedge.i_crit_edge, %.lr.ph697
-  %146 = phi i64 [ %.pre753, %..critedge.i_crit_edge ], [ %141, %.lr.ph697 ]
-  %147 = add nuw nsw i64 %.024.i693696, 1
+.critedge.i:                                      ; preds = %..critedge.i_crit_edge, %.lr.ph659
+  %146 = phi i64 [ %.pre715, %..critedge.i_crit_edge ], [ %141, %.lr.ph659 ]
+  %147 = add nuw nsw i64 %.024.i655658, 1
   %148 = icmp slt i64 %147, %146
-  br i1 %148, label %.lr.ph697, label %.critedge604
+  br i1 %148, label %.lr.ph659, label %.critedge566
 
-.critedge604:                                     ; preds = %.critedge.i, %.lr.ph694, %134
+.critedge566:                                     ; preds = %.critedge.i, %.lr.ph656, %134
   %149 = load ptr, ptr %131, align 8, !tbaa !74
   %150 = tail call fastcc i32 @fold_iter(ptr noundef %149, ptr noundef %1)
   %.not30.i = icmp eq i32 %150, 0
-  br i1 %.not30.i, label %.thread552, label %.critedge464
+  br i1 %.not30.i, label %.thread530, label %.critedge461
 
-.critedge464:                                     ; preds = %.critedge604, %124
+.critedge461:                                     ; preds = %.critedge566, %124
   %151 = add nuw i64 %.0344, 1
   br label %118, !llvm.loop !76
 
@@ -3069,7 +3069,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %154 = load ptr, ptr %153, align 8, !tbaa !28
   %155 = tail call fastcc i32 @astfold_expr(ptr noundef %154, ptr noundef %1, ptr noundef %2)
   %.not427 = icmp eq i32 %155, 0
-  br i1 %.not427, label %.thread552, label %156
+  br i1 %.not427, label %.thread530, label %156
 
 156:                                              ; preds = %152
   %157 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3078,8 +3078,8 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 16
   br label %161
 
-161:                                              ; preds = %.critedge468, %156
-  %.0345 = phi i64 [ 0, %156 ], [ %194, %.critedge468 ]
+161:                                              ; preds = %.critedge464, %156
+  %.0345 = phi i64 [ 0, %156 ], [ %194, %.critedge464 ]
   br i1 %159, label %164, label %162
 
 162:                                              ; preds = %161
@@ -3095,63 +3095,63 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %168 = getelementptr ptr, ptr %160, i64 %.0345
   %169 = load ptr, ptr %168, align 8, !tbaa !70
   %.not428 = icmp eq ptr %169, null
-  br i1 %.not428, label %.critedge468, label %170
+  br i1 %.not428, label %.critedge464, label %170
 
 170:                                              ; preds = %167
   %171 = load ptr, ptr %169, align 8, !tbaa !72
   %172 = tail call fastcc i32 @astfold_expr(ptr noundef %171, ptr noundef %1, ptr noundef nonnull %2)
-  %.not.i504 = icmp eq i32 %172, 0
-  br i1 %.not.i504, label %.thread552, label %173
+  %.not.i491 = icmp eq i32 %172, 0
+  br i1 %.not.i491, label %.thread530, label %173
 
 173:                                              ; preds = %170
   %174 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %175 = load ptr, ptr %174, align 8, !tbaa !74
   %176 = tail call fastcc i32 @astfold_expr(ptr noundef %175, ptr noundef %1, ptr noundef nonnull %2)
-  %.not27.i505 = icmp eq i32 %176, 0
-  br i1 %.not27.i505, label %.thread552, label %177
+  %.not27.i492 = icmp eq i32 %176, 0
+  br i1 %.not27.i492, label %.thread530, label %177
 
 177:                                              ; preds = %173
   %178 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %179 = load ptr, ptr %178, align 8, !tbaa !75
   %180 = icmp eq ptr %179, null
-  br i1 %180, label %.critedge606, label %.lr.ph689
+  br i1 %180, label %.critedge568, label %.lr.ph651
 
-.lr.ph689:                                        ; preds = %177
+.lr.ph651:                                        ; preds = %177
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %182 = load i64, ptr %179, align 8, !tbaa !29
   %183 = icmp sgt i64 %182, 0
-  br i1 %183, label %.lr.ph692, label %.critedge606
+  br i1 %183, label %.lr.ph654, label %.critedge568
 
-.lr.ph692:                                        ; preds = %.lr.ph689, %.critedge.i513
-  %184 = phi i64 [ %189, %.critedge.i513 ], [ %182, %.lr.ph689 ]
-  %.024.i506688691 = phi i64 [ %190, %.critedge.i513 ], [ 0, %.lr.ph689 ]
-  %185 = getelementptr ptr, ptr %181, i64 %.024.i506688691
+.lr.ph654:                                        ; preds = %.lr.ph651, %.critedge.i499
+  %184 = phi i64 [ %189, %.critedge.i499 ], [ %182, %.lr.ph651 ]
+  %.024.i493650653 = phi i64 [ %190, %.critedge.i499 ], [ 0, %.lr.ph651 ]
+  %185 = getelementptr ptr, ptr %181, i64 %.024.i493650653
   %186 = load ptr, ptr %185, align 8, !tbaa !34
-  %.not28.i511 = icmp eq ptr %186, null
-  br i1 %.not28.i511, label %.critedge.i513, label %187
+  %.not28.i497 = icmp eq ptr %186, null
+  br i1 %.not28.i497, label %.critedge.i499, label %187
 
-187:                                              ; preds = %.lr.ph692
+187:                                              ; preds = %.lr.ph654
   %188 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %186, ptr noundef %1, ptr noundef nonnull %2)
-  %.not29.i512 = icmp eq i32 %188, 0
-  br i1 %.not29.i512, label %.thread552, label %..critedge.i513_crit_edge
+  %.not29.i498 = icmp eq i32 %188, 0
+  br i1 %.not29.i498, label %.thread530, label %..critedge.i499_crit_edge
 
-..critedge.i513_crit_edge:                        ; preds = %187
-  %.pre752 = load i64, ptr %179, align 8, !tbaa !29
-  br label %.critedge.i513
+..critedge.i499_crit_edge:                        ; preds = %187
+  %.pre714 = load i64, ptr %179, align 8, !tbaa !29
+  br label %.critedge.i499
 
-.critedge.i513:                                   ; preds = %..critedge.i513_crit_edge, %.lr.ph692
-  %189 = phi i64 [ %.pre752, %..critedge.i513_crit_edge ], [ %184, %.lr.ph692 ]
-  %190 = add nuw nsw i64 %.024.i506688691, 1
+.critedge.i499:                                   ; preds = %..critedge.i499_crit_edge, %.lr.ph654
+  %189 = phi i64 [ %.pre714, %..critedge.i499_crit_edge ], [ %184, %.lr.ph654 ]
+  %190 = add nuw nsw i64 %.024.i493650653, 1
   %191 = icmp slt i64 %190, %189
-  br i1 %191, label %.lr.ph692, label %.critedge606
+  br i1 %191, label %.lr.ph654, label %.critedge568
 
-.critedge606:                                     ; preds = %.critedge.i513, %.lr.ph689, %177
+.critedge568:                                     ; preds = %.critedge.i499, %.lr.ph651, %177
   %192 = load ptr, ptr %174, align 8, !tbaa !74
   %193 = tail call fastcc i32 @fold_iter(ptr noundef %192, ptr noundef %1)
-  %.not30.i509 = icmp eq i32 %193, 0
-  br i1 %.not30.i509, label %.thread552, label %.critedge468
+  %.not30.i495 = icmp eq i32 %193, 0
+  br i1 %.not30.i495, label %.thread530, label %.critedge464
 
-.critedge468:                                     ; preds = %.critedge606, %167
+.critedge464:                                     ; preds = %.critedge568, %167
   %194 = add nuw i64 %.0345, 1
   br label %161, !llvm.loop !77
 
@@ -3160,14 +3160,14 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %197 = load ptr, ptr %196, align 8, !tbaa !28
   %198 = tail call fastcc i32 @astfold_expr(ptr noundef %197, ptr noundef %1, ptr noundef %2)
   %.not423 = icmp eq i32 %198, 0
-  br i1 %.not423, label %.thread552, label %199
+  br i1 %.not423, label %.thread530, label %199
 
 199:                                              ; preds = %195
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %201 = load ptr, ptr %200, align 8, !tbaa !28
   %202 = tail call fastcc i32 @astfold_expr(ptr noundef %201, ptr noundef %1, ptr noundef %2)
   %.not424 = icmp eq i32 %202, 0
-  br i1 %.not424, label %.thread552, label %203
+  br i1 %.not424, label %.thread530, label %203
 
 203:                                              ; preds = %199
   %204 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3176,8 +3176,8 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 16
   br label %208
 
-208:                                              ; preds = %.critedge472, %203
-  %.0347 = phi i64 [ 0, %203 ], [ %241, %.critedge472 ]
+208:                                              ; preds = %.critedge467, %203
+  %.0347 = phi i64 [ 0, %203 ], [ %241, %.critedge467 ]
   br i1 %206, label %211, label %209
 
 209:                                              ; preds = %208
@@ -3193,63 +3193,63 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %215 = getelementptr ptr, ptr %207, i64 %.0347
   %216 = load ptr, ptr %215, align 8, !tbaa !70
   %.not425 = icmp eq ptr %216, null
-  br i1 %.not425, label %.critedge472, label %217
+  br i1 %.not425, label %.critedge467, label %217
 
 217:                                              ; preds = %214
   %218 = load ptr, ptr %216, align 8, !tbaa !72
   %219 = tail call fastcc i32 @astfold_expr(ptr noundef %218, ptr noundef %1, ptr noundef nonnull %2)
-  %.not.i515 = icmp eq i32 %219, 0
-  br i1 %.not.i515, label %.thread552, label %220
+  %.not.i501 = icmp eq i32 %219, 0
+  br i1 %.not.i501, label %.thread530, label %220
 
 220:                                              ; preds = %217
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %222 = load ptr, ptr %221, align 8, !tbaa !74
   %223 = tail call fastcc i32 @astfold_expr(ptr noundef %222, ptr noundef %1, ptr noundef nonnull %2)
-  %.not27.i516 = icmp eq i32 %223, 0
-  br i1 %.not27.i516, label %.thread552, label %224
+  %.not27.i502 = icmp eq i32 %223, 0
+  br i1 %.not27.i502, label %.thread530, label %224
 
 224:                                              ; preds = %220
   %225 = getelementptr inbounds nuw i8, ptr %216, i64 16
   %226 = load ptr, ptr %225, align 8, !tbaa !75
   %227 = icmp eq ptr %226, null
-  br i1 %227, label %.critedge608, label %.lr.ph684
+  br i1 %227, label %.critedge570, label %.lr.ph646
 
-.lr.ph684:                                        ; preds = %224
+.lr.ph646:                                        ; preds = %224
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %229 = load i64, ptr %226, align 8, !tbaa !29
   %230 = icmp sgt i64 %229, 0
-  br i1 %230, label %.lr.ph687, label %.critedge608
+  br i1 %230, label %.lr.ph649, label %.critedge570
 
-.lr.ph687:                                        ; preds = %.lr.ph684, %.critedge.i524
-  %231 = phi i64 [ %236, %.critedge.i524 ], [ %229, %.lr.ph684 ]
-  %.024.i517683686 = phi i64 [ %237, %.critedge.i524 ], [ 0, %.lr.ph684 ]
-  %232 = getelementptr ptr, ptr %228, i64 %.024.i517683686
+.lr.ph649:                                        ; preds = %.lr.ph646, %.critedge.i509
+  %231 = phi i64 [ %236, %.critedge.i509 ], [ %229, %.lr.ph646 ]
+  %.024.i503645648 = phi i64 [ %237, %.critedge.i509 ], [ 0, %.lr.ph646 ]
+  %232 = getelementptr ptr, ptr %228, i64 %.024.i503645648
   %233 = load ptr, ptr %232, align 8, !tbaa !34
-  %.not28.i522 = icmp eq ptr %233, null
-  br i1 %.not28.i522, label %.critedge.i524, label %234
+  %.not28.i507 = icmp eq ptr %233, null
+  br i1 %.not28.i507, label %.critedge.i509, label %234
 
-234:                                              ; preds = %.lr.ph687
+234:                                              ; preds = %.lr.ph649
   %235 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %233, ptr noundef %1, ptr noundef nonnull %2)
-  %.not29.i523 = icmp eq i32 %235, 0
-  br i1 %.not29.i523, label %.thread552, label %..critedge.i524_crit_edge
+  %.not29.i508 = icmp eq i32 %235, 0
+  br i1 %.not29.i508, label %.thread530, label %..critedge.i509_crit_edge
 
-..critedge.i524_crit_edge:                        ; preds = %234
-  %.pre751 = load i64, ptr %226, align 8, !tbaa !29
-  br label %.critedge.i524
+..critedge.i509_crit_edge:                        ; preds = %234
+  %.pre713 = load i64, ptr %226, align 8, !tbaa !29
+  br label %.critedge.i509
 
-.critedge.i524:                                   ; preds = %..critedge.i524_crit_edge, %.lr.ph687
-  %236 = phi i64 [ %.pre751, %..critedge.i524_crit_edge ], [ %231, %.lr.ph687 ]
-  %237 = add nuw nsw i64 %.024.i517683686, 1
+.critedge.i509:                                   ; preds = %..critedge.i509_crit_edge, %.lr.ph649
+  %236 = phi i64 [ %.pre713, %..critedge.i509_crit_edge ], [ %231, %.lr.ph649 ]
+  %237 = add nuw nsw i64 %.024.i503645648, 1
   %238 = icmp slt i64 %237, %236
-  br i1 %238, label %.lr.ph687, label %.critedge608
+  br i1 %238, label %.lr.ph649, label %.critedge570
 
-.critedge608:                                     ; preds = %.critedge.i524, %.lr.ph684, %224
+.critedge570:                                     ; preds = %.critedge.i509, %.lr.ph646, %224
   %239 = load ptr, ptr %221, align 8, !tbaa !74
   %240 = tail call fastcc i32 @fold_iter(ptr noundef %239, ptr noundef %1)
-  %.not30.i520 = icmp eq i32 %240, 0
-  br i1 %.not30.i520, label %.thread552, label %.critedge472
+  %.not30.i505 = icmp eq i32 %240, 0
+  br i1 %.not30.i505, label %.thread530, label %.critedge467
 
-.critedge472:                                     ; preds = %.critedge608, %214
+.critedge467:                                     ; preds = %.critedge570, %214
   %241 = add nuw i64 %.0347, 1
   br label %208, !llvm.loop !78
 
@@ -3258,7 +3258,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %244 = load ptr, ptr %243, align 8, !tbaa !28
   %245 = tail call fastcc i32 @astfold_expr(ptr noundef %244, ptr noundef %1, ptr noundef %2)
   %.not420 = icmp eq i32 %245, 0
-  br i1 %.not420, label %.thread552, label %246
+  br i1 %.not420, label %.thread530, label %246
 
 246:                                              ; preds = %242
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3267,8 +3267,8 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %250 = getelementptr inbounds nuw i8, ptr %248, i64 16
   br label %251
 
-251:                                              ; preds = %.critedge476, %246
-  %.0348 = phi i64 [ 0, %246 ], [ %284, %.critedge476 ]
+251:                                              ; preds = %.critedge470, %246
+  %.0348 = phi i64 [ 0, %246 ], [ %284, %.critedge470 ]
   br i1 %249, label %254, label %252
 
 252:                                              ; preds = %251
@@ -3284,63 +3284,63 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %258 = getelementptr ptr, ptr %250, i64 %.0348
   %259 = load ptr, ptr %258, align 8, !tbaa !70
   %.not421 = icmp eq ptr %259, null
-  br i1 %.not421, label %.critedge476, label %260
+  br i1 %.not421, label %.critedge470, label %260
 
 260:                                              ; preds = %257
   %261 = load ptr, ptr %259, align 8, !tbaa !72
   %262 = tail call fastcc i32 @astfold_expr(ptr noundef %261, ptr noundef %1, ptr noundef nonnull %2)
-  %.not.i526 = icmp eq i32 %262, 0
-  br i1 %.not.i526, label %.thread552, label %263
+  %.not.i511 = icmp eq i32 %262, 0
+  br i1 %.not.i511, label %.thread530, label %263
 
 263:                                              ; preds = %260
   %264 = getelementptr inbounds nuw i8, ptr %259, i64 8
   %265 = load ptr, ptr %264, align 8, !tbaa !74
   %266 = tail call fastcc i32 @astfold_expr(ptr noundef %265, ptr noundef %1, ptr noundef nonnull %2)
-  %.not27.i527 = icmp eq i32 %266, 0
-  br i1 %.not27.i527, label %.thread552, label %267
+  %.not27.i512 = icmp eq i32 %266, 0
+  br i1 %.not27.i512, label %.thread530, label %267
 
 267:                                              ; preds = %263
   %268 = getelementptr inbounds nuw i8, ptr %259, i64 16
   %269 = load ptr, ptr %268, align 8, !tbaa !75
   %270 = icmp eq ptr %269, null
-  br i1 %270, label %.critedge610, label %.lr.ph679
+  br i1 %270, label %.critedge572, label %.lr.ph641
 
-.lr.ph679:                                        ; preds = %267
+.lr.ph641:                                        ; preds = %267
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 16
   %272 = load i64, ptr %269, align 8, !tbaa !29
   %273 = icmp sgt i64 %272, 0
-  br i1 %273, label %.lr.ph682, label %.critedge610
+  br i1 %273, label %.lr.ph644, label %.critedge572
 
-.lr.ph682:                                        ; preds = %.lr.ph679, %.critedge.i535
-  %274 = phi i64 [ %279, %.critedge.i535 ], [ %272, %.lr.ph679 ]
-  %.024.i528678681 = phi i64 [ %280, %.critedge.i535 ], [ 0, %.lr.ph679 ]
-  %275 = getelementptr ptr, ptr %271, i64 %.024.i528678681
+.lr.ph644:                                        ; preds = %.lr.ph641, %.critedge.i519
+  %274 = phi i64 [ %279, %.critedge.i519 ], [ %272, %.lr.ph641 ]
+  %.024.i513640643 = phi i64 [ %280, %.critedge.i519 ], [ 0, %.lr.ph641 ]
+  %275 = getelementptr ptr, ptr %271, i64 %.024.i513640643
   %276 = load ptr, ptr %275, align 8, !tbaa !34
-  %.not28.i533 = icmp eq ptr %276, null
-  br i1 %.not28.i533, label %.critedge.i535, label %277
+  %.not28.i517 = icmp eq ptr %276, null
+  br i1 %.not28.i517, label %.critedge.i519, label %277
 
-277:                                              ; preds = %.lr.ph682
+277:                                              ; preds = %.lr.ph644
   %278 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %276, ptr noundef %1, ptr noundef nonnull %2)
-  %.not29.i534 = icmp eq i32 %278, 0
-  br i1 %.not29.i534, label %.thread552, label %..critedge.i535_crit_edge
+  %.not29.i518 = icmp eq i32 %278, 0
+  br i1 %.not29.i518, label %.thread530, label %..critedge.i519_crit_edge
 
-..critedge.i535_crit_edge:                        ; preds = %277
-  %.pre750 = load i64, ptr %269, align 8, !tbaa !29
-  br label %.critedge.i535
+..critedge.i519_crit_edge:                        ; preds = %277
+  %.pre712 = load i64, ptr %269, align 8, !tbaa !29
+  br label %.critedge.i519
 
-.critedge.i535:                                   ; preds = %..critedge.i535_crit_edge, %.lr.ph682
-  %279 = phi i64 [ %.pre750, %..critedge.i535_crit_edge ], [ %274, %.lr.ph682 ]
-  %280 = add nuw nsw i64 %.024.i528678681, 1
+.critedge.i519:                                   ; preds = %..critedge.i519_crit_edge, %.lr.ph644
+  %279 = phi i64 [ %.pre712, %..critedge.i519_crit_edge ], [ %274, %.lr.ph644 ]
+  %280 = add nuw nsw i64 %.024.i513640643, 1
   %281 = icmp slt i64 %280, %279
-  br i1 %281, label %.lr.ph682, label %.critedge610
+  br i1 %281, label %.lr.ph644, label %.critedge572
 
-.critedge610:                                     ; preds = %.critedge.i535, %.lr.ph679, %267
+.critedge572:                                     ; preds = %.critedge.i519, %.lr.ph641, %267
   %282 = load ptr, ptr %264, align 8, !tbaa !74
   %283 = tail call fastcc i32 @fold_iter(ptr noundef %282, ptr noundef %1)
-  %.not30.i531 = icmp eq i32 %283, 0
-  br i1 %.not30.i531, label %.thread552, label %.critedge476
+  %.not30.i515 = icmp eq i32 %283, 0
+  br i1 %.not30.i515, label %.thread530, label %.critedge470
 
-.critedge476:                                     ; preds = %.critedge610, %257
+.critedge470:                                     ; preds = %.critedge572, %257
   %284 = add nuw i64 %.0348, 1
   br label %251, !llvm.loop !79
 
@@ -3349,7 +3349,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %287 = load ptr, ptr %286, align 8, !tbaa !28
   %288 = tail call fastcc i32 @astfold_expr(ptr noundef %287, ptr noundef %1, ptr noundef %2)
   %.not419 = icmp eq i32 %288, 0
-  br i1 %.not419, label %.thread552, label %.thread
+  br i1 %.not419, label %.thread530, label %.thread
 
 289:                                              ; preds = %12
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3360,154 +3360,154 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 292:                                              ; preds = %289
   %293 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %291, ptr noundef %1, ptr noundef %2)
   %.not418 = icmp eq i32 %293, 0
-  br i1 %.not418, label %.thread552, label %.thread
+  br i1 %.not418, label %.thread530, label %.thread
 
 294:                                              ; preds = %12
   %295 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %296 = load ptr, ptr %295, align 8, !tbaa !28
   %297 = tail call fastcc i32 @astfold_expr(ptr noundef %296, ptr noundef %1, ptr noundef %2)
   %.not416 = icmp eq i32 %297, 0
-  br i1 %.not416, label %.thread552, label %.thread
+  br i1 %.not416, label %.thread530, label %.thread
 
 298:                                              ; preds = %12
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %300 = load ptr, ptr %299, align 8, !tbaa !28
   %301 = tail call fastcc i32 @astfold_expr(ptr noundef %300, ptr noundef %1, ptr noundef %2)
   %.not412 = icmp eq i32 %301, 0
-  br i1 %.not412, label %.thread552, label %302
+  br i1 %.not412, label %.thread530, label %302
 
 302:                                              ; preds = %298
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %304 = load ptr, ptr %303, align 8, !tbaa !28
   %305 = icmp eq ptr %304, null
-  br i1 %305, label %.critedge612, label %.lr.ph674
+  br i1 %305, label %.critedge574, label %.lr.ph636
 
-.lr.ph674:                                        ; preds = %302
+.lr.ph636:                                        ; preds = %302
   %306 = getelementptr inbounds nuw i8, ptr %304, i64 16
   %307 = load i64, ptr %304, align 8, !tbaa !29
   %308 = icmp sgt i64 %307, 0
-  br i1 %308, label %.lr.ph677, label %.critedge612
+  br i1 %308, label %.lr.ph639, label %.critedge574
 
-.lr.ph677:                                        ; preds = %.lr.ph674, %.critedge480
-  %309 = phi i64 [ %314, %.critedge480 ], [ %307, %.lr.ph674 ]
-  %.0350673676 = phi i64 [ %315, %.critedge480 ], [ 0, %.lr.ph674 ]
-  %310 = getelementptr ptr, ptr %306, i64 %.0350673676
+.lr.ph639:                                        ; preds = %.lr.ph636, %.critedge473
+  %309 = phi i64 [ %314, %.critedge473 ], [ %307, %.lr.ph636 ]
+  %.0350635638 = phi i64 [ %315, %.critedge473 ], [ 0, %.lr.ph636 ]
+  %310 = getelementptr ptr, ptr %306, i64 %.0350635638
   %311 = load ptr, ptr %310, align 8, !tbaa !34
   %.not413 = icmp eq ptr %311, null
-  br i1 %.not413, label %.critedge480, label %312
+  br i1 %.not413, label %.critedge473, label %312
 
-312:                                              ; preds = %.lr.ph677
+312:                                              ; preds = %.lr.ph639
   %313 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %311, ptr noundef %1, ptr noundef %2)
   %.not414 = icmp eq i32 %313, 0
-  br i1 %.not414, label %.thread552, label %..critedge480_crit_edge
+  br i1 %.not414, label %.thread530, label %..critedge473_crit_edge
 
-..critedge480_crit_edge:                          ; preds = %312
-  %.pre748 = load i64, ptr %304, align 8, !tbaa !29
-  br label %.critedge480
+..critedge473_crit_edge:                          ; preds = %312
+  %.pre710 = load i64, ptr %304, align 8, !tbaa !29
+  br label %.critedge473
 
-.critedge480:                                     ; preds = %..critedge480_crit_edge, %.lr.ph677
-  %314 = phi i64 [ %.pre748, %..critedge480_crit_edge ], [ %309, %.lr.ph677 ]
-  %315 = add nuw nsw i64 %.0350673676, 1
+.critedge473:                                     ; preds = %..critedge473_crit_edge, %.lr.ph639
+  %314 = phi i64 [ %.pre710, %..critedge473_crit_edge ], [ %309, %.lr.ph639 ]
+  %315 = add nuw nsw i64 %.0350635638, 1
   %316 = icmp slt i64 %315, %314
-  br i1 %316, label %.lr.ph677, label %.critedge612.loopexit
+  br i1 %316, label %.lr.ph639, label %.critedge574.loopexit
 
-.critedge612.loopexit:                            ; preds = %.critedge480
-  %.val503.pre = load ptr, ptr %303, align 8, !tbaa !28
-  br label %.critedge612
+.critedge574.loopexit:                            ; preds = %.critedge473
+  %.val490.pre = load ptr, ptr %303, align 8, !tbaa !28
+  br label %.critedge574
 
-.critedge612:                                     ; preds = %.critedge612.loopexit, %.lr.ph674, %302
-  %.val503 = phi ptr [ %.val503.pre, %.critedge612.loopexit ], [ %304, %.lr.ph674 ], [ null, %302 ]
+.critedge574:                                     ; preds = %.critedge574.loopexit, %.lr.ph636, %302
+  %.val490 = phi ptr [ %.val490.pre, %.critedge574.loopexit ], [ %304, %.lr.ph636 ], [ null, %302 ]
   %317 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %317, align 8, !tbaa !28
-  %318 = tail call fastcc i32 @fold_compare(ptr %.val, ptr %.val503, ptr noundef %1)
+  %318 = tail call fastcc i32 @fold_compare(ptr %.val, ptr %.val490, ptr noundef %1)
   %.not415 = icmp eq i32 %318, 0
-  br i1 %.not415, label %.thread552, label %.thread
+  br i1 %.not415, label %.thread530, label %.thread
 
 319:                                              ; preds = %12
   %320 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %321 = load ptr, ptr %320, align 8, !tbaa !28
   %322 = tail call fastcc i32 @astfold_expr(ptr noundef %321, ptr noundef %1, ptr noundef %2)
   %.not407 = icmp eq i32 %322, 0
-  br i1 %.not407, label %.thread552, label %323
+  br i1 %.not407, label %.thread530, label %323
 
 323:                                              ; preds = %319
   %324 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %325 = load ptr, ptr %324, align 8, !tbaa !28
   %326 = icmp eq ptr %325, null
-  br i1 %326, label %.critedge614, label %.lr.ph664
+  br i1 %326, label %.critedge576, label %.lr.ph626
 
-.lr.ph664:                                        ; preds = %323
+.lr.ph626:                                        ; preds = %323
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 16
   %328 = load i64, ptr %325, align 8, !tbaa !29
   %329 = icmp sgt i64 %328, 0
-  br i1 %329, label %.lr.ph667, label %.critedge614
+  br i1 %329, label %.lr.ph629, label %.critedge576
 
-.lr.ph667:                                        ; preds = %.lr.ph664, %.critedge484
-  %330 = phi i64 [ %335, %.critedge484 ], [ %328, %.lr.ph664 ]
-  %.0349663666 = phi i64 [ %336, %.critedge484 ], [ 0, %.lr.ph664 ]
-  %331 = getelementptr ptr, ptr %327, i64 %.0349663666
+.lr.ph629:                                        ; preds = %.lr.ph626, %.critedge476
+  %330 = phi i64 [ %335, %.critedge476 ], [ %328, %.lr.ph626 ]
+  %.0349625628 = phi i64 [ %336, %.critedge476 ], [ 0, %.lr.ph626 ]
+  %331 = getelementptr ptr, ptr %327, i64 %.0349625628
   %332 = load ptr, ptr %331, align 8, !tbaa !34
   %.not408 = icmp eq ptr %332, null
-  br i1 %.not408, label %.critedge484, label %333
+  br i1 %.not408, label %.critedge476, label %333
 
-333:                                              ; preds = %.lr.ph667
+333:                                              ; preds = %.lr.ph629
   %334 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %332, ptr noundef %1, ptr noundef %2)
   %.not409 = icmp eq i32 %334, 0
-  br i1 %.not409, label %.thread552, label %..critedge484_crit_edge
+  br i1 %.not409, label %.thread530, label %..critedge476_crit_edge
 
-..critedge484_crit_edge:                          ; preds = %333
-  %.pre746 = load i64, ptr %325, align 8, !tbaa !29
-  br label %.critedge484
+..critedge476_crit_edge:                          ; preds = %333
+  %.pre708 = load i64, ptr %325, align 8, !tbaa !29
+  br label %.critedge476
 
-.critedge484:                                     ; preds = %..critedge484_crit_edge, %.lr.ph667
-  %335 = phi i64 [ %.pre746, %..critedge484_crit_edge ], [ %330, %.lr.ph667 ]
-  %336 = add nuw nsw i64 %.0349663666, 1
+.critedge476:                                     ; preds = %..critedge476_crit_edge, %.lr.ph629
+  %335 = phi i64 [ %.pre708, %..critedge476_crit_edge ], [ %330, %.lr.ph629 ]
+  %336 = add nuw nsw i64 %.0349625628, 1
   %337 = icmp slt i64 %336, %335
-  br i1 %337, label %.lr.ph667, label %.critedge614
+  br i1 %337, label %.lr.ph629, label %.critedge576
 
-.critedge614:                                     ; preds = %.critedge484, %.lr.ph664, %323
+.critedge576:                                     ; preds = %.critedge476, %.lr.ph626, %323
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %339 = load ptr, ptr %338, align 8, !tbaa !28
   %340 = icmp eq ptr %339, null
-  br i1 %340, label %.thread, label %.lr.ph669
+  br i1 %340, label %.thread, label %.lr.ph631
 
-.lr.ph669:                                        ; preds = %.critedge614
+.lr.ph631:                                        ; preds = %.critedge576
   %341 = getelementptr inbounds nuw i8, ptr %339, i64 16
   %342 = load i64, ptr %339, align 8, !tbaa !29
   %343 = icmp sgt i64 %342, 0
-  br i1 %343, label %.lr.ph672, label %.thread
+  br i1 %343, label %.lr.ph634, label %.thread
 
-.lr.ph672:                                        ; preds = %.lr.ph669, %.critedge488
-  %344 = phi i64 [ %351, %.critedge488 ], [ %342, %.lr.ph669 ]
-  %.0346668671 = phi i64 [ %352, %.critedge488 ], [ 0, %.lr.ph669 ]
-  %345 = getelementptr ptr, ptr %341, i64 %.0346668671
+.lr.ph634:                                        ; preds = %.lr.ph631, %.critedge479
+  %344 = phi i64 [ %351, %.critedge479 ], [ %342, %.lr.ph631 ]
+  %.0346630633 = phi i64 [ %352, %.critedge479 ], [ 0, %.lr.ph631 ]
+  %345 = getelementptr ptr, ptr %341, i64 %.0346630633
   %346 = load ptr, ptr %345, align 8, !tbaa !44
   %.not410 = icmp eq ptr %346, null
-  br i1 %.not410, label %.critedge488, label %347
+  br i1 %.not410, label %.critedge479, label %347
 
-347:                                              ; preds = %.lr.ph672
+347:                                              ; preds = %.lr.ph634
   %348 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %349 = load ptr, ptr %348, align 8, !tbaa !46
   %350 = tail call fastcc i32 @astfold_expr(ptr noundef %349, ptr noundef %1, ptr noundef nonnull %2)
-  %.not.i537 = icmp eq i32 %350, 0
-  br i1 %.not.i537, label %.thread552, label %..critedge488_crit_edge
+  %.not.i521 = icmp eq i32 %350, 0
+  br i1 %.not.i521, label %.thread530, label %..critedge479_crit_edge
 
-..critedge488_crit_edge:                          ; preds = %347
-  %.pre747 = load i64, ptr %339, align 8, !tbaa !29
-  br label %.critedge488
+..critedge479_crit_edge:                          ; preds = %347
+  %.pre709 = load i64, ptr %339, align 8, !tbaa !29
+  br label %.critedge479
 
-.critedge488:                                     ; preds = %..critedge488_crit_edge, %.lr.ph672
-  %351 = phi i64 [ %.pre747, %..critedge488_crit_edge ], [ %344, %.lr.ph672 ]
-  %352 = add nuw nsw i64 %.0346668671, 1
+.critedge479:                                     ; preds = %..critedge479_crit_edge, %.lr.ph634
+  %351 = phi i64 [ %.pre709, %..critedge479_crit_edge ], [ %344, %.lr.ph634 ]
+  %352 = add nuw nsw i64 %.0346630633, 1
   %353 = icmp slt i64 %352, %351
-  br i1 %353, label %.lr.ph672, label %.thread
+  br i1 %353, label %.lr.ph634, label %.thread
 
 354:                                              ; preds = %12
   %355 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %356 = load ptr, ptr %355, align 8, !tbaa !28
   %357 = tail call fastcc i32 @astfold_expr(ptr noundef %356, ptr noundef %1, ptr noundef %2)
   %.not404 = icmp eq i32 %357, 0
-  br i1 %.not404, label %.thread552, label %358
+  br i1 %.not404, label %.thread530, label %358
 
 358:                                              ; preds = %354
   %359 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3518,75 +3518,75 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 361:                                              ; preds = %358
   %362 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %360, ptr noundef %1, ptr noundef %2)
   %.not406 = icmp eq i32 %362, 0
-  br i1 %.not406, label %.thread552, label %.thread
+  br i1 %.not406, label %.thread530, label %.thread
 
 363:                                              ; preds = %12
   %364 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %365 = load ptr, ptr %364, align 8, !tbaa !28
   %366 = icmp eq ptr %365, null
-  br i1 %366, label %.thread, label %.lr.ph659
+  br i1 %366, label %.thread, label %.lr.ph621
 
-.lr.ph659:                                        ; preds = %363
+.lr.ph621:                                        ; preds = %363
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 16
   %368 = load i64, ptr %365, align 8, !tbaa !29
   %369 = icmp sgt i64 %368, 0
-  br i1 %369, label %.lr.ph662, label %.thread
+  br i1 %369, label %.lr.ph624, label %.thread
 
-.lr.ph662:                                        ; preds = %.lr.ph659, %.critedge492
-  %370 = phi i64 [ %375, %.critedge492 ], [ %368, %.lr.ph659 ]
-  %.0343658661 = phi i64 [ %376, %.critedge492 ], [ 0, %.lr.ph659 ]
-  %371 = getelementptr ptr, ptr %367, i64 %.0343658661
+.lr.ph624:                                        ; preds = %.lr.ph621, %.critedge482
+  %370 = phi i64 [ %375, %.critedge482 ], [ %368, %.lr.ph621 ]
+  %.0343620623 = phi i64 [ %376, %.critedge482 ], [ 0, %.lr.ph621 ]
+  %371 = getelementptr ptr, ptr %367, i64 %.0343620623
   %372 = load ptr, ptr %371, align 8, !tbaa !34
   %.not402 = icmp eq ptr %372, null
-  br i1 %.not402, label %.critedge492, label %373
+  br i1 %.not402, label %.critedge482, label %373
 
-373:                                              ; preds = %.lr.ph662
+373:                                              ; preds = %.lr.ph624
   %374 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %372, ptr noundef %1, ptr noundef %2)
   %.not403 = icmp eq i32 %374, 0
-  br i1 %.not403, label %.thread552, label %..critedge492_crit_edge
+  br i1 %.not403, label %.thread530, label %..critedge482_crit_edge
 
-..critedge492_crit_edge:                          ; preds = %373
-  %.pre745 = load i64, ptr %365, align 8, !tbaa !29
-  br label %.critedge492
+..critedge482_crit_edge:                          ; preds = %373
+  %.pre707 = load i64, ptr %365, align 8, !tbaa !29
+  br label %.critedge482
 
-.critedge492:                                     ; preds = %..critedge492_crit_edge, %.lr.ph662
-  %375 = phi i64 [ %.pre745, %..critedge492_crit_edge ], [ %370, %.lr.ph662 ]
-  %376 = add nuw nsw i64 %.0343658661, 1
+.critedge482:                                     ; preds = %..critedge482_crit_edge, %.lr.ph624
+  %375 = phi i64 [ %.pre707, %..critedge482_crit_edge ], [ %370, %.lr.ph624 ]
+  %376 = add nuw nsw i64 %.0343620623, 1
   %377 = icmp slt i64 %376, %375
-  br i1 %377, label %.lr.ph662, label %.thread
+  br i1 %377, label %.lr.ph624, label %.thread
 
 378:                                              ; preds = %12
   %379 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %380 = load ptr, ptr %379, align 8, !tbaa !28
   %381 = tail call fastcc i32 @astfold_expr(ptr noundef %380, ptr noundef %1, ptr noundef %2)
   %.not401 = icmp eq i32 %381, 0
-  br i1 %.not401, label %.thread552, label %.thread
+  br i1 %.not401, label %.thread530, label %.thread
 
 382:                                              ; preds = %12
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %384 = load ptr, ptr %383, align 8, !tbaa !28
   %385 = tail call fastcc i32 @astfold_expr(ptr noundef %384, ptr noundef %1, ptr noundef %2)
   %.not398 = icmp eq i32 %385, 0
-  br i1 %.not398, label %.thread552, label %386
+  br i1 %.not398, label %.thread530, label %386
 
 386:                                              ; preds = %382
   %387 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %388 = load ptr, ptr %387, align 8, !tbaa !28
   %389 = tail call fastcc i32 @astfold_expr(ptr noundef %388, ptr noundef %1, ptr noundef %2)
   %.not399 = icmp eq i32 %389, 0
-  br i1 %.not399, label %.thread552, label %390
+  br i1 %.not399, label %.thread530, label %390
 
 390:                                              ; preds = %386
   %391 = tail call fastcc i32 @fold_subscr(ptr noundef nonnull %0, ptr noundef %1)
   %.not400 = icmp eq i32 %391, 0
-  br i1 %.not400, label %.thread552, label %.thread
+  br i1 %.not400, label %.thread530, label %.thread
 
 392:                                              ; preds = %12
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %394 = load ptr, ptr %393, align 8, !tbaa !28
   %395 = tail call fastcc i32 @astfold_expr(ptr noundef %394, ptr noundef %1, ptr noundef %2)
   %.not397 = icmp eq i32 %395, 0
-  br i1 %.not397, label %.thread552, label %.thread
+  br i1 %.not397, label %.thread530, label %.thread
 
 396:                                              ; preds = %12
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3597,7 +3597,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 399:                                              ; preds = %396
   %400 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %398, ptr noundef %1, ptr noundef %2)
   %.not392 = icmp eq i32 %400, 0
-  br i1 %.not392, label %.thread552, label %401
+  br i1 %.not392, label %.thread530, label %401
 
 401:                                              ; preds = %399, %396
   %402 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3608,7 +3608,7 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 404:                                              ; preds = %401
   %405 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %403, ptr noundef %1, ptr noundef %2)
   %.not394 = icmp eq i32 %405, 0
-  br i1 %.not394, label %.thread552, label %406
+  br i1 %.not394, label %.thread530, label %406
 
 406:                                              ; preds = %404, %401
   %407 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3619,82 +3619,82 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
 409:                                              ; preds = %406
   %410 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %408, ptr noundef %1, ptr noundef %2)
   %.not396 = icmp eq i32 %410, 0
-  br i1 %.not396, label %.thread552, label %.thread
+  br i1 %.not396, label %.thread530, label %.thread
 
 411:                                              ; preds = %12
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %413 = load ptr, ptr %412, align 8, !tbaa !28
   %414 = icmp eq ptr %413, null
-  br i1 %414, label %.thread, label %.lr.ph654
+  br i1 %414, label %.thread, label %.lr.ph616
 
-.lr.ph654:                                        ; preds = %411
+.lr.ph616:                                        ; preds = %411
   %415 = getelementptr inbounds nuw i8, ptr %413, i64 16
   %416 = load i64, ptr %413, align 8, !tbaa !29
   %417 = icmp sgt i64 %416, 0
-  br i1 %417, label %.lr.ph657, label %.thread
+  br i1 %417, label %.lr.ph619, label %.thread
 
-.lr.ph657:                                        ; preds = %.lr.ph654, %.critedge496
-  %418 = phi i64 [ %423, %.critedge496 ], [ %416, %.lr.ph654 ]
-  %.0340653656 = phi i64 [ %424, %.critedge496 ], [ 0, %.lr.ph654 ]
-  %419 = getelementptr ptr, ptr %415, i64 %.0340653656
+.lr.ph619:                                        ; preds = %.lr.ph616, %.critedge485
+  %418 = phi i64 [ %423, %.critedge485 ], [ %416, %.lr.ph616 ]
+  %.0340615618 = phi i64 [ %424, %.critedge485 ], [ 0, %.lr.ph616 ]
+  %419 = getelementptr ptr, ptr %415, i64 %.0340615618
   %420 = load ptr, ptr %419, align 8, !tbaa !34
   %.not389 = icmp eq ptr %420, null
-  br i1 %.not389, label %.critedge496, label %421
+  br i1 %.not389, label %.critedge485, label %421
 
-421:                                              ; preds = %.lr.ph657
+421:                                              ; preds = %.lr.ph619
   %422 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %420, ptr noundef %1, ptr noundef %2)
   %.not390 = icmp eq i32 %422, 0
-  br i1 %.not390, label %.thread552, label %..critedge496_crit_edge
+  br i1 %.not390, label %.thread530, label %..critedge485_crit_edge
 
-..critedge496_crit_edge:                          ; preds = %421
-  %.pre744 = load i64, ptr %413, align 8, !tbaa !29
-  br label %.critedge496
+..critedge485_crit_edge:                          ; preds = %421
+  %.pre706 = load i64, ptr %413, align 8, !tbaa !29
+  br label %.critedge485
 
-.critedge496:                                     ; preds = %..critedge496_crit_edge, %.lr.ph657
-  %423 = phi i64 [ %.pre744, %..critedge496_crit_edge ], [ %418, %.lr.ph657 ]
-  %424 = add nuw nsw i64 %.0340653656, 1
+.critedge485:                                     ; preds = %..critedge485_crit_edge, %.lr.ph619
+  %423 = phi i64 [ %.pre706, %..critedge485_crit_edge ], [ %418, %.lr.ph619 ]
+  %424 = add nuw nsw i64 %.0340615618, 1
   %425 = icmp slt i64 %424, %423
-  br i1 %425, label %.lr.ph657, label %.thread
+  br i1 %425, label %.lr.ph619, label %.thread
 
 426:                                              ; preds = %12
   %427 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %428 = load ptr, ptr %427, align 8, !tbaa !28
   %429 = icmp eq ptr %428, null
-  br i1 %429, label %.critedge622, label %.lr.ph
+  br i1 %429, label %.critedge584, label %.lr.ph
 
 .lr.ph:                                           ; preds = %426
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 16
   %431 = load i64, ptr %428, align 8, !tbaa !29
   %432 = icmp sgt i64 %431, 0
-  br i1 %432, label %.lr.ph652, label %.critedge622
+  br i1 %432, label %.lr.ph614, label %.critedge584
 
-.lr.ph652:                                        ; preds = %.lr.ph, %.critedge500
-  %433 = phi i64 [ %438, %.critedge500 ], [ %431, %.lr.ph ]
-  %.0310649651 = phi i64 [ %439, %.critedge500 ], [ 0, %.lr.ph ]
-  %434 = getelementptr ptr, ptr %430, i64 %.0310649651
+.lr.ph614:                                        ; preds = %.lr.ph, %.critedge488
+  %433 = phi i64 [ %438, %.critedge488 ], [ %431, %.lr.ph ]
+  %.0310611613 = phi i64 [ %439, %.critedge488 ], [ 0, %.lr.ph ]
+  %434 = getelementptr ptr, ptr %430, i64 %.0310611613
   %435 = load ptr, ptr %434, align 8, !tbaa !34
   %.not386 = icmp eq ptr %435, null
-  br i1 %.not386, label %.critedge500, label %436
+  br i1 %.not386, label %.critedge488, label %436
 
-436:                                              ; preds = %.lr.ph652
+436:                                              ; preds = %.lr.ph614
   %437 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %435, ptr noundef %1, ptr noundef %2)
   %.not387 = icmp eq i32 %437, 0
-  br i1 %.not387, label %.thread552, label %..critedge500_crit_edge
+  br i1 %.not387, label %.thread530, label %..critedge488_crit_edge
 
-..critedge500_crit_edge:                          ; preds = %436
+..critedge488_crit_edge:                          ; preds = %436
   %.pre = load i64, ptr %428, align 8, !tbaa !29
-  br label %.critedge500
+  br label %.critedge488
 
-.critedge500:                                     ; preds = %..critedge500_crit_edge, %.lr.ph652
-  %438 = phi i64 [ %.pre, %..critedge500_crit_edge ], [ %433, %.lr.ph652 ]
-  %439 = add nuw nsw i64 %.0310649651, 1
+.critedge488:                                     ; preds = %..critedge488_crit_edge, %.lr.ph614
+  %438 = phi i64 [ %.pre, %..critedge488_crit_edge ], [ %433, %.lr.ph614 ]
+  %439 = add nuw nsw i64 %.0310611613, 1
   %440 = icmp slt i64 %439, %438
-  br i1 %440, label %.lr.ph652, label %.critedge622
+  br i1 %440, label %.lr.ph614, label %.critedge584
 
-.critedge622:                                     ; preds = %.critedge500, %.lr.ph, %426
+.critedge584:                                     ; preds = %.critedge488, %.lr.ph, %426
   %441 = tail call fastcc i32 @fold_tuple(ptr noundef nonnull %0, ptr noundef %1)
   %.not388 = icmp eq i32 %441, 0
-  br i1 %.not388, label %.thread552, label %.thread
+  br i1 %.not388, label %.thread530, label %.thread
 
 442:                                              ; preds = %12
   %443 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3718,23 +3718,23 @@ define internal fastcc range(i32 0, 2) i32 @astfold_expr(ptr noundef captures(no
   %454 = zext i1 %.not385 to i64
   %455 = tail call ptr @PyBool_FromLong(i64 noundef %454) #8
   %456 = tail call fastcc i32 @make_const(ptr noundef nonnull %0, ptr noundef %455, ptr noundef %1)
-  br label %.thread552
+  br label %.thread530
 
 457:                                              ; preds = %12
   %458 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %459 = load ptr, ptr %458, align 8, !tbaa !28
   %460 = tail call fastcc i32 @astfold_expr(ptr noundef %459, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq i32 %460, 0
-  br i1 %.not, label %.thread552, label %.thread
+  br i1 %.not, label %.thread530, label %.thread
 
-.thread:                                          ; preds = %.critedge496, %.critedge492, %.critedge488, %254, %211, %164, %121, %.critedge460, %.critedge456, %.critedge, %411, %.lr.ph654, %363, %.lr.ph659, %.critedge614, %.lr.ph669, %94, %.lr.ph699, %.critedge598, %.lr.ph709, %14, %.lr.ph714, %12, %37, %43, %49, %61, %285, %292, %289, %294, %.critedge612, %361, %358, %378, %390, %392, %409, %406, %.critedge622, %446, %442, %457
+.thread:                                          ; preds = %.critedge485, %.critedge482, %.critedge479, %254, %211, %164, %121, %.critedge458, %.critedge455, %.critedge, %411, %.lr.ph616, %363, %.lr.ph621, %.critedge576, %.lr.ph631, %94, %.lr.ph661, %.critedge560, %.lr.ph671, %14, %.lr.ph676, %12, %37, %43, %49, %61, %285, %292, %289, %294, %.critedge574, %361, %358, %378, %390, %392, %409, %406, %.critedge584, %446, %442, %457
   %461 = load i32, ptr %4, align 4, !tbaa !24
   %462 = add i32 %461, -1
   store i32 %462, ptr %4, align 4, !tbaa !24
-  br label %.thread552
+  br label %.thread530
 
-.thread552:                                       ; preds = %436, %421, %373, %333, %347, %312, %.critedge610, %263, %260, %277, %.critedge608, %220, %217, %234, %.critedge606, %173, %170, %187, %.critedge604, %130, %127, %144, %104, %75, %89, %24, %457, %.critedge622, %409, %404, %399, %392, %390, %386, %382, %378, %361, %354, %319, %.critedge612, %298, %294, %292, %285, %242, %199, %195, %152, %109, %61, %57, %53, %49, %45, %43, %39, %37, %33, %29, %.thread, %450, %10
-  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread ], [ %456, %450 ], [ 0, %29 ], [ 0, %33 ], [ 0, %37 ], [ 0, %39 ], [ 0, %43 ], [ 0, %45 ], [ 0, %49 ], [ 0, %53 ], [ 0, %57 ], [ 0, %61 ], [ 0, %109 ], [ 0, %152 ], [ 0, %195 ], [ 0, %199 ], [ 0, %242 ], [ 0, %285 ], [ 0, %292 ], [ 0, %294 ], [ 0, %298 ], [ 0, %.critedge612 ], [ 0, %319 ], [ 0, %354 ], [ 0, %361 ], [ 0, %378 ], [ 0, %382 ], [ 0, %386 ], [ 0, %390 ], [ 0, %392 ], [ 0, %399 ], [ 0, %404 ], [ 0, %409 ], [ 0, %.critedge622 ], [ 0, %457 ], [ 0, %24 ], [ 0, %89 ], [ 0, %75 ], [ 0, %104 ], [ 0, %144 ], [ 0, %127 ], [ 0, %130 ], [ 0, %.critedge604 ], [ 0, %187 ], [ 0, %170 ], [ 0, %173 ], [ 0, %.critedge606 ], [ 0, %234 ], [ 0, %217 ], [ 0, %220 ], [ 0, %.critedge608 ], [ 0, %277 ], [ 0, %260 ], [ 0, %263 ], [ 0, %.critedge610 ], [ 0, %312 ], [ 0, %347 ], [ 0, %333 ], [ 0, %373 ], [ 0, %421 ], [ 0, %436 ]
+.thread530:                                       ; preds = %436, %421, %373, %333, %347, %312, %.critedge572, %263, %260, %277, %.critedge570, %220, %217, %234, %.critedge568, %173, %170, %187, %.critedge566, %130, %127, %144, %104, %75, %89, %24, %457, %.critedge584, %409, %404, %399, %392, %390, %386, %382, %378, %361, %354, %319, %.critedge574, %298, %294, %292, %285, %242, %199, %195, %152, %109, %61, %57, %53, %49, %45, %43, %39, %37, %33, %29, %.thread, %450, %10
+  %.0 = phi i32 [ 0, %10 ], [ 1, %.thread ], [ %456, %450 ], [ 0, %29 ], [ 0, %33 ], [ 0, %37 ], [ 0, %39 ], [ 0, %43 ], [ 0, %45 ], [ 0, %49 ], [ 0, %53 ], [ 0, %57 ], [ 0, %61 ], [ 0, %109 ], [ 0, %152 ], [ 0, %195 ], [ 0, %199 ], [ 0, %242 ], [ 0, %285 ], [ 0, %292 ], [ 0, %294 ], [ 0, %298 ], [ 0, %.critedge574 ], [ 0, %319 ], [ 0, %354 ], [ 0, %361 ], [ 0, %378 ], [ 0, %382 ], [ 0, %386 ], [ 0, %390 ], [ 0, %392 ], [ 0, %399 ], [ 0, %404 ], [ 0, %409 ], [ 0, %.critedge584 ], [ 0, %457 ], [ 0, %24 ], [ 0, %89 ], [ 0, %75 ], [ 0, %104 ], [ 0, %144 ], [ 0, %127 ], [ 0, %130 ], [ 0, %.critedge566 ], [ 0, %187 ], [ 0, %170 ], [ 0, %173 ], [ 0, %.critedge568 ], [ 0, %234 ], [ 0, %217 ], [ 0, %220 ], [ 0, %.critedge570 ], [ 0, %277 ], [ 0, %260 ], [ 0, %263 ], [ 0, %.critedge572 ], [ 0, %312 ], [ 0, %347 ], [ 0, %333 ], [ 0, %373 ], [ 0, %421 ], [ 0, %436 ]
   ret i32 %.0
 }
 
@@ -3811,24 +3811,24 @@ define internal fastcc range(i32 0, 2) i32 @astfold_type_param(ptr noundef nonnu
 define internal fastcc noundef range(i32 0, 2) i32 @astfold_arguments(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !82
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.critedge171, label %.lr.ph
+  br i1 %5, label %.critedge156, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %8 = load i64, ptr %4, align 8, !tbaa !29
   %9 = icmp sgt i64 %8, 0
-  br i1 %9, label %.lr.ph184, label %.critedge171
+  br i1 %9, label %.lr.ph169, label %.critedge156
 
-.lr.ph184:                                        ; preds = %.lr.ph, %.critedge
+.lr.ph169:                                        ; preds = %.lr.ph, %.critedge
   %10 = phi i64 [ %21, %.critedge ], [ %8, %.lr.ph ]
-  %.077181183 = phi i64 [ %22, %.critedge ], [ 0, %.lr.ph ]
-  %11 = getelementptr ptr, ptr %6, i64 %.077181183
+  %.077166168 = phi i64 [ %22, %.critedge ], [ 0, %.lr.ph ]
+  %11 = getelementptr ptr, ptr %6, i64 %.077166168
   %12 = load ptr, ptr %11, align 8, !tbaa !85
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %.critedge, label %13
 
-13:                                               ; preds = %.lr.ph184
+13:                                               ; preds = %.lr.ph169
   %14 = load i32, ptr %7, align 4, !tbaa !9
   %15 = and i32 %14, 16777216
   %.not.i = icmp eq i32 %15, 0
@@ -3843,234 +3843,234 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_arguments(ptr nounde
 19:                                               ; preds = %16
   %20 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %18, ptr noundef %1, ptr noundef nonnull %2)
   %.not7.i = icmp eq i32 %20, 0
-  br i1 %.not7.i, label %astfold_arg.exit142.thread, label %..critedge_crit_edge
+  br i1 %.not7.i, label %astfold_arg.exit138.thread, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %19
   %.pre = load i64, ptr %4, align 8, !tbaa !29
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %16, %13, %.lr.ph184
-  %21 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %10, %16 ], [ %10, %13 ], [ %10, %.lr.ph184 ]
-  %22 = add nuw nsw i64 %.077181183, 1
+.critedge:                                        ; preds = %..critedge_crit_edge, %16, %13, %.lr.ph169
+  %21 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %10, %16 ], [ %10, %13 ], [ %10, %.lr.ph169 ]
+  %22 = add nuw nsw i64 %.077166168, 1
   %23 = icmp slt i64 %22, %21
-  br i1 %23, label %.lr.ph184, label %.critedge171
+  br i1 %23, label %.lr.ph169, label %.critedge156
 
-.critedge171:                                     ; preds = %.critedge, %.lr.ph, %3
+.critedge156:                                     ; preds = %.critedge, %.lr.ph, %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !88
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.critedge173, label %.lr.ph186
+  br i1 %26, label %.critedge158, label %.lr.ph171
 
-.lr.ph186:                                        ; preds = %.critedge171
+.lr.ph171:                                        ; preds = %.critedge156
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %29 = load i64, ptr %25, align 8, !tbaa !29
   %30 = icmp sgt i64 %29, 0
-  br i1 %30, label %.lr.ph189, label %.critedge173
+  br i1 %30, label %.lr.ph174, label %.critedge158
 
-.lr.ph189:                                        ; preds = %.lr.ph186, %.critedge118
-  %31 = phi i64 [ %42, %.critedge118 ], [ %29, %.lr.ph186 ]
-  %.089185188 = phi i64 [ %43, %.critedge118 ], [ 0, %.lr.ph186 ]
-  %32 = getelementptr ptr, ptr %27, i64 %.089185188
+.lr.ph174:                                        ; preds = %.lr.ph171, %.critedge118
+  %31 = phi i64 [ %42, %.critedge118 ], [ %29, %.lr.ph171 ]
+  %.089170173 = phi i64 [ %43, %.critedge118 ], [ 0, %.lr.ph171 ]
+  %32 = getelementptr ptr, ptr %27, i64 %.089170173
   %33 = load ptr, ptr %32, align 8, !tbaa !85
   %.not105 = icmp eq ptr %33, null
   br i1 %.not105, label %.critedge118, label %34
 
-34:                                               ; preds = %.lr.ph189
+34:                                               ; preds = %.lr.ph174
   %35 = load i32, ptr %28, align 4, !tbaa !9
   %36 = and i32 %35, 16777216
-  %.not.i133 = icmp eq i32 %36, 0
-  br i1 %.not.i133, label %37, label %.critedge118
+  %.not.i129 = icmp eq i32 %36, 0
+  br i1 %.not.i129, label %37, label %.critedge118
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !86
-  %.not6.i135 = icmp eq ptr %39, null
-  br i1 %.not6.i135, label %.critedge118, label %40
+  %.not6.i131 = icmp eq ptr %39, null
+  br i1 %.not6.i131, label %.critedge118, label %40
 
 40:                                               ; preds = %37
   %41 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %39, ptr noundef %1, ptr noundef nonnull %2)
-  %.not7.i136 = icmp eq i32 %41, 0
-  br i1 %.not7.i136, label %astfold_arg.exit142.thread, label %..critedge118_crit_edge
+  %.not7.i132 = icmp eq i32 %41, 0
+  br i1 %.not7.i132, label %astfold_arg.exit138.thread, label %..critedge118_crit_edge
 
 ..critedge118_crit_edge:                          ; preds = %40
-  %.pre212 = load i64, ptr %25, align 8, !tbaa !29
+  %.pre199 = load i64, ptr %25, align 8, !tbaa !29
   br label %.critedge118
 
-.critedge118:                                     ; preds = %..critedge118_crit_edge, %37, %34, %.lr.ph189
-  %42 = phi i64 [ %.pre212, %..critedge118_crit_edge ], [ %31, %37 ], [ %31, %34 ], [ %31, %.lr.ph189 ]
-  %43 = add nuw nsw i64 %.089185188, 1
+.critedge118:                                     ; preds = %..critedge118_crit_edge, %37, %34, %.lr.ph174
+  %42 = phi i64 [ %.pre199, %..critedge118_crit_edge ], [ %31, %37 ], [ %31, %34 ], [ %31, %.lr.ph174 ]
+  %43 = add nuw nsw i64 %.089170173, 1
   %44 = icmp slt i64 %43, %42
-  br i1 %44, label %.lr.ph189, label %.critedge173
+  br i1 %44, label %.lr.ph174, label %.critedge158
 
-.critedge173:                                     ; preds = %.critedge118, %.lr.ph186, %.critedge171
+.critedge158:                                     ; preds = %.critedge118, %.lr.ph171, %.critedge156
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !89
   %.not107 = icmp eq ptr %46, null
-  br i1 %.not107, label %astfold_arg.exit142, label %47
+  br i1 %.not107, label %astfold_arg.exit138, label %47
 
-47:                                               ; preds = %.critedge173
+47:                                               ; preds = %.critedge158
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %49 = load i32, ptr %48, align 4, !tbaa !9
   %50 = and i32 %49, 16777216
-  %.not.i138 = icmp eq i32 %50, 0
-  br i1 %.not.i138, label %51, label %astfold_arg.exit142
+  %.not.i134 = icmp eq i32 %50, 0
+  br i1 %.not.i134, label %51, label %astfold_arg.exit138
 
 51:                                               ; preds = %47
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !86
-  %.not6.i140 = icmp eq ptr %53, null
-  br i1 %.not6.i140, label %astfold_arg.exit142, label %54
+  %.not6.i136 = icmp eq ptr %53, null
+  br i1 %.not6.i136, label %astfold_arg.exit138, label %54
 
 54:                                               ; preds = %51
   %55 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %53, ptr noundef %1, ptr noundef nonnull %2)
-  %.not7.i141 = icmp eq i32 %55, 0
-  br i1 %.not7.i141, label %astfold_arg.exit142.thread, label %astfold_arg.exit142
+  %.not7.i137 = icmp eq i32 %55, 0
+  br i1 %.not7.i137, label %astfold_arg.exit138.thread, label %astfold_arg.exit138
 
-astfold_arg.exit142:                              ; preds = %54, %51, %47, %.critedge173
+astfold_arg.exit138:                              ; preds = %54, %51, %47, %.critedge158
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = load ptr, ptr %56, align 8, !tbaa !90
   %58 = icmp eq ptr %57, null
-  br i1 %58, label %.critedge175, label %.lr.ph191
+  br i1 %58, label %.critedge160, label %.lr.ph176
 
-.lr.ph191:                                        ; preds = %astfold_arg.exit142
+.lr.ph176:                                        ; preds = %astfold_arg.exit138
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %60 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %61 = load i64, ptr %57, align 8, !tbaa !29
   %62 = icmp sgt i64 %61, 0
-  br i1 %62, label %.lr.ph194, label %.critedge175
+  br i1 %62, label %.lr.ph179, label %.critedge160
 
-.lr.ph194:                                        ; preds = %.lr.ph191, %.critedge122
-  %63 = phi i64 [ %74, %.critedge122 ], [ %61, %.lr.ph191 ]
-  %.091190193 = phi i64 [ %75, %.critedge122 ], [ 0, %.lr.ph191 ]
-  %64 = getelementptr ptr, ptr %59, i64 %.091190193
+.lr.ph179:                                        ; preds = %.lr.ph176, %.critedge121
+  %63 = phi i64 [ %74, %.critedge121 ], [ %61, %.lr.ph176 ]
+  %.091175178 = phi i64 [ %75, %.critedge121 ], [ 0, %.lr.ph176 ]
+  %64 = getelementptr ptr, ptr %59, i64 %.091175178
   %65 = load ptr, ptr %64, align 8, !tbaa !85
   %.not109 = icmp eq ptr %65, null
-  br i1 %.not109, label %.critedge122, label %66
+  br i1 %.not109, label %.critedge121, label %66
 
-66:                                               ; preds = %.lr.ph194
+66:                                               ; preds = %.lr.ph179
   %67 = load i32, ptr %60, align 4, !tbaa !9
   %68 = and i32 %67, 16777216
-  %.not.i143 = icmp eq i32 %68, 0
-  br i1 %.not.i143, label %69, label %.critedge122
+  %.not.i139 = icmp eq i32 %68, 0
+  br i1 %.not.i139, label %69, label %.critedge121
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !86
-  %.not6.i145 = icmp eq ptr %71, null
-  br i1 %.not6.i145, label %.critedge122, label %72
+  %.not6.i141 = icmp eq ptr %71, null
+  br i1 %.not6.i141, label %.critedge121, label %72
 
 72:                                               ; preds = %69
   %73 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %71, ptr noundef %1, ptr noundef nonnull %2)
-  %.not7.i146 = icmp eq i32 %73, 0
-  br i1 %.not7.i146, label %astfold_arg.exit142.thread, label %..critedge122_crit_edge
+  %.not7.i142 = icmp eq i32 %73, 0
+  br i1 %.not7.i142, label %astfold_arg.exit138.thread, label %..critedge121_crit_edge
 
-..critedge122_crit_edge:                          ; preds = %72
-  %.pre213 = load i64, ptr %57, align 8, !tbaa !29
-  br label %.critedge122
+..critedge121_crit_edge:                          ; preds = %72
+  %.pre200 = load i64, ptr %57, align 8, !tbaa !29
+  br label %.critedge121
 
-.critedge122:                                     ; preds = %..critedge122_crit_edge, %69, %66, %.lr.ph194
-  %74 = phi i64 [ %.pre213, %..critedge122_crit_edge ], [ %63, %69 ], [ %63, %66 ], [ %63, %.lr.ph194 ]
-  %75 = add nuw nsw i64 %.091190193, 1
+.critedge121:                                     ; preds = %..critedge121_crit_edge, %69, %66, %.lr.ph179
+  %74 = phi i64 [ %.pre200, %..critedge121_crit_edge ], [ %63, %69 ], [ %63, %66 ], [ %63, %.lr.ph179 ]
+  %75 = add nuw nsw i64 %.091175178, 1
   %76 = icmp slt i64 %75, %74
-  br i1 %76, label %.lr.ph194, label %.critedge175
+  br i1 %76, label %.lr.ph179, label %.critedge160
 
-.critedge175:                                     ; preds = %.critedge122, %.lr.ph191, %astfold_arg.exit142
+.critedge160:                                     ; preds = %.critedge121, %.lr.ph176, %astfold_arg.exit138
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %78 = load ptr, ptr %77, align 8, !tbaa !91
   %79 = icmp eq ptr %78, null
-  br i1 %79, label %.critedge177, label %.lr.ph196
+  br i1 %79, label %.critedge162, label %.lr.ph181
 
-.lr.ph196:                                        ; preds = %.critedge175
+.lr.ph181:                                        ; preds = %.critedge160
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %81 = load i64, ptr %78, align 8, !tbaa !29
   %82 = icmp sgt i64 %81, 0
-  br i1 %82, label %.lr.ph199, label %.critedge177
+  br i1 %82, label %.lr.ph184, label %.critedge162
 
-.lr.ph199:                                        ; preds = %.lr.ph196, %.critedge126
-  %83 = phi i64 [ %88, %.critedge126 ], [ %81, %.lr.ph196 ]
-  %.090195198 = phi i64 [ %89, %.critedge126 ], [ 0, %.lr.ph196 ]
-  %84 = getelementptr ptr, ptr %80, i64 %.090195198
+.lr.ph184:                                        ; preds = %.lr.ph181, %.critedge124
+  %83 = phi i64 [ %88, %.critedge124 ], [ %81, %.lr.ph181 ]
+  %.090180183 = phi i64 [ %89, %.critedge124 ], [ 0, %.lr.ph181 ]
+  %84 = getelementptr ptr, ptr %80, i64 %.090180183
   %85 = load ptr, ptr %84, align 8, !tbaa !34
   %.not111 = icmp eq ptr %85, null
-  br i1 %.not111, label %.critedge126, label %86
+  br i1 %.not111, label %.critedge124, label %86
 
-86:                                               ; preds = %.lr.ph199
+86:                                               ; preds = %.lr.ph184
   %87 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %85, ptr noundef %1, ptr noundef %2)
   %.not112 = icmp eq i32 %87, 0
-  br i1 %.not112, label %astfold_arg.exit142.thread, label %..critedge126_crit_edge
+  br i1 %.not112, label %astfold_arg.exit138.thread, label %..critedge124_crit_edge
 
-..critedge126_crit_edge:                          ; preds = %86
-  %.pre214 = load i64, ptr %78, align 8, !tbaa !29
-  br label %.critedge126
+..critedge124_crit_edge:                          ; preds = %86
+  %.pre201 = load i64, ptr %78, align 8, !tbaa !29
+  br label %.critedge124
 
-.critedge126:                                     ; preds = %..critedge126_crit_edge, %.lr.ph199
-  %88 = phi i64 [ %.pre214, %..critedge126_crit_edge ], [ %83, %.lr.ph199 ]
-  %89 = add nuw nsw i64 %.090195198, 1
+.critedge124:                                     ; preds = %..critedge124_crit_edge, %.lr.ph184
+  %88 = phi i64 [ %.pre201, %..critedge124_crit_edge ], [ %83, %.lr.ph184 ]
+  %89 = add nuw nsw i64 %.090180183, 1
   %90 = icmp slt i64 %89, %88
-  br i1 %90, label %.lr.ph199, label %.critedge177
+  br i1 %90, label %.lr.ph184, label %.critedge162
 
-.critedge177:                                     ; preds = %.critedge126, %.lr.ph196, %.critedge175
+.critedge162:                                     ; preds = %.critedge124, %.lr.ph181, %.critedge160
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load ptr, ptr %91, align 8, !tbaa !92
   %.not113 = icmp eq ptr %92, null
-  br i1 %.not113, label %astfold_arg.exit152, label %93
+  br i1 %.not113, label %astfold_arg.exit, label %93
 
-93:                                               ; preds = %.critedge177
+93:                                               ; preds = %.critedge162
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !9
   %96 = and i32 %95, 16777216
-  %.not.i148 = icmp eq i32 %96, 0
-  br i1 %.not.i148, label %97, label %astfold_arg.exit152
+  %.not.i237 = icmp eq i32 %96, 0
+  br i1 %.not.i237, label %97, label %astfold_arg.exit
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !86
-  %.not6.i150 = icmp eq ptr %99, null
-  br i1 %.not6.i150, label %astfold_arg.exit152, label %100
+  %.not6.i238 = icmp eq ptr %99, null
+  br i1 %.not6.i238, label %astfold_arg.exit, label %100
 
 100:                                              ; preds = %97
   %101 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %99, ptr noundef %1, ptr noundef nonnull %2)
-  %.not7.i151 = icmp eq i32 %101, 0
-  br i1 %.not7.i151, label %astfold_arg.exit142.thread, label %astfold_arg.exit152
+  %.not7.i239 = icmp eq i32 %101, 0
+  br i1 %.not7.i239, label %astfold_arg.exit138.thread, label %astfold_arg.exit
 
-astfold_arg.exit152:                              ; preds = %100, %97, %93, %.critedge177
+astfold_arg.exit:                                 ; preds = %100, %97, %93, %.critedge162
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %103 = load ptr, ptr %102, align 8, !tbaa !93
   %104 = icmp eq ptr %103, null
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 16
-  br i1 %104, label %astfold_arg.exit142.thread, label %astfold_arg.exit152.split
+  br i1 %104, label %astfold_arg.exit138.thread, label %.split
 
-astfold_arg.exit152.split:                        ; preds = %astfold_arg.exit152
+.split:                                           ; preds = %astfold_arg.exit
   %106 = load i64, ptr %103, align 8, !tbaa !29
   %107 = icmp sgt i64 %106, 0
-  br i1 %107, label %.lr.ph201, label %astfold_arg.exit142.thread
+  br i1 %107, label %.lr.ph188, label %astfold_arg.exit138.thread
 
-.lr.ph201:                                        ; preds = %astfold_arg.exit152.split, %.critedge130
-  %108 = phi i64 [ %113, %.critedge130 ], [ %106, %astfold_arg.exit152.split ]
-  %.078200 = phi i64 [ %114, %.critedge130 ], [ 0, %astfold_arg.exit152.split ]
-  %109 = getelementptr ptr, ptr %105, i64 %.078200
+.lr.ph188:                                        ; preds = %.split, %.critedge127
+  %108 = phi i64 [ %113, %.critedge127 ], [ %106, %.split ]
+  %.078187 = phi i64 [ %114, %.critedge127 ], [ 0, %.split ]
+  %109 = getelementptr ptr, ptr %105, i64 %.078187
   %110 = load ptr, ptr %109, align 8, !tbaa !34
   %.not115 = icmp eq ptr %110, null
-  br i1 %.not115, label %.critedge130, label %111
+  br i1 %.not115, label %.critedge127, label %111
 
-111:                                              ; preds = %.lr.ph201
+111:                                              ; preds = %.lr.ph188
   %112 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %110, ptr noundef %1, ptr noundef %2)
   %.not116 = icmp eq i32 %112, 0
-  br i1 %.not116, label %astfold_arg.exit142.thread, label %..critedge130_crit_edge
+  br i1 %.not116, label %astfold_arg.exit138.thread, label %..critedge127_crit_edge
 
-..critedge130_crit_edge:                          ; preds = %111
-  %.pre215 = load i64, ptr %103, align 8, !tbaa !29
-  br label %.critedge130
+..critedge127_crit_edge:                          ; preds = %111
+  %.pre202 = load i64, ptr %103, align 8, !tbaa !29
+  br label %.critedge127
 
-.critedge130:                                     ; preds = %..critedge130_crit_edge, %.lr.ph201
-  %113 = phi i64 [ %.pre215, %..critedge130_crit_edge ], [ %108, %.lr.ph201 ]
-  %114 = add nuw nsw i64 %.078200, 1
+.critedge127:                                     ; preds = %..critedge127_crit_edge, %.lr.ph188
+  %113 = phi i64 [ %.pre202, %..critedge127_crit_edge ], [ %108, %.lr.ph188 ]
+  %114 = add nuw nsw i64 %.078187, 1
   %115 = icmp slt i64 %114, %113
-  br i1 %115, label %.lr.ph201, label %astfold_arg.exit142.thread, !llvm.loop !94
+  br i1 %115, label %.lr.ph188, label %astfold_arg.exit138.thread, !llvm.loop !94
 
-astfold_arg.exit142.thread:                       ; preds = %19, %40, %72, %86, %111, %.critedge130, %astfold_arg.exit152, %astfold_arg.exit152.split, %100, %54
-  %.3 = phi i32 [ 0, %54 ], [ 0, %100 ], [ 1, %astfold_arg.exit152 ], [ 1, %astfold_arg.exit152.split ], [ 1, %.critedge130 ], [ 0, %111 ], [ 0, %86 ], [ 0, %72 ], [ 0, %40 ], [ 0, %19 ]
+astfold_arg.exit138.thread:                       ; preds = %19, %40, %72, %86, %111, %.critedge127, %100, %astfold_arg.exit, %.split, %54
+  %.3 = phi i32 [ 0, %54 ], [ 1, %astfold_arg.exit ], [ 1, %.split ], [ 0, %100 ], [ 0, %111 ], [ 1, %.critedge127 ], [ 0, %86 ], [ 0, %72 ], [ 0, %40 ], [ 0, %19 ]
   ret i32 %.3
 }
 
@@ -4092,9 +4092,9 @@ define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr noundef captures(none)
   %9 = load i64, ptr %6, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.not1516.i = icmp sgt i64 %9, 0
-  br i1 %.not1516.i, label %.lr.ph.i, label %.thread34.lr.ph.i.thread
+  br i1 %.not1516.i, label %.lr.ph.i, label %.thread32.lr.ph.i.thread
 
-.thread34.lr.ph.i.thread:                         ; preds = %8
+.thread32.lr.ph.i.thread:                         ; preds = %8
   store i32 26, ptr %0, align 8, !tbaa !68
   br label %.loopexit.i
 
@@ -4120,34 +4120,34 @@ define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr noundef captures(none)
   store i32 26, ptr %0, align 8, !tbaa !68
   br label %.lr.ph.i28
 
-.thread34.i:                                      ; preds = %.lr.ph.i28
-  %17 = add nuw nsw i64 %.0233941.i, 1
+.thread32.i:                                      ; preds = %.lr.ph.i28
+  %17 = add nuw nsw i64 %.0233739.i, 1
   %exitcond.not.i30 = icmp eq i64 %17, %9
   br i1 %exitcond.not.i30, label %.loopexit.i, label %.lr.ph.i28
 
-.lr.ph.i28:                                       ; preds = %.lr.ph.i28.preheader, %.thread34.i
-  %.0233941.i = phi i64 [ %17, %.thread34.i ], [ 0, %.lr.ph.i28.preheader ]
-  %18 = getelementptr ptr, ptr %10, i64 %.0233941.i
+.lr.ph.i28:                                       ; preds = %.lr.ph.i28.preheader, %.thread32.i
+  %.0233739.i = phi i64 [ %17, %.thread32.i ], [ 0, %.lr.ph.i28.preheader ]
+  %18 = getelementptr ptr, ptr %10, i64 %.0233739.i
   %19 = load ptr, ptr %18, align 8, !tbaa !34
   %20 = load i32, ptr %19, align 8, !tbaa !68
   %.not.i29 = icmp eq i32 %20, 20
-  br i1 %.not.i29, label %.thread34.i, label %make_const_tuple.exit.thread
+  br i1 %.not.i29, label %.thread32.i, label %make_const_tuple.exit.thread
 
-.loopexit.i:                                      ; preds = %.thread34.i, %.thread34.lr.ph.i.thread
+.loopexit.i:                                      ; preds = %.thread32.i, %.thread32.lr.ph.i.thread
   %21 = tail call ptr @PyTuple_New(i64 noundef %9) #8
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %make_const_tuple.exit.thread, label %.lr.ph43.i
+  br i1 %22, label %make_const_tuple.exit.thread, label %.lr.ph41.i
 
-.lr.ph43.i:                                       ; preds = %.loopexit.i
+.lr.ph41.i:                                       ; preds = %.loopexit.i
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 24
   %24 = load i64, ptr %6, align 8, !tbaa !29
   %25 = icmp sgt i64 %24, 0
-  br i1 %25, label %.lr.ph46.i, label %make_const_tuple.exit.thread12
+  br i1 %25, label %.lr.ph44.i, label %make_const_tuple.exit.thread12
 
-.lr.ph46.i:                                       ; preds = %.lr.ph43.i, %_Py_NewRef.exit.i
-  %26 = phi i64 [ %35, %_Py_NewRef.exit.i ], [ %24, %.lr.ph43.i ]
-  %.0244245.i = phi i64 [ %37, %_Py_NewRef.exit.i ], [ 0, %.lr.ph43.i ]
-  %27 = getelementptr ptr, ptr %10, i64 %.0244245.i
+.lr.ph44.i:                                       ; preds = %.lr.ph41.i, %_Py_NewRef.exit.i
+  %26 = phi i64 [ %35, %_Py_NewRef.exit.i ], [ %24, %.lr.ph41.i ]
+  %.0244043.i = phi i64 [ %37, %_Py_NewRef.exit.i ], [ 0, %.lr.ph41.i ]
+  %27 = getelementptr ptr, ptr %10, i64 %.0244043.i
   %28 = load ptr, ptr %27, align 8, !tbaa !34
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !28
@@ -4155,60 +4155,60 @@ define internal fastcc range(i32 0, 2) i32 @fold_iter(ptr noundef captures(none)
   %32 = icmp slt i32 %31, 0
   br i1 %32, label %_Py_NewRef.exit.i, label %33
 
-33:                                               ; preds = %.lr.ph46.i
+33:                                               ; preds = %.lr.ph44.i
   %34 = add nuw i32 %31, 1
   store i32 %34, ptr %30, align 8, !tbaa !28
   %.pre.i = load i64, ptr %6, align 8, !tbaa !29
   br label %_Py_NewRef.exit.i
 
-_Py_NewRef.exit.i:                                ; preds = %33, %.lr.ph46.i
-  %35 = phi i64 [ %26, %.lr.ph46.i ], [ %.pre.i, %33 ]
-  %36 = getelementptr ptr, ptr %23, i64 %.0244245.i
+_Py_NewRef.exit.i:                                ; preds = %33, %.lr.ph44.i
+  %35 = phi i64 [ %26, %.lr.ph44.i ], [ %.pre.i, %33 ]
+  %36 = getelementptr ptr, ptr %23, i64 %.0244043.i
   store ptr %30, ptr %36, align 8, !tbaa !33
-  %37 = add nuw nsw i64 %.0244245.i, 1
+  %37 = add nuw nsw i64 %.0244043.i, 1
   %38 = icmp slt i64 %37, %35
-  br i1 %38, label %.lr.ph46.i, label %make_const_tuple.exit.thread12
+  br i1 %38, label %.lr.ph44.i, label %make_const_tuple.exit.thread12
 
 39:                                               ; preds = %2
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !28
   %42 = icmp eq ptr %41, null
-  br i1 %42, label %make_const_tuple.exit45, label %.thread34.lr.ph.i31
+  br i1 %42, label %make_const_tuple.exit45, label %.thread32.lr.ph.i31
 
-.thread34.lr.ph.i31:                              ; preds = %39
+.thread32.lr.ph.i31:                              ; preds = %39
   %43 = load i64, ptr %41, align 8, !tbaa !29
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %45 = icmp sgt i64 %43, 0
   br i1 %45, label %.lr.ph.i39, label %.loopexit.i32
 
-.thread34.i42:                                    ; preds = %.lr.ph.i39
-  %46 = add nuw nsw i64 %.0233941.i40, 1
+.thread32.i42:                                    ; preds = %.lr.ph.i39
+  %46 = add nuw nsw i64 %.0233739.i40, 1
   %exitcond.not.i43 = icmp eq i64 %46, %43
   br i1 %exitcond.not.i43, label %.loopexit.i32, label %.lr.ph.i39
 
-.lr.ph.i39:                                       ; preds = %.thread34.lr.ph.i31, %.thread34.i42
-  %.0233941.i40 = phi i64 [ %46, %.thread34.i42 ], [ 0, %.thread34.lr.ph.i31 ]
-  %47 = getelementptr ptr, ptr %44, i64 %.0233941.i40
+.lr.ph.i39:                                       ; preds = %.thread32.lr.ph.i31, %.thread32.i42
+  %.0233739.i40 = phi i64 [ %46, %.thread32.i42 ], [ 0, %.thread32.lr.ph.i31 ]
+  %47 = getelementptr ptr, ptr %44, i64 %.0233739.i40
   %48 = load ptr, ptr %47, align 8, !tbaa !34
   %49 = load i32, ptr %48, align 8, !tbaa !68
   %.not.i41 = icmp eq i32 %49, 20
-  br i1 %.not.i41, label %.thread34.i42, label %make_const_tuple.exit.thread
+  br i1 %.not.i41, label %.thread32.i42, label %make_const_tuple.exit.thread
 
-.loopexit.i32:                                    ; preds = %.thread34.i42, %.thread34.lr.ph.i31
+.loopexit.i32:                                    ; preds = %.thread32.i42, %.thread32.lr.ph.i31
   %50 = tail call ptr @PyTuple_New(i64 noundef %43) #8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %make_const_tuple.exit.thread, label %.lr.ph43.i33
+  br i1 %51, label %make_const_tuple.exit.thread, label %.lr.ph41.i33
 
-.lr.ph43.i33:                                     ; preds = %.loopexit.i32
+.lr.ph41.i33:                                     ; preds = %.loopexit.i32
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %53 = load i64, ptr %41, align 8, !tbaa !29
   %54 = icmp sgt i64 %53, 0
-  br i1 %54, label %.lr.ph46.i35, label %make_const_tuple.exit45.thread6
+  br i1 %54, label %.lr.ph44.i35, label %make_const_tuple.exit45.thread6
 
-.lr.ph46.i35:                                     ; preds = %.lr.ph43.i33, %_Py_NewRef.exit.i38
-  %55 = phi i64 [ %64, %_Py_NewRef.exit.i38 ], [ %53, %.lr.ph43.i33 ]
-  %.0244245.i36 = phi i64 [ %66, %_Py_NewRef.exit.i38 ], [ 0, %.lr.ph43.i33 ]
-  %56 = getelementptr ptr, ptr %44, i64 %.0244245.i36
+.lr.ph44.i35:                                     ; preds = %.lr.ph41.i33, %_Py_NewRef.exit.i38
+  %55 = phi i64 [ %64, %_Py_NewRef.exit.i38 ], [ %53, %.lr.ph41.i33 ]
+  %.0244043.i36 = phi i64 [ %66, %_Py_NewRef.exit.i38 ], [ 0, %.lr.ph41.i33 ]
+  %56 = getelementptr ptr, ptr %44, i64 %.0244043.i36
   %57 = load ptr, ptr %56, align 8, !tbaa !34
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !28
@@ -4216,27 +4216,27 @@ _Py_NewRef.exit.i:                                ; preds = %33, %.lr.ph46.i
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %_Py_NewRef.exit.i38, label %62
 
-62:                                               ; preds = %.lr.ph46.i35
+62:                                               ; preds = %.lr.ph44.i35
   %63 = add nuw i32 %60, 1
   store i32 %63, ptr %59, align 8, !tbaa !28
   %.pre.i37 = load i64, ptr %41, align 8, !tbaa !29
   br label %_Py_NewRef.exit.i38
 
-_Py_NewRef.exit.i38:                              ; preds = %62, %.lr.ph46.i35
-  %64 = phi i64 [ %55, %.lr.ph46.i35 ], [ %.pre.i37, %62 ]
-  %65 = getelementptr ptr, ptr %52, i64 %.0244245.i36
+_Py_NewRef.exit.i38:                              ; preds = %62, %.lr.ph44.i35
+  %64 = phi i64 [ %55, %.lr.ph44.i35 ], [ %.pre.i37, %62 ]
+  %65 = getelementptr ptr, ptr %52, i64 %.0244043.i36
   store ptr %59, ptr %65, align 8, !tbaa !33
-  %66 = add nuw nsw i64 %.0244245.i36, 1
+  %66 = add nuw nsw i64 %.0244043.i36, 1
   %67 = icmp slt i64 %66, %64
-  br i1 %67, label %.lr.ph46.i35, label %make_const_tuple.exit45.thread6
+  br i1 %67, label %.lr.ph44.i35, label %make_const_tuple.exit45.thread6
 
 make_const_tuple.exit45:                          ; preds = %39
   %68 = tail call ptr @PyTuple_New(i64 noundef 0) #8
   %.not = icmp eq ptr %68, null
   br i1 %.not, label %make_const_tuple.exit.thread, label %make_const_tuple.exit45.thread6
 
-make_const_tuple.exit45.thread6:                  ; preds = %_Py_NewRef.exit.i38, %.lr.ph43.i33, %make_const_tuple.exit45
-  %.3.i349 = phi ptr [ %68, %make_const_tuple.exit45 ], [ %50, %.lr.ph43.i33 ], [ %50, %_Py_NewRef.exit.i38 ]
+make_const_tuple.exit45.thread6:                  ; preds = %_Py_NewRef.exit.i38, %.lr.ph41.i33, %make_const_tuple.exit45
+  %.3.i349 = phi ptr [ %68, %make_const_tuple.exit45 ], [ %50, %.lr.ph41.i33 ], [ %50, %_Py_NewRef.exit.i38 ]
   %69 = tail call ptr @PyFrozenSet_New(ptr noundef nonnull %.3.i349) #8
   %70 = load i32, ptr %.3.i349, align 8, !tbaa !28
   %.not.i = icmp sgt i32 %70, -1
@@ -4267,8 +4267,8 @@ make_const_tuple.exit.thread:                     ; preds = %.lr.ph.i39, %.lr.ph
   tail call void @PyErr_Clear() #8
   br label %.critedge
 
-make_const_tuple.exit.thread12:                   ; preds = %_Py_NewRef.exit.i, %.lr.ph43.i, %make_const_tuple.exit
-  %.12214 = phi ptr [ %.122, %make_const_tuple.exit ], [ %21, %.lr.ph43.i ], [ %21, %_Py_NewRef.exit.i ]
+make_const_tuple.exit.thread12:                   ; preds = %_Py_NewRef.exit.i, %.lr.ph41.i, %make_const_tuple.exit
+  %.12214 = phi ptr [ %.122, %make_const_tuple.exit ], [ %21, %.lr.ph41.i ], [ %21, %_Py_NewRef.exit.i ]
   %79 = tail call i32 @_PyArena_AddPyObject(ptr noundef %1, ptr noundef nonnull %.12214) #8
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %81, label %87
@@ -4399,106 +4399,106 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !28
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.thread, label %.lr.ph213
+  br i1 %21, label %.thread, label %.lr.ph202
 
-.lr.ph213:                                        ; preds = %18
+.lr.ph202:                                        ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %23 = load i64, ptr %20, align 8, !tbaa !29
   %24 = icmp sgt i64 %23, 0
-  br i1 %24, label %.lr.ph216, label %.thread
+  br i1 %24, label %.lr.ph205, label %.thread
 
-.lr.ph216:                                        ; preds = %.lr.ph213, %.critedge
-  %25 = phi i64 [ %30, %.critedge ], [ %23, %.lr.ph213 ]
-  %.097212215 = phi i64 [ %31, %.critedge ], [ 0, %.lr.ph213 ]
-  %26 = getelementptr ptr, ptr %22, i64 %.097212215
+.lr.ph205:                                        ; preds = %.lr.ph202, %.critedge
+  %25 = phi i64 [ %30, %.critedge ], [ %23, %.lr.ph202 ]
+  %.097201204 = phi i64 [ %31, %.critedge ], [ 0, %.lr.ph202 ]
+  %26 = getelementptr ptr, ptr %22, i64 %.097201204
   %27 = load ptr, ptr %26, align 8, !tbaa !98
   %.not138 = icmp eq ptr %27, null
   br i1 %.not138, label %.critedge, label %28
 
-28:                                               ; preds = %.lr.ph216
+28:                                               ; preds = %.lr.ph205
   %29 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %27, ptr noundef %1, ptr noundef %2)
   %.not139 = icmp eq i32 %29, 0
   br i1 %.not139, label %.loopexit, label %..critedge_crit_edge
 
 ..critedge_crit_edge:                             ; preds = %28
-  %.pre233 = load i64, ptr %20, align 8, !tbaa !29
+  %.pre222 = load i64, ptr %20, align 8, !tbaa !29
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph216
-  %30 = phi i64 [ %.pre233, %..critedge_crit_edge ], [ %25, %.lr.ph216 ]
-  %31 = add nuw nsw i64 %.097212215, 1
+.critedge:                                        ; preds = %..critedge_crit_edge, %.lr.ph205
+  %30 = phi i64 [ %.pre222, %..critedge_crit_edge ], [ %25, %.lr.ph205 ]
+  %31 = add nuw nsw i64 %.097201204, 1
   %32 = icmp slt i64 %31, %30
-  br i1 %32, label %.lr.ph216, label %.thread
+  br i1 %32, label %.lr.ph205, label %.thread
 
 33:                                               ; preds = %12
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !28
   %36 = icmp eq ptr %35, null
-  br i1 %36, label %.critedge176, label %.lr.ph203
+  br i1 %36, label %.critedge165, label %.lr.ph192
 
-.lr.ph203:                                        ; preds = %33
+.lr.ph192:                                        ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = load i64, ptr %35, align 8, !tbaa !29
   %39 = icmp sgt i64 %38, 0
-  br i1 %39, label %.lr.ph206, label %.critedge176
+  br i1 %39, label %.lr.ph195, label %.critedge165
 
-.lr.ph206:                                        ; preds = %.lr.ph203, %.critedge144
-  %40 = phi i64 [ %45, %.critedge144 ], [ %38, %.lr.ph203 ]
-  %.0111202205 = phi i64 [ %46, %.critedge144 ], [ 0, %.lr.ph203 ]
-  %41 = getelementptr ptr, ptr %37, i64 %.0111202205
+.lr.ph195:                                        ; preds = %.lr.ph192, %.critedge144
+  %40 = phi i64 [ %45, %.critedge144 ], [ %38, %.lr.ph192 ]
+  %.0111191194 = phi i64 [ %46, %.critedge144 ], [ 0, %.lr.ph192 ]
+  %41 = getelementptr ptr, ptr %37, i64 %.0111191194
   %42 = load ptr, ptr %41, align 8, !tbaa !34
   %.not134 = icmp eq ptr %42, null
   br i1 %.not134, label %.critedge144, label %43
 
-43:                                               ; preds = %.lr.ph206
+43:                                               ; preds = %.lr.ph195
   %44 = tail call fastcc i32 @astfold_expr(ptr noundef nonnull %42, ptr noundef %1, ptr noundef %2)
   %.not135 = icmp eq i32 %44, 0
   br i1 %.not135, label %.loopexit, label %..critedge144_crit_edge
 
 ..critedge144_crit_edge:                          ; preds = %43
-  %.pre231 = load i64, ptr %35, align 8, !tbaa !29
+  %.pre220 = load i64, ptr %35, align 8, !tbaa !29
   br label %.critedge144
 
-.critedge144:                                     ; preds = %..critedge144_crit_edge, %.lr.ph206
-  %45 = phi i64 [ %.pre231, %..critedge144_crit_edge ], [ %40, %.lr.ph206 ]
-  %46 = add nuw nsw i64 %.0111202205, 1
+.critedge144:                                     ; preds = %..critedge144_crit_edge, %.lr.ph195
+  %45 = phi i64 [ %.pre220, %..critedge144_crit_edge ], [ %40, %.lr.ph195 ]
+  %46 = add nuw nsw i64 %.0111191194, 1
   %47 = icmp slt i64 %46, %45
-  br i1 %47, label %.lr.ph206, label %.critedge176
+  br i1 %47, label %.lr.ph195, label %.critedge165
 
-.critedge176:                                     ; preds = %.critedge144, %.lr.ph203, %33
+.critedge165:                                     ; preds = %.critedge144, %.lr.ph192, %33
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !28
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.thread, label %.lr.ph208
+  br i1 %50, label %.thread, label %.lr.ph197
 
-.lr.ph208:                                        ; preds = %.critedge176
+.lr.ph197:                                        ; preds = %.critedge165
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %52 = load i64, ptr %49, align 8, !tbaa !29
   %53 = icmp sgt i64 %52, 0
-  br i1 %53, label %.lr.ph211, label %.thread
+  br i1 %53, label %.lr.ph200, label %.thread
 
-.lr.ph211:                                        ; preds = %.lr.ph208, %.critedge148
-  %54 = phi i64 [ %59, %.critedge148 ], [ %52, %.lr.ph208 ]
-  %.0113207210 = phi i64 [ %60, %.critedge148 ], [ 0, %.lr.ph208 ]
-  %55 = getelementptr ptr, ptr %51, i64 %.0113207210
+.lr.ph200:                                        ; preds = %.lr.ph197, %.critedge147
+  %54 = phi i64 [ %59, %.critedge147 ], [ %52, %.lr.ph197 ]
+  %.0113196199 = phi i64 [ %60, %.critedge147 ], [ 0, %.lr.ph197 ]
+  %55 = getelementptr ptr, ptr %51, i64 %.0113196199
   %56 = load ptr, ptr %55, align 8, !tbaa !98
   %.not136 = icmp eq ptr %56, null
-  br i1 %.not136, label %.critedge148, label %57
+  br i1 %.not136, label %.critedge147, label %57
 
-57:                                               ; preds = %.lr.ph211
+57:                                               ; preds = %.lr.ph200
   %58 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %56, ptr noundef %1, ptr noundef %2)
   %.not137 = icmp eq i32 %58, 0
-  br i1 %.not137, label %.loopexit, label %..critedge148_crit_edge
+  br i1 %.not137, label %.loopexit, label %..critedge147_crit_edge
 
-..critedge148_crit_edge:                          ; preds = %57
-  %.pre232 = load i64, ptr %49, align 8, !tbaa !29
-  br label %.critedge148
+..critedge147_crit_edge:                          ; preds = %57
+  %.pre221 = load i64, ptr %49, align 8, !tbaa !29
+  br label %.critedge147
 
-.critedge148:                                     ; preds = %..critedge148_crit_edge, %.lr.ph211
-  %59 = phi i64 [ %.pre232, %..critedge148_crit_edge ], [ %54, %.lr.ph211 ]
-  %60 = add nuw nsw i64 %.0113207210, 1
+.critedge147:                                     ; preds = %..critedge147_crit_edge, %.lr.ph200
+  %59 = phi i64 [ %.pre221, %..critedge147_crit_edge ], [ %54, %.lr.ph200 ]
+  %60 = add nuw nsw i64 %.0113196199, 1
   %61 = icmp slt i64 %60, %59
-  br i1 %61, label %.lr.ph211, label %.thread
+  br i1 %61, label %.lr.ph200, label %.thread
 
 62:                                               ; preds = %12
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4511,71 +4511,71 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8, !tbaa !28
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.critedge180, label %.lr.ph
+  br i1 %69, label %.critedge169, label %.lr.ph
 
 .lr.ph:                                           ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %71 = load i64, ptr %68, align 8, !tbaa !29
   %72 = icmp sgt i64 %71, 0
-  br i1 %72, label %.lr.ph196, label %.critedge180
+  br i1 %72, label %.lr.ph185, label %.critedge169
 
-.lr.ph196:                                        ; preds = %.lr.ph, %.critedge152
-  %73 = phi i64 [ %78, %.critedge152 ], [ %71, %.lr.ph ]
-  %.0114193195 = phi i64 [ %79, %.critedge152 ], [ 0, %.lr.ph ]
-  %74 = getelementptr ptr, ptr %70, i64 %.0114193195
+.lr.ph185:                                        ; preds = %.lr.ph, %.critedge150
+  %73 = phi i64 [ %78, %.critedge150 ], [ %71, %.lr.ph ]
+  %.0114182184 = phi i64 [ %79, %.critedge150 ], [ 0, %.lr.ph ]
+  %74 = getelementptr ptr, ptr %70, i64 %.0114182184
   %75 = load ptr, ptr %74, align 8, !tbaa !98
   %.not130 = icmp eq ptr %75, null
-  br i1 %.not130, label %.critedge152, label %76
+  br i1 %.not130, label %.critedge150, label %76
 
-76:                                               ; preds = %.lr.ph196
+76:                                               ; preds = %.lr.ph185
   %77 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %75, ptr noundef %1, ptr noundef %2)
   %.not131 = icmp eq i32 %77, 0
-  br i1 %.not131, label %.loopexit, label %..critedge152_crit_edge
+  br i1 %.not131, label %.loopexit, label %..critedge150_crit_edge
 
-..critedge152_crit_edge:                          ; preds = %76
+..critedge150_crit_edge:                          ; preds = %76
   %.pre = load i64, ptr %68, align 8, !tbaa !29
-  br label %.critedge152
+  br label %.critedge150
 
-.critedge152:                                     ; preds = %..critedge152_crit_edge, %.lr.ph196
-  %78 = phi i64 [ %.pre, %..critedge152_crit_edge ], [ %73, %.lr.ph196 ]
-  %79 = add nuw nsw i64 %.0114193195, 1
+.critedge150:                                     ; preds = %..critedge150_crit_edge, %.lr.ph185
+  %78 = phi i64 [ %.pre, %..critedge150_crit_edge ], [ %73, %.lr.ph185 ]
+  %79 = add nuw nsw i64 %.0114182184, 1
   %80 = icmp slt i64 %79, %78
-  br i1 %80, label %.lr.ph196, label %.critedge180
+  br i1 %80, label %.lr.ph185, label %.critedge169
 
-.critedge180:                                     ; preds = %.critedge152, %.lr.ph, %66
+.critedge169:                                     ; preds = %.critedge150, %.lr.ph, %66
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %82 = load ptr, ptr %81, align 8, !tbaa !28
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %.thread, label %.lr.ph198
+  br i1 %83, label %.thread, label %.lr.ph187
 
-.lr.ph198:                                        ; preds = %.critedge180
+.lr.ph187:                                        ; preds = %.critedge169
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %85 = load i64, ptr %82, align 8, !tbaa !29
   %86 = icmp sgt i64 %85, 0
-  br i1 %86, label %.lr.ph201, label %.thread
+  br i1 %86, label %.lr.ph190, label %.thread
 
-.lr.ph201:                                        ; preds = %.lr.ph198, %.critedge156
-  %87 = phi i64 [ %92, %.critedge156 ], [ %85, %.lr.ph198 ]
-  %.0112197200 = phi i64 [ %93, %.critedge156 ], [ 0, %.lr.ph198 ]
-  %88 = getelementptr ptr, ptr %84, i64 %.0112197200
+.lr.ph190:                                        ; preds = %.lr.ph187, %.critedge153
+  %87 = phi i64 [ %92, %.critedge153 ], [ %85, %.lr.ph187 ]
+  %.0112186189 = phi i64 [ %93, %.critedge153 ], [ 0, %.lr.ph187 ]
+  %88 = getelementptr ptr, ptr %84, i64 %.0112186189
   %89 = load ptr, ptr %88, align 8, !tbaa !98
   %.not132 = icmp eq ptr %89, null
-  br i1 %.not132, label %.critedge156, label %90
+  br i1 %.not132, label %.critedge153, label %90
 
-90:                                               ; preds = %.lr.ph201
+90:                                               ; preds = %.lr.ph190
   %91 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %89, ptr noundef %1, ptr noundef %2)
   %.not133 = icmp eq i32 %91, 0
-  br i1 %.not133, label %.loopexit, label %..critedge156_crit_edge
+  br i1 %.not133, label %.loopexit, label %..critedge153_crit_edge
 
-..critedge156_crit_edge:                          ; preds = %90
-  %.pre230 = load i64, ptr %82, align 8, !tbaa !29
-  br label %.critedge156
+..critedge153_crit_edge:                          ; preds = %90
+  %.pre219 = load i64, ptr %82, align 8, !tbaa !29
+  br label %.critedge153
 
-.critedge156:                                     ; preds = %..critedge156_crit_edge, %.lr.ph201
-  %92 = phi i64 [ %.pre230, %..critedge156_crit_edge ], [ %87, %.lr.ph201 ]
-  %93 = add nuw nsw i64 %.0112197200, 1
+.critedge153:                                     ; preds = %..critedge153_crit_edge, %.lr.ph190
+  %92 = phi i64 [ %.pre219, %..critedge153_crit_edge ], [ %87, %.lr.ph190 ]
+  %93 = add nuw nsw i64 %.0112186189, 1
   %94 = icmp slt i64 %93, %92
-  br i1 %94, label %.lr.ph201, label %.thread
+  br i1 %94, label %.lr.ph190, label %.thread
 
 95:                                               ; preds = %12
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4592,38 +4592,38 @@ define internal fastcc noundef range(i32 0, 2) i32 @astfold_pattern(ptr noundef 
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %102 = load ptr, ptr %101, align 8, !tbaa !28
   %103 = icmp eq ptr %102, null
-  br i1 %103, label %.thread, label %.lr.ph218
+  br i1 %103, label %.thread, label %.lr.ph207
 
-.lr.ph218:                                        ; preds = %100
+.lr.ph207:                                        ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 16
   %105 = load i64, ptr %102, align 8, !tbaa !29
   %106 = icmp sgt i64 %105, 0
-  br i1 %106, label %.lr.ph221, label %.thread
+  br i1 %106, label %.lr.ph210, label %.thread
 
-.lr.ph221:                                        ; preds = %.lr.ph218, %.critedge160
-  %107 = phi i64 [ %112, %.critedge160 ], [ %105, %.lr.ph218 ]
-  %.098217220 = phi i64 [ %113, %.critedge160 ], [ 0, %.lr.ph218 ]
-  %108 = getelementptr ptr, ptr %104, i64 %.098217220
+.lr.ph210:                                        ; preds = %.lr.ph207, %.critedge156
+  %107 = phi i64 [ %112, %.critedge156 ], [ %105, %.lr.ph207 ]
+  %.098206209 = phi i64 [ %113, %.critedge156 ], [ 0, %.lr.ph207 ]
+  %108 = getelementptr ptr, ptr %104, i64 %.098206209
   %109 = load ptr, ptr %108, align 8, !tbaa !98
   %.not140 = icmp eq ptr %109, null
-  br i1 %.not140, label %.critedge160, label %110
+  br i1 %.not140, label %.critedge156, label %110
 
-110:                                              ; preds = %.lr.ph221
+110:                                              ; preds = %.lr.ph210
   %111 = tail call fastcc i32 @astfold_pattern(ptr noundef nonnull %109, ptr noundef %1, ptr noundef %2)
   %.not141 = icmp eq i32 %111, 0
-  br i1 %.not141, label %.loopexit, label %..critedge160_crit_edge
+  br i1 %.not141, label %.loopexit, label %..critedge156_crit_edge
 
-..critedge160_crit_edge:                          ; preds = %110
-  %.pre234 = load i64, ptr %102, align 8, !tbaa !29
-  br label %.critedge160
+..critedge156_crit_edge:                          ; preds = %110
+  %.pre223 = load i64, ptr %102, align 8, !tbaa !29
+  br label %.critedge156
 
-.critedge160:                                     ; preds = %..critedge160_crit_edge, %.lr.ph221
-  %112 = phi i64 [ %.pre234, %..critedge160_crit_edge ], [ %107, %.lr.ph221 ]
-  %113 = add nuw nsw i64 %.098217220, 1
+.critedge156:                                     ; preds = %..critedge156_crit_edge, %.lr.ph210
+  %112 = phi i64 [ %.pre223, %..critedge156_crit_edge ], [ %107, %.lr.ph210 ]
+  %113 = add nuw nsw i64 %.098206209, 1
   %114 = icmp slt i64 %113, %112
-  br i1 %114, label %.lr.ph221, label %.thread
+  br i1 %114, label %.lr.ph210, label %.thread
 
-.thread:                                          ; preds = %.critedge156, %.critedge148, %.critedge, %.critedge160, %.critedge180, %.lr.ph198, %.critedge176, %.lr.ph208, %18, %.lr.ph213, %100, %.lr.ph218, %12, %14, %98, %95
+.thread:                                          ; preds = %.critedge153, %.critedge147, %.critedge, %.critedge156, %.critedge169, %.lr.ph187, %.critedge165, %.lr.ph197, %18, %.lr.ph202, %100, %.lr.ph207, %12, %14, %98, %95
   %115 = load i32, ptr %4, align 4, !tbaa !24
   %116 = add i32 %115, -1
   store i32 %116, ptr %4, align 4, !tbaa !24
@@ -5883,42 +5883,42 @@ define internal fastcc range(i32 0, 2) i32 @fold_tuple(ptr noundef captures(none
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !28
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %make_const_tuple.exit, label %.thread34.lr.ph.i
+  br i1 %8, label %make_const_tuple.exit, label %.thread32.lr.ph.i
 
-.thread34.lr.ph.i:                                ; preds = %5
+.thread32.lr.ph.i:                                ; preds = %5
   %9 = load i64, ptr %7, align 8, !tbaa !29
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %11 = icmp sgt i64 %9, 0
   br i1 %11, label %.lr.ph.i, label %.loopexit.i
 
-.thread34.i:                                      ; preds = %.lr.ph.i
-  %12 = add nuw nsw i64 %.0233941.i, 1
+.thread32.i:                                      ; preds = %.lr.ph.i
+  %12 = add nuw nsw i64 %.0233739.i, 1
   %exitcond.not.i = icmp eq i64 %12, %9
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.thread34.lr.ph.i, %.thread34.i
-  %.0233941.i = phi i64 [ %12, %.thread34.i ], [ 0, %.thread34.lr.ph.i ]
-  %13 = getelementptr ptr, ptr %10, i64 %.0233941.i
+.lr.ph.i:                                         ; preds = %.thread32.lr.ph.i, %.thread32.i
+  %.0233739.i = phi i64 [ %12, %.thread32.i ], [ 0, %.thread32.lr.ph.i ]
+  %13 = getelementptr ptr, ptr %10, i64 %.0233739.i
   %14 = load ptr, ptr %13, align 8, !tbaa !34
   %15 = load i32, ptr %14, align 8, !tbaa !68
   %.not.i = icmp eq i32 %15, 20
-  br i1 %.not.i, label %.thread34.i, label %make_const_tuple.exit.thread
+  br i1 %.not.i, label %.thread32.i, label %make_const_tuple.exit.thread
 
-.loopexit.i:                                      ; preds = %.thread34.i, %.thread34.lr.ph.i
+.loopexit.i:                                      ; preds = %.thread32.i, %.thread32.lr.ph.i
   %16 = tail call ptr @PyTuple_New(i64 noundef %9) #8
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %make_const_tuple.exit.thread, label %.lr.ph43.i
+  br i1 %17, label %make_const_tuple.exit.thread, label %.lr.ph41.i
 
-.lr.ph43.i:                                       ; preds = %.loopexit.i
+.lr.ph41.i:                                       ; preds = %.loopexit.i
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %19 = load i64, ptr %7, align 8, !tbaa !29
   %20 = icmp sgt i64 %19, 0
-  br i1 %20, label %.lr.ph46.i, label %make_const_tuple.exit.thread3
+  br i1 %20, label %.lr.ph44.i, label %make_const_tuple.exit.thread3
 
-.lr.ph46.i:                                       ; preds = %.lr.ph43.i, %_Py_NewRef.exit.i
-  %21 = phi i64 [ %30, %_Py_NewRef.exit.i ], [ %19, %.lr.ph43.i ]
-  %.0244245.i = phi i64 [ %32, %_Py_NewRef.exit.i ], [ 0, %.lr.ph43.i ]
-  %22 = getelementptr ptr, ptr %10, i64 %.0244245.i
+.lr.ph44.i:                                       ; preds = %.lr.ph41.i, %_Py_NewRef.exit.i
+  %21 = phi i64 [ %30, %_Py_NewRef.exit.i ], [ %19, %.lr.ph41.i ]
+  %.0244043.i = phi i64 [ %32, %_Py_NewRef.exit.i ], [ 0, %.lr.ph41.i ]
+  %22 = getelementptr ptr, ptr %10, i64 %.0244043.i
   %23 = load ptr, ptr %22, align 8, !tbaa !34
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !28
@@ -5926,19 +5926,19 @@ define internal fastcc range(i32 0, 2) i32 @fold_tuple(ptr noundef captures(none
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %_Py_NewRef.exit.i, label %28
 
-28:                                               ; preds = %.lr.ph46.i
+28:                                               ; preds = %.lr.ph44.i
   %29 = add nuw i32 %26, 1
   store i32 %29, ptr %25, align 8, !tbaa !28
   %.pre.i = load i64, ptr %7, align 8, !tbaa !29
   br label %_Py_NewRef.exit.i
 
-_Py_NewRef.exit.i:                                ; preds = %28, %.lr.ph46.i
-  %30 = phi i64 [ %21, %.lr.ph46.i ], [ %.pre.i, %28 ]
-  %31 = getelementptr ptr, ptr %18, i64 %.0244245.i
+_Py_NewRef.exit.i:                                ; preds = %28, %.lr.ph44.i
+  %30 = phi i64 [ %21, %.lr.ph44.i ], [ %.pre.i, %28 ]
+  %31 = getelementptr ptr, ptr %18, i64 %.0244043.i
   store ptr %25, ptr %31, align 8, !tbaa !33
-  %32 = add nuw nsw i64 %.0244245.i, 1
+  %32 = add nuw nsw i64 %.0244043.i, 1
   %33 = icmp slt i64 %32, %30
-  br i1 %33, label %.lr.ph46.i, label %make_const_tuple.exit.thread3
+  br i1 %33, label %.lr.ph44.i, label %make_const_tuple.exit.thread3
 
 make_const_tuple.exit:                            ; preds = %5
   %34 = tail call ptr @PyTuple_New(i64 noundef 0) #8
@@ -5955,8 +5955,8 @@ make_const_tuple.exit.thread:                     ; preds = %.lr.ph.i, %.loopexi
   tail call void @PyErr_Clear() #8
   br label %make_const.exit
 
-make_const_tuple.exit.thread3:                    ; preds = %_Py_NewRef.exit.i, %.lr.ph43.i, %make_const_tuple.exit
-  %.3.i5 = phi ptr [ %34, %make_const_tuple.exit ], [ %16, %.lr.ph43.i ], [ %16, %_Py_NewRef.exit.i ]
+make_const_tuple.exit.thread3:                    ; preds = %_Py_NewRef.exit.i, %.lr.ph41.i, %make_const_tuple.exit
+  %.3.i5 = phi ptr [ %34, %make_const_tuple.exit ], [ %16, %.lr.ph41.i ], [ %16, %_Py_NewRef.exit.i ]
   %39 = tail call i32 @_PyArena_AddPyObject(ptr noundef %1, ptr noundef nonnull %.3.i5) #8
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %47
@@ -5998,23 +5998,23 @@ declare ptr @PyNumber_Subtract(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @safe_multiply(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 8
-  %.val81.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !99
-  %.phi.trans.insert131 = getelementptr i8, ptr %.val81.pre, i64 168
-  %.val93.pre = load i64, ptr %.phi.trans.insert131, align 8, !tbaa !102
+  %.val79.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !99
+  %.phi.trans.insert126 = getelementptr i8, ptr %.val79.pre, i64 168
+  %.val91.pre = load i64, ptr %.phi.trans.insert126, align 8, !tbaa !102
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %.thread103, %2
-  %.val93 = phi i64 [ %.val93.pre, %2 ], [ %.val85.pre, %.thread103 ]
-  %.tr = phi ptr [ %0, %2 ], [ %.tr111, %.thread103 ]
-  %.tr111 = phi ptr [ %1, %2 ], [ %.tr, %.thread103 ]
-  %3 = and i64 %.val93, 16777216
+tailrecurse:                                      ; preds = %.thread100, %2
+  %.val91 = phi i64 [ %.val91.pre, %2 ], [ %.val83.pre, %.thread100 ]
+  %.tr = phi ptr [ %0, %2 ], [ %.tr106, %.thread100 ]
+  %.tr106 = phi ptr [ %1, %2 ], [ %.tr, %.thread100 ]
+  %3 = and i64 %.val91, 16777216
   %.not = icmp eq i64 %3, 0
-  %.phi.trans.insert133 = getelementptr i8, ptr %.tr111, i64 8
-  %.val73.pre = load ptr, ptr %.phi.trans.insert133, align 8, !tbaa !99
-  %.phi.trans.insert135 = getelementptr i8, ptr %.val73.pre, i64 168
-  %.val85.pre = load i64, ptr %.phi.trans.insert135, align 8, !tbaa !102
-  %.pre = and i64 %.val85.pre, 16777216
-  br i1 %.not, label %.thread103, label %4
+  %.phi.trans.insert128 = getelementptr i8, ptr %.tr106, i64 8
+  %.val71.pre = load ptr, ptr %.phi.trans.insert128, align 8, !tbaa !99
+  %.phi.trans.insert130 = getelementptr i8, ptr %.val71.pre, i64 168
+  %.val83.pre = load i64, ptr %.phi.trans.insert130, align 8, !tbaa !102
+  %.pre = and i64 %.val83.pre, 16777216
+  br i1 %.not, label %.thread100, label %4
 
 4:                                                ; preds = %tailrecurse
   %.not52 = icmp eq i64 %.pre, 0
@@ -6022,45 +6022,45 @@ tailrecurse:                                      ; preds = %.thread103, %2
 
 5:                                                ; preds = %4
   %6 = getelementptr i8, ptr %.tr, i64 16
-  %.val95 = load i64, ptr %6, align 8, !tbaa !123
-  %7 = and i64 %.val95, 3
+  %.val93 = load i64, ptr %6, align 8, !tbaa !123
+  %7 = and i64 %.val93, 3
   %8 = icmp eq i64 %7, 1
   br i1 %8, label %18, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr i8, ptr %.tr111, i64 16
-  %.val96 = load i64, ptr %10, align 8, !tbaa !123
-  %11 = and i64 %.val96, 3
+  %10 = getelementptr i8, ptr %.tr106, i64 16
+  %.val94 = load i64, ptr %10, align 8, !tbaa !123
+  %11 = and i64 %.val94, 3
   %12 = icmp eq i64 %11, 1
   br i1 %12, label %18, label %13
 
 13:                                               ; preds = %9
   %14 = tail call i64 @_PyLong_NumBits(ptr noundef nonnull %.tr) #8
-  %15 = tail call i64 @_PyLong_NumBits(ptr noundef nonnull %.tr111) #8
+  %15 = tail call i64 @_PyLong_NumBits(ptr noundef nonnull %.tr106) #8
   %16 = add i64 %15, %14
   %17 = icmp slt i64 %16, 129
-  br i1 %17, label %.critedge, label %.thread100
+  br i1 %17, label %.critedge, label %.thread98
 
 18:                                               ; preds = %9, %5, %4
-  %19 = and i64 %.val85.pre, 67108864
+  %19 = and i64 %.val83.pre, 67108864
   %.not54 = icmp eq i64 %19, 0
   br i1 %.not54, label %33, label %20
 
 20:                                               ; preds = %18
-  %21 = getelementptr i8, ptr %.tr111, i64 16
-  %.val97 = load i64, ptr %21, align 8, !tbaa !126
-  %.not64 = icmp eq i64 %.val97, 0
+  %21 = getelementptr i8, ptr %.tr106, i64 16
+  %.val95 = load i64, ptr %21, align 8, !tbaa !126
+  %.not64 = icmp eq i64 %.val95, 0
   br i1 %.not64, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %.tr) #8
   %24 = icmp slt i64 %23, 0
-  br i1 %24, label %.thread100, label %25
+  br i1 %24, label %.thread98, label %25
 
 25:                                               ; preds = %22
-  %26 = sdiv i64 256, %.val97
+  %26 = sdiv i64 256, %.val95
   %27 = icmp sgt i64 %23, %26
-  br i1 %27, label %.thread100, label %28
+  br i1 %27, label %.thread98, label %28
 
 28:                                               ; preds = %25
   %.not65 = icmp eq i64 %23, 0
@@ -6070,17 +6070,17 @@ tailrecurse:                                      ; preds = %.thread103, %2
   %.rhs.trunc = trunc nuw nsw i64 %23 to i16
   %30 = udiv i16 1024, %.rhs.trunc
   %.zext = zext nneg i16 %30 to i64
-  %31 = tail call fastcc i64 @check_complexity(ptr noundef nonnull %.tr111, i64 noundef %.zext)
+  %31 = tail call fastcc i64 @check_complexity(ptr noundef nonnull %.tr106, i64 noundef %.zext)
   %32 = icmp slt i64 %31, 0
-  br i1 %32, label %.thread100, label %.critedge
+  br i1 %32, label %.thread98, label %.critedge
 
 33:                                               ; preds = %18
-  %34 = and i64 %.val85.pre, 402653184
-  %or.cond113 = icmp eq i64 %34, 0
-  br i1 %or.cond113, label %.thread103, label %35
+  %34 = and i64 %.val83.pre, 402653184
+  %or.cond108 = icmp eq i64 %34, 0
+  br i1 %or.cond108, label %.thread100, label %35
 
 35:                                               ; preds = %33
-  %.in = getelementptr i8, ptr %.tr111, i64 16
+  %.in = getelementptr i8, ptr %.tr106, i64 16
   %36 = load i64, ptr %.in, align 8, !tbaa !127
   %.not63 = icmp eq i64 %36, 0
   br i1 %.not63, label %.critedge, label %37
@@ -6088,25 +6088,25 @@ tailrecurse:                                      ; preds = %.thread103, %2
 37:                                               ; preds = %35
   %38 = tail call i64 @PyLong_AsLong(ptr noundef nonnull %.tr) #8
   %39 = icmp slt i64 %38, 0
-  br i1 %39, label %.thread100, label %.critedge67
+  br i1 %39, label %.thread98, label %.critedge67
 
 .critedge67:                                      ; preds = %37
   %40 = sdiv i64 4096, %36
-  %.not110 = icmp sgt i64 %38, %40
-  br i1 %.not110, label %.thread100, label %.critedge
+  %.not105 = icmp sgt i64 %38, %40
+  br i1 %.not105, label %.thread98, label %.critedge
 
-.thread103:                                       ; preds = %tailrecurse, %33
+.thread100:                                       ; preds = %tailrecurse, %33
   %.not58 = icmp eq i64 %.pre, 0
-  %41 = and i64 %.val93, 469762048
-  %or.cond112 = icmp eq i64 %41, 0
-  %or.cond = or i1 %.not58, %or.cond112
+  %41 = and i64 %.val91, 469762048
+  %or.cond107 = icmp eq i64 %41, 0
+  %or.cond = or i1 %.not58, %or.cond107
   br i1 %or.cond, label %.critedge, label %tailrecurse
 
-.critedge:                                        ; preds = %.thread103, %35, %28, %29, %20, %13, %.critedge67
-  %42 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %.tr, ptr noundef nonnull %.tr111) #8
-  br label %.thread100
+.critedge:                                        ; preds = %.thread100, %35, %28, %29, %20, %13, %.critedge67
+  %42 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %.tr, ptr noundef nonnull %.tr106) #8
+  br label %.thread98
 
-.thread100:                                       ; preds = %37, %25, %22, %29, %13, %.critedge67, %.critedge
+.thread98:                                        ; preds = %37, %25, %22, %29, %13, %.critedge67, %.critedge
   %.1 = phi ptr [ %42, %.critedge ], [ null, %.critedge67 ], [ null, %13 ], [ null, %29 ], [ null, %22 ], [ null, %25 ], [ null, %37 ]
   ret ptr %.1
 }
@@ -6156,8 +6156,8 @@ define internal fastcc ptr @safe_power(ptr noundef %0, ptr noundef %1) unnamed_a
 
 22:                                               ; preds = %18
   %23 = udiv i64 128, %20
-  %.not22 = icmp ugt i64 %19, %23
-  br i1 %.not22, label %.thread, label %24
+  %.not21 = icmp ugt i64 %19, %23
+  br i1 %.not21, label %.thread, label %24
 
 24:                                               ; preds = %22, %14, %10, %6, %2
   %25 = tail call ptr @PyNumber_Power(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @_Py_NoneStruct) #8

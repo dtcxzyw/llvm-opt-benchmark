@@ -882,42 +882,42 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
   %12 = load i32, ptr %11, align 4
   %13 = icmp eq i32 %12, %1
   %or.cond.i = select i1 %10, i1 %13, i1 false
-  br i1 %or.cond.i, label %.preheader.i, label %.preheader37.i
+  br i1 %or.cond.i, label %.preheader.i, label %.preheader32.i
 
 .preheader.i:                                     ; preds = %7, %17
-  %.02042.i = phi i32 [ %18, %17 ], [ 22, %7 ]
-  %14 = zext nneg i32 %.02042.i to i64
+  %.02037.i = phi i32 [ %18, %17 ], [ 22, %7 ]
+  %14 = zext nneg i32 %.02037.i to i64
   %15 = getelementptr inbounds nuw i32, ptr %8, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !34
   %.not24.i = icmp eq i32 %16, %1
   br i1 %.not24.i, label %17, label %20
 
 17:                                               ; preds = %.preheader.i
-  %18 = add nsw i32 %.02042.i, -1
-  %19 = icmp samesign ugt i32 %.02042.i, 1
+  %18 = add nsw i32 %.02037.i, -1
+  %19 = icmp samesign ugt i32 %.02037.i, 1
   br i1 %19, label %.preheader.i, label %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, !llvm.loop !39
 
 20:                                               ; preds = %.preheader.i
-  %21 = add nuw nsw i32 %.02042.i, 1
+  %21 = add nuw nsw i32 %.02037.i, 1
   br label %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit
 
-.preheader37.i:                                   ; preds = %7, %25
+.preheader32.i:                                   ; preds = %7, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %7 ]
   %22 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
   %23 = load i32, ptr %22, align 4, !tbaa !34
   %24 = icmp eq i32 %23, %1
   br i1 %24, label %.loopexit.loopexit.i, label %25
 
-25:                                               ; preds = %.preheader37.i
+25:                                               ; preds = %.preheader32.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 24
-  br i1 %exitcond.not.i, label %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, label %.preheader37.i, !llvm.loop !41
+  br i1 %exitcond.not.i, label %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread, label %.preheader32.i, !llvm.loop !41
 
 _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread: ; preds = %25, %17
   store i32 1, ptr %2, align 4, !tbaa !13
   br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread56
 
-.loopexit.loopexit.i:                             ; preds = %.preheader37.i
+.loopexit.loopexit.i:                             ; preds = %.preheader32.i
   %26 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit
 
@@ -939,7 +939,7 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
   %33 = load i32, ptr %32, align 4
   %34 = icmp eq i32 %33, %1
   %or.cond.i20 = select i1 %31, i1 %34, i1 false
-  br i1 %or.cond.i20, label %.preheader.i23, label %.preheader37.i21
+  br i1 %or.cond.i20, label %.preheader.i23, label %.preheader32.i21
 
 .preheader.i23:                                   ; preds = %28, %37
   %indvars.iv.i24 = phi i64 [ %indvars.iv.next.i27, %37 ], [ 1, %28 ]
@@ -953,21 +953,21 @@ _ZNK6icu_7714DayPeriodRules24getStartHourForDayPeriodENS0_9DayPeriodER10UErrorCo
   %exitcond.not.i28 = icmp eq i64 %indvars.iv.next.i27, 23
   br i1 %exitcond.not.i28, label %.thread.i22, label %.preheader.i23, !llvm.loop !42
 
-.preheader37.i21:                                 ; preds = %28, %42
-  %.041.i = phi i32 [ %43, %42 ], [ 23, %28 ]
-  %38 = zext nneg i32 %.041.i to i64
+.preheader32.i21:                                 ; preds = %28, %42
+  %.036.i = phi i32 [ %43, %42 ], [ 23, %28 ]
+  %38 = zext nneg i32 %.036.i to i64
   %39 = getelementptr inbounds nuw i32, ptr %29, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !34
   %41 = icmp eq i32 %40, %1
   br i1 %41, label %44, label %42
 
-42:                                               ; preds = %.preheader37.i21
-  %43 = add nsw i32 %.041.i, -1
-  %.not.i = icmp eq i32 %.041.i, 0
-  br i1 %.not.i, label %.thread.i22, label %.preheader37.i21, !llvm.loop !43
+42:                                               ; preds = %.preheader32.i21
+  %43 = add nsw i32 %.036.i, -1
+  %.not.i = icmp eq i32 %.036.i, 0
+  br i1 %.not.i, label %.thread.i22, label %.preheader32.i21, !llvm.loop !43
 
-44:                                               ; preds = %.preheader37.i21
-  %45 = add nuw nsw i32 %.041.i, 1
+44:                                               ; preds = %.preheader32.i21
+  %45 = add nuw nsw i32 %.036.i, 1
   br label %_ZNK6icu_7714DayPeriodRules22getEndHourForDayPeriodENS0_9DayPeriodER10UErrorCode.exit.thread
 
 .thread.i22:                                      ; preds = %42, %37
@@ -1023,42 +1023,42 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules24getS
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
   %or.cond = select i1 %11, i1 %14, i1 false
-  br i1 %or.cond, label %.preheader, label %.preheader37
+  br i1 %or.cond, label %.preheader, label %.preheader32
 
 .preheader:                                       ; preds = %8, %18
-  %.02042 = phi i32 [ %19, %18 ], [ 22, %8 ]
-  %15 = zext nneg i32 %.02042 to i64
+  %.02037 = phi i32 [ %19, %18 ], [ 22, %8 ]
+  %15 = zext nneg i32 %.02037 to i64
   %16 = getelementptr inbounds nuw i32, ptr %9, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !34
   %.not24 = icmp eq i32 %17, %1
   br i1 %.not24, label %18, label %21
 
 18:                                               ; preds = %.preheader
-  %19 = add nsw i32 %.02042, -1
-  %20 = icmp samesign ugt i32 %.02042, 1
+  %19 = add nsw i32 %.02037, -1
+  %20 = icmp samesign ugt i32 %.02037, 1
   br i1 %20, label %.preheader, label %.thread, !llvm.loop !39
 
 21:                                               ; preds = %.preheader
-  %22 = add nuw nsw i32 %.02042, 1
+  %22 = add nuw nsw i32 %.02037, 1
   br label %.loopexit
 
-.preheader37:                                     ; preds = %8, %26
+.preheader32:                                     ; preds = %8, %26
   %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %8 ]
   %23 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !34
   %25 = icmp eq i32 %24, %1
   br i1 %25, label %.loopexit.loopexit, label %26
 
-26:                                               ; preds = %.preheader37
+26:                                               ; preds = %.preheader32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 24
-  br i1 %exitcond.not, label %.thread, label %.preheader37, !llvm.loop !41
+  br i1 %exitcond.not, label %.thread, label %.preheader32, !llvm.loop !41
 
 .thread:                                          ; preds = %26, %18
   store i32 1, ptr %2, align 4, !tbaa !13
   br label %.loopexit
 
-.loopexit.loopexit:                               ; preds = %.preheader37
+.loopexit.loopexit:                               ; preds = %.preheader32
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.loopexit
 
@@ -1090,7 +1090,7 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules22getE
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %13, %1
   %or.cond = select i1 %11, i1 %14, i1 false
-  br i1 %or.cond, label %.preheader, label %.preheader37
+  br i1 %or.cond, label %.preheader, label %.preheader32
 
 .preheader:                                       ; preds = %8, %17
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 1, %8 ]
@@ -1104,21 +1104,21 @@ define noundef range(i32 -1, -2147483648) i32 @_ZNK6icu_7714DayPeriodRules22getE
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23
   br i1 %exitcond.not, label %.thread, label %.preheader, !llvm.loop !42
 
-.preheader37:                                     ; preds = %8, %22
-  %.041 = phi i32 [ %23, %22 ], [ 23, %8 ]
-  %18 = zext nneg i32 %.041 to i64
+.preheader32:                                     ; preds = %8, %22
+  %.036 = phi i32 [ %23, %22 ], [ 23, %8 ]
+  %18 = zext nneg i32 %.036 to i64
   %19 = getelementptr inbounds nuw i32, ptr %9, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !34
   %21 = icmp eq i32 %20, %1
   br i1 %21, label %24, label %22
 
-22:                                               ; preds = %.preheader37
-  %23 = add nsw i32 %.041, -1
-  %.not = icmp eq i32 %.041, 0
-  br i1 %.not, label %.thread, label %.preheader37, !llvm.loop !43
+22:                                               ; preds = %.preheader32
+  %23 = add nsw i32 %.036, -1
+  %.not = icmp eq i32 %.036, 0
+  br i1 %.not, label %.thread, label %.preheader32, !llvm.loop !43
 
-24:                                               ; preds = %.preheader37
-  %25 = add nuw nsw i32 %.041, 1
+24:                                               ; preds = %.preheader32
+  %25 = add nuw nsw i32 %.036, 1
   br label %.loopexit
 
 .thread:                                          ; preds = %22, %17
@@ -1247,21 +1247,23 @@ define void @_ZN6icu_7714DayPeriodRules3addEiiNS0_9DayPeriodE(ptr noundef nonnul
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7714DayPeriodRules14allHoursAreSetEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(100) %0) local_unnamed_addr #16 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  br label %3
+  br label %4
 
-3:                                                ; preds = %3, %1
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 4, !tbaa !34
-  %.not = icmp ne i32 %5, -1
+3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp ne i64 %indvars.iv.next, 24
-  %or.cond.not = select i1 %.not, i1 %exitcond, i1 false
-  br i1 %or.cond.not, label %3, label %6, !llvm.loop !45
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 24
+  br i1 %exitcond.not, label %8, label %4, !llvm.loop !45
 
-6:                                                ; preds = %3
-  %spec.select = zext i1 %.not to i8
-  ret i8 %spec.select
+4:                                                ; preds = %1, %3
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
+  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %6 = load i32, ptr %5, align 4, !tbaa !34
+  %7 = icmp eq i32 %6, -1
+  br i1 %7, label %8, label %3
+
+8:                                                ; preds = %3, %4
+  %9 = phi i8 [ 0, %4 ], [ 1, %3 ]
+  ret i8 %9
 }
 
 declare noundef ptr @_ZNK6icu_777UObject17getDynamicClassIDEv(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #8
@@ -1674,14 +1676,14 @@ define linkonce_odr void @_ZN6icu_7722DayPeriodRulesDataSink12processRulesERKNS_
   store ptr %2, ptr %10, align 8, !tbaa !46
   %16 = load i32, ptr %4, align 4, !tbaa !13
   %17 = icmp slt i32 %16, 1
-  br i1 %17, label %.preheader129, label %.loopexit
+  br i1 %17, label %.preheader130, label %.loopexit
 
-.preheader129:                                    ; preds = %5
+.preheader130:                                    ; preds = %5
   %18 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not64139 = icmp eq i8 %18, 0
-  br i1 %.not64139, label %.loopexit, label %.lr.ph141
+  %.not64140 = icmp eq i8 %18, 0
+  br i1 %.not64140, label %.loopexit, label %.lr.ph142
 
-.lr.ph141:                                        ; preds = %.preheader129
+.lr.ph142:                                        ; preds = %.preheader130
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -1697,8 +1699,8 @@ define linkonce_odr void @_ZN6icu_7722DayPeriodRulesDataSink12processRulesERKNS_
   %31 = getelementptr inbounds nuw i8, ptr %13, i64 24
   br label %32
 
-32:                                               ; preds = %.lr.ph141, %286
-  %.058140 = phi i32 [ 0, %.lr.ph141 ], [ %287, %286 ]
+32:                                               ; preds = %.lr.ph142, %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit
+  %.058141 = phi i32 [ 0, %.lr.ph142 ], [ %288, %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit ]
   %33 = load ptr, ptr %10, align 8, !tbaa !46
   %34 = load i32, ptr %4, align 4, !tbaa !13
   %35 = icmp slt i32 %34, 1
@@ -1764,26 +1766,26 @@ _ZN6icu_7722DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit: ; preds =
   call void %56(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::ResourceTable") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %57 = load i32, ptr %4, align 4, !tbaa !13
   %58 = icmp slt i32 %57, 1
-  br i1 %58, label %.preheader127, label %.critedge84
+  br i1 %58, label %.preheader128, label %.critedge84
 
-.preheader127:                                    ; preds = %_ZN6icu_7722DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit
+.preheader128:                                    ; preds = %_ZN6icu_7722DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit
   %59 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %11, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not66136 = icmp eq i8 %59, 0
-  br i1 %.not66136, label %.critedge82, label %.lr.ph138
+  %.not66137 = icmp eq i8 %59, 0
+  br i1 %.not66137, label %.critedge82, label %.lr.ph139
 
-.lr.ph138:                                        ; preds = %.preheader127, %_ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit
-  %.063137 = phi i32 [ %273, %_ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit ], [ 0, %.preheader127 ]
+.lr.ph139:                                        ; preds = %.preheader128, %_ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit
+  %.063138 = phi i32 [ %273, %_ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit ], [ 0, %.preheader128 ]
   %60 = load ptr, ptr %10, align 8, !tbaa !46
   %61 = call noundef i32 @_ZN6icu_7714DayPeriodRules22getDayPeriodFromStringEPKc(ptr noundef %60)
   store i32 %61, ptr %20, align 8, !tbaa !63
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %63, label %64
 
-63:                                               ; preds = %.lr.ph138
+63:                                               ; preds = %.lr.ph139
   store i32 3, ptr %4, align 4, !tbaa !13
   br label %.critedge84
 
-64:                                               ; preds = %.lr.ph138
+64:                                               ; preds = %.lr.ph139
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %65 = load ptr, ptr %3, align 8, !tbaa !25
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 88
@@ -1795,11 +1797,11 @@ _ZN6icu_7722DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit: ; preds =
 
 .preheader:                                       ; preds = %64
   %70 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %12, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not68132 = icmp eq i8 %70, 0
-  br i1 %.not68132, label %.critedge78, label %.lr.ph134
+  %.not68133 = icmp eq i8 %70, 0
+  br i1 %.not68133, label %.critedge78, label %.lr.ph135
 
-.lr.ph134:                                        ; preds = %.preheader, %232
-  %.062133 = phi i32 [ %233, %232 ], [ 0, %.preheader ]
+.lr.ph135:                                        ; preds = %.preheader, %232
+  %.062134 = phi i32 [ %233, %232 ], [ 0, %.preheader ]
   %71 = load ptr, ptr %3, align 8, !tbaa !25
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = load ptr, ptr %72, align 8
@@ -1810,7 +1812,7 @@ _ZN6icu_7722DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit: ; preds =
   %78 = icmp eq i32 %77, 0
   br i1 %75, label %79, label %150
 
-79:                                               ; preds = %.lr.ph134
+79:                                               ; preds = %.lr.ph135
   br i1 %78, label %_ZN6icu_7722DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit, label %80
 
 80:                                               ; preds = %79
@@ -1971,7 +1973,7 @@ _ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_
   %149 = icmp slt i32 %148, 1
   br i1 %149, label %232, label %.critedge80
 
-150:                                              ; preds = %.lr.ph134
+150:                                              ; preds = %.lr.ph135
   br i1 %78, label %_ZN6icu_7722DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit96, label %151
 
 151:                                              ; preds = %150
@@ -2016,17 +2018,17 @@ _ZN6icu_7722DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit96: ; preds 
 
 169:                                              ; preds = %_ZN6icu_7722DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit96
   %170 = load i32, ptr %22, align 8, !tbaa !70
-  %.not71.not130 = icmp sgt i32 %170, 0
-  br i1 %.not71.not130, label %.lr.ph, label %.critedge76
+  %.not71.not131 = icmp sgt i32 %170, 0
+  br i1 %.not71.not131, label %.lr.ph, label %.critedge76
 
 171:                                              ; preds = %_ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_13UnicodeStringER10UErrorCode.exit112
-  %172 = add nuw nsw i32 %.057131, 1
+  %172 = add nuw nsw i32 %.057132, 1
   %exitcond.not = icmp eq i32 %172, %170
   br i1 %exitcond.not, label %.critedge76, label %.lr.ph, !llvm.loop !75
 
 .lr.ph:                                           ; preds = %169, %171
-  %.057131 = phi i32 [ %172, %171 ], [ 0, %169 ]
-  %173 = call noundef signext i8 @_ZNK6icu_7713ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %14, i32 noundef %.057131, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.057132 = phi i32 [ %172, %171 ], [ 0, %169 ]
+  %173 = call noundef signext i8 @_ZNK6icu_7713ResourceArray8getValueEiRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(21) %14, i32 noundef %.057132, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %174 = load i32, ptr %21, align 4, !tbaa !69
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2157,10 +2159,10 @@ _ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_
   br label %232
 
 232:                                              ; preds = %.critedge76, %_ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_13UnicodeStringER10UErrorCode.exit
-  %233 = add nuw nsw i32 %.062133, 1
+  %233 = add nuw nsw i32 %.062134, 1
   %234 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %12, i32 noundef %233, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.not68 = icmp eq i8 %234, 0
-  br i1 %.not68, label %.critedge78, label %.lr.ph134, !llvm.loop !79
+  br i1 %.not68, label %.critedge78, label %.lr.ph135, !llvm.loop !79
 
 .critedge78:                                      ; preds = %232, %.preheader
   %235 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_14dataE, align 8, !tbaa !15
@@ -2257,10 +2259,10 @@ _ZN6icu_7714DayPeriodRules3addEiiNS0_9DayPeriodE.exit.thread.i: ; preds = %.lr.p
 _ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit: ; preds = %_ZN6icu_7714DayPeriodRules3addEiiNS0_9DayPeriodE.exit.thread.i, %.loopexit.sink.split.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %27, i8 0, i64 100, i1 false), !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %273 = add nuw nsw i32 %.063137, 1
+  %273 = add nuw nsw i32 %.063138, 1
   %274 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %11, i32 noundef %273, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %.not66 = icmp eq i8 %274, 0
-  br i1 %.not66, label %.critedge82, label %.lr.ph138, !llvm.loop !82
+  br i1 %.not66, label %.critedge82, label %.lr.ph139, !llvm.loop !82
 
 .critedge80.sink.split:                           ; preds = %_ZN6icu_7722DayPeriodRulesDataSink23getCutoffTypeFromStringEPKc.exit96, %_ZN6icu_7722DayPeriodRulesDataSink9addCutoffENS_12_GLOBAL__N_110CutoffTypeERKNS_13UnicodeStringER10UErrorCode.exit112
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
@@ -2270,7 +2272,7 @@ _ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCod
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge84
 
-.critedge82:                                      ; preds = %_ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit, %.preheader127
+.critedge82:                                      ; preds = %_ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCode.exit, %.preheader128
   %275 = load ptr, ptr @_ZN6icu_7712_GLOBAL__N_14dataE, align 8, !tbaa !15
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %277 = load ptr, ptr %276, align 8, !tbaa !17
@@ -2278,37 +2280,36 @@ _ZN6icu_7722DayPeriodRulesDataSink31setDayPeriodForHoursFromCutoffsER10UErrorCod
   %279 = sext i32 %278 to i64
   %280 = getelementptr inbounds %"class.icu_77::DayPeriodRules", ptr %277, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 4
-  br label %282
+  br label %283
 
-282:                                              ; preds = %282, %.critedge82
-  %indvars.iv.i119 = phi i64 [ 0, %.critedge82 ], [ %indvars.iv.next.i121, %282 ]
-  %283 = getelementptr inbounds nuw i32, ptr %281, i64 %indvars.iv.i119
-  %284 = load i32, ptr %283, align 4, !tbaa !34
-  %.not.i120 = icmp ne i32 %284, -1
-  %indvars.iv.next.i121 = add nuw nsw i64 %indvars.iv.i119, 1
-  %exitcond.i = icmp ne i64 %indvars.iv.next.i121, 24
-  %or.cond.not.i = select i1 %.not.i120, i1 %exitcond.i, i1 false
-  br i1 %or.cond.not.i, label %282, label %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit, !llvm.loop !45
+282:                                              ; preds = %283
+  %indvars.iv.next.i120 = add nuw nsw i64 %indvars.iv.i119, 1
+  %exitcond.not.i121 = icmp eq i64 %indvars.iv.next.i120, 24
+  br i1 %exitcond.not.i121, label %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit, label %283, !llvm.loop !45
 
-_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit: ; preds = %282
-  br i1 %.not.i120, label %286, label %285
+283:                                              ; preds = %282, %.critedge82
+  %indvars.iv.i119 = phi i64 [ 0, %.critedge82 ], [ %indvars.iv.next.i120, %282 ]
+  %284 = getelementptr inbounds nuw i32, ptr %281, i64 %indvars.iv.i119
+  %285 = load i32, ptr %284, align 4, !tbaa !34
+  %286 = icmp eq i32 %285, -1
+  br i1 %286, label %287, label %282
 
-285:                                              ; preds = %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit
+287:                                              ; preds = %283
   store i32 3, ptr %4, align 4, !tbaa !13
   br label %.critedge84
 
-286:                                              ; preds = %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit
+_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit: ; preds = %282
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %287 = add nuw nsw i32 %.058140, 1
-  %288 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %1, i32 noundef %287, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %.not64 = icmp eq i8 %288, 0
+  %288 = add nuw nsw i32 %.058141, 1
+  %289 = call noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_13ResourceValueE(ptr noundef nonnull align 8 dereferenceable(37) %1, i32 noundef %288, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %.not64 = icmp eq i8 %289, 0
   br i1 %.not64, label %.loopexit, label %32, !llvm.loop !83
 
-.critedge84:                                      ; preds = %_ZN6icu_7722DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit, %63, %.critedge80, %285
+.critedge84:                                      ; preds = %_ZN6icu_7722DayPeriodRulesDataSink11parseSetNumEPKcR10UErrorCode.exit, %63, %.critedge80, %287
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %286, %.preheader129, %.critedge84, %5
+.loopexit:                                        ; preds = %_ZN6icu_7714DayPeriodRules14allHoursAreSetEv.exit, %.preheader130, %.critedge84, %5
   ret void
 }
 

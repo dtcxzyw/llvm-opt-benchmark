@@ -1670,13 +1670,13 @@ define dso_local ptr @archive_entry_copy_fflags_text(ptr noundef %0, ptr noundef
 define dso_local ptr @archive_entry_copy_fflags_text_len(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = tail call i32 @archive_mstring_copy_mbs_len(ptr noundef nonnull %4, ptr noundef %1, i64 noundef %2) #21
-  %.not109.i = icmp eq i64 %2, 0
-  br i1 %.not109.i, label %ae_strtofflags.exit, label %.lr.ph.i
+  %.not108.i = icmp eq i64 %2, 0
+  br i1 %.not108.i, label %ae_strtofflags.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %.critedge2.i
-  %.064111.i = phi i64 [ %8, %.critedge2.i ], [ %2, %3 ]
-  %.065110.i = phi ptr [ %7, %.critedge2.i ], [ %1, %3 ]
-  %6 = load i8, ptr %.065110.i, align 1, !tbaa !63
+  %.064110.i = phi i64 [ %8, %.critedge2.i ], [ %2, %3 ]
+  %.065109.i = phi ptr [ %7, %.critedge2.i ], [ %1, %3 ]
+  %6 = load i8, ptr %.065109.i, align 1, !tbaa !63
   switch i8 %6, label %.preheader.i [
     i8 9, label %.critedge2.i
     i8 32, label %.critedge2.i
@@ -1684,24 +1684,24 @@ define dso_local ptr @archive_entry_copy_fflags_text_len(ptr noundef %0, ptr nou
   ]
 
 .critedge2.i:                                     ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %7 = getelementptr inbounds nuw i8, ptr %.065110.i, i64 1
-  %8 = add i64 %.064111.i, -1
+  %7 = getelementptr inbounds nuw i8, ptr %.065109.i, i64 1
+  %8 = add i64 %.064110.i, -1
   %.not.i = icmp eq i64 %8, 0
   br i1 %.not.i, label %ae_strtofflags.exit, label %.lr.ph.i, !llvm.loop !79
 
-.preheader.i:                                     ; preds = %.lr.ph123.i, %.lr.ph.i
-  %.1134.i = phi i64 [ %.064111.i, %.lr.ph.i ], [ %.3122.i, %.lr.ph123.i ]
-  %.166133.i = phi ptr [ %.065110.i, %.lr.ph.i ], [ %.267121.i, %.lr.ph123.i ]
-  %.068132.i = phi ptr [ null, %.lr.ph.i ], [ %spec.select.i, %.lr.ph123.i ]
-  %.070131.i = phi i64 [ 0, %.lr.ph.i ], [ %.272.i, %.lr.ph123.i ]
-  %.074130.i = phi i64 [ 0, %.lr.ph.i ], [ %.276.i, %.lr.ph123.i ]
-  %scevgep140.i = getelementptr i8, ptr %.166133.i, i64 %.1134.i
+.preheader.i:                                     ; preds = %.lr.ph122.i, %.lr.ph.i
+  %.1133.i = phi i64 [ %.064110.i, %.lr.ph.i ], [ %.3121.i, %.lr.ph122.i ]
+  %.166132.i = phi ptr [ %.065109.i, %.lr.ph.i ], [ %.267120.i, %.lr.ph122.i ]
+  %.068131.i = phi ptr [ null, %.lr.ph.i ], [ %spec.select.i, %.lr.ph122.i ]
+  %.070130.i = phi i64 [ 0, %.lr.ph.i ], [ %.272.i, %.lr.ph122.i ]
+  %.074129.i = phi i64 [ 0, %.lr.ph.i ], [ %.276.i, %.lr.ph122.i ]
+  %scevgep139.i = getelementptr i8, ptr %.166132.i, i64 %.1133.i
   br label %9
 
 9:                                                ; preds = %11, %.preheader.i
-  %.2117.i = phi i64 [ %.1134.i, %.preheader.i ], [ %13, %11 ]
-  %.079116.i = phi ptr [ %.166133.i, %.preheader.i ], [ %12, %11 ]
-  %10 = load i8, ptr %.079116.i, align 1, !tbaa !63
+  %.2116.i = phi i64 [ %.1133.i, %.preheader.i ], [ %13, %11 ]
+  %.079115.i = phi ptr [ %.166132.i, %.preheader.i ], [ %12, %11 ]
+  %10 = load i8, ptr %.079115.i, align 1, !tbaa !63
   switch i8 %10, label %11 [
     i8 9, label %.critedge4.i
     i8 32, label %.critedge4.i
@@ -1709,38 +1709,38 @@ define dso_local ptr @archive_entry_copy_fflags_text_len(ptr noundef %0, ptr nou
   ]
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds nuw i8, ptr %.079116.i, i64 1
-  %13 = add i64 %.2117.i, -1
+  %12 = getelementptr inbounds nuw i8, ptr %.079115.i, i64 1
+  %13 = add i64 %.2116.i, -1
   %.not91.i = icmp eq i64 %13, 0
   br i1 %.not91.i, label %.critedge4.i, label %9, !llvm.loop !80
 
 .critedge4.i:                                     ; preds = %11, %9, %9, %9
-  %.079.lcssa.i = phi ptr [ %.079116.i, %9 ], [ %.079116.i, %9 ], [ %.079116.i, %9 ], [ %scevgep140.i, %11 ]
-  %.2.lcssa.i = phi i64 [ %.2117.i, %9 ], [ %.2117.i, %9 ], [ %.2117.i, %9 ], [ 0, %11 ]
+  %.079.lcssa.i = phi ptr [ %.079115.i, %9 ], [ %.079115.i, %9 ], [ %.079115.i, %9 ], [ %scevgep139.i, %11 ]
+  %.2.lcssa.i = phi i64 [ %.2116.i, %9 ], [ %.2116.i, %9 ], [ %.2116.i, %9 ], [ 0, %11 ]
   %14 = ptrtoint ptr %.079.lcssa.i to i64
-  %15 = ptrtoint ptr %.166133.i to i64
+  %15 = ptrtoint ptr %.166132.i to i64
   %16 = sub i64 %14, %15
   br label %17
 
 17:                                               ; preds = %43, %.critedge4.i
   %18 = phi ptr [ @.str.1, %.critedge4.i ], [ %45, %43 ]
-  %.078118.i = phi ptr [ @fileflags, %.critedge4.i ], [ %44, %43 ]
+  %.078117.i = phi ptr [ @fileflags, %.critedge4.i ], [ %44, %43 ]
   %19 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #26
   %20 = icmp eq i64 %16, %19
   br i1 %20, label %21, label %30
 
 21:                                               ; preds = %17
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.166133.i, ptr nonnull %18, i64 %16)
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull %.166132.i, ptr nonnull %18, i64 %16)
   %22 = icmp eq i32 %bcmp.i, 0
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %.078118.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !58
-  %26 = or i64 %25, %.070131.i
-  %27 = getelementptr inbounds nuw i8, ptr %.078118.i, i64 24
+  %26 = or i64 %25, %.070130.i
+  %27 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 24
   %28 = load i64, ptr %27, align 8, !tbaa !60
-  %29 = or i64 %28, %.074130.i
+  %29 = or i64 %28, %.074129.i
   br label %.loopexit.i
 
 30:                                               ; preds = %21, %17
@@ -1750,50 +1750,50 @@ define dso_local ptr @archive_entry_copy_fflags_text_len(ptr noundef %0, ptr nou
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  %bcmp96.i = tail call i32 @bcmp(ptr nonnull %.166133.i, ptr nonnull %34, i64 %16)
+  %bcmp96.i = tail call i32 @bcmp(ptr nonnull %.166132.i, ptr nonnull %34, i64 %16)
   %35 = icmp eq i32 %bcmp96.i, 0
   br i1 %35, label %36, label %43
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %.078118.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 16
   %38 = load i64, ptr %37, align 8, !tbaa !58
-  %39 = or i64 %38, %.074130.i
-  %40 = getelementptr inbounds nuw i8, ptr %.078118.i, i64 24
+  %39 = or i64 %38, %.074129.i
+  %40 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 24
   %41 = load i64, ptr %40, align 8, !tbaa !60
-  %42 = or i64 %41, %.070131.i
+  %42 = or i64 %41, %.070130.i
   br label %.loopexit.i
 
 43:                                               ; preds = %33, %30
-  %44 = getelementptr inbounds nuw i8, ptr %.078118.i, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.078117.i, i64 32
   %45 = load ptr, ptr %44, align 8, !tbaa !61
   %.not95.i = icmp eq ptr %45, null
   br i1 %.not95.i, label %.loopexit.i, label %17, !llvm.loop !81
 
 .loopexit.i:                                      ; preds = %43, %36, %23
-  %.not95106.i = phi i1 [ false, %23 ], [ false, %36 ], [ true, %43 ]
-  %.276.i = phi i64 [ %29, %23 ], [ %39, %36 ], [ %.074130.i, %43 ]
-  %.272.i = phi i64 [ %26, %23 ], [ %42, %36 ], [ %.070131.i, %43 ]
-  %46 = icmp eq ptr %.068132.i, null
-  %or.cond.i = select i1 %.not95106.i, i1 %46, i1 false
-  %spec.select.i = select i1 %or.cond.i, ptr %.166133.i, ptr %.068132.i
-  %.not97120.i = icmp eq i64 %.2.lcssa.i, 0
-  br i1 %.not97120.i, label %ae_strtofflags.exit, label %.lr.ph123.i
+  %.not95105.i = phi i1 [ false, %23 ], [ false, %36 ], [ true, %43 ]
+  %.276.i = phi i64 [ %29, %23 ], [ %39, %36 ], [ %.074129.i, %43 ]
+  %.272.i = phi i64 [ %26, %23 ], [ %42, %36 ], [ %.070130.i, %43 ]
+  %46 = icmp eq ptr %.068131.i, null
+  %or.cond.i = select i1 %.not95105.i, i1 %46, i1 false
+  %spec.select.i = select i1 %or.cond.i, ptr %.166132.i, ptr %.068131.i
+  %.not97119.i = icmp eq i64 %.2.lcssa.i, 0
+  br i1 %.not97119.i, label %ae_strtofflags.exit, label %.lr.ph122.i
 
-.lr.ph123.i:                                      ; preds = %.loopexit.i, %.critedge9.i
-  %.3122.i = phi i64 [ %49, %.critedge9.i ], [ %.2.lcssa.i, %.loopexit.i ]
-  %.267121.i = phi ptr [ %48, %.critedge9.i ], [ %.079.lcssa.i, %.loopexit.i ]
-  %47 = load i8, ptr %.267121.i, align 1, !tbaa !63
+.lr.ph122.i:                                      ; preds = %.loopexit.i, %.critedge9.i
+  %.3121.i = phi i64 [ %49, %.critedge9.i ], [ %.2.lcssa.i, %.loopexit.i ]
+  %.267120.i = phi ptr [ %48, %.critedge9.i ], [ %.079.lcssa.i, %.loopexit.i ]
+  %47 = load i8, ptr %.267120.i, align 1, !tbaa !63
   switch i8 %47, label %.preheader.i [
     i8 9, label %.critedge9.i
     i8 32, label %.critedge9.i
     i8 44, label %.critedge9.i
   ], !llvm.loop !82
 
-.critedge9.i:                                     ; preds = %.lr.ph123.i, %.lr.ph123.i, %.lr.ph123.i
-  %48 = getelementptr inbounds nuw i8, ptr %.267121.i, i64 1
-  %49 = add i64 %.3122.i, -1
+.critedge9.i:                                     ; preds = %.lr.ph122.i, %.lr.ph122.i, %.lr.ph122.i
+  %48 = getelementptr inbounds nuw i8, ptr %.267120.i, i64 1
+  %49 = add i64 %.3121.i, -1
   %.not97.i = icmp eq i64 %49, 0
-  br i1 %.not97.i, label %ae_strtofflags.exit, label %.lr.ph123.i, !llvm.loop !83
+  br i1 %.not97.i, label %ae_strtofflags.exit, label %.lr.ph122.i, !llvm.loop !83
 
 ae_strtofflags.exit:                              ; preds = %.critedge2.i, %.loopexit.i, %.critedge9.i, %3
   %.074.lcssa.i = phi i64 [ 0, %3 ], [ %.276.i, %.critedge9.i ], [ %.276.i, %.loopexit.i ], [ 0, %.critedge2.i ]
@@ -1832,23 +1832,23 @@ define dso_local ptr @archive_entry_copy_fflags_text_w(ptr noundef %0, ptr nound
   br label %5, !llvm.loop !84
 
 .loopexit.i:                                      ; preds = %50
-  %8 = icmp eq ptr %.057101.i, null
-  %or.cond.i = select i1 %.not8192.i, i1 %8, i1 false
-  %spec.select.i = select i1 %or.cond.i, ptr %.1102.i, ptr %.057101.i
+  %8 = icmp eq ptr %.057100.i, null
+  %or.cond.i = select i1 %.not8191.i, i1 %8, i1 false
+  %spec.select.i = select i1 %or.cond.i, ptr %.1101.i, ptr %.057100.i
   %.not.i = icmp eq i32 %51, 0
   br i1 %.not.i, label %ae_wcstofflags.exit, label %.preheader.i, !llvm.loop !85
 
 .preheader.i:                                     ; preds = %5, %.loopexit.i
   %9 = phi i32 [ %51, %.loopexit.i ], [ %6, %5 ]
-  %.1102.i = phi ptr [ %.2.i, %.loopexit.i ], [ %.055.i, %5 ]
-  %.057101.i = phi ptr [ %spec.select.i, %.loopexit.i ], [ null, %5 ]
-  %.059100.i = phi i64 [ %.261.i, %.loopexit.i ], [ 0, %5 ]
-  %.06299.i = phi i64 [ %.264.i, %.loopexit.i ], [ 0, %5 ]
+  %.1101.i = phi ptr [ %.2.i, %.loopexit.i ], [ %.055.i, %5 ]
+  %.057100.i = phi ptr [ %spec.select.i, %.loopexit.i ], [ null, %5 ]
+  %.05999.i = phi i64 [ %.261.i, %.loopexit.i ], [ 0, %5 ]
+  %.06298.i = phi i64 [ %.264.i, %.loopexit.i ], [ 0, %5 ]
   br label %10
 
 10:                                               ; preds = %12, %.preheader.i
   %11 = phi i32 [ %.pre.i, %12 ], [ %9, %.preheader.i ]
-  %.056.i = phi ptr [ %13, %12 ], [ %.1102.i, %.preheader.i ]
+  %.056.i = phi ptr [ %13, %12 ], [ %.1101.i, %.preheader.i ]
   switch i32 %11, label %12 [
     i32 0, label %.critedge2.i
     i32 9, label %.critedge2.i
@@ -1863,31 +1863,31 @@ define dso_local ptr @archive_entry_copy_fflags_text_w(ptr noundef %0, ptr nound
 
 .critedge2.i:                                     ; preds = %10, %10, %10, %10
   %14 = ptrtoint ptr %.056.i to i64
-  %15 = ptrtoint ptr %.1102.i to i64
+  %15 = ptrtoint ptr %.1101.i to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 2
   br label %18
 
 18:                                               ; preds = %46, %.critedge2.i
   %19 = phi ptr [ @.str.2, %.critedge2.i ], [ %49, %46 ]
-  %.06696.i = phi ptr [ @fileflags, %.critedge2.i ], [ %47, %46 ]
+  %.06695.i = phi ptr [ @fileflags, %.critedge2.i ], [ %47, %46 ]
   %20 = tail call i64 @wcslen(ptr noundef nonnull %19) #26
   %21 = icmp eq i64 %17, %20
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %18
-  %23 = tail call i32 @wmemcmp(ptr noundef nonnull %.1102.i, ptr noundef nonnull %19, i64 noundef %17) #26
+  %23 = tail call i32 @wmemcmp(ptr noundef nonnull %.1101.i, ptr noundef nonnull %19, i64 noundef %17) #26
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %25, label %32
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %.06696.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.06695.i, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !58
-  %28 = or i64 %27, %.059100.i
-  %29 = getelementptr inbounds nuw i8, ptr %.06696.i, i64 24
+  %28 = or i64 %27, %.05999.i
+  %29 = getelementptr inbounds nuw i8, ptr %.06695.i, i64 24
   %30 = load i64, ptr %29, align 8, !tbaa !60
-  %31 = or i64 %30, %.06299.i
-  br label %.loopexit88.i
+  %31 = or i64 %30, %.06298.i
+  br label %.loopexit87.i
 
 32:                                               ; preds = %22, %18
   %33 = add i64 %20, -2
@@ -1896,34 +1896,34 @@ define dso_local ptr @archive_entry_copy_fflags_text_w(ptr noundef %0, ptr nound
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %37 = tail call i32 @wmemcmp(ptr noundef nonnull %.1102.i, ptr noundef nonnull %36, i64 noundef %17) #26
+  %37 = tail call i32 @wmemcmp(ptr noundef nonnull %.1101.i, ptr noundef nonnull %36, i64 noundef %17) #26
   %38 = icmp eq i32 %37, 0
   br i1 %38, label %39, label %46
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %.06696.i, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.06695.i, i64 16
   %41 = load i64, ptr %40, align 8, !tbaa !58
-  %42 = or i64 %41, %.06299.i
-  %43 = getelementptr inbounds nuw i8, ptr %.06696.i, i64 24
+  %42 = or i64 %41, %.06298.i
+  %43 = getelementptr inbounds nuw i8, ptr %.06695.i, i64 24
   %44 = load i64, ptr %43, align 8, !tbaa !60
-  %45 = or i64 %44, %.059100.i
-  br label %.loopexit88.i
+  %45 = or i64 %44, %.05999.i
+  br label %.loopexit87.i
 
 46:                                               ; preds = %35, %32
-  %47 = getelementptr inbounds nuw i8, ptr %.06696.i, i64 32
-  %48 = getelementptr inbounds nuw i8, ptr %.06696.i, i64 40
+  %47 = getelementptr inbounds nuw i8, ptr %.06695.i, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.06695.i, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !87
   %.not81.i = icmp eq ptr %49, null
-  br i1 %.not81.i, label %.loopexit88.i, label %18, !llvm.loop !88
+  br i1 %.not81.i, label %.loopexit87.i, label %18, !llvm.loop !88
 
-.loopexit88.i:                                    ; preds = %46, %39, %25
-  %.not8192.i = phi i1 [ false, %25 ], [ false, %39 ], [ true, %46 ]
-  %.264.i = phi i64 [ %31, %25 ], [ %42, %39 ], [ %.06299.i, %46 ]
-  %.261.i = phi i64 [ %28, %25 ], [ %45, %39 ], [ %.059100.i, %46 ]
+.loopexit87.i:                                    ; preds = %46, %39, %25
+  %.not8191.i = phi i1 [ false, %25 ], [ false, %39 ], [ true, %46 ]
+  %.264.i = phi i64 [ %31, %25 ], [ %42, %39 ], [ %.06298.i, %46 ]
+  %.261.i = phi i64 [ %28, %25 ], [ %45, %39 ], [ %.05999.i, %46 ]
   br label %50
 
-50:                                               ; preds = %.critedge5.i, %.loopexit88.i
-  %.2.i = phi ptr [ %.056.i, %.loopexit88.i ], [ %52, %.critedge5.i ]
+50:                                               ; preds = %.critedge5.i, %.loopexit87.i
+  %.2.i = phi ptr [ %.056.i, %.loopexit87.i ], [ %52, %.critedge5.i ]
   %51 = load i32, ptr %.2.i, align 4, !tbaa !28
   switch i32 %51, label %.loopexit.i [
     i32 9, label %.critedge5.i

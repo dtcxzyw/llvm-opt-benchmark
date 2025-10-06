@@ -440,19 +440,19 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin10mou
   %14 = load ptr, ptr %13, align 8, !tbaa !73
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !73
-  %.not15.not = icmp eq ptr %14, %16
-  br i1 %.not15.not, label %.loopexit, label %.lr.ph
+  %.not16 = icmp eq ptr %14, %16
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
-  %.sroa.012.016 = phi ptr [ %22, %.lr.ph ], [ %14, %12 ]
-  %17 = load ptr, ptr %.sroa.012.016, align 8, !tbaa !74
+  %.sroa.012.017 = phi ptr [ %22, %.lr.ph ], [ %14, %12 ]
+  %17 = load ptr, ptr %.sroa.012.017, align 8, !tbaa !74
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(56) %17, i32 noundef %1, i32 noundef %2)
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 8
-  %.not.not = icmp eq ptr %22, %16
-  %or.cond = select i1 %21, i1 true, i1 %.not.not
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
+  %.not = icmp eq ptr %22, %16
+  %or.cond = select i1 %21, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %3
@@ -499,19 +499,19 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin10mou
   %10 = load ptr, ptr %9, align 8, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !73
-  %.not13.not = icmp eq ptr %10, %12
-  br i1 %.not13.not, label %.loopexit, label %.lr.ph
+  %.not14 = icmp eq ptr %10, %12
+  br i1 %.not14, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.sroa.010.014 = phi ptr [ %18, %.lr.ph ], [ %10, %8 ]
-  %13 = load ptr, ptr %.sroa.010.014, align 8, !tbaa !74
+  %.sroa.010.015 = phi ptr [ %18, %.lr.ph ], [ %10, %8 ]
+  %13 = load ptr, ptr %.sroa.010.015, align 8, !tbaa !74
   %14 = load ptr, ptr %13, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef %1, i32 noundef %2)
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 8
-  %.not.not = icmp eq ptr %18, %12
-  %or.cond = select i1 %17, i1 true, i1 %.not.not
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 8
+  %.not = icmp eq ptr %18, %12
+  %or.cond = select i1 %17, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %3
@@ -550,19 +550,19 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin11key
   %10 = load ptr, ptr %9, align 8, !tbaa !73
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !73
-  %.not14.not = icmp eq ptr %10, %12
-  br i1 %.not14.not, label %.loopexit, label %.lr.ph
+  %.not15 = icmp eq ptr %10, %12
+  br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.sroa.011.015 = phi ptr [ %18, %.lr.ph ], [ %10, %8 ]
-  %13 = load ptr, ptr %.sroa.011.015, align 8, !tbaa !74
+  %.sroa.011.016 = phi ptr [ %18, %.lr.ph ], [ %10, %8 ]
+  %13 = load ptr, ptr %.sroa.011.016, align 8, !tbaa !74
   %14 = load ptr, ptr %13, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef %1, i32 noundef %2)
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 8
-  %.not.not = icmp eq ptr %18, %12
-  %or.cond = select i1 %17, i1 true, i1 %.not.not
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 8
+  %.not = icmp eq ptr %18, %12
+  %or.cond = select i1 %17, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %8, %3
@@ -590,19 +590,19 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin8key_
   %14 = load ptr, ptr %13, align 8, !tbaa !73
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !73
-  %.not15.not = icmp eq ptr %14, %16
-  br i1 %.not15.not, label %.loopexit, label %.lr.ph
+  %.not16 = icmp eq ptr %14, %16
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
-  %.sroa.012.016 = phi ptr [ %22, %.lr.ph ], [ %14, %12 ]
-  %17 = load ptr, ptr %.sroa.012.016, align 8, !tbaa !74
+  %.sroa.012.017 = phi ptr [ %22, %.lr.ph ], [ %14, %12 ]
+  %17 = load ptr, ptr %.sroa.012.017, align 8, !tbaa !74
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(56) %17, i32 noundef %1, i32 noundef %2)
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 8
-  %.not.not = icmp eq ptr %22, %16
-  %or.cond = select i1 %21, i1 true, i1 %.not.not
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
+  %.not = icmp eq ptr %22, %16
+  %or.cond = select i1 %21, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %3
@@ -630,19 +630,19 @@ define dso_local noundef zeroext i1 @_ZN3igl6opengl4glfw5imgui11ImGuiPlugin6key_
   %14 = load ptr, ptr %13, align 8, !tbaa !73
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !73
-  %.not15.not = icmp eq ptr %14, %16
-  br i1 %.not15.not, label %.loopexit, label %.lr.ph
+  %.not16 = icmp eq ptr %14, %16
+  br i1 %.not16, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %.lr.ph
-  %.sroa.012.016 = phi ptr [ %22, %.lr.ph ], [ %14, %12 ]
-  %17 = load ptr, ptr %.sroa.012.016, align 8, !tbaa !74
+  %.sroa.012.017 = phi ptr [ %22, %.lr.ph ], [ %14, %12 ]
+  %17 = load ptr, ptr %.sroa.012.017, align 8, !tbaa !74
   %18 = load ptr, ptr %17, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef zeroext i1 %20(ptr noundef nonnull align 8 dereferenceable(56) %17, i32 noundef %1, i32 noundef %2)
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.016, i64 8
-  %.not.not = icmp eq ptr %22, %16
-  %or.cond = select i1 %21, i1 true, i1 %.not.not
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
+  %.not = icmp eq ptr %22, %16
+  %or.cond = select i1 %21, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %12, %3

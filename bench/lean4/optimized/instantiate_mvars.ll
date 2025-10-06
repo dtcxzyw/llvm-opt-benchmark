@@ -9813,8 +9813,8 @@ define internal void @"_ZNSt17_Function_handlerIFN4lean8optionalINS0_4exprEEERKS
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !36, !noalias !320
   %12 = and i64 %11, 1099511627776
-  %.not2.i.i.i = icmp eq i64 %12, 0
-  br i1 %.not2.i.i.i, label %13, label %23
+  %.not1.i.i.i = icmp eq i64 %12, 0
+  br i1 %.not1.i.i.i, label %13, label %23
 
 13:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !321)

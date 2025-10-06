@@ -1173,9 +1173,9 @@ _ZN12_GLOBAL__N_118extractFromBitcodeEN4llvm15MemoryBufferRefERNS0_15SmallVector
   %183 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store ptr %176, ptr %183, align 8, !noalias !180
   %184 = icmp ne ptr %176, %182
-  %.not.i.i.i.i71.i = icmp ne i64 %175, %181
-  %.not2.i72.i = select i1 %184, i1 true, i1 %.not.i.i.i.i71.i
-  br i1 %.not2.i72.i, label %.lr.ph.i6, label %_ZN4llvm5ErrorD2Ev.exit36.i
+  %.not.i.i.i.i69.i = icmp ne i64 %175, %181
+  %.not2.i70.i = select i1 %184, i1 true, i1 %.not.i.i.i.i69.i
+  br i1 %.not2.i70.i, label %.lr.ph.i6, label %_ZN4llvm5ErrorD2Ev.exit36.i
 
 .lr.ph.i6:                                        ; preds = %169
   %185 = getelementptr inbounds nuw i8, ptr %170, i64 8
@@ -1189,7 +1189,7 @@ _ZN12_GLOBAL__N_118extractFromBitcodeEN4llvm15MemoryBufferRefERNS0_15SmallVector
   br label %190
 
 190:                                              ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i, %.lr.ph.i6
-  %lhsv.i.i.i.i75.i = phi i64 [ %175, %.lr.ph.i6 ], [ %lhsv.i.i.i.i.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i ]
+  %lhsv.i.i.i.i73.i = phi i64 [ %175, %.lr.ph.i6 ], [ %lhsv.i.i.i.i.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i ]
   %191 = phi ptr [ %176, %.lr.ph.i6 ], [ %229, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i ]
   %192 = load i32, ptr %185, align 8, !tbaa !186, !noalias !180
   %193 = add i32 %192, -13
@@ -1200,7 +1200,7 @@ _ZN12_GLOBAL__N_118extractFromBitcodeEN4llvm15MemoryBufferRefERNS0_15SmallVector
   %195 = load ptr, ptr %191, align 8, !tbaa !49, !noalias !180
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 488
   %197 = load ptr, ptr %196, align 8, !noalias !180
-  %198 = call noundef i32 %197(ptr noundef nonnull align 8 dereferenceable(48) %191, i64 %lhsv.i.i.i.i75.i) #16, !noalias !180
+  %198 = call noundef i32 %197(ptr noundef nonnull align 8 dereferenceable(48) %191, i64 %lhsv.i.i.i.i73.i) #16, !noalias !180
   %.not.i13 = icmp eq i32 %198, 1879002123
   br i1 %.not.i13, label %.critedgethread-pre-split.i, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i
 
@@ -1218,7 +1218,7 @@ _ZN12_GLOBAL__N_118extractFromBitcodeEN4llvm15MemoryBufferRefERNS0_15SmallVector
   %202 = load ptr, ptr %191, align 8, !tbaa !49, !noalias !187
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 144
   %204 = load ptr, ptr %203, align 8, !noalias !187
-  call void %204(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.190") align 8 %20, ptr noundef nonnull align 8 dereferenceable(48) %191, i64 %lhsv.i.i.i.i75.i) #16, !noalias !180
+  call void %204(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.190") align 8 %20, ptr noundef nonnull align 8 dereferenceable(48) %191, i64 %lhsv.i.i.i.i73.i) #16, !noalias !180
   %205 = load i8, ptr %186, align 8, !noalias !180
   %206 = trunc i8 %205 to i1
   br i1 %206, label %209, label %207
@@ -1226,9 +1226,9 @@ _ZN12_GLOBAL__N_118extractFromBitcodeEN4llvm15MemoryBufferRefERNS0_15SmallVector
 207:                                              ; preds = %201
   %208 = load i64, ptr %187, align 8, !tbaa !3, !noalias !180
   %.not.i.i12 = icmp ult i64 %208, 16
-  br i1 %.not.i.i12, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread88.i, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i
+  br i1 %.not.i.i12, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread86.i, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i
 
-_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread88.i: ; preds = %207
+_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread86.i: ; preds = %207
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !180
   br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i
 
@@ -1253,7 +1253,7 @@ _ZNK4llvm6object10SectionRef11getContentsEv.exit.i: ; preds = %_ZN4llvm8Expected
   %214 = load ptr, ptr %191, align 8, !tbaa !49, !noalias !194
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 176
   %216 = load ptr, ptr %215, align 8, !noalias !194
-  call void %216(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.204") align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %191, i64 %lhsv.i.i.i.i75.i) #16, !noalias !194
+  call void %216(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.204") align 8 %18, ptr noundef nonnull align 8 dereferenceable(48) %191, i64 %lhsv.i.i.i.i73.i) #16, !noalias !194
   %217 = load i8, ptr %188, align 8, !noalias !194
   %218 = trunc i8 %217 to i1
   %219 = load i64, ptr %18, align 8, !noalias !180
@@ -1276,10 +1276,10 @@ _ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.i:   ; preds = %_ZNK4llvm6object10S
   store i64 %223, ptr %.sroa.6.0..sroa_idx.i9, align 8, !tbaa !75, !noalias !180
   call fastcc void @_ZN12_GLOBAL__N_119extractOffloadFilesEN4llvm15MemoryBufferRefERNS0_15SmallVectorImplINS0_6object11OffloadFileEEE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull byval(%"class.llvm::MemoryBufferRef") align 8 %21, ptr noundef nonnull align 8 dereferenceable(16) %2)
   %224 = load ptr, ptr %0, align 8, !tbaa !13, !alias.scope !180
-  %.not69.i.not = icmp eq ptr %224, null
-  br i1 %.not69.i.not, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i, label %.loopexit.i11
+  %.not67.i.not = icmp eq ptr %224, null
+  br i1 %.not67.i.not, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i, label %.loopexit.i11
 
-_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i: ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread88.i, %194
+_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread.i: ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit35.thread86.i, %194
   %225 = load ptr, ptr %183, align 8, !tbaa !200, !noalias !180
   %226 = load ptr, ptr %225, align 8, !tbaa !49, !noalias !180
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 136

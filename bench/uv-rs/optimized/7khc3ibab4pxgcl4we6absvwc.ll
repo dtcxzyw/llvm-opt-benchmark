@@ -358,23 +358,23 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i64, ptr %0, align 8, !range !41, !alias.scope !42, !noundef !10
-  %switch = icmp samesign ult i64 %5, 5
+  %6 = icmp eq i64 %5, 5
   %.sroa.0.0.i.ph.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.0.0.i.ph = load ptr, ptr %.sroa.0.0.i.ph.in, align 8, !nonnull !10
   %.sroa.7.0.i.ph.in = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.7.0.i.ph = load i64, ptr %.sroa.7.0.i.ph.in, align 8
-  %anon.86d151933e283cf377ce94c5f4c085e0.4.sink = select i1 %switch, ptr %.sroa.0.0.i.ph, ptr @anon.86d151933e283cf377ce94c5f4c085e0.4
-  %.sink = select i1 %switch, i64 %.sroa.7.0.i.ph, i64 4
-  store ptr %anon.86d151933e283cf377ce94c5f4c085e0.4.sink, ptr %3, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %.sink, ptr %6, align 8
+  %.sroa.0.0.i.ph.sink = select i1 %6, ptr @anon.86d151933e283cf377ce94c5f4c085e0.4, ptr %.sroa.0.0.i.ph
+  %.sroa.7.0.i.ph.sink = select i1 %6, i64 4, i64 %.sroa.7.0.i.ph
+  store ptr %.sroa.0.0.i.ph.sink, ptr %3, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %.sroa.7.0.i.ph.sink, ptr %7, align 8
   store ptr %3, ptr %4, align 8
   %.sroa.44.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h42c02606474b17bdE", ptr %.sroa.44.0..sroa_idx, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.val = load ptr, ptr %7, align 8, !nonnull !10, !noundef !10
-  %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.val5 = load ptr, ptr %8, align 8, !nonnull !10, !noundef !10
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.val = load ptr, ptr %8, align 8, !nonnull !10, !noundef !10
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.val5 = load ptr, ptr %9, align 8, !nonnull !10, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !45
   store ptr @anon.86d151933e283cf377ce94c5f4c085e0.11, ptr %2, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -385,11 +385,11 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   store i64 1, ptr %.sroa.8.0..sroa_idx, align 8
   %.sroa.10.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   store ptr null, ptr %.sroa.10.0..sroa_idx, align 8
-  %9 = call noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !45
+  %10 = call noundef zeroext i1 @_ZN4core3fmt5write17h5af61a909e3ec64dE(ptr noundef nonnull align 1 %.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.val5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !45
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !45
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %9
+  ret i1 %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable

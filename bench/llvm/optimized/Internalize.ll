@@ -680,8 +680,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15InternalizePass16shouldPreserveGV
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %15 = load i8, ptr %14, align 8
   %16 = and i8 %15, 2
-  %.not18 = icmp eq i8 %16, 0
-  br i1 %.not18, label %17, label %40
+  %.not17 = icmp eq i8 %16, 0
+  br i1 %.not17, label %17, label %40
 
 17:                                               ; preds = %11, %13
   %18 = add nsw i32 %7, -7
@@ -701,8 +701,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm15InternalizePass16shouldPreserveGV
   %29 = zext i32 %28 to i64
   %30 = sext i32 %25 to i64
   %31 = icmp eq i64 %30, %29
-  %.not21 = select i1 %26, i1 true, i1 %31
-  br i1 %.not21, label %32, label %40
+  %.not20 = select i1 %26, i1 true, i1 %31
+  br i1 %.not20, label %32, label %40
 
 32:                                               ; preds = %19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24

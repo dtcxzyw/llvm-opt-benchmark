@@ -573,8 +573,8 @@ define internal void @ws_evhttp_read_cb(ptr readnone captures(none) %0, ptr noun
   %8 = load ptr, ptr %5, align 8
   tail call void @bufferevent_incref_and_lock_(ptr noundef %8) #9
   %9 = tail call i64 @evbuffer_get_length(ptr noundef %7) #9
-  %.not77 = icmp eq i64 %9, 0
-  br i1 %.not77, label %.thread, label %.lr.ph
+  %.not75 = icmp eq i64 %9, 0
+  br i1 %.not75, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 64

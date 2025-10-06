@@ -564,7 +564,7 @@ _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exitsplit: ; preds
   br label %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit
 
 _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit: ; preds = %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exitsplit, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge
-  %.not2527 = phi i1 [ %43, %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exitsplit ], [ false, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge ]
+  %.not2426 = phi i1 [ %43, %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exitsplit ], [ false, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge ]
   %44 = phi ptr [ %17, %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exitsplit ], [ %.pre, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.i._ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit_crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -580,7 +580,7 @@ _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit: ; preds = %_
   %52 = trunc i64 %51 to i32
   %53 = load i32, ptr %13, align 8, !tbaa !18
   %54 = add i32 %53, %52
-  br i1 %.not2527, label %.lr.ph, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.thread
+  br i1 %.not2426, label %.lr.ph, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.thread
 
 .lr.ph:                                           ; preds = %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit
   %55 = load ptr, ptr %10, align 8, !tbaa !48
@@ -589,12 +589,12 @@ _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit: ; preds = %_
   %58 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !50
   %60 = and i16 %59, 7
-  %.not26 = icmp eq i16 %60, 0
-  %.pre31.pre33 = load i64, ptr %46, align 8, !tbaa !59
-  br i1 %.not26, label %61, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread
+  %.not25 = icmp eq i16 %60, 0
+  %.pre30.pre32 = load i64, ptr %46, align 8, !tbaa !59
+  br i1 %.not25, label %61, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread
 
 61:                                               ; preds = %.lr.ph
-  %62 = add i64 %.pre31.pre33, 1
+  %62 = add i64 %.pre30.pre32, 1
   %63 = load i64, ptr %47, align 8, !tbaa !60
   %.not.i.i.i = icmp ugt i64 %62, %63
   br i1 %.not.i.i.i, label %64, label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit, !prof !62
@@ -605,7 +605,7 @@ _ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit: ; preds = %_
   br label %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
 
 _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %61, %64
-  %65 = phi i64 [ %.pre31.pre33, %61 ], [ %.pre.i16, %64 ]
+  %65 = phi i64 [ %.pre30.pre32, %61 ], [ %.pre.i16, %64 ]
   %66 = load ptr, ptr %4, align 8, !tbaa !56
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %65
   store i8 %56, ptr %67, align 1
@@ -617,11 +617,11 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %61, %64
   store ptr %71, ptr %10, align 8, !tbaa !48
   %72 = load ptr, ptr %11, align 8, !tbaa !52
   %73 = icmp eq ptr %71, %72
-  %.pre30 = load i32, ptr %5, align 4, !tbaa !39
+  %.pre29 = load i32, ptr %5, align 4, !tbaa !39
   br i1 %73, label %74, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit
 
 74:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
-  %75 = add i32 %.pre30, 1
+  %75 = add i32 %.pre29, 1
   store i32 %75, ptr %5, align 4, !tbaa !39
   %76 = load i32, ptr %7, align 8, !tbaa !23
   %.not.i17 = icmp ugt i32 %76, %75
@@ -629,11 +629,11 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %61, %64
 
 77:                                               ; preds = %74
   %78 = call noundef zeroext i1 @_ZN5clang8comments20TextTokenRetokenizer8addTokenEv(ptr noundef nonnull align 8 dereferenceable(456) %0)
-  %.pre29 = load i32, ptr %5, align 4, !tbaa !39
+  %.pre28 = load i32, ptr %5, align 4, !tbaa !39
   br i1 %78, label %._crit_edge.i, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit
 
 ._crit_edge.i:                                    ; preds = %77, %74
-  %79 = phi i32 [ %75, %74 ], [ %.pre29, %77 ]
+  %79 = phi i32 [ %75, %74 ], [ %.pre28, %77 ]
   %80 = zext i32 %79 to i64
   %81 = load ptr, ptr %12, align 8, !tbaa !21
   %82 = getelementptr inbounds nuw %"class.clang::comments::Token", ptr %81, i64 %80
@@ -651,20 +651,20 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit: ; preds = %61, %64
   br label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit: ; preds = %._crit_edge.i, %77, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit
-  %89 = phi i32 [ %79, %._crit_edge.i ], [ %.pre29, %77 ], [ %.pre30, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ]
+  %89 = phi i32 [ %79, %._crit_edge.i ], [ %.pre28, %77 ], [ %.pre29, %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit ]
   %90 = load i32, ptr %7, align 8, !tbaa !23
-  %.not25 = icmp ugt i32 %90, %89
-  br i1 %.not25, label %.lr.ph, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit._ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.loopexit_crit_edge
+  %.not24 = icmp ugt i32 %90, %89
+  br i1 %.not24, label %.lr.ph, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit._ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.loopexit_crit_edge
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit._ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.loopexit_crit_edge: ; preds = %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit
-  %.pre31.pre = load i64, ptr %46, align 8, !tbaa !59
+  %.pre30.pre = load i64, ptr %46, align 8, !tbaa !59
   br label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread: ; preds = %.lr.ph, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit._ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.loopexit_crit_edge
-  %91 = phi i64 [ %.pre31.pre, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit._ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.loopexit_crit_edge ], [ %.pre31.pre33, %.lr.ph ]
+  %91 = phi i64 [ %.pre30.pre, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit._ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.loopexit_crit_edge ], [ %.pre30.pre32, %.lr.ph ]
   %92 = trunc i64 %91 to i32
-  %.not54 = icmp eq i32 %92, 0
-  br i1 %.not54, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.thread, label %93
+  %.not53 = icmp eq i32 %92, 0
+  br i1 %.not53, label %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.thread, label %93
 
 _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.thread: ; preds = %_ZN5clang8comments20TextTokenRetokenizer17consumeWhitespaceEv.exit, %_ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !46
@@ -696,13 +696,13 @@ _ZN5clang8comments20TextTokenRetokenizer11consumeCharEv.exit.thread.thread: ; pr
 
 110:                                              ; preds = %93
   %111 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %94, i64 noundef %96, i64 noundef %96, i8 0)
-  %.pre32 = load i64, ptr %46, align 8, !tbaa !59
-  %.pre35 = add i64 %.pre32, 1
+  %.pre31 = load i64, ptr %46, align 8, !tbaa !59
+  %.pre34 = add i64 %.pre31, 1
   br label %_ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit
 
 _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEE8AllocateIcEEPT_m.exit: ; preds = %108, %110
-  %.pre-phi = phi i64 [ %95, %108 ], [ %.pre35, %110 ]
-  %112 = phi i64 [ %91, %108 ], [ %.pre32, %110 ]
+  %.pre-phi = phi i64 [ %95, %108 ], [ %.pre34, %110 ]
+  %112 = phi i64 [ %91, %108 ], [ %.pre31, %110 ]
   %.0.i.i.i.i = phi ptr [ %100, %108 ], [ %111, %110 ]
   %113 = load i64, ptr %47, align 8, !tbaa !60
   %.not.i.i.i.i19 = icmp ugt i64 %.pre-phi, %113
@@ -5212,9 +5212,9 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit:   ; preds = %17, %19
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 52
   %29 = load i32, ptr %28, align 4, !tbaa !78
   %.not = icmp eq i32 %29, 2
-  br i1 %.not, label %.thread11, label %30
+  br i1 %.not, label %.thread10, label %30
 
-.thread11:                                        ; preds = %_ZN5clang8comments6Parser12consumeTokenEv.exit
+.thread10:                                        ; preds = %_ZN5clang8comments6Parser12consumeTokenEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %58
 
@@ -5272,8 +5272,8 @@ _ZN5clang8comments6Parser12consumeTokenEv.exit:   ; preds = %17, %19
   store i8 1, ptr %5, align 8, !tbaa !94
   br label %117
 
-58:                                               ; preds = %8, %.thread11
-  %.pn = phi ptr [ %26, %.thread11 ], [ %10, %8 ]
+58:                                               ; preds = %8, %.thread10
+  %.pn = phi ptr [ %26, %.thread10 ], [ %10, %8 ]
   %59 = getelementptr inbounds nuw i8, ptr %.pn, i64 48
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32

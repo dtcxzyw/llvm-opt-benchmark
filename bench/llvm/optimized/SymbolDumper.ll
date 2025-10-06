@@ -1064,24 +1064,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !69
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 8:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.019, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8
-  %.sroa.013.021 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !49
+  %.sroa.013.019 = phi ptr [ %9, %8 ], [ %5, %3 ]
+  %10 = load ptr, ptr %.sroa.013.019, align 8, !tbaa !49
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   %14 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %8, label %.critedge
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %8, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %8, %3
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1097,24 +1097,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 noundef %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1130,24 +1130,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !69
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 8:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.019, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8
-  %.sroa.013.021 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !49
+  %.sroa.013.019 = phi ptr [ %9, %8 ], [ %5, %3 ]
+  %10 = load ptr, ptr %.sroa.013.019, align 8, !tbaa !49
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   %14 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %8, label %.critedge
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %8, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %8, %3
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1163,24 +1163,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !69
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 8:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.019, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8
-  %.sroa.013.021 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !49
+  %.sroa.013.019 = phi ptr [ %9, %8 ], [ %5, %3 ]
+  %10 = load ptr, ptr %.sroa.013.019, align 8, !tbaa !49
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(16) %2) #19
   %14 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %8, label %.critedge
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %8, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %8, %3
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1196,24 +1196,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1229,24 +1229,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(68) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1262,24 +1262,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(24) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1295,24 +1295,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1328,24 +1328,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1361,24 +1361,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1394,24 +1394,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(60) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1427,24 +1427,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1460,24 +1460,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1493,24 +1493,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1526,24 +1526,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1559,24 +1559,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1592,24 +1592,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1625,24 +1625,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1658,24 +1658,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(52) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1691,24 +1691,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1724,24 +1724,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1757,24 +1757,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 184
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(52) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1790,24 +1790,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 192
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(12) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1823,24 +1823,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 200
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(52) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1856,24 +1856,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 208
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1889,24 +1889,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 216
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1922,24 +1922,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1955,24 +1955,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 232
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(68) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -1988,24 +1988,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(52) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2021,24 +2021,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2054,24 +2054,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(20) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2087,24 +2087,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2120,24 +2120,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 272
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(20) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2153,24 +2153,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2186,24 +2186,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(32) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2219,24 +2219,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 296
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2252,24 +2252,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2285,24 +2285,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 312
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(12) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2318,24 +2318,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 320
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2351,24 +2351,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 328
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2384,24 +2384,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 336
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2417,24 +2417,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 344
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2450,24 +2450,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 352
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(36) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2483,24 +2483,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 360
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(28) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70
@@ -2516,24 +2516,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview29SymbolVisitorCallbackPipelin
   %6 = load ptr, ptr %5, align 8, !tbaa !69
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !49
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !49
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 368
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(44) %3) #19
   %15 = load ptr, ptr %0, align 8, !tbaa !70
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !70

@@ -1131,22 +1131,22 @@ define internal fastcc { i64, i32 } @_ZN5clang6formatL15getCommentSplitEN4llvm9S
   store i64 %1, ptr %13, align 8
   %14 = add i32 %2, 1
   %.not = icmp ugt i32 %3, %14
-  br i1 %.not, label %15, label %.thread138
+  br i1 %.not, label %15, label %.thread137
 
 15:                                               ; preds = %8
   %reass.sub = sub i32 %3, %2
   %16 = add i32 %reass.sub, 1
-  %.not153 = icmp eq i32 %16, 0
-  br i1 %.not153, label %.critedge, label %.lr.ph
+  %.not152 = icmp eq i32 %16, 0
+  br i1 %.not152, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %cond.i = icmp eq i32 %5, 0
   br i1 %cond.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us
-  %.0146.us = phi i32 [ %26, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us ], [ 0, %.lr.ph ]
-  %storemerge145.us = phi i32 [ %27, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us ], [ 0, %.lr.ph ]
-  %17 = zext i32 %storemerge145.us to i64
+  %.0145.us = phi i32 [ %26, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us ], [ 0, %.lr.ph ]
+  %storemerge144.us = phi i32 [ %27, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us ], [ 0, %.lr.ph ]
+  %17 = zext i32 %storemerge144.us to i64
   %18 = icmp ugt i64 %1, %17
   br i1 %18, label %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us, label %.critedge
 
@@ -1157,22 +1157,22 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us: ; preds
   %22 = zext i32 %21 to i64
   %23 = sub nuw i64 %1, %17
   %.sroa.speculated.i.us = tail call i64 @llvm.umin.i64(i64 %23, i64 %22)
-  %24 = add i32 %.0146.us, %2
+  %24 = add i32 %.0145.us, %2
   %25 = tail call noundef i32 @_ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE(ptr nonnull %19, i64 %.sroa.speculated.i.us, i32 noundef %24, i32 noundef %4, i32 noundef 0)
-  %26 = add i32 %25, %.0146.us
-  %27 = add i32 %21, %storemerge145.us
+  %26 = add i32 %25, %.0145.us
+  %27 = add i32 %21, %storemerge144.us
   %28 = icmp ult i32 %26, %16
   br i1 %28, label %.lr.ph.split.us, label %.critedge, !llvm.loop !194
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit
-  %.0146 = phi i32 [ %37, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit ], [ 0, %.lr.ph ]
-  %storemerge145 = phi i32 [ %38, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit ], [ 0, %.lr.ph ]
-  %29 = zext i32 %storemerge145 to i64
+  %.0145 = phi i32 [ %37, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit ], [ 0, %.lr.ph ]
+  %storemerge144 = phi i32 [ %38, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit ], [ 0, %.lr.ph ]
+  %29 = zext i32 %storemerge144 to i64
   %30 = icmp ugt i64 %1, %29
   br i1 %30, label %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph.split, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit, %.lr.ph.split.us, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us, %15
-  %storemerge.lcssa = phi i32 [ 0, %15 ], [ %27, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us ], [ %storemerge145.us, %.lr.ph.split.us ], [ %38, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit ], [ %storemerge145, %.lr.ph.split ]
+  %storemerge.lcssa = phi i32 [ 0, %15 ], [ %27, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us ], [ %storemerge144.us, %.lr.ph.split.us ], [ %38, %_ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit ], [ %storemerge144, %.lr.ph.split ]
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 431
   %32 = load i8, ptr %31, align 1, !tbaa !168
   %33 = icmp eq i8 %32, 4
@@ -1180,10 +1180,10 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit.us: ; preds
 
 _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = %.lr.ph.split
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 %29
-  %35 = add i32 %.0146, %2
+  %35 = add i32 %.0145, %2
   %36 = tail call noundef i32 @_ZN5clang6format8encoding19columnWidthWithTabsEN4llvm9StringRefEjjNS1_8EncodingE(ptr %34, i64 1, i32 noundef %35, i32 noundef %4, i32 noundef %5)
-  %37 = add i32 %36, %.0146
-  %38 = add i32 %storemerge145, 1
+  %37 = add i32 %36, %.0145
+  %38 = add i32 %storemerge144, 1
   %39 = icmp ult i32 %37, %16
   br i1 %39, label %.lr.ph.split, label %.critedge, !llvm.loop !194
 
@@ -1228,15 +1228,15 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   br label %62
 
 62:                                               ; preds = %60, %58, %53
-  %.not84150 = icmp eq i64 %55, -1
-  br i1 %.not84150, label %.loopexit, label %.lr.ph152
+  %.not84149 = icmp eq i64 %55, -1
+  br i1 %.not84149, label %.loopexit, label %.lr.ph151
 
-.lr.ph152:                                        ; preds = %62
+.lr.ph151:                                        ; preds = %62
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
   br label %64
 
-64:                                               ; preds = %.lr.ph152, %.backedge
-  %.072151 = phi i64 [ %55, %.lr.ph152 ], [ %82, %.backedge ]
+64:                                               ; preds = %.lr.ph151, %.backedge
+  %.072150 = phi i64 [ %55, %.lr.ph151 ], [ %82, %.backedge ]
   %65 = load i8, ptr %31, align 1, !tbaa !168
   switch i8 %65, label %..thread_crit_edge [
     i8 6, label %66
@@ -1248,22 +1248,22 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   br label %.thread
 
 66:                                               ; preds = %64, %64
-  %67 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.48, i64 5, i64 noundef %.072151) #25
+  %67 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.48, i64 5, i64 noundef %.072150) #25
   %.not85 = icmp eq i64 %67, -1
-  %.pre157 = load ptr, ptr %9, align 8, !tbaa !10
+  %.pre156 = load ptr, ptr %9, align 8, !tbaa !10
   br i1 %.not85, label %.thread, label %68
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.pre157, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %.pre156, i64 %67
   %70 = load i8, ptr %69, align 1, !tbaa !128
   %71 = icmp eq i8 %70, 92
   br i1 %71, label %.backedge, label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %66, %68
-  %72 = phi ptr [ %.pre, %..thread_crit_edge ], [ %.pre157, %66 ], [ %.pre157, %68 ]
+  %72 = phi ptr [ %.pre, %..thread_crit_edge ], [ %.pre156, %66 ], [ %.pre156, %68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %73 = load i64, ptr %13, align 8, !tbaa !3
-  %.sroa.speculated4.i88 = call i64 @llvm.umin.i64(i64 %73, i64 %.072151)
+  %.sroa.speculated4.i88 = call i64 @llvm.umin.i64(i64 %73, i64 %.072150)
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 %.sroa.speculated4.i88
   %75 = sub i64 %73, %.sroa.speculated4.i88
   store ptr %74, ptr %10, align 8
@@ -1280,8 +1280,8 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   br i1 %81, label %.backedge, label %83
 
 .backedge:                                        ; preds = %.thread, %68, %90, %90
-  %.072151.sink = phi i64 [ %.072151, %90 ], [ %.072151, %90 ], [ %67, %68 ], [ %.072151, %.thread ]
-  %82 = call noundef i64 @_ZNK4llvm9StringRef12find_last_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.48, i64 5, i64 noundef %.072151.sink) #25
+  %.072150.sink = phi i64 [ %.072150, %90 ], [ %.072150, %90 ], [ %67, %68 ], [ %.072150, %.thread ]
+  %82 = call noundef i64 @_ZNK4llvm9StringRef12find_last_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.48, i64 5, i64 noundef %.072150.sink) #25
   %.not84 = icmp eq i64 %82, -1
   br i1 %.not84, label %.loopexit, label %64, !llvm.loop !196
 
@@ -1291,7 +1291,7 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   br i1 %85, label %86, label %94
 
 86:                                               ; preds = %83
-  %87 = add nuw i64 %.072151, 1
+  %87 = add nuw i64 %.072150, 1
   %88 = load i64, ptr %13, align 8, !tbaa !3
   %89 = icmp ult i64 %87, %88
   br i1 %89, label %90, label %94
@@ -1306,14 +1306,14 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   ]
 
 94:                                               ; preds = %90, %86, %83
-  %95 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.48, i64 5, i64 noundef %.072151) #25
+  %95 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.48, i64 5, i64 noundef %.072150) #25
   %96 = icmp eq i64 %95, -1
   br i1 %96, label %.loopexit, label %102
 
 .loopexit:                                        ; preds = %.backedge, %62, %94
   %97 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr nonnull @.str.48, i64 5, i64 noundef 0) #25
   %.not86 = icmp eq i64 %97, -1
-  br i1 %.not86, label %.thread138, label %98
+  br i1 %.not86, label %.thread137, label %98
 
 98:                                               ; preds = %.loopexit
   %99 = trunc i64 %97 to i32
@@ -1323,10 +1323,10 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   br label %102
 
 102:                                              ; preds = %98, %94
-  %.4 = phi i64 [ %101, %98 ], [ %.072151, %94 ]
+  %.4 = phi i64 [ %101, %98 ], [ %.072150, %94 ]
   %103 = add i64 %.4, -1
   %or.cond = icmp ult i64 %103, -2
-  br i1 %or.cond, label %104, label %.thread138
+  br i1 %or.cond, label %104, label %.thread137
 
 104:                                              ; preds = %102
   %105 = icmp eq i64 %.4, 1
@@ -1343,7 +1343,7 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   %109 = load ptr, ptr %9, align 8, !tbaa !10
   %110 = load i8, ptr %109, align 1, !tbaa !128
   %111 = icmp eq i8 %110, 42
-  br i1 %111, label %.thread138, label %.split75
+  br i1 %111, label %.thread137, label %.split75
 
 .split75:                                         ; preds = %108
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1353,9 +1353,9 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   br label %114
 
 114:                                              ; preds = %.split75, %.split
-  %.pn142 = phi ptr [ %107, %.split ], [ %109, %.split75 ]
+  %.pn141 = phi ptr [ %107, %.split ], [ %109, %.split75 ]
   %.sroa.speculated.i94.pn = phi i64 [ %.sroa.speculated.i94, %.split ], [ %.sroa.speculated.i98, %.split75 ]
-  store ptr %.pn142, ptr %11, align 8
+  store ptr %.pn141, ptr %11, align 8
   %115 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 %.sroa.speculated.i94.pn, ptr %115, align 8
   %116 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr nonnull @.str.48, i64 5, i64 noundef -1) #25
@@ -1376,8 +1376,8 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   %126 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store i64 %125, ptr %126, align 8
   %127 = icmp ugt i64 %125, 1
-  %or.cond141.not = select i1 %7, i1 %127, i1 false
-  br i1 %or.cond141.not, label %128, label %131
+  %or.cond140.not = select i1 %7, i1 %127, i1 false
+  br i1 %or.cond140.not, label %128, label %131
 
 128:                                              ; preds = %114
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 1
@@ -1402,9 +1402,9 @@ _ZN5clang6format8encoding20getCodePointNumBytesEcNS1_8EncodingE.exit: ; preds = 
   %141 = sub i64 %139, %140
   %142 = trunc i64 %141 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.thread138
+  br label %.thread137
 
-.thread138:                                       ; preds = %.loopexit, %136, %108, %102, %8
+.thread137:                                       ; preds = %.loopexit, %136, %108, %102, %8
   %.sroa.0128.0 = phi i64 [ -1, %8 ], [ %.sroa.speculated.i.i.i, %136 ], [ -1, %108 ], [ -1, %102 ], [ -1, %.loopexit ]
   %.sroa.6.0 = phi i32 [ 0, %8 ], [ %142, %136 ], [ 0, %108 ], [ 0, %102 ], [ 0, %.loopexit ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0128.0, 0

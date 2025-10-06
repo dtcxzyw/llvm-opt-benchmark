@@ -631,22 +631,22 @@ define dso_local ptr @zend_get_attribute(ptr noundef readonly captures(address_i
   %8 = zext i32 %7 to i64
   %.idx.i = shl nuw nsw i64 %8, 4
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
-  %.not23.not27.i = icmp eq i32 %7, 0
-  br i1 %.not23.not27.i, label %get_attribute.exit, label %.lr.ph.i
+  %.not23.not26.i = icmp eq i32 %7, 0
+  br i1 %.not23.not26.i, label %get_attribute.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %11
 
 11:                                               ; preds = %zend_string_equals.exit.thread24.i, %.lr.ph.i
-  %.02028.i = phi ptr [ %5, %.lr.ph.i ], [ %30, %zend_string_equals.exit.thread24.i ]
-  %12 = getelementptr inbounds nuw i8, ptr %.02028.i, i64 8
+  %.02027.i = phi ptr [ %5, %.lr.ph.i ], [ %30, %zend_string_equals.exit.thread24.i ]
+  %12 = getelementptr inbounds nuw i8, ptr %.02027.i, i64 8
   %13 = load i8, ptr %12, align 8, !tbaa !11
   %14 = icmp eq i8 %13, 0
   br i1 %14, label %zend_string_equals.exit.thread24.i, label %15, !prof !17
 
 15:                                               ; preds = %11
-  %16 = load ptr, ptr %.02028.i, align 8, !tbaa !11
+  %16 = load ptr, ptr %.02027.i, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i32, ptr %17, align 8, !tbaa !59
   %19 = icmp eq i32 %18, 0
@@ -670,7 +670,7 @@ zend_string_equals.exit.i:                        ; preds = %24
   br i1 %29, label %get_attribute.exit, label %zend_string_equals.exit.thread24.i
 
 zend_string_equals.exit.thread24.i:               ; preds = %zend_string_equals.exit.i, %24, %15, %11
-  %30 = getelementptr inbounds nuw i8, ptr %.02028.i, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.02027.i, i64 16
   %.not23.not.i = icmp eq ptr %30, %9
   br i1 %.not23.not.i, label %get_attribute.exit, label %11
 
@@ -692,18 +692,18 @@ define dso_local ptr @zend_get_attribute_str(ptr noundef readonly captures(addre
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i
-  %.not24.not27.i = icmp eq i32 %8, 0
-  br i1 %.not24.not27.i, label %get_attribute_str.exit, label %.lr.ph.i
+  %.not24.not26.i = icmp eq i32 %8, 0
+  br i1 %.not24.not26.i, label %get_attribute_str.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %zend_string_equals_cstr.exit.thread.i
-  %.02128.i = phi ptr [ %26, %zend_string_equals_cstr.exit.thread.i ], [ %6, %4 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.02128.i, i64 8
+  %.02127.i = phi ptr [ %26, %zend_string_equals_cstr.exit.thread.i ], [ %6, %4 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.02127.i, i64 8
   %12 = load i8, ptr %11, align 8, !tbaa !11
   %13 = icmp eq i8 %12, 0
   br i1 %13, label %zend_string_equals_cstr.exit.thread.i, label %14, !prof !17
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = load ptr, ptr %.02128.i, align 8, !tbaa !11
+  %15 = load ptr, ptr %.02127.i, align 8, !tbaa !11
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !59
   %18 = icmp eq i32 %17, 0
@@ -724,7 +724,7 @@ zend_string_equals_cstr.exit.i:                   ; preds = %19
   br i1 %.not.i.i, label %get_attribute_str.exit, label %zend_string_equals_cstr.exit.thread.i
 
 zend_string_equals_cstr.exit.thread.i:            ; preds = %zend_string_equals_cstr.exit.i, %19, %14, %.lr.ph.i
-  %26 = getelementptr inbounds nuw i8, ptr %.02128.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.02127.i, i64 16
   %.not24.not.i = icmp eq ptr %26, %10
   br i1 %.not24.not.i, label %get_attribute_str.exit, label %.lr.ph.i
 
@@ -747,22 +747,22 @@ define dso_local ptr @zend_get_parameter_attribute(ptr noundef readonly captures
   %10 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %10, 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.i
-  %.not23.not27.i = icmp eq i32 %9, 0
-  br i1 %.not23.not27.i, label %get_attribute.exit, label %.lr.ph.i
+  %.not23.not26.i = icmp eq i32 %9, 0
+  br i1 %.not23.not26.i, label %get_attribute.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %13
 
 13:                                               ; preds = %zend_string_equals.exit.thread24.i, %.lr.ph.i
-  %.02028.i = phi ptr [ %7, %.lr.ph.i ], [ %32, %zend_string_equals.exit.thread24.i ]
-  %14 = getelementptr inbounds nuw i8, ptr %.02028.i, i64 8
+  %.02027.i = phi ptr [ %7, %.lr.ph.i ], [ %32, %zend_string_equals.exit.thread24.i ]
+  %14 = getelementptr inbounds nuw i8, ptr %.02027.i, i64 8
   %15 = load i8, ptr %14, align 8, !tbaa !11
   %16 = icmp eq i8 %15, 0
   br i1 %16, label %zend_string_equals.exit.thread24.i, label %17, !prof !17
 
 17:                                               ; preds = %13
-  %18 = load ptr, ptr %.02028.i, align 8, !tbaa !11
+  %18 = load ptr, ptr %.02027.i, align 8, !tbaa !11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !59
   %21 = icmp eq i32 %20, %4
@@ -786,7 +786,7 @@ zend_string_equals.exit.i:                        ; preds = %26
   br i1 %31, label %get_attribute.exit, label %zend_string_equals.exit.thread24.i
 
 zend_string_equals.exit.thread24.i:               ; preds = %zend_string_equals.exit.i, %26, %17, %13
-  %32 = getelementptr inbounds nuw i8, ptr %.02028.i, i64 16
+  %32 = getelementptr inbounds nuw i8, ptr %.02027.i, i64 16
   %.not23.not.i = icmp eq ptr %32, %11
   br i1 %.not23.not.i, label %get_attribute.exit, label %13
 
@@ -809,18 +809,18 @@ define dso_local ptr @zend_get_parameter_attribute_str(ptr noundef readonly capt
   %11 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %.not24.not27.i = icmp eq i32 %10, 0
-  br i1 %.not24.not27.i, label %get_attribute_str.exit, label %.lr.ph.i
+  %.not24.not26.i = icmp eq i32 %10, 0
+  br i1 %.not24.not26.i, label %get_attribute_str.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %zend_string_equals_cstr.exit.thread.i
-  %.02128.i = phi ptr [ %28, %zend_string_equals_cstr.exit.thread.i ], [ %8, %6 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.02128.i, i64 8
+  %.02127.i = phi ptr [ %28, %zend_string_equals_cstr.exit.thread.i ], [ %8, %6 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.02127.i, i64 8
   %14 = load i8, ptr %13, align 8, !tbaa !11
   %15 = icmp eq i8 %14, 0
   br i1 %15, label %zend_string_equals_cstr.exit.thread.i, label %16, !prof !17
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = load ptr, ptr %.02128.i, align 8, !tbaa !11
+  %17 = load ptr, ptr %.02127.i, align 8, !tbaa !11
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !59
   %20 = icmp eq i32 %19, %5
@@ -841,7 +841,7 @@ zend_string_equals_cstr.exit.i:                   ; preds = %21
   br i1 %.not.i.i, label %get_attribute_str.exit, label %zend_string_equals_cstr.exit.thread.i
 
 zend_string_equals_cstr.exit.thread.i:            ; preds = %zend_string_equals_cstr.exit.i, %21, %16, %.lr.ph.i
-  %28 = getelementptr inbounds nuw i8, ptr %.02128.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.02127.i, i64 16
   %.not24.not.i = icmp eq ptr %28, %12
   br i1 %.not24.not.i, label %get_attribute_str.exit, label %.lr.ph.i
 

@@ -1235,8 +1235,8 @@ define dso_local range(i32 -1, 1) i32 @build_node_spec_bitmap(ptr noundef %0) lo
   %24 = tail call ptr @bitfmt2int(ptr noundef %23) #15
   store ptr %24, ptr %2, align 8
   %25 = load i32, ptr %24, align 4
-  %.not3842 = icmp eq i32 %25, -1
-  br i1 %.not3842, label %.loopexit, label %.lr.ph
+  %.not3841 = icmp eq i32 %25, -1
+  br i1 %.not3841, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %20 ]
@@ -4209,7 +4209,7 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %130 = call i32 @unpack32(ptr noundef nonnull %18, ptr noundef %2) #15
   %.not403 = icmp eq i32 %130, 0
-  br i1 %.not403, label %131, label %.thread471
+  br i1 %.not403, label %131, label %.thread469
 
 131:                                              ; preds = %129
   %132 = load i32, ptr %18, align 4
@@ -4250,7 +4250,7 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
 146:                                              ; preds = %145, %143
   store ptr null, ptr %140, align 8
   call void @slurm_xfree(ptr noundef nonnull %17) #15
-  br label %.thread471
+  br label %.thread469
 
 147:                                              ; preds = %135
   %148 = getelementptr inbounds nuw i8, ptr %50, i64 184
@@ -4274,7 +4274,7 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
   %.not409 = icmp eq i32 %153, 0
   br i1 %.not409, label %155, label %439
 
-.thread471:                                       ; preds = %146, %129
+.thread469:                                       ; preds = %146, %129
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %439
@@ -4537,7 +4537,7 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %267 = call i32 @unpack32(ptr noundef nonnull %34, ptr noundef %2) #15
   %.not358 = icmp eq i32 %267, 0
-  br i1 %.not358, label %268, label %.thread479
+  br i1 %.not358, label %268, label %.thread475
 
 268:                                              ; preds = %266
   %269 = load i32, ptr %34, align 4
@@ -4578,7 +4578,7 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
 283:                                              ; preds = %282, %280
   store ptr null, ptr %277, align 8
   call void @slurm_xfree(ptr noundef nonnull %33) #15
-  br label %.thread479
+  br label %.thread475
 
 284:                                              ; preds = %272
   %285 = getelementptr inbounds nuw i8, ptr %50, i64 184
@@ -4587,14 +4587,14 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
 
 286:                                              ; preds = %274, %284
   call void @slurm_xfree(ptr noundef nonnull %33) #15
-  br label %.thread475
+  br label %.thread472
 
 287:                                              ; preds = %268
   %288 = getelementptr inbounds nuw i8, ptr %50, i64 184
   store ptr null, ptr %288, align 8
-  br label %.thread475
+  br label %.thread472
 
-.thread475:                                       ; preds = %287, %286
+.thread472:                                       ; preds = %287, %286
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   %289 = getelementptr inbounds nuw i8, ptr %50, i64 508
@@ -4602,7 +4602,7 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
   %.not364 = icmp eq i32 %290, 0
   br i1 %.not364, label %292, label %439
 
-.thread479:                                       ; preds = %283, %266
+.thread475:                                       ; preds = %283, %266
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %439
@@ -4612,7 +4612,7 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   br label %439
 
-292:                                              ; preds = %.thread475
+292:                                              ; preds = %.thread472
   %293 = getelementptr inbounds nuw i8, ptr %50, i64 400
   %294 = call i32 @unpack32(ptr noundef nonnull %293, ptr noundef %2) #15
   %.not365 = icmp eq i32 %294, 0
@@ -4932,7 +4932,7 @@ define dso_local range(i32 -1, 1) i32 @node_record_unpack(ptr noundef writeonly 
   %438 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.36, ptr noundef nonnull @__func__.node_record_unpack, i32 noundef %52) #15
   br label %439
 
-439:                                              ; preds = %154, %291, %.thread479, %.thread471, %427, %367, %364, %361, %358, %355, %352, %349, %346, %343, %340, %337, %334, %322, %230, %227, %224, %221, %218, %215, %212, %209, %206, %203, %200, %197, %185, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %434, %430, %424, %421, %418, %415, %412, %409, %406, %403, %400, %397, %394, %391, %388, %385, %382, %379, %376, %373, %370, %329, %325, %319, %316, %313, %310, %307, %304, %301, %298, %295, %292, %.thread475, %263, %260, %257, %254, %251, %248, %245, %242, %239, %236, %233, %192, %188, %182, %179, %176, %173, %170, %167, %164, %161, %158, %155, %.thread, %126, %123, %120, %117, %114, %111, %108, %105, %102, %99, %96, %93, %437
+439:                                              ; preds = %154, %291, %.thread475, %.thread469, %427, %367, %364, %361, %358, %355, %352, %349, %346, %343, %340, %337, %334, %322, %230, %227, %224, %221, %218, %215, %212, %209, %206, %203, %200, %197, %185, %90, %87, %84, %81, %78, %75, %72, %69, %66, %63, %60, %57, %54, %434, %430, %424, %421, %418, %415, %412, %409, %406, %403, %400, %397, %394, %391, %388, %385, %382, %379, %376, %373, %370, %329, %325, %319, %316, %313, %310, %307, %304, %301, %298, %295, %292, %.thread472, %263, %260, %257, %254, %251, %248, %245, %242, %239, %236, %233, %192, %188, %182, %179, %176, %173, %170, %167, %164, %161, %158, %155, %.thread, %126, %123, %120, %117, %114, %111, %108, %105, %102, %99, %96, %93, %437
   call void @purge_node_rec(ptr noundef nonnull %50)
   store ptr null, ptr %0, align 8
   br label %440

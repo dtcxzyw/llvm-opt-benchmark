@@ -2130,17 +2130,17 @@ declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #12
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @commit_subject_length(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr %0, align 1, !tbaa !11
-  %.not16 = icmp eq i8 %2, 0
-  br i1 %.not16, label %.thread, label %.lr.ph
+  %.not15 = icmp eq i8 %2, 0
+  br i1 %.not15, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %4
-  %.01017 = phi ptr [ %spec.select, %4 ], [ %0, %1 ]
-  %3 = tail call ptr @skip_blank_lines(ptr noundef nonnull %.01017) #24
-  %.not11 = icmp eq ptr %3, %.01017
+  %.01016 = phi ptr [ %spec.select, %4 ], [ %0, %1 ]
+  %3 = tail call ptr @skip_blank_lines(ptr noundef nonnull %.01016) #24
+  %.not11 = icmp eq ptr %3, %.01016
   br i1 %.not11, label %4, label %.thread
 
 4:                                                ; preds = %.lr.ph
-  %5 = tail call ptr @strchrnul(ptr noundef nonnull %.01017, i32 noundef 10) #26
+  %5 = tail call ptr @strchrnul(ptr noundef nonnull %.01016, i32 noundef 10) #26
   %6 = load i8, ptr %5, align 1, !tbaa !11
   %.not12 = icmp ne i8 %6, 0
   %spec.select.idx = zext i1 %.not12 to i64
@@ -2150,7 +2150,7 @@ define dso_local noundef i64 @commit_subject_length(ptr noundef %0) local_unname
   br i1 %.not, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %4, %.lr.ph, %1
-  %.010.lcssa = phi ptr [ %0, %1 ], [ %.01017, %.lr.ph ], [ %spec.select, %4 ]
+  %.010.lcssa = phi ptr [ %0, %1 ], [ %.01016, %.lr.ph ], [ %spec.select, %4 ]
   %8 = ptrtoint ptr %.010.lcssa to i64
   %9 = ptrtoint ptr %0 to i64
   %10 = sub i64 %8, %9
@@ -2632,25 +2632,25 @@ pop_commit.exit.lr.ph:                            ; preds = %.preheader
   %.0628 = phi ptr [ %1, %.lr.ph ], [ %33, %clear_commit_marks_1.exit ]
   %.02627 = phi ptr [ null, %.lr.ph ], [ %.6, %clear_commit_marks_1.exit ]
   %7 = load ptr, ptr %.0628, align 8, !tbaa !112
-  %.not25.i = icmp eq ptr %7, null
-  br i1 %.not25.i, label %clear_commit_marks_1.exit, label %.lr.ph28.i
+  %.not24.i = icmp eq ptr %7, null
+  br i1 %.not24.i, label %clear_commit_marks_1.exit, label %.lr.ph27.i
 
-.lr.ph28.i:                                       ; preds = %6, %._crit_edge.i
+.lr.ph27.i:                                       ; preds = %6, %._crit_edge.i
   %.2 = phi ptr [ %.5, %._crit_edge.i ], [ %.02627, %6 ]
-  %.01426.i = phi ptr [ %32, %._crit_edge.i ], [ %7, %6 ]
-  %8 = load i32, ptr %.01426.i, align 8
+  %.01425.i = phi ptr [ %32, %._crit_edge.i ], [ %7, %6 ]
+  %8 = load i32, ptr %.01425.i, align 8
   %9 = lshr i32 %8, 4
   %10 = and i32 %9, %2
   %.not17.i = icmp eq i32 %10, 0
   br i1 %.not17.i, label %clear_commit_marks_1.exit, label %11
 
-11:                                               ; preds = %.lr.ph28.i
+11:                                               ; preds = %.lr.ph27.i
   %12 = and i32 %9, %4
   %13 = shl nuw i32 %12, 4
   %14 = and i32 %8, 15
   %15 = or disjoint i32 %13, %14
-  store i32 %15, ptr %.01426.i, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %.01426.i, i64 48
+  store i32 %15, ptr %.01425.i, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 48
   %17 = load ptr, ptr %16, align 8, !tbaa !42
   %.not18.i = icmp eq ptr %17, null
   br i1 %.not18.i, label %clear_commit_marks_1.exit, label %.preheader.i
@@ -2658,8 +2658,8 @@ pop_commit.exit.lr.ph:                            ; preds = %.preheader
 .preheader.i:                                     ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !48
-  %.not1924.i = icmp eq ptr %19, null
-  br i1 %.not1924.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1923.i = icmp eq ptr %19, null
+  br i1 %.not1923.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %28
   %.3 = phi ptr [ %.4, %28 ], [ %.2, %.preheader.i ]
@@ -2694,10 +2694,10 @@ pop_commit.exit.lr.ph:                            ; preds = %.preheader
   %31 = phi ptr [ %17, %.preheader.i ], [ %.pre.i, %._crit_edge.loopexit.i ]
   %32 = load ptr, ptr %31, align 8, !tbaa !89
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %clear_commit_marks_1.exit, label %.lr.ph28.i
+  br i1 %.not.i, label %clear_commit_marks_1.exit, label %.lr.ph27.i
 
-clear_commit_marks_1.exit:                        ; preds = %.lr.ph28.i, %11, %._crit_edge.i, %6
-  %.6 = phi ptr [ %.02627, %6 ], [ %.5, %._crit_edge.i ], [ %.2, %11 ], [ %.2, %.lr.ph28.i ]
+clear_commit_marks_1.exit:                        ; preds = %.lr.ph27.i, %11, %._crit_edge.i, %6
+  %.6 = phi ptr [ %.02627, %6 ], [ %.5, %._crit_edge.i ], [ %.2, %11 ], [ %.2, %.lr.ph27.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.0628, i64 8
   %34 = add nuw i64 %.029, 1
   %exitcond.not = icmp eq i64 %34, %0
@@ -2709,25 +2709,25 @@ pop_commit.exit:                                  ; preds = %pop_commit.exit.lr.
   %36 = getelementptr inbounds nuw i8, ptr %.131, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !48
   tail call void @free(ptr noundef nonnull %.131) #24
-  %.not25.i8 = icmp eq ptr %35, null
-  br i1 %.not25.i8, label %clear_commit_marks_1.exit22, label %.lr.ph28.i9
+  %.not24.i8 = icmp eq ptr %35, null
+  br i1 %.not24.i8, label %clear_commit_marks_1.exit22, label %.lr.ph27.i9
 
-.lr.ph28.i9:                                      ; preds = %pop_commit.exit, %._crit_edge.i20
+.lr.ph27.i9:                                      ; preds = %pop_commit.exit, %._crit_edge.i20
   %.8 = phi ptr [ %.11, %._crit_edge.i20 ], [ %37, %pop_commit.exit ]
-  %.01426.i10 = phi ptr [ %62, %._crit_edge.i20 ], [ %35, %pop_commit.exit ]
-  %38 = load i32, ptr %.01426.i10, align 8
+  %.01425.i10 = phi ptr [ %62, %._crit_edge.i20 ], [ %35, %pop_commit.exit ]
+  %38 = load i32, ptr %.01425.i10, align 8
   %39 = lshr i32 %38, 4
   %40 = and i32 %39, %2
   %.not17.i11 = icmp eq i32 %40, 0
   br i1 %.not17.i11, label %clear_commit_marks_1.exit22, label %41
 
-41:                                               ; preds = %.lr.ph28.i9
+41:                                               ; preds = %.lr.ph27.i9
   %42 = and i32 %39, %5
   %43 = shl nuw i32 %42, 4
   %44 = and i32 %38, 15
   %45 = or disjoint i32 %43, %44
-  store i32 %45, ptr %.01426.i10, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %.01426.i10, i64 48
+  store i32 %45, ptr %.01425.i10, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %.01425.i10, i64 48
   %47 = load ptr, ptr %46, align 8, !tbaa !42
   %.not18.i12 = icmp eq ptr %47, null
   br i1 %.not18.i12, label %clear_commit_marks_1.exit22, label %.preheader.i13
@@ -2735,8 +2735,8 @@ pop_commit.exit:                                  ; preds = %pop_commit.exit.lr.
 .preheader.i13:                                   ; preds = %41
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !48
-  %.not1924.i14 = icmp eq ptr %49, null
-  br i1 %.not1924.i14, label %._crit_edge.i20, label %.lr.ph.i15
+  %.not1923.i14 = icmp eq ptr %49, null
+  br i1 %.not1923.i14, label %._crit_edge.i20, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %.preheader.i13, %58
   %.9 = phi ptr [ %.10, %58 ], [ %.8, %.preheader.i13 ]
@@ -2771,10 +2771,10 @@ pop_commit.exit:                                  ; preds = %pop_commit.exit.lr.
   %61 = phi ptr [ %47, %.preheader.i13 ], [ %.pre.i19, %._crit_edge.loopexit.i18 ]
   %62 = load ptr, ptr %61, align 8, !tbaa !89
   %.not.i21 = icmp eq ptr %62, null
-  br i1 %.not.i21, label %clear_commit_marks_1.exit22, label %.lr.ph28.i9
+  br i1 %.not.i21, label %clear_commit_marks_1.exit22, label %.lr.ph27.i9
 
-clear_commit_marks_1.exit22:                      ; preds = %.lr.ph28.i9, %41, %._crit_edge.i20, %pop_commit.exit
-  %.12 = phi ptr [ %37, %pop_commit.exit ], [ %.11, %._crit_edge.i20 ], [ %.8, %41 ], [ %.8, %.lr.ph28.i9 ]
+clear_commit_marks_1.exit22:                      ; preds = %.lr.ph27.i9, %41, %._crit_edge.i20, %pop_commit.exit
+  %.12 = phi ptr [ %37, %pop_commit.exit ], [ %.11, %._crit_edge.i20 ], [ %.8, %41 ], [ %.8, %.lr.ph27.i9 ]
   %.not = icmp eq ptr %.12, null
   br i1 %.not, label %._crit_edge, label %pop_commit.exit, !llvm.loop !115
 
@@ -4783,12 +4783,12 @@ standard_header_field.exit.thread68.i:            ; preds = %standard_header_fie
 
 .preheader.i.i:                                   ; preds = %standard_header_field.exit.thread68.i
   %45 = load ptr, ptr %1, align 8, !tbaa !54
-  %.not1621.i.i = icmp eq ptr %45, null
-  br i1 %.not1621.i.i, label %excluded_header_field.exit.thread.i, label %.lr.ph.i.i
+  %.not1620.i.i = icmp eq ptr %45, null
+  br i1 %.not1620.i.i, label %excluded_header_field.exit.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %50
   %46 = phi ptr [ %52, %50 ], [ %45, %.preheader.i.i ]
-  %.01122.i.i = phi ptr [ %51, %50 ], [ %1, %.preheader.i.i ]
+  %.01121.i.i = phi ptr [ %51, %50 ], [ %1, %.preheader.i.i ]
   %47 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %46) #26
   %48 = icmp eq i64 %39, %47
   br i1 %48, label %49, label %50
@@ -4799,7 +4799,7 @@ standard_header_field.exit.thread68.i:            ; preds = %standard_header_fie
   br i1 %.not17.i.i, label %excluded_header_field.exit.i, label %50
 
 50:                                               ; preds = %49, %.lr.ph.i.i
-  %51 = getelementptr inbounds nuw i8, ptr %.01122.i.i, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.01121.i.i, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !54
   %.not16.i63.i = icmp eq ptr %52, null
   br i1 %.not16.i63.i, label %excluded_header_field.exit.thread.i, label %.lr.ph.i.i

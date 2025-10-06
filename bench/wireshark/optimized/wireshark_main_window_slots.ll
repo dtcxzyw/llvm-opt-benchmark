@@ -722,7 +722,7 @@ _ZNK11CaptureFile7capFileEv.exit:                 ; preds = %65, %.noexc
 76:                                               ; preds = %70
   call void @_ZN17CaptureFileDialogD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(580) %12) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.loopexit251
+  br label %.loopexit250
 
 77:                                               ; preds = %74, %72
   %.pn = phi { ptr, i32 } [ %75, %74 ], [ %73, %72 ]
@@ -1442,10 +1442,10 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187:   ; preds = %_ZN7QString5clearEv
 
 _ZN7QStringD2Ev.exit189:                          ; preds = %_ZN7QString5clearEv.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i187, %281
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  switch i32 %.1, label %default.unreachable293 [
+  switch i32 %.1, label %default.unreachable292 [
     i32 3, label %thread-pre-split
     i32 2, label %287
-    i32 4, label %.loopexit251
+    i32 4, label %.loopexit250
   ]
 
 _ZN7QStringD2Ev.exit51:                           ; preds = %263, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i179, %259, %100, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i49, %96, %_ZN10QByteArrayD2Ev.exit185, %_ZN7QStringD2Ev.exit158, %123, %_ZN10QByteArrayD2Ev.exit59
@@ -1531,9 +1531,9 @@ _ZN7QStringD2Ev.exit199:                          ; preds = %300, %_ZN17QArrayDa
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 2584
   %311 = load ptr, ptr %310, align 8
   invoke void @_ZN13MainStatusBar10showExpertEv(ptr noundef align 8 dereferenceable_or_null(520) %311)
-          to label %.loopexit251 unwind label %.loopexit.split-lp
+          to label %.loopexit250 unwind label %.loopexit.split-lp
 
-.loopexit251:                                     ; preds = %_ZN7QStringD2Ev.exit189, %76, %_ZN7QStringD2Ev.exit199
+.loopexit250:                                     ; preds = %_ZN7QStringD2Ev.exit189, %76, %_ZN7QStringD2Ev.exit199
   %.224 = phi i1 [ %.426, %_ZN7QStringD2Ev.exit199 ], [ false, %76 ], [ %.426, %_ZN7QStringD2Ev.exit189 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -1542,7 +1542,7 @@ _ZN7QStringD2Ev.exit199:                          ; preds = %300, %_ZN17QArrayDa
   %.not.i.i.i204 = icmp eq ptr %312, null
   br i1 %.not.i.i.i204, label %_ZN7QStringD2Ev.exit207, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i205
 
-_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i205:   ; preds = %.loopexit251
+_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i205:   ; preds = %.loopexit250
   %313 = atomicrmw sub ptr %312, i32 1 seq_cst, align 4
   %.not.i.i206 = icmp eq i32 %313, 1
   br i1 %.not.i.i206, label %314, label %_ZN7QStringD2Ev.exit207
@@ -1552,11 +1552,11 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i205:   ; preds = %.loopexit251
   call void @_ZN10QArrayData10deallocateEPS_xx(ptr noundef %315, i64 noundef 2, i64 noundef 8) #25
   br label %_ZN7QStringD2Ev.exit207
 
-_ZN7QStringD2Ev.exit207:                          ; preds = %.loopexit251, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i205, %314
+_ZN7QStringD2Ev.exit207:                          ; preds = %.loopexit250, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i205, %314
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %.224
 
-default.unreachable293:                           ; preds = %_ZN7QStringD2Ev.exit189
+default.unreachable292:                           ; preds = %_ZN7QStringD2Ev.exit189
   unreachable
 
 _ZN7QStringD2Ev.exit203:                          ; preds = %.loopexit, %.loopexit.split-lp, %306, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i201, %302, %_ZN7QStringD2Ev.exit193, %77

@@ -6692,11 +6692,11 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 6:                                                ; preds = %4
   %7 = getelementptr i8, ptr %3, i64 16
-  %.val280 = load i64, ptr %7, align 8, !tbaa !117
+  %.val279 = load i64, ptr %7, align 8, !tbaa !117
   br label %8
 
 8:                                                ; preds = %4, %6
-  %9 = phi i64 [ %.val280, %6 ], [ 0, %4 ]
+  %9 = phi i64 [ %.val279, %6 ], [ 0, %4 ]
   %10 = add i64 %9, %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %12 = load i32, ptr %11, align 4, !tbaa !143
@@ -6740,7 +6740,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 .thread:                                          ; preds = %8, %42
   %44 = phi ptr [ %43, %42 ], [ %1, %8 ]
   %.not206 = icmp eq i64 %10, 0
-  br i1 %.not206, label %220, label %45
+  br i1 %.not206, label %221, label %45
 
 45:                                               ; preds = %.thread
   %46 = load ptr, ptr %44, align 8, !tbaa !96
@@ -6760,7 +6760,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 52:                                               ; preds = %50, %47
   %53 = add i64 %10, -1
   %.not209 = icmp eq i64 %53, 0
-  br i1 %.not209, label %220, label %54
+  br i1 %.not209, label %221, label %54
 
 54:                                               ; preds = %52, %45
   %.0165 = phi i64 [ %53, %52 ], [ %10, %45 ]
@@ -6783,7 +6783,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 62:                                               ; preds = %60, %57
   %63 = add i64 %.0165, -1
   %.not212 = icmp eq i64 %63, 0
-  br i1 %.not212, label %220, label %64
+  br i1 %.not212, label %221, label %64
 
 64:                                               ; preds = %62, %54
   %.1166 = phi i64 [ %63, %62 ], [ %.0165, %54 ]
@@ -6806,7 +6806,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 72:                                               ; preds = %70, %67
   %73 = add i64 %.1166, -1
   %.not215 = icmp eq i64 %73, 0
-  br i1 %.not215, label %220, label %74
+  br i1 %.not215, label %221, label %74
 
 74:                                               ; preds = %72, %64
   %.2 = phi i64 [ %73, %72 ], [ %.1166, %64 ]
@@ -6829,7 +6829,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 82:                                               ; preds = %80, %77
   %83 = add i64 %.2, -1
   %.not218 = icmp eq i64 %83, 0
-  br i1 %.not218, label %220, label %84
+  br i1 %.not218, label %221, label %84
 
 84:                                               ; preds = %82, %74
   %.3 = phi i64 [ %83, %82 ], [ %.2, %74 ]
@@ -6852,7 +6852,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 92:                                               ; preds = %90, %87
   %93 = add i64 %.3, -1
   %.not221 = icmp eq i64 %93, 0
-  br i1 %.not221, label %220, label %94
+  br i1 %.not221, label %221, label %94
 
 94:                                               ; preds = %92, %84
   %.4 = phi i64 [ %93, %92 ], [ %.3, %84 ]
@@ -6875,7 +6875,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 102:                                              ; preds = %100, %97
   %103 = add i64 %.4, -1
   %.not224 = icmp eq i64 %103, 0
-  br i1 %.not224, label %220, label %104
+  br i1 %.not224, label %221, label %104
 
 104:                                              ; preds = %102, %94
   %.5 = phi i64 [ %103, %102 ], [ %.4, %94 ]
@@ -6898,7 +6898,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 112:                                              ; preds = %110, %107
   %113 = add i64 %.5, -1
   %.not227 = icmp eq i64 %113, 0
-  br i1 %.not227, label %220, label %114
+  br i1 %.not227, label %221, label %114
 
 114:                                              ; preds = %112, %104
   %.6 = phi i64 [ %113, %112 ], [ %.5, %104 ]
@@ -6910,10 +6910,10 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 117:                                              ; preds = %114
   %118 = getelementptr i8, ptr %116, i64 8
-  %.val268 = load ptr, ptr %118, align 8, !tbaa !105
-  %119 = getelementptr i8, ptr %.val268, i64 168
-  %.val279 = load i64, ptr %119, align 8, !tbaa !106
-  %120 = and i64 %.val279, 134217728
+  %.val267 = load ptr, ptr %118, align 8, !tbaa !105
+  %119 = getelementptr i8, ptr %.val267, i64 168
+  %.val278 = load i64, ptr %119, align 8, !tbaa !106
+  %120 = and i64 %.val278, 134217728
   %.not229 = icmp eq i64 %120, 0
   br i1 %.not229, label %121, label %122
 
@@ -6924,7 +6924,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 122:                                              ; preds = %117
   %123 = add i64 %.6, -1
   %.not230 = icmp eq i64 %123, 0
-  br i1 %.not230, label %220, label %124
+  br i1 %.not230, label %221, label %124
 
 124:                                              ; preds = %122, %114
   %.7 = phi i64 [ %123, %122 ], [ %.6, %114 ]
@@ -6935,10 +6935,10 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 127:                                              ; preds = %124
   %128 = getelementptr i8, ptr %126, i64 8
-  %.val267 = load ptr, ptr %128, align 8, !tbaa !105
-  %129 = getelementptr i8, ptr %.val267, i64 168
-  %.val278 = load i64, ptr %129, align 8, !tbaa !106
-  %130 = and i64 %.val278, 67108864
+  %.val266 = load ptr, ptr %128, align 8, !tbaa !105
+  %129 = getelementptr i8, ptr %.val266, i64 168
+  %.val277 = load i64, ptr %129, align 8, !tbaa !106
+  %130 = and i64 %.val277, 67108864
   %.not232 = icmp eq i64 %130, 0
   br i1 %.not232, label %131, label %132
 
@@ -6949,7 +6949,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 132:                                              ; preds = %127
   %133 = add i64 %.7, -1
   %.not233 = icmp eq i64 %133, 0
-  br i1 %.not233, label %220, label %134
+  br i1 %.not233, label %221, label %134
 
 134:                                              ; preds = %132, %124
   %.8 = phi i64 [ %133, %132 ], [ %.7, %124 ]
@@ -6961,10 +6961,10 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 137:                                              ; preds = %134
   %138 = getelementptr i8, ptr %136, i64 8
-  %.val266 = load ptr, ptr %138, align 8, !tbaa !105
-  %139 = getelementptr i8, ptr %.val266, i64 168
-  %.val277 = load i64, ptr %139, align 8, !tbaa !106
-  %140 = and i64 %.val277, 67108864
+  %.val265 = load ptr, ptr %138, align 8, !tbaa !105
+  %139 = getelementptr i8, ptr %.val265, i64 168
+  %.val276 = load i64, ptr %139, align 8, !tbaa !106
+  %140 = and i64 %.val276, 67108864
   %.not235 = icmp eq i64 %140, 0
   br i1 %.not235, label %141, label %142
 
@@ -6975,7 +6975,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 142:                                              ; preds = %137
   %143 = add i64 %.8, -1
   %.not236 = icmp eq i64 %143, 0
-  br i1 %.not236, label %220, label %144
+  br i1 %.not236, label %221, label %144
 
 144:                                              ; preds = %142, %134
   %.9 = phi i64 [ %143, %142 ], [ %.8, %134 ]
@@ -6987,10 +6987,10 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 147:                                              ; preds = %144
   %148 = getelementptr i8, ptr %146, i64 8
-  %.val265 = load ptr, ptr %148, align 8, !tbaa !105
-  %149 = getelementptr i8, ptr %.val265, i64 168
-  %.val276 = load i64, ptr %149, align 8, !tbaa !106
-  %150 = and i64 %.val276, 67108864
+  %.val264 = load ptr, ptr %148, align 8, !tbaa !105
+  %149 = getelementptr i8, ptr %.val264, i64 168
+  %.val275 = load i64, ptr %149, align 8, !tbaa !106
+  %150 = and i64 %.val275, 67108864
   %.not238 = icmp eq i64 %150, 0
   br i1 %.not238, label %151, label %152
 
@@ -7001,7 +7001,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 152:                                              ; preds = %147
   %153 = add i64 %.9, -1
   %.not239 = icmp eq i64 %153, 0
-  br i1 %.not239, label %220, label %154
+  br i1 %.not239, label %221, label %154
 
 154:                                              ; preds = %152, %144
   %.10 = phi i64 [ %153, %152 ], [ %.9, %144 ]
@@ -7012,10 +7012,10 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 157:                                              ; preds = %154
   %158 = getelementptr i8, ptr %156, i64 8
-  %.val264 = load ptr, ptr %158, align 8, !tbaa !105
-  %159 = getelementptr i8, ptr %.val264, i64 168
-  %.val275 = load i64, ptr %159, align 8, !tbaa !106
-  %160 = and i64 %.val275, 67108864
+  %.val263 = load ptr, ptr %158, align 8, !tbaa !105
+  %159 = getelementptr i8, ptr %.val263, i64 168
+  %.val274 = load i64, ptr %159, align 8, !tbaa !106
+  %160 = and i64 %.val274, 67108864
   %.not241 = icmp eq i64 %160, 0
   br i1 %.not241, label %161, label %162
 
@@ -7026,7 +7026,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 162:                                              ; preds = %157
   %163 = add i64 %.10, -1
   %.not242 = icmp eq i64 %163, 0
-  br i1 %.not242, label %220, label %164
+  br i1 %.not242, label %221, label %164
 
 164:                                              ; preds = %162, %154
   %.11 = phi i64 [ %163, %162 ], [ %.10, %154 ]
@@ -7037,10 +7037,10 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 167:                                              ; preds = %164
   %168 = getelementptr i8, ptr %166, i64 8
-  %.val263 = load ptr, ptr %168, align 8, !tbaa !105
-  %169 = getelementptr i8, ptr %.val263, i64 168
-  %.val274 = load i64, ptr %169, align 8, !tbaa !106
-  %170 = and i64 %.val274, 67108864
+  %.val262 = load ptr, ptr %168, align 8, !tbaa !105
+  %169 = getelementptr i8, ptr %.val262, i64 168
+  %.val273 = load i64, ptr %169, align 8, !tbaa !106
+  %170 = and i64 %.val273, 67108864
   %.not244 = icmp eq i64 %170, 0
   br i1 %.not244, label %171, label %172
 
@@ -7051,7 +7051,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 172:                                              ; preds = %167
   %173 = add i64 %.11, -1
   %.not245 = icmp eq i64 %173, 0
-  br i1 %.not245, label %220, label %174
+  br i1 %.not245, label %221, label %174
 
 174:                                              ; preds = %172, %164
   %.12 = phi i64 [ %173, %172 ], [ %.11, %164 ]
@@ -7062,10 +7062,10 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 177:                                              ; preds = %174
   %178 = getelementptr i8, ptr %176, i64 8
-  %.val262 = load ptr, ptr %178, align 8, !tbaa !105
-  %179 = getelementptr i8, ptr %.val262, i64 168
-  %.val273 = load i64, ptr %179, align 8, !tbaa !106
-  %180 = and i64 %.val273, 268435456
+  %.val261 = load ptr, ptr %178, align 8, !tbaa !105
+  %179 = getelementptr i8, ptr %.val261, i64 168
+  %.val272 = load i64, ptr %179, align 8, !tbaa !106
+  %180 = and i64 %.val272, 268435456
   %.not247 = icmp eq i64 %180, 0
   br i1 %.not247, label %181, label %182
 
@@ -7076,7 +7076,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 182:                                              ; preds = %177
   %183 = add i64 %.12, -1
   %.not248 = icmp eq i64 %183, 0
-  br i1 %.not248, label %220, label %184
+  br i1 %.not248, label %221, label %184
 
 184:                                              ; preds = %182, %174
   %.13 = phi i64 [ %183, %182 ], [ %.12, %174 ]
@@ -7088,10 +7088,10 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 187:                                              ; preds = %184
   %188 = getelementptr i8, ptr %186, i64 8
-  %.val261 = load ptr, ptr %188, align 8, !tbaa !105
-  %189 = getelementptr i8, ptr %.val261, i64 168
-  %.val272 = load i64, ptr %189, align 8, !tbaa !106
-  %190 = and i64 %.val272, 268435456
+  %.val260 = load ptr, ptr %188, align 8, !tbaa !105
+  %189 = getelementptr i8, ptr %.val260, i64 168
+  %.val271 = load i64, ptr %189, align 8, !tbaa !106
+  %190 = and i64 %.val271, 268435456
   %.not250 = icmp eq i64 %190, 0
   br i1 %.not250, label %191, label %192
 
@@ -7102,7 +7102,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 192:                                              ; preds = %187
   %193 = add i64 %.13, -1
   %.not251 = icmp eq i64 %193, 0
-  br i1 %.not251, label %220, label %194
+  br i1 %.not251, label %221, label %194
 
 194:                                              ; preds = %192, %184
   %.14 = phi i64 [ %193, %192 ], [ %.13, %184 ]
@@ -7114,10 +7114,10 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 197:                                              ; preds = %194
   %198 = getelementptr i8, ptr %196, i64 8
-  %.val260 = load ptr, ptr %198, align 8, !tbaa !105
-  %199 = getelementptr i8, ptr %.val260, i64 168
-  %.val271 = load i64, ptr %199, align 8, !tbaa !106
-  %200 = and i64 %.val271, 268435456
+  %.val259 = load ptr, ptr %198, align 8, !tbaa !105
+  %199 = getelementptr i8, ptr %.val259, i64 168
+  %.val270 = load i64, ptr %199, align 8, !tbaa !106
+  %200 = and i64 %.val270, 268435456
   %.not253 = icmp eq i64 %200, 0
   br i1 %.not253, label %201, label %202
 
@@ -7128,7 +7128,7 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
 202:                                              ; preds = %197
   %203 = add i64 %.14, -1
   %.not254 = icmp eq i64 %203, 0
-  br i1 %.not254, label %220, label %204
+  br i1 %.not254, label %221, label %204
 
 204:                                              ; preds = %202, %194
   %.15 = phi i64 [ %203, %202 ], [ %.14, %194 ]
@@ -7136,14 +7136,14 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %205 = getelementptr i8, ptr %44, i64 128
   %206 = load ptr, ptr %205, align 8, !tbaa !96
   %.not255 = icmp eq ptr %206, null
-  br i1 %.not255, label %213, label %207
+  br i1 %.not255, label %214, label %207
 
 207:                                              ; preds = %204
   %208 = getelementptr i8, ptr %206, i64 8
-  %.val259 = load ptr, ptr %208, align 8, !tbaa !105
-  %209 = getelementptr i8, ptr %.val259, i64 168
-  %.val270 = load i64, ptr %209, align 8, !tbaa !106
-  %210 = and i64 %.val270, 134217728
+  %.val258 = load ptr, ptr %208, align 8, !tbaa !105
+  %209 = getelementptr i8, ptr %.val258, i64 168
+  %.val269 = load i64, ptr %209, align 8, !tbaa !106
+  %210 = and i64 %.val269, 134217728
   %.not256 = icmp eq i64 %210, 0
   br i1 %.not256, label %211, label %212
 
@@ -7152,250 +7152,250 @@ define internal ptr @code_replace(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br label %code_replace_impl.exit
 
 212:                                              ; preds = %207
-  %.not257 = icmp eq i64 %.15, 1
-  br i1 %.not257, label %220, label %213
+  %213 = icmp ugt i64 %.15, 1
+  br i1 %213, label %214, label %221
 
-213:                                              ; preds = %212, %204
+214:                                              ; preds = %212, %204
   %.1 = phi ptr [ %206, %212 ], [ %36, %204 ]
-  %214 = getelementptr i8, ptr %44, i64 136
-  %215 = load ptr, ptr %214, align 8, !tbaa !96
-  %216 = getelementptr i8, ptr %215, i64 8
-  %.val = load ptr, ptr %216, align 8, !tbaa !105
-  %217 = getelementptr i8, ptr %.val, i64 168
-  %.val269 = load i64, ptr %217, align 8, !tbaa !106
-  %218 = and i64 %.val269, 134217728
-  %.not258 = icmp eq i64 %218, 0
-  br i1 %.not258, label %219, label %220
+  %215 = getelementptr i8, ptr %44, i64 136
+  %216 = load ptr, ptr %215, align 8, !tbaa !96
+  %217 = getelementptr i8, ptr %216, i64 8
+  %.val = load ptr, ptr %217, align 8, !tbaa !105
+  %218 = getelementptr i8, ptr %.val, i64 168
+  %.val268 = load i64, ptr %218, align 8, !tbaa !106
+  %219 = and i64 %.val268, 134217728
+  %.not257 = icmp eq i64 %219, 0
+  br i1 %.not257, label %220, label %221
 
-219:                                              ; preds = %213
-  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.49, ptr noundef nonnull %215) #14
+220:                                              ; preds = %214
+  call void @_PyArg_BadArgument(ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.49, ptr noundef nonnull %216) #14
   br label %code_replace_impl.exit
 
-220:                                              ; preds = %213, %212, %202, %192, %182, %172, %162, %152, %142, %132, %122, %112, %102, %92, %82, %72, %62, %52, %.thread
-  %.0163 = phi i32 [ %.1164, %212 ], [ %.1164, %202 ], [ %.1164, %192 ], [ %.1164, %182 ], [ %.1164, %172 ], [ %.1164, %162 ], [ %.1164, %152 ], [ %.1164, %142 ], [ %.1164, %132 ], [ %.1164, %122 ], [ %.1164, %112 ], [ %.1164, %102 ], [ %.1164, %92 ], [ %.1164, %82 ], [ %.1164, %72 ], [ %.1164, %62 ], [ %48, %52 ], [ %12, %.thread ], [ %.1164, %213 ]
-  %.0161 = phi i32 [ %.1162, %212 ], [ %.1162, %202 ], [ %.1162, %192 ], [ %.1162, %182 ], [ %.1162, %172 ], [ %.1162, %162 ], [ %.1162, %152 ], [ %.1162, %142 ], [ %.1162, %132 ], [ %.1162, %122 ], [ %.1162, %112 ], [ %.1162, %102 ], [ %.1162, %92 ], [ %.1162, %82 ], [ %.1162, %72 ], [ %58, %62 ], [ %14, %52 ], [ %14, %.thread ], [ %.1162, %213 ]
-  %.0159 = phi i32 [ %.1160, %212 ], [ %.1160, %202 ], [ %.1160, %192 ], [ %.1160, %182 ], [ %.1160, %172 ], [ %.1160, %162 ], [ %.1160, %152 ], [ %.1160, %142 ], [ %.1160, %132 ], [ %.1160, %122 ], [ %.1160, %112 ], [ %.1160, %102 ], [ %.1160, %92 ], [ %.1160, %82 ], [ %68, %72 ], [ %16, %62 ], [ %16, %52 ], [ %16, %.thread ], [ %.1160, %213 ]
-  %.0157 = phi i32 [ %.1158, %212 ], [ %.1158, %202 ], [ %.1158, %192 ], [ %.1158, %182 ], [ %.1158, %172 ], [ %.1158, %162 ], [ %.1158, %152 ], [ %.1158, %142 ], [ %.1158, %132 ], [ %.1158, %122 ], [ %.1158, %112 ], [ %.1158, %102 ], [ %.1158, %92 ], [ %78, %82 ], [ %18, %72 ], [ %18, %62 ], [ %18, %52 ], [ %18, %.thread ], [ %.1158, %213 ]
-  %.0155 = phi i32 [ %.1156, %212 ], [ %.1156, %202 ], [ %.1156, %192 ], [ %.1156, %182 ], [ %.1156, %172 ], [ %.1156, %162 ], [ %.1156, %152 ], [ %.1156, %142 ], [ %.1156, %132 ], [ %.1156, %122 ], [ %.1156, %112 ], [ %.1156, %102 ], [ %88, %92 ], [ %20, %82 ], [ %20, %72 ], [ %20, %62 ], [ %20, %52 ], [ %20, %.thread ], [ %.1156, %213 ]
-  %.0153 = phi i32 [ %.1154, %212 ], [ %.1154, %202 ], [ %.1154, %192 ], [ %.1154, %182 ], [ %.1154, %172 ], [ %.1154, %162 ], [ %.1154, %152 ], [ %.1154, %142 ], [ %.1154, %132 ], [ %.1154, %122 ], [ %.1154, %112 ], [ %98, %102 ], [ %22, %92 ], [ %22, %82 ], [ %22, %72 ], [ %22, %62 ], [ %22, %52 ], [ %22, %.thread ], [ %.1154, %213 ]
-  %.0151 = phi i32 [ %.1152, %212 ], [ %.1152, %202 ], [ %.1152, %192 ], [ %.1152, %182 ], [ %.1152, %172 ], [ %.1152, %162 ], [ %.1152, %152 ], [ %.1152, %142 ], [ %.1152, %132 ], [ %.1152, %122 ], [ %108, %112 ], [ %24, %102 ], [ %24, %92 ], [ %24, %82 ], [ %24, %72 ], [ %24, %62 ], [ %24, %52 ], [ %24, %.thread ], [ %.1152, %213 ]
-  %.0149 = phi ptr [ %116, %212 ], [ %116, %202 ], [ %116, %192 ], [ %116, %182 ], [ %116, %172 ], [ %116, %162 ], [ %116, %152 ], [ %116, %142 ], [ %116, %132 ], [ %116, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %116, %213 ]
-  %.0147 = phi ptr [ %.1148, %212 ], [ %.1148, %202 ], [ %.1148, %192 ], [ %.1148, %182 ], [ %.1148, %172 ], [ %.1148, %162 ], [ %.1148, %152 ], [ %.1148, %142 ], [ %126, %132 ], [ %26, %122 ], [ %26, %112 ], [ %26, %102 ], [ %26, %92 ], [ %26, %82 ], [ %26, %72 ], [ %26, %62 ], [ %26, %52 ], [ %26, %.thread ], [ %.1148, %213 ]
-  %.0145 = phi ptr [ %.1146, %212 ], [ %.1146, %202 ], [ %.1146, %192 ], [ %.1146, %182 ], [ %.1146, %172 ], [ %.1146, %162 ], [ %.1146, %152 ], [ %136, %142 ], [ %28, %132 ], [ %28, %122 ], [ %28, %112 ], [ %28, %102 ], [ %28, %92 ], [ %28, %82 ], [ %28, %72 ], [ %28, %62 ], [ %28, %52 ], [ %28, %.thread ], [ %.1146, %213 ]
-  %.0143 = phi ptr [ %146, %212 ], [ %146, %202 ], [ %146, %192 ], [ %146, %182 ], [ %146, %172 ], [ %146, %162 ], [ %146, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %146, %213 ]
-  %.0141 = phi ptr [ %156, %212 ], [ %156, %202 ], [ %156, %192 ], [ %156, %182 ], [ %156, %172 ], [ %156, %162 ], [ null, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %156, %213 ]
-  %.0139 = phi ptr [ %166, %212 ], [ %166, %202 ], [ %166, %192 ], [ %166, %182 ], [ %166, %172 ], [ null, %162 ], [ null, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %166, %213 ]
-  %.0137 = phi ptr [ %.1138, %212 ], [ %.1138, %202 ], [ %.1138, %192 ], [ %176, %182 ], [ %30, %172 ], [ %30, %162 ], [ %30, %152 ], [ %30, %142 ], [ %30, %132 ], [ %30, %122 ], [ %30, %112 ], [ %30, %102 ], [ %30, %92 ], [ %30, %82 ], [ %30, %72 ], [ %30, %62 ], [ %30, %52 ], [ %30, %.thread ], [ %.1138, %213 ]
-  %.0135 = phi ptr [ %.1136, %212 ], [ %.1136, %202 ], [ %186, %192 ], [ %32, %182 ], [ %32, %172 ], [ %32, %162 ], [ %32, %152 ], [ %32, %142 ], [ %32, %132 ], [ %32, %122 ], [ %32, %112 ], [ %32, %102 ], [ %32, %92 ], [ %32, %82 ], [ %32, %72 ], [ %32, %62 ], [ %32, %52 ], [ %32, %.thread ], [ %.1136, %213 ]
-  %.0133 = phi ptr [ %.1134, %212 ], [ %196, %202 ], [ %34, %192 ], [ %34, %182 ], [ %34, %172 ], [ %34, %162 ], [ %34, %152 ], [ %34, %142 ], [ %34, %132 ], [ %34, %122 ], [ %34, %112 ], [ %34, %102 ], [ %34, %92 ], [ %34, %82 ], [ %34, %72 ], [ %34, %62 ], [ %34, %52 ], [ %34, %.thread ], [ %.1134, %213 ]
-  %.0132 = phi ptr [ %206, %212 ], [ %36, %202 ], [ %36, %192 ], [ %36, %182 ], [ %36, %172 ], [ %36, %162 ], [ %36, %152 ], [ %36, %142 ], [ %36, %132 ], [ %36, %122 ], [ %36, %112 ], [ %36, %102 ], [ %36, %92 ], [ %36, %82 ], [ %36, %72 ], [ %36, %62 ], [ %36, %52 ], [ %36, %.thread ], [ %.1, %213 ]
-  %.0 = phi ptr [ %38, %212 ], [ %38, %202 ], [ %38, %192 ], [ %38, %182 ], [ %38, %172 ], [ %38, %162 ], [ %38, %152 ], [ %38, %142 ], [ %38, %132 ], [ %38, %122 ], [ %38, %112 ], [ %38, %102 ], [ %38, %92 ], [ %38, %82 ], [ %38, %72 ], [ %38, %62 ], [ %38, %52 ], [ %38, %.thread ], [ %215, %213 ]
-  %221 = icmp slt i32 %.0163, 0
-  br i1 %221, label %222, label %224
+221:                                              ; preds = %214, %212, %202, %192, %182, %172, %162, %152, %142, %132, %122, %112, %102, %92, %82, %72, %62, %52, %.thread
+  %.0163 = phi i32 [ %.1164, %212 ], [ %.1164, %202 ], [ %.1164, %192 ], [ %.1164, %182 ], [ %.1164, %172 ], [ %.1164, %162 ], [ %.1164, %152 ], [ %.1164, %142 ], [ %.1164, %132 ], [ %.1164, %122 ], [ %.1164, %112 ], [ %.1164, %102 ], [ %.1164, %92 ], [ %.1164, %82 ], [ %.1164, %72 ], [ %.1164, %62 ], [ %48, %52 ], [ %12, %.thread ], [ %.1164, %214 ]
+  %.0161 = phi i32 [ %.1162, %212 ], [ %.1162, %202 ], [ %.1162, %192 ], [ %.1162, %182 ], [ %.1162, %172 ], [ %.1162, %162 ], [ %.1162, %152 ], [ %.1162, %142 ], [ %.1162, %132 ], [ %.1162, %122 ], [ %.1162, %112 ], [ %.1162, %102 ], [ %.1162, %92 ], [ %.1162, %82 ], [ %.1162, %72 ], [ %58, %62 ], [ %14, %52 ], [ %14, %.thread ], [ %.1162, %214 ]
+  %.0159 = phi i32 [ %.1160, %212 ], [ %.1160, %202 ], [ %.1160, %192 ], [ %.1160, %182 ], [ %.1160, %172 ], [ %.1160, %162 ], [ %.1160, %152 ], [ %.1160, %142 ], [ %.1160, %132 ], [ %.1160, %122 ], [ %.1160, %112 ], [ %.1160, %102 ], [ %.1160, %92 ], [ %.1160, %82 ], [ %68, %72 ], [ %16, %62 ], [ %16, %52 ], [ %16, %.thread ], [ %.1160, %214 ]
+  %.0157 = phi i32 [ %.1158, %212 ], [ %.1158, %202 ], [ %.1158, %192 ], [ %.1158, %182 ], [ %.1158, %172 ], [ %.1158, %162 ], [ %.1158, %152 ], [ %.1158, %142 ], [ %.1158, %132 ], [ %.1158, %122 ], [ %.1158, %112 ], [ %.1158, %102 ], [ %.1158, %92 ], [ %78, %82 ], [ %18, %72 ], [ %18, %62 ], [ %18, %52 ], [ %18, %.thread ], [ %.1158, %214 ]
+  %.0155 = phi i32 [ %.1156, %212 ], [ %.1156, %202 ], [ %.1156, %192 ], [ %.1156, %182 ], [ %.1156, %172 ], [ %.1156, %162 ], [ %.1156, %152 ], [ %.1156, %142 ], [ %.1156, %132 ], [ %.1156, %122 ], [ %.1156, %112 ], [ %.1156, %102 ], [ %88, %92 ], [ %20, %82 ], [ %20, %72 ], [ %20, %62 ], [ %20, %52 ], [ %20, %.thread ], [ %.1156, %214 ]
+  %.0153 = phi i32 [ %.1154, %212 ], [ %.1154, %202 ], [ %.1154, %192 ], [ %.1154, %182 ], [ %.1154, %172 ], [ %.1154, %162 ], [ %.1154, %152 ], [ %.1154, %142 ], [ %.1154, %132 ], [ %.1154, %122 ], [ %.1154, %112 ], [ %98, %102 ], [ %22, %92 ], [ %22, %82 ], [ %22, %72 ], [ %22, %62 ], [ %22, %52 ], [ %22, %.thread ], [ %.1154, %214 ]
+  %.0151 = phi i32 [ %.1152, %212 ], [ %.1152, %202 ], [ %.1152, %192 ], [ %.1152, %182 ], [ %.1152, %172 ], [ %.1152, %162 ], [ %.1152, %152 ], [ %.1152, %142 ], [ %.1152, %132 ], [ %.1152, %122 ], [ %108, %112 ], [ %24, %102 ], [ %24, %92 ], [ %24, %82 ], [ %24, %72 ], [ %24, %62 ], [ %24, %52 ], [ %24, %.thread ], [ %.1152, %214 ]
+  %.0149 = phi ptr [ %116, %212 ], [ %116, %202 ], [ %116, %192 ], [ %116, %182 ], [ %116, %172 ], [ %116, %162 ], [ %116, %152 ], [ %116, %142 ], [ %116, %132 ], [ %116, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %116, %214 ]
+  %.0147 = phi ptr [ %.1148, %212 ], [ %.1148, %202 ], [ %.1148, %192 ], [ %.1148, %182 ], [ %.1148, %172 ], [ %.1148, %162 ], [ %.1148, %152 ], [ %.1148, %142 ], [ %126, %132 ], [ %26, %122 ], [ %26, %112 ], [ %26, %102 ], [ %26, %92 ], [ %26, %82 ], [ %26, %72 ], [ %26, %62 ], [ %26, %52 ], [ %26, %.thread ], [ %.1148, %214 ]
+  %.0145 = phi ptr [ %.1146, %212 ], [ %.1146, %202 ], [ %.1146, %192 ], [ %.1146, %182 ], [ %.1146, %172 ], [ %.1146, %162 ], [ %.1146, %152 ], [ %136, %142 ], [ %28, %132 ], [ %28, %122 ], [ %28, %112 ], [ %28, %102 ], [ %28, %92 ], [ %28, %82 ], [ %28, %72 ], [ %28, %62 ], [ %28, %52 ], [ %28, %.thread ], [ %.1146, %214 ]
+  %.0143 = phi ptr [ %146, %212 ], [ %146, %202 ], [ %146, %192 ], [ %146, %182 ], [ %146, %172 ], [ %146, %162 ], [ %146, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %146, %214 ]
+  %.0141 = phi ptr [ %156, %212 ], [ %156, %202 ], [ %156, %192 ], [ %156, %182 ], [ %156, %172 ], [ %156, %162 ], [ null, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %156, %214 ]
+  %.0139 = phi ptr [ %166, %212 ], [ %166, %202 ], [ %166, %192 ], [ %166, %182 ], [ %166, %172 ], [ null, %162 ], [ null, %152 ], [ null, %142 ], [ null, %132 ], [ null, %122 ], [ null, %112 ], [ null, %102 ], [ null, %92 ], [ null, %82 ], [ null, %72 ], [ null, %62 ], [ null, %52 ], [ null, %.thread ], [ %166, %214 ]
+  %.0137 = phi ptr [ %.1138, %212 ], [ %.1138, %202 ], [ %.1138, %192 ], [ %176, %182 ], [ %30, %172 ], [ %30, %162 ], [ %30, %152 ], [ %30, %142 ], [ %30, %132 ], [ %30, %122 ], [ %30, %112 ], [ %30, %102 ], [ %30, %92 ], [ %30, %82 ], [ %30, %72 ], [ %30, %62 ], [ %30, %52 ], [ %30, %.thread ], [ %.1138, %214 ]
+  %.0135 = phi ptr [ %.1136, %212 ], [ %.1136, %202 ], [ %186, %192 ], [ %32, %182 ], [ %32, %172 ], [ %32, %162 ], [ %32, %152 ], [ %32, %142 ], [ %32, %132 ], [ %32, %122 ], [ %32, %112 ], [ %32, %102 ], [ %32, %92 ], [ %32, %82 ], [ %32, %72 ], [ %32, %62 ], [ %32, %52 ], [ %32, %.thread ], [ %.1136, %214 ]
+  %.0133 = phi ptr [ %.1134, %212 ], [ %196, %202 ], [ %34, %192 ], [ %34, %182 ], [ %34, %172 ], [ %34, %162 ], [ %34, %152 ], [ %34, %142 ], [ %34, %132 ], [ %34, %122 ], [ %34, %112 ], [ %34, %102 ], [ %34, %92 ], [ %34, %82 ], [ %34, %72 ], [ %34, %62 ], [ %34, %52 ], [ %34, %.thread ], [ %.1134, %214 ]
+  %.0132 = phi ptr [ %206, %212 ], [ %36, %202 ], [ %36, %192 ], [ %36, %182 ], [ %36, %172 ], [ %36, %162 ], [ %36, %152 ], [ %36, %142 ], [ %36, %132 ], [ %36, %122 ], [ %36, %112 ], [ %36, %102 ], [ %36, %92 ], [ %36, %82 ], [ %36, %72 ], [ %36, %62 ], [ %36, %52 ], [ %36, %.thread ], [ %.1, %214 ]
+  %.0 = phi ptr [ %38, %212 ], [ %38, %202 ], [ %38, %192 ], [ %38, %182 ], [ %38, %172 ], [ %38, %162 ], [ %38, %152 ], [ %38, %142 ], [ %38, %132 ], [ %38, %122 ], [ %38, %112 ], [ %38, %102 ], [ %38, %92 ], [ %38, %82 ], [ %38, %72 ], [ %38, %62 ], [ %38, %52 ], [ %38, %.thread ], [ %216, %214 ]
+  %222 = icmp slt i32 %.0163, 0
+  br i1 %222, label %223, label %225
 
-222:                                              ; preds = %220
-  %223 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
-  call void @PyErr_SetString(ptr noundef %223, ptr noundef nonnull @.str.62) #14
+223:                                              ; preds = %221
+  %224 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
+  call void @PyErr_SetString(ptr noundef %224, ptr noundef nonnull @.str.62) #14
   br label %code_replace_impl.exit
 
-224:                                              ; preds = %220
-  %225 = icmp slt i32 %.0161, 0
-  br i1 %225, label %226, label %228
+225:                                              ; preds = %221
+  %226 = icmp slt i32 %.0161, 0
+  br i1 %226, label %227, label %229
 
-226:                                              ; preds = %224
-  %227 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
-  call void @PyErr_SetString(ptr noundef %227, ptr noundef nonnull @.str.63) #14
+227:                                              ; preds = %225
+  %228 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
+  call void @PyErr_SetString(ptr noundef %228, ptr noundef nonnull @.str.63) #14
   br label %code_replace_impl.exit
 
-228:                                              ; preds = %224
-  %229 = icmp slt i32 %.0159, 0
-  br i1 %229, label %230, label %232
+229:                                              ; preds = %225
+  %230 = icmp slt i32 %.0159, 0
+  br i1 %230, label %231, label %233
 
-230:                                              ; preds = %228
-  %231 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
-  call void @PyErr_SetString(ptr noundef %231, ptr noundef nonnull @.str.64) #14
+231:                                              ; preds = %229
+  %232 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
+  call void @PyErr_SetString(ptr noundef %232, ptr noundef nonnull @.str.64) #14
   br label %code_replace_impl.exit
 
-232:                                              ; preds = %228
-  %233 = icmp slt i32 %.0157, 0
-  br i1 %233, label %234, label %236
+233:                                              ; preds = %229
+  %234 = icmp slt i32 %.0157, 0
+  br i1 %234, label %235, label %237
 
-234:                                              ; preds = %232
-  %235 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
-  call void @PyErr_SetString(ptr noundef %235, ptr noundef nonnull @.str.65) #14
+235:                                              ; preds = %233
+  %236 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
+  call void @PyErr_SetString(ptr noundef %236, ptr noundef nonnull @.str.65) #14
   br label %code_replace_impl.exit
 
-236:                                              ; preds = %232
-  %237 = icmp slt i32 %.0155, 0
-  br i1 %237, label %238, label %240
+237:                                              ; preds = %233
+  %238 = icmp slt i32 %.0155, 0
+  br i1 %238, label %239, label %241
 
-238:                                              ; preds = %236
-  %239 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
-  call void @PyErr_SetString(ptr noundef %239, ptr noundef nonnull @.str.66) #14
+239:                                              ; preds = %237
+  %240 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
+  call void @PyErr_SetString(ptr noundef %240, ptr noundef nonnull @.str.66) #14
   br label %code_replace_impl.exit
 
-240:                                              ; preds = %236
-  %241 = icmp slt i32 %.0153, 0
-  br i1 %241, label %242, label %244
+241:                                              ; preds = %237
+  %242 = icmp slt i32 %.0153, 0
+  br i1 %242, label %243, label %245
 
-242:                                              ; preds = %240
-  %243 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
-  call void @PyErr_SetString(ptr noundef %243, ptr noundef nonnull @.str.67) #14
+243:                                              ; preds = %241
+  %244 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
+  call void @PyErr_SetString(ptr noundef %244, ptr noundef nonnull @.str.67) #14
   br label %code_replace_impl.exit
 
-244:                                              ; preds = %240
-  %245 = icmp slt i32 %.0151, 0
-  br i1 %245, label %246, label %248
+245:                                              ; preds = %241
+  %246 = icmp slt i32 %.0151, 0
+  br i1 %246, label %247, label %249
 
-246:                                              ; preds = %244
-  %247 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
-  call void @PyErr_SetString(ptr noundef %247, ptr noundef nonnull @.str.68) #14
+247:                                              ; preds = %245
+  %248 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !96
+  call void @PyErr_SetString(ptr noundef %248, ptr noundef nonnull @.str.68) #14
   br label %code_replace_impl.exit
 
-248:                                              ; preds = %244
-  %249 = icmp eq ptr %.0149, null
-  br i1 %249, label %250, label %253
+249:                                              ; preds = %245
+  %250 = icmp eq ptr %.0149, null
+  br i1 %250, label %251, label %254
 
-250:                                              ; preds = %248
-  %251 = call ptr @_PyCode_GetCode(ptr noundef nonnull %0)
-  %252 = icmp eq ptr %251, null
-  br i1 %252, label %code_replace_impl.exit, label %253
+251:                                              ; preds = %249
+  %252 = call ptr @_PyCode_GetCode(ptr noundef nonnull %0)
+  %253 = icmp eq ptr %252, null
+  br i1 %253, label %code_replace_impl.exit, label %254
 
-253:                                              ; preds = %250, %248
-  %.067.i = phi ptr [ %.0149, %248 ], [ %251, %250 ]
-  %.064.i = phi ptr [ null, %248 ], [ %251, %250 ]
-  %254 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %.067.i, ptr noundef %.0137, ptr noundef %.0135, i32 noundef %.0163, i32 noundef %.0161, i32 noundef %.0159, i32 noundef %.0157, i32 noundef %.0155, i32 noundef %.0153) #14
-  %255 = icmp slt i32 %254, 0
-  br i1 %255, label %256, label %257
+254:                                              ; preds = %251, %249
+  %.067.i = phi ptr [ %.0149, %249 ], [ %252, %251 ]
+  %.064.i = phi ptr [ null, %249 ], [ %252, %251 ]
+  %255 = call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef nonnull %.067.i, ptr noundef %.0137, ptr noundef %.0135, i32 noundef %.0163, i32 noundef %.0161, i32 noundef %.0159, i32 noundef %.0157, i32 noundef %.0155, i32 noundef %.0153) #14
+  %256 = icmp slt i32 %255, 0
+  br i1 %256, label %257, label %258
 
-256:                                              ; preds = %253
+257:                                              ; preds = %254
   call fastcc void @Py_XDECREF(ptr noundef %.064.i)
   br label %code_replace_impl.exit
 
-257:                                              ; preds = %253
-  %258 = icmp eq ptr %.0143, null
-  br i1 %258, label %259, label %263
+258:                                              ; preds = %254
+  %259 = icmp eq ptr %.0143, null
+  br i1 %259, label %260, label %264
 
-259:                                              ; preds = %257
-  %260 = load i32, ptr %17, align 8, !tbaa !149
-  %261 = call fastcc ptr @get_localsplus_names(ptr noundef nonnull %0, i8 noundef zeroext 32, i32 noundef %260)
-  %262 = icmp eq ptr %261, null
-  br i1 %262, label %279, label %263
+260:                                              ; preds = %258
+  %261 = load i32, ptr %17, align 8, !tbaa !149
+  %262 = call fastcc ptr @get_localsplus_names(ptr noundef nonnull %0, i8 noundef zeroext 32, i32 noundef %261)
+  %263 = icmp eq ptr %262, null
+  br i1 %263, label %280, label %264
 
-263:                                              ; preds = %259, %257
-  %.068.i = phi ptr [ %.0143, %257 ], [ %261, %259 ]
-  %.061.i = phi ptr [ null, %257 ], [ %261, %259 ]
-  %264 = icmp eq ptr %.0139, null
-  br i1 %264, label %265, label %270
+264:                                              ; preds = %260, %258
+  %.068.i = phi ptr [ %.0143, %258 ], [ %262, %260 ]
+  %.061.i = phi ptr [ null, %258 ], [ %262, %260 ]
+  %265 = icmp eq ptr %.0139, null
+  br i1 %265, label %266, label %271
 
-265:                                              ; preds = %263
-  %266 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %267 = load i32, ptr %266, align 4, !tbaa !151
-  %268 = call fastcc ptr @get_localsplus_names(ptr noundef nonnull %0, i8 noundef zeroext 64, i32 noundef %267)
-  %269 = icmp eq ptr %268, null
-  br i1 %269, label %279, label %270
+266:                                              ; preds = %264
+  %267 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %268 = load i32, ptr %267, align 4, !tbaa !151
+  %269 = call fastcc ptr @get_localsplus_names(ptr noundef nonnull %0, i8 noundef zeroext 64, i32 noundef %268)
+  %270 = icmp eq ptr %269, null
+  br i1 %270, label %280, label %271
 
-270:                                              ; preds = %265, %263
-  %.070.i = phi ptr [ %.0139, %263 ], [ %268, %265 ]
-  %.160.i = phi ptr [ null, %263 ], [ %268, %265 ]
-  %271 = icmp eq ptr %.0141, null
-  br i1 %271, label %272, label %277
+271:                                              ; preds = %266, %264
+  %.070.i = phi ptr [ %.0139, %264 ], [ %269, %266 ]
+  %.160.i = phi ptr [ null, %264 ], [ %269, %266 ]
+  %272 = icmp eq ptr %.0141, null
+  br i1 %272, label %273, label %278
 
-272:                                              ; preds = %270
-  %273 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %274 = load i32, ptr %273, align 8, !tbaa !152
-  %275 = call fastcc ptr @get_localsplus_names(ptr noundef nonnull %0, i8 noundef zeroext -128, i32 noundef %274)
-  %276 = icmp eq ptr %275, null
-  br i1 %276, label %279, label %277
+273:                                              ; preds = %271
+  %274 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %275 = load i32, ptr %274, align 8, !tbaa !152
+  %276 = call fastcc ptr @get_localsplus_names(ptr noundef nonnull %0, i8 noundef zeroext -128, i32 noundef %275)
+  %277 = icmp eq ptr %276, null
+  br i1 %277, label %280, label %278
 
-277:                                              ; preds = %272, %270
-  %.069.i = phi ptr [ %.0141, %270 ], [ %275, %272 ]
-  %.1.i = phi ptr [ null, %270 ], [ %275, %272 ]
-  %278 = call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %.0163, i32 noundef range(i32 0, -2147483648) %.0161, i32 noundef %.0159, i32 noundef %.0157, i32 noundef %.0155, i32 noundef %.0153, ptr noundef nonnull %.067.i, ptr noundef %.0147, ptr noundef %.0145, ptr noundef nonnull readonly %.068.i, ptr noundef nonnull readonly %.069.i, ptr noundef nonnull readonly %.070.i, ptr noundef %.0137, ptr noundef %.0135, ptr noundef %.0133, i32 noundef %.0151, ptr noundef %.0132, ptr noundef %.0)
-  br label %279
+278:                                              ; preds = %273, %271
+  %.069.i = phi ptr [ %.0141, %271 ], [ %276, %273 ]
+  %.1.i = phi ptr [ null, %271 ], [ %276, %273 ]
+  %279 = call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %.0163, i32 noundef range(i32 0, -2147483648) %.0161, i32 noundef %.0159, i32 noundef %.0157, i32 noundef %.0155, i32 noundef %.0153, ptr noundef nonnull %.067.i, ptr noundef %.0147, ptr noundef %.0145, ptr noundef nonnull readonly %.068.i, ptr noundef nonnull readonly %.069.i, ptr noundef nonnull readonly %.070.i, ptr noundef %.0137, ptr noundef %.0135, ptr noundef %.0133, i32 noundef %.0151, ptr noundef %.0132, ptr noundef %.0)
+  br label %280
 
-279:                                              ; preds = %277, %272, %265, %259
-  %.063.i = phi ptr [ null, %259 ], [ null, %265 ], [ null, %272 ], [ %278, %277 ]
-  %.162.i = phi ptr [ null, %259 ], [ %.061.i, %265 ], [ %.061.i, %272 ], [ %.061.i, %277 ]
-  %.059.i = phi ptr [ null, %259 ], [ null, %265 ], [ %.160.i, %272 ], [ %.160.i, %277 ]
-  %.0.i = phi ptr [ null, %259 ], [ null, %265 ], [ null, %272 ], [ %.1.i, %277 ]
+280:                                              ; preds = %278, %273, %266, %260
+  %.063.i = phi ptr [ null, %260 ], [ null, %266 ], [ null, %273 ], [ %279, %278 ]
+  %.162.i = phi ptr [ null, %260 ], [ %.061.i, %266 ], [ %.061.i, %273 ], [ %.061.i, %278 ]
+  %.059.i = phi ptr [ null, %260 ], [ null, %266 ], [ %.160.i, %273 ], [ %.160.i, %278 ]
+  %.0.i = phi ptr [ null, %260 ], [ null, %266 ], [ null, %273 ], [ %.1.i, %278 ]
   %.not.i.i = icmp eq ptr %.064.i, null
-  br i1 %.not.i.i, label %Py_XDECREF.exit.i, label %280
+  br i1 %.not.i.i, label %Py_XDECREF.exit.i, label %281
 
-280:                                              ; preds = %279
-  %281 = load i32, ptr %.064.i, align 8, !tbaa !97
-  %.not.i.i.i = icmp sgt i32 %281, -1
-  br i1 %.not.i.i.i, label %282, label %Py_XDECREF.exit.i
+281:                                              ; preds = %280
+  %282 = load i32, ptr %.064.i, align 8, !tbaa !97
+  %.not.i.i.i = icmp sgt i32 %282, -1
+  br i1 %.not.i.i.i, label %283, label %Py_XDECREF.exit.i
 
-282:                                              ; preds = %280
-  %283 = add nsw i32 %281, -1
-  store i32 %283, ptr %.064.i, align 8, !tbaa !97
-  %284 = icmp eq i32 %283, 0
-  br i1 %284, label %285, label %Py_XDECREF.exit.i
+283:                                              ; preds = %281
+  %284 = add nsw i32 %282, -1
+  store i32 %284, ptr %.064.i, align 8, !tbaa !97
+  %285 = icmp eq i32 %284, 0
+  br i1 %285, label %286, label %Py_XDECREF.exit.i
 
-285:                                              ; preds = %282
+286:                                              ; preds = %283
   call void @_Py_Dealloc(ptr noundef nonnull %.064.i) #14
   br label %Py_XDECREF.exit.i
 
-Py_XDECREF.exit.i:                                ; preds = %285, %282, %280, %279
+Py_XDECREF.exit.i:                                ; preds = %286, %283, %281, %280
   %.not.i89.i = icmp eq ptr %.162.i, null
-  br i1 %.not.i89.i, label %Py_XDECREF.exit91.i, label %286
+  br i1 %.not.i89.i, label %Py_XDECREF.exit91.i, label %287
 
-286:                                              ; preds = %Py_XDECREF.exit.i
-  %287 = load i32, ptr %.162.i, align 8, !tbaa !97
-  %.not.i.i90.i = icmp sgt i32 %287, -1
-  br i1 %.not.i.i90.i, label %288, label %Py_XDECREF.exit91.i
+287:                                              ; preds = %Py_XDECREF.exit.i
+  %288 = load i32, ptr %.162.i, align 8, !tbaa !97
+  %.not.i.i90.i = icmp sgt i32 %288, -1
+  br i1 %.not.i.i90.i, label %289, label %Py_XDECREF.exit91.i
 
-288:                                              ; preds = %286
-  %289 = add nsw i32 %287, -1
-  store i32 %289, ptr %.162.i, align 8, !tbaa !97
-  %290 = icmp eq i32 %289, 0
-  br i1 %290, label %291, label %Py_XDECREF.exit91.i
+289:                                              ; preds = %287
+  %290 = add nsw i32 %288, -1
+  store i32 %290, ptr %.162.i, align 8, !tbaa !97
+  %291 = icmp eq i32 %290, 0
+  br i1 %291, label %292, label %Py_XDECREF.exit91.i
 
-291:                                              ; preds = %288
+292:                                              ; preds = %289
   call void @_Py_Dealloc(ptr noundef nonnull %.162.i) #14
   br label %Py_XDECREF.exit91.i
 
-Py_XDECREF.exit91.i:                              ; preds = %291, %288, %286, %Py_XDECREF.exit.i
+Py_XDECREF.exit91.i:                              ; preds = %292, %289, %287, %Py_XDECREF.exit.i
   %.not.i92.i = icmp eq ptr %.059.i, null
-  br i1 %.not.i92.i, label %Py_XDECREF.exit94.i, label %292
+  br i1 %.not.i92.i, label %Py_XDECREF.exit94.i, label %293
 
-292:                                              ; preds = %Py_XDECREF.exit91.i
-  %293 = load i32, ptr %.059.i, align 8, !tbaa !97
-  %.not.i.i93.i = icmp sgt i32 %293, -1
-  br i1 %.not.i.i93.i, label %294, label %Py_XDECREF.exit94.i
+293:                                              ; preds = %Py_XDECREF.exit91.i
+  %294 = load i32, ptr %.059.i, align 8, !tbaa !97
+  %.not.i.i93.i = icmp sgt i32 %294, -1
+  br i1 %.not.i.i93.i, label %295, label %Py_XDECREF.exit94.i
 
-294:                                              ; preds = %292
-  %295 = add nsw i32 %293, -1
-  store i32 %295, ptr %.059.i, align 8, !tbaa !97
-  %296 = icmp eq i32 %295, 0
-  br i1 %296, label %297, label %Py_XDECREF.exit94.i
+295:                                              ; preds = %293
+  %296 = add nsw i32 %294, -1
+  store i32 %296, ptr %.059.i, align 8, !tbaa !97
+  %297 = icmp eq i32 %296, 0
+  br i1 %297, label %298, label %Py_XDECREF.exit94.i
 
-297:                                              ; preds = %294
+298:                                              ; preds = %295
   call void @_Py_Dealloc(ptr noundef nonnull %.059.i) #14
   br label %Py_XDECREF.exit94.i
 
-Py_XDECREF.exit94.i:                              ; preds = %297, %294, %292, %Py_XDECREF.exit91.i
+Py_XDECREF.exit94.i:                              ; preds = %298, %295, %293, %Py_XDECREF.exit91.i
   %.not.i95.i = icmp eq ptr %.0.i, null
-  br i1 %.not.i95.i, label %code_replace_impl.exit, label %298
+  br i1 %.not.i95.i, label %code_replace_impl.exit, label %299
 
-298:                                              ; preds = %Py_XDECREF.exit94.i
-  %299 = load i32, ptr %.0.i, align 8, !tbaa !97
-  %.not.i.i96.i = icmp sgt i32 %299, -1
-  br i1 %.not.i.i96.i, label %300, label %code_replace_impl.exit
+299:                                              ; preds = %Py_XDECREF.exit94.i
+  %300 = load i32, ptr %.0.i, align 8, !tbaa !97
+  %.not.i.i96.i = icmp sgt i32 %300, -1
+  br i1 %.not.i.i96.i, label %301, label %code_replace_impl.exit
 
-300:                                              ; preds = %298
-  %301 = add nsw i32 %299, -1
-  store i32 %301, ptr %.0.i, align 8, !tbaa !97
-  %302 = icmp eq i32 %301, 0
-  br i1 %302, label %303, label %code_replace_impl.exit
+301:                                              ; preds = %299
+  %302 = add nsw i32 %300, -1
+  store i32 %302, ptr %.0.i, align 8, !tbaa !97
+  %303 = icmp eq i32 %302, 0
+  br i1 %303, label %304, label %code_replace_impl.exit
 
-303:                                              ; preds = %300
+304:                                              ; preds = %301
   call void @_Py_Dealloc(ptr noundef nonnull %.0.i) #14
   br label %code_replace_impl.exit
 
-code_replace_impl.exit:                           ; preds = %303, %300, %298, %Py_XDECREF.exit94.i, %256, %250, %246, %242, %238, %234, %230, %226, %222, %110, %100, %90, %80, %70, %60, %50, %42, %219, %211, %201, %191, %181, %171, %161, %151, %141, %131, %121
-  %.0167 = phi ptr [ null, %50 ], [ null, %60 ], [ null, %70 ], [ null, %80 ], [ null, %90 ], [ null, %100 ], [ null, %110 ], [ null, %219 ], [ null, %211 ], [ null, %201 ], [ null, %191 ], [ null, %181 ], [ null, %171 ], [ null, %161 ], [ null, %151 ], [ null, %141 ], [ null, %131 ], [ null, %121 ], [ null, %42 ], [ null, %222 ], [ null, %226 ], [ null, %230 ], [ null, %234 ], [ null, %238 ], [ null, %242 ], [ null, %246 ], [ null, %256 ], [ null, %250 ], [ %.063.i, %Py_XDECREF.exit94.i ], [ %.063.i, %298 ], [ %.063.i, %300 ], [ %.063.i, %303 ]
+code_replace_impl.exit:                           ; preds = %304, %301, %299, %Py_XDECREF.exit94.i, %257, %251, %247, %243, %239, %235, %231, %227, %223, %110, %100, %90, %80, %70, %60, %50, %42, %220, %211, %201, %191, %181, %171, %161, %151, %141, %131, %121
+  %.0167 = phi ptr [ null, %50 ], [ null, %60 ], [ null, %70 ], [ null, %80 ], [ null, %90 ], [ null, %100 ], [ null, %110 ], [ null, %220 ], [ null, %211 ], [ null, %201 ], [ null, %191 ], [ null, %181 ], [ null, %171 ], [ null, %161 ], [ null, %151 ], [ null, %141 ], [ null, %131 ], [ null, %121 ], [ null, %42 ], [ null, %223 ], [ null, %227 ], [ null, %231 ], [ null, %235 ], [ null, %239 ], [ null, %243 ], [ null, %247 ], [ null, %257 ], [ null, %251 ], [ %.063.i, %Py_XDECREF.exit94.i ], [ %.063.i, %299 ], [ %.063.i, %301 ], [ %.063.i, %304 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0167
 }

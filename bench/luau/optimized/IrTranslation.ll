@@ -609,7 +609,7 @@ switch.lookup:                                    ; preds = %_ZNK4Luau7CodeGen10
   %46 = trunc nuw i32 %1 to i8
   %47 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %46)
   %48 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 18, i32 %47, i32 %45)
-  br label %256
+  br label %258
 
 49:                                               ; preds = %_ZNK4Luau7CodeGen10IrFunction18getBytecodeTypesAtEi.exit
   %50 = icmp eq i32 %23, 2
@@ -617,7 +617,7 @@ switch.lookup:                                    ; preds = %_ZNK4Luau7CodeGen10
   %51 = and i32 %7, -2
   %or.cond15 = icmp eq i32 %51, 10
   %or.cond419 = and i1 %or.cond15, %or.cond13
-  br i1 %or.cond419, label %52, label %87
+  br i1 %or.cond419, label %52, label %88
 
 52:                                               ; preds = %49
   %.not417 = icmp eq i32 %2, -1
@@ -663,349 +663,349 @@ _ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit: ; preds
   %.sroa.08.0.i = phi i32 [ %77, %69 ], [ %79, %78 ]
   %80 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 67, i32 %.sroa.08.0.i)
   %81 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 6, i32 %5)
-  %switch = icmp eq i32 %7, 10
-  %. = select i1 %switch, i8 40, i8 41
-  %82 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %., i32 %80, i32 %81)
-  %83 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 68, i32 %82)
-  %84 = trunc nuw i32 %1 to i8
-  %85 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %84)
-  %86 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 18, i32 %85, i32 %83)
-  br label %256
+  %82 = icmp eq i32 %7, 10
+  %. = select i1 %82, i8 40, i8 41
+  %83 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %., i32 %80, i32 %81)
+  %84 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 68, i32 %83)
+  %85 = trunc nuw i32 %1 to i8
+  %86 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %85)
+  %87 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 18, i32 %86, i32 %84)
+  br label %258
 
-87:                                               ; preds = %49
-  %88 = icmp eq i32 %25, 2
-  %or.cond19 = and i1 %24, %88
+88:                                               ; preds = %49
+  %89 = icmp eq i32 %25, 2
+  %or.cond19 = and i1 %24, %89
   %or.cond420 = and i1 %or.cond15, %or.cond19
-  br i1 %or.cond420, label %89, label %124
+  br i1 %or.cond420, label %90, label %126
 
-89:                                               ; preds = %87
-  %90 = trunc i32 %2 to i8
-  %91 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %90)
-  %92 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1, i32 %91)
-  %93 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 4)
-  %94 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %6)
-  %95 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 82, i32 %92, i32 %93, i32 %94)
+90:                                               ; preds = %88
+  %91 = trunc i32 %2 to i8
+  %92 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %91)
+  %93 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1, i32 %92)
+  %94 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 4)
+  %95 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %6)
+  %96 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 82, i32 %93, i32 %94, i32 %95)
   %.not416 = icmp eq i32 %3, -1
-  br i1 %.not416, label %103, label %96
+  br i1 %.not416, label %104, label %97
 
-96:                                               ; preds = %89
-  %97 = trunc nuw i32 %3 to i8
-  %98 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %97)
-  %99 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1, i32 %98)
-  %100 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3)
-  %101 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %6)
-  %102 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 82, i32 %99, i32 %100, i32 %101)
-  br label %103
+97:                                               ; preds = %90
+  %98 = trunc nuw i32 %3 to i8
+  %99 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %98)
+  %100 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1, i32 %99)
+  %101 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3)
+  %102 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %6)
+  %103 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 82, i32 %100, i32 %101, i32 %102)
+  br label %104
 
-103:                                              ; preds = %96, %89
-  %104 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 6, i32 %4)
-  %105 = and i32 %5, 15
-  %106 = icmp eq i32 %105, 7
-  br i1 %106, label %107, label %116
+104:                                              ; preds = %97, %90
+  %105 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 6, i32 %4)
+  %106 = and i32 %5, 15
+  %107 = icmp eq i32 %106, 7
+  br i1 %107, label %108, label %117
 
-107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %109 = load ptr, ptr %108, align 8, !tbaa !8
-  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !96
-  %112 = lshr i32 %5, 4
-  %113 = zext nneg i32 %112 to i64
-  %114 = getelementptr inbounds nuw %struct.lua_TValue, ptr %111, i64 %113
-  %.sroa.02.0.copyload.i424 = load double, ptr %114, align 8, !tbaa !105
-  %115 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %.sroa.02.0.copyload.i424)
+108:                                              ; preds = %104
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %110 = load ptr, ptr %109, align 8, !tbaa !8
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8, !tbaa !96
+  %113 = lshr i32 %5, 4
+  %114 = zext nneg i32 %113 to i64
+  %115 = getelementptr inbounds nuw %struct.lua_TValue, ptr %112, i64 %114
+  %.sroa.02.0.copyload.i424 = load double, ptr %115, align 8, !tbaa !105
+  %116 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %.sroa.02.0.copyload.i424)
   br label %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit425
 
-116:                                              ; preds = %103
-  %117 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3, i32 %5)
+117:                                              ; preds = %104
+  %118 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3, i32 %5)
   br label %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit425
 
-_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit425: ; preds = %107, %116
-  %.sroa.08.0.i423 = phi i32 [ %115, %107 ], [ %117, %116 ]
-  %118 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 67, i32 %.sroa.08.0.i423)
-  %switch460 = icmp eq i32 %7, 10
-  %.467 = select i1 %switch460, i8 40, i8 41
-  %119 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.467, i32 %104, i32 %118)
-  %120 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 68, i32 %119)
-  %121 = trunc nuw i32 %1 to i8
-  %122 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %121)
-  %123 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 18, i32 %122, i32 %120)
-  br label %256
+_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit425: ; preds = %108, %117
+  %.sroa.08.0.i423 = phi i32 [ %116, %108 ], [ %118, %117 ]
+  %119 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 67, i32 %.sroa.08.0.i423)
+  %120 = icmp eq i32 %7, 10
+  %.465 = select i1 %120, i8 40, i8 41
+  %121 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.465, i32 %105, i32 %119)
+  %122 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 68, i32 %121)
+  %123 = trunc nuw i32 %1 to i8
+  %124 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %123)
+  %125 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 18, i32 %124, i32 %122)
+  br label %258
 
-124:                                              ; preds = %87
-  %125 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen22isUserdataBytecodeTypeEh(i8 noundef zeroext %.sroa.4.0.extract.trunc)
-  br i1 %125, label %128, label %126
+126:                                              ; preds = %88
+  %127 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen22isUserdataBytecodeTypeEh(i8 noundef zeroext %.sroa.4.0.extract.trunc)
+  br i1 %127, label %130, label %128
 
-126:                                              ; preds = %124
-  %127 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen22isUserdataBytecodeTypeEh(i8 noundef zeroext %.sroa.10.0.extract.trunc)
-  br i1 %127, label %128, label %143
+128:                                              ; preds = %126
+  %129 = tail call noundef zeroext i1 @_ZN4Luau7CodeGen22isUserdataBytecodeTypeEh(i8 noundef zeroext %.sroa.10.0.extract.trunc)
+  br i1 %129, label %130, label %145
 
-128:                                              ; preds = %126, %124
-  %129 = load ptr, ptr %0, align 8, !tbaa !108
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 64
-  %131 = load ptr, ptr %130, align 8, !tbaa !109
-  %.not415 = icmp eq ptr %131, null
-  br i1 %.not415, label %135, label %132
+130:                                              ; preds = %128, %126
+  %131 = load ptr, ptr %0, align 8, !tbaa !108
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 64
+  %133 = load ptr, ptr %132, align 8, !tbaa !109
+  %.not415 = icmp eq ptr %133, null
+  br i1 %.not415, label %137, label %134
 
-132:                                              ; preds = %128
-  %133 = tail call noundef i32 @_ZN4Luau7CodeGen18tmToHostMetamethodEi(i32 noundef %7)
-  %134 = tail call noundef zeroext i1 %131(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.sroa.4.0.extract.trunc, i8 noundef zeroext %.sroa.10.0.extract.trunc, i32 noundef %1, i32 %4, i32 %5, i32 noundef %133, i32 noundef %6)
-  br i1 %134, label %256, label %135
+134:                                              ; preds = %130
+  %135 = tail call noundef i32 @_ZN4Luau7CodeGen18tmToHostMetamethodEi(i32 noundef %7)
+  %136 = tail call noundef zeroext i1 %133(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %.sroa.4.0.extract.trunc, i8 noundef zeroext %.sroa.10.0.extract.trunc, i32 noundef %1, i32 %4, i32 %5, i32 noundef %135, i32 noundef %6)
+  br i1 %136, label %258, label %137
 
-135:                                              ; preds = %132, %128
-  %136 = add nsw i32 %6, 1
-  %137 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %136)
-  %138 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 98, i32 %137)
-  %139 = trunc nuw i32 %1 to i8
-  %140 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %139)
-  %141 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %7)
-  %142 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 74, i32 %140, i32 %4, i32 %5, i32 %141)
-  br label %256
+137:                                              ; preds = %134, %130
+  %138 = add nsw i32 %6, 1
+  %139 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %138)
+  %140 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 98, i32 %139)
+  %141 = trunc nuw i32 %1 to i8
+  %142 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %141)
+  %143 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %7)
+  %144 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 74, i32 %142, i32 %4, i32 %5, i32 %143)
+  br label %258
 
-143:                                              ; preds = %126
+145:                                              ; preds = %128
   %.not = icmp eq i32 %2, -1
-  br i1 %.not, label %154, label %144
+  br i1 %.not, label %156, label %146
 
-144:                                              ; preds = %143
-  %145 = trunc nuw i32 %2 to i8
-  %146 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %145)
-  %147 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1, i32 %146)
-  %148 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3)
-  br i1 %50, label %149, label %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit
+146:                                              ; preds = %145
+  %147 = trunc nuw i32 %2 to i8
+  %148 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %147)
+  %149 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1, i32 %148)
+  %150 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3)
+  br i1 %50, label %151, label %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit
 
-149:                                              ; preds = %144
-  %150 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %6)
-  br label %152
-
-_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; preds = %144
-  %151 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1)
-  br label %152
-
-152:                                              ; preds = %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit, %149
-  %.sroa.0439.1 = phi i32 [ 0, %149 ], [ %151, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit ]
-  %.sroa.0110.0 = phi i32 [ %150, %149 ], [ %151, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit ]
-  %153 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 82, i32 %147, i32 %148, i32 %.sroa.0110.0)
+151:                                              ; preds = %146
+  %152 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %6)
   br label %154
 
-154:                                              ; preds = %152, %143
-  %.sroa.0439.0 = phi i32 [ 0, %143 ], [ %.sroa.0439.1, %152 ]
+_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit: ; preds = %146
+  %153 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1)
+  br label %154
+
+154:                                              ; preds = %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit, %151
+  %.sroa.0439.1 = phi i32 [ 0, %151 ], [ %153, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit ]
+  %.sroa.0110.0 = phi i32 [ %152, %151 ], [ %153, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit ]
+  %155 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 82, i32 %149, i32 %150, i32 %.sroa.0110.0)
+  br label %156
+
+156:                                              ; preds = %154, %145
+  %.sroa.0439.0 = phi i32 [ 0, %145 ], [ %.sroa.0439.1, %154 ]
   %.not410 = icmp eq i32 %3, -1
   %.not411 = icmp eq i32 %3, %2
   %or.cond421 = or i1 %.not410, %.not411
-  br i1 %or.cond421, label %168, label %155
+  br i1 %or.cond421, label %170, label %157
 
-155:                                              ; preds = %154
-  %156 = trunc nuw i32 %3 to i8
-  %157 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %156)
-  %158 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1, i32 %157)
-  %159 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3)
-  br i1 %88, label %160, label %162
+157:                                              ; preds = %156
+  %158 = trunc nuw i32 %3 to i8
+  %159 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %158)
+  %160 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1, i32 %159)
+  %161 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3)
+  br i1 %89, label %162, label %164
 
-160:                                              ; preds = %155
-  %161 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %6)
+162:                                              ; preds = %157
+  %163 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder6vmExitEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %6)
   br label %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427
 
-162:                                              ; preds = %155
-  %163 = and i32 %.sroa.0439.0, 15
-  %164 = icmp eq i32 %163, 0
-  br i1 %164, label %165, label %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427
+164:                                              ; preds = %157
+  %165 = and i32 %.sroa.0439.0, 15
+  %166 = icmp eq i32 %165, 0
+  br i1 %166, label %167, label %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427
 
-165:                                              ; preds = %162
-  %166 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1)
+167:                                              ; preds = %164
+  %168 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5blockENS0_11IrBlockKindE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 1)
   br label %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427
 
-_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427: ; preds = %165, %162, %160
-  %.sroa.0439.3 = phi i32 [ %.sroa.0439.0, %160 ], [ %166, %165 ], [ %.sroa.0439.0, %162 ]
-  %.sroa.0104.0 = phi i32 [ %161, %160 ], [ %166, %165 ], [ %.sroa.0439.0, %162 ]
-  %167 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 82, i32 %158, i32 %159, i32 %.sroa.0104.0)
-  br label %168
+_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427: ; preds = %167, %164, %162
+  %.sroa.0439.3 = phi i32 [ %.sroa.0439.0, %162 ], [ %168, %167 ], [ %.sroa.0439.0, %164 ]
+  %.sroa.0104.0 = phi i32 [ %163, %162 ], [ %168, %167 ], [ %.sroa.0439.0, %164 ]
+  %169 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 82, i32 %160, i32 %161, i32 %.sroa.0104.0)
+  br label %170
 
-168:                                              ; preds = %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427, %154
-  %.sroa.0439.2 = phi i32 [ %.sroa.0439.0, %154 ], [ %.sroa.0439.3, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427 ]
-  %169 = and i32 %4, 15
-  %170 = icmp eq i32 %169, 7
-  br i1 %170, label %171, label %180
+170:                                              ; preds = %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427, %156
+  %.sroa.0439.2 = phi i32 [ %.sroa.0439.0, %156 ], [ %.sroa.0439.3, %_ZN4Luau7CodeGenL22getInitializedFallbackERNS0_9IrBuilderERNS0_4IrOpE.exit427 ]
+  %171 = and i32 %4, 15
+  %172 = icmp eq i32 %171, 7
+  br i1 %172, label %173, label %182
 
-171:                                              ; preds = %168
-  %172 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %173 = load ptr, ptr %172, align 8, !tbaa !8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
-  %175 = load ptr, ptr %174, align 8, !tbaa !96
-  %176 = lshr i32 %4, 4
-  %177 = zext nneg i32 %176 to i64
-  %178 = getelementptr inbounds nuw %struct.lua_TValue, ptr %175, i64 %177
-  %.sroa.02.0.copyload.i429 = load double, ptr %178, align 8, !tbaa !105
-  %179 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %.sroa.02.0.copyload.i429)
+173:                                              ; preds = %170
+  %174 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %175 = load ptr, ptr %174, align 8, !tbaa !8
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
+  %177 = load ptr, ptr %176, align 8, !tbaa !96
+  %178 = lshr i32 %4, 4
+  %179 = zext nneg i32 %178 to i64
+  %180 = getelementptr inbounds nuw %struct.lua_TValue, ptr %177, i64 %179
+  %.sroa.02.0.copyload.i429 = load double, ptr %180, align 8, !tbaa !105
+  %181 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %.sroa.02.0.copyload.i429)
   br label %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430
 
-180:                                              ; preds = %168
-  %181 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3, i32 %4)
+182:                                              ; preds = %170
+  %183 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3, i32 %4)
   br label %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430
 
-_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430: ; preds = %171, %180
-  %.sroa.08.0.i428 = phi i32 [ %179, %171 ], [ %181, %180 ]
-  %182 = and i32 %5, 15
-  %183 = icmp eq i32 %182, 7
-  br i1 %183, label %184, label %207
+_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430: ; preds = %173, %182
+  %.sroa.08.0.i428 = phi i32 [ %181, %173 ], [ %183, %182 ]
+  %184 = and i32 %5, 15
+  %185 = icmp eq i32 %184, 7
+  br i1 %185, label %186, label %209
 
-184:                                              ; preds = %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430
-  %185 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %186 = load ptr, ptr %185, align 8, !tbaa !8
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  %188 = load ptr, ptr %187, align 8, !tbaa !96
-  %189 = lshr i32 %5, 4
-  %190 = zext nneg i32 %189 to i64
-  %191 = getelementptr inbounds nuw %struct.lua_TValue, ptr %188, i64 %190
-  %.sroa.085.0.copyload = load double, ptr %191, align 8, !tbaa !105
-  %192 = icmp eq i32 %7, 14
-  %193 = fcmp oeq double %.sroa.085.0.copyload, 5.000000e-01
-  %or.cond24 = select i1 %192, i1 %193, i1 false
-  br i1 %or.cond24, label %194, label %196
+186:                                              ; preds = %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430
+  %187 = getelementptr inbounds nuw i8, ptr %0, i64 320
+  %188 = load ptr, ptr %187, align 8, !tbaa !8
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  %190 = load ptr, ptr %189, align 8, !tbaa !96
+  %191 = lshr i32 %5, 4
+  %192 = zext nneg i32 %191 to i64
+  %193 = getelementptr inbounds nuw %struct.lua_TValue, ptr %190, i64 %192
+  %.sroa.085.0.copyload = load double, ptr %193, align 8, !tbaa !105
+  %194 = icmp eq i32 %7, 14
+  %195 = fcmp oeq double %.sroa.085.0.copyload, 5.000000e-01
+  %or.cond24 = select i1 %194, i1 %195, i1 false
+  br i1 %or.cond24, label %196, label %198
 
-194:                                              ; preds = %184
-  %195 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 34, i32 %.sroa.08.0.i428)
-  br label %209
+196:                                              ; preds = %186
+  %197 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 34, i32 %.sroa.08.0.i428)
+  br label %211
 
-196:                                              ; preds = %184
-  %197 = fcmp oeq double %.sroa.085.0.copyload, 2.000000e+00
-  %or.cond27 = select i1 %192, i1 %197, i1 false
-  br i1 %or.cond27, label %198, label %200
+198:                                              ; preds = %186
+  %199 = fcmp oeq double %.sroa.085.0.copyload, 2.000000e+00
+  %or.cond27 = select i1 %194, i1 %199, i1 false
+  br i1 %or.cond27, label %200, label %202
 
-198:                                              ; preds = %196
-  %199 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 24, i32 %.sroa.08.0.i428, i32 %.sroa.08.0.i428)
-  br label %209
+200:                                              ; preds = %198
+  %201 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 24, i32 %.sroa.08.0.i428, i32 %.sroa.08.0.i428)
+  br label %211
 
-200:                                              ; preds = %196
-  %201 = fcmp oeq double %.sroa.085.0.copyload, 3.000000e+00
-  %or.cond30 = select i1 %192, i1 %201, i1 false
-  br i1 %or.cond30, label %202, label %205
+202:                                              ; preds = %198
+  %203 = fcmp oeq double %.sroa.085.0.copyload, 3.000000e+00
+  %or.cond30 = select i1 %194, i1 %203, i1 false
+  br i1 %or.cond30, label %204, label %207
 
-202:                                              ; preds = %200
-  %203 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 24, i32 %.sroa.08.0.i428, i32 %.sroa.08.0.i428)
-  %204 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 24, i32 %.sroa.08.0.i428, i32 %203)
-  br label %209
+204:                                              ; preds = %202
+  %205 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 24, i32 %.sroa.08.0.i428, i32 %.sroa.08.0.i428)
+  %206 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 24, i32 %.sroa.08.0.i428, i32 %205)
+  br label %211
 
-205:                                              ; preds = %200
-  %206 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %.sroa.085.0.copyload)
-  br label %212
+207:                                              ; preds = %202
+  %208 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11constDoubleEd(ptr noundef nonnull align 8 dereferenceable(752) %0, double noundef %.sroa.085.0.copyload)
+  br label %214
 
-207:                                              ; preds = %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430
-  %208 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3, i32 %5)
-  br label %212
+209:                                              ; preds = %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit430
+  %210 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3, i32 %5)
+  br label %214
 
-209:                                              ; preds = %194, %202, %198
-  %.sroa.0.0 = phi i32 [ %195, %194 ], [ %199, %198 ], [ %204, %202 ]
-  %210 = and i32 %.sroa.0.0, 15
-  %211 = icmp eq i32 %210, 0
-  br i1 %211, label %.thread453, label %227
+211:                                              ; preds = %196, %204, %200
+  %.sroa.0.0 = phi i32 [ %197, %196 ], [ %201, %200 ], [ %206, %204 ]
+  %212 = and i32 %.sroa.0.0, 15
+  %213 = icmp eq i32 %212, 0
+  br i1 %213, label %.thread453, label %229
 
-212:                                              ; preds = %205, %207
-  %.sroa.0432.0.ph = phi i32 [ %208, %207 ], [ %206, %205 ]
-  switch i32 %7, label %227 [
-    i32 8, label %213
-    i32 9, label %215
-    i32 10, label %217
-    i32 11, label %219
-    i32 12, label %221
-    i32 13, label %223
+214:                                              ; preds = %207, %209
+  %.sroa.0432.0.ph = phi i32 [ %210, %209 ], [ %208, %207 ]
+  switch i32 %7, label %229 [
+    i32 8, label %215
+    i32 9, label %217
+    i32 10, label %219
+    i32 11, label %221
+    i32 12, label %223
+    i32 13, label %225
     i32 14, label %.thread453
   ]
 
-213:                                              ; preds = %212
-  %214 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 22, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
-  br label %227
+215:                                              ; preds = %214
+  %216 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 22, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
+  br label %229
 
-215:                                              ; preds = %212
-  %216 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 23, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
-  br label %227
+217:                                              ; preds = %214
+  %218 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 23, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
+  br label %229
 
-217:                                              ; preds = %212
-  %218 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 24, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
-  br label %227
+219:                                              ; preds = %214
+  %220 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 24, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
+  br label %229
 
-219:                                              ; preds = %212
-  %220 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 25, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
-  br label %227
+221:                                              ; preds = %214
+  %222 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 25, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
+  br label %229
 
-221:                                              ; preds = %212
-  %222 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 26, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
-  br label %227
+223:                                              ; preds = %214
+  %224 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 26, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
+  br label %229
 
-223:                                              ; preds = %212
-  %224 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 27, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
-  br label %227
+225:                                              ; preds = %214
+  %226 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 27, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0.ph)
+  br label %229
 
-.thread453:                                       ; preds = %209, %212
-  %.sroa.0432.0451456 = phi i32 [ %.sroa.0432.0.ph, %212 ], [ 0, %209 ]
-  %225 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef 21)
-  %226 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext -125, i32 %225, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0451456)
-  br label %227
+.thread453:                                       ; preds = %211, %214
+  %.sroa.0432.0451456 = phi i32 [ %.sroa.0432.0.ph, %214 ], [ 0, %211 ]
+  %227 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef 21)
+  %228 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext -125, i32 %227, i32 %.sroa.08.0.i428, i32 %.sroa.0432.0451456)
+  br label %229
 
-227:                                              ; preds = %213, %215, %217, %219, %221, %223, %.thread453, %212, %209
-  %.sroa.0.1 = phi i32 [ 0, %212 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %.thread453 ], [ %.sroa.0.0, %209 ]
-  %228 = trunc nuw i32 %1 to i8
-  %229 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %228)
-  %230 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 15, i32 %229, i32 %.sroa.0.1)
+229:                                              ; preds = %215, %217, %219, %221, %223, %225, %.thread453, %214, %211
+  %.sroa.0.1 = phi i32 [ 0, %214 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %.thread453 ], [ %.sroa.0.0, %211 ]
+  %230 = trunc nuw i32 %1 to i8
+  %231 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %230)
+  %232 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 15, i32 %231, i32 %.sroa.0.1)
   %.not412 = icmp eq i32 %1, %2
   %.not413 = icmp eq i32 %1, %3
   %or.cond422 = or i1 %.not412, %.not413
-  br i1 %or.cond422, label %235, label %231
+  br i1 %or.cond422, label %237, label %233
 
-231:                                              ; preds = %227
-  %232 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %228)
-  %233 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3)
-  %234 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 12, i32 %232, i32 %233)
-  br label %235
+233:                                              ; preds = %229
+  %234 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %230)
+  %235 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder8constTagEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 3)
+  %236 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 12, i32 %234, i32 %235)
+  br label %237
 
-235:                                              ; preds = %231, %227
-  %236 = and i32 %.sroa.0439.2, 15
-  %.not414 = icmp eq i32 %236, 0
-  br i1 %.not414, label %256, label %237
+237:                                              ; preds = %233, %229
+  %238 = and i32 %.sroa.0439.2, 15
+  %.not414 = icmp eq i32 %238, 0
+  br i1 %.not414, label %258, label %239
 
-237:                                              ; preds = %235
-  %238 = add nsw i32 %6, 1
-  %239 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %238)
+239:                                              ; preds = %237
+  %240 = add nsw i32 %6, 1
+  %241 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder11blockAtInstEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %240)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %0, ptr %9, align 8, !tbaa !111
-  %240 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 %239, ptr %240, align 8, !tbaa !105
-  %241 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 46, i32 %239)
+  %242 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 %241, ptr %242, align 8, !tbaa !105
+  %243 = tail call i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 46, i32 %241)
   tail call void @_ZN4Luau7CodeGen9IrBuilder10beginBlockENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 %.sroa.0439.2)
-  %242 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %238)
-          to label %243 unwind label %254
+  %244 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder9constUintEj(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %240)
+          to label %245 unwind label %256
 
-243:                                              ; preds = %237
-  %244 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 98, i32 %242)
-          to label %245 unwind label %254
-
-245:                                              ; preds = %243
-  %246 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %228)
-          to label %247 unwind label %254
+245:                                              ; preds = %239
+  %246 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 98, i32 %244)
+          to label %247 unwind label %256
 
 247:                                              ; preds = %245
-  %248 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %7)
-          to label %249 unwind label %254
+  %248 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder5vmRegEh(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext %230)
+          to label %249 unwind label %256
 
 249:                                              ; preds = %247
-  %250 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 74, i32 %246, i32 %4, i32 %5, i32 %248)
-          to label %251 unwind label %254
+  %250 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder8constIntEi(ptr noundef nonnull align 8 dereferenceable(752) %0, i32 noundef %7)
+          to label %251 unwind label %256
 
 251:                                              ; preds = %249
-  %252 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 46, i32 %239)
-          to label %253 unwind label %254
+  %252 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpES3_S3_S3_(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 74, i32 %248, i32 %4, i32 %5, i32 %250)
+          to label %253 unwind label %256
 
 253:                                              ; preds = %251
+  %254 = invoke i32 @_ZN4Luau7CodeGen9IrBuilder4instENS0_5IrCmdENS0_4IrOpE(ptr noundef nonnull align 8 dereferenceable(752) %0, i8 noundef zeroext 46, i32 %241)
+          to label %255 unwind label %256
+
+255:                                              ; preds = %253
   call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %256
+  br label %258
 
-254:                                              ; preds = %251, %249, %247, %245, %243, %237
-  %255 = landingpad { ptr, i32 }
+256:                                              ; preds = %253, %251, %249, %247, %245, %239
+  %257 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4Luau7CodeGen19FallbackStreamScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  resume { ptr, i32 } %255
+  resume { ptr, i32 } %257
 
-256:                                              ; preds = %235, %253, %132, %135, %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit425, %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit, %switch.lookup
+258:                                              ; preds = %237, %255, %134, %137, %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit425, %_ZN4Luau7CodeGenL20loadDoubleOrConstantERNS0_9IrBuilderENS0_4IrOpE.exit, %switch.lookup
   ret void
 }
 

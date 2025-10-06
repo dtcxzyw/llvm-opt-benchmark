@@ -338,8 +338,8 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %21, label %.lr.ph, label %.loopexit
 
 ._crit_edge:                                      ; preds = %77, %3
-  %.lcssa74 = phi i32 [ %7, %3 ], [ %78, %77 ]
-  %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %.lcssa74)
+  %.lcssa73 = phi i32 [ %7, %3 ], [ %78, %77 ]
+  %. = tail call i32 @llvm.smin.i32(i32 %2, i32 %.lcssa73)
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 8240
   %23 = load ptr, ptr %22, align 8, !tbaa !36
   %24 = sext i32 %. to i64
@@ -354,7 +354,7 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
   %30 = load i64, ptr %29, align 8, !tbaa !37
   %31 = add nsw i64 %30, %24
   store i64 %31, ptr %29, align 8, !tbaa !37
-  br label %.loopexit70
+  br label %.loopexit69
 
 .lr.ph:                                           ; preds = %.preheader, %39
   %32 = phi i32 [ %41, %39 ], [ %19, %.preheader ]
@@ -368,9 +368,9 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
 
 .thread:                                          ; preds = %.lr.ph
   store i32 1, ptr %13, align 4, !tbaa !38
-  %.pre79 = load i32, ptr %9, align 8, !tbaa !35
-  %.pre80 = load i32, ptr %10, align 4, !tbaa !34
-  %.pre83 = sub nsw i32 %.pre79, %.pre80
+  %.pre78 = load i32, ptr %9, align 8, !tbaa !35
+  %.pre79 = load i32, ptr %10, align 4, !tbaa !34
+  %.pre82 = sub nsw i32 %.pre78, %.pre79
   br label %.loopexit
 
 39:                                               ; preds = %.lr.ph
@@ -383,11 +383,11 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
   br i1 %44, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %39, %.preheader, %.thread
-  %.pre-phi = phi i32 [ %20, %.preheader ], [ %.pre83, %.thread ], [ %43, %39 ]
-  %45 = phi i32 [ %18, %.preheader ], [ %.pre80, %.thread ], [ %42, %39 ]
+  %.pre-phi = phi i32 [ %20, %.preheader ], [ %.pre82, %.thread ], [ %43, %39 ]
+  %45 = phi i32 [ %18, %.preheader ], [ %.pre79, %.thread ], [ %42, %39 ]
   %.off = add i32 %.pre-phi, 15
   %.not = icmp ult i32 %.off, 31
-  br i1 %.not, label %.loopexit70, label %46
+  br i1 %.not, label %.loopexit69, label %46
 
 46:                                               ; preds = %.loopexit
   %47 = sdiv i32 %.pre-phi, 16
@@ -421,32 +421,32 @@ define internal i32 @crypto_read(ptr noundef readonly captures(none) %0, ptr nou
   %66 = sub nsw i32 %65, %64
   store i32 %66, ptr %9, align 8, !tbaa !35
   store i32 0, ptr %10, align 4, !tbaa !34
-  %.pre81.pre = load i32, ptr %6, align 8, !tbaa !33
+  %.pre80.pre = load i32, ptr %6, align 8, !tbaa !33
   br label %67
 
 67:                                               ; preds = %58, %46
-  %.pre81 = phi i32 [ %.pre81.pre, %58 ], [ %54, %46 ]
+  %.pre80 = phi i32 [ %.pre80.pre, %58 ], [ %54, %46 ]
   %68 = phi i32 [ 0, %58 ], [ %56, %46 ]
   %69 = load i32, ptr %13, align 4, !tbaa !38
   %.not67 = icmp eq i32 %69, 0
   br i1 %.not67, label %77, label %70
 
 70:                                               ; preds = %67
-  %71 = sext i32 %.pre81 to i64
+  %71 = sext i32 %.pre80 to i64
   %72 = getelementptr i8, ptr %15, i64 %71
   %73 = getelementptr i8, ptr %72, i64 -1
   %74 = load i8, ptr %73, align 1, !tbaa !40
   %75 = zext i8 %74 to i32
-  %76 = sub nsw i32 %.pre81, %75
+  %76 = sub nsw i32 %.pre80, %75
   store i32 %76, ptr %6, align 8, !tbaa !33
   br label %77
 
 77:                                               ; preds = %70, %67
-  %78 = phi i32 [ %76, %70 ], [ %.pre81, %67 ]
+  %78 = phi i32 [ %76, %70 ], [ %.pre80, %67 ]
   %79 = icmp sgt i32 %78, 0
   br i1 %79, label %._crit_edge, label %.preheader
 
-.loopexit70:                                      ; preds = %.loopexit, %._crit_edge
+.loopexit69:                                      ; preds = %.loopexit, %._crit_edge
   %.0 = phi i32 [ %., %._crit_edge ], [ -541478725, %.loopexit ]
   ret i32 %.0
 }

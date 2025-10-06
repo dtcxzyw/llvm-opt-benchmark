@@ -1518,23 +1518,23 @@ common.ret.sink.split.i:                          ; preds = %107, %110
 ; Function Attrs: cold inlinehint noreturn nonlazybind uwtable
 define internal void @"_ZN10tokio_util4sync4mpsc25PollSenderFuture$LT$T$GT$5empty28_$u7b$$u7b$closure$u7d$$u7d$17hbc9cec5a37bb50f5E"(ptr dead_on_unwind noalias readnone sret([56 x i8]) align 8 captures(none) %0, ptr noundef nonnull align 1 captures(none) %1, ptr noalias readnone align 8 captures(none) %2) unnamed_addr #2 personality ptr @rust_eh_personality {
   %4 = load i8, ptr %1, align 1, !range !80, !noundef !4
-  %switch = icmp eq i8 %4, 0
-  br i1 %switch, label %5, label %9, !prof !81
+  %5 = icmp eq i8 %4, 0
+  br i1 %5, label %6, label %10, !prof !81
 
-5:                                                ; preds = %3
+6:                                                ; preds = %3
   invoke void @_ZN4core9panicking5panic17h13ee8adf815f0d87E(ptr noalias noundef nonnull readonly align 1 @anon.b6fca53bb9b23298a37822d813339071.18, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b6fca53bb9b23298a37822d813339071.19) #24
-          to label %8 unwind label %6
+          to label %9 unwind label %7
 
-6:                                                ; preds = %5
-  %7 = landingpad { ptr, i32 }
+7:                                                ; preds = %6
+  %8 = landingpad { ptr, i32 }
           cleanup
   store i8 2, ptr %1, align 1
-  resume { ptr, i32 } %7
+  resume { ptr, i32 } %8
 
-8:                                                ; preds = %5
+9:                                                ; preds = %6
   unreachable
 
-9:                                                ; preds = %3
+10:                                               ; preds = %3
   tail call void @_ZN4core9panicking11panic_const34panic_const_async_fn_resumed_panic17h0d520b2428f95211E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b6fca53bb9b23298a37822d813339071.20) #24
   unreachable
 }

@@ -5130,7 +5130,7 @@ define hidden noundef zeroext i1 @_ZN7datalog8mk_slice12rule_updatedERKNS_4ruleE
   %23 = icmp eq i32 %22, %9
   %24 = icmp eq ptr %19, %7
   %or.cond.i.i.i = and i1 %24, %23
-  br i1 %or.cond.i.i.i, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit.thread, label %25
+  br i1 %or.cond.i.i.i, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit25, label %25
 
 25:                                               ; preds = %20, %.lr.ph.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %.036.i.i.i, i64 16
@@ -5152,7 +5152,7 @@ define hidden noundef zeroext i1 @_ZN7datalog8mk_slice12rule_updatedERKNS_4ruleE
   %31 = icmp eq i32 %30, %9
   %32 = icmp eq ptr %27, %7
   %or.cond31.i.i.i = and i1 %32, %31
-  br i1 %or.cond31.i.i.i, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit.thread, label %33
+  br i1 %or.cond31.i.i.i, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit25, label %33
 
 33:                                               ; preds = %28, %.lr.ph39.i.i.i
   %34 = getelementptr inbounds nuw i8, ptr %.138.i.i.i, i64 16
@@ -5162,8 +5162,8 @@ define hidden noundef zeroext i1 @_ZN7datalog8mk_slice12rule_updatedERKNS_4ruleE
 _ZNK7obj_mapI9func_declPS0_E8containsES1_.exit:   ; preds = %.lr.ph.i.i.i, %.lr.ph39.i.i.i, %33, %.preheader.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %36 = load i32, ptr %35, align 4, !tbaa !257
-  %.not36.not = icmp eq i32 %36, 0
-  br i1 %.not36.not, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit.thread, label %.lr.ph
+  %.not = icmp eq i32 %36, 0
+  br i1 %.not, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit25, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -5207,7 +5207,7 @@ _ZNK7obj_mapI9func_declPS0_E8containsES1_.exit:   ; preds = %.lr.ph.i.i.i, %.lr.
   %55 = icmp eq i32 %54, %47
   %56 = icmp eq ptr %51, %45
   %or.cond.i.i.i24 = and i1 %56, %55
-  br i1 %or.cond.i.i.i24, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit.thread, label %57
+  br i1 %or.cond.i.i.i24, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit25, label %57
 
 57:                                               ; preds = %52, %.lr.ph.i.i.i12
   %58 = getelementptr inbounds nuw i8, ptr %.036.i.i.i13, i64 16
@@ -5229,7 +5229,7 @@ _ZNK7obj_mapI9func_declPS0_E8containsES1_.exit:   ; preds = %.lr.ph.i.i.i, %.lr.
   %63 = icmp eq i32 %62, %47
   %64 = icmp eq ptr %59, %45
   %or.cond31.i.i.i23 = and i1 %64, %63
-  br i1 %or.cond31.i.i.i23, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit.thread, label %65
+  br i1 %or.cond31.i.i.i23, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit25, label %65
 
 65:                                               ; preds = %60, %.lr.ph39.i.i.i18
   %66 = getelementptr inbounds nuw i8, ptr %.138.i.i.i19, i64 16
@@ -5239,9 +5239,9 @@ _ZNK7obj_mapI9func_declPS0_E8containsES1_.exit:   ; preds = %.lr.ph.i.i.i, %.lr.
 .loopexit:                                        ; preds = %.lr.ph.i.i.i12, %65, %.lr.ph39.i.i.i18, %.preheader.i.i.i16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit.thread, label %38, !llvm.loop !398
+  br i1 %exitcond.not, label %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit25, label %38, !llvm.loop !398
 
-_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit.thread: ; preds = %20, %28, %.loopexit, %52, %60, %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit
+_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit25: ; preds = %20, %28, %.loopexit, %52, %60, %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit
   %.09 = phi i1 [ false, %_ZNK7obj_mapI9func_declPS0_E8containsES1_.exit ], [ true, %60 ], [ true, %52 ], [ false, %.loopexit ], [ true, %28 ], [ true, %20 ]
   ret i1 %.09
 }

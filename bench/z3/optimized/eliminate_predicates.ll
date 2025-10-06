@@ -1845,22 +1845,22 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN8subterms3allERK
           cleanup
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %84
+  br label %85
 
 31:                                               ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit
   %32 = landingpad { ptr, i32 }
           cleanup
-  br label %83
+  br label %84
 
 33:                                               ; preds = %24
   %34 = landingpad { ptr, i32 }
           cleanup
-  br label %82
+  br label %83
 
 35:                                               ; preds = %.critedge, %26
   %36 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %82
 
 37:                                               ; preds = %28
   %38 = invoke noundef ptr @_ZN8subterms8iteratordeEv(ptr noundef nonnull align 8 dereferenceable(56) %5)
@@ -1885,7 +1885,7 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN8subterms3allERK
 49:                                               ; preds = %44, %37
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %81
+  br label %82
 
 .critedge:                                        ; preds = %48, %39
   %51 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN8subterms8iteratorppEv(ptr noundef nonnull align 8 dereferenceable(56) %5)
@@ -1963,32 +1963,32 @@ _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25: ; preds = %70
   unreachable
 
 _ZN8subterms8iteratorD2Ev.exit27:                 ; preds = %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EED2Ev.exit.i25, %76
-  %switch = xor i1 %27, true
+  %81 = xor i1 %27, true
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN8subtermsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %switch
+  ret i1 %81
 
-81:                                               ; preds = %49, %35
+82:                                               ; preds = %49, %35
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %50, %49 ]
   call void @_ZN8subterms8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #23
-  br label %82
-
-82:                                               ; preds = %81, %33
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %81 ], [ %34, %33 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @_ZN8subterms8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
   br label %83
 
-83:                                               ; preds = %82, %31
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %82 ], [ %32, %31 ]
+83:                                               ; preds = %82, %33
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %82 ], [ %34, %33 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @_ZN8subterms8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %5) #23
+  br label %84
+
+84:                                               ; preds = %83, %31
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %83 ], [ %32, %31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN8subtermsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %84
+  br label %85
 
-84:                                               ; preds = %83, %29
-  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %83 ], [ %30, %29 ]
+85:                                               ; preds = %84, %29
+  %.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn, %84 ], [ %30, %29 ]
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
 

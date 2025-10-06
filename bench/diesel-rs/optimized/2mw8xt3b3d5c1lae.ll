@@ -1272,9 +1272,9 @@ define hidden void @_ZN4core9core_arch4simd5i8x165splat17hbaac7a8e744195d9E.llvm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden noundef range(i64 0, 32769) i64 @_ZN5serde2de9size_hint8cautious17hdca31f40039c5fcbE(i64 noundef %0, i64 %1) unnamed_addr #14 personality ptr @rust_eh_personality {
-  %switch = icmp eq i64 %0, 0
-  %3 = tail call i64 @llvm.umin.i64(i64 %1, i64 32768)
-  %.0.sroa.speculated.i = select i1 %switch, i64 0, i64 %3
+  %3 = icmp eq i64 %0, 0
+  %4 = tail call i64 @llvm.umin.i64(i64 %1, i64 32768)
+  %.0.sroa.speculated.i = select i1 %3, i64 0, i64 %4
   ret i64 %.0.sroa.speculated.i
 }
 
@@ -1874,8 +1874,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17h161d7
   %.pn = phi i64 [ %1, %4 ], [ %30, %28 ]
   %.sroa.01.0 = and i64 %.pn, %8
   %12 = getelementptr inbounds i8, ptr %9, i64 %.sroa.01.0
-  %.0.copyload.i33 = load <16 x i8>, ptr %12, align 1, !noalias !294
-  %13 = icmp eq <16 x i8> %.0.copyload.i33, %.15.vec.insert.i
+  %.0.copyload.i32 = load <16 x i8>, ptr %12, align 1, !noalias !294
+  %13 = icmp eq <16 x i8> %.0.copyload.i32, %.15.vec.insert.i
   %14 = bitcast <16 x i1> %13 to i16
   br label %15
 
@@ -1885,10 +1885,10 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17h161d7
   br i1 %.not.not.i, label %16, label %19
 
 16:                                               ; preds = %15
-  %17 = icmp eq <16 x i8> %.0.copyload.i33, splat (i8 -1)
+  %17 = icmp eq <16 x i8> %.0.copyload.i32, splat (i8 -1)
   %18 = bitcast <16 x i1> %17 to i16
   %.not = icmp eq i16 %18, 0
-  br i1 %.not, label %28, label %.loopexit34
+  br i1 %.not, label %28, label %.loopexit33
 
 19:                                               ; preds = %15
   %20 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.0, i1 true)
@@ -1908,9 +1908,9 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw13RawTableInner10find_inner17h161d7
 
 .loopexit:                                        ; preds = %19
   %31 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %21, 1
-  br label %.loopexit34
+  br label %.loopexit33
 
-.loopexit34:                                      ; preds = %16, %.loopexit
+.loopexit33:                                      ; preds = %16, %.loopexit
   %32 = phi { i64, i64 } [ %31, %.loopexit ], [ { i64 0, i64 undef }, %16 ]
   %.sroa.3.0 = phi i64 [ %25, %.loopexit ], [ undef, %16 ]
   %33 = insertvalue { i64, i64 } %32, i64 %.sroa.3.0, 1
@@ -1963,24 +1963,24 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17h4424
   %.pn = phi i64 [ %1, %3 ], [ %62, %60 ]
   %.sroa.01.0.i = and i64 %.pn, %8
   %28 = getelementptr inbounds i8, ptr %9, i64 %.sroa.01.0.i
-  %.0.copyload.i33 = load <16 x i8>, ptr %28, align 1, !noalias !302
-  %29 = icmp eq <16 x i8> %.0.copyload.i33, %.15.vec.insert.i
+  %.0.copyload.i29 = load <16 x i8>, ptr %28, align 1, !noalias !302
+  %29 = icmp eq <16 x i8> %.0.copyload.i29, %.15.vec.insert.i
   %30 = bitcast <16 x i1> %29 to i16
-  %.not.not.i36 = icmp eq i16 %30, 0
-  br i1 %.not.not.i36, label %._crit_edge, label %.lr.ph
+  %.not.not.i32 = icmp eq i16 %30, 0
+  br i1 %.not.not.i32, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.backedge, %27
-  %31 = icmp eq <16 x i8> %.0.copyload.i33, splat (i8 -1)
+  %31 = icmp eq <16 x i8> %.0.copyload.i29, splat (i8 -1)
   %32 = bitcast <16 x i1> %31 to i16
   %.not.i = icmp eq i16 %32, 0
   br i1 %.not.i, label %60, label %_ZN9hashbrown3raw13RawTableInner10find_inner17h161d71df3565f810E.llvm.8737466266532557522.exit
 
 .lr.ph:                                           ; preds = %27, %.backedge
-  %.02237 = phi i16 [ %36, %.backedge ], [ %30, %27 ]
-  %33 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02237, i1 true)
+  %.02233 = phi i16 [ %36, %.backedge ], [ %30, %27 ]
+  %33 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02233, i1 true)
   %34 = zext nneg i16 %33 to i64
-  %35 = add i16 %.02237, -1
-  %36 = and i16 %35, %.02237
+  %35 = add i16 %.02233, -1
+  %36 = and i16 %35, %.02233
   %37 = add i64 %.sroa.01.0.i, %34
   %38 = and i64 %37, %8
   %39 = sub nsw i64 0, %38

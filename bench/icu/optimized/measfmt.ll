@@ -2470,11 +2470,11 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureForm
   %7 = alloca [3 x %"class.icu_77::Formattable"], align 16
   %8 = load i32, ptr %5, align 4, !tbaa !13
   %9 = icmp slt i32 %8, 1
-  br i1 %9, label %10, label %136
+  br i1 %9, label %10, label %137
 
 10:                                               ; preds = %6
   switch i32 %2, label %17 [
-    i32 0, label %136
+    i32 0, label %137
     i32 1, label %11
   ]
 
@@ -2484,13 +2484,13 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureForm
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !58
   %16 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureFormat13formatMeasureERKNS_7MeasureERKNS_12NumberFormatERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef nonnull align 8 dereferenceable(60) %15, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %136
+  br label %137
 
 17:                                               ; preds = %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = load i32, ptr %18, align 8, !tbaa !41
   %20 = icmp eq i32 %19, 3
-  br i1 %20, label %21, label %97
+  br i1 %20, label %21, label %98
 
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2668,130 +2668,130 @@ _ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit: ; preds =
 
 87:                                               ; preds = %.loopexit.split-lp, %.loopexit102
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit102 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  br label %93
+  br label %94
 
 _ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread: ; preds = %42, %.noexc87, %55, %.noexc90, %.noexc93, %.noexc92, %.noexc91, %26, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit
-  %switch = phi i1 [ false, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit ], [ true, %26 ], [ true, %.noexc91 ], [ true, %.noexc92 ], [ true, %.noexc93 ], [ true, %.noexc90 ], [ true, %55 ], [ true, %.noexc87 ], [ true, %42 ]
-  br label %88
+  %88 = phi i1 [ false, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit ], [ true, %26 ], [ true, %.noexc91 ], [ true, %.noexc92 ], [ true, %.noexc93 ], [ true, %.noexc90 ], [ true, %55 ], [ true, %.noexc87 ], [ true, %42 ]
+  br label %89
 
-88:                                               ; preds = %88, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread
-  %89 = phi ptr [ %22, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread ], [ %90, %88 ]
-  %90 = getelementptr inbounds i8, ptr %89, i64 -112
-  call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %90) #19
-  %91 = icmp eq ptr %90, %7
-  br i1 %91, label %92, label %88
+89:                                               ; preds = %89, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread
+  %90 = phi ptr [ %22, %_ZN6icu_77L5toHMSEPKNS_7MeasureEiPNS_11FormattableER10UErrorCode.exit.thread ], [ %91, %89 ]
+  %91 = getelementptr inbounds i8, ptr %90, i64 -112
+  call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %91) #19
+  %92 = icmp eq ptr %91, %7
+  br i1 %92, label %93, label %89
 
-92:                                               ; preds = %88
+93:                                               ; preds = %89
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %switch, label %97, label %136
+  br i1 %88, label %98, label %137
 
-93:                                               ; preds = %93, %87
-  %94 = phi ptr [ %22, %87 ], [ %95, %93 ]
-  %95 = getelementptr inbounds i8, ptr %94, i64 -112
-  call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %95) #19
-  %96 = icmp eq ptr %95, %7
-  br i1 %96, label %.loopexit101, label %93
+94:                                               ; preds = %94, %87
+  %95 = phi ptr [ %22, %87 ], [ %96, %94 ]
+  %96 = getelementptr inbounds i8, ptr %95, i64 -112
+  call void @_ZN6icu_7711FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %96) #19
+  %97 = icmp eq ptr %96, %7
+  br i1 %97, label %.loopexit101, label %94
 
-.loopexit101:                                     ; preds = %.preheader103, %93, %81
-  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %lpad.phi, %93 ], [ %82, %.preheader103 ]
+.loopexit101:                                     ; preds = %.preheader103, %94, %81
+  %.pn = phi { ptr, i32 } [ %82, %81 ], [ %lpad.phi, %94 ], [ %82, %.preheader103 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn
 
-97:                                               ; preds = %92, %17
-  %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %99 = load i32, ptr %98, align 8, !tbaa !92
-  %.not72 = icmp eq i32 %99, -1
-  br i1 %.not72, label %102, label %100
+98:                                               ; preds = %93, %17
+  %99 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %100 = load i32, ptr %99, align 8, !tbaa !92
+  %.not72 = icmp eq i32 %100, -1
+  br i1 %.not72, label %103, label %101
 
-100:                                              ; preds = %97
-  %101 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureFormat23formatMeasuresSlowTrackEPKNS_7MeasureEiRNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  br label %136
+101:                                              ; preds = %98
+  %102 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureFormat23formatMeasuresSlowTrackEPKNS_7MeasureEiRNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  br label %137
 
-102:                                              ; preds = %97
-  %103 = sext i32 %2 to i64
-  %104 = icmp slt i32 %2, 0
-  %105 = shl nsw i64 %103, 6
-  %106 = or disjoint i64 %105, 8
-  %107 = select i1 %104, i64 -1, i64 %106
-  %108 = call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %107) #19
-  %109 = icmp eq ptr %108, null
-  br i1 %109, label %120, label %110
+103:                                              ; preds = %98
+  %104 = sext i32 %2 to i64
+  %105 = icmp slt i32 %2, 0
+  %106 = shl nsw i64 %104, 6
+  %107 = or disjoint i64 %106, 8
+  %108 = select i1 %105, i64 -1, i64 %107
+  %109 = call noundef ptr @_ZN6icu_777UMemorynaEm(i64 noundef %108) #19
+  %110 = icmp eq ptr %109, null
+  br i1 %110, label %121, label %111
 
-110:                                              ; preds = %102
-  store i64 %103, ptr %108, align 8
-  br label %111
+111:                                              ; preds = %103
+  store i64 %104, ptr %109, align 8
+  br label %112
 
-111:                                              ; preds = %110, %111
-  %.idx73 = phi i64 [ 8, %110 ], [ %.add74, %111 ]
-  %.ptr75.ptr = getelementptr inbounds nuw i8, ptr %108, i64 %.idx73
+112:                                              ; preds = %111, %112
+  %.idx73 = phi i64 [ 8, %111 ], [ %.add74, %112 ]
+  %.ptr75.ptr = getelementptr inbounds nuw i8, ptr %109, i64 %.idx73
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %.ptr75.ptr, align 8, !tbaa !15
-  %112 = getelementptr inbounds nuw i8, ptr %.ptr75.ptr, i64 8
-  store i16 2, ptr %112, align 8, !tbaa !72
+  %113 = getelementptr inbounds nuw i8, ptr %.ptr75.ptr, i64 8
+  store i16 2, ptr %113, align 8, !tbaa !72
   %.add74 = add nuw nsw i64 %.idx73, 64
-  %113 = add nuw nsw i64 %.idx73, 56
-  %114 = icmp eq i64 %113, %105
-  br i1 %114, label %.preheader100, label %111
+  %114 = add nuw nsw i64 %.idx73, 56
+  %115 = icmp eq i64 %114, %106
+  br i1 %115, label %.preheader100, label %112
 
-.preheader100:                                    ; preds = %111
-  %.ptr77.ptr = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %115 = icmp sgt i32 %2, 0
-  br i1 %115, label %.lr.ph, label %._crit_edge
+.preheader100:                                    ; preds = %112
+  %.ptr77.ptr = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %116 = icmp sgt i32 %2, 0
+  br i1 %116, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader100
-  %116 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %117 = add nsw i32 %2, -1
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %119 = zext nneg i32 %117 to i64
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %118 = add nsw i32 %2, -1
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %120 = zext nneg i32 %118 to i64
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %126
+  br label %127
 
-120:                                              ; preds = %102
+121:                                              ; preds = %103
   store i32 7, ptr %5, align 4, !tbaa !13
-  br label %136
+  br label %137
 
-._crit_edge:                                      ; preds = %126, %.preheader100
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %122 = load ptr, ptr %121, align 8, !tbaa !49
-  %123 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713ListFormatter6formatEPKNS_13UnicodeStringEiRS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %122, ptr noundef nonnull %.ptr77.ptr, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  %124 = load i64, ptr %108, align 8
-  %125 = icmp eq i64 %124, 0
-  br i1 %125, label %.loopexit, label %.preheader.preheader
+._crit_edge:                                      ; preds = %127, %.preheader100
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %123 = load ptr, ptr %122, align 8, !tbaa !49
+  %124 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713ListFormatter6formatEPKNS_13UnicodeStringEiRS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull %.ptr77.ptr, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %125 = load i64, ptr %109, align 8
+  %126 = icmp eq i64 %125, 0
+  br i1 %126, label %.loopexit, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %._crit_edge
-  %.idx85 = shl nsw i64 %124, 6
+  %.idx85 = shl nsw i64 %125, 6
   %.ptr77.add = or disjoint i64 %.idx85, 8
   br label %.preheader
 
-126:                                              ; preds = %.lr.ph, %126
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
-  %127 = load ptr, ptr %116, align 8, !tbaa !53
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 64
-  %129 = icmp eq i64 %indvars.iv, %119
-  %130 = load ptr, ptr %118, align 8
-  %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
-  %.0.in = select i1 %129, ptr %131, ptr %128
+127:                                              ; preds = %.lr.ph, %127
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %127 ]
+  %128 = load ptr, ptr %117, align 8, !tbaa !53
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 64
+  %130 = icmp eq i64 %indvars.iv, %120
+  %131 = load ptr, ptr %119, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
+  %.0.in = select i1 %130, ptr %132, ptr %129
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !30
-  %132 = getelementptr inbounds nuw %"class.icu_77::Measure", ptr %1, i64 %indvars.iv
-  %133 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr77.ptr, i64 %indvars.iv
-  %134 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureFormat13formatMeasureERKNS_7MeasureERKNS_12NumberFormatERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(128) %132, ptr noundef nonnull align 8 dereferenceable(60) %.0, ptr noundef nonnull align 8 dereferenceable(64) %133, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
+  %133 = getelementptr inbounds nuw %"class.icu_77::Measure", ptr %1, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr77.ptr, i64 %indvars.iv
+  %135 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7713MeasureFormat13formatMeasureERKNS_7MeasureERKNS_12NumberFormatERNS_13UnicodeStringERNS_13FieldPositionER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(128) %133, ptr noundef nonnull align 8 dereferenceable(60) %.0, ptr noundef nonnull align 8 dereferenceable(64) %134, ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %126, !llvm.loop !94
+  br i1 %exitcond.not, label %._crit_edge, label %127, !llvm.loop !94
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %.idx95 = phi i64 [ %.add96, %.preheader ], [ %.ptr77.add, %.preheader.preheader ]
   %.add96 = add nsw i64 %.idx95, -64
-  %.ptr98 = getelementptr inbounds i8, ptr %108, i64 %.add96
+  %.ptr98 = getelementptr inbounds i8, ptr %109, i64 %.add96
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.ptr98) #19
-  %135 = icmp eq i64 %.add96, 8
-  br i1 %135, label %.loopexit, label %.preheader
+  %136 = icmp eq i64 %.add96, 8
+  br i1 %136, label %.loopexit, label %.preheader
 
 .loopexit:                                        ; preds = %.preheader, %._crit_edge
-  call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %108) #19
-  br label %136
+  call void @_ZN6icu_777UMemorydaEPv(ptr noundef nonnull %109) #19
+  br label %137
 
-136:                                              ; preds = %120, %.loopexit, %92, %10, %6, %100, %11
-  %.054 = phi ptr [ %16, %11 ], [ %3, %100 ], [ %3, %92 ], [ %3, %6 ], [ %3, %10 ], [ %3, %.loopexit ], [ %3, %120 ]
+137:                                              ; preds = %121, %.loopexit, %93, %10, %6, %101, %11
+  %.054 = phi ptr [ %16, %11 ], [ %3, %101 ], [ %3, %93 ], [ %3, %6 ], [ %3, %10 ], [ %3, %.loopexit ], [ %3, %121 ]
   ret ptr %.054
 }
 

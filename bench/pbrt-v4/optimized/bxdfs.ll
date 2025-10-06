@@ -974,8 +974,8 @@ _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7V
   br label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit
 
 ._crit_edge:                                      ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit959, %_ZN4pbrt4HashIJiNS_7Vector3IfEEEEEmDpT_.exit
-  %.lcssa1221 = phi i32 [ %106, %_ZN4pbrt4HashIJiNS_7Vector3IfEEEEEmDpT_.exit ], [ %959, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit959 ]
-  %162 = sitofp i32 %.lcssa1221 to float
+  %.lcssa1220 = phi i32 [ %106, %_ZN4pbrt4HashIJiNS_7Vector3IfEEEEEmDpT_.exit ], [ %959, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit959 ]
+  %162 = sitofp i32 %.lcssa1220 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !18
   br label %163
@@ -1003,15 +1003,15 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit:              ; preds = %163
   ret { <2 x float>, <2 x float> } %.fca.1.insert.i395
 
 _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit: ; preds = %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit959
-  %.01294 = phi i32 [ 0, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph ], [ %958, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit959 ]
-  %.sroa.0.01293 = phi i64 [ %126, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph ], [ %.sroa.0.1, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit959 ]
-  %167 = mul i64 %.sroa.0.01293, 6364136223846793005
+  %.01293 = phi i32 [ 0, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph ], [ %958, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit959 ]
+  %.sroa.0.01292 = phi i64 [ %126, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph ], [ %.sroa.0.1, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit959 ]
+  %167 = mul i64 %.sroa.0.01292, 6364136223846793005
   %168 = add i64 %167, %104
-  %169 = lshr i64 %.sroa.0.01293, 45
-  %170 = lshr i64 %.sroa.0.01293, 27
+  %169 = lshr i64 %.sroa.0.01292, 45
+  %170 = lshr i64 %.sroa.0.01292, 27
   %171 = xor i64 %169, %170
   %172 = trunc i64 %171 to i32
-  %173 = lshr i64 %.sroa.0.01293, 59
+  %173 = lshr i64 %.sroa.0.01292, 59
   %174 = trunc nuw nsw i64 %173 to i32
   %175 = call noundef i32 @llvm.fshr.i32(i32 %172, i32 %172, i32 %174)
   %176 = uitofp i32 %175 to float
@@ -1142,11 +1142,11 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit415:          ; preds = %_ZN4pstd8optionalIN
   %.not = xor i1 %253, true
   %254 = load float, ptr %133, align 4
   %255 = fcmp oeq float %254, 0.000000e+00
-  %or.cond1297 = select i1 %.not, i1 true, i1 %255
+  %or.cond1296 = select i1 %.not, i1 true, i1 %255
   %256 = load float, ptr %134, align 4
   %257 = fcmp oeq float %256, 0.000000e+00
-  %or.cond1299 = select i1 %or.cond1297, i1 true, i1 %257
-  br i1 %or.cond1299, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit957, label %258
+  %or.cond1298 = select i1 %or.cond1296, i1 true, i1 %257
+  br i1 %or.cond1298, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit957, label %258
 
 258:                                              ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit415
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
@@ -1215,12 +1215,12 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit415:          ; preds = %_ZN4pstd8optionalIN
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread
-  %.03341290 = phi float [ %.4338, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %270, %.lr.ph.preheader ]
-  %.03391289 = phi i32 [ %955, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ 0, %.lr.ph.preheader ]
-  %.sroa.30.01287 = phi float [ %.sroa.30.4, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %210, %.lr.ph.preheader ]
-  %.sroa.01015.01286 = phi <2 x float> [ %.sroa.01015.4, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %.sroa.01015.0.copyload, %.lr.ph.preheader ]
-  %.sroa.0.31285 = phi i64 [ %.sroa.0.8, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %218, %.lr.ph.preheader ]
-  %286 = icmp samesign ugt i32 %.03391289, 3
+  %.03341289 = phi float [ %.4338, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %270, %.lr.ph.preheader ]
+  %.03391288 = phi i32 [ %955, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ 0, %.lr.ph.preheader ]
+  %.sroa.30.01286 = phi float [ %.sroa.30.4, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %210, %.lr.ph.preheader ]
+  %.sroa.01015.01285 = phi <2 x float> [ %.sroa.01015.4, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %.sroa.01015.0.copyload, %.lr.ph.preheader ]
+  %.sroa.0.31284 = phi i64 [ %.sroa.0.8, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %218, %.lr.ph.preheader ]
+  %286 = icmp samesign ugt i32 %.03391288, 3
   br i1 %286, label %287, label %_ZN4pbrt15SampledSpectrumdVEf.exit
 
 287:                                              ; preds = %.lr.ph
@@ -1257,13 +1257,13 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit: ; preds = %289
   %298 = fsub float 1.000000e+00, %.sroa.speculated.i447
   %299 = fcmp ogt float %298, 0.000000e+00
   %.sroa.speculated = select i1 %299, float %298, float 0.000000e+00
-  %300 = mul i64 %.sroa.0.31285, 6364136223846793005
+  %300 = mul i64 %.sroa.0.31284, 6364136223846793005
   %301 = add i64 %300, %104
-  %302 = lshr i64 %.sroa.0.31285, 45
-  %303 = lshr i64 %.sroa.0.31285, 27
+  %302 = lshr i64 %.sroa.0.31284, 45
+  %303 = lshr i64 %.sroa.0.31284, 27
   %304 = xor i64 %302, %303
   %305 = trunc i64 %304 to i32
-  %306 = lshr i64 %.sroa.0.31285, 59
+  %306 = lshr i64 %.sroa.0.31284, 59
   %307 = trunc nuw nsw i64 %306 to i32
   %308 = call noundef i32 @llvm.fshr.i32(i32 %305, i32 %305, i32 %307)
   %309 = uitofp i32 %308 to float
@@ -1288,7 +1288,7 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit: ; preds = %289
   br i1 %exitcond.not.i454, label %_ZN4pbrt15SampledSpectrumdVEf.exit, label %315, !llvm.loop !49
 
 _ZN4pbrt15SampledSpectrumdVEf.exit:               ; preds = %315, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit, %.lr.ph
-  %.sroa.0.5 = phi i64 [ %.sroa.0.31285, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit ], [ %.sroa.0.31285, %.lr.ph ], [ %301, %315 ]
+  %.sroa.0.5 = phi i64 [ %.sroa.0.31284, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit ], [ %.sroa.0.31284, %.lr.ph ], [ %301, %315 ]
   br label %319
 
 319:                                              ; preds = %319, %_ZN4pbrt15SampledSpectrumdVEf.exit
@@ -1306,14 +1306,14 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit459:          ; preds = %319
 
 323:                                              ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit459
   %324 = load float, ptr %88, align 4, !tbaa !9
-  %325 = fcmp oeq float %.03341290, %324
+  %325 = fcmp oeq float %.03341289, %324
   %326 = select i1 %325, float 0.000000e+00, float %324
   %327 = call noundef float @llvm.fabs.f32(float %324)
   %328 = fcmp ugt float %327, 0x3810000000000000
   br i1 %328, label %329, label %_ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_11DiffuseBxDFELb1EE2TrEfNS_7Vector3IfEE.exit
 
 329:                                              ; preds = %323
-  %330 = fdiv float %324, %.sroa.30.01287
+  %330 = fdiv float %324, %.sroa.30.01286
   %331 = call noundef float @llvm.fabs.f32(float %330)
   %332 = fmul float %331, 0xBFF7154760000000
   %333 = call noundef float @llvm.floor.f32(float %332)
@@ -1369,17 +1369,17 @@ _ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_11DiffuseBxDFELb1EE2TrEfNS_7Vector3
   %367 = fmul float %366, 0x3DF0000000000000
   %368 = fcmp olt float %367, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i463 = select i1 %368, float %367, float 0x3FEFFFFFE0000000
-  %369 = call noundef float @llvm.fabs.f32(float %.sroa.30.01287)
+  %369 = call noundef float @llvm.fabs.f32(float %.sroa.30.01286)
   %370 = fdiv float 1.000000e+00, %369
   %371 = fsub float 1.000000e+00, %.sroa.speculated.i.i463
   %372 = call noundef float @logf(float noundef %371) #30, !tbaa !67
   %373 = fneg float %372
   %374 = fdiv float %373, %370
-  %375 = fcmp ogt float %.sroa.30.01287, 0.000000e+00
+  %375 = fcmp ogt float %.sroa.30.01286, 0.000000e+00
   %376 = fneg float %374
   %.p = select i1 %375, float %374, float %376
-  %377 = fadd float %.03341290, %.p
-  %378 = fcmp oeq float %.03341290, %377
+  %377 = fadd float %.03341289, %.p
+  %378 = fcmp oeq float %.03341289, %377
   br i1 %378, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread, label %379
 
 379:                                              ; preds = %356
@@ -1392,7 +1392,7 @@ _ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_11DiffuseBxDFELb1EE2TrEfNS_7Vector3
 383:                                              ; preds = %379
   %384 = load ptr, ptr %39, align 8, !tbaa !40
   %.not.i464 = icmp eq ptr %384, null
-  br i1 %.not.i464, label %.critedge1169, label %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i
+  br i1 %.not.i464, label %.critedge1168, label %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i
 
 _ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i:            ; preds = %383
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 4
@@ -1402,13 +1402,13 @@ _ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i:            ; preds = %383
   %389 = fcmp olt float %387, %388
   %390 = select i1 %389, float %388, float %387
   %391 = fcmp uge float %390, 0x3F50624DE0000000
-  br i1 %391, label %.critedge1169, label %_ZN4pbrt14PowerHeuristicEifif.exit
+  br i1 %391, label %.critedge1168, label %_ZN4pbrt14PowerHeuristicEifif.exit
 
-.critedge1169:                                    ; preds = %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i, %383
-  %.sroa.01015.0.vec.extract = extractelement <2 x float> %.sroa.01015.01286, i64 0
+.critedge1168:                                    ; preds = %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i, %383
+  %.sroa.01015.0.vec.extract = extractelement <2 x float> %.sroa.01015.01285, i64 0
   %392 = fneg float %.sroa.01015.0.vec.extract
-  %393 = fneg float %.sroa.30.01287
-  %394 = fneg <2 x float> %.sroa.01015.01286
+  %393 = fneg float %.sroa.30.01286
+  %394 = fneg <2 x float> %.sroa.01015.01285
   %.sroa.0.4.vec.insert.i471 = insertelement <2 x float> %394, float %392, i64 0
   %395 = load float, ptr %142, align 4, !tbaa !68
   %396 = fneg float %395
@@ -1419,14 +1419,14 @@ _ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i:            ; preds = %383
   %399 = call noundef float @_ZNK4pbrt15HGPhaseFunction3PDFENS_7Vector3IfEES2_(ptr noundef nonnull align 4 dereferenceable(4) %44, <2 x float> %.sroa.0.4.vec.insert.i471, float %393, <2 x float> %.sroa.0.4.vec.insert.i477, float %282)
   br i1 %285, label %_ZN4pbrt14PowerHeuristicEifif.exit, label %400
 
-400:                                              ; preds = %.critedge1169
+400:                                              ; preds = %.critedge1168
   %401 = fmul float %399, %399
   %402 = fadd float %283, %401
   %403 = fdiv float %283, %402
   br label %_ZN4pbrt14PowerHeuristicEifif.exit
 
-_ZN4pbrt14PowerHeuristicEifif.exit:               ; preds = %400, %.critedge1169, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i
-  %.0340 = phi float [ 1.000000e+00, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i ], [ %403, %400 ], [ 1.000000e+00, %.critedge1169 ]
+_ZN4pbrt14PowerHeuristicEifif.exit:               ; preds = %400, %.critedge1168, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i
+  %.0340 = phi float [ 1.000000e+00, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i ], [ %403, %400 ], [ 1.000000e+00, %.critedge1168 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !18
@@ -1448,11 +1448,11 @@ _ZN4pbrt14PowerHeuristicEifif.exit:               ; preds = %400, %.critedge1169
   %.sroa.0.0.copyload.i484 = load <2 x float>, ptr %32, align 8
   %.sroa.2.0.copyload.i486 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i485, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  %.sroa.01015.0.vec.extract1018 = extractelement <2 x float> %.sroa.01015.01286, i64 0
+  %.sroa.01015.0.vec.extract1018 = extractelement <2 x float> %.sroa.01015.01285, i64 0
   %411 = fneg float %.sroa.01015.0.vec.extract1018
-  %.sroa.01015.4.vec.extract1040 = extractelement <2 x float> %.sroa.01015.01286, i64 1
-  %412 = fneg float %.sroa.30.01287
-  %413 = fneg <2 x float> %.sroa.01015.01286
+  %.sroa.01015.4.vec.extract1040 = extractelement <2 x float> %.sroa.01015.01285, i64 1
+  %412 = fneg float %.sroa.30.01286
+  %413 = fneg <2 x float> %.sroa.01015.01285
   %.sroa.0.4.vec.insert.i490 = insertelement <2 x float> %413, float %411, i64 0
   %414 = load float, ptr %142, align 4, !tbaa !68
   %415 = load float, ptr %143, align 4, !tbaa !69
@@ -1470,7 +1470,7 @@ _ZN4pbrt14PowerHeuristicEifif.exit:               ; preds = %400, %.critedge1169
 
 422:                                              ; preds = %421, %419, %410
   %.0.i.i.i = phi float [ 0x3FEFAE1480000000, %421 ], [ %416, %419 ], [ 0xBFEFAE1480000000, %410 ]
-  %423 = fmul float %.sroa.30.01287, %256
+  %423 = fmul float %.sroa.30.01286, %256
   %424 = fmul float %.sroa.01015.0.vec.extract1018, %414
   %425 = fmul float %.sroa.01015.4.vec.extract1040, %415
   %426 = fadd float %424, %425
@@ -1674,8 +1674,8 @@ _ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_11DiffuseBxDFELb1EE2TrEfNS_7Vector3
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !72
   %524 = fcmp oeq float %523, 0.000000e+00
   %525 = fcmp oeq float %.fca.1.extract.i, 0.000000e+00
-  %or.cond1160 = select i1 %524, i1 true, i1 %525
-  br i1 %or.cond1160, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread, label %526
+  %or.cond1159 = select i1 %524, i1 true, i1 %525
+  br i1 %or.cond1159, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread, label %526
 
 526:                                              ; preds = %497
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
@@ -1748,8 +1748,8 @@ _ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_11DiffuseBxDFELb1EE2TrEfNS_7Vector3
 549:                                              ; preds = %546, %543
   %550 = call noundef i32 @_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE5FlagsEv(ptr noundef nonnull align 8 dereferenceable(16) %39)
   %551 = and i32 %550, 16
-  %.not1168 = icmp eq i32 %551, 0
-  br i1 %.not1168, label %552, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread
+  %.not1167 = icmp eq i32 %551, 0
+  br i1 %.not1167, label %552, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread
 
 552:                                              ; preds = %549
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
@@ -1935,10 +1935,10 @@ _ZN4pbrt15SampledSpectrummLEf.exit:               ; preds = %352, %_ZN4pstd8opti
   %623 = fcmp olt float %622, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i648 = select i1 %623, float %622, float 0x3FEFFFFFE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %.sroa.01015.0.vec.extract1026 = extractelement <2 x float> %.sroa.01015.01286, i64 0
+  %.sroa.01015.0.vec.extract1026 = extractelement <2 x float> %.sroa.01015.01285, i64 0
   %624 = fneg float %.sroa.01015.0.vec.extract1026
-  %625 = fneg float %.sroa.30.01287
-  %626 = fneg <2 x float> %.sroa.01015.01286
+  %625 = fneg float %.sroa.30.01286
+  %626 = fneg <2 x float> %.sroa.01015.01285
   %.sroa.0.4.vec.insert.i650 = insertelement <2 x float> %626, float %624, i64 0
   %627 = mul i64 %613, 6364136223846793005
   %628 = add i64 %627, %104
@@ -2065,7 +2065,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit697: ; preds = %611, %_ZN4pstd8op
 678:                                              ; preds = %_ZN4pbrt15SampledSpectrummLEf.exit
   %679 = load ptr, ptr %40, align 8, !tbaa !40
   %.not.i700 = icmp eq ptr %679, null
-  br i1 %.not.i700, label %.critedge1170, label %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705
+  br i1 %.not.i700, label %.critedge1169, label %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705
 
 _ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705:         ; preds = %678
   %680 = getelementptr inbounds nuw i8, ptr %679, i64 4
@@ -2075,22 +2075,22 @@ _ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705:         ; preds = %678
   %684 = fcmp olt float %682, %683
   %685 = select i1 %684, float %683, float %682
   %686 = fcmp uge float %685, 0x3F50624DE0000000
-  br i1 %686, label %.critedge1170, label %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705._crit_edge
+  br i1 %686, label %.critedge1169, label %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705._crit_edge
 
 _ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705._crit_edge: ; preds = %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705
-  %.pre1324 = extractelement <2 x float> %.sroa.01015.01286, i64 0
-  %.pre1325 = fneg float %.pre1324
-  %.pre1329 = fneg float %.sroa.30.01287
-  %687 = fneg <2 x float> %.sroa.01015.01286
-  %.pre1332 = insertelement <2 x float> %687, float %.pre1325, i64 0
+  %.pre1323 = extractelement <2 x float> %.sroa.01015.01285, i64 0
+  %.pre1324 = fneg float %.pre1323
+  %.pre1328 = fneg float %.sroa.30.01286
+  %687 = fneg <2 x float> %.sroa.01015.01285
+  %.pre1331 = insertelement <2 x float> %687, float %.pre1324, i64 0
   br label %801
 
-.critedge1170:                                    ; preds = %678, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705
+.critedge1169:                                    ; preds = %678, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705
   %688 = load ptr, ptr %39, align 8, !tbaa !40
   %.not.i707 = icmp eq ptr %688, null
-  br i1 %.not.i707, label %.critedge1171, label %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i712
+  br i1 %.not.i707, label %.critedge1170, label %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i712
 
-_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i712:         ; preds = %.critedge1170
+_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i712:         ; preds = %.critedge1169
   %689 = getelementptr inbounds nuw i8, ptr %688, i64 4
   %690 = getelementptr inbounds nuw i8, ptr %688, i64 8
   %691 = load float, ptr %689, align 4, !tbaa !4
@@ -2098,28 +2098,28 @@ _ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i712:         ; preds = %.critedge1170
   %693 = fcmp olt float %691, %692
   %694 = select i1 %693, float %692, float %691
   %695 = fcmp uge float %694, 0x3F50624DE0000000
-  br i1 %695, label %.critedge1171, label %713
+  br i1 %695, label %.critedge1170, label %713
 
-.critedge1171:                                    ; preds = %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i712, %.critedge1170
+.critedge1170:                                    ; preds = %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i712, %.critedge1169
   br i1 %.not.i700, label %705, label %696
 
-696:                                              ; preds = %.critedge1171
-  %697 = fneg float %.sroa.30.01287
+696:                                              ; preds = %.critedge1170
+  %697 = fneg float %.sroa.30.01286
   %698 = load float, ptr %142, align 4, !tbaa !68
   %699 = fneg float %698
   %.sroa.0.0.vec.insert.i722 = insertelement <2 x float> poison, float %699, i64 0
   %700 = load float, ptr %143, align 4, !tbaa !69
   %701 = fneg float %700
   %.sroa.0.4.vec.insert.i723 = insertelement <2 x float> %.sroa.0.0.vec.insert.i722, float %701, i64 1
-  %.sroa.01015.0.vec.extract1028 = extractelement <2 x float> %.sroa.01015.01286, i64 0
+  %.sroa.01015.0.vec.extract1028 = extractelement <2 x float> %.sroa.01015.01285, i64 0
   %702 = fneg float %.sroa.01015.0.vec.extract1028
-  %703 = fneg <2 x float> %.sroa.01015.01286
+  %703 = fneg <2 x float> %.sroa.01015.01285
   %.sroa.0.4.vec.insert.i717 = insertelement <2 x float> %703, float %702, i64 0
   %704 = call noundef float @_ZNK4pbrt14DielectricBxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull align 4 dereferenceable(12) %679, <2 x float> %.sroa.0.4.vec.insert.i717, float %697, <2 x float> %.sroa.0.4.vec.insert.i723, float %274, i32 poison, i32 noundef 3)
   br label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE.exit728
 
-705:                                              ; preds = %.critedge1171
-  %706 = fmul float %.sroa.30.01287, %256
+705:                                              ; preds = %.critedge1170
+  %706 = fmul float %.sroa.30.01286, %256
   %707 = fcmp ogt float %706, 0.000000e+00
   %.0.i.i = select i1 %707, float %276, float 0.000000e+00
   br label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE.exit728
@@ -2138,10 +2138,10 @@ _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector
   %.0341 = phi float [ 1.000000e+00, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i712 ], [ %712, %709 ], [ 1.000000e+00, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE.exit728 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  %.sroa.01015.0.vec.extract1030 = extractelement <2 x float> %.sroa.01015.01286, i64 0
+  %.sroa.01015.0.vec.extract1030 = extractelement <2 x float> %.sroa.01015.01285, i64 0
   %714 = fneg float %.sroa.01015.0.vec.extract1030
-  %715 = fneg float %.sroa.30.01287
-  %716 = fneg <2 x float> %.sroa.01015.01286
+  %715 = fneg float %.sroa.30.01286
+  %716 = fneg <2 x float> %.sroa.01015.01285
   %.sroa.0.4.vec.insert.i732 = insertelement <2 x float> %716, float %714, i64 0
   %717 = load ptr, ptr %40, align 8, !tbaa !40
   %.not.i741 = icmp eq ptr %717, null
@@ -2158,7 +2158,7 @@ _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector
   br label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE1fENS_7Vector3IfEES5_NS_13TransportModeE.exit756
 
 724:                                              ; preds = %713
-  %725 = fmul float %.sroa.30.01287, %256
+  %725 = fmul float %.sroa.30.01286, %256
   %726 = fcmp ogt float %725, 0.000000e+00
   br i1 %726, label %727, label %_ZNK4pbrt11DiffuseBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE.exit.i743
 
@@ -2372,8 +2372,8 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit824:        ; preds = %795
   br label %801
 
 801:                                              ; preds = %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705._crit_edge, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit824
-  %.sroa.0.4.vec.insert.i829.pre-phi = phi <2 x float> [ %.pre1332, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705._crit_edge ], [ %.sroa.0.4.vec.insert.i732, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit824 ]
-  %.pre-phi1330 = phi float [ %.pre1329, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705._crit_edge ], [ %715, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit824 ]
+  %.sroa.0.4.vec.insert.i829.pre-phi = phi <2 x float> [ %.pre1331, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705._crit_edge ], [ %.sroa.0.4.vec.insert.i732, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit824 ]
+  %.pre-phi1329 = phi float [ %.pre1328, %_ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i705._crit_edge ], [ %715, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit824 ]
   %802 = mul i64 %.sroa.0.6, 6364136223846793005
   %803 = add i64 %802, %104
   %804 = lshr i64 %.sroa.0.6, 45
@@ -2416,7 +2416,7 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit824:        ; preds = %795
   %.sroa.0968.0.vec.insert = insertelement <2 x float> poison, float %.sroa.speculated.i.i826, i64 0
   %.sroa.0968.4.vec.insert = insertelement <2 x float> %.sroa.0968.0.vec.insert, float %.sroa.speculated.i.i827, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  invoke void @_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional") align 4 %53, ptr noundef nonnull align 8 dereferenceable(16) %40, <2 x float> %.sroa.0.4.vec.insert.i829.pre-phi, float %.pre-phi1330, float noundef %.sroa.speculated.i.i825, <2 x float> %.sroa.0968.4.vec.insert, i32 noundef %5, i32 noundef 1)
+  invoke void @_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional") align 4 %53, ptr noundef nonnull align 8 dereferenceable(16) %40, <2 x float> %.sroa.0.4.vec.insert.i829.pre-phi, float %.pre-phi1329, float noundef %.sroa.speculated.i.i825, <2 x float> %.sroa.0968.4.vec.insert, i32 noundef %5, i32 noundef 1)
           to label %838 unwind label %848
 
 838:                                              ; preds = %801
@@ -2537,11 +2537,11 @@ _ZNK4pbrt11DiffuseBxDF5FlagsEv.exit.i878:         ; preds = %868
 
 882:                                              ; preds = %868
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  %.sroa.01015.0.vec.extract10341361 = extractelement <2 x float> %.sroa.01015.0.copyload1038, i64 0
-  %883 = fneg float %.sroa.01015.0.vec.extract10341361
+  %.sroa.01015.0.vec.extract10341360 = extractelement <2 x float> %.sroa.01015.0.copyload1038, i64 0
+  %883 = fneg float %.sroa.01015.0.vec.extract10341360
   %884 = fneg float %846
   %885 = fneg <2 x float> %.sroa.01015.0.copyload1038
-  %.sroa.0.4.vec.insert.i8811364 = insertelement <2 x float> %885, float %883, i64 0
+  %.sroa.0.4.vec.insert.i8811363 = insertelement <2 x float> %885, float %883, i64 0
   %886 = fmul float %.sroa.14.0, %884
   %887 = fcmp ogt float %886, 0.000000e+00
   br i1 %887, label %888, label %_ZNK4pbrt11DiffuseBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE.exit.i886
@@ -2576,7 +2576,7 @@ _ZNK4pbrt11DiffuseBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE.exit.i886: ; pred
   br label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE1fENS_7Vector3IfEES5_NS_13TransportModeE.exit899
 
 _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE1fENS_7Vector3IfEES5_NS_13TransportModeE.exit899: ; preds = %_ZNK4pbrt11DiffuseBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE.exit.i886, %877
-  %.sroa.0.4.vec.insert.i8811365 = phi <2 x float> [ %.sroa.0.4.vec.insert.i8811364, %_ZNK4pbrt11DiffuseBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE.exit.i886 ], [ %.sroa.0.4.vec.insert.i881, %877 ]
+  %.sroa.0.4.vec.insert.i8811364 = phi <2 x float> [ %.sroa.0.4.vec.insert.i8811363, %_ZNK4pbrt11DiffuseBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE.exit.i886 ], [ %.sroa.0.4.vec.insert.i881, %877 ]
   %894 = phi float [ %884, %_ZNK4pbrt11DiffuseBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE.exit.i886 ], [ %879, %877 ]
   %.pn.i885 = phi { <2 x float>, <2 x float> } [ %.fca.1.insert.i.i890, %_ZNK4pbrt11DiffuseBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE.exit.i886 ], [ %881, %877 ]
   %895 = extractvalue { <2 x float>, <2 x float> } %.pn.i885, 0
@@ -2604,8 +2604,8 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit904:          ; preds = %897
 
 903:                                              ; preds = %901
   %904 = and i32 %902, 16
-  %.not1166 = icmp eq i32 %904, 0
-  br i1 %.not1166, label %905, label %_ZN4pbrt14PowerHeuristicEifif.exit916
+  %.not1165 = icmp eq i32 %904, 0
+  br i1 %.not1165, label %905, label %_ZN4pbrt14PowerHeuristicEifif.exit916
 
 905:                                              ; preds = %903
   %906 = load ptr, ptr %39, align 8, !tbaa !40
@@ -2613,8 +2613,8 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit904:          ; preds = %897
   br i1 %.not.i909, label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE.exit912, label %907
 
 907:                                              ; preds = %905
-  %908 = invoke noundef float @_ZNK4pbrt14DielectricBxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull align 4 dereferenceable(12) %906, <2 x float> %.sroa.0.4.vec.insert.i8811365, float %894, <2 x float> %.sroa.01103.0, float %.sroa.14.0, i32 poison, i32 noundef 2)
-          to label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE.exit912 unwind label %.loopexit1178
+  %908 = invoke noundef float @_ZNK4pbrt14DielectricBxDF3PDFENS_7Vector3IfEES2_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull align 4 dereferenceable(12) %906, <2 x float> %.sroa.0.4.vec.insert.i8811364, float %894, <2 x float> %.sroa.01103.0, float %.sroa.14.0, i32 poison, i32 noundef 2)
+          to label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE.exit912 unwind label %.loopexit1177
 
 _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE.exit912: ; preds = %905, %907
   %909 = phi float [ %908, %907 ], [ 0.000000e+00, %905 ]
@@ -2624,7 +2624,7 @@ _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector
 
 912:                                              ; preds = %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE.exit912
   invoke void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.106, i32 noundef 235, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(4) @.str.107) #31
-          to label %.noexc913 unwind label %.loopexit.split-lp1179
+          to label %.noexc913 unwind label %.loopexit.split-lp1178
 
 .noexc913:                                        ; preds = %912
   unreachable
@@ -2651,36 +2651,36 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit914: ; preds = %_ZNK4pbrt15TopOrB
           cleanup
   br label %954
 
-.loopexit1178:                                    ; preds = %907
-  %lpad.loopexit1180 = landingpad { ptr, i32 }
+.loopexit1177:                                    ; preds = %907
+  %lpad.loopexit1179 = landingpad { ptr, i32 }
           cleanup
   br label %954
 
-.loopexit.split-lp1179:                           ; preds = %912
-  %lpad.loopexit.split-lp1181 = landingpad { ptr, i32 }
+.loopexit.split-lp1178:                           ; preds = %912
+  %lpad.loopexit.split-lp1180 = landingpad { ptr, i32 }
           cleanup
   br label %954
 
 _ZN4pbrt14PowerHeuristicEifif.exit916:            ; preds = %903
-  %.pre1322 = load i8, ptr %146, align 4, !tbaa !50, !range !52
-  %924 = trunc nuw i8 %.pre1322 to i1
+  %.pre1321 = load i8, ptr %146, align 4, !tbaa !50, !range !52
+  %924 = trunc nuw i8 %.pre1321 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   br i1 %924, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit918, label %925
 
 925:                                              ; preds = %_ZN4pbrt14PowerHeuristicEifif.exit916
   invoke void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.106, i32 noundef 235, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(4) @.str.107) #31
-          to label %.noexc917 unwind label %.loopexit.split-lp1184
+          to label %.noexc917 unwind label %.loopexit.split-lp1183
 
 .noexc917:                                        ; preds = %925
   unreachable
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit918: ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit914, %_ZN4pbrt14PowerHeuristicEifif.exit916
-  %.03421368 = phi float [ %.0342.ph, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit914 ], [ 1.000000e+00, %_ZN4pbrt14PowerHeuristicEifif.exit916 ]
+  %.03421367 = phi float [ %.0342.ph, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit914 ], [ 1.000000e+00, %_ZN4pbrt14PowerHeuristicEifif.exit916 ]
   %926 = load float, ptr %88, align 4, !tbaa !9
   %.sroa.08.0.copyload = load <2 x float>, ptr %149, align 4
   %.sroa.29.0.copyload = load float, ptr %148, align 4
   %927 = invoke noundef float @_ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_11DiffuseBxDFELb1EE2TrEfNS_7Vector3IfEE(float noundef %926, <2 x float> %.sroa.08.0.copyload, float %.sroa.29.0.copyload)
-          to label %928 unwind label %.loopexit1183
+          to label %928 unwind label %.loopexit1182
 
 928:                                              ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit918
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2731,7 +2731,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit918: ; preds = %_ZN4pstd8optional
   %indvars.iv.i937 = phi i64 [ 0, %940 ], [ %indvars.iv.next.i938, %941 ]
   %942 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i937
   %943 = load float, ptr %942, align 4, !tbaa !4
-  %944 = fmul float %.03421368, %943
+  %944 = fmul float %.03421367, %943
   store float %944, ptr %942, align 4, !tbaa !4
   %indvars.iv.next.i938 = add nuw nsw i64 %indvars.iv.i937, 1
   %exitcond.not.i939 = icmp eq i64 %indvars.iv.next.i938, 4
@@ -2761,18 +2761,18 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit949:        ; preds = %946
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %953
 
-.loopexit1183:                                    ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit918
-  %lpad.loopexit1185 = landingpad { ptr, i32 }
+.loopexit1182:                                    ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit918
+  %lpad.loopexit1184 = landingpad { ptr, i32 }
           cleanup
   br label %952
 
-.loopexit.split-lp1184:                           ; preds = %925
-  %lpad.loopexit.split-lp1186 = landingpad { ptr, i32 }
+.loopexit.split-lp1183:                           ; preds = %925
+  %lpad.loopexit.split-lp1185 = landingpad { ptr, i32 }
           cleanup
   br label %952
 
-952:                                              ; preds = %.loopexit.split-lp1184, %.loopexit1183
-  %lpad.phi1187 = phi { ptr, i32 } [ %lpad.loopexit1185, %.loopexit1183 ], [ %lpad.loopexit.split-lp1186, %.loopexit.split-lp1184 ]
+952:                                              ; preds = %.loopexit.split-lp1183, %.loopexit1182
+  %lpad.phi1186 = phi { ptr, i32 } [ %lpad.loopexit1184, %.loopexit1182 ], [ %lpad.loopexit.split-lp1185, %.loopexit.split-lp1183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %954
 
@@ -2784,8 +2784,8 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit951: ; preds = %953, %_ZNK4pbrt11
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread
 
-954:                                              ; preds = %.loopexit1178, %.loopexit.split-lp1179, %920, %952, %922
-  %.pn357.pn = phi { ptr, i32 } [ %921, %920 ], [ %lpad.phi1187, %952 ], [ %923, %922 ], [ %lpad.loopexit1180, %.loopexit1178 ], [ %lpad.loopexit.split-lp1181, %.loopexit.split-lp1179 ]
+954:                                              ; preds = %.loopexit1177, %.loopexit.split-lp1178, %920, %952, %922
+  %.pn357.pn = phi { ptr, i32 } [ %921, %920 ], [ %lpad.phi1186, %952 ], [ %923, %922 ], [ %lpad.loopexit1179, %.loopexit1177 ], [ %lpad.loopexit.split-lp1180, %.loopexit.split-lp1178 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit953
 
@@ -2796,10 +2796,10 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit953: ; preds = %954, %848
 
 _ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread: ; preds = %497, %606, %549, %546, %356, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit951, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
   %.sroa.0.8 = phi i64 [ %640, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %827, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit951 ], [ %511, %497 ], [ %511, %606 ], [ %511, %549 ], [ %511, %546 ], [ %358, %356 ]
-  %.sroa.01015.4 = phi <2 x float> [ %.sroa.01015.0.copyload1037, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %.sroa.01015.0.copyload1038, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit951 ], [ %.sroa.01015.01286, %497 ], [ %.fca.0.extract.i, %606 ], [ %.fca.0.extract.i, %549 ], [ %.fca.0.extract.i, %546 ], [ %.sroa.01015.01286, %356 ]
-  %.sroa.30.4 = phi float [ %658, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %846, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit951 ], [ %.sroa.30.01287, %497 ], [ %.fca.1.extract.i, %606 ], [ %.fca.1.extract.i, %549 ], [ %.fca.1.extract.i, %546 ], [ %.sroa.30.01287, %356 ]
-  %.4338 = phi float [ %.1335, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %.1335, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit951 ], [ %.03341290, %497 ], [ %377, %606 ], [ %377, %549 ], [ %377, %546 ], [ %.03341290, %356 ]
-  %955 = add nuw nsw i32 %.03391289, 1
+  %.sroa.01015.4 = phi <2 x float> [ %.sroa.01015.0.copyload1037, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %.sroa.01015.0.copyload1038, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit951 ], [ %.sroa.01015.01285, %497 ], [ %.fca.0.extract.i, %606 ], [ %.fca.0.extract.i, %549 ], [ %.fca.0.extract.i, %546 ], [ %.sroa.01015.01285, %356 ]
+  %.sroa.30.4 = phi float [ %658, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %846, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit951 ], [ %.sroa.30.01286, %497 ], [ %.fca.1.extract.i, %606 ], [ %.fca.1.extract.i, %549 ], [ %.fca.1.extract.i, %546 ], [ %.sroa.30.01286, %356 ]
+  %.4338 = phi float [ %.1335, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %.1335, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit951 ], [ %.03341289, %497 ], [ %377, %606 ], [ %377, %549 ], [ %377, %546 ], [ %.03341289, %356 ]
+  %955 = add nuw nsw i32 %.03391288, 1
   %956 = load i32, ptr %138, align 4, !tbaa !19
   %957 = icmp slt i32 %955, %956
   br i1 %957, label %.lr.ph, label %.critedge, !llvm.loop !75
@@ -2822,7 +2822,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit957: ; preds = %212, %_ZNK4pbrt15
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit959: ; preds = %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit, %_ZNK4pbrt15SampledSpectrumcvbEv.exit, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit400, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit402, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit957
   %.sroa.0.1 = phi i64 [ %192, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit400 ], [ %192, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit402 ], [ %.sroa.0.2, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit957 ], [ %192, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ %192, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
-  %958 = add nuw nsw i32 %.01294, 1
+  %958 = add nuw nsw i32 %.01293, 1
   %959 = load i32, ptr %105, align 4, !tbaa !20
   %960 = icmp slt i32 %958, %959
   br i1 %960, label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_11DiffuseBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit, label %._crit_edge, !llvm.loop !76
@@ -6241,8 +6241,8 @@ _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_
   br label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit
 
 ._crit_edge:                                      ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit913, %_ZN4pbrt4HashIJiNS_7Vector3IfEEEEEmDpT_.exit
-  %.lcssa1171 = phi i32 [ %104, %_ZN4pbrt4HashIJiNS_7Vector3IfEEEEEmDpT_.exit ], [ %1007, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit913 ]
-  %160 = sitofp i32 %.lcssa1171 to float
+  %.lcssa1170 = phi i32 [ %104, %_ZN4pbrt4HashIJiNS_7Vector3IfEEEEEmDpT_.exit ], [ %1007, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit913 ]
+  %160 = sitofp i32 %.lcssa1170 to float
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %36, i64 16, i1 false), !tbaa.struct !18
   br label %161
@@ -6270,15 +6270,15 @@ _ZNK4pbrt15SampledSpectrumdvEf.exit:              ; preds = %161
   ret { <2 x float>, <2 x float> } %.fca.1.insert.i389
 
 _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit: ; preds = %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit913
-  %.01242 = phi i32 [ 0, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph ], [ %1006, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit913 ]
-  %.sroa.0.01241 = phi i64 [ %124, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph ], [ %.sroa.0.1, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit913 ]
-  %165 = mul i64 %.sroa.0.01241, 6364136223846793005
+  %.01241 = phi i32 [ 0, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph ], [ %1006, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit913 ]
+  %.sroa.0.01240 = phi i64 [ %124, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit.lr.ph ], [ %.sroa.0.1, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit913 ]
+  %165 = mul i64 %.sroa.0.01240, 6364136223846793005
   %166 = add i64 %165, %102
-  %167 = lshr i64 %.sroa.0.01241, 45
-  %168 = lshr i64 %.sroa.0.01241, 27
+  %167 = lshr i64 %.sroa.0.01240, 45
+  %168 = lshr i64 %.sroa.0.01240, 27
   %169 = xor i64 %167, %168
   %170 = trunc i64 %169 to i32
-  %171 = lshr i64 %.sroa.0.01241, 59
+  %171 = lshr i64 %.sroa.0.01240, 59
   %172 = trunc nuw nsw i64 %171 to i32
   %173 = call noundef i32 @llvm.fshr.i32(i32 %170, i32 %170, i32 %172)
   %174 = uitofp i32 %173 to float
@@ -6406,14 +6406,14 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit405: ; preds = %_ZNK4pbrt15TopOrB
   br i1 %or.cond.i409, label %_ZNK4pbrt15SampledSpectrumcvbEv.exit410, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit405, !llvm.loop !34
 
 _ZNK4pbrt15SampledSpectrumcvbEv.exit410:          ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit405
-  %.not1244 = xor i1 %251, true
+  %.not1243 = xor i1 %251, true
   %252 = load float, ptr %131, align 4
   %253 = fcmp oeq float %252, 0.000000e+00
-  %or.cond1246 = select i1 %.not1244, i1 true, i1 %253
+  %or.cond1245 = select i1 %.not1243, i1 true, i1 %253
   %254 = load float, ptr %132, align 4
   %255 = fcmp oeq float %254, 0.000000e+00
-  %or.cond1248 = select i1 %or.cond1246, i1 true, i1 %255
-  br i1 %or.cond1248, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit911, label %256
+  %or.cond1247 = select i1 %or.cond1245, i1 true, i1 %255
+  br i1 %or.cond1247, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit911, label %256
 
 256:                                              ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit410
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
@@ -6480,12 +6480,12 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit410:          ; preds = %_ZN4pstd8optionalIN
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread
-  %.03321239 = phi float [ %.4336, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %268, %.lr.ph.preheader ]
-  %.03371238 = phi i32 [ %1003, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ 0, %.lr.ph.preheader ]
-  %.sroa.30.01237 = phi float [ %.sroa.30.4, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %208, %.lr.ph.preheader ]
-  %.sroa.0969.01236 = phi <2 x float> [ %.sroa.0969.4, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %.sroa.0969.0.copyload, %.lr.ph.preheader ]
-  %.sroa.0.31235 = phi i64 [ %.sroa.0.8, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %216, %.lr.ph.preheader ]
-  %282 = icmp samesign ugt i32 %.03371238, 3
+  %.03321238 = phi float [ %.4336, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %268, %.lr.ph.preheader ]
+  %.03371237 = phi i32 [ %1003, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ 0, %.lr.ph.preheader ]
+  %.sroa.30.01236 = phi float [ %.sroa.30.4, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %208, %.lr.ph.preheader ]
+  %.sroa.0969.01235 = phi <2 x float> [ %.sroa.0969.4, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %.sroa.0969.0.copyload, %.lr.ph.preheader ]
+  %.sroa.0.31234 = phi i64 [ %.sroa.0.8, %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread ], [ %216, %.lr.ph.preheader ]
+  %282 = icmp samesign ugt i32 %.03371237, 3
   br i1 %282, label %283, label %_ZN4pbrt15SampledSpectrumdVEf.exit
 
 283:                                              ; preds = %.lr.ph
@@ -6522,13 +6522,13 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit445: ; preds = %.preheader
   %293 = fsub float 1.000000e+00, %.sroa.speculated.i442
   %294 = fcmp ogt float %293, 0.000000e+00
   %.sroa.speculated = select i1 %294, float %293, float 0.000000e+00
-  %295 = mul i64 %.sroa.0.31235, 6364136223846793005
+  %295 = mul i64 %.sroa.0.31234, 6364136223846793005
   %296 = add i64 %295, %102
-  %297 = lshr i64 %.sroa.0.31235, 45
-  %298 = lshr i64 %.sroa.0.31235, 27
+  %297 = lshr i64 %.sroa.0.31234, 45
+  %298 = lshr i64 %.sroa.0.31234, 27
   %299 = xor i64 %297, %298
   %300 = trunc i64 %299 to i32
-  %301 = lshr i64 %.sroa.0.31235, 59
+  %301 = lshr i64 %.sroa.0.31234, 59
   %302 = trunc nuw nsw i64 %301 to i32
   %303 = call noundef i32 @llvm.fshr.i32(i32 %300, i32 %300, i32 %302)
   %304 = uitofp i32 %303 to float
@@ -6553,7 +6553,7 @@ _ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit445: ; preds = %.preheader
   br i1 %exitcond.not.i449, label %_ZN4pbrt15SampledSpectrumdVEf.exit, label %310, !llvm.loop !49
 
 _ZN4pbrt15SampledSpectrumdVEf.exit:               ; preds = %310, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit, %.lr.ph
-  %.sroa.0.5 = phi i64 [ %.sroa.0.31235, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit ], [ %.sroa.0.31235, %.lr.ph ], [ %296, %310 ]
+  %.sroa.0.5 = phi i64 [ %.sroa.0.31234, %_ZNK4pbrt15SampledSpectrum17MaxComponentValueEv.exit ], [ %.sroa.0.31234, %.lr.ph ], [ %296, %310 ]
   br label %314
 
 314:                                              ; preds = %314, %_ZN4pbrt15SampledSpectrumdVEf.exit
@@ -6571,14 +6571,14 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit454:          ; preds = %314
 
 318:                                              ; preds = %_ZNK4pbrt15SampledSpectrumcvbEv.exit454
   %319 = load float, ptr %86, align 4, !tbaa !95
-  %320 = fcmp oeq float %.03321239, %319
+  %320 = fcmp oeq float %.03321238, %319
   %321 = select i1 %320, float 0.000000e+00, float %319
   %322 = call noundef float @llvm.fabs.f32(float %319)
   %323 = fcmp ugt float %322, 0x3810000000000000
   br i1 %323, label %324, label %_ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_13ConductorBxDFELb1EE2TrEfNS_7Vector3IfEE.exit
 
 324:                                              ; preds = %318
-  %325 = fdiv float %319, %.sroa.30.01237
+  %325 = fdiv float %319, %.sroa.30.01236
   %326 = call noundef float @llvm.fabs.f32(float %325)
   %327 = fmul float %326, 0xBFF7154760000000
   %328 = call noundef float @llvm.floor.f32(float %327)
@@ -6634,17 +6634,17 @@ _ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_13ConductorBxDFELb1EE2TrEfNS_7Vecto
   %362 = fmul float %361, 0x3DF0000000000000
   %363 = fcmp olt float %362, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i458 = select i1 %363, float %362, float 0x3FEFFFFFE0000000
-  %364 = call noundef float @llvm.fabs.f32(float %.sroa.30.01237)
+  %364 = call noundef float @llvm.fabs.f32(float %.sroa.30.01236)
   %365 = fdiv float 1.000000e+00, %364
   %366 = fsub float 1.000000e+00, %.sroa.speculated.i.i458
   %367 = call noundef float @logf(float noundef %366) #30, !tbaa !67
   %368 = fneg float %367
   %369 = fdiv float %368, %365
-  %370 = fcmp ogt float %.sroa.30.01237, 0.000000e+00
+  %370 = fcmp ogt float %.sroa.30.01236, 0.000000e+00
   %371 = fneg float %369
   %.p = select i1 %370, float %369, float %371
-  %372 = fadd float %.03321239, %.p
-  %373 = fcmp oeq float %.03321239, %372
+  %372 = fadd float %.03321238, %.p
+  %373 = fcmp oeq float %.03321238, %372
   br i1 %373, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread, label %374
 
 374:                                              ; preds = %351
@@ -6688,14 +6688,14 @@ _ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_13ConductorBxDFELb1EE2TrEfNS_7Vecto
 402:                                              ; preds = %380, %393
   %403 = phi i32 [ %392, %380 ], [ %401, %393 ]
   %404 = and i32 %403, 16
-  %.not1121 = icmp eq i32 %404, 0
-  br i1 %.not1121, label %405, label %_ZN4pbrt14PowerHeuristicEifif.exit
+  %.not1120 = icmp eq i32 %404, 0
+  br i1 %.not1120, label %405, label %_ZN4pbrt14PowerHeuristicEifif.exit
 
 405:                                              ; preds = %402
-  %.sroa.0969.0.vec.extract = extractelement <2 x float> %.sroa.0969.01236, i64 0
+  %.sroa.0969.0.vec.extract = extractelement <2 x float> %.sroa.0969.01235, i64 0
   %406 = fneg float %.sroa.0969.0.vec.extract
-  %407 = fneg float %.sroa.30.01237
-  %408 = fneg <2 x float> %.sroa.0969.01236
+  %407 = fneg float %.sroa.30.01236
+  %408 = fneg <2 x float> %.sroa.0969.01235
   %.sroa.0.4.vec.insert.i463 = insertelement <2 x float> %408, float %406, i64 0
   %409 = load float, ptr %140, align 4, !tbaa !68
   %410 = fneg float %409
@@ -6735,11 +6735,11 @@ _ZN4pbrt14PowerHeuristicEifif.exit:               ; preds = %414, %405, %402
   %.sroa.0.0.copyload.i476 = load <2 x float>, ptr %30, align 8
   %.sroa.2.0.copyload.i478 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i477, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %.sroa.0969.0.vec.extract972 = extractelement <2 x float> %.sroa.0969.01236, i64 0
+  %.sroa.0969.0.vec.extract972 = extractelement <2 x float> %.sroa.0969.01235, i64 0
   %425 = fneg float %.sroa.0969.0.vec.extract972
-  %.sroa.0969.4.vec.extract994 = extractelement <2 x float> %.sroa.0969.01236, i64 1
-  %426 = fneg float %.sroa.30.01237
-  %427 = fneg <2 x float> %.sroa.0969.01236
+  %.sroa.0969.4.vec.extract994 = extractelement <2 x float> %.sroa.0969.01235, i64 1
+  %426 = fneg float %.sroa.30.01236
+  %427 = fneg <2 x float> %.sroa.0969.01235
   %.sroa.0.4.vec.insert.i482 = insertelement <2 x float> %427, float %425, i64 0
   %428 = load float, ptr %140, align 4, !tbaa !68
   %429 = load float, ptr %141, align 4, !tbaa !69
@@ -6757,7 +6757,7 @@ _ZN4pbrt14PowerHeuristicEifif.exit:               ; preds = %414, %405, %402
 
 436:                                              ; preds = %435, %433, %424
   %.0.i.i.i = phi float [ 0x3FEFAE1480000000, %435 ], [ %430, %433 ], [ 0xBFEFAE1480000000, %424 ]
-  %437 = fmul float %.sroa.30.01237, %254
+  %437 = fmul float %.sroa.30.01236, %254
   %438 = fmul float %.sroa.0969.0.vec.extract972, %428
   %439 = fmul float %.sroa.0969.4.vec.extract994, %429
   %440 = fadd float %438, %439
@@ -6961,8 +6961,8 @@ _ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_13ConductorBxDFELb1EE2TrEfNS_7Vecto
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !111
   %538 = fcmp oeq float %537, 0.000000e+00
   %539 = fcmp oeq float %.fca.1.extract.i, 0.000000e+00
-  %or.cond1114 = select i1 %538, i1 true, i1 %539
-  br i1 %or.cond1114, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread, label %540
+  %or.cond1113 = select i1 %538, i1 true, i1 %539
+  br i1 %or.cond1113, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread, label %540
 
 540:                                              ; preds = %511
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
@@ -7035,8 +7035,8 @@ _ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_13ConductorBxDFELb1EE2TrEfNS_7Vecto
 563:                                              ; preds = %560, %557
   %564 = call noundef i32 @_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE5FlagsEv(ptr noundef nonnull align 8 dereferenceable(16) %37)
   %565 = and i32 %564, 16
-  %.not1122 = icmp eq i32 %565, 0
-  br i1 %.not1122, label %566, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread
+  %.not1121 = icmp eq i32 %565, 0
+  br i1 %.not1121, label %566, label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread
 
 566:                                              ; preds = %563
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -7216,10 +7216,10 @@ _ZN4pbrt15SampledSpectrummLEf.exit:               ; preds = %347, %_ZN4pstd8opti
   %634 = fcmp olt float %633, 0x3FEFFFFFE0000000
   %.sroa.speculated.i.i638 = select i1 %634, float %633, float 0x3FEFFFFFE0000000
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  %.sroa.0969.0.vec.extract980 = extractelement <2 x float> %.sroa.0969.01236, i64 0
+  %.sroa.0969.0.vec.extract980 = extractelement <2 x float> %.sroa.0969.01235, i64 0
   %635 = fneg float %.sroa.0969.0.vec.extract980
-  %636 = fneg float %.sroa.30.01237
-  %637 = fneg <2 x float> %.sroa.0969.01236
+  %636 = fneg float %.sroa.30.01236
+  %637 = fneg <2 x float> %.sroa.0969.01235
   %.sroa.0.4.vec.insert.i640 = insertelement <2 x float> %637, float %635, i64 0
   %638 = mul i64 %624, 6364136223846793005
   %639 = add i64 %638, %102
@@ -7391,14 +7391,14 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit691: ; preds = %_ZNK4pbrt15TopOrB
   %718 = phi i32 [ %707, %695 ], [ %716, %708 ]
   %719 = and i32 %718, 16
   %.not = icmp eq i32 %719, 0
-  br i1 %.not, label %721, label %._crit_edge1274
+  br i1 %.not, label %721, label %._crit_edge1273
 
-._crit_edge1274:                                  ; preds = %717
-  %.pre1285 = extractelement <2 x float> %.sroa.0969.01236, i64 0
-  %.pre1286 = fneg float %.pre1285
-  %.pre1291 = fneg float %.sroa.30.01237
-  %720 = fneg <2 x float> %.sroa.0969.01236
-  %.pre1294 = insertelement <2 x float> %720, float %.pre1286, i64 0
+._crit_edge1273:                                  ; preds = %717
+  %.pre1284 = extractelement <2 x float> %.sroa.0969.01235, i64 0
+  %.pre1285 = fneg float %.pre1284
+  %.pre1290 = fneg float %.sroa.30.01236
+  %720 = fneg <2 x float> %.sroa.0969.01235
+  %.pre1293 = insertelement <2 x float> %720, float %.pre1285, i64 0
   br label %839
 
 721:                                              ; preds = %717
@@ -7435,13 +7435,13 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit691: ; preds = %_ZNK4pbrt15TopOrB
 745:                                              ; preds = %723, %736
   %746 = phi i32 [ %735, %723 ], [ %744, %736 ]
   %747 = and i32 %746, 16
-  %.not1118 = icmp eq i32 %747, 0
-  %.sroa.0969.0.vec.extract982 = extractelement <2 x float> %.sroa.0969.01236, i64 0
+  %.not1117 = icmp eq i32 %747, 0
+  %.sroa.0969.0.vec.extract982 = extractelement <2 x float> %.sroa.0969.01235, i64 0
   %748 = fneg float %.sroa.0969.0.vec.extract982
-  %749 = fneg float %.sroa.30.01237
-  %750 = fneg <2 x float> %.sroa.0969.01236
+  %749 = fneg float %.sroa.30.01236
+  %750 = fneg <2 x float> %.sroa.0969.01235
   %.sroa.0.4.vec.insert.i701 = insertelement <2 x float> %750, float %748, i64 0
-  br i1 %.not1118, label %751, label %._crit_edge1275
+  br i1 %.not1117, label %751, label %._crit_edge1274
 
 751:                                              ; preds = %745
   %752 = load float, ptr %140, align 4, !tbaa !68
@@ -7451,15 +7451,15 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit691: ; preds = %_ZNK4pbrt15TopOrB
   %.sroa.0.0.vec.insert.i706 = insertelement <2 x float> poison, float %753, i64 0
   %.sroa.0.4.vec.insert.i707 = insertelement <2 x float> %.sroa.0.0.vec.insert.i706, float %755, i64 1
   %756 = call noundef float @_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull align 8 dereferenceable(16) %38, <2 x float> %.sroa.0.4.vec.insert.i701, float %749, <2 x float> %.sroa.0.4.vec.insert.i707, float %272, i32 noundef %5, i32 noundef 3)
-  br i1 %275, label %._crit_edge1275, label %757
+  br i1 %275, label %._crit_edge1274, label %757
 
 757:                                              ; preds = %751
   %758 = fmul float %756, %756
   %759 = fadd float %273, %758
   %760 = fdiv float %273, %759
-  br label %._crit_edge1275
+  br label %._crit_edge1274
 
-._crit_edge1275:                                  ; preds = %745, %757, %751
+._crit_edge1274:                                  ; preds = %745, %757, %751
   %.0339 = phi float [ 1.000000e+00, %751 ], [ %760, %757 ], [ 1.000000e+00, %745 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
@@ -7473,11 +7473,11 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit691: ; preds = %_ZNK4pbrt15TopOrB
   %.not.i722 = icmp eq ptr %765, null
   br i1 %.not.i722, label %768, label %766
 
-766:                                              ; preds = %._crit_edge1275
+766:                                              ; preds = %._crit_edge1274
   %767 = call { <2 x float>, <2 x float> } @_ZNK4pbrt14DielectricBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr noundef nonnull align 4 dereferenceable(12) %765, <2 x float> %.sroa.0.4.vec.insert.i701, float %749, <2 x float> %.sroa.0.4.vec.insert.i719, float %276, i32 noundef %5)
   br label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE1fENS_7Vector3IfEES5_NS_13TransportModeE.exit726
 
-768:                                              ; preds = %._crit_edge1275
+768:                                              ; preds = %._crit_edge1274
   %769 = load ptr, ptr %138, align 8, !tbaa !104
   %770 = call { <2 x float>, <2 x float> } @_ZNK4pbrt13ConductorBxDF1fENS_7Vector3IfEES2_NS_13TransportModeE(ptr noundef nonnull align 4 dereferenceable(40) %769, <2 x float> %.sroa.0.4.vec.insert.i701, float %749, <2 x float> %.sroa.0.4.vec.insert.i719, float %276, i32 noundef %5)
   br label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE1fENS_7Vector3IfEES5_NS_13TransportModeE.exit726
@@ -7660,13 +7660,13 @@ _ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_13ConductorBxDFELb1EE2TrEfNS_7Vecto
 _ZN4pbrt15SampledSpectrumpLERKS0_.exit794:        ; preds = %833
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
-  %.pre1271 = load ptr, ptr %38, align 8, !tbaa !107, !noalias !117
+  %.pre1270 = load ptr, ptr %38, align 8, !tbaa !107, !noalias !117
   br label %839
 
-839:                                              ; preds = %._crit_edge1274, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit794
-  %.sroa.0.4.vec.insert.i799.pre-phi = phi <2 x float> [ %.pre1294, %._crit_edge1274 ], [ %.sroa.0.4.vec.insert.i701, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit794 ]
-  %.pre-phi1292 = phi float [ %.pre1291, %._crit_edge1274 ], [ %749, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit794 ]
-  %840 = phi ptr [ %694, %._crit_edge1274 ], [ %.pre1271, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit794 ]
+839:                                              ; preds = %._crit_edge1273, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit794
+  %.sroa.0.4.vec.insert.i799.pre-phi = phi <2 x float> [ %.pre1293, %._crit_edge1273 ], [ %.sroa.0.4.vec.insert.i701, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit794 ]
+  %.pre-phi1291 = phi float [ %.pre1290, %._crit_edge1273 ], [ %749, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit794 ]
+  %840 = phi ptr [ %694, %._crit_edge1273 ], [ %.pre1270, %_ZN4pbrt15SampledSpectrumpLERKS0_.exit794 ]
   %841 = mul i64 %.sroa.0.6, 6364136223846793005
   %842 = add i64 %841, %102
   %843 = lshr i64 %.sroa.0.6, 45
@@ -7713,12 +7713,12 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit794:        ; preds = %833
   br i1 %.not.i802, label %878, label %877
 
 877:                                              ; preds = %839
-  invoke void @_ZNK4pbrt14DielectricBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional") align 4 %51, ptr noundef nonnull align 4 dereferenceable(12) %840, <2 x float> %.sroa.0.4.vec.insert.i799.pre-phi, float %.pre-phi1292, float noundef %.sroa.speculated.i.i795, <2 x float> %.sroa.0922.4.vec.insert, i32 noundef %5, i32 noundef 1)
+  invoke void @_ZNK4pbrt14DielectricBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional") align 4 %51, ptr noundef nonnull align 4 dereferenceable(12) %840, <2 x float> %.sroa.0.4.vec.insert.i799.pre-phi, float %.pre-phi1291, float noundef %.sroa.speculated.i.i795, <2 x float> %.sroa.0922.4.vec.insert, i32 noundef %5, i32 noundef 1)
           to label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit805 unwind label %889
 
 878:                                              ; preds = %839
   %879 = load ptr, ptr %138, align 8, !tbaa !104, !noalias !117
-  invoke void @_ZNK4pbrt13ConductorBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional") align 4 %51, ptr noundef nonnull align 4 dereferenceable(40) %879, <2 x float> %.sroa.0.4.vec.insert.i799.pre-phi, float %.pre-phi1292, float noundef %.sroa.speculated.i.i795, <2 x float> %.sroa.0922.4.vec.insert, i32 noundef %5, i32 noundef 1)
+  invoke void @_ZNK4pbrt13ConductorBxDF8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE(ptr dead_on_unwind nonnull writable sret(%"class.pstd::optional") align 4 %51, ptr noundef nonnull align 4 dereferenceable(40) %879, <2 x float> %.sroa.0.4.vec.insert.i799.pre-phi, float %.pre-phi1291, float noundef %.sroa.speculated.i.i795, <2 x float> %.sroa.0922.4.vec.insert, i32 noundef %5, i32 noundef 1)
           to label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit805 unwind label %889
 
 _ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit805: ; preds = %877, %878
@@ -7846,8 +7846,8 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit816: ; preds = %_ZN4pstd8optional
 933:                                              ; preds = %911, %924
   %934 = phi i32 [ %923, %911 ], [ %932, %924 ]
   %935 = and i32 %934, 16
-  %.not1119 = icmp eq i32 %935, 0
-  br i1 %.not1119, label %936, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905
+  %.not1118 = icmp eq i32 %935, 0
+  br i1 %.not1118, label %936, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905
 
 936:                                              ; preds = %933
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -7894,12 +7894,12 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit862:          ; preds = %947
 
 953:                                              ; preds = %951
   %954 = and i32 %952, 16
-  %.not1120 = icmp eq i32 %954, 0
-  br i1 %.not1120, label %955, label %_ZN4pbrt14PowerHeuristicEifif.exit870
+  %.not1119 = icmp eq i32 %954, 0
+  br i1 %.not1119, label %955, label %_ZN4pbrt14PowerHeuristicEifif.exit870
 
 955:                                              ; preds = %953
   %956 = invoke noundef float @_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE3PDFENS_7Vector3IfEES5_NS_13TransportModeENS_18BxDFReflTransFlagsE(ptr noundef nonnull align 8 dereferenceable(16) %37, <2 x float> %.sroa.0.4.vec.insert.i850, float %938, <2 x float> %.sroa.01057.0, float %.sroa.14.0, i32 noundef %5, i32 noundef 2)
-          to label %957 unwind label %.loopexit1128
+          to label %957 unwind label %.loopexit1127
 
 957:                                              ; preds = %955
   %958 = load i8, ptr %144, align 4, !tbaa !50, !range !52, !noundef !53
@@ -7908,7 +7908,7 @@ _ZNK4pbrt15SampledSpectrumcvbEv.exit862:          ; preds = %947
 
 960:                                              ; preds = %957
   invoke void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.106, i32 noundef 235, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(4) @.str.107) #31
-          to label %.noexc867 unwind label %.loopexit.split-lp1129
+          to label %.noexc867 unwind label %.loopexit.split-lp1128
 
 .noexc867:                                        ; preds = %960
   unreachable
@@ -7935,36 +7935,36 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit868: ; preds = %957
           cleanup
   br label %1002
 
-.loopexit1128:                                    ; preds = %955
-  %lpad.loopexit1130 = landingpad { ptr, i32 }
+.loopexit1127:                                    ; preds = %955
+  %lpad.loopexit1129 = landingpad { ptr, i32 }
           cleanup
   br label %1002
 
-.loopexit.split-lp1129:                           ; preds = %960
-  %lpad.loopexit.split-lp1131 = landingpad { ptr, i32 }
+.loopexit.split-lp1128:                           ; preds = %960
+  %lpad.loopexit.split-lp1130 = landingpad { ptr, i32 }
           cleanup
   br label %1002
 
 _ZN4pbrt14PowerHeuristicEifif.exit870:            ; preds = %953
-  %.pre1272 = load i8, ptr %144, align 4, !tbaa !50, !range !52
-  %972 = trunc nuw i8 %.pre1272 to i1
+  %.pre1271 = load i8, ptr %144, align 4, !tbaa !50, !range !52
+  %972 = trunc nuw i8 %.pre1271 to i1
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   br i1 %972, label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit872, label %973
 
 973:                                              ; preds = %_ZN4pbrt14PowerHeuristicEifif.exit870
   invoke void @_ZN4pbrt8LogFatalIJRA4_KcEEEvNS_8LogLevelEPS1_iS5_DpOT_(i32 noundef 2, ptr noundef nonnull @.str.106, i32 noundef 235, ptr noundef nonnull @.str.3, ptr noundef nonnull align 1 dereferenceable(4) @.str.107) #31
-          to label %.noexc871 unwind label %.loopexit.split-lp1134
+          to label %.noexc871 unwind label %.loopexit.split-lp1133
 
 .noexc871:                                        ; preds = %973
   unreachable
 
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit872: ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit868, %_ZN4pbrt14PowerHeuristicEifif.exit870
-  %.03401323 = phi float [ %.0340.ph, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit868 ], [ 1.000000e+00, %_ZN4pbrt14PowerHeuristicEifif.exit870 ]
+  %.03401322 = phi float [ %.0340.ph, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit868 ], [ 1.000000e+00, %_ZN4pbrt14PowerHeuristicEifif.exit870 ]
   %974 = load float, ptr %86, align 4, !tbaa !95
   %.sroa.08.0.copyload = load <2 x float>, ptr %147, align 4
   %.sroa.29.0.copyload = load float, ptr %146, align 4
   %975 = invoke noundef float @_ZN4pbrt11LayeredBxDFINS_14DielectricBxDFENS_13ConductorBxDFELb1EE2TrEfNS_7Vector3IfEE(float noundef %974, <2 x float> %.sroa.08.0.copyload, float %.sroa.29.0.copyload)
-          to label %976 unwind label %.loopexit1133
+          to label %976 unwind label %.loopexit1132
 
 976:                                              ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit872
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -8015,7 +8015,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit872: ; preds = %_ZN4pstd8optional
   %indvars.iv.i891 = phi i64 [ 0, %988 ], [ %indvars.iv.next.i892, %989 ]
   %990 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i891
   %991 = load float, ptr %990, align 4, !tbaa !4
-  %992 = fmul float %.03401323, %991
+  %992 = fmul float %.03401322, %991
   store float %992, ptr %990, align 4, !tbaa !4
   %indvars.iv.next.i892 = add nuw nsw i64 %indvars.iv.i891, 1
   %exitcond.not.i893 = icmp eq i64 %indvars.iv.next.i892, 4
@@ -8045,18 +8045,18 @@ _ZN4pbrt15SampledSpectrumpLERKS0_.exit903:        ; preds = %994
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %1001
 
-.loopexit1133:                                    ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit872
-  %lpad.loopexit1135 = landingpad { ptr, i32 }
+.loopexit1132:                                    ; preds = %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit872
+  %lpad.loopexit1134 = landingpad { ptr, i32 }
           cleanup
   br label %1000
 
-.loopexit.split-lp1134:                           ; preds = %973
-  %lpad.loopexit.split-lp1136 = landingpad { ptr, i32 }
+.loopexit.split-lp1133:                           ; preds = %973
+  %lpad.loopexit.split-lp1135 = landingpad { ptr, i32 }
           cleanup
   br label %1000
 
-1000:                                             ; preds = %.loopexit.split-lp1134, %.loopexit1133
-  %lpad.phi1137 = phi { ptr, i32 } [ %lpad.loopexit1135, %.loopexit1133 ], [ %lpad.loopexit.split-lp1136, %.loopexit.split-lp1134 ]
+1000:                                             ; preds = %.loopexit.split-lp1133, %.loopexit1132
+  %lpad.phi1136 = phi { ptr, i32 } [ %lpad.loopexit1134, %.loopexit1132 ], [ %lpad.loopexit.split-lp1135, %.loopexit.split-lp1133 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   br label %1002
 
@@ -8068,8 +8068,8 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905: ; preds = %1001, %933
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
   br label %_ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread
 
-1002:                                             ; preds = %.loopexit1128, %.loopexit.split-lp1129, %968, %1000, %970
-  %.pn355.pn = phi { ptr, i32 } [ %969, %968 ], [ %lpad.phi1137, %1000 ], [ %971, %970 ], [ %lpad.loopexit1130, %.loopexit1128 ], [ %lpad.loopexit.split-lp1131, %.loopexit.split-lp1129 ]
+1002:                                             ; preds = %.loopexit1127, %.loopexit.split-lp1128, %968, %1000, %970
+  %.pn355.pn = phi { ptr, i32 } [ %969, %968 ], [ %lpad.phi1136, %1000 ], [ %971, %970 ], [ %lpad.loopexit1129, %.loopexit1127 ], [ %lpad.loopexit.split-lp1130, %.loopexit.split-lp1128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit907
 
@@ -8080,10 +8080,10 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit907: ; preds = %1002, %889
 
 _ZN4pstd8optionalIN4pbrt19PhaseFunctionSampleEED2Ev.exit.thread: ; preds = %511, %617, %563, %560, %351, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit
   %.sroa.0.8 = phi i64 [ %651, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %866, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905 ], [ %525, %511 ], [ %525, %617 ], [ %525, %563 ], [ %525, %560 ], [ %353, %351 ]
-  %.sroa.0969.4 = phi <2 x float> [ %.sroa.0969.0.copyload991, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %.sroa.0969.0.copyload992, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905 ], [ %.sroa.0969.01236, %511 ], [ %.fca.0.extract.i, %617 ], [ %.fca.0.extract.i, %563 ], [ %.fca.0.extract.i, %560 ], [ %.sroa.0969.01236, %351 ]
-  %.sroa.30.4 = phi float [ %673, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %887, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905 ], [ %.sroa.30.01237, %511 ], [ %.fca.1.extract.i, %617 ], [ %.fca.1.extract.i, %563 ], [ %.fca.1.extract.i, %560 ], [ %.sroa.30.01237, %351 ]
-  %.4336 = phi float [ %.1333, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %.1333, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905 ], [ %.03321239, %511 ], [ %372, %617 ], [ %372, %563 ], [ %372, %560 ], [ %.03321239, %351 ]
-  %1003 = add nuw nsw i32 %.03371238, 1
+  %.sroa.0969.4 = phi <2 x float> [ %.sroa.0969.0.copyload991, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %.sroa.0969.0.copyload992, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905 ], [ %.sroa.0969.01235, %511 ], [ %.fca.0.extract.i, %617 ], [ %.fca.0.extract.i, %563 ], [ %.fca.0.extract.i, %560 ], [ %.sroa.0969.01235, %351 ]
+  %.sroa.30.4 = phi float [ %673, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %887, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905 ], [ %.sroa.30.01236, %511 ], [ %.fca.1.extract.i, %617 ], [ %.fca.1.extract.i, %563 ], [ %.fca.1.extract.i, %560 ], [ %.sroa.30.01236, %351 ]
+  %.4336 = phi float [ %.1333, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit ], [ %.1333, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit905 ], [ %.03321238, %511 ], [ %372, %617 ], [ %372, %563 ], [ %372, %560 ], [ %.03321238, %351 ]
+  %1003 = add nuw nsw i32 %.03371237, 1
   %1004 = load i32, ptr %136, align 4, !tbaa !99
   %1005 = icmp slt i32 %1003, %1004
   br i1 %1005, label %.lr.ph, label %.critedge, !llvm.loop !120
@@ -8106,7 +8106,7 @@ _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit911: ; preds = %210, %_ZNK4pbrt15
 _ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit913: ; preds = %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit, %_ZNK4pbrt15SampledSpectrumcvbEv.exit, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit394, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit396, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit911
   %.sroa.0.1 = phi i64 [ %190, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit394 ], [ %190, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEEptEv.exit396 ], [ %.sroa.0.2, %_ZN4pstd8optionalIN4pbrt10BSDFSampleEED2Ev.exit911 ], [ %190, %_ZNK4pbrt15SampledSpectrumcvbEv.exit ], [ %190, %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  %1006 = add nuw nsw i32 %.01242, 1
+  %1006 = add nuw nsw i32 %.01241, 1
   %1007 = load i32, ptr %103, align 4, !tbaa !100
   %1008 = icmp slt i32 %1006, %1007
   br i1 %1008, label %_ZNK4pbrt15TopOrBottomBxDFINS_14DielectricBxDFENS_13ConductorBxDFEE8Sample_fENS_7Vector3IfEEfNS_6Point2IfEENS_13TransportModeENS_18BxDFReflTransFlagsE.exit, label %._crit_edge, !llvm.loop !121

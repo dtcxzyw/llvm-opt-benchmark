@@ -88,7 +88,7 @@ define internal zeroext i1 @HIDAPI_DriverWii_InitDevice(ptr noundef %0) #0 {
   br i1 %8, label %.preheader, label %40
 
 .preheader:                                       ; preds = %4, %29
-  %.0165.i = phi i32 [ %30, %29 ], [ 0, %4 ]
+  %.0164.i = phi i32 [ %30, %29 ], [ 0, %4 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = tail call fastcc noundef zeroext i1 @ReadRegister(ptr noundef nonnull %3, i32 noundef 10748158, i1 noundef zeroext true)
   br i1 %9, label %10, label %29
@@ -146,7 +146,7 @@ GetExtensionType.exit.i:                          ; preds = %28, %27, %26, %25, 
 
 29:                                               ; preds = %10, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %30 = add nuw nsw i32 %.0165.i, 1
+  %30 = add nuw nsw i32 %.0164.i, 1
   %exitcond.not.i = icmp eq i32 %30, 20
   br i1 %exitcond.not.i, label %ReadExtensionControllerType.exit, label %.preheader, !llvm.loop !3
 

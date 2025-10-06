@@ -1652,8 +1652,8 @@ define internal i64 @ossl_asn1cons_to_der(i64 noundef %0) #0 {
   %2 = alloca i64, align 8
   %3 = load i64, ptr @sivINDEFINITE_LENGTH, align 8, !tbaa !17
   %4 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %3) #9
-  %.fr29 = freeze i64 %4
-  %5 = and i64 %.fr29, -5
+  %.fr28 = freeze i64 %4
+  %5 = and i64 %.fr28, -5
   %6 = icmp ne i64 %5, 0
   %7 = load i64, ptr @sivVALUE, align 8, !tbaa !17
   %8 = tail call i64 @rb_attr_get(i64 noundef %0, i64 noundef %7) #9
@@ -1699,7 +1699,7 @@ rb_array_const_ptr.exit.us:                       ; preds = %.thread, %21
   %25 = load i64, ptr @cASN1EndOfContent, align 8, !tbaa !17
   %26 = call i64 @rb_obj_is_kind_of(i64 noundef %24, i64 noundef %25) #9
   %.not.us = icmp eq i64 %26, 0
-  br i1 %.not.us, label %27, label %.split27.us
+  br i1 %.not.us, label %27, label %.split26.us
 
 27:                                               ; preds = %rb_array_const_ptr.exit.us
   %28 = load i64, ptr %2, align 8, !tbaa !17
@@ -1728,9 +1728,9 @@ rb_array_len.exit.thread:                         ; preds = %.split
   %38 = lshr i64 %34, 15
   %39 = and i64 %38, 127
   %40 = icmp samesign ult i64 %.015, %39
-  br i1 %40, label %.thread34, label %.loopexit
+  br i1 %40, label %.thread33, label %.loopexit
 
-.thread34:                                        ; preds = %rb_array_len.exit.thread
+.thread33:                                        ; preds = %rb_array_len.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %rb_array_const_ptr.exit
 
@@ -1739,8 +1739,8 @@ rb_array_len.exit.thread:                         ; preds = %.split
   %42 = load ptr, ptr %13, align 8, !tbaa !30
   br label %rb_array_const_ptr.exit
 
-rb_array_const_ptr.exit:                          ; preds = %.thread34, %41
-  %.0.i18 = phi ptr [ %42, %41 ], [ %12, %.thread34 ]
+rb_array_const_ptr.exit:                          ; preds = %.thread33, %41
+  %.0.i18 = phi ptr [ %42, %41 ], [ %12, %.thread33 ]
   %43 = getelementptr inbounds nuw i64, ptr %.0.i18, i64 %.015
   %44 = load i64, ptr %43, align 8, !tbaa !17
   store i64 %44, ptr %2, align 8, !tbaa !17
@@ -1753,18 +1753,18 @@ rb_array_const_ptr.exit:                          ; preds = %.thread34, %41
   %49 = add nuw nsw i64 %.015, 1
   br label %.split, !llvm.loop !73
 
-.split27.us:                                      ; preds = %rb_array_const_ptr.exit.us
+.split26.us:                                      ; preds = %rb_array_const_ptr.exit.us
   %50 = load i64, ptr %11, align 8, !tbaa !32
   %51 = and i64 %50, 8192
   %.not.i19 = icmp eq i64 %51, 0
   br i1 %.not.i19, label %55, label %52
 
-52:                                               ; preds = %.split27.us
+52:                                               ; preds = %.split26.us
   %53 = lshr i64 %50, 15
   %54 = and i64 %53, 127
   br label %rb_array_len.exit21
 
-55:                                               ; preds = %.split27.us
+55:                                               ; preds = %.split26.us
   %56 = load i64, ptr %12, align 8, !tbaa !30
   br label %rb_array_len.exit21
 
@@ -2657,14 +2657,14 @@ ossl_asn1_class2sym.exit:                         ; preds = %rb_long2num_inline.
   br label %110
 
 110:                                              ; preds = %.lr.ph, %134
-  %.041.i119 = phi i64 [ %107, %.lr.ph ], [ %114, %134 ]
-  %.1118 = phi i64 [ 0, %.lr.ph ], [ %113, %134 ]
+  %.041.i118 = phi i64 [ %107, %.lr.ph ], [ %114, %134 ]
+  %.1117 = phi i64 [ 0, %.lr.ph ], [ %113, %134 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i64 0, ptr %19, align 8, !tbaa !17
-  %111 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.041.i119, ptr noundef %18, i32 noundef %109, i32 noundef range(i32 0, 2) %4, ptr noundef %19)
+  %111 = call fastcc i64 @ossl_asn1_decode0(ptr noundef nonnull %0, i64 noundef %.041.i118, ptr noundef %18, i32 noundef %109, i32 noundef range(i32 0, 2) %4, ptr noundef %19)
   %112 = load i64, ptr %19, align 8, !tbaa !17
-  %113 = add nsw i64 %112, %.1118
-  %114 = sub nsw i64 %.041.i119, %112
+  %113 = add nsw i64 %112, %.1117
+  %114 = sub nsw i64 %.041.i118, %112
   br i1 %105, label %115, label %134
 
 115:                                              ; preds = %110

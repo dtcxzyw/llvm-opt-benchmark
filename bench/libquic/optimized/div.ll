@@ -140,7 +140,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
   store i32 0, ptr %71, align 8, !tbaa !17
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %51, i64 8
   %.pre = load i32, ptr %.phi.trans.insert, align 8, !tbaa !6
-  br i1 %.not167194200, label %._crit_edge221, label %72
+  br i1 %.not167194200, label %._crit_edge220, label %72
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -161,7 +161,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
   %83 = load i32, ptr %73, align 8, !tbaa !6
   %84 = add nsw i32 %83, 2
   %85 = icmp slt i32 %82, %84
-  br i1 %85, label %.lr.ph, label %._crit_edge221.sink.split
+  br i1 %85, label %.lr.ph, label %._crit_edge220.sink.split
 
 .lr.ph:                                           ; preds = %81
   %86 = load ptr, ptr %51, align 8, !tbaa !13
@@ -174,7 +174,7 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
   %92 = shl nuw nsw i64 %91, 3
   %93 = add nuw nsw i64 %92, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep, i8 0, i64 %93, i1 false), !tbaa !14
-  br label %._crit_edge221.sink.split
+  br label %._crit_edge220.sink.split
 
 94:                                               ; preds = %72
   %95 = add nsw i32 %.pre, 1
@@ -190,15 +190,15 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
   %103 = getelementptr inbounds i64, ptr %100, i64 %102
   store i64 0, ptr %103, align 8, !tbaa !14
   %104 = add nsw i32 %101, 1
-  br label %._crit_edge221.sink.split
+  br label %._crit_edge220.sink.split
 
-._crit_edge221.sink.split:                        ; preds = %81, %.lr.ph, %99
+._crit_edge220.sink.split:                        ; preds = %81, %.lr.ph, %99
   %.sink = phi i32 [ %104, %99 ], [ %84, %.lr.ph ], [ %84, %81 ]
   store i32 %.sink, ptr %.phi.trans.insert, align 8, !tbaa !6
-  br label %._crit_edge221
+  br label %._crit_edge220
 
-._crit_edge221:                                   ; preds = %._crit_edge221.sink.split, %70
-  %105 = phi i32 [ %.pre, %70 ], [ %.sink, %._crit_edge221.sink.split ]
+._crit_edge220:                                   ; preds = %._crit_edge220.sink.split, %70
+  %105 = phi i32 [ %.pre, %70 ], [ %.sink, %._crit_edge220.sink.split ]
   %106 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %107 = load i32, ptr %106, align 8, !tbaa !6
   %108 = sub i32 %105, %107
@@ -223,13 +223,13 @@ define hidden range(i32 0, 2) i32 @BN_div(ptr noundef %0, ptr noundef %1, ptr no
   %123 = icmp eq i32 %107, 1
   br i1 %123, label %127, label %124
 
-124:                                              ; preds = %._crit_edge221
+124:                                              ; preds = %._crit_edge220
   %125 = getelementptr i8, ptr %120, i64 -16
   %126 = load i64, ptr %125, align 8, !tbaa !14
   br label %127
 
-127:                                              ; preds = %._crit_edge221, %124
-  %128 = phi i64 [ %126, %124 ], [ 0, %._crit_edge221 ]
+127:                                              ; preds = %._crit_edge220, %124
+  %128 = phi i64 [ %126, %124 ], [ 0, %._crit_edge220 ]
   %129 = sext i32 %105 to i64
   %130 = getelementptr i64, ptr %110, i64 %129
   %131 = getelementptr i8, ptr %130, i64 -8
@@ -301,18 +301,18 @@ thread-pre-split:                                 ; preds = %151, %155
 168:                                              ; preds = %166, %165
   %.0148 = phi ptr [ %147, %165 ], [ %167, %166 ]
   %169 = icmp sgt i32 %108, 1
-  br i1 %169, label %.lr.ph218, label %._crit_edge219
+  br i1 %169, label %.lr.ph217, label %._crit_edge218
 
-.lr.ph218:                                        ; preds = %168
+.lr.ph217:                                        ; preds = %168
   %170 = zext i64 %128 to i128
   br label %171
 
-171:                                              ; preds = %.lr.ph218, %212
-  %.1216 = phi i32 [ 0, %.lr.ph218 ], [ %213, %212 ]
-  %.1149215 = phi ptr [ %.0148, %.lr.ph218 ], [ %214, %212 ]
-  %.0150214 = phi ptr [ %131, %.lr.ph218 ], [ %173, %212 ]
-  %172 = load i64, ptr %.0150214, align 8, !tbaa !14
-  %173 = getelementptr inbounds i8, ptr %.0150214, i64 -8
+171:                                              ; preds = %.lr.ph217, %212
+  %.1215 = phi i32 [ 0, %.lr.ph217 ], [ %213, %212 ]
+  %.1149214 = phi ptr [ %.0148, %.lr.ph217 ], [ %214, %212 ]
+  %.0150213 = phi ptr [ %131, %.lr.ph217 ], [ %173, %212 ]
+  %172 = load i64, ptr %.0150213, align 8, !tbaa !14
+  %173 = getelementptr inbounds i8, ptr %.0150213, i64 -8
   %174 = icmp eq i64 %172, %122
   br i1 %174, label %.loopexit, label %175
 
@@ -323,34 +323,34 @@ thread-pre-split:                                 ; preds = %151, %155
   %179 = extractvalue { i64, i64 } %177, 1
   %180 = zext i64 %178 to i128
   %181 = mul nuw i128 %180, %170
-  %182 = getelementptr inbounds i8, ptr %.0150214, i64 -16
+  %182 = getelementptr inbounds i8, ptr %.0150213, i64 -16
   %183 = load i64, ptr %182, align 8, !tbaa !14
   %184 = zext i64 %183 to i128
   %185 = zext i64 %179 to i128
   %186 = shl nuw i128 %185, 64
   %187 = or disjoint i128 %186, %184
-  %.not178205 = icmp ugt i128 %181, %187
-  br i1 %.not178205, label %.lr.ph210, label %.loopexit
+  %.not178204 = icmp ugt i128 %181, %187
+  br i1 %.not178204, label %.lr.ph209, label %.loopexit
 
-188:                                              ; preds = %.lr.ph210
-  %189 = sub i128 %.0143208, %170
+188:                                              ; preds = %.lr.ph209
+  %189 = sub i128 %.0143207, %170
   %190 = zext i64 %194 to i128
   %191 = shl nuw i128 %190, 64
   %192 = or disjoint i128 %191, %184
   %.not178 = icmp ugt i128 %189, %192
-  br i1 %.not178, label %.lr.ph210, label %.loopexit
+  br i1 %.not178, label %.lr.ph209, label %.loopexit
 
-.lr.ph210:                                        ; preds = %175, %188
-  %.0143208 = phi i128 [ %189, %188 ], [ %181, %175 ]
-  %.0188207 = phi i64 [ %194, %188 ], [ %179, %175 ]
-  %.1190206 = phi i64 [ %193, %188 ], [ %178, %175 ]
-  %193 = add i64 %.1190206, -1
-  %194 = add i64 %.0188207, %122
+.lr.ph209:                                        ; preds = %175, %188
+  %.0143207 = phi i128 [ %189, %188 ], [ %181, %175 ]
+  %.0188206 = phi i64 [ %194, %188 ], [ %179, %175 ]
+  %.1190205 = phi i64 [ %193, %188 ], [ %178, %175 ]
+  %193 = add i64 %.1190205, -1
+  %194 = add i64 %.0188206, %122
   %195 = icmp ult i64 %194, %122
   br i1 %195, label %.loopexit, label %188
 
-.loopexit:                                        ; preds = %.lr.ph210, %188, %175, %171
-  %.0189 = phi i64 [ -1, %171 ], [ %178, %175 ], [ %193, %188 ], [ %193, %.lr.ph210 ]
+.loopexit:                                        ; preds = %.lr.ph209, %188, %175, %171
+  %.0189 = phi i64 [ -1, %171 ], [ %178, %175 ], [ %193, %188 ], [ %193, %.lr.ph209 ]
   %196 = load ptr, ptr %50, align 8, !tbaa !13
   %197 = load ptr, ptr %52, align 8, !tbaa !13
   %198 = call i64 @bn_mul_words(ptr noundef %196, ptr noundef %197, i32 noundef %107, i64 noundef %.0189) #6
@@ -373,25 +373,25 @@ thread-pre-split:                                 ; preds = %151, %155
   br i1 %.not180, label %212, label %209
 
 209:                                              ; preds = %204
-  %210 = load i64, ptr %.0150214, align 8, !tbaa !14
+  %210 = load i64, ptr %.0150213, align 8, !tbaa !14
   %211 = add i64 %210, 1
-  store i64 %211, ptr %.0150214, align 8, !tbaa !14
+  store i64 %211, ptr %.0150213, align 8, !tbaa !14
   br label %212
 
 212:                                              ; preds = %204, %209, %.loopexit
   %.2 = phi i64 [ %.0189, %.loopexit ], [ %205, %204 ], [ %205, %209 ]
-  store i64 %.2, ptr %.1149215, align 8, !tbaa !14
-  %213 = add nuw nsw i32 %.1216, 1
-  %214 = getelementptr inbounds i8, ptr %.1149215, i64 -8
+  store i64 %.2, ptr %.1149214, align 8, !tbaa !14
+  %213 = add nuw nsw i32 %.1215, 1
+  %214 = getelementptr inbounds i8, ptr %.1149214, i64 -8
   %exitcond.not = icmp eq i32 %213, %145
-  br i1 %exitcond.not, label %._crit_edge219, label %171, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge218, label %171, !llvm.loop !20
 
-._crit_edge219:                                   ; preds = %212, %168
+._crit_edge218:                                   ; preds = %212, %168
   call void @bn_correct_top(ptr noundef nonnull %51) #6
   %.not175 = icmp eq ptr %1, null
   br i1 %.not175, label %.thread201, label %215
 
-215:                                              ; preds = %._crit_edge219
+215:                                              ; preds = %._crit_edge218
   %216 = load i32, ptr %132, align 8, !tbaa !17
   %217 = call i32 @BN_rshift(ptr noundef nonnull %1, ptr noundef nonnull %51, i32 noundef %68) #6
   %.not176 = icmp eq i32 %217, 0
@@ -407,7 +407,7 @@ thread-pre-split:                                 ; preds = %151, %155
   store i32 %216, ptr %221, align 8, !tbaa !17
   br label %.thread201
 
-.thread201:                                       ; preds = %218, %220, %._crit_edge219
+.thread201:                                       ; preds = %218, %220, %._crit_edge218
   br i1 %.not167194200, label %223, label %222
 
 222:                                              ; preds = %.thread201
@@ -731,7 +731,7 @@ define hidden range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr nound
   br i1 %9, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %8, %29
-  %.02841 = phi i32 [ %.230, %29 ], [ %2, %8 ]
+  %.02840 = phi i32 [ %.230, %29 ], [ %2, %8 ]
   %10 = tail call i32 @BN_num_bits(ptr noundef %3) #6
   %11 = tail call i32 @BN_num_bits(ptr noundef %0) #6
   %12 = sub i32 %10, %11
@@ -743,7 +743,7 @@ define hidden range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr nound
   br label %.thread
 
 15:                                               ; preds = %.lr.ph
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %12, i32 %.02841)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %12, i32 %.02840)
   %.not34 = icmp eq i32 %10, %11
   br i1 %.not34, label %20, label %16
 
@@ -753,7 +753,7 @@ define hidden range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr nound
   br i1 %.not36, label %.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = sub nsw i32 %.02841, %spec.select
+  %19 = sub nsw i32 %.02840, %spec.select
   br label %24
 
 20:                                               ; preds = %15
@@ -762,7 +762,7 @@ define hidden range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr nound
   br i1 %.not35, label %.thread, label %22
 
 22:                                               ; preds = %20
-  %23 = add nsw i32 %.02841, -1
+  %23 = add nsw i32 %.02840, -1
   br label %24
 
 24:                                               ; preds = %22, %18

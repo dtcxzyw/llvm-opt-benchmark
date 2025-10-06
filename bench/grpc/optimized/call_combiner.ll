@@ -604,7 +604,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %20, %23
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %55
+  br label %56
 
 30:                                               ; preds = %.thread, %12
   %31 = ptrtoint ptr %.015 to i64
@@ -650,39 +650,39 @@ _ZN4absl12lts_202407226StatusD2Ev.exit26:         ; preds = %37, %40
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %55
+  br label %56
 
 47:                                               ; preds = %30, %34, %_ZN4absl12lts_202407226StatusD2Ev.exit26, %_ZN4absl12lts_202407226StatusD2Ev.exit
   %.116 = phi ptr [ %.015, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ %36, %_ZN4absl12lts_202407226StatusD2Ev.exit26 ], [ %.015, %34 ], [ %.015, %30 ]
-  %switch = phi i1 [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit26 ], [ false, %34 ], [ true, %30 ]
-  %48 = load i64, ptr %3, align 8, !tbaa !17
-  %49 = and i64 %48, 1
-  %.not.i.i27 = icmp eq i64 %49, 0
-  br i1 %.not.i.i27, label %50, label %_ZN4absl12lts_202407226StatusD2Ev.exit28
+  %48 = phi i1 [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit26 ], [ false, %34 ], [ true, %30 ]
+  %49 = load i64, ptr %3, align 8, !tbaa !17
+  %50 = and i64 %49, 1
+  %.not.i.i27 = icmp eq i64 %50, 0
+  br i1 %.not.i.i27, label %51, label %_ZN4absl12lts_202407226StatusD2Ev.exit28
 
-50:                                               ; preds = %47
-  %51 = inttoptr i64 %48 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %51)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit28 unwind label %52
+51:                                               ; preds = %47
+  %52 = inttoptr i64 %49 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %52)
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit28 unwind label %53
 
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
+53:                                               ; preds = %51
+  %54 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #19
+  %55 = extractvalue { ptr, i32 } %54, 0
+  call void @__clang_call_terminate(ptr %55) #19
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit28:         ; preds = %47, %50
+_ZN4absl12lts_202407226StatusD2Ev.exit28:         ; preds = %47, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %switch, label %9, label %56
+  br i1 %48, label %9, label %57
 
-55:                                               ; preds = %45, %28
+56:                                               ; preds = %45, %28
   %.pn21.pn = phi { ptr, i32 } [ %46, %45 ], [ %29, %28 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn21.pn
 
-56:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit28
+57:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit28
   ret void
 }
 
@@ -756,12 +756,12 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %13, %16
   %31 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
-  br label %65
+  br label %66
 
 32:                                               ; preds = %29
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %63
+  br label %64
 
 34:                                               ; preds = %.thread, %26
   %35 = cmpxchg ptr %22, i64 %24, i64 %21 acq_rel monotonic, align 8
@@ -817,42 +817,42 @@ _ZN4absl12lts_202407226StatusD2Ev.exit25:         ; preds = %45, %48
           cleanup
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %63
+  br label %64
 
 55:                                               ; preds = %34, %37, %_ZN4absl12lts_202407226StatusD2Ev.exit25, %29
-  %switch = phi i1 [ false, %29 ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit25 ], [ false, %37 ], [ true, %34 ]
-  %56 = load i64, ptr %4, align 8, !tbaa !17
-  %57 = and i64 %56, 1
-  %.not.i.i26 = icmp eq i64 %57, 0
-  br i1 %.not.i.i26, label %58, label %_ZN4absl12lts_202407226StatusD2Ev.exit27
+  %56 = phi i1 [ false, %29 ], [ false, %_ZN4absl12lts_202407226StatusD2Ev.exit25 ], [ false, %37 ], [ true, %34 ]
+  %57 = load i64, ptr %4, align 8, !tbaa !17
+  %58 = and i64 %57, 1
+  %.not.i.i26 = icmp eq i64 %58, 0
+  br i1 %.not.i.i26, label %59, label %_ZN4absl12lts_202407226StatusD2Ev.exit27
 
-58:                                               ; preds = %55
-  %59 = inttoptr i64 %56 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %59)
-          to label %_ZN4absl12lts_202407226StatusD2Ev.exit27 unwind label %60
+59:                                               ; preds = %55
+  %60 = inttoptr i64 %57 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %60)
+          to label %_ZN4absl12lts_202407226StatusD2Ev.exit27 unwind label %61
 
-60:                                               ; preds = %58
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %59
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #19
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #19
   unreachable
 
-_ZN4absl12lts_202407226StatusD2Ev.exit27:         ; preds = %55, %58
+_ZN4absl12lts_202407226StatusD2Ev.exit27:         ; preds = %55, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %switch, label %23, label %64
+  br i1 %56, label %23, label %65
 
-63:                                               ; preds = %53, %32
+64:                                               ; preds = %53, %32
   %.pn.pn = phi { ptr, i32 } [ %54, %53 ], [ %33, %32 ]
   call void @_ZN4absl12lts_202407226StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %65
+  br label %66
 
-64:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit27
+65:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit27
   ret void
 
-65:                                               ; preds = %63, %30
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %63 ], [ %31, %30 ]
+66:                                               ; preds = %64, %30
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %64 ], [ %31, %30 ]
   resume { ptr, i32 } %.pn.pn.pn
 }
 

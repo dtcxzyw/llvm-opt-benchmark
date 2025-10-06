@@ -1386,8 +1386,8 @@ init_neighbour_context.exit.i:                    ; preds = %37, %27, %.is_a0_av
   %57 = add nsw i32 %9, -1
   %58 = add nsw i32 %.pre-phi.i.i, -1
   %59 = load i32, ptr %56, align 4, !tbaa !148
-  %.not.i75.i = icmp eq i32 %59, 0
-  %60 = zext i1 %.not.i75.i to i32
+  %.not.i71.i = icmp eq i32 %59, 0
+  %60 = zext i1 %.not.i71.i to i32
   %61 = add nsw i32 %13, %9
   %62 = add nsw i32 %11, -1
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 4580532
@@ -1462,10 +1462,10 @@ init_neighbour_context.exit.i:                    ; preds = %37, %27, %.is_a0_av
   store ptr %0, ptr %73, align 8, !tbaa !152
   br label %74
 
-74:                                               ; preds = %compare_mv_ref_idx.exit74.thread97.i, %init_neighbour_context.exit.i
-  %indvars.iv144.i = phi i64 [ 0, %init_neighbour_context.exit.i ], [ %indvars.iv.next145.i, %compare_mv_ref_idx.exit74.thread97.i ]
-  %.038138.i = phi i32 [ 0, %init_neighbour_context.exit.i ], [ %.341100.i, %compare_mv_ref_idx.exit74.thread97.i ]
-  %75 = getelementptr inbounds nuw [2 x i32], ptr @mv_merge_spatial_candidates.nbs, i64 %indvars.iv144.i
+74:                                               ; preds = %compare_mv_ref_idx.exit70.thread94.i, %init_neighbour_context.exit.i
+  %indvars.iv132.i = phi i64 [ 0, %init_neighbour_context.exit.i ], [ %indvars.iv.next133.i, %compare_mv_ref_idx.exit70.thread94.i ]
+  %.038126.i = phi i32 [ 0, %init_neighbour_context.exit.i ], [ %.34197.i, %compare_mv_ref_idx.exit70.thread94.i ]
+  %75 = getelementptr inbounds nuw [2 x i32], ptr @mv_merge_spatial_candidates.nbs, i64 %indvars.iv132.i
   %76 = load i32, ptr %75, align 8, !tbaa !131
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !131
@@ -1477,13 +1477,13 @@ init_neighbour_context.exit.i:                    ; preds = %37, %27, %.is_a0_av
   %83 = getelementptr i8, ptr %79, i64 4580552
   %.val8.i.i = load ptr, ptr %83, align 8, !tbaa !30
   %84 = call fastcc i32 @check_available(ptr noundef %81, ptr %.val.i.i, ptr %.val8.i.i, i32 noundef 1)
-  %.not.i76.i = icmp eq i32 %84, 0
-  br i1 %.not.i76.i, label %mv_merge_from_nb.exit.thread.i, label %mv_merge_from_nb.exit.i
+  %.not.i72.i = icmp eq i32 %84, 0
+  br i1 %.not.i72.i, label %mv_merge_from_nb.exit.thread.i, label %mv_merge_from_nb.exit.i
 
 mv_merge_from_nb.exit.thread.i:                   ; preds = %74
   %85 = getelementptr inbounds nuw ptr, ptr %5, i64 %80
   store ptr null, ptr %85, align 8, !tbaa !82
-  br label %compare_mv_ref_idx.exit74.thread97.i
+  br label %compare_mv_ref_idx.exit70.thread94.i
 
 mv_merge_from_nb.exit.i:                          ; preds = %74
   %86 = load i32, ptr %81, align 8, !tbaa !155
@@ -1505,37 +1505,37 @@ mv_merge_from_nb.exit.i:                          ; preds = %74
   %99 = getelementptr inbounds nuw ptr, ptr %5, i64 %80
   store ptr %98, ptr %99, align 8, !tbaa !82
   %.not.i = icmp eq ptr %.val9.val10.i.i, null
-  br i1 %.not.i, label %compare_mv_ref_idx.exit74.thread97.i, label %100
+  br i1 %.not.i, label %compare_mv_ref_idx.exit70.thread94.i, label %100
 
 100:                                              ; preds = %mv_merge_from_nb.exit.i
   %101 = zext i32 %78 to i64
   %102 = getelementptr inbounds nuw ptr, ptr %5, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !82
-  %.not.i63.i = icmp eq ptr %103, null
-  br i1 %.not.i63.i, label %compare_mv_ref_idx.exit74.i, label %104
+  %.not.i61.i = icmp eq ptr %103, null
+  br i1 %.not.i61.i, label %compare_mv_ref_idx.exit70.i, label %104
 
 104:                                              ; preds = %100
   %105 = getelementptr inbounds nuw i8, ptr %98, i64 20
   %106 = load i8, ptr %105, align 4, !tbaa !92
   %107 = getelementptr inbounds nuw i8, ptr %103, i64 20
   %108 = load i8, ptr %107, align 4, !tbaa !92
-  %.not28.i64.i = icmp eq i8 %106, %108
-  br i1 %.not28.i64.i, label %.preheader134.i, label %compare_mv_ref_idx.exit74.i
+  %.not28.i62.i = icmp eq i8 %106, %108
+  br i1 %.not28.i62.i, label %.preheader122.i, label %compare_mv_ref_idx.exit70.i
 
-.preheader134.i:                                  ; preds = %104
+.preheader122.i:                                  ; preds = %104
   %109 = zext i8 %106 to i32
   %110 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %111 = getelementptr inbounds nuw i8, ptr %103, i64 16
   br label %112
 
-112:                                              ; preds = %.critedge.i73.i, %.preheader134.i
-  %113 = phi i1 [ true, %.preheader134.i ], [ false, %.critedge.i73.i ]
-  %indvars.iv.i = phi i64 [ 0, %.preheader134.i ], [ 1, %.critedge.i73.i ]
+112:                                              ; preds = %.critedge.i69.i, %.preheader122.i
+  %113 = phi i1 [ true, %.preheader122.i ], [ false, %.critedge.i69.i ]
+  %indvars.iv.i = phi i64 [ 0, %.preheader122.i ], [ 1, %.critedge.i69.i ]
   %114 = trunc nuw nsw i64 %indvars.iv.i to i32
   %115 = add nuw nsw i32 %114, 1
   %116 = and i32 %115, %109
-  %.not29.i71.i = icmp eq i32 %116, 0
-  br i1 %.not29.i71.i, label %.critedge.i73.i, label %117
+  %.not29.i67.i = icmp eq i32 %116, 0
+  br i1 %.not29.i67.i, label %.critedge.i69.i, label %117
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %110, i64 %indvars.iv.i
@@ -1548,85 +1548,85 @@ mv_merge_from_nb.exit.i:                          ; preds = %74
   %125 = getelementptr inbounds nuw %struct.Mv, ptr %103, i64 %indvars.iv.i
   %126 = load i64, ptr %125, align 8, !tbaa !29
   %127 = icmp eq i64 %124, %126
-  %or.cond.i72.i = select i1 %122, i1 %127, i1 false
-  br i1 %or.cond.i72.i, label %.critedge.i73.i, label %compare_mv_ref_idx.exit74.i
+  %or.cond.i68.i = select i1 %122, i1 %127, i1 false
+  br i1 %or.cond.i68.i, label %.critedge.i69.i, label %compare_mv_ref_idx.exit70.i
 
-.critedge.i73.i:                                  ; preds = %117, %112
-  br i1 %113, label %112, label %compare_mv_ref_idx.exit74.thread97.i, !llvm.loop !158
+.critedge.i69.i:                                  ; preds = %117, %112
+  br i1 %113, label %112, label %compare_mv_ref_idx.exit70.thread94.i, !llvm.loop !158
 
-compare_mv_ref_idx.exit74.i:                      ; preds = %117, %104, %100
-  %128 = sext i32 %.038138.i to i64
+compare_mv_ref_idx.exit70.i:                      ; preds = %117, %104, %100
+  %128 = sext i32 %.038126.i to i64
   %129 = getelementptr inbounds %struct.MvField, ptr %2, i64 %128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %98, i64 24, i1 false), !tbaa.struct !77
-  %130 = icmp ne i32 %1, %.038138.i
+  %130 = icmp ne i32 %1, %.038126.i
   %131 = zext i1 %130 to i32
-  %spec.select.i = add nsw i32 %.038138.i, %131
-  br i1 %130, label %compare_mv_ref_idx.exit74.thread97.i, label %mv_merge_spatial_candidates.exit
+  %spec.select.i = add nsw i32 %.038126.i, %131
+  br i1 %130, label %compare_mv_ref_idx.exit70.thread94.i, label %mv_merge_spatial_candidates.exit
 
-compare_mv_ref_idx.exit74.thread97.i:             ; preds = %.critedge.i73.i, %compare_mv_ref_idx.exit74.i, %mv_merge_from_nb.exit.i, %mv_merge_from_nb.exit.thread.i
-  %.341100.i = phi i32 [ %spec.select.i, %compare_mv_ref_idx.exit74.i ], [ %.038138.i, %mv_merge_from_nb.exit.i ], [ %.038138.i, %mv_merge_from_nb.exit.thread.i ], [ %.038138.i, %.critedge.i73.i ]
-  %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next145.i, 4
-  br i1 %exitcond.i, label %.thread.i, label %74, !llvm.loop !159
+compare_mv_ref_idx.exit70.thread94.i:             ; preds = %.critedge.i69.i, %compare_mv_ref_idx.exit70.i, %mv_merge_from_nb.exit.i, %mv_merge_from_nb.exit.thread.i
+  %.34197.i = phi i32 [ %spec.select.i, %compare_mv_ref_idx.exit70.i ], [ %.038126.i, %mv_merge_from_nb.exit.i ], [ %.038126.i, %mv_merge_from_nb.exit.thread.i ], [ %.038126.i, %.critedge.i69.i ]
+  %indvars.iv.next133.i = add nuw nsw i64 %indvars.iv132.i, 1
+  %exitcond.i = icmp eq i64 %indvars.iv.next133.i, 4
+  br i1 %exitcond.i, label %.thread98.i, label %74, !llvm.loop !159
 
-.thread.i:                                        ; preds = %compare_mv_ref_idx.exit74.thread97.i
-  %.not46.i = icmp eq i32 %.341100.i, 4
+.thread98.i:                                      ; preds = %compare_mv_ref_idx.exit70.thread94.i
+  %.not46.i = icmp eq i32 %.34197.i, 4
   br i1 %.not46.i, label %check_available.exit.i.thread, label %132
 
-132:                                              ; preds = %.thread.i
+132:                                              ; preds = %.thread98.i
   %133 = load ptr, ptr %73, align 8, !tbaa !152
   %134 = getelementptr i8, ptr %133, i64 4547736
-  %.val.i78.i = load ptr, ptr %134, align 8, !tbaa !80
+  %.val.i74.i = load ptr, ptr %134, align 8, !tbaa !80
   %135 = getelementptr i8, ptr %133, i64 4580552
-  %.val8.i79.i = load ptr, ptr %135, align 8, !tbaa !30
-  %136 = getelementptr inbounds nuw i8, ptr %.val8.i79.i, i64 1928
+  %.val8.i75.i = load ptr, ptr %135, align 8, !tbaa !30
+  %136 = getelementptr inbounds nuw i8, ptr %.val8.i75.i, i64 1928
   %137 = load ptr, ptr %136, align 8, !tbaa !104
-  %138 = getelementptr inbounds nuw i8, ptr %.val8.i79.i, i64 21576
+  %138 = getelementptr inbounds nuw i8, ptr %.val8.i75.i, i64 21576
   %139 = load ptr, ptr %138, align 8, !tbaa !71
-  %140 = getelementptr inbounds nuw i8, ptr %.val8.i79.i, i64 1936
+  %140 = getelementptr inbounds nuw i8, ptr %.val8.i75.i, i64 1936
   %141 = load ptr, ptr %140, align 8, !tbaa !72
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 4048
   %143 = load i16, ptr %142, align 8, !tbaa !73
   %144 = zext i16 %143 to i32
   %145 = load i32, ptr %.sroa.25.0..sroa_idx.i.i, align 8, !tbaa !160
-  %.not.i87.i = icmp eq i32 %145, 0
-  br i1 %.not.i87.i, label %147, label %.check_available.exit_crit_edge.i
+  %.not.i83.i = icmp eq i32 %145, 0
+  br i1 %.not.i83.i, label %147, label %.check_available.exit_crit_edge.i
 
 .check_available.exit_crit_edge.i:                ; preds = %132
   %.pre.i = load i32, ptr %.sroa.26.0..sroa_idx.i.i, align 4, !tbaa !161
   %146 = icmp eq i32 %.pre.i, 0
-  br i1 %146, label %check_available.exit.i.thread, label %mv_merge_from_nb.exit86.i
+  br i1 %146, label %check_available.exit.i.thread, label %mv_merge_from_nb.exit82.i
 
 147:                                              ; preds = %132
   %148 = load ptr, ptr %137, align 8, !tbaa !162
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 15417
   %150 = load i8, ptr %149, align 1, !tbaa !163
   %.not31.i.i = icmp eq i8 %150, 0
-  %.pre.i88.i = load i32, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !tbaa !155
+  %.pre.i84.i = load i32, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !tbaa !155
   br i1 %.not31.i.i, label %.thread.i.i, label %151
 
 151:                                              ; preds = %147
   %152 = getelementptr inbounds nuw i8, ptr %137, i64 30
   %153 = load i8, ptr %152, align 2, !tbaa !144
   %154 = zext i8 %153 to i32
-  %155 = ashr i32 %.pre.i88.i, %154
-  %156 = getelementptr inbounds nuw i8, ptr %.val.i78.i, i64 4
+  %155 = ashr i32 %.pre.i84.i, %154
+  %156 = getelementptr inbounds nuw i8, ptr %.val.i74.i, i64 4
   %157 = load i32, ptr %156, align 4, !tbaa !90
   %158 = ashr i32 %157, %154
-  %.not160.i = icmp sgt i32 %155, %158
-  br i1 %.not160.i, label %check_available.exit.i.thread, label %.thread.i.i
+  %.not148.i = icmp sgt i32 %155, %158
+  br i1 %.not148.i, label %check_available.exit.i.thread, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %151, %147
   %159 = load i32, ptr %.sroa.24.0..sroa_idx.i.i, align 4, !tbaa !157
   %160 = getelementptr inbounds nuw i8, ptr %137, i64 34
   %161 = load i8, ptr %160, align 2, !tbaa !105
   %162 = zext i8 %161 to i32
-  %163 = ashr i32 %.pre.i88.i, %162
+  %163 = ashr i32 %.pre.i84.i, %162
   %164 = ashr i32 %159, %162
   %165 = getelementptr inbounds nuw i8, ptr %141, i64 4034
   %166 = load i16, ptr %165, align 2, !tbaa !109
   %167 = zext i16 %166 to i32
-  %168 = getelementptr inbounds nuw i8, ptr %.val8.i79.i, i64 21400
+  %168 = getelementptr inbounds nuw i8, ptr %.val8.i75.i, i64 21400
   %169 = load ptr, ptr %168, align 8, !tbaa !147
   %170 = mul nsw i32 %164, %167
   %171 = add nsw i32 %170, %163
@@ -1637,11 +1637,11 @@ compare_mv_ref_idx.exit74.thread97.i:             ; preds = %.critedge.i73.i, %c
   br i1 %.not1.i.i, label %check_available.exit.i.thread, label %175
 
 175:                                              ; preds = %.thread.i.i
-  %176 = getelementptr inbounds nuw i8, ptr %.val.i78.i, i64 52
+  %176 = getelementptr inbounds nuw i8, ptr %.val.i74.i, i64 52
   %177 = load i32, ptr %176, align 4, !tbaa !175
   %178 = ashr i32 %159, 2
   %179 = mul nsw i32 %178, %144
-  %180 = ashr i32 %.pre.i88.i, 2
+  %180 = ashr i32 %.pre.i84.i, 2
   %181 = add nsw i32 %179, %180
   %182 = sext i32 %181 to i64
   %183 = getelementptr inbounds %struct.MvField, ptr %139, i64 %182
@@ -1654,88 +1654,88 @@ compare_mv_ref_idx.exit74.thread97.i:             ; preds = %.critedge.i73.i, %c
   br i1 %189, label %check_available.exit.i, label %check_available.exit.i.thread
 
 check_available.exit.i:                           ; preds = %175
-  %190 = getelementptr inbounds nuw i8, ptr %.val.i78.i, i64 4
+  %190 = getelementptr inbounds nuw i8, ptr %.val.i74.i, i64 4
   %191 = load i32, ptr %190, align 4, !tbaa !90
-  %192 = getelementptr inbounds nuw i8, ptr %.val.i78.i, i64 8
+  %192 = getelementptr inbounds nuw i8, ptr %.val.i74.i, i64 8
   %193 = load i32, ptr %192, align 8, !tbaa !91
   %194 = getelementptr inbounds nuw i8, ptr %137, i64 64
   %195 = load i8, ptr %194, align 8, !tbaa !176
   %196 = zext i8 %195 to i32
-  %197 = ashr i32 %.pre.i88.i, %196
+  %197 = ashr i32 %.pre.i84.i, %196
   %198 = ashr i32 %191, %196
   %199 = icmp eq i32 %197, %198
   %200 = ashr i32 %159, %196
   %201 = ashr i32 %193, %196
   %202 = icmp eq i32 %200, %201
   %narrow.not.i.not.i = select i1 %199, i1 %202, i1 false
-  br i1 %narrow.not.i.not.i, label %check_available.exit.i.thread, label %mv_merge_from_nb.exit86.i.thread
+  br i1 %narrow.not.i.not.i, label %check_available.exit.i.thread, label %mv_merge_from_nb.exit82.i.thread
 
-mv_merge_from_nb.exit86.i:                        ; preds = %.check_available.exit_crit_edge.i
+mv_merge_from_nb.exit82.i:                        ; preds = %.check_available.exit_crit_edge.i
   %.pre = load i32, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !tbaa !155
-  %.pre83 = load i32, ptr %.sroa.24.0..sroa_idx.i.i, align 4, !tbaa !157
-  %.pre84 = ashr i32 %.pre83, 2
-  %.pre85 = mul nsw i32 %.pre84, %144
-  %.pre87 = ashr i32 %.pre, 2
-  %.pre89 = add nsw i32 %.pre85, %.pre87
-  %.pre91 = sext i32 %.pre89 to i64
+  %.pre82 = load i32, ptr %.sroa.24.0..sroa_idx.i.i, align 4, !tbaa !157
+  %.pre83 = ashr i32 %.pre82, 2
+  %.pre84 = mul nsw i32 %.pre83, %144
+  %.pre86 = ashr i32 %.pre, 2
+  %.pre88 = add nsw i32 %.pre84, %.pre86
+  %.pre90 = sext i32 %.pre88 to i64
   %.not47.i = icmp eq ptr %139, null
-  br i1 %.not47.i, label %check_available.exit.i.thread, label %mv_merge_from_nb.exit86.i.thread
+  br i1 %.not47.i, label %check_available.exit.i.thread, label %mv_merge_from_nb.exit82.i.thread
 
-mv_merge_from_nb.exit86.i.thread:                 ; preds = %check_available.exit.i, %mv_merge_from_nb.exit86.i
-  %.pn = phi i64 [ %.pre91, %mv_merge_from_nb.exit86.i ], [ %182, %check_available.exit.i ]
+mv_merge_from_nb.exit82.i.thread:                 ; preds = %check_available.exit.i, %mv_merge_from_nb.exit82.i
+  %.pn = phi i64 [ %.pre90, %mv_merge_from_nb.exit82.i ], [ %182, %check_available.exit.i ]
   %203 = getelementptr inbounds %struct.MvField, ptr %139, i64 %.pn
   %204 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %205 = load ptr, ptr %204, align 8, !tbaa !82
   %.not.i51.i = icmp eq ptr %205, null
-  br i1 %.not.i51.i, label %.loopexit133.i, label %206
+  br i1 %.not.i51.i, label %.loopexit121.i, label %206
 
-206:                                              ; preds = %mv_merge_from_nb.exit86.i.thread
+206:                                              ; preds = %mv_merge_from_nb.exit82.i.thread
   %207 = getelementptr inbounds nuw i8, ptr %203, i64 20
   %208 = load i8, ptr %207, align 4, !tbaa !92
   %209 = getelementptr inbounds nuw i8, ptr %205, i64 20
   %210 = load i8, ptr %209, align 4, !tbaa !92
   %.not28.i52.i = icmp eq i8 %208, %210
-  br i1 %.not28.i52.i, label %.preheader131.i, label %.loopexit133.i
+  br i1 %.not28.i52.i, label %.preheader119.i, label %.loopexit121.i
 
-.preheader131.i:                                  ; preds = %206
+.preheader119.i:                                  ; preds = %206
   %211 = zext i8 %208 to i32
   %212 = getelementptr inbounds nuw i8, ptr %203, i64 16
   %213 = getelementptr inbounds nuw i8, ptr %205, i64 16
   br label %214
 
-214:                                              ; preds = %.critedge.i61.i, %.preheader131.i
-  %215 = phi i1 [ true, %.preheader131.i ], [ false, %.critedge.i61.i ]
-  %indvars.iv147.i = phi i64 [ 0, %.preheader131.i ], [ 1, %.critedge.i61.i ]
-  %216 = trunc nuw nsw i64 %indvars.iv147.i to i32
+214:                                              ; preds = %.critedge.i59.i, %.preheader119.i
+  %215 = phi i1 [ true, %.preheader119.i ], [ false, %.critedge.i59.i ]
+  %indvars.iv135.i = phi i64 [ 0, %.preheader119.i ], [ 1, %.critedge.i59.i ]
+  %216 = trunc nuw nsw i64 %indvars.iv135.i to i32
   %217 = add nuw nsw i32 %216, 1
   %218 = and i32 %217, %211
-  %.not29.i59.i = icmp eq i32 %218, 0
-  br i1 %.not29.i59.i, label %.critedge.i61.i, label %219
+  %.not29.i57.i = icmp eq i32 %218, 0
+  br i1 %.not29.i57.i, label %.critedge.i59.i, label %219
 
 219:                                              ; preds = %214
-  %220 = getelementptr inbounds nuw i8, ptr %212, i64 %indvars.iv147.i
+  %220 = getelementptr inbounds nuw i8, ptr %212, i64 %indvars.iv135.i
   %221 = load i8, ptr %220, align 1, !tbaa !29
-  %222 = getelementptr inbounds nuw i8, ptr %213, i64 %indvars.iv147.i
+  %222 = getelementptr inbounds nuw i8, ptr %213, i64 %indvars.iv135.i
   %223 = load i8, ptr %222, align 1, !tbaa !29
   %224 = icmp eq i8 %221, %223
-  %225 = getelementptr inbounds nuw %struct.Mv, ptr %203, i64 %indvars.iv147.i
+  %225 = getelementptr inbounds nuw %struct.Mv, ptr %203, i64 %indvars.iv135.i
   %226 = load i64, ptr %225, align 8, !tbaa !29
-  %227 = getelementptr inbounds nuw %struct.Mv, ptr %205, i64 %indvars.iv147.i
+  %227 = getelementptr inbounds nuw %struct.Mv, ptr %205, i64 %indvars.iv135.i
   %228 = load i64, ptr %227, align 8, !tbaa !29
   %229 = icmp eq i64 %226, %228
-  %or.cond.i60.i = select i1 %224, i1 %229, i1 false
-  br i1 %or.cond.i60.i, label %.critedge.i61.i, label %.loopexit133.i
+  %or.cond.i58.i = select i1 %224, i1 %229, i1 false
+  br i1 %or.cond.i58.i, label %.critedge.i59.i, label %.loopexit121.i
 
-.critedge.i61.i:                                  ; preds = %219, %214
+.critedge.i59.i:                                  ; preds = %219, %214
   br i1 %215, label %214, label %check_available.exit.i.thread, !llvm.loop !158
 
-.loopexit133.i:                                   ; preds = %219, %206, %mv_merge_from_nb.exit86.i.thread
+.loopexit121.i:                                   ; preds = %219, %206, %mv_merge_from_nb.exit82.i.thread
   %230 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %231 = load ptr, ptr %230, align 16, !tbaa !82
   %.not.i.i = icmp eq ptr %231, null
   br i1 %.not.i.i, label %.loopexit.i, label %232
 
-232:                                              ; preds = %.loopexit133.i
+232:                                              ; preds = %.loopexit121.i
   %233 = getelementptr inbounds nuw i8, ptr %203, i64 20
   %234 = load i8, ptr %233, align 4, !tbaa !92
   %235 = getelementptr inbounds nuw i8, ptr %231, i64 20
@@ -1751,22 +1751,22 @@ mv_merge_from_nb.exit86.i.thread:                 ; preds = %check_available.exi
 
 240:                                              ; preds = %.critedge.i.i, %.preheader.i
   %241 = phi i1 [ true, %.preheader.i ], [ false, %.critedge.i.i ]
-  %indvars.iv150.i = phi i64 [ 0, %.preheader.i ], [ 1, %.critedge.i.i ]
-  %242 = trunc nuw nsw i64 %indvars.iv150.i to i32
+  %indvars.iv138.i = phi i64 [ 0, %.preheader.i ], [ 1, %.critedge.i.i ]
+  %242 = trunc nuw nsw i64 %indvars.iv138.i to i32
   %243 = add nuw nsw i32 %242, 1
   %244 = and i32 %243, %237
   %.not29.i.i = icmp eq i32 %244, 0
   br i1 %.not29.i.i, label %.critedge.i.i, label %245
 
 245:                                              ; preds = %240
-  %246 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv150.i
+  %246 = getelementptr inbounds nuw i8, ptr %238, i64 %indvars.iv138.i
   %247 = load i8, ptr %246, align 1, !tbaa !29
-  %248 = getelementptr inbounds nuw i8, ptr %239, i64 %indvars.iv150.i
+  %248 = getelementptr inbounds nuw i8, ptr %239, i64 %indvars.iv138.i
   %249 = load i8, ptr %248, align 1, !tbaa !29
   %250 = icmp eq i8 %247, %249
-  %251 = getelementptr inbounds nuw %struct.Mv, ptr %203, i64 %indvars.iv150.i
+  %251 = getelementptr inbounds nuw %struct.Mv, ptr %203, i64 %indvars.iv138.i
   %252 = load i64, ptr %251, align 8, !tbaa !29
-  %253 = getelementptr inbounds nuw %struct.Mv, ptr %231, i64 %indvars.iv150.i
+  %253 = getelementptr inbounds nuw %struct.Mv, ptr %231, i64 %indvars.iv138.i
   %254 = load i64, ptr %253, align 8, !tbaa !29
   %255 = icmp eq i64 %252, %254
   %or.cond.i.i = select i1 %250, i1 %255, i1 false
@@ -1775,23 +1775,23 @@ mv_merge_from_nb.exit86.i.thread:                 ; preds = %check_available.exi
 .critedge.i.i:                                    ; preds = %245, %240
   br i1 %241, label %240, label %check_available.exit.i.thread, !llvm.loop !158
 
-.loopexit.i:                                      ; preds = %245, %232, %.loopexit133.i
-  %256 = sext i32 %.341100.i to i64
+.loopexit.i:                                      ; preds = %245, %232, %.loopexit121.i
+  %256 = sext i32 %.34197.i to i64
   %257 = getelementptr inbounds %struct.MvField, ptr %2, i64 %256
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %257, ptr noundef nonnull align 8 dereferenceable(24) %203, i64 24, i1 false), !tbaa.struct !77
-  %258 = icmp eq i32 %1, %.341100.i
+  %258 = icmp eq i32 %1, %.34197.i
   br i1 %258, label %mv_merge_spatial_candidates.exit, label %259
 
 259:                                              ; preds = %.loopexit.i
-  %260 = add nsw i32 %.341100.i, 1
+  %260 = add nsw i32 %.34197.i, 1
   br label %check_available.exit.i.thread
 
-mv_merge_spatial_candidates.exit:                 ; preds = %compare_mv_ref_idx.exit74.i, %.loopexit.i
+mv_merge_spatial_candidates.exit:                 ; preds = %compare_mv_ref_idx.exit70.i, %.loopexit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %mv_merge_history_candidates.exit
 
-check_available.exit.i.thread:                    ; preds = %.critedge.i61.i, %.critedge.i.i, %151, %.thread.i.i, %175, %.check_available.exit_crit_edge.i, %259, %mv_merge_from_nb.exit86.i, %check_available.exit.i, %.thread.i
-  %.2.ph = phi i32 [ %.341100.i, %.check_available.exit_crit_edge.i ], [ %.341100.i, %check_available.exit.i ], [ 4, %.thread.i ], [ %.341100.i, %mv_merge_from_nb.exit86.i ], [ %260, %259 ], [ %.341100.i, %175 ], [ %.341100.i, %.thread.i.i ], [ %.341100.i, %151 ], [ %.341100.i, %.critedge.i.i ], [ %.341100.i, %.critedge.i61.i ]
+check_available.exit.i.thread:                    ; preds = %.critedge.i59.i, %.critedge.i.i, %151, %.thread.i.i, %175, %.check_available.exit_crit_edge.i, %259, %mv_merge_from_nb.exit82.i, %check_available.exit.i, %.thread98.i
+  %.2.ph = phi i32 [ %.34197.i, %.check_available.exit_crit_edge.i ], [ %.34197.i, %check_available.exit.i ], [ 4, %.thread98.i ], [ %.34197.i, %mv_merge_from_nb.exit82.i ], [ %260, %259 ], [ %.34197.i, %175 ], [ %.34197.i, %.thread.i.i ], [ %.34197.i, %151 ], [ %.34197.i, %.critedge.i.i ], [ %.34197.i, %.critedge.i59.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %261 = sext i32 %.2.ph to i64
   %262 = getelementptr inbounds %struct.MvField, ptr %2, i64 %261
@@ -1860,8 +1860,8 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   %.8.val.fr.i = freeze ptr %.val19
   %300 = getelementptr inbounds nuw i8, ptr %.val18, i64 2840
   %301 = load i32, ptr %300, align 8, !tbaa !181
-  %.not17.i = icmp slt i32 %301, 1
-  br i1 %.not17.i, label %.loopexit, label %.lr.ph.i
+  %.not12.i = icmp slt i32 %301, 1
+  br i1 %.not12.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %mv_merge_temporal_candidate.exit.thread
   %.val = load ptr, ptr %16, align 8, !tbaa !30
@@ -1888,7 +1888,7 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 .lr.ph.split.us.split.us.i:                       ; preds = %.lr.ph.split.us.split.us.i.preheader, %.critedge34.us.us.i
   %indvars.iv = phi i64 [ %309, %.lr.ph.split.us.split.us.i.preheader ], [ %indvars.iv.next, %.critedge34.us.us.i ]
   %310 = phi i32 [ %301, %.lr.ph.split.us.split.us.i.preheader ], [ %321, %.critedge34.us.us.i ]
-  %.02518.us.us.i = phi i32 [ 1, %.lr.ph.split.us.split.us.i.preheader ], [ %320, %.critedge34.us.us.i ]
+  %.02513.us.us.i = phi i32 [ 1, %.lr.ph.split.us.split.us.i.preheader ], [ %320, %.critedge34.us.us.i ]
   %311 = load i8, ptr %303, align 2, !tbaa !184
   %312 = zext i8 %311 to i64
   %313 = add nsw i64 %312, -1
@@ -1896,7 +1896,7 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   br i1 %314, label %.critedge32.us.us.i, label %.loopexit.loopexit
 
 .critedge32.us.us.i:                              ; preds = %.lr.ph.split.us.split.us.i
-  %315 = sub nsw i32 %310, %.02518.us.us.i
+  %315 = sub nsw i32 %310, %.02513.us.us.i
   %316 = sext i32 %315 to i64
   %317 = getelementptr inbounds %struct.MvField, ptr %304, i64 %316
   %318 = getelementptr inbounds %struct.MvField, ptr %2, i64 %indvars.iv
@@ -1906,16 +1906,16 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 
 .critedge34.us.us.i:                              ; preds = %.critedge32.us.us.i
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %320 = add nuw nsw i32 %.02518.us.us.i, 1
+  %320 = add nuw nsw i32 %.02513.us.us.i, 1
   %321 = load i32, ptr %300, align 8, !tbaa !181
-  %.not.us.us.not.i = icmp slt i32 %.02518.us.us.i, %321
+  %.not.us.us.not.i = icmp slt i32 %.02513.us.us.i, %321
   br i1 %.not.us.us.not.i, label %.lr.ph.split.us.split.us.i, label %.loopexit.loopexit, !llvm.loop !185
 
 .lr.ph.split.us.split.i:                          ; preds = %.lr.ph.split.us.i, %.critedge34.us.i
   %.7 = phi i32 [ %.8, %.critedge34.us.i ], [ %.0, %.lr.ph.split.us.i ]
   %322 = phi i32 [ %358, %.critedge34.us.i ], [ %301, %.lr.ph.split.us.i ]
   %323 = phi i32 [ %359, %.critedge34.us.i ], [ %.0, %.lr.ph.split.us.i ]
-  %.02518.us.i = phi i32 [ %360, %.critedge34.us.i ], [ 1, %.lr.ph.split.us.i ]
+  %.02513.us.i = phi i32 [ %360, %.critedge34.us.i ], [ 1, %.lr.ph.split.us.i ]
   %324 = load i8, ptr %303, align 2, !tbaa !184
   %325 = zext i8 %324 to i32
   %326 = add nsw i32 %325, -1
@@ -1923,10 +1923,10 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   br i1 %327, label %328, label %.loopexit
 
 328:                                              ; preds = %.lr.ph.split.us.split.i
-  %329 = sub nsw i32 %322, %.02518.us.i
+  %329 = sub nsw i32 %322, %.02513.us.i
   %330 = sext i32 %329 to i64
   %331 = getelementptr inbounds %struct.MvField, ptr %304, i64 %330
-  %332 = icmp samesign ult i32 %.02518.us.i, 3
+  %332 = icmp samesign ult i32 %.02513.us.i, 3
   br i1 %332, label %333, label %.critedge32.us.i
 
 333:                                              ; preds = %328
@@ -1938,22 +1938,22 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 
 337:                                              ; preds = %.preheader.us.i, %.critedge.i.us.i
   %338 = phi i1 [ true, %.preheader.us.i ], [ false, %.critedge.i.us.i ]
-  %indvars.iv52.i = phi i64 [ 0, %.preheader.us.i ], [ 1, %.critedge.i.us.i ]
-  %339 = trunc nuw nsw i64 %indvars.iv52.i to i32
+  %indvars.iv47.i = phi i64 [ 0, %.preheader.us.i ], [ 1, %.critedge.i.us.i ]
+  %339 = trunc nuw nsw i64 %indvars.iv47.i to i32
   %340 = add nuw nsw i32 %339, 1
   %341 = and i32 %340, %361
   %.not29.i.us.i = icmp eq i32 %341, 0
   br i1 %.not29.i.us.i, label %.critedge.i.us.i, label %342
 
 342:                                              ; preds = %337
-  %343 = getelementptr inbounds nuw i8, ptr %362, i64 %indvars.iv52.i
+  %343 = getelementptr inbounds nuw i8, ptr %362, i64 %indvars.iv47.i
   %344 = load i8, ptr %343, align 1, !tbaa !29
-  %345 = getelementptr inbounds nuw i8, ptr %308, i64 %indvars.iv52.i
+  %345 = getelementptr inbounds nuw i8, ptr %308, i64 %indvars.iv47.i
   %346 = load i8, ptr %345, align 1, !tbaa !29
   %347 = icmp eq i8 %344, %346
-  %348 = getelementptr inbounds nuw %struct.Mv, ptr %331, i64 %indvars.iv52.i
+  %348 = getelementptr inbounds nuw %struct.Mv, ptr %331, i64 %indvars.iv47.i
   %349 = load i64, ptr %348, align 8, !tbaa !29
-  %350 = getelementptr inbounds nuw %struct.Mv, ptr %.32.val.fr.i, i64 %indvars.iv52.i
+  %350 = getelementptr inbounds nuw %struct.Mv, ptr %.32.val.fr.i, i64 %indvars.iv47.i
   %351 = load i64, ptr %350, align 8, !tbaa !29
   %352 = icmp eq i64 %349, %351
   %or.cond.i.us.i = select i1 %347, i1 %352, i1 false
@@ -1971,15 +1971,15 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 
 356:                                              ; preds = %.critedge32.us.i
   %357 = add nsw i32 %.7, 1
-  %.pre59.i = load i32, ptr %300, align 8, !tbaa !181
+  %.pre54.i = load i32, ptr %300, align 8, !tbaa !181
   br label %.critedge34.us.i
 
 .critedge34.us.i:                                 ; preds = %.critedge.i.us.i, %356
   %.8 = phi i32 [ %357, %356 ], [ %.7, %.critedge.i.us.i ]
-  %358 = phi i32 [ %.pre59.i, %356 ], [ %322, %.critedge.i.us.i ]
+  %358 = phi i32 [ %.pre54.i, %356 ], [ %322, %.critedge.i.us.i ]
   %359 = phi i32 [ %357, %356 ], [ %323, %.critedge.i.us.i ]
-  %360 = add nuw nsw i32 %.02518.us.i, 1
-  %.not.us.not.i = icmp slt i32 %.02518.us.i, %358
+  %360 = add nuw nsw i32 %.02513.us.i, 1
+  %.not.us.not.i = icmp slt i32 %.02513.us.i, %358
   br i1 %.not.us.not.i, label %.lr.ph.split.us.split.i, label %.loopexit, !llvm.loop !185
 
 .preheader.us.i:                                  ; preds = %333
@@ -1990,11 +1990,11 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i
   br i1 %.not.i.i24, label %.lr.ph.split.split.us.i, label %.lr.ph.split.split.i
 
-.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %.critedge34.us26.i
-  %.5 = phi i32 [ %.6, %.critedge34.us26.i ], [ %.0, %.lr.ph.split.i ]
-  %363 = phi i32 [ %399, %.critedge34.us26.i ], [ %301, %.lr.ph.split.i ]
-  %364 = phi i32 [ %400, %.critedge34.us26.i ], [ %.0, %.lr.ph.split.i ]
-  %.02518.us24.i = phi i32 [ %401, %.critedge34.us26.i ], [ 1, %.lr.ph.split.i ]
+.lr.ph.split.split.us.i:                          ; preds = %.lr.ph.split.i, %.critedge34.us21.i
+  %.5 = phi i32 [ %.6, %.critedge34.us21.i ], [ %.0, %.lr.ph.split.i ]
+  %363 = phi i32 [ %399, %.critedge34.us21.i ], [ %301, %.lr.ph.split.i ]
+  %364 = phi i32 [ %400, %.critedge34.us21.i ], [ %.0, %.lr.ph.split.i ]
+  %.02513.us19.i = phi i32 [ %401, %.critedge34.us21.i ], [ 1, %.lr.ph.split.i ]
   %365 = load i8, ptr %303, align 2, !tbaa !184
   %366 = zext i8 %365 to i32
   %367 = add nsw i32 %366, -1
@@ -2002,66 +2002,66 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   br i1 %368, label %369, label %.loopexit
 
 369:                                              ; preds = %.lr.ph.split.split.us.i
-  %370 = sub nsw i32 %363, %.02518.us24.i
+  %370 = sub nsw i32 %363, %.02513.us19.i
   %371 = sext i32 %370 to i64
   %372 = getelementptr inbounds %struct.MvField, ptr %304, i64 %371
-  %373 = icmp samesign ult i32 %.02518.us24.i, 3
-  br i1 %373, label %374, label %.critedge32.us25.i
+  %373 = icmp samesign ult i32 %.02513.us19.i, 3
+  br i1 %373, label %374, label %.critedge32.us20.i
 
 374:                                              ; preds = %369
   %375 = getelementptr inbounds nuw i8, ptr %372, i64 20
   %376 = load i8, ptr %375, align 4, !tbaa !92
   %377 = load i8, ptr %305, align 4, !tbaa !92
   %.not28.i36.us.i = icmp eq i8 %376, %377
-  br i1 %.not28.i36.us.i, label %.preheader13.us.i, label %.critedge32.us25.i
+  br i1 %.not28.i36.us.i, label %.preheader8.us.i, label %.critedge32.us20.i
 
-378:                                              ; preds = %.preheader13.us.i, %.critedge.i45.us.i
-  %379 = phi i1 [ true, %.preheader13.us.i ], [ false, %.critedge.i45.us.i ]
-  %indvars.iv49.i = phi i64 [ 0, %.preheader13.us.i ], [ 1, %.critedge.i45.us.i ]
-  %380 = trunc nuw nsw i64 %indvars.iv49.i to i32
+378:                                              ; preds = %.preheader8.us.i, %.critedge.i43.us.i
+  %379 = phi i1 [ true, %.preheader8.us.i ], [ false, %.critedge.i43.us.i ]
+  %indvars.iv44.i = phi i64 [ 0, %.preheader8.us.i ], [ 1, %.critedge.i43.us.i ]
+  %380 = trunc nuw nsw i64 %indvars.iv44.i to i32
   %381 = add nuw nsw i32 %380, 1
   %382 = and i32 %381, %402
-  %.not29.i43.us.i = icmp eq i32 %382, 0
-  br i1 %.not29.i43.us.i, label %.critedge.i45.us.i, label %383
+  %.not29.i41.us.i = icmp eq i32 %382, 0
+  br i1 %.not29.i41.us.i, label %.critedge.i43.us.i, label %383
 
 383:                                              ; preds = %378
-  %384 = getelementptr inbounds nuw i8, ptr %403, i64 %indvars.iv49.i
+  %384 = getelementptr inbounds nuw i8, ptr %403, i64 %indvars.iv44.i
   %385 = load i8, ptr %384, align 1, !tbaa !29
-  %386 = getelementptr inbounds nuw i8, ptr %306, i64 %indvars.iv49.i
+  %386 = getelementptr inbounds nuw i8, ptr %306, i64 %indvars.iv44.i
   %387 = load i8, ptr %386, align 1, !tbaa !29
   %388 = icmp eq i8 %385, %387
-  %389 = getelementptr inbounds nuw %struct.Mv, ptr %372, i64 %indvars.iv49.i
+  %389 = getelementptr inbounds nuw %struct.Mv, ptr %372, i64 %indvars.iv44.i
   %390 = load i64, ptr %389, align 8, !tbaa !29
-  %391 = getelementptr inbounds nuw %struct.Mv, ptr %.8.val.fr.i, i64 %indvars.iv49.i
+  %391 = getelementptr inbounds nuw %struct.Mv, ptr %.8.val.fr.i, i64 %indvars.iv44.i
   %392 = load i64, ptr %391, align 8, !tbaa !29
   %393 = icmp eq i64 %390, %392
-  %or.cond.i44.us.i = select i1 %388, i1 %393, i1 false
-  br i1 %or.cond.i44.us.i, label %.critedge.i45.us.i, label %.critedge32.us25.i
+  %or.cond.i42.us.i = select i1 %388, i1 %393, i1 false
+  br i1 %or.cond.i42.us.i, label %.critedge.i43.us.i, label %.critedge32.us20.i
 
-.critedge.i45.us.i:                               ; preds = %383, %378
-  br i1 %379, label %378, label %.critedge34.us26.i, !llvm.loop !158
+.critedge.i43.us.i:                               ; preds = %383, %378
+  br i1 %379, label %378, label %.critedge34.us21.i, !llvm.loop !158
 
-.critedge32.us25.i:                               ; preds = %383, %374, %369
+.critedge32.us20.i:                               ; preds = %383, %374, %369
   %394 = sext i32 %364 to i64
   %395 = getelementptr inbounds %struct.MvField, ptr %2, i64 %394
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %395, ptr noundef nonnull readonly align 8 dereferenceable(24) %372, i64 24, i1 false), !tbaa.struct !77
   %396 = icmp eq i32 %1, %.5
   br i1 %396, label %mv_merge_history_candidates.exit, label %397
 
-397:                                              ; preds = %.critedge32.us25.i
+397:                                              ; preds = %.critedge32.us20.i
   %398 = add nsw i32 %.5, 1
-  %.pre57.i = load i32, ptr %300, align 8, !tbaa !181
-  br label %.critedge34.us26.i
+  %.pre52.i = load i32, ptr %300, align 8, !tbaa !181
+  br label %.critedge34.us21.i
 
-.critedge34.us26.i:                               ; preds = %.critedge.i45.us.i, %397
-  %.6 = phi i32 [ %398, %397 ], [ %.5, %.critedge.i45.us.i ]
-  %399 = phi i32 [ %.pre57.i, %397 ], [ %363, %.critedge.i45.us.i ]
-  %400 = phi i32 [ %398, %397 ], [ %364, %.critedge.i45.us.i ]
-  %401 = add nuw nsw i32 %.02518.us24.i, 1
-  %.not.us27.not.i = icmp slt i32 %.02518.us24.i, %399
-  br i1 %.not.us27.not.i, label %.lr.ph.split.split.us.i, label %.loopexit, !llvm.loop !185
+.critedge34.us21.i:                               ; preds = %.critedge.i43.us.i, %397
+  %.6 = phi i32 [ %398, %397 ], [ %.5, %.critedge.i43.us.i ]
+  %399 = phi i32 [ %.pre52.i, %397 ], [ %363, %.critedge.i43.us.i ]
+  %400 = phi i32 [ %398, %397 ], [ %364, %.critedge.i43.us.i ]
+  %401 = add nuw nsw i32 %.02513.us19.i, 1
+  %.not.us22.not.i = icmp slt i32 %.02513.us19.i, %399
+  br i1 %.not.us22.not.i, label %.lr.ph.split.split.us.i, label %.loopexit, !llvm.loop !185
 
-.preheader13.us.i:                                ; preds = %374
+.preheader8.us.i:                                 ; preds = %374
   %402 = zext i8 %376 to i32
   %403 = getelementptr inbounds nuw i8, ptr %372, i64 16
   br label %378
@@ -2070,7 +2070,7 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   %.3 = phi i32 [ %.4, %.critedge34.i ], [ %.0, %.lr.ph.split.i ]
   %404 = phi i32 [ %461, %.critedge34.i ], [ %301, %.lr.ph.split.i ]
   %405 = phi i32 [ %462, %.critedge34.i ], [ %.0, %.lr.ph.split.i ]
-  %.02518.i = phi i32 [ %463, %.critedge34.i ], [ 1, %.lr.ph.split.i ]
+  %.02513.i = phi i32 [ %463, %.critedge34.i ], [ 1, %.lr.ph.split.i ]
   %406 = load i8, ptr %303, align 2, !tbaa !184
   %407 = zext i8 %406 to i32
   %408 = add nsw i32 %407, -1
@@ -2078,10 +2078,10 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   br i1 %409, label %410, label %.loopexit
 
 410:                                              ; preds = %.lr.ph.split.split.i
-  %411 = sub nsw i32 %404, %.02518.i
+  %411 = sub nsw i32 %404, %.02513.i
   %412 = sext i32 %411 to i64
   %413 = getelementptr inbounds %struct.MvField, ptr %304, i64 %412
-  %414 = icmp samesign ult i32 %.02518.i, 3
+  %414 = icmp samesign ult i32 %.02513.i, 3
   br i1 %414, label %415, label %.critedge32.i
 
 415:                                              ; preds = %410
@@ -2089,21 +2089,21 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   %417 = load i8, ptr %416, align 4, !tbaa !92
   %418 = load i8, ptr %305, align 4, !tbaa !92
   %.not28.i36.i = icmp eq i8 %417, %418
-  br i1 %.not28.i36.i, label %.preheader13.i, label %.loopexit.i25
+  br i1 %.not28.i36.i, label %.preheader8.i, label %.loopexit.i25
 
-.preheader13.i:                                   ; preds = %415
+.preheader8.i:                                    ; preds = %415
   %419 = zext i8 %417 to i32
   %420 = getelementptr inbounds nuw i8, ptr %413, i64 16
   br label %421
 
-421:                                              ; preds = %.critedge.i45.i, %.preheader13.i
-  %422 = phi i1 [ true, %.preheader13.i ], [ false, %.critedge.i45.i ]
-  %indvars.iv.i31 = phi i64 [ 0, %.preheader13.i ], [ 1, %.critedge.i45.i ]
+421:                                              ; preds = %.critedge.i43.i, %.preheader8.i
+  %422 = phi i1 [ true, %.preheader8.i ], [ false, %.critedge.i43.i ]
+  %indvars.iv.i31 = phi i64 [ 0, %.preheader8.i ], [ 1, %.critedge.i43.i ]
   %423 = trunc nuw nsw i64 %indvars.iv.i31 to i32
   %424 = add nuw nsw i32 %423, 1
   %425 = and i32 %424, %419
-  %.not29.i43.i = icmp eq i32 %425, 0
-  br i1 %.not29.i43.i, label %.critedge.i45.i, label %426
+  %.not29.i41.i = icmp eq i32 %425, 0
+  br i1 %.not29.i41.i, label %.critedge.i43.i, label %426
 
 426:                                              ; preds = %421
   %427 = getelementptr inbounds nuw i8, ptr %420, i64 %indvars.iv.i31
@@ -2116,10 +2116,10 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   %434 = getelementptr inbounds nuw %struct.Mv, ptr %.8.val.fr.i, i64 %indvars.iv.i31
   %435 = load i64, ptr %434, align 8, !tbaa !29
   %436 = icmp eq i64 %433, %435
-  %or.cond.i44.i = select i1 %431, i1 %436, i1 false
-  br i1 %or.cond.i44.i, label %.critedge.i45.i, label %.loopexit.i25
+  %or.cond.i42.i = select i1 %431, i1 %436, i1 false
+  br i1 %or.cond.i42.i, label %.critedge.i43.i, label %.loopexit.i25
 
-.critedge.i45.i:                                  ; preds = %426, %421
+.critedge.i43.i:                                  ; preds = %426, %421
   br i1 %422, label %421, label %.critedge34.i, !llvm.loop !158
 
 .loopexit.i25:                                    ; preds = %426, %415
@@ -2134,22 +2134,22 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 
 440:                                              ; preds = %.critedge.i.i30, %.preheader.i27
   %441 = phi i1 [ true, %.preheader.i27 ], [ false, %.critedge.i.i30 ]
-  %indvars.iv46.i = phi i64 [ 0, %.preheader.i27 ], [ 1, %.critedge.i.i30 ]
-  %442 = trunc nuw nsw i64 %indvars.iv46.i to i32
+  %indvars.iv41.i = phi i64 [ 0, %.preheader.i27 ], [ 1, %.critedge.i.i30 ]
+  %442 = trunc nuw nsw i64 %indvars.iv41.i to i32
   %443 = add nuw nsw i32 %442, 1
   %444 = and i32 %443, %438
   %.not29.i.i28 = icmp eq i32 %444, 0
   br i1 %.not29.i.i28, label %.critedge.i.i30, label %445
 
 445:                                              ; preds = %440
-  %446 = getelementptr inbounds nuw i8, ptr %439, i64 %indvars.iv46.i
+  %446 = getelementptr inbounds nuw i8, ptr %439, i64 %indvars.iv41.i
   %447 = load i8, ptr %446, align 1, !tbaa !29
-  %448 = getelementptr inbounds nuw i8, ptr %308, i64 %indvars.iv46.i
+  %448 = getelementptr inbounds nuw i8, ptr %308, i64 %indvars.iv41.i
   %449 = load i8, ptr %448, align 1, !tbaa !29
   %450 = icmp eq i8 %447, %449
-  %451 = getelementptr inbounds nuw %struct.Mv, ptr %413, i64 %indvars.iv46.i
+  %451 = getelementptr inbounds nuw %struct.Mv, ptr %413, i64 %indvars.iv41.i
   %452 = load i64, ptr %451, align 8, !tbaa !29
-  %453 = getelementptr inbounds nuw %struct.Mv, ptr %.32.val.fr.i, i64 %indvars.iv46.i
+  %453 = getelementptr inbounds nuw %struct.Mv, ptr %.32.val.fr.i, i64 %indvars.iv41.i
   %454 = load i64, ptr %453, align 8, !tbaa !29
   %455 = icmp eq i64 %452, %454
   %or.cond.i.i29 = select i1 %450, i1 %455, i1 false
@@ -2167,15 +2167,15 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 
 459:                                              ; preds = %.critedge32.i
   %460 = add nsw i32 %.3, 1
-  %.pre55.i = load i32, ptr %300, align 8, !tbaa !181
+  %.pre50.i = load i32, ptr %300, align 8, !tbaa !181
   br label %.critedge34.i
 
-.critedge34.i:                                    ; preds = %.critedge.i45.i, %.critedge.i.i30, %459
-  %.4 = phi i32 [ %460, %459 ], [ %.3, %.critedge.i.i30 ], [ %.3, %.critedge.i45.i ]
-  %461 = phi i32 [ %.pre55.i, %459 ], [ %404, %.critedge.i.i30 ], [ %404, %.critedge.i45.i ]
-  %462 = phi i32 [ %460, %459 ], [ %405, %.critedge.i.i30 ], [ %405, %.critedge.i45.i ]
-  %463 = add nuw nsw i32 %.02518.i, 1
-  %.not.not.i = icmp slt i32 %.02518.i, %461
+.critedge34.i:                                    ; preds = %.critedge.i43.i, %.critedge.i.i30, %459
+  %.4 = phi i32 [ %460, %459 ], [ %.3, %.critedge.i.i30 ], [ %.3, %.critedge.i43.i ]
+  %461 = phi i32 [ %.pre50.i, %459 ], [ %404, %.critedge.i.i30 ], [ %404, %.critedge.i43.i ]
+  %462 = phi i32 [ %460, %459 ], [ %405, %.critedge.i.i30 ], [ %405, %.critedge.i43.i ]
+  %463 = add nuw nsw i32 %.02513.i, 1
+  %.not.not.i = icmp slt i32 %.02513.i, %461
   br i1 %.not.not.i, label %.lr.ph.split.split.i, label %.loopexit, !llvm.loop !185
 
 .loopexit.loopexit:                               ; preds = %.critedge34.us.us.i, %.lr.ph.split.us.split.us.i
@@ -2183,8 +2183,8 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   %.10.ph.ph = trunc i64 %.10.ph.ph.in to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.split.split.i, %.critedge34.i, %.lr.ph.split.split.us.i, %.critedge34.us26.i, %.lr.ph.split.us.split.i, %.critedge34.us.i, %.loopexit.loopexit, %mv_merge_temporal_candidate.exit.thread
-  %.10.ph = phi i32 [ %.0, %mv_merge_temporal_candidate.exit.thread ], [ %.10.ph.ph, %.loopexit.loopexit ], [ %.8, %.critedge34.us.i ], [ %.7, %.lr.ph.split.us.split.i ], [ %.6, %.critedge34.us26.i ], [ %.5, %.lr.ph.split.split.us.i ], [ %.4, %.critedge34.i ], [ %.3, %.lr.ph.split.split.i ]
+.loopexit:                                        ; preds = %.lr.ph.split.split.i, %.critedge34.i, %.lr.ph.split.split.us.i, %.critedge34.us21.i, %.lr.ph.split.us.split.i, %.critedge34.us.i, %.loopexit.loopexit, %mv_merge_temporal_candidate.exit.thread
+  %.10.ph = phi i32 [ %.0, %mv_merge_temporal_candidate.exit.thread ], [ %.10.ph.ph, %.loopexit.loopexit ], [ %.8, %.critedge34.us.i ], [ %.7, %.lr.ph.split.us.split.i ], [ %.6, %.critedge34.us21.i ], [ %.5, %.lr.ph.split.split.us.i ], [ %.4, %.critedge34.i ], [ %.3, %.lr.ph.split.split.i ]
   %464 = getelementptr inbounds nuw i8, ptr %0, i64 4580544
   %465 = load ptr, ptr %464, align 16, !tbaa !10
   %466 = getelementptr inbounds nuw i8, ptr %465, i64 8
@@ -2215,8 +2215,8 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
 483:                                              ; preds = %535, %472
   %484 = phi i8 [ 0, %472 ], [ %536, %535 ]
   %485 = phi i1 [ true, %472 ], [ false, %535 ]
-  %indvars.iv.i34 = phi i64 [ 0, %472 ], [ 1, %535 ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i34, 1
+  %indvars.iv.i33 = phi i64 [ 0, %472 ], [ 1, %535 ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i33, 1
   %486 = load i8, ptr %477, align 4, !tbaa !92
   %487 = zext i8 %486 to i32
   %488 = trunc nuw nsw i64 %indvars.iv.next.i to i32
@@ -2228,21 +2228,21 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   %491 = trunc nuw nsw i64 %indvars.iv.next.i to i8
   %492 = or i8 %484, %491
   store i8 %492, ptr %476, align 4, !tbaa !92
-  %493 = getelementptr inbounds nuw i8, ptr %478, i64 %indvars.iv.i34
+  %493 = getelementptr inbounds nuw i8, ptr %478, i64 %indvars.iv.i33
   %494 = load i8, ptr %493, align 1, !tbaa !29
-  %495 = getelementptr inbounds nuw i8, ptr %479, i64 %indvars.iv.i34
+  %495 = getelementptr inbounds nuw i8, ptr %479, i64 %indvars.iv.i33
   store i8 %494, ptr %495, align 1, !tbaa !29
   %496 = load i8, ptr %480, align 4, !tbaa !92
   %497 = zext i8 %496 to i32
   %498 = and i32 %497, %488
   %.not65.i = icmp eq i32 %498, 0
-  %499 = getelementptr inbounds nuw %struct.Mv, ptr %475, i64 %indvars.iv.i34
-  %500 = getelementptr inbounds nuw %struct.Mv, ptr %2, i64 %indvars.iv.i34
+  %499 = getelementptr inbounds nuw %struct.Mv, ptr %475, i64 %indvars.iv.i33
+  %500 = getelementptr inbounds nuw %struct.Mv, ptr %2, i64 %indvars.iv.i33
   br i1 %.not65.i, label %520, label %501
 
 501:                                              ; preds = %490
   %502 = load i32, ptr %500, align 8, !tbaa !4
-  %503 = getelementptr inbounds nuw %struct.Mv, ptr %473, i64 %indvars.iv.i34
+  %503 = getelementptr inbounds nuw %struct.Mv, ptr %473, i64 %indvars.iv.i33
   %504 = load i32, ptr %503, align 8, !tbaa !4
   %505 = add nsw i32 %504, %502
   %506 = getelementptr inbounds nuw i8, ptr %500, i64 4
@@ -2281,13 +2281,13 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   %527 = trunc nuw nsw i64 %indvars.iv.next.i to i8
   %528 = or i8 %484, %527
   store i8 %528, ptr %476, align 4, !tbaa !92
-  %529 = getelementptr inbounds nuw %struct.Mv, ptr %475, i64 %indvars.iv.i34
-  %530 = getelementptr inbounds nuw %struct.Mv, ptr %473, i64 %indvars.iv.i34
+  %529 = getelementptr inbounds nuw %struct.Mv, ptr %475, i64 %indvars.iv.i33
+  %530 = getelementptr inbounds nuw %struct.Mv, ptr %473, i64 %indvars.iv.i33
   %531 = load i64, ptr %530, align 8
   store i64 %531, ptr %529, align 8
-  %532 = getelementptr inbounds nuw i8, ptr %481, i64 %indvars.iv.i34
+  %532 = getelementptr inbounds nuw i8, ptr %481, i64 %indvars.iv.i33
   %533 = load i8, ptr %532, align 1, !tbaa !29
-  %534 = getelementptr inbounds nuw i8, ptr %479, i64 %indvars.iv.i34
+  %534 = getelementptr inbounds nuw i8, ptr %479, i64 %indvars.iv.i33
   store i8 %533, ptr %534, align 1, !tbaa !29
   br label %535
 
@@ -2302,9 +2302,9 @@ mv_merge_temporal_candidate.exit.thread:          ; preds = %check_available.exi
   %541 = getelementptr inbounds nuw i8, ptr %2, i64 42
   %542 = load i8, ptr %541, align 2, !tbaa !103
   %543 = icmp eq i8 %540, %542
-  %spec.select.i35 = select i1 %543, i8 %540, i8 0
+  %spec.select.i34 = select i1 %543, i8 %540, i8 0
   %544 = getelementptr inbounds nuw i8, ptr %475, i64 18
-  store i8 %spec.select.i35, ptr %544, align 2, !tbaa !103
+  store i8 %spec.select.i34, ptr %544, align 2, !tbaa !103
   %545 = getelementptr inbounds nuw i8, ptr %475, i64 19
   store i8 0, ptr %545, align 1, !tbaa !101
   %546 = getelementptr inbounds nuw i8, ptr %475, i64 21
@@ -2346,15 +2346,15 @@ mv_merge_pairwise_candidate.exit.thread:          ; preds = %482, %.loopexit, %5
   br label %564
 
 564:                                              ; preds = %568, %560
-  %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %568 ], [ %563, %560 ]
+  %indvars.iv.i35 = phi i64 [ %indvars.iv.next.i36, %568 ], [ %563, %560 ]
   %.031.i = phi i32 [ %582, %568 ], [ 0, %560 ]
   %565 = load i8, ptr %562, align 2, !tbaa !184
   %566 = zext i8 %565 to i64
-  %567 = icmp slt i64 %indvars.iv.i36, %566
+  %567 = icmp slt i64 %indvars.iv.i35, %566
   br i1 %567, label %568, label %mv_merge_history_candidates.exit
 
 568:                                              ; preds = %564
-  %569 = getelementptr inbounds %struct.MvField, ptr %2, i64 %indvars.iv.i36
+  %569 = getelementptr inbounds %struct.MvField, ptr %2, i64 %indvars.iv.i35
   %570 = load i8, ptr %552, align 1, !tbaa !178
   %571 = icmp eq i8 %570, 0
   %572 = select i1 %571, i8 3, i8 1
@@ -2372,12 +2372,12 @@ mv_merge_pairwise_candidate.exit.thread:          ; preds = %482, %.loopexit, %5
   store i8 0, ptr %579, align 1, !tbaa !101
   %580 = getelementptr inbounds nuw i8, ptr %569, i64 18
   store i8 0, ptr %580, align 2, !tbaa !103
-  %581 = icmp eq i64 %indvars.iv.i36, %sext.i
-  %indvars.iv.next.i37 = add nsw i64 %indvars.iv.i36, 1
+  %581 = icmp eq i64 %indvars.iv.i35, %sext.i
+  %indvars.iv.next.i36 = add nsw i64 %indvars.iv.i35, 1
   %582 = add nuw nsw i32 %.031.i, 1
   br i1 %581, label %mv_merge_history_candidates.exit, label %564, !llvm.loop !187
 
-mv_merge_history_candidates.exit:                 ; preds = %.critedge32.i, %.critedge32.us25.i, %.critedge32.us.i, %.critedge32.us.us.i, %568, %564, %mv_merge_spatial_candidates.exit, %538, %293
+mv_merge_history_candidates.exit:                 ; preds = %.critedge32.i, %.critedge32.us20.i, %.critedge32.us.i, %.critedge32.us.us.i, %568, %564, %mv_merge_spatial_candidates.exit, %538, %293
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 }
@@ -3730,15 +3730,15 @@ affine_merge_const5.exit.thread.i.i:              ; preds = %712, %680, %derive_
   %spec.select12.i.neg.i.i.i = select i1 %.not.i.i128.i.i, i32 0, i32 -16
   %.not11.i.i.i.i = icmp samesign ult i32 %spec.select.i.i.i.i, 256
   %728 = lshr i32 %spec.select.i.i.i.i, 8
-  %.neg70.i.i.i = add nsw i32 %spec.select12.i.neg.i.i.i, -8
+  %.neg69.i.i.i = add nsw i32 %spec.select12.i.neg.i.i.i, -8
   %.110.i.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select.i.i.i.i, i32 %728
-  %.1.i.neg71.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select12.i.neg.i.i.i, i32 %.neg70.i.i.i
+  %.1.i.neg70.i.i.i = select i1 %.not11.i.i.i.i, i32 %spec.select12.i.neg.i.i.i, i32 %.neg69.i.i.i
   %729 = zext nneg i32 %.110.i.i.i.i to i64
   %730 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %729
   %731 = load i8, ptr %730, align 1, !tbaa !29
   %732 = zext i8 %731 to i32
-  %.neg68.i.i.i = add nuw nsw i32 %726, 7
-  %733 = add nsw i32 %.neg68.i.i.i, %.1.i.neg71.i.i.i
+  %.neg67.i.i.i = add nuw nsw i32 %726, 7
+  %733 = add nsw i32 %.neg67.i.i.i, %.1.i.neg70.i.i.i
   %734 = sub nsw i32 %733, %732
   %735 = add nsw i32 %734, %.1.i62.i.i.i
   %736 = getelementptr inbounds nuw i8, ptr %2, i64 68
@@ -5128,7 +5128,7 @@ define void @ff_vvc_update_hmvp(ptr noundef readonly captures(none) %0, ptr noun
   %23 = load i32, ptr %22, align 8, !tbaa !83
   %24 = mul nsw i32 %23, %21
   %25 = icmp slt i32 %24, 17
-  br i1 %25, label %138, label %26
+  br i1 %25, label %139, label %26
 
 26:                                               ; preds = %19
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 2848
@@ -5219,7 +5219,7 @@ update_hmvp.exit:                                 ; preds = %26, %.loopexit.i, %
   %82 = ashr i32 %66, %77
   %83 = icmp sle i32 %81, %82
   %narrow.not = select i1 %80, i1 true, i1 %83
-  br i1 %narrow.not, label %138, label %84
+  br i1 %narrow.not, label %139, label %84
 
 84:                                               ; preds = %62
   %85 = getelementptr inbounds nuw i8, ptr %15, i64 2720
@@ -5255,79 +5255,79 @@ update_hmvp.exit:                                 ; preds = %26, %.loopexit.i, %
   br label %104
 
 104:                                              ; preds = %.critedge.i, %.preheader.i
-  %.not31.i = phi i1 [ true, %.preheader.i ], [ false, %.critedge.i ]
+  %105 = phi i1 [ true, %.preheader.i ], [ false, %.critedge.i ]
   %indvars.iv.i38 = phi i64 [ 0, %.preheader.i ], [ 1, %.critedge.i ]
-  %105 = trunc nuw nsw i64 %indvars.iv.i38 to i32
-  %106 = add nuw nsw i32 %105, 1
-  %107 = and i32 %106, %97
-  %.not29.i = icmp eq i32 %107, 0
-  br i1 %.not29.i, label %.critedge.i, label %108
+  %106 = trunc nuw nsw i64 %indvars.iv.i38 to i32
+  %107 = add nuw nsw i32 %106, 1
+  %108 = and i32 %107, %97
+  %.not29.i = icmp eq i32 %108, 0
+  br i1 %.not29.i, label %.critedge.i, label %109
 
-108:                                              ; preds = %104
-  %109 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv.i38
-  %110 = load i8, ptr %109, align 1, !tbaa !29
-  %111 = getelementptr inbounds nuw i8, ptr %103, i64 %indvars.iv.i38
-  %112 = load i8, ptr %111, align 1, !tbaa !29
-  %113 = icmp eq i8 %110, %112
-  %114 = getelementptr inbounds nuw %struct.Mv, ptr %92, i64 %indvars.iv.i38
-  %115 = load i64, ptr %114, align 8, !tbaa !29
-  %116 = getelementptr inbounds nuw %struct.Mv, ptr %100, i64 %indvars.iv.i38
-  %117 = load i64, ptr %116, align 8, !tbaa !29
-  %118 = icmp eq i64 %115, %117
-  %or.cond.i = select i1 %113, i1 %118, i1 false
+109:                                              ; preds = %104
+  %110 = getelementptr inbounds nuw i8, ptr %98, i64 %indvars.iv.i38
+  %111 = load i8, ptr %110, align 1, !tbaa !29
+  %112 = getelementptr inbounds nuw i8, ptr %103, i64 %indvars.iv.i38
+  %113 = load i8, ptr %112, align 1, !tbaa !29
+  %114 = icmp eq i8 %111, %113
+  %115 = getelementptr inbounds nuw %struct.Mv, ptr %92, i64 %indvars.iv.i38
+  %116 = load i64, ptr %115, align 8, !tbaa !29
+  %117 = getelementptr inbounds nuw %struct.Mv, ptr %100, i64 %indvars.iv.i38
+  %118 = load i64, ptr %117, align 8, !tbaa !29
+  %119 = icmp eq i64 %116, %118
+  %or.cond.i = select i1 %114, i1 %119, i1 false
   br i1 %or.cond.i, label %.critedge.i, label %.loopexit
 
-.critedge.i:                                      ; preds = %108, %104
-  br i1 %.not31.i, label %104, label %compare_mv_ref_idx.exit, !llvm.loop !158
+.critedge.i:                                      ; preds = %109, %104
+  br i1 %105, label %104, label %compare_mv_ref_idx.exit, !llvm.loop !158
 
 compare_mv_ref_idx.exit:                          ; preds = %.critedge.i
-  %119 = add nsw i32 %93, -1
-  store i32 %119, ptr %86, align 4, !tbaa !131
-  %120 = trunc i64 %indvars.iv.i28 to i32
+  %120 = add nsw i32 %93, -1
+  store i32 %120, ptr %86, align 4, !tbaa !131
+  %121 = trunc i64 %indvars.iv.i28 to i32
   br label %.loopexit.i30
 
-.loopexit:                                        ; preds = %108, %.lr.ph.i27
+.loopexit:                                        ; preds = %109, %.lr.ph.i27
   %indvars.iv.next.i33 = add nuw nsw i64 %indvars.iv.i28, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i33, %99
   br i1 %exitcond.not, label %.loopexit.i30, label %.lr.ph.i27, !llvm.loop !220
 
 .loopexit.i30:                                    ; preds = %.loopexit, %compare_mv_ref_idx.exit
-  %121 = phi i32 [ %119, %compare_mv_ref_idx.exit ], [ %93, %.loopexit ]
-  %.019.in.i31 = phi i32 [ %120, %compare_mv_ref_idx.exit ], [ %93, %.loopexit ]
-  %122 = icmp eq i32 %.019.in.i31, 5
-  br i1 %122, label %123, label %update_hmvp.exit35
+  %122 = phi i32 [ %120, %compare_mv_ref_idx.exit ], [ %93, %.loopexit ]
+  %.019.in.i31 = phi i32 [ %121, %compare_mv_ref_idx.exit ], [ %93, %.loopexit ]
+  %123 = icmp eq i32 %.019.in.i31, 5
+  br i1 %123, label %124, label %update_hmvp.exit35
 
-123:                                              ; preds = %.loopexit.i30
-  %124 = add nsw i32 %121, -1
-  store i32 %124, ptr %86, align 4, !tbaa !131
+124:                                              ; preds = %.loopexit.i30
+  %125 = add nsw i32 %122, -1
+  store i32 %125, ptr %86, align 4, !tbaa !131
   br label %update_hmvp.exit35
 
-update_hmvp.exit35:                               ; preds = %84, %.loopexit.i30, %123
-  %125 = phi i32 [ %124, %123 ], [ %121, %.loopexit.i30 ], [ %93, %84 ]
-  %.1.i26 = phi i32 [ 0, %123 ], [ %.019.in.i31, %.loopexit.i30 ], [ 0, %84 ]
-  %126 = zext nneg i32 %.1.i26 to i64
-  %127 = getelementptr inbounds nuw %struct.MvField, ptr %85, i64 %126
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %129 = sub nsw i32 %125, %.1.i26
-  %130 = sext i32 %129 to i64
-  %131 = mul nsw i64 %130, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %127, ptr nonnull align 8 %128, i64 %131, i1 false)
-  %132 = load i32, ptr %86, align 4, !tbaa !131
-  %133 = add nsw i32 %132, 1
-  store i32 %133, ptr %86, align 4, !tbaa !131
+update_hmvp.exit35:                               ; preds = %84, %.loopexit.i30, %124
+  %126 = phi i32 [ %125, %124 ], [ %122, %.loopexit.i30 ], [ %93, %84 ]
+  %.1.i26 = phi i32 [ 0, %124 ], [ %.019.in.i31, %.loopexit.i30 ], [ 0, %84 ]
+  %127 = zext nneg i32 %.1.i26 to i64
+  %128 = getelementptr inbounds nuw %struct.MvField, ptr %85, i64 %127
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  %130 = sub nsw i32 %126, %.1.i26
+  %131 = sext i32 %130 to i64
+  %132 = mul nsw i64 %131, 24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %128, ptr nonnull align 8 %129, i64 %132, i1 false)
+  %133 = load i32, ptr %86, align 4, !tbaa !131
+  %134 = add nsw i32 %133, 1
+  store i32 %134, ptr %86, align 4, !tbaa !131
   br label %.sink.split
 
 .sink.split:                                      ; preds = %update_hmvp.exit35, %update_hmvp.exit
-  %.sink = phi i32 [ %60, %update_hmvp.exit ], [ %132, %update_hmvp.exit35 ]
-  %134 = phi i64 [ 2848, %update_hmvp.exit ], [ 2720, %update_hmvp.exit35 ]
+  %.sink = phi i32 [ %60, %update_hmvp.exit ], [ %133, %update_hmvp.exit35 ]
+  %135 = phi i64 [ 2848, %update_hmvp.exit ], [ 2720, %update_hmvp.exit35 ]
   %.sink54 = phi ptr [ %38, %update_hmvp.exit ], [ %92, %update_hmvp.exit35 ]
-  %135 = getelementptr inbounds nuw i8, ptr %15, i64 %134
-  %136 = sext i32 %.sink to i64
-  %137 = getelementptr inbounds %struct.MvField, ptr %135, i64 %136
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %137, ptr noundef nonnull align 8 dereferenceable(24) %.sink54, i64 24, i1 false)
-  br label %138
+  %136 = getelementptr inbounds nuw i8, ptr %15, i64 %135
+  %137 = sext i32 %.sink to i64
+  %138 = getelementptr inbounds %struct.MvField, ptr %136, i64 %137
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %.sink54, i64 24, i1 false)
+  br label %139
 
-138:                                              ; preds = %.sink.split, %62, %19
+139:                                              ; preds = %.sink.split, %62, %19
   ret void
 }
 

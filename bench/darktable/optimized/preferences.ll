@@ -998,23 +998,23 @@ define noundef ptr @dt_gui_preferences_enum(ptr noundef %0, ptr noundef %1) loca
   %9 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 3) #13
   %10 = tail call ptr @dt_confgen_get(ptr noundef %1, i32 noundef 0) #13
   %11 = tail call ptr @dt_conf_get_string_const(ptr noundef %1) #13
-  %.not4049 = icmp eq ptr %9, null
-  br i1 %.not4049, label %.critedge, label %.lr.ph.preheader
+  %.not4048 = icmp eq ptr %9, null
+  br i1 %.not4048, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %8
   %12 = load i8, ptr %9, align 1, !tbaa !59
   %13 = icmp eq i8 %12, 91
-  br i1 %13, label %.lr.ph57, label %.critedge
+  br i1 %13, label %.lr.ph56, label %.critedge
 
-.lr.ph57:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph56:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %.pn = phi ptr [ %30, %.lr.ph ], [ %9, %.lr.ph.preheader ]
-  %.0375056 = phi i32 [ %31, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.0374955 = phi i32 [ %31, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !59
   %.not41 = icmp eq i8 %15, 0
   br i1 %.not41, label %.critedge, label %16
 
-16:                                               ; preds = %.lr.ph57
+16:                                               ; preds = %.lr.ph56
   %17 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %14, i32 noundef 93) #15
   %.not42 = icmp eq ptr %17, null
   br i1 %.not42, label %.critedge, label %18
@@ -1041,18 +1041,18 @@ define noundef ptr @dt_gui_preferences_enum(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not44, label %29, label %.lr.ph
 
 29:                                               ; preds = %27
-  tail call void @dt_bauhaus_combobox_set(ptr noundef %3, i32 noundef %.0375056) #13
+  tail call void @dt_bauhaus_combobox_set(ptr noundef %3, i32 noundef %.0374955) #13
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %27, %29
   tail call void @g_free(ptr noundef %22) #13
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 1
-  %31 = add nuw nsw i32 %.0375056, 1
+  %31 = add nuw nsw i32 %.0374955, 1
   %32 = load i8, ptr %30, align 1, !tbaa !59
   %33 = icmp eq i8 %32, 91
-  br i1 %33, label %.lr.ph57, label %.critedge
+  br i1 %33, label %.lr.ph56, label %.critedge
 
-.critedge:                                        ; preds = %16, %.lr.ph, %.lr.ph57, %.lr.ph.preheader, %8
+.critedge:                                        ; preds = %16, %.lr.ph, %.lr.ph56, %.lr.ph.preheader, %8
   %34 = tail call ptr @g_type_check_instance_cast(ptr noundef %3, i64 noundef 80) #13
   %35 = tail call i64 @g_signal_connect_data(ptr noundef %34, ptr noundef nonnull @.str.15, ptr noundef nonnull @_gui_preferences_enum_callback, ptr noundef %1, ptr noundef null, i32 noundef 0) #13
   ret ptr %3

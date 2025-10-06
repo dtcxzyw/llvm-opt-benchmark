@@ -2663,23 +2663,23 @@ define dso_local void @slurm_step_launch_fwd_signal(ptr noundef readonly capture
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i32, ptr %23, align 8
-  %.not104 = icmp eq i32 %24, 0
-  br i1 %.not104, label %.loopexit93, label %.lr.ph99
+  %.not102 = icmp eq i32 %24, 0
+  br i1 %.not102, label %.loopexit91, label %.lr.ph97
 
-.lr.ph99:                                         ; preds = %17
+.lr.ph97:                                         ; preds = %17
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 200
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 104
   br label %27
 
-27:                                               ; preds = %.lr.ph99, %.loopexit
-  %indvars.iv107 = phi i64 [ 0, %.lr.ph99 ], [ %indvars.iv.next108, %.loopexit ]
+27:                                               ; preds = %.lr.ph97, %.loopexit
+  %indvars.iv105 = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next106, %.loopexit ]
   %28 = load ptr, ptr %25, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv107
+  %31 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv105
   %32 = load i16, ptr %31, align 2
-  %.not105 = icmp eq i16 %32, 0
-  br i1 %.not105, label %.loopexit, label %.lr.ph.preheader
+  %.not103 = icmp eq i16 %32, 0
+  br i1 %.not103, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %27
   %wide.trip.count = zext i16 %32 to i64
@@ -2696,7 +2696,7 @@ define dso_local void @slurm_step_launch_fwd_signal(ptr noundef readonly capture
   %35 = load ptr, ptr %25, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 80
   %37 = load ptr, ptr %36, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv107
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv105
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4
@@ -2718,7 +2718,7 @@ define dso_local void @slurm_step_launch_fwd_signal(ptr noundef readonly capture
   %51 = load ptr, ptr %25, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 48
   %53 = load ptr, ptr %52, align 8
-  %54 = trunc nuw nsw i64 %indvars.iv107 to i32
+  %54 = trunc nuw nsw i64 %indvars.iv105 to i32
   %55 = tail call ptr @nodelist_nth_host(ptr noundef %53, i32 noundef %54) #14
   store ptr %55, ptr %5, align 8
   %56 = tail call i32 @hostlist_push_host(ptr noundef %18, ptr noundef %55) #14
@@ -2727,31 +2727,31 @@ define dso_local void @slurm_step_launch_fwd_signal(ptr noundef readonly capture
 
 .critedge:                                        ; preds = %44
   %57 = tail call i32 @hostlist_push_host(ptr noundef %18, ptr noundef nonnull %49) #14
-  br label %.loopexit93
+  br label %.loopexit91
 
 .loopexit:                                        ; preds = %33, %27, %50
-  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
+  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %58 = load ptr, ptr %19, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 40
   %62 = load i32, ptr %61, align 8
   %63 = zext i32 %62 to i64
-  %64 = icmp samesign ult i64 %indvars.iv.next108, %63
-  br i1 %64, label %27, label %.loopexit93, !llvm.loop !20
+  %64 = icmp samesign ult i64 %indvars.iv.next106, %63
+  br i1 %64, label %27, label %.loopexit91, !llvm.loop !20
 
-.loopexit93:                                      ; preds = %.loopexit, %17, %.critedge
+.loopexit91:                                      ; preds = %.loopexit, %17, %.critedge
   %65 = tail call i32 @pthread_mutex_unlock(ptr noundef %7) #14
   %.not85 = icmp eq i32 %65, 0
   br i1 %.not85, label %68, label %66
 
-66:                                               ; preds = %.loopexit93
+66:                                               ; preds = %.loopexit91
   %67 = tail call ptr @__errno_location() #15
   store i32 %65, ptr %67, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.slurm_step_launch_fwd_signal) #16
   unreachable
 
-68:                                               ; preds = %.loopexit93
+68:                                               ; preds = %.loopexit91
   %69 = tail call i32 @hostlist_count(ptr noundef %18) #14
   %.not86 = icmp eq i32 %69, 0
   br i1 %.not86, label %70, label %77
@@ -2822,12 +2822,12 @@ define dso_local void @slurm_step_launch_fwd_signal(ptr noundef readonly capture
 99:                                               ; preds = %94
   %100 = call ptr @list_iterator_create(ptr noundef nonnull %96) #14
   %101 = call ptr @list_next(ptr noundef %100) #14
-  %.not89100 = icmp eq ptr %101, null
-  br i1 %.not89100, label %._crit_edge, label %.lr.ph102
+  %.not8998 = icmp eq ptr %101, null
+  br i1 %.not8998, label %._crit_edge, label %.lr.ph100
 
-.lr.ph102:                                        ; preds = %99, %116
+.lr.ph100:                                        ; preds = %99, %116
   %102 = phi ptr [ %117, %116 ], [ %101, %99 ]
-  %.1101 = phi i1 [ %.2, %116 ], [ false, %99 ]
+  %.199 = phi i1 [ %.2, %116 ], [ false, %99 ]
   %103 = load i16, ptr %102, align 8
   %104 = zext i16 %103 to i32
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -2842,7 +2842,7 @@ define dso_local void @slurm_step_launch_fwd_signal(ptr noundef readonly capture
     i32 4027, label %116
   ]
 
-108:                                              ; preds = %.lr.ph102
+108:                                              ; preds = %.lr.ph100
   %109 = load ptr, ptr %9, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 160
   %111 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -2851,14 +2851,14 @@ define dso_local void @slurm_step_launch_fwd_signal(ptr noundef readonly capture
   %114 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.17, i32 noundef %1, ptr noundef nonnull %110, ptr noundef %112, ptr noundef %113) #14
   br label %116
 
-115:                                              ; preds = %.lr.ph102, %.lr.ph102
+115:                                              ; preds = %.lr.ph100, %.lr.ph100
   br label %116
 
-116:                                              ; preds = %108, %.lr.ph102, %.lr.ph102, %.lr.ph102, %.lr.ph102, %115
-  %.2 = phi i1 [ true, %115 ], [ %.1101, %108 ], [ %.1101, %.lr.ph102 ], [ %.1101, %.lr.ph102 ], [ %.1101, %.lr.ph102 ], [ %.1101, %.lr.ph102 ]
+116:                                              ; preds = %108, %.lr.ph100, %.lr.ph100, %.lr.ph100, %.lr.ph100, %115
+  %.2 = phi i1 [ true, %115 ], [ %.199, %108 ], [ %.199, %.lr.ph100 ], [ %.199, %.lr.ph100 ], [ %.199, %.lr.ph100 ], [ %.199, %.lr.ph100 ]
   %117 = call ptr @list_next(ptr noundef %100) #14
   %.not89 = icmp eq ptr %117, null
-  br i1 %.not89, label %._crit_edge, label %.lr.ph102, !llvm.loop !21
+  br i1 %.not89, label %._crit_edge, label %.lr.ph100, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %116, %99
   %.1.lcssa = phi i1 [ false, %99 ], [ %.2, %116 ]

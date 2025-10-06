@@ -663,14 +663,14 @@ define i32 @ossl_pool_add_nonce_data(ptr noundef %0) local_unnamed_addr #1 {
 14:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %15 = call i32 @gettimeofday(ptr noundef nonnull %3, ptr noundef null) #11
-  %.not7.i = icmp eq i32 %15, 0
+  %.not6.i = icmp eq i32 %15, 0
   %16 = load i64, ptr %3, align 8
   %17 = shl i64 %16, 32
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %17, %19
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not7.i, label %get_time_stamp.exit, label %21
+  br i1 %.not6.i, label %get_time_stamp.exit, label %21
 
 21:                                               ; preds = %14
   %22 = call i64 @time(ptr noundef null) #11

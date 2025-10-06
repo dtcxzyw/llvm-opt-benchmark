@@ -21864,13 +21864,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit166: ; preds = %_Z
   br label %483
 
 243:                                              ; preds = %.lr.ph.i167
-  %244 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i, i64 8
+  %244 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 8
   %.not.not.i = icmp eq ptr %244, %232
   br i1 %.not.not.i, label %_ZN6casadi9has_emptyERKSt6vectorINS_2MXESaIS1_EEb.exit, label %.lr.ph.i167
 
 .lr.ph.i167:                                      ; preds = %236, %243
-  %.sroa.09.013.i = phi ptr [ %244, %243 ], [ %233, %236 ]
-  %245 = call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.013.i)
+  %.sroa.09.014.i = phi ptr [ %244, %243 ], [ %233, %236 ]
+  %245 = call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.014.i)
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 56
   %247 = call noundef zeroext i1 @_ZNK6casadi8Sparsity8is_emptyEb(ptr noundef nonnull align 8 dereferenceable(8) %246, i1 noundef zeroext false)
   br i1 %247, label %248, label %243
@@ -51091,15 +51091,15 @@ define hidden noundef zeroext i1 @_ZN6casadi9has_emptyERKSt6vectorINS_2MXESaIS1_
   %3 = load ptr, ptr %0, align 8, !tbaa !163
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !163
-  %.not12.not = icmp eq ptr %3, %5
-  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
+  %.not13.not = icmp eq ptr %3, %5
+  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.09.013 = phi ptr [ %9, %.lr.ph ], [ %3, %2 ]
-  %6 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.013)
+  %.sroa.09.014 = phi ptr [ %9, %.lr.ph ], [ %3, %2 ]
+  %6 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.014)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = tail call noundef zeroext i1 @_ZNK6casadi8Sparsity8is_emptyEb(ptr noundef nonnull align 8 dereferenceable(8) %7, i1 noundef zeroext %1)
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 8
   %.not.not = icmp eq ptr %9, %5
   %or.cond = select i1 %8, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -51840,13 +51840,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %_Z
   br label %438
 
 240:                                              ; preds = %.lr.ph.i157
-  %241 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i, i64 8
+  %241 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 8
   %.not.not.i = icmp eq ptr %241, %229
   br i1 %.not.not.i, label %_ZN6casadi9has_emptyERKSt6vectorINS_2MXESaIS1_EEb.exit, label %.lr.ph.i157
 
 .lr.ph.i157:                                      ; preds = %233, %240
-  %.sroa.09.013.i = phi ptr [ %241, %240 ], [ %230, %233 ]
-  %242 = call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.013.i)
+  %.sroa.09.014.i = phi ptr [ %241, %240 ], [ %230, %233 ]
+  %242 = call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.014.i)
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 56
   %244 = call noundef zeroext i1 @_ZNK6casadi8Sparsity8is_emptyEb(ptr noundef nonnull align 8 dereferenceable(8) %243, i1 noundef zeroext false)
   br i1 %244, label %245, label %240
@@ -52489,13 +52489,13 @@ define void @_ZN6casadi2MX7diagcatERKSt6vectorIS0_SaIS0_EE(ptr dead_on_unwind no
   br label %143
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 8
   %.not.not.i = icmp eq ptr %19, %8
   br i1 %.not.not.i, label %_ZN6casadi9has_emptyERKSt6vectorINS_2MXESaIS1_EEb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11, %18
-  %.sroa.09.013.i = phi ptr [ %19, %18 ], [ %6, %11 ]
-  %20 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.013.i)
+  %.sroa.09.014.i = phi ptr [ %19, %18 ], [ %6, %11 ]
+  %20 = tail call noundef ptr @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.09.014.i)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = tail call noundef zeroext i1 @_ZNK6casadi8Sparsity8is_emptyEb(ptr noundef nonnull align 8 dereferenceable(8) %21, i1 noundef zeroext false)
   br i1 %22, label %23, label %18

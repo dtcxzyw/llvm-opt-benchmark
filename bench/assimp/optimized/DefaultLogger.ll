@@ -697,17 +697,17 @@ define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12attachStreamEPNS_9LogStrea
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
-  %.not20 = icmp eq ptr %8, %10
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq ptr %8, %10
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.011.021, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.011.019, i64 8
   %.not = icmp eq ptr %12, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 .lr.ph:                                           ; preds = %5, %11
-  %.sroa.011.021 = phi ptr [ %12, %11 ], [ %8, %5 ]
-  %13 = load ptr, ptr %.sroa.011.021, align 8
+  %.sroa.011.019 = phi ptr [ %12, %11 ], [ %8, %5 ]
+  %13 = load ptr, ptr %.sroa.011.019, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %1

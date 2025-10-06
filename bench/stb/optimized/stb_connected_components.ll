@@ -683,18 +683,18 @@ define void @stbcc__add_connections_to_adjacent_cluster(ptr noundef captures(non
   br label %48
 
 48:                                               ; preds = %35, %.thread
-  %indvars.iv110 = phi i64 [ %.087, %35 ], [ %indvars.iv.next111, %.thread ]
+  %indvars.iv109 = phi i64 [ %.087, %35 ], [ %indvars.iv.next110, %.thread ]
   %indvars.iv = phi i64 [ %.086, %35 ], [ %indvars.iv.next, %.thread ]
-  %.085109 = phi i32 [ 0, %35 ], [ %122, %.thread ]
+  %.085108 = phi i32 [ 0, %35 ], [ %122, %.thread ]
   %49 = add nuw nsw i64 %indvars.iv, %44
   %50 = getelementptr inbounds nuw [128 x i8], ptr %36, i64 %49
-  %51 = add nuw nsw i64 %indvars.iv110, %46
+  %51 = add nuw nsw i64 %indvars.iv109, %46
   %52 = lshr i64 %51, 3
   %53 = and i64 %52, 536870911
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %53
   %55 = load i8, ptr %54, align 1, !tbaa !7
   %56 = zext i8 %55 to i32
-  %57 = trunc nuw nsw i64 %indvars.iv110 to i32
+  %57 = trunc nuw nsw i64 %indvars.iv109 to i32
   %58 = and i32 %57, 7
   %59 = shl nuw nsw i32 1, %58
   %60 = and i32 %59, %56
@@ -783,9 +783,9 @@ stbcc__add_clump_connection.exit:                 ; preds = %109, %111
   br i1 %.not102, label %.thread, label %.loopexit
 
 .thread:                                          ; preds = %stbcc__add_clump_connection.exit, %74, %61, %48
-  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110, %.0
+  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, %.0
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %.082
-  %122 = add nuw nsw i32 %.085109, 1
+  %122 = add nuw nsw i32 %.085108, 1
   %exitcond.not = icmp eq i32 %122, 32
   br i1 %exitcond.not, label %.loopexit, label %48, !llvm.loop !33
 

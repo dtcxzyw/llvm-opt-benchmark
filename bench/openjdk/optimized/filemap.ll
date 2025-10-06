@@ -3329,7 +3329,7 @@ _ZN11FileMapInfo9num_pathsEPKc.exit:              ; preds = %select.unfold.i, %2
   %19 = icmp ne i32 %1, 0
   %20 = icmp ne i32 %.0.i, 0
   %or.cond = and i1 %19, %20
-  br i1 %or.cond, label %21, label %155
+  br i1 %or.cond, label %21, label %156
 
 21:                                               ; preds = %18
   %22 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -3580,35 +3580,35 @@ _ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split: ; preds = %.crited
   br label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38
 
 _ZN11FileMapInfo17classpath_failureEPKcS1_.exit38: ; preds = %81, %146, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split, %45, %.critedge, %42, %37
-  %switch = phi i1 [ false, %37 ], [ false, %42 ], [ false, %.critedge ], [ true, %45 ], [ false, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split ], [ true, %146 ], [ true, %81 ]
-  %150 = load ptr, ptr %27, align 8
-  %.not.i.i.i.i = icmp eq ptr %150, null
-  br i1 %.not.i.i.i.i, label %152, label %151
+  %150 = phi i1 [ false, %37 ], [ false, %42 ], [ false, %.critedge ], [ true, %45 ], [ false, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38.sink.split ], [ true, %146 ], [ true, %81 ]
+  %151 = load ptr, ptr %27, align 8
+  %.not.i.i.i.i = icmp eq ptr %151, null
+  br i1 %.not.i.i.i.i, label %153, label %152
 
-151:                                              ; preds = %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38
+152:                                              ; preds = %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %25, i64 noundef %33) #25
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %27) #25
-  br label %152
+  br label %153
 
-152:                                              ; preds = %151, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38
-  %153 = load ptr, ptr %28, align 8
-  %.not8.i.i.i.i = icmp eq ptr %153, %29
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %154
+153:                                              ; preds = %152, %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit38
+  %154 = load ptr, ptr %28, align 8
+  %.not8.i.i.i.i = icmp eq ptr %154, %29
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %155
 
-154:                                              ; preds = %152
+155:                                              ; preds = %153
   store ptr %27, ptr %26, align 8
   store ptr %29, ptr %28, align 8
   store ptr %31, ptr %30, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %152, %154
-  br i1 %switch, label %155, label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %153, %155
+  br i1 %150, label %156, label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit
 
-155:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit, %18
+156:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit, %18
   br label %_ZN11FileMapInfo17classpath_failureEPKcS1_.exit
 
-_ZN11FileMapInfo17classpath_failureEPKcS1_.exit:  ; preds = %17, %14, %_ZN12ResourceMarkD2Ev.exit, %155
-  %.0 = phi i1 [ true, %155 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ false, %14 ], [ false, %17 ]
+_ZN11FileMapInfo17classpath_failureEPKcS1_.exit:  ; preds = %17, %14, %_ZN12ResourceMarkD2Ev.exit, %156
+  %.0 = phi i1 [ true, %156 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ false, %14 ], [ false, %17 ]
   ret i1 %.0
 }
 

@@ -599,11 +599,11 @@ define dso_local ptr @parse_names(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %34
-  %.040109 = phi ptr [ %35, %34 ], [ %0, %2 ]
-  %.041108 = phi i64 [ %.142, %34 ], [ 0, %2 ]
-  %.043107 = phi ptr [ %.144, %34 ], [ null, %2 ]
-  %.076106 = phi i64 [ %.177, %34 ], [ 0, %2 ]
-  %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.040109, i32 noundef 10) #23
+  %.040108 = phi ptr [ %35, %34 ], [ %0, %2 ]
+  %.041107 = phi i64 [ %.142, %34 ], [ 0, %2 ]
+  %.043106 = phi ptr [ %.144, %34 ], [ null, %2 ]
+  %.076105 = phi i64 [ %.177, %34 ], [ 0, %2 ]
+  %6 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.040108, i32 noundef 10) #23
   %.not = icmp ne ptr %6, null
   %7 = icmp ult ptr %6, %4
   %or.cond = and i1 %.not, %7
@@ -615,16 +615,16 @@ define dso_local ptr @parse_names(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 9:                                                ; preds = %.lr.ph, %8
   %.038 = phi ptr [ %6, %8 ], [ %4, %.lr.ph ]
-  %10 = icmp ult ptr %.040109, %.038
+  %10 = icmp ult ptr %.040108, %.038
   br i1 %10, label %11, label %34
 
 11:                                               ; preds = %9
-  %12 = add i64 %.041108, 1
-  %13 = icmp ugt i64 %12, %.076106
+  %12 = add i64 %.041107, 1
+  %13 = icmp ugt i64 %12, %.076105
   br i1 %13, label %14, label %reftable_alloc_grow.exit.thread
 
 14:                                               ; preds = %11
-  %15 = shl nuw nsw i64 %.076106, 1
+  %15 = shl nuw nsw i64 %.076105, 1
   %16 = or disjoint i64 %15, 1
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %16, i64 %12)
   %mul.ov.i.i = icmp ugt i64 %spec.select.i, 2305843009213693951
@@ -641,11 +641,11 @@ st_mult.exit.i:                                   ; preds = %14
   br i1 %.not8.i.i, label %22, label %20
 
 20:                                               ; preds = %st_mult.exit.i
-  %21 = tail call ptr %19(ptr noundef %.043107, i64 noundef %18) #20
+  %21 = tail call ptr %19(ptr noundef %.043106, i64 noundef %18) #20
   br label %reftable_realloc.exit.i
 
 22:                                               ; preds = %st_mult.exit.i
-  %23 = tail call ptr @realloc(ptr noundef %.043107, i64 noundef %18) #22
+  %23 = tail call ptr @realloc(ptr noundef %.043106, i64 noundef %18) #22
   br label %reftable_realloc.exit.i
 
 reftable_realloc.exit.i:                          ; preds = %22, %20
@@ -654,9 +654,9 @@ reftable_realloc.exit.i:                          ; preds = %22, %20
   br i1 %.not.i, label %.thread, label %reftable_alloc_grow.exit.thread
 
 reftable_alloc_grow.exit.thread:                  ; preds = %reftable_realloc.exit.i, %11
-  %.278 = phi i64 [ %.076106, %11 ], [ %spec.select.i, %reftable_realloc.exit.i ]
-  %.245 = phi ptr [ %.043107, %11 ], [ %.0.i.i, %reftable_realloc.exit.i ]
-  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.040109) #23
+  %.278 = phi i64 [ %.076105, %11 ], [ %spec.select.i, %reftable_realloc.exit.i ]
+  %.245 = phi ptr [ %.043106, %11 ], [ %.0.i.i, %reftable_realloc.exit.i ]
+  %24 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.040108) #23
   %25 = add i64 %24, 1
   %.not.i.i53 = icmp eq i64 %25, 0
   br i1 %.not.i.i53, label %reftable_strdup.exit.thread, label %26
@@ -680,20 +680,20 @@ reftable_malloc.exit.i:                           ; preds = %30, %28
   br i1 %.not.i55, label %reftable_strdup.exit.thread, label %reftable_strdup.exit
 
 reftable_strdup.exit.thread:                      ; preds = %reftable_malloc.exit.i, %reftable_alloc_grow.exit.thread
-  %32 = getelementptr inbounds nuw ptr, ptr %.245, i64 %.041108
+  %32 = getelementptr inbounds nuw ptr, ptr %.245, i64 %.041107
   store ptr null, ptr %32, align 8, !tbaa !18
   br label %.thread
 
 reftable_strdup.exit:                             ; preds = %reftable_malloc.exit.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i54, ptr nonnull readonly align 1 %.040109, i64 %25, i1 false)
-  %33 = getelementptr inbounds nuw ptr, ptr %.245, i64 %.041108
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i54, ptr nonnull readonly align 1 %.040108, i64 %25, i1 false)
+  %33 = getelementptr inbounds nuw ptr, ptr %.245, i64 %.041107
   store ptr %.0.i.i54, ptr %33, align 8, !tbaa !18
   br label %34
 
 34:                                               ; preds = %9, %reftable_strdup.exit
-  %.177 = phi i64 [ %.278, %reftable_strdup.exit ], [ %.076106, %9 ]
-  %.144 = phi ptr [ %.245, %reftable_strdup.exit ], [ %.043107, %9 ]
-  %.142 = phi i64 [ %12, %reftable_strdup.exit ], [ %.041108, %9 ]
+  %.177 = phi i64 [ %.278, %reftable_strdup.exit ], [ %.076105, %9 ]
+  %.144 = phi ptr [ %.245, %reftable_strdup.exit ], [ %.043106, %9 ]
+  %.142 = phi i64 [ %12, %reftable_strdup.exit ], [ %.041107, %9 ]
   %35 = getelementptr inbounds nuw i8, ptr %.038, i64 1
   %36 = icmp ult ptr %35, %4
   br i1 %36, label %.lr.ph, label %._crit_edge
@@ -743,44 +743,44 @@ reftable_alloc_grow.exit67.thread:                ; preds = %reftable_realloc.ex
   br label %reftable_free.exit
 
 .thread:                                          ; preds = %reftable_realloc.exit.i, %reftable_realloc.exit.i62, %reftable_strdup.exit.thread
-  %.4 = phi ptr [ %.245, %reftable_strdup.exit.thread ], [ %.043.lcssa, %reftable_realloc.exit.i62 ], [ %.043107, %reftable_realloc.exit.i ]
-  %.3 = phi i64 [ %12, %reftable_strdup.exit.thread ], [ %.041.lcssa, %reftable_realloc.exit.i62 ], [ %.041108, %reftable_realloc.exit.i ]
-  %.not115 = icmp eq i64 %.3, 0
-  br i1 %.not115, label %._crit_edge114, label %.lr.ph113
+  %.4 = phi ptr [ %.245, %reftable_strdup.exit.thread ], [ %.043.lcssa, %reftable_realloc.exit.i62 ], [ %.043106, %reftable_realloc.exit.i ]
+  %.3 = phi i64 [ %12, %reftable_strdup.exit.thread ], [ %.041.lcssa, %reftable_realloc.exit.i62 ], [ %.041107, %reftable_realloc.exit.i ]
+  %.not114 = icmp eq i64 %.3, 0
+  br i1 %.not114, label %._crit_edge113, label %.lr.ph112
 
-._crit_edge114:                                   ; preds = %reftable_free.exit70, %.thread
+._crit_edge113:                                   ; preds = %reftable_free.exit70, %.thread
   %50 = load ptr, ptr @reftable_free_ptr, align 8, !tbaa !4
   %.not.i68 = icmp eq ptr %50, null
   br i1 %.not.i68, label %52, label %51
 
-51:                                               ; preds = %._crit_edge114
+51:                                               ; preds = %._crit_edge113
   tail call void %50(ptr noundef %.4) #20
   br label %reftable_free.exit
 
-52:                                               ; preds = %._crit_edge114
+52:                                               ; preds = %._crit_edge113
   tail call void @free(ptr noundef %.4) #20
   br label %reftable_free.exit
 
-.lr.ph113:                                        ; preds = %.thread, %reftable_free.exit70
-  %.0112 = phi i64 [ %58, %reftable_free.exit70 ], [ 0, %.thread ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.4, i64 %.0112
+.lr.ph112:                                        ; preds = %.thread, %reftable_free.exit70
+  %.0111 = phi i64 [ %58, %reftable_free.exit70 ], [ 0, %.thread ]
+  %53 = getelementptr inbounds nuw ptr, ptr %.4, i64 %.0111
   %54 = load ptr, ptr %53, align 8, !tbaa !18
   %55 = load ptr, ptr @reftable_free_ptr, align 8, !tbaa !4
   %.not.i69 = icmp eq ptr %55, null
   br i1 %.not.i69, label %57, label %56
 
-56:                                               ; preds = %.lr.ph113
+56:                                               ; preds = %.lr.ph112
   tail call void %55(ptr noundef %54) #20
   br label %reftable_free.exit70
 
-57:                                               ; preds = %.lr.ph113
+57:                                               ; preds = %.lr.ph112
   tail call void @free(ptr noundef %54) #20
   br label %reftable_free.exit70
 
 reftable_free.exit70:                             ; preds = %56, %57
-  %58 = add nuw i64 %.0112, 1
+  %58 = add nuw i64 %.0111, 1
   %exitcond.not = icmp eq i64 %58, %.3
-  br i1 %exitcond.not, label %._crit_edge114, label %.lr.ph113, !llvm.loop !23
+  br i1 %exitcond.not, label %._crit_edge113, label %.lr.ph112, !llvm.loop !23
 
 reftable_free.exit:                               ; preds = %52, %51, %reftable_alloc_grow.exit67.thread
   %.039 = phi ptr [ %.5, %reftable_alloc_grow.exit67.thread ], [ null, %51 ], [ null, %52 ]

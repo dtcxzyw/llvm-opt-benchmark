@@ -1431,7 +1431,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit9.i:                 ; preds = %115, %114
   br label %.body
 
 128:                                              ; preds = %160, %.preheader
-  %.02784 = phi i32 [ 0, %.preheader ], [ %161, %160 ]
+  %.02783 = phi i32 [ 0, %.preheader ], [ %161, %160 ]
   %129 = invoke noundef ptr @_ZN9Statement11make_randomER9CGContext14eStatementType(ptr noundef nonnull align 8 dereferenceable(216) %0, i32 noundef 10)
           to label %130 unwind label %.loopexit
 
@@ -1523,7 +1523,7 @@ _ZNSt6vectorIP9StatementSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP
           to label %160 unwind label %.loopexit
 
 160:                                              ; preds = %_ZNSt6vectorIP9StatementSaIS1_EE9push_backERKS1_.exit
-  %161 = add i32 %.02784, 1
+  %161 = add i32 %.02783, 1
   %.not40 = icmp ugt i32 %161, %102
   %or.cond = select i1 %159, i1 true, i1 %.not40
   br i1 %or.cond, label %.thread, label %128, !llvm.loop !142
@@ -5209,8 +5209,8 @@ define dso_local noundef zeroext i1 @_ZNK5Block18contains_back_edgeEv(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 344
   %8 = load ptr, ptr %7, align 8, !tbaa !219
   %9 = load ptr, ptr %6, align 8, !tbaa !216
-  %.not18 = icmp eq ptr %8, %9
-  br i1 %.not18, label %.thread, label %.lr.ph.preheader
+  %.not17 = icmp eq ptr %8, %9
+  br i1 %.not17, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %4
   %10 = ptrtoint ptr %8 to i64
@@ -5220,8 +5220,8 @@ define dso_local noundef zeroext i1 @_ZNK5Block18contains_back_edgeEv(ptr nounde
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
-  %.01215 = phi i64 [ %25, %.critedge ], [ 0, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01215
+  %.01214 = phi i64 [ %25, %.critedge ], [ 0, %.lr.ph.preheader ]
+  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01214
   %15 = load ptr, ptr %14, align 8, !tbaa !221
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 25
   %17 = load i8, ptr %16, align 1, !tbaa !254, !range !41, !noundef !42
@@ -5237,7 +5237,7 @@ define dso_local noundef zeroext i1 @_ZNK5Block18contains_back_edgeEv(ptr nounde
   br i1 %24, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %19, %.lr.ph
-  %25 = add nuw i64 %.01215, 1
+  %25 = add nuw i64 %.01214, 1
   %exitcond.not = icmp eq i64 %25, %13
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !256
 

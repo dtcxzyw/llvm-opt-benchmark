@@ -1040,8 +1040,8 @@ define void @_ZN9grpc_core11ChannelInit16BuildStackConfigERKSt6vectorISt10unique
   %22 = load ptr, ptr %1, align 8, !tbaa !93
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !93
-  %.not197211 = icmp eq ptr %22, %24
-  br i1 %.not197211, label %._crit_edge231, label %.lr.ph
+  %.not196210 = icmp eq ptr %22, %24
+  br i1 %.not196210, label %._crit_edge230, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1052,13 +1052,13 @@ define void @_ZN9grpc_core11ChannelInit16BuildStackConfigERKSt6vectorISt10unique
 
 ._crit_edge:                                      ; preds = %109
   %.pre = load ptr, ptr %1, align 8, !tbaa !93
-  %.pre241 = load ptr, ptr %23, align 8, !tbaa !93
-  %.not198227 = icmp eq ptr %.pre, %.pre241
-  br i1 %.not198227, label %._crit_edge231, label %.lr.ph230
+  %.pre240 = load ptr, ptr %23, align 8, !tbaa !93
+  %.not197226 = icmp eq ptr %.pre, %.pre240
+  br i1 %.not197226, label %._crit_edge230, label %.lr.ph229
 
 28:                                               ; preds = %.lr.ph, %109
-  %.sroa.0190.0212 = phi ptr [ %22, %.lr.ph ], [ %110, %109 ]
-  %29 = load ptr, ptr %.sroa.0190.0212, align 8, !tbaa !64
+  %.sroa.0190.0211 = phi ptr [ %22, %.lr.ph ], [ %110, %109 ]
+  %29 = load ptr, ptr %.sroa.0190.0211, align 8, !tbaa !64
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %31 = load i8, ptr %30, align 8, !tbaa !94, !range !95, !noundef !96
   %32 = trunc nuw i8 %31 to i1
@@ -1264,17 +1264,17 @@ _ZN9grpc_core11ChannelInit17DependencyTracker7DeclareEPNS0_18FilterRegistrationE
   br label %386
 
 109:                                              ; preds = %_ZN9grpc_core11ChannelInit17DependencyTracker7DeclareEPNS0_18FilterRegistrationE.exit, %_ZNSt6vectorIN9grpc_core11ChannelInit6FilterESaIS2_EE12emplace_backIJRKNS0_14UniqueTypeNameERKPK19grpc_channel_filterDnS_IN4absl12lts_2024072212AnyInvocableIKFbRKNS0_11ChannelArgsEEEESaISL_EERNS1_7VersionERNS1_8OrderingERNS0_14SourceLocationEEEERS2_DpOT_.exit
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0190.0212, i64 8
-  %.not197 = icmp eq ptr %110, %24
-  br i1 %.not197, label %._crit_edge, label %28
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0190.0211, i64 8
+  %.not196 = icmp eq ptr %110, %24
+  br i1 %.not196, label %._crit_edge, label %28
 
-._crit_edge231:                                   ; preds = %.loopexit202, %4, %._crit_edge
+._crit_edge230:                                   ; preds = %.loopexit201, %4, %._crit_edge
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %112 = load i64, ptr %111, align 8, !tbaa !146
   %.not.i.i.i = icmp ult i64 %112, 2
   br i1 %.not.i.i.i, label %_ZN9grpc_core11ChannelInit17DependencyTracker19FinishDependencyMapEv.exit, label %113, !prof !100
 
-113:                                              ; preds = %._crit_edge231
+113:                                              ; preds = %._crit_edge230
   %114 = load ptr, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !33, !nonnull !96, !noundef !96
   %115 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %115, align 8, !tbaa !33
@@ -1499,104 +1499,104 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %215 = icmp eq i8 %214, -1
   br i1 %215, label %_ZN9grpc_core11ChannelInit17DependencyTracker19FinishDependencyMapEv.exit, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE8iteratorppEv.exit.i, !prof !100
 
-.lr.ph230:                                        ; preds = %._crit_edge, %.loopexit202
-  %.sroa.0177.0228 = phi ptr [ %259, %.loopexit202 ], [ %.pre, %._crit_edge ]
-  %216 = load ptr, ptr %.sroa.0177.0228, align 8, !tbaa !64
+.lr.ph229:                                        ; preds = %._crit_edge, %.loopexit201
+  %.sroa.0177.0227 = phi ptr [ %259, %.loopexit201 ], [ %.pre, %._crit_edge ]
+  %216 = load ptr, ptr %.sroa.0177.0227, align 8, !tbaa !64
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 104
   %218 = load i8, ptr %217, align 8, !tbaa !94, !range !95, !noundef !96
   %219 = trunc nuw i8 %218 to i1
-  br i1 %219, label %.loopexit202, label %220
+  br i1 %219, label %.loopexit201, label %220
 
-220:                                              ; preds = %.lr.ph230
+220:                                              ; preds = %.lr.ph229
   %221 = getelementptr inbounds nuw i8, ptr %216, i64 32
   %222 = load ptr, ptr %221, align 8, !tbaa !97
   %223 = getelementptr inbounds nuw i8, ptr %216, i64 40
   %224 = load ptr, ptr %223, align 8, !tbaa !97
-  %.not199213 = icmp eq ptr %222, %224
-  br i1 %.not199213, label %._crit_edge217, label %.lr.ph216
+  %.not198212 = icmp eq ptr %222, %224
+  br i1 %.not198212, label %._crit_edge216, label %.lr.ph215
 
-._crit_edge217.loopexit:                          ; preds = %231
-  %.pre242 = load ptr, ptr %.sroa.0177.0228, align 8, !tbaa !64
-  br label %._crit_edge217
+._crit_edge216.loopexit:                          ; preds = %231
+  %.pre241 = load ptr, ptr %.sroa.0177.0227, align 8, !tbaa !64
+  br label %._crit_edge216
 
-._crit_edge217:                                   ; preds = %._crit_edge217.loopexit, %220
-  %225 = phi ptr [ %.pre242, %._crit_edge217.loopexit ], [ %216, %220 ]
+._crit_edge216:                                   ; preds = %._crit_edge216.loopexit, %220
+  %225 = phi ptr [ %.pre241, %._crit_edge216.loopexit ], [ %216, %220 ]
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 56
   %227 = load ptr, ptr %226, align 8, !tbaa !97
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 64
   %229 = load ptr, ptr %228, align 8, !tbaa !97
-  %.not200218 = icmp eq ptr %227, %229
-  br i1 %.not200218, label %._crit_edge222, label %.lr.ph221
+  %.not199217 = icmp eq ptr %227, %229
+  br i1 %.not199217, label %._crit_edge221, label %.lr.ph220
 
-.lr.ph216:                                        ; preds = %220, %231
-  %.sroa.0173.0214 = phi ptr [ %232, %231 ], [ %222, %220 ]
-  %.sroa.030.0.copyload = load i64, ptr %.sroa.0173.0214, align 8, !tbaa !12
-  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0173.0214, i64 8
+.lr.ph215:                                        ; preds = %220, %231
+  %.sroa.0173.0213 = phi ptr [ %232, %231 ], [ %222, %220 ]
+  %.sroa.030.0.copyload = load i64, ptr %.sroa.0173.0213, align 8, !tbaa !12
+  %.sroa.531.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0173.0213, i64 8
   %.sroa.531.0.copyload = load ptr, ptr %.sroa.531.0..sroa_idx, align 8, !tbaa !14
-  %230 = load ptr, ptr %.sroa.0177.0228, align 8, !tbaa !64
+  %230 = load ptr, ptr %.sroa.0177.0227, align 8, !tbaa !64
   %.sroa.026.0.copyload = load i64, ptr %230, align 8, !tbaa !12
   %.sroa.227.0..sroa_idx = getelementptr inbounds nuw i8, ptr %230, i64 8
   %.sroa.227.0.copyload = load ptr, ptr %.sroa.227.0..sroa_idx, align 8, !tbaa !14
   invoke void @_ZN9grpc_core11ChannelInit17DependencyTracker10InsertEdgeENS_14UniqueTypeNameES2_(ptr noundef nonnull align 8 dereferenceable(72) %8, i64 %.sroa.030.0.copyload, ptr %.sroa.531.0.copyload, i64 %.sroa.026.0.copyload, ptr %.sroa.227.0.copyload)
           to label %231 unwind label %233
 
-231:                                              ; preds = %.lr.ph216
-  %232 = getelementptr inbounds nuw i8, ptr %.sroa.0173.0214, i64 16
-  %.not199 = icmp eq ptr %232, %224
-  br i1 %.not199, label %._crit_edge217.loopexit, label %.lr.ph216
+231:                                              ; preds = %.lr.ph215
+  %232 = getelementptr inbounds nuw i8, ptr %.sroa.0173.0213, i64 16
+  %.not198 = icmp eq ptr %232, %224
+  br i1 %.not198, label %._crit_edge216.loopexit, label %.lr.ph215
 
-233:                                              ; preds = %.lr.ph216
+233:                                              ; preds = %.lr.ph215
   %234 = landingpad { ptr, i32 }
           cleanup
   br label %386
 
-._crit_edge222.loopexit:                          ; preds = %240
-  %.pre243 = load ptr, ptr %.sroa.0177.0228, align 8, !tbaa !64
-  br label %._crit_edge222
+._crit_edge221.loopexit:                          ; preds = %240
+  %.pre242 = load ptr, ptr %.sroa.0177.0227, align 8, !tbaa !64
+  br label %._crit_edge221
 
-._crit_edge222:                                   ; preds = %._crit_edge222.loopexit, %._crit_edge217
-  %235 = phi ptr [ %.pre243, %._crit_edge222.loopexit ], [ %225, %._crit_edge217 ]
+._crit_edge221:                                   ; preds = %._crit_edge221.loopexit, %._crit_edge216
+  %235 = phi ptr [ %.pre242, %._crit_edge221.loopexit ], [ %225, %._crit_edge216 ]
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 105
   %237 = load i8, ptr %236, align 1, !tbaa !99, !range !95, !noundef !96
   %238 = trunc nuw i8 %237 to i1
-  br i1 %238, label %244, label %.loopexit202
+  br i1 %238, label %244, label %.loopexit201
 
-.lr.ph221:                                        ; preds = %._crit_edge217, %240
-  %.sroa.0169.0219 = phi ptr [ %241, %240 ], [ %227, %._crit_edge217 ]
-  %.sroa.023.0.copyload = load i64, ptr %.sroa.0169.0219, align 8, !tbaa !12
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0169.0219, i64 8
+.lr.ph220:                                        ; preds = %._crit_edge216, %240
+  %.sroa.0169.0218 = phi ptr [ %241, %240 ], [ %227, %._crit_edge216 ]
+  %.sroa.023.0.copyload = load i64, ptr %.sroa.0169.0218, align 8, !tbaa !12
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0169.0218, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !14
-  %239 = load ptr, ptr %.sroa.0177.0228, align 8, !tbaa !64
+  %239 = load ptr, ptr %.sroa.0177.0227, align 8, !tbaa !64
   %.sroa.021.0.copyload = load i64, ptr %239, align 8, !tbaa !12
   %.sroa.222.0..sroa_idx = getelementptr inbounds nuw i8, ptr %239, i64 8
   %.sroa.222.0.copyload = load ptr, ptr %.sroa.222.0..sroa_idx, align 8, !tbaa !14
   invoke void @_ZN9grpc_core11ChannelInit17DependencyTracker10InsertEdgeENS_14UniqueTypeNameES2_(ptr noundef nonnull align 8 dereferenceable(72) %8, i64 %.sroa.021.0.copyload, ptr %.sroa.222.0.copyload, i64 %.sroa.023.0.copyload, ptr %.sroa.5.0.copyload)
           to label %240 unwind label %242
 
-240:                                              ; preds = %.lr.ph221
-  %241 = getelementptr inbounds nuw i8, ptr %.sroa.0169.0219, i64 16
-  %.not200 = icmp eq ptr %241, %229
-  br i1 %.not200, label %._crit_edge222.loopexit, label %.lr.ph221
+240:                                              ; preds = %.lr.ph220
+  %241 = getelementptr inbounds nuw i8, ptr %.sroa.0169.0218, i64 16
+  %.not199 = icmp eq ptr %241, %229
+  br i1 %.not199, label %._crit_edge221.loopexit, label %.lr.ph220
 
-242:                                              ; preds = %.lr.ph221
+242:                                              ; preds = %.lr.ph220
   %243 = landingpad { ptr, i32 }
           cleanup
   br label %386
 
-244:                                              ; preds = %._crit_edge222
+244:                                              ; preds = %._crit_edge221
   %245 = load ptr, ptr %1, align 8, !tbaa !93
   %246 = load ptr, ptr %23, align 8, !tbaa !93
-  %.not201223 = icmp eq ptr %245, %246
-  br i1 %.not201223, label %.loopexit202, label %.lr.ph226
+  %.not200222 = icmp eq ptr %245, %246
+  br i1 %.not200222, label %.loopexit201, label %.lr.ph225
 
-.lr.ph226:                                        ; preds = %244, %255
-  %.sroa.0165.0224 = phi ptr [ %256, %255 ], [ %245, %244 ]
-  %247 = load ptr, ptr %.sroa.0165.0224, align 8, !tbaa !64
-  %248 = load ptr, ptr %.sroa.0177.0228, align 8, !tbaa !64
+.lr.ph225:                                        ; preds = %244, %255
+  %.sroa.0165.0223 = phi ptr [ %256, %255 ], [ %245, %244 ]
+  %247 = load ptr, ptr %.sroa.0165.0223, align 8, !tbaa !64
+  %248 = load ptr, ptr %.sroa.0177.0227, align 8, !tbaa !64
   %249 = icmp eq ptr %247, %248
   br i1 %249, label %255, label %250
 
-250:                                              ; preds = %.lr.ph226
+250:                                              ; preds = %.lr.ph225
   %251 = getelementptr inbounds nuw i8, ptr %247, i64 104
   %252 = load i8, ptr %251, align 8, !tbaa !94, !range !95, !noundef !96
   %253 = trunc nuw i8 %252 to i1
@@ -1612,22 +1612,22 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   invoke void @_ZN9grpc_core11ChannelInit17DependencyTracker10InsertEdgeENS_14UniqueTypeNameES2_(ptr noundef nonnull align 8 dereferenceable(72) %8, i64 %.sroa.012.0.copyload, ptr %.sroa.213.0.copyload, i64 %.sroa.0.0.copyload, ptr %.sroa.2.0.copyload)
           to label %255 unwind label %257
 
-255:                                              ; preds = %254, %250, %.lr.ph226
-  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0224, i64 8
-  %.not201 = icmp eq ptr %256, %246
-  br i1 %.not201, label %.loopexit202, label %.lr.ph226
+255:                                              ; preds = %254, %250, %.lr.ph225
+  %256 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0223, i64 8
+  %.not200 = icmp eq ptr %256, %246
+  br i1 %.not200, label %.loopexit201, label %.lr.ph225
 
 257:                                              ; preds = %254
   %258 = landingpad { ptr, i32 }
           cleanup
   br label %386
 
-.loopexit202:                                     ; preds = %255, %244, %._crit_edge222, %.lr.ph230
-  %259 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0228, i64 8
-  %.not198 = icmp eq ptr %259, %.pre241
-  br i1 %.not198, label %._crit_edge231, label %.lr.ph230
+.loopexit201:                                     ; preds = %255, %244, %._crit_edge221, %.lr.ph229
+  %259 = getelementptr inbounds nuw i8, ptr %.sroa.0177.0227, i64 8
+  %.not197 = icmp eq ptr %259, %.pre240
+  br i1 %.not197, label %._crit_edge230, label %.lr.ph229
 
-_ZN9grpc_core11ChannelInit17DependencyTracker19FinishDependencyMapEv.exit: ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE8iterator21skip_empty_or_deletedEv.exit.i.i, %._crit_edge231
+_ZN9grpc_core11ChannelInit17DependencyTracker19FinishDependencyMapEv.exit: ; preds = %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIN9grpc_core14UniqueTypeNameENS4_11ChannelInit17DependencyTracker4NodeEEENS0_13hash_internal4HashIS5_EESt8equal_toIS5_ESaISt4pairIKS5_S8_EEE8iterator21skip_empty_or_deletedEv.exit.i.i, %._crit_edge230
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, i8 0, i64 24, i1 false)
   %260 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1817,8 +1817,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi145EEERS2_RAT__Kc.exit: ; p
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #37
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %.pre244 = load ptr, ptr %9, align 8, !tbaa !177
-  %.pre245 = load ptr, ptr %326, align 8, !tbaa !104
+  %.pre243 = load ptr, ptr %9, align 8, !tbaa !177
+  %.pre244 = load ptr, ptr %326, align 8, !tbaa !104
   br label %_ZNSt6vectorIN9grpc_core11ChannelInit6FilterESaIS2_EED2Ev.exit158
 
 336:                                              ; preds = %330
@@ -1848,8 +1848,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi145EEERS2_RAT__Kc.exit: ; p
   br label %384
 
 _ZNSt6vectorIN9grpc_core11ChannelInit6FilterESaIS2_EED2Ev.exit158: ; preds = %324, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi145EEERS2_RAT__Kc.exit
-  %344 = phi ptr [ %.pre245, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi145EEERS2_RAT__Kc.exit ], [ %327, %324 ]
-  %345 = phi ptr [ %.pre244, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi145EEERS2_RAT__Kc.exit ], [ %325, %324 ]
+  %344 = phi ptr [ %.pre244, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi145EEERS2_RAT__Kc.exit ], [ %327, %324 ]
+  %345 = phi ptr [ %.pre243, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi145EEERS2_RAT__Kc.exit ], [ %325, %324 ]
   %346 = load ptr, ptr %16, align 8, !tbaa !177
   store ptr %346, ptr %0, align 8, !tbaa !177
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1877,18 +1877,18 @@ _ZNSt6vectorIN9grpc_core11ChannelInit6FilterESaIS2_EED2Ev.exit158: ; preds = %32
   store ptr %361, ptr %360, align 8, !tbaa !173
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.pre246 = load ptr, ptr %20, align 8, !tbaa !158
+  %.pre245 = load ptr, ptr %20, align 8, !tbaa !158
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.not.i.i.i.i.i = icmp eq ptr %.pre246, null
+  %.not.i.i.i.i.i = icmp eq ptr %.pre245, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt14priority_queueIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyESt6vectorIS3_SaIS3_EESt4lessIS3_EED2Ev.exit.i, label %362
 
 362:                                              ; preds = %_ZNSt6vectorIN9grpc_core11ChannelInit6FilterESaIS2_EED2Ev.exit158
   %363 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %364 = load ptr, ptr %363, align 8, !tbaa !153
   %365 = ptrtoint ptr %364 to i64
-  %366 = ptrtoint ptr %.pre246 to i64
+  %366 = ptrtoint ptr %.pre245 to i64
   %367 = sub i64 %365, %366
-  call void @_ZdlPvm(ptr noundef nonnull %.pre246, i64 noundef %367) #33
+  call void @_ZdlPvm(ptr noundef nonnull %.pre245, i64 noundef %367) #33
   br label %_ZNSt14priority_queueIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyESt6vectorIS3_SaIS3_EESt4lessIS3_EED2Ev.exit.i
 
 _ZNSt14priority_queueIN9grpc_core11ChannelInit17DependencyTracker15ReadyDependencyESt6vectorIS3_SaIS3_EESt4lessIS3_EED2Ev.exit.i: ; preds = %362, %_ZNSt6vectorIN9grpc_core11ChannelInit6FilterESaIS2_EED2Ev.exit158

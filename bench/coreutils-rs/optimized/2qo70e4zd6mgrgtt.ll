@@ -673,8 +673,8 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20discard_all_mess
   br i1 %.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35, %.lr.ph.i
-  %.sroa.01.07.i = phi i32 [ %37, %.lr.ph.i ], [ 0, %35 ]
-  %37 = add nuw nsw i32 %.sroa.01.07.i, 1
+  %.sroa.01.06.i = phi i32 [ %37, %.lr.ph.i ], [ 0, %35 ]
+  %37 = add nuw nsw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i = icmp eq i32 %37, %36
   br i1 %exitcond.not.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit, label %.lr.ph.i
@@ -785,8 +785,8 @@ define hidden noundef zeroext i1 @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$20di
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %43, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 0, %43 ]
-  %45 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %45, %.lr.ph.i.i ], [ 0, %43 ]
+  %45 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   tail call void @llvm.x86.sse2.pause() #12
   %exitcond.not.i.i = icmp eq i32 %45, %44
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -907,8 +907,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %49, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ 0, %49 ]
-  %51 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %51, %.lr.ph.i.i ], [ 0, %49 ]
+  %51 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !79
   %exitcond.not.i.i = icmp eq i32 %51, %50
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -937,8 +937,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge
 
 .lr.ph.i18.i:                                     ; preds = %59, %.lr.ph.i18.i
-  %.sroa.01.07.i19.i = phi i32 [ %62, %.lr.ph.i18.i ], [ 0, %59 ]
-  %62 = add nuw nsw i32 %.sroa.01.07.i19.i, 1
+  %.sroa.01.06.i19.i = phi i32 [ %62, %.lr.ph.i18.i ], [ 0, %59 ]
+  %62 = add nuw nsw i32 %.sroa.01.06.i19.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !79
   %exitcond.not.i20.i = icmp eq i32 %62, %60
   br i1 %exitcond.not.i20.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i18.i
@@ -974,8 +974,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedg
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i
 
 .lr.ph.i23.i:                                     ; preds = %72, %.lr.ph.i23.i
-  %.sroa.01.07.i24.i = phi i32 [ %75, %.lr.ph.i23.i ], [ 0, %72 ]
-  %75 = add nuw nsw i32 %.sroa.01.07.i24.i, 1
+  %.sroa.01.06.i24.i = phi i32 [ %75, %.lr.ph.i23.i ], [ 0, %72 ]
+  %75 = add nuw nsw i32 %.sroa.01.06.i24.i, 1
   call void @llvm.x86.sse2.pause() #12, !noalias !79
   %exitcond.not.i25.i = icmp eq i32 %75, %73
   br i1 %exitcond.not.i25.i, label %._crit_edge.loopexit.i26.i, label %.lr.ph.i23.i

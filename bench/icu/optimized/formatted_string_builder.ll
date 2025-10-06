@@ -1918,35 +1918,35 @@ define noundef zeroext i1 @_ZNK6icu_7722FormattedStringBuilder13contentEqualsERK
 define noundef zeroext i1 @_ZNK6icu_7722FormattedStringBuilder13containsFieldENS0_5FieldE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0, i8 %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 132
   %4 = load i32, ptr %3, align 4, !tbaa !10
-  %.not8 = icmp sgt i32 %4, 0
-  br i1 %.not8, label %.lr.ph, label %._crit_edge
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %5 = load i8, ptr %0, align 8, !tbaa !3, !range !11, !noundef !12
-  %6 = trunc nuw i8 %5 to i1
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %8 = load ptr, ptr %7, align 8
-  %9 = select i1 %6, ptr %8, ptr %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %11 = load i32, ptr %10, align 8, !tbaa !9
-  %12 = sext i32 %11 to i64
+  %6 = load i8, ptr %0, align 8, !tbaa !3, !range !11, !noundef !12
+  %7 = trunc nuw i8 %6 to i1
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %9 = load ptr, ptr %8, align 8
+  %10 = select i1 %7, ptr %9, ptr %8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %12 = load i32, ptr %11, align 8, !tbaa !9
+  %13 = sext i32 %12 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  %invariant.gep = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %9, i64 %12
-  br label %13
+  %invariant.gep = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %10, i64 %13
+  br label %14
 
-13:                                               ; preds = %13, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
+14:                                               ; preds = %14, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %gep = getelementptr %"struct.icu_77::FormattedStringBuilder::Field", ptr %invariant.gep, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i8, ptr %gep, align 1, !tbaa !13
-  %14 = icmp eq i8 %1, %.sroa.0.0.copyload.i
+  %15 = icmp eq i8 %1, %.sroa.0.0.copyload.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %14, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %13, !llvm.loop !35
+  %or.cond = select i1 %15, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %14, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %13, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %14, %13 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %14, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %15, %14 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

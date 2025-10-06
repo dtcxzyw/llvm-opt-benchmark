@@ -4601,8 +4601,8 @@ define hidden noundef zeroext i1 @_ZN15G1CollectedHeap24try_collect_concurrently
   %.038 = phi i32 [ 1, %4 ], [ %407, %406 ]
   %.034 = phi i32 [ %2, %4 ], [ %139, %406 ]
   %42 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not210 = icmp eq ptr %42, null
-  br i1 %.not210, label %_ZN12ResourceMarkD2Ev.exit, label %43
+  %.not208 = icmp eq ptr %42, null
+  br i1 %.not208, label %_ZN12ResourceMarkD2Ev.exit, label %43
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %18, align 8
@@ -4658,8 +4658,8 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %65, %63, %41
 
 66:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   %67 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not221 = icmp eq ptr %67, null
-  br i1 %.not221, label %_ZN12ResourceMarkD2Ev.exit53, label %68
+  %.not219 = icmp eq ptr %67, null
+  br i1 %.not219, label %_ZN12ResourceMarkD2Ev.exit53, label %68
 
 68:                                               ; preds = %66
   %69 = load ptr, ptr %18, align 8
@@ -4726,8 +4726,8 @@ _ZN12ResourceMarkD2Ev.exit53:                     ; preds = %95, %93, %66
 
 101:                                              ; preds = %98
   %102 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not220 = icmp eq ptr %102, null
-  br i1 %.not220, label %.loopexit, label %103
+  %.not218 = icmp eq ptr %102, null
+  br i1 %.not218, label %.loopexit, label %103
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %18, align 8
@@ -4815,8 +4815,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 143:                                              ; preds = %140
   %144 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not217 = icmp eq ptr %144, null
-  br i1 %.not217, label %.loopexit, label %145
+  %.not215 = icmp eq ptr %144, null
+  br i1 %.not215, label %.loopexit, label %145
 
 145:                                              ; preds = %143
   %146 = load ptr, ptr %18, align 8
@@ -4874,8 +4874,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 171:                                              ; preds = %170
   %172 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not216 = icmp eq ptr %172, null
-  br i1 %.not216, label %_ZN12ResourceMarkD2Ev.exit66, label %173
+  %.not214 = icmp eq ptr %172, null
+  br i1 %.not214, label %_ZN12ResourceMarkD2Ev.exit66, label %173
 
 173:                                              ; preds = %171
   %174 = load ptr, ptr %18, align 8
@@ -4929,8 +4929,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   %198 = trunc i8 %197 to i1
   %199 = load i8, ptr %30, align 2
   %200 = trunc i8 %199 to i1
-  %or.cond209 = select i1 %198, i1 true, i1 %200
-  br i1 %or.cond209, label %204, label %201
+  %or.cond207 = select i1 %198, i1 true, i1 %200
+  br i1 %or.cond207, label %204, label %201
 
 201:                                              ; preds = %196
   %202 = load i8, ptr %31, align 1
@@ -4941,8 +4941,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 204:                                              ; preds = %196, %201
   %205 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not219 = icmp eq ptr %205, null
-  br i1 %.not219, label %.loopexit, label %206
+  %.not217 = icmp eq ptr %205, null
+  br i1 %.not217, label %.loopexit, label %206
 
 206:                                              ; preds = %204
   %207 = load ptr, ptr %18, align 8
@@ -5001,8 +5001,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 234:                                              ; preds = %231
   %235 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not215 = icmp eq ptr %235, null
-  br i1 %.not215, label %.loopexit, label %236
+  %.not213 = icmp eq ptr %235, null
+  br i1 %.not213, label %.loopexit, label %236
 
 236:                                              ; preds = %234
   %237 = load ptr, ptr %18, align 8
@@ -5060,8 +5060,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
 
 262:                                              ; preds = %261
   %263 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not211 = icmp eq ptr %263, null
-  br i1 %.not211, label %_ZN12ResourceMarkD2Ev.exit78, label %264
+  %.not209 = icmp eq ptr %263, null
+  br i1 %.not209, label %_ZN12ResourceMarkD2Ev.exit78, label %264
 
 264:                                              ; preds = %262
   %265 = load ptr, ptr %18, align 8
@@ -5138,8 +5138,8 @@ _ZN13MonitorLocker4waitEl.exit:                   ; preds = %_ZN13MonitorLockerC
 
 296:                                              ; preds = %._crit_edge
   %297 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not212 = icmp eq ptr %297, null
-  br i1 %.not212, label %_ZN12ResourceMarkD2Ev.exit83, label %298
+  %.not210 = icmp eq ptr %297, null
+  br i1 %.not210, label %_ZN12ResourceMarkD2Ev.exit83, label %298
 
 298:                                              ; preds = %296
   %299 = load ptr, ptr %18, align 8
@@ -5205,8 +5205,8 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN12ResourceMarkD2
 
 325:                                              ; preds = %322
   %326 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not214 = icmp eq ptr %326, null
-  br i1 %.not214, label %406, label %327
+  %.not212 = icmp eq ptr %326, null
+  br i1 %.not212, label %406, label %327
 
 327:                                              ; preds = %325
   %328 = load ptr, ptr %18, align 8
@@ -5262,8 +5262,8 @@ _ZN13MonitorLockerD2Ev.exit:                      ; preds = %_ZN12ResourceMarkD2
 
 353:                                              ; preds = %350
   %354 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not213 = icmp eq ptr %354, null
-  br i1 %.not213, label %_ZN12ResourceMarkD2Ev.exit92, label %355
+  %.not211 = icmp eq ptr %354, null
+  br i1 %.not211, label %_ZN12ResourceMarkD2Ev.exit92, label %355
 
 355:                                              ; preds = %353
   %356 = load ptr, ptr %18, align 8
@@ -5337,8 +5337,8 @@ _ZN13MonitorLockerC2EP7MonitorN5Mutex18SafepointCheckFlagE.exit94.thread: ; pred
 _ZN12ResourceMarkD2Ev.exit66:                     ; preds = %195, %193, %201, %171, %170, %350
   %.241 = phi i32 [ %.039, %170 ], [ %.039, %350 ], [ %138, %171 ], [ %.039, %201 ], [ %138, %193 ], [ %138, %195 ]
   %382 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not218 = icmp eq ptr %382, null
-  br i1 %.not218, label %406, label %383
+  %.not216 = icmp eq ptr %382, null
+  br i1 %.not216, label %406, label %383
 
 383:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit66
   %384 = load ptr, ptr %18, align 8
@@ -5510,11 +5510,11 @@ _ZN11MutexLockerD2Ev.exit.us:                     ; preds = %_ZN11MutexLockerC2E
   store i8 0, ptr %13, align 1
   call void @_ZN8VMThread7executeEP12VM_Operation(ptr noundef nonnull %4) #23
   %.pre = load i8, ptr %13, align 1
-  %.pre24 = trunc i8 %.pre to i1
+  %.pre23 = trunc i8 %.pre to i1
   br label %.loopexit
 
 .loopexit:                                        ; preds = %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us, %20, %_ZN11MutexLockerD2Ev.exit.us, %.split, %.split.us
-  %.19.ph = phi i1 [ true, %.split.us ], [ %.pre24, %.split ], [ true, %_ZN11MutexLockerD2Ev.exit.us ], [ true, %20 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us ]
+  %.19.ph = phi i1 [ true, %.split.us ], [ %.pre23, %.split ], [ true, %_ZN11MutexLockerD2Ev.exit.us ], [ true, %20 ], [ true, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.thread.us ]
   call void @_ZN15VM_GC_OperationD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %4) #23
   ret i1 %.19.ph
 }

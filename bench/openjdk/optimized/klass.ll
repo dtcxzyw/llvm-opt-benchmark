@@ -1641,10 +1641,9 @@ define hidden void @_ZNK5Klass25print_secondary_supers_onEP12outputStream(ptr no
   %12 = load i64, ptr %11, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.47, i64 noundef %12) #21
   %13 = load i64, ptr %11, align 8
-  switch i64 %13, label %14 [
-    i64 0, label %76
-    i64 -1, label %76
-  ]
+  %.off = add i64 %13, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %14, label %76
 
 14:                                               ; preds = %8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.45) #21
@@ -1793,7 +1792,7 @@ _ZL27print_negative_lookup_statsmP12outputStream.exit: ; preds = %64, %69
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.48) #21
   br label %76
 
-76:                                               ; preds = %8, %8, %5, %_ZL27print_negative_lookup_statsmP12outputStream.exit, %75
+76:                                               ; preds = %8, %5, %_ZL27print_negative_lookup_statsmP12outputStream.exit, %75
   ret void
 }
 
@@ -3567,7 +3566,7 @@ _ZN6HandleC2EP6ThreadP7oopDesc.exit40:            ; preds = %93, %94, %_ZN10Hand
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %112 = load i32, ptr %111, align 8
   %113 = icmp sgt i32 %112, -1
-  br i1 %113, label %114, label %154
+  br i1 %113, label %114, label %155
 
 114:                                              ; preds = %_ZN6HandleC2EP6ThreadP7oopDesc.exit40
   %115 = getelementptr inbounds nuw i8, ptr %3, i64 800
@@ -3631,85 +3630,85 @@ _ZN5Klass27clear_archived_mirror_indexEv.exit:    ; preds = %143, %147
   br label %148
 
 148:                                              ; preds = %134, %_ZN5Klass27clear_archived_mirror_indexEv.exit
-  %switch = phi i1 [ true, %_ZN5Klass27clear_archived_mirror_indexEv.exit ], [ false, %134 ]
-  %149 = load ptr, ptr %118, align 8
-  %.not.i.i.i.i41 = icmp eq ptr %149, null
-  br i1 %.not.i.i.i.i41, label %151, label %150
+  %149 = phi i1 [ true, %_ZN5Klass27clear_archived_mirror_indexEv.exit ], [ false, %134 ]
+  %150 = load ptr, ptr %118, align 8
+  %.not.i.i.i.i41 = icmp eq ptr %150, null
+  br i1 %.not.i.i.i.i41, label %152, label %151
 
-150:                                              ; preds = %148
+151:                                              ; preds = %148
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %116, i64 noundef %124) #21
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %118) #21
-  br label %151
+  br label %152
 
-151:                                              ; preds = %150, %148
-  %152 = load ptr, ptr %119, align 8
-  %.not8.i.i.i.i42 = icmp eq ptr %152, %120
-  br i1 %.not8.i.i.i.i42, label %_ZN12ResourceMarkD2Ev.exit43, label %153
+152:                                              ; preds = %151, %148
+  %153 = load ptr, ptr %119, align 8
+  %.not8.i.i.i.i42 = icmp eq ptr %153, %120
+  br i1 %.not8.i.i.i.i42, label %_ZN12ResourceMarkD2Ev.exit43, label %154
 
-153:                                              ; preds = %151
+154:                                              ; preds = %152
   store ptr %118, ptr %117, align 8
   store ptr %120, ptr %119, align 8
   store ptr %122, ptr %121, align 8
   br label %_ZN12ResourceMarkD2Ev.exit43
 
-_ZN12ResourceMarkD2Ev.exit43:                     ; preds = %151, %153
-  br i1 %switch, label %154, label %_ZN12ResourceMarkD2Ev.exit46
+_ZN12ResourceMarkD2Ev.exit43:                     ; preds = %152, %154
+  br i1 %149, label %155, label %_ZN12ResourceMarkD2Ev.exit46
 
-154:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit43, %_ZN6HandleC2EP6ThreadP7oopDesc.exit40
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %156 = load ptr, ptr %155, align 8
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %_ZNK5Klass11java_mirrorEv.exit.thread, label %_ZNK5Klass11java_mirrorEv.exit
+155:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit43, %_ZN6HandleC2EP6ThreadP7oopDesc.exit40
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %157 = load ptr, ptr %156, align 8
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %_ZNK5Klass11java_mirrorEv.exit.thread, label %_ZNK5Klass11java_mirrorEv.exit
 
-_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %154
-  %158 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
-  %159 = tail call noundef ptr %158(ptr noundef nonnull %156) #21
-  %160 = icmp eq ptr %159, null
-  br i1 %160, label %_ZNK5Klass11java_mirrorEv.exit.thread, label %_ZN12ResourceMarkD2Ev.exit46
+_ZNK5Klass11java_mirrorEv.exit:                   ; preds = %155
+  %159 = load ptr, ptr @_ZN14AccessInternal15RuntimeDispatchILm548932EP7oopDescLNS_11BarrierTypeE2EE10_load_funcE, align 8
+  %160 = tail call noundef ptr %159(ptr noundef nonnull %157) #21
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %_ZNK5Klass11java_mirrorEv.exit.thread, label %_ZN12ResourceMarkD2Ev.exit46
 
-_ZNK5Klass11java_mirrorEv.exit.thread:            ; preds = %154, %_ZNK5Klass11java_mirrorEv.exit
-  %161 = getelementptr inbounds nuw i8, ptr %3, i64 800
-  %162 = load ptr, ptr %161, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
-  %164 = load ptr, ptr %163, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %162, i64 32
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %162, i64 40
-  %168 = load ptr, ptr %167, align 8
-  %169 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %170 = load i64, ptr %169, align 8
-  %171 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_87ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not73 = icmp eq ptr %171, null
-  br i1 %.not73, label %174, label %172
+_ZNK5Klass11java_mirrorEv.exit.thread:            ; preds = %155, %_ZNK5Klass11java_mirrorEv.exit
+  %162 = getelementptr inbounds nuw i8, ptr %3, i64 800
+  %163 = load ptr, ptr %162, align 8
+  %164 = getelementptr inbounds nuw i8, ptr %163, i64 24
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %163, i64 32
+  %167 = load ptr, ptr %166, align 8
+  %168 = getelementptr inbounds nuw i8, ptr %163, i64 40
+  %169 = load ptr, ptr %168, align 8
+  %170 = getelementptr inbounds nuw i8, ptr %163, i64 8
+  %171 = load i64, ptr %170, align 8
+  %172 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE14ELS1_87ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not73 = icmp eq ptr %172, null
+  br i1 %.not73, label %175, label %173
 
-172:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit.thread
-  %173 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %0)
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_87ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef %173)
-  br label %174
+173:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit.thread
+  %174 = tail call noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196) %0)
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE14ELS1_87ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.15, ptr noundef %174)
+  br label %175
 
-174:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit.thread, %172
+175:                                              ; preds = %_ZNK5Klass11java_mirrorEv.exit.thread, %173
   tail call void @_ZN15java_lang_Class13create_mirrorEP5Klass6HandleS2_S2_S2_P10JavaThread(ptr noundef nonnull %0, ptr %storemerge.i, ptr %storemerge.i39, ptr %2, ptr null, ptr noundef nonnull %3) #21
-  %175 = load ptr, ptr %164, align 8
-  %.not.i.i.i.i44 = icmp eq ptr %175, null
-  br i1 %.not.i.i.i.i44, label %177, label %176
+  %176 = load ptr, ptr %165, align 8
+  %.not.i.i.i.i44 = icmp eq ptr %176, null
+  br i1 %.not.i.i.i.i44, label %178, label %177
 
-176:                                              ; preds = %174
-  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %162, i64 noundef %170) #21
-  tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %164) #21
-  br label %177
+177:                                              ; preds = %175
+  tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %163, i64 noundef %171) #21
+  tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %165) #21
+  br label %178
 
-177:                                              ; preds = %176, %174
-  %178 = load ptr, ptr %165, align 8
-  %.not8.i.i.i.i45 = icmp eq ptr %178, %166
-  br i1 %.not8.i.i.i.i45, label %_ZN12ResourceMarkD2Ev.exit46, label %179
+178:                                              ; preds = %177, %175
+  %179 = load ptr, ptr %166, align 8
+  %.not8.i.i.i.i45 = icmp eq ptr %179, %167
+  br i1 %.not8.i.i.i.i45, label %_ZN12ResourceMarkD2Ev.exit46, label %180
 
-179:                                              ; preds = %177
-  store ptr %164, ptr %163, align 8
-  store ptr %166, ptr %165, align 8
-  store ptr %168, ptr %167, align 8
+180:                                              ; preds = %178
+  store ptr %165, ptr %164, align 8
+  store ptr %167, ptr %166, align 8
+  store ptr %169, ptr %168, align 8
   br label %_ZN12ResourceMarkD2Ev.exit46
 
-_ZN12ResourceMarkD2Ev.exit46:                     ; preds = %179, %177, %_ZN12ResourceMarkD2Ev.exit43, %_ZNK5Klass11java_mirrorEv.exit
+_ZN12ResourceMarkD2Ev.exit46:                     ; preds = %180, %178, %_ZN12ResourceMarkD2Ev.exit43, %_ZNK5Klass11java_mirrorEv.exit
   ret void
 }
 

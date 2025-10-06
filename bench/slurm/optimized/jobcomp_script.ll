@@ -339,13 +339,13 @@ define internal noalias noundef ptr @_script_agent(ptr readnone captures(none) %
   %26 = alloca [2 x ptr], align 16
   %27 = alloca i32, align 4
   %28 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @comp_list_mutex) #10
-  %.not29 = icmp eq i32 %28, 0
-  br i1 %.not29, label %.lr.ph, label %._crit_edge
+  %.not28 = icmp eq i32 %28, 0
+  br i1 %.not28, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %556, %1
-  %.lcssa20 = phi i32 [ %28, %1 ], [ %557, %556 ]
+  %.lcssa19 = phi i32 [ %28, %1 ], [ %557, %556 ]
   %29 = tail call ptr @__errno_location() #11
-  store i32 %.lcssa20, ptr %29, align 4
+  store i32 %.lcssa19, ptr %29, align 4
   call void (ptr, ...) @slurm_fatal_abort(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__._script_agent) #12
   unreachable
 

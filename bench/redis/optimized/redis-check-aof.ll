@@ -1183,14 +1183,14 @@ sub_0:                                            ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = load i8, ptr %8, align 1
-  %.not33 = icmp eq i8 %9, 45
-  br i1 %.not33, label %sub_1, label %.tail.thread
+  %.not34 = icmp eq i8 %9, 45
+  br i1 %.not34, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %11 = load i8, ptr %10, align 1
-  %.not34 = icmp eq i8 %11, 118
-  br i1 %.not34, label %.tail, label %.tail.thread
+  %.not35 = icmp eq i8 %11, 118
+  br i1 %.not35, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -1271,8 +1271,8 @@ sub_1:                                            ; preds = %sub_0
 
 getInputFileType.exit:                            ; preds = %43
   %48 = call i32 @fileIsRDB(ptr noundef nonnull %.0)
-  %switch.not = icmp eq i32 %48, 0
-  br i1 %switch.not, label %49, label %50
+  %.not33 = icmp eq i32 %48, 0
+  br i1 %.not33, label %49, label %50
 
 getInputFileType.exit.thread:                     ; preds = %43
   call void @checkMultiPartAof(ptr noundef %46, ptr noundef nonnull %.0, i32 noundef %.025)

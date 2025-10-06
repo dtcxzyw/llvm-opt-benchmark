@@ -373,8 +373,8 @@ cipher_init.exit.i:                               ; preds = %47, %44
   br i1 %112, label %.lr.ph71.i.i, label %n_fold.exit.i, !llvm.loop !21
 
 n_fold.exit.i:                                    ; preds = %.lr.ph71.i.i, %.preheader.i.i, %._crit_edge.i.i, %63
-  %.not129.i = icmp eq i64 %2, 0
-  br i1 %.not129.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not128.i = icmp eq i64 %2, 0
+  br i1 %.not128.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %n_fold.exit.i
   %113 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -385,11 +385,11 @@ n_fold.exit.i:                                    ; preds = %.lr.ph71.i.i, %.pre
   br i1 %.not98.i18, label %.thread.i, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i, %138
-  %.073127.i20 = phi ptr [ %spec.select104.i, %138 ], [ %113, %.lr.ph.i ]
-  %.068128.i19 = phi i64 [ %125, %138 ], [ 0, %.lr.ph.i ]
+  %.073126.i20 = phi ptr [ %spec.select104.i, %138 ], [ %113, %.lr.ph.i ]
+  %.068127.i19 = phi i64 [ %125, %138 ], [ 0, %.lr.ph.i ]
   %116 = load i32, ptr %6, align 4, !tbaa !22
   %117 = sext i32 %116 to i64
-  %118 = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %40, ptr noundef nonnull %.073127.i20, ptr noundef nonnull %6) #7
+  %118 = call i32 @EVP_EncryptFinal_ex(ptr noundef nonnull %40, ptr noundef nonnull %.073126.i20, ptr noundef nonnull %6) #7
   %.not99.i = icmp eq i32 %118, 0
   br i1 %.not99.i, label %.thread.i, label %119
 
@@ -405,11 +405,11 @@ n_fold.exit.i:                                    ; preds = %.lr.ph71.i.i, %.pre
   br label %.thread.i
 
 122:                                              ; preds = %119
-  %123 = sub i64 %2, %.068128.i19
+  %123 = sub i64 %2, %.068127.i19
   %spec.select.i = call i64 @llvm.umin.i64(i64 %123, i64 %117)
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 %.068128.i19
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %124, ptr nonnull align 1 %.073127.i20, i64 %spec.select.i, i1 false)
-  %125 = add i64 %spec.select.i, %.068128.i19
+  %124 = getelementptr inbounds nuw i8, ptr %1, i64 %.068127.i19
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %124, ptr nonnull align 1 %.073126.i20, i64 %spec.select.i, i1 false)
+  %125 = add i64 %spec.select.i, %.068127.i19
   %126 = icmp ugt i64 %2, %125
   br i1 %126, label %127, label %._crit_edge.loopexit.i
 
@@ -444,12 +444,12 @@ cipher_init.exit109.i:                            ; preds = %134, %131
   br label %cipher_init.exit.thread.i
 
 138:                                              ; preds = %cipher_init.exit109.i
-  %139 = icmp eq ptr %.073127.i20, %5
-  %140 = getelementptr inbounds nuw i8, ptr %.073127.i20, i64 32
+  %139 = icmp eq ptr %.073126.i20, %5
+  %140 = getelementptr inbounds nuw i8, ptr %.073126.i20, i64 32
   %spec.select104.i = select i1 %139, ptr %140, ptr %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %141 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %40, ptr noundef nonnull %spec.select104.i, ptr noundef nonnull %6, ptr noundef nonnull %.073127.i20, i32 noundef %53) #7
+  %141 = call i32 @EVP_EncryptUpdate(ptr noundef nonnull %40, ptr noundef nonnull %spec.select104.i, ptr noundef nonnull %6, ptr noundef nonnull %.073126.i20, i32 noundef %53) #7
   %.not98.i = icmp eq i32 %141, 0
   br i1 %.not98.i, label %.thread.i, label %.lr.ph
 
@@ -505,8 +505,8 @@ cipher_init.exit109.i:                            ; preds = %134, %131
 fixup_des3_key.exit.i:                            ; preds = %159
   %163 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %164 = call i32 @CRYPTO_memcmp(ptr noundef nonnull %160, ptr noundef nonnull %163, i64 noundef 8) #7
-  %.not125.i = icmp eq i32 %164, 0
-  br i1 %.not125.i, label %fixup_des3_key.exit.thread.i, label %cipher_init.exit.thread.i
+  %.not124.i = icmp eq i32 %164, 0
+  br i1 %.not124.i, label %fixup_des3_key.exit.thread.i, label %cipher_init.exit.thread.i
 
 fixup_des3_key.exit.thread.i:                     ; preds = %fixup_des3_key.exit.i, %159
   call void @ERR_new() #7

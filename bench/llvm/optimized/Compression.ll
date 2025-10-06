@@ -246,8 +246,8 @@ define dso_local void @_ZN4llvm11compression10decompressENS_20DebugCompressionTy
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca i64, align 8
   store i64 %5, ptr %9, align 8, !tbaa !3
-  %switch.i = icmp eq i32 %1, 2
-  br i1 %switch.i, label %24, label %10
+  %.not = icmp eq i32 %1, 2
+  br i1 %.not, label %24, label %10
 
 10:                                               ; preds = %6
   %11 = call i32 @uncompress(ptr noundef %4, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef %2, i64 noundef %3) #7, !noalias !11
@@ -419,18 +419,18 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %5, %_ZN4llvm10make_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm11compression10decompressENS0_6FormatENS_8ArrayRefIhEERNS_15SmallVectorImplIhEEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, i32 noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %5) local_unnamed_addr #1 {
-  %switch = icmp eq i32 %1, 0
-  br i1 %switch, label %7, label %8
-
-7:                                                ; preds = %6
-  tail call void @_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEERNS_15SmallVectorImplIhEEm(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %5)
-  br label %9
+  %7 = icmp eq i32 %1, 0
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %6
-  tail call void @_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEERNS_15SmallVectorImplIhEEm(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %5)
-  br label %9
+  tail call void @_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEERNS_15SmallVectorImplIhEEm(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %5)
+  br label %10
 
-9:                                                ; preds = %8, %7
+9:                                                ; preds = %6
+  tail call void @_ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEERNS_15SmallVectorImplIhEEm(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %5)
+  br label %10
+
+10:                                               ; preds = %9, %8
   ret void
 }
 
@@ -595,8 +595,8 @@ _ZN4llvm11compression4zstd10decompressENS_8ArrayRefIhEEPhRm.exit: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm11compression10decompressENS_20DebugCompressionTypeENS_8ArrayRefIhEERNS_15SmallVectorImplIhEEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::Error") align 8 captures(none) %0, i32 noundef %1, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %5) local_unnamed_addr #1 {
-  %switch.i.not = icmp eq i32 %1, 2
-  br i1 %switch.i.not, label %8, label %7
+  %.not = icmp eq i32 %1, 2
+  br i1 %.not, label %8, label %7
 
 7:                                                ; preds = %6
   tail call void @_ZN4llvm11compression4zlib10decompressENS_8ArrayRefIhEERNS_15SmallVectorImplIhEEm(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr %2, i64 %3, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 noundef %5)

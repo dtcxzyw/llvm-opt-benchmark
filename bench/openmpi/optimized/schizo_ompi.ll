@@ -2008,8 +2008,8 @@ pmix_cmd_line_get_param.exit328.preheader:        ; preds = %.lr.ph.i322
 setup_ompi_frameworks.exit.i:                     ; preds = %489, %487, %484, %.lr.ph516
   %490 = load ptr, ptr @ompi_frameworks, align 8, !tbaa !38
   %491 = load ptr, ptr %490, align 8, !tbaa !4
-  %.not9.not.i = icmp eq ptr %491, null
-  br i1 %.not9.not.i, label %check_generic.exit.thread, label %.lr.ph.i330
+  %.not10.not.i = icmp eq ptr %491, null
+  br i1 %.not10.not.i, label %check_generic.exit.thread, label %.lr.ph.i330
 
 492:                                              ; preds = %.lr.ph.i330
   %indvars.iv.next.i332 = add nuw nsw i64 %indvars.iv.i331, 1
@@ -2118,8 +2118,8 @@ pmix_cmd_line_get_param.exit342.preheader:        ; preds = %.lr.ph.i336
 setup_ompi_frameworks.exit.i345:                  ; preds = %532, %530, %527, %.lr.ph519
   %533 = load ptr, ptr @ompi_frameworks, align 8, !tbaa !38
   %534 = load ptr, ptr %533, align 8, !tbaa !4
-  %.not9.not.i346 = icmp eq ptr %534, null
-  br i1 %.not9.not.i346, label %check_generic.exit353.thread, label %.lr.ph.i347
+  %.not10.not.i346 = icmp eq ptr %534, null
+  br i1 %.not10.not.i346, label %check_generic.exit353.thread, label %.lr.ph.i347
 
 535:                                              ; preds = %.lr.ph.i347
   %indvars.iv.next.i349 = add nuw nsw i64 %indvars.iv.i348, 1

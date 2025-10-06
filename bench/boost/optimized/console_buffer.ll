@@ -515,15 +515,15 @@ define noundef range(i64 -9223372036854775808, 9223372036854775744) i64 @_ZN5boo
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.idx = shl nuw nsw i64 %15, 2
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not50 = icmp eq i64 %15, 0
-  br i1 %.not50, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
+  %.not49 = icmp eq i64 %15, 0
+  br i1 %.not49, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
 
 _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
-  %.020.ptr53 = phi ptr [ %.020.ptr, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ %.ptr, %12 ]
-  %.020.idx52 = phi i64 [ %.2.idx, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ 64, %12 ]
-  %.03451 = phi ptr [ %17, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ %3, %12 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.03451, i64 4
-  %18 = load i32, ptr %.03451, align 4, !tbaa !13
+  %.020.ptr52 = phi ptr [ %.020.ptr, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ %.ptr, %12 ]
+  %.020.idx51 = phi i64 [ %.2.idx, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ 64, %12 ]
+  %.03450 = phi ptr [ %17, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit ], [ %3, %12 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.03450, i64 4
+  %18 = load i32, ptr %.03450, align 4, !tbaa !13
   %19 = icmp ugt i32 %18, 1114111
   %20 = and i32 %18, 2095104
   %or.cond.i.i = icmp eq i32 %20, 55296
@@ -538,8 +538,8 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
 
 23:                                               ; preds = %21
   %24 = trunc nuw nsw i32 %spec.store.select to i8
-  %.020.add44 = add nuw nsw i64 %.020.idx52, 1
-  store i8 %24, ptr %.020.ptr53, align 1, !tbaa !21
+  %.020.add43 = add nuw nsw i64 %.020.idx51, 1
+  store i8 %24, ptr %.020.ptr52, align 1, !tbaa !21
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
 25:                                               ; preds = %21
@@ -550,26 +550,26 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %28 = lshr i32 %spec.store.select, 6
   %29 = trunc nuw nsw i32 %28 to i8
   %30 = or disjoint i8 %29, -64
-  %31 = getelementptr inbounds nuw i8, ptr %.020.ptr53, i64 1
-  store i8 %30, ptr %.020.ptr53, align 1, !tbaa !21
+  %31 = getelementptr inbounds nuw i8, ptr %.020.ptr52, i64 1
+  store i8 %30, ptr %.020.ptr52, align 1, !tbaa !21
   %32 = trunc i32 %spec.store.select to i8
   %33 = and i8 %32, 63
   %34 = or disjoint i8 %33, -128
-  %.020.add43 = add nuw nsw i64 %.020.idx52, 2
+  %.020.add42 = add nuw nsw i64 %.020.idx51, 2
   store i8 %34, ptr %31, align 1, !tbaa !21
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
 35:                                               ; preds = %25
   %36 = icmp ult i32 %spec.store.select, 65536
-  %37 = getelementptr inbounds nuw i8, ptr %.020.ptr53, i64 1
-  %38 = getelementptr inbounds nuw i8, ptr %.020.ptr53, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.020.ptr52, i64 1
+  %38 = getelementptr inbounds nuw i8, ptr %.020.ptr52, i64 2
   br i1 %36, label %39, label %50, !prof !20
 
 39:                                               ; preds = %35
   %40 = lshr i32 %spec.store.select, 12
   %41 = trunc nuw nsw i32 %40 to i8
   %42 = or disjoint i8 %41, -32
-  store i8 %42, ptr %.020.ptr53, align 1, !tbaa !21
+  store i8 %42, ptr %.020.ptr52, align 1, !tbaa !21
   %43 = lshr i32 %spec.store.select, 6
   %44 = trunc i32 %43 to i8
   %45 = and i8 %44, 63
@@ -578,7 +578,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %47 = trunc i32 %spec.store.select to i8
   %48 = and i8 %47, 63
   %49 = or disjoint i8 %48, -128
-  %.020.add42 = add nuw nsw i64 %.020.idx52, 3
+  %.020.add41 = add nuw nsw i64 %.020.idx51, 3
   store i8 %49, ptr %38, align 1, !tbaa !21
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
@@ -586,7 +586,7 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %51 = lshr i32 %spec.store.select, 18
   %52 = trunc i32 %51 to i8
   %53 = or i8 %52, -16
-  store i8 %53, ptr %.020.ptr53, align 1, !tbaa !21
+  store i8 %53, ptr %.020.ptr52, align 1, !tbaa !21
   %54 = lshr i32 %spec.store.select, 12
   %55 = trunc i32 %54 to i8
   %56 = and i8 %55, 63
@@ -596,17 +596,17 @@ _ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit: ; preds = %12,
   %59 = trunc i32 %58 to i8
   %60 = and i8 %59, 63
   %61 = or disjoint i8 %60, -128
-  %62 = getelementptr inbounds nuw i8, ptr %.020.ptr53, i64 3
+  %62 = getelementptr inbounds nuw i8, ptr %.020.ptr52, i64 3
   store i8 %61, ptr %38, align 1, !tbaa !21
   %63 = trunc i32 %spec.store.select to i8
   %64 = and i8 %63, 63
   %65 = or disjoint i8 %64, -128
-  %.020.add = add nuw nsw i64 %.020.idx52, 4
+  %.020.add = add nuw nsw i64 %.020.idx51, 4
   store i8 %65, ptr %62, align 1, !tbaa !21
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
 _ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %50, %39, %27, %23, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit
-  %.2.idx = phi i64 [ %.020.idx52, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit ], [ %.020.add44, %23 ], [ %.020.add43, %27 ], [ %.020.add42, %39 ], [ %.020.add, %50 ]
+  %.2.idx = phi i64 [ %.020.idx51, %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit ], [ %.020.add43, %23 ], [ %.020.add42, %27 ], [ %.020.add41, %39 ], [ %.020.add, %50 ]
   %.020.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.2.idx
   %.not = icmp eq ptr %17, %16
   br i1 %.not, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit.thread, label %_ZN5boost6nowide3utf10utf_traitsIwLi4EE6decodeIPKwEEjRT_S7_.exit

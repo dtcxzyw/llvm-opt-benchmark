@@ -252,9 +252,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %_Z
   br i1 %79, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %76, %60
-  %.sink371 = phi ptr [ %62, %60 ], [ %78, %76 ]
+  %.sink370 = phi ptr [ %62, %60 ], [ %78, %76 ]
   %.pn46.ph = phi { ptr, i32 } [ %61, %60 ], [ %77, %76 ]
-  call void @_ZdlPv(ptr noundef %.sink371) #11
+  call void @_ZdlPv(ptr noundef %.sink370) #11
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %76, %60

@@ -88,17 +88,17 @@ define dso_local void @_ZN4Luau7CodeGen9IrBuilder15buildFunctionIrEP5Proto(ptr n
   %.val = load ptr, ptr %11, align 8, !tbaa !114
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %.val42 = load ptr, ptr %12, align 8, !tbaa !114
-  %.not45.not.i = icmp eq ptr %.val, %.val42
-  br i1 %.not45.not.i, label %.loopexit, label %.lr.ph.i
+  %.not56.not.i = icmp eq ptr %.val, %.val42
+  br i1 %.not56.not.i, label %.loopexit, label %.lr.ph.i
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 1
-  %.not4.not.i = icmp eq ptr %14, %.val42
-  br i1 %.not4.not.i, label %.loopexit, label %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i, i64 1
+  %.not5.not.i = icmp eq ptr %14, %.val42
+  br i1 %.not5.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %13
-  %.sroa.01.06.i = phi ptr [ %14, %13 ], [ %.val, %2 ]
-  %15 = load i8, ptr %.sroa.01.06.i, align 1, !tbaa !115
+  %.sroa.01.07.i = phi ptr [ %14, %13 ], [ %.val, %2 ]
+  %15 = load i8, ptr %.sroa.01.07.i, align 1, !tbaa !115
   %.not.not.i = icmp eq i8 %15, 15
   br i1 %.not.not.i, label %13, label %_ZN4Luau7CodeGenL18hasTypedParametersERKNS0_16BytecodeTypeInfoE.exit
 
@@ -107,7 +107,7 @@ _ZN4Luau7CodeGenL18hasTypedParametersERKNS0_16BytecodeTypeInfoE.exit: ; preds = 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %13, %2, %_ZN4Luau7CodeGenL18hasTypedParametersERKNS0_16BytecodeTypeInfoE.exit
-  %.not4.lcssa.i57 = phi i1 [ true, %_ZN4Luau7CodeGenL18hasTypedParametersERKNS0_16BytecodeTypeInfoE.exit ], [ false, %2 ], [ false, %13 ]
+  %.not5.lcssa.i57 = phi i1 [ true, %_ZN4Luau7CodeGenL18hasTypedParametersERKNS0_16BytecodeTypeInfoE.exit ], [ false, %2 ], [ false, %13 ]
   %.sroa.0.0 = phi i32 [ %16, %_ZN4Luau7CodeGenL18hasTypedParametersERKNS0_16BytecodeTypeInfoE.exit ], [ 0, %2 ], [ 0, %13 ]
   tail call void @_ZN4Luau7CodeGen9IrBuilder26rebuildBytecodeBasicBlocksEP5Proto(ptr noundef nonnull align 8 dereferenceable(752) %0, ptr noundef %1)
   %17 = load ptr, ptr %0, align 8, !tbaa !116
@@ -150,7 +150,7 @@ _ZN4Luau7CodeGenL18hasTypedParametersERKNS0_16BytecodeTypeInfoE.exit: ; preds = 
 
 _ZNSt6vectorIN4Luau7CodeGen15BytecodeMappingESaIS2_EE6resizeEmRKS2_.exit: ; preds = %31, %33, %35, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not4.lcssa.i57, label %38, label %164
+  br i1 %.not5.lcssa.i57, label %38, label %164
 
 38:                                               ; preds = %_ZNSt6vectorIN4Luau7CodeGen15BytecodeMappingESaIS2_EE6resizeEmRKS2_.exit
   %39 = lshr i32 %.sroa.0.0, 4

@@ -6648,39 +6648,39 @@ _ZN6Assimp17HexDigitToDecimalEc.exit:             ; preds = %63
   br label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %_ZN6Assimp17HexDigitToDecimalEc.exit, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread130
-  %.154.i.ph = phi ptr [ %6, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread ], [ %6, %_ZN6Assimp17HexDigitToDecimalEc.exit ], [ %65, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread130 ]
-  %.13351.i.ph = phi i32 [ 1, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread ], [ 1, %_ZN6Assimp17HexDigitToDecimalEc.exit ], [ 2, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread130 ]
-  %.13850.i.ph = phi i32 [ %66, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread ], [ %67, %_ZN6Assimp17HexDigitToDecimalEc.exit ], [ 1, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread130 ]
+  %.153.i.ph = phi ptr [ %6, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread ], [ %6, %_ZN6Assimp17HexDigitToDecimalEc.exit ], [ %65, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread130 ]
+  %.13350.i.ph = phi i32 [ 1, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread ], [ 1, %_ZN6Assimp17HexDigitToDecimalEc.exit ], [ 2, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread130 ]
+  %.13849.i.ph = phi i32 [ %66, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread ], [ %67, %_ZN6Assimp17HexDigitToDecimalEc.exit ], [ 1, %_ZN6Assimp17HexDigitToDecimalEc.exit.thread130 ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %78
-  %.154.i = phi ptr [ %.3.i, %78 ], [ %.154.i.ph, %.lr.ph.i.preheader ]
-  %.02753.i = phi i1 [ %or.cond3.i, %78 ], [ false, %.lr.ph.i.preheader ]
-  %.03052.i = phi i32 [ %79, %78 ], [ 1000000000, %.lr.ph.i.preheader ]
-  %.13351.i = phi i32 [ %.335.i, %78 ], [ %.13351.i.ph, %.lr.ph.i.preheader ]
-  %.13850.i = phi i32 [ %.239.i, %78 ], [ %.13850.i.ph, %.lr.ph.i.preheader ]
-  %68 = sdiv i32 %.13850.i, %.03052.i
-  %.recomposed = srem i32 %.13850.i, %.03052.i
+  %.153.i = phi ptr [ %.3.i, %78 ], [ %.153.i.ph, %.lr.ph.i.preheader ]
+  %.02752.i = phi i1 [ %or.cond3.i, %78 ], [ false, %.lr.ph.i.preheader ]
+  %.03051.i = phi i32 [ %79, %78 ], [ 1000000000, %.lr.ph.i.preheader ]
+  %.13350.i = phi i32 [ %.335.i, %78 ], [ %.13350.i.ph, %.lr.ph.i.preheader ]
+  %.13849.i = phi i32 [ %.239.i, %78 ], [ %.13849.i.ph, %.lr.ph.i.preheader ]
+  %68 = sdiv i32 %.13849.i, %.03051.i
+  %.recomposed = srem i32 %.13849.i, %.03051.i
   %69 = icmp ne i32 %68, 0
-  %70 = icmp eq i32 %.03052.i, 1
+  %70 = icmp eq i32 %.03051.i, 1
   %71 = or i1 %70, %69
-  %or.cond3.i = select i1 %.02753.i, i1 true, i1 %71
+  %or.cond3.i = select i1 %.02752.i, i1 true, i1 %71
   br i1 %or.cond3.i, label %72, label %78
 
 72:                                               ; preds = %.lr.ph.i
   %73 = trunc i32 %68 to i8
   %74 = add i8 %73, 48
-  %75 = getelementptr inbounds nuw i8, ptr %.154.i, i64 1
-  store i8 %74, ptr %.154.i, align 1
-  %76 = add nuw nsw i32 %.13351.i, 1
-  %77 = mul i32 %68, %.03052.i
+  %75 = getelementptr inbounds nuw i8, ptr %.153.i, i64 1
+  store i8 %74, ptr %.153.i, align 1
+  %76 = add nuw nsw i32 %.13350.i, 1
+  %77 = mul i32 %68, %.03051.i
   br i1 %70, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit, label %78
 
 78:                                               ; preds = %72, %.lr.ph.i
-  %.239.i = phi i32 [ %.recomposed, %72 ], [ %.13850.i, %.lr.ph.i ]
-  %.335.i = phi i32 [ %76, %72 ], [ %.13351.i, %.lr.ph.i ]
-  %.3.i = phi ptr [ %75, %72 ], [ %.154.i, %.lr.ph.i ]
-  %79 = sdiv i32 %.03052.i, 10
+  %.239.i = phi i32 [ %.recomposed, %72 ], [ %.13849.i, %.lr.ph.i ]
+  %.335.i = phi i32 [ %76, %72 ], [ %.13350.i, %.lr.ph.i ]
+  %.3.i = phi ptr [ %75, %72 ], [ %.153.i, %.lr.ph.i ]
+  %79 = sdiv i32 %.03051.i, 10
   %80 = icmp ult i32 %.335.i, 3
   br i1 %80, label %.lr.ph.i, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit
 

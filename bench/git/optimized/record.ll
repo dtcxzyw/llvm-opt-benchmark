@@ -28,36 +28,36 @@ define dso_local i32 @get_var_int(ptr noundef writeonly captures(none) %0, ptr n
   %7 = load i8, ptr %6, align 1, !tbaa !12
   %8 = and i8 %7, 127
   %9 = zext nneg i8 %8 to i64
-  %.01929 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %.not2230 = icmp sgt i8 %7, -1
-  br i1 %.not2230, label %._crit_edge, label %.lr.ph
+  %.01928 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.not2229 = icmp sgt i8 %7, -1
+  br i1 %.not2229, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %4
   br label %11
 
 11:                                               ; preds = %.lr.ph, %12
-  %.01932 = phi ptr [ %.01929, %.lr.ph ], [ %.019, %12 ]
-  %.031 = phi i64 [ %9, %.lr.ph ], [ %18, %12 ]
-  %or.cond = icmp ult i64 %.031, 144115188075855871
-  %.not25 = icmp ult ptr %.01932, %10
-  %or.cond26 = select i1 %or.cond, i1 %.not25, i1 false
-  br i1 %or.cond26, label %12, label %.loopexit
+  %.01931 = phi ptr [ %.01928, %.lr.ph ], [ %.019, %12 ]
+  %.030 = phi i64 [ %9, %.lr.ph ], [ %18, %12 ]
+  %or.cond = icmp ult i64 %.030, 144115188075855871
+  %.not24 = icmp ult ptr %.01931, %10
+  %or.cond25 = select i1 %or.cond, i1 %.not24, i1 false
+  br i1 %or.cond25, label %12, label %.loopexit
 
 12:                                               ; preds = %11
-  %13 = load i8, ptr %.01932, align 1, !tbaa !12
-  %14 = shl nuw i64 %.031, 7
+  %13 = load i8, ptr %.01931, align 1, !tbaa !12
+  %14 = shl nuw i64 %.030, 7
   %15 = add nuw i64 %14, 128
   %16 = and i8 %13, 127
   %17 = zext nneg i8 %16 to i64
   %18 = or disjoint i64 %15, %17
-  %.019 = getelementptr inbounds nuw i8, ptr %.01932, i64 1
+  %.019 = getelementptr inbounds nuw i8, ptr %.01931, i64 1
   %.not22 = icmp sgt i8 %13, -1
   br i1 %.not22, label %._crit_edge, label %11, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %12, %5
   %.0.lcssa = phi i64 [ %9, %5 ], [ %18, %12 ]
-  %.019.lcssa = phi ptr [ %.01929, %5 ], [ %.019, %12 ]
+  %.019.lcssa = phi ptr [ %.01928, %5 ], [ %.019, %12 ]
   store i64 %.0.lcssa, ptr %0, align 8, !tbaa !15
   %19 = ptrtoint ptr %.019.lcssa to i64
   %20 = ptrtoint ptr %6 to i64
@@ -303,36 +303,36 @@ define dso_local i32 @reftable_decode_keylen(ptr %0, i64 %1, ptr noundef writeon
   %7 = load i8, ptr %0, align 1, !tbaa !12
   %8 = and i8 %7, 127
   %9 = zext nneg i8 %8 to i64
-  %.01929.i = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %.not2230.i = icmp sgt i8 %7, -1
-  br i1 %.not2230.i, label %get_var_int.exit, label %.lr.ph.i
+  %.01928.i = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %.not2229.i = icmp sgt i8 %7, -1
+  br i1 %.not2229.i, label %get_var_int.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   br label %11
 
 11:                                               ; preds = %12, %.lr.ph.i
-  %.01932.i = phi ptr [ %.01929.i, %.lr.ph.i ], [ %.019.i, %12 ]
-  %.031.i = phi i64 [ %9, %.lr.ph.i ], [ %18, %12 ]
-  %or.cond.i = icmp ult i64 %.031.i, 144115188075855871
-  %.not25.i = icmp ult ptr %.01932.i, %10
-  %or.cond26.i = select i1 %or.cond.i, i1 %.not25.i, i1 false
-  br i1 %or.cond26.i, label %12, label %get_var_int.exit.thread
+  %.01931.i = phi ptr [ %.01928.i, %.lr.ph.i ], [ %.019.i, %12 ]
+  %.030.i = phi i64 [ %9, %.lr.ph.i ], [ %18, %12 ]
+  %or.cond.i = icmp ult i64 %.030.i, 144115188075855871
+  %.not24.i = icmp ult ptr %.01931.i, %10
+  %or.cond25.i = select i1 %or.cond.i, i1 %.not24.i, i1 false
+  br i1 %or.cond25.i, label %12, label %get_var_int.exit.thread
 
 12:                                               ; preds = %11
-  %13 = load i8, ptr %.01932.i, align 1, !tbaa !12
-  %14 = shl nuw i64 %.031.i, 7
+  %13 = load i8, ptr %.01931.i, align 1, !tbaa !12
+  %14 = shl nuw i64 %.030.i, 7
   %15 = add nuw i64 %14, 128
   %16 = and i8 %13, 127
   %17 = zext nneg i8 %16 to i64
   %18 = or disjoint i64 %15, %17
-  %.019.i = getelementptr inbounds nuw i8, ptr %.01932.i, i64 1
+  %.019.i = getelementptr inbounds nuw i8, ptr %.01931.i, i64 1
   %.not22.i = icmp sgt i8 %13, -1
   br i1 %.not22.i, label %get_var_int.exit, label %11, !llvm.loop !13
 
 get_var_int.exit:                                 ; preds = %12, %6
   %.0.lcssa.i = phi i64 [ %9, %6 ], [ %18, %12 ]
-  %.019.lcssa.i = phi ptr [ %.01929.i, %6 ], [ %.019.i, %12 ]
+  %.019.lcssa.i = phi ptr [ %.01928.i, %6 ], [ %.019.i, %12 ]
   store i64 %.0.lcssa.i, ptr %2, align 8, !tbaa !15
   %19 = ptrtoint ptr %.019.lcssa.i to i64
   %20 = ptrtoint ptr %0 to i64
@@ -351,36 +351,36 @@ get_var_int.exit:                                 ; preds = %12, %6
   %27 = load i8, ptr %25, align 1, !tbaa !12
   %28 = and i8 %27, 127
   %29 = zext nneg i8 %28 to i64
-  %.01929.i13 = getelementptr inbounds nuw i8, ptr %25, i64 1
-  %.not2230.i14 = icmp sgt i8 %27, -1
-  br i1 %.not2230.i14, label %get_var_int.exit27, label %.lr.ph.i15
+  %.01928.i13 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %.not2229.i14 = icmp sgt i8 %27, -1
+  br i1 %.not2229.i14, label %get_var_int.exit27, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   br label %31
 
 31:                                               ; preds = %32, %.lr.ph.i15
-  %.01932.i16 = phi ptr [ %.01929.i13, %.lr.ph.i15 ], [ %.019.i22, %32 ]
-  %.031.i17 = phi i64 [ %29, %.lr.ph.i15 ], [ %38, %32 ]
-  %or.cond.i18 = icmp ult i64 %.031.i17, 144115188075855871
-  %.not25.i19 = icmp ult ptr %.01932.i16, %30
-  %or.cond26.i20 = select i1 %or.cond.i18, i1 %.not25.i19, i1 false
-  br i1 %or.cond26.i20, label %32, label %get_var_int.exit.thread
+  %.01931.i16 = phi ptr [ %.01928.i13, %.lr.ph.i15 ], [ %.019.i22, %32 ]
+  %.030.i17 = phi i64 [ %29, %.lr.ph.i15 ], [ %38, %32 ]
+  %or.cond.i18 = icmp ult i64 %.030.i17, 144115188075855871
+  %.not24.i19 = icmp ult ptr %.01931.i16, %30
+  %or.cond25.i20 = select i1 %or.cond.i18, i1 %.not24.i19, i1 false
+  br i1 %or.cond25.i20, label %32, label %get_var_int.exit.thread
 
 32:                                               ; preds = %31
-  %33 = load i8, ptr %.01932.i16, align 1, !tbaa !12
-  %34 = shl nuw i64 %.031.i17, 7
+  %33 = load i8, ptr %.01931.i16, align 1, !tbaa !12
+  %34 = shl nuw i64 %.030.i17, 7
   %35 = add nuw i64 %34, 128
   %36 = and i8 %33, 127
   %37 = zext nneg i8 %36 to i64
   %38 = or disjoint i64 %35, %37
-  %.019.i22 = getelementptr inbounds nuw i8, ptr %.01932.i16, i64 1
+  %.019.i22 = getelementptr inbounds nuw i8, ptr %.01931.i16, i64 1
   %.not22.i23 = icmp sgt i8 %33, -1
   br i1 %.not22.i23, label %get_var_int.exit27, label %31, !llvm.loop !13
 
 get_var_int.exit27:                               ; preds = %32, %26
   %39 = phi i64 [ %29, %26 ], [ %38, %32 ]
-  %.019.lcssa.i26 = phi ptr [ %.01929.i13, %26 ], [ %.019.i22, %32 ]
+  %.019.lcssa.i26 = phi ptr [ %.01928.i13, %26 ], [ %.019.i22, %32 ]
   store i64 %39, ptr %3, align 8, !tbaa !15
   %40 = ptrtoint ptr %.019.lcssa.i26 to i64
   %41 = ptrtoint ptr %25 to i64
@@ -414,36 +414,36 @@ define dso_local i32 @reftable_decode_key(ptr noundef %0, ptr noundef writeonly 
   %6 = load i8, ptr %2, align 1, !tbaa !12
   %7 = and i8 %6, 127
   %8 = zext nneg i8 %7 to i64
-  %.01929.i.i = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %.not2230.i.i = icmp sgt i8 %6, -1
-  br i1 %.not2230.i.i, label %get_var_int.exit.i, label %.lr.ph.i.i
+  %.01928.i.i = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %.not2229.i.i = icmp sgt i8 %6, -1
+  br i1 %.not2229.i.i, label %get_var_int.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   br label %10
 
 10:                                               ; preds = %11, %.lr.ph.i.i
-  %.01932.i.i = phi ptr [ %.01929.i.i, %.lr.ph.i.i ], [ %.019.i.i, %11 ]
-  %.031.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ %17, %11 ]
-  %or.cond.i.i = icmp ult i64 %.031.i.i, 144115188075855871
-  %.not25.i.i = icmp ult ptr %.01932.i.i, %9
-  %or.cond26.i.i = select i1 %or.cond.i.i, i1 %.not25.i.i, i1 false
-  br i1 %or.cond26.i.i, label %11, label %reftable_decode_keylen.exit.thread
+  %.01931.i.i = phi ptr [ %.01928.i.i, %.lr.ph.i.i ], [ %.019.i.i, %11 ]
+  %.030.i.i = phi i64 [ %8, %.lr.ph.i.i ], [ %17, %11 ]
+  %or.cond.i.i = icmp ult i64 %.030.i.i, 144115188075855871
+  %.not24.i.i = icmp ult ptr %.01931.i.i, %9
+  %or.cond25.i.i = select i1 %or.cond.i.i, i1 %.not24.i.i, i1 false
+  br i1 %or.cond25.i.i, label %11, label %reftable_decode_keylen.exit.thread
 
 11:                                               ; preds = %10
-  %12 = load i8, ptr %.01932.i.i, align 1, !tbaa !12
-  %13 = shl nuw i64 %.031.i.i, 7
+  %12 = load i8, ptr %.01931.i.i, align 1, !tbaa !12
+  %13 = shl nuw i64 %.030.i.i, 7
   %14 = add nuw i64 %13, 128
   %15 = and i8 %12, 127
   %16 = zext nneg i8 %15 to i64
   %17 = or disjoint i64 %14, %16
-  %.019.i.i = getelementptr inbounds nuw i8, ptr %.01932.i.i, i64 1
+  %.019.i.i = getelementptr inbounds nuw i8, ptr %.01931.i.i, i64 1
   %.not22.i.i = icmp sgt i8 %12, -1
   br i1 %.not22.i.i, label %get_var_int.exit.i, label %10, !llvm.loop !13
 
 get_var_int.exit.i:                               ; preds = %11, %5
   %.0.lcssa.i.i = phi i64 [ %8, %5 ], [ %17, %11 ]
-  %.019.lcssa.i.i = phi ptr [ %.01929.i.i, %5 ], [ %.019.i.i, %11 ]
+  %.019.lcssa.i.i = phi ptr [ %.01928.i.i, %5 ], [ %.019.i.i, %11 ]
   %18 = ptrtoint ptr %.019.lcssa.i.i to i64
   %19 = ptrtoint ptr %2 to i64
   %20 = sub i64 %18, %19
@@ -461,36 +461,36 @@ get_var_int.exit.i:                               ; preds = %11, %5
   %26 = load i8, ptr %24, align 1, !tbaa !12
   %27 = and i8 %26, 127
   %28 = zext nneg i8 %27 to i64
-  %.01929.i13.i = getelementptr inbounds nuw i8, ptr %24, i64 1
-  %.not2230.i14.i = icmp sgt i8 %26, -1
-  br i1 %.not2230.i14.i, label %get_var_int.exit27.i, label %.lr.ph.i15.i
+  %.01928.i13.i = getelementptr inbounds nuw i8, ptr %24, i64 1
+  %.not2229.i14.i = icmp sgt i8 %26, -1
+  br i1 %.not2229.i14.i, label %get_var_int.exit27.i, label %.lr.ph.i15.i
 
 .lr.ph.i15.i:                                     ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %3
   br label %30
 
 30:                                               ; preds = %31, %.lr.ph.i15.i
-  %.01932.i16.i = phi ptr [ %.01929.i13.i, %.lr.ph.i15.i ], [ %.019.i22.i, %31 ]
-  %.031.i17.i = phi i64 [ %28, %.lr.ph.i15.i ], [ %37, %31 ]
-  %or.cond.i18.i = icmp ult i64 %.031.i17.i, 144115188075855871
-  %.not25.i19.i = icmp ult ptr %.01932.i16.i, %29
-  %or.cond26.i20.i = select i1 %or.cond.i18.i, i1 %.not25.i19.i, i1 false
-  br i1 %or.cond26.i20.i, label %31, label %reftable_decode_keylen.exit.thread
+  %.01931.i16.i = phi ptr [ %.01928.i13.i, %.lr.ph.i15.i ], [ %.019.i22.i, %31 ]
+  %.030.i17.i = phi i64 [ %28, %.lr.ph.i15.i ], [ %37, %31 ]
+  %or.cond.i18.i = icmp ult i64 %.030.i17.i, 144115188075855871
+  %.not24.i19.i = icmp ult ptr %.01931.i16.i, %29
+  %or.cond25.i20.i = select i1 %or.cond.i18.i, i1 %.not24.i19.i, i1 false
+  br i1 %or.cond25.i20.i, label %31, label %reftable_decode_keylen.exit.thread
 
 31:                                               ; preds = %30
-  %32 = load i8, ptr %.01932.i16.i, align 1, !tbaa !12
-  %33 = shl nuw i64 %.031.i17.i, 7
+  %32 = load i8, ptr %.01931.i16.i, align 1, !tbaa !12
+  %33 = shl nuw i64 %.030.i17.i, 7
   %34 = add nuw i64 %33, 128
   %35 = and i8 %32, 127
   %36 = zext nneg i8 %35 to i64
   %37 = or disjoint i64 %34, %36
-  %.019.i22.i = getelementptr inbounds nuw i8, ptr %.01932.i16.i, i64 1
+  %.019.i22.i = getelementptr inbounds nuw i8, ptr %.01931.i16.i, i64 1
   %.not22.i23.i = icmp sgt i8 %32, -1
   br i1 %.not22.i23.i, label %get_var_int.exit27.i, label %30, !llvm.loop !13
 
 get_var_int.exit27.i:                             ; preds = %31, %25
   %38 = phi i64 [ %28, %25 ], [ %37, %31 ]
-  %.019.lcssa.i26.i = phi ptr [ %.01929.i13.i, %25 ], [ %.019.i22.i, %31 ]
+  %.019.lcssa.i26.i = phi ptr [ %.01928.i13.i, %25 ], [ %.019.i22.i, %31 ]
   %39 = ptrtoint ptr %.019.lcssa.i26.i to i64
   %40 = ptrtoint ptr %24 to i64
   %41 = sub i64 %39, %40
@@ -1527,36 +1527,36 @@ define internal i32 @reftable_ref_record_decode(ptr noundef captures(none) %0, p
   %9 = load i8, ptr %3, align 1, !tbaa !12
   %10 = and i8 %9, 127
   %11 = zext nneg i8 %10 to i64
-  %.01929.i = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %.not2230.i = icmp sgt i8 %9, -1
-  br i1 %.not2230.i, label %get_var_int.exit, label %.lr.ph.i
+  %.01928.i = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %.not2229.i = icmp sgt i8 %9, -1
+  br i1 %.not2229.i, label %get_var_int.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   br label %13
 
 13:                                               ; preds = %14, %.lr.ph.i
-  %.01932.i = phi ptr [ %.01929.i, %.lr.ph.i ], [ %.019.i, %14 ]
-  %.031.i = phi i64 [ %11, %.lr.ph.i ], [ %20, %14 ]
-  %or.cond.i = icmp ult i64 %.031.i, 144115188075855871
-  %.not25.i = icmp ult ptr %.01932.i, %12
-  %or.cond26.i = select i1 %or.cond.i, i1 %.not25.i, i1 false
-  br i1 %or.cond26.i, label %14, label %get_var_int.exit.thread
+  %.01931.i = phi ptr [ %.01928.i, %.lr.ph.i ], [ %.019.i, %14 ]
+  %.030.i = phi i64 [ %11, %.lr.ph.i ], [ %20, %14 ]
+  %or.cond.i = icmp ult i64 %.030.i, 144115188075855871
+  %.not24.i = icmp ult ptr %.01931.i, %12
+  %or.cond25.i = select i1 %or.cond.i, i1 %.not24.i, i1 false
+  br i1 %or.cond25.i, label %14, label %get_var_int.exit.thread
 
 14:                                               ; preds = %13
-  %15 = load i8, ptr %.01932.i, align 1, !tbaa !12
-  %16 = shl nuw i64 %.031.i, 7
+  %15 = load i8, ptr %.01931.i, align 1, !tbaa !12
+  %16 = shl nuw i64 %.030.i, 7
   %17 = add nuw i64 %16, 128
   %18 = and i8 %15, 127
   %19 = zext nneg i8 %18 to i64
   %20 = or disjoint i64 %17, %19
-  %.019.i = getelementptr inbounds nuw i8, ptr %.01932.i, i64 1
+  %.019.i = getelementptr inbounds nuw i8, ptr %.01931.i, i64 1
   %.not22.i = icmp sgt i8 %15, -1
   br i1 %.not22.i, label %get_var_int.exit, label %13, !llvm.loop !13
 
 get_var_int.exit:                                 ; preds = %14, %8
   %.0.lcssa.i = phi i64 [ %11, %8 ], [ %20, %14 ]
-  %.019.lcssa.i = phi ptr [ %.01929.i, %8 ], [ %.019.i, %14 ]
+  %.019.lcssa.i = phi ptr [ %.01928.i, %8 ], [ %.019.i, %14 ]
   %21 = ptrtoint ptr %.019.lcssa.i to i64
   %22 = ptrtoint ptr %3 to i64
   %23 = sub i64 %21, %22
@@ -1687,36 +1687,36 @@ thread-pre-split:                                 ; preds = %reftable_ref_record
   %76 = load i8, ptr %28, align 1, !tbaa !12
   %77 = and i8 %76, 127
   %78 = zext nneg i8 %77 to i64
-  %.01929.i.i = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %.not2230.i.i = icmp sgt i8 %76, -1
-  br i1 %.not2230.i.i, label %get_var_int.exit.i, label %.lr.ph.i.i
+  %.01928.i.i = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %.not2229.i.i = icmp sgt i8 %76, -1
+  br i1 %.not2229.i.i, label %get_var_int.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %75
   %79 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   br label %80
 
 80:                                               ; preds = %81, %.lr.ph.i.i
-  %.01932.i.i = phi ptr [ %.01929.i.i, %.lr.ph.i.i ], [ %.019.i.i, %81 ]
-  %.031.i.i = phi i64 [ %78, %.lr.ph.i.i ], [ %87, %81 ]
-  %or.cond.i.i = icmp ult i64 %.031.i.i, 144115188075855871
-  %.not25.i.i = icmp ult ptr %.01932.i.i, %79
-  %or.cond26.i.i = select i1 %or.cond.i.i, i1 %.not25.i.i, i1 false
-  br i1 %or.cond26.i.i, label %81, label %get_var_int.exit.thread
+  %.01931.i.i = phi ptr [ %.01928.i.i, %.lr.ph.i.i ], [ %.019.i.i, %81 ]
+  %.030.i.i = phi i64 [ %78, %.lr.ph.i.i ], [ %87, %81 ]
+  %or.cond.i.i = icmp ult i64 %.030.i.i, 144115188075855871
+  %.not24.i.i = icmp ult ptr %.01931.i.i, %79
+  %or.cond25.i.i = select i1 %or.cond.i.i, i1 %.not24.i.i, i1 false
+  br i1 %or.cond25.i.i, label %81, label %get_var_int.exit.thread
 
 81:                                               ; preds = %80
-  %82 = load i8, ptr %.01932.i.i, align 1, !tbaa !12
-  %83 = shl nuw i64 %.031.i.i, 7
+  %82 = load i8, ptr %.01931.i.i, align 1, !tbaa !12
+  %83 = shl nuw i64 %.030.i.i, 7
   %84 = add nuw i64 %83, 128
   %85 = and i8 %82, 127
   %86 = zext nneg i8 %85 to i64
   %87 = or disjoint i64 %84, %86
-  %.019.i.i = getelementptr inbounds nuw i8, ptr %.01932.i.i, i64 1
+  %.019.i.i = getelementptr inbounds nuw i8, ptr %.01931.i.i, i64 1
   %.not22.i.i = icmp sgt i8 %82, -1
   br i1 %.not22.i.i, label %get_var_int.exit.i, label %80, !llvm.loop !13
 
 get_var_int.exit.i:                               ; preds = %81, %75
   %.0.lcssa.i.i = phi i64 [ %78, %75 ], [ %87, %81 ]
-  %.019.lcssa.i.i = phi ptr [ %.01929.i.i, %75 ], [ %.019.i.i, %81 ]
+  %.019.lcssa.i.i = phi ptr [ %.01928.i.i, %75 ], [ %.019.i.i, %81 ]
   %88 = ptrtoint ptr %.019.lcssa.i.i to i64
   %89 = ptrtoint ptr %28 to i64
   %90 = sub i64 %88, %89
@@ -1841,36 +1841,36 @@ define internal fastcc i32 @decode_string(ptr noundef %0, ptr %1, i64 %2) unname
   %5 = load i8, ptr %1, align 1, !tbaa !12
   %6 = and i8 %5, 127
   %7 = zext nneg i8 %6 to i64
-  %.01929.i = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %.not2230.i = icmp sgt i8 %5, -1
-  br i1 %.not2230.i, label %get_var_int.exit, label %.lr.ph.i
+  %.01928.i = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.not2229.i = icmp sgt i8 %5, -1
+  br i1 %.not2229.i, label %get_var_int.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   br label %9
 
 9:                                                ; preds = %10, %.lr.ph.i
-  %.01932.i = phi ptr [ %.01929.i, %.lr.ph.i ], [ %.019.i, %10 ]
-  %.031.i = phi i64 [ %7, %.lr.ph.i ], [ %16, %10 ]
-  %or.cond.i = icmp ult i64 %.031.i, 144115188075855871
-  %.not25.i = icmp ult ptr %.01932.i, %8
-  %or.cond26.i = select i1 %or.cond.i, i1 %.not25.i, i1 false
-  br i1 %or.cond26.i, label %10, label %get_var_int.exit.thread
+  %.01931.i = phi ptr [ %.01928.i, %.lr.ph.i ], [ %.019.i, %10 ]
+  %.030.i = phi i64 [ %7, %.lr.ph.i ], [ %16, %10 ]
+  %or.cond.i = icmp ult i64 %.030.i, 144115188075855871
+  %.not24.i = icmp ult ptr %.01931.i, %8
+  %or.cond25.i = select i1 %or.cond.i, i1 %.not24.i, i1 false
+  br i1 %or.cond25.i, label %10, label %get_var_int.exit.thread
 
 10:                                               ; preds = %9
-  %11 = load i8, ptr %.01932.i, align 1, !tbaa !12
-  %12 = shl nuw i64 %.031.i, 7
+  %11 = load i8, ptr %.01931.i, align 1, !tbaa !12
+  %12 = shl nuw i64 %.030.i, 7
   %13 = add nuw i64 %12, 128
   %14 = and i8 %11, 127
   %15 = zext nneg i8 %14 to i64
   %16 = or disjoint i64 %13, %15
-  %.019.i = getelementptr inbounds nuw i8, ptr %.01932.i, i64 1
+  %.019.i = getelementptr inbounds nuw i8, ptr %.01931.i, i64 1
   %.not22.i = icmp sgt i8 %11, -1
   br i1 %.not22.i, label %get_var_int.exit, label %9, !llvm.loop !13
 
 get_var_int.exit:                                 ; preds = %10, %4
   %.0.lcssa.i = phi i64 [ %7, %4 ], [ %16, %10 ]
-  %.019.lcssa.i = phi ptr [ %.01929.i, %4 ], [ %.019.i, %10 ]
+  %.019.lcssa.i = phi ptr [ %.01928.i, %4 ], [ %.019.i, %10 ]
   %17 = ptrtoint ptr %.019.lcssa.i to i64
   %18 = ptrtoint ptr %1 to i64
   %19 = sub i64 %17, %18
@@ -2503,36 +2503,36 @@ thread-pre-split:                                 ; preds = %20
   %98 = load i8, ptr %95, align 1, !tbaa !12
   %99 = and i8 %98, 127
   %100 = zext nneg i8 %99 to i64
-  %.01929.i.i = getelementptr inbounds nuw i8, ptr %95, i64 1
-  %.not2230.i.i = icmp sgt i8 %98, -1
-  br i1 %.not2230.i.i, label %get_var_int.exit.i, label %.lr.ph.i.i
+  %.01928.i.i = getelementptr inbounds nuw i8, ptr %95, i64 1
+  %.not2229.i.i = icmp sgt i8 %98, -1
+  br i1 %.not2229.i.i, label %get_var_int.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %97
   %101 = getelementptr inbounds i8, ptr %3, i64 %4
   br label %102
 
 102:                                              ; preds = %103, %.lr.ph.i.i
-  %.01932.i.i = phi ptr [ %.01929.i.i, %.lr.ph.i.i ], [ %.019.i.i, %103 ]
-  %.031.i.i = phi i64 [ %100, %.lr.ph.i.i ], [ %109, %103 ]
-  %or.cond.i.i = icmp ult i64 %.031.i.i, 144115188075855871
-  %.not25.i.i = icmp ult ptr %.01932.i.i, %101
-  %or.cond26.i.i = select i1 %or.cond.i.i, i1 %.not25.i.i, i1 false
-  br i1 %or.cond26.i.i, label %103, label %decode_string.exit.thread
+  %.01931.i.i = phi ptr [ %.01928.i.i, %.lr.ph.i.i ], [ %.019.i.i, %103 ]
+  %.030.i.i = phi i64 [ %100, %.lr.ph.i.i ], [ %109, %103 ]
+  %or.cond.i.i = icmp ult i64 %.030.i.i, 144115188075855871
+  %.not24.i.i = icmp ult ptr %.01931.i.i, %101
+  %or.cond25.i.i = select i1 %or.cond.i.i, i1 %.not24.i.i, i1 false
+  br i1 %or.cond25.i.i, label %103, label %decode_string.exit.thread
 
 103:                                              ; preds = %102
-  %104 = load i8, ptr %.01932.i.i, align 1, !tbaa !12
-  %105 = shl nuw i64 %.031.i.i, 7
+  %104 = load i8, ptr %.01931.i.i, align 1, !tbaa !12
+  %105 = shl nuw i64 %.030.i.i, 7
   %106 = add nuw i64 %105, 128
   %107 = and i8 %104, 127
   %108 = zext nneg i8 %107 to i64
   %109 = or disjoint i64 %106, %108
-  %.019.i.i = getelementptr inbounds nuw i8, ptr %.01932.i.i, i64 1
+  %.019.i.i = getelementptr inbounds nuw i8, ptr %.01931.i.i, i64 1
   %.not22.i.i = icmp sgt i8 %104, -1
   br i1 %.not22.i.i, label %get_var_int.exit.i, label %102, !llvm.loop !13
 
 get_var_int.exit.i:                               ; preds = %103, %97
   %.0.lcssa.i.i = phi i64 [ %100, %97 ], [ %109, %103 ]
-  %.019.lcssa.i.i = phi ptr [ %.01929.i.i, %97 ], [ %.019.i.i, %103 ]
+  %.019.lcssa.i.i = phi ptr [ %.01928.i.i, %97 ], [ %.019.i.i, %103 ]
   %110 = ptrtoint ptr %.019.lcssa.i.i to i64
   %111 = ptrtoint ptr %95 to i64
   %112 = sub i64 %110, %111
@@ -2897,36 +2897,36 @@ define internal i32 @reftable_index_record_decode(ptr noundef %0, ptr noundef re
   %17 = load i8, ptr %3, align 1, !tbaa !12
   %18 = and i8 %17, 127
   %19 = zext nneg i8 %18 to i64
-  %.01929.i = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %.not2230.i = icmp sgt i8 %17, -1
-  br i1 %.not2230.i, label %get_var_int.exit, label %.lr.ph.i
+  %.01928.i = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %.not2229.i = icmp sgt i8 %17, -1
+  br i1 %.not2229.i, label %get_var_int.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   br label %21
 
 21:                                               ; preds = %22, %.lr.ph.i
-  %.01932.i = phi ptr [ %.01929.i, %.lr.ph.i ], [ %.019.i, %22 ]
-  %.031.i = phi i64 [ %19, %.lr.ph.i ], [ %28, %22 ]
-  %or.cond.i = icmp ult i64 %.031.i, 144115188075855871
-  %.not25.i = icmp ult ptr %.01932.i, %20
-  %or.cond26.i = select i1 %or.cond.i, i1 %.not25.i, i1 false
-  br i1 %or.cond26.i, label %22, label %get_var_int.exit.thread
+  %.01931.i = phi ptr [ %.01928.i, %.lr.ph.i ], [ %.019.i, %22 ]
+  %.030.i = phi i64 [ %19, %.lr.ph.i ], [ %28, %22 ]
+  %or.cond.i = icmp ult i64 %.030.i, 144115188075855871
+  %.not24.i = icmp ult ptr %.01931.i, %20
+  %or.cond25.i = select i1 %or.cond.i, i1 %.not24.i, i1 false
+  br i1 %or.cond25.i, label %22, label %get_var_int.exit.thread
 
 22:                                               ; preds = %21
-  %23 = load i8, ptr %.01932.i, align 1, !tbaa !12
-  %24 = shl nuw i64 %.031.i, 7
+  %23 = load i8, ptr %.01931.i, align 1, !tbaa !12
+  %24 = shl nuw i64 %.030.i, 7
   %25 = add nuw i64 %24, 128
   %26 = and i8 %23, 127
   %27 = zext nneg i8 %26 to i64
   %28 = or disjoint i64 %25, %27
-  %.019.i = getelementptr inbounds nuw i8, ptr %.01932.i, i64 1
+  %.019.i = getelementptr inbounds nuw i8, ptr %.01931.i, i64 1
   %.not22.i = icmp sgt i8 %23, -1
   br i1 %.not22.i, label %get_var_int.exit, label %21, !llvm.loop !13
 
 get_var_int.exit:                                 ; preds = %22, %16
   %.0.lcssa.i = phi i64 [ %19, %16 ], [ %28, %22 ]
-  %.019.lcssa.i = phi ptr [ %.01929.i, %16 ], [ %.019.i, %22 ]
+  %.019.lcssa.i = phi ptr [ %.01928.i, %16 ], [ %.019.i, %22 ]
   store i64 %.0.lcssa.i, ptr %0, align 8, !tbaa !15
   %29 = ptrtoint ptr %.019.lcssa.i to i64
   %30 = ptrtoint ptr %3 to i64
@@ -3322,36 +3322,36 @@ define internal i32 @reftable_obj_record_decode(ptr noundef captures(none) initi
   %24 = load i8, ptr %3, align 1, !tbaa !12
   %25 = and i8 %24, 127
   %26 = zext nneg i8 %25 to i64
-  %.01929.i = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %.not2230.i = icmp sgt i8 %24, -1
-  br i1 %.not2230.i, label %get_var_int.exit, label %.lr.ph.i
+  %.01928.i = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %.not2229.i = icmp sgt i8 %24, -1
+  br i1 %.not2229.i, label %get_var_int.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   br label %28
 
 28:                                               ; preds = %29, %.lr.ph.i
-  %.01932.i = phi ptr [ %.01929.i, %.lr.ph.i ], [ %.019.i, %29 ]
-  %.031.i = phi i64 [ %26, %.lr.ph.i ], [ %35, %29 ]
-  %or.cond.i = icmp ult i64 %.031.i, 144115188075855871
-  %.not25.i = icmp ult ptr %.01932.i, %27
-  %or.cond26.i = select i1 %or.cond.i, i1 %.not25.i, i1 false
-  br i1 %or.cond26.i, label %29, label %get_var_int.exit.thread
+  %.01931.i = phi ptr [ %.01928.i, %.lr.ph.i ], [ %.019.i, %29 ]
+  %.030.i = phi i64 [ %26, %.lr.ph.i ], [ %35, %29 ]
+  %or.cond.i = icmp ult i64 %.030.i, 144115188075855871
+  %.not24.i = icmp ult ptr %.01931.i, %27
+  %or.cond25.i = select i1 %or.cond.i, i1 %.not24.i, i1 false
+  br i1 %or.cond25.i, label %29, label %get_var_int.exit.thread
 
 29:                                               ; preds = %28
-  %30 = load i8, ptr %.01932.i, align 1, !tbaa !12
-  %31 = shl nuw i64 %.031.i, 7
+  %30 = load i8, ptr %.01931.i, align 1, !tbaa !12
+  %31 = shl nuw i64 %.030.i, 7
   %32 = add nuw i64 %31, 128
   %33 = and i8 %30, 127
   %34 = zext nneg i8 %33 to i64
   %35 = or disjoint i64 %32, %34
-  %.019.i = getelementptr inbounds nuw i8, ptr %.01932.i, i64 1
+  %.019.i = getelementptr inbounds nuw i8, ptr %.01931.i, i64 1
   %.not22.i = icmp sgt i8 %30, -1
   br i1 %.not22.i, label %get_var_int.exit, label %28, !llvm.loop !13
 
 get_var_int.exit:                                 ; preds = %29, %23
   %.0.lcssa.i = phi i64 [ %26, %23 ], [ %35, %29 ]
-  %.019.lcssa.i = phi ptr [ %.01929.i, %23 ], [ %.019.i, %29 ]
+  %.019.lcssa.i = phi ptr [ %.01928.i, %23 ], [ %.019.i, %29 ]
   %36 = ptrtoint ptr %.019.lcssa.i to i64
   %37 = ptrtoint ptr %3 to i64
   %38 = sub i64 %36, %37
@@ -3398,36 +3398,36 @@ st_mult.exit:                                     ; preds = %.thread145, %44
   %55 = load i8, ptr %.sroa.0.0106151, align 1, !tbaa !12
   %56 = and i8 %55, 127
   %57 = zext nneg i8 %56 to i64
-  %.01929.i50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0106151, i64 1
-  %.not2230.i51 = icmp sgt i8 %55, -1
-  br i1 %.not2230.i51, label %get_var_int.exit64, label %.lr.ph.i52
+  %.01928.i50 = getelementptr inbounds nuw i8, ptr %.sroa.0.0106151, i64 1
+  %.not2229.i51 = icmp sgt i8 %55, -1
+  br i1 %.not2229.i51, label %get_var_int.exit64, label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0106151, i64 %.sroa.10.0104152
   br label %59
 
 59:                                               ; preds = %60, %.lr.ph.i52
-  %.01932.i53 = phi ptr [ %.01929.i50, %.lr.ph.i52 ], [ %.019.i59, %60 ]
-  %.031.i54 = phi i64 [ %57, %.lr.ph.i52 ], [ %66, %60 ]
-  %or.cond.i55 = icmp ult i64 %.031.i54, 144115188075855871
-  %.not25.i56 = icmp ult ptr %.01932.i53, %58
-  %or.cond26.i57 = select i1 %or.cond.i55, i1 %.not25.i56, i1 false
-  br i1 %or.cond26.i57, label %60, label %get_var_int.exit.thread
+  %.01931.i53 = phi ptr [ %.01928.i50, %.lr.ph.i52 ], [ %.019.i59, %60 ]
+  %.030.i54 = phi i64 [ %57, %.lr.ph.i52 ], [ %66, %60 ]
+  %or.cond.i55 = icmp ult i64 %.030.i54, 144115188075855871
+  %.not24.i56 = icmp ult ptr %.01931.i53, %58
+  %or.cond25.i57 = select i1 %or.cond.i55, i1 %.not24.i56, i1 false
+  br i1 %or.cond25.i57, label %60, label %get_var_int.exit.thread
 
 60:                                               ; preds = %59
-  %61 = load i8, ptr %.01932.i53, align 1, !tbaa !12
-  %62 = shl nuw i64 %.031.i54, 7
+  %61 = load i8, ptr %.01931.i53, align 1, !tbaa !12
+  %62 = shl nuw i64 %.030.i54, 7
   %63 = add nuw i64 %62, 128
   %64 = and i8 %61, 127
   %65 = zext nneg i8 %64 to i64
   %66 = or disjoint i64 %63, %65
-  %.019.i59 = getelementptr inbounds nuw i8, ptr %.01932.i53, i64 1
+  %.019.i59 = getelementptr inbounds nuw i8, ptr %.01931.i53, i64 1
   %.not22.i60 = icmp sgt i8 %61, -1
   br i1 %.not22.i60, label %get_var_int.exit64, label %59, !llvm.loop !13
 
 get_var_int.exit64:                               ; preds = %60, %54
   %67 = phi i64 [ %57, %54 ], [ %66, %60 ]
-  %.019.lcssa.i63 = phi ptr [ %.01929.i50, %54 ], [ %.019.i59, %60 ]
+  %.019.lcssa.i63 = phi ptr [ %.01928.i50, %54 ], [ %.019.i59, %60 ]
   store i64 %67, ptr %51, align 8, !tbaa !15
   %68 = ptrtoint ptr %.019.lcssa.i63 to i64
   %69 = ptrtoint ptr %.sroa.0.0106151 to i64
@@ -3458,36 +3458,36 @@ get_var_int.exit64:                               ; preds = %60, %54
   %78 = load i8, ptr %.sroa.0.1129, align 1, !tbaa !12
   %79 = and i8 %78, 127
   %80 = zext nneg i8 %79 to i64
-  %.01929.i66 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 1
-  %.not2230.i67 = icmp sgt i8 %78, -1
-  br i1 %.not2230.i67, label %get_var_int.exit80, label %.lr.ph.i68
+  %.01928.i66 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 1
+  %.not2229.i67 = icmp sgt i8 %78, -1
+  br i1 %.not2229.i67, label %get_var_int.exit80, label %.lr.ph.i68
 
 .lr.ph.i68:                                       ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.1129, i64 %.sroa.10.1128
   br label %82
 
 82:                                               ; preds = %83, %.lr.ph.i68
-  %.01932.i69 = phi ptr [ %.01929.i66, %.lr.ph.i68 ], [ %.019.i75, %83 ]
-  %.031.i70 = phi i64 [ %80, %.lr.ph.i68 ], [ %89, %83 ]
-  %or.cond.i71 = icmp ult i64 %.031.i70, 144115188075855871
-  %.not25.i72 = icmp ult ptr %.01932.i69, %81
-  %or.cond26.i73 = select i1 %or.cond.i71, i1 %.not25.i72, i1 false
-  br i1 %or.cond26.i73, label %83, label %get_var_int.exit.thread
+  %.01931.i69 = phi ptr [ %.01928.i66, %.lr.ph.i68 ], [ %.019.i75, %83 ]
+  %.030.i70 = phi i64 [ %80, %.lr.ph.i68 ], [ %89, %83 ]
+  %or.cond.i71 = icmp ult i64 %.030.i70, 144115188075855871
+  %.not24.i72 = icmp ult ptr %.01931.i69, %81
+  %or.cond25.i73 = select i1 %or.cond.i71, i1 %.not24.i72, i1 false
+  br i1 %or.cond25.i73, label %83, label %get_var_int.exit.thread
 
 83:                                               ; preds = %82
-  %84 = load i8, ptr %.01932.i69, align 1, !tbaa !12
-  %85 = shl nuw i64 %.031.i70, 7
+  %84 = load i8, ptr %.01931.i69, align 1, !tbaa !12
+  %85 = shl nuw i64 %.030.i70, 7
   %86 = add nuw i64 %85, 128
   %87 = and i8 %84, 127
   %88 = zext nneg i8 %87 to i64
   %89 = or disjoint i64 %86, %88
-  %.019.i75 = getelementptr inbounds nuw i8, ptr %.01932.i69, i64 1
+  %.019.i75 = getelementptr inbounds nuw i8, ptr %.01931.i69, i64 1
   %.not22.i76 = icmp sgt i8 %84, -1
   br i1 %.not22.i76, label %get_var_int.exit80, label %82, !llvm.loop !13
 
 get_var_int.exit80:                               ; preds = %83, %77
   %.0.lcssa.i78 = phi i64 [ %80, %77 ], [ %89, %83 ]
-  %.019.lcssa.i79 = phi ptr [ %.01929.i66, %77 ], [ %.019.i75, %83 ]
+  %.019.lcssa.i79 = phi ptr [ %.01928.i66, %77 ], [ %.019.i75, %83 ]
   %90 = ptrtoint ptr %.019.lcssa.i79 to i64
   %91 = ptrtoint ptr %.sroa.0.1129 to i64
   %92 = sub i64 %90, %91

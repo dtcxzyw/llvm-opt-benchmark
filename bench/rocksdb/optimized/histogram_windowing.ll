@@ -901,12 +901,12 @@ define noundef double @_ZNK7rocksdb22HistogramWindowingImpl10PercentileEd(ptr no
   br label %7
 
 5:                                                ; preds = %7
-  %6 = add nuw nsw i32 %.0811, 1
-  %exitcond = icmp eq i32 %6, 3
-  br i1 %exitcond, label %11, label %7, !llvm.loop !48
+  %6 = add nuw nsw i32 %.0813, 1
+  %exitcond.not = icmp eq i32 %6, 3
+  br i1 %exitcond.not, label %11, label %7, !llvm.loop !48
 
 7:                                                ; preds = %2, %5
-  %.0811 = phi i32 [ 0, %2 ], [ %6, %5 ]
+  %.0813 = phi i32 [ 0, %2 ], [ %6, %5 ]
   %8 = load atomic i64, ptr %4 monotonic, align 8
   %9 = tail call noundef double @_ZNK7rocksdb13HistogramStat10PercentileEd(ptr noundef nonnull align 8 dereferenceable(920) %3, double noundef %1)
   %10 = load atomic i64, ptr %4 monotonic, align 8
@@ -914,8 +914,8 @@ define noundef double @_ZNK7rocksdb22HistogramWindowingImpl10PercentileEd(ptr no
   br i1 %.not, label %5, label %11
 
 11:                                               ; preds = %5, %7
-  %spec.select = phi double [ %9, %7 ], [ 0.000000e+00, %5 ]
-  ret double %spec.select
+  %12 = phi double [ %9, %7 ], [ 0.000000e+00, %5 ]
+  ret double %12
 }
 
 declare noundef double @_ZNK7rocksdb13HistogramStat10PercentileEd(ptr noundef nonnull align 8 dereferenceable(920), double noundef) local_unnamed_addr #1

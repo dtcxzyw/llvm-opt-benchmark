@@ -11579,8 +11579,8 @@ define hidden void @_ZNK6Assimp7Blender9Structure7ConvertINS0_4BaseEEEvRT_RKNS0_
   %10 = ptrtoint ptr %7 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %sext30 = shl i64 %12, 32
-  %13 = ashr exact i64 %sext30, 32
+  %sext28 = shl i64 %12, 32
+  %13 = ashr exact i64 %sext28, 32
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 %13
   store ptr %14, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
@@ -11609,12 +11609,12 @@ common.resume:                                    ; preds = %58, %20
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %3, %29
-  %.sroa.021.031 = phi ptr [ %28, %29 ], [ %1, %3 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.021.031, i64 16
+  %.sroa.021.029 = phi ptr [ %28, %29 ], [ %1, %3 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.021.029, i64 16
   store ptr null, ptr %22, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.021.031, i64 40
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.021.029, i64 40
   %24 = tail call noundef zeroext i1 @_ZNK6Assimp7Blender9Structure12ReadFieldPtrILi1ESt10shared_ptrNS0_6ObjectEEEbRT0_IT1_EPKcRKNS0_12FileDatabaseEb(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull @.str.23, ptr noundef nonnull align 8 dereferenceable(232) %2, i1 noundef zeroext false)
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.021.031, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.021.029, i64 24
   %26 = tail call noundef zeroext i1 @_ZNK6Assimp7Blender9Structure12ReadFieldPtrILi1ESt10shared_ptrNS0_4BaseEEEbRT0_IT1_EPKcRKNS0_12FileDatabaseEb(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull @.str.15, ptr noundef nonnull align 8 dereferenceable(232) %2, i1 noundef zeroext true)
   br i1 %26, label %43, label %27
 

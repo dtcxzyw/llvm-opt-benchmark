@@ -21,12 +21,12 @@ define dso_local void @nolocks_localtime(ptr noundef writeonly captures(none) in
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %13, ptr %14, align 8, !tbaa !13
   %15 = srem i32 %.lhs.trunc, 3600
-  %.lhs.trunc50 = trunc nsw i32 %15 to i16
-  %16 = sdiv i16 %.lhs.trunc50, 60
+  %.lhs.trunc49 = trunc nsw i32 %15 to i16
+  %16 = sdiv i16 %.lhs.trunc49, 60
   %17 = sext i16 %16 to i32
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %17, ptr %18, align 4, !tbaa !14
-  %19 = srem i16 %.lhs.trunc50, 60
+  %19 = srem i16 %.lhs.trunc49, 60
   %20 = sext i16 %19 to i32
   store i32 %20, ptr %0, align 8, !tbaa !15
   %21 = add nsw i64 %10, 4
@@ -37,19 +37,19 @@ define dso_local void @nolocks_localtime(ptr noundef writeonly captures(none) in
   br label %25
 
 25:                                               ; preds = %36, %4
-  %storemerge54 = phi i32 [ 1970, %4 ], [ %38, %36 ]
+  %storemerge53 = phi i32 [ 1970, %4 ], [ %38, %36 ]
   %.035 = phi i64 [ %10, %4 ], [ %37, %36 ]
-  %26 = and i32 %storemerge54, 3
+  %26 = and i32 %storemerge53, 3
   %.not.i = icmp eq i32 %26, 0
   br i1 %.not.i, label %27, label %is_leap_year.exit.thread
 
 27:                                               ; preds = %25
-  %28 = urem i32 %storemerge54, 100
+  %28 = urem i32 %storemerge53, 100
   %.not4.i = icmp eq i32 %28, 0
   br i1 %.not4.i, label %29, label %is_leap_year.exit
 
 29:                                               ; preds = %27
-  %30 = urem i32 %storemerge54, 400
+  %30 = urem i32 %storemerge53, 400
   %.not5.i = icmp eq i32 %30, 0
   %31 = select i1 %.not5.i, i64 366, i64 365
   br label %is_leap_year.exit
@@ -72,9 +72,9 @@ is_leap_year.exit.thread:                         ; preds = %25
   br label %is_leap_year.exit43
 
 36:                                               ; preds = %is_leap_year.exit.thread, %is_leap_year.exit
-  %.0.i62 = phi i64 [ 365, %is_leap_year.exit.thread ], [ %.0.i, %is_leap_year.exit ]
-  %37 = sub nsw i64 %.035, %.0.i62
-  %38 = add nuw nsw i32 %storemerge54, 1
+  %.0.i61 = phi i64 [ 365, %is_leap_year.exit.thread ], [ %.0.i, %is_leap_year.exit ]
+  %37 = sub nsw i64 %.035, %.0.i61
+  %38 = add nuw nsw i32 %storemerge53, 1
   br label %25
 
 39:                                               ; preds = %is_leap_year.exit
@@ -83,12 +83,12 @@ is_leap_year.exit.thread:                         ; preds = %25
   store i32 %40, ptr %41, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(48) %5, ptr noundef nonnull align 16 dereferenceable(48) @__const.nolocks_localtime.mdays, i64 48, i1 false)
-  %42 = urem i32 %storemerge54, 100
+  %42 = urem i32 %storemerge53, 100
   %.not4.i40 = icmp eq i32 %42, 0
   br i1 %.not4.i40, label %43, label %is_leap_year.exit43
 
 43:                                               ; preds = %39
-  %44 = urem i32 %storemerge54, 400
+  %44 = urem i32 %storemerge53, 400
   %.not5.i41 = icmp eq i32 %44, 0
   %45 = select i1 %.not5.i41, i32 29, i32 28
   br label %is_leap_year.exit43
@@ -98,14 +98,14 @@ is_leap_year.exit43:                              ; preds = %.thread, %39, %43
   %.0.i39 = phi i32 [ 29, %39 ], [ %45, %43 ], [ 28, %.thread ]
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 4
   store i32 %.0.i39, ptr %47, align 4, !tbaa !18
-  %.not55 = icmp slt i64 %.035, 31
-  br i1 %.not55, label %._crit_edge, label %.lr.ph
+  %.not54 = icmp slt i64 %.035, 31
+  br i1 %.not54, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %is_leap_year.exit43, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %is_leap_year.exit43 ]
   %48 = phi i64 [ %52, %.lr.ph ], [ 31, %is_leap_year.exit43 ]
-  %.257 = phi i64 [ %49, %.lr.ph ], [ %.035, %is_leap_year.exit43 ]
-  %49 = sub nsw i64 %.257, %48
+  %.256 = phi i64 [ %49, %.lr.ph ], [ %.035, %is_leap_year.exit43 ]
+  %49 = sub nsw i64 %.256, %48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next
   %51 = load i32, ptr %50, align 4, !tbaa !18
@@ -127,7 +127,7 @@ is_leap_year.exit43:                              ; preds = %.thread, %39, %43
   %56 = add i32 %.pre-phi, 1
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %56, ptr %57, align 4, !tbaa !22
-  %58 = add nsw i32 %storemerge54, -1900
+  %58 = add nsw i32 %storemerge53, -1900
   store i32 %58, ptr %54, align 4, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void

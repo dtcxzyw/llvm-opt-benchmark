@@ -3315,12 +3315,11 @@ _ZZN9__gnu_cxx6__stoaIyycJiEEET0_PFT_PKT1_PPS3_DpT2_EPKcS5_PmS9_EN11_Save_errnoD
 325:                                              ; preds = %321, %324
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   store i64 %311, ptr %7, align 8, !tbaa !42
-  switch i64 %311, label %_ZN7rocksdb6StatusD2Ev.exit74 [
-    i64 0, label %326
-    i64 -1, label %326
-  ]
+  %.off = add i64 %311, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %_ZN7rocksdb6StatusD2Ev.exit74, label %326
 
-326:                                              ; preds = %325, %325
+326:                                              ; preds = %325
   store i8 1, ptr %9, align 1, !tbaa !40
   %327 = load ptr, ptr @stderr, align 8, !tbaa !80
   %328 = load ptr, ptr %20, align 8, !tbaa !76

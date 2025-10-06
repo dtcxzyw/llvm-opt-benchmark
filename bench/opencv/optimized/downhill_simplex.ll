@@ -1657,8 +1657,8 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl20innerDown
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !65
   store i32 %23, ptr %4, align 4, !tbaa !24
-  %.not307 = icmp slt i32 %21, 0
-  br i1 %.not307, label %._crit_edge, label %.lr.ph
+  %.not306 = icmp slt i32 %21, 0
+  br i1 %.not306, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -1679,7 +1679,7 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl20innerDown
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   %39 = load ptr, ptr %38, align 8
   %40 = invoke noundef double %39(ptr noundef nonnull align 8 dereferenceable(8) %36, ptr noundef %35)
-          to label %.noexc unwind label %.loopexit275
+          to label %.noexc unwind label %.loopexit274
 
 .noexc:                                           ; preds = %30
   %41 = call double @llvm.fabs.f64(double %40)
@@ -1690,7 +1690,7 @@ define linkonce_odr hidden noundef double @_ZN2cv18DownhillSolverImpl20innerDown
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @.str.9, ptr noundef nonnull align 1 dereferenceable(1) %14)
-          to label %.noexc211 unwind label %.loopexit.split-lp276
+          to label %.noexc211 unwind label %.loopexit.split-lp275
 
 .noexc211:                                        ; preds = %42
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull @__func__._ZN2cv18DownhillSolverImpl6calc_fEPKd, ptr noundef nonnull @.str.1, i32 noundef 415) #19
@@ -1733,12 +1733,12 @@ _ZN2cv18DownhillSolverImpl6calc_fEPKd.exit:       ; preds = %.noexc
           cleanup
   br label %255
 
-.loopexit275:                                     ; preds = %30
-  %lpad.loopexit277 = landingpad { ptr, i32 }
+.loopexit274:                                     ; preds = %30
+  %lpad.loopexit276 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp276:                            ; preds = %42, %66
+.loopexit.split-lp275:                            ; preds = %42, %66
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -1766,7 +1766,7 @@ _ZN2cv18DownhillSolverImpl6calc_fEPKd.exit:       ; preds = %.noexc
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %12)
-          to label %.noexc216 unwind label %.loopexit.split-lp276
+          to label %.noexc216 unwind label %.loopexit.split-lp275
 
 .noexc216:                                        ; preds = %66
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull @__func__._ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_, ptr noundef nonnull @.str.1, i32 noundef 218) #19
@@ -1837,12 +1837,12 @@ _ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit: ; preds = %._cri
   %91 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %wide.trip.count378 = zext i32 %23 to i64
-  %wide.trip.count383 = zext i32 %23 to i64
-  %wide.trip.count393 = zext nneg i32 %21 to i64
-  %wide.trip.count388 = zext i32 %23 to i64
-  %wide.trip.count403 = zext i32 %23 to i64
-  %wide.trip.count398 = zext nneg i32 %21 to i64
+  %wide.trip.count377 = zext i32 %23 to i64
+  %wide.trip.count382 = zext i32 %23 to i64
+  %wide.trip.count392 = zext nneg i32 %21 to i64
+  %wide.trip.count387 = zext i32 %23 to i64
+  %wide.trip.count402 = zext i32 %23 to i64
+  %wide.trip.count397 = zext nneg i32 %21 to i64
   br label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250
 
 _ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250: ; preds = %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit
@@ -1852,49 +1852,49 @@ _ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250: ; preds = %_Z
   %. = zext i1 %96 to i32
   %not. = xor i1 %96, true
   %.205 = zext i1 %not. to i32
-  br i1 %.not307, label %..loopexit271_crit_edge, label %.lr.ph315
+  br i1 %.not306, label %..loopexit270_crit_edge, label %.lr.ph314
 
-.lr.ph315:                                        ; preds = %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250, %113
-  %indvars.iv375 = phi i64 [ %indvars.iv.next376, %113 ], [ 0, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
-  %.0169312 = phi i32 [ %.1170, %113 ], [ 0, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
-  %.1175311 = phi i32 [ %.2176, %113 ], [ %.205, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
-  %.1178310 = phi i32 [ %.2179, %113 ], [ %., %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
-  %97 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv375
+.lr.ph314:                                        ; preds = %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250, %113
+  %indvars.iv374 = phi i64 [ %indvars.iv.next375, %113 ], [ 0, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
+  %.0169311 = phi i32 [ %.1170, %113 ], [ 0, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
+  %.1175310 = phi i32 [ %.2176, %113 ], [ %.205, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
+  %.1178309 = phi i32 [ %.2179, %113 ], [ %., %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
+  %97 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv374
   %98 = load double, ptr %97, align 8, !tbaa !40
-  %99 = zext nneg i32 %.0169312 to i64
+  %99 = zext nneg i32 %.0169311 to i64
   %100 = getelementptr inbounds nuw double, ptr %26, i64 %99
   %101 = load double, ptr %100, align 8, !tbaa !40
   %102 = fcmp ugt double %98, %101
-  %103 = trunc nuw nsw i64 %indvars.iv375 to i32
-  %.1170 = select i1 %102, i32 %.0169312, i32 %103
-  %104 = zext i32 %.1175311 to i64
+  %103 = trunc nuw nsw i64 %indvars.iv374 to i32
+  %.1170 = select i1 %102, i32 %.0169311, i32 %103
+  %104 = zext i32 %.1175310 to i64
   %105 = getelementptr inbounds nuw double, ptr %26, i64 %104
   %106 = load double, ptr %105, align 8, !tbaa !40
   %107 = fcmp ogt double %98, %106
   br i1 %107, label %113, label %108
 
-108:                                              ; preds = %.lr.ph315
-  %109 = sext i32 %.1178310 to i64
+108:                                              ; preds = %.lr.ph314
+  %109 = sext i32 %.1178309 to i64
   %110 = getelementptr inbounds double, ptr %26, i64 %109
   %111 = load double, ptr %110, align 8, !tbaa !40
   %112 = fcmp ule double %98, %111
-  %.not200 = icmp eq i64 %indvars.iv375, %104
+  %.not200 = icmp eq i64 %indvars.iv374, %104
   %or.cond = or i1 %112, %.not200
-  %spec.select = select i1 %or.cond, i32 %.1178310, i32 %103
+  %spec.select = select i1 %or.cond, i32 %.1178309, i32 %103
   br label %113
 
-113:                                              ; preds = %108, %.lr.ph315
-  %.2179 = phi i32 [ %.1175311, %.lr.ph315 ], [ %spec.select, %108 ]
-  %.2176 = phi i32 [ %103, %.lr.ph315 ], [ %.1175311, %108 ]
-  %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
-  %exitcond379.not = icmp eq i64 %indvars.iv.next376, %wide.trip.count378
-  br i1 %exitcond379.not, label %._crit_edge316, label %.lr.ph315, !llvm.loop !93
+113:                                              ; preds = %108, %.lr.ph314
+  %.2179 = phi i32 [ %.1175310, %.lr.ph314 ], [ %spec.select, %108 ]
+  %.2176 = phi i32 [ %103, %.lr.ph314 ], [ %.1175310, %108 ]
+  %indvars.iv.next375 = add nuw nsw i64 %indvars.iv374, 1
+  %exitcond378.not = icmp eq i64 %indvars.iv.next375, %wide.trip.count377
+  br i1 %exitcond378.not, label %._crit_edge315, label %.lr.ph314, !llvm.loop !93
 
-._crit_edge316:                                   ; preds = %113
+._crit_edge315:                                   ; preds = %113
   %.not188 = icmp eq i32 %.2176, %.2179
   br i1 %.not188, label %114, label %124
 
-114:                                              ; preds = %._crit_edge316
+114:                                              ; preds = %._crit_edge315
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull @.str.8, ptr noundef nonnull align 1 dereferenceable(1) %19)
@@ -1930,20 +1930,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %119, 
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.body
 
-124:                                              ; preds = %._crit_edge316
+124:                                              ; preds = %._crit_edge315
   %125 = icmp ne i32 %.1170, %.2179
   %126 = icmp ne i32 %.1170, %.2176
-  %or.cond206.not352 = and i1 %125, %126
-  br i1 %or.cond206.not352, label %..loopexit271_crit_edge, label %.lr.ph321
+  %or.cond206.not351 = and i1 %125, %126
+  br i1 %or.cond206.not351, label %..loopexit270_crit_edge, label %.lr.ph320
 
-..loopexit271_crit_edge:                          ; preds = %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250, %124
-  %.1178.lcssa432444 = phi i32 [ %.2179, %124 ], [ %., %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
-  %.1175.lcssa433441 = phi i32 [ %.2176, %124 ], [ %.205, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
-  %.0169.lcssa434440 = phi i32 [ %.1170, %124 ], [ 0, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
-  %.pre413 = zext nneg i32 %.1175.lcssa433441 to i64
-  br label %.loopexit271
+..loopexit270_crit_edge:                          ; preds = %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250, %124
+  %.1178.lcssa431443 = phi i32 [ %.2179, %124 ], [ %., %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
+  %.1175.lcssa432440 = phi i32 [ %.2176, %124 ], [ %.205, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
+  %.0169.lcssa433439 = phi i32 [ %.1170, %124 ], [ 0, %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250 ]
+  %.pre412 = zext nneg i32 %.1175.lcssa432440 to i64
+  br label %.loopexit270
 
-.lr.ph321:                                        ; preds = %124
+.lr.ph320:                                        ; preds = %124
   %127 = zext nneg i32 %.1170 to i64
   %128 = getelementptr inbounds nuw double, ptr %26, i64 %127
   %129 = load double, ptr %128, align 8, !tbaa !40
@@ -1951,31 +1951,31 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %119, 
   %131 = zext i32 %.2176 to i64
   br label %132
 
-132:                                              ; preds = %.lr.ph321, %136
-  %indvars.iv380 = phi i64 [ 0, %.lr.ph321 ], [ %indvars.iv.next381, %136 ]
-  %133 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv380
+132:                                              ; preds = %.lr.ph320, %136
+  %indvars.iv379 = phi i64 [ 0, %.lr.ph320 ], [ %indvars.iv.next380, %136 ]
+  %133 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv379
   %134 = load double, ptr %133, align 8, !tbaa !40
   %135 = fcmp une double %134, %129
-  %.not191 = icmp eq i64 %indvars.iv380, %131
+  %.not191 = icmp eq i64 %indvars.iv379, %131
   %or.cond207 = or i1 %135, %.not191
-  %.not192 = icmp eq i64 %indvars.iv380, %130
+  %.not192 = icmp eq i64 %indvars.iv379, %130
   %or.cond208 = or i1 %or.cond207, %.not192
-  br i1 %or.cond208, label %136, label %.loopexit271.loopexit.split.loop.exit
+  br i1 %or.cond208, label %136, label %.loopexit270.loopexit.split.loop.exit
 
 136:                                              ; preds = %132
-  %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
-  %exitcond384.not = icmp eq i64 %indvars.iv.next381, %wide.trip.count383
-  br i1 %exitcond384.not, label %.loopexit271, label %132, !llvm.loop !94
+  %indvars.iv.next380 = add nuw nsw i64 %indvars.iv379, 1
+  %exitcond383.not = icmp eq i64 %indvars.iv.next380, %wide.trip.count382
+  br i1 %exitcond383.not, label %.loopexit270, label %132, !llvm.loop !94
 
-.loopexit271.loopexit.split.loop.exit:            ; preds = %132
-  %137 = trunc nuw nsw i64 %indvars.iv380 to i32
-  br label %.loopexit271
+.loopexit270.loopexit.split.loop.exit:            ; preds = %132
+  %137 = trunc nuw nsw i64 %indvars.iv379 to i32
+  br label %.loopexit270
 
-.loopexit271:                                     ; preds = %136, %.loopexit271.loopexit.split.loop.exit, %..loopexit271_crit_edge
-  %.1178.lcssa432443 = phi i32 [ %.1178.lcssa432444, %..loopexit271_crit_edge ], [ %.2179, %.loopexit271.loopexit.split.loop.exit ], [ %.2179, %136 ]
-  %.1175.lcssa433442 = phi i32 [ %.1175.lcssa433441, %..loopexit271_crit_edge ], [ %.2176, %.loopexit271.loopexit.split.loop.exit ], [ %.2176, %136 ]
-  %.pre-phi = phi i64 [ %.pre413, %..loopexit271_crit_edge ], [ %131, %.loopexit271.loopexit.split.loop.exit ], [ %131, %136 ]
-  %.2171 = phi i32 [ %.0169.lcssa434440, %..loopexit271_crit_edge ], [ %137, %.loopexit271.loopexit.split.loop.exit ], [ %.1170, %136 ]
+.loopexit270:                                     ; preds = %136, %.loopexit270.loopexit.split.loop.exit, %..loopexit270_crit_edge
+  %.1178.lcssa431442 = phi i32 [ %.1178.lcssa431443, %..loopexit270_crit_edge ], [ %.2179, %.loopexit270.loopexit.split.loop.exit ], [ %.2179, %136 ]
+  %.1175.lcssa432441 = phi i32 [ %.1175.lcssa432440, %..loopexit270_crit_edge ], [ %.2176, %.loopexit270.loopexit.split.loop.exit ], [ %.2176, %136 ]
+  %.pre-phi = phi i64 [ %.pre412, %..loopexit270_crit_edge ], [ %131, %.loopexit270.loopexit.split.loop.exit ], [ %131, %136 ]
+  %.2171 = phi i32 [ %.0169.lcssa433439, %..loopexit270_crit_edge ], [ %137, %.loopexit270.loopexit.split.loop.exit ], [ %.1170, %136 ]
   %138 = getelementptr inbounds nuw double, ptr %26, i64 %.pre-phi
   %139 = load double, ptr %138, align 8, !tbaa !40
   %140 = sext i32 %.2171 to i64
@@ -1983,47 +1983,47 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %119, 
   %142 = load double, ptr %141, align 8, !tbaa !40
   %143 = fsub double %139, %142
   %144 = call double @llvm.fabs.f64(double %143)
-  br i1 %90, label %.lr.ph337, label %._crit_edge338
+  br i1 %90, label %.lr.ph336, label %._crit_edge337
 
-.lr.ph337:                                        ; preds = %.loopexit271
+.lr.ph336:                                        ; preds = %.loopexit270
   %145 = load ptr, ptr %91, align 8, !tbaa !65
   %146 = load ptr, ptr %92, align 8, !tbaa !84
   %.pre = load i64, ptr %146, align 8, !tbaa !85
-  br label %.lr.ph330
+  br label %.lr.ph329
 
-.lr.ph330:                                        ; preds = %.lr.ph337, %._crit_edge331
-  %indvars.iv390 = phi i64 [ 0, %.lr.ph337 ], [ %indvars.iv.next391, %._crit_edge331 ]
-  %.0264334 = phi double [ 0.000000e+00, %.lr.ph337 ], [ %.sroa.speculated, %._crit_edge331 ]
-  %147 = getelementptr double, ptr %145, i64 %indvars.iv390
+.lr.ph329:                                        ; preds = %.lr.ph336, %._crit_edge330
+  %indvars.iv389 = phi i64 [ 0, %.lr.ph336 ], [ %indvars.iv.next390, %._crit_edge330 ]
+  %.0264333 = phi double [ 0.000000e+00, %.lr.ph336 ], [ %.sroa.speculated, %._crit_edge330 ]
+  %147 = getelementptr double, ptr %145, i64 %indvars.iv389
   %148 = load double, ptr %147, align 8, !tbaa !40
   br label %149
 
-149:                                              ; preds = %.lr.ph330, %149
-  %indvars.iv385 = phi i64 [ 1, %.lr.ph330 ], [ %indvars.iv.next386, %149 ]
-  %.0265327 = phi double [ %148, %.lr.ph330 ], [ %.sroa.speculated256, %149 ]
-  %.0266326 = phi double [ %148, %.lr.ph330 ], [ %.sroa.speculated253, %149 ]
-  %150 = mul i64 %.pre, %indvars.iv385
+149:                                              ; preds = %.lr.ph329, %149
+  %indvars.iv384 = phi i64 [ 1, %.lr.ph329 ], [ %indvars.iv.next385, %149 ]
+  %.0265326 = phi double [ %148, %.lr.ph329 ], [ %.sroa.speculated256, %149 ]
+  %.0266325 = phi double [ %148, %.lr.ph329 ], [ %.sroa.speculated253, %149 ]
+  %150 = mul i64 %.pre, %indvars.iv384
   %gep = getelementptr i8, ptr %147, i64 %150
   %151 = load double, ptr %gep, align 8, !tbaa !40
-  %152 = fcmp olt double %151, %.0265327
-  %.sroa.speculated256 = select i1 %152, double %151, double %.0265327
-  %153 = fcmp olt double %.0266326, %151
-  %.sroa.speculated253 = select i1 %153, double %151, double %.0266326
-  %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385, 1
-  %exitcond389.not = icmp eq i64 %indvars.iv.next386, %wide.trip.count388
-  br i1 %exitcond389.not, label %._crit_edge331, label %149, !llvm.loop !95
+  %152 = fcmp olt double %151, %.0265326
+  %.sroa.speculated256 = select i1 %152, double %151, double %.0265326
+  %153 = fcmp olt double %.0266325, %151
+  %.sroa.speculated253 = select i1 %153, double %151, double %.0266325
+  %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
+  %exitcond388.not = icmp eq i64 %indvars.iv.next385, %wide.trip.count387
+  br i1 %exitcond388.not, label %._crit_edge330, label %149, !llvm.loop !95
 
-._crit_edge331:                                   ; preds = %149
+._crit_edge330:                                   ; preds = %149
   %154 = fsub double %.sroa.speculated253, %.sroa.speculated256
   %155 = call double @llvm.fabs.f64(double %154)
-  %156 = fcmp olt double %.0264334, %155
-  %.sroa.speculated = select i1 %156, double %155, double %.0264334
-  %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
-  %exitcond394.not = icmp eq i64 %indvars.iv.next391, %wide.trip.count393
-  br i1 %exitcond394.not, label %._crit_edge338, label %.lr.ph330, !llvm.loop !96
+  %156 = fcmp olt double %.0264333, %155
+  %.sroa.speculated = select i1 %156, double %155, double %.0264333
+  %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
+  %exitcond393.not = icmp eq i64 %indvars.iv.next390, %wide.trip.count392
+  br i1 %exitcond393.not, label %._crit_edge337, label %.lr.ph329, !llvm.loop !96
 
-._crit_edge338:                                   ; preds = %._crit_edge331, %.loopexit271
-  %.0264.lcssa = phi double [ 0.000000e+00, %.loopexit271 ], [ %.sroa.speculated, %._crit_edge331 ]
+._crit_edge337:                                   ; preds = %._crit_edge330, %.loopexit270
+  %.0264.lcssa = phi double [ 0.000000e+00, %.loopexit270 ], [ %.sroa.speculated, %._crit_edge330 ]
   %157 = fcmp ugt double %.0264.lcssa, %2
   %158 = fcmp ugt double %144, %3
   %or.cond209 = select i1 %157, i1 %158, i1 false
@@ -2032,38 +2032,38 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %119, 
   %or.cond210 = select i1 %or.cond209, i1 %.not193, i1 false
   br i1 %or.cond210, label %172, label %160
 
-160:                                              ; preds = %._crit_edge338
+160:                                              ; preds = %._crit_edge337
   %161 = getelementptr inbounds double, ptr %26, i64 %140
   store double %142, ptr %26, align 8, !tbaa !40
   store double %94, ptr %161, align 8, !tbaa !40
-  br i1 %90, label %.lr.ph349, label %._crit_edge350
+  br i1 %90, label %.lr.ph348, label %._crit_edge349
 
-.lr.ph349:                                        ; preds = %160
+.lr.ph348:                                        ; preds = %160
   %162 = load ptr, ptr %91, align 8, !tbaa !65
   %163 = load ptr, ptr %92, align 8, !tbaa !84
   %164 = load i64, ptr %163, align 8, !tbaa !85
   %165 = mul i64 %164, %140
   %166 = getelementptr inbounds nuw i8, ptr %162, i64 %165
-  %wide.trip.count408 = zext nneg i32 %21 to i64
+  %wide.trip.count407 = zext nneg i32 %21 to i64
   br label %167
 
-167:                                              ; preds = %.lr.ph349, %167
-  %indvars.iv405 = phi i64 [ 0, %.lr.ph349 ], [ %indvars.iv.next406, %167 ]
-  %168 = getelementptr inbounds nuw double, ptr %162, i64 %indvars.iv405
-  %169 = getelementptr inbounds nuw double, ptr %166, i64 %indvars.iv405
+167:                                              ; preds = %.lr.ph348, %167
+  %indvars.iv404 = phi i64 [ 0, %.lr.ph348 ], [ %indvars.iv.next405, %167 ]
+  %168 = getelementptr inbounds nuw double, ptr %162, i64 %indvars.iv404
+  %169 = getelementptr inbounds nuw double, ptr %166, i64 %indvars.iv404
   %170 = load double, ptr %168, align 8, !tbaa !40
   %171 = load double, ptr %169, align 8, !tbaa !40
   store double %171, ptr %168, align 8, !tbaa !40
   store double %170, ptr %169, align 8, !tbaa !40
-  %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
-  %exitcond409.not = icmp eq i64 %indvars.iv.next406, %wide.trip.count408
-  br i1 %exitcond409.not, label %._crit_edge350, label %167, !llvm.loop !97
+  %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
+  %exitcond408.not = icmp eq i64 %indvars.iv.next405, %wide.trip.count407
+  br i1 %exitcond408.not, label %._crit_edge349, label %167, !llvm.loop !97
 
-172:                                              ; preds = %._crit_edge338
-  %173 = sext i32 %.1178.lcssa432443 to i64
+172:                                              ; preds = %._crit_edge337
+  %173 = sext i32 %.1178.lcssa431442 to i64
   %174 = getelementptr inbounds double, ptr %26, i64 %173
   %175 = load double, ptr %174, align 8, !tbaa !40
-  %176 = invoke noundef double @_ZN2cv18DownhillSolverImpl11tryNewPointERNS_3MatES2_idS2_Ri(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, i32 noundef %.1175.lcssa433442, double noundef -1.000000e+00, ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %176 = invoke noundef double @_ZN2cv18DownhillSolverImpl11tryNewPointERNS_3MatES2_idS2_Ri(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, i32 noundef %.1175.lcssa432441, double noundef -1.000000e+00, ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %177 unwind label %185
 
 177:                                              ; preds = %172
@@ -2075,7 +2075,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %119, 
   br i1 %180, label %181, label %189
 
 181:                                              ; preds = %179
-  %182 = invoke noundef double @_ZN2cv18DownhillSolverImpl11tryNewPointERNS_3MatES2_idS2_Ri(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, i32 noundef %.1175.lcssa433442, double noundef -2.000000e+00, ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %182 = invoke noundef double @_ZN2cv18DownhillSolverImpl11tryNewPointERNS_3MatES2_idS2_Ri(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, i32 noundef %.1175.lcssa432441, double noundef -2.000000e+00, ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %183 unwind label %187
 
 183:                                              ; preds = %181
@@ -2097,76 +2097,76 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %119, 
 189:                                              ; preds = %183, %179
   %.0167 = phi double [ %.1168, %183 ], [ -1.000000e+00, %179 ]
   %.0165 = phi double [ %.1166, %183 ], [ %176, %179 ]
-  invoke void @_ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.1175.lcssa433442, double noundef %.0167, double noundef %.0165)
+  invoke void @_ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.1175.lcssa432441, double noundef %.0167, double noundef %.0165)
           to label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge unwind label %185
 
 190:                                              ; preds = %177
-  %191 = invoke noundef double @_ZN2cv18DownhillSolverImpl11tryNewPointERNS_3MatES2_idS2_Ri(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, i32 noundef %.1175.lcssa433442, double noundef 5.000000e-01, ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  %191 = invoke noundef double @_ZN2cv18DownhillSolverImpl11tryNewPointERNS_3MatES2_idS2_Ri(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, i32 noundef %.1175.lcssa432441, double noundef 5.000000e-01, ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %192 unwind label %.loopexit.split-lp.loopexit
 
 192:                                              ; preds = %190
   %193 = fcmp olt double %191, %139
-  br i1 %193, label %195, label %.preheader269
+  br i1 %193, label %195, label %.preheader268
 
-.preheader269:                                    ; preds = %192
-  br i1 %.not307, label %._crit_edge346, label %.lr.ph345.preheader
+.preheader268:                                    ; preds = %192
+  br i1 %.not306, label %._crit_edge345, label %.lr.ph344.preheader
 
-.lr.ph345.preheader:                              ; preds = %.preheader269
+.lr.ph344.preheader:                              ; preds = %.preheader268
   %194 = zext i32 %.2171 to i64
-  br label %.lr.ph345
+  br label %.lr.ph344
 
 195:                                              ; preds = %192
-  invoke void @_ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.1175.lcssa433442, double noundef 5.000000e-01, double noundef %191)
+  invoke void @_ZN2cv18DownhillSolverImpl12replacePointERNS_3MatES2_S2_idd(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %15, ptr noundef nonnull align 8 dereferenceable(96) %17, i32 noundef %.1175.lcssa432441, double noundef 5.000000e-01, double noundef %191)
           to label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge unwind label %.loopexit.split-lp.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge342
+.loopexit:                                        ; preds = %._crit_edge341
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit:                      ; preds = %195, %190
-  %lpad.loopexit272 = landingpad { ptr, i32 }
+  %lpad.loopexit271 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %233, %214
-  %lpad.loopexit.split-lp273 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp272 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.lr.ph345:                                        ; preds = %.lr.ph345.preheader, %222
-  %indvars.iv400 = phi i64 [ 0, %.lr.ph345.preheader ], [ %indvars.iv.next401, %222 ]
-  %.not195 = icmp eq i64 %indvars.iv400, %194
+.lr.ph344:                                        ; preds = %.lr.ph344.preheader, %222
+  %indvars.iv399 = phi i64 [ 0, %.lr.ph344.preheader ], [ %indvars.iv.next400, %222 ]
+  %.not195 = icmp eq i64 %indvars.iv399, %194
   br i1 %.not195, label %222, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph345
-  %.pre410 = load ptr, ptr %91, align 8, !tbaa !65
-  %.pre411 = load ptr, ptr %92, align 8, !tbaa !84
-  %.pre412 = load i64, ptr %.pre411, align 8, !tbaa !85
-  %196 = mul i64 %.pre412, %indvars.iv400
-  br i1 %90, label %.lr.ph341, label %._crit_edge342
+.preheader:                                       ; preds = %.lr.ph344
+  %.pre409 = load ptr, ptr %91, align 8, !tbaa !65
+  %.pre410 = load ptr, ptr %92, align 8, !tbaa !84
+  %.pre411 = load i64, ptr %.pre410, align 8, !tbaa !85
+  %196 = mul i64 %.pre411, %indvars.iv399
+  br i1 %90, label %.lr.ph340, label %._crit_edge341
 
-.lr.ph341:                                        ; preds = %.preheader
-  %197 = getelementptr inbounds nuw i8, ptr %.pre410, i64 %196
-  %198 = mul i64 %.pre412, %140
-  %199 = getelementptr inbounds nuw i8, ptr %.pre410, i64 %198
+.lr.ph340:                                        ; preds = %.preheader
+  %197 = getelementptr inbounds nuw i8, ptr %.pre409, i64 %196
+  %198 = mul i64 %.pre411, %140
+  %199 = getelementptr inbounds nuw i8, ptr %.pre409, i64 %198
   br label %200
 
-200:                                              ; preds = %.lr.ph341, %200
-  %indvars.iv395 = phi i64 [ 0, %.lr.ph341 ], [ %indvars.iv.next396, %200 ]
-  %201 = getelementptr inbounds nuw double, ptr %197, i64 %indvars.iv395
+200:                                              ; preds = %.lr.ph340, %200
+  %indvars.iv394 = phi i64 [ 0, %.lr.ph340 ], [ %indvars.iv.next395, %200 ]
+  %201 = getelementptr inbounds nuw double, ptr %197, i64 %indvars.iv394
   %202 = load double, ptr %201, align 8, !tbaa !40
-  %203 = getelementptr inbounds nuw double, ptr %199, i64 %indvars.iv395
+  %203 = getelementptr inbounds nuw double, ptr %199, i64 %indvars.iv394
   %204 = load double, ptr %203, align 8, !tbaa !40
   %205 = fadd double %202, %204
   %206 = fmul double %205, 5.000000e-01
   store double %206, ptr %201, align 8, !tbaa !40
-  %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
-  %exitcond399.not = icmp eq i64 %indvars.iv.next396, %wide.trip.count398
-  br i1 %exitcond399.not, label %._crit_edge342, label %200, !llvm.loop !98
+  %indvars.iv.next395 = add nuw nsw i64 %indvars.iv394, 1
+  %exitcond398.not = icmp eq i64 %indvars.iv.next395, %wide.trip.count397
+  br i1 %exitcond398.not, label %._crit_edge341, label %200, !llvm.loop !98
 
-._crit_edge342:                                   ; preds = %200, %.preheader
-  %207 = getelementptr inbounds nuw i8, ptr %.pre410, i64 %196
+._crit_edge341:                                   ; preds = %200, %.preheader
+  %207 = getelementptr inbounds nuw i8, ptr %.pre409, i64 %196
   %208 = load ptr, ptr %93, align 8, !tbaa !29
   %209 = load ptr, ptr %208, align 8, !tbaa !14
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 32
@@ -2174,7 +2174,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %119, 
   %212 = invoke noundef double %211(ptr noundef nonnull align 8 dereferenceable(8) %208, ptr noundef %207)
           to label %.noexc225 unwind label %.loopexit
 
-.noexc225:                                        ; preds = %._crit_edge342
+.noexc225:                                        ; preds = %._crit_edge341
   %213 = call double @llvm.fabs.f64(double %212)
   %or.cond.i221 = fcmp ueq double %213, 0x7FF0000000000000
   br i1 %or.cond.i221, label %214, label %_ZN2cv18DownhillSolverImpl6calc_fEPKd.exit229
@@ -2210,16 +2210,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i223: ; preds = %
   br label %.body
 
 _ZN2cv18DownhillSolverImpl6calc_fEPKd.exit229:    ; preds = %.noexc225
-  %221 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv400
+  %221 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv399
   store double %212, ptr %221, align 8, !tbaa !40
   br label %222
 
-222:                                              ; preds = %.lr.ph345, %_ZN2cv18DownhillSolverImpl6calc_fEPKd.exit229
-  %indvars.iv.next401 = add nuw nsw i64 %indvars.iv400, 1
-  %exitcond404.not = icmp eq i64 %indvars.iv.next401, %wide.trip.count403
-  br i1 %exitcond404.not, label %._crit_edge346, label %.lr.ph345, !llvm.loop !99
+222:                                              ; preds = %.lr.ph344, %_ZN2cv18DownhillSolverImpl6calc_fEPKd.exit229
+  %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
+  %exitcond403.not = icmp eq i64 %indvars.iv.next400, %wide.trip.count402
+  br i1 %exitcond403.not, label %._crit_edge345, label %.lr.ph344, !llvm.loop !99
 
-._crit_edge346:                                   ; preds = %222, %.preheader269
+._crit_edge345:                                   ; preds = %222, %.preheader268
   %223 = load i32, ptr %4, align 4, !tbaa !24
   %224 = add nsw i32 %223, %21
   store i32 %224, ptr %4, align 4, !tbaa !24
@@ -2233,11 +2233,11 @@ _ZN2cv18DownhillSolverImpl6calc_fEPKd.exit229:    ; preds = %.noexc225
   %or.cond.i230 = select i1 %229, i1 %231, i1 false
   br i1 %or.cond.i230, label %.preheader31.i234, label %233
 
-.preheader31.i234:                                ; preds = %._crit_edge346
+.preheader31.i234:                                ; preds = %._crit_edge345
   %232 = icmp sgt i32 %226, 0
   br i1 %232, label %.preheader.i235, label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge
 
-233:                                              ; preds = %._crit_edge346
+233:                                              ; preds = %._crit_edge345
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.10, ptr noundef nonnull align 1 dereferenceable(1) %8)
@@ -2307,7 +2307,7 @@ _ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge: ; pr
   %exitcond45.not.i246 = icmp eq i64 %indvars.iv.next42.i245, %wide.trip.count44.i237
   br i1 %exitcond45.not.i246, label %_ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge, label %.lr.ph34.us.i239, !llvm.loop !92
 
-._crit_edge350:                                   ; preds = %167, %160
+._crit_edge349:                                   ; preds = %167, %160
   %254 = load double, ptr %26, align 8, !tbaa !40
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -2317,8 +2317,8 @@ _ZN2cv18DownhillSolverImpl14updateCoordSumERKNS_3MatERS1_.exit250.backedge: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   ret double %254
 
-.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit275, %.loopexit.split-lp276, %185, %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i232, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pn201 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i214 ], [ %186, %185 ], [ %188, %187 ], [ %217, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i223 ], [ %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i232 ], [ %lpad.loopexit277, %.loopexit275 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp276 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit272, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp273, %.loopexit.split-lp.loopexit.split-lp ]
+.body:                                            ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit274, %.loopexit.split-lp275, %185, %187, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i232, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  %.pn201 = phi { ptr, i32 } [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %45, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i214 ], [ %186, %185 ], [ %188, %187 ], [ %217, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i223 ], [ %236, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i232 ], [ %lpad.loopexit276, %.loopexit274 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp275 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit271, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp272, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #18
   br label %255
 

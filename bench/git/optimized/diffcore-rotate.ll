@@ -16,18 +16,18 @@ define dso_local void @diffcore_rotate(ptr noundef readonly captures(none) %0) l
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %45, label %.preheader41
+  br i1 %.not, label %45, label %.preheader40
 
-.preheader41:                                     ; preds = %1
+.preheader40:                                     ; preds = %1
   %4 = icmp sgt i32 %3, 0
-  br i1 %4, label %.lr.ph, label %.preheader41.._crit_edge_crit_edge
+  br i1 %4, label %.lr.ph, label %.preheader40.._crit_edge_crit_edge
 
-.preheader41.._crit_edge_crit_edge:               ; preds = %.preheader41
+.preheader40.._crit_edge_crit_edge:               ; preds = %.preheader40
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !11
   br label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader41
+.lr.ph:                                           ; preds = %.preheader40
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
@@ -36,7 +36,7 @@ define dso_local void @diffcore_rotate(ptr noundef readonly captures(none) %0) l
   br label %9
 
 9:                                                ; preds = %.lr.ph, %21
-  %indvars.iv59 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next60, %21 ]
+  %indvars.iv58 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next59, %21 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !27
@@ -58,16 +58,16 @@ define dso_local void @diffcore_rotate(ptr noundef readonly captures(none) %0) l
 21:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %indvars.iv.next60 = add nuw nsw i32 %indvars.iv59, 1
+  %indvars.iv.next59 = add nuw nsw i32 %indvars.iv58, 1
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !37
 
 select.unfold:                                    ; preds = %17, %9
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   %23 = icmp sgt i32 %3, %22
-  br i1 %23, label %.lr.ph45, label %.preheader
+  br i1 %23, label %.lr.ph44, label %.preheader
 
-._crit_edge:                                      ; preds = %21, %.preheader41.._crit_edge_crit_edge
-  %24 = phi i32 [ %.pre, %.preheader41.._crit_edge_crit_edge ], [ %18, %21 ]
+._crit_edge:                                      ; preds = %21, %.preheader40.._crit_edge_crit_edge
+  %24 = phi i32 [ %.pre, %.preheader40.._crit_edge_crit_edge ], [ %18, %21 ]
   %.not37 = icmp eq i32 %24, 0
   br i1 %.not37, label %45, label %25
 
@@ -78,33 +78,33 @@ select.unfold:                                    ; preds = %17, %9
   tail call void (ptr, ...) @die(ptr noundef %26, ptr noundef %28) #11
   unreachable
 
-.preheader:                                       ; preds = %.lr.ph45, %select.unfold
-  %.not49 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not49, label %._crit_edge48, label %.lr.ph47
+.preheader:                                       ; preds = %.lr.ph44, %select.unfold
+  %.not48 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not48, label %._crit_edge47, label %.lr.ph46
 
-.lr.ph47:                                         ; preds = %.preheader
+.lr.ph46:                                         ; preds = %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %wide.trip.count62 = zext nneg i32 %indvars.iv59 to i64
+  %wide.trip.count61 = zext nneg i32 %indvars.iv58 to i64
   br label %36
 
-.lr.ph45:                                         ; preds = %select.unfold, %.lr.ph45
-  %indvars.iv53 = phi i64 [ %indvars.iv.next54, %.lr.ph45 ], [ %indvars.iv, %select.unfold ]
+.lr.ph44:                                         ; preds = %select.unfold, %.lr.ph44
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph44 ], [ %indvars.iv, %select.unfold ]
   %30 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv53
+  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv52
   %32 = load ptr, ptr %31, align 8, !tbaa !27
   call void @diff_q(ptr noundef nonnull %2, ptr noundef %32) #12
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %33 = load i32, ptr getelementptr inbounds nuw (i8, ptr @diff_queued_diff, i64 12), align 4, !tbaa !4
-  %34 = trunc nuw i64 %indvars.iv.next54 to i32
+  %34 = trunc nuw i64 %indvars.iv.next53 to i32
   %35 = icmp sgt i32 %33, %34
-  br i1 %35, label %.lr.ph45, label %.preheader, !llvm.loop !39
+  br i1 %35, label %.lr.ph44, label %.preheader, !llvm.loop !39
 
-36:                                               ; preds = %.lr.ph47, %43
-  %indvars.iv56 = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next57, %43 ]
+36:                                               ; preds = %.lr.ph46, %43
+  %indvars.iv55 = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next56, %43 ]
   %37 = load i32, ptr %29, align 8, !tbaa !40
   %.not36 = icmp eq i32 %37, 0
   %38 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv56
+  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv55
   %40 = load ptr, ptr %39, align 8, !tbaa !27
   br i1 %.not36, label %42, label %41
 
@@ -117,17 +117,17 @@ select.unfold:                                    ; preds = %17, %9
   br label %43
 
 43:                                               ; preds = %41, %42
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count62
-  br i1 %exitcond63.not, label %._crit_edge48, label %36, !llvm.loop !41
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond62.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count61
+  br i1 %exitcond62.not, label %._crit_edge47, label %36, !llvm.loop !41
 
-._crit_edge48:                                    ; preds = %43, %.preheader
+._crit_edge47:                                    ; preds = %43, %.preheader
   %44 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
   call void @free(ptr noundef %44) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) @diff_queued_diff, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !42
   br label %45
 
-45:                                               ; preds = %._crit_edge, %1, %._crit_edge48
+45:                                               ; preds = %._crit_edge, %1, %._crit_edge47
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

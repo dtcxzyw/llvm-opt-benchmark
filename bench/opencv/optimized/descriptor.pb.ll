@@ -11968,7 +11968,7 @@ define hidden noundef zeroext i1 @_ZNK6google8protobuf15DescriptorProto13IsIniti
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i32, ptr %2, align 8, !tbaa !22
   %4 = icmp slt i32 %3, 1
-  br i1 %4, label %.loopexit49, label %.lr.ph.i
+  br i1 %4, label %.loopexit47, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -12040,17 +12040,17 @@ _ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.i.i.i.i
 
 _ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i: ; preds = %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.i.i.i.i, %19, %7
   %45 = icmp slt i64 %indvars.iv.i, 2
-  br i1 %45, label %.loopexit49, label %7, !llvm.loop !141
+  br i1 %45, label %.loopexit47, label %7, !llvm.loop !141
 
-.loopexit49:                                      ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %1
+.loopexit47:                                      ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i, %1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load i32, ptr %46, align 8, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %49 = zext i32 %47 to i64
   br label %50
 
-50:                                               ; preds = %53, %.loopexit49
-  %indvars.iv = phi i64 [ %54, %53 ], [ %49, %.loopexit49 ]
+50:                                               ; preds = %53, %.loopexit47
+  %indvars.iv = phi i64 [ %54, %53 ], [ %49, %.loopexit47 ]
   %51 = trunc nuw i64 %indvars.iv to i32
   %52 = icmp sgt i32 %51, 0
   br i1 %52, label %53, label %59
@@ -12088,7 +12088,7 @@ _ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i: ; preds = %_
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %75 = load i32, ptr %74, align 8, !tbaa !22
   %76 = icmp slt i32 %75, 1
-  br i1 %76, label %.loopexit44, label %.lr.ph.i3
+  br i1 %76, label %.loopexit42, label %.lr.ph.i3
 
 .lr.ph.i3:                                        ; preds = %73
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -12160,15 +12160,15 @@ _ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.i.i.i.i
 
 _ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i: ; preds = %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.i.i.i.i12, %91, %79
   %117 = icmp slt i64 %indvars.iv.i4, 2
-  br i1 %117, label %.loopexit44, label %79, !llvm.loop !212
+  br i1 %117, label %.loopexit42, label %79, !llvm.loop !212
 
-.loopexit44:                                      ; preds = %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, %73
+.loopexit42:                                      ; preds = %_ZNK6google8protobuf30DescriptorProto_ExtensionRange13IsInitializedEv.exit.i, %73
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %119 = load i32, ptr %118, align 8, !tbaa !22
   %120 = icmp slt i32 %119, 1
-  br i1 %120, label %.loopexit41, label %.lr.ph.i13
+  br i1 %120, label %.loopexit39, label %.lr.ph.i13
 
-.lr.ph.i13:                                       ; preds = %.loopexit44
+.lr.ph.i13:                                       ; preds = %.loopexit42
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %122 = zext nneg i32 %119 to i64
   br label %123
@@ -12238,15 +12238,15 @@ _ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.i.i.i.i
 
 _ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i23: ; preds = %_ZNK6google8protobuf19UninterpretedOption13IsInitializedEv.exit.loopexit.i.i.i.i22, %135, %123
   %161 = icmp slt i64 %indvars.iv.i14, 2
-  br i1 %161, label %.loopexit41, label %123, !llvm.loop !141
+  br i1 %161, label %.loopexit39, label %123, !llvm.loop !141
 
-.loopexit41:                                      ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i23, %.loopexit44
+.loopexit39:                                      ; preds = %_ZNK6google8protobuf20FieldDescriptorProto13IsInitializedEv.exit.i23, %.loopexit42
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %163 = load i32, ptr %162, align 8, !tbaa !22
   %164 = icmp slt i32 %163, 1
   br i1 %164, label %.loopexit, label %.lr.ph.i25
 
-.lr.ph.i25:                                       ; preds = %.loopexit41
+.lr.ph.i25:                                       ; preds = %.loopexit39
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %166 = zext nneg i32 %163 to i64
   br label %167
@@ -12318,7 +12318,7 @@ _ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i: ; preds = %_
   %205 = icmp slt i64 %indvars.iv.i26, 2
   br i1 %205, label %.loopexit, label %167, !llvm.loop !213
 
-.loopexit:                                        ; preds = %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, %.loopexit41
+.loopexit:                                        ; preds = %_ZNK6google8protobuf20OneofDescriptorProto13IsInitializedEv.exit.i, %.loopexit39
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %207 = load i32, ptr %206, align 8, !tbaa !58
   %208 = and i32 %207, 2

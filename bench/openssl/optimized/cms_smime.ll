@@ -1206,14 +1206,14 @@ define ptr @CMS_sign_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 23:                                               ; preds = %.lr.ph
-  %24 = add nuw nsw i32 %.02842, 1
+  %24 = add nuw nsw i32 %.02841, 1
   %25 = tail call i32 @OPENSSL_sk_num(ptr noundef %2) #4
   %26 = icmp slt i32 %24, %25
   br i1 %26, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
 .lr.ph:                                           ; preds = %20, %23
-  %.02842 = phi i32 [ %24, %23 ], [ 0, %20 ]
-  %27 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.02842) #4
+  %.02841 = phi i32 [ %24, %23 ], [ 0, %20 ]
+  %27 = tail call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.02841) #4
   %28 = tail call i32 @CMS_add1_cert(ptr noundef nonnull %8, ptr noundef %27) #4
   %.not38 = icmp eq i32 %28, 0
   br i1 %.not38, label %.sink.split, label %23
@@ -1238,10 +1238,10 @@ define ptr @CMS_sign_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   br i1 %.not37, label %36, label %37
 
 .sink.split:                                      ; preds = %.lr.ph, %18, %14, %7, %10
-  %.sink45 = phi i32 [ 523, %10 ], [ 523, %7 ], [ 529, %14 ], [ 534, %18 ], [ 542, %.lr.ph ]
+  %.sink44 = phi i32 [ 523, %10 ], [ 523, %7 ], [ 529, %14 ], [ 534, %18 ], [ 542, %.lr.ph ]
   %.sink = phi i32 [ 524334, %10 ], [ 524334, %7 ], [ 524334, %14 ], [ 99, %18 ], [ 524334, %.lr.ph ]
   tail call void @ERR_new() #4
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink45, ptr noundef nonnull @__func__.CMS_sign_ex) #4
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink44, ptr noundef nonnull @__func__.CMS_sign_ex) #4
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef %.sink, ptr noundef null) #4
   br label %36
 

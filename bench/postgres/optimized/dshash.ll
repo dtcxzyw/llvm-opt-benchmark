@@ -270,17 +270,17 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i64, ptr %35, i64 %39
   %41 = load i64, ptr %40, align 8
-  %.not15.i = icmp eq i64 %41, 0
-  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i
+  %.not14.i = icmp eq i64 %41, 0
+  br i1 %.not14.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ensure_valid_bucket_pointers.exit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %43
 
 43:                                               ; preds = %52, %.lr.ph.i
-  %.01016.i = phi i64 [ %41, %.lr.ph.i ], [ %53, %52 ]
+  %.01015.i = phi i64 [ %41, %.lr.ph.i ], [ %53, %52 ]
   %44 = load ptr, ptr %0, align 8
-  %45 = tail call ptr @dsa_get_address(ptr noundef %44, i64 noundef %.01016.i) #12
+  %45 = tail call ptr @dsa_get_address(ptr noundef %44, i64 noundef %.01015.i) #12
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %42, align 8
   %48 = load i64, ptr %4, align 8
@@ -371,13 +371,13 @@ ensure_valid_bucket_pointers.exit:                ; preds = %.ensure_valid_bucke
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i64, ptr %38, i64 %42
   %44 = load i64, ptr %43, align 8
-  %.not15.i = icmp eq i64 %44, 0
-  br i1 %.not15.i, label %.loopexit, label %.lr.ph.i
+  %.not14.i = icmp eq i64 %44, 0
+  br i1 %.not14.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ensure_valid_bucket_pointers.exit, %53
-  %.01016.i = phi i64 [ %54, %53 ], [ %44, %ensure_valid_bucket_pointers.exit ]
+  %.01015.i = phi i64 [ %54, %53 ], [ %44, %ensure_valid_bucket_pointers.exit ]
   %45 = load ptr, ptr %0, align 8
-  %46 = tail call ptr @dsa_get_address(ptr noundef %45, i64 noundef %.01016.i) #12
+  %46 = tail call ptr @dsa_get_address(ptr noundef %45, i64 noundef %.01015.i) #12
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %18, align 8
   %49 = load i64, ptr %4, align 8

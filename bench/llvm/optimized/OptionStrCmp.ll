@@ -60,25 +60,25 @@ define dso_local noundef i32 @_ZN4llvm20StrCmpOptionPrefixesENS_8ArrayRefINS_9St
   %5 = alloca %"class.llvm::StringRef", align 8
   %.idx = shl nuw nsw i64 %1, 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
-  %.idx42 = shl nuw nsw i64 %3, 4
-  %7 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx42
-  %8 = icmp eq i64 %1, 0
-  %9 = icmp eq i64 %3, 0
-  %.not3.i.not39 = select i1 %8, i1 true, i1 %9
-  br i1 %.not3.i.not39, label %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread, label %.lr.ph
+  %.idx43 = shl nuw nsw i64 %3, 4
+  %7 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx43
+  %8 = icmp ne i64 %1, 0
+  %9 = icmp ne i64 %3, 0
+  %.not3.i40 = select i1 %8, i1 %9, i1 false
+  br i1 %.not3.i40, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %21
-  %.sroa.7.041 = phi ptr [ %0, %.lr.ph ], [ %22, %21 ]
-  %.sroa.019.040 = phi ptr [ %2, %.lr.ph ], [ %23, %21 ]
-  %.sroa.02.0.copyload = load ptr, ptr %.sroa.7.041, align 8, !tbaa !3
-  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.7.041, i64 8
+  %.sroa.7.042 = phi ptr [ %0, %.lr.ph ], [ %22, %21 ]
+  %.sroa.019.041 = phi ptr [ %2, %.lr.ph ], [ %23, %21 ]
+  %.sroa.02.0.copyload = load ptr, ptr %.sroa.7.042, align 8, !tbaa !3
+  %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.7.042, i64 8
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !8
-  %.sroa.0.0.copyload = load ptr, ptr %.sroa.019.040, align 8, !tbaa !3
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.019.040, i64 8
+  %.sroa.0.0.copyload = load ptr, ptr %.sroa.019.041, align 8, !tbaa !3
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.019.041, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !8
   %.sroa.speculated.i = call i64 @llvm.umin.i64(i64 %.sroa.2.0.copyload, i64 %.sroa.23.0.copyload)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -87,7 +87,7 @@ define dso_local noundef i32 @_ZN4llvm20StrCmpOptionPrefixesENS_8ArrayRefINS_9St
   %12 = call noundef i32 @_ZNK4llvm9StringRef19compare_insensitiveES0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr %.sroa.0.0.copyload, i64 %.sroa.speculated.i) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i = icmp eq i32 %12, 0
-  br i1 %.not.i, label %13, label %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread
+  br i1 %.not.i, label %13, label %.loopexit
 
 13:                                               ; preds = %11
   %14 = icmp eq i64 %.sroa.23.0.copyload, %.sroa.2.0.copyload
@@ -101,29 +101,29 @@ _ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i: ; preds = %15
   %17 = call i32 @memcmp(ptr noundef %.sroa.02.0.copyload, ptr noundef %.sroa.0.0.copyload, i64 noundef %.sroa.23.0.copyload) #6
   %.fr.i.i = freeze i32 %17
   %.not.not.i.i = icmp eq i32 %.fr.i.i, 0
-  br i1 %.not.not.i.i, label %21, label %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread.loopexit.split.loop.exit37
+  br i1 %.not.not.i.i, label %21, label %.loopexit.split.loop.exit36
 
 18:                                               ; preds = %13
   %19 = icmp eq i64 %.sroa.23.0.copyload, %.sroa.speculated.i
   %20 = select i1 %19, i32 1, i32 -1
-  br label %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread
+  br label %.loopexit
 
 21:                                               ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i, %15
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.7.041, i64 16
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.019.040, i64 16
-  %24 = icmp eq ptr %22, %6
-  %25 = icmp eq ptr %23, %7
-  %.not3.i.not = select i1 %24, i1 true, i1 %25
-  br i1 %.not3.i.not, label %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread, label %11
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.7.042, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.019.041, i64 16
+  %24 = icmp ne ptr %22, %6
+  %25 = icmp ne ptr %23, %7
+  %.not3.i = select i1 %24, i1 %25, i1 false
+  br i1 %.not3.i, label %11, label %.loopexit
 
-_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread.loopexit.split.loop.exit37: ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
+.loopexit.split.loop.exit36:                      ; preds = %_ZN4llvm9StringRef13compareMemoryEPKcS2_m.exit.i.i
   %.inv.i.i.le = icmp sgt i32 %.fr.i.i, -1
   %spec.select.i.i.le = select i1 %.inv.i.i.le, i32 1, i32 -1
-  br label %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread
+  br label %.loopexit
 
-_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread: ; preds = %21, %11, %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread.loopexit.split.loop.exit37, %4, %18
-  %spec.select = phi i32 [ %20, %18 ], [ %spec.select.i.i.le, %_ZN4llvm16StrCmpOptionNameENS_9StringRefES0_b.exit.thread.loopexit.split.loop.exit37 ], [ 0, %4 ], [ 0, %21 ], [ %12, %11 ]
-  ret i32 %spec.select
+.loopexit:                                        ; preds = %11, %21, %.loopexit.split.loop.exit36, %4, %18
+  %26 = phi i32 [ %20, %18 ], [ %spec.select.i.i.le, %.loopexit.split.loop.exit36 ], [ 0, %4 ], [ %12, %11 ], [ 0, %21 ]
+  ret i32 %26
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

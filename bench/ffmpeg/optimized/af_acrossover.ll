@@ -165,13 +165,13 @@ define internal i32 @init(ptr noundef %0) #0 {
 
 45:                                               ; preds = %65, %.loopexit65
   %indvars.iv.i = phi i64 [ 0, %.loopexit65 ], [ %indvars.iv.next.i, %65 ]
-  %.02337.i = phi ptr [ %42, %.loopexit65 ], [ null, %65 ]
+  %.02336.i = phi ptr [ %42, %.loopexit65 ], [ null, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %4, i8 0, i64 3, i1 false)
-  %46 = call ptr @av_strtok(ptr noundef %.02337.i, ptr noundef nonnull @.str.44, ptr noundef nonnull %2) #8
+  %46 = call ptr @av_strtok(ptr noundef %.02336.i, ptr noundef nonnull @.str.44, ptr noundef nonnull %2) #8
   %.not.i.not = icmp eq ptr %46, null
-  br i1 %.not.i.not, label %.loopexit32.loopexit.i, label %47
+  br i1 %.not.i.not, label %.loopexit31.loopexit.i, label %47
 
 47:                                               ; preds = %45
   %48 = call i32 (ptr, ptr, ...) @av_sscanf(ptr noundef nonnull %46, ptr noundef nonnull @.str.50, ptr noundef nonnull %3, ptr noundef nonnull %4) #8
@@ -200,7 +200,7 @@ define internal i32 @init(ptr noundef %0) #0 {
   %63 = call nsz float @llvm.exp.f32(float %62)
   br label %65
 
-.loopexit32.loopexit.i:                           ; preds = %45
+.loopexit31.loopexit.i:                           ; preds = %45
   %64 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %.loopexit.i
 
@@ -218,25 +218,25 @@ parse_gains.exit.thread:                          ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.preheader
 
-.loopexit.i:                                      ; preds = %.loopexit32.loopexit.i, %50
-  %.0213842.i = phi i32 [ %51, %50 ], [ %64, %.loopexit32.loopexit.i ]
-  %.2.i = phi i32 [ -22, %50 ], [ 0, %.loopexit32.loopexit.i ]
+.loopexit.i:                                      ; preds = %.loopexit31.loopexit.i, %50
+  %.0213741.i = phi i32 [ %51, %50 ], [ %64, %.loopexit31.loopexit.i ]
+  %.2.i = phi i32 [ -22, %50 ], [ 0, %.loopexit31.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %67 = icmp samesign ult i32 %.0213842.i, 17
+  %67 = icmp samesign ult i32 %.0213741.i, 17
   br i1 %67, label %.lr.ph.i, label %parse_gains.exit
 
 .lr.ph.i:                                         ; preds = %.loopexit.i
-  %68 = zext nneg i32 %.0213842.i to i64
+  %68 = zext nneg i32 %.0213741.i to i64
   br label %69
 
 69:                                               ; preds = %69, %.lr.ph.i
-  %indvars.iv44.i = phi i64 [ %68, %.lr.ph.i ], [ %indvars.iv.next45.i, %69 ]
-  %70 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv44.i
+  %indvars.iv43.i = phi i64 [ %68, %.lr.ph.i ], [ %indvars.iv.next44.i, %69 ]
+  %70 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv43.i
   store float 1.000000e+00, ptr %70, align 4, !tbaa !27
-  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %exitcond47.not.i = icmp eq i64 %indvars.iv.next45.i, 17
-  br i1 %exitcond47.not.i, label %parse_gains.exit, label %69, !llvm.loop !34
+  %indvars.iv.next44.i = add nuw nsw i64 %indvars.iv43.i, 1
+  %exitcond46.not.i = icmp eq i64 %indvars.iv.next44.i, 17
+  br i1 %exitcond46.not.i, label %parse_gains.exit, label %69, !llvm.loop !34
 
 parse_gains.exit:                                 ; preds = %69, %.loopexit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

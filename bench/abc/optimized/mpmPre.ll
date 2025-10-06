@@ -1050,10 +1050,9 @@ define i32 @Mpm_ComputeCnfSizeOne(i64 noundef %0, i32 noundef %1, ptr noundef %2
   store i64 %0, ptr %5, align 8, !tbaa !46
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %6, align 4, !tbaa !52
-  switch i64 %0, label %.preheader [
-    i64 0, label %11
-    i64 -1, label %11
-  ]
+  %.off = add i64 %0, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %.preheader, label %11
 
 .preheader:                                       ; preds = %4
   %7 = getelementptr i8, ptr %2, i64 4
@@ -1063,7 +1062,7 @@ define i32 @Mpm_ComputeCnfSizeOne(i64 noundef %0, i32 noundef %1, ptr noundef %2
   %10 = shl nsw i32 %1, 1
   br label %58
 
-11:                                               ; preds = %4, %4
+11:                                               ; preds = %4
   %12 = icmp eq i64 %0, 0
   %13 = zext i1 %12 to i8
   %14 = load i32, ptr %3, align 8, !tbaa !55

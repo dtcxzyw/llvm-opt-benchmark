@@ -3145,9 +3145,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %103 = load ptr, ptr %102, align 8, !tbaa !226
-  %.not112 = icmp eq ptr %103, null
+  %.not111 = icmp eq ptr %103, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not112, label %.thread88, label %104
+  br i1 %.not111, label %.thread88, label %104
 
 104:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3188,17 +3188,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   %124 = load ptr, ptr %123, align 8, !tbaa !229
   %125 = getelementptr inbounds nuw i8, ptr %27, i64 296
   %126 = load ptr, ptr %125, align 8, !tbaa !229
-  %.not9193 = icmp eq ptr %124, %126
-  br i1 %.not9193, label %._crit_edge.thread, label %.lr.ph
+  %.not9092 = icmp eq ptr %124, %126
+  br i1 %.not9092, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %161
   %127 = icmp eq i64 %.137, %29
   br i1 %127, label %.critedge59, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65, %161
-  %.03695 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %.sroa.082.094 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %128 = load ptr, ptr %.sroa.082.094, align 8, !tbaa !231
+  %.03694 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %.sroa.082.093 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %128 = load ptr, ptr %.sroa.082.093, align 8, !tbaa !231
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 160
   %130 = load i64, ptr %129, align 8, !tbaa !233
   %131 = and i64 %130, %29
@@ -3206,7 +3206,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   br i1 %.not52, label %161, label %132
 
 132:                                              ; preds = %.lr.ph
-  %133 = or i64 %130, %.03695
+  %133 = or i64 %130, %.03694
   %134 = load ptr, ptr %105, align 8, !tbaa !28
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !29
@@ -3259,10 +3259,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72: ; preds = %_ZN
   br label %161
 
 161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72, %.lr.ph
-  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03695, %.lr.ph ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.094, i64 8
-  %.not91 = icmp eq ptr %162, %126
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !235
+  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03694, %.lr.ph ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.093, i64 8
+  %.not90 = icmp eq ptr %162, %126
+  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !235
 
 .critedge59:                                      ; preds = %._crit_edge
   %163 = load ptr, ptr %105, align 8, !tbaa !28
@@ -3888,9 +3888,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %103 = load ptr, ptr %102, align 8, !tbaa !226
-  %.not112 = icmp eq ptr %103, null
+  %.not111 = icmp eq ptr %103, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not112, label %.thread88, label %104
+  br i1 %.not111, label %.thread88, label %104
 
 104:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3931,17 +3931,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   %124 = load ptr, ptr %123, align 8, !tbaa !229
   %125 = getelementptr inbounds nuw i8, ptr %27, i64 296
   %126 = load ptr, ptr %125, align 8, !tbaa !229
-  %.not9193 = icmp eq ptr %124, %126
-  br i1 %.not9193, label %._crit_edge.thread, label %.lr.ph
+  %.not9092 = icmp eq ptr %124, %126
+  br i1 %.not9092, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %161
   %127 = icmp eq i64 %.137, %29
   br i1 %127, label %.critedge59, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65, %161
-  %.03695 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %.sroa.082.094 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %128 = load ptr, ptr %.sroa.082.094, align 8, !tbaa !231
+  %.03694 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %.sroa.082.093 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %128 = load ptr, ptr %.sroa.082.093, align 8, !tbaa !231
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 160
   %130 = load i64, ptr %129, align 8, !tbaa !233
   %131 = and i64 %130, %29
@@ -3949,7 +3949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   br i1 %.not52, label %161, label %132
 
 132:                                              ; preds = %.lr.ph
-  %133 = or i64 %130, %.03695
+  %133 = or i64 %130, %.03694
   %134 = load ptr, ptr %105, align 8, !tbaa !28
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !29
@@ -4002,10 +4002,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72: ; preds = %_ZN
   br label %161
 
 161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72, %.lr.ph
-  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03695, %.lr.ph ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.094, i64 8
-  %.not91 = icmp eq ptr %162, %126
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !250
+  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03694, %.lr.ph ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.093, i64 8
+  %.not90 = icmp eq ptr %162, %126
+  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !250
 
 .critedge59:                                      ; preds = %._crit_edge
   %163 = load ptr, ptr %105, align 8, !tbaa !28
@@ -4384,9 +4384,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %103 = load ptr, ptr %102, align 8, !tbaa !226
-  %.not112 = icmp eq ptr %103, null
+  %.not111 = icmp eq ptr %103, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not112, label %.thread88, label %104
+  br i1 %.not111, label %.thread88, label %104
 
 104:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4427,17 +4427,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   %124 = load ptr, ptr %123, align 8, !tbaa !229
   %125 = getelementptr inbounds nuw i8, ptr %27, i64 296
   %126 = load ptr, ptr %125, align 8, !tbaa !229
-  %.not9193 = icmp eq ptr %124, %126
-  br i1 %.not9193, label %._crit_edge.thread, label %.lr.ph
+  %.not9092 = icmp eq ptr %124, %126
+  br i1 %.not9092, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %161
   %127 = icmp eq i64 %.137, %29
   br i1 %127, label %.critedge59, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65, %161
-  %.03695 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %.sroa.082.094 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %128 = load ptr, ptr %.sroa.082.094, align 8, !tbaa !231
+  %.03694 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %.sroa.082.093 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %128 = load ptr, ptr %.sroa.082.093, align 8, !tbaa !231
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 160
   %130 = load i64, ptr %129, align 8, !tbaa !233
   %131 = and i64 %130, %29
@@ -4445,7 +4445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   br i1 %.not52, label %161, label %132
 
 132:                                              ; preds = %.lr.ph
-  %133 = or i64 %130, %.03695
+  %133 = or i64 %130, %.03694
   %134 = load ptr, ptr %105, align 8, !tbaa !28
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !29
@@ -4498,10 +4498,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72: ; preds = %_ZN
   br label %161
 
 161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72, %.lr.ph
-  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03695, %.lr.ph ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.094, i64 8
-  %.not91 = icmp eq ptr %162, %126
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !251
+  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03694, %.lr.ph ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.093, i64 8
+  %.not90 = icmp eq ptr %162, %126
+  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !251
 
 .critedge59:                                      ; preds = %._crit_edge
   %163 = load ptr, ptr %105, align 8, !tbaa !28
@@ -4990,9 +4990,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %103 = load ptr, ptr %102, align 8, !tbaa !226
-  %.not112 = icmp eq ptr %103, null
+  %.not111 = icmp eq ptr %103, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not112, label %.thread88, label %104
+  br i1 %.not111, label %.thread88, label %104
 
 104:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5033,17 +5033,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   %124 = load ptr, ptr %123, align 8, !tbaa !229
   %125 = getelementptr inbounds nuw i8, ptr %27, i64 296
   %126 = load ptr, ptr %125, align 8, !tbaa !229
-  %.not9193 = icmp eq ptr %124, %126
-  br i1 %.not9193, label %._crit_edge.thread, label %.lr.ph
+  %.not9092 = icmp eq ptr %124, %126
+  br i1 %.not9092, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %161
   %127 = icmp eq i64 %.137, %29
   br i1 %127, label %.critedge59, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65, %161
-  %.03695 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %.sroa.082.094 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %128 = load ptr, ptr %.sroa.082.094, align 8, !tbaa !231
+  %.03694 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %.sroa.082.093 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %128 = load ptr, ptr %.sroa.082.093, align 8, !tbaa !231
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 160
   %130 = load i64, ptr %129, align 8, !tbaa !233
   %131 = and i64 %130, %29
@@ -5051,7 +5051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   br i1 %.not52, label %161, label %132
 
 132:                                              ; preds = %.lr.ph
-  %133 = or i64 %130, %.03695
+  %133 = or i64 %130, %.03694
   %134 = load ptr, ptr %105, align 8, !tbaa !28
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !29
@@ -5104,10 +5104,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72: ; preds = %_ZN
   br label %161
 
 161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72, %.lr.ph
-  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03695, %.lr.ph ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.094, i64 8
-  %.not91 = icmp eq ptr %162, %126
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !259
+  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03694, %.lr.ph ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.093, i64 8
+  %.not90 = icmp eq ptr %162, %126
+  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !259
 
 .critedge59:                                      ; preds = %._crit_edge
   %163 = load ptr, ptr %105, align 8, !tbaa !28
@@ -5521,9 +5521,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %103 = load ptr, ptr %102, align 8, !tbaa !226
-  %.not112 = icmp eq ptr %103, null
+  %.not111 = icmp eq ptr %103, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not112, label %.thread88, label %104
+  br i1 %.not111, label %.thread88, label %104
 
 104:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5564,17 +5564,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   %124 = load ptr, ptr %123, align 8, !tbaa !229
   %125 = getelementptr inbounds nuw i8, ptr %27, i64 296
   %126 = load ptr, ptr %125, align 8, !tbaa !229
-  %.not9193 = icmp eq ptr %124, %126
-  br i1 %.not9193, label %._crit_edge.thread, label %.lr.ph
+  %.not9092 = icmp eq ptr %124, %126
+  br i1 %.not9092, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %161
   %127 = icmp eq i64 %.137, %29
   br i1 %127, label %.critedge59, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65, %161
-  %.03695 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %.sroa.082.094 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %128 = load ptr, ptr %.sroa.082.094, align 8, !tbaa !231
+  %.03694 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %.sroa.082.093 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %128 = load ptr, ptr %.sroa.082.093, align 8, !tbaa !231
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 160
   %130 = load i64, ptr %129, align 8, !tbaa !233
   %131 = and i64 %130, %29
@@ -5582,7 +5582,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   br i1 %.not52, label %161, label %132
 
 132:                                              ; preds = %.lr.ph
-  %133 = or i64 %130, %.03695
+  %133 = or i64 %130, %.03694
   %134 = load ptr, ptr %105, align 8, !tbaa !28
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !29
@@ -5635,10 +5635,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72: ; preds = %_ZN
   br label %161
 
 161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72, %.lr.ph
-  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03695, %.lr.ph ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.094, i64 8
-  %.not91 = icmp eq ptr %162, %126
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !267
+  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03694, %.lr.ph ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.093, i64 8
+  %.not90 = icmp eq ptr %162, %126
+  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !267
 
 .critedge59:                                      ; preds = %._crit_edge
   %163 = load ptr, ptr %105, align 8, !tbaa !28
@@ -6016,9 +6016,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %102 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %103 = load ptr, ptr %102, align 8, !tbaa !226
-  %.not112 = icmp eq ptr %103, null
+  %.not111 = icmp eq ptr %103, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not112, label %.thread88, label %104
+  br i1 %.not111, label %.thread88, label %104
 
 104:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6059,17 +6059,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   %124 = load ptr, ptr %123, align 8, !tbaa !229
   %125 = getelementptr inbounds nuw i8, ptr %27, i64 296
   %126 = load ptr, ptr %125, align 8, !tbaa !229
-  %.not9193 = icmp eq ptr %124, %126
-  br i1 %.not9193, label %._crit_edge.thread, label %.lr.ph
+  %.not9092 = icmp eq ptr %124, %126
+  br i1 %.not9092, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %161
   %127 = icmp eq i64 %.137, %29
   br i1 %127, label %.critedge59, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65, %161
-  %.03695 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %.sroa.082.094 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %128 = load ptr, ptr %.sroa.082.094, align 8, !tbaa !231
+  %.03694 = phi i64 [ %.137, %161 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %.sroa.082.093 = phi ptr [ %162, %161 ], [ %124, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %128 = load ptr, ptr %.sroa.082.093, align 8, !tbaa !231
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 160
   %130 = load i64, ptr %129, align 8, !tbaa !233
   %131 = and i64 %130, %29
@@ -6077,7 +6077,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   br i1 %.not52, label %161, label %132
 
 132:                                              ; preds = %.lr.ph
-  %133 = or i64 %130, %.03695
+  %133 = or i64 %130, %.03694
   %134 = load ptr, ptr %105, align 8, !tbaa !28
   %135 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !29
@@ -6130,10 +6130,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72: ; preds = %_ZN
   br label %161
 
 161:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72, %.lr.ph
-  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03695, %.lr.ph ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.094, i64 8
-  %.not91 = icmp eq ptr %162, %126
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !268
+  %.137 = phi i64 [ %133, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03694, %.lr.ph ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.082.093, i64 8
+  %.not90 = icmp eq ptr %162, %126
+  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !268
 
 .critedge59:                                      ; preds = %._crit_edge
   %163 = load ptr, ptr %105, align 8, !tbaa !28
@@ -6544,9 +6544,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %101 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %102 = load ptr, ptr %101, align 8, !tbaa !226
-  %.not113 = icmp eq ptr %102, null
+  %.not112 = icmp eq ptr %102, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not113, label %.thread88, label %103
+  br i1 %.not112, label %.thread88, label %103
 
 103:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6587,17 +6587,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   %123 = load ptr, ptr %122, align 8, !tbaa !229
   %124 = getelementptr inbounds nuw i8, ptr %27, i64 296
   %125 = load ptr, ptr %124, align 8, !tbaa !229
-  %.not9193 = icmp eq ptr %123, %125
-  br i1 %.not9193, label %._crit_edge.thread, label %.lr.ph
+  %.not9092 = icmp eq ptr %123, %125
+  br i1 %.not9092, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %160
   %126 = icmp eq i64 %1, %.137
   br i1 %126, label %.critedge59, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65, %160
-  %.03695 = phi i64 [ %.137, %160 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %.sroa.082.094 = phi ptr [ %161, %160 ], [ %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %127 = load ptr, ptr %.sroa.082.094, align 8, !tbaa !231
+  %.03694 = phi i64 [ %.137, %160 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %.sroa.082.093 = phi ptr [ %161, %160 ], [ %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %127 = load ptr, ptr %.sroa.082.093, align 8, !tbaa !231
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 160
   %129 = load i64, ptr %128, align 8, !tbaa !233
   %130 = and i64 %129, %1
@@ -6605,7 +6605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   br i1 %.not52, label %160, label %131
 
 131:                                              ; preds = %.lr.ph
-  %132 = or i64 %129, %.03695
+  %132 = or i64 %129, %.03694
   %133 = load ptr, ptr %104, align 8, !tbaa !28
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %135 = load i64, ptr %134, align 8, !tbaa !29
@@ -6658,10 +6658,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72: ; preds = %_ZN
   br label %160
 
 160:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72, %.lr.ph
-  %.137 = phi i64 [ %132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03695, %.lr.ph ]
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.082.094, i64 8
-  %.not91 = icmp eq ptr %161, %125
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !276
+  %.137 = phi i64 [ %132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03694, %.lr.ph ]
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.082.093, i64 8
+  %.not90 = icmp eq ptr %161, %125
+  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !276
 
 .critedge59:                                      ; preds = %._crit_edge
   %162 = load ptr, ptr %104, align 8, !tbaa !28
@@ -7073,9 +7073,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %101 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %102 = load ptr, ptr %101, align 8, !tbaa !226
-  %.not113 = icmp eq ptr %102, null
+  %.not112 = icmp eq ptr %102, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not113, label %.thread88, label %103
+  br i1 %.not112, label %.thread88, label %103
 
 103:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7116,17 +7116,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   %123 = load ptr, ptr %122, align 8, !tbaa !229
   %124 = getelementptr inbounds nuw i8, ptr %27, i64 296
   %125 = load ptr, ptr %124, align 8, !tbaa !229
-  %.not9193 = icmp eq ptr %123, %125
-  br i1 %.not9193, label %._crit_edge.thread, label %.lr.ph
+  %.not9092 = icmp eq ptr %123, %125
+  br i1 %.not9092, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %160
   %126 = icmp eq i64 %1, %.137
   br i1 %126, label %.critedge59, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65, %160
-  %.03695 = phi i64 [ %.137, %160 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %.sroa.082.094 = phi ptr [ %161, %160 ], [ %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
-  %127 = load ptr, ptr %.sroa.082.094, align 8, !tbaa !231
+  %.03694 = phi i64 [ %.137, %160 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %.sroa.082.093 = phi ptr [ %161, %160 ], [ %123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65 ]
+  %127 = load ptr, ptr %.sroa.082.093, align 8, !tbaa !231
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 160
   %129 = load i64, ptr %128, align 8, !tbaa !233
   %130 = and i64 %129, %1
@@ -7134,7 +7134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit65: ; preds = %_ZN
   br i1 %.not52, label %160, label %131
 
 131:                                              ; preds = %.lr.ph
-  %132 = or i64 %129, %.03695
+  %132 = or i64 %129, %.03694
   %133 = load ptr, ptr %104, align 8, !tbaa !28
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %135 = load i64, ptr %134, align 8, !tbaa !29
@@ -7187,10 +7187,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72: ; preds = %_ZN
   br label %160
 
 160:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72, %.lr.ph
-  %.137 = phi i64 [ %132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03695, %.lr.ph ]
-  %161 = getelementptr inbounds nuw i8, ptr %.sroa.082.094, i64 8
-  %.not91 = icmp eq ptr %161, %125
-  br i1 %.not91, label %._crit_edge, label %.lr.ph, !llvm.loop !284
+  %.137 = phi i64 [ %132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit72 ], [ %.03694, %.lr.ph ]
+  %161 = getelementptr inbounds nuw i8, ptr %.sroa.082.093, i64 8
+  %.not90 = icmp eq ptr %161, %125
+  br i1 %.not90, label %._crit_edge, label %.lr.ph, !llvm.loop !284
 
 .critedge59:                                      ; preds = %._crit_edge
   %162 = load ptr, ptr %104, align 8, !tbaa !28
@@ -7773,9 +7773,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %104 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %105 = load ptr, ptr %104, align 8, !tbaa !226
-  %.not113 = icmp eq ptr %105, null
+  %.not112 = icmp eq ptr %105, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not113, label %.thread86, label %106
+  br i1 %.not112, label %.thread86, label %106
 
 106:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7817,8 +7817,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63: ; preds = %_ZN
   %127 = load ptr, ptr %126, align 8, !tbaa !229
   %128 = getelementptr inbounds nuw i8, ptr %28, i64 296
   %129 = load ptr, ptr %128, align 8, !tbaa !229
-  %.not8991 = icmp eq ptr %127, %129
-  br i1 %.not8991, label %._crit_edge.thread, label %.lr.ph
+  %.not8890 = icmp eq ptr %127, %129
+  br i1 %.not8890, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %164
   %.not50 = icmp ne i64 %.137, 0
@@ -7827,9 +7827,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63: ; preds = %_ZN
   br i1 %or.cond, label %.critedge57, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63, %164
-  %.03693 = phi i64 [ %.137, %164 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63 ]
-  %.sroa.080.092 = phi ptr [ %165, %164 ], [ %127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63 ]
-  %131 = load ptr, ptr %.sroa.080.092, align 8, !tbaa !231
+  %.03692 = phi i64 [ %.137, %164 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63 ]
+  %.sroa.080.091 = phi ptr [ %165, %164 ], [ %127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63 ]
+  %131 = load ptr, ptr %.sroa.080.091, align 8, !tbaa !231
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 160
   %133 = load i64, ptr %132, align 8, !tbaa !233
   %134 = and i64 %133, %111
@@ -7837,7 +7837,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63: ; preds = %_ZN
   br i1 %.not51, label %164, label %135
 
 135:                                              ; preds = %.lr.ph
-  %136 = or i64 %133, %.03693
+  %136 = or i64 %133, %.03692
   %137 = load ptr, ptr %107, align 8, !tbaa !28
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %139 = load i64, ptr %138, align 8, !tbaa !29
@@ -7890,10 +7890,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit70: ; preds = %_ZN
   br label %164
 
 164:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit70, %.lr.ph
-  %.137 = phi i64 [ %136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit70 ], [ %.03693, %.lr.ph ]
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.080.092, i64 8
-  %.not89 = icmp eq ptr %165, %129
-  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !293
+  %.137 = phi i64 [ %136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit70 ], [ %.03692, %.lr.ph ]
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.080.091, i64 8
+  %.not88 = icmp eq ptr %165, %129
+  br i1 %.not88, label %._crit_edge, label %.lr.ph, !llvm.loop !293
 
 .critedge57:                                      ; preds = %._crit_edge
   %166 = load ptr, ptr %107, align 8, !tbaa !28
@@ -8355,9 +8355,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread: ; preds =
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i
   %104 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %105 = load ptr, ptr %104, align 8, !tbaa !226
-  %.not113 = icmp eq ptr %105, null
+  %.not112 = icmp eq ptr %105, null
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not113, label %.thread86, label %106
+  br i1 %.not112, label %.thread86, label %106
 
 106:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8399,8 +8399,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63: ; preds = %_ZN
   %127 = load ptr, ptr %126, align 8, !tbaa !229
   %128 = getelementptr inbounds nuw i8, ptr %28, i64 296
   %129 = load ptr, ptr %128, align 8, !tbaa !229
-  %.not8991 = icmp eq ptr %127, %129
-  br i1 %.not8991, label %._crit_edge.thread, label %.lr.ph
+  %.not8890 = icmp eq ptr %127, %129
+  br i1 %.not8890, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %164
   %.not50 = icmp ne i64 %.137, 0
@@ -8409,9 +8409,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63: ; preds = %_ZN
   br i1 %or.cond, label %.critedge57, label %._crit_edge.thread
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63, %164
-  %.03693 = phi i64 [ %.137, %164 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63 ]
-  %.sroa.080.092 = phi ptr [ %165, %164 ], [ %127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63 ]
-  %131 = load ptr, ptr %.sroa.080.092, align 8, !tbaa !231
+  %.03692 = phi i64 [ %.137, %164 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63 ]
+  %.sroa.080.091 = phi ptr [ %165, %164 ], [ %127, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63 ]
+  %131 = load ptr, ptr %.sroa.080.091, align 8, !tbaa !231
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 160
   %133 = load i64, ptr %132, align 8, !tbaa !233
   %134 = and i64 %133, %111
@@ -8419,7 +8419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit63: ; preds = %_ZN
   br i1 %.not51, label %164, label %135
 
 135:                                              ; preds = %.lr.ph
-  %136 = or i64 %133, %.03693
+  %136 = or i64 %133, %.03692
   %137 = load ptr, ptr %107, align 8, !tbaa !28
   %138 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %139 = load i64, ptr %138, align 8, !tbaa !29
@@ -8472,10 +8472,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit70: ; preds = %_ZN
   br label %164
 
 164:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit70, %.lr.ph
-  %.137 = phi i64 [ %136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit70 ], [ %.03693, %.lr.ph ]
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.080.092, i64 8
-  %.not89 = icmp eq ptr %165, %129
-  br i1 %.not89, label %._crit_edge, label %.lr.ph, !llvm.loop !310
+  %.137 = phi i64 [ %136, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit70 ], [ %.03692, %.lr.ph ]
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.080.091, i64 8
+  %.not88 = icmp eq ptr %165, %129
+  br i1 %.not88, label %._crit_edge, label %.lr.ph, !llvm.loop !310
 
 .critedge57:                                      ; preds = %._crit_edge
   %166 = load ptr, ptr %107, align 8, !tbaa !28

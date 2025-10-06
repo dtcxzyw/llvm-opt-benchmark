@@ -3601,10 +3601,9 @@ define noalias noundef ptr @Gia_ManTransfer(ptr noundef readonly captures(none) 
   %26 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val16, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 4, !tbaa !41
-  switch i32 %28, label %29 [
-    i32 0, label %Vec_IntPushUnique.exit
-    i32 -1, label %Vec_IntPushUnique.exit
-  ]
+  %.off = add i32 %28, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %29, label %Vec_IntPushUnique.exit
 
 29:                                               ; preds = %17
   %30 = ashr i32 %28, 1
@@ -3681,10 +3680,10 @@ Vec_IntPush.exit.i:                               ; preds = %Vec_IntPush.exit.i.
   %.val.pre = load i32, ptr %10, align 4, !tbaa !30
   br label %Vec_IntPushUnique.exit
 
-Vec_IntPushUnique.exit:                           ; preds = %34, %Vec_IntPush.exit.i, %17, %17
-  %.val = phi i32 [ %.val.pre, %Vec_IntPush.exit.i ], [ %.val26, %17 ], [ %.val26, %17 ], [ %.val26, %34 ]
-  %.pre.i.i24 = phi ptr [ %.pre.i.i25, %Vec_IntPush.exit.i ], [ %15, %17 ], [ %15, %17 ], [ %15, %34 ]
-  %58 = phi ptr [ %.pre.i.i25, %Vec_IntPush.exit.i ], [ %16, %17 ], [ %16, %17 ], [ %16, %34 ]
+Vec_IntPushUnique.exit:                           ; preds = %34, %Vec_IntPush.exit.i, %17
+  %.val = phi i32 [ %.val.pre, %Vec_IntPush.exit.i ], [ %.val26, %17 ], [ %.val26, %34 ]
+  %.pre.i.i24 = phi ptr [ %.pre.i.i25, %Vec_IntPush.exit.i ], [ %15, %17 ], [ %15, %34 ]
+  %58 = phi ptr [ %.pre.i.i25, %Vec_IntPush.exit.i ], [ %16, %17 ], [ %16, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = sext i32 %.val to i64
   %60 = icmp slt i64 %indvars.iv.next, %59

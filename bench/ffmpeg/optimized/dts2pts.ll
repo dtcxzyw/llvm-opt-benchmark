@@ -736,8 +736,8 @@ define internal i32 @h264_filter(ptr noundef %0) #0 {
 
 131:                                              ; preds = %128
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 67
-  br i1 %exitcond.i, label %.thread213, label %128, !llvm.loop !132
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 67
+  br i1 %exitcond.not.i, label %.thread213, label %128, !llvm.loop !132
 
 .thread:                                          ; preds = %128
   store i32 0, ptr %23, align 8, !tbaa !84

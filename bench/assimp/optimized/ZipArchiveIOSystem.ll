@@ -380,13 +380,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %32, ptr %31, align 8
   %spec.select = call i64 @llvm.umin.i64(i64 %11, i64 65535)
   %39 = call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select) #33
-  %.not53 = icmp eq i64 %11, 0
-  br i1 %.not53, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit44, label %.lr.ph
+  %.not52 = icmp eq i64 %11, 0
+  br i1 %.not52, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit44, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %54
   %40 = phi i64 [ %57, %54 ], [ %11, %38 ]
-  %.02752 = phi i64 [ %56, %54 ], [ 0, %38 ]
-  %41 = sub nuw i64 %40, %.02752
+  %.02751 = phi i64 [ %56, %54 ], [ 0, %38 ]
+  %41 = sub nuw i64 %40, %.02751
   %spec.store.select = call i64 @llvm.umin.i64(i64 %41, i64 65535)
   %42 = trunc nuw nsw i64 %spec.store.select to i32
   %43 = invoke i32 @unzReadCurrentFile(ptr noundef %2, ptr noundef nonnull %39, i32 noundef %42)
@@ -438,9 +438,9 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit: ; preds = %.lr.ph
   br label %59
 
 54:                                               ; preds = %46
-  %55 = getelementptr inbounds nuw i8, ptr %47, i64 %.02752
+  %55 = getelementptr inbounds nuw i8, ptr %47, i64 %.02751
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %55, ptr nonnull align 1 %39, i64 %spec.store.select, i1 false)
-  %56 = add i64 %.02752, %spec.store.select
+  %56 = add i64 %.02751, %spec.store.select
   %57 = load i64, ptr %29, align 8
   %58 = icmp ult i64 %56, %57
   br i1 %58, label %.lr.ph, label %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit44

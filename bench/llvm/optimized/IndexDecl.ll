@@ -2522,17 +2522,17 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119IndexingDeclVisito
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not29 = icmp eq i32 %5, 0
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not27 = icmp eq i32 %5, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %13
-  %9 = getelementptr inbounds nuw i8, ptr %.01530, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.01528, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %8
-  %.01530 = phi ptr [ %9, %8 ], [ %3, %2 ]
-  %10 = load ptr, ptr %.01530, align 8, !tbaa !178
+  %.01528 = phi ptr [ %9, %8 ], [ %3, %2 ]
+  %10 = load ptr, ptr %.01528, align 8, !tbaa !178
   %11 = load ptr, ptr %0, align 8, !tbaa !13
   %12 = tail call noundef zeroext i1 @_ZN5clang5index15IndexingContext11shouldIndexEPKNS_4DeclE(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef %10) #10
   br i1 %12, label %13, label %.thread24.loopexit
@@ -2625,10 +2625,9 @@ _ZNK5clang9FieldDecl11getBitWidthEv.exit:         ; preds = %15
 29:                                               ; preds = %15
   %30 = lshr i32 %17, 2
   %31 = and i32 %30, 3
-  switch i32 %31, label %32 [
-    i32 3, label %35
-    i32 0, label %35
-  ]
+  %.off = add nsw i32 %31, -1
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %32, label %35
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %0, align 8, !tbaa !13
@@ -2636,8 +2635,8 @@ _ZNK5clang9FieldDecl11getBitWidthEv.exit:         ; preds = %15
   call void @_ZN5clang5index15IndexingContext9indexBodyEPKNS_4StmtEPKNS_9NamedDeclEPKNS_11DeclContextE(ptr noundef nonnull align 8 dereferenceable(64) %33, ptr noundef %34, ptr noundef nonnull %1, ptr noundef null) #10
   br label %35
 
-35:                                               ; preds = %29, %29, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %32, %9, %2
-  %.0 = phi i1 [ true, %2 ], [ false, %9 ], [ true, %29 ], [ true, %32 ], [ true, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ true, %29 ]
+35:                                               ; preds = %29, %_ZNK5clang9FieldDecl11getBitWidthEv.exit, %32, %9, %2
+  %.0 = phi i1 [ true, %2 ], [ false, %9 ], [ true, %32 ], [ true, %_ZNK5clang9FieldDecl11getBitWidthEv.exit ], [ true, %29 ]
   %36 = load ptr, ptr %3, align 8, !tbaa !46
   %37 = icmp eq ptr %36, %4
   br i1 %37, label %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit, label %38
@@ -2769,8 +2768,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_119IndexingDeclVisitor36VisitClassT
   %5 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %5, 0
   %6 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %.not.not6.i = icmp eq i64 %6, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not6.i
+  %.not.not5.i = icmp eq i64 %6, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not5.i
   br i1 %.not.not.i, label %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit, label %7
 
 7:                                                ; preds = %2
@@ -2825,8 +2824,8 @@ _ZNK5clang7TagDecl15getQualifierLocEv.exit:       ; preds = %16, %20
   %.not.i.i.i.i = icmp eq i64 %27, 0
   %28 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %29 = inttoptr i64 %28 to ptr
-  %.not.not8.i = icmp eq i64 %28, 0
-  %.not.not.i22 = or i1 %.not.i.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %28, 0
+  %.not.not.i22 = or i1 %.not.i.i.i.i, %.not.not7.i
   br i1 %.not.not.i22, label %_ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %30
 
 30:                                               ; preds = %23
@@ -3379,8 +3378,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119IndexingDeclVisito
   %5 = icmp ne i64 %4, 0
   %6 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
   %7 = inttoptr i64 %6 to ptr
-  %.not.not19 = icmp eq i64 %6, 0
-  %.not.not = or i1 %5, %.not.not19
+  %.not.not18 = icmp eq i64 %6, 0
+  %.not.not = or i1 %5, %.not.not18
   br i1 %.not.not, label %24, label %8
 
 8:                                                ; preds = %2
@@ -3414,7 +3413,7 @@ _ZNK5clang4Decl14getDeclContextEv.exit:           ; preds = %13, %19
 
 24:                                               ; preds = %2
   %.not.i.i.i.i.i = icmp eq i64 %4, 0
-  %.not10 = or i1 %.not.i.i.i.i.i, %.not.not19
+  %.not10 = or i1 %.not.i.i.i.i.i, %.not.not18
   br i1 %.not10, label %.thread, label %25
 
 25:                                               ; preds = %24
@@ -4332,8 +4331,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -4545,8 +4544,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -4622,8 +4621,8 @@ _ZNK5clang4Decl21getLexicalDeclContextEv.exit:    ; preds = %8, %14
   %22 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 4
   %.not.i.i.i.i.i = icmp eq i64 %22, 0
   %23 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
-  %.not.not6.i = icmp eq i64 %23, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not6.i
+  %.not.not5.i = icmp eq i64 %23, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not5.i
   br i1 %.not.not.i, label %_ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.exit, label %24
 
 24:                                               ; preds = %20
@@ -4671,8 +4670,8 @@ _ZNK5clang31ClassTemplateSpecializationDecl31getSpecializedTemplateOrPartialEv.e
   %.not.i.i.i.i = icmp eq i64 %48, 0
   %49 = and i64 %.sroa.01.025, -8
   %50 = inttoptr i64 %49 to ptr
-  %.not.not8.i = icmp eq i64 %49, 0
-  %.not.not.i33 = or i1 %.not.i.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %49, 0
+  %.not.not.i33 = or i1 %.not.i.i.i.i, %.not.not7.i
   br i1 %.not.not.i33, label %_ZNK5clang12DeclListNode8iteratordeEv.exit, label %51
 
 51:                                               ; preds = %47
@@ -5078,11 +5077,11 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_119IndexingDeclVisito
 7:                                                ; preds = %2
   %8 = and i32 %5, 2
   %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %10, label %34
+  br i1 %.not, label %10, label %35
 
 _ZNK5clang15TypedefNameDecl16isTransparentTagEv.exit: ; preds = %2
   %9 = tail call noundef zeroext i1 @_ZNK5clang15TypedefNameDecl20isTransparentTagSlowEv(ptr noundef nonnull align 8 dereferenceable(88) %1) #10
-  br i1 %9, label %34, label %10
+  br i1 %9, label %35, label %10
 
 10:                                               ; preds = %7, %_ZNK5clang15TypedefNameDecl16isTransparentTagEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -5126,24 +5125,24 @@ _ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit: ; preds = %22, %27
 
 30:                                               ; preds = %16, %10, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit
   %.08 = phi i1 [ undef, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ true, %10 ], [ false, %16 ]
-  %switch = phi i1 [ true, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ false, %10 ], [ false, %16 ]
-  %31 = load ptr, ptr %3, align 8, !tbaa !46
-  %32 = icmp eq ptr %31, %11
-  br i1 %32, label %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit, label %33
+  %31 = phi i1 [ true, %_ZNK5clang15TypedefNameDecl17getTypeSourceInfoEv.exit ], [ false, %10 ], [ false, %16 ]
+  %32 = load ptr, ptr %3, align 8, !tbaa !46
+  %33 = icmp eq ptr %32, %11
+  br i1 %33, label %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit, label %34
 
-33:                                               ; preds = %30
-  call void @free(ptr noundef %31) #10
+34:                                               ; preds = %30
+  call void @free(ptr noundef %32) #10
   br label %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit
 
-_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit: ; preds = %30, %33
+_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit: ; preds = %30, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %switch, label %34, label %35
+  br i1 %31, label %35, label %36
 
-34:                                               ; preds = %7, %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit, %_ZNK5clang15TypedefNameDecl16isTransparentTagEv.exit
-  br label %35
+35:                                               ; preds = %7, %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit, %_ZNK5clang15TypedefNameDecl16isTransparentTagEv.exit
+  br label %36
 
-35:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit, %34
-  %.1 = phi i1 [ true, %34 ], [ %.08, %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit ]
+36:                                               ; preds = %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit, %35
+  %.1 = phi i1 [ true, %35 ], [ %.08, %_ZN4llvm11SmallVectorIN5clang5index14SymbolRelationELj4EED2Ev.exit ]
   ret i1 %.1
 }
 

@@ -220,17 +220,17 @@ define internal range(i32 8, -2147483598) i32 @dissect_cesoeth(ptr noundef %0, p
   br i1 %.not115, label %62, label %.preheader
 
 .preheader:                                       ; preds = %48
-  %.0101123 = load ptr, ptr %2, align 8
-  %.not116124 = icmp eq ptr %.0101123, null
-  br i1 %.not116124, label %._crit_edge, label %.lr.ph
+  %.0101122 = load ptr, ptr %2, align 8
+  %.not116123 = icmp eq ptr %.0101122, null
+  br i1 %.not116123, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %50 = load i32, ptr @hf_cesoeth_cw_len, align 4
   br label %51
 
 51:                                               ; preds = %.lr.ph, %59
-  %.0101125 = phi ptr [ %.0101123, %.lr.ph ], [ %.0101, %59 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.0101125, i64 40
+  %.0101124 = phi ptr [ %.0101122, %.lr.ph ], [ %.0101, %59 ]
+  %52 = getelementptr inbounds nuw i8, ptr %.0101124, i64 40
   %53 = load ptr, ptr %52, align 8
   %.not117 = icmp eq ptr %53, null
   br i1 %.not117, label %59, label %54
@@ -243,13 +243,13 @@ define internal range(i32 8, -2147483598) i32 @dissect_cesoeth(ptr noundef %0, p
   br i1 %58, label %._crit_edge, label %59
 
 59:                                               ; preds = %51, %54
-  %60 = getelementptr inbounds nuw i8, ptr %.0101125, i64 16
+  %60 = getelementptr inbounds nuw i8, ptr %.0101124, i64 16
   %.0101 = load ptr, ptr %60, align 8
   %.not116 = icmp eq ptr %.0101, null
   br i1 %.not116, label %._crit_edge, label %51, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %59, %54, %.preheader
-  %.0101.lcssa = phi ptr [ null, %.preheader ], [ %.0101125, %54 ], [ null, %59 ]
+  %.0101.lcssa = phi ptr [ null, %.preheader ], [ %.0101124, %54 ], [ null, %59 ]
   %61 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %.0101.lcssa, ptr noundef nonnull @ei_cesoeth_length, ptr noundef nonnull @.str.58)
   br label %62
 

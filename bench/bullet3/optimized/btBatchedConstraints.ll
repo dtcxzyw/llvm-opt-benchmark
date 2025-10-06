@@ -612,8 +612,8 @@ _ZN20btAlignedObjectArrayIcE7reserveEi.exit.i:    ; preds = %_ZN20btAlignedObjec
   %108 = load i32, ptr %107, align 4, !tbaa !67
   %109 = icmp slt i32 %108, %106
   %110 = icmp slt i32 %105, %106
-  %or.cond490.i = and i1 %110, %109
-  br i1 %or.cond490.i, label %111, label %_ZN20btAlignedObjectArrayIcE7reserveEi.exit.i..lr.ph.preheader.i154.i_crit_edge
+  %or.cond489.i = and i1 %110, %109
+  br i1 %or.cond489.i, label %111, label %_ZN20btAlignedObjectArrayIcE7reserveEi.exit.i..lr.ph.preheader.i154.i_crit_edge
 
 _ZN20btAlignedObjectArrayIcE7reserveEi.exit.i..lr.ph.preheader.i154.i_crit_edge: ; preds = %_ZN20btAlignedObjectArrayIcE7reserveEi.exit.i
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -625,8 +625,8 @@ _ZN20btAlignedObjectArrayIcE7reserveEi.exit.i..lr.ph.preheader.i154.i_crit_edge:
   br i1 %.not.i.i.i.i, label %_ZN20btAlignedObjectArrayIcE8allocateEi.exit.i.i.i, label %112
 
 112:                                              ; preds = %111
-  %sext317.i = shl i64 %73, 32
-  %113 = ashr exact i64 %sext317.i, 32
+  %sext316.i = shl i64 %73, 32
+  %113 = ashr exact i64 %sext316.i, 32
   %114 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef %113, i32 noundef 16)
           to label %.noexc152.i unwind label %103
 
@@ -836,7 +836,7 @@ _ZNK24PreallocatedMemoryHelperILi10EE16setChunkPointersEPv.exit.i: ; preds = %.l
 
 .noexc172.i:                                      ; preds = %._crit_edge.i
   %183 = icmp sgt i32 %.0.lcssa.i.i.i, 0
-  br i1 %183, label %.lr.ph.preheader.i166.i, label %.loopexit320.i
+  br i1 %183, label %.lr.ph.preheader.i166.i, label %.loopexit319.i
 
 .lr.ph.preheader.i166.i:                          ; preds = %.noexc172.i
   %wide.trip.count.i167.i = zext nneg i32 %.0.lcssa.i.i.i to i64
@@ -908,7 +908,7 @@ _ZN9btVector36setMaxERKS_.exit.i.i:               ; preds = %220, %_Z8btSetMaxIf
   %.sroa.641.1.i.i = phi <2 x float> [ %.sroa.641.046.i.i, %191 ], [ %.sroa.641.046.i.i, %.lr.ph.i168.i ], [ %.sroa.641.12.vec.insert.i.i, %220 ], [ %.sroa.641.2.i.i, %_Z8btSetMaxIfEvRT_RKS0_.exit.i.i.i ]
   %indvars.iv.next.i170.i = add nuw nsw i64 %indvars.iv.i169.i, 1
   %exitcond.not.i171.i = icmp eq i64 %indvars.iv.next.i170.i, %wide.trip.count.i167.i
-  br i1 %exitcond.not.i171.i, label %.loopexit320.i, label %.lr.ph.i168.i, !llvm.loop !88
+  br i1 %exitcond.not.i171.i, label %.loopexit319.i, label %.lr.ph.i168.i, !llvm.loop !88
 
 221:                                              ; preds = %_ZNK24PreallocatedMemoryHelperILi10EE16setChunkPointersEPv.exit.i
   %222 = landingpad { ptr, i32 }
@@ -917,11 +917,11 @@ _ZN9btVector36setMaxERKS_.exit.i.i:               ; preds = %220, %_Z8btSetMaxIf
 
 223:                                              ; preds = %_ZN9btVector36setMaxERKS_.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN9btVector36setMaxERKS_.exit.i ]
-  %.sroa.15.0340.i = phi float [ 0x43ABC16D60000000, %.lr.ph.i ], [ %.sroa.15.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
-  %.sroa.9302.0339.i = phi float [ 0x43ABC16D60000000, %.lr.ph.i ], [ %.sroa.9302.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
-  %.sroa.0298.0338.i = phi float [ 0x43ABC16D60000000, %.lr.ph.i ], [ %.sroa.0298.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
-  %.sroa.10290.0337.i = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0.000000e+00>, %.lr.ph.i ], [ %.sroa.10290.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
-  %.sroa.0283.0336.i = phi <2 x float> [ splat (float 0xC3ABC16D60000000), %.lr.ph.i ], [ %.sroa.0283.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
+  %.sroa.15.0339.i = phi float [ 0x43ABC16D60000000, %.lr.ph.i ], [ %.sroa.15.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
+  %.sroa.9302.0338.i = phi float [ 0x43ABC16D60000000, %.lr.ph.i ], [ %.sroa.9302.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
+  %.sroa.0298.0337.i = phi float [ 0x43ABC16D60000000, %.lr.ph.i ], [ %.sroa.0298.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
+  %.sroa.10290.0336.i = phi <2 x float> [ <float 0xC3ABC16D60000000, float 0.000000e+00>, %.lr.ph.i ], [ %.sroa.10290.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
+  %.sroa.0283.0335.i = phi <2 x float> [ splat (float 0xC3ABC16D60000000), %.lr.ph.i ], [ %.sroa.0283.1.i, %_ZN9btVector36setMaxERKS_.exit.i ]
   %224 = load ptr, ptr %179, align 8, !tbaa !89
   %225 = getelementptr inbounds nuw %struct.btSolverBody, ptr %224, i64 %indvars.iv.i
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 48
@@ -951,24 +951,24 @@ _ZN9btVector36setMaxERKS_.exit.i.i:               ; preds = %220, %_Z8btSetMaxIf
   br i1 %229, label %_Z8btSetMinIfEvRT_RKS0_.exit.i.i, label %_ZN9btVector36setMaxERKS_.exit.i
 
 _Z8btSetMinIfEvRT_RKS0_.exit.i.i:                 ; preds = %223
-  %235 = fcmp olt float %.sroa.0269.0.copyload.i, %.sroa.0298.0338.i
-  %.sroa.0298.2.i = select i1 %235, float %.sroa.0269.0.copyload.i, float %.sroa.0298.0338.i
-  %236 = fcmp olt float %.sroa.7272.0.copyload.i, %.sroa.9302.0339.i
-  %.sroa.9302.2.i = select i1 %236, float %.sroa.7272.0.copyload.i, float %.sroa.9302.0339.i
-  %237 = fcmp olt float %.sroa.9276.0.copyload.i, %.sroa.15.0340.i
-  %.sroa.15.2.i = select i1 %237, float %.sroa.9276.0.copyload.i, float %.sroa.15.0340.i
-  %.sroa.0283.0.vec.extract.i = extractelement <2 x float> %.sroa.0283.0336.i, i64 0
+  %235 = fcmp olt float %.sroa.0269.0.copyload.i, %.sroa.0298.0337.i
+  %.sroa.0298.2.i = select i1 %235, float %.sroa.0269.0.copyload.i, float %.sroa.0298.0337.i
+  %236 = fcmp olt float %.sroa.7272.0.copyload.i, %.sroa.9302.0338.i
+  %.sroa.9302.2.i = select i1 %236, float %.sroa.7272.0.copyload.i, float %.sroa.9302.0338.i
+  %237 = fcmp olt float %.sroa.9276.0.copyload.i, %.sroa.15.0339.i
+  %.sroa.15.2.i = select i1 %237, float %.sroa.9276.0.copyload.i, float %.sroa.15.0339.i
+  %.sroa.0283.0.vec.extract.i = extractelement <2 x float> %.sroa.0283.0335.i, i64 0
   %238 = fcmp olt float %.sroa.0283.0.vec.extract.i, %.sroa.0269.0.copyload.i
-  %.sroa.0283.0.vec.insert.i = insertelement <2 x float> %.sroa.0283.0336.i, float %.sroa.0269.0.copyload.i, i64 0
-  %.sroa.0283.2.i = select i1 %238, <2 x float> %.sroa.0283.0.vec.insert.i, <2 x float> %.sroa.0283.0336.i
+  %.sroa.0283.0.vec.insert.i = insertelement <2 x float> %.sroa.0283.0335.i, float %.sroa.0269.0.copyload.i, i64 0
+  %.sroa.0283.2.i = select i1 %238, <2 x float> %.sroa.0283.0.vec.insert.i, <2 x float> %.sroa.0283.0335.i
   %.sroa.0283.4.vec.extract.i = extractelement <2 x float> %.sroa.0283.2.i, i64 1
   %239 = fcmp olt float %.sroa.0283.4.vec.extract.i, %.sroa.7272.0.copyload.i
   %.sroa.0283.4.vec.insert.i = insertelement <2 x float> %.sroa.0283.2.i, float %.sroa.7272.0.copyload.i, i64 1
   %.sroa.0283.3.i = select i1 %239, <2 x float> %.sroa.0283.4.vec.insert.i, <2 x float> %.sroa.0283.2.i
-  %.sroa.10290.8.vec.extract.i = extractelement <2 x float> %.sroa.10290.0337.i, i64 0
+  %.sroa.10290.8.vec.extract.i = extractelement <2 x float> %.sroa.10290.0336.i, i64 0
   %240 = fcmp olt float %.sroa.10290.8.vec.extract.i, %.sroa.9276.0.copyload.i
-  %.sroa.10290.8.vec.insert.i = insertelement <2 x float> %.sroa.10290.0337.i, float %.sroa.9276.0.copyload.i, i64 0
-  %.sroa.10290.2.i = select i1 %240, <2 x float> %.sroa.10290.8.vec.insert.i, <2 x float> %.sroa.10290.0337.i
+  %.sroa.10290.8.vec.insert.i = insertelement <2 x float> %.sroa.10290.0336.i, float %.sroa.9276.0.copyload.i, i64 0
+  %.sroa.10290.2.i = select i1 %240, <2 x float> %.sroa.10290.8.vec.insert.i, <2 x float> %.sroa.10290.0336.i
   %.sroa.10290.12.vec.extract.i = extractelement <2 x float> %.sroa.10290.2.i, i64 1
   %241 = fcmp olt float %.sroa.10290.12.vec.extract.i, %.sroa.11.0.copyload.i
   br i1 %241, label %242, label %_ZN9btVector36setMaxERKS_.exit.i
@@ -978,18 +978,18 @@ _Z8btSetMinIfEvRT_RKS0_.exit.i.i:                 ; preds = %223
   br label %_ZN9btVector36setMaxERKS_.exit.i
 
 _ZN9btVector36setMaxERKS_.exit.i:                 ; preds = %242, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i, %223
-  %.sroa.0283.1.i = phi <2 x float> [ %.sroa.0283.0336.i, %223 ], [ %.sroa.0283.3.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.0283.3.i, %242 ]
-  %.sroa.10290.1.i = phi <2 x float> [ %.sroa.10290.0337.i, %223 ], [ %.sroa.10290.2.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.10290.12.vec.insert.i, %242 ]
-  %.sroa.0298.1.i = phi float [ %.sroa.0298.0338.i, %223 ], [ %.sroa.0298.2.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.0298.2.i, %242 ]
-  %.sroa.9302.1.i = phi float [ %.sroa.9302.0339.i, %223 ], [ %.sroa.9302.2.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.9302.2.i, %242 ]
-  %.sroa.15.1.i = phi float [ %.sroa.15.0340.i, %223 ], [ %.sroa.15.2.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.15.2.i, %242 ]
+  %.sroa.0283.1.i = phi <2 x float> [ %.sroa.0283.0335.i, %223 ], [ %.sroa.0283.3.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.0283.3.i, %242 ]
+  %.sroa.10290.1.i = phi <2 x float> [ %.sroa.10290.0336.i, %223 ], [ %.sroa.10290.2.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.10290.12.vec.insert.i, %242 ]
+  %.sroa.0298.1.i = phi float [ %.sroa.0298.0337.i, %223 ], [ %.sroa.0298.2.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.0298.2.i, %242 ]
+  %.sroa.9302.1.i = phi float [ %.sroa.9302.0338.i, %223 ], [ %.sroa.9302.2.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.9302.2.i, %242 ]
+  %.sroa.15.1.i = phi float [ %.sroa.15.0339.i, %223 ], [ %.sroa.15.2.i, %_Z8btSetMinIfEvRT_RKS0_.exit.i.i ], [ %.sroa.15.2.i, %242 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %243 = load i32, ptr %47, align 4, !tbaa !20
   %244 = sext i32 %243 to i64
   %245 = icmp slt i64 %indvars.iv.next.i, %244
   br i1 %245, label %223, label %._crit_edge.i, !llvm.loop !90
 
-.loopexit320.i:                                   ; preds = %_ZN9btVector36setMaxERKS_.exit.i.i, %.noexc172.i
+.loopexit319.i:                                   ; preds = %_ZN9btVector36setMaxERKS_.exit.i.i, %.noexc172.i
   %.sroa.037.0.lcssa.i.i = phi <2 x float> [ splat (float 0x3F50624DE0000000), %.noexc172.i ], [ %.sroa.037.1.i.i, %_ZN9btVector36setMaxERKS_.exit.i.i ]
   %.sroa.641.0.lcssa.i.i = phi <2 x float> [ <float 0x3F50624DE0000000, float 0.000000e+00>, %.noexc172.i ], [ %.sroa.641.1.i.i, %_ZN9btVector36setMaxERKS_.exit.i.i ]
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %22) #15
@@ -1010,12 +1010,12 @@ _ZN9btVector36setMaxERKS_.exit.i:                 ; preds = %242, %_Z8btSetMinIf
   %250 = fcmp olt float %246, 1.000000e+00
   br i1 %250, label %251, label %_Z8btSetMaxIfEvRT_RKS0_.exit.i178.i
 
-251:                                              ; preds = %.loopexit320.i
+251:                                              ; preds = %.loopexit319.i
   store float 1.000000e+00, ptr %36, align 8, !tbaa !41
   br label %_Z8btSetMaxIfEvRT_RKS0_.exit.i178.i
 
-_Z8btSetMaxIfEvRT_RKS0_.exit.i178.i:              ; preds = %251, %.loopexit320.i
-  %252 = phi float [ 1.000000e+00, %251 ], [ %246, %.loopexit320.i ]
+_Z8btSetMaxIfEvRT_RKS0_.exit.i178.i:              ; preds = %251, %.loopexit319.i
+  %252 = phi float [ 1.000000e+00, %251 ], [ %246, %.loopexit319.i ]
   %253 = fcmp olt float %247, 1.000000e+00
   br i1 %253, label %254, label %_Z8btSetMaxIfEvRT_RKS0_.exit5.i179.i
 
@@ -1061,9 +1061,9 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   %276 = fptosi double %275 to i32
   %277 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 %276, ptr %277, align 4, !tbaa !24
-  br i1 %74, label %.preheader319.i, label %293
+  br i1 %74, label %.preheader318.i, label %293
 
-278:                                              ; preds = %.preheader319.i
+278:                                              ; preds = %.preheader318.i
   %279 = zext nneg i32 %spec.select143.i to i64
   %280 = getelementptr inbounds nuw float, ptr %36, i64 %279
   %281 = load float, ptr %280, align 4, !tbaa !41
@@ -1074,7 +1074,7 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   %285 = and i32 %284, 7
   %286 = xor i32 %285, 7
   %.promoted.pre.i = load float, ptr %37, align 8, !tbaa !41
-  %.promoted352.pre.i = load float, ptr %265, align 4, !tbaa !41
+  %.promoted351.pre.i = load float, ptr %265, align 4, !tbaa !41
   %.sroa.5.0..sroa_idx.promoted.pre.i = load float, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !41
   br label %293
 
@@ -1083,30 +1083,30 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
           cleanup
   br label %.body.i
 
-.preheader319.i:                                  ; preds = %_ZN9btVector36setMaxERKS_.exit181.i, %.preheader319.i
-  %indvars.iv388.i = phi i64 [ %indvars.iv.next389.i, %.preheader319.i ], [ 0, %_ZN9btVector36setMaxERKS_.exit181.i ]
-  %.0124349.i = phi i32 [ %spec.select143.i, %.preheader319.i ], [ 0, %_ZN9btVector36setMaxERKS_.exit181.i ]
-  %.0126348.i = phi i32 [ %spec.select.i, %.preheader319.i ], [ %264, %_ZN9btVector36setMaxERKS_.exit181.i ]
-  %289 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv388.i
+.preheader318.i:                                  ; preds = %_ZN9btVector36setMaxERKS_.exit181.i, %.preheader318.i
+  %indvars.iv387.i = phi i64 [ %indvars.iv.next388.i, %.preheader318.i ], [ 0, %_ZN9btVector36setMaxERKS_.exit181.i ]
+  %.0124348.i = phi i32 [ %spec.select143.i, %.preheader318.i ], [ 0, %_ZN9btVector36setMaxERKS_.exit181.i ]
+  %.0126347.i = phi i32 [ %spec.select.i, %.preheader318.i ], [ %264, %_ZN9btVector36setMaxERKS_.exit181.i ]
+  %289 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv387.i
   %290 = load i32, ptr %289, align 4, !tbaa !24
-  %291 = icmp slt i32 %290, %.0126348.i
-  %spec.select.i = call i32 @llvm.smin.i32(i32 %290, i32 %.0126348.i)
-  %292 = trunc nuw nsw i64 %indvars.iv388.i to i32
-  %spec.select143.i = select i1 %291, i32 %292, i32 %.0124349.i
-  %indvars.iv.next389.i = add nuw nsw i64 %indvars.iv388.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next389.i, 3
-  br i1 %exitcond.not.i, label %278, label %.preheader319.i, !llvm.loop !91
+  %291 = icmp slt i32 %290, %.0126347.i
+  %spec.select.i = call i32 @llvm.smin.i32(i32 %290, i32 %.0126347.i)
+  %292 = trunc nuw nsw i64 %indvars.iv387.i to i32
+  %spec.select143.i = select i1 %291, i32 %292, i32 %.0124348.i
+  %indvars.iv.next388.i = add nuw nsw i64 %indvars.iv387.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next388.i, 3
+  br i1 %exitcond.not.i, label %278, label %.preheader318.i, !llvm.loop !91
 
 293:                                              ; preds = %278, %_ZN9btVector36setMaxERKS_.exit181.i
   %.sroa.5.0..sroa_idx.promoted.i = phi float [ %.sroa.5.0..sroa_idx.promoted.pre.i, %278 ], [ %272, %_ZN9btVector36setMaxERKS_.exit181.i ]
-  %.promoted352.i = phi float [ %.promoted352.pre.i, %278 ], [ %266, %_ZN9btVector36setMaxERKS_.exit181.i ]
+  %.promoted351.i = phi float [ %.promoted351.pre.i, %278 ], [ %266, %_ZN9btVector36setMaxERKS_.exit181.i ]
   %.promoted.i = phi float [ %.promoted.pre.i, %278 ], [ %260, %_ZN9btVector36setMaxERKS_.exit181.i ]
   %.0122.i = phi i32 [ %286, %278 ], [ 7, %_ZN9btVector36setMaxERKS_.exit181.i ]
   br label %294
 
 294:                                              ; preds = %322, %293
   %295 = phi float [ %325, %322 ], [ %.sroa.5.0..sroa_idx.promoted.i, %293 ]
-  %296 = phi float [ %324, %322 ], [ %.promoted352.i, %293 ]
+  %296 = phi float [ %324, %322 ], [ %.promoted351.i, %293 ]
   %297 = phi float [ %323, %322 ], [ %.promoted.i, %293 ]
   %298 = fdiv float %252, %297
   %299 = fpext float %298 to double
@@ -1156,28 +1156,28 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   %329 = fdiv float 1.000000e+00, %295
   %330 = load i32, ptr %47, align 4, !tbaa !20
   %331 = icmp sgt i32 %330, 0
-  br i1 %331, label %.lr.ph359.i, label %.preheader318.i
+  br i1 %331, label %.lr.ph358.i, label %.preheader317.i
 
-.lr.ph359.i:                                      ; preds = %326
+.lr.ph358.i:                                      ; preds = %326
   %332 = load ptr, ptr %29, align 8, !tbaa !49
   %333 = load ptr, ptr %28, align 8, !tbaa !47
   %334 = load ptr, ptr %27, align 8
   br label %336
 
-.preheader318.i:                                  ; preds = %357, %326
+.preheader317.i:                                  ; preds = %357, %326
   %335 = zext nneg i32 %314 to i64
   br label %378
 
-336:                                              ; preds = %357, %.lr.ph359.i
-  %indvars.iv391.i = phi i64 [ 0, %.lr.ph359.i ], [ %indvars.iv.next392.i, %357 ]
-  %337 = getelementptr inbounds nuw %struct.btIntVec3, ptr %332, i64 %indvars.iv391.i
-  %338 = getelementptr inbounds nuw i8, ptr %333, i64 %indvars.iv391.i
+336:                                              ; preds = %357, %.lr.ph358.i
+  %indvars.iv390.i = phi i64 [ 0, %.lr.ph358.i ], [ %indvars.iv.next391.i, %357 ]
+  %337 = getelementptr inbounds nuw %struct.btIntVec3, ptr %332, i64 %indvars.iv390.i
+  %338 = getelementptr inbounds nuw i8, ptr %333, i64 %indvars.iv390.i
   %339 = load i8, ptr %338, align 1, !tbaa !86, !range !43, !noundef !87
   %340 = trunc nuw i8 %339 to i1
   br i1 %340, label %341, label %357
 
 341:                                              ; preds = %336
-  %342 = getelementptr inbounds nuw %class.btVector3, ptr %334, i64 %indvars.iv391.i
+  %342 = getelementptr inbounds nuw %class.btVector3, ptr %334, i64 %indvars.iv390.i
   %343 = load float, ptr %342, align 4, !tbaa !41
   %344 = fsub float %343, %.sroa.0298.0.lcssa.i
   %345 = getelementptr inbounds nuw i8, ptr %342, i64 4
@@ -1195,19 +1195,19 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   br label %357
 
 357:                                              ; preds = %341, %336
-  %.sink412.i = phi i32 [ %354, %341 ], [ -1, %336 ]
-  %.sink411.i = phi i32 [ %355, %341 ], [ -1, %336 ]
+  %.sink411.i = phi i32 [ %354, %341 ], [ -1, %336 ]
+  %.sink410.i = phi i32 [ %355, %341 ], [ -1, %336 ]
   %.sink.i = phi i32 [ %356, %341 ], [ -1, %336 ]
-  store i32 %.sink412.i, ptr %337, align 4, !tbaa !24
+  store i32 %.sink411.i, ptr %337, align 4, !tbaa !24
   %358 = getelementptr inbounds nuw i8, ptr %337, i64 4
-  store i32 %.sink411.i, ptr %358, align 4, !tbaa !24
+  store i32 %.sink410.i, ptr %358, align 4, !tbaa !24
   %359 = getelementptr inbounds nuw i8, ptr %337, i64 8
   store i32 %.sink.i, ptr %359, align 4, !tbaa !24
-  %indvars.iv.next392.i = add nuw nsw i64 %indvars.iv391.i, 1
+  %indvars.iv.next391.i = add nuw nsw i64 %indvars.iv390.i, 1
   %360 = load i32, ptr %47, align 4, !tbaa !20
   %361 = sext i32 %360 to i64
-  %362 = icmp slt i64 %indvars.iv.next392.i, %361
-  br i1 %362, label %336, label %.preheader318.i, !llvm.loop !92
+  %362 = icmp slt i64 %indvars.iv.next391.i, %361
+  br i1 %362, label %336, label %.preheader317.i, !llvm.loop !92
 
 363:                                              ; preds = %382
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
@@ -1245,37 +1245,37 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   invoke void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef 0, i32 noundef %.0.lcssa.i.i.i, i32 noundef 250, ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %387 unwind label %391
 
-378:                                              ; preds = %382, %.preheader318.i
-  %indvars.iv399.i = phi i64 [ 0, %.preheader318.i ], [ %380, %382 ]
-  %indvars.iv394.i = phi i32 [ 0, %.preheader318.i ], [ %indvars.iv.next395.i, %382 ]
-  %379 = zext i32 %indvars.iv394.i to i64
-  %380 = add nuw nsw i64 %indvars.iv399.i, 1
+378:                                              ; preds = %382, %.preheader317.i
+  %indvars.iv398.i = phi i64 [ 0, %.preheader317.i ], [ %380, %382 ]
+  %indvars.iv393.i = phi i32 [ 0, %.preheader317.i ], [ %indvars.iv.next394.i, %382 ]
+  %379 = zext i32 %indvars.iv393.i to i64
+  %380 = add nuw nsw i64 %indvars.iv398.i, 1
   %381 = mul nuw nsw i64 %380, %335
   br label %383
 
 382:                                              ; preds = %383
-  %indvars.iv.next395.i = add i32 %indvars.iv394.i, %314
-  %exitcond402.not.i = icmp eq i64 %380, 8
-  br i1 %exitcond402.not.i, label %363, label %378, !llvm.loop !106
+  %indvars.iv.next394.i = add i32 %indvars.iv393.i, %314
+  %exitcond401.not.i = icmp eq i64 %380, 8
+  br i1 %exitcond401.not.i, label %363, label %378, !llvm.loop !106
 
 383:                                              ; preds = %383, %378
-  %indvars.iv396.i = phi i64 [ %379, %378 ], [ %indvars.iv.next397.i, %383 ]
+  %indvars.iv395.i = phi i64 [ %379, %378 ], [ %indvars.iv.next396.i, %383 ]
   %384 = load ptr, ptr %30, align 8, !tbaa !51
-  %385 = getelementptr inbounds nuw %struct.btBatchInfo, ptr %384, i64 %indvars.iv396.i
+  %385 = getelementptr inbounds nuw %struct.btBatchInfo, ptr %384, i64 %indvars.iv395.i
   store i64 -4294967296, ptr %385, align 4
-  %indvars.iv.next397.i = add nuw nsw i64 %indvars.iv396.i, 1
-  %386 = icmp samesign ult i64 %indvars.iv.next397.i, %381
+  %indvars.iv.next396.i = add nuw nsw i64 %indvars.iv395.i, 1
+  %386 = icmp samesign ult i64 %indvars.iv.next396.i, %381
   br i1 %386, label %383, label %382, !llvm.loop !107
 
 387:                                              ; preds = %363
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br i1 %183, label %.lr.ph364.i, label %.preheader.i.preheader
+  br i1 %183, label %.lr.ph363.i, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %393, %387
   br label %.preheader.i
 
-.lr.ph364.i:                                      ; preds = %387
+.lr.ph363.i:                                      ; preds = %387
   %388 = load ptr, ptr %32, align 8, !tbaa !54
   %389 = load ptr, ptr %33, align 8, !tbaa !53
   %390 = load ptr, ptr %30, align 8, !tbaa !51
@@ -1289,10 +1289,10 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   br label %.body198.i
 
-393:                                              ; preds = %393, %.lr.ph364.i
-  %indvars.iv403.i = phi i64 [ 0, %.lr.ph364.i ], [ %indvars.iv.next404.i, %393 ]
-  %394 = getelementptr inbounds nuw %struct.btBatchedConstraintInfo, ptr %388, i64 %indvars.iv403.i
-  %395 = getelementptr inbounds nuw i32, ptr %389, i64 %indvars.iv403.i
+393:                                              ; preds = %393, %.lr.ph363.i
+  %indvars.iv402.i = phi i64 [ 0, %.lr.ph363.i ], [ %indvars.iv.next403.i, %393 ]
+  %394 = getelementptr inbounds nuw %struct.btBatchedConstraintInfo, ptr %388, i64 %indvars.iv402.i
+  %395 = getelementptr inbounds nuw i32, ptr %389, i64 %indvars.iv402.i
   %396 = load i32, ptr %395, align 4, !tbaa !24
   %397 = sext i32 %396 to i64
   %398 = getelementptr inbounds %struct.btBatchInfo, ptr %390, i64 %397
@@ -1301,9 +1301,9 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   %401 = load i32, ptr %398, align 4, !tbaa !108
   %402 = add nsw i32 %401, %400
   store i32 %402, ptr %398, align 4, !tbaa !108
-  %indvars.iv.next404.i = add nuw nsw i64 %indvars.iv403.i, 1
-  %exitcond406.not.i = icmp eq i64 %indvars.iv.next404.i, %wide.trip.count.i
-  br i1 %exitcond406.not.i, label %.preheader.i.preheader, label %393, !llvm.loop !110
+  %indvars.iv.next403.i = add nuw nsw i64 %indvars.iv402.i, 1
+  %exitcond405.not.i = icmp eq i64 %indvars.iv.next403.i, %wide.trip.count.i
+  br i1 %exitcond405.not.i, label %.preheader.i.preheader, label %393, !llvm.loop !110
 
 403:                                              ; preds = %458
   %404 = load ptr, ptr %33, align 8, !tbaa !53
@@ -1334,53 +1334,53 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   br label %.body198.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %458
-  %indvars.iv407.i = phi i64 [ %indvars.iv.next408.i, %458 ], [ 0, %.preheader.i.preheader ]
-  %412 = trunc nuw nsw i64 %indvars.iv407.i to i32
+  %indvars.iv406.i = phi i64 [ %indvars.iv.next407.i, %458 ], [ 0, %.preheader.i.preheader ]
+  %412 = trunc nuw nsw i64 %indvars.iv406.i to i32
   %413 = and i32 %.0122.i, %412
   %414 = zext nneg i32 %413 to i64
-  %415 = icmp eq i64 %indvars.iv407.i, %414
+  %415 = icmp eq i64 %indvars.iv406.i, %414
   br i1 %415, label %416, label %458
 
 416:                                              ; preds = %.preheader.i
   %417 = load ptr, ptr %30, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   invoke void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %19, ptr noundef nonnull @.str.5)
-          to label %.lr.ph68.preheader.i.i unwind label %456
+          to label %.lr.ph67.preheader.i.i unwind label %456
 
-.lr.ph68.preheader.i.i:                           ; preds = %416
-  %418 = mul nuw nsw i64 %indvars.iv407.i, %335
+.lr.ph67.preheader.i.i:                           ; preds = %416
+  %418 = mul nuw nsw i64 %indvars.iv406.i, %335
   %419 = add nuw nsw i64 %418, %335
   %420 = trunc nuw nsw i64 %419 to i32
   %421 = add nsw i32 %420, -2
   %invariant.op.i.i = add nuw nsw i64 %418, 2
-  br label %.lr.ph68.i.i
+  br label %.lr.ph67.i.i
 
-.lr.ph68.i.i:                                     ; preds = %.loopexit58.i.i, %.lr.ph68.preheader.i.i
-  %indvars.iv82.i.i = phi i64 [ %419, %.lr.ph68.preheader.i.i ], [ %indvars.iv.next83.i.i, %.loopexit58.i.i ]
-  %indvars.iv.i200.i = phi i32 [ %421, %.lr.ph68.preheader.i.i ], [ %indvars.iv.next.i201.i, %.loopexit58.i.i ]
-  %indvars.iv.next83.i.i = add nsw i64 %indvars.iv82.i.i, -1
-  %422 = getelementptr inbounds nuw %struct.btBatchInfo, ptr %417, i64 %indvars.iv.next83.i.i
+.lr.ph67.i.i:                                     ; preds = %.loopexit57.i.i, %.lr.ph67.preheader.i.i
+  %indvars.iv81.i.i = phi i64 [ %419, %.lr.ph67.preheader.i.i ], [ %indvars.iv.next82.i.i, %.loopexit57.i.i ]
+  %indvars.iv.i200.i = phi i32 [ %421, %.lr.ph67.preheader.i.i ], [ %indvars.iv.next.i201.i, %.loopexit57.i.i ]
+  %indvars.iv.next82.i.i = add nsw i64 %indvars.iv81.i.i, -1
+  %422 = getelementptr inbounds nuw %struct.btBatchInfo, ptr %417, i64 %indvars.iv.next82.i.i
   %423 = getelementptr inbounds nuw i8, ptr %422, i64 4
   %424 = load i32, ptr %423, align 4, !tbaa !115
   %425 = icmp eq i32 %424, -1
-  br i1 %425, label %426, label %.loopexit58.i.i
+  br i1 %425, label %426, label %.loopexit57.i.i
 
-426:                                              ; preds = %.lr.ph68.i.i
+426:                                              ; preds = %.lr.ph67.i.i
   %427 = load i32, ptr %422, align 4, !tbaa !108
   %428 = icmp slt i32 %427, 1
   %429 = icmp sge i32 %427, %4
-  %or.cond.not74.i.i = or i1 %428, %429
-  %.not5462.i.i = icmp slt i64 %indvars.iv82.i.i, %invariant.op.i.i
-  %or.cond71.i.i = select i1 %or.cond.not74.i.i, i1 true, i1 %.not5462.i.i
-  br i1 %or.cond71.i.i, label %.loopexit58.i.i, label %.lr.ph.i204.preheader.i
+  %or.cond.not73.i.i = or i1 %428, %429
+  %.not5461.i.i = icmp slt i64 %indvars.iv81.i.i, %invariant.op.i.i
+  %or.cond70.i.i = select i1 %or.cond.not73.i.i, i1 true, i1 %.not5461.i.i
+  br i1 %or.cond70.i.i, label %.loopexit57.i.i, label %.lr.ph.i204.preheader.i
 
 .lr.ph.i204.preheader.i:                          ; preds = %426
   %430 = sext i32 %indvars.iv.i200.i to i64
   br label %.lr.ph.i204.i
 
 .lr.ph.i204.i:                                    ; preds = %440, %.lr.ph.i204.preheader.i
-  %indvars.iv79.i.i = phi i64 [ %indvars.iv.next80.i.i, %440 ], [ %430, %.lr.ph.i204.preheader.i ]
-  %431 = getelementptr inbounds %struct.btBatchInfo, ptr %417, i64 %indvars.iv79.i.i
+  %indvars.iv78.i.i = phi i64 [ %indvars.iv.next79.i.i, %440 ], [ %430, %.lr.ph.i204.preheader.i ]
+  %431 = getelementptr inbounds %struct.btBatchInfo, ptr %417, i64 %indvars.iv78.i.i
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 4
   %433 = load i32, ptr %432, align 4, !tbaa !115
   %434 = icmp eq i32 %433, -1
@@ -1393,31 +1393,31 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   br i1 %438, label %.critedge.i.i, label %440
 
 .critedge.i.i:                                    ; preds = %435
-  %439 = trunc nsw i64 %indvars.iv79.i.i to i32
+  %439 = trunc nsw i64 %indvars.iv78.i.i to i32
   store i32 %437, ptr %431, align 4, !tbaa !108
   store i32 0, ptr %422, align 4, !tbaa !108
   store i32 %439, ptr %423, align 4, !tbaa !115
-  br label %.loopexit58.i.i
+  br label %.loopexit57.i.i
 
 440:                                              ; preds = %435, %.lr.ph.i204.i
-  %indvars.iv.next80.i.i = add nsw i64 %indvars.iv79.i.i, -1
-  %.not54.not.i.i = icmp sgt i64 %indvars.iv79.i.i, %418
-  br i1 %.not54.not.i.i, label %.lr.ph.i204.i, label %.loopexit58.i.i, !llvm.loop !116
+  %indvars.iv.next79.i.i = add nsw i64 %indvars.iv78.i.i, -1
+  %.not54.not.i.i = icmp sgt i64 %indvars.iv78.i.i, %418
+  br i1 %.not54.not.i.i, label %.lr.ph.i204.i, label %.loopexit57.i.i, !llvm.loop !116
 
-.loopexit58.i.i:                                  ; preds = %440, %.critedge.i.i, %426, %.lr.ph68.i.i
-  %.not.not.i.i = icmp sgt i64 %indvars.iv.next83.i.i, %418
+.loopexit57.i.i:                                  ; preds = %440, %.critedge.i.i, %426, %.lr.ph67.i.i
+  %.not.not.i.i = icmp sgt i64 %indvars.iv.next82.i.i, %418
   %indvars.iv.next.i201.i = add i32 %indvars.iv.i200.i, -1
-  br i1 %.not.not.i.i, label %.lr.ph68.i.i, label %.lr.ph70.i.i, !llvm.loop !117
+  br i1 %.not.not.i.i, label %.lr.ph67.i.i, label %.lr.ph69.i.i, !llvm.loop !117
 
-.lr.ph70.i.i:                                     ; preds = %.loopexit58.i.i, %.loopexit.i.i
-  %indvars.iv85.i.i = phi i64 [ %indvars.iv.next86.i.i, %.loopexit.i.i ], [ %418, %.loopexit58.i.i ]
-  %441 = getelementptr inbounds nuw %struct.btBatchInfo, ptr %417, i64 %indvars.iv85.i.i
+.lr.ph69.i.i:                                     ; preds = %.loopexit57.i.i, %.loopexit.i.i
+  %indvars.iv84.i.i = phi i64 [ %indvars.iv.next85.i.i, %.loopexit.i.i ], [ %418, %.loopexit57.i.i ]
+  %441 = getelementptr inbounds nuw %struct.btBatchInfo, ptr %417, i64 %indvars.iv84.i.i
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 4
   %443 = load i32, ptr %442, align 4, !tbaa !115
   %.not.i.i = icmp eq i32 %443, -1
   br i1 %.not.i.i, label %.loopexit.i.i, label %444
 
-444:                                              ; preds = %.lr.ph70.i.i
+444:                                              ; preds = %.lr.ph69.i.i
   %445 = sext i32 %443 to i64
   %446 = getelementptr inbounds %struct.btBatchInfo, ptr %417, i64 %445
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 4
@@ -1441,10 +1441,10 @@ _ZN9btVector36setMaxERKS_.exit181.i:              ; preds = %258, %_Z8btSetMaxIf
   store i32 %.042.i.i, ptr %442, align 4, !tbaa !115
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %449, %.thread.i.i, %.lr.ph70.i.i
-  %indvars.iv.next86.i.i = add nuw nsw i64 %indvars.iv85.i.i, 1
-  %exitcond.not.i203.i = icmp eq i64 %indvars.iv.next86.i.i, %419
-  br i1 %exitcond.not.i203.i, label %_ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i, label %.lr.ph70.i.i, !llvm.loop !118
+.loopexit.i.i:                                    ; preds = %449, %.thread.i.i, %.lr.ph69.i.i
+  %indvars.iv.next85.i.i = add nuw nsw i64 %indvars.iv84.i.i, 1
+  %exitcond.not.i203.i = icmp eq i64 %indvars.iv.next85.i.i, %419
+  br i1 %exitcond.not.i203.i, label %_ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i, label %.lr.ph69.i.i, !llvm.loop !118
 
 _ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i:  ; preds = %.loopexit.i.i
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %19) #15
@@ -1457,9 +1457,9 @@ _ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i:  ; preds = %.loopexit.i.i
   br label %.body198.i
 
 458:                                              ; preds = %_ZL17mergeSmallBatchesP11btBatchInfoiiii.exit.i, %.preheader.i
-  %indvars.iv.next408.i = add nuw nsw i64 %indvars.iv407.i, 1
-  %exitcond410.not.i = icmp eq i64 %indvars.iv.next408.i, 8
-  br i1 %exitcond410.not.i, label %403, label %.preheader.i, !llvm.loop !119
+  %indvars.iv.next407.i = add nuw nsw i64 %indvars.iv406.i, 1
+  %exitcond409.not.i = icmp eq i64 %indvars.iv.next407.i, 8
+  br i1 %exitcond409.not.i, label %403, label %.preheader.i, !llvm.loop !119
 
 459:                                              ; preds = %.noexc197.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1502,7 +1502,7 @@ _ZL22expandConstraintRowsMtPiPKiPK23btBatchedConstraintInfoii.exit.i: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %17) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  %.pre416.i = load ptr, ptr %34, align 8, !tbaa !53
+  %.pre415.i = load ptr, ptr %34, align 8, !tbaa !53
   br label %475
 
 471:                                              ; preds = %475, %461, %403
@@ -1516,7 +1516,7 @@ _ZL22expandConstraintRowsMtPiPKiPK23btBatchedConstraintInfoii.exit.i: ; preds = 
   br label %475
 
 475:                                              ; preds = %473, %_ZL22expandConstraintRowsMtPiPKiPK23btBatchedConstraintInfoii.exit.i
-  %476 = phi ptr [ %.pre416.i, %_ZL22expandConstraintRowsMtPiPKiPK23btBatchedConstraintInfoii.exit.i ], [ %474, %473 ]
+  %476 = phi ptr [ %.pre415.i, %_ZL22expandConstraintRowsMtPiPKiPK23btBatchedConstraintInfoii.exit.i ], [ %474, %473 ]
   %477 = load ptr, ptr %30, align 8, !tbaa !51
   %478 = load ptr, ptr %31, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %16)

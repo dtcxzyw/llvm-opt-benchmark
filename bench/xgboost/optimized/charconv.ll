@@ -749,23 +749,23 @@ select.unfold:                                    ; preds = %13, %19
   %128 = icmp uge i32 %127, %109
   %or.cond250 = select i1 %126, i1 %128, i1 false
   %129 = urem i32 %.0169266327342, 5
-  %.not15.i.i = icmp eq i32 %129, 0
-  %or.cond361 = and i1 %or.cond250, %.not15.i.i
+  %.not14.i.i = icmp eq i32 %129, 0
+  %or.cond361 = and i1 %or.cond250, %.not14.i.i
   br i1 %or.cond361, label %.lr.ph.i.i.preheader, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
 130:                                              ; preds = %103
   %.old = urem i32 %.0169266327342, 5
-  %.not15.i.i.old = icmp eq i32 %.old, 0
-  br i1 %.not15.i.i.old, label %.lr.ph.i.i.preheader, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
+  %.not14.i.i.old = icmp eq i32 %.old, 0
+  br i1 %.not14.i.i.old, label %.lr.ph.i.i.preheader, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
 
 .lr.ph.i.i.preheader:                             ; preds = %125, %130
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %.lr.ph.i.i
-  %.0717.i.i = phi i32 [ %131, %.lr.ph.i.i ], [ %.0169266327342, %.lr.ph.i.i.preheader ]
-  %.0816.i.i = phi i32 [ %132, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
-  %131 = udiv i32 %.0717.i.i, 5
-  %132 = add i32 %.0816.i.i, 1
+  %.0716.i.i = phi i32 [ %131, %.lr.ph.i.i ], [ %.0169266327342, %.lr.ph.i.i.preheader ]
+  %.0815.i.i = phi i32 [ %132, %.lr.ph.i.i ], [ 0, %.lr.ph.i.i.preheader ]
+  %131 = udiv i32 %.0716.i.i, 5
+  %132 = add i32 %.0815.i.i, 1
   %133 = urem i32 %131, 5
   %.not.i.i = icmp eq i32 %133, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit.loopexit
@@ -949,10 +949,10 @@ define linkonce_odr noundef zeroext i8 @_ZN7xgboost6detail17PowerBaseComputer13T
   br i1 %75, label %.lr.ph.i.i, label %81
 
 .lr.ph.i.i:                                       ; preds = %.thread, %.lr.ph.i.i
-  %.0717.i.i = phi i32 [ %76, %.lr.ph.i.i ], [ %.sroa.11.8.extract.trunc, %.thread ]
-  %.0816.i.i = phi i32 [ %77, %.lr.ph.i.i ], [ 0, %.thread ]
-  %76 = udiv i32 %.0717.i.i, 5
-  %77 = add i32 %.0816.i.i, 1
+  %.0716.i.i = phi i32 [ %76, %.lr.ph.i.i ], [ %.sroa.11.8.extract.trunc, %.thread ]
+  %.0815.i.i = phi i32 [ %77, %.lr.ph.i.i ], [ 0, %.thread ]
+  %76 = udiv i32 %.0716.i.i, 5
+  %77 = add i32 %.0815.i.i, 1
   %78 = urem i32 %76, 5
   %.not.i.i = icmp eq i32 %78, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit
@@ -968,14 +968,14 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit: ; preds = %.lr.p
 
 82:                                               ; preds = %81
   %83 = urem i32 %.sroa.8.0.extract.trunc, 5
-  %.not15.i.i83 = icmp eq i32 %83, 0
-  br i1 %.not15.i.i83, label %.lr.ph.i.i85, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89
+  %.not14.i.i83 = icmp eq i32 %83, 0
+  br i1 %.not14.i.i83, label %.lr.ph.i.i85, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89
 
 .lr.ph.i.i85:                                     ; preds = %82, %.lr.ph.i.i85
-  %.0717.i.i86 = phi i32 [ %84, %.lr.ph.i.i85 ], [ %.sroa.8.0.extract.trunc, %82 ]
-  %.0816.i.i87 = phi i32 [ %85, %.lr.ph.i.i85 ], [ 0, %82 ]
-  %84 = udiv i32 %.0717.i.i86, 5
-  %85 = add i32 %.0816.i.i87, 1
+  %.0716.i.i86 = phi i32 [ %84, %.lr.ph.i.i85 ], [ %.sroa.8.0.extract.trunc, %82 ]
+  %.0815.i.i87 = phi i32 [ %85, %.lr.ph.i.i85 ], [ 0, %82 ]
+  %84 = udiv i32 %.0716.i.i86, 5
+  %85 = add i32 %.0815.i.i87, 1
   %86 = urem i32 %84, 5
   %.not.i.i88 = icmp eq i32 %86, 0
   br i1 %.not.i.i88, label %.lr.ph.i.i85, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89
@@ -989,14 +989,14 @@ _ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit89: ; preds = %.lr
 
 89:                                               ; preds = %81
   %90 = urem i32 %.sroa.19.8.extract.trunc, 5
-  %.not15.i.i90 = icmp eq i32 %90, 0
-  br i1 %.not15.i.i90, label %.lr.ph.i.i92, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96
+  %.not14.i.i90 = icmp eq i32 %90, 0
+  br i1 %.not14.i.i90, label %.lr.ph.i.i92, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96
 
 .lr.ph.i.i92:                                     ; preds = %89, %.lr.ph.i.i92
-  %.0717.i.i93 = phi i32 [ %91, %.lr.ph.i.i92 ], [ %.sroa.19.8.extract.trunc, %89 ]
-  %.0816.i.i94 = phi i32 [ %92, %.lr.ph.i.i92 ], [ 0, %89 ]
-  %91 = udiv i32 %.0717.i.i93, 5
-  %92 = add i32 %.0816.i.i94, 1
+  %.0716.i.i93 = phi i32 [ %91, %.lr.ph.i.i92 ], [ %.sroa.19.8.extract.trunc, %89 ]
+  %.0815.i.i94 = phi i32 [ %92, %.lr.ph.i.i92 ], [ 0, %89 ]
+  %91 = udiv i32 %.0716.i.i93, 5
+  %92 = add i32 %.0815.i.i94, 1
   %93 = urem i32 %91, 5
   %.not.i.i95 = icmp eq i32 %93, 0
   br i1 %.not.i.i95, label %.lr.ph.i.i92, label %_ZN7xgboost6detail14RyuPowLogUtils18MultipleOfPowerOf5Ejj.exit96

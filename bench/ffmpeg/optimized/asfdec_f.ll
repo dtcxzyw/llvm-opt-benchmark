@@ -2920,7 +2920,7 @@ asf_reset_header.exit63:                          ; preds = %49
 
 110:                                              ; preds = %134, %.lr.ph.i
   %indvars.iv.i64 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i65, %134 ]
-  %.06192.i = phi i64 [ -1, %.lr.ph.i ], [ %.162.ph.i, %134 ]
+  %.06191.i = phi i64 [ -1, %.lr.ph.i ], [ %.162.ph.i, %134 ]
   %111 = load ptr, ptr %17, align 8, !tbaa !26
   %112 = call i32 @avio_rl32(ptr noundef %111) #14
   %113 = load ptr, ptr %17, align 8, !tbaa !26
@@ -2942,7 +2942,7 @@ asf_reset_header.exit63:                          ; preds = %49
   br i1 %.not76.i, label %127, label %.thread.i
 
 127:                                              ; preds = %110
-  %.not77.i = icmp eq i64 %120, %.06192.i
+  %.not77.i = icmp eq i64 %120, %.06191.i
   br i1 %.not77.i, label %134, label %128
 
 128:                                              ; preds = %127
@@ -2955,7 +2955,7 @@ asf_reset_header.exit63:                          ; preds = %49
   br label %134
 
 134:                                              ; preds = %128, %127
-  %.162.ph.i = phi i64 [ %.06192.i, %127 ], [ %120, %128 ]
+  %.162.ph.i = phi i64 [ %.06191.i, %127 ], [ %120, %128 ]
   %indvars.iv.next.i65 = add nuw nsw i64 %indvars.iv.i64, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next.i65, %wide.trip.count.i
   br i1 %exitcond.not.i66, label %._crit_edge.i, label %110, !llvm.loop !169

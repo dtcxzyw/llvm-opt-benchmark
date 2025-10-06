@@ -435,29 +435,29 @@ _ZN4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE10insertImplIRKS1_EESt4pairINS
   %126 = zext i32 %125 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %126, 4
   %127 = getelementptr inbounds nuw i8, ptr %124, i64 %.idx.i.i.i.i
-  %.not18.i.i.i.i = icmp eq i32 %125, 0
-  br i1 %.not18.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.split.i.i.i
+  %.not16.i.i.i.i = icmp eq i32 %125, 0
+  br i1 %.not16.i.i.i.i, label %.thread.i.i.i, label %.lr.ph.i.split.i.i.i
 
 .lr.ph.i.split.i.i.i:                             ; preds = %123, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i.i
-  %.01019.i.i.i.i = phi ptr [ %129, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i.i ], [ %124, %123 ]
-  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01019.i.i.i.i, i64 8
+  %.01017.i.i.i.i = phi ptr [ %129, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i.i ], [ %124, %123 ]
+  %.sroa.22.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.01017.i.i.i.i, i64 8
   %.sroa.22.0.copyload.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !47, !noalias !48
   %.not.i.i.i37.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i.i.i, %77
   br i1 %.not.i.i.i37.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i:        ; preds = %.lr.ph.i.split.i.i.i
-  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %.01019.i.i.i.i, align 8, !tbaa !49, !noalias !48
+  %.sroa.01.0.copyload.i.i.i.i = load ptr, ptr %.01017.i.i.i.i, align 8, !tbaa !49, !noalias !48
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i.i.i, ptr %76, i64 %77), !noalias !48
   %128 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br i1 %128, label %_ZNK4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i, %.lr.ph.i.split.i.i.i
-  %129 = getelementptr inbounds nuw i8, ptr %.01019.i.i.i.i, i64 16
+  %129 = getelementptr inbounds nuw i8, ptr %.01017.i.i.i.i, i64 16
   %.not.i.i.i.i = icmp eq ptr %129, %127
   br i1 %.not.i.i.i.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE5vfindERKS1_.exit.thread.i.i.i, label %.lr.ph.i.split.i.i.i, !llvm.loop !52
 
 _ZNK4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i.i.i
-  %.not.i.i.i = icmp eq ptr %.01019.i.i.i.i, %127
+  %.not.i.i.i = icmp eq ptr %.01017.i.i.i.i, %127
   br i1 %.not.i.i.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE5vfindERKS1_.exit.thread.i.i.i, label %_ZN4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE10insertImplIRKS1_EESt4pairINS_16SmallSetIteratorIS1_Lj16ES3_EEbEOT_.exit.thread356.i.i
 
 _ZNK4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE5vfindERKS1_.exit.thread.i.i.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i.i.i, %_ZNK4llvm8SmallSetINS_9StringRefELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i.i

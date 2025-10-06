@@ -174,18 +174,18 @@ define internal range(i32 -2147483648, 1) i32 @oma_read_header(ptr noundef %0) #
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store i32 1, ptr %40, align 8, !tbaa !35
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 32, ptr noundef nonnull @.str.10) #10
-  %.not121.i = icmp eq ptr %38, null
-  br i1 %.not121.i, label %.critedge.i, label %.lr.ph.i
+  %.not120.i = icmp eq ptr %38, null
+  br i1 %.not120.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37, %49
-  %.093122.i = phi ptr [ %51, %49 ], [ %38, %37 ]
-  %41 = load ptr, ptr %.093122.i, align 8, !tbaa !36
+  %.093121.i = phi ptr [ %51, %49 ], [ %38, %37 ]
+  %41 = load ptr, ptr %.093121.i, align 8, !tbaa !36
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(5) @.str.11) #11
   %.not99.i = icmp eq i32 %42, 0
   br i1 %.not99.i, label %43, label %49
 
 43:                                               ; preds = %.lr.ph.i
-  %44 = getelementptr inbounds nuw i8, ptr %.093122.i, i64 40
+  %44 = getelementptr inbounds nuw i8, ptr %.093121.i, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !38
   %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %45, ptr noundef nonnull dereferenceable(8) @.str.12) #11
   %.not100.i = icmp eq i32 %46, 0
@@ -197,7 +197,7 @@ define internal range(i32 -2147483648, 1) i32 @oma_read_header(ptr noundef %0) #
   br i1 %.not101.i, label %52, label %49
 
 49:                                               ; preds = %47, %.lr.ph.i
-  %50 = getelementptr inbounds nuw i8, ptr %.093122.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.093121.i, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !40
   %.not.i = icmp eq ptr %51, null
   br i1 %.not.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !41
@@ -207,7 +207,7 @@ define internal range(i32 -2147483648, 1) i32 @oma_read_header(ptr noundef %0) #
   br label %162
 
 52:                                               ; preds = %47, %43
-  %53 = getelementptr inbounds nuw i8, ptr %.093122.i, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.093121.i, i64 16
   %54 = load i32, ptr %53, align 8, !tbaa !43
   %55 = icmp ult i32 %54, 64
   br i1 %55, label %56, label %57
@@ -217,7 +217,7 @@ define internal range(i32 -2147483648, 1) i32 @oma_read_header(ptr noundef %0) #
   br label %162
 
 57:                                               ; preds = %52
-  %58 = getelementptr inbounds nuw i8, ptr %.093122.i, i64 48
+  %58 = getelementptr inbounds nuw i8, ptr %.093121.i, i64 48
   %59 = load ptr, ptr %58, align 8, !tbaa !44
   %60 = load i16, ptr %59, align 1, !tbaa !12
   %.not102.i = icmp eq i16 %60, 256
@@ -365,8 +365,8 @@ kset.exit.i:                                      ; preds = %150, %135
   %.val113.i = load ptr, ptr %8, align 8, !tbaa !13
   %141 = getelementptr inbounds nuw i8, ptr %.val113.i, i64 24
   store i64 %138, ptr %141, align 8
-  %.sroa.6.0..sroa_idx127.i = getelementptr inbounds nuw i8, ptr %.val113.i, i64 32
-  store i64 %140, ptr %.sroa.6.0..sroa_idx127.i, align 8
+  %.sroa.6.0..sroa_idx126.i = getelementptr inbounds nuw i8, ptr %.val113.i, i64 32
+  store i64 %140, ptr %.sroa.6.0..sroa_idx126.i, align 8
   %142 = getelementptr inbounds nuw i8, ptr %.val113.i, i64 40
   store i64 %138, ptr %142, align 8
   %143 = getelementptr inbounds nuw i8, ptr %.val113.i, i64 48

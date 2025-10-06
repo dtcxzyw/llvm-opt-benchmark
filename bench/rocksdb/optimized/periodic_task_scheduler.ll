@@ -1232,14 +1232,14 @@ define linkonce_odr void @_ZN7rocksdb5Timer6CancelERKNSt7__cxx1112basic_stringIc
           to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN7rocksdb5Timer12FunctionInfoESt14default_deleteIS9_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SC_EEE4findERSI_.exit unwind label %11
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN7rocksdb5Timer12FunctionInfoESt14default_deleteIS9_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SC_EEE4findERSI_.exit: ; preds = %2
-  %.not23 = icmp eq ptr %5, null
-  br i1 %.not23, label %.critedge, label %6
+  %.not22 = icmp eq ptr %5, null
+  br i1 %.not22, label %.critedge, label %6
 
 6:                                                ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN7rocksdb5Timer12FunctionInfoESt14default_deleteIS9_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SC_EEE4findERSI_.exit
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !80
-  %.not24 = icmp eq ptr %8, null
-  br i1 %.not24, label %.critedge, label %9
+  %.not23 = icmp eq ptr %8, null
+  br i1 %.not23, label %.critedge, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 80
@@ -1260,8 +1260,8 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10uni
   %18 = icmp ne ptr %16, %17
   %19 = load i8, ptr %15, align 1, !range !88
   %20 = trunc nuw i8 %19 to i1
-  %or.cond25 = select i1 %18, i1 %20, i1 false
-  br i1 %or.cond25, label %21, label %.critedge2
+  %or.cond24 = select i1 %18, i1 %20, i1 false
+  br i1 %or.cond24, label %21, label %.critedge2
 
 21:                                               ; preds = %.critedge
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 72

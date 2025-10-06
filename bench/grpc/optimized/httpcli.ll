@@ -4435,8 +4435,8 @@ define void @_ZN9grpc_core11HttpRequest14OnReadInternalEN4absl12lts_202407226Sta
   %15 = alloca %"class.absl::lts_20240722::Status", align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4728
   %17 = load i64, ptr %16, align 8, !tbaa !210
-  %.not64 = icmp eq i64 %17, 0
-  br i1 %.not64, label %._crit_edge, label %.lr.ph
+  %.not62 = icmp eq i64 %17, 0
+  br i1 %.not62, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 4720
@@ -4445,7 +4445,7 @@ define void @_ZN9grpc_core11HttpRequest14OnReadInternalEN4absl12lts_202407226Sta
   br label %21
 
 21:                                               ; preds = %.lr.ph, %92
-  %.063 = phi i64 [ 0, %.lr.ph ], [ %93, %92 ]
+  %.061 = phi i64 [ 0, %.lr.ph ], [ %93, %92 ]
   %22 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core11http1_traceE, i64 16) monotonic, align 8
   %23 = trunc i8 %22 to i1
   br i1 %23, label %24, label %.critedge29, !prof !62
@@ -4458,7 +4458,7 @@ define void @_ZN9grpc_core11HttpRequest14OnReadInternalEN4absl12lts_202407226Sta
 
 _ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; preds = %24
   %25 = load ptr, ptr %18, align 8, !tbaa !211
-  %26 = getelementptr inbounds nuw %struct.grpc_slice, ptr %25, i64 %.063
+  %26 = getelementptr inbounds nuw %struct.grpc_slice, ptr %25, i64 %.061
   %27 = load ptr, ptr %26, align 8, !tbaa !185
   %.not.i = icmp eq ptr %27, null
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -4479,7 +4479,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi21EEERS2_RAT__Kc.exit: ; pr
 
 .critedge29:                                      ; preds = %21, %.critedge
   %37 = load ptr, ptr %18, align 8, !tbaa !211
-  %38 = getelementptr inbounds nuw %struct.grpc_slice, ptr %37, i64 %.063
+  %38 = getelementptr inbounds nuw %struct.grpc_slice, ptr %37, i64 %.061
   %39 = load ptr, ptr %38, align 8, !tbaa !185
   %.not = icmp eq ptr %39, null
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -4627,7 +4627,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit36:         ; preds = %48
   br label %92
 
 92:                                               ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit36, %46
-  %93 = add nuw i64 %.063, 1
+  %93 = add nuw i64 %.061, 1
   %94 = load i64, ptr %16, align 8, !tbaa !210
   %95 = icmp ult i64 %93, %94
   br i1 %95, label %21, label %._crit_edge, !llvm.loop !213

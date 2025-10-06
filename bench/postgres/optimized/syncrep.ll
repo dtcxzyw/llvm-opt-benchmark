@@ -249,21 +249,21 @@ SyncRepQueueInsert.exit:                          ; preds = %39, %dlist_push_hea
   br i1 %107, label %.loopexit.sink.split, label %.loopexit.sink.split.sink.split
 
 .loopexit.sink.split.sink.split:                  ; preds = %101, %90, %76
-  %.sink40 = phi ptr [ %80, %76 ], [ %94, %90 ], [ %105, %101 ]
-  %.val.i19.sink36 = phi ptr [ %.val.i, %76 ], [ %.val.i16, %90 ], [ %.val.i19, %101 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.sink40, i64 168
+  %.sink39 = phi ptr [ %80, %76 ], [ %94, %90 ], [ %105, %101 ]
+  %.val.i19.sink35 = phi ptr [ %.val.i, %76 ], [ %.val.i16, %90 ], [ %.val.i19, %101 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.sink39, i64 168
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  store ptr %.val.i19.sink36, ptr %110, align 8
+  store ptr %.val.i19.sink35, ptr %110, align 8
   %111 = load ptr, ptr %108, align 8
-  store ptr %111, ptr %.val.i19.sink36, align 8
+  store ptr %111, ptr %.val.i19.sink35, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, i8 0, i64 16, i1 false)
   %.pre.i20 = load ptr, ptr @MyProc, align 8
   br label %.loopexit.sink.split
 
 .loopexit.sink.split:                             ; preds = %.loopexit.sink.split.sink.split, %101, %90, %76
-  %.sink33 = phi ptr [ %80, %76 ], [ %94, %90 ], [ %105, %101 ], [ %.pre.i20, %.loopexit.sink.split.sink.split ]
-  %112 = getelementptr inbounds nuw i8, ptr %.sink33, i64 160
+  %.sink32 = phi ptr [ %80, %76 ], [ %94, %90 ], [ %105, %101 ], [ %.pre.i20, %.loopexit.sink.split.sink.split ]
+  %112 = getelementptr inbounds nuw i8, ptr %.sink32, i64 160
   store i32 0, ptr %112, align 8
   %113 = load ptr, ptr @MainLWLockArray, align 8
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 4096

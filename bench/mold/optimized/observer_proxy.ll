@@ -86,8 +86,8 @@ _ZN3tbb6detail2d0L13machine_pauseEi.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %
 
 _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = %6
   %19 = load atomic i64, ptr %0 monotonic, align 8
-  %.not35 = icmp eq i64 %19, 0
-  br i1 %.not35, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, label %.lr.ph
+  %.not33 = icmp eq i64 %19, 0
+  br i1 %.not33, label %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEED2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit
   %.0.i.i = inttoptr i64 %19 to ptr
@@ -95,10 +95,10 @@ _ZN3tbb6detail2d114rw_scoped_lockINS1_13spin_rw_mutexEEC2ERS3_b.exit: ; preds = 
   br label %21
 
 21:                                               ; preds = %.lr.ph, %50
-  %.036 = phi ptr [ %.0.i.i, %.lr.ph ], [ %23, %50 ]
-  %22 = getelementptr inbounds nuw i8, ptr %.036, i64 16
+  %.034 = phi ptr [ %.0.i.i, %.lr.ph ], [ %23, %50 ]
+  %22 = getelementptr inbounds nuw i8, ptr %.034, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !18
-  %24 = getelementptr inbounds nuw i8, ptr %.036, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %25 = load ptr, ptr %24, align 8, !tbaa !8
   %.not18 = icmp eq ptr %25, null
   br i1 %.not18, label %50, label %26, !llvm.loop !19

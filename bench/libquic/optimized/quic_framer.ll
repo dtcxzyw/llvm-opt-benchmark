@@ -765,19 +765,19 @@ define noundef range(i64 1, 8589934593) i64 @_ZN3net10QuicFramer21GetMinStreamFr
   br label %6
 
 6:                                                ; preds = %8, %3
-  %.01225.i = phi i32 [ %0, %3 ], [ %9, %8 ]
-  %.01624.i = phi i32 [ 1, %3 ], [ %10, %8 ]
-  %7 = icmp ult i32 %.01225.i, 256
+  %.01223.i = phi i32 [ %0, %3 ], [ %9, %8 ]
+  %.01622.i = phi i32 [ 1, %3 ], [ %10, %8 ]
+  %7 = icmp ult i32 %.01223.i, 256
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %6
-  %9 = lshr i32 %.01225.i, 8
-  %10 = add nuw nsw i32 %.01624.i, 1
+  %9 = lshr i32 %.01223.i, 8
+  %10 = add nuw nsw i32 %.01622.i, 1
   %exitcond.not.i = icmp eq i32 %10, 5
   br i1 %exitcond.not.i, label %13, label %6, !llvm.loop !77
 
 11:                                               ; preds = %6
-  %narrow = add nuw i32 %.01624.i, 1
+  %narrow = add nuw i32 %.01622.i, 1
   %12 = zext i32 %narrow to i64
   br label %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit
 
@@ -814,19 +814,19 @@ _ZN3net10QuicFramer15GetStreamIdSizeEj.exit:      ; preds = %11, %13, %.critedge
   br i1 %20, label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit, %22
-  %.014.in29.i = phi i64 [ %.01430.i, %22 ], [ %1, %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit ]
-  %.01828.i = phi i32 [ %23, %22 ], [ 2, %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit ]
-  %21 = icmp ult i64 %.014.in29.i, 65536
+  %.014.in27.i = phi i64 [ %.01428.i, %22 ], [ %1, %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit ]
+  %.01826.i = phi i32 [ %23, %22 ], [ 2, %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit ]
+  %21 = icmp ult i64 %.014.in27.i, 65536
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %.preheader.i
-  %.01430.i = lshr i64 %.014.in29.i, 8
-  %23 = add nuw nsw i32 %.01828.i, 1
+  %.01428.i = lshr i64 %.014.in27.i, 8
+  %23 = add nuw nsw i32 %.01826.i, 1
   %exitcond.not.i3 = icmp eq i32 %23, 9
   br i1 %exitcond.not.i3, label %26, label %.preheader.i, !llvm.loop !78
 
 24:                                               ; preds = %.preheader.i
-  %25 = zext nneg i32 %.01828.i to i64
+  %25 = zext nneg i32 %.01826.i to i64
   br label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit
 
 26:                                               ; preds = %22
@@ -866,19 +866,19 @@ define noundef range(i64 1, 5) i64 @_ZN3net10QuicFramer15GetStreamIdSizeEj(i32 n
   br label %3
 
 3:                                                ; preds = %1, %5
-  %.01225 = phi i32 [ %0, %1 ], [ %6, %5 ]
-  %.01624 = phi i32 [ 1, %1 ], [ %7, %5 ]
-  %4 = icmp ult i32 %.01225, 256
+  %.01223 = phi i32 [ %0, %1 ], [ %6, %5 ]
+  %.01622 = phi i32 [ 1, %1 ], [ %7, %5 ]
+  %4 = icmp ult i32 %.01223, 256
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = lshr i32 %.01225, 8
-  %7 = add nuw nsw i32 %.01624, 1
+  %6 = lshr i32 %.01223, 8
+  %7 = add nuw nsw i32 %.01622, 1
   %exitcond.not = icmp eq i32 %7, 5
   br i1 %exitcond.not, label %10, label %3, !llvm.loop !77
 
 8:                                                ; preds = %3
-  %9 = zext nneg i32 %.01624 to i64
+  %9 = zext nneg i32 %.01622 to i64
   br label %.critedge18
 
 10:                                               ; preds = %5
@@ -916,19 +916,19 @@ define noundef range(i64 0, 9) i64 @_ZN3net10QuicFramer19GetStreamOffsetSizeEm(i
   br i1 %3, label %.critedge21, label %.preheader
 
 .preheader:                                       ; preds = %1, %5
-  %.014.in29 = phi i64 [ %.01430, %5 ], [ %0, %1 ]
-  %.01828 = phi i32 [ %6, %5 ], [ 2, %1 ]
-  %4 = icmp ult i64 %.014.in29, 65536
+  %.014.in27 = phi i64 [ %.01428, %5 ], [ %0, %1 ]
+  %.01826 = phi i32 [ %6, %5 ], [ 2, %1 ]
+  %4 = icmp ult i64 %.014.in27, 65536
   br i1 %4, label %7, label %5
 
 5:                                                ; preds = %.preheader
-  %.01430 = lshr i64 %.014.in29, 8
-  %6 = add nuw nsw i32 %.01828, 1
+  %.01428 = lshr i64 %.014.in27, 8
+  %6 = add nuw nsw i32 %.01826, 1
   %exitcond.not = icmp eq i32 %6, 9
   br i1 %exitcond.not, label %9, label %.preheader, !llvm.loop !78
 
 7:                                                ; preds = %.preheader
-  %8 = zext nneg i32 %.01828 to i64
+  %8 = zext nneg i32 %.01826 to i64
   br label %.critedge21
 
 9:                                                ; preds = %5
@@ -1025,8 +1025,8 @@ define noundef zeroext i1 @_ZNK3net10QuicFramer18IsSupportedVersionENS_11QuicVer
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = load ptr, ptr %3, align 8, !tbaa !56
-  %.not8.not = icmp eq ptr %5, %6
-  br i1 %.not8.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %7 = ptrtoint ptr %5 to i64
@@ -1046,8 +1046,8 @@ define noundef zeroext i1 @_ZNK3net10QuicFramer18IsSupportedVersionENS_11QuicVer
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !79
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %13, %.lr.ph ]
-  ret i1 %.not.lcssa
+  %.lcssa = phi i1 [ false, %2 ], [ %13, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2524,19 +2524,19 @@ common.resume:                                    ; preds = %61, %40, %18
   br i1 %28, label %43, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.critedge29, %30
-  %.014.in29.i = phi i64 [ %.01430.i, %30 ], [ %27, %.critedge29 ]
-  %.01828.i = phi i32 [ %31, %30 ], [ 2, %.critedge29 ]
-  %29 = icmp ult i64 %.014.in29.i, 65536
+  %.014.in27.i = phi i64 [ %.01428.i, %30 ], [ %27, %.critedge29 ]
+  %.01826.i = phi i32 [ %31, %30 ], [ 2, %.critedge29 ]
+  %29 = icmp ult i64 %.014.in27.i, 65536
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %.preheader.i
-  %.01430.i = lshr i64 %.014.in29.i, 8
-  %31 = add nuw nsw i32 %.01828.i, 1
+  %.01428.i = lshr i64 %.014.in27.i, 8
+  %31 = add nuw nsw i32 %.01826.i, 1
   %exitcond.not.i = icmp eq i32 %31, 9
   br i1 %exitcond.not.i, label %35, label %.preheader.i, !llvm.loop !78
 
 32:                                               ; preds = %.preheader.i
-  %33 = trunc i32 %.01828.i to i8
+  %33 = trunc i32 %.01826.i to i8
   %34 = add i8 %33, -1
   br label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit.thread
 
@@ -2577,19 +2577,19 @@ _ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit.thread: ; preds = %32, %35, %.cr
   br label %48
 
 48:                                               ; preds = %50, %43
-  %.01225.i = phi i32 [ %47, %43 ], [ %51, %50 ]
-  %.01624.i = phi i32 [ 1, %43 ], [ %52, %50 ]
-  %49 = icmp ult i32 %.01225.i, 256
+  %.01223.i = phi i32 [ %47, %43 ], [ %51, %50 ]
+  %.01622.i = phi i32 [ 1, %43 ], [ %52, %50 ]
+  %49 = icmp ult i32 %.01223.i, 256
   br i1 %49, label %53, label %50
 
 50:                                               ; preds = %48
-  %51 = lshr i32 %.01225.i, 8
-  %52 = add nuw nsw i32 %.01624.i, 1
+  %51 = lshr i32 %.01223.i, 8
+  %52 = add nuw nsw i32 %.01622.i, 1
   %exitcond.not.i30 = icmp eq i32 %52, 5
   br i1 %exitcond.not.i30, label %56, label %48, !llvm.loop !77
 
 53:                                               ; preds = %48
-  %54 = trunc i32 %.01624.i to i8
+  %54 = trunc i32 %.01622.i to i8
   %55 = add i8 %54, 127
   br label %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit
 
@@ -2650,19 +2650,19 @@ define noundef zeroext i1 @_ZN3net10QuicFramer17AppendStreamFrameERKNS_15QuicStr
   br label %12
 
 12:                                               ; preds = %14, %4
-  %.01225.i = phi i32 [ %11, %4 ], [ %15, %14 ]
-  %.01624.i = phi i32 [ 1, %4 ], [ %16, %14 ]
-  %13 = icmp ult i32 %.01225.i, 256
+  %.01223.i = phi i32 [ %11, %4 ], [ %15, %14 ]
+  %.01622.i = phi i32 [ 1, %4 ], [ %16, %14 ]
+  %13 = icmp ult i32 %.01223.i, 256
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %12
-  %15 = lshr i32 %.01225.i, 8
-  %16 = add nuw nsw i32 %.01624.i, 1
+  %15 = lshr i32 %.01223.i, 8
+  %16 = add nuw nsw i32 %.01622.i, 1
   %exitcond.not.i = icmp eq i32 %16, 5
   br i1 %exitcond.not.i, label %19, label %12, !llvm.loop !77
 
 17:                                               ; preds = %12
-  %18 = zext nneg i32 %.01624.i to i64
+  %18 = zext nneg i32 %.01622.i to i64
   br label %_ZN3net10QuicFramer15GetStreamIdSizeEj.exit
 
 19:                                               ; preds = %14
@@ -2727,19 +2727,19 @@ _ZN3net10QuicFramer15GetStreamIdSizeEj.exit:      ; preds = %17, %19, %.critedge
   br i1 %37, label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %34, %39
-  %.014.in29.i = phi i64 [ %.01430.i, %39 ], [ %36, %34 ]
-  %.01828.i = phi i32 [ %40, %39 ], [ 2, %34 ]
-  %38 = icmp ult i64 %.014.in29.i, 65536
+  %.014.in27.i = phi i64 [ %.01428.i, %39 ], [ %36, %34 ]
+  %.01826.i = phi i32 [ %40, %39 ], [ 2, %34 ]
+  %38 = icmp ult i64 %.014.in27.i, 65536
   br i1 %38, label %41, label %39
 
 39:                                               ; preds = %.preheader.i
-  %.01430.i = lshr i64 %.014.in29.i, 8
-  %40 = add nuw nsw i32 %.01828.i, 1
+  %.01428.i = lshr i64 %.014.in27.i, 8
+  %40 = add nuw nsw i32 %.01826.i, 1
   %exitcond.not.i52 = icmp eq i32 %40, 9
   br i1 %exitcond.not.i52, label %43, label %.preheader.i, !llvm.loop !78
 
 41:                                               ; preds = %.preheader.i
-  %42 = zext nneg i32 %.01828.i to i64
+  %42 = zext nneg i32 %.01826.i to i64
   br label %_ZN3net10QuicFramer19GetStreamOffsetSizeEm.exit
 
 43:                                               ; preds = %39
@@ -5430,8 +5430,8 @@ define noundef zeroext i1 @_ZN3net10QuicFramer19ProcessPublicHeaderEPNS_14QuicDa
   %22 = trunc nuw i8 %21 to i1
   %23 = and i8 %13, -127
   %or.cond = icmp eq i8 %23, -128
-  %or.cond44 = select i1 %22, i1 %or.cond, i1 false
-  br i1 %or.cond44, label %24, label %29
+  %or.cond45 = select i1 %22, i1 %or.cond, i1 false
+  br i1 %or.cond45, label %24, label %29
 
 24:                                               ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5454,8 +5454,8 @@ define noundef zeroext i1 @_ZN3net10QuicFramer19ProcessPublicHeaderEPNS_14QuicDa
 
 36:                                               ; preds = %29
   %37 = and i8 %13, 8
-  %switch.not = icmp eq i8 %37, 0
-  br i1 %switch.not, label %47, label %38
+  %.not44 = icmp eq i8 %37, 0
+  br i1 %.not44, label %47, label %38
 
 38:                                               ; preds = %36
   %39 = call noundef zeroext i1 @_ZN3net14QuicDataReader10ReadUInt64EPm(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %2)
@@ -7034,7 +7034,7 @@ define noundef zeroext i1 @_ZN3net10QuicFramer16ProcessFrameDataEPNS_14QuicDataR
           cleanup
   call void @_ZN3net15QuicStreamFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %268
+  br label %269
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %19, align 8, !tbaa !93
@@ -7081,7 +7081,7 @@ _ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit: ; preds = %61, %74
           cleanup
   call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %7) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %268
+  br label %269
 
 85:                                               ; preds = %76
   %86 = invoke noundef zeroext i1 @_ZN3net10QuicFramer18ProcessNewAckFrameEPNS_14QuicDataReaderEhPNS_12QuicAckFrameE(ptr noundef nonnull align 8 dereferenceable(408) %0, ptr noundef nonnull %1, i8 noundef zeroext %79, ptr noundef nonnull %7)
@@ -7108,8 +7108,8 @@ _ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit: ; preds = %61, %74
           to label %98 unwind label %83
 
 98:                                               ; preds = %92
-  %not.78 = xor i1 %97, true
-  %.122.35 = select i1 %not.78, i1 true, i1 %.122
+  %not.76 = xor i1 %97, true
+  %.122.35 = select i1 %not.76, i1 true, i1 %.122
   %.36 = select i1 %97, i32 2, i32 1
   br label %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit53, !llvm.loop !282
 
@@ -7178,8 +7178,8 @@ _ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit53: ; preds = %.invoke, 
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 128
   %126 = load ptr, ptr %125, align 8
   %127 = call noundef zeroext i1 %126(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull align 8 dereferenceable(16) %9)
-  %not.86 = xor i1 %127, true
-  %.122.37 = select i1 %not.86, i1 true, i1 %.122
+  %not.83 = xor i1 %127, true
+  %.122.37 = select i1 %not.83, i1 true, i1 %.122
   %.38 = select i1 %127, i32 2, i32 1
   br label %128, !llvm.loop !282
 
@@ -7220,7 +7220,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3net24QuicConnectionCloseFrameD2Ev.exit:       ; preds = %137, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %268
+  br label %269
 
 141:                                              ; preds = %131
   %142 = load ptr, ptr %19, align 8, !tbaa !93
@@ -7231,8 +7231,8 @@ _ZN3net24QuicConnectionCloseFrameD2Ev.exit:       ; preds = %137, %_ZNKSt7__cxx1
           to label %147 unwind label %137
 
 147:                                              ; preds = %141
-  %not.85 = xor i1 %146, true
-  %.122.39 = select i1 %not.85, i1 true, i1 %.122
+  %not.82 = xor i1 %146, true
+  %.122.39 = select i1 %not.82, i1 true, i1 %.122
   %.40 = select i1 %146, i32 2, i32 1
   br label %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit55, !llvm.loop !282
 
@@ -7282,7 +7282,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZN3net15QuicGoAwayFrameD2Ev.exit:                ; preds = %158, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i60
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %268
+  br label %269
 
 162:                                              ; preds = %152
   %163 = load ptr, ptr %19, align 8, !tbaa !93
@@ -7293,8 +7293,8 @@ _ZN3net15QuicGoAwayFrameD2Ev.exit:                ; preds = %158, %_ZNKSt7__cxx1
           to label %168 unwind label %158
 
 168:                                              ; preds = %162
-  %not.84 = xor i1 %167, true
-  %.122.41 = select i1 %not.84, i1 true, i1 %.122
+  %not.81 = xor i1 %167, true
+  %.122.41 = select i1 %not.81, i1 true, i1 %.122
   %.42 = select i1 %167, i32 2, i32 1
   br label %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit59, !llvm.loop !282
 
@@ -7347,8 +7347,8 @@ _ZN3net10QuicFramer24ProcessWindowUpdateFrameEPNS_14QuicDataReaderEPNS_21QuicWin
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 152
   %189 = load ptr, ptr %188, align 8
   %190 = call noundef zeroext i1 %189(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef nonnull align 8 dereferenceable(16) %12)
-  %not.83 = xor i1 %190, true
-  %.122.43 = select i1 %not.83, i1 true, i1 %.122
+  %not.80 = xor i1 %190, true
+  %.122.43 = select i1 %not.80, i1 true, i1 %.122
   %.44 = select i1 %190, i32 2, i32 1
   br label %191, !llvm.loop !282
 
@@ -7380,8 +7380,8 @@ _ZN3net10QuicFramer24ProcessWindowUpdateFrameEPNS_14QuicDataReaderEPNS_21QuicWin
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 160
   %205 = load ptr, ptr %204, align 8
   %206 = call noundef zeroext i1 %205(ptr noundef nonnull align 8 dereferenceable(8) %202, ptr noundef nonnull align 4 dereferenceable(4) %13)
-  %not.82 = xor i1 %206, true
-  %.122.45 = select i1 %not.82, i1 true, i1 %.122
+  %not.79 = xor i1 %206, true
+  %.122.45 = select i1 %not.79, i1 true, i1 %.122
   %.46 = select i1 %206, i32 2, i32 1
   br label %207, !llvm.loop !282
 
@@ -7444,7 +7444,7 @@ _ZN3net10QuicFramer23ProcessStopWaitingFrameEPNS_14QuicDataReaderERKNS_16QuicPac
           cleanup
   call void @_ZN3net20QuicStopWaitingFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %268
+  br label %269
 
 229:                                              ; preds = %.noexc67
   %230 = load i64, ptr %25, align 8, !tbaa !143
@@ -7460,8 +7460,8 @@ _ZN3net10QuicFramer23ProcessStopWaitingFrameEPNS_14QuicDataReaderERKNS_16QuicPac
           to label %238 unwind label %227
 
 238:                                              ; preds = %229
-  %not.81 = xor i1 %237, true
-  %.122.47 = select i1 %not.81, i1 true, i1 %.122
+  %not.78 = xor i1 %237, true
+  %.122.47 = select i1 %not.78, i1 true, i1 %.122
   %.48 = select i1 %237, i32 2, i32 1
   br label %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit70, !llvm.loop !282
 
@@ -7480,11 +7480,7 @@ _ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit70: ; preds = %_ZN3net10
   %243 = load ptr, ptr %242, align 8
   %244 = call noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(8) %240, ptr noundef nonnull align 1 dereferenceable(1) %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br i1 %244, label %select.unfold, label %.thread92
-
-.thread92:                                        ; preds = %239
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit
+  br i1 %244, label %select.unfold, label %.thread
 
 245:                                              ; preds = %106
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -7508,8 +7504,8 @@ _ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit70: ; preds = %_ZN3net10
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 168
   %258 = load ptr, ptr %257, align 8
   %259 = call noundef zeroext i1 %258(ptr noundef nonnull align 8 dereferenceable(8) %255, ptr noundef nonnull align 1 dereferenceable(1) %16)
-  %not.79 = xor i1 %259, true
-  %.122.51 = select i1 %not.79, i1 true, i1 %.122
+  %not.77 = xor i1 %259, true
+  %.122.51 = select i1 %not.77, i1 true, i1 %.122
   %.52 = select i1 %259, i32 2, i32 1
   br label %260, !llvm.loop !282
 
@@ -7530,8 +7526,8 @@ _ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit70: ; preds = %_ZN3net10
   call void %267(ptr noundef nonnull align 8 dereferenceable(8) %264, ptr noundef nonnull align 8 dereferenceable(408) %0)
   br label %.thread
 
-.thread:                                          ; preds = %99, %261, %107, %47
-  %.223.ph = phi i1 [ false, %47 ], [ true, %107 ], [ false, %261 ], [ false, %99 ]
+.thread:                                          ; preds = %239, %99, %261, %107, %47
+  %.223.ph = phi i1 [ false, %47 ], [ true, %107 ], [ false, %261 ], [ false, %99 ], [ true, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -7539,16 +7535,16 @@ select.unfold:                                    ; preds = %239, %260, %_ZN3net
   %.223 = phi i1 [ %.324, %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit ], [ %.425, %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit53 ], [ %.526, %128 ], [ %.627, %_ZN3net24QuicConnectionCloseFrameD2Ev.exit58 ], [ %.728, %_ZN3net15QuicGoAwayFrameD2Ev.exit64 ], [ %.829, %191 ], [ %.930, %207 ], [ %.1031, %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit70 ], [ %.12, %260 ], [ %.122, %239 ]
   %.020 = phi i32 [ %.1, %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit ], [ %.2, %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit53 ], [ %.3, %128 ], [ %.4, %_ZN3net24QuicConnectionCloseFrameD2Ev.exit58 ], [ %.5, %_ZN3net15QuicGoAwayFrameD2Ev.exit64 ], [ %.6, %191 ], [ %.7, %207 ], [ %.8, %_ZN3net10QuicFramer10RaiseErrorENS_13QuicErrorCodeE.exit70 ], [ %.10, %260 ], [ 2, %239 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %switch = icmp eq i32 %.020, 1
-  br i1 %switch, label %.loopexit, label %43
+  %268 = icmp eq i32 %.020, 1
+  br i1 %268, label %.loopexit, label %43
 
-268:                                              ; preds = %227, %_ZN3net15QuicGoAwayFrameD2Ev.exit, %_ZN3net24QuicConnectionCloseFrameD2Ev.exit, %83, %66
+269:                                              ; preds = %227, %_ZN3net15QuicGoAwayFrameD2Ev.exit, %_ZN3net24QuicConnectionCloseFrameD2Ev.exit, %83, %66
   %.pn = phi { ptr, i32 } [ %67, %66 ], [ %84, %83 ], [ %138, %_ZN3net24QuicConnectionCloseFrameD2Ev.exit ], [ %159, %_ZN3net15QuicGoAwayFrameD2Ev.exit ], [ %228, %227 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %.pn
 
-.loopexit:                                        ; preds = %43, %select.unfold, %.thread92, %.thread, %32
-  %.021 = phi i1 [ false, %32 ], [ %.223.ph, %.thread ], [ true, %.thread92 ], [ true, %43 ], [ %.223, %select.unfold ]
+.loopexit:                                        ; preds = %43, %select.unfold, %.thread, %32
+  %.021 = phi i1 [ false, %32 ], [ %.223.ph, %.thread ], [ true, %43 ], [ %.223, %select.unfold ]
   ret i1 %.021
 }
 
@@ -11276,9 +11272,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIhhSaIhENSt8__detail9_Identity
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !285
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load i8, ptr %1, align 1, !tbaa !14
   %8 = zext i8 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11314,7 +11310,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIhhSaIhENSt8__detail9_Identity
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !72
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i8, ptr %30, align 1, !tbaa !14
@@ -11342,10 +11338,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIhhSaIhENSt8__detail9_Identity
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !344
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi i8 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi i8 [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
   store ptr null, ptr %44, align 8, !tbaa !72
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

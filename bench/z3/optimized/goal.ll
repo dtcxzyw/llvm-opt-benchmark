@@ -10724,15 +10724,15 @@ _ZNK3app13get_family_idEv.exit.i:                 ; preds = %100
   %112 = zext i32 %111 to i64
   %.idx.i = shl nuw nsw i64 %112, 3
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 %.idx.i
-  %.not19.i = icmp eq i32 %111, 0
-  br i1 %.not19.i, label %_ZNK4goal10is_literalEP4expr.exit.thread, label %.lr.ph.i
+  %.not17.i = icmp eq i32 %111, 0
+  br i1 %.not17.i, label %_ZNK4goal10is_literalEP4expr.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %108, %.lr.ph.i
-  %.01220.i = phi ptr [ %117, %.lr.ph.i ], [ %109, %108 ]
-  %114 = load ptr, ptr %.01220.i, align 8, !tbaa !114
+  %.01218.i = phi ptr [ %117, %.lr.ph.i ], [ %109, %108 ]
+  %114 = load ptr, ptr %.01218.i, align 8, !tbaa !114
   %115 = load ptr, ptr %0, align 8, !tbaa !102
   %116 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %115, ptr noundef %114)
-  %117 = getelementptr inbounds nuw i8, ptr %.01220.i, i64 8
+  %117 = getelementptr inbounds nuw i8, ptr %.01218.i, i64 8
   %.not.i27 = icmp eq ptr %117, %113
   %or.cond.i = select i1 %116, i1 true, i1 %.not.i27
   br i1 %or.cond.i, label %_ZNK4goal10is_literalEP4expr.exit, label %.lr.ph.i
@@ -10794,15 +10794,15 @@ _ZNK3app13get_family_idEv.exit.i31:               ; preds = %135
   %147 = zext i32 %146 to i64
   %.idx.i32 = shl nuw nsw i64 %147, 3
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 %.idx.i32
-  %.not19.i33 = icmp eq i32 %146, 0
-  br i1 %.not19.i33, label %_ZNK4goal10is_literalEP4expr.exit44.thread, label %.lr.ph.i34
+  %.not17.i33 = icmp eq i32 %146, 0
+  br i1 %.not17.i33, label %_ZNK4goal10is_literalEP4expr.exit44.thread, label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %143, %.lr.ph.i34
-  %.01220.i35 = phi ptr [ %152, %.lr.ph.i34 ], [ %144, %143 ]
-  %149 = load ptr, ptr %.01220.i35, align 8, !tbaa !114
+  %.01218.i35 = phi ptr [ %152, %.lr.ph.i34 ], [ %144, %143 ]
+  %149 = load ptr, ptr %.01218.i35, align 8, !tbaa !114
   %150 = load ptr, ptr %0, align 8, !tbaa !102
   %151 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %150, ptr noundef %149)
-  %152 = getelementptr inbounds nuw i8, ptr %.01220.i35, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.01218.i35, i64 8
   %.not.i36 = icmp eq ptr %152, %148
   %or.cond.i37 = select i1 %151, i1 true, i1 %.not.i36
   br i1 %or.cond.i37, label %_ZNK4goal10is_literalEP4expr.exit44, label %.lr.ph.i34
@@ -10884,15 +10884,15 @@ _ZNK3app13get_family_idEv.exit:                   ; preds = %28
   %40 = zext i32 %39 to i64
   %.idx = shl nuw nsw i64 %40, 3
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
-  %.not19 = icmp eq i32 %39, 0
-  br i1 %.not19, label %_ZNK3app13get_family_idEv.exit.thread, label %.lr.ph
+  %.not17 = icmp eq i32 %39, 0
+  br i1 %.not17, label %_ZNK3app13get_family_idEv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %36, %.lr.ph
-  %.01220 = phi ptr [ %45, %.lr.ph ], [ %37, %36 ]
-  %42 = load ptr, ptr %.01220, align 8, !tbaa !114
+  %.01218 = phi ptr [ %45, %.lr.ph ], [ %37, %36 ]
+  %42 = load ptr, ptr %.01218, align 8, !tbaa !114
   %43 = load ptr, ptr %0, align 8, !tbaa !102
   %44 = tail call noundef zeroext i1 @_ZNK11ast_manager7is_boolEPK4expr(ptr noundef nonnull align 8 dereferenceable(976) %43, ptr noundef %42)
-  %45 = getelementptr inbounds nuw i8, ptr %.01220, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.01218, i64 8
   %.not = icmp eq ptr %45, %41
   %or.cond = select i1 %44, i1 true, i1 %.not
   br i1 %or.cond, label %_ZNK3app13get_family_idEv.exit.thread.loopexit, label %.lr.ph
@@ -10921,7 +10921,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
   %5 = phi i32 [ %.pre, %2 ], [ %46, %41 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %41 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable27 [
+  switch i32 %6, label %default.unreachable26 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit
@@ -11002,7 +11002,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %35, i64 noundef %37, ptr noundef nonnull %33)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread
 
-default.unreachable27:                            ; preds = %4
+default.unreachable26:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i
@@ -11047,7 +11047,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager28expr_depend
   %5 = phi i32 [ %.pre, %2 ], [ %54, %49 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %49 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable27 [
+  switch i32 %6, label %default.unreachable26 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
@@ -11136,7 +11136,7 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN1
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %43, i64 noundef %45, ptr noundef nonnull %41)
   br label %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread
 
-default.unreachable27:                            ; preds = %4
+default.unreachable26:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE7dec_refEjPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i

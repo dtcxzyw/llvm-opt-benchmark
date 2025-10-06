@@ -230,25 +230,25 @@ _ZNSt12_Vector_baseIPK4FactSaIS2_EED2Ev.exit:     ; preds = %1, %3
 define dso_local noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvocationUserPK8Variable13eFactCategory(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL12return_facts, i64 8), align 8, !tbaa !22
   %5 = load ptr, ptr @_ZL12return_facts, align 8, !tbaa !18
-  %.not17.not = icmp eq ptr %4, %5
-  br i1 %.not17.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq ptr %4, %5
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
-  %.pre21 = load ptr, ptr @_ZL11invocations, align 8, !tbaa !14
+  %.pre23 = load ptr, ptr @_ZL11invocations, align 8, !tbaa !14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
   %6 = phi ptr [ %24, %.thread ], [ %5, %.lr.ph.preheader ]
   %7 = phi ptr [ %25, %.thread ], [ %4, %.lr.ph.preheader ]
-  %8 = phi ptr [ %26, %.thread ], [ %.pre21, %.lr.ph.preheader ]
-  %.01418 = phi i64 [ %27, %.thread ], [ 0, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01418
+  %8 = phi ptr [ %26, %.thread ], [ %.pre23, %.lr.ph.preheader ]
+  %.01420 = phi i64 [ %27, %.thread ], [ 0, %.lr.ph.preheader ]
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01420
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %12, label %.thread
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01418
+  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01420
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !27
@@ -265,25 +265,25 @@ define dso_local noundef ptr @_Z30get_return_fact_for_invocationPK22FunctionInvo
 
 ..thread_crit_edge:                               ; preds = %18
   %.pre = load ptr, ptr @_ZL11invocations, align 8, !tbaa !14
-  %.pre22 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL12return_facts, i64 8), align 8, !tbaa !22
-  %.pre23 = load ptr, ptr @_ZL12return_facts, align 8, !tbaa !18
+  %.pre24 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZL12return_facts, i64 8), align 8, !tbaa !22
+  %.pre25 = load ptr, ptr @_ZL12return_facts, align 8, !tbaa !18
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %12, %.lr.ph
-  %24 = phi ptr [ %.pre23, %..thread_crit_edge ], [ %6, %12 ], [ %6, %.lr.ph ]
-  %25 = phi ptr [ %.pre22, %..thread_crit_edge ], [ %7, %12 ], [ %7, %.lr.ph ]
+  %24 = phi ptr [ %.pre25, %..thread_crit_edge ], [ %6, %12 ], [ %6, %.lr.ph ]
+  %25 = phi ptr [ %.pre24, %..thread_crit_edge ], [ %7, %12 ], [ %7, %.lr.ph ]
   %26 = phi ptr [ %.pre, %..thread_crit_edge ], [ %8, %12 ], [ %8, %.lr.ph ]
-  %27 = add nuw i64 %.01418, 1
+  %27 = add nuw i64 %.01420, 1
   %28 = ptrtoint ptr %25 to i64
   %29 = ptrtoint ptr %24 to i64
   %30 = sub i64 %28, %29
   %31 = ashr exact i64 %30, 3
-  %.not = icmp ult i64 %27, %31
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  %32 = icmp ult i64 %27, %31
+  br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
-._crit_edge:                                      ; preds = %.thread, %18, %3
-  %spec.select = phi ptr [ null, %3 ], [ %14, %18 ], [ null, %.thread ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %18, %.thread, %3
+  %33 = phi ptr [ null, %3 ], [ null, %.thread ], [ %14, %18 ]
+  ret ptr %33
 }
 
 ; Function Attrs: mustprogress uwtable

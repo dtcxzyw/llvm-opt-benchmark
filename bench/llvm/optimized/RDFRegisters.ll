@@ -2873,8 +2873,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3rdf12RegisterAggr10hasAliasOfENS0
   %27 = load ptr, ptr %6, align 8, !tbaa !30
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !100
-  %.not22.not = icmp eq ptr %29, null
-  br i1 %.not22.not, label %_ZNK4llvm9BitVector9anyCommonERKS0_.exit, label %.lr.ph
+  %.not22 = icmp eq ptr %29, null
+  br i1 %.not22, label %_ZNK4llvm9BitVector9anyCommonERKS0_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -2923,11 +2923,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3rdf12RegisterAggr10hasAliasOfENS0
   %61 = load i16, ptr %.sroa.510.024, align 2, !tbaa !91
   %62 = sext i16 %61 to i32
   %63 = add i32 %.sroa.08.023, %62
-  %.not.i.i.i.not = icmp eq i16 %61, 0
-  br i1 %.not.i.i.i.not, label %_ZNK4llvm9BitVector9anyCommonERKS0_.exit, label %47, !llvm.loop !223
+  %.not.i.i.i = icmp eq i16 %61, 0
+  br i1 %.not.i.i.i, label %_ZNK4llvm9BitVector9anyCommonERKS0_.exit, label %47, !llvm.loop !223
 
-_ZNK4llvm9BitVector9anyCommonERKS0_.exit:         ; preds = %50, %.critedge, %20, %26, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %26 ], [ %.not11.not.i.not, %20 ], [ true, %50 ], [ false, %.critedge ]
+_ZNK4llvm9BitVector9anyCommonERKS0_.exit:         ; preds = %.critedge, %50, %20, %26, %7
+  %.0 = phi i1 [ false, %7 ], [ false, %26 ], [ %.not11.not.i.not, %20 ], [ false, %.critedge ], [ true, %50 ]
   ret i1 %.0
 }
 

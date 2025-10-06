@@ -5216,15 +5216,15 @@ define void @_ZN6colvar13neuralNetwork10calc_valueEv(ptr noundef nonnull align 8
 
 .lr.ph:                                           ; preds = %1, %44
   %13 = phi ptr [ %19, %44 ], [ %12, %1 ]
-  %.01534 = phi i64 [ %58, %44 ], [ 0, %1 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.01534
+  %.01532 = phi i64 [ %58, %44 ], [ 0, %1 ]
+  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.01532
   %15 = load ptr, ptr %14, align 8, !tbaa !124
   %16 = load ptr, ptr %15, align 8, !tbaa !110
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %18 = load ptr, ptr %17, align 8
   tail call void %18(ptr noundef nonnull align 8 dereferenceable(1608) %15)
   %19 = load ptr, ptr %9, align 8, !tbaa !117
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01534
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01532
   %21 = load ptr, ptr %20, align 8, !tbaa !124
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 592
   %23 = load i32, ptr %22, align 8, !tbaa !126
@@ -5300,9 +5300,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %38,
   %54 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !106
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !121
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %.01534
+  %57 = getelementptr inbounds nuw double, ptr %56, i64 %.01532
   store double %53, ptr %57, align 8, !tbaa !190
-  %58 = add nuw i64 %.01534, 1
+  %58 = add nuw i64 %.01532, 1
   %59 = load ptr, ptr %10, align 8, !tbaa !113
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %19 to i64

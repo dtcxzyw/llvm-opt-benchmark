@@ -13452,8 +13452,8 @@ cleanup:                                          ; preds = %if.end8.i, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef x86_fp80 @_ZN5boost4math6detail24non_central_chi_square_qIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_RKT0_SB_(x86_fp80 noundef %x, x86_fp80 noundef %f, x86_fp80 noundef %theta, ptr noundef nonnull align 1 dereferenceable(1) %pol, x86_fp80 noundef %init_sum) local_unnamed_addr #0 comdat {
 entry:
-  %ref.tmp.i53 = alloca %"struct.boost::math::policies::policy", align 1
-  %ref.tmp.i49 = alloca %"struct.boost::math::policies::policy", align 1
+  %ref.tmp.i52 = alloca %"struct.boost::math::policies::policy", align 1
+  %ref.tmp.i48 = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp.i = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp.i.i.i = alloca x86_fp80, align 16
   %lambda = alloca x86_fp80, align 16
@@ -13539,56 +13539,56 @@ _ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb
   %6 = load x86_fp80, ptr %lambda, align 16, !tbaa !36
   %div7 = fdiv x86_fp80 %mul, %6
   %add9 = fadd x86_fp80 %div1, %conv6
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i49)
-  %call.i50 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %add9, x86_fp80 noundef %div2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i49, ptr noundef null)
-  %7 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call.i50)
-  %cmp.i.i51 = fcmp ogt x86_fp80 %7, 0xK7FFEFFFFFFFFFFFFFFFF
-  br i1 %cmp.i.i51, label %if.then.i.i52, label %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i48)
+  %call.i49 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %add9, x86_fp80 noundef %div2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i48, ptr noundef null)
+  %7 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call.i49)
+  %cmp.i.i50 = fcmp ogt x86_fp80 %7, 0xK7FFEFFFFFFFFFFFFFFFF
+  br i1 %cmp.i.i50, label %if.then.i.i51, label %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
 
-if.then.i.i52:                                    ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
+if.then.i.i51:                                    ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
   call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef nonnull @.str.96, ptr noundef nonnull @.str.13)
   br label %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
 
-_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit: ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit, %if.then.i.i52
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i49)
+_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit: ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit, %if.then.i.i51
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i48)
   %add11 = fadd x86_fp80 %div1, 0xK3FFF8000000000000000
   %add13 = fadd x86_fp80 %add11, %conv6
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i53)
-  %call.i54 = call noundef x86_fp80 @_ZN5boost4math6detail22gamma_p_derivative_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_(x86_fp80 noundef %add13, x86_fp80 noundef %div2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i53)
-  %8 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call.i54)
-  %cmp.i.i55 = fcmp ogt x86_fp80 %8, 0xK7FFEFFFFFFFFFFFFFFFF
-  br i1 %cmp.i.i55, label %if.then.i.i56, label %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i52)
+  %call.i53 = call noundef x86_fp80 @_ZN5boost4math6detail22gamma_p_derivative_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_(x86_fp80 noundef %add13, x86_fp80 noundef %div2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52)
+  %8 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call.i53)
+  %cmp.i.i54 = fcmp ogt x86_fp80 %8, 0xK7FFEFFFFFFFFFFFFFFFF
+  br i1 %cmp.i.i54, label %if.then.i.i55, label %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56
 
-if.then.i.i56:                                    ; preds = %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
+if.then.i.i55:                                    ; preds = %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
   call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.13)
-  br label %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57
+  br label %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56
 
-_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57: ; preds = %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit, %if.then.i.i56
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i53)
-  %mul17 = fmul x86_fp80 %add9, %call.i54
+_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56: ; preds = %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit, %if.then.i.i55
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i52)
+  %mul17 = fmul x86_fp80 %add9, %call.i53
   %div18 = fdiv x86_fp80 %mul17, %div2
-  %sub = fsub x86_fp80 %call.i50, %div18
+  %sub = fsub x86_fp80 %call.i49, %div18
   %9 = load x86_fp80, ptr %lambda, align 16, !tbaa !36
   br label %for.body
 
-for.body:                                         ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57, %cleanup
-  %poisf.067 = phi x86_fp80 [ %call.i, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %mul26, %cleanup ]
-  %gamf.066 = phi x86_fp80 [ %call.i50, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %add27, %cleanup ]
-  %i.065 = phi i64 [ %spec.select.i, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %add23, %cleanup ]
-  %xtermf.064 = phi x86_fp80 [ %call.i54, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %mul32, %cleanup ]
-  %add226263 = phi x86_fp80 [ %init_sum, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %add22, %cleanup ]
-  %mul21 = fmul x86_fp80 %gamf.066, %poisf.067
-  %add22 = fadd x86_fp80 %mul21, %add226263
-  %add23 = add nsw i64 %i.065, 1
+for.body:                                         ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56, %cleanup
+  %poisf.064 = phi x86_fp80 [ %call.i, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %mul26, %cleanup ]
+  %gamf.063 = phi x86_fp80 [ %call.i49, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %add27, %cleanup ]
+  %i.062 = phi i64 [ %spec.select.i, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %add23, %cleanup ]
+  %xtermf.061 = phi x86_fp80 [ %call.i53, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %mul32, %cleanup ]
+  %add225960 = phi x86_fp80 [ %init_sum, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %add22, %cleanup ]
+  %mul21 = fmul x86_fp80 %gamf.063, %poisf.064
+  %add22 = fadd x86_fp80 %mul21, %add225960
+  %add23 = add nsw i64 %i.062, 1
   %conv24 = sitofp i64 %add23 to x86_fp80
   %div25 = fdiv x86_fp80 %9, %conv24
-  %mul26 = fmul x86_fp80 %poisf.067, %div25
-  %add27 = fadd x86_fp80 %xtermf.064, %gamf.066
-  %conv28 = sitofp i64 %i.065 to x86_fp80
+  %mul26 = fmul x86_fp80 %poisf.064, %div25
+  %add27 = fadd x86_fp80 %xtermf.061, %gamf.063
+  %conv28 = sitofp i64 %i.062 to x86_fp80
   %add29 = fadd x86_fp80 %div1, %conv28
   %add30 = fadd x86_fp80 %add29, 0xK3FFF8000000000000000
   %div31 = fdiv x86_fp80 %div2, %add30
-  %mul32 = fmul x86_fp80 %xtermf.064, %div31
+  %mul32 = fmul x86_fp80 %xtermf.061, %div31
   %cmp33 = fcmp oeq x86_fp80 %add22, 0xK00000000000000000000
   br i1 %cmp33, label %land.lhs.true, label %lor.lhs.false
 
@@ -13620,7 +13620,7 @@ if.then43:                                        ; preds = %cleanup
   br label %cleanup73
 
 for.cond47:                                       ; preds = %for.cond47.preheader, %lor.lhs.false62
-  %add5269 = phi x86_fp80 [ %add52, %lor.lhs.false62 ], [ %add22, %for.cond47.preheader ]
+  %add5266 = phi x86_fp80 [ %add52, %lor.lhs.false62 ], [ %add22, %for.cond47.preheader ]
   %xtermb.0 = phi x86_fp80 [ %mul59, %lor.lhs.false62 ], [ %div18, %for.cond47.preheader ]
   %gamb.0 = phi x86_fp80 [ %sub60, %lor.lhs.false62 ], [ %sub, %for.cond47.preheader ]
   %i.1.in = phi i64 [ %i.1, %lor.lhs.false62 ], [ %spec.select.i, %for.cond47.preheader ]
@@ -13631,7 +13631,7 @@ for.cond47:                                       ; preds = %for.cond47.preheade
 
 for.body49:                                       ; preds = %for.cond47
   %mul51 = fmul x86_fp80 %gamb.0, %poisb.0
-  %add52 = fadd x86_fp80 %mul51, %add5269
+  %add52 = fadd x86_fp80 %mul51, %add5266
   %cmp61 = fcmp oeq x86_fp80 %add52, 0xK00000000000000000000
   br i1 %cmp61, label %cleanup73, label %lor.lhs.false62
 
@@ -13649,7 +13649,7 @@ lor.lhs.false62:                                  ; preds = %for.body49
   br i1 %cmp65, label %cleanup73, label %for.cond47, !llvm.loop !99
 
 cleanup73:                                        ; preds = %for.cond47, %lor.lhs.false62, %for.body49, %if.then43
-  %retval.1 = phi x86_fp80 [ 0xK00000000000000000000, %if.then43 ], [ %add52, %for.body49 ], [ %add52, %lor.lhs.false62 ], [ %add5269, %for.cond47 ]
+  %retval.1 = phi x86_fp80 [ 0xK00000000000000000000, %if.then43 ], [ %add52, %for.body49 ], [ %add52, %lor.lhs.false62 ], [ %add5266, %for.cond47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %sum)
   call void @llvm.lifetime.end.p0(ptr nonnull %lambda)
   br label %return
@@ -17238,7 +17238,7 @@ if.end34.thread:                                  ; preds = %_ZN5boost4math6deta
   store x86_fp80 %29, ptr %a, align 16, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp48)
   call void @llvm.lifetime.end.p0(ptr nonnull %c.addr.i)
-  %dec262 = add i64 %0, -1
+  %dec260 = add i64 %0, -1
   br label %while.end.thread
 
 if.end23.i:                                       ; preds = %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit.i
@@ -17310,10 +17310,10 @@ if.then29:                                        ; preds = %land.lhs.true27
 if.end34:                                         ; preds = %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit, %land.lhs.true27, %if.then29
   %47 = phi x86_fp80 [ %37, %land.lhs.true27 ], [ %.pre, %if.then29 ], [ %37, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit ]
   %count.0 = phi i64 [ %dec, %land.lhs.true27 ], [ %dec32, %if.then29 ], [ %dec, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit ]
-  %tobool35233 = icmp ne i64 %count.0, 0
-  %cmp37234 = fcmp une x86_fp80 %47, 0xK00000000000000000000
-  %or.cond3235 = select i1 %tobool35233, i1 %cmp37234, i1 false
-  br i1 %or.cond3235, label %land.rhs.lr.ph, label %while.end
+  %tobool35231 = icmp ne i64 %count.0, 0
+  %cmp37232 = fcmp une x86_fp80 %47, 0xK00000000000000000000
+  %or.cond3233 = select i1 %tobool35231, i1 %cmp37232, i1 false
+  br i1 %or.cond3233, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %if.end34
   %comp.i.i74 = getelementptr inbounds nuw i8, ptr %agg.tmp6763, i64 48
@@ -17331,7 +17331,7 @@ land.rhs.lr.ph:                                   ; preds = %if.end34
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %cleanup
   %51 = phi x86_fp80 [ %47, %land.rhs.lr.ph ], [ %164, %cleanup ]
-  %count.1236 = phi i64 [ %count.0, %land.rhs.lr.ph ], [ %count.3, %cleanup ]
+  %count.1234 = phi i64 [ %count.0, %land.rhs.lr.ph ], [ %count.3, %cleanup ]
   %52 = load x86_fp80, ptr %a, align 16, !tbaa !36
   %53 = load x86_fp80, ptr %b, align 16, !tbaa !36
   %sub.i59 = fsub x86_fp80 %52, %53
@@ -17513,7 +17513,7 @@ _ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36n
   store x86_fp80 %83, ptr %a, align 16, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6763)
   call void @llvm.lifetime.end.p0(ptr nonnull %c.addr.i65)
-  %dec68270 = add i64 %count.1236, -1
+  %dec68268 = add i64 %count.1234, -1
   br label %while.end.thread
 
 if.end23.i83:                                     ; preds = %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit.i80
@@ -17542,17 +17542,17 @@ if.else29.i91:                                    ; preds = %if.end23.i83
   br label %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit104
 
 _ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit104: ; preds = %if.then28.i92, %if.else29.i91
-  %.sink293 = phi x86_fp80 [ %89, %if.then28.i92 ], [ %84, %if.else29.i91 ]
-  %b.sink292 = phi ptr [ %b, %if.then28.i92 ], [ %a, %if.else29.i91 ]
-  %fb.sink290 = phi ptr [ %fb, %if.then28.i92 ], [ %fa, %if.else29.i91 ]
+  %.sink291 = phi x86_fp80 [ %89, %if.then28.i92 ], [ %84, %if.else29.i91 ]
+  %b.sink290 = phi ptr [ %b, %if.then28.i92 ], [ %a, %if.else29.i91 ]
+  %fb.sink288 = phi ptr [ %fb, %if.then28.i92 ], [ %fa, %if.else29.i91 ]
   %91 = phi x86_fp80 [ %84, %if.then28.i92 ], [ %cond.i.i81, %if.else29.i91 ]
-  store x86_fp80 %.sink293, ptr %fd, align 16, !tbaa !36
+  store x86_fp80 %.sink291, ptr %fd, align 16, !tbaa !36
   %92 = load x86_fp80, ptr %c.addr.i65, align 16, !tbaa !36
-  store x86_fp80 %92, ptr %b.sink292, align 16, !tbaa !36
-  store x86_fp80 %cond.i.i81, ptr %fb.sink290, align 16, !tbaa !36
+  store x86_fp80 %92, ptr %b.sink290, align 16, !tbaa !36
+  store x86_fp80 %cond.i.i81, ptr %fb.sink288, align 16, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp6763)
   call void @llvm.lifetime.end.p0(ptr nonnull %c.addr.i65)
-  %dec68 = add i64 %count.1236, -1
+  %dec68 = add i64 %count.1234, -1
   %cmp69 = icmp eq i64 %dec68, 0
   %cmp71 = fcmp oeq x86_fp80 %91, 0xK00000000000000000000
   %or.cond4 = or i1 %cmp69, %cmp71
@@ -17579,7 +17579,7 @@ if.end75:                                         ; preds = %lor.lhs.false72
   br i1 %cmp78, label %if.then102, label %lor.lhs.false79
 
 lor.lhs.false79:                                  ; preds = %if.end75
-  %sub80 = fsub x86_fp80 %91, %.sink293
+  %sub80 = fsub x86_fp80 %91, %.sink291
   %101 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %sub80)
   %cmp82 = fcmp olt x86_fp80 %101, 0xK00068000000000000000
   br i1 %cmp82, label %if.then102, label %lor.lhs.false83
@@ -17592,7 +17592,7 @@ lor.lhs.false83:                                  ; preds = %lor.lhs.false79
   br i1 %cmp86, label %if.then102, label %lor.lhs.false87
 
 lor.lhs.false87:                                  ; preds = %lor.lhs.false83
-  %sub88 = fsub x86_fp80 %99, %.sink293
+  %sub88 = fsub x86_fp80 %99, %.sink291
   %104 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %sub88)
   %cmp90 = fcmp olt x86_fp80 %104, 0xK00068000000000000000
   br i1 %cmp90, label %if.then102, label %lor.lhs.false91
@@ -17604,7 +17604,7 @@ lor.lhs.false91:                                  ; preds = %lor.lhs.false87
   br i1 %cmp94, label %if.then102, label %lor.rhs95
 
 lor.rhs95:                                        ; preds = %lor.lhs.false91
-  %sub96 = fsub x86_fp80 %.sink293, %102
+  %sub96 = fsub x86_fp80 %.sink291, %102
   %106 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %sub96)
   %cmp98 = fcmp olt x86_fp80 %106, 0xK00068000000000000000
   br i1 %cmp98, label %if.then102, label %if.else104
@@ -17735,7 +17735,7 @@ _ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36n
   store x86_fp80 %121, ptr %a, align 16, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp107109)
   call void @llvm.lifetime.end.p0(ptr nonnull %c.addr.i111)
-  %dec108275 = add i64 %count.1236, -2
+  %dec108273 = add i64 %count.1234, -2
   br label %while.end.thread
 
 if.end23.i129:                                    ; preds = %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit.i126
@@ -17764,18 +17764,18 @@ if.else29.i137:                                   ; preds = %if.end23.i129
   br label %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit150
 
 _ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit150: ; preds = %if.then28.i138, %if.else29.i137
-  %.sink297 = phi x86_fp80 [ %127, %if.then28.i138 ], [ %122, %if.else29.i137 ]
-  %b.sink296 = phi ptr [ %b, %if.then28.i138 ], [ %a, %if.else29.i137 ]
-  %fb.sink294 = phi ptr [ %fb, %if.then28.i138 ], [ %fa, %if.else29.i137 ]
+  %.sink295 = phi x86_fp80 [ %127, %if.then28.i138 ], [ %122, %if.else29.i137 ]
+  %b.sink294 = phi ptr [ %b, %if.then28.i138 ], [ %a, %if.else29.i137 ]
+  %fb.sink292 = phi ptr [ %fb, %if.then28.i138 ], [ %fa, %if.else29.i137 ]
   %129 = phi x86_fp80 [ %126, %if.then28.i138 ], [ %128, %if.else29.i137 ]
   %fa.val = phi x86_fp80 [ %122, %if.then28.i138 ], [ %cond.i.i127, %if.else29.i137 ]
-  store x86_fp80 %.sink297, ptr %fd, align 16, !tbaa !36
+  store x86_fp80 %.sink295, ptr %fd, align 16, !tbaa !36
   %130 = load x86_fp80, ptr %c.addr.i111, align 16, !tbaa !36
-  store x86_fp80 %130, ptr %b.sink296, align 16, !tbaa !36
-  store x86_fp80 %cond.i.i127, ptr %fb.sink294, align 16, !tbaa !36
+  store x86_fp80 %130, ptr %b.sink294, align 16, !tbaa !36
+  store x86_fp80 %cond.i.i127, ptr %fb.sink292, align 16, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp107109)
   call void @llvm.lifetime.end.p0(ptr nonnull %c.addr.i111)
-  %dec108 = add i64 %count.1236, -2
+  %dec108 = add i64 %count.1234, -2
   %cmp109 = icmp eq i64 %dec108, 0
   %cmp111 = fcmp oeq x86_fp80 %fa.val, 0xK00000000000000000000
   %or.cond5 = or i1 %cmp109, %cmp111
@@ -17813,7 +17813,7 @@ if.end115:                                        ; preds = %lor.lhs.false112
   %add = fadd x86_fp80 %131, %div129
   %c.2 = select i1 %cmp130, x86_fp80 %add, x86_fp80 %140
   store x86_fp80 %129, ptr %e, align 16, !tbaa !36
-  store x86_fp80 %.sink297, ptr %fe, align 16, !tbaa !36
+  store x86_fp80 %.sink295, ptr %fe, align 16, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %agg.tmp135155)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %agg.tmp135155, ptr noundef nonnull align 16 dereferenceable(64) %f, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %c.addr.i157)
@@ -17869,7 +17869,7 @@ _ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36n
   store x86_fp80 %147, ptr %a, align 16, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp135155)
   call void @llvm.lifetime.end.p0(ptr nonnull %c.addr.i157)
-  %dec136279 = add i64 %count.1236, -3
+  %dec136277 = add i64 %count.1234, -3
   br label %while.end.thread
 
 if.end23.i175:                                    ; preds = %_ZN5boost4math6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS4_13promote_floatILb0EEENS4_14promote_doubleILb0EEENS4_14default_policyESA_SA_SA_SA_SA_SA_SA_SA_SA_SA_EEEEEclERKe.exit.i172
@@ -17898,18 +17898,18 @@ if.else29.i183:                                   ; preds = %if.end23.i175
   br label %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit196
 
 _ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit196: ; preds = %if.then28.i184, %if.else29.i183
-  %.sink301 = phi x86_fp80 [ %153, %if.then28.i184 ], [ %148, %if.else29.i183 ]
-  %b.sink300 = phi ptr [ %b, %if.then28.i184 ], [ %a, %if.else29.i183 ]
-  %fb.sink298 = phi ptr [ %fb, %if.then28.i184 ], [ %fa, %if.else29.i183 ]
+  %.sink299 = phi x86_fp80 [ %153, %if.then28.i184 ], [ %148, %if.else29.i183 ]
+  %b.sink298 = phi ptr [ %b, %if.then28.i184 ], [ %a, %if.else29.i183 ]
+  %fb.sink296 = phi ptr [ %fb, %if.then28.i184 ], [ %fa, %if.else29.i183 ]
   %155 = phi x86_fp80 [ %152, %if.then28.i184 ], [ %154, %if.else29.i183 ]
   %156 = phi x86_fp80 [ %148, %if.then28.i184 ], [ %cond.i.i173, %if.else29.i183 ]
-  store x86_fp80 %.sink301, ptr %fd, align 16, !tbaa !36
+  store x86_fp80 %.sink299, ptr %fd, align 16, !tbaa !36
   %157 = load x86_fp80, ptr %c.addr.i157, align 16, !tbaa !36
-  store x86_fp80 %157, ptr %b.sink300, align 16, !tbaa !36
-  store x86_fp80 %cond.i.i173, ptr %fb.sink298, align 16, !tbaa !36
+  store x86_fp80 %157, ptr %b.sink298, align 16, !tbaa !36
+  store x86_fp80 %cond.i.i173, ptr %fb.sink296, align 16, !tbaa !36
   call void @llvm.lifetime.end.p0(ptr nonnull %agg.tmp135155)
   call void @llvm.lifetime.end.p0(ptr nonnull %c.addr.i157)
-  %dec136 = add i64 %count.1236, -3
+  %dec136 = add i64 %count.1234, -3
   %cmp137 = icmp eq i64 %dec136, 0
   %cmp139 = fcmp oeq x86_fp80 %156, 0xK00000000000000000000
   %or.cond6 = or i1 %cmp137, %cmp139
@@ -17937,16 +17937,16 @@ if.end143:                                        ; preds = %lor.lhs.false140
 
 if.end149:                                        ; preds = %if.end143
   store x86_fp80 %155, ptr %e, align 16, !tbaa !36
-  store x86_fp80 %.sink301, ptr %fe, align 16, !tbaa !36
+  store x86_fp80 %.sink299, ptr %fe, align 16, !tbaa !36
   %div152 = fmul x86_fp80 %sub144, 0xK3FFE8000000000000000
   %add153 = fadd x86_fp80 %158, %div152
   call void @_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_(ptr noundef nonnull byval(%"struct.boost::math::detail::generic_quantile_finder") align 16 %f, ptr noundef nonnull align 16 dereferenceable(16) %a, ptr noundef nonnull align 16 dereferenceable(16) %b, x86_fp80 noundef %add153, ptr noundef nonnull align 16 dereferenceable(16) %fa, ptr noundef nonnull align 16 dereferenceable(16) %fb, ptr noundef nonnull align 16 dereferenceable(16) %d, ptr noundef nonnull align 16 dereferenceable(16) %fd)
-  %dec154 = add i64 %count.1236, -4
-  %.pre238 = load x86_fp80, ptr %fa, align 16
+  %dec154 = add i64 %count.1234, -4
+  %.pre236 = load x86_fp80, ptr %fa, align 16
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end143, %if.end149
-  %164 = phi x86_fp80 [ %.pre238, %if.end149 ], [ %156, %if.end143 ]
+  %164 = phi x86_fp80 [ %.pre236, %if.end149 ], [ %156, %if.end143 ]
   %count.3 = phi i64 [ %dec154, %if.end149 ], [ %dec136, %if.end143 ]
   %tobool35 = icmp ne i64 %count.3, 0
   %cmp37 = fcmp une x86_fp80 %164, 0xK00000000000000000000
@@ -17954,15 +17954,15 @@ cleanup:                                          ; preds = %if.end143, %if.end1
   br i1 %or.cond3, label %land.rhs, label %while.end
 
 while.end.thread:                                 ; preds = %if.end34.thread, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit104.thread, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit150.thread, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit196.thread
-  %count.2.ph = phi i64 [ %dec136279, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit196.thread ], [ %dec108275, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit150.thread ], [ %dec68270, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit104.thread ], [ %dec262, %if.end34.thread ]
+  %count.2.ph = phi i64 [ %dec136277, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit196.thread ], [ %dec108273, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit150.thread ], [ %dec68268, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit104.thread ], [ %dec260, %if.end34.thread ]
   %165 = load i64, ptr %max_iter, align 8, !tbaa !24
-  %sub156284 = sub i64 %165, %count.2.ph
-  store i64 %sub156284, ptr %max_iter, align 8, !tbaa !24
+  %sub156282 = sub i64 %165, %count.2.ph
+  store i64 %sub156282, ptr %max_iter, align 8, !tbaa !24
   br label %if.then158
 
 while.end:                                        ; preds = %cleanup, %land.rhs, %lor.lhs.false72, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit104, %lor.lhs.false112, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit150, %lor.lhs.false140, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit196, %if.end34
   %166 = phi x86_fp80 [ %47, %if.end34 ], [ %164, %cleanup ], [ %91, %lor.lhs.false72 ], [ %91, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit104 ], [ %fa.val, %lor.lhs.false112 ], [ %fa.val, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit150 ], [ %156, %lor.lhs.false140 ], [ %156, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit196 ], [ %51, %land.rhs ]
-  %count.2 = phi i64 [ %count.0, %if.end34 ], [ %count.3, %cleanup ], [ %dec68, %lor.lhs.false72 ], [ %dec68, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit104 ], [ %dec108, %lor.lhs.false112 ], [ %dec108, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit150 ], [ %dec136, %lor.lhs.false140 ], [ %dec136, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit196 ], [ %count.1236, %land.rhs ]
+  %count.2 = phi i64 [ %count.0, %if.end34 ], [ %count.3, %cleanup ], [ %dec68, %lor.lhs.false72 ], [ %dec68, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit104 ], [ %dec108, %lor.lhs.false112 ], [ %dec108, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit150 ], [ %dec136, %lor.lhs.false140 ], [ %dec136, %_ZN5boost4math5tools6detail7bracketINS0_6detail23generic_quantile_finderINS0_36non_central_chi_squared_distributionIeNS0_8policies6policyINS7_13promote_floatILb0EEENS7_14promote_doubleILb0EEENS7_14default_policyESD_SD_SD_SD_SD_SD_SD_SD_SD_SD_EEEEEEeEEvT_RT0_SJ_SI_SJ_SJ_SJ_SJ_.exit196 ], [ %count.1234, %land.rhs ]
   %167 = load i64, ptr %max_iter, align 8, !tbaa !24
   %sub156 = sub i64 %167, %count.2
   store i64 %sub156, ptr %max_iter, align 8, !tbaa !24
@@ -17979,8 +17979,8 @@ if.else159:                                       ; preds = %while.end
   br i1 %cmp160, label %if.then161, label %if.else159.if.end163_crit_edge
 
 if.else159.if.end163_crit_edge:                   ; preds = %if.else159
-  %.pre240 = load x86_fp80, ptr %a, align 16, !tbaa !36, !noalias !173
-  %.pre241 = load x86_fp80, ptr %b, align 16, !tbaa !36, !noalias !173
+  %.pre238 = load x86_fp80, ptr %a, align 16, !tbaa !36, !noalias !173
+  %.pre239 = load x86_fp80, ptr %b, align 16, !tbaa !36, !noalias !173
   br label %cleanup164
 
 if.then161:                                       ; preds = %if.else159
@@ -17988,11 +17988,11 @@ if.then161:                                       ; preds = %if.else159
   br label %cleanup164
 
 cleanup164:                                       ; preds = %if.then158, %if.then161, %if.else159.if.end163_crit_edge, %if.then19, %if.then8, %if.then2
-  %.sink303 = phi x86_fp80 [ 0xK7FFFC000000000000000, %if.then19 ], [ %14, %if.then8 ], [ 0xK7FFFC000000000000000, %if.then2 ], [ %.pre240, %if.else159.if.end163_crit_edge ], [ %170, %if.then161 ], [ %168, %if.then158 ]
-  %.sink302 = phi x86_fp80 [ 0xK7FFFC000000000000000, %if.then19 ], [ %13, %if.then8 ], [ 0xK7FFFC000000000000000, %if.then2 ], [ %.pre241, %if.else159.if.end163_crit_edge ], [ %170, %if.then161 ], [ %168, %if.then158 ]
-  store x86_fp80 %.sink303, ptr %agg.result, align 16, !tbaa !110
+  %.sink301 = phi x86_fp80 [ 0xK7FFFC000000000000000, %if.then19 ], [ %14, %if.then8 ], [ 0xK7FFFC000000000000000, %if.then2 ], [ %.pre238, %if.else159.if.end163_crit_edge ], [ %170, %if.then161 ], [ %168, %if.then158 ]
+  %.sink300 = phi x86_fp80 [ 0xK7FFFC000000000000000, %if.then19 ], [ %13, %if.then8 ], [ 0xK7FFFC000000000000000, %if.then2 ], [ %.pre239, %if.else159.if.end163_crit_edge ], [ %170, %if.then161 ], [ %168, %if.then158 ]
+  store x86_fp80 %.sink301, ptr %agg.result, align 16, !tbaa !110
   %second.i.i201 = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
-  store x86_fp80 %.sink302, ptr %second.i.i201, align 16, !tbaa !112
+  store x86_fp80 %.sink300, ptr %second.i.i201, align 16, !tbaa !112
   call void @llvm.lifetime.end.p0(ptr nonnull %fe)
   call void @llvm.lifetime.end.p0(ptr nonnull %e)
   call void @llvm.lifetime.end.p0(ptr nonnull %fd)

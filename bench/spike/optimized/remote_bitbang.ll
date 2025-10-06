@@ -289,10 +289,10 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
 
 .lr.ph:                                           ; preds = %11, %58
   %15 = phi i64 [ %51, %58 ], [ %13, %11 ]
-  %.255 = phi i32 [ %52, %58 ], [ %.0, %11 ]
-  %.22754 = phi i1 [ %.4, %58 ], [ false, %11 ]
-  %.02953 = phi i32 [ %.231, %58 ], [ 0, %11 ]
-  %.23952 = phi i1 [ false, %58 ], [ %.037, %11 ]
+  %.254 = phi i32 [ %52, %58 ], [ %.0, %11 ]
+  %.22753 = phi i1 [ %.4, %58 ], [ false, %11 ]
+  %.02952 = phi i32 [ %.231, %58 ], [ 0, %11 ]
+  %.23951 = phi i1 [ false, %58 ], [ %.037, %11 ]
   %16 = getelementptr inbounds i8, ptr %8, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !29
   switch i8 %17, label %45 [
@@ -361,8 +361,8 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 15
   %39 = load i8, ptr %38, align 1, !tbaa !30, !range !31, !noundef !32
   %40 = or disjoint i8 %39, 48
-  %41 = add i32 %.02953, 1
-  %42 = zext i32 %.02953 to i64
+  %41 = add i32 %.02952, 1
+  %42 = zext i32 %.02952 to i64
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 %42
   store i8 %40, ptr %43, align 1, !tbaa !29
   br label %49
@@ -377,13 +377,13 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   br label %49
 
 49:                                               ; preds = %45, %44, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %.lr.ph, %.lr.ph
-  %.231 = phi i32 [ %.02953, %45 ], [ %.02953, %.lr.ph ], [ %.02953, %.lr.ph ], [ %.02953, %18 ], [ %.02953, %20 ], [ %.02953, %22 ], [ %.02953, %24 ], [ %.02953, %26 ], [ %.02953, %28 ], [ %.02953, %30 ], [ %.02953, %32 ], [ %.02953, %34 ], [ %41, %36 ], [ %.02953, %44 ]
-  %.4 = phi i1 [ %.22754, %45 ], [ %.22754, %.lr.ph ], [ %.22754, %.lr.ph ], [ %.22754, %18 ], [ %.22754, %20 ], [ %.22754, %22 ], [ %.22754, %24 ], [ %.22754, %26 ], [ %.22754, %28 ], [ %.22754, %30 ], [ %.22754, %32 ], [ %.22754, %34 ], [ %.22754, %36 ], [ true, %44 ]
+  %.231 = phi i32 [ %.02952, %45 ], [ %.02952, %.lr.ph ], [ %.02952, %.lr.ph ], [ %.02952, %18 ], [ %.02952, %20 ], [ %.02952, %22 ], [ %.02952, %24 ], [ %.02952, %26 ], [ %.02952, %28 ], [ %.02952, %30 ], [ %.02952, %32 ], [ %.02952, %34 ], [ %41, %36 ], [ %.02952, %44 ]
+  %.4 = phi i1 [ %.22753, %45 ], [ %.22753, %.lr.ph ], [ %.22753, %.lr.ph ], [ %.22753, %18 ], [ %.22753, %20 ], [ %.22753, %22 ], [ %.22753, %24 ], [ %.22753, %26 ], [ %.22753, %28 ], [ %.22753, %30 ], [ %.22753, %32 ], [ %.22753, %34 ], [ %.22753, %36 ], [ true, %44 ]
   %50 = load i64, ptr %6, align 8, !tbaa !28
   %51 = add nsw i64 %50, 1
   store i64 %51, ptr %6, align 8, !tbaa !28
-  %52 = add i32 %.255, 1
-  br i1 %.23952, label %58, label %53
+  %52 = add i32 %.254, 1
+  br i1 %.23951, label %58, label %53
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %0, align 8, !tbaa !3
@@ -400,22 +400,22 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
 .thread:                                          ; preds = %58, %53
   %.lcssa.ph = phi i1 [ false, %58 ], [ true, %53 ]
   %.not = icmp eq i32 %.231, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph67
+  br i1 %.not, label %.loopexit, label %.lr.ph66
 
-.lr.ph67:                                         ; preds = %.thread
+.lr.ph66:                                         ; preds = %.thread
   %61 = zext i32 %.231 to i64
   br label %66
 
 62:                                               ; preds = %66
   %63 = trunc i64 %70 to i32
-  %64 = add i32 %.02366, %63
+  %64 = add i32 %.02365, %63
   %65 = icmp ult i32 %64, %.231
   br i1 %65, label %66, label %.loopexit, !llvm.loop !33
 
-66:                                               ; preds = %.lr.ph67, %62
-  %.02366 = phi i32 [ 0, %.lr.ph67 ], [ %64, %62 ]
+66:                                               ; preds = %.lr.ph66, %62
+  %.02365 = phi i32 [ 0, %.lr.ph66 ], [ %64, %62 ]
   %67 = load i32, ptr %10, align 4, !tbaa !12
-  %68 = zext i32 %.02366 to i64
+  %68 = zext i32 %.02365 to i64
   %69 = getelementptr inbounds nuw i8, ptr %9, i64 %68
   %70 = tail call i64 @write(i32 noundef %67, ptr noundef nonnull %69, i64 noundef %61)
   %71 = icmp eq i64 %70, -1
@@ -439,7 +439,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %79 = icmp ugt i32 %.1, 65536
   %or.cond = select i1 %79, i1 true, i1 %.126
   %or.cond3 = or i1 %.133, %or.cond
-  br i1 %or.cond3, label %.loopexit49, label %80
+  br i1 %or.cond3, label %.loopexit48, label %80
 
 80:                                               ; preds = %.loopexit
   store i64 0, ptr %6, align 8, !tbaa !28
@@ -455,7 +455,7 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %84 = tail call ptr @__errno_location() #13
   %85 = load i32, ptr %84, align 4, !tbaa !15
   %86 = icmp eq i32 %85, 11
-  br i1 %86, label %.loopexit49, label %87
+  br i1 %86, label %.loopexit48, label %87
 
 87:                                               ; preds = %83
   %88 = load ptr, ptr @stderr, align 8, !tbaa !13
@@ -471,9 +471,9 @@ define void @_ZN16remote_bitbang_t16execute_commandsEv(ptr noundef nonnull align
   %95 = load i32, ptr %10, align 4, !tbaa !12
   %96 = tail call i32 @close(i32 noundef %95)
   store i32 0, ptr %10, align 4, !tbaa !12
-  br label %.loopexit49
+  br label %.loopexit48
 
-.loopexit49:                                      ; preds = %.loopexit, %83, %92
+.loopexit48:                                      ; preds = %.loopexit, %83, %92
   ret void
 }
 

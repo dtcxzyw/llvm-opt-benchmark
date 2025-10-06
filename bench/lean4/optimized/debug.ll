@@ -689,8 +689,8 @@ define void @_ZN4lean15invoke_debuggerEv() local_unnamed_addr #5 personality ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i32, ptr %10, align 8, !tbaa !20
   %12 = and i32 %11, 2
-  %.not18 = icmp eq i32 %12, 0
-  br i1 %.not18, label %.lr.ph, label %._crit_edge
+  %.not17 = icmp eq i32 %12, 0
+  br i1 %.not17, label %.lr.ph, label %._crit_edge
 
 13:                                               ; preds = %0
   %14 = tail call ptr @__cxa_allocate_exception(i64 40) #29
@@ -719,8 +719,8 @@ define void @_ZN4lean15invoke_debuggerEv() local_unnamed_addr #5 personality ptr
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !20
   %26 = and i32 %25, 2
-  %.not17 = icmp eq i32 %26, 0
-  br i1 %.not17, label %28, label %27
+  %.not16 = icmp eq i32 %26, 0
+  br i1 %.not16, label %28, label %27
 
 27:                                               ; preds = %.lr.ph
   call void @_ZN4lean15debuggable_exitEv() #31

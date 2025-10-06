@@ -703,7 +703,7 @@ define dso_local ptr @ExecLookupResultRelByOid(ptr noundef captures(none) %0, i3
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  %wide.trip.count61 = zext nneg i32 %9 to i64
+  %wide.trip.count59 = zext nneg i32 %9 to i64
   br i1 %3, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %20
@@ -718,7 +718,7 @@ define dso_local ptr @ExecLookupResultRelByOid(ptr noundef captures(none) %0, i3
 
 20:                                               ; preds = %.lr.ph.split.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count61
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
 
 21:                                               ; preds = %4
@@ -756,13 +756,13 @@ define dso_local ptr @ExecLookupResultRelByOid(ptr noundef captures(none) %0, i3
   br i1 %2, label %.thread43, label %42
 
 36:                                               ; preds = %.lr.ph.split
-  %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %exitcond62.not = icmp eq i64 %indvars.iv.next59, %wide.trip.count61
-  br i1 %exitcond62.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
+  br i1 %exitcond60.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
-  %indvars.iv58 = phi i64 [ %indvars.iv.next59, %36 ], [ 0, %.lr.ph ]
-  %37 = getelementptr inbounds nuw %struct.ResultRelInfo, ptr %12, i64 %indvars.iv58
+  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %36 ], [ 0, %.lr.ph ]
+  %37 = getelementptr inbounds nuw %struct.ResultRelInfo, ptr %12, i64 %indvars.iv56
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 72
@@ -782,7 +782,7 @@ define dso_local ptr @ExecLookupResultRelByOid(ptr noundef captures(none) %0, i3
 
 .thread43.loopexit:                               ; preds = %.lr.ph.split
   store i32 %1, ptr %13, align 8
-  %46 = trunc nuw nsw i64 %indvars.iv58 to i32
+  %46 = trunc nuw nsw i64 %indvars.iv56 to i32
   store i32 %46, ptr %14, align 4
   br label %.thread43
 

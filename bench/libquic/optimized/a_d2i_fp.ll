@@ -154,7 +154,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
 
 24:                                               ; preds = %22, %18
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 168) #4
-  br label %.thread138
+  br label %.thread137
 
 25:                                               ; preds = %22
   %26 = load ptr, ptr %8, align 8, !tbaa !11
@@ -168,7 +168,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
 
 32:                                               ; preds = %25
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 162, ptr noundef nonnull @.str, i32 noundef 173) #4
-  br label %.thread138
+  br label %.thread137
 
 33:                                               ; preds = %25
   %34 = icmp sgt i32 %29, 0
@@ -181,15 +181,15 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
   br i1 %38, label %39, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %35
-  %.pre151 = sub i64 %37, %.098
+  %.pre150 = sub i64 %37, %.098
   br label %40
 
 39:                                               ; preds = %35
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 177, ptr noundef nonnull @.str, i32 noundef 178) #4
-  br label %.thread138
+  br label %.thread137
 
 40:                                               ; preds = %._crit_edge, %33, %15
-  %.pre-phi = phi i64 [ %.pre151, %._crit_edge ], [ %16, %33 ], [ %16, %15 ]
+  %.pre-phi = phi i64 [ %.pre150, %._crit_edge ], [ %16, %33 ], [ %16, %15 ]
   %.196 = phi i64 [ %37, %._crit_edge ], [ %.095, %33 ], [ %.095, %15 ]
   %41 = load ptr, ptr %8, align 8, !tbaa !11
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.098
@@ -204,7 +204,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
   %46 = call i32 @ERR_peek_error() #4
   %47 = and i32 %46, 4095
   %.not120 = icmp eq i32 %47, 177
-  br i1 %.not120, label %.thread, label %.thread138
+  br i1 %.not120, label %.thread, label %.thread137
 
 .thread:                                          ; preds = %45
   call void @ERR_clear_error() #4
@@ -243,7 +243,7 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
 
 64:                                               ; preds = %59
   %65 = icmp slt i32 %.0101.ph, 2
-  br i1 %65, label %.loopexit164, label %66
+  br i1 %65, label %.loopexit163, label %66
 
 66:                                               ; preds = %64
   %67 = add nsw i32 %.0101.ph, -1
@@ -263,65 +263,65 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
   br i1 %or.cond128, label %76, label %.preheader
 
 .preheader:                                       ; preds = %71
-  %.not122146 = icmp eq i64 %72, 0
-  br i1 %.not122146, label %.loopexit, label %.lr.ph
+  %.not122145 = icmp eq i64 %72, 0
+  br i1 %.not122145, label %.loopexit, label %.lr.ph
 
 76:                                               ; preds = %71
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 177, ptr noundef nonnull @.str, i32 noundef 225) #4
-  br label %.thread138
+  br label %.thread137
 
 .lr.ph:                                           ; preds = %.preheader, %94
-  %.090149 = phi i64 [ %spec.select, %94 ], [ 16384, %.preheader ]
-  %.5148 = phi i64 [ %92, %94 ], [ %.196, %.preheader ]
-  %.2105147 = phi i64 [ %82, %94 ], [ %72, %.preheader ]
-  %77 = call i64 @llvm.umin.i64(i64 %.2105147, i64 %.090149)
-  %78 = add i64 %77, %.5148
+  %.090148 = phi i64 [ %spec.select, %94 ], [ 16384, %.preheader ]
+  %.5147 = phi i64 [ %92, %94 ], [ %.196, %.preheader ]
+  %.2105146 = phi i64 [ %82, %94 ], [ %72, %.preheader ]
+  %77 = call i64 @llvm.umin.i64(i64 %.2105146, i64 %.090148)
+  %78 = add i64 %77, %.5147
   %79 = call i64 @BUF_MEM_grow_clean(ptr noundef nonnull %4, i64 noundef %78) #4
   %.not123 = icmp eq i64 %79, 0
   br i1 %.not123, label %80, label %81
 
 80:                                               ; preds = %.lr.ph
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 238) #4
-  br label %.thread138
+  br label %.thread137
 
 81:                                               ; preds = %.lr.ph
-  %82 = sub i64 %.2105147, %77
+  %82 = sub i64 %.2105146, %77
   br label %83
 
 83:                                               ; preds = %81, %90
-  %.0145 = phi i64 [ %77, %81 ], [ %93, %90 ]
-  %.7144 = phi i64 [ %.5148, %81 ], [ %92, %90 ]
+  %.0144 = phi i64 [ %77, %81 ], [ %93, %90 ]
+  %.7143 = phi i64 [ %.5147, %81 ], [ %92, %90 ]
   %84 = load ptr, ptr %8, align 8, !tbaa !11
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %.7144
-  %86 = trunc i64 %.0145 to i32
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 %.7143
+  %86 = trunc i64 %.0144 to i32
   %87 = call i32 @BIO_read(ptr noundef %0, ptr noundef %85, i32 noundef %86) #4
   %88 = icmp slt i32 %87, 1
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %83
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 162, ptr noundef nonnull @.str, i32 noundef 245) #4
-  br label %.thread138
+  br label %.thread137
 
 90:                                               ; preds = %83
   %91 = zext nneg i32 %87 to i64
-  %92 = add i64 %.7144, %91
-  %93 = sub i64 %.0145, %91
+  %92 = add i64 %.7143, %91
+  %93 = sub i64 %.0144, %91
   %.not124 = icmp eq i64 %93, 0
   br i1 %.not124, label %94, label %83, !llvm.loop !21
 
 94:                                               ; preds = %90
-  %95 = icmp samesign ult i64 %.090149, 1073741823
+  %95 = icmp samesign ult i64 %.090148, 1073741823
   %96 = zext i1 %95 to i64
-  %spec.select = shl nuw nsw i64 %.090149, %96
+  %spec.select = shl nuw nsw i64 %.090148, %96
   %.not122 = icmp eq i64 %82, 0
   br i1 %.not122, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit.loopexit:                               ; preds = %94
-  %.pre150 = load i64, ptr %9, align 8, !tbaa !24
+  %.pre149 = load i64, ptr %9, align 8, !tbaa !24
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %68
-  %97 = phi i64 [ %60, %68 ], [ %60, %.preheader ], [ %.pre150, %.loopexit.loopexit ]
+  %97 = phi i64 [ %60, %68 ], [ %60, %.preheader ], [ %.pre149, %.loopexit.loopexit ]
   %.3 = phi i64 [ %.196, %68 ], [ %.196, %.preheader ], [ %92, %.loopexit.loopexit ]
   %98 = add i64 %97, %55
   %99 = icmp ult i64 %98, %55
@@ -329,31 +329,31 @@ define internal fastcc range(i32 -1, -2147483648) i32 @asn1_d2i_read_bio(ptr nou
 
 100:                                              ; preds = %.loopexit
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 177, ptr noundef nonnull @.str, i32 noundef 260) #4
-  br label %.thread138
+  br label %.thread137
 
 101:                                              ; preds = %.loopexit
-  br i1 %14, label %.loopexit164, label %15
+  br i1 %14, label %.loopexit163, label %15
 
-.loopexit164:                                     ; preds = %64, %101
+.loopexit163:                                     ; preds = %64, %101
   %.2100 = phi i64 [ %98, %101 ], [ %55, %64 ]
   %102 = icmp ugt i64 %.2100, 2147483647
   br i1 %102, label %103, label %104
 
-103:                                              ; preds = %.loopexit164
+103:                                              ; preds = %.loopexit163
   call void @ERR_put_error(i32 noundef 12, i32 noundef 0, i32 noundef 177, ptr noundef nonnull @.str, i32 noundef 272) #4
-  br label %.thread138
+  br label %.thread137
 
-104:                                              ; preds = %.loopexit164
+104:                                              ; preds = %.loopexit163
   store ptr %4, ptr %1, align 8, !tbaa !6
   %105 = trunc nuw nsw i64 %.2100 to i32
   br label %106
 
-.thread138:                                       ; preds = %45, %80, %89, %76, %24, %32, %39, %100, %103
+.thread137:                                       ; preds = %45, %80, %89, %76, %24, %32, %39, %100, %103
   call void @BUF_MEM_free(ptr noundef nonnull %4) #4
   br label %106
 
-106:                                              ; preds = %.thread138, %104, %6
-  %.091 = phi i32 [ -1, %6 ], [ -1, %.thread138 ], [ %105, %104 ]
+106:                                              ; preds = %.thread137, %104, %6
+  %.091 = phi i32 [ -1, %6 ], [ -1, %.thread137 ], [ %105, %104 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.091
 }

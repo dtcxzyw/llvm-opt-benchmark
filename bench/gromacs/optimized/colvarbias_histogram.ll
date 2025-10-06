@@ -6642,14 +6642,14 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %34, %36, %38, %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 384
   store i64 %42, ptr %43, align 8, !tbaa !230
   %44 = trunc i64 %41 to i32
-  %.015160 = add i32 %44, -1
-  %45 = icmp sgt i32 %.015160, -1
+  %.015158 = add i32 %44, -1
+  %45 = icmp sgt i32 %.015158, -1
   br i1 %45, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNSt6vectorIiSaIiEE6resizeEm.exit
   %46 = load ptr, ptr %15, align 8, !tbaa !49
   %47 = load ptr, ptr %25, align 8
-  %48 = zext nneg i32 %.015160 to i64
+  %48 = zext nneg i32 %.015158 to i64
   br label %49
 
 49:                                               ; preds = %.lr.ph, %123
@@ -6893,11 +6893,11 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i: ; preds = %148, %_ZNSt12_
 
 149:                                              ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %136, i64 noundef %139) #21
-  %.pre164.pre = load i64, ptr %43, align 8, !tbaa !230
+  %.pre162.pre = load i64, ptr %43, align 8, !tbaa !230
   br label %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %149, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i
-  %.pre164 = phi i64 [ %.pre164.pre, %149 ], [ %130, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i ]
+  %.pre162 = phi i64 [ %.pre162.pre, %149 ], [ %130, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit.i ]
   store ptr %146, ptr %10, align 8, !tbaa !48
   %150 = getelementptr inbounds nuw i8, ptr %146, i64 %144
   store ptr %150, ptr %12, align 8, !tbaa !118
@@ -6906,7 +6906,7 @@ _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i: ; preds = %149, %_ZNSt6ve
   br label %_ZNSt6vectorIdSaIdEE7reserveEm.exit
 
 _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %133, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i
-  %152 = phi i64 [ %130, %133 ], [ %.pre164, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ]
+  %152 = phi i64 [ %130, %133 ], [ %.pre162, %_ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit.i ]
   tail call void @_ZNSt6vectorIdSaIdEE14_M_fill_assignEmRKd(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef %152, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br label %153
 

@@ -458,9 +458,9 @@ use_sideband_colors.exit:                         ; preds = %3, %32
   br label %38
 
 38:                                               ; preds = %.lr.ph, %strbuf_addch.exit
-  %.057 = phi ptr [ %1, %.lr.ph ], [ %53, %strbuf_addch.exit ]
-  %.03556 = phi i32 [ %2, %.lr.ph ], [ %54, %strbuf_addch.exit ]
-  %39 = load i8, ptr %.057, align 1, !tbaa !16
+  %.055 = phi ptr [ %1, %.lr.ph ], [ %53, %strbuf_addch.exit ]
+  %.03554 = phi i32 [ %2, %.lr.ph ], [ %54, %strbuf_addch.exit ]
+  %39 = load i8, ptr %.055, align 1, !tbaa !16
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !16
@@ -496,14 +496,14 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %51 = load i64, ptr %36, align 8, !tbaa !13
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 %51
   store i8 0, ptr %52, align 1, !tbaa !16
-  %53 = getelementptr inbounds nuw i8, ptr %.057, i64 1
-  %54 = add nsw i32 %.03556, -1
-  %55 = icmp sgt i32 %.03556, 1
+  %53 = getelementptr inbounds nuw i8, ptr %.055, i64 1
+  %54 = add nsw i32 %.03554, -1
+  %55 = icmp sgt i32 %.03554, 1
   br i1 %55, label %38, label %.critedge, !llvm.loop !25
 
 .critedge:                                        ; preds = %38, %strbuf_addch.exit, %.preheader
-  %.035.lcssa = phi i32 [ %2, %.preheader ], [ 0, %strbuf_addch.exit ], [ %.03556, %38 ]
-  %.0.lcssa = phi ptr [ %1, %.preheader ], [ %53, %strbuf_addch.exit ], [ %.057, %38 ]
+  %.035.lcssa = phi i32 [ %2, %.preheader ], [ 0, %strbuf_addch.exit ], [ %.03554, %38 ]
+  %.0.lcssa = phi ptr [ %1, %.preheader ], [ %53, %strbuf_addch.exit ], [ %.055, %38 ]
   br label %56
 
 56:                                               ; preds = %.critedge, %79
@@ -537,13 +537,13 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br i1 %.not45, label %74, label %79
 
 74:                                               ; preds = %65, %67
-  %.lcssa63 = phi i32 [ %.035.lcssa, %65 ], [ %60, %67 ]
+  %.lcssa61 = phi i32 [ %.035.lcssa, %65 ], [ %60, %67 ]
   %75 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %75) #12
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %75, i64 noundef %76) #10
   call void @strbuf_add(ptr noundef %0, ptr noundef %.0.lcssa, i64 noundef %63) #10
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull @.str.21, i64 noundef 3) #10
-  %77 = sub nsw i32 %.035.lcssa, %.lcssa63
+  %77 = sub nsw i32 %.035.lcssa, %.lcssa61
   %78 = getelementptr inbounds i8, ptr %.0.lcssa, i64 %63
   br label %.loopexit
 

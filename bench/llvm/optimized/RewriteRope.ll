@@ -15,43 +15,43 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local void @_ZN4llvm22RopePieceBTreeIteratorC2EPKv(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(20) initializes((0, 20)) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr i8, ptr %1, i64 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %0, i8 0, i64 20, i1 false)
-  %.val.val.i.i21 = load i8, ptr %3, align 4, !tbaa !3, !range !9, !noundef !10
-  %4 = trunc nuw i8 %.val.val.i.i21 to i1
-  %.not1922 = icmp eq ptr %1, null
-  %.not23 = or i1 %.not1922, %4
-  br i1 %.not23, label %.lr.ph28.preheader, label %.lr.ph
+  %.val.val.i.i20 = load i8, ptr %3, align 4, !tbaa !3, !range !9, !noundef !10
+  %4 = trunc nuw i8 %.val.val.i.i20 to i1
+  %.not1821 = icmp eq ptr %1, null
+  %.not22 = or i1 %.not1821, %4
+  br i1 %.not22, label %.lr.ph27.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.0624 = phi ptr [ %.val, %.lr.ph ], [ %1, %2 ]
-  %5 = getelementptr i8, ptr %.0624, i64 8
+  %.0623 = phi ptr [ %.val, %.lr.ph ], [ %1, %2 ]
+  %5 = getelementptr i8, ptr %.0623, i64 8
   %.val = load ptr, ptr %5, align 8, !tbaa !11
   %6 = getelementptr i8, ptr %.val, i64 4
   %.val.val.i.i = load i8, ptr %6, align 4, !tbaa !3, !range !9, !noundef !10
   %7 = trunc nuw i8 %.val.val.i.i to i1
-  %.not19 = icmp eq ptr %.val, null
-  %.not = or i1 %.not19, %7
-  br i1 %.not, label %.lr.ph28.preheader, label %.lr.ph
+  %.not18 = icmp eq ptr %.val, null
+  %.not = or i1 %.not18, %7
+  br i1 %.not, label %.lr.ph27.preheader, label %.lr.ph
 
-.lr.ph28.preheader:                               ; preds = %.lr.ph, %2
-  %storemerge27.ph = phi ptr [ %1, %2 ], [ %.val, %.lr.ph ]
-  br label %.lr.ph28
+.lr.ph27.preheader:                               ; preds = %.lr.ph, %2
+  %storemerge26.ph = phi ptr [ %1, %2 ], [ %.val, %.lr.ph ]
+  br label %.lr.ph27
 
-.lr.ph28:                                         ; preds = %.lr.ph28.preheader, %10
-  %storemerge27 = phi ptr [ %.val14, %10 ], [ %storemerge27.ph, %.lr.ph28.preheader ]
-  %8 = getelementptr i8, ptr %storemerge27, i64 5
+.lr.ph27:                                         ; preds = %.lr.ph27.preheader, %10
+  %storemerge26 = phi ptr [ %.val14, %10 ], [ %storemerge26.ph, %.lr.ph27.preheader ]
+  %8 = getelementptr i8, ptr %storemerge26, i64 5
   %.val13 = load i8, ptr %8, align 1, !tbaa !14
   %9 = icmp eq i8 %.val13, 0
   br i1 %9, label %10, label %.critedge
 
-10:                                               ; preds = %.lr.ph28
-  %11 = getelementptr i8, ptr %storemerge27, i64 272
+10:                                               ; preds = %.lr.ph27
+  %11 = getelementptr i8, ptr %storemerge26, i64 272
   %.val14 = load ptr, ptr %11, align 8, !tbaa !18
   %.not10 = icmp eq ptr %.val14, null
-  br i1 %.not10, label %.critedge.thread, label %.lr.ph28, !llvm.loop !19
+  br i1 %.not10, label %.critedge.thread, label %.lr.ph27, !llvm.loop !19
 
-.critedge:                                        ; preds = %.lr.ph28
-  store ptr %storemerge27, ptr %0, align 8, !tbaa !21
-  %12 = getelementptr inbounds nuw i8, ptr %storemerge27, i64 8
+.critedge:                                        ; preds = %.lr.ph27
+  store ptr %storemerge26, ptr %0, align 8, !tbaa !21
+  %12 = getelementptr inbounds nuw i8, ptr %storemerge26, i64 8
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %10, %.critedge
@@ -655,8 +655,8 @@ define dso_local void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 captures(address) dereferenceable(5) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #1 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %.val.val.i.i43 = load i8, ptr %4, align 4, !tbaa !3, !range !9, !noundef !10
-  %5 = trunc nuw i8 %.val.val.i.i43 to i1
+  %.val.val.i.i42 = load i8, ptr %4, align 4, !tbaa !3, !range !9, !noundef !10
+  %5 = trunc nuw i8 %.val.val.i.i42 to i1
   br i1 %5, label %tailrecurse._crit_edge, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader
 
 _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader: ; preds = %3
@@ -670,21 +670,21 @@ tailrecurse.loopexit:                             ; preds = %98
   br i1 %7, label %tailrecurse._crit_edge, label %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexit, %3
-  %.tr.lcssa42 = phi ptr [ %0, %3 ], [ %101, %tailrecurse.loopexit ]
-  %.tr16.lcssa = phi i32 [ %1, %3 ], [ %.1.i1039, %tailrecurse.loopexit ]
-  %.tr17.lcssa = phi i32 [ %2, %3 ], [ %.032.i38, %tailrecurse.loopexit ]
-  %.not69.i = icmp eq i32 %.tr16.lcssa, 0
+  %.tr.lcssa41 = phi ptr [ %0, %3 ], [ %101, %tailrecurse.loopexit ]
+  %.tr15.lcssa = phi i32 [ %1, %3 ], [ %.1.i1038, %tailrecurse.loopexit ]
+  %.tr16.lcssa = phi i32 [ %2, %3 ], [ %.032.i37, %tailrecurse.loopexit ]
+  %.not69.i = icmp eq i32 %.tr15.lcssa, 0
   br i1 %.not69.i, label %.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %tailrecurse._crit_edge
-  %8 = getelementptr inbounds nuw i8, ptr %.tr.lcssa42, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.tr.lcssa41, i64 8
   br label %11
 
 .preheader.i:                                     ; preds = %11, %tailrecurse._crit_edge
   %.041.lcssa.i = phi i32 [ 0, %tailrecurse._crit_edge ], [ %20, %11 ]
   %.040.lcssa.i = phi i32 [ 0, %tailrecurse._crit_edge ], [ %19, %11 ]
-  %9 = add i32 %.tr17.lcssa, %.tr16.lcssa
-  %10 = getelementptr inbounds nuw i8, ptr %.tr.lcssa42, i64 8
+  %9 = add i32 %.tr16.lcssa, %.tr15.lcssa
+  %10 = getelementptr inbounds nuw i8, ptr %.tr.lcssa41, i64 8
   br label %22
 
 11:                                               ; preds = %11, %.lr.ph.i
@@ -699,7 +699,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexi
   %18 = add i32 %15, %.04061.i
   %19 = sub i32 %18, %17
   %20 = add i32 %.04160.i, 1
-  %21 = icmp ugt i32 %.tr16.lcssa, %19
+  %21 = icmp ugt i32 %.tr15.lcssa, %19
   br i1 %21, label %11, label %.preheader.i, !llvm.loop !47
 
 22:                                               ; preds = %22, %.preheader.i
@@ -727,7 +727,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.loopexi
 
 36:                                               ; preds = %33
   %37 = sub i32 %spec.select.i, %.041.lcssa.i
-  %38 = getelementptr inbounds nuw i8, ptr %.tr.lcssa42, i64 5
+  %38 = getelementptr inbounds nuw i8, ptr %.tr.lcssa41, i64 5
   %.val4863.i = load i8, ptr %38, align 1, !tbaa !14
   %39 = zext i8 %.val4863.i to i32
   %.not4664.i = icmp eq i32 %spec.select.i, %39
@@ -828,59 +828,59 @@ _ZN4llvm9RopePieceD2Ev.exit.i:                    ; preds = %_ZN4llvm9RopePieceD
   %72 = trunc i32 %37 to i8
   %73 = sub i8 %71, %72
   store i8 %73, ptr %38, align 1, !tbaa !14
-  %74 = sub i32 %spec.select55.i, %.tr16.lcssa
-  %75 = sub i32 %.tr17.lcssa, %74
-  %76 = load i32, ptr %.tr.lcssa42, align 8, !tbaa !27
+  %74 = sub i32 %spec.select55.i, %.tr15.lcssa
+  %75 = sub i32 %.tr16.lcssa, %74
+  %76 = load i32, ptr %.tr.lcssa41, align 8, !tbaa !27
   %77 = sub i32 %76, %74
-  store i32 %77, ptr %.tr.lcssa42, align 8, !tbaa !27
+  store i32 %77, ptr %.tr.lcssa41, align 8, !tbaa !27
   br label %78
 
 78:                                               ; preds = %_ZN4llvm9RopePieceD2Ev.exit.i, %33
-  %.0.i = phi i32 [ %75, %_ZN4llvm9RopePieceD2Ev.exit.i ], [ %.tr17.lcssa, %33 ]
+  %.0.i = phi i32 [ %75, %_ZN4llvm9RopePieceD2Ev.exit.i ], [ %.tr16.lcssa, %33 ]
   %79 = icmp eq i32 %.0.i, 0
   br i1 %79, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5eraseEjj.exit, label %80
 
 80:                                               ; preds = %78
   %81 = zext i32 %.041.lcssa.i to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::RopePiece", ptr %.tr.lcssa42, i64 %81
+  %82 = getelementptr inbounds nuw %"struct.llvm::RopePiece", ptr %.tr.lcssa41, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = load i32, ptr %83, align 8, !tbaa !43
   %85 = add i32 %84, %.0.i
   store i32 %85, ptr %83, align 8, !tbaa !43
-  %86 = load i32, ptr %.tr.lcssa42, align 8, !tbaa !27
+  %86 = load i32, ptr %.tr.lcssa41, align 8, !tbaa !27
   %87 = sub i32 %86, %.0.i
-  store i32 %87, ptr %.tr.lcssa42, align 8, !tbaa !27
+  store i32 %87, ptr %.tr.lcssa41, align 8, !tbaa !27
   br label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5eraseEjj.exit
 
 _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread: ; preds = %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader, %tailrecurse.loopexit
   %88 = phi i32 [ %.val43.i, %tailrecurse.loopexit ], [ %.pre, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader ]
-  %.tr1746 = phi i32 [ %.032.i38, %tailrecurse.loopexit ], [ %2, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader ]
-  %.tr1645 = phi i32 [ %.1.i1039, %tailrecurse.loopexit ], [ %1, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader ]
-  %.tr44 = phi ptr [ %101, %tailrecurse.loopexit ], [ %0, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader ]
-  %89 = sub i32 %88, %.tr1746
-  store i32 %89, ptr %.tr44, align 8, !tbaa !27
-  %90 = getelementptr inbounds nuw i8, ptr %.tr44, i64 8
+  %.tr1645 = phi i32 [ %.032.i37, %tailrecurse.loopexit ], [ %2, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader ]
+  %.tr1544 = phi i32 [ %.1.i1038, %tailrecurse.loopexit ], [ %1, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader ]
+  %.tr43 = phi ptr [ %101, %tailrecurse.loopexit ], [ %0, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread.preheader ]
+  %89 = sub i32 %88, %.tr1645
+  store i32 %89, ptr %.tr43, align 8, !tbaa !27
+  %90 = getelementptr inbounds nuw i8, ptr %.tr43, i64 8
   %91 = load ptr, ptr %90, align 8, !tbaa !11
-  %.val45.i29 = load i32, ptr %91, align 4, !tbaa !27
-  %.not.i930 = icmp ult i32 %.tr1645, %.val45.i29
-  br i1 %.not.i930, label %.preheader, label %.lr.ph
+  %.val45.i28 = load i32, ptr %91, align 4, !tbaa !27
+  %.not.i929 = icmp ult i32 %.tr1544, %.val45.i28
+  br i1 %.not.i929, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread
   %.034.i.lcssa = phi i32 [ 0, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread ], [ %94, %.lr.ph ]
-  %.0.i8.lcssa = phi i32 [ %.tr1645, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread ], [ %93, %.lr.ph ]
-  %.not37.i36 = icmp eq i32 %.tr1746, 0
-  br i1 %.not37.i36, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5eraseEjj.exit, label %.lr.ph40
+  %.0.i8.lcssa = phi i32 [ %.tr1544, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread ], [ %93, %.lr.ph ]
+  %.not37.i35 = icmp eq i32 %.tr1645, 0
+  br i1 %.not37.i35, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5eraseEjj.exit, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %.preheader
-  %92 = getelementptr inbounds nuw i8, ptr %.tr44, i64 5
+.lr.ph39:                                         ; preds = %.preheader
+  %92 = getelementptr inbounds nuw i8, ptr %.tr43, i64 5
   br label %98
 
 .lr.ph:                                           ; preds = %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread, %.lr.ph
-  %.val45.i33 = phi i32 [ %.val45.i, %.lr.ph ], [ %.val45.i29, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread ]
-  %.0.i832 = phi i32 [ %93, %.lr.ph ], [ %.tr1645, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread ]
-  %.034.i31 = phi i32 [ %94, %.lr.ph ], [ 0, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread ]
-  %93 = sub nuw i32 %.0.i832, %.val45.i33
-  %94 = add i32 %.034.i31, 1
+  %.val45.i32 = phi i32 [ %.val45.i, %.lr.ph ], [ %.val45.i28, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread ]
+  %.0.i831 = phi i32 [ %93, %.lr.ph ], [ %.tr1544, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread ]
+  %.034.i30 = phi i32 [ %94, %.lr.ph ], [ 0, %_ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread ]
+  %93 = sub nuw i32 %.0.i831, %.val45.i32
+  %94 = add i32 %.034.i30, 1
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds nuw ptr, ptr %90, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !11
@@ -888,26 +888,26 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread: ; preds = %_ZN12_GLO
   %.not.i9 = icmp ult i32 %93, %.val45.i
   br i1 %.not.i9, label %.preheader, label %.lr.ph, !llvm.loop !51
 
-98:                                               ; preds = %.lr.ph40, %119
-  %.1.i1039 = phi i32 [ %.0.i8.lcssa, %.lr.ph40 ], [ 0, %119 ]
-  %.032.i38 = phi i32 [ %.tr1746, %.lr.ph40 ], [ %.133.i, %119 ]
-  %.135.i37 = phi i32 [ %.034.i.lcssa, %.lr.ph40 ], [ %.236.i, %119 ]
-  %99 = zext i32 %.135.i37 to i64
+98:                                               ; preds = %.lr.ph39, %119
+  %.1.i1038 = phi i32 [ %.0.i8.lcssa, %.lr.ph39 ], [ 0, %119 ]
+  %.032.i37 = phi i32 [ %.tr1645, %.lr.ph39 ], [ %.133.i, %119 ]
+  %.135.i36 = phi i32 [ %.034.i.lcssa, %.lr.ph39 ], [ %.236.i, %119 ]
+  %99 = zext i32 %.135.i36 to i64
   %100 = getelementptr inbounds nuw ptr, ptr %90, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !11
-  %102 = add i32 %.1.i1039, %.032.i38
+  %102 = add i32 %.1.i1038, %.032.i37
   %.val43.i = load i32, ptr %101, align 4, !tbaa !27
   %103 = icmp ult i32 %102, %.val43.i
   br i1 %103, label %tailrecurse.loopexit, label %104
 
 104:                                              ; preds = %98
-  %.not38.i = icmp eq i32 %.1.i1039, 0
+  %.not38.i = icmp eq i32 %.1.i1038, 0
   br i1 %.not38.i, label %108, label %105
 
 105:                                              ; preds = %104
-  %106 = sub i32 %.val43.i, %.1.i1039
-  tail call fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 dereferenceable(5) %101, i32 noundef %.1.i1039, i32 noundef %106)
-  %107 = add i32 %.135.i37, 1
+  %106 = sub i32 %.val43.i, %.1.i1038
+  tail call fastcc void @_ZN12_GLOBAL__N_118RopePieceBTreeNode5eraseEjj(ptr noundef nonnull align 4 dereferenceable(5) %101, i32 noundef %.1.i1038, i32 noundef %106)
+  %107 = add i32 %.135.i36, 1
   br label %119
 
 108:                                              ; preds = %104
@@ -916,23 +916,23 @@ _ZN12_GLOBAL__N_118RopePieceBTreeLeaf5eraseEjj.exit.thread: ; preds = %_ZN12_GLO
   %110 = add i8 %109, -1
   store i8 %110, ptr %92, align 1, !tbaa !38
   %111 = zext i8 %110 to i32
-  %.not39.i = icmp eq i32 %.135.i37, %111
+  %.not39.i = icmp eq i32 %.135.i36, %111
   br i1 %.not39.i, label %119, label %112
 
 112:                                              ; preds = %108
-  %113 = add i32 %.135.i37, 1
+  %113 = add i32 %.135.i36, 1
   %114 = zext i32 %113 to i64
   %115 = getelementptr inbounds nuw ptr, ptr %90, i64 %114
-  %116 = sub i32 %111, %.135.i37
+  %116 = sub i32 %111, %.135.i36
   %117 = zext i32 %116 to i64
   %118 = shl nuw nsw i64 %117, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %100, ptr nonnull align 8 %115, i64 %118, i1 false)
   br label %119
 
 119:                                              ; preds = %112, %108, %105
-  %.236.i = phi i32 [ %107, %105 ], [ %.135.i37, %112 ], [ %.135.i37, %108 ]
+  %.236.i = phi i32 [ %107, %105 ], [ %.135.i36, %112 ], [ %.135.i36, %108 ]
   %.pn = phi i32 [ %106, %105 ], [ %.val43.i, %112 ], [ %.val43.i, %108 ]
-  %.133.i = sub i32 %.032.i38, %.pn
+  %.133.i = sub i32 %.032.i37, %.pn
   %.not37.i = icmp eq i32 %.133.i, 0
   br i1 %.not37.i, label %_ZN12_GLOBAL__N_122RopePieceBTreeInterior5eraseEjj.exit, label %98
 

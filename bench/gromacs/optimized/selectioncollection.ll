@@ -1336,23 +1336,23 @@ define noundef zeroext i1 @_ZNK3gmx19SelectionCollection4Impl18areForcesRequeste
   %3 = load ptr, ptr %2, align 8, !tbaa !112
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !112
-  %.not12.not = icmp eq ptr %3, %5
-  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
+  %.not13.not = icmp eq ptr %3, %5
+  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.08.013 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
-  %6 = load ptr, ptr %.sroa.08.013, align 8, !tbaa !73
+  %.sroa.08.014 = phi ptr [ %10, %.lr.ph ], [ %3, %1 ]
+  %6 = load ptr, ptr %.sroa.08.014, align 8, !tbaa !73
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %8 = load i64, ptr %7, align 8, !tbaa !113
   %9 = and i64 %8, 64
-  %.not11.not = icmp ne i64 %9, 0
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
+  %.not12.not = icmp ne i64 %9, 0
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.08.014, i64 8
   %.not.not = icmp eq ptr %10, %5
-  %or.cond = select i1 %.not11.not, i1 true, i1 %.not.not
+  %or.cond = select i1 %.not12.not, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ %.not11.not, %.lr.ph ]
+  %.not.lcssa = phi i1 [ false, %1 ], [ %.not12.not, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 
@@ -4159,23 +4159,23 @@ _ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKN
   %15 = load ptr, ptr %14, align 8, !tbaa !112
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !112
-  %.not12.not.i = icmp eq ptr %15, %17
-  br i1 %.not12.not.i, label %_ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit, label %.lr.ph.i
+  %.not13.not.i = icmp eq ptr %15, %17
+  br i1 %.not13.not.i, label %_ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit, %.lr.ph.i
-  %.sroa.08.013.i = phi ptr [ %22, %.lr.ph.i ], [ %15, %_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit ]
-  %18 = load ptr, ptr %.sroa.08.013.i, align 8, !tbaa !73
+  %.sroa.08.014.i = phi ptr [ %22, %.lr.ph.i ], [ %15, %_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit ]
+  %18 = load ptr, ptr %.sroa.08.014.i, align 8, !tbaa !73
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 264
   %20 = load i64, ptr %19, align 8, !tbaa !113
   %21 = and i64 %20, 64
-  %.not11.not.i.not = icmp ne i64 %21, 0
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 8
+  %.not12.not.i.not = icmp ne i64 %21, 0
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.08.014.i, i64 8
   %.not.not.i = icmp eq ptr %22, %17
-  %or.cond = select i1 %.not11.not.i.not, i1 true, i1 %.not.not.i
+  %or.cond = select i1 %.not12.not.i.not, i1 true, i1 %.not.not.i
   br i1 %or.cond, label %_ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit, label %.lr.ph.i
 
 _ZNK3gmx19SelectionCollection4Impl18areForcesRequestedEv.exit: ; preds = %.lr.ph.i, %_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit
-  %.not.lcssa.i = phi i1 [ false, %_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit ], [ %.not11.not.i.not, %.lr.ph.i ]
+  %.not.lcssa.i = phi i1 [ false, %_ZN3gmx19SelectionCollection4Impl41requiredTopologyPropertiesForPositionTypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb.exit ], [ %.not12.not.i.not, %.lr.ph.i ]
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 160
   %24 = load i64, ptr %23, align 8, !tbaa !10
   %25 = icmp eq i64 %24, 0
@@ -6033,12 +6033,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds =
   br i1 %283, label %.split.i, label %.loopexit.i127, !llvm.loop !296
 
 .loopexit.i127:                                   ; preds = %.noexc130, %.thread.i128
-  %.116.i = phi i32 [ 4, %.thread.i128 ], [ %282, %.noexc130 ]
+  %.115.i = phi i32 [ 4, %.thread.i128 ], [ %282, %.noexc130 ]
   invoke void @_Z44_gmx_sel_lexer_rethrow_exception_if_occurredPv(ptr noundef %1)
           to label %_ZN3gmx12_GLOBAL__N_113runParserLoopEPvP17_gmx_sel_yypstateb.exit unwind label %.loopexit.split-lp192.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN3gmx12_GLOBAL__N_113runParserLoopEPvP17_gmx_sel_yypstateb.exit: ; preds = %.loopexit.i127
-  %.not75 = icmp eq i32 %.116.i, 4
+  %.not75 = icmp eq i32 %.115.i, 4
   br i1 %.not75, label %.backedge.backedge, label %.loopexit208
 
 _ZN3gmx12_GLOBAL__N_110promptLineEPNS_15TextInputStreamEPNS_10TextWriterEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.noexc92
@@ -6053,7 +6053,7 @@ _ZN3gmx12_GLOBAL__N_110promptLineEPNS_15TextInputStreamEPNS_10TextWriterEPNSt7__
           to label %.loopexit208 unwind label %.loopexit.split-lp192.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 .loopexit208:                                     ; preds = %_ZN3gmx12_GLOBAL__N_113runParserLoopEPvP17_gmx_sel_yypstateb.exit, %286
-  %.065 = phi i32 [ %285, %286 ], [ %.116.i, %_ZN3gmx12_GLOBAL__N_113runParserLoopEPvP17_gmx_sel_yypstateb.exit ]
+  %.065 = phi i32 [ %285, %286 ], [ %.115.i, %_ZN3gmx12_GLOBAL__N_113runParserLoopEPvP17_gmx_sel_yypstateb.exit ]
   %287 = icmp eq i32 %.065, 0
   br i1 %287, label %289, label %288
 

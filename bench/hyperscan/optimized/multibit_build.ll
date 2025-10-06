@@ -1155,9 +1155,9 @@ define hidden void @_ZN3ue221mmbBuildInitRangePlanEjjjPNS_16scatter_plan_rawE(i3
 
 .preheader:                                       ; preds = %5
   %7 = icmp samesign ugt i32 %0, 64
-  br i1 %7, label %.lr.ph221, label %._crit_edge222
+  br i1 %7, label %.lr.ph220, label %._crit_edge221
 
-.lr.ph221:                                        ; preds = %.preheader
+.lr.ph220:                                        ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = zext i32 %1 to i64
@@ -1167,18 +1167,18 @@ define hidden void @_ZN3ue221mmbBuildInitRangePlanEjjjPNS_16scatter_plan_rawE(i3
   %14 = add nuw nsw i32 %13, 64
   br label %15
 
-15:                                               ; preds = %.lr.ph221, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph221 ], [ %indvars.iv.next, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
-  %.0220 = phi i32 [ 0, %.lr.ph221 ], [ %55, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
-  %.0109219 = phi i32 [ %0, %.lr.ph221 ], [ %54, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
+15:                                               ; preds = %.lr.ph220, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph220 ], [ %indvars.iv.next, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
+  %.0219 = phi i32 [ 0, %.lr.ph220 ], [ %55, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
+  %.0109218 = phi i32 [ %0, %.lr.ph220 ], [ %54, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
   %.not.i = icmp samesign ult i64 %indvars.iv, %11
   br i1 %.not.i, label %16, label %_ZL14get_flat_masksjjj.exit
 
 16:                                               ; preds = %15
   %17 = sub nuw nsw i64 %11, %indvars.iv
   %18 = icmp samesign ult i64 %17, 64
-  %notmask207 = shl nsw i64 -1, %17
-  %19 = xor i64 %notmask207, -1
+  %notmask206 = shl nsw i64 -1, %17
+  %19 = xor i64 %notmask206, -1
   %20 = select i1 %18, i64 %19, i64 -1
   %.not22.i = icmp samesign ugt i64 %indvars.iv, %10
   br i1 %.not22.i, label %_ZL14get_flat_masksjjj.exit, label %21
@@ -1186,8 +1186,8 @@ define hidden void @_ZN3ue221mmbBuildInitRangePlanEjjjPNS_16scatter_plan_rawE(i3
 21:                                               ; preds = %16
   %22 = sub nuw nsw i64 %10, %indvars.iv
   %23 = icmp samesign ult i64 %22, 64
-  %notmask208 = shl nsw i64 -1, %22
-  %24 = select i1 %23, i64 %notmask208, i64 0
+  %notmask207 = shl nsw i64 -1, %22
+  %24 = select i1 %23, i64 %notmask207, i64 0
   %25 = and i64 %20, %24
   br label %_ZL14get_flat_masksjjj.exit
 
@@ -1257,28 +1257,28 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit: ; pred
   %51 = phi ptr [ %30, %28 ], [ %48, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ]
   %52 = getelementptr inbounds i8, ptr %51, i64 -16
   store i64 0, ptr %52, align 8
-  store i32 %.0220, ptr %52, align 8
+  store i32 %.0219, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 -8
   store i64 %.0.i, ptr %53, align 8
-  %54 = add nsw i32 %.0109219, -64
+  %54 = add nsw i32 %.0109218, -64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 64
-  %55 = add nuw nsw i32 %.0220, 8
+  %55 = add nuw nsw i32 %.0219, 8
   %56 = icmp ugt i32 %54, 64
-  br i1 %56, label %15, label %._crit_edge222, !llvm.loop !15
+  br i1 %56, label %15, label %._crit_edge221, !llvm.loop !15
 
-._crit_edge222:                                   ; preds = %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit, %.preheader
+._crit_edge221:                                   ; preds = %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit, %.preheader
   %.0110.lcssa = phi i32 [ 0, %.preheader ], [ %14, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
   %.0109.lcssa = phi i32 [ %0, %.preheader ], [ %54, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %55, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit ]
   %.not.i128 = icmp ugt i32 %2, %.0110.lcssa
   br i1 %.not.i128, label %57, label %_ZL14get_flat_masksjjj.exit131
 
-57:                                               ; preds = %._crit_edge222
+57:                                               ; preds = %._crit_edge221
   %58 = sub nuw i32 %2, %.0110.lcssa
   %59 = icmp ult i32 %58, 64
   %60 = zext nneg i32 %58 to i64
-  %notmask205 = shl nsw i64 -1, %60
-  %61 = xor i64 %notmask205, -1
+  %notmask204 = shl nsw i64 -1, %60
+  %61 = xor i64 %notmask204, -1
   %62 = select i1 %59, i64 %61, i64 -1
   %.not22.i130 = icmp ult i32 %1, %.0110.lcssa
   br i1 %.not22.i130, label %_ZL14get_flat_masksjjj.exit131, label %63
@@ -1287,13 +1287,13 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit: ; pred
   %64 = sub nuw i32 %1, %.0110.lcssa
   %65 = icmp ult i32 %64, 64
   %66 = zext nneg i32 %64 to i64
-  %notmask206 = shl nsw i64 -1, %66
-  %67 = select i1 %65, i64 %notmask206, i64 0
+  %notmask205 = shl nsw i64 -1, %66
+  %67 = select i1 %65, i64 %notmask205, i64 0
   %68 = and i64 %62, %67
   br label %_ZL14get_flat_masksjjj.exit131
 
-_ZL14get_flat_masksjjj.exit131:                   ; preds = %._crit_edge222, %57, %63
-  %.0.i129 = phi i64 [ 0, %._crit_edge222 ], [ %68, %63 ], [ %62, %57 ]
+_ZL14get_flat_masksjjj.exit131:                   ; preds = %._crit_edge221, %57, %63
+  %.0.i129 = phi i64 [ 0, %._crit_edge221 ], [ %68, %63 ], [ %62, %57 ]
   %69 = icmp samesign ult i32 %.0109.lcssa, 9
   br i1 %69, label %70, label %103
 
@@ -1658,9 +1658,9 @@ _ZN3ue2L11add_scatterI15scatter_unit_u8EEvPSt6vectorIT_SaIS3_EEjy.exit155: ; pre
 
 236:                                              ; preds = %5
   %237 = icmp eq i32 %1, %2
-  br i1 %237, label %246, label %.preheader209
+  br i1 %237, label %246, label %.preheader208
 
-.preheader209:                                    ; preds = %236
+.preheader208:                                    ; preds = %236
   %238 = add i32 %0, -1
   %239 = tail call noundef range(i32 0, 32) i32 @llvm.ctlz.i32(i32 range(i32 1, -1) %238, i1 true)
   %240 = zext nneg i32 %239 to i64
@@ -1739,9 +1739,9 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit163: ; p
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %274, i8 0, i64 16, i1 false)
   br label %.thread199
 
-275:                                              ; preds = %.preheader209, %422
-  %.0120 = phi i32 [ %423, %422 ], [ %243, %.preheader209 ]
-  %.0118 = phi i32 [ %424, %422 ], [ 0, %.preheader209 ]
+275:                                              ; preds = %.preheader208, %422
+  %.0120 = phi i32 [ %423, %422 ], [ %243, %.preheader208 ]
+  %.0118 = phi i32 [ %424, %422 ], [ 0, %.preheader208 ]
   %276 = zext i32 %.0118 to i64
   %277 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %276
   %278 = load i32, ptr %277, align 4
@@ -1912,8 +1912,8 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__
   br i1 %356, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %354, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187
-  %.2216 = phi i32 [ %386, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187 ], [ %.0112, %354 ]
-  %.2115215 = phi i32 [ %385, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187 ], [ %.0113, %354 ]
+  %.2215 = phi i32 [ %386, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187 ], [ %.0112, %354 ]
+  %.2115214 = phi i32 [ %385, %_ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187 ], [ %.0113, %354 ]
   %357 = load ptr, ptr %244, align 8
   %358 = load ptr, ptr %245, align 8
   %.not.i.i180 = icmp eq ptr %357, %358
@@ -1978,11 +1978,11 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187: ; p
   %382 = phi ptr [ %361, %359 ], [ %379, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i186 ]
   %383 = getelementptr inbounds i8, ptr %382, i64 -16
   store i64 0, ptr %383, align 8
-  store i32 %.2115215, ptr %383, align 8
+  store i32 %.2115214, ptr %383, align 8
   %384 = getelementptr inbounds i8, ptr %382, i64 -8
   store i64 -1, ptr %384, align 8
-  %385 = add i32 %.2115215, 8
-  %386 = add nuw i32 %.2216, 64
+  %385 = add i32 %.2115214, 8
+  %386 = add nuw i32 %.2215, 64
   %387 = icmp ugt i32 %355, %386
   br i1 %387, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
@@ -1995,8 +1995,8 @@ _ZN3ue2L11add_scatterI17scatter_unit_u64aEEvPSt6vectorIT_SaIS3_EEjy.exit187: ; p
 389:                                              ; preds = %._crit_edge
   %390 = and i32 %spec.select, 63
   %391 = zext nneg i32 %390 to i64
-  %notmask204 = shl nsw i64 -1, %391
-  %392 = xor i64 %notmask204, -1
+  %notmask203 = shl nsw i64 -1, %391
+  %392 = xor i64 %notmask203, -1
   %393 = load ptr, ptr %244, align 8
   %394 = load ptr, ptr %245, align 8
   %.not.i.i188 = icmp eq ptr %393, %394
@@ -2058,13 +2058,13 @@ _ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194, %395, %301, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170
-  %.sink291 = phi ptr [ %303, %301 ], [ %321, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170 ], [ %397, %395 ], [ %415, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194 ]
-  %.sink288 = phi i32 [ %286, %301 ], [ %286, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170 ], [ %.2115.lcssa, %395 ], [ %.2115.lcssa, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194 ]
+  %.sink290 = phi ptr [ %303, %301 ], [ %321, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170 ], [ %397, %395 ], [ %415, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194 ]
+  %.sink287 = phi i32 [ %286, %301 ], [ %286, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170 ], [ %.2115.lcssa, %395 ], [ %.2115.lcssa, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194 ]
   %.sink = phi i64 [ %298, %301 ], [ %298, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i170 ], [ %392, %395 ], [ %392, %_ZNSt6vectorI17scatter_unit_u64aSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i194 ]
-  %418 = getelementptr inbounds i8, ptr %.sink291, i64 -16
+  %418 = getelementptr inbounds i8, ptr %.sink290, i64 -16
   store i64 0, ptr %418, align 8
-  store i32 %.sink288, ptr %418, align 8
-  %419 = getelementptr inbounds i8, ptr %.sink291, i64 -8
+  store i32 %.sink287, ptr %418, align 8
+  %419 = getelementptr inbounds i8, ptr %.sink290, i64 -8
   store i64 %.sink, ptr %419, align 8
   br label %420
 

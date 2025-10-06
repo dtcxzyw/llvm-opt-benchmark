@@ -195,24 +195,24 @@ define internal i32 @request_frame(ptr noundef %0) #1 {
 .lr.ph.split.split.us:                            ; preds = %.lr.ph
   %.promoted = load i32, ptr %12, align 4, !tbaa !24
   %14 = icmp sgt i32 %.promoted, 0
-  br i1 %14, label %.lr.ph42, label %.loopexit
+  br i1 %14, label %.lr.ph41, label %.loopexit
 
-.lr.ph42:                                         ; preds = %.lr.ph.split.split.us, %19
-  %storemerge37.us41 = phi i32 [ %storemerge.us, %19 ], [ %.promoted, %.lr.ph.split.split.us ]
-  %15 = zext nneg i32 %storemerge37.us41 to i64
+.lr.ph41:                                         ; preds = %.lr.ph.split.split.us, %19
+  %storemerge36.us40 = phi i32 [ %storemerge.us, %19 ], [ %.promoted, %.lr.ph.split.split.us ]
+  %15 = zext nneg i32 %storemerge36.us40 to i64
   %16 = getelementptr ptr, ptr %13, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load ptr, ptr %17, align 8, !tbaa !37
   %.not25.us = icmp eq ptr %18, null
   br i1 %.not25.us, label %19, label %.thread
 
-19:                                               ; preds = %.lr.ph42
-  %storemerge.us = add nsw i32 %storemerge37.us41, -1
+19:                                               ; preds = %.lr.ph41
+  %storemerge.us = add nsw i32 %storemerge36.us40, -1
   store i32 %storemerge.us, ptr %12, align 4, !tbaa !24
-  %20 = icmp sgt i32 %storemerge37.us41, 1
-  br i1 %20, label %.lr.ph42, label %.loopexit
+  %20 = icmp sgt i32 %storemerge36.us40, 1
+  br i1 %20, label %.lr.ph41, label %.loopexit
 
-.thread:                                          ; preds = %.lr.ph42
+.thread:                                          ; preds = %.lr.ph41
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8480
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 12576
   %23 = load i32, ptr %22, align 8, !tbaa !54

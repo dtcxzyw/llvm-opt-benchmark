@@ -123,18 +123,18 @@ define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 nound
   %11 = load i8, ptr %10, align 1, !tbaa !7
   %12 = icmp ne i8 %11, -1
   %13 = sext i8 %11 to i32
-  %.not36.us69 = icmp sgt i32 %2, %13
-  %or.cond.us70 = and i1 %12, %.not36.us69
-  br i1 %or.cond.us70, label %.lr.ph, label %.loopexit
+  %.not36.us68 = icmp sgt i32 %2, %13
+  %or.cond.us69 = and i1 %12, %.not36.us68
+  br i1 %or.cond.us69, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.critedge.us.preheader, %.critedge.us
   %14 = phi i8 [ %25, %.critedge.us ], [ %11, %.critedge.us.preheader ]
   %.029.ph.pn = phi ptr [ %15, %.critedge.us ], [ %.029.ph, %.critedge.us.preheader ]
-  %.031.us71 = phi i64 [ %18, %.critedge.us ], [ %.031.ph, %.critedge.us.preheader ]
+  %.031.us70 = phi i64 [ %18, %.critedge.us ], [ %.031.ph, %.critedge.us.preheader ]
   %15 = getelementptr i8, ptr %.029.ph.pn, i64 1
-  %mul.us = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 %.031.us71)
+  %mul.us = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %6, i64 %.031.us70)
   %mul.ov.us = extractvalue { i64, i1 } %mul.us, 1
-  %16 = mul i64 %.031.us71, %6
+  %16 = mul i64 %.031.us70, %6
   %17 = sext i8 %14 to i64
   %18 = add i64 %16, %17
   %19 = icmp ult i64 %18, %16
@@ -188,16 +188,16 @@ define dso_local i64 @ruby_scan_digits(ptr noundef %0, i64 noundef %1, i32 nound
   br i1 %.not37, label %.loopexit, label %.critedge.outer, !llvm.loop !17
 
 .loopexit:                                        ; preds = %42, %.critedge.outer.split, %.critedge.us, %.critedge.us.preheader
-  %.145 = phi ptr [ %.029.ph, %.critedge.us.preheader ], [ %15, %.critedge.us ], [ %.029.ph, %.critedge.outer.split ], [ %scevgep, %42 ]
-  %.13243 = phi i64 [ %.031.ph, %.critedge.us.preheader ], [ %18, %.critedge.us ], [ %.031.ph, %.critedge.outer.split ], [ %38, %42 ]
-  %44 = ptrtoint ptr %.145 to i64
+  %.144 = phi ptr [ %.029.ph, %.critedge.us.preheader ], [ %15, %.critedge.us ], [ %.029.ph, %.critedge.outer.split ], [ %scevgep, %42 ]
+  %.13242 = phi i64 [ %.031.ph, %.critedge.us.preheader ], [ %18, %.critedge.us ], [ %.031.ph, %.critedge.outer.split ], [ %38, %42 ]
+  %44 = ptrtoint ptr %.144 to i64
   %45 = ptrtoint ptr %0 to i64
   %46 = sub i64 %44, %45
   br label %47
 
 47:                                               ; preds = %5, %.loopexit
   %storemerge = phi i64 [ %46, %.loopexit ], [ 0, %5 ]
-  %.0 = phi i64 [ %.13243, %.loopexit ], [ 0, %5 ]
+  %.0 = phi i64 [ %.13242, %.loopexit ], [ 0, %5 ]
   store i64 %storemerge, ptr %3, align 8, !tbaa !12
   ret i64 %.0
 }
@@ -1413,15 +1413,15 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %363 = icmp slt i32 %361, 16
-  br i1 %363, label %._crit_edge.thread.i, label %.thread49.thread.i.i
+  br i1 %363, label %._crit_edge.thread.i, label %.thread47.thread.i.i
 
-.thread49.thread.i.i:                             ; preds = %._crit_edge.i
+.thread47.thread.i.i:                             ; preds = %._crit_edge.i
   %364 = shl nuw i32 1, %361
   %365 = add i32 %364, -1
   %366 = zext nneg i32 %365 to i64
   %367 = shl nuw nsw i64 %366, 2
   %368 = add nuw nsw i64 %367, 39
-  br label %.thread52.i.i
+  br label %.thread50.i.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.thread845
   %.023.lcssa61.i = phi i32 [ %361, %._crit_edge.i ], [ 0, %.thread845 ]
@@ -1433,7 +1433,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
 372:                                              ; preds = %373, %._crit_edge.thread.i
   %.1.i.i = phi ptr [ %371, %._crit_edge.thread.i ], [ %377, %373 ]
   %.not.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not.i.i, label %.thread49.i.i, label %373
+  br i1 %.not.i.i, label %.thread47.i.i, label %373
 
 373:                                              ; preds = %372
   %374 = ptrtoint ptr %.1.i.i to i64
@@ -1451,7 +1451,7 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %384 = cmpxchg volatile ptr %370, i64 -1, i64 %383 seq_cst seq_cst, align 8
   br label %Balloc.exit.i
 
-.thread49.i.i:                                    ; preds = %372
+.thread47.i.i:                                    ; preds = %372
   %385 = shl nuw nsw i32 1, %.023.lcssa61.i
   %386 = add nsw i32 %385, -1
   %387 = zext nneg i32 %386 to i64
@@ -1461,14 +1461,14 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %391 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %392
 
-392:                                              ; preds = %398, %.thread49.i.i
-  %.036.i.i = phi ptr [ %391, %.thread49.i.i ], [ %403, %398 ]
+392:                                              ; preds = %398, %.thread47.i.i
+  %.036.i.i = phi ptr [ %391, %.thread47.i.i ], [ %403, %398 ]
   %393 = ptrtoint ptr %.036.i.i to i64
   %394 = sub i64 %393, ptrtoint (ptr @private_mem to i64)
   %395 = ashr exact i64 %394, 3
   %396 = add nsw i64 %395, %390
   %397 = icmp ult i64 %396, 289
-  br i1 %397, label %398, label %.thread52.i.i
+  br i1 %397, label %398, label %.thread50.i.i
 
 398:                                              ; preds = %392
   %399 = getelementptr double, ptr %.036.i.i, i64 %390
@@ -1476,25 +1476,25 @@ define dso_local double @ruby_strtod(ptr noundef nonnull %0, ptr noundef writeon
   %401 = cmpxchg volatile ptr @pmem_next, i64 %393, i64 %400 seq_cst seq_cst, align 8
   %402 = extractvalue { i64, i1 } %401, 0
   %403 = inttoptr i64 %402 to ptr
-  %.not55.i.i = icmp eq ptr %.036.i.i, %403
-  br i1 %.not55.i.i, label %404, label %392
+  %.not53.i.i = icmp eq ptr %.036.i.i, %403
+  br i1 %.not53.i.i, label %404, label %392
 
 404:                                              ; preds = %398
   %.not43.i.i = icmp eq i64 %402, 0
-  br i1 %.not43.i.i, label %.thread52.i.i, label %409
+  br i1 %.not43.i.i, label %.thread50.i.i, label %409
 
-.thread52.i.i:                                    ; preds = %392, %404, %.thread49.thread.i.i
-  %.023.lcssa60.i = phi i32 [ %.023.lcssa61.i, %404 ], [ %361, %.thread49.thread.i.i ], [ %.023.lcssa61.i, %392 ]
-  %405 = phi i64 [ %389, %404 ], [ %368, %.thread49.thread.i.i ], [ %389, %392 ]
-  %406 = phi i32 [ %385, %404 ], [ %364, %.thread49.thread.i.i ], [ %385, %392 ]
+.thread50.i.i:                                    ; preds = %392, %404, %.thread47.thread.i.i
+  %.023.lcssa60.i = phi i32 [ %.023.lcssa61.i, %404 ], [ %361, %.thread47.thread.i.i ], [ %.023.lcssa61.i, %392 ]
+  %405 = phi i64 [ %389, %404 ], [ %368, %.thread47.thread.i.i ], [ %389, %392 ]
+  %406 = phi i32 [ %385, %404 ], [ %364, %.thread47.thread.i.i ], [ %385, %392 ]
   %407 = and i64 %405, -8
   %408 = tail call noalias ptr @malloc(i64 noundef %407) #21
   br label %409
 
-409:                                              ; preds = %.thread52.i.i, %404
-  %.023.lcssa59.i = phi i32 [ %.023.lcssa61.i, %404 ], [ %.023.lcssa60.i, %.thread52.i.i ]
-  %410 = phi i32 [ %385, %404 ], [ %406, %.thread52.i.i ]
-  %.7.i.i = phi ptr [ %403, %404 ], [ %408, %.thread52.i.i ]
+409:                                              ; preds = %.thread50.i.i, %404
+  %.023.lcssa59.i = phi i32 [ %.023.lcssa61.i, %404 ], [ %.023.lcssa60.i, %.thread50.i.i ]
+  %410 = phi i32 [ %385, %404 ], [ %406, %.thread50.i.i ]
+  %.7.i.i = phi ptr [ %403, %404 ], [ %408, %.thread50.i.i ]
   %411 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 8
   store i32 %.023.lcssa59.i, ptr %411, align 8, !tbaa !54
   %412 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 12
@@ -1577,15 +1577,15 @@ Bfree.exit802:                                    ; preds = %Bfree.exit802.backe
   %.sroa.0103.12 = phi double [ %.sroa.0103.7, %s2b.exit ], [ %.sroa.0103.15, %Bfree.exit802.backedge ]
   %446 = load i32, ptr %438, align 8, !tbaa !54
   %447 = icmp slt i32 %446, 16
-  br i1 %447, label %453, label %.thread49.thread.i
+  br i1 %447, label %453, label %.thread47.thread.i
 
-.thread49.thread.i:                               ; preds = %Bfree.exit802
+.thread47.thread.i:                               ; preds = %Bfree.exit802
   %448 = shl nuw i32 1, %446
   %449 = add i32 %448, -1
   %450 = zext nneg i32 %449 to i64
   %451 = shl nuw nsw i64 %450, 2
   %452 = add nuw nsw i64 %451, 39
-  br label %.thread52.i
+  br label %.thread50.i
 
 453:                                              ; preds = %Bfree.exit802
   %454 = sext i32 %446 to i64
@@ -1596,7 +1596,7 @@ Bfree.exit802:                                    ; preds = %Bfree.exit802.backe
 457:                                              ; preds = %458, %453
   %.1.i761 = phi ptr [ %456, %453 ], [ %462, %458 ]
   %.not.i = icmp eq ptr %.1.i761, null
-  br i1 %.not.i, label %.thread49.i, label %458
+  br i1 %.not.i, label %.thread47.i, label %458
 
 458:                                              ; preds = %457
   %459 = ptrtoint ptr %.1.i761 to i64
@@ -1614,7 +1614,7 @@ Bfree.exit802:                                    ; preds = %Bfree.exit802.backe
   %469 = cmpxchg volatile ptr %455, i64 -1, i64 %468 seq_cst seq_cst, align 8
   br label %Balloc.exit
 
-.thread49.i:                                      ; preds = %457
+.thread47.i:                                      ; preds = %457
   %470 = shl nuw nsw i32 1, %446
   %471 = add nsw i32 %470, -1
   %472 = zext nneg i32 %471 to i64
@@ -1624,14 +1624,14 @@ Bfree.exit802:                                    ; preds = %Bfree.exit802.backe
   %476 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %477
 
-477:                                              ; preds = %483, %.thread49.i
-  %.036.i = phi ptr [ %476, %.thread49.i ], [ %488, %483 ]
+477:                                              ; preds = %483, %.thread47.i
+  %.036.i = phi ptr [ %476, %.thread47.i ], [ %488, %483 ]
   %478 = ptrtoint ptr %.036.i to i64
   %479 = sub i64 %478, ptrtoint (ptr @private_mem to i64)
   %480 = ashr exact i64 %479, 3
   %481 = add nsw i64 %480, %475
   %482 = icmp ult i64 %481, 289
-  br i1 %482, label %483, label %.thread52.i
+  br i1 %482, label %483, label %.thread50.i
 
 483:                                              ; preds = %477
   %484 = getelementptr double, ptr %.036.i, i64 %475
@@ -1639,23 +1639,23 @@ Bfree.exit802:                                    ; preds = %Bfree.exit802.backe
   %486 = cmpxchg volatile ptr @pmem_next, i64 %478, i64 %485 seq_cst seq_cst, align 8
   %487 = extractvalue { i64, i1 } %486, 0
   %488 = inttoptr i64 %487 to ptr
-  %.not55.i = icmp eq ptr %.036.i, %488
-  br i1 %.not55.i, label %489, label %477
+  %.not53.i = icmp eq ptr %.036.i, %488
+  br i1 %.not53.i, label %489, label %477
 
 489:                                              ; preds = %483
   %.not43.i = icmp eq i64 %487, 0
-  br i1 %.not43.i, label %.thread52.i, label %494
+  br i1 %.not43.i, label %.thread50.i, label %494
 
-.thread52.i:                                      ; preds = %477, %489, %.thread49.thread.i
-  %490 = phi i64 [ %474, %489 ], [ %452, %.thread49.thread.i ], [ %474, %477 ]
-  %491 = phi i32 [ %470, %489 ], [ %448, %.thread49.thread.i ], [ %470, %477 ]
+.thread50.i:                                      ; preds = %477, %489, %.thread47.thread.i
+  %490 = phi i64 [ %474, %489 ], [ %452, %.thread47.thread.i ], [ %474, %477 ]
+  %491 = phi i32 [ %470, %489 ], [ %448, %.thread47.thread.i ], [ %470, %477 ]
   %492 = and i64 %490, -8
   %493 = tail call noalias ptr @malloc(i64 noundef %492) #21
   br label %494
 
-494:                                              ; preds = %.thread52.i, %489
-  %495 = phi i32 [ %470, %489 ], [ %491, %.thread52.i ]
-  %.7.i = phi ptr [ %488, %489 ], [ %493, %.thread52.i ]
+494:                                              ; preds = %.thread50.i, %489
+  %495 = phi i32 [ %470, %489 ], [ %491, %.thread50.i ]
+  %.7.i = phi ptr [ %488, %489 ], [ %493, %.thread50.i ]
   %496 = getelementptr inbounds nuw i8, ptr %.7.i, i64 8
   store i32 %446, ptr %496, align 8, !tbaa !54
   %497 = getelementptr inbounds nuw i8, ptr %.7.i, i64 12
@@ -1687,7 +1687,7 @@ ruby_nonempty_memcpy.exit:                        ; preds = %Balloc.exit, %504
 507:                                              ; preds = %508, %ruby_nonempty_memcpy.exit
   %.1.i.i763 = phi ptr [ %506, %ruby_nonempty_memcpy.exit ], [ %512, %508 ]
   %.not.i.i764 = icmp eq ptr %.1.i.i763, null
-  br i1 %.not.i.i764, label %.thread49.i.i767, label %508
+  br i1 %.not.i.i764, label %.thread47.i.i767, label %508
 
 508:                                              ; preds = %507
   %509 = ptrtoint ptr %.1.i.i763 to i64
@@ -1705,18 +1705,18 @@ ruby_nonempty_memcpy.exit:                        ; preds = %Balloc.exit, %504
   %519 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), i64 -1, i64 %518 seq_cst seq_cst, align 8
   br label %i2b.exit
 
-.thread49.i.i767:                                 ; preds = %507
+.thread47.i.i767:                                 ; preds = %507
   %520 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %521
 
-521:                                              ; preds = %527, %.thread49.i.i767
-  %.036.i.i768 = phi ptr [ %520, %.thread49.i.i767 ], [ %532, %527 ]
+521:                                              ; preds = %527, %.thread47.i.i767
+  %.036.i.i768 = phi ptr [ %520, %.thread47.i.i767 ], [ %532, %527 ]
   %522 = ptrtoint ptr %.036.i.i768 to i64
   %523 = sub i64 %522, ptrtoint (ptr @private_mem to i64)
   %524 = ashr exact i64 %523, 3
   %525 = add nsw i64 %524, 5
   %526 = icmp ult i64 %525, 289
-  br i1 %526, label %527, label %.thread52.i.i769
+  br i1 %526, label %527, label %.thread50.i.i769
 
 527:                                              ; preds = %521
   %528 = getelementptr i8, ptr %.036.i.i768, i64 40
@@ -1724,19 +1724,19 @@ ruby_nonempty_memcpy.exit:                        ; preds = %Balloc.exit, %504
   %530 = cmpxchg volatile ptr @pmem_next, i64 %522, i64 %529 seq_cst seq_cst, align 8
   %531 = extractvalue { i64, i1 } %530, 0
   %532 = inttoptr i64 %531 to ptr
-  %.not55.i.i771 = icmp eq ptr %.036.i.i768, %532
-  br i1 %.not55.i.i771, label %533, label %521
+  %.not53.i.i771 = icmp eq ptr %.036.i.i768, %532
+  br i1 %.not53.i.i771, label %533, label %521
 
 533:                                              ; preds = %527
   %.not43.i.i772 = icmp eq i64 %531, 0
-  br i1 %.not43.i.i772, label %.thread52.i.i769, label %535
+  br i1 %.not43.i.i772, label %.thread50.i.i769, label %535
 
-.thread52.i.i769:                                 ; preds = %521, %533
+.thread50.i.i769:                                 ; preds = %521, %533
   %534 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #21
   br label %535
 
-535:                                              ; preds = %.thread52.i.i769, %533
-  %.7.i.i770 = phi ptr [ %532, %533 ], [ %534, %.thread52.i.i769 ]
+535:                                              ; preds = %.thread50.i.i769, %533
+  %.7.i.i770 = phi ptr [ %532, %533 ], [ %534, %.thread50.i.i769 ]
   %536 = getelementptr inbounds nuw i8, ptr %.7.i.i770, i64 8
   store i32 1, ptr %536, align 8, !tbaa !54
   %537 = getelementptr inbounds nuw i8, ptr %.7.i.i770, i64 12
@@ -2836,7 +2836,7 @@ define internal fastcc ptr @d2b(double noundef %0, ptr noundef nonnull writeonly
 5:                                                ; preds = %6, %3
   %.1.i = phi ptr [ %4, %3 ], [ %10, %6 ]
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %.thread49.i, label %6
+  br i1 %.not.i, label %.thread47.i, label %6
 
 6:                                                ; preds = %5
   %7 = ptrtoint ptr %.1.i to i64
@@ -2854,18 +2854,18 @@ define internal fastcc ptr @d2b(double noundef %0, ptr noundef nonnull writeonly
   %17 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), i64 -1, i64 %16 seq_cst seq_cst, align 8
   br label %Balloc.exit
 
-.thread49.i:                                      ; preds = %5
+.thread47.i:                                      ; preds = %5
   %18 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %19
 
-19:                                               ; preds = %25, %.thread49.i
-  %.036.i = phi ptr [ %18, %.thread49.i ], [ %30, %25 ]
+19:                                               ; preds = %25, %.thread47.i
+  %.036.i = phi ptr [ %18, %.thread47.i ], [ %30, %25 ]
   %20 = ptrtoint ptr %.036.i to i64
   %21 = sub i64 %20, ptrtoint (ptr @private_mem to i64)
   %22 = ashr exact i64 %21, 3
   %23 = add nsw i64 %22, 5
   %24 = icmp ult i64 %23, 289
-  br i1 %24, label %25, label %.thread52.i
+  br i1 %24, label %25, label %.thread50.i
 
 25:                                               ; preds = %19
   %26 = getelementptr i8, ptr %.036.i, i64 40
@@ -2873,19 +2873,19 @@ define internal fastcc ptr @d2b(double noundef %0, ptr noundef nonnull writeonly
   %28 = cmpxchg volatile ptr @pmem_next, i64 %20, i64 %27 seq_cst seq_cst, align 8
   %29 = extractvalue { i64, i1 } %28, 0
   %30 = inttoptr i64 %29 to ptr
-  %.not55.i = icmp eq ptr %.036.i, %30
-  br i1 %.not55.i, label %31, label %19
+  %.not53.i = icmp eq ptr %.036.i, %30
+  br i1 %.not53.i, label %31, label %19
 
 31:                                               ; preds = %25
   %.not43.i = icmp eq i64 %29, 0
-  br i1 %.not43.i, label %.thread52.i, label %33
+  br i1 %.not43.i, label %.thread50.i, label %33
 
-.thread52.i:                                      ; preds = %19, %31
+.thread50.i:                                      ; preds = %19, %31
   %32 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #21
   br label %33
 
-33:                                               ; preds = %.thread52.i, %31
-  %.7.i = phi ptr [ %30, %31 ], [ %32, %.thread52.i ]
+33:                                               ; preds = %.thread50.i, %31
+  %.7.i = phi ptr [ %30, %31 ], [ %32, %.thread50.i ]
   %34 = getelementptr inbounds nuw i8, ptr %.7.i, i64 8
   store i32 1, ptr %34, align 8, !tbaa !54
   %35 = getelementptr inbounds nuw i8, ptr %.7.i, i64 12
@@ -3153,7 +3153,7 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef range(i32 1, -2
 16:                                               ; preds = %17, %14
   %.1.i.i = phi ptr [ %15, %14 ], [ %21, %17 ]
   %.not.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not.i.i, label %.thread49.i.i, label %17
+  br i1 %.not.i.i, label %.thread47.i.i, label %17
 
 17:                                               ; preds = %16
   %18 = ptrtoint ptr %.1.i.i to i64
@@ -3171,18 +3171,18 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef range(i32 1, -2
   %28 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), i64 -1, i64 %27 seq_cst seq_cst, align 8
   br label %i2b.exit
 
-.thread49.i.i:                                    ; preds = %16
+.thread47.i.i:                                    ; preds = %16
   %29 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %30
 
-30:                                               ; preds = %36, %.thread49.i.i
-  %.036.i.i = phi ptr [ %29, %.thread49.i.i ], [ %41, %36 ]
+30:                                               ; preds = %36, %.thread47.i.i
+  %.036.i.i = phi ptr [ %29, %.thread47.i.i ], [ %41, %36 ]
   %31 = ptrtoint ptr %.036.i.i to i64
   %32 = sub i64 %31, ptrtoint (ptr @private_mem to i64)
   %33 = ashr exact i64 %32, 3
   %34 = add nsw i64 %33, 5
   %35 = icmp ult i64 %34, 289
-  br i1 %35, label %36, label %.thread52.i.i
+  br i1 %35, label %36, label %.thread50.i.i
 
 36:                                               ; preds = %30
   %37 = getelementptr i8, ptr %.036.i.i, i64 40
@@ -3190,19 +3190,19 @@ define internal fastcc ptr @pow5mult(ptr noundef %0, i32 noundef range(i32 1, -2
   %39 = cmpxchg volatile ptr @pmem_next, i64 %31, i64 %38 seq_cst seq_cst, align 8
   %40 = extractvalue { i64, i1 } %39, 0
   %41 = inttoptr i64 %40 to ptr
-  %.not55.i.i = icmp eq ptr %.036.i.i, %41
-  br i1 %.not55.i.i, label %42, label %30
+  %.not53.i.i = icmp eq ptr %.036.i.i, %41
+  br i1 %.not53.i.i, label %42, label %30
 
 42:                                               ; preds = %36
   %.not43.i.i = icmp eq i64 %40, 0
-  br i1 %.not43.i.i, label %.thread52.i.i, label %44
+  br i1 %.not43.i.i, label %.thread50.i.i, label %44
 
-.thread52.i.i:                                    ; preds = %30, %42
+.thread50.i.i:                                    ; preds = %30, %42
   %43 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #21
   br label %44
 
-44:                                               ; preds = %.thread52.i.i, %42
-  %.7.i.i = phi ptr [ %41, %42 ], [ %43, %.thread52.i.i ]
+44:                                               ; preds = %.thread50.i.i, %42
+  %.7.i.i = phi ptr [ %41, %42 ], [ %43, %.thread50.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 8
   store i32 1, ptr %45, align 8, !tbaa !54
   %46 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 12
@@ -3338,15 +3338,15 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
   %18 = zext i1 %17 to i32
   %.058 = add i32 %9, %18
   %19 = icmp slt i32 %.058, 16
-  br i1 %19, label %25, label %.thread49.thread.i
+  br i1 %19, label %25, label %.thread47.thread.i
 
-.thread49.thread.i:                               ; preds = %2
+.thread47.thread.i:                               ; preds = %2
   %20 = shl nuw i32 1, %.058
   %21 = add i32 %20, -1
   %22 = zext nneg i32 %21 to i64
   %23 = shl nuw nsw i64 %22, 2
   %24 = add nuw nsw i64 %23, 39
-  br label %.thread52.i
+  br label %.thread50.i
 
 25:                                               ; preds = %2
   %26 = sext i32 %.058 to i64
@@ -3357,7 +3357,7 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
 29:                                               ; preds = %30, %25
   %.1.i = phi ptr [ %28, %25 ], [ %34, %30 ]
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %.thread49.i, label %30
+  br i1 %.not.i, label %.thread47.i, label %30
 
 30:                                               ; preds = %29
   %31 = ptrtoint ptr %.1.i to i64
@@ -3375,7 +3375,7 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
   %41 = cmpxchg volatile ptr %27, i64 -1, i64 %40 seq_cst seq_cst, align 8
   br label %Balloc.exit
 
-.thread49.i:                                      ; preds = %29
+.thread47.i:                                      ; preds = %29
   %42 = shl nuw nsw i32 1, %.058
   %43 = add nsw i32 %42, -1
   %44 = zext nneg i32 %43 to i64
@@ -3385,14 +3385,14 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
   %48 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %49
 
-49:                                               ; preds = %55, %.thread49.i
-  %.036.i = phi ptr [ %48, %.thread49.i ], [ %60, %55 ]
+49:                                               ; preds = %55, %.thread47.i
+  %.036.i = phi ptr [ %48, %.thread47.i ], [ %60, %55 ]
   %50 = ptrtoint ptr %.036.i to i64
   %51 = sub i64 %50, ptrtoint (ptr @private_mem to i64)
   %52 = ashr exact i64 %51, 3
   %53 = add nsw i64 %52, %47
   %54 = icmp ult i64 %53, 289
-  br i1 %54, label %55, label %.thread52.i
+  br i1 %54, label %55, label %.thread50.i
 
 55:                                               ; preds = %49
   %56 = getelementptr double, ptr %.036.i, i64 %47
@@ -3400,23 +3400,23 @@ define internal fastcc ptr @mult(ptr noundef readonly captures(address) %0, ptr 
   %58 = cmpxchg volatile ptr @pmem_next, i64 %50, i64 %57 seq_cst seq_cst, align 8
   %59 = extractvalue { i64, i1 } %58, 0
   %60 = inttoptr i64 %59 to ptr
-  %.not55.i = icmp eq ptr %.036.i, %60
-  br i1 %.not55.i, label %61, label %49
+  %.not53.i = icmp eq ptr %.036.i, %60
+  br i1 %.not53.i, label %61, label %49
 
 61:                                               ; preds = %55
   %.not43.i = icmp eq i64 %59, 0
-  br i1 %.not43.i, label %.thread52.i, label %66
+  br i1 %.not43.i, label %.thread50.i, label %66
 
-.thread52.i:                                      ; preds = %49, %61, %.thread49.thread.i
-  %62 = phi i64 [ %46, %61 ], [ %24, %.thread49.thread.i ], [ %46, %49 ]
-  %63 = phi i32 [ %42, %61 ], [ %20, %.thread49.thread.i ], [ %42, %49 ]
+.thread50.i:                                      ; preds = %49, %61, %.thread47.thread.i
+  %62 = phi i64 [ %46, %61 ], [ %24, %.thread47.thread.i ], [ %46, %49 ]
+  %63 = phi i32 [ %42, %61 ], [ %20, %.thread47.thread.i ], [ %42, %49 ]
   %64 = and i64 %62, -8
   %65 = tail call noalias ptr @malloc(i64 noundef %64) #21
   br label %66
 
-66:                                               ; preds = %.thread52.i, %61
-  %67 = phi i32 [ %42, %61 ], [ %63, %.thread52.i ]
-  %.7.i = phi ptr [ %60, %61 ], [ %65, %.thread52.i ]
+66:                                               ; preds = %.thread50.i, %61
+  %67 = phi i32 [ %42, %61 ], [ %63, %.thread50.i ]
+  %.7.i = phi ptr [ %60, %61 ], [ %65, %.thread50.i ]
   %68 = getelementptr inbounds nuw i8, ptr %.7.i, i64 8
   store i32 %.058, ptr %68, align 8, !tbaa !54
   %69 = getelementptr inbounds nuw i8, ptr %.7.i, i64 12
@@ -3593,15 +3593,15 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %.044.lcssa = phi i32 [ %5, %2 ], [ %13, %.lr.ph ]
   %16 = icmp slt i32 %.044.lcssa, 16
-  br i1 %16, label %22, label %.thread49.thread.i
+  br i1 %16, label %22, label %.thread47.thread.i
 
-.thread49.thread.i:                               ; preds = %._crit_edge
+.thread47.thread.i:                               ; preds = %._crit_edge
   %17 = shl nuw i32 1, %.044.lcssa
   %18 = add i32 %17, -1
   %19 = zext nneg i32 %18 to i64
   %20 = shl nuw nsw i64 %19, 2
   %21 = add nuw nsw i64 %20, 39
-  br label %.thread52.i
+  br label %.thread50.i
 
 22:                                               ; preds = %._crit_edge
   %23 = sext i32 %.044.lcssa to i64
@@ -3612,7 +3612,7 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
 26:                                               ; preds = %27, %22
   %.1.i = phi ptr [ %25, %22 ], [ %31, %27 ]
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %.thread49.i, label %27
+  br i1 %.not.i, label %.thread47.i, label %27
 
 27:                                               ; preds = %26
   %28 = ptrtoint ptr %.1.i to i64
@@ -3630,7 +3630,7 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
   %38 = cmpxchg volatile ptr %24, i64 -1, i64 %37 seq_cst seq_cst, align 8
   br label %Balloc.exit
 
-.thread49.i:                                      ; preds = %26
+.thread47.i:                                      ; preds = %26
   %39 = shl nuw nsw i32 1, %.044.lcssa
   %40 = add nsw i32 %39, -1
   %41 = zext nneg i32 %40 to i64
@@ -3640,14 +3640,14 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
   %45 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %46
 
-46:                                               ; preds = %52, %.thread49.i
-  %.036.i = phi ptr [ %45, %.thread49.i ], [ %57, %52 ]
+46:                                               ; preds = %52, %.thread47.i
+  %.036.i = phi ptr [ %45, %.thread47.i ], [ %57, %52 ]
   %47 = ptrtoint ptr %.036.i to i64
   %48 = sub i64 %47, ptrtoint (ptr @private_mem to i64)
   %49 = ashr exact i64 %48, 3
   %50 = add nsw i64 %49, %44
   %51 = icmp ult i64 %50, 289
-  br i1 %51, label %52, label %.thread52.i
+  br i1 %51, label %52, label %.thread50.i
 
 52:                                               ; preds = %46
   %53 = getelementptr double, ptr %.036.i, i64 %44
@@ -3655,23 +3655,23 @@ define internal fastcc ptr @lshift(ptr noundef %0, i32 noundef range(i32 1, -214
   %55 = cmpxchg volatile ptr @pmem_next, i64 %47, i64 %54 seq_cst seq_cst, align 8
   %56 = extractvalue { i64, i1 } %55, 0
   %57 = inttoptr i64 %56 to ptr
-  %.not55.i = icmp eq ptr %.036.i, %57
-  br i1 %.not55.i, label %58, label %46
+  %.not53.i = icmp eq ptr %.036.i, %57
+  br i1 %.not53.i, label %58, label %46
 
 58:                                               ; preds = %52
   %.not43.i = icmp eq i64 %56, 0
-  br i1 %.not43.i, label %.thread52.i, label %63
+  br i1 %.not43.i, label %.thread50.i, label %63
 
-.thread52.i:                                      ; preds = %46, %58, %.thread49.thread.i
-  %59 = phi i64 [ %43, %58 ], [ %21, %.thread49.thread.i ], [ %43, %46 ]
-  %60 = phi i32 [ %39, %58 ], [ %17, %.thread49.thread.i ], [ %39, %46 ]
+.thread50.i:                                      ; preds = %46, %58, %.thread47.thread.i
+  %59 = phi i64 [ %43, %58 ], [ %21, %.thread47.thread.i ], [ %43, %46 ]
+  %60 = phi i32 [ %39, %58 ], [ %17, %.thread47.thread.i ], [ %39, %46 ]
   %61 = and i64 %59, -8
   %62 = tail call noalias ptr @malloc(i64 noundef %61) #21
   br label %63
 
-63:                                               ; preds = %.thread52.i, %58
-  %64 = phi i32 [ %39, %58 ], [ %60, %.thread52.i ]
-  %.7.i = phi ptr [ %57, %58 ], [ %62, %.thread52.i ]
+63:                                               ; preds = %.thread50.i, %58
+  %64 = phi i32 [ %39, %58 ], [ %60, %.thread50.i ]
+  %.7.i = phi ptr [ %57, %58 ], [ %62, %.thread50.i ]
   %65 = getelementptr inbounds nuw i8, ptr %.7.i, i64 8
   store i32 %.044.lcssa, ptr %65, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %.7.i, i64 12
@@ -3828,7 +3828,7 @@ cmp.exit:                                         ; preds = %22
 24:                                               ; preds = %25, %cmp.exit
   %.1.i = phi ptr [ %23, %cmp.exit ], [ %29, %25 ]
   %.not.i56 = icmp eq ptr %.1.i, null
-  br i1 %.not.i56, label %.thread49.i, label %25
+  br i1 %.not.i56, label %.thread47.i, label %25
 
 25:                                               ; preds = %24
   %26 = ptrtoint ptr %.1.i to i64
@@ -3846,18 +3846,18 @@ cmp.exit:                                         ; preds = %22
   %36 = cmpxchg volatile ptr @freelist, i64 -1, i64 %35 seq_cst seq_cst, align 8
   br label %Balloc.exit
 
-.thread49.i:                                      ; preds = %24
+.thread47.i:                                      ; preds = %24
   %37 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %38
 
-38:                                               ; preds = %44, %.thread49.i
-  %.036.i = phi ptr [ %37, %.thread49.i ], [ %49, %44 ]
+38:                                               ; preds = %44, %.thread47.i
+  %.036.i = phi ptr [ %37, %.thread47.i ], [ %49, %44 ]
   %39 = ptrtoint ptr %.036.i to i64
   %40 = sub i64 %39, ptrtoint (ptr @private_mem to i64)
   %41 = ashr exact i64 %40, 3
   %42 = add nsw i64 %41, 4
   %43 = icmp ult i64 %42, 289
-  br i1 %43, label %44, label %.thread52.i
+  br i1 %43, label %44, label %.thread50.i
 
 44:                                               ; preds = %38
   %45 = getelementptr i8, ptr %.036.i, i64 32
@@ -3865,19 +3865,19 @@ cmp.exit:                                         ; preds = %22
   %47 = cmpxchg volatile ptr @pmem_next, i64 %39, i64 %46 seq_cst seq_cst, align 8
   %48 = extractvalue { i64, i1 } %47, 0
   %49 = inttoptr i64 %48 to ptr
-  %.not55.i = icmp eq ptr %.036.i, %49
-  br i1 %.not55.i, label %50, label %38
+  %.not53.i = icmp eq ptr %.036.i, %49
+  br i1 %.not53.i, label %50, label %38
 
 50:                                               ; preds = %44
   %.not43.i = icmp eq i64 %48, 0
-  br i1 %.not43.i, label %.thread52.i, label %52
+  br i1 %.not43.i, label %.thread50.i, label %52
 
-.thread52.i:                                      ; preds = %38, %50
+.thread50.i:                                      ; preds = %38, %50
   %51 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #21
   br label %52
 
-52:                                               ; preds = %.thread52.i, %50
-  %.7.i = phi ptr [ %49, %50 ], [ %51, %.thread52.i ]
+52:                                               ; preds = %.thread50.i, %50
+  %.7.i = phi ptr [ %49, %50 ], [ %51, %.thread50.i ]
   %53 = getelementptr inbounds nuw i8, ptr %.7.i, i64 8
   store i32 0, ptr %53, align 8, !tbaa !54
   %54 = getelementptr inbounds nuw i8, ptr %.7.i, i64 12
@@ -3903,15 +3903,15 @@ Balloc.exit:                                      ; preds = %33, %52
   %60 = getelementptr inbounds nuw i8, ptr %.55, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !54
   %62 = icmp slt i32 %61, 16
-  br i1 %62, label %68, label %.thread49.thread.i
+  br i1 %62, label %68, label %.thread47.thread.i
 
-.thread49.thread.i:                               ; preds = %58
+.thread47.thread.i:                               ; preds = %58
   %63 = shl nuw i32 1, %61
   %64 = add i32 %63, -1
   %65 = zext nneg i32 %64 to i64
   %66 = shl nuw nsw i64 %65, 2
   %67 = add nuw nsw i64 %66, 39
-  br label %.thread52.i57
+  br label %.thread50.i57
 
 68:                                               ; preds = %58
   %69 = sext i32 %61 to i64
@@ -3922,7 +3922,7 @@ Balloc.exit:                                      ; preds = %33, %52
 72:                                               ; preds = %73, %68
   %.1.i60 = phi ptr [ %71, %68 ], [ %77, %73 ]
   %.not.i61 = icmp eq ptr %.1.i60, null
-  br i1 %.not.i61, label %.thread49.i62, label %73
+  br i1 %.not.i61, label %.thread47.i62, label %73
 
 73:                                               ; preds = %72
   %74 = ptrtoint ptr %.1.i60 to i64
@@ -3940,7 +3940,7 @@ Balloc.exit:                                      ; preds = %33, %52
   %84 = cmpxchg volatile ptr %70, i64 -1, i64 %83 seq_cst seq_cst, align 8
   br label %Balloc.exit67
 
-.thread49.i62:                                    ; preds = %72
+.thread47.i62:                                    ; preds = %72
   %85 = shl nuw nsw i32 1, %61
   %86 = add nsw i32 %85, -1
   %87 = zext nneg i32 %86 to i64
@@ -3950,14 +3950,14 @@ Balloc.exit:                                      ; preds = %33, %52
   %91 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %92
 
-92:                                               ; preds = %98, %.thread49.i62
-  %.036.i63 = phi ptr [ %91, %.thread49.i62 ], [ %103, %98 ]
+92:                                               ; preds = %98, %.thread47.i62
+  %.036.i63 = phi ptr [ %91, %.thread47.i62 ], [ %103, %98 ]
   %93 = ptrtoint ptr %.036.i63 to i64
   %94 = sub i64 %93, ptrtoint (ptr @private_mem to i64)
   %95 = ashr exact i64 %94, 3
   %96 = add nsw i64 %95, %90
   %97 = icmp ult i64 %96, 289
-  br i1 %97, label %98, label %.thread52.i57
+  br i1 %97, label %98, label %.thread50.i57
 
 98:                                               ; preds = %92
   %99 = getelementptr double, ptr %.036.i63, i64 %90
@@ -3965,23 +3965,23 @@ Balloc.exit:                                      ; preds = %33, %52
   %101 = cmpxchg volatile ptr @pmem_next, i64 %93, i64 %100 seq_cst seq_cst, align 8
   %102 = extractvalue { i64, i1 } %101, 0
   %103 = inttoptr i64 %102 to ptr
-  %.not55.i66 = icmp eq ptr %.036.i63, %103
-  br i1 %.not55.i66, label %104, label %92
+  %.not53.i66 = icmp eq ptr %.036.i63, %103
+  br i1 %.not53.i66, label %104, label %92
 
 104:                                              ; preds = %98
   %.not43.i65 = icmp eq i64 %102, 0
-  br i1 %.not43.i65, label %.thread52.i57, label %109
+  br i1 %.not43.i65, label %.thread50.i57, label %109
 
-.thread52.i57:                                    ; preds = %92, %104, %.thread49.thread.i
-  %105 = phi i64 [ %89, %104 ], [ %67, %.thread49.thread.i ], [ %89, %92 ]
-  %106 = phi i32 [ %85, %104 ], [ %63, %.thread49.thread.i ], [ %85, %92 ]
+.thread50.i57:                                    ; preds = %92, %104, %.thread47.thread.i
+  %105 = phi i64 [ %89, %104 ], [ %67, %.thread47.thread.i ], [ %89, %92 ]
+  %106 = phi i32 [ %85, %104 ], [ %63, %.thread47.thread.i ], [ %85, %92 ]
   %107 = and i64 %105, -8
   %108 = tail call noalias ptr @malloc(i64 noundef %107) #21
   br label %109
 
-109:                                              ; preds = %.thread52.i57, %104
-  %110 = phi i32 [ %85, %104 ], [ %106, %.thread52.i57 ]
-  %.7.i58 = phi ptr [ %103, %104 ], [ %108, %.thread52.i57 ]
+109:                                              ; preds = %.thread50.i57, %104
+  %110 = phi i32 [ %85, %104 ], [ %106, %.thread50.i57 ]
+  %.7.i58 = phi ptr [ %103, %104 ], [ %108, %.thread50.i57 ]
   %111 = getelementptr inbounds nuw i8, ptr %.7.i58, i64 8
   store i32 %61, ptr %111, align 8, !tbaa !54
   %112 = getelementptr inbounds nuw i8, ptr %.7.i58, i64 12
@@ -4670,7 +4670,7 @@ default.unreachable:                              ; preds = %80
 284:                                              ; preds = %285, %277
   %.1.i.i = phi ptr [ %283, %277 ], [ %289, %285 ]
   %.not.i.i = icmp eq ptr %.1.i.i, null
-  br i1 %.not.i.i, label %.thread49.i.i, label %285
+  br i1 %.not.i.i, label %.thread47.i.i, label %285
 
 285:                                              ; preds = %284
   %286 = ptrtoint ptr %.1.i.i to i64
@@ -4688,18 +4688,18 @@ default.unreachable:                              ; preds = %80
   %296 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), i64 -1, i64 %295 seq_cst seq_cst, align 8
   br label %i2b.exit
 
-.thread49.i.i:                                    ; preds = %284
+.thread47.i.i:                                    ; preds = %284
   %297 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %298
 
-298:                                              ; preds = %304, %.thread49.i.i
-  %.036.i.i = phi ptr [ %297, %.thread49.i.i ], [ %309, %304 ]
+298:                                              ; preds = %304, %.thread47.i.i
+  %.036.i.i = phi ptr [ %297, %.thread47.i.i ], [ %309, %304 ]
   %299 = ptrtoint ptr %.036.i.i to i64
   %300 = sub i64 %299, ptrtoint (ptr @private_mem to i64)
   %301 = ashr exact i64 %300, 3
   %302 = add nsw i64 %301, 5
   %303 = icmp ult i64 %302, 289
-  br i1 %303, label %304, label %.thread52.i.i
+  br i1 %303, label %304, label %.thread50.i.i
 
 304:                                              ; preds = %298
   %305 = getelementptr i8, ptr %.036.i.i, i64 40
@@ -4707,19 +4707,19 @@ default.unreachable:                              ; preds = %80
   %307 = cmpxchg volatile ptr @pmem_next, i64 %299, i64 %306 seq_cst seq_cst, align 8
   %308 = extractvalue { i64, i1 } %307, 0
   %309 = inttoptr i64 %308 to ptr
-  %.not55.i.i = icmp eq ptr %.036.i.i, %309
-  br i1 %.not55.i.i, label %310, label %298
+  %.not53.i.i = icmp eq ptr %.036.i.i, %309
+  br i1 %.not53.i.i, label %310, label %298
 
 310:                                              ; preds = %304
   %.not43.i.i = icmp eq i64 %308, 0
-  br i1 %.not43.i.i, label %.thread52.i.i, label %312
+  br i1 %.not43.i.i, label %.thread50.i.i, label %312
 
-.thread52.i.i:                                    ; preds = %298, %310
+.thread50.i.i:                                    ; preds = %298, %310
   %311 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #21
   br label %312
 
-312:                                              ; preds = %.thread52.i.i, %310
-  %.7.i.i = phi ptr [ %309, %310 ], [ %311, %.thread52.i.i ]
+312:                                              ; preds = %.thread50.i.i, %310
+  %.7.i.i = phi ptr [ %309, %310 ], [ %311, %.thread50.i.i ]
   %313 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 8
   store i32 1, ptr %313, align 8, !tbaa !54
   %314 = getelementptr inbounds nuw i8, ptr %.7.i.i, i64 12
@@ -4819,7 +4819,7 @@ Bfree.exit:                                       ; preds = %345, %337, %329, %3
 354:                                              ; preds = %355, %Bfree.exit
   %.1.i.i648 = phi ptr [ %353, %Bfree.exit ], [ %359, %355 ]
   %.not.i.i649 = icmp eq ptr %.1.i.i648, null
-  br i1 %.not.i.i649, label %.thread49.i.i651, label %355
+  br i1 %.not.i.i649, label %.thread47.i.i651, label %355
 
 355:                                              ; preds = %354
   %356 = ptrtoint ptr %.1.i.i648 to i64
@@ -4837,18 +4837,18 @@ Bfree.exit:                                       ; preds = %345, %337, %329, %3
   %366 = cmpxchg volatile ptr getelementptr inbounds nuw (i8, ptr @freelist, i64 8), i64 -1, i64 %365 seq_cst seq_cst, align 8
   br label %i2b.exit657
 
-.thread49.i.i651:                                 ; preds = %354
+.thread47.i.i651:                                 ; preds = %354
   %367 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %368
 
-368:                                              ; preds = %374, %.thread49.i.i651
-  %.036.i.i652 = phi ptr [ %367, %.thread49.i.i651 ], [ %379, %374 ]
+368:                                              ; preds = %374, %.thread47.i.i651
+  %.036.i.i652 = phi ptr [ %367, %.thread47.i.i651 ], [ %379, %374 ]
   %369 = ptrtoint ptr %.036.i.i652 to i64
   %370 = sub i64 %369, ptrtoint (ptr @private_mem to i64)
   %371 = ashr exact i64 %370, 3
   %372 = add nsw i64 %371, 5
   %373 = icmp ult i64 %372, 289
-  br i1 %373, label %374, label %.thread52.i.i653
+  br i1 %373, label %374, label %.thread50.i.i653
 
 374:                                              ; preds = %368
   %375 = getelementptr i8, ptr %.036.i.i652, i64 40
@@ -4856,19 +4856,19 @@ Bfree.exit:                                       ; preds = %345, %337, %329, %3
   %377 = cmpxchg volatile ptr @pmem_next, i64 %369, i64 %376 seq_cst seq_cst, align 8
   %378 = extractvalue { i64, i1 } %377, 0
   %379 = inttoptr i64 %378 to ptr
-  %.not55.i.i655 = icmp eq ptr %.036.i.i652, %379
-  br i1 %.not55.i.i655, label %380, label %368
+  %.not53.i.i655 = icmp eq ptr %.036.i.i652, %379
+  br i1 %.not53.i.i655, label %380, label %368
 
 380:                                              ; preds = %374
   %.not43.i.i656 = icmp eq i64 %378, 0
-  br i1 %.not43.i.i656, label %.thread52.i.i653, label %382
+  br i1 %.not43.i.i656, label %.thread50.i.i653, label %382
 
-.thread52.i.i653:                                 ; preds = %368, %380
+.thread50.i.i653:                                 ; preds = %368, %380
   %381 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #21
   br label %382
 
-382:                                              ; preds = %.thread52.i.i653, %380
-  %.7.i.i654 = phi ptr [ %379, %380 ], [ %381, %.thread52.i.i653 ]
+382:                                              ; preds = %.thread50.i.i653, %380
+  %.7.i.i654 = phi ptr [ %379, %380 ], [ %381, %.thread50.i.i653 ]
   %383 = getelementptr inbounds nuw i8, ptr %.7.i.i654, i64 8
   store i32 1, ptr %383, align 8, !tbaa !54
   %384 = getelementptr inbounds nuw i8, ptr %.7.i.i654, i64 12
@@ -5141,15 +5141,15 @@ cmp.exit667.thread728:                            ; preds = %486, %240, %cmp.exi
   %501 = getelementptr inbounds nuw i8, ptr %.10456, i64 8
   %502 = load i32, ptr %501, align 8, !tbaa !54
   %503 = icmp slt i32 %502, 16
-  br i1 %503, label %509, label %.thread49.thread.i
+  br i1 %503, label %509, label %.thread47.thread.i
 
-.thread49.thread.i:                               ; preds = %500
+.thread47.thread.i:                               ; preds = %500
   %504 = shl nuw i32 1, %502
   %505 = add i32 %504, -1
   %506 = zext nneg i32 %505 to i64
   %507 = shl nuw nsw i64 %506, 2
   %508 = add nuw nsw i64 %507, 39
-  br label %.thread52.i
+  br label %.thread50.i
 
 509:                                              ; preds = %500
   %510 = sext i32 %502 to i64
@@ -5160,7 +5160,7 @@ cmp.exit667.thread728:                            ; preds = %486, %240, %cmp.exi
 513:                                              ; preds = %514, %509
   %.1.i669 = phi ptr [ %512, %509 ], [ %518, %514 ]
   %.not.i670 = icmp eq ptr %.1.i669, null
-  br i1 %.not.i670, label %.thread49.i, label %514
+  br i1 %.not.i670, label %.thread47.i, label %514
 
 514:                                              ; preds = %513
   %515 = ptrtoint ptr %.1.i669 to i64
@@ -5178,7 +5178,7 @@ cmp.exit667.thread728:                            ; preds = %486, %240, %cmp.exi
   %525 = cmpxchg volatile ptr %511, i64 -1, i64 %524 seq_cst seq_cst, align 8
   br label %Balloc.exit
 
-.thread49.i:                                      ; preds = %513
+.thread47.i:                                      ; preds = %513
   %526 = shl nuw nsw i32 1, %502
   %527 = add nsw i32 %526, -1
   %528 = zext nneg i32 %527 to i64
@@ -5188,14 +5188,14 @@ cmp.exit667.thread728:                            ; preds = %486, %240, %cmp.exi
   %532 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %533
 
-533:                                              ; preds = %539, %.thread49.i
-  %.036.i = phi ptr [ %532, %.thread49.i ], [ %544, %539 ]
+533:                                              ; preds = %539, %.thread47.i
+  %.036.i = phi ptr [ %532, %.thread47.i ], [ %544, %539 ]
   %534 = ptrtoint ptr %.036.i to i64
   %535 = sub i64 %534, ptrtoint (ptr @private_mem to i64)
   %536 = ashr exact i64 %535, 3
   %537 = add nsw i64 %536, %531
   %538 = icmp ult i64 %537, 289
-  br i1 %538, label %539, label %.thread52.i
+  br i1 %538, label %539, label %.thread50.i
 
 539:                                              ; preds = %533
   %540 = getelementptr double, ptr %.036.i, i64 %531
@@ -5203,23 +5203,23 @@ cmp.exit667.thread728:                            ; preds = %486, %240, %cmp.exi
   %542 = cmpxchg volatile ptr @pmem_next, i64 %534, i64 %541 seq_cst seq_cst, align 8
   %543 = extractvalue { i64, i1 } %542, 0
   %544 = inttoptr i64 %543 to ptr
-  %.not55.i = icmp eq ptr %.036.i, %544
-  br i1 %.not55.i, label %545, label %533
+  %.not53.i = icmp eq ptr %.036.i, %544
+  br i1 %.not53.i, label %545, label %533
 
 545:                                              ; preds = %539
   %.not43.i = icmp eq i64 %543, 0
-  br i1 %.not43.i, label %.thread52.i, label %550
+  br i1 %.not43.i, label %.thread50.i, label %550
 
-.thread52.i:                                      ; preds = %533, %545, %.thread49.thread.i
-  %546 = phi i64 [ %530, %545 ], [ %508, %.thread49.thread.i ], [ %530, %533 ]
-  %547 = phi i32 [ %526, %545 ], [ %504, %.thread49.thread.i ], [ %526, %533 ]
+.thread50.i:                                      ; preds = %533, %545, %.thread47.thread.i
+  %546 = phi i64 [ %530, %545 ], [ %508, %.thread47.thread.i ], [ %530, %533 ]
+  %547 = phi i32 [ %526, %545 ], [ %504, %.thread47.thread.i ], [ %526, %533 ]
   %548 = and i64 %546, -8
   %549 = tail call noalias ptr @malloc(i64 noundef %548) #21
   br label %550
 
-550:                                              ; preds = %.thread52.i, %545
-  %551 = phi i32 [ %526, %545 ], [ %547, %.thread52.i ]
-  %.7.i = phi ptr [ %544, %545 ], [ %549, %.thread52.i ]
+550:                                              ; preds = %.thread50.i, %545
+  %551 = phi i32 [ %526, %545 ], [ %547, %.thread50.i ]
+  %.7.i = phi ptr [ %544, %545 ], [ %549, %.thread50.i ]
   %552 = getelementptr inbounds nuw i8, ptr %.7.i, i64 8
   store i32 %502, ptr %552, align 8, !tbaa !54
   %553 = getelementptr inbounds nuw i8, ptr %.7.i, i64 12
@@ -5928,15 +5928,15 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
   %24 = load i32, ptr %23, align 8, !tbaa !54
   %25 = add i32 %24, 1
   %26 = icmp slt i32 %25, 16
-  br i1 %26, label %32, label %.thread49.thread.i
+  br i1 %26, label %32, label %.thread47.thread.i
 
-.thread49.thread.i:                               ; preds = %22
+.thread47.thread.i:                               ; preds = %22
   %27 = shl nuw i32 1, %25
   %28 = add i32 %27, -1
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw nsw i64 %29, 2
   %31 = add nuw nsw i64 %30, 39
-  br label %.thread52.i
+  br label %.thread50.i
 
 32:                                               ; preds = %22
   %33 = sext i32 %25 to i64
@@ -5947,7 +5947,7 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
 36:                                               ; preds = %37, %32
   %.1.i = phi ptr [ %35, %32 ], [ %41, %37 ]
   %.not.i = icmp eq ptr %.1.i, null
-  br i1 %.not.i, label %.thread49.i, label %37
+  br i1 %.not.i, label %.thread47.i, label %37
 
 37:                                               ; preds = %36
   %38 = ptrtoint ptr %.1.i to i64
@@ -5965,7 +5965,7 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
   %48 = cmpxchg volatile ptr %34, i64 -1, i64 %47 seq_cst seq_cst, align 8
   br label %Balloc.exit
 
-.thread49.i:                                      ; preds = %36
+.thread47.i:                                      ; preds = %36
   %49 = shl nuw nsw i32 1, %25
   %50 = add nsw i32 %49, -1
   %51 = zext nneg i32 %50 to i64
@@ -5975,14 +5975,14 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
   %55 = load ptr, ptr @pmem_next, align 8, !tbaa !52
   br label %56
 
-56:                                               ; preds = %62, %.thread49.i
-  %.036.i = phi ptr [ %55, %.thread49.i ], [ %67, %62 ]
+56:                                               ; preds = %62, %.thread47.i
+  %.036.i = phi ptr [ %55, %.thread47.i ], [ %67, %62 ]
   %57 = ptrtoint ptr %.036.i to i64
   %58 = sub i64 %57, ptrtoint (ptr @private_mem to i64)
   %59 = ashr exact i64 %58, 3
   %60 = add nsw i64 %59, %54
   %61 = icmp ult i64 %60, 289
-  br i1 %61, label %62, label %.thread52.i
+  br i1 %61, label %62, label %.thread50.i
 
 62:                                               ; preds = %56
   %63 = getelementptr double, ptr %.036.i, i64 %54
@@ -5990,23 +5990,23 @@ define internal fastcc ptr @multadd(ptr noundef %0, i32 noundef %1, i32 noundef 
   %65 = cmpxchg volatile ptr @pmem_next, i64 %57, i64 %64 seq_cst seq_cst, align 8
   %66 = extractvalue { i64, i1 } %65, 0
   %67 = inttoptr i64 %66 to ptr
-  %.not55.i = icmp eq ptr %.036.i, %67
-  br i1 %.not55.i, label %68, label %56
+  %.not53.i = icmp eq ptr %.036.i, %67
+  br i1 %.not53.i, label %68, label %56
 
 68:                                               ; preds = %62
   %.not43.i = icmp eq i64 %66, 0
-  br i1 %.not43.i, label %.thread52.i, label %73
+  br i1 %.not43.i, label %.thread50.i, label %73
 
-.thread52.i:                                      ; preds = %56, %68, %.thread49.thread.i
-  %69 = phi i64 [ %53, %68 ], [ %31, %.thread49.thread.i ], [ %53, %56 ]
-  %70 = phi i32 [ %49, %68 ], [ %27, %.thread49.thread.i ], [ %49, %56 ]
+.thread50.i:                                      ; preds = %56, %68, %.thread47.thread.i
+  %69 = phi i64 [ %53, %68 ], [ %31, %.thread47.thread.i ], [ %53, %56 ]
+  %70 = phi i32 [ %49, %68 ], [ %27, %.thread47.thread.i ], [ %49, %56 ]
   %71 = and i64 %69, -8
   %72 = tail call noalias ptr @malloc(i64 noundef %71) #21
   br label %73
 
-73:                                               ; preds = %.thread52.i, %68
-  %74 = phi i32 [ %49, %68 ], [ %70, %.thread52.i ]
-  %.7.i = phi ptr [ %67, %68 ], [ %72, %.thread52.i ]
+73:                                               ; preds = %.thread50.i, %68
+  %74 = phi i32 [ %49, %68 ], [ %70, %.thread50.i ]
+  %.7.i = phi ptr [ %67, %68 ], [ %72, %.thread50.i ]
   %75 = getelementptr inbounds nuw i8, ptr %.7.i, i64 8
   store i32 %25, ptr %75, align 8, !tbaa !54
   %76 = getelementptr inbounds nuw i8, ptr %.7.i, i64 12

@@ -11447,8 +11447,8 @@ define hidden noundef zeroext i1 @_ZNK7TypeAry17ary_must_be_exactEv(ptr noundef 
   %5 = icmp eq ptr %3, %4
   %6 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %7 = icmp eq ptr %3, %6
-  %or.cond53 = select i1 %5, i1 true, i1 %7
-  br i1 %or.cond53, label %.thread, label %.lr.ph
+  %or.cond49 = select i1 %5, i1 true, i1 %7
+  br i1 %or.cond49, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %select.unfold39
   %8 = phi ptr [ %46, %select.unfold39 ], [ %3, %1 ]

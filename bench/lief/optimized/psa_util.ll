@@ -45,20 +45,20 @@ define hidden i32 @psa_status_to_mbedtls(i32 noundef %0, ptr noundef readonly ca
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %9
-  %.01117 = phi i64 [ %10, %9 ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw %struct.mbedtls_error_pair_t, ptr %1, i64 %.01117
+  %.01115 = phi i64 [ %10, %9 ], [ 0, %4 ]
+  %5 = getelementptr inbounds nuw %struct.mbedtls_error_pair_t, ptr %1, i64 %.01115
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = sext i16 %6 to i32
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = add nuw i64 %.01117, 1
+  %10 = add nuw i64 %.01115, 1
   %exitcond.not = icmp eq i64 %10, %2
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw %struct.mbedtls_error_pair_t, ptr %1, i64 %.01117
+  %12 = getelementptr inbounds nuw %struct.mbedtls_error_pair_t, ptr %1, i64 %.01115
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = load i16, ptr %13, align 2, !tbaa !10
   %15 = sext i16 %14 to i32

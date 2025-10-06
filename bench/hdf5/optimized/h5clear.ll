@@ -97,7 +97,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %13 = tail call ptr @h5tools_getprogname() #11
   tail call fastcc void @usage(ptr noundef %13)
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread50
+  br label %.thread49
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %34
   %14 = phi i32 [ %35, %34 ], [ %11, %.preheader.i ]
@@ -162,7 +162,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %33 = tail call ptr @h5tools_getprogname() #11
   tail call fastcc void @usage(ptr noundef %33)
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread50
+  br label %.thread49
 
 34:                                               ; preds = %30, %23, %22, %21, %20
   %35 = tail call i32 @H5_get_option(i32 noundef %0, ptr noundef %1, ptr noundef nonnull @.str.14, ptr noundef nonnull @l_opts) #11
@@ -179,7 +179,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %38 = tail call ptr @h5tools_getprogname() #11
   tail call fastcc void @usage(ptr noundef %38)
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread50
+  br label %.thread49
 
 39:                                               ; preds = %._crit_edge.i
   %40 = sext i32 %36 to i64
@@ -190,13 +190,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %parse_command_line.exit
 
 parse_command_line.exitthread-pre-split:          ; preds = %28, %18, %16
-  %.pr65 = load ptr, ptr @fname_g, align 8
+  %.pr64 = load ptr, ptr @fname_g, align 8
   br label %parse_command_line.exit
 
 parse_command_line.exit:                          ; preds = %parse_command_line.exitthread-pre-split, %39
-  %44 = phi ptr [ %.pr65, %parse_command_line.exitthread-pre-split ], [ %43, %39 ]
+  %44 = phi ptr [ %.pr64, %parse_command_line.exitthread-pre-split ], [ %43, %39 ]
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %.thread50.thread, label %46
+  br i1 %45, label %.thread49.thread, label %46
 
 46:                                               ; preds = %parse_command_line.exit
   tail call void @h5tools_error_report() #11
@@ -216,7 +216,7 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
   %54 = tail call ptr @h5tools_getprogname() #11
   tail call fastcc void @usage(ptr noundef %54)
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread50
+  br label %.thread49
 
 55:                                               ; preds = %46
   %brmerge.demorgan = and i1 %or.cond3, %52
@@ -225,7 +225,7 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
 56:                                               ; preds = %55
   tail call void (ptr, ...) @error_msg(ptr noundef nonnull @.str.1) #11
   tail call void @h5tools_setstatus(i32 noundef 1) #11
-  br label %.thread50
+  br label %.thread49
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr @fname_g, align 8, !tbaa !8
@@ -402,26 +402,26 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
 136:                                              ; preds = %115, %135, %128, %123, %100, %96, %89, %85, %78, %71
   %.032 = phi i64 [ -1, %71 ], [ -1, %78 ], [ -1, %85 ], [ -1, %89 ], [ -1, %96 ], [ %98, %100 ], [ %98, %123 ], [ %98, %128 ], [ %98, %135 ], [ %98, %115 ]
   %.not = icmp eq ptr %59, null
-  br i1 %.not, label %.thread50, label %137
+  br i1 %.not, label %.thread49, label %137
 
 137:                                              ; preds = %136
   call void @free(ptr noundef nonnull %59) #11
-  br label %.thread50
+  br label %.thread49
 
-.thread50:                                        ; preds = %12, %32, %37, %53, %56, %137, %136
-  %.03256.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %.032, %136 ], [ %.032, %137 ]
-  %.03355.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %69, %136 ], [ %69, %137 ]
+.thread49:                                        ; preds = %12, %32, %37, %53, %56, %137, %136
+  %.03255.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %.032, %136 ], [ %.032, %137 ]
+  %.03354.ph = phi i64 [ -1, %12 ], [ -1, %32 ], [ -1, %37 ], [ -1, %53 ], [ -1, %56 ], [ %69, %136 ], [ %69, %137 ]
   %.pr = load ptr, ptr @fname_g, align 8, !tbaa !8
   %.not42 = icmp eq ptr %.pr, null
-  br i1 %.not42, label %.thread50.thread, label %138
+  br i1 %.not42, label %.thread49.thread, label %138
 
-138:                                              ; preds = %.thread50
+138:                                              ; preds = %.thread49
   call void @free(ptr noundef nonnull %.pr) #11
-  br label %.thread50.thread
+  br label %.thread49.thread
 
-.thread50.thread:                                 ; preds = %parse_command_line.exit, %138, %.thread50
-  %.0335570 = phi i64 [ %.03355.ph, %138 ], [ %.03355.ph, %.thread50 ], [ -1, %parse_command_line.exit ]
-  %.0325669 = phi i64 [ %.03256.ph, %138 ], [ %.03256.ph, %.thread50 ], [ -1, %parse_command_line.exit ]
+.thread49.thread:                                 ; preds = %parse_command_line.exit, %138, %.thread49
+  %.0335469 = phi i64 [ %.03354.ph, %138 ], [ %.03354.ph, %.thread49 ], [ -1, %parse_command_line.exit ]
+  %.0325568 = phi i64 [ %.03255.ph, %138 ], [ %.03255.ph, %.thread49 ], [ -1, %parse_command_line.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -430,19 +430,19 @@ parse_command_line.exit:                          ; preds = %parse_command_line.
   %.not43 = icmp eq i32 %140, 0
   br i1 %.not43, label %144, label %141
 
-141:                                              ; preds = %.thread50.thread
+141:                                              ; preds = %.thread49.thread
   %142 = call i32 @H5Eget_auto2(i64 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %143 = call i32 @H5Eset_auto2(i64 noundef 0, ptr noundef null, ptr noundef null) #11
   br label %147
 
-144:                                              ; preds = %.thread50.thread
+144:                                              ; preds = %.thread49.thread
   %145 = call i32 @H5Eget_auto1(ptr noundef nonnull %8, ptr noundef nonnull %9) #11
   %146 = call i32 @H5Eset_auto1(ptr noundef null, ptr noundef null) #11
   br label %147
 
 147:                                              ; preds = %144, %141
-  %148 = call i32 @H5Pclose(i64 noundef %.0335570) #11
-  %149 = call i32 @H5Fclose(i64 noundef %.0325669) #11
+  %148 = call i32 @H5Pclose(i64 noundef %.0335469) #11
+  %149 = call i32 @H5Fclose(i64 noundef %.0325568) #11
   %150 = load i32, ptr %7, align 4, !tbaa !15
   %.not44 = icmp eq i32 %150, 0
   %151 = load ptr, ptr %8, align 8, !tbaa !25

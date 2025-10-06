@@ -81,8 +81,8 @@ define dso_local range(i32 -1, 1) i32 @hash_g_init() local_unnamed_addr #0 {
   %16 = phi ptr [ %.pre, %14 ], [ %12, %10 ]
   store ptr %16, ptr %2, align 8
   %17 = call ptr @strtok_r(ptr noundef %16, ptr noundef nonnull @.str.4, ptr noundef nonnull %3) #8
-  %.not1927 = icmp eq ptr %17, null
-  br i1 %.not1927, label %._crit_edge, label %.lr.ph
+  %.not1926 = icmp eq ptr %17, null
+  br i1 %.not1926, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15, %43
   %18 = phi ptr [ %54, %43 ], [ %17, %15 ]

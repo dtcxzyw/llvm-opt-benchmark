@@ -5272,17 +5272,17 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
   %49 = load i32, ptr %10, align 4
   %50 = icmp eq i32 %49, 0
   %or.cond5 = select i1 %or.cond, i1 true, i1 %50
-  br i1 %or.cond5, label %.thread225, label %.preheader236
+  br i1 %or.cond5, label %.thread224, label %.preheader235
 
-.preheader236:                                    ; preds = %45
+.preheader235:                                    ; preds = %45
   %51 = sext i32 %47 to i64
   %52 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %51
   br label %53
 
-53:                                               ; preds = %.preheader236, %61
-  %indvars.iv298 = phi i64 [ 0, %.preheader236 ], [ %indvars.iv.next299, %61 ]
-  %.0158273 = phi i32 [ 31, %.preheader236 ], [ %spec.select, %61 ]
-  %54 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv298
+53:                                               ; preds = %.preheader235, %61
+  %indvars.iv297 = phi i64 [ 0, %.preheader235 ], [ %indvars.iv.next298, %61 ]
+  %.0158272 = phi i32 [ 31, %.preheader235 ], [ %spec.select, %61 ]
+  %54 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv297
   %55 = load i32, ptr %54, align 4, !tbaa !42
   %56 = icmp slt i32 %55, 0
   br i1 %56, label %57, label %61
@@ -5296,32 +5296,32 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 
 61:                                               ; preds = %57, %53
   %62 = phi i32 [ %60, %57 ], [ %55, %53 ]
-  %spec.select = call i32 @llvm.smin.i32(i32 %62, i32 %.0158273)
-  %indvars.iv.next299 = add nuw nsw i64 %indvars.iv298, 1
-  %exitcond301.not = icmp eq i64 %indvars.iv.next299, 7
-  br i1 %exitcond301.not, label %.preheader, label %53, !llvm.loop !65
+  %spec.select = call i32 @llvm.smin.i32(i32 %62, i32 %.0158272)
+  %indvars.iv.next298 = add nuw nsw i64 %indvars.iv297, 1
+  %exitcond300.not = icmp eq i64 %indvars.iv.next298, 7
+  br i1 %exitcond300.not, label %.preheader, label %53, !llvm.loop !65
 
 .preheader:                                       ; preds = %61, %69
-  %.1131276 = phi i32 [ %70, %69 ], [ 1, %61 ]
-  %63 = add nsw i32 %.1131276, %spec.select
+  %.1131275 = phi i32 [ %70, %69 ], [ 1, %61 ]
+  %63 = add nsw i32 %.1131275, %spec.select
   br label %65
 
 64:                                               ; preds = %65
-  %indvars.iv.next303 = add nuw nsw i64 %indvars.iv302, 1
-  %exitcond305.not = icmp eq i64 %indvars.iv.next303, 7
-  br i1 %exitcond305.not, label %.thread225, label %65, !llvm.loop !66
+  %indvars.iv.next302 = add nuw nsw i64 %indvars.iv301, 1
+  %exitcond304.not = icmp eq i64 %indvars.iv.next302, 7
+  br i1 %exitcond304.not, label %.thread224, label %65, !llvm.loop !66
 
 65:                                               ; preds = %.preheader, %64
-  %indvars.iv302 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next303, %64 ]
-  %66 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv302
+  %indvars.iv301 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next302, %64 ]
+  %66 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv301
   %67 = load i32, ptr %66, align 4, !tbaa !42
   %68 = icmp eq i32 %67, %63
   br i1 %68, label %69, label %64
 
 69:                                               ; preds = %65
-  %70 = add nuw nsw i32 %.1131276, 1
-  %exitcond306.not = icmp eq i32 %70, 7
-  br i1 %exitcond306.not, label %.thread204, label %.preheader, !llvm.loop !67
+  %70 = add nuw nsw i32 %.1131275, 1
+  %exitcond305.not = icmp eq i32 %70, 7
+  br i1 %exitcond305.not, label %.thread204, label %.preheader, !llvm.loop !67
 
 71:                                               ; preds = %39
   %72 = load i32, ptr %9, align 4, !tbaa !42
@@ -5333,28 +5333,28 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
   %77 = icmp eq i32 %76, 0
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %77
   %78 = icmp sgt i32 %40, 7
-  %or.cond234 = or i1 %78, %or.cond9
-  br i1 %or.cond234, label %.thread225, label %.preheader239
+  %or.cond233 = or i1 %78, %or.cond9
+  br i1 %or.cond233, label %.thread224, label %.preheader238
 
-.preheader239:                                    ; preds = %71
+.preheader238:                                    ; preds = %71
   %79 = icmp sgt i32 %76, 0
-  br i1 %79, label %.lr.ph, label %.preheader238
+  br i1 %79, label %.lr.ph, label %.preheader237
 
-.lr.ph:                                           ; preds = %.preheader239
+.lr.ph:                                           ; preds = %.preheader238
   %80 = sext i32 %72 to i64
   %81 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %80
   %wide.trip.count = zext nneg i32 %76 to i64
   br label %83
 
-.preheader238:                                    ; preds = %91, %.preheader239
-  %.0147.lcssa = phi i32 [ 31, %.preheader239 ], [ %93, %91 ]
+.preheader237:                                    ; preds = %91, %.preheader238
+  %.0147.lcssa = phi i32 [ 31, %.preheader238 ], [ %93, %91 ]
   %.promoted = load double, ptr %14, align 8
   %82 = icmp sgt i32 %40, 1
-  br i1 %82, label %.lr.ph268, label %._crit_edge
+  br i1 %82, label %.lr.ph267, label %._crit_edge
 
 83:                                               ; preds = %.lr.ph, %91
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %91 ]
-  %.0147248 = phi i32 [ 31, %.lr.ph ], [ %93, %91 ]
+  %.0147247 = phi i32 [ 31, %.lr.ph ], [ %93, %91 ]
   %84 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
   %85 = load i32, ptr %84, align 4, !tbaa !42
   %86 = icmp sgt i32 %85, 0
@@ -5368,22 +5368,22 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 
 91:                                               ; preds = %83, %87
   %92 = phi i32 [ %90, %87 ], [ %85, %83 ]
-  %93 = call i32 @llvm.smin.i32(i32 %92, i32 %.0147248)
+  %93 = call i32 @llvm.smin.i32(i32 %92, i32 %.0147247)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader238, label %83, !llvm.loop !68
+  br i1 %exitcond.not, label %.preheader237, label %83, !llvm.loop !68
 
-.lr.ph268:                                        ; preds = %.preheader238, %.loopexit
-  %.3133267 = phi i32 [ %141, %.loopexit ], [ 1, %.preheader238 ]
-  %.0142266 = phi i32 [ %.2144, %.loopexit ], [ -1, %.preheader238 ]
-  %.1148265 = phi i32 [ %.6, %.loopexit ], [ %.0147.lcssa, %.preheader238 ]
-  %.0152264 = phi i32 [ %.2154, %.loopexit ], [ %72, %.preheader238 ]
-  %94 = phi double [ %110, %.loopexit ], [ %.promoted, %.preheader238 ]
-  %95 = phi i32 [ %118, %.loopexit ], [ %76, %.preheader238 ]
-  %96 = invoke noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %.3133267)
+.lr.ph267:                                        ; preds = %.preheader237, %.loopexit
+  %.3133266 = phi i32 [ %141, %.loopexit ], [ 1, %.preheader237 ]
+  %.0142265 = phi i32 [ %.2144, %.loopexit ], [ -1, %.preheader237 ]
+  %.1148264 = phi i32 [ %.6, %.loopexit ], [ %.0147.lcssa, %.preheader237 ]
+  %.0152263 = phi i32 [ %.2154, %.loopexit ], [ %72, %.preheader237 ]
+  %94 = phi double [ %110, %.loopexit ], [ %.promoted, %.preheader237 ]
+  %95 = phi i32 [ %118, %.loopexit ], [ %76, %.preheader237 ]
+  %96 = invoke noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef %.3133266)
           to label %97 unwind label %103
 
-97:                                               ; preds = %.lr.ph268
+97:                                               ; preds = %.lr.ph267
   %98 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %96)
           to label %99 unwind label %103
 
@@ -5403,7 +5403,7 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
   %102 = icmp slt i32 %101, 1
   br i1 %102, label %107, label %144
 
-103:                                              ; preds = %97, %.lr.ph268
+103:                                              ; preds = %97, %.lr.ph267
   %104 = landingpad { ptr, i32 }
           cleanup
   br label %208
@@ -5431,58 +5431,58 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
   %115 = load i32, ptr %20, align 4
   %116 = icmp eq i32 %115, 0
   %or.cond13 = select i1 %or.cond11, i1 true, i1 %116
-  br i1 %or.cond13, label %.thread229, label %117
+  br i1 %or.cond13, label %.thread228, label %117
 
 117:                                              ; preds = %107
   %118 = add nsw i32 %95, %115
   %119 = icmp slt i32 %118, 8
   %.not193 = icmp eq i32 %113, %74
   %or.cond202 = select i1 %119, i1 %.not193, i1 false
-  br i1 %or.cond202, label %120, label %.thread229
+  br i1 %or.cond202, label %120, label %.thread228
 
 120:                                              ; preds = %117
   %.not194 = icmp eq i32 %111, %72
-  br i1 %.not194, label %.thread209, label %121
+  br i1 %.not194, label %.thread208, label %121
 
 121:                                              ; preds = %120
-  %122 = icmp eq i32 %.0142266, -1
+  %122 = icmp eq i32 %.0142265, -1
   br i1 %122, label %123, label %126
 
 123:                                              ; preds = %121
   %124 = sub nsw i32 %111, %72
-  switch i32 %124, label %.thread229 [
-    i32 -1, label %.thread209
-    i32 -11, label %.thread209
+  switch i32 %124, label %.thread228 [
+    i32 -1, label %.thread208
+    i32 -11, label %.thread208
     i32 11, label %125
     i32 1, label %125
   ]
 
 125:                                              ; preds = %123, %123
-  br label %.thread209
+  br label %.thread208
 
 126:                                              ; preds = %121
-  %.not195 = icmp eq i32 %111, %.0142266
-  br i1 %.not195, label %.thread209, label %.thread229
+  %.not195 = icmp eq i32 %111, %.0142265
+  br i1 %.not195, label %.thread208, label %.thread228
 
-.thread209:                                       ; preds = %125, %123, %123, %126, %120
-  %.2154 = phi i32 [ %.0152264, %126 ], [ %.0152264, %120 ], [ %.0152264, %125 ], [ %111, %123 ], [ %111, %123 ]
-  %.3150 = phi i32 [ %.1148265, %126 ], [ %.1148265, %120 ], [ %.1148265, %125 ], [ 31, %123 ], [ 31, %123 ]
-  %.2144 = phi i32 [ %.0142266, %126 ], [ %.0142266, %120 ], [ %111, %125 ], [ %111, %123 ], [ %111, %123 ]
+.thread208:                                       ; preds = %125, %123, %123, %126, %120
+  %.2154 = phi i32 [ %.0152263, %126 ], [ %.0152263, %120 ], [ %.0152263, %125 ], [ %111, %123 ], [ %111, %123 ]
+  %.3150 = phi i32 [ %.1148264, %126 ], [ %.1148264, %120 ], [ %.1148264, %125 ], [ 31, %123 ], [ 31, %123 ]
+  %.2144 = phi i32 [ %.0142265, %126 ], [ %.0142265, %120 ], [ %111, %125 ], [ %111, %123 ], [ %111, %123 ]
   %127 = icmp eq i32 %111, %.2154
   %128 = icmp sgt i32 %115, 0
-  %or.cond277 = select i1 %127, i1 %128, i1 false
-  br i1 %or.cond277, label %.lr.ph252, label %.loopexit
+  %or.cond276 = select i1 %127, i1 %128, i1 false
+  br i1 %or.cond276, label %.lr.ph251, label %.loopexit
 
-.lr.ph252:                                        ; preds = %.thread209
+.lr.ph251:                                        ; preds = %.thread208
   %129 = sext i32 %111 to i64
   %130 = getelementptr inbounds i32, ptr @_ZN6icu_77L11MONTHLENGTHE, i64 %129
-  %wide.trip.count296 = zext nneg i32 %115 to i64
+  %wide.trip.count295 = zext nneg i32 %115 to i64
   br label %131
 
-131:                                              ; preds = %.lr.ph252, %139
-  %indvars.iv293 = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next294, %139 ]
-  %.7250 = phi i32 [ %.3150, %.lr.ph252 ], [ %..7, %139 ]
-  %132 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv293
+131:                                              ; preds = %.lr.ph251, %139
+  %indvars.iv292 = phi i64 [ 0, %.lr.ph251 ], [ %indvars.iv.next293, %139 ]
+  %.7249 = phi i32 [ %.3150, %.lr.ph251 ], [ %..7, %139 ]
+  %132 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv292
   %133 = load i32, ptr %132, align 4, !tbaa !42
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %139, label %135
@@ -5496,45 +5496,45 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 139:                                              ; preds = %131, %135
   %140 = phi i32 [ %138, %135 ], [ %133, %131 ]
   store i32 %140, ptr %132, align 4, !tbaa !42
-  %..7 = call i32 @llvm.smin.i32(i32 %140, i32 %.7250)
-  %indvars.iv.next294 = add nuw nsw i64 %indvars.iv293, 1
-  %exitcond297.not = icmp eq i64 %indvars.iv.next294, %wide.trip.count296
-  br i1 %exitcond297.not, label %.loopexit, label %131, !llvm.loop !69
+  %..7 = call i32 @llvm.smin.i32(i32 %140, i32 %.7249)
+  %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
+  %exitcond296.not = icmp eq i64 %indvars.iv.next293, %wide.trip.count295
+  br i1 %exitcond296.not, label %.loopexit, label %131, !llvm.loop !69
 
-.loopexit:                                        ; preds = %139, %.thread209
-  %.6 = phi i32 [ %.3150, %.thread209 ], [ %..7, %139 ]
+.loopexit:                                        ; preds = %139, %.thread208
+  %.6 = phi i32 [ %.3150, %.thread208 ], [ %..7, %139 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %141 = add nuw nsw i32 %.3133267, 1
+  %141 = add nuw nsw i32 %.3133266, 1
   %142 = load i32, ptr %28, align 8, !tbaa !33
   %143 = icmp slt i32 %141, %142
-  br i1 %143, label %.lr.ph268, label %._crit_edge, !llvm.loop !70
+  br i1 %143, label %.lr.ph267, label %._crit_edge, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader238
-  %.lcssa259 = phi i32 [ %76, %.preheader238 ], [ %118, %.loopexit ]
-  %.lcssa = phi double [ %.promoted, %.preheader238 ], [ %110, %.loopexit ]
-  %.0152.lcssa = phi i32 [ %72, %.preheader238 ], [ %.2154, %.loopexit ]
-  %.1148.lcssa = phi i32 [ %.0147.lcssa, %.preheader238 ], [ %.6, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %.preheader237
+  %.lcssa258 = phi i32 [ %76, %.preheader237 ], [ %118, %.loopexit ]
+  %.lcssa = phi double [ %.promoted, %.preheader237 ], [ %110, %.loopexit ]
+  %.0152.lcssa = phi i32 [ %72, %.preheader237 ], [ %.2154, %.loopexit ]
+  %.1148.lcssa = phi i32 [ %.0147.lcssa, %.preheader237 ], [ %.6, %.loopexit ]
   store double %.lcssa, ptr %14, align 8
-  %.not190 = icmp eq i32 %.lcssa259, 7
-  br i1 %.not190, label %.thread222, label %.thread225
+  %.not190 = icmp eq i32 %.lcssa258, 7
+  br i1 %.not190, label %.thread221, label %.thread224
 
-.thread222:                                       ; preds = %._crit_edge
+.thread221:                                       ; preds = %._crit_edge
   store i32 %.0152.lcssa, ptr %9, align 4, !tbaa !42
   br label %.thread204
 
-.thread229:                                       ; preds = %123, %126, %117, %107
+.thread228:                                       ; preds = %123, %126, %117, %107
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %.thread225
+  br label %.thread224
 
 144:                                              ; preds = %100
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -5545,8 +5545,8 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %207
 
-.thread204:                                       ; preds = %69, %.thread222, %42
-  %.1139 = phi i32 [ 0, %42 ], [ %.1148.lcssa, %.thread222 ], [ %spec.select, %69 ]
+.thread204:                                       ; preds = %69, %.thread221, %42
+  %.1139 = phi i32 [ 0, %42 ], [ %.1148.lcssa, %.thread221 ], [ %spec.select, %69 ]
   %145 = sitofp i32 %5 to double
   %146 = fadd double %3, %145
   invoke void @_ZN6icu_775Grego12timeToFieldsEdRiRaS2_S1_R10UErrorCode(double noundef %146, ptr noundef nonnull align 4 dereferenceable(4) %21, ptr noundef nonnull align 1 dereferenceable(1) %23, ptr noundef nonnull align 1 dereferenceable(1) %24, ptr noundef nonnull align 4 dereferenceable(4) %22, ptr noundef nonnull align 4 dereferenceable(4) %6)
@@ -5599,7 +5599,7 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 174:                                              ; preds = %172
   %175 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #16
   %176 = icmp eq ptr %175, null
-  br i1 %176, label %.thread225, label %177
+  br i1 %176, label %.thread224, label %177
 
 177:                                              ; preds = %174
   %178 = load i32, ptr %22, align 4, !tbaa !42
@@ -5623,7 +5623,7 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 185:                                              ; preds = %181
   %186 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #16
   %187 = icmp eq ptr %186, null
-  br i1 %187, label %.thread225, label %188
+  br i1 %187, label %.thread224, label %188
 
 188:                                              ; preds = %185
   %189 = load i32, ptr %22, align 4, !tbaa !42
@@ -5639,12 +5639,12 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
 192:                                              ; preds = %181
   %or.cond31 = select i1 %182, i1 %159, i1 false
   %or.cond33 = select i1 %or.cond31, i1 %173, i1 false
-  br i1 %or.cond33, label %193, label %.thread225
+  br i1 %or.cond33, label %193, label %.thread224
 
 193:                                              ; preds = %192
   %194 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 40) #16
   %195 = icmp eq ptr %194, null
-  br i1 %195, label %.thread225, label %196
+  br i1 %195, label %.thread224, label %196
 
 196:                                              ; preds = %193
   %197 = load i32, ptr %22, align 4, !tbaa !42
@@ -5674,12 +5674,12 @@ define internal fastcc noundef ptr @_ZN6icu_77L17createRuleByRRULEERKNS_13Unicod
   call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %201) #16
   br label %208
 
-.thread225:                                       ; preds = %64, %193, %185, %174, %192, %._crit_edge, %.thread229, %71, %45
+.thread224:                                       ; preds = %64, %193, %185, %174, %192, %._crit_edge, %.thread228, %71, %45
   store i32 27, ptr %6, align 4, !tbaa !31
   br label %207
 
-207:                                              ; preds = %144, %200, %203, %167, %147, %34, %.thread225
-  %.1 = phi ptr [ null, %.thread225 ], [ null, %144 ], [ null, %34 ], [ null, %147 ], [ null, %167 ], [ null, %200 ], [ %201, %203 ]
+207:                                              ; preds = %144, %200, %203, %167, %147, %34, %.thread224
+  %.1 = phi ptr [ null, %.thread224 ], [ null, %144 ], [ null, %34 ], [ null, %147 ], [ null, %167 ], [ null, %200 ], [ %201, %203 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)

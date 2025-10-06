@@ -1688,10 +1688,10 @@ _ZL11parseFailedRKN4llvm5TwineE.exit:             ; preds = %52, %_ZNKSt7__cxx11
   br i1 %66, label %_ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit.thread351, label %_ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit
 
 _ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit: ; preds = %65
-  %67 = icmp samesign ugt i32 %45, 35
+  %67 = icmp samesign ult i32 %45, 36
   %68 = icmp ult ptr %44, %49
   %69 = getelementptr inbounds nuw i8, ptr %49, i64 %.sroa.speculated.i
-  br i1 %67, label %110, label %129
+  br i1 %67, label %129, label %110
 
 _ZNK4llvm6object7DirectX14PSVRuntimeInfo10getVersionEv.exit.thread: ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %20)

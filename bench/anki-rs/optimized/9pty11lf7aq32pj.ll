@@ -66,7 +66,7 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Resu
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
   %18 = load i32, ptr %17, align 8, !alias.scope !33, !noundef !4
   %19 = tail call noundef i32 @close(i32 noundef %18), !noalias !34
-  br label %26
+  br label %27
 
 20:                                               ; preds = %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -77,19 +77,19 @@ define internal fastcc void @"_ZN4core3ptr102drop_in_place$LT$core..result..Resu
   %22 = load ptr, ptr %21, align 8, !alias.scope !44, !nonnull !4, !noundef !4
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7a64bb114b179e14E.llvm.469525117986682804(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %22), !noalias !44
   %23 = load i8, ptr %2, align 8, !range !45, !alias.scope !46, !noalias !44, !noundef !4
-  %switch.not.i.i.i.i = icmp eq i8 %23, 3
-  br i1 %switch.not.i.i.i.i, label %24, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit"
+  %24 = icmp eq i8 %23, 3
+  br i1 %24, label %25, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit"
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hb730357a625a40d1E.llvm.469525117986682804"(ptr noalias noundef nonnull align 8 dereferenceable(8) %25), !noalias !44
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hb730357a625a40d1E.llvm.469525117986682804"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26), !noalias !44
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit": ; preds = %20, %24
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit": ; preds = %20, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !44
-  br label %26
+  br label %27
 
-26:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit", %"_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17h4d38e4753991c886E.exit"
+27:                                               ; preds = %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit", %"_ZN4core3ptr50drop_in_place$LT$tempfile..file..NamedTempFile$GT$17h4d38e4753991c886E.exit"
   ret void
 }
 
@@ -160,15 +160,15 @@ define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$core..option..Opti
   %22 = load ptr, ptr %21, align 8, !alias.scope !90, !nonnull !4, !noundef !4
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7a64bb114b179e14E.llvm.469525117986682804(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %22), !noalias !90
   %23 = load i8, ptr %2, align 8, !range !45, !alias.scope !91, !noalias !90, !noundef !4
-  %switch.not.i.i.i.i.i = icmp eq i8 %23, 3
-  br i1 %switch.not.i.i.i.i.i, label %24, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit.i"
+  %24 = icmp eq i8 %23, 3
+  br i1 %24, label %25, label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit.i"
 
-24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hb730357a625a40d1E.llvm.469525117986682804"(ptr noalias noundef nonnull align 8 dereferenceable(8) %25), !noalias !90
+25:                                               ; preds = %20
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hb730357a625a40d1E.llvm.469525117986682804"(ptr noalias noundef nonnull align 8 dereferenceable(8) %26), !noalias !90
   br label %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit.i"
 
-"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit.i": ; preds = %24, %20
+"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hee5980806d1ba524E.exit.i": ; preds = %25, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !90
   br label %"_ZN4core3ptr90drop_in_place$LT$core..result..Result$LT$std..fs..DirEntry$C$std..io..error..Error$GT$$GT$17h289afc8fba807a55E.exit"
 }
@@ -682,7 +682,7 @@ define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..ite
   %15 = and i32 %.sroa.0.sroa.2.0.copyload.i, 61440
   %16 = icmp eq i32 %15, 32768
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %16, label %.critedge11, label %21
+  br i1 %16, label %.critedge10, label %21
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -699,7 +699,7 @@ define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..ite
   invoke void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5fc8776a13608bfaE"(ptr noalias noundef nonnull sret({ i64, [5 x i64] }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %1)
           to label %22 unwind label %9
 
-.critedge11:                                      ; preds = %14
+.critedge10:                                      ; preds = %14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   br label %26
 
@@ -716,7 +716,7 @@ define void @"_ZN80_$LT$anki_io..ReadDirFiles$u20$as$u20$core..iter..traits..ite
 25:                                               ; preds = %9
   resume { ptr, i32 } %10
 
-26:                                               ; preds = %.critedge11, %.critedge, %22
+26:                                               ; preds = %.critedge10, %.critedge, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

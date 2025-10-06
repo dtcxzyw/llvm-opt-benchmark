@@ -1150,13 +1150,13 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL28CheckWasmBuiltinArgIsInte
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i8, ptr %29, align 16
   %31 = icmp ne i8 %30, 13
-  %.not.not24.i = icmp eq ptr %28, null
-  %.not.not.i = or i1 %.not.not24.i, %31
+  %.not.not21.i = icmp eq ptr %28, null
+  %.not.not.i = or i1 %.not.not21.i, %31
   br i1 %.not.not.i, label %32, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 32:                                               ; preds = %3
   %33 = icmp ne i8 %30, 46
-  %.not13.not.i = or i1 %.not.not24.i, %33
+  %.not13.not.i = or i1 %.not.not21.i, %33
   br i1 %.not13.not.i, label %47, label %34
 
 34:                                               ; preds = %32

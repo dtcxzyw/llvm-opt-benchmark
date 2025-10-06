@@ -4195,7 +4195,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl27HasValidCordzInfoOf
           to label %.noexc17 unwind label %.loopexit.split-lp
 
 .noexc17:                                         ; preds = %.noexc
-  br i1 %23, label %.lr.ph.i, label %.loopexit42
+  br i1 %23, label %.lr.ph.i, label %.loopexit41
 
 .lr.ph.i:                                         ; preds = %.noexc17, %.noexc20
   %24 = invoke noundef nonnull align 8 dereferenceable(1344) ptr @_ZNK4absl13cord_internal16CordzSampleToken8IteratordeEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -4214,9 +4214,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl27HasValidCordzInfoOf
           to label %.noexc20 unwind label %.loopexit
 
 .noexc20:                                         ; preds = %.noexc19
-  br i1 %27, label %.lr.ph.i, label %.loopexit42
+  br i1 %27, label %.lr.ph.i, label %.loopexit41
 
-.loopexit42:                                      ; preds = %.noexc20, %.noexc17
+.loopexit41:                                      ; preds = %.noexc20, %.noexc17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4absl13cord_internal11CordzHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #17
@@ -4225,7 +4225,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK4absl27HasValidCordzInfoOf
   %.not.i21 = icmp eq ptr %29, null
   br i1 %.not.i21, label %_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit, label %30
 
-30:                                               ; preds = %.loopexit42
+30:                                               ; preds = %.loopexit41
   %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull @.str.100, i64 noundef 31)
   br label %_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit
 
@@ -4287,12 +4287,12 @@ _ZN7testing19MatchResultListenerlsIA12_cEERS0_RKT_.exit: ; preds = %45
 _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIA12_cEERS0_RKT_.exit
   %49 = load i64, ptr %8, align 8, !tbaa !23
   %50 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %.pr, i64 noundef %49)
-  %.pr36 = load ptr, ptr %46, align 8, !tbaa !153
-  %.not.i24 = icmp eq ptr %.pr36, null
+  %.pr35 = load ptr, ptr %46, align 8, !tbaa !153
+  %.not.i24 = icmp eq ptr %.pr35, null
   br i1 %.not.i24, label %_ZN7testing19MatchResultListenerlsIA27_cEERS0_RKT_.exit, label %51
 
 51:                                               ; preds = %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit
-  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr36, ptr noundef nonnull @.str.102, i64 noundef 26)
+  %52 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr35, ptr noundef nonnull @.str.102, i64 noundef 26)
   br label %_ZN7testing19MatchResultListenerlsIA27_cEERS0_RKT_.exit
 
 _ZN7testing19MatchResultListenerlsIA27_cEERS0_RKT_.exit: ; preds = %45, %_ZN7testing19MatchResultListenerlsIA12_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit, %51
@@ -4340,15 +4340,15 @@ _ZNK4absl4Cord4sizeEv.exit26:                     ; preds = %55, %59
 
 _ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit: ; preds = %73
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.103, i64 noundef 28)
-  %.pr38 = load ptr, ptr %74, align 8, !tbaa !153
-  %.not.i30 = icmp eq ptr %.pr38, null
+  %.pr37 = load ptr, ptr %74, align 8, !tbaa !153
+  %.not.i30 = icmp eq ptr %.pr37, null
   br i1 %.not.i30, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
 
 _ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit
   %77 = load i32, ptr %68, align 8, !tbaa !140
-  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %.pr38, i32 noundef %77)
-  %.pr40 = load ptr, ptr %74, align 8, !tbaa !153
-  %.not.i31 = icmp eq ptr %.pr40, null
+  %78 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %.pr37, i32 noundef %77)
+  %.pr39 = load ptr, ptr %74, align 8, !tbaa !153
+  %.not.i31 = icmp eq ptr %.pr39, null
   br i1 %.not.i31, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread, label %_ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit
 
 _ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread: ; preds = %73, %_ZN7testing19MatchResultListenerlsIA29_cEERS0_RKT_.exit, %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
@@ -4359,7 +4359,7 @@ _ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit.thread: ; preds = %73, %_
   br label %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28
 
 _ZN7testing19MatchResultListenerlsIA9_cEERS0_RKT_.exit: ; preds = %_ZN7testing19MatchResultListenerlsIN4absl13cord_internal18CordzUpdateTracker16MethodIdentifierEEERS0_RKT_.exit
-  %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr40, ptr noundef nonnull @.str.104, i64 noundef 8)
+  %83 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.pr39, ptr noundef nonnull @.str.104, i64 noundef 8)
   %.pre = load ptr, ptr %74, align 8, !tbaa !153
   %84 = load i32, ptr %68, align 8, !tbaa !142
   %85 = zext i32 %84 to i64
@@ -4377,8 +4377,8 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28: ; preds = %_ZN7testing19M
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit
 
-_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit: ; preds = %30, %.loopexit42, %19, %16, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28
-  %.0 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28 ], [ false, %16 ], [ false, %19 ], [ false, %.loopexit42 ], [ false, %30 ]
+_ZN7testing19MatchResultListenerlsIA20_cEERS0_RKT_.exit: ; preds = %30, %.loopexit41, %19, %16, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28
+  %.0 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit28 ], [ false, %16 ], [ false, %19 ], [ false, %.loopexit41 ], [ false, %30 ]
   ret i1 %.0
 }
 

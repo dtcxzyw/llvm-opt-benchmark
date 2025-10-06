@@ -473,7 +473,7 @@ define weak_odr void @_ZN6icu_7715MaybeStackArrayIcLi40EE8copyFromERKS1_R10UErro
 declare void @uprv_free_77(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZN6icu_7713PluralMapBase10toCategoryEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 align 2 {
+define noundef range(i32 -1, 6) i32 @_ZN6icu_7713PluralMapBase10toCategoryEPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -482,20 +482,20 @@ define noundef i32 @_ZN6icu_7713PluralMapBase10toCategoryEPKc(ptr noundef readon
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #17
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.split.loop.exit, label %7
+  br i1 %6, label %.split.loop.exit11, label %7
 
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 6
-  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !16
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 6
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !16
 
-.split.loop.exit:                                 ; preds = %2
+.split.loop.exit11:                               ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit10
+  br label %.split.loop.exit
 
-.split.loop.exit10:                               ; preds = %7, %.split.loop.exit
-  %spec.select = phi i32 [ %8, %.split.loop.exit ], [ -1, %7 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %7, %.split.loop.exit11
+  %9 = phi i32 [ %8, %.split.loop.exit11 ], [ -1, %7 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -531,19 +531,19 @@ define noundef i32 @_ZN6icu_7713PluralMapBase10toCategoryERKNS_13UnicodeStringE(
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %11, ptr noundef nonnull dereferenceable(1) %14) #17
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %.split.loop.exit.i, label %17
+  br i1 %16, label %.split.loop.exit11.i, label %17
 
 17:                                               ; preds = %12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 6
-  br i1 %exitcond.i, label %_ZN6icu_7713PluralMapBase10toCategoryEPKc.exit, label %12, !llvm.loop !16
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
+  br i1 %exitcond.not.i, label %_ZN6icu_7713PluralMapBase10toCategoryEPKc.exit, label %12, !llvm.loop !16
 
-.split.loop.exit.i:                               ; preds = %12
+.split.loop.exit11.i:                             ; preds = %12
   %18 = trunc nuw nsw i64 %indvars.iv.i to i32
   br label %_ZN6icu_7713PluralMapBase10toCategoryEPKc.exit
 
-_ZN6icu_7713PluralMapBase10toCategoryEPKc.exit:   ; preds = %17, %.split.loop.exit.i, %7
-  %19 = phi i32 [ -1, %7 ], [ %18, %.split.loop.exit.i ], [ -1, %17 ]
+_ZN6icu_7713PluralMapBase10toCategoryEPKc.exit:   ; preds = %17, %.split.loop.exit11.i, %7
+  %19 = phi i32 [ -1, %7 ], [ %18, %.split.loop.exit11.i ], [ -1, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %2) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

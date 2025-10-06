@@ -3755,7 +3755,7 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %143 = load i32, ptr %142, align 8
   %144 = and i32 %143, 2048
   %145 = icmp eq i32 %144, 0
-  br i1 %145, label %652, label %146
+  br i1 %145, label %650, label %146
 
 146:                                              ; preds = %141
   %147 = load ptr, ptr %0, align 8
@@ -3833,99 +3833,97 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %189 = getelementptr inbounds nuw i8, ptr %149, i64 7176
   %190 = load i8, ptr %189, align 8
   %191 = icmp eq i8 %190, 12
-  br i1 %191, label %192, label %203
+  br i1 %191, label %192, label %201
 
 192:                                              ; preds = %188
   %193 = getelementptr inbounds nuw i8, ptr %149, i64 7177
   %194 = load i8, ptr %193, align 1
-  %195 = zext i8 %194 to i32
-  %196 = or disjoint i32 %195, 3072
-  %197 = icmp samesign ult i32 %196, 3122
-  br i1 %197, label %198, label %203
+  %195 = icmp ult i8 %194, 50
+  br i1 %195, label %196, label %201
 
-198:                                              ; preds = %192
+196:                                              ; preds = %192
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
-  %199 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i32 0, ptr %199, align 4, !annotation !5
+  %197 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  store i32 0, ptr %197, align 4, !annotation !5
   store i32 45060, ptr %75, align 4
-  %200 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  %198 = getelementptr inbounds nuw i8, ptr %75, i64 4
+  store i32 128, ptr %198, align 4
+  %199 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  store i32 0, ptr %199, align 4
+  %200 = getelementptr inbounds nuw i8, ptr %75, i64 12
   store i32 128, ptr %200, align 4
-  %201 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  store i32 0, ptr %201, align 4
-  %202 = getelementptr inbounds nuw i8, ptr %75, i64 12
-  store i32 128, ptr %202, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %75)
   call void @llvm.lifetime.end.p0(ptr nonnull %75)
-  br label %203
+  br label %201
 
-203:                                              ; preds = %198, %192, %188
-  %204 = getelementptr inbounds nuw i8, ptr %147, i64 7176
-  %205 = load i8, ptr %204, align 8
-  %206 = icmp ugt i8 %205, 10
-  br i1 %206, label %207, label %213
+201:                                              ; preds = %196, %192, %188
+  %202 = getelementptr inbounds nuw i8, ptr %147, i64 7176
+  %203 = load i8, ptr %202, align 8
+  %204 = icmp ugt i8 %203, 10
+  br i1 %204, label %205, label %211
 
-207:                                              ; preds = %203
+205:                                              ; preds = %201
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
-  %208 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i32 0, ptr %208, align 4, !annotation !5
+  %206 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  store i32 0, ptr %206, align 4, !annotation !5
   store i32 57740, ptr %74, align 4
-  %209 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  store i32 0, ptr %209, align 4
-  %210 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i32 65537, ptr %210, align 4
-  %211 = getelementptr inbounds nuw i8, ptr %74, i64 12
-  store i32 1, ptr %211, align 4
-  %212 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i8 3, ptr %212, align 4
+  %207 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  store i32 0, ptr %207, align 4
+  %208 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store i32 65537, ptr %208, align 4
+  %209 = getelementptr inbounds nuw i8, ptr %74, i64 12
+  store i32 1, ptr %209, align 4
+  %210 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  store i8 3, ptr %210, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %74)
   call void @llvm.lifetime.end.p0(ptr nonnull %74)
-  br label %213
+  br label %211
 
-213:                                              ; preds = %207, %203
-  %214 = load i32, ptr %150, align 8
-  %215 = icmp eq i32 %214, 2
-  br i1 %215, label %.thread35, label %216
+211:                                              ; preds = %205, %201
+  %212 = load i32, ptr %150, align 8
+  %213 = icmp eq i32 %212, 2
+  br i1 %213, label %.thread35, label %214
 
-216:                                              ; preds = %213
-  %217 = load ptr, ptr %148, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %217, i64 7176
-  %219 = load i8, ptr %218, align 8
-  %220 = zext i8 %219 to i32
-  %221 = shl nuw nsw i32 %220, 8
-  %222 = getelementptr inbounds nuw i8, ptr %217, i64 7177
-  %223 = load i8, ptr %222, align 1
-  %224 = zext i8 %223 to i32
-  %225 = or disjoint i32 %221, %224
-  %226 = icmp eq i32 %225, 3142
-  br i1 %226, label %227, label %.thread
+214:                                              ; preds = %211
+  %215 = load ptr, ptr %148, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 7176
+  %217 = load i8, ptr %216, align 8
+  %218 = zext i8 %217 to i32
+  %219 = shl nuw nsw i32 %218, 8
+  %220 = getelementptr inbounds nuw i8, ptr %215, i64 7177
+  %221 = load i8, ptr %220, align 1
+  %222 = zext i8 %221 to i32
+  %223 = or disjoint i32 %219, %222
+  %224 = icmp eq i32 %223, 3142
+  br i1 %224, label %225, label %.thread
 
-227:                                              ; preds = %216
-  %228 = getelementptr inbounds nuw i8, ptr %217, i64 7200
-  %229 = load i8, ptr %228, align 8
-  %230 = icmp eq i8 %229, 0
-  br i1 %230, label %231, label %246, !prof !6
+225:                                              ; preds = %214
+  %226 = getelementptr inbounds nuw i8, ptr %215, i64 7200
+  %227 = load i8, ptr %226, align 8
+  %228 = icmp eq i8 %227, 0
+  br i1 %228, label %229, label %244, !prof !6
 
-231:                                              ; preds = %227
+229:                                              ; preds = %225
   tail call void asm sideeffect "980: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 980b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 980) #10, !srcloc !104
-  %232 = load ptr, ptr %148, align 8
-  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
-  %234 = load ptr, ptr %233, align 8
-  %235 = tail call ptr @dev_driver_string(ptr noundef %234) #10
-  %236 = load ptr, ptr %148, align 8
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
+  %230 = load ptr, ptr %148, align 8
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
+  %232 = load ptr, ptr %231, align 8
+  %233 = tail call ptr @dev_driver_string(ptr noundef %232) #10
+  %234 = load ptr, ptr %148, align 8
+  %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
+  %236 = load ptr, ptr %235, align 8
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 80
   %238 = load ptr, ptr %237, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 80
-  %240 = load ptr, ptr %239, align 8
-  %241 = icmp eq ptr %240, null
-  br i1 %241, label %242, label %244
+  %239 = icmp eq ptr %238, null
+  br i1 %239, label %240, label %242
 
-242:                                              ; preds = %231
-  %243 = load ptr, ptr %238, align 8
-  br label %244
+240:                                              ; preds = %229
+  %241 = load ptr, ptr %236, align 8
+  br label %242
 
-244:                                              ; preds = %242, %231
-  %245 = phi ptr [ %243, %242 ], [ %240, %231 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %235, ptr noundef %245, ptr noundef nonnull @.str.12) #10
+242:                                              ; preds = %240, %229
+  %243 = phi ptr [ %241, %240 ], [ %238, %229 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %233, ptr noundef %243, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "981: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 981b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 981) #10, !srcloc !105
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2883, i32 2313, i64 12) #10, !srcloc !106
   tail call void asm sideeffect "982: nop\0A\09.pushsection .discard.instr_end\0A\09.long 982b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 982) #10, !srcloc !107
@@ -3933,60 +3931,60 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre = load ptr, ptr %148, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 7200
   %.pre61 = load i8, ptr %.phi.trans.insert, align 8
-  br label %246
+  br label %244
 
-246:                                              ; preds = %244, %227
-  %247 = phi i8 [ %.pre61, %244 ], [ %229, %227 ]
-  %248 = phi ptr [ %.pre, %244 ], [ %217, %227 ]
-  %249 = add i8 %247, -5
-  %250 = icmp ult i8 %249, 37
-  br i1 %250, label %286, label %251
+244:                                              ; preds = %242, %225
+  %245 = phi i8 [ %.pre61, %242 ], [ %227, %225 ]
+  %246 = phi ptr [ %.pre, %242 ], [ %215, %225 ]
+  %247 = add i8 %245, -5
+  %248 = icmp ult i8 %247, 37
+  br i1 %248, label %284, label %249
 
-251:                                              ; preds = %246
+249:                                              ; preds = %244
   %.pr.pre = load i32, ptr %150, align 8
-  %252 = icmp eq i32 %.pr.pre, 2
-  br i1 %252, label %.thread35, label %.thread
+  %250 = icmp eq i32 %.pr.pre, 2
+  br i1 %250, label %.thread35, label %.thread
 
-.thread:                                          ; preds = %216, %251
-  %253 = phi ptr [ %248, %251 ], [ %217, %216 ]
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 7176
-  %255 = load i8, ptr %254, align 8
-  %256 = zext i8 %255 to i32
-  %257 = shl nuw nsw i32 %256, 8
-  %258 = getelementptr inbounds nuw i8, ptr %253, i64 7177
-  %259 = load i8, ptr %258, align 1
-  %260 = zext i8 %259 to i32
-  %261 = or disjoint i32 %257, %260
-  %262 = icmp eq i32 %261, 3143
-  br i1 %262, label %263, label %292
+.thread:                                          ; preds = %214, %249
+  %251 = phi ptr [ %246, %249 ], [ %215, %214 ]
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 7176
+  %253 = load i8, ptr %252, align 8
+  %254 = zext i8 %253 to i32
+  %255 = shl nuw nsw i32 %254, 8
+  %256 = getelementptr inbounds nuw i8, ptr %251, i64 7177
+  %257 = load i8, ptr %256, align 1
+  %258 = zext i8 %257 to i32
+  %259 = or disjoint i32 %255, %258
+  %260 = icmp eq i32 %259, 3143
+  br i1 %260, label %261, label %290
 
-263:                                              ; preds = %.thread
-  %264 = getelementptr inbounds nuw i8, ptr %253, i64 7200
-  %265 = load i8, ptr %264, align 8
-  %266 = icmp eq i8 %265, 0
-  br i1 %266, label %267, label %282, !prof !6
+261:                                              ; preds = %.thread
+  %262 = getelementptr inbounds nuw i8, ptr %251, i64 7200
+  %263 = load i8, ptr %262, align 8
+  %264 = icmp eq i8 %263, 0
+  br i1 %264, label %265, label %280, !prof !6
 
-267:                                              ; preds = %263
+265:                                              ; preds = %261
   tail call void asm sideeffect "984: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 984b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 984) #10, !srcloc !109
-  %268 = load ptr, ptr %148, align 8
-  %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
-  %270 = load ptr, ptr %269, align 8
-  %271 = tail call ptr @dev_driver_string(ptr noundef %270) #10
-  %272 = load ptr, ptr %148, align 8
-  %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
+  %266 = load ptr, ptr %148, align 8
+  %267 = getelementptr inbounds nuw i8, ptr %266, i64 8
+  %268 = load ptr, ptr %267, align 8
+  %269 = tail call ptr @dev_driver_string(ptr noundef %268) #10
+  %270 = load ptr, ptr %148, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %270, i64 8
+  %272 = load ptr, ptr %271, align 8
+  %273 = getelementptr inbounds nuw i8, ptr %272, i64 80
   %274 = load ptr, ptr %273, align 8
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 80
-  %276 = load ptr, ptr %275, align 8
-  %277 = icmp eq ptr %276, null
-  br i1 %277, label %278, label %280
+  %275 = icmp eq ptr %274, null
+  br i1 %275, label %276, label %278
 
-278:                                              ; preds = %267
-  %279 = load ptr, ptr %274, align 8
-  br label %280
+276:                                              ; preds = %265
+  %277 = load ptr, ptr %272, align 8
+  br label %278
 
-280:                                              ; preds = %278, %267
-  %281 = phi ptr [ %279, %278 ], [ %276, %267 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %271, ptr noundef %281, ptr noundef nonnull @.str.12) #10
+278:                                              ; preds = %276, %265
+  %279 = phi ptr [ %277, %276 ], [ %274, %265 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %269, ptr noundef %279, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "985: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 985b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 985) #10, !srcloc !110
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2884, i32 2313, i64 12) #10, !srcloc !111
   tail call void asm sideeffect "986: nop\0A\09.pushsection .discard.instr_end\0A\09.long 986b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 986) #10, !srcloc !112
@@ -3994,76 +3992,76 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre63 = load ptr, ptr %148, align 8
   %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %.pre63, i64 7200
   %.pre65 = load i8, ptr %.phi.trans.insert64, align 8
-  br label %282
+  br label %280
 
-282:                                              ; preds = %280, %263
-  %283 = phi i8 [ %.pre65, %280 ], [ %265, %263 ]
-  %284 = add i8 %283, -5
-  %285 = icmp ult i8 %284, 37
-  br i1 %285, label %286, label %292
+280:                                              ; preds = %278, %261
+  %281 = phi i8 [ %.pre65, %278 ], [ %263, %261 ]
+  %282 = add i8 %281, -5
+  %283 = icmp ult i8 %282, 37
+  br i1 %283, label %284, label %290
 
-286:                                              ; preds = %282, %246
+284:                                              ; preds = %280, %244
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
-  %287 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store i32 0, ptr %287, align 4, !annotation !5
+  %285 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store i32 0, ptr %285, align 4, !annotation !5
   store i32 58524, ptr %73, align 4
-  %288 = getelementptr inbounds nuw i8, ptr %73, i64 4
-  store i32 0, ptr %288, align 4
-  %289 = getelementptr inbounds nuw i8, ptr %73, i64 8
-  store i32 33554944, ptr %289, align 4
-  %290 = getelementptr inbounds nuw i8, ptr %73, i64 12
-  store i32 512, ptr %290, align 4
-  %291 = getelementptr inbounds nuw i8, ptr %73, i64 16
-  store i8 3, ptr %291, align 4
+  %286 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  store i32 0, ptr %286, align 4
+  %287 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i32 33554944, ptr %287, align 4
+  %288 = getelementptr inbounds nuw i8, ptr %73, i64 12
+  store i32 512, ptr %288, align 4
+  %289 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store i8 3, ptr %289, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %73)
   call void @llvm.lifetime.end.p0(ptr nonnull %73)
-  br label %292
+  br label %290
 
-292:                                              ; preds = %286, %282, %.thread
+290:                                              ; preds = %284, %280, %.thread
   %.pr20 = load i32, ptr %150, align 8
-  %293 = icmp eq i32 %.pr20, 2
-  br i1 %293, label %.thread35, label %294
+  %291 = icmp eq i32 %.pr20, 2
+  br i1 %291, label %.thread35, label %292
 
-294:                                              ; preds = %292
-  %295 = load ptr, ptr %148, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 7176
-  %297 = load i8, ptr %296, align 8
-  %298 = zext i8 %297 to i32
-  %299 = shl nuw nsw i32 %298, 8
-  %300 = getelementptr inbounds nuw i8, ptr %295, i64 7177
-  %301 = load i8, ptr %300, align 1
-  %302 = zext i8 %301 to i32
-  %303 = or disjoint i32 %299, %302
-  %304 = icmp eq i32 %303, 3142
-  br i1 %304, label %305, label %.thread21.thread
+292:                                              ; preds = %290
+  %293 = load ptr, ptr %148, align 8
+  %294 = getelementptr inbounds nuw i8, ptr %293, i64 7176
+  %295 = load i8, ptr %294, align 8
+  %296 = zext i8 %295 to i32
+  %297 = shl nuw nsw i32 %296, 8
+  %298 = getelementptr inbounds nuw i8, ptr %293, i64 7177
+  %299 = load i8, ptr %298, align 1
+  %300 = zext i8 %299 to i32
+  %301 = or disjoint i32 %297, %300
+  %302 = icmp eq i32 %301, 3142
+  br i1 %302, label %303, label %.thread21.thread
 
-305:                                              ; preds = %294
-  %306 = getelementptr inbounds nuw i8, ptr %295, i64 7200
-  %307 = load i8, ptr %306, align 8
-  %308 = icmp eq i8 %307, 0
-  br i1 %308, label %309, label %324, !prof !6
+303:                                              ; preds = %292
+  %304 = getelementptr inbounds nuw i8, ptr %293, i64 7200
+  %305 = load i8, ptr %304, align 8
+  %306 = icmp eq i8 %305, 0
+  br i1 %306, label %307, label %322, !prof !6
 
-309:                                              ; preds = %305
+307:                                              ; preds = %303
   tail call void asm sideeffect "988: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 988b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 988) #10, !srcloc !114
-  %310 = load ptr, ptr %148, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  %312 = load ptr, ptr %311, align 8
-  %313 = tail call ptr @dev_driver_string(ptr noundef %312) #10
-  %314 = load ptr, ptr %148, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
+  %308 = load ptr, ptr %148, align 8
+  %309 = getelementptr inbounds nuw i8, ptr %308, i64 8
+  %310 = load ptr, ptr %309, align 8
+  %311 = tail call ptr @dev_driver_string(ptr noundef %310) #10
+  %312 = load ptr, ptr %148, align 8
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
+  %314 = load ptr, ptr %313, align 8
+  %315 = getelementptr inbounds nuw i8, ptr %314, i64 80
   %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds nuw i8, ptr %316, i64 80
-  %318 = load ptr, ptr %317, align 8
-  %319 = icmp eq ptr %318, null
-  br i1 %319, label %320, label %322
+  %317 = icmp eq ptr %316, null
+  br i1 %317, label %318, label %320
 
-320:                                              ; preds = %309
-  %321 = load ptr, ptr %316, align 8
-  br label %322
+318:                                              ; preds = %307
+  %319 = load ptr, ptr %314, align 8
+  br label %320
 
-322:                                              ; preds = %320, %309
-  %323 = phi ptr [ %321, %320 ], [ %318, %309 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %313, ptr noundef %323, ptr noundef nonnull @.str.12) #10
+320:                                              ; preds = %318, %307
+  %321 = phi ptr [ %319, %318 ], [ %316, %307 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %311, ptr noundef %321, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "989: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 989b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 989) #10, !srcloc !115
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2888, i32 2313, i64 12) #10, !srcloc !116
   tail call void asm sideeffect "990: nop\0A\09.pushsection .discard.instr_end\0A\09.long 990b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 990) #10, !srcloc !117
@@ -4071,60 +4069,60 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre66 = load ptr, ptr %148, align 8
   %.phi.trans.insert67 = getelementptr inbounds nuw i8, ptr %.pre66, i64 7200
   %.pre68 = load i8, ptr %.phi.trans.insert67, align 8
-  br label %324
+  br label %322
 
-324:                                              ; preds = %322, %305
-  %325 = phi i8 [ %.pre68, %322 ], [ %307, %305 ]
-  %326 = phi ptr [ %.pre66, %322 ], [ %295, %305 ]
-  %327 = add i8 %325, -1
-  %328 = icmp ult i8 %327, 4
-  br i1 %328, label %363, label %.thread21
+322:                                              ; preds = %320, %303
+  %323 = phi i8 [ %.pre68, %320 ], [ %305, %303 ]
+  %324 = phi ptr [ %.pre66, %320 ], [ %293, %303 ]
+  %325 = add i8 %323, -1
+  %326 = icmp ult i8 %325, 4
+  br i1 %326, label %361, label %.thread21
 
-.thread21:                                        ; preds = %324
+.thread21:                                        ; preds = %322
   %.pr23.pr.pre = load i32, ptr %150, align 8
-  %329 = icmp eq i32 %.pr23.pr.pre, 2
-  br i1 %329, label %.thread35, label %.thread21.thread
+  %327 = icmp eq i32 %.pr23.pr.pre, 2
+  br i1 %327, label %.thread35, label %.thread21.thread
 
-.thread21.thread:                                 ; preds = %294, %.thread21
-  %330 = phi ptr [ %326, %.thread21 ], [ %295, %294 ]
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 7176
-  %332 = load i8, ptr %331, align 8
-  %333 = zext i8 %332 to i32
-  %334 = shl nuw nsw i32 %333, 8
-  %335 = getelementptr inbounds nuw i8, ptr %330, i64 7177
-  %336 = load i8, ptr %335, align 1
-  %337 = zext i8 %336 to i32
-  %338 = or disjoint i32 %334, %337
-  %339 = icmp eq i32 %338, 3143
-  br i1 %339, label %340, label %369
+.thread21.thread:                                 ; preds = %292, %.thread21
+  %328 = phi ptr [ %324, %.thread21 ], [ %293, %292 ]
+  %329 = getelementptr inbounds nuw i8, ptr %328, i64 7176
+  %330 = load i8, ptr %329, align 8
+  %331 = zext i8 %330 to i32
+  %332 = shl nuw nsw i32 %331, 8
+  %333 = getelementptr inbounds nuw i8, ptr %328, i64 7177
+  %334 = load i8, ptr %333, align 1
+  %335 = zext i8 %334 to i32
+  %336 = or disjoint i32 %332, %335
+  %337 = icmp eq i32 %336, 3143
+  br i1 %337, label %338, label %367
 
-340:                                              ; preds = %.thread21.thread
-  %341 = getelementptr inbounds nuw i8, ptr %330, i64 7200
-  %342 = load i8, ptr %341, align 8
-  %343 = icmp eq i8 %342, 0
-  br i1 %343, label %344, label %359, !prof !6
+338:                                              ; preds = %.thread21.thread
+  %339 = getelementptr inbounds nuw i8, ptr %328, i64 7200
+  %340 = load i8, ptr %339, align 8
+  %341 = icmp eq i8 %340, 0
+  br i1 %341, label %342, label %357, !prof !6
 
-344:                                              ; preds = %340
+342:                                              ; preds = %338
   tail call void asm sideeffect "992: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 992b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 992) #10, !srcloc !119
-  %345 = load ptr, ptr %148, align 8
-  %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
-  %347 = load ptr, ptr %346, align 8
-  %348 = tail call ptr @dev_driver_string(ptr noundef %347) #10
-  %349 = load ptr, ptr %148, align 8
-  %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
+  %343 = load ptr, ptr %148, align 8
+  %344 = getelementptr inbounds nuw i8, ptr %343, i64 8
+  %345 = load ptr, ptr %344, align 8
+  %346 = tail call ptr @dev_driver_string(ptr noundef %345) #10
+  %347 = load ptr, ptr %148, align 8
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
+  %349 = load ptr, ptr %348, align 8
+  %350 = getelementptr inbounds nuw i8, ptr %349, i64 80
   %351 = load ptr, ptr %350, align 8
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 80
-  %353 = load ptr, ptr %352, align 8
-  %354 = icmp eq ptr %353, null
-  br i1 %354, label %355, label %357
+  %352 = icmp eq ptr %351, null
+  br i1 %352, label %353, label %355
 
-355:                                              ; preds = %344
-  %356 = load ptr, ptr %351, align 8
-  br label %357
+353:                                              ; preds = %342
+  %354 = load ptr, ptr %349, align 8
+  br label %355
 
-357:                                              ; preds = %355, %344
-  %358 = phi ptr [ %356, %355 ], [ %353, %344 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %348, ptr noundef %358, ptr noundef nonnull @.str.12) #10
+355:                                              ; preds = %353, %342
+  %356 = phi ptr [ %354, %353 ], [ %351, %342 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %346, ptr noundef %356, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "993: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 993b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 993) #10, !srcloc !120
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2889, i32 2313, i64 12) #10, !srcloc !121
   tail call void asm sideeffect "994: nop\0A\09.pushsection .discard.instr_end\0A\09.long 994b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 994) #10, !srcloc !122
@@ -4132,76 +4130,76 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre70 = load ptr, ptr %148, align 8
   %.phi.trans.insert71 = getelementptr inbounds nuw i8, ptr %.pre70, i64 7200
   %.pre72 = load i8, ptr %.phi.trans.insert71, align 8
-  br label %359
+  br label %357
 
-359:                                              ; preds = %357, %340
-  %360 = phi i8 [ %.pre72, %357 ], [ %342, %340 ]
-  %361 = add i8 %360, -1
-  %362 = icmp ult i8 %361, 4
-  br i1 %362, label %363, label %369
+357:                                              ; preds = %355, %338
+  %358 = phi i8 [ %.pre72, %355 ], [ %340, %338 ]
+  %359 = add i8 %358, -1
+  %360 = icmp ult i8 %359, 4
+  br i1 %360, label %361, label %367
 
-363:                                              ; preds = %359, %324
+361:                                              ; preds = %357, %322
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
-  %364 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store i32 0, ptr %364, align 4, !annotation !5
+  %362 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store i32 0, ptr %362, align 4, !annotation !5
   store i32 57740, ptr %72, align 4
-  %365 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 0, ptr %365, align 4
-  %366 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store i32 524296, ptr %366, align 4
-  %367 = getelementptr inbounds nuw i8, ptr %72, i64 12
-  store i32 8, ptr %367, align 4
-  %368 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  store i8 3, ptr %368, align 4
+  %363 = getelementptr inbounds nuw i8, ptr %72, i64 4
+  store i32 0, ptr %363, align 4
+  %364 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  store i32 524296, ptr %364, align 4
+  %365 = getelementptr inbounds nuw i8, ptr %72, i64 12
+  store i32 8, ptr %365, align 4
+  %366 = getelementptr inbounds nuw i8, ptr %72, i64 16
+  store i8 3, ptr %366, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %72)
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
-  br label %369
+  br label %367
 
-369:                                              ; preds = %363, %359, %.thread21.thread
+367:                                              ; preds = %361, %357, %.thread21.thread
   %.pr26 = load i32, ptr %150, align 8
-  %370 = icmp eq i32 %.pr26, 2
-  br i1 %370, label %.thread35, label %371
+  %368 = icmp eq i32 %.pr26, 2
+  br i1 %368, label %.thread35, label %369
 
-371:                                              ; preds = %369
-  %372 = load ptr, ptr %148, align 8
-  %373 = getelementptr inbounds nuw i8, ptr %372, i64 7176
-  %374 = load i8, ptr %373, align 8
-  %375 = zext i8 %374 to i32
-  %376 = shl nuw nsw i32 %375, 8
-  %377 = getelementptr inbounds nuw i8, ptr %372, i64 7177
-  %378 = load i8, ptr %377, align 1
-  %379 = zext i8 %378 to i32
-  %380 = or disjoint i32 %376, %379
-  %381 = icmp eq i32 %380, 3143
-  br i1 %381, label %382, label %.thread28
+369:                                              ; preds = %367
+  %370 = load ptr, ptr %148, align 8
+  %371 = getelementptr inbounds nuw i8, ptr %370, i64 7176
+  %372 = load i8, ptr %371, align 8
+  %373 = zext i8 %372 to i32
+  %374 = shl nuw nsw i32 %373, 8
+  %375 = getelementptr inbounds nuw i8, ptr %370, i64 7177
+  %376 = load i8, ptr %375, align 1
+  %377 = zext i8 %376 to i32
+  %378 = or disjoint i32 %374, %377
+  %379 = icmp eq i32 %378, 3143
+  br i1 %379, label %380, label %.thread28
 
-382:                                              ; preds = %371
-  %383 = getelementptr inbounds nuw i8, ptr %372, i64 7200
-  %384 = load i8, ptr %383, align 8
-  %385 = icmp eq i8 %384, 0
-  br i1 %385, label %386, label %401, !prof !6
+380:                                              ; preds = %369
+  %381 = getelementptr inbounds nuw i8, ptr %370, i64 7200
+  %382 = load i8, ptr %381, align 8
+  %383 = icmp eq i8 %382, 0
+  br i1 %383, label %384, label %399, !prof !6
 
-386:                                              ; preds = %382
+384:                                              ; preds = %380
   tail call void asm sideeffect "996: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 996b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 996) #10, !srcloc !124
-  %387 = load ptr, ptr %148, align 8
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
-  %389 = load ptr, ptr %388, align 8
-  %390 = tail call ptr @dev_driver_string(ptr noundef %389) #10
-  %391 = load ptr, ptr %148, align 8
-  %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
+  %385 = load ptr, ptr %148, align 8
+  %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
+  %387 = load ptr, ptr %386, align 8
+  %388 = tail call ptr @dev_driver_string(ptr noundef %387) #10
+  %389 = load ptr, ptr %148, align 8
+  %390 = getelementptr inbounds nuw i8, ptr %389, i64 8
+  %391 = load ptr, ptr %390, align 8
+  %392 = getelementptr inbounds nuw i8, ptr %391, i64 80
   %393 = load ptr, ptr %392, align 8
-  %394 = getelementptr inbounds nuw i8, ptr %393, i64 80
-  %395 = load ptr, ptr %394, align 8
-  %396 = icmp eq ptr %395, null
-  br i1 %396, label %397, label %399
+  %394 = icmp eq ptr %393, null
+  br i1 %394, label %395, label %397
 
-397:                                              ; preds = %386
-  %398 = load ptr, ptr %393, align 8
-  br label %399
+395:                                              ; preds = %384
+  %396 = load ptr, ptr %391, align 8
+  br label %397
 
-399:                                              ; preds = %397, %386
-  %400 = phi ptr [ %398, %397 ], [ %395, %386 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %390, ptr noundef %400, ptr noundef nonnull @.str.12) #10
+397:                                              ; preds = %395, %384
+  %398 = phi ptr [ %396, %395 ], [ %393, %384 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %388, ptr noundef %398, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "997: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 997b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 997) #10, !srcloc !125
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2897, i32 2313, i64 12) #10, !srcloc !126
   tail call void asm sideeffect "998: nop\0A\09.pushsection .discard.instr_end\0A\09.long 998b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 998) #10, !srcloc !127
@@ -4209,76 +4207,76 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre73 = load ptr, ptr %148, align 8
   %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %.pre73, i64 7200
   %.pre75 = load i8, ptr %.phi.trans.insert74, align 8
-  br label %401
+  br label %399
 
-401:                                              ; preds = %399, %382
-  %402 = phi i8 [ %.pre75, %399 ], [ %384, %382 ]
-  %403 = add i8 %402, -1
-  %404 = icmp ult i8 %403, 4
-  br i1 %404, label %405, label %.thread28
+399:                                              ; preds = %397, %380
+  %400 = phi i8 [ %.pre75, %397 ], [ %382, %380 ]
+  %401 = add i8 %400, -1
+  %402 = icmp ult i8 %401, 4
+  br i1 %402, label %403, label %.thread28
 
-405:                                              ; preds = %401
+403:                                              ; preds = %399
   call void @llvm.lifetime.start.p0(ptr nonnull %71)
-  %406 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i32 0, ptr %406, align 4, !annotation !5
+  %404 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  store i32 0, ptr %404, align 4, !annotation !5
   store i32 58400, ptr %71, align 4
-  %407 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  store i32 0, ptr %407, align 4
-  %408 = getelementptr inbounds nuw i8, ptr %71, i64 8
-  store i32 524296, ptr %408, align 4
-  %409 = getelementptr inbounds nuw i8, ptr %71, i64 12
-  store i32 8, ptr %409, align 4
-  %410 = getelementptr inbounds nuw i8, ptr %71, i64 16
-  store i8 3, ptr %410, align 4
+  %405 = getelementptr inbounds nuw i8, ptr %71, i64 4
+  store i32 0, ptr %405, align 4
+  %406 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  store i32 524296, ptr %406, align 4
+  %407 = getelementptr inbounds nuw i8, ptr %71, i64 12
+  store i32 8, ptr %407, align 4
+  %408 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  store i8 3, ptr %408, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %71)
   call void @llvm.lifetime.end.p0(ptr nonnull %71)
   br label %.thread28
 
-.thread28:                                        ; preds = %405, %401, %371
+.thread28:                                        ; preds = %403, %399, %369
   %.pr30.pr.pr = load i32, ptr %150, align 8
-  %411 = icmp eq i32 %.pr30.pr.pr, 2
-  br i1 %411, label %.thread35, label %412
+  %409 = icmp eq i32 %.pr30.pr.pr, 2
+  br i1 %409, label %.thread35, label %410
 
-412:                                              ; preds = %.thread28
-  %413 = load ptr, ptr %148, align 8
-  %414 = getelementptr inbounds nuw i8, ptr %413, i64 7176
-  %415 = load i8, ptr %414, align 8
-  %416 = zext i8 %415 to i32
-  %417 = shl nuw nsw i32 %416, 8
-  %418 = getelementptr inbounds nuw i8, ptr %413, i64 7177
-  %419 = load i8, ptr %418, align 1
-  %420 = zext i8 %419 to i32
-  %421 = or disjoint i32 %417, %420
-  %422 = icmp eq i32 %421, 3142
-  br i1 %422, label %423, label %.thread178
+410:                                              ; preds = %.thread28
+  %411 = load ptr, ptr %148, align 8
+  %412 = getelementptr inbounds nuw i8, ptr %411, i64 7176
+  %413 = load i8, ptr %412, align 8
+  %414 = zext i8 %413 to i32
+  %415 = shl nuw nsw i32 %414, 8
+  %416 = getelementptr inbounds nuw i8, ptr %411, i64 7177
+  %417 = load i8, ptr %416, align 1
+  %418 = zext i8 %417 to i32
+  %419 = or disjoint i32 %415, %418
+  %420 = icmp eq i32 %419, 3142
+  br i1 %420, label %421, label %.thread178
 
-423:                                              ; preds = %412
-  %424 = getelementptr inbounds nuw i8, ptr %413, i64 7200
-  %425 = load i8, ptr %424, align 8
-  %426 = icmp eq i8 %425, 0
-  br i1 %426, label %427, label %442, !prof !6
+421:                                              ; preds = %410
+  %422 = getelementptr inbounds nuw i8, ptr %411, i64 7200
+  %423 = load i8, ptr %422, align 8
+  %424 = icmp eq i8 %423, 0
+  br i1 %424, label %425, label %440, !prof !6
 
-427:                                              ; preds = %423
+425:                                              ; preds = %421
   tail call void asm sideeffect "1000: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1000b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1000) #10, !srcloc !129
-  %428 = load ptr, ptr %148, align 8
-  %429 = getelementptr inbounds nuw i8, ptr %428, i64 8
-  %430 = load ptr, ptr %429, align 8
-  %431 = tail call ptr @dev_driver_string(ptr noundef %430) #10
-  %432 = load ptr, ptr %148, align 8
-  %433 = getelementptr inbounds nuw i8, ptr %432, i64 8
+  %426 = load ptr, ptr %148, align 8
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 8
+  %428 = load ptr, ptr %427, align 8
+  %429 = tail call ptr @dev_driver_string(ptr noundef %428) #10
+  %430 = load ptr, ptr %148, align 8
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 8
+  %432 = load ptr, ptr %431, align 8
+  %433 = getelementptr inbounds nuw i8, ptr %432, i64 80
   %434 = load ptr, ptr %433, align 8
-  %435 = getelementptr inbounds nuw i8, ptr %434, i64 80
-  %436 = load ptr, ptr %435, align 8
-  %437 = icmp eq ptr %436, null
-  br i1 %437, label %438, label %440
+  %435 = icmp eq ptr %434, null
+  br i1 %435, label %436, label %438
 
-438:                                              ; preds = %427
-  %439 = load ptr, ptr %434, align 8
-  br label %440
+436:                                              ; preds = %425
+  %437 = load ptr, ptr %432, align 8
+  br label %438
 
-440:                                              ; preds = %438, %427
-  %441 = phi ptr [ %439, %438 ], [ %436, %427 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %431, ptr noundef %441, ptr noundef nonnull @.str.12) #10
+438:                                              ; preds = %436, %425
+  %439 = phi ptr [ %437, %436 ], [ %434, %425 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %429, ptr noundef %439, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "1001: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1001b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1001) #10, !srcloc !130
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2902, i32 2313, i64 12) #10, !srcloc !131
   tail call void asm sideeffect "1002: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1002b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1002) #10, !srcloc !132
@@ -4286,60 +4284,60 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre76 = load ptr, ptr %148, align 8
   %.phi.trans.insert77 = getelementptr inbounds nuw i8, ptr %.pre76, i64 7200
   %.pre78 = load i8, ptr %.phi.trans.insert77, align 8
-  br label %442
+  br label %440
 
-442:                                              ; preds = %440, %423
-  %443 = phi i8 [ %.pre78, %440 ], [ %425, %423 ]
-  %444 = phi ptr [ %.pre76, %440 ], [ %413, %423 ]
-  %445 = add i8 %443, -1
-  %446 = icmp ult i8 %445, 4
-  br i1 %446, label %486, label %447
+440:                                              ; preds = %438, %421
+  %441 = phi i8 [ %.pre78, %438 ], [ %423, %421 ]
+  %442 = phi ptr [ %.pre76, %438 ], [ %411, %421 ]
+  %443 = add i8 %441, -1
+  %444 = icmp ult i8 %443, 4
+  br i1 %444, label %484, label %445
 
-447:                                              ; preds = %442
+445:                                              ; preds = %440
   %.pr33.pre = load i32, ptr %150, align 8
-  %448 = icmp eq i32 %.pr33.pre, 2
-  br i1 %448, label %.thread35, label %.thread178
+  %446 = icmp eq i32 %.pr33.pre, 2
+  br i1 %446, label %.thread35, label %.thread178
 
-.thread178:                                       ; preds = %412, %447
-  %449 = phi ptr [ %444, %447 ], [ %413, %412 ]
-  %450 = getelementptr inbounds nuw i8, ptr %449, i64 7176
-  %451 = load i8, ptr %450, align 8
-  %452 = zext i8 %451 to i32
-  %453 = shl nuw nsw i32 %452, 8
-  %454 = getelementptr inbounds nuw i8, ptr %449, i64 7177
-  %455 = load i8, ptr %454, align 1
-  %456 = zext i8 %455 to i32
-  %457 = or disjoint i32 %453, %456
-  %458 = icmp eq i32 %457, 3143
-  br i1 %458, label %459, label %.thread35
+.thread178:                                       ; preds = %410, %445
+  %447 = phi ptr [ %442, %445 ], [ %411, %410 ]
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 7176
+  %449 = load i8, ptr %448, align 8
+  %450 = zext i8 %449 to i32
+  %451 = shl nuw nsw i32 %450, 8
+  %452 = getelementptr inbounds nuw i8, ptr %447, i64 7177
+  %453 = load i8, ptr %452, align 1
+  %454 = zext i8 %453 to i32
+  %455 = or disjoint i32 %451, %454
+  %456 = icmp eq i32 %455, 3143
+  br i1 %456, label %457, label %.thread35
 
-459:                                              ; preds = %.thread178
-  %460 = getelementptr inbounds nuw i8, ptr %449, i64 7200
-  %461 = load i8, ptr %460, align 8
-  %462 = icmp eq i8 %461, 0
-  br i1 %462, label %463, label %478, !prof !6
+457:                                              ; preds = %.thread178
+  %458 = getelementptr inbounds nuw i8, ptr %447, i64 7200
+  %459 = load i8, ptr %458, align 8
+  %460 = icmp eq i8 %459, 0
+  br i1 %460, label %461, label %476, !prof !6
 
-463:                                              ; preds = %459
+461:                                              ; preds = %457
   tail call void asm sideeffect "1004: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1004b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1004) #10, !srcloc !134
-  %464 = load ptr, ptr %148, align 8
-  %465 = getelementptr inbounds nuw i8, ptr %464, i64 8
-  %466 = load ptr, ptr %465, align 8
-  %467 = tail call ptr @dev_driver_string(ptr noundef %466) #10
-  %468 = load ptr, ptr %148, align 8
-  %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
+  %462 = load ptr, ptr %148, align 8
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
+  %464 = load ptr, ptr %463, align 8
+  %465 = tail call ptr @dev_driver_string(ptr noundef %464) #10
+  %466 = load ptr, ptr %148, align 8
+  %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
+  %468 = load ptr, ptr %467, align 8
+  %469 = getelementptr inbounds nuw i8, ptr %468, i64 80
   %470 = load ptr, ptr %469, align 8
-  %471 = getelementptr inbounds nuw i8, ptr %470, i64 80
-  %472 = load ptr, ptr %471, align 8
-  %473 = icmp eq ptr %472, null
-  br i1 %473, label %474, label %476
+  %471 = icmp eq ptr %470, null
+  br i1 %471, label %472, label %474
 
-474:                                              ; preds = %463
-  %475 = load ptr, ptr %470, align 8
-  br label %476
+472:                                              ; preds = %461
+  %473 = load ptr, ptr %468, align 8
+  br label %474
 
-476:                                              ; preds = %474, %463
-  %477 = phi ptr [ %475, %474 ], [ %472, %463 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %467, ptr noundef %477, ptr noundef nonnull @.str.12) #10
+474:                                              ; preds = %472, %461
+  %475 = phi ptr [ %473, %472 ], [ %470, %461 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %465, ptr noundef %475, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "1005: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1005b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1005) #10, !srcloc !135
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2903, i32 2313, i64 12) #10, !srcloc !136
   tail call void asm sideeffect "1006: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1006b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1006) #10, !srcloc !137
@@ -4347,97 +4345,97 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre81 = load ptr, ptr %148, align 8
   %.phi.trans.insert82 = getelementptr inbounds nuw i8, ptr %.pre81, i64 7200
   %.pre83 = load i8, ptr %.phi.trans.insert82, align 8
-  br label %478
+  br label %476
 
-478:                                              ; preds = %476, %459
-  %479 = phi i8 [ %.pre83, %476 ], [ %461, %459 ]
-  %480 = add i8 %479, -1
-  %481 = icmp ult i8 %480, 4
-  br i1 %481, label %486, label %.thread35
+476:                                              ; preds = %474, %457
+  %477 = phi i8 [ %.pre83, %474 ], [ %459, %457 ]
+  %478 = add i8 %477, -1
+  %479 = icmp ult i8 %478, 4
+  br i1 %479, label %484, label %.thread35
 
-.thread35:                                        ; preds = %213, %251, %.thread21, %292, %369, %.thread28, %478, %.thread178, %447
-  %482 = getelementptr i8, ptr %147, i64 7188
-  %483 = load i32, ptr %482, align 4
-  %484 = and i32 %483, 2048
-  %485 = icmp eq i32 %484, 0
-  br i1 %485, label %497, label %486
+.thread35:                                        ; preds = %211, %249, %.thread21, %290, %367, %.thread28, %476, %.thread178, %445
+  %480 = getelementptr i8, ptr %147, i64 7188
+  %481 = load i32, ptr %480, align 4
+  %482 = and i32 %481, 2048
+  %483 = icmp eq i32 %482, 0
+  br i1 %483, label %495, label %484
 
-486:                                              ; preds = %.thread35, %478, %442
+484:                                              ; preds = %.thread35, %476, %440
   call void @llvm.lifetime.start.p0(ptr nonnull %70)
-  %487 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i32 0, ptr %487, align 4, !annotation !5
+  %485 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  store i32 0, ptr %485, align 4, !annotation !5
   store i32 59340, ptr %70, align 4
-  %488 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %486 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store i32 16, ptr %486, align 4
+  %487 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store i32 16, ptr %487, align 4
+  %488 = getelementptr inbounds nuw i8, ptr %70, i64 12
   store i32 16, ptr %488, align 4
-  %489 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  store i32 16, ptr %489, align 4
-  %490 = getelementptr inbounds nuw i8, ptr %70, i64 12
-  store i32 16, ptr %490, align 4
-  %491 = getelementptr inbounds nuw i8, ptr %70, i64 16
-  store i8 2, ptr %491, align 4
+  %489 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  store i8 2, ptr %489, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %70)
   call void @llvm.lifetime.end.p0(ptr nonnull %70)
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
-  %492 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i32 0, ptr %492, align 4, !annotation !5
+  %490 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store i32 0, ptr %490, align 4, !annotation !5
   store i32 33716, ptr %69, align 4
-  %493 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  store i32 0, ptr %493, align 4
-  %494 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  store i32 1048592, ptr %494, align 4
-  %495 = getelementptr inbounds nuw i8, ptr %69, i64 12
-  store i32 16, ptr %495, align 4
-  %496 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  store i8 1, ptr %496, align 4
+  %491 = getelementptr inbounds nuw i8, ptr %69, i64 4
+  store i32 0, ptr %491, align 4
+  %492 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  store i32 1048592, ptr %492, align 4
+  %493 = getelementptr inbounds nuw i8, ptr %69, i64 12
+  store i32 16, ptr %493, align 4
+  %494 = getelementptr inbounds nuw i8, ptr %69, i64 16
+  store i8 1, ptr %494, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %69)
   call void @llvm.lifetime.end.p0(ptr nonnull %69)
-  br label %497
+  br label %495
 
-497:                                              ; preds = %486, %.thread35
-  %498 = load i32, ptr %150, align 8
-  %499 = icmp eq i32 %498, 2
-  br i1 %499, label %.thread38, label %500
+495:                                              ; preds = %484, %.thread35
+  %496 = load i32, ptr %150, align 8
+  %497 = icmp eq i32 %496, 2
+  br i1 %497, label %.thread38, label %498
 
-500:                                              ; preds = %497
-  %501 = load ptr, ptr %148, align 8
-  %502 = getelementptr inbounds nuw i8, ptr %501, i64 7176
-  %503 = load i8, ptr %502, align 8
-  %504 = zext i8 %503 to i32
-  %505 = shl nuw nsw i32 %504, 8
-  %506 = getelementptr inbounds nuw i8, ptr %501, i64 7177
-  %507 = load i8, ptr %506, align 1
-  %508 = zext i8 %507 to i32
-  %509 = or disjoint i32 %505, %508
-  %510 = icmp eq i32 %509, 3142
-  br i1 %510, label %511, label %.thread180
+498:                                              ; preds = %495
+  %499 = load ptr, ptr %148, align 8
+  %500 = getelementptr inbounds nuw i8, ptr %499, i64 7176
+  %501 = load i8, ptr %500, align 8
+  %502 = zext i8 %501 to i32
+  %503 = shl nuw nsw i32 %502, 8
+  %504 = getelementptr inbounds nuw i8, ptr %499, i64 7177
+  %505 = load i8, ptr %504, align 1
+  %506 = zext i8 %505 to i32
+  %507 = or disjoint i32 %503, %506
+  %508 = icmp eq i32 %507, 3142
+  br i1 %508, label %509, label %.thread180
 
-511:                                              ; preds = %500
-  %512 = getelementptr inbounds nuw i8, ptr %501, i64 7200
-  %513 = load i8, ptr %512, align 8
-  %514 = icmp eq i8 %513, 0
-  br i1 %514, label %515, label %530, !prof !6
+509:                                              ; preds = %498
+  %510 = getelementptr inbounds nuw i8, ptr %499, i64 7200
+  %511 = load i8, ptr %510, align 8
+  %512 = icmp eq i8 %511, 0
+  br i1 %512, label %513, label %528, !prof !6
 
-515:                                              ; preds = %511
+513:                                              ; preds = %509
   tail call void asm sideeffect "1008: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1008b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1008) #10, !srcloc !139
-  %516 = load ptr, ptr %148, align 8
-  %517 = getelementptr inbounds nuw i8, ptr %516, i64 8
-  %518 = load ptr, ptr %517, align 8
-  %519 = tail call ptr @dev_driver_string(ptr noundef %518) #10
-  %520 = load ptr, ptr %148, align 8
-  %521 = getelementptr inbounds nuw i8, ptr %520, i64 8
+  %514 = load ptr, ptr %148, align 8
+  %515 = getelementptr inbounds nuw i8, ptr %514, i64 8
+  %516 = load ptr, ptr %515, align 8
+  %517 = tail call ptr @dev_driver_string(ptr noundef %516) #10
+  %518 = load ptr, ptr %148, align 8
+  %519 = getelementptr inbounds nuw i8, ptr %518, i64 8
+  %520 = load ptr, ptr %519, align 8
+  %521 = getelementptr inbounds nuw i8, ptr %520, i64 80
   %522 = load ptr, ptr %521, align 8
-  %523 = getelementptr inbounds nuw i8, ptr %522, i64 80
-  %524 = load ptr, ptr %523, align 8
-  %525 = icmp eq ptr %524, null
-  br i1 %525, label %526, label %528
+  %523 = icmp eq ptr %522, null
+  br i1 %523, label %524, label %526
 
-526:                                              ; preds = %515
-  %527 = load ptr, ptr %522, align 8
-  br label %528
+524:                                              ; preds = %513
+  %525 = load ptr, ptr %520, align 8
+  br label %526
 
-528:                                              ; preds = %526, %515
-  %529 = phi ptr [ %527, %526 ], [ %524, %515 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %519, ptr noundef %529, ptr noundef nonnull @.str.12) #10
+526:                                              ; preds = %524, %513
+  %527 = phi ptr [ %525, %524 ], [ %522, %513 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %517, ptr noundef %527, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "1009: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1009b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1009) #10, !srcloc !140
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2913, i32 2313, i64 12) #10, !srcloc !141
   tail call void asm sideeffect "1010: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1010b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1010) #10, !srcloc !142
@@ -4445,60 +4443,60 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre84 = load ptr, ptr %148, align 8
   %.phi.trans.insert85 = getelementptr inbounds nuw i8, ptr %.pre84, i64 7200
   %.pre86 = load i8, ptr %.phi.trans.insert85, align 8
-  br label %530
+  br label %528
 
-530:                                              ; preds = %528, %511
-  %531 = phi i8 [ %.pre86, %528 ], [ %513, %511 ]
-  %532 = phi ptr [ %.pre84, %528 ], [ %501, %511 ]
-  %533 = add i8 %531, -1
-  %534 = icmp ult i8 %533, 4
-  br i1 %534, label %575, label %535
+528:                                              ; preds = %526, %509
+  %529 = phi i8 [ %.pre86, %526 ], [ %511, %509 ]
+  %530 = phi ptr [ %.pre84, %526 ], [ %499, %509 ]
+  %531 = add i8 %529, -1
+  %532 = icmp ult i8 %531, 4
+  br i1 %532, label %573, label %533
 
-535:                                              ; preds = %530
+533:                                              ; preds = %528
   %.pr37.pre = load i32, ptr %150, align 8
-  %536 = icmp eq i32 %.pr37.pre, 2
-  br i1 %536, label %.thread38, label %.thread180
+  %534 = icmp eq i32 %.pr37.pre, 2
+  br i1 %534, label %.thread38, label %.thread180
 
-.thread180:                                       ; preds = %500, %535
-  %537 = phi ptr [ %532, %535 ], [ %501, %500 ]
-  %538 = getelementptr inbounds nuw i8, ptr %537, i64 7176
-  %539 = load i8, ptr %538, align 8
-  %540 = zext i8 %539 to i32
-  %541 = shl nuw nsw i32 %540, 8
-  %542 = getelementptr inbounds nuw i8, ptr %537, i64 7177
-  %543 = load i8, ptr %542, align 1
-  %544 = zext i8 %543 to i32
-  %545 = or disjoint i32 %541, %544
-  %546 = icmp eq i32 %545, 3143
-  br i1 %546, label %547, label %.thread38
+.thread180:                                       ; preds = %498, %533
+  %535 = phi ptr [ %530, %533 ], [ %499, %498 ]
+  %536 = getelementptr inbounds nuw i8, ptr %535, i64 7176
+  %537 = load i8, ptr %536, align 8
+  %538 = zext i8 %537 to i32
+  %539 = shl nuw nsw i32 %538, 8
+  %540 = getelementptr inbounds nuw i8, ptr %535, i64 7177
+  %541 = load i8, ptr %540, align 1
+  %542 = zext i8 %541 to i32
+  %543 = or disjoint i32 %539, %542
+  %544 = icmp eq i32 %543, 3143
+  br i1 %544, label %545, label %.thread38
 
-547:                                              ; preds = %.thread180
-  %548 = getelementptr inbounds nuw i8, ptr %537, i64 7200
-  %549 = load i8, ptr %548, align 8
-  %550 = icmp eq i8 %549, 0
-  br i1 %550, label %551, label %566, !prof !6
+545:                                              ; preds = %.thread180
+  %546 = getelementptr inbounds nuw i8, ptr %535, i64 7200
+  %547 = load i8, ptr %546, align 8
+  %548 = icmp eq i8 %547, 0
+  br i1 %548, label %549, label %564, !prof !6
 
-551:                                              ; preds = %547
+549:                                              ; preds = %545
   tail call void asm sideeffect "1012: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1012b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1012) #10, !srcloc !144
-  %552 = load ptr, ptr %148, align 8
-  %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
-  %554 = load ptr, ptr %553, align 8
-  %555 = tail call ptr @dev_driver_string(ptr noundef %554) #10
-  %556 = load ptr, ptr %148, align 8
-  %557 = getelementptr inbounds nuw i8, ptr %556, i64 8
+  %550 = load ptr, ptr %148, align 8
+  %551 = getelementptr inbounds nuw i8, ptr %550, i64 8
+  %552 = load ptr, ptr %551, align 8
+  %553 = tail call ptr @dev_driver_string(ptr noundef %552) #10
+  %554 = load ptr, ptr %148, align 8
+  %555 = getelementptr inbounds nuw i8, ptr %554, i64 8
+  %556 = load ptr, ptr %555, align 8
+  %557 = getelementptr inbounds nuw i8, ptr %556, i64 80
   %558 = load ptr, ptr %557, align 8
-  %559 = getelementptr inbounds nuw i8, ptr %558, i64 80
-  %560 = load ptr, ptr %559, align 8
-  %561 = icmp eq ptr %560, null
-  br i1 %561, label %562, label %564
+  %559 = icmp eq ptr %558, null
+  br i1 %559, label %560, label %562
 
-562:                                              ; preds = %551
-  %563 = load ptr, ptr %558, align 8
-  br label %564
+560:                                              ; preds = %549
+  %561 = load ptr, ptr %556, align 8
+  br label %562
 
-564:                                              ; preds = %562, %551
-  %565 = phi ptr [ %563, %562 ], [ %560, %551 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %555, ptr noundef %565, ptr noundef nonnull @.str.12) #10
+562:                                              ; preds = %560, %549
+  %563 = phi ptr [ %561, %560 ], [ %558, %549 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %553, ptr noundef %563, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "1013: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 1013b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1013) #10, !srcloc !145
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2914, i32 2313, i64 12) #10, !srcloc !146
   tail call void asm sideeffect "1014: nop\0A\09.pushsection .discard.instr_end\0A\09.long 1014b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 1014) #10, !srcloc !147
@@ -4506,266 +4504,266 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre89 = load ptr, ptr %148, align 8
   %.phi.trans.insert90 = getelementptr inbounds nuw i8, ptr %.pre89, i64 7200
   %.pre91 = load i8, ptr %.phi.trans.insert90, align 8
-  br label %566
+  br label %564
 
-566:                                              ; preds = %564, %547
-  %567 = phi i8 [ %.pre91, %564 ], [ %549, %547 ]
-  %568 = add i8 %567, -1
-  %569 = icmp ult i8 %568, 4
-  br i1 %569, label %575, label %.thread38
+564:                                              ; preds = %562, %545
+  %565 = phi i8 [ %.pre91, %562 ], [ %547, %545 ]
+  %566 = add i8 %565, -1
+  %567 = icmp ult i8 %566, 4
+  br i1 %567, label %573, label %.thread38
 
-.thread38:                                        ; preds = %497, %566, %.thread180, %535
-  %570 = getelementptr i8, ptr %147, i64 7188
-  %571 = load i32, ptr %570, align 4
-  %572 = and i32 %571, 6144
-  %573 = icmp eq i32 %572, 0
-  br i1 %573, label %.thread182, label %575
+.thread38:                                        ; preds = %495, %564, %.thread180, %533
+  %568 = getelementptr i8, ptr %147, i64 7188
+  %569 = load i32, ptr %568, align 4
+  %570 = and i32 %569, 6144
+  %571 = icmp eq i32 %570, 0
+  br i1 %571, label %.thread182, label %573
 
 .thread182:                                       ; preds = %.thread38
-  %574 = getelementptr i8, ptr %147, i64 7188
-  br label %594
+  %572 = getelementptr i8, ptr %147, i64 7188
+  br label %592
 
-575:                                              ; preds = %530, %566, %.thread38
+573:                                              ; preds = %528, %564, %.thread38
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
-  %576 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i32 0, ptr %576, align 4, !annotation !5
+  %574 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  store i32 0, ptr %574, align 4, !annotation !5
   store i32 59336, ptr %68, align 4
-  %577 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  %575 = getelementptr inbounds nuw i8, ptr %68, i64 4
+  store i32 1073741824, ptr %575, align 4
+  %576 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  store i32 1073741824, ptr %576, align 4
+  %577 = getelementptr inbounds nuw i8, ptr %68, i64 12
   store i32 1073741824, ptr %577, align 4
-  %578 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  store i32 1073741824, ptr %578, align 4
-  %579 = getelementptr inbounds nuw i8, ptr %68, i64 12
-  store i32 1073741824, ptr %579, align 4
-  %580 = getelementptr inbounds nuw i8, ptr %68, i64 16
-  store i8 2, ptr %580, align 4
+  %578 = getelementptr inbounds nuw i8, ptr %68, i64 16
+  store i8 2, ptr %578, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %68)
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   %.phi.trans.insert92 = getelementptr i8, ptr %147, i64 7188
   %.pre93 = load i32, ptr %.phi.trans.insert92, align 4
   %.pre131 = and i32 %.pre93, 6144
-  %581 = icmp eq i32 %.pre131, 0
-  %582 = getelementptr i8, ptr %147, i64 7188
-  br i1 %581, label %594, label %583
+  %579 = icmp eq i32 %.pre131, 0
+  %580 = getelementptr i8, ptr %147, i64 7188
+  br i1 %579, label %592, label %581
 
-583:                                              ; preds = %575
+581:                                              ; preds = %573
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
-  %584 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i32 0, ptr %584, align 4, !annotation !5
+  %582 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store i32 0, ptr %582, align 4, !annotation !5
   store i32 58508, ptr %67, align 4
-  %585 = getelementptr inbounds nuw i8, ptr %67, i64 4
-  store i32 0, ptr %585, align 4
-  %586 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  store i32 134219776, ptr %586, align 4
-  %587 = getelementptr inbounds nuw i8, ptr %67, i64 12
-  store i32 2048, ptr %587, align 4
-  %588 = getelementptr inbounds nuw i8, ptr %67, i64 16
-  store i8 3, ptr %588, align 4
+  %583 = getelementptr inbounds nuw i8, ptr %67, i64 4
+  store i32 0, ptr %583, align 4
+  %584 = getelementptr inbounds nuw i8, ptr %67, i64 8
+  store i32 134219776, ptr %584, align 4
+  %585 = getelementptr inbounds nuw i8, ptr %67, i64 12
+  store i32 2048, ptr %585, align 4
+  %586 = getelementptr inbounds nuw i8, ptr %67, i64 16
+  store i8 3, ptr %586, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %67)
   call void @llvm.lifetime.end.p0(ptr nonnull %67)
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
-  %589 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store i32 0, ptr %589, align 4, !annotation !5
+  %587 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  store i32 0, ptr %587, align 4, !annotation !5
   store i32 8420, ptr %66, align 4
-  %590 = getelementptr inbounds nuw i8, ptr %66, i64 4
-  store i32 0, ptr %590, align 4
-  %591 = getelementptr inbounds nuw i8, ptr %66, i64 8
-  store i32 -2147450880, ptr %591, align 4
-  %592 = getelementptr inbounds nuw i8, ptr %66, i64 12
-  store i32 32768, ptr %592, align 4
-  %593 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  store i8 1, ptr %593, align 4
+  %588 = getelementptr inbounds nuw i8, ptr %66, i64 4
+  store i32 0, ptr %588, align 4
+  %589 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  store i32 -2147450880, ptr %589, align 4
+  %590 = getelementptr inbounds nuw i8, ptr %66, i64 12
+  store i32 32768, ptr %590, align 4
+  %591 = getelementptr inbounds nuw i8, ptr %66, i64 16
+  store i8 1, ptr %591, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %66)
   call void @llvm.lifetime.end.p0(ptr nonnull %66)
-  %.pre129 = load i32, ptr %582, align 4
-  br label %594
+  %.pre129 = load i32, ptr %580, align 4
+  br label %592
 
-594:                                              ; preds = %.thread182, %583, %575
-  %595 = phi ptr [ %582, %583 ], [ %582, %575 ], [ %574, %.thread182 ]
-  %596 = phi i32 [ %.pre129, %583 ], [ %.pre93, %575 ], [ %571, %.thread182 ]
-  %597 = and i32 %596, 2048
-  %598 = icmp eq i32 %597, 0
-  br i1 %598, label %610, label %599
+592:                                              ; preds = %.thread182, %581, %573
+  %593 = phi ptr [ %580, %581 ], [ %580, %573 ], [ %572, %.thread182 ]
+  %594 = phi i32 [ %.pre129, %581 ], [ %.pre93, %573 ], [ %569, %.thread182 ]
+  %595 = and i32 %594, 2048
+  %596 = icmp eq i32 %595, 0
+  br i1 %596, label %608, label %597
 
-599:                                              ; preds = %594
+597:                                              ; preds = %592
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
-  %600 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i32 0, ptr %600, align 4, !annotation !5
+  %598 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store i32 0, ptr %598, align 4, !annotation !5
   store i32 59340, ptr %65, align 4
-  %601 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  %599 = getelementptr inbounds nuw i8, ptr %65, i64 4
+  store i32 8388608, ptr %599, align 4
+  %600 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  store i32 8388608, ptr %600, align 4
+  %601 = getelementptr inbounds nuw i8, ptr %65, i64 12
   store i32 8388608, ptr %601, align 4
-  %602 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  store i32 8388608, ptr %602, align 4
-  %603 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  store i32 8388608, ptr %603, align 4
-  %604 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  store i8 2, ptr %604, align 4
+  %602 = getelementptr inbounds nuw i8, ptr %65, i64 16
+  store i8 2, ptr %602, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %65)
   call void @llvm.lifetime.end.p0(ptr nonnull %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
-  %605 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store i32 0, ptr %605, align 4, !annotation !5
+  %603 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store i32 0, ptr %603, align 4, !annotation !5
   store i32 59340, ptr %64, align 4
-  %606 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  %604 = getelementptr inbounds nuw i8, ptr %64, i64 4
+  store i32 67108864, ptr %604, align 4
+  %605 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store i32 67108864, ptr %605, align 4
+  %606 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 67108864, ptr %606, align 4
-  %607 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  store i32 67108864, ptr %607, align 4
-  %608 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  store i32 67108864, ptr %608, align 4
-  %609 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  store i8 2, ptr %609, align 4
+  %607 = getelementptr inbounds nuw i8, ptr %64, i64 16
+  store i8 2, ptr %607, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %64)
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
-  %.pre94 = load i32, ptr %595, align 4
-  br label %610
+  %.pre94 = load i32, ptr %593, align 4
+  br label %608
 
-610:                                              ; preds = %599, %594
-  %611 = phi i32 [ %.pre94, %599 ], [ %596, %594 ]
-  %612 = shl i32 %611, 20
-  %613 = shl i32 %611, 30
-  %614 = and i32 %612, %613
-  %615 = icmp slt i32 %614, 0
-  br i1 %615, label %616, label %632
+608:                                              ; preds = %597, %592
+  %609 = phi i32 [ %.pre94, %597 ], [ %594, %592 ]
+  %610 = shl i32 %609, 20
+  %611 = shl i32 %609, 30
+  %612 = and i32 %610, %611
+  %613 = icmp slt i32 %612, 0
+  br i1 %613, label %614, label %630
 
-616:                                              ; preds = %610
+614:                                              ; preds = %608
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
-  %617 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store i32 0, ptr %617, align 4, !annotation !5
+  %615 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store i32 0, ptr %615, align 4, !annotation !5
   store i32 59340, ptr %63, align 4
-  %618 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  %616 = getelementptr inbounds nuw i8, ptr %63, i64 4
+  store i32 224, ptr %616, align 4
+  %617 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i32 64, ptr %617, align 4
+  %618 = getelementptr inbounds nuw i8, ptr %63, i64 12
   store i32 224, ptr %618, align 4
-  %619 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i32 64, ptr %619, align 4
-  %620 = getelementptr inbounds nuw i8, ptr %63, i64 12
-  store i32 224, ptr %620, align 4
-  %621 = getelementptr inbounds nuw i8, ptr %63, i64 16
-  store i8 2, ptr %621, align 4
+  %619 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  store i8 2, ptr %619, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %63)
   call void @llvm.lifetime.end.p0(ptr nonnull %63)
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
-  %622 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store i32 0, ptr %622, align 4, !annotation !5
+  %620 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  store i32 0, ptr %620, align 4, !annotation !5
   store i32 59336, ptr %62, align 4
-  %623 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  %621 = getelementptr inbounds nuw i8, ptr %62, i64 4
+  store i32 32768, ptr %621, align 4
+  %622 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store i32 32768, ptr %622, align 4
+  %623 = getelementptr inbounds nuw i8, ptr %62, i64 12
   store i32 32768, ptr %623, align 4
-  %624 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  store i32 32768, ptr %624, align 4
-  %625 = getelementptr inbounds nuw i8, ptr %62, i64 12
-  store i32 32768, ptr %625, align 4
-  %626 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  store i8 2, ptr %626, align 4
+  %624 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  store i8 2, ptr %624, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %62)
   call void @llvm.lifetime.end.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
-  %627 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store i32 0, ptr %627, align 4, !annotation !5
+  %625 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store i32 0, ptr %625, align 4, !annotation !5
   store i32 58400, ptr %61, align 4
-  %628 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  %626 = getelementptr inbounds nuw i8, ptr %61, i64 4
+  store i32 0, ptr %626, align 4
+  %627 = getelementptr inbounds nuw i8, ptr %61, i64 8
+  store i32 524296, ptr %627, align 4
+  %628 = getelementptr inbounds nuw i8, ptr %61, i64 12
   store i32 0, ptr %628, align 4
-  %629 = getelementptr inbounds nuw i8, ptr %61, i64 8
-  store i32 524296, ptr %629, align 4
-  %630 = getelementptr inbounds nuw i8, ptr %61, i64 12
-  store i32 0, ptr %630, align 4
-  %631 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  store i8 3, ptr %631, align 4
+  %629 = getelementptr inbounds nuw i8, ptr %61, i64 16
+  store i8 3, ptr %629, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
-  %.pre95 = load i32, ptr %595, align 4
-  br label %632
+  %.pre95 = load i32, ptr %593, align 4
+  br label %630
 
-632:                                              ; preds = %616, %610
-  %633 = phi i32 [ %.pre95, %616 ], [ %611, %610 ]
-  %634 = and i32 %633, 1024
-  %635 = icmp eq i32 %634, 0
-  br i1 %635, label %652, label %636
+630:                                              ; preds = %614, %608
+  %631 = phi i32 [ %.pre95, %614 ], [ %609, %608 ]
+  %632 = and i32 %631, 1024
+  %633 = icmp eq i32 %632, 0
+  br i1 %633, label %650, label %634
 
-636:                                              ; preds = %632
+634:                                              ; preds = %630
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  %637 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i32 0, ptr %637, align 4, !annotation !5
+  %635 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store i32 0, ptr %635, align 4, !annotation !5
   store i32 58608, ptr %60, align 4
-  %638 = getelementptr inbounds nuw i8, ptr %60, i64 4
-  store i32 0, ptr %638, align 4
-  %639 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store i32 67109888, ptr %639, align 4
-  %640 = getelementptr inbounds nuw i8, ptr %60, i64 12
-  store i32 1024, ptr %640, align 4
-  %641 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store i8 3, ptr %641, align 4
+  %636 = getelementptr inbounds nuw i8, ptr %60, i64 4
+  store i32 0, ptr %636, align 4
+  %637 = getelementptr inbounds nuw i8, ptr %60, i64 8
+  store i32 67109888, ptr %637, align 4
+  %638 = getelementptr inbounds nuw i8, ptr %60, i64 12
+  store i32 1024, ptr %638, align 4
+  %639 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  store i8 3, ptr %639, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %60)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
-  %642 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i32 0, ptr %642, align 4, !annotation !5
+  %640 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store i32 0, ptr %640, align 4, !annotation !5
   store i32 58508, ptr %59, align 4
-  %643 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 0, ptr %643, align 4
-  %644 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 536879104, ptr %644, align 4
-  %645 = getelementptr inbounds nuw i8, ptr %59, i64 12
-  store i32 8192, ptr %645, align 4
-  %646 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  store i8 3, ptr %646, align 4
+  %641 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store i32 0, ptr %641, align 4
+  %642 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i32 536879104, ptr %642, align 4
+  %643 = getelementptr inbounds nuw i8, ptr %59, i64 12
+  store i32 8192, ptr %643, align 4
+  %644 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store i8 3, ptr %644, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %59)
   call void @llvm.lifetime.end.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
-  %647 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store i32 0, ptr %647, align 4, !annotation !5
+  %645 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store i32 0, ptr %645, align 4, !annotation !5
   store i32 57600, ptr %58, align 4
-  %648 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store i32 0, ptr %648, align 4
-  %649 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store i32 524296, ptr %649, align 4
-  %650 = getelementptr inbounds nuw i8, ptr %58, i64 12
-  store i32 8, ptr %650, align 4
-  %651 = getelementptr inbounds nuw i8, ptr %58, i64 16
-  store i8 3, ptr %651, align 4
+  %646 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store i32 0, ptr %646, align 4
+  %647 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store i32 524296, ptr %647, align 4
+  %648 = getelementptr inbounds nuw i8, ptr %58, i64 12
+  store i32 8, ptr %648, align 4
+  %649 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  store i8 3, ptr %649, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %58)
   call void @llvm.lifetime.end.p0(ptr nonnull %58)
-  br label %652
+  br label %650
 
-652:                                              ; preds = %636, %632, %141
-  %653 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %654 = load i8, ptr %653, align 8
-  %655 = load ptr, ptr %0, align 8
-  switch i8 %654, label %1263 [
-    i8 5, label %656
-    i8 0, label %690
+650:                                              ; preds = %634, %630, %141
+  %651 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %652 = load i8, ptr %651, align 8
+  %653 = load ptr, ptr %0, align 8
+  switch i8 %652, label %1261 [
+    i8 5, label %654
+    i8 0, label %688
   ]
 
-656:                                              ; preds = %652
-  %657 = getelementptr i8, ptr %655, i64 7188
-  %658 = load i32, ptr %657, align 4
-  %659 = and i32 %658, 4096
-  %660 = icmp eq i32 %659, 0
-  br i1 %660, label %.thread53, label %661
+654:                                              ; preds = %650
+  %655 = getelementptr i8, ptr %653, i64 7188
+  %656 = load i32, ptr %655, align 4
+  %657 = and i32 %656, 4096
+  %658 = icmp eq i32 %657, 0
+  br i1 %658, label %.thread53, label %659
 
-661:                                              ; preds = %656
-  %662 = getelementptr inbounds nuw i8, ptr %655, i64 7200
-  %663 = load i8, ptr %662, align 8
-  %664 = icmp eq i8 %663, 0
-  br i1 %664, label %665, label %680, !prof !6
+659:                                              ; preds = %654
+  %660 = getelementptr inbounds nuw i8, ptr %653, i64 7200
+  %661 = load i8, ptr %660, align 8
+  %662 = icmp eq i8 %661, 0
+  br i1 %662, label %663, label %678, !prof !6
 
-665:                                              ; preds = %661
+663:                                              ; preds = %659
   tail call void asm sideeffect "976: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 976b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 976) #10, !srcloc !149
-  %666 = load ptr, ptr %0, align 8
-  %667 = getelementptr inbounds nuw i8, ptr %666, i64 8
-  %668 = load ptr, ptr %667, align 8
-  %669 = tail call ptr @dev_driver_string(ptr noundef %668) #10
-  %670 = load ptr, ptr %0, align 8
-  %671 = getelementptr inbounds nuw i8, ptr %670, i64 8
+  %664 = load ptr, ptr %0, align 8
+  %665 = getelementptr inbounds nuw i8, ptr %664, i64 8
+  %666 = load ptr, ptr %665, align 8
+  %667 = tail call ptr @dev_driver_string(ptr noundef %666) #10
+  %668 = load ptr, ptr %0, align 8
+  %669 = getelementptr inbounds nuw i8, ptr %668, i64 8
+  %670 = load ptr, ptr %669, align 8
+  %671 = getelementptr inbounds nuw i8, ptr %670, i64 80
   %672 = load ptr, ptr %671, align 8
-  %673 = getelementptr inbounds nuw i8, ptr %672, i64 80
-  %674 = load ptr, ptr %673, align 8
-  %675 = icmp eq ptr %674, null
-  br i1 %675, label %676, label %678
+  %673 = icmp eq ptr %672, null
+  br i1 %673, label %674, label %676
 
-676:                                              ; preds = %665
-  %677 = load ptr, ptr %672, align 8
-  br label %678
+674:                                              ; preds = %663
+  %675 = load ptr, ptr %670, align 8
+  br label %676
 
-678:                                              ; preds = %676, %665
-  %679 = phi ptr [ %677, %676 ], [ %674, %665 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %669, ptr noundef %679, ptr noundef nonnull @.str.21) #10
+676:                                              ; preds = %674, %663
+  %677 = phi ptr [ %675, %674 ], [ %672, %663 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %667, ptr noundef %677, ptr noundef nonnull @.str.21) #10
   tail call void asm sideeffect "977: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 977b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 977) #10, !srcloc !150
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2807, i32 2313, i64 12) #10, !srcloc !151
   tail call void asm sideeffect "978: nop\0A\09.pushsection .discard.instr_end\0A\09.long 978b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 978) #10, !srcloc !152
@@ -4773,1472 +4771,1472 @@ define dso_local void @intel_engine_init_workarounds(ptr noundef initializes((68
   %.pre125 = load ptr, ptr %0, align 8
   %.phi.trans.insert126 = getelementptr inbounds nuw i8, ptr %.pre125, i64 7200
   %.pre127 = load i8, ptr %.phi.trans.insert126, align 8
-  br label %680
+  br label %678
 
-680:                                              ; preds = %678, %661
-  %681 = phi i8 [ %.pre127, %678 ], [ %663, %661 ]
-  %682 = add i8 %681, -1
-  %683 = icmp ult i8 %682, 8
-  br i1 %683, label %684, label %.thread53
+678:                                              ; preds = %676, %659
+  %679 = phi i8 [ %.pre127, %676 ], [ %661, %659 ]
+  %680 = add i8 %679, -1
+  %681 = icmp ult i8 %680, 8
+  br i1 %681, label %682, label %.thread53
 
-684:                                              ; preds = %680
+682:                                              ; preds = %678
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
-  %685 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i32 0, ptr %685, align 4, !annotation !5
+  %683 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store i32 0, ptr %683, align 4, !annotation !5
   store i32 58400, ptr %57, align 4
-  %686 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i32 0, ptr %686, align 4
-  %687 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  store i32 2097184, ptr %687, align 4
-  %688 = getelementptr inbounds nuw i8, ptr %57, i64 12
-  store i32 32, ptr %688, align 4
-  %689 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  store i8 3, ptr %689, align 4
+  %684 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i32 0, ptr %684, align 4
+  %685 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  store i32 2097184, ptr %685, align 4
+  %686 = getelementptr inbounds nuw i8, ptr %57, i64 12
+  store i32 32, ptr %686, align 4
+  %687 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  store i8 3, ptr %687, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %57)
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   br label %.thread53
 
-690:                                              ; preds = %652
-  %691 = load ptr, ptr %80, align 8
-  %692 = getelementptr inbounds nuw i8, ptr %691, i64 16
-  %693 = load i32, ptr %692, align 8
-  %694 = icmp eq i32 %693, 2
-  br i1 %694, label %.thread48, label %695
+688:                                              ; preds = %650
+  %689 = load ptr, ptr %80, align 8
+  %690 = getelementptr inbounds nuw i8, ptr %689, i64 16
+  %691 = load i32, ptr %690, align 8
+  %692 = icmp eq i32 %691, 2
+  br i1 %692, label %.thread48, label %693
 
-695:                                              ; preds = %690
-  %696 = load ptr, ptr %691, align 8
-  %697 = getelementptr inbounds nuw i8, ptr %696, i64 7176
-  %698 = load i8, ptr %697, align 8
-  %699 = zext i8 %698 to i32
-  %700 = shl nuw nsw i32 %699, 8
-  %701 = getelementptr inbounds nuw i8, ptr %696, i64 7177
-  %702 = load i8, ptr %701, align 1
-  %703 = zext i8 %702 to i32
-  %704 = or disjoint i32 %700, %703
-  %705 = icmp eq i32 %704, 3142
-  br i1 %705, label %706, label %.thread184
+693:                                              ; preds = %688
+  %694 = load ptr, ptr %689, align 8
+  %695 = getelementptr inbounds nuw i8, ptr %694, i64 7176
+  %696 = load i8, ptr %695, align 8
+  %697 = zext i8 %696 to i32
+  %698 = shl nuw nsw i32 %697, 8
+  %699 = getelementptr inbounds nuw i8, ptr %694, i64 7177
+  %700 = load i8, ptr %699, align 1
+  %701 = zext i8 %700 to i32
+  %702 = or disjoint i32 %698, %701
+  %703 = icmp eq i32 %702, 3142
+  br i1 %703, label %704, label %.thread184
 
-706:                                              ; preds = %695
-  %707 = getelementptr inbounds nuw i8, ptr %696, i64 7200
-  %708 = load i8, ptr %707, align 8
-  %709 = icmp eq i8 %708, 0
-  br i1 %709, label %710, label %725, !prof !6
+704:                                              ; preds = %693
+  %705 = getelementptr inbounds nuw i8, ptr %694, i64 7200
+  %706 = load i8, ptr %705, align 8
+  %707 = icmp eq i8 %706, 0
+  br i1 %707, label %708, label %723, !prof !6
 
-710:                                              ; preds = %706
+708:                                              ; preds = %704
   tail call void asm sideeffect "943: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 943b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 943) #10, !srcloc !154
-  %711 = load ptr, ptr %691, align 8
-  %712 = getelementptr inbounds nuw i8, ptr %711, i64 8
-  %713 = load ptr, ptr %712, align 8
-  %714 = tail call ptr @dev_driver_string(ptr noundef %713) #10
-  %715 = load ptr, ptr %691, align 8
-  %716 = getelementptr inbounds nuw i8, ptr %715, i64 8
+  %709 = load ptr, ptr %689, align 8
+  %710 = getelementptr inbounds nuw i8, ptr %709, i64 8
+  %711 = load ptr, ptr %710, align 8
+  %712 = tail call ptr @dev_driver_string(ptr noundef %711) #10
+  %713 = load ptr, ptr %689, align 8
+  %714 = getelementptr inbounds nuw i8, ptr %713, i64 8
+  %715 = load ptr, ptr %714, align 8
+  %716 = getelementptr inbounds nuw i8, ptr %715, i64 80
   %717 = load ptr, ptr %716, align 8
-  %718 = getelementptr inbounds nuw i8, ptr %717, i64 80
-  %719 = load ptr, ptr %718, align 8
-  %720 = icmp eq ptr %719, null
-  br i1 %720, label %721, label %723
+  %718 = icmp eq ptr %717, null
+  br i1 %718, label %719, label %721
 
-721:                                              ; preds = %710
-  %722 = load ptr, ptr %717, align 8
-  br label %723
+719:                                              ; preds = %708
+  %720 = load ptr, ptr %715, align 8
+  br label %721
 
-723:                                              ; preds = %721, %710
-  %724 = phi ptr [ %722, %721 ], [ %719, %710 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %714, ptr noundef %724, ptr noundef nonnull @.str.12) #10
+721:                                              ; preds = %719, %708
+  %722 = phi ptr [ %720, %719 ], [ %717, %708 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %712, ptr noundef %722, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "944: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 944b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 944) #10, !srcloc !155
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2324, i32 2313, i64 12) #10, !srcloc !156
   tail call void asm sideeffect "945: nop\0A\09.pushsection .discard.instr_end\0A\09.long 945b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 945) #10, !srcloc !157
   tail call void asm sideeffect "946: nop\0A\09.pushsection .discard.instr_end\0A\09.long 946b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 946) #10, !srcloc !158
-  %.pre96 = load ptr, ptr %691, align 8
+  %.pre96 = load ptr, ptr %689, align 8
   %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %.pre96, i64 7200
   %.pre98 = load i8, ptr %.phi.trans.insert97, align 8
-  br label %725
+  br label %723
 
-725:                                              ; preds = %723, %706
-  %726 = phi i8 [ %.pre98, %723 ], [ %708, %706 ]
-  %727 = phi ptr [ %.pre96, %723 ], [ %696, %706 ]
-  %728 = add i8 %726, -1
-  %729 = icmp ult i8 %728, 4
-  br i1 %729, label %765, label %730
+723:                                              ; preds = %721, %704
+  %724 = phi i8 [ %.pre98, %721 ], [ %706, %704 ]
+  %725 = phi ptr [ %.pre96, %721 ], [ %694, %704 ]
+  %726 = add i8 %724, -1
+  %727 = icmp ult i8 %726, 4
+  br i1 %727, label %763, label %728
 
-730:                                              ; preds = %725
-  %.pr40.pre = load i32, ptr %692, align 8
-  %731 = icmp eq i32 %.pr40.pre, 2
-  br i1 %731, label %.thread48, label %.thread184
+728:                                              ; preds = %723
+  %.pr40.pre = load i32, ptr %690, align 8
+  %729 = icmp eq i32 %.pr40.pre, 2
+  br i1 %729, label %.thread48, label %.thread184
 
-.thread184:                                       ; preds = %695, %730
-  %732 = phi ptr [ %727, %730 ], [ %696, %695 ]
-  %733 = getelementptr inbounds nuw i8, ptr %732, i64 7176
-  %734 = load i8, ptr %733, align 8
-  %735 = zext i8 %734 to i32
-  %736 = shl nuw nsw i32 %735, 8
-  %737 = getelementptr inbounds nuw i8, ptr %732, i64 7177
-  %738 = load i8, ptr %737, align 1
-  %739 = zext i8 %738 to i32
-  %740 = or disjoint i32 %736, %739
-  %741 = icmp eq i32 %740, 3143
-  br i1 %741, label %742, label %771
+.thread184:                                       ; preds = %693, %728
+  %730 = phi ptr [ %725, %728 ], [ %694, %693 ]
+  %731 = getelementptr inbounds nuw i8, ptr %730, i64 7176
+  %732 = load i8, ptr %731, align 8
+  %733 = zext i8 %732 to i32
+  %734 = shl nuw nsw i32 %733, 8
+  %735 = getelementptr inbounds nuw i8, ptr %730, i64 7177
+  %736 = load i8, ptr %735, align 1
+  %737 = zext i8 %736 to i32
+  %738 = or disjoint i32 %734, %737
+  %739 = icmp eq i32 %738, 3143
+  br i1 %739, label %740, label %769
 
-742:                                              ; preds = %.thread184
-  %743 = getelementptr inbounds nuw i8, ptr %732, i64 7200
-  %744 = load i8, ptr %743, align 8
-  %745 = icmp eq i8 %744, 0
-  br i1 %745, label %746, label %761, !prof !6
+740:                                              ; preds = %.thread184
+  %741 = getelementptr inbounds nuw i8, ptr %730, i64 7200
+  %742 = load i8, ptr %741, align 8
+  %743 = icmp eq i8 %742, 0
+  br i1 %743, label %744, label %759, !prof !6
 
-746:                                              ; preds = %742
+744:                                              ; preds = %740
   tail call void asm sideeffect "947: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 947b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 947) #10, !srcloc !159
-  %747 = load ptr, ptr %691, align 8
-  %748 = getelementptr inbounds nuw i8, ptr %747, i64 8
-  %749 = load ptr, ptr %748, align 8
-  %750 = tail call ptr @dev_driver_string(ptr noundef %749) #10
-  %751 = load ptr, ptr %691, align 8
-  %752 = getelementptr inbounds nuw i8, ptr %751, i64 8
+  %745 = load ptr, ptr %689, align 8
+  %746 = getelementptr inbounds nuw i8, ptr %745, i64 8
+  %747 = load ptr, ptr %746, align 8
+  %748 = tail call ptr @dev_driver_string(ptr noundef %747) #10
+  %749 = load ptr, ptr %689, align 8
+  %750 = getelementptr inbounds nuw i8, ptr %749, i64 8
+  %751 = load ptr, ptr %750, align 8
+  %752 = getelementptr inbounds nuw i8, ptr %751, i64 80
   %753 = load ptr, ptr %752, align 8
-  %754 = getelementptr inbounds nuw i8, ptr %753, i64 80
-  %755 = load ptr, ptr %754, align 8
-  %756 = icmp eq ptr %755, null
-  br i1 %756, label %757, label %759
+  %754 = icmp eq ptr %753, null
+  br i1 %754, label %755, label %757
 
-757:                                              ; preds = %746
-  %758 = load ptr, ptr %753, align 8
-  br label %759
+755:                                              ; preds = %744
+  %756 = load ptr, ptr %751, align 8
+  br label %757
 
-759:                                              ; preds = %757, %746
-  %760 = phi ptr [ %758, %757 ], [ %755, %746 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %750, ptr noundef %760, ptr noundef nonnull @.str.12) #10
+757:                                              ; preds = %755, %744
+  %758 = phi ptr [ %756, %755 ], [ %753, %744 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %748, ptr noundef %758, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "948: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 948b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 948) #10, !srcloc !160
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2325, i32 2313, i64 12) #10, !srcloc !161
   tail call void asm sideeffect "949: nop\0A\09.pushsection .discard.instr_end\0A\09.long 949b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 949) #10, !srcloc !162
   tail call void asm sideeffect "950: nop\0A\09.pushsection .discard.instr_end\0A\09.long 950b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 950) #10, !srcloc !163
-  %.pre101 = load ptr, ptr %691, align 8
+  %.pre101 = load ptr, ptr %689, align 8
   %.phi.trans.insert102 = getelementptr inbounds nuw i8, ptr %.pre101, i64 7200
   %.pre103 = load i8, ptr %.phi.trans.insert102, align 8
-  br label %761
+  br label %759
 
-761:                                              ; preds = %759, %742
-  %762 = phi i8 [ %.pre103, %759 ], [ %744, %742 ]
-  %763 = add i8 %762, -1
-  %764 = icmp ult i8 %763, 4
-  br i1 %764, label %765, label %771
+759:                                              ; preds = %757, %740
+  %760 = phi i8 [ %.pre103, %757 ], [ %742, %740 ]
+  %761 = add i8 %760, -1
+  %762 = icmp ult i8 %761, 4
+  br i1 %762, label %763, label %769
 
-765:                                              ; preds = %761, %725
+763:                                              ; preds = %759, %723
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
-  %766 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i32 0, ptr %766, align 4, !annotation !5
+  %764 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  store i32 0, ptr %764, align 4, !annotation !5
   store i32 58400, ptr %56, align 4
-  %767 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  store i32 0, ptr %767, align 4
-  %768 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i32 67109888, ptr %768, align 4
-  %769 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  store i32 1024, ptr %769, align 4
-  %770 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i8 3, ptr %770, align 4
+  %765 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  store i32 0, ptr %765, align 4
+  %766 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  store i32 67109888, ptr %766, align 4
+  %767 = getelementptr inbounds nuw i8, ptr %56, i64 12
+  store i32 1024, ptr %767, align 4
+  %768 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  store i8 3, ptr %768, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %56)
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
-  br label %771
+  br label %769
 
-771:                                              ; preds = %765, %761, %.thread184
-  %.pr43 = load i32, ptr %692, align 8
-  %772 = icmp eq i32 %.pr43, 2
-  br i1 %772, label %.thread48, label %773
+769:                                              ; preds = %763, %759, %.thread184
+  %.pr43 = load i32, ptr %690, align 8
+  %770 = icmp eq i32 %.pr43, 2
+  br i1 %770, label %.thread48, label %771
 
-773:                                              ; preds = %771
-  %774 = load ptr, ptr %691, align 8
-  %775 = getelementptr inbounds nuw i8, ptr %774, i64 7176
-  %776 = load i8, ptr %775, align 8
-  %777 = zext i8 %776 to i32
-  %778 = shl nuw nsw i32 %777, 8
-  %779 = getelementptr inbounds nuw i8, ptr %774, i64 7177
-  %780 = load i8, ptr %779, align 1
-  %781 = zext i8 %780 to i32
-  %782 = or disjoint i32 %778, %781
-  %783 = icmp eq i32 %782, 3142
-  br i1 %783, label %784, label %.thread45.thread
+771:                                              ; preds = %769
+  %772 = load ptr, ptr %689, align 8
+  %773 = getelementptr inbounds nuw i8, ptr %772, i64 7176
+  %774 = load i8, ptr %773, align 8
+  %775 = zext i8 %774 to i32
+  %776 = shl nuw nsw i32 %775, 8
+  %777 = getelementptr inbounds nuw i8, ptr %772, i64 7177
+  %778 = load i8, ptr %777, align 1
+  %779 = zext i8 %778 to i32
+  %780 = or disjoint i32 %776, %779
+  %781 = icmp eq i32 %780, 3142
+  br i1 %781, label %782, label %.thread45.thread
 
-784:                                              ; preds = %773
-  %785 = getelementptr inbounds nuw i8, ptr %774, i64 7200
-  %786 = load i8, ptr %785, align 8
-  %787 = icmp eq i8 %786, 0
-  br i1 %787, label %788, label %803, !prof !6
+782:                                              ; preds = %771
+  %783 = getelementptr inbounds nuw i8, ptr %772, i64 7200
+  %784 = load i8, ptr %783, align 8
+  %785 = icmp eq i8 %784, 0
+  br i1 %785, label %786, label %801, !prof !6
 
-788:                                              ; preds = %784
+786:                                              ; preds = %782
   tail call void asm sideeffect "951: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 951b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 951) #10, !srcloc !164
-  %789 = load ptr, ptr %691, align 8
-  %790 = getelementptr inbounds nuw i8, ptr %789, i64 8
-  %791 = load ptr, ptr %790, align 8
-  %792 = tail call ptr @dev_driver_string(ptr noundef %791) #10
-  %793 = load ptr, ptr %691, align 8
-  %794 = getelementptr inbounds nuw i8, ptr %793, i64 8
+  %787 = load ptr, ptr %689, align 8
+  %788 = getelementptr inbounds nuw i8, ptr %787, i64 8
+  %789 = load ptr, ptr %788, align 8
+  %790 = tail call ptr @dev_driver_string(ptr noundef %789) #10
+  %791 = load ptr, ptr %689, align 8
+  %792 = getelementptr inbounds nuw i8, ptr %791, i64 8
+  %793 = load ptr, ptr %792, align 8
+  %794 = getelementptr inbounds nuw i8, ptr %793, i64 80
   %795 = load ptr, ptr %794, align 8
-  %796 = getelementptr inbounds nuw i8, ptr %795, i64 80
-  %797 = load ptr, ptr %796, align 8
-  %798 = icmp eq ptr %797, null
-  br i1 %798, label %799, label %801
+  %796 = icmp eq ptr %795, null
+  br i1 %796, label %797, label %799
 
-799:                                              ; preds = %788
-  %800 = load ptr, ptr %795, align 8
-  br label %801
+797:                                              ; preds = %786
+  %798 = load ptr, ptr %793, align 8
+  br label %799
 
-801:                                              ; preds = %799, %788
-  %802 = phi ptr [ %800, %799 ], [ %797, %788 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %792, ptr noundef %802, ptr noundef nonnull @.str.12) #10
+799:                                              ; preds = %797, %786
+  %800 = phi ptr [ %798, %797 ], [ %795, %786 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %790, ptr noundef %800, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "952: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 952b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 952) #10, !srcloc !165
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2331, i32 2313, i64 12) #10, !srcloc !166
   tail call void asm sideeffect "953: nop\0A\09.pushsection .discard.instr_end\0A\09.long 953b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 953) #10, !srcloc !167
   tail call void asm sideeffect "954: nop\0A\09.pushsection .discard.instr_end\0A\09.long 954b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 954) #10, !srcloc !168
-  %.pre104 = load ptr, ptr %691, align 8
+  %.pre104 = load ptr, ptr %689, align 8
   %.phi.trans.insert105 = getelementptr inbounds nuw i8, ptr %.pre104, i64 7200
   %.pre106 = load i8, ptr %.phi.trans.insert105, align 8
-  br label %803
+  br label %801
 
-803:                                              ; preds = %801, %784
-  %804 = phi i8 [ %.pre106, %801 ], [ %786, %784 ]
-  %805 = phi ptr [ %.pre104, %801 ], [ %774, %784 ]
-  %806 = add i8 %804, -1
-  %807 = icmp ult i8 %806, 4
-  br i1 %807, label %846, label %.thread45
+801:                                              ; preds = %799, %782
+  %802 = phi i8 [ %.pre106, %799 ], [ %784, %782 ]
+  %803 = phi ptr [ %.pre104, %799 ], [ %772, %782 ]
+  %804 = add i8 %802, -1
+  %805 = icmp ult i8 %804, 4
+  br i1 %805, label %844, label %.thread45
 
-.thread45:                                        ; preds = %803
-  %.pr47.pr.pre = load i32, ptr %692, align 8
-  %808 = icmp eq i32 %.pr47.pr.pre, 2
-  br i1 %808, label %.thread48, label %.thread45.thread
+.thread45:                                        ; preds = %801
+  %.pr47.pr.pre = load i32, ptr %690, align 8
+  %806 = icmp eq i32 %.pr47.pr.pre, 2
+  br i1 %806, label %.thread48, label %.thread45.thread
 
-.thread45.thread:                                 ; preds = %773, %.thread45
-  %809 = phi ptr [ %805, %.thread45 ], [ %774, %773 ]
-  %810 = getelementptr inbounds nuw i8, ptr %809, i64 7176
-  %811 = load i8, ptr %810, align 8
-  %812 = zext i8 %811 to i32
-  %813 = shl nuw nsw i32 %812, 8
-  %814 = getelementptr inbounds nuw i8, ptr %809, i64 7177
-  %815 = load i8, ptr %814, align 1
-  %816 = zext i8 %815 to i32
-  %817 = or disjoint i32 %813, %816
-  %818 = icmp eq i32 %817, 3143
-  br i1 %818, label %819, label %.thread48
+.thread45.thread:                                 ; preds = %771, %.thread45
+  %807 = phi ptr [ %803, %.thread45 ], [ %772, %771 ]
+  %808 = getelementptr inbounds nuw i8, ptr %807, i64 7176
+  %809 = load i8, ptr %808, align 8
+  %810 = zext i8 %809 to i32
+  %811 = shl nuw nsw i32 %810, 8
+  %812 = getelementptr inbounds nuw i8, ptr %807, i64 7177
+  %813 = load i8, ptr %812, align 1
+  %814 = zext i8 %813 to i32
+  %815 = or disjoint i32 %811, %814
+  %816 = icmp eq i32 %815, 3143
+  br i1 %816, label %817, label %.thread48
 
-819:                                              ; preds = %.thread45.thread
-  %820 = getelementptr inbounds nuw i8, ptr %809, i64 7200
-  %821 = load i8, ptr %820, align 8
-  %822 = icmp eq i8 %821, 0
-  br i1 %822, label %823, label %838, !prof !6
+817:                                              ; preds = %.thread45.thread
+  %818 = getelementptr inbounds nuw i8, ptr %807, i64 7200
+  %819 = load i8, ptr %818, align 8
+  %820 = icmp eq i8 %819, 0
+  br i1 %820, label %821, label %836, !prof !6
 
-823:                                              ; preds = %819
+821:                                              ; preds = %817
   tail call void asm sideeffect "955: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 955b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 955) #10, !srcloc !169
-  %824 = load ptr, ptr %691, align 8
-  %825 = getelementptr inbounds nuw i8, ptr %824, i64 8
-  %826 = load ptr, ptr %825, align 8
-  %827 = tail call ptr @dev_driver_string(ptr noundef %826) #10
-  %828 = load ptr, ptr %691, align 8
-  %829 = getelementptr inbounds nuw i8, ptr %828, i64 8
+  %822 = load ptr, ptr %689, align 8
+  %823 = getelementptr inbounds nuw i8, ptr %822, i64 8
+  %824 = load ptr, ptr %823, align 8
+  %825 = tail call ptr @dev_driver_string(ptr noundef %824) #10
+  %826 = load ptr, ptr %689, align 8
+  %827 = getelementptr inbounds nuw i8, ptr %826, i64 8
+  %828 = load ptr, ptr %827, align 8
+  %829 = getelementptr inbounds nuw i8, ptr %828, i64 80
   %830 = load ptr, ptr %829, align 8
-  %831 = getelementptr inbounds nuw i8, ptr %830, i64 80
-  %832 = load ptr, ptr %831, align 8
-  %833 = icmp eq ptr %832, null
-  br i1 %833, label %834, label %836
+  %831 = icmp eq ptr %830, null
+  br i1 %831, label %832, label %834
 
-834:                                              ; preds = %823
-  %835 = load ptr, ptr %830, align 8
-  br label %836
+832:                                              ; preds = %821
+  %833 = load ptr, ptr %828, align 8
+  br label %834
 
-836:                                              ; preds = %834, %823
-  %837 = phi ptr [ %835, %834 ], [ %832, %823 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %827, ptr noundef %837, ptr noundef nonnull @.str.12) #10
+834:                                              ; preds = %832, %821
+  %835 = phi ptr [ %833, %832 ], [ %830, %821 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %825, ptr noundef %835, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "956: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 956b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 956) #10, !srcloc !170
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2332, i32 2313, i64 12) #10, !srcloc !171
   tail call void asm sideeffect "957: nop\0A\09.pushsection .discard.instr_end\0A\09.long 957b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 957) #10, !srcloc !172
   tail call void asm sideeffect "958: nop\0A\09.pushsection .discard.instr_end\0A\09.long 958b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 958) #10, !srcloc !173
-  %.pre108 = load ptr, ptr %691, align 8
+  %.pre108 = load ptr, ptr %689, align 8
   %.phi.trans.insert109 = getelementptr inbounds nuw i8, ptr %.pre108, i64 7200
   %.pre110 = load i8, ptr %.phi.trans.insert109, align 8
-  br label %838
+  br label %836
 
-838:                                              ; preds = %836, %819
-  %839 = phi i8 [ %.pre110, %836 ], [ %821, %819 ]
-  %840 = add i8 %839, -1
-  %841 = icmp ult i8 %840, 4
-  br i1 %841, label %846, label %.thread48
+836:                                              ; preds = %834, %817
+  %837 = phi i8 [ %.pre110, %834 ], [ %819, %817 ]
+  %838 = add i8 %837, -1
+  %839 = icmp ult i8 %838, 4
+  br i1 %839, label %844, label %.thread48
 
-.thread48:                                        ; preds = %730, %690, %771, %838, %.thread45.thread, %.thread45
-  %842 = getelementptr i8, ptr %655, i64 7188
-  %843 = load i32, ptr %842, align 4
-  %844 = and i32 %843, 2048
-  %845 = icmp eq i32 %844, 0
-  br i1 %845, label %852, label %846
+.thread48:                                        ; preds = %728, %688, %769, %836, %.thread45.thread, %.thread45
+  %840 = getelementptr i8, ptr %653, i64 7188
+  %841 = load i32, ptr %840, align 4
+  %842 = and i32 %841, 2048
+  %843 = icmp eq i32 %842, 0
+  br i1 %843, label %850, label %844
 
-846:                                              ; preds = %.thread48, %838, %803
+844:                                              ; preds = %.thread48, %836, %801
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
-  %847 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i32 0, ptr %847, align 4, !annotation !5
+  %845 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store i32 0, ptr %845, align 4, !annotation !5
   store i32 57740, ptr %55, align 4
-  %848 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i32 0, ptr %848, align 4
-  %849 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i32 33554944, ptr %849, align 4
-  %850 = getelementptr inbounds nuw i8, ptr %55, i64 12
-  store i32 512, ptr %850, align 4
-  %851 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  store i8 3, ptr %851, align 4
+  %846 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store i32 0, ptr %846, align 4
+  %847 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i32 33554944, ptr %847, align 4
+  %848 = getelementptr inbounds nuw i8, ptr %55, i64 12
+  store i32 512, ptr %848, align 4
+  %849 = getelementptr inbounds nuw i8, ptr %55, i64 16
+  store i8 3, ptr %849, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
-  br label %852
+  br label %850
 
-852:                                              ; preds = %846, %.thread48
-  %853 = load i32, ptr %692, align 8
-  %854 = icmp eq i32 %853, 2
-  br i1 %854, label %889, label %855
+850:                                              ; preds = %844, %.thread48
+  %851 = load i32, ptr %690, align 8
+  %852 = icmp eq i32 %851, 2
+  br i1 %852, label %887, label %853
 
-855:                                              ; preds = %852
-  %856 = load ptr, ptr %691, align 8
-  %857 = getelementptr inbounds nuw i8, ptr %856, i64 7176
-  %858 = load i8, ptr %857, align 8
-  %859 = zext i8 %858 to i32
-  %860 = shl nuw nsw i32 %859, 8
-  %861 = getelementptr inbounds nuw i8, ptr %856, i64 7177
-  %862 = load i8, ptr %861, align 1
-  %863 = zext i8 %862 to i32
-  %864 = or disjoint i32 %860, %863
-  %865 = icmp eq i32 %864, 3142
-  br i1 %865, label %866, label %889
+853:                                              ; preds = %850
+  %854 = load ptr, ptr %689, align 8
+  %855 = getelementptr inbounds nuw i8, ptr %854, i64 7176
+  %856 = load i8, ptr %855, align 8
+  %857 = zext i8 %856 to i32
+  %858 = shl nuw nsw i32 %857, 8
+  %859 = getelementptr inbounds nuw i8, ptr %854, i64 7177
+  %860 = load i8, ptr %859, align 1
+  %861 = zext i8 %860 to i32
+  %862 = or disjoint i32 %858, %861
+  %863 = icmp eq i32 %862, 3142
+  br i1 %863, label %864, label %887
 
-866:                                              ; preds = %855
-  %867 = getelementptr inbounds nuw i8, ptr %856, i64 7200
-  %868 = load i8, ptr %867, align 8
-  %869 = icmp eq i8 %868, 0
-  br i1 %869, label %870, label %885, !prof !6
+864:                                              ; preds = %853
+  %865 = getelementptr inbounds nuw i8, ptr %854, i64 7200
+  %866 = load i8, ptr %865, align 8
+  %867 = icmp eq i8 %866, 0
+  br i1 %867, label %868, label %883, !prof !6
 
-870:                                              ; preds = %866
+868:                                              ; preds = %864
   tail call void asm sideeffect "959: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 959b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 959) #10, !srcloc !174
-  %871 = load ptr, ptr %691, align 8
-  %872 = getelementptr inbounds nuw i8, ptr %871, i64 8
-  %873 = load ptr, ptr %872, align 8
-  %874 = tail call ptr @dev_driver_string(ptr noundef %873) #10
-  %875 = load ptr, ptr %691, align 8
-  %876 = getelementptr inbounds nuw i8, ptr %875, i64 8
+  %869 = load ptr, ptr %689, align 8
+  %870 = getelementptr inbounds nuw i8, ptr %869, i64 8
+  %871 = load ptr, ptr %870, align 8
+  %872 = tail call ptr @dev_driver_string(ptr noundef %871) #10
+  %873 = load ptr, ptr %689, align 8
+  %874 = getelementptr inbounds nuw i8, ptr %873, i64 8
+  %875 = load ptr, ptr %874, align 8
+  %876 = getelementptr inbounds nuw i8, ptr %875, i64 80
   %877 = load ptr, ptr %876, align 8
-  %878 = getelementptr inbounds nuw i8, ptr %877, i64 80
-  %879 = load ptr, ptr %878, align 8
-  %880 = icmp eq ptr %879, null
-  br i1 %880, label %881, label %883
+  %878 = icmp eq ptr %877, null
+  br i1 %878, label %879, label %881
 
-881:                                              ; preds = %870
-  %882 = load ptr, ptr %877, align 8
-  br label %883
+879:                                              ; preds = %868
+  %880 = load ptr, ptr %875, align 8
+  br label %881
 
-883:                                              ; preds = %881, %870
-  %884 = phi ptr [ %882, %881 ], [ %879, %870 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %874, ptr noundef %884, ptr noundef nonnull @.str.12) #10
+881:                                              ; preds = %879, %868
+  %882 = phi ptr [ %880, %879 ], [ %877, %868 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %872, ptr noundef %882, ptr noundef nonnull @.str.12) #10
   tail call void asm sideeffect "960: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 960b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 960) #10, !srcloc !175
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2339, i32 2313, i64 12) #10, !srcloc !176
   tail call void asm sideeffect "961: nop\0A\09.pushsection .discard.instr_end\0A\09.long 961b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 961) #10, !srcloc !177
   tail call void asm sideeffect "962: nop\0A\09.pushsection .discard.instr_end\0A\09.long 962b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 962) #10, !srcloc !178
-  %.pre111 = load ptr, ptr %691, align 8
+  %.pre111 = load ptr, ptr %689, align 8
   %.phi.trans.insert112 = getelementptr inbounds nuw i8, ptr %.pre111, i64 7200
   %.pre113 = load i8, ptr %.phi.trans.insert112, align 8
-  br label %885
+  br label %883
 
-885:                                              ; preds = %883, %866
-  %886 = phi i8 [ %.pre113, %883 ], [ %868, %866 ]
-  %887 = add i8 %886, -1
-  %888 = icmp ult i8 %887, 4
-  br i1 %888, label %894, label %889
+883:                                              ; preds = %881, %864
+  %884 = phi i8 [ %.pre113, %881 ], [ %866, %864 ]
+  %885 = add i8 %884, -1
+  %886 = icmp ult i8 %885, 4
+  br i1 %886, label %892, label %887
 
-889:                                              ; preds = %885, %855, %852
-  %890 = getelementptr i8, ptr %655, i64 7188
-  %891 = load i32, ptr %890, align 4
-  %892 = and i32 %891, 2048
-  %893 = icmp eq i32 %892, 0
-  br i1 %893, label %.thread187, label %894
+887:                                              ; preds = %883, %853, %850
+  %888 = getelementptr i8, ptr %653, i64 7188
+  %889 = load i32, ptr %888, align 4
+  %890 = and i32 %889, 2048
+  %891 = icmp eq i32 %890, 0
+  br i1 %891, label %.thread187, label %892
 
-894:                                              ; preds = %885, %889
+892:                                              ; preds = %883, %887
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
-  %895 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i32 0, ptr %895, align 4, !annotation !5
+  %893 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store i32 0, ptr %893, align 4, !annotation !5
   store i32 58612, ptr %54, align 4
-  %896 = getelementptr inbounds nuw i8, ptr %54, i64 4
-  store i32 0, ptr %896, align 4
-  %897 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  store i32 -2147450880, ptr %897, align 4
-  %898 = getelementptr inbounds nuw i8, ptr %54, i64 12
-  store i32 32768, ptr %898, align 4
-  %899 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  store i8 3, ptr %899, align 4
+  %894 = getelementptr inbounds nuw i8, ptr %54, i64 4
+  store i32 0, ptr %894, align 4
+  %895 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  store i32 -2147450880, ptr %895, align 4
+  %896 = getelementptr inbounds nuw i8, ptr %54, i64 12
+  store i32 32768, ptr %896, align 4
+  %897 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  store i8 3, ptr %897, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %54)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
-  %.phi.trans.insert114 = getelementptr i8, ptr %655, i64 7188
+  %.phi.trans.insert114 = getelementptr i8, ptr %653, i64 7188
   %.pre115 = load i32, ptr %.phi.trans.insert114, align 4
   %.pre130 = and i32 %.pre115, 2048
-  %900 = icmp eq i32 %.pre130, 0
-  br i1 %900, label %.thread187, label %901
+  %898 = icmp eq i32 %.pre130, 0
+  br i1 %898, label %.thread187, label %899
 
-901:                                              ; preds = %894
+899:                                              ; preds = %892
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  %902 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i32 0, ptr %902, align 4, !annotation !5
+  %900 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store i32 0, ptr %900, align 4, !annotation !5
   store i32 58864, ptr %53, align 4
-  %903 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i32 0, ptr %903, align 4
-  %904 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store i32 939524096, ptr %904, align 4
-  %905 = getelementptr inbounds nuw i8, ptr %53, i64 12
-  store i32 14336, ptr %905, align 4
-  %906 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  store i8 3, ptr %906, align 4
+  %901 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i32 0, ptr %901, align 4
+  %902 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  store i32 939524096, ptr %902, align 4
+  %903 = getelementptr inbounds nuw i8, ptr %53, i64 12
+  store i32 14336, ptr %903, align 4
+  %904 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  store i8 3, ptr %904, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %53)
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   br label %.thread187
 
-.thread187:                                       ; preds = %889, %901, %894
-  %907 = getelementptr inbounds nuw i8, ptr %655, i64 7184
-  %908 = getelementptr i8, ptr %655, i64 7188
-  %909 = load i32, ptr %692, align 8
-  %910 = icmp eq i32 %909, 2
-  br i1 %910, label %923, label %911
+.thread187:                                       ; preds = %887, %899, %892
+  %905 = getelementptr inbounds nuw i8, ptr %653, i64 7184
+  %906 = getelementptr i8, ptr %653, i64 7188
+  %907 = load i32, ptr %690, align 8
+  %908 = icmp eq i32 %907, 2
+  br i1 %908, label %921, label %909
 
-911:                                              ; preds = %.thread187
-  %912 = load ptr, ptr %691, align 8
-  %913 = getelementptr inbounds nuw i8, ptr %912, i64 7176
-  %914 = load i8, ptr %913, align 8
-  %915 = zext i8 %914 to i32
-  %916 = shl nuw nsw i32 %915, 8
-  %917 = getelementptr inbounds nuw i8, ptr %912, i64 7177
-  %918 = load i8, ptr %917, align 1
-  %919 = and i8 %918, -2
-  %920 = zext i8 %919 to i32
-  %921 = or disjoint i32 %916, %920
-  %922 = icmp eq i32 %921, 3142
-  br i1 %922, label %927, label %923
+909:                                              ; preds = %.thread187
+  %910 = load ptr, ptr %689, align 8
+  %911 = getelementptr inbounds nuw i8, ptr %910, i64 7176
+  %912 = load i8, ptr %911, align 8
+  %913 = zext i8 %912 to i32
+  %914 = shl nuw nsw i32 %913, 8
+  %915 = getelementptr inbounds nuw i8, ptr %910, i64 7177
+  %916 = load i8, ptr %915, align 1
+  %917 = and i8 %916, -2
+  %918 = zext i8 %917 to i32
+  %919 = or disjoint i32 %914, %918
+  %920 = icmp eq i32 %919, 3142
+  br i1 %920, label %925, label %921
 
-923:                                              ; preds = %911, %.thread187
-  %924 = load i32, ptr %908, align 4
-  %925 = and i32 %924, 2048
-  %926 = icmp eq i32 %925, 0
-  br i1 %926, label %933, label %927
+921:                                              ; preds = %909, %.thread187
+  %922 = load i32, ptr %906, align 4
+  %923 = and i32 %922, 2048
+  %924 = icmp eq i32 %923, 0
+  br i1 %924, label %931, label %925
 
-927:                                              ; preds = %923, %911
+925:                                              ; preds = %921, %909
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
-  %928 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i32 0, ptr %928, align 4, !annotation !5
+  %926 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  store i32 0, ptr %926, align 4, !annotation !5
   store i32 58864, ptr %52, align 4
-  %929 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %927 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  store i32 0, ptr %927, align 4
+  %928 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store i32 524296, ptr %928, align 4
+  %929 = getelementptr inbounds nuw i8, ptr %52, i64 12
   store i32 0, ptr %929, align 4
-  %930 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  store i32 524296, ptr %930, align 4
-  %931 = getelementptr inbounds nuw i8, ptr %52, i64 12
-  store i32 0, ptr %931, align 4
-  %932 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  store i8 3, ptr %932, align 4
+  %930 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  store i8 3, ptr %930, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %52)
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
-  %.pre116 = load i32, ptr %908, align 4
-  br label %933
+  %.pre116 = load i32, ptr %906, align 4
+  br label %931
 
-933:                                              ; preds = %927, %923
-  %934 = phi i32 [ %.pre116, %927 ], [ %924, %923 ]
-  %935 = and i32 %934, 3040
-  %936 = icmp eq i32 %935, 0
-  br i1 %936, label %943, label %937
+931:                                              ; preds = %925, %921
+  %932 = phi i32 [ %.pre116, %925 ], [ %922, %921 ]
+  %933 = and i32 %932, 3040
+  %934 = icmp eq i32 %933, 0
+  br i1 %934, label %941, label %935
 
-937:                                              ; preds = %933
+935:                                              ; preds = %931
   call void @llvm.lifetime.start.p0(ptr nonnull %51)
-  %938 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i32 0, ptr %938, align 4, !annotation !5
+  %936 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i32 0, ptr %936, align 4, !annotation !5
   store i32 8428, ptr %51, align 4
-  %939 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store i32 0, ptr %939, align 4
-  %940 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i32 131074, ptr %940, align 4
-  %941 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  store i32 2, ptr %941, align 4
-  %942 = getelementptr inbounds nuw i8, ptr %51, i64 16
-  store i8 1, ptr %942, align 4
+  %937 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i32 0, ptr %937, align 4
+  %938 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i32 131074, ptr %938, align 4
+  %939 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store i32 2, ptr %939, align 4
+  %940 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  store i8 1, ptr %940, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %51)
   call void @llvm.lifetime.end.p0(ptr nonnull %51)
-  %.pre117 = load i32, ptr %908, align 4
-  br label %943
+  %.pre117 = load i32, ptr %906, align 4
+  br label %941
 
-943:                                              ; preds = %937, %933
-  %944 = phi i32 [ %.pre117, %937 ], [ %934, %933 ]
-  %945 = and i32 %944, 992
-  %946 = icmp eq i32 %945, 0
-  br i1 %946, label %962, label %947
+941:                                              ; preds = %935, %931
+  %942 = phi i32 [ %.pre117, %935 ], [ %932, %931 ]
+  %943 = and i32 %942, 992
+  %944 = icmp eq i32 %943, 0
+  br i1 %944, label %960, label %945
 
-947:                                              ; preds = %943
+945:                                              ; preds = %941
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
-  %948 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i32 0, ptr %948, align 4, !annotation !5
+  %946 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  store i32 0, ptr %946, align 4, !annotation !5
   store i32 58612, ptr %50, align 4
-  %949 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i32 0, ptr %949, align 4
-  %950 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  store i32 1073758208, ptr %950, align 4
-  %951 = getelementptr inbounds nuw i8, ptr %50, i64 12
-  store i32 16384, ptr %951, align 4
-  %952 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store i8 3, ptr %952, align 4
+  %947 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store i32 0, ptr %947, align 4
+  %948 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  store i32 1073758208, ptr %948, align 4
+  %949 = getelementptr inbounds nuw i8, ptr %50, i64 12
+  store i32 16384, ptr %949, align 4
+  %950 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  store i8 3, ptr %950, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
-  %953 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  store i32 0, ptr %953, align 4, !annotation !5
+  %951 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  store i32 0, ptr %951, align 4, !annotation !5
   store i32 8352, ptr %49, align 4
-  %954 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %952 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i32 524288, ptr %952, align 4
+  %953 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i32 524288, ptr %953, align 4
+  %954 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 524288, ptr %954, align 4
-  %955 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i32 524288, ptr %955, align 4
-  %956 = getelementptr inbounds nuw i8, ptr %49, i64 12
-  store i32 524288, ptr %956, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %49)
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
-  %957 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i32 0, ptr %957, align 4, !annotation !5
+  %955 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store i32 0, ptr %955, align 4, !annotation !5
   store i32 57740, ptr %48, align 4
-  %958 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 0, ptr %958, align 4
-  %959 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 -2147450880, ptr %959, align 4
-  %960 = getelementptr inbounds nuw i8, ptr %48, i64 12
-  store i32 32768, ptr %960, align 4
-  %961 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  store i8 3, ptr %961, align 4
+  %956 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 0, ptr %956, align 4
+  %957 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 -2147450880, ptr %957, align 4
+  %958 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  store i32 32768, ptr %958, align 4
+  %959 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store i8 3, ptr %959, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %48)
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
-  %.pre118 = load i32, ptr %908, align 4
-  br label %962
+  %.pre118 = load i32, ptr %906, align 4
+  br label %960
 
-962:                                              ; preds = %947, %943
-  %963 = phi i32 [ %.pre118, %947 ], [ %944, %943 ]
-  %964 = and i32 %963, 864
-  %965 = icmp eq i32 %964, 0
-  br i1 %965, label %977, label %966
+960:                                              ; preds = %945, %941
+  %961 = phi i32 [ %.pre118, %945 ], [ %942, %941 ]
+  %962 = and i32 %961, 864
+  %963 = icmp eq i32 %962, 0
+  br i1 %963, label %975, label %964
 
-966:                                              ; preds = %962
+964:                                              ; preds = %960
   call void @llvm.lifetime.start.p0(ptr nonnull %47)
-  %967 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i32 0, ptr %967, align 4, !annotation !5
+  %965 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store i32 0, ptr %965, align 4, !annotation !5
   store i32 58612, ptr %47, align 4
-  %968 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i32 0, ptr %968, align 4
-  %969 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 16777472, ptr %969, align 4
-  %970 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  store i32 256, ptr %970, align 4
-  %971 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i8 3, ptr %971, align 4
+  %966 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store i32 0, ptr %966, align 4
+  %967 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i32 16777472, ptr %967, align 4
+  %968 = getelementptr inbounds nuw i8, ptr %47, i64 12
+  store i32 256, ptr %968, align 4
+  %969 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  store i8 3, ptr %969, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %47)
   call void @llvm.lifetime.end.p0(ptr nonnull %47)
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
-  %972 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i32 0, ptr %972, align 4, !annotation !5
+  %970 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store i32 0, ptr %970, align 4, !annotation !5
   store i32 58508, ptr %46, align 4
-  %973 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i32 0, ptr %973, align 4
-  %974 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  store i32 33554944, ptr %974, align 4
-  %975 = getelementptr inbounds nuw i8, ptr %46, i64 12
-  store i32 512, ptr %975, align 4
-  %976 = getelementptr inbounds nuw i8, ptr %46, i64 16
-  store i8 3, ptr %976, align 4
+  %971 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  store i32 0, ptr %971, align 4
+  %972 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store i32 33554944, ptr %972, align 4
+  %973 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  store i32 512, ptr %973, align 4
+  %974 = getelementptr inbounds nuw i8, ptr %46, i64 16
+  store i8 3, ptr %974, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %46)
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
-  %.pre119 = load i32, ptr %908, align 4
-  br label %977
+  %.pre119 = load i32, ptr %906, align 4
+  br label %975
 
-977:                                              ; preds = %966, %962
-  %978 = phi i32 [ %.pre119, %966 ], [ %963, %962 ]
-  %979 = and i32 %978, 608
-  %980 = icmp eq i32 %979, 0
-  br i1 %980, label %987, label %981
+975:                                              ; preds = %964, %960
+  %976 = phi i32 [ %.pre119, %964 ], [ %961, %960 ]
+  %977 = and i32 %976, 608
+  %978 = icmp eq i32 %977, 0
+  br i1 %978, label %985, label %979
 
-981:                                              ; preds = %977
+979:                                              ; preds = %975
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
-  %982 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i32 0, ptr %982, align 4, !annotation !5
+  %980 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store i32 0, ptr %980, align 4, !annotation !5
   store i32 8272, ptr %45, align 4
-  %983 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i32 0, ptr %983, align 4
-  %984 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  store i32 276828288, ptr %984, align 4
-  %985 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  store i32 4224, ptr %985, align 4
-  %986 = getelementptr inbounds nuw i8, ptr %45, i64 16
-  store i8 1, ptr %986, align 4
+  %981 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i32 0, ptr %981, align 4
+  %982 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store i32 276828288, ptr %982, align 4
+  %983 = getelementptr inbounds nuw i8, ptr %45, i64 12
+  store i32 4224, ptr %983, align 4
+  %984 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store i8 1, ptr %984, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %45)
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
-  br label %987
+  br label %985
 
-987:                                              ; preds = %981, %977
-  %988 = getelementptr inbounds nuw i8, ptr %655, i64 7176
-  %989 = load i8, ptr %988, align 8
-  %990 = icmp eq i8 %989, 11
-  br i1 %990, label %991, label %1037
+985:                                              ; preds = %979, %975
+  %986 = getelementptr inbounds nuw i8, ptr %653, i64 7176
+  %987 = load i8, ptr %986, align 8
+  %988 = icmp eq i8 %987, 11
+  br i1 %988, label %989, label %1035
 
-991:                                              ; preds = %987
+989:                                              ; preds = %985
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
-  %992 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i32 0, ptr %992, align 4, !annotation !5
+  %990 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store i32 0, ptr %990, align 4, !annotation !5
   store i32 8336, ptr %44, align 4
-  %993 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i32 0, ptr %993, align 4
-  %994 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store i32 2097184, ptr %994, align 4
-  %995 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  store i32 32, ptr %995, align 4
-  %996 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  store i8 1, ptr %996, align 4
+  %991 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  store i32 0, ptr %991, align 4
+  %992 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  store i32 2097184, ptr %992, align 4
+  %993 = getelementptr inbounds nuw i8, ptr %44, i64 12
+  store i32 32, ptr %993, align 4
+  %994 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  store i8 1, ptr %994, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %44)
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
-  %997 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  store i32 0, ptr %997, align 4, !annotation !5
+  %995 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store i32 0, ptr %995, align 4, !annotation !5
   store i32 45060, ptr %43, align 4
-  %998 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  %996 = getelementptr inbounds nuw i8, ptr %43, i64 4
+  store i32 264241152, ptr %996, align 4
+  %997 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  store i32 264241152, ptr %997, align 4
+  %998 = getelementptr inbounds nuw i8, ptr %43, i64 12
   store i32 264241152, ptr %998, align 4
-  %999 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  store i32 264241152, ptr %999, align 4
-  %1000 = getelementptr inbounds nuw i8, ptr %43, i64 12
-  store i32 264241152, ptr %1000, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %43)
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  %1001 = getelementptr inbounds nuw i8, ptr %42, i64 16
-  store i32 0, ptr %1001, align 4, !annotation !5
+  %999 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store i32 0, ptr %999, align 4, !annotation !5
   store i32 45060, ptr %42, align 4
-  %1002 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  %1000 = getelementptr inbounds nuw i8, ptr %42, i64 4
+  store i32 127, ptr %1000, align 4
+  %1001 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store i32 1, ptr %1001, align 4
+  %1002 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 127, ptr %1002, align 4
-  %1003 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  store i32 1, ptr %1003, align 4
-  %1004 = getelementptr inbounds nuw i8, ptr %42, i64 12
-  store i32 127, ptr %1004, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
-  %1005 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  store i32 0, ptr %1005, align 4, !annotation !5
+  %1003 = getelementptr inbounds nuw i8, ptr %41, i64 16
+  store i32 0, ptr %1003, align 4, !annotation !5
   store i32 46084, ptr %41, align 4
-  %1006 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  %1004 = getelementptr inbounds nuw i8, ptr %41, i64 4
+  store i32 4064, ptr %1004, align 4
+  %1005 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  store i32 32, ptr %1005, align 4
+  %1006 = getelementptr inbounds nuw i8, ptr %41, i64 12
   store i32 4064, ptr %1006, align 4
-  %1007 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i32 32, ptr %1007, align 4
-  %1008 = getelementptr inbounds nuw i8, ptr %41, i64 12
-  store i32 4064, ptr %1008, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
-  %1009 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i32 0, ptr %1009, align 4, !annotation !5
+  %1007 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store i32 0, ptr %1007, align 4, !annotation !5
   store i32 45336, ptr %40, align 4
-  %1010 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  %1008 = getelementptr inbounds nuw i8, ptr %40, i64 4
+  store i32 64, ptr %1008, align 4
+  %1009 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i32 64, ptr %1009, align 4
+  %1010 = getelementptr inbounds nuw i8, ptr %40, i64 12
   store i32 64, ptr %1010, align 4
-  %1011 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  store i32 64, ptr %1011, align 4
-  %1012 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  store i32 64, ptr %1012, align 4
-  %1013 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  store i8 2, ptr %1013, align 4
+  %1011 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  store i8 2, ptr %1011, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %40)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
-  %1014 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store i32 0, ptr %1014, align 4, !annotation !5
+  %1012 = getelementptr inbounds nuw i8, ptr %39, i64 16
+  store i32 0, ptr %1012, align 4, !annotation !5
   store i32 45056, ptr %39, align 4
-  %1015 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  %1013 = getelementptr inbounds nuw i8, ptr %39, i64 4
+  store i32 1073741824, ptr %1013, align 4
+  %1014 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  store i32 1073741824, ptr %1014, align 4
+  %1015 = getelementptr inbounds nuw i8, ptr %39, i64 12
   store i32 1073741824, ptr %1015, align 4
-  %1016 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store i32 1073741824, ptr %1016, align 4
-  %1017 = getelementptr inbounds nuw i8, ptr %39, i64 12
-  store i32 1073741824, ptr %1017, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %39)
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
-  %1018 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i32 0, ptr %1018, align 4, !annotation !5
+  %1016 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store i32 0, ptr %1016, align 4, !annotation !5
   store i32 45376, ptr %38, align 4
-  %1019 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  %1017 = getelementptr inbounds nuw i8, ptr %38, i64 4
+  store i32 524288, ptr %1017, align 4
+  %1018 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  store i32 0, ptr %1018, align 4
+  %1019 = getelementptr inbounds nuw i8, ptr %38, i64 12
   store i32 524288, ptr %1019, align 4
-  %1020 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store i32 0, ptr %1020, align 4
-  %1021 = getelementptr inbounds nuw i8, ptr %38, i64 12
-  store i32 524288, ptr %1021, align 4
-  %1022 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  store i8 2, ptr %1022, align 4
+  %1020 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store i8 2, ptr %1020, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
-  %1023 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i32 0, ptr %1023, align 4, !annotation !5
+  %1021 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i32 0, ptr %1021, align 4, !annotation !5
   store i32 8404, ptr %37, align 4
-  %1024 = getelementptr inbounds nuw i8, ptr %37, i64 4
-  store i32 0, ptr %1024, align 4
-  %1025 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store i32 8388736, ptr %1025, align 4
-  %1026 = getelementptr inbounds nuw i8, ptr %37, i64 12
-  store i32 128, ptr %1026, align 4
-  %1027 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  store i8 1, ptr %1027, align 4
+  %1022 = getelementptr inbounds nuw i8, ptr %37, i64 4
+  store i32 0, ptr %1022, align 4
+  %1023 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store i32 8388736, ptr %1023, align 4
+  %1024 = getelementptr inbounds nuw i8, ptr %37, i64 12
+  store i32 128, ptr %1024, align 4
+  %1025 = getelementptr inbounds nuw i8, ptr %37, i64 16
+  store i8 1, ptr %1025, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
-  %1028 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store i32 0, ptr %1028, align 4, !annotation !5
+  %1026 = getelementptr inbounds nuw i8, ptr %36, i64 16
+  store i32 0, ptr %1026, align 4, !annotation !5
   store i32 8352, ptr %36, align 4
-  %1029 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %1027 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  store i32 524288, ptr %1027, align 4
+  %1028 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store i32 524288, ptr %1028, align 4
+  %1029 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 524288, ptr %1029, align 4
-  %1030 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i32 524288, ptr %1030, align 4
-  %1031 = getelementptr inbounds nuw i8, ptr %36, i64 12
-  store i32 524288, ptr %1031, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %36)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %1032 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i32 0, ptr %1032, align 4, !annotation !5
+  %1030 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store i32 0, ptr %1030, align 4, !annotation !5
   store i32 8428, ptr %35, align 4
-  %1033 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  store i32 0, ptr %1033, align 4
-  %1034 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i32 131074, ptr %1034, align 4
-  %1035 = getelementptr inbounds nuw i8, ptr %35, i64 12
-  store i32 2, ptr %1035, align 4
-  %1036 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store i8 1, ptr %1036, align 4
+  %1031 = getelementptr inbounds nuw i8, ptr %35, i64 4
+  store i32 0, ptr %1031, align 4
+  %1032 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i32 131074, ptr %1032, align 4
+  %1033 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  store i32 2, ptr %1033, align 4
+  %1034 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store i8 1, ptr %1034, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  %.pr49 = load i8, ptr %988, align 8
-  br label %1037
+  %.pr49 = load i8, ptr %986, align 8
+  br label %1035
 
-1037:                                             ; preds = %991, %987
-  %1038 = phi i8 [ %.pr49, %991 ], [ %989, %987 ]
-  %1039 = icmp ugt i8 %1038, 8
-  br i1 %1039, label %1040, label %1046
+1035:                                             ; preds = %989, %985
+  %1036 = phi i8 [ %.pr49, %989 ], [ %987, %985 ]
+  %1037 = icmp ugt i8 %1036, 8
+  br i1 %1037, label %1038, label %1044
 
-1040:                                             ; preds = %1037
+1038:                                             ; preds = %1035
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
-  %1041 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i32 0, ptr %1041, align 4, !annotation !5
+  %1039 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store i32 0, ptr %1039, align 4, !annotation !5
   store i32 8416, ptr %34, align 4
-  %1042 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  store i32 0, ptr %1042, align 4
-  %1043 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store i32 1073758208, ptr %1043, align 4
-  %1044 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  store i32 16384, ptr %1044, align 4
-  %1045 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  store i8 1, ptr %1045, align 4
+  %1040 = getelementptr inbounds nuw i8, ptr %34, i64 4
+  store i32 0, ptr %1040, align 4
+  %1041 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store i32 1073758208, ptr %1041, align 4
+  %1042 = getelementptr inbounds nuw i8, ptr %34, i64 12
+  store i32 16384, ptr %1042, align 4
+  %1043 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store i8 1, ptr %1043, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  br label %1046
+  br label %1044
 
-1046:                                             ; preds = %1040, %1037
-  %1047 = load i32, ptr %907, align 4
-  %1048 = and i32 %1047, 1778384896
-  %1049 = icmp eq i32 %1048, 0
-  br i1 %1049, label %1055, label %1050
+1044:                                             ; preds = %1038, %1035
+  %1045 = load i32, ptr %905, align 4
+  %1046 = and i32 %1045, 1778384896
+  %1047 = icmp eq i32 %1046, 0
+  br i1 %1047, label %1053, label %1048
 
-1050:                                             ; preds = %1046
+1048:                                             ; preds = %1044
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %1051 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store i32 0, ptr %1051, align 4, !annotation !5
+  %1049 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  store i32 0, ptr %1049, align 4, !annotation !5
   store i32 45060, ptr %33, align 4
-  %1052 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  %1050 = getelementptr inbounds nuw i8, ptr %33, i64 4
+  store i32 128, ptr %1050, align 4
+  %1051 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store i32 128, ptr %1051, align 4
+  %1052 = getelementptr inbounds nuw i8, ptr %33, i64 12
   store i32 128, ptr %1052, align 4
-  %1053 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i32 128, ptr %1053, align 4
-  %1054 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  store i32 128, ptr %1054, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
-  %.pre120 = load i32, ptr %907, align 4
-  br label %1055
+  %.pre120 = load i32, ptr %905, align 4
+  br label %1053
 
-1055:                                             ; preds = %1050, %1046
-  %1056 = phi i32 [ %.pre120, %1050 ], [ %1047, %1046 ]
-  %1057 = and i32 %1056, 67108864
-  %1058 = icmp eq i32 %1057, 0
-  br i1 %1058, label %1065, label %1059
+1053:                                             ; preds = %1048, %1044
+  %1054 = phi i32 [ %.pre120, %1048 ], [ %1045, %1044 ]
+  %1055 = and i32 %1054, 67108864
+  %1056 = icmp eq i32 %1055, 0
+  br i1 %1056, label %1063, label %1057
 
-1059:                                             ; preds = %1055
+1057:                                             ; preds = %1053
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %1060 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i32 0, ptr %1060, align 4, !annotation !5
+  %1058 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store i32 0, ptr %1058, align 4, !annotation !5
   store i32 8420, ptr %32, align 4
-  %1061 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  store i32 0, ptr %1061, align 4
-  %1062 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i32 67109888, ptr %1062, align 4
-  %1063 = getelementptr inbounds nuw i8, ptr %32, i64 12
-  store i32 1024, ptr %1063, align 4
-  %1064 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store i8 1, ptr %1064, align 4
+  %1059 = getelementptr inbounds nuw i8, ptr %32, i64 4
+  store i32 0, ptr %1059, align 4
+  %1060 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i32 67109888, ptr %1060, align 4
+  %1061 = getelementptr inbounds nuw i8, ptr %32, i64 12
+  store i32 1024, ptr %1061, align 4
+  %1062 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store i8 1, ptr %1062, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %1065
+  br label %1063
 
-1065:                                             ; preds = %1059, %1055
-  %1066 = load i8, ptr %988, align 8
-  %1067 = icmp eq i8 %1066, 9
-  br i1 %1067, label %1068, label %1114
+1063:                                             ; preds = %1057, %1053
+  %1064 = load i8, ptr %986, align 8
+  %1065 = icmp eq i8 %1064, 9
+  br i1 %1065, label %1066, label %1112
 
-1068:                                             ; preds = %1065
+1066:                                             ; preds = %1063
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %1069 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i32 0, ptr %1069, align 4, !annotation !5
+  %1067 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i32 0, ptr %1067, align 4, !annotation !5
   store i32 8404, ptr %31, align 4
-  %1070 = getelementptr inbounds nuw i8, ptr %31, i64 4
-  store i32 0, ptr %1070, align 4
-  %1071 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store i32 262148, ptr %1071, align 4
-  %1072 = getelementptr inbounds nuw i8, ptr %31, i64 12
-  store i32 4, ptr %1072, align 4
-  %1073 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i8 1, ptr %1073, align 4
+  %1068 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  store i32 0, ptr %1068, align 4
+  %1069 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store i32 262148, ptr %1069, align 4
+  %1070 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  store i32 4, ptr %1070, align 4
+  %1071 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  store i8 1, ptr %1071, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %1074 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store i32 0, ptr %1074, align 4, !annotation !5
+  %1072 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store i32 0, ptr %1072, align 4, !annotation !5
   store i32 45340, ptr %30, align 4
-  %1075 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  %1073 = getelementptr inbounds nuw i8, ptr %30, i64 4
+  store i32 4, ptr %1073, align 4
+  %1074 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i32 4, ptr %1074, align 4
+  %1075 = getelementptr inbounds nuw i8, ptr %30, i64 12
   store i32 4, ptr %1075, align 4
-  %1076 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store i32 4, ptr %1076, align 4
-  %1077 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  store i32 4, ptr %1077, align 4
-  %1078 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  store i8 2, ptr %1078, align 4
+  %1076 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store i8 2, ptr %1076, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  %1079 = load i8, ptr %988, align 8
-  %1080 = icmp eq i8 %1079, 9
-  br i1 %1080, label %1081, label %1094
+  %1077 = load i8, ptr %986, align 8
+  %1078 = icmp eq i8 %1077, 9
+  br i1 %1078, label %1079, label %1092
 
-1081:                                             ; preds = %1068
-  %1082 = getelementptr inbounds nuw i8, ptr %655, i64 7168
-  %1083 = load ptr, ptr %1082, align 8
-  %1084 = getelementptr inbounds nuw i8, ptr %1083, i64 28
-  %1085 = load i64, ptr %1084, align 4
-  %1086 = and i64 %1085, 2
-  %1087 = icmp eq i64 %1086, 0
-  br i1 %1087, label %1094, label %1088
+1079:                                             ; preds = %1066
+  %1080 = getelementptr inbounds nuw i8, ptr %653, i64 7168
+  %1081 = load ptr, ptr %1080, align 8
+  %1082 = getelementptr inbounds nuw i8, ptr %1081, i64 28
+  %1083 = load i64, ptr %1082, align 4
+  %1084 = and i64 %1083, 2
+  %1085 = icmp eq i64 %1084, 0
+  br i1 %1085, label %1092, label %1086
 
-1088:                                             ; preds = %1081
+1086:                                             ; preds = %1079
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
-  %1089 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i32 0, ptr %1089, align 4, !annotation !5
+  %1087 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i32 0, ptr %1087, align 4, !annotation !5
   store i32 45312, ptr %29, align 4
-  %1090 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  %1088 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i32 16760832, ptr %1088, align 4
+  %1089 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  store i32 16269312, ptr %1089, align 4
+  %1090 = getelementptr inbounds nuw i8, ptr %29, i64 12
   store i32 16760832, ptr %1090, align 4
-  %1091 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i32 16269312, ptr %1091, align 4
-  %1092 = getelementptr inbounds nuw i8, ptr %29, i64 12
-  store i32 16760832, ptr %1092, align 4
-  %1093 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store i8 2, ptr %1093, align 4
+  %1091 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  store i8 2, ptr %1091, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
-  br label %1094
+  br label %1092
 
-1094:                                             ; preds = %1088, %1081, %1068
+1092:                                             ; preds = %1086, %1079, %1066
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %1095 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i32 0, ptr %1095, align 4, !annotation !5
+  %1093 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store i32 0, ptr %1093, align 4, !annotation !5
   store i32 45336, ptr %28, align 4
-  %1096 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  %1094 = getelementptr inbounds nuw i8, ptr %28, i64 4
+  store i32 2097152, ptr %1094, align 4
+  %1095 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i32 2097152, ptr %1095, align 4
+  %1096 = getelementptr inbounds nuw i8, ptr %28, i64 12
   store i32 2097152, ptr %1096, align 4
-  %1097 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i32 2097152, ptr %1097, align 4
-  %1098 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  store i32 2097152, ptr %1098, align 4
-  %1099 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  store i8 2, ptr %1099, align 4
+  %1097 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store i8 2, ptr %1097, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %1100 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i32 0, ptr %1100, align 4, !annotation !5
+  %1098 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i32 0, ptr %1098, align 4, !annotation !5
   store i32 45064, ptr %27, align 4
-  %1101 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %1099 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  store i32 1, ptr %1099, align 4
+  %1100 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store i32 0, ptr %1100, align 4
+  %1101 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 1, ptr %1101, align 4
-  %1102 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 0, ptr %1102, align 4
-  %1103 = getelementptr inbounds nuw i8, ptr %27, i64 12
-  store i32 1, ptr %1103, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %1104 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i32 0, ptr %1104, align 4, !annotation !5
+  %1102 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store i32 0, ptr %1102, align 4, !annotation !5
   store i32 45336, ptr %26, align 4
-  %1105 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  %1103 = getelementptr inbounds nuw i8, ptr %26, i64 4
+  store i32 4194304, ptr %1103, align 4
+  %1104 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  store i32 0, ptr %1104, align 4
+  %1105 = getelementptr inbounds nuw i8, ptr %26, i64 12
   store i32 4194304, ptr %1105, align 4
-  %1106 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 0, ptr %1106, align 4
-  %1107 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  store i32 4194304, ptr %1107, align 4
-  %1108 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i8 2, ptr %1108, align 4
+  %1106 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  store i8 2, ptr %1106, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %26)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
-  %1109 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i32 0, ptr %1109, align 4, !annotation !5
+  %1107 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store i32 0, ptr %1107, align 4, !annotation !5
   store i32 45340, ptr %25, align 4
-  %1110 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  %1108 = getelementptr inbounds nuw i8, ptr %25, i64 4
+  store i32 256, ptr %1108, align 4
+  %1109 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i32 0, ptr %1109, align 4
+  %1110 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 256, ptr %1110, align 4
-  %1111 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store i32 0, ptr %1111, align 4
-  %1112 = getelementptr inbounds nuw i8, ptr %25, i64 12
-  store i32 256, ptr %1112, align 4
-  %1113 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  store i8 2, ptr %1113, align 4
+  %1111 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store i8 2, ptr %1111, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %1114
+  br label %1112
 
-1114:                                             ; preds = %1094, %1065
-  %1115 = load i32, ptr %907, align 4
-  %1116 = and i32 %1115, 4194304
-  %1117 = icmp eq i32 %1116, 0
-  br i1 %1117, label %1129, label %1118
+1112:                                             ; preds = %1092, %1063
+  %1113 = load i32, ptr %905, align 4
+  %1114 = and i32 %1113, 4194304
+  %1115 = icmp eq i32 %1114, 0
+  br i1 %1115, label %1127, label %1116
 
-1118:                                             ; preds = %1114
+1116:                                             ; preds = %1112
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %1119 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i32 0, ptr %1119, align 4, !annotation !5
+  %1117 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i32 0, ptr %1117, align 4, !annotation !5
   store i32 57732, ptr %24, align 4
-  %1120 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i32 0, ptr %1120, align 4
-  %1121 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i32 33554944, ptr %1121, align 4
-  %1122 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  store i32 512, ptr %1122, align 4
-  %1123 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store i8 1, ptr %1123, align 4
+  %1118 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  store i32 0, ptr %1118, align 4
+  %1119 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i32 33554944, ptr %1119, align 4
+  %1120 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  store i32 512, ptr %1120, align 4
+  %1121 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store i8 1, ptr %1121, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %1124 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i32 0, ptr %1124, align 4, !annotation !5
+  %1122 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i32 0, ptr %1122, align 4, !annotation !5
   store i32 28672, ptr %23, align 4
-  %1125 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i32 0, ptr %1125, align 4
-  %1126 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store i32 262144, ptr %1126, align 4
-  %1127 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store i32 4, ptr %1127, align 4
-  %1128 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store i8 1, ptr %1128, align 4
+  %1123 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  store i32 0, ptr %1123, align 4
+  %1124 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i32 262144, ptr %1124, align 4
+  %1125 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  store i32 4, ptr %1125, align 4
+  %1126 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i8 1, ptr %1126, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  %.pre121 = load i32, ptr %907, align 4
-  br label %1129
+  %.pre121 = load i32, ptr %905, align 4
+  br label %1127
 
-1129:                                             ; preds = %1118, %1114
-  %1130 = phi i32 [ %.pre121, %1118 ], [ %1115, %1114 ]
-  %1131 = and i32 %1130, 2097152
-  %1132 = icmp eq i32 %1131, 0
-  br i1 %1132, label %1148, label %1133
+1127:                                             ; preds = %1116, %1112
+  %1128 = phi i32 [ %.pre121, %1116 ], [ %1113, %1112 ]
+  %1129 = and i32 %1128, 2097152
+  %1130 = icmp eq i32 %1129, 0
+  br i1 %1130, label %1146, label %1131
 
-1133:                                             ; preds = %1129
+1131:                                             ; preds = %1127
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %1134 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i32 0, ptr %1134, align 4, !annotation !5
+  %1132 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i32 0, ptr %1132, align 4, !annotation !5
   store i32 8336, ptr %22, align 4
-  %1135 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store i32 0, ptr %1135, align 4
-  %1136 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i32 67109888, ptr %1136, align 4
-  %1137 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store i32 1024, ptr %1137, align 4
-  %1138 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i8 1, ptr %1138, align 4
+  %1133 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store i32 0, ptr %1133, align 4
+  %1134 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store i32 67109888, ptr %1134, align 4
+  %1135 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  store i32 1024, ptr %1135, align 4
+  %1136 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store i8 1, ptr %1136, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %1139 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  store i32 0, ptr %1139, align 4, !annotation !5
+  %1137 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  store i32 0, ptr %1137, align 4, !annotation !5
   store i32 8352, ptr %21, align 4
-  %1140 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %1138 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store i32 487536, ptr %1138, align 4
+  %1139 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store i32 0, ptr %1139, align 4
+  %1140 = getelementptr inbounds nuw i8, ptr %21, i64 12
   store i32 487536, ptr %1140, align 4
-  %1141 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i32 0, ptr %1141, align 4
-  %1142 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store i32 487536, ptr %1142, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %1143 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i32 0, ptr %1143, align 4, !annotation !5
+  %1141 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i32 0, ptr %1141, align 4, !annotation !5
   store i32 57600, ptr %20, align 4
-  %1144 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store i32 0, ptr %1144, align 4
-  %1145 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i32 -2146926584, ptr %1145, align 4
-  %1146 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store i32 32776, ptr %1146, align 4
-  %1147 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store i8 1, ptr %1147, align 4
+  %1142 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store i32 0, ptr %1142, align 4
+  %1143 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i32 -2146926584, ptr %1143, align 4
+  %1144 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  store i32 32776, ptr %1144, align 4
+  %1145 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store i8 1, ptr %1145, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.pre122 = load i32, ptr %907, align 4
-  br label %1148
+  %.pre122 = load i32, ptr %905, align 4
+  br label %1146
 
-1148:                                             ; preds = %1133, %1129
-  %1149 = phi i32 [ %.pre122, %1133 ], [ %1130, %1129 ]
-  %1150 = and i32 %1149, 1048576
-  %1151 = icmp eq i32 %1150, 0
-  br i1 %1151, label %1177, label %1152
+1146:                                             ; preds = %1131, %1127
+  %1147 = phi i32 [ %.pre122, %1131 ], [ %1128, %1127 ]
+  %1148 = and i32 %1147, 1048576
+  %1149 = icmp eq i32 %1148, 0
+  br i1 %1149, label %1175, label %1150
 
-1152:                                             ; preds = %1148
+1150:                                             ; preds = %1146
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %1153 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i32 0, ptr %1153, align 4, !annotation !5
+  %1151 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i32 0, ptr %1151, align 4, !annotation !5
   store i32 8336, ptr %19, align 4
-  %1154 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  store i32 0, ptr %1154, align 4
-  %1155 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i32 67109888, ptr %1155, align 4
-  %1156 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  store i32 1024, ptr %1156, align 4
-  %1157 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  store i8 1, ptr %1157, align 4
+  %1152 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  store i32 0, ptr %1152, align 4
+  %1153 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i32 67109888, ptr %1153, align 4
+  %1154 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  store i32 1024, ptr %1154, align 4
+  %1155 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store i8 1, ptr %1155, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %1158 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  store i32 0, ptr %1158, align 4, !annotation !5
+  %1156 = getelementptr inbounds nuw i8, ptr %18, i64 16
+  store i32 0, ptr %1156, align 4, !annotation !5
   store i32 8352, ptr %18, align 4
-  %1159 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  %1157 = getelementptr inbounds nuw i8, ptr %18, i64 4
+  store i32 487536, ptr %1157, align 4
+  %1158 = getelementptr inbounds nuw i8, ptr %18, i64 8
+  store i32 0, ptr %1158, align 4
+  %1159 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 487536, ptr %1159, align 4
-  %1160 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  store i32 0, ptr %1160, align 4
-  %1161 = getelementptr inbounds nuw i8, ptr %18, i64 12
-  store i32 487536, ptr %1161, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %1162 = load i32, ptr %907, align 4
-  %1163 = and i32 %1162, 1048576
-  %1164 = icmp eq i32 %1163, 0
-  br i1 %1164, label %1177, label %1165
+  %1160 = load i32, ptr %905, align 4
+  %1161 = and i32 %1160, 1048576
+  %1162 = icmp eq i32 %1161, 0
+  br i1 %1162, label %1175, label %1163
 
-1165:                                             ; preds = %1152
-  %1166 = getelementptr inbounds nuw i8, ptr %655, i64 7168
-  %1167 = load ptr, ptr %1166, align 8
-  %1168 = getelementptr inbounds nuw i8, ptr %1167, i64 16
-  %1169 = load i8, ptr %1168, align 8
-  %1170 = icmp eq i8 %1169, 1
-  br i1 %1170, label %1171, label %1177
+1163:                                             ; preds = %1150
+  %1164 = getelementptr inbounds nuw i8, ptr %653, i64 7168
+  %1165 = load ptr, ptr %1164, align 8
+  %1166 = getelementptr inbounds nuw i8, ptr %1165, i64 16
+  %1167 = load i8, ptr %1166, align 8
+  %1168 = icmp eq i8 %1167, 1
+  br i1 %1168, label %1169, label %1175
 
-1171:                                             ; preds = %1165
+1169:                                             ; preds = %1163
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %1172 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i32 0, ptr %1172, align 4, !annotation !5
+  %1170 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i32 0, ptr %1170, align 4, !annotation !5
   store i32 57600, ptr %17, align 4
-  %1173 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 0, ptr %1173, align 4
-  %1174 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store i32 524296, ptr %1174, align 4
-  %1175 = getelementptr inbounds nuw i8, ptr %17, i64 12
-  store i32 8, ptr %1175, align 4
-  %1176 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i8 1, ptr %1176, align 4
+  %1171 = getelementptr inbounds nuw i8, ptr %17, i64 4
+  store i32 0, ptr %1171, align 4
+  %1172 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store i32 524296, ptr %1172, align 4
+  %1173 = getelementptr inbounds nuw i8, ptr %17, i64 12
+  store i32 8, ptr %1173, align 4
+  %1174 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store i8 1, ptr %1174, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %1177
+  br label %1175
 
-1177:                                             ; preds = %1171, %1165, %1152, %1148
-  %1178 = load i8, ptr %988, align 8
-  %1179 = icmp eq i8 %1178, 7
-  br i1 %1179, label %1180, label %1201
+1175:                                             ; preds = %1169, %1163, %1150, %1146
+  %1176 = load i8, ptr %986, align 8
+  %1177 = icmp eq i8 %1176, 7
+  br i1 %1177, label %1178, label %1199
 
-1180:                                             ; preds = %1177
+1178:                                             ; preds = %1175
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %1181 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i32 0, ptr %1181, align 4, !annotation !5
+  %1179 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i32 0, ptr %1179, align 4, !annotation !5
   store i32 8860, ptr %16, align 4
-  %1182 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  store i32 0, ptr %1182, align 4
-  %1183 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store i32 671098880, ptr %1183, align 4
-  %1184 = getelementptr inbounds nuw i8, ptr %16, i64 12
-  store i32 10240, ptr %1184, align 4
-  %1185 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  store i8 1, ptr %1185, align 4
+  %1180 = getelementptr inbounds nuw i8, ptr %16, i64 4
+  store i32 0, ptr %1180, align 4
+  %1181 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store i32 671098880, ptr %1181, align 4
+  %1182 = getelementptr inbounds nuw i8, ptr %16, i64 12
+  store i32 10240, ptr %1182, align 4
+  %1183 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  store i8 1, ptr %1183, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %1186 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i32 0, ptr %1186, align 4, !annotation !5
+  %1184 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i32 0, ptr %1184, align 4, !annotation !5
   store i32 28672, ptr %15, align 4
-  %1187 = getelementptr inbounds nuw i8, ptr %15, i64 4
-  store i32 0, ptr %1187, align 4
-  %1188 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i32 65536, ptr %1188, align 4
-  %1189 = getelementptr inbounds nuw i8, ptr %15, i64 12
-  store i32 1, ptr %1189, align 4
-  %1190 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i8 1, ptr %1190, align 4
+  %1185 = getelementptr inbounds nuw i8, ptr %15, i64 4
+  store i32 0, ptr %1185, align 4
+  %1186 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i32 65536, ptr %1186, align 4
+  %1187 = getelementptr inbounds nuw i8, ptr %15, i64 12
+  store i32 1, ptr %1187, align 4
+  %1188 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i8 1, ptr %1188, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %1191 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i32 0, ptr %1191, align 4, !annotation !5
+  %1189 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i32 0, ptr %1189, align 4, !annotation !5
   store i32 28676, ptr %14, align 4
-  %1192 = getelementptr inbounds nuw i8, ptr %14, i64 4
-  store i32 0, ptr %1192, align 4
-  %1193 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  store i32 4194368, ptr %1193, align 4
-  %1194 = getelementptr inbounds nuw i8, ptr %14, i64 12
-  store i32 64, ptr %1194, align 4
-  %1195 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store i8 1, ptr %1195, align 4
+  %1190 = getelementptr inbounds nuw i8, ptr %14, i64 4
+  store i32 0, ptr %1190, align 4
+  %1191 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  store i32 4194368, ptr %1191, align 4
+  %1192 = getelementptr inbounds nuw i8, ptr %14, i64 12
+  store i32 64, ptr %1192, align 4
+  %1193 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store i8 1, ptr %1193, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %1196 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i32 0, ptr %1196, align 4, !annotation !5
+  %1194 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i32 0, ptr %1194, align 4, !annotation !5
   store i32 28680, ptr %13, align 4
-  %1197 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  store i32 0, ptr %1197, align 4
-  %1198 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i32 41943552, ptr %1198, align 4
-  %1199 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 640, ptr %1199, align 4
-  %1200 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i8 1, ptr %1200, align 4
+  %1195 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  store i32 0, ptr %1195, align 4
+  %1196 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  store i32 41943552, ptr %1196, align 4
+  %1197 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store i32 640, ptr %1197, align 4
+  %1198 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i8 1, ptr %1198, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.pre123 = load i8, ptr %988, align 8
-  br label %1201
+  %.pre123 = load i8, ptr %986, align 8
+  br label %1199
 
-1201:                                             ; preds = %1180, %1177
-  %1202 = phi i8 [ %.pre123, %1180 ], [ %1178, %1177 ]
-  %1203 = and i8 %1202, -2
-  %1204 = icmp eq i8 %1203, 6
-  br i1 %1204, label %1205, label %.thread51
+1199:                                             ; preds = %1178, %1175
+  %1200 = phi i8 [ %.pre123, %1178 ], [ %1176, %1175 ]
+  %1201 = and i8 %1200, -2
+  %1202 = icmp eq i8 %1201, 6
+  br i1 %1202, label %1203, label %.thread51
 
-1205:                                             ; preds = %1201
+1203:                                             ; preds = %1199
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %1206 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i32 0, ptr %1206, align 4, !annotation !5
+  %1204 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i32 0, ptr %1204, align 4, !annotation !5
   store i32 8348, ptr %12, align 4
-  %1207 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 0, ptr %1207, align 4
-  %1208 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 1073758208, ptr %1208, align 4
-  %1209 = getelementptr inbounds nuw i8, ptr %12, i64 12
-  store i32 16384, ptr %1209, align 4
-  %1210 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i8 1, ptr %1210, align 4
+  %1205 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 0, ptr %1205, align 4
+  %1206 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 1073758208, ptr %1206, align 4
+  %1207 = getelementptr inbounds nuw i8, ptr %12, i64 12
+  store i32 16384, ptr %1207, align 4
+  %1208 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i8 1, ptr %1208, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.pr50 = load i8, ptr %988, align 8
-  %1211 = icmp eq i8 %.pr50, 6
-  br i1 %1211, label %1212, label %.thread51
+  %.pr50 = load i8, ptr %986, align 8
+  %1209 = icmp eq i8 %.pr50, 6
+  br i1 %1209, label %1210, label %.thread51
 
-1212:                                             ; preds = %1205
+1210:                                             ; preds = %1203
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %1213 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i32 0, ptr %1213, align 4, !annotation !5
+  %1211 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i32 0, ptr %1211, align 4, !annotation !5
   store i32 9504, ptr %11, align 4
-  %1214 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  store i32 0, ptr %1214, align 4
-  %1215 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i32 536879104, ptr %1215, align 4
-  %1216 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i32 8192, ptr %1216, align 4
-  %1217 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i8 1, ptr %1217, align 4
+  %1212 = getelementptr inbounds nuw i8, ptr %11, i64 4
+  store i32 0, ptr %1212, align 4
+  %1213 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i32 536879104, ptr %1213, align 4
+  %1214 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i32 8192, ptr %1214, align 4
+  %1215 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i8 1, ptr %1215, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %1218 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i32 0, ptr %1218, align 4, !annotation !5
+  %1216 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i32 0, ptr %1216, align 4, !annotation !5
   store i32 8324, ptr %10, align 4
-  %1219 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  store i32 0, ptr %1219, align 4
-  %1220 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i32 67109888, ptr %1220, align 4
-  %1221 = getelementptr inbounds nuw i8, ptr %10, i64 12
-  store i32 1024, ptr %1221, align 4
-  %1222 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store i8 1, ptr %1222, align 4
+  %1217 = getelementptr inbounds nuw i8, ptr %10, i64 4
+  store i32 0, ptr %1217, align 4
+  %1218 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i32 67109888, ptr %1218, align 4
+  %1219 = getelementptr inbounds nuw i8, ptr %10, i64 12
+  store i32 1024, ptr %1219, align 4
+  %1220 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  store i8 1, ptr %1220, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %1223 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i32 0, ptr %1223, align 4, !annotation !5
+  %1221 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i32 0, ptr %1221, align 4, !annotation !5
   store i32 8336, ptr %9, align 4
-  %1224 = getelementptr inbounds nuw i8, ptr %9, i64 4
-  store i32 0, ptr %1224, align 4
-  %1225 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 2228258, ptr %1225, align 4
-  %1226 = getelementptr inbounds nuw i8, ptr %9, i64 12
-  store i32 34, ptr %1226, align 4
-  %1227 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i8 1, ptr %1227, align 4
+  %1222 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  store i32 0, ptr %1222, align 4
+  %1223 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 2228258, ptr %1223, align 4
+  %1224 = getelementptr inbounds nuw i8, ptr %9, i64 12
+  store i32 34, ptr %1224, align 4
+  %1225 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  store i8 1, ptr %1225, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %1228 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i32 0, ptr %1228, align 4, !annotation !5
+  %1226 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i32 0, ptr %1226, align 4, !annotation !5
   store i32 8400, ptr %8, align 4
-  %1229 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 0, ptr %1229, align 4
-  %1230 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i32 41943552, ptr %1230, align 4
-  %1231 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  store i32 640, ptr %1231, align 4
-  %1232 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i8 1, ptr %1232, align 4
+  %1227 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  store i32 0, ptr %1227, align 4
+  %1228 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i32 41943552, ptr %1228, align 4
+  %1229 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  store i32 640, ptr %1229, align 4
+  %1230 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store i8 1, ptr %1230, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %1233 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i32 0, ptr %1233, align 4, !annotation !5
+  %1231 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i32 0, ptr %1231, align 4, !annotation !5
   store i32 8480, ptr %7, align 4
-  %1234 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 0, ptr %1234, align 4
-  %1235 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 65536, ptr %1235, align 4
-  %1236 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 1, ptr %1236, align 4
-  %1237 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i8 1, ptr %1237, align 4
+  %1232 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store i32 0, ptr %1232, align 4
+  %1233 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i32 65536, ptr %1233, align 4
+  %1234 = getelementptr inbounds nuw i8, ptr %7, i64 12
+  store i32 1, ptr %1234, align 4
+  %1235 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store i8 1, ptr %1235, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %1238 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 0, ptr %1238, align 4, !annotation !5
+  %1236 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i32 0, ptr %1236, align 4, !annotation !5
   store i32 8480, ptr %6, align 4
-  %1239 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 0, ptr %1239, align 4
-  %1240 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 2097152, ptr %1240, align 4
-  %1241 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 32, ptr %1241, align 4
-  %1242 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i8 1, ptr %1242, align 4
+  %1237 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 0, ptr %1237, align 4
+  %1238 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 2097152, ptr %1238, align 4
+  %1239 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 32, ptr %1239, align 4
+  %1240 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i8 1, ptr %1240, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre124 = load i8, ptr %988, align 8
+  %.pre124 = load i8, ptr %986, align 8
   br label %.thread51
 
-.thread51:                                        ; preds = %1201, %1212, %1205
-  %1243 = phi i8 [ %1202, %1201 ], [ %.pre124, %1212 ], [ %.pr50, %1205 ]
-  %1244 = add i8 %1243, -4
-  %1245 = icmp ult i8 %1244, 3
-  br i1 %1245, label %1246, label %.thread53
+.thread51:                                        ; preds = %1199, %1210, %1203
+  %1241 = phi i8 [ %1200, %1199 ], [ %.pre124, %1210 ], [ %.pr50, %1203 ]
+  %1242 = add i8 %1241, -4
+  %1243 = icmp ult i8 %1242, 3
+  br i1 %1243, label %1244, label %.thread53
 
-1246:                                             ; preds = %.thread51
-  %1247 = load i32, ptr %907, align 4
-  %1248 = lshr i32 %1247, 8
-  %1249 = and i32 %1248, 64
-  %1250 = xor i32 %1249, 64
+1244:                                             ; preds = %.thread51
+  %1245 = load i32, ptr %905, align 4
+  %1246 = lshr i32 %1245, 8
+  %1247 = and i32 %1246, 64
+  %1248 = xor i32 %1247, 64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %1251 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 0, ptr %1251, align 4, !annotation !5
+  %1249 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i32 0, ptr %1249, align 4, !annotation !5
   store i32 8348, ptr %5, align 4
-  %1252 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 0, ptr %1252, align 4
-  %1253 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 4194368, ptr %1253, align 4
-  %1254 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %1250, ptr %1254, align 4
-  %1255 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i8 1, ptr %1255, align 4
+  %1250 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 0, ptr %1250, align 4
+  %1251 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 4194368, ptr %1251, align 4
+  %1252 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %1248, ptr %1252, align 4
+  %1253 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i8 1, ptr %1253, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pr52 = load i8, ptr %988, align 8
-  %1256 = icmp eq i8 %.pr52, 4
-  br i1 %1256, label %1257, label %.thread53
+  %.pr52 = load i8, ptr %986, align 8
+  %1254 = icmp eq i8 %.pr52, 4
+  br i1 %1254, label %1255, label %.thread53
 
-1257:                                             ; preds = %1246
+1255:                                             ; preds = %1244
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %1258 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 0, ptr %1258, align 4, !annotation !5
+  %1256 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 0, ptr %1256, align 4, !annotation !5
   store i32 8656, ptr %4, align 4
-  %1259 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %1257 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 0, ptr %1257, align 4
+  %1258 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i32 1048592, ptr %1258, align 4
+  %1259 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %1259, align 4
-  %1260 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 1048592, ptr %1260, align 4
-  %1261 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  store i32 0, ptr %1261, align 4
-  %1262 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 1, ptr %1262, align 4
+  %1260 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i8 1, ptr %1260, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread53
 
-1263:                                             ; preds = %652
-  %1264 = getelementptr inbounds nuw i8, ptr %655, i64 7184
-  %1265 = load i32, ptr %1264, align 4
-  %1266 = and i32 %1265, 134217728
-  %1267 = icmp eq i32 %1266, 0
-  br i1 %1267, label %1296, label %1268
+1261:                                             ; preds = %650
+  %1262 = getelementptr inbounds nuw i8, ptr %653, i64 7184
+  %1263 = load i32, ptr %1262, align 4
+  %1264 = and i32 %1263, 134217728
+  %1265 = icmp eq i32 %1264, 0
+  br i1 %1265, label %1294, label %1266
 
-1268:                                             ; preds = %1263
-  %1269 = getelementptr inbounds nuw i8, ptr %655, i64 7200
-  %1270 = load i8, ptr %1269, align 8
-  %1271 = icmp eq i8 %1270, 0
-  br i1 %1271, label %1272, label %1284, !prof !6
+1266:                                             ; preds = %1261
+  %1267 = getelementptr inbounds nuw i8, ptr %653, i64 7200
+  %1268 = load i8, ptr %1267, align 8
+  %1269 = icmp eq i8 %1268, 0
+  br i1 %1269, label %1270, label %1282, !prof !6
 
-1272:                                             ; preds = %1268
+1270:                                             ; preds = %1266
   tail call void asm sideeffect "972: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 972b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 972) #10, !srcloc !179
-  %1273 = getelementptr inbounds nuw i8, ptr %655, i64 8
-  %1274 = load ptr, ptr %1273, align 8
-  %1275 = tail call ptr @dev_driver_string(ptr noundef %1274) #10
-  %1276 = load ptr, ptr %1273, align 8
-  %1277 = getelementptr inbounds nuw i8, ptr %1276, i64 80
-  %1278 = load ptr, ptr %1277, align 8
-  %1279 = icmp eq ptr %1278, null
-  br i1 %1279, label %1280, label %1282
+  %1271 = getelementptr inbounds nuw i8, ptr %653, i64 8
+  %1272 = load ptr, ptr %1271, align 8
+  %1273 = tail call ptr @dev_driver_string(ptr noundef %1272) #10
+  %1274 = load ptr, ptr %1271, align 8
+  %1275 = getelementptr inbounds nuw i8, ptr %1274, i64 80
+  %1276 = load ptr, ptr %1275, align 8
+  %1277 = icmp eq ptr %1276, null
+  br i1 %1277, label %1278, label %1280
 
-1280:                                             ; preds = %1272
-  %1281 = load ptr, ptr %1276, align 8
-  br label %1282
+1278:                                             ; preds = %1270
+  %1279 = load ptr, ptr %1274, align 8
+  br label %1280
 
-1282:                                             ; preds = %1280, %1272
-  %1283 = phi ptr [ %1281, %1280 ], [ %1278, %1272 ]
-  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %1275, ptr noundef %1283, ptr noundef nonnull @.str.13) #10
+1280:                                             ; preds = %1278, %1270
+  %1281 = phi ptr [ %1279, %1278 ], [ %1276, %1270 ]
+  tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.11, ptr noundef %1273, ptr noundef %1281, ptr noundef nonnull @.str.13) #10
   tail call void asm sideeffect "973: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 973b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 973) #10, !srcloc !180
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.6, i32 2792, i32 2313, i64 12) #10, !srcloc !181
   tail call void asm sideeffect "974: nop\0A\09.pushsection .discard.instr_end\0A\09.long 974b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 974) #10, !srcloc !182
   tail call void asm sideeffect "975: nop\0A\09.pushsection .discard.instr_end\0A\09.long 975b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 975) #10, !srcloc !183
-  %.pre128 = load i8, ptr %1269, align 8
-  br label %1284
+  %.pre128 = load i8, ptr %1267, align 8
+  br label %1282
 
-1284:                                             ; preds = %1282, %1268
-  %1285 = phi i8 [ %.pre128, %1282 ], [ %1270, %1268 ]
-  %1286 = add i8 %1285, -1
-  %1287 = icmp ult i8 %1286, 20
-  br i1 %1287, label %1288, label %1296
+1282:                                             ; preds = %1280, %1266
+  %1283 = phi i8 [ %.pre128, %1280 ], [ %1268, %1266 ]
+  %1284 = add i8 %1283, -1
+  %1285 = icmp ult i8 %1284, 20
+  br i1 %1285, label %1286, label %1294
 
-1288:                                             ; preds = %1284
-  %1289 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1290 = load i32, ptr %1289, align 8
-  %1291 = add i32 %1290, 588
+1286:                                             ; preds = %1282
+  %1287 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1288 = load i32, ptr %1287, align 8
+  %1289 = add i32 %1288, 588
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %1292 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store i32 0, ptr %1292, align 4, !annotation !5
-  store i32 %1291, ptr %3, align 4
-  %1293 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %1290 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store i32 0, ptr %1290, align 4, !annotation !5
+  store i32 %1289, ptr %3, align 4
+  %1291 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store i32 -1, ptr %1291, align 4
+  %1292 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 1, ptr %1292, align 4
+  %1293 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 -1, ptr %1293, align 4
-  %1294 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1, ptr %1294, align 4
-  %1295 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 -1, ptr %1295, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %1296
+  br label %1294
 
-1296:                                             ; preds = %1288, %1284, %1263
-  %1297 = load ptr, ptr %80, align 8
-  %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 16
-  %1299 = load i32, ptr %1298, align 8
-  %1300 = icmp eq i32 %1299, 2
-  br i1 %1300, label %.thread53, label %1301
+1294:                                             ; preds = %1286, %1282, %1261
+  %1295 = load ptr, ptr %80, align 8
+  %1296 = getelementptr inbounds nuw i8, ptr %1295, i64 16
+  %1297 = load i32, ptr %1296, align 8
+  %1298 = icmp eq i32 %1297, 2
+  br i1 %1298, label %.thread53, label %1299
 
-1301:                                             ; preds = %1296
-  %1302 = load ptr, ptr %1297, align 8
-  %1303 = getelementptr inbounds nuw i8, ptr %1302, i64 7176
-  %1304 = load i8, ptr %1303, align 8
-  %1305 = zext i8 %1304 to i32
-  %1306 = shl nuw nsw i32 %1305, 8
-  %1307 = getelementptr inbounds nuw i8, ptr %1302, i64 7177
-  %1308 = load i8, ptr %1307, align 1
-  %1309 = zext i8 %1308 to i32
-  %1310 = or disjoint i32 %1306, %1309
-  %1311 = add nsw i32 %1310, -3127
-  %1312 = icmp ult i32 %1311, 17
-  br i1 %1312, label %1313, label %.thread53
+1299:                                             ; preds = %1294
+  %1300 = load ptr, ptr %1295, align 8
+  %1301 = getelementptr inbounds nuw i8, ptr %1300, i64 7176
+  %1302 = load i8, ptr %1301, align 8
+  %1303 = zext i8 %1302 to i32
+  %1304 = shl nuw nsw i32 %1303, 8
+  %1305 = getelementptr inbounds nuw i8, ptr %1300, i64 7177
+  %1306 = load i8, ptr %1305, align 1
+  %1307 = zext i8 %1306 to i32
+  %1308 = or disjoint i32 %1304, %1307
+  %1309 = add nsw i32 %1308, -3127
+  %1310 = icmp ult i32 %1309, 17
+  br i1 %1310, label %1311, label %.thread53
 
-1313:                                             ; preds = %1301
-  %1314 = load i8, ptr %653, align 8
-  %1315 = icmp eq i8 %1314, 3
-  br i1 %1315, label %1316, label %.thread53
+1311:                                             ; preds = %1299
+  %1312 = load i8, ptr %651, align 8
+  %1313 = icmp eq i8 %1312, 3
+  br i1 %1313, label %1314, label %.thread53
 
-1316:                                             ; preds = %1313
-  %1317 = getelementptr inbounds nuw i8, ptr %0, i64 57
-  %1318 = load i8, ptr %1317, align 1
-  %1319 = icmp eq i8 %1318, 0
-  br i1 %1319, label %1320, label %.thread53
+1314:                                             ; preds = %1311
+  %1315 = getelementptr inbounds nuw i8, ptr %0, i64 57
+  %1316 = load i8, ptr %1315, align 1
+  %1317 = icmp eq i8 %1316, 0
+  br i1 %1317, label %1318, label %.thread53
 
-1320:                                             ; preds = %1316
-  %1321 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %1322 = load i32, ptr %1321, align 8
-  %1323 = add i32 %1322, 464
+1318:                                             ; preds = %1314
+  %1319 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %1320 = load i32, ptr %1319, align 8
+  %1321 = add i32 %1320, 464
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %1324 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 0, ptr %1324, align 4, !annotation !5
-  store i32 %1323, ptr %2, align 4
-  %1325 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 0, ptr %1325, align 4
-  %1326 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 402655232, ptr %1326, align 4
-  %1327 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  store i32 6144, ptr %1327, align 4
-  %1328 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 1, ptr %1328, align 4
+  %1322 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i32 0, ptr %1322, align 4, !annotation !5
+  store i32 %1321, ptr %2, align 4
+  %1323 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  store i32 0, ptr %1323, align 4
+  %1324 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 402655232, ptr %1324, align 4
+  %1325 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  store i32 6144, ptr %1325, align 4
+  %1326 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store i8 1, ptr %1326, align 4
   call fastcc void @_wa_add(ptr noundef nonnull %79, ptr noundef nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.thread53
 
-.thread53:                                        ; preds = %.thread51, %1320, %1316, %1313, %1301, %1296, %1257, %1246, %684, %680, %656, %1
-  %1329 = getelementptr inbounds nuw i8, ptr %0, i64 712
-  %1330 = load i32, ptr %1329, align 8
-  %1331 = and i32 %1330, 15
-  %1332 = icmp eq i32 %1331, 0
-  br i1 %1332, label %1342, label %1333
+.thread53:                                        ; preds = %.thread51, %1318, %1314, %1311, %1299, %1294, %1255, %1244, %682, %678, %654, %1
+  %1327 = getelementptr inbounds nuw i8, ptr %0, i64 712
+  %1328 = load i32, ptr %1327, align 8
+  %1329 = and i32 %1328, 15
+  %1330 = icmp eq i32 %1329, 0
+  br i1 %1330, label %1340, label %1331
 
-1333:                                             ; preds = %.thread53
-  %1334 = getelementptr inbounds nuw i8, ptr %0, i64 704
-  %1335 = load ptr, ptr %1334, align 8
-  %1336 = zext i32 %1330 to i64
-  %1337 = mul nuw nsw i64 %1336, 20
-  %1338 = tail call ptr @kmemdup(ptr noundef %1335, i64 noundef %1337, i32 noundef 3264) #11
-  %1339 = icmp eq ptr %1338, null
-  br i1 %1339, label %thread-pre-split.i, label %1340
+1331:                                             ; preds = %.thread53
+  %1332 = getelementptr inbounds nuw i8, ptr %0, i64 704
+  %1333 = load ptr, ptr %1332, align 8
+  %1334 = zext i32 %1328 to i64
+  %1335 = mul nuw nsw i64 %1334, 20
+  %1336 = tail call ptr @kmemdup(ptr noundef %1333, i64 noundef %1335, i32 noundef 3264) #11
+  %1337 = icmp eq ptr %1336, null
+  br i1 %1337, label %thread-pre-split.i, label %1338
 
-1340:                                             ; preds = %1333
-  %1341 = load ptr, ptr %1334, align 8
-  tail call void @kfree(ptr noundef %1341) #10
-  store ptr %1338, ptr %1334, align 8
+1338:                                             ; preds = %1331
+  %1339 = load ptr, ptr %1332, align 8
+  tail call void @kfree(ptr noundef %1339) #10
+  store ptr %1336, ptr %1332, align 8
   br label %thread-pre-split.i
 
-thread-pre-split.i:                               ; preds = %1340, %1333
-  %.pr.i = load i32, ptr %1329, align 8
-  br label %1342
+thread-pre-split.i:                               ; preds = %1338, %1331
+  %.pr.i = load i32, ptr %1327, align 8
+  br label %1340
 
-1342:                                             ; preds = %thread-pre-split.i, %.thread53
-  %1343 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %1330, %.thread53 ]
-  %1344 = icmp eq i32 %1343, 0
-  br i1 %1344, label %wa_init_finish.exit, label %1345
+1340:                                             ; preds = %thread-pre-split.i, %.thread53
+  %1341 = phi i32 [ %.pr.i, %thread-pre-split.i ], [ %1328, %.thread53 ]
+  %1342 = icmp eq i32 %1341, 0
+  br i1 %1342, label %wa_init_finish.exit, label %1343
 
-1345:                                             ; preds = %1342
-  %1346 = load ptr, ptr %79, align 8
-  %1347 = load ptr, ptr %1346, align 8
-  %1348 = icmp eq ptr %1347, null
-  br i1 %1348, label %1352, label %1349
+1343:                                             ; preds = %1340
+  %1344 = load ptr, ptr %79, align 8
+  %1345 = load ptr, ptr %1344, align 8
+  %1346 = icmp eq ptr %1345, null
+  br i1 %1346, label %1350, label %1347
 
-1349:                                             ; preds = %1345
-  %1350 = getelementptr inbounds nuw i8, ptr %1347, i64 8
-  %1351 = load ptr, ptr %1350, align 8
-  br label %1352
+1347:                                             ; preds = %1343
+  %1348 = getelementptr inbounds nuw i8, ptr %1345, i64 8
+  %1349 = load ptr, ptr %1348, align 8
+  br label %1350
 
-1352:                                             ; preds = %1349, %1345
-  %1353 = phi ptr [ %1351, %1349 ], [ null, %1345 ]
-  %1354 = getelementptr inbounds nuw i8, ptr %1346, i64 4952
-  %1355 = load i32, ptr %1354, align 8
-  %1356 = getelementptr inbounds nuw i8, ptr %0, i64 716
-  %1357 = load i32, ptr %1356, align 4
-  %1358 = load ptr, ptr %83, align 8
-  %1359 = load ptr, ptr %84, align 8
-  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1353, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %1355, i32 noundef %1357, ptr noundef %1358, ptr noundef %1359) #10
+1350:                                             ; preds = %1347, %1343
+  %1351 = phi ptr [ %1349, %1347 ], [ null, %1343 ]
+  %1352 = getelementptr inbounds nuw i8, ptr %1344, i64 4952
+  %1353 = load i32, ptr %1352, align 8
+  %1354 = getelementptr inbounds nuw i8, ptr %0, i64 716
+  %1355 = load i32, ptr %1354, align 4
+  %1356 = load ptr, ptr %83, align 8
+  %1357 = load ptr, ptr %84, align 8
+  tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %1351, i32 noundef 1, ptr noundef nonnull @.str.18, i32 noundef %1353, i32 noundef %1355, ptr noundef %1356, ptr noundef %1357) #10
   br label %wa_init_finish.exit
 
-wa_init_finish.exit:                              ; preds = %1342, %1352
+wa_init_finish.exit:                              ; preds = %1340, %1350
   ret void
 }
 

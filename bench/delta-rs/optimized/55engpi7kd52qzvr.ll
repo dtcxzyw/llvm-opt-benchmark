@@ -1591,15 +1591,15 @@ _ZN4core4sync6atomic11atomic_load17h19c5aa69e5f95611E.llvm.7144237729116928069.e
   %29 = tail call { i64, i64 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h803a9bca9577ffdfE.llvm.7144237729116928069(ptr noundef nonnull %0, i64 noundef %.0, i64 noundef %28, i8 noundef %1, i8 noundef %2)
   %30 = extractvalue { i64, i64 } %29, 0
   %31 = extractvalue { i64, i64 } %29, 1
-  %switch = icmp eq i64 %30, 0
-  br i1 %switch, label %_ZN4core3ops8function5FnMut8call_mut17h769775528bdc7104E.exit, label %_ZN4core4sync6atomic11atomic_load17h19c5aa69e5f95611E.llvm.7144237729116928069.exit
+  %32 = icmp eq i64 %30, 0
+  br i1 %32, label %_ZN4core3ops8function5FnMut8call_mut17h769775528bdc7104E.exit, label %_ZN4core4sync6atomic11atomic_load17h19c5aa69e5f95611E.llvm.7144237729116928069.exit
 
 _ZN4core3ops8function5FnMut8call_mut17h769775528bdc7104E.exit: ; preds = %_ZN4core4sync6atomic11atomic_load17h19c5aa69e5f95611E.llvm.7144237729116928069.exit, %27
   %.sroa.3.0 = phi i64 [ %31, %27 ], [ 0, %_ZN4core4sync6atomic11atomic_load17h19c5aa69e5f95611E.llvm.7144237729116928069.exit ]
   %.sroa.0.0 = phi i64 [ 0, %27 ], [ 1, %_ZN4core4sync6atomic11atomic_load17h19c5aa69e5f95611E.llvm.7144237729116928069.exit ]
-  %32 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %33 = insertvalue { i64, i64 } %32, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %33
+  %33 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %34 = insertvalue { i64, i64 } %33, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %34
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

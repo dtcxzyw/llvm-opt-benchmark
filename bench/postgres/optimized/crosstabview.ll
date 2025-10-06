@@ -116,14 +116,14 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br i1 %43, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader, %44
-  %.067102 = phi i32 [ %45, %44 ], [ 0, %.preheader ]
-  %.not87 = icmp eq i32 %.067102, %.073
-  %.not88 = icmp eq i32 %.067102, %.072
+  %.06799 = phi i32 [ %45, %44 ], [ 0, %.preheader ]
+  %.not87 = icmp eq i32 %.06799, %.073
+  %.not88 = icmp eq i32 %.06799, %.072
   %or.cond = or i1 %.not87, %.not88
   br i1 %or.cond, label %44, label %.thread
 
 44:                                               ; preds = %.lr.ph
-  %45 = add nuw nsw i32 %.067102, 1
+  %45 = add nuw nsw i32 %.06799, 1
   %46 = tail call i32 @PQnfields(ptr noundef %0) #10
   %47 = icmp slt i32 %45, %46
   br i1 %47, label %.lr.ph, label %.thread, !llvm.loop !4
@@ -138,7 +138,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br i1 %51, label %121, label %.thread
 
 .thread:                                          ; preds = %.lr.ph, %44, %.preheader, %49
-  %.2 = phi i32 [ %50, %49 ], [ -1, %.preheader ], [ %.067102, %.lr.ph ], [ -1, %44 ]
+  %.2 = phi i32 [ %50, %49 ], [ -1, %.preheader ], [ %.06799, %.lr.ph ], [ -1, %44 ]
   %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 304), align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %57, label %54
@@ -153,35 +153,35 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   %.069.fr = freeze i32 %.069
   %58 = tail call i32 @PQntuples(ptr noundef %0) #10
   %59 = icmp sgt i32 %58, 0
-  br i1 %59, label %.lr.ph106, label %._crit_edge
+  br i1 %59, label %.lr.ph103, label %._crit_edge
 
-.lr.ph106:                                        ; preds = %57
+.lr.ph103:                                        ; preds = %57
   %60 = icmp sgt i32 %.069.fr, -1
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %62 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  br i1 %60, label %.lr.ph106.split.us, label %.lr.ph106.split
+  br i1 %60, label %.lr.ph103.split.us, label %.lr.ph103.split
 
-.lr.ph106.split.us:                               ; preds = %.lr.ph106, %81
-  %65 = phi i32 [ %75, %81 ], [ 0, %.lr.ph106 ]
-  %.068105.us = phi i32 [ %84, %81 ], [ 0, %.lr.ph106 ]
-  %66 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068105.us, i32 noundef %.072) #10
+.lr.ph103.split.us:                               ; preds = %.lr.ph103, %81
+  %65 = phi i32 [ %75, %81 ], [ 0, %.lr.ph103 ]
+  %.068102.us = phi i32 [ %84, %81 ], [ 0, %.lr.ph103 ]
+  %66 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068102.us, i32 noundef %.072) #10
   %.not89.us = icmp eq i32 %66, 0
   br i1 %.not89.us, label %67, label %69
 
-67:                                               ; preds = %.lr.ph106.split.us
-  %68 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068105.us, i32 noundef %.072) #10
+67:                                               ; preds = %.lr.ph103.split.us
+  %68 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068102.us, i32 noundef %.072) #10
   br label %69
 
-69:                                               ; preds = %67, %.lr.ph106.split.us
-  %70 = phi ptr [ %68, %67 ], [ null, %.lr.ph106.split.us ]
-  %71 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068105.us, i32 noundef %.069.fr) #10
+69:                                               ; preds = %67, %.lr.ph103.split.us
+  %70 = phi ptr [ %68, %67 ], [ null, %.lr.ph103.split.us ]
+  %71 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068102.us, i32 noundef %.069.fr) #10
   %.not90.us = icmp eq i32 %71, 0
   br i1 %.not90.us, label %72, label %74
 
 72:                                               ; preds = %69
-  %73 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068105.us, i32 noundef %.069.fr) #10
+  %73 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068102.us, i32 noundef %.069.fr) #10
   br label %74
 
 74:                                               ; preds = %72, %69
@@ -197,12 +197,12 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br i1 %76, label %.split.us, label %77
 
 77:                                               ; preds = %74
-  %78 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068105.us, i32 noundef %.073) #10
+  %78 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068102.us, i32 noundef %.073) #10
   %.not91.us = icmp eq i32 %78, 0
   br i1 %.not91.us, label %79, label %81
 
 79:                                               ; preds = %77
-  %80 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068105.us, i32 noundef %.073) #10
+  %80 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068102.us, i32 noundef %.073) #10
   br label %81
 
 81:                                               ; preds = %79, %77
@@ -214,24 +214,24 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   store ptr null, ptr %64, align 8
   call fastcc void @avlInsertNode(ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %84 = add nuw nsw i32 %.068105.us, 1
+  %84 = add nuw nsw i32 %.068102.us, 1
   %85 = tail call i32 @PQntuples(ptr noundef %0) #10
   %86 = icmp slt i32 %84, %85
-  br i1 %86, label %.lr.ph106.split.us, label %._crit_edge, !llvm.loop !6
+  br i1 %86, label %.lr.ph103.split.us, label %._crit_edge, !llvm.loop !6
 
-.lr.ph106.split:                                  ; preds = %.lr.ph106, %99
-  %87 = phi i32 [ %93, %99 ], [ 0, %.lr.ph106 ]
-  %.068105 = phi i32 [ %102, %99 ], [ 0, %.lr.ph106 ]
-  %88 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068105, i32 noundef %.072) #10
+.lr.ph103.split:                                  ; preds = %.lr.ph103, %99
+  %87 = phi i32 [ %93, %99 ], [ 0, %.lr.ph103 ]
+  %.068102 = phi i32 [ %102, %99 ], [ 0, %.lr.ph103 ]
+  %88 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068102, i32 noundef %.072) #10
   %.not89 = icmp eq i32 %88, 0
   br i1 %.not89, label %89, label %91
 
-89:                                               ; preds = %.lr.ph106.split
-  %90 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068105, i32 noundef %.072) #10
+89:                                               ; preds = %.lr.ph103.split
+  %90 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068102, i32 noundef %.072) #10
   br label %91
 
-91:                                               ; preds = %.lr.ph106.split, %89
-  %92 = phi ptr [ %90, %89 ], [ null, %.lr.ph106.split ]
+91:                                               ; preds = %.lr.ph103.split, %89
+  %92 = phi ptr [ %90, %89 ], [ null, %.lr.ph103.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %92, ptr %3, align 8
   store i32 %87, ptr %61, align 8
@@ -243,18 +243,18 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br i1 %94, label %.split.us, label %95
 
 95:                                               ; preds = %91
-  %96 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068105, i32 noundef %.073) #10
+  %96 = tail call i32 @PQgetisnull(ptr noundef %0, i32 noundef %.068102, i32 noundef %.073) #10
   %.not91 = icmp eq i32 %96, 0
   br i1 %.not91, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068105, i32 noundef %.073) #10
+  %98 = tail call ptr @PQgetvalue(ptr noundef %0, i32 noundef %.068102, i32 noundef %.073) #10
   br label %99
 
 .split.us:                                        ; preds = %91, %74
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.4, i32 noundef 1600) #10
   %.pre = load ptr, ptr %15, align 8
-  %.pre109 = load ptr, ptr %10, align 8
+  %.pre106 = load ptr, ptr %10, align 8
   br label %121
 
 99:                                               ; preds = %97, %95
@@ -266,10 +266,10 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   store ptr null, ptr %64, align 8
   call fastcc void @avlInsertNode(ptr noundef nonnull %5, ptr noundef nonnull %10, ptr noundef nonnull byval(%struct._pivot_field) align 8 %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %102 = add nuw nsw i32 %.068105, 1
+  %102 = add nuw nsw i32 %.068102, 1
   %103 = tail call i32 @PQntuples(ptr noundef %0) #10
   %104 = icmp slt i32 %102, %103
-  br i1 %104, label %.lr.ph106.split, label %._crit_edge, !llvm.loop !6
+  br i1 %104, label %.lr.ph103.split, label %._crit_edge, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %99, %81, %57
   %105 = phi i32 [ 0, %57 ], [ %75, %81 ], [ %93, %99 ]
@@ -296,7 +296,7 @@ define dso_local noundef zeroext i1 @PrintResultInCrosstab(ptr noundef %0) local
   br label %121
 
 121:                                              ; preds = %.split.us, %48, %54, %49, %31, %25, %119, %36, %21, %17
-  %122 = phi ptr [ %6, %17 ], [ %6, %21 ], [ %6, %36 ], [ %.pre109, %.split.us ], [ %115, %119 ], [ %6, %54 ], [ %6, %48 ], [ %6, %49 ], [ %6, %31 ], [ %6, %25 ]
+  %122 = phi ptr [ %6, %17 ], [ %6, %21 ], [ %6, %36 ], [ %.pre106, %.split.us ], [ %115, %119 ], [ %6, %54 ], [ %6, %48 ], [ %6, %49 ], [ %6, %31 ], [ %6, %25 ]
   %123 = phi ptr [ %11, %17 ], [ %11, %21 ], [ %11, %36 ], [ %.pre, %.split.us ], [ %113, %119 ], [ %11, %54 ], [ %11, %48 ], [ %11, %49 ], [ %11, %31 ], [ %11, %25 ]
   %.076 = phi i1 [ false, %17 ], [ false, %21 ], [ false, %36 ], [ false, %.split.us ], [ %120, %119 ], [ false, %54 ], [ false, %48 ], [ false, %49 ], [ false, %31 ], [ false, %25 ]
   %.075 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %36 ], [ null, %.split.us ], [ %109, %119 ], [ null, %54 ], [ null, %48 ], [ null, %49 ], [ null, %31 ], [ null, %25 ]

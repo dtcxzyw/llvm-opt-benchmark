@@ -56,8 +56,8 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   store i8 0, ptr @get_prompt.destination, align 16
   store ptr %.050, ptr %4, align 8
   %12 = load i8, ptr %.050, align 1
-  %.not106 = icmp eq i8 %12, 0
-  br i1 %.not106, label %.critedge, label %.lr.ph
+  %.not105 = icmp eq i8 %12, 0
+  br i1 %.not105, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -65,16 +65,16 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %14
 
 14:                                               ; preds = %.lr.ph, %179
-  %.049108 = phi i1 [ false, %.lr.ph ], [ %.1100, %179 ]
-  %storemerge107 = phi ptr [ %.050, %.lr.ph ], [ %181, %179 ]
+  %.049107 = phi i1 [ false, %.lr.ph ], [ %.1100, %179 ]
+  %storemerge106 = phi ptr [ %.050, %.lr.ph ], [ %181, %179 ]
   %15 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) @get_prompt.destination) #11
   %16 = icmp ult i64 %15, 256
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(257) %3, i8 0, i64 257, i1 false)
-  %18 = load i8, ptr %storemerge107, align 1
-  br i1 %.049108, label %19, label %173
+  %18 = load i8, ptr %storemerge106, align 1
+  br i1 %.049107, label %19, label %173
 
 19:                                               ; preds = %17
   switch i8 %18, label %172 [
@@ -182,7 +182,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
 
 56:                                               ; preds = %54
   %57 = call i64 @strlcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %53, i64 noundef 257) #12
-  %58 = load i8, ptr %storemerge107, align 1
+  %58 = load i8, ptr %storemerge106, align 1
   %59 = icmp eq i8 %58, 109
   br i1 %59, label %60, label %176
 
@@ -198,7 +198,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br i1 %65, label %.critedge97, label %66
 
 66:                                               ; preds = %63
-  %67 = load i8, ptr %storemerge107, align 1
+  %67 = load i8, ptr %storemerge106, align 1
   %68 = icmp eq i8 %67, 109
   br i1 %68, label %.critedge97, label %69
 
@@ -267,7 +267,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %176
 
 98:                                               ; preds = %19, %19, %19, %19, %19, %19, %19, %19
-  %99 = call i64 @strtol(ptr noundef nonnull %storemerge107, ptr noundef nonnull %4, i32 noundef 8) #12
+  %99 = call i64 @strtol(ptr noundef nonnull %storemerge106, ptr noundef nonnull %4, i32 noundef 8) #12
   %100 = trunc i64 %99 to i8
   store i8 %100, ptr %3, align 16
   %101 = load ptr, ptr %4, align 8
@@ -395,7 +395,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %176
 
 138:                                              ; preds = %19
-  %139 = getelementptr inbounds nuw i8, ptr %storemerge107, i64 1
+  %139 = getelementptr inbounds nuw i8, ptr %storemerge106, i64 1
   %140 = call i64 @strcspn(ptr noundef nonnull %139, ptr noundef nonnull @.str.9) #11
   %sext76 = shl i64 %140, 32
   %141 = ashr exact i64 %sext76, 32
@@ -429,7 +429,7 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %176
 
 156:                                              ; preds = %19
-  %157 = getelementptr inbounds nuw i8, ptr %storemerge107, i64 1
+  %157 = getelementptr inbounds nuw i8, ptr %storemerge106, i64 1
   %158 = call i64 @strcspn(ptr noundef nonnull %157, ptr noundef nonnull @.str.11) #11
   %sext = shl i64 %158, 32
   %159 = ashr exact i64 %sext, 32
@@ -474,12 +474,12 @@ define dso_local noundef nonnull ptr @get_prompt(i32 noundef %0, ptr noundef %1)
   br label %176
 
 176:                                              ; preds = %103, %175, %94, %96, %60, %56, %69, %.critedge97, %40, %41, %136, %137, %124, %130, %129, %128, %127, %116, %117, %118, %119, %120, %121, %110, %115, %114, %107, %92, %84, %86, %88, %79, %81, %71, %73, %75, %50, %45, %47, %25, %20, %22, %172, %169, %165, %151, %131, %98, %19
-  %177 = phi ptr [ %storemerge107, %175 ], [ %storemerge107, %94 ], [ %storemerge107, %96 ], [ %storemerge107, %60 ], [ %storemerge107, %56 ], [ %storemerge107, %69 ], [ %storemerge107, %.critedge97 ], [ %storemerge107, %40 ], [ %storemerge107, %41 ], [ %storemerge107, %136 ], [ %storemerge107, %137 ], [ %storemerge107, %124 ], [ %storemerge107, %130 ], [ %storemerge107, %129 ], [ %storemerge107, %128 ], [ %storemerge107, %127 ], [ %storemerge107, %116 ], [ %storemerge107, %117 ], [ %storemerge107, %118 ], [ %storemerge107, %119 ], [ %storemerge107, %120 ], [ %storemerge107, %121 ], [ %storemerge107, %110 ], [ %storemerge107, %115 ], [ %storemerge107, %114 ], [ %storemerge107, %107 ], [ %storemerge107, %92 ], [ %storemerge107, %84 ], [ %storemerge107, %86 ], [ %storemerge107, %88 ], [ %storemerge107, %79 ], [ %storemerge107, %81 ], [ %storemerge107, %71 ], [ %storemerge107, %73 ], [ %storemerge107, %75 ], [ %storemerge107, %50 ], [ %storemerge107, %45 ], [ %storemerge107, %47 ], [ %storemerge107, %25 ], [ %storemerge107, %20 ], [ %storemerge107, %22 ], [ %storemerge107, %172 ], [ %storemerge107, %169 ], [ %168, %165 ], [ %155, %151 ], [ %storemerge107, %131 ], [ %102, %98 ], [ %storemerge107, %19 ], [ %storemerge107, %103 ]
+  %177 = phi ptr [ %storemerge106, %175 ], [ %storemerge106, %94 ], [ %storemerge106, %96 ], [ %storemerge106, %60 ], [ %storemerge106, %56 ], [ %storemerge106, %69 ], [ %storemerge106, %.critedge97 ], [ %storemerge106, %40 ], [ %storemerge106, %41 ], [ %storemerge106, %136 ], [ %storemerge106, %137 ], [ %storemerge106, %124 ], [ %storemerge106, %130 ], [ %storemerge106, %129 ], [ %storemerge106, %128 ], [ %storemerge106, %127 ], [ %storemerge106, %116 ], [ %storemerge106, %117 ], [ %storemerge106, %118 ], [ %storemerge106, %119 ], [ %storemerge106, %120 ], [ %storemerge106, %121 ], [ %storemerge106, %110 ], [ %storemerge106, %115 ], [ %storemerge106, %114 ], [ %storemerge106, %107 ], [ %storemerge106, %92 ], [ %storemerge106, %84 ], [ %storemerge106, %86 ], [ %storemerge106, %88 ], [ %storemerge106, %79 ], [ %storemerge106, %81 ], [ %storemerge106, %71 ], [ %storemerge106, %73 ], [ %storemerge106, %75 ], [ %storemerge106, %50 ], [ %storemerge106, %45 ], [ %storemerge106, %47 ], [ %storemerge106, %25 ], [ %storemerge106, %20 ], [ %storemerge106, %22 ], [ %storemerge106, %172 ], [ %storemerge106, %169 ], [ %168, %165 ], [ %155, %151 ], [ %storemerge106, %131 ], [ %102, %98 ], [ %storemerge106, %19 ], [ %storemerge106, %103 ]
   %178 = call i64 @strlcat(ptr noundef nonnull @get_prompt.destination, ptr noundef nonnull %3, i64 noundef 257) #12
   br label %179
 
 179:                                              ; preds = %173, %176
-  %180 = phi ptr [ %177, %176 ], [ %storemerge107, %173 ]
+  %180 = phi ptr [ %177, %176 ], [ %storemerge106, %173 ]
   %.1100 = phi i1 [ false, %176 ], [ true, %173 ]
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 1
   store ptr %181, ptr %4, align 8

@@ -2449,9 +2449,9 @@ define internal noundef i32 @_on_drag_motion(ptr noundef %0, ptr noundef %1, i32
   %28 = tail call i64 @dtgtk_expander_get_type() #19
   %29 = tail call ptr @gtk_widget_get_ancestor(ptr noundef nonnull %26, i64 noundef %28) #19
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !71
-  %.0120192 = load ptr, ptr %30, align 8, !tbaa !72
-  %.not140193 = icmp eq ptr %.0120192, null
-  br i1 %.not140193, label %.critedge155, label %.lr.ph
+  %.0120191 = load ptr, ptr %30, align 8, !tbaa !72
+  %.not140192 = icmp eq ptr %.0120191, null
+  br i1 %.not140192, label %.critedge155, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %31 = icmp eq ptr %29, null
@@ -2462,14 +2462,14 @@ define internal noundef i32 @_on_drag_motion(ptr noundef %0, ptr noundef %1, i32
   br i1 %or.cond153, label %.critedge155, label %40
 
 .lr.ph:                                           ; preds = %27, %.lr.ph
-  %.0120195 = phi ptr [ %.0120, %.lr.ph ], [ %.0120192, %27 ]
-  %.2112194 = phi ptr [ %spec.select, %.lr.ph ], [ null, %27 ]
-  %35 = load ptr, ptr %.0120195, align 8, !tbaa !73
+  %.0120194 = phi ptr [ %.0120, %.lr.ph ], [ %.0120191, %27 ]
+  %.2112193 = phi ptr [ %spec.select, %.lr.ph ], [ null, %27 ]
+  %35 = load ptr, ptr %.0120194, align 8, !tbaa !73
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 424
   %37 = load ptr, ptr %36, align 8, !tbaa !86
   %38 = icmp eq ptr %37, %29
-  %spec.select = select i1 %38, ptr %35, ptr %.2112194
-  %39 = getelementptr inbounds nuw i8, ptr %.0120195, i64 8
+  %spec.select = select i1 %38, ptr %35, ptr %.2112193
+  %39 = getelementptr inbounds nuw i8, ptr %.0120194, i64 8
   %.0120 = load ptr, ptr %39, align 8, !tbaa !72
   %.not140 = icmp eq ptr %.0120, null
   br i1 %.not140, label %._crit_edge, label %.lr.ph
@@ -2512,20 +2512,20 @@ define internal noundef i32 @_on_drag_motion(ptr noundef %0, ptr noundef %1, i32
 65:                                               ; preds = %53
   %66 = call i32 @dtgtk_expander_get_expanded(ptr noundef %57) #19
   %.not141 = icmp eq i32 %66, 0
-  br i1 %.not141, label %67, label %._crit_edge203
+  br i1 %.not141, label %67, label %._crit_edge202
 
-._crit_edge203:                                   ; preds = %65
+._crit_edge202:                                   ; preds = %65
   %.pre = load i32, ptr %7, align 4, !tbaa !112
-  %.pre204 = load i32, ptr %8, align 4, !tbaa !112
+  %.pre203 = load i32, ptr %8, align 4, !tbaa !112
   br label %69
 
 67:                                               ; preds = %65
   %68 = sdiv i32 %59, 2
   br label %76
 
-69:                                               ; preds = %._crit_edge203, %53
-  %70 = phi i32 [ %.pre204, %._crit_edge203 ], [ %61, %53 ]
-  %71 = phi i32 [ %.pre, %._crit_edge203 ], [ %60, %53 ]
+69:                                               ; preds = %._crit_edge202, %53
+  %70 = phi i32 [ %.pre203, %._crit_edge202 ], [ %61, %53 ]
+  %71 = phi i32 [ %.pre, %._crit_edge202 ], [ %60, %53 ]
   %72 = icmp slt i32 %71, %70
   br i1 %72, label %73, label %76
 
@@ -2538,16 +2538,16 @@ define internal noundef i32 @_on_drag_motion(ptr noundef %0, ptr noundef %1, i32
   %77 = phi i32 [ %68, %67 ], [ %75, %73 ], [ %59, %69 ]
   %78 = icmp sgt i32 %3, %77
   %79 = zext i1 %78 to i32
-  %.pre205 = load i32, ptr %7, align 4, !tbaa !112
+  %.pre204 = load i32, ptr %7, align 4, !tbaa !112
   br i1 %78, label %80, label %82
 
 80:                                               ; preds = %76
-  %81 = add nsw i32 %.pre205, 1
+  %81 = add nsw i32 %.pre204, 1
   store i32 %81, ptr %7, align 4, !tbaa !112
   br label %82
 
 82:                                               ; preds = %80, %76
-  %83 = phi i32 [ %81, %80 ], [ %.pre205, %76 ]
+  %83 = phi i32 [ %81, %80 ], [ %.pre204, %76 ]
   %84 = load i32, ptr %8, align 4, !tbaa !112
   %85 = icmp sgt i32 %83, %84
   br i1 %85, label %86, label %88
@@ -2739,26 +2739,26 @@ _lib_position.exit166:                            ; preds = %152, %155, %157
   %.not148 = icmp eq ptr %98, %168
   %169 = select i1 %.not148, i32 1, i32 -1
   %170 = call i32 @llvm.abs.i32(i32 %169, i1 true)
-  %.not149196 = icmp slt i32 %162, %170
-  br i1 %.not149196, label %.thread182, label %.lr.ph201
+  %.not149195 = icmp slt i32 %162, %170
+  br i1 %.not149195, label %.thread182, label %.lr.ph200
 
-.lr.ph201:                                        ; preds = %.thread, %190
-  %.0100200 = phi ptr [ %177, %190 ], [ %.0110, %.thread ]
-  %.0102199 = phi i32 [ %.0.i170, %190 ], [ %169, %.thread ]
-  %.0104198 = phi i32 [ %176, %190 ], [ %162, %.thread ]
-  %.1107197 = phi ptr [ %192, %190 ], [ %.0106175, %.thread ]
-  %171 = icmp slt i32 %.0102199, 0
-  %172 = call fastcc ptr @_get_lib_view_path(ptr noundef nonnull %.0100200, ptr noundef null, ptr noundef nonnull @.str.49)
-  %173 = sub nsw i32 0, %.0104198
-  %174 = select i1 %171, i32 %173, i32 %.0104198
+.lr.ph200:                                        ; preds = %.thread, %190
+  %.0100199 = phi ptr [ %177, %190 ], [ %.0110, %.thread ]
+  %.0102198 = phi i32 [ %.0.i170, %190 ], [ %169, %.thread ]
+  %.0104197 = phi i32 [ %176, %190 ], [ %162, %.thread ]
+  %.1107196 = phi ptr [ %192, %190 ], [ %.0106175, %.thread ]
+  %171 = icmp slt i32 %.0102198, 0
+  %172 = call fastcc ptr @_get_lib_view_path(ptr noundef nonnull %.0100199, ptr noundef null, ptr noundef nonnull @.str.49)
+  %173 = sub nsw i32 0, %.0104197
+  %174 = select i1 %171, i32 %173, i32 %.0104197
   call void @dt_conf_set_int(ptr noundef %172, i32 noundef %174) #19
   call void @g_free(ptr noundef %172) #19
-  %.not150 = icmp eq ptr %.1107197, null
+  %.not150 = icmp eq ptr %.1107196, null
   br i1 %.not150, label %.thread182, label %175
 
-175:                                              ; preds = %.lr.ph201
-  %176 = add nuw nsw i32 %.0104198, 1
-  %177 = load ptr, ptr %.1107197, align 8, !tbaa !73
+175:                                              ; preds = %.lr.ph200
+  %176 = add nuw nsw i32 %.0104197, 1
+  %177 = load ptr, ptr %.1107196, align 8, !tbaa !73
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 208
   %179 = load ptr, ptr %178, align 8, !tbaa !76
   %.not.i167 = icmp eq ptr %179, null
@@ -2787,13 +2787,13 @@ _lib_position.exit166:                            ; preds = %152, %155, %157
 190:                                              ; preds = %188, %186, %183
   %.0.i170 = phi i32 [ %189, %188 ], [ %184, %186 ], [ %184, %183 ]
   call void @g_free(ptr noundef %185) #19
-  %191 = getelementptr inbounds nuw i8, ptr %.1107197, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %.1107196, i64 8
   %192 = load ptr, ptr %191, align 8, !tbaa !119
   %193 = call i32 @llvm.abs.i32(i32 %.0.i170, i1 true)
   %.not149 = icmp samesign ult i32 %176, %193
-  br i1 %.not149, label %.thread182, label %.lr.ph201
+  br i1 %.not149, label %.thread182, label %.lr.ph200
 
-.thread182:                                       ; preds = %190, %.lr.ph201, %.thread
+.thread182:                                       ; preds = %190, %.lr.ph200, %.thread
   %194 = load ptr, ptr %109, align 8, !tbaa !72
   %195 = call ptr @g_list_insert_sorted(ptr noundef %194, ptr noundef nonnull %.0110, ptr noundef nonnull @dt_lib_sort_plugins) #19
   store ptr %195, ptr %109, align 8, !tbaa !72
@@ -4116,27 +4116,27 @@ define void @dt_lib_colorpicker_setup(ptr noundef readonly captures(none) %0, i3
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @dt_lib_get_module(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !71
-  %.01113 = load ptr, ptr %2, align 8, !tbaa !72
-  %.not14 = icmp eq ptr %.01113, null
-  br i1 %.not14, label %._crit_edge, label %.lr.ph
+  %.01115 = load ptr, ptr %2, align 8, !tbaa !72
+  %.not16 = icmp eq ptr %.01115, null
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 3:                                                ; preds = %.lr.ph
-  %4 = getelementptr inbounds nuw i8, ptr %.01115, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %.01117, i64 8
   %.011 = load ptr, ptr %4, align 8, !tbaa !72
   %.not = icmp eq ptr %.011, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %3
-  %.01115 = phi ptr [ %.011, %3 ], [ %.01113, %1 ]
-  %5 = load ptr, ptr %.01115, align 8, !tbaa !73
+  %.01117 = phi ptr [ %.011, %3 ], [ %.01115, %1 ]
+  %5 = load ptr, ptr %.01117, align 8, !tbaa !73
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 288
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #21
   %.not12 = icmp eq i32 %7, 0
   br i1 %.not12, label %._crit_edge, label %3
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3, %1
-  %spec.select = phi ptr [ null, %1 ], [ null, %3 ], [ %5, %.lr.ph ]
-  ret ptr %spec.select
+  %8 = phi ptr [ null, %1 ], [ null, %3 ], [ %5, %.lr.ph ]
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)

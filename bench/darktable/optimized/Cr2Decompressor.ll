@@ -4651,9 +4651,9 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:
   tail call void @llvm.assume(i1 %28)
   %29 = icmp eq i32 %26, %.sroa.9.0.copyload
   %spec.select = select i1 %29, i32 %18, i32 %.sroa.21.0.copyload
-  %spec.select103 = select i1 %29, i32 0, i32 %26
+  %spec.select102 = select i1 %29, i32 0, i32 %26
   %30 = icmp eq i32 %spec.select, %12
-  %31 = icmp eq i32 %spec.select103, %14
+  %31 = icmp eq i32 %spec.select102, %14
   %32 = select i1 %30, i1 %31, i1 false
   br i1 %32, label %.critedge.i._crit_edge, label %.lr.ph.preheader
 
@@ -4665,42 +4665,42 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit:
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27
-  %.sroa.2957.sroa.11.0115 = phi i32 [ %.sroa.2957.sroa.11.2, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ %.sroa.2957.sroa.11.1, %.lr.ph.preheader ]
+  %.sroa.2957.sroa.11.0114 = phi i32 [ %.sroa.2957.sroa.11.2, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ %.sroa.2957.sroa.11.1, %.lr.ph.preheader ]
   %.pn = phi i32 [ %57, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ %35, %.lr.ph.preheader ]
-  %.094113 = phi i32 [ %51, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ 1, %.lr.ph.preheader ]
-  %.sroa.6.0112 = phi i64 [ %.sroa.6.12.insert.insert, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ %.sroa.3.8.insert.insert.i, %.lr.ph.preheader ]
-  %.sroa.39.0111 = phi i32 [ %spec.select107, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ %spec.select103, %.lr.ph.preheader ]
-  %.sroa.21.0110 = phi i32 [ %spec.select106, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ %spec.select, %.lr.ph.preheader ]
-  %36 = icmp slt i32 %.sroa.21.0110, %15
+  %.094112 = phi i32 [ %51, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ 1, %.lr.ph.preheader ]
+  %.sroa.6.0111 = phi i64 [ %.sroa.6.12.insert.insert, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ %.sroa.3.8.insert.insert.i, %.lr.ph.preheader ]
+  %.sroa.39.0110 = phi i32 [ %spec.select106, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ %spec.select102, %.lr.ph.preheader ]
+  %.sroa.21.0109 = phi i32 [ %spec.select105, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ], [ %spec.select, %.lr.ph.preheader ]
+  %36 = icmp slt i32 %.sroa.21.0109, %15
   tail call void @llvm.assume(i1 %36)
-  %37 = add nuw nsw i32 %.sroa.21.0110, 1
+  %37 = add nuw nsw i32 %.sroa.21.0109, 1
   %38 = icmp eq i32 %37, %15
   %.0.in.v.i.i.i.i5 = select i1 %38, i64 8, i64 4
   %.0.in.i.i.i.i6 = getelementptr inbounds nuw i8, ptr %.sroa.1546.0.copyload, i64 %.0.in.v.i.i.i.i5
   %.0.i.i.i5.i7 = load i32, ptr %.0.in.i.i.i.i6, align 4, !tbaa !13
-  %39 = sub nsw i32 %21, %.sroa.2957.sroa.11.0115
+  %39 = sub nsw i32 %21, %.sroa.2957.sroa.11.0114
   %40 = icmp sgt i32 %39, -1
   tail call void @llvm.assume(i1 %40)
-  %41 = sub nsw i32 %.sroa.9.0.copyload, %.sroa.39.0111
+  %41 = sub nsw i32 %.sroa.9.0.copyload, %.sroa.39.0110
   %42 = icmp sgt i32 %41, -1
   tail call void @llvm.assume(i1 %42)
   %.sroa.speculated.i10 = tail call i32 @llvm.umin.i32(i32 %41, i32 %39)
-  %.sroa.6.12.extract.shift33 = lshr i64 %.sroa.6.0112, 32
+  %.sroa.6.12.extract.shift33 = lshr i64 %.sroa.6.0111, 32
   %.sroa.6.12.extract.trunc34 = trunc nuw nsw i64 %.sroa.6.12.extract.shift33 to i32
   %43 = add nsw i32 %.sroa.6.12.extract.trunc34, %.sroa.2.0.extract.trunc.i
   %44 = icmp eq i32 %.pn, 0
-  %45 = icmp eq i32 %43, %.sroa.2957.sroa.11.0115
+  %45 = icmp eq i32 %43, %.sroa.2957.sroa.11.0114
   %46 = select i1 %44, i1 %45, i1 false
-  %.sroa.6.8.extract.trunc31 = trunc i64 %.sroa.6.0112 to i32
+  %.sroa.6.8.extract.trunc31 = trunc i64 %.sroa.6.0111 to i32
   %47 = icmp eq i32 %.0.i.i.i5.i7, %.sroa.6.8.extract.trunc31
   %or.cond = select i1 %46, i1 %47, i1 false
   br i1 %or.cond, label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph
-  %48 = icmp eq i32 %.sroa.2957.sroa.11.0115, 0
+  %48 = icmp eq i32 %.sroa.2957.sroa.11.0114, 0
   %49 = icmp eq i32 %.pn, %.sroa.6.8.extract.trunc31
-  %or.cond105 = select i1 %48, i1 %49, i1 false
-  br i1 %or.cond105, label %.critedge.i._crit_edge, label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27
+  %or.cond104 = select i1 %48, i1 %49, i1 false
+  br i1 %or.cond104, label %.critedge.i._crit_edge, label %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27
 
 _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27:   ; preds = %.lr.ph, %.critedge.i
   tail call void @llvm.assume(i1 %44)
@@ -4709,27 +4709,27 @@ _ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27:   ; preds = %.lr.ph, %.critedge.
   %50 = add nuw nsw i32 %.sroa.speculated.i10, %.sroa.6.12.extract.trunc34
   %.sroa.6.12.insert.ext = zext nneg i32 %50 to i64
   %.sroa.6.12.insert.shift = shl nuw nsw i64 %.sroa.6.12.insert.ext, 32
-  %.sroa.6.12.insert.mask = and i64 %.sroa.6.0112, 4294967295
+  %.sroa.6.12.insert.mask = and i64 %.sroa.6.0111, 4294967295
   %.sroa.6.12.insert.insert = or disjoint i64 %.sroa.6.12.insert.shift, %.sroa.6.12.insert.mask
-  %51 = add nuw nsw i32 %.094113, 1
-  %52 = add nuw nsw i32 %.sroa.speculated.i10, %.sroa.39.0111
-  %53 = add nsw i32 %.sroa.speculated.i10, %.sroa.2957.sroa.11.0115
+  %51 = add nuw nsw i32 %.094112, 1
+  %52 = add nuw nsw i32 %.sroa.speculated.i10, %.sroa.39.0110
+  %53 = add nsw i32 %.sroa.speculated.i10, %.sroa.2957.sroa.11.0114
   %54 = icmp sle i32 %52, %.sroa.9.0.copyload
   tail call void @llvm.assume(i1 %54)
   %55 = icmp eq i32 %52, %.sroa.9.0.copyload
-  %spec.select106 = select i1 %55, i32 %37, i32 %.sroa.21.0110
-  %spec.select107 = select i1 %55, i32 0, i32 %52
+  %spec.select105 = select i1 %55, i32 %37, i32 %.sroa.21.0109
+  %spec.select106 = select i1 %55, i32 0, i32 %52
   %56 = icmp eq i32 %53, %21
   %57 = select i1 %56, i32 %.0.i.i.i5.i7, i32 0
   %.sroa.2957.sroa.11.2 = select i1 %56, i32 0, i32 %53
-  %58 = icmp eq i32 %spec.select106, %12
-  %59 = icmp eq i32 %spec.select107, %14
+  %58 = icmp eq i32 %spec.select105, %12
+  %59 = icmp eq i32 %spec.select106, %14
   %60 = select i1 %58, i1 %59, i1 false
   br i1 %60, label %.critedge.i._crit_edge, label %.lr.ph, !llvm.loop !321
 
 .critedge.i._crit_edge:                           ; preds = %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27, %.critedge.i, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit
-  %.sroa.6.0.lcssa = phi i64 [ %.sroa.3.8.insert.insert.i, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ], [ %.sroa.6.0112, %.critedge.i ], [ %.sroa.6.12.insert.insert, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ]
-  %.094.lcssa = phi i32 [ 1, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ], [ %.094113, %.critedge.i ], [ %51, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ]
+  %.sroa.6.0.lcssa = phi i64 [ %.sroa.3.8.insert.insert.i, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ], [ %.sroa.6.0111, %.critedge.i ], [ %.sroa.6.12.insert.insert, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ]
+  %.094.lcssa = phi i32 [ 1, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit ], [ %.094112, %.critedge.i ], [ %51, %_ZN8rawspeed21Cr2OutputTileIteratorppEv.exit27 ]
   store i64 %.sroa.2957.0.copyload, ptr %0, align 4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.6.0.lcssa, ptr %.sroa.6.0..sroa_idx, align 4

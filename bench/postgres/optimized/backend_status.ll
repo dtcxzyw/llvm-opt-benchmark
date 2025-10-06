@@ -889,27 +889,27 @@ define dso_local void @pgstat_report_xact_timestamp(i64 noundef %0) local_unname
 ; Function Attrs: nounwind uwtable
 define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load i32, ptr @MaxBackends, align 4
-  %.not35 = icmp slt i32 %3, 1
-  br i1 %.not35, label %.thread30, label %.preheader.preheader
+  %.not34 = icmp slt i32 %3, 1
+  br i1 %.not34, label %.thread29, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %2
   %4 = load ptr, ptr @BackendStatusArray, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %45
-  %.02037 = phi ptr [ %46, %45 ], [ %4, %.preheader.preheader ]
-  %.02236 = phi i32 [ %47, %45 ], [ 1, %.preheader.preheader ]
-  %5 = load volatile i32, ptr %.02037, align 8
+  %.02036 = phi ptr [ %46, %45 ], [ %4, %.preheader.preheader ]
+  %.02235 = phi i32 [ %47, %45 ], [ 1, %.preheader.preheader ]
+  %5 = load volatile i32, ptr %.02036, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
-  %6 = getelementptr inbounds nuw i8, ptr %.02037, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.02036, i64 4
   %7 = load volatile i32, ptr %6, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
-  %8 = load volatile i32, ptr %.02037, align 8
+  %8 = load volatile i32, ptr %.02036, align 8
   %9 = icmp eq i32 %5, %8
   %10 = and i32 %5, 1
   %11 = icmp eq i32 %10, 0
-  %or.cond34 = and i1 %11, %9
-  br i1 %or.cond34, label %._crit_edge, label %.lr.ph
+  %or.cond33 = and i1 %11, %9
+  br i1 %or.cond33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %14
   %12 = load volatile i32, ptr @InterruptPending, align 4
@@ -921,11 +921,11 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   br label %14
 
 14:                                               ; preds = %.lr.ph, %13
-  %15 = load volatile i32, ptr %.02037, align 8
+  %15 = load volatile i32, ptr %.02036, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !24
   %16 = load volatile i32, ptr %6, align 4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !25
-  %17 = load volatile i32, ptr %.02037, align 8
+  %17 = load volatile i32, ptr %.02036, align 8
   %18 = icmp eq i32 %15, %17
   %19 = and i32 %15, 1
   %20 = icmp eq i32 %19, 0
@@ -945,18 +945,18 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   br i1 %23, label %28, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i8, ptr %.02037, i64 52
+  %25 = getelementptr inbounds nuw i8, ptr %.02036, i64 52
   %26 = load i32, ptr %25, align 4
   %27 = tail call i32 @GetUserId() #11
   %.not25 = icmp eq i32 %26, %27
-  br i1 %.not25, label %28, label %.thread30
+  br i1 %.not25, label %28, label %.thread29
 
 28:                                               ; preds = %24, %22, %21
-  %29 = getelementptr inbounds nuw i8, ptr %.02037, i64 248
+  %29 = getelementptr inbounds nuw i8, ptr %.02036, i64 248
   %30 = load ptr, ptr %29, align 8
   %31 = load i8, ptr %30, align 1
   %32 = icmp eq i8 %31, 0
-  br i1 %32, label %.thread30, label %33
+  br i1 %32, label %.thread29, label %33
 
 33:                                               ; preds = %28
   %34 = load i32, ptr @pgstat_track_activity_query_size, align 4
@@ -971,16 +971,16 @@ define dso_local noundef ptr @pgstat_get_backend_current_activity(i32 noundef %0
   %43 = sext i32 %42 to i64
   %44 = getelementptr inbounds i8, ptr %37, i64 %43
   store i8 0, ptr %44, align 1
-  br label %.thread30
+  br label %.thread29
 
 45:                                               ; preds = %._crit_edge
-  %46 = getelementptr inbounds nuw i8, ptr %.02037, i64 432
-  %47 = add i32 %.02236, 1
+  %46 = getelementptr inbounds nuw i8, ptr %.02036, i64 432
+  %47 = add i32 %.02235, 1
   %48 = load i32, ptr @MaxBackends, align 4
   %.not = icmp sgt i32 %47, %48
-  br i1 %.not, label %.thread30, label %.preheader, !llvm.loop !27
+  br i1 %.not, label %.thread29, label %.preheader, !llvm.loop !27
 
-.thread30:                                        ; preds = %45, %2, %33, %24, %28
+.thread29:                                        ; preds = %45, %2, %33, %24, %28
   %.2 = phi ptr [ @.str.5, %28 ], [ @.str.4, %24 ], [ %37, %33 ], [ @.str.6, %2 ], [ @.str.6, %45 ]
   ret ptr %.2
 }
@@ -1239,24 +1239,24 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %81
-  %.058 = phi ptr [ %82, %81 ], [ %36, %.preheader.preheader ]
-  %.03957 = phi ptr [ %.1, %81 ], [ %12, %.preheader.preheader ]
-  %.04056 = phi ptr [ %.141, %81 ], [ %18, %.preheader.preheader ]
-  %.04355 = phi i32 [ %83, %81 ], [ 0, %.preheader.preheader ]
-  %.04454 = phi ptr [ %.145, %81 ], [ %32, %.preheader.preheader ]
-  %.04653 = phi ptr [ %.147, %81 ], [ %24, %.preheader.preheader ]
-  %37 = getelementptr inbounds nuw i8, ptr %.058, i64 4
-  %38 = getelementptr inbounds nuw i8, ptr %.03957, i64 4
-  %39 = getelementptr inbounds nuw i8, ptr %.058, i64 240
-  %40 = getelementptr inbounds nuw i8, ptr %.03957, i64 240
-  %41 = getelementptr inbounds nuw i8, ptr %.058, i64 192
-  %42 = getelementptr inbounds nuw i8, ptr %.03957, i64 192
-  %43 = getelementptr inbounds nuw i8, ptr %.058, i64 248
-  %44 = getelementptr inbounds nuw i8, ptr %.03957, i64 248
+  %.057 = phi ptr [ %82, %81 ], [ %36, %.preheader.preheader ]
+  %.03956 = phi ptr [ %.1, %81 ], [ %12, %.preheader.preheader ]
+  %.04055 = phi ptr [ %.141, %81 ], [ %18, %.preheader.preheader ]
+  %.04354 = phi i32 [ %83, %81 ], [ 0, %.preheader.preheader ]
+  %.04453 = phi ptr [ %.145, %81 ], [ %32, %.preheader.preheader ]
+  %.04652 = phi ptr [ %.147, %81 ], [ %24, %.preheader.preheader ]
+  %37 = getelementptr inbounds nuw i8, ptr %.057, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.03956, i64 4
+  %39 = getelementptr inbounds nuw i8, ptr %.057, i64 240
+  %40 = getelementptr inbounds nuw i8, ptr %.03956, i64 240
+  %41 = getelementptr inbounds nuw i8, ptr %.057, i64 192
+  %42 = getelementptr inbounds nuw i8, ptr %.03956, i64 192
+  %43 = getelementptr inbounds nuw i8, ptr %.057, i64 248
+  %44 = getelementptr inbounds nuw i8, ptr %.03956, i64 248
   br label %45
 
 45:                                               ; preds = %.backedge, %.preheader
-  %46 = load volatile i32, ptr %.058, align 8
+  %46 = load volatile i32, ptr %.057, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !30
   %47 = load volatile i32, ptr %37, align 4
   store i32 %47, ptr %38, align 4
@@ -1264,21 +1264,21 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
   br i1 %48, label %49, label %56
 
 49:                                               ; preds = %45
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %.03957, ptr noundef nonnull align 8 dereferenceable(432) %.058, i64 432, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %.03956, ptr noundef nonnull align 8 dereferenceable(432) %.057, i64 432, i1 false)
   %50 = load volatile ptr, ptr %39, align 8
-  %51 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04056, ptr noundef nonnull dereferenceable(1) %50) #11
-  store ptr %.04056, ptr %40, align 8
+  %51 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04055, ptr noundef nonnull dereferenceable(1) %50) #11
+  store ptr %.04055, ptr %40, align 8
   %52 = load volatile ptr, ptr %41, align 8
-  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04653, ptr noundef nonnull dereferenceable(1) %52) #11
-  store ptr %.04653, ptr %42, align 8
+  %53 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04652, ptr noundef nonnull dereferenceable(1) %52) #11
+  store ptr %.04652, ptr %42, align 8
   %54 = load volatile ptr, ptr %43, align 8
-  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04454, ptr noundef nonnull dereferenceable(1) %54) #11
-  store ptr %.04454, ptr %44, align 8
+  %55 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.04453, ptr noundef nonnull dereferenceable(1) %54) #11
+  store ptr %.04453, ptr %44, align 8
   br label %56
 
 56:                                               ; preds = %45, %49
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !31
-  %57 = load volatile i32, ptr %.058, align 8
+  %57 = load volatile i32, ptr %.057, align 8
   %58 = icmp eq i32 %46, %57
   %59 = and i32 %46, 1
   %60 = icmp eq i32 %59, 0
@@ -1303,31 +1303,31 @@ pgstat_setup_backend_status_context.exit:         ; preds = %2, %4
   br i1 %66, label %67, label %81
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw i8, ptr %.03957, i64 432
-  store i32 %.04355, ptr %68, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %.03957, i64 436
-  %70 = getelementptr inbounds nuw i8, ptr %.03957, i64 440
-  %71 = getelementptr inbounds nuw i8, ptr %.03957, i64 444
-  %72 = getelementptr inbounds nuw i8, ptr %.03957, i64 448
-  tail call void @ProcNumberGetTransactionIds(i32 noundef %.04355, ptr noundef nonnull %69, ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef nonnull %72) #11
-  %73 = getelementptr inbounds nuw i8, ptr %.03957, i64 456
-  %74 = getelementptr inbounds nuw i8, ptr %.04056, i64 64
-  %75 = getelementptr inbounds nuw i8, ptr %.04653, i64 64
+  %68 = getelementptr inbounds nuw i8, ptr %.03956, i64 432
+  store i32 %.04354, ptr %68, align 8
+  %69 = getelementptr inbounds nuw i8, ptr %.03956, i64 436
+  %70 = getelementptr inbounds nuw i8, ptr %.03956, i64 440
+  %71 = getelementptr inbounds nuw i8, ptr %.03956, i64 444
+  %72 = getelementptr inbounds nuw i8, ptr %.03956, i64 448
+  tail call void @ProcNumberGetTransactionIds(i32 noundef %.04354, ptr noundef nonnull %69, ptr noundef nonnull %70, ptr noundef nonnull %71, ptr noundef nonnull %72) #11
+  %73 = getelementptr inbounds nuw i8, ptr %.03956, i64 456
+  %74 = getelementptr inbounds nuw i8, ptr %.04055, i64 64
+  %75 = getelementptr inbounds nuw i8, ptr %.04652, i64 64
   %76 = load i32, ptr @pgstat_track_activity_query_size, align 4
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i8, ptr %.04454, i64 %77
+  %78 = getelementptr inbounds i8, ptr %.04453, i64 %77
   %79 = load i32, ptr @localNumBackends, align 4
   %80 = add i32 %79, 1
   store i32 %80, ptr @localNumBackends, align 4
   br label %81
 
 81:                                               ; preds = %67, %64
-  %.147 = phi ptr [ %75, %67 ], [ %.04653, %64 ]
-  %.145 = phi ptr [ %78, %67 ], [ %.04454, %64 ]
-  %.141 = phi ptr [ %74, %67 ], [ %.04056, %64 ]
-  %.1 = phi ptr [ %73, %67 ], [ %.03957, %64 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.058, i64 432
-  %83 = add nuw nsw i32 %.04355, 1
+  %.147 = phi ptr [ %75, %67 ], [ %.04652, %64 ]
+  %.145 = phi ptr [ %78, %67 ], [ %.04453, %64 ]
+  %.141 = phi ptr [ %74, %67 ], [ %.04055, %64 ]
+  %.1 = phi ptr [ %73, %67 ], [ %.03956, %64 ]
+  %82 = getelementptr inbounds nuw i8, ptr %.057, i64 432
+  %83 = add nuw nsw i32 %.04354, 1
   %84 = load i32, ptr @MaxBackends, align 4
   %85 = add i32 %84, 6
   %86 = icmp slt i32 %83, %85

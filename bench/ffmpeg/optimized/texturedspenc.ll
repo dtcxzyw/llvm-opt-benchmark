@@ -41,8 +41,8 @@ define internal noundef i32 @dxt5ys_block(ptr noundef writeonly captures(none) %
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   br label %.preheader
 
-.preheader:                                       ; preds = %3, %32
-  %indvars.iv18 = phi i64 [ 0, %3 ], [ %indvars.iv.next19, %32 ]
+.preheader:                                       ; preds = %3, %38
+  %indvars.iv18 = phi i64 [ 0, %3 ], [ %indvars.iv.next19, %38 ]
   %5 = shl nuw nsw i64 %indvars.iv18, 4
   %invariant.gep = getelementptr inbounds nuw i8, ptr %4, i64 %5
   %6 = mul nsw i64 %1, %indvars.iv18
@@ -71,35 +71,38 @@ define internal noundef i32 @dxt5ys_block(ptr noundef writeonly captures(none) %
   %23 = sub nsw i32 %22, %18
   %24 = ashr i32 %23, 1
   %25 = add nsw i32 %24, 128
-  %.0.i16.i = tail call i32 @llvm.umin.i32(i32 %25, i32 255)
-  %.0.i.i = trunc nuw i32 %.0.i16.i to i8
+  %26 = icmp eq i32 %25, 256
+  %27 = trunc i32 %25 to i8
+  %.0.i.i = select i1 %26, i8 -1, i8 %27
   store i8 %.0.i.i, ptr %gep, align 4, !tbaa !11
-  %26 = add nuw nsw i32 %15, 128
-  %27 = sub nuw nsw i32 %26, %21
-  %.0.i1417.i = tail call i32 @llvm.umin.i32(i32 %27, i32 255)
-  %.0.i14.i = trunc nuw i32 %.0.i1417.i to i8
-  %28 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  store i8 %.0.i14.i, ptr %28, align 1, !tbaa !11
-  %29 = getelementptr inbounds nuw i8, ptr %gep, i64 2
-  store i8 0, ptr %29, align 2, !tbaa !11
-  %30 = add nuw nsw i32 %21, %15
-  %.0.i1518.i = tail call i32 @llvm.umin.i32(i32 %30, i32 255)
-  %.0.i15.i = trunc nuw i32 %.0.i1518.i to i8
-  %31 = getelementptr inbounds nuw i8, ptr %gep, i64 3
-  store i8 %.0.i15.i, ptr %31, align 1, !tbaa !11
+  %28 = add nuw nsw i32 %15, 128
+  %29 = sub nuw nsw i32 %28, %21
+  %30 = icmp eq i32 %29, 256
+  %31 = trunc i32 %29 to i8
+  %.0.i14.i = select i1 %30, i8 -1, i8 %31
+  %32 = getelementptr inbounds nuw i8, ptr %gep, i64 1
+  store i8 %.0.i14.i, ptr %32, align 1, !tbaa !11
+  %33 = getelementptr inbounds nuw i8, ptr %gep, i64 2
+  store i8 0, ptr %33, align 2, !tbaa !11
+  %34 = add nuw nsw i32 %21, %15
+  %35 = icmp eq i32 %34, 256
+  %36 = trunc i32 %34 to i8
+  %.0.i15.i = select i1 %35, i8 -1, i8 %36
+  %37 = getelementptr inbounds nuw i8, ptr %gep, i64 3
+  store i8 %.0.i15.i, ptr %37, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %32, label %7, !llvm.loop !12
+  br i1 %exitcond.not, label %38, label %7, !llvm.loop !12
 
-32:                                               ; preds = %7
+38:                                               ; preds = %7
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %exitcond21.not = icmp eq i64 %indvars.iv.next19, 4
-  br i1 %exitcond21.not, label %33, label %.preheader, !llvm.loop !14
+  br i1 %exitcond21.not, label %39, label %.preheader, !llvm.loop !14
 
-33:                                               ; preds = %32
+39:                                               ; preds = %38
   call fastcc void @compress_alpha(ptr noundef %0, i64 noundef 16, ptr noundef nonnull %4)
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call fastcc void @compress_color(ptr noundef nonnull %34, i64 noundef 16, ptr noundef nonnull %4)
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call fastcc void @compress_color(ptr noundef nonnull %40, i64 noundef 16, ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 16
 }
@@ -1216,10 +1219,10 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #5
 declare i32 @llvm.smin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #6
+declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #6
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.umax.i16(i16, i16) #6

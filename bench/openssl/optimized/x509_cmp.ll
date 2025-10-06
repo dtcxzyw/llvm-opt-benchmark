@@ -650,14 +650,14 @@ define range(i32 0, 2) i32 @X509_add_cert(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %11, label %.lr.ph, label %.thread
 
 12:                                               ; preds = %.lr.ph
-  %13 = add nuw nsw i32 %.02233, 1
+  %13 = add nuw nsw i32 %.02231, 1
   %14 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %0) #9
   %15 = icmp slt i32 %13, %14
   br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !67
 
 .lr.ph:                                           ; preds = %.preheader, %12
-  %.02233 = phi i32 [ %13, %12 ], [ 0, %.preheader ]
-  %16 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.02233) #9
+  %.02231 = phi i32 [ %13, %12 ], [ 0, %.preheader ]
+  %16 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %0, i32 noundef %.02231) #9
   %17 = tail call i32 @X509_cmp(ptr noundef %16, ptr noundef nonnull %1)
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %.loopexit, label %12

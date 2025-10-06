@@ -9217,12 +9217,12 @@ _ZN4llvm10MCStreamer20maybeEmitDwarf64MarkEv.exit: ; preds = %3, %9
   %21 = load ptr, ptr %5, align 8, !tbaa !14
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1882
   %23 = load i8, ptr %22, align 2, !tbaa !601
-  %switch.i = icmp eq i8 %23, 0
-  %..i = select i1 %switch.i, i32 4, i32 8
-  %24 = load ptr, ptr %0, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 544
-  %26 = load ptr, ptr %25, align 8
-  call void %26(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %1, i32 noundef %..i) #25
+  %24 = icmp eq i8 %23, 0
+  %..i = select i1 %24, i32 4, i32 8
+  %25 = load ptr, ptr %0, align 8, !tbaa !3
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 544
+  %27 = load ptr, ptr %26, align 8
+  call void %27(ptr noundef nonnull align 8 dereferenceable(296) %0, i64 noundef %1, i32 noundef %..i) #25
   ret void
 }
 
@@ -9345,16 +9345,16 @@ _ZN4llvmplERKNS_5TwineES2_.exit22:                ; preds = %_ZN4llvmplERKNS_5Tw
   %46 = load ptr, ptr %7, align 8, !tbaa !14
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1882
   %48 = load i8, ptr %47, align 2, !tbaa !601
-  %switch.i = icmp eq i8 %48, 0
-  %..i = select i1 %switch.i, i32 4, i32 8
-  %49 = load ptr, ptr %0, align 8, !tbaa !3
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 880
-  %51 = load ptr, ptr %50, align 8
-  call void %51(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %45, ptr noundef %34, i32 noundef %..i) #25
-  %52 = load ptr, ptr %0, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 208
-  %54 = load ptr, ptr %53, align 8
-  call void %54(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %34, ptr null) #25
+  %49 = icmp eq i8 %48, 0
+  %..i = select i1 %49, i32 4, i32 8
+  %50 = load ptr, ptr %0, align 8, !tbaa !3
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 880
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %45, ptr noundef %34, i32 noundef %..i) #25
+  %53 = load ptr, ptr %0, align 8, !tbaa !3
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 208
+  %55 = load ptr, ptr %54, align 8
+  call void %55(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef %34, ptr null) #25
   ret ptr %45
 }
 

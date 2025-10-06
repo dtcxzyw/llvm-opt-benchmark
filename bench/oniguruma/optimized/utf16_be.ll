@@ -330,8 +330,8 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %19
-  %.01424 = phi ptr [ %21, %19 ], [ %0, %2 ]
-  %4 = load i8, ptr %.01424, align 1, !tbaa !4
+  %.01423 = phi ptr [ %21, %19 ], [ %0, %2 ]
+  %4 = load i8, ptr %.01423, align 1, !tbaa !4
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw i32, ptr @EncLen_UTF16, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !7
@@ -340,7 +340,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.01424, i64 2
+  %11 = getelementptr inbounds nuw i8, ptr %.01423, i64 2
   %.not19 = icmp ult ptr %11, %1
   br i1 %.not19, label %12, label %.thread
 
@@ -357,7 +357,7 @@ define internal range(i32 0, 2) i32 @is_valid_mbc_string(ptr noundef readonly ca
 
 19:                                               ; preds = %12, %16
   %20 = sext i32 %7 to i64
-  %21 = getelementptr inbounds i8, ptr %.01424, i64 %20
+  %21 = getelementptr inbounds i8, ptr %.01423, i64 %20
   %22 = icmp ult ptr %21, %1
   br i1 %22, label %.lr.ph, label %._crit_edge
 

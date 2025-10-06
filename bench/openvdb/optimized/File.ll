@@ -5127,12 +5127,12 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %for.body
-  %lpad.loopexit72 = landingpad { ptr, i32 }
+  %lpad.loopexit71 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 lpad.loopexit.split-lp:                           ; preds = %if.then, %do.body, %invoke.cont19, %invoke.cont22, %invoke.cont24, %invoke.cont26, %invoke.cont28, %entry
-  %lpad.loopexit.split-lp73 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp72 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
@@ -5232,8 +5232,8 @@ for.body.preheader:                               ; preds = %_ZSteqIcEN9__gnu_cx
   br label %for.body
 
 for.body:                                         ; preds = %for.body.preheader, %for.inc
-  %it.sroa.0.077 = phi ptr [ %call.i52, %for.inc ], [ %range.sroa.0.0, %for.body.preheader ]
-  %mUniqueName.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.077, i64 96
+  %it.sroa.0.076 = phi ptr [ %call.i52, %for.inc ], [ %range.sroa.0.0, %for.body.preheader ]
+  %mUniqueName.i = getelementptr inbounds nuw i8, ptr %it.sroa.0.076, i64 96
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %candidateName, ptr noundef nonnull align 8 dereferenceable(32) %mUniqueName.i)
           to label %invoke.cont48 unwind label %lpad.loopexit
 
@@ -5279,17 +5279,17 @@ cleanup:                                          ; preds = %land.rhs.i44, %land
 
 for.inc:                                          ; preds = %lor.lhs.false, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit51
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %candidateName) #31
-  %call.i52 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.077) #35
+  %call.i52 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %it.sroa.0.076) #35
   %cmp.i29.not = icmp eq ptr %call.i52, %range.sroa.6.0
   br i1 %cmp.i29.not, label %if.end55, label %for.body, !llvm.loop !10
 
 if.end55:                                         ; preds = %for.inc, %land.rhs.i21, %cleanup, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit28, %if.end32
-  %retval.sroa.0.0 = phi ptr [ %it.sroa.0.077, %cleanup ], [ %add.ptr.i.i, %if.end32 ], [ %range.sroa.0.0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit28 ], [ %range.sroa.0.0, %land.rhs.i21 ], [ %add.ptr.i.i62, %for.inc ]
+  %retval.sroa.0.0 = phi ptr [ %it.sroa.0.076, %cleanup ], [ %add.ptr.i.i, %if.end32 ], [ %range.sroa.0.0, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit28 ], [ %range.sroa.0.0, %land.rhs.i21 ], [ %add.ptr.i.i62, %for.inc ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uniqueName) #31
   ret ptr %retval.sroa.0.0
 
 ehcleanup:                                        ; preds = %lpad.loopexit, %lpad.loopexit.split-lp, %lpad7
-  %.pn = phi { ptr, i32 } [ %6, %lpad7 ], [ %lpad.loopexit72, %lpad.loopexit ], [ %lpad.loopexit.split-lp73, %lpad.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %6, %lpad7 ], [ %lpad.loopexit71, %lpad.loopexit ], [ %lpad.loopexit.split-lp72, %lpad.loopexit.split-lp ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uniqueName) #31
   resume { ptr, i32 } %.pn
 }

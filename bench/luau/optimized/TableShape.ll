@@ -1929,10 +1929,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ShapeVisitor
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !52
   %17 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprTableEE5valueE, align 4, !tbaa !4
-  %.fr45.i = freeze i32 %17
-  %18 = icmp ne i32 %16, %.fr45.i
-  %.not.not49.i = icmp eq ptr %14, null
-  %.not.not.i = or i1 %.not.not49.i, %18
+  %.fr43.i = freeze i32 %17
+  %18 = icmp ne i32 %16, %.fr43.i
+  %.not.not47.i = icmp eq ptr %14, null
+  %.not.not.i = or i1 %.not.not47.i, %18
   br i1 %.not.not.i, label %19, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit
 
 19:                                               ; preds = %11
@@ -1960,8 +1960,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN4Luau7Compile12ShapeVisitor
   %34 = load i32, ptr %33, align 8, !tbaa !52
   %35 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4, !tbaa !4
   %36 = icmp ne i32 %34, %35
-  %.not2544.i = icmp eq ptr %32, null
-  %.not25.i = or i1 %.not2544.i, %36
+  %.not2542.i = icmp eq ptr %32, null
+  %.not25.i = or i1 %.not2542.i, %36
   br i1 %.not25.i, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread, label %37
 
 37:                                               ; preds = %30
@@ -1978,15 +1978,15 @@ _ZNK4Luau7AstNameeqEPKc.exit.i:                   ; preds = %37
 42:                                               ; preds = %_ZNK4Luau7AstNameeqEPKc.exit.i
   %43 = load ptr, ptr %26, align 8, !tbaa !61
   %44 = load ptr, ptr %43, align 8, !tbaa !50
-  %.fr46.i = freeze ptr %44
-  %45 = getelementptr inbounds nuw i8, ptr %.fr46.i, i64 8
+  %.fr44.i = freeze ptr %44
+  %45 = getelementptr inbounds nuw i8, ptr %.fr44.i, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !52
   %.fr.i = freeze i32 %46
-  %47 = icmp eq i32 %.fr.i, %.fr45.i
+  %47 = icmp eq i32 %.fr.i, %.fr43.i
   br i1 %47, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit, label %_ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit.thread
 
 _ZN4Luau7CompileL12getTableHintEPNS_7AstExprE.exit: ; preds = %42, %11
-  %.1.i = phi ptr [ %14, %11 ], [ %.fr46.i, %42 ]
+  %.1.i = phi ptr [ %14, %11 ], [ %.fr44.i, %42 ]
   %48 = getelementptr inbounds nuw i8, ptr %.1.i, i64 40
   %49 = load i64, ptr %48, align 8, !tbaa !62
   %50 = icmp eq i64 %49, 0

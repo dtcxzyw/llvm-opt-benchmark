@@ -176,21 +176,21 @@ define dso_local void @_ZNK4absl15status_internal9StatusRep10GetPayloadESt17basi
   br i1 %14, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %19
-  %storemerge15.i.us = phi i64 [ %20, %19 ], [ 0, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %13, i64 %storemerge15.i.us
+  %storemerge13.i.us = phi i64 [ %20, %19 ], [ 0, %.lr.ph.i ]
+  %15 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %13, i64 %storemerge13.i.us
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !16
   %18 = icmp eq i64 %17, 0
   br i1 %18, label %_ZNRSt8optionalImE5valueEv.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i.split.us
-  %20 = add nuw nsw i64 %storemerge15.i.us, 1
+  %20 = add nuw nsw i64 %storemerge13.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %20, %9
   br i1 %exitcond.not.i.us, label %_ZNSt8optionalIN4absl4CordEEC2IRS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS1_JSA_EESt14is_convertibleISA_S1_EEEbE4typeELb1EEEOSA_.exit, label %.lr.ph.i.split.us, !llvm.loop !17
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %27
-  %storemerge15.i = phi i64 [ %28, %27 ], [ 0, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %13, i64 %storemerge15.i
+  %storemerge13.i = phi i64 [ %28, %27 ], [ 0, %.lr.ph.i ]
+  %21 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %13, i64 %storemerge13.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !16
   %24 = icmp eq i64 %23, %.fr10
@@ -203,12 +203,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i.split
   br i1 %26, label %_ZNRSt8optionalImE5valueEv.exit, label %27
 
 27:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.split
-  %28 = add nuw nsw i64 %storemerge15.i, 1
+  %28 = add nuw nsw i64 %storemerge13.i, 1
   %exitcond.not.i = icmp eq i64 %28, %9
   br i1 %exitcond.not.i, label %_ZNSt8optionalIN4absl4CordEEC2IRS1_TnNSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES6_IS7_ISt10in_place_tSE_EESt16is_constructibleIS1_JSA_EESt14is_convertibleISA_S1_EEEbE4typeELb1EEEOSA_.exit, label %.lr.ph.i.split, !llvm.loop !17
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.split.us
-  %.us-phi = phi i64 [ %storemerge15.i.us, %.lr.ph.i.split.us ], [ %storemerge15.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+  %.us-phi = phi i64 [ %storemerge13.i.us, %.lr.ph.i.split.us ], [ %storemerge13.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   %29 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %13, i64 %.us-phi
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i8, ptr %30, align 1, !tbaa !15
@@ -280,21 +280,21 @@ define dso_local void @_ZN4absl15status_internal9StatusRep10SetPayloadESt17basic
   br i1 %15, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %20
-  %storemerge15.i.us = phi i64 [ %21, %20 ], [ 0, %.lr.ph.i ]
-  %16 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %14, i64 %storemerge15.i.us
+  %storemerge13.i.us = phi i64 [ %21, %20 ], [ 0, %.lr.ph.i ]
+  %16 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %14, i64 %storemerge13.i.us
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !16
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %_ZNRSt8optionalImE5valueEv.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i.split.us
-  %21 = add nuw nsw i64 %storemerge15.i.us, 1
+  %21 = add nuw nsw i64 %storemerge13.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %21, %10
   br i1 %exitcond.not.i.us, label %.loopexit, label %.lr.ph.i.split.us, !llvm.loop !17
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %28
-  %storemerge15.i = phi i64 [ %29, %28 ], [ 0, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %14, i64 %storemerge15.i
+  %storemerge13.i = phi i64 [ %29, %28 ], [ 0, %.lr.ph.i ]
+  %22 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %14, i64 %storemerge13.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !16
   %25 = icmp eq i64 %24, %.fr25
@@ -307,12 +307,12 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i.split
   br i1 %27, label %_ZNRSt8optionalImE5valueEv.exit, label %28
 
 28:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.split
-  %29 = add nuw nsw i64 %storemerge15.i, 1
+  %29 = add nuw nsw i64 %storemerge13.i, 1
   %exitcond.not.i = icmp eq i64 %29, %10
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i.split, !llvm.loop !17
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.split.us
-  %.us-phi = phi i64 [ %storemerge15.i.us, %.lr.ph.i.split.us ], [ %storemerge15.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+  %.us-phi = phi i64 [ %storemerge13.i.us, %.lr.ph.i.split.us ], [ %storemerge13.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   %30 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %14, i64 %.us-phi
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i8, ptr %31, align 1, !tbaa !15
@@ -579,21 +579,21 @@ define dso_local { i8, i64 } @_ZN4absl15status_internal9StatusRep12ErasePayloadE
   br i1 %13, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %18
-  %storemerge15.i.us = phi i64 [ %19, %18 ], [ 0, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %12, i64 %storemerge15.i.us
+  %storemerge13.i.us = phi i64 [ %19, %18 ], [ 0, %.lr.ph.i ]
+  %14 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %12, i64 %storemerge13.i.us
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i64 %16, 0
   br i1 %17, label %_ZNRSt8optionalImE5valueEv.exit, label %18
 
 18:                                               ; preds = %.lr.ph.i.split.us
-  %19 = add nuw nsw i64 %storemerge15.i.us, 1
+  %19 = add nuw nsw i64 %storemerge13.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %19, %8
   br i1 %exitcond.not.i.us, label %.loopexit, label %.lr.ph.i.split.us, !llvm.loop !17
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %26
-  %storemerge15.i = phi i64 [ %27, %26 ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %12, i64 %storemerge15.i
+  %storemerge13.i = phi i64 [ %27, %26 ], [ 0, %.lr.ph.i ]
+  %20 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %12, i64 %storemerge13.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !16
   %23 = icmp eq i64 %22, %.fr15
@@ -606,7 +606,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i.split
   br i1 %25, label %_ZNRSt8optionalImE5valueEv.exit, label %26
 
 26:                                               ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.split
-  %27 = add nuw nsw i64 %storemerge15.i, 1
+  %27 = add nuw nsw i64 %storemerge13.i, 1
   %exitcond.not.i = icmp eq i64 %27, %8
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i.split, !llvm.loop !17
 
@@ -615,7 +615,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i.split
   br label %45
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.split.us
-  %.us-phi = phi i64 [ %storemerge15.i.us, %.lr.ph.i.split.us ], [ %storemerge15.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
+  %.us-phi = phi i64 [ %storemerge13.i.us, %.lr.ph.i.split.us ], [ %storemerge13.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
   %29 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %12, i64 %.us-phi
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = tail call noundef ptr @_ZN4absl23inlined_vector_internal7StorageINS_15status_internal7PayloadELm1ESaIS3_EE5EraseEPKS3_S7_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %29, ptr noundef nonnull %30)

@@ -1105,8 +1105,8 @@ define range(i32 0, 2) i32 @ossl_cmp_verify_popo(ptr noundef readonly captures(n
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !32
-  %.not17 = icmp eq ptr %6, null
-  br i1 %.not17, label %.critedge, label %7, !prof !59
+  %.not16 = icmp eq ptr %6, null
+  br i1 %.not16, label %.critedge, label %7, !prof !59
 
 7:                                                ; preds = %4
   %8 = load i32, ptr %6, align 8, !tbaa !72

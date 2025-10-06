@@ -3184,11 +3184,11 @@ define dso_local void @_ZN4llvm6object21WindowsResourceParser11addChildrenERNS1_
   %21 = alloca %"class.std::__cxx11::basic_string", align 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 14
-  %.0.copyload.i.i.i223 = load i16, ptr %22, align 1
-  %.0.copyload.i.i.i74224 = load i16, ptr %23, align 1
-  %24 = or i16 %.0.copyload.i.i.i74224, %.0.copyload.i.i.i223
-  %.not227 = icmp eq i16 %24, 0
-  br i1 %.not227, label %_ZN4llvm5ErrorD2Ev.exit157, label %.lr.ph
+  %.0.copyload.i.i.i221 = load i16, ptr %22, align 1
+  %.0.copyload.i.i.i74222 = load i16, ptr %23, align 1
+  %24 = or i16 %.0.copyload.i.i.i74222, %.0.copyload.i.i.i221
+  %.not225 = icmp eq i16 %24, 0
+  br i1 %.not225, label %_ZN4llvm5ErrorD2Ev.exit157, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -3229,10 +3229,10 @@ define dso_local void @_ZN4llvm6object21WindowsResourceParser11addChildrenERNS1_
   br label %56
 
 56:                                               ; preds = %.lr.ph, %_ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_entryEED2Ev.exit
-  %.0226 = phi i32 [ 0, %.lr.ph ], [ %451, %_ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_entryEED2Ev.exit ]
-  %.062225 = phi ptr [ undef, %.lr.ph ], [ %.567, %_ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_entryEED2Ev.exit ]
+  %.0224 = phi i32 [ 0, %.lr.ph ], [ %451, %_ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_entryEED2Ev.exit ]
+  %.062223 = phi ptr [ undef, %.lr.ph ], [ %.567, %_ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_entryEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  call void @_ZN4llvm6object18ResourceSectionRef13getTableEntryERKNS0_23coff_resource_dir_tableEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.58") align 8 %14, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 1 dereferenceable(16) %4, i32 noundef %.0226) #25
+  call void @_ZN4llvm6object18ResourceSectionRef13getTableEntryERKNS0_23coff_resource_dir_tableEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.58") align 8 %14, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 1 dereferenceable(16) %4, i32 noundef %.0224) #25
   %57 = load i8, ptr %25, align 8
   %58 = trunc i8 %57 to i1
   br i1 %58, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i, label %61
@@ -3255,7 +3255,7 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i: ; p
 
 65:                                               ; preds = %61
   %66 = zext i16 %.0.copyload.i.i.i75 to i32
-  %67 = icmp samesign ult i32 %.0226, %66
+  %67 = icmp samesign ult i32 %.0224, %66
   br i1 %67, label %68, label %106
 
 68:                                               ; preds = %65
@@ -3355,7 +3355,7 @@ _ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE17_M_reall
   br label %_ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE9push_backEOS3_.exit
 
 _ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE9push_backEOS3_.exit: ; preds = %_ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %77, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i77
-  %.264 = phi ptr [ %.062225, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i77 ], [ %74, %77 ], [ %74, %_ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
+  %.264 = phi ptr [ %.062223, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i77 ], [ %74, %77 ], [ %74, %_ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %99 = load i8, ptr %53, align 8
   %100 = trunc i8 %99 to i1
   br i1 %100, label %101, label %_ZN4llvm8ExpectedINS_8ArrayRefItEEED2Ev.exit
@@ -3480,8 +3480,8 @@ _ZNSt6vectorIN4llvm6object21WindowsResourceParser10StringOrIDESaIS3_EE9push_back
   %139 = load ptr, ptr %16, align 8, !tbaa !241
   call void @_ZN4llvm6object21WindowsResourceParser11addChildrenERNS1_8TreeNodeERNS0_18ResourceSectionRefERKNS0_23coff_resource_dir_tableEjRSt6vectorINS1_10StringOrIDESaISA_EERS9_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(201) %1, ptr noundef nonnull align 8 dereferenceable(124) %.466, ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 1 dereferenceable(16) %139, i32 noundef %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %140 = load ptr, ptr %0, align 8, !tbaa !52
-  %.not206 = icmp eq ptr %140, null
-  br i1 %.not206, label %_ZN4llvm5ErrorD2Ev.exit, label %.thread
+  %.not204 = icmp eq ptr %140, null
+  br i1 %.not204, label %_ZN4llvm5ErrorD2Ev.exit, label %.thread
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %138
   %141 = load ptr, ptr %27, align 8, !tbaa !211
@@ -3508,7 +3508,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i102: ; preds = %14
 
 _ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_tableEED2Ev.exit104: ; preds = %145, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i102, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br i1 %.not206, label %443, label %.critedge71
+  br i1 %.not204, label %443, label %.critedge71
 
 150:                                              ; preds = %61
   %.not = icmp eq i16 %.0.copyload.i.i.i75, 0
@@ -3732,11 +3732,11 @@ _ZNSt6vectorIS_IhSaIhEESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNK4llvm8ArrayR
 
 _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt6vectorIS_IhSaIhEESaIS1_EE9push_backEOS1_.exit.thread, %_ZNSt6vectorIS_IhSaIhEESaIS1_EE9push_backEOS1_.exit, %218
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.pre233 = load i8, ptr %49, align 8
+  %.pre231 = load i8, ptr %49, align 8
   br label %223
 
 223:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i131
-  %224 = phi i8 [ %.pre233, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %202, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i131 ]
+  %224 = phi i8 [ %.pre231, %_ZNSt6vectorIhSaIhEED2Ev.exit ], [ %202, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i131 ]
   %225 = trunc i8 %224 to i1
   br i1 %225, label %226, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit
 
@@ -4154,14 +4154,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZN4llvm6objectL26makeDuplicateResourceErrorB5cxx11ERKSt6vectorINS0_21WindowsResourceParser10StringOrIDESaIS3_EENS_9StringRefES8_.exit
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr %408, ptr noundef nonnull align 8 dereferenceable(32) %21)
-  %.pre232 = load ptr, ptr %21, align 8, !tbaa !207
-  %423 = icmp eq ptr %.pre232, %45
+  %.pre230 = load ptr, ptr %21, align 8, !tbaa !207
+  %423 = icmp eq ptr %.pre230, %45
   br i1 %423, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
   %424 = load i64, ptr %45, align 8, !tbaa !21
   %425 = add i64 %424, 1
-  call void @_ZdlPvm(ptr noundef %.pre232, i64 noundef %425) #27
+  call void @_ZdlPvm(ptr noundef %.pre230, i64 noundef %425) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -4216,7 +4216,7 @@ _ZN4llvm8ExpectedIRKNS_6object24coff_resource_data_entryEED2Ev.exit149: ; preds 
   br label %.critedge71
 
 443:                                              ; preds = %_ZN4llvm8ExpectedIRKNS_6object24coff_resource_data_entryEED2Ev.exit145, %_ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_tableEED2Ev.exit104
-  %.567 = phi ptr [ %.466, %_ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_tableEED2Ev.exit104 ], [ %.062225, %_ZN4llvm8ExpectedIRKNS_6object24coff_resource_data_entryEED2Ev.exit145 ]
+  %.567 = phi ptr [ %.466, %_ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_tableEED2Ev.exit104 ], [ %.062223, %_ZN4llvm8ExpectedIRKNS_6object24coff_resource_data_entryEED2Ev.exit145 ]
   %444 = load i8, ptr %25, align 8
   %445 = trunc i8 %444 to i1
   br i1 %445, label %446, label %_ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_entryEED2Ev.exit
@@ -4235,7 +4235,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i151: ; preds = %44
 
 _ZN4llvm8ExpectedIRKNS_6object23coff_resource_dir_entryEED2Ev.exit: ; preds = %446, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i151, %443
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %451 = add nuw nsw i32 %.0226, 1
+  %451 = add nuw nsw i32 %.0224, 1
   %.0.copyload.i.i.i = load i16, ptr %22, align 1
   %452 = zext i16 %.0.copyload.i.i.i to i32
   %.0.copyload.i.i.i74 = load i16, ptr %23, align 1

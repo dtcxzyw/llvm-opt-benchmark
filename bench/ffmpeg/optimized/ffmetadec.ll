@@ -41,8 +41,8 @@ define internal range(i32 -12, 1) i32 @read_header(ptr noundef %0) #1 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !11
   %10 = call i32 @avio_feof(ptr noundef %9) #9
-  %.not50 = icmp eq i32 %10, 0
-  br i1 %.not50, label %.lr.ph, label %._crit_edge
+  %.not49 = icmp eq i32 %10, 0
+  br i1 %.not49, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -52,7 +52,7 @@ define internal range(i32 -12, 1) i32 @read_header(ptr noundef %0) #1 {
   br label %15
 
 15:                                               ; preds = %.lr.ph, %read_tag.exit
-  %.02151 = phi ptr [ %11, %.lr.ph ], [ %.2, %read_tag.exit ]
+  %.02150 = phi ptr [ %11, %.lr.ph ], [ %.2, %read_tag.exit ]
   %16 = load ptr, ptr %8, align 8, !tbaa !11
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 84
   br label %.backedge.i
@@ -577,11 +577,11 @@ read_chapter.exit:                                ; preds = %get_line.exit47._cr
 .loopexit.i:                                      ; preds = %.lr.ph.i24.i, %.preheader.i21.i
   %.013.lcssa.i23.i = phi ptr [ %191, %.preheader.i21.i ], [ %200, %.lr.ph.i24.i ]
   store i8 0, ptr %.013.lcssa.i23.i, align 1, !tbaa !26
-  %203 = call i32 @av_dict_set(ptr noundef %.02151, ptr noundef nonnull %176, ptr noundef nonnull %191, i32 noundef 12) #9
+  %203 = call i32 @av_dict_set(ptr noundef %.02150, ptr noundef nonnull %176, ptr noundef nonnull %191, i32 noundef 12) #9
   br label %read_tag.exit
 
 read_tag.exit:                                    ; preds = %167, %.loopexit.i, %202, %170, %.thread, %read_chapter.exit
-  %.2 = phi ptr [ %163, %read_chapter.exit ], [ %50, %.thread ], [ %.02151, %170 ], [ %.02151, %202 ], [ %.02151, %.loopexit.i ], [ %.02151, %167 ]
+  %.2 = phi ptr [ %163, %read_chapter.exit ], [ %50, %.thread ], [ %.02150, %170 ], [ %.02150, %202 ], [ %.02150, %.loopexit.i ], [ %.02150, %167 ]
   %204 = load ptr, ptr %8, align 8, !tbaa !11
   %205 = call i32 @avio_feof(ptr noundef %204) #9
   %.not = icmp eq i32 %205, 0

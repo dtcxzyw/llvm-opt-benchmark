@@ -2061,7 +2061,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyD2Ev.exit: ; pr
   resume { ptr, i32 } %66
 
 _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetSpecTypeEv.exit: ; preds = %2, %61, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition21GetPropertyDefinitionERKNS_7TfTokenE.exit
-  %switch = phi i32 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition21GetPropertyDefinitionERKNS_7TfTokenE.exit ], [ %64, %61 ], [ 0, %2 ]
+  %spec.select = phi i32 [ 0, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition21GetPropertyDefinitionERKNS_7TfTokenE.exit ], [ %64, %61 ], [ 0, %2 ]
   %.sroa.0.112 = phi ptr [ %.sroa.0.1, %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition21GetPropertyDefinitionERKNS_7TfTokenE.exit ], [ %.sroa.0.1, %61 ], [ null, %2 ]
   %73 = ptrtoint ptr %.sroa.0.112 to i64
   %74 = and i64 %73, 7
@@ -2075,7 +2075,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetSpecTypeE
   br label %_ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyD2Ev.exit7
 
 _ZN32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8PropertyD2Ev.exit7: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__17UsdPrimDefinition8Property11GetSpecTypeEv.exit, %75
-  ret i32 %switch
+  ret i32 %spec.select
 }
 
 ; Function Attrs: mustprogress uwtable

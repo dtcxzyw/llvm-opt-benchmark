@@ -1112,19 +1112,19 @@ define ptr @dt_colorspaces_get_work_profile(i32 noundef %0) local_unnamed_addr #
   br i1 %4, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %1
-  %.055 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 16), align 8, !tbaa !25
-  %.not56 = icmp eq ptr %.055, null
-  br i1 %.not56, label %.thread42, label %.critedge
+  %.054 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 16), align 8, !tbaa !25
+  %.not55 = icmp eq ptr %.054, null
+  br i1 %.not55, label %.thread41, label %.critedge
 
 5:                                                ; preds = %.critedge
-  %6 = getelementptr inbounds nuw i8, ptr %.057, i64 8
+  %6 = getelementptr inbounds nuw i8, ptr %.056, i64 8
   %.0 = load ptr, ptr %6, align 8, !tbaa !25
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %._crit_edge, label %.critedge
 
 .critedge:                                        ; preds = %.preheader, %5
-  %.057 = phi ptr [ %.0, %5 ], [ %.055, %.preheader ]
-  %7 = load ptr, ptr %.057, align 8, !tbaa !27
+  %.056 = phi ptr [ %.0, %5 ], [ %.054, %.preheader ]
+  %7 = load ptr, ptr %.056, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 496
   %9 = tail call i32 @g_strcmp0(ptr noundef nonnull %8, ptr noundef nonnull @.str.6) #23
   %.not.i.not = icmp eq i32 %9, 0
@@ -1137,14 +1137,14 @@ define ptr @dt_colorspaces_get_work_profile(i32 noundef %0) local_unnamed_addr #
 ._crit_edge:                                      ; preds = %5
   %.pr.pre = load ptr, ptr @dt_colorspaces_get_work_profile.colorin, align 8, !tbaa !23
   %.not24 = icmp eq ptr %.pr.pre, null
-  br i1 %.not24, label %.thread42, label %.thread
+  br i1 %.not24, label %.thread41, label %.thread
 
 .thread:                                          ; preds = %1, %10, %._crit_edge
   %11 = phi ptr [ %.pr.pre, %._crit_edge ], [ %3, %1 ], [ %7, %10 ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 464
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %.not25 = icmp eq ptr %13, null
-  br i1 %.not25, label %.thread42, label %14
+  br i1 %.not25, label %.thread41, label %14
 
 14:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1190,7 +1190,7 @@ define ptr @dt_colorspaces_get_work_profile(i32 noundef %0) local_unnamed_addr #
   %38 = load ptr, ptr %2, align 8, !tbaa !72
   %39 = call i32 @sqlite3_step(ptr noundef %38) #23
   %40 = icmp eq i32 %39, 100
-  br i1 %40, label %41, label %.thread46
+  br i1 %40, label %41, label %.thread45
 
 41:                                               ; preds = %37
   %42 = load ptr, ptr %2, align 8, !tbaa !72
@@ -1206,22 +1206,22 @@ define ptr @dt_colorspaces_get_work_profile(i32 noundef %0) local_unnamed_addr #
   %52 = icmp ne ptr %47, null
   %53 = icmp ne ptr %51, null
   %or.cond = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond, label %54, label %.thread46
+  br i1 %or.cond, label %54, label %.thread45
 
 54:                                               ; preds = %41
   %55 = load i32, ptr %47, align 4, !tbaa !19
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !74
-  %.02536.i = load ptr, ptr %56, align 8, !tbaa !25
-  %.not37.i = icmp eq ptr %.02536.i, null
-  br i1 %.not37.i, label %.thread46, label %.lr.ph.i
+  %.02539.i = load ptr, ptr %56, align 8, !tbaa !25
+  %.not40.i = icmp eq ptr %.02539.i, null
+  br i1 %.not40.i, label %.thread45, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %54
   %.not32.i = icmp eq i32 %55, 0
   br i1 %.not32.i, label %.lr.ph.split.us.i, label %.lr.ph.split.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %67
-  %.02538.us.i = phi ptr [ %.025.us.i, %67 ], [ %.02536.i, %.lr.ph.i ]
-  %57 = load ptr, ptr %.02538.us.i, align 8, !tbaa !27
+  %.02541.us.i = phi ptr [ %.025.us.i, %67 ], [ %.02539.i, %.lr.ph.i ]
+  %57 = load ptr, ptr %.02541.us.i, align 8, !tbaa !27
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1060
   %59 = load i32, ptr %58, align 4, !tbaa !75
   %60 = icmp sgt i32 %59, -1
@@ -1239,14 +1239,14 @@ define ptr @dt_colorspaces_get_work_profile(i32 noundef %0) local_unnamed_addr #
   br i1 %.not33.us.i, label %67, label %.loopexit
 
 67:                                               ; preds = %.lr.ph.split.us.i, %64, %61
-  %68 = getelementptr inbounds nuw i8, ptr %.02538.us.i, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %.02541.us.i, i64 8
   %.025.us.i = load ptr, ptr %68, align 8, !tbaa !25
   %.not.us.i = icmp eq ptr %.025.us.i, null
-  br i1 %.not.us.i, label %.thread46, label %.lr.ph.split.us.i
+  br i1 %.not.us.i, label %.thread45, label %.lr.ph.split.us.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i, %76
-  %.02538.us45.i = phi ptr [ %.025.us46.i, %76 ], [ %.02536.i, %.lr.ph.i ]
-  %69 = load ptr, ptr %.02538.us45.i, align 8, !tbaa !27
+  %.02541.us48.i = phi ptr [ %.025.us49.i, %76 ], [ %.02539.i, %.lr.ph.i ]
+  %69 = load ptr, ptr %.02541.us48.i, align 8, !tbaa !27
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 1060
   %71 = load i32, ptr %70, align 4, !tbaa !75
   %72 = icmp sgt i32 %71, -1
@@ -1258,33 +1258,33 @@ define ptr @dt_colorspaces_get_work_profile(i32 noundef %0) local_unnamed_addr #
   br i1 %75, label %.loopexit, label %76
 
 76:                                               ; preds = %.lr.ph.split.split.us.i, %73
-  %77 = getelementptr inbounds nuw i8, ptr %.02538.us45.i, i64 8
-  %.025.us46.i = load ptr, ptr %77, align 8, !tbaa !25
-  %.not.us47.i = icmp eq ptr %.025.us46.i, null
-  br i1 %.not.us47.i, label %.thread46, label %.lr.ph.split.split.us.i
+  %77 = getelementptr inbounds nuw i8, ptr %.02541.us48.i, i64 8
+  %.025.us49.i = load ptr, ptr %77, align 8, !tbaa !25
+  %.not.us50.i = icmp eq ptr %.025.us49.i, null
+  br i1 %.not.us50.i, label %.thread45, label %.lr.ph.split.split.us.i
 
-.thread46:                                        ; preds = %76, %67, %37, %41, %54
+.thread45:                                        ; preds = %76, %67, %37, %41, %54
   %78 = load ptr, ptr %2, align 8, !tbaa !72
   %79 = call i32 @sqlite3_finalize(ptr noundef %78) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread42
+  br label %.thread41
 
 .loopexit:                                        ; preds = %73, %64
   %.1 = phi ptr [ %57, %64 ], [ %69, %73 ]
   %80 = load ptr, ptr %2, align 8, !tbaa !72
   %81 = call i32 @sqlite3_finalize(ptr noundef %80) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %_get_profile.exit39
+  br label %_get_profile.exit38
 
-.thread42:                                        ; preds = %.preheader, %._crit_edge, %.thread, %.thread46
+.thread41:                                        ; preds = %.preheader, %._crit_edge, %.thread, %.thread45
   %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !74
-  %.02536.i30 = load ptr, ptr %82, align 8, !tbaa !25
-  %.not37.i31 = icmp eq ptr %.02536.i30, null
-  br i1 %.not37.i31, label %_get_profile.exit39, label %.lr.ph.split.split.us.i34
+  %.02539.i30 = load ptr, ptr %82, align 8, !tbaa !25
+  %.not40.i31 = icmp eq ptr %.02539.i30, null
+  br i1 %.not40.i31, label %_get_profile.exit38, label %.lr.ph.split.split.us.i34
 
-.lr.ph.split.split.us.i34:                        ; preds = %.thread42, %90
-  %.02538.us45.i35 = phi ptr [ %.025.us46.i36, %90 ], [ %.02536.i30, %.thread42 ]
-  %83 = load ptr, ptr %.02538.us45.i35, align 8, !tbaa !27
+.lr.ph.split.split.us.i34:                        ; preds = %.thread41, %90
+  %.02541.us48.i35 = phi ptr [ %.025.us49.i36, %90 ], [ %.02539.i30, %.thread41 ]
+  %83 = load ptr, ptr %.02541.us48.i35, align 8, !tbaa !27
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1060
   %85 = load i32, ptr %84, align 4, !tbaa !75
   %86 = icmp sgt i32 %85, -1
@@ -1293,16 +1293,16 @@ define ptr @dt_colorspaces_get_work_profile(i32 noundef %0) local_unnamed_addr #
 87:                                               ; preds = %.lr.ph.split.split.us.i34
   %88 = load i32, ptr %83, align 8, !tbaa !77
   %89 = icmp eq i32 %88, 4
-  br i1 %89, label %_get_profile.exit39, label %90
+  br i1 %89, label %_get_profile.exit38, label %90
 
 90:                                               ; preds = %.lr.ph.split.split.us.i34, %87
-  %91 = getelementptr inbounds nuw i8, ptr %.02538.us45.i35, i64 8
-  %.025.us46.i36 = load ptr, ptr %91, align 8, !tbaa !25
-  %.not.us47.i37 = icmp eq ptr %.025.us46.i36, null
-  br i1 %.not.us47.i37, label %_get_profile.exit39, label %.lr.ph.split.split.us.i34
+  %91 = getelementptr inbounds nuw i8, ptr %.02541.us48.i35, i64 8
+  %.025.us49.i36 = load ptr, ptr %91, align 8, !tbaa !25
+  %.not.us50.i37 = icmp eq ptr %.025.us49.i36, null
+  br i1 %.not.us50.i37, label %_get_profile.exit38, label %.lr.ph.split.split.us.i34
 
-_get_profile.exit39:                              ; preds = %90, %87, %.thread42, %.loopexit
-  %.3 = phi ptr [ %.1, %.loopexit ], [ null, %.thread42 ], [ null, %90 ], [ %83, %87 ]
+_get_profile.exit38:                              ; preds = %90, %87, %.thread41, %.loopexit
+  %.3 = phi ptr [ %.1, %.loopexit ], [ null, %.thread41 ], [ %83, %87 ], [ null, %90 ]
   ret ptr %.3
 }
 
@@ -1337,20 +1337,20 @@ define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, pt
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @dt_colorspaces_get_output_profile.colorout, align 8, !tbaa !23
   %6 = icmp ne ptr %5, null
-  %.084 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 16), align 8
-  %.not85 = icmp eq ptr %.084, null
-  %or.cond87 = select i1 %6, i1 true, i1 %.not85
-  br i1 %or.cond87, label %.loopexit, label %.critedge
+  %.082 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 16), align 8
+  %.not83 = icmp eq ptr %.082, null
+  %or.cond85 = select i1 %6, i1 true, i1 %.not83
+  br i1 %or.cond85, label %.loopexit, label %.critedge
 
 7:                                                ; preds = %.critedge
-  %8 = getelementptr inbounds nuw i8, ptr %.086, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.084, i64 8
   %.0 = load ptr, ptr %8, align 8, !tbaa !25
   %.not = icmp eq ptr %.0, null
   br i1 %.not, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %3, %7
-  %.086 = phi ptr [ %.0, %7 ], [ %.084, %3 ]
-  %9 = load ptr, ptr %.086, align 8, !tbaa !27
+  %.084 = phi ptr [ %.0, %7 ], [ %.082, %3 ]
+  %9 = load ptr, ptr %.084, align 8, !tbaa !27
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 496
   %11 = tail call i32 @g_strcmp0(ptr noundef nonnull %10, ptr noundef nonnull @.str.15) #23
   %.not.i.not = icmp eq i32 %11, 0
@@ -1366,17 +1366,17 @@ define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, pt
 
 13:                                               ; preds = %.loopexit
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !74
-  %.02536.i = load ptr, ptr %14, align 8, !tbaa !25
-  %.not37.i = icmp eq ptr %.02536.i, null
-  br i1 %.not37.i, label %_get_profile.exit.thread, label %.lr.ph.i
+  %.02539.i = load ptr, ptr %14, align 8, !tbaa !25
+  %.not40.i = icmp eq ptr %.02539.i, null
+  br i1 %.not40.i, label %_get_profile.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13
   %.not32.i = icmp eq i32 %1, 0
   br i1 %.not32.i, label %.lr.ph.split.us.i, label %.lr.ph.split.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %29
-  %.02538.us.i = phi ptr [ %.025.us.i, %29 ], [ %.02536.i, %.lr.ph.i ]
-  %15 = load ptr, ptr %.02538.us.i, align 8, !tbaa !27
+  %.02541.us.i = phi ptr [ %.025.us.i, %29 ], [ %.02539.i, %.lr.ph.i ]
+  %15 = load ptr, ptr %.02541.us.i, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1044
   %17 = load i32, ptr %16, align 4, !tbaa !78
   %18 = icmp sgt i32 %17, -1
@@ -1397,17 +1397,17 @@ define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, pt
   %27 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %28 = tail call i32 @dt_colorspaces_is_profile_equal(ptr noundef nonnull %27, ptr noundef readonly %2)
   %.not33.us.i = icmp eq i32 %28, 0
-  br i1 %.not33.us.i, label %29, label %_get_profile.exit60
+  br i1 %.not33.us.i, label %29, label %_get_profile.exit58
 
 29:                                               ; preds = %19, %26, %23
-  %30 = getelementptr inbounds nuw i8, ptr %.02538.us.i, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.02541.us.i, i64 8
   %.025.us.i = load ptr, ptr %30, align 8, !tbaa !25
   %.not.us.i = icmp eq ptr %.025.us.i, null
   br i1 %.not.us.i, label %_get_profile.exit.thread, label %.lr.ph.split.us.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i, %42
-  %.02538.us45.i = phi ptr [ %.025.us46.i, %42 ], [ %.02536.i, %.lr.ph.i ]
-  %31 = load ptr, ptr %.02538.us45.i, align 8, !tbaa !27
+  %.02541.us48.i = phi ptr [ %.025.us49.i, %42 ], [ %.02539.i, %.lr.ph.i ]
+  %31 = load ptr, ptr %.02541.us48.i, align 8, !tbaa !27
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 1044
   %33 = load i32, ptr %32, align 4, !tbaa !78
   %34 = icmp sgt i32 %33, -1
@@ -1422,13 +1422,13 @@ define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, pt
 39:                                               ; preds = %35, %.lr.ph.split.split.us.i
   %40 = load i32, ptr %31, align 8, !tbaa !77
   %41 = icmp eq i32 %40, %1
-  br i1 %41, label %_get_profile.exit60, label %42
+  br i1 %41, label %_get_profile.exit58, label %42
 
 42:                                               ; preds = %35, %39
-  %43 = getelementptr inbounds nuw i8, ptr %.02538.us45.i, i64 8
-  %.025.us46.i = load ptr, ptr %43, align 8, !tbaa !25
-  %.not.us47.i = icmp eq ptr %.025.us46.i, null
-  br i1 %.not.us47.i, label %_get_profile.exit.thread, label %.lr.ph.split.split.us.i
+  %43 = getelementptr inbounds nuw i8, ptr %.02541.us48.i, i64 8
+  %.025.us49.i = load ptr, ptr %43, align 8, !tbaa !25
+  %.not.us50.i = icmp eq ptr %.025.us49.i, null
+  br i1 %.not.us50.i, label %_get_profile.exit.thread, label %.lr.ph.split.split.us.i
 
 44:                                               ; preds = %.loopexit
   %45 = load ptr, ptr @dt_colorspaces_get_output_profile.colorout, align 8, !tbaa !23
@@ -1485,7 +1485,7 @@ define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, pt
   %73 = load ptr, ptr %4, align 8, !tbaa !72
   %74 = call i32 @sqlite3_step(ptr noundef %73) #23
   %75 = icmp eq i32 %74, 100
-  br i1 %75, label %76, label %_get_profile.exit.thread68
+  br i1 %75, label %76, label %_get_profile.exit.thread66
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %4, align 8, !tbaa !72
@@ -1501,34 +1501,34 @@ define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, pt
   %87 = icmp ne ptr %82, null
   %88 = icmp ne ptr %86, null
   %or.cond = select i1 %87, i1 %88, i1 false
-  br i1 %or.cond, label %89, label %_get_profile.exit.thread68
+  br i1 %or.cond, label %89, label %_get_profile.exit.thread66
 
 89:                                               ; preds = %76
   %90 = load i32, ptr %82, align 4, !tbaa !19
   %91 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !74
-  %.02536.i35 = load ptr, ptr %91, align 8, !tbaa !25
-  %.not37.i36 = icmp eq ptr %.02536.i35, null
-  br i1 %.not37.i36, label %_get_profile.exit.thread68, label %.lr.ph.i37
+  %.02539.i35 = load ptr, ptr %91, align 8, !tbaa !25
+  %.not40.i36 = icmp eq ptr %.02539.i35, null
+  br i1 %.not40.i36, label %_get_profile.exit.thread66, label %.lr.ph.i37
 
 .lr.ph.i37:                                       ; preds = %89
   %.not32.i38 = icmp eq i32 %90, 0
-  br i1 %.not32.i38, label %.lr.ph.split.us.i45, label %.lr.ph.split.split.us.i40
+  br i1 %.not32.i38, label %.lr.ph.split.us.i44, label %.lr.ph.split.split.us.i40
 
-.lr.ph.split.us.i45:                              ; preds = %.lr.ph.i37, %106
-  %.02538.us.i46 = phi ptr [ %.025.us.i47, %106 ], [ %.02536.i35, %.lr.ph.i37 ]
-  %92 = load ptr, ptr %.02538.us.i46, align 8, !tbaa !27
+.lr.ph.split.us.i44:                              ; preds = %.lr.ph.i37, %106
+  %.02541.us.i45 = phi ptr [ %.025.us.i46, %106 ], [ %.02539.i35, %.lr.ph.i37 ]
+  %92 = load ptr, ptr %.02541.us.i45, align 8, !tbaa !27
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1044
   %94 = load i32, ptr %93, align 4, !tbaa !78
   %95 = icmp sgt i32 %94, -1
   br i1 %95, label %100, label %96
 
-96:                                               ; preds = %.lr.ph.split.us.i45
+96:                                               ; preds = %.lr.ph.split.us.i44
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 1048
   %98 = load i32, ptr %97, align 8, !tbaa !79
   %99 = icmp sgt i32 %98, -1
   br i1 %99, label %100, label %106
 
-100:                                              ; preds = %96, %.lr.ph.split.us.i45
+100:                                              ; preds = %96, %.lr.ph.split.us.i44
   %101 = load i32, ptr %92, align 8, !tbaa !77
   %102 = icmp eq i32 %101, 0
   br i1 %102, label %103, label %106
@@ -1536,18 +1536,18 @@ define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, pt
 103:                                              ; preds = %100
   %104 = getelementptr inbounds nuw i8, ptr %92, i64 4
   %105 = call i32 @dt_colorspaces_is_profile_equal(ptr noundef nonnull %104, ptr noundef nonnull readonly %86)
-  %.not33.us.i49 = icmp eq i32 %105, 0
-  br i1 %.not33.us.i49, label %106, label %_get_profile.exit
+  %.not33.us.i48 = icmp eq i32 %105, 0
+  br i1 %.not33.us.i48, label %106, label %_get_profile.exit
 
 106:                                              ; preds = %96, %103, %100
-  %107 = getelementptr inbounds nuw i8, ptr %.02538.us.i46, i64 8
-  %.025.us.i47 = load ptr, ptr %107, align 8, !tbaa !25
-  %.not.us.i48 = icmp eq ptr %.025.us.i47, null
-  br i1 %.not.us.i48, label %_get_profile.exit.thread68, label %.lr.ph.split.us.i45
+  %107 = getelementptr inbounds nuw i8, ptr %.02541.us.i45, i64 8
+  %.025.us.i46 = load ptr, ptr %107, align 8, !tbaa !25
+  %.not.us.i47 = icmp eq ptr %.025.us.i46, null
+  br i1 %.not.us.i47, label %_get_profile.exit.thread66, label %.lr.ph.split.us.i44
 
 .lr.ph.split.split.us.i40:                        ; preds = %.lr.ph.i37, %119
-  %.02538.us45.i41 = phi ptr [ %.025.us46.i42, %119 ], [ %.02536.i35, %.lr.ph.i37 ]
-  %108 = load ptr, ptr %.02538.us45.i41, align 8, !tbaa !27
+  %.02541.us48.i41 = phi ptr [ %.025.us49.i42, %119 ], [ %.02539.i35, %.lr.ph.i37 ]
+  %108 = load ptr, ptr %.02541.us48.i41, align 8, !tbaa !27
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 1044
   %110 = load i32, ptr %109, align 4, !tbaa !78
   %111 = icmp sgt i32 %110, -1
@@ -1565,12 +1565,12 @@ define ptr @dt_colorspaces_get_output_profile(i32 noundef %0, i32 noundef %1, pt
   br i1 %118, label %_get_profile.exit, label %119
 
 119:                                              ; preds = %112, %116
-  %120 = getelementptr inbounds nuw i8, ptr %.02538.us45.i41, i64 8
-  %.025.us46.i42 = load ptr, ptr %120, align 8, !tbaa !25
-  %.not.us47.i43 = icmp eq ptr %.025.us46.i42, null
-  br i1 %.not.us47.i43, label %_get_profile.exit.thread68, label %.lr.ph.split.split.us.i40
+  %120 = getelementptr inbounds nuw i8, ptr %.02541.us48.i41, i64 8
+  %.025.us49.i42 = load ptr, ptr %120, align 8, !tbaa !25
+  %.not.us50.i43 = icmp eq ptr %.025.us49.i42, null
+  br i1 %.not.us50.i43, label %_get_profile.exit.thread66, label %.lr.ph.split.split.us.i40
 
-_get_profile.exit.thread68:                       ; preds = %119, %106, %72, %76, %89
+_get_profile.exit.thread66:                       ; preds = %119, %106, %72, %76, %89
   %121 = load ptr, ptr %4, align 8, !tbaa !72
   %122 = call i32 @sqlite3_finalize(ptr noundef %121) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1581,35 +1581,35 @@ _get_profile.exit:                                ; preds = %116, %103
   %123 = load ptr, ptr %4, align 8, !tbaa !72
   %124 = call i32 @sqlite3_finalize(ptr noundef %123) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_get_profile.exit60
+  br label %_get_profile.exit58
 
-_get_profile.exit.thread:                         ; preds = %42, %29, %13, %44, %46, %_get_profile.exit.thread68
+_get_profile.exit.thread:                         ; preds = %42, %29, %13, %44, %46, %_get_profile.exit.thread66
   %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !74
-  %.02536.i51 = load ptr, ptr %125, align 8, !tbaa !25
-  %.not37.i52 = icmp eq ptr %.02536.i51, null
-  br i1 %.not37.i52, label %_get_profile.exit60, label %.lr.ph.split.split.us.i55
+  %.02539.i50 = load ptr, ptr %125, align 8, !tbaa !25
+  %.not40.i51 = icmp eq ptr %.02539.i50, null
+  br i1 %.not40.i51, label %_get_profile.exit58, label %.lr.ph.split.split.us.i54
 
-.lr.ph.split.split.us.i55:                        ; preds = %_get_profile.exit.thread, %133
-  %.02538.us45.i56 = phi ptr [ %.025.us46.i57, %133 ], [ %.02536.i51, %_get_profile.exit.thread ]
-  %126 = load ptr, ptr %.02538.us45.i56, align 8, !tbaa !27
+.lr.ph.split.split.us.i54:                        ; preds = %_get_profile.exit.thread, %133
+  %.02541.us48.i55 = phi ptr [ %.025.us49.i56, %133 ], [ %.02539.i50, %_get_profile.exit.thread ]
+  %126 = load ptr, ptr %.02541.us48.i55, align 8, !tbaa !27
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 1044
   %128 = load i32, ptr %127, align 4, !tbaa !78
   %129 = icmp sgt i32 %128, -1
   br i1 %129, label %130, label %133
 
-130:                                              ; preds = %.lr.ph.split.split.us.i55
+130:                                              ; preds = %.lr.ph.split.split.us.i54
   %131 = load i32, ptr %126, align 8, !tbaa !77
   %132 = icmp eq i32 %131, 1
-  br i1 %132, label %_get_profile.exit60, label %133
+  br i1 %132, label %_get_profile.exit58, label %133
 
-133:                                              ; preds = %.lr.ph.split.split.us.i55, %130
-  %134 = getelementptr inbounds nuw i8, ptr %.02538.us45.i56, i64 8
-  %.025.us46.i57 = load ptr, ptr %134, align 8, !tbaa !25
-  %.not.us47.i58 = icmp eq ptr %.025.us46.i57, null
-  br i1 %.not.us47.i58, label %_get_profile.exit60, label %.lr.ph.split.split.us.i55
+133:                                              ; preds = %.lr.ph.split.split.us.i54, %130
+  %134 = getelementptr inbounds nuw i8, ptr %.02541.us48.i55, i64 8
+  %.025.us49.i56 = load ptr, ptr %134, align 8, !tbaa !25
+  %.not.us50.i57 = icmp eq ptr %.025.us49.i56, null
+  br i1 %.not.us50.i57, label %_get_profile.exit58, label %.lr.ph.split.split.us.i54
 
-_get_profile.exit60:                              ; preds = %39, %26, %133, %130, %_get_profile.exit.thread, %_get_profile.exit
-  %.3 = phi ptr [ %.1, %_get_profile.exit ], [ null, %_get_profile.exit.thread ], [ null, %133 ], [ %126, %130 ], [ %15, %26 ], [ %31, %39 ]
+_get_profile.exit58:                              ; preds = %39, %26, %133, %130, %_get_profile.exit.thread, %_get_profile.exit
+  %.3 = phi ptr [ %.1, %_get_profile.exit ], [ null, %_get_profile.exit.thread ], [ %126, %130 ], [ null, %133 ], [ %15, %26 ], [ %31, %39 ]
   ret ptr %.3
 }
 
@@ -1957,17 +1957,17 @@ define internal fastcc void @_update_display_transforms(ptr noundef captures(add
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 108
   %11 = load i32, ptr %10, align 4, !tbaa !84
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  %.02536.i = load ptr, ptr %0, align 8, !tbaa !25
-  %.not37.i = icmp eq ptr %.02536.i, null
-  br i1 %.not37.i, label %_get_profile.exit.thread, label %.lr.ph.i
+  %.02539.i = load ptr, ptr %0, align 8, !tbaa !25
+  %.not40.i = icmp eq ptr %.02539.i, null
+  br i1 %.not40.i, label %_get_profile.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9
   %.not32.i = icmp eq i32 %11, 0
   br i1 %.not32.i, label %.lr.ph.split.us.i, label %.lr.ph.split.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %23
-  %.02538.us.i = phi ptr [ %.025.us.i, %23 ], [ %.02536.i, %.lr.ph.i ]
-  %13 = load ptr, ptr %.02538.us.i, align 8, !tbaa !27
+  %.02541.us.i = phi ptr [ %.025.us.i, %23 ], [ %.02539.i, %.lr.ph.i ]
+  %13 = load ptr, ptr %.02541.us.i, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1048
   %15 = load i32, ptr %14, align 8, !tbaa !79
   %16 = icmp sgt i32 %15, -1
@@ -1985,14 +1985,14 @@ define internal fastcc void @_update_display_transforms(ptr noundef captures(add
   br i1 %.not33.us.i, label %23, label %_get_profile.exit
 
 23:                                               ; preds = %.lr.ph.split.us.i, %20, %17
-  %24 = getelementptr inbounds nuw i8, ptr %.02538.us.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.02541.us.i, i64 8
   %.025.us.i = load ptr, ptr %24, align 8, !tbaa !25
   %.not.us.i = icmp eq ptr %.025.us.i, null
   br i1 %.not.us.i, label %_get_profile.exit.thread, label %.lr.ph.split.us.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i, %32
-  %.02538.us45.i = phi ptr [ %.025.us46.i, %32 ], [ %.02536.i, %.lr.ph.i ]
-  %25 = load ptr, ptr %.02538.us45.i, align 8, !tbaa !27
+  %.02541.us48.i = phi ptr [ %.025.us49.i, %32 ], [ %.02539.i, %.lr.ph.i ]
+  %25 = load ptr, ptr %.02541.us48.i, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1048
   %27 = load i32, ptr %26, align 8, !tbaa !79
   %28 = icmp sgt i32 %27, -1
@@ -2004,72 +2004,72 @@ define internal fastcc void @_update_display_transforms(ptr noundef captures(add
   br i1 %31, label %_get_profile.exit, label %32
 
 32:                                               ; preds = %.lr.ph.split.split.us.i, %29
-  %33 = getelementptr inbounds nuw i8, ptr %.02538.us45.i, i64 8
-  %.025.us46.i = load ptr, ptr %33, align 8, !tbaa !25
-  %.not.us47.i = icmp eq ptr %.025.us46.i, null
-  br i1 %.not.us47.i, label %_get_profile.exit.thread, label %.lr.ph.split.split.us.i
+  %33 = getelementptr inbounds nuw i8, ptr %.02541.us48.i, i64 8
+  %.025.us49.i = load ptr, ptr %33, align 8, !tbaa !25
+  %.not.us50.i = icmp eq ptr %.025.us49.i, null
+  br i1 %.not.us50.i, label %_get_profile.exit.thread, label %.lr.ph.split.split.us.i
 
 _get_profile.exit:                                ; preds = %29, %20
-  %spec.select.i = phi ptr [ %13, %20 ], [ %25, %29 ]
-  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1032
-  %35 = load ptr, ptr %34, align 8, !tbaa !85
-  %.not25 = icmp eq ptr %35, null
+  %34 = phi ptr [ %13, %20 ], [ %25, %29 ]
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1032
+  %36 = load ptr, ptr %35, align 8, !tbaa !85
+  %.not25 = icmp eq ptr %36, null
   br i1 %.not25, label %_get_profile.exit.thread, label %.lr.ph.split.split.us.i30
 
-.lr.ph.split.split.us.i30:                        ; preds = %_get_profile.exit, %43
-  %.02538.us45.i31 = phi ptr [ %.025.us46.i32, %43 ], [ %.02536.i, %_get_profile.exit ]
-  %36 = load ptr, ptr %.02538.us45.i31, align 8, !tbaa !27
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1048
-  %38 = load i32, ptr %37, align 8, !tbaa !79
-  %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %40, label %43
+.lr.ph.split.split.us.i30:                        ; preds = %_get_profile.exit, %44
+  %.02541.us48.i31 = phi ptr [ %.025.us49.i32, %44 ], [ %.02539.i, %_get_profile.exit ]
+  %37 = load ptr, ptr %.02541.us48.i31, align 8, !tbaa !27
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1048
+  %39 = load i32, ptr %38, align 8, !tbaa !79
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %.lr.ph.split.split.us.i30
-  %41 = load i32, ptr %36, align 8, !tbaa !77
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %_get_profile.exit35, label %43
+41:                                               ; preds = %.lr.ph.split.split.us.i30
+  %42 = load i32, ptr %37, align 8, !tbaa !77
+  %43 = icmp eq i32 %42, 1
+  br i1 %43, label %_get_profile.exit34, label %44
 
-43:                                               ; preds = %.lr.ph.split.split.us.i30, %40
-  %44 = getelementptr inbounds nuw i8, ptr %.02538.us45.i31, i64 8
-  %.025.us46.i32 = load ptr, ptr %44, align 8, !tbaa !25, !nonnull !86, !noundef !86
+44:                                               ; preds = %.lr.ph.split.split.us.i30, %41
+  %45 = getelementptr inbounds nuw i8, ptr %.02541.us48.i31, i64 8
+  %.025.us49.i32 = load ptr, ptr %45, align 8, !tbaa !25, !nonnull !86, !noundef !86
   br label %.lr.ph.split.split.us.i30
 
-_get_profile.exit35:                              ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 1032
-  %46 = load ptr, ptr %45, align 8, !tbaa !85
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2172
-  %48 = load i32, ptr %47, align 4, !tbaa !87
-  %49 = tail call ptr @cmsCreateTransform(ptr noundef %46, i32 noundef 262297, ptr noundef nonnull %35, i32 noundef 279705, i32 noundef %48, i32 noundef 0) #23
-  store ptr %49, ptr %2, align 8, !tbaa !81
-  br label %.lr.ph.split.split.us.i40
+_get_profile.exit34:                              ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 1032
+  %47 = load ptr, ptr %46, align 8, !tbaa !85
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2172
+  %49 = load i32, ptr %48, align 4, !tbaa !87
+  %50 = tail call ptr @cmsCreateTransform(ptr noundef %47, i32 noundef 262297, ptr noundef nonnull %36, i32 noundef 279705, i32 noundef %49, i32 noundef 0) #23
+  store ptr %50, ptr %2, align 8, !tbaa !81
+  br label %.lr.ph.split.split.us.i39
 
-.lr.ph.split.split.us.i40:                        ; preds = %57, %_get_profile.exit35
-  %.02538.us45.i41.in = phi ptr [ %58, %57 ], [ %0, %_get_profile.exit35 ]
-  %.02538.us45.i41 = load ptr, ptr %.02538.us45.i41.in, align 8, !tbaa !25, !nonnull !86, !noundef !86
-  %50 = load ptr, ptr %.02538.us45.i41, align 8, !tbaa !27
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1048
-  %52 = load i32, ptr %51, align 8, !tbaa !79
-  %53 = icmp sgt i32 %52, -1
-  br i1 %53, label %54, label %57
+.lr.ph.split.split.us.i39:                        ; preds = %58, %_get_profile.exit34
+  %.02541.us48.i40.in = phi ptr [ %59, %58 ], [ %0, %_get_profile.exit34 ]
+  %.02541.us48.i40 = load ptr, ptr %.02541.us48.i40.in, align 8, !tbaa !25, !nonnull !86, !noundef !86
+  %51 = load ptr, ptr %.02541.us48.i40, align 8, !tbaa !27
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1048
+  %53 = load i32, ptr %52, align 8, !tbaa !79
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %55, label %58
 
-54:                                               ; preds = %.lr.ph.split.split.us.i40
-  %55 = load i32, ptr %50, align 8, !tbaa !77
-  %56 = icmp eq i32 %55, 2
-  br i1 %56, label %_get_profile.exit45, label %57
+55:                                               ; preds = %.lr.ph.split.split.us.i39
+  %56 = load i32, ptr %51, align 8, !tbaa !77
+  %57 = icmp eq i32 %56, 2
+  br i1 %57, label %_get_profile.exit43, label %58
 
-57:                                               ; preds = %.lr.ph.split.split.us.i40, %54
-  %58 = getelementptr inbounds nuw i8, ptr %.02538.us45.i41, i64 8
-  br label %.lr.ph.split.split.us.i40
+58:                                               ; preds = %.lr.ph.split.split.us.i39, %55
+  %59 = getelementptr inbounds nuw i8, ptr %.02541.us48.i40, i64 8
+  br label %.lr.ph.split.split.us.i39
 
-_get_profile.exit45:                              ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %50, i64 1032
-  %60 = load ptr, ptr %59, align 8, !tbaa !85
-  %61 = load i32, ptr %47, align 4, !tbaa !87
-  %62 = tail call ptr @cmsCreateTransform(ptr noundef %60, i32 noundef 262297, ptr noundef nonnull %35, i32 noundef 279705, i32 noundef %61, i32 noundef 0) #23
-  store ptr %62, ptr %6, align 8, !tbaa !83
+_get_profile.exit43:                              ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 1032
+  %61 = load ptr, ptr %60, align 8, !tbaa !85
+  %62 = load i32, ptr %48, align 4, !tbaa !87
+  %63 = tail call ptr @cmsCreateTransform(ptr noundef %61, i32 noundef 262297, ptr noundef nonnull %36, i32 noundef 279705, i32 noundef %62, i32 noundef 0) #23
+  store ptr %63, ptr %6, align 8, !tbaa !83
   br label %_get_profile.exit.thread
 
-_get_profile.exit.thread:                         ; preds = %32, %23, %9, %_get_profile.exit45, %_get_profile.exit
+_get_profile.exit.thread:                         ; preds = %32, %23, %9, %_get_profile.exit43, %_get_profile.exit
   ret void
 }
 
@@ -2107,17 +2107,17 @@ define internal fastcc void @_update_display2_transforms(ptr noundef captures(ad
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %11 = load i32, ptr %10, align 8, !tbaa !90
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 636
-  %.02536.i = load ptr, ptr %0, align 8, !tbaa !25
-  %.not37.i = icmp eq ptr %.02536.i, null
-  br i1 %.not37.i, label %_get_profile.exit.thread, label %.lr.ph.i
+  %.02539.i = load ptr, ptr %0, align 8, !tbaa !25
+  %.not40.i = icmp eq ptr %.02539.i, null
+  br i1 %.not40.i, label %_get_profile.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9
   %.not32.i = icmp eq i32 %11, 0
   br i1 %.not32.i, label %.lr.ph.split.us.i, label %.lr.ph.split.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %23
-  %.02538.us.i = phi ptr [ %.025.us.i, %23 ], [ %.02536.i, %.lr.ph.i ]
-  %13 = load ptr, ptr %.02538.us.i, align 8, !tbaa !27
+  %.02541.us.i = phi ptr [ %.025.us.i, %23 ], [ %.02539.i, %.lr.ph.i ]
+  %13 = load ptr, ptr %.02541.us.i, align 8, !tbaa !27
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1052
   %15 = load i32, ptr %14, align 4, !tbaa !91
   %16 = icmp sgt i32 %15, -1
@@ -2135,14 +2135,14 @@ define internal fastcc void @_update_display2_transforms(ptr noundef captures(ad
   br i1 %.not33.us.i, label %23, label %_get_profile.exit
 
 23:                                               ; preds = %20, %17, %.lr.ph.split.us.i
-  %24 = getelementptr inbounds nuw i8, ptr %.02538.us.i, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.02541.us.i, i64 8
   %.025.us.i = load ptr, ptr %24, align 8, !tbaa !25
   %.not.us.i = icmp eq ptr %.025.us.i, null
   br i1 %.not.us.i, label %_get_profile.exit.thread, label %.lr.ph.split.us.i
 
 .lr.ph.split.split.us.i:                          ; preds = %.lr.ph.i, %32
-  %.02538.us45.i = phi ptr [ %.025.us46.i, %32 ], [ %.02536.i, %.lr.ph.i ]
-  %25 = load ptr, ptr %.02538.us45.i, align 8, !tbaa !27
+  %.02541.us48.i = phi ptr [ %.025.us49.i, %32 ], [ %.02539.i, %.lr.ph.i ]
+  %25 = load ptr, ptr %.02541.us48.i, align 8, !tbaa !27
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 1052
   %27 = load i32, ptr %26, align 4, !tbaa !91
   %28 = icmp sgt i32 %27, -1
@@ -2154,72 +2154,72 @@ define internal fastcc void @_update_display2_transforms(ptr noundef captures(ad
   br i1 %31, label %_get_profile.exit, label %32
 
 32:                                               ; preds = %29, %.lr.ph.split.split.us.i
-  %33 = getelementptr inbounds nuw i8, ptr %.02538.us45.i, i64 8
-  %.025.us46.i = load ptr, ptr %33, align 8, !tbaa !25
-  %.not.us47.i = icmp eq ptr %.025.us46.i, null
-  br i1 %.not.us47.i, label %_get_profile.exit.thread, label %.lr.ph.split.split.us.i
+  %33 = getelementptr inbounds nuw i8, ptr %.02541.us48.i, i64 8
+  %.025.us49.i = load ptr, ptr %33, align 8, !tbaa !25
+  %.not.us50.i = icmp eq ptr %.025.us49.i, null
+  br i1 %.not.us50.i, label %_get_profile.exit.thread, label %.lr.ph.split.split.us.i
 
 _get_profile.exit:                                ; preds = %29, %20
-  %spec.select.i = phi ptr [ %13, %20 ], [ %25, %29 ]
-  %34 = getelementptr inbounds nuw i8, ptr %spec.select.i, i64 1032
-  %35 = load ptr, ptr %34, align 8, !tbaa !85
-  %.not25 = icmp eq ptr %35, null
+  %34 = phi ptr [ %13, %20 ], [ %25, %29 ]
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 1032
+  %36 = load ptr, ptr %35, align 8, !tbaa !85
+  %.not25 = icmp eq ptr %36, null
   br i1 %.not25, label %_get_profile.exit.thread, label %.lr.ph.split.split.us.i30
 
-.lr.ph.split.split.us.i30:                        ; preds = %_get_profile.exit, %43
-  %.02538.us45.i31 = phi ptr [ %.025.us46.i32, %43 ], [ %.02536.i, %_get_profile.exit ]
-  %36 = load ptr, ptr %.02538.us45.i31, align 8, !tbaa !27
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 1052
-  %38 = load i32, ptr %37, align 4, !tbaa !91
-  %39 = icmp sgt i32 %38, -1
-  br i1 %39, label %40, label %43
+.lr.ph.split.split.us.i30:                        ; preds = %_get_profile.exit, %44
+  %.02541.us48.i31 = phi ptr [ %.025.us49.i32, %44 ], [ %.02539.i, %_get_profile.exit ]
+  %37 = load ptr, ptr %.02541.us48.i31, align 8, !tbaa !27
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 1052
+  %39 = load i32, ptr %38, align 4, !tbaa !91
+  %40 = icmp sgt i32 %39, -1
+  br i1 %40, label %41, label %44
 
-40:                                               ; preds = %.lr.ph.split.split.us.i30
-  %41 = load i32, ptr %36, align 8, !tbaa !77
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %_get_profile.exit35, label %43
+41:                                               ; preds = %.lr.ph.split.split.us.i30
+  %42 = load i32, ptr %37, align 8, !tbaa !77
+  %43 = icmp eq i32 %42, 1
+  br i1 %43, label %_get_profile.exit34, label %44
 
-43:                                               ; preds = %40, %.lr.ph.split.split.us.i30
-  %44 = getelementptr inbounds nuw i8, ptr %.02538.us45.i31, i64 8
-  %.025.us46.i32 = load ptr, ptr %44, align 8, !tbaa !25, !nonnull !86, !noundef !86
+44:                                               ; preds = %41, %.lr.ph.split.split.us.i30
+  %45 = getelementptr inbounds nuw i8, ptr %.02541.us48.i31, i64 8
+  %.025.us49.i32 = load ptr, ptr %45, align 8, !tbaa !25, !nonnull !86, !noundef !86
   br label %.lr.ph.split.split.us.i30
 
-_get_profile.exit35:                              ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %36, i64 1032
-  %46 = load ptr, ptr %45, align 8, !tbaa !85
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 2176
-  %48 = load i32, ptr %47, align 8, !tbaa !92
-  %49 = tail call ptr @cmsCreateTransform(ptr noundef %46, i32 noundef 262297, ptr noundef nonnull %35, i32 noundef 279705, i32 noundef %48, i32 noundef 0) #23
-  store ptr %49, ptr %2, align 8, !tbaa !88
-  br label %.lr.ph.split.split.us.i40
+_get_profile.exit34:                              ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 1032
+  %47 = load ptr, ptr %46, align 8, !tbaa !85
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 2176
+  %49 = load i32, ptr %48, align 8, !tbaa !92
+  %50 = tail call ptr @cmsCreateTransform(ptr noundef %47, i32 noundef 262297, ptr noundef nonnull %36, i32 noundef 279705, i32 noundef %49, i32 noundef 0) #23
+  store ptr %50, ptr %2, align 8, !tbaa !88
+  br label %.lr.ph.split.split.us.i39
 
-.lr.ph.split.split.us.i40:                        ; preds = %57, %_get_profile.exit35
-  %.02538.us45.i41.in = phi ptr [ %58, %57 ], [ %0, %_get_profile.exit35 ]
-  %.02538.us45.i41 = load ptr, ptr %.02538.us45.i41.in, align 8, !tbaa !25, !nonnull !86, !noundef !86
-  %50 = load ptr, ptr %.02538.us45.i41, align 8, !tbaa !27
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 1052
-  %52 = load i32, ptr %51, align 4, !tbaa !91
-  %53 = icmp sgt i32 %52, -1
-  br i1 %53, label %54, label %57
+.lr.ph.split.split.us.i39:                        ; preds = %58, %_get_profile.exit34
+  %.02541.us48.i40.in = phi ptr [ %59, %58 ], [ %0, %_get_profile.exit34 ]
+  %.02541.us48.i40 = load ptr, ptr %.02541.us48.i40.in, align 8, !tbaa !25, !nonnull !86, !noundef !86
+  %51 = load ptr, ptr %.02541.us48.i40, align 8, !tbaa !27
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 1052
+  %53 = load i32, ptr %52, align 4, !tbaa !91
+  %54 = icmp sgt i32 %53, -1
+  br i1 %54, label %55, label %58
 
-54:                                               ; preds = %.lr.ph.split.split.us.i40
-  %55 = load i32, ptr %50, align 8, !tbaa !77
-  %56 = icmp eq i32 %55, 2
-  br i1 %56, label %_get_profile.exit45, label %57
+55:                                               ; preds = %.lr.ph.split.split.us.i39
+  %56 = load i32, ptr %51, align 8, !tbaa !77
+  %57 = icmp eq i32 %56, 2
+  br i1 %57, label %_get_profile.exit43, label %58
 
-57:                                               ; preds = %54, %.lr.ph.split.split.us.i40
-  %58 = getelementptr inbounds nuw i8, ptr %.02538.us45.i41, i64 8
-  br label %.lr.ph.split.split.us.i40
+58:                                               ; preds = %55, %.lr.ph.split.split.us.i39
+  %59 = getelementptr inbounds nuw i8, ptr %.02541.us48.i40, i64 8
+  br label %.lr.ph.split.split.us.i39
 
-_get_profile.exit45:                              ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %50, i64 1032
-  %60 = load ptr, ptr %59, align 8, !tbaa !85
-  %61 = load i32, ptr %47, align 8, !tbaa !92
-  %62 = tail call ptr @cmsCreateTransform(ptr noundef %60, i32 noundef 262297, ptr noundef nonnull %35, i32 noundef 279705, i32 noundef %61, i32 noundef 0) #23
-  store ptr %62, ptr %6, align 8, !tbaa !89
+_get_profile.exit43:                              ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 1032
+  %61 = load ptr, ptr %60, align 8, !tbaa !85
+  %62 = load i32, ptr %48, align 8, !tbaa !92
+  %63 = tail call ptr @cmsCreateTransform(ptr noundef %61, i32 noundef 262297, ptr noundef nonnull %36, i32 noundef 279705, i32 noundef %62, i32 noundef 0) #23
+  store ptr %63, ptr %6, align 8, !tbaa !89
   br label %_get_profile.exit.thread
 
-_get_profile.exit.thread:                         ; preds = %32, %23, %9, %_get_profile.exit45, %_get_profile.exit
+_get_profile.exit.thread:                         ; preds = %32, %23, %9, %_get_profile.exit43, %_get_profile.exit
   ret void
 }
 
@@ -4468,9 +4468,9 @@ switch.lookup:                                    ; preds = %12
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
 define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, i32 noundef %3) unnamed_addr #5 {
-  %.02536 = load ptr, ptr %0, align 8, !tbaa !25
-  %.not37 = icmp eq ptr %.02536, null
-  br i1 %.not37, label %.thread, label %.lr.ph
+  %.02539 = load ptr, ptr %0, align 8, !tbaa !25
+  %.not40 = icmp eq ptr %.02539, null
+  br i1 %.not40, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = and i32 %3, 1
@@ -4487,8 +4487,8 @@ define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0,
   br i1 %.not32, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %41
-  %.02538.us = phi ptr [ %.025.us, %41 ], [ %.02536, %.lr.ph ]
-  %10 = load ptr, ptr %.02538.us, align 8, !tbaa !27
+  %.02541.us = phi ptr [ %.025.us, %41 ], [ %.02539, %.lr.ph ]
+  %10 = load ptr, ptr %.02541.us, align 8, !tbaa !27
   br i1 %.not27, label %15, label %11
 
 11:                                               ; preds = %.lr.ph.split.us
@@ -4542,20 +4542,20 @@ define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0,
   %39 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %40 = tail call i32 @dt_colorspaces_is_profile_equal(ptr noundef nonnull %39, ptr noundef %2)
   %.not33.us = icmp eq i32 %40, 0
-  br i1 %.not33.us, label %41, label %.thread
+  br i1 %.not33.us, label %41, label %._crit_edge
 
 41:                                               ; preds = %38, %35, %31, %30
-  %42 = getelementptr inbounds nuw i8, ptr %.02538.us, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.02541.us, i64 8
   %.025.us = load ptr, ptr %42, align 8, !tbaa !25
   %.not.us = icmp eq ptr %.025.us, null
-  br i1 %.not.us, label %.thread, label %.lr.ph.split.us
+  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not27, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %66
-  %.02538.us45 = phi ptr [ %.025.us46, %66 ], [ %.02536, %.lr.ph.split ]
-  %43 = load ptr, ptr %.02538.us45, align 8, !tbaa !27
+  %.02541.us48 = phi ptr [ %.025.us49, %66 ], [ %.02539, %.lr.ph.split ]
+  %43 = load ptr, ptr %.02541.us48, align 8, !tbaa !27
   br i1 %.not28, label %48, label %44
 
 44:                                               ; preds = %.lr.ph.split.split.us
@@ -4594,20 +4594,20 @@ define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0,
 63:                                               ; preds = %59, %54, %49, %44
   %64 = load i32, ptr %43, align 8, !tbaa !77
   %65 = icmp eq i32 %64, %1
-  br i1 %65, label %.thread, label %66
+  br i1 %65, label %._crit_edge, label %66
 
 66:                                               ; preds = %63, %59, %58
-  %67 = getelementptr inbounds nuw i8, ptr %.02538.us45, i64 8
-  %.025.us46 = load ptr, ptr %67, align 8, !tbaa !25
-  %.not.us47 = icmp eq ptr %.025.us46, null
-  br i1 %.not.us47, label %.thread, label %.lr.ph.split.split.us
+  %67 = getelementptr inbounds nuw i8, ptr %.02541.us48, i64 8
+  %.025.us49 = load ptr, ptr %67, align 8, !tbaa !25
+  %.not.us50 = icmp eq ptr %.025.us49, null
+  br i1 %.not.us50, label %._crit_edge, label %.lr.ph.split.split.us
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not28, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %90
-  %.02538.us50 = phi ptr [ %.025.us51, %90 ], [ %.02536, %.lr.ph.split.split ]
-  %68 = load ptr, ptr %.02538.us50, align 8, !tbaa !27
+  %.02541.us53 = phi ptr [ %.025.us54, %90 ], [ %.02539, %.lr.ph.split.split ]
+  %68 = load ptr, ptr %.02541.us53, align 8, !tbaa !27
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 1040
   %70 = load i32, ptr %69, align 8, !tbaa !104
   %71 = icmp sgt i32 %70, -1
@@ -4643,20 +4643,20 @@ define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0,
 87:                                               ; preds = %83, %78, %73, %.lr.ph.split.split.split.us
   %88 = load i32, ptr %68, align 8, !tbaa !77
   %89 = icmp eq i32 %88, %1
-  br i1 %89, label %.thread, label %90
+  br i1 %89, label %._crit_edge, label %90
 
 90:                                               ; preds = %87, %83, %82
-  %91 = getelementptr inbounds nuw i8, ptr %.02538.us50, i64 8
-  %.025.us51 = load ptr, ptr %91, align 8, !tbaa !25
-  %.not.us52 = icmp eq ptr %.025.us51, null
-  br i1 %.not.us52, label %.thread, label %.lr.ph.split.split.split.us
+  %91 = getelementptr inbounds nuw i8, ptr %.02541.us53, i64 8
+  %.025.us54 = load ptr, ptr %91, align 8, !tbaa !25
+  %.not.us55 = icmp eq ptr %.025.us54, null
+  br i1 %.not.us55, label %._crit_edge, label %.lr.ph.split.split.split.us
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split
   br i1 %.not29, label %.lr.ph.split.split.split.split.us, label %.lr.ph.split.split.split.split
 
 .lr.ph.split.split.split.split.us:                ; preds = %.lr.ph.split.split.split, %113
-  %.02538.us57 = phi ptr [ %.025.us58, %113 ], [ %.02536, %.lr.ph.split.split.split ]
-  %92 = load ptr, ptr %.02538.us57, align 8, !tbaa !27
+  %.02541.us60 = phi ptr [ %.025.us61, %113 ], [ %.02539, %.lr.ph.split.split.split ]
+  %92 = load ptr, ptr %.02541.us60, align 8, !tbaa !27
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1040
   %94 = load i32, ptr %93, align 8, !tbaa !104
   %95 = icmp sgt i32 %94, -1
@@ -4689,20 +4689,20 @@ define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0,
 110:                                              ; preds = %106, %101, %96, %.lr.ph.split.split.split.split.us
   %111 = load i32, ptr %92, align 8, !tbaa !77
   %112 = icmp eq i32 %111, %1
-  br i1 %112, label %.thread, label %113
+  br i1 %112, label %._crit_edge, label %113
 
 113:                                              ; preds = %110, %106, %105
-  %114 = getelementptr inbounds nuw i8, ptr %.02538.us57, i64 8
-  %.025.us58 = load ptr, ptr %114, align 8, !tbaa !25
-  %.not.us59 = icmp eq ptr %.025.us58, null
-  br i1 %.not.us59, label %.thread, label %.lr.ph.split.split.split.split.us
+  %114 = getelementptr inbounds nuw i8, ptr %.02541.us60, i64 8
+  %.025.us61 = load ptr, ptr %114, align 8, !tbaa !25
+  %.not.us62 = icmp eq ptr %.025.us61, null
+  br i1 %.not.us62, label %._crit_edge, label %.lr.ph.split.split.split.split.us
 
 .lr.ph.split.split.split.split:                   ; preds = %.lr.ph.split.split.split
   br i1 %.not30, label %.lr.ph.split.split.split.split.split.us, label %.lr.ph.split.split.split.split.split
 
 .lr.ph.split.split.split.split.split.us:          ; preds = %.lr.ph.split.split.split.split, %135
-  %.02538.us64 = phi ptr [ %.025.us65, %135 ], [ %.02536, %.lr.ph.split.split.split.split ]
-  %115 = load ptr, ptr %.02538.us64, align 8, !tbaa !27
+  %.02541.us67 = phi ptr [ %.025.us68, %135 ], [ %.02539, %.lr.ph.split.split.split.split ]
+  %115 = load ptr, ptr %.02541.us67, align 8, !tbaa !27
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 1040
   %117 = load i32, ptr %116, align 8, !tbaa !104
   %118 = icmp sgt i32 %117, -1
@@ -4732,17 +4732,17 @@ define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0,
 132:                                              ; preds = %128, %123, %119, %.lr.ph.split.split.split.split.split.us
   %133 = load i32, ptr %115, align 8, !tbaa !77
   %134 = icmp eq i32 %133, %1
-  br i1 %134, label %.thread, label %135
+  br i1 %134, label %._crit_edge, label %135
 
 135:                                              ; preds = %132, %128, %127
-  %136 = getelementptr inbounds nuw i8, ptr %.02538.us64, i64 8
-  %.025.us65 = load ptr, ptr %136, align 8, !tbaa !25
-  %.not.us66 = icmp eq ptr %.025.us65, null
-  br i1 %.not.us66, label %.thread, label %.lr.ph.split.split.split.split.split.us
+  %136 = getelementptr inbounds nuw i8, ptr %.02541.us67, i64 8
+  %.025.us68 = load ptr, ptr %136, align 8, !tbaa !25
+  %.not.us69 = icmp eq ptr %.025.us68, null
+  br i1 %.not.us69, label %._crit_edge, label %.lr.ph.split.split.split.split.split.us
 
 .lr.ph.split.split.split.split.split:             ; preds = %.lr.ph.split.split.split.split, %161
-  %.02538 = phi ptr [ %.025, %161 ], [ %.02536, %.lr.ph.split.split.split.split ]
-  %137 = load ptr, ptr %.02538, align 8, !tbaa !27
+  %.02541 = phi ptr [ %.025, %161 ], [ %.02539, %.lr.ph.split.split.split.split ]
+  %137 = load ptr, ptr %.02541, align 8, !tbaa !27
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1040
   %139 = load i32, ptr %138, align 8, !tbaa !104
   %140 = icmp sgt i32 %139, -1
@@ -4778,17 +4778,17 @@ define internal fastcc ptr @_get_profile(ptr noundef readonly captures(none) %0,
 158:                                              ; preds = %154, %149, %145, %141, %.lr.ph.split.split.split.split.split
   %159 = load i32, ptr %137, align 8, !tbaa !77
   %160 = icmp eq i32 %159, %1
-  br i1 %160, label %.thread, label %161
+  br i1 %160, label %._crit_edge, label %161
 
 161:                                              ; preds = %158, %154, %153
-  %162 = getelementptr inbounds nuw i8, ptr %.02538, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %.02541, i64 8
   %.025 = load ptr, ptr %162, align 8, !tbaa !25
   %.not = icmp eq ptr %.025, null
-  br i1 %.not, label %.thread, label %.lr.ph.split.split.split.split.split
+  br i1 %.not, label %._crit_edge, label %.lr.ph.split.split.split.split.split
 
-.thread:                                          ; preds = %161, %158, %135, %132, %113, %110, %90, %87, %66, %63, %41, %38, %4
-  %spec.select = phi ptr [ null, %4 ], [ %10, %38 ], [ null, %41 ], [ %43, %63 ], [ null, %66 ], [ %68, %87 ], [ null, %90 ], [ %92, %110 ], [ null, %113 ], [ %115, %132 ], [ null, %135 ], [ %137, %158 ], [ null, %161 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %158, %161, %132, %135, %110, %113, %87, %90, %63, %66, %38, %41, %4
+  %163 = phi ptr [ null, %4 ], [ null, %41 ], [ %10, %38 ], [ null, %66 ], [ %43, %63 ], [ null, %90 ], [ %68, %87 ], [ null, %113 ], [ %92, %110 ], [ null, %135 ], [ %115, %132 ], [ null, %161 ], [ %137, %158 ]
+  ret ptr %163
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable

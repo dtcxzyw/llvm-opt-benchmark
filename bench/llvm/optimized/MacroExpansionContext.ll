@@ -389,12 +389,12 @@ define dso_local void @_ZNK5clang21MacroExpansionContext15getExpandedTextENS_14S
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i: ; preds = %.lr.ph.i.i.i
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !274
-  %.pre14.i = load i32, ptr %10, align 8, !tbaa !275
-  %27 = zext i32 %.pre14.i to i64
+  %.pre13.i = load i32, ptr %10, align 8, !tbaa !275
+  %27 = zext i32 %.pre13.i to i64
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i, %7
-  %28 = phi i32 [ %.pre14.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i ], [ 0, %7 ]
+  %28 = phi i32 [ %.pre13.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i ], [ 0, %7 ]
   %29 = phi i64 [ %27, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i ], [ 0, %7 ]
   %30 = phi ptr [ %.pre.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i ], [ %9, %7 ]
   %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.295", ptr %30, i64 %29
@@ -448,8 +448,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInf
 
 .loopexit.loopexit.i:                             ; preds = %.lr.ph.i.i.i3
   %.pre.i10 = load ptr, ptr %1, align 8, !tbaa !282
-  %.pre17.i = load i32, ptr %39, align 8, !tbaa !283
-  %55 = zext i32 %.pre17.i to i64
+  %.pre16.i = load i32, ptr %39, align 8, !tbaa !283
+  %55 = zext i32 %.pre16.i to i64
   br label %.loopexit.i11
 
 .loopexit.i11:                                    ; preds = %.loopexit.loopexit.i, %37
@@ -542,12 +542,12 @@ define dso_local void @_ZNK5clang21MacroExpansionContext15getOriginalTextENS_14S
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i: ; preds = %.lr.ph.i.i.i
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !274
-  %.pre14.i = load i32, ptr %9, align 8, !tbaa !275
-  %26 = zext i32 %.pre14.i to i64
+  %.pre13.i = load i32, ptr %9, align 8, !tbaa !275
+  %26 = zext i32 %.pre13.i to i64
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i
 
 _ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.i: ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i, %6
-  %27 = phi i32 [ %.pre14.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i ], [ 0, %6 ]
+  %27 = phi i32 [ %.pre13.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i ], [ 0, %6 ]
   %28 = phi i64 [ %26, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i ], [ 0, %6 ]
   %29 = phi ptr [ %.pre.i, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIN5clang14SourceLocationES3_NS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S3_EEEES3_S3_S5_S8_E6doFindIS3_EEPKS8_RKT_.exit.thread.loopexit.i ], [ %8, %6 ]
   %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.295", ptr %29, i64 %28

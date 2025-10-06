@@ -1731,31 +1731,31 @@ define internal fastcc ptr @AllocUnitsRare(ptr noundef captures(none) %0, i32 no
 
 15:                                               ; preds = %._crit_edge.i, %6
   %indvars.iv.i = phi i64 [ 0, %6 ], [ %indvars.iv.next.i, %._crit_edge.i ]
-  %.0105.i = phi i32 [ %11, %6 ], [ %.1.lcssa.i, %._crit_edge.i ]
+  %.0104.i = phi i32 [ %11, %6 ], [ %.1.lcssa.i, %._crit_edge.i ]
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv.i
   %17 = load i8, ptr %16, align 1, !tbaa !13
   %18 = zext i8 %17 to i16
   %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
   %20 = load i32, ptr %19, align 4, !tbaa !48
   store i32 0, ptr %19, align 4, !tbaa !48
-  %.not98101.i = icmp eq i32 %20, 0
-  br i1 %.not98101.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not98100.i = icmp eq i32 %20, 0
+  br i1 %.not98100.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15
   %21 = load ptr, ptr %14, align 8, !tbaa !3
   br label %22
 
 22:                                               ; preds = %22, %.lr.ph.i
-  %.1103.i = phi i32 [ %.0105.i, %.lr.ph.i ], [ %.090102.i, %22 ]
-  %.090102.i = phi i32 [ %20, %.lr.ph.i ], [ %29, %22 ]
-  %23 = zext i32 %.090102.i to i64
+  %.1102.i = phi i32 [ %.0104.i, %.lr.ph.i ], [ %.090101.i, %22 ]
+  %.090101.i = phi i32 [ %20, %.lr.ph.i ], [ %29, %22 ]
+  %23 = zext i32 %.090101.i to i64
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  store i32 %.1103.i, ptr %25, align 4, !tbaa !54
-  %26 = zext i32 %.1103.i to i64
+  store i32 %.1102.i, ptr %25, align 4, !tbaa !54
+  %26 = zext i32 %.1102.i to i64
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  store i32 %.090102.i, ptr %28, align 4, !tbaa !56
+  store i32 %.090101.i, ptr %28, align 4, !tbaa !56
   %29 = load i32, ptr %24, align 4, !tbaa !13
   store i16 0, ptr %24, align 4, !tbaa !57
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 2
@@ -1764,7 +1764,7 @@ define internal fastcc ptr @AllocUnitsRare(ptr noundef captures(none) %0, i32 no
   br i1 %.not98.i, label %._crit_edge.i, label %22
 
 ._crit_edge.i:                                    ; preds = %22, %15
-  %.1.lcssa.i = phi i32 [ %.0105.i, %15 ], [ %.090102.i, %22 ]
+  %.1.lcssa.i = phi i32 [ %.0104.i, %15 ], [ %.090101.i, %22 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 38
   br i1 %exitcond.not.i, label %31, label %15
@@ -1792,12 +1792,12 @@ define internal fastcc ptr @AllocUnitsRare(ptr noundef captures(none) %0, i32 no
   br label %44
 
 44:                                               ; preds = %43, %31
-  %.not95110.i = icmp eq i32 %.1.lcssa.i, %11
-  br i1 %.not95110.i, label %GlueFreeBlocks.exit, label %.lr.ph113.i
+  %.not95109.i = icmp eq i32 %.1.lcssa.i, %11
+  br i1 %.not95109.i, label %GlueFreeBlocks.exit, label %.lr.ph112.i
 
-.lr.ph113.i:                                      ; preds = %44, %._crit_edge109.i
-  %.2111.i = phi i32 [ %82, %._crit_edge109.i ], [ %.1.lcssa.i, %44 ]
-  %45 = zext i32 %.2111.i to i64
+.lr.ph112.i:                                      ; preds = %44, %._crit_edge108.i
+  %.2110.i = phi i32 [ %82, %._crit_edge108.i ], [ %.1.lcssa.i, %44 ]
+  %45 = zext i32 %.2110.i to i64
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 2
   %48 = load i16, ptr %47, align 2, !tbaa !58
@@ -1811,12 +1811,12 @@ define internal fastcc ptr @AllocUnitsRare(ptr noundef captures(none) %0, i32 no
   %56 = load i16, ptr %51, align 4, !tbaa !57
   %57 = icmp ne i16 %56, 0
   %58 = icmp samesign ugt i32 %55, 65535
-  %or.cond106.i = select i1 %57, i1 true, i1 %58
-  br i1 %or.cond106.i, label %._crit_edge109.i, label %.lr.ph108.i
+  %or.cond105.i = select i1 %57, i1 true, i1 %58
+  br i1 %or.cond105.i, label %._crit_edge108.i, label %.lr.ph107.i
 
-.lr.ph108.i:                                      ; preds = %.lr.ph113.i, %.lr.ph108.i
-  %59 = phi i32 [ %77, %.lr.ph108.i ], [ %55, %.lr.ph113.i ]
-  %60 = phi ptr [ %73, %.lr.ph108.i ], [ %51, %.lr.ph113.i ]
+.lr.ph107.i:                                      ; preds = %.lr.ph112.i, %.lr.ph107.i
+  %59 = phi i32 [ %77, %.lr.ph107.i ], [ %55, %.lr.ph112.i ]
+  %60 = phi ptr [ %73, %.lr.ph107.i ], [ %51, %.lr.ph112.i ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !54
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -1841,28 +1841,28 @@ define internal fastcc ptr @AllocUnitsRare(ptr noundef captures(none) %0, i32 no
   %79 = icmp ne i16 %78, 0
   %80 = icmp samesign ugt i32 %77, 65535
   %or.cond.i = select i1 %79, i1 true, i1 %80
-  br i1 %or.cond.i, label %._crit_edge109.i, label %.lr.ph108.i
+  br i1 %or.cond.i, label %._crit_edge108.i, label %.lr.ph107.i
 
-._crit_edge109.i:                                 ; preds = %.lr.ph108.i, %.lr.ph113.i
+._crit_edge108.i:                                 ; preds = %.lr.ph107.i, %.lr.ph112.i
   %81 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %82 = load i32, ptr %81, align 4, !tbaa !54
   %.not95.i = icmp eq i32 %82, %11
-  br i1 %.not95.i, label %._crit_edge114.i, label %.lr.ph113.i
+  br i1 %.not95.i, label %._crit_edge113.i, label %.lr.ph112.i
 
-._crit_edge114.i:                                 ; preds = %._crit_edge109.i
+._crit_edge113.i:                                 ; preds = %._crit_edge108.i
   %.pre.i = load i32, ptr %35, align 4, !tbaa !54
-  %.not96122.i = icmp eq i32 %.pre.i, %11
-  br i1 %.not96122.i, label %GlueFreeBlocks.exit, label %.lr.ph125.i
+  %.not96121.i = icmp eq i32 %.pre.i, %11
+  br i1 %.not96121.i, label %GlueFreeBlocks.exit, label %.lr.ph124.i
 
-.lr.ph125.i:                                      ; preds = %._crit_edge114.i
+.lr.ph124.i:                                      ; preds = %._crit_edge113.i
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %84 = ptrtoint ptr %32 to i64
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 146
   br label %86
 
-86:                                               ; preds = %._crit_edge119._crit_edge.i, %.lr.ph125.i
-  %.3123.i = phi i32 [ %.pre.i, %.lr.ph125.i ], [ %90, %._crit_edge119._crit_edge.i ]
-  %87 = zext i32 %.3123.i to i64
+86:                                               ; preds = %._crit_edge118._crit_edge.i, %.lr.ph124.i
+  %.3122.i = phi i32 [ %.pre.i, %.lr.ph124.i ], [ %90, %._crit_edge118._crit_edge.i ]
+  %87 = zext i32 %.3122.i to i64
   %88 = getelementptr inbounds nuw i8, ptr %32, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4, !tbaa !54
@@ -1870,29 +1870,29 @@ define internal fastcc ptr @AllocUnitsRare(ptr noundef captures(none) %0, i32 no
   %92 = load i16, ptr %91, align 2, !tbaa !58
   %93 = zext i16 %92 to i32
   %94 = icmp ugt i16 %92, 128
-  br i1 %94, label %.lr.ph118.preheader.i, label %._crit_edge119.i
+  br i1 %94, label %.lr.ph117.preheader.i, label %._crit_edge118.i
 
-.lr.ph118.preheader.i:                            ; preds = %86
-  %.pre129.i = load i32, ptr %83, align 4, !tbaa !48
-  br label %.lr.ph118.i
+.lr.ph117.preheader.i:                            ; preds = %86
+  %.pre128.i = load i32, ptr %83, align 4, !tbaa !48
+  br label %.lr.ph117.i
 
-.lr.ph118.i:                                      ; preds = %.lr.ph118.i, %.lr.ph118.preheader.i
-  %95 = phi i32 [ %98, %.lr.ph118.i ], [ %.pre129.i, %.lr.ph118.preheader.i ]
-  %.087116.i = phi i32 [ %99, %.lr.ph118.i ], [ %93, %.lr.ph118.preheader.i ]
-  %.088115.i = phi ptr [ %100, %.lr.ph118.i ], [ %88, %.lr.ph118.preheader.i ]
-  store i32 %95, ptr %.088115.i, align 4, !tbaa !48
-  %96 = ptrtoint ptr %.088115.i to i64
+.lr.ph117.i:                                      ; preds = %.lr.ph117.i, %.lr.ph117.preheader.i
+  %95 = phi i32 [ %98, %.lr.ph117.i ], [ %.pre128.i, %.lr.ph117.preheader.i ]
+  %.087115.i = phi i32 [ %99, %.lr.ph117.i ], [ %93, %.lr.ph117.preheader.i ]
+  %.088114.i = phi ptr [ %100, %.lr.ph117.i ], [ %88, %.lr.ph117.preheader.i ]
+  store i32 %95, ptr %.088114.i, align 4, !tbaa !48
+  %96 = ptrtoint ptr %.088114.i to i64
   %97 = sub i64 %96, %84
   %98 = trunc i64 %97 to i32
   store i32 %98, ptr %83, align 4, !tbaa !48
-  %99 = add nsw i32 %.087116.i, -128
-  %100 = getelementptr inbounds nuw i8, ptr %.088115.i, i64 1536
+  %99 = add nsw i32 %.087115.i, -128
+  %100 = getelementptr inbounds nuw i8, ptr %.088114.i, i64 1536
   %101 = icmp ugt i32 %99, 128
-  br i1 %101, label %.lr.ph118.i, label %._crit_edge119.i
+  br i1 %101, label %.lr.ph117.i, label %._crit_edge118.i
 
-._crit_edge119.i:                                 ; preds = %.lr.ph118.i, %86
-  %.088.lcssa.i = phi ptr [ %88, %86 ], [ %100, %.lr.ph118.i ]
-  %.087.lcssa.i = phi i32 [ %93, %86 ], [ %99, %.lr.ph118.i ]
+._crit_edge118.i:                                 ; preds = %.lr.ph117.i, %86
+  %.088.lcssa.i = phi ptr [ %88, %86 ], [ %100, %.lr.ph117.i ]
+  %.087.lcssa.i = phi i32 [ %93, %86 ], [ %99, %.lr.ph117.i ]
   %102 = add nsw i32 %.087.lcssa.i, -1
   %103 = zext i32 %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %85, i64 %103
@@ -1902,9 +1902,9 @@ define internal fastcc ptr @AllocUnitsRare(ptr noundef captures(none) %0, i32 no
   %108 = load i8, ptr %107, align 1, !tbaa !13
   %109 = zext i8 %108 to i32
   %.not97.i = icmp eq i32 %.087.lcssa.i, %109
-  br i1 %.not97.i, label %._crit_edge119._crit_edge.i, label %110
+  br i1 %.not97.i, label %._crit_edge118._crit_edge.i, label %110
 
-110:                                              ; preds = %._crit_edge119.i
+110:                                              ; preds = %._crit_edge118.i
   %111 = add nuw nsw i64 %106, 4294967295
   %112 = and i64 %111, 4294967295
   %113 = getelementptr inbounds nuw i8, ptr %12, i64 %112
@@ -1922,10 +1922,10 @@ define internal fastcc ptr @AllocUnitsRare(ptr noundef captures(none) %0, i32 no
   %124 = sub i64 %123, %84
   %125 = trunc i64 %124 to i32
   store i32 %125, ptr %121, align 4, !tbaa !48
-  br label %._crit_edge119._crit_edge.i
+  br label %._crit_edge118._crit_edge.i
 
-._crit_edge119._crit_edge.i:                      ; preds = %._crit_edge119.i, %110
-  %.pre-phi.i = phi i64 [ %112, %110 ], [ %106, %._crit_edge119.i ]
+._crit_edge118._crit_edge.i:                      ; preds = %._crit_edge118.i, %110
+  %.pre-phi.i = phi i64 [ %112, %110 ], [ %106, %._crit_edge118.i ]
   %126 = getelementptr inbounds nuw i32, ptr %13, i64 %.pre-phi.i
   %127 = load i32, ptr %126, align 4, !tbaa !48
   store i32 %127, ptr %.088.lcssa.i, align 4, !tbaa !48
@@ -1936,7 +1936,7 @@ define internal fastcc ptr @AllocUnitsRare(ptr noundef captures(none) %0, i32 no
   %.not96.i = icmp eq i32 %90, %11
   br i1 %.not96.i, label %GlueFreeBlocks.exit, label %86
 
-GlueFreeBlocks.exit:                              ; preds = %._crit_edge119._crit_edge.i, %44, %._crit_edge114.i
+GlueFreeBlocks.exit:                              ; preds = %._crit_edge118._crit_edge.i, %44, %._crit_edge113.i
   %131 = zext nneg i32 %1 to i64
   %132 = getelementptr inbounds nuw i32, ptr %13, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !48

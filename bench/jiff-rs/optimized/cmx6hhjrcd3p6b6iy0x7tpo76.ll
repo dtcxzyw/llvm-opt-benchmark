@@ -3479,31 +3479,31 @@ define noundef zeroext i1 @"_ZN63_$LT$jiff..error..FilePathError$u20$as$u20$core
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN4jiff3fmt8friendly7printer7Spacing13between_units17h8e61c1386813502eE(i8 noundef range(i8 0, 3) %0) unnamed_addr #3 {
-  %switch = icmp ne i8 %0, 0
-  %. = zext i1 %switch to i64
-  %.anon.fdf300760c0b958a8147d50c9fbb92a5.84 = select i1 %switch, ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.84, ptr inttoptr (i64 1 to ptr)
-  %2 = insertvalue { ptr, i64 } poison, ptr %.anon.fdf300760c0b958a8147d50c9fbb92a5.84, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %., 1
-  ret { ptr, i64 } %3
+  %2 = icmp ne i8 %0, 0
+  %. = zext i1 %2 to i64
+  %.anon.fdf300760c0b958a8147d50c9fbb92a5.84 = select i1 %2, ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.84, ptr inttoptr (i64 1 to ptr)
+  %3 = insertvalue { ptr, i64 } poison, ptr %.anon.fdf300760c0b958a8147d50c9fbb92a5.84, 0
+  %4 = insertvalue { ptr, i64 } %3, i64 %., 1
+  ret { ptr, i64 } %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @_ZN4jiff3fmt8friendly7printer7Spacing29between_units_and_designators17hd692a7b78621c817E(i8 noundef range(i8 0, 3) %0) unnamed_addr #3 {
-  %switch = icmp samesign ugt i8 %0, 1
-  %. = zext i1 %switch to i64
-  %.anon.fdf300760c0b958a8147d50c9fbb92a5.84 = select i1 %switch, ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.84, ptr inttoptr (i64 1 to ptr)
-  %2 = insertvalue { ptr, i64 } poison, ptr %.anon.fdf300760c0b958a8147d50c9fbb92a5.84, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %., 1
-  ret { ptr, i64 } %3
+  %2 = icmp eq i8 %0, 2
+  %. = zext i1 %2 to i64
+  %anon.fdf300760c0b958a8147d50c9fbb92a5.84. = select i1 %2, ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.84, ptr inttoptr (i64 1 to ptr)
+  %3 = insertvalue { ptr, i64 } poison, ptr %anon.fdf300760c0b958a8147d50c9fbb92a5.84., 0
+  %4 = insertvalue { ptr, i64 } %3, i64 %., 1
+  ret { ptr, i64 } %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN4jiff3fmt8friendly7printer9Direction4sign17hb8aa47a0e59c7297E(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, i8 noundef range(i8 0, 4) %1, ptr noalias noundef readonly align 1 captures(none) dereferenceable(11) %2, i1 noundef zeroext %3, i8 noundef %4) unnamed_addr #5 {
   switch i8 %1, label %default.unreachable18 [
     i8 0, label %6
-    i8 1, label %10
-    i8 2, label %12
-    i8 3, label %14
+    i8 1, label %11
+    i8 2, label %13
+    i8 3, label %15
   ]
 
 default.unreachable18:                            ; preds = %5
@@ -3512,98 +3512,98 @@ default.unreachable18:                            ; preds = %5
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 6
   %8 = load i8, ptr %7, align 1, !range !373, !noundef !3
-  %switch = icmp eq i8 %8, 0
-  %9 = icmp slt i8 %4, 0
-  br i1 %switch, label %16, label %17
+  %9 = icmp eq i8 %8, 0
+  %10 = icmp slt i8 %4, 0
+  br i1 %9, label %17, label %18
 
-10:                                               ; preds = %5
-  %11 = icmp slt i8 %4, 0
-  br i1 %11, label %29, label %28
+11:                                               ; preds = %5
+  %12 = icmp slt i8 %4, 0
+  br i1 %12, label %30, label %29
 
-12:                                               ; preds = %5
-  %13 = icmp slt i8 %4, 0
-  %anon.fdf300760c0b958a8147d50c9fbb92a5.85.anon.fdf300760c0b958a8147d50c9fbb92a5.87 = select i1 %13, ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.85, ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.87
+13:                                               ; preds = %5
+  %14 = icmp slt i8 %4, 0
+  %anon.fdf300760c0b958a8147d50c9fbb92a5.85.anon.fdf300760c0b958a8147d50c9fbb92a5.87 = select i1 %14, ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.85, ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.87
   store i64 0, ptr %0, align 8
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %anon.fdf300760c0b958a8147d50c9fbb92a5.85.anon.fdf300760c0b958a8147d50c9fbb92a5.87, ptr %.sroa.411.0..sroa_idx, align 8
   %.sroa.512.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.512.0..sroa_idx, align 8
-  br label %20
+  br label %21
 
-14:                                               ; preds = %5
-  %15 = icmp slt i8 %4, 0
-  br i1 %15, label %31, label %30
-
-16:                                               ; preds = %6
-  br i1 %9, label %19, label %18
+15:                                               ; preds = %5
+  %16 = icmp slt i8 %4, 0
+  br i1 %16, label %32, label %31
 
 17:                                               ; preds = %6
-  br i1 %9, label %22, label %21
+  br i1 %10, label %20, label %19
 
-18:                                               ; preds = %16
+18:                                               ; preds = %6
+  br i1 %10, label %23, label %22
+
+19:                                               ; preds = %17
   store i64 2, ptr %0, align 8
-  br label %20
+  br label %21
 
-19:                                               ; preds = %16
+20:                                               ; preds = %17
   store i64 0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.85, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %20
+  br label %21
 
-20:                                               ; preds = %30, %31, %28, %29, %26, %27, %21, %18, %19, %12
+21:                                               ; preds = %31, %32, %29, %30, %27, %28, %22, %19, %20, %13
   ret void
 
-21:                                               ; preds = %17
+22:                                               ; preds = %18
   store i64 2, ptr %0, align 8
-  br label %20
+  br label %21
 
-22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %24 = load i8, ptr %23, align 1, !range !374, !noundef !3
-  %25 = trunc nuw i8 %24 to i1
-  %.not = xor i1 %25, true
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %25 = load i8, ptr %24, align 1, !range !374, !noundef !3
+  %26 = trunc nuw i8 %25 to i1
+  %.not = xor i1 %26, true
   %brmerge = or i1 %3, %.not
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %brmerge, label %26, label %27
+  br i1 %brmerge, label %27, label %28
 
-26:                                               ; preds = %22
+27:                                               ; preds = %23
   store i64 1, ptr %0, align 8
   store ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.86, ptr %.sroa.45.0..sroa_idx, align 8
   store i64 4, ptr %.sroa.56.0..sroa_idx, align 8
-  br label %20
+  br label %21
 
-27:                                               ; preds = %22
+28:                                               ; preds = %23
   store i64 0, ptr %0, align 8
   store ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.85, ptr %.sroa.45.0..sroa_idx, align 8
   store i64 1, ptr %.sroa.56.0..sroa_idx, align 8
-  br label %20
+  br label %21
 
-28:                                               ; preds = %10
+29:                                               ; preds = %11
   store i64 2, ptr %0, align 8
-  br label %20
+  br label %21
 
-29:                                               ; preds = %10
+30:                                               ; preds = %11
   store i64 0, ptr %0, align 8
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.85, ptr %.sroa.48.0..sroa_idx, align 8
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 1, ptr %.sroa.59.0..sroa_idx, align 8
-  br label %20
+  br label %21
 
-30:                                               ; preds = %14
+31:                                               ; preds = %15
   store i64 2, ptr %0, align 8
-  br label %20
+  br label %21
 
-31:                                               ; preds = %14
+32:                                               ; preds = %15
   store i64 1, ptr %0, align 8
   %.sroa.416.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr @anon.fdf300760c0b958a8147d50c9fbb92a5.86, ptr %.sroa.416.0..sroa_idx, align 8
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 4, ptr %.sroa.517.0..sroa_idx, align 8
-  br label %20
+  br label %21
 }
 
 ; Function Attrs: nonlazybind uwtable

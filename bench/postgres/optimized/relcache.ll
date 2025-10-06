@@ -2437,8 +2437,8 @@ heap_getattr.exit.i:                              ; preds = %213, %212, %206, %2
   %300 = call ptr @table_open(i32 noundef 2604, i32 noundef 1) #12
   %301 = call ptr @systable_beginscan(ptr noundef %300, i32 noundef 2656, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %4) #12
   %302 = call ptr @systable_getnext(ptr noundef %301) #12
-  %.not46.i.i = icmp eq ptr %302, null
-  br i1 %.not46.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
+  %.not45.i.i = icmp eq ptr %302, null
+  br i1 %.not45.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %293
   %303 = getelementptr inbounds nuw i8, ptr %300, i64 64
@@ -2446,14 +2446,14 @@ heap_getattr.exit.i:                              ; preds = %213, %212, %206, %2
 
 304:                                              ; preds = %381, %.lr.ph.i.i
   %305 = phi ptr [ %302, %.lr.ph.i.i ], [ %382, %381 ]
-  %.047.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.2.i.i, %381 ]
+  %.046.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.2.i.i, %381 ]
   %306 = getelementptr i8, ptr %305, i64 16
   %.val.i.i = load ptr, ptr %306, align 8
   %307 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 22
   %308 = load i8, ptr %307, align 2
   %309 = zext i8 %308 to i64
   %310 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 %309
-  %.not39.i.i = icmp slt i32 %.047.i.i, %.184.i
+  %.not39.i.i = icmp slt i32 %.046.i.i, %.184.i
   br i1 %.not39.i.i, label %320, label %311
 
 311:                                              ; preds = %304
@@ -2567,7 +2567,7 @@ fastgetattr.exit91:                               ; preds = %356
   %372 = call ptr @text_to_cstring(ptr noundef %371) #12
   %373 = getelementptr inbounds nuw i8, ptr %310, i64 8
   %374 = load i16, ptr %373, align 4
-  %375 = sext i32 %.047.i.i to i64
+  %375 = sext i32 %.046.i.i to i64
   %376 = getelementptr inbounds %struct.AttrDefault, ptr %297, i64 %375
   store i16 %374, ptr %376, align 8
   %377 = load ptr, ptr @CacheMemoryContext, align 8
@@ -2575,20 +2575,20 @@ fastgetattr.exit91:                               ; preds = %356
   %379 = getelementptr inbounds nuw i8, ptr %376, i64 8
   store ptr %378, ptr %379, align 8
   call void @pfree(ptr noundef %372) #12
-  %380 = add nsw i32 %.047.i.i, 1
+  %380 = add nsw i32 %.046.i.i, 1
   br label %381
 
 381:                                              ; preds = %370, %363, %fastgetattr.exit91
-  %.2.i.i = phi i32 [ %.047.i.i, %363 ], [ %.047.i.i, %fastgetattr.exit91 ], [ %380, %370 ]
+  %.2.i.i = phi i32 [ %.046.i.i, %363 ], [ %.046.i.i, %fastgetattr.exit91 ], [ %380, %370 ]
   %382 = call ptr @systable_getnext(ptr noundef %301) #12
   %.not.i.i = icmp eq ptr %382, null
   br i1 %.not.i.i, label %.loopexit.i.i, label %304
 
 .loopexit.i.i:                                    ; preds = %381, %311, %313, %293
-  %.045.i.i = phi i32 [ 0, %293 ], [ %.047.i.i, %313 ], [ %.047.i.i, %311 ], [ %.2.i.i, %381 ]
+  %.044.i.i = phi i32 [ 0, %293 ], [ %.046.i.i, %313 ], [ %.046.i.i, %311 ], [ %.2.i.i, %381 ]
   call void @systable_endscan(ptr noundef %301) #12
   call void @table_close(ptr noundef %300, i32 noundef 1) #12
-  %.not40.i.i = icmp eq i32 %.045.i.i, %.184.i
+  %.not40.i.i = icmp eq i32 %.044.i.i, %.184.i
   br i1 %.not40.i.i, label %390, label %383
 
 383:                                              ; preds = %.loopexit.i.i
@@ -2596,7 +2596,7 @@ fastgetattr.exit91:                               ; preds = %356
   br i1 %384, label %385, label %390
 
 385:                                              ; preds = %383
-  %386 = sub i32 %.184.i, %.045.i.i
+  %386 = sub i32 %.184.i, %.044.i.i
   %387 = load ptr, ptr %41, align 8
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 4
   %389 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.53, i32 noundef %386, ptr noundef nonnull %388) #12
@@ -2604,11 +2604,11 @@ fastgetattr.exit91:                               ; preds = %356
   br label %390
 
 390:                                              ; preds = %385, %383, %.loopexit.i.i
-  %391 = icmp sgt i32 %.045.i.i, 1
+  %391 = icmp sgt i32 %.044.i.i, 1
   br i1 %391, label %392, label %AttrDefaultFetch.exit.i
 
 392:                                              ; preds = %390
-  %393 = zext nneg i32 %.045.i.i to i64
+  %393 = zext nneg i32 %.044.i.i to i64
   call void @pg_qsort(ptr noundef %297, i64 noundef %393, i64 noundef 16, ptr noundef nonnull @AttrDefaultCmp) #12
   br label %AttrDefaultFetch.exit.i
 
@@ -2617,7 +2617,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %392, %390
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 16
   %396 = load ptr, ptr %395, align 8
   store ptr %297, ptr %396, align 8
-  %397 = trunc i32 %.045.i.i to i16
+  %397 = trunc i32 %.044.i.i to i16
   %398 = load ptr, ptr %46, align 8
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 16
   %400 = load ptr, ptr %399, align 8
@@ -2653,8 +2653,8 @@ AttrDefaultFetch.exit.i:                          ; preds = %392, %390
   %418 = call ptr @table_open(i32 noundef 2606, i32 noundef 1) #12
   %419 = call ptr @systable_beginscan(ptr noundef %418, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3) #12
   %420 = call ptr @systable_getnext(ptr noundef %419) #12
-  %.not57.i.i = icmp eq ptr %420, null
-  br i1 %.not57.i.i, label %.loopexit.i96.i, label %.lr.ph.i92.i
+  %.not55.i.i = icmp eq ptr %420, null
+  br i1 %.not55.i.i, label %.loopexit.i96.i, label %.lr.ph.i92.i
 
 .lr.ph.i92.i:                                     ; preds = %410
   %421 = getelementptr inbounds nuw i8, ptr %418, i64 64
@@ -2662,7 +2662,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %392, %390
 
 422:                                              ; preds = %510, %.lr.ph.i92.i
   %423 = phi ptr [ %420, %.lr.ph.i92.i ], [ %511, %510 ]
-  %.058.i.i = phi i32 [ 0, %.lr.ph.i92.i ], [ %.2.i94.i, %510 ]
+  %.056.i.i = phi i32 [ 0, %.lr.ph.i92.i ], [ %.2.i94.i, %510 ]
   %424 = getelementptr i8, ptr %423, i64 16
   %.val.i93.i = load ptr, ptr %424, align 8
   %425 = getelementptr inbounds nuw i8, ptr %.val.i93.i, i64 22
@@ -2675,7 +2675,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %392, %390
   br i1 %.not48.i.i, label %431, label %510, !llvm.loop !17
 
 431:                                              ; preds = %422
-  %.not49.i.i = icmp slt i32 %.058.i.i, %411
+  %.not49.i.i = icmp slt i32 %.056.i.i, %411
   br i1 %.not49.i.i, label %438, label %432
 
 432:                                              ; preds = %431
@@ -2692,7 +2692,7 @@ AttrDefaultFetch.exit.i:                          ; preds = %392, %390
 438:                                              ; preds = %431
   %439 = getelementptr inbounds nuw i8, ptr %428, i64 75
   %440 = load i8, ptr %439, align 1, !range !6, !noundef !7
-  %441 = sext i32 %.058.i.i to i64
+  %441 = sext i32 %.056.i.i to i64
   %442 = getelementptr inbounds %struct.ConstrCheck, ptr %415, i64 %441
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 16
   store i8 %440, ptr %443, align 8
@@ -2809,20 +2809,20 @@ fastgetattr.exit:                                 ; preds = %492
   %508 = getelementptr inbounds nuw i8, ptr %442, i64 8
   store ptr %507, ptr %508, align 8
   call void @pfree(ptr noundef %505) #12
-  %509 = add nsw i32 %.058.i.i, 1
+  %509 = add nsw i32 %.056.i.i, 1
   br label %510
 
 510:                                              ; preds = %503, %499, %fastgetattr.exit, %422
-  %.2.i94.i = phi i32 [ %.058.i.i, %422 ], [ %.058.i.i, %499 ], [ %.058.i.i, %fastgetattr.exit ], [ %509, %503 ]
+  %.2.i94.i = phi i32 [ %.056.i.i, %422 ], [ %.056.i.i, %499 ], [ %.056.i.i, %fastgetattr.exit ], [ %509, %503 ]
   %511 = call ptr @systable_getnext(ptr noundef %419) #12
   %.not.i95.i = icmp eq ptr %511, null
   br i1 %.not.i95.i, label %.loopexit.i96.i, label %422
 
 .loopexit.i96.i:                                  ; preds = %510, %432, %434, %410
-  %.056.i.i = phi i32 [ 0, %410 ], [ %.058.i.i, %434 ], [ %.058.i.i, %432 ], [ %.2.i94.i, %510 ]
+  %.054.i.i = phi i32 [ 0, %410 ], [ %.056.i.i, %434 ], [ %.056.i.i, %432 ], [ %.2.i94.i, %510 ]
   call void @systable_endscan(ptr noundef %419) #12
   call void @table_close(ptr noundef %418, i32 noundef 1) #12
-  %.not50.i.i = icmp eq i32 %.056.i.i, %411
+  %.not50.i.i = icmp eq i32 %.054.i.i, %411
   br i1 %.not50.i.i, label %519, label %512
 
 512:                                              ; preds = %.loopexit.i96.i
@@ -2830,7 +2830,7 @@ fastgetattr.exit:                                 ; preds = %492
   br i1 %513, label %514, label %519
 
 514:                                              ; preds = %512
-  %515 = sub i32 %411, %.056.i.i
+  %515 = sub i32 %411, %.054.i.i
   %516 = load ptr, ptr %41, align 8
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 4
   %518 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.56, i32 noundef %515, ptr noundef nonnull %517) #12
@@ -2838,11 +2838,11 @@ fastgetattr.exit:                                 ; preds = %492
   br label %519
 
 519:                                              ; preds = %514, %512, %.loopexit.i96.i
-  %520 = icmp sgt i32 %.056.i.i, 1
+  %520 = icmp sgt i32 %.054.i.i, 1
   br i1 %520, label %521, label %CheckConstraintFetch.exit.i
 
 521:                                              ; preds = %519
-  %522 = zext nneg i32 %.056.i.i to i64
+  %522 = zext nneg i32 %.054.i.i to i64
   call void @pg_qsort(ptr noundef %415, i64 noundef %522, i64 noundef 24, ptr noundef nonnull @CheckConstraintCmp) #12
   br label %CheckConstraintFetch.exit.i
 
@@ -2852,7 +2852,7 @@ CheckConstraintFetch.exit.i:                      ; preds = %521, %519
   %525 = load ptr, ptr %524, align 8
   %526 = getelementptr inbounds nuw i8, ptr %525, i64 8
   store ptr %415, ptr %526, align 8
-  %527 = trunc i32 %.056.i.i to i16
+  %527 = trunc i32 %.054.i.i to i16
   %528 = load ptr, ptr %46, align 8
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 16
   %530 = load ptr, ptr %529, align 8

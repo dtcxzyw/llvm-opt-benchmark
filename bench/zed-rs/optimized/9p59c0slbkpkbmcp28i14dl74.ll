@@ -233,8 +233,8 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 "_ZN4core3ptr44drop_in_place$LT$core..char..ToLowercase$GT$17hb7003bc668003f6fE.exit": ; preds = %87, %.body, %80
-  %.pn8 = phi { ptr, i32 } [ %eh.lpad-body, %80 ], [ %eh.lpad-body, %.body ], [ %88, %87 ]
-  resume { ptr, i32 } %.pn8
+  %.pn7 = phi { ptr, i32 } [ %eh.lpad-body, %80 ], [ %eh.lpad-body, %.body ], [ %88, %87 ]
+  resume { ptr, i32 } %.pn7
 
 87:                                               ; preds = %74, %18, %15, %2
   %88 = landingpad { ptr, i32 }

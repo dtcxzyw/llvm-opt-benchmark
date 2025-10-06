@@ -866,23 +866,23 @@ define void @lv_menu_set_load_page_event(ptr noundef %0, ptr noundef %1, ptr nou
   tail call void @lv_obj_remove_flag(ptr noundef %1, i32 noundef 16) #4
   tail call void @lv_obj_add_flag(ptr noundef %1, i32 noundef 1024) #4
   %5 = tail call i32 @lv_obj_get_event_count(ptr noundef %1) #4
-  %.not28 = icmp eq i32 %5, 0
-  br i1 %.not28, label %.loopexit, label %.lr.ph
+  %.not27 = icmp eq i32 %5, 0
+  br i1 %.not27, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %12
-  %.027 = phi i32 [ %13, %12 ], [ 0, %4 ]
-  %6 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %1, i32 noundef %.027) #4
+  %.026 = phi i32 [ %13, %12 ], [ 0, %4 ]
+  %6 = tail call ptr @lv_obj_get_event_dsc(ptr noundef %1, i32 noundef %.026) #4
   %7 = tail call ptr @lv_event_dsc_get_cb(ptr noundef %6) #4
   %8 = icmp eq ptr %7, @lv_menu_load_page_event_cb
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %.lr.ph
   %10 = tail call i32 @lv_obj_send_event(ptr noundef %1, i32 noundef 41, ptr noundef null) #4
-  %11 = tail call zeroext i1 @lv_obj_remove_event(ptr noundef %1, i32 noundef %.027) #4
+  %11 = tail call zeroext i1 @lv_obj_remove_event(ptr noundef %1, i32 noundef %.026) #4
   br label %.loopexit
 
 12:                                               ; preds = %.lr.ph
-  %13 = add nuw i32 %.027, 1
+  %13 = add nuw i32 %.026, 1
   %exitcond.not = icmp eq i32 %13, %5
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !39
 

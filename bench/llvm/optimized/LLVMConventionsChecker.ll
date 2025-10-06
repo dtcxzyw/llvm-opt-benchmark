@@ -986,12 +986,12 @@ _ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread: ; preds = %_ZNK5clang9NamedD
   %157 = tail call { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr noundef nonnull align 8 dereferenceable(144) %0)
   %158 = extractvalue { ptr, ptr } %157, 0
   %159 = extractvalue { ptr, ptr } %157, 1
-  %.not100.not = icmp eq ptr %158, %159
-  br i1 %.not100.not, label %.loopexit, label %.lr.ph
+  %.not102 = icmp eq ptr %158, %159
+  br i1 %.not102, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread, %.critedge
-  %.024101 = phi ptr [ %182, %.critedge ], [ %158, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread ]
-  %160 = getelementptr inbounds nuw i8, ptr %.024101, i64 16
+  %.024103 = phi ptr [ %182, %.critedge ], [ %158, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread ]
+  %160 = getelementptr inbounds nuw i8, ptr %.024103, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !68
   %.sroa.0.0.copyload.i.i = load i64, ptr %161, align 8, !tbaa !73
   %162 = and i64 %.sroa.0.0.copyload.i.i, -16
@@ -1022,8 +1022,8 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %167
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load i8, ptr %176, align 16
   %178 = icmp ne i8 %177, 47
-  %.not2999 = icmp eq ptr %175, null
-  %.not29 = or i1 %.not2999, %178
+  %.not29101 = icmp eq ptr %175, null
+  %.not29 = or i1 %.not29101, %178
   br i1 %.not29, label %.critedge, label %179
 
 179:                                              ; preds = %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
@@ -1032,12 +1032,12 @@ _ZNK5clang16CXXBaseSpecifier7getTypeEv.exit:      ; preds = %.lr.ph, %167
   br i1 %181, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %179, %_ZNK5clang16CXXBaseSpecifier7getTypeEv.exit
-  %182 = getelementptr inbounds nuw i8, ptr %.024101, i64 24
-  %.not.not = icmp eq ptr %182, %159
-  br i1 %.not.not, label %.loopexit, label %.lr.ph
+  %182 = getelementptr inbounds nuw i8, ptr %.024103, i64 24
+  %.not = icmp eq ptr %182, %159
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %179, %.critedge, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread, %_ZL11IsClangStmtPKN5clang10RecordDeclE.exit, %_ZL11IsClangTypePKN5clang10RecordDeclE.exit, %_ZL11IsClangDeclPKN5clang10RecordDeclE.exit, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit
-  %.0 = phi i1 [ true, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangDeclPKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangTypePKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangStmtPKN5clang10RecordDeclE.exit ], [ false, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread ], [ true, %179 ], [ false, %.critedge ]
+.loopexit:                                        ; preds = %.critedge, %179, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread, %_ZL11IsClangStmtPKN5clang10RecordDeclE.exit, %_ZL11IsClangTypePKN5clang10RecordDeclE.exit, %_ZL11IsClangDeclPKN5clang10RecordDeclE.exit, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit
+  %.0 = phi i1 [ true, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangDeclPKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangTypePKN5clang10RecordDeclE.exit ], [ true, %_ZL11IsClangStmtPKN5clang10RecordDeclE.exit ], [ false, %_ZL11IsClangAttrPKN5clang10RecordDeclE.exit.thread ], [ false, %.critedge ], [ true, %179 ]
   ret i1 %.0
 }
 
@@ -1502,8 +1502,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -2152,8 +2152,8 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %4, 120
-  %.not318 = icmp eq ptr %1, null
-  %.not = or i1 %.not318, %spec.select.i.i.i.i.i.i.i.i
+  %.not317 = icmp eq ptr %1, null
+  %.not = or i1 %.not317, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %43, label %5
 
 5:                                                ; preds = %2
@@ -2332,7 +2332,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 43:                                               ; preds = %2
   %44 = and i16 %3, 511
   %45 = icmp ne i16 %44, 4
-  %.not314 = or i1 %.not318, %45
+  %.not314 = or i1 %.not317, %45
   br i1 %.not314, label %.critedge, label %46
 
 46:                                               ; preds = %43

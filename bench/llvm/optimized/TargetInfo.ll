@@ -1324,91 +1324,91 @@ declare void @_ZN4llvm8Function10addFnAttrsERKNS_11AttrBuilderE(ptr noundef nonn
 define dso_local void @_ZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(11) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %0, align 4, !tbaa !696
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %7, label %_ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit
+  br i1 %.not, label %9, label %_ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit
 
 _ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit: ; preds = %2
-  %switch = icmp eq i32 %3, 2
-  %.str.28..str.27 = select i1 %switch, ptr @.str.28, ptr @.str.27
-  %4 = select i1 %switch, i64 3, i64 8
-  tail call void @_ZN4llvm8Function9addFnAttrENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.20, i64 19, ptr nonnull %.str.28..str.27, i64 %4) #16
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %6 = load i32, ptr %5, align 4, !tbaa !700
-  %switch.i = icmp eq i32 %6, 0
-  %.str.29..str.30.i = select i1 %switch.i, ptr @.str.29, ptr @.str.30
+  %4 = icmp eq i32 %3, 2
+  %.str.28..str.27 = select i1 %4, ptr @.str.28, ptr @.str.27
+  %5 = select i1 %4, i64 3, i64 8
+  tail call void @_ZN4llvm8Function9addFnAttrENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.20, i64 19, ptr nonnull %.str.28..str.27, i64 %5) #16
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %7 = load i32, ptr %6, align 4, !tbaa !700
+  %8 = icmp eq i32 %7, 0
+  %.str.29..str.30.i = select i1 %8, ptr @.str.29, ptr @.str.30
   tail call void @_ZN4llvm8Function9addFnAttrENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.21, i64 23, ptr nonnull %.str.29..str.30.i, i64 5) #16
-  br label %13
+  br label %15
 
-7:                                                ; preds = %2
-  %8 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.20, i64 19) #16
-  br i1 %8, label %9, label %10
+9:                                                ; preds = %2
+  %10 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.20, i64 19) #16
+  br i1 %10, label %11, label %12
 
-9:                                                ; preds = %7
+11:                                               ; preds = %9
   tail call void @_ZN4llvm8Function12removeFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.20, i64 19) #16
-  br label %10
+  br label %12
 
-10:                                               ; preds = %9, %7
-  %11 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.21, i64 23) #16
-  br i1 %11, label %12, label %13
+12:                                               ; preds = %11, %9
+  %13 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.21, i64 23) #16
+  br i1 %13, label %14, label %15
 
-12:                                               ; preds = %10
+14:                                               ; preds = %12
   tail call void @_ZN4llvm8Function12removeFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.21, i64 23) #16
-  br label %13
+  br label %15
 
-13:                                               ; preds = %10, %12, %_ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %15 = load i8, ptr %14, align 4, !tbaa !701, !range !702, !noundef !703
-  %16 = trunc nuw i8 %15 to i1
-  br i1 %16, label %17, label %18
+15:                                               ; preds = %12, %14, %_ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %17 = load i8, ptr %16, align 4, !tbaa !701, !range !702, !noundef !703
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %19, label %20
 
-17:                                               ; preds = %13
+19:                                               ; preds = %15
   tail call void @_ZN4llvm8Function9addFnAttrENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.22, i64 25, ptr null, i64 0) #16
   br label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit"
 
-18:                                               ; preds = %13
-  %19 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.22, i64 25) #16
-  br i1 %19, label %20, label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit"
+20:                                               ; preds = %15
+  %21 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.22, i64 25) #16
+  br i1 %21, label %22, label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit"
 
-20:                                               ; preds = %18
+22:                                               ; preds = %20
   tail call void @_ZN4llvm8Function12removeFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.22, i64 25) #16
   br label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit"
 
-"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit": ; preds = %17, %18, %20
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %22 = load i8, ptr %21, align 1, !tbaa !704, !range !702, !noundef !703
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %25
+"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit": ; preds = %19, %20, %22
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %24 = load i8, ptr %23, align 1, !tbaa !704, !range !702, !noundef !703
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %26, label %27
 
-24:                                               ; preds = %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit"
+26:                                               ; preds = %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit"
   tail call void @_ZN4llvm8Function9addFnAttrENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.23, i64 26, ptr null, i64 0) #16
   br label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20"
 
-25:                                               ; preds = %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit"
-  %26 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.23, i64 26) #16
-  br i1 %26, label %27, label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20"
+27:                                               ; preds = %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit"
+  %28 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.23, i64 26) #16
+  br i1 %28, label %29, label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20"
 
-27:                                               ; preds = %25
+29:                                               ; preds = %27
   tail call void @_ZN4llvm8Function12removeFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.23, i64 26) #16
   br label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20"
 
-"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20": ; preds = %24, %25, %27
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %29 = load i8, ptr %28, align 2, !tbaa !705, !range !702, !noundef !703
-  %30 = trunc nuw i8 %29 to i1
-  br i1 %30, label %31, label %32
+"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20": ; preds = %26, %27, %29
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %31 = load i8, ptr %30, align 2, !tbaa !705, !range !702, !noundef !703
+  %32 = trunc nuw i8 %31 to i1
+  br i1 %32, label %33, label %34
 
-31:                                               ; preds = %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20"
+33:                                               ; preds = %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20"
   tail call void @_ZN4llvm8Function9addFnAttrENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.24, i64 21, ptr null, i64 0) #16
   br label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit26"
 
-32:                                               ; preds = %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20"
-  %33 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.24, i64 21) #16
-  br i1 %33, label %34, label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit26"
+34:                                               ; preds = %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit20"
+  %35 = tail call noundef zeroext i1 @_ZNK4llvm8Function14hasFnAttributeENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.24, i64 21) #16
+  br i1 %35, label %36, label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit26"
 
-34:                                               ; preds = %32
+36:                                               ; preds = %34
   tail call void @_ZN4llvm8Function12removeFnAttrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(136) %1, ptr nonnull @.str.24, i64 21) #16
   br label %"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit26"
 
-"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit26": ; preds = %31, %32, %34
+"_ZZN5clang7CodeGen17TargetCodeGenInfo31setBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm8FunctionEENK3$_0clEbRKNS6_9StringRefE.exit26": ; preds = %33, %34, %36
   ret void
 }
 
@@ -1420,51 +1420,51 @@ declare void @_ZN4llvm8Function12removeFnAttrENS_9StringRefE(ptr noundef nonnull
 define dso_local void @_ZN5clang7CodeGen17TargetCodeGenInfo32initBranchProtectionFnAttributesERKNS_10TargetInfo20BranchProtectionInfoERN4llvm11AttrBuilderE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(11) %0, ptr noundef nonnull align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
   %3 = load i32, ptr %0, align 4, !tbaa !696
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %9, label %_ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit
+  br i1 %.not, label %11, label %_ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit
 
 _ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit: ; preds = %2
-  %switch = icmp eq i32 %3, 2
-  %.str.28..str.27 = select i1 %switch, ptr @.str.28, ptr @.str.27
-  %4 = select i1 %switch, i64 3, i64 8
-  %5 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.20, i64 19, ptr nonnull %.str.28..str.27, i64 %4) #16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %7 = load i32, ptr %6, align 4, !tbaa !700
-  %switch.i = icmp eq i32 %7, 0
-  %.str.29..str.30.i = select i1 %switch.i, ptr @.str.29, ptr @.str.30
-  %8 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.21, i64 23, ptr nonnull %.str.29..str.30.i, i64 5) #16
-  br label %9
+  %4 = icmp eq i32 %3, 2
+  %.str.28..str.27 = select i1 %4, ptr @.str.28, ptr @.str.27
+  %5 = select i1 %4, i64 3, i64 8
+  %6 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.20, i64 19, ptr nonnull %.str.28..str.27, i64 %5) #16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %8 = load i32, ptr %7, align 4, !tbaa !700
+  %9 = icmp eq i32 %8, 0
+  %.str.29..str.30.i = select i1 %9, ptr @.str.29, ptr @.str.30
+  %10 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.21, i64 23, ptr nonnull %.str.29..str.30.i, i64 5) #16
+  br label %11
 
-9:                                                ; preds = %_ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit, %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load i8, ptr %10, align 4, !tbaa !701, !range !702, !noundef !703
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %15
+11:                                               ; preds = %_ZNK5clang10TargetInfo20BranchProtectionInfo20getSignReturnAddrStrEv.exit, %2
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %13 = load i8, ptr %12, align 4, !tbaa !701, !range !702, !noundef !703
+  %14 = trunc nuw i8 %13 to i1
+  br i1 %14, label %15, label %17
 
-13:                                               ; preds = %9
-  %14 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.22, i64 25, ptr null, i64 0) #16
-  br label %15
+15:                                               ; preds = %11
+  %16 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.22, i64 25, ptr null, i64 0) #16
+  br label %17
 
-15:                                               ; preds = %13, %9
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %17 = load i8, ptr %16, align 1, !tbaa !704, !range !702, !noundef !703
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %19, label %21
+17:                                               ; preds = %15, %11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %19 = load i8, ptr %18, align 1, !tbaa !704, !range !702, !noundef !703
+  %20 = trunc nuw i8 %19 to i1
+  br i1 %20, label %21, label %23
 
-19:                                               ; preds = %15
-  %20 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.23, i64 26, ptr null, i64 0) #16
-  br label %21
+21:                                               ; preds = %17
+  %22 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.23, i64 26, ptr null, i64 0) #16
+  br label %23
 
-21:                                               ; preds = %19, %15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %23 = load i8, ptr %22, align 2, !tbaa !705, !range !702, !noundef !703
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %27
+23:                                               ; preds = %21, %17
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %25 = load i8, ptr %24, align 2, !tbaa !705, !range !702, !noundef !703
+  %26 = trunc nuw i8 %25 to i1
+  br i1 %26, label %27, label %29
 
-25:                                               ; preds = %21
-  %26 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.24, i64 21, ptr null, i64 0) #16
-  br label %27
+27:                                               ; preds = %23
+  %28 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4llvm11AttrBuilder12addAttributeENS_9StringRefES1_(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr nonnull @.str.24, i64 21, ptr null, i64 0) #16
+  br label %29
 
-27:                                               ; preds = %25, %21
+29:                                               ; preds = %27, %23
   ret void
 }
 
@@ -1821,8 +1821,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
-  %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %.critedge, label %22
+  %.not26.i.i = icmp eq i32 %21, 0
+  br i1 %.not26.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
@@ -1834,7 +1834,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %27 = load ptr, ptr %26, align 8, !tbaa !719
   %.phi.trans.insert.i2.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.pre.i3.i = load i32, ptr %.phi.trans.insert.i2.i, align 8
-  %.pre30.i.i = and i32 %.pre.i3.i, 255
+  %.pre29.i.i = and i32 %.pre.i3.i, 255
   br label %.loopexit.i.i
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
@@ -1845,12 +1845,12 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 255
   %33 = icmp ne i32 %32, 16
-  %.not1829.i.i = icmp eq ptr %29, null
-  %.not18.i.i = or i1 %.not1829.i.i, %33
+  %.not1828.i.i = icmp eq ptr %29, null
+  %.not18.i.i = or i1 %.not1828.i.i, %33
   br i1 %.not18.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !722
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %24, %19
-  %.pre-phi.i.i = phi i32 [ %.pre30.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
+  %.pre-phi.i.i = phi i32 [ %.pre29.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
   %34 = phi i32 [ %.pre.i3.i, %24 ], [ %9, %19 ], [ %31, %.preheader.i.i ]
   %.013.ph.i.i = phi ptr [ %27, %24 ], [ %7, %19 ], [ %29, %.preheader.i.i ]
   %35 = add nsw i32 %.pre-phi.i.i, -17
@@ -2090,13 +2090,13 @@ define linkonce_odr hidden void @_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToC
   %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 32
   %22 = load i32, ptr %21, align 8, !tbaa !690
   %23 = icmp eq i32 %22, %1
-  br i1 %23, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39, label %24
+  br i1 %23, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit37, label %24
 
 24:                                               ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 48
   %26 = load i32, ptr %25, align 8, !tbaa !690
   %27 = icmp eq i32 %26, %1
-  br i1 %27, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit41, label %28
+  br i1 %27, label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39, label %28
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 64
@@ -2147,16 +2147,16 @@ _ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IR
   %46 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 16
   br label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39: ; preds = %20
+_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit37: ; preds = %20
   %47 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 32
   br label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit41: ; preds = %24
+_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39: ; preds = %24
   %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i, i64 48
   br label %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit41, %43, %38, %33
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %33 ], [ %.1.i.i.i.i.i.i, %38 ], [ %.2.i.i.i.i.i.i, %43 ], [ %46, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %47, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39 ], [ %48, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit41 ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit37, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39, %43, %38, %33
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %33 ], [ %.1.i.i.i.i.i.i, %38 ], [ %.2.i.i.i.i.i.i, %43 ], [ %46, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %47, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit37 ], [ %48, %_ZSt9__find_ifIPSt4pairIjPN4llvm6MDNodeEEN9__gnu_cxx5__ops10_Iter_predIZNS1_13IRBuilderBase25AddOrRemoveMetadataToCopyEjS3_EUlRKS4_E_EEET_SE_SE_T0_.exit.i.i.i.i.loopexit.split.loop.exit39 ], [ %.02946.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %49 = icmp eq ptr %.028.i.i.i.i.i.i, %10
   %.01730.i.i.i.i = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i.i.i, i64 16
   %.not31.i.i.i.i = icmp eq ptr %.01730.i.i.i.i, %10
@@ -2200,22 +2200,22 @@ _ZN4llvm8erase_ifINS_11SmallVectorISt4pairIjPNS_6MDNodeEELj2EEEZNS_13IRBuilderBa
   br label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE12emplace_backIJRjRS3_EEERS4_DpOT_.exit
 
 63:                                               ; preds = %3
-  %.not1117 = icmp eq i32 %8, 0
-  br i1 %.not1117, label %._crit_edge, label %.lr.ph
+  %.not1115 = icmp eq i32 %8, 0
+  br i1 %.not1115, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %63, %.critedge
-  %.018 = phi ptr [ %65, %.critedge ], [ %6, %63 ]
-  %64 = load i32, ptr %.018, align 8, !tbaa !690
+  %.016 = phi ptr [ %65, %.critedge ], [ %6, %63 ]
+  %64 = load i32, ptr %.016, align 8, !tbaa !690
   %.not12 = icmp eq i32 %64, %1
   br i1 %.not12, label %66, label %.critedge
 
 .critedge:                                        ; preds = %.lr.ph
-  %65 = getelementptr inbounds nuw i8, ptr %.018, i64 16
+  %65 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %.not11 = icmp eq ptr %65, %10
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 66:                                               ; preds = %.lr.ph
-  %67 = getelementptr inbounds nuw i8, ptr %.018, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %.016, i64 8
   store ptr %2, ptr %67, align 8, !tbaa !692
   br label %_ZN4llvm15SmallVectorImplISt4pairIjPNS_6MDNodeEEE12emplace_backIJRjRS3_EEERS4_DpOT_.exit
 

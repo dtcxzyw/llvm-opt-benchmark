@@ -162,20 +162,20 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
 
 67:                                               ; preds = %62
   %68 = add nuw nsw i32 %59, 16
-  %.pre126 = zext nneg i32 %68 to i64
-  br label %.loopexit113
+  %.pre125 = zext nneg i32 %68 to i64
+  br label %.loopexit112
 
 69:                                               ; preds = %62
   %70 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %64, ptr noundef nonnull dereferenceable(6) @.str.10, i64 noundef 5) #7
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.loopexit113, label %72
+  br i1 %71, label %.loopexit112, label %72
 
 72:                                               ; preds = %69
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 24, ptr noundef nonnull @.str.11, ptr noundef nonnull %64) #6
   br label %.backedge
 
-.loopexit113:                                     ; preds = %69, %67
-  %.pre-phi = phi i64 [ %.pre126, %67 ], [ %63, %69 ]
+.loopexit112:                                     ; preds = %69, %67
+  %.pre-phi = phi i64 [ %.pre125, %67 ], [ %63, %69 ]
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 %.pre-phi
   %74 = call noalias ptr @av_strdup(ptr noundef nonnull %73) #6
   %75 = getelementptr inbounds nuw i8, ptr %8, i64 304
@@ -183,7 +183,7 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
   %.not93 = icmp eq ptr %74, null
   br i1 %.not93, label %.thread, label %76
 
-76:                                               ; preds = %.loopexit113
+76:                                               ; preds = %.loopexit112
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 40, ptr noundef nonnull @.str.12, ptr noundef nonnull %74) #6
   %77 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %78 = load ptr, ptr %75, align 8, !tbaa !39
@@ -238,8 +238,8 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
 106:                                              ; preds = %102, %97
   %107 = getelementptr inbounds nuw i8, ptr %98, i64 44
   %108 = load i32, ptr %107, align 4, !tbaa !46
-  %.not119 = icmp eq i32 %108, 0
-  br i1 %.not119, label %.loopexit, label %.lr.ph
+  %.not118 = icmp eq i32 %108, 0
+  br i1 %.not118, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %106, %124
   %indvars.iv = phi i64 [ %indvars.iv.next, %124 ], [ 0, %106 ]
@@ -282,8 +282,8 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
   %137 = icmp samesign ult i64 %indvars.iv.next, %136
   br i1 %137, label %.lr.ph, label %.loopexit, !llvm.loop !58
 
-.thread:                                          ; preds = %37, %110, %.lr.ph, %.loopexit113, %82, %94, %85, %76, %21
-  %.072 = phi i32 [ %29, %21 ], [ %92, %85 ], [ %95, %94 ], [ %35, %76 ], [ -12, %82 ], [ -12, %.loopexit113 ], [ -12, %.lr.ph ], [ %122, %110 ], [ %35, %37 ]
+.thread:                                          ; preds = %37, %110, %.lr.ph, %.loopexit112, %82, %94, %85, %76, %21
+  %.072 = phi i32 [ %29, %21 ], [ %92, %85 ], [ %95, %94 ], [ %35, %76 ], [ -12, %82 ], [ -12, %.loopexit112 ], [ -12, %.lr.ph ], [ %122, %110 ], [ %35, %37 ]
   %138 = load ptr, ptr %7, align 8, !tbaa !11
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8, !tbaa !40

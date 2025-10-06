@@ -141,16 +141,16 @@ ASN1_TYPE_set.exit:                               ; preds = %17, %20
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !8
-  %.not5.i28 = icmp eq ptr %30, null
-  br i1 %.not5.i28, label %.thread, label %31
+  %.not5.i27 = icmp eq ptr %30, null
+  br i1 %.not5.i27, label %.thread, label %31
 
 31:                                               ; preds = %28
   call void @ossl_asn1_primitive_free(ptr noundef nonnull %5, ptr noundef null, i32 noundef 0) #4
-  %.pre.i29 = load ptr, ptr %5, align 8, !tbaa !9
+  %.pre.i28 = load ptr, ptr %5, align 8, !tbaa !9
   br label %.thread
 
 .thread:                                          ; preds = %31, %28, %26, %26
-  %32 = phi ptr [ %0, %26 ], [ %0, %26 ], [ %.pre.i29, %31 ], [ %0, %28 ]
+  %32 = phi ptr [ %0, %26 ], [ %0, %26 ], [ %.pre.i28, %31 ], [ %0, %28 ]
   store i32 6, ptr %32, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %25, ptr %33, align 8, !tbaa !8
@@ -167,31 +167,31 @@ ASN1_TYPE_set.exit:                               ; preds = %17, %20
   store ptr %0, ptr %4, align 8, !tbaa !9
   %37 = load i32, ptr %0, align 8, !tbaa !3
   switch i32 %37, label %38 [
-    i32 1, label %.thread36
-    i32 5, label %.thread36
+    i32 1, label %.thread34
+    i32 5, label %.thread34
   ]
 
 38:                                               ; preds = %36
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !8
-  %.not5.i32 = icmp eq ptr %40, null
-  br i1 %.not5.i32, label %.thread36, label %41
+  %.not5.i31 = icmp eq ptr %40, null
+  br i1 %.not5.i31, label %.thread34, label %41
 
 41:                                               ; preds = %38
   call void @ossl_asn1_primitive_free(ptr noundef nonnull %4, ptr noundef null, i32 noundef 0) #4
-  %.pre.i33 = load ptr, ptr %4, align 8, !tbaa !9
-  br label %.thread36
+  %.pre.i32 = load ptr, ptr %4, align 8, !tbaa !9
+  br label %.thread34
 
-.thread36:                                        ; preds = %36, %36, %38, %41
-  %42 = phi ptr [ %0, %36 ], [ %0, %36 ], [ %.pre.i33, %41 ], [ %0, %38 ]
+.thread34:                                        ; preds = %36, %36, %38, %41
+  %42 = phi ptr [ %0, %36 ], [ %0, %36 ], [ %.pre.i32, %41 ], [ %0, %38 ]
   store i32 %1, ptr %42, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %35, ptr %43, align 8, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %44
 
-44:                                               ; preds = %ASN1_TYPE_set.exit, %.thread, %.thread36, %34, %24
-  %.1 = phi i32 [ 0, %24 ], [ 0, %34 ], [ 1, %.thread36 ], [ 1, %.thread ], [ 1, %ASN1_TYPE_set.exit ]
+44:                                               ; preds = %ASN1_TYPE_set.exit, %.thread, %.thread34, %34, %24
+  %.1 = phi i32 [ 0, %24 ], [ 0, %34 ], [ 1, %.thread34 ], [ 1, %.thread ], [ 1, %ASN1_TYPE_set.exit ]
   ret i32 %.1
 }
 

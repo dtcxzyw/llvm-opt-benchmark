@@ -1364,10 +1364,9 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 75
   %30 = load i8, ptr %29, align 1, !tbaa !46
-  switch i8 %30, label %31 [
-    i8 0, label %36
-    i8 -1, label %36
-  ]
+  %.off = add i8 %30, -1
+  %switch = icmp ult i8 %.off, -2
+  br i1 %switch, label %31, label %36
 
 31:                                               ; preds = %28
   %32 = uitofp i8 %30 to double
@@ -1379,7 +1378,7 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
   %35 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.112) #11
   br label %36
 
-36:                                               ; preds = %28, %28, %22, %23, %31, %34, %14
+36:                                               ; preds = %28, %22, %23, %31, %34, %14
   %37 = tail call i32 @gvputs(ptr noundef nonnull %0, ptr noundef nonnull @.str.113) #11
   %38 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call fastcc void @svg_print_paint(ptr noundef nonnull %0, ptr noundef nonnull byval(%struct.color_s) align 8 %38)
@@ -1421,10 +1420,9 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
 55:                                               ; preds = %51
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 35
   %57 = load i8, ptr %56, align 1, !tbaa !46
-  switch i8 %57, label %58 [
-    i8 0, label %61
-    i8 -1, label %61
-  ]
+  %.off54 = add i8 %57, -1
+  %switch55 = icmp ult i8 %.off54, -2
+  br i1 %switch55, label %58, label %61
 
 58:                                               ; preds = %55
   %59 = uitofp i8 %57 to double
@@ -1432,7 +1430,7 @@ define internal fastcc void @svg_grstyle(ptr noundef %0, i32 noundef %1, i32 nou
   tail call void (ptr, ptr, ...) @gvprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.116, double noundef %60) #11
   br label %61
 
-61:                                               ; preds = %55, %55, %58, %51
+61:                                               ; preds = %55, %58, %51
   %62 = tail call i32 @gvputc(ptr noundef nonnull %0, i32 noundef 34) #11
   ret void
 }

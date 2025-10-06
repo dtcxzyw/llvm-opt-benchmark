@@ -1650,7 +1650,7 @@ define internal noundef i32 @sit_tunnel_xmit(ptr noundef %0, ptr noundef %1) #4 
 define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #4 align 16 {
   %5 = alloca %struct.ip_tunnel_prl, align 4
   %6 = alloca %struct.ip_tunnel_prl, align 4
-  switch i32 %3, label %174 [
+  switch i32 %3, label %175 [
     i32 35312, label %7
     i32 35313, label %7
     i32 35315, label %7
@@ -1663,7 +1663,7 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
 
 7:                                                ; preds = %4, %4, %4, %4
   %8 = tail call i32 @ip_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #18
-  br label %174
+  br label %175
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1829,7 +1829,7 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
 101:                                              ; preds = %99, %.thread, %21, %9
   %102 = phi i32 [ -22, %9 ], [ -14, %21 ], [ %100, %99 ], [ -12, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %174
+  br label %175
 
 103:                                              ; preds = %4, %4, %4
   %104 = getelementptr i8, ptr %0, i64 2304
@@ -1840,7 +1840,7 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 80
   %108 = load ptr, ptr %107, align 16
   %109 = tail call zeroext i1 @ns_capable(ptr noundef %108, i32 noundef 12) #18
-  br i1 %109, label %110, label %172
+  br i1 %109, label %110, label %173
 
 110:                                              ; preds = %103
   %111 = load ptr, ptr %105, align 8
@@ -1855,35 +1855,35 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 424
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, %0
-  br i1 %120, label %172, label %121
+  br i1 %120, label %173, label %121
 
 121:                                              ; preds = %110
   %122 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %2, i64 noundef 16) #18
   %123 = icmp eq i64 %122, 0
-  br i1 %123, label %124, label %172
+  br i1 %123, label %124, label %173
 
 124:                                              ; preds = %121
-  %switch = icmp eq i32 %3, 35318
-  br i1 %switch, label %125, label %127
+  %125 = icmp eq i32 %3, 35318
+  br i1 %125, label %126, label %128
 
-125:                                              ; preds = %124
-  %126 = call fastcc i32 @ipip6_tunnel_del_prl(ptr noundef %104, ptr noundef nonnull %5), !range !33
-  br label %168
+126:                                              ; preds = %124
+  %127 = call fastcc i32 @ipip6_tunnel_del_prl(ptr noundef %104, ptr noundef nonnull %5), !range !33
+  br label %169
 
-127:                                              ; preds = %124
-  %128 = icmp eq i32 %3, 35319
-  %129 = load i32, ptr %5, align 4
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %168, label %131
+128:                                              ; preds = %124
+  %129 = icmp eq i32 %3, 35319
+  %130 = load i32, ptr %5, align 4
+  %131 = icmp eq i32 %130, 0
+  br i1 %131, label %169, label %132
 
-131:                                              ; preds = %127
-  %132 = call i32 @rtnl_is_locked() #18
-  %133 = icmp ne i32 %132, 0
-  %134 = load i1, ptr @ipip6_tunnel_add_prl.__already_done, align 1
-  %135 = select i1 %133, i1 true, i1 %134
-  br i1 %135, label %137, label %136, !prof !17
+132:                                              ; preds = %128
+  %133 = call i32 @rtnl_is_locked() #18
+  %134 = icmp ne i32 %133, 0
+  %135 = load i1, ptr @ipip6_tunnel_add_prl.__already_done, align 1
+  %136 = select i1 %134, i1 true, i1 %135
+  br i1 %136, label %138, label %137, !prof !17
 
-136:                                              ; preds = %131
+137:                                              ; preds = %132
   store i1 true, ptr @ipip6_tunnel_add_prl.__already_done, align 1
   call void asm sideeffect "897: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 897b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 897) #18, !srcloc !34
   call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1, ptr noundef nonnull @.str.2, i32 noundef 376) #18
@@ -1891,78 +1891,78 @@ define internal i32 @ipip6_tunnel_siocdevprivate(ptr noundef %0, ptr noundef %1,
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.2, i32 376, i32 2313, i64 12) #18, !srcloc !36
   call void asm sideeffect "899: nop\0A\09.pushsection .discard.instr_end\0A\09.long 899b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 899) #18, !srcloc !37
   call void asm sideeffect "900: nop\0A\09.pushsection .discard.instr_end\0A\09.long 900b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 900) #18, !srcloc !38
-  br label %137
+  br label %138
 
-137:                                              ; preds = %136, %131
-  %138 = getelementptr i8, ptr %0, i64 2464
-  %139 = load i32, ptr %5, align 4
-  br label %140
+138:                                              ; preds = %137, %132
+  %139 = getelementptr i8, ptr %0, i64 2464
+  %140 = load i32, ptr %5, align 4
+  br label %141
 
-140:                                              ; preds = %144, %137
-  %141 = phi ptr [ %138, %137 ], [ %142, %144 ]
-  %142 = load ptr, ptr %141, align 8
-  %143 = icmp eq ptr %142, null
-  br i1 %143, label %153, label %144
+141:                                              ; preds = %145, %138
+  %142 = phi ptr [ %139, %138 ], [ %143, %145 ]
+  %143 = load ptr, ptr %142, align 8
+  %144 = icmp eq ptr %143, null
+  br i1 %144, label %154, label %145
 
-144:                                              ; preds = %140
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 8
-  %146 = load i32, ptr %145, align 8
-  %147 = icmp eq i32 %146, %139
-  br i1 %147, label %148, label %140, !llvm.loop !39
+145:                                              ; preds = %141
+  %146 = getelementptr inbounds nuw i8, ptr %143, i64 8
+  %147 = load i32, ptr %146, align 8
+  %148 = icmp eq i32 %147, %140
+  br i1 %148, label %149, label %141, !llvm.loop !39
 
-148:                                              ; preds = %144
-  br i1 %128, label %149, label %168
+149:                                              ; preds = %145
+  br i1 %129, label %150, label %169
 
-149:                                              ; preds = %148
-  %150 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %151 = load i16, ptr %150, align 4
-  %152 = getelementptr inbounds nuw i8, ptr %142, i64 12
-  store i16 %151, ptr %152, align 4
-  br label %168
+150:                                              ; preds = %149
+  %151 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %152 = load i16, ptr %151, align 4
+  %153 = getelementptr inbounds nuw i8, ptr %143, i64 12
+  store i16 %152, ptr %153, align 4
+  br label %169
 
-153:                                              ; preds = %140
-  br i1 %128, label %168, label %154
+154:                                              ; preds = %141
+  br i1 %129, label %169, label %155
 
-154:                                              ; preds = %153
-  %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
-  %156 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %155, i32 noundef 3520, i64 noundef 32) #22
-  %157 = icmp eq ptr %156, null
-  br i1 %157, label %168, label %158
+155:                                              ; preds = %154
+  %156 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 40), align 8
+  %157 = call noalias noundef align 8 dereferenceable_or_null(32) ptr @kmalloc_trace(ptr noundef %156, i32 noundef 3520, i64 noundef 32) #22
+  %158 = icmp eq ptr %157, null
+  br i1 %158, label %169, label %159
 
-158:                                              ; preds = %154
-  %159 = load ptr, ptr %138, align 8
-  store ptr %159, ptr %156, align 8
-  %160 = load i32, ptr %5, align 4
-  %161 = getelementptr inbounds nuw i8, ptr %156, i64 8
-  store i32 %160, ptr %161, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %163 = load i16, ptr %162, align 4
-  %164 = getelementptr inbounds nuw i8, ptr %156, i64 12
-  store i16 %163, ptr %164, align 4
-  %165 = getelementptr i8, ptr %0, i64 2472
-  %166 = load i32, ptr %165, align 8
-  %167 = add i32 %166, 1
-  store i32 %167, ptr %165, align 8
+159:                                              ; preds = %155
+  %160 = load ptr, ptr %139, align 8
+  store ptr %160, ptr %157, align 8
+  %161 = load i32, ptr %5, align 4
+  %162 = getelementptr inbounds nuw i8, ptr %157, i64 8
+  store i32 %161, ptr %162, align 8
+  %163 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  %164 = load i16, ptr %163, align 4
+  %165 = getelementptr inbounds nuw i8, ptr %157, i64 12
+  store i16 %164, ptr %165, align 4
+  %166 = getelementptr i8, ptr %0, i64 2472
+  %167 = load i32, ptr %166, align 8
+  %168 = add i32 %167, 1
+  store i32 %168, ptr %166, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !40
-  store volatile ptr %156, ptr %138, align 8
-  br label %168
+  store volatile ptr %157, ptr %139, align 8
+  br label %169
 
-168:                                              ; preds = %158, %154, %153, %149, %148, %127, %125
-  %169 = phi i32 [ %126, %125 ], [ -22, %127 ], [ 0, %149 ], [ 0, %158 ], [ -17, %148 ], [ -6, %153 ], [ -105, %154 ]
-  %170 = load volatile i64, ptr @jiffies, align 64
-  %171 = getelementptr i8, ptr %0, i64 2384
-  store i64 %170, ptr %171, align 8
+169:                                              ; preds = %159, %155, %154, %150, %149, %128, %126
+  %170 = phi i32 [ %127, %126 ], [ -22, %128 ], [ 0, %150 ], [ 0, %159 ], [ -17, %149 ], [ -6, %154 ], [ -105, %155 ]
+  %171 = load volatile i64, ptr @jiffies, align 64
+  %172 = getelementptr i8, ptr %0, i64 2384
+  store i64 %171, ptr %172, align 8
   call void @netdev_state_change(ptr noundef %0) #18
-  br label %172
+  br label %173
 
-172:                                              ; preds = %168, %121, %110, %103
-  %173 = phi i32 [ %169, %168 ], [ -1, %103 ], [ -22, %110 ], [ -14, %121 ]
+173:                                              ; preds = %169, %121, %110, %103
+  %174 = phi i32 [ %170, %169 ], [ -1, %103 ], [ -22, %110 ], [ -14, %121 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %174
+  br label %175
 
-174:                                              ; preds = %172, %101, %7, %4
-  %175 = phi i32 [ %173, %172 ], [ %102, %101 ], [ %8, %7 ], [ -22, %4 ]
-  ret i32 %175
+175:                                              ; preds = %173, %101, %7, %4
+  %176 = phi i32 [ %174, %173 ], [ %102, %101 ], [ %8, %7 ], [ -22, %4 ]
+  ret i32 %176
 }
 
 ; Function Attrs: null_pointer_is_valid

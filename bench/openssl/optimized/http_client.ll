@@ -1933,11 +1933,11 @@ define ptr @OSSL_HTTP_open(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr n
 
 ._crit_edge:                                      ; preds = %35
   %.pre = load ptr, ptr %13, align 8, !tbaa !35
-  %.pre111 = load ptr, ptr %14, align 8, !tbaa !35
+  %.pre110 = load ptr, ptr %14, align 8, !tbaa !35
   br label %37
 
 37:                                               ; preds = %._crit_edge, %33
-  %38 = phi ptr [ %.pre111, %._crit_edge ], [ null, %33 ]
+  %38 = phi ptr [ %.pre110, %._crit_edge ], [ null, %33 ]
   %39 = phi ptr [ %.pre, %._crit_edge ], [ null, %33 ]
   %.not.i = icmp eq ptr %39, null
   %.017.i = select i1 %.not.i, ptr %0, ptr %39
@@ -1983,31 +1983,31 @@ http_new_bio.exit:                                ; preds = %explict_or_default_
   call void @CRYPTO_free(ptr noundef %53, ptr noundef nonnull @.str, i32 noundef 1101) #9
   %54 = load ptr, ptr %14, align 8, !tbaa !35
   call void @CRYPTO_free(ptr noundef %54, ptr noundef nonnull @.str, i32 noundef 1102) #9
-  %.not110 = icmp eq ptr %48, null
+  %.not109 = icmp eq ptr %48, null
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br i1 %.not110, label %79, label %57
+  br i1 %.not109, label %79, label %57
 
 55:                                               ; preds = %.thread
   %56 = tail call i32 @ERR_set_mark() #9
-  br i1 %.not, label %.thread118, label %63
+  br i1 %.not, label %.thread117, label %63
 
 57:                                               ; preds = %http_new_bio.exit
   %58 = call i32 @ERR_set_mark() #9
   %59 = call i32 @BIO_do_connect_retry(ptr noundef nonnull %48, i32 noundef %10, i32 noundef -1) #9
   %60 = icmp slt i32 %59, 1
-  br i1 %60, label %.thread106.sink.split, label %63
+  br i1 %60, label %.thread105.sink.split, label %63
 
-.thread118:                                       ; preds = %55
+.thread117:                                       ; preds = %55
   %61 = tail call i32 @BIO_do_connect_retry(ptr noundef nonnull %5, i32 noundef %10, i32 noundef -1) #9
   %62 = icmp slt i32 %61, 1
-  br i1 %62, label %.thread106, label %63
+  br i1 %62, label %.thread105, label %63
 
-63:                                               ; preds = %.thread118, %57, %55
-  %.061101 = phi ptr [ %48, %57 ], [ %5, %55 ], [ %5, %.thread118 ]
-  %.06498 = phi ptr [ %.266, %57 ], [ %1, %55 ], [ %1, %.thread118 ]
-  %.06796 = phi ptr [ %34, %57 ], [ null, %55 ], [ null, %.thread118 ]
-  %.not788795 = phi i1 [ true, %57 ], [ false, %55 ], [ false, %.thread118 ]
+63:                                               ; preds = %.thread117, %57, %55
+  %.061101 = phi ptr [ %48, %57 ], [ %5, %55 ], [ %5, %.thread117 ]
+  %.06498 = phi ptr [ %.266, %57 ], [ %1, %55 ], [ %1, %.thread117 ]
+  %.06796 = phi ptr [ %34, %57 ], [ null, %55 ], [ null, %.thread117 ]
+  %.not788795 = phi i1 [ true, %57 ], [ false, %55 ], [ false, %.thread117 ]
   br i1 %16, label %.split, label %67
 
 .split:                                           ; preds = %63
@@ -2023,7 +2023,7 @@ http_new_bio.exit:                                ; preds = %explict_or_default_
   br i1 %70, label %71, label %.split69
 
 71:                                               ; preds = %67
-  br i1 %.not788795, label %.thread106.sink.split, label %.thread106
+  br i1 %.not788795, label %.thread105.sink.split, label %.thread105
 
 .split69:                                         ; preds = %67
   %72 = zext i1 %.not788795 to i32
@@ -2034,18 +2034,18 @@ http_new_bio.exit:                                ; preds = %explict_or_default_
 75:                                               ; preds = %.split, %.split69
   %.060 = phi ptr [ %66, %.split ], [ %74, %.split69 ]
   %.not83 = icmp eq ptr %.060, null
-  br i1 %.not83, label %.thread106, label %76
+  br i1 %.not83, label %.thread105, label %76
 
 76:                                               ; preds = %75
   %77 = call i32 @ERR_pop_to_mark() #9
   br label %79
 
-.thread106.sink.split:                            ; preds = %71, %57
+.thread105.sink.split:                            ; preds = %71, %57
   %.061101.sink = phi ptr [ %48, %57 ], [ %.061101, %71 ]
   call void @BIO_free_all(ptr noundef nonnull %.061101.sink) #9
-  br label %.thread106
+  br label %.thread105
 
-.thread106:                                       ; preds = %.thread106.sink.split, %.thread118, %71, %75
+.thread105:                                       ; preds = %.thread105.sink.split, %.thread117, %71, %75
   %78 = call i32 @ERR_clear_last_mark() #9
   br label %79
 
@@ -2054,8 +2054,8 @@ http_new_bio.exit:                                ; preds = %explict_or_default_
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %79
 
-79:                                               ; preds = %76, %.thread106, %.critedge, %http_new_bio.exit, %25, %21, %17
-  %.0 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %25 ], [ null, %http_new_bio.exit ], [ null, %.critedge ], [ null, %.thread106 ], [ %.060, %76 ]
+79:                                               ; preds = %76, %.thread105, %.critedge, %http_new_bio.exit, %25, %21, %17
+  %.0 = phi ptr [ null, %17 ], [ null, %21 ], [ null, %25 ], [ null, %http_new_bio.exit ], [ null, %.critedge ], [ null, %.thread105 ], [ %.060, %76 ]
   ret ptr %.0
 }
 
@@ -2867,7 +2867,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_proxy_connect(ptr noundef %0, ptr noundef 
   %47 = add i64 %.093, 1
   %48 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %47, ptr noundef nonnull @.str, i32 noundef 1470) #9
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread127, label %50
+  br i1 %49, label %.thread126, label %50
 
 50:                                               ; preds = %46
   %51 = select i1 %.not111, ptr @.str.26, ptr %4
@@ -2902,7 +2902,7 @@ define range(i32 0, 2) i32 @OSSL_HTTP_proxy_connect(ptr noundef %0, ptr noundef 
 
 base64encode.exit.thread:                         ; preds = %54, %68, %50
   tail call void @CRYPTO_clear_free(ptr noundef nonnull %48, i64 noundef %.093, ptr noundef nonnull @.str, i32 noundef 1482) #9
-  br label %.thread127
+  br label %.thread126
 
 69:                                               ; preds = %62
   %70 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef nonnull %11, ptr noundef nonnull @.str.37, ptr noundef nonnull %60) #9
@@ -2919,17 +2919,17 @@ base64encode.exit.thread:                         ; preds = %54, %68, %50
   %75 = tail call i64 @BIO_ctrl(ptr noundef nonnull %11, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
   %76 = and i64 %75, 4294967295
   %.not114 = icmp eq i64 %76, 0
-  br i1 %.not114, label %77, label %.preheader163
+  br i1 %.not114, label %77, label %.preheader162
 
 77:                                               ; preds = %74
   %78 = tail call i32 @BIO_test_flags(ptr noundef nonnull %11, i32 noundef 8) #9
   %.not115 = icmp eq i32 %78, 0
-  br i1 %.not115, label %.preheader163, label %74
+  br i1 %.not115, label %.preheader162, label %74
 
-.preheader163:                                    ; preds = %77, %74
+.preheader162:                                    ; preds = %77, %74
   br label %79
 
-79:                                               ; preds = %.preheader163, %86
+79:                                               ; preds = %.preheader162, %86
   %80 = tail call i32 @BIO_wait(ptr noundef nonnull %11, i64 noundef %18, i32 noundef 100) #9
   %81 = icmp slt i32 %80, 1
   br i1 %81, label %82, label %86
@@ -2938,7 +2938,7 @@ base64encode.exit.thread:                         ; preds = %54, %68, %50
   %83 = icmp eq i32 %80, 0
   %84 = select i1 %83, ptr @.str.39, ptr @.str.40
   %85 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.38, ptr noundef %7, ptr noundef nonnull %84) #9
-  br label %.thread127
+  br label %.thread126
 
 86:                                               ; preds = %79
   %87 = tail call i32 @BIO_gets(ptr noundef nonnull %11, ptr noundef %9, i32 noundef 8192) #9
@@ -2953,42 +2953,42 @@ base64encode.exit.thread:                         ; preds = %54, %68, %50
 sub_0:                                            ; preds = %89
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 5
   %93 = load i8, ptr %92, align 1
-  %.not139 = icmp eq i8 %93, 49
-  br i1 %.not139, label %.tail, label %.tail.thread
+  %.not138 = icmp eq i8 %93, 49
+  br i1 %.not138, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %94 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %95 = load i8, ptr %94, align 1
   %96 = icmp eq i8 %95, 46
-  br i1 %96, label %sub_0133, label %.tail.thread
+  br i1 %96, label %sub_0132, label %.tail.thread
 
 97:                                               ; preds = %89
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1520, ptr noundef nonnull @__func__.OSSL_HTTP_proxy_connect) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 126, ptr noundef null) #9
   %98 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.42, ptr noundef %7) #9
-  br label %.thread127
+  br label %.thread126
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1527, ptr noundef nonnull @__func__.OSSL_HTTP_proxy_connect) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 106, ptr noundef null) #9
   %99 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.44, ptr noundef %7, i32 noundef 3, ptr noundef nonnull %92) #9
-  br label %.thread127
+  br label %.thread126
 
-sub_0133:                                         ; preds = %.tail
+sub_0132:                                         ; preds = %.tail
   %100 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %101 = load i8, ptr %100, align 1
-  %.not140 = icmp eq i8 %101, 32
-  br i1 %.not140, label %.tail132, label %.tail132.thread
+  %.not139 = icmp eq i8 %101, 32
+  br i1 %.not139, label %.tail131, label %.tail131.thread
 
-.tail132:                                         ; preds = %sub_0133
+.tail131:                                         ; preds = %sub_0132
   %102 = getelementptr inbounds nuw i8, ptr %9, i64 9
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, 50
-  br i1 %104, label %.preheader, label %.tail132.thread
+  br i1 %104, label %.preheader, label %.tail131.thread
 
-.tail132.thread:                                  ; preds = %sub_0133, %.tail132
+.tail131.thread:                                  ; preds = %sub_0132, %.tail131
   %105 = sext i8 %101 to i32
   %106 = tail call i32 @ossl_ctype_check(i32 noundef %105, i32 noundef 8) #9
   %.not116 = icmp eq i32 %106, 0
@@ -2997,8 +2997,8 @@ sub_0133:                                         ; preds = %.tail
   %108 = zext nneg i32 %87 to i64
   br label %109
 
-109:                                              ; preds = %.tail132.thread, %115
-  %indvars.iv = phi i64 [ %108, %.tail132.thread ], [ %indvars.iv.next, %115 ]
+109:                                              ; preds = %.tail131.thread, %115
+  %indvars.iv = phi i64 [ %108, %.tail131.thread ], [ %indvars.iv.next, %115 ]
   %110 = getelementptr i8, ptr %9, i64 %indvars.iv
   %111 = getelementptr i8, ptr %110, i64 -1
   %112 = load i8, ptr %111, align 1, !tbaa !27
@@ -3025,26 +3025,26 @@ sub_0133:                                         ; preds = %.tail
   %120 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %6, ptr noundef nonnull @.str.47, ptr noundef %7, ptr noundef nonnull %spec.select) #9
   br label %.loopexit
 
-.preheader:                                       ; preds = %.tail132, %.preheader
+.preheader:                                       ; preds = %.tail131, %.preheader
   %121 = tail call i32 @BIO_gets(ptr noundef nonnull %11, ptr noundef nonnull %9, i32 noundef 8192) #9
   %122 = icmp sgt i32 %121, 2
-  br i1 %122, label %.preheader, label %.thread127, !llvm.loop !65
+  br i1 %122, label %.preheader, label %.thread126, !llvm.loop !65
 
 .loopexit:                                        ; preds = %.critedge, %34, %24
   %.not118 = icmp eq ptr %11, null
-  br i1 %.not118, label %126, label %.thread127
+  br i1 %.not118, label %126, label %.thread126
 
-.thread127:                                       ; preds = %.preheader, %82, %97, %.tail.thread, %46, %base64encode.exit.thread, %.loopexit
-  %.097130 = phi i32 [ 0, %.loopexit ], [ 0, %base64encode.exit.thread ], [ 0, %46 ], [ 0, %97 ], [ 0, %.tail.thread ], [ 0, %82 ], [ 1, %.preheader ]
+.thread126:                                       ; preds = %.preheader, %82, %97, %.tail.thread, %46, %base64encode.exit.thread, %.loopexit
+  %.097129 = phi i32 [ 0, %.loopexit ], [ 0, %base64encode.exit.thread ], [ 0, %46 ], [ 0, %97 ], [ 0, %.tail.thread ], [ 0, %82 ], [ 1, %.preheader ]
   %123 = tail call i64 @BIO_ctrl(ptr noundef nonnull %11, i32 noundef 11, i64 noundef 0, ptr noundef null) #9
   %124 = tail call ptr @BIO_pop(ptr noundef nonnull %11) #9
   %125 = tail call i32 @BIO_free(ptr noundef nonnull %11) #9
   br label %126
 
-126:                                              ; preds = %.thread127, %.loopexit
-  %.097131 = phi i32 [ %.097130, %.thread127 ], [ 0, %.loopexit ]
+126:                                              ; preds = %.thread126, %.loopexit
+  %.097130 = phi i32 [ %.097129, %.thread126 ], [ 0, %.loopexit ]
   tail call void @CRYPTO_free(ptr noundef %9, ptr noundef nonnull @.str, i32 noundef 1568) #9
-  ret i32 %.097131
+  ret i32 %.097130
 }
 
 declare ptr @BIO_f_buffer() local_unnamed_addr #1

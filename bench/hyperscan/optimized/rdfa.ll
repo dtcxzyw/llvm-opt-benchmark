@@ -270,15 +270,15 @@ define hidden noundef zeroext i1 @_ZNK3ue27raw_dfa13hasEodReportsEv(ptr noundef 
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
-  %.not11.not = icmp eq ptr %3, %5
-  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %5
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.08.012 = phi ptr [ %8, %.lr.ph ], [ %3, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 72
+  %.sroa.08.013 = phi ptr [ %8, %.lr.ph ], [ %3, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 72
   %7 = load i64, ptr %6, align 8
   %.not.i.i.not = icmp ne i64 %7, 0
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 96
   %.not.not = icmp eq ptr %8, %5
   %or.cond = select i1 %.not.i.i.not, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph

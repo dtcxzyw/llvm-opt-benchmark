@@ -495,8 +495,8 @@ define ptr @_ZNK6opencc9DictGroup5MatchEPKcm(ptr noundef nonnull readonly align 
   %12 = icmp eq ptr %11, null
   br i1 %12, label %5, label %13
 
-13:                                               ; preds = %6, %5
-  %.sroa.0.3 = phi ptr [ null, %5 ], [ %11, %6 ]
+13:                                               ; preds = %5, %6
+  %.sroa.0.3 = phi ptr [ %11, %6 ], [ null, %5 ]
   ret ptr %.sroa.0.3
 }
 
@@ -524,8 +524,8 @@ define ptr @_ZNK6opencc9DictGroup11MatchPrefixEPKcm(ptr noundef nonnull readonly
   %13 = icmp eq ptr %12, null
   br i1 %13, label %5, label %14
 
-14:                                               ; preds = %6, %5
-  %.sroa.0.3 = phi ptr [ null, %5 ], [ %12, %6 ]
+14:                                               ; preds = %5, %6
+  %.sroa.0.3 = phi ptr [ %12, %6 ], [ null, %5 ]
   ret ptr %.sroa.0.3
 }
 

@@ -242,7 +242,7 @@ switch.lookup:                                    ; preds = %60
   tail call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1064, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %PACKET_buf_init.exit.thread
 
-106:                                              ; preds = %474, %.preheader.i
+106:                                              ; preds = %475, %.preheader.i
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %107 = load ptr, ptr %74, align 8, !tbaa !59
@@ -283,7 +283,7 @@ switch.lookup:                                    ; preds = %60
   br label %118
 
 118:                                              ; preds = %115, %114, %114, %114, %114, %114
-  switch i64 %112, label %457 [
+  switch i64 %112, label %458 [
     i64 1, label %119
     i64 0, label %122
     i64 2, label %124
@@ -304,17 +304,17 @@ switch.lookup:                                    ; preds = %60
     i64 17, label %348
     i64 18, label %367
     i64 19, label %367
-    i64 20, label %385
-    i64 21, label %389
-    i64 22, label %404
-    i64 23, label %404
-    i64 24, label %413
-    i64 25, label %417
-    i64 26, label %426
-    i64 27, label %444
-    i64 29, label %448
-    i64 28, label %450
-    i64 30, label %452
+    i64 20, label %386
+    i64 21, label %390
+    i64 22, label %405
+    i64 23, label %405
+    i64 24, label %414
+    i64 25, label %418
+    i64 26, label %427
+    i64 27, label %445
+    i64 29, label %449
+    i64 28, label %451
+    i64 30, label %453
   ]
 
 119:                                              ; preds = %118
@@ -329,11 +329,11 @@ depack_do_frame_ping.exit.thread.i:               ; preds = %119
 depack_do_frame_ping.exit.i:                      ; preds = %119
   %121 = load ptr, ptr %102, align 8, !tbaa !19
   call void @ossl_quic_tx_packetiser_schedule_ack_eliciting(ptr noundef %121, i32 noundef range(i32 0, 4) %.0.i.ph3136) #3
-  br label %458
+  br label %459
 
 122:                                              ; preds = %118
   %123 = call i64 @ossl_quic_wire_decode_padding(ptr noundef nonnull %34) #3
-  br label %458
+  br label %459
 
 124:                                              ; preds = %118, %118
   br i1 %85, label %125, label %126
@@ -435,7 +435,7 @@ depack_do_frame_ack.exit.i:                       ; preds = %165
   store i16 %170, ptr %101, align 2, !tbaa !73
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %458
+  br label %459
 
 171:                                              ; preds = %118
   switch i8 %trunc.i25, label %172 [
@@ -517,7 +517,7 @@ depack_do_frame_reset_stream.exit.thread.i:       ; preds = %176, %193, %190, %1
 depack_do_frame_reset_stream.exit.i:              ; preds = %195, %179
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br label %458
+  br label %459
 
 199:                                              ; preds = %118
   switch i8 %trunc.i25, label %200 [
@@ -580,7 +580,7 @@ depack_do_frame_stop_sending.exit.thread.i:       ; preds = %204, %213, %203
 depack_do_frame_stop_sending.exit.i:              ; preds = %214, %207
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %458
+  br label %459
 
 219:                                              ; preds = %118
   br i1 %85, label %220, label %221
@@ -660,7 +660,7 @@ depack_do_frame_crypto.exit.thread.i:             ; preds = %227, %247, %241, %2
 depack_do_frame_crypto.exit.i:                    ; preds = %248, %224
   %.1.i = phi i64 [ 0, %224 ], [ %251, %248 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
-  br label %458
+  br label %459
 
 252:                                              ; preds = %118
   br i1 %.not173.i, label %254, label %253
@@ -713,7 +713,7 @@ depack_do_frame_new_token.exit.i:                 ; preds = %261
   %.not5.i.not.i = icmp eq i32 %269, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br i1 %.not5.i.not.i, label %.critedge.i, label %458
+  br i1 %.not5.i.not.i, label %.critedge.i, label %459
 
 270:                                              ; preds = %118, %118, %118, %118, %118, %118, %118, %118
   switch i8 %trunc.i25, label %271 [
@@ -897,7 +897,7 @@ depack_do_frame_stream.exit.i:                    ; preds = %.thread.i.i, %312, 
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br label %458
+  br label %459
 
 342:                                              ; preds = %118
   switch i8 %trunc.i25, label %343 [
@@ -926,7 +926,7 @@ depack_do_frame_max_data.exit.i:                  ; preds = %344
   %347 = call i32 @ossl_quic_txfc_bump_cwm(ptr noundef nonnull %79, i64 noundef %346) #3
   call void @ossl_quic_stream_map_visit(ptr noundef nonnull %77, ptr noundef nonnull @update_streams, ptr noundef nonnull %0) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %458
+  br label %459
 
 348:                                              ; preds = %118
   switch i8 %trunc.i25, label %349 [
@@ -991,7 +991,7 @@ depack_do_frame_max_stream_data.exit.i:           ; preds = %363, %356
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %458
+  br label %459
 
 367:                                              ; preds = %118, %118
   switch i8 %trunc.i25, label %368 [
@@ -1024,24 +1024,24 @@ depack_do_frame_max_stream_data.exit.i:           ; preds = %363, %356
   br label %depack_do_frame_max_streams.exit.thread.i
 
 376:                                              ; preds = %372
-  %switch.i = icmp eq i64 %112, 18
-  br i1 %switch.i, label %377, label %381
+  %377 = icmp eq i64 %112, 18
+  br i1 %377, label %378, label %382
 
-377:                                              ; preds = %376
-  %378 = load i64, ptr %78, align 8, !tbaa !100
-  %379 = icmp ugt i64 %373, %378
-  br i1 %379, label %380, label %depack_do_frame_max_streams.exit.i
+378:                                              ; preds = %376
+  %379 = load i64, ptr %78, align 8, !tbaa !100
+  %380 = icmp ugt i64 %373, %379
+  br i1 %380, label %381, label %depack_do_frame_max_streams.exit.i
 
-380:                                              ; preds = %377
+381:                                              ; preds = %378
   store i64 %373, ptr %78, align 8, !tbaa !100
   br label %depack_do_frame_max_streams.exit.i
 
-381:                                              ; preds = %376
-  %382 = load i64, ptr %76, align 8, !tbaa !101
-  %383 = icmp ugt i64 %373, %382
-  br i1 %383, label %384, label %depack_do_frame_max_streams.exit.i
+382:                                              ; preds = %376
+  %383 = load i64, ptr %76, align 8, !tbaa !101
+  %384 = icmp ugt i64 %373, %383
+  br i1 %384, label %385, label %depack_do_frame_max_streams.exit.i
 
-384:                                              ; preds = %381
+385:                                              ; preds = %382
   store i64 %373, ptr %76, align 8, !tbaa !101
   br label %depack_do_frame_max_streams.exit.i
 
@@ -1049,392 +1049,392 @@ depack_do_frame_max_streams.exit.thread.i:        ; preds = %375, %371
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %.critedge.i
 
-depack_do_frame_max_streams.exit.i:               ; preds = %384, %381, %380, %377
-  %update_streams_bidi.sink.i = phi ptr [ @update_streams_bidi, %380 ], [ @update_streams_bidi, %377 ], [ @update_streams_uni, %384 ], [ @update_streams_uni, %381 ]
+depack_do_frame_max_streams.exit.i:               ; preds = %385, %382, %381, %378
+  %update_streams_bidi.sink.i = phi ptr [ @update_streams_bidi, %381 ], [ @update_streams_bidi, %378 ], [ @update_streams_uni, %385 ], [ @update_streams_uni, %382 ]
   call void @ossl_quic_stream_map_visit(ptr noundef nonnull %77, ptr noundef nonnull %update_streams_bidi.sink.i, ptr noundef nonnull %0) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %458
+  br label %459
 
-385:                                              ; preds = %118
-  switch i8 %trunc.i25, label %386 [
-    i8 5, label %387
-    i8 2, label %387
+386:                                              ; preds = %118
+  switch i8 %trunc.i25, label %387 [
+    i8 5, label %388
+    i8 2, label %388
   ]
 
-386:                                              ; preds = %385
+387:                                              ; preds = %386
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 20, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1276, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %.critedge.i
 
-387:                                              ; preds = %385, %385
+388:                                              ; preds = %386, %386
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %13, align 8, !tbaa !17
-  %388 = call i32 @ossl_quic_wire_decode_frame_data_blocked(ptr noundef nonnull %34, ptr noundef nonnull %13) #3
-  %.not.i229.i = icmp eq i32 %388, 0
+  %389 = call i32 @ossl_quic_wire_decode_frame_data_blocked(ptr noundef nonnull %34, ptr noundef nonnull %13) #3
+  %.not.i229.i = icmp eq i32 %389, 0
   br i1 %.not.i229.i, label %depack_do_frame_data_blocked.exit.thread.i, label %depack_do_frame_data_blocked.exit.i
 
-depack_do_frame_data_blocked.exit.thread.i:       ; preds = %387
+depack_do_frame_data_blocked.exit.thread.i:       ; preds = %388
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 7, i64 noundef 20, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 788, ptr noundef nonnull @__func__.depack_do_frame_data_blocked) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.critedge.i
 
-depack_do_frame_data_blocked.exit.i:              ; preds = %387
+depack_do_frame_data_blocked.exit.i:              ; preds = %388
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %458
+  br label %459
 
-389:                                              ; preds = %118
-  switch i8 %trunc.i25, label %390 [
-    i8 5, label %391
-    i8 2, label %391
+390:                                              ; preds = %118
+  switch i8 %trunc.i25, label %391 [
+    i8 5, label %392
+    i8 2, label %392
   ]
 
-390:                                              ; preds = %389
+391:                                              ; preds = %390
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 21, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1289, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %.critedge.i
 
-391:                                              ; preds = %389, %389
+392:                                              ; preds = %390, %390
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %10, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 0, ptr %11, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %392 = call i32 @ossl_quic_wire_decode_frame_stream_data_blocked(ptr noundef nonnull %34, ptr noundef nonnull %10, ptr noundef nonnull %11) #3
-  %.not.i231.i = icmp eq i32 %392, 0
-  br i1 %.not.i231.i, label %393, label %394
+  %393 = call i32 @ossl_quic_wire_decode_frame_stream_data_blocked(ptr noundef nonnull %34, ptr noundef nonnull %10, ptr noundef nonnull %11) #3
+  %.not.i231.i = icmp eq i32 %393, 0
+  br i1 %.not.i231.i, label %394, label %395
 
-393:                                              ; preds = %391
+394:                                              ; preds = %392
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 7, i64 noundef 21, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 809, ptr noundef nonnull @__func__.depack_do_frame_stream_data_blocked) #3
   br label %depack_do_frame_stream_data_blocked.exit.thread.i
 
-394:                                              ; preds = %391
-  %395 = load i64, ptr %10, align 8, !tbaa !17
-  %396 = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %0, i64 noundef %395, i64 noundef 21, ptr noundef %12)
-  %.not5.i232.i = icmp eq i32 %396, 0
-  br i1 %.not5.i232.i, label %depack_do_frame_stream_data_blocked.exit.thread.i, label %397
+395:                                              ; preds = %392
+  %396 = load i64, ptr %10, align 8, !tbaa !17
+  %397 = call fastcc i32 @depack_do_implicit_stream_create(ptr noundef nonnull %0, i64 noundef %396, i64 noundef 21, ptr noundef %12)
+  %.not5.i232.i = icmp eq i32 %397, 0
+  br i1 %.not5.i232.i, label %depack_do_frame_stream_data_blocked.exit.thread.i, label %398
 
-397:                                              ; preds = %394
-  %398 = load ptr, ptr %12, align 8, !tbaa !74
-  %399 = icmp eq ptr %398, null
-  br i1 %399, label %depack_do_frame_stream_data_blocked.exit.i, label %400
+398:                                              ; preds = %395
+  %399 = load ptr, ptr %12, align 8, !tbaa !74
+  %400 = icmp eq ptr %399, null
+  br i1 %400, label %depack_do_frame_stream_data_blocked.exit.i, label %401
 
-400:                                              ; preds = %397
-  %401 = getelementptr i8, ptr %398, i64 256
-  %.val.i233.i = load i64, ptr %401, align 8
-  %402 = and i64 %.val.i233.i, 16711680
-  %.not1.i234.i = icmp eq i64 %402, 0
-  br i1 %.not1.i234.i, label %403, label %depack_do_frame_stream_data_blocked.exit.i
+401:                                              ; preds = %398
+  %402 = getelementptr i8, ptr %399, i64 256
+  %.val.i233.i = load i64, ptr %402, align 8
+  %403 = and i64 %.val.i233.i, 16711680
+  %.not1.i234.i = icmp eq i64 %403, 0
+  br i1 %.not1.i234.i, label %404, label %depack_do_frame_stream_data_blocked.exit.i
 
-403:                                              ; preds = %400
+404:                                              ; preds = %401
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 5, i64 noundef 21, ptr noundef nonnull @.str.42, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 835, ptr noundef nonnull @__func__.depack_do_frame_stream_data_blocked) #3
   br label %depack_do_frame_stream_data_blocked.exit.thread.i
 
-depack_do_frame_stream_data_blocked.exit.thread.i: ; preds = %394, %403, %393
+depack_do_frame_stream_data_blocked.exit.thread.i: ; preds = %395, %404, %394
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge.i
 
-depack_do_frame_stream_data_blocked.exit.i:       ; preds = %400, %397
+depack_do_frame_stream_data_blocked.exit.i:       ; preds = %401, %398
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %458
+  br label %459
 
-404:                                              ; preds = %118, %118
-  switch i8 %trunc.i25, label %405 [
-    i8 5, label %406
-    i8 2, label %406
+405:                                              ; preds = %118, %118
+  switch i8 %trunc.i25, label %406 [
+    i8 5, label %407
+    i8 2, label %407
   ]
 
-405:                                              ; preds = %404
+406:                                              ; preds = %405
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef %112, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1304, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %.critedge.i
 
-406:                                              ; preds = %404, %404
+407:                                              ; preds = %405, %405
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !17
-  %407 = call i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef nonnull %34, ptr noundef nonnull %9) #3
-  %.not.i236.i = icmp eq i32 %407, 0
-  br i1 %.not.i236.i, label %408, label %409
+  %408 = call i32 @ossl_quic_wire_decode_frame_streams_blocked(ptr noundef nonnull %34, ptr noundef nonnull %9) #3
+  %.not.i236.i = icmp eq i32 %408, 0
+  br i1 %.not.i236.i, label %409, label %410
 
-408:                                              ; preds = %406
+409:                                              ; preds = %407
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 7, i64 noundef %112, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 854, ptr noundef nonnull @__func__.depack_do_frame_streams_blocked) #3
   br label %depack_do_frame_streams_blocked.exit.thread.i
 
-409:                                              ; preds = %406
-  %410 = load i64, ptr %9, align 8, !tbaa !17
-  %411 = icmp ugt i64 %410, 1152921504606846976
-  br i1 %411, label %412, label %depack_do_frame_streams_blocked.exit.i
+410:                                              ; preds = %407
+  %411 = load i64, ptr %9, align 8, !tbaa !17
+  %412 = icmp ugt i64 %411, 1152921504606846976
+  br i1 %412, label %413, label %depack_do_frame_streams_blocked.exit.i
 
-412:                                              ; preds = %409
+413:                                              ; preds = %410
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 4, i64 noundef %112, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 868, ptr noundef nonnull @__func__.depack_do_frame_streams_blocked) #3
   br label %depack_do_frame_streams_blocked.exit.thread.i
 
-depack_do_frame_streams_blocked.exit.thread.i:    ; preds = %412, %408
+depack_do_frame_streams_blocked.exit.thread.i:    ; preds = %413, %409
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge.i
 
-depack_do_frame_streams_blocked.exit.i:           ; preds = %409
+depack_do_frame_streams_blocked.exit.i:           ; preds = %410
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %458
+  br label %459
 
-413:                                              ; preds = %118
-  switch i8 %trunc.i25, label %414 [
-    i8 5, label %415
-    i8 2, label %415
+414:                                              ; preds = %118
+  switch i8 %trunc.i25, label %415 [
+    i8 5, label %416
+    i8 2, label %416
   ]
 
-414:                                              ; preds = %413
+415:                                              ; preds = %414
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 24, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1319, ptr noundef nonnull @__func__.depack_process_frames) #3
-  br label %415
+  br label %416
 
-415:                                              ; preds = %414, %413, %413
+416:                                              ; preds = %415, %414, %414
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %416 = call i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef nonnull %34, ptr noundef nonnull %8) #3
-  %.not.i238.i = icmp eq i32 %416, 0
+  %417 = call i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef nonnull %34, ptr noundef nonnull %8) #3
+  %.not.i238.i = icmp eq i32 %417, 0
   br i1 %.not.i238.i, label %depack_do_frame_new_conn_id.exit.thread.i, label %depack_do_frame_new_conn_id.exit.i
 
-depack_do_frame_new_conn_id.exit.thread.i:        ; preds = %415
+depack_do_frame_new_conn_id.exit.thread.i:        ; preds = %416
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 7, i64 noundef 24, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 886, ptr noundef nonnull @__func__.depack_do_frame_new_conn_id) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge.i
 
-depack_do_frame_new_conn_id.exit.i:               ; preds = %415
+depack_do_frame_new_conn_id.exit.i:               ; preds = %416
   call void @ossl_quic_channel_on_new_conn_id(ptr noundef nonnull %0, ptr noundef nonnull %8) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %458
+  br label %459
 
-417:                                              ; preds = %118
-  switch i8 %trunc.i25, label %418 [
-    i8 5, label %419
-    i8 2, label %419
+418:                                              ; preds = %118
+  switch i8 %trunc.i25, label %419 [
+    i8 5, label %420
+    i8 2, label %420
   ]
 
-418:                                              ; preds = %417
+419:                                              ; preds = %418
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 25, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1331, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %.critedge.i
 
-419:                                              ; preds = %417, %417
+420:                                              ; preds = %418, %418
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %420 = call i32 @ossl_quic_wire_decode_frame_retire_conn_id(ptr noundef nonnull %34, ptr noundef nonnull %7) #3
-  %.not.i240.i = icmp eq i32 %420, 0
-  br i1 %.not.i240.i, label %421, label %422
+  %421 = call i32 @ossl_quic_wire_decode_frame_retire_conn_id(ptr noundef nonnull %34, ptr noundef nonnull %7) #3
+  %.not.i240.i = icmp eq i32 %421, 0
+  br i1 %.not.i240.i, label %422, label %423
 
-421:                                              ; preds = %419
+422:                                              ; preds = %420
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 7, i64 noundef 25, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 905, ptr noundef nonnull @__func__.depack_do_frame_retire_conn_id) #3
   br label %depack_do_frame_retire_conn_id.exit.thread.i
 
-422:                                              ; preds = %419
-  %423 = load i64, ptr %40, align 8
-  %424 = and i64 %423, 33554432
-  %.not4.i.i = icmp eq i64 %424, 0
-  br i1 %.not4.i.i, label %425, label %depack_do_frame_retire_conn_id.exit.i
+423:                                              ; preds = %420
+  %424 = load i64, ptr %40, align 8
+  %425 = and i64 %424, 33554432
+  %.not4.i.i = icmp eq i64 %425, 0
+  br i1 %.not4.i.i, label %426, label %depack_do_frame_retire_conn_id.exit.i
 
-425:                                              ; preds = %422
+426:                                              ; preds = %423
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 25, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 926, ptr noundef nonnull @__func__.depack_do_frame_retire_conn_id) #3
   br label %depack_do_frame_retire_conn_id.exit.thread.i
 
-depack_do_frame_retire_conn_id.exit.thread.i:     ; preds = %425, %421
+depack_do_frame_retire_conn_id.exit.thread.i:     ; preds = %426, %422
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge.i
 
-depack_do_frame_retire_conn_id.exit.i:            ; preds = %422
+depack_do_frame_retire_conn_id.exit.i:            ; preds = %423
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %458
+  br label %459
 
-426:                                              ; preds = %118
-  switch i8 %trunc.i25, label %427 [
-    i8 5, label %428
-    i8 2, label %428
+427:                                              ; preds = %118
+  switch i8 %trunc.i25, label %428 [
+    i8 5, label %429
+    i8 2, label %429
   ]
 
-427:                                              ; preds = %426
+428:                                              ; preds = %427
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 26, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1344, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %.critedge.i
 
-428:                                              ; preds = %426, %426
+429:                                              ; preds = %427, %427
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8, !tbaa !17
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %429 = call i32 @ossl_quic_wire_decode_frame_path_challenge(ptr noundef nonnull %34, ptr noundef nonnull %5) #3
-  %.not.i242.i = icmp eq i32 %429, 0
-  br i1 %.not.i242.i, label %430, label %431
+  %430 = call i32 @ossl_quic_wire_decode_frame_path_challenge(ptr noundef nonnull %34, ptr noundef nonnull %5) #3
+  %.not.i242.i = icmp eq i32 %430, 0
+  br i1 %.not.i242.i, label %431, label %432
 
-430:                                              ; preds = %428
+431:                                              ; preds = %429
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 7, i64 noundef 26, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 951, ptr noundef nonnull @__func__.depack_do_frame_path_challenge) #3
   br label %depack_do_frame_path_challenge.exit.thread.i
 
-431:                                              ; preds = %428
-  %432 = call noalias ptr @CRYPTO_malloc(i64 noundef 9, ptr noundef nonnull @.str.1, i32 noundef 963) #3
-  %433 = icmp eq ptr %432, null
-  br i1 %433, label %.loopexit305.i, label %434
+432:                                              ; preds = %429
+  %433 = call noalias ptr @CRYPTO_malloc(i64 noundef 9, ptr noundef nonnull @.str.1, i32 noundef 963) #3
+  %434 = icmp eq ptr %433, null
+  br i1 %434, label %.loopexit305.i, label %435
 
-434:                                              ; preds = %431
-  %435 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %6, ptr noundef nonnull %432, i64 noundef 9, i64 noundef 0) #3
-  %.not11.i.i = icmp eq i32 %435, 0
-  br i1 %.not11.i.i, label %.loopexit305.i, label %436
+435:                                              ; preds = %432
+  %436 = call i32 @WPACKET_init_static_len(ptr noundef nonnull %6, ptr noundef nonnull %433, i64 noundef 9, i64 noundef 0) #3
+  %.not11.i.i = icmp eq i32 %436, 0
+  br i1 %.not11.i.i, label %.loopexit305.i, label %437
 
-436:                                              ; preds = %434
-  %437 = load i64, ptr %5, align 8, !tbaa !17
-  %438 = call i32 @ossl_quic_wire_encode_frame_path_response(ptr noundef nonnull %6, i64 noundef %437) #3
-  %.not12.i243.i = icmp eq i32 %438, 0
-  br i1 %.not12.i243.i, label %439, label %440
+437:                                              ; preds = %435
+  %438 = load i64, ptr %5, align 8, !tbaa !17
+  %439 = call i32 @ossl_quic_wire_encode_frame_path_response(ptr noundef nonnull %6, i64 noundef %438) #3
+  %.not12.i243.i = icmp eq i32 %439, 0
+  br i1 %.not12.i243.i, label %440, label %441
 
-439:                                              ; preds = %436
+440:                                              ; preds = %437
   call void @WPACKET_cleanup(ptr noundef nonnull %6) #3
   br label %.loopexit305.i
 
-440:                                              ; preds = %436
-  %441 = call i32 @WPACKET_finish(ptr noundef nonnull %6) #3
-  %442 = load ptr, ptr %75, align 8, !tbaa !102
-  %443 = call ptr @ossl_quic_cfq_add_frame(ptr noundef %442, i32 noundef 0, i32 noundef 2, i64 noundef 27, i32 noundef 1, ptr noundef nonnull %432, i64 noundef 9, ptr noundef nonnull @free_path_response, ptr noundef null) #3
-  %.not13.i.i = icmp eq ptr %443, null
+441:                                              ; preds = %437
+  %442 = call i32 @WPACKET_finish(ptr noundef nonnull %6) #3
+  %443 = load ptr, ptr %75, align 8, !tbaa !102
+  %444 = call ptr @ossl_quic_cfq_add_frame(ptr noundef %443, i32 noundef 0, i32 noundef 2, i64 noundef 27, i32 noundef 1, ptr noundef nonnull %433, i64 noundef 9, ptr noundef nonnull @free_path_response, ptr noundef null) #3
+  %.not13.i.i = icmp eq ptr %444, null
   br i1 %.not13.i.i, label %.loopexit305.i, label %depack_do_frame_path_challenge.exit.i
 
-.loopexit305.i:                                   ; preds = %440, %434, %431, %439
-  call void @CRYPTO_free(ptr noundef %432, ptr noundef nonnull @.str.1, i32 noundef 986) #3
+.loopexit305.i:                                   ; preds = %441, %435, %432, %440
+  call void @CRYPTO_free(ptr noundef %433, ptr noundef nonnull @.str.1, i32 noundef 986) #3
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 1, i64 noundef 26, ptr noundef nonnull @.str.45, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 989, ptr noundef nonnull @__func__.depack_do_frame_path_challenge) #3
   br label %depack_do_frame_path_challenge.exit.thread.i
 
-depack_do_frame_path_challenge.exit.thread.i:     ; preds = %.loopexit305.i, %430
+depack_do_frame_path_challenge.exit.thread.i:     ; preds = %.loopexit305.i, %431
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge.i
 
-depack_do_frame_path_challenge.exit.i:            ; preds = %440
+depack_do_frame_path_challenge.exit.i:            ; preds = %441
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %458
+  br label %459
 
-444:                                              ; preds = %118
-  br i1 %.not173.i, label %446, label %445
+445:                                              ; preds = %118
+  br i1 %.not173.i, label %447, label %446
 
-445:                                              ; preds = %444
+446:                                              ; preds = %445
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 27, ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1357, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %.critedge.i
 
-446:                                              ; preds = %444
+447:                                              ; preds = %445
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !17
-  %447 = call i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef nonnull %34, ptr noundef nonnull %4) #3
-  %.not.i245.i = icmp eq i32 %447, 0
+  %448 = call i32 @ossl_quic_wire_decode_frame_path_response(ptr noundef nonnull %34, ptr noundef nonnull %4) #3
+  %.not.i245.i = icmp eq i32 %448, 0
   br i1 %.not.i245.i, label %depack_do_frame_path_response.exit.thread.i, label %depack_do_frame_path_response.exit.i
 
-depack_do_frame_path_response.exit.thread.i:      ; preds = %446
+depack_do_frame_path_response.exit.thread.i:      ; preds = %447
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 7, i64 noundef 27, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1003, ptr noundef nonnull @__func__.depack_do_frame_path_response) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge.i
 
-depack_do_frame_path_response.exit.i:             ; preds = %446
+depack_do_frame_path_response.exit.i:             ; preds = %447
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %458
+  br label %459
 
-448:                                              ; preds = %118
-  switch i8 %trunc.i25, label %449 [
-    i8 5, label %450
-    i8 2, label %450
+449:                                              ; preds = %118
+  switch i8 %trunc.i25, label %450 [
+    i8 5, label %451
+    i8 2, label %451
   ]
 
-449:                                              ; preds = %448
+450:                                              ; preds = %449
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 29, ptr noundef nonnull @.str.21, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1371, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %.critedge.i
 
-450:                                              ; preds = %448, %448, %118
+451:                                              ; preds = %449, %449, %118
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %451 = call i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef nonnull %34, ptr noundef nonnull %3) #3
-  %.not.i247.i = icmp eq i32 %451, 0
+  %452 = call i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef nonnull %34, ptr noundef nonnull %3) #3
+  %.not.i247.i = icmp eq i32 %452, 0
   br i1 %.not.i247.i, label %depack_do_frame_conn_close.exit.thread.i, label %depack_do_frame_conn_close.exit.i
 
-depack_do_frame_conn_close.exit.thread.i:         ; preds = %450
+depack_do_frame_conn_close.exit.thread.i:         ; preds = %451
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 7, i64 noundef %112, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1021, ptr noundef nonnull @__func__.depack_do_frame_conn_close) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.critedge.i
 
-depack_do_frame_conn_close.exit.i:                ; preds = %450
+depack_do_frame_conn_close.exit.i:                ; preds = %451
   call void @ossl_quic_channel_on_remote_conn_close(ptr noundef nonnull %0, ptr noundef nonnull %3) #3
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %458
+  br label %459
 
-452:                                              ; preds = %118
-  br i1 %.not173.i, label %454, label %453
+453:                                              ; preds = %118
+  br i1 %.not173.i, label %455, label %454
 
-453:                                              ; preds = %452
+454:                                              ; preds = %453
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 10, i64 noundef 30, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1387, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %.critedge.i
 
-454:                                              ; preds = %452
-  %455 = call i32 @ossl_quic_wire_decode_frame_handshake_done(ptr noundef nonnull %34) #3
-  %.not.i249.i = icmp eq i32 %455, 0
+455:                                              ; preds = %453
+  %456 = call i32 @ossl_quic_wire_decode_frame_handshake_done(ptr noundef nonnull %34) #3
+  %.not.i249.i = icmp eq i32 %456, 0
   br i1 %.not.i249.i, label %depack_do_frame_handshake_done.exit.thread.i, label %depack_do_frame_handshake_done.exit.i
 
-depack_do_frame_handshake_done.exit.thread.i:     ; preds = %454
+depack_do_frame_handshake_done.exit.thread.i:     ; preds = %455
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 1, i64 noundef 30, ptr noundef nonnull @.str.46, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1038, ptr noundef nonnull @__func__.depack_do_frame_handshake_done) #3
   br label %.critedge.i
 
-depack_do_frame_handshake_done.exit.i:            ; preds = %454
-  %456 = call i32 @ossl_quic_channel_on_handshake_confirmed(ptr noundef nonnull %0) #3
-  br label %458
+depack_do_frame_handshake_done.exit.i:            ; preds = %455
+  %457 = call i32 @ossl_quic_channel_on_handshake_confirmed(ptr noundef nonnull %0) #3
+  br label %459
 
-457:                                              ; preds = %118
+458:                                              ; preds = %118
   call void @ossl_quic_channel_raise_protocol_error_loc(ptr noundef nonnull %0, i64 noundef 7, i64 noundef %112, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef nonnull @.str.1, i32 noundef 1399, ptr noundef nonnull @__func__.depack_process_frames) #3
   br label %.critedge.i
 
-458:                                              ; preds = %depack_do_frame_handshake_done.exit.i, %depack_do_frame_conn_close.exit.i, %depack_do_frame_path_response.exit.i, %depack_do_frame_path_challenge.exit.i, %depack_do_frame_retire_conn_id.exit.i, %depack_do_frame_new_conn_id.exit.i, %depack_do_frame_streams_blocked.exit.i, %depack_do_frame_stream_data_blocked.exit.i, %depack_do_frame_data_blocked.exit.i, %depack_do_frame_max_streams.exit.i, %depack_do_frame_max_stream_data.exit.i, %depack_do_frame_max_data.exit.i, %depack_do_frame_stream.exit.i, %depack_do_frame_new_token.exit.i, %depack_do_frame_crypto.exit.i, %depack_do_frame_stop_sending.exit.i, %depack_do_frame_reset_stream.exit.i, %depack_do_frame_ack.exit.i, %122, %depack_do_frame_ping.exit.i
+459:                                              ; preds = %depack_do_frame_handshake_done.exit.i, %depack_do_frame_conn_close.exit.i, %depack_do_frame_path_response.exit.i, %depack_do_frame_path_challenge.exit.i, %depack_do_frame_retire_conn_id.exit.i, %depack_do_frame_new_conn_id.exit.i, %depack_do_frame_streams_blocked.exit.i, %depack_do_frame_stream_data_blocked.exit.i, %depack_do_frame_data_blocked.exit.i, %depack_do_frame_max_streams.exit.i, %depack_do_frame_max_stream_data.exit.i, %depack_do_frame_max_data.exit.i, %depack_do_frame_stream.exit.i, %depack_do_frame_new_token.exit.i, %depack_do_frame_crypto.exit.i, %depack_do_frame_stop_sending.exit.i, %depack_do_frame_reset_stream.exit.i, %depack_do_frame_ack.exit.i, %122, %depack_do_frame_ping.exit.i
   %.0251.i = phi i64 [ 0, %depack_do_frame_ping.exit.i ], [ 0, %122 ], [ 0, %depack_do_frame_ack.exit.i ], [ 0, %depack_do_frame_reset_stream.exit.i ], [ 0, %depack_do_frame_stop_sending.exit.i ], [ %.1.i, %depack_do_frame_crypto.exit.i ], [ 0, %depack_do_frame_new_token.exit.i ], [ %.2.i, %depack_do_frame_stream.exit.i ], [ 0, %depack_do_frame_max_data.exit.i ], [ 0, %depack_do_frame_max_stream_data.exit.i ], [ 0, %depack_do_frame_max_streams.exit.i ], [ 0, %depack_do_frame_data_blocked.exit.i ], [ 0, %depack_do_frame_stream_data_blocked.exit.i ], [ 0, %depack_do_frame_streams_blocked.exit.i ], [ 0, %depack_do_frame_new_conn_id.exit.i ], [ 0, %depack_do_frame_retire_conn_id.exit.i ], [ 0, %depack_do_frame_path_challenge.exit.i ], [ 0, %depack_do_frame_path_response.exit.i ], [ 0, %depack_do_frame_conn_close.exit.i ], [ 0, %depack_do_frame_handshake_done.exit.i ]
-  %459 = load ptr, ptr %74, align 8, !tbaa !59
-  %.not196.i = icmp eq ptr %459, null
-  br i1 %.not196.i, label %474, label %460
+  %460 = load ptr, ptr %74, align 8, !tbaa !59
+  %.not196.i = icmp eq ptr %460, null
+  br i1 %.not196.i, label %475, label %461
 
-460:                                              ; preds = %458
+461:                                              ; preds = %459
   %.val199.i = load ptr, ptr %34, align 8, !tbaa !56
-  %461 = ptrtoint ptr %.val199.i to i64
-  %462 = ptrtoint ptr %spec.select to i64
-  %463 = sub i64 %461, %462
-  %464 = load i64, ptr %33, align 8, !tbaa !17
-  %465 = icmp eq i64 %464, 0
-  br i1 %465, label %471, label %466
+  %462 = ptrtoint ptr %.val199.i to i64
+  %463 = ptrtoint ptr %spec.select to i64
+  %464 = sub i64 %462, %463
+  %465 = load i64, ptr %33, align 8, !tbaa !17
+  %466 = icmp eq i64 %465, 0
+  br i1 %466, label %472, label %467
 
-466:                                              ; preds = %460
-  %467 = and i64 %464, -8
-  %468 = icmp eq i64 %467, 8
-  %469 = icmp eq i64 %464, 6
-  %or.cond27.i = or i1 %469, %468
+467:                                              ; preds = %461
+  %468 = and i64 %465, -8
+  %469 = icmp eq i64 %468, 8
+  %470 = icmp eq i64 %465, 6
+  %or.cond27.i = or i1 %470, %469
   %spec.select.i = select i1 %or.cond27.i, i32 515, i32 514
-  %470 = select i1 %or.cond27.i, i64 %.0251.i, i64 0
-  %spec.select292.i = sub i64 %463, %470
-  br label %471
+  %471 = select i1 %or.cond27.i, i64 %.0251.i, i64 0
+  %spec.select292.i = sub i64 %464, %471
+  br label %472
 
-471:                                              ; preds = %466, %460
-  %.0162.i = phi i32 [ 516, %460 ], [ %spec.select.i, %466 ]
-  %.0.i26 = phi i64 [ %463, %460 ], [ %spec.select292.i, %466 ]
-  %472 = load ptr, ptr %103, align 8, !tbaa !103
-  %473 = load ptr, ptr %104, align 8, !tbaa !104
-  call void %459(i32 noundef 0, i32 noundef 1, i32 noundef %.0162.i, ptr noundef %spec.select, i64 noundef %.0.i26, ptr noundef %472, ptr noundef %473) #3
-  br label %474
+472:                                              ; preds = %467, %461
+  %.0162.i = phi i32 [ 516, %461 ], [ %spec.select.i, %467 ]
+  %.0.i26 = phi i64 [ %464, %461 ], [ %spec.select292.i, %467 ]
+  %473 = load ptr, ptr %103, align 8, !tbaa !103
+  %474 = load ptr, ptr %104, align 8, !tbaa !104
+  call void %460(i32 noundef 0, i32 noundef 1, i32 noundef %.0162.i, ptr noundef %spec.select, i64 noundef %.0.i26, ptr noundef %473, ptr noundef %474) #3
+  br label %475
 
-474:                                              ; preds = %471, %458
+475:                                              ; preds = %472, %459
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %.val197.pr.i = load i64, ptr %68, align 8, !tbaa !58
   %.not.i = icmp eq i64 %.val197.pr.i, 0
   br i1 %.not.i, label %PACKET_buf_init.exit.thread, label %106, !llvm.loop !105
 
-.critedge.i:                                      ; preds = %depack_do_frame_new_token.exit.i, %457, %depack_do_frame_handshake_done.exit.thread.i, %453, %depack_do_frame_conn_close.exit.thread.i, %449, %depack_do_frame_path_response.exit.thread.i, %445, %depack_do_frame_path_challenge.exit.thread.i, %427, %depack_do_frame_retire_conn_id.exit.thread.i, %418, %depack_do_frame_new_conn_id.exit.thread.i, %depack_do_frame_streams_blocked.exit.thread.i, %405, %depack_do_frame_stream_data_blocked.exit.thread.i, %390, %depack_do_frame_data_blocked.exit.thread.i, %386, %depack_do_frame_max_streams.exit.thread.i, %368, %depack_do_frame_max_stream_data.exit.thread.i, %349, %depack_do_frame_max_data.exit.thread.i, %343, %depack_do_frame_stream.exit.thread.i, %271, %depack_do_frame_new_token.exit.thread.i, %257, %253, %depack_do_frame_crypto.exit.thread.i, %220, %depack_do_frame_stop_sending.exit.thread.i, %200, %depack_do_frame_reset_stream.exit.thread.i, %172, %depack_do_frame_ack.exit.thread.i, %125, %depack_do_frame_ping.exit.thread.i, %113, %109
+.critedge.i:                                      ; preds = %depack_do_frame_new_token.exit.i, %458, %depack_do_frame_handshake_done.exit.thread.i, %454, %depack_do_frame_conn_close.exit.thread.i, %450, %depack_do_frame_path_response.exit.thread.i, %446, %depack_do_frame_path_challenge.exit.thread.i, %428, %depack_do_frame_retire_conn_id.exit.thread.i, %419, %depack_do_frame_new_conn_id.exit.thread.i, %depack_do_frame_streams_blocked.exit.thread.i, %406, %depack_do_frame_stream_data_blocked.exit.thread.i, %391, %depack_do_frame_data_blocked.exit.thread.i, %387, %depack_do_frame_max_streams.exit.thread.i, %368, %depack_do_frame_max_stream_data.exit.thread.i, %349, %depack_do_frame_max_data.exit.thread.i, %343, %depack_do_frame_stream.exit.thread.i, %271, %depack_do_frame_new_token.exit.thread.i, %257, %253, %depack_do_frame_crypto.exit.thread.i, %220, %depack_do_frame_stop_sending.exit.thread.i, %200, %depack_do_frame_reset_stream.exit.thread.i, %172, %depack_do_frame_ack.exit.thread.i, %125, %depack_do_frame_ping.exit.thread.i, %113, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %PACKET_buf_init.exit.thread
 
-PACKET_buf_init.exit.thread:                      ; preds = %474, %60, %.critedge.i, %105
-  %.ph = phi i32 [ 0, %.critedge.i ], [ 0, %105 ], [ 0, %60 ], [ 1, %474 ]
-  %475 = getelementptr inbounds nuw i8, ptr %0, i64 1048
-  %476 = load ptr, ptr %475, align 8, !tbaa !72
-  %477 = call i32 @ossl_ackm_on_rx_packet(ptr noundef %476, ptr noundef nonnull %35) #3
+PACKET_buf_init.exit.thread:                      ; preds = %475, %60, %.critedge.i, %105
+  %.ph = phi i32 [ 0, %.critedge.i ], [ 0, %105 ], [ 0, %60 ], [ 1, %475 ]
+  %476 = getelementptr inbounds nuw i8, ptr %0, i64 1048
+  %477 = load ptr, ptr %476, align 8, !tbaa !72
+  %478 = call i32 @ossl_ackm_on_rx_packet(ptr noundef %477, ptr noundef nonnull %35) #3
   br label %ossl_quic_pkt_type_to_enc_level.exit
 
 ossl_quic_pkt_type_to_enc_level.exit:             ; preds = %2, %39, %PACKET_buf_init.exit.thread
-  %478 = phi i32 [ %.ph, %PACKET_buf_init.exit.thread ], [ 0, %2 ], [ 0, %39 ]
+  %479 = phi i32 [ %.ph, %PACKET_buf_init.exit.thread ], [ 0, %2 ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
-  ret i32 %478
+  ret i32 %479
 }
 
 declare void @ossl_quic_tx_packetiser_set_validated(ptr noundef) local_unnamed_addr #1

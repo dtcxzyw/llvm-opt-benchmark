@@ -1097,16 +1097,16 @@ packed_downcast.exit:                             ; preds = %10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.write_with_updates.sb, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val = load ptr, ptr %15, align 8, !tbaa !23
-  %.not39 = icmp eq ptr %.val, null
-  br i1 %.not39, label %20, label %.preheader41
+  %.not37 = icmp eq ptr %.val, null
+  br i1 %.not37, label %20, label %.preheader38
 
-.preheader41:                                     ; preds = %packed_downcast.exit
+.preheader38:                                     ; preds = %packed_downcast.exit
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8, !tbaa !72
   %.not = icmp eq i64 %17, 0
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader41
+.lr.ph:                                           ; preds = %.preheader38
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !75
   br label %22
@@ -1115,19 +1115,19 @@ packed_downcast.exit:                             ; preds = %10
   tail call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.6, i32 noundef 1521, ptr noundef nonnull @.str.11) #19
   unreachable
 
-.lr.ph46:                                         ; preds = %.critedge
+.lr.ph43:                                         ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %32
 
 22:                                               ; preds = %.lr.ph, %.critedge
-  %.02443 = phi i64 [ 0, %.lr.ph ], [ %31, %.critedge ]
-  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02443
+  %.02441 = phi i64 [ 0, %.lr.ph ], [ %31, %.critedge ]
+  %23 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02441
   %24 = load ptr, ptr %23, align 8, !tbaa !76
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %26 = load i32, ptr %25, align 8, !tbaa !22
   %27 = and i32 %26, 8
   %.not30 = icmp eq i32 %27, 0
-  br i1 %.not30, label %28, label %.loopexit
+  br i1 %.not30, label %28, label %.loopexit39
 
 28:                                               ; preds = %22
   %29 = and i32 %26, 4
@@ -1137,18 +1137,18 @@ packed_downcast.exit:                             ; preds = %10
 30:                                               ; preds = %28
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %24, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
   %.not.i33.not = icmp eq i32 %bcmp.i, 0
-  br i1 %.not.i33.not, label %.critedge, label %.loopexit
+  br i1 %.not.i33.not, label %.critedge, label %.loopexit39
 
 .critedge:                                        ; preds = %30, %28
-  %31 = add nuw i64 %.02443, 1
+  %31 = add nuw i64 %.02441, 1
   %exitcond.not = icmp eq i64 %31, %17
-  br i1 %exitcond.not, label %.lr.ph46, label %22, !llvm.loop !78
+  br i1 %exitcond.not, label %.lr.ph43, label %22, !llvm.loop !78
 
-32:                                               ; preds = %.lr.ph46, %46
-  %33 = phi i64 [ %17, %.lr.ph46 ], [ %47, %46 ]
-  %.12545 = phi i64 [ 0, %.lr.ph46 ], [ %48, %46 ]
+32:                                               ; preds = %.lr.ph43, %47
+  %33 = phi i64 [ %17, %.lr.ph43 ], [ %48, %47 ]
+  %.12542 = phi i64 [ 0, %.lr.ph43 ], [ %49, %47 ]
   %34 = load ptr, ptr %21, align 8, !tbaa !75
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.12545
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.12542
   %36 = load ptr, ptr %35, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1157,13 +1157,7 @@ packed_downcast.exit:                             ; preds = %10
   %38 = load i32, ptr %37, align 8, !tbaa !22
   %39 = and i32 %38, 4
   %.not29 = icmp eq i32 %39, 0
-  br i1 %.not29, label %.thread, label %40
-
-.thread:                                          ; preds = %32
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %46
+  br i1 %.not29, label %47, label %40
 
 40:                                               ; preds = %32
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 144
@@ -1172,28 +1166,34 @@ packed_downcast.exit:                             ; preds = %10
   %44 = load i32, ptr %4, align 4
   %45 = icmp ne i32 %44, 2
   %or.cond = select i1 %43, i1 true, i1 %45
+  br i1 %or.cond, label %46, label %._crit_edge
+
+._crit_edge:                                      ; preds = %40
+  %.pre = load i64, ptr %16, align 8, !tbaa !72
+  br label %47
+
+46:                                               ; preds = %40
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %or.cond, label %._crit_edge, label %._crit_edge50
-
-._crit_edge50:                                    ; preds = %40
-  %.pre = load i64, ptr %16, align 8, !tbaa !72
-  br label %46
-
-46:                                               ; preds = %._crit_edge50, %.thread
-  %47 = phi i64 [ %33, %.thread ], [ %.pre, %._crit_edge50 ]
-  %48 = add nuw i64 %.12545, 1
-  %49 = icmp ult i64 %48, %47
-  br i1 %49, label %32, label %._crit_edge, !llvm.loop !79
-
-._crit_edge:                                      ; preds = %46, %40, %.preheader41
-  %.127 = phi i32 [ 0, %.preheader41 ], [ 1, %40 ], [ 0, %46 ]
-  call void @strbuf_release(ptr noundef nonnull %3) #18
   br label %.loopexit
 
-.loopexit:                                        ; preds = %22, %30, %._crit_edge
-  %.2 = phi i32 [ %.127, %._crit_edge ], [ 1, %30 ], [ 1, %22 ]
+47:                                               ; preds = %._crit_edge, %32
+  %48 = phi i64 [ %.pre, %._crit_edge ], [ %33, %32 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %49 = add nuw i64 %.12542, 1
+  %50 = icmp ult i64 %49, %48
+  br i1 %50, label %32, label %.loopexit, !llvm.loop !79
+
+.loopexit:                                        ; preds = %47, %.preheader38, %46
+  %.127 = phi i32 [ 1, %46 ], [ 0, %.preheader38 ], [ 0, %47 ]
+  call void @strbuf_release(ptr noundef nonnull %3) #18
+  br label %.loopexit39
+
+.loopexit39:                                      ; preds = %22, %30, %.loopexit
+  %.2 = phi i32 [ %.127, %.loopexit ], [ 1, %30 ], [ 1, %22 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.2
 }
@@ -3000,11 +3000,11 @@ strbuf_setlen.exit.i:                             ; preds = %21, %.backedge
   %62 = load i8, ptr %61, align 1, !tbaa !40
   %63 = and i8 %62, 1
   %.not73.i = icmp eq i8 %63, 0
-  %.pre103.i = load ptr, ptr %10, align 8, !tbaa !117
+  %.pre102.i = load ptr, ptr %10, align 8, !tbaa !117
   br i1 %.not73.i, label %.loopexit, label %73
 
 .loopexit:                                        ; preds = %56, %41, %._crit_edge.i
-  %64 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %39, %41 ], [ %.pre103.i, %56 ]
+  %64 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %39, %41 ], [ %.pre102.i, %56 ]
   %65 = load ptr, ptr %12, align 8, !tbaa !115
   %66 = load ptr, ptr %65, align 8, !tbaa !33
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
@@ -3017,7 +3017,7 @@ strbuf_setlen.exit.i:                             ; preds = %21, %.backedge
   unreachable
 
 73:                                               ; preds = %56
-  %74 = ptrtoint ptr %.pre103.i to i64
+  %74 = ptrtoint ptr %.pre102.i to i64
   %75 = ptrtoint ptr %58 to i64
   %76 = sub i64 %74, %75
   %77 = call ptr @memchr(ptr noundef nonnull %58, i32 noundef 10, i64 noundef %76) #21

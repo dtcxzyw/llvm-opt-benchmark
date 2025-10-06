@@ -2662,8 +2662,8 @@ define dso_local ptr @transport_anonymize_url(ptr noundef %0) local_unnamed_addr
   br i1 %.not32, label %.thread, label %30
 
 .lr.ph:                                           ; preds = %.preheader, %21
-  %.02640 = phi ptr [ %22, %21 ], [ %0, %.preheader ]
-  %15 = load i8, ptr %.02640, align 1, !tbaa !36
+  %.02639 = phi ptr [ %22, %21 ], [ %0, %.preheader ]
+  %15 = load i8, ptr %.02639, align 1, !tbaa !36
   switch i8 %15, label %16 [
     i8 43, label %21
     i8 46, label %21
@@ -2679,7 +2679,7 @@ define dso_local ptr @transport_anonymize_url(ptr noundef %0) local_unnamed_addr
   br i1 %.not34, label %.thread, label %21
 
 21:                                               ; preds = %.lr.ph, %.lr.ph, %.lr.ph, %16
-  %22 = getelementptr inbounds nuw i8, ptr %.02640, i64 1
+  %22 = getelementptr inbounds nuw i8, ptr %.02639, i64 1
   %exitcond.not = icmp eq ptr %22, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
 

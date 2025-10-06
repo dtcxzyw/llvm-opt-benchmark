@@ -3514,27 +3514,27 @@ define hidden i32 @dissect_deferred_pointers(ptr noundef %0, ptr noundef %1, i32
   br i1 %21, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %20, %60
-  %.1169 = phi i32 [ %38, %60 ], [ %.084, %20 ]
-  %.085168 = phi i32 [ 1, %60 ], [ 0, %20 ]
-  %.194167 = phi ptr [ %62, %60 ], [ %.093, %20 ]
-  %.199166 = phi i32 [ %61, %60 ], [ %.098, %20 ]
-  %.1106165 = phi i32 [ 0, %60 ], [ %.0105, %20 ]
+  %.1168 = phi i32 [ %38, %60 ], [ %.084, %20 ]
+  %.085167 = phi i32 [ 1, %60 ], [ 0, %20 ]
+  %.194166 = phi ptr [ %62, %60 ], [ %.093, %20 ]
+  %.199165 = phi i32 [ %61, %60 ], [ %.098, %20 ]
+  %.1106164 = phi i32 [ 0, %60 ], [ %.0105, %20 ]
   br label %22
 
 22:                                               ; preds = %.lr.ph, %64
-  %.2152 = phi i32 [ %.1169, %.lr.ph ], [ %.3, %64 ]
-  %.186151 = phi i32 [ %.085168, %.lr.ph ], [ %.287, %64 ]
-  %.090150 = phi i32 [ %.1106165, %.lr.ph ], [ %65, %64 ]
-  %.2100149 = phi i32 [ %.199166, %.lr.ph ], [ %.5103.ph, %64 ]
-  %.2107148 = phi i32 [ %.1106165, %.lr.ph ], [ %.3108, %64 ]
-  %23 = tail call ptr @g_slist_nth_data(ptr noundef %.194167, i32 noundef %.090150)
+  %.2151 = phi i32 [ %.1168, %.lr.ph ], [ %.3, %64 ]
+  %.186150 = phi i32 [ %.085167, %.lr.ph ], [ %.287, %64 ]
+  %.090149 = phi i32 [ %.1106164, %.lr.ph ], [ %65, %64 ]
+  %.2100148 = phi i32 [ %.199165, %.lr.ph ], [ %.5103.ph, %64 ]
+  %.2107147 = phi i32 [ %.1106164, %.lr.ph ], [ %.3108, %64 ]
+  %23 = tail call ptr @g_slist_nth_data(ptr noundef %.194166, i32 noundef %.090149)
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   %.not116 = icmp eq ptr %25, null
   br i1 %.not116, label %.thread, label %26
 
 26:                                               ; preds = %22
-  %27 = add nsw i32 %.090150, 1
+  %27 = add nsw i32 %.090149, 1
   store ptr null, ptr %24, align 8
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %29 = load i32, ptr %28, align 8
@@ -3542,8 +3542,8 @@ define hidden i32 @dissect_deferred_pointers(ptr noundef %0, ptr noundef %1, i32
   store i8 1, ptr %18, align 1
   store i32 0, ptr %19, align 4
   store ptr null, ptr %11, align 8
-  %30 = tail call i32 %25(ptr noundef %1, i32 noundef %.2152, ptr noundef %0, ptr noundef null, ptr noundef %3, ptr noundef %4)
-  %31 = sub i32 %30, %.2152
+  %30 = tail call i32 %25(ptr noundef %1, i32 noundef %.2151, ptr noundef %0, ptr noundef null, ptr noundef %3, ptr noundef %4)
+  %31 = sub i32 %30, %.2151
   %32 = load i32, ptr %19, align 4
   %33 = icmp eq i32 %31, %32
   br i1 %33, label %35, label %34
@@ -3581,11 +3581,11 @@ define hidden i32 @dissect_deferred_pointers(ptr noundef %0, ptr noundef %1, i32
   br i1 %.not118, label %.thread, label %60
 
 .thread:                                          ; preds = %47, %22
-  %.3108 = phi i32 [ %.2107148, %22 ], [ %27, %47 ]
-  %.287 = phi i32 [ %.186151, %22 ], [ 1, %47 ]
-  %.3 = phi i32 [ %.2152, %22 ], [ %38, %47 ]
-  %52 = add nsw i32 %.2100149, -1
-  %53 = icmp eq i32 %.090150, %52
+  %.3108 = phi i32 [ %.2107147, %22 ], [ %27, %47 ]
+  %.287 = phi i32 [ %.186150, %22 ], [ 1, %47 ]
+  %.3 = phi i32 [ %.2151, %22 ], [ %38, %47 ]
+  %52 = add nsw i32 %.2100148, -1
+  %53 = icmp eq i32 %.090149, %52
   br i1 %53, label %54, label %64
 
 54:                                               ; preds = %.thread
@@ -3607,13 +3607,13 @@ define hidden i32 @dissect_deferred_pointers(ptr noundef %0, ptr noundef %1, i32
   br i1 %63, label %.lr.ph, label %._crit_edge
 
 64:                                               ; preds = %57, %54, %.thread
-  %.5103.ph = phi i32 [ %.2100149, %.thread ], [ %.2100149, %54 ], [ %59, %57 ]
-  %65 = add nsw i32 %.090150, 1
+  %.5103.ph = phi i32 [ %.2100148, %.thread ], [ %.2100148, %54 ], [ %59, %57 ]
+  %65 = add nsw i32 %.090149, 1
   %66 = icmp slt i32 %65, %.5103.ph
   br i1 %66, label %22, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %60, %64, %20
-  %.194.lcssa = phi ptr [ %.093, %20 ], [ %.194167, %64 ], [ %62, %60 ]
+  %.194.lcssa = phi ptr [ %.093, %20 ], [ %.194166, %64 ], [ %62, %60 ]
   %.2107.lcssa = phi i32 [ %.0105, %20 ], [ %.3108, %64 ], [ 0, %60 ]
   %.2100.lcssa = phi i32 [ %.098, %20 ], [ %.5103.ph, %64 ], [ %61, %60 ]
   %.090.lcssa = phi i32 [ %.0105, %20 ], [ %65, %64 ], [ 0, %60 ]
@@ -13719,12 +13719,12 @@ define internal fastcc zeroext i1 @dissect_dcerpc_cn_bs_body(ptr noundef %0, ptr
   store volatile i32 0, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store volatile i8 0, ptr %7, align 1
-  %.0..0..0..0.2774 = load volatile i32, ptr %4, align 4
-  %12 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.2774)
-  %.not75 = icmp eq i32 %12, 0
-  br i1 %.not75, label %.critedge.thread, label %.lr.ph76
+  %.0..0..0..0.2773 = load volatile i32, ptr %4, align 4
+  %12 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0..0..0..0.2773)
+  %.not74 = icmp eq i32 %12, 0
+  br i1 %.not74, label %.critedge.thread, label %.lr.ph75
 
-.lr.ph76:                                         ; preds = %3
+.lr.ph75:                                         ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 40
@@ -13735,7 +13735,7 @@ define internal fastcc zeroext i1 @dissect_dcerpc_cn_bs_body(ptr noundef %0, ptr
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %21
 
-21:                                               ; preds = %.lr.ph76, %106
+21:                                               ; preds = %.lr.ph75, %106
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store volatile i32 0, ptr %9, align 4
@@ -13885,20 +13885,20 @@ define internal fastcc zeroext i1 @dissect_dcerpc_cn_bs_body(ptr noundef %0, ptr
   %79 = load ptr, ptr %17, align 8
   %80 = call ptr @wmem_list_tail(ptr noundef %79)
   %81 = call ptr @wmem_list_frame_prev(ptr noundef %80)
-  %.not65.not71 = icmp eq ptr %81, null
-  br i1 %.not65.not71, label %.critedge.thread, label %.lr.ph
+  %.not65.not70 = icmp eq ptr %81, null
+  br i1 %.not65.not70, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %78, %87
-  %.05672 = phi ptr [ %88, %87 ], [ %81, %78 ]
+  %.05671 = phi ptr [ %88, %87 ], [ %81, %78 ]
   %82 = load i32, ptr @proto_dcerpc, align 4
-  %83 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.05672)
+  %83 = call ptr @wmem_list_frame_data(ptr noundef nonnull %.05671)
   %84 = ptrtoint ptr %83 to i64
   %85 = trunc i64 %84 to i32
   %86 = icmp eq i32 %82, %85
   br i1 %86, label %.critedge, label %87
 
 87:                                               ; preds = %.lr.ph
-  %88 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.05672)
+  %88 = call ptr @wmem_list_frame_prev(ptr noundef nonnull %.05671)
   %.not65.not = icmp eq ptr %88, null
   br i1 %.not65.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !29
 

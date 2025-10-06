@@ -2397,8 +2397,8 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits20getCommandInfo
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i32, ptr %6, align 8, !tbaa !19
-  %.not17.i = icmp eq i32 %7, 0
-  br i1 %.not17.i, label %_ZNK5clang8comments13CommandTraits24getRegisteredCommandInfoEN4llvm9StringRefE.exit, label %.lr.ph.i
+  %.not20.i = icmp eq i32 %7, 0
+  br i1 %.not20.i, label %_ZNK5clang8comments13CommandTraits24getRegisteredCommandInfoEN4llvm9StringRefE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2461,8 +2461,8 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits24getRegisteredC
   %.fr = freeze i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !19
-  %.not17 = icmp eq i32 %5, 0
-  br i1 %.not17, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
+  %.not20 = icmp eq i32 %5, 0
+  br i1 %.not20, label %.thread17, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2475,23 +2475,23 @@ define dso_local noundef ptr @_ZNK5clang8comments13CommandTraits24getRegisteredC
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us
-  %.0918.us = phi i32 [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us ], [ 0, %.lr.ph ]
-  %9 = zext i32 %.0918.us to i64
+  %.0921.us = phi i32 [ %13, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us ], [ 0, %.lr.ph ]
+  %9 = zext i32 %.0921.us to i64
   %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !31
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %.not.i.us = icmp eq ptr %12, null
-  br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit.us
+  br i1 %.not.i.us, label %.thread17, label %_ZN4llvm9StringRefC2EPKc.exit.us
 
 _ZN4llvm9StringRefC2EPKc.exit.us:                 ; preds = %.lr.ph.split.us
   %char0 = load i8, ptr %12, align 1
   %.not.i11.us = icmp eq i8 %char0, 0
-  br i1 %.not.i11.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us
+  br i1 %.not.i11.us, label %.thread17, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread15.us:    ; preds = %_ZN4llvm9StringRefC2EPKc.exit.us
-  %13 = add nuw i32 %.0918.us, 1
+  %13 = add nuw i32 %.0921.us, 1
   %.not.us = icmp eq i32 %13, %5
-  br i1 %.not.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph.split.us, !llvm.loop !35
+  br i1 %.not.us, label %.thread17, label %.lr.ph.split.us, !llvm.loop !35
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15 ]
@@ -2509,16 +2509,16 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %.lr.ph.split
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %bcmp.i = tail call i32 @bcmp(ptr nonnull %16, ptr %1, i64 %.fr)
   %18 = icmp eq i32 %bcmp.i, 0
-  br i1 %18, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread15
+  br i1 %18, label %.thread17, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread15
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread15:       ; preds = %.lr.ph.split, %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not = icmp eq i64 %indvars.iv.next, %8
-  br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph.split, !llvm.loop !35
+  br i1 %.not, label %.thread17, label %.lr.ph.split, !llvm.loop !35
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread15, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm9StringRefC2EPKc.exit.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us, %.lr.ph.split.us, %3
-  %spec.select = phi ptr [ null, %3 ], [ %11, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us ], [ %11, %.lr.ph.split.us ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15 ], [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit ]
-  ret ptr %spec.select
+.thread17:                                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread15, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvm9StringRefC2EPKc.exit.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us, %.lr.ph.split.us, %3
+  %19 = phi ptr [ null, %3 ], [ %11, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15.us ], [ %11, %.lr.ph.split.us ], [ null, %_ZN4llvmeqENS_9StringRefES0_.exit.thread15 ], [ %15, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  ret ptr %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

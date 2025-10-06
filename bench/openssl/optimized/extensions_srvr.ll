@@ -1029,28 +1029,28 @@ define range(i32 0, 2) i32 @tls_parse_ctos_use_srtp(ptr noundef %0, ptr noundef 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 2968
   store ptr null, ptr %30, align 8, !tbaa !105
   %31 = tail call i32 @OPENSSL_sk_num(ptr noundef %29) #12
-  %.not2972 = icmp eq i32 %23, 0
-  br i1 %.not2972, label %._crit_edge, label %PACKET_get_net_2.exit39
+  %.not2971 = icmp eq i32 %23, 0
+  br i1 %.not2971, label %._crit_edge, label %PACKET_get_net_2.exit39
 
 PACKET_get_net_2.exit39:                          ; preds = %26, %.loopexit
-  %.02675 = phi i32 [ %.2, %.loopexit ], [ %31, %26 ]
-  %.sroa.0.074 = phi ptr [ %39, %.loopexit ], [ %17, %26 ]
-  %.sroa.5.073 = phi i64 [ %40, %.loopexit ], [ %24, %26 ]
-  %32 = load i8, ptr %.sroa.0.074, align 1, !tbaa !11
+  %.02674 = phi i32 [ %.2, %.loopexit ], [ %31, %26 ]
+  %.sroa.0.073 = phi ptr [ %39, %.loopexit ], [ %17, %26 ]
+  %.sroa.5.072 = phi i64 [ %40, %.loopexit ], [ %24, %26 ]
+  %32 = load i8, ptr %.sroa.0.073, align 1, !tbaa !11
   %33 = zext i8 %32 to i64
   %34 = shl nuw nsw i64 %33, 8
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.074, i64 1
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.073, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !11
   %37 = zext i8 %36 to i64
   %38 = or disjoint i64 %34, %37
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.074, i64 2
-  %40 = add i64 %.sroa.5.073, -2
-  %41 = icmp sgt i32 %.02675, 0
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.073, i64 2
+  %40 = add i64 %.sroa.5.072, -2
+  %41 = icmp sgt i32 %.02674, 0
   br i1 %41, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %PACKET_get_net_2.exit39, %47
-  %.02571 = phi i32 [ %48, %47 ], [ 0, %PACKET_get_net_2.exit39 ]
-  %42 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %.02571) #12
+  %.02570 = phi i32 [ %48, %47 ], [ 0, %PACKET_get_net_2.exit39 ]
+  %42 = tail call ptr @OPENSSL_sk_value(ptr noundef %29, i32 noundef %.02570) #12
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !106
   %45 = icmp eq i64 %44, %38
@@ -1061,12 +1061,12 @@ PACKET_get_net_2.exit39:                          ; preds = %26, %.loopexit
   br label %.loopexit
 
 47:                                               ; preds = %.lr.ph
-  %48 = add nuw nsw i32 %.02571, 1
-  %exitcond.not = icmp eq i32 %48, %.02675
+  %48 = add nuw nsw i32 %.02570, 1
+  %exitcond.not = icmp eq i32 %48, %.02674
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !108
 
 .loopexit:                                        ; preds = %47, %PACKET_get_net_2.exit39, %46
-  %.2 = phi i32 [ %.02571, %46 ], [ %.02675, %PACKET_get_net_2.exit39 ], [ %.02675, %47 ]
+  %.2 = phi i32 [ %.02570, %46 ], [ %.02674, %PACKET_get_net_2.exit39 ], [ %.02674, %47 ]
   %.not29 = icmp eq i64 %40, 0
   br i1 %.not29, label %._crit_edge, label %PACKET_get_net_2.exit39, !llvm.loop !109
 
@@ -1095,10 +1095,10 @@ PACKET_get_net_2.exit39:                          ; preds = %26, %.loopexit
   br i1 %.not32, label %59, label %.sink.split
 
 .sink.split:                                      ; preds = %56, %49, %._crit_edge, %11, %8, %20
-  %.sink86 = phi i32 [ 497, %20 ], [ 497, %8 ], [ 497, %11 ], [ 534, %._crit_edge ], [ 540, %49 ], [ 540, %56 ]
+  %.sink85 = phi i32 [ 497, %20 ], [ 497, %8 ], [ 497, %11 ], [ 534, %._crit_edge ], [ 540, %49 ], [ 540, %56 ]
   %.sink = phi i32 [ 353, %20 ], [ 353, %8 ], [ 353, %11 ], [ 353, %._crit_edge ], [ 352, %49 ], [ 352, %56 ]
   tail call void @ERR_new() #12
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink86, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #12
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink85, ptr noundef nonnull @__func__.tls_parse_ctos_use_srtp) #12
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef %0, i32 noundef 50, i32 noundef %.sink, ptr noundef null) #12
   br label %59
 

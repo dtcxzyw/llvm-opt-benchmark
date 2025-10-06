@@ -812,43 +812,43 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   store i64 -1, ptr @only_pid, align 8, !tbaa !4
   store i64 -1, ptr @children_of_pid, align 8, !tbaa !4
   %262 = load i8, ptr %4, align 16, !tbaa !34
-  %.not4975.i = icmp eq i8 %262, 0
-  br i1 %.not4975.i, label %.loopexit.i, label %.outer.split.i
+  %.not4974.i = icmp eq i8 %262, 0
+  br i1 %.not4974.i, label %.loopexit.i, label %.outer.split.i
 
 .outer.split.i:                                   ; preds = %261, %.outer.backedge.i
-  %.0.ph77.i = phi i64 [ %270, %.outer.backedge.i ], [ 4, %261 ]
-  %.040.ph76.i = phi ptr [ %271, %.outer.backedge.i ], [ %4, %261 ]
-  %263 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph76.i, ptr noundef nonnull dereferenceable(17) @.str.69, i64 noundef 16) #16
+  %.0.ph76.i = phi i64 [ %270, %.outer.backedge.i ], [ 4, %261 ]
+  %.040.ph75.i = phi ptr [ %271, %.outer.backedge.i ], [ %4, %261 ]
+  %263 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph75.i, ptr noundef nonnull dereferenceable(17) @.str.69, i64 noundef 16) #16
   %.not50.i = icmp eq i32 %263, 0
   br i1 %.not50.i, label %.outer.backedge.i, label %.outer.split.split.i
 
 .outer.split.split.i:                             ; preds = %.outer.split.i
-  %264 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph76.i, ptr noundef nonnull dereferenceable(9) @.str.70, i64 noundef 8) #16
+  %264 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph75.i, ptr noundef nonnull dereferenceable(9) @.str.70, i64 noundef 8) #16
   %.not51.i = icmp eq i32 %264, 0
   br i1 %.not51.i, label %.outer.backedge.i, label %.outer.split.split.split.i
 
 .outer.split.split.split.i:                       ; preds = %.outer.split.split.i
-  %265 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.040.ph76.i, ptr noundef nonnull dereferenceable(4) @.str.40) #16
+  %265 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.040.ph75.i, ptr noundef nonnull dereferenceable(4) @.str.40) #16
   %.not52.i = icmp eq i32 %265, 0
   br i1 %.not52.i, label %.loopexit.sink.split.i, label %.outer.split.split.split.split.i
 
 .outer.split.split.split.split.i:                 ; preds = %.outer.split.split.split.i
-  %266 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.040.ph76.i, ptr noundef nonnull dereferenceable(6) @.str.71) #16
+  %266 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.040.ph75.i, ptr noundef nonnull dereferenceable(6) @.str.71) #16
   %.not53.i = icmp eq i32 %266, 0
   br i1 %.not53.i, label %.loopexit.sink.split.i, label %.outer.split.split.split.split.split.i
 
 .outer.split.split.split.split.split.i:           ; preds = %.outer.split.split.split.split.i
-  %267 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph76.i, ptr noundef nonnull dereferenceable(5) @.str.72, i64 noundef 4) #16
+  %267 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph75.i, ptr noundef nonnull dereferenceable(5) @.str.72, i64 noundef 4) #16
   %.not54.i = icmp eq i32 %267, 0
   br i1 %.not54.i, label %273, label %.outer.split.split.split.split.split.split.i
 
 .outer.split.split.split.split.split.split.i:     ; preds = %.outer.split.split.split.split.split.i
-  %268 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph76.i, ptr noundef nonnull dereferenceable(15) @.str.73, i64 noundef 14) #16
+  %268 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph75.i, ptr noundef nonnull dereferenceable(15) @.str.73, i64 noundef 14) #16
   %.not55.i = icmp eq i32 %268, 0
   br i1 %.not55.i, label %278, label %.outer.split.split.split.split.split.split.split.i
 
 .outer.split.split.split.split.split.split.split.i: ; preds = %.outer.split.split.split.split.split.split.i
-  %269 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph76.i, ptr noundef nonnull dereferenceable(6) @.str.74, i64 noundef 5) #16
+  %269 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.040.ph75.i, ptr noundef nonnull dereferenceable(6) @.str.74, i64 noundef 5) #16
   %.not56.i = icmp eq i32 %269, 0
   br i1 %.not56.i, label %282, label %.outer.split.split.split.split.split.split.split.split.i, !llvm.loop !35
 
@@ -856,25 +856,25 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br label %.outer.split.split.split.split.split.split.split.split.i
 
 .outer.backedge.i:                                ; preds = %.outer.split.split.i, %.outer.split.i
-  %.sink89.i = phi i64 [ 2, %.outer.split.i ], [ 1, %.outer.split.split.i ]
+  %.sink88.i = phi i64 [ 2, %.outer.split.i ], [ 1, %.outer.split.split.i ]
   %.sink.i = phi i64 [ 16, %.outer.split.i ], [ 8, %.outer.split.split.i ]
-  %270 = or i64 %.sink89.i, %.0.ph77.i
-  %271 = getelementptr inbounds nuw i8, ptr %.040.ph76.i, i64 %.sink.i
+  %270 = or i64 %.sink88.i, %.0.ph76.i
+  %271 = getelementptr inbounds nuw i8, ptr %.040.ph75.i, i64 %.sink.i
   %272 = load i8, ptr %271, align 1, !tbaa !34
   %.not49.i = icmp eq i8 %272, 0
   br i1 %.not49.i, label %.loopexit.i, label %.outer.split.i, !llvm.loop !35
 
 273:                                              ; preds = %.outer.split.split.split.split.split.i
-  %274 = getelementptr inbounds nuw i8, ptr %.040.ph76.i, i64 4
+  %274 = getelementptr inbounds nuw i8, ptr %.040.ph75.i, i64 4
   %275 = call i64 @strtol(ptr noundef nonnull captures(none) %274, ptr noundef null, i32 noundef 10) #15
-  %sext60.i = shl i64 %275, 32
-  %276 = ashr exact i64 %sext60.i, 32
+  %sext59.i = shl i64 %275, 32
+  %276 = ashr exact i64 %sext59.i, 32
   store i64 %276, ptr @only_pid, align 8, !tbaa !4
-  %277 = or i64 %.0.ph77.i, 1
+  %277 = or i64 %.0.ph76.i, 1
   br label %.loopexit.sink.split.i
 
 278:                                              ; preds = %.outer.split.split.split.split.split.split.i
-  %279 = getelementptr inbounds nuw i8, ptr %.040.ph76.i, i64 14
+  %279 = getelementptr inbounds nuw i8, ptr %.040.ph75.i, i64 14
   %280 = call i64 @strtol(ptr noundef nonnull captures(none) %279, ptr noundef null, i32 noundef 10) #15
   %sext.i = shl i64 %280, 32
   %281 = ashr exact i64 %sext.i, 32
@@ -882,14 +882,14 @@ hwloc_utils_check_api_version.exit._crit_edge:    ; preds = %hwloc_utils_check_a
   br label %.loopexit.sink.split.i
 
 282:                                              ; preds = %.outer.split.split.split.split.split.split.split.i
-  %283 = getelementptr inbounds nuw i8, ptr %.040.ph76.i, i64 5
+  %283 = getelementptr inbounds nuw i8, ptr %.040.ph75.i, i64 5
   store ptr %283, ptr @only_name, align 8, !tbaa !8
   br label %.loopexit.sink.split.i
 
 .loopexit.sink.split.i:                           ; preds = %282, %278, %273, %.outer.split.split.split.split.i, %.outer.split.split.split.i
-  %.sink90.i = phi i1 [ true, %273 ], [ true, %278 ], [ true, %282 ], [ true, %.outer.split.split.split.i ], [ false, %.outer.split.split.split.split.i ]
-  %.1.ph.i = phi i64 [ %277, %273 ], [ %.0.ph77.i, %278 ], [ %.0.ph77.i, %282 ], [ %.0.ph77.i, %.outer.split.split.split.i ], [ %.0.ph77.i, %.outer.split.split.split.split.i ]
-  store i1 %.sink90.i, ptr @show_all, align 4
+  %.sink89.i = phi i1 [ true, %273 ], [ true, %278 ], [ true, %282 ], [ true, %.outer.split.split.split.i ], [ false, %.outer.split.split.split.split.i ]
+  %.1.ph.i = phi i64 [ %277, %273 ], [ %.0.ph76.i, %278 ], [ %.0.ph76.i, %282 ], [ %.0.ph76.i, %.outer.split.split.split.i ], [ %.0.ph76.i, %.outer.split.split.split.split.i ]
+  store i1 %.sink89.i, ptr @show_all, align 4
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.outer.backedge.i, %.loopexit.sink.split.i, %261

@@ -778,8 +778,8 @@ CodeResiduals.exit:                               ; preds = %349
   br i1 %.not17, label %.critedge, label %299, !llvm.loop !85
 
 .critedge:                                        ; preds = %392, %394, %.thread
-  %.01229 = phi i32 [ 0, %.thread ], [ 0, %392 ], [ %393, %394 ]
-  %396 = call fastcc i32 @PostLoopFinalize(ptr noundef %6, i32 noundef %.01229)
+  %.01228 = phi i32 [ 0, %.thread ], [ 0, %392 ], [ %393, %394 ]
+  %396 = call fastcc i32 @PostLoopFinalize(ptr noundef %6, i32 noundef %.01228)
   br label %397
 
 397:                                              ; preds = %PreLoopInitialize.exit, %.critedge
@@ -1089,7 +1089,7 @@ define hidden i32 @VP8EncTokenLoop(ptr noundef %0) local_unnamed_addr #0 {
   %20 = mul i64 %19, %18
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %22 = load i32, ptr %21, align 4, !tbaa !38
-  %.not162 = icmp eq i32 %22, 0
+  %.not158 = icmp eq i32 %22, 0
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 108
   %24 = load i32, ptr %23, align 4, !tbaa !39
   %25 = sitofp i32 %24 to float
@@ -1102,7 +1102,7 @@ define hidden i32 @VP8EncTokenLoop(ptr noundef %0) local_unnamed_addr #0 {
   %32 = fcmp ogt float %30, %28
   %33 = select i1 %32, float %28, float %30
   %34 = select i1 %31, float %25, float %33
-  br i1 %.not162, label %38, label %35
+  br i1 %.not158, label %38, label %35
 
 35:                                               ; preds = %1
   %36 = sext i32 %22 to i64
@@ -1161,7 +1161,7 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   %69 = ashr i32 %52, 3
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %69, i32 96)
   %70 = icmp sgt i32 %11, 0
-  br i1 %70, label %.lr.ph, label %.critedge.thread154
+  br i1 %70, label %.lr.ph, label %.critedge.thread150
 
 .lr.ph:                                           ; preds = %PreLoopInitialize.exit.thread
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 23624
@@ -1187,15 +1187,15 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   br label %90
 
 90:                                               ; preds = %.lr.ph, %222
-  %.082185 = phi i32 [ %11, %.lr.ph ], [ %.183, %222 ]
-  %.088184 = phi i32 [ 40, %.lr.ph ], [ %103, %222 ]
-  %.sroa.0.0183 = phi i32 [ 1, %.lr.ph ], [ %.sroa.0.1, %222 ]
-  %.sroa.5.0182 = phi float [ 1.000000e+01, %.lr.ph ], [ %.sroa.5.1, %222 ]
-  %.sroa.9.0181 = phi float [ %34, %.lr.ph ], [ %.sroa.9.1, %222 ]
-  %.sroa.14.0180 = phi float [ %34, %.lr.ph ], [ %.sroa.14.1, %222 ]
-  %.sroa.25.0179 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.25.1, %222 ]
-  %91 = add nsw i32 %.082185, -1
-  %92 = call float @llvm.fabs.f32(float %.sroa.5.0182)
+  %.082181 = phi i32 [ %11, %.lr.ph ], [ %.183, %222 ]
+  %.088180 = phi i32 [ 40, %.lr.ph ], [ %103, %222 ]
+  %.sroa.0.0179 = phi i32 [ 1, %.lr.ph ], [ %.sroa.0.1, %222 ]
+  %.sroa.5.0178 = phi float [ 1.000000e+01, %.lr.ph ], [ %.sroa.5.1, %222 ]
+  %.sroa.9.0177 = phi float [ %34, %.lr.ph ], [ %.sroa.9.1, %222 ]
+  %.sroa.14.0176 = phi float [ %34, %.lr.ph ], [ %.sroa.14.1, %222 ]
+  %.sroa.25.0175 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.25.1, %222 ]
+  %91 = add nsw i32 %.082181, -1
+  %92 = call float @llvm.fabs.f32(float %.sroa.5.0178)
   %93 = fpext float %92 to double
   %94 = fcmp ole double %93, 4.000000e-01
   %95 = icmp eq i32 %91, 0
@@ -1209,11 +1209,11 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
 
 99:                                               ; preds = %96, %90
   %100 = phi i1 [ true, %90 ], [ %98, %96 ]
-  %101 = add nuw nsw i32 %.082185, 1
-  %102 = sdiv i32 %.088184, %101
-  %103 = sub nsw i32 %.088184, %102
+  %101 = add nuw nsw i32 %.082181, 1
+  %102 = sdiv i32 %.088180, %101
+  %103 = sub nsw i32 %.088180, %102
   call void @VP8IteratorInit(ptr noundef nonnull %0, ptr noundef nonnull %3) #8
-  call fastcc void @SetLoopParams(ptr noundef nonnull %0, float noundef %.sroa.9.0181)
+  call fastcc void @SetLoopParams(ptr noundef nonnull %0, float noundef %.sroa.9.0177)
   br i1 %100, label %104, label %105
 
 104:                                              ; preds = %99
@@ -1280,19 +1280,19 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
   br label %126
 
 126:                                              ; preds = %126, %.preheader60.i
-  %indvars.iv.i111 = phi i64 [ 0, %.preheader60.i ], [ %indvars.iv.next.i112, %126 ]
-  %127 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i111
+  %indvars.iv.i110 = phi i64 [ 0, %.preheader60.i ], [ %indvars.iv.next.i111, %126 ]
+  %127 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i110
   %128 = load i32, ptr %127, align 4, !tbaa !51
   %129 = load i32, ptr %125, align 4, !tbaa !51
   %130 = add nsw i32 %129, %128
   %131 = load ptr, ptr @VP8SetResidualCoeffs, align 8, !tbaa !50
-  %gep.i = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep.i, i64 %indvars.iv.i111
+  %gep.i = getelementptr inbounds nuw [16 x i16], ptr %invariant.gep.i, i64 %indvars.iv.i110
   call void %131(ptr noundef nonnull %gep.i, ptr noundef nonnull %2) #8
   %132 = call i32 @VP8RecordCoeffTokens(i32 noundef %130, ptr noundef nonnull %2, ptr noundef nonnull %73) #8
   store i32 %132, ptr %125, align 4, !tbaa !51
   store i32 %132, ptr %127, align 4, !tbaa !51
-  %indvars.iv.next.i112 = add nuw nsw i64 %indvars.iv.i111, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i112, 4
+  %indvars.iv.next.i111 = add nuw nsw i64 %indvars.iv.i110, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i111, 4
   br i1 %exitcond.not.i, label %133, label %126, !llvm.loop !105
 
 133:                                              ; preds = %126
@@ -1346,16 +1346,16 @@ PreLoopInitialize.exit.thread:                    ; preds = %59, %PreLoopInitial
 RecordTokens.exit:                                ; preds = %147
   call void @VP8IteratorBytesToNz(ptr noundef nonnull %3) #8
   %148 = load i32, ptr %83, align 8, !tbaa !110
-  %.not.i113.not = icmp eq i32 %148, 0
+  %.not.i112.not = icmp eq i32 %148, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not.i113.not, label %152, label %.critedge.thread159
+  br i1 %.not.i112.not, label %152, label %.critedge.thread155
 
-.critedge.thread159:                              ; preds = %RecordTokens.exit
+.critedge.thread155:                              ; preds = %RecordTokens.exit
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !30
   %151 = call i32 @WebPEncodingSetError(ptr noundef %150, i32 noundef 1) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.critedge109
+  br label %.critedge108
 
 152:                                              ; preds = %RecordTokens.exit
   %153 = load i64, ptr %84, align 8, !tbaa !59
@@ -1377,7 +1377,7 @@ RecordTokens.exit:                                ; preds = %147
   %159 = icmp eq i32 %158, 0
   call void @VP8IteratorSaveBoundary(ptr noundef nonnull %3) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %159, label %.critedge109, label %160
+  br i1 %159, label %.critedge108, label %160
 
 160:                                              ; preds = %.thread, %157
   %161 = call i32 @VP8IteratorNext(ptr noundef nonnull %3) #8
@@ -1388,7 +1388,7 @@ RecordTokens.exit:                                ; preds = %147
   %162 = load i32, ptr %85, align 8, !tbaa !62
   %163 = sext i32 %162 to i64
   %164 = add i64 %154, %163
-  br i1 %.not162, label %175, label %165
+  br i1 %.not158, label %175, label %165
 
 165:                                              ; preds = %.critedge3
   %166 = call fastcc i32 @FinalizeTokenProbas(ptr noundef nonnull %14)
@@ -1428,63 +1428,63 @@ GetPSNR.exit:                                     ; preds = %177, %175, %165
   br i1 %100, label %187, label %222, !llvm.loop !112
 
 187:                                              ; preds = %185
-  %.val110 = load ptr, ptr %74, align 8, !tbaa !45
-  %188 = getelementptr inbounds nuw i8, ptr %.val110, i64 8
+  %.val109 = load ptr, ptr %74, align 8, !tbaa !45
+  %188 = getelementptr inbounds nuw i8, ptr %.val109, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !30
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 128
   %191 = load ptr, ptr %190, align 8, !tbaa !86
-  %.not.i114 = icmp eq ptr %191, null
-  br i1 %.not.i114, label %ResetSideInfo.exit, label %192
+  %.not.i113 = icmp eq ptr %191, null
+  br i1 %.not.i113, label %ResetSideInfo.exit, label %192
 
 192:                                              ; preds = %187
-  %193 = getelementptr inbounds nuw i8, ptr %.val110, i64 23604
+  %193 = getelementptr inbounds nuw i8, ptr %.val109, i64 23604
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %193, i8 0, i64 12, i1 false)
   br label %ResetSideInfo.exit
 
 ResetSideInfo.exit:                               ; preds = %187, %192
-  %194 = getelementptr inbounds nuw i8, ptr %.val110, i64 23512
-  %195 = getelementptr inbounds nuw i8, ptr %.val110, i64 23544
+  %194 = getelementptr inbounds nuw i8, ptr %.val109, i64 23512
+  %195 = getelementptr inbounds nuw i8, ptr %.val109, i64 23544
   store i64 0, ptr %195, align 8, !tbaa !91
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %194, i8 0, i64 24, i1 false)
   br label %222, !llvm.loop !112
 
 196:                                              ; preds = %GetPSNR.exit
-  br i1 %100, label %.critedge.thread154, label %197
+  br i1 %100, label %.critedge.thread150, label %197
 
 197:                                              ; preds = %196
   br i1 %.not101, label %222, label %198
 
 198:                                              ; preds = %197
-  %.not.i115 = icmp eq i32 %.sroa.0.0183, 0
-  br i1 %.not.i115, label %203, label %199
+  %.not.i114 = icmp eq i32 %.sroa.0.0179, 0
+  br i1 %.not.i114, label %203, label %199
 
 199:                                              ; preds = %198
   %200 = fcmp ogt double %.sroa.21.0, %44
-  %201 = fneg float %.sroa.5.0182
-  %202 = select i1 %200, float %201, float %.sroa.5.0182
+  %201 = fneg float %.sroa.5.0178
+  %202 = select i1 %200, float %201, float %.sroa.5.0178
   br label %ComputeNextQ.exit
 
 203:                                              ; preds = %198
-  %204 = fcmp une double %.sroa.21.0, %.sroa.25.0179
+  %204 = fcmp une double %.sroa.21.0, %.sroa.25.0175
   br i1 %204, label %205, label %ComputeNextQ.exit
 
 205:                                              ; preds = %203
   %206 = fsub double %44, %.sroa.21.0
-  %207 = fsub double %.sroa.25.0179, %.sroa.21.0
+  %207 = fsub double %.sroa.25.0175, %.sroa.21.0
   %208 = fdiv double %206, %207
-  %209 = fsub float %.sroa.14.0180, %.sroa.9.0181
+  %209 = fsub float %.sroa.14.0176, %.sroa.9.0177
   %210 = fpext float %209 to double
   %211 = fmul double %208, %210
   %212 = fptrunc double %211 to float
   br label %ComputeNextQ.exit
 
 ComputeNextQ.exit:                                ; preds = %199, %203, %205
-  %.0.i116 = phi float [ %202, %199 ], [ %212, %205 ], [ 0.000000e+00, %203 ]
-  %213 = fcmp olt float %.0.i116, -3.000000e+01
-  %214 = fcmp ogt float %.0.i116, 3.000000e+01
-  %215 = select i1 %214, float 3.000000e+01, float %.0.i116
+  %.0.i115 = phi float [ %202, %199 ], [ %212, %205 ], [ 0.000000e+00, %203 ]
+  %213 = fcmp olt float %.0.i115, -3.000000e+01
+  %214 = fcmp ogt float %.0.i115, 3.000000e+01
+  %215 = select i1 %214, float 3.000000e+01, float %.0.i115
   %216 = select i1 %213, float -3.000000e+01, float %215
-  %217 = fadd float %.sroa.9.0181, %216
+  %217 = fadd float %.sroa.9.0177, %216
   %218 = fcmp olt float %217, %25
   %219 = fcmp ogt float %217, %28
   %220 = select i1 %219, float %28, float %217
@@ -1492,48 +1492,48 @@ ComputeNextQ.exit:                                ; preds = %199, %203, %205
   br label %222
 
 222:                                              ; preds = %197, %ComputeNextQ.exit, %185, %ResetSideInfo.exit
-  %.sroa.25.1 = phi double [ %.sroa.25.0179, %ResetSideInfo.exit ], [ %.sroa.25.0179, %185 ], [ %.sroa.25.0179, %197 ], [ %.sroa.21.0, %ComputeNextQ.exit ]
-  %.sroa.14.1 = phi float [ %.sroa.14.0180, %ResetSideInfo.exit ], [ %.sroa.14.0180, %185 ], [ %.sroa.14.0180, %197 ], [ %.sroa.9.0181, %ComputeNextQ.exit ]
-  %.sroa.9.1 = phi float [ %.sroa.9.0181, %ResetSideInfo.exit ], [ %.sroa.9.0181, %185 ], [ %.sroa.9.0181, %197 ], [ %221, %ComputeNextQ.exit ]
-  %.sroa.5.1 = phi float [ %.sroa.5.0182, %ResetSideInfo.exit ], [ %.sroa.5.0182, %185 ], [ %.sroa.5.0182, %197 ], [ %216, %ComputeNextQ.exit ]
-  %.sroa.0.1 = phi i32 [ %.sroa.0.0183, %ResetSideInfo.exit ], [ %.sroa.0.0183, %185 ], [ %.sroa.0.0183, %197 ], [ 0, %ComputeNextQ.exit ]
-  %.183 = phi i32 [ %.082185, %ResetSideInfo.exit ], [ %.082185, %185 ], [ %91, %197 ], [ %91, %ComputeNextQ.exit ]
+  %.sroa.25.1 = phi double [ %.sroa.25.0175, %ResetSideInfo.exit ], [ %.sroa.25.0175, %185 ], [ %.sroa.25.0175, %197 ], [ %.sroa.21.0, %ComputeNextQ.exit ]
+  %.sroa.14.1 = phi float [ %.sroa.14.0176, %ResetSideInfo.exit ], [ %.sroa.14.0176, %185 ], [ %.sroa.14.0176, %197 ], [ %.sroa.9.0177, %ComputeNextQ.exit ]
+  %.sroa.9.1 = phi float [ %.sroa.9.0177, %ResetSideInfo.exit ], [ %.sroa.9.0177, %185 ], [ %.sroa.9.0177, %197 ], [ %221, %ComputeNextQ.exit ]
+  %.sroa.5.1 = phi float [ %.sroa.5.0178, %ResetSideInfo.exit ], [ %.sroa.5.0178, %185 ], [ %.sroa.5.0178, %197 ], [ %216, %ComputeNextQ.exit ]
+  %.sroa.0.1 = phi i32 [ %.sroa.0.0179, %ResetSideInfo.exit ], [ %.sroa.0.0179, %185 ], [ %.sroa.0.0179, %197 ], [ 0, %ComputeNextQ.exit ]
+  %.183 = phi i32 [ %.082181, %ResetSideInfo.exit ], [ %.082181, %185 ], [ %91, %197 ], [ %91, %ComputeNextQ.exit ]
   %223 = icmp sgt i32 %.183, 0
-  br i1 %223, label %90, label %.critedge.thread154
+  br i1 %223, label %90, label %.critedge.thread150
 
-.critedge.thread154:                              ; preds = %222, %196, %PreLoopInitialize.exit.thread
-  %.189158 = phi i32 [ 40, %PreLoopInitialize.exit.thread ], [ %103, %196 ], [ %103, %222 ]
-  br i1 %.not162, label %224, label %226
+.critedge.thread150:                              ; preds = %222, %196, %PreLoopInitialize.exit.thread
+  %.189154 = phi i32 [ 40, %PreLoopInitialize.exit.thread ], [ %103, %196 ], [ %103, %222 ]
+  br i1 %.not158, label %224, label %226
 
-224:                                              ; preds = %.critedge.thread154
+224:                                              ; preds = %.critedge.thread150
   %225 = call fastcc i32 @FinalizeTokenProbas(ptr noundef nonnull %14)
   br label %226
 
-226:                                              ; preds = %224, %.critedge.thread154
+226:                                              ; preds = %224, %.critedge.thread150
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 3620
   %229 = call i32 @VP8EmitTokens(ptr noundef nonnull %227, ptr noundef nonnull %57, ptr noundef nonnull %228, i32 noundef 1) #8
   %230 = icmp eq i32 %229, 0
-  br i1 %230, label %.critedge109, label %231
+  br i1 %230, label %.critedge108, label %231
 
 231:                                              ; preds = %226
   %232 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %233 = load ptr, ptr %232, align 8, !tbaa !30
   %234 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %235 = load i32, ptr %234, align 8, !tbaa !37
-  %236 = add nsw i32 %235, %.189158
+  %236 = add nsw i32 %235, %.189154
   %237 = call i32 @WebPReportProgress(ptr noundef %233, i32 noundef %236, ptr noundef nonnull %234) #8
   %238 = icmp ne i32 %237, 0
   %239 = zext i1 %238 to i32
-  br label %.critedge109
+  br label %.critedge108
 
-.critedge109:                                     ; preds = %157, %.critedge.thread159, %231, %226
-  %240 = phi i32 [ 0, %226 ], [ %239, %231 ], [ 0, %.critedge.thread159 ], [ 0, %157 ]
+.critedge108:                                     ; preds = %157, %.critedge.thread155, %231, %226
+  %240 = phi i32 [ 0, %226 ], [ %239, %231 ], [ 0, %.critedge.thread155 ], [ 0, %157 ]
   %241 = call fastcc i32 @PostLoopFinalize(ptr noundef %3, i32 noundef %240)
   br label %242
 
-242:                                              ; preds = %PreLoopInitialize.exit, %.critedge109
-  %.0 = phi i32 [ %241, %.critedge109 ], [ 0, %PreLoopInitialize.exit ]
+242:                                              ; preds = %PreLoopInitialize.exit, %.critedge108
+  %.0 = phi i32 [ %241, %.critedge108 ], [ 0, %PreLoopInitialize.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

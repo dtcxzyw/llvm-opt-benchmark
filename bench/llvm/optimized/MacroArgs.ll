@@ -496,18 +496,18 @@ _ZN5clang12Preprocessor18ExitCachingLexModeEv.exit: ; preds = %72
 define dso_local noundef zeroext i1 @_ZNK5clang9MacroArgs20ArgNeedsPreexpansionEPKNS_5TokenERNS_12PreprocessorE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(3288) %2) local_unnamed_addr #4 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8, !tbaa !268
-  %.not17 = icmp eq i16 %5, 1
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not16 = icmp eq i16 %5, 1
+  br i1 %.not16, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread
   %6 = phi i16 [ %14, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread ], [ %5, %3 ]
-  %.0714 = phi ptr [ %12, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread ], [ %1, %3 ]
+  %.0713 = phi ptr [ %12, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread ], [ %1, %3 ]
   %.off = add i16 %6, -7
   %switch = icmp ult i16 %.off, 13
   br i1 %switch, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, label %_ZNK5clang5Token17getIdentifierInfoEv.exit
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.0714, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.0713, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !279
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, label %9
@@ -515,15 +515,15 @@ _ZNK5clang5Token17getIdentifierInfoEv.exit:       ; preds = %.lr.ph
 9:                                                ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit
   %10 = load i64, ptr %8, align 8
   %11 = and i64 %10, 33554432
-  %.not13 = icmp eq i64 %11, 0
-  br i1 %.not13, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, label %._crit_edge
+  %.not12 = icmp eq i64 %11, 0
+  br i1 %.not12, label %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, label %._crit_edge
 
 _ZNK5clang5Token17getIdentifierInfoEv.exit.thread: ; preds = %.lr.ph, %_ZNK5clang5Token17getIdentifierInfoEv.exit, %9
-  %12 = getelementptr inbounds nuw i8, ptr %.0714, i64 24
-  %13 = getelementptr inbounds nuw i8, ptr %.0714, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %.0713, i64 24
+  %13 = getelementptr inbounds nuw i8, ptr %.0713, i64 40
   %14 = load i16, ptr %13, align 8, !tbaa !268
-  %.not18 = icmp eq i16 %14, 1
-  br i1 %.not18, label %._crit_edge, label %.lr.ph, !llvm.loop !280
+  %.not17 = icmp eq i16 %14, 1
+  br i1 %.not17, label %._crit_edge, label %.lr.ph, !llvm.loop !280
 
 ._crit_edge:                                      ; preds = %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread, %9, %3
   %.lcssa = phi i1 [ false, %3 ], [ true, %9 ], [ false, %_ZNK5clang5Token17getIdentifierInfoEv.exit.thread ]

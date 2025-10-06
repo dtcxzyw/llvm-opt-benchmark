@@ -871,8 +871,8 @@ define void @_ZN6icu_7710UnicodeSetC2ERKS0_a(ptr noundef nonnull align 8 derefer
 _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !26
-  %.not29 = icmp eq i32 %30, 0
-  br i1 %.not29, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %31
+  %.not28 = icmp eq i32 %30, 0
+  br i1 %.not28, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %31
 
 31:                                               ; preds = %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1561,11 +1561,11 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %56
 
 ._crit_edge:                                      ; preds = %65
   %.pre = load ptr, ptr %62, align 8, !tbaa !15
-  %.pre53 = load ptr, ptr %57, align 8, !tbaa !15
+  %.pre52 = load ptr, ptr %57, align 8, !tbaa !15
   br label %67
 
 67:                                               ; preds = %._crit_edge, %61
-  %68 = phi ptr [ %.pre53, %._crit_edge ], [ %58, %61 ]
+  %68 = phi ptr [ %.pre52, %._crit_edge ], [ %58, %61 ]
   %69 = phi ptr [ %.pre, %._crit_edge ], [ %63, %61 ]
   call void @_ZN6icu_777UVector6assignERKS0_PFvP8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %69, ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull @_ZN6icu_77L18cloneUnicodeStringEP8UElementS1_, ptr noundef nonnull align 4 dereferenceable(4) %4)
   %70 = load i32, ptr %4, align 4, !tbaa !13
@@ -1590,8 +1590,8 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread: ; preds = %56, %_ZNK6icu_7710
 _ZNK6icu_7710UnicodeSet10hasStringsEv.exit43:     ; preds = %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load i32, ptr %75, align 8, !tbaa !26
-  %.not52 = icmp eq i32 %76, 0
-  br i1 %.not52, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit43.thread, label %77
+  %.not51 = icmp eq i32 %76, 0
+  br i1 %.not51, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit43.thread, label %77
 
 77:                                               ; preds = %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit43
   tail call void @_ZN6icu_777UVector17removeAllElementsEv(ptr noundef nonnull align 8 dereferenceable(40) %74)
@@ -1786,8 +1786,8 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit16:     ; preds = %_ZNK6icu_7710Unicod
 _ZNK6icu_7710UnicodeSet10hasStringsEv.exit18:     ; preds = %34
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !26
-  %.not23 = icmp eq i32 %36, 0
-  br i1 %.not23, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit18.thread, label %37
+  %.not21 = icmp eq i32 %36, 0
+  br i1 %.not21, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit18.thread, label %37
 
 37:                                               ; preds = %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit18
   %38 = tail call noundef zeroext i1 @_ZNK6icu_777UVectoreqERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %19, ptr noundef nonnull align 8 dereferenceable(40) %27)
@@ -1996,14 +1996,14 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %2
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %33 = phi i32 [ %39, %.lr.ph.i ], [ %32, %.lr.ph.preheader.i ]
-  %.01831.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %24, %.lr.ph.preheader.i ]
-  %.02030.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %24, %.lr.ph.preheader.i ]
+  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %34 = zext nneg i32 %33 to i64
   %35 = getelementptr inbounds nuw i32, ptr %18, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = icmp slt i32 %1, %36
-  %.020..i = select i1 %37, i32 %.02030.i, i32 %33
-  %..018.i = select i1 %37, i32 %33, i32 %.01831.i
+  %.020..i = select i1 %37, i32 %.02029.i, i32 %33
+  %..018.i = select i1 %37, i32 %33, i32 %.01830.i
   %38 = add nuw nsw i32 %..018.i, %.020..i
   %39 = lshr i32 %38, 1
   %40 = icmp eq i32 %39, %.020..i
@@ -2051,14 +2051,14 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_7710UnicodeSet13
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %19 = phi i32 [ %25, %.lr.ph ], [ %18, %.lr.ph.preheader ]
-  %.01831 = phi i32 [ %..018, %.lr.ph ], [ %10, %.lr.ph.preheader ]
-  %.02030 = phi i32 [ %.020., %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %.01830 = phi i32 [ %..018, %.lr.ph ], [ %10, %.lr.ph.preheader ]
+  %.02029 = phi i32 [ %.020., %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i32, ptr %4, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = icmp slt i32 %1, %22
-  %.020. = select i1 %23, i32 %.02030, i32 %19
-  %..018 = select i1 %23, i32 %19, i32 %.01831
+  %.020. = select i1 %23, i32 %.02029, i32 %19
+  %..018 = select i1 %23, i32 %19, i32 %.01830
   %24 = add nuw nsw i32 %..018, %.020.
   %25 = lshr i32 %24, 1
   %26 = icmp eq i32 %25, %.020.
@@ -2100,14 +2100,14 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet8containsEii(pt
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %20 = phi i32 [ %26, %.lr.ph.i ], [ %19, %.lr.ph.preheader.i ]
-  %.01831.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
-  %.02030.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
+  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i32, ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = icmp slt i32 %1, %23
-  %.020..i = select i1 %24, i32 %.02030.i, i32 %20
-  %..018.i = select i1 %24, i32 %20, i32 %.01831.i
+  %.020..i = select i1 %24, i32 %.02029.i, i32 %20
+  %..018.i = select i1 %24, i32 %20, i32 %.01830.i
   %25 = add nuw nsw i32 %..018.i, %.020..i
   %26 = lshr i32 %25, 1
   %27 = icmp eq i32 %26, %.020..i
@@ -2238,14 +2238,14 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %27
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %58 = phi i32 [ %64, %.lr.ph.i.i ], [ %57, %.lr.ph.preheader.i.i ]
-  %.01831.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %49, %.lr.ph.preheader.i.i ]
-  %.02030.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %49, %.lr.ph.preheader.i.i ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw i32, ptr %43, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !12
   %62 = icmp slt i32 %.0.i.ph, %61
-  %.020..i.i = select i1 %62, i32 %.02030.i.i, i32 %58
-  %..018.i.i = select i1 %62, i32 %58, i32 %.01831.i.i
+  %.020..i.i = select i1 %62, i32 %.02029.i.i, i32 %58
+  %..018.i.i = select i1 %62, i32 %58, i32 %.01830.i.i
   %63 = add nuw nsw i32 %..018.i.i, %.020..i.i
   %64 = lshr i32 %63, 1
   %65 = icmp eq i32 %64, %.020..i.i
@@ -2413,14 +2413,14 @@ _ZNK6icu_7710UnicodeSet13findCodePointEi.exit.i.us27: ; preds = %.lr.ph.split.sp
 
 .lr.ph.i.i:                                       ; preds = %45, %.lr.ph.i.i
   %47 = phi i32 [ %53, %.lr.ph.i.i ], [ %18, %45 ]
-  %.01831.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %13, %45 ]
-  %.02030.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %45 ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %13, %45 ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %45 ]
   %48 = zext nneg i32 %47 to i64
   %49 = getelementptr inbounds nuw i32, ptr %9, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !12
   %51 = icmp slt i32 %41, %50
-  %.020..i.i = select i1 %51, i32 %.02030.i.i, i32 %47
-  %..018.i.i = select i1 %51, i32 %47, i32 %.01831.i.i
+  %.020..i.i = select i1 %51, i32 %.02029.i.i, i32 %47
+  %..018.i.i = select i1 %51, i32 %47, i32 %.01830.i.i
   %52 = add nuw nsw i32 %..018.i.i, %.020..i.i
   %53 = lshr i32 %52, 1
   %54 = icmp eq i32 %53, %.020..i.i
@@ -2564,8 +2564,8 @@ define noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr no
 _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !26
-  %.not67 = icmp eq i32 %32, 0
-  br i1 %.not67, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %33
+  %.not66 = icmp eq i32 %32, 0
+  br i1 %.not66, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %33
 
 33:                                               ; preds = %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit
   %34 = icmp eq i32 %3, 0
@@ -2574,8 +2574,8 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %28
   call void @_ZN6icu_7720UnicodeSetStringSpanC1ERKNS_10UnicodeSetERKNS_7UVectorEj(ptr noundef nonnull align 8 dereferenceable(392) %5, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(40) %30, i32 noundef %35)
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 252
   %37 = load i32, ptr %36, align 4, !tbaa !48
-  %.not68 = icmp eq i32 %37, 0
-  br i1 %.not68, label %.thread64, label %38
+  %.not67 = icmp eq i32 %37, 0
+  br i1 %.not67, label %.thread64, label %38
 
 .thread64:                                        ; preds = %33
   call void @_ZN6icu_7720UnicodeSetStringSpanD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %5) #25
@@ -2696,14 +2696,14 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %64
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %94 = phi i32 [ %100, %.lr.ph.i.i ], [ %93, %.lr.ph.preheader.i.i ]
-  %.01831.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %85, %.lr.ph.preheader.i.i ]
-  %.02030.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %85, %.lr.ph.preheader.i.i ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %95 = zext nneg i32 %94 to i64
   %96 = getelementptr inbounds nuw i32, ptr %79, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !12
   %98 = icmp slt i32 %.142, %97
-  %.020..i.i = select i1 %98, i32 %.02030.i.i, i32 %94
-  %..018.i.i = select i1 %98, i32 %94, i32 %.01831.i.i
+  %.020..i.i = select i1 %98, i32 %.02029.i.i, i32 %94
+  %..018.i.i = select i1 %98, i32 %94, i32 %.01830.i.i
   %99 = add nuw nsw i32 %..018.i.i, %.020..i.i
   %100 = lshr i32 %99, 1
   %101 = icmp eq i32 %100, %.020..i.i
@@ -2761,14 +2761,14 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7710UnicodeSet12containsNoneE
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %20 = phi i32 [ %26, %.lr.ph.i ], [ %19, %.lr.ph.preheader.i ]
-  %.01831.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
-  %.02030.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %11, %.lr.ph.preheader.i ]
+  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw i32, ptr %5, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = icmp slt i32 %1, %23
-  %.020..i = select i1 %24, i32 %.02030.i, i32 %20
-  %..018.i = select i1 %24, i32 %20, i32 %.01831.i
+  %.020..i = select i1 %24, i32 %.02029.i, i32 %20
+  %..018.i = select i1 %24, i32 %20, i32 %.01830.i
   %25 = add nuw nsw i32 %..018.i, %.020..i
   %26 = lshr i32 %25, 1
   %27 = icmp eq i32 %26, %.020..i
@@ -2919,14 +2919,14 @@ _ZNK6icu_7710UnicodeSet12containsNoneEii.exit.us30: ; preds = %.lr.ph.split.spli
 
 .lr.ph.i.i:                                       ; preds = %47, %.lr.ph.i.i
   %49 = phi i32 [ %55, %.lr.ph.i.i ], [ %18, %47 ]
-  %.01831.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %13, %47 ]
-  %.02030.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %47 ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %13, %47 ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %47 ]
   %50 = zext nneg i32 %49 to i64
   %51 = getelementptr inbounds nuw i32, ptr %9, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !12
   %53 = icmp slt i32 %43, %52
-  %.020..i.i = select i1 %53, i32 %.02030.i.i, i32 %49
-  %..018.i.i = select i1 %53, i32 %49, i32 %.01831.i.i
+  %.020..i.i = select i1 %53, i32 %.02029.i.i, i32 %49
+  %..018.i.i = select i1 %53, i32 %49, i32 %.01830.i.i
   %54 = add nuw nsw i32 %..018.i.i, %.020..i.i
   %55 = lshr i32 %54, 1
   %56 = icmp eq i32 %55, %.020..i.i
@@ -3258,14 +3258,14 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %8
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %37 = phi i32 [ %43, %.lr.ph.i.i ], [ %36, %.lr.ph.preheader.i.i ]
-  %.01831.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %28, %.lr.ph.preheader.i.i ]
-  %.02030.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %28, %.lr.ph.preheader.i.i ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %38 = zext nneg i32 %37 to i64
   %39 = getelementptr inbounds nuw i32, ptr %22, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %41 = icmp sgt i32 %40, 65535
-  %.020..i.i = select i1 %41, i32 %.02030.i.i, i32 %37
-  %..018.i.i = select i1 %41, i32 %37, i32 %.01831.i.i
+  %.020..i.i = select i1 %41, i32 %.02029.i.i, i32 %37
+  %..018.i.i = select i1 %41, i32 %37, i32 %.01830.i.i
   %42 = add nuw nsw i32 %..018.i.i, %.020..i.i
   %43 = lshr i32 %42, 1
   %44 = icmp eq i32 %43, %.020..i.i
@@ -3296,8 +3296,8 @@ _ZNK6icu_7710UnicodeSet8containsEi.exit:          ; preds = %tailrecurse._crit_e
 _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %49
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !26
-  %.not91 = icmp eq i32 %53, 0
-  br i1 %.not91, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %54
+  %.not90 = icmp eq i32 %53, 0
+  br i1 %.not90, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %54
 
 54:                                               ; preds = %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit
   %55 = icmp slt i32 %6, %3
@@ -3317,9 +3317,9 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %49
 
 64:                                               ; preds = %.lr.ph, %115
   %65 = phi ptr [ %60, %.lr.ph ], [ %117, %115 ]
-  %.05294 = phi i32 [ 0, %.lr.ph ], [ %116, %115 ]
-  %.05393 = phi i32 [ 0, %.lr.ph ], [ %.255.ph, %115 ]
-  %66 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %65, i32 noundef %.05294)
+  %.05293 = phi i32 [ 0, %.lr.ph ], [ %116, %115 ]
+  %.05392 = phi i32 [ 0, %.lr.ph ], [ %.255.ph, %115 ]
+  %66 = tail call noundef ptr @_ZNK6icu_777UVector9elementAtEi(ptr noundef nonnull align 8 dereferenceable(40) %65, i32 noundef %.05293)
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i16, ptr %67, align 8, !tbaa !40
   %69 = icmp ugt i16 %68, 31
@@ -3331,8 +3331,8 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %49
 ._crit_edge:                                      ; preds = %70
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %66, i64 12
   %.pre = load i32, ptr %.phi.trans.insert, align 4
-  %.pre99 = ashr i16 %68, 5
-  %.pre100 = sext i16 %.pre99 to i32
+  %.pre98 = ashr i16 %68, 5
+  %.pre99 = sext i16 %.pre98 to i32
   br label %79
 
 71:                                               ; preds = %70
@@ -3346,12 +3346,12 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %49
   br label %79
 
 79:                                               ; preds = %._crit_edge, %71
-  %.pre-phi101 = phi i32 [ %.pre100, %._crit_edge ], [ %74, %71 ]
+  %.pre-phi100 = phi i32 [ %.pre99, %._crit_edge ], [ %74, %71 ]
   %80 = phi i32 [ %.pre, %._crit_edge ], [ %76, %71 ]
   %81 = phi i32 [ 0, %._crit_edge ], [ %78, %71 ]
   %82 = icmp slt i16 %68, 0
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 12
-  %84 = select i1 %82, i32 %80, i32 %.pre-phi101
+  %84 = select i1 %82, i32 %80, i32 %.pre-phi100
   %85 = icmp ult i32 %81, %84
   br i1 %85, label %86, label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
@@ -3401,14 +3401,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %79, %86
   br i1 %112, label %113, label %115
 
 113:                                              ; preds = %105
-  %spec.select = tail call i32 @llvm.smax.i32(i32 %99, i32 %.05393)
-  %114 = icmp sgt i32 %.05393, %99
+  %spec.select = tail call i32 @llvm.smax.i32(i32 %99, i32 %.05392)
+  %114 = icmp sgt i32 %.05392, %99
   %or.cond73 = select i1 %55, i1 %114, i1 false
   br i1 %or.cond73, label %.thread83, label %115
 
 115:                                              ; preds = %64, %96, %105, %113
-  %.255.ph = phi i32 [ %spec.select, %113 ], [ %.05393, %105 ], [ %.05393, %96 ], [ %.05393, %64 ]
-  %116 = add nuw nsw i32 %.05294, 1
+  %.255.ph = phi i32 [ %spec.select, %113 ], [ %.05392, %105 ], [ %.05392, %96 ], [ %.05392, %64 ]
+  %116 = add nuw nsw i32 %.05293, 1
   %117 = load ptr, ptr %50, align 8, !tbaa !15
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i32, ptr %118, align 8, !tbaa !26
@@ -3416,7 +3416,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %79, %86
   br i1 %120, label %64, label %.thread83, !llvm.loop !55
 
 .thread83:                                        ; preds = %115, %_ZNK6icu_7713UnicodeString6charAtEi.exit, %113
-  %.154 = phi i32 [ %.255.ph, %115 ], [ %.05393, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select, %113 ]
+  %.154 = phi i32 [ %.255.ph, %115 ], [ %.05392, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ %spec.select, %113 ]
   %.not70 = icmp eq i32 %.154, 0
   br i1 %.not70, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %121
 
@@ -4397,14 +4397,14 @@ _ZN6icu_77L12pinCodePointERi.exit:
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %19 = phi i32 [ %25, %.lr.ph.i ], [ %18, %.lr.ph.preheader.i ]
-  %.01831.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %10, %.lr.ph.preheader.i ]
-  %.02030.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.01830.i = phi i32 [ %..018.i, %.lr.ph.i ], [ %10, %.lr.ph.preheader.i ]
+  %.02029.i = phi i32 [ %.020..i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %20 = zext nneg i32 %19 to i64
   %21 = getelementptr inbounds nuw i32, ptr %4, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = icmp slt i32 %.0, %22
-  %.020..i = select i1 %23, i32 %.02030.i, i32 %19
-  %..018.i = select i1 %23, i32 %19, i32 %.01831.i
+  %.020..i = select i1 %23, i32 %.02029.i, i32 %19
+  %..018.i = select i1 %23, i32 %19, i32 %.01830.i
   %24 = add nuw nsw i32 %..018.i, %.020..i
   %25 = lshr i32 %24, 1
   %26 = icmp eq i32 %25, %.020..i
@@ -7952,8 +7952,8 @@ define noundef i32 @_ZNK6icu_7710UnicodeSet8spanBackEPKDsi17USetSpanCondition(pt
 _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !26
-  %.not64 = icmp eq i32 %32, 0
-  br i1 %.not64, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %33
+  %.not63 = icmp eq i32 %32, 0
+  br i1 %.not63, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %33
 
 33:                                               ; preds = %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit
   %34 = icmp eq i32 %3, 0
@@ -7962,8 +7962,8 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %28
   call void @_ZN6icu_7720UnicodeSetStringSpanC1ERKNS_10UnicodeSetERKNS_7UVectorEj(ptr noundef nonnull align 8 dereferenceable(392) %5, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(40) %30, i32 noundef %35)
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 252
   %37 = load i32, ptr %36, align 4, !tbaa !48
-  %.not65 = icmp eq i32 %37, 0
-  br i1 %.not65, label %.thread61, label %38
+  %.not64 = icmp eq i32 %37, 0
+  br i1 %.not64, label %.thread61, label %38
 
 .thread61:                                        ; preds = %33
   call void @_ZN6icu_7720UnicodeSetStringSpanD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %5) #25
@@ -8085,14 +8085,14 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %66
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %96 = phi i32 [ %102, %.lr.ph.i.i ], [ %95, %.lr.ph.preheader.i.i ]
-  %.01831.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %87, %.lr.ph.preheader.i.i ]
-  %.02030.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %87, %.lr.ph.preheader.i.i ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %97 = zext nneg i32 %96 to i64
   %98 = getelementptr inbounds nuw i32, ptr %81, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !12
   %100 = icmp slt i32 %.139, %99
-  %.020..i.i = select i1 %100, i32 %.02030.i.i, i32 %96
-  %..018.i.i = select i1 %100, i32 %96, i32 %.01831.i.i
+  %.020..i.i = select i1 %100, i32 %.02029.i.i, i32 %96
+  %..018.i.i = select i1 %100, i32 %96, i32 %.01830.i.i
   %101 = add nuw nsw i32 %..018.i.i, %.020..i.i
   %102 = lshr i32 %101, 1
   %103 = icmp eq i32 %102, %.020..i.i
@@ -8173,8 +8173,8 @@ define noundef i32 @_ZNK6icu_7710UnicodeSet8spanUTF8EPKci17USetSpanCondition(ptr
 _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 8, !tbaa !26
-  %.not104 = icmp eq i32 %30, 0
-  br i1 %.not104, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %31
+  %.not103 = icmp eq i32 %30, 0
+  br i1 %.not103, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %31
 
 31:                                               ; preds = %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit
   %32 = icmp eq i32 %3, 0
@@ -8183,8 +8183,8 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %26
   call void @_ZN6icu_7720UnicodeSetStringSpanC1ERKNS_10UnicodeSetERKNS_7UVectorEj(ptr noundef nonnull align 8 dereferenceable(392) %5, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef %33)
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 256
   %35 = load i32, ptr %34, align 8, !tbaa !82
-  %.not105 = icmp eq i32 %35, 0
-  br i1 %.not105, label %.thread101, label %36
+  %.not104 = icmp eq i32 %35, 0
+  br i1 %.not104, label %.thread101, label %36
 
 .thread101:                                       ; preds = %31
   call void @_ZN6icu_7720UnicodeSetStringSpanD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %5) #25
@@ -8390,14 +8390,14 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %115
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %145 = phi i32 [ %151, %.lr.ph.i.i ], [ %144, %.lr.ph.preheader.i.i ]
-  %.01831.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %136, %.lr.ph.preheader.i.i ]
-  %.02030.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %136, %.lr.ph.preheader.i.i ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %146 = zext nneg i32 %145 to i64
   %147 = getelementptr inbounds nuw i32, ptr %130, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !12
   %149 = icmp slt i32 %.365, %148
-  %.020..i.i = select i1 %149, i32 %.02030.i.i, i32 %145
-  %..018.i.i = select i1 %149, i32 %145, i32 %.01831.i.i
+  %.020..i.i = select i1 %149, i32 %.02029.i.i, i32 %145
+  %..018.i.i = select i1 %149, i32 %145, i32 %.01830.i.i
   %150 = add nuw nsw i32 %..018.i.i, %.020..i.i
   %151 = lshr i32 %150, 1
   %152 = icmp eq i32 %151, %.020..i.i
@@ -8478,8 +8478,8 @@ define noundef i32 @_ZNK6icu_7710UnicodeSet12spanBackUTF8EPKci17USetSpanConditio
 _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !26
-  %.not43 = icmp eq i32 %27, 0
-  br i1 %.not43, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %28
+  %.not42 = icmp eq i32 %27, 0
+  br i1 %.not42, label %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit.thread, label %28
 
 28:                                               ; preds = %_ZNK6icu_7710UnicodeSet10hasStringsEv.exit
   %29 = icmp eq i32 %3, 0
@@ -8488,8 +8488,8 @@ _ZNK6icu_7710UnicodeSet10hasStringsEv.exit:       ; preds = %23
   call void @_ZN6icu_7720UnicodeSetStringSpanC1ERKNS_10UnicodeSetERKNS_7UVectorEj(ptr noundef nonnull align 8 dereferenceable(392) %6, ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %30)
   %31 = getelementptr inbounds nuw i8, ptr %6, i64 256
   %32 = load i32, ptr %31, align 8, !tbaa !82
-  %.not44 = icmp eq i32 %32, 0
-  br i1 %.not44, label %.thread40, label %33
+  %.not43 = icmp eq i32 %32, 0
+  br i1 %.not43, label %.thread40, label %33
 
 .thread40:                                        ; preds = %28
   call void @_ZN6icu_7720UnicodeSetStringSpanD1Ev(ptr noundef nonnull align 8 dereferenceable(392) %6) #25
@@ -8595,14 +8595,14 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %49
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %79 = phi i32 [ %85, %.lr.ph.i.i ], [ %78, %.lr.ph.preheader.i.i ]
-  %.01831.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %70, %.lr.ph.preheader.i.i ]
-  %.02030.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
+  %.01830.i.i = phi i32 [ %..018.i.i, %.lr.ph.i.i ], [ %70, %.lr.ph.preheader.i.i ]
+  %.02029.i.i = phi i32 [ %.020..i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.preheader.i.i ]
   %80 = zext nneg i32 %79 to i64
   %81 = getelementptr inbounds nuw i32, ptr %64, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !12
   %83 = icmp slt i32 %.022, %82
-  %.020..i.i = select i1 %83, i32 %.02030.i.i, i32 %79
-  %..018.i.i = select i1 %83, i32 %79, i32 %.01831.i.i
+  %.020..i.i = select i1 %83, i32 %.02029.i.i, i32 %79
+  %..018.i.i = select i1 %83, i32 %79, i32 %.01830.i.i
   %84 = add nuw nsw i32 %..018.i.i, %.020..i.i
   %85 = lshr i32 %84, 1
   %86 = icmp eq i32 %85, %.020..i.i

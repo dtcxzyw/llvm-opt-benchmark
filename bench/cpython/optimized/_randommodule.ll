@@ -663,11 +663,11 @@ define internal fastcc range(i32 -1, 1) i32 @random_seed(ptr noundef captures(no
   br label %13
 
 13:                                               ; preds = %13, %11
-  %store_forwarded102 = phi i32 [ 19650218, %11 ], [ %19, %13 ]
+  %store_forwarded101 = phi i32 [ 19650218, %11 ], [ %19, %13 ]
   %indvars.iv.i.i.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i.i.i, %13 ]
   %14 = getelementptr i32, ptr %12, i64 %indvars.iv.i.i.i
-  %15 = lshr i32 %store_forwarded102, 30
-  %16 = xor i32 %15, %store_forwarded102
+  %15 = lshr i32 %store_forwarded101, 30
+  %16 = xor i32 %15, %store_forwarded101
   %17 = mul i32 %16, 1812433253
   %18 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %19 = add i32 %17, %18
@@ -941,12 +941,12 @@ random_seed_time_pid.exit:                        ; preds = %116
 
 150:                                              ; preds = %145
   %151 = tail call ptr @PyErr_NoMemory() #8
-  br label %.thread82
+  br label %.thread81
 
 152:                                              ; preds = %145
   %153 = tail call i32 @_PyLong_AsByteArray(ptr noundef nonnull %.033, ptr noundef nonnull %148, i64 noundef %147, i32 noundef 1, i32 noundef 0, i32 noundef 1) #8
   %154 = icmp eq i32 %153, -1
-  br i1 %154, label %.thread82, label %155
+  br i1 %154, label %.thread81, label %155
 
 155:                                              ; preds = %152
   %156 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -954,11 +954,11 @@ random_seed_time_pid.exit:                        ; preds = %116
   br label %157
 
 157:                                              ; preds = %157, %155
-  %store_forwarded104 = phi i32 [ 19650218, %155 ], [ %163, %157 ]
+  %store_forwarded103 = phi i32 [ 19650218, %155 ], [ %163, %157 ]
   %indvars.iv.i.i = phi i64 [ 1, %155 ], [ %indvars.iv.next.i.i, %157 ]
   %158 = getelementptr i32, ptr %156, i64 %indvars.iv.i.i
-  %159 = lshr i32 %store_forwarded104, 30
-  %160 = xor i32 %159, %store_forwarded104
+  %159 = lshr i32 %store_forwarded103, 30
+  %160 = xor i32 %159, %store_forwarded103
   %161 = mul i32 %160, 1812433253
   %162 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %163 = add i32 %161, %162
@@ -1041,15 +1041,15 @@ init_genrand.exit.i:                              ; preds = %157
 
 204:                                              ; preds = %202
   store i32 -2147483648, ptr %156, align 4, !tbaa !29
-  br label %.thread82
+  br label %.thread81
 
-.thread82:                                        ; preds = %204, %152, %150
-  %.03189 = phi i32 [ 0, %204 ], [ -1, %150 ], [ -1, %152 ]
+.thread81:                                        ; preds = %204, %152, %150
+  %.03188 = phi i32 [ 0, %204 ], [ -1, %150 ], [ -1, %152 ]
   %205 = load i32, ptr %.033, align 8, !tbaa !15
   %.not.i.i66 = icmp sgt i32 %205, -1
   br i1 %.not.i.i66, label %206, label %Py_XDECREF.exit
 
-206:                                              ; preds = %.thread82
+206:                                              ; preds = %.thread81
   %207 = add nsw i32 %205, -1
   store i32 %207, ptr %.033, align 8, !tbaa !15
   %208 = icmp eq i32 %207, 0
@@ -1059,14 +1059,14 @@ init_genrand.exit.i:                              ; preds = %157
   tail call void @_Py_Dealloc(ptr noundef nonnull %.033) #8
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %132, %136, %.thread82, %206, %209
-  %.03180 = phi i32 [ %.03189, %.thread82 ], [ %.03189, %206 ], [ %.03189, %209 ], [ -1, %136 ], [ -1, %132 ]
-  %.03479 = phi ptr [ %148, %.thread82 ], [ %148, %206 ], [ %148, %209 ], [ null, %136 ], [ null, %132 ]
-  tail call void @PyMem_Free(ptr noundef %.03479) #8
+Py_XDECREF.exit:                                  ; preds = %132, %136, %.thread81, %206, %209
+  %.03179 = phi i32 [ %.03188, %.thread81 ], [ %.03188, %206 ], [ %.03188, %209 ], [ -1, %136 ], [ -1, %132 ]
+  %.03478 = phi ptr [ %148, %.thread81 ], [ %148, %206 ], [ %148, %209 ], [ null, %136 ], [ null, %132 ]
+  tail call void @PyMem_Free(ptr noundef %.03478) #8
   br label %210
 
 210:                                              ; preds = %random_seed_urandom.exit, %random_seed_time_pid.exit, %random_seed_time_pid.exit.thread69, %random_seed_time_pid.exit.thread, %Py_XDECREF.exit
-  %.0 = phi i32 [ %.03180, %Py_XDECREF.exit ], [ -1, %random_seed_time_pid.exit.thread ], [ -1, %random_seed_time_pid.exit.thread69 ], [ 0, %random_seed_time_pid.exit ], [ 0, %random_seed_urandom.exit ]
+  %.0 = phi i32 [ %.03179, %Py_XDECREF.exit ], [ -1, %random_seed_time_pid.exit.thread ], [ -1, %random_seed_time_pid.exit.thread69 ], [ 0, %random_seed_time_pid.exit ], [ 0, %random_seed_urandom.exit ]
   ret i32 %.0
 }
 

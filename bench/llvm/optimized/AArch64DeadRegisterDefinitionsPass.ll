@@ -317,17 +317,17 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_130AArch64DeadRegisterDefini
   %37 = load i24, ptr %36, align 8
   %38 = zext i24 %37 to i64
   %39 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %35, i64 %38
-  %.not13.not.i.i = icmp eq ptr %34, %39
-  br i1 %.not13.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
+  %.not14.not.i.i = icmp eq ptr %34, %39
+  br i1 %.not14.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 40:                                               ; preds = %.lr.ph.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %.01214.i.i, i64 32
+  %41 = getelementptr inbounds nuw i8, ptr %.01215.i.i, i64 32
   %.not.not.i.i = icmp eq ptr %41, %39
   br i1 %.not.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph73.i, %40
-  %.01214.i.i = phi ptr [ %41, %40 ], [ %34, %.lr.ph73.i ]
-  %42 = load i32, ptr %.01214.i.i, align 8
+  %.01215.i.i = phi ptr [ %41, %40 ], [ %34, %.lr.ph73.i ]
+  %42 = load i32, ptr %.01215.i.i, align 8
   %43 = and i32 %42, 255
   %44 = icmp eq i32 %43, 5
   br i1 %44, label %_ZL14usesFrameIndexRKN4llvm12MachineInstrE.exit.i, label %40

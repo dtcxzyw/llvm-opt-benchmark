@@ -2215,8 +2215,8 @@ define hidden { ptr, i64 } @_ZN4ring2io10der_writer9write_all17h3a1f4346c53abf5f
   ret { ptr, i64 } %45
 
 .body.thread:                                     ; preds = %32, %46
-  %eh.lpad-body15 = phi { ptr, i32 } [ %47, %46 ], [ %33, %32 ]
-  resume { ptr, i32 } %eh.lpad-body15
+  %eh.lpad-body14 = phi { ptr, i32 } [ %47, %46 ], [ %33, %32 ]
+  resume { ptr, i32 } %eh.lpad-body14
 
 46:                                               ; preds = %12
   %47 = landingpad { ptr, i32 }
@@ -2570,10 +2570,10 @@ define internal fastcc void @_ZN4ring6pbkdf212derive_block17h23076b73e2eeec55E(p
   br i1 %.not.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8for_each17h84ff889a3bee275bE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit", %.lr.ph.i.i.i
-  %.sroa.01.014.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit" ]
-  %33 = add nuw i64 %.sroa.01.014.i.i.i, 1
-  %34 = getelementptr inbounds i8, ptr %5, i64 %.sroa.01.014.i.i.i
-  %35 = getelementptr inbounds i8, ptr %26, i64 %.sroa.01.014.i.i.i
+  %.sroa.01.013.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ 0, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17heb3913cfe867f2eeE.llvm.2657819220133375221.exit" ]
+  %33 = add nuw i64 %.sroa.01.013.i.i.i, 1
+  %34 = getelementptr inbounds i8, ptr %5, i64 %.sroa.01.013.i.i.i
+  %35 = getelementptr inbounds i8, ptr %26, i64 %.sroa.01.013.i.i.i
   %.val10.i.i.i = load i8, ptr %35, align 1, !noalias !306, !noundef !4
   %36 = load i8, ptr %34, align 1, !alias.scope !313, !noalias !306, !noundef !4
   %37 = xor i8 %36, %.val10.i.i.i

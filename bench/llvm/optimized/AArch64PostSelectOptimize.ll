@@ -1144,12 +1144,12 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_125AArch64PostSelec
   br i1 %or.cond.not.i.i.i.i, label %.lr.ph.preheader, label %.critedge2.i.i.i.i, !llvm.loop !279
 
 .lr.ph.preheader:                                 ; preds = %42, %39
-  %.sroa.056.072.ph = phi ptr [ %.0.i.i.i, %39 ], [ %storemerge.i.i.i.i, %42 ]
+  %.sroa.056.070.ph = phi ptr [ %.0.i.i.i, %39 ], [ %storemerge.i.i.i.i, %42 ]
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i, %.lr.ph.preheader
-  %.sroa.056.072 = phi ptr [ %.sroa.056.072.ph, %.lr.ph.preheader ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.056.072, i64 8
+  %.sroa.056.070 = phi ptr [ %.sroa.056.070.ph, %.lr.ph.preheader ], [ %storemerge.i.i, %_ZN4llvm19MachineRegisterInfo26defusechain_instr_iteratorILb1ELb0ELb1ELb0ELb1ELb0EE7advanceEv.exit.i ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.056.070, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !280
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 68
   %48 = load i16, ptr %47, align 4, !tbaa !224
@@ -1200,7 +1200,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN12_GLOBAL__N_125AArch64PostSelec
   br label %.critedge2.i.i
 
 .critedge2.i.i:                                   ; preds = %.critedge2.i.i.backedge, %.critedge2.i.i.preheader
-  %.pn.i.i = phi ptr [ %.sroa.056.072, %.critedge2.i.i.preheader ], [ %storemerge.i.i, %.critedge2.i.i.backedge ]
+  %.pn.i.i = phi ptr [ %.sroa.056.070, %.critedge2.i.i.preheader ], [ %storemerge.i.i, %.critedge2.i.i.backedge ]
   %storemerge.in.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 24
   %storemerge.i.i = load ptr, ptr %storemerge.in.i.i, align 8, !tbaa !257
   %.not.i.i = icmp eq ptr %storemerge.i.i, null

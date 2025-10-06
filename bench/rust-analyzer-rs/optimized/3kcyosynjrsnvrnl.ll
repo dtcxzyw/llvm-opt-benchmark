@@ -139,8 +139,8 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17he1632ee
   %9 = add i64 %5, -1
   %.promoted = load i64, ptr %8, align 8
   %10 = add i64 %9, %.promoted
-  %.not3754 = icmp ult i64 %10, %3
-  br i1 %.not3754, label %.lr.ph, label %._crit_edge
+  %.not3451 = icmp ult i64 %10, %3
+  br i1 %.not3451, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -150,7 +150,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17he1632ee
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = sub i64 %5, %16
-  %.promoted55 = load i64, ptr %14, align 8
+  %.promoted52 = load i64, ptr %14, align 8
   br label %18
 
 ._crit_edge:                                      ; preds = %33, %7
@@ -158,7 +158,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17he1632ee
   br label %29
 
 18:                                               ; preds = %.lr.ph, %33
-  %19 = phi i64 [ %.promoted55, %.lr.ph ], [ %34, %33 ]
+  %19 = phi i64 [ %.promoted52, %.lr.ph ], [ %34, %33 ]
   %20 = phi i64 [ %10, %.lr.ph ], [ %36, %33 ]
   %21 = phi i64 [ %.promoted, %.lr.ph ], [ %35, %33 ]
   %22 = getelementptr inbounds i8, ptr %2, i64 %20
@@ -187,16 +187,16 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17he1632ee
 
 .sink.split:                                      ; preds = %30, %74, %61
   %.sink = phi i64 [ %17, %61 ], [ 0, %74 ], [ 0, %30 ]
-  %.ph90 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
+  %.ph87 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
   store i64 %.sink, ptr %14, align 8
   br label %33
 
 33:                                               ; preds = %.sink.split, %61, %74, %30
   %34 = phi i64 [ %19, %61 ], [ %19, %74 ], [ %19, %30 ], [ %.sink, %.sink.split ]
-  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph90, %.sink.split ]
+  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph87, %.sink.split ]
   %36 = add i64 %9, %35
-  %.not37 = icmp ult i64 %36, %3
-  br i1 %.not37, label %18, label %._crit_edge
+  %.not34 = icmp ult i64 %36, %3
+  br i1 %.not34, label %18, label %._crit_edge
 
 37:                                               ; preds = %66, %32
   %.sroa.04.0 = phi i64 [ %.014, %32 ], [ %67, %66 ]
@@ -435,17 +435,17 @@ _ZN4core3str11validations15next_code_point17h9c3c98fe0ee36bacE.exit.thread.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %.thread.i.loopexit.i.i.i, %32
   %80 = phi i64 [ %28, %.thread.i.loopexit.i.i.i ], [ %.val5.i.i, %32 ]
-  br i1 %29, label %95, label %.thread22.i.i.i.i
+  br i1 %29, label %95, label %.thread20.i.i.i.i
 
 81:                                               ; preds = %_ZN4core3str11validations15next_code_point17h9c3c98fe0ee36bacE.exit.thread.i.i.i.i
   %82 = icmp eq i32 %.sroa.4.0.i.ph.i.i.i.i, 1114112
-  br i1 %82, label %.thread22.i.loopexit.i.i.i, label %83
+  br i1 %82, label %.thread20.i.loopexit.i.i.i, label %83
 
-.thread22.i.loopexit.i.i.i:                       ; preds = %81
+.thread20.i.loopexit.i.i.i:                       ; preds = %81
   store i8 1, ptr %10, align 8, !alias.scope !37, !noalias !40
-  br label %.thread22.i.i.i.i
+  br label %.thread20.i.i.i.i
 
-.thread22.i.i.i.i:                                ; preds = %.thread22.i.loopexit.i.i.i, %.thread.i.i.i.i
+.thread20.i.i.i.i:                                ; preds = %.thread20.i.loopexit.i.i.i, %.thread.i.i.i.i
   store i8 1, ptr %9, align 2, !alias.scope !37, !noalias !40
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i.i.i"
 
@@ -485,8 +485,8 @@ _ZN4core3str11validations15next_code_point17h9c3c98fe0ee36bacE.exit.thread.i.i.i
   store i64 %96, ptr %12, align 8, !alias.scope !31, !noalias !36
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i.i.i"
 
-"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i.i.i": ; preds = %95, %.thread22.i.i.i.i, %.preheader.i.i.i
-  %storemerge.i.i.i = phi i64 [ 1, %95 ], [ 0, %.thread22.i.i.i.i ], [ 0, %.preheader.i.i.i ]
+"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17h61fa6180c96ad587E.exit.thread7.i.i.i": ; preds = %95, %.thread20.i.i.i.i, %.preheader.i.i.i
+  %storemerge.i.i.i = phi i64 [ 1, %95 ], [ 0, %.thread20.i.i.i.i ], [ 0, %.preheader.i.i.i ]
   store i64 %storemerge.i.i.i, ptr %4, align 8, !alias.scope !31, !noalias !36
   br label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i"
 

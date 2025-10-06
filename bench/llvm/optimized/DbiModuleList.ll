@@ -1045,7 +1045,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %39, %37
 _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit: ; preds = %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit, %27, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %42
   %43 = load ptr, ptr %0, align 8, !tbaa !27
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %44, label %_ZN4llvm5ErrorD2Ev.exit17
+  br i1 %.not, label %44, label %_ZN4llvm5ErrorD2Ev.exit16
 
 44:                                               ; preds = %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit
   %45 = load ptr, ptr %3, align 8, !tbaa !56
@@ -1054,14 +1054,14 @@ _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit:
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !57
   store ptr %48, ptr %46, align 8, !tbaa !57
-  %.not.i.i.i.i.i8 = icmp eq ptr %48, null
-  br i1 %.not.i.i.i.i.i8, label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit10, label %49
+  %.not.i.i.i.i.i7 = icmp eq ptr %48, null
+  br i1 %.not.i.i.i.i.i7, label %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit9, label %49
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %51 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !58
-  %.not.i.i.i.i.i.i9 = icmp eq i8 %51, 0
-  br i1 %.not.i.i.i.i.i.i9, label %55, label %52
+  %.not.i.i.i.i.i.i8 = icmp eq i8 %51, 0
+  br i1 %.not.i.i.i.i.i.i8, label %55, label %52
 
 52:                                               ; preds = %49
   %53 = load i32, ptr %50, align 4, !tbaa !21
@@ -1073,12 +1073,12 @@ _ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit:
   %56 = atomicrmw volatile add ptr %50, i32 1 acq_rel, align 4
   br label %59
 
-_ZN4llvm15BinaryStreamRefC2ERKS0_.exit10:         ; preds = %44
+_ZN4llvm15BinaryStreamRefC2ERKS0_.exit9:          ; preds = %44
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %58, i64 32, i1 false)
   call void @_ZN4llvm3pdb13DbiModuleList18initializeFileInfoENS_15BinaryStreamRefE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(352) %1, ptr noundef nonnull %6)
-  br label %_ZN4llvm5ErrorD2Ev.exit17
+  br label %_ZN4llvm5ErrorD2Ev.exit16
 
 59:                                               ; preds = %52, %55
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1102,32 +1102,32 @@ _ZN4llvm15BinaryStreamRefC2ERKS0_.exit10:         ; preds = %44
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %72 = load ptr, ptr %71, align 8
   tail call void %72(ptr noundef nonnull align 8 dereferenceable(16) %48) #17
-  br label %_ZN4llvm5ErrorD2Ev.exit17
+  br label %_ZN4llvm5ErrorD2Ev.exit16
 
 73:                                               ; preds = %59
   %74 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !58
-  %.not.i.i.i.i12 = icmp eq i8 %74, 0
-  br i1 %.not.i.i.i.i12, label %77, label %75
+  %.not.i.i.i.i11 = icmp eq i8 %74, 0
+  br i1 %.not.i.i.i.i11, label %77, label %75
 
 75:                                               ; preds = %73
   %76 = add nsw i32 %64, -1
   store i32 %76, ptr %50, align 4, !tbaa !21
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12
 
 77:                                               ; preds = %73
   %78 = atomicrmw volatile add ptr %50, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13: ; preds = %77, %75
-  %.0.i.i.i.i.i14 = phi i32 [ %64, %75 ], [ %78, %77 ]
-  %79 = icmp eq i32 %.0.i.i.i.i.i14, 1
-  br i1 %79, label %80, label %_ZN4llvm5ErrorD2Ev.exit17, !prof !62
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12: ; preds = %77, %75
+  %.0.i.i.i.i.i13 = phi i32 [ %64, %75 ], [ %78, %77 ]
+  %79 = icmp eq i32 %.0.i.i.i.i.i13, 1
+  br i1 %79, label %80, label %_ZN4llvm5ErrorD2Ev.exit16, !prof !62
 
-80:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13
+80:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12
   tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %48) #17
-  br label %_ZN4llvm5ErrorD2Ev.exit17
+  br label %_ZN4llvm5ErrorD2Ev.exit16
 
-_ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i13, %65, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit10, %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit
+_ZN4llvm5ErrorD2Ev.exit16:                        ; preds = %80, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i12, %65, %_ZN4llvm15BinaryStreamRefC2ERKS0_.exit9, %_ZN4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEED2Ev.exit
   ret void
 }
 

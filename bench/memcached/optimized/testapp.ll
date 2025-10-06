@@ -3132,7 +3132,7 @@ define internal range(i32 1, 3) i32 @test_binary_pipeline_hickup() #0 {
   br i1 %27, label %.lr.ph.i, label %test_binary_pipeline_hickup_chunk.exit
 
 .lr.ph.i:                                         ; preds = %24, %88
-  %.02951.i = phi i64 [ %86, %88 ], [ 0, %24 ]
+  %.02950.i = phi i64 [ %86, %88 ], [ 0, %24 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %28 = call i32 @rand() #21
   %29 = trunc i32 %28 to i8
@@ -3365,7 +3365,7 @@ raw_command.exit38.i:                             ; preds = %70
 
 85:                                               ; preds = %84, %81, %76, %raw_command.exit38.i, %69, %arithmetic_command.exit.i, %raw_command.exit35.i, %52, %51, %raw_command.exit.i, %storage_command.exit.i
   %.030.i = phi i64 [ 24, %84 ], [ %35, %storage_command.exit.i ], [ %43, %raw_command.exit.i ], [ 24, %51 ], [ 24, %52 ], [ %54, %raw_command.exit35.i ], [ %68, %arithmetic_command.exit.i ], [ 24, %69 ], [ %71, %raw_command.exit38.i ], [ %80, %76 ], [ 24, %81 ]
-  %86 = add nsw i64 %.030.i, %.02951.i
+  %86 = add nsw i64 %.030.i, %.02950.i
   %87 = icmp ult i64 %86, 66560
   br i1 %87, label %88, label %.thread.i
 
@@ -3374,7 +3374,7 @@ raw_command.exit38.i:                             ; preds = %70
   br label %test_binary_pipeline_hickup_chunk.exit
 
 88:                                               ; preds = %85
-  %89 = getelementptr inbounds nuw i8, ptr %4, i64 %.02951.i
+  %89 = getelementptr inbounds nuw i8, ptr %4, i64 %.02950.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %89, ptr nonnull align 8 %2, i64 %.030.i, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %90 = load volatile i8, ptr @hickup_thread_running, align 1, !tbaa !52, !range !54, !noundef !55
@@ -3384,8 +3384,8 @@ raw_command.exit38.i:                             ; preds = %70
   br i1 %93, label %.lr.ph.i, label %test_binary_pipeline_hickup_chunk.exit
 
 test_binary_pipeline_hickup_chunk.exit:           ; preds = %88, %24, %.thread.i
-  %.02950.i = phi i64 [ %.02951.i, %.thread.i ], [ 0, %24 ], [ %86, %88 ]
-  call fastcc void @safe_send(ptr noundef %4, i64 noundef %.02950.i, i1 noundef zeroext true)
+  %.02949.i = phi i64 [ %.02950.i, %.thread.i ], [ 0, %24 ], [ %86, %88 ]
+  call fastcc void @safe_send(ptr noundef %4, i64 noundef %.02949.i, i1 noundef zeroext true)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %25, label %24, label %94, !llvm.loop !56
 

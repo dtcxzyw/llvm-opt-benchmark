@@ -354,12 +354,12 @@ target triple = "x86_64-pc-linux-gnu"
 @rt__valid_date_frags_p.rbimpl_id.306 = internal unnamed_addr global i64 0, align 8
 @rt__valid_date_frags_p.rbimpl_id.307 = internal unnamed_addr global i64 0, align 8
 @rt__valid_date_frags_p.rbimpl_id.308 = internal unnamed_addr global i64 0, align 8
-@rt__valid_date_frags_p.rbimpl_id.309 = internal unnamed_addr global i64 0, align 8
-@rt__valid_date_frags_p.rbimpl_id.310 = internal unnamed_addr global i64 0, align 8
-@rt__valid_date_frags_p.rbimpl_id.311 = internal unnamed_addr global i64 0, align 8
-@rt__valid_date_frags_p.rbimpl_id.312 = internal unnamed_addr global i64 0, align 8
+@rt__valid_date_frags_p.rbimpl_id.309 = internal global i64 0, align 8
+@rt__valid_date_frags_p.rbimpl_id.310 = internal global i64 0, align 8
+@rt__valid_date_frags_p.rbimpl_id.311 = internal global i64 0, align 8
+@rt__valid_date_frags_p.rbimpl_id.312 = internal global i64 0, align 8
 @rt__valid_date_frags_p.rbimpl_id.313 = internal global i64 0, align 8
-@rt__valid_date_frags_p.rbimpl_id.314 = internal unnamed_addr global i64 0, align 8
+@rt__valid_date_frags_p.rbimpl_id.314 = internal global i64 0, align 8
 @rt__valid_date_frags_p.rbimpl_id.315 = internal global i64 0, align 8
 @rt__valid_date_frags_p.rbimpl_id.316 = internal global i64 0, align 8
 @rt__valid_date_frags_p.rbimpl_id.317 = internal global i64 0, align 8
@@ -9253,8 +9253,8 @@ m_mon.exit:                                       ; preds = %16, %c_jd_to_civil.
   %62 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %13, i64 noundef 43, i32 noundef 1, i64 noundef %61) #21
   %63 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %62, i64 noundef 43, i32 noundef 1, i64 noundef %1) #21
   %64 = and i64 %63, 1
-  %.not54 = icmp eq i64 %64, 0
-  br i1 %.not54, label %82, label %65
+  %.not53 = icmp eq i64 %64, 0
+  br i1 %.not53, label %82, label %65
 
 65:                                               ; preds = %m_mon.exit
   %66 = ashr i64 %63, 1
@@ -9392,12 +9392,12 @@ m_sg.exit:                                        ; preds = %m_mday.exit, %133
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %134 = call fastcc i32 @valid_civil_p(i64 noundef %.026, i32 noundef %.027, i32 noundef %.0.i38, double noundef %.0.i49, ptr noundef %4, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %6, ptr noundef %10)
-  %.not55 = icmp eq i32 %134, 0
-  br i1 %.not55, label %.lr.ph, label %._crit_edge
+  %.not54 = icmp eq i32 %134, 0
+  br i1 %.not54, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %m_sg.exit, %138
-  %.02856 = phi i32 [ %139, %138 ], [ %.0.i38, %m_sg.exit ]
-  %135 = icmp slt i32 %.02856, 2
+  %.02855 = phi i32 [ %139, %138 ], [ %.0.i38, %m_sg.exit ]
+  %135 = icmp slt i32 %.02855, 2
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %.lr.ph
@@ -9406,7 +9406,7 @@ m_sg.exit:                                        ; preds = %m_mday.exit, %133
   unreachable
 
 138:                                              ; preds = %.lr.ph
-  %139 = add nsw i32 %.02856, -1
+  %139 = add nsw i32 %.02855, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -18869,6 +18869,65 @@ f_zero_p.exit.thread12:                           ; preds = %f_zero_p.exit, %rb_
   ret void
 }
 
+; Function Attrs: inlinehint nounwind sspstrong uwtable
+define internal fastcc i64 @f_zero_p(i64 noundef %0) unnamed_addr #4 {
+  %2 = icmp eq i64 %0, 0
+  %3 = and i64 %0, 7
+  %4 = icmp ne i64 %3, 0
+  %5 = or i1 %2, %4
+  br i1 %5, label %6, label %rb_type.exit
+
+6:                                                ; preds = %1
+  %7 = tail call i64 @llvm.fshl.i64(i64 %0, i64 %0, i64 62)
+  switch i64 %7, label %8 [
+    i64 0, label %rb_type.exit.thread
+    i64 1, label %rb_type.exit.thread
+    i64 5, label %rb_type.exit.thread
+    i64 9, label %rb_type.exit.thread
+  ]
+
+8:                                                ; preds = %6
+  %9 = and i64 %0, 1
+  %.not.i = icmp eq i64 %9, 0
+  br i1 %.not.i, label %rb_type.exit.thread, label %rb_type.exit.thread8
+
+rb_type.exit:                                     ; preds = %1
+  %10 = inttoptr i64 %0 to ptr
+  %11 = load i64, ptr %10, align 8, !tbaa !35
+  %12 = trunc i64 %11 to i32
+  %13 = and i32 %12, 31
+  switch i32 %13, label %rb_type.exit.thread [
+    i32 21, label %rb_type.exit.thread8
+    i32 10, label %24
+    i32 15, label %16
+  ]
+
+rb_type.exit.thread8:                             ; preds = %8, %rb_type.exit
+  %14 = icmp ult i64 %0, 2
+  %15 = select i1 %14, i64 20, i64 0
+  br label %24
+
+16:                                               ; preds = %rb_type.exit
+  %17 = tail call i64 @rb_rational_num(i64 noundef %0) #24
+  %18 = and i64 %17, 1
+  %.not = icmp eq i64 %18, 0
+  br i1 %.not, label %24, label %19
+
+19:                                               ; preds = %16
+  %20 = icmp ult i64 %17, 2
+  %21 = select i1 %20, i64 20, i64 0
+  br label %24
+
+rb_type.exit.thread:                              ; preds = %8, %6, %6, %6, %6, %rb_type.exit
+  %22 = load i64, ptr @id_eqeq_p, align 8, !tbaa !6
+  %23 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %22, i32 noundef 1, i64 noundef 1) #21
+  br label %24
+
+24:                                               ; preds = %16, %19, %rb_type.exit, %rb_type.exit.thread, %rb_type.exit.thread8
+  %.0 = phi i64 [ %23, %rb_type.exit.thread ], [ %15, %rb_type.exit.thread8 ], [ 0, %rb_type.exit ], [ 0, %16 ], [ %21, %19 ]
+  ret i64 %.0
+}
+
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @decode_year(i64 noundef %0, double noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = fcmp olt double %1, 0.000000e+00
@@ -21203,7 +21262,7 @@ define internal fastcc noundef i64 @rt_complete_frags(i64 noundef %0, i64 nounde
   %3 = alloca i64, align 8
   %4 = load i64, ptr @rt_complete_frags.tab, align 8, !tbaa !6
   %5 = icmp eq i64 %4, 4
-  br i1 %5, label %6, label %.preheader1292
+  br i1 %5, label %6, label %.preheader1285
 
 6:                                                ; preds = %2
   %.pr.i = load i64, ptr @rt_complete_frags.rbimpl_id, align 8, !tbaa !6
@@ -21219,839 +21278,839 @@ define internal fastcc noundef i64 @rt_complete_frags(i64 noundef %0, i64 nounde
 rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %6
   %.lcssa.i = phi i64 [ %.pr.i, %6 ], [ %7, %.lr.ph.i ]
   %8 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i) #21
-  %.pr.i255 = load i64, ptr @rt_complete_frags.rbimpl_id.199, align 8, !tbaa !6
-  %.not4.i256 = icmp eq i64 %.pr.i255, 0
-  br i1 %.not4.i256, label %.lr.ph.i258, label %rbimpl_intern_const.exit260
+  %.pr.i252 = load i64, ptr @rt_complete_frags.rbimpl_id.199, align 8, !tbaa !6
+  %.not4.i253 = icmp eq i64 %.pr.i252, 0
+  br i1 %.not4.i253, label %.lr.ph.i255, label %rbimpl_intern_const.exit257
 
-.lr.ph.i258:                                      ; preds = %rbimpl_intern_const.exit, %.lr.ph.i258
+.lr.ph.i255:                                      ; preds = %rbimpl_intern_const.exit, %.lr.ph.i255
   %9 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %9, ptr @rt_complete_frags.rbimpl_id.199, align 8, !tbaa !6
-  %.not.i259 = icmp eq i64 %9, 0
-  br i1 %.not.i259, label %.lr.ph.i258, label %rbimpl_intern_const.exit260, !llvm.loop !51
+  %.not.i256 = icmp eq i64 %9, 0
+  br i1 %.not.i256, label %.lr.ph.i255, label %rbimpl_intern_const.exit257, !llvm.loop !51
 
-rbimpl_intern_const.exit260:                      ; preds = %.lr.ph.i258, %rbimpl_intern_const.exit
-  %.lcssa.i257 = phi i64 [ %.pr.i255, %rbimpl_intern_const.exit ], [ %9, %.lr.ph.i258 ]
-  %10 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i257) #21
-  %.pr.i261 = load i64, ptr @rt_complete_frags.rbimpl_id.200, align 8, !tbaa !6
-  %.not4.i262 = icmp eq i64 %.pr.i261, 0
-  br i1 %.not4.i262, label %.lr.ph.i264, label %rbimpl_intern_const.exit266
+rbimpl_intern_const.exit257:                      ; preds = %.lr.ph.i255, %rbimpl_intern_const.exit
+  %.lcssa.i254 = phi i64 [ %.pr.i252, %rbimpl_intern_const.exit ], [ %9, %.lr.ph.i255 ]
+  %10 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i254) #21
+  %.pr.i258 = load i64, ptr @rt_complete_frags.rbimpl_id.200, align 8, !tbaa !6
+  %.not4.i259 = icmp eq i64 %.pr.i258, 0
+  br i1 %.not4.i259, label %.lr.ph.i261, label %rbimpl_intern_const.exit263
 
-.lr.ph.i264:                                      ; preds = %rbimpl_intern_const.exit260, %.lr.ph.i264
+.lr.ph.i261:                                      ; preds = %rbimpl_intern_const.exit257, %.lr.ph.i261
   %11 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %11, ptr @rt_complete_frags.rbimpl_id.200, align 8, !tbaa !6
-  %.not.i265 = icmp eq i64 %11, 0
-  br i1 %.not.i265, label %.lr.ph.i264, label %rbimpl_intern_const.exit266, !llvm.loop !51
+  %.not.i262 = icmp eq i64 %11, 0
+  br i1 %.not.i262, label %.lr.ph.i261, label %rbimpl_intern_const.exit263, !llvm.loop !51
 
-rbimpl_intern_const.exit266:                      ; preds = %.lr.ph.i264, %rbimpl_intern_const.exit260
-  %.lcssa.i263 = phi i64 [ %.pr.i261, %rbimpl_intern_const.exit260 ], [ %11, %.lr.ph.i264 ]
-  %12 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i263) #21
-  %.pr.i267 = load i64, ptr @rt_complete_frags.rbimpl_id.201, align 8, !tbaa !6
-  %.not4.i268 = icmp eq i64 %.pr.i267, 0
-  br i1 %.not4.i268, label %.lr.ph.i270, label %rbimpl_intern_const.exit272
+rbimpl_intern_const.exit263:                      ; preds = %.lr.ph.i261, %rbimpl_intern_const.exit257
+  %.lcssa.i260 = phi i64 [ %.pr.i258, %rbimpl_intern_const.exit257 ], [ %11, %.lr.ph.i261 ]
+  %12 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i260) #21
+  %.pr.i264 = load i64, ptr @rt_complete_frags.rbimpl_id.201, align 8, !tbaa !6
+  %.not4.i265 = icmp eq i64 %.pr.i264, 0
+  br i1 %.not4.i265, label %.lr.ph.i267, label %rbimpl_intern_const.exit269
 
-.lr.ph.i270:                                      ; preds = %rbimpl_intern_const.exit266, %.lr.ph.i270
+.lr.ph.i267:                                      ; preds = %rbimpl_intern_const.exit263, %.lr.ph.i267
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %13, ptr @rt_complete_frags.rbimpl_id.201, align 8, !tbaa !6
-  %.not.i271 = icmp eq i64 %13, 0
-  br i1 %.not.i271, label %.lr.ph.i270, label %rbimpl_intern_const.exit272, !llvm.loop !51
+  %.not.i268 = icmp eq i64 %13, 0
+  br i1 %.not.i268, label %.lr.ph.i267, label %rbimpl_intern_const.exit269, !llvm.loop !51
 
-rbimpl_intern_const.exit272:                      ; preds = %.lr.ph.i270, %rbimpl_intern_const.exit266
-  %.lcssa.i269 = phi i64 [ %.pr.i267, %rbimpl_intern_const.exit266 ], [ %13, %.lr.ph.i270 ]
-  %14 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i269) #21
+rbimpl_intern_const.exit269:                      ; preds = %.lr.ph.i267, %rbimpl_intern_const.exit263
+  %.lcssa.i266 = phi i64 [ %.pr.i264, %rbimpl_intern_const.exit263 ], [ %13, %.lr.ph.i267 ]
+  %14 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i266) #21
   %15 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 3, i64 noundef %10, i64 noundef %12, i64 noundef %14) #21
   %16 = tail call i64 @rb_ary_freeze(i64 noundef %15) #21
   %17 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %8, i64 noundef %16) #21
   %18 = tail call i64 @rb_ary_freeze(i64 noundef %17) #21
-  %.pr.i273 = load i64, ptr @rt_complete_frags.rbimpl_id.202, align 8, !tbaa !6
-  %.not4.i274 = icmp eq i64 %.pr.i273, 0
-  br i1 %.not4.i274, label %.lr.ph.i276, label %rbimpl_intern_const.exit278
+  %.pr.i270 = load i64, ptr @rt_complete_frags.rbimpl_id.202, align 8, !tbaa !6
+  %.not4.i271 = icmp eq i64 %.pr.i270, 0
+  br i1 %.not4.i271, label %.lr.ph.i273, label %rbimpl_intern_const.exit275
 
-.lr.ph.i276:                                      ; preds = %rbimpl_intern_const.exit272, %.lr.ph.i276
+.lr.ph.i273:                                      ; preds = %rbimpl_intern_const.exit269, %.lr.ph.i273
   %19 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 2) #21
   store i64 %19, ptr @rt_complete_frags.rbimpl_id.202, align 8, !tbaa !6
-  %.not.i277 = icmp eq i64 %19, 0
-  br i1 %.not.i277, label %.lr.ph.i276, label %rbimpl_intern_const.exit278, !llvm.loop !51
+  %.not.i274 = icmp eq i64 %19, 0
+  br i1 %.not.i274, label %.lr.ph.i273, label %rbimpl_intern_const.exit275, !llvm.loop !51
 
-rbimpl_intern_const.exit278:                      ; preds = %.lr.ph.i276, %rbimpl_intern_const.exit272
-  %.lcssa.i275 = phi i64 [ %.pr.i273, %rbimpl_intern_const.exit272 ], [ %19, %.lr.ph.i276 ]
-  %20 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i275) #21
+rbimpl_intern_const.exit275:                      ; preds = %.lr.ph.i273, %rbimpl_intern_const.exit269
+  %.lcssa.i272 = phi i64 [ %.pr.i270, %rbimpl_intern_const.exit269 ], [ %19, %.lr.ph.i273 ]
+  %20 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i272) #21
   %21 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 1, i64 noundef %20) #21
   %22 = tail call i64 @rb_ary_freeze(i64 noundef %21) #21
   %23 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef 4, i64 noundef %22) #21
   %24 = tail call i64 @rb_ary_freeze(i64 noundef %23) #21
-  %.pr.i279 = load i64, ptr @rt_complete_frags.rbimpl_id.203, align 8, !tbaa !6
-  %.not4.i280 = icmp eq i64 %.pr.i279, 0
-  br i1 %.not4.i280, label %.lr.ph.i282, label %rbimpl_intern_const.exit284
+  %.pr.i276 = load i64, ptr @rt_complete_frags.rbimpl_id.203, align 8, !tbaa !6
+  %.not4.i277 = icmp eq i64 %.pr.i276, 0
+  br i1 %.not4.i277, label %.lr.ph.i279, label %rbimpl_intern_const.exit281
 
-.lr.ph.i282:                                      ; preds = %rbimpl_intern_const.exit278, %.lr.ph.i282
+.lr.ph.i279:                                      ; preds = %rbimpl_intern_const.exit275, %.lr.ph.i279
   %25 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.33, i64 noundef 7) #21
   store i64 %25, ptr @rt_complete_frags.rbimpl_id.203, align 8, !tbaa !6
-  %.not.i283 = icmp eq i64 %25, 0
-  br i1 %.not.i283, label %.lr.ph.i282, label %rbimpl_intern_const.exit284, !llvm.loop !51
+  %.not.i280 = icmp eq i64 %25, 0
+  br i1 %.not.i280, label %.lr.ph.i279, label %rbimpl_intern_const.exit281, !llvm.loop !51
 
-rbimpl_intern_const.exit284:                      ; preds = %.lr.ph.i282, %rbimpl_intern_const.exit278
-  %.lcssa.i281 = phi i64 [ %.pr.i279, %rbimpl_intern_const.exit278 ], [ %25, %.lr.ph.i282 ]
-  %26 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i281) #21
-  %.pr.i285 = load i64, ptr @rt_complete_frags.rbimpl_id.204, align 8, !tbaa !6
-  %.not4.i286 = icmp eq i64 %.pr.i285, 0
-  br i1 %.not4.i286, label %.lr.ph.i288, label %rbimpl_intern_const.exit290
+rbimpl_intern_const.exit281:                      ; preds = %.lr.ph.i279, %rbimpl_intern_const.exit275
+  %.lcssa.i278 = phi i64 [ %.pr.i276, %rbimpl_intern_const.exit275 ], [ %25, %.lr.ph.i279 ]
+  %26 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i278) #21
+  %.pr.i282 = load i64, ptr @rt_complete_frags.rbimpl_id.204, align 8, !tbaa !6
+  %.not4.i283 = icmp eq i64 %.pr.i282, 0
+  br i1 %.not4.i283, label %.lr.ph.i285, label %rbimpl_intern_const.exit287
 
-.lr.ph.i288:                                      ; preds = %rbimpl_intern_const.exit284, %.lr.ph.i288
+.lr.ph.i285:                                      ; preds = %rbimpl_intern_const.exit281, %.lr.ph.i285
   %27 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %27, ptr @rt_complete_frags.rbimpl_id.204, align 8, !tbaa !6
-  %.not.i289 = icmp eq i64 %27, 0
-  br i1 %.not.i289, label %.lr.ph.i288, label %rbimpl_intern_const.exit290, !llvm.loop !51
+  %.not.i286 = icmp eq i64 %27, 0
+  br i1 %.not.i286, label %.lr.ph.i285, label %rbimpl_intern_const.exit287, !llvm.loop !51
 
-rbimpl_intern_const.exit290:                      ; preds = %.lr.ph.i288, %rbimpl_intern_const.exit284
-  %.lcssa.i287 = phi i64 [ %.pr.i285, %rbimpl_intern_const.exit284 ], [ %27, %.lr.ph.i288 ]
-  %28 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i287) #21
-  %.pr.i291 = load i64, ptr @rt_complete_frags.rbimpl_id.205, align 8, !tbaa !6
-  %.not4.i292 = icmp eq i64 %.pr.i291, 0
-  br i1 %.not4.i292, label %.lr.ph.i294, label %rbimpl_intern_const.exit296
+rbimpl_intern_const.exit287:                      ; preds = %.lr.ph.i285, %rbimpl_intern_const.exit281
+  %.lcssa.i284 = phi i64 [ %.pr.i282, %rbimpl_intern_const.exit281 ], [ %27, %.lr.ph.i285 ]
+  %28 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i284) #21
+  %.pr.i288 = load i64, ptr @rt_complete_frags.rbimpl_id.205, align 8, !tbaa !6
+  %.not4.i289 = icmp eq i64 %.pr.i288, 0
+  br i1 %.not4.i289, label %.lr.ph.i291, label %rbimpl_intern_const.exit293
 
-.lr.ph.i294:                                      ; preds = %rbimpl_intern_const.exit290, %.lr.ph.i294
+.lr.ph.i291:                                      ; preds = %rbimpl_intern_const.exit287, %.lr.ph.i291
   %29 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 4) #21
   store i64 %29, ptr @rt_complete_frags.rbimpl_id.205, align 8, !tbaa !6
-  %.not.i295 = icmp eq i64 %29, 0
-  br i1 %.not.i295, label %.lr.ph.i294, label %rbimpl_intern_const.exit296, !llvm.loop !51
+  %.not.i292 = icmp eq i64 %29, 0
+  br i1 %.not.i292, label %.lr.ph.i291, label %rbimpl_intern_const.exit293, !llvm.loop !51
 
-rbimpl_intern_const.exit296:                      ; preds = %.lr.ph.i294, %rbimpl_intern_const.exit290
-  %.lcssa.i293 = phi i64 [ %.pr.i291, %rbimpl_intern_const.exit290 ], [ %29, %.lr.ph.i294 ]
-  %30 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i293) #21
-  %.pr.i297 = load i64, ptr @rt_complete_frags.rbimpl_id.206, align 8, !tbaa !6
-  %.not4.i298 = icmp eq i64 %.pr.i297, 0
-  br i1 %.not4.i298, label %.lr.ph.i300, label %rbimpl_intern_const.exit302
+rbimpl_intern_const.exit293:                      ; preds = %.lr.ph.i291, %rbimpl_intern_const.exit287
+  %.lcssa.i290 = phi i64 [ %.pr.i288, %rbimpl_intern_const.exit287 ], [ %29, %.lr.ph.i291 ]
+  %30 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i290) #21
+  %.pr.i294 = load i64, ptr @rt_complete_frags.rbimpl_id.206, align 8, !tbaa !6
+  %.not4.i295 = icmp eq i64 %.pr.i294, 0
+  br i1 %.not4.i295, label %.lr.ph.i297, label %rbimpl_intern_const.exit299
 
-.lr.ph.i300:                                      ; preds = %rbimpl_intern_const.exit296, %.lr.ph.i300
+.lr.ph.i297:                                      ; preds = %rbimpl_intern_const.exit293, %.lr.ph.i297
   %31 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %31, ptr @rt_complete_frags.rbimpl_id.206, align 8, !tbaa !6
-  %.not.i301 = icmp eq i64 %31, 0
-  br i1 %.not.i301, label %.lr.ph.i300, label %rbimpl_intern_const.exit302, !llvm.loop !51
+  %.not.i298 = icmp eq i64 %31, 0
+  br i1 %.not.i298, label %.lr.ph.i297, label %rbimpl_intern_const.exit299, !llvm.loop !51
 
-rbimpl_intern_const.exit302:                      ; preds = %.lr.ph.i300, %rbimpl_intern_const.exit296
-  %.lcssa.i299 = phi i64 [ %.pr.i297, %rbimpl_intern_const.exit296 ], [ %31, %.lr.ph.i300 ]
-  %32 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i299) #21
-  %.pr.i303 = load i64, ptr @rt_complete_frags.rbimpl_id.207, align 8, !tbaa !6
-  %.not4.i304 = icmp eq i64 %.pr.i303, 0
-  br i1 %.not4.i304, label %.lr.ph.i306, label %rbimpl_intern_const.exit308
+rbimpl_intern_const.exit299:                      ; preds = %.lr.ph.i297, %rbimpl_intern_const.exit293
+  %.lcssa.i296 = phi i64 [ %.pr.i294, %rbimpl_intern_const.exit293 ], [ %31, %.lr.ph.i297 ]
+  %32 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i296) #21
+  %.pr.i300 = load i64, ptr @rt_complete_frags.rbimpl_id.207, align 8, !tbaa !6
+  %.not4.i301 = icmp eq i64 %.pr.i300, 0
+  br i1 %.not4.i301, label %.lr.ph.i303, label %rbimpl_intern_const.exit305
 
-.lr.ph.i306:                                      ; preds = %rbimpl_intern_const.exit302, %.lr.ph.i306
+.lr.ph.i303:                                      ; preds = %rbimpl_intern_const.exit299, %.lr.ph.i303
   %33 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %33, ptr @rt_complete_frags.rbimpl_id.207, align 8, !tbaa !6
-  %.not.i307 = icmp eq i64 %33, 0
-  br i1 %.not.i307, label %.lr.ph.i306, label %rbimpl_intern_const.exit308, !llvm.loop !51
+  %.not.i304 = icmp eq i64 %33, 0
+  br i1 %.not.i304, label %.lr.ph.i303, label %rbimpl_intern_const.exit305, !llvm.loop !51
 
-rbimpl_intern_const.exit308:                      ; preds = %.lr.ph.i306, %rbimpl_intern_const.exit302
-  %.lcssa.i305 = phi i64 [ %.pr.i303, %rbimpl_intern_const.exit302 ], [ %33, %.lr.ph.i306 ]
-  %34 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i305) #21
-  %.pr.i309 = load i64, ptr @rt_complete_frags.rbimpl_id.208, align 8, !tbaa !6
-  %.not4.i310 = icmp eq i64 %.pr.i309, 0
-  br i1 %.not4.i310, label %.lr.ph.i312, label %rbimpl_intern_const.exit314
+rbimpl_intern_const.exit305:                      ; preds = %.lr.ph.i303, %rbimpl_intern_const.exit299
+  %.lcssa.i302 = phi i64 [ %.pr.i300, %rbimpl_intern_const.exit299 ], [ %33, %.lr.ph.i303 ]
+  %34 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i302) #21
+  %.pr.i306 = load i64, ptr @rt_complete_frags.rbimpl_id.208, align 8, !tbaa !6
+  %.not4.i307 = icmp eq i64 %.pr.i306, 0
+  br i1 %.not4.i307, label %.lr.ph.i309, label %rbimpl_intern_const.exit311
 
-.lr.ph.i312:                                      ; preds = %rbimpl_intern_const.exit308, %.lr.ph.i312
+.lr.ph.i309:                                      ; preds = %rbimpl_intern_const.exit305, %.lr.ph.i309
   %35 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %35, ptr @rt_complete_frags.rbimpl_id.208, align 8, !tbaa !6
-  %.not.i313 = icmp eq i64 %35, 0
-  br i1 %.not.i313, label %.lr.ph.i312, label %rbimpl_intern_const.exit314, !llvm.loop !51
+  %.not.i310 = icmp eq i64 %35, 0
+  br i1 %.not.i310, label %.lr.ph.i309, label %rbimpl_intern_const.exit311, !llvm.loop !51
 
-rbimpl_intern_const.exit314:                      ; preds = %.lr.ph.i312, %rbimpl_intern_const.exit308
-  %.lcssa.i311 = phi i64 [ %.pr.i309, %rbimpl_intern_const.exit308 ], [ %35, %.lr.ph.i312 ]
-  %36 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i311) #21
+rbimpl_intern_const.exit311:                      ; preds = %.lr.ph.i309, %rbimpl_intern_const.exit305
+  %.lcssa.i308 = phi i64 [ %.pr.i306, %rbimpl_intern_const.exit305 ], [ %35, %.lr.ph.i309 ]
+  %36 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i308) #21
   %37 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 5, i64 noundef %28, i64 noundef %30, i64 noundef %32, i64 noundef %34, i64 noundef %36) #21
   %38 = tail call i64 @rb_ary_freeze(i64 noundef %37) #21
   %39 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %26, i64 noundef %38) #21
   %40 = tail call i64 @rb_ary_freeze(i64 noundef %39) #21
-  %.pr.i315 = load i64, ptr @rt_complete_frags.rbimpl_id.209, align 8, !tbaa !6
-  %.not4.i316 = icmp eq i64 %.pr.i315, 0
-  br i1 %.not4.i316, label %.lr.ph.i318, label %rbimpl_intern_const.exit320
+  %.pr.i312 = load i64, ptr @rt_complete_frags.rbimpl_id.209, align 8, !tbaa !6
+  %.not4.i313 = icmp eq i64 %.pr.i312, 0
+  br i1 %.not4.i313, label %.lr.ph.i315, label %rbimpl_intern_const.exit317
 
-.lr.ph.i318:                                      ; preds = %rbimpl_intern_const.exit314, %.lr.ph.i318
+.lr.ph.i315:                                      ; preds = %rbimpl_intern_const.exit311, %.lr.ph.i315
   %41 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.34, i64 noundef 5) #21
   store i64 %41, ptr @rt_complete_frags.rbimpl_id.209, align 8, !tbaa !6
-  %.not.i319 = icmp eq i64 %41, 0
-  br i1 %.not.i319, label %.lr.ph.i318, label %rbimpl_intern_const.exit320, !llvm.loop !51
+  %.not.i316 = icmp eq i64 %41, 0
+  br i1 %.not.i316, label %.lr.ph.i315, label %rbimpl_intern_const.exit317, !llvm.loop !51
 
-rbimpl_intern_const.exit320:                      ; preds = %.lr.ph.i318, %rbimpl_intern_const.exit314
-  %.lcssa.i317 = phi i64 [ %.pr.i315, %rbimpl_intern_const.exit314 ], [ %41, %.lr.ph.i318 ]
-  %42 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i317) #21
-  %.pr.i321 = load i64, ptr @rt_complete_frags.rbimpl_id.210, align 8, !tbaa !6
-  %.not4.i322 = icmp eq i64 %.pr.i321, 0
-  br i1 %.not4.i322, label %.lr.ph.i324, label %rbimpl_intern_const.exit326
+rbimpl_intern_const.exit317:                      ; preds = %.lr.ph.i315, %rbimpl_intern_const.exit311
+  %.lcssa.i314 = phi i64 [ %.pr.i312, %rbimpl_intern_const.exit311 ], [ %41, %.lr.ph.i315 ]
+  %42 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i314) #21
+  %.pr.i318 = load i64, ptr @rt_complete_frags.rbimpl_id.210, align 8, !tbaa !6
+  %.not4.i319 = icmp eq i64 %.pr.i318, 0
+  br i1 %.not4.i319, label %.lr.ph.i321, label %rbimpl_intern_const.exit323
 
-.lr.ph.i324:                                      ; preds = %rbimpl_intern_const.exit320, %.lr.ph.i324
+.lr.ph.i321:                                      ; preds = %rbimpl_intern_const.exit317, %.lr.ph.i321
   %43 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %43, ptr @rt_complete_frags.rbimpl_id.210, align 8, !tbaa !6
-  %.not.i325 = icmp eq i64 %43, 0
-  br i1 %.not.i325, label %.lr.ph.i324, label %rbimpl_intern_const.exit326, !llvm.loop !51
+  %.not.i322 = icmp eq i64 %43, 0
+  br i1 %.not.i322, label %.lr.ph.i321, label %rbimpl_intern_const.exit323, !llvm.loop !51
 
-rbimpl_intern_const.exit326:                      ; preds = %.lr.ph.i324, %rbimpl_intern_const.exit320
-  %.lcssa.i323 = phi i64 [ %.pr.i321, %rbimpl_intern_const.exit320 ], [ %43, %.lr.ph.i324 ]
-  %44 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i323) #21
-  %.pr.i327 = load i64, ptr @rt_complete_frags.rbimpl_id.211, align 8, !tbaa !6
-  %.not4.i328 = icmp eq i64 %.pr.i327, 0
-  br i1 %.not4.i328, label %.lr.ph.i330, label %rbimpl_intern_const.exit332
+rbimpl_intern_const.exit323:                      ; preds = %.lr.ph.i321, %rbimpl_intern_const.exit317
+  %.lcssa.i320 = phi i64 [ %.pr.i318, %rbimpl_intern_const.exit317 ], [ %43, %.lr.ph.i321 ]
+  %44 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i320) #21
+  %.pr.i324 = load i64, ptr @rt_complete_frags.rbimpl_id.211, align 8, !tbaa !6
+  %.not4.i325 = icmp eq i64 %.pr.i324, 0
+  br i1 %.not4.i325, label %.lr.ph.i327, label %rbimpl_intern_const.exit329
 
-.lr.ph.i330:                                      ; preds = %rbimpl_intern_const.exit326, %.lr.ph.i330
+.lr.ph.i327:                                      ; preds = %rbimpl_intern_const.exit323, %.lr.ph.i327
   %45 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.61, i64 noundef 3) #21
   store i64 %45, ptr @rt_complete_frags.rbimpl_id.211, align 8, !tbaa !6
-  %.not.i331 = icmp eq i64 %45, 0
-  br i1 %.not.i331, label %.lr.ph.i330, label %rbimpl_intern_const.exit332, !llvm.loop !51
+  %.not.i328 = icmp eq i64 %45, 0
+  br i1 %.not.i328, label %.lr.ph.i327, label %rbimpl_intern_const.exit329, !llvm.loop !51
 
-rbimpl_intern_const.exit332:                      ; preds = %.lr.ph.i330, %rbimpl_intern_const.exit326
-  %.lcssa.i329 = phi i64 [ %.pr.i327, %rbimpl_intern_const.exit326 ], [ %45, %.lr.ph.i330 ]
-  %46 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i329) #21
-  %.pr.i333 = load i64, ptr @rt_complete_frags.rbimpl_id.212, align 8, !tbaa !6
-  %.not4.i334 = icmp eq i64 %.pr.i333, 0
-  br i1 %.not4.i334, label %.lr.ph.i336, label %rbimpl_intern_const.exit338
+rbimpl_intern_const.exit329:                      ; preds = %.lr.ph.i327, %rbimpl_intern_const.exit323
+  %.lcssa.i326 = phi i64 [ %.pr.i324, %rbimpl_intern_const.exit323 ], [ %45, %.lr.ph.i327 ]
+  %46 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i326) #21
+  %.pr.i330 = load i64, ptr @rt_complete_frags.rbimpl_id.212, align 8, !tbaa !6
+  %.not4.i331 = icmp eq i64 %.pr.i330, 0
+  br i1 %.not4.i331, label %.lr.ph.i333, label %rbimpl_intern_const.exit335
 
-.lr.ph.i336:                                      ; preds = %rbimpl_intern_const.exit332, %.lr.ph.i336
+.lr.ph.i333:                                      ; preds = %rbimpl_intern_const.exit329, %.lr.ph.i333
   %47 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.62, i64 noundef 4) #21
   store i64 %47, ptr @rt_complete_frags.rbimpl_id.212, align 8, !tbaa !6
-  %.not.i337 = icmp eq i64 %47, 0
-  br i1 %.not.i337, label %.lr.ph.i336, label %rbimpl_intern_const.exit338, !llvm.loop !51
+  %.not.i334 = icmp eq i64 %47, 0
+  br i1 %.not.i334, label %.lr.ph.i333, label %rbimpl_intern_const.exit335, !llvm.loop !51
 
-rbimpl_intern_const.exit338:                      ; preds = %.lr.ph.i336, %rbimpl_intern_const.exit332
-  %.lcssa.i335 = phi i64 [ %.pr.i333, %rbimpl_intern_const.exit332 ], [ %47, %.lr.ph.i336 ]
-  %48 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i335) #21
-  %.pr.i339 = load i64, ptr @rt_complete_frags.rbimpl_id.213, align 8, !tbaa !6
-  %.not4.i340 = icmp eq i64 %.pr.i339, 0
-  br i1 %.not4.i340, label %.lr.ph.i342, label %rbimpl_intern_const.exit344
+rbimpl_intern_const.exit335:                      ; preds = %.lr.ph.i333, %rbimpl_intern_const.exit329
+  %.lcssa.i332 = phi i64 [ %.pr.i330, %rbimpl_intern_const.exit329 ], [ %47, %.lr.ph.i333 ]
+  %48 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i332) #21
+  %.pr.i336 = load i64, ptr @rt_complete_frags.rbimpl_id.213, align 8, !tbaa !6
+  %.not4.i337 = icmp eq i64 %.pr.i336, 0
+  br i1 %.not4.i337, label %.lr.ph.i339, label %rbimpl_intern_const.exit341
 
-.lr.ph.i342:                                      ; preds = %rbimpl_intern_const.exit338, %.lr.ph.i342
+.lr.ph.i339:                                      ; preds = %rbimpl_intern_const.exit335, %.lr.ph.i339
   %49 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %49, ptr @rt_complete_frags.rbimpl_id.213, align 8, !tbaa !6
-  %.not.i343 = icmp eq i64 %49, 0
-  br i1 %.not.i343, label %.lr.ph.i342, label %rbimpl_intern_const.exit344, !llvm.loop !51
+  %.not.i340 = icmp eq i64 %49, 0
+  br i1 %.not.i340, label %.lr.ph.i339, label %rbimpl_intern_const.exit341, !llvm.loop !51
 
-rbimpl_intern_const.exit344:                      ; preds = %.lr.ph.i342, %rbimpl_intern_const.exit338
-  %.lcssa.i341 = phi i64 [ %.pr.i339, %rbimpl_intern_const.exit338 ], [ %49, %.lr.ph.i342 ]
-  %50 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i341) #21
-  %.pr.i345 = load i64, ptr @rt_complete_frags.rbimpl_id.214, align 8, !tbaa !6
-  %.not4.i346 = icmp eq i64 %.pr.i345, 0
-  br i1 %.not4.i346, label %.lr.ph.i348, label %rbimpl_intern_const.exit350
+rbimpl_intern_const.exit341:                      ; preds = %.lr.ph.i339, %rbimpl_intern_const.exit335
+  %.lcssa.i338 = phi i64 [ %.pr.i336, %rbimpl_intern_const.exit335 ], [ %49, %.lr.ph.i339 ]
+  %50 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i338) #21
+  %.pr.i342 = load i64, ptr @rt_complete_frags.rbimpl_id.214, align 8, !tbaa !6
+  %.not4.i343 = icmp eq i64 %.pr.i342, 0
+  br i1 %.not4.i343, label %.lr.ph.i345, label %rbimpl_intern_const.exit347
 
-.lr.ph.i348:                                      ; preds = %rbimpl_intern_const.exit344, %.lr.ph.i348
+.lr.ph.i345:                                      ; preds = %rbimpl_intern_const.exit341, %.lr.ph.i345
   %51 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %51, ptr @rt_complete_frags.rbimpl_id.214, align 8, !tbaa !6
-  %.not.i349 = icmp eq i64 %51, 0
-  br i1 %.not.i349, label %.lr.ph.i348, label %rbimpl_intern_const.exit350, !llvm.loop !51
+  %.not.i346 = icmp eq i64 %51, 0
+  br i1 %.not.i346, label %.lr.ph.i345, label %rbimpl_intern_const.exit347, !llvm.loop !51
 
-rbimpl_intern_const.exit350:                      ; preds = %.lr.ph.i348, %rbimpl_intern_const.exit344
-  %.lcssa.i347 = phi i64 [ %.pr.i345, %rbimpl_intern_const.exit344 ], [ %51, %.lr.ph.i348 ]
-  %52 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i347) #21
-  %.pr.i351 = load i64, ptr @rt_complete_frags.rbimpl_id.215, align 8, !tbaa !6
-  %.not4.i352 = icmp eq i64 %.pr.i351, 0
-  br i1 %.not4.i352, label %.lr.ph.i354, label %rbimpl_intern_const.exit356
+rbimpl_intern_const.exit347:                      ; preds = %.lr.ph.i345, %rbimpl_intern_const.exit341
+  %.lcssa.i344 = phi i64 [ %.pr.i342, %rbimpl_intern_const.exit341 ], [ %51, %.lr.ph.i345 ]
+  %52 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i344) #21
+  %.pr.i348 = load i64, ptr @rt_complete_frags.rbimpl_id.215, align 8, !tbaa !6
+  %.not4.i349 = icmp eq i64 %.pr.i348, 0
+  br i1 %.not4.i349, label %.lr.ph.i351, label %rbimpl_intern_const.exit353
 
-.lr.ph.i354:                                      ; preds = %rbimpl_intern_const.exit350, %.lr.ph.i354
+.lr.ph.i351:                                      ; preds = %rbimpl_intern_const.exit347, %.lr.ph.i351
   %53 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %53, ptr @rt_complete_frags.rbimpl_id.215, align 8, !tbaa !6
-  %.not.i355 = icmp eq i64 %53, 0
-  br i1 %.not.i355, label %.lr.ph.i354, label %rbimpl_intern_const.exit356, !llvm.loop !51
+  %.not.i352 = icmp eq i64 %53, 0
+  br i1 %.not.i352, label %.lr.ph.i351, label %rbimpl_intern_const.exit353, !llvm.loop !51
 
-rbimpl_intern_const.exit356:                      ; preds = %.lr.ph.i354, %rbimpl_intern_const.exit350
-  %.lcssa.i353 = phi i64 [ %.pr.i351, %rbimpl_intern_const.exit350 ], [ %53, %.lr.ph.i354 ]
-  %54 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i353) #21
+rbimpl_intern_const.exit353:                      ; preds = %.lr.ph.i351, %rbimpl_intern_const.exit347
+  %.lcssa.i350 = phi i64 [ %.pr.i348, %rbimpl_intern_const.exit347 ], [ %53, %.lr.ph.i351 ]
+  %54 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i350) #21
   %55 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %44, i64 noundef %46, i64 noundef %48, i64 noundef %50, i64 noundef %52, i64 noundef %54) #21
   %56 = tail call i64 @rb_ary_freeze(i64 noundef %55) #21
   %57 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %42, i64 noundef %56) #21
   %58 = tail call i64 @rb_ary_freeze(i64 noundef %57) #21
-  %.pr.i357 = load i64, ptr @rt_complete_frags.rbimpl_id.216, align 8, !tbaa !6
-  %.not4.i358 = icmp eq i64 %.pr.i357, 0
-  br i1 %.not4.i358, label %.lr.ph.i360, label %rbimpl_intern_const.exit362
+  %.pr.i354 = load i64, ptr @rt_complete_frags.rbimpl_id.216, align 8, !tbaa !6
+  %.not4.i355 = icmp eq i64 %.pr.i354, 0
+  br i1 %.not4.i355, label %.lr.ph.i357, label %rbimpl_intern_const.exit359
 
-.lr.ph.i360:                                      ; preds = %rbimpl_intern_const.exit356, %.lr.ph.i360
+.lr.ph.i357:                                      ; preds = %rbimpl_intern_const.exit353, %.lr.ph.i357
   %59 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.35, i64 noundef 10) #21
   store i64 %59, ptr @rt_complete_frags.rbimpl_id.216, align 8, !tbaa !6
-  %.not.i361 = icmp eq i64 %59, 0
-  br i1 %.not.i361, label %.lr.ph.i360, label %rbimpl_intern_const.exit362, !llvm.loop !51
+  %.not.i358 = icmp eq i64 %59, 0
+  br i1 %.not.i358, label %.lr.ph.i357, label %rbimpl_intern_const.exit359, !llvm.loop !51
 
-rbimpl_intern_const.exit362:                      ; preds = %.lr.ph.i360, %rbimpl_intern_const.exit356
-  %.lcssa.i359 = phi i64 [ %.pr.i357, %rbimpl_intern_const.exit356 ], [ %59, %.lr.ph.i360 ]
-  %60 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i359) #21
-  %.pr.i363 = load i64, ptr @rt_complete_frags.rbimpl_id.217, align 8, !tbaa !6
-  %.not4.i364 = icmp eq i64 %.pr.i363, 0
-  br i1 %.not4.i364, label %.lr.ph.i366, label %rbimpl_intern_const.exit368
+rbimpl_intern_const.exit359:                      ; preds = %.lr.ph.i357, %rbimpl_intern_const.exit353
+  %.lcssa.i356 = phi i64 [ %.pr.i354, %rbimpl_intern_const.exit353 ], [ %59, %.lr.ph.i357 ]
+  %60 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i356) #21
+  %.pr.i360 = load i64, ptr @rt_complete_frags.rbimpl_id.217, align 8, !tbaa !6
+  %.not4.i361 = icmp eq i64 %.pr.i360, 0
+  br i1 %.not4.i361, label %.lr.ph.i363, label %rbimpl_intern_const.exit365
 
-.lr.ph.i366:                                      ; preds = %rbimpl_intern_const.exit362, %.lr.ph.i366
+.lr.ph.i363:                                      ; preds = %rbimpl_intern_const.exit359, %.lr.ph.i363
   %61 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.64, i64 noundef 6) #21
   store i64 %61, ptr @rt_complete_frags.rbimpl_id.217, align 8, !tbaa !6
-  %.not.i367 = icmp eq i64 %61, 0
-  br i1 %.not.i367, label %.lr.ph.i366, label %rbimpl_intern_const.exit368, !llvm.loop !51
+  %.not.i364 = icmp eq i64 %61, 0
+  br i1 %.not.i364, label %.lr.ph.i363, label %rbimpl_intern_const.exit365, !llvm.loop !51
 
-rbimpl_intern_const.exit368:                      ; preds = %.lr.ph.i366, %rbimpl_intern_const.exit362
-  %.lcssa.i365 = phi i64 [ %.pr.i363, %rbimpl_intern_const.exit362 ], [ %61, %.lr.ph.i366 ]
-  %62 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i365) #21
-  %.pr.i369 = load i64, ptr @rt_complete_frags.rbimpl_id.218, align 8, !tbaa !6
-  %.not4.i370 = icmp eq i64 %.pr.i369, 0
-  br i1 %.not4.i370, label %.lr.ph.i372, label %rbimpl_intern_const.exit374
+rbimpl_intern_const.exit365:                      ; preds = %.lr.ph.i363, %rbimpl_intern_const.exit359
+  %.lcssa.i362 = phi i64 [ %.pr.i360, %rbimpl_intern_const.exit359 ], [ %61, %.lr.ph.i363 ]
+  %62 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i362) #21
+  %.pr.i366 = load i64, ptr @rt_complete_frags.rbimpl_id.218, align 8, !tbaa !6
+  %.not4.i367 = icmp eq i64 %.pr.i366, 0
+  br i1 %.not4.i367, label %.lr.ph.i369, label %rbimpl_intern_const.exit371
 
-.lr.ph.i372:                                      ; preds = %rbimpl_intern_const.exit368, %.lr.ph.i372
+.lr.ph.i369:                                      ; preds = %rbimpl_intern_const.exit365, %.lr.ph.i369
   %63 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.65, i64 noundef 5) #21
   store i64 %63, ptr @rt_complete_frags.rbimpl_id.218, align 8, !tbaa !6
-  %.not.i373 = icmp eq i64 %63, 0
-  br i1 %.not.i373, label %.lr.ph.i372, label %rbimpl_intern_const.exit374, !llvm.loop !51
+  %.not.i370 = icmp eq i64 %63, 0
+  br i1 %.not.i370, label %.lr.ph.i369, label %rbimpl_intern_const.exit371, !llvm.loop !51
 
-rbimpl_intern_const.exit374:                      ; preds = %.lr.ph.i372, %rbimpl_intern_const.exit368
-  %.lcssa.i371 = phi i64 [ %.pr.i369, %rbimpl_intern_const.exit368 ], [ %63, %.lr.ph.i372 ]
-  %64 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i371) #21
-  %.pr.i375 = load i64, ptr @rt_complete_frags.rbimpl_id.219, align 8, !tbaa !6
-  %.not4.i376 = icmp eq i64 %.pr.i375, 0
-  br i1 %.not4.i376, label %.lr.ph.i378, label %rbimpl_intern_const.exit380
+rbimpl_intern_const.exit371:                      ; preds = %.lr.ph.i369, %rbimpl_intern_const.exit365
+  %.lcssa.i368 = phi i64 [ %.pr.i366, %rbimpl_intern_const.exit365 ], [ %63, %.lr.ph.i369 ]
+  %64 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i368) #21
+  %.pr.i372 = load i64, ptr @rt_complete_frags.rbimpl_id.219, align 8, !tbaa !6
+  %.not4.i373 = icmp eq i64 %.pr.i372, 0
+  br i1 %.not4.i373, label %.lr.ph.i375, label %rbimpl_intern_const.exit377
 
-.lr.ph.i378:                                      ; preds = %rbimpl_intern_const.exit374, %.lr.ph.i378
+.lr.ph.i375:                                      ; preds = %rbimpl_intern_const.exit371, %.lr.ph.i375
   %65 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 5) #21
   store i64 %65, ptr @rt_complete_frags.rbimpl_id.219, align 8, !tbaa !6
-  %.not.i379 = icmp eq i64 %65, 0
-  br i1 %.not.i379, label %.lr.ph.i378, label %rbimpl_intern_const.exit380, !llvm.loop !51
+  %.not.i376 = icmp eq i64 %65, 0
+  br i1 %.not.i376, label %.lr.ph.i375, label %rbimpl_intern_const.exit377, !llvm.loop !51
 
-rbimpl_intern_const.exit380:                      ; preds = %.lr.ph.i378, %rbimpl_intern_const.exit374
-  %.lcssa.i377 = phi i64 [ %.pr.i375, %rbimpl_intern_const.exit374 ], [ %65, %.lr.ph.i378 ]
-  %66 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i377) #21
-  %.pr.i381 = load i64, ptr @rt_complete_frags.rbimpl_id.220, align 8, !tbaa !6
-  %.not4.i382 = icmp eq i64 %.pr.i381, 0
-  br i1 %.not4.i382, label %.lr.ph.i384, label %rbimpl_intern_const.exit386
+rbimpl_intern_const.exit377:                      ; preds = %.lr.ph.i375, %rbimpl_intern_const.exit371
+  %.lcssa.i374 = phi i64 [ %.pr.i372, %rbimpl_intern_const.exit371 ], [ %65, %.lr.ph.i375 ]
+  %66 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i374) #21
+  %.pr.i378 = load i64, ptr @rt_complete_frags.rbimpl_id.220, align 8, !tbaa !6
+  %.not4.i379 = icmp eq i64 %.pr.i378, 0
+  br i1 %.not4.i379, label %.lr.ph.i381, label %rbimpl_intern_const.exit383
 
-.lr.ph.i384:                                      ; preds = %rbimpl_intern_const.exit380, %.lr.ph.i384
+.lr.ph.i381:                                      ; preds = %rbimpl_intern_const.exit377, %.lr.ph.i381
   %67 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %67, ptr @rt_complete_frags.rbimpl_id.220, align 8, !tbaa !6
-  %.not.i385 = icmp eq i64 %67, 0
-  br i1 %.not.i385, label %.lr.ph.i384, label %rbimpl_intern_const.exit386, !llvm.loop !51
+  %.not.i382 = icmp eq i64 %67, 0
+  br i1 %.not.i382, label %.lr.ph.i381, label %rbimpl_intern_const.exit383, !llvm.loop !51
 
-rbimpl_intern_const.exit386:                      ; preds = %.lr.ph.i384, %rbimpl_intern_const.exit380
-  %.lcssa.i383 = phi i64 [ %.pr.i381, %rbimpl_intern_const.exit380 ], [ %67, %.lr.ph.i384 ]
-  %68 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i383) #21
-  %.pr.i387 = load i64, ptr @rt_complete_frags.rbimpl_id.221, align 8, !tbaa !6
-  %.not4.i388 = icmp eq i64 %.pr.i387, 0
-  br i1 %.not4.i388, label %.lr.ph.i390, label %rbimpl_intern_const.exit392
+rbimpl_intern_const.exit383:                      ; preds = %.lr.ph.i381, %rbimpl_intern_const.exit377
+  %.lcssa.i380 = phi i64 [ %.pr.i378, %rbimpl_intern_const.exit377 ], [ %67, %.lr.ph.i381 ]
+  %68 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i380) #21
+  %.pr.i384 = load i64, ptr @rt_complete_frags.rbimpl_id.221, align 8, !tbaa !6
+  %.not4.i385 = icmp eq i64 %.pr.i384, 0
+  br i1 %.not4.i385, label %.lr.ph.i387, label %rbimpl_intern_const.exit389
 
-.lr.ph.i390:                                      ; preds = %rbimpl_intern_const.exit386, %.lr.ph.i390
+.lr.ph.i387:                                      ; preds = %rbimpl_intern_const.exit383, %.lr.ph.i387
   %69 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %69, ptr @rt_complete_frags.rbimpl_id.221, align 8, !tbaa !6
-  %.not.i391 = icmp eq i64 %69, 0
-  br i1 %.not.i391, label %.lr.ph.i390, label %rbimpl_intern_const.exit392, !llvm.loop !51
+  %.not.i388 = icmp eq i64 %69, 0
+  br i1 %.not.i388, label %.lr.ph.i387, label %rbimpl_intern_const.exit389, !llvm.loop !51
 
-rbimpl_intern_const.exit392:                      ; preds = %.lr.ph.i390, %rbimpl_intern_const.exit386
-  %.lcssa.i389 = phi i64 [ %.pr.i387, %rbimpl_intern_const.exit386 ], [ %69, %.lr.ph.i390 ]
-  %70 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i389) #21
-  %.pr.i393 = load i64, ptr @rt_complete_frags.rbimpl_id.222, align 8, !tbaa !6
-  %.not4.i394 = icmp eq i64 %.pr.i393, 0
-  br i1 %.not4.i394, label %.lr.ph.i396, label %rbimpl_intern_const.exit398
+rbimpl_intern_const.exit389:                      ; preds = %.lr.ph.i387, %rbimpl_intern_const.exit383
+  %.lcssa.i386 = phi i64 [ %.pr.i384, %rbimpl_intern_const.exit383 ], [ %69, %.lr.ph.i387 ]
+  %70 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i386) #21
+  %.pr.i390 = load i64, ptr @rt_complete_frags.rbimpl_id.222, align 8, !tbaa !6
+  %.not4.i391 = icmp eq i64 %.pr.i390, 0
+  br i1 %.not4.i391, label %.lr.ph.i393, label %rbimpl_intern_const.exit395
 
-.lr.ph.i396:                                      ; preds = %rbimpl_intern_const.exit392, %.lr.ph.i396
+.lr.ph.i393:                                      ; preds = %rbimpl_intern_const.exit389, %.lr.ph.i393
   %71 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %71, ptr @rt_complete_frags.rbimpl_id.222, align 8, !tbaa !6
-  %.not.i397 = icmp eq i64 %71, 0
-  br i1 %.not.i397, label %.lr.ph.i396, label %rbimpl_intern_const.exit398, !llvm.loop !51
+  %.not.i394 = icmp eq i64 %71, 0
+  br i1 %.not.i394, label %.lr.ph.i393, label %rbimpl_intern_const.exit395, !llvm.loop !51
 
-rbimpl_intern_const.exit398:                      ; preds = %.lr.ph.i396, %rbimpl_intern_const.exit392
-  %.lcssa.i395 = phi i64 [ %.pr.i393, %rbimpl_intern_const.exit392 ], [ %71, %.lr.ph.i396 ]
-  %72 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i395) #21
+rbimpl_intern_const.exit395:                      ; preds = %.lr.ph.i393, %rbimpl_intern_const.exit389
+  %.lcssa.i392 = phi i64 [ %.pr.i390, %rbimpl_intern_const.exit389 ], [ %71, %.lr.ph.i393 ]
+  %72 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i392) #21
   %73 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %62, i64 noundef %64, i64 noundef %66, i64 noundef %68, i64 noundef %70, i64 noundef %72) #21
   %74 = tail call i64 @rb_ary_freeze(i64 noundef %73) #21
   %75 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %60, i64 noundef %74) #21
   %76 = tail call i64 @rb_ary_freeze(i64 noundef %75) #21
-  %.pr.i399 = load i64, ptr @rt_complete_frags.rbimpl_id.223, align 8, !tbaa !6
-  %.not4.i400 = icmp eq i64 %.pr.i399, 0
-  br i1 %.not4.i400, label %.lr.ph.i402, label %rbimpl_intern_const.exit404
+  %.pr.i396 = load i64, ptr @rt_complete_frags.rbimpl_id.223, align 8, !tbaa !6
+  %.not4.i397 = icmp eq i64 %.pr.i396, 0
+  br i1 %.not4.i397, label %.lr.ph.i399, label %rbimpl_intern_const.exit401
 
-.lr.ph.i402:                                      ; preds = %rbimpl_intern_const.exit398, %.lr.ph.i402
+.lr.ph.i399:                                      ; preds = %rbimpl_intern_const.exit395, %.lr.ph.i399
   %77 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 4) #21
   store i64 %77, ptr @rt_complete_frags.rbimpl_id.223, align 8, !tbaa !6
-  %.not.i403 = icmp eq i64 %77, 0
-  br i1 %.not.i403, label %.lr.ph.i402, label %rbimpl_intern_const.exit404, !llvm.loop !51
+  %.not.i400 = icmp eq i64 %77, 0
+  br i1 %.not.i400, label %.lr.ph.i399, label %rbimpl_intern_const.exit401, !llvm.loop !51
 
-rbimpl_intern_const.exit404:                      ; preds = %.lr.ph.i402, %rbimpl_intern_const.exit398
-  %.lcssa.i401 = phi i64 [ %.pr.i399, %rbimpl_intern_const.exit398 ], [ %77, %.lr.ph.i402 ]
-  %78 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i401) #21
-  %.pr.i405 = load i64, ptr @rt_complete_frags.rbimpl_id.224, align 8, !tbaa !6
-  %.not4.i406 = icmp eq i64 %.pr.i405, 0
-  br i1 %.not4.i406, label %.lr.ph.i408, label %rbimpl_intern_const.exit410
+rbimpl_intern_const.exit401:                      ; preds = %.lr.ph.i399, %rbimpl_intern_const.exit395
+  %.lcssa.i398 = phi i64 [ %.pr.i396, %rbimpl_intern_const.exit395 ], [ %77, %.lr.ph.i399 ]
+  %78 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i398) #21
+  %.pr.i402 = load i64, ptr @rt_complete_frags.rbimpl_id.224, align 8, !tbaa !6
+  %.not4.i403 = icmp eq i64 %.pr.i402, 0
+  br i1 %.not4.i403, label %.lr.ph.i405, label %rbimpl_intern_const.exit407
 
-.lr.ph.i408:                                      ; preds = %rbimpl_intern_const.exit404, %.lr.ph.i408
+.lr.ph.i405:                                      ; preds = %rbimpl_intern_const.exit401, %.lr.ph.i405
   %79 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 4) #21
   store i64 %79, ptr @rt_complete_frags.rbimpl_id.224, align 8, !tbaa !6
-  %.not.i409 = icmp eq i64 %79, 0
-  br i1 %.not.i409, label %.lr.ph.i408, label %rbimpl_intern_const.exit410, !llvm.loop !51
+  %.not.i406 = icmp eq i64 %79, 0
+  br i1 %.not.i406, label %.lr.ph.i405, label %rbimpl_intern_const.exit407, !llvm.loop !51
 
-rbimpl_intern_const.exit410:                      ; preds = %.lr.ph.i408, %rbimpl_intern_const.exit404
-  %.lcssa.i407 = phi i64 [ %.pr.i405, %rbimpl_intern_const.exit404 ], [ %79, %.lr.ph.i408 ]
-  %80 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i407) #21
-  %.pr.i411 = load i64, ptr @rt_complete_frags.rbimpl_id.225, align 8, !tbaa !6
-  %.not4.i412 = icmp eq i64 %.pr.i411, 0
-  br i1 %.not4.i412, label %.lr.ph.i414, label %rbimpl_intern_const.exit416
+rbimpl_intern_const.exit407:                      ; preds = %.lr.ph.i405, %rbimpl_intern_const.exit401
+  %.lcssa.i404 = phi i64 [ %.pr.i402, %rbimpl_intern_const.exit401 ], [ %79, %.lr.ph.i405 ]
+  %80 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i404) #21
+  %.pr.i408 = load i64, ptr @rt_complete_frags.rbimpl_id.225, align 8, !tbaa !6
+  %.not4.i409 = icmp eq i64 %.pr.i408, 0
+  br i1 %.not4.i409, label %.lr.ph.i411, label %rbimpl_intern_const.exit413
 
-.lr.ph.i414:                                      ; preds = %rbimpl_intern_const.exit410, %.lr.ph.i414
+.lr.ph.i411:                                      ; preds = %rbimpl_intern_const.exit407, %.lr.ph.i411
   %81 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %81, ptr @rt_complete_frags.rbimpl_id.225, align 8, !tbaa !6
-  %.not.i415 = icmp eq i64 %81, 0
-  br i1 %.not.i415, label %.lr.ph.i414, label %rbimpl_intern_const.exit416, !llvm.loop !51
+  %.not.i412 = icmp eq i64 %81, 0
+  br i1 %.not.i412, label %.lr.ph.i411, label %rbimpl_intern_const.exit413, !llvm.loop !51
 
-rbimpl_intern_const.exit416:                      ; preds = %.lr.ph.i414, %rbimpl_intern_const.exit410
-  %.lcssa.i413 = phi i64 [ %.pr.i411, %rbimpl_intern_const.exit410 ], [ %81, %.lr.ph.i414 ]
-  %82 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i413) #21
-  %.pr.i417 = load i64, ptr @rt_complete_frags.rbimpl_id.226, align 8, !tbaa !6
-  %.not4.i418 = icmp eq i64 %.pr.i417, 0
-  br i1 %.not4.i418, label %.lr.ph.i420, label %rbimpl_intern_const.exit422
+rbimpl_intern_const.exit413:                      ; preds = %.lr.ph.i411, %rbimpl_intern_const.exit407
+  %.lcssa.i410 = phi i64 [ %.pr.i408, %rbimpl_intern_const.exit407 ], [ %81, %.lr.ph.i411 ]
+  %82 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i410) #21
+  %.pr.i414 = load i64, ptr @rt_complete_frags.rbimpl_id.226, align 8, !tbaa !6
+  %.not4.i415 = icmp eq i64 %.pr.i414, 0
+  br i1 %.not4.i415, label %.lr.ph.i417, label %rbimpl_intern_const.exit419
 
-.lr.ph.i420:                                      ; preds = %rbimpl_intern_const.exit416, %.lr.ph.i420
+.lr.ph.i417:                                      ; preds = %rbimpl_intern_const.exit413, %.lr.ph.i417
   %83 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %83, ptr @rt_complete_frags.rbimpl_id.226, align 8, !tbaa !6
-  %.not.i421 = icmp eq i64 %83, 0
-  br i1 %.not.i421, label %.lr.ph.i420, label %rbimpl_intern_const.exit422, !llvm.loop !51
+  %.not.i418 = icmp eq i64 %83, 0
+  br i1 %.not.i418, label %.lr.ph.i417, label %rbimpl_intern_const.exit419, !llvm.loop !51
 
-rbimpl_intern_const.exit422:                      ; preds = %.lr.ph.i420, %rbimpl_intern_const.exit416
-  %.lcssa.i419 = phi i64 [ %.pr.i417, %rbimpl_intern_const.exit416 ], [ %83, %.lr.ph.i420 ]
-  %84 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i419) #21
-  %.pr.i423 = load i64, ptr @rt_complete_frags.rbimpl_id.227, align 8, !tbaa !6
-  %.not4.i424 = icmp eq i64 %.pr.i423, 0
-  br i1 %.not4.i424, label %.lr.ph.i426, label %rbimpl_intern_const.exit428
+rbimpl_intern_const.exit419:                      ; preds = %.lr.ph.i417, %rbimpl_intern_const.exit413
+  %.lcssa.i416 = phi i64 [ %.pr.i414, %rbimpl_intern_const.exit413 ], [ %83, %.lr.ph.i417 ]
+  %84 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i416) #21
+  %.pr.i420 = load i64, ptr @rt_complete_frags.rbimpl_id.227, align 8, !tbaa !6
+  %.not4.i421 = icmp eq i64 %.pr.i420, 0
+  br i1 %.not4.i421, label %.lr.ph.i423, label %rbimpl_intern_const.exit425
 
-.lr.ph.i426:                                      ; preds = %rbimpl_intern_const.exit422, %.lr.ph.i426
+.lr.ph.i423:                                      ; preds = %rbimpl_intern_const.exit419, %.lr.ph.i423
   %85 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %85, ptr @rt_complete_frags.rbimpl_id.227, align 8, !tbaa !6
-  %.not.i427 = icmp eq i64 %85, 0
-  br i1 %.not.i427, label %.lr.ph.i426, label %rbimpl_intern_const.exit428, !llvm.loop !51
+  %.not.i424 = icmp eq i64 %85, 0
+  br i1 %.not.i424, label %.lr.ph.i423, label %rbimpl_intern_const.exit425, !llvm.loop !51
 
-rbimpl_intern_const.exit428:                      ; preds = %.lr.ph.i426, %rbimpl_intern_const.exit422
-  %.lcssa.i425 = phi i64 [ %.pr.i423, %rbimpl_intern_const.exit422 ], [ %85, %.lr.ph.i426 ]
-  %86 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i425) #21
+rbimpl_intern_const.exit425:                      ; preds = %.lr.ph.i423, %rbimpl_intern_const.exit419
+  %.lcssa.i422 = phi i64 [ %.pr.i420, %rbimpl_intern_const.exit419 ], [ %85, %.lr.ph.i423 ]
+  %86 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i422) #21
   %87 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 4, i64 noundef %80, i64 noundef %82, i64 noundef %84, i64 noundef %86) #21
   %88 = tail call i64 @rb_ary_freeze(i64 noundef %87) #21
   %89 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %78, i64 noundef %88) #21
   %90 = tail call i64 @rb_ary_freeze(i64 noundef %89) #21
-  %.pr.i429 = load i64, ptr @rt_complete_frags.rbimpl_id.228, align 8, !tbaa !6
-  %.not4.i430 = icmp eq i64 %.pr.i429, 0
-  br i1 %.not4.i430, label %.lr.ph.i432, label %rbimpl_intern_const.exit434
+  %.pr.i426 = load i64, ptr @rt_complete_frags.rbimpl_id.228, align 8, !tbaa !6
+  %.not4.i427 = icmp eq i64 %.pr.i426, 0
+  br i1 %.not4.i427, label %.lr.ph.i429, label %rbimpl_intern_const.exit431
 
-.lr.ph.i432:                                      ; preds = %rbimpl_intern_const.exit428, %.lr.ph.i432
+.lr.ph.i429:                                      ; preds = %rbimpl_intern_const.exit425, %.lr.ph.i429
   %91 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.229, i64 noundef 5) #21
   store i64 %91, ptr @rt_complete_frags.rbimpl_id.228, align 8, !tbaa !6
-  %.not.i433 = icmp eq i64 %91, 0
-  br i1 %.not.i433, label %.lr.ph.i432, label %rbimpl_intern_const.exit434, !llvm.loop !51
+  %.not.i430 = icmp eq i64 %91, 0
+  br i1 %.not.i430, label %.lr.ph.i429, label %rbimpl_intern_const.exit431, !llvm.loop !51
 
-rbimpl_intern_const.exit434:                      ; preds = %.lr.ph.i432, %rbimpl_intern_const.exit428
-  %.lcssa.i431 = phi i64 [ %.pr.i429, %rbimpl_intern_const.exit428 ], [ %91, %.lr.ph.i432 ]
-  %92 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i431) #21
-  %.pr.i435 = load i64, ptr @rt_complete_frags.rbimpl_id.230, align 8, !tbaa !6
-  %.not4.i436 = icmp eq i64 %.pr.i435, 0
-  br i1 %.not4.i436, label %.lr.ph.i438, label %rbimpl_intern_const.exit440
+rbimpl_intern_const.exit431:                      ; preds = %.lr.ph.i429, %rbimpl_intern_const.exit425
+  %.lcssa.i428 = phi i64 [ %.pr.i426, %rbimpl_intern_const.exit425 ], [ %91, %.lr.ph.i429 ]
+  %92 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i428) #21
+  %.pr.i432 = load i64, ptr @rt_complete_frags.rbimpl_id.230, align 8, !tbaa !6
+  %.not4.i433 = icmp eq i64 %.pr.i432, 0
+  br i1 %.not4.i433, label %.lr.ph.i435, label %rbimpl_intern_const.exit437
 
-.lr.ph.i438:                                      ; preds = %rbimpl_intern_const.exit434, %.lr.ph.i438
+.lr.ph.i435:                                      ; preds = %rbimpl_intern_const.exit431, %.lr.ph.i435
   %93 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %93, ptr @rt_complete_frags.rbimpl_id.230, align 8, !tbaa !6
-  %.not.i439 = icmp eq i64 %93, 0
-  br i1 %.not.i439, label %.lr.ph.i438, label %rbimpl_intern_const.exit440, !llvm.loop !51
+  %.not.i436 = icmp eq i64 %93, 0
+  br i1 %.not.i436, label %.lr.ph.i435, label %rbimpl_intern_const.exit437, !llvm.loop !51
 
-rbimpl_intern_const.exit440:                      ; preds = %.lr.ph.i438, %rbimpl_intern_const.exit434
-  %.lcssa.i437 = phi i64 [ %.pr.i435, %rbimpl_intern_const.exit434 ], [ %93, %.lr.ph.i438 ]
-  %94 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i437) #21
-  %.pr.i441 = load i64, ptr @rt_complete_frags.rbimpl_id.231, align 8, !tbaa !6
-  %.not4.i442 = icmp eq i64 %.pr.i441, 0
-  br i1 %.not4.i442, label %.lr.ph.i444, label %rbimpl_intern_const.exit446
+rbimpl_intern_const.exit437:                      ; preds = %.lr.ph.i435, %rbimpl_intern_const.exit431
+  %.lcssa.i434 = phi i64 [ %.pr.i432, %rbimpl_intern_const.exit431 ], [ %93, %.lr.ph.i435 ]
+  %94 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i434) #21
+  %.pr.i438 = load i64, ptr @rt_complete_frags.rbimpl_id.231, align 8, !tbaa !6
+  %.not4.i439 = icmp eq i64 %.pr.i438, 0
+  br i1 %.not4.i439, label %.lr.ph.i441, label %rbimpl_intern_const.exit443
 
-.lr.ph.i444:                                      ; preds = %rbimpl_intern_const.exit440, %.lr.ph.i444
+.lr.ph.i441:                                      ; preds = %rbimpl_intern_const.exit437, %.lr.ph.i441
   %95 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.229, i64 noundef 5) #21
   store i64 %95, ptr @rt_complete_frags.rbimpl_id.231, align 8, !tbaa !6
-  %.not.i445 = icmp eq i64 %95, 0
-  br i1 %.not.i445, label %.lr.ph.i444, label %rbimpl_intern_const.exit446, !llvm.loop !51
+  %.not.i442 = icmp eq i64 %95, 0
+  br i1 %.not.i442, label %.lr.ph.i441, label %rbimpl_intern_const.exit443, !llvm.loop !51
 
-rbimpl_intern_const.exit446:                      ; preds = %.lr.ph.i444, %rbimpl_intern_const.exit440
-  %.lcssa.i443 = phi i64 [ %.pr.i441, %rbimpl_intern_const.exit440 ], [ %95, %.lr.ph.i444 ]
-  %96 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i443) #21
-  %.pr.i447 = load i64, ptr @rt_complete_frags.rbimpl_id.232, align 8, !tbaa !6
-  %.not4.i448 = icmp eq i64 %.pr.i447, 0
-  br i1 %.not4.i448, label %.lr.ph.i450, label %rbimpl_intern_const.exit452
+rbimpl_intern_const.exit443:                      ; preds = %.lr.ph.i441, %rbimpl_intern_const.exit437
+  %.lcssa.i440 = phi i64 [ %.pr.i438, %rbimpl_intern_const.exit437 ], [ %95, %.lr.ph.i441 ]
+  %96 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i440) #21
+  %.pr.i444 = load i64, ptr @rt_complete_frags.rbimpl_id.232, align 8, !tbaa !6
+  %.not4.i445 = icmp eq i64 %.pr.i444, 0
+  br i1 %.not4.i445, label %.lr.ph.i447, label %rbimpl_intern_const.exit449
 
-.lr.ph.i450:                                      ; preds = %rbimpl_intern_const.exit446, %.lr.ph.i450
+.lr.ph.i447:                                      ; preds = %rbimpl_intern_const.exit443, %.lr.ph.i447
   %97 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 4) #21
   store i64 %97, ptr @rt_complete_frags.rbimpl_id.232, align 8, !tbaa !6
-  %.not.i451 = icmp eq i64 %97, 0
-  br i1 %.not.i451, label %.lr.ph.i450, label %rbimpl_intern_const.exit452, !llvm.loop !51
+  %.not.i448 = icmp eq i64 %97, 0
+  br i1 %.not.i448, label %.lr.ph.i447, label %rbimpl_intern_const.exit449, !llvm.loop !51
 
-rbimpl_intern_const.exit452:                      ; preds = %.lr.ph.i450, %rbimpl_intern_const.exit446
-  %.lcssa.i449 = phi i64 [ %.pr.i447, %rbimpl_intern_const.exit446 ], [ %97, %.lr.ph.i450 ]
-  %98 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i449) #21
-  %.pr.i453 = load i64, ptr @rt_complete_frags.rbimpl_id.233, align 8, !tbaa !6
-  %.not4.i454 = icmp eq i64 %.pr.i453, 0
-  br i1 %.not4.i454, label %.lr.ph.i456, label %rbimpl_intern_const.exit458
+rbimpl_intern_const.exit449:                      ; preds = %.lr.ph.i447, %rbimpl_intern_const.exit443
+  %.lcssa.i446 = phi i64 [ %.pr.i444, %rbimpl_intern_const.exit443 ], [ %97, %.lr.ph.i447 ]
+  %98 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i446) #21
+  %.pr.i450 = load i64, ptr @rt_complete_frags.rbimpl_id.233, align 8, !tbaa !6
+  %.not4.i451 = icmp eq i64 %.pr.i450, 0
+  br i1 %.not4.i451, label %.lr.ph.i453, label %rbimpl_intern_const.exit455
 
-.lr.ph.i456:                                      ; preds = %rbimpl_intern_const.exit452, %.lr.ph.i456
+.lr.ph.i453:                                      ; preds = %rbimpl_intern_const.exit449, %.lr.ph.i453
   %99 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %99, ptr @rt_complete_frags.rbimpl_id.233, align 8, !tbaa !6
-  %.not.i457 = icmp eq i64 %99, 0
-  br i1 %.not.i457, label %.lr.ph.i456, label %rbimpl_intern_const.exit458, !llvm.loop !51
+  %.not.i454 = icmp eq i64 %99, 0
+  br i1 %.not.i454, label %.lr.ph.i453, label %rbimpl_intern_const.exit455, !llvm.loop !51
 
-rbimpl_intern_const.exit458:                      ; preds = %.lr.ph.i456, %rbimpl_intern_const.exit452
-  %.lcssa.i455 = phi i64 [ %.pr.i453, %rbimpl_intern_const.exit452 ], [ %99, %.lr.ph.i456 ]
-  %100 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i455) #21
-  %.pr.i459 = load i64, ptr @rt_complete_frags.rbimpl_id.234, align 8, !tbaa !6
-  %.not4.i460 = icmp eq i64 %.pr.i459, 0
-  br i1 %.not4.i460, label %.lr.ph.i462, label %rbimpl_intern_const.exit464
+rbimpl_intern_const.exit455:                      ; preds = %.lr.ph.i453, %rbimpl_intern_const.exit449
+  %.lcssa.i452 = phi i64 [ %.pr.i450, %rbimpl_intern_const.exit449 ], [ %99, %.lr.ph.i453 ]
+  %100 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i452) #21
+  %.pr.i456 = load i64, ptr @rt_complete_frags.rbimpl_id.234, align 8, !tbaa !6
+  %.not4.i457 = icmp eq i64 %.pr.i456, 0
+  br i1 %.not4.i457, label %.lr.ph.i459, label %rbimpl_intern_const.exit461
 
-.lr.ph.i462:                                      ; preds = %rbimpl_intern_const.exit458, %.lr.ph.i462
+.lr.ph.i459:                                      ; preds = %rbimpl_intern_const.exit455, %.lr.ph.i459
   %101 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %101, ptr @rt_complete_frags.rbimpl_id.234, align 8, !tbaa !6
-  %.not.i463 = icmp eq i64 %101, 0
-  br i1 %.not.i463, label %.lr.ph.i462, label %rbimpl_intern_const.exit464, !llvm.loop !51
+  %.not.i460 = icmp eq i64 %101, 0
+  br i1 %.not.i460, label %.lr.ph.i459, label %rbimpl_intern_const.exit461, !llvm.loop !51
 
-rbimpl_intern_const.exit464:                      ; preds = %.lr.ph.i462, %rbimpl_intern_const.exit458
-  %.lcssa.i461 = phi i64 [ %.pr.i459, %rbimpl_intern_const.exit458 ], [ %101, %.lr.ph.i462 ]
-  %102 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i461) #21
-  %.pr.i465 = load i64, ptr @rt_complete_frags.rbimpl_id.235, align 8, !tbaa !6
-  %.not4.i466 = icmp eq i64 %.pr.i465, 0
-  br i1 %.not4.i466, label %.lr.ph.i468, label %rbimpl_intern_const.exit470
+rbimpl_intern_const.exit461:                      ; preds = %.lr.ph.i459, %rbimpl_intern_const.exit455
+  %.lcssa.i458 = phi i64 [ %.pr.i456, %rbimpl_intern_const.exit455 ], [ %101, %.lr.ph.i459 ]
+  %102 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i458) #21
+  %.pr.i462 = load i64, ptr @rt_complete_frags.rbimpl_id.235, align 8, !tbaa !6
+  %.not4.i463 = icmp eq i64 %.pr.i462, 0
+  br i1 %.not4.i463, label %.lr.ph.i465, label %rbimpl_intern_const.exit467
 
-.lr.ph.i468:                                      ; preds = %rbimpl_intern_const.exit464, %.lr.ph.i468
+.lr.ph.i465:                                      ; preds = %rbimpl_intern_const.exit461, %.lr.ph.i465
   %103 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %103, ptr @rt_complete_frags.rbimpl_id.235, align 8, !tbaa !6
-  %.not.i469 = icmp eq i64 %103, 0
-  br i1 %.not.i469, label %.lr.ph.i468, label %rbimpl_intern_const.exit470, !llvm.loop !51
+  %.not.i466 = icmp eq i64 %103, 0
+  br i1 %.not.i466, label %.lr.ph.i465, label %rbimpl_intern_const.exit467, !llvm.loop !51
 
-rbimpl_intern_const.exit470:                      ; preds = %.lr.ph.i468, %rbimpl_intern_const.exit464
-  %.lcssa.i467 = phi i64 [ %.pr.i465, %rbimpl_intern_const.exit464 ], [ %103, %.lr.ph.i468 ]
-  %104 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i467) #21
+rbimpl_intern_const.exit467:                      ; preds = %.lr.ph.i465, %rbimpl_intern_const.exit461
+  %.lcssa.i464 = phi i64 [ %.pr.i462, %rbimpl_intern_const.exit461 ], [ %103, %.lr.ph.i465 ]
+  %104 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i464) #21
   %105 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %94, i64 noundef %96, i64 noundef %98, i64 noundef %100, i64 noundef %102, i64 noundef %104) #21
   %106 = tail call i64 @rb_ary_freeze(i64 noundef %105) #21
   %107 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %92, i64 noundef %106) #21
   %108 = tail call i64 @rb_ary_freeze(i64 noundef %107) #21
-  %.pr.i471 = load i64, ptr @rt_complete_frags.rbimpl_id.236, align 8, !tbaa !6
-  %.not4.i472 = icmp eq i64 %.pr.i471, 0
-  br i1 %.not4.i472, label %.lr.ph.i474, label %rbimpl_intern_const.exit476
+  %.pr.i468 = load i64, ptr @rt_complete_frags.rbimpl_id.236, align 8, !tbaa !6
+  %.not4.i469 = icmp eq i64 %.pr.i468, 0
+  br i1 %.not4.i469, label %.lr.ph.i471, label %rbimpl_intern_const.exit473
 
-.lr.ph.i474:                                      ; preds = %rbimpl_intern_const.exit470, %.lr.ph.i474
+.lr.ph.i471:                                      ; preds = %rbimpl_intern_const.exit467, %.lr.ph.i471
   %109 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.237, i64 noundef 5) #21
   store i64 %109, ptr @rt_complete_frags.rbimpl_id.236, align 8, !tbaa !6
-  %.not.i475 = icmp eq i64 %109, 0
-  br i1 %.not.i475, label %.lr.ph.i474, label %rbimpl_intern_const.exit476, !llvm.loop !51
+  %.not.i472 = icmp eq i64 %109, 0
+  br i1 %.not.i472, label %.lr.ph.i471, label %rbimpl_intern_const.exit473, !llvm.loop !51
 
-rbimpl_intern_const.exit476:                      ; preds = %.lr.ph.i474, %rbimpl_intern_const.exit470
-  %.lcssa.i473 = phi i64 [ %.pr.i471, %rbimpl_intern_const.exit470 ], [ %109, %.lr.ph.i474 ]
-  %110 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i473) #21
-  %.pr.i477 = load i64, ptr @rt_complete_frags.rbimpl_id.238, align 8, !tbaa !6
-  %.not4.i478 = icmp eq i64 %.pr.i477, 0
-  br i1 %.not4.i478, label %.lr.ph.i480, label %rbimpl_intern_const.exit482
+rbimpl_intern_const.exit473:                      ; preds = %.lr.ph.i471, %rbimpl_intern_const.exit467
+  %.lcssa.i470 = phi i64 [ %.pr.i468, %rbimpl_intern_const.exit467 ], [ %109, %.lr.ph.i471 ]
+  %110 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i470) #21
+  %.pr.i474 = load i64, ptr @rt_complete_frags.rbimpl_id.238, align 8, !tbaa !6
+  %.not4.i475 = icmp eq i64 %.pr.i474, 0
+  br i1 %.not4.i475, label %.lr.ph.i477, label %rbimpl_intern_const.exit479
 
-.lr.ph.i480:                                      ; preds = %rbimpl_intern_const.exit476, %.lr.ph.i480
+.lr.ph.i477:                                      ; preds = %rbimpl_intern_const.exit473, %.lr.ph.i477
   %111 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %111, ptr @rt_complete_frags.rbimpl_id.238, align 8, !tbaa !6
-  %.not.i481 = icmp eq i64 %111, 0
-  br i1 %.not.i481, label %.lr.ph.i480, label %rbimpl_intern_const.exit482, !llvm.loop !51
+  %.not.i478 = icmp eq i64 %111, 0
+  br i1 %.not.i478, label %.lr.ph.i477, label %rbimpl_intern_const.exit479, !llvm.loop !51
 
-rbimpl_intern_const.exit482:                      ; preds = %.lr.ph.i480, %rbimpl_intern_const.exit476
-  %.lcssa.i479 = phi i64 [ %.pr.i477, %rbimpl_intern_const.exit476 ], [ %111, %.lr.ph.i480 ]
-  %112 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i479) #21
-  %.pr.i483 = load i64, ptr @rt_complete_frags.rbimpl_id.239, align 8, !tbaa !6
-  %.not4.i484 = icmp eq i64 %.pr.i483, 0
-  br i1 %.not4.i484, label %.lr.ph.i486, label %rbimpl_intern_const.exit488
+rbimpl_intern_const.exit479:                      ; preds = %.lr.ph.i477, %rbimpl_intern_const.exit473
+  %.lcssa.i476 = phi i64 [ %.pr.i474, %rbimpl_intern_const.exit473 ], [ %111, %.lr.ph.i477 ]
+  %112 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i476) #21
+  %.pr.i480 = load i64, ptr @rt_complete_frags.rbimpl_id.239, align 8, !tbaa !6
+  %.not4.i481 = icmp eq i64 %.pr.i480, 0
+  br i1 %.not4.i481, label %.lr.ph.i483, label %rbimpl_intern_const.exit485
 
-.lr.ph.i486:                                      ; preds = %rbimpl_intern_const.exit482, %.lr.ph.i486
+.lr.ph.i483:                                      ; preds = %rbimpl_intern_const.exit479, %.lr.ph.i483
   %113 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.237, i64 noundef 5) #21
   store i64 %113, ptr @rt_complete_frags.rbimpl_id.239, align 8, !tbaa !6
-  %.not.i487 = icmp eq i64 %113, 0
-  br i1 %.not.i487, label %.lr.ph.i486, label %rbimpl_intern_const.exit488, !llvm.loop !51
+  %.not.i484 = icmp eq i64 %113, 0
+  br i1 %.not.i484, label %.lr.ph.i483, label %rbimpl_intern_const.exit485, !llvm.loop !51
 
-rbimpl_intern_const.exit488:                      ; preds = %.lr.ph.i486, %rbimpl_intern_const.exit482
-  %.lcssa.i485 = phi i64 [ %.pr.i483, %rbimpl_intern_const.exit482 ], [ %113, %.lr.ph.i486 ]
-  %114 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i485) #21
-  %.pr.i489 = load i64, ptr @rt_complete_frags.rbimpl_id.240, align 8, !tbaa !6
-  %.not4.i490 = icmp eq i64 %.pr.i489, 0
-  br i1 %.not4.i490, label %.lr.ph.i492, label %rbimpl_intern_const.exit494
+rbimpl_intern_const.exit485:                      ; preds = %.lr.ph.i483, %rbimpl_intern_const.exit479
+  %.lcssa.i482 = phi i64 [ %.pr.i480, %rbimpl_intern_const.exit479 ], [ %113, %.lr.ph.i483 ]
+  %114 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i482) #21
+  %.pr.i486 = load i64, ptr @rt_complete_frags.rbimpl_id.240, align 8, !tbaa !6
+  %.not4.i487 = icmp eq i64 %.pr.i486, 0
+  br i1 %.not4.i487, label %.lr.ph.i489, label %rbimpl_intern_const.exit491
 
-.lr.ph.i492:                                      ; preds = %rbimpl_intern_const.exit488, %.lr.ph.i492
+.lr.ph.i489:                                      ; preds = %rbimpl_intern_const.exit485, %.lr.ph.i489
   %115 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 4) #21
   store i64 %115, ptr @rt_complete_frags.rbimpl_id.240, align 8, !tbaa !6
-  %.not.i493 = icmp eq i64 %115, 0
-  br i1 %.not.i493, label %.lr.ph.i492, label %rbimpl_intern_const.exit494, !llvm.loop !51
+  %.not.i490 = icmp eq i64 %115, 0
+  br i1 %.not.i490, label %.lr.ph.i489, label %rbimpl_intern_const.exit491, !llvm.loop !51
 
-rbimpl_intern_const.exit494:                      ; preds = %.lr.ph.i492, %rbimpl_intern_const.exit488
-  %.lcssa.i491 = phi i64 [ %.pr.i489, %rbimpl_intern_const.exit488 ], [ %115, %.lr.ph.i492 ]
-  %116 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i491) #21
-  %.pr.i495 = load i64, ptr @rt_complete_frags.rbimpl_id.241, align 8, !tbaa !6
-  %.not4.i496 = icmp eq i64 %.pr.i495, 0
-  br i1 %.not4.i496, label %.lr.ph.i498, label %rbimpl_intern_const.exit500
+rbimpl_intern_const.exit491:                      ; preds = %.lr.ph.i489, %rbimpl_intern_const.exit485
+  %.lcssa.i488 = phi i64 [ %.pr.i486, %rbimpl_intern_const.exit485 ], [ %115, %.lr.ph.i489 ]
+  %116 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i488) #21
+  %.pr.i492 = load i64, ptr @rt_complete_frags.rbimpl_id.241, align 8, !tbaa !6
+  %.not4.i493 = icmp eq i64 %.pr.i492, 0
+  br i1 %.not4.i493, label %.lr.ph.i495, label %rbimpl_intern_const.exit497
 
-.lr.ph.i498:                                      ; preds = %rbimpl_intern_const.exit494, %.lr.ph.i498
+.lr.ph.i495:                                      ; preds = %rbimpl_intern_const.exit491, %.lr.ph.i495
   %117 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %117, ptr @rt_complete_frags.rbimpl_id.241, align 8, !tbaa !6
-  %.not.i499 = icmp eq i64 %117, 0
-  br i1 %.not.i499, label %.lr.ph.i498, label %rbimpl_intern_const.exit500, !llvm.loop !51
+  %.not.i496 = icmp eq i64 %117, 0
+  br i1 %.not.i496, label %.lr.ph.i495, label %rbimpl_intern_const.exit497, !llvm.loop !51
 
-rbimpl_intern_const.exit500:                      ; preds = %.lr.ph.i498, %rbimpl_intern_const.exit494
-  %.lcssa.i497 = phi i64 [ %.pr.i495, %rbimpl_intern_const.exit494 ], [ %117, %.lr.ph.i498 ]
-  %118 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i497) #21
-  %.pr.i501 = load i64, ptr @rt_complete_frags.rbimpl_id.242, align 8, !tbaa !6
-  %.not4.i502 = icmp eq i64 %.pr.i501, 0
-  br i1 %.not4.i502, label %.lr.ph.i504, label %rbimpl_intern_const.exit506
+rbimpl_intern_const.exit497:                      ; preds = %.lr.ph.i495, %rbimpl_intern_const.exit491
+  %.lcssa.i494 = phi i64 [ %.pr.i492, %rbimpl_intern_const.exit491 ], [ %117, %.lr.ph.i495 ]
+  %118 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i494) #21
+  %.pr.i498 = load i64, ptr @rt_complete_frags.rbimpl_id.242, align 8, !tbaa !6
+  %.not4.i499 = icmp eq i64 %.pr.i498, 0
+  br i1 %.not4.i499, label %.lr.ph.i501, label %rbimpl_intern_const.exit503
 
-.lr.ph.i504:                                      ; preds = %rbimpl_intern_const.exit500, %.lr.ph.i504
+.lr.ph.i501:                                      ; preds = %rbimpl_intern_const.exit497, %.lr.ph.i501
   %119 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %119, ptr @rt_complete_frags.rbimpl_id.242, align 8, !tbaa !6
-  %.not.i505 = icmp eq i64 %119, 0
-  br i1 %.not.i505, label %.lr.ph.i504, label %rbimpl_intern_const.exit506, !llvm.loop !51
+  %.not.i502 = icmp eq i64 %119, 0
+  br i1 %.not.i502, label %.lr.ph.i501, label %rbimpl_intern_const.exit503, !llvm.loop !51
 
-rbimpl_intern_const.exit506:                      ; preds = %.lr.ph.i504, %rbimpl_intern_const.exit500
-  %.lcssa.i503 = phi i64 [ %.pr.i501, %rbimpl_intern_const.exit500 ], [ %119, %.lr.ph.i504 ]
-  %120 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i503) #21
-  %.pr.i507 = load i64, ptr @rt_complete_frags.rbimpl_id.243, align 8, !tbaa !6
-  %.not4.i508 = icmp eq i64 %.pr.i507, 0
-  br i1 %.not4.i508, label %.lr.ph.i510, label %rbimpl_intern_const.exit512
+rbimpl_intern_const.exit503:                      ; preds = %.lr.ph.i501, %rbimpl_intern_const.exit497
+  %.lcssa.i500 = phi i64 [ %.pr.i498, %rbimpl_intern_const.exit497 ], [ %119, %.lr.ph.i501 ]
+  %120 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i500) #21
+  %.pr.i504 = load i64, ptr @rt_complete_frags.rbimpl_id.243, align 8, !tbaa !6
+  %.not4.i505 = icmp eq i64 %.pr.i504, 0
+  br i1 %.not4.i505, label %.lr.ph.i507, label %rbimpl_intern_const.exit509
 
-.lr.ph.i510:                                      ; preds = %rbimpl_intern_const.exit506, %.lr.ph.i510
+.lr.ph.i507:                                      ; preds = %rbimpl_intern_const.exit503, %.lr.ph.i507
   %121 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %121, ptr @rt_complete_frags.rbimpl_id.243, align 8, !tbaa !6
-  %.not.i511 = icmp eq i64 %121, 0
-  br i1 %.not.i511, label %.lr.ph.i510, label %rbimpl_intern_const.exit512, !llvm.loop !51
+  %.not.i508 = icmp eq i64 %121, 0
+  br i1 %.not.i508, label %.lr.ph.i507, label %rbimpl_intern_const.exit509, !llvm.loop !51
 
-rbimpl_intern_const.exit512:                      ; preds = %.lr.ph.i510, %rbimpl_intern_const.exit506
-  %.lcssa.i509 = phi i64 [ %.pr.i507, %rbimpl_intern_const.exit506 ], [ %121, %.lr.ph.i510 ]
-  %122 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i509) #21
+rbimpl_intern_const.exit509:                      ; preds = %.lr.ph.i507, %rbimpl_intern_const.exit503
+  %.lcssa.i506 = phi i64 [ %.pr.i504, %rbimpl_intern_const.exit503 ], [ %121, %.lr.ph.i507 ]
+  %122 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i506) #21
   %123 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %112, i64 noundef %114, i64 noundef %116, i64 noundef %118, i64 noundef %120, i64 noundef %122) #21
   %124 = tail call i64 @rb_ary_freeze(i64 noundef %123) #21
   %125 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef %110, i64 noundef %124) #21
   %126 = tail call i64 @rb_ary_freeze(i64 noundef %125) #21
-  %.pr.i513 = load i64, ptr @rt_complete_frags.rbimpl_id.244, align 8, !tbaa !6
-  %.not4.i514 = icmp eq i64 %.pr.i513, 0
-  br i1 %.not4.i514, label %.lr.ph.i516, label %rbimpl_intern_const.exit518
+  %.pr.i510 = load i64, ptr @rt_complete_frags.rbimpl_id.244, align 8, !tbaa !6
+  %.not4.i511 = icmp eq i64 %.pr.i510, 0
+  br i1 %.not4.i511, label %.lr.ph.i513, label %rbimpl_intern_const.exit515
 
-.lr.ph.i516:                                      ; preds = %rbimpl_intern_const.exit512, %.lr.ph.i516
+.lr.ph.i513:                                      ; preds = %rbimpl_intern_const.exit509, %.lr.ph.i513
   %127 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.64, i64 noundef 6) #21
   store i64 %127, ptr @rt_complete_frags.rbimpl_id.244, align 8, !tbaa !6
-  %.not.i517 = icmp eq i64 %127, 0
-  br i1 %.not.i517, label %.lr.ph.i516, label %rbimpl_intern_const.exit518, !llvm.loop !51
+  %.not.i514 = icmp eq i64 %127, 0
+  br i1 %.not.i514, label %.lr.ph.i513, label %rbimpl_intern_const.exit515, !llvm.loop !51
 
-rbimpl_intern_const.exit518:                      ; preds = %.lr.ph.i516, %rbimpl_intern_const.exit512
-  %.lcssa.i515 = phi i64 [ %.pr.i513, %rbimpl_intern_const.exit512 ], [ %127, %.lr.ph.i516 ]
-  %128 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i515) #21
-  %.pr.i519 = load i64, ptr @rt_complete_frags.rbimpl_id.245, align 8, !tbaa !6
-  %.not4.i520 = icmp eq i64 %.pr.i519, 0
-  br i1 %.not4.i520, label %.lr.ph.i522, label %rbimpl_intern_const.exit524
+rbimpl_intern_const.exit515:                      ; preds = %.lr.ph.i513, %rbimpl_intern_const.exit509
+  %.lcssa.i512 = phi i64 [ %.pr.i510, %rbimpl_intern_const.exit509 ], [ %127, %.lr.ph.i513 ]
+  %128 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i512) #21
+  %.pr.i516 = load i64, ptr @rt_complete_frags.rbimpl_id.245, align 8, !tbaa !6
+  %.not4.i517 = icmp eq i64 %.pr.i516, 0
+  br i1 %.not4.i517, label %.lr.ph.i519, label %rbimpl_intern_const.exit521
 
-.lr.ph.i522:                                      ; preds = %rbimpl_intern_const.exit518, %.lr.ph.i522
+.lr.ph.i519:                                      ; preds = %rbimpl_intern_const.exit515, %.lr.ph.i519
   %129 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.65, i64 noundef 5) #21
   store i64 %129, ptr @rt_complete_frags.rbimpl_id.245, align 8, !tbaa !6
-  %.not.i523 = icmp eq i64 %129, 0
-  br i1 %.not.i523, label %.lr.ph.i522, label %rbimpl_intern_const.exit524, !llvm.loop !51
+  %.not.i520 = icmp eq i64 %129, 0
+  br i1 %.not.i520, label %.lr.ph.i519, label %rbimpl_intern_const.exit521, !llvm.loop !51
 
-rbimpl_intern_const.exit524:                      ; preds = %.lr.ph.i522, %rbimpl_intern_const.exit518
-  %.lcssa.i521 = phi i64 [ %.pr.i519, %rbimpl_intern_const.exit518 ], [ %129, %.lr.ph.i522 ]
-  %130 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i521) #21
-  %.pr.i525 = load i64, ptr @rt_complete_frags.rbimpl_id.246, align 8, !tbaa !6
-  %.not4.i526 = icmp eq i64 %.pr.i525, 0
-  br i1 %.not4.i526, label %.lr.ph.i528, label %rbimpl_intern_const.exit530
+rbimpl_intern_const.exit521:                      ; preds = %.lr.ph.i519, %rbimpl_intern_const.exit515
+  %.lcssa.i518 = phi i64 [ %.pr.i516, %rbimpl_intern_const.exit515 ], [ %129, %.lr.ph.i519 ]
+  %130 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i518) #21
+  %.pr.i522 = load i64, ptr @rt_complete_frags.rbimpl_id.246, align 8, !tbaa !6
+  %.not4.i523 = icmp eq i64 %.pr.i522, 0
+  br i1 %.not4.i523, label %.lr.ph.i525, label %rbimpl_intern_const.exit527
 
-.lr.ph.i528:                                      ; preds = %rbimpl_intern_const.exit524, %.lr.ph.i528
+.lr.ph.i525:                                      ; preds = %rbimpl_intern_const.exit521, %.lr.ph.i525
   %131 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 4) #21
   store i64 %131, ptr @rt_complete_frags.rbimpl_id.246, align 8, !tbaa !6
-  %.not.i529 = icmp eq i64 %131, 0
-  br i1 %.not.i529, label %.lr.ph.i528, label %rbimpl_intern_const.exit530, !llvm.loop !51
+  %.not.i526 = icmp eq i64 %131, 0
+  br i1 %.not.i526, label %.lr.ph.i525, label %rbimpl_intern_const.exit527, !llvm.loop !51
 
-rbimpl_intern_const.exit530:                      ; preds = %.lr.ph.i528, %rbimpl_intern_const.exit524
-  %.lcssa.i527 = phi i64 [ %.pr.i525, %rbimpl_intern_const.exit524 ], [ %131, %.lr.ph.i528 ]
-  %132 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i527) #21
-  %.pr.i531 = load i64, ptr @rt_complete_frags.rbimpl_id.247, align 8, !tbaa !6
-  %.not4.i532 = icmp eq i64 %.pr.i531, 0
-  br i1 %.not4.i532, label %.lr.ph.i534, label %rbimpl_intern_const.exit536
+rbimpl_intern_const.exit527:                      ; preds = %.lr.ph.i525, %rbimpl_intern_const.exit521
+  %.lcssa.i524 = phi i64 [ %.pr.i522, %rbimpl_intern_const.exit521 ], [ %131, %.lr.ph.i525 ]
+  %132 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i524) #21
+  %.pr.i528 = load i64, ptr @rt_complete_frags.rbimpl_id.247, align 8, !tbaa !6
+  %.not4.i529 = icmp eq i64 %.pr.i528, 0
+  br i1 %.not4.i529, label %.lr.ph.i531, label %rbimpl_intern_const.exit533
 
-.lr.ph.i534:                                      ; preds = %rbimpl_intern_const.exit530, %.lr.ph.i534
+.lr.ph.i531:                                      ; preds = %rbimpl_intern_const.exit527, %.lr.ph.i531
   %133 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %133, ptr @rt_complete_frags.rbimpl_id.247, align 8, !tbaa !6
-  %.not.i535 = icmp eq i64 %133, 0
-  br i1 %.not.i535, label %.lr.ph.i534, label %rbimpl_intern_const.exit536, !llvm.loop !51
+  %.not.i532 = icmp eq i64 %133, 0
+  br i1 %.not.i532, label %.lr.ph.i531, label %rbimpl_intern_const.exit533, !llvm.loop !51
 
-rbimpl_intern_const.exit536:                      ; preds = %.lr.ph.i534, %rbimpl_intern_const.exit530
-  %.lcssa.i533 = phi i64 [ %.pr.i531, %rbimpl_intern_const.exit530 ], [ %133, %.lr.ph.i534 ]
-  %134 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i533) #21
-  %.pr.i537 = load i64, ptr @rt_complete_frags.rbimpl_id.248, align 8, !tbaa !6
-  %.not4.i538 = icmp eq i64 %.pr.i537, 0
-  br i1 %.not4.i538, label %.lr.ph.i540, label %rbimpl_intern_const.exit542
+rbimpl_intern_const.exit533:                      ; preds = %.lr.ph.i531, %rbimpl_intern_const.exit527
+  %.lcssa.i530 = phi i64 [ %.pr.i528, %rbimpl_intern_const.exit527 ], [ %133, %.lr.ph.i531 ]
+  %134 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i530) #21
+  %.pr.i534 = load i64, ptr @rt_complete_frags.rbimpl_id.248, align 8, !tbaa !6
+  %.not4.i535 = icmp eq i64 %.pr.i534, 0
+  br i1 %.not4.i535, label %.lr.ph.i537, label %rbimpl_intern_const.exit539
 
-.lr.ph.i540:                                      ; preds = %rbimpl_intern_const.exit536, %.lr.ph.i540
+.lr.ph.i537:                                      ; preds = %rbimpl_intern_const.exit533, %.lr.ph.i537
   %135 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %135, ptr @rt_complete_frags.rbimpl_id.248, align 8, !tbaa !6
-  %.not.i541 = icmp eq i64 %135, 0
-  br i1 %.not.i541, label %.lr.ph.i540, label %rbimpl_intern_const.exit542, !llvm.loop !51
+  %.not.i538 = icmp eq i64 %135, 0
+  br i1 %.not.i538, label %.lr.ph.i537, label %rbimpl_intern_const.exit539, !llvm.loop !51
 
-rbimpl_intern_const.exit542:                      ; preds = %.lr.ph.i540, %rbimpl_intern_const.exit536
-  %.lcssa.i539 = phi i64 [ %.pr.i537, %rbimpl_intern_const.exit536 ], [ %135, %.lr.ph.i540 ]
-  %136 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i539) #21
-  %.pr.i543 = load i64, ptr @rt_complete_frags.rbimpl_id.249, align 8, !tbaa !6
-  %.not4.i544 = icmp eq i64 %.pr.i543, 0
-  br i1 %.not4.i544, label %.lr.ph.i546, label %rbimpl_intern_const.exit548
+rbimpl_intern_const.exit539:                      ; preds = %.lr.ph.i537, %rbimpl_intern_const.exit533
+  %.lcssa.i536 = phi i64 [ %.pr.i534, %rbimpl_intern_const.exit533 ], [ %135, %.lr.ph.i537 ]
+  %136 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i536) #21
+  %.pr.i540 = load i64, ptr @rt_complete_frags.rbimpl_id.249, align 8, !tbaa !6
+  %.not4.i541 = icmp eq i64 %.pr.i540, 0
+  br i1 %.not4.i541, label %.lr.ph.i543, label %rbimpl_intern_const.exit545
 
-.lr.ph.i546:                                      ; preds = %rbimpl_intern_const.exit542, %.lr.ph.i546
+.lr.ph.i543:                                      ; preds = %rbimpl_intern_const.exit539, %.lr.ph.i543
   %137 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %137, ptr @rt_complete_frags.rbimpl_id.249, align 8, !tbaa !6
-  %.not.i547 = icmp eq i64 %137, 0
-  br i1 %.not.i547, label %.lr.ph.i546, label %rbimpl_intern_const.exit548, !llvm.loop !51
+  %.not.i544 = icmp eq i64 %137, 0
+  br i1 %.not.i544, label %.lr.ph.i543, label %rbimpl_intern_const.exit545, !llvm.loop !51
 
-rbimpl_intern_const.exit548:                      ; preds = %.lr.ph.i546, %rbimpl_intern_const.exit542
-  %.lcssa.i545 = phi i64 [ %.pr.i543, %rbimpl_intern_const.exit542 ], [ %137, %.lr.ph.i546 ]
-  %138 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i545) #21
+rbimpl_intern_const.exit545:                      ; preds = %.lr.ph.i543, %rbimpl_intern_const.exit539
+  %.lcssa.i542 = phi i64 [ %.pr.i540, %rbimpl_intern_const.exit539 ], [ %137, %.lr.ph.i543 ]
+  %138 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i542) #21
   %139 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %128, i64 noundef %130, i64 noundef %132, i64 noundef %134, i64 noundef %136, i64 noundef %138) #21
   %140 = tail call i64 @rb_ary_freeze(i64 noundef %139) #21
   %141 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef 4, i64 noundef %140) #21
   %142 = tail call i64 @rb_ary_freeze(i64 noundef %141) #21
-  %.pr.i549 = load i64, ptr @rt_complete_frags.rbimpl_id.250, align 8, !tbaa !6
-  %.not4.i550 = icmp eq i64 %.pr.i549, 0
-  br i1 %.not4.i550, label %.lr.ph.i552, label %rbimpl_intern_const.exit554
+  %.pr.i546 = load i64, ptr @rt_complete_frags.rbimpl_id.250, align 8, !tbaa !6
+  %.not4.i547 = icmp eq i64 %.pr.i546, 0
+  br i1 %.not4.i547, label %.lr.ph.i549, label %rbimpl_intern_const.exit551
 
-.lr.ph.i552:                                      ; preds = %rbimpl_intern_const.exit548, %.lr.ph.i552
+.lr.ph.i549:                                      ; preds = %rbimpl_intern_const.exit545, %.lr.ph.i549
   %143 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %143, ptr @rt_complete_frags.rbimpl_id.250, align 8, !tbaa !6
-  %.not.i553 = icmp eq i64 %143, 0
-  br i1 %.not.i553, label %.lr.ph.i552, label %rbimpl_intern_const.exit554, !llvm.loop !51
+  %.not.i550 = icmp eq i64 %143, 0
+  br i1 %.not.i550, label %.lr.ph.i549, label %rbimpl_intern_const.exit551, !llvm.loop !51
 
-rbimpl_intern_const.exit554:                      ; preds = %.lr.ph.i552, %rbimpl_intern_const.exit548
-  %.lcssa.i551 = phi i64 [ %.pr.i549, %rbimpl_intern_const.exit548 ], [ %143, %.lr.ph.i552 ]
-  %144 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i551) #21
-  %.pr.i555 = load i64, ptr @rt_complete_frags.rbimpl_id.251, align 8, !tbaa !6
-  %.not4.i556 = icmp eq i64 %.pr.i555, 0
-  br i1 %.not4.i556, label %.lr.ph.i558, label %rbimpl_intern_const.exit560
+rbimpl_intern_const.exit551:                      ; preds = %.lr.ph.i549, %rbimpl_intern_const.exit545
+  %.lcssa.i548 = phi i64 [ %.pr.i546, %rbimpl_intern_const.exit545 ], [ %143, %.lr.ph.i549 ]
+  %144 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i548) #21
+  %.pr.i552 = load i64, ptr @rt_complete_frags.rbimpl_id.251, align 8, !tbaa !6
+  %.not4.i553 = icmp eq i64 %.pr.i552, 0
+  br i1 %.not4.i553, label %.lr.ph.i555, label %rbimpl_intern_const.exit557
 
-.lr.ph.i558:                                      ; preds = %rbimpl_intern_const.exit554, %.lr.ph.i558
+.lr.ph.i555:                                      ; preds = %rbimpl_intern_const.exit551, %.lr.ph.i555
   %145 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.229, i64 noundef 5) #21
   store i64 %145, ptr @rt_complete_frags.rbimpl_id.251, align 8, !tbaa !6
-  %.not.i559 = icmp eq i64 %145, 0
-  br i1 %.not.i559, label %.lr.ph.i558, label %rbimpl_intern_const.exit560, !llvm.loop !51
+  %.not.i556 = icmp eq i64 %145, 0
+  br i1 %.not.i556, label %.lr.ph.i555, label %rbimpl_intern_const.exit557, !llvm.loop !51
 
-rbimpl_intern_const.exit560:                      ; preds = %.lr.ph.i558, %rbimpl_intern_const.exit554
-  %.lcssa.i557 = phi i64 [ %.pr.i555, %rbimpl_intern_const.exit554 ], [ %145, %.lr.ph.i558 ]
-  %146 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i557) #21
-  %.pr.i561 = load i64, ptr @rt_complete_frags.rbimpl_id.252, align 8, !tbaa !6
-  %.not4.i562 = icmp eq i64 %.pr.i561, 0
-  br i1 %.not4.i562, label %.lr.ph.i564, label %rbimpl_intern_const.exit566
+rbimpl_intern_const.exit557:                      ; preds = %.lr.ph.i555, %rbimpl_intern_const.exit551
+  %.lcssa.i554 = phi i64 [ %.pr.i552, %rbimpl_intern_const.exit551 ], [ %145, %.lr.ph.i555 ]
+  %146 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i554) #21
+  %.pr.i558 = load i64, ptr @rt_complete_frags.rbimpl_id.252, align 8, !tbaa !6
+  %.not4.i559 = icmp eq i64 %.pr.i558, 0
+  br i1 %.not4.i559, label %.lr.ph.i561, label %rbimpl_intern_const.exit563
 
-.lr.ph.i564:                                      ; preds = %rbimpl_intern_const.exit560, %.lr.ph.i564
+.lr.ph.i561:                                      ; preds = %rbimpl_intern_const.exit557, %.lr.ph.i561
   %147 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 5) #21
   store i64 %147, ptr @rt_complete_frags.rbimpl_id.252, align 8, !tbaa !6
-  %.not.i565 = icmp eq i64 %147, 0
-  br i1 %.not.i565, label %.lr.ph.i564, label %rbimpl_intern_const.exit566, !llvm.loop !51
+  %.not.i562 = icmp eq i64 %147, 0
+  br i1 %.not.i562, label %.lr.ph.i561, label %rbimpl_intern_const.exit563, !llvm.loop !51
 
-rbimpl_intern_const.exit566:                      ; preds = %.lr.ph.i564, %rbimpl_intern_const.exit560
-  %.lcssa.i563 = phi i64 [ %.pr.i561, %rbimpl_intern_const.exit560 ], [ %147, %.lr.ph.i564 ]
-  %148 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i563) #21
-  %.pr.i567 = load i64, ptr @rt_complete_frags.rbimpl_id.253, align 8, !tbaa !6
-  %.not4.i568 = icmp eq i64 %.pr.i567, 0
-  br i1 %.not4.i568, label %.lr.ph.i570, label %rbimpl_intern_const.exit572
+rbimpl_intern_const.exit563:                      ; preds = %.lr.ph.i561, %rbimpl_intern_const.exit557
+  %.lcssa.i560 = phi i64 [ %.pr.i558, %rbimpl_intern_const.exit557 ], [ %147, %.lr.ph.i561 ]
+  %148 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i560) #21
+  %.pr.i564 = load i64, ptr @rt_complete_frags.rbimpl_id.253, align 8, !tbaa !6
+  %.not4.i565 = icmp eq i64 %.pr.i564, 0
+  br i1 %.not4.i565, label %.lr.ph.i567, label %rbimpl_intern_const.exit569
 
-.lr.ph.i570:                                      ; preds = %rbimpl_intern_const.exit566, %.lr.ph.i570
+.lr.ph.i567:                                      ; preds = %rbimpl_intern_const.exit563, %.lr.ph.i567
   %149 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %149, ptr @rt_complete_frags.rbimpl_id.253, align 8, !tbaa !6
-  %.not.i571 = icmp eq i64 %149, 0
-  br i1 %.not.i571, label %.lr.ph.i570, label %rbimpl_intern_const.exit572, !llvm.loop !51
+  %.not.i568 = icmp eq i64 %149, 0
+  br i1 %.not.i568, label %.lr.ph.i567, label %rbimpl_intern_const.exit569, !llvm.loop !51
 
-rbimpl_intern_const.exit572:                      ; preds = %.lr.ph.i570, %rbimpl_intern_const.exit566
-  %.lcssa.i569 = phi i64 [ %.pr.i567, %rbimpl_intern_const.exit566 ], [ %149, %.lr.ph.i570 ]
-  %150 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i569) #21
-  %.pr.i573 = load i64, ptr @rt_complete_frags.rbimpl_id.254, align 8, !tbaa !6
-  %.not4.i574 = icmp eq i64 %.pr.i573, 0
-  br i1 %.not4.i574, label %.lr.ph.i576, label %rbimpl_intern_const.exit578
+rbimpl_intern_const.exit569:                      ; preds = %.lr.ph.i567, %rbimpl_intern_const.exit563
+  %.lcssa.i566 = phi i64 [ %.pr.i564, %rbimpl_intern_const.exit563 ], [ %149, %.lr.ph.i567 ]
+  %150 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i566) #21
+  %.pr.i570 = load i64, ptr @rt_complete_frags.rbimpl_id.254, align 8, !tbaa !6
+  %.not4.i571 = icmp eq i64 %.pr.i570, 0
+  br i1 %.not4.i571, label %.lr.ph.i573, label %rbimpl_intern_const.exit575
 
-.lr.ph.i576:                                      ; preds = %rbimpl_intern_const.exit572, %.lr.ph.i576
+.lr.ph.i573:                                      ; preds = %rbimpl_intern_const.exit569, %.lr.ph.i573
   %151 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %151, ptr @rt_complete_frags.rbimpl_id.254, align 8, !tbaa !6
-  %.not.i577 = icmp eq i64 %151, 0
-  br i1 %.not.i577, label %.lr.ph.i576, label %rbimpl_intern_const.exit578, !llvm.loop !51
+  %.not.i574 = icmp eq i64 %151, 0
+  br i1 %.not.i574, label %.lr.ph.i573, label %rbimpl_intern_const.exit575, !llvm.loop !51
 
-rbimpl_intern_const.exit578:                      ; preds = %.lr.ph.i576, %rbimpl_intern_const.exit572
-  %.lcssa.i575 = phi i64 [ %.pr.i573, %rbimpl_intern_const.exit572 ], [ %151, %.lr.ph.i576 ]
-  %152 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i575) #21
-  %.pr.i579 = load i64, ptr @rt_complete_frags.rbimpl_id.255, align 8, !tbaa !6
-  %.not4.i580 = icmp eq i64 %.pr.i579, 0
-  br i1 %.not4.i580, label %.lr.ph.i582, label %rbimpl_intern_const.exit584
+rbimpl_intern_const.exit575:                      ; preds = %.lr.ph.i573, %rbimpl_intern_const.exit569
+  %.lcssa.i572 = phi i64 [ %.pr.i570, %rbimpl_intern_const.exit569 ], [ %151, %.lr.ph.i573 ]
+  %152 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i572) #21
+  %.pr.i576 = load i64, ptr @rt_complete_frags.rbimpl_id.255, align 8, !tbaa !6
+  %.not4.i577 = icmp eq i64 %.pr.i576, 0
+  br i1 %.not4.i577, label %.lr.ph.i579, label %rbimpl_intern_const.exit581
 
-.lr.ph.i582:                                      ; preds = %rbimpl_intern_const.exit578, %.lr.ph.i582
+.lr.ph.i579:                                      ; preds = %rbimpl_intern_const.exit575, %.lr.ph.i579
   %153 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %153, ptr @rt_complete_frags.rbimpl_id.255, align 8, !tbaa !6
-  %.not.i583 = icmp eq i64 %153, 0
-  br i1 %.not.i583, label %.lr.ph.i582, label %rbimpl_intern_const.exit584, !llvm.loop !51
+  %.not.i580 = icmp eq i64 %153, 0
+  br i1 %.not.i580, label %.lr.ph.i579, label %rbimpl_intern_const.exit581, !llvm.loop !51
 
-rbimpl_intern_const.exit584:                      ; preds = %.lr.ph.i582, %rbimpl_intern_const.exit578
-  %.lcssa.i581 = phi i64 [ %.pr.i579, %rbimpl_intern_const.exit578 ], [ %153, %.lr.ph.i582 ]
-  %154 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i581) #21
+rbimpl_intern_const.exit581:                      ; preds = %.lr.ph.i579, %rbimpl_intern_const.exit575
+  %.lcssa.i578 = phi i64 [ %.pr.i576, %rbimpl_intern_const.exit575 ], [ %153, %.lr.ph.i579 ]
+  %154 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i578) #21
   %155 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %144, i64 noundef %146, i64 noundef %148, i64 noundef %150, i64 noundef %152, i64 noundef %154) #21
   %156 = tail call i64 @rb_ary_freeze(i64 noundef %155) #21
   %157 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef 4, i64 noundef %156) #21
   %158 = tail call i64 @rb_ary_freeze(i64 noundef %157) #21
-  %.pr.i585 = load i64, ptr @rt_complete_frags.rbimpl_id.256, align 8, !tbaa !6
-  %.not4.i586 = icmp eq i64 %.pr.i585, 0
-  br i1 %.not4.i586, label %.lr.ph.i588, label %rbimpl_intern_const.exit590
+  %.pr.i582 = load i64, ptr @rt_complete_frags.rbimpl_id.256, align 8, !tbaa !6
+  %.not4.i583 = icmp eq i64 %.pr.i582, 0
+  br i1 %.not4.i583, label %.lr.ph.i585, label %rbimpl_intern_const.exit587
 
-.lr.ph.i588:                                      ; preds = %rbimpl_intern_const.exit584, %.lr.ph.i588
+.lr.ph.i585:                                      ; preds = %rbimpl_intern_const.exit581, %.lr.ph.i585
   %159 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %159, ptr @rt_complete_frags.rbimpl_id.256, align 8, !tbaa !6
-  %.not.i589 = icmp eq i64 %159, 0
-  br i1 %.not.i589, label %.lr.ph.i588, label %rbimpl_intern_const.exit590, !llvm.loop !51
+  %.not.i586 = icmp eq i64 %159, 0
+  br i1 %.not.i586, label %.lr.ph.i585, label %rbimpl_intern_const.exit587, !llvm.loop !51
 
-rbimpl_intern_const.exit590:                      ; preds = %.lr.ph.i588, %rbimpl_intern_const.exit584
-  %.lcssa.i587 = phi i64 [ %.pr.i585, %rbimpl_intern_const.exit584 ], [ %159, %.lr.ph.i588 ]
-  %160 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i587) #21
-  %.pr.i591 = load i64, ptr @rt_complete_frags.rbimpl_id.257, align 8, !tbaa !6
-  %.not4.i592 = icmp eq i64 %.pr.i591, 0
-  br i1 %.not4.i592, label %.lr.ph.i594, label %rbimpl_intern_const.exit596
+rbimpl_intern_const.exit587:                      ; preds = %.lr.ph.i585, %rbimpl_intern_const.exit581
+  %.lcssa.i584 = phi i64 [ %.pr.i582, %rbimpl_intern_const.exit581 ], [ %159, %.lr.ph.i585 ]
+  %160 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i584) #21
+  %.pr.i588 = load i64, ptr @rt_complete_frags.rbimpl_id.257, align 8, !tbaa !6
+  %.not4.i589 = icmp eq i64 %.pr.i588, 0
+  br i1 %.not4.i589, label %.lr.ph.i591, label %rbimpl_intern_const.exit593
 
-.lr.ph.i594:                                      ; preds = %rbimpl_intern_const.exit590, %.lr.ph.i594
+.lr.ph.i591:                                      ; preds = %rbimpl_intern_const.exit587, %.lr.ph.i591
   %161 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.237, i64 noundef 5) #21
   store i64 %161, ptr @rt_complete_frags.rbimpl_id.257, align 8, !tbaa !6
-  %.not.i595 = icmp eq i64 %161, 0
-  br i1 %.not.i595, label %.lr.ph.i594, label %rbimpl_intern_const.exit596, !llvm.loop !51
+  %.not.i592 = icmp eq i64 %161, 0
+  br i1 %.not.i592, label %.lr.ph.i591, label %rbimpl_intern_const.exit593, !llvm.loop !51
 
-rbimpl_intern_const.exit596:                      ; preds = %.lr.ph.i594, %rbimpl_intern_const.exit590
-  %.lcssa.i593 = phi i64 [ %.pr.i591, %rbimpl_intern_const.exit590 ], [ %161, %.lr.ph.i594 ]
-  %162 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i593) #21
-  %.pr.i597 = load i64, ptr @rt_complete_frags.rbimpl_id.258, align 8, !tbaa !6
-  %.not4.i598 = icmp eq i64 %.pr.i597, 0
-  br i1 %.not4.i598, label %.lr.ph.i600, label %rbimpl_intern_const.exit602
+rbimpl_intern_const.exit593:                      ; preds = %.lr.ph.i591, %rbimpl_intern_const.exit587
+  %.lcssa.i590 = phi i64 [ %.pr.i588, %rbimpl_intern_const.exit587 ], [ %161, %.lr.ph.i591 ]
+  %162 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i590) #21
+  %.pr.i594 = load i64, ptr @rt_complete_frags.rbimpl_id.258, align 8, !tbaa !6
+  %.not4.i595 = icmp eq i64 %.pr.i594, 0
+  br i1 %.not4.i595, label %.lr.ph.i597, label %rbimpl_intern_const.exit599
 
-.lr.ph.i600:                                      ; preds = %rbimpl_intern_const.exit596, %.lr.ph.i600
+.lr.ph.i597:                                      ; preds = %rbimpl_intern_const.exit593, %.lr.ph.i597
   %163 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 5) #21
   store i64 %163, ptr @rt_complete_frags.rbimpl_id.258, align 8, !tbaa !6
-  %.not.i601 = icmp eq i64 %163, 0
-  br i1 %.not.i601, label %.lr.ph.i600, label %rbimpl_intern_const.exit602, !llvm.loop !51
+  %.not.i598 = icmp eq i64 %163, 0
+  br i1 %.not.i598, label %.lr.ph.i597, label %rbimpl_intern_const.exit599, !llvm.loop !51
 
-rbimpl_intern_const.exit602:                      ; preds = %.lr.ph.i600, %rbimpl_intern_const.exit596
-  %.lcssa.i599 = phi i64 [ %.pr.i597, %rbimpl_intern_const.exit596 ], [ %163, %.lr.ph.i600 ]
-  %164 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i599) #21
-  %.pr.i603 = load i64, ptr @rt_complete_frags.rbimpl_id.259, align 8, !tbaa !6
-  %.not4.i604 = icmp eq i64 %.pr.i603, 0
-  br i1 %.not4.i604, label %.lr.ph.i606, label %rbimpl_intern_const.exit608
+rbimpl_intern_const.exit599:                      ; preds = %.lr.ph.i597, %rbimpl_intern_const.exit593
+  %.lcssa.i596 = phi i64 [ %.pr.i594, %rbimpl_intern_const.exit593 ], [ %163, %.lr.ph.i597 ]
+  %164 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i596) #21
+  %.pr.i600 = load i64, ptr @rt_complete_frags.rbimpl_id.259, align 8, !tbaa !6
+  %.not4.i601 = icmp eq i64 %.pr.i600, 0
+  br i1 %.not4.i601, label %.lr.ph.i603, label %rbimpl_intern_const.exit605
 
-.lr.ph.i606:                                      ; preds = %rbimpl_intern_const.exit602, %.lr.ph.i606
+.lr.ph.i603:                                      ; preds = %rbimpl_intern_const.exit599, %.lr.ph.i603
   %165 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %165, ptr @rt_complete_frags.rbimpl_id.259, align 8, !tbaa !6
-  %.not.i607 = icmp eq i64 %165, 0
-  br i1 %.not.i607, label %.lr.ph.i606, label %rbimpl_intern_const.exit608, !llvm.loop !51
+  %.not.i604 = icmp eq i64 %165, 0
+  br i1 %.not.i604, label %.lr.ph.i603, label %rbimpl_intern_const.exit605, !llvm.loop !51
 
-rbimpl_intern_const.exit608:                      ; preds = %.lr.ph.i606, %rbimpl_intern_const.exit602
-  %.lcssa.i605 = phi i64 [ %.pr.i603, %rbimpl_intern_const.exit602 ], [ %165, %.lr.ph.i606 ]
-  %166 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i605) #21
-  %.pr.i609 = load i64, ptr @rt_complete_frags.rbimpl_id.260, align 8, !tbaa !6
-  %.not4.i610 = icmp eq i64 %.pr.i609, 0
-  br i1 %.not4.i610, label %.lr.ph.i612, label %rbimpl_intern_const.exit614
+rbimpl_intern_const.exit605:                      ; preds = %.lr.ph.i603, %rbimpl_intern_const.exit599
+  %.lcssa.i602 = phi i64 [ %.pr.i600, %rbimpl_intern_const.exit599 ], [ %165, %.lr.ph.i603 ]
+  %166 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i602) #21
+  %.pr.i606 = load i64, ptr @rt_complete_frags.rbimpl_id.260, align 8, !tbaa !6
+  %.not4.i607 = icmp eq i64 %.pr.i606, 0
+  br i1 %.not4.i607, label %.lr.ph.i609, label %rbimpl_intern_const.exit611
 
-.lr.ph.i612:                                      ; preds = %rbimpl_intern_const.exit608, %.lr.ph.i612
+.lr.ph.i609:                                      ; preds = %rbimpl_intern_const.exit605, %.lr.ph.i609
   %167 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %167, ptr @rt_complete_frags.rbimpl_id.260, align 8, !tbaa !6
-  %.not.i613 = icmp eq i64 %167, 0
-  br i1 %.not.i613, label %.lr.ph.i612, label %rbimpl_intern_const.exit614, !llvm.loop !51
+  %.not.i610 = icmp eq i64 %167, 0
+  br i1 %.not.i610, label %.lr.ph.i609, label %rbimpl_intern_const.exit611, !llvm.loop !51
 
-rbimpl_intern_const.exit614:                      ; preds = %.lr.ph.i612, %rbimpl_intern_const.exit608
-  %.lcssa.i611 = phi i64 [ %.pr.i609, %rbimpl_intern_const.exit608 ], [ %167, %.lr.ph.i612 ]
-  %168 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i611) #21
-  %.pr.i615 = load i64, ptr @rt_complete_frags.rbimpl_id.261, align 8, !tbaa !6
-  %.not4.i616 = icmp eq i64 %.pr.i615, 0
-  br i1 %.not4.i616, label %.lr.ph.i618, label %rbimpl_intern_const.exit620
+rbimpl_intern_const.exit611:                      ; preds = %.lr.ph.i609, %rbimpl_intern_const.exit605
+  %.lcssa.i608 = phi i64 [ %.pr.i606, %rbimpl_intern_const.exit605 ], [ %167, %.lr.ph.i609 ]
+  %168 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i608) #21
+  %.pr.i612 = load i64, ptr @rt_complete_frags.rbimpl_id.261, align 8, !tbaa !6
+  %.not4.i613 = icmp eq i64 %.pr.i612, 0
+  br i1 %.not4.i613, label %.lr.ph.i615, label %rbimpl_intern_const.exit617
 
-.lr.ph.i618:                                      ; preds = %rbimpl_intern_const.exit614, %.lr.ph.i618
+.lr.ph.i615:                                      ; preds = %rbimpl_intern_const.exit611, %.lr.ph.i615
   %169 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %169, ptr @rt_complete_frags.rbimpl_id.261, align 8, !tbaa !6
-  %.not.i619 = icmp eq i64 %169, 0
-  br i1 %.not.i619, label %.lr.ph.i618, label %rbimpl_intern_const.exit620, !llvm.loop !51
+  %.not.i616 = icmp eq i64 %169, 0
+  br i1 %.not.i616, label %.lr.ph.i615, label %rbimpl_intern_const.exit617, !llvm.loop !51
 
-rbimpl_intern_const.exit620:                      ; preds = %.lr.ph.i618, %rbimpl_intern_const.exit614
-  %.lcssa.i617 = phi i64 [ %.pr.i615, %rbimpl_intern_const.exit614 ], [ %169, %.lr.ph.i618 ]
-  %170 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i617) #21
+rbimpl_intern_const.exit617:                      ; preds = %.lr.ph.i615, %rbimpl_intern_const.exit611
+  %.lcssa.i614 = phi i64 [ %.pr.i612, %rbimpl_intern_const.exit611 ], [ %169, %.lr.ph.i615 ]
+  %170 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i614) #21
   %171 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 6, i64 noundef %160, i64 noundef %162, i64 noundef %164, i64 noundef %166, i64 noundef %168, i64 noundef %170) #21
   %172 = tail call i64 @rb_ary_freeze(i64 noundef %171) #21
   %173 = tail call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 2, i64 noundef 4, i64 noundef %172) #21
@@ -22060,21 +22119,21 @@ rbimpl_intern_const.exit620:                      ; preds = %.lr.ph.i618, %rbimp
   %176 = tail call i64 @rb_ary_freeze(i64 noundef %175) #21
   store i64 %176, ptr @rt_complete_frags.tab, align 8, !tbaa !6
   tail call void @rb_gc_register_mark_object(i64 noundef %176) #21
-  br label %.preheader1292
+  br label %.preheader1285
 
-.preheader1292:                                   ; preds = %rbimpl_intern_const.exit620, %2
+.preheader1285:                                   ; preds = %rbimpl_intern_const.exit617, %2
   br label %177
 
-177:                                              ; preds = %.preheader1292, %223
-  %.0232 = phi i64 [ %spec.select247, %223 ], [ 0, %.preheader1292 ]
-  %.0230 = phi i64 [ %spec.select248, %223 ], [ 0, %.preheader1292 ]
-  %.0229 = phi i64 [ %225, %223 ], [ 0, %.preheader1292 ]
+177:                                              ; preds = %.preheader1285, %223
+  %.0232 = phi i64 [ %spec.select247, %223 ], [ 0, %.preheader1285 ]
+  %.0230 = phi i64 [ %spec.select248, %223 ], [ 0, %.preheader1285 ]
+  %.0229 = phi i64 [ %225, %223 ], [ 0, %.preheader1285 ]
   %178 = load i64, ptr @rt_complete_frags.tab, align 8, !tbaa !6
   %179 = inttoptr i64 %178 to ptr
   %180 = load i64, ptr %179, align 8, !tbaa !35
   %181 = and i64 %180, 8192
-  %.not.i621 = icmp eq i64 %181, 0
-  br i1 %.not.i621, label %rb_array_len.exit, label %rb_array_len.exit.thread
+  %.not.i618 = icmp eq i64 %181, 0
+  br i1 %.not.i618, label %rb_array_len.exit, label %rb_array_len.exit.thread
 
 rb_array_len.exit:                                ; preds = %177
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 16
@@ -22086,7 +22145,7 @@ rb_array_len.exit.thread:                         ; preds = %177
   %185 = lshr i64 %180, 15
   %186 = and i64 %185, 127
   %187 = icmp samesign ult i64 %.0229, %186
-  br i1 %187, label %.thread, label %.thread793
+  br i1 %187, label %.thread, label %.thread790
 
 .thread:                                          ; preds = %rb_array_len.exit.thread
   %188 = getelementptr inbounds nuw i8, ptr %179, i64 16
@@ -22098,59 +22157,59 @@ rb_array_len.exit.thread:                         ; preds = %177
   br label %rb_array_const_ptr.exit
 
 rb_array_const_ptr.exit:                          ; preds = %.thread, %189
-  %.0.i623 = phi ptr [ %188, %.thread ], [ %191, %189 ]
-  %192 = getelementptr inbounds nuw i64, ptr %.0.i623, i64 %.0229
+  %.0.i620 = phi ptr [ %188, %.thread ], [ %191, %189 ]
+  %192 = getelementptr inbounds nuw i64, ptr %.0.i620, i64 %.0229
   %193 = load i64, ptr %192, align 8, !tbaa !6
   %194 = inttoptr i64 %193 to ptr
   %195 = load i64, ptr %194, align 8, !tbaa !35
   %196 = and i64 %195, 8192
-  %.not.i624 = icmp eq i64 %196, 0
-  br i1 %.not.i624, label %199, label %197
+  %.not.i621 = icmp eq i64 %196, 0
+  br i1 %.not.i621, label %199, label %197
 
 197:                                              ; preds = %rb_array_const_ptr.exit
   %198 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  br label %rb_array_const_ptr.exit626
+  br label %rb_array_const_ptr.exit623
 
 199:                                              ; preds = %rb_array_const_ptr.exit
   %200 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %201 = load ptr, ptr %200, align 8, !tbaa !47
-  br label %rb_array_const_ptr.exit626
+  br label %rb_array_const_ptr.exit623
 
-rb_array_const_ptr.exit626:                       ; preds = %197, %199
-  %.0.i625 = phi ptr [ %198, %197 ], [ %201, %199 ]
-  %202 = getelementptr inbounds nuw i8, ptr %.0.i625, i64 8
+rb_array_const_ptr.exit623:                       ; preds = %197, %199
+  %.0.i622 = phi ptr [ %198, %197 ], [ %201, %199 ]
+  %202 = getelementptr inbounds nuw i8, ptr %.0.i622, i64 8
   %203 = load i64, ptr %202, align 8, !tbaa !6
   %204 = inttoptr i64 %203 to ptr
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 16
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 32
   br label %207
 
-207:                                              ; preds = %rb_array_const_ptr.exit632, %rb_array_const_ptr.exit626
-  %.0235 = phi i64 [ 0, %rb_array_const_ptr.exit626 ], [ %spec.select, %rb_array_const_ptr.exit632 ]
-  %.0234 = phi i64 [ 0, %rb_array_const_ptr.exit626 ], [ %222, %rb_array_const_ptr.exit632 ]
+207:                                              ; preds = %rb_array_const_ptr.exit629, %rb_array_const_ptr.exit623
+  %.0235 = phi i64 [ 0, %rb_array_const_ptr.exit623 ], [ %spec.select, %rb_array_const_ptr.exit629 ]
+  %.0234 = phi i64 [ 0, %rb_array_const_ptr.exit623 ], [ %222, %rb_array_const_ptr.exit629 ]
   %208 = load i64, ptr %204, align 8, !tbaa !35
   %209 = and i64 %208, 8192
-  %.not.i627 = icmp eq i64 %209, 0
-  br i1 %.not.i627, label %rb_array_len.exit629, label %rb_array_len.exit629.thread
+  %.not.i624 = icmp eq i64 %209, 0
+  br i1 %.not.i624, label %rb_array_len.exit626, label %rb_array_len.exit626.thread
 
-rb_array_len.exit629:                             ; preds = %207
+rb_array_len.exit626:                             ; preds = %207
   %210 = load i64, ptr %205, align 8, !tbaa !47
   %211 = icmp slt i64 %.0234, %210
   br i1 %211, label %215, label %223
 
-rb_array_len.exit629.thread:                      ; preds = %207
+rb_array_len.exit626.thread:                      ; preds = %207
   %212 = lshr i64 %208, 15
   %213 = and i64 %212, 127
   %214 = icmp samesign ult i64 %.0234, %213
-  br i1 %214, label %rb_array_const_ptr.exit632, label %223
+  br i1 %214, label %rb_array_const_ptr.exit629, label %223
 
-215:                                              ; preds = %rb_array_len.exit629
+215:                                              ; preds = %rb_array_len.exit626
   %216 = load ptr, ptr %206, align 8, !tbaa !47
-  br label %rb_array_const_ptr.exit632
+  br label %rb_array_const_ptr.exit629
 
-rb_array_const_ptr.exit632:                       ; preds = %rb_array_len.exit629.thread, %215
-  %.0.i631 = phi ptr [ %216, %215 ], [ %205, %rb_array_len.exit629.thread ]
-  %217 = getelementptr inbounds nuw i64, ptr %.0.i631, i64 %.0234
+rb_array_const_ptr.exit629:                       ; preds = %rb_array_len.exit626.thread, %215
+  %.0.i628 = phi ptr [ %216, %215 ], [ %205, %rb_array_len.exit626.thread ]
+  %217 = getelementptr inbounds nuw i64, ptr %.0.i628, i64 %.0234
   %218 = load i64, ptr %217, align 8, !tbaa !6
   %219 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %218) #21
   %220 = icmp ne i64 %219, 4
@@ -22159,7 +22218,7 @@ rb_array_const_ptr.exit632:                       ; preds = %rb_array_len.exit62
   %222 = add nuw nsw i64 %.0234, 1
   br label %207, !llvm.loop !88
 
-223:                                              ; preds = %rb_array_len.exit629.thread, %rb_array_len.exit629
+223:                                              ; preds = %rb_array_len.exit626.thread, %rb_array_len.exit626
   %224 = icmp samesign ugt i64 %.0235, %.0230
   %spec.select247 = select i1 %224, i64 %.0229, i64 %.0232
   %spec.select248 = tail call i64 @llvm.smax.i64(i64 %.0235, i64 %.0230)
@@ -22170,178 +22229,178 @@ rb_array_const_ptr.exit632:                       ; preds = %rb_array_len.exit62
   %227 = icmp eq i64 %.0230, 0
   br i1 %227, label %.critedge, label %230
 
-.thread793:                                       ; preds = %rb_array_len.exit.thread
+.thread790:                                       ; preds = %rb_array_len.exit.thread
   %228 = icmp eq i64 %.0230, 0
-  br i1 %228, label %.critedge, label %.thread794
+  br i1 %228, label %.critedge, label %.thread791
 
-.thread794:                                       ; preds = %.thread793
+.thread791:                                       ; preds = %.thread790
   %229 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  br label %rb_array_const_ptr.exit635
+  br label %rb_array_const_ptr.exit632
 
 230:                                              ; preds = %226
   %231 = getelementptr inbounds nuw i8, ptr %179, i64 32
   %232 = load ptr, ptr %231, align 8, !tbaa !47
-  br label %rb_array_const_ptr.exit635
+  br label %rb_array_const_ptr.exit632
 
-rb_array_const_ptr.exit635:                       ; preds = %.thread794, %230
-  %.0.i634 = phi ptr [ %229, %.thread794 ], [ %232, %230 ]
-  %233 = getelementptr inbounds nuw i64, ptr %.0.i634, i64 %.0232
+rb_array_const_ptr.exit632:                       ; preds = %.thread791, %230
+  %.0.i631 = phi ptr [ %229, %.thread791 ], [ %232, %230 ]
+  %233 = getelementptr inbounds nuw i64, ptr %.0.i631, i64 %.0232
   %234 = load i64, ptr %233, align 8, !tbaa !6
   %235 = inttoptr i64 %234 to ptr
   %236 = load i64, ptr %235, align 8, !tbaa !35
   %237 = and i64 %236, 8192
-  %.not.i636 = icmp eq i64 %237, 0
-  br i1 %.not.i636, label %240, label %238
+  %.not.i633 = icmp eq i64 %237, 0
+  br i1 %.not.i633, label %240, label %238
 
-238:                                              ; preds = %rb_array_const_ptr.exit635
+238:                                              ; preds = %rb_array_const_ptr.exit632
   %239 = getelementptr inbounds nuw i8, ptr %235, i64 16
   br label %243
 
-240:                                              ; preds = %rb_array_const_ptr.exit635
+240:                                              ; preds = %rb_array_const_ptr.exit632
   %241 = getelementptr inbounds nuw i8, ptr %235, i64 32
   %242 = load ptr, ptr %241, align 8, !tbaa !47
   br label %243
 
 243:                                              ; preds = %238, %240
-  %.0.i637 = phi ptr [ %239, %238 ], [ %242, %240 ]
-  %244 = load i64, ptr %.0.i637, align 8, !tbaa !6
+  %.0.i634 = phi ptr [ %239, %238 ], [ %242, %240 ]
+  %244 = load i64, ptr %.0.i634, align 8, !tbaa !6
   %245 = icmp eq i64 %244, 4
   br i1 %245, label %493, label %246
 
 246:                                              ; preds = %243
-  %247 = getelementptr inbounds nuw i8, ptr %.0.i637, i64 8
+  %247 = getelementptr inbounds nuw i8, ptr %.0.i634, i64 8
   %248 = load i64, ptr %247, align 8, !tbaa !6
   %249 = inttoptr i64 %248 to ptr
   %250 = load i64, ptr %249, align 8, !tbaa !35
   %251 = and i64 %250, 8192
-  %.not.i639 = icmp eq i64 %251, 0
-  br i1 %.not.i639, label %255, label %252
+  %.not.i636 = icmp eq i64 %251, 0
+  br i1 %.not.i636, label %255, label %252
 
 252:                                              ; preds = %246
   %253 = lshr i64 %250, 15
   %254 = and i64 %253, 127
-  br label %rb_array_len.exit641
+  br label %rb_array_len.exit638
 
 255:                                              ; preds = %246
   %256 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %257 = load i64, ptr %256, align 8, !tbaa !47
-  br label %rb_array_len.exit641
+  br label %rb_array_len.exit638
 
-rb_array_len.exit641:                             ; preds = %252, %255
-  %.0.i640 = phi i64 [ %254, %252 ], [ %257, %255 ]
-  %.not = icmp eq i64 %.0.i640, %.0230
+rb_array_len.exit638:                             ; preds = %252, %255
+  %.0.i637 = phi i64 [ %254, %252 ], [ %257, %255 ]
+  %.not = icmp eq i64 %.0.i637, %.0230
   br i1 %.not, label %493, label %258
 
-258:                                              ; preds = %rb_array_len.exit641
-  %.pr.i642 = load i64, ptr @rt_complete_frags.rbimpl_id.262, align 8, !tbaa !6
-  %.not4.i643 = icmp eq i64 %.pr.i642, 0
-  br i1 %.not4.i643, label %.lr.ph.i645, label %rbimpl_intern_const.exit647
+258:                                              ; preds = %rb_array_len.exit638
+  %.pr.i639 = load i64, ptr @rt_complete_frags.rbimpl_id.262, align 8, !tbaa !6
+  %.not4.i640 = icmp eq i64 %.pr.i639, 0
+  br i1 %.not4.i640, label %.lr.ph.i642, label %rbimpl_intern_const.exit644
 
-.lr.ph.i645:                                      ; preds = %258, %.lr.ph.i645
+.lr.ph.i642:                                      ; preds = %258, %.lr.ph.i642
   %259 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.33, i64 noundef 7) #21
   store i64 %259, ptr @rt_complete_frags.rbimpl_id.262, align 8, !tbaa !6
-  %.not.i646 = icmp eq i64 %259, 0
-  br i1 %.not.i646, label %.lr.ph.i645, label %rbimpl_intern_const.exit647, !llvm.loop !51
+  %.not.i643 = icmp eq i64 %259, 0
+  br i1 %.not.i643, label %.lr.ph.i642, label %rbimpl_intern_const.exit644, !llvm.loop !51
 
-rbimpl_intern_const.exit647:                      ; preds = %.lr.ph.i645, %258
-  %.lcssa.i644 = phi i64 [ %.pr.i642, %258 ], [ %259, %.lr.ph.i645 ]
-  %260 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i644) #21
+rbimpl_intern_const.exit644:                      ; preds = %.lr.ph.i642, %258
+  %.lcssa.i641 = phi i64 [ %.pr.i639, %258 ], [ %259, %.lr.ph.i642 ]
+  %260 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i641) #21
   %261 = icmp eq i64 %244, %260
   br i1 %261, label %262, label %284
 
-262:                                              ; preds = %rbimpl_intern_const.exit647
-  %.pr.i648 = load i64, ptr @rt_complete_frags.rbimpl_id.263, align 8, !tbaa !6
-  %.not4.i649 = icmp eq i64 %.pr.i648, 0
-  br i1 %.not4.i649, label %.lr.ph.i651, label %rbimpl_intern_const.exit653
+262:                                              ; preds = %rbimpl_intern_const.exit644
+  %.pr.i645 = load i64, ptr @rt_complete_frags.rbimpl_id.263, align 8, !tbaa !6
+  %.not4.i646 = icmp eq i64 %.pr.i645, 0
+  br i1 %.not4.i646, label %.lr.ph.i648, label %rbimpl_intern_const.exit650
 
-.lr.ph.i651:                                      ; preds = %262, %.lr.ph.i651
+.lr.ph.i648:                                      ; preds = %262, %.lr.ph.i648
   %263 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %263, ptr @rt_complete_frags.rbimpl_id.263, align 8, !tbaa !6
-  %.not.i652 = icmp eq i64 %263, 0
-  br i1 %.not.i652, label %.lr.ph.i651, label %rbimpl_intern_const.exit653, !llvm.loop !51
+  %.not.i649 = icmp eq i64 %263, 0
+  br i1 %.not.i649, label %.lr.ph.i648, label %rbimpl_intern_const.exit650, !llvm.loop !51
 
-rbimpl_intern_const.exit653:                      ; preds = %.lr.ph.i651, %262
-  %.lcssa.i650 = phi i64 [ %.pr.i648, %262 ], [ %263, %.lr.ph.i651 ]
-  %264 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i650) #21
+rbimpl_intern_const.exit650:                      ; preds = %.lr.ph.i648, %262
+  %.lcssa.i647 = phi i64 [ %.pr.i645, %262 ], [ %263, %.lr.ph.i648 ]
+  %264 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i647) #21
   %265 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %264) #21
   %266 = icmp eq i64 %265, 4
   br i1 %266, label %267, label %275
 
-267:                                              ; preds = %rbimpl_intern_const.exit653
+267:                                              ; preds = %rbimpl_intern_const.exit650
   %268 = load i64, ptr @cDate, align 8, !tbaa !6
   %269 = tail call i64 @date_s_today(i32 noundef 0, ptr noundef null, i64 noundef %268)
-  %.pr.i654 = load i64, ptr @rt_complete_frags.rbimpl_id.264, align 8, !tbaa !6
-  %.not4.i655 = icmp eq i64 %.pr.i654, 0
-  br i1 %.not4.i655, label %.lr.ph.i657, label %rbimpl_intern_const.exit659
+  %.pr.i651 = load i64, ptr @rt_complete_frags.rbimpl_id.264, align 8, !tbaa !6
+  %.not4.i652 = icmp eq i64 %.pr.i651, 0
+  br i1 %.not4.i652, label %.lr.ph.i654, label %rbimpl_intern_const.exit656
 
-.lr.ph.i657:                                      ; preds = %267, %.lr.ph.i657
+.lr.ph.i654:                                      ; preds = %267, %.lr.ph.i654
   %270 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %270, ptr @rt_complete_frags.rbimpl_id.264, align 8, !tbaa !6
-  %.not.i658 = icmp eq i64 %270, 0
-  br i1 %.not.i658, label %.lr.ph.i657, label %rbimpl_intern_const.exit659, !llvm.loop !51
+  %.not.i655 = icmp eq i64 %270, 0
+  br i1 %.not.i655, label %.lr.ph.i654, label %rbimpl_intern_const.exit656, !llvm.loop !51
 
-rbimpl_intern_const.exit659:                      ; preds = %.lr.ph.i657, %267
-  %.lcssa.i656 = phi i64 [ %.pr.i654, %267 ], [ %270, %.lr.ph.i657 ]
-  %271 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i656) #21
+rbimpl_intern_const.exit656:                      ; preds = %.lr.ph.i654, %267
+  %.lcssa.i653 = phi i64 [ %.pr.i651, %267 ], [ %270, %.lr.ph.i654 ]
+  %271 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i653) #21
   %272 = tail call ptr @rb_check_typeddata(i64 noundef %269, ptr noundef nonnull @d_lite_type) #21
   %273 = tail call i64 @m_real_year(ptr noundef %272)
   %274 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %271, i64 noundef %273) #21
   br label %275
 
-275:                                              ; preds = %rbimpl_intern_const.exit659, %rbimpl_intern_const.exit653
-  %.1 = phi i64 [ %269, %rbimpl_intern_const.exit659 ], [ 4, %rbimpl_intern_const.exit653 ]
-  %.pr.i660 = load i64, ptr @rt_complete_frags.rbimpl_id.265, align 8, !tbaa !6
-  %.not4.i661 = icmp eq i64 %.pr.i660, 0
-  br i1 %.not4.i661, label %.lr.ph.i663, label %rbimpl_intern_const.exit665
+275:                                              ; preds = %rbimpl_intern_const.exit656, %rbimpl_intern_const.exit650
+  %.1 = phi i64 [ %269, %rbimpl_intern_const.exit656 ], [ 4, %rbimpl_intern_const.exit650 ]
+  %.pr.i657 = load i64, ptr @rt_complete_frags.rbimpl_id.265, align 8, !tbaa !6
+  %.not4.i658 = icmp eq i64 %.pr.i657, 0
+  br i1 %.not4.i658, label %.lr.ph.i660, label %rbimpl_intern_const.exit662
 
-.lr.ph.i663:                                      ; preds = %275, %.lr.ph.i663
+.lr.ph.i660:                                      ; preds = %275, %.lr.ph.i660
   %276 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 4) #21
   store i64 %276, ptr @rt_complete_frags.rbimpl_id.265, align 8, !tbaa !6
-  %.not.i664 = icmp eq i64 %276, 0
-  br i1 %.not.i664, label %.lr.ph.i663, label %rbimpl_intern_const.exit665, !llvm.loop !51
+  %.not.i661 = icmp eq i64 %276, 0
+  br i1 %.not.i661, label %.lr.ph.i660, label %rbimpl_intern_const.exit662, !llvm.loop !51
 
-rbimpl_intern_const.exit665:                      ; preds = %.lr.ph.i663, %275
-  %.lcssa.i662 = phi i64 [ %.pr.i660, %275 ], [ %276, %.lr.ph.i663 ]
-  %277 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i662) #21
+rbimpl_intern_const.exit662:                      ; preds = %.lr.ph.i660, %275
+  %.lcssa.i659 = phi i64 [ %.pr.i657, %275 ], [ %276, %.lr.ph.i660 ]
+  %277 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i659) #21
   %278 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %277) #21
   %279 = icmp eq i64 %278, 4
   br i1 %279, label %280, label %493
 
-280:                                              ; preds = %rbimpl_intern_const.exit665
-  %.pr.i666 = load i64, ptr @rt_complete_frags.rbimpl_id.266, align 8, !tbaa !6
-  %.not4.i667 = icmp eq i64 %.pr.i666, 0
-  br i1 %.not4.i667, label %.lr.ph.i669, label %rbimpl_intern_const.exit671
+280:                                              ; preds = %rbimpl_intern_const.exit662
+  %.pr.i663 = load i64, ptr @rt_complete_frags.rbimpl_id.266, align 8, !tbaa !6
+  %.not4.i664 = icmp eq i64 %.pr.i663, 0
+  br i1 %.not4.i664, label %.lr.ph.i666, label %rbimpl_intern_const.exit668
 
-.lr.ph.i669:                                      ; preds = %280, %.lr.ph.i669
+.lr.ph.i666:                                      ; preds = %280, %.lr.ph.i666
   %281 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 4) #21
   store i64 %281, ptr @rt_complete_frags.rbimpl_id.266, align 8, !tbaa !6
-  %.not.i670 = icmp eq i64 %281, 0
-  br i1 %.not.i670, label %.lr.ph.i669, label %rbimpl_intern_const.exit671, !llvm.loop !51
+  %.not.i667 = icmp eq i64 %281, 0
+  br i1 %.not.i667, label %.lr.ph.i666, label %rbimpl_intern_const.exit668, !llvm.loop !51
 
-rbimpl_intern_const.exit671:                      ; preds = %.lr.ph.i669, %280
-  %.lcssa.i668 = phi i64 [ %.pr.i666, %280 ], [ %281, %.lr.ph.i669 ]
-  %282 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i668) #21
+rbimpl_intern_const.exit668:                      ; preds = %.lr.ph.i666, %280
+  %.lcssa.i665 = phi i64 [ %.pr.i663, %280 ], [ %281, %.lr.ph.i666 ]
+  %282 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i665) #21
   %283 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %282, i64 noundef 3) #21
   br label %493
 
-284:                                              ; preds = %rbimpl_intern_const.exit647
-  %.pr.i672 = load i64, ptr @rt_complete_frags.rbimpl_id.267, align 8, !tbaa !6
-  %.not4.i673 = icmp eq i64 %.pr.i672, 0
-  br i1 %.not4.i673, label %.lr.ph.i675, label %rbimpl_intern_const.exit677
+284:                                              ; preds = %rbimpl_intern_const.exit644
+  %.pr.i669 = load i64, ptr @rt_complete_frags.rbimpl_id.267, align 8, !tbaa !6
+  %.not4.i670 = icmp eq i64 %.pr.i669, 0
+  br i1 %.not4.i670, label %.lr.ph.i672, label %rbimpl_intern_const.exit674
 
-.lr.ph.i675:                                      ; preds = %284, %.lr.ph.i675
+.lr.ph.i672:                                      ; preds = %284, %.lr.ph.i672
   %285 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.34, i64 noundef 5) #21
   store i64 %285, ptr @rt_complete_frags.rbimpl_id.267, align 8, !tbaa !6
-  %.not.i676 = icmp eq i64 %285, 0
-  br i1 %.not.i676, label %.lr.ph.i675, label %rbimpl_intern_const.exit677, !llvm.loop !51
+  %.not.i673 = icmp eq i64 %285, 0
+  br i1 %.not.i673, label %.lr.ph.i672, label %rbimpl_intern_const.exit674, !llvm.loop !51
 
-rbimpl_intern_const.exit677:                      ; preds = %.lr.ph.i675, %284
-  %.lcssa.i674 = phi i64 [ %.pr.i672, %284 ], [ %285, %.lr.ph.i675 ]
-  %286 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i674) #21
+rbimpl_intern_const.exit674:                      ; preds = %.lr.ph.i672, %284
+  %.lcssa.i671 = phi i64 [ %.pr.i669, %284 ], [ %285, %.lr.ph.i672 ]
+  %286 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i671) #21
   %287 = icmp eq i64 %244, %286
   br i1 %287, label %.preheader, label %332
 
-.preheader:                                       ; preds = %rbimpl_intern_const.exit677
+.preheader:                                       ; preds = %rbimpl_intern_const.exit674
   %288 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %289 = getelementptr inbounds nuw i8, ptr %249, i64 32
   br label %290
@@ -22351,33 +22410,33 @@ rbimpl_intern_const.exit677:                      ; preds = %.lr.ph.i675, %284
   %.3 = phi i64 [ %.6, %309 ], [ 4, %.preheader ]
   %291 = load i64, ptr %249, align 8, !tbaa !35
   %292 = and i64 %291, 8192
-  %.not.i678 = icmp eq i64 %292, 0
-  br i1 %.not.i678, label %rb_array_len.exit680, label %rb_array_len.exit680.thread
+  %.not.i675 = icmp eq i64 %292, 0
+  br i1 %.not.i675, label %rb_array_len.exit677, label %rb_array_len.exit677.thread
 
-rb_array_len.exit680:                             ; preds = %290
+rb_array_len.exit677:                             ; preds = %290
   %293 = load i64, ptr %288, align 8, !tbaa !47
   %294 = icmp slt i64 %.0237, %293
   br i1 %294, label %298, label %314
 
-rb_array_len.exit680.thread:                      ; preds = %290
+rb_array_len.exit677.thread:                      ; preds = %290
   %295 = lshr i64 %291, 15
   %296 = and i64 %295, 127
   %297 = icmp samesign ult i64 %.0237, %296
-  br i1 %297, label %rb_array_const_ptr.exit683, label %314
+  br i1 %297, label %rb_array_const_ptr.exit680, label %314
 
-298:                                              ; preds = %rb_array_len.exit680
+298:                                              ; preds = %rb_array_len.exit677
   %299 = load ptr, ptr %289, align 8, !tbaa !47
-  br label %rb_array_const_ptr.exit683
+  br label %rb_array_const_ptr.exit680
 
-rb_array_const_ptr.exit683:                       ; preds = %rb_array_len.exit680.thread, %298
-  %.0.i682 = phi ptr [ %299, %298 ], [ %288, %rb_array_len.exit680.thread ]
-  %300 = getelementptr inbounds nuw i64, ptr %.0.i682, i64 %.0237
+rb_array_const_ptr.exit680:                       ; preds = %rb_array_len.exit677.thread, %298
+  %.0.i679 = phi ptr [ %299, %298 ], [ %288, %rb_array_len.exit677.thread ]
+  %300 = getelementptr inbounds nuw i64, ptr %.0.i679, i64 %.0237
   %301 = load i64, ptr %300, align 8, !tbaa !6
   %302 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %301) #21
   %303 = icmp eq i64 %302, 4
   br i1 %303, label %304, label %314
 
-304:                                              ; preds = %rb_array_const_ptr.exit683
+304:                                              ; preds = %rb_array_const_ptr.exit680
   %305 = icmp eq i64 %.3, 4
   br i1 %305, label %306, label %309
 
@@ -22394,108 +22453,108 @@ rb_array_const_ptr.exit683:                       ; preds = %rb_array_len.exit68
   %313 = add nuw nsw i64 %.0237, 1
   br label %290, !llvm.loop !90
 
-314:                                              ; preds = %rb_array_const_ptr.exit683, %rb_array_len.exit680.thread, %rb_array_len.exit680
-  %.pr.i684 = load i64, ptr @rt_complete_frags.rbimpl_id.268, align 8, !tbaa !6
-  %.not4.i685 = icmp eq i64 %.pr.i684, 0
-  br i1 %.not4.i685, label %.lr.ph.i687, label %rbimpl_intern_const.exit689
+314:                                              ; preds = %rb_array_const_ptr.exit680, %rb_array_len.exit677.thread, %rb_array_len.exit677
+  %.pr.i681 = load i64, ptr @rt_complete_frags.rbimpl_id.268, align 8, !tbaa !6
+  %.not4.i682 = icmp eq i64 %.pr.i681, 0
+  br i1 %.not4.i682, label %.lr.ph.i684, label %rbimpl_intern_const.exit686
 
-.lr.ph.i687:                                      ; preds = %314, %.lr.ph.i687
+.lr.ph.i684:                                      ; preds = %314, %.lr.ph.i684
   %315 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.61, i64 noundef 3) #21
   store i64 %315, ptr @rt_complete_frags.rbimpl_id.268, align 8, !tbaa !6
-  %.not.i688 = icmp eq i64 %315, 0
-  br i1 %.not.i688, label %.lr.ph.i687, label %rbimpl_intern_const.exit689, !llvm.loop !51
+  %.not.i685 = icmp eq i64 %315, 0
+  br i1 %.not.i685, label %.lr.ph.i684, label %rbimpl_intern_const.exit686, !llvm.loop !51
 
-rbimpl_intern_const.exit689:                      ; preds = %.lr.ph.i687, %314
-  %.lcssa.i686 = phi i64 [ %.pr.i684, %314 ], [ %315, %.lr.ph.i687 ]
-  %316 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i686) #21
+rbimpl_intern_const.exit686:                      ; preds = %.lr.ph.i684, %314
+  %.lcssa.i683 = phi i64 [ %.pr.i681, %314 ], [ %315, %.lr.ph.i684 ]
+  %316 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i683) #21
   %317 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %316) #21
   %318 = icmp eq i64 %317, 4
   br i1 %318, label %319, label %323
 
-319:                                              ; preds = %rbimpl_intern_const.exit689
+319:                                              ; preds = %rbimpl_intern_const.exit686
   %320 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.269, ptr noundef @.str.61) #27
   %321 = tail call i64 @rb_id2sym(i64 noundef %320) #21
   %322 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %321, i64 noundef 3) #21
   br label %323
 
-323:                                              ; preds = %319, %rbimpl_intern_const.exit689
-  %.pr.i690 = load i64, ptr @rt_complete_frags.rbimpl_id.270, align 8, !tbaa !6
-  %.not4.i691 = icmp eq i64 %.pr.i690, 0
-  br i1 %.not4.i691, label %.lr.ph.i693, label %rbimpl_intern_const.exit695
+323:                                              ; preds = %319, %rbimpl_intern_const.exit686
+  %.pr.i687 = load i64, ptr @rt_complete_frags.rbimpl_id.270, align 8, !tbaa !6
+  %.not4.i688 = icmp eq i64 %.pr.i687, 0
+  br i1 %.not4.i688, label %.lr.ph.i690, label %rbimpl_intern_const.exit692
 
-.lr.ph.i693:                                      ; preds = %323, %.lr.ph.i693
+.lr.ph.i690:                                      ; preds = %323, %.lr.ph.i690
   %324 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.62, i64 noundef 4) #21
   store i64 %324, ptr @rt_complete_frags.rbimpl_id.270, align 8, !tbaa !6
-  %.not.i694 = icmp eq i64 %324, 0
-  br i1 %.not.i694, label %.lr.ph.i693, label %rbimpl_intern_const.exit695, !llvm.loop !51
+  %.not.i691 = icmp eq i64 %324, 0
+  br i1 %.not.i691, label %.lr.ph.i690, label %rbimpl_intern_const.exit692, !llvm.loop !51
 
-rbimpl_intern_const.exit695:                      ; preds = %.lr.ph.i693, %323
-  %.lcssa.i692 = phi i64 [ %.pr.i690, %323 ], [ %324, %.lr.ph.i693 ]
-  %325 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i692) #21
+rbimpl_intern_const.exit692:                      ; preds = %.lr.ph.i690, %323
+  %.lcssa.i689 = phi i64 [ %.pr.i687, %323 ], [ %324, %.lr.ph.i690 ]
+  %325 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i689) #21
   %326 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %325) #21
   %327 = icmp eq i64 %326, 4
   br i1 %327, label %328, label %493
 
-328:                                              ; preds = %rbimpl_intern_const.exit695
+328:                                              ; preds = %rbimpl_intern_const.exit692
   %329 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.271, ptr noundef @.str.62) #27
   %330 = tail call i64 @rb_id2sym(i64 noundef %329) #21
   %331 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %330, i64 noundef 3) #21
   br label %493
 
-332:                                              ; preds = %rbimpl_intern_const.exit677
-  %.pr.i696 = load i64, ptr @rt_complete_frags.rbimpl_id.272, align 8, !tbaa !6
-  %.not4.i697 = icmp eq i64 %.pr.i696, 0
-  br i1 %.not4.i697, label %.lr.ph.i699, label %rbimpl_intern_const.exit701
+332:                                              ; preds = %rbimpl_intern_const.exit674
+  %.pr.i693 = load i64, ptr @rt_complete_frags.rbimpl_id.272, align 8, !tbaa !6
+  %.not4.i694 = icmp eq i64 %.pr.i693, 0
+  br i1 %.not4.i694, label %.lr.ph.i696, label %rbimpl_intern_const.exit698
 
-.lr.ph.i699:                                      ; preds = %332, %.lr.ph.i699
+.lr.ph.i696:                                      ; preds = %332, %.lr.ph.i696
   %333 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.35, i64 noundef 10) #21
   store i64 %333, ptr @rt_complete_frags.rbimpl_id.272, align 8, !tbaa !6
-  %.not.i700 = icmp eq i64 %333, 0
-  br i1 %.not.i700, label %.lr.ph.i699, label %rbimpl_intern_const.exit701, !llvm.loop !51
+  %.not.i697 = icmp eq i64 %333, 0
+  br i1 %.not.i697, label %.lr.ph.i696, label %rbimpl_intern_const.exit698, !llvm.loop !51
 
-rbimpl_intern_const.exit701:                      ; preds = %.lr.ph.i699, %332
-  %.lcssa.i698 = phi i64 [ %.pr.i696, %332 ], [ %333, %.lr.ph.i699 ]
-  %334 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i698) #21
+rbimpl_intern_const.exit698:                      ; preds = %.lr.ph.i696, %332
+  %.lcssa.i695 = phi i64 [ %.pr.i693, %332 ], [ %333, %.lr.ph.i696 ]
+  %334 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i695) #21
   %335 = icmp eq i64 %244, %334
-  br i1 %335, label %.preheader837, label %380
+  br i1 %335, label %.preheader830, label %380
 
-.preheader837:                                    ; preds = %rbimpl_intern_const.exit701
+.preheader830:                                    ; preds = %rbimpl_intern_const.exit698
   %336 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %337 = getelementptr inbounds nuw i8, ptr %249, i64 32
   br label %338
 
-338:                                              ; preds = %.preheader837, %357
-  %.0242 = phi i64 [ %361, %357 ], [ 0, %.preheader837 ]
-  %.7 = phi i64 [ %.10, %357 ], [ 4, %.preheader837 ]
+338:                                              ; preds = %.preheader830, %357
+  %.0242 = phi i64 [ %361, %357 ], [ 0, %.preheader830 ]
+  %.7 = phi i64 [ %.10, %357 ], [ 4, %.preheader830 ]
   %339 = load i64, ptr %249, align 8, !tbaa !35
   %340 = and i64 %339, 8192
-  %.not.i702 = icmp eq i64 %340, 0
-  br i1 %.not.i702, label %rb_array_len.exit704, label %rb_array_len.exit704.thread
+  %.not.i699 = icmp eq i64 %340, 0
+  br i1 %.not.i699, label %rb_array_len.exit701, label %rb_array_len.exit701.thread
 
-rb_array_len.exit704:                             ; preds = %338
+rb_array_len.exit701:                             ; preds = %338
   %341 = load i64, ptr %336, align 8, !tbaa !47
   %342 = icmp slt i64 %.0242, %341
   br i1 %342, label %346, label %362
 
-rb_array_len.exit704.thread:                      ; preds = %338
+rb_array_len.exit701.thread:                      ; preds = %338
   %343 = lshr i64 %339, 15
   %344 = and i64 %343, 127
   %345 = icmp samesign ult i64 %.0242, %344
-  br i1 %345, label %rb_array_const_ptr.exit707, label %362
+  br i1 %345, label %rb_array_const_ptr.exit704, label %362
 
-346:                                              ; preds = %rb_array_len.exit704
+346:                                              ; preds = %rb_array_len.exit701
   %347 = load ptr, ptr %337, align 8, !tbaa !47
-  br label %rb_array_const_ptr.exit707
+  br label %rb_array_const_ptr.exit704
 
-rb_array_const_ptr.exit707:                       ; preds = %rb_array_len.exit704.thread, %346
-  %.0.i706 = phi ptr [ %347, %346 ], [ %336, %rb_array_len.exit704.thread ]
-  %348 = getelementptr inbounds nuw i64, ptr %.0.i706, i64 %.0242
+rb_array_const_ptr.exit704:                       ; preds = %rb_array_len.exit701.thread, %346
+  %.0.i703 = phi ptr [ %347, %346 ], [ %336, %rb_array_len.exit701.thread ]
+  %348 = getelementptr inbounds nuw i64, ptr %.0.i703, i64 %.0242
   %349 = load i64, ptr %348, align 8, !tbaa !6
   %350 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %349) #21
   %351 = icmp eq i64 %350, 4
   br i1 %351, label %352, label %362
 
-352:                                              ; preds = %rb_array_const_ptr.exit707
+352:                                              ; preds = %rb_array_const_ptr.exit704
   %353 = icmp eq i64 %.7, 4
   br i1 %353, label %354, label %357
 
@@ -22512,7 +22571,7 @@ rb_array_const_ptr.exit707:                       ; preds = %rb_array_len.exit70
   %361 = add nuw nsw i64 %.0242, 1
   br label %338, !llvm.loop !91
 
-362:                                              ; preds = %rb_array_const_ptr.exit707, %rb_array_len.exit704.thread, %rb_array_len.exit704
+362:                                              ; preds = %rb_array_const_ptr.exit704, %rb_array_len.exit701.thread, %rb_array_len.exit701
   %363 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.273, ptr noundef @.str.65) #27
   %364 = tail call i64 @rb_id2sym(i64 noundef %363) #21
   %365 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %364) #21
@@ -22538,7 +22597,7 @@ rb_array_const_ptr.exit707:                       ; preds = %rb_array_len.exit70
   %379 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %378, i64 noundef 3) #21
   br label %493
 
-380:                                              ; preds = %rbimpl_intern_const.exit701
+380:                                              ; preds = %rbimpl_intern_const.exit698
   %381 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.277, ptr noundef @.str.7) #27
   %382 = tail call i64 @rb_id2sym(i64 noundef %381) #21
   %383 = icmp eq i64 %244, %382
@@ -22563,45 +22622,45 @@ rb_array_const_ptr.exit707:                       ; preds = %rb_array_len.exit70
   %398 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.280, ptr noundef @.str.229) #27
   %399 = tail call i64 @rb_id2sym(i64 noundef %398) #21
   %400 = icmp eq i64 %244, %399
-  br i1 %400, label %.preheader838, label %445
+  br i1 %400, label %.preheader831, label %445
 
-.preheader838:                                    ; preds = %397
+.preheader831:                                    ; preds = %397
   %401 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %402 = getelementptr inbounds nuw i8, ptr %249, i64 32
   br label %403
 
-403:                                              ; preds = %.preheader838, %422
-  %.0243 = phi i64 [ %426, %422 ], [ 0, %.preheader838 ]
-  %.12 = phi i64 [ %.15, %422 ], [ 4, %.preheader838 ]
+403:                                              ; preds = %.preheader831, %422
+  %.0243 = phi i64 [ %426, %422 ], [ 0, %.preheader831 ]
+  %.12 = phi i64 [ %.15, %422 ], [ 4, %.preheader831 ]
   %404 = load i64, ptr %249, align 8, !tbaa !35
   %405 = and i64 %404, 8192
-  %.not.i708 = icmp eq i64 %405, 0
-  br i1 %.not.i708, label %rb_array_len.exit710, label %rb_array_len.exit710.thread
+  %.not.i705 = icmp eq i64 %405, 0
+  br i1 %.not.i705, label %rb_array_len.exit707, label %rb_array_len.exit707.thread
 
-rb_array_len.exit710:                             ; preds = %403
+rb_array_len.exit707:                             ; preds = %403
   %406 = load i64, ptr %401, align 8, !tbaa !47
   %407 = icmp slt i64 %.0243, %406
   br i1 %407, label %411, label %427
 
-rb_array_len.exit710.thread:                      ; preds = %403
+rb_array_len.exit707.thread:                      ; preds = %403
   %408 = lshr i64 %404, 15
   %409 = and i64 %408, 127
   %410 = icmp samesign ult i64 %.0243, %409
-  br i1 %410, label %rb_array_const_ptr.exit713, label %427
+  br i1 %410, label %rb_array_const_ptr.exit710, label %427
 
-411:                                              ; preds = %rb_array_len.exit710
+411:                                              ; preds = %rb_array_len.exit707
   %412 = load ptr, ptr %402, align 8, !tbaa !47
-  br label %rb_array_const_ptr.exit713
+  br label %rb_array_const_ptr.exit710
 
-rb_array_const_ptr.exit713:                       ; preds = %rb_array_len.exit710.thread, %411
-  %.0.i712 = phi ptr [ %412, %411 ], [ %401, %rb_array_len.exit710.thread ]
-  %413 = getelementptr inbounds nuw i64, ptr %.0.i712, i64 %.0243
+rb_array_const_ptr.exit710:                       ; preds = %rb_array_len.exit707.thread, %411
+  %.0.i709 = phi ptr [ %412, %411 ], [ %401, %rb_array_len.exit707.thread ]
+  %413 = getelementptr inbounds nuw i64, ptr %.0.i709, i64 %.0243
   %414 = load i64, ptr %413, align 8, !tbaa !6
   %415 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %414) #21
   %416 = icmp eq i64 %415, 4
   br i1 %416, label %417, label %427
 
-417:                                              ; preds = %rb_array_const_ptr.exit713
+417:                                              ; preds = %rb_array_const_ptr.exit710
   %418 = icmp eq i64 %.12, 4
   br i1 %418, label %419, label %422
 
@@ -22618,7 +22677,7 @@ rb_array_const_ptr.exit713:                       ; preds = %rb_array_len.exit71
   %426 = add nuw nsw i64 %.0243, 1
   br label %403, !llvm.loop !92
 
-427:                                              ; preds = %rb_array_const_ptr.exit713, %rb_array_len.exit710.thread, %rb_array_len.exit710
+427:                                              ; preds = %rb_array_const_ptr.exit710, %rb_array_len.exit707.thread, %rb_array_len.exit707
   %428 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.281, ptr noundef @.str.229) #27
   %429 = tail call i64 @rb_id2sym(i64 noundef %428) #21
   %430 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %429) #21
@@ -22648,45 +22707,45 @@ rb_array_const_ptr.exit713:                       ; preds = %rb_array_len.exit71
   %446 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.285, ptr noundef @.str.237) #27
   %447 = tail call i64 @rb_id2sym(i64 noundef %446) #21
   %448 = icmp eq i64 %244, %447
-  br i1 %448, label %.preheader839, label %493
+  br i1 %448, label %.preheader832, label %493
 
-.preheader839:                                    ; preds = %445
+.preheader832:                                    ; preds = %445
   %449 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %450 = getelementptr inbounds nuw i8, ptr %249, i64 32
   br label %451
 
-451:                                              ; preds = %.preheader839, %470
-  %.0244 = phi i64 [ %474, %470 ], [ 0, %.preheader839 ]
-  %.16 = phi i64 [ %.19, %470 ], [ 4, %.preheader839 ]
+451:                                              ; preds = %.preheader832, %470
+  %.0244 = phi i64 [ %474, %470 ], [ 0, %.preheader832 ]
+  %.16 = phi i64 [ %.19, %470 ], [ 4, %.preheader832 ]
   %452 = load i64, ptr %249, align 8, !tbaa !35
   %453 = and i64 %452, 8192
-  %.not.i714 = icmp eq i64 %453, 0
-  br i1 %.not.i714, label %rb_array_len.exit716, label %rb_array_len.exit716.thread
+  %.not.i711 = icmp eq i64 %453, 0
+  br i1 %.not.i711, label %rb_array_len.exit713, label %rb_array_len.exit713.thread
 
-rb_array_len.exit716:                             ; preds = %451
+rb_array_len.exit713:                             ; preds = %451
   %454 = load i64, ptr %449, align 8, !tbaa !47
   %455 = icmp slt i64 %.0244, %454
   br i1 %455, label %459, label %475
 
-rb_array_len.exit716.thread:                      ; preds = %451
+rb_array_len.exit713.thread:                      ; preds = %451
   %456 = lshr i64 %452, 15
   %457 = and i64 %456, 127
   %458 = icmp samesign ult i64 %.0244, %457
-  br i1 %458, label %rb_array_const_ptr.exit719, label %475
+  br i1 %458, label %rb_array_const_ptr.exit716, label %475
 
-459:                                              ; preds = %rb_array_len.exit716
+459:                                              ; preds = %rb_array_len.exit713
   %460 = load ptr, ptr %450, align 8, !tbaa !47
-  br label %rb_array_const_ptr.exit719
+  br label %rb_array_const_ptr.exit716
 
-rb_array_const_ptr.exit719:                       ; preds = %rb_array_len.exit716.thread, %459
-  %.0.i718 = phi ptr [ %460, %459 ], [ %449, %rb_array_len.exit716.thread ]
-  %461 = getelementptr inbounds nuw i64, ptr %.0.i718, i64 %.0244
+rb_array_const_ptr.exit716:                       ; preds = %rb_array_len.exit713.thread, %459
+  %.0.i715 = phi ptr [ %460, %459 ], [ %449, %rb_array_len.exit713.thread ]
+  %461 = getelementptr inbounds nuw i64, ptr %.0.i715, i64 %.0244
   %462 = load i64, ptr %461, align 8, !tbaa !6
   %463 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %462) #21
   %464 = icmp eq i64 %463, 4
   br i1 %464, label %465, label %475
 
-465:                                              ; preds = %rb_array_const_ptr.exit719
+465:                                              ; preds = %rb_array_const_ptr.exit716
   %466 = icmp eq i64 %.16, 4
   br i1 %466, label %467, label %470
 
@@ -22703,7 +22762,7 @@ rb_array_const_ptr.exit719:                       ; preds = %rb_array_len.exit71
   %474 = add nuw nsw i64 %.0244, 1
   br label %451, !llvm.loop !93
 
-475:                                              ; preds = %rb_array_const_ptr.exit719, %rb_array_len.exit716.thread, %rb_array_len.exit716
+475:                                              ; preds = %rb_array_const_ptr.exit716, %rb_array_len.exit713.thread, %rb_array_len.exit713
   %476 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt_complete_frags.rbimpl_id.286, ptr noundef @.str.237) #27
   %477 = tail call i64 @rb_id2sym(i64 noundef %476) #21
   %478 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %477) #21
@@ -22729,25 +22788,25 @@ rb_array_const_ptr.exit719:                       ; preds = %rb_array_len.exit71
   %492 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %491, i64 noundef 3) #21
   br label %493
 
-493:                                              ; preds = %243, %rb_array_len.exit641, %384, %445, %rbimpl_intern_const.exit665, %rbimpl_intern_const.exit671, %328, %rbimpl_intern_const.exit695, %376, %371, %441, %436, %489, %484
-  %.0228 = phi i64 [ 4, %243 ], [ %.1, %rbimpl_intern_const.exit671 ], [ %.1, %rbimpl_intern_const.exit665 ], [ %386, %384 ], [ 4, %445 ], [ 4, %rb_array_len.exit641 ], [ %.3, %328 ], [ %.3, %rbimpl_intern_const.exit695 ], [ %.7, %376 ], [ %.7, %371 ], [ %.12, %441 ], [ %.12, %436 ], [ %.16, %489 ], [ %.16, %484 ]
-  %.pr.i720 = load i64, ptr @rt_complete_frags.rbimpl_id.290, align 8, !tbaa !6
-  %.not4.i721 = icmp eq i64 %.pr.i720, 0
-  br i1 %.not4.i721, label %.lr.ph.i723, label %rbimpl_intern_const.exit725
+493:                                              ; preds = %243, %rb_array_len.exit638, %384, %445, %rbimpl_intern_const.exit662, %rbimpl_intern_const.exit668, %328, %rbimpl_intern_const.exit692, %376, %371, %441, %436, %489, %484
+  %.0228 = phi i64 [ 4, %243 ], [ %.1, %rbimpl_intern_const.exit668 ], [ %.1, %rbimpl_intern_const.exit662 ], [ %386, %384 ], [ 4, %445 ], [ 4, %rb_array_len.exit638 ], [ %.3, %328 ], [ %.3, %rbimpl_intern_const.exit692 ], [ %.7, %376 ], [ %.7, %371 ], [ %.12, %441 ], [ %.12, %436 ], [ %.16, %489 ], [ %.16, %484 ]
+  %.pr.i717 = load i64, ptr @rt_complete_frags.rbimpl_id.290, align 8, !tbaa !6
+  %.not4.i718 = icmp eq i64 %.pr.i717, 0
+  br i1 %.not4.i718, label %.lr.ph.i720, label %rbimpl_intern_const.exit722
 
-.lr.ph.i723:                                      ; preds = %493, %.lr.ph.i723
+.lr.ph.i720:                                      ; preds = %493, %.lr.ph.i720
   %494 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.171, i64 noundef 4) #21
   store i64 %494, ptr @rt_complete_frags.rbimpl_id.290, align 8, !tbaa !6
-  %.not.i724 = icmp eq i64 %494, 0
-  br i1 %.not.i724, label %.lr.ph.i723, label %rbimpl_intern_const.exit725, !llvm.loop !51
+  %.not.i721 = icmp eq i64 %494, 0
+  br i1 %.not.i721, label %.lr.ph.i720, label %rbimpl_intern_const.exit722, !llvm.loop !51
 
-rbimpl_intern_const.exit725:                      ; preds = %.lr.ph.i723, %493
-  %.lcssa.i722 = phi i64 [ %.pr.i720, %493 ], [ %494, %.lr.ph.i723 ]
-  %495 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i722) #21
+rbimpl_intern_const.exit722:                      ; preds = %.lr.ph.i720, %493
+  %.lcssa.i719 = phi i64 [ %.pr.i717, %493 ], [ %494, %.lr.ph.i720 ]
+  %495 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i719) #21
   %496 = icmp eq i64 %244, %495
   br i1 %496, label %497, label %.critedge
 
-497:                                              ; preds = %rbimpl_intern_const.exit725
+497:                                              ; preds = %rbimpl_intern_const.exit722
   %498 = load i64, ptr @cDateTime, align 8, !tbaa !6
   %499 = and i64 %0, 1
   %500 = and i64 %499, %498
@@ -22757,57 +22816,57 @@ rbimpl_intern_const.exit725:                      ; preds = %.lr.ph.i723, %493
 501:                                              ; preds = %497
   %502 = ashr i64 %0, 1
   %503 = ashr i64 %498, 1
-  %.not.i726 = icmp sgt i64 %502, %503
-  br i1 %.not.i726, label %.critedge, label %f_le_p.exit.thread828
+  %.not.i723 = icmp sgt i64 %502, %503
+  br i1 %.not.i723, label %.critedge, label %f_le_p.exit.thread821
 
 f_le_p.exit:                                      ; preds = %497
   %504 = load i64, ptr @id_le_p, align 8, !tbaa !6
   %505 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %0, i64 noundef %504, i32 noundef 1, i64 noundef %498) #21
   %.not245 = icmp eq i64 %505, 0
-  br i1 %.not245, label %.critedge, label %f_le_p.exit.thread828
+  br i1 %.not245, label %.critedge, label %f_le_p.exit.thread821
 
-f_le_p.exit.thread828:                            ; preds = %501, %f_le_p.exit
+f_le_p.exit.thread821:                            ; preds = %501, %f_le_p.exit
   %506 = icmp eq i64 %.0228, 4
   br i1 %506, label %507, label %510
 
-507:                                              ; preds = %f_le_p.exit.thread828
+507:                                              ; preds = %f_le_p.exit.thread821
   %508 = load i64, ptr @cDate, align 8, !tbaa !6
   %509 = tail call i64 @date_s_today(i32 noundef 0, ptr noundef null, i64 noundef %508)
   br label %510
 
-510:                                              ; preds = %507, %f_le_p.exit.thread828
-  %.20 = phi i64 [ %509, %507 ], [ %.0228, %f_le_p.exit.thread828 ]
-  %.pr.i728 = load i64, ptr @rt_complete_frags.rbimpl_id.291, align 8, !tbaa !6
-  %.not4.i729 = icmp eq i64 %.pr.i728, 0
-  br i1 %.not4.i729, label %.lr.ph.i731, label %rbimpl_intern_const.exit733
+510:                                              ; preds = %507, %f_le_p.exit.thread821
+  %.20 = phi i64 [ %509, %507 ], [ %.0228, %f_le_p.exit.thread821 ]
+  %.pr.i725 = load i64, ptr @rt_complete_frags.rbimpl_id.291, align 8, !tbaa !6
+  %.not4.i726 = icmp eq i64 %.pr.i725, 0
+  br i1 %.not4.i726, label %.lr.ph.i728, label %rbimpl_intern_const.exit730
 
-.lr.ph.i731:                                      ; preds = %510, %.lr.ph.i731
+.lr.ph.i728:                                      ; preds = %510, %.lr.ph.i728
   %511 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 2) #21
   store i64 %511, ptr @rt_complete_frags.rbimpl_id.291, align 8, !tbaa !6
-  %.not.i732 = icmp eq i64 %511, 0
-  br i1 %.not.i732, label %.lr.ph.i731, label %rbimpl_intern_const.exit733, !llvm.loop !51
+  %.not.i729 = icmp eq i64 %511, 0
+  br i1 %.not.i729, label %.lr.ph.i728, label %rbimpl_intern_const.exit730, !llvm.loop !51
 
-rbimpl_intern_const.exit733:                      ; preds = %.lr.ph.i731, %510
-  %.lcssa.i730 = phi i64 [ %.pr.i728, %510 ], [ %511, %.lr.ph.i731 ]
-  %512 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i730) #21
+rbimpl_intern_const.exit730:                      ; preds = %.lr.ph.i728, %510
+  %.lcssa.i727 = phi i64 [ %.pr.i725, %510 ], [ %511, %.lr.ph.i728 ]
+  %512 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i727) #21
   %513 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %512) #21
   %514 = icmp eq i64 %513, 4
   br i1 %514, label %515, label %.critedge
 
-515:                                              ; preds = %rbimpl_intern_const.exit733
-  %.pr.i734 = load i64, ptr @rt_complete_frags.rbimpl_id.292, align 8, !tbaa !6
-  %.not4.i735 = icmp eq i64 %.pr.i734, 0
-  br i1 %.not4.i735, label %.lr.ph.i737, label %rbimpl_intern_const.exit739
+515:                                              ; preds = %rbimpl_intern_const.exit730
+  %.pr.i731 = load i64, ptr @rt_complete_frags.rbimpl_id.292, align 8, !tbaa !6
+  %.not4.i732 = icmp eq i64 %.pr.i731, 0
+  br i1 %.not4.i732, label %.lr.ph.i734, label %rbimpl_intern_const.exit736
 
-.lr.ph.i737:                                      ; preds = %515, %.lr.ph.i737
+.lr.ph.i734:                                      ; preds = %515, %.lr.ph.i734
   %516 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.32, i64 noundef 2) #21
   store i64 %516, ptr @rt_complete_frags.rbimpl_id.292, align 8, !tbaa !6
-  %.not.i738 = icmp eq i64 %516, 0
-  br i1 %.not.i738, label %.lr.ph.i737, label %rbimpl_intern_const.exit739, !llvm.loop !51
+  %.not.i735 = icmp eq i64 %516, 0
+  br i1 %.not.i735, label %.lr.ph.i734, label %rbimpl_intern_const.exit736, !llvm.loop !51
 
-rbimpl_intern_const.exit739:                      ; preds = %.lr.ph.i737, %515
-  %.lcssa.i736 = phi i64 [ %.pr.i734, %515 ], [ %516, %.lr.ph.i737 ]
-  %517 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i736) #21
+rbimpl_intern_const.exit736:                      ; preds = %.lr.ph.i734, %515
+  %.lcssa.i733 = phi i64 [ %.pr.i731, %515 ], [ %516, %.lr.ph.i734 ]
+  %517 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i733) #21
   %518 = tail call ptr @rb_check_typeddata(i64 noundef %.20, ptr noundef nonnull @d_lite_type) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %519 = load i32, ptr %518, align 8, !tbaa !47
@@ -22815,11 +22874,11 @@ rbimpl_intern_const.exit739:                      ; preds = %.lr.ph.i737, %515
   %.not.i.i.i = icmp eq i32 %520, 0
   br i1 %.not.i.i.i, label %d_lite_jd.exit, label %521
 
-521:                                              ; preds = %rbimpl_intern_const.exit739
+521:                                              ; preds = %rbimpl_intern_const.exit736
   tail call fastcc void @get_c_civil(ptr noundef nonnull %518)
   br label %d_lite_jd.exit
 
-d_lite_jd.exit:                                   ; preds = %rbimpl_intern_const.exit739, %521
+d_lite_jd.exit:                                   ; preds = %rbimpl_intern_const.exit736, %521
   %.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %518, i64 8
   %.0.i.i.i = load i64, ptr %.0.in.i.i.i, align 8, !tbaa !47
   %522 = tail call fastcc i32 @m_local_jd(ptr noundef nonnull %518)
@@ -22829,149 +22888,149 @@ d_lite_jd.exit:                                   ; preds = %rbimpl_intern_const
   %524 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %517, i64 noundef %523) #21
   br label %.critedge
 
-.critedge:                                        ; preds = %501, %.thread793, %226, %f_le_p.exit, %d_lite_jd.exit, %rbimpl_intern_const.exit733, %rbimpl_intern_const.exit725
-  %.pr.i740 = load i64, ptr @rt_complete_frags.rbimpl_id.293, align 8, !tbaa !6
-  %.not4.i741 = icmp eq i64 %.pr.i740, 0
-  br i1 %.not4.i741, label %.lr.ph.i743, label %rbimpl_intern_const.exit745
+.critedge:                                        ; preds = %501, %.thread790, %226, %f_le_p.exit, %d_lite_jd.exit, %rbimpl_intern_const.exit730, %rbimpl_intern_const.exit722
+  %.pr.i737 = load i64, ptr @rt_complete_frags.rbimpl_id.293, align 8, !tbaa !6
+  %.not4.i738 = icmp eq i64 %.pr.i737, 0
+  br i1 %.not4.i738, label %.lr.ph.i740, label %rbimpl_intern_const.exit742
 
-.lr.ph.i743:                                      ; preds = %.critedge, %.lr.ph.i743
+.lr.ph.i740:                                      ; preds = %.critedge, %.lr.ph.i740
   %525 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %525, ptr @rt_complete_frags.rbimpl_id.293, align 8, !tbaa !6
-  %.not.i744 = icmp eq i64 %525, 0
-  br i1 %.not.i744, label %.lr.ph.i743, label %rbimpl_intern_const.exit745, !llvm.loop !51
+  %.not.i741 = icmp eq i64 %525, 0
+  br i1 %.not.i741, label %.lr.ph.i740, label %rbimpl_intern_const.exit742, !llvm.loop !51
 
-rbimpl_intern_const.exit745:                      ; preds = %.lr.ph.i743, %.critedge
-  %.lcssa.i742 = phi i64 [ %.pr.i740, %.critedge ], [ %525, %.lr.ph.i743 ]
-  %526 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i742) #21
+rbimpl_intern_const.exit742:                      ; preds = %.lr.ph.i740, %.critedge
+  %.lcssa.i739 = phi i64 [ %.pr.i737, %.critedge ], [ %525, %.lr.ph.i740 ]
+  %526 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i739) #21
   %527 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %526) #21
   %528 = icmp eq i64 %527, 4
   br i1 %528, label %529, label %533
 
-529:                                              ; preds = %rbimpl_intern_const.exit745
-  %.pr.i746 = load i64, ptr @rt_complete_frags.rbimpl_id.294, align 8, !tbaa !6
-  %.not4.i747 = icmp eq i64 %.pr.i746, 0
-  br i1 %.not4.i747, label %.lr.ph.i749, label %rbimpl_intern_const.exit751
+529:                                              ; preds = %rbimpl_intern_const.exit742
+  %.pr.i743 = load i64, ptr @rt_complete_frags.rbimpl_id.294, align 8, !tbaa !6
+  %.not4.i744 = icmp eq i64 %.pr.i743, 0
+  br i1 %.not4.i744, label %.lr.ph.i746, label %rbimpl_intern_const.exit748
 
-.lr.ph.i749:                                      ; preds = %529, %.lr.ph.i749
+.lr.ph.i746:                                      ; preds = %529, %.lr.ph.i746
   %530 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.9, i64 noundef 4) #21
   store i64 %530, ptr @rt_complete_frags.rbimpl_id.294, align 8, !tbaa !6
-  %.not.i750 = icmp eq i64 %530, 0
-  br i1 %.not.i750, label %.lr.ph.i749, label %rbimpl_intern_const.exit751, !llvm.loop !51
+  %.not.i747 = icmp eq i64 %530, 0
+  br i1 %.not.i747, label %.lr.ph.i746, label %rbimpl_intern_const.exit748, !llvm.loop !51
 
-rbimpl_intern_const.exit751:                      ; preds = %.lr.ph.i749, %529
-  %.lcssa.i748 = phi i64 [ %.pr.i746, %529 ], [ %530, %.lr.ph.i749 ]
-  %531 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i748) #21
+rbimpl_intern_const.exit748:                      ; preds = %.lr.ph.i746, %529
+  %.lcssa.i745 = phi i64 [ %.pr.i743, %529 ], [ %530, %.lr.ph.i746 ]
+  %531 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i745) #21
   %532 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %531, i64 noundef 1) #21
   br label %533
 
-533:                                              ; preds = %rbimpl_intern_const.exit751, %rbimpl_intern_const.exit745
-  %.pr.i752 = load i64, ptr @rt_complete_frags.rbimpl_id.295, align 8, !tbaa !6
-  %.not4.i753 = icmp eq i64 %.pr.i752, 0
-  br i1 %.not4.i753, label %.lr.ph.i755, label %rbimpl_intern_const.exit757
+533:                                              ; preds = %rbimpl_intern_const.exit748, %rbimpl_intern_const.exit742
+  %.pr.i749 = load i64, ptr @rt_complete_frags.rbimpl_id.295, align 8, !tbaa !6
+  %.not4.i750 = icmp eq i64 %.pr.i749, 0
+  br i1 %.not4.i750, label %.lr.ph.i752, label %rbimpl_intern_const.exit754
 
-.lr.ph.i755:                                      ; preds = %533, %.lr.ph.i755
+.lr.ph.i752:                                      ; preds = %533, %.lr.ph.i752
   %534 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %534, ptr @rt_complete_frags.rbimpl_id.295, align 8, !tbaa !6
-  %.not.i756 = icmp eq i64 %534, 0
-  br i1 %.not.i756, label %.lr.ph.i755, label %rbimpl_intern_const.exit757, !llvm.loop !51
+  %.not.i753 = icmp eq i64 %534, 0
+  br i1 %.not.i753, label %.lr.ph.i752, label %rbimpl_intern_const.exit754, !llvm.loop !51
 
-rbimpl_intern_const.exit757:                      ; preds = %.lr.ph.i755, %533
-  %.lcssa.i754 = phi i64 [ %.pr.i752, %533 ], [ %534, %.lr.ph.i755 ]
-  %535 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i754) #21
+rbimpl_intern_const.exit754:                      ; preds = %.lr.ph.i752, %533
+  %.lcssa.i751 = phi i64 [ %.pr.i749, %533 ], [ %534, %.lr.ph.i752 ]
+  %535 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i751) #21
   %536 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %535) #21
   %537 = icmp eq i64 %536, 4
   br i1 %537, label %538, label %542
 
-538:                                              ; preds = %rbimpl_intern_const.exit757
-  %.pr.i758 = load i64, ptr @rt_complete_frags.rbimpl_id.296, align 8, !tbaa !6
-  %.not4.i759 = icmp eq i64 %.pr.i758, 0
-  br i1 %.not4.i759, label %.lr.ph.i761, label %rbimpl_intern_const.exit763
+538:                                              ; preds = %rbimpl_intern_const.exit754
+  %.pr.i755 = load i64, ptr @rt_complete_frags.rbimpl_id.296, align 8, !tbaa !6
+  %.not4.i756 = icmp eq i64 %.pr.i755, 0
+  br i1 %.not4.i756, label %.lr.ph.i758, label %rbimpl_intern_const.exit760
 
-.lr.ph.i761:                                      ; preds = %538, %.lr.ph.i761
+.lr.ph.i758:                                      ; preds = %538, %.lr.ph.i758
   %539 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.10, i64 noundef 3) #21
   store i64 %539, ptr @rt_complete_frags.rbimpl_id.296, align 8, !tbaa !6
-  %.not.i762 = icmp eq i64 %539, 0
-  br i1 %.not.i762, label %.lr.ph.i761, label %rbimpl_intern_const.exit763, !llvm.loop !51
+  %.not.i759 = icmp eq i64 %539, 0
+  br i1 %.not.i759, label %.lr.ph.i758, label %rbimpl_intern_const.exit760, !llvm.loop !51
 
-rbimpl_intern_const.exit763:                      ; preds = %.lr.ph.i761, %538
-  %.lcssa.i760 = phi i64 [ %.pr.i758, %538 ], [ %539, %.lr.ph.i761 ]
-  %540 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i760) #21
+rbimpl_intern_const.exit760:                      ; preds = %.lr.ph.i758, %538
+  %.lcssa.i757 = phi i64 [ %.pr.i755, %538 ], [ %539, %.lr.ph.i758 ]
+  %540 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i757) #21
   %541 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %540, i64 noundef 1) #21
   br label %542
 
-542:                                              ; preds = %rbimpl_intern_const.exit763, %rbimpl_intern_const.exit757
-  %.pr.i764 = load i64, ptr @rt_complete_frags.rbimpl_id.297, align 8, !tbaa !6
-  %.not4.i765 = icmp eq i64 %.pr.i764, 0
-  br i1 %.not4.i765, label %.lr.ph.i767, label %rbimpl_intern_const.exit769
+542:                                              ; preds = %rbimpl_intern_const.exit760, %rbimpl_intern_const.exit754
+  %.pr.i761 = load i64, ptr @rt_complete_frags.rbimpl_id.297, align 8, !tbaa !6
+  %.not4.i762 = icmp eq i64 %.pr.i761, 0
+  br i1 %.not4.i762, label %.lr.ph.i764, label %rbimpl_intern_const.exit766
 
-.lr.ph.i767:                                      ; preds = %542, %.lr.ph.i767
+.lr.ph.i764:                                      ; preds = %542, %.lr.ph.i764
   %543 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %543, ptr @rt_complete_frags.rbimpl_id.297, align 8, !tbaa !6
-  %.not.i768 = icmp eq i64 %543, 0
-  br i1 %.not.i768, label %.lr.ph.i767, label %rbimpl_intern_const.exit769, !llvm.loop !51
+  %.not.i765 = icmp eq i64 %543, 0
+  br i1 %.not.i765, label %.lr.ph.i764, label %rbimpl_intern_const.exit766, !llvm.loop !51
 
-rbimpl_intern_const.exit769:                      ; preds = %.lr.ph.i767, %542
-  %.lcssa.i766 = phi i64 [ %.pr.i764, %542 ], [ %543, %.lr.ph.i767 ]
-  %544 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i766) #21
+rbimpl_intern_const.exit766:                      ; preds = %.lr.ph.i764, %542
+  %.lcssa.i763 = phi i64 [ %.pr.i761, %542 ], [ %543, %.lr.ph.i764 ]
+  %544 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i763) #21
   %545 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %544) #21
   %546 = icmp eq i64 %545, 4
   br i1 %546, label %547, label %549
 
-547:                                              ; preds = %rbimpl_intern_const.exit769
-  %.pr.i770 = load i64, ptr @rt_complete_frags.rbimpl_id.298, align 8, !tbaa !6
-  %.not4.i771 = icmp eq i64 %.pr.i770, 0
-  br i1 %.not4.i771, label %.lr.ph.i773, label %f_gt_p.exit.thread.sink.split
+547:                                              ; preds = %rbimpl_intern_const.exit766
+  %.pr.i767 = load i64, ptr @rt_complete_frags.rbimpl_id.298, align 8, !tbaa !6
+  %.not4.i768 = icmp eq i64 %.pr.i767, 0
+  br i1 %.not4.i768, label %.lr.ph.i770, label %f_gt_p.exit.thread.sink.split
 
-.lr.ph.i773:                                      ; preds = %547, %.lr.ph.i773
+.lr.ph.i770:                                      ; preds = %547, %.lr.ph.i770
   %548 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %548, ptr @rt_complete_frags.rbimpl_id.298, align 8, !tbaa !6
-  %.not.i774 = icmp eq i64 %548, 0
-  br i1 %.not.i774, label %.lr.ph.i773, label %f_gt_p.exit.thread.sink.split, !llvm.loop !51
+  %.not.i771 = icmp eq i64 %548, 0
+  br i1 %.not.i771, label %.lr.ph.i770, label %f_gt_p.exit.thread.sink.split, !llvm.loop !51
 
-549:                                              ; preds = %rbimpl_intern_const.exit769
-  %.pr.i776 = load i64, ptr @rt_complete_frags.rbimpl_id.299, align 8, !tbaa !6
-  %.not4.i777 = icmp eq i64 %.pr.i776, 0
-  br i1 %.not4.i777, label %.lr.ph.i779, label %rbimpl_intern_const.exit781
+549:                                              ; preds = %rbimpl_intern_const.exit766
+  %.pr.i773 = load i64, ptr @rt_complete_frags.rbimpl_id.299, align 8, !tbaa !6
+  %.not4.i774 = icmp eq i64 %.pr.i773, 0
+  br i1 %.not4.i774, label %.lr.ph.i776, label %rbimpl_intern_const.exit778
 
-.lr.ph.i779:                                      ; preds = %549, %.lr.ph.i779
+.lr.ph.i776:                                      ; preds = %549, %.lr.ph.i776
   %550 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %550, ptr @rt_complete_frags.rbimpl_id.299, align 8, !tbaa !6
-  %.not.i780 = icmp eq i64 %550, 0
-  br i1 %.not.i780, label %.lr.ph.i779, label %rbimpl_intern_const.exit781, !llvm.loop !51
+  %.not.i777 = icmp eq i64 %550, 0
+  br i1 %.not.i777, label %.lr.ph.i776, label %rbimpl_intern_const.exit778, !llvm.loop !51
 
-rbimpl_intern_const.exit781:                      ; preds = %.lr.ph.i779, %549
-  %.lcssa.i778 = phi i64 [ %.pr.i776, %549 ], [ %550, %.lr.ph.i779 ]
-  %551 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i778) #21
+rbimpl_intern_const.exit778:                      ; preds = %.lr.ph.i776, %549
+  %.lcssa.i775 = phi i64 [ %.pr.i773, %549 ], [ %550, %.lr.ph.i776 ]
+  %551 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i775) #21
   %552 = tail call i64 @rb_hash_aref(i64 noundef %1, i64 noundef %551) #21
   %553 = and i64 %552, 1
-  %.not.i782 = icmp eq i64 %553, 0
-  br i1 %.not.i782, label %f_gt_p.exit, label %554
+  %.not.i779 = icmp eq i64 %553, 0
+  br i1 %.not.i779, label %f_gt_p.exit, label %554
 
-554:                                              ; preds = %rbimpl_intern_const.exit781
+554:                                              ; preds = %rbimpl_intern_const.exit778
   %555 = icmp sgt i64 %552, 119
-  br i1 %555, label %f_gt_p.exit.thread834, label %f_gt_p.exit.thread
+  br i1 %555, label %f_gt_p.exit.thread827, label %f_gt_p.exit.thread
 
-f_gt_p.exit:                                      ; preds = %rbimpl_intern_const.exit781
+f_gt_p.exit:                                      ; preds = %rbimpl_intern_const.exit778
   %556 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %552, i64 noundef 62, i32 noundef 1, i64 noundef 119) #21
   %.not246 = icmp eq i64 %556, 0
-  br i1 %.not246, label %f_gt_p.exit.thread, label %f_gt_p.exit.thread834
+  br i1 %.not246, label %f_gt_p.exit.thread, label %f_gt_p.exit.thread827
 
-f_gt_p.exit.thread834:                            ; preds = %554, %f_gt_p.exit
-  %.pr.i784 = load i64, ptr @rt_complete_frags.rbimpl_id.300, align 8, !tbaa !6
-  %.not4.i785 = icmp eq i64 %.pr.i784, 0
-  br i1 %.not4.i785, label %.lr.ph.i787, label %f_gt_p.exit.thread.sink.split
+f_gt_p.exit.thread827:                            ; preds = %554, %f_gt_p.exit
+  %.pr.i781 = load i64, ptr @rt_complete_frags.rbimpl_id.300, align 8, !tbaa !6
+  %.not4.i782 = icmp eq i64 %.pr.i781, 0
+  br i1 %.not4.i782, label %.lr.ph.i784, label %f_gt_p.exit.thread.sink.split
 
-.lr.ph.i787:                                      ; preds = %f_gt_p.exit.thread834, %.lr.ph.i787
+.lr.ph.i784:                                      ; preds = %f_gt_p.exit.thread827, %.lr.ph.i784
   %557 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.11, i64 noundef 3) #21
   store i64 %557, ptr @rt_complete_frags.rbimpl_id.300, align 8, !tbaa !6
-  %.not.i788 = icmp eq i64 %557, 0
-  br i1 %.not.i788, label %.lr.ph.i787, label %f_gt_p.exit.thread.sink.split, !llvm.loop !51
+  %.not.i785 = icmp eq i64 %557, 0
+  br i1 %.not.i785, label %.lr.ph.i784, label %f_gt_p.exit.thread.sink.split, !llvm.loop !51
 
-f_gt_p.exit.thread.sink.split:                    ; preds = %.lr.ph.i787, %.lr.ph.i773, %f_gt_p.exit.thread834, %547
-  %.lcssa.i786.sink = phi i64 [ %.pr.i770, %547 ], [ %.pr.i784, %f_gt_p.exit.thread834 ], [ %548, %.lr.ph.i773 ], [ %557, %.lr.ph.i787 ]
-  %.sink1183 = phi i64 [ 1, %547 ], [ 119, %f_gt_p.exit.thread834 ], [ 1, %.lr.ph.i773 ], [ 119, %.lr.ph.i787 ]
-  %558 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i786.sink) #21
-  %559 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %558, i64 noundef %.sink1183) #21
+f_gt_p.exit.thread.sink.split:                    ; preds = %.lr.ph.i784, %.lr.ph.i770, %f_gt_p.exit.thread827, %547
+  %.lcssa.i783.sink = phi i64 [ %.pr.i767, %547 ], [ %.pr.i781, %f_gt_p.exit.thread827 ], [ %548, %.lr.ph.i770 ], [ %557, %.lr.ph.i784 ]
+  %.sink1176 = phi i64 [ 1, %547 ], [ 119, %f_gt_p.exit.thread827 ], [ 1, %.lr.ph.i770 ], [ 119, %.lr.ph.i784 ]
+  %558 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i783.sink) #21
+  %559 = tail call i64 @rb_hash_aset(i64 noundef %1, i64 noundef %558, i64 noundef %.sink1176) #21
   br label %f_gt_p.exit.thread
 
 f_gt_p.exit.thread:                               ; preds = %f_gt_p.exit.thread.sink.split, %554, %f_gt_p.exit
@@ -23000,45 +23059,45 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %2
   %9 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i) #21
   %10 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %9) #21
   %11 = icmp eq i64 %10, 4
-  br i1 %11, label %12, label %.thread267
+  br i1 %11, label %12, label %.thread212
 
 12:                                               ; preds = %rbimpl_intern_const.exit
-  %.pr.i134 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.301, align 8, !tbaa !6
-  %.not4.i135 = icmp eq i64 %.pr.i134, 0
-  br i1 %.not4.i135, label %.lr.ph.i137, label %rbimpl_intern_const.exit139
+  %.pr.i129 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.301, align 8, !tbaa !6
+  %.not4.i130 = icmp eq i64 %.pr.i129, 0
+  br i1 %.not4.i130, label %.lr.ph.i132, label %rbimpl_intern_const.exit134
 
-.lr.ph.i137:                                      ; preds = %12, %.lr.ph.i137
+.lr.ph.i132:                                      ; preds = %12, %.lr.ph.i132
   %13 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.6, i64 noundef 4) #21
   store i64 %13, ptr @rt__valid_date_frags_p.rbimpl_id.301, align 8, !tbaa !6
-  %.not.i138 = icmp eq i64 %13, 0
-  br i1 %.not.i138, label %.lr.ph.i137, label %rbimpl_intern_const.exit139, !llvm.loop !51
+  %.not.i133 = icmp eq i64 %13, 0
+  br i1 %.not.i133, label %.lr.ph.i132, label %rbimpl_intern_const.exit134, !llvm.loop !51
 
-rbimpl_intern_const.exit139:                      ; preds = %.lr.ph.i137, %12
-  %.lcssa.i136 = phi i64 [ %.pr.i134, %12 ], [ %13, %.lr.ph.i137 ]
-  %14 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i136) #21
+rbimpl_intern_const.exit134:                      ; preds = %.lr.ph.i132, %12
+  %.lcssa.i131 = phi i64 [ %.pr.i129, %12 ], [ %13, %.lr.ph.i132 ]
+  %14 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i131) #21
   %15 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %14) #21
   %16 = icmp eq i64 %15, 4
   br i1 %16, label %select.unfold, label %17
 
-17:                                               ; preds = %rbimpl_intern_const.exit139
-  %.pr.i140 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.302, align 8, !tbaa !6
-  %.not4.i141 = icmp eq i64 %.pr.i140, 0
-  br i1 %.not4.i141, label %.lr.ph.i143, label %rbimpl_intern_const.exit145
+17:                                               ; preds = %rbimpl_intern_const.exit134
+  %.pr.i135 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.302, align 8, !tbaa !6
+  %.not4.i136 = icmp eq i64 %.pr.i135, 0
+  br i1 %.not4.i136, label %.lr.ph.i138, label %rbimpl_intern_const.exit140
 
-.lr.ph.i143:                                      ; preds = %17, %.lr.ph.i143
+.lr.ph.i138:                                      ; preds = %17, %.lr.ph.i138
   %18 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %18, ptr @rt__valid_date_frags_p.rbimpl_id.302, align 8, !tbaa !6
-  %.not.i144 = icmp eq i64 %18, 0
-  br i1 %.not.i144, label %.lr.ph.i143, label %rbimpl_intern_const.exit145, !llvm.loop !51
+  %.not.i139 = icmp eq i64 %18, 0
+  br i1 %.not.i139, label %.lr.ph.i138, label %rbimpl_intern_const.exit140, !llvm.loop !51
 
-rbimpl_intern_const.exit145:                      ; preds = %.lr.ph.i143, %17
-  %.lcssa.i142 = phi i64 [ %.pr.i140, %17 ], [ %18, %.lr.ph.i143 ]
-  %19 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i142) #21
+rbimpl_intern_const.exit140:                      ; preds = %.lr.ph.i138, %17
+  %.lcssa.i137 = phi i64 [ %.pr.i135, %17 ], [ %18, %.lr.ph.i138 ]
+  %19 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i137) #21
   %20 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %19) #21
   %21 = icmp eq i64 %20, 4
   br i1 %21, label %select.unfold, label %22
 
-22:                                               ; preds = %rbimpl_intern_const.exit145
+22:                                               ; preds = %rbimpl_intern_const.exit140
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -23061,8 +23120,8 @@ rb_num2int_inline.exit.i:                         ; preds = %26, %24
   %28 = trunc i64 %.0.i.i to i32
   %29 = tail call double @rb_num2dbl(i64 noundef %1) #21
   %30 = call fastcc i32 @valid_ordinal_p(i64 noundef %20, i32 noundef %28, double noundef %29, ptr noundef %3, ptr noundef %5, ptr noundef %6, ptr noundef %7)
-  %.not.i146 = icmp eq i32 %30, 0
-  br i1 %.not.i146, label %rt__valid_ordinal_p.exit.thread, label %rt__valid_ordinal_p.exit
+  %.not.i141 = icmp eq i32 %30, 0
+  br i1 %.not.i141, label %rt__valid_ordinal_p.exit.thread, label %rt__valid_ordinal_p.exit
 
 rt__valid_ordinal_p.exit.thread:                  ; preds = %rb_num2int_inline.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -23083,321 +23142,221 @@ rt__valid_ordinal_p.exit:                         ; preds = %rb_num2int_inline.e
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %34 = icmp eq i64 %33, 4
-  br i1 %34, label %select.unfold, label %.thread267
+  br i1 %34, label %select.unfold, label %.thread212
 
-select.unfold:                                    ; preds = %rt__valid_ordinal_p.exit, %rt__valid_ordinal_p.exit.thread, %rbimpl_intern_const.exit145, %rbimpl_intern_const.exit139
-  %.pr.i147 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.303, align 8, !tbaa !6
-  %.not4.i148 = icmp eq i64 %.pr.i147, 0
-  br i1 %.not4.i148, label %.lr.ph.i150, label %rbimpl_intern_const.exit152
+select.unfold:                                    ; preds = %rt__valid_ordinal_p.exit, %rt__valid_ordinal_p.exit.thread, %rbimpl_intern_const.exit140, %rbimpl_intern_const.exit134
+  %.pr.i142 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.303, align 8, !tbaa !6
+  %.not4.i143 = icmp eq i64 %.pr.i142, 0
+  br i1 %.not4.i143, label %.lr.ph.i145, label %rbimpl_intern_const.exit147
 
-.lr.ph.i150:                                      ; preds = %select.unfold, %.lr.ph.i150
+.lr.ph.i145:                                      ; preds = %select.unfold, %.lr.ph.i145
   %35 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.62, i64 noundef 4) #21
   store i64 %35, ptr @rt__valid_date_frags_p.rbimpl_id.303, align 8, !tbaa !6
-  %.not.i151 = icmp eq i64 %35, 0
-  br i1 %.not.i151, label %.lr.ph.i150, label %rbimpl_intern_const.exit152, !llvm.loop !51
+  %.not.i146 = icmp eq i64 %35, 0
+  br i1 %.not.i146, label %.lr.ph.i145, label %rbimpl_intern_const.exit147, !llvm.loop !51
 
-rbimpl_intern_const.exit152:                      ; preds = %.lr.ph.i150, %select.unfold
-  %.lcssa.i149 = phi i64 [ %.pr.i147, %select.unfold ], [ %35, %.lr.ph.i150 ]
-  %36 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i149) #21
+rbimpl_intern_const.exit147:                      ; preds = %.lr.ph.i145, %select.unfold
+  %.lcssa.i144 = phi i64 [ %.pr.i142, %select.unfold ], [ %35, %.lr.ph.i145 ]
+  %36 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i144) #21
   %37 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %36) #21
   %38 = icmp eq i64 %37, 4
-  br i1 %38, label %select.unfold223, label %39
+  br i1 %38, label %select.unfold183, label %39
 
-39:                                               ; preds = %rbimpl_intern_const.exit152
-  %.pr.i153 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.304, align 8, !tbaa !6
-  %.not4.i154 = icmp eq i64 %.pr.i153, 0
-  br i1 %.not4.i154, label %.lr.ph.i156, label %rbimpl_intern_const.exit158
+39:                                               ; preds = %rbimpl_intern_const.exit147
+  %.pr.i148 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.304, align 8, !tbaa !6
+  %.not4.i149 = icmp eq i64 %.pr.i148, 0
+  br i1 %.not4.i149, label %.lr.ph.i151, label %rbimpl_intern_const.exit153
 
-.lr.ph.i156:                                      ; preds = %39, %.lr.ph.i156
+.lr.ph.i151:                                      ; preds = %39, %.lr.ph.i151
   %40 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.61, i64 noundef 3) #21
   store i64 %40, ptr @rt__valid_date_frags_p.rbimpl_id.304, align 8, !tbaa !6
-  %.not.i157 = icmp eq i64 %40, 0
-  br i1 %.not.i157, label %.lr.ph.i156, label %rbimpl_intern_const.exit158, !llvm.loop !51
+  %.not.i152 = icmp eq i64 %40, 0
+  br i1 %.not.i152, label %.lr.ph.i151, label %rbimpl_intern_const.exit153, !llvm.loop !51
 
-rbimpl_intern_const.exit158:                      ; preds = %.lr.ph.i156, %39
-  %.lcssa.i155 = phi i64 [ %.pr.i153, %39 ], [ %40, %.lr.ph.i156 ]
-  %41 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i155) #21
+rbimpl_intern_const.exit153:                      ; preds = %.lr.ph.i151, %39
+  %.lcssa.i150 = phi i64 [ %.pr.i148, %39 ], [ %40, %.lr.ph.i151 ]
+  %41 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i150) #21
   %42 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %41) #21
   %43 = icmp eq i64 %42, 4
-  br i1 %43, label %select.unfold223, label %44
+  br i1 %43, label %select.unfold183, label %44
 
-44:                                               ; preds = %rbimpl_intern_const.exit158
-  %.pr.i159 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.305, align 8, !tbaa !6
-  %.not4.i160 = icmp eq i64 %.pr.i159, 0
-  br i1 %.not4.i160, label %.lr.ph.i162, label %rbimpl_intern_const.exit164
+44:                                               ; preds = %rbimpl_intern_const.exit153
+  %.pr.i154 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.305, align 8, !tbaa !6
+  %.not4.i155 = icmp eq i64 %.pr.i154, 0
+  br i1 %.not4.i155, label %.lr.ph.i157, label %rbimpl_intern_const.exit159
 
-.lr.ph.i162:                                      ; preds = %44, %.lr.ph.i162
+.lr.ph.i157:                                      ; preds = %44, %.lr.ph.i157
   %45 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.4, i64 noundef 4) #21
   store i64 %45, ptr @rt__valid_date_frags_p.rbimpl_id.305, align 8, !tbaa !6
-  %.not.i163 = icmp eq i64 %45, 0
-  br i1 %.not.i163, label %.lr.ph.i162, label %rbimpl_intern_const.exit164, !llvm.loop !51
+  %.not.i158 = icmp eq i64 %45, 0
+  br i1 %.not.i158, label %.lr.ph.i157, label %rbimpl_intern_const.exit159, !llvm.loop !51
 
-rbimpl_intern_const.exit164:                      ; preds = %.lr.ph.i162, %44
-  %.lcssa.i161 = phi i64 [ %.pr.i159, %44 ], [ %45, %.lr.ph.i162 ]
-  %46 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i161) #21
+rbimpl_intern_const.exit159:                      ; preds = %.lr.ph.i157, %44
+  %.lcssa.i156 = phi i64 [ %.pr.i154, %44 ], [ %45, %.lr.ph.i157 ]
+  %46 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i156) #21
   %47 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %46) #21
   %48 = icmp eq i64 %47, 4
-  br i1 %48, label %select.unfold223, label %49
+  br i1 %48, label %select.unfold183, label %49
 
-49:                                               ; preds = %rbimpl_intern_const.exit164
+49:                                               ; preds = %rbimpl_intern_const.exit159
   %50 = tail call fastcc i64 @rt__valid_civil_p(i64 noundef %47, i64 noundef %42, i64 noundef %37, i64 noundef %1)
   %51 = icmp eq i64 %50, 4
-  br i1 %51, label %select.unfold223, label %.thread267
+  br i1 %51, label %select.unfold183, label %.thread212
 
-select.unfold223:                                 ; preds = %49, %rbimpl_intern_const.exit164, %rbimpl_intern_const.exit158, %rbimpl_intern_const.exit152
-  %.pr.i165 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.306, align 8, !tbaa !6
-  %.not4.i166 = icmp eq i64 %.pr.i165, 0
-  br i1 %.not4.i166, label %.lr.ph.i168, label %rbimpl_intern_const.exit170
+select.unfold183:                                 ; preds = %49, %rbimpl_intern_const.exit159, %rbimpl_intern_const.exit153, %rbimpl_intern_const.exit147
+  %.pr.i160 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.306, align 8, !tbaa !6
+  %.not4.i161 = icmp eq i64 %.pr.i160, 0
+  br i1 %.not4.i161, label %.lr.ph.i163, label %rbimpl_intern_const.exit165
 
-.lr.ph.i168:                                      ; preds = %select.unfold223, %.lr.ph.i168
+.lr.ph.i163:                                      ; preds = %select.unfold183, %.lr.ph.i163
   %52 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 5) #21
   store i64 %52, ptr @rt__valid_date_frags_p.rbimpl_id.306, align 8, !tbaa !6
-  %.not.i169 = icmp eq i64 %52, 0
-  br i1 %.not.i169, label %.lr.ph.i168, label %rbimpl_intern_const.exit170, !llvm.loop !51
+  %.not.i164 = icmp eq i64 %52, 0
+  br i1 %.not.i164, label %.lr.ph.i163, label %rbimpl_intern_const.exit165, !llvm.loop !51
 
-rbimpl_intern_const.exit170:                      ; preds = %.lr.ph.i168, %select.unfold223
-  %.lcssa.i167 = phi i64 [ %.pr.i165, %select.unfold223 ], [ %52, %.lr.ph.i168 ]
-  %53 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i167) #21
+rbimpl_intern_const.exit165:                      ; preds = %.lr.ph.i163, %select.unfold183
+  %.lcssa.i162 = phi i64 [ %.pr.i160, %select.unfold183 ], [ %52, %.lr.ph.i163 ]
+  %53 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i162) #21
   %54 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %53) #21
   %55 = icmp eq i64 %54, 4
-  br i1 %55, label %56, label %.thread241
+  br i1 %55, label %56, label %63
 
-56:                                               ; preds = %rbimpl_intern_const.exit170
-  %.pr.i171 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.307, align 8, !tbaa !6
-  %.not4.i172 = icmp eq i64 %.pr.i171, 0
-  br i1 %.not4.i172, label %.lr.ph.i174, label %rbimpl_intern_const.exit176
+56:                                               ; preds = %rbimpl_intern_const.exit165
+  %.pr.i166 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.307, align 8, !tbaa !6
+  %.not4.i167 = icmp eq i64 %.pr.i166, 0
+  br i1 %.not4.i167, label %.lr.ph.i169, label %rbimpl_intern_const.exit171
 
-.lr.ph.i174:                                      ; preds = %56, %.lr.ph.i174
+.lr.ph.i169:                                      ; preds = %56, %.lr.ph.i169
   %57 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 4) #21
   store i64 %57, ptr @rt__valid_date_frags_p.rbimpl_id.307, align 8, !tbaa !6
-  %.not.i175 = icmp eq i64 %57, 0
-  br i1 %.not.i175, label %.lr.ph.i174, label %rbimpl_intern_const.exit176, !llvm.loop !51
+  %.not.i170 = icmp eq i64 %57, 0
+  br i1 %.not.i170, label %.lr.ph.i169, label %rbimpl_intern_const.exit171, !llvm.loop !51
 
-rbimpl_intern_const.exit176:                      ; preds = %.lr.ph.i174, %56
-  %.lcssa.i173 = phi i64 [ %.pr.i171, %56 ], [ %57, %.lr.ph.i174 ]
-  %58 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i173) #21
+rbimpl_intern_const.exit171:                      ; preds = %.lr.ph.i169, %56
+  %.lcssa.i168 = phi i64 [ %.pr.i166, %56 ], [ %57, %.lr.ph.i169 ]
+  %58 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i168) #21
   %59 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %58) #21
   %60 = icmp eq i64 %59, 4
-  br i1 %60, label %.thread244, label %61
+  br i1 %60, label %select.unfold193, label %61
 
-61:                                               ; preds = %rbimpl_intern_const.exit176
-  %62 = icmp eq i64 %59, 0
-  %63 = and i64 %59, 7
-  %64 = icmp ne i64 %63, 0
-  %65 = or i1 %62, %64
-  br i1 %65, label %66, label %rb_type.exit.i
+61:                                               ; preds = %rbimpl_intern_const.exit171
+  %62 = tail call fastcc i64 @f_zero_p(i64 noundef %59)
+  %.not = icmp eq i64 %62, 0
+  %spec.select = select i1 %.not, i64 %59, i64 15
+  br label %63
 
-66:                                               ; preds = %61
-  %67 = tail call i64 @llvm.fshl.i64(i64 %59, i64 %59, i64 62)
-  switch i64 %67, label %68 [
-    i64 0, label %f_zero_p.exit
-    i64 1, label %f_zero_p.exit
-    i64 5, label %f_zero_p.exit
-    i64 9, label %f_zero_p.exit
-  ]
+63:                                               ; preds = %rbimpl_intern_const.exit165, %61
+  %.0111.ph = phi i64 [ %spec.select, %61 ], [ %54, %rbimpl_intern_const.exit165 ]
+  %.pr.i172 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.308, align 8, !tbaa !6
+  %.not4.i173 = icmp eq i64 %.pr.i172, 0
+  br i1 %.not4.i173, label %.lr.ph.i175, label %rbimpl_intern_const.exit177
 
-68:                                               ; preds = %66
-  %69 = and i64 %59, 1
-  %.not.i.i179 = icmp eq i64 %69, 0
-  br i1 %.not.i.i179, label %f_zero_p.exit, label %rb_type.exit.thread8.i
+.lr.ph.i175:                                      ; preds = %63, %.lr.ph.i175
+  %64 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.65, i64 noundef 5) #21
+  store i64 %64, ptr @rt__valid_date_frags_p.rbimpl_id.308, align 8, !tbaa !6
+  %.not.i176 = icmp eq i64 %64, 0
+  br i1 %.not.i176, label %.lr.ph.i175, label %rbimpl_intern_const.exit177, !llvm.loop !51
 
-rb_type.exit.i:                                   ; preds = %61
-  %70 = inttoptr i64 %59 to ptr
-  %71 = load i64, ptr %70, align 8, !tbaa !35
-  %72 = trunc i64 %71 to i32
-  %73 = and i32 %72, 31
-  switch i32 %73, label %f_zero_p.exit [
-    i32 21, label %rb_type.exit.thread8.i
-    i32 10, label %f_zero_p.exit.thread
-    i32 15, label %75
-  ]
+rbimpl_intern_const.exit177:                      ; preds = %.lr.ph.i175, %63
+  %.lcssa.i174 = phi i64 [ %.pr.i172, %63 ], [ %64, %.lr.ph.i175 ]
+  %65 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i174) #21
+  %66 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %65) #21
+  %67 = icmp eq i64 %66, 4
+  br i1 %67, label %select.unfold193, label %68
 
-rb_type.exit.thread8.i:                           ; preds = %rb_type.exit.i, %68
-  %74 = icmp ult i64 %59, 2
-  br i1 %74, label %.thread241, label %f_zero_p.exit.thread
+68:                                               ; preds = %rbimpl_intern_const.exit177
+  %69 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.309, ptr noundef @.str.64) #27
+  %70 = tail call i64 @rb_id2sym(i64 noundef %69) #21
+  %71 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %70) #21
+  %72 = icmp eq i64 %71, 4
+  br i1 %72, label %select.unfold193, label %73
 
-75:                                               ; preds = %rb_type.exit.i
-  %76 = tail call i64 @rb_rational_num(i64 noundef %59) #24
-  %or.cond = icmp eq i64 %76, 1
-  br i1 %or.cond, label %.thread241, label %f_zero_p.exit.thread
+73:                                               ; preds = %68
+  %74 = tail call fastcc i64 @rt__valid_commercial_p(i64 noundef %71, i64 noundef %66, i64 noundef %.0111.ph, i64 noundef %1)
+  %75 = icmp eq i64 %74, 4
+  br i1 %75, label %select.unfold193, label %.thread212
 
-f_zero_p.exit:                                    ; preds = %66, %66, %66, %66, %68, %rb_type.exit.i
-  %77 = load i64, ptr @id_eqeq_p, align 8, !tbaa !6
-  %78 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %59, i64 noundef %77, i32 noundef 1, i64 noundef 1) #21
-  %.fr = freeze i64 %78
-  %.not = icmp eq i64 %.fr, 0
-  br i1 %.not, label %f_zero_p.exit.thread, label %.thread241
+select.unfold193:                                 ; preds = %73, %68, %rbimpl_intern_const.exit177, %rbimpl_intern_const.exit171
+  %76 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.310, ptr noundef @.str.7) #27
+  %77 = tail call i64 @rb_id2sym(i64 noundef %76) #21
+  %78 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %77) #21
+  %79 = icmp eq i64 %78, 4
+  br i1 %79, label %80, label %87
 
-f_zero_p.exit.thread:                             ; preds = %75, %rb_type.exit.i, %rb_type.exit.thread8.i, %f_zero_p.exit
-  br label %.thread241
+80:                                               ; preds = %select.unfold193
+  %81 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.311, ptr noundef @.str.66) #27
+  %82 = tail call i64 @rb_id2sym(i64 noundef %81) #21
+  %83 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %82) #21
+  %84 = icmp eq i64 %83, 4
+  br i1 %84, label %select.unfold203, label %85
 
-.thread241:                                       ; preds = %f_zero_p.exit.thread, %75, %rb_type.exit.thread8.i, %f_zero_p.exit, %rbimpl_intern_const.exit170
-  %.0111243 = phi i64 [ %59, %f_zero_p.exit.thread ], [ 15, %f_zero_p.exit ], [ %54, %rbimpl_intern_const.exit170 ], [ 15, %rb_type.exit.thread8.i ], [ 15, %75 ]
-  %.pr.i180 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.308, align 8, !tbaa !6
-  %.not4.i181 = icmp eq i64 %.pr.i180, 0
-  br i1 %.not4.i181, label %.lr.ph.i183, label %rbimpl_intern_const.exit185
+85:                                               ; preds = %80
+  %86 = tail call fastcc i64 @f_eqeq_p(i64 noundef %83, i64 noundef 15)
+  %.not115 = icmp eq i64 %86, 0
+  %spec.select119 = select i1 %.not115, i64 %83, i64 1
+  br label %87
 
-.lr.ph.i183:                                      ; preds = %.thread241, %.lr.ph.i183
-  %79 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.65, i64 noundef 5) #21
-  store i64 %79, ptr @rt__valid_date_frags_p.rbimpl_id.308, align 8, !tbaa !6
-  %.not.i184 = icmp eq i64 %79, 0
-  br i1 %.not.i184, label %.lr.ph.i183, label %rbimpl_intern_const.exit185, !llvm.loop !51
+87:                                               ; preds = %select.unfold193, %85
+  %.0112.ph = phi i64 [ %spec.select119, %85 ], [ %78, %select.unfold193 ]
+  %88 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.312, ptr noundef @.str.229) #27
+  %89 = tail call i64 @rb_id2sym(i64 noundef %88) #21
+  %90 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %89) #21
+  %91 = icmp eq i64 %90, 4
+  br i1 %91, label %select.unfold203, label %92
 
-rbimpl_intern_const.exit185:                      ; preds = %.lr.ph.i183, %.thread241
-  %.lcssa.i182 = phi i64 [ %.pr.i180, %.thread241 ], [ %79, %.lr.ph.i183 ]
-  %80 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i182) #21
-  %81 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %80) #21
-  %82 = icmp eq i64 %81, 4
-  br i1 %82, label %.thread244, label %83
+92:                                               ; preds = %87
+  %93 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.313, ptr noundef @.str.4) #27
+  %94 = tail call i64 @rb_id2sym(i64 noundef %93) #21
+  %95 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %94) #21
+  %96 = icmp eq i64 %95, 4
+  br i1 %96, label %select.unfold203, label %97
 
-83:                                               ; preds = %rbimpl_intern_const.exit185
-  %.pr.i186 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.309, align 8, !tbaa !6
-  %.not4.i187 = icmp eq i64 %.pr.i186, 0
-  br i1 %.not4.i187, label %.lr.ph.i189, label %rbimpl_intern_const.exit191
-
-.lr.ph.i189:                                      ; preds = %83, %.lr.ph.i189
-  %84 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.64, i64 noundef 6) #21
-  store i64 %84, ptr @rt__valid_date_frags_p.rbimpl_id.309, align 8, !tbaa !6
-  %.not.i190 = icmp eq i64 %84, 0
-  br i1 %.not.i190, label %.lr.ph.i189, label %rbimpl_intern_const.exit191, !llvm.loop !51
-
-rbimpl_intern_const.exit191:                      ; preds = %.lr.ph.i189, %83
-  %.lcssa.i188 = phi i64 [ %.pr.i186, %83 ], [ %84, %.lr.ph.i189 ]
-  %85 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i188) #21
-  %86 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %85) #21
-  %87 = icmp eq i64 %86, 4
-  br i1 %87, label %.thread244, label %88
-
-88:                                               ; preds = %rbimpl_intern_const.exit191
-  %89 = tail call fastcc i64 @rt__valid_commercial_p(i64 noundef %86, i64 noundef %81, i64 noundef %.0111243, i64 noundef %1)
-  %90 = icmp eq i64 %89, 4
-  br i1 %90, label %.thread244, label %.thread267
-
-.thread244:                                       ; preds = %88, %rbimpl_intern_const.exit176, %rbimpl_intern_const.exit191, %rbimpl_intern_const.exit185
-  %.pr.i192 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.310, align 8, !tbaa !6
-  %.not4.i193 = icmp eq i64 %.pr.i192, 0
-  br i1 %.not4.i193, label %.lr.ph.i195, label %rbimpl_intern_const.exit197
-
-.lr.ph.i195:                                      ; preds = %.thread244, %.lr.ph.i195
-  %91 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 4) #21
-  store i64 %91, ptr @rt__valid_date_frags_p.rbimpl_id.310, align 8, !tbaa !6
-  %.not.i196 = icmp eq i64 %91, 0
-  br i1 %.not.i196, label %.lr.ph.i195, label %rbimpl_intern_const.exit197, !llvm.loop !51
-
-rbimpl_intern_const.exit197:                      ; preds = %.lr.ph.i195, %.thread244
-  %.lcssa.i194 = phi i64 [ %.pr.i192, %.thread244 ], [ %91, %.lr.ph.i195 ]
-  %92 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i194) #21
-  %93 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %92) #21
-  %94 = icmp eq i64 %93, 4
-  br i1 %94, label %95, label %102
-
-95:                                               ; preds = %rbimpl_intern_const.exit197
-  %.pr.i198 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.311, align 8, !tbaa !6
-  %.not4.i199 = icmp eq i64 %.pr.i198, 0
-  br i1 %.not4.i199, label %.lr.ph.i201, label %rbimpl_intern_const.exit203
-
-.lr.ph.i201:                                      ; preds = %95, %.lr.ph.i201
-  %96 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.66, i64 noundef 5) #21
-  store i64 %96, ptr @rt__valid_date_frags_p.rbimpl_id.311, align 8, !tbaa !6
-  %.not.i202 = icmp eq i64 %96, 0
-  br i1 %.not.i202, label %.lr.ph.i201, label %rbimpl_intern_const.exit203, !llvm.loop !51
-
-rbimpl_intern_const.exit203:                      ; preds = %.lr.ph.i201, %95
-  %.lcssa.i200 = phi i64 [ %.pr.i198, %95 ], [ %96, %.lr.ph.i201 ]
-  %97 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i200) #21
-  %98 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %97) #21
+97:                                               ; preds = %92
+  %98 = tail call fastcc i64 @rt__valid_weeknum_p(i64 noundef %95, i64 noundef %90, i64 noundef %.0112.ph, i64 noundef 1, i64 noundef %1)
   %99 = icmp eq i64 %98, 4
-  br i1 %99, label %select.unfold257, label %100
+  br i1 %99, label %select.unfold203, label %.thread212
 
-100:                                              ; preds = %rbimpl_intern_const.exit203
-  %101 = tail call fastcc i64 @f_eqeq_p(i64 noundef %98, i64 noundef 15)
-  %.not115 = icmp eq i64 %101, 0
-  %spec.select122 = select i1 %.not115, i64 %98, i64 1
-  br label %102
+select.unfold203:                                 ; preds = %97, %92, %87, %80
+  %100 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.314, ptr noundef @.str.7) #27
+  %101 = tail call i64 @rb_id2sym(i64 noundef %100) #21
+  %102 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %101) #21
+  %103 = icmp eq i64 %102, 4
+  br i1 %103, label %104, label %.thread209
 
-102:                                              ; preds = %rbimpl_intern_const.exit197, %100
-  %.0112.ph = phi i64 [ %spec.select122, %100 ], [ %93, %rbimpl_intern_const.exit197 ]
-  %.pr.i204 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.312, align 8, !tbaa !6
-  %.not4.i205 = icmp eq i64 %.pr.i204, 0
-  br i1 %.not4.i205, label %.lr.ph.i207, label %rbimpl_intern_const.exit209
+104:                                              ; preds = %select.unfold203
+  %105 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.315, ptr noundef @.str.66) #27
+  %106 = tail call i64 @rb_id2sym(i64 noundef %105) #21
+  %107 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %106) #21
+  %108 = icmp eq i64 %107, 4
+  br i1 %108, label %.thread212, label %.thread209
 
-.lr.ph.i207:                                      ; preds = %102, %.lr.ph.i207
-  %103 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.229, i64 noundef 5) #21
-  store i64 %103, ptr @rt__valid_date_frags_p.rbimpl_id.312, align 8, !tbaa !6
-  %.not.i208 = icmp eq i64 %103, 0
-  br i1 %.not.i208, label %.lr.ph.i207, label %rbimpl_intern_const.exit209, !llvm.loop !51
-
-rbimpl_intern_const.exit209:                      ; preds = %.lr.ph.i207, %102
-  %.lcssa.i206 = phi i64 [ %.pr.i204, %102 ], [ %103, %.lr.ph.i207 ]
-  %104 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i206) #21
-  %105 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %104) #21
-  %106 = icmp eq i64 %105, 4
-  br i1 %106, label %select.unfold257, label %107
-
-107:                                              ; preds = %rbimpl_intern_const.exit209
-  %108 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.313, ptr noundef @.str.4) #27
-  %109 = tail call i64 @rb_id2sym(i64 noundef %108) #21
-  %110 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %109) #21
+.thread209:                                       ; preds = %select.unfold203, %104
+  %.0113211 = phi i64 [ %107, %104 ], [ %102, %select.unfold203 ]
+  %109 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0113211, i64 noundef 45, i32 noundef 1, i64 noundef 3) #21
+  %110 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %109, i64 noundef 37, i32 noundef 1, i64 noundef 15) #21
   %111 = icmp eq i64 %110, 4
-  br i1 %111, label %select.unfold257, label %112
+  br i1 %111, label %.thread212, label %112
 
-112:                                              ; preds = %107
-  %113 = tail call fastcc i64 @rt__valid_weeknum_p(i64 noundef %110, i64 noundef %105, i64 noundef %.0112.ph, i64 noundef 1, i64 noundef %1)
-  %114 = icmp eq i64 %113, 4
-  br i1 %114, label %select.unfold257, label %.thread267
+112:                                              ; preds = %.thread209
+  %113 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.316, ptr noundef @.str.237) #27
+  %114 = tail call i64 @rb_id2sym(i64 noundef %113) #21
+  %115 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %114) #21
+  %116 = icmp eq i64 %115, 4
+  br i1 %116, label %.thread212, label %117
 
-select.unfold257:                                 ; preds = %112, %107, %rbimpl_intern_const.exit209, %rbimpl_intern_const.exit203
-  %.pr.i210 = load i64, ptr @rt__valid_date_frags_p.rbimpl_id.314, align 8, !tbaa !6
-  %.not4.i211 = icmp eq i64 %.pr.i210, 0
-  br i1 %.not4.i211, label %.lr.ph.i213, label %rbimpl_intern_const.exit215
+117:                                              ; preds = %112
+  %118 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.317, ptr noundef @.str.4) #27
+  %119 = tail call i64 @rb_id2sym(i64 noundef %118) #21
+  %120 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %119) #21
+  %121 = icmp eq i64 %120, 4
+  br i1 %121, label %.thread212, label %122
 
-.lr.ph.i213:                                      ; preds = %select.unfold257, %.lr.ph.i213
-  %115 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.7, i64 noundef 4) #21
-  store i64 %115, ptr @rt__valid_date_frags_p.rbimpl_id.314, align 8, !tbaa !6
-  %.not.i214 = icmp eq i64 %115, 0
-  br i1 %.not.i214, label %.lr.ph.i213, label %rbimpl_intern_const.exit215, !llvm.loop !51
+122:                                              ; preds = %117
+  %123 = tail call fastcc i64 @rt__valid_weeknum_p(i64 noundef %120, i64 noundef %115, i64 noundef %110, i64 noundef 3, i64 noundef %1)
+  br label %.thread212
 
-rbimpl_intern_const.exit215:                      ; preds = %.lr.ph.i213, %select.unfold257
-  %.lcssa.i212 = phi i64 [ %.pr.i210, %select.unfold257 ], [ %115, %.lr.ph.i213 ]
-  %116 = tail call i64 @rb_id2sym(i64 noundef %.lcssa.i212) #21
-  %117 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %116) #21
-  %118 = icmp eq i64 %117, 4
-  br i1 %118, label %119, label %.thread264
-
-119:                                              ; preds = %rbimpl_intern_const.exit215
-  %120 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.315, ptr noundef @.str.66) #27
-  %121 = tail call i64 @rb_id2sym(i64 noundef %120) #21
-  %122 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %121) #21
-  %123 = icmp eq i64 %122, 4
-  br i1 %123, label %.thread267, label %.thread264
-
-.thread264:                                       ; preds = %rbimpl_intern_const.exit215, %119
-  %.0113266 = phi i64 [ %122, %119 ], [ %117, %rbimpl_intern_const.exit215 ]
-  %124 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %.0113266, i64 noundef 45, i32 noundef 1, i64 noundef 3) #21
-  %125 = tail call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %124, i64 noundef 37, i32 noundef 1, i64 noundef 15) #21
-  %126 = icmp eq i64 %125, 4
-  br i1 %126, label %.thread267, label %127
-
-127:                                              ; preds = %.thread264
-  %128 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.316, ptr noundef @.str.237) #27
-  %129 = tail call i64 @rb_id2sym(i64 noundef %128) #21
-  %130 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %129) #21
-  %131 = icmp eq i64 %130, 4
-  br i1 %131, label %.thread267, label %132
-
-132:                                              ; preds = %127
-  %133 = tail call fastcc i64 @rbimpl_intern_const(ptr noundef @rt__valid_date_frags_p.rbimpl_id.317, ptr noundef @.str.4) #27
-  %134 = tail call i64 @rb_id2sym(i64 noundef %133) #21
-  %135 = tail call i64 @rb_hash_aref(i64 noundef %0, i64 noundef %134) #21
-  %136 = icmp eq i64 %135, 4
-  br i1 %136, label %.thread267, label %137
-
-137:                                              ; preds = %132
-  %138 = tail call fastcc i64 @rt__valid_weeknum_p(i64 noundef %135, i64 noundef %130, i64 noundef %125, i64 noundef 3, i64 noundef %1)
-  br label %.thread267
-
-.thread267:                                       ; preds = %137, %119, %132, %127, %.thread264, %112, %88, %49, %rt__valid_ordinal_p.exit, %rbimpl_intern_const.exit
-  %.3 = phi i64 [ %10, %rbimpl_intern_const.exit ], [ %33, %rt__valid_ordinal_p.exit ], [ %50, %49 ], [ %89, %88 ], [ %113, %112 ], [ 4, %132 ], [ 4, %127 ], [ 4, %.thread264 ], [ 4, %119 ], [ %138, %137 ]
+.thread212:                                       ; preds = %122, %104, %117, %112, %.thread209, %97, %73, %49, %rt__valid_ordinal_p.exit, %rbimpl_intern_const.exit
+  %.3 = phi i64 [ %10, %rbimpl_intern_const.exit ], [ %33, %rt__valid_ordinal_p.exit ], [ %50, %49 ], [ %74, %73 ], [ %98, %97 ], [ 4, %117 ], [ 4, %112 ], [ 4, %.thread209 ], [ 4, %104 ], [ %123, %122 ]
   ret i64 %.3
 }
 

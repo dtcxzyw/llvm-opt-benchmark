@@ -24,8 +24,8 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   %10 = call i32 @av_strstart(ptr noundef %1, ptr noundef nonnull @.str.2, ptr noundef nonnull %4) #4
   %11 = load ptr, ptr %4, align 8, !tbaa !4
   %12 = load i8, ptr %11, align 1, !tbaa !16
-  %.not61 = icmp eq i8 %12, 0
-  br i1 %.not61, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not60 = icmp eq i8 %12, 0
+  br i1 %.not60, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %3
   %.pre = load i32, ptr %9, align 8, !tbaa !17
@@ -115,17 +115,17 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 0, ptr %54, align 8, !tbaa !25
   %55 = icmp sgt i32 %53, 0
-  br i1 %55, label %.lr.ph64, label %._crit_edge65
+  br i1 %55, label %.lr.ph63, label %._crit_edge64
 
-.lr.ph64:                                         ; preds = %._crit_edge
+.lr.ph63:                                         ; preds = %._crit_edge
   %56 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !22
   %wide.trip.count = zext nneg i32 %53 to i64
   br label %58
 
-58:                                               ; preds = %.lr.ph64, %58
-  %indvars.iv = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next, %58 ]
-  %59 = phi i32 [ 0, %.lr.ph64 ], [ %64, %58 ]
+58:                                               ; preds = %.lr.ph63, %58
+  %indvars.iv = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next, %58 ]
+  %59 = phi i32 [ 0, %.lr.ph63 ], [ %64, %58 ]
   %60 = getelementptr inbounds nuw %struct.ChildContext, ptr %57, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !26
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
@@ -134,25 +134,25 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   store i32 %64, ptr %54, align 8, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph68, label %58, !llvm.loop !29
+  br i1 %exitcond.not, label %.lr.ph67, label %58, !llvm.loop !29
 
-._crit_edge65:                                    ; preds = %._crit_edge
+._crit_edge64:                                    ; preds = %._crit_edge
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %65, align 4, !tbaa !31
   br label %.loopexit
 
-.lr.ph68:                                         ; preds = %58
+.lr.ph67:                                         ; preds = %58
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 36
   store i32 0, ptr %66, align 4, !tbaa !31
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !22
-  %wide.trip.count73 = zext nneg i32 %53 to i64
+  %wide.trip.count72 = zext nneg i32 %53 to i64
   br label %69
 
-69:                                               ; preds = %.lr.ph68, %77
-  %70 = phi i32 [ 0, %.lr.ph68 ], [ %78, %77 ]
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next71, %77 ]
-  %71 = getelementptr inbounds nuw %struct.ChildContext, ptr %68, i64 %indvars.iv70
+69:                                               ; preds = %.lr.ph67, %77
+  %70 = phi i32 [ 0, %.lr.ph67 ], [ %78, %77 ]
+  %indvars.iv69 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next70, %77 ]
+  %71 = getelementptr inbounds nuw %struct.ChildContext, ptr %68, i64 %indvars.iv69
   %72 = load ptr, ptr %71, align 8, !tbaa !26
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 36
   %74 = load i32, ptr %73, align 4, !tbaa !31
@@ -171,9 +171,9 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
 
 77:                                               ; preds = %75, %.sink.split, %69
   %78 = phi i32 [ %70, %69 ], [ %74, %.sink.split ], [ %70, %75 ]
-  %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
-  %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
-  br i1 %exitcond74.not, label %.loopexit, label %69, !llvm.loop !32
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count72
+  br i1 %exitcond73.not, label %.loopexit, label %69, !llvm.loop !32
 
 79:                                               ; preds = %17, %41
   %.044.ph = phi i32 [ %.1, %41 ], [ -12, %17 ]
@@ -206,8 +206,8 @@ tee_close.exit:                                   ; preds = %84, %79
   store i32 0, ptr %80, align 8, !tbaa !17
   br label %.loopexit
 
-.loopexit:                                        ; preds = %77, %._crit_edge65, %tee_close.exit
-  %.0 = phi i32 [ %.044.ph, %tee_close.exit ], [ 0, %._crit_edge65 ], [ 0, %77 ]
+.loopexit:                                        ; preds = %77, %._crit_edge64, %tee_close.exit
+  %.0 = phi i32 [ %.044.ph, %tee_close.exit ], [ 0, %._crit_edge64 ], [ 0, %77 ]
   ret i32 %.0
 }
 

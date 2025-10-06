@@ -213,16 +213,16 @@ ft_lzw_file_reset.exit.thread.i:                  ; preds = %20
   %43 = add i64 %spec.select.i.i, %31
   store i64 %43, ptr %7, align 8, !tbaa !23
   %44 = sub i64 %34, %spec.select.i.i
-  %.not3137.i.i = icmp eq i64 %44, 0
-  br i1 %.not3137.i.i, label %ft_lzw_file_skip_output.exit.i, label %.lr.ph.i.i
+  %.not3136.i.i = icmp eq i64 %44, 0
+  br i1 %.not3136.i.i, label %ft_lzw_file_skip_output.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %46
 
 46:                                               ; preds = %49, %.lr.ph.i.i
-  %.02438.i.i = phi i64 [ %44, %.lr.ph.i.i ], [ %52, %49 ]
-  %spec.select32.i.i = tail call i64 @llvm.umin.i64(i64 %.02438.i.i, i64 4096)
+  %.02437.i.i = phi i64 [ %44, %.lr.ph.i.i ], [ %52, %49 ]
+  %spec.select32.i.i = tail call i64 @llvm.umin.i64(i64 %.02437.i.i, i64 4096)
   %47 = tail call i64 @ft_lzwstate_io(ptr noundef nonnull %45, ptr noundef null, i64 noundef %spec.select32.i.i)
   %48 = icmp ult i64 %47, %spec.select32.i.i
   br i1 %48, label %ft_lzw_file_io.exit, label %49
@@ -231,7 +231,7 @@ ft_lzw_file_reset.exit.thread.i:                  ; preds = %20
   %50 = load i64, ptr %7, align 8, !tbaa !23
   %51 = add i64 %50, %spec.select32.i.i
   store i64 %51, ptr %7, align 8, !tbaa !23
-  %52 = sub i64 %.02438.i.i, %spec.select32.i.i
+  %52 = sub i64 %.02437.i.i, %spec.select32.i.i
   %.not31.i.i = icmp eq i64 %52, 0
   br i1 %.not31.i.i, label %ft_lzw_file_skip_output.exit.i, label %46
 
@@ -249,11 +249,11 @@ ft_lzw_file_skip_output.exit.i:                   ; preds = %49, %33
   %57 = getelementptr inbounds nuw i8, ptr %6, i64 4352
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 4344
   %.pre.i = load ptr, ptr %57, align 8, !tbaa !21
-  %.pre65.i = load ptr, ptr %58, align 8, !tbaa !22
+  %.pre64.i = load ptr, ptr %58, align 8, !tbaa !22
   br label %59
 
 59:                                               ; preds = %73, %.preheader.i
-  %60 = phi ptr [ %75, %73 ], [ %.pre65.i, %.preheader.i ]
+  %60 = phi ptr [ %75, %73 ], [ %.pre64.i, %.preheader.i ]
   %61 = phi ptr [ %76, %73 ], [ %.pre.i, %.preheader.i ]
   %.045.i = phi i64 [ %71, %73 ], [ %3, %.preheader.i ]
   %.1.i = phi i64 [ %66, %73 ], [ 0, %.preheader.i ]
@@ -280,8 +280,8 @@ ft_lzw_file_skip_output.exit.i:                   ; preds = %49, %33
   %75 = load ptr, ptr %58, align 8, !tbaa !22
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 %74
   store ptr %76, ptr %57, align 8, !tbaa !21
-  %.not62.i = icmp eq i64 %74, 0
-  br i1 %.not62.i, label %ft_lzw_file_io.exit, label %59
+  %.not61.i = icmp eq i64 %74, 0
+  br i1 %.not61.i, label %ft_lzw_file_io.exit, label %59
 
 ft_lzw_file_io.exit:                              ; preds = %46, %59, %73, %20, %ft_lzw_file_skip_output.exit.i, %54
   %.044.i = phi i64 [ 0, %ft_lzw_file_skip_output.exit.i ], [ 0, %54 ], [ 0, %20 ], [ %66, %73 ], [ %66, %59 ], [ 0, %46 ]

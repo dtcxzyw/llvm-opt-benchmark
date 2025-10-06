@@ -8912,17 +8912,17 @@ define void @_ZN7rocksdb7blob_db10BlobDBImpl43MarkUnreferencedBlobFilesObsoleteD
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %3 = load ptr, ptr %2, align 8, !tbaa !240
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2088
-  %.not2425.i = icmp eq ptr %3, %4
-  br i1 %.not2425.i, label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_43MarkUnreferencedBlobFilesObsoleteDuringOpenEvE3$_0EEvT_.exit", label %.lr.ph.i
+  %.not2223.i = icmp eq ptr %3, %4
+  br i1 %.not2223.i, label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_43MarkUnreferencedBlobFilesObsoleteDuringOpenEvE3$_0EEvT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2120
   br label %6
 
 6:                                                ; preds = %71, %.lr.ph.i
-  %.027.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %71 ]
-  %.sroa.016.026.i = phi ptr [ %3, %.lr.ph.i ], [ %.sroa.016.1.i, %71 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.016.026.i, i64 40
+  %.025.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %71 ]
+  %.sroa.016.024.i = phi ptr [ %3, %.lr.ph.i ], [ %.sroa.016.1.i, %71 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.016.024.i, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 200
   %10 = load atomic i8, ptr %9 seq_cst, align 1
@@ -8930,8 +8930,8 @@ define void @_ZN7rocksdb7blob_db10BlobDBImpl43MarkUnreferencedBlobFilesObsoleteD
   br i1 %11, label %12, label %40
 
 12:                                               ; preds = %6
-  %13 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.026.i) #33
-  %14 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.016.026.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #30
+  %13 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.024.i) #33
+  %14 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.016.024.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !265
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
@@ -8993,8 +8993,8 @@ _ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_
   br i1 %41, label %42, label %.thread.i
 
 42:                                               ; preds = %40
-  %43 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.026.i) #33
-  %44 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.016.026.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #30
+  %43 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.024.i) #33
+  %44 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.016.024.i, ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !265
   %.not.i.i.i.i.i.i.i.i.i.i11.i = icmp eq ptr %46, null
@@ -9049,17 +9049,17 @@ _ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_
   %68 = load i64, ptr %5, align 8, !tbaa !242
   %69 = add i64 %68, -1
   store i64 %69, ptr %5, align 8, !tbaa !242
-  %70 = add i64 %.027.i, 1
+  %70 = add i64 %.025.i, 1
   br label %71
 
 71:                                               ; preds = %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit15.i, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit.i
   %.sroa.016.1.i = phi ptr [ %13, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit.i ], [ %43, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit15.i ]
-  %.2.i = phi i64 [ %.027.i, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit.i ], [ %70, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit15.i ]
-  %.not24.i = icmp eq ptr %.sroa.016.1.i, %4
-  br i1 %.not24.i, label %.thread.i, label %6
+  %.2.i = phi i64 [ %.025.i, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit.i ], [ %70, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit15.i ]
+  %.not22.i = icmp eq ptr %.sroa.016.1.i, %4
+  br i1 %.not22.i, label %.thread.i, label %6
 
 .thread.i:                                        ; preds = %71, %40
-  %.0.lcssa.i = phi i64 [ %.2.i, %71 ], [ %.027.i, %40 ]
+  %.0.lcssa.i = phi i64 [ %.2.i, %71 ], [ %.025.i, %40 ]
   %.not.i = icmp eq i64 %.0.lcssa.i, 0
   br i1 %.not.i, label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_43MarkUnreferencedBlobFilesObsoleteDuringOpenEvE3$_0EEvT_.exit", label %72
 
@@ -12974,17 +12974,17 @@ define void @_ZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteE
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 2104
   %7 = load ptr, ptr %6, align 8, !tbaa !240
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2088
-  %.not2529.i = icmp eq ptr %7, %8
-  br i1 %.not2529.i, label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_33MarkUnreferencedBlobFilesObsoleteEvE3$_0EEvT_.exit", label %.lr.ph.i
+  %.not2327.i = icmp eq ptr %7, %8
+  br i1 %.not2327.i, label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_33MarkUnreferencedBlobFilesObsoleteEvE3$_0EEvT_.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 2120
   br label %10
 
 10:                                               ; preds = %86, %.lr.ph.i
-  %.031.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %86 ]
-  %.sroa.017.030.i = phi ptr [ %7, %.lr.ph.i ], [ %.sroa.017.1.i, %86 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.017.030.i, i64 40
+  %.029.i = phi i64 [ 0, %.lr.ph.i ], [ %.2.i, %86 ]
+  %.sroa.017.028.i = phi ptr [ %7, %.lr.ph.i ], [ %.sroa.017.1.i, %86 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.017.028.i, i64 40
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 200
   %14 = load atomic i8, ptr %13 seq_cst, align 1
@@ -12992,8 +12992,8 @@ define void @_ZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteE
   br i1 %15, label %16, label %44
 
 16:                                               ; preds = %10
-  %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.030.i) #33
-  %18 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.017.030.i, ptr noundef nonnull align 8 dereferenceable(32) %8) #30
+  %17 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.028.i) #33
+  %18 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.017.028.i, ptr noundef nonnull align 8 dereferenceable(32) %8) #30
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !265
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %20, null
@@ -13088,8 +13088,8 @@ _ZN7rocksdb9WriteLockD2Ev.exit4.i.i:              ; preds = %52
   br i1 %47, label %57, label %.thread.i
 
 57:                                               ; preds = %"_ZZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteEvENK3$_0clERKSt10shared_ptrINS0_8BlobFileEE.exit.i"
-  %58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.030.i) #33
-  %59 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.017.030.i, ptr noundef nonnull align 8 dereferenceable(32) %8) #30
+  %58 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.028.i) #33
+  %59 = tail call noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_node_baseRS_(ptr noundef nonnull %.sroa.017.028.i, ptr noundef nonnull align 8 dereferenceable(32) %8) #30
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 48
   %61 = load ptr, ptr %60, align 8, !tbaa !265
   %.not.i.i.i.i.i.i.i.i.i.i12.i = icmp eq ptr %61, null
@@ -13144,17 +13144,17 @@ _ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_
   %83 = load i64, ptr %9, align 8, !tbaa !242
   %84 = add i64 %83, -1
   store i64 %84, ptr %9, align 8, !tbaa !242
-  %85 = add i64 %.031.i, 1
+  %85 = add i64 %.029.i, 1
   br label %86
 
 86:                                               ; preds = %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit16.i, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit.i
   %.sroa.017.1.i = phi ptr [ %17, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit.i ], [ %58, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit16.i ]
-  %.2.i = phi i64 [ %.031.i, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit.i ], [ %85, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit16.i ]
-  %.not25.i = icmp eq ptr %.sroa.017.1.i, %8
-  br i1 %.not25.i, label %.thread.i, label %10
+  %.2.i = phi i64 [ %.029.i, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit.i ], [ %85, %_ZNSt3mapImSt10shared_ptrIN7rocksdb7blob_db8BlobFileEESt4lessImESaISt4pairIKmS4_EEE5eraseB5cxx11ESt17_Rb_tree_iteratorIS9_E.exit16.i ]
+  %.not23.i = icmp eq ptr %.sroa.017.1.i, %8
+  br i1 %.not23.i, label %.thread.i, label %10
 
 .thread.i:                                        ; preds = %86, %"_ZZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteEvENK3$_0clERKSt10shared_ptrINS0_8BlobFileEE.exit.i"
-  %.0.lcssa.i = phi i64 [ %.2.i, %86 ], [ %.031.i, %"_ZZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteEvENK3$_0clERKSt10shared_ptrINS0_8BlobFileEE.exit.i" ]
+  %.0.lcssa.i = phi i64 [ %.2.i, %86 ], [ %.029.i, %"_ZZN7rocksdb7blob_db10BlobDBImpl33MarkUnreferencedBlobFilesObsoleteEvENK3$_0clERKSt10shared_ptrINS0_8BlobFileEE.exit.i" ]
   %.not.i = icmp eq i64 %.0.lcssa.i, 0
   br i1 %.not.i, label %"_ZN7rocksdb7blob_db10BlobDBImpl37MarkUnreferencedBlobFilesObsoleteImplIZNS1_33MarkUnreferencedBlobFilesObsoleteEvE3$_0EEvT_.exit", label %87
 
@@ -41279,9 +41279,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !518
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %14, label %.thread36
+  br i1 %.not.not, label %14, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load i64, ptr %1, align 8, !tbaa !57
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !520
@@ -41315,7 +41315,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %25 = urem i64 %16, %24
   br label %.critedge
 
-26:                                               ; preds = %.thread36
+26:                                               ; preds = %.thread34
   %27 = load ptr, ptr %13, align 8, !tbaa !368
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !57
@@ -41342,9 +41342,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
 ..loopexit_crit_edge21.i.i:                       ; preds = %34
   br label %.critedge, !llvm.loop !1162
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread34
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread34 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   store ptr null, ptr %40, align 8, !tbaa !368
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

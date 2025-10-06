@@ -3249,23 +3249,23 @@ _ZN5clanglsIA7_cEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds = 
   br i1 %.not17, label %.preheader, label %.split
 
 .preheader:                                       ; preds = %91
-  %.not1822 = icmp eq ptr %3, null
-  br i1 %.not1822, label %.critedge, label %.lr.ph
+  %.not1821 = icmp eq ptr %3, null
+  br i1 %.not1821, label %.critedge, label %.lr.ph
 
 .split:                                           ; preds = %91
   %92 = call i64 @_ZN5clang8SemaObjC20BuildObjCAtThrowStmtENS_14SourceLocationEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(328) %0, i32 %1, ptr noundef nonnull %2)
   br label %109
 
 .lr.ph:                                           ; preds = %.preheader, %96
-  %.01423 = phi ptr [ %97, %96 ], [ %3, %.preheader ]
-  %93 = getelementptr inbounds nuw i8, ptr %.01423, i64 8
+  %.01422 = phi ptr [ %97, %96 ], [ %3, %.preheader ]
+  %93 = getelementptr inbounds nuw i8, ptr %.01422, i64 8
   %94 = load i32, ptr %93, align 8, !tbaa !1225
   %95 = and i32 %94, 1024
-  %.not21 = icmp eq i32 %95, 0
-  br i1 %.not21, label %96, label %.split15
+  %.not20 = icmp eq i32 %95, 0
+  br i1 %.not20, label %96, label %.split15
 
 96:                                               ; preds = %.lr.ph
-  %97 = load ptr, ptr %.01423, align 8, !tbaa !1241
+  %97 = load ptr, ptr %.01422, align 8, !tbaa !1241
   %.not18 = icmp eq ptr %97, null
   br i1 %.not18, label %.critedge, label %.lr.ph, !llvm.loop !1242
 
@@ -9744,21 +9744,21 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL20findRetainCycleOwnerERNS_
   %11 = load i32, ptr %6, align 8
   %12 = lshr i32 %11, 19
   %13 = and i32 %12, 127
-  switch i32 %13, label %.thread110 [
+  switch i32 %13, label %.thread109 [
     i32 1, label %.backedge
     i32 2, label %.backedge
     i32 4, label %.backedge
     i32 56, label %.backedge
   ]
 
-.backedge:                                        ; preds = %10, %10, %10, %10, %65, %.critedge86
-  %.sink = phi ptr [ %109, %.critedge86 ], [ %6, %65 ], [ %6, %10 ], [ %6, %10 ], [ %6, %10 ], [ %6, %10 ]
+.backedge:                                        ; preds = %10, %10, %10, %10, %65, %.critedge85
+  %.sink = phi ptr [ %109, %.critedge85 ], [ %6, %65 ], [ %6, %10 ], [ %6, %10 ], [ %6, %10 ], [ %6, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %.sink, i64 16
   %.052.be = load ptr, ptr %14, align 8, !tbaa !1253
   br label %5
 
 15:                                               ; preds = %5
-  switch i16 %8, label %.thread110 [
+  switch i16 %8, label %.thread109 [
     i16 36, label %16
     i16 73, label %42
     i16 48, label %65
@@ -9776,7 +9776,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clangL20findRetainCycleOwnerERNS_
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %22, align 8
   %23 = and i64 %.0.copyload.i.i.i.i.i.i.i, 8
   %.not.i.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i.i, label %.thread110, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit
+  br i1 %.not.i.i.i, label %.thread109, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit
 
 _ZNK5clang8QualType15getObjCLifetimeEv.exit:      ; preds = %16
   %24 = and i64 %.0.copyload.i.i.i.i.i.i.i, -16
@@ -9785,20 +9785,20 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit:      ; preds = %16
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %26, align 8, !tbaa !739
   %27 = and i64 %.sroa.0.0.copyload.i.i.i.i, 448
   %.not75 = icmp eq i64 %27, 128
-  br i1 %.not75, label %28, label %.thread110
+  br i1 %.not75, label %28, label %.thread109
 
 28:                                               ; preds = %_ZNK5clang8QualType15getObjCLifetimeEv.exit
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !1332
   %31 = tail call fastcc noundef zeroext i1 @_ZN5clangL20findRetainCycleOwnerERNS_4SemaEPNS_4ExprERNS_12_GLOBAL__N_116RetainCycleOwnerE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %30, ptr noundef nonnull align 8 dereferenceable(21) %2)
-  br i1 %31, label %32, label %.thread110
+  br i1 %31, label %32, label %.thread109
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %34 = load i8, ptr %33, align 8
   %35 = and i8 %34, 2
-  %.not150 = icmp eq i8 %35, 0
-  br i1 %.not150, label %41, label %36
+  %.not147 = icmp eq i8 %35, 0
+  br i1 %.not147, label %41, label %36
 
 36:                                               ; preds = %32
   %37 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
@@ -9811,7 +9811,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit:      ; preds = %16
 
 41:                                               ; preds = %36, %32
   store i8 1, ptr %4, align 4, !tbaa !1333
-  br label %.thread110
+  br label %.thread109
 
 42:                                               ; preds = %15
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -9821,9 +9821,9 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit:      ; preds = %16
   %47 = and i32 %46, 127
   %48 = add nsw i32 %47, -45
   %49 = icmp ult i32 %48, -7
-  %.not77149 = icmp eq ptr %44, null
-  %.not77 = or i1 %.not77149, %49
-  br i1 %.not77, label %.thread110, label %50
+  %.not77146 = icmp eq ptr %44, null
+  %.not77 = or i1 %.not77146, %49
+  br i1 %.not77, label %.thread109, label %50
 
 50:                                               ; preds = %42
   %51 = getelementptr inbounds nuw i8, ptr %44, i64 48
@@ -9834,7 +9834,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit:      ; preds = %16
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %54, align 8
   %55 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 8
   %.not.i.i.i.i = icmp eq i64 %55, 0
-  br i1 %.not.i.i.i.i, label %.thread110, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i
+  br i1 %.not.i.i.i.i, label %.thread109, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i
 
 _ZNK5clang8QualType15getObjCLifetimeEv.exit.i:    ; preds = %50
   %56 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, -16
@@ -9843,7 +9843,7 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.i:    ; preds = %50
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %58, align 8, !tbaa !739
   %59 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 448
   %.not.i = icmp eq i64 %59, 128
-  br i1 %.not.i, label %60, label %.thread110
+  br i1 %.not.i, label %60, label %.thread109
 
 60:                                               ; preds = %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i
   store ptr %44, ptr %2, align 8, !tbaa !1323
@@ -9853,13 +9853,13 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.i:    ; preds = %50
   %63 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #21
   %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %63, ptr %64, align 8
-  br label %.thread110
+  br label %.thread109
 
 65:                                               ; preds = %15
   %66 = load i32, ptr %6, align 8
   %67 = and i32 %66, 524288
-  %.not141 = icmp eq i32 %67, 0
-  br i1 %.not141, label %.backedge, label %.thread110
+  %.not138 = icmp eq i32 %67, 0
+  br i1 %.not138, label %.backedge, label %.thread109
 
 68:                                               ; preds = %15
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -9867,15 +9867,15 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.i:    ; preds = %50
   %71 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %70) #21
   %72 = load i16, ptr %71, align 8
   %73 = and i16 %72, 511
-  %.not145 = icmp eq i16 %73, 34
-  br i1 %.not145, label %74, label %.thread110
+  %.not142 = icmp eq i16 %73, 34
+  br i1 %.not142, label %74, label %.thread109
 
 74:                                               ; preds = %68
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %.0.copyload.i.i.i.i = load i64, ptr %75, align 8
   %76 = and i64 %.0.copyload.i.i.i.i, 4
-  %.not146 = icmp eq i64 %76, 0
-  br i1 %.not146, label %77, label %.thread110
+  %.not143 = icmp eq i64 %76, 0
+  br i1 %.not143, label %77, label %.thread109
 
 77:                                               ; preds = %74
   %78 = and i64 %.0.copyload.i.i.i.i, -8
@@ -9883,42 +9883,42 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit.i:    ; preds = %50
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 72
   %81 = load i64, ptr %80, align 8
   %82 = and i64 %81, 1072
-  %.not147 = icmp eq i64 %82, 0
-  br i1 %.not147, label %83, label %.critedge
+  %.not144 = icmp eq i64 %82, 0
+  br i1 %.not144, label %83, label %.critedge
 
 83:                                               ; preds = %77
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 120
   %85 = load ptr, ptr %84, align 8, !tbaa !1334
   %.not81 = icmp eq ptr %85, null
-  br i1 %.not81, label %.thread110, label %86
+  br i1 %.not81, label %.thread109, label %86
 
 86:                                               ; preds = %83
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 48
-  %.sroa.0.0.copyload.i94 = load i64, ptr %87, align 8, !tbaa !17
-  %88 = and i64 %.sroa.0.0.copyload.i94, -16
+  %.sroa.0.0.copyload.i93 = load i64, ptr %87, align 8, !tbaa !17
+  %88 = and i64 %.sroa.0.0.copyload.i93, -16
   %89 = inttoptr i64 %88 to ptr
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  %.0.copyload.i.i.i.i.i.i.i96 = load i64, ptr %90, align 8
-  %91 = and i64 %.0.copyload.i.i.i.i.i.i.i96, 8
-  %.not.i.i.i97 = icmp eq i64 %91, 0
-  br i1 %.not.i.i.i97, label %.thread110, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit100
+  %.0.copyload.i.i.i.i.i.i.i95 = load i64, ptr %90, align 8
+  %91 = and i64 %.0.copyload.i.i.i.i.i.i.i95, 8
+  %.not.i.i.i96 = icmp eq i64 %91, 0
+  br i1 %.not.i.i.i96, label %.thread109, label %_ZNK5clang8QualType15getObjCLifetimeEv.exit99
 
-_ZNK5clang8QualType15getObjCLifetimeEv.exit100:   ; preds = %86
-  %92 = and i64 %.0.copyload.i.i.i.i.i.i.i96, -16
+_ZNK5clang8QualType15getObjCLifetimeEv.exit99:    ; preds = %86
+  %92 = and i64 %.0.copyload.i.i.i.i.i.i.i95, -16
   %93 = inttoptr i64 %92 to ptr
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
-  %.sroa.0.0.copyload.i.i.i.i98 = load i64, ptr %94, align 8, !tbaa !739
-  %95 = and i64 %.sroa.0.0.copyload.i.i.i.i98, 448
-  %.not148 = icmp eq i64 %95, 128
-  br i1 %.not148, label %.critedge, label %.thread110
+  %.sroa.0.0.copyload.i.i.i.i97 = load i64, ptr %94, align 8, !tbaa !739
+  %95 = and i64 %.sroa.0.0.copyload.i.i.i.i97, 448
+  %.not145 = icmp eq i64 %95, 128
+  br i1 %.not145, label %.critedge, label %.thread109
 
-.critedge:                                        ; preds = %77, %_ZNK5clang8QualType15getObjCLifetimeEv.exit100
+.critedge:                                        ; preds = %77, %_ZNK5clang8QualType15getObjCLifetimeEv.exit99
   store i8 1, ptr %4, align 4, !tbaa !1333
   %96 = getelementptr inbounds nuw i8, ptr %71, i64 40
-  %.0.copyload.i.i.i.i.i.i.i.i101 = load i64, ptr %96, align 8
-  %97 = and i64 %.0.copyload.i.i.i.i.i.i.i.i101, 6
+  %.0.copyload.i.i.i.i.i.i.i.i100 = load i64, ptr %96, align 8
+  %97 = and i64 %.0.copyload.i.i.i.i.i.i.i.i100, 6
   %98 = icmp eq i64 %97, 2
-  br i1 %98, label %99, label %.critedge86
+  br i1 %98, label %99, label %.critedge85
 
 99:                                               ; preds = %.critedge
   %100 = tail call noundef ptr @_ZN5clang4Sema16getCurMethodDeclEv(ptr noundef nonnull align 8 dereferenceable(17504) %0) #20
@@ -9926,25 +9926,25 @@ _ZNK5clang8QualType15getObjCLifetimeEv.exit100:   ; preds = %86
   %102 = load ptr, ptr %101, align 8, !tbaa !1317
   store ptr %102, ptr %2, align 8, !tbaa !1323
   %.not82 = icmp eq ptr %102, null
-  br i1 %.not82, label %.thread110, label %103
+  br i1 %.not82, label %.thread109, label %103
 
 103:                                              ; preds = %99
   %104 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %.sroa.0.0.copyload.i102 = load i32, ptr %104, align 8, !tbaa !16
+  %.sroa.0.0.copyload.i101 = load i32, ptr %104, align 8, !tbaa !16
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i32 %.sroa.0.0.copyload.i102, ptr %105, align 8, !tbaa !16
+  store i32 %.sroa.0.0.copyload.i101, ptr %105, align 8, !tbaa !16
   %106 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %71) #21
   %107 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store i64 %106, ptr %107, align 8
-  br label %.thread110
+  br label %.thread109
 
-.critedge86:                                      ; preds = %.critedge
-  %108 = and i64 %.0.copyload.i.i.i.i.i.i.i.i101, -8
+.critedge85:                                      ; preds = %.critedge
+  %108 = and i64 %.0.copyload.i.i.i.i.i.i.i.i100, -8
   %109 = inttoptr i64 %108 to ptr
   br label %.backedge
 
-.thread110:                                       ; preds = %86, %83, %_ZNK5clang8QualType15getObjCLifetimeEv.exit100, %74, %68, %65, %10, %15, %99, %103, %42, %50, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %60, %16, %28, %_ZNK5clang8QualType15getObjCLifetimeEv.exit, %41
-  %.2 = phi i1 [ false, %28 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit ], [ true, %41 ], [ false, %16 ], [ false, %50 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i ], [ true, %60 ], [ false, %42 ], [ false, %99 ], [ true, %103 ], [ false, %15 ], [ false, %10 ], [ false, %65 ], [ false, %68 ], [ false, %74 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit100 ], [ false, %83 ], [ false, %86 ]
+.thread109:                                       ; preds = %86, %83, %_ZNK5clang8QualType15getObjCLifetimeEv.exit99, %74, %68, %65, %10, %15, %99, %103, %42, %50, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i, %60, %16, %28, %_ZNK5clang8QualType15getObjCLifetimeEv.exit, %41
+  %.2 = phi i1 [ false, %28 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit ], [ true, %41 ], [ false, %16 ], [ false, %50 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit.i ], [ true, %60 ], [ false, %42 ], [ false, %99 ], [ true, %103 ], [ false, %15 ], [ false, %10 ], [ false, %65 ], [ false, %68 ], [ false, %74 ], [ false, %_ZNK5clang8QualType15getObjCLifetimeEv.exit99 ], [ false, %83 ], [ false, %86 ]
   ret i1 %.2
 }
 
@@ -10037,8 +10037,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_4DeclEEEDaPT0_.exit: ; pred
   %47 = and i64 %46, 7
   %48 = icmp ne i64 %47, 0
   %49 = and i64 %46, -8
-  %.not3966 = icmp eq i64 %49, 0
-  %.not39 = or i1 %48, %.not3966
+  %.not3965 = icmp eq i64 %49, 0
+  %.not39 = or i1 %48, %.not3965
   br i1 %.not39, label %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_4DeclEEEDaPT0_.exit.thread, label %50
 
 50:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_4DeclEEEDaPT0_.exit
@@ -10078,8 +10078,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_4DeclEEEDaPT0_.exit.thread:
   %.227.ph = phi ptr [ %.126.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread48 ], [ %6, %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_4DeclEEEDaPT0_.exit ], [ %6, %_ZNK5clang14IdentifierInfo5isStrILm12EEEbRAT__Kc.exit ], [ %70, %59 ], [ %6, %26 ], [ %6, %28 ], [ %6, %39 ], [ %6, %32 ], [ %6, %50 ]
   %71 = load i16, ptr %.227.ph, align 8
   %72 = and i16 %71, 511
-  %.not68 = icmp eq i16 %72, 119
-  br i1 %.not68, label %73, label %94
+  %.not67 = icmp eq i16 %72, 119
+  br i1 %.not67, label %73, label %94
 
 73:                                               ; preds = %_ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclENS1_4DeclEEEDaPT0_.exit.thread
   %74 = getelementptr inbounds nuw i8, ptr %.227.ph, i64 16
@@ -10762,17 +10762,17 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   %60 = mul i32 %59, %57
   %61 = zext i32 %60 to i64
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 %61
-  %.not16.not.i = icmp eq i32 %60, 0
-  br i1 %.not16.not.i, label %_ZNK5clang13StringLiteral22containsNonAsciiOrNullEv.exit.thread, label %.lr.ph.i
+  %.not17.not.i = icmp eq i32 %60, 0
+  br i1 %.not17.not.i, label %_ZNK5clang13StringLiteral22containsNonAsciiOrNullEv.exit.thread, label %.lr.ph.i
 
 63:                                               ; preds = %.lr.ph.i
-  %64 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.01418.i, i64 1
   %.not.not.i = icmp eq ptr %64, %62
   br i1 %.not.not.i, label %_ZNK5clang13StringLiteral22containsNonAsciiOrNullEv.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %50, %63
-  %.01417.i = phi ptr [ %64, %63 ], [ %55, %50 ]
-  %65 = load i8, ptr %.01417.i, align 1, !tbaa !17
+  %.01418.i = phi ptr [ %64, %63 ], [ %55, %50 ]
+  %65 = load i8, ptr %.01418.i, align 1, !tbaa !17
   %or.cond.i = icmp slt i8 %65, 1
   br i1 %or.cond.i, label %_ZNK5clang13StringLiteral22containsNonAsciiOrNullEv.exit, label %63
 
@@ -11378,13 +11378,13 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang8SemaObjC21CheckSubscript
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i8, ptr %25, align 16
   %27 = icmp ne i8 %26, 13
-  %.not.not22.i = icmp eq ptr %24, null
-  %.not.not.i = or i1 %.not.not22.i, %27
+  %.not.not19.i = icmp eq ptr %24, null
+  %.not.not.i = or i1 %.not.not19.i, %27
   br i1 %.not.not.i, label %28, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
 
 28:                                               ; preds = %2
   %29 = icmp ne i8 %26, 46
-  %.not12.not.i = or i1 %.not.not22.i, %29
+  %.not12.not.i = or i1 %.not.not19.i, %29
   br i1 %.not12.not.i, label %38, label %30
 
 30:                                               ; preds = %28
@@ -12013,13 +12013,13 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %303, %_ZNK5clang4Ty
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
   %334 = load i8, ptr %333, align 16
   %335 = icmp ne i8 %334, 13
-  %.not.not22.i66 = icmp eq ptr %332, null
-  %.not.not.i67 = or i1 %.not.not22.i66, %335
+  %.not.not19.i66 = icmp eq ptr %332, null
+  %.not.not.i67 = or i1 %.not.not19.i66, %335
   br i1 %.not.not.i67, label %336, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit73
 
 336:                                              ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit
   %337 = icmp ne i8 %334, 46
-  %.not12.not.i70 = or i1 %.not.not22.i66, %337
+  %.not12.not.i70 = or i1 %.not.not19.i66, %337
   br i1 %.not12.not.i70, label %346, label %338
 
 338:                                              ; preds = %336
@@ -12661,8 +12661,8 @@ _ZN5clangneENS_22specific_attr_iteratorINS_21ObjCBridgeMutableAttrEN4llvm11Small
   br i1 %64, label %_ZNK5clang4Decl7getAttrINS_21ObjCBridgeMutableAttrEEEPT_v.exit.thread.sink.split, label %.lr.ph.i.i.i.i27, !llvm.loop !1407
 
 _ZNK5clang4Decl7getAttrINS_21ObjCBridgeMutableAttrEEEPT_v.exit.thread.sink.split: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i27, %54, %28
-  %.sink44 = phi ptr [ %29, %28 ], [ %55, %54 ], [ %61, %.lr.ph.i.i.i.i27 ], [ %35, %.lr.ph.i.i.i.i ]
-  %65 = getelementptr inbounds nuw i8, ptr %.sink44, i64 40
+  %.sink43 = phi ptr [ %29, %28 ], [ %55, %54 ], [ %61, %.lr.ph.i.i.i.i27 ], [ %35, %.lr.ph.i.i.i.i ]
+  %65 = getelementptr inbounds nuw i8, ptr %.sink43, i64 40
   %66 = load ptr, ptr %65, align 8, !tbaa !1122
   br label %_ZNK5clang4Decl7getAttrINS_21ObjCBridgeMutableAttrEEEPT_v.exit.thread
 
@@ -17257,8 +17257,8 @@ define dso_local void @_ZN5clang8SemaObjC14handleNSObjectEPNS_4DeclERKNS_10Parse
   %9 = and i32 %8, 127
   %10 = add nsw i32 %9, -65
   %11 = icmp ult i32 %10, -3
-  %.not35 = icmp eq ptr %1, null
-  %.not = or i1 %.not35, %11
+  %.not34 = icmp eq ptr %1, null
+  %.not = or i1 %.not34, %11
   br i1 %.not, label %23, label %12
 
 12:                                               ; preds = %3
@@ -17285,7 +17285,7 @@ define dso_local void @_ZN5clang8SemaObjC14handleNSObjectEPNS_4DeclERKNS_10Parse
 
 23:                                               ; preds = %3
   %24 = icmp ne i32 %9, 73
-  %.not21 = or i1 %.not35, %24
+  %.not21 = or i1 %.not34, %24
   br i1 %.not21, label %33, label %25
 
 25:                                               ; preds = %23
@@ -17365,8 +17365,8 @@ define dso_local void @_ZN5clang8SemaObjC22handleIndependentClassEPNS_4DeclERKNS
   %8 = and i32 %7, 127
   %9 = add nsw i32 %8, -65
   %10 = icmp ult i32 %9, -3
-  %.not15 = icmp eq ptr %1, null
-  %.not = or i1 %.not15, %10
+  %.not14 = icmp eq ptr %1, null
+  %.not = or i1 %.not14, %10
   br i1 %.not, label %28, label %11
 
 11:                                               ; preds = %3
@@ -25836,9 +25836,9 @@ define dso_local void @_ZN5clang8SemaObjC28handleExternallyRetainedAttrEPNS_4Dec
   %8 = and i32 %7, 127
   %9 = add nsw i32 %8, -45
   %10 = icmp ult i32 %9, -7
-  %.not.not41 = icmp eq ptr %1, null
-  %.not.not = or i1 %.not.not41, %10
-  br i1 %.not.not, label %.thread36, label %11
+  %.not.not38 = icmp eq ptr %1, null
+  %.not.not = or i1 %.not.not38, %10
+  br i1 %.not.not, label %.thread35, label %11
 
 11:                                               ; preds = %3
   %12 = tail call noundef zeroext i1 @_ZNK5clang7VarDecl15hasLocalStorageEv(ptr noundef nonnull align 8 dereferenceable(100) %1)
@@ -25961,7 +25961,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i: ; preds = %_ZN4llvm15Small
   %66 = getelementptr inbounds nuw i8, ptr %5, i64 132
   %67 = load i8, ptr %66, align 4, !tbaa !744, !range !742, !noundef !743
   %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %69, label %.thread39
+  br i1 %68, label %69, label %.thread37
 
 69:                                               ; preds = %64
   %70 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %5) #20
@@ -25989,7 +25989,7 @@ _ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %73, %
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %84, i64 noundef 0, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread39
+  br label %.thread37
 
 85:                                               ; preds = %11
   %86 = load ptr, ptr %0, align 8, !tbaa !9
@@ -26033,7 +26033,7 @@ _ZN5clang21handleSimpleAttributeINS_26ObjCExternallyRetainedAttrEEEvRNS_8SemaBas
   tail call void @_ZN5clang4Decl7addAttrEPNS_4AttrE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull %.0.i.i.i.i.i) #20
   br label %.thread
 
-.thread39:                                        ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, %64
+.thread37:                                        ; preds = %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, %64
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
@@ -26057,18 +26057,18 @@ _ZN5clang21handleSimpleAttributeINS_26ObjCExternallyRetainedAttrEEEvRNS_8SemaBas
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread
 
-.thread36:                                        ; preds = %3
+.thread35:                                        ; preds = %3
   %122 = tail call noundef ptr @_ZNK5clang4Decl15getFunctionTypeEb(ptr noundef nonnull align 8 dereferenceable(33) %1, i1 noundef zeroext true) #20
   %.not.not.i = icmp eq ptr %122, null
   br i1 %.not.not.i, label %_ZN5clang16hasFunctionProtoEPKNS_4DeclE.exit, label %123
 
-123:                                              ; preds = %.thread36
+123:                                              ; preds = %.thread35
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %125 = load i8, ptr %124, align 16
   %126 = icmp eq i8 %125, 26
   br i1 %126, label %129, label %._crit_edge
 
-_ZN5clang16hasFunctionProtoEPKNS_4DeclE.exit:     ; preds = %.thread36
+_ZN5clang16hasFunctionProtoEPKNS_4DeclE.exit:     ; preds = %.thread35
   %127 = load i32, ptr %6, align 4
   %128 = and i32 %127, 127
   switch i32 %128, label %._crit_edge [
@@ -26107,8 +26107,8 @@ _ZN5clang16hasFunctionProtoEPKNS_4DeclE.exit:     ; preds = %.thread36
 
 _ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit: ; preds = %144, %141, %131
   %147 = phi i32 [ %146, %144 ], [ %143, %141 ], [ %136, %131 ]
-  %.not2142 = icmp eq i32 %147, 0
-  br i1 %.not2142, label %._crit_edge, label %.lr.ph.preheader
+  %.not2139 = icmp eq i32 %147, 0
+  br i1 %.not2139, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN5clang28getFunctionOrMethodNumParamsEPKNS_4DeclE.exit
   %148 = zext i32 %147 to i64
@@ -26170,8 +26170,8 @@ _ZN5clang21handleSimpleAttributeINS_26ObjCExternallyRetainedAttrEEEvRNS_8SemaBas
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %174, %.sink.split.i.fold.split, %.lr.ph
-  %.sink42.i = phi i64 [ 120, %.lr.ph ], [ 96, %174 ], [ 72, %.sink.split.i.fold.split ]
-  %176 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink42.i
+  %.sink38.i = phi i64 [ 120, %.lr.ph ], [ 96, %174 ], [ 72, %.sink.split.i.fold.split ]
+  %176 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink38.i
   %177 = load ptr, ptr %176, align 8, !tbaa !1253
   %178 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv
   %179 = load ptr, ptr %178, align 8, !tbaa !1327
@@ -26248,7 +26248,7 @@ _ZN5clangL27tryMakeVariablePseudoStrongERNS_4SemaEPNS_7VarDeclEb.exit: ; preds =
   %.not21 = icmp eq i64 %indvars.iv.next, %148
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !1462
 
-.thread:                                          ; preds = %110, %_ZN5clang21handleSimpleAttributeINS_26ObjCExternallyRetainedAttrEEEvRNS_8SemaBaseEPNS_4DeclERKNS_19AttributeCommonInfoE.exit, %85, %.thread39, %_ZN5clang21handleSimpleAttributeINS_26ObjCExternallyRetainedAttrEEEvRNS_8SemaBaseEPNS_4DeclERKNS_19AttributeCommonInfoE.exit26
+.thread:                                          ; preds = %110, %_ZN5clang21handleSimpleAttributeINS_26ObjCExternallyRetainedAttrEEEvRNS_8SemaBaseEPNS_4DeclERKNS_19AttributeCommonInfoE.exit, %85, %.thread37, %_ZN5clang21handleSimpleAttributeINS_26ObjCExternallyRetainedAttrEEEvRNS_8SemaBaseEPNS_4DeclERKNS_19AttributeCommonInfoE.exit26
   ret void
 }
 
@@ -30136,16 +30136,16 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_12_GLO
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
-  %.tr320 = phi ptr [ %1, %2 ], [ %.tr320.be, %tailrecurse.backedge ]
-  %7 = load i16, ptr %.tr320, align 8
+  %.tr319 = phi ptr [ %1, %2 ], [ %.tr319.be, %tailrecurse.backedge ]
+  %7 = load i16, ptr %.tr319, align 8
   %8 = and i16 %7, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %8, 120
-  %.not318 = icmp eq ptr %.tr320, null
-  %.not = or i1 %.not318, %spec.select.i.i.i.i.i.i.i.i
+  %.not317 = icmp eq ptr %.tr319, null
+  %.not = or i1 %.not317, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %47, label %9
 
 9:                                                ; preds = %tailrecurse
-  %10 = load i32, ptr %.tr320, align 8
+  %10 = load i32, ptr %.tr319, align 8
   %11 = lshr i32 %10, 19
   %12 = and i32 %11, 63
   %13 = trunc i32 %10 to i16
@@ -30186,145 +30186,145 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 14:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 15:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 16:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 17:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 18:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 19:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 20:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 21:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 22:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 23:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 24:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 25:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 26:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 27:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 28:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 29:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 30:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 31:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 32:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 33:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 34:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 35:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 36:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 37:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 38:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 39:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 40:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 41:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 42:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 43:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 44:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 45:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 46:                                               ; preds = %9
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 47:                                               ; preds = %tailrecurse
   %48 = and i16 %7, 511
   %49 = icmp ne i16 %48, 4
-  %.not314 = or i1 %.not318, %49
+  %.not314 = or i1 %.not317, %49
   br i1 %.not314, label %.critedge, label %50
 
 50:                                               ; preds = %47
-  %51 = load i32, ptr %.tr320, align 8
+  %51 = load i32, ptr %.tr319, align 8
   %52 = lshr i32 %51, 19
   %53 = and i32 %52, 31
   %54 = trunc i32 %51 to i16
@@ -30346,59 +30346,59 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 55:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 56:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 57:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 58:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 59:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 60:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 61:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 62:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 63:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 64:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 65:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 66:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 67:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 68:                                               ; preds = %50
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 .critedge:                                        ; preds = %50, %47, %9
@@ -30667,285 +30667,285 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   unreachable
 
 72:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 73:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 74:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 75:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 76:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 77:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 78:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 79:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 80:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 81:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 82:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 83:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 84:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 85:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 86:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 87:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 88:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 89:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 90:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 91:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 92:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 93:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 94:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 95:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 96:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 97:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 98:                                               ; preds = %.critedge
   %99 = load ptr, ptr %6, align 8, !tbaa !1353
-  %.not.i1212 = icmp eq ptr %99, null
-  br i1 %.not.i1212, label %100, label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
+  %.not.i1211 = icmp eq ptr %99, null
+  br i1 %.not.i1211, label %100, label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 100:                                              ; preds = %98
-  %101 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
+  %101 = getelementptr inbounds nuw i8, ptr %.tr319, i64 16
   %102 = load ptr, ptr %101, align 8, !tbaa !1139
   %.not3.i = icmp eq ptr %102, null
   br i1 %.not3.i, label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %100, %121, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit
-  %.tr320.be = phi ptr [ %102, %100 ], [ %123, %121 ], [ %153, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
+  %.tr319.be = phi ptr [ %102, %100 ], [ %123, %121 ], [ %153, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
   br label %tailrecurse
 
 103:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 104:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 105:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 106:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 107:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 108:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 109:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor20VisitObjCIvarRefExprEPNS_15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor20VisitObjCIvarRefExprEPNS_15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 110:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 111:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 112:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 113:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 114:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 115:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 116:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 117:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 118:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 119:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 120:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 121:                                              ; preds = %.critedge
-  %122 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
+  %122 = getelementptr inbounds nuw i8, ptr %.tr319, i64 16
   %123 = load ptr, ptr %122, align 8, !tbaa !1506
   br label %tailrecurse.backedge
 
 124:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 125:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 126:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 127:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 128:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE15VisitLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE15VisitLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 129:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 130:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 131:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 132:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 133:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 134:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE25VisitGenericSelectionExprEPNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE25VisitGenericSelectionExprEPNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 135:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 136:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 137:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 138:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 139:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 140:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 141:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 142:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 143:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 144:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1508
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1860") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.tr320) #20, !noalias !1508
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.1860") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.tr319) #20, !noalias !1508
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1508
   %145 = load i64, ptr %5, align 8, !tbaa !1511
@@ -30968,15 +30968,15 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %148, %150
   br label %tailrecurse.backedge
 
 154:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 155:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 156:                                              ; preds = %.critedge
-  %157 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %.tr319, i64 16
   %158 = load ptr, ptr %157, align 8, !tbaa !1303
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %160 = load ptr, ptr %159, align 8, !tbaa !1349
@@ -30989,731 +30989,731 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %148, %150
   br i1 %.not.i, label %164, label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 164:                                              ; preds = %162
-  store ptr %.tr320, ptr %6, align 8, !tbaa !1353
+  store ptr %.tr319, ptr %6, align 8, !tbaa !1353
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 165:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 166:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 167:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 168:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 169:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 170:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE15VisitChooseExprEPNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE15VisitChooseExprEPNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 171:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 172:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 173:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 174:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 175:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 176:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 177:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 178:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 179:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 180:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 181:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 182:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 183:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 184:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 185:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 186:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 187:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 188:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE18VisitCXXTypeidExprEPNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE18VisitCXXTypeidExprEPNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 189:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 190:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 191:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 192:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 193:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 194:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 195:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 196:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 197:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 198:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 199:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 200:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 201:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 202:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 203:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 204:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 205:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 206:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 207:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 208:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor14VisitBlockExprEPNS_9BlockExprE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor14VisitBlockExprEPNS_9BlockExprE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 209:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 210:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr320)
+  tail call fastcc void @_ZN5clang12_GLOBAL__N_118FindCaptureVisitor19VisitBinaryOperatorEPNS_14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(25) %0, ptr noundef nonnull readonly %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 211:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 212:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 213:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 214:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 215:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 216:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 217:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 218:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 219:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 220:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 221:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 222:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 223:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 224:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 225:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 226:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 227:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 228:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 229:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 230:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 231:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 232:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 233:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 234:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 235:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 236:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 237:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 238:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 239:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 240:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 241:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 242:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 243:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 244:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 245:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 246:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 247:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 248:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 249:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 250:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 251:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 252:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 253:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 254:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 255:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 256:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 257:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 258:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 259:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 260:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 261:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 262:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 263:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 264:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 265:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 266:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 267:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 268:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 269:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 270:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 271:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 272:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 273:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 274:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 275:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 276:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 277:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 278:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 279:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 280:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 281:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 282:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 283:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 284:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 285:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 286:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 287:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 288:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 289:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 290:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 291:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 292:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 293:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 294:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 295:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 296:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 297:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 298:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 299:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 300:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 301:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 302:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 303:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 304:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 305:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 306:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 307:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 308:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 309:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 310:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 311:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 312:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 313:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 314:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 315:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 316:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 317:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 318:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 319:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 320:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 321:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 322:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 323:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 324:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 325:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 326:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 327:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 328:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 329:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 330:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 331:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 332:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 333:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 334:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 335:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 336:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 337:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 338:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 339:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 340:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 341:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 342:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 343:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 344:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 345:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerNS_12_GLOBAL__N_118FindCaptureVisitorEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %_ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit
 
 _ZN5clang12_GLOBAL__N_118FindCaptureVisitor16VisitDeclRefExprEPNS_11DeclRefExprE.exit: ; preds = %100, %98, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %68, %46, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %164, %162, %156, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %155, %154, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72
@@ -32522,8 +32522,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

@@ -162,7 +162,7 @@ define void @_ZN7rocksdb15DecodeSessionIdERKNSt7__cxx1112basic_stringIcSt11char_
 33:                                               ; preds = %43, %.lr.ph.i
   %.0 = phi ptr [ %31, %.lr.ph.i ], [ %48, %43 ]
   %34 = phi i64 [ 0, %.lr.ph.i ], [ %46, %43 ]
-  %.02735.i = phi i64 [ %32, %.lr.ph.i ], [ %47, %43 ]
+  %.02734.i = phi i64 [ %32, %.lr.ph.i ], [ %47, %43 ]
   %35 = load i8, ptr %.0, align 1, !tbaa !13
   %36 = mul i64 %34, 36
   %37 = sext i8 %35 to i64
@@ -181,11 +181,11 @@ define void @_ZN7rocksdb15DecodeSessionIdERKNSt7__cxx1112basic_stringIcSt11char_
   br i1 %or.cond8.i, label %43, label %_ZN7rocksdb14ParseBaseCharsILi36EEEbPPKcmPm.exit
 
 43:                                               ; preds = %41, %39, %33
-  %.sink42.i = phi i64 [ 4294967248, %33 ], [ 4294967241, %39 ], [ 4294967209, %41 ]
-  %44 = add nuw nsw i64 %.sink42.i, %37
+  %.sink41.i = phi i64 [ 4294967248, %33 ], [ 4294967241, %39 ], [ 4294967209, %41 ]
+  %44 = add nuw nsw i64 %.sink41.i, %37
   %45 = and i64 %44, 4294967295
   %46 = add i64 %45, %36
-  %47 = add nsw i64 %.02735.i, -1
+  %47 = add nsw i64 %.02734.i, -1
   %48 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %.not.i = icmp eq i64 %47, 0
   br i1 %.not.i, label %.preheader, label %33
@@ -207,7 +207,7 @@ _ZN7rocksdb14ParseBaseCharsILi36EEEbPPKcmPm.exit: ; preds = %41
 .preheader:                                       ; preds = %43, %61
   %51 = phi i64 [ %64, %61 ], [ 0, %43 ]
   %52 = phi ptr [ %66, %61 ], [ %scevgep, %43 ]
-  %.02735.i12 = phi i64 [ %65, %61 ], [ 12, %43 ]
+  %.02734.i12 = phi i64 [ %65, %61 ], [ 12, %43 ]
   %53 = load i8, ptr %52, align 1, !tbaa !13
   %54 = mul i64 %51, 36
   %55 = sext i8 %53 to i64
@@ -226,11 +226,11 @@ _ZN7rocksdb14ParseBaseCharsILi36EEEbPPKcmPm.exit: ; preds = %41
   br i1 %or.cond8.i15, label %61, label %_ZN7rocksdb14ParseBaseCharsILi36EEEbPPKcmPm.exit19
 
 61:                                               ; preds = %59, %57, %.preheader
-  %.sink42.i17 = phi i64 [ 4294967248, %.preheader ], [ 4294967241, %57 ], [ 4294967209, %59 ]
-  %62 = add nuw nsw i64 %.sink42.i17, %55
+  %.sink41.i17 = phi i64 [ 4294967248, %.preheader ], [ 4294967241, %57 ], [ 4294967209, %59 ]
+  %62 = add nuw nsw i64 %.sink41.i17, %55
   %63 = and i64 %62, 4294967295
   %64 = add i64 %63, %54
-  %65 = add nsw i64 %.02735.i12, -1
+  %65 = add nsw i64 %.02734.i12, -1
   %66 = getelementptr inbounds nuw i8, ptr %52, i64 1
   %.not.i18 = icmp eq i64 %65, 0
   br i1 %.not.i18, label %69, label %.preheader

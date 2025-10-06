@@ -1379,8 +1379,8 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121
   br i1 %133, label %_ZN5salsa7runtime11ActiveQuery25remove_cycle_participants17h41eb729bc2502d11E.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %126, %.noexc123
-  %.sroa.0.08.i = phi ptr [ %135, %.noexc123 ], [ %129, %126 ]
-  %134 = load i64, ptr %.sroa.0.08.i, align 4, !noalias !165
+  %.sroa.0.07.i = phi ptr [ %135, %.noexc123 ], [ %129, %126 ]
+  %134 = load i64, ptr %.sroa.0.07.i, align 4, !noalias !165
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !159
   store i64 %134, ptr %8, align 8, !noalias !159
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !169
@@ -1388,7 +1388,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit121
           to label %.noexc123 unwind label %.loopexit
 
 .noexc123:                                        ; preds = %.lr.ph.i
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.0.07.i, i64 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !169
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !159
   %136 = icmp eq ptr %135, %132

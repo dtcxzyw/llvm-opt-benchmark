@@ -367,7 +367,7 @@ CleanupLogPriorities.exit:                        ; preds = %.lr.ph.i, %0
 8:                                                ; preds = %CleanupLogPriorities.exit
   %9 = tail call ptr @SDL_strchr_REAL(ptr noundef nonnull %7, i32 noundef 61) #8
   %10 = icmp eq ptr %9, null
-  br i1 %10, label %11, label %.preheader84.i
+  br i1 %10, label %11, label %.preheader83.i
 
 11:                                               ; preds = %8
   %12 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %7) #8
@@ -444,31 +444,31 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %38) #8
   br label %ParseLogPriorities.exit
 
-.preheader84.i:                                   ; preds = %8, %ParseLogCategory.exit.i
-  %.02691.i = phi ptr [ %42, %ParseLogCategory.exit.i ], [ %7, %8 ]
-  %39 = tail call ptr @SDL_strchr_REAL(ptr noundef nonnull %.02691.i, i32 noundef 61) #8
+.preheader83.i:                                   ; preds = %8, %ParseLogCategory.exit.i
+  %.02690.i = phi ptr [ %42, %ParseLogCategory.exit.i ], [ %7, %8 ]
+  %39 = tail call ptr @SDL_strchr_REAL(ptr noundef nonnull %.02690.i, i32 noundef 61) #8
   %.not34.i = icmp eq ptr %39, null
   br i1 %.not34.i, label %ParseLogPriorities.exit, label %40
 
-40:                                               ; preds = %.preheader84.i
+40:                                               ; preds = %.preheader83.i
   %41 = tail call ptr @SDL_strchr_REAL(ptr noundef nonnull %39, i32 noundef 44) #8
   %.not35.i = icmp eq ptr %41, null
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %43 = ptrtoint ptr %39 to i64
-  %44 = ptrtoint ptr %.02691.i to i64
+  %44 = ptrtoint ptr %.02690.i to i64
   %45 = sub i64 %43, %44
-  %46 = load i8, ptr %.02691.i, align 1
+  %46 = load i8, ptr %.02690.i, align 1
   %47 = sext i8 %46 to i32
   %48 = tail call i32 @SDL_isdigit_REAL(i32 noundef %47) #8
   %.not.i40.i = icmp eq i32 %48, 0
   br i1 %.not.i40.i, label %51, label %49
 
 49:                                               ; preds = %40
-  %50 = tail call i32 @SDL_atoi_REAL(ptr noundef nonnull %.02691.i) #8
+  %50 = tail call i32 @SDL_atoi_REAL(ptr noundef nonnull %.02690.i) #8
   br label %61
 
 51:                                               ; preds = %40
-  %52 = load i8, ptr %.02691.i, align 1
+  %52 = load i8, ptr %.02690.i, align 1
   %53 = icmp eq i8 %52, 42
   br i1 %53, label %61, label %.preheader.i43.i
 
@@ -476,7 +476,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
   %indvars.iv.i44.i = phi i64 [ %indvars.iv.next.i45.i, %60 ], [ 0, %51 ]
   %54 = getelementptr inbounds nuw ptr, ptr @SDL_category_names, i64 %indvars.iv.i44.i
   %55 = load ptr, ptr %54, align 8
-  %56 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef nonnull %.02691.i, ptr noundef %55, i64 noundef %45) #8
+  %56 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef nonnull %.02690.i, ptr noundef %55, i64 noundef %45) #8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %60
 
@@ -625,9 +625,9 @@ SDL_SetLogPriority_REAL.exit.i:                   ; preds = %108, %.critedge.i.i
   br label %ParseLogCategory.exit.i
 
 ParseLogCategory.exit.i:                          ; preds = %60, %87, %SDL_SetLogPriority_REAL.exit.i, %89, %77
-  br i1 %.not35.i, label %ParseLogPriorities.exit, label %.preheader84.i, !llvm.loop !12
+  br i1 %.not35.i, label %ParseLogPriorities.exit, label %.preheader83.i, !llvm.loop !12
 
-ParseLogPriorities.exit:                          ; preds = %ParseLogCategory.exit.i, %.preheader84.i, %29, %SDL_SetLogPriorities_REAL.exit.i, %19, %CleanupLogPriorities.exit
+ParseLogPriorities.exit:                          ; preds = %ParseLogCategory.exit.i, %.preheader83.i, %29, %SDL_SetLogPriorities_REAL.exit.i, %19, %CleanupLogPriorities.exit
   %113 = load i32, ptr @SDL_log_default_priority, align 4
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %.preheader

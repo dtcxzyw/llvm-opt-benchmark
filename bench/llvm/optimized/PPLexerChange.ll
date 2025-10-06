@@ -468,26 +468,26 @@ define dso_local noundef ptr @_ZNK5clang12Preprocessor19getCurrentFileLexerEv(pt
 ._crit_edge:                                      ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !32
-  br label %.loopexit
+  br label %.thread
 
 _ZNK5clang12Preprocessor11IsFileLexerEv.exit:     ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %9 = load ptr, ptr %8, align 8, !tbaa !32
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %10, label %.loopexit
+  br i1 %.not, label %10, label %.thread
 
 10:                                               ; preds = %4, %_ZNK5clang12Preprocessor11IsFileLexerEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1160
   %13 = load ptr, ptr %12, align 8, !tbaa !254, !noalias !257
   %14 = load ptr, ptr %11, align 8, !tbaa !254, !noalias !268
-  %.not1420 = icmp eq ptr %13, %14
-  br i1 %.not1420, label %.loopexit, label %.lr.ph
+  %.not1622 = icmp eq ptr %13, %14
+  br i1 %.not1622, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %24
-  %.sroa.010.021 = phi ptr [ %15, %24 ], [ %13, %10 ]
-  %15 = getelementptr inbounds i8, ptr %.sroa.010.021, i64 -56
-  %16 = getelementptr inbounds i8, ptr %.sroa.010.021, i64 -40
+  %.sroa.010.023 = phi ptr [ %15, %24 ], [ %13, %10 ]
+  %15 = getelementptr inbounds i8, ptr %.sroa.010.023, i64 -56
+  %16 = getelementptr inbounds i8, ptr %.sroa.010.023, i64 -40
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %.not.i.i9 = icmp eq ptr %17, null
   br i1 %.not.i.i9, label %_ZN5clang12Preprocessor11IsFileLexerERKNS0_16IncludeStackInfoE.exit, label %18
@@ -496,25 +496,25 @@ _ZNK5clang12Preprocessor11IsFileLexerEv.exit:     ; preds = %1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 145
   %20 = load i8, ptr %19, align 1, !tbaa !8, !range !30, !noundef !31
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %24, label %.loopexit.split.loop.exit
+  br i1 %21, label %24, label %.thread.loopexit.split.loop.exit20
 
 _ZN5clang12Preprocessor11IsFileLexerERKNS0_16IncludeStackInfoE.exit: ; preds = %.lr.ph
-  %22 = getelementptr inbounds i8, ptr %.sroa.010.021, i64 -32
+  %22 = getelementptr inbounds i8, ptr %.sroa.010.023, i64 -32
   %23 = load ptr, ptr %22, align 8, !tbaa !277
-  %.not15 = icmp eq ptr %23, null
-  br i1 %.not15, label %24, label %.loopexit
+  %.not17 = icmp eq ptr %23, null
+  br i1 %.not17, label %24, label %.thread
 
 24:                                               ; preds = %18, %_ZN5clang12Preprocessor11IsFileLexerERKNS0_16IncludeStackInfoE.exit
-  %.not14 = icmp eq ptr %15, %14
-  br i1 %.not14, label %.loopexit, label %.lr.ph
+  %.not16 = icmp eq ptr %15, %14
+  br i1 %.not16, label %.thread, label %.lr.ph
 
-.loopexit.split.loop.exit:                        ; preds = %18
-  %25 = getelementptr inbounds i8, ptr %.sroa.010.021, i64 -32
+.thread.loopexit.split.loop.exit20:               ; preds = %18
+  %25 = getelementptr inbounds i8, ptr %.sroa.010.023, i64 -32
   %26 = load ptr, ptr %25, align 8
-  br label %.loopexit
+  br label %.thread
 
-.loopexit:                                        ; preds = %24, %_ZN5clang12Preprocessor11IsFileLexerERKNS0_16IncludeStackInfoE.exit, %_ZNK5clang12Preprocessor11IsFileLexerEv.exit, %._crit_edge, %.loopexit.split.loop.exit, %10
-  %.0 = phi ptr [ %26, %.loopexit.split.loop.exit ], [ null, %10 ], [ %.pre, %._crit_edge ], [ %9, %_ZNK5clang12Preprocessor11IsFileLexerEv.exit ], [ null, %24 ], [ %23, %_ZN5clang12Preprocessor11IsFileLexerERKNS0_16IncludeStackInfoE.exit ]
+.thread:                                          ; preds = %24, %_ZN5clang12Preprocessor11IsFileLexerERKNS0_16IncludeStackInfoE.exit, %_ZNK5clang12Preprocessor11IsFileLexerEv.exit, %._crit_edge, %.thread.loopexit.split.loop.exit20, %10
+  %.0 = phi ptr [ %26, %.thread.loopexit.split.loop.exit20 ], [ null, %10 ], [ %.pre, %._crit_edge ], [ %9, %_ZNK5clang12Preprocessor11IsFileLexerEv.exit ], [ null, %24 ], [ %23, %_ZN5clang12Preprocessor11IsFileLexerERKNS0_16IncludeStackInfoE.exit ]
   ret ptr %.0
 }
 
@@ -2597,11 +2597,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.
   store ptr %60, ptr %58, align 8, !tbaa !375
   %66 = load i64, ptr %30, align 8, !tbaa !376
   store i64 %66, ptr %59, align 8, !tbaa !376
-  %.pre7 = load i64, ptr %43, align 8, !tbaa !377
+  %.pre6 = load i64, ptr %43, align 8, !tbaa !377
   br label %67
 
 67:                                               ; preds = %62, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i.i.i.i
-  %68 = phi i64 [ %63, %62 ], [ %.pre7, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i.i.i.i ]
+  %68 = phi i64 [ %63, %62 ], [ %.pre6, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i4.i.i.i.i.i.i.i ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %68, ptr %69, align 8, !tbaa !377
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -4291,17 +4291,17 @@ _ZN4llvm15SmallVectorImplIPN5clang14IdentifierInfoEE6resizeEm.exit: ; preds = %_
   %89 = zext i32 %88 to i64
   %.idx.i.i = shl nuw nsw i64 %89, 3
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %88, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %88, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %86, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %92, %.critedge.i.i ], [ %87, %86 ]
-  %91 = load ptr, ptr %.02937.i.i, align 8, !tbaa !422, !noalias !583
+  %.02935.i.i = phi ptr [ %92, %.critedge.i.i ], [ %87, %86 ]
+  %91 = load ptr, ptr %.02935.i.i, align 8, !tbaa !422, !noalias !583
   %.not17.i.i = icmp eq ptr %91, %83
   br i1 %.not17.i.i, label %.loopexit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %92 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %92 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i84 = icmp eq ptr %92, %90
   br i1 %.not.i.i84, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !586
 
@@ -4444,8 +4444,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS2_12Preprocessor
   %.not.i.i.i = icmp eq i64 %169, 0
   %170 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %171 = inttoptr i64 %170 to ptr
-  %.not.not8.i = icmp eq i64 %170, 0
-  %.not.not.i = or i1 %.not.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %170, 0
+  %.not.not.i = or i1 %.not.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit, label %172
 
 172:                                              ; preds = %167
@@ -4459,8 +4459,8 @@ _ZNK5clang12Preprocessor10MacroState9getLatestEv.exit: ; preds = %_ZN4llvm12Dens
   %.not.i.i.i104 = icmp eq i64 %174, 0
   %175 = and i64 %.sroa.0.0.copyload.i.i.i.i103, -8
   %176 = inttoptr i64 %175 to ptr
-  %.not.not8.i105 = icmp eq i64 %175, 0
-  %.not.not.i106 = or i1 %.not.i.i.i104, %.not.not8.i105
+  %.not.not7.i105 = icmp eq i64 %175, 0
+  %.not.not.i106 = or i1 %.not.i.i.i104, %.not.not7.i105
   br i1 %.not.not.i106, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit108, label %177
 
 177:                                              ; preds = %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit
@@ -5313,12 +5313,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang14IdentifierInfoENS2_12Preprocessor
   %.not.i.i.i35 = icmp eq i64 %119, 0
   %120 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %121 = inttoptr i64 %120 to ptr
-  %.not.not8.i = icmp eq i64 %120, 0
-  %.not.not.i = or i1 %.not.i.i.i35, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %120, 0
+  %.not.not.i = or i1 %.not.i.i.i35, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit.thread
 
 _ZNK5clang12Preprocessor10MacroState9getLatestEv.exit: ; preds = %117
-  br i1 %.not.not8.i, label %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit.thread, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit46
+  br i1 %.not.not7.i, label %_ZNK5clang12Preprocessor10MacroState19getOverriddenMacrosEv.exit.thread, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit46
 
 _ZNK5clang12Preprocessor10MacroState9getLatestEv.exit.thread: ; preds = %117
   %122 = load ptr, ptr %121, align 8, !tbaa !595
@@ -7018,8 +7018,8 @@ define linkonce_odr hidden void @_ZN5clang12Preprocessor18getMacroDefinitionEPKN
   %.not.i.i.i = icmp eq i64 %12, 0
   %13 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %14 = inttoptr i64 %13 to ptr
-  %.not.not8.i = icmp eq i64 %13, 0
-  %.not.not.i = or i1 %.not.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %13, 0
+  %.not.not.i = or i1 %.not.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit, label %15
 
 15:                                               ; preds = %8

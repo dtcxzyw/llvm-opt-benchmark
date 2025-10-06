@@ -185,26 +185,26 @@ define hidden ptr @Wayland_GetWindowDataForOwnedSurface(ptr noundef %0) local_un
   %9 = load ptr, ptr @WAYLAND_wl_list_empty, align 8
   %10 = tail call i32 %9(ptr noundef nonnull @external_window_list) #12
   %.not = icmp ne i32 %10, 0
-  %.pn15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @external_window_list, i64 8), align 8
-  %.not11.not16 = icmp eq ptr %.pn15, @external_window_list
-  %or.cond = select i1 %.not, i1 true, i1 %.not11.not16
+  %.pn14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @external_window_list, i64 8), align 8
+  %.not11.not15 = icmp eq ptr %.pn14, @external_window_list
+  %or.cond = select i1 %.not, i1 true, i1 %.not11.not15
   br i1 %or.cond, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %14
-  %.pn17 = phi ptr [ %.pn, %14 ], [ %.pn15, %8 ]
-  %11 = getelementptr inbounds i8, ptr %.pn17, i64 -400
+  %.pn16 = phi ptr [ %.pn, %14 ], [ %.pn14, %8 ]
+  %11 = getelementptr inbounds i8, ptr %.pn16, i64 -400
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
   br i1 %13, label %.thread.loopexit.split.loop.exit, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = getelementptr inbounds nuw i8, ptr %.pn17, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.pn16, i64 8
   %.pn = load ptr, ptr %15, align 8
   %.not11.not = icmp eq ptr %.pn, @external_window_list
   br i1 %.not11.not, label %.thread, label %.lr.ph, !llvm.loop !3
 
 .thread.loopexit.split.loop.exit:                 ; preds = %.lr.ph
-  %.08.le = getelementptr inbounds i8, ptr %.pn17, i64 -416
+  %.08.le = getelementptr inbounds i8, ptr %.pn16, i64 -416
   br label %.thread
 
 .thread:                                          ; preds = %14, %.thread.loopexit.split.loop.exit, %8, %5

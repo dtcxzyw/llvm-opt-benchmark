@@ -389,10 +389,10 @@ define linkonce_odr hidden i64 @_ZNSt3__15__f2dB8ne210000Ejj(i32 noundef %0, i32
   br i1 %112, label %.lr.ph.i.i, label %117
 
 .lr.ph.i.i:                                       ; preds = %.thread, %.lr.ph.i.i
-  %.0717.i.i = phi i32 [ %113, %.lr.ph.i.i ], [ %8, %.thread ]
-  %.0816.i.i = phi i32 [ %114, %.lr.ph.i.i ], [ 0, %.thread ]
-  %113 = udiv i32 %.0717.i.i, 5
-  %114 = add i32 %.0816.i.i, 1
+  %.0716.i.i = phi i32 [ %113, %.lr.ph.i.i ], [ %8, %.thread ]
+  %.0815.i.i = phi i32 [ %114, %.lr.ph.i.i ], [ 0, %.thread ]
+  %113 = udiv i32 %.0716.i.i, 5
+  %114 = add i32 %.0815.i.i, 1
   %115 = urem i32 %113, 5
   %.not.i.i = icmp eq i32 %115, 0
   br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit
@@ -406,14 +406,14 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit: ; preds = %.lr.ph.i.i
 
 118:                                              ; preds = %117
   %119 = urem i32 %14, 5
-  %.not15.i.i183 = icmp eq i32 %119, 0
-  br i1 %.not15.i.i183, label %.lr.ph.i.i185, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189
+  %.not14.i.i183 = icmp eq i32 %119, 0
+  br i1 %.not14.i.i183, label %.lr.ph.i.i185, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189
 
 .lr.ph.i.i185:                                    ; preds = %118, %.lr.ph.i.i185
-  %.0717.i.i186 = phi i32 [ %120, %.lr.ph.i.i185 ], [ %14, %118 ]
-  %.0816.i.i187 = phi i32 [ %121, %.lr.ph.i.i185 ], [ 0, %118 ]
-  %120 = udiv i32 %.0717.i.i186, 5
-  %121 = add i32 %.0816.i.i187, 1
+  %.0716.i.i186 = phi i32 [ %120, %.lr.ph.i.i185 ], [ %14, %118 ]
+  %.0815.i.i187 = phi i32 [ %121, %.lr.ph.i.i185 ], [ 0, %118 ]
+  %120 = udiv i32 %.0716.i.i186, 5
+  %121 = add i32 %.0815.i.i187, 1
   %122 = urem i32 %120, 5
   %.not.i.i188 = icmp eq i32 %122, 0
   br i1 %.not.i.i188, label %.lr.ph.i.i185, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189
@@ -425,14 +425,14 @@ _ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit189: ; preds = %.lr.ph.i.i185, 
 
 124:                                              ; preds = %117
   %125 = urem i32 %9, 5
-  %.not15.i.i190 = icmp eq i32 %125, 0
-  br i1 %.not15.i.i190, label %.lr.ph.i.i192, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196
+  %.not14.i.i190 = icmp eq i32 %125, 0
+  br i1 %.not14.i.i190, label %.lr.ph.i.i192, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196
 
 .lr.ph.i.i192:                                    ; preds = %124, %.lr.ph.i.i192
-  %.0717.i.i193 = phi i32 [ %126, %.lr.ph.i.i192 ], [ %9, %124 ]
-  %.0816.i.i194 = phi i32 [ %127, %.lr.ph.i.i192 ], [ 0, %124 ]
-  %126 = udiv i32 %.0717.i.i193, 5
-  %127 = add i32 %.0816.i.i194, 1
+  %.0716.i.i193 = phi i32 [ %126, %.lr.ph.i.i192 ], [ %9, %124 ]
+  %.0815.i.i194 = phi i32 [ %127, %.lr.ph.i.i192 ], [ 0, %124 ]
+  %126 = udiv i32 %.0716.i.i193, 5
+  %127 = add i32 %.0815.i.i194, 1
   %128 = urem i32 %126, 5
   %.not.i.i195 = icmp eq i32 %128, 0
   br i1 %.not.i.i195, label %.lr.ph.i.i192, label %_ZNSt3__120__multipleOfPowerOf5B8ne210000Ejj.exit196

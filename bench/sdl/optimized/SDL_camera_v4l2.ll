@@ -1241,9 +1241,9 @@ define internal fastcc void @MaybeAddDevice(ptr noundef nonnull %0) unnamed_addr
   store i32 1, ptr %38, align 4
   %39 = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 3225441794, ptr noundef nonnull %5) #11
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.lr.ph76, label %._crit_edge77
+  br i1 %40, label %.lr.ph75, label %._crit_edge76
 
-.lr.ph76:                                         ; preds = %37
+.lr.ph75:                                         ; preds = %37
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -1255,7 +1255,7 @@ define internal fastcc void @MaybeAddDevice(ptr noundef nonnull %0) unnamed_addr
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %50
 
-50:                                               ; preds = %.lr.ph76, %86
+50:                                               ; preds = %.lr.ph75, %86
   %51 = load i32, ptr %41, align 4
   switch i32 %51, label %format_v4l2_to_sdl.exit [
     i32 1448695129, label %55
@@ -1314,27 +1314,27 @@ format_v4l2_to_sdl.exit:                          ; preds = %50
   %75 = load i32, ptr %47, align 4
   %76 = load i32, ptr %48, align 4
   %77 = load i32, ptr %49, align 4
-  %.not5473 = icmp sgt i32 %72, %74
-  br i1 %.not5473, label %.loopexit, label %.preheader
+  %.not5472 = icmp sgt i32 %72, %74
+  br i1 %.not5472, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %71, %._crit_edge
-  %.04374 = phi i32 [ %82, %._crit_edge ], [ %72, %71 ]
-  %.not5568 = icmp sgt i32 %.04374, %75
-  br i1 %.not5568, label %._crit_edge, label %.lr.ph70
+  %.04373 = phi i32 [ %82, %._crit_edge ], [ %72, %71 ]
+  %.not5567 = icmp sgt i32 %.04373, %75
+  br i1 %.not5567, label %._crit_edge, label %.lr.ph69
 
-.lr.ph70:                                         ; preds = %.preheader, %80
-  %.14469 = phi i32 [ %81, %80 ], [ %.04374, %.preheader ]
+.lr.ph69:                                         ; preds = %.preheader, %80
+  %.14468 = phi i32 [ %81, %80 ], [ %.04373, %.preheader ]
   %78 = load i32, ptr %41, align 4
-  %79 = call fastcc zeroext i1 @AddCameraFormat(i32 noundef %7, ptr noundef %4, i32 noundef %.sink6.i.ph, i32 noundef %.sink.i.ph, i32 noundef %78, i32 noundef %.14469, i32 noundef %73)
+  %79 = call fastcc zeroext i1 @AddCameraFormat(i32 noundef %7, ptr noundef %4, i32 noundef %.sink6.i.ph, i32 noundef %.sink.i.ph, i32 noundef %78, i32 noundef %.14468, i32 noundef %73)
   br i1 %79, label %80, label %._crit_edge
 
-80:                                               ; preds = %.lr.ph70
-  %81 = add nsw i32 %.14469, %77
+80:                                               ; preds = %.lr.ph69
+  %81 = add nsw i32 %.14468, %77
   %.not55 = icmp sgt i32 %81, %75
-  br i1 %.not55, label %._crit_edge, label %.lr.ph70, !llvm.loop !12
+  br i1 %.not55, label %._crit_edge, label %.lr.ph69, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %80, %.lr.ph70, %.preheader
-  %.144.lcssa = phi i32 [ %.04374, %.preheader ], [ %.14469, %.lr.ph70 ], [ %81, %80 ]
+._crit_edge:                                      ; preds = %80, %.lr.ph69, %.preheader
+  %.144.lcssa = phi i32 [ %.04373, %.preheader ], [ %.14468, %.lr.ph69 ], [ %81, %80 ]
   %82 = add nsw i32 %.144.lcssa, %76
   %.not54 = icmp sgt i32 %82, %74
   br i1 %.not54, label %.loopexit, label %.preheader, !llvm.loop !13
@@ -1351,16 +1351,16 @@ format_v4l2_to_sdl.exit:                          ; preds = %50
 86:                                               ; preds = %format_v4l2_to_sdl.exit, %.loopexit
   %87 = call i32 (i32, i64, ...) @ioctl(i32 noundef %7, i64 noundef 3225441794, ptr noundef nonnull %5) #11
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %50, label %._crit_edge77
+  br i1 %88, label %50, label %._crit_edge76
 
-._crit_edge77:                                    ; preds = %86, %37
+._crit_edge76:                                    ; preds = %86, %37
   %89 = call i32 @close(i32 noundef %7) #11
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %91 = load i32, ptr %90, align 8
   %92 = icmp sgt i32 %91, 0
   br i1 %92, label %93, label %.critedge
 
-93:                                               ; preds = %._crit_edge77
+93:                                               ; preds = %._crit_edge76
   %94 = call noalias dereferenceable_or_null(16) ptr @SDL_calloc_REAL(i64 noundef 1, i64 noundef 16) #13
   %.not50 = icmp eq ptr %94, null
   br i1 %.not50, label %.critedge, label %95
@@ -1400,7 +1400,7 @@ format_v4l2_to_sdl.exit:                          ; preds = %50
   call void @SDL_free_REAL(ptr noundef nonnull %94) #11
   br label %.critedge
 
-.critedge:                                        ; preds = %._crit_edge77, %93, %109, %100
+.critedge:                                        ; preds = %._crit_edge76, %93, %109, %100
   %110 = load ptr, ptr %4, align 8
   call void @SDL_free_REAL(ptr noundef %110) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

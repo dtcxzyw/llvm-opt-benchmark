@@ -5842,8 +5842,8 @@ define ptr @l_Nat_foldTR_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_
   br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !14
 
 lean_nat_eq.exit:                                 ; preds = %6
-  %.not33 = icmp eq ptr %.014, inttoptr (i64 1 to ptr)
-  br i1 %.not33, label %.loopexit, label %10
+  %.not31 = icmp eq ptr %.014, inttoptr (i64 1 to ptr)
+  br i1 %.not31, label %.loopexit, label %10
 
 lean_nat_eq.exit.thread:                          ; preds = %6
   %9 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %.014, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3
@@ -6223,8 +6223,8 @@ define ptr @l_Nat_foldTR_loop___at_Lean_Elab_Tactic_BVDecide_Frontend_Normalize_
   br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !14
 
 lean_nat_eq.exit:                                 ; preds = %6
-  %.not33 = icmp eq ptr %.014, inttoptr (i64 1 to ptr)
-  br i1 %.not33, label %.loopexit, label %10
+  %.not31 = icmp eq ptr %.014, inttoptr (i64 1 to ptr)
+  br i1 %.not31, label %.loopexit, label %10
 
 lean_nat_eq.exit.thread:                          ; preds = %6
   %9 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %.014, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3

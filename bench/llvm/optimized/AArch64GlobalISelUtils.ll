@@ -233,7 +233,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17AArch64GISelUtils12tryEmitBZeroER
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 404576
   %19 = load ptr, ptr %18, align 8, !tbaa !173
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %114, label %20
+  br i1 %.not, label %115, label %20
 
 20:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -245,7 +245,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17AArch64GISelUtils12tryEmitBZeroER
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %26 = load i8, ptr %25, align 8, !tbaa !34, !range !8, !noundef !9
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %103
+  br i1 %27, label %28, label %104
 
 28:                                               ; preds = %20
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -270,7 +270,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17AArch64GISelUtils12tryEmitBZeroER
 _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %32, %39
   %.0.i = phi i64 [ %38, %32 ], [ %41, %39 ]
   %.not20 = icmp eq i64 %.0.i, 0
-  br i1 %.not20, label %_ZNK4llvm5APInt12getSExtValueEv.exit.thread, label %103
+  br i1 %.not20, label %_ZNK4llvm5APInt12getSExtValueEv.exit.thread, label %104
 
 _ZNK4llvm5APInt12getSExtValueEv.exit.thread:      ; preds = %32, %_ZNK4llvm5APInt12getSExtValueEv.exit
   br i1 %2, label %72, label %42
@@ -337,7 +337,7 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit: ; preds = %42, %6
 
 _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24: ; preds = %53, %70, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %103
+  br label %104
 
 72:                                               ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit, %_ZNK4llvm5APInt12getSExtValueEv.exit.thread
   call void @_ZN4llvm16MachineIRBuilder19setInstrAndDebugLocERNS_12MachineInstrE(ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(70) %0)
@@ -376,55 +376,55 @@ _ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24: ; preds = %53, 
   %94 = icmp ugt i64 %93, 7
   call void @llvm.assume(i1 %94)
   %95 = and i64 %93, 7
-  %switch = icmp eq i64 %95, 0
-  br i1 %switch, label %96, label %98
+  %96 = icmp eq i64 %95, 0
+  br i1 %96, label %97, label %99
 
-96:                                               ; preds = %72
-  %97 = inttoptr i64 %93 to ptr
-  store ptr %97, ptr %92, align 8, !tbaa !33
+97:                                               ; preds = %72
+  %98 = inttoptr i64 %93 to ptr
+  store ptr %98, ptr %92, align 8, !tbaa !33
   br label %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
 
-98:                                               ; preds = %72
-  %99 = and i64 %93, -8
-  %100 = inttoptr i64 %99 to ptr
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 16
-  %.pre = load ptr, ptr %101, align 8, !tbaa !183
+99:                                               ; preds = %72
+  %100 = and i64 %93, -8
+  %101 = inttoptr i64 %100 to ptr
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
+  %.pre = load ptr, ptr %102, align 8, !tbaa !183
   br label %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
 
-_ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %96, %98
-  %102 = phi ptr [ %97, %96 ], [ %.pre, %98 ]
-  call void @_ZN4llvm12MachineInstr13addMemOperandERNS_15MachineFunctionEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(70) %86, ptr noundef nonnull align 8 dereferenceable(1065) %85, ptr noundef %102) #7
+_ZNK4llvm12MachineInstr17memoperands_beginEv.exit: ; preds = %97, %99
+  %103 = phi ptr [ %98, %97 ], [ %.pre, %99 ]
+  call void @_ZN4llvm12MachineInstr13addMemOperandERNS_15MachineFunctionEPNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(70) %86, ptr noundef nonnull align 8 dereferenceable(1065) %85, ptr noundef %103) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %0) #7
-  br label %103
+  br label %104
 
-103:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24, %20, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
+104:                                              ; preds = %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24, %20, %_ZNK4llvm5APInt12getSExtValueEv.exit, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit
   %.1 = phi i1 [ true, %_ZNK4llvm12MachineInstr17memoperands_beginEv.exit ], [ false, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit24 ], [ false, %_ZNK4llvm5APInt12getSExtValueEv.exit ], [ false, %20 ]
-  %104 = load i8, ptr %25, align 8, !tbaa !34, !range !8, !noundef !9
-  %105 = trunc nuw i8 %104 to i1
-  br i1 %105, label %106, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25
+  %105 = load i8, ptr %25, align 8, !tbaa !34, !range !8, !noundef !9
+  %106 = trunc nuw i8 %105 to i1
+  br i1 %106, label %107, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25
 
-106:                                              ; preds = %103
+107:                                              ; preds = %104
   store i8 0, ptr %25, align 8, !tbaa !34
-  %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %108 = load i32, ptr %107, align 8, !tbaa !36
-  %109 = icmp ugt i32 %108, 64
-  br i1 %109, label %110, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25
+  %108 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %109 = load i32, ptr %108, align 8, !tbaa !36
+  %110 = icmp ugt i32 %109, 64
+  br i1 %110, label %111, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25
 
-110:                                              ; preds = %106
-  %111 = load ptr, ptr %5, align 8, !tbaa !33
-  %112 = icmp eq ptr %111, null
-  br i1 %112, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25, label %113
+111:                                              ; preds = %107
+  %112 = load ptr, ptr %5, align 8, !tbaa !33
+  %113 = icmp eq ptr %112, null
+  br i1 %113, label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25, label %114
 
-113:                                              ; preds = %110
-  call void @_ZdaPv(ptr noundef nonnull %111) #8
+114:                                              ; preds = %111
+  call void @_ZdaPv(ptr noundef nonnull %112) #8
   br label %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25
 
-_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25: ; preds = %103, %106, %110, %113
+_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25: ; preds = %104, %107, %111, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %114
+  br label %115
 
-114:                                              ; preds = %3, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25
+115:                                              ; preds = %3, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25
   %.0 = phi i1 [ %.1, %_ZNSt14_Optional_baseIN4llvm12ValueAndVRegELb0ELb0EED2Ev.exit25 ], [ false, %3 ]
   ret i1 %.0
 }

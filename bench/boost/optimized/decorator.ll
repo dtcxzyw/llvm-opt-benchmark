@@ -4285,14 +4285,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost9unit_test5utils19token_
   br i1 %22, label %.critedge.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %19, %.split.preheader.i
-  %.sroa.032.049.i = phi ptr [ %25, %.split.preheader.i ], [ %20, %19 ]
-  %23 = load i8, ptr %.sroa.032.049.i, align 1, !tbaa !100
-  %.fr50.i = freeze i8 %23
-  %24 = icmp eq i8 %.fr50.i, %18
+  %.sroa.032.048.i = phi ptr [ %25, %.split.preheader.i ], [ %20, %19 ]
+  %23 = load i8, ptr %.sroa.032.048.i, align 1, !tbaa !100
+  %.fr49.i = freeze i8 %23
+  %24 = icmp eq i8 %.fr49.i, %18
   br i1 %24, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit.thread96, label %.split.preheader.i, !llvm.loop !173
 
 .split.preheader.i:                               ; preds = %.lr.ph.i
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.i, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.i, i64 1
   %26 = icmp eq ptr %25, %21
   br i1 %26, label %.critedge.thread, label %.lr.ph.i, !llvm.loop !174
 
@@ -4350,14 +4350,14 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %47, label %.preheader145, label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %43, %.split.preheader.i51
-  %.sroa.032.049.i49 = phi ptr [ %50, %.split.preheader.i51 ], [ %44, %43 ]
-  %48 = load i8, ptr %.sroa.032.049.i49, align 1, !tbaa !100
-  %.fr50.i50 = freeze i8 %48
-  %49 = icmp eq i8 %.fr50.i50, %40
+  %.sroa.032.048.i49 = phi ptr [ %50, %.split.preheader.i51 ], [ %44, %43 ]
+  %48 = load i8, ptr %.sroa.032.048.i49, align 1, !tbaa !100
+  %.fr49.i50 = freeze i8 %48
+  %49 = icmp eq i8 %.fr49.i50, %40
   br i1 %49, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit52.thread, label %.split.preheader.i51, !llvm.loop !173
 
 .split.preheader.i51:                             ; preds = %.lr.ph.i48
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.i49, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.i49, i64 1
   %51 = icmp eq ptr %50, %46
   br i1 %51, label %.preheader145, label %.lr.ph.i48, !llvm.loop !174
 
@@ -4401,14 +4401,14 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %66, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit58.thread, label %.lr.ph.i54
 
 .lr.ph.i54:                                       ; preds = %63, %.split.preheader.i57
-  %.sroa.032.049.i55 = phi ptr [ %69, %.split.preheader.i57 ], [ %64, %63 ]
-  %67 = load i8, ptr %.sroa.032.049.i55, align 1, !tbaa !100
-  %.fr50.i56 = freeze i8 %67
-  %68 = icmp eq i8 %.fr50.i56, %62
+  %.sroa.032.048.i55 = phi ptr [ %69, %.split.preheader.i57 ], [ %64, %63 ]
+  %67 = load i8, ptr %.sroa.032.048.i55, align 1, !tbaa !100
+  %.fr49.i56 = freeze i8 %67
+  %68 = icmp eq i8 %.fr49.i56, %62
   br i1 %68, label %.critedge2, label %.split.preheader.i57, !llvm.loop !173
 
 .split.preheader.i57:                             ; preds = %.lr.ph.i54
-  %69 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.i55, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.i55, i64 1
   %70 = icmp eq ptr %69, %65
   br i1 %70, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit58.thread, label %.lr.ph.i54, !llvm.loop !174
 
@@ -4438,14 +4438,14 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %79, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit64.thread, label %.lr.ph.i60
 
 .lr.ph.i60:                                       ; preds = %76, %.split.preheader.i63
-  %.sroa.032.049.i61 = phi ptr [ %82, %.split.preheader.i63 ], [ %77, %76 ]
-  %80 = load i8, ptr %.sroa.032.049.i61, align 1, !tbaa !100
-  %.fr50.i62 = freeze i8 %80
-  %81 = icmp eq i8 %.fr50.i62, %62
+  %.sroa.032.048.i61 = phi ptr [ %82, %.split.preheader.i63 ], [ %77, %76 ]
+  %80 = load i8, ptr %.sroa.032.048.i61, align 1, !tbaa !100
+  %.fr49.i62 = freeze i8 %80
+  %81 = icmp eq i8 %.fr49.i62, %62
   br i1 %81, label %.critedge2, label %.split.preheader.i63, !llvm.loop !173
 
 .split.preheader.i63:                             ; preds = %.lr.ph.i60
-  %82 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.i61, i64 1
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.i61, i64 1
   %83 = icmp eq ptr %82, %78
   br i1 %83, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit64.thread, label %.lr.ph.i60, !llvm.loop !174
 
@@ -4510,14 +4510,14 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %107, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit70.thread, label %.lr.ph.i66
 
 .lr.ph.i66:                                       ; preds = %103, %.split.preheader.i69
-  %.sroa.032.049.i67 = phi ptr [ %110, %.split.preheader.i69 ], [ %104, %103 ]
-  %108 = load i8, ptr %.sroa.032.049.i67, align 1, !tbaa !100
-  %.fr50.i68 = freeze i8 %108
-  %109 = icmp eq i8 %.fr50.i68, %100
+  %.sroa.032.048.i67 = phi ptr [ %110, %.split.preheader.i69 ], [ %104, %103 ]
+  %108 = load i8, ptr %.sroa.032.048.i67, align 1, !tbaa !100
+  %.fr49.i68 = freeze i8 %108
+  %109 = icmp eq i8 %.fr49.i68, %100
   br i1 %109, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit70.thread109, label %.split.preheader.i69, !llvm.loop !173
 
 .split.preheader.i69:                             ; preds = %.lr.ph.i66
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.i67, i64 1
+  %110 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.i67, i64 1
   %111 = icmp eq ptr %110, %106
   br i1 %111, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit70.thread, label %.lr.ph.i66, !llvm.loop !174
 
@@ -4574,14 +4574,14 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %134, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit76.thread.thread, label %.lr.ph.i72
 
 .lr.ph.i72:                                       ; preds = %129, %.split.preheader.i75
-  %.sroa.032.049.i73 = phi ptr [ %137, %.split.preheader.i75 ], [ %131, %129 ]
-  %135 = load i8, ptr %.sroa.032.049.i73, align 1, !tbaa !100
-  %.fr50.i74 = freeze i8 %135
-  %136 = icmp eq i8 %.fr50.i74, %100
+  %.sroa.032.048.i73 = phi ptr [ %137, %.split.preheader.i75 ], [ %131, %129 ]
+  %135 = load i8, ptr %.sroa.032.048.i73, align 1, !tbaa !100
+  %.fr49.i74 = freeze i8 %135
+  %136 = icmp eq i8 %.fr49.i74, %100
   br i1 %136, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit76.thread112, label %.split.preheader.i75, !llvm.loop !173
 
 .split.preheader.i75:                             ; preds = %.lr.ph.i72
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.i73, i64 1
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.i73, i64 1
   %138 = icmp eq ptr %137, %133
   br i1 %138, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit76.thread.thread, label %.lr.ph.i72, !llvm.loop !174
 
@@ -4630,14 +4630,14 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %153, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit82.thread, label %.lr.ph.i78
 
 .lr.ph.i78:                                       ; preds = %148, %.split.preheader.i81
-  %.sroa.032.049.i79 = phi ptr [ %156, %.split.preheader.i81 ], [ %150, %148 ]
-  %154 = load i8, ptr %.sroa.032.049.i79, align 1, !tbaa !100
-  %.fr50.i80 = freeze i8 %154
-  %155 = icmp eq i8 %.fr50.i80, %100
+  %.sroa.032.048.i79 = phi ptr [ %156, %.split.preheader.i81 ], [ %150, %148 ]
+  %154 = load i8, ptr %.sroa.032.048.i79, align 1, !tbaa !100
+  %.fr49.i80 = freeze i8 %154
+  %155 = icmp eq i8 %.fr49.i80, %100
   br i1 %155, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit82.thread115, label %.split.preheader.i81, !llvm.loop !173
 
 .split.preheader.i81:                             ; preds = %.lr.ph.i78
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.i79, i64 1
+  %156 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.i79, i64 1
   %157 = icmp eq ptr %156, %152
   br i1 %157, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit82.thread, label %.lr.ph.i78, !llvm.loop !174
 
@@ -4690,14 +4690,14 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %179, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit88.thread, label %.lr.ph.i84
 
 .lr.ph.i84:                                       ; preds = %176, %.split.preheader.i87
-  %.sroa.032.049.i85 = phi ptr [ %182, %.split.preheader.i87 ], [ %177, %176 ]
-  %180 = load i8, ptr %.sroa.032.049.i85, align 1, !tbaa !100
-  %.fr50.i86 = freeze i8 %180
-  %181 = icmp eq i8 %.fr50.i86, %175
+  %.sroa.032.048.i85 = phi ptr [ %182, %.split.preheader.i87 ], [ %177, %176 ]
+  %180 = load i8, ptr %.sroa.032.048.i85, align 1, !tbaa !100
+  %.fr49.i86 = freeze i8 %180
+  %181 = icmp eq i8 %.fr49.i86, %175
   br i1 %181, label %.critedge4, label %.split.preheader.i87, !llvm.loop !173
 
 .split.preheader.i87:                             ; preds = %.lr.ph.i84
-  %182 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.i85, i64 1
+  %182 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.i85, i64 1
   %183 = icmp eq ptr %182, %178
   br i1 %183, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit88.thread, label %.lr.ph.i84, !llvm.loop !174
 
@@ -4727,14 +4727,14 @@ _ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcE
   br i1 %192, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit94.thread, label %.lr.ph.i90
 
 .lr.ph.i90:                                       ; preds = %189, %.split.preheader.i93
-  %.sroa.032.049.i91 = phi ptr [ %195, %.split.preheader.i93 ], [ %190, %189 ]
-  %193 = load i8, ptr %.sroa.032.049.i91, align 1, !tbaa !100
-  %.fr50.i92 = freeze i8 %193
-  %194 = icmp eq i8 %.fr50.i92, %175
+  %.sroa.032.048.i91 = phi ptr [ %195, %.split.preheader.i93 ], [ %190, %189 ]
+  %193 = load i8, ptr %.sroa.032.048.i91, align 1, !tbaa !100
+  %.fr49.i92 = freeze i8 %193
+  %194 = icmp eq i8 %.fr49.i92, %175
   br i1 %194, label %.critedge4, label %.split.preheader.i93, !llvm.loop !173
 
 .split.preheader.i93:                             ; preds = %.lr.ph.i90
-  %195 = getelementptr inbounds nuw i8, ptr %.sroa.032.049.i91, i64 1
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.032.048.i91, i64 1
   %196 = icmp eq ptr %195, %191
   br i1 %196, label %_ZN5boost9unit_test5utils9ut_detail12delim_policyIcNS2_20default_char_compareIcEEEclEc.exit94.thread, label %.lr.ph.i90, !llvm.loop !174
 

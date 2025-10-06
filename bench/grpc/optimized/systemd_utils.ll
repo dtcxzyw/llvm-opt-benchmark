@@ -211,36 +211,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN4a
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = add nsw i32 %5, %4
-  %.not25 = icmp sgt i32 %5, 0
-  br i1 %.not25, label %.lr.ph, label %.loopexit
+  %8 = icmp sgt i32 %5, 0
+  br i1 %8, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %6
-  %8 = trunc i32 %3 to i16
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  br label %10
+  %9 = trunc i32 %3 to i16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  br label %11
 
-10:                                               ; preds = %.lr.ph, %.critedge
-  %.01826 = phi i32 [ %4, %.lr.ph ], [ %17, %.critedge ]
-  %11 = tail call i32 @sd_is_socket_inet(i32 noundef %.01826, i32 noundef %2, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %8)
-  %12 = load i32, ptr %9, align 4, !tbaa !16
-  %13 = tail call i32 @sd_is_socket_sockaddr(i32 noundef %.01826, i32 noundef 1, ptr noundef %1, i32 noundef %12, i32 noundef 1)
-  %14 = icmp slt i32 %11, 1
-  %15 = icmp slt i32 %13, 1
-  %or.cond.not = select i1 %14, i1 true, i1 %15
-  br i1 %or.cond.not, label %.critedge, label %16
+11:                                               ; preds = %.lr.ph, %.critedge
+  %.01825 = phi i32 [ %4, %.lr.ph ], [ %17, %.critedge ]
+  %12 = tail call i32 @sd_is_socket_inet(i32 noundef %.01825, i32 noundef %2, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %9)
+  %13 = load i32, ptr %10, align 4, !tbaa !16
+  %14 = tail call i32 @sd_is_socket_sockaddr(i32 noundef %.01825, i32 noundef 1, ptr noundef %1, i32 noundef %13, i32 noundef 1)
+  %15 = icmp slt i32 %12, 1
+  %16 = icmp slt i32 %14, 1
+  %or.cond.not = select i1 %15, i1 true, i1 %16
+  br i1 %or.cond.not, label %.critedge, label %19
 
-16:                                               ; preds = %10
-  tail call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %0, i32 noundef %.01826)
+.critedge:                                        ; preds = %11
+  %17 = add nsw i32 %.01825, 1
+  %18 = icmp slt i32 %17, %7
+  br i1 %18, label %11, label %.loopexit, !llvm.loop !19
+
+19:                                               ; preds = %11
+  tail call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %0, i32 noundef %.01825)
   br label %.loopexit
 
-.critedge:                                        ; preds = %10
-  %17 = add nsw i32 %.01826, 1
-  %.not = icmp slt i32 %17, %7
-  br i1 %.not, label %10, label %.loopexit, !llvm.loop !19
-
-.loopexit:                                        ; preds = %.critedge, %6, %16
-  %.not23 = phi i1 [ true, %16 ], [ false, %6 ], [ false, %.critedge ]
-  ret i1 %.not23
+.loopexit:                                        ; preds = %.critedge, %6, %19
+  %20 = phi i1 [ true, %19 ], [ false, %6 ], [ false, %.critedge ]
+  ret i1 %20
 }
 
 declare i32 @sd_is_socket_inet(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i16 noundef zeroext) local_unnamed_addr #0
@@ -272,12 +272,12 @@ define void @_Z19set_matching_sd_fdsP15grpc_tcp_serverPK21grpc_resolved_addressi
 
 17:                                               ; preds = %12
   %18 = call noundef zeroext i1 @_Z23set_matching_sd_unix_fdP15grpc_tcp_serverPK21grpc_resolved_addressii(ptr noundef %0, ptr noundef %spec.select, i32 noundef 3, i32 noundef %10)
-  br label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit45
+  br label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit42
 
 19:                                               ; preds = %12
   %20 = call noundef i32 @_Z25grpc_sockaddr_is_wildcardPK21grpc_resolved_addressPi(ptr noundef %spec.select, ptr noundef nonnull %4)
   %.not36 = icmp eq i32 %20, 0
-  br i1 %.not36, label %.lr.ph.i40, label %21
+  br i1 %.not36, label %.lr.ph.i38, label %21
 
 21:                                               ; preds = %19
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -294,8 +294,8 @@ define void @_Z19set_matching_sd_fdsP15grpc_tcp_serverPK21grpc_resolved_addressi
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %36
-  %.033.idx50 = phi i64 [ 0, %21 ], [ %.033.add, %36 ]
-  %.033.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.033.idx50
+  %.033.idx46 = phi i64 [ 0, %21 ], [ %.033.add, %36 ]
+  %.033.ptr = getelementptr inbounds nuw i8, ptr %8, i64 %.033.idx46
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %9, ptr noundef nonnull align 4 dereferenceable(132) %.033.ptr, i64 132, i1 false), !tbaa.struct !21
   %26 = call noundef i32 @_Z24grpc_sockaddr_get_familyPK21grpc_resolved_address(ptr noundef nonnull %9)
@@ -304,28 +304,28 @@ define void @_Z19set_matching_sd_fdsP15grpc_tcp_serverPK21grpc_resolved_addressi
   br label %29
 
 29:                                               ; preds = %.critedge.i, %.lr.ph.i
-  %.01826.i = phi i32 [ 3, %.lr.ph.i ], [ %35, %.critedge.i ]
-  %30 = call i32 @sd_is_socket_inet(i32 noundef %.01826.i, i32 noundef %26, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %28)
+  %.01825.i = phi i32 [ 3, %.lr.ph.i ], [ %35, %.critedge.i ]
+  %30 = call i32 @sd_is_socket_inet(i32 noundef %.01825.i, i32 noundef %26, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %28)
   %31 = load i32, ptr %24, align 4, !tbaa !16
-  %32 = call i32 @sd_is_socket_sockaddr(i32 noundef %.01826.i, i32 noundef 1, ptr noundef nonnull %9, i32 noundef %31, i32 noundef 1)
+  %32 = call i32 @sd_is_socket_sockaddr(i32 noundef %.01825.i, i32 noundef 1, ptr noundef nonnull %9, i32 noundef %31, i32 noundef 1)
   %33 = icmp slt i32 %30, 1
   %34 = icmp slt i32 %32, 1
   %or.cond.not.i = select i1 %33, i1 true, i1 %34
   br i1 %or.cond.not.i, label %.critedge.i, label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit
 
 .critedge.i:                                      ; preds = %29
-  %35 = add nuw i32 %.01826.i, 1
-  %exitcond.not = icmp eq i32 %.01826.i, %smax
+  %35 = add nuw i32 %.01825.i, 1
+  %exitcond.not = icmp eq i32 %.01825.i, %smax
   br i1 %exitcond.not, label %36, label %29, !llvm.loop !19
 
 _Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit: ; preds = %29
-  call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %0, i32 noundef %.01826.i)
+  call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %0, i32 noundef %.01825.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
 36:                                               ; preds = %.critedge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.033.add = add nuw nsw i64 %.033.idx50, 132
+  %.033.add = add nuw nsw i64 %.033.idx46, 132
   %.not37 = icmp eq i64 %.033.add, 264
   br i1 %.not37, label %.loopexit, label %.lr.ph.i
 
@@ -333,40 +333,40 @@ _Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit:
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit45
+  br label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit42
 
-.lr.ph.i40:                                       ; preds = %19
+.lr.ph.i38:                                       ; preds = %19
   %37 = trunc i32 %15 to i16
   %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not, ptr %1, ptr %5
   %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 128
   %38 = add nuw i32 %10, 2
-  %smax53 = call i32 @llvm.smax.i32(i32 %38, i32 3)
+  %smax49 = call i32 @llvm.smax.i32(i32 %38, i32 3)
   br label %39
 
-39:                                               ; preds = %.critedge.i43, %.lr.ph.i40
-  %.01826.i41 = phi i32 [ 3, %.lr.ph.i40 ], [ %46, %.critedge.i43 ]
-  %40 = call i32 @sd_is_socket_inet(i32 noundef %.01826.i41, i32 noundef %14, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %37)
+39:                                               ; preds = %.critedge.i41, %.lr.ph.i38
+  %.01825.i39 = phi i32 [ 3, %.lr.ph.i38 ], [ %45, %.critedge.i41 ]
+  %40 = call i32 @sd_is_socket_inet(i32 noundef %.01825.i39, i32 noundef %14, i32 noundef 1, i32 noundef 1, i16 noundef zeroext %37)
   %41 = load i32, ptr %spec.select.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !16
-  %42 = call i32 @sd_is_socket_sockaddr(i32 noundef %.01826.i41, i32 noundef 1, ptr noundef %spec.select, i32 noundef %41, i32 noundef 1)
+  %42 = call i32 @sd_is_socket_sockaddr(i32 noundef %.01825.i39, i32 noundef 1, ptr noundef %spec.select, i32 noundef %41, i32 noundef 1)
   %43 = icmp slt i32 %40, 1
   %44 = icmp slt i32 %42, 1
-  %or.cond.not.i42 = select i1 %43, i1 true, i1 %44
-  br i1 %or.cond.not.i42, label %.critedge.i43, label %45
+  %or.cond.not.i40 = select i1 %43, i1 true, i1 %44
+  br i1 %or.cond.not.i40, label %.critedge.i41, label %46
 
-45:                                               ; preds = %39
-  call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %0, i32 noundef %.01826.i41)
-  br label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit45
+.critedge.i41:                                    ; preds = %39
+  %45 = add nuw i32 %.01825.i39, 1
+  %exitcond50.not = icmp eq i32 %.01825.i39, %smax49
+  br i1 %exitcond50.not, label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit42, label %39, !llvm.loop !19
 
-.critedge.i43:                                    ; preds = %39
-  %46 = add nuw i32 %.01826.i41, 1
-  %exitcond54.not = icmp eq i32 %.01826.i41, %smax53
-  br i1 %exitcond54.not, label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit45, label %39, !llvm.loop !19
+46:                                               ; preds = %39
+  call void @_Z36grpc_tcp_server_set_pre_allocated_fdP15grpc_tcp_serveri(ptr noundef %0, i32 noundef %.01825.i39)
+  br label %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit42
 
-_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit45: ; preds = %.critedge.i43, %45, %17, %.loopexit
+_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit42: ; preds = %.critedge.i41, %46, %17, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
-47:                                               ; preds = %3, %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit45
+47:                                               ; preds = %3, %_Z23set_matching_sd_inet_fdP15grpc_tcp_serverPK21grpc_resolved_addressiiii.exit42
   ret void
 }
 

@@ -1227,8 +1227,8 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !33
-  %.not152184 = icmp eq ptr %10, null
-  br i1 %.not152184, label %.preheader.lr.ph, label %.loopexit
+  %.not152182 = icmp eq ptr %10, null
+  br i1 %.not152182, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1287,19 +1287,19 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %43 = load ptr, ptr %42, align 8, !tbaa !92
   %44 = call i32 %43(ptr noundef %26) #11
   %45 = icmp eq i32 %44, -1
-  %.pre194 = load i32, ptr %9, align 8, !tbaa !65
+  %.pre192 = load i32, ptr %9, align 8, !tbaa !65
   br i1 %45, label %250, label %46
 
 46:                                               ; preds = %39
   %47 = load ptr, ptr %0, align 8, !tbaa !62
-  %48 = sext i32 %.pre194 to i64
+  %48 = sext i32 %.pre192 to i64
   %49 = getelementptr inbounds %struct._spl_sub_iterator, ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   store i32 1, ptr %50, align 8, !tbaa !84
   br label %51
 
 51:                                               ; preds = %46, %.preheader
-  %52 = phi i32 [ %.pre194, %46 ], [ %23, %.preheader ]
+  %52 = phi i32 [ %.pre192, %46 ], [ %23, %.preheader ]
   %53 = phi ptr [ %47, %46 ], [ %22, %.preheader ]
   %54 = load ptr, ptr %17, align 8, !tbaa !77
   %.not165 = icmp eq ptr %54, null
@@ -1442,13 +1442,13 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %131 = load ptr, ptr %130, align 8, !tbaa !81
   %.not162 = icmp eq ptr %131, null
-  %.pre193 = load i32, ptr %15, align 4, !tbaa !69
+  %.pre191 = load i32, ptr %15, align 4, !tbaa !69
   br i1 %.not162, label %137, label %132
 
 132:                                              ; preds = %129
-  %.off = add i32 %.pre193, -1
-  %switch175 = icmp ult i32 %.off, 2
-  br i1 %switch175, label %133, label %.thread201
+  %.off = add i32 %.pre191, -1
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %133, label %.thread199
 
 133:                                              ; preds = %132
   %134 = load ptr, ptr %1, align 8, !tbaa !11
@@ -1458,9 +1458,9 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   br label %137
 
 137:                                              ; preds = %133, %129
-  %138 = phi i32 [ %.pre, %133 ], [ %.pre193, %129 ]
+  %138 = phi i32 [ %.pre, %133 ], [ %.pre191, %129 ]
   %139 = icmp eq i32 %138, 1
-  br i1 %139, label %140, label %.thread201
+  br i1 %139, label %140, label %.thread199
 
 140:                                              ; preds = %137
   %141 = load ptr, ptr %0, align 8, !tbaa !62
@@ -1471,7 +1471,7 @@ define internal fastcc void @spl_recursive_it_move_forward_ex(ptr noundef %0, pt
   store i32 3, ptr %145, align 8, !tbaa !84
   br label %.loopexit
 
-.thread201:                                       ; preds = %132, %137
+.thread199:                                       ; preds = %132, %137
   %146 = load ptr, ptr %0, align 8, !tbaa !62
   %147 = load i32, ptr %9, align 8, !tbaa !65
   %148 = sext i32 %147 to i64
@@ -1651,7 +1651,7 @@ instanceof_function.exit.thread:                  ; preds = %181, %instanceof_fu
   br label %.preheader.backedge
 
 250:                                              ; preds = %39, %.preheader
-  %251 = phi i32 [ %.pre194, %39 ], [ %23, %.preheader ]
+  %251 = phi i32 [ %.pre192, %39 ], [ %23, %.preheader ]
   %252 = icmp sgt i32 %251, 0
   br i1 %252, label %253, label %.loopexit
 
@@ -1711,7 +1711,7 @@ instanceof_function.exit.thread:                  ; preds = %181, %instanceof_fu
 .preheader.backedge:                              ; preds = %277, %239, %249, %241, %92, %98, %107, %169
   br label %.preheader
 
-.loopexit:                                        ; preds = %260, %250, %277, %246, %166, %35, %8, %140, %.thread201, %118, %128, %125, %185, %73, %7
+.loopexit:                                        ; preds = %260, %250, %277, %246, %166, %35, %8, %140, %.thread199, %118, %128, %125, %185, %73, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
@@ -6534,7 +6534,7 @@ spl_dual_it_valid.exit.i:                         ; preds = %1
   tail call void %33(ptr noundef nonnull %29, ptr noundef nonnull %34) #11
   %36 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !33
   %.not31.i = icmp eq ptr %36, null
-  br i1 %.not31.i, label %spl_dual_it_fetch.exit.thread58, label %37
+  br i1 %.not31.i, label %spl_dual_it_fetch.exit.thread57, label %37
 
 37:                                               ; preds = %35
   tail call void @zval_ptr_dtor(ptr noundef nonnull %34) #11
@@ -6552,9 +6552,9 @@ spl_dual_it_fetch.exit:                           ; preds = %37, %38
   store i32 %.sink.i, ptr %41, align 8, !tbaa !11
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !33
   %42 = icmp eq ptr %.pre, null
-  br i1 %42, label %spl_dual_it_fetch.exit.thread58, label %spl_dual_it_fetch.exit.thread
+  br i1 %42, label %spl_dual_it_fetch.exit.thread57, label %spl_dual_it_fetch.exit.thread
 
-spl_dual_it_fetch.exit.thread58:                  ; preds = %35, %spl_dual_it_fetch.exit
+spl_dual_it_fetch.exit.thread57:                  ; preds = %35, %spl_dual_it_fetch.exit
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %44 = load i64, ptr %43, align 8, !tbaa !11
   %45 = or i64 %44, 65536
@@ -6563,7 +6563,7 @@ spl_dual_it_fetch.exit.thread58:                  ; preds = %35, %spl_dual_it_fe
   %.not = icmp eq i64 %46, 0
   br i1 %.not, label %59, label %47
 
-47:                                               ; preds = %spl_dual_it_fetch.exit.thread58
+47:                                               ; preds = %spl_dual_it_fetch.exit.thread57
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load i8, ptr %49, align 8, !tbaa !11
@@ -6582,7 +6582,7 @@ spl_dual_it_fetch.exit.thread58:                  ; preds = %35, %spl_dual_it_fe
   %58 = tail call i32 @array_set_zval_key(ptr noundef %57, ptr noundef nonnull %34, ptr noundef nonnull %.0) #11
   br label %59
 
-59:                                               ; preds = %55, %spl_dual_it_fetch.exit.thread58
+59:                                               ; preds = %55, %spl_dual_it_fetch.exit.thread57
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %61 = load i32, ptr %60, align 8, !tbaa !109
   %62 = icmp eq i32 %61, 3

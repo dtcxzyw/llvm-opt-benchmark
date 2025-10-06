@@ -1151,8 +1151,8 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
   %48 = ptrtoint ptr %45 to i64
   %49 = sub i64 %47, %48
   %50 = call noundef ptr @memchr(ptr noundef nonnull %45, i32 noundef 10, i64 noundef %49) #22
-  %.not29.i = icmp eq ptr %50, null
-  br i1 %.not29.i, label %51, label %58
+  %.not26.i = icmp eq ptr %50, null
+  br i1 %.not26.i, label %51, label %58
 
 51:                                               ; preds = %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 %9, ptr nonnull align 1 %45, i64 %49, i1 false)
@@ -1163,17 +1163,17 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
 
 .noexc76:                                         ; preds = %51
   %55 = icmp slt i64 %54, 1
-  br i1 %55, label %65, label %.thread27.i
+  br i1 %55, label %65, label %.thread25.i
 
-.thread27.i:                                      ; preds = %.noexc76
+.thread25.i:                                      ; preds = %.noexc76
   %56 = add i64 %54, %.sroa.14.0
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %54
   br label %58
 
-58:                                               ; preds = %.thread27.i, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i, %.thread.i
-  %.sroa.14.1 = phi i64 [ %42, %.thread.i ], [ %56, %.thread27.i ], [ %.sroa.14.0, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
-  %.sroa.21.0 = phi ptr [ %9, %.thread.i ], [ %9, %.thread27.i ], [ %45, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
-  %.sroa.30.1 = phi ptr [ %43, %.thread.i ], [ %57, %.thread27.i ], [ %.sroa.30.0, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
+58:                                               ; preds = %.thread25.i, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i, %.thread.i
+  %.sroa.14.1 = phi i64 [ %42, %.thread.i ], [ %56, %.thread25.i ], [ %.sroa.14.0, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
+  %.sroa.21.0 = phi ptr [ %9, %.thread.i ], [ %9, %.thread25.i ], [ %45, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
+  %.sroa.30.1 = phi ptr [ %43, %.thread.i ], [ %57, %.thread25.i ], [ %.sroa.30.0, %_ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineEv.exit.i ]
   %59 = ptrtoint ptr %.sroa.30.1 to i64
   %60 = ptrtoint ptr %.sroa.21.0 to i64
   %61 = sub i64 %59, %60
@@ -1204,8 +1204,8 @@ _ZN6google24glog_internal_namespace_12_GLOBAL__N_110LineReader15HasCompleteLineE
 
 .lr.ph.i:                                         ; preds = %75, %.lr.ph.preheader.i
   %71 = phi i64 [ %82, %75 ], [ 0, %.lr.ph.preheader.i ]
-  %.02531.i = phi ptr [ %83, %75 ], [ %.sroa.21.0, %.lr.ph.preheader.i ]
-  %72 = load i8, ptr %.02531.i, align 1, !tbaa !25
+  %.02530.i = phi ptr [ %83, %75 ], [ %.sroa.21.0, %.lr.ph.preheader.i ]
+  %72 = load i8, ptr %.02530.i, align 1, !tbaa !25
   %.fr.i = freeze i8 %72
   %73 = sext i8 %.fr.i to i32
   %74 = add i8 %.fr.i, -48
@@ -1238,13 +1238,13 @@ switch.early.test.i:                              ; preds = %.lr.ph.i
   %81 = zext nneg i32 %.v.i to i64
   %82 = or i64 %76, %81
   store i64 %82, ptr %2, align 8, !tbaa !22
-  %83 = getelementptr inbounds nuw i8, ptr %.02531.i, i64 1
+  %83 = getelementptr inbounds nuw i8, ptr %.02530.i, i64 1
   %exitcond.not.i = icmp eq ptr %83, %62
   br i1 %exitcond.not.i, label %switch.early.test._crit_edge.i, label %.lr.ph.i, !llvm.loop !31
 
 switch.early.test._crit_edge.i:                   ; preds = %75, %switch.early.test.i, %68
   %84 = phi i64 [ 0, %68 ], [ %82, %75 ], [ %71, %switch.early.test.i ]
-  %.025.lcssa.i = phi ptr [ %.sroa.21.0, %68 ], [ %scevgep.i, %75 ], [ %.02531.i, %switch.early.test.i ]
+  %.025.lcssa.i = phi ptr [ %.sroa.21.0, %68 ], [ %scevgep.i, %75 ], [ %.02530.i, %switch.early.test.i ]
   %.not.i77 = icmp ugt ptr %.025.lcssa.i, %62
   br i1 %.not.i77, label %85, label %_ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit
 
@@ -1278,8 +1278,8 @@ _ZN6google24glog_internal_namespace_L6GetHexEPKcS2_Pm.exit: ; preds = %switch.ea
 
 .lr.ph.i83:                                       ; preds = %98, %.lr.ph.preheader.i81
   %.1 = phi i64 [ 0, %.lr.ph.preheader.i81 ], [ %105, %98 ]
-  %.02531.i84 = phi ptr [ %91, %.lr.ph.preheader.i81 ], [ %106, %98 ]
-  %95 = load i8, ptr %.02531.i84, align 1, !tbaa !25
+  %.02530.i84 = phi ptr [ %91, %.lr.ph.preheader.i81 ], [ %106, %98 ]
+  %95 = load i8, ptr %.02530.i84, align 1, !tbaa !25
   %.fr.i85 = freeze i8 %95
   %96 = sext i8 %.fr.i85 to i32
   %97 = add i8 %.fr.i85, -48
@@ -1311,13 +1311,13 @@ switch.early.test.i87:                            ; preds = %.lr.ph.i83
   %.v.i88 = select i1 %100, i32 %101, i32 %103
   %104 = zext nneg i32 %.v.i88 to i64
   %105 = or i64 %99, %104
-  %106 = getelementptr inbounds nuw i8, ptr %.02531.i84, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %.02530.i84, i64 1
   %exitcond.not.i89 = icmp eq ptr %106, %62
   br i1 %exitcond.not.i89, label %switch.early.test._crit_edge.i78.loopexit, label %.lr.ph.i83, !llvm.loop !31
 
 switch.early.test._crit_edge.i78.loopexit:        ; preds = %switch.early.test.i87, %98
   %.0.ph = phi i64 [ %105, %98 ], [ %.1, %switch.early.test.i87 ]
-  %.025.lcssa.i79.ph = phi ptr [ %scevgep.i82, %98 ], [ %.02531.i84, %switch.early.test.i87 ]
+  %.025.lcssa.i79.ph = phi ptr [ %scevgep.i82, %98 ], [ %.02530.i84, %switch.early.test.i87 ]
   %107 = icmp ult i64 %1, %.0.ph
   br label %switch.early.test._crit_edge.i78
 
@@ -1786,8 +1786,8 @@ define internal fastcc noundef ptr @_ZN6google24glog_internal_namespace_L6GetHex
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %8 = phi i64 [ %19, %12 ], [ 0, %.lr.ph.preheader ]
-  %.02531 = phi ptr [ %20, %12 ], [ %0, %.lr.ph.preheader ]
-  %9 = load i8, ptr %.02531, align 1, !tbaa !25
+  %.02530 = phi ptr [ %20, %12 ], [ %0, %.lr.ph.preheader ]
+  %9 = load i8, ptr %.02530, align 1, !tbaa !25
   %.fr = freeze i8 %9
   %10 = sext i8 %.fr to i32
   %11 = add i8 %.fr, -48
@@ -1820,12 +1820,12 @@ switch.early.test:                                ; preds = %.lr.ph
   %18 = zext i32 %.v to i64
   %19 = or i64 %13, %18
   store i64 %19, ptr %2, align 8, !tbaa !22
-  %20 = getelementptr inbounds nuw i8, ptr %.02531, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.02530, i64 1
   %exitcond.not = icmp eq ptr %20, %1
   br i1 %exitcond.not, label %switch.early.test._crit_edge, label %.lr.ph, !llvm.loop !31
 
 switch.early.test._crit_edge:                     ; preds = %12, %switch.early.test, %3
-  %.025.lcssa = phi ptr [ %0, %3 ], [ %.02531, %switch.early.test ], [ %scevgep, %12 ]
+  %.025.lcssa = phi ptr [ %0, %3 ], [ %.02530, %switch.early.test ], [ %scevgep, %12 ]
   %.not = icmp ugt ptr %.025.lcssa, %1
   br i1 %.not, label %21, label %22
 

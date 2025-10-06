@@ -5280,18 +5280,18 @@ declare ptr @dt_get_help_url(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define nonnull ptr @dt_gui_get_help_url(ptr noundef %0) local_unnamed_addr #0 {
-  %.not14 = icmp eq ptr %0, null
-  br i1 %.not14, label %.thread, label %.lr.ph
+  %.not13 = icmp eq ptr %0, null
+  br i1 %.not13, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %4
-  %.0715 = phi ptr [ %5, %4 ], [ %0, %1 ]
-  %2 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %.0715, i64 noundef 80) #18
+  %.0714 = phi ptr [ %5, %4 ], [ %0, %1 ]
+  %2 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %.0714, i64 noundef 80) #18
   %3 = tail call ptr @g_object_get_data(ptr noundef %2, ptr noundef nonnull @.str.90) #18
   %.not10.not = icmp eq ptr %3, null
   br i1 %.not10.not, label %4, label %.thread
 
 4:                                                ; preds = %.lr.ph
-  %5 = tail call ptr @gtk_widget_get_parent(ptr noundef nonnull %.0715) #18
+  %5 = tail call ptr @gtk_widget_get_parent(ptr noundef nonnull %.0714) #18
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %.lr.ph
 
@@ -5336,18 +5336,18 @@ declare i32 @g_signal_handlers_disconnect_matched(ptr noundef, i32 noundef, i32 
 ; Function Attrs: nounwind uwtable
 define void @dt_gui_show_help(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  %.not14.i = icmp eq ptr %0, null
-  br i1 %.not14.i, label %dt_gui_get_help_url.exit, label %.lr.ph.i
+  %.not13.i = icmp eq ptr %0, null
+  br i1 %.not13.i, label %dt_gui_get_help_url.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %5
-  %.0715.i = phi ptr [ %6, %5 ], [ %0, %1 ]
-  %3 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %.0715.i, i64 noundef 80) #18
+  %.0714.i = phi ptr [ %6, %5 ], [ %0, %1 ]
+  %3 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %.0714.i, i64 noundef 80) #18
   %4 = tail call ptr @g_object_get_data(ptr noundef %3, ptr noundef nonnull @.str.90) #18
   %.not10.not.i = icmp eq ptr %4, null
   br i1 %.not10.not.i, label %5, label %dt_gui_get_help_url.exit
 
 5:                                                ; preds = %.lr.ph.i
-  %6 = tail call ptr @gtk_widget_get_parent(ptr noundef nonnull %.0715.i) #18
+  %6 = tail call ptr @gtk_widget_get_parent(ptr noundef nonnull %.0714.i) #18
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %dt_gui_get_help_url.exit, label %.lr.ph.i
 

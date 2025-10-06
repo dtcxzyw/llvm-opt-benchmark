@@ -282,12 +282,11 @@ sljit_remove_free_block.exit:                     ; preds = %24, %22, %10
   %32 = and i64 %31, -65536
   %33 = tail call ptr @mmap(ptr noundef null, i64 noundef range(i64 0, -65535) %32, i32 noundef 7, i32 noundef 34, i32 noundef -1, i64 noundef 0) #21
   %magicptr = ptrtoint ptr %33 to i64
-  switch i64 %magicptr, label %36 [
-    i64 -1, label %34
-    i64 0, label %34
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %36, label %34
 
-34:                                               ; preds = %._crit_edge, %._crit_edge
+34:                                               ; preds = %._crit_edge
   %35 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @allocator_lock) #21
   br label %61
 

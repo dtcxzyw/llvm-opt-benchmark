@@ -13181,10 +13181,10 @@ define internal noalias noundef ptr @_job_watch_thread(ptr readnone captures(non
 
 19:                                               ; preds = %15, %18, %12
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurmctld_config, i64 328), align 8
-  %.not2347 = icmp ne i64 %20, 0
-  %.b222448 = load i1, ptr @stop_job_watch_thread, align 1
-  %.not2549 = select i1 %.not2347, i1 true, i1 %.b222448
-  br i1 %.not2549, label %.thread, label %.lr.ph
+  %.not2346 = icmp ne i64 %20, 0
+  %.b222447 = load i1, ptr @stop_job_watch_thread, align 1
+  %.not2548 = select i1 %.not2346, i1 true, i1 %.b222447
+  br i1 %.not2548, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %132
   %21 = call i32 @pthread_mutex_lock(ptr noundef nonnull @job_watch_mutex) #16

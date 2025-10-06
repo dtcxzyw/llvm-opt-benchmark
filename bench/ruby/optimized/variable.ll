@@ -3063,8 +3063,8 @@ RB_FL_TEST.exit:                                  ; preds = %8
   %47 = and i64 %10, 31
   %.not.i = icmp eq i64 %47, 27
   %48 = and i64 %10, 1024
-  %.not18 = icmp eq i64 %48, 0
-  %.not = or i1 %.not.i, %.not18
+  %.not17 = icmp eq i64 %48, 0
+  %.not = or i1 %.not.i, %.not17
   br i1 %.not, label %64, label %49
 
 49:                                               ; preds = %RB_FL_TEST.exit

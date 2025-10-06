@@ -2995,7 +2995,7 @@ HasSameOutput.exit.i:                             ; preds = %55
   %62 = getelementptr inbounds nuw i8, ptr %.1.i, i64 20
   %63 = load i32, ptr %62, align 4
   %64 = icmp eq i32 %61, %63
-  br i1 %64, label %.thread87.i, label %HasSameOutput.exit.thread.i
+  br i1 %64, label %.thread86.i, label %HasSameOutput.exit.thread.i
 
 HasSameOutput.exit.thread.i:                      ; preds = %HasSameOutput.exit.i, %55, %54
   tail call fastcc void @ResetOutput(i64 noundef %20, ptr noundef nonnull %.073, ptr noundef nonnull %31)
@@ -3003,21 +3003,21 @@ HasSameOutput.exit.thread.i:                      ; preds = %HasSameOutput.exit.
 
 65:                                               ; preds = %HasSameOutput.exit.thread.i, %.thread.i
   %.not79.i = icmp eq ptr %.1.i, null
-  br i1 %.not79.i, label %HandleJoystickAxis.exit, label %..thread87_crit_edge.i
+  br i1 %.not79.i, label %HandleJoystickAxis.exit, label %..thread86_crit_edge.i
 
-..thread87_crit_edge.i:                           ; preds = %65
+..thread86_crit_edge.i:                           ; preds = %65
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.1.i, i64 16
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 4
-  br label %.thread87.i
+  br label %.thread86.i
 
-.thread87.i:                                      ; preds = %..thread87_crit_edge.i, %HasSameOutput.exit.i
-  %66 = phi i32 [ %.pre.i, %..thread87_crit_edge.i ], [ %57, %HasSameOutput.exit.i ]
+.thread86.i:                                      ; preds = %..thread86_crit_edge.i, %HasSameOutput.exit.i
+  %66 = phi i32 [ %.pre.i, %..thread86_crit_edge.i ], [ %57, %HasSameOutput.exit.i ]
   %67 = icmp eq i32 %66, 2
   %68 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
   %69 = load i32, ptr %68, align 4
   br i1 %67, label %70, label %101
 
-70:                                               ; preds = %.thread87.i
+70:                                               ; preds = %.thread86.i
   %71 = getelementptr inbounds nuw i8, ptr %.1.i, i64 20
   %72 = getelementptr inbounds nuw i8, ptr %.1.i, i64 24
   %73 = load i32, ptr %72, align 4
@@ -3027,8 +3027,8 @@ HasSameOutput.exit.thread.i:                      ; preds = %HasSameOutput.exit.
   %76 = getelementptr inbounds nuw i8, ptr %.1.i, i64 28
   %77 = load i32, ptr %76, align 4
   %.not81.i = icmp eq i32 %75, %77
-  %or.cond109.i = select i1 %.not80.i, i1 %.not81.i, i1 false
-  br i1 %or.cond109.i, label %89, label %._crit_edge.i
+  %or.cond108.i = select i1 %.not80.i, i1 %.not81.i, i1 false
+  br i1 %or.cond108.i, label %89, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %70
   %78 = sub nsw i32 %26, %69
@@ -3069,7 +3069,7 @@ HasSameOutput.exit.thread.i:                      ; preds = %HasSameOutput.exit.
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %HandleJoystickAxis.exit
 
-101:                                              ; preds = %.thread87.i
+101:                                              ; preds = %.thread86.i
   %102 = getelementptr inbounds nuw i8, ptr %.1.i, i64 12
   %103 = load i32, ptr %102, align 4
   %104 = sub nsw i32 %103, %69
@@ -4966,7 +4966,7 @@ define hidden signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef %0, i32 noundef %
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %8 = load i32, ptr %7, align 8
   %9 = icmp sgt i32 %8, 0
-  br i1 %9, label %.lr.ph, label %.split.loop.exit104
+  br i1 %9, label %.lr.ph, label %.split.loop.exit103
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -5028,8 +5028,8 @@ define hidden signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef %0, i32 noundef %
   %42 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %43 = load i32, ptr %42, align 4
   %.not88 = icmp eq i32 %33, %43
-  %or.cond118 = select i1 %.not87, i1 %.not88, i1 false
-  br i1 %or.cond118, label %74, label %._crit_edge
+  %or.cond117 = select i1 %.not87, i1 %.not88, i1 false
+  br i1 %or.cond117, label %74, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %39
   %44 = sub nsw i32 %29, %31
@@ -5101,25 +5101,25 @@ define hidden signext i16 @SDL_GetGamepadAxis_REAL(ptr noundef %0, i32 noundef %
   br i1 %or.cond, label %.split.loop.exit, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %84
-  %.pre108 = load i32, ptr %7, align 8
+  %.pre107 = load i32, ptr %7, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %11, %18
-  %86 = phi i32 [ %.pre108, %..thread_crit_edge ], [ %12, %11 ], [ %12, %18 ]
+  %86 = phi i32 [ %.pre107, %..thread_crit_edge ], [ %12, %11 ], [ %12, %18 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %87 = sext i32 %86 to i64
   %88 = icmp slt i64 %indvars.iv.next, %87
-  br i1 %88, label %11, label %.split.loop.exit104, !llvm.loop !48
+  br i1 %88, label %11, label %.split.loop.exit103, !llvm.loop !48
 
 89:                                               ; preds = %2, %4
   %90 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5) #10
-  br label %.split.loop.exit104
+  br label %.split.loop.exit103
 
 .split.loop.exit:                                 ; preds = %84
   %91 = trunc i32 %.069 to i16
-  br label %.split.loop.exit104
+  br label %.split.loop.exit103
 
-.split.loop.exit104:                              ; preds = %.thread, %.split.loop.exit, %.preheader, %89
+.split.loop.exit103:                              ; preds = %.thread, %.split.loop.exit, %.preheader, %89
   %.1 = phi i16 [ 0, %89 ], [ %91, %.split.loop.exit ], [ 0, %.preheader ], [ 0, %.thread ]
   tail call void @SDL_UnlockJoysticks_REAL() #10
   ret i16 %.1
@@ -5702,8 +5702,8 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
 .preheader:                                       ; preds = %SDL_GetGamepadJoystick_REAL.exit
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %12 = load i32, ptr %11, align 8
-  %.not6170 = icmp sgt i32 %12, 0
-  br i1 %.not6170, label %.lr.ph, label %.loopexit
+  %.not6169 = icmp sgt i32 %12, 0
+  br i1 %.not6169, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 152
@@ -5816,18 +5816,18 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 128
   %58 = load ptr, ptr %57, align 8
   %59 = tail call zeroext i1 %58(ptr noundef nonnull %10, i1 noundef zeroext true) #10
-  br i1 %59, label %._crit_edge74, label %60
+  br i1 %59, label %._crit_edge73, label %60
 
-._crit_edge74:                                    ; preds = %54
-  %.pre75 = load i32, ptr %50, align 4
+._crit_edge73:                                    ; preds = %54
+  %.pre74 = load i32, ptr %50, align 4
   br label %61
 
 60:                                               ; preds = %54
   tail call void @SDL_UnlockJoysticks_REAL() #10
   br label %78
 
-61:                                               ; preds = %._crit_edge74, %52
-  %62 = phi i32 [ %.pre75, %._crit_edge74 ], [ %51, %52 ]
+61:                                               ; preds = %._crit_edge73, %52
+  %62 = phi i32 [ %.pre74, %._crit_edge73 ], [ %51, %52 ]
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %50, align 4
   br label %76
@@ -6020,8 +6020,8 @@ SDL_GetGamepadJoystick_REAL.exit:                 ; preds = %6
 .preheader:                                       ; preds = %SDL_GetGamepadJoystick_REAL.exit
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 144
   %12 = load i32, ptr %11, align 8
-  %.not2632 = icmp sgt i32 %12, 0
-  br i1 %.not2632, label %.lr.ph, label %.loopexit
+  %.not2631 = icmp sgt i32 %12, 0
+  br i1 %.not2631, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 152

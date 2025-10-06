@@ -223,11 +223,9 @@ define internal fastcc noundef zeroext i1 @iseries_check_file_type(ptr noundef c
   %.017.i = phi ptr [ %.115.i, %.thread.i ], [ %5, %20 ]
   %23 = getelementptr i8, ptr %5, i64 %indvars.iv.i
   %24 = load i8, ptr %23, align 1
-  switch i8 %24, label %25 [
-    i8 -2, label %.thread.i
-    i8 -1, label %.thread.i
-    i8 0, label %.thread.i
-  ]
+  %.off.i = add i8 %24, -1
+  %switch.i = icmp ult i8 %.off.i, -3
+  br i1 %switch.i, label %25, label %.thread.i
 
 25:                                               ; preds = %.preheader
   store i8 %24, ptr %.017.i, align 1
@@ -236,8 +234,8 @@ define internal fastcc noundef zeroext i1 @iseries_check_file_type(ptr noundef c
   %27 = icmp eq i8 %.pr.i, 10
   br i1 %27, label %iseries_UNICODE_to_ASCII.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %25, %.preheader, %.preheader, %.preheader
-  %.115.i = phi ptr [ %26, %25 ], [ %.017.i, %.preheader ], [ %.017.i, %.preheader ], [ %.017.i, %.preheader ]
+.thread.i:                                        ; preds = %25, %.preheader
+  %.115.i = phi ptr [ %26, %25 ], [ %.017.i, %.preheader ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 270
   br i1 %exitcond.not.i, label %iseries_UNICODE_to_ASCII.exit, label %.preheader, !llvm.loop !9
@@ -331,11 +329,9 @@ define internal noundef zeroext i1 @iseries_read(ptr noundef readonly captures(n
   %.017.i.i = phi ptr [ %.115.i.i, %.thread.i.i ], [ %6, %19 ]
   %22 = getelementptr i8, ptr %6, i64 %indvars.iv.i.i
   %23 = load i8, ptr %22, align 1
-  switch i8 %23, label %24 [
-    i8 -2, label %.thread.i.i
-    i8 -1, label %.thread.i.i
-    i8 0, label %.thread.i.i
-  ]
+  %.off.i.i = add i8 %23, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -3
+  br i1 %switch.i.i, label %24, label %.thread.i.i
 
 24:                                               ; preds = %.preheader.i
   store i8 %23, ptr %.017.i.i, align 1
@@ -344,8 +340,8 @@ define internal noundef zeroext i1 @iseries_read(ptr noundef readonly captures(n
   %26 = icmp eq i8 %.pr.i.i, 10
   br i1 %26, label %.split.loop.exit19.i.i, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %24, %.preheader.i, %.preheader.i, %.preheader.i
-  %.115.i.i = phi ptr [ %25, %24 ], [ %.017.i.i, %.preheader.i ], [ %.017.i.i, %.preheader.i ], [ %.017.i.i, %.preheader.i ]
+.thread.i.i:                                      ; preds = %24, %.preheader.i
+  %.115.i.i = phi ptr [ %25, %24 ], [ %.017.i.i, %.preheader.i ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 270
   br i1 %exitcond.not.i.i, label %iseries_UNICODE_to_ASCII.exit.i, label %.preheader.i, !llvm.loop !9
@@ -544,11 +540,9 @@ define internal fastcc noundef zeroext i1 @iseries_parse_packet(ptr readonly cap
   %.017.i = phi ptr [ %.115.i, %.thread.i ], [ %15, %25 ]
   %28 = getelementptr i8, ptr %15, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 1
-  switch i8 %29, label %30 [
-    i8 -2, label %.thread.i
-    i8 -1, label %.thread.i
-    i8 0, label %.thread.i
-  ]
+  %.off.i = add i8 %29, -1
+  %switch.i = icmp ult i8 %.off.i, -3
+  br i1 %switch.i, label %30, label %.thread.i
 
 30:                                               ; preds = %.preheader3
   store i8 %29, ptr %.017.i, align 1
@@ -557,8 +551,8 @@ define internal fastcc noundef zeroext i1 @iseries_parse_packet(ptr readonly cap
   %32 = icmp eq i8 %.pr.i, 10
   br i1 %32, label %iseries_UNICODE_to_ASCII.exit, label %.thread.i
 
-.thread.i:                                        ; preds = %30, %.preheader3, %.preheader3, %.preheader3
-  %.115.i = phi ptr [ %31, %30 ], [ %.017.i, %.preheader3 ], [ %.017.i, %.preheader3 ], [ %.017.i, %.preheader3 ]
+.thread.i:                                        ; preds = %30, %.preheader3
+  %.115.i = phi ptr [ %31, %30 ], [ %.017.i, %.preheader3 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 270
   br i1 %exitcond.not.i, label %iseries_UNICODE_to_ASCII.exit, label %.preheader3, !llvm.loop !9
@@ -812,42 +806,40 @@ iseries_UNICODE_to_ASCII.exit:                    ; preds = %30, %.thread.i
   %155 = icmp eq i32 %154, 2
   br i1 %155, label %.preheader, label %161
 
-.preheader:                                       ; preds = %.lr.ph60, %.thread.i138
-  %indvars.iv.i136 = phi i64 [ %indvars.iv.next.i140, %.thread.i138 ], [ 0, %.lr.ph60 ]
-  %.017.i137 = phi ptr [ %.115.i139, %.thread.i138 ], [ %15, %.lr.ph60 ]
+.preheader:                                       ; preds = %.lr.ph60, %.thread.i140
+  %indvars.iv.i136 = phi i64 [ %indvars.iv.next.i142, %.thread.i140 ], [ 0, %.lr.ph60 ]
+  %.017.i137 = phi ptr [ %.115.i141, %.thread.i140 ], [ %15, %.lr.ph60 ]
   %156 = getelementptr i8, ptr %15, i64 %indvars.iv.i136
   %157 = load i8, ptr %156, align 1
-  switch i8 %157, label %158 [
-    i8 -2, label %.thread.i138
-    i8 -1, label %.thread.i138
-    i8 0, label %.thread.i138
-  ]
+  %.off.i138 = add i8 %157, -1
+  %switch.i139 = icmp ult i8 %.off.i138, -3
+  br i1 %switch.i139, label %158, label %.thread.i140
 
 158:                                              ; preds = %.preheader
   store i8 %157, ptr %.017.i137, align 1
   %159 = getelementptr i8, ptr %.017.i137, i64 1
-  %.pr.i144 = load i8, ptr %156, align 1
-  %160 = icmp eq i8 %.pr.i144, 10
-  br i1 %160, label %iseries_UNICODE_to_ASCII.exit146, label %.thread.i138
+  %.pr.i146 = load i8, ptr %156, align 1
+  %160 = icmp eq i8 %.pr.i146, 10
+  br i1 %160, label %iseries_UNICODE_to_ASCII.exit148, label %.thread.i140
 
-.thread.i138:                                     ; preds = %158, %.preheader, %.preheader, %.preheader
-  %.115.i139 = phi ptr [ %159, %158 ], [ %.017.i137, %.preheader ], [ %.017.i137, %.preheader ], [ %.017.i137, %.preheader ]
-  %indvars.iv.next.i140 = add nuw nsw i64 %indvars.iv.i136, 1
-  %exitcond.not.i141 = icmp eq i64 %indvars.iv.next.i140, 270
-  br i1 %exitcond.not.i141, label %iseries_UNICODE_to_ASCII.exit146, label %.preheader, !llvm.loop !9
+.thread.i140:                                     ; preds = %158, %.preheader
+  %.115.i141 = phi ptr [ %159, %158 ], [ %.017.i137, %.preheader ]
+  %indvars.iv.next.i142 = add nuw nsw i64 %indvars.iv.i136, 1
+  %exitcond.not.i143 = icmp eq i64 %indvars.iv.next.i142, 270
+  br i1 %exitcond.not.i143, label %iseries_UNICODE_to_ASCII.exit148, label %.preheader, !llvm.loop !9
 
-iseries_UNICODE_to_ASCII.exit146:                 ; preds = %158, %.thread.i138
-  %.013.lcssa.i142 = phi i64 [ 270, %.thread.i138 ], [ %indvars.iv.i136, %158 ]
-  %.2.i143 = phi ptr [ %.115.i139, %.thread.i138 ], [ %159, %158 ]
-  store i8 0, ptr %.2.i143, align 1
+iseries_UNICODE_to_ASCII.exit148:                 ; preds = %158, %.thread.i140
+  %.013.lcssa.i144 = phi i64 [ 270, %.thread.i140 ], [ %indvars.iv.i136, %158 ]
+  %.2.i145 = phi ptr [ %.115.i141, %.thread.i140 ], [ %159, %158 ]
+  store i8 0, ptr %.2.i145, align 1
   br label %163
 
 161:                                              ; preds = %.lr.ph60
   %162 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15) #15
   br label %163
 
-163:                                              ; preds = %161, %iseries_UNICODE_to_ASCII.exit146
-  %.0111 = phi i64 [ %.013.lcssa.i142, %iseries_UNICODE_to_ASCII.exit146 ], [ %162, %161 ]
+163:                                              ; preds = %161, %iseries_UNICODE_to_ASCII.exit148
+  %.0111 = phi i64 [ %.013.lcssa.i144, %iseries_UNICODE_to_ASCII.exit148 ], [ %162, %161 ]
   br label %164
 
 164:                                              ; preds = %164, %163

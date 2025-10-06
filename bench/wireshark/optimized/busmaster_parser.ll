@@ -171,14 +171,14 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
 
 ._crit_edge:                                      ; preds = %36
   %.pre = load ptr, ptr %6, align 8
-  %.pre54 = load ptr, ptr %0, align 8
+  %.pre53 = load ptr, ptr %0, align 8
   br label %55
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %0, align 8
   %44 = load ptr, ptr %12, align 8
   %.not36 = icmp ult ptr %43, %44
-  %.pre53 = load ptr, ptr %6, align 8
+  %.pre52 = load ptr, ptr %6, align 8
   br i1 %.not36, label %55, label %45
 
 45:                                               ; preds = %42
@@ -197,19 +197,19 @@ yy_find_shift_action.exit:                        ; preds = %19, %29, %32
   br label %.thread
 
 .thread:                                          ; preds = %._crit_edge.i, %45
-  %51 = getelementptr inbounds nuw i8, ptr %.pre53, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.pre52, i64 16
   %52 = load ptr, ptr %51, align 8
   call void @g_free(ptr noundef %52)
-  %53 = getelementptr inbounds nuw i8, ptr %.pre53, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %.pre52, i64 72
   store i32 -1, ptr %53, align 8
   %54 = call noalias ptr @g_strdup(ptr noundef nonnull @.str)
   store ptr %54, ptr %51, align 8
-  store ptr %.pre53, ptr %6, align 8
+  store ptr %.pre52, ptr %6, align 8
   br label %293
 
 55:                                               ; preds = %._crit_edge, %42
-  %56 = phi ptr [ %.pre54, %._crit_edge ], [ %43, %42 ]
-  %57 = phi ptr [ %.pre, %._crit_edge ], [ %.pre53, %42 ]
+  %56 = phi ptr [ %.pre53, %._crit_edge ], [ %43, %42 ]
+  %57 = phi ptr [ %.pre, %._crit_edge ], [ %.pre52, %42 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   switch i8 %.0.i, label %221 [
     i8 -72, label %58

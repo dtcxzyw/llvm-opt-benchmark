@@ -3321,8 +3321,8 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt
   %16 = load i64, ptr %15, align 8, !tbaa !103
   %17 = urem i64 %14, %16
   %18 = load i64, ptr %6, align 8, !tbaa !121
-  %.not32 = icmp eq i64 %18, 0
-  br i1 %.not32, label %.critedge, label %19
+  %.not30 = icmp eq i64 %18, 0
+  br i1 %.not30, label %.critedge, label %19
 
 19:                                               ; preds = %.thread
   %20 = load ptr, ptr %0, align 8, !tbaa !96

@@ -1461,23 +1461,23 @@ define dso_local void @cancel_on_dsm_detach(ptr noundef captures(none) %0, ptr n
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %16
-  %storemerge23.sink = phi ptr [ %6, %16 ], [ %5, %3 ]
-  %.sroa.10.021 = phi ptr [ %storemerge23.sink, %16 ], [ %4, %3 ]
-  %6 = load ptr, ptr %storemerge23.sink, align 8
-  %7 = getelementptr inbounds i8, ptr %storemerge23.sink, i64 -16
+  %storemerge22.sink = phi ptr [ %6, %16 ], [ %5, %3 ]
+  %.sroa.10.020 = phi ptr [ %storemerge22.sink, %16 ], [ %4, %3 ]
+  %6 = load ptr, ptr %storemerge22.sink, align 8
+  %7 = getelementptr inbounds i8, ptr %storemerge22.sink, i64 -16
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %10, label %16
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %storemerge23.sink, i64 -8
+  %11 = getelementptr inbounds i8, ptr %storemerge22.sink, i64 -8
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, %2
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds i8, ptr %storemerge23.sink, i64 -16
-  store ptr %6, ptr %.sroa.10.021, align 8
+  %15 = getelementptr inbounds i8, ptr %storemerge22.sink, i64 -16
+  store ptr %6, ptr %.sroa.10.020, align 8
   tail call void @pfree(ptr noundef nonnull %15) #11
   br label %.loopexit
 

@@ -33356,8 +33356,8 @@ define linkonce_odr hidden noundef i64 @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
 17:                                               ; preds = %19, %2
   %.012 = phi ptr [ %14, %2 ], [ %20, %19 ]
   %18 = load i64, ptr %.012, align 8, !tbaa !87
-  %.not.not.not.not.not.not = icmp ne i64 %18, -1
-  br i1 %.not.not.not.not.not.not, label %19, label %.loopexit
+  %.not = icmp eq i64 %18, -1
+  br i1 %.not, label %.loopexit, label %19
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node.228", ptr %16, i64 %18
@@ -33377,7 +33377,7 @@ define linkonce_odr hidden noundef i64 @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
   %31 = sdiv exact i64 %30, 24
   %32 = add nsw i64 %31, -1
   %.not.i = icmp eq i64 %18, %32
-  br i1 %.not.i, label %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIvESaISt4pairIKjmEEE12move_and_popEm.exit, label %33
+  br i1 %.not.i, label %49, label %33
 
 33:                                               ; preds = %24
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -33408,16 +33408,16 @@ define linkonce_odr hidden noundef i64 @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %33
   %.0.lcssa.i = phi ptr [ %40, %33 ], [ %47, %.lr.ph.i ]
   store i64 %18, ptr %.0.lcssa.i, align 8, !tbaa !87
-  br label %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIvESaISt4pairIKjmEEE12move_and_popEm.exit
+  br label %49
 
-_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIvESaISt4pairIKjmEEE12move_and_popEm.exit: ; preds = %24, %._crit_edge.i
-  %49 = getelementptr inbounds i8, ptr %27, i64 -24
-  store ptr %49, ptr %26, align 8, !tbaa !478
+49:                                               ; preds = %._crit_edge.i, %24
+  %50 = getelementptr inbounds i8, ptr %27, i64 -24
+  store ptr %50, ptr %26, align 8, !tbaa !478
   br label %.loopexit
 
-.loopexit:                                        ; preds = %17, %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIvESaISt4pairIKjmEEE12move_and_popEm.exit
-  %spec.select = zext i1 %.not.not.not.not.not.not to i64
-  ret i64 %spec.select
+.loopexit:                                        ; preds = %17, %49
+  %51 = phi i64 [ 1, %49 ], [ 0, %17 ]
+  ret i64 %51
 }
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr

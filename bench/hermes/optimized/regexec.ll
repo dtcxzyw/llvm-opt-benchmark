@@ -331,7 +331,7 @@ land.lhs.true102.i.i:                             ; preds = %lor.lhs.false99.i.i
 
 if.end114.i.i:                                    ; preds = %land.lhs.true102.i.i, %lor.lhs.false99.i.i, %land.lhs.true85.i.i, %if.end82.i.i
   %flagch.3.i.i = phi i32 [ %flagch.290.i.i, %land.lhs.true102.i.i ], [ %flagch.290.i.i, %lor.lhs.false99.i.i ], [ %flagch.290.i.i, %land.lhs.true85.i.i ], [ %flagch.2.i.i, %if.end82.i.i ]
-  %33 = icmp samesign ugt i32 %flagch.3.i.i, 132
+  %33 = icmp eq i32 %flagch.3.i.i, 133
   br i1 %33, label %if.then120.i.i, label %if.end123.i.i
 
 if.then120.i.i:                                   ; preds = %if.end114.i.i, %land.lhs.true102.i.i, %land.lhs.true96.i.i
@@ -910,7 +910,7 @@ land.lhs.true109.i.i:                             ; preds = %lor.lhs.false106.i.
 
 if.end121.i.i:                                    ; preds = %land.lhs.true109.i.i, %lor.lhs.false106.i.i, %land.lhs.true92.i.i, %if.end89.i.i
   %flagch.3.i.i69 = phi i32 [ %flagch.299.i.i, %land.lhs.true109.i.i ], [ %flagch.299.i.i, %lor.lhs.false106.i.i ], [ %flagch.299.i.i, %land.lhs.true92.i.i ], [ %flagch.2.i.i86, %if.end89.i.i ]
-  %101 = icmp samesign ugt i32 %flagch.3.i.i69, 132
+  %101 = icmp eq i32 %flagch.3.i.i69, 133
   br i1 %101, label %if.then127.i.i, label %if.end130.i.i
 
 if.then127.i.i:                                   ; preds = %if.end121.i.i, %land.lhs.true109.i.i, %land.lhs.true103.i.i
@@ -1379,7 +1379,7 @@ land.lhs.true98:                                  ; preds = %lor.lhs.false95
 
 if.end110:                                        ; preds = %land.lhs.true81, %land.lhs.true98, %lor.lhs.false95, %if.end78
   %flagch.3 = phi i32 [ %flagch.285, %land.lhs.true98 ], [ %flagch.285, %lor.lhs.false95 ], [ %flagch.285, %land.lhs.true81 ], [ %flagch.2, %if.end78 ]
-  %23 = icmp samesign ugt i32 %flagch.3, 132
+  %23 = icmp eq i32 %flagch.3, 133
   br i1 %23, label %if.then116, label %if.end119
 
 if.then116:                                       ; preds = %land.lhs.true98, %land.lhs.true92, %if.end110
@@ -2599,7 +2599,7 @@ land.lhs.true100:                                 ; preds = %lor.lhs.false97
 
 if.end112:                                        ; preds = %land.lhs.true83, %land.lhs.true100, %lor.lhs.false97, %if.end80
   %flagch.3 = phi i32 [ %flagch.292, %land.lhs.true100 ], [ %flagch.292, %lor.lhs.false97 ], [ %flagch.292, %land.lhs.true83 ], [ %flagch.2, %if.end80 ]
-  %32 = icmp samesign ugt i32 %flagch.3, 132
+  %32 = icmp eq i32 %flagch.3, 133
   br i1 %32, label %if.then118, label %if.end121
 
 if.then118:                                       ; preds = %land.lhs.true100, %land.lhs.true94, %if.end112

@@ -49414,7 +49414,7 @@ define void @_ZN9polars_io5utils4file17try_get_writeable17h8a67a321540dca3bE(ptr
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %12, i64 64, i1 false)
-  br label %51
+  br label %52
 
 13:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -49480,8 +49480,8 @@ default.unreachable:                              ; preds = %13
 
 .body.i:                                          ; preds = %39, %31, %27
   %eh.lpad-body.i = phi { ptr, i32 } [ %32, %31 ], [ %28, %27 ], [ %40, %39 ]
-  %.not9.i = icmp eq i64 %14, 3
-  br i1 %.not9.i, label %45, label %46
+  %.not.i = icmp eq i64 %14, 3
+  br i1 %.not.i, label %46, label %47
 
 33:                                               ; preds = %17
   unreachable
@@ -49496,9 +49496,9 @@ default.unreachable:                              ; preds = %13
 
 38:                                               ; preds = %34
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h5f7bf8e66d463adeE(i64 noundef 4, i64 noundef 4) #32
-          to label %.noexc6.i unwind label %39, !noalias !5460
+          to label %.noexc4.i unwind label %39, !noalias !5460
 
-.noexc6.i:                                        ; preds = %38
+.noexc4.i:                                        ; preds = %38
   unreachable
 
 39:                                               ; preds = %38
@@ -49521,37 +49521,37 @@ default.unreachable:                              ; preds = %13
 43:                                               ; preds = %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1201e89d338e13cfE.exit.i", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h94ea24f4fa56753fE.exit.i"
   %.sroa.3.0.i = phi ptr [ @anon.4f7a5d3048e73285a2d35613024ab1ab.397, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1201e89d338e13cfE.exit.i" ], [ @anon.4f7a5d3048e73285a2d35613024ab1ab.398, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h94ea24f4fa56753fE.exit.i" ]
   %.sroa.0.0.i = phi ptr [ %36, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h1201e89d338e13cfE.exit.i" ], [ %24, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h94ea24f4fa56753fE.exit.i" ]
-  %.not.i = icmp eq i64 %14, 3
-  br i1 %.not.i, label %44, label %"_ZN9polars_io5utils4file17try_get_writeable28_$u7b$$u7b$closure$u7d$$u7d$17h3c3a9d7703b72268E.exit"
+  %44 = icmp eq i64 %14, 3
+  br i1 %44, label %45, label %"_ZN9polars_io5utils4file17try_get_writeable28_$u7b$$u7b$closure$u7d$$u7d$17h3c3a9d7703b72268E.exit"
 
-44:                                               ; preds = %43
+45:                                               ; preds = %43
   call fastcc void @"_ZN4core3ptr54drop_in_place$LT$polars_io..utils..file..Writeable$GT$17hbdcabe0eb154abf3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %7)
   br label %"_ZN9polars_io5utils4file17try_get_writeable28_$u7b$$u7b$closure$u7d$$u7d$17h3c3a9d7703b72268E.exit"
 
-45:                                               ; preds = %.body.i
+46:                                               ; preds = %.body.i
   invoke fastcc void @"_ZN4core3ptr54drop_in_place$LT$polars_io..utils..file..Writeable$GT$17hbdcabe0eb154abf3E"(ptr noalias noundef nonnull align 8 dereferenceable(224) %7) #31
-          to label %46 unwind label %47
+          to label %47 unwind label %48
 
-46:                                               ; preds = %45, %.body.i
+47:                                               ; preds = %46, %.body.i
   resume { ptr, i32 } %eh.lpad-body.i
 
-47:                                               ; preds = %45
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %46
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #30
   unreachable
 
-"_ZN9polars_io5utils4file17try_get_writeable28_$u7b$$u7b$closure$u7d$$u7d$17h3c3a9d7703b72268E.exit": ; preds = %43, %44
+"_ZN9polars_io5utils4file17try_get_writeable28_$u7b$$u7b$closure$u7d$$u7d$17h3c3a9d7703b72268E.exit": ; preds = %43, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.0.i, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.3.0.i, ptr %50, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sroa.0.0.i, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sroa.3.0.i, ptr %51, align 8
   store i64 17, ptr %0, align 8
-  br label %51
+  br label %52
 
-51:                                               ; preds = %"_ZN9polars_io5utils4file17try_get_writeable28_$u7b$$u7b$closure$u7d$$u7d$17h3c3a9d7703b72268E.exit", %11
+52:                                               ; preds = %"_ZN9polars_io5utils4file17try_get_writeable28_$u7b$$u7b$closure$u7d$$u7d$17h3c3a9d7703b72268E.exit", %11
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 }

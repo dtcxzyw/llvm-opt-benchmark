@@ -4518,11 +4518,11 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
   br label %124
 
 124:                                              ; preds = %.thread47, %114
-  %125 = phi i64 [ %3, %114 ], [ %324, %.thread47 ]
-  %126 = phi i64 [ 0, %114 ], [ %325, %.thread47 ]
-  %127 = phi i64 [ 0, %114 ], [ %326, %.thread47 ]
-  %128 = phi i32 [ %79, %114 ], [ %327, %.thread47 ]
-  %129 = phi i64 [ %115, %114 ], [ %328, %.thread47 ]
+  %125 = phi i64 [ %3, %114 ], [ %325, %.thread47 ]
+  %126 = phi i64 [ 0, %114 ], [ %326, %.thread47 ]
+  %127 = phi i64 [ 0, %114 ], [ %327, %.thread47 ]
+  %128 = phi i32 [ %79, %114 ], [ %328, %.thread47 ]
+  %129 = phi i64 [ %115, %114 ], [ %329, %.thread47 ]
   %.fr57 = freeze i64 %126
   %130 = icmp eq i64 %129, 0
   br i1 %130, label %131, label %241
@@ -4848,73 +4848,73 @@ define dso_local i64 @__snd_pcm_lib_xfer(ptr noundef %0, ptr noundef %1, i1 noun
 
 322:                                              ; preds = %303
   %323 = call i32 @snd_pcm_start(ptr noundef nonnull %0) #20
-  %switch = icmp sgt i32 %323, -1
-  br i1 %switch, label %.thread47, label %.thread40.loopexit
+  %324 = icmp sgt i32 %323, -1
+  br i1 %324, label %.thread47, label %.thread40.loopexit
 
 .thread47:                                        ; preds = %322, %295, %300, %303, %239
-  %324 = phi i64 [ %297, %322 ], [ %297, %295 ], [ %297, %300 ], [ %297, %303 ], [ %125, %239 ]
-  %325 = phi i64 [ %298, %322 ], [ %298, %295 ], [ %298, %300 ], [ %298, %303 ], [ %.fr57, %239 ]
-  %326 = phi i64 [ %296, %322 ], [ %296, %295 ], [ %296, %300 ], [ %296, %303 ], [ %127, %239 ]
-  %327 = phi i32 [ %323, %322 ], [ 0, %295 ], [ 0, %300 ], [ 0, %303 ], [ 0, %239 ]
-  %328 = phi i64 [ %299, %322 ], [ %299, %295 ], [ %299, %300 ], [ %299, %303 ], [ 0, %239 ]
-  %329 = icmp eq i64 %324, 0
-  br i1 %329, label %.thread40.loopexit, label %124, !llvm.loop !38
+  %325 = phi i64 [ %297, %322 ], [ %297, %295 ], [ %297, %300 ], [ %297, %303 ], [ %125, %239 ]
+  %326 = phi i64 [ %298, %322 ], [ %298, %295 ], [ %298, %300 ], [ %298, %303 ], [ %.fr57, %239 ]
+  %327 = phi i64 [ %296, %322 ], [ %296, %295 ], [ %296, %300 ], [ %296, %303 ], [ %127, %239 ]
+  %328 = phi i32 [ %323, %322 ], [ 0, %295 ], [ 0, %300 ], [ 0, %303 ], [ 0, %239 ]
+  %329 = phi i64 [ %299, %322 ], [ %299, %295 ], [ %299, %300 ], [ %299, %303 ], [ 0, %239 ]
+  %330 = icmp eq i64 %325, 0
+  br i1 %330, label %.thread40.loopexit, label %124, !llvm.loop !38
 
 .thread51:                                        ; preds = %49, %55, %56, %75
   %.ph49 = phi i32 [ %76, %75 ], [ -86, %55 ], [ -77, %56 ], [ -32, %49 ]
-  %330 = getelementptr inbounds nuw i8, ptr %8, i64 280
-  store i64 0, ptr %330, align 8
+  %331 = getelementptr inbounds nuw i8, ptr %8, i64 280
+  store i64 0, ptr %331, align 8
   tail call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %0) #20
-  %331 = sext i32 %.ph49 to i64
+  %332 = sext i32 %.ph49 to i64
   br label %select.unfold
 
 .thread40.thread.loopexit100:                     ; preds = %285, %241, %.critedge, %282, %287, %137
   %.ph54.ph = phi i32 [ %236, %.critedge ], [ %283, %282 ], [ %293, %287 ], [ -11, %137 ], [ -16, %241 ], [ -86, %285 ]
-  %332 = sext i32 %.ph54.ph to i64
+  %333 = sext i32 %.ph54.ph to i64
   br label %.thread40.thread
 
 .thread40.thread.loopexit190:                     ; preds = %285
   br label %.thread40.thread
 
 .thread40.thread:                                 ; preds = %258, %285, %.thread40.thread.loopexit190, %.thread40.thread.loopexit100
-  %.ph54 = phi i64 [ %332, %.thread40.thread.loopexit100 ], [ -77, %.thread40.thread.loopexit190 ], [ -32, %285 ], [ -16, %258 ]
+  %.ph54 = phi i64 [ %333, %.thread40.thread.loopexit100 ], [ -77, %.thread40.thread.loopexit190 ], [ -32, %285 ], [ -16, %258 ]
   store i64 0, ptr %63, align 8
   %.not = icmp eq i64 %.fr57, 0
   call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %0) #20
-  br i1 %.not, label %select.unfold, label %342
+  br i1 %.not, label %select.unfold, label %343
 
 .thread40.loopexit:                               ; preds = %.thread47, %322
-  %.ph101 = phi i32 [ %323, %322 ], [ %327, %.thread47 ]
-  %.ph102 = phi i64 [ %298, %322 ], [ %325, %.thread47 ]
-  %333 = freeze i64 %.ph102
+  %.ph101 = phi i32 [ %323, %322 ], [ %328, %.thread47 ]
+  %.ph102 = phi i64 [ %298, %322 ], [ %326, %.thread47 ]
+  %334 = freeze i64 %.ph102
   br label %.thread40
 
 .thread40:                                        ; preds = %.thread40.loopexit, %135
-  %334 = phi i32 [ %128, %135 ], [ %.ph101, %.thread40.loopexit ]
-  %.fr = phi i64 [ %.fr57, %135 ], [ %333, %.thread40.loopexit ]
+  %335 = phi i32 [ %128, %135 ], [ %.ph101, %.thread40.loopexit ]
+  %.fr = phi i64 [ %.fr57, %135 ], [ %334, %.thread40.loopexit ]
   store i64 0, ptr %63, align 8
-  %335 = icmp ne i64 %.fr, 0
-  %336 = icmp sgt i32 %334, -1
-  %337 = and i1 %336, %335
-  br i1 %337, label %338, label %340
+  %336 = icmp ne i64 %.fr, 0
+  %337 = icmp sgt i32 %335, -1
+  %338 = and i1 %337, %336
+  br i1 %338, label %339, label %341
 
-338:                                              ; preds = %.thread40
-  %339 = call i32 @snd_pcm_update_state(ptr noundef nonnull %0, ptr noundef %8), !range !12
+339:                                              ; preds = %.thread40
+  %340 = call i32 @snd_pcm_update_state(ptr noundef nonnull %0, ptr noundef %8), !range !12
   call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %0) #20
-  br label %342
+  br label %343
 
-340:                                              ; preds = %.thread40
+341:                                              ; preds = %.thread40
   call void @snd_pcm_stream_unlock_irq(ptr noundef nonnull %0) #20
-  %341 = sext i32 %334 to i64
-  br i1 %335, label %342, label %select.unfold
+  %342 = sext i32 %335 to i64
+  br i1 %336, label %343, label %select.unfold
 
-342:                                              ; preds = %.thread40.thread, %338, %340
-  %343 = phi i64 [ %.fr, %338 ], [ %.fr, %340 ], [ %.fr57, %.thread40.thread ]
+343:                                              ; preds = %.thread40.thread, %339, %341
+  %344 = phi i64 [ %.fr, %339 ], [ %.fr, %341 ], [ %.fr57, %.thread40.thread ]
   br label %select.unfold
 
-select.unfold:                                    ; preds = %5, %18, %22, %.thread40.thread, %342, %340, %.thread51, %46, %42, %37, %33
-  %344 = phi i64 [ -22, %33 ], [ -22, %37 ], [ -22, %42 ], [ 0, %46 ], [ %343, %342 ], [ %341, %340 ], [ %331, %.thread51 ], [ %.ph54, %.thread40.thread ], [ -6, %5 ], [ -22, %18 ], [ -77, %22 ]
-  ret i64 %344
+select.unfold:                                    ; preds = %5, %18, %22, %.thread40.thread, %343, %341, %.thread51, %46, %42, %37, %33
+  %345 = phi i64 [ -22, %33 ], [ -22, %37 ], [ -22, %42 ], [ 0, %46 ], [ %344, %343 ], [ %342, %341 ], [ %332, %.thread51 ], [ %.ph54, %.thread40.thread ], [ -6, %5 ], [ -22, %18 ], [ -77, %22 ]
+  ret i64 %345
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

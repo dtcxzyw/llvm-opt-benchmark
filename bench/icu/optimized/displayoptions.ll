@@ -138,7 +138,7 @@ define ptr @udispopt_getGrammaticalCaseIdentifier_77(i32 noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @udispopt_fromGrammaticalCaseIdentifier_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define range(i32 0, 15) i32 @udispopt_fromGrammaticalCaseIdentifier_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -147,20 +147,20 @@ define i32 @udispopt_fromGrammaticalCaseIdentifier_77(ptr noundef readonly captu
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #7
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.split.loop.exit, label %7
+  br i1 %6, label %.split.loop.exit11, label %7
 
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 15
-  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !31
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 15
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !31
 
-.split.loop.exit:                                 ; preds = %2
+.split.loop.exit11:                               ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit10
+  br label %.split.loop.exit
 
-.split.loop.exit10:                               ; preds = %7, %.split.loop.exit
-  %spec.select = phi i32 [ %8, %.split.loop.exit ], [ 0, %7 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %7, %.split.loop.exit11
+  %9 = phi i32 [ %8, %.split.loop.exit11 ], [ 0, %7 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: read)
@@ -183,7 +183,7 @@ define ptr @udispopt_getPluralCategoryIdentifier_77(i32 noundef %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @udispopt_fromPluralCategoryIdentifier_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define range(i32 0, 7) i32 @udispopt_fromPluralCategoryIdentifier_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -192,20 +192,20 @@ define i32 @udispopt_fromPluralCategoryIdentifier_77(ptr noundef readonly captur
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #7
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.split.loop.exit, label %7
+  br i1 %6, label %.split.loop.exit11, label %7
 
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !33
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !33
 
-.split.loop.exit:                                 ; preds = %2
+.split.loop.exit11:                               ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit10
+  br label %.split.loop.exit
 
-.split.loop.exit10:                               ; preds = %7, %.split.loop.exit
-  %spec.select = phi i32 [ %8, %.split.loop.exit ], [ 0, %7 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %7, %.split.loop.exit11
+  %9 = phi i32 [ %8, %.split.loop.exit11 ], [ 0, %7 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -225,7 +225,7 @@ define ptr @udispopt_getNounClassIdentifier_77(i32 noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @udispopt_fromNounClassIdentifier_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+define range(i32 0, 9) i32 @udispopt_fromNounClassIdentifier_77(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %1, %7
@@ -234,20 +234,20 @@ define i32 @udispopt_fromNounClassIdentifier_77(ptr noundef readonly captures(no
   %4 = load ptr, ptr %3, align 8, !tbaa !28
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %4) #7
   %6 = icmp eq i32 %5, 0
-  br i1 %6, label %.split.loop.exit, label %7
+  br i1 %6, label %.split.loop.exit11, label %7
 
 7:                                                ; preds = %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond, label %.split.loop.exit10, label %2, !llvm.loop !34
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 9
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !34
 
-.split.loop.exit:                                 ; preds = %2
+.split.loop.exit11:                               ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit10
+  br label %.split.loop.exit
 
-.split.loop.exit10:                               ; preds = %7, %.split.loop.exit
-  %spec.select = phi i32 [ %8, %.split.loop.exit ], [ 0, %7 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %7, %.split.loop.exit11
+  %9 = phi i32 [ %8, %.split.loop.exit11 ], [ 0, %7 ]
+  ret i32 %9
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)

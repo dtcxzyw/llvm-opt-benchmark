@@ -692,7 +692,7 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone captures(address) 
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   %10 = icmp eq ptr %1, %9
-  br i1 %10, label %11, label %59
+  br i1 %10, label %11, label %61
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 104
@@ -723,153 +723,153 @@ define void @gui_changed(ptr noundef %0, ptr noundef readnone captures(address) 
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 480
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 484
   %33 = load i32, ptr %32, align 4, !tbaa !6
-  %.not13.i = icmp slt i32 %33, 1
-  br i1 %.not13.i, label %.loopexit, label %.lr.ph.preheader.i
+  %34 = icmp sgt i32 %33, 0
+  br i1 %34, label %.lr.ph.preheader.i, label %.loopexit
 
 .lr.ph.preheader.i:                               ; preds = %29
   %wide.trip.count.i = zext nneg i32 %33 to i64
   br label %.lr.ph.i
 
-34:                                               ; preds = %.lr.ph.i
+35:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %34, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %34 ]
-  %35 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %30, i64 %indvars.iv.i
-  %36 = load float, ptr %35, align 4, !tbaa !15
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
-  %38 = load float, ptr %37, align 4, !tbaa !17
-  %39 = fcmp reassoc nsz arcp contract afn une float %36, %38
-  br i1 %39, label %.critedge, label %34
+.lr.ph.i:                                         ; preds = %35, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %35 ]
+  %36 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %30, i64 %indvars.iv.i
+  %37 = load float, ptr %36, align 4, !tbaa !15
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %39 = load float, ptr %38, align 4, !tbaa !17
+  %40 = fcmp reassoc nsz arcp contract afn une float %37, %39
+  br i1 %40, label %.critedge, label %35
 
-.loopexit:                                        ; preds = %34, %29
-  %40 = getelementptr inbounds nuw i8, ptr %7, i64 320
-  %41 = getelementptr inbounds nuw i8, ptr %7, i64 488
-  %42 = load i32, ptr %41, align 4, !tbaa !6
-  %.not13.i75 = icmp slt i32 %42, 1
-  br i1 %.not13.i75, label %_is_identity.exit83.preheader, label %.lr.ph.preheader.i76
+.loopexit:                                        ; preds = %35, %29
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 320
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 488
+  %43 = load i32, ptr %42, align 4, !tbaa !6
+  %44 = icmp sgt i32 %43, 0
+  br i1 %44, label %.lr.ph.preheader.i75, label %_is_identity.exit81.preheader
 
-_is_identity.exit83.preheader:                    ; preds = %43, %.loopexit
-  br label %_is_identity.exit83
+_is_identity.exit81.preheader:                    ; preds = %45, %.loopexit
+  br label %_is_identity.exit81
 
-.lr.ph.preheader.i76:                             ; preds = %.loopexit
-  %wide.trip.count.i77 = zext nneg i32 %42 to i64
-  br label %.lr.ph.i78
+.lr.ph.preheader.i75:                             ; preds = %.loopexit
+  %wide.trip.count.i76 = zext nneg i32 %43 to i64
+  br label %.lr.ph.i77
 
-43:                                               ; preds = %.lr.ph.i78
-  %indvars.iv.next.i80 = add nuw nsw i64 %indvars.iv.i79, 1
-  %exitcond.not.i81 = icmp eq i64 %indvars.iv.next.i80, %wide.trip.count.i77
-  br i1 %exitcond.not.i81, label %_is_identity.exit83.preheader, label %.lr.ph.i78
+45:                                               ; preds = %.lr.ph.i77
+  %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
+  %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %wide.trip.count.i76
+  br i1 %exitcond.not.i80, label %_is_identity.exit81.preheader, label %.lr.ph.i77
 
-.lr.ph.i78:                                       ; preds = %43, %.lr.ph.preheader.i76
-  %indvars.iv.i79 = phi i64 [ 0, %.lr.ph.preheader.i76 ], [ %indvars.iv.next.i80, %43 ]
-  %44 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %40, i64 %indvars.iv.i79
-  %45 = load float, ptr %44, align 4, !tbaa !15
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  %47 = load float, ptr %46, align 4, !tbaa !17
-  %48 = fcmp reassoc nsz arcp contract afn une float %45, %47
-  br i1 %48, label %.critedge, label %43
+.lr.ph.i77:                                       ; preds = %45, %.lr.ph.preheader.i75
+  %indvars.iv.i78 = phi i64 [ 0, %.lr.ph.preheader.i75 ], [ %indvars.iv.next.i79, %45 ]
+  %46 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %41, i64 %indvars.iv.i78
+  %47 = load float, ptr %46, align 4, !tbaa !15
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  %49 = load float, ptr %48, align 4, !tbaa !17
+  %50 = fcmp reassoc nsz arcp contract afn une float %47, %49
+  br i1 %50, label %.critedge, label %45
 
-49:                                               ; preds = %_is_identity.exit83
-  %50 = load i32, ptr %31, align 4, !tbaa !6
-  store i32 %50, ptr %41, align 4, !tbaa !6
-  store i32 %50, ptr %32, align 4, !tbaa !6
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 492
-  %52 = load i32, ptr %51, align 4, !tbaa !6
-  %53 = getelementptr inbounds nuw i8, ptr %7, i64 500
-  store i32 %52, ptr %53, align 4, !tbaa !6
-  %54 = getelementptr inbounds nuw i8, ptr %7, i64 496
-  store i32 %52, ptr %54, align 4, !tbaa !6
+51:                                               ; preds = %_is_identity.exit81
+  %52 = load i32, ptr %31, align 4, !tbaa !6
+  store i32 %52, ptr %42, align 4, !tbaa !6
+  store i32 %52, ptr %32, align 4, !tbaa !6
+  %53 = getelementptr inbounds nuw i8, ptr %7, i64 492
+  %54 = load i32, ptr %53, align 4, !tbaa !6
+  %55 = getelementptr inbounds nuw i8, ptr %7, i64 500
+  store i32 %54, ptr %55, align 4, !tbaa !6
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 496
+  store i32 %54, ptr %56, align 4, !tbaa !6
   br label %.critedge
 
-_is_identity.exit83:                              ; preds = %_is_identity.exit83.preheader, %_is_identity.exit83
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %_is_identity.exit83 ], [ 0, %_is_identity.exit83.preheader ]
-  %55 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %30, i64 %indvars.iv105
-  %56 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %40, i64 %indvars.iv105
-  %57 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %7, i64 %indvars.iv105
-  %58 = load i64, ptr %57, align 4
-  store i64 %58, ptr %56, align 4
-  store i64 %58, ptr %55, align 4
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next106, 20
-  br i1 %exitcond108.not, label %49, label %_is_identity.exit83
+_is_identity.exit81:                              ; preds = %_is_identity.exit81.preheader, %_is_identity.exit81
+  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %_is_identity.exit81 ], [ 0, %_is_identity.exit81.preheader ]
+  %57 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %30, i64 %indvars.iv101
+  %58 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %41, i64 %indvars.iv101
+  %59 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %7, i64 %indvars.iv101
+  %60 = load i64, ptr %59, align 4
+  store i64 %60, ptr %58, align 4
+  store i64 %60, ptr %57, align 4
+  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
+  %exitcond104.not = icmp eq i64 %indvars.iv.next102, 20
+  br i1 %exitcond104.not, label %51, label %_is_identity.exit81
 
-59:                                               ; preds = %3
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 3208
-  %61 = load ptr, ptr %60, align 8, !tbaa !52
-  %62 = icmp eq ptr %1, %61
-  br i1 %62, label %63, label %.critedge
+61:                                               ; preds = %3
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 3208
+  %63 = load ptr, ptr %62, align 8, !tbaa !52
+  %64 = icmp eq ptr %1, %63
+  br i1 %64, label %65, label %.critedge
 
-63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 664
-  %65 = load ptr, ptr %64, align 8, !tbaa !53
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 2056
-  %67 = load ptr, ptr %66, align 8, !tbaa !54
-  %68 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef nonnull %0, ptr noundef %67) #25
-  %.not72 = icmp eq ptr %68, null
-  br i1 %.not72, label %.critedge, label %.preheader89
+65:                                               ; preds = %61
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 664
+  %67 = load ptr, ptr %66, align 8, !tbaa !53
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 2056
+  %69 = load ptr, ptr %68, align 8, !tbaa !54
+  %70 = tail call ptr @dt_ioppr_get_iop_work_profile_info(ptr noundef nonnull %0, ptr noundef %69) #25
+  %.not72 = icmp eq ptr %70, null
+  br i1 %.not72, label %.critedge, label %.preheader85
 
-.preheader89:                                     ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %7, i64 480
-  %70 = getelementptr inbounds nuw i8, ptr %7, i64 508
+.preheader85:                                     ; preds = %65
+  %71 = getelementptr inbounds nuw i8, ptr %7, i64 480
+  %72 = getelementptr inbounds nuw i8, ptr %7, i64 508
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader89, %._crit_edge
-  %indvars.iv101 = phi i64 [ 0, %.preheader89 ], [ %indvars.iv.next102, %._crit_edge ]
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv101
-  %72 = load i32, ptr %71, align 4, !tbaa !6
-  %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph, label %._crit_edge
+.preheader:                                       ; preds = %.preheader85, %._crit_edge
+  %indvars.iv97 = phi i64 [ 0, %.preheader85 ], [ %indvars.iv.next98, %._crit_edge ]
+  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv97
+  %74 = load i32, ptr %73, align 4, !tbaa !6
+  %75 = icmp sgt i32 %74, 0
+  br i1 %75, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %74 = load i32, ptr %70, align 4, !tbaa !10
-  %.not = icmp eq i32 %74, 0
-  %75 = getelementptr inbounds nuw [20 x %struct.dt_iop_rgbcurve_node_t], ptr %7, i64 %indvars.iv101
-  %wide.trip.count99 = zext nneg i32 %72 to i64
+  %76 = load i32, ptr %72, align 4, !tbaa !10
+  %.not = icmp eq i32 %76, 0
+  %77 = getelementptr inbounds nuw [20 x %struct.dt_iop_rgbcurve_node_t], ptr %7, i64 %indvars.iv97
+  %wide.trip.count95 = zext nneg i32 %74 to i64
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %76 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %75, i64 %indvars.iv96
-  %77 = load float, ptr %76, align 4, !tbaa !15
-  %78 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_uncompensate_middle_grey(float noundef %77, ptr noundef %68)
-  store float %78, ptr %76, align 4, !tbaa !15
-  %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
-  %80 = load float, ptr %79, align 4, !tbaa !17
-  %81 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_uncompensate_middle_grey(float noundef %80, ptr noundef %68)
-  store float %81, ptr %79, align 4, !tbaa !17
-  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
-  br i1 %exitcond100.not, label %._crit_edge, label %.lr.ph.split.us
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %78 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %77, i64 %indvars.iv92
+  %79 = load float, ptr %78, align 4, !tbaa !15
+  %80 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_uncompensate_middle_grey(float noundef %79, ptr noundef %70)
+  store float %80, ptr %78, align 4, !tbaa !15
+  %81 = getelementptr inbounds nuw i8, ptr %78, i64 4
+  %82 = load float, ptr %81, align 4, !tbaa !17
+  %83 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_uncompensate_middle_grey(float noundef %82, ptr noundef %70)
+  store float %83, ptr %81, align 4, !tbaa !17
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
+  br i1 %exitcond96.not, label %._crit_edge, label %.lr.ph.split.us
 
-82:                                               ; preds = %._crit_edge
-  %83 = load i32, ptr %70, align 4, !tbaa !10
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 660
-  store i32 %83, ptr %84, align 4, !tbaa !82
+84:                                               ; preds = %._crit_edge
+  %85 = load i32, ptr %72, align 4, !tbaa !10
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 660
+  store i32 %85, ptr %86, align 4, !tbaa !82
   br label %.critedge
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %.preheader
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next102, 3
-  br i1 %exitcond104.not, label %82, label %.preheader
+  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
+  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 3
+  br i1 %exitcond100.not, label %84, label %.preheader
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %85 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %75, i64 %indvars.iv
-  %86 = load float, ptr %85, align 4, !tbaa !15
-  %87 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_compensate_middle_grey(float noundef %86, ptr noundef %68)
-  store float %87, ptr %85, align 4, !tbaa !15
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 4
-  %89 = load float, ptr %88, align 4, !tbaa !17
-  %90 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_compensate_middle_grey(float noundef %89, ptr noundef %68)
-  store float %90, ptr %88, align 4, !tbaa !17
+  %87 = getelementptr inbounds nuw %struct.dt_iop_rgbcurve_node_t, ptr %77, i64 %indvars.iv
+  %88 = load float, ptr %87, align 4, !tbaa !15
+  %89 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_compensate_middle_grey(float noundef %88, ptr noundef %70)
+  store float %89, ptr %87, align 4, !tbaa !15
+  %90 = getelementptr inbounds nuw i8, ptr %87, i64 4
+  %91 = load float, ptr %90, align 4, !tbaa !17
+  %92 = tail call reassoc nsz arcp contract afn fastcc float @dt_ioppr_compensate_middle_grey(float noundef %91, ptr noundef %70)
+  store float %92, ptr %90, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count99
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count95
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split
 
-.critedge:                                        ; preds = %.lr.ph.i, %.lr.ph.i78, %82, %63, %49, %11, %59
+.critedge:                                        ; preds = %.lr.ph.i, %.lr.ph.i77, %84, %65, %51, %11, %61
   ret void
 }
 

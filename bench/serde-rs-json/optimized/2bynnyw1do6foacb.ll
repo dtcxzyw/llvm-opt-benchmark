@@ -207,18 +207,16 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
   br label %8
 
 6:                                                ; preds = %2
-  %7 = add i128 %1, 9223372036854775808
-  %or.cond1 = icmp ult i128 %7, 18446744073709551616
-  br i1 %or.cond1, label %9, label %10
+  %7 = icmp ugt i128 %1, -9223372036854775809
+  br i1 %7, label %9, label %10
 
 8:                                                ; preds = %10, %9, %5
   ret void
 
 9:                                                ; preds = %6
-  %.lobit = lshr i64 %4, 63
   store i8 2, ptr %0, align 8
   %.sroa.48.sroa.3.0..sroa.48.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.lobit, ptr %.sroa.48.sroa.3.0..sroa.48.0..sroa_idx.sroa_idx, align 8
+  store i64 1, ptr %.sroa.48.sroa.3.0..sroa.48.0..sroa_idx.sroa_idx, align 8
   %.sroa.48.sroa.4.0..sroa.48.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %4, ptr %.sroa.48.sroa.4.0..sroa.48.0..sroa_idx.sroa_idx, align 8
   br label %8
@@ -281,14 +279,14 @@ define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser
 
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN77_$LT$serde_json..value..ser..Serializer$u20$as$u20$serde..ser..Serializer$GT$13serialize_seq17ha8c3e653e77d090eE"(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, i64 noundef %1, i64 %2) unnamed_addr #3 {
-  %switch = icmp eq i64 %1, 0
-  %. = select i1 %switch, i64 0, i64 %2
-  %4 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb83f000fce34cba8E"(i64 noundef %., i1 noundef zeroext false)
-  %5 = extractvalue { i64, ptr } %4, 0
-  %6 = extractvalue { i64, ptr } %4, 1
-  store i64 %5, ptr %0, align 8
+  %4 = icmp eq i64 %1, 0
+  %. = select i1 %4, i64 0, i64 %2
+  %5 = tail call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hb83f000fce34cba8E"(i64 noundef %., i1 noundef zeroext false)
+  %6 = extractvalue { i64, ptr } %5, 0
+  %7 = extractvalue { i64, ptr } %5, 1
+  store i64 %6, ptr %0, align 8
   %.sroa.01.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
+  store ptr %7, ptr %.sroa.01.sroa.4.0..sroa_idx, align 8
   %.sroa.01.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %.sroa.01.sroa.5.0..sroa_idx, align 8
   ret void

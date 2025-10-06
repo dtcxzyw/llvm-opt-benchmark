@@ -151,8 +151,8 @@ define range(i32 0, 2) i32 @grpc_byte_buffer_reader_peek(ptr noundef captures(no
   store i32 %19, ptr %9, align 8, !tbaa !13
   br label %20
 
-20:                                               ; preds = %6, %2, %.thread
-  %.1 = phi i32 [ 1, %.thread ], [ 0, %2 ], [ 0, %6 ]
+20:                                               ; preds = %2, %6, %.thread
+  %.1 = phi i32 [ 1, %.thread ], [ 0, %6 ], [ 0, %2 ]
   ret i32 %.1
 }
 
@@ -194,8 +194,8 @@ define range(i32 0, 2) i32 @grpc_byte_buffer_reader_next(ptr noundef captures(no
   store i32 %24, ptr %9, align 8, !tbaa !13
   br label %25
 
-25:                                               ; preds = %6, %2, %.thread
-  %.1 = phi i32 [ 1, %.thread ], [ 0, %2 ], [ 0, %6 ]
+25:                                               ; preds = %2, %6, %.thread
+  %.1 = phi i32 [ 1, %.thread ], [ 0, %6 ], [ 0, %2 ]
   ret i32 %.1
 }
 
@@ -345,7 +345,7 @@ _ZN9grpc_core11CSliceUnrefERK10grpc_sliceNS_13DebugLocationE.exit: ; preds = %61
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %common.resume
 
-73:                                               ; preds = %.critedge, %34
+73:                                               ; preds = %34, %.critedge
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9grpc_core7ExecCtxE, i64 16), ptr %4, align 8, !tbaa !25
   %74 = load i64, ptr %15, align 8, !tbaa !27
   %75 = or i64 %74, 1

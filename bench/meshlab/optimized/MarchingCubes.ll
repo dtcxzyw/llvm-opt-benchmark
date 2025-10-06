@@ -141,8 +141,8 @@ _ZN6Square15FactorEdgeIndexEiRiS0_.exit:          ; preds = %2, %2
   br i1 %brmerge, label %_ZN6Square9EdgeIndexEii.exit, label %.thread16
 
 _ZN6Square15FactorEdgeIndexEiRiS0_.exit.thread:   ; preds = %2, %2
-  %.not23 = icmp eq i32 %3, 1
-  br i1 %.not23, label %4, label %_ZN6Square9EdgeIndexEii.exit
+  %.not22 = icmp eq i32 %3, 1
+  br i1 %.not22, label %4, label %_ZN6Square9EdgeIndexEii.exit
 
 .thread16:                                        ; preds = %_ZN6Square15FactorEdgeIndexEiRiS0_.exit, %2
   br label %_ZN6Square9EdgeIndexEii.exit
@@ -885,10 +885,9 @@ define noundef i32 @_ZN15MarchingSquares8AddEdgesEPKddP4Edge(ptr noundef readonl
   %17 = or disjoint i8 %.2.i, 8
   %.3.i = select i1 %16, i8 %17, i8 %.2.i
   %18 = zext nneg i8 %.3.i to i64
-  switch i8 %.3.i, label %.preheader36 [
-    i8 15, label %.loopexit
-    i8 0, label %.loopexit
-  ]
+  %.off = add nsw i8 %.3.i, -1
+  %switch = icmp ult i8 %.off, 14
+  br i1 %switch, label %.preheader36, label %.loopexit
 
 .preheader36:                                     ; preds = %3
   %19 = getelementptr inbounds nuw i32, ptr @_ZN15MarchingSquares8edgeMaskE, i64 %18
@@ -1037,8 +1036,8 @@ _ZN15MarchingSquares9SetVertexEiPKdd.exit:        ; preds = %48, %35, %_ZN6Squar
   %73 = trunc nuw i64 %indvars.iv.next50 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader35, %.preheader35, %.loopexit.loopexit, %3, %3
-  %.030 = phi i32 [ 0, %3 ], [ 0, %3 ], [ 0, %.preheader35 ], [ %73, %.loopexit.loopexit ], [ 0, %.preheader35 ]
+.loopexit:                                        ; preds = %.preheader35, %.preheader35, %.loopexit.loopexit, %3
+  %.030 = phi i32 [ 0, %3 ], [ 0, %.preheader35 ], [ %73, %.loopexit.loopexit ], [ 0, %.preheader35 ]
   ret i32 %.030
 }
 
@@ -2630,10 +2629,9 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr noundef re
   %32 = fcmp olt float %31, %1
   %33 = or i8 %.6.i, -128
   %.7.i = select i1 %32, i8 %33, i8 %.6.i
-  switch i8 %.7.i, label %.preheader18.i [
-    i8 -1, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit
-    i8 0, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit
-  ]
+  %.7.i.off = add i8 %.7.i, -1
+  %switch = icmp ult i8 %.7.i.off, -2
+  br i1 %switch, label %.preheader18.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit
 
 .preheader18.i:                                   ; preds = %3
   %34 = zext i8 %.7.i to i64
@@ -2664,8 +2662,8 @@ define noundef i32 @_ZN13MarchingCubes18AddTriangleIndicesEPKffPi(ptr noundef re
   %.not17.i = icmp eq i32 %44, -1
   br i1 %.not17.i, label %_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit, label %.preheader.i, !llvm.loop !34
 
-_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %41, %3, %3
-  %.016.i = phi i32 [ 0, %3 ], [ 0, %3 ], [ %42, %41 ]
+_ZN13MarchingCubes18AddTriangleIndicesEiPi.exit:  ; preds = %41, %3
+  %.016.i = phi i32 [ 0, %3 ], [ %42, %41 ]
   ret i32 %.016.i
 }
 

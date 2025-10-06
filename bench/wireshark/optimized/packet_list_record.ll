@@ -3104,29 +3104,29 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %13 = add i64 %2, 1
   %14 = load i64, ptr %12, align 8
   %15 = icmp eq i64 %13, %14
-  %spec.store.select.i51 = select i1 %15, i64 0, i64 %13
-  %16 = lshr i64 %spec.store.select.i51, 7
-  %17 = and i64 %spec.store.select.i51, 127
+  %spec.store.select.i50 = select i1 %15, i64 0, i64 %13
+  %16 = lshr i64 %spec.store.select.i50, 7
+  %17 = and i64 %spec.store.select.i50, 127
   %18 = load ptr, ptr %6, align 8
   %19 = getelementptr %"struct.QHashPrivate::Span", ptr %18, i64 %16
   %20 = getelementptr i8, ptr %19, i64 %17
   %21 = load i8, ptr %20, align 1
-  %.not52 = icmp eq i8 %21, -1
-  br i1 %.not52, label %._crit_edge, label %.lr.ph55
+  %.not51 = icmp eq i8 %21, -1
+  br i1 %.not51, label %._crit_edge, label %.lr.ph54
 
-.lr.ph55:                                         ; preds = %3
+.lr.ph54:                                         ; preds = %3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %23
 
-23:                                               ; preds = %.lr.ph55, %.loopexit
-  %24 = phi i8 [ %21, %.lr.ph55 ], [ %73, %.loopexit ]
-  %25 = phi ptr [ %19, %.lr.ph55 ], [ %71, %.loopexit ]
-  %26 = phi ptr [ %18, %.lr.ph55 ], [ %70, %.loopexit ]
-  %27 = phi i64 [ %17, %.lr.ph55 ], [ %69, %.loopexit ]
-  %28 = phi i64 [ %16, %.lr.ph55 ], [ %68, %.loopexit ]
-  %spec.store.select.i54 = phi i64 [ %spec.store.select.i51, %.lr.ph55 ], [ %spec.store.select.i, %.loopexit ]
-  %29 = phi i64 [ %14, %.lr.ph55 ], [ %66, %.loopexit ]
-  %.053 = phi i64 [ %2, %.lr.ph55 ], [ %.1, %.loopexit ]
+23:                                               ; preds = %.lr.ph54, %.loopexit
+  %24 = phi i8 [ %21, %.lr.ph54 ], [ %73, %.loopexit ]
+  %25 = phi ptr [ %19, %.lr.ph54 ], [ %71, %.loopexit ]
+  %26 = phi ptr [ %18, %.lr.ph54 ], [ %70, %.loopexit ]
+  %27 = phi i64 [ %17, %.lr.ph54 ], [ %69, %.loopexit ]
+  %28 = phi i64 [ %16, %.lr.ph54 ], [ %68, %.loopexit ]
+  %spec.store.select.i53 = phi i64 [ %spec.store.select.i50, %.lr.ph54 ], [ %spec.store.select.i, %.loopexit ]
+  %29 = phi i64 [ %14, %.lr.ph54 ], [ %66, %.loopexit ]
+  %.052 = phi i64 [ %2, %.lr.ph54 ], [ %.1, %.loopexit ]
   %30 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %31 = load ptr, ptr %30, align 8
   %32 = zext i8 %24 to i64
@@ -3146,17 +3146,17 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %46 = xor i64 %45, %44
   %47 = add i64 %29, -1
   %48 = and i64 %46, %47
-  %49 = icmp eq i64 %48, %spec.store.select.i54
+  %49 = icmp eq i64 %48, %spec.store.select.i53
   br i1 %49, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %61
-  %.03850 = phi i64 [ %spec.store.select.i43, %61 ], [ %48, %23 ]
-  %50 = icmp eq i64 %.03850, %.053
+  %.03849 = phi i64 [ %spec.store.select.i43, %61 ], [ %48, %23 ]
+  %50 = icmp eq i64 %.03849, %.052
   br i1 %50, label %51, label %61
 
 51:                                               ; preds = %.lr.ph
-  %52 = lshr i64 %.053, 7
-  %53 = and i64 %.053, 127
+  %52 = lshr i64 %.052, 7
+  %53 = and i64 %.052, 127
   %54 = icmp eq i64 %28, %52
   br i1 %54, label %55, label %59
 
@@ -3174,15 +3174,15 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
           to label %.loopexit unwind label %97
 
 61:                                               ; preds = %.lr.ph
-  %62 = add i64 %.03850, 1
+  %62 = add i64 %.03849, 1
   %63 = icmp eq i64 %62, %29
   %spec.store.select.i43 = select i1 %63, i64 0, i64 %62
-  %64 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i54
+  %64 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i53
   br i1 %64, label %.loopexit, label %.lr.ph, !llvm.loop !23
 
 .loopexit:                                        ; preds = %61, %23, %59, %55
-  %.1 = phi i64 [ %spec.store.select.i54, %59 ], [ %spec.store.select.i54, %55 ], [ %.053, %23 ], [ %.053, %61 ]
-  %65 = add i64 %spec.store.select.i54, 1
+  %.1 = phi i64 [ %spec.store.select.i53, %59 ], [ %spec.store.select.i53, %55 ], [ %.052, %23 ], [ %.052, %61 ]
+  %65 = add i64 %spec.store.select.i53, 1
   %66 = load i64, ptr %12, align 8
   %67 = icmp eq i64 %65, %66
   %spec.store.select.i = select i1 %67, i64 0, i64 %65
@@ -3206,8 +3206,8 @@ define linkonce_odr { ptr, i64 } @_ZN12QHashPrivate4DataIN6QCacheIj5QListI7QStri
   %79 = getelementptr %"struct.QHashPrivate::Span", ptr %74, i64 %4
   %80 = getelementptr i8, ptr %79, i64 %5
   %81 = load i8, ptr %80, align 1
-  %.not48 = icmp eq i8 %81, -1
-  br i1 %.not48, label %82, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit
+  %.not47 = icmp eq i8 %81, -1
+  br i1 %.not47, label %82, label %_ZN12QHashPrivate8iteratorIN6QCacheIj5QListI7QStringEE4NodeEEppEv.exit
 
 82:                                               ; preds = %78, %._crit_edge
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -232,8 +232,8 @@ _ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit: ; preds = %8, %
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 255
   %20 = icmp eq i32 %19, 14
-  %.not816.i = icmp ne ptr %16, null
-  %.not8.i = and i1 %.not816.i, %20
+  %.not815.i = icmp ne ptr %16, null
+  %.not8.i = and i1 %.not815.i, %20
   br i1 %.not8.i, label %21, label %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit.thread
 
 21:                                               ; preds = %_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE.exit

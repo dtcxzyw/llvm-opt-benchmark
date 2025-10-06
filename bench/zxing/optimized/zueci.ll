@@ -1675,9 +1675,9 @@ switch.early.test:                                ; preds = %2
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.preheader, %79
-  %.05577 = phi i32 [ %.257, %79 ], [ 0, %.preheader.preheader ]
-  %.05876 = phi i32 [ %.260, %79 ], [ 587, %.preheader.preheader ]
-  %52 = add nsw i32 %.05577, %.05876
+  %.05576 = phi i32 [ %.257, %79 ], [ 0, %.preheader.preheader ]
+  %.05875 = phi i32 [ %.260, %79 ], [ 587, %.preheader.preheader ]
+  %52 = add nsw i32 %.05576, %.05875
   %53 = ashr i32 %52, 1
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i16, ptr @zueci_sjis_u_u, i64 %54
@@ -1722,8 +1722,8 @@ switch.early.test:                                ; preds = %2
   br label %zueci_u_lookup_uro.exit
 
 79:                                               ; preds = %59, %63
-  %.260 = phi i32 [ %.05876, %59 ], [ %64, %63 ]
-  %.257 = phi i32 [ %60, %59 ], [ %.05577, %63 ]
+  %.260 = phi i32 [ %.05875, %59 ], [ %64, %63 ]
+  %.257 = phi i32 [ %60, %59 ], [ %.05576, %63 ]
   %.not.not = icmp sgt i32 %.257, %.260
   br i1 %.not.not, label %zueci_u_lookup_uro.exit, label %.preheader, !llvm.loop !18
 
@@ -2250,13 +2250,13 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef 
   %42 = zext i16 %41 to i32
   %43 = tail call i32 @llvm.umin.i32(i32 %42, i32 562)
   %44 = add nuw nsw i32 %43, 255
-  %.not.not46 = icmp samesign ult i32 %44, %42
-  br i1 %.not.not46, label %zueci_u_lookup_uro.exit, label %.lr.ph
+  %.not.not45 = icmp samesign ult i32 %44, %42
+  br i1 %.not.not45, label %zueci_u_lookup_uro.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %58
-  %.03548 = phi i32 [ %.237, %58 ], [ %42, %37 ]
-  %.03847 = phi i32 [ %.240, %58 ], [ %44, %37 ]
-  %45 = add nsw i32 %.03548, %.03847
+  %.03547 = phi i32 [ %.237, %58 ], [ %42, %37 ]
+  %.03846 = phi i32 [ %.240, %58 ], [ %44, %37 ]
+  %45 = add nsw i32 %.03547, %.03846
   %46 = ashr i32 %45, 1
   %47 = sext i32 %46 to i64
   %48 = getelementptr inbounds i16, ptr @zueci_gb2312_u_u, i64 %47
@@ -2278,8 +2278,8 @@ define internal range(i32 0, 3) i32 @zueci_u_gb2312(i32 noundef %0, ptr noundef 
   br label %58
 
 58:                                               ; preds = %52, %56
-  %.240 = phi i32 [ %.03847, %52 ], [ %57, %56 ]
-  %.237 = phi i32 [ %53, %52 ], [ %.03548, %56 ]
+  %.240 = phi i32 [ %.03846, %52 ], [ %57, %56 ]
+  %.237 = phi i32 [ %53, %52 ], [ %.03547, %56 ]
   %.not.not = icmp sgt i32 %.237, %.240
   br i1 %.not.not, label %zueci_u_lookup_uro.exit, label %.lr.ph, !llvm.loop !21
 
@@ -2494,13 +2494,13 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   %45 = zext i16 %44 to i32
   %46 = tail call i32 @llvm.umin.i32(i32 %45, i32 562)
   %47 = add nuw nsw i32 %46, 255
-  %.not.not46.i = icmp samesign ult i32 %47, %45
-  br i1 %.not.not46.i, label %.loopexit, label %.lr.ph.i
+  %.not.not45.i = icmp samesign ult i32 %47, %45
+  br i1 %.not.not45.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %40, %61
-  %.03548.i = phi i32 [ %.237.i, %61 ], [ %45, %40 ]
-  %.03847.i = phi i32 [ %.240.i, %61 ], [ %47, %40 ]
-  %48 = add nsw i32 %.03847.i, %.03548.i
+  %.03547.i = phi i32 [ %.237.i, %61 ], [ %45, %40 ]
+  %.03846.i = phi i32 [ %.240.i, %61 ], [ %47, %40 ]
+  %48 = add nsw i32 %.03846.i, %.03547.i
   %49 = ashr i32 %48, 1
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i16, ptr @zueci_gb2312_u_u, i64 %50
@@ -2522,8 +2522,8 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   br label %61
 
 61:                                               ; preds = %59, %55
-  %.240.i = phi i32 [ %.03847.i, %55 ], [ %60, %59 ]
-  %.237.i = phi i32 [ %56, %55 ], [ %.03548.i, %59 ]
+  %.240.i = phi i32 [ %.03846.i, %55 ], [ %60, %59 ]
+  %.237.i = phi i32 [ %56, %55 ], [ %.03547.i, %59 ]
   %.not.not.i = icmp sgt i32 %.237.i, %.240.i
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !21
 
@@ -2588,9 +2588,9 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   br i1 %or.cond48, label %.preheader, label %zueci_u_gb2312.exit
 
 .preheader:                                       ; preds = %.thread52, %114
-  %.03860 = phi i32 [ %.240, %114 ], [ 0, %.thread52 ]
-  %.04159 = phi i32 [ %.243, %114 ], [ 208, %.thread52 ]
-  %101 = add nsw i32 %.03860, %.04159
+  %.03859 = phi i32 [ %.240, %114 ], [ 0, %.thread52 ]
+  %.04158 = phi i32 [ %.243, %114 ], [ 208, %.thread52 ]
+  %101 = add nsw i32 %.03859, %.04158
   %102 = ashr i32 %101, 1
   %103 = sext i32 %102 to i64
   %104 = getelementptr inbounds i16, ptr @zueci_gbk_u_u, i64 %103
@@ -2612,8 +2612,8 @@ define internal range(i32 0, 3) i32 @zueci_u_gbk(i32 noundef %0, ptr noundef wri
   br label %114
 
 114:                                              ; preds = %108, %112
-  %.243 = phi i32 [ %.04159, %108 ], [ %113, %112 ]
-  %.240 = phi i32 [ %109, %108 ], [ %.03860, %112 ]
+  %.243 = phi i32 [ %.04158, %108 ], [ %113, %112 ]
+  %.240 = phi i32 [ %109, %108 ], [ %.03859, %112 ]
   %.not47.not = icmp sgt i32 %.240, %.243
   br i1 %.not47.not, label %zueci_u_gb2312.exit, label %.preheader, !llvm.loop !23
 

@@ -246,8 +246,8 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
 
 ._crit_edge:                                      ; preds = %45
   %.pre = load ptr, ptr %39, align 8, !tbaa !9
-  %.pre54 = load i32, ptr %3, align 4, !tbaa !27
-  %.pre55 = sext i32 %.pre54 to i64
+  %.pre51 = load i32, ptr %3, align 4, !tbaa !27
+  %.pre52 = sext i32 %.pre51 to i64
   br label %53
 
 51:                                               ; preds = %45
@@ -255,7 +255,7 @@ define hidden noundef ptr @_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue(ptr 
   br label %58
 
 53:                                               ; preds = %._crit_edge, %.thread
-  %.pre-phi = phi i64 [ %.pre55, %._crit_edge ], [ %42, %.thread ]
+  %.pre-phi = phi i64 [ %.pre52, %._crit_edge ], [ %42, %.thread ]
   %54 = phi ptr [ %.pre, %._crit_edge ], [ %40, %.thread ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2944
   %56 = getelementptr inbounds ptr, ptr %55, i64 %.pre-phi
@@ -350,8 +350,8 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
 
 ._crit_edge.i:                                    ; preds = %45
   %.pre.i = load ptr, ptr %39, align 8, !tbaa !9
-  %.pre54.i = load i32, ptr %3, align 4, !tbaa !27
-  %.pre55.i = sext i32 %.pre54.i to i64
+  %.pre51.i = load i32, ptr %3, align 4, !tbaa !27
+  %.pre52.i = sext i32 %.pre51.i to i64
   br label %53
 
 51:                                               ; preds = %45
@@ -359,7 +359,7 @@ define hidden noundef nonnull ptr @_Z16luaT_objtypenameP9lua_StatePK10lua_TValue
   br label %_Z19luaT_objtypenamestrP9lua_StatePK10lua_TValue.exit
 
 53:                                               ; preds = %._crit_edge.i, %.thread.i
-  %.pre-phi.i = phi i64 [ %.pre55.i, %._crit_edge.i ], [ %42, %.thread.i ]
+  %.pre-phi.i = phi i64 [ %.pre52.i, %._crit_edge.i ], [ %42, %.thread.i ]
   %54 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %40, %.thread.i ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 2944
   %56 = getelementptr inbounds ptr, ptr %55, i64 %.pre-phi.i

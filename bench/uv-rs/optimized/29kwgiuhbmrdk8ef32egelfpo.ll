@@ -857,7 +857,7 @@ define void @_ZN12uv_normalize14dist_info_name12DistInfoName3new17h8c634dea0daac
 
 .lr.ph.i:                                         ; preds = %3, %10
   %.sroa.3.012.i = phi i8 [ %7, %10 ], [ undef, %3 ]
-  %switch11.i = phi i1 [ true, %10 ], [ false, %3 ]
+  %.sroa.02.011.i = phi i1 [ true, %10 ], [ false, %3 ]
   %.sroa.07.010.i = phi ptr [ %6, %10 ], [ %1, %3 ]
   %6 = getelementptr inbounds nuw i8, ptr %.sroa.07.010.i, i64 1
   %7 = load i8, ptr %.sroa.07.010.i, align 1, !alias.scope !141, !noundef !8
@@ -878,7 +878,7 @@ define void @_ZN12uv_normalize14dist_info_name12DistInfoName3new17h8c634dea0daac
 
 12:                                               ; preds = %9
   %13 = icmp eq i8 %.sroa.3.012.i, 45
-  %or.cond6.i = and i1 %switch11.i, %13
+  %or.cond6.i = and i1 %.sroa.02.011.i, %13
   br i1 %or.cond6.i, label %14, label %10
 
 14:                                               ; preds = %.lr.ph.i, %9, %9, %12

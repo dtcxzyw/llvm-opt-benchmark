@@ -679,17 +679,16 @@ define dso_local noundef ptr @archive_acl_to_text_w(ptr noundef readonly capture
 
 11:                                               ; preds = %4
   %.1.i = and i32 %2, 768
-  switch i32 %.1.i, label %.split [
-    i32 0, label %.split63
-    i32 768, label %.split63
-  ]
+  %.1.i.off = add nsw i32 %.1.i, -1
+  %switch = icmp ult i32 %.1.i.off, 767
+  br i1 %switch, label %.split, label %.split63
 
 .split:                                           ; preds = %11, %9
   %.08.i91 = phi i32 [ 15360, %9 ], [ %.1.i, %11 ]
   %12 = tail call fastcc i64 @archive_acl_text_len(ptr noundef nonnull %0, i32 noundef %.08.i91, i32 noundef %2, i32 noundef 1, ptr noundef %3, ptr noundef null)
   br label %15
 
-.split63:                                         ; preds = %11, %11
+.split63:                                         ; preds = %11
   %13 = or i32 %2, 2
   %14 = tail call fastcc i64 @archive_acl_text_len(ptr noundef nonnull %0, i32 noundef 768, i32 noundef %13, i32 noundef 1, ptr noundef %3, ptr noundef null)
   br label %15
@@ -1549,17 +1548,16 @@ define dso_local noundef ptr @archive_acl_to_text_l(ptr noundef readonly capture
 
 12:                                               ; preds = %4
   %.1.i = and i32 %2, 768
-  switch i32 %.1.i, label %.split [
-    i32 0, label %.split60
-    i32 768, label %.split60
-  ]
+  %.1.i.off = add nsw i32 %.1.i, -1
+  %switch = icmp ult i32 %.1.i.off, 767
+  br i1 %switch, label %.split, label %.split60
 
 .split:                                           ; preds = %12, %10
   %.08.i89 = phi i32 [ 15360, %10 ], [ %.1.i, %12 ]
   %13 = tail call fastcc i64 @archive_acl_text_len(ptr noundef nonnull %0, i32 noundef %.08.i89, i32 noundef %2, i32 noundef 0, ptr noundef null, ptr noundef %3)
   br label %16
 
-.split60:                                         ; preds = %12, %12
+.split60:                                         ; preds = %12
   %14 = or i32 %2, 2
   %15 = tail call fastcc i64 @archive_acl_text_len(ptr noundef nonnull %0, i32 noundef 768, i32 noundef %14, i32 noundef 0, ptr noundef null, ptr noundef %3)
   br label %16

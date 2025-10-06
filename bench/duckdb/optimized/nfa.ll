@@ -989,8 +989,8 @@ define hidden noundef i32 @_ZN10duckdb_re23NFA4StepEPNS_11SparseArrayIPNS0_6Thre
   store i32 0, ptr %2, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %9 = load i32, ptr %1, align 8, !tbaa !3
-  %.not121 = icmp eq i32 %9, 0
-  br i1 %.not121, label %._crit_edge, label %.lr.ph
+  %.not119 = icmp eq i32 %9, 0
+  br i1 %.not119, label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %10 = load ptr, ptr %8, align 8, !tbaa !100
@@ -1016,8 +1016,8 @@ define hidden noundef i32 @_ZN10duckdb_re23NFA4StepEPNS_11SparseArrayIPNS0_6Thre
 
 29:                                               ; preds = %.lr.ph, %198
   %30 = phi ptr [ %10, %.lr.ph ], [ %200, %198 ]
-  %.060122 = phi ptr [ %10, %.lr.ph ], [ %199, %198 ]
-  %31 = getelementptr inbounds nuw i8, ptr %.060122, i64 8
+  %.060120 = phi ptr [ %10, %.lr.ph ], [ %199, %198 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.060120, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !105
   %33 = icmp eq ptr %32, null
   br i1 %33, label %198, label %34
@@ -1047,7 +1047,7 @@ define hidden noundef i32 @_ZN10duckdb_re23NFA4StepEPNS_11SparseArrayIPNS0_6Thre
   br i1 %49, label %198, label %.sink.split
 
 50:                                               ; preds = %39, %34
-  %51 = load i32, ptr %.060122, align 8, !tbaa !123
+  %51 = load i32, ptr %.060120, align 8, !tbaa !123
   %52 = load ptr, ptr %0, align 8, !tbaa !31
   %53 = sext i32 %51 to i64
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 120
@@ -1112,7 +1112,7 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZStlsISt11char_tra
   br label %193
 
 74:                                               ; preds = %50
-  %.not76 = icmp eq ptr %.060122, %30
+  %.not76 = icmp eq ptr %.060120, %30
   br i1 %.not76, label %75, label %193
 
 75:                                               ; preds = %74
@@ -1162,23 +1162,23 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread: ; preds = %75, %_ZN10duckdb_r
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89
 
 _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89:  ; preds = %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit.thread, %98
-  %.262130 = getelementptr inbounds nuw i8, ptr %.060122, i64 16
+  %.262127 = getelementptr inbounds nuw i8, ptr %.060120, i64 16
   %100 = load ptr, ptr %8, align 8, !tbaa !100
   %101 = load i32, ptr %1, align 8, !tbaa !3
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds %"class.duckdb_re2::SparseArray<duckdb_re2::NFA::Thread *>::IndexValue", ptr %100, i64 %102
-  %.not77131 = icmp eq ptr %.262130, %103
-  br i1 %.not77131, label %._crit_edge135, label %.lr.ph134
+  %.not77128 = icmp eq ptr %.262127, %103
+  br i1 %.not77128, label %._crit_edge132, label %.lr.ph131
 
-.lr.ph134:                                        ; preds = %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90
-  %.262133 = phi ptr [ %.262, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90 ], [ %.262130, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89 ]
-  %.060.pn79132 = phi ptr [ %.262133, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90 ], [ %.060122, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89 ]
-  %104 = getelementptr inbounds nuw i8, ptr %.060.pn79132, i64 24
+.lr.ph131:                                        ; preds = %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90
+  %.262130 = phi ptr [ %.262, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90 ], [ %.262127, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89 ]
+  %.060.pn79129 = phi ptr [ %.262130, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90 ], [ %.060120, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89 ]
+  %104 = getelementptr inbounds nuw i8, ptr %.060.pn79129, i64 24
   %105 = load ptr, ptr %104, align 8, !tbaa !105
   %.not78 = icmp eq ptr %105, null
   br i1 %.not78, label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90, label %106
 
-106:                                              ; preds = %.lr.ph134
+106:                                              ; preds = %.lr.ph131
   %107 = load i32, ptr %105, align 8, !tbaa !120
   %108 = add nsw i32 %107, -1
   store i32 %108, ptr %105, align 8, !tbaa !120
@@ -1191,16 +1191,16 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89:  ; preds = %_ZN10duckdb_re24Pro
   store ptr %105, ptr %28, align 8, !tbaa !121
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90
 
-_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90:  ; preds = %110, %106, %.lr.ph134
-  %.262 = getelementptr inbounds nuw i8, ptr %.262133, i64 16
+_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90:  ; preds = %110, %106, %.lr.ph131
+  %.262 = getelementptr inbounds nuw i8, ptr %.262130, i64 16
   %112 = load ptr, ptr %8, align 8, !tbaa !100
   %113 = load i32, ptr %1, align 8, !tbaa !3
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds %"class.duckdb_re2::SparseArray<duckdb_re2::NFA::Thread *>::IndexValue", ptr %112, i64 %114
   %.not77 = icmp eq ptr %.262, %115
-  br i1 %.not77, label %._crit_edge135, label %.lr.ph134, !llvm.loop !153
+  br i1 %.not77, label %._crit_edge132, label %.lr.ph131, !llvm.loop !153
 
-._crit_edge135:                                   ; preds = %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89
+._crit_edge132:                                   ; preds = %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit89
   store i32 0, ptr %1, align 8, !tbaa !3
   %116 = load ptr, ptr %0, align 8, !tbaa !31
   %117 = load i32, ptr %56, align 4, !tbaa !127
@@ -1216,7 +1216,7 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit90:  ; preds = %110, %106, %.lr.ph1
     i32 6, label %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92
   ]
 
-_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92:     ; preds = %._crit_edge135
+_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92:     ; preds = %._crit_edge132
   %125 = lshr i32 %123, 4
   %126 = zext nneg i32 %125 to i64
   %127 = getelementptr inbounds nuw %"class.duckdb_re2::Prog::Inst", ptr %121, i64 %126
@@ -1225,7 +1225,7 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92:     ; preds = %._crit_edge135
   %130 = icmp eq i32 %129, 2
   br i1 %130, label %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread, label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit.thread104
 
-_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread: ; preds = %._crit_edge135, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92
+_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread: ; preds = %._crit_edge132, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92
   %131 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %132 = load i32, ptr %131, align 4, !tbaa !120
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit.thread104
@@ -1262,13 +1262,13 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread: ; preds = %._crit_edge135, 
   br i1 %36, label %150, label %166
 
 150:                                              ; preds = %147
-  br i1 %38, label %151, label %._crit_edge145
+  br i1 %38, label %151, label %._crit_edge142
 
 151:                                              ; preds = %150
   %152 = load ptr, ptr %149, align 8, !tbaa !149
   %153 = load ptr, ptr %.pre, align 8, !tbaa !149
   %154 = icmp ult ptr %152, %153
-  br i1 %154, label %._crit_edge145, label %155
+  br i1 %154, label %._crit_edge142, label %155
 
 155:                                              ; preds = %151
   %156 = icmp eq ptr %152, %153
@@ -1278,9 +1278,9 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread: ; preds = %._crit_edge135, 
   %158 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %159 = load ptr, ptr %158, align 8, !tbaa !149
   %160 = icmp ugt ptr %16, %159
-  br i1 %160, label %._crit_edge145, label %193
+  br i1 %160, label %._crit_edge142, label %193
 
-._crit_edge145:                                   ; preds = %150, %157, %151
+._crit_edge142:                                   ; preds = %150, %157, %151
   %161 = load i32, ptr %18, align 4, !tbaa !93
   %162 = sext i32 %161 to i64
   %163 = shl nsw i64 %162, 3
@@ -1313,23 +1313,23 @@ _ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread: ; preds = %._crit_edge135, 
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93
 
 _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93:  ; preds = %166, %175
-  %.464124 = getelementptr inbounds nuw i8, ptr %.060122, i64 16
+  %.464122 = getelementptr inbounds nuw i8, ptr %.060120, i64 16
   %177 = load ptr, ptr %8, align 8, !tbaa !100
   %178 = load i32, ptr %1, align 8, !tbaa !3
   %179 = sext i32 %178 to i64
   %180 = getelementptr inbounds %"class.duckdb_re2::SparseArray<duckdb_re2::NFA::Thread *>::IndexValue", ptr %177, i64 %179
-  %.not74125 = icmp eq ptr %.464124, %180
-  br i1 %.not74125, label %._crit_edge129, label %.lr.ph128
+  %.not74123 = icmp eq ptr %.464122, %180
+  br i1 %.not74123, label %._crit_edge, label %.lr.ph126
 
-.lr.ph128:                                        ; preds = %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94
-  %.464127 = phi ptr [ %.464, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94 ], [ %.464124, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93 ]
-  %.060.pn126 = phi ptr [ %.464127, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94 ], [ %.060122, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93 ]
-  %181 = getelementptr inbounds nuw i8, ptr %.060.pn126, i64 24
+.lr.ph126:                                        ; preds = %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94
+  %.464125 = phi ptr [ %.464, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94 ], [ %.464122, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93 ]
+  %.060.pn124 = phi ptr [ %.464125, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94 ], [ %.060120, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93 ]
+  %181 = getelementptr inbounds nuw i8, ptr %.060.pn124, i64 24
   %182 = load ptr, ptr %181, align 8, !tbaa !105
   %.not75 = icmp eq ptr %182, null
   br i1 %.not75, label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94, label %183
 
-183:                                              ; preds = %.lr.ph128
+183:                                              ; preds = %.lr.ph126
   %184 = load i32, ptr %182, align 8, !tbaa !120
   %185 = add nsw i32 %184, -1
   store i32 %185, ptr %182, align 8, !tbaa !120
@@ -1342,20 +1342,20 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93:  ; preds = %166, %175
   store ptr %182, ptr %28, align 8, !tbaa !121
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94
 
-_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94:  ; preds = %187, %183, %.lr.ph128
-  %.464 = getelementptr inbounds nuw i8, ptr %.464127, i64 16
+_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94:  ; preds = %187, %183, %.lr.ph126
+  %.464 = getelementptr inbounds nuw i8, ptr %.464125, i64 16
   %189 = load ptr, ptr %8, align 8, !tbaa !100
   %190 = load i32, ptr %1, align 8, !tbaa !3
   %191 = sext i32 %190 to i64
   %192 = getelementptr inbounds %"class.duckdb_re2::SparseArray<duckdb_re2::NFA::Thread *>::IndexValue", ptr %189, i64 %191
   %.not74 = icmp eq ptr %.464, %192
-  br i1 %.not74, label %._crit_edge129, label %.lr.ph128, !llvm.loop !154
+  br i1 %.not74, label %._crit_edge, label %.lr.ph126, !llvm.loop !154
 
-._crit_edge129:                                   ; preds = %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93
+._crit_edge:                                      ; preds = %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit93
   store i32 0, ptr %1, align 8, !tbaa !3
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit.thread104
 
-193:                                              ; preds = %143, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit, %._crit_edge145, %157, %155, %74, %134, %72, %_ZN10LogMessageD2Ev.exit
+193:                                              ; preds = %143, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit, %._crit_edge142, %157, %155, %74, %134, %72, %_ZN10LogMessageD2Ev.exit
   %194 = load i32, ptr %32, align 8, !tbaa !120
   %195 = add nsw i32 %194, -1
   store i32 %195, ptr %32, align 8, !tbaa !120
@@ -1369,20 +1369,20 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit94:  ; preds = %187, %183, %.lr.ph1
   br label %198
 
 198:                                              ; preds = %.sink.split, %29, %46, %193
-  %199 = getelementptr inbounds nuw i8, ptr %.060122, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %.060120, i64 16
   %200 = load ptr, ptr %8, align 8, !tbaa !100
   %201 = load i32, ptr %1, align 8, !tbaa !3
   %202 = sext i32 %201 to i64
   %203 = getelementptr inbounds %"class.duckdb_re2::SparseArray<duckdb_re2::NFA::Thread *>::IndexValue", ptr %200, i64 %202
   %.not = icmp eq ptr %199, %203
-  br i1 %.not, label %._crit_edge, label %29, !llvm.loop !155
+  br i1 %.not, label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit, label %29, !llvm.loop !155
 
-._crit_edge:                                      ; preds = %198, %6
+_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit:    ; preds = %198, %6
   store i32 0, ptr %1, align 8, !tbaa !3
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit.thread104
 
-_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit.thread104: ; preds = %._crit_edge135, %._crit_edge129, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92, %._crit_edge
-  %.4 = phi i32 [ 0, %._crit_edge ], [ %118, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92 ], [ 0, %._crit_edge129 ], [ %132, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread ], [ %118, %._crit_edge135 ]
+_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit.thread104: ; preds = %._crit_edge132, %._crit_edge, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit
+  %.4 = phi i32 [ 0, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit ], [ %118, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92 ], [ 0, %._crit_edge ], [ %132, %_ZN10duckdb_re24Prog4Inst6greedyEPS0_.exit92.thread ], [ %118, %._crit_edge132 ]
   ret i32 %.4
 }
 
@@ -1705,8 +1705,8 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %_ZStlsISt11char_tra
   %46 = load i8, ptr %45, align 8, !tbaa !165, !range !150, !noundef !151
   %47 = trunc nuw i8 %46 to i1
   %.not = icmp ne ptr %.val89, %.val
-  %or.cond135.not = and i1 %.not, %47
-  br i1 %or.cond135.not, label %.loopexit, label %48
+  %or.cond133.not = and i1 %.not, %47
+  br i1 %or.cond133.not, label %.loopexit, label %48
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 1
@@ -1962,8 +1962,8 @@ _ZN10LogMessageD2Ev.exit107:                      ; preds = %129, %_ZNKSt7__cxx1
   %168 = load ptr, ptr %0, align 8, !tbaa !31
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 32
   %170 = load i64, ptr %169, align 8, !tbaa !169
-  %.not136 = icmp eq i64 %170, 0
-  br i1 %.not136, label %189, label %171
+  %.not134 = icmp eq i64 %170, 0
+  br i1 %.not134, label %189, label %171
 
 171:                                              ; preds = %167
   %172 = ptrtoint ptr %111 to i64
@@ -2113,8 +2113,8 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit:    ; preds = %236, %231, %161, %1
   %.1127.ph = phi ptr [ %.0128, %_ZN10LogMessageD2Ev.exit107 ], [ %.0128, %151 ], [ %.0126, %243 ], [ %.0128, %155 ]
   %.pr = load i32, ptr %.1127.ph, align 8, !tbaa !3
   %245 = getelementptr inbounds nuw i8, ptr %.1127.ph, i64 32
-  %.not83145 = icmp eq i32 %.pr, 0
-  br i1 %.not83145, label %._crit_edge, label %.lr.ph
+  %.not83143 = icmp eq i32 %.pr, 0
+  br i1 %.not83143, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge88
   %246 = load ptr, ptr %245, align 8, !tbaa !100
@@ -2124,17 +2124,17 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit:    ; preds = %236, %231, %161, %1
   %247 = load i8, ptr %91, align 8, !tbaa !152, !range !150, !noundef !151
   %248 = trunc nuw i8 %247 to i1
   %brmerge.not = and i1 %83, %248
-  br i1 %brmerge.not, label %.lr.ph148, label %.loopexit
+  br i1 %brmerge.not, label %.lr.ph146, label %.loopexit
 
-.lr.ph148:                                        ; preds = %._crit_edge
+.lr.ph146:                                        ; preds = %._crit_edge
   %249 = load ptr, ptr %90, align 8, !tbaa !108
   %smax = call i32 @llvm.smax.i32(i32 %6, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %264
 
 250:                                              ; preds = %.lr.ph, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit110
-  %.065146 = phi ptr [ %246, %.lr.ph ], [ %259, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit110 ]
-  %251 = getelementptr inbounds nuw i8, ptr %.065146, i64 8
+  %.065144 = phi ptr [ %246, %.lr.ph ], [ %259, %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit110 ]
+  %251 = getelementptr inbounds nuw i8, ptr %.065144, i64 8
   %252 = load ptr, ptr %251, align 8, !tbaa !105
   %.not84 = icmp eq ptr %252, null
   br i1 %.not84, label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit110, label %253
@@ -2153,7 +2153,7 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit:    ; preds = %236, %231, %161, %1
   br label %_ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit110
 
 _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit110: ; preds = %257, %253, %250
-  %259 = getelementptr inbounds nuw i8, ptr %.065146, i64 16
+  %259 = getelementptr inbounds nuw i8, ptr %.065144, i64 16
   %260 = load ptr, ptr %245, align 8, !tbaa !100
   %261 = load i32, ptr %.1127.ph, align 8, !tbaa !3
   %262 = sext i32 %261 to i64
@@ -2161,8 +2161,8 @@ _ZN10duckdb_re23NFA6DecrefEPNS0_6ThreadE.exit110: ; preds = %257, %253, %250
   %.not83 = icmp eq ptr %259, %263
   br i1 %.not83, label %._crit_edge, label %250, !llvm.loop !175
 
-264:                                              ; preds = %.lr.ph148, %264
-  %indvars.iv = phi i64 [ 0, %.lr.ph148 ], [ %indvars.iv.next, %264 ]
+264:                                              ; preds = %.lr.ph146, %264
+  %indvars.iv = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next, %264 ]
   %.idx = shl nuw nsw i64 %indvars.iv, 4
   %265 = getelementptr inbounds nuw i8, ptr %249, i64 %.idx
   %266 = load ptr, ptr %265, align 8, !tbaa !149

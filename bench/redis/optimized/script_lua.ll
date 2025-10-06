@@ -2580,7 +2580,7 @@ sdssetlen.exit.thread:                            ; preds = %39
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre57 = load i32, ptr %1, align 4, !tbaa !19
+  %.pre56 = load i32, ptr %1, align 4, !tbaa !19
   br label %.loopexit
 
 43:                                               ; preds = %39, %38
@@ -2596,13 +2596,13 @@ sdssetlen.exit.thread:                            ; preds = %39
   %46 = getelementptr inbounds nuw ptr, ptr @lua_args_cached_objects, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !10
   %.not45 = icmp eq ptr %47, null
-  %.pre56 = load i64, ptr %4, align 8, !tbaa !20
+  %.pre55 = load i64, ptr %4, align 8, !tbaa !20
   br i1 %.not45, label %74, label %48
 
 48:                                               ; preds = %45
   %49 = getelementptr inbounds nuw i64, ptr @lua_args_cached_objects_len, i64 %indvars.iv
   %50 = load i64, ptr %49, align 8, !tbaa !20
-  %.not46 = icmp ult i64 %50, %.pre56
+  %.not46 = icmp ult i64 %50, %.pre55
   br i1 %.not46, label %74, label %51
 
 51:                                               ; preds = %48
@@ -2612,7 +2612,7 @@ sdssetlen.exit.thread:                            ; preds = %39
   %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
   store ptr %47, ptr %55, align 8, !tbaa !10
   store ptr null, ptr %46, align 8, !tbaa !10
-  %56 = add i64 %.pre56, 1
+  %56 = add i64 %.pre55, 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %53, ptr nonnull align 1 %.040, i64 %56, i1 false)
   %57 = load i64, ptr %4, align 8, !tbaa !20
   %58 = getelementptr inbounds i8, ptr %53, i64 -1
@@ -2656,7 +2656,7 @@ sdssetlen.exit.thread:                            ; preds = %39
   br label %sdssetlen.exit
 
 74:                                               ; preds = %._crit_edge, %48, %45
-  %75 = phi i64 [ %.pre, %._crit_edge ], [ %.pre56, %48 ], [ %.pre56, %45 ]
+  %75 = phi i64 [ %.pre, %._crit_edge ], [ %.pre55, %48 ], [ %.pre55, %45 ]
   %76 = call ptr @createStringObject(ptr noundef nonnull %.040, i64 noundef %75) #11
   %77 = load ptr, ptr @lua_argv, align 8, !tbaa !24
   %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
@@ -2672,18 +2672,18 @@ sdssetlen.exit:                                   ; preds = %72, %69, %66, %63, 
   br i1 %81, label %.lr.ph, label %.loopexit, !llvm.loop !105
 
 .loopexit:                                        ; preds = %sdssetlen.exit, %20, %sdssetlen.exit.thread
-  %82 = phi i32 [ %.pre57, %sdssetlen.exit.thread ], [ %22, %20 ], [ %79, %sdssetlen.exit ]
-  %.03951 = phi i32 [ %42, %sdssetlen.exit.thread ], [ 0, %20 ], [ %24, %sdssetlen.exit ]
+  %82 = phi i32 [ %.pre56, %sdssetlen.exit.thread ], [ %22, %20 ], [ %79, %sdssetlen.exit ]
+  %.03950 = phi i32 [ %42, %sdssetlen.exit.thread ], [ 0, %20 ], [ %24, %sdssetlen.exit ]
   %83 = xor i32 %82, -1
   call void @lua_settop(ptr noundef %0, i32 noundef %83) #11
   %84 = load i32, ptr %1, align 4, !tbaa !19
-  %.not47 = icmp eq i32 %.03951, %84
+  %.not47 = icmp eq i32 %.03950, %84
   %85 = load ptr, ptr @lua_argv, align 8, !tbaa !24
   br i1 %.not47, label %89, label %86
 
 86:                                               ; preds = %.loopexit
   %87 = load i32, ptr @lua_argv_size, align 4, !tbaa !19
-  call void @freeLuaRedisArgv(ptr noundef %85, i32 noundef %.03951, i32 noundef %87)
+  call void @freeLuaRedisArgv(ptr noundef %85, i32 noundef %.03950, i32 noundef %87)
   %88 = call ptr @sdsnew(ptr noundef nonnull @.str.104) #11
   call void @luaPushErrorBuff(ptr noundef %0, ptr noundef %88)
   br label %89

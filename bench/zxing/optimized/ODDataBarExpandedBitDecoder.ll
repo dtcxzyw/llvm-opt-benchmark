@@ -383,7 +383,7 @@ _ZN5ZXing4OneD7DataBarL21DecodeAI01AndOtherAIsB5cxx11ERNS_12BitArrayViewE.exit: 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5ZXing4OneD7DataBarL11DecodeAnyAIB5cxx11ERNS_12BitArrayViewE.exit.thread
 
-116:                                              ; preds = %.invoke74, %switch.lookup, %237, %190, %153, %.noexc10, %146, %.noexc, %22, %2, %233, %231, %228, %188, %151, %148, %144, %140, %20, %14
+116:                                              ; preds = %.invoke73, %switch.lookup, %237, %190, %153, %.noexc10, %146, %.noexc, %22, %2, %233, %231, %228, %188, %151, %148, %144, %140, %20, %14
   %117 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTIN5ZXing5ErrorE
@@ -672,13 +672,13 @@ _ZN5ZXing4OneD7DataBarL14DecodeAI01320xB5cxx11ERNS_12BitArrayViewE.exit: ; preds
 
 231:                                              ; preds = %230
   %232 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #19
-          to label %.invoke74 unwind label %116
+          to label %.invoke73 unwind label %116
 
 233:                                              ; preds = %230
   %234 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5ZXing12BitArrayView8skipBitsEi(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef 5) #19
-          to label %.invoke74 unwind label %116
+          to label %.invoke73 unwind label %116
 
-.invoke74:                                        ; preds = %233, %231
+.invoke73:                                        ; preds = %233, %231
   %235 = phi ptr [ %232, %231 ], [ %234, %233 ]
   %236 = phi i8 [ 50, %231 ], [ 51, %233 ]
   invoke fastcc void @_ZN5ZXing4OneD7DataBarL14DecodeAI0139yxB5cxx11ERNS_12BitArrayViewEc(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %235, i8 noundef signext %236) #19
@@ -701,12 +701,12 @@ switch.lookup:                                    ; preds = %239
   %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE, i64 %243
   %switch.load = load ptr, ptr %switch.gep, align 8
   %244 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep78 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE.3, i64 %244
-  %switch.load79 = load ptr, ptr %switch.gep78, align 8
-  invoke fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load79) #19
+  %switch.gep77 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE.3, i64 %244
+  %switch.load78 = load ptr, ptr %switch.gep77, align 8
+  invoke fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load78) #19
           to label %_ZN5ZXing4OneD7DataBarL11DecodeAnyAIB5cxx11ERNS_12BitArrayViewE.exit.thread unwind label %116
 
-_ZN5ZXing4OneD7DataBarL11DecodeAnyAIB5cxx11ERNS_12BitArrayViewE.exit.thread: ; preds = %.invoke74, %switch.lookup, %_ZN5ZXing4OneD7DataBarL21DecodeAI01AndOtherAIsB5cxx11ERNS_12BitArrayViewE.exit, %_ZN5ZXing4OneD7DataBarL14DecodeAI013103B5cxx11ERNS_12BitArrayViewE.exit, %_ZN5ZXing4OneD7DataBarL14DecodeAI01320xB5cxx11ERNS_12BitArrayViewE.exit, %.noexc10
+_ZN5ZXing4OneD7DataBarL11DecodeAnyAIB5cxx11ERNS_12BitArrayViewE.exit.thread: ; preds = %.invoke73, %switch.lookup, %_ZN5ZXing4OneD7DataBarL21DecodeAI01AndOtherAIsB5cxx11ERNS_12BitArrayViewE.exit, %_ZN5ZXing4OneD7DataBarL14DecodeAI013103B5cxx11ERNS_12BitArrayViewE.exit, %_ZN5ZXing4OneD7DataBarL14DecodeAI01320xB5cxx11ERNS_12BitArrayViewE.exit, %.noexc10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %245
 

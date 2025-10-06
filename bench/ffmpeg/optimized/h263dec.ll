@@ -581,8 +581,8 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 188:                                              ; preds = %186
   %.not257 = icmp ne i32 %184, 1
   %189 = icmp samesign ugt i32 %180, 47
-  %or.cond288 = select i1 %.not257, i1 true, i1 %189
-  br i1 %or.cond288, label %353, label %.thread279
+  %or.cond287 = select i1 %.not257, i1 true, i1 %189
+  br i1 %or.cond287, label %353, label %.thread279
 
 .thread279:                                       ; preds = %188, %178, %186
   %190 = tail call i32 @ff_mpv_frame_start(ptr noundef nonnull %8, ptr noundef nonnull %0) #6
@@ -654,7 +654,7 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 230:                                              ; preds = %.lr.ph, %263
   %231 = phi i32 [ %224, %.lr.ph ], [ %266, %263 ]
-  %.1289 = phi i32 [ %221, %.lr.ph ], [ %spec.select, %263 ]
+  %.1288 = phi i32 [ %221, %.lr.ph ], [ %spec.select, %263 ]
   %232 = load i32, ptr %51, align 4, !tbaa !68
   %.not260 = icmp eq i32 %232, 0
   br i1 %.not260, label %244, label %233
@@ -667,7 +667,7 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 236:                                              ; preds = %233
   %237 = load i32, ptr %219, align 4, !tbaa !116
   %238 = icmp ne i32 %237, 0
-  %239 = icmp slt i32 %.1289, 0
+  %239 = icmp slt i32 %.1288, 0
   %or.cond3 = select i1 %238, i1 true, i1 %239
   br i1 %or.cond3, label %._crit_edge, label %240
 
@@ -720,14 +720,14 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 263:                                              ; preds = %262, %260, %.thread281
   %264 = tail call fastcc i32 @decode_slice(ptr noundef nonnull %8)
   %265 = icmp slt i32 %264, 0
-  %spec.select = select i1 %265, i32 -1094995529, i32 %.1289
+  %spec.select = select i1 %265, i32 -1094995529, i32 %.1288
   %266 = load i32, ptr %220, align 8, !tbaa !117
   %267 = load i32, ptr %223, align 8, !tbaa !118
   %268 = icmp slt i32 %266, %267
   br i1 %268, label %230, label %._crit_edge, !llvm.loop !122
 
 ._crit_edge:                                      ; preds = %263, %242, %240, %236, %233, %244, %218
-  %.1.lcssa = phi i32 [ %221, %218 ], [ %.1289, %244 ], [ %.1289, %233 ], [ %.1289, %236 ], [ %.1289, %240 ], [ %.1289, %242 ], [ %spec.select, %263 ]
+  %.1.lcssa = phi i32 [ %221, %218 ], [ %.1288, %244 ], [ %.1288, %233 ], [ %.1288, %236 ], [ %.1288, %240 ], [ %.1288, %242 ], [ %spec.select, %263 ]
   %269 = load i32, ptr %51, align 4, !tbaa !68
   %270 = add i32 %269, -1
   %or.cond275 = icmp ult i32 %270, 3
@@ -811,7 +811,7 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 315:                                              ; preds = %307
   %316 = load ptr, ptr %169, align 8, !tbaa !106
   %.not267 = icmp eq ptr %316, null
-  br i1 %.not267, label %.thread284.thread, label %317
+  br i1 %.not267, label %.thread283.thread, label %317
 
 317:                                              ; preds = %315
   %318 = load ptr, ptr %316, align 8, !tbaa !82
@@ -821,20 +821,20 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 321:                                              ; preds = %317, %309
   %.sink.in = phi ptr [ %310, %309 ], [ %169, %317 ]
-  %.sink323 = load ptr, ptr %.sink.in, align 8, !tbaa !127
-  tail call void @ff_print_debug_info(ptr noundef nonnull %8, ptr noundef %.sink323, ptr noundef %1) #6
+  %.sink322 = load ptr, ptr %.sink.in, align 8, !tbaa !127
+  tail call void @ff_print_debug_info(ptr noundef nonnull %8, ptr noundef %.sink322, ptr noundef %1) #6
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !127
   %322 = tail call i32 @ff_mpv_export_qp_table(ptr noundef nonnull %8, ptr noundef %1, ptr noundef %.sink, i32 noundef 0) #6
   %.pr = load ptr, ptr %169, align 8, !tbaa !106
   %.not268 = icmp eq ptr %.pr, null
-  br i1 %.not268, label %.thread284, label %323
+  br i1 %.not268, label %.thread283, label %323
 
-.thread284:                                       ; preds = %321
-  %.pr286 = load i32, ptr %110, align 8, !tbaa !51
-  %.not269 = icmp eq i32 %.pr286, 0
-  br i1 %.not269, label %.thread284.thread, label %323
+.thread283:                                       ; preds = %321
+  %.pr285 = load i32, ptr %110, align 8, !tbaa !51
+  %.not269 = icmp eq i32 %.pr285, 0
+  br i1 %.not269, label %.thread283.thread, label %323
 
-323:                                              ; preds = %.thread284, %321
+323:                                              ; preds = %.thread283, %321
   %324 = getelementptr inbounds nuw i8, ptr %1, i64 116
   %325 = load i32, ptr %324, align 4, !tbaa !128
   %326 = icmp eq i32 %325, 0
@@ -876,20 +876,20 @@ h263_get_format.exit:                             ; preds = %98, %101, %104
 
 .loopexit:                                        ; preds = %333, %327, %323
   store i32 1, ptr %2, align 4, !tbaa !85
-  br label %.thread284.thread
+  br label %.thread283.thread
 
-.thread284.thread:                                ; preds = %315, %.loopexit, %.thread284
+.thread283.thread:                                ; preds = %315, %.loopexit, %.thread283
   %347 = icmp slt i32 %.0216, 0
   br i1 %347, label %348, label %352
 
-348:                                              ; preds = %.thread284.thread
+348:                                              ; preds = %.thread283.thread
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %350 = load i32, ptr %349, align 8, !tbaa !137
   %351 = and i32 %350, 8
   %.not270 = icmp eq i32 %351, 0
   br i1 %.not270, label %352, label %353
 
-352:                                              ; preds = %348, %.thread284.thread
+352:                                              ; preds = %348, %.thread283.thread
   br label %353
 
 353:                                              ; preds = %348, %317, %309, %293, %213, %199, %.thread279, %182, %188, %171, %175, %148, %144, %120, %h263_get_format.exit, %86, %31, %13, %16, %30, %27, %20, %352, %157, %88

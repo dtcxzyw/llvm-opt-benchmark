@@ -57,16 +57,16 @@ _ZN4llvm13ManagedStaticISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %13 = load ptr, ptr %.0.i.i2.i, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.i2.i, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %.not11.not = icmp eq ptr %13, %15
-  br i1 %.not11.not, label %.loopexit, label %.lr.ph
+  %.not12 = icmp eq ptr %13, %15
+  br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm13ManagedStaticISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_14object_creatorIS9_EENS_14object_deleterIS9_EEEdeEv.exit, %.lr.ph
-  %.sroa.08.012 = phi ptr [ %18, %.lr.ph ], [ %13, %_ZN4llvm13ManagedStaticISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_14object_creatorIS9_EENS_14object_deleterIS9_EEEdeEv.exit ]
-  %16 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.012, ptr noundef %0) #14
+  %.sroa.08.013 = phi ptr [ %18, %.lr.ph ], [ %13, %_ZN4llvm13ManagedStaticISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_14object_creatorIS9_EENS_14object_deleterIS9_EEEdeEv.exit ]
+  %16 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.08.013, ptr noundef %0) #14
   %17 = icmp eq i32 %16, 0
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 32
-  %.not.not = icmp eq ptr %18, %15
-  %or.cond = select i1 %17, i1 true, i1 %.not.not
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 32
+  %.not = icmp eq ptr %18, %15
+  %or.cond = select i1 %17, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN4llvm13ManagedStaticISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_14object_creatorIS9_EENS_14object_deleterIS9_EEEdeEv.exit, %_ZN4llvm13ManagedStaticISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EENS_14object_creatorIS9_EENS_14object_deleterIS9_EEEptEv.exit

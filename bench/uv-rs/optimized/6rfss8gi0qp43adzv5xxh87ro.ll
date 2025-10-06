@@ -32,13 +32,13 @@ define noundef zeroext i1 @_ZN5uv_fs5which13is_executable17had9221d04784872cE(pt
   %15 = extractvalue { i16, i16 } %14, 0
   %16 = icmp eq i16 %15, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %16, label %21, label %36
+  br i1 %16, label %21, label %37
 
 _ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit.thread: ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %36
+  br label %37
 
 _ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit: ; preds = %9
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -49,7 +49,7 @@ _ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit: ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !4
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not.i.i.not, label %21, label %36
+  br i1 %.not.i.i.not, label %21, label %37
 
 21:                                               ; preds = %13, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !13
@@ -67,7 +67,7 @@ _ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit: ; preds = %9
   %27 = and i32 %.sroa.710.16.copyload, 73
   %28 = icmp ne i32 %27, 0
   %narrow = and i1 %26, %28
-  br label %36
+  br label %37
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -77,19 +77,19 @@ _ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit: ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !25
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h844ed35d8a398d0dE.llvm.92232979542404249(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noundef nonnull %32), !noalias !25
   %33 = load i8, ptr %3, align 8, !range !32, !alias.scope !33, !noalias !25, !noundef !10
-  %switch.not.i.i.i.i.i = icmp eq i8 %33, 3
-  br i1 %switch.not.i.i.i.i.i, label %34, label %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit"
+  %34 = icmp eq i8 %33, 3
+  br i1 %34, label %35, label %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit"
 
-34:                                               ; preds = %29
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17haf136fc8d9c504c5E.llvm.92232979542404249"(ptr noalias noundef nonnull align 8 dereferenceable(8) %35), !noalias !25
+35:                                               ; preds = %29
+  %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17haf136fc8d9c504c5E.llvm.92232979542404249"(ptr noalias noundef nonnull align 8 dereferenceable(8) %36), !noalias !25
   br label %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit"
 
-"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit": ; preds = %29, %34
+"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit": ; preds = %29, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !25
-  br label %36
+  br label %37
 
-36:                                               ; preds = %13, %24, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit", %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit.thread, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit
+37:                                               ; preds = %13, %24, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit", %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit.thread, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit
   %.sroa.0.0 = phi i1 [ false, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit ], [ false, %_ZN6rustix4path3arg10with_c_str17h324531cd6f601e3bE.exit.thread ], [ false, %"_ZN4core3ptr77drop_in_place$LT$core..result..Result$LT$bool$C$std..io..error..Error$GT$$GT$17h0a5210622d7d16c3E.exit" ], [ %narrow, %24 ], [ false, %13 ]
   ret i1 %.sroa.0.0
 }

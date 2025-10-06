@@ -575,7 +575,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %368 = getelementptr inbounds nuw i8, ptr %228, i64 44
   br label %374
 
-.preheader86.i:                                   ; preds = %374
+.preheader84.i:                                   ; preds = %374
   %369 = getelementptr inbounds nuw i8, ptr %228, i64 56
   %370 = getelementptr inbounds nuw i8, ptr %228, i64 62
   %371 = getelementptr inbounds nuw i8, ptr %228, i64 65
@@ -604,11 +604,11 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %387, ptr %388, align 4, !tbaa !64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
-  br i1 %exitcond.not.i, label %.preheader86.i, label %374, !llvm.loop !65
+  br i1 %exitcond.not.i, label %.preheader84.i, label %374, !llvm.loop !65
 
-389:                                              ; preds = %.loopexit.i, %.preheader86.i
-  %indvars.iv103.i = phi i64 [ 0, %.preheader86.i ], [ %indvars.iv.next104.i, %.loopexit.i ]
-  %390 = getelementptr inbounds nuw i32, ptr %368, i64 %indvars.iv103.i
+389:                                              ; preds = %.loopexit.i, %.preheader84.i
+  %indvars.iv101.i = phi i64 [ 0, %.preheader84.i ], [ %indvars.iv.next102.i, %.loopexit.i ]
+  %390 = getelementptr inbounds nuw i32, ptr %368, i64 %indvars.iv101.i
   %391 = load i32, ptr %390, align 4, !tbaa !64
   %.not76.i = icmp eq i32 %391, 0
   br i1 %.not76.i, label %.loopexit.i, label %392
@@ -630,7 +630,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %405, ptr %230, align 8, !tbaa !29
   %406 = trunc nuw nsw i32 %403 to i16
   %407 = add nuw nsw i16 %406, 1
-  %408 = getelementptr inbounds nuw i16, ptr %369, i64 %indvars.iv103.i
+  %408 = getelementptr inbounds nuw i16, ptr %369, i64 %indvars.iv101.i
   store i16 %407, ptr %408, align 2, !tbaa !67
   %409 = lshr i32 %405, 3
   %410 = zext nneg i32 %409 to i64
@@ -645,25 +645,25 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   store i32 %418, ptr %230, align 8, !tbaa !29
   %419 = trunc nuw nsw i32 %416 to i8
   %420 = add nuw nsw i8 %419, 1
-  %421 = getelementptr inbounds nuw i8, ptr %370, i64 %indvars.iv103.i
+  %421 = getelementptr inbounds nuw i8, ptr %370, i64 %indvars.iv101.i
   store i8 %420, ptr %421, align 1, !tbaa !12
   %422 = icmp ugt i32 %415, -1073741825
   br i1 %422, label %decode_registered_user_data.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %392
   %423 = load i16, ptr %408, align 2, !tbaa !67
-  %.not93.i = icmp eq i16 %423, 0
-  br i1 %.not93.i, label %.loopexit.i, label %.lr.ph91.i
+  %.not91.i = icmp eq i16 %423, 0
+  br i1 %.not91.i, label %.loopexit.i, label %.lr.ph89.i
 
-.lr.ph91.i:                                       ; preds = %.preheader.i
-  %424 = getelementptr inbounds nuw [256 x i8], ptr %371, i64 %indvars.iv103.i
-  %425 = getelementptr inbounds nuw [256 x i8], ptr %372, i64 %indvars.iv103.i
-  %426 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %373, i64 %indvars.iv103.i
+.lr.ph89.i:                                       ; preds = %.preheader.i
+  %424 = getelementptr inbounds nuw [256 x i8], ptr %371, i64 %indvars.iv101.i
+  %425 = getelementptr inbounds nuw [256 x i8], ptr %372, i64 %indvars.iv101.i
+  %426 = getelementptr inbounds nuw [256 x [6 x i16]], ptr %373, i64 %indvars.iv101.i
   %427 = zext i16 %423 to i64
   br label %428
 
-428:                                              ; preds = %._crit_edge.i, %.lr.ph91.i
-  %indvars.iv100.i = phi i64 [ 0, %.lr.ph91.i ], [ %indvars.iv.next101.i, %._crit_edge.i ]
+428:                                              ; preds = %._crit_edge.i, %.lr.ph89.i
+  %indvars.iv98.i = phi i64 [ 0, %.lr.ph89.i ], [ %indvars.iv.next99.i, %._crit_edge.i ]
   %429 = load i32, ptr %230, align 8, !tbaa !29
   %430 = load i32, ptr %237, align 8, !tbaa !32
   %431 = load ptr, ptr %3, align 8, !tbaa !31
@@ -679,7 +679,7 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %441 = tail call i32 @llvm.umin.i32(i32 %430, i32 %440)
   store i32 %441, ptr %230, align 8, !tbaa !29
   %442 = trunc nuw i32 %439 to i8
-  %443 = getelementptr inbounds nuw i8, ptr %424, i64 %indvars.iv100.i
+  %443 = getelementptr inbounds nuw i8, ptr %424, i64 %indvars.iv98.i
   store i8 %442, ptr %443, align 1, !tbaa !12
   %444 = load i32, ptr %230, align 8, !tbaa !29
   %445 = load i32, ptr %237, align 8, !tbaa !32
@@ -696,25 +696,25 @@ define i32 @ff_h2645_sei_message_decode(ptr noundef %0, i32 noundef %1, i32 noun
   %456 = tail call i32 @llvm.umin.i32(i32 %445, i32 %455)
   store i32 %456, ptr %230, align 8, !tbaa !29
   %457 = trunc nuw i32 %454 to i8
-  %458 = getelementptr inbounds nuw i8, ptr %425, i64 %indvars.iv100.i
+  %458 = getelementptr inbounds nuw i8, ptr %425, i64 %indvars.iv98.i
   store i8 %457, ptr %458, align 1, !tbaa !12
   %459 = load i8, ptr %421, align 1, !tbaa !12
-  %.not94.i = icmp eq i8 %459, 0
-  br i1 %.not94.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not92.i = icmp eq i8 %459, 0
+  br i1 %.not92.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %428
   %.sroa.0.0.copyload.i.i.i.i = load ptr, ptr %3, align 8, !tbaa !11
   %.sroa.77.0.copyload.i.i.i.i = load i32, ptr %237, align 8, !tbaa !64
-  %460 = getelementptr inbounds nuw [6 x i16], ptr %426, i64 %indvars.iv100.i
+  %460 = getelementptr inbounds nuw [6 x i16], ptr %426, i64 %indvars.iv98.i
   br label %461
 
 ._crit_edge.i:                                    ; preds = %get_se_golomb_long.exit.i, %428
-  %indvars.iv.next101.i = add nuw nsw i64 %indvars.iv100.i, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next101.i, %427
+  %indvars.iv.next99.i = add nuw nsw i64 %indvars.iv98.i, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next99.i, %427
   br i1 %exitcond.not, label %.loopexit.i, label %428, !llvm.loop !68
 
 461:                                              ; preds = %get_se_golomb_long.exit.i, %.lr.ph.i
-  %indvars.iv97.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next98.i, %get_se_golomb_long.exit.i ]
+  %indvars.iv95.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next96.i, %get_se_golomb_long.exit.i ]
   %.sroa.46.0.copyload.i.i.i.i = load i32, ptr %230, align 8, !tbaa !64
   %462 = lshr i32 %.sroa.46.0.copyload.i.i.i.i, 3
   %463 = zext nneg i32 %462 to i64
@@ -810,18 +810,18 @@ get_se_golomb_long.exit.i:                        ; preds = %507, %503, %461
   %529 = xor i32 %527, %528
   %530 = trunc i32 %529 to i16
   %531 = add i16 %530, 1
-  %532 = getelementptr inbounds nuw i16, ptr %460, i64 %indvars.iv97.i
+  %532 = getelementptr inbounds nuw i16, ptr %460, i64 %indvars.iv95.i
   store i16 %531, ptr %532, align 2, !tbaa !67
-  %indvars.iv.next98.i = add nuw nsw i64 %indvars.iv97.i, 1
+  %indvars.iv.next96.i = add nuw nsw i64 %indvars.iv95.i, 1
   %533 = load i8, ptr %421, align 1, !tbaa !12
   %534 = zext i8 %533 to i64
-  %535 = icmp samesign ult i64 %indvars.iv.next98.i, %534
+  %535 = icmp samesign ult i64 %indvars.iv.next96.i, %534
   br i1 %535, label %461, label %._crit_edge.i, !llvm.loop !69
 
 .loopexit.i:                                      ; preds = %._crit_edge.i, %.preheader.i, %389
-  %indvars.iv.next104.i = add nuw nsw i64 %indvars.iv103.i, 1
-  %exitcond106.not.i = icmp eq i64 %indvars.iv.next104.i, 3
-  br i1 %exitcond106.not.i, label %536, label %389, !llvm.loop !70
+  %indvars.iv.next102.i = add nuw nsw i64 %indvars.iv101.i, 1
+  %exitcond104.not.i = icmp eq i64 %indvars.iv.next102.i, 3
+  br i1 %exitcond104.not.i, label %536, label %389, !llvm.loop !70
 
 536:                                              ; preds = %.loopexit.i
   %537 = icmp eq i32 %2, 173
@@ -941,9 +941,9 @@ get_ue_golomb_long.exit.i:                        ; preds = %599, %595, %553
   br label %618
 
 618:                                              ; preds = %get_ue_golomb_long.exit.i, %538
-  %.sink110.i = phi i64 [ 10820, %get_ue_golomb_long.exit.i ], [ 10824, %538 ]
+  %.sink108.i = phi i64 [ 10820, %get_ue_golomb_long.exit.i ], [ 10824, %538 ]
   %.sink.i = phi i32 [ %617, %get_ue_golomb_long.exit.i ], [ %552, %538 ]
-  %619 = getelementptr inbounds nuw i8, ptr %228, i64 %.sink110.i
+  %619 = getelementptr inbounds nuw i8, ptr %228, i64 %.sink108.i
   store i32 %.sink.i, ptr %619, align 4, !tbaa !64
   store i32 1, ptr %228, align 4, !tbaa !52
   br label %decode_registered_user_data.exit

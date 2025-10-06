@@ -3137,11 +3137,11 @@ _ZNSt8_Rb_treeIN5clang7tooling11ReplacementES2_St9_IdentityIS2_ESt4lessIS2_ESaIS
   %.0 = phi i32 [ 0, %41 ], [ %264, %_ZN12_GLOBAL__N_117MergedReplacementD2Ev.exit ]
   %.not = icmp eq ptr %.sroa.052.0..sroa.052.0..sroa.052.0., %51
   %.sroa.047.0..sroa.047.0..sroa.047.0..sroa.047.0. = load ptr, ptr %.sroa.047, align 8, !tbaa !223
-  %.not87 = icmp eq ptr %.sroa.047.0..sroa.047.0..sroa.047.0..sroa.047.0., %52
+  %.not86 = icmp eq ptr %.sroa.047.0..sroa.047.0..sroa.047.0..sroa.047.0., %52
   br i1 %.not, label %84, label %.critedge
 
 84:                                               ; preds = %83
-  br i1 %.not87, label %85, label %.thread63
+  br i1 %.not86, label %85, label %.thread63
 
 85:                                               ; preds = %84
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.047)
@@ -3162,7 +3162,7 @@ _ZNSt8_Rb_treeIN5clang7tooling11ReplacementES2_St9_IdentityIS2_ESt4lessIS2_ESaIS
   br label %_ZN5clang7tooling12ReplacementsC2ERKS1_.exit
 
 .critedge:                                        ; preds = %83
-  br i1 %.not87, label %.thread61, label %92
+  br i1 %.not86, label %.thread61, label %92
 
 .thread63:                                        ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -3275,9 +3275,9 @@ _ZN12_GLOBAL__N_117MergedReplacementC2ERKN5clang7tooling11ReplacementEbi.exit: ;
   br label %140
 
 140:                                              ; preds = %.backedge, %_ZN12_GLOBAL__N_117MergedReplacementC2ERKN5clang7tooling11ReplacementEbi.exit
-  %.sink133 = phi ptr [ %139, %_ZN12_GLOBAL__N_117MergedReplacementC2ERKN5clang7tooling11ReplacementEbi.exit ], [ %.sink133.be, %.backedge ]
+  %.sink132 = phi ptr [ %139, %_ZN12_GLOBAL__N_117MergedReplacementC2ERKN5clang7tooling11ReplacementEbi.exit ], [ %.sink132.be, %.backedge ]
   %.5697478.sink = phi ptr [ %., %_ZN12_GLOBAL__N_117MergedReplacementC2ERKN5clang7tooling11ReplacementEbi.exit ], [ %.5697478.sink.be, %.backedge ]
-  %141 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sink133) #26
+  %141 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sink132) #26
   store ptr %141, ptr %.5697478.sink, align 8, !tbaa !223
   %.val = load i8, ptr %14, align 8, !tbaa !225, !range !31, !noundef !32
   %142 = trunc nuw i8 %.val to i1
@@ -3286,13 +3286,13 @@ _ZN12_GLOBAL__N_117MergedReplacementC2ERKN5clang7tooling11ReplacementEbi.exit: ;
 
 143:                                              ; preds = %140
   %.sroa.047.0..sroa.047.0..sroa.047.0..sroa.047.0.51 = load ptr, ptr %.sroa.047, align 8, !tbaa !223
-  %.not89 = icmp eq ptr %.sroa.047.0..sroa.047.0..sroa.047.0..sroa.047.0.51, %52
-  br i1 %.not89, label %.critedge4, label %145
+  %.not88 = icmp eq ptr %.sroa.047.0..sroa.047.0..sroa.047.0..sroa.047.0.51, %52
+  br i1 %.not88, label %.critedge4, label %145
 
 144:                                              ; preds = %140
   %.sroa.052.0..sroa.052.0..sroa.052.0..sroa.052.0.56 = load ptr, ptr %.sroa.052, align 8, !tbaa !223
-  %.not88 = icmp eq ptr %.sroa.052.0..sroa.052.0..sroa.052.0..sroa.052.0.56, %51
-  br i1 %.not88, label %.critedge4, label %_ZNK12_GLOBAL__N_117MergedReplacement10endsBeforeERKN5clang7tooling11ReplacementE.exit
+  %.not87 = icmp eq ptr %.sroa.052.0..sroa.052.0..sroa.052.0..sroa.052.0.56, %51
+  br i1 %.not87, label %.critedge4, label %_ZNK12_GLOBAL__N_117MergedReplacement10endsBeforeERKN5clang7tooling11ReplacementE.exit
 
 145:                                              ; preds = %143
   %146 = getelementptr i8, ptr %.sroa.047.0..sroa.047.0..sroa.047.0..sroa.047.0.51, i64 64
@@ -3589,7 +3589,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75.i: ; preds = %_
   br label %.backedge
 
 .backedge:                                        ; preds = %260, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %.sink133.be = phi ptr [ %.sroa.047.0..sroa.047.0..sroa.047.0..sroa.047.0.51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.sroa.052.0..sroa.052.0..sroa.052.0..sroa.052.0.56, %260 ]
+  %.sink132.be = phi ptr [ %.sroa.047.0..sroa.047.0..sroa.047.0..sroa.047.0.51, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.sroa.052.0..sroa.052.0..sroa.052.0..sroa.052.0.56, %260 ]
   %.5697478.sink.be = phi ptr [ %.sroa.047, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ], [ %.sroa.052, %260 ]
   br label %140
 
@@ -6311,17 +6311,17 @@ _ZNK5clang12FileEntryRefcvPKNS_9FileEntryEEv.exit: ; preds = %.preheader
   %93 = zext i32 %92 to i64
   %.idx.i.i = shl nuw nsw i64 %93, 3
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %92, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %92, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %90, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %96, %.critedge.i.i ], [ %91, %90 ]
-  %95 = load ptr, ptr %.02937.i.i, align 8, !tbaa !139, !noalias !344
+  %.02935.i.i = phi ptr [ %96, %.critedge.i.i ], [ %91, %90 ]
+  %95 = load ptr, ptr %.02935.i.i, align 8, !tbaa !139, !noalias !344
   %.not17.i.i = icmp eq ptr %95, %87
   br i1 %.not17.i.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit11, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %96 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %96, %94
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !347
 

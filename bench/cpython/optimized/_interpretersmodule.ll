@@ -1333,8 +1333,8 @@ define internal ptr @interp_create(ptr readnone captures(none) %0, ptr noundef %
   %15 = getelementptr i8, ptr %10, i64 8
   %.val.i = load ptr, ptr %15, align 8, !tbaa !23
   %16 = getelementptr i8, ptr %.val.i, i64 168
-  %.val27.i = load i64, ptr %16, align 8, !tbaa !24
-  %17 = and i64 %.val27.i, 268435456
+  %.val26.i = load i64, ptr %16, align 8, !tbaa !24
+  %17 = and i64 %.val26.i, 268435456
   %.not.i = icmp eq i64 %17, 0
   br i1 %.not.i, label %41, label %18
 

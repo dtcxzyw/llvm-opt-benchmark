@@ -1180,7 +1180,7 @@ define hidden range(i32 -1, 1) i32 @_PyRun_SimpleFileObject(ptr noundef %0, ptr 
   %9 = tail call ptr @PyModule_GetDict(ptr noundef nonnull %6) #8
   %10 = tail call i32 @PyDict_ContainsString(ptr noundef %9, ptr noundef nonnull @.str.4) #8
   %11 = icmp slt i32 %10, 0
-  br i1 %11, label %.thread103, label %12
+  br i1 %11, label %.thread102, label %12
 
 12:                                               ; preds = %8
   %.not.not = icmp eq i32 %10, 0
@@ -1189,12 +1189,12 @@ define hidden range(i32 -1, 1) i32 @_PyRun_SimpleFileObject(ptr noundef %0, ptr 
 13:                                               ; preds = %12
   %14 = tail call i32 @PyDict_SetItemString(ptr noundef %9, ptr noundef nonnull @.str.4, ptr noundef %1) #8
   %15 = icmp slt i32 %14, 0
-  br i1 %15, label %.thread103, label %16
+  br i1 %15, label %.thread102, label %16
 
 16:                                               ; preds = %13
   %17 = tail call i32 @PyDict_SetItemString(ptr noundef %9, ptr noundef nonnull @.str.5, ptr noundef nonnull @_Py_NoneStruct) #8
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %.thread103, label %19
+  br i1 %18, label %.thread102, label %19
 
 19:                                               ; preds = %16, %12
   %20 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull @.str.28) #8
@@ -1286,7 +1286,7 @@ Py_DECREF.exit.i:                                 ; preds = %28, %25, %22
 60:                                               ; preds = %55
   %61 = tail call ptr @PyErr_Occurred() #8
   %.not28.i = icmp eq ptr %61, null
-  br i1 %.not28.i, label %.sink.split.i, label %pyrun_file.exit.thread110
+  br i1 %.not28.i, label %.sink.split.i, label %pyrun_file.exit.thread109
 
 62:                                               ; preds = %55
   %63 = tail call i64 @PyMarshal_ReadLongFromFile(ptr noundef nonnull %43) #8
@@ -1294,7 +1294,7 @@ Py_DECREF.exit.i:                                 ; preds = %28, %25, %22
   %65 = tail call i64 @PyMarshal_ReadLongFromFile(ptr noundef nonnull %43) #8
   %66 = tail call ptr @PyErr_Occurred() #8
   %.not26.i = icmp eq ptr %66, null
-  br i1 %.not26.i, label %67, label %pyrun_file.exit.thread110
+  br i1 %.not26.i, label %67, label %pyrun_file.exit.thread109
 
 67:                                               ; preds = %62
   %68 = tail call ptr @PyMarshal_ReadLastObjectFromFile(ptr noundef nonnull %43) #8
@@ -1358,9 +1358,9 @@ Py_DECREF.exit.i:                                 ; preds = %28, %25, %22
   %.str.50.sink.i = phi ptr [ @.str.50, %60 ], [ @.str.51, %76 ], [ @.str.51, %73 ], [ @.str.51, %.split23.i ], [ @.str.51, %67 ]
   %94 = load ptr, ptr @PyExc_RuntimeError, align 8, !tbaa !10
   tail call void @PyErr_SetString(ptr noundef %94, ptr noundef nonnull %.str.50.sink.i) #8
-  br label %pyrun_file.exit.thread110
+  br label %pyrun_file.exit.thread109
 
-pyrun_file.exit.thread110:                        ; preds = %60, %62, %.sink.split.i
+pyrun_file.exit.thread109:                        ; preds = %60, %62, %.sink.split.i
   %95 = tail call i32 @fclose(ptr noundef nonnull %43)
   br label %.sink.split
 
@@ -1420,7 +1420,7 @@ pyrun_file.exit:                                  ; preds = %93, %90, %88, %117
   %118 = icmp eq ptr %.147, null
   br i1 %118, label %119, label %127
 
-.sink.split:                                      ; preds = %107, %pyrun_file.exit.thread110
+.sink.split:                                      ; preds = %107, %pyrun_file.exit.thread109
   tail call fastcc void @flush_io()
   br label %119
 
@@ -1489,27 +1489,27 @@ maybe_pyc_file.exit:                              ; preds = %132, %129, %127, %4
 
 145:                                              ; preds = %139, %142, %maybe_pyc_file.exit
   %.not.i76 = icmp eq ptr %.053, null
-  br i1 %.not.i76, label %Py_XDECREF.exit, label %.thread103
+  br i1 %.not.i76, label %Py_XDECREF.exit, label %.thread102
 
-.thread103:                                       ; preds = %8, %13, %16, %145
-  %.053101109 = phi ptr [ %.053, %145 ], [ %6, %16 ], [ %6, %13 ], [ %6, %8 ]
-  %.043102107 = phi i32 [ %.043, %145 ], [ -1, %16 ], [ -1, %13 ], [ -1, %8 ]
-  %146 = load i32, ptr %.053101109, align 8, !tbaa !9
+.thread102:                                       ; preds = %8, %13, %16, %145
+  %.053100108 = phi ptr [ %.053, %145 ], [ %6, %16 ], [ %6, %13 ], [ %6, %8 ]
+  %.043101106 = phi i32 [ %.043, %145 ], [ -1, %16 ], [ -1, %13 ], [ -1, %8 ]
+  %146 = load i32, ptr %.053100108, align 8, !tbaa !9
   %.not.i.i77 = icmp sgt i32 %146, -1
   br i1 %.not.i.i77, label %147, label %Py_XDECREF.exit
 
-147:                                              ; preds = %.thread103
+147:                                              ; preds = %.thread102
   %148 = add nsw i32 %146, -1
-  store i32 %148, ptr %.053101109, align 8, !tbaa !9
+  store i32 %148, ptr %.053100108, align 8, !tbaa !9
   %149 = icmp eq i32 %148, 0
   br i1 %149, label %150, label %Py_XDECREF.exit
 
 150:                                              ; preds = %147
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.053101109) #8
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.053100108) #8
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %150, %147, %.thread103, %145, %4
-  %.0 = phi i32 [ -1, %4 ], [ %.043, %145 ], [ %.043102107, %.thread103 ], [ %.043102107, %147 ], [ %.043102107, %150 ]
+Py_XDECREF.exit:                                  ; preds = %150, %147, %.thread102, %145, %4
+  %.0 = phi i32 [ -1, %4 ], [ %.043, %145 ], [ %.043101106, %.thread102 ], [ %.043101106, %147 ], [ %.043101106, %150 ]
   ret i32 %.0
 }
 

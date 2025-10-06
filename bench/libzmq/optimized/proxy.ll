@@ -1830,8 +1830,8 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7forwardPN3zmq13socket_b
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %.not.i, label %.split.us.us, label %.split
 
-.split.us.us:                                     ; preds = %6, %.split52.us.us
-  %.02853.us = phi i32 [ %34, %.split52.us.us ], [ 0, %6 ]
+.split.us.us:                                     ; preds = %6, %.split55.us.us
+  %.02856.us = phi i32 [ %34, %.split55.us.us ], [ 0, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %12
@@ -1839,7 +1839,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7forwardPN3zmq13socket_b
 12:                                               ; preds = %27, %.split.us.us
   %13 = call noundef i32 @_ZN3zmq13socket_base_t4recvEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %0, ptr noundef nonnull %3, i32 noundef 1)
   %14 = icmp slt i32 %13, 0
-  br i1 %14, label %.split50.us, label %15
+  br i1 %14, label %.split53.us, label %15
 
 15:                                               ; preds = %12
   %16 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -1871,17 +1871,17 @@ _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us: ; preds = %15
   store i64 %31, ptr %11, align 8, !tbaa !25
   %32 = load i32, ptr %8, align 4, !tbaa !3
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.split52.us.us, label %12
+  br i1 %33, label %.split55.us.us, label %12
 
-.split52.us.us:                                   ; preds = %27
+.split55.us.us:                                   ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %34 = add nuw nsw i32 %.02853.us, 1
-  %exitcond64 = icmp eq i32 %34, 1000
-  br i1 %exitcond64, label %.loopexit, label %.split.us.us, !llvm.loop !26
+  %34 = add nuw nsw i32 %.02856.us, 1
+  %exitcond67.not = icmp eq i32 %34, 1000
+  br i1 %exitcond67.not, label %.loopexit, label %.split.us.us, !llvm.loop !26
 
-.split:                                           ; preds = %6, %.split52
-  %.02853 = phi i32 [ %72, %.split52 ], [ 0, %6 ]
+.split:                                           ; preds = %6, %.split55
+  %.02856 = phi i32 [ %72, %.split55 ], [ 0, %6 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   br label %35
@@ -1889,16 +1889,16 @@ _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us: ; preds = %15
 35:                                               ; preds = %65, %.split
   %36 = call noundef i32 @_ZN3zmq13socket_base_t4recvEPNS_5msg_tEi(ptr noundef nonnull align 8 dereferenceable(1825) %0, ptr noundef nonnull %3, i32 noundef 1)
   %37 = icmp slt i32 %36, 0
-  br i1 %37, label %.split50.us, label %42
+  br i1 %37, label %.split53.us, label %42
 
-.split50.us:                                      ; preds = %35, %12
-  %.us-phi = phi i32 [ %.02853.us, %12 ], [ %.02853, %35 ]
+.split53.us:                                      ; preds = %35, %12
+  %.us-phi = phi i32 [ %.02856.us, %12 ], [ %.02856, %35 ]
   %38 = tail call ptr @__errno_location() #14
   %39 = load i32, ptr %38, align 4, !tbaa !3
   %40 = icmp ne i32 %39, 11
   %41 = icmp eq i32 %.us-phi, 0
-  %.not45 = or i1 %41, %40
-  %. = sext i1 %.not45 to i32
+  %.not48 = or i1 %41, %40
+  %. = sext i1 %.not48 to i32
   br label %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread
 
 42:                                               ; preds = %35
@@ -1955,24 +1955,24 @@ _ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit: ; preds = %57
   store i64 %69, ptr %11, align 8, !tbaa !25
   %70 = load i32, ptr %8, align 4, !tbaa !3
   %71 = icmp eq i32 %70, 0
-  br i1 %71, label %.split52, label %35
+  br i1 %71, label %.split55, label %35
 
-_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread: ; preds = %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit, %42, %57, %15, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us, %.thread.i, %.split50.us
-  %.3.ph = phi i32 [ %., %.split50.us ], [ -1, %.thread.i ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us ], [ -1, %15 ], [ -1, %57 ], [ -1, %42 ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit ]
+.split55:                                         ; preds = %65
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  %72 = add nuw nsw i32 %.02856, 1
+  %exitcond.not = icmp eq i32 %72, 1000
+  br i1 %exitcond.not, label %.loopexit, label %.split, !llvm.loop !26
+
+_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread: ; preds = %42, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit, %57, %15, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us, %.thread.i, %.split53.us
+  %.3.ph = phi i32 [ %., %.split53.us ], [ -1, %.thread.i ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.us.us ], [ -1, %15 ], [ -1, %57 ], [ -1, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit ], [ -1, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit
 
-.split52:                                         ; preds = %65
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %72 = add nuw nsw i32 %.02853, 1
-  %exitcond = icmp eq i32 %72, 1000
-  br i1 %exitcond, label %.loopexit, label %.split, !llvm.loop !26
-
-.loopexit:                                        ; preds = %.split52, %.split52.us.us, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread
-  %spec.select = phi i32 [ %.3.ph, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread ], [ 0, %.split52.us.us ], [ 0, %.split52 ]
-  ret i32 %spec.select
+.loopexit:                                        ; preds = %.split55, %.split55.us.us, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread
+  %73 = phi i32 [ %.3.ph, %_ZL7capturePN3zmq13socket_base_tEPNS_5msg_tEi.exit.thread ], [ 0, %.split55.us.us ], [ 0, %.split55 ]
+  ret i32 %73
 }
 
 declare noundef i32 @_ZN3zmq5msg_t5closeEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1

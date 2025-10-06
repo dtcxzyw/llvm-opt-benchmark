@@ -83,7 +83,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @walker_targets_stdin(p
 
 8:                                                ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %.02540 = phi i32 [ 0, %.lr.ph ], [ %.2, %31 ]
+  %.02539 = phi i32 [ 0, %.lr.ph ], [ %.2, %31 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !14
   %10 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %9, i32 noundef 9) #15
   %.not = icmp eq ptr %10, null
@@ -96,13 +96,13 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @walker_targets_stdin(p
 
 13:                                               ; preds = %11, %8
   %.024 = phi ptr [ %12, %11 ], [ null, %8 ]
-  %14 = sext i32 %.02540 to i64
+  %14 = sext i32 %.02539 to i64
   %.not29 = icmp slt i64 %indvars.iv, %14
   br i1 %.not29, label %25, label %15
 
 15:                                               ; preds = %13
-  %.not30 = icmp eq i32 %.02540, 0
-  %16 = shl nsw i32 %.02540, 1
+  %.not30 = icmp eq i32 %.02539, 0
+  %16 = shl nsw i32 %.02539, 1
   %17 = select i1 %.not30, i32 64, i32 %16
   %18 = zext nneg i32 %17 to i64
   %mul.ov.i = icmp slt i32 %17, 0
@@ -123,7 +123,7 @@ st_mult.exit33:                                   ; preds = %15
   br label %25
 
 25:                                               ; preds = %st_mult.exit33, %13
-  %.2 = phi i32 [ %17, %st_mult.exit33 ], [ %.02540, %13 ]
+  %.2 = phi i32 [ %17, %st_mult.exit33 ], [ %.02539, %13 ]
   %26 = call ptr @xstrdup(ptr noundef nonnull %9) #14
   %27 = load ptr, ptr %0, align 8, !tbaa !12
   %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv

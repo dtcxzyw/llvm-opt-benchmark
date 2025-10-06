@@ -128,26 +128,26 @@ define hidden noundef zeroext i1 @_ZN9LogTagSet10has_outputEPK9LogOutput(ptr nou
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load volatile ptr, ptr %5, align 8, !noalias !14
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !noalias !14, !srcloc !12
-  %.not6.not = icmp eq ptr %6, null
-  br i1 %.not6.not, label %._crit_edge, label %.lr.ph
+  %.not9.not = icmp eq ptr %6, null
+  br i1 %.not9.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
-  %.sroa.0.07 = phi ptr [ %11, %9 ], [ %6, %2 ]
-  %7 = load ptr, ptr %.sroa.0.07, align 8
+  %.sroa.0.010 = phi ptr [ %11, %9 ], [ %6, %2 ]
+  %7 = load ptr, ptr %.sroa.0.010, align 8
   %8 = icmp eq ptr %7, %1
   br i1 %8, label %._crit_edge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.07, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 8
   %11 = load volatile ptr, ptr %10, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %.not.not = icmp eq ptr %11, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %9, %.lr.ph, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %8, %.lr.ph ], [ %8, %9 ]
+  %.not8 = phi i1 [ false, %2 ], [ %8, %.lr.ph ], [ %8, %9 ]
   %12 = tail call noundef i32 @_ZN13LogOutputList16decrease_readersEv(ptr noundef nonnull align 8 dereferenceable(52) %3) #11
-  ret i1 %.not.lcssa
+  ret i1 %.not8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

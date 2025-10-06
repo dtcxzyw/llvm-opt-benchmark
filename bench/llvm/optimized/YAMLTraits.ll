@@ -2575,7 +2575,7 @@ define dso_local noundef i32 @_ZN4llvm4yaml5Input13beginSequenceEv(ptr noundef n
   %7 = load i32, ptr %6, align 8, !tbaa !112
   switch i32 %7, label %18 [
     i32 5, label %8
-    i32 0, label %.thread19
+    i32 0, label %.thread17
   ]
 
 8:                                                ; preds = %1
@@ -2588,19 +2588,19 @@ define dso_local noundef i32 @_ZN4llvm4yaml5Input13beginSequenceEv(ptr noundef n
   %15 = sub i64 %13, %14
   %16 = lshr exact i64 %15, 3
   %17 = trunc i64 %16 to i32
-  br label %.thread19
+  br label %.thread17
 
 18:                                               ; preds = %1
   %19 = add i32 %7, -3
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %19, -2
-  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread18, label %20
+  br i1 %spec.select.i.i.i.i.i.i.i.i, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread16, label %20
 
 20:                                               ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.0.0.copyload.i = load ptr, ptr %21, align 8, !tbaa !126
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !127
-  switch i64 %.sroa.2.0.copyload.i, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread18 [
+  switch i64 %.sroa.2.0.copyload.i, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread16 [
     i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit.i
     i64 1, label %24
   ]
@@ -2608,24 +2608,24 @@ define dso_local noundef i32 @_ZN4llvm4yaml5Input13beginSequenceEv(ptr noundef n
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %20
   %bcmp.i.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(4) @.str.53, i64 4)
   %22 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %22, label %.thread19, label %_ZN4llvmeqENS_9StringRefES0_.exit14.i
+  br i1 %22, label %.thread17, label %_ZN4llvmeqENS_9StringRefES0_.exit14.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit14.i:            ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i
   %bcmp.i13.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(4) @.str.54, i64 4)
   %23 = icmp eq i32 %bcmp.i13.i, 0
-  br i1 %23, label %.thread19, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit
+  br i1 %23, label %.thread17, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit
 
 24:                                               ; preds = %20
   %lhsc = load i8, ptr %.sroa.0.0.copyload.i, align 1
   %25 = icmp eq i8 %lhsc, 126
-  br i1 %25, label %.thread19, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread18
+  br i1 %25, label %.thread17, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread16
 
 _ZN4llvm4yaml6isNullENS_9StringRefE.exit:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit14.i
   %bcmp.i17.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %.sroa.0.0.copyload.i, ptr noundef nonnull dereferenceable(4) @.str.55, i64 4)
   %26 = icmp eq i32 %bcmp.i17.i, 0
-  br i1 %26, label %.thread19, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread18
+  br i1 %26, label %.thread17, label %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread16
 
-_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread18: ; preds = %20, %24, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit, %18
+_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread16: ; preds = %20, %24, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 33
@@ -2641,10 +2641,10 @@ _ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread18: ; preds = %20, %24, %_ZN4llvm
   %.sroa.41.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 104
   store ptr %31, ptr %.sroa.41.0..sroa_idx.i.i, align 8, !tbaa !96
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread19
+  br label %.thread17
 
-.thread19:                                        ; preds = %1, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit14.i, %24, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit, %8, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread18
-  %.1 = phi i32 [ 0, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread18 ], [ %17, %8 ], [ 0, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit ], [ 0, %24 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit14.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %7, %1 ]
+.thread17:                                        ; preds = %1, %_ZN4llvmeqENS_9StringRefES0_.exit.i, %_ZN4llvmeqENS_9StringRefES0_.exit14.i, %24, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit, %8, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread16
+  %.1 = phi i32 [ 0, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit.thread16 ], [ %17, %8 ], [ 0, %_ZN4llvm4yaml6isNullENS_9StringRefE.exit ], [ 0, %24 ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit14.i ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.i ], [ %7, %1 ]
   ret i32 %.1
 }
 
@@ -2959,8 +2959,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml5Input11bitSetMatchEPKcb(ptr n
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load i32, ptr %6, align 8, !tbaa !61
-  %.not48 = icmp eq i32 %7, 0
-  br i1 %.not48, label %8, label %.loopexit
+  %.not47 = icmp eq i32 %7, 0
+  br i1 %.not47, label %8, label %.loopexit
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -2976,8 +2976,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml5Input11bitSetMatchEPKcb(ptr n
   %16 = load ptr, ptr %15, align 8, !tbaa !217
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !217
-  %.not5053 = icmp eq ptr %16, %18
-  br i1 %.not5053, label %.loopexit, label %.lr.ph
+  %.not4952 = icmp eq ptr %16, %18
+  br i1 %.not4952, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %.not.i = icmp eq ptr %1, null
@@ -2988,9 +2988,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml5Input11bitSetMatchEPKcb(ptr n
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42.us
-  %.02155.us = phi i32 [ %32, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42.us ], [ 0, %.lr.ph ]
-  %.sroa.038.054.us = phi ptr [ %33, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42.us ], [ %16, %.lr.ph ]
-  %22 = load ptr, ptr %.sroa.038.054.us, align 8, !tbaa !136
+  %.02154.us = phi i32 [ %32, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42.us ], [ 0, %.lr.ph ]
+  %.sroa.038.053.us = phi ptr [ %33, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42.us ], [ %16, %.lr.ph ]
+  %22 = load ptr, ptr %.sroa.038.053.us, align 8, !tbaa !136
   %23 = load ptr, ptr %22, align 8, !tbaa !124
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load i32, ptr %24, align 8, !tbaa !112
@@ -3020,15 +3020,15 @@ _ZN4llvm9StringRefC2EPKc.exit.us:                 ; preds = %.lr.ph.split.us
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread42.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread42.us:    ; preds = %27, %_ZN4llvm9StringRefC2EPKc.exit.us
-  %32 = add i32 %.02155.us, 1
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.038.054.us, i64 8
-  %.not50.us = icmp eq ptr %33, %18
-  br i1 %.not50.us, label %.loopexit, label %.lr.ph.split.us
+  %32 = add i32 %.02154.us, 1
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.038.053.us, i64 8
+  %.not49.us = icmp eq ptr %33, %18
+  br i1 %.not49.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42
-  %.02155 = phi i32 [ %49, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42 ], [ 0, %.lr.ph ]
-  %.sroa.038.054 = phi ptr [ %50, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42 ], [ %16, %.lr.ph ]
-  %34 = load ptr, ptr %.sroa.038.054, align 8, !tbaa !136
+  %.02154 = phi i32 [ %49, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42 ], [ 0, %.lr.ph ]
+  %.sroa.038.053 = phi ptr [ %50, %_ZN4llvmeqENS_9StringRefES0_.exit.thread42 ], [ %16, %.lr.ph ]
+  %34 = load ptr, ptr %.sroa.038.053, align 8, !tbaa !136
   %35 = load ptr, ptr %34, align 8, !tbaa !124
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load i32, ptr %36, align 8, !tbaa !112
@@ -3070,10 +3070,10 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %41
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread42
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread42:       ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %44, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %49 = add i32 %.02155, 1
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.038.054, i64 8
-  %.not50 = icmp eq ptr %50, %18
-  br i1 %.not50, label %.loopexit, label %.lr.ph.split
+  %49 = add i32 %.02154, 1
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.038.053, i64 8
+  %.not49 = icmp eq ptr %50, %18
+  br i1 %.not49, label %.loopexit, label %.lr.ph.split
 
 51:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3093,7 +3093,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread42:       ; preds = %_ZN4llvm9StringRefC
   br label %.loopexit
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %41, %_ZN4llvm9StringRefC2EPKc.exit.us
-  %.us-phi = phi i32 [ %.02155.us, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ %.02155, %41 ], [ %.02155, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.us-phi = phi i32 [ %.02154.us, %_ZN4llvm9StringRefC2EPKc.exit.us ], [ %.02154, %41 ], [ %.02154, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %58 = lshr i32 %.us-phi, 6
   %59 = zext nneg i32 %58 to i64

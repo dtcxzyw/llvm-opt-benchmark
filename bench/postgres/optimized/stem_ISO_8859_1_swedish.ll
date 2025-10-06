@@ -183,14 +183,14 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %66 = load i32, ptr %65, align 4
   %67 = icmp slt i32 %63, %66
-  %.pre93.pre = load i32, ptr %30, align 8
+  %.pre88.pre = load i32, ptr %30, align 8
   br i1 %67, label %90, label %68
 
 68:                                               ; preds = %62
   store i32 %66, ptr %30, align 8
   %69 = add i32 %63, -1
-  %.not.i60 = icmp sgt i32 %69, %66
-  br i1 %.not.i60, label %70, label %.thread52.sink.split.i
+  %.not.i58 = icmp sgt i32 %69, %66
+  br i1 %.not.i58, label %70, label %.thread52.sink.split.i
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr %0, align 8
@@ -198,32 +198,32 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
   %73 = getelementptr inbounds i8, ptr %71, i64 %72
   %74 = load i8, ptr %73, align 1
   %75 = zext i8 %74 to i32
-  %.mask.i61 = and i32 %75, 224
-  %.not45.i62 = icmp eq i32 %.mask.i61, 96
-  br i1 %.not45.i62, label %76, label %.thread52.sink.split.i
+  %.mask.i59 = and i32 %75, 224
+  %.not45.i60 = icmp eq i32 %.mask.i59, 96
+  br i1 %.not45.i60, label %76, label %.thread52.sink.split.i
 
 76:                                               ; preds = %70
   %77 = and i32 %75, 31
   %78 = shl nuw i32 1, %77
   %79 = and i32 %78, 1064976
-  %.not46.i63 = icmp eq i32 %79, 0
-  br i1 %.not46.i63, label %.thread52.sink.split.i, label %80
+  %.not46.i61 = icmp eq i32 %79, 0
+  br i1 %.not46.i61, label %.thread52.sink.split.i, label %80
 
 80:                                               ; preds = %76
   %81 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_1, i32 noundef 7) #2
-  %.not47.i64 = icmp eq i32 %81, 0
-  %.pre.pre94 = load i32, ptr %4, align 4
-  br i1 %.not47.i64, label %.thread52.sink.split.i, label %82
+  %.not47.i62 = icmp eq i32 %81, 0
+  %.pre.pre89 = load i32, ptr %4, align 4
+  br i1 %.not47.i62, label %.thread52.sink.split.i, label %82
 
 82:                                               ; preds = %80
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 %.pre.pre94, ptr %83, align 8
+  store i32 %.pre.pre89, ptr %83, align 8
   %84 = load i32, ptr %30, align 8
-  %.not48.i65 = icmp sgt i32 %.pre.pre94, %84
-  br i1 %.not48.i65, label %85, label %.thread52.sink.split.i
+  %.not48.i63 = icmp sgt i32 %.pre.pre89, %84
+  br i1 %.not48.i63, label %85, label %.thread52.sink.split.i
 
 85:                                               ; preds = %82
-  %86 = add nsw i32 %.pre.pre94, -1
+  %86 = add nsw i32 %.pre.pre89, -1
   store i32 %86, ptr %2, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %86, ptr %87, align 4
@@ -236,13 +236,13 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
   br label %.thread52.sink.split.i
 
 .thread52.sink.split.i:                           ; preds = %..thread52.sink.split.i_crit_edge, %82, %80, %76, %70, %68
-  %.pre = phi i32 [ %.pre.pre, %..thread52.sink.split.i_crit_edge ], [ %.pre.pre94, %82 ], [ %.pre.pre94, %80 ], [ %63, %76 ], [ %63, %70 ], [ %63, %68 ]
-  store i32 %.pre93.pre, ptr %30, align 8
-  %.pre91 = load ptr, ptr %6, align 8
+  %.pre = phi i32 [ %.pre.pre, %..thread52.sink.split.i_crit_edge ], [ %.pre.pre89, %82 ], [ %.pre.pre89, %80 ], [ %63, %76 ], [ %63, %70 ], [ %63, %68 ]
+  store i32 %.pre88.pre, ptr %30, align 8
+  %.pre86 = load ptr, ptr %6, align 8
   br label %90
 
 90:                                               ; preds = %.thread52.sink.split.i, %62
-  %91 = phi ptr [ %.pre91, %.thread52.sink.split.i ], [ %64, %62 ]
+  %91 = phi ptr [ %.pre86, %.thread52.sink.split.i ], [ %64, %62 ]
   %92 = phi i32 [ %.pre, %.thread52.sink.split.i ], [ %63, %62 ]
   store i32 %92, ptr %2, align 8
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 4
@@ -255,8 +255,8 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %92, ptr %97, align 8
   %98 = add i32 %92, -1
-  %.not.i66 = icmp sgt i32 %98, %94
-  br i1 %.not.i66, label %99, label %.thread.sink.split.i
+  %.not.i64 = icmp sgt i32 %98, %94
+  br i1 %.not.i64, label %99, label %.thread.sink.split.i
 
 99:                                               ; preds = %96
   %100 = load ptr, ptr %0, align 8
@@ -264,16 +264,16 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
   %102 = getelementptr inbounds i8, ptr %100, i64 %101
   %103 = load i8, ptr %102, align 1
   %104 = zext i8 %103 to i32
-  %.mask.i68 = and i32 %104, 224
-  %.not47.i69 = icmp eq i32 %.mask.i68, 96
-  br i1 %.not47.i69, label %105, label %.thread.sink.split.i
+  %.mask.i66 = and i32 %104, 224
+  %.not47.i67 = icmp eq i32 %.mask.i66, 96
+  br i1 %.not47.i67, label %105, label %.thread.sink.split.i
 
 105:                                              ; preds = %99
   %106 = and i32 %104, 31
   %107 = shl nuw i32 1, %106
   %108 = and i32 %107, 1572992
-  %.not48.i70 = icmp eq i32 %108, 0
-  br i1 %.not48.i70, label %.thread.sink.split.i, label %109
+  %.not48.i68 = icmp eq i32 %108, 0
+  br i1 %.not48.i68, label %.thread.sink.split.i, label %109
 
 109:                                              ; preds = %105
   %110 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 5) #2
@@ -306,11 +306,11 @@ r_mark_regions.exit:                              ; preds = %1, %12, %16, %19, %
   br i1 %122, label %.thread.sink.split.i, label %124
 
 .thread.sink.split.i:                             ; preds = %120, %117, %114, %111, %109, %105, %99, %96
-  store i32 %.pre93.pre, ptr %30, align 8
+  store i32 %.pre88.pre, ptr %30, align 8
   br label %123
 
 123:                                              ; preds = %90, %.thread.sink.split.i
-  store i32 %.pre93.pre, ptr %2, align 8
+  store i32 %.pre88.pre, ptr %2, align 8
   br label %124
 
 124:                                              ; preds = %85, %54, %59, %114, %117, %120, %123

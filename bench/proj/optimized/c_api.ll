@@ -11772,24 +11772,24 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL30proj_is_equivalent_to_i
 
 8:                                                ; preds = %4
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %.thread45, label %9
+  br i1 %.not, label %.thread47, label %9
 
 9:                                                ; preds = %8
   tail call void @_Z22proj_context_errno_setP6pj_ctxi(ptr noundef nonnull %0, i32 noundef 4097)
   tail call fastcc void @_ZL14proj_log_errorP6pj_ctxPKcS2_(ptr noundef nonnull %0, ptr noundef nonnull @__FUNCTION__._ZL30proj_is_equivalent_to_internalP6pj_ctxPK8PJconstsS3_23PJ_COMPARISON_CRITERION, ptr noundef nonnull @.str.3)
-  br label %.thread45
+  br label %.thread47
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 640
   %12 = load ptr, ptr %11, align 8, !tbaa !45
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %13, label %47
+  br i1 %.not.i, label %13, label %48
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 640
   %15 = load ptr, ptr %14, align 8, !tbaa !45
   %.not.i44 = icmp eq ptr %15, null
-  br i1 %.not.i44, label %16, label %.thread45
+  br i1 %.not.i44, label %16, label %.thread47
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 816
@@ -11797,7 +11797,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL30proj_is_equivalent_to_i
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %20 = load ptr, ptr %19, align 8, !tbaa !132
   %21 = icmp eq ptr %18, %20
-  br i1 %21, label %.thread45, label %22
+  br i1 %21, label %.thread47, label %22
 
 22:                                               ; preds = %16
   %23 = ptrtoint ptr %20 to i64
@@ -11811,7 +11811,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL30proj_is_equivalent_to_i
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = icmp eq i64 %25, %32
-  br i1 %33, label %.lr.ph, label %.thread45
+  br i1 %33, label %.lr.ph, label %.thread47
 
 34:                                               ; preds = %.lr.ph
   %35 = add nuw i64 %.03251, 1
@@ -11821,122 +11821,122 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL30proj_is_equivalent_to_i
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = sdiv exact i64 %40, 192
-  %.not49.not = icmp ult i64 %35, %41
-  br i1 %.not49.not, label %.lr.ph, label %.thread45, !llvm.loop !225
+  %42 = icmp ult i64 %35, %41
+  br i1 %42, label %.lr.ph, label %.thread47, !llvm.loop !225
 
 .lr.ph:                                           ; preds = %22, %34
-  %42 = phi ptr [ %37, %34 ], [ %18, %22 ]
+  %43 = phi ptr [ %37, %34 ], [ %18, %22 ]
   %.03251 = phi i64 [ %35, %34 ], [ 0, %22 ]
-  %43 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %42, i64 %.03251
-  %44 = load ptr, ptr %26, align 8, !tbaa !224
-  %45 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %44, i64 %.03251
-  %46 = tail call noundef zeroext i1 @_ZNK16PJCoordOperationeqERKS_(ptr noundef nonnull align 8 dereferenceable(188) %43, ptr noundef nonnull align 8 dereferenceable(188) %45)
-  br i1 %46, label %34, label %.thread45
+  %44 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %43, i64 %.03251
+  %45 = load ptr, ptr %26, align 8, !tbaa !224
+  %46 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %45, i64 %.03251
+  %47 = tail call noundef zeroext i1 @_ZNK16PJCoordOperationeqERKS_(ptr noundef nonnull align 8 dereferenceable(188) %44, ptr noundef nonnull align 8 dereferenceable(188) %46)
+  br i1 %47, label %34, label %.thread47
 
-47:                                               ; preds = %10
-  %48 = tail call ptr @__dynamic_cast(ptr nonnull %12, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #35
-  %.not41 = icmp eq ptr %48, null
-  br i1 %.not41, label %.thread45, label %49
+48:                                               ; preds = %10
+  %49 = tail call ptr @__dynamic_cast(ptr nonnull %12, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #35
+  %.not41 = icmp eq ptr %49, null
+  br i1 %.not41, label %.thread47, label %50
 
-49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 640
-  %51 = load ptr, ptr %50, align 8, !tbaa !45
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %.thread45, label %53
+50:                                               ; preds = %48
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 640
+  %52 = load ptr, ptr %51, align 8, !tbaa !45
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %.thread47, label %54
 
-53:                                               ; preds = %49
-  %54 = tail call ptr @__dynamic_cast(ptr nonnull %51, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #35
-  %.not42 = icmp eq ptr %54, null
-  br i1 %.not42, label %.thread45, label %55
+54:                                               ; preds = %50
+  %55 = tail call ptr @__dynamic_cast(ptr nonnull %52, ptr nonnull @_ZTIN5osgeo4proj4util10BaseObjectE, ptr nonnull @_ZTIN5osgeo4proj6common16IdentifiedObjectE, i64 0) #35
+  %.not42 = icmp eq ptr %55, null
+  br i1 %.not42, label %.thread47, label %56
 
-55:                                               ; preds = %53
+56:                                               ; preds = %54
   %switch.selectcmp.i = icmp eq i32 %3, 1
   %switch.select.i = select i1 %switch.selectcmp.i, i32 1, i32 2
   %switch.selectcmp2.i = icmp eq i32 %3, 0
   %switch.select3.i = select i1 %switch.selectcmp2.i, i32 0, i32 %switch.select.i
-  %56 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.not43 = icmp eq ptr %0, null
-  br i1 %.not43, label %59, label %58
+  br i1 %.not43, label %60, label %59
 
-58:                                               ; preds = %55
+59:                                               ; preds = %56
   call fastcc void @_ZL23getDBcontextNoExceptionP6pj_ctxPKc(ptr dead_on_unwind noalias writable align 8 %5, ptr noundef nonnull %0, ptr noundef nonnull @.str.102)
-  br label %60
+  br label %61
 
-59:                                               ; preds = %55
+60:                                               ; preds = %56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
-  br label %60
+  br label %61
 
-60:                                               ; preds = %59, %58
-  %61 = invoke noundef zeroext i1 @_ZNK5osgeo4proj4util11IComparable14isEquivalentToEPKS2_NS2_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(8) %56, ptr noundef nonnull %57, i32 noundef %switch.select3.i, ptr noundef nonnull align 8 dereferenceable(16) %5)
-          to label %62 unwind label %87
+61:                                               ; preds = %60, %59
+  %62 = invoke noundef zeroext i1 @_ZNK5osgeo4proj4util11IComparable14isEquivalentToEPKS2_NS2_9CriterionERKSt10shared_ptrINS0_2io15DatabaseContextEE(ptr noundef nonnull align 8 dereferenceable(8) %57, ptr noundef nonnull %58, i32 noundef %switch.select3.i, ptr noundef nonnull align 8 dereferenceable(16) %5)
+          to label %63 unwind label %88
 
-62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %64 = load ptr, ptr %63, align 8, !tbaa !19
-  %.not.i.i = icmp eq ptr %64, null
-  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %65
+63:                                               ; preds = %61
+  %64 = zext i1 %62 to i32
+  %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %66 = load ptr, ptr %65, align 8, !tbaa !19
+  %.not.i.i = icmp eq ptr %66, null
+  br i1 %.not.i.i, label %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %67
 
-65:                                               ; preds = %62
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load atomic i64, ptr %66 acquire, align 8
-  %68 = icmp eq i64 %67, 4294967297
-  %69 = trunc i64 %67 to i32
-  br i1 %68, label %70, label %78
+67:                                               ; preds = %63
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %69 = load atomic i64, ptr %68 acquire, align 8
+  %70 = icmp eq i64 %69, 4294967297
+  %71 = trunc i64 %69 to i32
+  br i1 %70, label %72, label %80
 
-70:                                               ; preds = %65
-  store i32 0, ptr %66, align 8, !tbaa !22
-  %71 = getelementptr inbounds nuw i8, ptr %64, i64 12
-  store i32 0, ptr %71, align 4, !tbaa !25
-  %72 = load ptr, ptr %64, align 8, !tbaa !26
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %74 = load ptr, ptr %73, align 8
-  call void %74(ptr noundef nonnull align 8 dereferenceable(16) %64) #35
-  %75 = load ptr, ptr %64, align 8, !tbaa !26
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %77 = load ptr, ptr %76, align 8
-  call void %77(ptr noundef nonnull align 8 dereferenceable(16) %64) #35
+72:                                               ; preds = %67
+  store i32 0, ptr %68, align 8, !tbaa !22
+  %73 = getelementptr inbounds nuw i8, ptr %66, i64 12
+  store i32 0, ptr %73, align 4, !tbaa !25
+  %74 = load ptr, ptr %66, align 8, !tbaa !26
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
+  %76 = load ptr, ptr %75, align 8
+  call void %76(ptr noundef nonnull align 8 dereferenceable(16) %66) #35
+  %77 = load ptr, ptr %66, align 8, !tbaa !26
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
+  %79 = load ptr, ptr %78, align 8
+  call void %79(ptr noundef nonnull align 8 dereferenceable(16) %66) #35
   br label %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-78:                                               ; preds = %65
-  %79 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !11
-  %.not.i.i.i = icmp eq i8 %79, 0
-  br i1 %.not.i.i.i, label %82, label %80
+80:                                               ; preds = %67
+  %81 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !11
+  %.not.i.i.i = icmp eq i8 %81, 0
+  br i1 %.not.i.i.i, label %84, label %82
 
-80:                                               ; preds = %78
-  %81 = add nsw i32 %69, -1
-  store i32 %81, ptr %66, align 4, !tbaa !28
+82:                                               ; preds = %80
+  %83 = add nsw i32 %71, -1
+  store i32 %83, ptr %68, align 4, !tbaa !28
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-82:                                               ; preds = %78
-  %83 = atomicrmw volatile add ptr %66, i32 -1 acq_rel, align 4
+84:                                               ; preds = %80
+  %85 = atomicrmw volatile add ptr %68, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %82, %80
-  %.0.i.i.i.i = phi i32 [ %69, %80 ], [ %83, %82 ]
-  %84 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %84, label %85, label %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !29
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %84, %82
+  %.0.i.i.i.i = phi i32 [ %71, %82 ], [ %85, %84 ]
+  %86 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %86, label %87, label %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !29
 
-85:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %64) #35
+87:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %66) #35
   br label %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %62, %70, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %85
+_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %63, %72, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %86 = zext i1 %61 to i32
-  br label %.thread45
+  br label %.thread47
 
-87:                                               ; preds = %60
-  %88 = landingpad { ptr, i32 }
+88:                                               ; preds = %61
+  %89 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #35
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %88
+  resume { ptr, i32 } %89
 
-.thread45:                                        ; preds = %.lr.ph, %34, %49, %22, %16, %13, %47, %53, %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %8, %9
-  %.0.shrunk = phi i32 [ 0, %9 ], [ 0, %8 ], [ 0, %47 ], [ %86, %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %53 ], [ 0, %13 ], [ 0, %16 ], [ 0, %22 ], [ 0, %49 ], [ 0, %.lr.ph ], [ 1, %34 ]
-  ret i32 %.0.shrunk
+.thread47:                                        ; preds = %34, %.lr.ph, %50, %22, %16, %13, %48, %54, %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %8, %9
+  %.0 = phi i32 [ 0, %9 ], [ 0, %8 ], [ 0, %48 ], [ %64, %_ZNSt12__shared_ptrIN5osgeo4proj2io15DatabaseContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ 0, %54 ], [ 0, %13 ], [ 0, %16 ], [ 0, %22 ], [ 0, %50 ], [ 1, %34 ], [ 0, %.lr.ph ]
+  ret i32 %.0
 }
 
 ; Function Attrs: mustprogress uwtable

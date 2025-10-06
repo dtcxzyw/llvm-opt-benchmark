@@ -19594,27 +19594,26 @@ define internal fastcc noundef zeroext i1 @"_ZN75_$LT$sqlparser..ast..CreateTabl
   %3 = load i64, ptr %0, align 8, !range !307, !noundef !4
   %4 = load i64, ptr %1, align 8, !range !307, !noundef !4
   %5 = icmp eq i64 %3, %4
-  br i1 %5, label %6, label %12
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %2
-  %.off = add nsw i64 %3, -1
-  %switch = icmp ult i64 %.off, 2
-  br i1 %switch, label %.sink.split, label %12
+  %7 = icmp eq i64 %3, 0
+  br i1 %7, label %13, label %.sink.split
 
 .sink.split:                                      ; preds = %6
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val2 = load i64, ptr %8, align 8, !noundef !4
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val3 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val4 = load i64, ptr %10, align 8, !noundef !4
-  %11 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35aa47468713a054E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val2, ptr noalias noundef nonnull readonly align 8 %.val3, i64 noundef %.val4)
-  br label %12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.val = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.val2 = load i64, ptr %9, align 8, !noundef !4
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val3 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val4 = load i64, ptr %11, align 8, !noundef !4
+  %12 = tail call noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h35aa47468713a054E"(ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val2, ptr noalias noundef nonnull readonly align 8 %.val3, i64 noundef %.val4)
+  br label %13
 
-12:                                               ; preds = %6, %.sink.split, %2
-  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ true, %6 ], [ %11, %.sink.split ]
+13:                                               ; preds = %6, %.sink.split, %2
+  %.sroa.0.0.shrunk = phi i1 [ false, %2 ], [ true, %6 ], [ %12, %.sink.split ]
   ret i1 %.sroa.0.0.shrunk
 }
 

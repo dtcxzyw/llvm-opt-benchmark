@@ -799,14 +799,14 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   br i1 %53, label %.thread, label %102
 
 54:                                               ; preds = %30, %27, %26, %16, %20, %233, %223, %216, %185, %174, %167, %57, %33
-  %.0145387 = phi ptr [ %.0145386, %57 ], [ %.0145, %20 ], [ %.0145, %185 ], [ %.0145, %216 ], [ %.0145, %223 ], [ %.0145, %167 ], [ %.0145, %174 ], [ %.0145, %233 ], [ %.0145, %33 ], [ %.0145, %16 ], [ %.0145, %26 ], [ %.0145, %27 ], [ %.0145, %30 ]
+  %.0145385 = phi ptr [ %.0145384, %57 ], [ %.0145, %20 ], [ %.0145, %185 ], [ %.0145, %216 ], [ %.0145, %223 ], [ %.0145, %167 ], [ %.0145, %174 ], [ %.0145, %233 ], [ %.0145, %33 ], [ %.0145, %16 ], [ %.0145, %26 ], [ %.0145, %27 ], [ %.0145, %30 ]
   %.3 = phi ptr [ %.10, %57 ], [ %.0145, %20 ], [ %186, %185 ], [ %217, %216 ], [ %224, %223 ], [ %168, %167 ], [ %175, %174 ], [ %234, %233 ], [ %.0145, %33 ], [ %.0145, %16 ], [ %.0145, %26 ], [ %.0145, %27 ], [ %.0145, %30 ]
   %55 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %56 = load i8, ptr %55, align 1, !tbaa !23
   br label %57
 
 57:                                               ; preds = %230, %212, %208, %204, %200, %196, %192, %181, %163, %159, %155, %151, %147, %143, %139, %135, %131, %123, %119, %115, %111, %107, %103, %86, %82, %78, %74, %70, %66, %54
-  %.0145386 = phi ptr [ %.0145387, %54 ], [ %.0145, %155 ], [ %.0145, %131 ], [ %.0145, %103 ], [ %.0145, %66 ], [ %.0145, %204 ], [ %.0145, %192 ], [ %.0145, %159 ], [ %.0145, %135 ], [ %.0145, %107 ], [ %.0145, %70 ], [ %.0145, %208 ], [ %.0145, %196 ], [ %.0145, %163 ], [ %.0145, %139 ], [ %.0145, %111 ], [ %.0145, %74 ], [ %.0145, %143 ], [ %.0145, %115 ], [ %.0145, %78 ], [ %.0145, %147 ], [ %.0145, %119 ], [ %.0145, %82 ], [ %.0145, %230 ], [ %.0145, %212 ], [ %.0145, %200 ], [ %.0145, %181 ], [ %.0145, %151 ], [ %.0145, %123 ], [ %.0145, %86 ]
+  %.0145384 = phi ptr [ %.0145385, %54 ], [ %.0145, %155 ], [ %.0145, %131 ], [ %.0145, %103 ], [ %.0145, %66 ], [ %.0145, %204 ], [ %.0145, %192 ], [ %.0145, %159 ], [ %.0145, %135 ], [ %.0145, %107 ], [ %.0145, %70 ], [ %.0145, %208 ], [ %.0145, %196 ], [ %.0145, %163 ], [ %.0145, %139 ], [ %.0145, %111 ], [ %.0145, %74 ], [ %.0145, %143 ], [ %.0145, %115 ], [ %.0145, %78 ], [ %.0145, %147 ], [ %.0145, %119 ], [ %.0145, %82 ], [ %.0145, %230 ], [ %.0145, %212 ], [ %.0145, %200 ], [ %.0145, %181 ], [ %.0145, %151 ], [ %.0145, %123 ], [ %.0145, %86 ]
   %.10 = phi ptr [ %55, %54 ], [ %156, %155 ], [ %132, %131 ], [ %104, %103 ], [ %67, %66 ], [ %205, %204 ], [ %193, %192 ], [ %160, %159 ], [ %136, %135 ], [ %108, %107 ], [ %71, %70 ], [ %209, %208 ], [ %197, %196 ], [ %164, %163 ], [ %140, %139 ], [ %112, %111 ], [ %75, %74 ], [ %144, %143 ], [ %116, %115 ], [ %79, %78 ], [ %148, %147 ], [ %120, %119 ], [ %83, %82 ], [ %231, %230 ], [ %213, %212 ], [ %201, %200 ], [ %182, %181 ], [ %152, %151 ], [ %124, %123 ], [ %87, %86 ]
   %.1142 = phi i8 [ %56, %54 ], [ %157, %155 ], [ %133, %131 ], [ %105, %103 ], [ %68, %66 ], [ %206, %204 ], [ %194, %192 ], [ %161, %159 ], [ %137, %135 ], [ %109, %107 ], [ %72, %70 ], [ %210, %208 ], [ %198, %196 ], [ %165, %163 ], [ %141, %139 ], [ %113, %111 ], [ %76, %74 ], [ %145, %143 ], [ %117, %115 ], [ %80, %78 ], [ %149, %147 ], [ %121, %119 ], [ %84, %82 ], [ %232, %230 ], [ %214, %212 ], [ %202, %200 ], [ %183, %181 ], [ %153, %151 ], [ %125, %123 ], [ %88, %86 ]
   %58 = zext i8 %.1142 to i64
@@ -1117,15 +1117,15 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
   br label %_ZN5Lexer13EatWhitespaceEv.exit
 
 .thread:                                          ; preds = %49, %50, %97, %93, %233, %223, %216, %185, %174, %167, %90, %57, %47, %.loopexit, %39, %129, %127, %64, %62
-  %.0145384 = phi ptr [ %.0145, %62 ], [ %.0145, %64 ], [ %.0145, %127 ], [ %.0145, %129 ], [ %.0145, %.loopexit ], [ %.0145, %39 ], [ %.0145, %47 ], [ %.0145386, %57 ], [ %.0145, %90 ], [ %.0145, %167 ], [ %.0145, %174 ], [ %.0145, %185 ], [ %.0145, %216 ], [ %.0145, %223 ], [ %.0145, %233 ], [ %.0145, %93 ], [ %.0145, %97 ], [ %.0145, %50 ], [ %.0145, %49 ]
+  %.0145382 = phi ptr [ %.0145, %62 ], [ %.0145, %64 ], [ %.0145, %127 ], [ %.0145, %129 ], [ %.0145, %.loopexit ], [ %.0145, %39 ], [ %.0145, %47 ], [ %.0145384, %57 ], [ %.0145, %90 ], [ %.0145, %167 ], [ %.0145, %174 ], [ %.0145, %185 ], [ %.0145, %216 ], [ %.0145, %223 ], [ %.0145, %233 ], [ %.0145, %93 ], [ %.0145, %97 ], [ %.0145, %50 ], [ %.0145, %49 ]
   %.4.ph.ph = phi ptr [ %63, %62 ], [ %65, %64 ], [ %128, %127 ], [ %130, %129 ], [ %37, %.loopexit ], [ %40, %39 ], [ %43, %47 ], [ %.10, %57 ], [ %91, %90 ], [ %168, %167 ], [ %175, %174 ], [ %186, %185 ], [ %217, %216 ], [ %224, %223 ], [ %234, %233 ], [ %43, %93 ], [ %.1149, %97 ], [ %43, %49 ], [ %51, %50 ]
   %.1144.ph.ph = phi i32 [ 2, %62 ], [ 4, %64 ], [ 11, %127 ], [ 10, %129 ], [ 0, %.loopexit ], [ 0, %39 ], [ 7, %47 ], [ 5, %57 ], [ 9, %90 ], [ 12, %167 ], [ 13, %174 ], [ 1, %185 ], [ 3, %216 ], [ 6, %223 ], [ 14, %233 ], [ 7, %93 ], [ %spec.select, %97 ], [ 7, %49 ], [ 0, %50 ]
   %245 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store ptr %.0145384, ptr %245, align 8, !tbaa !12
-  br label %.backedge.i
+  store ptr %.0145382, ptr %245, align 8, !tbaa !12
+  br label %select.unfold.i
 
-.backedge.i:                                      ; preds = %.backedge.i.backedge, %.thread
-  %.018.i = phi ptr [ %.4.ph.ph, %.thread ], [ %.018.i.be, %.backedge.i.backedge ]
+select.unfold.i:                                  ; preds = %select.unfold.i.backedge, %.thread
+  %.018.i = phi ptr [ %.4.ph.ph, %.thread ], [ %.018.i.be, %select.unfold.i.backedge ]
   store ptr %.018.i, ptr %2, align 8, !tbaa !32
   %246 = load i8, ptr %.018.i, align 1, !tbaa !23
   switch i8 %246, label %_ZN5Lexer13EatWhitespaceEv.exit [
@@ -1133,14 +1133,14 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
     i8 36, label %249
   ]
 
-.preheader.i:                                     ; preds = %.backedge.i, %.preheader.i
-  %.1.i = phi ptr [ %247, %.preheader.i ], [ %.018.i, %.backedge.i ]
+.preheader.i:                                     ; preds = %select.unfold.i, %.preheader.i
+  %.1.i = phi ptr [ %247, %.preheader.i ], [ %.018.i, %select.unfold.i ]
   %247 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %248 = load i8, ptr %247, align 1, !tbaa !23
   %.not.not21.i = icmp eq i8 %248, 32
-  br i1 %.not.not21.i, label %.preheader.i, label %.backedge.i.backedge, !llvm.loop !33
+  br i1 %.not.not21.i, label %.preheader.i, label %select.unfold.i.backedge, !llvm.loop !33
 
-249:                                              ; preds = %.backedge.i
+249:                                              ; preds = %select.unfold.i
   %250 = getelementptr inbounds nuw i8, ptr %.018.i, i64 1
   %251 = load i8, ptr %250, align 1, !tbaa !23
   switch i8 %251, label %_ZN5Lexer13EatWhitespaceEv.exit [
@@ -1150,70 +1150,70 @@ define dso_local noundef range(i32 0, 16) i32 @_ZN5Lexer9ReadTokenEv(ptr noundef
 
 252:                                              ; preds = %249
   %253 = getelementptr inbounds nuw i8, ptr %.018.i, i64 2
-  br label %.backedge.i.backedge
+  br label %select.unfold.i.backedge
 
 254:                                              ; preds = %249
   %255 = getelementptr inbounds nuw i8, ptr %.018.i, i64 2
   %256 = load i8, ptr %255, align 1, !tbaa !23
-  %.not.i = icmp eq i8 %256, 10
-  %257 = getelementptr inbounds nuw i8, ptr %.018.i, i64 3
-  br i1 %.not.i, label %.backedge.i.backedge, label %_ZN5Lexer13EatWhitespaceEv.exit
+  %257 = icmp eq i8 %256, 10
+  %258 = getelementptr inbounds nuw i8, ptr %.018.i, i64 3
+  br i1 %257, label %select.unfold.i.backedge, label %_ZN5Lexer13EatWhitespaceEv.exit
 
-.backedge.i.backedge:                             ; preds = %.preheader.i, %254, %252
-  %.018.i.be = phi ptr [ %253, %252 ], [ %257, %254 ], [ %247, %.preheader.i ]
-  br label %.backedge.i
+select.unfold.i.backedge:                         ; preds = %.preheader.i, %254, %252
+  %.018.i.be = phi ptr [ %253, %252 ], [ %258, %254 ], [ %247, %.preheader.i ]
+  br label %select.unfold.i, !llvm.loop !33
 
-_ZN5Lexer13EatWhitespaceEv.exit:                  ; preds = %254, %249, %.backedge.i, %242
-  %.1144.ph187 = phi i32 [ %.1144.ph, %242 ], [ %.1144.ph.ph, %.backedge.i ], [ %.1144.ph.ph, %249 ], [ %.1144.ph.ph, %254 ]
-  ret i32 %.1144.ph187
+_ZN5Lexer13EatWhitespaceEv.exit:                  ; preds = %254, %249, %select.unfold.i, %242
+  %.1144.ph185 = phi i32 [ %.1144.ph, %242 ], [ %.1144.ph.ph, %select.unfold.i ], [ %.1144.ph.ph, %249 ], [ %.1144.ph.ph, %254 ]
+  ret i32 %.1144.ph185
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN5Lexer13EatWhitespaceEv(ptr noundef nonnull align 8 captures(none) dereferenceable(48) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !32
-  br label %.backedge
+  br label %select.unfold
 
-.backedge:                                        ; preds = %.backedge.backedge, %1
-  %.018 = phi ptr [ %3, %1 ], [ %.018.be, %.backedge.backedge ]
+select.unfold:                                    ; preds = %select.unfold.backedge, %1
+  %.018 = phi ptr [ %3, %1 ], [ %.018.be, %select.unfold.backedge ]
   store ptr %.018, ptr %2, align 8, !tbaa !32
   %4 = load i8, ptr %.018, align 1, !tbaa !23
-  switch i8 %4, label %.thread [
+  switch i8 %4, label %17 [
     i8 32, label %.preheader
     i8 36, label %7
   ]
 
-.preheader:                                       ; preds = %.backedge, %.preheader
-  %.1 = phi ptr [ %5, %.preheader ], [ %.018, %.backedge ]
+.preheader:                                       ; preds = %select.unfold, %.preheader
+  %.1 = phi ptr [ %5, %.preheader ], [ %.018, %select.unfold ]
   %5 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !23
   %.not.not21 = icmp eq i8 %6, 32
-  br i1 %.not.not21, label %.preheader, label %.backedge.backedge, !llvm.loop !33
+  br i1 %.not.not21, label %.preheader, label %select.unfold.backedge, !llvm.loop !33
 
-7:                                                ; preds = %.backedge
+7:                                                ; preds = %select.unfold
   %8 = getelementptr inbounds nuw i8, ptr %.018, i64 1
   %9 = load i8, ptr %8, align 1, !tbaa !23
-  switch i8 %9, label %.thread [
+  switch i8 %9, label %17 [
     i8 10, label %10
     i8 13, label %12
   ]
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.018, i64 2
-  br label %.backedge.backedge
+  br label %select.unfold.backedge
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %.018, i64 2
   %14 = load i8, ptr %13, align 1, !tbaa !23
-  %.not = icmp eq i8 %14, 10
-  %15 = getelementptr inbounds nuw i8, ptr %.018, i64 3
-  br i1 %.not, label %.backedge.backedge, label %.thread
+  %15 = icmp eq i8 %14, 10
+  %16 = getelementptr inbounds nuw i8, ptr %.018, i64 3
+  br i1 %15, label %select.unfold.backedge, label %17
 
-.backedge.backedge:                               ; preds = %.preheader, %12, %10
-  %.018.be = phi ptr [ %11, %10 ], [ %15, %12 ], [ %5, %.preheader ]
-  br label %.backedge
+select.unfold.backedge:                           ; preds = %.preheader, %12, %10
+  %.018.be = phi ptr [ %11, %10 ], [ %16, %12 ], [ %5, %.preheader ]
+  br label %select.unfold, !llvm.loop !33
 
-.thread:                                          ; preds = %12, %.backedge, %7
+17:                                               ; preds = %select.unfold, %7, %12
   ret void
 }
 
@@ -1269,10 +1269,10 @@ define dso_local noundef zeroext i1 @_ZN5Lexer9ReadIdentEPNSt7__cxx1112basic_str
   %22 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %21, ptr noundef nonnull %4, i64 noundef %19)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %4, ptr %23, align 8, !tbaa !12
-  br label %.backedge.i
+  br label %select.unfold.i
 
-.backedge.i:                                      ; preds = %.backedge.i.backedge, %16
-  %.018.i = phi ptr [ %9, %16 ], [ %.018.i.be, %.backedge.i.backedge ]
+select.unfold.i:                                  ; preds = %select.unfold.i.backedge, %16
+  %.018.i = phi ptr [ %9, %16 ], [ %.018.i.be, %select.unfold.i.backedge ]
   store ptr %.018.i, ptr %3, align 8, !tbaa !32
   %24 = load i8, ptr %.018.i, align 1, !tbaa !23
   switch i8 %24, label %_ZN5Lexer13EatWhitespaceEv.exit [
@@ -1280,14 +1280,14 @@ define dso_local noundef zeroext i1 @_ZN5Lexer9ReadIdentEPNSt7__cxx1112basic_str
     i8 36, label %27
   ]
 
-.preheader.i:                                     ; preds = %.backedge.i, %.preheader.i
-  %.1.i = phi ptr [ %25, %.preheader.i ], [ %.018.i, %.backedge.i ]
+.preheader.i:                                     ; preds = %select.unfold.i, %.preheader.i
+  %.1.i = phi ptr [ %25, %.preheader.i ], [ %.018.i, %select.unfold.i ]
   %25 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %26 = load i8, ptr %25, align 1, !tbaa !23
   %.not.not21.i = icmp eq i8 %26, 32
-  br i1 %.not.not21.i, label %.preheader.i, label %.backedge.i.backedge, !llvm.loop !33
+  br i1 %.not.not21.i, label %.preheader.i, label %select.unfold.i.backedge, !llvm.loop !33
 
-27:                                               ; preds = %.backedge.i
+27:                                               ; preds = %select.unfold.i
   %28 = getelementptr inbounds nuw i8, ptr %.018.i, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !23
   switch i8 %29, label %_ZN5Lexer13EatWhitespaceEv.exit [
@@ -1297,20 +1297,20 @@ define dso_local noundef zeroext i1 @_ZN5Lexer9ReadIdentEPNSt7__cxx1112basic_str
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %.018.i, i64 2
-  br label %.backedge.i.backedge
+  br label %select.unfold.i.backedge
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %.018.i, i64 2
   %34 = load i8, ptr %33, align 1, !tbaa !23
-  %.not.i = icmp eq i8 %34, 10
-  %35 = getelementptr inbounds nuw i8, ptr %.018.i, i64 3
-  br i1 %.not.i, label %.backedge.i.backedge, label %_ZN5Lexer13EatWhitespaceEv.exit
+  %35 = icmp eq i8 %34, 10
+  %36 = getelementptr inbounds nuw i8, ptr %.018.i, i64 3
+  br i1 %35, label %select.unfold.i.backedge, label %_ZN5Lexer13EatWhitespaceEv.exit
 
-.backedge.i.backedge:                             ; preds = %.preheader.i, %32, %30
-  %.018.i.be = phi ptr [ %31, %30 ], [ %35, %32 ], [ %25, %.preheader.i ]
-  br label %.backedge.i
+select.unfold.i.backedge:                         ; preds = %.preheader.i, %32, %30
+  %.018.i.be = phi ptr [ %31, %30 ], [ %36, %32 ], [ %25, %.preheader.i ]
+  br label %select.unfold.i, !llvm.loop !33
 
-_ZN5Lexer13EatWhitespaceEv.exit:                  ; preds = %32, %27, %.backedge.i, %14
+_ZN5Lexer13EatWhitespaceEv.exit:                  ; preds = %32, %27, %select.unfold.i, %14
   ret i1 %.not
 }
 
@@ -1333,7 +1333,7 @@ define dso_local noundef zeroext i1 @_ZN5Lexer14ReadEvalStringEP10EvalStringbPNS
   %15 = load i8, ptr %14, align 1, !tbaa !23
   %16 = and i8 %15, 16
   %.not = icmp eq i8 %16, 0
-  br i1 %.not, label %17, label %.preheader161
+  br i1 %.not, label %17, label %.preheader160
 
 17:                                               ; preds = %.loopexit
   %18 = icmp ult i8 %12, 14
@@ -1398,8 +1398,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %173
 
-.preheader161:                                    ; preds = %.loopexit, %.preheader161
-  %.194 = phi ptr [ %41, %.preheader161 ], [ %.093, %.loopexit ]
+.preheader160:                                    ; preds = %.loopexit, %.preheader160
+  %.194 = phi ptr [ %41, %.preheader160 ], [ %.093, %.loopexit ]
   %41 = getelementptr inbounds nuw i8, ptr %.194, i64 1
   %42 = load i8, ptr %41, align 1, !tbaa !23
   %43 = zext i8 %42 to i64
@@ -1407,9 +1407,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %35
   %45 = load i8, ptr %44, align 1, !tbaa !23
   %46 = and i8 %45, 16
   %.not110 = icmp eq i8 %46, 0
-  br i1 %.not110, label %47, label %.preheader161
+  br i1 %.not110, label %47, label %.preheader160
 
-47:                                               ; preds = %.preheader161
+47:                                               ; preds = %.preheader160
   %48 = ptrtoint ptr %41 to i64
   %49 = ptrtoint ptr %.093 to i64
   %50 = sub i64 %48, %49
@@ -1418,19 +1418,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113: ; preds = %35
 
 51:                                               ; preds = %23, %21
   %52 = getelementptr inbounds nuw i8, ptr %.093, i64 1
-  br i1 %2, label %.thread152, label %54
+  br i1 %2, label %.thread151, label %54
 
-.thread152:                                       ; preds = %51
+.thread151:                                       ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.093, ptr %53, align 8, !tbaa !12
   store ptr %.093, ptr %10, align 8, !tbaa !32
-  br label %.backedge.i.preheader
+  br label %select.unfold.i.preheader
 
 54:                                               ; preds = %51
   %55 = icmp eq i8 %12, 10
-  br i1 %55, label %.thread155, label %57
+  br i1 %55, label %.thread154, label %57
 
-.thread155:                                       ; preds = %54
+.thread154:                                       ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.093, ptr %56, align 8, !tbaa !12
   store ptr %52, ptr %10, align 8, !tbaa !32
@@ -1527,7 +1527,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119: ; preds = %80
   %92 = load i8, ptr %91, align 1, !tbaa !23
   %93 = and i8 %92, 64
   %.not100 = icmp eq i8 %93, 0
-  br i1 %.not100, label %94, label %.preheader160
+  br i1 %.not100, label %94, label %.preheader159
 
 94:                                               ; preds = %87
   %95 = icmp ult i8 %89, 33
@@ -1637,7 +1637,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
   %132 = getelementptr inbounds nuw i8, ptr %.093, i64 2
   %133 = load i8, ptr %132, align 1, !tbaa !23
   %134 = icmp eq i8 %133, 10
-  br i1 %134, label %.preheader157, label %.noexc.i121
+  br i1 %134, label %.preheader156, label %.noexc.i121
 
 135:                                              ; preds = %100
   %136 = getelementptr inbounds nuw i8, ptr %.093, i64 2
@@ -1649,8 +1649,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
   tail call void @_ZN10EvalString7AddTextE11StringPiece(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nonnull @.str.27, i64 1)
   br label %.loopexit.backedge
 
-.preheader160:                                    ; preds = %87, %.preheader160
-  %.3 = phi ptr [ %139, %.preheader160 ], [ %88, %87 ]
+.preheader159:                                    ; preds = %87, %.preheader159
+  %.3 = phi ptr [ %139, %.preheader159 ], [ %88, %87 ]
   %139 = getelementptr inbounds nuw i8, ptr %.3, i64 1
   %140 = load i8, ptr %139, align 1, !tbaa !23
   %141 = zext i8 %140 to i64
@@ -1658,9 +1658,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
   %143 = load i8, ptr %142, align 1, !tbaa !23
   %144 = and i8 %143, 64
   %.not106 = icmp eq i8 %144, 0
-  br i1 %.not106, label %145, label %.preheader160
+  br i1 %.not106, label %145, label %.preheader159
 
-145:                                              ; preds = %.preheader160
+145:                                              ; preds = %.preheader159
   %146 = ptrtoint ptr %139 to i64
   %147 = ptrtoint ptr %.093 to i64
   %148 = xor i64 %147, -1
@@ -1680,26 +1680,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
   %156 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %155
   %157 = load i8, ptr %156, align 1, !tbaa !23
   %.not101 = icmp sgt i8 %157, -1
-  br i1 %.not101, label %.noexc.i121, label %.preheader159
+  br i1 %.not101, label %.noexc.i121, label %.preheader158
 
-.preheader157:                                    ; preds = %131, %.preheader157
-  %.7 = phi ptr [ %158, %.preheader157 ], [ %132, %131 ]
+.preheader156:                                    ; preds = %131, %.preheader156
+  %.7 = phi ptr [ %158, %.preheader156 ], [ %132, %131 ]
   %158 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   %159 = load i8, ptr %158, align 1, !tbaa !23
   %160 = icmp eq i8 %159, 32
-  br i1 %160, label %.preheader157, label %.loopexit.backedge, !llvm.loop !37
+  br i1 %160, label %.preheader156, label %.loopexit.backedge, !llvm.loop !37
 
-.preheader159:                                    ; preds = %152, %.preheader159
-  %.8 = phi ptr [ %161, %.preheader159 ], [ %153, %152 ]
+.preheader158:                                    ; preds = %152, %.preheader158
+  %.8 = phi ptr [ %161, %.preheader158 ], [ %153, %152 ]
   %161 = getelementptr inbounds nuw i8, ptr %.8, i64 1
   %162 = load i8, ptr %161, align 1, !tbaa !23
   %163 = zext i8 %162 to i64
   %164 = getelementptr inbounds nuw i8, ptr @_ZZN5Lexer14ReadEvalStringEP10EvalStringbPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4yybm, i64 %163
   %165 = load i8, ptr %164, align 1, !tbaa !23
   %.not102 = icmp sgt i8 %165, -1
-  br i1 %.not102, label %166, label %.preheader159
+  br i1 %.not102, label %166, label %.preheader158
 
-166:                                              ; preds = %.preheader159
+166:                                              ; preds = %.preheader158
   %167 = icmp eq i8 %162, 125
   br i1 %167, label %168, label %.noexc.i121
 
@@ -1712,8 +1712,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
   tail call void @_ZN10EvalString10AddSpecialE11StringPiece(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr nonnull %153, i64 %172)
   br label %.loopexit.backedge
 
-.loopexit.backedge:                               ; preds = %.preheader157, %.preheader, %168, %150, %145, %137, %135, %57, %47
-  %.093.be = phi ptr [ %41, %47 ], [ %52, %57 ], [ %139, %145 ], [ %136, %135 ], [ %138, %137 ], [ %151, %150 ], [ %169, %168 ], [ %129, %.preheader ], [ %158, %.preheader157 ]
+.loopexit.backedge:                               ; preds = %.preheader156, %.preheader, %168, %150, %145, %137, %135, %57, %47
+  %.093.be = phi ptr [ %41, %47 ], [ %52, %57 ], [ %139, %145 ], [ %136, %135 ], [ %138, %137 ], [ %151, %150 ], [ %169, %168 ], [ %129, %.preheader ], [ %158, %.preheader156 ]
   br label %.loopexit, !llvm.loop !37
 
 173:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit113
@@ -1726,13 +1726,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %.093, ptr %175, align 8, !tbaa !12
   store ptr %spec.select, ptr %10, align 8, !tbaa !32
-  br i1 %2, label %.backedge.i.preheader, label %_ZN5Lexer13EatWhitespaceEv.exit
+  br i1 %2, label %select.unfold.i.preheader, label %_ZN5Lexer13EatWhitespaceEv.exit
 
-.backedge.i.preheader:                            ; preds = %.thread152, %174
-  br label %.backedge.i
+select.unfold.i.preheader:                        ; preds = %.thread151, %174
+  br label %select.unfold.i
 
-.backedge.i:                                      ; preds = %.backedge.i.backedge, %.backedge.i.preheader
-  %.018.i = phi ptr [ %.093, %.backedge.i.preheader ], [ %.018.i.be, %.backedge.i.backedge ]
+select.unfold.i:                                  ; preds = %select.unfold.i.backedge, %select.unfold.i.preheader
+  %.018.i = phi ptr [ %.093, %select.unfold.i.preheader ], [ %.018.i.be, %select.unfold.i.backedge ]
   store ptr %.018.i, ptr %10, align 8, !tbaa !32
   %176 = load i8, ptr %.018.i, align 1, !tbaa !23
   switch i8 %176, label %_ZN5Lexer13EatWhitespaceEv.exit [
@@ -1740,14 +1740,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
     i8 36, label %179
   ]
 
-.preheader.i:                                     ; preds = %.backedge.i, %.preheader.i
-  %.1.i = phi ptr [ %177, %.preheader.i ], [ %.018.i, %.backedge.i ]
+.preheader.i:                                     ; preds = %select.unfold.i, %.preheader.i
+  %.1.i = phi ptr [ %177, %.preheader.i ], [ %.018.i, %select.unfold.i ]
   %177 = getelementptr inbounds nuw i8, ptr %.1.i, i64 1
   %178 = load i8, ptr %177, align 1, !tbaa !23
   %.not.not21.i = icmp eq i8 %178, 32
-  br i1 %.not.not21.i, label %.preheader.i, label %.backedge.i.backedge, !llvm.loop !33
+  br i1 %.not.not21.i, label %.preheader.i, label %select.unfold.i.backedge, !llvm.loop !33
 
-179:                                              ; preds = %.backedge.i
+179:                                              ; preds = %select.unfold.i
   %180 = getelementptr inbounds nuw i8, ptr %.018.i, i64 1
   %181 = load i8, ptr %180, align 1, !tbaa !23
   switch i8 %181, label %_ZN5Lexer13EatWhitespaceEv.exit [
@@ -1757,21 +1757,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit129: ; preds = %12
 
 182:                                              ; preds = %179
   %183 = getelementptr inbounds nuw i8, ptr %.018.i, i64 2
-  br label %.backedge.i.backedge
+  br label %select.unfold.i.backedge
 
 184:                                              ; preds = %179
   %185 = getelementptr inbounds nuw i8, ptr %.018.i, i64 2
   %186 = load i8, ptr %185, align 1, !tbaa !23
-  %.not.i130 = icmp eq i8 %186, 10
-  %187 = getelementptr inbounds nuw i8, ptr %.018.i, i64 3
-  br i1 %.not.i130, label %.backedge.i.backedge, label %_ZN5Lexer13EatWhitespaceEv.exit
+  %187 = icmp eq i8 %186, 10
+  %188 = getelementptr inbounds nuw i8, ptr %.018.i, i64 3
+  br i1 %187, label %select.unfold.i.backedge, label %_ZN5Lexer13EatWhitespaceEv.exit
 
-.backedge.i.backedge:                             ; preds = %.preheader.i, %184, %182
-  %.018.i.be = phi ptr [ %183, %182 ], [ %187, %184 ], [ %177, %.preheader.i ]
-  br label %.backedge.i
+select.unfold.i.backedge:                         ; preds = %.preheader.i, %184, %182
+  %.018.i.be = phi ptr [ %183, %182 ], [ %188, %184 ], [ %177, %.preheader.i ]
+  br label %select.unfold.i, !llvm.loop !33
 
-_ZN5Lexer13EatWhitespaceEv.exit:                  ; preds = %184, %179, %.backedge.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread155, %174
-  %.292 = phi i1 [ true, %174 ], [ true, %.thread155 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ true, %.backedge.i ], [ true, %179 ], [ true, %184 ]
+_ZN5Lexer13EatWhitespaceEv.exit:                  ; preds = %184, %179, %select.unfold.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread154, %174
+  %.292 = phi i1 [ true, %174 ], [ true, %.thread154 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit116 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit126 ], [ true, %select.unfold.i ], [ true, %179 ], [ true, %184 ]
   ret i1 %.292
 }
 

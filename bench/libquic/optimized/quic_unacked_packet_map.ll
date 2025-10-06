@@ -2302,8 +2302,8 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap31HasUnackedRetransmitt
   %3 = load ptr, ptr %2, align 8, !tbaa !16, !noalias !181
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !16, !noalias !184
-  %.not13.not = icmp eq ptr %3, %5
-  br i1 %.not13.not, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge, label %.lr.ph.preheader
+  %.not15.not = icmp eq ptr %3, %5
+  br i1 %.not15.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -2313,14 +2313,14 @@ define noundef zeroext i1 @_ZNK3net20QuicUnackedPacketMap31HasUnackedRetransmitt
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
-  %.sroa.15.018 = phi ptr [ %.sroa.15.1, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %7, %.lr.ph.preheader ]
-  %.sroa.8.016 = phi ptr [ %.sroa.8.1, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %9, %.lr.ph.preheader ]
-  %.sroa.04.014 = phi ptr [ %33, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %3, %.lr.ph.preheader ]
-  %10 = icmp eq ptr %.sroa.04.014, %.sroa.8.016
+  %.sroa.15.020 = phi ptr [ %.sroa.15.1, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %7, %.lr.ph.preheader ]
+  %.sroa.8.018 = phi ptr [ %.sroa.8.1, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %9, %.lr.ph.preheader ]
+  %.sroa.04.016 = phi ptr [ %33, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ %3, %.lr.ph.preheader ]
+  %10 = icmp eq ptr %.sroa.04.016, %.sroa.8.018
   br i1 %10, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit: ; preds = %.lr.ph
-  %11 = getelementptr inbounds i8, ptr %.sroa.15.018, i64 -8
+  %11 = getelementptr inbounds i8, ptr %.sroa.15.020, i64 -8
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 441
   %14 = load i8, ptr %13, align 1, !tbaa !77, !range !94, !noundef !95
@@ -2328,7 +2328,7 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   br i1 %15, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3, label %.thread
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread: ; preds = %.lr.ph
-  %16 = getelementptr inbounds i8, ptr %.sroa.04.014, i64 -39
+  %16 = getelementptr inbounds i8, ptr %.sroa.04.016, i64 -39
   %17 = load i8, ptr %16, align 1, !tbaa !77, !range !94, !noundef !95
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
@@ -2339,32 +2339,32 @@ _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EE
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 408
   %22 = load ptr, ptr %21, align 8, !tbaa !105
   %23 = icmp eq ptr %20, %22
-  br i1 %23, label %.thread, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge
+  br i1 %23, label %.thread, label %._crit_edge
 
 _ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread
-  %24 = getelementptr inbounds i8, ptr %.sroa.04.014, i64 -80
+  %24 = getelementptr inbounds i8, ptr %.sroa.04.016, i64 -80
   %25 = load ptr, ptr %24, align 8, !tbaa !105
-  %26 = getelementptr inbounds i8, ptr %.sroa.04.014, i64 -72
+  %26 = getelementptr inbounds i8, ptr %.sroa.04.016, i64 -72
   %27 = load ptr, ptr %26, align 8, !tbaa !105
   %28 = icmp eq ptr %25, %27
-  br i1 %28, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge
+  br i1 %28, label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, label %._crit_edge
 
 .thread:                                          ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit
-  %29 = getelementptr inbounds i8, ptr %.sroa.15.018, i64 -8
+  %29 = getelementptr inbounds i8, ptr %.sroa.15.020, i64 -8
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 480
   br label %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit
 
 _ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit: ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread, %.thread
-  %.sroa.8.1 = phi ptr [ %30, %.thread ], [ %.sroa.8.016, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %.sroa.8.016, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ]
-  %.sroa.15.1 = phi ptr [ %29, %.thread ], [ %.sroa.15.018, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %.sroa.15.018, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ]
-  %32 = phi ptr [ %31, %.thread ], [ %.sroa.04.014, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %.sroa.04.014, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ]
+  %.sroa.8.1 = phi ptr [ %30, %.thread ], [ %.sroa.8.018, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %.sroa.8.018, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ]
+  %.sroa.15.1 = phi ptr [ %29, %.thread ], [ %.sroa.15.020, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %.sroa.15.020, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ]
+  %32 = phi ptr [ %31, %.thread ], [ %.sroa.04.016, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit.thread ], [ %.sroa.04.016, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ]
   %33 = getelementptr inbounds i8, ptr %32, i64 -80
   %.not.not = icmp eq ptr %33, %5
-  br i1 %.not.not, label %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge, label %.lr.ph, !llvm.loop !187
+  br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !187
 
-_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3._crit_edge: ; preds = %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ true, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ], [ true, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3 ], [ false, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ]
+._crit_edge:                                      ; preds = %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread, %1
+  %.not.lcssa = phi i1 [ false, %1 ], [ true, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3.thread ], [ false, %_ZNSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEppEv.exit ], [ true, %_ZNKSt16reverse_iteratorISt15_Deque_iteratorIN3net16TransmissionInfoERKS2_PS3_EEptEv.exit3 ]
   ret i1 %.not.lcssa
 }
 

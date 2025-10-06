@@ -1063,8 +1063,8 @@ define dso_local void @set_max_safe_fds() local_unnamed_addr #0 {
   %24 = tail call ptr @__errno_location() #25
   %25 = load i32, ptr %24, align 4
   %.off.us.i = add i32 %25, -23
-  %switch49.us.i = icmp ult i32 %.off.us.i, 2
-  br i1 %switch49.us.i, label %.preheader.i, label %26
+  %switch.us.i = icmp ult i32 %.off.us.i, 2
+  br i1 %switch.us.i, label %.preheader.i, label %26
 
 26:                                               ; preds = %22
   %27 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #24
@@ -1094,8 +1094,8 @@ select.unfold.us.i:                               ; preds = %17, %15
   %33 = tail call ptr @__errno_location() #25
   %34 = load i32, ptr %33, align 4
   %.off.i = add i32 %34, -23
-  %switch49.i = icmp ult i32 %.off.i, 2
-  br i1 %switch49.i, label %.preheader.i, label %35
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %.preheader.i, label %35
 
 35:                                               ; preds = %31
   %36 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #24
@@ -1125,8 +1125,8 @@ select.unfold.i:                                  ; preds = %39, %37
 
 .preheader.sink.split.i:                          ; preds = %35, %26
   %.038.lcssa.sink.i = phi i32 [ %23, %26 ], [ %32, %35 ]
-  %.us-phi52.ph.i = phi i32 [ %.035.us.i, %26 ], [ %.035.i, %35 ]
-  %.us-phi53.ph.i = phi ptr [ %.030.us.i, %26 ], [ %.030.i, %35 ]
+  %.us-phi51.ph.i = phi i32 [ %.035.us.i, %26 ], [ %.035.i, %35 ]
+  %.us-phi52.ph.i = phi ptr [ %.030.us.i, %26 ], [ %.030.i, %35 ]
   %45 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.51, i32 noundef %.038.lcssa.sink.i) #24
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1005, ptr noundef nonnull @__func__.count_usable_fds) #24
   br label %.preheader.i
@@ -1137,21 +1137,21 @@ select.unfold.i:                                  ; preds = %39, %37
 
 .preheader.i:                                     ; preds = %.preheader.i.loopexit, %.preheader.sink.split.i, %35, %31, %26, %22
   %.us-phi.i = phi i32 [ %23, %22 ], [ %23, %26 ], [ %32, %31 ], [ %32, %35 ], [ %.038.lcssa.sink.i, %.preheader.sink.split.i ], [ %46, %.preheader.i.loopexit ]
-  %.us-phi52.i = phi i32 [ %.035.us.i, %22 ], [ %.035.us.i, %26 ], [ %.035.i, %31 ], [ %.035.i, %35 ], [ %.us-phi52.ph.i, %.preheader.sink.split.i ], [ %.035.us.i, %.preheader.i.loopexit ]
-  %.us-phi53.i = phi ptr [ %.030.us.i, %22 ], [ %.030.us.i, %26 ], [ %.030.i, %31 ], [ %.030.i, %35 ], [ %.us-phi53.ph.i, %.preheader.sink.split.i ], [ %.030.us.i, %.preheader.i.loopexit ]
+  %.us-phi51.i = phi i32 [ %.035.us.i, %22 ], [ %.035.us.i, %26 ], [ %.035.i, %31 ], [ %.035.i, %35 ], [ %.us-phi51.ph.i, %.preheader.sink.split.i ], [ %.035.us.i, %.preheader.i.loopexit ]
+  %.us-phi52.i = phi ptr [ %.030.us.i, %22 ], [ %.030.us.i, %26 ], [ %.030.i, %31 ], [ %.030.i, %35 ], [ %.us-phi52.ph.i, %.preheader.sink.split.i ], [ %.030.us.i, %.preheader.i.loopexit ]
   %47 = icmp sgt i32 %.us-phi.i, 0
   br i1 %47, label %.lr.ph.preheader.i, label %count_usable_fds.exit
 
 .lr.ph.preheader.i:                               ; preds = %select.unfold.i, %select.unfold.us.i, %.preheader.i
-  %.us-phi53.i34 = phi ptr [ %.us-phi53.i, %.preheader.i ], [ %.2.us.i, %select.unfold.us.i ], [ %.2.i, %select.unfold.i ]
-  %.us-phi52.i32 = phi i32 [ %.us-phi52.i, %.preheader.i ], [ %spec.select.us.i, %select.unfold.us.i ], [ %spec.select.i, %select.unfold.i ]
+  %.us-phi52.i34 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.2.us.i, %select.unfold.us.i ], [ %.2.i, %select.unfold.i ]
+  %.us-phi51.i32 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %spec.select.us.i, %select.unfold.us.i ], [ %spec.select.i, %select.unfold.i ]
   %.us-phi.i30 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %smax21, %select.unfold.us.i ], [ %smax, %select.unfold.i ]
   %wide.trip.count.i = zext nneg i32 %.us-phi.i30 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %48 = getelementptr inbounds nuw i32, ptr %.us-phi53.i34, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw i32, ptr %.us-phi52.i34, i64 %indvars.iv.i
   %49 = load i32, ptr %48, align 4
   %50 = call i32 @close(i32 noundef %49) #24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1159,11 +1159,11 @@ select.unfold.i:                                  ; preds = %39, %37
   br i1 %exitcond.not.i, label %count_usable_fds.exit, label %.lr.ph.i, !llvm.loop !10
 
 count_usable_fds.exit:                            ; preds = %.lr.ph.i, %.preheader.i
-  %.us-phi53.i33 = phi ptr [ %.us-phi53.i, %.preheader.i ], [ %.us-phi53.i34, %.lr.ph.i ]
-  %.us-phi52.i31 = phi i32 [ %.us-phi52.i, %.preheader.i ], [ %.us-phi52.i32, %.lr.ph.i ]
+  %.us-phi52.i33 = phi ptr [ %.us-phi52.i, %.preheader.i ], [ %.us-phi52.i34, %.lr.ph.i ]
+  %.us-phi51.i31 = phi i32 [ %.us-phi51.i, %.preheader.i ], [ %.us-phi51.i32, %.lr.ph.i ]
   %.us-phi.i29 = phi i32 [ %.us-phi.i, %.preheader.i ], [ %.us-phi.i30, %.lr.ph.i ]
-  call void @pfree(ptr noundef %.us-phi53.i33) #24
-  %reass.sub.i = sub i32 %.us-phi52.i31, %.us-phi.i29
+  call void @pfree(ptr noundef %.us-phi52.i33) #24
+  %reass.sub.i = sub i32 %.us-phi51.i31, %.us-phi.i29
   %51 = add i32 %reass.sub.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   %52 = load i32, ptr @max_files_per_process, align 4
@@ -1222,8 +1222,8 @@ define dso_local range(i32 -1, -2147483648) i32 @BasicOpenFilePerm(ptr noundef r
 7:                                                ; preds = %.lr.ph, %17
   %8 = load i32, ptr %6, align 4
   %.off = add i32 %8, -23
-  %switch10 = icmp ult i32 %.off, 2
-  br i1 %switch10, label %9, label %.loopexit
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %9, label %.loopexit
 
 9:                                                ; preds = %7
   %10 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #24
@@ -3009,8 +3009,8 @@ ReleaseLruFile.exit.i:                            ; preds = %9, %ReleaseLruFile.
 
 ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit.i, %9
   %27 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef %1)
-  %.not22 = icmp eq ptr %27, null
-  br i1 %.not22, label %.lr.ph, label %._crit_edge
+  %.not20 = icmp eq ptr %27, null
+  br i1 %.not20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %ReleaseLruFiles.exit
   %28 = tail call ptr @__errno_location() #25
@@ -3037,8 +3037,8 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit
 39:                                               ; preds = %.lr.ph, %49
   %40 = load i32, ptr %28, align 4
   %.off = add i32 %40, -23
-  %switch13 = icmp ult i32 %.off, 2
-  br i1 %switch13, label %41, label %.loopexit
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %41, label %.loopexit
 
 41:                                               ; preds = %39
   %42 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #24
@@ -3461,8 +3461,8 @@ ReleaseLruFile.exit.i:                            ; preds = %8, %ReleaseLruFile.
 
 ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit.i, %8
   %26 = tail call ptr @opendir(ptr noundef %0)
-  %.not21 = icmp eq ptr %26, null
-  br i1 %.not21, label %.lr.ph, label %._crit_edge
+  %.not19 = icmp eq ptr %26, null
+  br i1 %.not19, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %ReleaseLruFiles.exit
   %27 = tail call ptr @__errno_location() #25
@@ -3489,8 +3489,8 @@ ReleaseLruFiles.exit:                             ; preds = %ReleaseLruFile.exit
 38:                                               ; preds = %.lr.ph, %48
   %39 = load i32, ptr %27, align 4
   %.off = add i32 %39, -23
-  %switch12 = icmp ult i32 %.off, 2
-  br i1 %switch12, label %40, label %.loopexit
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %40, label %.loopexit
 
 40:                                               ; preds = %38
   %41 = tail call zeroext i1 @errstart(i32 noundef 15, ptr noundef null) #24
@@ -4118,33 +4118,33 @@ define dso_local void @RemovePgTempFilesInDir(ptr noundef %0, i1 noundef zeroext
 
 11:                                               ; preds = %7, %3
   %12 = tail call ptr @ReadDirExtended(ptr noundef %5, ptr noundef %0, i32 noundef 15)
-  %.not25 = icmp eq ptr %12, null
-  br i1 %.not25, label %._crit_edge, label %sub_0
+  %.not24 = icmp eq ptr %12, null
+  br i1 %.not24, label %._crit_edge, label %sub_0
 
 sub_0:                                            ; preds = %11, %.backedge
   %13 = phi ptr [ %26, %.backedge ], [ %12, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = load i8, ptr %14, align 1
-  %.not26 = icmp eq i8 %15, 46
-  br i1 %.not26, label %.tail, label %.tail20.thread
+  %.not25 = icmp eq i8 %15, 46
+  br i1 %.not25, label %.tail, label %.tail19.thread
 
 .tail:                                            ; preds = %sub_0
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %17 = load i8, ptr %16, align 1
   %18 = icmp eq i8 %17, 0
-  br i1 %18, label %.backedge, label %sub_122
+  br i1 %18, label %.backedge, label %sub_121
 
-sub_122:                                          ; preds = %.tail
+sub_121:                                          ; preds = %.tail
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 20
   %20 = load i8, ptr %19, align 1
-  %.not28 = icmp eq i8 %20, 46
-  br i1 %.not28, label %.tail20, label %.tail20.thread
+  %.not27 = icmp eq i8 %20, 46
+  br i1 %.not27, label %.tail19, label %.tail19.thread
 
-.tail20:                                          ; preds = %sub_122
+.tail19:                                          ; preds = %sub_121
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 21
   %22 = load i8, ptr %21, align 1
   %23 = icmp eq i8 %22, 0
-  br i1 %23, label %.backedge, label %.tail20.thread
+  br i1 %23, label %.backedge, label %.tail19.thread
 
 .backedge.sink.split.sink.split:                  ; preds = %41, %36
   %.str.42.sink.ph = phi ptr [ @.str.41, %36 ], [ @.str.7, %41 ]
@@ -4159,21 +4159,21 @@ sub_122:                                          ; preds = %.tail
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef %.sink, ptr noundef nonnull @__func__.RemovePgTempFilesInDir) #24
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.sink.split, %43, %36, %33, %41, %38, %.tail, %.tail20, %31
+.backedge:                                        ; preds = %.backedge.sink.split, %43, %36, %33, %41, %38, %.tail, %.tail19, %31
   %26 = call ptr @ReadDirExtended(ptr noundef %5, ptr noundef %0, i32 noundef 15)
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %._crit_edge, label %sub_0, !llvm.loop !24
 
-.tail20.thread:                                   ; preds = %sub_0, %sub_122, %.tail20
+.tail19.thread:                                   ; preds = %sub_0, %sub_121, %.tail19
   %27 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 2048, ptr noundef nonnull @.str.40, ptr noundef %0, ptr noundef nonnull %14) #24
   br i1 %2, label %31, label %28
 
-28:                                               ; preds = %.tail20.thread
+28:                                               ; preds = %.tail19.thread
   %29 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(10) @.str.16, i64 noundef 9) #29
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %43
 
-31:                                               ; preds = %28, %.tail20.thread
+31:                                               ; preds = %28, %.tail19.thread
   %32 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %13, i1 noundef zeroext false, i32 noundef 15) #24
   switch i32 %32, label %38 [
     i32 0, label %.backedge

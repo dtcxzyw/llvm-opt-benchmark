@@ -217,24 +217,24 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %16 = tail call noalias ptr @strdup(ptr noundef nonnull %13) #24
   %17 = call i64 @cli_strtokenize(ptr noundef %16, i8 noundef signext 58, i64 noundef 10, ptr noundef nonnull %3) #24
-  %.not8.i.i = icmp eq i64 %17, 0
-  br i1 %.not8.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  %.not7.i.i = icmp eq i64 %17, 0
+  br i1 %.not7.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 .thread.i.i:                                      ; preds = %28, %15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %31
 
 .lr.ph.i.i:                                       ; preds = %15, %28
-  %.0356.i.i = phi i64 [ %29, %28 ], [ 0, %15 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0356.i.i
+  %.0355.i.i = phi i64 [ %29, %28 ], [ 0, %15 ]
+  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0355.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.97, ptr noundef %19) #24
   br label %20
 
 20:                                               ; preds = %26, %.lr.ph.i.i
-  %.0365.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %27, %26 ]
+  %.0364.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %27, %26 ]
   %21 = load ptr, ptr %18, align 8, !tbaa !8
-  %22 = getelementptr inbounds nuw ptr, ptr @load_module.suffixes, i64 %.0365.i.i
+  %22 = getelementptr inbounds nuw ptr, ptr @load_module.suffixes, i64 %.0364.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !8
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 512, ptr noundef nonnull @.str.112, ptr noundef %21, ptr noundef nonnull @.str.96, ptr noundef %23) #24
   %25 = call ptr @dlopen(ptr noundef nonnull %2, i32 noundef 2) #24
@@ -243,14 +243,14 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 
 26:                                               ; preds = %20
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.97, ptr noundef nonnull %2) #24
-  %27 = add nuw nsw i64 %.0365.i.i, 1
+  %27 = add nuw nsw i64 %.0364.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %27, 4
   br i1 %exitcond.not.i.i, label %28, label %20
 
 28:                                               ; preds = %26
-  %29 = add nuw i64 %.0356.i.i, 1
-  %exitcond12.not.i.i = icmp eq i64 %29, %17
-  br i1 %exitcond12.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
+  %29 = add nuw i64 %.0355.i.i, 1
+  %exitcond11.not.i.i = icmp eq i64 %29, %17
+  br i1 %exitcond11.not.i.i, label %.thread.i.i, label %.lr.ph.i.i
 
 30:                                               ; preds = %20
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.97, ptr noundef nonnull %2) #24
@@ -263,8 +263,8 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
   br label %32
 
 32:                                               ; preds = %38, %31
-  %.17.i.i = phi i64 [ 0, %31 ], [ %39, %38 ]
-  %33 = getelementptr inbounds nuw ptr, ptr @load_module.suffixes, i64 %.17.i.i
+  %.16.i.i = phi i64 [ 0, %31 ], [ %39, %38 ]
+  %33 = getelementptr inbounds nuw ptr, ptr @load_module.suffixes, i64 %.16.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !8
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 512, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.96, ptr noundef %34) #24
   %36 = call ptr @dlopen(ptr noundef nonnull %2, i32 noundef 2) #24
@@ -277,9 +277,9 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 
 38:                                               ; preds = %32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.114, ptr noundef nonnull @.str.97, ptr noundef nonnull %2) #24
-  %39 = add nuw nsw i64 %.17.i.i, 1
-  %exitcond13.not.i.i = icmp eq i64 %39, 4
-  br i1 %exitcond13.not.i.i, label %40, label %32
+  %39 = add nuw nsw i64 %.16.i.i, 1
+  %exitcond12.not.i.i = icmp eq i64 %39, 4
+  br i1 %exitcond12.not.i.i, label %40, label %32
 
 40:                                               ; preds = %38
   %41 = call ptr @dlerror() #24
@@ -2712,12 +2712,12 @@ cli_virus_found_cb.exit:                          ; preds = %30, %25, %23
   %54 = load ptr, ptr %5, align 8, !tbaa !185
   %55 = call i32 @json_object_array_add(ptr noundef %54, ptr noundef nonnull %51) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.pre42 = load ptr, ptr %35, align 8, !tbaa !167
-  %.pre43 = load i32, ptr %.pre42, align 4, !tbaa !170
+  %.pre40 = load ptr, ptr %35, align 8, !tbaa !167
+  %.pre41 = load i32, ptr %.pre40, align 4, !tbaa !170
   br label %56
 
 56:                                               ; preds = %53, %39, %cli_virus_found_cb.exit
-  %57 = phi i32 [ %.pre43, %53 ], [ %37, %39 ], [ %37, %cli_virus_found_cb.exit ]
+  %57 = phi i32 [ %.pre41, %53 ], [ %37, %39 ], [ %37, %cli_virus_found_cb.exit ]
   %.masked = and i32 %57, 1
   %58 = or i32 %.masked, %2
   %or.cond = icmp eq i32 %58, 0

@@ -8263,14 +8263,14 @@ _ZNSt16allocator_traitsISaIN5Yosys5RTLIL5StateEEE8allocateERS3_m.exit.i.i.i.i.i:
   br i1 %.not.i.i.i32, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %57, %28
-  %.sink52 = phi ptr [ %30, %28 ], [ %59, %57 ]
+  %.sink50 = phi ptr [ %30, %28 ], [ %59, %57 ]
   %.pn.ph = phi { ptr, i32 } [ %29, %28 ], [ %58, %57 ]
   %60 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !16
   %62 = ptrtoint ptr %61 to i64
-  %63 = ptrtoint ptr %.sink52 to i64
+  %63 = ptrtoint ptr %.sink50 to i64
   %64 = sub i64 %62, %63
-  call void @_ZdlPvm(ptr noundef nonnull %.sink52, i64 noundef %64) #22
+  call void @_ZdlPvm(ptr noundef nonnull %.sink50, i64 noundef %64) #22
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %57, %28

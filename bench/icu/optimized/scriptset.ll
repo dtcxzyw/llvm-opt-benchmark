@@ -249,24 +249,26 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet10intersectsERKS0_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %1) local_unnamed_addr #5 align 2 {
-  br label %3
+  br label %4
 
-3:                                                ; preds = %3, %2
-  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %5 = load i32, ptr %4, align 4, !tbaa !3
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
-  %7 = load i32, ptr %6, align 4, !tbaa !3
-  %8 = and i32 %7, %5
-  %.not.not = icmp ne i32 %8, 0
+3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
-  %or.cond = select i1 %.not.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %9, label %3, !llvm.loop !13
+  br i1 %exitcond.not, label %10, label %4, !llvm.loop !13
 
-9:                                                ; preds = %3
-  %spec.select = zext i1 %.not.not to i8
-  ret i8 %spec.select
+4:                                                ; preds = %2, %3
+  %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
+  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = load i32, ptr %5, align 4, !tbaa !3
+  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = load i32, ptr %7, align 4, !tbaa !3
+  %9 = and i32 %8, %6
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %3, label %10
+
+10:                                               ; preds = %3, %4
+  %11 = phi i8 [ 1, %4 ], [ 0, %3 ]
+  ret i8 %11
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -397,21 +399,23 @@ _ZNK6icu_779ScriptSet4testE11UScriptCodeR10UErrorCode.exit.thread: ; preds = %_Z
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_779ScriptSet7isEmptyEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %0) local_unnamed_addr #5 align 2 {
-  br label %2
+  br label %3
 
-2:                                                ; preds = %2, %1
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
-  %4 = load i32, ptr %3, align 4, !tbaa !3
-  %.not = icmp eq i32 %4, 0
+2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp ne i64 %indvars.iv.next, 7
-  %or.cond.not = select i1 %.not, i1 %exitcond, i1 false
-  br i1 %or.cond.not, label %2, label %5, !llvm.loop !18
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %6, label %3, !llvm.loop !18
 
-5:                                                ; preds = %2
-  %spec.select = zext i1 %.not to i8
-  ret i8 %spec.select
+3:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = load i32, ptr %4, align 4, !tbaa !3
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %2, label %6
+
+6:                                                ; preds = %2, %3
+  %7 = phi i8 [ 0, %3 ], [ 1, %2 ]
+  ret i8 %7
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1437,15 +1437,15 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
 
 41:                                               ; preds = %3
   %.not.i50 = icmp eq i8 %36, %38
-  %.pre145 = and i8 %36, -2
-  %42 = icmp eq i8 %.pre145, 2
+  %.pre144 = and i8 %36, -2
+  %42 = icmp eq i8 %.pre144, 2
   br i1 %.not.i50, label %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130", label %43
 
 43:                                               ; preds = %41
   %44 = and i8 %38, -2
   %spec.select.i1.i = icmp eq i8 %44, 2
-  %or.cond139 = or i1 %42, %spec.select.i1.i
-  br i1 %or.cond139, label %.thread133, label %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130.thread"
+  %or.cond138 = or i1 %42, %spec.select.i1.i
+  br i1 %or.cond138, label %.thread133, label %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130.thread"
 
 "_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130": ; preds = %41
   br i1 %42, label %.thread, label %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit.thread130.thread"
@@ -1477,8 +1477,8 @@ _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EE
   %spec.select.i.i53 = icmp eq i8 %50, 2
   %51 = and i8 %.val34.val, -2
   %spec.select.i1.i54 = icmp eq i8 %51, 2
-  %or.cond140 = or i1 %spec.select.i.i53, %spec.select.i1.i54
-  br i1 %or.cond140, label %.thread133, label %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit55.thread132"
+  %or.cond139 = or i1 %spec.select.i.i53, %spec.select.i1.i54
+  br i1 %or.cond139, label %.thread133, label %"_ZZNKSt3__14__fs10filesystem4path18lexically_relativeERKS2_ENK3$_0clEv.exit55.thread132"
 
 .thread133:                                       ; preds = %49, %43, %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit49
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
@@ -1563,7 +1563,7 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.threa
   %82 = load ptr, ptr %70, align 8, !tbaa !28
   %83 = load i8, ptr %82, align 1, !tbaa !4
   %84 = icmp eq i8 %83, 92
-  %.str.5..str.3.i84170 = select i1 %84, ptr @.str.5, ptr @.str.3
+  %.str.5..str.3.i84169 = select i1 %84, ptr @.str.5, ptr @.str.3
   br label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90
 
 85:                                               ; preds = %78, %78
@@ -1603,18 +1603,18 @@ _ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread: ; pr
   %90 = load i8, ptr %89, align 1, !tbaa !4
   %91 = icmp eq i8 %90, 92
   %.str.5..str.3.i84 = select i1 %91, ptr @.str.5, ptr @.str.3
-  %.not.i86160 = icmp eq i64 %.sroa.6.0.i71, 1
-  br i1 %.not.i86160, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90, label %.critedge2
+  %.not.i86159 = icmp eq i64 %.sroa.6.0.i71, 1
+  br i1 %.not.i86159, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90, label %.critedge2
 
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85
-  %.sroa.0.0.i81163 = phi ptr [ %.str.5..str.3.i84, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.0.0.i81, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ %.str.5..str.3.i84170, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
-  %.sroa.6.0.i71153162 = phi i64 [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.6.0.i71, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
-  %.sroa.0.0.i72155161 = phi ptr [ %.sroa.0.0.i72, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.0.0.i72, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ %.str.5..str.3.i75, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
-  %bcmp.i89 = call i32 @bcmp(ptr %.sroa.0.0.i72155161, ptr %.sroa.0.0.i81163, i64 %.sroa.6.0.i71153162)
+  %.sroa.0.0.i81162 = phi ptr [ %.str.5..str.3.i84, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.0.0.i81, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ %.str.5..str.3.i84169, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
+  %.sroa.6.0.i71152161 = phi i64 [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.6.0.i71, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ 1, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
+  %.sroa.0.0.i72154160 = phi ptr [ %.sroa.0.0.i72, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread ], [ %.sroa.0.0.i72, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85 ], [ %.str.5..str.3.i75, %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85.thread.thread ]
+  %bcmp.i89 = call i32 @bcmp(ptr %.sroa.0.0.i72154160, ptr %.sroa.0.0.i81162, i64 %.sroa.6.0.i71152161)
   %92 = icmp eq i32 %bcmp.i89, 0
   %93 = icmp eq i8 %73, 3
-  %or.cond141 = or i1 %93, %92
-  br i1 %or.cond141, label %.critedge2, label %.critedge.thread
+  %or.cond140 = or i1 %93, %92
+  br i1 %or.cond140, label %.critedge2, label %.critedge.thread
 
 _ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit90.thread: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParserdeB8ne210000Ev.exit85
   %.old = icmp eq i8 %73, 3

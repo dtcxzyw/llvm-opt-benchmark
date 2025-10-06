@@ -2164,13 +2164,13 @@ _ZNSt14_Function_baseD2Ev.exit25.i.i.i:           ; preds = %166, %163, %161
   %176 = load i32, ptr %175, align 8, !tbaa !239
   %177 = getelementptr inbounds nuw i8, ptr %116, i64 36
   %178 = atomicrmw add ptr %177, i32 1 seq_cst, align 4
-  %.not1943.i.i.i = icmp slt i32 %178, %134
-  br i1 %.not1943.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
+  %.not1942.i.i.i = icmp slt i32 %178, %134
+  br i1 %.not1942.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %171, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_26CoordinateDescentMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryEE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i"
   %179 = phi i32 [ %189, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_26CoordinateDescentMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryEE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ %178, %171 ]
-  %.044.i.i.i = phi i32 [ %180, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_26CoordinateDescentMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryEE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %171 ]
-  %180 = add nuw nsw i32 %.044.i.i.i, 1
+  %.043.i.i.i = phi i32 [ %180, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_26CoordinateDescentMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryEE3$_0EEviSt5tupleIJiiEEOT_.exit.i.i.i" ], [ 0, %171 ]
+  %180 = add nuw nsw i32 %.043.i.i.i, 1
   %181 = mul nsw i32 %179, %174
   %182 = add nsw i32 %181, %172
   %.sroa.speculated.i.i.i = call i32 @llvm.smin.i32(i32 %176, i32 %179)
@@ -10164,8 +10164,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
   %96 = load i32, ptr %95, align 8, !tbaa !239
   %97 = getelementptr inbounds nuw i8, ptr %91, i64 20
   %98 = atomicrmw add ptr %97, i32 1 seq_cst, align 4
-  %.not1943 = icmp slt i32 %98, %13
-  br i1 %.not1943, label %.lr.ph, label %._crit_edge
+  %.not1942 = icmp slt i32 %98, %13
+  br i1 %.not1942, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %90
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10173,8 +10173,8 @@ _ZNSt14_Function_baseD2Ev.exit25:                 ; preds = %85, %82, %80
 
 100:                                              ; preds = %.lr.ph, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_26CoordinateDescentMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryEE3$_0EEviSt5tupleIJiiEEOT_.exit"
   %101 = phi i32 [ %98, %.lr.ph ], [ %114, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_26CoordinateDescentMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryEE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %.044 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_26CoordinateDescentMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryEE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
-  %102 = add nuw nsw i32 %.044, 1
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %102, %"_ZN5ceres8internal15InvokeOnSegmentIRZNS0_26CoordinateDescentMinimizer8MinimizeERKNS0_9Minimizer7OptionsEPdPNS_6Solver7SummaryEE3$_0EEviSt5tupleIJiiEEOT_.exit" ]
+  %102 = add nuw nsw i32 %.043, 1
   %103 = mul nsw i32 %101, %94
   %104 = add nsw i32 %103, %92
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %101)

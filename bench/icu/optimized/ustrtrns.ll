@@ -2988,7 +2988,7 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %66 = getelementptr inbounds i8, ptr %.0176, i64 %indvars.iv
   %67 = load i8, ptr %66, align 1, !tbaa !18
   %68 = icmp sgt i8 %67, -1
-  br i1 %68, label %69, label %.critedge15.loopexit.split.loop.exit409
+  br i1 %68, label %69, label %.critedge15.loopexit.split.loop.exit408
 
 69:                                               ; preds = %.lr.ph290
   %70 = zext nneg i8 %67 to i16
@@ -3000,13 +3000,13 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   %exitcond.not = icmp eq i32 %.0178, %72
   br i1 %exitcond.not, label %.critedge15, label %.lr.ph290, !llvm.loop !35
 
-.critedge15.loopexit.split.loop.exit409:          ; preds = %.lr.ph290
+.critedge15.loopexit.split.loop.exit408:          ; preds = %.lr.ph290
   %73 = trunc nsw i64 %indvars.iv to i32
   br label %.critedge15
 
-.critedge15:                                      ; preds = %69, %.critedge15.loopexit.split.loop.exit409, %.preheader266
-  %.4192.lcssa = phi ptr [ %.2190, %.preheader266 ], [ %.4192289, %.critedge15.loopexit.split.loop.exit409 ], [ %71, %69 ]
-  %.lcssa281 = phi i32 [ %58, %.preheader266 ], [ %73, %.critedge15.loopexit.split.loop.exit409 ], [ %.0178, %69 ]
+.critedge15:                                      ; preds = %69, %.critedge15.loopexit.split.loop.exit408, %.preheader266
+  %.4192.lcssa = phi ptr [ %.2190, %.preheader266 ], [ %.4192289, %.critedge15.loopexit.split.loop.exit408 ], [ %71, %69 ]
+  %.lcssa281 = phi i32 [ %58, %.preheader266 ], [ %73, %.critedge15.loopexit.split.loop.exit408 ], [ %.0178, %69 ]
   %74 = sub nsw i32 %.lcssa281, %58
   %75 = sub nsw i32 %57, %74
   %76 = sub nsw i32 %59, %74
@@ -3201,9 +3201,9 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   br label %.backedge262
 
 .backedge262:                                     ; preds = %176, %196
-  %.sink413 = phi i32 [ %181, %176 ], [ %200, %196 ]
+  %.sink412 = phi i32 [ %181, %176 ], [ %200, %196 ]
   %.sink = phi i32 [ 3, %176 ], [ 2, %196 ]
-  %182 = trunc i32 %.sink413 to i16
+  %182 = trunc i32 %.sink412 to i16
   store i16 %182, ptr %.9297, align 2, !tbaa !9
   %183 = add nsw i32 %146, %.sink
   %.9.be = getelementptr inbounds nuw i8, ptr %.9297, i64 2
@@ -3327,8 +3327,8 @@ define noundef ptr @u_strFromJavaModifiedUTF8WithSub_77(ptr noundef %0, i32 noun
   br i1 %239, label %.backedge, label %250
 
 .backedge:                                        ; preds = %235, %245
-  %.sink414 = phi i32 [ 2, %245 ], [ 3, %235 ]
-  %240 = add nsw i32 %217, %.sink414
+  %.sink413 = phi i32 [ 2, %245 ], [ 3, %235 ]
+  %240 = add nsw i32 %217, %.sink413
   %.3208.be = add nsw i32 %.3208311, 1
   store i32 %240, ptr %9, align 4, !tbaa !7
   %241 = icmp slt i32 %240, %.0178

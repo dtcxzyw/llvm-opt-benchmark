@@ -309,13 +309,13 @@ define hidden void @_ZN6Assimp11X3DImporter9readColorERN4pugi8xml_nodeE(ptr noun
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -326,13 +326,13 @@ define hidden void @_ZN6Assimp11X3DImporter9readColorERN4pugi8xml_nodeE(ptr noun
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.46, ptr %24
@@ -352,13 +352,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr89 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %13, %14 ]
   %28 = getelementptr inbounds nuw i8, ptr %.pr89, i64 56
-  %.017.i.i14 = load ptr, ptr %28, align 8
-  %.not1218.i.i15 = icmp eq ptr %.017.i.i14, null
-  br i1 %.not1218.i.i15, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16
+  %.015.i.i14 = load ptr, ptr %28, align 8
+  %.not1216.i.i15 = icmp eq ptr %.015.i.i14, null
+  br i1 %.not1216.i.i15, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16
 
 .lr.ph.i.i16:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %34
-  %.019.i.i17 = phi ptr [ %.0.i.i19, %34 ], [ %.017.i.i14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %29 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 8
+  %.017.i.i17 = phi ptr [ %.0.i.i19, %34 ], [ %.015.i.i14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %29 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not13.i.i18 = icmp eq ptr %30, null
   br i1 %.not13.i.i18, label %34, label %31
@@ -369,13 +369,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %33, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i22, label %34
 
 34:                                               ; preds = %31, %.lr.ph.i.i16
-  %35 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 32
   %.0.i.i19 = load ptr, ptr %35, align 8
   %.not12.i.i20 = icmp eq ptr %.0.i.i19, null
   br i1 %.not12.i.i20, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i22:  ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not7.i.i23 = icmp eq ptr %37, null
   %38 = select i1 %.not7.i.i23, ptr @.str.46, ptr %37
@@ -901,13 +901,13 @@ define hidden void @_ZN6Assimp11X3DImporter13readColorRGBAERN4pugi8xml_nodeE(ptr
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -918,13 +918,13 @@ define hidden void @_ZN6Assimp11X3DImporter13readColorRGBAERN4pugi8xml_nodeE(ptr
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.46, ptr %24
@@ -944,13 +944,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr89 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %13, %14 ]
   %28 = getelementptr inbounds nuw i8, ptr %.pr89, i64 56
-  %.017.i.i14 = load ptr, ptr %28, align 8
-  %.not1218.i.i15 = icmp eq ptr %.017.i.i14, null
-  br i1 %.not1218.i.i15, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16
+  %.015.i.i14 = load ptr, ptr %28, align 8
+  %.not1216.i.i15 = icmp eq ptr %.015.i.i14, null
+  br i1 %.not1216.i.i15, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16
 
 .lr.ph.i.i16:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %34
-  %.019.i.i17 = phi ptr [ %.0.i.i19, %34 ], [ %.017.i.i14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %29 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 8
+  %.017.i.i17 = phi ptr [ %.0.i.i19, %34 ], [ %.015.i.i14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %29 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not13.i.i18 = icmp eq ptr %30, null
   br i1 %.not13.i.i18, label %34, label %31
@@ -961,13 +961,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %33, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i22, label %34
 
 34:                                               ; preds = %31, %.lr.ph.i.i16
-  %35 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 32
   %.0.i.i19 = load ptr, ptr %35, align 8
   %.not12.i.i20 = icmp eq ptr %.0.i.i19, null
   br i1 %.not12.i.i20, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i22:  ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not7.i.i23 = icmp eq ptr %37, null
   %38 = select i1 %.not7.i.i23, ptr @.str.46, ptr %37
@@ -1278,13 +1278,13 @@ define hidden void @_ZN6Assimp11X3DImporter14readCoordinateERN4pugi8xml_nodeE(pt
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -1295,13 +1295,13 @@ define hidden void @_ZN6Assimp11X3DImporter14readCoordinateERN4pugi8xml_nodeE(pt
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.46, ptr %24
@@ -1321,13 +1321,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr89 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %13, %14 ]
   %28 = getelementptr inbounds nuw i8, ptr %.pr89, i64 56
-  %.017.i.i14 = load ptr, ptr %28, align 8
-  %.not1218.i.i15 = icmp eq ptr %.017.i.i14, null
-  br i1 %.not1218.i.i15, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16
+  %.015.i.i14 = load ptr, ptr %28, align 8
+  %.not1216.i.i15 = icmp eq ptr %.015.i.i14, null
+  br i1 %.not1216.i.i15, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16
 
 .lr.ph.i.i16:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %34
-  %.019.i.i17 = phi ptr [ %.0.i.i19, %34 ], [ %.017.i.i14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %29 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 8
+  %.017.i.i17 = phi ptr [ %.0.i.i19, %34 ], [ %.015.i.i14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %29 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not13.i.i18 = icmp eq ptr %30, null
   br i1 %.not13.i.i18, label %34, label %31
@@ -1338,13 +1338,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %33, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i22, label %34
 
 34:                                               ; preds = %31, %.lr.ph.i.i16
-  %35 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 32
   %.0.i.i19 = load ptr, ptr %35, align 8
   %.not12.i.i20 = icmp eq ptr %.0.i.i19, null
   br i1 %.not12.i.i20, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i22:  ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not7.i.i23 = icmp eq ptr %37, null
   %38 = select i1 %.not7.i.i23, ptr @.str.46, ptr %37
@@ -1657,13 +1657,13 @@ define hidden void @_ZN6Assimp11X3DImporter18readIndexedLineSetERN4pugi8xml_node
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.017.i.i = load ptr, ptr %17, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %17, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %23
-  %.019.i.i = phi ptr [ %.0.i.i, %23 ], [ %.017.i.i, %16 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %23 ], [ %.015.i.i, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not13.i.i = icmp eq ptr %19, null
   br i1 %.not13.i.i, label %23, label %20
@@ -1674,13 +1674,13 @@ define hidden void @_ZN6Assimp11X3DImporter18readIndexedLineSetERN4pugi8xml_node
   br i1 %22, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %23
 
 23:                                               ; preds = %20, %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %24, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not7.i.i = icmp eq ptr %26, null
   %27 = select i1 %.not7.i.i, ptr @.str.46, ptr %26
@@ -1700,13 +1700,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %16, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr158 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %15, %16 ]
   %30 = getelementptr inbounds nuw i8, ptr %.pr158, i64 56
-  %.017.i.i34 = load ptr, ptr %30, align 8
-  %.not1218.i.i35 = icmp eq ptr %.017.i.i34, null
-  br i1 %.not1218.i.i35, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45, label %.lr.ph.i.i36
+  %.015.i.i34 = load ptr, ptr %30, align 8
+  %.not1216.i.i35 = icmp eq ptr %.015.i.i34, null
+  br i1 %.not1216.i.i35, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45, label %.lr.ph.i.i36
 
 .lr.ph.i.i36:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %36
-  %.019.i.i37 = phi ptr [ %.0.i.i39, %36 ], [ %.017.i.i34, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %31 = getelementptr inbounds nuw i8, ptr %.019.i.i37, i64 8
+  %.017.i.i37 = phi ptr [ %.0.i.i39, %36 ], [ %.015.i.i34, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %31 = getelementptr inbounds nuw i8, ptr %.017.i.i37, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not13.i.i38 = icmp eq ptr %32, null
   br i1 %.not13.i.i38, label %36, label %33
@@ -1717,13 +1717,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %35, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i42, label %36
 
 36:                                               ; preds = %33, %.lr.ph.i.i36
-  %37 = getelementptr inbounds nuw i8, ptr %.019.i.i37, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.017.i.i37, i64 32
   %.0.i.i39 = load ptr, ptr %37, align 8
   %.not12.i.i40 = icmp eq ptr %.0.i.i39, null
   br i1 %.not12.i.i40, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit45, label %.lr.ph.i.i36, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i42:  ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %.019.i.i37, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.017.i.i37, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not7.i.i43 = icmp eq ptr %39, null
   %40 = select i1 %.not7.i.i43, ptr @.str.46, ptr %39
@@ -1743,13 +1743,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %.017.i.i47 = load ptr, ptr %48, align 8
-  %.not1218.i.i48 = icmp eq ptr %.017.i.i47, null
-  br i1 %.not1218.i.i48, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit, label %.lr.ph.i.i49
+  %.015.i.i47 = load ptr, ptr %48, align 8
+  %.not1216.i.i48 = icmp eq ptr %.015.i.i47, null
+  br i1 %.not1216.i.i48, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit, label %.lr.ph.i.i49
 
 .lr.ph.i.i49:                                     ; preds = %47, %54
-  %.019.i.i50 = phi ptr [ %.0.i.i52, %54 ], [ %.017.i.i47, %47 ]
-  %49 = getelementptr inbounds nuw i8, ptr %.019.i.i50, i64 8
+  %.017.i.i50 = phi ptr [ %.0.i.i52, %54 ], [ %.015.i.i47, %47 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.017.i.i50, i64 8
   %50 = load ptr, ptr %49, align 8
   %.not13.i.i51 = icmp eq ptr %50, null
   br i1 %.not13.i.i51, label %54, label %51
@@ -1760,13 +1760,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %53, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i, label %54
 
 54:                                               ; preds = %51, %.lr.ph.i.i49
-  %55 = getelementptr inbounds nuw i8, ptr %.019.i.i50, i64 32
+  %55 = getelementptr inbounds nuw i8, ptr %.017.i.i50, i64 32
   %.0.i.i52 = load ptr, ptr %55, align 8
   %.not12.i.i53 = icmp eq ptr %.0.i.i52, null
   br i1 %.not12.i.i53, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit, label %.lr.ph.i.i49, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i:          ; preds = %51
-  %56 = getelementptr inbounds nuw i8, ptr %.019.i.i50, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.017.i.i50, i64 16
   %57 = load ptr, ptr %56, align 8
   %.not7.i.i55 = icmp eq ptr %57, null
   br i1 %.not7.i.i55, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit, label %58
@@ -2468,13 +2468,13 @@ define hidden void @_ZN6Assimp11X3DImporter25readIndexedTriangleFanSetERN4pugi8x
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %.017.i.i = load ptr, ptr %18, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %18, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %24
-  %.019.i.i = phi ptr [ %.0.i.i, %24 ], [ %.017.i.i, %17 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %24 ], [ %.015.i.i, %17 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not13.i.i = icmp eq ptr %20, null
   br i1 %.not13.i.i, label %24, label %21
@@ -2485,13 +2485,13 @@ define hidden void @_ZN6Assimp11X3DImporter25readIndexedTriangleFanSetERN4pugi8x
   br i1 %23, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %24
 
 24:                                               ; preds = %21, %.lr.ph.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %25, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not7.i.i = icmp eq ptr %27, null
   %28 = select i1 %.not7.i.i, ptr @.str.46, ptr %27
@@ -2511,13 +2511,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %17, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr368 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %16, %17 ]
   %31 = getelementptr inbounds nuw i8, ptr %.pr368, i64 56
-  %.017.i.i55 = load ptr, ptr %31, align 8
-  %.not1218.i.i56 = icmp eq ptr %.017.i.i55, null
-  br i1 %.not1218.i.i56, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66.thread, label %.lr.ph.i.i57
+  %.015.i.i55 = load ptr, ptr %31, align 8
+  %.not1216.i.i56 = icmp eq ptr %.015.i.i55, null
+  br i1 %.not1216.i.i56, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66.thread, label %.lr.ph.i.i57
 
 .lr.ph.i.i57:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %37
-  %.019.i.i58 = phi ptr [ %.0.i.i60, %37 ], [ %.017.i.i55, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %32 = getelementptr inbounds nuw i8, ptr %.019.i.i58, i64 8
+  %.017.i.i58 = phi ptr [ %.0.i.i60, %37 ], [ %.015.i.i55, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %32 = getelementptr inbounds nuw i8, ptr %.017.i.i58, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not13.i.i59 = icmp eq ptr %33, null
   br i1 %.not13.i.i59, label %37, label %34
@@ -2528,13 +2528,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %36, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i63, label %37
 
 37:                                               ; preds = %34, %.lr.ph.i.i57
-  %38 = getelementptr inbounds nuw i8, ptr %.019.i.i58, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.017.i.i58, i64 32
   %.0.i.i60 = load ptr, ptr %38, align 8
   %.not12.i.i61 = icmp eq ptr %.0.i.i60, null
   br i1 %.not12.i.i61, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66, label %.lr.ph.i.i57, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i63:  ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %.019.i.i58, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.017.i.i58, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not7.i.i64 = icmp eq ptr %40, null
   %41 = select i1 %.not7.i.i64, ptr @.str.46, ptr %40
@@ -2555,13 +2555,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66.thread: ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66
   %.pr243371 = phi ptr [ %.pr243, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66 ], [ %.pr368, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %45 = getelementptr inbounds nuw i8, ptr %.pr243371, i64 56
-  %.017.i.i68 = load ptr, ptr %45, align 8
-  %.not1218.i.i69 = icmp eq ptr %.017.i.i68, null
-  br i1 %.not1218.i.i69, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit90, label %.lr.ph.i.i70
+  %.015.i.i68 = load ptr, ptr %45, align 8
+  %.not1216.i.i69 = icmp eq ptr %.015.i.i68, null
+  br i1 %.not1216.i.i69, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit90, label %.lr.ph.i.i70
 
 .lr.ph.i.i70:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66.thread, %51
-  %.019.i.i71 = phi ptr [ %.0.i.i73, %51 ], [ %.017.i.i68, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66.thread ]
-  %46 = getelementptr inbounds nuw i8, ptr %.019.i.i71, i64 8
+  %.017.i.i71 = phi ptr [ %.0.i.i73, %51 ], [ %.015.i.i68, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit66.thread ]
+  %46 = getelementptr inbounds nuw i8, ptr %.017.i.i71, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not13.i.i72 = icmp eq ptr %47, null
   br i1 %.not13.i.i72, label %51, label %48
@@ -2572,13 +2572,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %50, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i, label %51
 
 51:                                               ; preds = %48, %.lr.ph.i.i70
-  %52 = getelementptr inbounds nuw i8, ptr %.019.i.i71, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.017.i.i71, i64 32
   %.0.i.i73 = load ptr, ptr %52, align 8
   %.not12.i.i74 = icmp eq ptr %.0.i.i73, null
   br i1 %.not12.i.i74, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread249, label %.lr.ph.i.i70, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i:          ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %.019.i.i71, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.017.i.i71, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not7.i.i76 = icmp eq ptr %54, null
   br i1 %.not7.i.i76, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread249, label %55
@@ -2601,8 +2601,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br label %.lr.ph.i.i80
 
 .lr.ph.i.i80:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread249, %62
-  %.019.i.i81 = phi ptr [ %.0.i.i83, %62 ], [ %.017.i.i68, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread249 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.019.i.i81, i64 8
+  %.017.i.i81 = phi ptr [ %.0.i.i83, %62 ], [ %.015.i.i68, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread249 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.017.i.i81, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not13.i.i82 = icmp eq ptr %58, null
   br i1 %.not13.i.i82, label %62, label %59
@@ -2613,13 +2613,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br i1 %61, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i86, label %62
 
 62:                                               ; preds = %59, %.lr.ph.i.i80
-  %63 = getelementptr inbounds nuw i8, ptr %.019.i.i81, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.017.i.i81, i64 32
   %.0.i.i83 = load ptr, ptr %63, align 8
   %.not12.i.i84 = icmp eq ptr %.0.i.i83, null
   br i1 %.not12.i.i84, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit90, label %.lr.ph.i.i80, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i86:        ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %.019.i.i81, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.017.i.i81, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not7.i.i87 = icmp eq ptr %65, null
   br i1 %.not7.i.i87, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit90, label %66
@@ -2650,13 +2650,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit90: ; p
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 56
-  %.017.i.i92 = load ptr, ptr %73, align 8
-  %.not1218.i.i93 = icmp eq ptr %.017.i.i92, null
-  br i1 %.not1218.i.i93, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit118, label %.lr.ph.i.i94
+  %.015.i.i92 = load ptr, ptr %73, align 8
+  %.not1216.i.i93 = icmp eq ptr %.015.i.i92, null
+  br i1 %.not1216.i.i93, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit118, label %.lr.ph.i.i94
 
 .lr.ph.i.i94:                                     ; preds = %72, %79
-  %.019.i.i95 = phi ptr [ %.0.i.i97, %79 ], [ %.017.i.i92, %72 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.019.i.i95, i64 8
+  %.017.i.i95 = phi ptr [ %.0.i.i97, %79 ], [ %.015.i.i92, %72 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.017.i.i95, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not13.i.i96 = icmp eq ptr %75, null
   br i1 %.not13.i.i96, label %79, label %76
@@ -2667,13 +2667,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit90: ; p
   br i1 %78, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i100, label %79
 
 79:                                               ; preds = %76, %.lr.ph.i.i94
-  %80 = getelementptr inbounds nuw i8, ptr %.019.i.i95, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %.017.i.i95, i64 32
   %.0.i.i97 = load ptr, ptr %80, align 8
   %.not12.i.i98 = icmp eq ptr %.0.i.i97, null
   br i1 %.not12.i.i98, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit104.thread255, label %.lr.ph.i.i94, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i100:       ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %.019.i.i95, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.017.i.i95, i64 16
   %82 = load ptr, ptr %81, align 8
   %.not7.i.i101 = icmp eq ptr %82, null
   br i1 %.not7.i.i101, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit104.thread255, label %83
@@ -2696,8 +2696,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit104.thr
   br label %.lr.ph.i.i108
 
 .lr.ph.i.i108:                                    ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit104.thread255, %91
-  %.019.i.i109 = phi ptr [ %.0.i.i111, %91 ], [ %.017.i.i92, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit104.thread255 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.019.i.i109, i64 8
+  %.017.i.i109 = phi ptr [ %.0.i.i111, %91 ], [ %.015.i.i92, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit104.thread255 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.017.i.i109, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not13.i.i110 = icmp eq ptr %87, null
   br i1 %.not13.i.i110, label %91, label %88
@@ -2708,13 +2708,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit104.thr
   br i1 %90, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i114, label %91
 
 91:                                               ; preds = %88, %.lr.ph.i.i108
-  %92 = getelementptr inbounds nuw i8, ptr %.019.i.i109, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.017.i.i109, i64 32
   %.0.i.i111 = load ptr, ptr %92, align 8
   %.not12.i.i112 = icmp eq ptr %.0.i.i111, null
   br i1 %.not12.i.i112, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit118, label %.lr.ph.i.i108, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i114:       ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %.019.i.i109, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %.017.i.i109, i64 16
   %94 = load ptr, ptr %93, align 8
   %.not7.i.i115 = icmp eq ptr %94, null
   br i1 %.not7.i.i115, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit118, label %95
@@ -3771,13 +3771,13 @@ define hidden void @_ZN6Assimp11X3DImporter10readNormalERN4pugi8xml_nodeE(ptr no
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -3788,13 +3788,13 @@ define hidden void @_ZN6Assimp11X3DImporter10readNormalERN4pugi8xml_nodeE(ptr no
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.46, ptr %24
@@ -3814,13 +3814,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr89 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %13, %14 ]
   %28 = getelementptr inbounds nuw i8, ptr %.pr89, i64 56
-  %.017.i.i14 = load ptr, ptr %28, align 8
-  %.not1218.i.i15 = icmp eq ptr %.017.i.i14, null
-  br i1 %.not1218.i.i15, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16
+  %.015.i.i14 = load ptr, ptr %28, align 8
+  %.not1216.i.i15 = icmp eq ptr %.015.i.i14, null
+  br i1 %.not1216.i.i15, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16
 
 .lr.ph.i.i16:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %34
-  %.019.i.i17 = phi ptr [ %.0.i.i19, %34 ], [ %.017.i.i14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %29 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 8
+  %.017.i.i17 = phi ptr [ %.0.i.i19, %34 ], [ %.015.i.i14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %29 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not13.i.i18 = icmp eq ptr %30, null
   br i1 %.not13.i.i18, label %34, label %31
@@ -3831,13 +3831,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %33, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i22, label %34
 
 34:                                               ; preds = %31, %.lr.ph.i.i16
-  %35 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 32
   %.0.i.i19 = load ptr, ptr %35, align 8
   %.not12.i.i20 = icmp eq ptr %.0.i.i19, null
   br i1 %.not12.i.i20, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit25, label %.lr.ph.i.i16, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i22:  ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %.019.i.i17, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.017.i.i17, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not7.i.i23 = icmp eq ptr %37, null
   %38 = select i1 %.not7.i.i23, ptr @.str.46, ptr %37
@@ -4149,13 +4149,13 @@ define hidden void @_ZN6Assimp11X3DImporter22readIndexedTriangleSetERN4pugi8xml_
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %.017.i.i = load ptr, ptr %18, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %18, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %24
-  %.019.i.i = phi ptr [ %.0.i.i, %24 ], [ %.017.i.i, %17 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %24 ], [ %.015.i.i, %17 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not13.i.i = icmp eq ptr %20, null
   br i1 %.not13.i.i, label %24, label %21
@@ -4166,13 +4166,13 @@ define hidden void @_ZN6Assimp11X3DImporter22readIndexedTriangleSetERN4pugi8xml_
   br i1 %23, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %24
 
 24:                                               ; preds = %21, %.lr.ph.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %25, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not7.i.i = icmp eq ptr %27, null
   %28 = select i1 %.not7.i.i, ptr @.str.46, ptr %27
@@ -4192,13 +4192,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %17, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr360 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %16, %17 ]
   %31 = getelementptr inbounds nuw i8, ptr %.pr360, i64 56
-  %.017.i.i54 = load ptr, ptr %31, align 8
-  %.not1218.i.i55 = icmp eq ptr %.017.i.i54, null
-  br i1 %.not1218.i.i55, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread, label %.lr.ph.i.i56
+  %.015.i.i54 = load ptr, ptr %31, align 8
+  %.not1216.i.i55 = icmp eq ptr %.015.i.i54, null
+  br i1 %.not1216.i.i55, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread, label %.lr.ph.i.i56
 
 .lr.ph.i.i56:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %37
-  %.019.i.i57 = phi ptr [ %.0.i.i59, %37 ], [ %.017.i.i54, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %32 = getelementptr inbounds nuw i8, ptr %.019.i.i57, i64 8
+  %.017.i.i57 = phi ptr [ %.0.i.i59, %37 ], [ %.015.i.i54, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %32 = getelementptr inbounds nuw i8, ptr %.017.i.i57, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not13.i.i58 = icmp eq ptr %33, null
   br i1 %.not13.i.i58, label %37, label %34
@@ -4209,13 +4209,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %36, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i62, label %37
 
 37:                                               ; preds = %34, %.lr.ph.i.i56
-  %38 = getelementptr inbounds nuw i8, ptr %.019.i.i57, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.017.i.i57, i64 32
   %.0.i.i59 = load ptr, ptr %38, align 8
   %.not12.i.i60 = icmp eq ptr %.0.i.i59, null
   br i1 %.not12.i.i60, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65, label %.lr.ph.i.i56, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i62:  ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %.019.i.i57, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.017.i.i57, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not7.i.i63 = icmp eq ptr %40, null
   %41 = select i1 %.not7.i.i63, ptr @.str.46, ptr %40
@@ -4236,13 +4236,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread: ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65
   %.pr242363 = phi ptr [ %.pr242, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65 ], [ %.pr360, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %45 = getelementptr inbounds nuw i8, ptr %.pr242363, i64 56
-  %.017.i.i67 = load ptr, ptr %45, align 8
-  %.not1218.i.i68 = icmp eq ptr %.017.i.i67, null
-  br i1 %.not1218.i.i68, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89, label %.lr.ph.i.i69
+  %.015.i.i67 = load ptr, ptr %45, align 8
+  %.not1216.i.i68 = icmp eq ptr %.015.i.i67, null
+  br i1 %.not1216.i.i68, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89, label %.lr.ph.i.i69
 
 .lr.ph.i.i69:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread, %51
-  %.019.i.i70 = phi ptr [ %.0.i.i72, %51 ], [ %.017.i.i67, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread ]
-  %46 = getelementptr inbounds nuw i8, ptr %.019.i.i70, i64 8
+  %.017.i.i70 = phi ptr [ %.0.i.i72, %51 ], [ %.015.i.i67, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread ]
+  %46 = getelementptr inbounds nuw i8, ptr %.017.i.i70, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not13.i.i71 = icmp eq ptr %47, null
   br i1 %.not13.i.i71, label %51, label %48
@@ -4253,13 +4253,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %50, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i, label %51
 
 51:                                               ; preds = %48, %.lr.ph.i.i69
-  %52 = getelementptr inbounds nuw i8, ptr %.019.i.i70, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.017.i.i70, i64 32
   %.0.i.i72 = load ptr, ptr %52, align 8
   %.not12.i.i73 = icmp eq ptr %.0.i.i72, null
   br i1 %.not12.i.i73, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248, label %.lr.ph.i.i69, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i:          ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %.019.i.i70, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.017.i.i70, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not7.i.i75 = icmp eq ptr %54, null
   br i1 %.not7.i.i75, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248, label %55
@@ -4282,8 +4282,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br label %.lr.ph.i.i79
 
 .lr.ph.i.i79:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248, %62
-  %.019.i.i80 = phi ptr [ %.0.i.i82, %62 ], [ %.017.i.i67, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.019.i.i80, i64 8
+  %.017.i.i80 = phi ptr [ %.0.i.i82, %62 ], [ %.015.i.i67, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.017.i.i80, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not13.i.i81 = icmp eq ptr %58, null
   br i1 %.not13.i.i81, label %62, label %59
@@ -4294,13 +4294,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br i1 %61, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i85, label %62
 
 62:                                               ; preds = %59, %.lr.ph.i.i79
-  %63 = getelementptr inbounds nuw i8, ptr %.019.i.i80, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.017.i.i80, i64 32
   %.0.i.i82 = load ptr, ptr %63, align 8
   %.not12.i.i83 = icmp eq ptr %.0.i.i82, null
   br i1 %.not12.i.i83, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89, label %.lr.ph.i.i79, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i85:        ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %.019.i.i80, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.017.i.i80, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not7.i.i86 = icmp eq ptr %65, null
   br i1 %.not7.i.i86, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89, label %66
@@ -4331,13 +4331,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89: ; p
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 56
-  %.017.i.i91 = load ptr, ptr %73, align 8
-  %.not1218.i.i92 = icmp eq ptr %.017.i.i91, null
-  br i1 %.not1218.i.i92, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit117, label %.lr.ph.i.i93
+  %.015.i.i91 = load ptr, ptr %73, align 8
+  %.not1216.i.i92 = icmp eq ptr %.015.i.i91, null
+  br i1 %.not1216.i.i92, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit117, label %.lr.ph.i.i93
 
 .lr.ph.i.i93:                                     ; preds = %72, %79
-  %.019.i.i94 = phi ptr [ %.0.i.i96, %79 ], [ %.017.i.i91, %72 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.019.i.i94, i64 8
+  %.017.i.i94 = phi ptr [ %.0.i.i96, %79 ], [ %.015.i.i91, %72 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.017.i.i94, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not13.i.i95 = icmp eq ptr %75, null
   br i1 %.not13.i.i95, label %79, label %76
@@ -4348,13 +4348,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89: ; p
   br i1 %78, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i99, label %79
 
 79:                                               ; preds = %76, %.lr.ph.i.i93
-  %80 = getelementptr inbounds nuw i8, ptr %.019.i.i94, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %.017.i.i94, i64 32
   %.0.i.i96 = load ptr, ptr %80, align 8
   %.not12.i.i97 = icmp eq ptr %.0.i.i96, null
   br i1 %.not12.i.i97, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254, label %.lr.ph.i.i93, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i99:        ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %.019.i.i94, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.017.i.i94, i64 16
   %82 = load ptr, ptr %81, align 8
   %.not7.i.i100 = icmp eq ptr %82, null
   br i1 %.not7.i.i100, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254, label %83
@@ -4377,8 +4377,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thr
   br label %.lr.ph.i.i107
 
 .lr.ph.i.i107:                                    ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254, %91
-  %.019.i.i108 = phi ptr [ %.0.i.i110, %91 ], [ %.017.i.i91, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.019.i.i108, i64 8
+  %.017.i.i108 = phi ptr [ %.0.i.i110, %91 ], [ %.015.i.i91, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.017.i.i108, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not13.i.i109 = icmp eq ptr %87, null
   br i1 %.not13.i.i109, label %91, label %88
@@ -4389,13 +4389,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thr
   br i1 %90, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i113, label %91
 
 91:                                               ; preds = %88, %.lr.ph.i.i107
-  %92 = getelementptr inbounds nuw i8, ptr %.019.i.i108, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.017.i.i108, i64 32
   %.0.i.i110 = load ptr, ptr %92, align 8
   %.not12.i.i111 = icmp eq ptr %.0.i.i110, null
   br i1 %.not12.i.i111, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit117, label %.lr.ph.i.i107, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i113:       ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %.019.i.i108, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %.017.i.i108, i64 16
   %94 = load ptr, ptr %93, align 8
   %.not7.i.i114 = icmp eq ptr %94, null
   br i1 %.not7.i.i114, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit117, label %95
@@ -5437,13 +5437,13 @@ define hidden void @_ZN6Assimp11X3DImporter27readIndexedTriangleStripSetERN4pugi
 
 17:                                               ; preds = %2
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %.017.i.i = load ptr, ptr %18, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %18, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %24
-  %.019.i.i = phi ptr [ %.0.i.i, %24 ], [ %.017.i.i, %17 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %24 ], [ %.015.i.i, %17 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not13.i.i = icmp eq ptr %20, null
   br i1 %.not13.i.i, label %24, label %21
@@ -5454,13 +5454,13 @@ define hidden void @_ZN6Assimp11X3DImporter27readIndexedTriangleStripSetERN4pugi
   br i1 %23, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %24
 
 24:                                               ; preds = %21, %.lr.ph.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %25, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not7.i.i = icmp eq ptr %27, null
   %28 = select i1 %.not7.i.i, ptr @.str.46, ptr %27
@@ -5480,13 +5480,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %17, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr381 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %16, %17 ]
   %31 = getelementptr inbounds nuw i8, ptr %.pr381, i64 56
-  %.017.i.i54 = load ptr, ptr %31, align 8
-  %.not1218.i.i55 = icmp eq ptr %.017.i.i54, null
-  br i1 %.not1218.i.i55, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread, label %.lr.ph.i.i56
+  %.015.i.i54 = load ptr, ptr %31, align 8
+  %.not1216.i.i55 = icmp eq ptr %.015.i.i54, null
+  br i1 %.not1216.i.i55, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread, label %.lr.ph.i.i56
 
 .lr.ph.i.i56:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %37
-  %.019.i.i57 = phi ptr [ %.0.i.i59, %37 ], [ %.017.i.i54, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %32 = getelementptr inbounds nuw i8, ptr %.019.i.i57, i64 8
+  %.017.i.i57 = phi ptr [ %.0.i.i59, %37 ], [ %.015.i.i54, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %32 = getelementptr inbounds nuw i8, ptr %.017.i.i57, i64 8
   %33 = load ptr, ptr %32, align 8
   %.not13.i.i58 = icmp eq ptr %33, null
   br i1 %.not13.i.i58, label %37, label %34
@@ -5497,13 +5497,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %36, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i62, label %37
 
 37:                                               ; preds = %34, %.lr.ph.i.i56
-  %38 = getelementptr inbounds nuw i8, ptr %.019.i.i57, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.017.i.i57, i64 32
   %.0.i.i59 = load ptr, ptr %38, align 8
   %.not12.i.i60 = icmp eq ptr %.0.i.i59, null
   br i1 %.not12.i.i60, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65, label %.lr.ph.i.i56, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i62:  ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %.019.i.i57, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.017.i.i57, i64 16
   %40 = load ptr, ptr %39, align 8
   %.not7.i.i63 = icmp eq ptr %40, null
   %41 = select i1 %.not7.i.i63, ptr @.str.46, ptr %40
@@ -5524,13 +5524,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread: ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65
   %.pr242384 = phi ptr [ %.pr242, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65 ], [ %.pr381, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %45 = getelementptr inbounds nuw i8, ptr %.pr242384, i64 56
-  %.017.i.i67 = load ptr, ptr %45, align 8
-  %.not1218.i.i68 = icmp eq ptr %.017.i.i67, null
-  br i1 %.not1218.i.i68, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89, label %.lr.ph.i.i69
+  %.015.i.i67 = load ptr, ptr %45, align 8
+  %.not1216.i.i68 = icmp eq ptr %.015.i.i67, null
+  br i1 %.not1216.i.i68, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89, label %.lr.ph.i.i69
 
 .lr.ph.i.i69:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread, %51
-  %.019.i.i70 = phi ptr [ %.0.i.i72, %51 ], [ %.017.i.i67, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread ]
-  %46 = getelementptr inbounds nuw i8, ptr %.019.i.i70, i64 8
+  %.017.i.i70 = phi ptr [ %.0.i.i72, %51 ], [ %.015.i.i67, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit65.thread ]
+  %46 = getelementptr inbounds nuw i8, ptr %.017.i.i70, i64 8
   %47 = load ptr, ptr %46, align 8
   %.not13.i.i71 = icmp eq ptr %47, null
   br i1 %.not13.i.i71, label %51, label %48
@@ -5541,13 +5541,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %50, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i, label %51
 
 51:                                               ; preds = %48, %.lr.ph.i.i69
-  %52 = getelementptr inbounds nuw i8, ptr %.019.i.i70, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.017.i.i70, i64 32
   %.0.i.i72 = load ptr, ptr %52, align 8
   %.not12.i.i73 = icmp eq ptr %.0.i.i72, null
   br i1 %.not12.i.i73, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248, label %.lr.ph.i.i69, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i:          ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %.019.i.i70, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.017.i.i70, i64 16
   %54 = load ptr, ptr %53, align 8
   %.not7.i.i75 = icmp eq ptr %54, null
   br i1 %.not7.i.i75, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248, label %55
@@ -5570,8 +5570,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br label %.lr.ph.i.i79
 
 .lr.ph.i.i79:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248, %62
-  %.019.i.i80 = phi ptr [ %.0.i.i82, %62 ], [ %.017.i.i67, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248 ]
-  %57 = getelementptr inbounds nuw i8, ptr %.019.i.i80, i64 8
+  %.017.i.i80 = phi ptr [ %.0.i.i82, %62 ], [ %.015.i.i67, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread248 ]
+  %57 = getelementptr inbounds nuw i8, ptr %.017.i.i80, i64 8
   %58 = load ptr, ptr %57, align 8
   %.not13.i.i81 = icmp eq ptr %58, null
   br i1 %.not13.i.i81, label %62, label %59
@@ -5582,13 +5582,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br i1 %61, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i85, label %62
 
 62:                                               ; preds = %59, %.lr.ph.i.i79
-  %63 = getelementptr inbounds nuw i8, ptr %.019.i.i80, i64 32
+  %63 = getelementptr inbounds nuw i8, ptr %.017.i.i80, i64 32
   %.0.i.i82 = load ptr, ptr %63, align 8
   %.not12.i.i83 = icmp eq ptr %.0.i.i82, null
   br i1 %.not12.i.i83, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89, label %.lr.ph.i.i79, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i85:        ; preds = %59
-  %64 = getelementptr inbounds nuw i8, ptr %.019.i.i80, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.017.i.i80, i64 16
   %65 = load ptr, ptr %64, align 8
   %.not7.i.i86 = icmp eq ptr %65, null
   br i1 %.not7.i.i86, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89, label %66
@@ -5619,13 +5619,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89: ; p
 
 72:                                               ; preds = %70
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 56
-  %.017.i.i91 = load ptr, ptr %73, align 8
-  %.not1218.i.i92 = icmp eq ptr %.017.i.i91, null
-  br i1 %.not1218.i.i92, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit117, label %.lr.ph.i.i93
+  %.015.i.i91 = load ptr, ptr %73, align 8
+  %.not1216.i.i92 = icmp eq ptr %.015.i.i91, null
+  br i1 %.not1216.i.i92, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit117, label %.lr.ph.i.i93
 
 .lr.ph.i.i93:                                     ; preds = %72, %79
-  %.019.i.i94 = phi ptr [ %.0.i.i96, %79 ], [ %.017.i.i91, %72 ]
-  %74 = getelementptr inbounds nuw i8, ptr %.019.i.i94, i64 8
+  %.017.i.i94 = phi ptr [ %.0.i.i96, %79 ], [ %.015.i.i91, %72 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.017.i.i94, i64 8
   %75 = load ptr, ptr %74, align 8
   %.not13.i.i95 = icmp eq ptr %75, null
   br i1 %.not13.i.i95, label %79, label %76
@@ -5636,13 +5636,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit89: ; p
   br i1 %78, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i99, label %79
 
 79:                                               ; preds = %76, %.lr.ph.i.i93
-  %80 = getelementptr inbounds nuw i8, ptr %.019.i.i94, i64 32
+  %80 = getelementptr inbounds nuw i8, ptr %.017.i.i94, i64 32
   %.0.i.i96 = load ptr, ptr %80, align 8
   %.not12.i.i97 = icmp eq ptr %.0.i.i96, null
   br i1 %.not12.i.i97, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254, label %.lr.ph.i.i93, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i99:        ; preds = %76
-  %81 = getelementptr inbounds nuw i8, ptr %.019.i.i94, i64 16
+  %81 = getelementptr inbounds nuw i8, ptr %.017.i.i94, i64 16
   %82 = load ptr, ptr %81, align 8
   %.not7.i.i100 = icmp eq ptr %82, null
   br i1 %.not7.i.i100, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254, label %83
@@ -5665,8 +5665,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thr
   br label %.lr.ph.i.i107
 
 .lr.ph.i.i107:                                    ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254, %91
-  %.019.i.i108 = phi ptr [ %.0.i.i110, %91 ], [ %.017.i.i91, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.019.i.i108, i64 8
+  %.017.i.i108 = phi ptr [ %.0.i.i110, %91 ], [ %.015.i.i91, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thread254 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.017.i.i108, i64 8
   %87 = load ptr, ptr %86, align 8
   %.not13.i.i109 = icmp eq ptr %87, null
   br i1 %.not13.i.i109, label %91, label %88
@@ -5677,13 +5677,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit103.thr
   br i1 %90, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i113, label %91
 
 91:                                               ; preds = %88, %.lr.ph.i.i107
-  %92 = getelementptr inbounds nuw i8, ptr %.019.i.i108, i64 32
+  %92 = getelementptr inbounds nuw i8, ptr %.017.i.i108, i64 32
   %.0.i.i110 = load ptr, ptr %92, align 8
   %.not12.i.i111 = icmp eq ptr %.0.i.i110, null
   br i1 %.not12.i.i111, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit117, label %.lr.ph.i.i107, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i113:       ; preds = %88
-  %93 = getelementptr inbounds nuw i8, ptr %.019.i.i108, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %.017.i.i108, i64 16
   %94 = load ptr, ptr %93, align 8
   %.not7.i.i114 = icmp eq ptr %94, null
   br i1 %.not7.i.i114, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit117, label %95
@@ -6728,13 +6728,13 @@ define hidden void @_ZN6Assimp11X3DImporter11readLineSetERN4pugi8xml_nodeE(ptr n
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %.017.i.i = load ptr, ptr %16, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %16, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %22
-  %.019.i.i = phi ptr [ %.0.i.i, %22 ], [ %.017.i.i, %15 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %22 ], [ %.015.i.i, %15 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not13.i.i = icmp eq ptr %18, null
   br i1 %.not13.i.i, label %22, label %19
@@ -6745,13 +6745,13 @@ define hidden void @_ZN6Assimp11X3DImporter11readLineSetERN4pugi8xml_nodeE(ptr n
   br i1 %21, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %22
 
 22:                                               ; preds = %19, %.lr.ph.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %23, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not7.i.i = icmp eq ptr %25, null
   %26 = select i1 %.not7.i.i, ptr @.str.46, ptr %25
@@ -6771,13 +6771,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %15, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr197 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %14, %15 ]
   %29 = getelementptr inbounds nuw i8, ptr %.pr197, i64 56
-  %.017.i.i45 = load ptr, ptr %29, align 8
-  %.not1218.i.i46 = icmp eq ptr %.017.i.i45, null
-  br i1 %.not1218.i.i46, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit56, label %.lr.ph.i.i47
+  %.015.i.i45 = load ptr, ptr %29, align 8
+  %.not1216.i.i46 = icmp eq ptr %.015.i.i45, null
+  br i1 %.not1216.i.i46, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit56, label %.lr.ph.i.i47
 
 .lr.ph.i.i47:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %35
-  %.019.i.i48 = phi ptr [ %.0.i.i50, %35 ], [ %.017.i.i45, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %30 = getelementptr inbounds nuw i8, ptr %.019.i.i48, i64 8
+  %.017.i.i48 = phi ptr [ %.0.i.i50, %35 ], [ %.015.i.i45, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %30 = getelementptr inbounds nuw i8, ptr %.017.i.i48, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not13.i.i49 = icmp eq ptr %31, null
   br i1 %.not13.i.i49, label %35, label %32
@@ -6788,13 +6788,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %34, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i53, label %35
 
 35:                                               ; preds = %32, %.lr.ph.i.i47
-  %36 = getelementptr inbounds nuw i8, ptr %.019.i.i48, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.017.i.i48, i64 32
   %.0.i.i50 = load ptr, ptr %36, align 8
   %.not12.i.i51 = icmp eq ptr %.0.i.i50, null
   br i1 %.not12.i.i51, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit56, label %.lr.ph.i.i47, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i53:  ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %.019.i.i48, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.017.i.i48, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not7.i.i54 = icmp eq ptr %38, null
   %39 = select i1 %.not7.i.i54, ptr @.str.46, ptr %38
@@ -7475,13 +7475,13 @@ define hidden void @_ZN6Assimp11X3DImporter12readPointSetERN4pugi8xml_nodeE(ptr 
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -7492,13 +7492,13 @@ define hidden void @_ZN6Assimp11X3DImporter12readPointSetERN4pugi8xml_nodeE(ptr 
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.46, ptr %24
@@ -7518,13 +7518,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr121 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %13, %14 ]
   %28 = getelementptr inbounds nuw i8, ptr %.pr121, i64 56
-  %.017.i.i25 = load ptr, ptr %28, align 8
-  %.not1218.i.i26 = icmp eq ptr %.017.i.i25, null
-  br i1 %.not1218.i.i26, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36, label %.lr.ph.i.i27
+  %.015.i.i25 = load ptr, ptr %28, align 8
+  %.not1216.i.i26 = icmp eq ptr %.015.i.i25, null
+  br i1 %.not1216.i.i26, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36, label %.lr.ph.i.i27
 
 .lr.ph.i.i27:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %34
-  %.019.i.i28 = phi ptr [ %.0.i.i30, %34 ], [ %.017.i.i25, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %29 = getelementptr inbounds nuw i8, ptr %.019.i.i28, i64 8
+  %.017.i.i28 = phi ptr [ %.0.i.i30, %34 ], [ %.015.i.i25, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %29 = getelementptr inbounds nuw i8, ptr %.017.i.i28, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not13.i.i29 = icmp eq ptr %30, null
   br i1 %.not13.i.i29, label %34, label %31
@@ -7535,13 +7535,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %33, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i33, label %34
 
 34:                                               ; preds = %31, %.lr.ph.i.i27
-  %35 = getelementptr inbounds nuw i8, ptr %.019.i.i28, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.017.i.i28, i64 32
   %.0.i.i30 = load ptr, ptr %35, align 8
   %.not12.i.i31 = icmp eq ptr %.0.i.i30, null
   br i1 %.not12.i.i31, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit36, label %.lr.ph.i.i27, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i33:  ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %.019.i.i28, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.017.i.i28, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not7.i.i34 = icmp eq ptr %37, null
   %38 = select i1 %.not7.i.i34, ptr @.str.46, ptr %37
@@ -7936,13 +7936,13 @@ define hidden void @_ZN6Assimp11X3DImporter18readTriangleFanSetERN4pugi8xml_node
 
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %.017.i.i = load ptr, ptr %16, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %16, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %15, %22
-  %.019.i.i = phi ptr [ %.0.i.i, %22 ], [ %.017.i.i, %15 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %22 ], [ %.015.i.i, %15 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %18 = load ptr, ptr %17, align 8
   %.not13.i.i = icmp eq ptr %18, null
   br i1 %.not13.i.i, label %22, label %19
@@ -7953,13 +7953,13 @@ define hidden void @_ZN6Assimp11X3DImporter18readTriangleFanSetERN4pugi8xml_node
   br i1 %21, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %22
 
 22:                                               ; preds = %19, %.lr.ph.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %23, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %25 = load ptr, ptr %24, align 8
   %.not7.i.i = icmp eq ptr %25, null
   %26 = select i1 %.not7.i.i, ptr @.str.46, ptr %25
@@ -7979,13 +7979,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %15, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr470 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %14, %15 ]
   %29 = getelementptr inbounds nuw i8, ptr %.pr470, i64 56
-  %.017.i.i72 = load ptr, ptr %29, align 8
-  %.not1218.i.i73 = icmp eq ptr %.017.i.i72, null
-  br i1 %.not1218.i.i73, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit83.thread, label %.lr.ph.i.i74
+  %.015.i.i72 = load ptr, ptr %29, align 8
+  %.not1216.i.i73 = icmp eq ptr %.015.i.i72, null
+  br i1 %.not1216.i.i73, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit83.thread, label %.lr.ph.i.i74
 
 .lr.ph.i.i74:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %35
-  %.019.i.i75 = phi ptr [ %.0.i.i77, %35 ], [ %.017.i.i72, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %30 = getelementptr inbounds nuw i8, ptr %.019.i.i75, i64 8
+  %.017.i.i75 = phi ptr [ %.0.i.i77, %35 ], [ %.015.i.i72, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %30 = getelementptr inbounds nuw i8, ptr %.017.i.i75, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not13.i.i76 = icmp eq ptr %31, null
   br i1 %.not13.i.i76, label %35, label %32
@@ -7996,13 +7996,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %34, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i80, label %35
 
 35:                                               ; preds = %32, %.lr.ph.i.i74
-  %36 = getelementptr inbounds nuw i8, ptr %.019.i.i75, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.017.i.i75, i64 32
   %.0.i.i77 = load ptr, ptr %36, align 8
   %.not12.i.i78 = icmp eq ptr %.0.i.i77, null
   br i1 %.not12.i.i78, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit83, label %.lr.ph.i.i74, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i80:  ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %.019.i.i75, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.017.i.i75, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not7.i.i81 = icmp eq ptr %38, null
   %39 = select i1 %.not7.i.i81, ptr @.str.46, ptr %38
@@ -8023,13 +8023,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit83.thread: ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit83
   %.pr279473 = phi ptr [ %.pr279, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit83 ], [ %.pr470, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %43 = getelementptr inbounds nuw i8, ptr %.pr279473, i64 56
-  %.017.i.i85 = load ptr, ptr %43, align 8
-  %.not1218.i.i86 = icmp eq ptr %.017.i.i85, null
-  br i1 %.not1218.i.i86, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit107, label %.lr.ph.i.i87
+  %.015.i.i85 = load ptr, ptr %43, align 8
+  %.not1216.i.i86 = icmp eq ptr %.015.i.i85, null
+  br i1 %.not1216.i.i86, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit107, label %.lr.ph.i.i87
 
 .lr.ph.i.i87:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit83.thread, %49
-  %.019.i.i88 = phi ptr [ %.0.i.i90, %49 ], [ %.017.i.i85, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit83.thread ]
-  %44 = getelementptr inbounds nuw i8, ptr %.019.i.i88, i64 8
+  %.017.i.i88 = phi ptr [ %.0.i.i90, %49 ], [ %.015.i.i85, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit83.thread ]
+  %44 = getelementptr inbounds nuw i8, ptr %.017.i.i88, i64 8
   %45 = load ptr, ptr %44, align 8
   %.not13.i.i89 = icmp eq ptr %45, null
   br i1 %.not13.i.i89, label %49, label %46
@@ -8040,13 +8040,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %48, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i, label %49
 
 49:                                               ; preds = %46, %.lr.ph.i.i87
-  %50 = getelementptr inbounds nuw i8, ptr %.019.i.i88, i64 32
+  %50 = getelementptr inbounds nuw i8, ptr %.017.i.i88, i64 32
   %.0.i.i90 = load ptr, ptr %50, align 8
   %.not12.i.i91 = icmp eq ptr %.0.i.i90, null
   br i1 %.not12.i.i91, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread285, label %.lr.ph.i.i87, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i:          ; preds = %46
-  %51 = getelementptr inbounds nuw i8, ptr %.019.i.i88, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.017.i.i88, i64 16
   %52 = load ptr, ptr %51, align 8
   %.not7.i.i93 = icmp eq ptr %52, null
   br i1 %.not7.i.i93, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread285, label %53
@@ -8069,8 +8069,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br label %.lr.ph.i.i97
 
 .lr.ph.i.i97:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread285, %60
-  %.019.i.i98 = phi ptr [ %.0.i.i100, %60 ], [ %.017.i.i85, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread285 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.019.i.i98, i64 8
+  %.017.i.i98 = phi ptr [ %.0.i.i100, %60 ], [ %.015.i.i85, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread285 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.017.i.i98, i64 8
   %56 = load ptr, ptr %55, align 8
   %.not13.i.i99 = icmp eq ptr %56, null
   br i1 %.not13.i.i99, label %60, label %57
@@ -8081,13 +8081,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br i1 %59, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i103, label %60
 
 60:                                               ; preds = %57, %.lr.ph.i.i97
-  %61 = getelementptr inbounds nuw i8, ptr %.019.i.i98, i64 32
+  %61 = getelementptr inbounds nuw i8, ptr %.017.i.i98, i64 32
   %.0.i.i100 = load ptr, ptr %61, align 8
   %.not12.i.i101 = icmp eq ptr %.0.i.i100, null
   br i1 %.not12.i.i101, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit107, label %.lr.ph.i.i97, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i103:       ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %.019.i.i98, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.017.i.i98, i64 16
   %63 = load ptr, ptr %62, align 8
   %.not7.i.i104 = icmp eq ptr %63, null
   br i1 %.not7.i.i104, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit107, label %64
@@ -8118,13 +8118,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit107: ; 
 
 70:                                               ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 56
-  %.017.i.i109 = load ptr, ptr %71, align 8
-  %.not1218.i.i110 = icmp eq ptr %.017.i.i109, null
-  br i1 %.not1218.i.i110, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit135, label %.lr.ph.i.i111
+  %.015.i.i109 = load ptr, ptr %71, align 8
+  %.not1216.i.i110 = icmp eq ptr %.015.i.i109, null
+  br i1 %.not1216.i.i110, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit135, label %.lr.ph.i.i111
 
 .lr.ph.i.i111:                                    ; preds = %70, %77
-  %.019.i.i112 = phi ptr [ %.0.i.i114, %77 ], [ %.017.i.i109, %70 ]
-  %72 = getelementptr inbounds nuw i8, ptr %.019.i.i112, i64 8
+  %.017.i.i112 = phi ptr [ %.0.i.i114, %77 ], [ %.015.i.i109, %70 ]
+  %72 = getelementptr inbounds nuw i8, ptr %.017.i.i112, i64 8
   %73 = load ptr, ptr %72, align 8
   %.not13.i.i113 = icmp eq ptr %73, null
   br i1 %.not13.i.i113, label %77, label %74
@@ -8135,13 +8135,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit107: ; 
   br i1 %76, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i117, label %77
 
 77:                                               ; preds = %74, %.lr.ph.i.i111
-  %78 = getelementptr inbounds nuw i8, ptr %.019.i.i112, i64 32
+  %78 = getelementptr inbounds nuw i8, ptr %.017.i.i112, i64 32
   %.0.i.i114 = load ptr, ptr %78, align 8
   %.not12.i.i115 = icmp eq ptr %.0.i.i114, null
   br i1 %.not12.i.i115, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit121.thread291, label %.lr.ph.i.i111, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i117:       ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %.019.i.i112, i64 16
+  %79 = getelementptr inbounds nuw i8, ptr %.017.i.i112, i64 16
   %80 = load ptr, ptr %79, align 8
   %.not7.i.i118 = icmp eq ptr %80, null
   br i1 %.not7.i.i118, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit121.thread291, label %81
@@ -8164,8 +8164,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit121.thr
   br label %.lr.ph.i.i125
 
 .lr.ph.i.i125:                                    ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit121.thread291, %89
-  %.019.i.i126 = phi ptr [ %.0.i.i128, %89 ], [ %.017.i.i109, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit121.thread291 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.019.i.i126, i64 8
+  %.017.i.i126 = phi ptr [ %.0.i.i128, %89 ], [ %.015.i.i109, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit121.thread291 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.017.i.i126, i64 8
   %85 = load ptr, ptr %84, align 8
   %.not13.i.i127 = icmp eq ptr %85, null
   br i1 %.not13.i.i127, label %89, label %86
@@ -8176,13 +8176,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit121.thr
   br i1 %88, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i131, label %89
 
 89:                                               ; preds = %86, %.lr.ph.i.i125
-  %90 = getelementptr inbounds nuw i8, ptr %.019.i.i126, i64 32
+  %90 = getelementptr inbounds nuw i8, ptr %.017.i.i126, i64 32
   %.0.i.i128 = load ptr, ptr %90, align 8
   %.not12.i.i129 = icmp eq ptr %.0.i.i128, null
   br i1 %.not12.i.i129, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit135, label %.lr.ph.i.i125, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i131:       ; preds = %86
-  %91 = getelementptr inbounds nuw i8, ptr %.019.i.i126, i64 16
+  %91 = getelementptr inbounds nuw i8, ptr %.017.i.i126, i64 16
   %92 = load ptr, ptr %91, align 8
   %.not7.i.i132 = icmp eq ptr %92, null
   br i1 %.not7.i.i132, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit135, label %93
@@ -9375,13 +9375,13 @@ define hidden void @_ZN6Assimp11X3DImporter15readTriangleSetERN4pugi8xml_nodeE(p
 
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -9392,13 +9392,13 @@ define hidden void @_ZN6Assimp11X3DImporter15readTriangleSetERN4pugi8xml_nodeE(p
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.46, ptr %24
@@ -9418,13 +9418,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %14, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr251 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %13, %14 ]
   %28 = getelementptr inbounds nuw i8, ptr %.pr251, i64 56
-  %.017.i.i37 = load ptr, ptr %28, align 8
-  %.not1218.i.i38 = icmp eq ptr %.017.i.i37, null
-  br i1 %.not1218.i.i38, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48.thread, label %.lr.ph.i.i39
+  %.015.i.i37 = load ptr, ptr %28, align 8
+  %.not1216.i.i38 = icmp eq ptr %.015.i.i37, null
+  br i1 %.not1216.i.i38, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48.thread, label %.lr.ph.i.i39
 
 .lr.ph.i.i39:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %34
-  %.019.i.i40 = phi ptr [ %.0.i.i42, %34 ], [ %.017.i.i37, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %29 = getelementptr inbounds nuw i8, ptr %.019.i.i40, i64 8
+  %.017.i.i40 = phi ptr [ %.0.i.i42, %34 ], [ %.015.i.i37, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %29 = getelementptr inbounds nuw i8, ptr %.017.i.i40, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not13.i.i41 = icmp eq ptr %30, null
   br i1 %.not13.i.i41, label %34, label %31
@@ -9435,13 +9435,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %33, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i45, label %34
 
 34:                                               ; preds = %31, %.lr.ph.i.i39
-  %35 = getelementptr inbounds nuw i8, ptr %.019.i.i40, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.017.i.i40, i64 32
   %.0.i.i42 = load ptr, ptr %35, align 8
   %.not12.i.i43 = icmp eq ptr %.0.i.i42, null
   br i1 %.not12.i.i43, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48, label %.lr.ph.i.i39, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i45:  ; preds = %31
-  %36 = getelementptr inbounds nuw i8, ptr %.019.i.i40, i64 16
+  %36 = getelementptr inbounds nuw i8, ptr %.017.i.i40, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not7.i.i46 = icmp eq ptr %37, null
   %38 = select i1 %.not7.i.i46, ptr @.str.46, ptr %37
@@ -9462,13 +9462,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48.thread: ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48
   %.pr157254 = phi ptr [ %.pr157, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48 ], [ %.pr251, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %42 = getelementptr inbounds nuw i8, ptr %.pr157254, i64 56
-  %.017.i.i50 = load ptr, ptr %42, align 8
-  %.not1218.i.i51 = icmp eq ptr %.017.i.i50, null
-  br i1 %.not1218.i.i51, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit100, label %.lr.ph.i.i52
+  %.015.i.i50 = load ptr, ptr %42, align 8
+  %.not1216.i.i51 = icmp eq ptr %.015.i.i50, null
+  br i1 %.not1216.i.i51, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit100, label %.lr.ph.i.i52
 
 .lr.ph.i.i52:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48.thread, %48
-  %.019.i.i53 = phi ptr [ %.0.i.i55, %48 ], [ %.017.i.i50, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48.thread ]
-  %43 = getelementptr inbounds nuw i8, ptr %.019.i.i53, i64 8
+  %.017.i.i53 = phi ptr [ %.0.i.i55, %48 ], [ %.015.i.i50, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit48.thread ]
+  %43 = getelementptr inbounds nuw i8, ptr %.017.i.i53, i64 8
   %44 = load ptr, ptr %43, align 8
   %.not13.i.i54 = icmp eq ptr %44, null
   br i1 %.not13.i.i54, label %48, label %45
@@ -9479,13 +9479,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %47, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i, label %48
 
 48:                                               ; preds = %45, %.lr.ph.i.i52
-  %49 = getelementptr inbounds nuw i8, ptr %.019.i.i53, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.017.i.i53, i64 32
   %.0.i.i55 = load ptr, ptr %49, align 8
   %.not12.i.i56 = icmp eq ptr %.0.i.i55, null
   br i1 %.not12.i.i56, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread164, label %.lr.ph.i.i52, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i:          ; preds = %45
-  %50 = getelementptr inbounds nuw i8, ptr %.019.i.i53, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.017.i.i53, i64 16
   %51 = load ptr, ptr %50, align 8
   %.not7.i.i58 = icmp eq ptr %51, null
   br i1 %.not7.i.i58, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread164, label %52
@@ -9508,8 +9508,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br label %.lr.ph.i.i62
 
 .lr.ph.i.i62:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread164, %59
-  %.019.i.i63 = phi ptr [ %.0.i.i65, %59 ], [ %.017.i.i50, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread164 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.019.i.i63, i64 8
+  %.017.i.i63 = phi ptr [ %.0.i.i65, %59 ], [ %.015.i.i50, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread164 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.017.i.i63, i64 8
   %55 = load ptr, ptr %54, align 8
   %.not13.i.i64 = icmp eq ptr %55, null
   br i1 %.not13.i.i64, label %59, label %56
@@ -9520,13 +9520,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br i1 %58, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i68, label %59
 
 59:                                               ; preds = %56, %.lr.ph.i.i62
-  %60 = getelementptr inbounds nuw i8, ptr %.019.i.i63, i64 32
+  %60 = getelementptr inbounds nuw i8, ptr %.017.i.i63, i64 32
   %.0.i.i65 = load ptr, ptr %60, align 8
   %.not12.i.i66 = icmp eq ptr %.0.i.i65, null
   br i1 %.not12.i.i66, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit72.thread176, label %.lr.ph.i.i62, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i68:        ; preds = %56
-  %61 = getelementptr inbounds nuw i8, ptr %.019.i.i63, i64 16
+  %61 = getelementptr inbounds nuw i8, ptr %.017.i.i63, i64 16
   %62 = load ptr, ptr %61, align 8
   %.not7.i.i69 = icmp eq ptr %62, null
   br i1 %.not7.i.i69, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit72.thread176, label %63
@@ -9549,8 +9549,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit72.thre
   br label %.lr.ph.i.i76
 
 .lr.ph.i.i76:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit72.thread176, %70
-  %.019.i.i77 = phi ptr [ %.0.i.i79, %70 ], [ %.017.i.i50, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit72.thread176 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.019.i.i77, i64 8
+  %.017.i.i77 = phi ptr [ %.0.i.i79, %70 ], [ %.015.i.i50, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit72.thread176 ]
+  %65 = getelementptr inbounds nuw i8, ptr %.017.i.i77, i64 8
   %66 = load ptr, ptr %65, align 8
   %.not13.i.i78 = icmp eq ptr %66, null
   br i1 %.not13.i.i78, label %70, label %67
@@ -9561,13 +9561,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit72.thre
   br i1 %69, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i82, label %70
 
 70:                                               ; preds = %67, %.lr.ph.i.i76
-  %71 = getelementptr inbounds nuw i8, ptr %.019.i.i77, i64 32
+  %71 = getelementptr inbounds nuw i8, ptr %.017.i.i77, i64 32
   %.0.i.i79 = load ptr, ptr %71, align 8
   %.not12.i.i80 = icmp eq ptr %.0.i.i79, null
   br i1 %.not12.i.i80, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit86.thread191, label %.lr.ph.i.i76, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i82:        ; preds = %67
-  %72 = getelementptr inbounds nuw i8, ptr %.019.i.i77, i64 16
+  %72 = getelementptr inbounds nuw i8, ptr %.017.i.i77, i64 16
   %73 = load ptr, ptr %72, align 8
   %.not7.i.i83 = icmp eq ptr %73, null
   br i1 %.not7.i.i83, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit86.thread191, label %74
@@ -9590,8 +9590,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit86.thre
   br label %.lr.ph.i.i90
 
 .lr.ph.i.i90:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit86.thread191, %81
-  %.019.i.i91 = phi ptr [ %.0.i.i93, %81 ], [ %.017.i.i50, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit86.thread191 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.019.i.i91, i64 8
+  %.017.i.i91 = phi ptr [ %.0.i.i93, %81 ], [ %.015.i.i50, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit86.thread191 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.017.i.i91, i64 8
   %77 = load ptr, ptr %76, align 8
   %.not13.i.i92 = icmp eq ptr %77, null
   br i1 %.not13.i.i92, label %81, label %78
@@ -9602,13 +9602,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit86.thre
   br i1 %80, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i96, label %81
 
 81:                                               ; preds = %78, %.lr.ph.i.i90
-  %82 = getelementptr inbounds nuw i8, ptr %.019.i.i91, i64 32
+  %82 = getelementptr inbounds nuw i8, ptr %.017.i.i91, i64 32
   %.0.i.i93 = load ptr, ptr %82, align 8
   %.not12.i.i94 = icmp eq ptr %.0.i.i93, null
   br i1 %.not12.i.i94, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit100, label %.lr.ph.i.i90, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i96:        ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %.019.i.i91, i64 16
+  %83 = getelementptr inbounds nuw i8, ptr %.017.i.i91, i64 16
   %84 = load ptr, ptr %83, align 8
   %.not7.i.i97 = icmp eq ptr %84, null
   br i1 %.not7.i.i97, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit100, label %85
@@ -10047,13 +10047,13 @@ define hidden void @_ZN6Assimp11X3DImporter20readTriangleStripSetERN4pugi8xml_no
 
 16:                                               ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.017.i.i = load ptr, ptr %17, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %17, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %23
-  %.019.i.i = phi ptr [ %.0.i.i, %23 ], [ %.017.i.i, %16 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %23 ], [ %.015.i.i, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not13.i.i = icmp eq ptr %19, null
   br i1 %.not13.i.i, label %23, label %20
@@ -10064,13 +10064,13 @@ define hidden void @_ZN6Assimp11X3DImporter20readTriangleStripSetERN4pugi8xml_no
   br i1 %22, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %23
 
 23:                                               ; preds = %20, %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %24, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not7.i.i = icmp eq ptr %26, null
   %27 = select i1 %.not7.i.i, ptr @.str.46, ptr %26
@@ -10090,13 +10090,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %16, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %.pr457 = phi ptr [ %.pr, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit ], [ %15, %16 ]
   %30 = getelementptr inbounds nuw i8, ptr %.pr457, i64 56
-  %.017.i.i85 = load ptr, ptr %30, align 8
-  %.not1218.i.i86 = icmp eq ptr %.017.i.i85, null
-  br i1 %.not1218.i.i86, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit96.thread, label %.lr.ph.i.i87
+  %.015.i.i85 = load ptr, ptr %30, align 8
+  %.not1216.i.i86 = icmp eq ptr %.015.i.i85, null
+  br i1 %.not1216.i.i86, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit96.thread, label %.lr.ph.i.i87
 
 .lr.ph.i.i87:                                     ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %36
-  %.019.i.i88 = phi ptr [ %.0.i.i90, %36 ], [ %.017.i.i85, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
-  %31 = getelementptr inbounds nuw i8, ptr %.019.i.i88, i64 8
+  %.017.i.i88 = phi ptr [ %.0.i.i90, %36 ], [ %.015.i.i85, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %31 = getelementptr inbounds nuw i8, ptr %.017.i.i88, i64 8
   %32 = load ptr, ptr %31, align 8
   %.not13.i.i89 = icmp eq ptr %32, null
   br i1 %.not13.i.i89, label %36, label %33
@@ -10107,13 +10107,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %35, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i93, label %36
 
 36:                                               ; preds = %33, %.lr.ph.i.i87
-  %37 = getelementptr inbounds nuw i8, ptr %.019.i.i88, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.017.i.i88, i64 32
   %.0.i.i90 = load ptr, ptr %37, align 8
   %.not12.i.i91 = icmp eq ptr %.0.i.i90, null
   br i1 %.not12.i.i91, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit96, label %.lr.ph.i.i87, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i93:  ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %.019.i.i88, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.017.i.i88, i64 16
   %39 = load ptr, ptr %38, align 8
   %.not7.i.i94 = icmp eq ptr %39, null
   %40 = select i1 %.not7.i.i94, ptr @.str.46, ptr %39
@@ -10134,13 +10134,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
 _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit96.thread: ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit96
   %.pr292460 = phi ptr [ %.pr292, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit96 ], [ %.pr457, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %44 = getelementptr inbounds nuw i8, ptr %.pr292460, i64 56
-  %.017.i.i98 = load ptr, ptr %44, align 8
-  %.not1218.i.i99 = icmp eq ptr %.017.i.i98, null
-  br i1 %.not1218.i.i99, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit120, label %.lr.ph.i.i100
+  %.015.i.i98 = load ptr, ptr %44, align 8
+  %.not1216.i.i99 = icmp eq ptr %.015.i.i98, null
+  br i1 %.not1216.i.i99, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit120, label %.lr.ph.i.i100
 
 .lr.ph.i.i100:                                    ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit96.thread, %50
-  %.019.i.i101 = phi ptr [ %.0.i.i103, %50 ], [ %.017.i.i98, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit96.thread ]
-  %45 = getelementptr inbounds nuw i8, ptr %.019.i.i101, i64 8
+  %.017.i.i101 = phi ptr [ %.0.i.i103, %50 ], [ %.015.i.i98, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit96.thread ]
+  %45 = getelementptr inbounds nuw i8, ptr %.017.i.i101, i64 8
   %46 = load ptr, ptr %45, align 8
   %.not13.i.i102 = icmp eq ptr %46, null
   br i1 %.not13.i.i102, label %50, label %47
@@ -10151,13 +10151,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE18getStdStrAttributeERS2_PKcRNSt7__cxx11
   br i1 %49, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i, label %50
 
 50:                                               ; preds = %47, %.lr.ph.i.i100
-  %51 = getelementptr inbounds nuw i8, ptr %.019.i.i101, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %.017.i.i101, i64 32
   %.0.i.i103 = load ptr, ptr %51, align 8
   %.not12.i.i104 = icmp eq ptr %.0.i.i103, null
   br i1 %.not12.i.i104, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread298, label %.lr.ph.i.i100, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i:          ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %.019.i.i101, i64 16
+  %52 = getelementptr inbounds nuw i8, ptr %.017.i.i101, i64 16
   %53 = load ptr, ptr %52, align 8
   %.not7.i.i106 = icmp eq ptr %53, null
   br i1 %.not7.i.i106, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread298, label %54
@@ -10180,8 +10180,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br label %.lr.ph.i.i110
 
 .lr.ph.i.i110:                                    ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread298, %61
-  %.019.i.i111 = phi ptr [ %.0.i.i113, %61 ], [ %.017.i.i98, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread298 ]
-  %56 = getelementptr inbounds nuw i8, ptr %.019.i.i111, i64 8
+  %.017.i.i111 = phi ptr [ %.0.i.i113, %61 ], [ %.015.i.i98, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread298 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.017.i.i111, i64 8
   %57 = load ptr, ptr %56, align 8
   %.not13.i.i112 = icmp eq ptr %57, null
   br i1 %.not13.i.i112, label %61, label %58
@@ -10192,13 +10192,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit.thread
   br i1 %60, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i116, label %61
 
 61:                                               ; preds = %58, %.lr.ph.i.i110
-  %62 = getelementptr inbounds nuw i8, ptr %.019.i.i111, i64 32
+  %62 = getelementptr inbounds nuw i8, ptr %.017.i.i111, i64 32
   %.0.i.i113 = load ptr, ptr %62, align 8
   %.not12.i.i114 = icmp eq ptr %.0.i.i113, null
   br i1 %.not12.i.i114, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit120, label %.lr.ph.i.i110, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i116:       ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %.019.i.i111, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.017.i.i111, i64 16
   %64 = load ptr, ptr %63, align 8
   %.not7.i.i117 = icmp eq ptr %64, null
   br i1 %.not7.i.i117, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit120, label %65
@@ -10229,13 +10229,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit120: ; 
 
 71:                                               ; preds = %69
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 56
-  %.017.i.i122 = load ptr, ptr %72, align 8
-  %.not1218.i.i123 = icmp eq ptr %.017.i.i122, null
-  br i1 %.not1218.i.i123, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit148, label %.lr.ph.i.i124
+  %.015.i.i122 = load ptr, ptr %72, align 8
+  %.not1216.i.i123 = icmp eq ptr %.015.i.i122, null
+  br i1 %.not1216.i.i123, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit148, label %.lr.ph.i.i124
 
 .lr.ph.i.i124:                                    ; preds = %71, %78
-  %.019.i.i125 = phi ptr [ %.0.i.i127, %78 ], [ %.017.i.i122, %71 ]
-  %73 = getelementptr inbounds nuw i8, ptr %.019.i.i125, i64 8
+  %.017.i.i125 = phi ptr [ %.0.i.i127, %78 ], [ %.015.i.i122, %71 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.017.i.i125, i64 8
   %74 = load ptr, ptr %73, align 8
   %.not13.i.i126 = icmp eq ptr %74, null
   br i1 %.not13.i.i126, label %78, label %75
@@ -10246,13 +10246,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit120: ; 
   br i1 %77, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i130, label %78
 
 78:                                               ; preds = %75, %.lr.ph.i.i124
-  %79 = getelementptr inbounds nuw i8, ptr %.019.i.i125, i64 32
+  %79 = getelementptr inbounds nuw i8, ptr %.017.i.i125, i64 32
   %.0.i.i127 = load ptr, ptr %79, align 8
   %.not12.i.i128 = icmp eq ptr %.0.i.i127, null
   br i1 %.not12.i.i128, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit134.thread304, label %.lr.ph.i.i124, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i130:       ; preds = %75
-  %80 = getelementptr inbounds nuw i8, ptr %.019.i.i125, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.017.i.i125, i64 16
   %81 = load ptr, ptr %80, align 8
   %.not7.i.i131 = icmp eq ptr %81, null
   br i1 %.not7.i.i131, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit134.thread304, label %82
@@ -10275,8 +10275,8 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit134.thr
   br label %.lr.ph.i.i138
 
 .lr.ph.i.i138:                                    ; preds = %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit134.thread304, %90
-  %.019.i.i139 = phi ptr [ %.0.i.i141, %90 ], [ %.017.i.i122, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit134.thread304 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.019.i.i139, i64 8
+  %.017.i.i139 = phi ptr [ %.0.i.i141, %90 ], [ %.015.i.i122, %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit134.thread304 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.017.i.i139, i64 8
   %86 = load ptr, ptr %85, align 8
   %.not13.i.i140 = icmp eq ptr %86, null
   br i1 %.not13.i.i140, label %90, label %87
@@ -10287,13 +10287,13 @@ _ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit134.thr
   br i1 %89, label %_ZNK4pugi8xml_node9attributeEPKc.exit.i144, label %90
 
 90:                                               ; preds = %87, %.lr.ph.i.i138
-  %91 = getelementptr inbounds nuw i8, ptr %.019.i.i139, i64 32
+  %91 = getelementptr inbounds nuw i8, ptr %.017.i.i139, i64 32
   %.0.i.i141 = load ptr, ptr %91, align 8
   %.not12.i.i142 = icmp eq ptr %.0.i.i141, null
   br i1 %.not12.i.i142, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit148, label %.lr.ph.i.i138, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit.i144:       ; preds = %87
-  %92 = getelementptr inbounds nuw i8, ptr %.019.i.i139, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.017.i.i139, i64 16
   %93 = load ptr, ptr %92, align 8
   %.not7.i.i145 = icmp eq ptr %93, null
   br i1 %.not7.i.i145, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE16getBoolAttributeERS2_PKcRb.exit148, label %94

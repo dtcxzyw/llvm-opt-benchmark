@@ -1305,8 +1305,8 @@ solver_new_decision.exit:                         ; preds = %solver_new_decision
 b_queue_push.exit:                                ; preds = %94, %108
   %110 = load i32, ptr %11, align 8, !tbaa !108
   %111 = sext i32 %110 to i64
-  %.not166 = icmp slt i64 %64, %111
-  br i1 %.not166, label %solver_block_rst.exit.thread, label %112
+  %.not165 = icmp slt i64 %64, %111
+  br i1 %.not165, label %solver_block_rst.exit.thread, label %112
 
 112:                                              ; preds = %b_queue_push.exit
   %113 = load ptr, ptr %12, align 8, !tbaa !109
@@ -3324,8 +3324,8 @@ solver_rst.exit.thread:                           ; preds = %1115, %solver_rst.e
 
 solver_check_limits.exit:                         ; preds = %1135
   %1138 = load i64, ptr %41, align 8, !tbaa !94
-  %.not167 = icmp slt i64 %1136, %1138
-  br i1 %.not167, label %solver_check_limits.exit.thread, label %solver_check_limits.exit.thread150
+  %.not166 = icmp slt i64 %1136, %1138
+  br i1 %.not166, label %solver_check_limits.exit.thread, label %solver_check_limits.exit.thread150
 
 solver_check_limits.exit.thread150:               ; preds = %1135, %solver_check_limits.exit
   %.val84 = load ptr, ptr %42, align 8, !tbaa !144
@@ -3334,8 +3334,8 @@ solver_check_limits.exit.thread150:               ; preds = %1135, %solver_check
 
 solver_stop.exit:                                 ; preds = %solver_check_limits.exit.thread150
   %1139 = load i32, ptr %.val84, align 4, !tbaa !35
-  %.not168 = icmp eq i32 %1139, 0
-  br i1 %.not168, label %solver_stop.exit.thread, label %solver_check_limits.exit.thread
+  %.not167 = icmp eq i32 %1139, 0
+  br i1 %.not167, label %solver_stop.exit.thread, label %solver_check_limits.exit.thread
 
 solver_stop.exit.thread:                          ; preds = %solver_check_limits.exit.thread150, %solver_stop.exit
   %1140 = load i64, ptr %43, align 8, !tbaa !145
@@ -3370,11 +3370,11 @@ Abc_Clock.exit:                                   ; preds = %1145, %1148
   br i1 %1155, label %Abc_Clock.exit.solver_check_limits.exit.thread_crit_edge, label %1158
 
 Abc_Clock.exit.solver_check_limits.exit.thread_crit_edge: ; preds = %Abc_Clock.exit
-  %.pre252 = load ptr, ptr %12, align 8, !tbaa !109
+  %.pre251 = load ptr, ptr %12, align 8, !tbaa !109
   br label %solver_check_limits.exit.thread
 
 solver_check_limits.exit.thread:                  ; preds = %1133, %solver_stop.exit, %solver_check_limits.exit, %solver_rst.exit, %Abc_Clock.exit.solver_check_limits.exit.thread_crit_edge
-  %1156 = phi ptr [ %.pre252, %Abc_Clock.exit.solver_check_limits.exit.thread_crit_edge ], [ %1116, %solver_rst.exit ], [ %1116, %solver_check_limits.exit ], [ %1116, %solver_stop.exit ], [ %1116, %1133 ]
+  %1156 = phi ptr [ %.pre251, %Abc_Clock.exit.solver_check_limits.exit.thread_crit_edge ], [ %1116, %solver_rst.exit ], [ %1116, %solver_check_limits.exit ], [ %1116, %solver_stop.exit ], [ %1116, %1133 ]
   %1157 = getelementptr inbounds nuw i8, ptr %1156, i64 8
   store i32 0, ptr %1156, align 8, !tbaa !101
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1157, i8 0, i64 16, i1 false)
@@ -4396,23 +4396,23 @@ solver_reduce_cdb.exit:                           ; preds = %1404, %solver_garba
   br label %1728
 
 1728:                                             ; preds = %solver_reduce_cdb.exit, %1172, %1168, %1165
-  %.val79211 = load ptr, ptr %8, align 8, !tbaa !46
-  %1729 = getelementptr i8, ptr %.val79211, i64 4
-  %.val79.val212 = load i32, ptr %1729, align 4, !tbaa !3
+  %.val79210 = load ptr, ptr %8, align 8, !tbaa !46
+  %1729 = getelementptr i8, ptr %.val79210, i64 4
+  %.val79.val211 = load i32, ptr %1729, align 4, !tbaa !3
   %1730 = load ptr, ptr %58, align 8, !tbaa !173
   %1731 = getelementptr i8, ptr %1730, i64 4
-  %.val74213 = load i32, ptr %1731, align 4, !tbaa !3
-  %1732 = icmp ult i32 %.val79.val212, %.val74213
+  %.val74212 = load i32, ptr %1731, align 4, !tbaa !3
+  %1732 = icmp ult i32 %.val79.val211, %.val74212
   br i1 %1732, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %1728, %solver_analyze_final.exit
   %1733 = phi ptr [ %1876, %solver_analyze_final.exit ], [ %1730, %1728 ]
-  %.val79255 = phi ptr [ %.val79, %solver_analyze_final.exit ], [ %.val79211, %1728 ]
-  %.val79.val215 = phi i32 [ %.val79.val, %solver_analyze_final.exit ], [ %.val79.val212, %1728 ]
+  %.val79254 = phi ptr [ %.val79, %solver_analyze_final.exit ], [ %.val79210, %1728 ]
+  %.val79.val214 = phi i32 [ %.val79.val, %solver_analyze_final.exit ], [ %.val79.val211, %1728 ]
   %1734 = phi ptr [ %1882, %solver_analyze_final.exit ], [ %1729, %1728 ]
   %1735 = getelementptr i8, ptr %1733, i64 8
   %.val77 = load ptr, ptr %1735, align 8, !tbaa !32
-  %1736 = zext i32 %.val79.val215 to i64
+  %1736 = zext i32 %.val79.val214 to i64
   %1737 = getelementptr inbounds nuw i32, ptr %.val77, i64 %1736
   %1738 = load i32, ptr %1737, align 4, !tbaa !35
   %.val83 = load ptr, ptr %18, align 8, !tbaa !48
@@ -4434,28 +4434,28 @@ solver_reduce_cdb.exit:                           ; preds = %1404, %solver_garba
   %1748 = load ptr, ptr %10, align 8, !tbaa !47
   %1749 = getelementptr i8, ptr %1748, i64 4
   %.val = load i32, ptr %1749, align 4, !tbaa !3
-  %1750 = load i32, ptr %.val79255, align 8, !tbaa !34
-  %1751 = icmp eq i32 %.val79.val215, %1750
+  %1750 = load i32, ptr %.val79254, align 8, !tbaa !34
+  %1751 = icmp eq i32 %.val79.val214, %1750
   br i1 %1751, label %1752, label %solver_analyze_final.exit
 
 1752:                                             ; preds = %1747
-  %1753 = icmp ult i32 %.val79.val215, 16
+  %1753 = icmp ult i32 %.val79.val214, 16
   br i1 %1753, label %vec_uint_reserve.exit.i, label %1757
 
 vec_uint_reserve.exit.i:                          ; preds = %1752
-  %1754 = getelementptr inbounds nuw i8, ptr %.val79255, i64 8
+  %1754 = getelementptr inbounds nuw i8, ptr %.val79254, i64 8
   %1755 = load ptr, ptr %1754, align 8, !tbaa !32
   %1756 = call dereferenceable_or_null(64) ptr @realloc(ptr noundef %1755, i64 noundef 64) #18
   store ptr %1756, ptr %1754, align 8, !tbaa !32
   br label %vec_uint_reserve.exit10.sink.split.i
 
 1757:                                             ; preds = %1752
-  %.not.i9.i = icmp sgt i32 %.val79.val215, 0
+  %.not.i9.i = icmp sgt i32 %.val79.val214, 0
   br i1 %.not.i9.i, label %1758, label %solver_analyze_final.exit
 
 1758:                                             ; preds = %1757
-  %1759 = shl nuw i32 %.val79.val215, 1
-  %1760 = getelementptr inbounds nuw i8, ptr %.val79255, i64 8
+  %1759 = shl nuw i32 %.val79.val214, 1
+  %1760 = getelementptr inbounds nuw i8, ptr %.val79254, i64 8
   %1761 = load ptr, ptr %1760, align 8, !tbaa !32
   %1762 = zext i32 %1759 to i64
   %1763 = shl nuw nsw i64 %1762, 2
@@ -4465,11 +4465,11 @@ vec_uint_reserve.exit.i:                          ; preds = %1752
 
 vec_uint_reserve.exit10.sink.split.i:             ; preds = %1758, %vec_uint_reserve.exit.i
   %.sink.i = phi i32 [ %1759, %1758 ], [ 16, %vec_uint_reserve.exit.i ]
-  store i32 %.sink.i, ptr %.val79255, align 8, !tbaa !34
-  %.pre254 = load i32, ptr %1734, align 4, !tbaa !3
+  store i32 %.sink.i, ptr %.val79254, align 8, !tbaa !34
+  %.pre253 = load i32, ptr %1734, align 4, !tbaa !3
   %.val79.pre = load ptr, ptr %8, align 8, !tbaa !46
-  %.pre257 = load ptr, ptr %58, align 8, !tbaa !173
-  %.pre258 = zext i32 %.pre254 to i64
+  %.pre256 = load ptr, ptr %58, align 8, !tbaa !173
+  %.pre257 = zext i32 %.pre253 to i64
   br label %solver_analyze_final.exit
 
 1765:                                             ; preds = %.lr.ph
@@ -4493,7 +4493,7 @@ vec_uint_reserve.exit10.sink.split.i.i120:        ; preds = %1765
   br label %vec_uint_push_back.exit.i112
 
 vec_uint_push_back.exit.i112:                     ; preds = %vec_uint_reserve.exit10.sink.split.i.i120, %1765
-  %.val42.i = phi ptr [ %.val42.i.pre, %vec_uint_reserve.exit10.sink.split.i.i120 ], [ %.val79255, %1765 ]
+  %.val42.i = phi ptr [ %.val42.i.pre, %vec_uint_reserve.exit10.sink.split.i.i120 ], [ %.val79254, %1765 ]
   %1775 = phi i64 [ %1774, %vec_uint_reserve.exit10.sink.split.i.i120 ], [ 0, %1765 ]
   %1776 = phi ptr [ %1773, %vec_uint_reserve.exit10.sink.split.i.i120 ], [ %1772, %1765 ]
   %1777 = getelementptr inbounds nuw i32, ptr %1776, i64 %1775
@@ -4682,10 +4682,10 @@ clause_fetch.exit.i116:                           ; preds = %1805
   br label %.thread161
 
 solver_analyze_final.exit:                        ; preds = %vec_uint_reserve.exit10.sink.split.i, %1757, %1747
-  %.pre-phi = phi i64 [ %.pre258, %vec_uint_reserve.exit10.sink.split.i ], [ %1736, %1757 ], [ %1736, %1747 ]
-  %1876 = phi ptr [ %.pre257, %vec_uint_reserve.exit10.sink.split.i ], [ %1733, %1757 ], [ %1733, %1747 ]
-  %.val79 = phi ptr [ %.val79.pre, %vec_uint_reserve.exit10.sink.split.i ], [ %.val79255, %1757 ], [ %.val79255, %1747 ]
-  %1877 = getelementptr inbounds nuw i8, ptr %.val79255, i64 8
+  %.pre-phi = phi i64 [ %.pre257, %vec_uint_reserve.exit10.sink.split.i ], [ %1736, %1757 ], [ %1736, %1747 ]
+  %1876 = phi ptr [ %.pre256, %vec_uint_reserve.exit10.sink.split.i ], [ %1733, %1757 ], [ %1733, %1747 ]
+  %.val79 = phi ptr [ %.val79.pre, %vec_uint_reserve.exit10.sink.split.i ], [ %.val79254, %1757 ], [ %.val79254, %1747 ]
+  %1877 = getelementptr inbounds nuw i8, ptr %.val79254, i64 8
   %1878 = load ptr, ptr %1877, align 8, !tbaa !32
   %1879 = getelementptr inbounds nuw i32, ptr %1878, i64 %.pre-phi
   store i32 %.val, ptr %1879, align 4, !tbaa !35
@@ -4769,21 +4769,21 @@ solver_analyze_final.exit:                        ; preds = %vec_uint_reserve.ex
   br label %1922
 
 1922:                                             ; preds = %1945, %.lr.ph.i.i.i129
-  %.val3453.i.i.i = phi i32 [ %1914, %.lr.ph.i.i.i129 ], [ %.val34.i.i.i, %1945 ]
+  %.val3452.i.i.i = phi i32 [ %1914, %.lr.ph.i.i.i129 ], [ %.val34.i.i.i, %1945 ]
   %1923 = phi i32 [ 1, %.lr.ph.i.i.i129 ], [ %1950, %1945 ]
   %1924 = phi i32 [ 0, %.lr.ph.i.i.i129 ], [ %1949, %1945 ]
-  %.03252.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i129 ], [ %1944, %1945 ]
+  %.03251.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i129 ], [ %1944, %1945 ]
   %1925 = add nuw i32 %1924, 2
-  %1926 = icmp ult i32 %1925, %.val3453.i.i.i
+  %1926 = icmp ult i32 %1925, %.val3452.i.i.i
   br i1 %1926, label %1927, label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %1922
   %.pre.phi.trans.insert.i.i.i = zext i32 %1923 to i64
   %.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds nuw i32, ptr %.val14.i.i125, i64 %.pre.phi.trans.insert.i.i.i
-  %.pre56.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !35
-  %.phi.trans.insert57.phi.trans.insert.i.i.i = zext i32 %.pre56.pre.i.i.i to i64
-  %.phi.trans.insert58.phi.trans.insert.i.i.i = getelementptr inbounds nuw i64, ptr %.val45.val.i.i.i, i64 %.phi.trans.insert57.phi.trans.insert.i.i.i
-  %.pre59.pre.i.i.i = load i64, ptr %.phi.trans.insert58.phi.trans.insert.i.i.i, align 8, !tbaa !67
+  %.pre55.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !35
+  %.phi.trans.insert56.phi.trans.insert.i.i.i = zext i32 %.pre55.pre.i.i.i to i64
+  %.phi.trans.insert57.phi.trans.insert.i.i.i = getelementptr inbounds nuw i64, ptr %.val45.val.i.i.i, i64 %.phi.trans.insert56.phi.trans.insert.i.i.i
+  %.pre58.pre.i.i.i = load i64, ptr %.phi.trans.insert57.phi.trans.insert.i.i.i, align 8, !tbaa !67
   br label %1941
 
 1927:                                             ; preds = %1922
@@ -4806,19 +4806,19 @@ solver_analyze_final.exit:                        ; preds = %vec_uint_reserve.ex
   br label %1941
 
 1941:                                             ; preds = %1940, %1927, %._crit_edge.i.i.i
-  %.pre-phi62.i.i.i = phi i64 [ %1934, %1927 ], [ %.phi.trans.insert57.phi.trans.insert.i.i.i, %._crit_edge.i.i.i ], [ %1937, %1940 ]
-  %1942 = phi i64 [ %1936, %1927 ], [ %.pre59.pre.i.i.i, %._crit_edge.i.i.i ], [ %1939, %1940 ]
-  %1943 = phi i32 [ %1930, %1927 ], [ %.pre56.pre.i.i.i, %._crit_edge.i.i.i ], [ %1933, %1940 ]
+  %.pre-phi61.i.i.i = phi i64 [ %1934, %1927 ], [ %.phi.trans.insert56.phi.trans.insert.i.i.i, %._crit_edge.i.i.i ], [ %1937, %1940 ]
+  %1942 = phi i64 [ %1936, %1927 ], [ %.pre58.pre.i.i.i, %._crit_edge.i.i.i ], [ %1939, %1940 ]
+  %1943 = phi i32 [ %1930, %1927 ], [ %.pre55.pre.i.i.i, %._crit_edge.i.i.i ], [ %1933, %1940 ]
   %1944 = phi i32 [ %1925, %1927 ], [ %1923, %._crit_edge.i.i.i ], [ %1923, %1940 ]
-  %.not50.i.i.i = icmp ugt i64 %1942, %1921
-  br i1 %.not50.i.i.i, label %1945, label %heap_percolate_down.exit.i.i
+  %.not49.i.i.i = icmp ugt i64 %1942, %1921
+  br i1 %.not49.i.i.i, label %1945, label %heap_percolate_down.exit.i.i
 
 1945:                                             ; preds = %1941
-  %1946 = zext i32 %.03252.i.i.i to i64
+  %1946 = zext i32 %.03251.i.i.i to i64
   %1947 = getelementptr inbounds nuw i32, ptr %.val14.i.i125, i64 %1946
   store i32 %1943, ptr %1947, align 4, !tbaa !35
-  %1948 = getelementptr inbounds nuw i32, ptr %.val17.i.i126, i64 %.pre-phi62.i.i.i
-  store i32 %.03252.i.i.i, ptr %1948, align 4, !tbaa !35
+  %1948 = getelementptr inbounds nuw i32, ptr %.val17.i.i126, i64 %.pre-phi61.i.i.i
+  store i32 %.03251.i.i.i, ptr %1948, align 4, !tbaa !35
   %1949 = shl i32 %1944, 1
   %1950 = or disjoint i32 %1949, 1
   %.val34.i.i.i = load i32, ptr %1898, align 4, !tbaa !3
@@ -4826,7 +4826,7 @@ solver_analyze_final.exit:                        ; preds = %vec_uint_reserve.ex
   br i1 %1951, label %1922, label %heap_percolate_down.exit.i.i
 
 heap_percolate_down.exit.i.i:                     ; preds = %1945, %1941
-  %.032.lcssa.i.i.i = phi i32 [ %.03252.i.i.i, %1941 ], [ %1944, %1945 ]
+  %.032.lcssa.i.i.i = phi i32 [ %.03251.i.i.i, %1941 ], [ %1944, %1945 ]
   %1952 = zext i32 %.032.lcssa.i.i.i to i64
   %1953 = getelementptr inbounds nuw i32, ptr %.val14.i.i125, i64 %1952
   store i32 %1916, ptr %1953, align 4, !tbaa !35
@@ -5010,8 +5010,8 @@ solver_enqueue.exit.i:                            ; preds = %vec_uint_reserve.ex
   br label %solver_new_decision.exit.backedge
 
 .thread161:                                       ; preds = %solver_decide.exit, %63, %.critedge.i123, %._crit_edge.i114, %vec_uint_push_back.exit.i112, %solver_check_limits.exit.thread
-  %.1165 = phi i8 [ -1, %._crit_edge.i114 ], [ -1, %vec_uint_push_back.exit.i112 ], [ 0, %solver_check_limits.exit.thread ], [ 1, %.critedge.i123 ], [ 1, %solver_decide.exit ], [ -1, %63 ]
-  ret i8 %.1165
+  %.1164 = phi i8 [ -1, %._crit_edge.i114 ], [ -1, %vec_uint_push_back.exit.i112 ], [ 0, %solver_check_limits.exit.thread ], [ 1, %.critedge.i123 ], [ 1, %solver_decide.exit ], [ -1, %63 ]
+  ret i8 %.1164
 }
 
 declare i32 @satoko_simplify(ptr noundef) local_unnamed_addr #2

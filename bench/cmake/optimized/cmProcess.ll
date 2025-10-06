@@ -2432,8 +2432,8 @@ define dso_local noundef zeroext i1 @_ZN9cmProcess6Buffer7GetLineERNSt7__cxx1112
   %8 = sub i64 %6, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.promoted = load i64, ptr %9, align 8, !tbaa !238
-  %.not28.not = icmp eq i64 %.promoted, %8
-  br i1 %.not28.not, label %._crit_edge, label %.lr.ph
+  %.not26.not = icmp eq i64 %.promoted, %8
+  br i1 %.not26.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %24
   %10 = phi i64 [ %25, %24 ], [ %.promoted, %2 ]
@@ -2449,21 +2449,21 @@ define dso_local noundef zeroext i1 @_ZN9cmProcess6Buffer7GetLineERNSt7__cxx1112
   %15 = load i64, ptr %14, align 8, !tbaa !239
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 %15
   %17 = sub i64 %10, %15
-  %.not1331 = icmp eq i64 %17, 0
-  br i1 %.not1331, label %.split12, label %.lr.ph34
+  %.not1329 = icmp eq i64 %17, 0
+  br i1 %.not1329, label %.split12, label %.lr.ph32
 
-.lr.ph34:                                         ; preds = %13, %22
-  %.01032 = phi i64 [ %23, %22 ], [ %17, %13 ]
-  %18 = getelementptr i8, ptr %16, i64 %.01032
+.lr.ph32:                                         ; preds = %13, %22
+  %.01030 = phi i64 [ %23, %22 ], [ %17, %13 ]
+  %18 = getelementptr i8, ptr %16, i64 %.01030
   %19 = getelementptr i8, ptr %18, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !78
   %21 = icmp eq i8 %20, 13
   br i1 %21, label %22, label %.split12
 
-22:                                               ; preds = %.lr.ph34
-  %23 = add i64 %.01032, -1
+22:                                               ; preds = %.lr.ph32
+  %23 = add i64 %.01030, -1
   %.not13 = icmp eq i64 %23, 0
-  br i1 %.not13, label %.split12, label %.lr.ph34, !llvm.loop !240
+  br i1 %.not13, label %.split12, label %.lr.ph32, !llvm.loop !240
 
 24:                                               ; preds = %.lr.ph
   %25 = add i64 %10, 1
@@ -2471,11 +2471,11 @@ define dso_local noundef zeroext i1 @_ZN9cmProcess6Buffer7GetLineERNSt7__cxx1112
   %.not.not = icmp eq i64 %25, %8
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !241
 
-.split12:                                         ; preds = %.lr.ph34, %22, %13
-  %.01032.lcssa.sink = phi i64 [ 0, %13 ], [ 0, %22 ], [ %.01032, %.lr.ph34 ]
+.split12:                                         ; preds = %.lr.ph32, %22, %13
+  %.01030.lcssa.sink = phi i64 [ 0, %13 ], [ 0, %22 ], [ %.01030, %.lr.ph32 ]
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !77
-  %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %27, ptr noundef %16, i64 noundef %.01032.lcssa.sink)
+  %28 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef 0, i64 noundef %27, ptr noundef %16, i64 noundef %.01030.lcssa.sink)
   %29 = load i64, ptr %9, align 8, !tbaa !238
   %30 = add i64 %29, 1
   store i64 %30, ptr %9, align 8, !tbaa !238
@@ -2524,8 +2524,8 @@ _ZNSt6vectorIcSaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS1_EES6_.exit: ; pr
   br label %46
 
 46:                                               ; preds = %.split12, %._crit_edge, %_ZNSt6vectorIcSaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS1_EES6_.exit
-  %.not24 = phi i1 [ true, %.split12 ], [ false, %._crit_edge ], [ false, %_ZNSt6vectorIcSaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS1_EES6_.exit ]
-  ret i1 %.not24
+  %.not22 = phi i1 [ true, %.split12 ], [ false, %._crit_edge ], [ false, %_ZNSt6vectorIcSaIcEE5eraseEN9__gnu_cxx17__normal_iteratorIPKcS1_EES6_.exit ]
+  ret i1 %.not22
 }
 
 ; Function Attrs: mustprogress uwtable

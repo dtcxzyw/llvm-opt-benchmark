@@ -409,8 +409,8 @@ lean_dec.exit31:                                  ; preds = %lean_dec.exit29
 13:                                               ; preds = %10, %lean_dec.exit31
   %14 = ptrtoint ptr %.024 to i64
   %15 = and i64 %14, 1
-  %.not54 = icmp eq i64 %15, 0
-  br i1 %.not54, label %16, label %lean_dec.exit30
+  %.not52 = icmp eq i64 %15, 0
+  br i1 %.not52, label %16, label %lean_dec.exit30
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %.024, align 4, !tbaa !8
@@ -3140,8 +3140,8 @@ lean_dec.exit31:                                  ; preds = %lean_dec.exit29
 13:                                               ; preds = %10, %lean_dec.exit31
   %14 = ptrtoint ptr %.024 to i64
   %15 = and i64 %14, 1
-  %.not54 = icmp eq i64 %15, 0
-  br i1 %.not54, label %16, label %lean_dec.exit30
+  %.not52 = icmp eq i64 %15, 0
+  br i1 %.not52, label %16, label %lean_dec.exit30
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %.024, align 4, !tbaa !8
@@ -5871,8 +5871,8 @@ lean_dec.exit31:                                  ; preds = %lean_dec.exit29
 13:                                               ; preds = %10, %lean_dec.exit31
   %14 = ptrtoint ptr %.024 to i64
   %15 = and i64 %14, 1
-  %.not54 = icmp eq i64 %15, 0
-  br i1 %.not54, label %16, label %lean_dec.exit30
+  %.not52 = icmp eq i64 %15, 0
+  br i1 %.not52, label %16, label %lean_dec.exit30
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %.024, align 4, !tbaa !8
@@ -9620,17 +9620,17 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %2
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_eraseParams___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not234 = icmp eq i64 %1, %2
-  br i1 %.not234, label %._crit_edge, label %.lr.ph
+  %.not232 = icmp eq i64 %1, %2
+  br i1 %.not232, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %lean_dec.exit131
-  %.0111236 = phi i64 [ %1, %.lr.ph ], [ %34, %lean_dec.exit131 ]
-  %.0113235 = phi ptr [ %3, %.lr.ph ], [ %.3116, %lean_dec.exit131 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0111236
+  %.0111234 = phi i64 [ %1, %.lr.ph ], [ %34, %lean_dec.exit131 ]
+  %.0113233 = phi ptr [ %3, %.lr.ph ], [ %.3116, %lean_dec.exit131 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0111234
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -9660,8 +9660,8 @@ lean_array_uget.exit:                             ; preds = %6, %13, %15, %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
-  %.not224 = icmp eq i64 %20, 0
-  br i1 %.not224, label %21, label %lean_inc.exit136
+  %.not222 = icmp eq i64 %20, 0
+  br i1 %.not222, label %21, label %lean_inc.exit136
 
 21:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %18, align 4, !tbaa !8
@@ -9703,12 +9703,12 @@ lean_inc.exit136:                                 ; preds = %26, %25, %23, %lean
   br label %lean_dec.exit134
 
 lean_dec.exit134:                                 ; preds = %33, %32, %30, %lean_inc.exit136
-  %34 = add i64 %.0111236, 1
-  %.0113.val = load i32, ptr %.0113235, align 4, !tbaa !8
+  %34 = add i64 %.0111234, 1
+  %.0113.val = load i32, ptr %.0113233, align 4, !tbaa !8
   %35 = icmp eq i32 %.0113.val, 1
-  %36 = getelementptr inbounds nuw i8, ptr %.0113235, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %.0113233, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i8, ptr %.0113235, i64 16
+  %38 = getelementptr inbounds nuw i8, ptr %.0113233, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !4
   br i1 %35, label %lean_dec.exit133, label %144
 
@@ -9806,7 +9806,7 @@ lean_obj_tag.exit.i:                              ; preds = %65, %62
   br label %lean_dec.exit132
 
 lean_dec.exit132:                                 ; preds = %83, %82, %80, %76
-  br i1 %.not224, label %84, label %lean_dec.exit131
+  br i1 %.not222, label %84, label %lean_dec.exit131
 
 84:                                               ; preds = %lean_dec.exit132
   %85 = load i32, ptr %18, align 4, !tbaa !8
@@ -9867,8 +9867,8 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
   store ptr inttoptr (i64 1 to ptr), ptr %95, align 8, !tbaa !4
   %106 = ptrtoint ptr %37 to i64
   %107 = and i64 %106, 1
-  %.not230 = icmp eq i64 %107, 0
-  br i1 %.not230, label %113, label %108, !prof !14
+  %.not228 = icmp eq i64 %107, 0
+  br i1 %.not228, label %113, label %108, !prof !14
 
 108:                                              ; preds = %lean_array_uset.exit
   %109 = icmp ult ptr %37, inttoptr (i64 2 to ptr)
@@ -9901,7 +9901,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 lean_dec.exit130:                                 ; preds = %110, %108, %120, %119, %117
   %.1.i122213 = phi ptr [ %114, %117 ], [ %114, %119 ], [ %114, %120 ], [ inttoptr (i64 1 to ptr), %108 ], [ %112, %110 ]
   %121 = tail call ptr @l_Std_DHashMap_Internal_AssocList_erase___at_Lean_Compiler_LCNF_LCtx_eraseParam___spec__1(ptr noundef %18, ptr noundef %51)
-  br i1 %.not224, label %122, label %lean_dec.exit129
+  br i1 %.not222, label %122, label %lean_dec.exit129
 
 122:                                              ; preds = %lean_dec.exit130
   %123 = load i32, ptr %18, align 4, !tbaa !8
@@ -9967,8 +9967,8 @@ lean_array_uset.exit179:                          ; preds = %lean_ensure_exclusi
 144:                                              ; preds = %lean_dec.exit134
   %145 = ptrtoint ptr %39 to i64
   %146 = and i64 %145, 1
-  %.not226 = icmp eq i64 %146, 0
-  br i1 %.not226, label %147, label %lean_inc.exit135
+  %.not224 = icmp eq i64 %146, 0
+  br i1 %.not224, label %147, label %lean_inc.exit135
 
 147:                                              ; preds = %144
   %.val.i180 = load i32, ptr %39, align 4, !tbaa !8
@@ -9991,8 +9991,8 @@ lean_array_uset.exit179:                          ; preds = %lean_ensure_exclusi
 lean_inc.exit135:                                 ; preds = %152, %151, %149, %144
   %153 = ptrtoint ptr %37 to i64
   %154 = and i64 %153, 1
-  %.not227 = icmp eq i64 %154, 0
-  br i1 %.not227, label %155, label %lean_inc.exit
+  %.not225 = icmp eq i64 %154, 0
+  br i1 %.not225, label %155, label %lean_inc.exit
 
 155:                                              ; preds = %lean_inc.exit135
   %.val.i183 = load i32, ptr %37, align 4, !tbaa !8
@@ -10013,19 +10013,19 @@ lean_inc.exit135:                                 ; preds = %152, %151, %149, %1
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %160, %159, %157, %lean_inc.exit135
-  %161 = ptrtoint ptr %.0113235 to i64
+  %161 = ptrtoint ptr %.0113233 to i64
   %162 = and i64 %161, 1
-  %.not228 = icmp eq i64 %162, 0
-  br i1 %.not228, label %163, label %lean_dec.exit127
+  %.not226 = icmp eq i64 %162, 0
+  br i1 %.not226, label %163, label %lean_dec.exit127
 
 163:                                              ; preds = %lean_inc.exit
-  %164 = load i32, ptr %.0113235, align 4, !tbaa !8
+  %164 = load i32, ptr %.0113233, align 4, !tbaa !8
   %165 = icmp sgt i32 %164, 1
   br i1 %165, label %166, label %168, !prof !13
 
 166:                                              ; preds = %163
   %167 = add nsw i32 %164, -1
-  store i32 %167, ptr %.0113235, align 4, !tbaa !8
+  store i32 %167, ptr %.0113233, align 4, !tbaa !8
   br label %lean_dec.exit127
 
 168:                                              ; preds = %163
@@ -10033,7 +10033,7 @@ lean_inc.exit:                                    ; preds = %160, %159, %157, %l
   br i1 %.not.i147, label %lean_dec.exit127, label %169
 
 169:                                              ; preds = %168
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0113235) #3
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0113233) #3
   br label %lean_dec.exit127
 
 lean_dec.exit127:                                 ; preds = %lean_inc.exit, %166, %168, %169
@@ -10130,7 +10130,7 @@ lean_obj_tag.exit.i193:                           ; preds = %195, %192
   br label %lean_dec.exit126
 
 lean_dec.exit126:                                 ; preds = %213, %212, %210, %206
-  br i1 %.not224, label %214, label %lean_dec.exit125
+  br i1 %.not222, label %214, label %lean_dec.exit125
 
 214:                                              ; preds = %lean_dec.exit126
   %215 = load i32, ptr %18, align 4, !tbaa !8
@@ -10209,7 +10209,7 @@ lean_ensure_exclusive_array.exit.i199:            ; preds = %228, %l_Std_DHashMa
 
 lean_array_uset.exit203:                          ; preds = %lean_ensure_exclusive_array.exit.i199, %238, %240, %241
   store ptr inttoptr (i64 1 to ptr), ptr %231, align 8, !tbaa !4
-  br i1 %.not227, label %247, label %242, !prof !14
+  br i1 %.not225, label %247, label %242, !prof !14
 
 242:                                              ; preds = %lean_array_uset.exit203
   %243 = icmp ult ptr %37, inttoptr (i64 2 to ptr)
@@ -10242,7 +10242,7 @@ lean_array_uset.exit203:                          ; preds = %lean_ensure_exclusi
 lean_dec.exit124:                                 ; preds = %244, %242, %254, %253, %251
   %.1.i216 = phi ptr [ %248, %251 ], [ %248, %253 ], [ %248, %254 ], [ inttoptr (i64 1 to ptr), %242 ], [ %246, %244 ]
   %255 = tail call ptr @l_Std_DHashMap_Internal_AssocList_erase___at_Lean_Compiler_LCNF_LCtx_eraseParam___spec__1(ptr noundef %18, ptr noundef %181)
-  br i1 %.not224, label %256, label %lean_dec.exit
+  br i1 %.not222, label %256, label %lean_dec.exit
 
 256:                                              ; preds = %lean_dec.exit124
   %257 = load i32, ptr %18, align 4, !tbaa !8
@@ -10321,7 +10321,7 @@ lean_alloc_ctor.exit210:                          ; preds = %lean_array_uset.exi
   br label %lean_dec.exit131
 
 lean_dec.exit131:                                 ; preds = %lean_dec.exit132, %87, %89, %90, %lean_array_uset.exit179, %lean_alloc_ctor.exit210, %lean_alloc_ctor.exit
-  %.3116 = phi ptr [ %.0113235, %lean_array_uset.exit179 ], [ %221, %lean_alloc_ctor.exit ], [ %278, %lean_alloc_ctor.exit210 ], [ %.0113235, %90 ], [ %.0113235, %89 ], [ %.0113235, %87 ], [ %.0113235, %lean_dec.exit132 ]
+  %.3116 = phi ptr [ %.0113233, %lean_array_uset.exit179 ], [ %221, %lean_alloc_ctor.exit ], [ %278, %lean_alloc_ctor.exit210 ], [ %.0113233, %90 ], [ %.0113233, %89 ], [ %.0113233, %87 ], [ %.0113233, %lean_dec.exit132 ]
   %.not = icmp eq i64 %34, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -13484,17 +13484,17 @@ lean_dec.exit19:                                  ; preds = %lean_nat_lt.exit, %
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_eraseAlts___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not74 = icmp eq i64 %1, %2
-  br i1 %.not74, label %._crit_edge, label %.lr.ph
+  %.not72 = icmp eq i64 %1, %2
+  br i1 %.not72, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %lean_dec.exit39
-  %.03176 = phi i64 [ %1, %.lr.ph ], [ %23, %lean_dec.exit39 ]
-  %.03575 = phi ptr [ %3, %.lr.ph ], [ %.237, %lean_dec.exit39 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03176
+  %.03174 = phi i64 [ %1, %.lr.ph ], [ %23, %lean_dec.exit39 ]
+  %.03573 = phi ptr [ %3, %.lr.ph ], [ %.237, %lean_dec.exit39 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03174
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -13532,7 +13532,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_eraseAlts___s
 
 lean_obj_tag.exit:                                ; preds = %17, %20
   %.0.i = phi i32 [ %19, %17 ], [ %22, %20 ]
-  %23 = add i64 %.03176, 1
+  %23 = add i64 %.03174, 1
   %24 = icmp eq i32 %.0.i, 0
   br i1 %24, label %25, label %69
 
@@ -13541,8 +13541,8 @@ lean_obj_tag.exit:                                ; preds = %17, %20
   %27 = load ptr, ptr %26, align 8, !tbaa !4
   %28 = ptrtoint ptr %27 to i64
   %29 = and i64 %28, 1
-  %.not71 = icmp eq i64 %29, 0
-  br i1 %.not71, label %30, label %lean_inc.exit43
+  %.not69 = icmp eq i64 %29, 0
+  br i1 %.not69, label %30, label %lean_inc.exit43
 
 30:                                               ; preds = %25
   %.val.i54 = load i32, ptr %27, align 4, !tbaa !8
@@ -13567,8 +13567,8 @@ lean_inc.exit43:                                  ; preds = %35, %34, %32, %25
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1
-  %.not72 = icmp eq i64 %39, 0
-  br i1 %.not72, label %40, label %lean_inc.exit42
+  %.not70 = icmp eq i64 %39, 0
+  br i1 %.not70, label %40, label %lean_inc.exit42
 
 40:                                               ; preds = %lean_inc.exit43
   %.val.i56 = load i32, ptr %37, align 4, !tbaa !8
@@ -13610,8 +13610,8 @@ lean_inc.exit42:                                  ; preds = %45, %44, %42, %lean
   br label %lean_dec.exit41
 
 lean_dec.exit41:                                  ; preds = %52, %51, %49, %lean_inc.exit42
-  %53 = tail call ptr @l_Lean_Compiler_LCNF_LCtx_eraseParams(ptr noundef %.03575, ptr noundef %27)
-  br i1 %.not71, label %54, label %lean_dec.exit40
+  %53 = tail call ptr @l_Lean_Compiler_LCNF_LCtx_eraseParams(ptr noundef %.03573, ptr noundef %27)
+  br i1 %.not69, label %54, label %lean_dec.exit40
 
 54:                                               ; preds = %lean_dec.exit41
   %55 = load i32, ptr %27, align 4, !tbaa !8
@@ -13633,7 +13633,7 @@ lean_dec.exit41:                                  ; preds = %52, %51, %49, %lean
 
 lean_dec.exit40:                                  ; preds = %60, %59, %57, %lean_dec.exit41
   %61 = tail call ptr @l_Lean_Compiler_LCNF_LCtx_eraseCode(ptr noundef %37, ptr noundef %53)
-  br i1 %.not72, label %62, label %lean_dec.exit39
+  br i1 %.not70, label %62, label %lean_dec.exit39
 
 62:                                               ; preds = %lean_dec.exit40
   %63 = load i32, ptr %37, align 4, !tbaa !8
@@ -13658,8 +13658,8 @@ lean_dec.exit40:                                  ; preds = %60, %59, %57, %lean
   %71 = load ptr, ptr %70, align 8, !tbaa !4
   %72 = ptrtoint ptr %71 to i64
   %73 = and i64 %72, 1
-  %.not69 = icmp eq i64 %73, 0
-  br i1 %.not69, label %74, label %lean_inc.exit
+  %.not67 = icmp eq i64 %73, 0
+  br i1 %.not67, label %74, label %lean_inc.exit
 
 74:                                               ; preds = %69
   %.val.i59 = load i32, ptr %71, align 4, !tbaa !8
@@ -13701,8 +13701,8 @@ lean_inc.exit:                                    ; preds = %79, %78, %76, %69
   br label %lean_dec.exit38
 
 lean_dec.exit38:                                  ; preds = %86, %85, %83, %lean_inc.exit
-  %87 = tail call ptr @l_Lean_Compiler_LCNF_LCtx_eraseCode(ptr noundef %71, ptr noundef %.03575)
-  br i1 %.not69, label %88, label %lean_dec.exit39
+  %87 = tail call ptr @l_Lean_Compiler_LCNF_LCtx_eraseCode(ptr noundef %71, ptr noundef %.03573)
+  br i1 %.not67, label %88, label %lean_dec.exit39
 
 88:                                               ; preds = %lean_dec.exit38
   %89 = load i32, ptr %71, align 4, !tbaa !8
@@ -14296,17 +14296,17 @@ lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__4(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %.not70 = icmp ult i64 %4, %3
-  br i1 %.not70, label %.lr.ph, label %._crit_edge
+  %.not68 = icmp ult i64 %4, %3
+  br i1 %.not68, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %76
-  %.03572 = phi i64 [ %4, %.lr.ph ], [ %84, %76 ]
-  %.03771 = phi ptr [ %5, %.lr.ph ], [ %83, %76 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03572
+  %.03570 = phi i64 [ %4, %.lr.ph ], [ %84, %76 ]
+  %.03769 = phi ptr [ %5, %.lr.ph ], [ %83, %76 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03570
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -14336,8 +14336,8 @@ lean_array_uget.exit:                             ; preds = %8, %15, %17, %18
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
-  %.not64 = icmp eq i64 %22, 0
-  br i1 %.not64, label %23, label %lean_inc.exit43
+  %.not62 = icmp eq i64 %22, 0
+  br i1 %.not62, label %23, label %lean_inc.exit43
 
 23:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %20, align 4, !tbaa !8
@@ -14383,8 +14383,8 @@ lean_dec.exit40:                                  ; preds = %35, %34, %32, %lean
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1
-  %.not66 = icmp eq i64 %39, 0
-  br i1 %.not66, label %40, label %lean_inc.exit42
+  %.not64 = icmp eq i64 %39, 0
+  br i1 %.not64, label %40, label %lean_inc.exit42
 
 40:                                               ; preds = %lean_dec.exit40
   %.val.i48 = load i32, ptr %37, align 4, !tbaa !8
@@ -14409,8 +14409,8 @@ lean_inc.exit42:                                  ; preds = %45, %44, %42, %lean
   %47 = load ptr, ptr %46, align 8, !tbaa !4
   %48 = ptrtoint ptr %47 to i64
   %49 = and i64 %48, 1
-  %.not67 = icmp eq i64 %49, 0
-  br i1 %.not67, label %50, label %lean_inc.exit41
+  %.not65 = icmp eq i64 %49, 0
+  br i1 %.not65, label %50, label %lean_inc.exit41
 
 50:                                               ; preds = %lean_inc.exit42
   %.val.i51 = load i32, ptr %47, align 4, !tbaa !8
@@ -14435,8 +14435,8 @@ lean_inc.exit41:                                  ; preds = %55, %54, %52, %lean
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 1
-  %.not68 = icmp eq i64 %59, 0
-  br i1 %.not68, label %60, label %lean_inc.exit
+  %.not66 = icmp eq i64 %59, 0
+  br i1 %.not66, label %60, label %lean_inc.exit
 
 60:                                               ; preds = %lean_inc.exit41
   %.val.i54 = load i32, ptr %57, align 4, !tbaa !8
@@ -14457,7 +14457,7 @@ lean_inc.exit41:                                  ; preds = %55, %54, %52, %lean
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %65, %64, %62, %lean_inc.exit41
-  br i1 %.not64, label %66, label %lean_dec.exit
+  br i1 %.not62, label %66, label %lean_dec.exit
 
 66:                                               ; preds = %lean_inc.exit
   %67 = load i32, ptr %20, align 4, !tbaa !8
@@ -14501,8 +14501,8 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
   store ptr %47, ptr %81, align 8, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr %57, ptr %82, align 8, !tbaa !4
-  %83 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.03771, ptr noundef nonnull %73) #3
-  %84 = add nuw i64 %.03572, 1
+  %83 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.03769, ptr noundef nonnull %73) #3
+  %84 = add nuw i64 %.03570, 1
   %exitcond.not = icmp eq i64 %84, %3
   br i1 %exitcond.not, label %._crit_edge, label %8
 
@@ -14515,17 +14515,17 @@ declare ptr @l_Lean_LocalContext_addDecl(ptr noundef, ptr noundef) local_unnamed
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__5(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %.not80 = icmp ult i64 %4, %3
-  br i1 %.not80, label %.lr.ph, label %._crit_edge
+  %.not78 = icmp ult i64 %4, %3
+  br i1 %.not78, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %87
-  %.04082 = phi i64 [ %4, %.lr.ph ], [ %96, %87 ]
-  %.04281 = phi ptr [ %5, %.lr.ph ], [ %95, %87 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04082
+  %.04080 = phi i64 [ %4, %.lr.ph ], [ %96, %87 ]
+  %.04279 = phi ptr [ %5, %.lr.ph ], [ %95, %87 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04080
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -14555,8 +14555,8 @@ lean_array_uget.exit:                             ; preds = %8, %15, %17, %18
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
-  %.not73 = icmp eq i64 %22, 0
-  br i1 %.not73, label %23, label %lean_inc.exit49
+  %.not71 = icmp eq i64 %22, 0
+  br i1 %.not71, label %23, label %lean_inc.exit49
 
 23:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %20, align 4, !tbaa !8
@@ -14602,8 +14602,8 @@ lean_dec.exit45:                                  ; preds = %35, %34, %32, %lean
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1
-  %.not75 = icmp eq i64 %39, 0
-  br i1 %.not75, label %40, label %lean_inc.exit48
+  %.not73 = icmp eq i64 %39, 0
+  br i1 %.not73, label %40, label %lean_inc.exit48
 
 40:                                               ; preds = %lean_dec.exit45
   %.val.i54 = load i32, ptr %37, align 4, !tbaa !8
@@ -14628,8 +14628,8 @@ lean_inc.exit48:                                  ; preds = %45, %44, %42, %lean
   %47 = load ptr, ptr %46, align 8, !tbaa !4
   %48 = ptrtoint ptr %47 to i64
   %49 = and i64 %48, 1
-  %.not76 = icmp eq i64 %49, 0
-  br i1 %.not76, label %50, label %lean_inc.exit47
+  %.not74 = icmp eq i64 %49, 0
+  br i1 %.not74, label %50, label %lean_inc.exit47
 
 50:                                               ; preds = %lean_inc.exit48
   %.val.i57 = load i32, ptr %47, align 4, !tbaa !8
@@ -14654,8 +14654,8 @@ lean_inc.exit47:                                  ; preds = %55, %54, %52, %lean
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 1
-  %.not77 = icmp eq i64 %59, 0
-  br i1 %.not77, label %60, label %lean_inc.exit46
+  %.not75 = icmp eq i64 %59, 0
+  br i1 %.not75, label %60, label %lean_inc.exit46
 
 60:                                               ; preds = %lean_inc.exit47
   %.val.i60 = load i32, ptr %57, align 4, !tbaa !8
@@ -14680,8 +14680,8 @@ lean_inc.exit46:                                  ; preds = %65, %64, %62, %lean
   %67 = load ptr, ptr %66, align 8, !tbaa !4
   %68 = ptrtoint ptr %67 to i64
   %69 = and i64 %68, 1
-  %.not78 = icmp eq i64 %69, 0
-  br i1 %.not78, label %70, label %lean_inc.exit
+  %.not76 = icmp eq i64 %69, 0
+  br i1 %.not76, label %70, label %lean_inc.exit
 
 70:                                               ; preds = %lean_inc.exit46
   %.val.i63 = load i32, ptr %67, align 4, !tbaa !8
@@ -14702,7 +14702,7 @@ lean_inc.exit46:                                  ; preds = %65, %64, %62, %lean
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %75, %74, %72, %lean_inc.exit46
-  br i1 %.not73, label %76, label %lean_dec.exit
+  br i1 %.not71, label %76, label %lean_dec.exit
 
 76:                                               ; preds = %lean_inc.exit
   %77 = load i32, ptr %20, align 4, !tbaa !8
@@ -14749,8 +14749,8 @@ lean_dec.exit:                                    ; preds = %82, %81, %79, %lean
   store ptr %57, ptr %93, align 8, !tbaa !4
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 40
   store ptr %83, ptr %94, align 8, !tbaa !4
-  %95 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.04281, ptr noundef nonnull %84) #3
-  %96 = add nuw i64 %.04082, 1
+  %95 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.04279, ptr noundef nonnull %84) #3
+  %96 = add nuw i64 %.04080, 1
   %exitcond.not = icmp eq i64 %96, %3
   br i1 %exitcond.not, label %._crit_edge, label %8
 
@@ -14763,17 +14763,17 @@ declare ptr @l_Lean_Compiler_LCNF_LetValue_toExpr(ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__6(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %.not70 = icmp ult i64 %4, %3
-  br i1 %.not70, label %.lr.ph, label %._crit_edge
+  %.not68 = icmp ult i64 %4, %3
+  br i1 %.not68, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %76
-  %.03572 = phi i64 [ %4, %.lr.ph ], [ %84, %76 ]
-  %.03771 = phi ptr [ %5, %.lr.ph ], [ %83, %76 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03572
+  %.03570 = phi i64 [ %4, %.lr.ph ], [ %84, %76 ]
+  %.03769 = phi ptr [ %5, %.lr.ph ], [ %83, %76 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03570
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -14803,8 +14803,8 @@ lean_array_uget.exit:                             ; preds = %8, %15, %17, %18
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
-  %.not64 = icmp eq i64 %22, 0
-  br i1 %.not64, label %23, label %lean_inc.exit43
+  %.not62 = icmp eq i64 %22, 0
+  br i1 %.not62, label %23, label %lean_inc.exit43
 
 23:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %20, align 4, !tbaa !8
@@ -14850,8 +14850,8 @@ lean_dec.exit40:                                  ; preds = %35, %34, %32, %lean
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1
-  %.not66 = icmp eq i64 %39, 0
-  br i1 %.not66, label %40, label %lean_inc.exit42
+  %.not64 = icmp eq i64 %39, 0
+  br i1 %.not64, label %40, label %lean_inc.exit42
 
 40:                                               ; preds = %lean_dec.exit40
   %.val.i48 = load i32, ptr %37, align 4, !tbaa !8
@@ -14876,8 +14876,8 @@ lean_inc.exit42:                                  ; preds = %45, %44, %42, %lean
   %47 = load ptr, ptr %46, align 8, !tbaa !4
   %48 = ptrtoint ptr %47 to i64
   %49 = and i64 %48, 1
-  %.not67 = icmp eq i64 %49, 0
-  br i1 %.not67, label %50, label %lean_inc.exit41
+  %.not65 = icmp eq i64 %49, 0
+  br i1 %.not65, label %50, label %lean_inc.exit41
 
 50:                                               ; preds = %lean_inc.exit42
   %.val.i51 = load i32, ptr %47, align 4, !tbaa !8
@@ -14902,8 +14902,8 @@ lean_inc.exit41:                                  ; preds = %55, %54, %52, %lean
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 1
-  %.not68 = icmp eq i64 %59, 0
-  br i1 %.not68, label %60, label %lean_inc.exit
+  %.not66 = icmp eq i64 %59, 0
+  br i1 %.not66, label %60, label %lean_inc.exit
 
 60:                                               ; preds = %lean_inc.exit41
   %.val.i54 = load i32, ptr %57, align 4, !tbaa !8
@@ -14924,7 +14924,7 @@ lean_inc.exit41:                                  ; preds = %55, %54, %52, %lean
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %65, %64, %62, %lean_inc.exit41
-  br i1 %.not64, label %66, label %lean_dec.exit
+  br i1 %.not62, label %66, label %lean_dec.exit
 
 66:                                               ; preds = %lean_inc.exit
   %67 = load i32, ptr %20, align 4, !tbaa !8
@@ -14968,8 +14968,8 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
   store ptr %47, ptr %81, align 8, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr %57, ptr %82, align 8, !tbaa !4
-  %83 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.03771, ptr noundef nonnull %73) #3
-  %84 = add nuw i64 %.03572, 1
+  %83 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.03769, ptr noundef nonnull %73) #3
+  %84 = add nuw i64 %.03570, 1
   %exitcond.not = icmp eq i64 %84, %3
   br i1 %exitcond.not, label %._crit_edge, label %8
 
@@ -14980,17 +14980,17 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__7(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %.not70 = icmp ult i64 %4, %3
-  br i1 %.not70, label %.lr.ph, label %._crit_edge
+  %.not68 = icmp ult i64 %4, %3
+  br i1 %.not68, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %76
-  %.03572 = phi i64 [ %4, %.lr.ph ], [ %84, %76 ]
-  %.03771 = phi ptr [ %5, %.lr.ph ], [ %83, %76 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03572
+  %.03570 = phi i64 [ %4, %.lr.ph ], [ %84, %76 ]
+  %.03769 = phi ptr [ %5, %.lr.ph ], [ %83, %76 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03570
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -15020,8 +15020,8 @@ lean_array_uget.exit:                             ; preds = %8, %15, %17, %18
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
-  %.not64 = icmp eq i64 %22, 0
-  br i1 %.not64, label %23, label %lean_inc.exit43
+  %.not62 = icmp eq i64 %22, 0
+  br i1 %.not62, label %23, label %lean_inc.exit43
 
 23:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %20, align 4, !tbaa !8
@@ -15067,8 +15067,8 @@ lean_dec.exit40:                                  ; preds = %35, %34, %32, %lean
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1
-  %.not66 = icmp eq i64 %39, 0
-  br i1 %.not66, label %40, label %lean_inc.exit42
+  %.not64 = icmp eq i64 %39, 0
+  br i1 %.not64, label %40, label %lean_inc.exit42
 
 40:                                               ; preds = %lean_dec.exit40
   %.val.i48 = load i32, ptr %37, align 4, !tbaa !8
@@ -15093,8 +15093,8 @@ lean_inc.exit42:                                  ; preds = %45, %44, %42, %lean
   %47 = load ptr, ptr %46, align 8, !tbaa !4
   %48 = ptrtoint ptr %47 to i64
   %49 = and i64 %48, 1
-  %.not67 = icmp eq i64 %49, 0
-  br i1 %.not67, label %50, label %lean_inc.exit41
+  %.not65 = icmp eq i64 %49, 0
+  br i1 %.not65, label %50, label %lean_inc.exit41
 
 50:                                               ; preds = %lean_inc.exit42
   %.val.i51 = load i32, ptr %47, align 4, !tbaa !8
@@ -15119,8 +15119,8 @@ lean_inc.exit41:                                  ; preds = %55, %54, %52, %lean
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 1
-  %.not68 = icmp eq i64 %59, 0
-  br i1 %.not68, label %60, label %lean_inc.exit
+  %.not66 = icmp eq i64 %59, 0
+  br i1 %.not66, label %60, label %lean_inc.exit
 
 60:                                               ; preds = %lean_inc.exit41
   %.val.i54 = load i32, ptr %57, align 4, !tbaa !8
@@ -15141,7 +15141,7 @@ lean_inc.exit41:                                  ; preds = %55, %54, %52, %lean
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %65, %64, %62, %lean_inc.exit41
-  br i1 %.not64, label %66, label %lean_dec.exit
+  br i1 %.not62, label %66, label %lean_dec.exit
 
 66:                                               ; preds = %lean_inc.exit
   %67 = load i32, ptr %20, align 4, !tbaa !8
@@ -15185,8 +15185,8 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
   store ptr %47, ptr %81, align 8, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr %57, ptr %82, align 8, !tbaa !4
-  %83 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.03771, ptr noundef nonnull %73) #3
-  %84 = add nuw i64 %.03572, 1
+  %83 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.03769, ptr noundef nonnull %73) #3
+  %84 = add nuw i64 %.03570, 1
   %exitcond.not = icmp eq i64 %84, %3
   br i1 %exitcond.not, label %._crit_edge, label %8
 
@@ -15197,17 +15197,17 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__8(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not27 = icmp eq i64 %1, %2
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq i64 %1, %2
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %26
-  %.01529 = phi i64 [ %1, %.lr.ph ], [ %28, %26 ]
-  %.01728 = phi ptr [ %3, %.lr.ph ], [ %27, %26 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01529
+  %.01527 = phi i64 [ %1, %.lr.ph ], [ %28, %26 ]
+  %.01726 = phi ptr [ %3, %.lr.ph ], [ %27, %26 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01527
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -15233,11 +15233,11 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContex
   br label %18
 
 lean_array_uget.exit:                             ; preds = %6
-  %17 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01728, ptr noundef %8)
+  %17 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01726, ptr noundef %8)
   br label %26
 
 18:                                               ; preds = %13, %15, %16
-  %19 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01728, ptr noundef nonnull %8)
+  %19 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01726, ptr noundef nonnull %8)
   %20 = load i32, ptr %8, align 4, !tbaa !8
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %22, label %24, !prof !13
@@ -15257,7 +15257,7 @@ lean_array_uget.exit:                             ; preds = %6
 
 26:                                               ; preds = %lean_array_uget.exit, %22, %24, %25
   %27 = phi ptr [ %17, %lean_array_uget.exit ], [ %19, %22 ], [ %19, %24 ], [ %19, %25 ]
-  %28 = add i64 %.01529, 1
+  %28 = add i64 %.01527, 1
   %.not = icmp eq i64 %28, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -15268,17 +15268,17 @@ lean_array_uget.exit:                             ; preds = %6
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__9(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
-  %.not70 = icmp ult i64 %4, %3
-  br i1 %.not70, label %.lr.ph, label %._crit_edge
+  %.not68 = icmp ult i64 %4, %3
+  br i1 %.not68, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %6
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %8
 
 8:                                                ; preds = %.lr.ph, %76
-  %.03572 = phi i64 [ %4, %.lr.ph ], [ %84, %76 ]
-  %.03771 = phi ptr [ %5, %.lr.ph ], [ %83, %76 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03572
+  %.03570 = phi i64 [ %4, %.lr.ph ], [ %84, %76 ]
+  %.03769 = phi ptr [ %5, %.lr.ph ], [ %83, %76 ]
+  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03570
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = ptrtoint ptr %10 to i64
   %12 = and i64 %11, 1
@@ -15308,8 +15308,8 @@ lean_array_uget.exit:                             ; preds = %8, %15, %17, %18
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
-  %.not64 = icmp eq i64 %22, 0
-  br i1 %.not64, label %23, label %lean_inc.exit43
+  %.not62 = icmp eq i64 %22, 0
+  br i1 %.not62, label %23, label %lean_inc.exit43
 
 23:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %20, align 4, !tbaa !8
@@ -15355,8 +15355,8 @@ lean_dec.exit40:                                  ; preds = %35, %34, %32, %lean
   %37 = load ptr, ptr %36, align 8, !tbaa !4
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1
-  %.not66 = icmp eq i64 %39, 0
-  br i1 %.not66, label %40, label %lean_inc.exit42
+  %.not64 = icmp eq i64 %39, 0
+  br i1 %.not64, label %40, label %lean_inc.exit42
 
 40:                                               ; preds = %lean_dec.exit40
   %.val.i48 = load i32, ptr %37, align 4, !tbaa !8
@@ -15381,8 +15381,8 @@ lean_inc.exit42:                                  ; preds = %45, %44, %42, %lean
   %47 = load ptr, ptr %46, align 8, !tbaa !4
   %48 = ptrtoint ptr %47 to i64
   %49 = and i64 %48, 1
-  %.not67 = icmp eq i64 %49, 0
-  br i1 %.not67, label %50, label %lean_inc.exit41
+  %.not65 = icmp eq i64 %49, 0
+  br i1 %.not65, label %50, label %lean_inc.exit41
 
 50:                                               ; preds = %lean_inc.exit42
   %.val.i51 = load i32, ptr %47, align 4, !tbaa !8
@@ -15407,8 +15407,8 @@ lean_inc.exit41:                                  ; preds = %55, %54, %52, %lean
   %57 = load ptr, ptr %56, align 8, !tbaa !4
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 1
-  %.not68 = icmp eq i64 %59, 0
-  br i1 %.not68, label %60, label %lean_inc.exit
+  %.not66 = icmp eq i64 %59, 0
+  br i1 %.not66, label %60, label %lean_inc.exit
 
 60:                                               ; preds = %lean_inc.exit41
   %.val.i54 = load i32, ptr %57, align 4, !tbaa !8
@@ -15429,7 +15429,7 @@ lean_inc.exit41:                                  ; preds = %55, %54, %52, %lean
   br label %lean_inc.exit
 
 lean_inc.exit:                                    ; preds = %65, %64, %62, %lean_inc.exit41
-  br i1 %.not64, label %66, label %lean_dec.exit
+  br i1 %.not62, label %66, label %lean_dec.exit
 
 66:                                               ; preds = %lean_inc.exit
   %67 = load i32, ptr %20, align 4, !tbaa !8
@@ -15473,8 +15473,8 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
   store ptr %47, ptr %81, align 8, !tbaa !4
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 32
   store ptr %57, ptr %82, align 8, !tbaa !4
-  %83 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.03771, ptr noundef nonnull %73) #3
-  %84 = add nuw i64 %.03572, 1
+  %83 = tail call ptr @l_Lean_LocalContext_addDecl(ptr noundef %.03769, ptr noundef nonnull %73) #3
+  %84 = add nuw i64 %.03570, 1
   %exitcond.not = icmp eq i64 %84, %3
   br i1 %exitcond.not, label %._crit_edge, label %8
 
@@ -15485,17 +15485,17 @@ lean_dec.exit:                                    ; preds = %72, %71, %69, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__10(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not27 = icmp eq i64 %1, %2
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq i64 %1, %2
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %26
-  %.01529 = phi i64 [ %1, %.lr.ph ], [ %28, %26 ]
-  %.01728 = phi ptr [ %3, %.lr.ph ], [ %27, %26 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01529
+  %.01527 = phi i64 [ %1, %.lr.ph ], [ %28, %26 ]
+  %.01726 = phi ptr [ %3, %.lr.ph ], [ %27, %26 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01527
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -15521,11 +15521,11 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContex
   br label %18
 
 lean_array_uget.exit:                             ; preds = %6
-  %17 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01728, ptr noundef %8)
+  %17 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01726, ptr noundef %8)
   br label %26
 
 18:                                               ; preds = %13, %15, %16
-  %19 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01728, ptr noundef nonnull %8)
+  %19 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01726, ptr noundef nonnull %8)
   %20 = load i32, ptr %8, align 4, !tbaa !8
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %22, label %24, !prof !13
@@ -15545,7 +15545,7 @@ lean_array_uget.exit:                             ; preds = %6
 
 26:                                               ; preds = %lean_array_uget.exit, %22, %24, %25
   %27 = phi ptr [ %17, %lean_array_uget.exit ], [ %19, %22 ], [ %19, %24 ], [ %19, %25 ]
-  %28 = add i64 %.01529, 1
+  %28 = add i64 %.01527, 1
   %.not = icmp eq i64 %28, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -15556,17 +15556,17 @@ lean_array_uget.exit:                             ; preds = %6
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__11(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not27 = icmp eq i64 %1, %2
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not25 = icmp eq i64 %1, %2
+  br i1 %.not25, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %26
-  %.01529 = phi i64 [ %1, %.lr.ph ], [ %28, %26 ]
-  %.01728 = phi ptr [ %3, %.lr.ph ], [ %27, %26 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01529
+  %.01527 = phi i64 [ %1, %.lr.ph ], [ %28, %26 ]
+  %.01726 = phi ptr [ %3, %.lr.ph ], [ %27, %26 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01527
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -15592,11 +15592,11 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContex
   br label %18
 
 lean_array_uget.exit:                             ; preds = %6
-  %17 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01728, ptr noundef %8)
+  %17 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01726, ptr noundef %8)
   br label %26
 
 18:                                               ; preds = %13, %15, %16
-  %19 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01728, ptr noundef nonnull %8)
+  %19 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01726, ptr noundef nonnull %8)
   %20 = load i32, ptr %8, align 4, !tbaa !8
   %21 = icmp sgt i32 %20, 1
   br i1 %21, label %22, label %24, !prof !13
@@ -15616,7 +15616,7 @@ lean_array_uget.exit:                             ; preds = %6
 
 26:                                               ; preds = %lean_array_uget.exit, %22, %24, %25
   %27 = phi ptr [ %17, %lean_array_uget.exit ], [ %19, %22 ], [ %19, %24 ], [ %19, %25 ]
-  %28 = add i64 %.01529, 1
+  %28 = add i64 %.01527, 1
   %.not = icmp eq i64 %28, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -15736,9 +15736,9 @@ lean_nat_lt.exit159:                              ; preds = %lean_nat_lt.exit156
   br label %63
 
 63:                                               ; preds = %83, %.lr.ph.i
-  %.01529.i = phi i64 [ 0, %.lr.ph.i ], [ %85, %83 ]
-  %.01728.i = phi ptr [ %12, %.lr.ph.i ], [ %84, %83 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %.01529.i
+  %.01527.i = phi i64 [ 0, %.lr.ph.i ], [ %85, %83 ]
+  %.01726.i = phi ptr [ %12, %.lr.ph.i ], [ %84, %83 ]
+  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %.01527.i
   %65 = load ptr, ptr %64, align 8, !tbaa !4
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %66, 1
@@ -15764,11 +15764,11 @@ lean_nat_lt.exit159:                              ; preds = %lean_nat_lt.exit156
   br label %75
 
 lean_array_uget.exit.i:                           ; preds = %63
-  %74 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01728.i, ptr noundef %65)
+  %74 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01726.i, ptr noundef %65)
   br label %83
 
 75:                                               ; preds = %73, %72, %70
-  %76 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01728.i, ptr noundef nonnull %65)
+  %76 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01726.i, ptr noundef nonnull %65)
   %77 = load i32, ptr %65, align 4, !tbaa !8
   %78 = icmp sgt i32 %77, 1
   br i1 %78, label %79, label %81, !prof !13
@@ -15788,7 +15788,7 @@ lean_array_uget.exit.i:                           ; preds = %63
 
 83:                                               ; preds = %82, %81, %79, %lean_array_uget.exit.i
   %84 = phi ptr [ %74, %lean_array_uget.exit.i ], [ %76, %79 ], [ %76, %81 ], [ %76, %82 ]
-  %85 = add nuw nsw i64 %.01529.i, 1
+  %85 = add nuw nsw i64 %.01527.i, 1
   %.not.i179 = icmp eq i64 %85, %.mask
   br i1 %.not.i179, label %lean_dec.exit127, label %63
 
@@ -15829,9 +15829,9 @@ lean_dec.exit124:                                 ; preds = %97, %96, %94, %lean
   br label %99
 
 99:                                               ; preds = %119, %.lr.ph.i182
-  %.01529.i183 = phi i64 [ 0, %.lr.ph.i182 ], [ %121, %119 ]
-  %.01728.i184 = phi ptr [ %32, %.lr.ph.i182 ], [ %120, %119 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %98, i64 %.01529.i183
+  %.01527.i183 = phi i64 [ 0, %.lr.ph.i182 ], [ %121, %119 ]
+  %.01726.i184 = phi ptr [ %32, %.lr.ph.i182 ], [ %120, %119 ]
+  %100 = getelementptr inbounds nuw ptr, ptr %98, i64 %.01527.i183
   %101 = load ptr, ptr %100, align 8, !tbaa !4
   %102 = ptrtoint ptr %101 to i64
   %103 = and i64 %102, 1
@@ -15857,11 +15857,11 @@ lean_dec.exit124:                                 ; preds = %97, %96, %94, %lean
   br label %111
 
 lean_array_uget.exit.i186:                        ; preds = %99
-  %110 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01728.i184, ptr noundef %101)
+  %110 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01726.i184, ptr noundef %101)
   br label %119
 
 111:                                              ; preds = %109, %108, %106
-  %112 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01728.i184, ptr noundef nonnull %101)
+  %112 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01726.i184, ptr noundef nonnull %101)
   %113 = load i32, ptr %101, align 4, !tbaa !8
   %114 = icmp sgt i32 %113, 1
   br i1 %114, label %115, label %117, !prof !13
@@ -15881,7 +15881,7 @@ lean_array_uget.exit.i186:                        ; preds = %99
 
 119:                                              ; preds = %118, %117, %115, %lean_array_uget.exit.i186
   %120 = phi ptr [ %110, %lean_array_uget.exit.i186 ], [ %112, %115 ], [ %112, %117 ], [ %112, %118 ]
-  %121 = add nuw nsw i64 %.01529.i183, 1
+  %121 = add nuw nsw i64 %.01527.i183, 1
   %.not.i187 = icmp eq i64 %121, %.mask206
   br i1 %.not.i187, label %lean_dec.exit123, label %99
 
@@ -15947,9 +15947,9 @@ lean_dec.exit119:                                 ; preds = %lean_dec.exit120
   br label %144
 
 144:                                              ; preds = %164, %.lr.ph.i194
-  %.01529.i195 = phi i64 [ 0, %.lr.ph.i194 ], [ %166, %164 ]
-  %.01728.i196 = phi ptr [ %52, %.lr.ph.i194 ], [ %165, %164 ]
-  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %.01529.i195
+  %.01527.i195 = phi i64 [ 0, %.lr.ph.i194 ], [ %166, %164 ]
+  %.01726.i196 = phi ptr [ %52, %.lr.ph.i194 ], [ %165, %164 ]
+  %145 = getelementptr inbounds nuw ptr, ptr %143, i64 %.01527.i195
   %146 = load ptr, ptr %145, align 8, !tbaa !4
   %147 = ptrtoint ptr %146 to i64
   %148 = and i64 %147, 1
@@ -15975,11 +15975,11 @@ lean_dec.exit119:                                 ; preds = %lean_dec.exit120
   br label %156
 
 lean_array_uget.exit.i198:                        ; preds = %144
-  %155 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01728.i196, ptr noundef %146)
+  %155 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01726.i196, ptr noundef %146)
   br label %164
 
 156:                                              ; preds = %154, %153, %151
-  %157 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01728.i196, ptr noundef nonnull %146)
+  %157 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01726.i196, ptr noundef nonnull %146)
   %158 = load i32, ptr %146, align 4, !tbaa !8
   %159 = icmp sgt i32 %158, 1
   br i1 %159, label %160, label %162, !prof !13
@@ -15999,7 +15999,7 @@ lean_array_uget.exit.i198:                        ; preds = %144
 
 164:                                              ; preds = %163, %162, %160, %lean_array_uget.exit.i198
   %165 = phi ptr [ %155, %lean_array_uget.exit.i198 ], [ %157, %160 ], [ %157, %162 ], [ %157, %163 ]
-  %166 = add nuw nsw i64 %.01529.i195, 1
+  %166 = add nuw nsw i64 %.01527.i195, 1
   %.not.i199 = icmp eq i64 %166, %.mask209
   br i1 %.not.i199, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__8.exit, label %144
 
@@ -16699,17 +16699,17 @@ lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   br label %lean_dec.exit9
 
 lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean_dec.exit10
-  %.not27.i = icmp eq i64 %.val15, %.val
-  br i1 %.not27.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__8.exit, label %.lr.ph.i
+  %.not25.i = icmp eq i64 %.val15, %.val
+  br i1 %.not25.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__8.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %46, %.lr.ph.i
-  %.01529.i = phi i64 [ %.val15, %.lr.ph.i ], [ %48, %46 ]
-  %.01728.i = phi ptr [ %3, %.lr.ph.i ], [ %47, %46 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01529.i
+  %.01527.i = phi i64 [ %.val15, %.lr.ph.i ], [ %48, %46 ]
+  %.01726.i = phi ptr [ %3, %.lr.ph.i ], [ %47, %46 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01527.i
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -16735,11 +16735,11 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
   br label %38
 
 lean_array_uget.exit.i:                           ; preds = %26
-  %37 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01728.i, ptr noundef %28)
+  %37 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01726.i, ptr noundef %28)
   br label %46
 
 38:                                               ; preds = %36, %35, %33
-  %39 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01728.i, ptr noundef nonnull %28)
+  %39 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__3(ptr noundef %.01726.i, ptr noundef nonnull %28)
   %40 = load i32, ptr %28, align 4, !tbaa !8
   %41 = icmp sgt i32 %40, 1
   br i1 %41, label %42, label %44, !prof !13
@@ -16759,7 +16759,7 @@ lean_array_uget.exit.i:                           ; preds = %26
 
 46:                                               ; preds = %45, %44, %42, %lean_array_uget.exit.i
   %47 = phi ptr [ %37, %lean_array_uget.exit.i ], [ %39, %42 ], [ %39, %44 ], [ %39, %45 ]
-  %48 = add i64 %.01529.i, 1
+  %48 = add i64 %.01527.i, 1
   %.not.i16 = icmp eq i64 %48, %.val
   br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__8.exit, label %26
 
@@ -16976,17 +16976,17 @@ lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   br label %lean_dec.exit9
 
 lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean_dec.exit10
-  %.not27.i = icmp eq i64 %.val15, %.val
-  br i1 %.not27.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__10.exit, label %.lr.ph.i
+  %.not25.i = icmp eq i64 %.val15, %.val
+  br i1 %.not25.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__10.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %46, %.lr.ph.i
-  %.01529.i = phi i64 [ %.val15, %.lr.ph.i ], [ %48, %46 ]
-  %.01728.i = phi ptr [ %3, %.lr.ph.i ], [ %47, %46 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01529.i
+  %.01527.i = phi i64 [ %.val15, %.lr.ph.i ], [ %48, %46 ]
+  %.01726.i = phi ptr [ %3, %.lr.ph.i ], [ %47, %46 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01527.i
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -17012,11 +17012,11 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
   br label %38
 
 lean_array_uget.exit.i:                           ; preds = %26
-  %37 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01728.i, ptr noundef %28)
+  %37 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01726.i, ptr noundef %28)
   br label %46
 
 38:                                               ; preds = %36, %35, %33
-  %39 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01728.i, ptr noundef nonnull %28)
+  %39 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__2(ptr noundef %.01726.i, ptr noundef nonnull %28)
   %40 = load i32, ptr %28, align 4, !tbaa !8
   %41 = icmp sgt i32 %40, 1
   br i1 %41, label %42, label %44, !prof !13
@@ -17036,7 +17036,7 @@ lean_array_uget.exit.i:                           ; preds = %26
 
 46:                                               ; preds = %45, %44, %42, %lean_array_uget.exit.i
   %47 = phi ptr [ %37, %lean_array_uget.exit.i ], [ %39, %42 ], [ %39, %44 ], [ %39, %45 ]
-  %48 = add i64 %.01529.i, 1
+  %48 = add i64 %.01527.i, 1
   %.not.i16 = icmp eq i64 %48, %.val
   br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__10.exit, label %26
 
@@ -17123,17 +17123,17 @@ lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   br label %lean_dec.exit9
 
 lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean_dec.exit10
-  %.not27.i = icmp eq i64 %.val15, %.val
-  br i1 %.not27.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__11.exit, label %.lr.ph.i
+  %.not25.i = icmp eq i64 %.val15, %.val
+  br i1 %.not25.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__11.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %46, %.lr.ph.i
-  %.01529.i = phi i64 [ %.val15, %.lr.ph.i ], [ %48, %46 ]
-  %.01728.i = phi ptr [ %3, %.lr.ph.i ], [ %47, %46 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01529.i
+  %.01527.i = phi i64 [ %.val15, %.lr.ph.i ], [ %48, %46 ]
+  %.01726.i = phi ptr [ %3, %.lr.ph.i ], [ %47, %46 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01527.i
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -17159,11 +17159,11 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
   br label %38
 
 lean_array_uget.exit.i:                           ; preds = %26
-  %37 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01728.i, ptr noundef %28)
+  %37 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01726.i, ptr noundef %28)
   br label %46
 
 38:                                               ; preds = %36, %35, %33
-  %39 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01728.i, ptr noundef nonnull %28)
+  %39 = tail call ptr @l_Std_DHashMap_Internal_AssocList_foldlM___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__1(ptr noundef %.01726.i, ptr noundef nonnull %28)
   %40 = load i32, ptr %28, align 4, !tbaa !8
   %41 = icmp sgt i32 %40, 1
   br i1 %41, label %42, label %44, !prof !13
@@ -17183,7 +17183,7 @@ lean_array_uget.exit.i:                           ; preds = %26
 
 46:                                               ; preds = %45, %44, %42, %lean_array_uget.exit.i
   %47 = phi ptr [ %37, %lean_array_uget.exit.i ], [ %39, %42 ], [ %39, %44 ], [ %39, %45 ]
-  %48 = add i64 %.01529.i, 1
+  %48 = add i64 %.01527.i, 1
   %.not.i16 = icmp eq i64 %48, %.val
   br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_LCtx_toLocalContext___spec__11.exit, label %26
 

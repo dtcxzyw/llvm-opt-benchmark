@@ -286,17 +286,17 @@ stack_copy_readers.exit.i:                        ; preds = %58, %52, %.thread.i
   %71 = phi ptr [ %112, %108 ], [ %70, %67 ]
   %.086.i113 = phi ptr [ %72, %108 ], [ %50, %67 ]
   %.195.i112 = phi i64 [ %111, %108 ], [ 0, %67 ]
-  %.099.i111 = phi i64 [ %.1100325.i, %108 ], [ 0, %67 ]
-  %.0103.i110 = phi i64 [ %.1104322.i, %108 ], [ 0, %67 ]
-  %.1109.i109 = phi ptr [ %.2110318.i, %108 ], [ null, %67 ]
+  %.099.i111 = phi i64 [ %.1100324.i, %108 ], [ 0, %67 ]
+  %.0103.i110 = phi i64 [ %.1104321.i, %108 ], [ 0, %67 ]
+  %.1109.i109 = phi ptr [ %.2110317.i, %108 ], [ null, %67 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !39
   %72 = getelementptr inbounds nuw i8, ptr %.086.i113, i64 8
   br i1 %69, label %.lr.ph.split.i, label %.loopexit.thread.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph, %89
-  %.087211.i = phi i64 [ %90, %89 ], [ 0, %.lr.ph ]
-  %73 = getelementptr inbounds nuw ptr, ptr %.097.i, i64 %.087211.i
+  %.087210.i = phi i64 [ %90, %89 ], [ 0, %.lr.ph ]
+  %73 = getelementptr inbounds nuw ptr, ptr %.097.i, i64 %.087210.i
   %74 = load ptr, ptr %73, align 8, !tbaa !39
   %.not140.i = icmp eq ptr %74, null
   br i1 %.not140.i, label %89, label %75
@@ -308,7 +308,7 @@ stack_copy_readers.exit.i:                        ; preds = %58, %52, %.thread.i
   br i1 %78, label %.split.i, label %89
 
 .split.i:                                         ; preds = %75
-  %79 = getelementptr inbounds nuw ptr, ptr %.097.i, i64 %.087211.i
+  %79 = getelementptr inbounds nuw ptr, ptr %.097.i, i64 %.087210.i
   store ptr %74, ptr %5, align 8, !tbaa !39
   store ptr null, ptr %79, align 8, !tbaa !39
   %80 = add i64 %.0103.i110, 1
@@ -341,7 +341,7 @@ st_mult.exit.i.i:                                 ; preds = %82
   br i1 %.not141.i, label %stack_copy_readers.exit.thread.sink.split.i, label %.loopexit.i
 
 89:                                               ; preds = %75, %.lr.ph.split.i
-  %90 = add nuw i64 %.087211.i, 1
+  %90 = add nuw i64 %.087210.i, 1
   %exitcond.not.i = icmp eq i64 %90, %63
   br i1 %exitcond.not.i, label %.loopexit.thread.i, label %.lr.ph.split.i, !llvm.loop !49
 
@@ -357,9 +357,9 @@ st_mult.exit.i.i:                                 ; preds = %82
   br i1 %.not142.i, label %.loopexit.thread.i, label %108
 
 .loopexit.thread.i:                               ; preds = %89, %.loopexit.i, %.lr.ph
-  %.1100326.i = phi i64 [ %.2101167.i, %.loopexit.i ], [ %.099.i111, %.lr.ph ], [ %.099.i111, %89 ]
-  %.1104323.i = phi i64 [ %80, %.loopexit.i ], [ %.0103.i110, %.lr.ph ], [ %.0103.i110, %89 ]
-  %.2110319.i = phi ptr [ %.4112166.i, %.loopexit.i ], [ %.1109.i109, %.lr.ph ], [ %.1109.i109, %89 ]
+  %.1100325.i = phi i64 [ %.2101167.i, %.loopexit.i ], [ %.099.i111, %.lr.ph ], [ %.099.i111, %89 ]
+  %.1104322.i = phi i64 [ %80, %.loopexit.i ], [ %.0103.i110, %.lr.ph ], [ %.0103.i110, %89 ]
+  %.2110318.i = phi ptr [ %.4112166.i, %.loopexit.i ], [ %.1109.i109, %.lr.ph ], [ %.1109.i109, %89 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   call void @reftable_buf_reset(ptr noundef nonnull %4) #16
@@ -393,17 +393,17 @@ stack_filename.exit.i:                            ; preds = %96
   %106 = call i32 @reftable_reader_new(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %71) #16
   %107 = icmp sgt i32 %106, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %107, label %._crit_edge285.i, label %stack_copy_readers.exit.thread.sink.split.i
+  br i1 %107, label %._crit_edge284.i, label %stack_copy_readers.exit.thread.sink.split.i
 
-._crit_edge285.i:                                 ; preds = %105
-  %.pre286.i = load ptr, ptr %5, align 8, !tbaa !39
+._crit_edge284.i:                                 ; preds = %105
+  %.pre285.i = load ptr, ptr %5, align 8, !tbaa !39
   br label %108
 
-108:                                              ; preds = %._crit_edge285.i, %.loopexit.i
-  %.1100325.i = phi i64 [ %.2101167.i, %.loopexit.i ], [ %.1100326.i, %._crit_edge285.i ]
-  %.1104322.i = phi i64 [ %80, %.loopexit.i ], [ %.1104323.i, %._crit_edge285.i ]
-  %.2110318.i = phi ptr [ %.4112166.i, %.loopexit.i ], [ %.2110319.i, %._crit_edge285.i ]
-  %109 = phi ptr [ %.pre.i, %.loopexit.i ], [ %.pre286.i, %._crit_edge285.i ]
+108:                                              ; preds = %._crit_edge284.i, %.loopexit.i
+  %.1100324.i = phi i64 [ %.2101167.i, %.loopexit.i ], [ %.1100325.i, %._crit_edge284.i ]
+  %.1104321.i = phi i64 [ %80, %.loopexit.i ], [ %.1104322.i, %._crit_edge284.i ]
+  %.2110317.i = phi ptr [ %.4112166.i, %.loopexit.i ], [ %.2110318.i, %._crit_edge284.i ]
+  %109 = phi ptr [ %.pre.i, %.loopexit.i ], [ %.pre285.i, %._crit_edge284.i ]
   %110 = getelementptr inbounds nuw ptr, ptr %.1107.i, i64 %.195.i112
   store ptr %109, ptr %110, align 8, !tbaa !39
   %111 = add i64 %.195.i112, 1
@@ -413,8 +413,8 @@ stack_filename.exit.i:                            ; preds = %96
   br i1 %.not136.i, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %108, %67
-  %.1109.i.lcssa = phi ptr [ null, %67 ], [ %.2110318.i, %108 ]
-  %.0103.i.lcssa = phi i64 [ 0, %67 ], [ %.1104322.i, %108 ]
+  %.1109.i.lcssa = phi ptr [ null, %67 ], [ %.2110317.i, %108 ]
+  %.0103.i.lcssa = phi i64 [ 0, %67 ], [ %.1104321.i, %108 ]
   %.195.i.lcssa = phi i64 [ 0, %67 ], [ %111, %108 ]
   %113 = load i32, ptr %26, align 4, !tbaa !52
   %114 = call i32 @reftable_merged_table_new(ptr noundef nonnull %3, ptr noundef %.1107.i, i64 noundef %.195.i.lcssa, i32 noundef %113) #16
@@ -422,18 +422,18 @@ stack_filename.exit.i:                            ; preds = %96
   br i1 %115, label %stack_copy_readers.exit.thread.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %._crit_edge
-  %.not242.i = icmp eq i64 %63, 0
-  br i1 %.not242.i, label %._crit_edge.i, label %.lr.ph235.i
+  %.not241.i = icmp eq i64 %63, 0
+  br i1 %.not241.i, label %._crit_edge.i, label %.lr.ph234.i
 
-.lr.ph235.i:                                      ; preds = %.preheader.i, %132
-  %.188234.i = phi i64 [ %133, %132 ], [ 0, %.preheader.i ]
-  %.5233.i = phi i32 [ %.6.i, %132 ], [ %114, %.preheader.i ]
-  %116 = getelementptr inbounds nuw ptr, ptr %.097.i, i64 %.188234.i
+.lr.ph234.i:                                      ; preds = %.preheader.i, %132
+  %.188233.i = phi i64 [ %133, %132 ], [ 0, %.preheader.i ]
+  %.5232.i = phi i32 [ %.6.i, %132 ], [ %114, %.preheader.i ]
+  %116 = getelementptr inbounds nuw ptr, ptr %.097.i, i64 %.188233.i
   %117 = load ptr, ptr %116, align 8, !tbaa !39
   %.not139.i = icmp eq ptr %117, null
   br i1 %.not139.i, label %132, label %118
 
-118:                                              ; preds = %.lr.ph235.i
+118:                                              ; preds = %.lr.ph234.i
   %119 = call ptr @reader_name(ptr noundef nonnull %117) #16
   call void @reftable_buf_reset(ptr noundef nonnull %4) #16
   %120 = load ptr, ptr %24, align 8, !tbaa !29
@@ -458,11 +458,11 @@ stack_filename.exit150.i:                         ; preds = %123
   %131 = call i32 @unlink(ptr noundef %130) #16
   br label %132
 
-132:                                              ; preds = %128, %.lr.ph235.i
-  %.6.i = phi i32 [ 0, %128 ], [ %.5233.i, %.lr.ph235.i ]
-  %133 = add nuw i64 %.188234.i, 1
-  %exitcond275.not.i = icmp eq i64 %133, %63
-  br i1 %exitcond275.not.i, label %._crit_edge.i, label %.lr.ph235.i, !llvm.loop !53
+132:                                              ; preds = %128, %.lr.ph234.i
+  %.6.i = phi i32 [ 0, %128 ], [ %.5232.i, %.lr.ph234.i ]
+  %133 = add nuw i64 %.188233.i, 1
+  %exitcond274.not.i = icmp eq i64 %133, %63
+  br i1 %exitcond274.not.i, label %._crit_edge.i, label %.lr.ph234.i, !llvm.loop !53
 
 ._crit_edge.i:                                    ; preds = %132, %.preheader.i
   %.5.lcssa.i = phi i32 [ %114, %.preheader.i ], [ %.6.i, %132 ]
@@ -490,20 +490,20 @@ stack_filename.exit150.i:                         ; preds = %123
 141:                                              ; preds = %140, %136
   store ptr %.1107.i, ptr %22, align 8, !tbaa !38
   store i64 %.195.i.lcssa, ptr %27, align 8, !tbaa !55
-  %.not243.i = icmp eq i64 %.0103.i.lcssa, 0
-  br i1 %.not243.i, label %reftable_stack_reload_once.exit, label %.lr.ph238.i
+  %.not242.i = icmp eq i64 %.0103.i.lcssa, 0
+  br i1 %.not242.i, label %reftable_stack_reload_once.exit, label %.lr.ph237.i
 
-.lr.ph238.i:                                      ; preds = %141, %.lr.ph238.i
-  %.289236.i = phi i64 [ %144, %.lr.ph238.i ], [ 0, %141 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %.1109.i.lcssa, i64 %.289236.i
+.lr.ph237.i:                                      ; preds = %141, %.lr.ph237.i
+  %.289235.i = phi i64 [ %144, %.lr.ph237.i ], [ 0, %141 ]
+  %142 = getelementptr inbounds nuw ptr, ptr %.1109.i.lcssa, i64 %.289235.i
   %143 = load ptr, ptr %142, align 8, !tbaa !39
   call void @reftable_reader_decref(ptr noundef %143) #16
-  %144 = add nuw i64 %.289236.i, 1
-  %exitcond283.not.i = icmp eq i64 %144, %.0103.i.lcssa
-  br i1 %exitcond283.not.i, label %reftable_stack_reload_once.exit, label %.lr.ph238.i, !llvm.loop !56
+  %144 = add nuw i64 %.289235.i, 1
+  %exitcond282.not.i = icmp eq i64 %144, %.0103.i.lcssa
+  br i1 %exitcond282.not.i, label %reftable_stack_reload_once.exit, label %.lr.ph237.i, !llvm.loop !56
 
 stack_copy_readers.exit.thread.sink.split.i:      ; preds = %105, %88, %.thread169.i, %.thread158.i
-  %.0108.ph.i = phi ptr [ %.2110319.i, %.thread169.i ], [ null, %.thread158.i ], [ %.2110319.i, %105 ], [ null, %88 ]
+  %.0108.ph.i = phi ptr [ %.2110318.i, %.thread169.i ], [ null, %.thread158.i ], [ %.2110318.i, %105 ], [ null, %88 ]
   %.090.ph.i = phi i32 [ %.4.ph.i, %.thread169.i ], [ -13, %.thread158.i ], [ %106, %105 ], [ -13, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %stack_copy_readers.exit.thread.i
@@ -512,30 +512,30 @@ stack_copy_readers.exit.thread.i:                 ; preds = %stack_filename.exit
   %.195.i96 = phi i64 [ %.195.i.lcssa, %._crit_edge ], [ %.195.i112, %stack_copy_readers.exit.thread.sink.split.i ], [ %.195.i.lcssa, %118 ], [ %.195.i.lcssa, %123 ], [ %.195.i.lcssa, %stack_filename.exit150.i ]
   %.0108.i = phi ptr [ %.1109.i.lcssa, %._crit_edge ], [ %.0108.ph.i, %stack_copy_readers.exit.thread.sink.split.i ], [ %.1109.i.lcssa, %118 ], [ %.1109.i.lcssa, %123 ], [ %.1109.i.lcssa, %stack_filename.exit150.i ]
   %.090.i = phi i32 [ %114, %._crit_edge ], [ %.090.ph.i, %stack_copy_readers.exit.thread.sink.split.i ], [ %126, %stack_filename.exit150.i ], [ %124, %123 ], [ %121, %118 ]
-  %.not244.i = icmp eq i64 %.195.i96, 0
-  br i1 %.not244.i, label %reftable_stack_reload_once.exit, label %.lr.ph240.i
+  %.not243.i = icmp eq i64 %.195.i96, 0
+  br i1 %.not243.i, label %reftable_stack_reload_once.exit, label %.lr.ph239.i
 
-.lr.ph240.i:                                      ; preds = %stack_copy_readers.exit.thread.i, %.lr.ph240.i
-  %.3239.i = phi i64 [ %147, %.lr.ph240.i ], [ 0, %stack_copy_readers.exit.thread.i ]
-  %145 = getelementptr inbounds nuw ptr, ptr %.1107.i, i64 %.3239.i
+.lr.ph239.i:                                      ; preds = %stack_copy_readers.exit.thread.i, %.lr.ph239.i
+  %.3238.i = phi i64 [ %147, %.lr.ph239.i ], [ 0, %stack_copy_readers.exit.thread.i ]
+  %145 = getelementptr inbounds nuw ptr, ptr %.1107.i, i64 %.3238.i
   %146 = load ptr, ptr %145, align 8, !tbaa !39
   call void @reftable_reader_decref(ptr noundef %146) #16
-  %147 = add nuw i64 %.3239.i, 1
-  %exitcond284.not.i = icmp eq i64 %147, %.195.i96
-  br i1 %exitcond284.not.i, label %reftable_stack_reload_once.exit, label %.lr.ph240.i, !llvm.loop !57
+  %147 = add nuw i64 %.3238.i, 1
+  %exitcond283.not.i = icmp eq i64 %147, %.195.i96
+  br i1 %exitcond283.not.i, label %reftable_stack_reload_once.exit, label %.lr.ph239.i, !llvm.loop !57
 
-reftable_stack_reload_once.exit:                  ; preds = %.lr.ph238.i, %.lr.ph240.i, %55, %65, %141, %stack_copy_readers.exit.thread.i
-  %.090346.i = phi i32 [ %.090.i, %stack_copy_readers.exit.thread.i ], [ %.5.lcssa.i, %141 ], [ -13, %55 ], [ -13, %65 ], [ %.090.i, %.lr.ph240.i ], [ %.5.lcssa.i, %.lr.ph238.i ]
-  %.198345.i = phi ptr [ %.097.i, %stack_copy_readers.exit.thread.i ], [ %.097.i, %141 ], [ null, %55 ], [ %.097.i, %65 ], [ %.097.i, %.lr.ph240.i ], [ %.097.i, %.lr.ph238.i ]
-  %.0106344.i = phi ptr [ %.1107.i, %stack_copy_readers.exit.thread.i ], [ null, %141 ], [ null, %55 ], [ null, %65 ], [ %.1107.i, %.lr.ph240.i ], [ null, %.lr.ph238.i ]
-  %.0108343.i = phi ptr [ %.0108.i, %stack_copy_readers.exit.thread.i ], [ %.1109.i.lcssa, %141 ], [ null, %55 ], [ null, %65 ], [ %.0108.i, %.lr.ph240.i ], [ %.1109.i.lcssa, %.lr.ph238.i ]
-  call void @reftable_free(ptr noundef %.0106344.i) #16
-  call void @reftable_free(ptr noundef %.0108343.i) #16
-  call void @reftable_free(ptr noundef %.198345.i) #16
+reftable_stack_reload_once.exit:                  ; preds = %.lr.ph237.i, %.lr.ph239.i, %55, %65, %141, %stack_copy_readers.exit.thread.i
+  %.090345.i = phi i32 [ %.090.i, %stack_copy_readers.exit.thread.i ], [ %.5.lcssa.i, %141 ], [ -13, %55 ], [ -13, %65 ], [ %.090.i, %.lr.ph239.i ], [ %.5.lcssa.i, %.lr.ph237.i ]
+  %.198344.i = phi ptr [ %.097.i, %stack_copy_readers.exit.thread.i ], [ %.097.i, %141 ], [ null, %55 ], [ %.097.i, %65 ], [ %.097.i, %.lr.ph239.i ], [ %.097.i, %.lr.ph237.i ]
+  %.0106343.i = phi ptr [ %.1107.i, %stack_copy_readers.exit.thread.i ], [ null, %141 ], [ null, %55 ], [ null, %65 ], [ %.1107.i, %.lr.ph239.i ], [ null, %.lr.ph237.i ]
+  %.0108342.i = phi ptr [ %.0108.i, %stack_copy_readers.exit.thread.i ], [ %.1109.i.lcssa, %141 ], [ null, %55 ], [ null, %65 ], [ %.0108.i, %.lr.ph239.i ], [ %.1109.i.lcssa, %.lr.ph237.i ]
+  call void @reftable_free(ptr noundef %.0106343.i) #16
+  call void @reftable_free(ptr noundef %.0108342.i) #16
+  call void @reftable_free(ptr noundef %.198344.i) #16
   call void @reftable_buf_release(ptr noundef nonnull %4) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %cond = icmp eq i32 %.090346.i, -4
+  %cond = icmp eq i32 %.090345.i, -4
   br i1 %cond, label %148, label %.thread
 
 148:                                              ; preds = %reftable_stack_reload_once.exit
@@ -574,7 +574,7 @@ read_lines.exit.thread73:                         ; preds = %read_lines.exit.rea
   br i1 %.not61, label %164, label %.thread
 
 .thread:                                          ; preds = %reftable_stack_reload_once.exit, %156, %152, %read_lines.exit.thread73, %read_lines.exit, %46, %44, %41, %32, %164, %13
-  %.139.ph = phi i32 [ %16, %13 ], [ %.090346.i, %reftable_stack_reload_once.exit ], [ -13, %156 ], [ -2, %152 ], [ -4, %read_lines.exit.thread73 ], [ %158, %read_lines.exit ], [ %47, %46 ], [ -13, %44 ], [ -2, %41 ], [ %29, %32 ], [ %173, %164 ]
+  %.139.ph = phi i32 [ %16, %13 ], [ %.090345.i, %reftable_stack_reload_once.exit ], [ -13, %156 ], [ -2, %152 ], [ -4, %read_lines.exit.thread73 ], [ %158, %read_lines.exit ], [ %47, %46 ], [ -13, %44 ], [ -2, %41 ], [ %29, %32 ], [ %173, %164 ]
   %.2.ph = phi i32 [ -1, %13 ], [ %39, %reftable_stack_reload_once.exit ], [ %39, %156 ], [ %39, %152 ], [ %39, %read_lines.exit.thread73 ], [ %39, %read_lines.exit ], [ %39, %46 ], [ %39, %44 ], [ %39, %41 ], [ -1, %32 ], [ -1, %164 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %175

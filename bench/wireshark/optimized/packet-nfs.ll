@@ -4490,11 +4490,11 @@ define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr noundef readonly capt
   %49 = load ptr, ptr %8, align 8
   %50 = sub i32 %48, %2
   call void @proto_item_set_len(ptr noundef %49, i32 noundef %50)
-  %51 = icmp slt i32 %5, 2
+  %51 = icmp slt i32 %5, -2147483645
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %6
-  %53 = and i32 %5, 2147483647
+  %53 = and i32 %5, 3
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
   %56 = call ptr @val_to_str_ext(i32 noundef %14, ptr noundef nonnull @names_nfs_ftype3_ext, ptr noundef nonnull @.str.1411)
@@ -4516,7 +4516,7 @@ define internal fastcc noundef i32 @dissect_nfs_fattr3(ptr noundef readonly capt
 60:                                               ; preds = %.lr.ph, %60
   %.170 = phi i32 [ %.0, %.lr.ph ], [ %61, %60 ]
   %.06169 = phi ptr [ %10, %.lr.ph ], [ %64, %60 ]
-  %61 = add nsw i32 %.170, -1
+  %61 = add i32 %.170, -1
   %62 = call ptr @val_to_str_ext(i32 noundef %14, ptr noundef nonnull @names_nfs_ftype3_ext, ptr noundef nonnull @.str.1411)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef nonnull %.06169, ptr noundef nonnull @.str.1410, ptr noundef %62, i32 noundef %59, i32 noundef %22, i32 noundef %25)
   %63 = getelementptr inbounds nuw i8, ptr %.06169, i64 24

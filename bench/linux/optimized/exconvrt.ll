@@ -12,8 +12,8 @@ target triple = "x86_64-unknown-linux-gnu"
 define dso_local noundef range(i32 0, 12299) i32 @acpi_ex_convert_to_integer(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 9
   %5 = load i8, ptr %4, align 1
-  switch i8 %5, label %44 [
-    i8 1, label %42
+  switch i8 %5, label %45 [
+    i8 1, label %43
     i8 3, label %6
     i8 2, label %6
   ]
@@ -23,67 +23,67 @@ define dso_local noundef range(i32 0, 12299) i32 @acpi_ex_convert_to_integer(ptr
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8
-  %switch = icmp eq i8 %5, 2
-  br i1 %switch, label %11, label %17
+  %11 = icmp eq i8 %5, 2
+  br i1 %11, label %12, label %18
 
-11:                                               ; preds = %6
-  %12 = icmp eq i32 %2, 0
-  br i1 %12, label %15, label %13
+12:                                               ; preds = %6
+  %13 = icmp eq i32 %2, 0
+  br i1 %13, label %16, label %14
 
-13:                                               ; preds = %11
-  %14 = tail call i64 @acpi_ut_implicit_strtoul64(ptr noundef %8) #6
+14:                                               ; preds = %12
+  %15 = tail call i64 @acpi_ut_implicit_strtoul64(ptr noundef %8) #6
   br label %.loopexit
 
-15:                                               ; preds = %11
-  %16 = tail call i64 @acpi_ut_explicit_strtoul64(ptr noundef %8) #6
+16:                                               ; preds = %12
+  %17 = tail call i64 @acpi_ut_explicit_strtoul64(ptr noundef %8) #6
   br label %.loopexit
 
-17:                                               ; preds = %6
-  %18 = icmp eq i32 %10, 0
-  br i1 %18, label %44, label %19
+18:                                               ; preds = %6
+  %19 = icmp eq i32 %10, 0
+  br i1 %19, label %45, label %20
 
-19:                                               ; preds = %17
-  %20 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
-  %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.loopexit, label %22
+20:                                               ; preds = %18
+  %21 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
+  %22 = icmp eq i8 %21, 0
+  br i1 %22, label %.loopexit, label %23
 
-22:                                               ; preds = %19
-  %23 = zext i8 %20 to i32
-  %24 = tail call i32 @llvm.umin.i32(i32 %10, i32 %23)
-  %25 = zext nneg i32 %24 to i64
-  br label %26
+23:                                               ; preds = %20
+  %24 = zext i8 %21 to i32
+  %25 = tail call i32 @llvm.umin.i32(i32 %10, i32 %24)
+  %26 = zext nneg i32 %25 to i64
+  br label %27
 
-26:                                               ; preds = %26, %22
-  %27 = phi i64 [ 0, %22 ], [ %35, %26 ]
-  %28 = phi i64 [ 0, %22 ], [ %34, %26 ]
-  %29 = getelementptr i8, ptr %8, i64 %27
-  %30 = load i8, ptr %29, align 1
-  %31 = zext i8 %30 to i64
-  %32 = shl nuw nsw i64 %27, 3
-  %33 = shl i64 %31, %32
-  %34 = or i64 %33, %28
-  %35 = add nuw nsw i64 %27, 1
-  %36 = icmp eq i64 %35, %25
-  br i1 %36, label %.loopexit, label %26, !llvm.loop !5
+27:                                               ; preds = %27, %23
+  %28 = phi i64 [ 0, %23 ], [ %36, %27 ]
+  %29 = phi i64 [ 0, %23 ], [ %35, %27 ]
+  %30 = getelementptr i8, ptr %8, i64 %28
+  %31 = load i8, ptr %30, align 1
+  %32 = zext i8 %31 to i64
+  %33 = shl nuw nsw i64 %28, 3
+  %34 = shl i64 %32, %33
+  %35 = or i64 %34, %29
+  %36 = add nuw nsw i64 %28, 1
+  %37 = icmp eq i64 %36, %26
+  br i1 %37, label %.loopexit, label %27, !llvm.loop !5
 
-.loopexit:                                        ; preds = %26, %19, %15, %13
-  %37 = phi i64 [ %14, %13 ], [ %16, %15 ], [ 0, %19 ], [ %34, %26 ]
-  %38 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %37) #6
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %44, label %40
+.loopexit:                                        ; preds = %27, %20, %16, %14
+  %38 = phi i64 [ %15, %14 ], [ %17, %16 ], [ 0, %20 ], [ %35, %27 ]
+  %39 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %38) #6
+  %40 = icmp eq ptr %39, null
+  br i1 %40, label %45, label %41
 
-40:                                               ; preds = %.loopexit
-  %41 = tail call zeroext i8 @acpi_ex_truncate_for32bit_table(ptr noundef nonnull %38) #6
-  br label %42
+41:                                               ; preds = %.loopexit
+  %42 = tail call zeroext i8 @acpi_ex_truncate_for32bit_table(ptr noundef nonnull %39) #6
+  br label %43
 
-42:                                               ; preds = %40, %3
-  %43 = phi ptr [ %38, %40 ], [ %0, %3 ]
-  store ptr %43, ptr %1, align 8
-  br label %44
+43:                                               ; preds = %41, %3
+  %44 = phi ptr [ %39, %41 ], [ %0, %3 ]
+  store ptr %44, ptr %1, align 8
+  br label %45
 
-44:                                               ; preds = %42, %.loopexit, %17, %3
-  %45 = phi i32 [ 8, %3 ], [ 12298, %17 ], [ 4, %.loopexit ], [ 0, %42 ]
-  ret i32 %45
+45:                                               ; preds = %43, %.loopexit, %18, %3
+  %46 = phi i32 [ 8, %3 ], [ 12298, %18 ], [ 4, %.loopexit ], [ 0, %43 ]
+  ret i32 %46
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -604,7 +604,7 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4
   %9 = and i32 %8, 31
-  switch i32 %9, label %90 [
+  switch i32 %9, label %91 [
     i32 17, label %10
     i32 16, label %10
     i32 11, label %10
@@ -625,20 +625,20 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   br i1 %16, label %acpi_ex_convert_to_integer.exit.thread, label %acpi_ex_convert_to_integer.exit.thread5
 
 17:                                               ; preds = %4, %4
-  switch i32 %0, label %89 [
+  switch i32 %0, label %90 [
     i32 1, label %18
     i32 14, label %18
     i32 18, label %18
     i32 19, label %18
     i32 2, label %acpi_ex_convert_to_integer.exit
-    i32 3, label %55
+    i32 3, label %56
   ]
 
 18:                                               ; preds = %17, %17, %17, %17
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %20 = load i8, ptr %19, align 1
   switch i8 %20, label %acpi_ex_convert_to_integer.exit.thread5 [
-    i8 1, label %53
+    i8 1, label %54
     i8 3, label %21
     i8 2, label %21
   ]
@@ -648,132 +648,132 @@ define dso_local range(i32 0, 12304) i32 @acpi_ex_convert_to_target_type(i32 nou
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %25 = load i32, ptr %24, align 8
-  %switch.i = icmp eq i8 %20, 2
-  br i1 %switch.i, label %26, label %28
+  %26 = icmp eq i8 %20, 2
+  br i1 %26, label %27, label %29
 
-26:                                               ; preds = %21
-  %27 = tail call i64 @acpi_ut_implicit_strtoul64(ptr noundef %23) #6
+27:                                               ; preds = %21
+  %28 = tail call i64 @acpi_ut_implicit_strtoul64(ptr noundef %23) #6
   br label %.loopexit.i
 
-28:                                               ; preds = %21
-  %29 = icmp eq i32 %25, 0
-  br i1 %29, label %acpi_ex_convert_to_integer.exit.thread, label %30
+29:                                               ; preds = %21
+  %30 = icmp eq i32 %25, 0
+  br i1 %30, label %acpi_ex_convert_to_integer.exit.thread, label %31
 
-30:                                               ; preds = %28
-  %31 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
-  %32 = icmp eq i8 %31, 0
-  br i1 %32, label %.loopexit.i, label %33
+31:                                               ; preds = %29
+  %32 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
+  %33 = icmp eq i8 %32, 0
+  br i1 %33, label %.loopexit.i, label %34
 
-33:                                               ; preds = %30
-  %34 = zext i8 %31 to i32
-  %35 = tail call i32 @llvm.umin.i32(i32 %25, i32 %34)
-  %36 = zext nneg i32 %35 to i64
-  br label %37
+34:                                               ; preds = %31
+  %35 = zext i8 %32 to i32
+  %36 = tail call i32 @llvm.umin.i32(i32 %25, i32 %35)
+  %37 = zext nneg i32 %36 to i64
+  br label %38
 
-37:                                               ; preds = %37, %33
-  %38 = phi i64 [ 0, %33 ], [ %46, %37 ]
-  %39 = phi i64 [ 0, %33 ], [ %45, %37 ]
-  %40 = getelementptr i8, ptr %23, i64 %38
-  %41 = load i8, ptr %40, align 1
-  %42 = zext i8 %41 to i64
-  %43 = shl nuw nsw i64 %38, 3
-  %44 = shl i64 %42, %43
-  %45 = or i64 %44, %39
-  %46 = add nuw nsw i64 %38, 1
-  %47 = icmp eq i64 %46, %36
-  br i1 %47, label %.loopexit.i, label %37, !llvm.loop !5
+38:                                               ; preds = %38, %34
+  %39 = phi i64 [ 0, %34 ], [ %47, %38 ]
+  %40 = phi i64 [ 0, %34 ], [ %46, %38 ]
+  %41 = getelementptr i8, ptr %23, i64 %39
+  %42 = load i8, ptr %41, align 1
+  %43 = zext i8 %42 to i64
+  %44 = shl nuw nsw i64 %39, 3
+  %45 = shl i64 %43, %44
+  %46 = or i64 %45, %40
+  %47 = add nuw nsw i64 %39, 1
+  %48 = icmp eq i64 %47, %37
+  br i1 %48, label %.loopexit.i, label %38, !llvm.loop !5
 
-.loopexit.i:                                      ; preds = %37, %30, %26
-  %48 = phi i64 [ %27, %26 ], [ 0, %30 ], [ %45, %37 ]
-  %49 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %48) #6
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %acpi_ex_convert_to_integer.exit.thread, label %51
+.loopexit.i:                                      ; preds = %38, %31, %27
+  %49 = phi i64 [ %28, %27 ], [ 0, %31 ], [ %46, %38 ]
+  %50 = tail call ptr @acpi_ut_create_integer_object(i64 noundef %49) #6
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %acpi_ex_convert_to_integer.exit.thread, label %52
 
-51:                                               ; preds = %.loopexit.i
-  %52 = tail call zeroext i8 @acpi_ex_truncate_for32bit_table(ptr noundef nonnull %49) #6
-  br label %53
+52:                                               ; preds = %.loopexit.i
+  %53 = tail call zeroext i8 @acpi_ex_truncate_for32bit_table(ptr noundef nonnull %50) #6
+  br label %54
 
-53:                                               ; preds = %51, %18
-  %54 = phi ptr [ %49, %51 ], [ %1, %18 ]
-  store ptr %54, ptr %2, align 8
+54:                                               ; preds = %52, %18
+  %55 = phi ptr [ %50, %52 ], [ %1, %18 ]
+  store ptr %55, ptr %2, align 8
   br label %acpi_ex_convert_to_integer.exit.thread
 
-55:                                               ; preds = %17
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 9
-  %57 = load i8, ptr %56, align 1
-  switch i8 %57, label %acpi_ex_convert_to_integer.exit.thread5 [
+56:                                               ; preds = %17
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 9
+  %58 = load i8, ptr %57, align 1
+  switch i8 %58, label %acpi_ex_convert_to_integer.exit.thread5 [
     i8 3, label %acpi_ex_convert_to_integer.exit.thread
-    i8 1, label %58
-    i8 2, label %69
+    i8 1, label %59
+    i8 2, label %70
   ]
 
-58:                                               ; preds = %55
-  %59 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
-  %60 = zext i8 %59 to i64
-  %61 = tail call ptr @acpi_ut_create_buffer_object(i64 noundef %60) #6
-  %62 = icmp eq ptr %61, null
-  br i1 %62, label %acpi_ex_convert_to_integer.exit.thread, label %63
+59:                                               ; preds = %56
+  %60 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
+  %61 = zext i8 %60 to i64
+  %62 = tail call ptr @acpi_ut_create_buffer_object(i64 noundef %61) #6
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %acpi_ex_convert_to_integer.exit.thread, label %64
 
-63:                                               ; preds = %58
-  %64 = getelementptr inbounds nuw i8, ptr %61, i64 16
-  %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %67 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
-  %68 = zext i8 %67 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %65, ptr nonnull align 8 %66, i64 %68, i1 false)
-  br label %84
+64:                                               ; preds = %59
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 16
+  %66 = load ptr, ptr %65, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %68 = load i8, ptr @acpi_gbl_integer_byte_width, align 1
+  %69 = zext i8 %68 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %66, ptr nonnull align 8 %67, i64 %69, i1 false)
+  br label %85
 
-69:                                               ; preds = %55
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %71 = load i32, ptr %70, align 8
-  %72 = zext i32 %71 to i64
-  %73 = add nuw nsw i64 %72, 1
-  %74 = tail call ptr @acpi_ut_create_buffer_object(i64 noundef %73) #6
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %acpi_ex_convert_to_integer.exit.thread, label %76
+70:                                               ; preds = %56
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %72 = load i32, ptr %71, align 8
+  %73 = zext i32 %72 to i64
+  %74 = add nuw nsw i64 %73, 1
+  %75 = tail call ptr @acpi_ut_create_buffer_object(i64 noundef %74) #6
+  %76 = icmp eq ptr %75, null
+  br i1 %76, label %acpi_ex_convert_to_integer.exit.thread, label %77
 
-76:                                               ; preds = %69
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  %78 = load ptr, ptr %77, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %80 = load ptr, ptr %79, align 8
-  %81 = load i32, ptr %70, align 8
-  %82 = zext i32 %81 to i64
-  %83 = tail call ptr @strncpy(ptr noundef %78, ptr noundef %80, i64 noundef %82) #6
-  br label %84
+77:                                               ; preds = %70
+  %78 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %81 = load ptr, ptr %80, align 8
+  %82 = load i32, ptr %71, align 8
+  %83 = zext i32 %82 to i64
+  %84 = tail call ptr @strncpy(ptr noundef %79, ptr noundef %81, i64 noundef %83) #6
+  br label %85
 
-84:                                               ; preds = %76, %63
-  %85 = phi ptr [ %74, %76 ], [ %61, %63 ]
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
-  %87 = load i8, ptr %86, align 4
-  %88 = or i8 %87, 4
-  store i8 %88, ptr %86, align 4
-  store ptr %85, ptr %2, align 8
+85:                                               ; preds = %77, %64
+  %86 = phi ptr [ %75, %77 ], [ %62, %64 ]
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 12
+  %88 = load i8, ptr %87, align 4
+  %89 = or i8 %88, 4
+  store i8 %89, ptr %87, align 4
+  store ptr %86, ptr %2, align 8
   br label %acpi_ex_convert_to_integer.exit.thread
 
-89:                                               ; preds = %17
+90:                                               ; preds = %17
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 656, ptr noundef nonnull @.str, i32 noundef %0) #6
   br label %acpi_ex_convert_to_integer.exit.thread
 
-90:                                               ; preds = %4
-  %91 = getelementptr inbounds nuw i8, ptr %3, i64 10
-  %92 = load i16, ptr %91, align 2
-  %93 = zext i16 %92 to i32
-  %94 = tail call ptr @acpi_ut_get_type_name(i32 noundef %0) #6
-  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 672, ptr noundef nonnull @.str.1, i32 noundef %9, i32 noundef %93, ptr noundef %94) #6
+91:                                               ; preds = %4
+  %92 = getelementptr inbounds nuw i8, ptr %3, i64 10
+  %93 = load i16, ptr %92, align 2
+  %94 = zext i16 %93 to i32
+  %95 = tail call ptr @acpi_ut_get_type_name(i32 noundef %0) #6
+  tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 672, ptr noundef nonnull @.str.1, i32 noundef %9, i32 noundef %94, ptr noundef %95) #6
   br label %acpi_ex_convert_to_integer.exit.thread
 
 acpi_ex_convert_to_integer.exit:                  ; preds = %17
-  %95 = tail call i32 @acpi_ex_convert_to_string(ptr noundef %1, ptr noundef %2, i32 noundef 2), !range !13
-  %96 = icmp eq i32 %95, 8
-  br i1 %96, label %acpi_ex_convert_to_integer.exit.thread5, label %acpi_ex_convert_to_integer.exit.thread
+  %96 = tail call i32 @acpi_ex_convert_to_string(ptr noundef %1, ptr noundef %2, i32 noundef 2), !range !13
+  %97 = icmp eq i32 %96, 8
+  br i1 %97, label %acpi_ex_convert_to_integer.exit.thread5, label %acpi_ex_convert_to_integer.exit.thread
 
-acpi_ex_convert_to_integer.exit.thread5:          ; preds = %18, %55, %12, %acpi_ex_convert_to_integer.exit
+acpi_ex_convert_to_integer.exit.thread5:          ; preds = %18, %56, %12, %acpi_ex_convert_to_integer.exit
   br label %acpi_ex_convert_to_integer.exit.thread
 
-acpi_ex_convert_to_integer.exit.thread:           ; preds = %55, %12, %53, %.loopexit.i, %28, %69, %58, %84, %10, %89, %4, %90, %acpi_ex_convert_to_integer.exit, %acpi_ex_convert_to_integer.exit.thread5
-  %97 = phi i32 [ 0, %acpi_ex_convert_to_integer.exit.thread5 ], [ %95, %acpi_ex_convert_to_integer.exit ], [ 0, %53 ], [ 4, %.loopexit.i ], [ 12298, %28 ], [ 4, %69 ], [ 4, %58 ], [ 0, %84 ], [ 0, %10 ], [ 12303, %89 ], [ 0, %4 ], [ 12303, %90 ], [ 0, %12 ], [ 0, %55 ]
-  ret i32 %97
+acpi_ex_convert_to_integer.exit.thread:           ; preds = %56, %12, %54, %.loopexit.i, %29, %70, %59, %85, %10, %90, %4, %91, %acpi_ex_convert_to_integer.exit, %acpi_ex_convert_to_integer.exit.thread5
+  %98 = phi i32 [ 0, %acpi_ex_convert_to_integer.exit.thread5 ], [ %96, %acpi_ex_convert_to_integer.exit ], [ 0, %54 ], [ 4, %.loopexit.i ], [ 12298, %29 ], [ 4, %70 ], [ 4, %59 ], [ 0, %85 ], [ 0, %10 ], [ 12303, %90 ], [ 0, %4 ], [ 12303, %91 ], [ 0, %12 ], [ 0, %56 ]
+  ret i32 %98
 }
 
 ; Function Attrs: null_pointer_is_valid

@@ -2713,10 +2713,10 @@ _ZN6icu_775Edits8Iterator17updateNextIndexesEv.exit: ; preds = %18, %26
   %79 = add nuw nsw i32 %75, 1
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not = icmp eq i32 %65, 1
-  br i1 %.not, label %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59, label %.lr.ph85
+  br i1 %.not, label %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59, label %.lr.ph84
 
-.lr.ph85:                                         ; preds = %78, %87
-  %storemerge84 = phi i32 [ %90, %87 ], [ %79, %78 ]
+.lr.ph84:                                         ; preds = %78, %87
+  %storemerge83 = phi i32 [ %90, %87 ], [ %79, %78 ]
   %81 = phi i32 [ %88, %87 ], [ %71, %78 ]
   %82 = zext nneg i32 %81 to i64
   %83 = getelementptr i16, ptr %70, i64 %82
@@ -2725,27 +2725,27 @@ _ZN6icu_775Edits8Iterator17updateNextIndexesEv.exit: ; preds = %18, %26
   %86 = icmp ult i16 %85, 4096
   br i1 %86, label %87, label %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59
 
-87:                                               ; preds = %.lr.ph85
+87:                                               ; preds = %.lr.ph84
   %88 = add nsw i32 %81, -1
   store i32 %88, ptr %66, align 8, !tbaa !40
   %narrow = add nuw nsw i16 %85, 1
   %89 = zext nneg i16 %narrow to i32
-  %90 = add nuw nsw i32 %storemerge84, %89
+  %90 = add nuw nsw i32 %storemerge83, %89
   %91 = icmp sgt i32 %81, 1
-  br i1 %91, label %.lr.ph85, label %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59, !llvm.loop !50
+  br i1 %91, label %.lr.ph84, label %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59, !llvm.loop !50
 
-_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59: ; preds = %87, %.lr.ph85, %78
-  %storemerge.lcssa83 = phi i32 [ %79, %78 ], [ %storemerge84, %.lr.ph85 ], [ %90, %87 ]
-  store i32 %storemerge.lcssa83, ptr %80, align 8, !tbaa !35
+_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59: ; preds = %87, %.lr.ph84, %78
+  %storemerge.lcssa82 = phi i32 [ %79, %78 ], [ %storemerge83, %.lr.ph84 ], [ %90, %87 ]
+  store i32 %storemerge.lcssa82, ptr %80, align 8, !tbaa !35
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %storemerge.lcssa83, ptr %92, align 4, !tbaa !36
+  store i32 %storemerge.lcssa82, ptr %92, align 4, !tbaa !36
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %94 = load i32, ptr %93, align 8, !tbaa !44
-  %95 = sub nsw i32 %94, %storemerge.lcssa83
+  %95 = sub nsw i32 %94, %storemerge.lcssa82
   store i32 %95, ptr %93, align 8, !tbaa !44
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %97 = load i32, ptr %96, align 8, !tbaa !46
-  %98 = sub nsw i32 %97, %storemerge.lcssa83
+  %98 = sub nsw i32 %97, %storemerge.lcssa82
   store i32 %98, ptr %96, align 8, !tbaa !46
   br label %269
 
@@ -2770,13 +2770,13 @@ _ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59: ; preds = %87, %.lr.p
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %104, ptr %110, align 4, !tbaa !36
   %.not52 = icmp eq i32 %105, 0
-  br i1 %.not52, label %.thread75, label %111
+  br i1 %.not52, label %.thread74, label %111
 
 111:                                              ; preds = %108
   store i32 1, ptr %35, align 8, !tbaa !42
-  br label %.thread75
+  br label %.thread74
 
-.thread75:                                        ; preds = %108, %111
+.thread74:                                        ; preds = %108, %111
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %113 = load i32, ptr %112, align 8, !tbaa !44
   %114 = sub nsw i32 %113, %102
@@ -2851,10 +2851,10 @@ _ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59: ; preds = %87, %.lr.p
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %155 = load i8, ptr %154, align 1, !tbaa !43
   %.not50 = icmp eq i8 %155, 0
-  br i1 %.not50, label %156, label %._crit_edge94
+  br i1 %.not50, label %156, label %._crit_edge93
 
-._crit_edge94:                                    ; preds = %153
-  %.promoted79.pre = load i32, ptr %66, align 8, !tbaa !40
+._crit_edge93:                                    ; preds = %153
+  %.promoted78.pre = load i32, ptr %66, align 8, !tbaa !40
   br label %170
 
 156:                                              ; preds = %153
@@ -2882,28 +2882,28 @@ _ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit67: ; preds = %156, %163
   store i32 %169, ptr %167, align 8, !tbaa !46
   br label %269
 
-170:                                              ; preds = %._crit_edge94, %121
-  %.promoted82 = phi i32 [ %.pre.i66, %._crit_edge94 ], [ %125, %121 ]
-  %.promoted79 = phi i32 [ %.promoted79.pre, %._crit_edge94 ], [ %71, %121 ]
-  %171 = icmp sgt i32 %.promoted79, 0
+170:                                              ; preds = %._crit_edge93, %121
+  %.promoted81 = phi i32 [ %.pre.i66, %._crit_edge93 ], [ %125, %121 ]
+  %.promoted78 = phi i32 [ %.promoted78.pre, %._crit_edge93 ], [ %71, %121 ]
+  %171 = icmp sgt i32 %.promoted78, 0
   br i1 %171, label %.lr.ph, label %..critedge2_crit_edge
 
 ..critedge2_crit_edge:                            ; preds = %170
-  %.phi.trans.insert97 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre98 = load i32, ptr %.phi.trans.insert97, align 8, !tbaa !35
+  %.phi.trans.insert96 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre97 = load i32, ptr %.phi.trans.insert96, align 8, !tbaa !35
   br label %.critedge2
 
 .lr.ph:                                           ; preds = %170
   %172 = load ptr, ptr %0, align 8, !tbaa !39
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.promoted81 = load i32, ptr %173, align 8
+  %.promoted80 = load i32, ptr %173, align 8
   br label %175
 
 175:                                              ; preds = %.lr.ph, %253
-  %176 = phi i32 [ %.promoted82, %.lr.ph ], [ %254, %253 ]
-  %177 = phi i32 [ %.promoted81, %.lr.ph ], [ %255, %253 ]
-  %178 = phi i32 [ %.promoted79, %.lr.ph ], [ %186, %253 ]
+  %176 = phi i32 [ %.promoted81, %.lr.ph ], [ %254, %253 ]
+  %177 = phi i32 [ %.promoted80, %.lr.ph ], [ %255, %253 ]
+  %178 = phi i32 [ %.promoted78, %.lr.ph ], [ %186, %253 ]
   %179 = zext nneg i32 %178 to i64
   %180 = getelementptr i16, ptr %172, i64 %179
   %181 = getelementptr i8, ptr %180, i64 -2
@@ -3021,8 +3021,8 @@ _ZN6icu_775Edits8Iterator10readLengthEi.exit69:   ; preds = %_ZN6icu_775Edits8It
   br i1 %256, label %175, label %.critedge2, !llvm.loop !52
 
 .critedge2:                                       ; preds = %175, %253, %..critedge2_crit_edge
-  %.pre.i72 = phi i32 [ %.promoted82, %..critedge2_crit_edge ], [ %176, %175 ], [ %254, %253 ]
-  %257 = phi i32 [ %.pre98, %..critedge2_crit_edge ], [ %177, %175 ], [ %255, %253 ]
+  %.pre.i72 = phi i32 [ %.promoted81, %..critedge2_crit_edge ], [ %176, %175 ], [ %254, %253 ]
+  %257 = phi i32 [ %.pre97, %..critedge2_crit_edge ], [ %177, %175 ], [ %255, %253 ]
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %259 = load i32, ptr %258, align 8, !tbaa !44
   %260 = sub nsw i32 %259, %257
@@ -3045,8 +3045,8 @@ _ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit73: ; preds = %.critedge2
   store i32 %268, ptr %266, align 8, !tbaa !46
   br label %269
 
-269:                                              ; preds = %.thread75, %60, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit67, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit73, %2, %68, %14
-  %.0 = phi i8 [ 1, %14 ], [ 0, %68 ], [ 1, %60 ], [ 0, %2 ], [ 1, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit73 ], [ 1, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit67 ], [ 1, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59 ], [ 1, %.thread75 ]
+269:                                              ; preds = %.thread74, %60, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit67, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit73, %2, %68, %14
+  %.0 = phi i8 [ 1, %14 ], [ 0, %68 ], [ 1, %60 ], [ 0, %2 ], [ 1, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit73 ], [ 1, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit67 ], [ 1, %_ZN6icu_775Edits8Iterator21updatePreviousIndexesEv.exit59 ], [ 1, %.thread74 ]
   ret i8 %.0
 }
 

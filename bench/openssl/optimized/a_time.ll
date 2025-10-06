@@ -95,9 +95,9 @@ define dso_local range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly
   %10 = load ptr, ptr %9, align 8, !tbaa !14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   %11 = icmp slt i32 %8, %.0128
-  br i1 %11, label %.thread, label %.preheader166
+  br i1 %11, label %.thread, label %.preheader165
 
-.preheader166:                                    ; preds = %7
+.preheader165:                                    ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -109,13 +109,13 @@ define dso_local range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly
   %20 = shl nuw nsw i32 %.0131, 1
   br label %21
 
-21:                                               ; preds = %.preheader166, %129
-  %22 = phi i32 [ %5, %.preheader166 ], [ %51, %129 ]
-  %indvars.iv = phi i64 [ 0, %.preheader166 ], [ %indvars.iv.next, %129 ]
-  %23 = phi i32 [ 0, %.preheader166 ], [ %130, %129 ]
-  %24 = phi i32 [ 0, %.preheader166 ], [ %131, %129 ]
-  %.0124172 = phi i32 [ 0, %.preheader166 ], [ %53, %129 ]
-  %25 = icmp eq i32 %.0124172, %.0130
+21:                                               ; preds = %.preheader165, %129
+  %22 = phi i32 [ %5, %.preheader165 ], [ %51, %129 ]
+  %indvars.iv = phi i64 [ 0, %.preheader165 ], [ %indvars.iv.next, %129 ]
+  %23 = phi i32 [ 0, %.preheader165 ], [ %130, %129 ]
+  %24 = phi i32 [ 0, %.preheader165 ], [ %131, %129 ]
+  %.0124171 = phi i32 [ 0, %.preheader165 ], [ %53, %129 ]
+  %25 = icmp eq i32 %.0124171, %.0130
   %or.cond = and i1 %.not145, %25
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !15
@@ -164,8 +164,8 @@ define dso_local range(i32 0, 2) i32 @ossl_asn1_time_to_tm(ptr noundef writeonly
 50:                                               ; preds = %42
   %51 = load i32, ptr %4, align 4, !tbaa !4
   %52 = icmp eq i32 %51, 23
-  %53 = add nuw nsw i32 %.0124172, 1
-  %54 = select i1 %52, i32 %53, i32 %.0124172
+  %53 = add nuw nsw i32 %.0124171, 1
+  %54 = select i1 %52, i32 %53, i32 %.0124171
   %55 = zext nneg i32 %54 to i64
   %56 = getelementptr inbounds nuw i32, ptr @ossl_asn1_time_to_tm.min, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !16
@@ -322,19 +322,19 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   %130 = phi i32 [ %23, %63 ], [ %66, %64 ], [ %23, %74 ], [ %23, %determine_days.exit ], [ %23, %126 ], [ %23, %127 ], [ %23, %128 ], [ %73, %72 ], [ %71, %68 ]
   %131 = phi i32 [ %24, %63 ], [ %24, %64 ], [ %75, %74 ], [ %24, %determine_days.exit ], [ %24, %126 ], [ %24, %127 ], [ %24, %128 ], [ %24, %72 ], [ %24, %68 ]
   %exitcond.not = icmp eq i32 %53, %.0131
-  br i1 %exitcond.not, label %.split.loop.exit221, label %21, !llvm.loop !26
+  br i1 %exitcond.not, label %.split.loop.exit220, label %21, !llvm.loop !26
 
 .split.loop.exit:                                 ; preds = %28, %28, %28
   %132 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit221
+  br label %.split.loop.exit220
 
-.split.loop.exit221:                              ; preds = %129, %.split.loop.exit
+.split.loop.exit220:                              ; preds = %129, %.split.loop.exit
   %133 = phi i32 [ %22, %.split.loop.exit ], [ %51, %129 ]
   %.0126.lcssa = phi i32 [ %132, %.split.loop.exit ], [ %20, %129 ]
   %134 = icmp eq i32 %133, 24
   br i1 %134, label %135, label %153
 
-135:                                              ; preds = %.split.loop.exit221
+135:                                              ; preds = %.split.loop.exit220
   %136 = zext nneg i32 %.0126.lcssa to i64
   %137 = getelementptr inbounds nuw i8, ptr %10, i64 %136
   %138 = load i8, ptr %137, align 1, !tbaa !15
@@ -354,8 +354,8 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %149
-  %indvars.iv186 = phi i64 [ %144, %.lr.ph.preheader ], [ %indvars.iv.next187, %149 ]
-  %145 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv186
+  %indvars.iv185 = phi i64 [ %144, %.lr.ph.preheader ], [ %indvars.iv.next186, %149 ]
+  %145 = getelementptr inbounds nuw i8, ptr %10, i64 %indvars.iv185
   %146 = load i8, ptr %145, align 1, !tbaa !15
   %147 = sext i8 %146 to i32
   %148 = tail call i32 @ossl_ascii_isdigit(i32 noundef %147) #8
@@ -363,19 +363,19 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br i1 %.not147, label %.critedge, label %149
 
 149:                                              ; preds = %.lr.ph
-  %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
-  %exitcond189.not = icmp eq i64 %indvars.iv.next187, %19
-  br i1 %exitcond189.not, label %.thread, label %.lr.ph, !llvm.loop !28
+  %indvars.iv.next186 = add nuw nsw i64 %indvars.iv185, 1
+  %exitcond188.not = icmp eq i64 %indvars.iv.next186, %19
+  br i1 %exitcond188.not, label %.thread, label %.lr.ph, !llvm.loop !28
 
 .critedge:                                        ; preds = %.lr.ph
-  %150 = trunc nuw nsw i64 %indvars.iv186 to i32
+  %150 = trunc nuw nsw i64 %indvars.iv185 to i32
   %151 = icmp eq i32 %142, %150
   %152 = icmp eq i32 %8, %150
   %or.cond159 = or i1 %151, %152
   br i1 %or.cond159, label %.thread, label %153
 
-153:                                              ; preds = %.critedge, %135, %.split.loop.exit221
-  %.1127 = phi i32 [ %.0126.lcssa, %135 ], [ %.0126.lcssa, %.split.loop.exit221 ], [ %150, %.critedge ]
+153:                                              ; preds = %.critedge, %135, %.split.loop.exit220
+  %.1127 = phi i32 [ %.0126.lcssa, %135 ], [ %.0126.lcssa, %.split.loop.exit220 ], [ %150, %.critedge ]
   %154 = sext i32 %.1127 to i64
   %155 = getelementptr inbounds i8, ptr %10, i64 %154
   %156 = load i8, ptr %155, align 1, !tbaa !15
@@ -410,9 +410,9 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br i1 %.not154, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %198
-  %indvars.iv194 = phi i64 [ %indvars.iv.next195, %198 ], [ %168, %.preheader ]
-  %.1125178.us = phi i32 [ %188, %198 ], [ %.0131, %.preheader ]
-  %169 = getelementptr i8, ptr %10, i64 %indvars.iv194
+  %indvars.iv193 = phi i64 [ %indvars.iv.next194, %198 ], [ %168, %.preheader ]
+  %.1125177.us = phi i32 [ %188, %198 ], [ %.0131, %.preheader ]
+  %169 = getelementptr i8, ptr %10, i64 %indvars.iv193
   %170 = load i8, ptr %169, align 1, !tbaa !15
   %171 = sext i8 %170 to i32
   %172 = tail call i32 @ossl_ascii_isdigit(i32 noundef %171) #8
@@ -437,8 +437,8 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   %185 = add nsw i32 %184, %183
   %186 = load i32, ptr %4, align 4, !tbaa !4
   %187 = icmp eq i32 %186, 23
-  %188 = add nuw nsw i32 %.1125178.us, 1
-  %189 = select i1 %187, i32 %188, i32 %.1125178.us
+  %188 = add nuw nsw i32 %.1125177.us, 1
+  %189 = select i1 %187, i32 %188, i32 %.1125177.us
   %190 = zext nneg i32 %189 to i64
   %191 = getelementptr inbounds nuw i32, ptr @ossl_asn1_time_to_tm.min, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !16
@@ -452,19 +452,19 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br i1 %197, label %.thread, label %198
 
 198:                                              ; preds = %194
-  %indvars.iv.next195 = add nsw i64 %indvars.iv194, 2
-  %exitcond197.not = icmp eq i32 %188, %166
-  br i1 %exitcond197.not, label %.split.us.thread, label %.preheader.split.us, !llvm.loop !29
+  %indvars.iv.next194 = add nsw i64 %indvars.iv193, 2
+  %exitcond196.not = icmp eq i32 %188, %166
+  br i1 %exitcond196.not, label %.split.us.thread, label %.preheader.split.us, !llvm.loop !29
 
 .split.us.thread:                                 ; preds = %198
-  %.us-phi215 = trunc i64 %indvars.iv.next195 to i32
+  %.us-phi214 = trunc i64 %indvars.iv.next194 to i32
   br label %243
 
 .preheader.split:                                 ; preds = %.preheader, %237
-  %indvars.iv190 = phi i64 [ %indvars.iv.next191, %237 ], [ %168, %.preheader ]
-  %.0179 = phi i32 [ %.1, %237 ], [ 0, %.preheader ]
-  %.1125178 = phi i32 [ %218, %237 ], [ %.0131, %.preheader ]
-  %199 = getelementptr i8, ptr %10, i64 %indvars.iv190
+  %indvars.iv189 = phi i64 [ %indvars.iv.next190, %237 ], [ %168, %.preheader ]
+  %.0178 = phi i32 [ %.1, %237 ], [ 0, %.preheader ]
+  %.1125177 = phi i32 [ %218, %237 ], [ %.0131, %.preheader ]
+  %199 = getelementptr i8, ptr %10, i64 %indvars.iv189
   %200 = load i8, ptr %199, align 1, !tbaa !15
   %201 = sext i8 %200 to i32
   %202 = tail call i32 @ossl_ascii_isdigit(i32 noundef %201) #8
@@ -489,8 +489,8 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   %215 = add nsw i32 %214, %213
   %216 = load i32, ptr %4, align 4, !tbaa !4
   %217 = icmp eq i32 %216, 23
-  %218 = add nuw nsw i32 %.1125178, 1
-  %219 = select i1 %217, i32 %218, i32 %.1125178
+  %218 = add nuw nsw i32 %.1125177, 1
+  %219 = select i1 %217, i32 %218, i32 %.1125177
   %220 = zext nneg i32 %219 to i64
   %221 = getelementptr inbounds nuw i32, ptr @ossl_asn1_time_to_tm.min, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !16
@@ -504,7 +504,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br i1 %227, label %.thread, label %228
 
 228:                                              ; preds = %224
-  %229 = icmp eq i32 %.1125178, %.0131
+  %229 = icmp eq i32 %.1125177, %.0131
   br i1 %229, label %230, label %232
 
 230:                                              ; preds = %228
@@ -512,22 +512,22 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br label %237
 
 232:                                              ; preds = %228
-  %233 = icmp eq i32 %.1125178, %167
+  %233 = icmp eq i32 %.1125177, %167
   br i1 %233, label %234, label %237
 
 234:                                              ; preds = %232
   %235 = mul nsw i32 %215, 60
-  %236 = add nsw i32 %235, %.0179
+  %236 = add nsw i32 %235, %.0178
   br label %237
 
 237:                                              ; preds = %230, %234, %232
-  %.1 = phi i32 [ %231, %230 ], [ %236, %234 ], [ %.0179, %232 ]
-  %indvars.iv.next191 = add nsw i64 %indvars.iv190, 2
-  %exitcond193.not = icmp eq i32 %218, %166
-  br i1 %exitcond193.not, label %.split.us, label %.preheader.split, !llvm.loop !29
+  %.1 = phi i32 [ %231, %230 ], [ %236, %234 ], [ %.0178, %232 ]
+  %indvars.iv.next190 = add nsw i64 %indvars.iv189, 2
+  %exitcond192.not = icmp eq i32 %218, %166
+  br i1 %exitcond192.not, label %.split.us, label %.preheader.split, !llvm.loop !29
 
 .split.us:                                        ; preds = %237
-  %.us-phi = trunc i64 %indvars.iv.next191 to i32
+  %.us-phi = trunc i64 %indvars.iv.next190 to i32
   %.not150 = icmp eq i32 %.1, 0
   br i1 %.not150, label %243, label %238
 
@@ -540,7 +540,7 @@ determine_days.exit:                              ; preds = %leap_year.exit.i, %
   br i1 %.not151, label %.thread, label %243
 
 243:                                              ; preds = %.split.us.thread, %238, %.split.us, %158
-  %.3 = phi i32 [ %159, %158 ], [ %.us-phi, %.split.us ], [ %.us-phi, %238 ], [ %.us-phi215, %.split.us.thread ]
+  %.3 = phi i32 [ %159, %158 ], [ %.us-phi, %.split.us ], [ %.us-phi, %238 ], [ %.us-phi214, %.split.us.thread ]
   %244 = icmp eq i32 %.3, %8
   br i1 %244, label %245, label %.thread
 

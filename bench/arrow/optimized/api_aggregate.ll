@@ -13244,13 +13244,13 @@ define linkonce_odr void @_ZN5arrow7compute8internal17ValidateEnumValueINS0_12Co
   br label %.critedge
 
 9:                                                ; preds = %.critedge
-  %.0.add = add nuw nsw i64 %.0.idx18, 4
+  %.0.add = add nuw nsw i64 %.0.idx16, 4
   %.not = icmp eq i64 %.0.add, 12
   br i1 %.not, label %13, label %.critedge
 
 .critedge:                                        ; preds = %2, %9
-  %.0.idx18 = phi i64 [ 0, %2 ], [ %.0.add, %9 ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0.idx18
+  %.0.idx16 = phi i64 [ 0, %2 ], [ %.0.add, %9 ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %6, i64 %.0.idx16
   %10 = load i32, ptr %.0.ptr, align 4, !tbaa !370
   %.not11 = icmp eq i32 %1, %10
   br i1 %.not11, label %11, label %9
@@ -30398,13 +30398,13 @@ define linkonce_odr void @_ZN5arrow7compute8internal17ValidateEnumValueINS0_15Qu
   br label %.critedge
 
 8:                                                ; preds = %.critedge
-  %.0.add = add nuw nsw i64 %.0.idx18, 4
+  %.0.add = add nuw nsw i64 %.0.idx16, 4
   %.not = icmp eq i64 %.0.add, 20
   br i1 %.not, label %12, label %.critedge
 
 .critedge:                                        ; preds = %2, %8
-  %.0.idx18 = phi i64 [ 0, %2 ], [ %.0.add, %8 ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.0.idx18
+  %.0.idx16 = phi i64 [ 0, %2 ], [ %.0.add, %8 ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.0.idx16
   %9 = load i32, ptr %.0.ptr, align 4, !tbaa !690
   %.not11 = icmp eq i32 %1, %9
   br i1 %.not11, label %10, label %8

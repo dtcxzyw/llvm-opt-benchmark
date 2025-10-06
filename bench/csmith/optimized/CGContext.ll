@@ -928,8 +928,8 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext14is_nonreadableEPK8Variable(
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !80
   %9 = load ptr, ptr %6, align 8, !tbaa !4
-  %.not14 = icmp eq ptr %8, %9
-  br i1 %.not14, label %.thread, label %.lr.ph.preheader
+  %.not13 = icmp eq ptr %8, %9
+  br i1 %.not13, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
   %10 = ptrtoint ptr %8 to i64
@@ -939,14 +939,14 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext14is_nonreadableEPK8Variable(
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
-  %.0711 = phi i64 [ 0, %.lr.ph.preheader ], [ %20, %.lr.ph ]
+  %.0710 = phi i64 [ 0, %.lr.ph.preheader ], [ %20, %.lr.ph ]
   %14 = load ptr, ptr %3, align 8, !tbaa !53
   %15 = load ptr, ptr %14, align 8, !tbaa !77
   %16 = load ptr, ptr %15, align 8, !tbaa !4
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.0711
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.0710
   %18 = load ptr, ptr %17, align 8, !tbaa !69
   %19 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %18, ptr noundef %1)
-  %20 = add nuw i64 %.0711, 1
+  %20 = add nuw i64 %.0710, 1
   %exitcond.not = icmp eq i64 %20, %13
   %or.cond = select i1 %19, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !81
@@ -971,8 +971,8 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext14is_nonwritableEPK8Variable(
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !80
   %10 = load ptr, ptr %7, align 8, !tbaa !4
-  %.not1825.not = icmp eq ptr %9, %10
-  br i1 %.not1825.not, label %.loopexit, label %.lr.ph.preheader
+  %.not1824.not = icmp eq ptr %9, %10
+  br i1 %.not1824.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %5
   %11 = ptrtoint ptr %9 to i64
@@ -982,17 +982,17 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext14is_nonwritableEPK8Variable(
   br label %.lr.ph
 
 15:                                               ; preds = %.critedge
-  %16 = add nuw i64 %.01426, 1
+  %16 = add nuw i64 %.01425, 1
   %exitcond.not = icmp eq i64 %16, %14
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !83
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
-  %.01426 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.preheader ]
+  %.01425 = phi i64 [ %16, %15 ], [ 0, %.lr.ph.preheader ]
   %17 = load ptr, ptr %3, align 8, !tbaa !53
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !82
   %20 = load ptr, ptr %19, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01426
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01425
   %22 = load ptr, ptr %21, align 8, !tbaa !69
   %23 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef %1)
   br i1 %23, label %.thread, label %.critedge
@@ -1005,23 +1005,23 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext14is_nonwritableEPK8Variable(
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not2327 = icmp eq ptr %26, %27
-  br i1 %.not2327, label %.thread, label %.lr.ph29
+  %.not2226 = icmp eq ptr %26, %27
+  br i1 %.not2226, label %.thread, label %.lr.ph28
 
-.lr.ph29:                                         ; preds = %.loopexit, %31
-  %.sroa.019.028 = phi ptr [ %32, %31 ], [ %26, %.loopexit ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.019.028, i64 32
+.lr.ph28:                                         ; preds = %.loopexit, %31
+  %.sroa.019.027 = phi ptr [ %32, %31 ], [ %26, %.loopexit ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.019.027, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !74
   %30 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef %29)
   br i1 %30, label %.thread, label %31
 
-31:                                               ; preds = %.lr.ph29
-  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.028) #24
-  %.not23 = icmp eq ptr %32, %27
-  br i1 %.not23, label %.thread, label %.lr.ph29, !llvm.loop !84
+31:                                               ; preds = %.lr.ph28
+  %32 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.027) #24
+  %.not22 = icmp eq ptr %32, %27
+  br i1 %.not22, label %.thread, label %.lr.ph28, !llvm.loop !84
 
-.thread:                                          ; preds = %.lr.ph, %.critedge, %31, %.lr.ph29, %.loopexit
-  %.3 = phi i1 [ false, %.loopexit ], [ %30, %.lr.ph29 ], [ %30, %31 ], [ true, %.critedge ], [ true, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.critedge, %31, %.lr.ph28, %.loopexit
+  %.3 = phi i1 [ false, %.loopexit ], [ %30, %.lr.ph28 ], [ %30, %31 ], [ true, %.critedge ], [ true, %.lr.ph ]
   ret i1 %.3
 }
 
@@ -1097,8 +1097,8 @@ define dso_local void @_ZN9CGContext8read_varEPK8Variable(ptr noundef nonnull al
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !80
   %13 = load ptr, ptr %10, align 8, !tbaa !4
-  %.not14.i = icmp eq ptr %12, %13
-  br i1 %.not14.i, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %.lr.ph.preheader.i
+  %.not13.i = icmp eq ptr %12, %13
+  br i1 %.not13.i, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %9
   %14 = ptrtoint ptr %12 to i64
@@ -1108,14 +1108,14 @@ define dso_local void @_ZN9CGContext8read_varEPK8Variable(ptr noundef nonnull al
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.0711.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
+  %.0710.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %24, %.lr.ph.i ]
   %18 = load ptr, ptr %7, align 8, !tbaa !53
   %19 = load ptr, ptr %18, align 8, !tbaa !77
   %20 = load ptr, ptr %19, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0711.i
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0710.i
   %22 = load ptr, ptr %21, align 8, !tbaa !69
   %23 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef %6)
-  %24 = add nuw i64 %.0711.i, 1
+  %24 = add nuw i64 %.0710.i, 1
   %exitcond.not.i = icmp eq i64 %24, %17
   %or.cond = select i1 %23, i1 true, i1 %exitcond.not.i
   br i1 %or.cond, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %.lr.ph.i, !llvm.loop !81
@@ -1167,8 +1167,8 @@ define dso_local noundef zeroext i1 @_ZN9CGContext14check_read_varEPK8VariableRK
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !80
   %18 = load ptr, ptr %15, align 8, !tbaa !4
-  %.not14.i = icmp eq ptr %17, %18
-  br i1 %.not14.i, label %.loopexit, label %.lr.ph.preheader.i
+  %.not13.i = icmp eq ptr %17, %18
+  br i1 %.not13.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %14
   %19 = ptrtoint ptr %17 to i64
@@ -1178,16 +1178,16 @@ define dso_local noundef zeroext i1 @_ZN9CGContext14check_read_varEPK8VariableRK
   br label %.lr.ph.i
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = add nuw i64 %.0711.i, 1
+  %24 = add nuw i64 %.0710.i, 1
   %exitcond.not.i = icmp eq i64 %24, %22
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !81
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
-  %.0711.i = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader.i ]
+  %.0710.i = phi i64 [ %24, %23 ], [ 0, %.lr.ph.preheader.i ]
   %25 = load ptr, ptr %12, align 8, !tbaa !53
   %26 = load ptr, ptr %25, align 8, !tbaa !77
   %27 = load ptr, ptr %26, align 8, !tbaa !4
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.0711.i
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.0710.i
   %29 = load ptr, ptr %28, align 8, !tbaa !69
   %30 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %29, ptr noundef %9)
   br i1 %30, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %23
@@ -1238,8 +1238,8 @@ _ZNK8Variable10is_pointerEv.exit.thread:          ; preds = %41, %46, %_ZNK8Vari
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !80
   %57 = load ptr, ptr %54, align 8, !tbaa !4
-  %.not14.i.i = icmp eq ptr %56, %57
-  br i1 %.not14.i.i, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit.i, label %.lr.ph.preheader.i.i
+  %.not13.i.i = icmp eq ptr %56, %57
+  br i1 %.not13.i.i, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %53
   %58 = ptrtoint ptr %56 to i64
@@ -1249,14 +1249,14 @@ _ZNK8Variable10is_pointerEv.exit.thread:          ; preds = %41, %46, %_ZNK8Vari
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
-  %.0711.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %68, %.lr.ph.i.i ]
+  %.0710.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %68, %.lr.ph.i.i ]
   %62 = load ptr, ptr %12, align 8, !tbaa !53
   %63 = load ptr, ptr %62, align 8, !tbaa !77
   %64 = load ptr, ptr %63, align 8, !tbaa !4
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0711.i.i
+  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %.0710.i.i
   %66 = load ptr, ptr %65, align 8, !tbaa !69
   %67 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %66, ptr noundef %51)
-  %68 = add nuw i64 %.0711.i.i, 1
+  %68 = add nuw i64 %.0710.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %68, %61
   %or.cond.i = select i1 %67, i1 true, i1 %exitcond.not.i.i
   br i1 %or.cond.i, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit.i, label %.lr.ph.i.i, !llvm.loop !81
@@ -2220,8 +2220,8 @@ define dso_local noundef zeroext i1 @_ZN9CGContext15check_write_varEPK8VariableR
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !80
   %17 = load ptr, ptr %14, align 8, !tbaa !4
-  %.not1825.not.i = icmp eq ptr %16, %17
-  br i1 %.not1825.not.i, label %.loopexit.i, label %.lr.ph.preheader.i
+  %.not1824.not.i = icmp eq ptr %16, %17
+  br i1 %.not1824.not.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %12
   %18 = ptrtoint ptr %16 to i64
@@ -2231,17 +2231,17 @@ define dso_local noundef zeroext i1 @_ZN9CGContext15check_write_varEPK8VariableR
   br label %.lr.ph.i
 
 22:                                               ; preds = %.critedge.i
-  %23 = add nuw i64 %.01426.i, 1
+  %23 = add nuw i64 %.01425.i, 1
   %exitcond.not.i = icmp eq i64 %23, %21
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !83
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
-  %.01426.i = phi i64 [ %23, %22 ], [ 0, %.lr.ph.preheader.i ]
+  %.01425.i = phi i64 [ %23, %22 ], [ 0, %.lr.ph.preheader.i ]
   %24 = load ptr, ptr %10, align 8, !tbaa !53
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !82
   %27 = load ptr, ptr %26, align 8, !tbaa !4
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.01426.i
+  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.01425.i
   %29 = load ptr, ptr %28, align 8, !tbaa !69
   %30 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %29, ptr noundef %9)
   br i1 %30, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit.thread, label %.critedge.i
@@ -2254,20 +2254,20 @@ define dso_local noundef zeroext i1 @_ZN9CGContext15check_write_varEPK8VariableR
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !42
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not2327.i = icmp eq ptr %33, %34
-  br i1 %.not2327.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph29.i
+  %.not2226.i = icmp eq ptr %33, %34
+  br i1 %.not2226.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph28.i
 
-.lr.ph29.i:                                       ; preds = %.loopexit.i, %38
-  %.sroa.019.028.i = phi ptr [ %39, %38 ], [ %33, %.loopexit.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.019.028.i, i64 32
+.lr.ph28.i:                                       ; preds = %.loopexit.i, %38
+  %.sroa.019.027.i = phi ptr [ %39, %38 ], [ %33, %.loopexit.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.019.027.i, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !74
   %37 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %9, ptr noundef %36)
   br i1 %37, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit.thread, label %38
 
-38:                                               ; preds = %.lr.ph29.i
-  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.028.i) #24
-  %.not23.i = icmp eq ptr %39, %34
-  br i1 %.not23.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph29.i, !llvm.loop !84
+38:                                               ; preds = %.lr.ph28.i
+  %39 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.027.i) #24
+  %.not22.i = icmp eq ptr %39, %34
+  br i1 %.not22.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph28.i, !llvm.loop !84
 
 _ZNK9CGContext14is_nonwritableEPK8Variable.exit:  ; preds = %38, %.loopexit.i
   %40 = tail call noundef zeroext i1 @_ZNK8Variable8is_constEv(ptr noundef nonnull align 8 dereferenceable(200) %9)
@@ -2321,8 +2321,8 @@ _ZNK8Variable10is_pointerEv.exit.thread:          ; preds = %59, %64, %_ZNK8Vari
   tail call void @_ZN9CGContext9write_varEPK8Variable(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %9)
   br label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit.thread
 
-_ZNK9CGContext14is_nonwritableEPK8Variable.exit.thread: ; preds = %.lr.ph.i, %.critedge.i, %.lr.ph29.i, %64, %50, %45, %41, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, %3, %_ZNK8Variable10is_pointerEv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK8Variable10is_pointerEv.exit.thread ], [ false, %3 ], [ false, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ false, %41 ], [ false, %45 ], [ false, %50 ], [ false, %64 ], [ false, %.lr.ph29.i ], [ false, %.critedge.i ], [ false, %.lr.ph.i ]
+_ZNK9CGContext14is_nonwritableEPK8Variable.exit.thread: ; preds = %.lr.ph.i, %.critedge.i, %.lr.ph28.i, %64, %50, %45, %41, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, %3, %_ZNK8Variable10is_pointerEv.exit.thread
+  %.0 = phi i1 [ true, %_ZNK8Variable10is_pointerEv.exit.thread ], [ false, %3 ], [ false, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ false, %41 ], [ false, %45 ], [ false, %50 ], [ false, %64 ], [ false, %.lr.ph28.i ], [ false, %.critedge.i ], [ false, %.lr.ph.i ]
   ret i1 %.0
 }
 
@@ -2343,8 +2343,8 @@ define dso_local void @_ZN9CGContext9write_varEPK8Variable(ptr noundef nonnull a
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !80
   %14 = load ptr, ptr %11, align 8, !tbaa !4
-  %.not1825.not.i = icmp eq ptr %13, %14
-  br i1 %.not1825.not.i, label %.loopexit.i, label %.lr.ph.preheader.i
+  %.not1824.not.i = icmp eq ptr %13, %14
+  br i1 %.not1824.not.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %9
   %15 = ptrtoint ptr %13 to i64
@@ -2354,17 +2354,17 @@ define dso_local void @_ZN9CGContext9write_varEPK8Variable(ptr noundef nonnull a
   br label %.lr.ph.i
 
 19:                                               ; preds = %.critedge.i
-  %20 = add nuw i64 %.01426.i, 1
+  %20 = add nuw i64 %.01425.i, 1
   %exitcond.not.i = icmp eq i64 %20, %18
   br i1 %exitcond.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !83
 
 .lr.ph.i:                                         ; preds = %19, %.lr.ph.preheader.i
-  %.01426.i = phi i64 [ %20, %19 ], [ 0, %.lr.ph.preheader.i ]
+  %.01425.i = phi i64 [ %20, %19 ], [ 0, %.lr.ph.preheader.i ]
   %21 = load ptr, ptr %7, align 8, !tbaa !53
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !82
   %24 = load ptr, ptr %23, align 8, !tbaa !4
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01426.i
+  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01425.i
   %26 = load ptr, ptr %25, align 8, !tbaa !69
   %27 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %26, ptr noundef %6)
   br i1 %27, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.critedge.i
@@ -2377,22 +2377,22 @@ define dso_local void @_ZN9CGContext9write_varEPK8Variable(ptr noundef nonnull a
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %30 = load ptr, ptr %29, align 8, !tbaa !42
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.not2327.i = icmp eq ptr %30, %31
-  br i1 %.not2327.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph29.i
+  %.not2226.i = icmp eq ptr %30, %31
+  br i1 %.not2226.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph28.i
 
-.lr.ph29.i:                                       ; preds = %.loopexit.i, %35
-  %.sroa.019.028.i = phi ptr [ %36, %35 ], [ %30, %.loopexit.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.019.028.i, i64 32
+.lr.ph28.i:                                       ; preds = %.loopexit.i, %35
+  %.sroa.019.027.i = phi ptr [ %36, %35 ], [ %30, %.loopexit.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.019.027.i, i64 32
   %33 = load ptr, ptr %32, align 8, !tbaa !74
   %34 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %6, ptr noundef %33)
   br i1 %34, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %35
 
-35:                                               ; preds = %.lr.ph29.i
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.028.i) #24
-  %.not23.i = icmp eq ptr %36, %31
-  br i1 %.not23.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph29.i, !llvm.loop !84
+35:                                               ; preds = %.lr.ph28.i
+  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.027.i) #24
+  %.not22.i = icmp eq ptr %36, %31
+  br i1 %.not22.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph28.i, !llvm.loop !84
 
-_ZNK9CGContext14is_nonwritableEPK8Variable.exit:  ; preds = %.lr.ph.i, %.critedge.i, %.lr.ph29.i, %35, %.loopexit.i
+_ZNK9CGContext14is_nonwritableEPK8Variable.exit:  ; preds = %.lr.ph.i, %.critedge.i, %.lr.ph28.i, %35, %.loopexit.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %38 = load ptr, ptr %37, align 8, !tbaa !45
   %.not = icmp eq ptr %38, null
@@ -3221,8 +3221,8 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr n
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !80
   %25 = load ptr, ptr %22, align 8, !tbaa !4
-  %.not14.i = icmp eq ptr %24, %25
-  br i1 %.not14.i, label %.loopexit, label %.lr.ph.preheader.i
+  %.not13.i = icmp eq ptr %24, %25
+  br i1 %.not13.i, label %.loopexit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %21
   %26 = ptrtoint ptr %24 to i64
@@ -3232,16 +3232,16 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr n
   br label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %31 = add nuw i64 %.0711.i, 1
+  %31 = add nuw i64 %.0710.i, 1
   %exitcond.not.i = icmp eq i64 %31, %29
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !81
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
-  %.0711.i = phi i64 [ %31, %30 ], [ 0, %.lr.ph.preheader.i ]
+  %.0710.i = phi i64 [ %31, %30 ], [ 0, %.lr.ph.preheader.i ]
   %32 = load ptr, ptr %7, align 8, !tbaa !53
   %33 = load ptr, ptr %32, align 8, !tbaa !77
   %34 = load ptr, ptr %33, align 8, !tbaa !4
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0711.i
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0710.i
   %36 = load ptr, ptr %35, align 8, !tbaa !69
   %37 = tail call noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %36, ptr noundef %19)
   br i1 %37, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %30
@@ -3288,8 +3288,8 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr n
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !80
   %65 = load ptr, ptr %62, align 8, !tbaa !4
-  %.not1825.not.i = icmp eq ptr %64, %65
-  br i1 %.not1825.not.i, label %.loopexit.i, label %.lr.ph.preheader.i31
+  %.not1824.not.i = icmp eq ptr %64, %65
+  br i1 %.not1824.not.i, label %.loopexit.i, label %.lr.ph.preheader.i31
 
 .lr.ph.preheader.i31:                             ; preds = %60
   %66 = ptrtoint ptr %64 to i64
@@ -3299,17 +3299,17 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr n
   br label %.lr.ph.i32
 
 70:                                               ; preds = %.critedge.i
-  %71 = add nuw i64 %.01426.i, 1
+  %71 = add nuw i64 %.01425.i, 1
   %exitcond.not.i33 = icmp eq i64 %71, %69
   br i1 %exitcond.not.i33, label %.loopexit.i, label %.lr.ph.i32, !llvm.loop !83
 
 .lr.ph.i32:                                       ; preds = %70, %.lr.ph.preheader.i31
-  %.01426.i = phi i64 [ %71, %70 ], [ 0, %.lr.ph.preheader.i31 ]
+  %.01425.i = phi i64 [ %71, %70 ], [ 0, %.lr.ph.preheader.i31 ]
   %72 = load ptr, ptr %12, align 8, !tbaa !53
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !82
   %75 = load ptr, ptr %74, align 8, !tbaa !4
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.01426.i
+  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.01425.i
   %77 = load ptr, ptr %76, align 8, !tbaa !69
   %78 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %77, ptr noundef %58)
   br i1 %78, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %.critedge.i
@@ -3320,20 +3320,20 @@ define dso_local noundef zeroext i1 @_ZNK9CGContext11in_conflictERK6Effect(ptr n
 
 .loopexit.i:                                      ; preds = %70, %60, %55
   %80 = load ptr, ptr %13, align 8, !tbaa !42
-  %.not2327.i = icmp eq ptr %80, %14
-  br i1 %.not2327.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph29.i
+  %.not2226.i = icmp eq ptr %80, %14
+  br i1 %.not2226.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph28.i
 
-.lr.ph29.i:                                       ; preds = %.loopexit.i, %84
-  %.sroa.019.028.i = phi ptr [ %85, %84 ], [ %80, %.loopexit.i ]
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.019.028.i, i64 32
+.lr.ph28.i:                                       ; preds = %.loopexit.i, %84
+  %.sroa.019.027.i = phi ptr [ %85, %84 ], [ %80, %.loopexit.i ]
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.019.027.i, i64 32
   %82 = load ptr, ptr %81, align 8, !tbaa !74
   %83 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %58, ptr noundef %82)
   br i1 %83, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, label %84
 
-84:                                               ; preds = %.lr.ph29.i
-  %85 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.028.i) #24
-  %.not23.i = icmp eq ptr %85, %14
-  br i1 %.not23.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph29.i, !llvm.loop !84
+84:                                               ; preds = %.lr.ph28.i
+  %85 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.019.027.i) #24
+  %.not22.i = icmp eq ptr %85, %14
+  br i1 %.not22.i, label %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, label %.lr.ph28.i, !llvm.loop !84
 
 _ZNK9CGContext14is_nonwritableEPK8Variable.exit:  ; preds = %84, %.loopexit.i
   %86 = tail call noundef zeroext i1 @_ZNK8Variable8is_constEv(ptr noundef nonnull align 8 dereferenceable(200) %58)
@@ -3371,8 +3371,8 @@ _ZNK9CGContext14is_nonwritableEPK8Variable.exit:  ; preds = %84, %.loopexit.i
   %107 = icmp ult i64 %100, %106
   br i1 %107, label %55, label %_ZNK9CGContext14is_nonreadableEPK8Variable.exit, !llvm.loop !190
 
-_ZNK9CGContext14is_nonreadableEPK8Variable.exit:  ; preds = %.loopexit, %42, %.lr.ph.i, %95, %90, %87, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, %.critedge29, %.lr.ph.i32, %.critedge.i, %.lr.ph29.i, %.preheader
-  %.2 = phi i1 [ false, %.preheader ], [ true, %.lr.ph29.i ], [ true, %.critedge.i ], [ true, %.lr.ph.i32 ], [ true, %95 ], [ true, %90 ], [ true, %87 ], [ true, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ false, %.critedge29 ], [ true, %.lr.ph.i ], [ true, %42 ], [ true, %.loopexit ]
+_ZNK9CGContext14is_nonreadableEPK8Variable.exit:  ; preds = %.loopexit, %42, %.lr.ph.i, %95, %90, %87, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit, %.critedge29, %.lr.ph.i32, %.critedge.i, %.lr.ph28.i, %.preheader
+  %.2 = phi i1 [ false, %.preheader ], [ true, %.lr.ph28.i ], [ true, %.critedge.i ], [ true, %.lr.ph.i32 ], [ true, %95 ], [ true, %90 ], [ true, %87 ], [ true, %_ZNK9CGContext14is_nonwritableEPK8Variable.exit ], [ false, %.critedge29 ], [ true, %.lr.ph.i ], [ true, %42 ], [ true, %.loopexit ]
   ret i1 %.2
 }
 

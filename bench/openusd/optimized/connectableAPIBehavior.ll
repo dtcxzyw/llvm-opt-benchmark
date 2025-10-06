@@ -9209,12 +9209,12 @@ _ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit: ; preds = %72, %59, %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %270 = invoke ptr @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry28GetAPITypeFromSchemaTypeNameERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0103.0155)
-          to label %.noexc55 unwind label %.loopexit235
+          to label %.noexc55 unwind label %.loopexit232
 
 .noexc55:                                         ; preds = %269
   store ptr %270, ptr %7, align 8
   %271 = invoke noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17UsdSchemaRegistry13GetSchemaKindERKNS_6TfTypeE(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc56 unwind label %.loopexit235
+          to label %.noexc56 unwind label %.loopexit232
 
 .noexc56:                                         ; preds = %.noexc55
   %.not.i54 = icmp eq i32 %271, 5
@@ -9222,21 +9222,21 @@ _ZN3tbb6detail2d116queuing_rw_mutex11scoped_lockD2Ev.exit: ; preds = %72, %59, %
 
 272:                                              ; preds = %.noexc56
   %273 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry34_LoadPluginDefiningBehaviorForTypeERKNS_6TfTypeE(ptr noundef nonnull align 8 dereferenceable(8) %7)
-          to label %.noexc57 unwind label %.loopexit235
+          to label %.noexc57 unwind label %.loopexit232
 
 .noexc57:                                         ; preds = %272
   br i1 %273, label %274, label %267
 
 274:                                              ; preds = %.noexc57
   %275 = invoke fastcc noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry20_FindBehaviorForTypeERKNS_6TfTypeEPSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %.noexc58 unwind label %.loopexit.split-lp236
+          to label %.noexc58 unwind label %.loopexit.split-lp233
 
 .noexc58:                                         ; preds = %274
   br i1 %275, label %277, label %276
 
 276:                                              ; preds = %.noexc58
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry37RegisterPlugConfiguredBehaviorForTypeERKNS_6TfTypeERSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(16) %16)
-          to label %277 unwind label %.loopexit.split-lp236
+          to label %277 unwind label %.loopexit.split-lp233
 
 277:                                              ; preds = %.noexc58, %276
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -9347,20 +9347,20 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i:
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__30UsdShadeConnectableAPIBehaviorEEaSERKS2_.exit: ; preds = %277, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_releaseEv.exit.i.i.i
   invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_117_BehaviorRegistry29RegisterBehaviorForPrimTypeIdERKNS1_11_PrimTypeIdERKSt10shared_ptrINS_30UsdShadeConnectableAPIBehaviorEE(ptr noundef nonnull align 8 dereferenceable(73) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(16) %12)
-          to label %326 unwind label %.loopexit.split-lp236
+          to label %326 unwind label %.loopexit.split-lp233
 
-.loopexit235:                                     ; preds = %269, %.noexc55, %272
-  %lpad.loopexit237 = landingpad { ptr, i32 }
+.loopexit232:                                     ; preds = %269, %.noexc55, %272
+  %lpad.loopexit234 = landingpad { ptr, i32 }
           cleanup
   br label %325
 
-.loopexit.split-lp236:                            ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__30UsdShadeConnectableAPIBehaviorEEaSERKS2_.exit, %274, %276
-  %lpad.loopexit.split-lp238 = landingpad { ptr, i32 }
+.loopexit.split-lp233:                            ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__30UsdShadeConnectableAPIBehaviorEEaSERKS2_.exit, %274, %276
+  %lpad.loopexit.split-lp235 = landingpad { ptr, i32 }
           cleanup
   br label %325
 
-325:                                              ; preds = %.loopexit.split-lp236, %.loopexit235
-  %lpad.phi239 = phi { ptr, i32 } [ %lpad.loopexit237, %.loopexit235 ], [ %lpad.loopexit.split-lp238, %.loopexit.split-lp236 ]
+325:                                              ; preds = %.loopexit.split-lp233, %.loopexit232
+  %lpad.phi236 = phi { ptr, i32 } [ %lpad.loopexit234, %.loopexit232 ], [ %lpad.loopexit.split-lp235, %.loopexit.split-lp233 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__30UsdShadeConnectableAPIBehaviorEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #18
   br label %368
 
@@ -9460,7 +9460,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__6TfTypeESaIS1_EED2Ev.exit: ; pre
   br i1 %.not124, label %376, label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7TfTokenESaIS1_EED2Ev.exit
 
 368:                                              ; preds = %.loopexit134, %.loopexit.split-lp135, %325, %258
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %258 ], [ %lpad.phi239, %325 ], [ %lpad.loopexit136, %.loopexit134 ], [ %lpad.loopexit.split-lp137, %.loopexit.split-lp135 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %258 ], [ %lpad.phi236, %325 ], [ %lpad.loopexit136, %.loopexit134 ], [ %lpad.loopexit.split-lp137, %.loopexit.split-lp135 ]
   %369 = load ptr, ptr %13, align 8
   %.not.i.i.i69 = icmp eq ptr %369, null
   br i1 %.not.i.i.i69, label %.body79, label %370

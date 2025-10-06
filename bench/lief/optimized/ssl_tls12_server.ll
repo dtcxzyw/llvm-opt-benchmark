@@ -4049,7 +4049,7 @@ define internal fastcc range(i32 -27648, 1) i32 @ssl_ciphersuite_match(ptr nound
 
 ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   %57 = tail call i32 @mbedtls_ssl_get_ciphersuite_sig_pk_alg(ptr noundef nonnull %6) #12
-  %.fr56.i = freeze i32 %57
+  %.fr53.i = freeze i32 %57
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %59 = load ptr, ptr %58, align 8, !tbaa !45
@@ -4066,7 +4066,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
 
 66:                                               ; preds = %62, %ssl_conf_has_psk_or_cb.exit
   %.033.i = phi ptr [ %65, %62 ], [ %61, %ssl_conf_has_psk_or_cb.exit ]
-  %67 = icmp eq i32 %.fr56.i, 0
+  %67 = icmp eq i32 %.fr53.i, 0
   br i1 %67, label %117, label %68
 
 68:                                               ; preds = %66
@@ -4075,23 +4075,23 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   br i1 %69, label %101, label %.preheader.i
 
 .preheader.i:                                     ; preds = %68
-  %70 = icmp eq i32 %.fr56.i, 4
+  %70 = icmp eq i32 %.fr53.i, 4
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br i1 %70, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i, %98
-  %.03253.us.i = phi ptr [ %100, %98 ], [ %.033.i, %.preheader.i ]
+  %.03250.us.i = phi ptr [ %100, %98 ], [ %.033.i, %.preheader.i ]
   store i32 0, ptr %5, align 4, !tbaa !77
-  %72 = load ptr, ptr %.03253.us.i, align 8, !tbaa !173
+  %72 = load ptr, ptr %.03250.us.i, align 8, !tbaa !173
   call void @mbedtls_debug_print_crt(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 729, ptr noundef nonnull @.str.78, ptr noundef %72) #12
-  %73 = load ptr, ptr %.03253.us.i, align 8, !tbaa !173
+  %73 = load ptr, ptr %.03250.us.i, align 8, !tbaa !173
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 360
   %75 = call i32 @mbedtls_pk_can_do(ptr noundef nonnull %74, i32 noundef 4) #12
   %.not37.us.i = icmp eq i32 %75, 0
   br i1 %.not37.us.i, label %97, label %76
 
 76:                                               ; preds = %.preheader.split.us.i
-  %77 = load ptr, ptr %.03253.us.i, align 8, !tbaa !173
+  %77 = load ptr, ptr %.03250.us.i, align 8, !tbaa !173
   %78 = call i32 @mbedtls_ssl_check_cert_usage(ptr noundef %77, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 771, ptr noundef nonnull %5) #12
   %.not38.us.i = icmp eq i32 %78, 0
   br i1 %.not38.us.i, label %80, label %79
@@ -4101,7 +4101,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   br label %98
 
 80:                                               ; preds = %76
-  %81 = load ptr, ptr %.03253.us.i, align 8, !tbaa !173
+  %81 = load ptr, ptr %.03250.us.i, align 8, !tbaa !173
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 360
   %83 = load ptr, ptr %58, align 8, !tbaa !45
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1672
@@ -4118,22 +4118,22 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   %89 = load i32, ptr %88, align 8, !tbaa !174
   %90 = load i16, ptr %85, align 2, !tbaa !122
   %.not1.i.us.i = icmp eq i16 %90, 0
-  br i1 %.not1.i.us.i, label %.loopexit48.us.i, label %.lr.ph.i.us.i
+  br i1 %.not1.i.us.i, label %.loopexit.us.i, label %.lr.ph.i.us.i
 
 .lr.ph.i.us.i:                                    ; preds = %80, %94
   %91 = phi i16 [ %96, %94 ], [ %90, %80 ]
   %.072.i.us.i = phi ptr [ %95, %94 ], [ %85, %80 ]
   %92 = call i32 @mbedtls_ssl_get_ecp_group_id_from_tls_id(i16 noundef zeroext %91) #12
   %93 = icmp eq i32 %92, %89
-  br i1 %93, label %.loopexit.i, label %94
+  br i1 %93, label %ssl_check_key_curve.exit.i, label %94
 
 94:                                               ; preds = %.lr.ph.i.us.i
   %95 = getelementptr inbounds nuw i8, ptr %.072.i.us.i, i64 2
   %96 = load i16, ptr %95, align 2, !tbaa !122
   %.not.i.us.i = icmp eq i16 %96, 0
-  br i1 %.not.i.us.i, label %.loopexit48.us.i, label %.lr.ph.i.us.i, !llvm.loop !179
+  br i1 %.not.i.us.i, label %.loopexit.us.i, label %.lr.ph.i.us.i, !llvm.loop !179
 
-.loopexit48.us.i:                                 ; preds = %94, %80
+.loopexit.us.i:                                   ; preds = %94, %80
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 771, ptr noundef nonnull @.str.81) #12
   br label %98
 
@@ -4141,8 +4141,8 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 746, ptr noundef nonnull @.str.79) #12
   br label %98
 
-98:                                               ; preds = %97, %.loopexit48.us.i, %79
-  %99 = getelementptr inbounds nuw i8, ptr %.03253.us.i, i64 16
+98:                                               ; preds = %97, %.loopexit.us.i, %79
+  %99 = getelementptr inbounds nuw i8, ptr %.03250.us.i, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !180
   %.not36.us.i = icmp eq ptr %100, null
   br i1 %.not36.us.i, label %.loopexit, label %.preheader.split.us.i, !llvm.loop !181
@@ -4152,13 +4152,13 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   br label %.loopexit
 
 .preheader.split.i:                               ; preds = %.preheader.i, %111
-  %.03253.i = phi ptr [ %113, %111 ], [ %.033.i, %.preheader.i ]
+  %.03250.i = phi ptr [ %113, %111 ], [ %.033.i, %.preheader.i ]
   store i32 0, ptr %5, align 4, !tbaa !77
-  %102 = load ptr, ptr %.03253.i, align 8, !tbaa !173
+  %102 = load ptr, ptr %.03250.i, align 8, !tbaa !173
   call void @mbedtls_debug_print_crt(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 729, ptr noundef nonnull @.str.78, ptr noundef %102) #12
-  %103 = load ptr, ptr %.03253.i, align 8, !tbaa !173
+  %103 = load ptr, ptr %.03250.i, align 8, !tbaa !173
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 360
-  %105 = call i32 @mbedtls_pk_can_do(ptr noundef nonnull %104, i32 noundef %.fr56.i) #12
+  %105 = call i32 @mbedtls_pk_can_do(ptr noundef nonnull %104, i32 noundef %.fr53.i) #12
   %.not37.i = icmp eq i32 %105, 0
   br i1 %.not37.i, label %106, label %107
 
@@ -4167,27 +4167,27 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   br label %111
 
 107:                                              ; preds = %.preheader.split.i
-  %108 = load ptr, ptr %.03253.i, align 8, !tbaa !173
+  %108 = load ptr, ptr %.03250.i, align 8, !tbaa !173
   %109 = call i32 @mbedtls_ssl_check_cert_usage(ptr noundef %108, ptr noundef nonnull %6, i32 noundef 0, i32 noundef 771, ptr noundef nonnull %5) #12
   %.not38.i = icmp eq i32 %109, 0
-  br i1 %.not38.i, label %.loopexit.i, label %110
+  br i1 %.not38.i, label %ssl_check_key_curve.exit.i, label %110
 
 110:                                              ; preds = %107
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 763, ptr noundef nonnull @.str.80) #12
   br label %111
 
 111:                                              ; preds = %110, %106
-  %112 = getelementptr inbounds nuw i8, ptr %.03253.i, i64 16
+  %112 = getelementptr inbounds nuw i8, ptr %.03250.i, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !180
   %.not36.i = icmp eq ptr %113, null
   br i1 %.not36.i, label %.loopexit, label %.preheader.split.i, !llvm.loop !181
 
-.loopexit.i:                                      ; preds = %107, %.lr.ph.i.us.i
-  %.03252.i = phi ptr [ %.03253.us.i, %.lr.ph.i.us.i ], [ %.03253.i, %107 ]
+ssl_check_key_curve.exit.i:                       ; preds = %107, %.lr.ph.i.us.i
+  %.03249.i = phi ptr [ %.03250.us.i, %.lr.ph.i.us.i ], [ %.03250.i, %107 ]
   %114 = load ptr, ptr %58, align 8, !tbaa !45
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 1704
-  store ptr %.03252.i, ptr %115, align 8, !tbaa !111
-  %116 = load ptr, ptr %.03252.i, align 8, !tbaa !173
+  store ptr %.03249.i, ptr %115, align 8, !tbaa !111
+  %116 = load ptr, ptr %.03249.i, align 8, !tbaa !173
   call void @mbedtls_debug_print_crt(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 784, ptr noundef nonnull @.str.82, ptr noundef %116) #12
   br label %117
 
@@ -4196,7 +4196,7 @@ ssl_conf_has_psk_or_cb.exit:                      ; preds = %53, %38, %36
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str, i32 noundef 862, ptr noundef nonnull @.str.74) #12
   br label %126
 
-117:                                              ; preds = %.loopexit.i, %66
+117:                                              ; preds = %ssl_check_key_curve.exit.i, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %118 = call i32 @mbedtls_ssl_get_ciphersuite_sig_alg(ptr noundef nonnull %6) #12
   %.not35 = icmp eq i32 %118, 0

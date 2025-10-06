@@ -103,21 +103,21 @@ define void @_check_libraw_missing_support(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load ptr, ptr @warning_missing_support_seen, align 8, !tbaa !6
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  %.not9.not.i = icmp eq ptr %5, null
-  br i1 %.not9.not.i, label %.loopexit, label %.lr.ph.i
+  %.not10.i = icmp eq ptr %5, null
+  br i1 %.not10.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %9
-  %.0610.i = phi ptr [ %11, %9 ], [ %5, %1 ]
-  %7 = load ptr, ptr %.0610.i, align 8, !tbaa !11
+  %.0611.i = phi ptr [ %11, %9 ], [ %5, %1 ]
+  %7 = load ptr, ptr %.0611.i, align 8, !tbaa !11
   %8 = tail call i32 @g_strcmp0(ptr noundef %7, ptr noundef nonnull %6) #5
   %.not8.i = icmp eq i32 %8, 0
   br i1 %.not8.i, label %is_in_glist.exit, label %9
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds nuw i8, ptr %.0610.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.0611.i, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !13
-  %.not.not.i = icmp eq ptr %11, null
-  br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i
+  %.not.i = icmp eq ptr %11, null
+  br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 .loopexit:                                        ; preds = %9, %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -126,8 +126,8 @@ define void @_check_libraw_missing_support(ptr noundef %0) local_unnamed_addr #0
 13:                                               ; preds = %20, %.loopexit
   %indvars.iv.i = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next.i, %20 ]
   %14 = tail call i32 @g_strcmp0(ptr noundef nonnull %12, ptr noundef nonnull @.str) #5
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %15, label %20
+  %.not.i12 = icmp eq i32 %14, 0
+  br i1 %.not.i12, label %15, label %20
 
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw %struct.model_map, ptr @modelMap, i64 %indvars.iv.i
@@ -177,11 +177,11 @@ is_in_glist.exit:                                 ; preds = %.lr.ph.i, %dt_libra
 define range(i32 0, 2) i32 @dt_libraw_lookup_makermodel(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   br label %9
 
-9:                                                ; preds = %8, %27
-  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %27 ]
+9:                                                ; preds = %8, %16
+  %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %16 ]
   %10 = tail call i32 @g_strcmp0(ptr noundef %0, ptr noundef nonnull @.str) #5
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %27
+  br i1 %.not, label %11, label %16
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw %struct.model_map, ptr @modelMap, i64 %indvars.iv
@@ -189,29 +189,29 @@ define range(i32 0, 2) i32 @dt_libraw_lookup_makermodel(ptr noundef %0, ptr noun
   %14 = load ptr, ptr %13, align 8, !tbaa !14
   %15 = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef %14) #5
   %.not19 = icmp eq i32 %15, 0
-  br i1 %.not19, label %16, label %27
+  br i1 %.not19, label %17, label %16
 
-16:                                               ; preds = %11
-  %17 = sext i32 %3 to i64
-  %18 = tail call i64 @g_strlcpy(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef %17) #5
-  %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %20 = load ptr, ptr %19, align 8, !tbaa !17
-  %21 = sext i32 %5 to i64
-  %22 = tail call i64 @g_strlcpy(ptr noundef %4, ptr noundef %20, i64 noundef %21) #5
-  %23 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %24 = load ptr, ptr %23, align 8, !tbaa !18
-  %25 = sext i32 %7 to i64
-  %26 = tail call i64 @g_strlcpy(ptr noundef %6, ptr noundef %24, i64 noundef %25) #5
-  br label %.loopexit
-
-27:                                               ; preds = %9, %11
+16:                                               ; preds = %9, %11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 30
   br i1 %exitcond.not, label %.loopexit, label %9
 
-.loopexit:                                        ; preds = %27, %16
-  %spec.select = phi i32 [ 1, %16 ], [ 0, %27 ]
-  ret i32 %spec.select
+17:                                               ; preds = %11
+  %18 = sext i32 %3 to i64
+  %19 = tail call i64 @g_strlcpy(ptr noundef %2, ptr noundef nonnull @.str, i64 noundef %18) #5
+  %20 = getelementptr inbounds nuw i8, ptr %12, i64 24
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
+  %22 = sext i32 %5 to i64
+  %23 = tail call i64 @g_strlcpy(ptr noundef %4, ptr noundef %21, i64 noundef %22) #5
+  %24 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !18
+  %26 = sext i32 %7 to i64
+  %27 = tail call i64 @g_strlcpy(ptr noundef %6, ptr noundef %25, i64 noundef %26) #5
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %16, %17
+  %28 = phi i32 [ 1, %17 ], [ 0, %16 ]
+  ret i32 %28
 }
 
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #1

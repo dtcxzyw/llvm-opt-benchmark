@@ -154533,8 +154533,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17
   %48 = ptrtoint ptr %.sroa.0.0.ph.i.i to i64
   %.neg.i.i = sub i64 %48, %4
   %49 = add i64 %.neg.i.i, %1
-  %.not.not.i = icmp eq i32 %.sroa.4.0.i.ph.i.i, %2
-  br i1 %.not.not.i, label %5, label %_ZN4core3str7pattern8Searcher11next_reject17h9215b99546dcec34E.exit
+  %.not.i = icmp eq i32 %.sroa.4.0.i.ph.i.i, %2
+  br i1 %.not.i, label %5, label %_ZN4core3str7pattern8Searcher11next_reject17h9215b99546dcec34E.exit
 
 _ZN4core3str7pattern8Searcher11next_reject17h9215b99546dcec34E.exit: ; preds = %5, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcaa8afe2adbdb29aE.exit.i"
   %.sroa.6.118 = phi i64 [ %49, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcaa8afe2adbdb29aE.exit.i" ], [ %1, %5 ]
@@ -154622,8 +154622,8 @@ _ZN4core3str7pattern8Searcher11next_reject17h9215b99546dcec34E.exit: ; preds = %
   tail call void @llvm.assume(i1 %97)
   %98 = ptrtoint ptr %.sroa.5.2.ph.i.i to i64
   %99 = add i64 %52, %98
-  %.not.not.i4 = icmp eq i32 %.sroa.4.1.i.ph.i.i, %2
-  br i1 %.not.not.i4, label %53, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h3909849dcc97a3d8E.exit
+  %.not.i4 = icmp eq i32 %.sroa.4.1.i.ph.i.i, %2
+  br i1 %.not.i4, label %53, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h3909849dcc97a3d8E.exit
 
 _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h3909849dcc97a3d8E.exit: ; preds = %53, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hcaed1488d5f9737aE.exit.i"
   %.sroa.01.1 = phi i64 [ %54, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hcaed1488d5f9737aE.exit.i" ], [ %.sroa.01.0, %53 ]
@@ -155395,8 +155395,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   tail call void @llvm.assume(i1 %45)
   %46 = ptrtoint ptr %.sroa.5.2.ph.i.i to i64
   %47 = sub nuw i64 %46, %3
-  %.not.not.i = icmp eq i32 %.sroa.4.1.i.ph.i.i, %2
-  br i1 %.not.not.i, label %4, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h3909849dcc97a3d8E.exit
+  %.not.i = icmp eq i32 %.sroa.4.1.i.ph.i.i, %2
+  br i1 %.not.i, label %4, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h3909849dcc97a3d8E.exit
 
 _ZN4core3str7pattern15ReverseSearcher16next_reject_back17h3909849dcc97a3d8E.exit: ; preds = %4, %"_ZN88_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..ReverseSearcher$GT$9next_back17hcaed1488d5f9737aE.exit.i"
   %48 = insertvalue { ptr, i64 } poison, ptr %0, 0
@@ -155572,8 +155572,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   tail call void @llvm.assume(i1 %48)
   %49 = ptrtoint ptr %.sroa.0.0.ph.i.i to i64
   %50 = add i64 %.neg.i.i, %49
-  %.not.not.i = icmp eq i32 %.sroa.4.0.i.ph.i.i, %2
-  br i1 %.not.not.i, label %5, label %_ZN4core3str7pattern8Searcher11next_reject17h9215b99546dcec34E.exit
+  %.not.i = icmp eq i32 %.sroa.4.0.i.ph.i.i, %2
+  br i1 %.not.i, label %5, label %_ZN4core3str7pattern8Searcher11next_reject17h9215b99546dcec34E.exit
 
 _ZN4core3str7pattern8Searcher11next_reject17h9215b99546dcec34E.exit: ; preds = %5, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcaa8afe2adbdb29aE.exit.i"
   %.sroa.0.0 = phi i64 [ %6, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hcaa8afe2adbdb29aE.exit.i" ], [ %1, %5 ]

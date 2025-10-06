@@ -10077,8 +10077,8 @@ proto_item_set_hidden.exit97:                     ; preds = %proto_item_set_hidd
   br i1 %or.cond7.i, label %.sink.split.sink.split.i, label %.sink.split.i
 
 .sink.split.sink.split.i:                         ; preds = %120, %116
-  %.sink184.i = phi i32 [ 4, %116 ], [ 5, %120 ]
-  %121 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.sink184.i)
+  %.sink183.i = phi i32 [ 4, %116 ], [ 5, %120 ]
+  %121 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.sink183.i)
   %122 = lshr i8 %121, 4
   %123 = zext nneg i8 %122 to i32
   br label %.sink.split.i
@@ -10092,14 +10092,14 @@ proto_item_set_hidden.exit97:                     ; preds = %proto_item_set_hidd
   %125 = load i32, ptr @global_cigi_byte_order, align 4
   %126 = icmp eq i32 %125, -1
   %or.cond11.i = select i1 %or.cond.i, i1 %126, i1 false
-  br i1 %or.cond11.i, label %.sink.split180.i, label %127
+  br i1 %or.cond11.i, label %.sink.split179.i, label %127
 
-.sink.split180.i:                                 ; preds = %124
+.sink.split179.i:                                 ; preds = %124
   %switch.selectcmp.i = icmp eq i16 %111, 128
   store i1 %switch.selectcmp.i, ptr @cigi_byte_order, align 4
   br label %127
 
-127:                                              ; preds = %.sink.split180.i, %124
+127:                                              ; preds = %.sink.split179.i, %124
   %128 = load i32, ptr @cigi_minor_version, align 4
   %129 = and i32 %128, -2
   %130 = icmp eq i32 %129, 2
@@ -10456,8 +10456,8 @@ proto_item_set_hidden.exit97:                     ; preds = %proto_item_set_hidd
     i16 36, label %271
     i16 37, label %272
     i16 38, label %273
-    i16 -1, label %.fold.split173.i
-    i16 4095, label %.fold.split152.i
+    i16 -1, label %.fold.split172.i
+    i16 4095, label %.fold.split151.i
     i16 4094, label %274
     i16 4093, label %275
     i16 4092, label %276
@@ -10643,15 +10643,15 @@ proto_item_set_hidden.exit97:                     ; preds = %proto_item_set_hidd
 .fold.split.i:                                    ; preds = %236
   br label %293
 
-.fold.split152.i:                                 ; preds = %236
+.fold.split151.i:                                 ; preds = %236
   br label %293
 
-.fold.split173.i:                                 ; preds = %236
+.fold.split172.i:                                 ; preds = %236
   br label %293
 
-293:                                              ; preds = %.fold.split173.i, %.fold.split152.i, %.fold.split.i, %291, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236
-  %.0142.shrunk.i = phi i16 [ 32, %237 ], [ 40, %238 ], [ 24, %239 ], [ 32, %240 ], [ 24, %241 ], [ 32, %242 ], [ 24, %243 ], [ 32, %244 ], [ 48, %245 ], [ 72, %246 ], [ 24, %247 ], [ 32, %248 ], [ 16, %249 ], [ 40, %250 ], [ 32, %251 ], [ 16, %252 ], [ 24, %253 ], [ 32, %254 ], [ 40, %255 ], [ 40, %256 ], [ 48, %257 ], [ 40, %258 ], [ 72, %259 ], [ 64, %260 ], [ 8, %261 ], [ 32, %262 ], [ 64, %263 ], [ %224, %264 ], [ %224, %265 ], [ %224, %266 ], [ 16, %267 ], [ 48, %268 ], [ 24, %269 ], [ %224, %270 ], [ %224, %271 ], [ 16, %272 ], [ 16, %273 ], [ 40, %274 ], [ 24, %275 ], [ 64, %276 ], [ 24, %277 ], [ 56, %278 ], [ 48, %279 ], [ 32, %280 ], [ 16, %281 ], [ 24, %282 ], [ 16, %283 ], [ 24, %284 ], [ 16, %285 ], [ 8, %286 ], [ 24, %287 ], [ %224, %288 ], [ 24, %236 ], [ %224, %289 ], [ %224, %291 ], [ 48, %.fold.split.i ], [ 16, %.fold.split152.i ], [ 24, %.fold.split173.i ]
-  %.0140.in.i = phi ptr [ @hf_cigi4_conformal_clamped_entity_position, %237 ], [ @hf_cigi3_component_control, %238 ], [ @hf_cigi3_short_component_control, %239 ], [ @hf_cigi3_articulated_part_control, %240 ], [ @hf_cigi3_short_articulated_part_control, %241 ], [ @hf_cigi4_velocity_control, %242 ], [ @hf_cigi3_celestial_sphere_control, %243 ], [ @hf_cigi3_atmosphere_control, %244 ], [ @hf_cigi3_environmental_region_control, %245 ], [ @hf_cigi3_weather_control, %246 ], [ @hf_cigi3_maritime_surface_conditions_control, %247 ], [ @hf_cigi3_wave_control, %248 ], [ @hf_cigi3_terrestrial_surface_conditions_control, %249 ], [ @hf_cigi3_view_control, %250 ], [ @hf_cigi3_sensor_control, %251 ], [ @hf_cigi3_motion_tracker_control, %252 ], [ @hf_cigi3_earth_reference_model_definition, %253 ], [ @hf_cigi4_acceleration_control, %254 ], [ @hf_cigi3_view_definition, %255 ], [ @hf_cigi3_collision_detection_segment_definition, %256 ], [ @hf_cigi3_collision_detection_volume_definition, %257 ], [ @hf_cigi3_hat_hot_request, %258 ], [ @hf_cigi3_line_of_sight_segment_request, %259 ], [ @hf_cigi3_line_of_sight_vector_request, %260 ], [ @hf_cigi3_position_request, %261 ], [ @hf_cigi3_environmental_conditions_request, %262 ], [ @hf_cigi3_3_symbol_surface_definition, %263 ], [ @hf_cigi3_3_symbol_text_definition, %264 ], [ @hf_cigi3_3_symbol_circle_definition, %265 ], [ @hf_cigi4_symbol_polygon_definition, %266 ], [ @hf_cigi3_3_symbol_clone, %267 ], [ @hf_cigi3_3_symbol_control, %268 ], [ @hf_cigi3_3_short_symbol_control, %269 ], [ @hf_cigi4_symbol_circle_textured_definition, %270 ], [ @hf_cigi4_symbol_polygon_textured_definition, %271 ], [ @hf_cigi4_entity_control, %272 ], [ @hf_cigi4_animation_control, %273 ], [ @hf_cigi3_hat_hot_extended_response, %274 ], [ @hf_cigi3_line_of_sight_response, %275 ], [ @hf_cigi3_line_of_sight_extended_response, %276 ], [ @hf_cigi3_sensor_response, %277 ], [ @hf_cigi3_sensor_extended_response, %278 ], [ @hf_cigi3_position_response, %279 ], [ @hf_cigi3_weather_conditions_response, %280 ], [ @hf_cigi3_aerosol_concentration_response, %281 ], [ @hf_cigi3_maritime_surface_conditions_response, %282 ], [ @hf_cigi3_terrestrial_surface_conditions_response, %283 ], [ @hf_cigi3_collision_detection_segment_notification, %284 ], [ @hf_cigi3_collision_detection_volume_notification, %285 ], [ @hf_cigi3_animation_stop_notification, %286 ], [ @hf_cigi3_event_notification, %287 ], [ @hf_cigi3_image_generator_message, %288 ], [ @hf_cigi3_ig_control, %236 ], [ @hf_cigi4_locally_defined, %289 ], [ %hf_cigi4_registered.hf_cigi_unknown.i, %291 ], [ @hf_cigi4_entity_position, %.fold.split.i ], [ @hf_cigi3_hat_hot_response, %.fold.split152.i ], [ @hf_cigi4_start_of_frame, %.fold.split173.i ]
+293:                                              ; preds = %.fold.split172.i, %.fold.split151.i, %.fold.split.i, %291, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236
+  %.0142.shrunk.i = phi i16 [ 32, %237 ], [ 40, %238 ], [ 24, %239 ], [ 32, %240 ], [ 24, %241 ], [ 32, %242 ], [ 24, %243 ], [ 32, %244 ], [ 48, %245 ], [ 72, %246 ], [ 24, %247 ], [ 32, %248 ], [ 16, %249 ], [ 40, %250 ], [ 32, %251 ], [ 16, %252 ], [ 24, %253 ], [ 32, %254 ], [ 40, %255 ], [ 40, %256 ], [ 48, %257 ], [ 40, %258 ], [ 72, %259 ], [ 64, %260 ], [ 8, %261 ], [ 32, %262 ], [ 64, %263 ], [ %224, %264 ], [ %224, %265 ], [ %224, %266 ], [ 16, %267 ], [ 48, %268 ], [ 24, %269 ], [ %224, %270 ], [ %224, %271 ], [ 16, %272 ], [ 16, %273 ], [ 40, %274 ], [ 24, %275 ], [ 64, %276 ], [ 24, %277 ], [ 56, %278 ], [ 48, %279 ], [ 32, %280 ], [ 16, %281 ], [ 24, %282 ], [ 16, %283 ], [ 24, %284 ], [ 16, %285 ], [ 8, %286 ], [ 24, %287 ], [ %224, %288 ], [ 24, %236 ], [ %224, %289 ], [ %224, %291 ], [ 48, %.fold.split.i ], [ 16, %.fold.split151.i ], [ 24, %.fold.split172.i ]
+  %.0140.in.i = phi ptr [ @hf_cigi4_conformal_clamped_entity_position, %237 ], [ @hf_cigi3_component_control, %238 ], [ @hf_cigi3_short_component_control, %239 ], [ @hf_cigi3_articulated_part_control, %240 ], [ @hf_cigi3_short_articulated_part_control, %241 ], [ @hf_cigi4_velocity_control, %242 ], [ @hf_cigi3_celestial_sphere_control, %243 ], [ @hf_cigi3_atmosphere_control, %244 ], [ @hf_cigi3_environmental_region_control, %245 ], [ @hf_cigi3_weather_control, %246 ], [ @hf_cigi3_maritime_surface_conditions_control, %247 ], [ @hf_cigi3_wave_control, %248 ], [ @hf_cigi3_terrestrial_surface_conditions_control, %249 ], [ @hf_cigi3_view_control, %250 ], [ @hf_cigi3_sensor_control, %251 ], [ @hf_cigi3_motion_tracker_control, %252 ], [ @hf_cigi3_earth_reference_model_definition, %253 ], [ @hf_cigi4_acceleration_control, %254 ], [ @hf_cigi3_view_definition, %255 ], [ @hf_cigi3_collision_detection_segment_definition, %256 ], [ @hf_cigi3_collision_detection_volume_definition, %257 ], [ @hf_cigi3_hat_hot_request, %258 ], [ @hf_cigi3_line_of_sight_segment_request, %259 ], [ @hf_cigi3_line_of_sight_vector_request, %260 ], [ @hf_cigi3_position_request, %261 ], [ @hf_cigi3_environmental_conditions_request, %262 ], [ @hf_cigi3_3_symbol_surface_definition, %263 ], [ @hf_cigi3_3_symbol_text_definition, %264 ], [ @hf_cigi3_3_symbol_circle_definition, %265 ], [ @hf_cigi4_symbol_polygon_definition, %266 ], [ @hf_cigi3_3_symbol_clone, %267 ], [ @hf_cigi3_3_symbol_control, %268 ], [ @hf_cigi3_3_short_symbol_control, %269 ], [ @hf_cigi4_symbol_circle_textured_definition, %270 ], [ @hf_cigi4_symbol_polygon_textured_definition, %271 ], [ @hf_cigi4_entity_control, %272 ], [ @hf_cigi4_animation_control, %273 ], [ @hf_cigi3_hat_hot_extended_response, %274 ], [ @hf_cigi3_line_of_sight_response, %275 ], [ @hf_cigi3_line_of_sight_extended_response, %276 ], [ @hf_cigi3_sensor_response, %277 ], [ @hf_cigi3_sensor_extended_response, %278 ], [ @hf_cigi3_position_response, %279 ], [ @hf_cigi3_weather_conditions_response, %280 ], [ @hf_cigi3_aerosol_concentration_response, %281 ], [ @hf_cigi3_maritime_surface_conditions_response, %282 ], [ @hf_cigi3_terrestrial_surface_conditions_response, %283 ], [ @hf_cigi3_collision_detection_segment_notification, %284 ], [ @hf_cigi3_collision_detection_volume_notification, %285 ], [ @hf_cigi3_animation_stop_notification, %286 ], [ @hf_cigi3_event_notification, %287 ], [ @hf_cigi3_image_generator_message, %288 ], [ @hf_cigi3_ig_control, %236 ], [ @hf_cigi4_locally_defined, %289 ], [ %hf_cigi4_registered.hf_cigi_unknown.i, %291 ], [ @hf_cigi4_entity_position, %.fold.split.i ], [ @hf_cigi3_hat_hot_response, %.fold.split151.i ], [ @hf_cigi4_start_of_frame, %.fold.split172.i ]
   %.0142.i = zext i16 %.0142.shrunk.i to i32
   %.0140.i = load i32, ptr %.0140.in.i, align 4
   %294 = tail call ptr @val_to_str_ext_const(i32 noundef %222, ptr noundef nonnull @cigi4_packet_id_vals_ext, ptr noundef nonnull @.str.20)

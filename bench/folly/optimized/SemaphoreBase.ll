@@ -250,11 +250,11 @@ define noundef zeroext i1 @_ZN5folly6fibers13SemaphoreBase10signalSlowEl(ptr nou
 
 21:                                               ; preds = %.critedge.i.i.i.i.i.i
   %22 = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 224, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %5), !noalias !7
-  %.pre36.i = load i32, ptr %4, align 4, !tbaa !10, !noalias !7
+  %.pre35.i = load i32, ptr %4, align 4, !tbaa !10, !noalias !7
   br label %23
 
 23:                                               ; preds = %21, %.critedge.i.i.i.i.i.i
-  %24 = phi i32 [ %.pre36.i, %21 ], [ %19, %.critedge.i.i.i.i.i.i ]
+  %24 = phi i32 [ %.pre35.i, %21 ], [ %19, %.critedge.i.i.i.i.i.i ]
   %25 = lshr i32 %24, 1
   %26 = and i32 %25, 256
   %27 = and i32 %24, -673
@@ -367,12 +367,12 @@ _ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13Semapho
   br label %74
 
 74:                                               ; preds = %_ZN5folly9LockedPtrINS_12SynchronizedIN5boost9intrusive4listINS_6fibers13SemaphoreBase6WaiterEJNS3_11member_hookIS7_NS3_16list_member_hookIJNS3_9link_modeILNS3_14link_mode_typeE1EEEEEEXadL_ZNS7_5hook_EEEEENS3_18constant_time_sizeILb0EEEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSN_22SynchronizedMutexLevelE1ELNSN_23SynchronizedMutexMethodE0EEEED2Ev.exit, %73
-  %switch = icmp ne i32 %.019, 1
-  %75 = icmp sgt i64 %.125, 0
-  %or.cond = select i1 %switch, i1 %75, i1 false
-  br i1 %or.cond, label %9, label %76, !llvm.loop !27
+  %75 = icmp ne i32 %.019, 1
+  %76 = icmp sgt i64 %.125, 0
+  %or.cond = select i1 %75, i1 %76, i1 false
+  br i1 %or.cond, label %9, label %77, !llvm.loop !27
 
-76:                                               ; preds = %74
+77:                                               ; preds = %74
   ret i1 true
 }
 
@@ -405,11 +405,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomi
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %.pre36 = load i32, ptr %1, align 4, !tbaa !10
+  %.pre35 = load i32, ptr %1, align 4, !tbaa !10
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = phi i32 [ %.pre36, %8 ], [ %6, %5 ]
+  %11 = phi i32 [ %.pre35, %8 ], [ %6, %5 ]
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 256
   %14 = and i32 %11, -673
@@ -903,11 +903,11 @@ define void @_ZN5folly6fibers13SemaphoreBase11wait_commonEl(ptr noundef nonnull 
 
 .noexc9:                                          ; preds = %.critedge.i.i.i.i.i.i.i
   %27 = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %10, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 224, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %5)
-  %.pre36.i = load i32, ptr %4, align 4, !tbaa !10
+  %.pre35.i = load i32, ptr %4, align 4, !tbaa !10
   br label %28
 
 28:                                               ; preds = %.noexc9, %.critedge.i.i.i.i.i.i.i
-  %29 = phi i32 [ %.pre36.i, %.noexc9 ], [ %25, %.critedge.i.i.i.i.i.i.i ]
+  %29 = phi i32 [ %.pre35.i, %.noexc9 ], [ %25, %.critedge.i.i.i.i.i.i.i ]
   %30 = lshr i32 %29, 1
   %31 = and i32 %30, 256
   %32 = and i32 %29, -673
@@ -1053,11 +1053,11 @@ define noundef zeroext i1 @_ZN5folly6fibers13SemaphoreBase15try_wait_commonERNS1
 
 25:                                               ; preds = %.critedge.i.i.i.i.i.i.i
   %26 = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %9, ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 224, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %6), !noalias !46
-  %.pre36.i = load i32, ptr %5, align 4, !tbaa !10, !noalias !46
+  %.pre35.i = load i32, ptr %5, align 4, !tbaa !10, !noalias !46
   br label %27
 
 27:                                               ; preds = %25, %.critedge.i.i.i.i.i.i.i
-  %28 = phi i32 [ %.pre36.i, %25 ], [ %23, %.critedge.i.i.i.i.i.i.i ]
+  %28 = phi i32 [ %.pre35.i, %25 ], [ %23, %.critedge.i.i.i.i.i.i.i ]
   %29 = lshr i32 %28, 1
   %30 = and i32 %29, 256
   %31 = and i32 %28, -673
@@ -1305,11 +1305,11 @@ _ZSt11make_uniqueIN5folly6fibers12_GLOBAL__N_112FutureWaiterEJRlEENSt8__detail9_
           to label %.noexc21 unwind label %.loopexit
 
 .noexc21:                                         ; preds = %50
-  %.pre36.i = load i32, ptr %5, align 4, !tbaa !10
+  %.pre35.i = load i32, ptr %5, align 4, !tbaa !10
   br label %52
 
 52:                                               ; preds = %.noexc21, %.critedge.i.i.i.i.i.i.i
-  %53 = phi i32 [ %.pre36.i, %.noexc21 ], [ %48, %.critedge.i.i.i.i.i.i.i ]
+  %53 = phi i32 [ %.pre35.i, %.noexc21 ], [ %48, %.critedge.i.i.i.i.i.i.i ]
   %54 = lshr i32 %53, 1
   %55 = and i32 %54, 256
   %56 = and i32 %53, -673

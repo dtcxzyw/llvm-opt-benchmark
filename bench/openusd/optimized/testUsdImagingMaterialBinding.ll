@@ -5949,7 +5949,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit: ; preds = %38, %_Z
 48:                                               ; preds = %_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E.exitthread-pre-split.thread
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %413
+  br label %414
 
 50:                                               ; preds = %33
   %51 = landingpad { ptr, i32 }
@@ -5959,7 +5959,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit: ; preds = %38, %_Z
 .body:                                            ; preds = %36, %50
   %eh.lpad-body = phi { ptr, i32 } [ %51, %50 ], [ %37, %36 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #21
-  br label %413
+  br label %414
 
 52:                                               ; preds = %_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E.exitthread-pre-split._crit_edge, %.thread.i
   %53 = phi ptr [ %.pre, %_ZSt20dynamic_pointer_castIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceENS0_16HdDataSourceBaseEESt10shared_ptrIT_ERKS3_IT0_E.exitthread-pre-split._crit_edge ], [ %17, %.thread.i ]
@@ -6812,7 +6812,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 .body24:                                          ; preds = %150, %338, %.body27
   %.pn16 = phi { ptr, i32 } [ %eh.lpad-body28, %.body27 ], [ %.pn, %338 ], [ %.pn.pn.i, %150 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdVectorDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %13) #21
-  br label %413
+  br label %414
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdVectorDataSourceEED2Ev.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i54, %370, %357, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtValueESaIS1_EED2Ev.exit, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit
   %.0 = phi i32 [ 1, %_ZN32pxrInternal_v0_24__pxrReserved__12VtDictionaryD2Ev.exit ], [ %.1, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7VtValueESaIS1_EED2Ev.exit ], [ %.1, %357 ], [ %.1, %370 ], [ %.1, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i54 ]
@@ -6890,21 +6890,21 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__18HdVectorDataSourceEED2Ev.exit, %393, %406, %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i60
-  %switch = icmp eq i32 %.0, 0
-  br i1 %switch, label %411, label %414
+  %411 = icmp eq i32 %.0, 0
+  br i1 %411, label %412, label %415
 
-411:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
-  %412 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %412, align 8
+412:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit
+  %413 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %413, align 8
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValue5_InitIA13_cEENSt9enable_ifIXntsr3std7is_sameIT_NS_17Vt_ValueGetStoredIS4_E4TypeEEE5valueEvE4typeERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 1 dereferenceable(13) @.str.24)
-  br label %414
+  br label %415
 
-413:                                              ; preds = %.body24, %.body, %48
+414:                                              ; preds = %.body24, %.body, %48
   %.pn18 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %49, %48 ], [ %.pn16, %.body24 ]
   call void @_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11) #21
   resume { ptr, i32 } %.pn18
 
-414:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, %411
+415:                                              ; preds = %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__21HdContainerDataSourceEED2Ev.exit, %412
   ret void
 }
 

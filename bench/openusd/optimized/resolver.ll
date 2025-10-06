@@ -14709,16 +14709,16 @@ define internal fastcc noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved_
   %.val = load ptr, ptr %7, align 8
   %8 = getelementptr i8, ptr %7, i64 8
   %.val14 = load ptr, ptr %8, align 8
-  %.not40 = icmp eq ptr %.val, %.val14
-  br i1 %.not40, label %.loopexit, label %.lr.ph
+  %.not39 = icmp eq ptr %.val, %.val14
+  br i1 %.not39, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %10
 
 10:                                               ; preds = %.lr.ph, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit
-  %.sroa.032.039 = phi ptr [ %.val, %.lr.ph ], [ %119, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.032.039, i64 16
+  %.sroa.032.038 = phi ptr [ %.val, %.lr.ph ], [ %119, %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.032.038, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %12, %13
@@ -14728,8 +14728,8 @@ define internal fastcc noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved_
   %15 = load ptr, ptr %9, align 8
   call fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_115_CreateResolverERKNS_6TfTypeEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nonnull writable align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %15)
   %16 = load ptr, ptr %3, align 8
-  %.not35 = icmp eq ptr %16, null
-  br i1 %.not35, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit, label %17
+  %.not34 = icmp eq ptr %16, null
+  br i1 %.not34, label %_ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit, label %17
 
 17:                                               ; preds = %14
   store ptr null, ptr %3, align 8
@@ -14785,7 +14785,7 @@ define internal fastcc noundef zeroext i1 @_ZZN32pxrInternal_v0_24__pxrReserved_
   store i32 1, ptr %39, align 4, !noalias !226
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver9_ResolverESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %37, align 8, !noalias !226
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 16
-  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver9_ResolverC2ERKNS0_13_ResolverInfoERKSt10shared_ptrINS_10ArResolverEE(ptr noundef nonnull align 8 dereferenceable(144) %40, ptr noundef nonnull align 8 dereferenceable(51) %.sroa.032.039, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
+  invoke fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver9_ResolverC2ERKNS0_13_ResolverInfoERKSt10shared_ptrINS_10ArResolverEE(ptr noundef nonnull align 8 dereferenceable(144) %40, ptr noundef nonnull align 8 dereferenceable(51) %.sroa.032.038, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %_ZSt11make_sharedIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver9_ResolverEJRKNS1_13_ResolverInfoESt10shared_ptrINS0_10ArResolverEEEES7_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver9_ResolverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i, !noalias !226
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_120_DispatchingResolver9_ResolverESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit13.i.i.i.i: ; preds = %.noexc
@@ -14967,9 +14967,9 @@ _ZNKSt14default_deleteIN32pxrInternal_v0_24__pxrReserved__10ArResolverEEclEPS1_.
   br label %.loopexit
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit: ; preds = %14, %10
-  %119 = getelementptr inbounds nuw i8, ptr %.sroa.032.039, i64 56
-  %.not41 = icmp eq ptr %119, %.val14
-  br i1 %.not41, label %.loopexit, label %10
+  %119 = getelementptr inbounds nuw i8, ptr %.sroa.032.038, i64 56
+  %.not40 = icmp eq ptr %119, %.val14
+  br i1 %.not40, label %.loopexit, label %10
 
 _ZNSt10unique_ptrIN32pxrInternal_v0_24__pxrReserved__10ArResolverESt14default_deleteIS1_EED2Ev.exit30: ; preds = %.body19, %27
   %.pn = phi { ptr, i32 } [ %eh.lpad-body20, %.body19 ], [ %28, %27 ]

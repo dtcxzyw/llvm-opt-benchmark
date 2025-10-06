@@ -1006,12 +1006,12 @@ define hidden void @_RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtN
   br label %16
 
 16:                                               ; preds = %22, %.lr.ph.i.i.i
-  %.sroa.01.019.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %21, %22 ]
+  %.sroa.01.018.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %21, %22 ]
   %17 = phi ptr [ %.promoted.i.i.i, %.lr.ph.i.i.i ], [ %18, %22 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   store ptr %18, ptr %1, align 8, !alias.scope !233, !noalias !236
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !240
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB7_8variance12UnitVarianceNtBS_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.01.019.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %17), !noalias !244
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB7_8variance12UnitVarianceNtBS_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.01.018.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %17), !noalias !244
   %19 = load ptr, ptr %3, align 8, !noalias !240, !noundef !5
   %20 = icmp eq ptr %19, null
   %21 = load ptr, ptr %15, align 8, !noalias !240, !nonnull !5, !align !146, !noundef !5
@@ -1081,12 +1081,12 @@ define hidden void @_RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtN
   br label %16
 
 16:                                               ; preds = %22, %.lr.ph.i.i.i
-  %.sroa.01.019.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %21, %22 ]
+  %.sroa.01.018.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %21, %22 ]
   %17 = phi ptr [ %.promoted.i.i.i, %.lr.ph.i.i.i ], [ %18, %22 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr %18, ptr %1, align 8, !alias.scope !257, !noalias !260
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !264
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantSizeE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.019.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %17), !noalias !268
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantSizeE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.018.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %17), !noalias !268
   %19 = load ptr, ptr %3, align 8, !noalias !264, !noundef !5
   %20 = icmp eq ptr %19, null
   %21 = load ptr, ptr %15, align 8, !noalias !264, !nonnull !5, !align !146, !noundef !5
@@ -1156,12 +1156,12 @@ define hidden void @_RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtN
   br label %16
 
 16:                                               ; preds = %22, %.lr.ph.i.i.i
-  %.sroa.01.019.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %21, %22 ]
+  %.sroa.01.018.i.i.i = phi ptr [ %8, %.lr.ph.i.i.i ], [ %21, %22 ]
   %17 = phi ptr [ %.promoted.i.i.i, %.lr.ph.i.i.i ], [ %18, %22 ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 64
   store ptr %18, ptr %1, align 8, !alias.scope !281, !noalias !284
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !288
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.019.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %17), !noalias !292
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.018.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %17), !noalias !292
   %19 = load ptr, ptr %3, align 8, !noalias !288, !noundef !5
   %20 = icmp eq ptr %19, null
   %21 = load ptr, ptr %15, align 8, !noalias !288, !nonnull !5, !align !146, !noundef !5
@@ -4266,12 +4266,12 @@ define noundef align 8 dereferenceable_or_null(48) ptr @_RNvXs0_NtNtCslyFhtC9DD0
   br label %12
 
 12:                                               ; preds = %18, %.lr.ph.i
-  %.sroa.01.019.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %18 ]
+  %.sroa.01.018.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %18 ]
   %13 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %14, %18 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store ptr %14, ptr %0, align 8, !alias.scope !1027, !noalias !1030
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1034
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB7_8variance12UnitVarianceNtBS_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.01.019.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %13), !noalias !1038
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB7_8variance12UnitVarianceNtBS_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.01.018.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %13), !noalias !1038
   %15 = load ptr, ptr %2, align 8, !noalias !1034, !noundef !5
   %16 = icmp eq ptr %15, null
   %17 = load ptr, ptr %11, align 8, !noalias !1034, !nonnull !5, !align !146, !noundef !5
@@ -4315,12 +4315,12 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_RNvXs0_NtNtCslyFhtC9DD0
   br label %12
 
 12:                                               ; preds = %18, %.lr.ph.i
-  %.sroa.01.019.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %18 ]
+  %.sroa.01.018.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %18 ]
   %13 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %14, %18 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %14, ptr %0, align 8, !alias.scope !1042, !noalias !1045
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1049
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantSizeE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.019.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %13), !noalias !1053
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantSizeE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.018.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %13), !noalias !1053
   %15 = load ptr, ptr %2, align 8, !noalias !1049, !noundef !5
   %16 = icmp eq ptr %15, null
   %17 = load ptr, ptr %11, align 8, !noalias !1049, !nonnull !5, !align !146, !noundef !5
@@ -4364,12 +4364,12 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_RNvXs0_NtNtCslyFhtC9DD0
   br label %12
 
 12:                                               ; preds = %18, %.lr.ph.i
-  %.sroa.01.019.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %18 ]
+  %.sroa.01.018.i = phi ptr [ %4, %.lr.ph.i ], [ %17, %18 ]
   %13 = phi ptr [ %.promoted.i, %.lr.ph.i ], [ %14, %18 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 64
   store ptr %14, ptr %0, align 8, !alias.scope !1057, !noalias !1060
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1064
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.019.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %13), !noalias !1068
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %2, ptr noalias noundef nonnull align 1 %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.018.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %13), !noalias !1068
   %15 = load ptr, ptr %2, align 8, !noalias !1064, !noundef !5
   %16 = icmp eq ptr %15, null
   %17 = load ptr, ptr %11, align 8, !noalias !1064, !nonnull !5, !align !146, !noundef !5
@@ -4414,12 +4414,12 @@ define hidden void @_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3Ma
   br label %13
 
 13:                                               ; preds = %19, %.lr.ph.i.i
-  %.sroa.01.019.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %18, %19 ]
+  %.sroa.01.018.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %18, %19 ]
   %14 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %15, %19 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   store ptr %15, ptr %1, align 8, !alias.scope !1075, !noalias !1078
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1082
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB7_8variance12UnitVarianceNtBS_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.01.019.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14), !noalias !1086
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB7_8variance12UnitVarianceNtBS_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.01.018.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %14), !noalias !1086
   %16 = load ptr, ptr %3, align 8, !noalias !1082, !noundef !5
   %17 = icmp eq ptr %16, null
   %18 = load ptr, ptr %12, align 8, !noalias !1082, !nonnull !5, !align !146, !noundef !5
@@ -4472,12 +4472,12 @@ define hidden void @_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3Ma
   br label %13
 
 13:                                               ; preds = %19, %.lr.ph.i.i
-  %.sroa.01.019.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %18, %19 ]
+  %.sroa.01.018.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %18, %19 ]
   %14 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %15, %19 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr %15, ptr %1, align 8, !alias.scope !1093, !noalias !1096
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1100
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantSizeE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.019.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %14), !noalias !1104
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantSizeE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.018.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %14), !noalias !1104
   %16 = load ptr, ptr %3, align 8, !noalias !1100, !noundef !5
   %17 = icmp eq ptr %16, null
   %18 = load ptr, ptr %12, align 8, !noalias !1100, !nonnull !5, !align !146, !noundef !5
@@ -4530,12 +4530,12 @@ define hidden void @_RNvXs0_NtNtNtCs1LoaDTb72WA_4core4iter8adapters3mapINtB5_3Ma
   br label %13
 
 13:                                               ; preds = %19, %.lr.ph.i.i
-  %.sroa.01.019.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %18, %19 ]
+  %.sroa.01.018.i.i = phi ptr [ %5, %.lr.ph.i.i ], [ %18, %19 ]
   %14 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %15, %19 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   store ptr %15, ptr %1, align 8, !alias.scope !1111, !noalias !1114
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1118
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.019.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %14), !noalias !1122
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.018.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %14), !noalias !1122
   %16 = load ptr, ptr %3, align 8, !noalias !1118, !noundef !5
   %17 = icmp eq ptr %16, null
   %18 = load ptr, ptr %12, align 8, !noalias !1118, !nonnull !5, !align !146, !noundef !5
@@ -10819,11 +10819,11 @@ define void @_RNvYINtNtNtCslyFhtC9DD08_9itertools8adaptors8coalesce10CoalesceByI
   br label %18
 
 18:                                               ; preds = %24, %.lr.ph.i.i.i.i
-  %.sroa.01.019.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %23, %24 ]
+  %.sroa.01.018.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %23, %24 ]
   %19 = phi ptr [ %.promoted.i.i.i.i, %.lr.ph.i.i.i.i ], [ %20, %24 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2448
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB7_8variance12UnitVarianceNtBS_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.01.019.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %19), !noalias !2452
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRNtB7_10RepetitionINtNtB7_8variance12UnitVarianceNtBS_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %.sroa.01.018.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %19), !noalias !2452
   %21 = load ptr, ptr %3, align 8, !noalias !2448, !noundef !5
   %22 = icmp eq ptr %21, null
   %23 = load ptr, ptr %17, align 8, !noalias !2448, !nonnull !5, !align !146, !noundef !5
@@ -10923,11 +10923,11 @@ define void @_RNvYINtNtNtCslyFhtC9DD08_9itertools8adaptors8coalesce10CoalesceByI
   br label %18
 
 18:                                               ; preds = %24, %.lr.ph.i.i.i.i
-  %.sroa.01.019.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %23, %24 ]
+  %.sroa.01.018.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %23, %24 ]
   %19 = phi ptr [ %.promoted.i.i.i.i, %.lr.ph.i.i.i.i ], [ %20, %24 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2482
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantSizeE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.019.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %19), !noalias !2486
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantSizeE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.018.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %19), !noalias !2486
   %21 = load ptr, ptr %3, align 8, !noalias !2482, !noundef !5
   %22 = icmp eq ptr %21, null
   %23 = load ptr, ptr %17, align 8, !noalias !2482, !nonnull !5, !align !146, !noundef !5
@@ -11025,11 +11025,11 @@ define void @_RNvYINtNtNtCslyFhtC9DD08_9itertools8adaptors8coalesce10CoalesceByI
   br label %18
 
 18:                                               ; preds = %24, %.lr.ph.i.i.i.i
-  %.sroa.01.019.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %23, %24 ]
+  %.sroa.01.018.i.i.i.i = phi ptr [ %10, %.lr.ph.i.i.i.i ], [ %23, %24 ]
   %19 = phi ptr [ %.promoted.i.i.i.i, %.lr.ph.i.i.i.i ], [ %20, %24 ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2516
-  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.019.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %19), !noalias !2520
+  call void @_RNCNvXsE_NtCseG2FYMysgNb_3wax5tokenRINtB7_10RepetitionTjjEEINtNtB7_8variance12UnitVarianceNtBY_13InvariantTextE13unit_variance0B9_.llvm.15969390215716056838(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 1 %13, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %.sroa.01.018.i.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %19), !noalias !2520
   %21 = load ptr, ptr %3, align 8, !noalias !2516, !noundef !5
   %22 = icmp eq ptr %21, null
   %23 = load ptr, ptr %17, align 8, !noalias !2516, !nonnull !5, !align !146, !noundef !5

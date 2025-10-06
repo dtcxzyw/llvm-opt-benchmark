@@ -893,8 +893,8 @@ prepare_shell_cmd.exit.i:                         ; preds = %222, %220, %211
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8, !tbaa !26
   %229 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %228, i32 noundef 47) #22
-  %.not25.i = icmp eq ptr %229, null
-  br i1 %.not25.i, label %230, label %246
+  %.not24.i = icmp eq ptr %229, null
+  br i1 %.not24.i, label %230, label %246
 
 230:                                              ; preds = %225
   %231 = call fastcc ptr @locate_in_PATH(ptr noundef nonnull %228)
@@ -2404,19 +2404,19 @@ set_cloexec.exit53:                               ; preds = %66, %63, %set_cloex
   %82 = call i32 @close(i32 noundef %81) #21
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !18
-  br label %.sink.split64
+  br label %.sink.split63
 
 85:                                               ; preds = %77
   %86 = load i32, ptr %4, align 8, !tbaa !83
   %.not48 = icmp eq i32 %86, 0
-  br i1 %.not48, label %88, label %.sink.split64
+  br i1 %.not48, label %88, label %.sink.split63
 
-.sink.split64:                                    ; preds = %85, %80
-  %.sink65 = phi i32 [ %84, %80 ], [ %86, %85 ]
-  %87 = call i32 @close(i32 noundef %.sink65) #21
+.sink.split63:                                    ; preds = %85, %80
+  %.sink64 = phi i32 [ %84, %80 ], [ %86, %85 ]
+  %87 = call i32 @close(i32 noundef %.sink64) #21
   br label %88
 
-88:                                               ; preds = %.sink.split64, %85
+88:                                               ; preds = %.sink.split63, %85
   br i1 %24, label %89, label %95
 
 89:                                               ; preds = %88
@@ -3884,9 +3884,9 @@ define dso_local range(i32 0, 5) i32 @start_bg_command(ptr noundef %0, ptr nound
   br label %48
 
 46:                                               ; preds = %39
-  %.not45 = icmp eq i32 %41, 127
+  %.not43 = icmp eq i32 %41, 127
   %47 = or disjoint i32 %41, 128
-  %spec.select = select i1 %.not45, i32 -1, i32 %47
+  %spec.select = select i1 %.not43, i32 -1, i32 %47
   br label %48
 
 48:                                               ; preds = %46, %43

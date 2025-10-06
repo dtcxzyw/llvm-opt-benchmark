@@ -387,24 +387,20 @@ entry:
   %1 = ptrtoint ptr %end to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %label, ptr noundef nonnull align 1 dereferenceable(5) @__const._ZN6hermes8oscompat12vm_footprintEPcS1_.label, i64 5, i1 false)
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(256) %smaps, ptr noundef nonnull @.str, i32 noundef 8) #23
-  %vtable4 = load ptr, ptr %smaps, align 8
-  %vbase.offset.ptr5 = getelementptr i8, ptr %vtable4, i64 -24
-  %vbase.offset6 = load i64, ptr %vbase.offset.ptr5, align 8
-  %add.ptr7 = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset6
-  %call10 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr7) #23
+  %vtable5 = load ptr, ptr %smaps, align 8
+  %vbase.offset.ptr6 = getelementptr i8, ptr %vtable5, i64 -24
+  %vbase.offset7 = load i64, ptr %vbase.offset.ptr6, align 8
+  %add.ptr8 = getelementptr inbounds i8, ptr %smaps, i64 %vbase.offset7
+  %call10 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr8) #23
   br i1 %call10, label %while.body, label %while.end
 
-while.cond.critedge:                              ; preds = %while.body
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #23
-  br label %while.cond.backedge
-
-while.body:                                       ; preds = %entry, %while.cond.backedge
+while.body:                                       ; preds = %entry, %cleanup14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #23
   %call1 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZStrsIcSt11char_traitsIcESaIcEERSt13basic_istreamIT_T0_ES7_RNSt7__cxx1112basic_stringIS4_S5_T1_EE(ptr noundef nonnull align 8 dereferenceable(16) %smaps, ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #23
   %call3 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi6ignoreEli(ptr noundef nonnull align 8 dereferenceable(16) %smaps, i64 noundef 9223372036854775807, i32 noundef 10) #23
   %call4 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12find_last_ofEcm(ptr noundef nonnull align 8 dereferenceable(32) %firstToken, i8 noundef signext 58, i64 noundef -1) #23
   %cmp.not = icmp eq i64 %call4, -1
-  br i1 %cmp.not, label %if.end, label %while.cond.critedge, !llvm.loop !19
+  br i1 %cmp.not, label %if.end, label %cleanup14, !llvm.loop !19
 
 if.end:                                           ; preds = %while.body
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128) %ris, ptr noundef nonnull align 8 dereferenceable(32) %firstToken, i32 noundef 24) #23
@@ -413,15 +409,19 @@ if.end:                                           ; preds = %while.body
   %call8 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi6ignoreEv(ptr noundef nonnull align 8 dereferenceable(16) %ris) #23
   %call9 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSirsERm(ptr noundef nonnull align 8 dereferenceable(16) %ris, ptr noundef nonnull align 8 dereferenceable(8) %mEnd) #23
   %2 = load i64, ptr %mStart, align 8
-  %cmp10.not = icmp ule i64 %2, %0
+  %cmp10.not = icmp ugt i64 %2, %0
   %3 = load i64, ptr %mEnd, align 8
-  %cmp11.not = icmp uge i64 %3, %1
-  %or.cond.not = select i1 %cmp10.not, i1 %cmp11.not, i1 false
+  %cmp11.not = icmp ult i64 %3, %1
+  %or.cond = select i1 %cmp10.not, i1 true, i1 %cmp11.not
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %ris) #23
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #23
-  br i1 %or.cond.not, label %while.end, label %while.cond.backedge
+  br i1 %or.cond, label %cleanup14, label %cleanup14.thread
 
-while.cond.backedge:                              ; preds = %if.end, %while.cond.critedge
+cleanup14.thread:                                 ; preds = %if.end
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #23
+  br label %while.end
+
+cleanup14:                                        ; preds = %if.end, %while.body
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %firstToken) #23
   %vtable = load ptr, ptr %smaps, align 8
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
   %vbase.offset = load i64, ptr %vbase.offset.ptr, align 8
@@ -429,7 +429,7 @@ while.cond.backedge:                              ; preds = %if.end, %while.cond
   %call = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEcvbEv(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr) #23
   br i1 %call, label %while.body, label %while.end
 
-while.end:                                        ; preds = %while.cond.backedge, %if.end, %entry
+while.end:                                        ; preds = %cleanup14, %entry, %cleanup14.thread
   %vtable1611 = load ptr, ptr %smaps, align 8
   %vbase.offset.ptr1712 = getelementptr i8, ptr %vtable1611, i64 -24
   %vbase.offset1813 = load i64, ptr %vbase.offset.ptr1712, align 8

@@ -586,8 +586,8 @@ _ZN4core3cmp9PartialEq2ne17h4e241db24982ebbcE.llvm.3646540950948783737.exit: ; p
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !106, !noalias !107, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %16, ptr nonnull readonly align 1 %14, i64 %9), !alias.scope !108, !noalias !112
-  %.not10 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %.not10, label %.preheader.split, label %.thread
+  %.not9 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %.not9, label %.preheader.split, label %.thread
 }
 
 ; Function Attrs: nonlazybind uwtable

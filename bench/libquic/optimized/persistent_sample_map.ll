@@ -353,83 +353,146 @@ define noundef ptr @_ZN4base19PersistentSampleMap13ImportSamplesEib(ptr noundef 
 
 _ZN4base19PersistentSampleMap10GetRecordsEv.exit: ; preds = %3, %6
   %13 = phi ptr [ %12, %6 ], [ %5, %3 ]
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %.outer
+  %14 = tail call noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
+  %.not29 = icmp eq i32 %14, 0
+  br i1 %.not29, label %.thread, label %.lr.ph
 
-.outer:                                           ; preds = %36, %_ZN4base19PersistentSampleMap10GetRecordsEv.exit
-  %.014.ph = phi ptr [ %spec.select, %36 ], [ null, %_ZN4base19PersistentSampleMap10GetRecordsEv.exit ]
-  %17 = tail call noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
-  %.not36 = icmp eq i32 %17, 0
-  br i1 %.not36, label %.loopexit, label %.lr.ph
+.lr.ph:                                           ; preds = %_ZN4base19PersistentSampleMap10GetRecordsEv.exit
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
-.lr.ph:                                           ; preds = %.outer, %38
-  %18 = phi i32 [ %39, %38 ], [ %17, %.outer ]
-  %.val = load ptr, ptr %13, align 8, !tbaa !42
-  %.val.val = load ptr, ptr %.val, align 8, !tbaa !49
-  %19 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %.val.val, i32 noundef range(i32 1, 0) %18, i32 noundef -1880709472, i32 noundef 16)
-  %.not17 = icmp eq ptr %19, null
-  br i1 %.not17, label %38, label %20, !llvm.loop !62
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %select.unfold.us
+  %18 = phi i32 [ %38, %select.unfold.us ], [ %14, %.lr.ph ]
+  %.01430.us = phi ptr [ %.2.us, %select.unfold.us ], [ null, %.lr.ph ]
+  %.val.us = load ptr, ptr %13, align 8, !tbaa !42
+  %.val.val.us = load ptr, ptr %.val.us, align 8, !tbaa !49
+  %19 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %.val.val.us, i32 noundef range(i32 1, 0) %18, i32 noundef -1880709472, i32 noundef 16)
+  %.not17.us = icmp eq ptr %19, null
+  br i1 %.not17.us, label %select.unfold.us, label %20, !llvm.loop !62
 
-20:                                               ; preds = %.lr.ph
+20:                                               ; preds = %.lr.ph.split.us
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %22 = load ptr, ptr %15, align 8, !tbaa !14
-  %.not10.i.i.i.i = icmp eq ptr %22, null
-  br i1 %.not10.i.i.i.i, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.i.i
+  %22 = load ptr, ptr %16, align 8, !tbaa !14
+  %.not10.i.i.i.i.us = icmp eq ptr %22, null
+  br i1 %.not10.i.i.i.i.us, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread.us, label %.lr.ph.i.i.i.i.us
 
-.lr.ph.i.i.i.i:                                   ; preds = %20
+.lr.ph.i.i.i.i.us:                                ; preds = %20
   %23 = load i32, ptr %21, align 4, !tbaa !32
   br label %24
 
-24:                                               ; preds = %24, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %22, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %24 ]
-  %.0811.i.i.i.i = phi ptr [ %16, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %24 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+24:                                               ; preds = %24, %.lr.ph.i.i.i.i.us
+  %.012.i.i.i.i.us = phi ptr [ %22, %.lr.ph.i.i.i.i.us ], [ %.1.i.i.i.i.us, %24 ]
+  %.0811.i.i.i.i.us = phi ptr [ %17, %.lr.ph.i.i.i.i.us ], [ %.19.i.i.i.i.us, %24 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.us, i64 32
   %26 = load i32, ptr %25, align 4, !tbaa !32
   %27 = icmp slt i32 %26, %23
-  %.19.i.i.i.i = select i1 %27, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %27, i64 24, i64 16
+  %.19.i.i.i.i.us = select i1 %27, ptr %.0811.i.i.i.i.us, ptr %.012.i.i.i.i.us
+  %.1.in.v.i.i.i.i.us = select i1 %27, i64 24, i64 16
+  %.1.in.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.us, i64 %.1.in.v.i.i.i.i.us
+  %.1.i.i.i.i.us = load ptr, ptr %.1.in.i.i.i.i.us, align 8, !tbaa !33
+  %.not.i.i.i.i.us = icmp eq ptr %.1.i.i.i.i.us, null
+  br i1 %.not.i.i.i.i.us, label %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.us, label %24, !llvm.loop !63
+
+_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.us: ; preds = %24
+  %28 = icmp eq ptr %.19.i.i.i.i.us, %17
+  br i1 %28, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread.us, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.us
+
+_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.us: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.us
+  %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.us, i64 32
+  %30 = load i32, ptr %29, align 4, !tbaa !32
+  %.not28.us = icmp slt i32 %23, %30
+  br i1 %.not28.us, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread.us, label %33
+
+_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread.us: ; preds = %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.us, %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i.us, %20
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 4 dereferenceable(4) %21)
+  store ptr %31, ptr %32, align 8, !tbaa !39
+  %.pre37 = load i32, ptr %21, align 8, !tbaa !64
+  br label %33
+
+33:                                               ; preds = %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread.us, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.us
+  %34 = phi i32 [ %.pre37, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread.us ], [ %23, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.us ]
+  %35 = icmp eq i32 %34, %1
+  br i1 %35, label %36, label %select.unfold.us
+
+36:                                               ; preds = %33
+  %.not18.us = icmp eq ptr %.01430.us, null
+  %37 = getelementptr inbounds nuw i8, ptr %19, i64 12
+  %spec.select.us = select i1 %.not18.us, ptr %37, ptr %.01430.us
+  br label %select.unfold.us
+
+select.unfold.us:                                 ; preds = %36, %33, %.lr.ph.split.us
+  %.2.us = phi ptr [ %.01430.us, %.lr.ph.split.us ], [ %.01430.us, %33 ], [ %spec.select.us, %36 ]
+  %38 = tail call noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
+  %.not.us = icmp eq i32 %38, 0
+  br i1 %.not.us, label %.thread, label %.lr.ph.split.us
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
+  %39 = phi i32 [ %58, %select.unfold ], [ %14, %.lr.ph ]
+  %.val = load ptr, ptr %13, align 8, !tbaa !42
+  %.val.val = load ptr, ptr %.val, align 8, !tbaa !49
+  %40 = tail call noundef ptr @_ZNK4base25PersistentMemoryAllocator12GetBlockDataEjjj(ptr noundef nonnull align 8 dereferenceable(48) %.val.val, i32 noundef range(i32 1, 0) %39, i32 noundef -1880709472, i32 noundef 16)
+  %.not17 = icmp eq ptr %40, null
+  br i1 %.not17, label %select.unfold, label %41, !llvm.loop !62
+
+41:                                               ; preds = %.lr.ph.split
+  %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  %43 = load ptr, ptr %16, align 8, !tbaa !14
+  %.not10.i.i.i.i = icmp eq ptr %43, null
+  br i1 %.not10.i.i.i.i, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread, label %.lr.ph.i.i.i.i
+
+.lr.ph.i.i.i.i:                                   ; preds = %41
+  %44 = load i32, ptr %42, align 4, !tbaa !32
+  br label %45
+
+45:                                               ; preds = %45, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %45 ]
+  %.0811.i.i.i.i = phi ptr [ %17, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %45 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %47 = load i32, ptr %46, align 4, !tbaa !32
+  %48 = icmp slt i32 %47, %44
+  %.19.i.i.i.i = select i1 %48, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %48, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !33
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %24, !llvm.loop !63
+  br i1 %.not.i.i.i.i, label %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, label %45, !llvm.loop !63
 
-_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %24
-  %28 = icmp eq ptr %.19.i.i.i.i, %16
-  br i1 %28, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit
+_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i: ; preds = %45
+  %49 = icmp eq ptr %.19.i.i.i.i, %17
+  br i1 %49, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit
 
 _ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit: ; preds = %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i
-  %29 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %30 = load i32, ptr %29, align 4, !tbaa !32
-  %.not26 = icmp slt i32 %23, %30
-  br i1 %.not26, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread, label %33
+  %50 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
+  %51 = load i32, ptr %50, align 4, !tbaa !32
+  %.not28 = icmp slt i32 %44, %51
+  br i1 %.not28, label %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread, label %54
 
-_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread: ; preds = %20, %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit
-  %31 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 4 dereferenceable(4) %21)
-  store ptr %31, ptr %32, align 8, !tbaa !39
-  %.pre = load i32, ptr %21, align 8, !tbaa !64
-  br label %33
+_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread: ; preds = %41, %_ZNKSt8_Rb_treeIiSt4pairIKiPiESt10_Select1stIS3_ESt4lessIiESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRS1_.exit.i.i.i, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  %53 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEEixERS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 4 dereferenceable(4) %42)
+  store ptr %52, ptr %53, align 8, !tbaa !39
+  %.pre = load i32, ptr %42, align 8, !tbaa !64
+  br label %54
 
-33:                                               ; preds = %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread
-  %34 = phi i32 [ %23, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit ], [ %.pre, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread ]
-  %35 = icmp eq i32 %34, %1
-  br i1 %35, label %36, label %38
+54:                                               ; preds = %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread
+  %55 = phi i32 [ %44, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit ], [ %.pre, %_ZN4base11ContainsKeyISt3mapIiPiSt4lessIiESaISt4pairIKiS2_EEEiEEbRKT_RKT0_.exit.thread ]
+  %56 = icmp eq i32 %55, %1
+  br i1 %56, label %..thread_crit_edge, label %select.unfold
 
-36:                                               ; preds = %33
-  %.not18 = icmp eq ptr %.014.ph, null
-  %37 = getelementptr inbounds nuw i8, ptr %19, i64 12
-  %spec.select = select i1 %.not18, ptr %37, ptr %.014.ph
-  br i1 %2, label %.outer, label %.loopexit
+..thread_crit_edge:                               ; preds = %54
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 12
+  br label %.thread
 
-38:                                               ; preds = %33, %.lr.ph
-  %39 = tail call noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
-  %.not = icmp eq i32 %39, 0
-  br i1 %.not, label %.loopexit, label %.lr.ph
+select.unfold:                                    ; preds = %54, %.lr.ph.split
+  %58 = tail call noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef nonnull align 8 dereferenceable(80) %13)
+  %.not = icmp eq i32 %58, 0
+  br i1 %.not, label %.thread, label %.lr.ph.split
 
-.loopexit:                                        ; preds = %36, %.outer, %38
-  %.1 = phi ptr [ %.014.ph, %38 ], [ %spec.select, %36 ], [ %.014.ph, %.outer ]
+.thread:                                          ; preds = %select.unfold, %select.unfold.us, %..thread_crit_edge, %_ZN4base19PersistentSampleMap10GetRecordsEv.exit
+  %.1 = phi ptr [ %57, %..thread_crit_edge ], [ null, %_ZN4base19PersistentSampleMap10GetRecordsEv.exit ], [ %.2.us, %select.unfold.us ], [ null, %select.unfold ]
   ret ptr %.1
 }
 

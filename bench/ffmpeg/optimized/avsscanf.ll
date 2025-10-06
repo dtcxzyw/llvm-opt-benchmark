@@ -4512,8 +4512,8 @@ ffshgetc.exit470.thread.i.i:                      ; preds = %1913, %._crit_edge.
   br label %ffshgetc.exit470.i.i
 
 ffshgetc.exit470.i.i:                             ; preds = %1943, %1929, %1910
-  %.in699.i.i = phi i8 [ %1912, %1910 ], [ %1926, %1943 ], [ %1926, %1929 ]
-  %1944 = icmp eq i8 %.in699.i.i, 48
+  %.in698.i.i = phi i8 [ %1912, %1910 ], [ %1926, %1943 ], [ %1926, %1929 ]
+  %1944 = icmp eq i8 %.in698.i.i, 48
   br i1 %1944, label %.lr.ph.i292.i, label %.loopexit.i279.loopexit.i, !llvm.loop !51
 
 .loopexit.sink.split.i.i:                         ; preds = %ffshgetc.exit470.thread.i.i, %ffshgetc.exit449.thread.i.i
@@ -4525,7 +4525,7 @@ ffshgetc.exit470.i.i:                             ; preds = %1943, %1929, %1910
   br label %.loopexit.i279.i
 
 .loopexit.i279.loopexit.i:                        ; preds = %ffshgetc.exit470.i.i
-  %1945 = zext i8 %.in699.i.i to i32
+  %1945 = zext i8 %.in698.i.i to i32
   br label %.loopexit.i279.i
 
 .loopexit.i279.i:                                 ; preds = %ffshgetc.exit.i298.i, %.loopexit.i279.loopexit.i, %.loopexit.sink.split.i.i, %ffshgetc.exit449.i.i
@@ -4583,8 +4583,8 @@ ffshgetc.exit470.i.i:                             ; preds = %1943, %1929, %1910
   br label %1965
 
 1965:                                             ; preds = %1960, %1956
-  %.sink696.i.i = phi i32 [ %1964, %1960 ], [ %1951, %1956 ]
-  store i32 %.sink696.i.i, ptr %1959, align 4, !tbaa !28
+  %.sink695.i.i = phi i32 [ %1964, %1960 ], [ %1951, %1956 ]
+  store i32 %.sink695.i.i, ptr %1959, align 4, !tbaa !28
   %1966 = add nsw i32 %.0291559.i.i, 1
   %1967 = icmp eq i32 %1966, 9
   %1968 = zext i1 %1967 to i32
@@ -4920,8 +4920,8 @@ ffshgetc.exit491.i.i:                             ; preds = %2013, %1999, %1996,
   %.pre.i288.i = load i32, ptr %8, align 16, !tbaa !28
   %2115 = lshr i32 %.pre.i288.i, %2113
   %2116 = icmp eq i32 %2115, 0
-  %or.cond698.i.i = select i1 %2114, i1 true, i1 %2116
-  br i1 %or.cond698.i.i, label %2117, label %2127
+  %or.cond697.i.i = select i1 %2114, i1 true, i1 %2116
+  br i1 %or.cond697.i.i, label %2117, label %2127
 
 2117:                                             ; preds = %2112
   %2118 = sitofp i32 %.0115.i960966971980 to double

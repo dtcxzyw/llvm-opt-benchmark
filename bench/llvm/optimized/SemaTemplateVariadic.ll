@@ -212,17 +212,17 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema34isUnexpandedParameterPackPe
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 3
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not12.not = icmp eq i32 %5, 0
-  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
+  %.not13.not = icmp eq i32 %5, 0
+  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.01113 = phi ptr [ %13, %.lr.ph ], [ %3, %1 ]
-  %8 = load ptr, ptr %.01113, align 8, !tbaa !10
+  %.01114 = phi ptr [ %13, %.lr.ph ], [ %3, %1 ]
+  %8 = load ptr, ptr %.01114, align 8, !tbaa !10
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = and i32 %10, 7
   %12 = icmp eq i32 %11, 2
-  %13 = getelementptr inbounds nuw i8, ptr %.01113, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.01114, i64 8
   %.not.not = icmp eq ptr %13, %7
   %or.cond = select i1 %12, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -296,8 +296,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %34 = icmp ne i64 %33, 0
   %35 = and i64 %.val.val.i.i.i.i.i.i, -8
   %36 = inttoptr i64 %35 to ptr
-  %.not.not3.i.i.i.i.i.i.i.i = icmp eq i64 %35, 0
-  %.not.not.i.i.i.i.i.i.i.i = or i1 %34, %.not.not3.i.i.i.i.i.i.i.i
+  %.not.not2.i.i.i.i.i.i.i.i = icmp eq i64 %35, 0
+  %.not.not.i.i.i.i.i.i.i.i = or i1 %34, %.not.not2.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i, label %42, label %37
 
 37:                                               ; preds = %.lr.ph.i.i.i.i.i.i
@@ -305,8 +305,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 127
   %41 = icmp ne i32 %40, 65
-  %.not114.i.i.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i.i.i.i, null
-  %.not11.i.i.i.i.i.i.i.i = or i1 %.not114.i.i.i.i.i.i.i.i, %41
+  %.not113.i.i.i.i.i.i.i.i = icmp eq ptr %.029.val.i.i.i.i.i.i, null
+  %.not11.i.i.i.i.i.i.i.i = or i1 %.not113.i.i.i.i.i.i.i.i, %41
   br i1 %.not11.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.i.i.i.i.i.i"
 
 42:                                               ; preds = %.lr.ph.i.i.i.i.i.i
@@ -351,8 +351,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %.val31.i.i.i.i.i.i = load ptr, ptr %60, align 8, !tbaa !13
   %61 = and i64 %.val30.val.i.i.i.i.i.i, 6
   %62 = icmp ne i64 %61, 0
-  %.not.not3.i.i40.i.i.i.i.i.i = icmp eq i64 %.pre-phi.i.i.i.i.i.i, 0
-  %.not.not.i.i41.i.i.i.i.i.i = or i1 %.not.not3.i.i40.i.i.i.i.i.i, %62
+  %.not.not2.i.i40.i.i.i.i.i.i = icmp eq i64 %.pre-phi.i.i.i.i.i.i, 0
+  %.not.not.i.i41.i.i.i.i.i.i = or i1 %.not.not2.i.i40.i.i.i.i.i.i, %62
   br i1 %.not.not.i.i41.i.i.i.i.i.i, label %68, label %63
 
 63:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
@@ -360,8 +360,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %65 = load i32, ptr %64, align 4
   %66 = and i32 %65, 127
   %67 = icmp ne i32 %66, 65
-  %.not114.i.i42.i.i.i.i.i.i = icmp eq ptr %.val31.i.i.i.i.i.i, null
-  %.not11.i.i43.i.i.i.i.i.i = or i1 %.not114.i.i42.i.i.i.i.i.i, %67
+  %.not113.i.i42.i.i.i.i.i.i = icmp eq ptr %.val31.i.i.i.i.i.i, null
+  %.not11.i.i43.i.i.i.i.i.i = or i1 %.not113.i.i42.i.i.i.i.i.i, %67
   br i1 %.not11.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.i.i.i.i.i.i"
 
 68:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit.thread.i.i.i.i.i.i"
@@ -406,8 +406,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %.val33.i.i.i.i.i.i = load ptr, ptr %86, align 8, !tbaa !13
   %87 = and i64 %.val32.val.i.i.i.i.i.i, 6
   %88 = icmp ne i64 %87, 0
-  %.not.not3.i.i47.i.i.i.i.i.i = icmp eq i64 %.pre-phi153.i.i.i.i.i.i, 0
-  %.not.not.i.i48.i.i.i.i.i.i = or i1 %.not.not3.i.i47.i.i.i.i.i.i, %88
+  %.not.not2.i.i47.i.i.i.i.i.i = icmp eq i64 %.pre-phi153.i.i.i.i.i.i, 0
+  %.not.not.i.i48.i.i.i.i.i.i = or i1 %.not.not2.i.i47.i.i.i.i.i.i, %88
   br i1 %.not.not.i.i48.i.i.i.i.i.i, label %94, label %89
 
 89:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
@@ -415,8 +415,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %91 = load i32, ptr %90, align 4
   %92 = and i32 %91, 127
   %93 = icmp ne i32 %92, 65
-  %.not114.i.i49.i.i.i.i.i.i = icmp eq ptr %.val33.i.i.i.i.i.i, null
-  %.not11.i.i50.i.i.i.i.i.i = or i1 %.not114.i.i49.i.i.i.i.i.i, %93
+  %.not113.i.i49.i.i.i.i.i.i = icmp eq ptr %.val33.i.i.i.i.i.i, null
+  %.not11.i.i50.i.i.i.i.i.i = or i1 %.not113.i.i49.i.i.i.i.i.i, %93
   br i1 %.not11.i.i50.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.i.i.i.i.i.i"
 
 94:                                               ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit46.thread.i.i.i.i.i.i"
@@ -461,8 +461,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %.val35.i.i.i.i.i.i = load ptr, ptr %112, align 8, !tbaa !13
   %113 = and i64 %.val34.val.i.i.i.i.i.i, 6
   %114 = icmp ne i64 %113, 0
-  %.not.not3.i.i54.i.i.i.i.i.i = icmp eq i64 %.pre-phi157.i.i.i.i.i.i, 0
-  %.not.not.i.i55.i.i.i.i.i.i = or i1 %.not.not3.i.i54.i.i.i.i.i.i, %114
+  %.not.not2.i.i54.i.i.i.i.i.i = icmp eq i64 %.pre-phi157.i.i.i.i.i.i, 0
+  %.not.not.i.i55.i.i.i.i.i.i = or i1 %.not.not2.i.i54.i.i.i.i.i.i, %114
   br i1 %.not.not.i.i55.i.i.i.i.i.i, label %120, label %115
 
 115:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
@@ -470,8 +470,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, 127
   %119 = icmp ne i32 %118, 65
-  %.not114.i.i56.i.i.i.i.i.i = icmp eq ptr %.val35.i.i.i.i.i.i, null
-  %.not11.i.i57.i.i.i.i.i.i = or i1 %.not114.i.i56.i.i.i.i.i.i, %119
+  %.not113.i.i56.i.i.i.i.i.i = icmp eq ptr %.val35.i.i.i.i.i.i, null
+  %.not11.i.i57.i.i.i.i.i.i = or i1 %.not113.i.i56.i.i.i.i.i.i, %119
   br i1 %.not11.i.i57.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit60.i.i.i.i.i.i"
 
 120:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit53.thread.i.i.i.i.i.i"
@@ -530,8 +530,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %144 = icmp ne i64 %143, 0
   %145 = and i64 %.val36.val.i.i.i.i.i.i, -8
   %146 = inttoptr i64 %145 to ptr
-  %.not.not3.i.i61.i.i.i.i.i.i = icmp eq i64 %145, 0
-  %.not.not.i.i62.i.i.i.i.i.i = or i1 %144, %.not.not3.i.i61.i.i.i.i.i.i
+  %.not.not2.i.i61.i.i.i.i.i.i = icmp eq i64 %145, 0
+  %.not.not.i.i62.i.i.i.i.i.i = or i1 %144, %.not.not2.i.i61.i.i.i.i.i.i
   br i1 %.not.not.i.i62.i.i.i.i.i.i, label %152, label %147
 
 147:                                              ; preds = %142
@@ -539,8 +539,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %149 = load i32, ptr %148, align 4
   %150 = and i32 %149, 127
   %151 = icmp ne i32 %150, 65
-  %.not114.i.i63.i.i.i.i.i.i = icmp eq ptr %.029.val37.i.i.i.i.i.i, null
-  %.not11.i.i64.i.i.i.i.i.i = or i1 %.not114.i.i63.i.i.i.i.i.i, %151
+  %.not113.i.i63.i.i.i.i.i.i = icmp eq ptr %.029.val37.i.i.i.i.i.i, null
+  %.not11.i.i64.i.i.i.i.i.i = or i1 %.not113.i.i63.i.i.i.i.i.i, %151
   br i1 %.not11.i.i64.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit67.i.i.i.i.i.i"
 
 152:                                              ; preds = %142
@@ -583,8 +583,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %173 = icmp ne i64 %172, 0
   %174 = and i64 %.val38.val.i.i.i.i.i.i, -8
   %175 = inttoptr i64 %174 to ptr
-  %.not.not3.i.i68.i.i.i.i.i.i = icmp eq i64 %174, 0
-  %.not.not.i.i69.i.i.i.i.i.i = or i1 %173, %.not.not3.i.i68.i.i.i.i.i.i
+  %.not.not2.i.i68.i.i.i.i.i.i = icmp eq i64 %174, 0
+  %.not.not.i.i69.i.i.i.i.i.i = or i1 %173, %.not.not2.i.i68.i.i.i.i.i.i
   br i1 %.not.not.i.i69.i.i.i.i.i.i, label %181, label %176
 
 176:                                              ; preds = %171
@@ -592,8 +592,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %178 = load i32, ptr %177, align 4
   %179 = and i32 %178, 127
   %180 = icmp ne i32 %179, 65
-  %.not114.i.i70.i.i.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i.i.i, null
-  %.not11.i.i71.i.i.i.i.i.i = or i1 %.not114.i.i70.i.i.i.i.i.i, %180
+  %.not113.i.i70.i.i.i.i.i.i = icmp eq ptr %.1.val.i.i.i.i.i.i, null
+  %.not11.i.i71.i.i.i.i.i.i = or i1 %.not113.i.i70.i.i.i.i.i.i, %180
   br i1 %.not11.i.i71.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.thread.i.i.i.i.i.i", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit74.i.i.i.i.i.i"
 
 181:                                              ; preds = %171
@@ -636,8 +636,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %202 = icmp ne i64 %201, 0
   %203 = and i64 %.val39.val.i.i.i.i.i.i, -8
   %204 = inttoptr i64 %203 to ptr
-  %.not.not3.i.i75.i.i.i.i.i.i = icmp eq i64 %203, 0
-  %.not.not.i.i76.i.i.i.i.i.i = or i1 %202, %.not.not3.i.i75.i.i.i.i.i.i
+  %.not.not2.i.i75.i.i.i.i.i.i = icmp eq i64 %203, 0
+  %.not.not.i.i76.i.i.i.i.i.i = or i1 %202, %.not.not2.i.i75.i.i.i.i.i.i
   br i1 %.not.not.i.i76.i.i.i.i.i.i, label %210, label %205
 
 205:                                              ; preds = %200
@@ -645,8 +645,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema32DiagnoseUnexpandedParameter
   %207 = load i32, ptr %206, align 4
   %208 = and i32 %207, 127
   %209 = icmp ne i32 %208, 65
-  %.not114.i.i77.i.i.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i.i.i, null
-  %.not11.i.i78.i.i.i.i.i.i = or i1 %.not114.i.i77.i.i.i.i.i.i, %209
+  %.not113.i.i77.i.i.i.i.i.i = icmp eq ptr %.2.val.i.i.i.i.i.i, null
+  %.not11.i.i78.i.i.i.i.i.i = or i1 %.not113.i.i77.i.i.i.i.i.i, %209
   br i1 %.not11.i.i78.i.i.i.i.i.i, label %"_ZN4llvm6any_ofIRNS_11SmallVectorIPN5clang9NamedDeclELj4EEEZNS2_4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS7_30UnexpandedParameterPackContextENS_8ArrayRefISt4pairINS_12PointerUnionIJPKNS2_20TemplateTypeParmTypeES4_PNS2_26ResolvedUnexpandedPackExprEEEES8_EEEE3$_0EEbOT_T0_.exit.thread", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema32DiagnoseUnexpandedParameterPacksENS2_14SourceLocationENS3_30UnexpandedParameterPackContextEN4llvm8ArrayRefISt4pairINS6_12PointerUnionIJPKNS2_20TemplateTypeParmTypeEPNS2_9NamedDeclEPNS2_26ResolvedUnexpandedPackExprEEEES4_EEEE3$_0EclIPSE_EEbT_.exit81.i.i.i.i.i.i"
 
 210:                                              ; preds = %200
@@ -1335,17 +1335,17 @@ select.unfold:                                    ; preds = %503, %499
   %516 = zext i32 %515 to i64
   %.idx.i.i = shl nuw nsw i64 %516, 3
   %517 = getelementptr inbounds nuw i8, ptr %514, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %515, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %515, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %513, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %519, %.critedge.i.i ], [ %514, %513 ]
-  %518 = load ptr, ptr %.02937.i.i, align 8, !tbaa !176, !noalias !173
+  %.02935.i.i = phi ptr [ %519, %.critedge.i.i ], [ %514, %513 ]
+  %518 = load ptr, ptr %.02935.i.i, align 8, !tbaa !176, !noalias !173
   %.not17.i.i = icmp eq ptr %518, %.064
   br i1 %.not17.i.i, label %.critedge, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %519 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %519 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i101 = icmp eq ptr %519, %517
   br i1 %.not.i.i101, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !177
 
@@ -2035,17 +2035,17 @@ _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseStmtEPN5clang
   %40 = zext i32 %39 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %40, 3
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.idx.i.i.i.i
-  %.not36.i.i.i.i = icmp eq i32 %39, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not34.i.i.i.i = icmp eq i32 %39, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %37, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %43, %.critedge.i.i.i.i ], [ %38, %37 ]
-  %42 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !176, !noalias !204
+  %.02935.i.i.i.i = phi ptr [ %43, %.critedge.i.i.i.i ], [ %38, %37 ]
+  %42 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !176, !noalias !204
   %.not17.i.i.i.i = icmp eq ptr %42, %35
   br i1 %.not17.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPN5clang9NamedDeclEE6insertES3_.exit.i.i, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
-  %43 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %43 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %43, %41
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !177
 
@@ -2317,8 +2317,8 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit:  ; preds = %3, %10
   ]
 
 _ZNK5clang15DeclarationName11getNameKindEv.exit._crit_edge: ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit
-  %.pre43 = add nsw i32 %9, -3
-  %15 = icmp ult i32 %.pre43, 3
+  %.pre42 = add nsw i32 %9, -3
+  %15 = icmp ult i32 %.pre42, 3
   br label %59
 
 16:                                               ; preds = %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit, %_ZNK5clang15DeclarationName11getNameKindEv.exit
@@ -2326,8 +2326,8 @@ _ZNK5clang15DeclarationName11getNameKindEv.exit._crit_edge: ; preds = %_ZNK5clan
   %switch.i = icmp ult i32 %17, -3
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %19 = load ptr, ptr %18, align 8
-  %.not.not40 = icmp eq ptr %19, null
-  %.not.not = select i1 %switch.i, i1 true, i1 %.not.not40
+  %.not.not39 = icmp eq ptr %19, null
+  %.not.not = select i1 %switch.i, i1 true, i1 %.not.not39
   br i1 %.not.not, label %_ZN5clang4Sema31DiagnoseUnexpandedParameterPackENS_14SourceLocationEPNS_14TypeSourceInfoENS0_30UnexpandedParameterPackContextE.exit, label %20
 
 20:                                               ; preds = %16
@@ -2455,14 +2455,14 @@ _ZNK5clang15DeclarationName14getCXXNameTypeEv.exit27: ; preds = %59
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 17
   %79 = load i16, ptr %78, align 1
   %80 = and i16 %79, 1
-  %.not41 = icmp eq i16 %80, 0
-  br i1 %.not41, label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit, label %81
+  %.not40 = icmp eq i16 %80, 0
+  br i1 %.not40, label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit, label %81
 
 81:                                               ; preds = %74
   %82 = call noundef zeroext i1 @_ZN5clang30DynamicRecursiveASTVisitorBaseILb0EE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 %73) #16
   %.pre = load ptr, ptr %6, align 8, !tbaa !3
-  %.pre42 = load i32, ptr %61, align 8, !tbaa !9
-  %83 = zext i32 %.pre42 to i64
+  %.pre41 = load i32, ptr %61, align 8, !tbaa !9
+  %83 = zext i32 %.pre41 to i64
   br label %_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit
 
 _ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksVisitor12TraverseTypeEN5clang8QualTypeE.exit: ; preds = %59, %_ZNK5clang15DeclarationName14getCXXNameTypeEv.exit27, %74, %81
@@ -3706,7 +3706,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31CheckParameterPacksForExpan
   br label %.thread527.thread628
 
 .thread527.thread628:                             ; preds = %79, %74, %71
-  %.sink39.i = phi i32 [ %78, %74 ], [ %73, %71 ], [ %83, %79 ]
+  %.sink36.i = phi i32 [ %78, %74 ], [ %73, %71 ], [ %83, %79 ]
   %.sink.i = phi i32 [ %77, %74 ], [ %72, %71 ], [ %82, %79 ]
   %84 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %85 = load i64, ptr %84, align 8, !tbaa !172
@@ -3767,7 +3767,7 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema31CheckParameterPacksForExpan
 114:                                              ; preds = %.thread527.thread628, %.thread527.thread
   %.3505537617 = phi ptr [ %54, %.thread527.thread ], [ %.0.i.i548632, %.thread527.thread628 ]
   %.3488503539616 = phi i32 [ %51, %.thread527.thread ], [ %.sink.i, %.thread527.thread628 ]
-  %.3492502541615 = phi i32 [ %53, %.thread527.thread ], [ %.sink39.i, %.thread527.thread628 ]
+  %.3492502541615 = phi i32 [ %53, %.thread527.thread ], [ %.sink36.i, %.thread527.thread628 ]
   %115 = load i32, ptr %39, align 8, !tbaa !9
   %116 = load i32, ptr %40, align 8, !tbaa !896
   %117 = add i32 %116, %115
@@ -3916,10 +3916,10 @@ _ZNK5clang4Type5getAsINS_17PackExpansionTypeEEEPKT_v.exit.i.i.i.i.i: ; preds = %
   br label %_ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131
 
 _ZN5clang16getDepthAndIndexEPKNS_9NamedDeclE.exit131: ; preds = %175, %178, %183
-  %.sink39.i124 = phi i32 [ %182, %178 ], [ %177, %175 ], [ %187, %183 ]
+  %.sink36.i124 = phi i32 [ %182, %178 ], [ %177, %175 ], [ %187, %183 ]
   %.sink.i125 = phi i32 [ %181, %178 ], [ %176, %175 ], [ %186, %183 ]
   %188 = icmp eq i32 %.sink.i125, %.3488503539616
-  %189 = icmp eq i32 %.sink39.i124, %.3492502541615
+  %189 = icmp eq i32 %.sink36.i124, %.3492502541615
   %or.cond635 = select i1 %188, i1 %189, i1 false
   br i1 %or.cond635, label %.thread, label %.thread554
 
@@ -11898,8 +11898,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_138CollectUnexpandedParameterPacksV
   %6 = and i32 %5, 127
   %7 = add nsw i32 %6, -45
   %8 = icmp ult i32 %7, -7
-  %.not43 = icmp eq ptr %1, null
-  %.not = or i1 %.not43, %8
+  %.not42 = icmp eq ptr %1, null
+  %.not = or i1 %.not42, %8
   br i1 %.not, label %31, label %9
 
 9:                                                ; preds = %3
@@ -11941,7 +11941,7 @@ _ZN5clang4Decl14getDeclContextEv.exit:            ; preds = %9, %15
 
 31:                                               ; preds = %3
   %32 = icmp ne i32 %6, 50
-  %.not24 = or i1 %.not43, %32
+  %.not24 = or i1 %.not42, %32
   br i1 %.not24, label %56, label %33
 
 33:                                               ; preds = %31

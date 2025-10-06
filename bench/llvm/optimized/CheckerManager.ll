@@ -4013,20 +4013,20 @@ define dso_local void @_ZN5clang4ento14CheckerManager27runCheckersForRegionChang
   %13 = load ptr, ptr %12, align 8, !tbaa !499
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 1424
   %15 = load ptr, ptr %14, align 8, !tbaa !499
-  %.not23 = icmp eq ptr %13, %15
-  br i1 %.not23, label %._crit_edge, label %.lr.ph
+  %.not21 = icmp eq ptr %13, %15
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %25
-  %.sroa.015.024 = phi ptr [ %26, %25 ], [ %13, %9 ]
+  %.sroa.015.022 = phi ptr [ %26, %25 ], [ %13, %9 ]
   %16 = load ptr, ptr %2, align 8, !tbaa !402
-  %.not22 = icmp eq ptr %16, null
-  br i1 %.not22, label %.loopexit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
+  %.not20 = icmp eq ptr %16, null
+  br i1 %.not20, label %.loopexit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %.lr.ph
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %16) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %17 = load ptr, ptr %.sroa.015.024, align 8, !tbaa !500, !noalias !502
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 8
+  %17 = load ptr, ptr %.sroa.015.022, align 8, !tbaa !500, !noalias !502
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.015.022, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !505, !noalias !502
   store ptr %16, ptr %10, align 8, !tbaa !402, !noalias !502
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %16) #18, !noalias !502
@@ -4054,7 +4054,7 @@ _ZNK5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES6_P
 
 25:                                               ; preds = %24, %_ZNK5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES6_PKNS2_8DenseSetIPKNS0_7SymExprENS2_12DenseMapInfoISA_vEEEENS2_8ArrayRefIPKNS0_9MemRegionEEESK_PKNS_15LocationContextEPKNS0_9CallEventEEEclES6_SF_SK_SK_SN_SQ_.exit
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %16) #18
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.015.024, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.015.022, i64 16
   %.not = icmp eq ptr %26, %15
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -4077,20 +4077,20 @@ define dso_local void @_ZN5clang4ento14CheckerManager27runCheckersForPointerEsca
   %11 = load ptr, ptr %10, align 8, !tbaa !506
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 1448
   %13 = load ptr, ptr %12, align 8, !tbaa !506
-  %.not22 = icmp eq ptr %11, %13
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq ptr %11, %13
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %23
-  %.sroa.014.023 = phi ptr [ %24, %23 ], [ %11, %7 ]
+  %.sroa.014.021 = phi ptr [ %24, %23 ], [ %11, %7 ]
   %14 = load ptr, ptr %2, align 8, !tbaa !402
-  %.not21 = icmp eq ptr %14, null
-  br i1 %.not21, label %.loopexit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
+  %.not19 = icmp eq ptr %14, null
+  br i1 %.not19, label %.loopexit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %.lr.ph
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %14) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %15 = load ptr, ptr %.sroa.014.023, align 8, !tbaa !507, !noalias !509
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.014.023, i64 8
+  %15 = load ptr, ptr %.sroa.014.021, align 8, !tbaa !507, !noalias !509
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.014.021, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !512, !noalias !509
   store ptr %14, ptr %8, align 8, !tbaa !402, !noalias !509
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %14) #18, !noalias !509
@@ -4118,7 +4118,7 @@ _ZNK5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES6_R
 
 23:                                               ; preds = %22, %_ZNK5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES6_RKNS2_8DenseSetIPKNS0_7SymExprENS2_12DenseMapInfoISA_vEEEEPKNS0_9CallEventENS0_17PointerEscapeKindEPNS0_33RegionAndSymbolInvalidationTraitsEEEclES6_SF_SI_SJ_SL_.exit
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %14) #18
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.014.023, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.014.021, i64 16
   %.not = icmp eq ptr %24, %13
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -4141,20 +4141,20 @@ define dso_local void @_ZN5clang4ento14CheckerManager24runCheckersForEvalAssumeE
   %10 = load ptr, ptr %9, align 8, !tbaa !513
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 1472
   %12 = load ptr, ptr %11, align 8, !tbaa !513
-  %.not21 = icmp eq ptr %10, %12
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %10, %12
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %22
-  %.sroa.013.022 = phi ptr [ %23, %22 ], [ %10, %6 ]
+  %.sroa.013.020 = phi ptr [ %23, %22 ], [ %10, %6 ]
   %13 = load ptr, ptr %2, align 8, !tbaa !402
-  %.not20 = icmp eq ptr %13, null
-  br i1 %.not20, label %.loopexit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
+  %.not18 = icmp eq ptr %13, null
+  br i1 %.not18, label %.loopexit, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i
 
 _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; preds = %.lr.ph
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %13) #18
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %14 = load ptr, ptr %.sroa.013.022, align 8, !tbaa !514, !noalias !516
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.013.022, i64 8
+  %14 = load ptr, ptr %.sroa.013.020, align 8, !tbaa !514, !noalias !516
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.013.020, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !519, !noalias !516
   store ptr %13, ptr %7, align 8, !tbaa !402, !noalias !516
   call void @_ZN5clang4ento18ProgramStateRetainEPKNS0_12ProgramStateE(ptr noundef nonnull %13) #18, !noalias !516
@@ -4182,7 +4182,7 @@ _ZNK5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES6_N
 
 22:                                               ; preds = %21, %_ZNK5clang4ento9CheckerFnIFN4llvm18IntrusiveRefCntPtrIKNS0_12ProgramStateEEES6_NS0_4SValEbEEclES6_S7_b.exit
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %13) #18
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.013.022, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.013.020, i64 16
   %.not = icmp eq ptr %23, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

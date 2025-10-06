@@ -8116,8 +8116,8 @@ define internal fastcc i32 @hls_slice_data_wpp(ptr noundef %0, ptr noundef reado
   %167 = mul nuw nsw i64 %166, 96
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %164, i8 0, i64 %167, i1 false)
   %168 = load i32, ptr %153, align 8, !tbaa !187
-  %.not3846.i = icmp ult i32 %168, %152
-  br i1 %.not3846.i, label %.lr.ph.preheader.i, label %.loopexit.i
+  %.not3845.i = icmp ult i32 %168, %152
+  br i1 %.not3845.i, label %.lr.ph.preheader.i, label %.loopexit.i
 
 .lr.ph.preheader.i:                               ; preds = %161
   %169 = sext i32 %168 to i64
@@ -8139,25 +8139,25 @@ define internal fastcc i32 @hls_slice_data_wpp(ptr noundef %0, ptr noundef reado
   br i1 %.not38.i, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !500
 
 .loopexit.i:                                      ; preds = %174, %161, %._crit_edge196
-  %.not50.i = icmp eq i32 %152, 0
-  br i1 %.not50.i, label %wpp_progress_init.exit, label %.lr.ph49.i
+  %.not49.i = icmp eq i32 %152, 0
+  br i1 %.not49.i, label %wpp_progress_init.exit, label %.lr.ph48.i
 
-.lr.ph49.i:                                       ; preds = %.loopexit.i
+.lr.ph48.i:                                       ; preds = %.loopexit.i
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 715928
   %wide.trip.count.i = zext i32 %152 to i64
   br label %177
 
-177:                                              ; preds = %177, %.lr.ph49.i
-  %indvars.iv54.i = phi i64 [ 0, %.lr.ph49.i ], [ %indvars.iv.next55.i, %177 ]
+177:                                              ; preds = %177, %.lr.ph48.i
+  %indvars.iv53.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next54.i, %177 ]
   %178 = load ptr, ptr %176, align 8, !tbaa !190
-  %179 = getelementptr inbounds nuw %struct.ThreadProgress, ptr %178, i64 %indvars.iv54.i
+  %179 = getelementptr inbounds nuw %struct.ThreadProgress, ptr %178, i64 %indvars.iv53.i
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 4
   %181 = load i32, ptr %180, align 4, !tbaa !501
   %.not.i.i = icmp eq i32 %181, 0
   %182 = select i1 %.not.i.i, i32 2147483647, i32 -1
   store i32 %182, ptr %179, align 4, !tbaa !74
-  %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next55.i, %wide.trip.count.i
+  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %wpp_progress_init.exit, label %177, !llvm.loop !503
 
 wpp_progress_init.exit:                           ; preds = %177, %.loopexit.i

@@ -874,8 +874,8 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6retain17ha11949bb72d90ff6E"
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !alias.scope !180, !noalias !183
   %.sink4.i = select i1 %5, i64 %7, i64 %4
-  %.not35 = icmp eq i64 %.sink4.i, 0
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq i64 %.sink4.i, 0
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = load i32, ptr %1, align 4
@@ -903,44 +903,44 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$6retain17ha11949bb72d90ff6E"
   ret void
 
 13:                                               ; preds = %.lr.ph, %25
-  %.034 = phi i64 [ 0, %.lr.ph ], [ %.1, %25 ]
-  %.sroa.01.033 = phi i64 [ 0, %.lr.ph ], [ %14, %25 ]
-  %14 = add nuw i64 %.sroa.01.033, 1
+  %.033 = phi i64 [ 0, %.lr.ph ], [ %.1, %25 ]
+  %.sroa.01.032 = phi i64 [ 0, %.lr.ph ], [ %14, %25 ]
+  %14 = add nuw i64 %.sroa.01.032, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !193)
   %15 = load i64, ptr %3, align 8, !alias.scope !196, !noalias !199, !noundef !12
   %16 = icmp ugt i64 %15, 4
   %.val.i = load i64, ptr %6, align 8, !alias.scope !193
   %17 = select i1 %16, i64 %.val.i, i64 %15
-  %18 = icmp ult i64 %.sroa.01.033, %17
+  %18 = icmp ult i64 %.sroa.01.032, %17
   br i1 %18, label %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc5451bb110a002c5E.exit", label %19, !prof !201
 
 19:                                               ; preds = %13
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.01.033, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9e016162abdc04bcb57427de26a4941.25) #22, !noalias !202
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.01.032, i64 noundef %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.d9e016162abdc04bcb57427de26a4941.25) #22, !noalias !202
   unreachable
 
 "_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc5451bb110a002c5E.exit": ; preds = %13
   %20 = load ptr, ptr %0, align 8, !alias.scope !196, !noalias !199, !nonnull !12
   %.sink3.i.i = select i1 %16, ptr %20, ptr %0
-  %21 = getelementptr inbounds i32, ptr %.sink3.i.i, i64 %.sroa.01.033
+  %21 = getelementptr inbounds i32, ptr %.sink3.i.i, i64 %.sroa.01.032
   %.val14 = load i32, ptr %21, align 4, !noundef !12
-  %.not19 = icmp eq i32 %.val14, %8
-  br i1 %.not19, label %22, label %24
+  %.not18 = icmp eq i32 %.val14, %8
+  br i1 %.not18, label %22, label %24
 
 22:                                               ; preds = %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc5451bb110a002c5E.exit"
-  %23 = add i64 %.034, 1
+  %23 = add i64 %.033, 1
   br label %25
 
 24:                                               ; preds = %"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hc5451bb110a002c5E.exit"
-  %.not = icmp eq i64 %.034, 0
+  %.not = icmp eq i64 %.033, 0
   br i1 %.not, label %25, label %26
 
 25:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hc5c62c81a8e08043E.exit", %24, %22
-  %.1 = phi i64 [ %.034, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hc5c62c81a8e08043E.exit" ], [ 0, %24 ], [ %23, %22 ]
+  %.1 = phi i64 [ %.033, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hc5c62c81a8e08043E.exit" ], [ 0, %24 ], [ %23, %22 ]
   %exitcond.not = icmp eq i64 %14, %.sink4.i
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %13
 
 26:                                               ; preds = %24
-  %27 = sub i64 %.sroa.01.033, %.034
+  %27 = sub i64 %.sroa.01.032, %.033
   tail call void @llvm.experimental.noalias.scope.decl(metadata !205)
   %28 = icmp ult i64 %27, %17
   br i1 %28, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hc5c62c81a8e08043E.exit", label %29, !prof !201
@@ -1030,13 +1030,13 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h23d9608f
 27:                                               ; preds = %21
   %28 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %29 = tail call noundef align 4 ptr @__rust_alloc(i64 noundef %17, i64 noundef 4) #23
-  %.not126 = icmp eq ptr %29, null
-  br i1 %.not126, label %_ZN8smallvec12layout_array17h06fe27d022e08321E.exit.thread, label %33
+  %.not119 = icmp eq ptr %29, null
+  br i1 %.not119, label %_ZN8smallvec12layout_array17h06fe27d022e08321E.exit.thread, label %33
 
 30:                                               ; preds = %25
   %31 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %8, i64 noundef %23, i64 noundef 4, i64 noundef %17) #23
-  %.not125 = icmp eq ptr %31, null
-  br i1 %.not125, label %_ZN8smallvec12layout_array17h06fe27d022e08321E.exit.thread, label %32
+  %.not118 = icmp eq ptr %31, null
+  br i1 %.not118, label %_ZN8smallvec12layout_array17h06fe27d022e08321E.exit.thread, label %32
 
 32:                                               ; preds = %30, %33
   %.0 = phi ptr [ %29, %33 ], [ %31, %30 ]

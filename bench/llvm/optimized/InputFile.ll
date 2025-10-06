@@ -3921,7 +3921,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb9InputFile8hasTypesEv(ptr noun
 
 9:                                                ; preds = %1
   %10 = tail call noundef zeroext i1 @_ZNK4llvm3pdb7PDBFile15hasPDBTpiStreamEv(ptr noundef nonnull align 8 dereferenceable(280) %8) #21
-  br label %61
+  br label %62
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %8, align 8, !tbaa !8, !noalias !380
@@ -3941,9 +3941,9 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb9InputFile8hasTypesEv(ptr noun
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %17, ptr %24, align 8
   %25 = icmp ne ptr %17, %23
-  %.not.i.i.i.i21 = icmp ne i64 %16, %22
-  %.not2.i.not.not22 = select i1 %25, i1 true, i1 %.not.i.i.i.i21
-  br i1 %.not2.i.not.not22, label %.lr.ph, label %._crit_edge
+  %.not.i.i.i.i22 = icmp ne i64 %16, %22
+  %.not2.i23 = select i1 %25, i1 true, i1 %.not.i.i.i.i22
+  br i1 %.not2.i23, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -3952,13 +3952,13 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb9InputFile8hasTypesEv(ptr noun
   br label %29
 
 29:                                               ; preds = %.lr.ph, %54
-  %lhsv.i.i.i.i23 = phi i64 [ %16, %.lr.ph ], [ %lhsv.i.i.i.i, %54 ]
+  %lhsv.i.i.i.i24 = phi i64 [ %16, %.lr.ph ], [ %lhsv.i.i.i.i, %54 ]
   %30 = phi ptr [ %17, %.lr.ph ], [ %59, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %26, align 8, !tbaa !124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 32, i1 false)
   store i32 0, ptr %27, align 4, !tbaa !383
-  %31 = call fastcc noundef zeroext i1 @_ZL15isDebugTSectionN4llvm6object10SectionRefERNS_14VarStreamArrayINS_8codeview8CVRecordINS3_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS6_EEEE(i64 %lhsv.i.i.i.i23, ptr %30, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  %31 = call fastcc noundef zeroext i1 @_ZL15isDebugTSectionN4llvm6object10SectionRefERNS_14VarStreamArrayINS_8codeview8CVRecordINS3_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS6_EEEE(i64 %lhsv.i.i.i.i24, ptr %30, ptr noundef nonnull align 8 dereferenceable(56) %3)
   %32 = load ptr, ptr %28, align 8, !tbaa !68
   %.not.i.i.i.i17 = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i17, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, label %33
@@ -4009,7 +4009,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %50, %4
 
 _ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit: ; preds = %29, %38, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %53
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %31, label %._crit_edge, label %54
+  br i1 %31, label %61, label %54
 
 54:                                               ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
   %55 = load ptr, ptr %24, align 8, !tbaa !136
@@ -4021,16 +4021,19 @@ _ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStre
   %60 = icmp ne ptr %59, %23
   %lhsv.i.i.i.i = load i64, ptr %2, align 8
   %.not.i.i.i.i = icmp ne i64 %lhsv.i.i.i.i, %22
-  %.not2.i.not.not = select i1 %60, i1 true, i1 %.not.i.i.i.i
-  br i1 %.not2.i.not.not, label %29, label %._crit_edge
+  %.not2.i = select i1 %60, i1 true, i1 %.not.i.i.i.i
+  br i1 %.not2.i, label %29, label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, %54, %11
-  %.not2.i.not.not.lcssa = phi i1 [ false, %11 ], [ %31, %54 ], [ %31, %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit ]
+61:                                               ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %61
+  br label %62
 
-61:                                               ; preds = %._crit_edge, %9
-  %.0 = phi i1 [ %10, %9 ], [ %.not2.i.not.not.lcssa, %._crit_edge ]
+._crit_edge:                                      ; preds = %54, %11
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
+  br label %62
+
+62:                                               ; preds = %._crit_edge, %61, %9
+  %.0 = phi i1 [ %10, %9 ], [ false, %._crit_edge ], [ true, %61 ]
   ret i1 %.0
 }
 
@@ -4317,11 +4320,11 @@ _ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   call void %70(ptr noundef nonnull align 8 dereferenceable(248) %67) #21
-  %.pre73 = load ptr, ptr %22, align 8, !tbaa !3
+  %.pre71 = load ptr, ptr %22, align 8, !tbaa !3
   br label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i, %_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJRKNS0_14VarStreamArrayINS1_8CVRecordINS1_12TypeLeafKindEEENS0_23VarStreamArrayExtractorIS6_EEEERjRNS0_16FixedStreamArrayINS1_15TypeIndexOffsetEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
-  %71 = phi ptr [ %.pre73, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i ], [ %30, %_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJRKNS0_14VarStreamArrayINS1_8CVRecordINS1_12TypeLeafKindEEENS0_23VarStreamArrayExtractorIS6_EEEERjRNS0_16FixedStreamArrayINS1_15TypeIndexOffsetEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
+  %71 = phi ptr [ %.pre71, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i ], [ %30, %_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJRKNS0_14VarStreamArrayINS1_8CVRecordINS1_12TypeLeafKindEEENS0_23VarStreamArrayExtractorIS6_EEEERjRNS0_16FixedStreamArrayINS1_15TypeIndexOffsetEEEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ]
   %72 = load ptr, ptr %33, align 8, !tbaa !68
   %.not.i.i.i.i27 = icmp eq ptr %72, null
   br i1 %.not.i.i.i.i27, label %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit, label %73
@@ -4394,133 +4397,133 @@ _ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit: ; preds = %
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %102, ptr %109, align 8
   %110 = icmp ne ptr %102, %108
-  %.not.i.i.i.i3567 = icmp ne i64 %101, %107
-  %.not2.i68 = select i1 %110, i1 true, i1 %.not.i.i.i.i3567
-  br i1 %.not2.i68, label %.lr.ph, label %.thread
+  %.not.i.i.i.i3565 = icmp ne i64 %101, %107
+  %.not2.i66 = select i1 %110, i1 true, i1 %.not.i.i.i.i3565
+  br i1 %.not2.i66, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %94
   %111 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %112 = getelementptr inbounds nuw i8, ptr %7, i64 52
   %113 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  br label %116
+  br label %114
 
-.thread:                                          ; preds = %147, %94
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %114 = call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #22, !noalias !395
-  call void @_ZN4llvm8codeview24LazyRandomTypeCollectionC1Ej(ptr noundef nonnull align 8 dereferenceable(248) %114, i32 noundef 100) #21, !noalias !395
-  %115 = load ptr, ptr %8, align 8, !tbaa !3
-  store ptr %114, ptr %8, align 8, !tbaa !3
-  %.not.i.i.i.i46 = icmp eq ptr %115, null
-  br i1 %.not.i.i.i.i46, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit51, label %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i47
-
-116:                                              ; preds = %.lr.ph, %147
-  %lhsv.i.i.i.i70 = phi i64 [ %101, %.lr.ph ], [ %lhsv.i.i.i.i, %147 ]
-  %117 = phi ptr [ %102, %.lr.ph ], [ %152, %147 ]
-  %.169 = phi ptr [ undef, %.lr.ph ], [ %.3, %147 ]
+114:                                              ; preds = %.lr.ph, %145
+  %lhsv.i.i.i.i68 = phi i64 [ %101, %.lr.ph ], [ %lhsv.i.i.i.i, %145 ]
+  %115 = phi ptr [ %102, %.lr.ph ], [ %150, %145 ]
+  %.167 = phi ptr [ undef, %.lr.ph ], [ %.3, %145 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %111, align 8, !tbaa !124
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, i8 0, i64 32, i1 false)
   store i32 0, ptr %112, align 4, !tbaa !383
-  %118 = call fastcc noundef zeroext i1 @_ZL15isDebugTSectionN4llvm6object10SectionRefERNS_14VarStreamArrayINS_8codeview8CVRecordINS3_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS6_EEEE(i64 %lhsv.i.i.i.i70, ptr %117, ptr noundef nonnull align 8 dereferenceable(56) %7)
-  br i1 %118, label %119, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41
+  %116 = call fastcc noundef zeroext i1 @_ZL15isDebugTSectionN4llvm6object10SectionRefERNS_14VarStreamArrayINS_8codeview8CVRecordINS3_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS6_EEEE(i64 %lhsv.i.i.i.i68, ptr %115, ptr noundef nonnull align 8 dereferenceable(56) %7)
+  br i1 %116, label %117, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41
 
-119:                                              ; preds = %116
-  %120 = call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #22, !noalias !398
-  call void @_ZN4llvm8codeview24LazyRandomTypeCollectionC1ERKNS_14VarStreamArrayINS0_8CVRecordINS0_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEj(ptr noundef nonnull align 8 dereferenceable(248) %120, ptr noundef nonnull align 8 dereferenceable(56) %7, i32 noundef 100) #21, !noalias !398
-  %121 = load ptr, ptr %8, align 8, !tbaa !3
-  store ptr %120, ptr %8, align 8, !tbaa !3
-  %.not.i.i.i.i36 = icmp eq ptr %121, null
+117:                                              ; preds = %114
+  %118 = call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #22, !noalias !395
+  call void @_ZN4llvm8codeview24LazyRandomTypeCollectionC1ERKNS_14VarStreamArrayINS0_8CVRecordINS0_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS5_EEEEj(ptr noundef nonnull align 8 dereferenceable(248) %118, ptr noundef nonnull align 8 dereferenceable(56) %7, i32 noundef 100) #21, !noalias !395
+  %119 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %118, ptr %8, align 8, !tbaa !3
+  %.not.i.i.i.i36 = icmp eq ptr %119, null
   br i1 %.not.i.i.i.i36, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41, label %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37
 
-_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37: ; preds = %119
-  %122 = load ptr, ptr %121, align 8, !tbaa !8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
-  %124 = load ptr, ptr %123, align 8
-  call void %124(ptr noundef nonnull align 8 dereferenceable(248) %121) #21
+_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37: ; preds = %117
+  %120 = load ptr, ptr %119, align 8, !tbaa !8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %122 = load ptr, ptr %121, align 8
+  call void %122(ptr noundef nonnull align 8 dereferenceable(248) %119) #21
   %.pre = load ptr, ptr %8, align 8, !tbaa !3
   br label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41
 
-_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41: ; preds = %119, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37, %116
-  %.3 = phi ptr [ %.169, %116 ], [ %.pre, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37 ], [ %120, %119 ]
-  %125 = load ptr, ptr %113, align 8, !tbaa !68
-  %.not.i.i.i.i42 = icmp eq ptr %125, null
-  br i1 %.not.i.i.i.i42, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, label %126
+_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41: ; preds = %117, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37, %114
+  %.3 = phi ptr [ %.167, %114 ], [ %.pre, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i37 ], [ %118, %117 ]
+  %123 = load ptr, ptr %113, align 8, !tbaa !68
+  %.not.i.i.i.i42 = icmp eq ptr %123, null
+  br i1 %.not.i.i.i.i42, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, label %124
 
-126:                                              ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %128 = load atomic i64, ptr %127 acquire, align 8
-  %129 = icmp eq i64 %128, 4294967297
-  %130 = trunc i64 %128 to i32
-  br i1 %129, label %131, label %139
+124:                                              ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 8
+  %126 = load atomic i64, ptr %125 acquire, align 8
+  %127 = icmp eq i64 %126, 4294967297
+  %128 = trunc i64 %126 to i32
+  br i1 %127, label %129, label %137
 
-131:                                              ; preds = %126
-  store i32 0, ptr %127, align 8, !tbaa !132
-  %132 = getelementptr inbounds nuw i8, ptr %125, i64 12
-  store i32 0, ptr %132, align 4, !tbaa !134
-  %133 = load ptr, ptr %125, align 8, !tbaa !8
-  %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
-  %135 = load ptr, ptr %134, align 8
-  call void %135(ptr noundef nonnull align 8 dereferenceable(16) %125) #21
-  %136 = load ptr, ptr %125, align 8, !tbaa !8
-  %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
-  %138 = load ptr, ptr %137, align 8
-  call void %138(ptr noundef nonnull align 8 dereferenceable(16) %125) #21
+129:                                              ; preds = %124
+  store i32 0, ptr %125, align 8, !tbaa !132
+  %130 = getelementptr inbounds nuw i8, ptr %123, i64 12
+  store i32 0, ptr %130, align 4, !tbaa !134
+  %131 = load ptr, ptr %123, align 8, !tbaa !8
+  %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
+  %133 = load ptr, ptr %132, align 8
+  call void %133(ptr noundef nonnull align 8 dereferenceable(16) %123) #21
+  %134 = load ptr, ptr %123, align 8, !tbaa !8
+  %135 = getelementptr inbounds nuw i8, ptr %134, i64 24
+  %136 = load ptr, ptr %135, align 8
+  call void %136(ptr noundef nonnull align 8 dereferenceable(16) %123) #21
   br label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
 
-139:                                              ; preds = %126
-  %140 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35
-  %.not.i.i.i.i.i43 = icmp eq i8 %140, 0
-  br i1 %.not.i.i.i.i.i43, label %143, label %141
+137:                                              ; preds = %124
+  %138 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !35
+  %.not.i.i.i.i.i43 = icmp eq i8 %138, 0
+  br i1 %.not.i.i.i.i.i43, label %141, label %139
 
-141:                                              ; preds = %139
-  %142 = add nsw i32 %130, -1
-  store i32 %142, ptr %127, align 4, !tbaa !131
+139:                                              ; preds = %137
+  %140 = add nsw i32 %128, -1
+  store i32 %140, ptr %125, align 4, !tbaa !131
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i44
 
-143:                                              ; preds = %139
-  %144 = atomicrmw volatile add ptr %127, i32 -1 acq_rel, align 4
+141:                                              ; preds = %137
+  %142 = atomicrmw volatile add ptr %125, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i44
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i44: ; preds = %143, %141
-  %.0.i.i.i.i.i.i45 = phi i32 [ %130, %141 ], [ %144, %143 ]
-  %145 = icmp eq i32 %.0.i.i.i.i.i.i45, 1
-  br i1 %145, label %146, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, !prof !135
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i44: ; preds = %141, %139
+  %.0.i.i.i.i.i.i45 = phi i32 [ %128, %139 ], [ %142, %141 ]
+  %143 = icmp eq i32 %.0.i.i.i.i.i.i45, 1
+  br i1 %143, label %144, label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit, !prof !135
 
-146:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i44
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %125) #21
+144:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i44
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %123) #21
   br label %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
 
-_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41, %131, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i44, %146
+_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit41, %129, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i44, %144
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %118, label %154, label %147
+  br i1 %116, label %152, label %145
 
-147:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
-  %148 = load ptr, ptr %109, align 8, !tbaa !136
-  %149 = load ptr, ptr %148, align 8, !tbaa !8
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 136
-  %151 = load ptr, ptr %150, align 8
-  call void %151(ptr noundef nonnull align 8 dereferenceable(48) %148, ptr noundef nonnull align 8 dereferenceable(16) %6) #21
-  %152 = load ptr, ptr %109, align 8, !tbaa !136
-  %153 = icmp ne ptr %152, %108
+145:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
+  %146 = load ptr, ptr %109, align 8, !tbaa !136
+  %147 = load ptr, ptr %146, align 8, !tbaa !8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 136
+  %149 = load ptr, ptr %148, align 8
+  call void %149(ptr noundef nonnull align 8 dereferenceable(48) %146, ptr noundef nonnull align 8 dereferenceable(16) %6) #21
+  %150 = load ptr, ptr %109, align 8, !tbaa !136
+  %151 = icmp ne ptr %150, %108
   %lhsv.i.i.i.i = load i64, ptr %6, align 8
   %.not.i.i.i.i35 = icmp ne i64 %lhsv.i.i.i.i, %107
-  %.not2.i = select i1 %153, i1 true, i1 %.not.i.i.i.i35
-  br i1 %.not2.i, label %116, label %.thread
+  %.not2.i = select i1 %151, i1 true, i1 %.not.i.i.i.i35
+  br i1 %.not2.i, label %114, label %._crit_edge
 
-154:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
+152:                                              ; preds = %_ZN4llvm14VarStreamArrayINS_8codeview8CVRecordINS1_12TypeLeafKindEEENS_23VarStreamArrayExtractorIS4_EEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit51
 
-_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i47: ; preds = %.thread
-  %155 = load ptr, ptr %115, align 8, !tbaa !8
+._crit_edge:                                      ; preds = %145, %94
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  %153 = call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #22, !noalias !398
+  call void @_ZN4llvm8codeview24LazyRandomTypeCollectionC1Ej(ptr noundef nonnull align 8 dereferenceable(248) %153, i32 noundef 100) #21, !noalias !398
+  %154 = load ptr, ptr %8, align 8, !tbaa !3
+  store ptr %153, ptr %8, align 8, !tbaa !3
+  %.not.i.i.i.i46 = icmp eq ptr %154, null
+  br i1 %.not.i.i.i.i46, label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit51, label %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i47
+
+_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i47: ; preds = %._crit_edge
+  %155 = load ptr, ptr %154, align 8, !tbaa !8
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8
-  call void %157(ptr noundef nonnull align 8 dereferenceable(248) %115) #21
-  %.pre72 = load ptr, ptr %8, align 8, !tbaa !3
+  call void %157(ptr noundef nonnull align 8 dereferenceable(248) %154) #21
+  %.pre70 = load ptr, ptr %8, align 8, !tbaa !3
   br label %_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit51
 
-_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit51: ; preds = %.thread, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i47, %154, %12, %2, %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit
-  %.0 = phi ptr [ %71, %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit ], [ %.3, %154 ], [ %9, %2 ], [ %14, %12 ], [ %.pre72, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i47 ], [ %114, %.thread ]
+_ZNSt10unique_ptrIN4llvm8codeview24LazyRandomTypeCollectionESt14default_deleteIS2_EED2Ev.exit51: ; preds = %._crit_edge, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i47, %152, %12, %2, %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit
+  %.0 = phi ptr [ %71, %_ZN4llvm16FixedStreamArrayINS_8codeview15TypeIndexOffsetEED2Ev.exit ], [ %.3, %152 ], [ %9, %2 ], [ %14, %12 ], [ %.pre70, %_ZNKSt14default_deleteIN4llvm8codeview24LazyRandomTypeCollectionEEclEPS2_.exit.i.i.i.i47 ], [ %153, %._crit_edge ]
   ret ptr %.0
 }
 
@@ -10894,11 +10897,11 @@ attributes #24 = { noreturn nounwind }
 !393 = distinct !{!393, !394, !"_ZNK4llvm6object10ObjectFile8sectionsEv: argument 0"}
 !394 = distinct !{!394, !"_ZNK4llvm6object10ObjectFile8sectionsEv"}
 !395 = !{!396}
-!396 = distinct !{!396, !397, !"_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!397 = distinct !{!397, !"_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!396 = distinct !{!396, !397, !"_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJRNS0_14VarStreamArrayINS1_8CVRecordINS1_12TypeLeafKindEEENS0_23VarStreamArrayExtractorIS6_EEEEiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!397 = distinct !{!397, !"_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJRNS0_14VarStreamArrayINS1_8CVRecordINS1_12TypeLeafKindEEENS0_23VarStreamArrayExtractorIS6_EEEEiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !398 = !{!399}
-!399 = distinct !{!399, !400, !"_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJRNS0_14VarStreamArrayINS1_8CVRecordINS1_12TypeLeafKindEEENS0_23VarStreamArrayExtractorIS6_EEEEiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
-!400 = distinct !{!400, !"_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJRNS0_14VarStreamArrayINS1_8CVRecordINS1_12TypeLeafKindEEENS0_23VarStreamArrayExtractorIS6_EEEEiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
+!399 = distinct !{!399, !400, !"_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_: argument 0"}
+!400 = distinct !{!400, !"_ZSt11make_uniqueIN4llvm8codeview24LazyRandomTypeCollectionEJiEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_"}
 !401 = !{!402}
 !402 = distinct !{!402, !403, !"_ZN4llvm10make_rangeINS_3pdb19SymbolGroupIteratorEEENS_14iterator_rangeIT_EES4_S4_: argument 0"}
 !403 = distinct !{!403, !"_ZN4llvm10make_rangeINS_3pdb19SymbolGroupIteratorEEENS_14iterator_rangeIT_EES4_S4_"}

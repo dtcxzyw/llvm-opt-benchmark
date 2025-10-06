@@ -737,13 +737,13 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPattern
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit
   %12 = phi ptr [ %15, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ %.pre, %.lr.ph.preheader ]
-  %.sroa.032.043 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
+  %.sroa.031.043 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = tail call noundef zeroext i1 @_ZNK4llvm11GlobPattern5matchENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %13, ptr %1, i64 %2) #17
   br i1 %14, label %.loopexit.loopexit51, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader.backedge
-  %.pn.i = phi ptr [ %storemerge.i, %.preheader.backedge ], [ %.sroa.032.043, %.lr.ph ]
+  %.pn.i = phi ptr [ %storemerge.i, %.preheader.backedge ], [ %.sroa.031.043, %.lr.ph ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %15 = load ptr, ptr %storemerge.i, align 8, !tbaa !75
   %magicptr.i.i = ptrtoint ptr %15 to i64
@@ -764,18 +764,18 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPattern
   br i1 %.not4048, label %.loopexit, label %.lr.ph50
 
 .lr.ph50:                                         ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge, %22
-  %.sroa.028.049 = phi ptr [ %23, %22 ], [ %17, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge ]
-  %20 = load ptr, ptr %.sroa.028.049, align 8, !tbaa !54
+  %.sroa.027.049 = phi ptr [ %23, %22 ], [ %17, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge ]
+  %20 = load ptr, ptr %.sroa.027.049, align 8, !tbaa !54
   %21 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %20, ptr %1, i64 %2, ptr noundef null, ptr noundef null) #17
   br i1 %21, label %.loopexit.split.loop.exit45, label %22
 
 22:                                               ; preds = %.lr.ph50
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.028.049, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.027.049, i64 16
   %.not40 = icmp eq ptr %23, %19
   br i1 %.not40, label %.loopexit, label %.lr.ph50
 
 .loopexit.split.loop.exit45:                      ; preds = %.lr.ph50
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.028.049, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.027.049, i64 8
   %25 = load i32, ptr %24, align 4
   br label %.loopexit
 
@@ -2544,8 +2544,8 @@ _ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.
   %.sroa.0.1.i = phi ptr [ %8, %7 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %14 = zext i32 %10 to i64
   %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %14
-  %.not3640 = icmp eq ptr %.sroa.0.1.i, %15
-  br i1 %.not3640, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit._crit_edge, label %.lr.ph
+  %.not3943 = icmp eq ptr %.sroa.0.1.i, %15
+  br i1 %.not3943, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2553,12 +2553,12 @@ _ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.
   br label %16
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit: ; preds = %.thread
-  %.not36 = icmp eq ptr %storemerge.i, %15
-  br i1 %.not36, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit._crit_edge, label %16
+  %.not39 = icmp eq ptr %storemerge.i, %15
+  br i1 %.not39, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit._crit_edge, label %16
 
 16:                                               ; preds = %.lr.ph, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit
   %17 = phi ptr [ %.pre, %.lr.ph ], [ %45, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit ]
-  %.sroa.028.041 = phi ptr [ %.sroa.0.1.i, %.lr.ph ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit ]
+  %.sroa.028.044 = phi ptr [ %.sroa.0.1.i, %.lr.ph ], [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit ]
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !261
   %20 = load ptr, ptr %19, align 8, !tbaa !107
@@ -2597,13 +2597,13 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPattern
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i, %.lr.ph.preheader.i
   %28 = phi ptr [ %31, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i ], [ %.pre.i, %.lr.ph.preheader.i ]
-  %.sroa.032.043.i = phi ptr [ %storemerge.i.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i ], [ %.sroa.0.1.i.i, %.lr.ph.preheader.i ]
+  %.sroa.031.043.i = phi ptr [ %storemerge.i.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i ], [ %.sroa.0.1.i.i, %.lr.ph.preheader.i ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = tail call noundef zeroext i1 @_ZNK4llvm11GlobPattern5matchENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %29, ptr %1, i64 %2) #17
   br i1 %30, label %.loopexit.loopexit51.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i.backedge
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %.preheader.i.backedge ], [ %.sroa.032.043.i, %.lr.ph.i ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %.preheader.i.backedge ], [ %.sroa.031.043.i, %.lr.ph.i ]
   %storemerge.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
   %31 = load ptr, ptr %storemerge.i.i, align 8, !tbaa !75
   %magicptr.i.i.i = ptrtoint ptr %31 to i64
@@ -2624,18 +2624,18 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPattern
   br i1 %.not4048.i, label %.thread.preheader, label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.i, %38
-  %.sroa.028.049.i = phi ptr [ %39, %38 ], [ %33, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.i ]
-  %36 = load ptr, ptr %.sroa.028.049.i, align 8, !tbaa !54
+  %.sroa.027.049.i = phi ptr [ %39, %38 ], [ %33, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.i ]
+  %36 = load ptr, ptr %.sroa.027.049.i, align 8, !tbaa !54
   %37 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %36, ptr %1, i64 %2, ptr noundef null, ptr noundef null) #17
   br i1 %37, label %.loopexit.split.loop.exit45.i, label %38
 
 38:                                               ; preds = %.lr.ph50.i
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.028.049.i, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.027.049.i, i64 16
   %.not40.i = icmp eq ptr %39, %35
   br i1 %.not40.i, label %.thread.preheader, label %.lr.ph50.i
 
 .loopexit.split.loop.exit45.i:                    ; preds = %.lr.ph50.i
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.028.049.i, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.027.049.i, i64 8
   br label %_ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit
 
 .loopexit.loopexit51.i:                           ; preds = %.lr.ph.i
@@ -2660,7 +2660,7 @@ _ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit: ; preds = %.loopex
   br label %.thread
 
 .thread:                                          ; preds = %.thread.backedge, %.thread.preheader
-  %.pn.i = phi ptr [ %.sroa.028.041, %.thread.preheader ], [ %storemerge.i, %.thread.backedge ]
+  %.pn.i = phi ptr [ %.sroa.028.044, %.thread.preheader ], [ %storemerge.i, %.thread.backedge ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %45 = load ptr, ptr %storemerge.i, align 8, !tbaa !75
   %magicptr.i.i = ptrtoint ptr %45 to i64
@@ -2673,8 +2673,8 @@ _ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit: ; preds = %.loopex
   br label %.thread, !llvm.loop !298
 
 _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit._crit_edge: ; preds = %42, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit, %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit
-  %spec.select = phi i32 [ 0, %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit ], [ %44, %42 ]
-  ret i32 %spec.select
+  %46 = phi i32 [ 0, %_ZNK4llvm9StringMapINS_15SpecialCaseList7SectionENS_15MallocAllocatorEE5beginEv.exit ], [ 0, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorINS_15SpecialCaseList7SectionEEEKNS_14StringMapEntryIS3_EEEppEv.exit.loopexit ], [ %44, %42 ]
+  ret i32 %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2757,13 +2757,13 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPattern
 
 .lr.ph.i:                                         ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i, %.lr.ph.preheader.i
   %48 = phi ptr [ %51, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i ], [ %.pre.i, %.lr.ph.preheader.i ]
-  %.sroa.032.043.i = phi ptr [ %storemerge.i.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i ], [ %.sroa.0.1.i.i, %.lr.ph.preheader.i ]
+  %.sroa.031.043.i = phi ptr [ %storemerge.i.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit.loopexit.i ], [ %.sroa.0.1.i.i, %.lr.ph.preheader.i ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = tail call noundef zeroext i1 @_ZNK4llvm11GlobPattern5matchENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(72) %49, ptr %4, i64 %5) #17
   br i1 %50, label %.loopexit.loopexit51.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph.i, %.preheader.i.backedge
-  %.pn.i.i = phi ptr [ %storemerge.i.i, %.preheader.i.backedge ], [ %.sroa.032.043.i, %.lr.ph.i ]
+  %.pn.i.i = phi ptr [ %storemerge.i.i, %.preheader.i.backedge ], [ %.sroa.031.043.i, %.lr.ph.i ]
   %storemerge.i.i = getelementptr inbounds nuw i8, ptr %.pn.i.i, i64 8
   %51 = load ptr, ptr %storemerge.i.i, align 8, !tbaa !75
   %magicptr.i.i.i = ptrtoint ptr %51 to i64
@@ -2784,18 +2784,18 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPattern
   br i1 %.not4048.i, label %_ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit, label %.lr.ph50.i
 
 .lr.ph50.i:                                       ; preds = %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.i, %58
-  %.sroa.028.049.i = phi ptr [ %59, %58 ], [ %53, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.i ]
-  %56 = load ptr, ptr %.sroa.028.049.i, align 8, !tbaa !54
+  %.sroa.027.049.i = phi ptr [ %59, %58 ], [ %53, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorISt4pairINS_11GlobPatternEjEEEKNS_14StringMapEntryIS4_EEEppEv.exit._crit_edge.i ]
+  %56 = load ptr, ptr %.sroa.027.049.i, align 8, !tbaa !54
   %57 = tail call noundef zeroext i1 @_ZNK4llvm5Regex5matchENS_9StringRefEPNS_15SmallVectorImplIS1_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %56, ptr %4, i64 %5, ptr noundef null, ptr noundef null) #17
   br i1 %57, label %.loopexit.split.loop.exit45.i, label %58
 
 58:                                               ; preds = %.lr.ph50.i
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.028.049.i, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.027.049.i, i64 16
   %.not40.i = icmp eq ptr %59, %55
   br i1 %.not40.i, label %_ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit, label %.lr.ph50.i
 
 .loopexit.split.loop.exit45.i:                    ; preds = %.lr.ph50.i
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.028.049.i, i64 8
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.027.049.i, i64 8
   %61 = load i32, ptr %60, align 4
   br label %_ZNK4llvm15SpecialCaseList7Matcher5matchENS_9StringRefE.exit
 

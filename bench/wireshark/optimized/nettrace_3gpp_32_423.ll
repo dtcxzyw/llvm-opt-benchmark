@@ -684,9 +684,9 @@ define internal fastcc noundef zeroext i1 @nettrace_msg_to_packet(ptr noundef %0
   %145 = call ptr @ascii_strdown_inplace(ptr noundef nonnull %10)
   %lhsv = load i64, ptr %10, align 16
   %.not238 = icmp eq i64 %lhsv, 27915717453050983
-  br i1 %.not238, label %.thread313, label %147
+  br i1 %.not238, label %.thread312, label %147
 
-.thread313:                                       ; preds = %141
+.thread312:                                       ; preds = %141
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 5
   store i8 0, ptr %146, align 1
   br label %175
@@ -763,10 +763,10 @@ thread-pre-split:                                 ; preds = %155, %151
   store ptr null, ptr %162, align 8
   br label %175
 
-175:                                              ; preds = %.thread313, %164, %174, %170, %159
-  %.1201317 = phi i32 [ %.1201, %164 ], [ %.1201, %170 ], [ %.1201, %174 ], [ %.1201, %159 ], [ 5, %.thread313 ]
-  %.0196 = phi i32 [ 56, %164 ], [ 56, %170 ], [ 0, %174 ], [ 0, %159 ], [ 0, %.thread313 ]
-  %176 = phi i1 [ false, %164 ], [ false, %170 ], [ true, %174 ], [ true, %159 ], [ true, %.thread313 ]
+175:                                              ; preds = %.thread312, %164, %174, %170, %159
+  %.1201316 = phi i32 [ %.1201, %164 ], [ %.1201, %170 ], [ %.1201, %174 ], [ %.1201, %159 ], [ 5, %.thread312 ]
+  %.0196 = phi i32 [ 56, %164 ], [ 56, %170 ], [ 0, %174 ], [ 0, %159 ], [ 0, %.thread312 ]
+  %176 = phi i1 [ false, %164 ], [ false, %170 ], [ true, %174 ], [ true, %159 ], [ true, %.thread312 ]
   %177 = sub i64 %.neg234, %137
   %178 = call ptr @g_strstr_len(ptr noundef %136, i64 noundef %177, ptr noundef nonnull @.str.3)
   %179 = getelementptr i8, ptr %178, i64 1
@@ -782,7 +782,7 @@ thread-pre-split:                                 ; preds = %155, %151
   br i1 %176, label %188, label %190
 
 188:                                              ; preds = %175
-  %189 = trunc i32 %.1201317 to i16
+  %189 = trunc i32 %.1201316 to i16
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %186, i16 noundef zeroext 12, ptr noundef nonnull %10, i16 noundef zeroext %189)
   br label %191
 
@@ -804,11 +804,11 @@ thread-pre-split:                                 ; preds = %155, %151
   %197 = load ptr, ptr %195, align 8
   call void @g_free(ptr noundef %197)
   store ptr null, ptr %195, align 8
-  %.pre287 = load i32, ptr %7, align 8
+  %.pre286 = load i32, ptr %7, align 8
   br label %198
 
 198:                                              ; preds = %194, %191
-  %199 = phi i32 [ %.pre287, %194 ], [ %192, %191 ]
+  %199 = phi i32 [ %.pre286, %194 ], [ %192, %191 ]
   %200 = and i32 %199, 1
   %.not251 = icmp eq i32 %200, 0
   br i1 %.not251, label %203, label %201
@@ -816,11 +816,11 @@ thread-pre-split:                                 ; preds = %155, %151
 201:                                              ; preds = %198
   %202 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %186, i16 noundef zeroext 20, ptr noundef nonnull %202, i16 noundef zeroext 4)
-  %.pre288 = load i32, ptr %7, align 8
+  %.pre287 = load i32, ptr %7, align 8
   br label %203
 
 203:                                              ; preds = %201, %198
-  %204 = phi i32 [ %.pre288, %201 ], [ %199, %198 ]
+  %204 = phi i32 [ %.pre287, %201 ], [ %199, %198 ]
   %205 = and i32 %204, 2
   %.not252 = icmp eq i32 %205, 0
   br i1 %.not252, label %208, label %206
@@ -828,11 +828,11 @@ thread-pre-split:                                 ; preds = %155, %151
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %7, i64 28
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %186, i16 noundef zeroext 21, ptr noundef nonnull %207, i16 noundef zeroext 4)
-  %.pre289 = load i32, ptr %7, align 8
+  %.pre288 = load i32, ptr %7, align 8
   br label %208
 
 208:                                              ; preds = %206, %203
-  %209 = phi i32 [ %.pre289, %206 ], [ %204, %203 ]
+  %209 = phi i32 [ %.pre288, %206 ], [ %204, %203 ]
   %210 = and i32 %209, 128
   %.not253 = icmp eq i32 %210, 0
   br i1 %.not253, label %213, label %211
@@ -840,11 +840,11 @@ thread-pre-split:                                 ; preds = %155, %151
 211:                                              ; preds = %208
   %212 = getelementptr inbounds nuw i8, ptr %7, i64 4
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %186, i16 noundef zeroext 22, ptr noundef nonnull %212, i16 noundef zeroext 16)
-  %.pre290 = load i32, ptr %7, align 8
+  %.pre289 = load i32, ptr %7, align 8
   br label %213
 
 213:                                              ; preds = %211, %208
-  %214 = phi i32 [ %.pre290, %211 ], [ %209, %208 ]
+  %214 = phi i32 [ %.pre289, %211 ], [ %209, %208 ]
   %215 = and i32 %214, 256
   %.not254 = icmp eq i32 %215, 0
   br i1 %.not254, label %218, label %216
@@ -852,11 +852,11 @@ thread-pre-split:                                 ; preds = %155, %151
 216:                                              ; preds = %213
   %217 = getelementptr inbounds nuw i8, ptr %7, i64 28
   call void @wtap_buffer_append_epdu_tag(ptr noundef nonnull %186, i16 noundef zeroext 23, ptr noundef nonnull %217, i16 noundef zeroext 16)
-  %.pre291 = load i32, ptr %7, align 8
+  %.pre290 = load i32, ptr %7, align 8
   br label %218
 
 218:                                              ; preds = %216, %213
-  %219 = phi i32 [ %.pre291, %216 ], [ %214, %213 ]
+  %219 = phi i32 [ %.pre290, %216 ], [ %214, %213 ]
   %220 = and i32 %219, 12
   %.not255 = icmp eq i32 %220, 0
   br i1 %.not255, label %223, label %221
@@ -864,11 +864,11 @@ thread-pre-split:                                 ; preds = %155, %151
 221:                                              ; preds = %218
   %222 = load i32, ptr %24, align 4
   call void @wtap_buffer_append_epdu_uint(ptr noundef nonnull %186, i16 noundef zeroext 24, i32 noundef %222)
-  %.pre292 = load i32, ptr %7, align 8
+  %.pre291 = load i32, ptr %7, align 8
   br label %223
 
 223:                                              ; preds = %221, %218
-  %224 = phi i32 [ %.pre292, %221 ], [ %219, %218 ]
+  %224 = phi i32 [ %.pre291, %221 ], [ %219, %218 ]
   %225 = and i32 %224, 4
   %.not256 = icmp eq i32 %225, 0
   br i1 %.not256, label %229, label %226
@@ -877,11 +877,11 @@ thread-pre-split:                                 ; preds = %155, %151
   %227 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %228 = load i32, ptr %227, align 8
   call void @wtap_buffer_append_epdu_uint(ptr noundef nonnull %186, i16 noundef zeroext 25, i32 noundef %228)
-  %.pre293 = load i32, ptr %7, align 8
+  %.pre292 = load i32, ptr %7, align 8
   br label %229
 
 229:                                              ; preds = %226, %223
-  %230 = phi i32 [ %.pre293, %226 ], [ %224, %223 ]
+  %230 = phi i32 [ %.pre292, %226 ], [ %224, %223 ]
   %231 = and i32 %230, 8
   %.not257 = icmp eq i32 %231, 0
   br i1 %.not257, label %235, label %232
@@ -908,11 +908,11 @@ thread-pre-split:                                 ; preds = %155, %151
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %254
-  %.0193282 = phi ptr [ %255, %254 ], [ %179, %.lr.ph.preheader ]
-  %.0197281 = phi ptr [ %259, %254 ], [ %241, %.lr.ph.preheader ]
-  %.0199280 = phi i32 [ %260, %254 ], [ 0, %.lr.ph.preheader ]
-  %242 = getelementptr i8, ptr %.0193282, i64 1
-  %243 = load i8, ptr %.0193282, align 1
+  %.0193281 = phi ptr [ %255, %254 ], [ %179, %.lr.ph.preheader ]
+  %.0197280 = phi ptr [ %259, %254 ], [ %241, %.lr.ph.preheader ]
+  %.0199279 = phi i32 [ %260, %254 ], [ 0, %.lr.ph.preheader ]
+  %242 = getelementptr i8, ptr %.0193281, i64 1
+  %243 = load i8, ptr %.0193281, align 1
   %244 = load i8, ptr %242, align 1
   %245 = call i32 @g_ascii_xdigit_value(i8 noundef signext %243) #14
   %246 = call i32 @g_ascii_xdigit_value(i8 noundef signext %244) #14
@@ -925,28 +925,28 @@ thread-pre-split:                                 ; preds = %155, %151
   %250 = add i32 %236, %237
   %251 = sext i8 %243 to i32
   %252 = sext i8 %244 to i32
-  %253 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef %250, i32 noundef %.0199280, i32 noundef %251, i32 noundef %252)
+  %253 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.21, i32 noundef %250, i32 noundef %.0199279, i32 noundef %251, i32 noundef %252)
   store ptr %253, ptr %5, align 8
   store i32 -13, ptr %4, align 4
   br label %267
 
 254:                                              ; preds = %.lr.ph
-  %255 = getelementptr i8, ptr %.0193282, i64 2
+  %255 = getelementptr i8, ptr %.0193281, i64 2
   %256 = shl i32 %245, 4
   %257 = add i32 %256, %246
   %258 = trunc i32 %257 to i8
-  %259 = getelementptr i8, ptr %.0197281, i64 1
-  store i8 %258, ptr %.0197281, align 1
-  %260 = add nuw nsw i32 %.0199280, 1
+  %259 = getelementptr i8, ptr %.0197280, i64 1
+  store i8 %258, ptr %.0197280, align 1
+  %260 = add nuw nsw i32 %.0199279, 1
   %exitcond.not = icmp eq i32 %260, %237
   br i1 %exitcond.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge.loopexit:                             ; preds = %254
-  %.pre294 = load i64, ptr %239, align 8
+  %.pre293 = load i64, ptr %239, align 8
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %235
-  %261 = phi i64 [ %.pre294, %._crit_edge.loopexit ], [ %.val259, %235 ]
+  %261 = phi i64 [ %.pre293, %._crit_edge.loopexit ], [ %.val259, %235 ]
   %262 = add i64 %261, %238
   store i64 %262, ptr %239, align 8
   %.val260 = load i64, ptr %187, align 8

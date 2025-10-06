@@ -243,30 +243,30 @@ zend_string_alloc.exit.i:                         ; preds = %59
 .lr.ph.preheader.i:                               ; preds = %zend_string_alloc.exit.i, %95
   %.0.i68149 = phi ptr [ %.0.i68, %95 ], [ %.0.i68147, %zend_string_alloc.exit.i ]
   %75 = phi i64 [ %98, %95 ], [ 0, %zend_string_alloc.exit.i ]
-  %.078.i150 = ptrtoint ptr %.0.i68149 to i64
+  %.077.i150 = ptrtoint ptr %.0.i68149 to i64
   %scevgep.i = getelementptr i8, ptr %.0.i68149, i64 %.043.lcssa181.pre-phi
-  %76 = sub i64 0, %.078.i150
-  %scevgep79.i = getelementptr i8, ptr %scevgep.i, i64 %76
+  %76 = sub i64 0, %.077.i150
+  %scevgep78.i = getelementptr i8, ptr %scevgep.i, i64 %76
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %78, %.lr.ph.preheader.i
-  %.0.i61.i = phi ptr [ %79, %78 ], [ %.0.i68149, %.lr.ph.preheader.i ]
-  %77 = load i8, ptr %.0.i61.i, align 1, !tbaa !4
+  %.0.i60.i = phi ptr [ %79, %78 ], [ %.0.i68149, %.lr.ph.preheader.i ]
+  %77 = load i8, ptr %.0.i60.i, align 1, !tbaa !4
   switch i8 %77, label %78 [
     i8 92, label %collect_a_sequence_of_code_points.exit.i
     i8 34, label %collect_a_sequence_of_code_points.exit.i
   ]
 
 78:                                               ; preds = %.lr.ph.i
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i61.i, i64 1
-  %exitcond.not.i = icmp eq ptr %79, %scevgep79.i
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i60.i, i64 1
+  %exitcond.not.i = icmp eq ptr %79, %scevgep78.i
   br i1 %exitcond.not.i, label %collect_a_sequence_of_code_points.exit.i, label %.lr.ph.i
 
 collect_a_sequence_of_code_points.exit.i:         ; preds = %78, %.lr.ph.i, %.lr.ph.i
-  %.0.i.lcssa.ph.i = phi ptr [ %scevgep79.i, %78 ], [ %.0.i61.i, %.lr.ph.i ], [ %.0.i61.i, %.lr.ph.i ]
+  %.0.i.lcssa.ph.i = phi ptr [ %scevgep78.i, %78 ], [ %.0.i60.i, %.lr.ph.i ], [ %.0.i60.i, %.lr.ph.i ]
   %.pre.i = ptrtoint ptr %.0.i.lcssa.ph.i to i64
   %80 = icmp ult ptr %.0.i.lcssa.ph.i, %.043.lcssa
-  %81 = sub i64 %.pre.i, %.078.i150
+  %81 = sub i64 %.pre.i, %.077.i150
   %82 = getelementptr inbounds nuw i8, ptr %73, i64 %75
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %82, ptr nonnull align 1 %.0.i68149, i64 %81, i1 false)
   %83 = add i64 %81, %75
@@ -532,8 +532,8 @@ define dso_local noundef ptr @php_libxml_sniff_charset_from_stream(ptr noundef r
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !14
-  %.not57 = icmp eq i32 %11, 0
-  br i1 %.not57, label %.thread53, label %.lr.ph.preheader
+  %.not56 = icmp eq i32 %11, 0
+  br i1 %.not56, label %.thread53, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -541,31 +541,31 @@ define dso_local noundef ptr @php_libxml_sniff_charset_from_stream(ptr noundef r
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
-  %.04060 = phi i32 [ %38, %.thread ], [ %11, %.lr.ph.preheader ]
-  %.04159 = phi ptr [ %.142, %.thread ], [ %13, %.lr.ph.preheader ]
+  %.04059 = phi i32 [ %38, %.thread ], [ %11, %.lr.ph.preheader ]
+  %.04158 = phi ptr [ %.142, %.thread ], [ %13, %.lr.ph.preheader ]
   %14 = load i32, ptr %9, align 8, !tbaa !4
   %15 = and i32 %14, 4
   %.not45 = icmp eq i32 %15, 0
   br i1 %.not45, label %18, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.04159, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.04158, i64 16
   br label %25
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %.04159, i64 32
-  %20 = getelementptr inbounds nuw i8, ptr %.04159, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.04158, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.04158, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !4
   %22 = icmp eq i8 %21, 12
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %18
-  %24 = load ptr, ptr %.04159, align 8, !tbaa !4
+  %24 = load ptr, ptr %.04158, align 8, !tbaa !4
   br label %25
 
 25:                                               ; preds = %18, %23, %16
   %.142 = phi ptr [ %17, %16 ], [ %19, %23 ], [ %19, %18 ]
-  %.038 = phi ptr [ %.04159, %16 ], [ %24, %23 ], [ %.04159, %18 ]
+  %.038 = phi ptr [ %.04158, %16 ], [ %24, %23 ], [ %.04158, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %.038, i64 8
   %27 = load i8, ptr %26, align 8, !tbaa !4
   %28 = icmp eq i8 %27, 0
@@ -592,7 +592,7 @@ define dso_local noundef ptr @php_libxml_sniff_charset_from_stream(ptr noundef r
   br label %.thread
 
 .thread:                                          ; preds = %25, %.thread50
-  %38 = add i32 %.04060, -1
+  %38 = add i32 %.04059, -1
   %.not = icmp eq i32 %38, 0
   br i1 %.not, label %.thread53, label %.lr.ph
 

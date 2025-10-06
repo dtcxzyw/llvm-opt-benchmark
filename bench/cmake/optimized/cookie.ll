@@ -1996,13 +1996,13 @@ define dso_local range(i32 0, 3) i32 @Curl_cookie_getlist(ptr noundef %0, ptr no
   tail call fastcc void @remove_expired(ptr noundef nonnull %1)
   %12 = tail call zeroext i1 @Curl_host_is_ipnum(ptr noundef %2) #12
   %13 = tail call ptr @Curl_llist_head(ptr noundef nonnull %9) #12
-  %.not83119 = icmp eq ptr %13, null
-  br i1 %.not83119, label %._crit_edge.thread, label %.lr.ph
+  %.not83118 = icmp eq ptr %13, null
+  br i1 %.not83118, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %pathmatch.exit.thread
-  %.068121 = phi i64 [ %.3.ph, %pathmatch.exit.thread ], [ 0, %11 ]
-  %.072120 = phi ptr [ %89, %pathmatch.exit.thread ], [ %13, %11 ]
-  %14 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.072120) #12
+  %.068120 = phi i64 [ %.3.ph, %pathmatch.exit.thread ], [ 0, %11 ]
+  %.072119 = phi ptr [ %89, %pathmatch.exit.thread ], [ %13, %11 ]
+  %14 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.072119) #12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 116
   %16 = load i8, ptr %15, align 4
   %17 = and i8 %16, 2
@@ -2133,20 +2133,20 @@ pathmatch.exit:                                   ; preds = %65
 pathmatch.exit.thread99:                          ; preds = %47, %pathmatch.exit.thread104, %pathmatch.exit, %cookie_tailmatch.exit.thread96
   %73 = getelementptr inbounds nuw i8, ptr %14, i64 32
   tail call void @Curl_llist_append(ptr noundef %5, ptr noundef nonnull %14, ptr noundef nonnull %73) #12
-  %74 = add nuw nsw i64 %.068121, 1
-  %75 = icmp ugt i64 %.068121, 148
+  %74 = add nuw nsw i64 %.068120, 1
+  %75 = icmp ugt i64 %.068120, 148
   br i1 %75, label %76, label %pathmatch.exit.thread
 
 76:                                               ; preds = %pathmatch.exit.thread99
   %.not87 = icmp eq ptr %0, null
-  br i1 %.not87, label %.thread111, label %77
+  br i1 %.not87, label %.thread110, label %77
 
 77:                                               ; preds = %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %79 = load i64, ptr %78, align 2
   %80 = and i64 %79, 134217728
   %.not88 = icmp eq i64 %80, 0
-  br i1 %.not88, label %.thread111, label %81
+  br i1 %.not88, label %.thread110, label %81
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 4712
@@ -2158,59 +2158,59 @@ pathmatch.exit.thread99:                          ; preds = %47, %pathmatch.exit
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %86 = load i32, ptr %85, align 8, !tbaa !81
   %87 = icmp sgt i32 %86, 0
-  br i1 %87, label %88, label %.thread111
+  br i1 %87, label %88, label %.thread110
 
 88:                                               ; preds = %84, %81
   tail call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i64 noundef %74) #12
-  br label %.thread111
+  br label %.thread110
 
 pathmatch.exit.thread:                            ; preds = %57, %50, %.lr.ph, %42, %cookie_tailmatch.exit.thread, %pathmatch.exit.thread99, %pathmatch.exit, %pathmatch.exit.thread102
-  %.3.ph = phi i64 [ %.068121, %pathmatch.exit.thread102 ], [ %.068121, %.lr.ph ], [ %.068121, %cookie_tailmatch.exit.thread ], [ %.068121, %42 ], [ %.068121, %pathmatch.exit ], [ %74, %pathmatch.exit.thread99 ], [ %.068121, %50 ], [ %.068121, %57 ]
-  %89 = tail call ptr @Curl_node_next(ptr noundef nonnull %.072120) #12
+  %.3.ph = phi i64 [ %.068120, %pathmatch.exit.thread102 ], [ %.068120, %.lr.ph ], [ %.068120, %cookie_tailmatch.exit.thread ], [ %.068120, %42 ], [ %.068120, %pathmatch.exit ], [ %74, %pathmatch.exit.thread99 ], [ %.068120, %50 ], [ %.068120, %57 ]
+  %89 = tail call ptr @Curl_node_next(ptr noundef nonnull %.072119) #12
   %.not83 = icmp eq ptr %89, null
   br i1 %.not83, label %._crit_edge, label %.lr.ph, !llvm.loop !121
 
 ._crit_edge:                                      ; preds = %pathmatch.exit.thread
   %.not90 = icmp eq i64 %.3.ph, 0
-  br i1 %.not90, label %._crit_edge.thread, label %.thread111
+  br i1 %.not90, label %._crit_edge.thread, label %.thread110
 
-.thread111:                                       ; preds = %76, %77, %84, %88, %._crit_edge
-  %.169114 = phi i64 [ %.3.ph, %._crit_edge ], [ %74, %88 ], [ %74, %84 ], [ %74, %77 ], [ %74, %76 ]
+.thread110:                                       ; preds = %76, %77, %84, %88, %._crit_edge
+  %.169113 = phi i64 [ %.3.ph, %._crit_edge ], [ %74, %88 ], [ %74, %84 ], [ %74, %77 ], [ %74, %76 ]
   %90 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !86
-  %91 = shl i64 %.169114, 3
+  %91 = shl i64 %.169113, 3
   %92 = tail call ptr %90(i64 noundef %91) #12
   %.not91 = icmp eq ptr %92, null
   br i1 %.not91, label %106, label %93
 
-93:                                               ; preds = %.thread111
+93:                                               ; preds = %.thread110
   %94 = tail call ptr @Curl_llist_head(ptr noundef %5) #12
-  %.not92122 = icmp eq ptr %94, null
-  br i1 %.not92122, label %._crit_edge127, label %.lr.ph126
+  %.not92121 = icmp eq ptr %94, null
+  br i1 %.not92121, label %._crit_edge126, label %.lr.ph125
 
-.lr.ph126:                                        ; preds = %93, %.lr.ph126
-  %.0124 = phi i64 [ %96, %.lr.ph126 ], [ 0, %93 ]
-  %.173123 = phi ptr [ %98, %.lr.ph126 ], [ %94, %93 ]
-  %95 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.173123) #12
-  %96 = add i64 %.0124, 1
-  %97 = getelementptr inbounds nuw ptr, ptr %92, i64 %.0124
+.lr.ph125:                                        ; preds = %93, %.lr.ph125
+  %.0123 = phi i64 [ %96, %.lr.ph125 ], [ 0, %93 ]
+  %.173122 = phi ptr [ %98, %.lr.ph125 ], [ %94, %93 ]
+  %95 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.173122) #12
+  %96 = add i64 %.0123, 1
+  %97 = getelementptr inbounds nuw ptr, ptr %92, i64 %.0123
   store ptr %95, ptr %97, align 8, !tbaa !122
-  %98 = tail call ptr @Curl_node_next(ptr noundef nonnull %.173123) #12
+  %98 = tail call ptr @Curl_node_next(ptr noundef nonnull %.173122) #12
   %.not92 = icmp eq ptr %98, null
-  br i1 %.not92, label %._crit_edge127, label %.lr.ph126, !llvm.loop !124
+  br i1 %.not92, label %._crit_edge126, label %.lr.ph125, !llvm.loop !124
 
-._crit_edge127:                                   ; preds = %.lr.ph126, %93
-  tail call void @qsort(ptr noundef nonnull %92, i64 noundef %.169114, i64 noundef 8, ptr noundef nonnull @cookie_sort) #12
+._crit_edge126:                                   ; preds = %.lr.ph125, %93
+  tail call void @qsort(ptr noundef nonnull %92, i64 noundef %.169113, i64 noundef 8, ptr noundef nonnull @cookie_sort) #12
   tail call void @Curl_llist_destroy(ptr noundef %5, ptr noundef null) #12
   br label %99
 
-99:                                               ; preds = %._crit_edge127, %99
-  %.1128 = phi i64 [ 0, %._crit_edge127 ], [ %103, %99 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %92, i64 %.1128
+99:                                               ; preds = %._crit_edge126, %99
+  %.1127 = phi i64 [ 0, %._crit_edge126 ], [ %103, %99 ]
+  %100 = getelementptr inbounds nuw ptr, ptr %92, i64 %.1127
   %101 = load ptr, ptr %100, align 8, !tbaa !122
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   tail call void @Curl_llist_append(ptr noundef %5, ptr noundef %101, ptr noundef nonnull %102) #12
-  %103 = add nuw i64 %.1128, 1
-  %exitcond.not = icmp eq i64 %103, %.169114
+  %103 = add nuw i64 %.1127, 1
+  %exitcond.not = icmp eq i64 %103, %.169113
   br i1 %exitcond.not, label %104, label %99, !llvm.loop !125
 
 104:                                              ; preds = %99
@@ -2218,7 +2218,7 @@ pathmatch.exit.thread:                            ; preds = %57, %50, %.lr.ph, %
   tail call void %105(ptr noundef nonnull %92) #12
   br label %._crit_edge.thread
 
-106:                                              ; preds = %.thread111
+106:                                              ; preds = %.thread110
   tail call void @Curl_llist_destroy(ptr noundef %5, ptr noundef null) #12
   br label %._crit_edge.thread
 

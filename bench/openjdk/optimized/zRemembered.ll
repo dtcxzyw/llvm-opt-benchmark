@@ -1246,34 +1246,34 @@ define hidden void @_ZN11ZRemembered15scan_and_followEP5ZMark(ptr noundef nonnul
   br label %select.unfold
 
 select.unfold:                                    ; preds = %23, %2
-  %switch = phi i1 [ false, %2 ], [ %24, %23 ]
+  %25 = phi i1 [ false, %2 ], [ %24, %23 ]
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV29ZRememberedScanMarkFollowTask, i64 16), ptr %3, align 8
-  %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load ptr, ptr %26, align 8
-  call void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %27) #14
-  %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load ptr, ptr %29, align 8
-  call void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %30) #14
-  %31 = load ptr, ptr %5, align 8
-  call void @_ZN5ZMark11finish_workEv(ptr noundef nonnull align 64 dereferenceable(2652) %31) #14
-  %32 = load ptr, ptr %4, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 72
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 88
-  %35 = load i32, ptr %34, align 8
-  %36 = xor i32 %35, 1
-  %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
-  %39 = load ptr, ptr %38, align 8
-  call void @_ZN6BitMap11clear_largeEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #14
-  br i1 %switch, label %40, label %41
+  %26 = load ptr, ptr %4, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load ptr, ptr %27, align 8
+  call void @_ZNK14ZPageAllocator20disable_safe_recycleEv(ptr noundef nonnull align 8 dereferenceable(609) %28) #14
+  %29 = load ptr, ptr %4, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %31 = load ptr, ptr %30, align 8
+  call void @_ZNK14ZPageAllocator20disable_safe_destroyEv(ptr noundef nonnull align 8 dereferenceable(609) %31) #14
+  %32 = load ptr, ptr %5, align 8
+  call void @_ZN5ZMark11finish_workEv(ptr noundef nonnull align 64 dereferenceable(2652) %32) #14
+  %33 = load ptr, ptr %4, align 8
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %33, i64 88
+  %36 = load i32, ptr %35, align 8
+  %37 = xor i32 %36, 1
+  %38 = sext i32 %37 to i64
+  %39 = getelementptr inbounds ptr, ptr %34, i64 %38
+  %40 = load ptr, ptr %39, align 8
+  call void @_ZN6BitMap11clear_largeEv(ptr noundef nonnull align 8 dereferenceable(16) %40) #14
+  br i1 %25, label %41, label %42
 
-40:                                               ; preds = %select.unfold
+41:                                               ; preds = %select.unfold
   call void @_ZN5ZMark11mark_followEv(ptr noundef nonnull align 64 dereferenceable(2652) %1) #14
-  br label %41
+  br label %42
 
-41:                                               ; preds = %select.unfold, %40
+42:                                               ; preds = %select.unfold, %41
   ret void
 }
 

@@ -4228,17 +4228,15 @@ define internal void @VULKAN_DestroyRenderer(ptr noundef readonly captures(addre
 define internal zeroext i1 @VULKAN_SetVSync(ptr noundef readonly captures(none) %0, i32 noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %4 = load ptr, ptr %3, align 8
-  switch i32 %1, label %5 [
-    i32 -1, label %7
-    i32 0, label %7
-    i32 1, label %7
-  ]
+  %.off = add i32 %1, -2
+  %switch = icmp ult i32 %.off, -3
+  br i1 %switch, label %5, label %7
 
 5:                                                ; preds = %2
   %6 = tail call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.46) #7
   br label %12
 
-7:                                                ; preds = %2, %2, %2
+7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 1772
   %9 = load i32, ptr %8, align 4
   %.not = icmp eq i32 %1, %9
@@ -8011,7 +8009,7 @@ VULKAN_ActivateCommandBuffer.exit:                ; preds = %75, %77
   %127 = getelementptr inbounds nuw i8, ptr %107, i64 72
   %128 = load ptr, ptr %127, align 8
   %129 = icmp eq ptr %128, %4
-  br i1 %129, label %.thread7, label %130
+  br i1 %129, label %.thread6, label %130
 
 130:                                              ; preds = %126, %122, %118, %114, %110, %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8263,7 +8261,7 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
 215:                                              ; preds = %213, %211
   %216 = call ptr @SDL_Vulkan_GetResultString(i32 noundef %203) #7
   %217 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.35, ptr noundef %216) #7
-  br label %.thread10
+  br label %.thread9
 
 218:                                              ; preds = %GetBlendFactor.exit65.i
   %219 = getelementptr inbounds nuw i8, ptr %.val163, i64 10336
@@ -8275,9 +8273,9 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   %225 = mul nsw i64 %224, 88
   %226 = call ptr @SDL_realloc_REAL(ptr noundef %220, i64 noundef %225) #12
   %.not58.i = icmp eq ptr %226, null
-  br i1 %.not58.i, label %.thread10, label %228
+  br i1 %.not58.i, label %.thread9, label %228
 
-.thread10:                                        ; preds = %215, %218
+.thread9:                                         ; preds = %215, %218
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
@@ -8357,9 +8355,9 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread7
+  br label %.thread6
 
-.thread7:                                         ; preds = %126, %228
+.thread6:                                         ; preds = %126, %228
   %262 = phi ptr [ %261, %228 ], [ %107, %126 ]
   store ptr %262, ptr %81, align 8
   %263 = load ptr, ptr @vkCmdBindPipeline, align 8
@@ -8370,8 +8368,8 @@ GetBlendFactor.exit65.i:                          ; preds = %GetBlendFactor.exit
   call void %263(ptr noundef %265, i32 noundef 0, ptr noundef %267) #7
   br label %268
 
-268:                                              ; preds = %.thread7, %97
-  %.0131 = phi i1 [ true, %.thread7 ], [ false, %97 ]
+268:                                              ; preds = %.thread6, %97
+  %.0131 = phi i1 [ true, %.thread6 ], [ false, %97 ]
   %269 = getelementptr inbounds nuw i8, ptr %38, i64 10536
   %270 = load i8, ptr %269, align 8, !range !3, !noundef !4
   %271 = trunc nuw i8 %270 to i1
@@ -8474,14 +8472,14 @@ VULKAN_GetRotationForCurrentRenderTarget.exit.i:  ; preds = %276, %272
 
 312:                                              ; preds = %308, %304
   %.sink15.in = phi ptr [ %311, %308 ], [ %273, %304 ]
-  %.sink35.in = phi ptr [ %279, %308 ], [ %283, %304 ]
+  %.sink34.in = phi ptr [ %279, %308 ], [ %283, %304 ]
   %.sink2.in.i = phi ptr [ %283, %308 ], [ %279, %304 ]
   %.sink15 = load i32, ptr %.sink15.in, align 4
   %313 = sitofp i32 %.sink15 to float
   %314 = getelementptr inbounds nuw i8, ptr %15, i64 4
   store float %313, ptr %314, align 4
-  %.sink35 = load i32, ptr %.sink35.in, align 4
-  %315 = sitofp i32 %.sink35 to float
+  %.sink34 = load i32, ptr %.sink34.in, align 4
+  %315 = sitofp i32 %.sink34 to float
   %316 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store float %315, ptr %316, align 4
   %.sink2.i = load i32, ptr %.sink2.in.i, align 4
@@ -8653,18 +8651,18 @@ VULKAN_UpdateClipRect.exit:                       ; preds = %352, %358
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 4
   %402 = call i32 @SDL_memcmp_REAL(ptr noundef nonnull %.0130, ptr noundef nonnull %401, i64 noundef 48) #7
   %.not159 = icmp eq i32 %402, 0
-  br i1 %.not159, label %481, label %thread-pre-split14
+  br i1 %.not159, label %481, label %thread-pre-split13
 
-thread-pre-split14:                               ; preds = %399
-  %.pr15 = load i32, ptr %397, align 4
+thread-pre-split13:                               ; preds = %399
+  %.pr14 = load i32, ptr %397, align 4
   br label %403
 
-403:                                              ; preds = %thread-pre-split14, %383
-  %404 = phi i32 [ %.pr15, %thread-pre-split14 ], [ %398, %383 ]
+403:                                              ; preds = %thread-pre-split13, %383
+  %404 = phi i32 [ %.pr14, %thread-pre-split13 ], [ %398, %383 ]
   %405 = icmp eq i32 %404, -1
-  br i1 %405, label %.thread16, label %406
+  br i1 %405, label %.thread15, label %406
 
-.thread16:                                        ; preds = %403
+.thread15:                                        ; preds = %403
   store i32 0, ptr %397, align 4
   br label %465
 
@@ -8691,7 +8689,7 @@ thread-pre-split14:                               ; preds = %399
   %423 = getelementptr inbounds nuw i32, ptr %420, i64 %422
   %424 = load i32, ptr %423, align 4
   %.not160 = icmp ult i32 %418, %424
-  br i1 %.not160, label %.thread18, label %425
+  br i1 %.not160, label %.thread17, label %425
 
 425:                                              ; preds = %416
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -8734,11 +8732,11 @@ thread-pre-split14:                               ; preds = %399
   store ptr %444, ptr %456, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %.pre = load i32, ptr %386, align 8
-  %.pre25 = zext i32 %.pre to i64
-  br label %.thread18
+  %.pre24 = zext i32 %.pre to i64
+  br label %.thread17
 
-.thread18:                                        ; preds = %416, %427
-  %.pre-phi = phi i64 [ %422, %416 ], [ %.pre25, %427 ]
+.thread17:                                        ; preds = %416, %427
+  %.pre-phi = phi i64 [ %422, %416 ], [ %.pre24, %427 ]
   store i32 %418, ptr %391, align 8
   store i32 0, ptr %397, align 4
   %457 = load ptr, ptr %384, align 8
@@ -8754,9 +8752,9 @@ thread-pre-split14:                               ; preds = %399
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %491
 
-465:                                              ; preds = %.thread18, %.thread16, %406
-  %.2138 = phi i64 [ %414, %406 ], [ 0, %.thread16 ], [ 0, %.thread18 ]
-  %.1134 = phi ptr [ %396, %406 ], [ %396, %.thread16 ], [ %463, %.thread18 ]
+465:                                              ; preds = %.thread17, %.thread15, %406
+  %.2138 = phi i64 [ %414, %406 ], [ 0, %.thread15 ], [ 0, %.thread17 ]
+  %.1134 = phi ptr [ %396, %406 ], [ %396, %.thread15 ], [ %463, %.thread17 ]
   %466 = load ptr, ptr %81, align 8
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %467, ptr noundef nonnull align 4 dereferenceable(48) %.0130, i64 48, i1 false)
@@ -8794,7 +8792,7 @@ thread-pre-split14:                               ; preds = %399
   call void %485(ptr noundef %487, i32 noundef 0, ptr noundef %490, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %35, i32 noundef 0, ptr noundef null) #7
   br label %491
 
-491:                                              ; preds = %464, %481, %484, %.thread10
+491:                                              ; preds = %464, %481, %484, %.thread9
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   ret void

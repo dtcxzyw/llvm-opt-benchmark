@@ -1349,9 +1349,9 @@ define internal i32 @dissect_smpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.thread44
 
 .lr.ph:                                           ; preds = %.preheader, %20
-  %.03748 = phi i32 [ %23, %20 ], [ 0, %.preheader ]
-  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.03748)
-  %16 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.03748)
+  %.03747 = phi i32 [ %23, %20 ], [ 0, %.preheader ]
+  %15 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.03747)
+  %16 = tail call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.03747)
   %17 = and i32 %15, 65535
   %18 = icmp eq i32 %17, 0
   %19 = icmp slt i32 %16, 1
@@ -1360,9 +1360,9 @@ define internal i32 @dissect_smpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 20:                                               ; preds = %.lr.ph
   %spec.select = tail call i32 @llvm.umin.i32(i32 %16, i32 %17)
-  %21 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.03748, i32 noundef %spec.select, i32 noundef %17)
+  %21 = tail call ptr @tvb_new_subset_length_caplen(ptr noundef %0, i32 noundef %.03747, i32 noundef %spec.select, i32 noundef %17)
   %22 = tail call i32 @dissect_smpp_pdu(ptr noundef %21, ptr noundef %1, ptr noundef %2, ptr poison)
-  %23 = add i32 %17, %.03748
+  %23 = add i32 %17, %.03747
   %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %23)
   %25 = icmp sgt i32 %24, 0
   br i1 %25, label %.lr.ph, label %.thread44, !llvm.loop !8
@@ -1372,7 +1372,7 @@ define internal i32 @dissect_smpp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %10, %.thread44
-  %.034 = phi i32 [ %26, %.thread44 ], [ 0, %10 ], [ %.03748, %.lr.ph ]
+  %.034 = phi i32 [ %26, %.thread44 ], [ 0, %10 ], [ %.03747, %.lr.ph ]
   ret i32 %.034
 }
 

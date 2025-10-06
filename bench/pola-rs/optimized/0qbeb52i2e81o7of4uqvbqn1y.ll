@@ -28867,12 +28867,11 @@ define hidden void @_ZN5tokio7runtime7context7runtime13enter_runtime17h4f3d0cafa
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1828
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %29 = load i8, ptr %28, align 8, !range !752, !alias.scope !1825, !noalias !1832, !noundef !7
-  switch i8 %29, label %.noexc [
-    i8 0, label %common.ret.sink.split.i.i.i
-    i8 3, label %common.ret.sink.split.i.i.i
-  ]
+  %.off.i.i.i = add nsw i8 %29, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, 2
+  br i1 %switch.i.i.i, label %.noexc, label %common.ret.sink.split.i.i.i
 
-common.ret.sink.split.i.i.i:                      ; preds = %27, %27
+common.ret.sink.split.i.i.i:                      ; preds = %27
   invoke void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
           to label %.noexc unwind label %80
 
@@ -28966,14 +28965,13 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i: ;
   %eh.lpad-body.i.i = phi { ptr, i32 } [ %53, %52 ], [ %45, %44 ], [ %45, %47 ]
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %55 = load i8, ptr %54, align 8, !range !752, !noalias !1828, !noundef !7
-  switch i8 %55, label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit23.i.i" [
-    i8 0, label %common.ret.sink.split.i21.i.i
-    i8 3, label %common.ret.sink.split.i21.i.i
-  ]
+  %.off.i21.i.i = add nsw i8 %55, -1
+  %switch.i22.i.i = icmp ult i8 %.off.i21.i.i, 2
+  br i1 %switch.i22.i.i, label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit25.i.i", label %common.ret.sink.split.i23.i.i
 
-common.ret.sink.split.i21.i.i:                    ; preds = %.body.i.i, %.body.i.i
+common.ret.sink.split.i23.i.i:                    ; preds = %.body.i.i
   invoke void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
-          to label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit23.i.i" unwind label %67, !noalias !1831
+          to label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit25.i.i" unwind label %67, !noalias !1831
 
 56:                                               ; preds = %49, %"_ZN5tokio7runtime4park16CachedParkThread8block_on28_$u7b$$u7b$closure$u7d$$u7d$17h541f42df23a5cb29E.exit.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1833
@@ -28987,17 +28985,16 @@ common.ret.sink.split.i21.i.i:                    ; preds = %.body.i.i, %.body.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1828
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %61 = load i8, ptr %60, align 8, !range !752, !noalias !1828, !noundef !7
-  switch i8 %61, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc1c0a40117f32d7cE.exit.i" [
-    i8 0, label %common.ret.sink.split.i25.i.i
-    i8 3, label %common.ret.sink.split.i25.i.i
-  ]
+  %.off.i27.i.i = add nsw i8 %61, -1
+  %switch.i28.i.i = icmp ult i8 %.off.i27.i.i, 2
+  br i1 %switch.i28.i.i, label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc1c0a40117f32d7cE.exit.i", label %common.ret.sink.split.i29.i.i
 
-common.ret.sink.split.i25.i.i:                    ; preds = %59, %59
+common.ret.sink.split.i29.i.i:                    ; preds = %59
   invoke void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9)
           to label %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc1c0a40117f32d7cE.exit.i" unwind label %64, !noalias !1831
 
-"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit23.i.i": ; preds = %64, %common.ret.sink.split.i21.i.i, %.body.i.i
-  %.pn.i.i = phi { ptr, i32 } [ %65, %64 ], [ %eh.lpad-body.i.i, %common.ret.sink.split.i21.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
+"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit25.i.i": ; preds = %64, %common.ret.sink.split.i23.i.i, %.body.i.i
+  %.pn.i.i = phi { ptr, i32 } [ %65, %64 ], [ %eh.lpad-body.i.i, %common.ret.sink.split.i23.i.i ], [ %eh.lpad-body.i.i, %.body.i.i ]
   %.val10.i.i = load ptr, ptr %11, align 8, !noalias !1828, !nonnull !7, !align !740, !noundef !7
   %.val11.i.i = load ptr, ptr %32, align 8, !noalias !1828, !noundef !7
   %62 = getelementptr inbounds nuw i8, ptr %.val10.i.i, i64 24
@@ -29005,17 +29002,17 @@ common.ret.sink.split.i25.i.i:                    ; preds = %59, %59
   invoke void %63(ptr noundef %.val11.i.i)
           to label %.body unwind label %67, !noalias !1831
 
-64:                                               ; preds = %common.ret.sink.split.i25.i.i
+64:                                               ; preds = %common.ret.sink.split.i29.i.i
   %65 = landingpad { ptr, i32 }
           cleanup
-  br label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit23.i.i"
+  br label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit25.i.i"
 
 66:                                               ; preds = %56
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1828
   invoke void @_ZN5tokio7runtime4park16CachedParkThread4park17h97814e0e77efeab7E(ptr noalias noundef nonnull align 1 %6)
           to label %36 unwind label %52, !noalias !1831
 
-67:                                               ; preds = %common.ret.sink.split.i31.i.i, %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit23.i.i", %common.ret.sink.split.i21.i.i
+67:                                               ; preds = %common.ret.sink.split.i37.i.i, %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit25.i.i", %common.ret.sink.split.i23.i.i
   %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33, !noalias !1847
@@ -29026,12 +29023,11 @@ common.ret.sink.split.i25.i.i:                    ; preds = %59, %59
           cleanup
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %72 = load i8, ptr %71, align 8, !range !752, !alias.scope !1825, !noalias !1832, !noundef !7
-  switch i8 %72, label %.body [
-    i8 0, label %common.ret.sink.split.i31.i.i
-    i8 3, label %common.ret.sink.split.i31.i.i
-  ]
+  %.off.i35.i.i = add nsw i8 %72, -1
+  %switch.i36.i.i = icmp ult i8 %.off.i35.i.i, 2
+  br i1 %switch.i36.i.i, label %.body, label %common.ret.sink.split.i37.i.i
 
-common.ret.sink.split.i31.i.i:                    ; preds = %69, %69
+common.ret.sink.split.i37.i.i:                    ; preds = %69
   invoke void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %12)
           to label %.body unwind label %67, !noalias !1847
 
@@ -29043,7 +29039,7 @@ common.ret.sink.split.i31.i.i:                    ; preds = %69, %69
 .noexc6:                                          ; preds = %.noexc
   unreachable
 
-"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc1c0a40117f32d7cE.exit.i": ; preds = %common.ret.sink.split.i25.i.i, %59
+"_ZN4core6result19Result$LT$T$C$E$GT$6expect17hc1c0a40117f32d7cE.exit.i": ; preds = %common.ret.sink.split.i29.i.i, %59
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1828
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1828
   %.val.i.i = load ptr, ptr %11, align 8, !noalias !1828, !nonnull !7, !align !740, !noundef !7
@@ -29072,8 +29068,8 @@ common.ret.sink.split.i31.i.i:                    ; preds = %69, %69
           cleanup
   br label %.body
 
-.body:                                            ; preds = %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit23.i.i", %69, %common.ret.sink.split.i31.i.i, %80
-  %eh.lpad-body = phi { ptr, i32 } [ %81, %80 ], [ %.pn.i.i, %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit23.i.i" ], [ %70, %common.ret.sink.split.i31.i.i ], [ %70, %69 ]
+.body:                                            ; preds = %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit25.i.i", %69, %common.ret.sink.split.i37.i.i, %80
+  %eh.lpad-body = phi { ptr, i32 } [ %81, %80 ], [ %.pn.i.i, %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit25.i.i" ], [ %70, %common.ret.sink.split.i37.i.i ], [ %70, %69 ]
   invoke void @"_ZN4core3ptr72drop_in_place$LT$tokio..runtime..context..runtime..EnterRuntimeGuard$GT$17hd7a5021a21dca23fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #30
           to label %"_ZN4core3ptr263drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc81e611c1eedcb72E.exit" unwind label %85
 
@@ -29111,12 +29107,11 @@ common.ret.sink.split.i31.i.i:                    ; preds = %69, %69
   %.pn.pn12 = phi { ptr, i32 } [ %19, %18 ], [ %84, %83 ]
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %89 = load i8, ptr %88, align 8, !range !752, !noundef !7
-  switch i8 %89, label %"_ZN4core3ptr263drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc81e611c1eedcb72E.exit" [
-    i8 0, label %common.ret.sink.split.i.i
-    i8 3, label %common.ret.sink.split.i.i
-  ]
+  %.off.i.i = add nsw i8 %89, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %"_ZN4core3ptr263drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc81e611c1eedcb72E.exit", label %common.ret.sink.split.i.i
 
-common.ret.sink.split.i.i:                        ; preds = %.thread, %.thread
+common.ret.sink.split.i.i:                        ; preds = %.thread
   invoke void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %3)
           to label %"_ZN4core3ptr263drop_in_place$LT$tokio..runtime..scheduler..multi_thread..MultiThread..block_on$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hc81e611c1eedcb72E.exit" unwind label %85
 }
@@ -39913,12 +39908,11 @@ _ZN4core3ops8function6FnOnce9call_once17h294741de1f43a7d3E.exit.thread2.i.i.i.i:
   %eh.lpad-body = phi { ptr, i32 } [ %182, %181 ], [ %eh.lpad-body.i, %.body.i ]
   %183 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %184 = load i8, ptr %183, align 8, !range !752, !noundef !7
-  switch i8 %184, label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit" [
-    i8 0, label %common.ret.sink.split.i
-    i8 3, label %common.ret.sink.split.i
-  ]
+  %.off.i = add nsw i8 %184, -1
+  %switch.i = icmp ult i8 %.off.i, 2
+  br i1 %switch.i, label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit", label %common.ret.sink.split.i
 
-common.ret.sink.split.i:                          ; preds = %.body, %.body
+common.ret.sink.split.i:                          ; preds = %.body
   invoke void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
           to label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit" unwind label %188
 
@@ -39928,16 +39922,15 @@ common.ret.sink.split.i:                          ; preds = %.body, %.body
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   %186 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %187 = load i8, ptr %186, align 8, !range !752, !noundef !7
-  switch i8 %187, label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit5" [
-    i8 0, label %common.ret.sink.split.i4
-    i8 3, label %common.ret.sink.split.i4
-  ]
+  %.off.i4 = add nsw i8 %187, -1
+  %switch.i5 = icmp ult i8 %.off.i4, 2
+  br i1 %switch.i5, label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit7", label %common.ret.sink.split.i6
 
-common.ret.sink.split.i4:                         ; preds = %185, %185
+common.ret.sink.split.i6:                         ; preds = %185
   call void @"_ZN4core3ptr212drop_in_place$LT$futures_util..stream..futures_unordered..FuturesUnordered$LT$polars_stream..async_executor..task..AbortOnDropHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$$GT$17hffbed7c47c0de6f0E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28)
-  br label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit5"
+  br label %"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit7"
 
-"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit5": ; preds = %185, %common.ret.sink.split.i4
+"_ZN4core3ptr164drop_in_place$LT$$LT$polars_stream..nodes..io_sinks..SinkComputeNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..update_state..$u7b$$u7b$closure$u7d$$u7d$$GT$17h4ba6479a8b95b95cE.exit7": ; preds = %185, %common.ret.sink.split.i6
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   ret void
 
@@ -45310,12 +45303,12 @@ define internal fastcc { ptr, ptr } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$15i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3251
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !3251
   %35 = invoke { ptr, ptr } @"_ZN13polars_stream14async_executor4task19JoinHandle$LT$T$GT$13cancel_handle17h96507ddc1188fa0cE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %8)
-          to label %38 unwind label %.thread35.i, !noalias !3251
+          to label %38 unwind label %.thread37.i, !noalias !3251
 
 36:                                               ; preds = %61
-  br i1 %.sroa.017.1.i, label %65, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit29.i"
+  br i1 %.sroa.017.1.i, label %65, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit31.i"
 
-.thread35.i:                                      ; preds = %21
+.thread37.i:                                      ; preds = %21
   %37 = landingpad { ptr, i32 }
           cleanup
   br label %65
@@ -45376,57 +45369,55 @@ define internal fastcc { ptr, ptr } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$15i
   invoke void @"_ZN4core3ptr70drop_in_place$LT$polars_stream..async_executor..task..CancelHandle$GT$17h919c1f2ff6dd5ff2E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #30
           to label %36 unwind label %62, !noalias !3251
 
-62:                                               ; preds = %common.ret.sink.split.i27.i, %common.ret.sink.split.i.i, %66, %65, %61
+62:                                               ; preds = %common.ret.sink.split.i29.i, %common.ret.sink.split.i.i, %66, %65, %61
   %63 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
   unreachable
 
 64:                                               ; preds = %65
-  br i1 %.sroa.018.040.i, label %66, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit29.i"
+  br i1 %.sroa.018.042.i, label %66, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit31.i"
 
-65:                                               ; preds = %.thread35.i, %36
-  %.pn.pn42.i = phi { ptr, i32 } [ %37, %.thread35.i ], [ %.pn.i, %36 ]
-  %.sroa.018.040.i = phi i1 [ true, %.thread35.i ], [ false, %36 ]
+65:                                               ; preds = %.thread37.i, %36
+  %.pn.pn44.i = phi { ptr, i32 } [ %37, %.thread37.i ], [ %.pn.i, %36 ]
+  %.sroa.018.042.i = phi i1 [ true, %.thread37.i ], [ false, %36 ]
   invoke void @"_ZN4core3ptr140drop_in_place$LT$polars_stream..async_executor..task..JoinHandle$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$GT$$GT$17hce6fbfb7d9d0101aE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %8) #30
           to label %64 unwind label %62, !noalias !3251
 
 66:                                               ; preds = %64
   invoke void @"_ZN4core3ptr117drop_in_place$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$17h74653043deab7479E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9) #30
-          to label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit29.i" unwind label %62, !noalias !3251
+          to label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit31.i" unwind label %62, !noalias !3251
 
 67:                                               ; preds = %12
   %68 = landingpad { ptr, i32 }
           cleanup
   %69 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %70 = load i8, ptr %69, align 8, !range !752, !noalias !3251, !noundef !7
-  switch i8 %70, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit29.i" [
-    i8 0, label %common.ret.sink.split.i.i
-    i8 3, label %common.ret.sink.split.i.i
-  ]
+  %.off.i.i = add nsw i8 %70, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, 2
+  br i1 %switch.i.i, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit31.i", label %common.ret.sink.split.i.i
 
-common.ret.sink.split.i.i:                        ; preds = %67, %67
+common.ret.sink.split.i.i:                        ; preds = %67
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-          to label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit29.i" unwind label %62, !noalias !3251
+          to label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit31.i" unwind label %62, !noalias !3251
 
-"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit29.i": ; preds = %common.ret.sink.split.i27.i, %71, %common.ret.sink.split.i.i, %67, %66, %64, %36
-  %.pn.pn.pn32.i = phi { ptr, i32 } [ %72, %common.ret.sink.split.i27.i ], [ %72, %71 ], [ %.pn.pn42.i, %64 ], [ %.pn.pn42.i, %66 ], [ %68, %common.ret.sink.split.i.i ], [ %68, %67 ], [ %.pn.i, %36 ]
-  resume { ptr, i32 } %.pn.pn.pn32.i
+"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit31.i": ; preds = %common.ret.sink.split.i29.i, %71, %common.ret.sink.split.i.i, %67, %66, %64, %36
+  %.pn.pn.pn34.i = phi { ptr, i32 } [ %72, %common.ret.sink.split.i29.i ], [ %72, %71 ], [ %.pn.pn44.i, %64 ], [ %.pn.pn44.i, %66 ], [ %68, %common.ret.sink.split.i.i ], [ %68, %67 ], [ %.pn.i, %36 ]
+  resume { ptr, i32 } %.pn.pn.pn34.i
 
 71:                                               ; preds = %3
   %72 = landingpad { ptr, i32 }
           cleanup
   %73 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %74 = load i8, ptr %73, align 8, !range !752, !alias.scope !3251, !noundef !7
-  switch i8 %74, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit29.i" [
-    i8 0, label %common.ret.sink.split.i27.i
-    i8 3, label %common.ret.sink.split.i27.i
-  ]
+  %.off.i27.i = add nsw i8 %74, -1
+  %switch.i28.i = icmp ult i8 %.off.i27.i, 2
+  br i1 %switch.i28.i, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit31.i", label %common.ret.sink.split.i29.i
 
-common.ret.sink.split.i27.i:                      ; preds = %71, %71
+common.ret.sink.split.i29.i:                      ; preds = %71
   %75 = getelementptr inbounds nuw i8, ptr %10, i64 40
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %75)
-          to label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit29.i" unwind label %62
+          to label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit31.i" unwind label %62
 
 "_ZN13polars_stream14async_executor9TaskScope10spawn_task28_$u7b$$u7b$closure$u7d$$u7d$17had8af69d2b79fb07E.exit": ; preds = %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hd7841dd8628c5edbE.exit.i", %57
   store i64 1, ptr %54, align 8, !noalias !3251
@@ -59331,7 +59322,7 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
   %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr98drop_in_place$LT$slotmap..basic..Slot$LT$polars_stream..async_executor..task..CancelHandle$GT$$GT$17h7a5c4fe62a053cf4E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #30
-          to label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit27" unwind label %41
+          to label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit31" unwind label %41
 
 41:                                               ; preds = %39
   %42 = landingpad { ptr, i32 }
@@ -59362,17 +59353,16 @@ define hidden { i32, i32 } @"_ZN7slotmap5basic20SlotMap$LT$K$C$V$GT$19try_insert
           cleanup
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %54 = load i8, ptr %53, align 8, !range !752, !noundef !7
-  switch i8 %54, label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit27" [
-    i8 0, label %common.ret.sink.split.i.i.i
-    i8 3, label %common.ret.sink.split.i.i.i
-  ]
+  %.off.i.i.i = add nsw i8 %54, -1
+  %switch.i.i.i = icmp ult i8 %.off.i.i.i, 2
+  br i1 %switch.i.i.i, label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit31", label %common.ret.sink.split.i.i.i
 
-common.ret.sink.split.i.i.i:                      ; preds = %51, %51
+common.ret.sink.split.i.i.i:                      ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 40
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %55)
-          to label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit27" unwind label %56
+          to label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit31" unwind label %56
 
-56:                                               ; preds = %common.ret.sink.split.i.i.i25, %common.ret.sink.split.i.i.i22, %common.ret.sink.split.i.i.i
+56:                                               ; preds = %common.ret.sink.split.i.i.i29, %common.ret.sink.split.i.i.i24, %common.ret.sink.split.i.i.i
   %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #33
@@ -59400,37 +59390,35 @@ common.ret.sink.split.i.i.i:                      ; preds = %51, %51
           cleanup
   %69 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %70 = load i8, ptr %69, align 8, !range !752, !noundef !7
-  switch i8 %70, label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit27" [
-    i8 0, label %common.ret.sink.split.i.i.i22
-    i8 3, label %common.ret.sink.split.i.i.i22
-  ]
+  %.off.i.i.i22 = add nsw i8 %70, -1
+  %switch.i.i.i23 = icmp ult i8 %.off.i.i.i22, 2
+  br i1 %switch.i.i.i23, label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit31", label %common.ret.sink.split.i.i.i24
 
-common.ret.sink.split.i.i.i22:                    ; preds = %67, %67
+common.ret.sink.split.i.i.i24:                    ; preds = %67
   %71 = getelementptr inbounds nuw i8, ptr %5, i64 40
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %71)
-          to label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit27" unwind label %56
+          to label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit31" unwind label %56
 
 72:                                               ; preds = %17
   unreachable
 
-"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit27": ; preds = %67, %common.ret.sink.split.i.i.i22, %51, %common.ret.sink.split.i.i.i, %39, %73, %common.ret.sink.split.i.i.i25
-  %.pn2032 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %common.ret.sink.split.i.i.i25 ], [ %lpad.thr_comm.split-lp, %73 ], [ %40, %39 ], [ %52, %common.ret.sink.split.i.i.i ], [ %52, %51 ], [ %68, %common.ret.sink.split.i.i.i22 ], [ %68, %67 ]
-  resume { ptr, i32 } %.pn2032
+"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit31": ; preds = %67, %common.ret.sink.split.i.i.i24, %51, %common.ret.sink.split.i.i.i, %39, %73, %common.ret.sink.split.i.i.i29
+  %.pn2036 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %common.ret.sink.split.i.i.i29 ], [ %lpad.thr_comm.split-lp, %73 ], [ %40, %39 ], [ %52, %common.ret.sink.split.i.i.i ], [ %52, %51 ], [ %68, %common.ret.sink.split.i.i.i24 ], [ %68, %67 ]
+  resume { ptr, i32 } %.pn2036
 
 73:                                               ; preds = %17
   %lpad.thr_comm.split-lp = landingpad { ptr, i32 }
           cleanup
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %75 = load i8, ptr %74, align 8, !range !752, !noundef !7
-  switch i8 %75, label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit27" [
-    i8 0, label %common.ret.sink.split.i.i.i25
-    i8 3, label %common.ret.sink.split.i.i.i25
-  ]
+  %.off.i.i.i27 = add nsw i8 %75, -1
+  %switch.i.i.i28 = icmp ult i8 %.off.i.i.i27, 2
+  br i1 %switch.i.i.i28, label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit31", label %common.ret.sink.split.i.i.i29
 
-common.ret.sink.split.i.i.i25:                    ; preds = %73, %73
+common.ret.sink.split.i.i.i29:                    ; preds = %73
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 40
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %76)
-          to label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit27" unwind label %56
+          to label %"_ZN4core3ptr429drop_in_place$LT$slotmap..basic..SlotMap$LT$polars_stream..async_executor..TaskKey$C$polars_stream..async_executor..task..CancelHandle$GT$..insert_with_key$LT$polars_stream..async_executor..TaskScope..spawn_task$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hfcc12053d4202b3fE.exit31" unwind label %56
 }
 
 ; Function Attrs: nonlazybind uwtable

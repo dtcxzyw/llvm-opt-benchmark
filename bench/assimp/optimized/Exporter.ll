@@ -5239,21 +5239,21 @@ define noundef range(i32 -1, 1) i32 @_ZN6Assimp8Exporter16RegisterExporterERKNS0
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 112
   %7 = load ptr, ptr %6, align 8
-  %.not16 = icmp eq ptr %5, %7
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not14 = icmp eq ptr %5, %7
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = load ptr, ptr %1, align 8
   br label %11
 
 9:                                                ; preds = %11
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 40
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 40
   %.not = icmp eq ptr %10, %7
   br i1 %.not, label %._crit_edge, label %11
 
 11:                                               ; preds = %.lr.ph, %9
-  %.sroa.010.017 = phi ptr [ %5, %.lr.ph ], [ %10, %9 ]
-  %12 = load ptr, ptr %.sroa.010.017, align 8
+  %.sroa.010.015 = phi ptr [ %5, %.lr.ph ], [ %10, %9 ]
+  %12 = load ptr, ptr %.sroa.010.015, align 8
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %8) #34
   %.not.not = icmp eq i32 %13, 0
   br i1 %.not.not, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE9push_backERKS2_.exit, label %9
@@ -5295,7 +5295,7 @@ _ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.e
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #31
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %32, ptr noundef nonnull align 8 dereferenceable(40) %1, i64 40, i1 false)
-  br i1 %.not16, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i
+  br i1 %.not14, label %_ZNSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i, %.lr.ph.i.i.i.i.i
   %.012.i.i.i.i.i = phi ptr [ %34, %.lr.ph.i.i.i.i.i ], [ %31, %_ZNKSt6vectorIN6Assimp8Exporter17ExportFormatEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i ]

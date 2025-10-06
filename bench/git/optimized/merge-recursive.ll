@@ -70,14 +70,14 @@ sub_0:                                            ; preds = %ends_with.exit.thre
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !9
   %23 = load i8, ptr %22, align 1
-  %.not80 = icmp eq i8 %23, 45
-  br i1 %.not80, label %sub_1, label %.thread
+  %.not78 = icmp eq i8 %23, 45
+  br i1 %.not78, label %sub_1, label %.thread
 
 sub_1:                                            ; preds = %sub_0
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %25 = load i8, ptr %24, align 1
-  %.not81 = icmp eq i8 %25, 104
-  br i1 %.not81, label %.tail, label %.thread
+  %.not79 = icmp eq i8 %25, 104
+  br i1 %.not79, label %.tail, label %.thread
 
 .tail:                                            ; preds = %sub_1
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 2
@@ -93,7 +93,7 @@ sub_1:                                            ; preds = %sub_0
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   call void @show_usage_if_asked(i32 noundef 2, ptr noundef nonnull %1, ptr noundef %31) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.pre88 = load ptr, ptr %1, align 8, !tbaa !9
+  %.pre86 = load ptr, ptr %1, align 8, !tbaa !9
   br label %.thread
 
 32:                                               ; preds = %ends_with.exit.thread
@@ -105,13 +105,13 @@ sub_1:                                            ; preds = %sub_0
   br label %.preheader
 
 .thread:                                          ; preds = %sub_1, %sub_0, %.tail, %29, %32
-  %34 = phi ptr [ %12, %.tail ], [ %.pre88, %29 ], [ %12, %32 ], [ %12, %sub_0 ], [ %12, %sub_1 ]
+  %34 = phi ptr [ %12, %.tail ], [ %.pre86, %29 ], [ %12, %32 ], [ %12, %sub_0 ], [ %12, %sub_1 ]
   call void (ptr, ...) @usagef(ptr noundef nonnull @builtin_merge_recursive_usage, ptr noundef %34) #14
   unreachable
 
 .preheader:                                       ; preds = %.preheader.preheader, %62
   %indvars.iv = phi i64 [ 1, %.preheader.preheader ], [ %indvars.iv.next, %62 ]
-  %.03979 = phi i32 [ 0, %.preheader.preheader ], [ %.2.ph, %62 ]
+  %.03977 = phi i32 [ 0, %.preheader.preheader ], [ %.2.ph, %62 ]
   %35 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !9
   %37 = call i32 @starts_with(ptr noundef %36, ptr noundef nonnull @.str.3) #12
@@ -135,14 +135,14 @@ sub_1:                                            ; preds = %sub_0
   unreachable
 
 45:                                               ; preds = %.preheader
-  %46 = icmp ult i32 %.03979, 20
+  %46 = icmp ult i32 %.03977, 20
   br i1 %46, label %47, label %57
 
 47:                                               ; preds = %45
-  %48 = zext nneg i32 %.03979 to i64
+  %48 = zext nneg i32 %.03977 to i64
   %49 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %50 = load ptr, ptr %35, align 8, !tbaa !9
-  %51 = add nuw nsw i32 %.03979, 1
+  %51 = add nuw nsw i32 %.03977, 1
   %52 = getelementptr inbounds nuw %struct.object_id, ptr %5, i64 %48
   %53 = call i32 @repo_get_oid(ptr noundef %49, ptr noundef %50, ptr noundef nonnull %52) #12
   %.not49 = icmp eq i32 %53, 0
@@ -170,28 +170,28 @@ Q_.exit:                                          ; preds = %57, %59
   br label %62
 
 62:                                               ; preds = %41, %47, %Q_.exit
-  %.2.ph = phi i32 [ %.03979, %Q_.exit ], [ %51, %47 ], [ %.03979, %41 ]
+  %.2.ph = phi i32 [ %.03977, %Q_.exit ], [ %51, %47 ], [ %.03977, %41 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.split.loop.exit97, label %.preheader, !llvm.loop !20
+  br i1 %exitcond.not, label %.split.loop.exit95, label %.preheader, !llvm.loop !20
 
 .split.loop.exit:                                 ; preds = %38
   %63 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit97
+  br label %.split.loop.exit95
 
-.split.loop.exit97:                               ; preds = %62, %.split.loop.exit
+.split.loop.exit95:                               ; preds = %62, %.split.loop.exit
   %.040.lcssa = phi i32 [ %63, %.split.loop.exit ], [ %0, %62 ]
-  %.039.lcssa = phi i32 [ %.03979, %.split.loop.exit ], [ %.2.ph, %62 ]
+  %.039.lcssa = phi i32 [ %.03977, %.split.loop.exit ], [ %.2.ph, %62 ]
   %64 = sub nsw i32 %0, %.040.lcssa
   %.not52 = icmp eq i32 %64, 3
   br i1 %.not52, label %67, label %65
 
-65:                                               ; preds = %.split.loop.exit97
+65:                                               ; preds = %.split.loop.exit95
   %66 = call fastcc ptr @_(ptr noundef nonnull @.str.8)
   call void (ptr, ...) @die(ptr noundef %66) #14
   unreachable
 
-67:                                               ; preds = %.split.loop.exit97
+67:                                               ; preds = %.split.loop.exit95
   %68 = load ptr, ptr @the_repository, align 8, !tbaa !4
   %69 = call i32 @repo_read_index_unmerged(ptr noundef %68) #12
   %.not53 = icmp eq i32 %69, 0

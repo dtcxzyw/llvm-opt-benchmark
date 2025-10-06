@@ -413,34 +413,34 @@ declare void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_Impl
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z10search_striPPcS_(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
-  %.not10 = icmp sgt i32 %0, 0
-  br i1 %.not10, label %.lr.ph.preheader, label %._crit_edge
+define noundef range(i32 -2147483648, 2147483647) i32 @_Z10search_striPPcS_(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+  %4 = icmp sgt i32 %0, 0
+  br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %8
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %8 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
-  %5 = load ptr, ptr %4, align 8, !tbaa !22
-  %6 = tail call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef %5, ptr noundef %2)
-  %7 = icmp eq i32 %6, 0
-  br i1 %7, label %._crit_edge.loopexit.split.loop.exit, label %8
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
+  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %6 = load ptr, ptr %5, align 8, !tbaa !22
+  %7 = tail call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef %6, ptr noundef %2)
+  %8 = icmp eq i32 %7, 0
+  br i1 %8, label %._crit_edge.loopexit.split.loop.exit15, label %9
 
-8:                                                ; preds = %.lr.ph
+9:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
-._crit_edge.loopexit.split.loop.exit:             ; preds = %.lr.ph
-  %9 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.loopexit.split.loop.exit15:           ; preds = %.lr.ph
+  %10 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %8, %._crit_edge.loopexit.split.loop.exit, %3
-  %spec.select = phi i32 [ -1, %3 ], [ %9, %._crit_edge.loopexit.split.loop.exit ], [ -1, %8 ]
-  ret i32 %spec.select
+._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit.split.loop.exit15, %3
+  %11 = phi i32 [ -1, %3 ], [ %10, %._crit_edge.loopexit.split.loop.exit15 ], [ -1, %9 ]
+  ret i32 %11
 }
 
 declare noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #4

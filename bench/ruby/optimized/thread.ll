@@ -5021,32 +5021,32 @@ nt_stack_chunk_get_stack.exit.i.i.i:              ; preds = %162, %149
   %185 = load i64, ptr %184, align 8, !tbaa !162
   %186 = load i64, ptr @get_sysconf_page_size.page_size, align 8, !tbaa !145
   %187 = icmp eq i64 %186, 0
-  br i1 %187, label %nt_stack_chunk_get_stack.exit33.i.i.i, label %nt_stack_chunk_get_stack.exit33.i.thread.i.i, !prof !137
+  br i1 %187, label %nt_stack_chunk_get_stack.exit32.i.i.i, label %nt_stack_chunk_get_stack.exit32.i.thread.i.i, !prof !137
 
-nt_stack_chunk_get_stack.exit33.i.thread.i.i:     ; preds = %175
+nt_stack_chunk_get_stack.exit32.i.thread.i.i:     ; preds = %175
   %188 = getelementptr i8, ptr %183, i64 %185
-  %sext.i31.i27.i.i = shl i64 %186, 32
-  %189 = ashr exact i64 %sext.i31.i27.i.i, 32
+  %sext.i30.i27.i.i = shl i64 %186, 32
+  %189 = ashr exact i64 %sext.i30.i27.i.i, 32
   %190 = getelementptr i8, ptr %188, i64 %189
   %191 = getelementptr i8, ptr %142, i64 9576
-  %.val.i32.i28.i.i = load i64, ptr %191, align 8, !tbaa !154
-  %192 = getelementptr i8, ptr %190, i64 %.val.i32.i28.i.i
+  %.val.i31.i28.i.i = load i64, ptr %191, align 8, !tbaa !154
+  %192 = getelementptr i8, ptr %190, i64 %.val.i31.i28.i.i
   %193 = getelementptr i8, ptr %192, i64 -16
   store ptr %145, ptr %193, align 8, !tbaa !155
   %194 = getelementptr i8, ptr %192, i64 -8
   store i64 %182, ptr %194, align 8, !tbaa !158
   br label %get_sysconf_page_size.exit.i.i.i
 
-nt_stack_chunk_get_stack.exit33.i.i.i:            ; preds = %175
+nt_stack_chunk_get_stack.exit32.i.i.i:            ; preds = %175
   %195 = tail call i64 @sysconf(i32 noundef 30) #16
   store i64 %195, ptr @get_sysconf_page_size.page_size, align 8, !tbaa !145
   %196 = getelementptr i8, ptr %183, i64 %185
-  %sext.i31.i.i.i = shl i64 %195, 32
-  %197 = ashr exact i64 %sext.i31.i.i.i, 32
+  %sext.i30.i.i.i = shl i64 %195, 32
+  %197 = ashr exact i64 %sext.i30.i.i.i, 32
   %198 = getelementptr i8, ptr %196, i64 %197
   %199 = getelementptr i8, ptr %142, i64 9576
-  %.val.i32.i.i.i = load i64, ptr %199, align 8, !tbaa !154
-  %200 = getelementptr i8, ptr %198, i64 %.val.i32.i.i.i
+  %.val.i31.i.i.i = load i64, ptr %199, align 8, !tbaa !154
+  %200 = getelementptr i8, ptr %198, i64 %.val.i31.i.i.i
   %201 = getelementptr i8, ptr %200, i64 -16
   store ptr %145, ptr %201, align 8, !tbaa !155
   %202 = getelementptr i8, ptr %200, i64 -8
@@ -5054,20 +5054,20 @@ nt_stack_chunk_get_stack.exit33.i.i.i:            ; preds = %175
   %203 = icmp eq i64 %195, 0
   br i1 %203, label %204, label %get_sysconf_page_size.exit.i.i.i, !prof !163
 
-204:                                              ; preds = %nt_stack_chunk_get_stack.exit33.i.i.i
+204:                                              ; preds = %nt_stack_chunk_get_stack.exit32.i.i.i
   %205 = tail call i64 @sysconf(i32 noundef 30) #16
   store i64 %205, ptr @get_sysconf_page_size.page_size, align 8, !tbaa !145
-  %.pre59.i.i.i = shl i64 %205, 32
-  %.pre60.i.i.i = ashr exact i64 %.pre59.i.i.i, 32
+  %.pre56.i.i.i = shl i64 %205, 32
+  %.pre57.i.i.i = ashr exact i64 %.pre56.i.i.i, 32
   br label %get_sysconf_page_size.exit.i.i.i
 
-get_sysconf_page_size.exit.i.i.i:                 ; preds = %204, %nt_stack_chunk_get_stack.exit33.i.i.i, %nt_stack_chunk_get_stack.exit33.i.thread.i.i
-  %206 = phi ptr [ %198, %nt_stack_chunk_get_stack.exit33.i.i.i ], [ %198, %204 ], [ %190, %nt_stack_chunk_get_stack.exit33.i.thread.i.i ]
-  %207 = phi ptr [ %196, %nt_stack_chunk_get_stack.exit33.i.i.i ], [ %196, %204 ], [ %188, %nt_stack_chunk_get_stack.exit33.i.thread.i.i ]
-  %.pre-phi61.i.i.i = phi i64 [ %197, %nt_stack_chunk_get_stack.exit33.i.i.i ], [ %.pre60.i.i.i, %204 ], [ %189, %nt_stack_chunk_get_stack.exit33.i.thread.i.i ]
-  %208 = tail call i32 @mprotect(ptr noundef %207, i64 noundef range(i64 -2147483648, 2147483648) %.pre-phi61.i.i.i, i32 noundef 0) #16
-  %.not.i34.i.i.i = icmp eq i32 %208, -1
-  br i1 %.not.i34.i.i.i, label %209, label %nt_guard_page.exit.thread.i.i.i
+get_sysconf_page_size.exit.i.i.i:                 ; preds = %204, %nt_stack_chunk_get_stack.exit32.i.i.i, %nt_stack_chunk_get_stack.exit32.i.thread.i.i
+  %206 = phi ptr [ %198, %nt_stack_chunk_get_stack.exit32.i.i.i ], [ %198, %204 ], [ %190, %nt_stack_chunk_get_stack.exit32.i.thread.i.i ]
+  %207 = phi ptr [ %196, %nt_stack_chunk_get_stack.exit32.i.i.i ], [ %196, %204 ], [ %188, %nt_stack_chunk_get_stack.exit32.i.thread.i.i ]
+  %.pre-phi58.i.i.i = phi i64 [ %197, %nt_stack_chunk_get_stack.exit32.i.i.i ], [ %.pre57.i.i.i, %204 ], [ %189, %nt_stack_chunk_get_stack.exit32.i.thread.i.i ]
+  %208 = tail call i32 @mprotect(ptr noundef %207, i64 noundef range(i64 -2147483648, 2147483648) %.pre-phi58.i.i.i, i32 noundef 0) #16
+  %.not.i33.i.i.i = icmp eq i32 %208, -1
+  br i1 %.not.i33.i.i.i, label %209, label %nt_guard_page.exit.thread.i.i.i
 
 209:                                              ; preds = %get_sysconf_page_size.exit.i.i.i
   %210 = tail call ptr @rb_errno_ptr() #16
@@ -5309,8 +5309,8 @@ nt_guard_page.exit.thread.i.i.i:                  ; preds = %.thread.i.i.i, %209
   %.025.i.i = phi ptr [ null, %.thread.i.i.i ], [ %206, %209 ], [ %206, %get_sysconf_page_size.exit.i.i.i ], [ %167, %nt_stack_chunk_get_stack.exit.i.i.i ]
   %.3.i.i.i = phi i32 [ %310, %.thread.i.i.i ], [ %211, %209 ], [ 0, %get_sysconf_page_size.exit.i.i.i ], [ 0, %nt_stack_chunk_get_stack.exit.i.i.i ]
   %311 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull @nt_machine_stack_lock) #16
-  %.not.i36.i.i.i = icmp eq i32 %311, 0
-  br i1 %.not.i36.i.i.i, label %nt_alloc_stack.exit.i.i, label %312
+  %.not.i35.i.i.i = icmp eq i32 %311, 0
+  br i1 %.not.i35.i.i.i, label %nt_alloc_stack.exit.i.i, label %312
 
 312:                                              ; preds = %nt_guard_page.exit.thread.i.i.i
   tail call void @rb_bug_errno(ptr noundef nonnull @.str.3, i32 noundef %311) #37
@@ -6422,10 +6422,10 @@ rb_ec_vm_ptr.exit:                                ; preds = %.thread, %22
   %30 = load ptr, ptr %29, align 8, !tbaa !52
   %31 = call i32 @rb_ractor_living_thread_num(ptr noundef %30) #16
   %32 = icmp ne i32 %31, 1
-  %or.cond3.not68 = select i1 %32, i1 true, i1 %27
+  %or.cond3.not67 = select i1 %32, i1 true, i1 %27
   %33 = and i32 %4, 2
   %.not55 = icmp eq i32 %33, 0
-  %or.cond = or i1 %.not55, %or.cond3.not68
+  %or.cond = or i1 %.not55, %or.cond3.not67
   br i1 %or.cond, label %36, label %34
 
 34:                                               ; preds = %28
@@ -7728,8 +7728,8 @@ rb_vm_lock_leave.exit:                            ; preds = %42, %rb_vm_lock_ent
   %71 = and i8 %69, -4
   store i8 %71, ptr %10, align 8
   %72 = call i32 @pthread_mutex_lock(ptr noundef nonnull %12) #16
-  %.not.i23.i = icmp eq i32 %72, 0
-  br i1 %.not.i23.i, label %rb_native_mutex_lock.exit.i, label %._crit_edge.i
+  %.not.i22.i = icmp eq i32 %72, 0
+  br i1 %.not.i22.i, label %rb_native_mutex_lock.exit.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %68, %81
   %.lcssa.i = phi i32 [ %87, %81 ], [ %72, %68 ]
@@ -15889,8 +15889,8 @@ rb_array_len.exit:                                ; preds = %19, %22
 29:                                               ; preds = %26
   %30 = tail call i64 @rb_equal(i64 noundef 1, i64 noundef %3) #16
   %31 = and i64 %30, -5
-  %.not36 = icmp eq i64 %31, 0
-  br i1 %.not36, label %32, label %.loopexit37
+  %.not35 = icmp eq i64 %31, 0
+  br i1 %.not35, label %32, label %.loopexit36
 
 32:                                               ; preds = %29, %rb_array_len.exit
   %33 = icmp eq i64 %3, 4
@@ -15983,7 +15983,7 @@ rb_array_len.exit32.us:                           ; preds = %80, %77
   %85 = load i64, ptr %61, align 8, !tbaa !42
   %86 = and i64 %85, 131072
   %.not26.us = icmp eq i64 %86, 0
-  br i1 %.not26.us, label %87, label %.loopexit37
+  br i1 %.not26.us, label %87, label %.loopexit36
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %62, align 8, !tbaa !148
@@ -16045,7 +16045,7 @@ rb_array_len.exit32:                              ; preds = %104, %107
   %112 = load i64, ptr %49, align 8, !tbaa !42
   %113 = and i64 %112, 131072
   %.not26 = icmp eq i64 %113, 0
-  br i1 %.not26, label %114, label %.loopexit37
+  br i1 %.not26, label %114, label %.loopexit36
 
 114:                                              ; preds = %111
   %115 = load ptr, ptr %50, align 8, !tbaa !148
@@ -16089,9 +16089,9 @@ rb_array_len.exit32:                              ; preds = %104, %107
 .loopexit:                                        ; preds = %rb_array_len.exit32, %rb_array_len.exit32.us, %.thread
   %128 = phi i64 [ %.pre, %.thread ], [ %73, %rb_array_len.exit32.us ], [ %100, %rb_array_len.exit32 ]
   %129 = call i64 @rb_ary_shift(i64 noundef %128) #16
-  br label %.loopexit37
+  br label %.loopexit36
 
-.loopexit37:                                      ; preds = %111, %84, %.loopexit, %29
+.loopexit36:                                      ; preds = %111, %84, %.loopexit, %29
   %.0 = phi i64 [ 4, %29 ], [ %129, %.loopexit ], [ 4, %84 ], [ 4, %111 ]
   ret i64 %.0
 }

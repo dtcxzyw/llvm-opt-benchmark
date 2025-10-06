@@ -1254,9 +1254,9 @@ define dso_local noundef i64 @_ZN11StringUtils12str2longlongERKNSt7__cxx1112basi
   br label %10
 
 10:                                               ; preds = %.lr.ph, %19
-  %.025 = phi i64 [ 2, %.lr.ph ], [ %24, %19 ]
+  %.024 = phi i64 [ 2, %.lr.ph ], [ %24, %19 ]
   %11 = phi i64 [ 0, %.lr.ph ], [ %23, %19 ]
-  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.025
+  %12 = getelementptr inbounds nuw i8, ptr %9, i64 %.024
   %13 = load i8, ptr %12, align 1, !tbaa !14
   %14 = icmp sgt i8 %13, 47
   br i1 %14, label %15, label %.thread22
@@ -1271,12 +1271,12 @@ define dso_local noundef i64 @_ZN11StringUtils12str2longlongERKNSt7__cxx1112basi
   br i1 %or.cond, label %19, label %.thread22
 
 19:                                               ; preds = %17, %15
-  %.sink32 = phi i64 [ -48, %15 ], [ -55, %17 ]
+  %.sink31 = phi i64 [ -48, %15 ], [ -55, %17 ]
   %20 = zext nneg i8 %13 to i64
-  %21 = add nsw i64 %.sink32, %20
+  %21 = add nsw i64 %.sink31, %20
   %22 = shl nsw i64 %11, 4
   %23 = add nsw i64 %22, %21
-  %24 = add nuw i64 %.025, 1
+  %24 = add nuw i64 %.024, 1
   %exitcond.not = icmp eq i64 %24, %7
   br i1 %exitcond.not, label %.thread22, label %10, !llvm.loop !71
 

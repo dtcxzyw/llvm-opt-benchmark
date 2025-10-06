@@ -435,13 +435,13 @@ _conv.exit.i:                                     ; preds = %127, %.lr.ph.i.i.i,
   %131 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.53, ptr noundef %1, ptr noundef %.0209, ptr noundef %3, ptr noundef %25)
   %132 = load i32, ptr %25, align 4
   %133 = icmp eq i32 %132, 3
-  %spec.select986 = select i1 %133, i32 2, i32 %132
+  %spec.select985 = select i1 %133, i32 2, i32 %132
   %134 = load i32, ptr %4, align 4
-  %135 = icmp ugt i32 %spec.select986, %134
+  %135 = icmp ugt i32 %spec.select985, %134
   br i1 %135, label %136, label %137
 
 136:                                              ; preds = %130
-  store i32 %spec.select986, ptr %4, align 4
+  store i32 %spec.select985, ptr %4, align 4
   br label %137
 
 137:                                              ; preds = %136, %130
@@ -768,8 +768,8 @@ _conv.exit359:                                    ; preds = %.lr.ph.i.i354, %233
   %.08.i364.ptr = getelementptr inbounds nuw i8, ptr @.str.6, i64 %.08.i364.idx
   %240 = load i8, ptr %.08.i364.ptr, align 1
   store i8 %240, ptr %.067.i365, align 1
-  %exitcond803 = icmp eq i64 %.08.i364.idx, 1
-  br i1 %exitcond803, label %_add.exit, label %241
+  %exitcond802 = icmp eq i64 %.08.i364.idx, 1
+  br i1 %exitcond802, label %_add.exit, label %241
 
 241:                                              ; preds = %.lr.ph.i363
   %.08.i364.add = add nuw nsw i64 %.08.i364.idx, 1
@@ -864,8 +864,8 @@ _conv.exit386:                                    ; preds = %.lr.ph.i.i381, %265
   %.08.i391.ptr = getelementptr inbounds nuw i8, ptr @.str.10, i64 %.08.i391.idx
   %274 = load i8, ptr %.08.i391.ptr, align 1
   store i8 %274, ptr %.067.i392, align 1
-  %exitcond802 = icmp eq i64 %.08.i391.idx, 1
-  br i1 %exitcond802, label %_add.exit, label %275
+  %exitcond801 = icmp eq i64 %.08.i391.idx, 1
+  br i1 %exitcond801, label %_add.exit, label %275
 
 275:                                              ; preds = %.lr.ph.i390
   %.08.i391.add = add nuw nsw i64 %.08.i391.idx, 1
@@ -977,8 +977,8 @@ _conv.exit413:                                    ; preds = %.lr.ph.i.i408, %299
   %320 = add i32 %reass.sub, 11
   %321 = srem i32 %320, 7
   %322 = add nsw i32 %321, -3
-  %.lhs.trunc517 = trunc nuw nsw i32 %319 to i16
-  %323 = urem i16 %.lhs.trunc517, 7
+  %.lhs.trunc516 = trunc nuw nsw i32 %319 to i16
+  %323 = urem i16 %.lhs.trunc516, 7
   %.zext = zext nneg i16 %323 to i32
   %324 = sub nsw i32 %322, %.zext
   %325 = icmp slt i32 %324, -3
@@ -1011,13 +1011,13 @@ _conv.exit413:                                    ; preds = %.lr.ph.i.i408, %299
   br i1 %340, label %341, label %347
 
 341:                                              ; preds = %335
-  %.lhs.trunc518 = trunc nsw i32 %338 to i16
-  %342 = srem i16 %.lhs.trunc518, 100
+  %.lhs.trunc517 = trunc nsw i32 %338 to i16
+  %342 = srem i16 %.lhs.trunc517, 100
   %.not246 = icmp eq i16 %342, 0
   br i1 %.not246, label %343, label %347
 
 343:                                              ; preds = %341
-  %344 = srem i16 %.lhs.trunc518, 400
+  %344 = srem i16 %.lhs.trunc517, 400
   %345 = icmp eq i16 %344, 0
   %346 = select i1 %345, i32 366, i32 365
   br label %347
@@ -1094,11 +1094,11 @@ _conv.exit422:                                    ; preds = %.lr.ph.i.i417, %357
   %376 = icmp sgt i16 %369, 0
   %or.cond3.i427 = and i1 %376, %375
   %377 = add nuw nsw i32 %.sext49.i425, -100
-  %spec.select522 = select i1 %or.cond3.i427, i32 %377, i32 %.sext49.i425
+  %spec.select521 = select i1 %or.cond3.i427, i32 %377, i32 %.sext49.i425
   br label %378
 
 378:                                              ; preds = %374, %372
-  %.0.i429 = phi i32 [ %373, %372 ], [ %spec.select522, %374 ]
+  %.0.i429 = phi i32 [ %373, %372 ], [ %spec.select521, %374 ]
   %379 = call i32 @llvm.abs.i32(i32 %.0.i429, i1 true)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %380 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %10, ptr noundef nonnull @.str.2, i32 noundef %379) #6
@@ -1143,9 +1143,9 @@ _yconv.exit431:                                   ; preds = %.lr.ph.i.i42.i, %38
   %394 = add i32 %393, 7
   %395 = load i32, ptr %32, align 8
   %.not242 = icmp eq i32 %395, 0
-  %.neg662 = sub i32 1, %395
-  %spec.select255.neg663 = select i1 %.not242, i32 -6, i32 %.neg662
-  %396 = add i32 %394, %spec.select255.neg663
+  %.neg661 = sub i32 1, %395
+  %spec.select255.neg662 = select i1 %.not242, i32 -6, i32 %.neg661
+  %396 = add i32 %394, %spec.select255.neg662
   %397 = sdiv i32 %396, 7
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %398 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %9, ptr noundef nonnull @.str.2, i32 noundef %397) #6
@@ -1219,13 +1219,13 @@ _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413
   %419 = call fastcc ptr @_fmt(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %.0209, ptr noundef %3, ptr noundef %26)
   %420 = load i32, ptr %26, align 4
   %421 = icmp eq i32 %420, 3
-  %spec.select987 = select i1 %421, i32 2, i32 %420
+  %spec.select986 = select i1 %421, i32 2, i32 %420
   %422 = load i32, ptr %4, align 4
-  %423 = icmp ugt i32 %spec.select987, %422
+  %423 = icmp ugt i32 %spec.select986, %422
   br i1 %423, label %424, label %425
 
 424:                                              ; preds = %418
-  store i32 %spec.select987, ptr %4, align 4
+  store i32 %spec.select986, ptr %4, align 4
   br label %425
 
 425:                                              ; preds = %424, %418
@@ -1250,11 +1250,11 @@ _conv.exit449:                                    ; preds = %.lr.ph.i.i444, %413
   %435 = icmp sgt i32 %428, 0
   %or.cond3.i454 = and i1 %434, %435
   %436 = add nuw nsw i32 %428, -100
-  %spec.select523 = select i1 %or.cond3.i454, i32 %436, i32 %428
+  %spec.select522 = select i1 %or.cond3.i454, i32 %436, i32 %428
   br label %437
 
 437:                                              ; preds = %433, %431
-  %.0.i456 = phi i32 [ %432, %431 ], [ %spec.select523, %433 ]
+  %.0.i456 = phi i32 [ %432, %431 ], [ %spec.select522, %433 ]
   %438 = call i32 @llvm.abs.i32(i32 %.0.i456, i1 true)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %439 = call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef nonnull %7, ptr noundef nonnull @.str.2, i32 noundef %438) #6
@@ -1295,8 +1295,8 @@ _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, 
   %451 = load ptr, ptr %29, align 8
   %.not241 = icmp ne ptr %451, null
   %452 = icmp ult ptr %.0209, %3
-  %or.cond524 = select i1 %.not241, i1 %452, i1 false
-  br i1 %or.cond524, label %.lr.ph.preheader.i468, label %_add.exit
+  %or.cond523 = select i1 %.not241, i1 %452, i1 false
+  br i1 %or.cond523, label %.lr.ph.preheader.i468, label %_add.exit
 
 .lr.ph.preheader.i468:                            ; preds = %450
   %453 = ptrtoint ptr %.0209 to i64
@@ -1359,8 +1359,8 @@ _yconv.exit466:                                   ; preds = %.lr.ph.i.i42.i461, 
   %.08.i480.ptr = getelementptr inbounds nuw i8, ptr @.str.13, i64 %.08.i480.idx
   %476 = load i8, ptr %.08.i480.ptr, align 1
   store i8 %476, ptr %.067.i481, align 1
-  %exitcond801 = icmp eq i64 %.08.i480.idx, 1
-  br i1 %exitcond801, label %_add.exit484, label %477
+  %exitcond800 = icmp eq i64 %.08.i480.idx, 1
+  br i1 %exitcond800, label %_add.exit484, label %477
 
 477:                                              ; preds = %.lr.ph.i479
   %.08.i480.add = add nuw nsw i64 %.08.i480.idx, 1

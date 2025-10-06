@@ -6061,12 +6061,12 @@ define void @_ZN6Assimp11SMDImporter14ParseVASectionEPKcPS2_S2_(ptr noundef nonn
   br label %.outer
 
 .outer:                                           ; preds = %_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit, %4
-  %.ph85 = phi ptr [ %.pre.pre, %_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ], [ %1, %4 ]
+  %.ph84 = phi ptr [ %.pre.pre, %_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ], [ %1, %4 ]
   %.011.ph = phi i32 [ %spec.store.select, %_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit ], [ 0, %4 ]
   br label %13
 
 13:                                               ; preds = %.outer, %_ZN6Assimp11SMDImporter14ParseSignedIntEPKcPS2_S2_Ri.exit
-  %14 = phi ptr [ %.1.lcssa.i.i, %_ZN6Assimp11SMDImporter14ParseSignedIntEPKcPS2_S2_Ri.exit ], [ %.ph85, %.outer ]
+  %14 = phi ptr [ %.1.lcssa.i.i, %_ZN6Assimp11SMDImporter14ParseSignedIntEPKcPS2_S2_Ri.exit ], [ %.ph84, %.outer ]
   %15 = load i32, ptr %7, align 4
   %16 = add i32 %15, 1
   store i32 %16, ptr %7, align 4
@@ -6097,22 +6097,22 @@ _ZN6Assimp11SMDImporter20SkipSpacesAndLineEndEPKcPS2_S2_.exit: ; preds = %19, %2
   %24 = phi ptr [ %.0.i.i, %19 ], [ %scevgep.i.i, %21 ]
   store ptr %24, ptr %6, align 8
   %25 = load i8, ptr %24, align 1
-  %.not38 = icmp eq i8 %25, 0
-  br i1 %.not38, label %_ZN6Assimp11SMDImporter14ParseSignedIntEPKcPS2_S2_Ri.exit.thread35, label %sub_0
+  %.not37 = icmp eq i8 %25, 0
+  br i1 %.not37, label %_ZN6Assimp11SMDImporter14ParseSignedIntEPKcPS2_S2_Ri.exit.thread35, label %sub_0
 
 sub_0:                                            ; preds = %_ZN6Assimp11SMDImporter20SkipSpacesAndLineEndEPKcPS2_S2_.exit
   %26 = zext i8 %25 to i32
   %27 = sub nsw i32 101, %26
-  %.not52 = icmp eq i8 %25, 101
-  br i1 %.not52, label %sub_1, label %.tail
+  %.not51 = icmp eq i8 %25, 101
+  br i1 %.not51, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = sub nsw i32 110, %30
-  %.not53 = icmp eq i8 %29, 110
-  br i1 %.not53, label %sub_2, label %.tail
+  %.not52 = icmp eq i8 %29, 110
+  br i1 %.not52, label %sub_2, label %.tail
 
 sub_2:                                            ; preds = %sub_1
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 2
@@ -6323,21 +6323,21 @@ _ZN6Assimp11SMDImporter14ParseSignedIntEPKcPS2_S2_Ri.exit: ; preds = %91, %89
 
 96:                                               ; preds = %40, %42
   %97 = icmp eq i32 %.011.ph, 0
-  %.pre63 = load ptr, ptr %10, align 8
+  %.pre62 = load ptr, ptr %10, align 8
   br i1 %97, label %98, label %_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
 98:                                               ; preds = %96
   %99 = load ptr, ptr %11, align 8
-  %.not.i22 = icmp eq ptr %.pre63, %99
+  %.not.i22 = icmp eq ptr %.pre62, %99
   br i1 %.not.i22, label %107, label %100
 
 100:                                              ; preds = %98
-  store i32 0, ptr %.pre63, align 8
+  store i32 0, ptr %.pre62, align 8
   br label %101
 
 101:                                              ; preds = %101, %100
   %.idx.i.i.i.i = phi i64 [ 8, %100 ], [ %.add.i.i.i.i, %101 ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre63, i64 %.idx.i.i.i.i
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %.pre62, i64 %.idx.i.i.i.i
   %102 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 36
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %.ptr.i.i.i.i, i8 0, i64 36, i1 false)
   store i32 -1, ptr %102, align 4
@@ -6354,12 +6354,12 @@ _ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.
   br label %_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
 107:                                              ; preds = %98
-  call void @_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %.pre63)
-  %.pre62 = load ptr, ptr %10, align 8
+  call void @_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr %.pre62)
+  %.pre61 = load ptr, ptr %10, align 8
   br label %_ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN6Assimp3SMD4FaceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit: ; preds = %107, %_ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i, %96
-  %108 = phi ptr [ %.pre62, %107 ], [ %106, %_ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i ], [ %.pre63, %96 ]
+  %108 = phi ptr [ %.pre61, %107 ], [ %106, %_ZNSt16allocator_traitsISaIN6Assimp3SMD4FaceEEE9constructIS2_JEEEvRS3_PT_DpOT0_.exit.i ], [ %.pre62, %96 ]
   %109 = add i32 %.011.ph, 1
   %110 = icmp eq i32 %109, 3
   %spec.store.select = select i1 %110, i32 0, i32 %109

@@ -586,8 +586,8 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %2
   %5 = getelementptr inbounds i8, ptr %3, i64 -4
   %6 = load i32, ptr %5, align 4, !tbaa !33
   %7 = tail call i32 @llvm.umin.i32(i32 %6, i32 %1)
-  %.not1112.not = icmp eq i32 %7, 0
-  br i1 %.not1112.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not15 = icmp eq i32 %7, 0
+  br i1 %.not15, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
   %wide.trip.count = zext i32 %7 to i64
@@ -604,8 +604,8 @@ _ZNK6vectorIP4sortLb0EjE4sizeEv.exit:             ; preds = %2
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !65
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit
-  %.not11.lcssa = phi i1 [ false, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ false, %2 ], [ %.not.not, %.lr.ph ]
-  ret i1 %.not11.lcssa
+  %.lcssa = phi i1 [ false, %_ZNK6vectorIP4sortLb0EjE4sizeEv.exit ], [ false, %2 ], [ %.not.not, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

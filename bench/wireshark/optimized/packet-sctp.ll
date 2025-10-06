@@ -3548,18 +3548,18 @@ define internal fastcc zeroext i1 @dissect_data_chunk(ptr noundef %0, i16 nounde
   br label %dissect_fragmented_payload.exit
 
 33:                                               ; preds = %29, %25
-  %.sink422 = phi i32 [ 16, %25 ], [ 12, %29 ]
-  %34 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.sink422)
+  %.sink421 = phi i32 [ 16, %25 ], [ 12, %29 ]
+  %34 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.sink421)
   store volatile i32 %34, ptr %19, align 4
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 408
   br label %36
 
 36:                                               ; preds = %44, %33
   %37 = phi i1 [ true, %33 ], [ false, %44 ]
-  %.0191276 = phi i32 [ 0, %33 ], [ 1, %44 ]
+  %.0191275 = phi i32 [ 0, %33 ], [ 1, %44 ]
   %38 = load ptr, ptr %35, align 8
   %39 = load i32, ptr @proto_sctp, align 4
-  %40 = call ptr @p_get_proto_data(ptr noundef %38, ptr noundef %2, i32 noundef %39, i32 noundef %.0191276)
+  %40 = call ptr @p_get_proto_data(ptr noundef %38, ptr noundef %2, i32 noundef %39, i32 noundef %.0191275)
   %41 = ptrtoint ptr %40 to i64
   %42 = trunc i64 %41 to i32
   %43 = icmp eq i32 %42, -1
@@ -3569,7 +3569,7 @@ define internal fastcc zeroext i1 @dissect_data_chunk(ptr noundef %0, i16 nounde
   %.0..0..0..0.78 = load volatile i32, ptr %19, align 4
   %45 = icmp ne i32 %.0..0..0..0.78, %42
   %or.cond = and i1 %45, %37
-  br i1 %or.cond, label %36, label %.thread234, !llvm.loop !16
+  br i1 %or.cond, label %36, label %.thread233, !llvm.loop !16
 
 46:                                               ; preds = %36
   %47 = load ptr, ptr %35, align 8
@@ -3577,10 +3577,10 @@ define internal fastcc zeroext i1 @dissect_data_chunk(ptr noundef %0, i16 nounde
   %.0..0..0..0.79 = load volatile i32, ptr %19, align 4
   %49 = zext i32 %.0..0..0..0.79 to i64
   %50 = inttoptr i64 %49 to ptr
-  call void @p_add_proto_data(ptr noundef %47, ptr noundef %2, i32 noundef %48, i32 noundef %.0191276, ptr noundef %50)
-  br label %.thread234
+  call void @p_add_proto_data(ptr noundef %47, ptr noundef %2, i32 noundef %48, i32 noundef %.0191275, ptr noundef %50)
+  br label %.thread233
 
-.thread234:                                       ; preds = %44, %46
+.thread233:                                       ; preds = %44, %46
   %51 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
   %52 = and i8 %51, 1
   %53 = and i8 %51, 2
@@ -3592,7 +3592,7 @@ define internal fastcc zeroext i1 @dissect_data_chunk(ptr noundef %0, i16 nounde
   %or.cond3 = and i1 %58, %57
   br i1 %or.cond3, label %59, label %67
 
-59:                                               ; preds = %.thread234
+59:                                               ; preds = %.thread233
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %61 = load i8, ptr %60, align 4, !range !9, !noundef !10
   %62 = trunc nuw i8 %61 to i1
@@ -3613,8 +3613,8 @@ define internal fastcc zeroext i1 @dissect_data_chunk(ptr noundef %0, i16 nounde
   %66 = sub i32 %55, %65
   br label %67
 
-67:                                               ; preds = %64, %.thread234
-  %.0195 = phi i32 [ %66, %64 ], [ %55, %.thread234 ]
+67:                                               ; preds = %64, %.thread233
+  %.0195 = phi i32 [ %66, %64 ], [ %55, %.thread233 ]
   %68 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %69 = load ptr, ptr %68, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.483, i32 noundef %.0195)
@@ -3622,8 +3622,8 @@ define internal fastcc zeroext i1 @dissect_data_chunk(ptr noundef %0, i16 nounde
   br i1 %.not, label %120, label %70
 
 70:                                               ; preds = %67
-  %.426 = select i1 %8, i32 20, i32 16
-  call void @proto_item_set_len(ptr noundef %5, i32 noundef %.426)
+  %.425 = select i1 %8, i32 20, i32 16
+  call void @proto_item_set_len(ptr noundef %5, i32 noundef %.425)
   %71 = load i32, ptr @ett_sctp_data_chunk_flags, align 4
   %72 = call ptr @proto_item_add_subtree(ptr noundef %6, i32 noundef %71)
   call void @proto_tree_add_bitmask_list(ptr noundef %72, ptr noundef %0, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @dissect_data_chunk.chunk_flags, i32 noundef 0)
@@ -3666,9 +3666,9 @@ define internal fastcc zeroext i1 @dissect_data_chunk(ptr noundef %0, i16 nounde
 
 94:                                               ; preds = %86, %91
   %hf_data_chunk_payload_proto_id.sink = phi ptr [ @hf_data_chunk_payload_proto_id, %91 ], [ %hf_idata_chunk_fsn.hf_data_chunk_payload_proto_id, %86 ]
-  %.sink424 = phi i32 [ 12, %91 ], [ 16, %86 ]
+  %.sink423 = phi i32 [ 12, %91 ], [ 16, %86 ]
   %95 = load i32, ptr %hf_data_chunk_payload_proto_id.sink, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %95, ptr noundef %0, i32 noundef %.sink424, i32 noundef 4, i32 noundef 0)
+  %96 = call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %95, ptr noundef %0, i32 noundef %.sink423, i32 noundef 4, i32 noundef 0)
   %.not210 = icmp eq i8 %54, 0
   %97 = select i1 %.not210, ptr @.str.486, ptr @.str.485
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %5, ptr noundef nonnull @.str.484, ptr noundef nonnull %97)
@@ -4090,7 +4090,7 @@ sctp_tsn.exit:                                    ; preds = %120, %121, %266, %p
   br i1 %or.cond8, label %308, label %309
 
 308:                                              ; preds = %304
-  br i1 %.050.i, label %.critedge239, label %315
+  br i1 %.050.i, label %.critedge238, label %315
 
 309:                                              ; preds = %304
   %310 = getelementptr inbounds nuw i8, ptr %2, i64 272
@@ -4104,7 +4104,7 @@ sctp_tsn.exit:                                    ; preds = %120, %121, %266, %p
   br i1 %.not214, label %dissect_fragmented_payload.exit, label %314
 
 314:                                              ; preds = %313
-  br i1 %.050.i, label %.critedge239, label %315
+  br i1 %.050.i, label %.critedge238, label %315
 
 315:                                              ; preds = %308, %314
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -4122,8 +4122,8 @@ sctp_tsn.exit:                                    ; preds = %120, %121, %266, %p
   %320 = call i32 @_setjmp(ptr noundef nonnull %319) #20
   %.not217 = icmp eq i32 %320, 0
   %321 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %.sink425 = select i1 %.not217, ptr null, ptr %321
-  store volatile ptr %.sink425, ptr %21, align 8
+  %.sink424 = select i1 %.not217, ptr null, ptr %321
+  store volatile ptr %.sink424, ptr %21, align 8
   %.0..0..0..0. = load volatile i32, ptr %22, align 4
   %322 = and i32 %.0..0..0..0., 1
   %.not218 = icmp eq i32 %322, 0
@@ -4239,9 +4239,9 @@ sctp_tsn.exit:                                    ; preds = %120, %121, %266, %p
   br label %dissect_fragmented_payload.exit
 
 .critedge:                                        ; preds = %309
-  br i1 %.050.i, label %.critedge239, label %367
+  br i1 %.050.i, label %.critedge238, label %367
 
-.critedge239:                                     ; preds = %308, %314, %.critedge
+.critedge238:                                     ; preds = %308, %314, %.critedge
   %366 = load ptr, ptr %68, align 8
   call void @col_append_str(ptr noundef %366, i32 noundef 25, ptr noundef nonnull @.str.495)
   br label %dissect_fragmented_payload.exit
@@ -5477,8 +5477,8 @@ fragment_reassembly.exit.i:                       ; preds = %630, %637, %633, %6
   call fastcc void @export_sctp_data_chunk(ptr noundef %2, ptr noundef nonnull %.032.i, i32 noundef %.0..0..0..0.83, ptr noundef %933)
   br label %dissect_fragmented_payload.exit
 
-dissect_fragmented_payload.exit:                  ; preds = %929, %fragment_reassembly.exit.i, %.critedge13.i.i, %705, %.critedge8.thread.i.i, %651, %add_fragment.exit.thread49.i, %add_fragment.exit.i, %.loopexit.i.i, %442, %381, %377, %313, %.critedge239, %360, %31, %27
-  %.0 = phi i1 [ true, %27 ], [ %365, %360 ], [ false, %.critedge239 ], [ true, %31 ], [ false, %313 ], [ true, %377 ], [ true, %381 ], [ true, %442 ], [ true, %.loopexit.i.i ], [ true, %add_fragment.exit.i ], [ true, %add_fragment.exit.thread49.i ], [ true, %651 ], [ true, %.critedge8.thread.i.i ], [ true, %705 ], [ true, %.critedge13.i.i ], [ true, %fragment_reassembly.exit.i ], [ true, %929 ]
+dissect_fragmented_payload.exit:                  ; preds = %929, %fragment_reassembly.exit.i, %.critedge13.i.i, %705, %.critedge8.thread.i.i, %651, %add_fragment.exit.thread49.i, %add_fragment.exit.i, %.loopexit.i.i, %442, %381, %377, %313, %.critedge238, %360, %31, %27
+  %.0 = phi i1 [ true, %27 ], [ %365, %360 ], [ false, %.critedge238 ], [ true, %31 ], [ false, %313 ], [ true, %377 ], [ true, %381 ], [ true, %442 ], [ true, %.loopexit.i.i ], [ true, %add_fragment.exit.i ], [ true, %add_fragment.exit.thread49.i ], [ true, %651 ], [ true, %.critedge8.thread.i.i ], [ true, %705 ], [ true, %.critedge13.i.i ], [ true, %fragment_reassembly.exit.i ], [ true, %929 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   ret i1 %.0
 }

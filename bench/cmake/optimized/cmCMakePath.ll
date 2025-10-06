@@ -545,11 +545,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   br i1 %39, label %common.resume, label %common.resume.sink.split
 
 common.resume.sink.split:                         ; preds = %82, %36
-  %.sink41.in = phi ptr [ %22, %36 ], [ %66, %82 ]
+  %.sink40.in = phi ptr [ %22, %36 ], [ %66, %82 ]
   %.sink = phi ptr [ %38, %36 ], [ %84, %82 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %37, %36 ], [ %83, %82 ]
-  %.sink41 = load i64, ptr %.sink41.in, align 8, !tbaa !22
-  %40 = add i64 %.sink41, 1
+  %.sink40 = load i64, ptr %.sink40.in, align 8, !tbaa !22
+  %40 = add i64 %.sink40, 1
   call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %40) #22
   br label %common.resume
 
@@ -591,11 +591,11 @@ _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %54
   %57 = tail call noundef ptr @_ZNKSt10filesystem7__cxx114path5_List3endEv(ptr noundef nonnull align 8 dereferenceable(8) %16) #21, !noalias !25
   %.pre = load ptr, ptr %16, align 8, !tbaa !23
   %.pre.fr = freeze ptr %.pre
-  %.pre17 = ptrtoint ptr %.pre.fr to i64
-  %.pre18 = and i64 %.pre17, 3
-  %58 = icmp eq i64 %.pre18, 0
-  %spec.select36 = getelementptr inbounds i8, ptr %57, i64 -48
-  %spec.select = select i1 %58, ptr %spec.select36, ptr %1
+  %.pre16 = ptrtoint ptr %.pre.fr to i64
+  %.pre17 = and i64 %.pre16, 3
+  %58 = icmp eq i64 %.pre17, 0
+  %spec.select35 = getelementptr inbounds i8, ptr %57, i64 -48
+  %spec.select = select i1 %58, ptr %spec.select35, ptr %1
   br label %.thread
 
 .thread:                                          ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit, %54

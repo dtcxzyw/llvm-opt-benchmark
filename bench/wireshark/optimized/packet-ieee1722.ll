@@ -1605,13 +1605,13 @@ define internal i32 @dissect_1722_ntscf(ptr noundef %0, ptr noundef %1, ptr noun
 
 35:                                               ; preds = %33, %30
   %.pr = phi i32 [ %34, %33 ], [ %31, %30 ]
-  %.not62 = icmp eq i32 %.pr, 0
-  br i1 %.not62, label %.thread, label %.lr.ph
+  %.not61 = icmp eq i32 %.pr, 0
+  br i1 %.not61, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %41
-  %.05063 = phi i32 [ %43, %41 ], [ 12, %35 ]
+  %.05062 = phi i32 [ %43, %41 ], [ 12, %35 ]
   %36 = phi i32 [ %storemerge, %41 ], [ %.pr, %35 ]
-  %37 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.05063, i32 noundef %36)
+  %37 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.05062, i32 noundef %36)
   %38 = load ptr, ptr @avb1722_acf_handle, align 8
   %39 = call i32 @call_dissector(ptr noundef %38, ptr noundef %37, ptr noundef %1, ptr noundef %2)
   %40 = icmp slt i32 %39, 1
@@ -1619,7 +1619,7 @@ define internal i32 @dissect_1722_ntscf(ptr noundef %0, ptr noundef %1, ptr noun
 
 41:                                               ; preds = %.lr.ph
   %42 = call i32 @tvb_reported_length(ptr noundef %37)
-  %43 = add i32 %42, %.05063
+  %43 = add i32 %42, %.05062
   %44 = load i32, ptr %5, align 4
   %storemerge = call i32 @llvm.usub.sat.i32(i32 %44, i32 %42)
   store i32 %storemerge, ptr %5, align 4
@@ -1627,7 +1627,7 @@ define internal i32 @dissect_1722_ntscf(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not.not, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %41, %.lr.ph, %35
-  %.050.lcssa = phi i32 [ 12, %35 ], [ %.05063, %.lr.ph ], [ %43, %41 ]
+  %.050.lcssa = phi i32 [ 12, %35 ], [ %.05062, %.lr.ph ], [ %43, %41 ]
   call void @set_actual_length(ptr noundef %0, i32 noundef %.050.lcssa)
   call void @proto_item_set_len(ptr noundef %11, i32 noundef %.050.lcssa)
   %45 = call i32 @tvb_captured_length(ptr noundef %0)
@@ -1750,13 +1750,13 @@ define internal i32 @dissect_1722_tscf(ptr noundef %0, ptr noundef %1, ptr nound
 
 65:                                               ; preds = %63, %58
   %.pr = phi i32 [ %64, %63 ], [ %61, %58 ]
-  %.not91 = icmp eq i32 %.pr, 0
-  br i1 %.not91, label %.thread, label %.lr.ph
+  %.not90 = icmp eq i32 %.pr, 0
+  br i1 %.not90, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65, %71
-  %.08192 = phi i32 [ %73, %71 ], [ 24, %65 ]
+  %.08191 = phi i32 [ %73, %71 ], [ 24, %65 ]
   %66 = phi i32 [ %storemerge, %71 ], [ %.pr, %65 ]
-  %67 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.08192, i32 noundef %66)
+  %67 = call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.08191, i32 noundef %66)
   %68 = load ptr, ptr @avb1722_acf_handle, align 8
   %69 = call i32 @call_dissector(ptr noundef %68, ptr noundef %67, ptr noundef %1, ptr noundef %2)
   %70 = icmp slt i32 %69, 1
@@ -1764,7 +1764,7 @@ define internal i32 @dissect_1722_tscf(ptr noundef %0, ptr noundef %1, ptr nound
 
 71:                                               ; preds = %.lr.ph
   %72 = call i32 @tvb_reported_length(ptr noundef %67)
-  %73 = add i32 %72, %.08192
+  %73 = add i32 %72, %.08191
   %74 = load i32, ptr %9, align 4
   %storemerge = call i32 @llvm.usub.sat.i32(i32 %74, i32 %72)
   store i32 %storemerge, ptr %9, align 4
@@ -1772,7 +1772,7 @@ define internal i32 @dissect_1722_tscf(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not.not, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %71, %.lr.ph, %65
-  %.081.lcssa = phi i32 [ 24, %65 ], [ %.08192, %.lr.ph ], [ %73, %71 ]
+  %.081.lcssa = phi i32 [ 24, %65 ], [ %.08191, %.lr.ph ], [ %73, %71 ]
   call void @set_actual_length(ptr noundef %0, i32 noundef %.081.lcssa)
   call void @proto_item_set_len(ptr noundef %15, i32 noundef %.081.lcssa)
   br label %75

@@ -744,37 +744,37 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 37:                                               ; preds = %28, %19
   %.not271 = icmp eq ptr %4, null
-  br i1 %.not271, label %._crit_edge355, label %38
+  br i1 %.not271, label %._crit_edge354, label %38
 
-._crit_edge355:                                   ; preds = %37
-  %.pre356 = ptrtoint ptr %2 to i64
+._crit_edge354:                                   ; preds = %37
+  %.pre355 = ptrtoint ptr %2 to i64
   br label %53
 
 38:                                               ; preds = %37
   %39 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %4) #16
   %40 = add i64 %39, 3
   %41 = icmp ult i64 %3, %40
-  br i1 %41, label %._crit_edge.thread, label %.preheader319
+  br i1 %41, label %._crit_edge.thread, label %.preheader318
 
-.preheader319:                                    ; preds = %38
+.preheader318:                                    ; preds = %38
   %42 = ptrtoint ptr %2 to i64
   %43 = sub i64 %3, %39
-  %.not352 = icmp eq i64 %3, %39
-  br i1 %.not352, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not351 = icmp eq i64 %3, %39
+  br i1 %.not351, label %._crit_edge.thread, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader319
+.lr.ph.preheader:                                 ; preds = %.preheader318
   %44 = tail call i32 @strncmp(ptr noundef %2, ptr noundef nonnull %4, i64 noundef %39) #16
-  %.not272450 = icmp eq i32 %44, 0
-  br i1 %.not272450, label %._crit_edge, label %.lr.ph452
+  %.not272449 = icmp eq i32 %44, 0
+  br i1 %.not272449, label %._crit_edge, label %.lr.ph451
 
-.lr.ph:                                           ; preds = %.lr.ph452
+.lr.ph:                                           ; preds = %.lr.ph451
   %45 = tail call i32 @strncmp(ptr noundef nonnull %46, ptr noundef nonnull %4, i64 noundef %39) #16
   %.not272 = icmp eq i32 %45, 0
-  br i1 %.not272, label %.lr.ph.._crit_edge_crit_edge, label %.lr.ph452
+  br i1 %.not272, label %.lr.ph.._crit_edge_crit_edge, label %.lr.ph451
 
-.lr.ph452:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %.0230327451 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %46 = getelementptr inbounds nuw i8, ptr %.0230327451, i64 1
+.lr.ph451:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %.0230326450 = phi ptr [ %46, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %46 = getelementptr inbounds nuw i8, ptr %.0230326450, i64 1
   %47 = ptrtoint ptr %46 to i64
   %48 = sub i64 %47, %42
   %49 = icmp ult i64 %48, %43
@@ -785,24 +785,24 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph.._crit_edge_crit_edge, %.lr.ph.preheader
-  %.lcssa448 = phi i1 [ %50, %.lr.ph.._crit_edge_crit_edge ], [ false, %.lr.ph.preheader ]
-  %.0230327.lcssa = phi ptr [ %46, %.lr.ph.._crit_edge_crit_edge ], [ %2, %.lr.ph.preheader ]
-  br i1 %.lcssa448, label %._crit_edge.thread, label %51
+  %.lcssa447 = phi i1 [ %50, %.lr.ph.._crit_edge_crit_edge ], [ false, %.lr.ph.preheader ]
+  %.0230326.lcssa = phi ptr [ %46, %.lr.ph.._crit_edge_crit_edge ], [ %2, %.lr.ph.preheader ]
+  br i1 %.lcssa447, label %._crit_edge.thread, label %51
 
 51:                                               ; preds = %._crit_edge
-  %52 = getelementptr inbounds nuw i8, ptr %.0230327.lcssa, i64 %39
-  %.pre357 = ptrtoint ptr %52 to i64
+  %52 = getelementptr inbounds nuw i8, ptr %.0230326.lcssa, i64 %39
+  %.pre356 = ptrtoint ptr %52 to i64
   br label %53
 
-53:                                               ; preds = %._crit_edge355, %51
-  %.pre-phi358 = phi i64 [ %.pre356, %._crit_edge355 ], [ %.pre357, %51 ]
-  %.pre-phi = phi i64 [ %.pre356, %._crit_edge355 ], [ %42, %51 ]
-  %.1231 = phi ptr [ %2, %._crit_edge355 ], [ %52, %51 ]
-  %54 = sub i64 %.pre-phi358, %.pre-phi
+53:                                               ; preds = %._crit_edge354, %51
+  %.pre-phi357 = phi i64 [ %.pre355, %._crit_edge354 ], [ %.pre356, %51 ]
+  %.pre-phi = phi i64 [ %.pre355, %._crit_edge354 ], [ %42, %51 ]
+  %.1231 = phi ptr [ %2, %._crit_edge354 ], [ %52, %51 ]
+  %54 = sub i64 %.pre-phi357, %.pre-phi
   %55 = icmp ult i64 %54, %3
-  br i1 %55, label %.lr.ph336, label %.critedge
+  br i1 %55, label %.lr.ph335, label %.critedge
 
-.lr.ph336:                                        ; preds = %53
+.lr.ph335:                                        ; preds = %53
   %56 = tail call ptr @__ctype_b_loc() #15
   %57 = load ptr, ptr %56, align 8, !tbaa !13
   %58 = load i8, ptr %.1231, align 1, !tbaa !12
@@ -810,31 +810,31 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %60 = getelementptr inbounds i16, ptr %57, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !15
   %62 = and i16 %61, 8192
-  %.not273454 = icmp eq i16 %62, 0
-  br i1 %.not273454, label %.critedge, label %.lr.ph456
+  %.not273453 = icmp eq i16 %62, 0
+  br i1 %.not273453, label %.critedge, label %.lr.ph455
 
-63:                                               ; preds = %.lr.ph456
+63:                                               ; preds = %.lr.ph455
   %64 = load i8, ptr %69, align 1, !tbaa !12
   %65 = sext i8 %64 to i64
   %66 = getelementptr inbounds i16, ptr %57, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !15
   %68 = and i16 %67, 8192
   %.not273 = icmp eq i16 %68, 0
-  br i1 %.not273, label %.critedge, label %.lr.ph456
+  br i1 %.not273, label %.critedge, label %.lr.ph455
 
-.lr.ph456:                                        ; preds = %.lr.ph336, %63
-  %.2334455 = phi ptr [ %69, %63 ], [ %.1231, %.lr.ph336 ]
-  %69 = getelementptr inbounds nuw i8, ptr %.2334455, i64 1
+.lr.ph455:                                        ; preds = %.lr.ph335, %63
+  %.2333454 = phi ptr [ %69, %63 ], [ %.1231, %.lr.ph335 ]
+  %69 = getelementptr inbounds nuw i8, ptr %.2333454, i64 1
   %70 = ptrtoint ptr %69 to i64
   %71 = sub i64 %70, %.pre-phi
   %72 = icmp ult i64 %71, %3
   br i1 %72, label %63, label %._crit_edge.thread
 
-.critedge:                                        ; preds = %63, %.lr.ph336, %53
-  %.2.lcssa = phi ptr [ %.1231, %53 ], [ %.1231, %.lr.ph336 ], [ %69, %63 ]
-  %.lcssa324 = phi i64 [ %.pre-phi358, %53 ], [ %.pre-phi358, %.lr.ph336 ], [ %70, %63 ]
-  %.lcssa322 = phi i64 [ %54, %53 ], [ %54, %.lr.ph336 ], [ %71, %63 ]
-  %73 = icmp eq i64 %.lcssa322, %3
+.critedge:                                        ; preds = %63, %.lr.ph335, %53
+  %.2.lcssa = phi ptr [ %.1231, %53 ], [ %.1231, %.lr.ph335 ], [ %69, %63 ]
+  %.lcssa323 = phi i64 [ %.pre-phi357, %53 ], [ %.pre-phi357, %.lr.ph335 ], [ %70, %63 ]
+  %.lcssa321 = phi i64 [ %54, %53 ], [ %54, %.lr.ph335 ], [ %71, %63 ]
+  %73 = icmp eq i64 %.lcssa321, %3
   br i1 %73, label %._crit_edge.thread, label %74
 
 74:                                               ; preds = %.critedge
@@ -975,9 +975,9 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 143:                                              ; preds = %135
   %144 = call i64 @read(i32 noundef %119, ptr noundef nonnull %137, i64 noundef %134) #14
   %.not302 = icmp eq i64 %144, %134
-  br i1 %.not302, label %.preheader318, label %148
+  br i1 %.not302, label %.preheader317, label %148
 
-.preheader318:                                    ; preds = %143
+.preheader317:                                    ; preds = %143
   %145 = ptrtoint ptr %137 to i64
   %146 = tail call ptr @__ctype_b_loc() #15
   %147 = load ptr, ptr %146, align 8, !tbaa !13
@@ -993,10 +993,10 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   call void @free(ptr noundef nonnull %137) #14
   br label %202
 
-153:                                              ; preds = %.preheader318, %159
-  %.0228347 = phi i64 [ %134, %.preheader318 ], [ %161, %159 ]
-  %.0232346 = phi ptr [ %137, %.preheader318 ], [ %160, %159 ]
-  %154 = load i8, ptr %.0232346, align 1, !tbaa !12
+153:                                              ; preds = %.preheader317, %159
+  %.0228346 = phi i64 [ %134, %.preheader317 ], [ %161, %159 ]
+  %.0232345 = phi ptr [ %137, %.preheader317 ], [ %160, %159 ]
+  %154 = load i8, ptr %.0232345, align 1, !tbaa !12
   %155 = sext i8 %154 to i64
   %156 = getelementptr inbounds i16, ptr %147, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !15
@@ -1005,8 +1005,8 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %.not303, label %.critedge2, label %159
 
 159:                                              ; preds = %153
-  %160 = getelementptr inbounds nuw i8, ptr %.0232346, i64 1
-  %161 = add i64 %.0228347, -1
+  %160 = getelementptr inbounds nuw i8, ptr %.0232345, i64 1
+  %161 = add i64 %.0228346, -1
   %162 = ptrtoint ptr %160 to i64
   %163 = sub i64 %162, %145
   %164 = icmp ult i64 %163, %161
@@ -1018,8 +1018,8 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 .critedge2:                                       ; preds = %153, %..critedge2_crit_edge
   %165 = phi i8 [ %.pre, %..critedge2_crit_edge ], [ %154, %153 ]
-  %.0232.lcssa = phi ptr [ %160, %..critedge2_crit_edge ], [ %.0232346, %153 ]
-  %.0228.lcssa = phi i64 [ %161, %..critedge2_crit_edge ], [ %.0228347, %153 ]
+  %.0232.lcssa = phi ptr [ %160, %..critedge2_crit_edge ], [ %.0232345, %153 ]
+  %.0228.lcssa = phi i64 [ %161, %..critedge2_crit_edge ], [ %.0228346, %153 ]
   switch i8 %165, label %172 [
     i8 40, label %166
     i8 60, label %166
@@ -1138,7 +1138,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br i1 %210, label %._crit_edge.thread, label %211
 
 211:                                              ; preds = %.critedge4
-  %212 = sub i64 %205, %.lcssa324
+  %212 = sub i64 %205, %.lcssa323
   %213 = add nsw i64 %212, 1
   %214 = call ptr @pdf_finalize_string(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %.2.lcssa, i64 noundef %213)
   %.not285 = icmp eq ptr %214, null
@@ -1173,10 +1173,10 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   br label %.sink.split
 
 .sink.split:                                      ; preds = %221, %225
-  %.sink425 = phi i32 [ %227, %225 ], [ %223, %221 ]
+  %.sink424 = phi i32 [ %227, %225 ], [ %223, %221 ]
   %.sink = phi i32 [ 1, %225 ], [ 0, %221 ]
   %.2235.ph = phi ptr [ %214, %225 ], [ %217, %221 ]
-  store i32 %.sink425, ptr %6, align 8, !tbaa !43
+  store i32 %.sink424, ptr %6, align 8, !tbaa !43
   %228 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %228, align 8, !tbaa !46
   %229 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1196,31 +1196,31 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %233 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
   store ptr %233, ptr %8, align 8, !tbaa !3
   %234 = icmp ult ptr %233, %75
-  br i1 %234, label %.lr.ph351, label %.loopexit
+  br i1 %234, label %.lr.ph350, label %.loopexit
 
-.lr.ph351:                                        ; preds = %232, %239
-  %storemerge349 = phi ptr [ %240, %239 ], [ %233, %232 ]
-  %235 = load i8, ptr %storemerge349, align 1, !tbaa !12
+.lr.ph350:                                        ; preds = %232, %239
+  %storemerge348 = phi ptr [ %240, %239 ], [ %233, %232 ]
+  %235 = load i8, ptr %storemerge348, align 1, !tbaa !12
   switch i8 %235, label %239 [
     i8 92, label %236
     i8 41, label %.thread
   ]
 
-236:                                              ; preds = %.lr.ph351
-  %237 = getelementptr inbounds nuw i8, ptr %storemerge349, i64 1
+236:                                              ; preds = %.lr.ph350
+  %237 = getelementptr inbounds nuw i8, ptr %storemerge348, i64 1
   br label %239
 
-.thread:                                          ; preds = %.lr.ph351
-  %238 = getelementptr inbounds i8, ptr %storemerge349, i64 -1
+.thread:                                          ; preds = %.lr.ph350
+  %238 = getelementptr inbounds i8, ptr %storemerge348, i64 -1
   store ptr %238, ptr %8, align 8, !tbaa !3
   br label %.loopexit
 
-239:                                              ; preds = %236, %.lr.ph351
-  %storemerge348 = phi ptr [ %237, %236 ], [ %storemerge349, %.lr.ph351 ]
-  %240 = getelementptr inbounds nuw i8, ptr %storemerge348, i64 1
+239:                                              ; preds = %236, %.lr.ph350
+  %storemerge347 = phi ptr [ %237, %236 ], [ %storemerge348, %.lr.ph350 ]
+  %240 = getelementptr inbounds nuw i8, ptr %storemerge347, i64 1
   store ptr %240, ptr %8, align 8, !tbaa !3
   %241 = icmp ult ptr %240, %75
-  br i1 %241, label %.lr.ph351, label %.loopexit
+  br i1 %241, label %.lr.ph350, label %.loopexit
 
 .loopexit:                                        ; preds = %239, %232, %.thread
   %242 = phi ptr [ %233, %232 ], [ %238, %.thread ], [ %240, %239 ]
@@ -1247,7 +1247,7 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 %247
   store i8 0, ptr %253, align 1, !tbaa !12
   %.not280 = icmp eq ptr %6, null
-  br i1 %.not280, label %260, label %.sink.split426
+  br i1 %.not280, label %260, label %.sink.split425
 
 254:                                              ; preds = %243
   %.not281 = icmp eq ptr %6, null
@@ -1255,22 +1255,22 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
 
 255:                                              ; preds = %254
   %256 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %248) #16
-  br label %.sink.split426
+  br label %.sink.split425
 
-.sink.split426:                                   ; preds = %252, %255
-  %.sink431 = phi i64 [ %256, %255 ], [ %247, %252 ]
-  %.sink427 = phi i32 [ 1, %255 ], [ 0, %252 ]
+.sink.split425:                                   ; preds = %252, %255
+  %.sink430 = phi i64 [ %256, %255 ], [ %247, %252 ]
+  %.sink426 = phi i32 [ 1, %255 ], [ 0, %252 ]
   %.3.ph = phi ptr [ %248, %255 ], [ %251, %252 ]
-  %257 = trunc i64 %.sink431 to i32
+  %257 = trunc i64 %.sink430 to i32
   store i32 %257, ptr %6, align 8, !tbaa !43
   %258 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %258, align 8, !tbaa !46
   %259 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i32 %.sink427, ptr %259, align 8, !tbaa !47
+  store i32 %.sink426, ptr %259, align 8, !tbaa !47
   br label %260
 
-260:                                              ; preds = %.sink.split426, %254, %252
-  %.3 = phi ptr [ %248, %254 ], [ %251, %252 ], [ %.3.ph, %.sink.split426 ]
+260:                                              ; preds = %.sink.split425, %254, %252
+  %.3 = phi ptr [ %248, %254 ], [ %251, %252 ], [ %.3.ph, %.sink.split425 ]
   %.not282 = icmp eq ptr %5, null
   br i1 %.not282, label %._crit_edge.thread, label %261
 
@@ -1278,8 +1278,8 @@ define ptr @pdf_parse_string(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64
   store ptr %242, ptr %5, align 8, !tbaa !3
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %.lr.ph452, %.lr.ph456, %.preheader319, %260, %261, %249, %.loopexit, %203, %230, %231, %215, %.critedge4, %.critedge, %._crit_edge, %38, %202, %36, %27, %14
-  %.0229 = phi ptr [ null, %14 ], [ null, %27 ], [ %.1, %202 ], [ null, %36 ], [ null, %38 ], [ null, %._crit_edge ], [ null, %.critedge ], [ null, %.critedge4 ], [ null, %215 ], [ %.2235, %231 ], [ %.2235, %230 ], [ null, %203 ], [ null, %.loopexit ], [ null, %249 ], [ %.3, %261 ], [ %.3, %260 ], [ null, %.preheader319 ], [ null, %.lr.ph456 ], [ null, %.lr.ph452 ]
+._crit_edge.thread:                               ; preds = %.lr.ph451, %.lr.ph455, %.preheader318, %260, %261, %249, %.loopexit, %203, %230, %231, %215, %.critedge4, %.critedge, %._crit_edge, %38, %202, %36, %27, %14
+  %.0229 = phi ptr [ null, %14 ], [ null, %27 ], [ %.1, %202 ], [ null, %36 ], [ null, %38 ], [ null, %._crit_edge ], [ null, %.critedge ], [ null, %.critedge4 ], [ null, %215 ], [ %.2235, %231 ], [ %.2235, %230 ], [ null, %203 ], [ null, %.loopexit ], [ null, %249 ], [ %.3, %261 ], [ %.3, %260 ], [ null, %.preheader318 ], [ null, %.lr.ph455 ], [ null, %.lr.ph451 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret ptr %.0229
@@ -1366,94 +1366,94 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %33 = load i8, ptr %32, align 1, !tbaa !12
   %.not269 = icmp eq i8 %33, 60
-  br i1 %.not269, label %.preheader343, label %244
+  br i1 %.not269, label %.preheader339, label %244
 
-.preheader343:                                    ; preds = %31
+.preheader339:                                    ; preds = %31
   %34 = icmp ult i64 %27, %2
   br i1 %34, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %.preheader343, %.thread452
-  %35 = phi i64 [ %61, %.thread452 ], [ %27, %.preheader343 ]
-  %.0224359 = phi i32 [ %.1225, %.thread452 ], [ 0, %.preheader343 ]
-  %.0228358 = phi i32 [ %.1229, %.thread452 ], [ 0, %.preheader343 ]
-  %.0232357.idx = phi i64 [ %.0232357.add, %.thread452 ], [ 0, %.preheader343 ]
-  %.0232357.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0232357.idx
-  %.not270 = icmp eq i32 %.0228358, 0
-  %36 = load i8, ptr %.0232357.ptr, align 1, !tbaa !12
+.lr.ph:                                           ; preds = %.preheader339, %.thread448
+  %35 = phi i64 [ %61, %.thread448 ], [ %27, %.preheader339 ]
+  %.0224355 = phi i32 [ %.1225, %.thread448 ], [ 0, %.preheader339 ]
+  %.0228354 = phi i32 [ %.1229, %.thread448 ], [ 0, %.preheader339 ]
+  %.0232353.idx = phi i64 [ %.0232353.add, %.thread448 ], [ 0, %.preheader339 ]
+  %.0232353.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0232353.idx
+  %.not270 = icmp eq i32 %.0228354, 0
+  %36 = load i8, ptr %.0232353.ptr, align 1, !tbaa !12
   br i1 %.not270, label %40, label %37
 
 37:                                               ; preds = %.lr.ph
   switch i8 %36, label %39 [
-    i8 92, label %.thread452
+    i8 92, label %.thread448
     i8 41, label %38
   ]
 
 38:                                               ; preds = %37
-  br label %.thread452
+  br label %.thread448
 
 39:                                               ; preds = %37
-  br label %.thread452
+  br label %.thread448
 
 40:                                               ; preds = %.lr.ph
-  switch i8 %36, label %.thread452 [
+  switch i8 %36, label %.thread448 [
     i8 40, label %41
     i8 60, label %42
     i8 62, label %48
   ]
 
 41:                                               ; preds = %40
-  br label %.thread452
+  br label %.thread448
 
 42:                                               ; preds = %40
   %.not272 = icmp ugt i64 %35, %28
-  br i1 %.not272, label %.thread452, label %43
+  br i1 %.not272, label %.thread448, label %43
 
 43:                                               ; preds = %42
-  %44 = getelementptr inbounds nuw i8, ptr %.0232357.ptr, i64 1
+  %44 = getelementptr inbounds nuw i8, ptr %.0232353.ptr, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !12
   %46 = icmp eq i8 %45, 60
   %47 = zext i1 %46 to i32
-  %spec.select = add i32 %.0224359, %47
-  br label %.thread452
+  %spec.select = add i32 %.0224355, %47
+  br label %.thread448
 
 48:                                               ; preds = %40
   %.not271 = icmp ugt i64 %35, %28
   br i1 %.not271, label %54, label %49
 
 49:                                               ; preds = %48
-  %50 = getelementptr inbounds nuw i8, ptr %.0232357.ptr, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0232353.ptr, i64 1
   %51 = load i8, ptr %50, align 1, !tbaa !12
   %52 = icmp eq i8 %51, 62
   %53 = sext i1 %52 to i32
-  %spec.select292 = add i32 %.0224359, %53
+  %spec.select292 = add i32 %.0224355, %53
   br label %54
 
 54:                                               ; preds = %49, %48
-  %.2226 = phi i32 [ %spec.select292, %49 ], [ %.0224359, %48 ]
+  %.2226 = phi i32 [ %spec.select292, %49 ], [ %.0224355, %48 ]
   %.not273.not = icmp ugt i64 %35, %28
-  br i1 %.not273.not, label %.thread452, label %55
+  br i1 %.not273.not, label %.thread448, label %55
 
 55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %.0232357.ptr, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.0232353.ptr, i64 1
   %57 = load i8, ptr %56, align 1, !tbaa !12
   %58 = icmp eq i8 %57, 62
   %59 = icmp eq i32 %.2226, 0
   %or.cond5 = select i1 %58, i1 %59, i1 false
-  br i1 %or.cond5, label %.thread, label %.thread452
+  br i1 %or.cond5, label %.thread, label %.thread448
 
-.thread452:                                       ; preds = %54, %55, %43, %42, %41, %40, %38, %37, %39
-  %.0219460.sink = phi i64 [ 2, %37 ], [ 1, %38 ], [ 1, %39 ], [ 2, %55 ], [ 2, %54 ], [ 2, %42 ], [ 2, %43 ], [ 1, %41 ], [ 1, %40 ]
+.thread448:                                       ; preds = %54, %55, %43, %42, %41, %40, %38, %37, %39
+  %.0219456.sink = phi i64 [ 2, %37 ], [ 1, %38 ], [ 1, %39 ], [ 2, %55 ], [ 2, %54 ], [ 2, %42 ], [ 2, %43 ], [ 1, %41 ], [ 1, %40 ]
   %.1229 = phi i32 [ 1, %37 ], [ 0, %38 ], [ 1, %39 ], [ 0, %55 ], [ 0, %54 ], [ 0, %42 ], [ 0, %43 ], [ 1, %41 ], [ 0, %40 ]
-  %.1225 = phi i32 [ %.0224359, %37 ], [ %.0224359, %38 ], [ %.0224359, %39 ], [ %.2226, %55 ], [ %.2226, %54 ], [ %.0224359, %42 ], [ %spec.select, %43 ], [ %.0224359, %41 ], [ %.0224359, %40 ]
-  %.0232357.add = add nuw nsw i64 %.0232357.idx, %.0219460.sink
-  %.2234.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0232357.add
+  %.1225 = phi i32 [ %.0224355, %37 ], [ %.0224355, %38 ], [ %.0224355, %39 ], [ %.2226, %55 ], [ %.2226, %54 ], [ %.0224355, %42 ], [ %spec.select, %43 ], [ %.0224355, %41 ], [ %.0224355, %40 ]
+  %.0232353.add = add nuw nsw i64 %.0232353.idx, %.0219456.sink
+  %.2234.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0232353.add
   %60 = ptrtoint ptr %.2234.ptr to i64
   %61 = sub i64 %60, %26
   %62 = icmp ult i64 %61, %2
   br i1 %62, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %.thread452, %55, %.preheader343
-  %.0232.lcssa.idx = phi i64 [ 0, %.preheader343 ], [ %.0232357.idx, %55 ], [ %.0232357.add, %.thread452 ]
+.thread:                                          ; preds = %.thread448, %55, %.preheader339
+  %.0232.lcssa.idx = phi i64 [ 0, %.preheader339 ], [ %.0232353.idx, %55 ], [ %.0232353.add, %.thread448 ]
   %.0232.lcssa.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0232.lcssa.idx
   %63 = ptrtoint ptr %.0232.lcssa.ptr to i64
   %64 = sub i64 %63, %26
@@ -1478,24 +1478,24 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
 
 72:                                               ; preds = %70
   %73 = icmp sgt i64 %.0232.lcssa.idx, 2
-  br i1 %73, label %.lr.ph399, label %.loopexit342
+  br i1 %73, label %.lr.ph395, label %.loopexit338
 
-.lr.ph399:                                        ; preds = %72
+.lr.ph395:                                        ; preds = %72
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %75 = tail call ptr @__ctype_b_loc() #15
   %76 = getelementptr inbounds i8, ptr %.0232.lcssa.ptr, i64 -3
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 8
   br label %78
 
-78:                                               ; preds = %.lr.ph399, %241
-  %.0241398 = phi ptr [ %74, %.lr.ph399 ], [ %.4245326, %241 ]
+78:                                               ; preds = %.lr.ph395, %241
+  %.0241394 = phi ptr [ %74, %.lr.ph395 ], [ %.4245322, %241 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %79 = load ptr, ptr %75, align 8, !tbaa !13
   br label %80
 
 80:                                               ; preds = %78, %86
-  %.1242362 = phi ptr [ %.0241398, %78 ], [ %87, %86 ]
-  %81 = load i8, ptr %.1242362, align 1, !tbaa !12
+  %.1242358 = phi ptr [ %.0241394, %78 ], [ %87, %86 ]
+  %81 = load i8, ptr %.1242358, align 1, !tbaa !12
   %82 = sext i8 %81 to i64
   %83 = getelementptr inbounds i16, ptr %79, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !15
@@ -1504,25 +1504,25 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not278, label %.critedge, label %86
 
 86:                                               ; preds = %80
-  %87 = getelementptr inbounds nuw i8, ptr %.1242362, i64 1
+  %87 = getelementptr inbounds nuw i8, ptr %.1242358, i64 1
   %88 = icmp ult ptr %87, %.0232.lcssa.ptr
   br i1 %88, label %80, label %.critedge
 
 .critedge:                                        ; preds = %86, %80
-  %.1242.lcssa = phi ptr [ %87, %86 ], [ %.1242362, %80 ]
+  %.1242.lcssa = phi ptr [ %87, %86 ], [ %.1242358, %80 ]
   %89 = icmp eq ptr %.1242.lcssa, %.0232.lcssa.ptr
-  br i1 %89, label %.thread331, label %.preheader341
+  br i1 %89, label %.thread327, label %.preheader337
 
-.preheader341:                                    ; preds = %.critedge
-  %storemerge363 = getelementptr inbounds nuw i8, ptr %.1242.lcssa, i64 1
-  store ptr %storemerge363, ptr %6, align 8, !tbaa !3
-  %90 = icmp ult ptr %storemerge363, %.0232.lcssa.ptr
-  br i1 %90, label %.lr.ph366, label %.critedge7
+.preheader337:                                    ; preds = %.critedge
+  %storemerge359 = getelementptr inbounds nuw i8, ptr %.1242.lcssa, i64 1
+  store ptr %storemerge359, ptr %6, align 8, !tbaa !3
+  %90 = icmp ult ptr %storemerge359, %.0232.lcssa.ptr
+  br i1 %90, label %.lr.ph362, label %.critedge7
 
-.lr.ph366:                                        ; preds = %.preheader341, %102
-  %storemerge365 = phi ptr [ %storemerge, %102 ], [ %storemerge363, %.preheader341 ]
-  %.0213364 = phi i32 [ %.2.ph, %102 ], [ 0, %.preheader341 ]
-  %91 = load i8, ptr %storemerge365, align 1, !tbaa !12
+.lr.ph362:                                        ; preds = %.preheader337, %102
+  %storemerge361 = phi ptr [ %storemerge, %102 ], [ %storemerge359, %.preheader337 ]
+  %.0213360 = phi i32 [ %.2.ph, %102 ], [ 0, %.preheader337 ]
+  %91 = load i8, ptr %storemerge361, align 1, !tbaa !12
   %92 = sext i8 %91 to i64
   %93 = getelementptr inbounds i16, ptr %79, i64 %92
   %94 = load i16, ptr %93, align 2, !tbaa !15
@@ -1530,7 +1530,7 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %.not279 = icmp eq i16 %95, 0
   br i1 %.not279, label %96, label %.critedge7.loopexit
 
-96:                                               ; preds = %.lr.ph366
+96:                                               ; preds = %.lr.ph362
   switch i8 %91, label %102 [
     i8 60, label %.critedge7.loopexit
     i8 91, label %.critedge7.loopexit
@@ -1544,40 +1544,40 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   ]
 
 97:                                               ; preds = %96
-  %98 = add i32 %.0213364, 1
-  %99 = icmp ugt ptr %storemerge365, %76
+  %98 = add i32 %.0213360, 1
+  %99 = icmp ugt ptr %storemerge361, %76
   br i1 %99, label %100, label %102
 
 100:                                              ; preds = %97
   %.not280 = icmp eq ptr %4, null
-  br i1 %.not280, label %.thread335, label %101
+  br i1 %.not280, label %.thread331, label %101
 
 101:                                              ; preds = %100
   store ptr %.0232.lcssa.ptr, ptr %4, align 8, !tbaa !3
-  br label %.thread335
+  br label %.thread331
 
-.thread335:                                       ; preds = %100, %101
+.thread331:                                       ; preds = %100, %101
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %244
 
 102:                                              ; preds = %97, %96
-  %.2.ph = phi i32 [ %98, %97 ], [ %.0213364, %96 ]
-  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge365, i64 1
+  %.2.ph = phi i32 [ %98, %97 ], [ %.0213360, %96 ]
+  %storemerge = getelementptr inbounds nuw i8, ptr %storemerge361, i64 1
   store ptr %storemerge, ptr %6, align 8, !tbaa !3
   %103 = icmp ult ptr %storemerge, %.0232.lcssa.ptr
-  br i1 %103, label %.lr.ph366, label %.critedge7.loopexit
+  br i1 %103, label %.lr.ph362, label %.critedge7.loopexit
 
-.critedge7.loopexit:                              ; preds = %96, %96, %96, %96, %96, %96, %96, %96, %102, %.lr.ph366
-  %104 = phi ptr [ %storemerge365, %.lr.ph366 ], [ %storemerge, %102 ], [ %storemerge365, %96 ], [ %storemerge365, %96 ], [ %storemerge365, %96 ], [ %storemerge365, %96 ], [ %storemerge365, %96 ], [ %storemerge365, %96 ], [ %storemerge365, %96 ], [ %storemerge365, %96 ]
-  %.0213.lcssa.ph = phi i32 [ %.0213364, %.lr.ph366 ], [ %.2.ph, %102 ], [ %.0213364, %96 ], [ %.0213364, %96 ], [ %.0213364, %96 ], [ %.0213364, %96 ], [ %.0213364, %96 ], [ %.0213364, %96 ], [ %.0213364, %96 ], [ %.0213364, %96 ]
+.critedge7.loopexit:                              ; preds = %96, %96, %96, %96, %96, %96, %96, %96, %102, %.lr.ph362
+  %104 = phi ptr [ %storemerge361, %.lr.ph362 ], [ %storemerge, %102 ], [ %storemerge361, %96 ], [ %storemerge361, %96 ], [ %storemerge361, %96 ], [ %storemerge361, %96 ], [ %storemerge361, %96 ], [ %storemerge361, %96 ], [ %storemerge361, %96 ], [ %storemerge361, %96 ]
+  %.0213.lcssa.ph = phi i32 [ %.0213360, %.lr.ph362 ], [ %.2.ph, %102 ], [ %.0213360, %96 ], [ %.0213360, %96 ], [ %.0213360, %96 ], [ %.0213360, %96 ], [ %.0213360, %96 ], [ %.0213360, %96 ], [ %.0213360, %96 ], [ %.0213360, %96 ]
   %105 = icmp eq i32 %.0213.lcssa.ph, 0
   br label %.critedge7
 
-.critedge7:                                       ; preds = %.critedge7.loopexit, %.preheader341
-  %106 = phi ptr [ %storemerge363, %.preheader341 ], [ %104, %.critedge7.loopexit ]
-  %.0213.lcssa = phi i1 [ true, %.preheader341 ], [ %105, %.critedge7.loopexit ]
+.critedge7:                                       ; preds = %.critedge7.loopexit, %.preheader337
+  %106 = phi ptr [ %storemerge359, %.preheader337 ], [ %104, %.critedge7.loopexit ]
+  %.0213.lcssa = phi i1 [ true, %.preheader337 ], [ %105, %.critedge7.loopexit ]
   %107 = icmp eq ptr %106, %.0232.lcssa.ptr
-  br i1 %107, label %.thread331, label %108
+  br i1 %107, label %.thread327, label %108
 
 108:                                              ; preds = %.critedge7
   %109 = ptrtoint ptr %106 to i64
@@ -1586,14 +1586,14 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %112 = add nsw i64 %111, 2
   %113 = call ptr @cli_max_calloc(i64 noundef %112, i64 noundef 1) #14
   %.not282 = icmp eq ptr %113, null
-  br i1 %.not282, label %.thread331, label %114
+  br i1 %.not282, label %.thread327, label %114
 
 114:                                              ; preds = %108
   br i1 %.0213.lcssa, label %116, label %.preheader
 
 .preheader:                                       ; preds = %114
   %115 = icmp ult ptr %.1242.lcssa, %106
-  br i1 %115, label %.lr.ph388, label %.loopexit
+  br i1 %115, label %.lr.ph384, label %.loopexit
 
 116:                                              ; preds = %114
   %117 = call ptr @strncpy(ptr noundef nonnull %113, ptr noundef nonnull %.1242.lcssa, i64 noundef %111) #14
@@ -1601,49 +1601,49 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   store i8 0, ptr %118, align 1, !tbaa !12
   br label %.loopexit
 
-.lr.ph388:                                        ; preds = %.preheader, %131
+.lr.ph384:                                        ; preds = %.preheader, %131
   %119 = phi ptr [ %132, %131 ], [ %106, %.preheader ]
-  %.0212387 = phi i32 [ %134, %131 ], [ 0, %.preheader ]
-  %.0216386 = phi ptr [ %133, %131 ], [ %.1242.lcssa, %.preheader ]
-  %120 = load i8, ptr %.0216386, align 1, !tbaa !12
+  %.0212383 = phi i32 [ %134, %131 ], [ 0, %.preheader ]
+  %.0216382 = phi ptr [ %133, %131 ], [ %.1242.lcssa, %.preheader ]
+  %120 = load i8, ptr %.0216382, align 1, !tbaa !12
   %121 = icmp eq i8 %120, 35
   br i1 %121, label %122, label %128
 
-122:                                              ; preds = %.lr.ph388
-  %123 = getelementptr inbounds nuw i8, ptr %.0216386, i64 1
-  %124 = zext i32 %.0212387 to i64
+122:                                              ; preds = %.lr.ph384
+  %123 = getelementptr inbounds nuw i8, ptr %.0216382, i64 1
+  %124 = zext i32 %.0212383 to i64
   %125 = getelementptr inbounds nuw i8, ptr %113, i64 %124
   %126 = call i32 @cli_hex2str_to(ptr noundef nonnull %123, ptr noundef nonnull %125, i64 noundef 2) #14
-  %127 = getelementptr inbounds nuw i8, ptr %.0216386, i64 2
+  %127 = getelementptr inbounds nuw i8, ptr %.0216382, i64 2
   %.pre = load ptr, ptr %6, align 8, !tbaa !3
   br label %131
 
-128:                                              ; preds = %.lr.ph388
-  %129 = zext i32 %.0212387 to i64
+128:                                              ; preds = %.lr.ph384
+  %129 = zext i32 %.0212383 to i64
   %130 = getelementptr inbounds nuw i8, ptr %113, i64 %129
   store i8 %120, ptr %130, align 1, !tbaa !12
   br label %131
 
 131:                                              ; preds = %122, %128
   %132 = phi ptr [ %.pre, %122 ], [ %119, %128 ]
-  %.1217 = phi ptr [ %127, %122 ], [ %.0216386, %128 ]
+  %.1217 = phi ptr [ %127, %122 ], [ %.0216382, %128 ]
   %133 = getelementptr inbounds nuw i8, ptr %.1217, i64 1
-  %134 = add i32 %.0212387, 1
+  %134 = add i32 %.0212383, 1
   %135 = icmp ult ptr %133, %132
-  br i1 %135, label %.lr.ph388, label %.loopexit
+  br i1 %135, label %.lr.ph384, label %.loopexit
 
 .loopexit:                                        ; preds = %131, %.preheader, %116
   %136 = phi ptr [ %106, %.preheader ], [ %106, %116 ], [ %132, %131 ]
   %137 = icmp ult ptr %136, %.0232.lcssa.ptr
-  br i1 %137, label %.lr.ph390, label %.critedge9
+  br i1 %137, label %.lr.ph386, label %.critedge9
 
-.lr.ph390:                                        ; preds = %.loopexit
+.lr.ph386:                                        ; preds = %.loopexit
   %138 = load ptr, ptr %75, align 8, !tbaa !13
   br label %139
 
-139:                                              ; preds = %.lr.ph390, %145
-  %.3244389 = phi ptr [ %136, %.lr.ph390 ], [ %146, %145 ]
-  %140 = load i8, ptr %.3244389, align 1, !tbaa !12
+139:                                              ; preds = %.lr.ph386, %145
+  %.3244385 = phi ptr [ %136, %.lr.ph386 ], [ %146, %145 ]
+  %140 = load i8, ptr %.3244385, align 1, !tbaa !12
   %141 = sext i8 %140 to i64
   %142 = getelementptr inbounds i16, ptr %138, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !15
@@ -1652,18 +1652,18 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %.not283, label %.critedge9, label %145
 
 145:                                              ; preds = %139
-  %146 = getelementptr inbounds nuw i8, ptr %.3244389, i64 1
+  %146 = getelementptr inbounds nuw i8, ptr %.3244385, i64 1
   %147 = icmp ult ptr %146, %.0232.lcssa.ptr
   br i1 %147, label %139, label %.critedge9
 
 .critedge9:                                       ; preds = %139, %145, %.loopexit
-  %.3244.lcssa = phi ptr [ %136, %.loopexit ], [ %146, %145 ], [ %.3244389, %139 ]
+  %.3244.lcssa = phi ptr [ %136, %.loopexit ], [ %146, %145 ], [ %.3244385, %139 ]
   %148 = icmp eq ptr %.3244.lcssa, %.0232.lcssa.ptr
   br i1 %148, label %149, label %150
 
 149:                                              ; preds = %.critedge9
   call void @free(ptr noundef %113) #14
-  br label %.thread331
+  br label %.thread327
 
 150:                                              ; preds = %.critedge9
   %151 = load i8, ptr %.3244.lcssa, align 1, !tbaa !12
@@ -1719,23 +1719,23 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %178 = getelementptr inbounds nuw i8, ptr %.3244.lcssa, i64 %.idx
   store ptr %178, ptr %6, align 8, !tbaa !3
   %179 = icmp ult ptr %178, %.0232.lcssa.ptr
-  br i1 %179, label %.lr.ph395, label %.thread316
+  br i1 %179, label %.lr.ph391, label %.thread313
 
-.lr.ph395:                                        ; preds = %176, %181
-  %storemerge340394 = phi ptr [ %182, %181 ], [ %178, %176 ]
-  %180 = load i8, ptr %storemerge340394, align 1, !tbaa !12
+.lr.ph391:                                        ; preds = %176, %181
+  %storemerge336390 = phi ptr [ %182, %181 ], [ %178, %176 ]
+  %180 = load i8, ptr %storemerge336390, align 1, !tbaa !12
   switch i8 %180, label %181 [
-    i8 62, label %.thread316
-    i8 47, label %.thread316
+    i8 62, label %.thread313
+    i8 47, label %.thread313
   ]
 
-181:                                              ; preds = %.lr.ph395
-  %182 = getelementptr inbounds nuw i8, ptr %storemerge340394, i64 1
+181:                                              ; preds = %.lr.ph391
+  %182 = getelementptr inbounds nuw i8, ptr %storemerge336390, i64 1
   store ptr %182, ptr %6, align 8, !tbaa !3
   %183 = icmp ult ptr %182, %.0232.lcssa.ptr
-  br i1 %183, label %.lr.ph395, label %.thread316
+  br i1 %183, label %.lr.ph391, label %.thread313
 
-.thread316:                                       ; preds = %181, %.lr.ph395, %.lr.ph395, %176
+.thread313:                                       ; preds = %181, %.lr.ph391, %.lr.ph391, %176
   %184 = call i32 @is_object_reference(ptr noundef nonnull %.3244.lcssa, ptr noundef nonnull %6, ptr noundef null)
   %185 = load ptr, ptr %6, align 8, !tbaa !3
   %186 = ptrtoint ptr %185 to i64
@@ -1744,20 +1744,20 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %189 = add nsw i64 %188, 2
   %190 = call ptr @cli_max_calloc(i64 noundef %189, i64 noundef 1) #14
   %.not285 = icmp eq ptr %190, null
-  br i1 %.not285, label %198, label %.thread319
+  br i1 %.not285, label %198, label %.thread315
 
-.thread319:                                       ; preds = %.thread316
+.thread315:                                       ; preds = %.thread313
   %191 = call ptr @strncpy(ptr noundef nonnull %190, ptr noundef nonnull %.3244.lcssa, i64 noundef %188) #14
   %192 = getelementptr inbounds i8, ptr %190, i64 %188
   store i8 0, ptr %192, align 1, !tbaa !12
   %193 = load i8, ptr %185, align 1, !tbaa !12
   %.not286 = icmp ne i8 %193, 47
-  %spec.select295.idx = zext i1 %.not286 to i64
-  %spec.select295 = getelementptr inbounds nuw i8, ptr %185, i64 %spec.select295.idx
+  %spec.select294.idx = zext i1 %.not286 to i64
+  %spec.select294 = getelementptr inbounds nuw i8, ptr %185, i64 %spec.select294.idx
   br label %203
 
 .sink.split:                                      ; preds = %152, %156, %168, %172
-  %.sink482 = phi i64 [ 2, %172 ], [ 2, %168 ], [ 1, %156 ], [ 2, %152 ]
+  %.sink478 = phi i64 [ 2, %172 ], [ 2, %168 ], [ 1, %156 ], [ 2, %152 ]
   %.0218.ph = phi ptr [ %175, %172 ], [ null, %168 ], [ null, %156 ], [ %155, %152 ]
   %.0215.ph = phi ptr [ null, %172 ], [ %171, %168 ], [ null, %156 ], [ null, %152 ]
   %.0214.ph = phi ptr [ null, %172 ], [ null, %168 ], [ %159, %156 ], [ null, %152 ]
@@ -1765,14 +1765,14 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   %195 = add i32 %194, -1
   store i32 %195, ptr %11, align 4, !tbaa !28
   %196 = load ptr, ptr %6, align 8, !tbaa !3
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %.sink482
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 %.sink478
   br label %198
 
-198:                                              ; preds = %.sink.split, %.thread316
-  %.4245 = phi ptr [ %.3244.lcssa, %.thread316 ], [ %197, %.sink.split ]
-  %.0218 = phi ptr [ null, %.thread316 ], [ %.0218.ph, %.sink.split ]
-  %.0215 = phi ptr [ null, %.thread316 ], [ %.0215.ph, %.sink.split ]
-  %.0214 = phi ptr [ null, %.thread316 ], [ %.0214.ph, %.sink.split ]
+198:                                              ; preds = %.sink.split, %.thread313
+  %.4245 = phi ptr [ %.3244.lcssa, %.thread313 ], [ %197, %.sink.split ]
+  %.0218 = phi ptr [ null, %.thread313 ], [ %.0218.ph, %.sink.split ]
+  %.0215 = phi ptr [ null, %.thread313 ], [ %.0215.ph, %.sink.split ]
+  %.0214 = phi ptr [ null, %.thread313 ], [ %.0214.ph, %.sink.split ]
   %199 = icmp ne ptr %.0218, null
   %200 = icmp ne ptr %.0215, null
   %or.cond11 = or i1 %199, %200
@@ -1782,16 +1782,16 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
 
 202:                                              ; preds = %198
   call void @free(ptr noundef %113) #14
-  br label %.thread331
+  br label %.thread327
 
-203:                                              ; preds = %.thread319, %198
-  %204 = phi i1 [ false, %.thread319 ], [ %201, %198 ]
-  %205 = phi i1 [ false, %.thread319 ], [ %200, %198 ]
-  %206 = phi i1 [ true, %.thread319 ], [ %199, %198 ]
-  %.0214329 = phi ptr [ null, %.thread319 ], [ %.0214, %198 ]
-  %.0215328 = phi ptr [ null, %.thread319 ], [ %.0215, %198 ]
-  %.0218327 = phi ptr [ %190, %.thread319 ], [ %.0218, %198 ]
-  %.4245326 = phi ptr [ %spec.select295, %.thread319 ], [ %.4245, %198 ]
+203:                                              ; preds = %.thread315, %198
+  %204 = phi i1 [ false, %.thread315 ], [ %201, %198 ]
+  %205 = phi i1 [ false, %.thread315 ], [ %200, %198 ]
+  %206 = phi i1 [ true, %.thread315 ], [ %199, %198 ]
+  %.0214325 = phi ptr [ null, %.thread315 ], [ %.0214, %198 ]
+  %.0215324 = phi ptr [ null, %.thread315 ], [ %.0215, %198 ]
+  %.0218323 = phi ptr [ %190, %.thread315 ], [ %.0218, %198 ]
+  %.4245322 = phi ptr [ %spec.select294, %.thread315 ], [ %.4245, %198 ]
   %207 = load ptr, ptr %71, align 8, !tbaa !48
   %.not287 = icmp eq ptr %207, null
   %208 = call noalias dereferenceable_or_null(48) ptr @calloc(i64 noundef 1, i64 noundef 48) #17
@@ -1808,22 +1808,22 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %205, label %211, label %212
 
 211:                                              ; preds = %210
-  call void @pdf_free_dict(ptr noundef nonnull %.0215328)
+  call void @pdf_free_dict(ptr noundef nonnull %.0215324)
   br label %212
 
 212:                                              ; preds = %211, %210
   br i1 %206, label %213, label %214
 
 213:                                              ; preds = %212
-  call void @free(ptr noundef %.0218327) #14
+  call void @free(ptr noundef %.0218323) #14
   br label %214
 
 214:                                              ; preds = %213, %212
-  br i1 %204, label %215, label %.thread331
+  br i1 %204, label %215, label %.thread327
 
 215:                                              ; preds = %214
-  call void @pdf_free_array(ptr noundef nonnull %.0214329)
-  br label %.thread331
+  call void @pdf_free_array(ptr noundef nonnull %.0214325)
+  br label %.thread327
 
 216:                                              ; preds = %203
   %.not289 = icmp eq ptr %208, null
@@ -1834,22 +1834,22 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
   br i1 %205, label %218, label %219
 
 218:                                              ; preds = %217
-  call void @pdf_free_dict(ptr noundef nonnull %.0215328)
+  call void @pdf_free_dict(ptr noundef nonnull %.0215324)
   br label %219
 
 219:                                              ; preds = %218, %217
   br i1 %206, label %220, label %221
 
 220:                                              ; preds = %219
-  call void @free(ptr noundef %.0218327) #14
+  call void @free(ptr noundef %.0218323) #14
   br label %221
 
 221:                                              ; preds = %220, %219
-  br i1 %204, label %222, label %.thread331
+  br i1 %204, label %222, label %.thread327
 
 222:                                              ; preds = %221
-  call void @pdf_free_array(ptr noundef nonnull %.0214329)
-  br label %.thread331
+  call void @pdf_free_array(ptr noundef nonnull %.0214325)
+  br label %.thread327
 
 223:                                              ; preds = %216
   %224 = load ptr, ptr %77, align 8, !tbaa !51
@@ -1873,54 +1873,54 @@ define noalias noundef ptr @pdf_parse_dict(ptr noundef %0, ptr noundef %1, i64 n
 
 230:                                              ; preds = %229
   %231 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  store ptr %.0218327, ptr %231, align 8, !tbaa !56
-  %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0218327) #16
-  br label %.sink.split485
+  store ptr %.0218323, ptr %231, align 8, !tbaa !56
+  %232 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0218323) #16
+  br label %.sink.split481
 
 233:                                              ; preds = %229
   br i1 %204, label %234, label %236
 
 234:                                              ; preds = %233
   %235 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  store ptr %.0214329, ptr %235, align 8, !tbaa !56
-  br label %.sink.split485
+  store ptr %.0214325, ptr %235, align 8, !tbaa !56
+  br label %.sink.split481
 
 236:                                              ; preds = %233
   br i1 %205, label %237, label %241
 
 237:                                              ; preds = %236
   %238 = getelementptr inbounds nuw i8, ptr %208, i64 8
-  store ptr %.0215328, ptr %238, align 8, !tbaa !56
-  br label %.sink.split485
+  store ptr %.0215324, ptr %238, align 8, !tbaa !56
+  br label %.sink.split481
 
-.thread331:                                       ; preds = %.critedge, %.critedge7, %108, %149, %202, %215, %214, %222, %221
+.thread327:                                       ; preds = %.critedge, %.critedge7, %108, %149, %202, %215, %214, %222, %221
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit342
+  br label %.loopexit338
 
-.sink.split485:                                   ; preds = %234, %237, %230
-  %.sink488 = phi i64 [ %232, %230 ], [ 16, %237 ], [ 16, %234 ]
-  %.sink486 = phi i32 [ 1, %230 ], [ 3, %237 ], [ 2, %234 ]
+.sink.split481:                                   ; preds = %234, %237, %230
+  %.sink484 = phi i64 [ %232, %230 ], [ 16, %237 ], [ 16, %234 ]
+  %.sink482 = phi i32 [ 1, %230 ], [ 3, %237 ], [ 2, %234 ]
   %239 = getelementptr inbounds nuw i8, ptr %208, i64 16
-  store i64 %.sink488, ptr %239, align 8, !tbaa !57
+  store i64 %.sink484, ptr %239, align 8, !tbaa !57
   %240 = getelementptr inbounds nuw i8, ptr %208, i64 24
-  store i32 %.sink486, ptr %240, align 8, !tbaa !58
+  store i32 %.sink482, ptr %240, align 8, !tbaa !58
   br label %241
 
-241:                                              ; preds = %.sink.split485, %236
+241:                                              ; preds = %.sink.split481, %236
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %242 = icmp ult ptr %.4245326, %.0232.lcssa.ptr
-  br i1 %242, label %78, label %.loopexit342
+  %242 = icmp ult ptr %.4245322, %.0232.lcssa.ptr
+  br i1 %242, label %78, label %.loopexit338
 
-.loopexit342:                                     ; preds = %241, %72, %.thread331
+.loopexit338:                                     ; preds = %241, %72, %.thread327
   %.not291 = icmp eq ptr %4, null
   br i1 %.not291, label %244, label %243
 
-243:                                              ; preds = %.loopexit342
+243:                                              ; preds = %.loopexit338
   store ptr %.0232.lcssa.ptr, ptr %4, align 8, !tbaa !3
   br label %244
 
-244:                                              ; preds = %.thread335, %.loopexit342, %243, %70, %65, %67, %.thread, %29, %31, %15, %24, %5, %14
-  %.0235 = phi ptr [ null, %14 ], [ null, %5 ], [ null, %24 ], [ null, %15 ], [ null, %31 ], [ null, %29 ], [ null, %.thread ], [ null, %67 ], [ null, %65 ], [ null, %70 ], [ %71, %243 ], [ %71, %.loopexit342 ], [ %71, %.thread335 ]
+244:                                              ; preds = %.thread331, %.loopexit338, %243, %70, %65, %67, %.thread, %29, %31, %15, %24, %5, %14
+  %.0235 = phi ptr [ null, %14 ], [ null, %5 ], [ null, %24 ], [ null, %15 ], [ null, %31 ], [ null, %29 ], [ null, %.thread ], [ null, %67 ], [ null, %65 ], [ null, %70 ], [ %71, %243 ], [ %71, %.loopexit338 ], [ %71, %.thread331 ]
   ret ptr %.0235
 }
 
@@ -1938,7 +1938,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %or.cond = and i1 %8, %9
   %10 = icmp ne ptr %3, null
   %or.cond3 = and i1 %or.cond, %10
-  br i1 %or.cond3, label %11, label %.loopexit183
+  br i1 %or.cond3, label %11, label %.loopexit182
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 316
@@ -1948,7 +1948,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 
 15:                                               ; preds = %11
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.8) #14
-  br label %.loopexit183
+  br label %.loopexit182
 
 16:                                               ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 304
@@ -1962,63 +1962,63 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %.sink, i64 %20
   %24 = icmp ult ptr %3, %23
-  br i1 %24, label %.loopexit183, label %25
+  br i1 %24, label %.loopexit182, label %25
 
 25:                                               ; preds = %16
   %26 = ptrtoint ptr %3 to i64
   %27 = ptrtoint ptr %23 to i64
   %28 = sub i64 %26, %27
   %.not147 = icmp ult i64 %28, %2
-  br i1 %.not147, label %29, label %.loopexit183
+  br i1 %.not147, label %29, label %.loopexit182
 
 29:                                               ; preds = %25
   %30 = load i8, ptr %3, align 1, !tbaa !12
   %.not148 = icmp eq i8 %30, 91
-  br i1 %.not148, label %.lr.ph, label %.loopexit183
+  br i1 %.not148, label %.lr.ph, label %.loopexit182
 
 .lr.ph:                                           ; preds = %29, %.thread
   %31 = phi i64 [ %47, %.thread ], [ %28, %29 ]
-  %.0119.ph202 = phi i32 [ %.1166, %.thread ], [ 0, %29 ]
-  %.0120.ph201 = phi i32 [ %.2165, %.thread ], [ 0, %29 ]
-  %.0122.ph200.idx = phi i64 [ %.0122198.add, %.thread ], [ 0, %29 ]
-  %.0122198.ptr316 = getelementptr inbounds nuw i8, ptr %3, i64 %.0122.ph200.idx
-  %.not149317 = icmp eq i32 %.0120.ph201, 0
-  br i1 %.not149317, label %._crit_edge, label %.lr.ph320
+  %.0119.ph201 = phi i32 [ %.1166, %.thread ], [ 0, %29 ]
+  %.0120.ph200 = phi i32 [ %.2165, %.thread ], [ 0, %29 ]
+  %.0122.ph199.idx = phi i64 [ %.0122197.add, %.thread ], [ 0, %29 ]
+  %.0122197.ptr315 = getelementptr inbounds nuw i8, ptr %3, i64 %.0122.ph199.idx
+  %.not149316 = icmp eq i32 %.0120.ph200, 0
+  br i1 %.not149316, label %._crit_edge, label %.lr.ph319
 
 32:                                               ; preds = %.backedge
-  %.0122198.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122198.add215
-  br i1 %.not149, label %._crit_edge, label %.lr.ph320
+  %.0122197.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122197.add214
+  br i1 %.not149, label %._crit_edge, label %.lr.ph319
 
-.lr.ph320:                                        ; preds = %.lr.ph, %32
-  %.0122198.ptr319 = phi ptr [ %.0122198.ptr, %32 ], [ %.0122198.ptr316, %.lr.ph ]
-  %.0122198.idx318 = phi i64 [ %.0122198.add215, %32 ], [ %.0122.ph200.idx, %.lr.ph ]
-  %33 = load i8, ptr %.0122198.ptr319, align 1, !tbaa !12
+.lr.ph319:                                        ; preds = %.lr.ph, %32
+  %.0122197.ptr318 = phi ptr [ %.0122197.ptr, %32 ], [ %.0122197.ptr315, %.lr.ph ]
+  %.0122197.idx317 = phi i64 [ %.0122197.add214, %32 ], [ %.0122.ph199.idx, %.lr.ph ]
+  %33 = load i8, ptr %.0122197.ptr318, align 1, !tbaa !12
   switch i8 %33, label %.backedge [
     i8 92, label %34
     i8 41, label %38
   ]
 
-34:                                               ; preds = %.lr.ph320
+34:                                               ; preds = %.lr.ph319
   br label %.backedge
 
-.backedge:                                        ; preds = %38, %.lr.ph320, %34
-  %.sink285 = phi i64 [ 2, %34 ], [ 1, %.lr.ph320 ], [ 1, %38 ]
-  %.not149 = phi i1 [ false, %34 ], [ false, %.lr.ph320 ], [ true, %38 ]
-  %.0122198.add215 = add nuw nsw i64 %.0122198.idx318, %.sink285
-  %.0122.be.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122198.add215
+.backedge:                                        ; preds = %38, %.lr.ph319, %34
+  %.sink284 = phi i64 [ 2, %34 ], [ 1, %.lr.ph319 ], [ 1, %38 ]
+  %.not149 = phi i1 [ false, %34 ], [ false, %.lr.ph319 ], [ true, %38 ]
+  %.0122197.add214 = add nuw nsw i64 %.0122197.idx317, %.sink284
+  %.0122.be.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122197.add214
   %35 = ptrtoint ptr %.0122.be.ptr to i64
   %36 = sub i64 %35, %27
   %37 = icmp ult i64 %36, %2
-  br i1 %37, label %32, label %.loopexit183
+  br i1 %37, label %32, label %.loopexit182
 
-38:                                               ; preds = %.lr.ph320
+38:                                               ; preds = %.lr.ph319
   br label %.backedge
 
 ._crit_edge:                                      ; preds = %32, %.lr.ph
-  %.lcssa313 = phi i64 [ %31, %.lr.ph ], [ %36, %32 ]
-  %.0122198.idx.lcssa = phi i64 [ %.0122.ph200.idx, %.lr.ph ], [ %.0122198.add215, %32 ]
-  %.0122198.ptr.lcssa = phi ptr [ %.0122198.ptr316, %.lr.ph ], [ %.0122198.ptr, %32 ]
-  %39 = load i8, ptr %.0122198.ptr.lcssa, align 1, !tbaa !12
+  %.lcssa312 = phi i64 [ %31, %.lr.ph ], [ %36, %32 ]
+  %.0122197.idx.lcssa = phi i64 [ %.0122.ph199.idx, %.lr.ph ], [ %.0122197.add214, %32 ]
+  %.0122197.ptr.lcssa = phi ptr [ %.0122197.ptr315, %.lr.ph ], [ %.0122197.ptr, %32 ]
+  %39 = load i8, ptr %.0122197.ptr.lcssa, align 1, !tbaa !12
   switch i8 %39, label %.thread [
     i8 40, label %40
     i8 91, label %41
@@ -2029,53 +2029,53 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br label %.thread
 
 41:                                               ; preds = %._crit_edge
-  %42 = add nsw i32 %.0119.ph202, 1
+  %42 = add nsw i32 %.0119.ph201, 1
   br label %.thread
 
 43:                                               ; preds = %._crit_edge
-  %44 = add nsw i32 %.0119.ph202, -1
+  %44 = add nsw i32 %.0119.ph201, -1
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %49, label %.thread
 
 .thread:                                          ; preds = %._crit_edge, %40, %41, %43
-  %.1166 = phi i32 [ %44, %43 ], [ %42, %41 ], [ %.0119.ph202, %40 ], [ %.0119.ph202, %._crit_edge ]
+  %.1166 = phi i32 [ %44, %43 ], [ %42, %41 ], [ %.0119.ph201, %40 ], [ %.0119.ph201, %._crit_edge ]
   %.2165 = phi i32 [ 0, %43 ], [ 0, %41 ], [ 1, %40 ], [ 0, %._crit_edge ]
-  %.0122198.add = add nuw nsw i64 %.0122198.idx.lcssa, 1
-  %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122198.add
+  %.0122197.add = add nuw nsw i64 %.0122197.idx.lcssa, 1
+  %.ptr = getelementptr inbounds nuw i8, ptr %3, i64 %.0122197.add
   %46 = ptrtoint ptr %.ptr to i64
   %47 = sub i64 %46, %27
   %48 = icmp ult i64 %47, %2
-  br i1 %48, label %.lr.ph, label %.loopexit183
+  br i1 %48, label %.lr.ph, label %.loopexit182
 
 49:                                               ; preds = %43
   %50 = tail call noalias dereferenceable_or_null(16) ptr @calloc(i64 noundef 1, i64 noundef 16) #17
   %.not152 = icmp eq ptr %50, null
-  br i1 %.not152, label %.loopexit183, label %51
+  br i1 %.not152, label %.loopexit182, label %51
 
 51:                                               ; preds = %49
-  %52 = icmp sgt i64 %.0122198.idx.lcssa, 1
-  br i1 %52, label %.lr.ph210, label %.loopexit
+  %52 = icmp sgt i64 %.0122197.idx.lcssa, 1
+  br i1 %52, label %.lr.ph209, label %.loopexit
 
-.lr.ph210:                                        ; preds = %51
+.lr.ph209:                                        ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %54 = add i64 %2, -2
   %55 = getelementptr inbounds nuw i8, ptr %50, i64 8
   br label %56
 
-56:                                               ; preds = %.lr.ph210, %152
-  %.promoted = phi ptr [ %53, %.lr.ph210 ], [ %153, %152 ]
-  %.0124209 = phi i1 [ true, %.lr.ph210 ], [ false, %152 ]
+56:                                               ; preds = %.lr.ph209, %152
+  %.promoted = phi ptr [ %53, %.lr.ph209 ], [ %153, %152 ]
+  %.0124208 = phi i1 [ true, %.lr.ph209 ], [ false, %152 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %57 = icmp ult ptr %.promoted, %.0122198.ptr.lcssa
-  br i1 %57, label %.lr.ph204, label %.critedge
+  %57 = icmp ult ptr %.promoted, %.0122197.ptr.lcssa
+  br i1 %57, label %.lr.ph203, label %.critedge
 
-.lr.ph204:                                        ; preds = %56
+.lr.ph203:                                        ; preds = %56
   %58 = tail call ptr @__ctype_b_loc() #15
   %59 = load ptr, ptr %58, align 8, !tbaa !13
   br label %60
 
-60:                                               ; preds = %.lr.ph204, %67
-  %61 = phi ptr [ %.promoted, %.lr.ph204 ], [ %68, %67 ]
+60:                                               ; preds = %.lr.ph203, %67
+  %61 = phi ptr [ %.promoted, %.lr.ph203 ], [ %68, %67 ]
   %62 = load i8, ptr %61, align 1, !tbaa !12
   %63 = sext i8 %62 to i64
   %64 = getelementptr inbounds i16, ptr %59, i64 %63
@@ -2086,17 +2086,17 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 
 67:                                               ; preds = %60
   %68 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  %69 = icmp ult ptr %68, %.0122198.ptr.lcssa
+  %69 = icmp ult ptr %68, %.0122197.ptr.lcssa
   br i1 %69, label %60, label %.critedge
 
 .critedge:                                        ; preds = %60, %67, %56
-  %.lcssa203 = phi ptr [ %.promoted, %56 ], [ %68, %67 ], [ %61, %60 ]
-  store ptr %.lcssa203, ptr %6, align 8
-  %70 = icmp eq ptr %.lcssa203, %.0122198.ptr.lcssa
+  %.lcssa202 = phi ptr [ %.promoted, %56 ], [ %68, %67 ], [ %61, %60 ]
+  store ptr %.lcssa202, ptr %6, align 8
+  %70 = icmp eq ptr %.lcssa202, %.0122197.ptr.lcssa
   br i1 %70, label %.thread178, label %71
 
 71:                                               ; preds = %.critedge
-  %72 = load i8, ptr %.lcssa203, align 1, !tbaa !12
+  %72 = load i8, ptr %.lcssa202, align 1, !tbaa !12
   switch i8 %72, label %93 [
     i8 60, label %73
     i8 40, label %85
@@ -2104,13 +2104,13 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   ]
 
 73:                                               ; preds = %71
-  %74 = ptrtoint ptr %.lcssa203 to i64
+  %74 = ptrtoint ptr %.lcssa202 to i64
   %75 = sub i64 %74, %27
   %76 = icmp ult i64 %75, %54
   br i1 %76, label %77, label %85
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %.lcssa203, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.lcssa202, i64 1
   %79 = load i8, ptr %78, align 1, !tbaa !12
   %80 = icmp eq i8 %79, 60
   br i1 %80, label %81, label %85
@@ -2119,26 +2119,26 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %82 = load i32, ptr %12, align 4, !tbaa !28
   %83 = add i32 %82, 1
   store i32 %83, ptr %12, align 4, !tbaa !28
-  %84 = call ptr @pdf_parse_dict(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.lcssa313, ptr noundef nonnull %.lcssa203, ptr noundef nonnull %6)
+  %84 = call ptr @pdf_parse_dict(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.lcssa312, ptr noundef nonnull %.lcssa202, ptr noundef nonnull %6)
   br label %.sink.split
 
 85:                                               ; preds = %73, %77, %71
   %86 = load i32, ptr %12, align 4, !tbaa !28
   %87 = add i32 %86, 1
   store i32 %87, ptr %12, align 4, !tbaa !28
-  %88 = call ptr @pdf_parse_string(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.lcssa203, i64 noundef %.lcssa313, ptr noundef null, ptr noundef nonnull %6, ptr noundef null)
+  %88 = call ptr @pdf_parse_string(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %.lcssa202, i64 noundef %.lcssa312, ptr noundef null, ptr noundef nonnull %6, ptr noundef null)
   br label %.sink.split
 
 89:                                               ; preds = %71
   %90 = load i32, ptr %12, align 4, !tbaa !28
   %91 = add i32 %90, 1
   store i32 %91, ptr %12, align 4, !tbaa !28
-  %92 = call ptr @pdf_parse_array(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.lcssa313, ptr noundef nonnull %.lcssa203, ptr noundef nonnull %6)
+  %92 = call ptr @pdf_parse_array(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.lcssa312, ptr noundef nonnull %.lcssa202, ptr noundef nonnull %6)
   br label %.sink.split
 
 93:                                               ; preds = %71
-  store ptr %.0122198.ptr.lcssa, ptr %7, align 8, !tbaa !3
-  %94 = call i32 @is_object_reference(ptr noundef nonnull %.lcssa203, ptr noundef nonnull %7, ptr noundef null)
+  store ptr %.0122197.ptr.lcssa, ptr %7, align 8, !tbaa !3
+  %94 = call i32 @is_object_reference(ptr noundef nonnull %.lcssa202, ptr noundef nonnull %7, ptr noundef null)
   %.not154 = icmp eq i32 %94, 0
   br i1 %.not154, label %.preheader, label %..critedge7_crit_edge
 
@@ -2147,10 +2147,10 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br label %.critedge7
 
 .preheader:                                       ; preds = %93, %96
-  %.pn = phi ptr [ %storemerge, %96 ], [ %.lcssa203, %93 ]
+  %.pn = phi ptr [ %storemerge, %96 ], [ %.lcssa202, %93 ]
   %storemerge = getelementptr inbounds nuw i8, ptr %.pn, i64 1
   store ptr %storemerge, ptr %7, align 8, !tbaa !3
-  %95 = icmp ult ptr %storemerge, %.0122198.ptr.lcssa
+  %95 = icmp ult ptr %storemerge, %.0122197.ptr.lcssa
   br i1 %95, label %96, label %.critedge7
 
 96:                                               ; preds = %.preheader
@@ -2167,7 +2167,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 .critedge7:                                       ; preds = %96, %.preheader, %..critedge7_crit_edge
   %104 = phi ptr [ %.pre, %..critedge7_crit_edge ], [ %storemerge, %.preheader ], [ %storemerge, %96 ]
   %105 = ptrtoint ptr %104 to i64
-  %106 = ptrtoint ptr %.lcssa203 to i64
+  %106 = ptrtoint ptr %.lcssa202 to i64
   %107 = sub i64 %105, %106
   %108 = add nsw i64 %107, 2
   %109 = call ptr @cli_max_calloc(i64 noundef %108, i64 noundef 1) #14
@@ -2175,14 +2175,14 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   br i1 %.not156, label %116, label %.thread168
 
 .thread168:                                       ; preds = %.critedge7
-  %110 = call ptr @strncpy(ptr noundef nonnull %109, ptr noundef nonnull %.lcssa203, i64 noundef %107) #14
+  %110 = call ptr @strncpy(ptr noundef nonnull %109, ptr noundef nonnull %.lcssa202, i64 noundef %107) #14
   %111 = getelementptr inbounds i8, ptr %109, i64 %107
   store i8 0, ptr %111, align 1, !tbaa !12
   store ptr %104, ptr %6, align 8, !tbaa !3
   br label %120
 
 .sink.split:                                      ; preds = %81, %85, %89
-  %.sink288 = phi i64 [ 1, %89 ], [ 2, %85 ], [ 2, %81 ]
+  %.sink287 = phi i64 [ 1, %89 ], [ 2, %85 ], [ 2, %81 ]
   %.0117.ph = phi ptr [ null, %89 ], [ %88, %85 ], [ null, %81 ]
   %.0116.ph = phi ptr [ %92, %89 ], [ null, %85 ], [ null, %81 ]
   %.0.ph = phi ptr [ null, %89 ], [ null, %85 ], [ %84, %81 ]
@@ -2190,7 +2190,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %113 = add i32 %112, -1
   store i32 %113, ptr %12, align 4, !tbaa !28
   %114 = load ptr, ptr %6, align 8, !tbaa !3
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %.sink288
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 %.sink287
   store ptr %115, ptr %6, align 8, !tbaa !3
   br label %116
 
@@ -2213,7 +2213,7 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
   %.0116175 = phi ptr [ null, %.thread168 ], [ %.0116, %116 ]
   %.0117174 = phi ptr [ %109, %.thread168 ], [ %.0117, %116 ]
   %124 = call noalias dereferenceable_or_null(40) ptr @calloc(i64 noundef 1, i64 noundef 40) #17
-  br i1 %.0124209, label %125, label %131
+  br i1 %.0124208, label %125, label %131
 
 125:                                              ; preds = %120
   store ptr %124, ptr %55, align 8, !tbaa !59
@@ -2314,18 +2314,18 @@ define noalias noundef ptr @pdf_parse_array(ptr noundef %0, ptr noundef %1, i64 
 152:                                              ; preds = %145, %151, %150
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %153 = load ptr, ptr %6, align 8, !tbaa !3
-  %154 = icmp ult ptr %153, %.0122198.ptr.lcssa
+  %154 = icmp ult ptr %153, %.0122197.ptr.lcssa
   br i1 %154, label %56, label %.loopexit
 
 .loopexit:                                        ; preds = %152, %51, %.thread178
   %.not161 = icmp eq ptr %4, null
-  br i1 %.not161, label %.loopexit183, label %155
+  br i1 %.not161, label %.loopexit182, label %155
 
 155:                                              ; preds = %.loopexit
-  store ptr %.0122198.ptr.lcssa, ptr %4, align 8, !tbaa !3
-  br label %.loopexit183
+  store ptr %.0122197.ptr.lcssa, ptr %4, align 8, !tbaa !3
+  br label %.loopexit182
 
-.loopexit183:                                     ; preds = %.thread, %.backedge, %.loopexit, %155, %49, %29, %16, %25, %5, %15
+.loopexit182:                                     ; preds = %.thread, %.backedge, %.loopexit, %155, %49, %29, %16, %25, %5, %15
   %.0123 = phi ptr [ null, %15 ], [ null, %5 ], [ null, %25 ], [ null, %16 ], [ null, %29 ], [ null, %49 ], [ %50, %155 ], [ %50, %.loopexit ], [ null, %.backedge ], [ null, %.thread ]
   ret ptr %.0123
 }

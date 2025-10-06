@@ -1629,13 +1629,13 @@ define noundef range(i64 -9223372036854775808, 1152921504606846976) i64 @_ZN6duc
 define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option_tE(ptr noundef captures(address) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = and i32 %2, 896
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %.loopexit197, label %.preheader196
+  br i1 %.not, label %.loopexit196, label %.preheader195
 
-.preheader196:                                    ; preds = %3
+.preheader195:                                    ; preds = %3
   %5 = icmp sgt i64 %1, 0
   br i1 %5, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader196
+.lr.ph:                                           ; preds = %.preheader195
   %6 = add nsw i64 %1, -1
   %7 = and i32 %2, 512
   %.not164 = icmp ne i32 %7, 0
@@ -1646,12 +1646,12 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br i1 %.not165, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %38
-  %.0123199.us = phi i64 [ %39, %38 ], [ 0, %.lr.ph ]
-  %.0127198.us = phi i64 [ %.1128.us, %38 ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds i32, ptr %0, i64 %.0123199.us
+  %.0123198.us = phi i64 [ %39, %38 ], [ 0, %.lr.ph ]
+  %.0127197.us = phi i64 [ %.1128.us, %38 ], [ 0, %.lr.ph ]
+  %10 = getelementptr inbounds i32, ptr %0, i64 %.0123198.us
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = icmp eq i32 %11, 13
-  %13 = icmp slt i64 %.0123199.us, %6
+  %13 = icmp slt i64 %.0123198.us, %6
   %or.cond.us = select i1 %12, i1 %13, i1 false
   br i1 %or.cond.us, label %.thread.us, label %14
 
@@ -1679,8 +1679,8 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br i1 %or.cond170.us, label %24, label %21
 
 21:                                               ; preds = %18, %17
-  %22 = add nsw i64 %.0127198.us, 1
-  %23 = getelementptr inbounds i32, ptr %0, i64 %.0127198.us
+  %22 = add nsw i64 %.0127197.us, 1
+  %23 = getelementptr inbounds i32, ptr %0, i64 %.0127197.us
   store i32 %11, ptr %23, align 4, !tbaa !3
   br label %38
 
@@ -1689,23 +1689,23 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br i1 %25, label %26, label %38
 
 26:                                               ; preds = %24
-  %27 = add nsw i64 %.0127198.us, 1
-  %28 = getelementptr inbounds i32, ptr %0, i64 %.0127198.us
+  %27 = add nsw i64 %.0127197.us, 1
+  %28 = getelementptr inbounds i32, ptr %0, i64 %.0127197.us
   store i32 32, ptr %28, align 4, !tbaa !3
   br label %38
 
 .thread.us:                                       ; preds = %.lr.ph.split.us
-  %29 = add nsw i64 %.0123199.us, 1
+  %29 = add nsw i64 %.0123198.us, 1
   %30 = getelementptr inbounds i32, ptr %0, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = icmp eq i32 %31, 10
-  %spec.select.us = select i1 %32, i64 %29, i64 %.0123199.us
+  %spec.select.us = select i1 %32, i64 %29, i64 %.0123198.us
   br label %33
 
 33:                                               ; preds = %.thread.us, %15, %14, %14, %14
-  %.1124176.us = phi i64 [ %spec.select.us, %.thread.us ], [ %.0123199.us, %15 ], [ %.0123199.us, %14 ], [ %.0123199.us, %14 ], [ %.0123199.us, %14 ]
-  %34 = add nsw i64 %.0127198.us, 1
-  %35 = getelementptr inbounds i32, ptr %0, i64 %.0127198.us
+  %.1124176.us = phi i64 [ %spec.select.us, %.thread.us ], [ %.0123198.us, %15 ], [ %.0123198.us, %14 ], [ %.0123198.us, %14 ], [ %.0123198.us, %14 ]
+  %34 = add nsw i64 %.0127197.us, 1
+  %35 = getelementptr inbounds i32, ptr %0, i64 %.0127197.us
   br i1 %.not167, label %37, label %36
 
 36:                                               ; preds = %33
@@ -1717,24 +1717,24 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br label %38
 
 38:                                               ; preds = %37, %36, %26, %24, %21
-  %.1124175.us = phi i64 [ %.1124176.us, %36 ], [ %.1124176.us, %37 ], [ %.0123199.us, %26 ], [ %.0123199.us, %24 ], [ %.0123199.us, %21 ]
-  %.1128.us = phi i64 [ %34, %36 ], [ %34, %37 ], [ %27, %26 ], [ %.0127198.us, %24 ], [ %22, %21 ]
+  %.1124175.us = phi i64 [ %.1124176.us, %36 ], [ %.1124176.us, %37 ], [ %.0123198.us, %26 ], [ %.0123198.us, %24 ], [ %.0123198.us, %21 ]
+  %.1128.us = phi i64 [ %34, %36 ], [ %34, %37 ], [ %27, %26 ], [ %.0127197.us, %24 ], [ %22, %21 ]
   %39 = add nsw i64 %.1124175.us, 1
   %40 = icmp slt i64 %39, %1
-  br i1 %40, label %.lr.ph.split.us, label %.loopexit197, !llvm.loop !23
+  br i1 %40, label %.lr.ph.split.us, label %.loopexit196, !llvm.loop !23
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %.not164, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %68
-  %.0123199.us200 = phi i64 [ %69, %68 ], [ 0, %.lr.ph.split ]
-  %.0127198.us201 = phi i64 [ %.1128.us211, %68 ], [ 0, %.lr.ph.split ]
-  %41 = getelementptr inbounds i32, ptr %0, i64 %.0123199.us200
+  %.0123198.us199 = phi i64 [ %69, %68 ], [ 0, %.lr.ph.split ]
+  %.0127197.us200 = phi i64 [ %.1128.us210, %68 ], [ 0, %.lr.ph.split ]
+  %41 = getelementptr inbounds i32, ptr %0, i64 %.0123198.us199
   %42 = load i32, ptr %41, align 4, !tbaa !3
   %43 = icmp eq i32 %42, 13
-  %44 = icmp slt i64 %.0123199.us200, %6
-  %or.cond.us202 = select i1 %43, i1 %44, i1 false
-  br i1 %or.cond.us202, label %.thread.us207, label %45
+  %44 = icmp slt i64 %.0123198.us199, %6
+  %or.cond.us201 = select i1 %43, i1 %44, i1 false
+  br i1 %or.cond.us201, label %.thread.us206, label %45
 
 45:                                               ; preds = %.lr.ph.split.split.us
   switch i32 %42, label %46 [
@@ -1745,19 +1745,19 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
 
 46:                                               ; preds = %45
   %47 = add i32 %42, -11
-  %or.cond7.us203 = icmp ult i32 %47, 2
-  br i1 %or.cond7.us203, label %63, label %48
+  %or.cond7.us202 = icmp ult i32 %47, 2
+  br i1 %or.cond7.us202, label %63, label %48
 
 48:                                               ; preds = %46
   %49 = icmp slt i32 %42, 32
   %50 = add nsw i32 %42, -127
-  %or.cond9.us205 = icmp ult i32 %50, 33
-  %or.cond170.us206 = select i1 %49, i1 true, i1 %or.cond9.us205
-  br i1 %or.cond170.us206, label %54, label %51
+  %or.cond9.us204 = icmp ult i32 %50, 33
+  %or.cond170.us205 = select i1 %49, i1 true, i1 %or.cond9.us204
+  br i1 %or.cond170.us205, label %54, label %51
 
 51:                                               ; preds = %48
-  %52 = add nsw i64 %.0127198.us201, 1
-  %53 = getelementptr inbounds i32, ptr %0, i64 %.0127198.us201
+  %52 = add nsw i64 %.0127197.us200, 1
+  %53 = getelementptr inbounds i32, ptr %0, i64 %.0127197.us200
   store i32 %42, ptr %53, align 4, !tbaa !3
   br label %68
 
@@ -1766,23 +1766,23 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br i1 %55, label %56, label %68
 
 56:                                               ; preds = %54
-  %57 = add nsw i64 %.0127198.us201, 1
-  %58 = getelementptr inbounds i32, ptr %0, i64 %.0127198.us201
+  %57 = add nsw i64 %.0127197.us200, 1
+  %58 = getelementptr inbounds i32, ptr %0, i64 %.0127197.us200
   store i32 32, ptr %58, align 4, !tbaa !3
   br label %68
 
-.thread.us207:                                    ; preds = %.lr.ph.split.split.us
-  %59 = add nsw i64 %.0123199.us200, 1
+.thread.us206:                                    ; preds = %.lr.ph.split.split.us
+  %59 = add nsw i64 %.0123198.us199, 1
   %60 = getelementptr inbounds i32, ptr %0, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !3
   %62 = icmp eq i32 %61, 10
-  %spec.select.us208 = select i1 %62, i64 %59, i64 %.0123199.us200
+  %spec.select.us207 = select i1 %62, i64 %59, i64 %.0123198.us199
   br label %63
 
-63:                                               ; preds = %.thread.us207, %46, %45, %45, %45
-  %.1124176.us209 = phi i64 [ %spec.select.us208, %.thread.us207 ], [ %.0123199.us200, %46 ], [ %.0123199.us200, %45 ], [ %.0123199.us200, %45 ], [ %.0123199.us200, %45 ]
-  %64 = add nsw i64 %.0127198.us201, 1
-  %65 = getelementptr inbounds i32, ptr %0, i64 %.0127198.us201
+63:                                               ; preds = %.thread.us206, %46, %45, %45, %45
+  %.1124176.us208 = phi i64 [ %spec.select.us207, %.thread.us206 ], [ %.0123198.us199, %46 ], [ %.0123198.us199, %45 ], [ %.0123198.us199, %45 ], [ %.0123198.us199, %45 ]
+  %64 = add nsw i64 %.0127197.us200, 1
+  %65 = getelementptr inbounds i32, ptr %0, i64 %.0127197.us200
   br i1 %.not167, label %67, label %66
 
 66:                                               ; preds = %63
@@ -1794,24 +1794,24 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br label %68
 
 68:                                               ; preds = %67, %66, %56, %54, %51
-  %.1124175.us210 = phi i64 [ %.1124176.us209, %66 ], [ %.1124176.us209, %67 ], [ %.0123199.us200, %56 ], [ %.0123199.us200, %54 ], [ %.0123199.us200, %51 ]
-  %.1128.us211 = phi i64 [ %64, %66 ], [ %64, %67 ], [ %57, %56 ], [ %.0127198.us201, %54 ], [ %52, %51 ]
-  %69 = add nsw i64 %.1124175.us210, 1
+  %.1124175.us209 = phi i64 [ %.1124176.us208, %66 ], [ %.1124176.us208, %67 ], [ %.0123198.us199, %56 ], [ %.0123198.us199, %54 ], [ %.0123198.us199, %51 ]
+  %.1128.us210 = phi i64 [ %64, %66 ], [ %64, %67 ], [ %57, %56 ], [ %.0127197.us200, %54 ], [ %52, %51 ]
+  %69 = add nsw i64 %.1124175.us209, 1
   %70 = icmp slt i64 %69, %1
-  br i1 %70, label %.lr.ph.split.split.us, label %.loopexit197, !llvm.loop !23
+  br i1 %70, label %.lr.ph.split.split.us, label %.loopexit196, !llvm.loop !23
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   br i1 %.not167, label %.lr.ph.split.split.split.us, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %81
-  %.0123199.us214 = phi i64 [ %83, %81 ], [ 0, %.lr.ph.split.split ]
-  %.0127198.us215 = phi i64 [ %.1128.us221, %81 ], [ 0, %.lr.ph.split.split ]
-  %71 = getelementptr inbounds i32, ptr %0, i64 %.0123199.us214
+  %.0123198.us213 = phi i64 [ %83, %81 ], [ 0, %.lr.ph.split.split ]
+  %.0127197.us214 = phi i64 [ %.1128.us220, %81 ], [ 0, %.lr.ph.split.split ]
+  %71 = getelementptr inbounds i32, ptr %0, i64 %.0123198.us213
   %72 = load i32, ptr %71, align 4, !tbaa !3
   %73 = icmp eq i32 %72, 13
-  %74 = icmp slt i64 %.0123199.us214, %6
-  %or.cond.us216 = select i1 %73, i1 %74, i1 false
-  br i1 %or.cond.us216, label %.thread.us217, label %75
+  %74 = icmp slt i64 %.0123198.us213, %6
+  %or.cond.us215 = select i1 %73, i1 %74, i1 false
+  br i1 %or.cond.us215, label %.thread.us216, label %75
 
 75:                                               ; preds = %.lr.ph.split.split.split.us
   switch i32 %72, label %81 [
@@ -1820,43 +1820,43 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
     i32 10, label %80
   ]
 
-.thread.us217:                                    ; preds = %.lr.ph.split.split.split.us
-  %76 = add nsw i64 %.0123199.us214, 1
+.thread.us216:                                    ; preds = %.lr.ph.split.split.split.us
+  %76 = add nsw i64 %.0123198.us213, 1
   %77 = getelementptr inbounds i32, ptr %0, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !3
   %79 = icmp eq i32 %78, 10
-  %spec.select.us218 = select i1 %79, i64 %76, i64 %.0123199.us214
+  %spec.select.us217 = select i1 %79, i64 %76, i64 %.0123198.us213
   br label %81
 
 80:                                               ; preds = %75, %75, %75
   br label %81
 
-81:                                               ; preds = %.thread.us217, %75, %80
-  %.sink = phi i32 [ %72, %75 ], [ 8232, %.thread.us217 ], [ 8232, %80 ]
-  %.1124175.us220 = phi i64 [ %.0123199.us214, %75 ], [ %spec.select.us218, %.thread.us217 ], [ %.0123199.us214, %80 ]
-  %82 = getelementptr inbounds nuw i32, ptr %0, i64 %.0127198.us215
+81:                                               ; preds = %.thread.us216, %75, %80
+  %.sink = phi i32 [ %72, %75 ], [ 8232, %.thread.us216 ], [ 8232, %80 ]
+  %.1124175.us219 = phi i64 [ %.0123198.us213, %75 ], [ %spec.select.us217, %.thread.us216 ], [ %.0123198.us213, %80 ]
+  %82 = getelementptr inbounds nuw i32, ptr %0, i64 %.0127197.us214
   store i32 %.sink, ptr %82, align 4, !tbaa !3
-  %.1128.us221 = add nuw nsw i64 %.0127198.us215, 1
-  %83 = add nsw i64 %.1124175.us220, 1
+  %.1128.us220 = add nuw nsw i64 %.0127197.us214, 1
+  %83 = add nsw i64 %.1124175.us219, 1
   %84 = icmp slt i64 %83, %1
-  br i1 %84, label %.lr.ph.split.split.split.us, label %.loopexit197, !llvm.loop !23
+  br i1 %84, label %.lr.ph.split.split.split.us, label %.loopexit196, !llvm.loop !23
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %95
-  %.0123199 = phi i64 [ %97, %95 ], [ 0, %.lr.ph.split.split ]
-  %.0127198 = phi i64 [ %.1128, %95 ], [ 0, %.lr.ph.split.split ]
-  %85 = getelementptr inbounds i32, ptr %0, i64 %.0123199
+  %.0123198 = phi i64 [ %97, %95 ], [ 0, %.lr.ph.split.split ]
+  %.0127197 = phi i64 [ %.1128, %95 ], [ 0, %.lr.ph.split.split ]
+  %85 = getelementptr inbounds i32, ptr %0, i64 %.0123198
   %86 = load i32, ptr %85, align 4, !tbaa !3
   %87 = icmp eq i32 %86, 13
-  %88 = icmp slt i64 %.0123199, %6
+  %88 = icmp slt i64 %.0123198, %6
   %or.cond = select i1 %87, i1 %88, i1 false
   br i1 %or.cond, label %.thread, label %93
 
 .thread:                                          ; preds = %.lr.ph.split.split.split
-  %89 = add nsw i64 %.0123199, 1
+  %89 = add nsw i64 %.0123198, 1
   %90 = getelementptr inbounds i32, ptr %0, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !3
   %92 = icmp eq i32 %91, 10
-  %spec.select = select i1 %92, i64 %89, i64 %.0123199
+  %spec.select = select i1 %92, i64 %89, i64 %.0123198
   br label %95
 
 93:                                               ; preds = %.lr.ph.split.split.split
@@ -1870,37 +1870,37 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br label %95
 
 95:                                               ; preds = %.thread, %93, %94
-  %.sink255 = phi i32 [ %86, %93 ], [ 10, %.thread ], [ 10, %94 ]
-  %.1124175 = phi i64 [ %.0123199, %93 ], [ %spec.select, %.thread ], [ %.0123199, %94 ]
-  %96 = getelementptr inbounds nuw i32, ptr %0, i64 %.0127198
-  store i32 %.sink255, ptr %96, align 4, !tbaa !3
-  %.1128 = add nuw nsw i64 %.0127198, 1
+  %.sink254 = phi i32 [ %86, %93 ], [ 10, %.thread ], [ 10, %94 ]
+  %.1124175 = phi i64 [ %.0123198, %93 ], [ %spec.select, %.thread ], [ %.0123198, %94 ]
+  %96 = getelementptr inbounds nuw i32, ptr %0, i64 %.0127197
+  store i32 %.sink254, ptr %96, align 4, !tbaa !3
+  %.1128 = add nuw nsw i64 %.0127197, 1
   %97 = add nsw i64 %.1124175, 1
   %98 = icmp slt i64 %97, %1
-  br i1 %98, label %.lr.ph.split.split.split, label %.loopexit197, !llvm.loop !23
+  br i1 %98, label %.lr.ph.split.split.split, label %.loopexit196, !llvm.loop !23
 
-.loopexit197:                                     ; preds = %95, %81, %68, %38, %3
-  %.0 = phi i64 [ %1, %3 ], [ %.1128.us, %38 ], [ %.1128.us211, %68 ], [ %.1128.us221, %81 ], [ %.1128, %95 ]
+.loopexit196:                                     ; preds = %95, %81, %68, %38, %3
+  %.0 = phi i64 [ %1, %3 ], [ %.1128.us, %38 ], [ %.1128.us210, %68 ], [ %.1128.us220, %81 ], [ %.1128, %95 ]
   %99 = and i32 %2, 8
   %.not154 = icmp eq i32 %99, 0
   br i1 %.not154, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit197
+.preheader:                                       ; preds = %.loopexit196
   %100 = icmp sgt i64 %.0, 0
-  br i1 %100, label %.lr.ph229, label %.loopexit
+  br i1 %100, label %.lr.ph228, label %.loopexit
 
-.lr.ph229:                                        ; preds = %.preheader
+.lr.ph228:                                        ; preds = %.preheader
   %101 = and i32 %2, 2
   %.not161 = icmp eq i32 %101, 0
   br label %102
 
-102:                                              ; preds = %.lr.ph229, %203
-  %.0129228 = phi ptr [ null, %.lr.ph229 ], [ %.1130, %203 ]
-  %.0132227 = phi ptr [ null, %.lr.ph229 ], [ %.10, %203 ]
-  %.0137226 = phi i64 [ 0, %.lr.ph229 ], [ %.1138, %203 ]
-  %.0139225 = phi i64 [ 0, %.lr.ph229 ], [ %204, %203 ]
-  %.0140224 = phi i16 [ -1, %.lr.ph229 ], [ %.1141, %203 ]
-  %103 = getelementptr inbounds nuw i32, ptr %0, i64 %.0139225
+102:                                              ; preds = %.lr.ph228, %203
+  %.0129227 = phi ptr [ null, %.lr.ph228 ], [ %.1130, %203 ]
+  %.0132226 = phi ptr [ null, %.lr.ph228 ], [ %.10, %203 ]
+  %.0137225 = phi i64 [ 0, %.lr.ph228 ], [ %.1138, %203 ]
+  %.0139224 = phi i64 [ 0, %.lr.ph228 ], [ %204, %203 ]
+  %.0140223 = phi i16 [ -1, %.lr.ph228 ], [ %.1141, %203 ]
+  %103 = getelementptr inbounds nuw i32, ptr %0, i64 %.0139224
   %104 = load i32, ptr %103, align 4, !tbaa !3
   %105 = ashr i32 %104, 8
   %106 = sext i32 %105 to i64
@@ -1914,28 +1914,28 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   %114 = load i16, ptr %113, align 2, !tbaa !8
   %115 = zext i16 %114 to i64
   %116 = getelementptr inbounds nuw %"struct.duckdb::utf8proc_property_struct", ptr @_ZN6duckdbL19utf8proc_propertiesE, i64 %115
-  %.not155 = icmp ne ptr %.0129228, null
+  %.not155 = icmp ne ptr %.0129227, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %116, i64 2
   %.pre = load i16, ptr %.phi.trans.insert, align 2, !tbaa !21
-  %117 = icmp sgt i16 %.pre, %.0140224
-  %or.cond257 = select i1 %.not155, i1 %117, i1 false
-  br i1 %or.cond257, label %118, label %.thread190
+  %117 = icmp sgt i16 %.pre, %.0140223
+  %or.cond256 = select i1 %.not155, i1 %117, i1 false
+  br i1 %or.cond256, label %118, label %.thread190
 
 118:                                              ; preds = %102
-  %119 = load i32, ptr %.0129228, align 4, !tbaa !3
+  %119 = load i32, ptr %.0129227, align 4, !tbaa !3
   %120 = add i32 %119, -4371
   %or.cond11 = icmp ult i32 %120, -19
   %121 = add i32 %104, -4470
   %or.cond13 = icmp ult i32 %121, -21
-  %or.cond194 = or i1 %or.cond13, %or.cond11
-  br i1 %or.cond194, label %.thread177, label %122
+  %or.cond193 = or i1 %or.cond13, %or.cond11
+  br i1 %or.cond193, label %.thread177, label %122
 
 122:                                              ; preds = %118
   %123 = mul nuw nsw i32 %119, 21
   %124 = add nuw nsw i32 %123, %104
   %125 = mul nuw nsw i32 %124, 28
   %126 = add nsw i32 %125, -2639516
-  store i32 %126, ptr %.0129228, align 4, !tbaa !3
+  store i32 %126, ptr %.0129227, align 4, !tbaa !3
   br label %203
 
 .thread177:                                       ; preds = %118
@@ -1949,17 +1949,17 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   %130 = icmp ne i16 %129, 0
   %131 = add i32 %104, -4547
   %or.cond17 = icmp ult i32 %131, -28
-  %or.cond195 = or i1 %or.cond17, %130
-  br i1 %or.cond195, label %.thread180, label %132
+  %or.cond194 = or i1 %or.cond17, %130
+  br i1 %or.cond194, label %.thread180, label %132
 
 132:                                              ; preds = %128
   %133 = add nsw i32 %104, -4519
   %134 = add nuw nsw i32 %133, %119
-  store i32 %134, ptr %.0129228, align 4, !tbaa !3
+  store i32 %134, ptr %.0129227, align 4, !tbaa !3
   br label %203
 
 .thread180:                                       ; preds = %128, %.thread177
-  %.not156 = icmp eq ptr %.0132227, null
+  %.not156 = icmp eq ptr %.0132226, null
   br i1 %.not156, label %135, label %148
 
 135:                                              ; preds = %.thread180
@@ -1978,7 +1978,7 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br label %148
 
 148:                                              ; preds = %135, %.thread180
-  %.7 = phi ptr [ %.0132227, %.thread180 ], [ %147, %135 ]
+  %.7 = phi ptr [ %.0132226, %.thread180 ], [ %147, %135 ]
   %149 = getelementptr inbounds nuw i8, ptr %.7, i64 18
   %150 = load i16, ptr %149, align 2, !tbaa !24
   %151 = icmp sgt i16 %150, -1
@@ -2056,32 +2056,32 @@ define noundef i64 @_ZN6duckdb24utf8proc_normalize_utf32EPilNS_17utf8proc_option
   br i1 %.not162, label %200, label %.thread190
 
 200:                                              ; preds = %183, %184
-  store i32 %.0136, ptr %.0129228, align 4, !tbaa !3
+  store i32 %.0136, ptr %.0129227, align 4, !tbaa !3
   br label %203
 
 .thread190:                                       ; preds = %102, %156, %162, %184, %181, %148, %152
-  %.1133 = phi ptr [ %.7, %152 ], [ %.7, %148 ], [ %.7, %181 ], [ %.7, %184 ], [ %.7, %162 ], [ %.7, %156 ], [ %.0132227, %102 ]
-  %201 = getelementptr inbounds i32, ptr %0, i64 %.0137226
+  %.1133 = phi ptr [ %.7, %152 ], [ %.7, %148 ], [ %.7, %181 ], [ %.7, %184 ], [ %.7, %162 ], [ %.7, %156 ], [ %.0132226, %102 ]
+  %201 = getelementptr inbounds i32, ptr %0, i64 %.0137225
   store i32 %104, ptr %201, align 4, !tbaa !3
   %.not163 = icmp eq i16 %.pre, 0
-  %spec.select172 = tail call i16 @llvm.smax.i16(i16 %.pre, i16 %.0140224)
+  %spec.select172 = tail call i16 @llvm.smax.i16(i16 %.pre, i16 %.0140223)
   %.2142 = select i1 %.not163, i16 -1, i16 %spec.select172
   %.11 = select i1 %.not163, ptr null, ptr %.1133
-  %.2131 = select i1 %.not163, ptr %201, ptr %.0129228
-  %202 = add nsw i64 %.0137226, 1
+  %.2131 = select i1 %.not163, ptr %201, ptr %.0129227
+  %202 = add nsw i64 %.0137225, 1
   br label %203
 
 203:                                              ; preds = %122, %132, %200, %.thread190
-  %.1141 = phi i16 [ %.2142, %.thread190 ], [ %.0140224, %200 ], [ %.0140224, %132 ], [ %.0140224, %122 ]
-  %.1138 = phi i64 [ %202, %.thread190 ], [ %.0137226, %200 ], [ %.0137226, %132 ], [ %.0137226, %122 ]
+  %.1141 = phi i16 [ %.2142, %.thread190 ], [ %.0140223, %200 ], [ %.0140223, %132 ], [ %.0140223, %122 ]
+  %.1138 = phi i64 [ %202, %.thread190 ], [ %.0137225, %200 ], [ %.0137225, %132 ], [ %.0137225, %122 ]
   %.10 = phi ptr [ %.11, %.thread190 ], [ null, %200 ], [ null, %132 ], [ null, %122 ]
-  %.1130 = phi ptr [ %.2131, %.thread190 ], [ %.0129228, %200 ], [ %.0129228, %132 ], [ %.0129228, %122 ]
-  %204 = add nuw nsw i64 %.0139225, 1
+  %.1130 = phi ptr [ %.2131, %.thread190 ], [ %.0129227, %200 ], [ %.0129227, %132 ], [ %.0129227, %122 ]
+  %204 = add nuw nsw i64 %.0139224, 1
   %exitcond.not = icmp eq i64 %204, %.0
   br i1 %exitcond.not, label %.loopexit, label %102, !llvm.loop !25
 
-.loopexit:                                        ; preds = %203, %.preheader196, %.preheader, %.loopexit197
-  %.1 = phi i64 [ %.0, %.loopexit197 ], [ 0, %.preheader ], [ 0, %.preheader196 ], [ %.1138, %203 ]
+.loopexit:                                        ; preds = %203, %.preheader195, %.preheader, %.loopexit196
+  %.1 = phi i64 [ %.0, %.loopexit196 ], [ 0, %.preheader ], [ 0, %.preheader195 ], [ %.1138, %203 ]
   ret i64 %.1
 }
 

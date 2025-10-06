@@ -694,8 +694,8 @@ define noundef zeroext i1 @_ZNK6icu_777UVectoreqERKS0_(ptr noundef nonnull reado
   %.not12.not.not = icmp ne i8 %23, 0
   br i1 %.not12.not.not, label %13, label %.thread
 
-.thread:                                          ; preds = %13, %17, %7, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %7 ], [ %.not12.not.not, %17 ], [ %.not12.not.not, %13 ]
+.thread:                                          ; preds = %17, %13, %7, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %7 ], [ %.not12.not.not, %13 ], [ %.not12.not.not, %17 ]
   ret i1 %.0
 }
 
@@ -1275,135 +1275,135 @@ define noundef i32 @_ZNK6icu_777UVector10elementAtiEi(ptr noundef nonnull readon
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_777UVector11containsAllERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !18
-  %.not1019 = icmp slt i32 %4, 1
-  br i1 %.not1019, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, label %.lr.ph
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %6, align 8, !tbaa !17
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %.lr.ph.split.us, label %.lr.ph.split
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load ptr, ptr %7, align 8, !tbaa !17
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %11 = load ptr, ptr %5, align 8, !tbaa !9
-  %12 = load i32, ptr %7, align 8, !tbaa !18
-  %13 = icmp sgt i32 %12, 0
-  %14 = load ptr, ptr %8, align 8
-  %wide.trip.count58.i.us = zext nneg i32 %12 to i64
-  br i1 %13, label %.preheader.i.us.us.preheader, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
+  %12 = load ptr, ptr %6, align 8, !tbaa !9
+  %13 = load i32, ptr %8, align 8, !tbaa !18
+  %14 = icmp sgt i32 %13, 0
+  %15 = load ptr, ptr %9, align 8
+  %wide.trip.count53.i.us = zext nneg i32 %13 to i64
+  br i1 %14, label %.preheader.i.us.preheader, label %.thread
 
-.preheader.i.us.us.preheader:                     ; preds = %.lr.ph.split.us
+.preheader.i.us.preheader:                        ; preds = %.lr.ph.split.us
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %.preheader.i.us.us
+  br label %.preheader.i.us
 
-.preheader.i.us.us:                               ; preds = %.preheader.i.us.us.preheader, %17
-  %indvars.iv41 = phi i64 [ 0, %.preheader.i.us.us.preheader ], [ %indvars.iv.next42, %17 ]
-  %15 = getelementptr inbounds nuw %union.UElement, ptr %11, i64 %indvars.iv41
-  %.sroa.0.0.copyload.us.us = load ptr, ptr %15, align 8, !tbaa !19
-  %16 = ptrtoint ptr %.sroa.0.0.copyload.us.us to i64
-  %.sroa.016.0.extract.trunc.i.us.us = trunc i64 %16 to i32
-  br label %.lr.ph40.split.us.i.us.us
+.preheader.i.us:                                  ; preds = %.preheader.i.us.preheader, %18
+  %indvars.iv32 = phi i64 [ 0, %.preheader.i.us.preheader ], [ %indvars.iv.next33, %18 ]
+  %16 = getelementptr inbounds nuw %union.UElement, ptr %12, i64 %indvars.iv32
+  %.sroa.0.0.copyload.us = load ptr, ptr %16, align 8, !tbaa !19
+  %17 = ptrtoint ptr %.sroa.0.0.copyload.us to i64
+  %.sroa.016.0.extract.trunc.i.us = trunc i64 %17 to i32
+  br label %.lr.ph35.split.us.i.us
 
-17:                                               ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us
-  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next42, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, label %.preheader.i.us.us, !llvm.loop !29
+18:                                               ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us
+  %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count
+  br i1 %exitcond.not, label %.thread, label %.preheader.i.us, !llvm.loop !29
 
-.lr.ph40.split.us.i.us.us:                        ; preds = %21, %.preheader.i.us.us
-  %indvars.iv55.i.us.us = phi i64 [ %indvars.iv.next56.i.us.us, %21 ], [ 0, %.preheader.i.us.us ]
-  %18 = getelementptr inbounds nuw %union.UElement, ptr %14, i64 %indvars.iv55.i.us.us
-  %19 = load i32, ptr %18, align 8, !tbaa !19
-  %20 = icmp eq i32 %19, %.sroa.016.0.extract.trunc.i.us.us
-  br i1 %20, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us, label %21
+.lr.ph35.split.us.i.us:                           ; preds = %22, %.preheader.i.us
+  %indvars.iv50.i.us = phi i64 [ %indvars.iv.next51.i.us, %22 ], [ 0, %.preheader.i.us ]
+  %19 = getelementptr inbounds nuw %union.UElement, ptr %15, i64 %indvars.iv50.i.us
+  %20 = load i32, ptr %19, align 8, !tbaa !19
+  %21 = icmp eq i32 %20, %.sroa.016.0.extract.trunc.i.us
+  br i1 %21, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us, label %22
 
-21:                                               ; preds = %.lr.ph40.split.us.i.us.us
-  %indvars.iv.next56.i.us.us = add nuw nsw i64 %indvars.iv55.i.us.us, 1
-  %exitcond59.not.i.us.us = icmp eq i64 %indvars.iv.next56.i.us.us, %wide.trip.count58.i.us
-  br i1 %exitcond59.not.i.us.us, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, label %.lr.ph40.split.us.i.us.us, !llvm.loop !30
+22:                                               ; preds = %.lr.ph35.split.us.i.us
+  %indvars.iv.next51.i.us = add nuw nsw i64 %indvars.iv50.i.us, 1
+  %exitcond54.not.i.us = icmp eq i64 %indvars.iv.next51.i.us, %wide.trip.count53.i.us
+  br i1 %exitcond54.not.i.us, label %.thread, label %.lr.ph35.split.us.i.us, !llvm.loop !30
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us: ; preds = %.lr.ph40.split.us.i.us.us
-  %22 = and i64 %indvars.iv55.i.us.us, 2147483648
-  %.not.us.us = icmp eq i64 %22, 0
-  br i1 %.not.us.us, label %17, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
+_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us: ; preds = %.lr.ph35.split.us.i.us
+  %23 = and i64 %indvars.iv50.i.us, 2147483648
+  %.not.us = icmp eq i64 %23, 0
+  br i1 %.not.us, label %18, label %.thread
 
-23:                                               ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit
+24:                                               ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = load i32, ptr %3, align 8, !tbaa !18
-  %25 = sext i32 %24 to i64
-  %.not10.not = icmp slt i64 %indvars.iv.next, %25
-  br i1 %.not10.not, label %.lr.ph.splitthread-pre-split, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, !llvm.loop !31
+  %25 = load i32, ptr %3, align 8, !tbaa !18
+  %26 = sext i32 %25 to i64
+  %27 = icmp slt i64 %indvars.iv.next, %26
+  br i1 %27, label %.lr.ph.splitthread-pre-split, label %.thread, !llvm.loop !31
 
-.lr.ph.splitthread-pre-split:                     ; preds = %23
-  %.pr = load ptr, ptr %6, align 8, !tbaa !17
+.lr.ph.splitthread-pre-split:                     ; preds = %24
+  %.pr = load ptr, ptr %7, align 8, !tbaa !17
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
-  %26 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %9, %.lr.ph ]
+  %28 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %10, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %27 = load ptr, ptr %5, align 8, !tbaa !9
-  %28 = getelementptr inbounds nuw %union.UElement, ptr %27, i64 %indvars.iv
-  %.sroa.0.0.copyload = load ptr, ptr %28, align 8, !tbaa !19
-  %.not.i = icmp eq ptr %26, null
-  br i1 %.not.i, label %.preheader.i, label %.preheader33.i
+  %29 = load ptr, ptr %6, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw %union.UElement, ptr %29, i64 %indvars.iv
+  %.sroa.0.0.copyload = load ptr, ptr %30, align 8, !tbaa !19
+  %.not.i = icmp eq ptr %28, null
+  br i1 %.not.i, label %.preheader.i, label %.preheader28.i
 
-.preheader33.i:                                   ; preds = %.lr.ph.split
-  %29 = load i32, ptr %7, align 8, !tbaa !18
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
+.preheader28.i:                                   ; preds = %.lr.ph.split
+  %31 = load i32, ptr %8, align 8, !tbaa !18
+  %32 = icmp sgt i32 %31, 0
+  br i1 %32, label %.lr.ph.i, label %.thread
 
 .preheader.i:                                     ; preds = %.lr.ph.split
-  %31 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.016.0.extract.trunc.i = trunc i64 %31 to i32
-  %32 = load i32, ptr %7, align 8, !tbaa !18
-  %33 = icmp sgt i32 %32, 0
-  br i1 %33, label %.lr.ph40.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
+  %33 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.016.0.extract.trunc.i = trunc i64 %33 to i32
+  %34 = load i32, ptr %8, align 8, !tbaa !18
+  %35 = icmp sgt i32 %34, 0
+  br i1 %35, label %.lr.ph35.i, label %.thread
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %34 = load ptr, ptr %8, align 8
-  %wide.trip.count58.i = zext nneg i32 %32 to i64
-  br label %.lr.ph40.split.us.i
+.lr.ph35.i:                                       ; preds = %.preheader.i
+  %36 = load ptr, ptr %9, align 8
+  %wide.trip.count53.i = zext nneg i32 %34 to i64
+  br label %.lr.ph35.split.us.i
 
-.lr.ph40.split.us.i:                              ; preds = %38, %.lr.ph40.i
-  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %38 ], [ 0, %.lr.ph40.i ]
-  %35 = getelementptr inbounds nuw %union.UElement, ptr %34, i64 %indvars.iv55.i
-  %36 = load i32, ptr %35, align 8, !tbaa !19
-  %37 = icmp eq i32 %36, %.sroa.016.0.extract.trunc.i
-  br i1 %37, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %38
+.lr.ph35.split.us.i:                              ; preds = %40, %.lr.ph35.i
+  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %40 ], [ 0, %.lr.ph35.i ]
+  %37 = getelementptr inbounds nuw %union.UElement, ptr %36, i64 %indvars.iv50.i
+  %38 = load i32, ptr %37, align 8, !tbaa !19
+  %39 = icmp eq i32 %38, %.sroa.016.0.extract.trunc.i
+  br i1 %39, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %40
 
-38:                                               ; preds = %.lr.ph40.split.us.i
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, label %.lr.ph40.split.us.i, !llvm.loop !30
+40:                                               ; preds = %.lr.ph35.split.us.i
+  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
+  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count53.i
+  br i1 %exitcond54.not.i, label %.thread, label %.lr.ph35.split.us.i, !llvm.loop !30
 
-.lr.ph.i:                                         ; preds = %.preheader33.i, %43
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %.preheader33.i ]
-  %39 = load ptr, ptr %6, align 8, !tbaa !17
-  %40 = load ptr, ptr %8, align 8, !tbaa !9
-  %41 = getelementptr inbounds nuw %union.UElement, ptr %40, i64 %indvars.iv.i
-  %.sroa.0.0.copyload.i = load ptr, ptr %41, align 8, !tbaa !19
-  %42 = tail call noundef signext i8 %39(ptr %.sroa.0.0.copyload, ptr %.sroa.0.0.copyload.i)
-  %.not23.i = icmp eq i8 %42, 0
-  br i1 %.not23.i, label %43, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
+.lr.ph.i:                                         ; preds = %.preheader28.i, %45
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %45 ], [ 0, %.preheader28.i ]
+  %41 = load ptr, ptr %7, align 8, !tbaa !17
+  %42 = load ptr, ptr %9, align 8, !tbaa !9
+  %43 = getelementptr inbounds nuw %union.UElement, ptr %42, i64 %indvars.iv.i
+  %.sroa.0.0.copyload.i = load ptr, ptr %43, align 8, !tbaa !19
+  %44 = tail call noundef signext i8 %41(ptr %.sroa.0.0.copyload, ptr %.sroa.0.0.copyload.i)
+  %.not23.i = icmp eq i8 %44, 0
+  br i1 %.not23.i, label %45, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-43:                                               ; preds = %.lr.ph.i
+45:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %44 = load i32, ptr %7, align 8, !tbaa !18
-  %45 = sext i32 %44 to i64
-  %46 = icmp slt i64 %indvars.iv.next.i, %45
-  br i1 %46, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, !llvm.loop !33
+  %46 = load i32, ptr %8, align 8, !tbaa !18
+  %47 = sext i32 %46 to i64
+  %48 = icmp slt i64 %indvars.iv.next.i, %47
+  br i1 %48, label %.lr.ph.i, label %.thread, !llvm.loop !33
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph40.split.us.i
-  %.1.i.in = phi i64 [ %indvars.iv55.i, %.lr.ph40.split.us.i ], [ %indvars.iv.i, %.lr.ph.i ]
-  %47 = and i64 %.1.i.in, 2147483648
-  %.not = icmp eq i64 %47, 0
-  br i1 %.not, label %23, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
+_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35.split.us.i
+  %.1.i.in = phi i64 [ %indvars.iv50.i, %.lr.ph35.split.us.i ], [ %indvars.iv.i, %.lr.ph.i ]
+  %49 = and i64 %.1.i.in, 2147483648
+  %.not = icmp eq i64 %49, 0
+  br i1 %.not, label %24, label %.thread
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread: ; preds = %23, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %.preheader.i, %.preheader33.i, %43, %38, %17, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us, %21, %.lr.ph.split.us, %2
-  %.not1018 = phi i8 [ 1, %2 ], [ 0, %.lr.ph.split.us ], [ 0, %21 ], [ 1, %17 ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us ], [ 0, %38 ], [ 0, %43 ], [ 1, %23 ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 0, %.preheader.i ], [ 0, %.preheader33.i ]
-  ret i8 %.not1018
+.thread:                                          ; preds = %24, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %.preheader.i, %.preheader28.i, %45, %40, %18, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us, %22, %2, %.lr.ph.split.us
+  %50 = phi i8 [ 1, %2 ], [ 0, %.lr.ph.split.us ], [ 0, %22 ], [ 1, %18 ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us ], [ 0, %40 ], [ 0, %45 ], [ 1, %24 ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 0, %.preheader.i ], [ 0, %.preheader28.i ]
+  ret i8 %50
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1411,15 +1411,15 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.preheader, label %.preheader33
+  br i1 %.not, label %.preheader, label %.preheader28
 
-.preheader33:                                     ; preds = %4
+.preheader28:                                     ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = icmp slt i32 %2, %8
   br i1 %9, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %.preheader33
+.lr.ph:                                           ; preds = %.preheader28
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = sext i32 %2 to i64
   br label %24
@@ -1430,28 +1430,28 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !18
   %15 = icmp slt i32 %2, %14
-  br i1 %15, label %.lr.ph40, label %.thread
+  br i1 %15, label %.lr.ph35, label %.thread
 
-.lr.ph40:                                         ; preds = %.preheader
+.lr.ph35:                                         ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = and i8 %3, 1
   %.not22 = icmp eq i8 %17, 0
   %18 = load ptr, ptr %16, align 8
   %19 = sext i32 %2 to i64
-  %wide.trip.count58 = sext i32 %14 to i64
-  br i1 %.not22, label %.lr.ph40.split.us, label %.lr.ph40.split
+  %wide.trip.count53 = sext i32 %14 to i64
+  br i1 %.not22, label %.lr.ph35.split.us, label %.lr.ph35.split
 
-.lr.ph40.split.us:                                ; preds = %.lr.ph40, %23
-  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %23 ], [ %19, %.lr.ph40 ]
-  %20 = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv55
+.lr.ph35.split.us:                                ; preds = %.lr.ph35, %23
+  %indvars.iv50 = phi i64 [ %indvars.iv.next51, %23 ], [ %19, %.lr.ph35 ]
+  %20 = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv50
   %21 = load i32, ptr %20, align 8, !tbaa !19
   %22 = icmp eq i32 %21, %.sroa.016.0.extract.trunc
-  br i1 %22, label %.thread.loopexit.split.loop.exit70, label %23
+  br i1 %22, label %.thread.loopexit.split.loop.exit, label %23
 
-23:                                               ; preds = %.lr.ph40.split.us
-  %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %.thread, label %.lr.ph40.split.us, !llvm.loop !30
+23:                                               ; preds = %.lr.ph35.split.us
+  %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
+  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
+  br i1 %exitcond54.not, label %.thread, label %.lr.ph35.split.us, !llvm.loop !30
 
 24:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ %11, %.lr.ph ], [ %indvars.iv.next, %29 ]
@@ -1461,7 +1461,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   %.sroa.0.0.copyload = load ptr, ptr %27, align 8, !tbaa !19
   %28 = tail call noundef signext i8 %25(ptr %1, ptr %.sroa.0.0.copyload)
   %.not23 = icmp eq i8 %28, 0
-  br i1 %.not23, label %29, label %.thread.loopexit64.split.loop.exit
+  br i1 %.not23, label %29, label %.thread.loopexit59.split.loop.exit61
 
 29:                                               ; preds = %24
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1470,32 +1470,32 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
   %32 = icmp slt i64 %indvars.iv.next, %31
   br i1 %32, label %24, label %.thread, !llvm.loop !33
 
-.lr.ph40.split:                                   ; preds = %.lr.ph40, %36
-  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %36 ], [ %19, %.lr.ph40 ]
-  %33 = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv52
+.lr.ph35.split:                                   ; preds = %.lr.ph35, %36
+  %indvars.iv47 = phi i64 [ %indvars.iv.next48, %36 ], [ %19, %.lr.ph35 ]
+  %33 = getelementptr inbounds %union.UElement, ptr %18, i64 %indvars.iv47
   %34 = load ptr, ptr %33, align 8, !tbaa !19
   %35 = icmp eq ptr %1, %34
-  br i1 %35, label %.thread.loopexit62.split.loop.exit68, label %36
+  br i1 %35, label %.thread.loopexit57.split.loop.exit, label %36
 
-36:                                               ; preds = %.lr.ph40.split
-  %indvars.iv.next53 = add nsw i64 %indvars.iv52, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count58
-  br i1 %exitcond.not, label %.thread, label %.lr.ph40.split, !llvm.loop !30
+36:                                               ; preds = %.lr.ph35.split
+  %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next48, %wide.trip.count53
+  br i1 %exitcond.not, label %.thread, label %.lr.ph35.split, !llvm.loop !30
 
-.thread.loopexit.split.loop.exit70:               ; preds = %.lr.ph40.split.us
-  %37 = trunc nsw i64 %indvars.iv55 to i32
+.thread.loopexit.split.loop.exit:                 ; preds = %.lr.ph35.split.us
+  %37 = trunc nsw i64 %indvars.iv50 to i32
   br label %.thread
 
-.thread.loopexit62.split.loop.exit68:             ; preds = %.lr.ph40.split
-  %38 = trunc nsw i64 %indvars.iv52 to i32
+.thread.loopexit57.split.loop.exit:               ; preds = %.lr.ph35.split
+  %38 = trunc nsw i64 %indvars.iv47 to i32
   br label %.thread
 
-.thread.loopexit64.split.loop.exit:               ; preds = %24
+.thread.loopexit59.split.loop.exit61:             ; preds = %24
   %39 = trunc nsw i64 %indvars.iv to i32
   br label %.thread
 
-.thread:                                          ; preds = %29, %36, %23, %.thread.loopexit64.split.loop.exit, %.thread.loopexit62.split.loop.exit68, %.thread.loopexit.split.loop.exit70, %.preheader33, %.preheader
-  %.1 = phi i32 [ -1, %.preheader ], [ -1, %.preheader33 ], [ %37, %.thread.loopexit.split.loop.exit70 ], [ %38, %.thread.loopexit62.split.loop.exit68 ], [ %39, %.thread.loopexit64.split.loop.exit ], [ -1, %23 ], [ -1, %36 ], [ -1, %29 ]
+.thread:                                          ; preds = %29, %36, %23, %.thread.loopexit59.split.loop.exit61, %.thread.loopexit57.split.loop.exit, %.thread.loopexit.split.loop.exit, %.preheader28, %.preheader
+  %.1 = phi i32 [ -1, %.preheader ], [ -1, %.preheader28 ], [ %37, %.thread.loopexit.split.loop.exit ], [ %38, %.thread.loopexit57.split.loop.exit ], [ %39, %.thread.loopexit59.split.loop.exit61 ], [ -1, %23 ], [ -1, %36 ], [ -1, %29 ]
   ret i32 %.1
 }
 
@@ -1503,135 +1503,135 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZNK6icu_777UVector7index
 define noundef signext range(i8 0, 2) i8 @_ZNK6icu_777UVector12containsNoneERKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !18
-  %.not14 = icmp slt i32 %4, 1
-  br i1 %.not14, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit._crit_edge, label %.lr.ph
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %9 = load ptr, ptr %6, align 8, !tbaa !17
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %.lr.ph.split.us, label %.lr.ph.split
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = load ptr, ptr %7, align 8, !tbaa !17
+  %11 = icmp eq ptr %10, null
+  br i1 %11, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %11 = load ptr, ptr %5, align 8, !tbaa !9
-  %12 = load i32, ptr %7, align 8, !tbaa !18
-  %13 = icmp sgt i32 %12, 0
-  %14 = load ptr, ptr %8, align 8
-  %wide.trip.count58.i.us = zext nneg i32 %12 to i64
-  br i1 %13, label %.preheader.i.us.us.preheader, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit._crit_edge
+  %12 = load ptr, ptr %6, align 8, !tbaa !9
+  %13 = load i32, ptr %8, align 8, !tbaa !18
+  %14 = icmp sgt i32 %13, 0
+  %15 = load ptr, ptr %9, align 8
+  %wide.trip.count53.i.us = zext nneg i32 %13 to i64
+  br i1 %14, label %.preheader.i.us.us.preheader, label %._crit_edge
 
 .preheader.i.us.us.preheader:                     ; preds = %.lr.ph.split.us
   %wide.trip.count = zext nneg i32 %4 to i64
   br label %.preheader.i.us.us
 
 .preheader.i.us.us:                               ; preds = %.preheader.i.us.us.preheader, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us
-  %indvars.iv30 = phi i64 [ 0, %.preheader.i.us.us.preheader ], [ %indvars.iv.next31, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us ]
-  %15 = getelementptr inbounds nuw %union.UElement, ptr %11, i64 %indvars.iv30
-  %.sroa.0.0.copyload.us.us = load ptr, ptr %15, align 8, !tbaa !19
-  %16 = ptrtoint ptr %.sroa.0.0.copyload.us.us to i64
-  %.sroa.016.0.extract.trunc.i.us.us = trunc i64 %16 to i32
-  br label %.lr.ph40.split.us.i.us.us
+  %indvars.iv29 = phi i64 [ 0, %.preheader.i.us.us.preheader ], [ %indvars.iv.next30, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us ]
+  %16 = getelementptr inbounds nuw %union.UElement, ptr %12, i64 %indvars.iv29
+  %.sroa.0.0.copyload.us.us = load ptr, ptr %16, align 8, !tbaa !19
+  %17 = ptrtoint ptr %.sroa.0.0.copyload.us.us to i64
+  %.sroa.016.0.extract.trunc.i.us.us = trunc i64 %17 to i32
+  br label %.lr.ph35.split.us.i.us.us
 
-.lr.ph40.split.us.i.us.us:                        ; preds = %20, %.preheader.i.us.us
-  %indvars.iv55.i.us.us = phi i64 [ %indvars.iv.next56.i.us.us, %20 ], [ 0, %.preheader.i.us.us ]
-  %17 = getelementptr inbounds nuw %union.UElement, ptr %14, i64 %indvars.iv55.i.us.us
-  %18 = load i32, ptr %17, align 8, !tbaa !19
-  %19 = icmp eq i32 %18, %.sroa.016.0.extract.trunc.i.us.us
-  br i1 %19, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us, label %20
+.lr.ph35.split.us.i.us.us:                        ; preds = %21, %.preheader.i.us.us
+  %indvars.iv50.i.us.us = phi i64 [ %indvars.iv.next51.i.us.us, %21 ], [ 0, %.preheader.i.us.us ]
+  %18 = getelementptr inbounds nuw %union.UElement, ptr %15, i64 %indvars.iv50.i.us.us
+  %19 = load i32, ptr %18, align 8, !tbaa !19
+  %20 = icmp eq i32 %19, %.sroa.016.0.extract.trunc.i.us.us
+  br i1 %20, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us, label %21
 
-20:                                               ; preds = %.lr.ph40.split.us.i.us.us
-  %indvars.iv.next56.i.us.us = add nuw nsw i64 %indvars.iv55.i.us.us, 1
-  %exitcond59.not.i.us.us = icmp eq i64 %indvars.iv.next56.i.us.us, %wide.trip.count58.i.us
-  br i1 %exitcond59.not.i.us.us, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us, label %.lr.ph40.split.us.i.us.us, !llvm.loop !30
+21:                                               ; preds = %.lr.ph35.split.us.i.us.us
+  %indvars.iv.next51.i.us.us = add nuw nsw i64 %indvars.iv50.i.us.us, 1
+  %exitcond54.not.i.us.us = icmp eq i64 %indvars.iv.next51.i.us.us, %wide.trip.count53.i.us
+  br i1 %exitcond54.not.i.us.us, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us, label %.lr.ph35.split.us.i.us.us, !llvm.loop !30
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us: ; preds = %20, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next31, %wide.trip.count
-  br i1 %exitcond.not, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit._crit_edge, label %.preheader.i.us.us, !llvm.loop !34
+_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us: ; preds = %21, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.preheader.i.us.us, !llvm.loop !34
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us: ; preds = %.lr.ph40.split.us.i.us.us
-  %21 = and i64 %indvars.iv55.i.us.us, 2147483648
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit._crit_edge, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us
+_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us: ; preds = %.lr.ph35.split.us.i.us.us
+  %22 = and i64 %indvars.iv50.i.us.us, 2147483648
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %._crit_edge, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us
 
 .lr.ph.splitthread-pre-split:                     ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
-  %.pr = load ptr, ptr %6, align 8, !tbaa !17
+  %.pr = load ptr, ptr %7, align 8, !tbaa !17
   br label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.splitthread-pre-split
-  %23 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %9, %.lr.ph ]
+  %24 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %10, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.splitthread-pre-split ], [ 0, %.lr.ph ]
-  %24 = load ptr, ptr %5, align 8, !tbaa !9
-  %25 = getelementptr inbounds nuw %union.UElement, ptr %24, i64 %indvars.iv
-  %.sroa.0.0.copyload = load ptr, ptr %25, align 8, !tbaa !19
-  %.not.i = icmp eq ptr %23, null
-  br i1 %.not.i, label %.preheader.i, label %.preheader33.i
+  %25 = load ptr, ptr %6, align 8, !tbaa !9
+  %26 = getelementptr inbounds nuw %union.UElement, ptr %25, i64 %indvars.iv
+  %.sroa.0.0.copyload = load ptr, ptr %26, align 8, !tbaa !19
+  %.not.i = icmp eq ptr %24, null
+  br i1 %.not.i, label %.preheader.i, label %.preheader28.i
 
-.preheader33.i:                                   ; preds = %.lr.ph.split
-  %26 = load i32, ptr %7, align 8, !tbaa !18
-  %27 = icmp sgt i32 %26, 0
-  br i1 %27, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
+.preheader28.i:                                   ; preds = %.lr.ph.split
+  %27 = load i32, ptr %8, align 8, !tbaa !18
+  %28 = icmp sgt i32 %27, 0
+  br i1 %28, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
 
 .preheader.i:                                     ; preds = %.lr.ph.split
-  %28 = ptrtoint ptr %.sroa.0.0.copyload to i64
-  %.sroa.016.0.extract.trunc.i = trunc i64 %28 to i32
-  %29 = load i32, ptr %7, align 8, !tbaa !18
-  %30 = icmp sgt i32 %29, 0
-  br i1 %30, label %.lr.ph40.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
+  %29 = ptrtoint ptr %.sroa.0.0.copyload to i64
+  %.sroa.016.0.extract.trunc.i = trunc i64 %29 to i32
+  %30 = load i32, ptr %8, align 8, !tbaa !18
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %.lr.ph35.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
-  %31 = load ptr, ptr %8, align 8
-  %wide.trip.count58.i = zext nneg i32 %29 to i64
-  br label %.lr.ph40.split.us.i
+.lr.ph35.i:                                       ; preds = %.preheader.i
+  %32 = load ptr, ptr %9, align 8
+  %wide.trip.count53.i = zext nneg i32 %30 to i64
+  br label %.lr.ph35.split.us.i
 
-.lr.ph40.split.us.i:                              ; preds = %35, %.lr.ph40.i
-  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %35 ], [ 0, %.lr.ph40.i ]
-  %32 = getelementptr inbounds nuw %union.UElement, ptr %31, i64 %indvars.iv55.i
-  %33 = load i32, ptr %32, align 8, !tbaa !19
-  %34 = icmp eq i32 %33, %.sroa.016.0.extract.trunc.i
-  br i1 %34, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %35
+.lr.ph35.split.us.i:                              ; preds = %36, %.lr.ph35.i
+  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %36 ], [ 0, %.lr.ph35.i ]
+  %33 = getelementptr inbounds nuw %union.UElement, ptr %32, i64 %indvars.iv50.i
+  %34 = load i32, ptr %33, align 8, !tbaa !19
+  %35 = icmp eq i32 %34, %.sroa.016.0.extract.trunc.i
+  br i1 %35, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %36
 
-35:                                               ; preds = %.lr.ph40.split.us.i
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, label %.lr.ph40.split.us.i, !llvm.loop !30
+36:                                               ; preds = %.lr.ph35.split.us.i
+  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
+  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count53.i
+  br i1 %exitcond54.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, label %.lr.ph35.split.us.i, !llvm.loop !30
 
-.lr.ph.i:                                         ; preds = %.preheader33.i, %40
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %.preheader33.i ]
-  %36 = load ptr, ptr %6, align 8, !tbaa !17
-  %37 = load ptr, ptr %8, align 8, !tbaa !9
-  %38 = getelementptr inbounds nuw %union.UElement, ptr %37, i64 %indvars.iv.i
-  %.sroa.0.0.copyload.i = load ptr, ptr %38, align 8, !tbaa !19
-  %39 = tail call noundef signext i8 %36(ptr %.sroa.0.0.copyload, ptr %.sroa.0.0.copyload.i)
-  %.not23.i = icmp eq i8 %39, 0
-  br i1 %.not23.i, label %40, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
+.lr.ph.i:                                         ; preds = %.preheader28.i, %41
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.preheader28.i ]
+  %37 = load ptr, ptr %7, align 8, !tbaa !17
+  %38 = load ptr, ptr %9, align 8, !tbaa !9
+  %39 = getelementptr inbounds nuw %union.UElement, ptr %38, i64 %indvars.iv.i
+  %.sroa.0.0.copyload.i = load ptr, ptr %39, align 8, !tbaa !19
+  %40 = tail call noundef signext i8 %37(ptr %.sroa.0.0.copyload, ptr %.sroa.0.0.copyload.i)
+  %.not23.i = icmp eq i8 %40, 0
+  br i1 %.not23.i, label %41, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-40:                                               ; preds = %.lr.ph.i
+41:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %41 = load i32, ptr %7, align 8, !tbaa !18
-  %42 = sext i32 %41 to i64
-  %43 = icmp slt i64 %indvars.iv.next.i, %42
-  br i1 %43, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, !llvm.loop !33
+  %42 = load i32, ptr %8, align 8, !tbaa !18
+  %43 = sext i32 %42 to i64
+  %44 = icmp slt i64 %indvars.iv.next.i, %43
+  br i1 %44, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, !llvm.loop !33
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph40.split.us.i
-  %.1.i.in = phi i64 [ %indvars.iv55.i, %.lr.ph40.split.us.i ], [ %indvars.iv.i, %.lr.ph.i ]
-  %44 = and i64 %.1.i.in, 2147483648
-  %45 = icmp eq i64 %44, 0
-  br i1 %45, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit._crit_edge, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
+_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35.split.us.i
+  %.1.i.in = phi i64 [ %indvars.iv50.i, %.lr.ph35.split.us.i ], [ %indvars.iv.i, %.lr.ph.i ]
+  %45 = and i64 %.1.i.in, 2147483648
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %._crit_edge, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread: ; preds = %40, %35, %.preheader33.i, %.preheader.i, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
+_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread: ; preds = %41, %36, %.preheader28.i, %.preheader.i, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = load i32, ptr %3, align 8, !tbaa !18
-  %47 = sext i32 %46 to i64
-  %.not.not = icmp slt i64 %indvars.iv.next, %47
-  br i1 %.not.not, label %.lr.ph.splitthread-pre-split, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit._crit_edge, !llvm.loop !35
+  %47 = load i32, ptr %3, align 8, !tbaa !18
+  %48 = sext i32 %47 to i64
+  %49 = icmp slt i64 %indvars.iv.next, %48
+  br i1 %49, label %.lr.ph.splitthread-pre-split, label %._crit_edge, !llvm.loop !35
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit._crit_edge: ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us, %.lr.ph.split.us, %2
-  %.not.lcssa = phi i8 [ 1, %2 ], [ 1, %.lr.ph.split.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread ]
-  ret i8 %.not.lcssa
+._crit_edge:                                      ; preds = %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us, %.lr.ph.split.us, %2
+  %50 = phi i8 [ 1, %2 ], [ 1, %.lr.ph.split.us ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.us.us ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.loopexit.us.us ], [ 1, %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread ], [ 0, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ]
+  ret i8 %50
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1661,9 +1661,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9removeAllERKS0_(ptr
   %.sroa.0.0.copyload = load ptr, ptr %13, align 8, !tbaa !19
   %14 = load ptr, ptr %7, align 8, !tbaa !17
   %.not.i = icmp eq ptr %14, null
-  br i1 %.not.i, label %.preheader.i, label %.preheader33.i
+  br i1 %.not.i, label %.preheader.i, label %.preheader28.i
 
-.preheader33.i:                                   ; preds = %11
+.preheader28.i:                                   ; preds = %11
   %15 = load i32, ptr %8, align 8, !tbaa !18
   %16 = icmp sgt i32 %15, 0
   br i1 %16, label %.lr.ph.i, label %_ZN6icu_777UVector15removeElementAtEi.exit
@@ -1673,27 +1673,27 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9removeAllERKS0_(ptr
   %.sroa.016.0.extract.trunc.i = trunc i64 %17 to i32
   %18 = load i32, ptr %8, align 8, !tbaa !18
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph40.i, label %_ZN6icu_777UVector15removeElementAtEi.exit
+  br i1 %19, label %.lr.ph35.i, label %_ZN6icu_777UVector15removeElementAtEi.exit
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
+.lr.ph35.i:                                       ; preds = %.preheader.i
   %20 = load ptr, ptr %9, align 8
-  %wide.trip.count58.i = zext nneg i32 %18 to i64
-  br label %.lr.ph40.split.us.i
+  %wide.trip.count53.i = zext nneg i32 %18 to i64
+  br label %.lr.ph35.split.us.i
 
-.lr.ph40.split.us.i:                              ; preds = %24, %.lr.ph40.i
-  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %24 ], [ 0, %.lr.ph40.i ]
-  %21 = getelementptr inbounds nuw %union.UElement, ptr %20, i64 %indvars.iv55.i
+.lr.ph35.split.us.i:                              ; preds = %24, %.lr.ph35.i
+  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %24 ], [ 0, %.lr.ph35.i ]
+  %21 = getelementptr inbounds nuw %union.UElement, ptr %20, i64 %indvars.iv50.i
   %22 = load i32, ptr %21, align 8, !tbaa !19
   %23 = icmp eq i32 %22, %.sroa.016.0.extract.trunc.i
   br i1 %23, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %24
 
-24:                                               ; preds = %.lr.ph40.split.us.i
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %_ZN6icu_777UVector15removeElementAtEi.exit, label %.lr.ph40.split.us.i, !llvm.loop !30
+24:                                               ; preds = %.lr.ph35.split.us.i
+  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
+  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count53.i
+  br i1 %exitcond54.not.i, label %_ZN6icu_777UVector15removeElementAtEi.exit, label %.lr.ph35.split.us.i, !llvm.loop !30
 
-.lr.ph.i:                                         ; preds = %.preheader33.i, %29
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %.preheader33.i ]
+.lr.ph.i:                                         ; preds = %.preheader28.i, %29
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %29 ], [ 0, %.preheader28.i ]
   %25 = load ptr, ptr %7, align 8, !tbaa !17
   %26 = load ptr, ptr %9, align 8, !tbaa !9
   %27 = getelementptr inbounds nuw %union.UElement, ptr %26, i64 %indvars.iv.i
@@ -1709,8 +1709,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9removeAllERKS0_(ptr
   %32 = icmp slt i64 %indvars.iv.next.i, %31
   br i1 %32, label %.lr.ph.i, label %_ZN6icu_777UVector15removeElementAtEi.exit, !llvm.loop !33
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph40.split.us.i
-  %.1.i.in = phi i64 [ %indvars.iv55.i, %.lr.ph40.split.us.i ], [ %indvars.iv.i, %.lr.ph.i ]
+_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35.split.us.i
+  %.1.i.in = phi i64 [ %indvars.iv50.i, %.lr.ph35.split.us.i ], [ %indvars.iv.i, %.lr.ph.i ]
   %.1.i = trunc i64 %.1.i.in to i32
   %33 = icmp sgt i32 %.1.i, -1
   br i1 %33, label %34, label %_ZN6icu_777UVector15removeElementAtEi.exit
@@ -1758,8 +1758,8 @@ _ZN6icu_777UVector15orphanElementAtEi.exit.i:     ; preds = %.lr.ph.i.i, %37
   tail call void %53(ptr noundef nonnull %41)
   br label %_ZN6icu_777UVector15removeElementAtEi.exit
 
-_ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %29, %24, %.preheader33.i, %.preheader.i, %54, %52, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %34, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
-  %.1 = phi i8 [ %.017, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %34 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %52 ], [ 1, %54 ], [ %.017, %.preheader.i ], [ %.017, %.preheader33.i ], [ %.017, %24 ], [ %.017, %29 ]
+_ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %29, %24, %.preheader28.i, %.preheader.i, %54, %52, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %34, %_ZNK6icu_777UVector7indexOfE8UElementia.exit
+  %.1 = phi i8 [ %.017, %_ZNK6icu_777UVector7indexOfE8UElementia.exit ], [ 1, %34 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %52 ], [ 1, %54 ], [ %.017, %.preheader.i ], [ %.017, %.preheader28.i ], [ %.017, %24 ], [ %.017, %29 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load i32, ptr %3, align 8, !tbaa !18
   %56 = sext i32 %55 to i64
@@ -1851,9 +1851,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9retainAllERKS0_(ptr
   %.sroa.0.0.copyload = load ptr, ptr %14, align 8, !tbaa !19
   %15 = load ptr, ptr %7, align 8, !tbaa !17
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %.preheader.i, label %.preheader33.i
+  br i1 %.not.i, label %.preheader.i, label %.preheader28.i
 
-.preheader33.i:                                   ; preds = %12
+.preheader28.i:                                   ; preds = %12
   %16 = load i32, ptr %8, align 8, !tbaa !18
   %17 = icmp sgt i32 %16, 0
   br i1 %17, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread
@@ -1863,27 +1863,27 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9retainAllERKS0_(ptr
   %.sroa.016.0.extract.trunc.i = trunc i64 %18 to i32
   %19 = load i32, ptr %8, align 8, !tbaa !18
   %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.lr.ph40.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread
+  br i1 %20, label %.lr.ph35.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
+.lr.ph35.i:                                       ; preds = %.preheader.i
   %21 = load ptr, ptr %9, align 8
-  %wide.trip.count58.i = zext nneg i32 %19 to i64
-  br label %.lr.ph40.split.us.i
+  %wide.trip.count53.i = zext nneg i32 %19 to i64
+  br label %.lr.ph35.split.us.i
 
-.lr.ph40.split.us.i:                              ; preds = %25, %.lr.ph40.i
-  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %25 ], [ 0, %.lr.ph40.i ]
-  %22 = getelementptr inbounds nuw %union.UElement, ptr %21, i64 %indvars.iv55.i
+.lr.ph35.split.us.i:                              ; preds = %25, %.lr.ph35.i
+  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %25 ], [ 0, %.lr.ph35.i ]
+  %22 = getelementptr inbounds nuw %union.UElement, ptr %21, i64 %indvars.iv50.i
   %23 = load i32, ptr %22, align 8, !tbaa !19
   %24 = icmp eq i32 %23, %.sroa.016.0.extract.trunc.i
   br i1 %24, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %25
 
-25:                                               ; preds = %.lr.ph40.split.us.i
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread, label %.lr.ph40.split.us.i, !llvm.loop !30
+25:                                               ; preds = %.lr.ph35.split.us.i
+  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
+  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count53.i
+  br i1 %exitcond54.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread, label %.lr.ph35.split.us.i, !llvm.loop !30
 
-.lr.ph.i:                                         ; preds = %.preheader33.i, %30
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.preheader33.i ]
+.lr.ph.i:                                         ; preds = %.preheader28.i, %30
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %30 ], [ 0, %.preheader28.i ]
   %26 = load ptr, ptr %7, align 8, !tbaa !17
   %27 = load ptr, ptr %9, align 8, !tbaa !9
   %28 = getelementptr inbounds nuw %union.UElement, ptr %27, i64 %indvars.iv.i
@@ -1899,13 +1899,13 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector9retainAllERKS0_(ptr
   %33 = icmp slt i64 %indvars.iv.next.i, %32
   br i1 %33, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread, !llvm.loop !33
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph40.split.us.i
-  %.1.i.in = phi i64 [ %indvars.iv55.i, %.lr.ph40.split.us.i ], [ %indvars.iv.i, %.lr.ph.i ]
+_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %.lr.ph.i, %.lr.ph35.split.us.i
+  %.1.i.in = phi i64 [ %indvars.iv50.i, %.lr.ph35.split.us.i ], [ %indvars.iv.i, %.lr.ph.i ]
   %34 = and i64 %.1.i.in, 2147483648
   %.not = icmp eq i64 %34, 0
   br i1 %.not, label %_ZN6icu_777UVector15removeElementAtEi.exit, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread: ; preds = %30, %25, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %.preheader.i, %.preheader33.i
+_ZNK6icu_777UVector7indexOfE8UElementia.exit.thread.thread: ; preds = %30, %25, %_ZNK6icu_777UVector7indexOfE8UElementia.exit, %.preheader.i, %.preheader28.i
   %35 = load i32, ptr %3, align 8, !tbaa !18
   %36 = sext i32 %35 to i64
   %.not10 = icmp sgt i64 %indvars.iv, %36
@@ -2008,23 +2008,23 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector13removeElementEPv(p
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !18
   %7 = icmp sgt i32 %6, 0
-  br i1 %.not.i.i, label %.preheader.i.i, label %.preheader33.i.i
+  br i1 %.not.i.i, label %.preheader.i.i, label %.preheader28.i.i
 
-.preheader33.i.i:                                 ; preds = %2
+.preheader28.i.i:                                 ; preds = %2
   br i1 %7, label %.lr.ph.i.i, label %_ZN6icu_777UVector15removeElementAtEi.exit
 
-.lr.ph.i.i:                                       ; preds = %.preheader33.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader28.i.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %11
 
 .preheader.i.i:                                   ; preds = %2
-  br i1 %7, label %.lr.ph40.i.i, label %_ZN6icu_777UVector15removeElementAtEi.exit
+  br i1 %7, label %.lr.ph35.i.i, label %_ZN6icu_777UVector15removeElementAtEi.exit
 
-.lr.ph40.i.i:                                     ; preds = %.preheader.i.i
+.lr.ph35.i.i:                                     ; preds = %.preheader.i.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %wide.trip.count58.i.i = zext nneg i32 %6 to i64
-  br label %.lr.ph40.split.i.i
+  %wide.trip.count53.i.i = zext nneg i32 %6 to i64
+  br label %.lr.ph35.split.i.i
 
 11:                                               ; preds = %16, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
@@ -2043,20 +2043,20 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_777UVector13removeElementEPv(p
   %19 = icmp slt i64 %indvars.iv.next.i.i, %18
   br i1 %19, label %11, label %_ZN6icu_777UVector15removeElementAtEi.exit, !llvm.loop !33
 
-.lr.ph40.split.i.i:                               ; preds = %23, %.lr.ph40.i.i
-  %indvars.iv52.i.i = phi i64 [ %indvars.iv.next53.i.i, %23 ], [ 0, %.lr.ph40.i.i ]
-  %20 = getelementptr inbounds nuw %union.UElement, ptr %10, i64 %indvars.iv52.i.i
+.lr.ph35.split.i.i:                               ; preds = %23, %.lr.ph35.i.i
+  %indvars.iv47.i.i = phi i64 [ %indvars.iv.next48.i.i, %23 ], [ 0, %.lr.ph35.i.i ]
+  %20 = getelementptr inbounds nuw %union.UElement, ptr %10, i64 %indvars.iv47.i.i
   %21 = load ptr, ptr %20, align 8, !tbaa !19
   %22 = icmp eq ptr %1, %21
   br i1 %22, label %_ZNK6icu_777UVector7indexOfEPvi.exit, label %23
 
-23:                                               ; preds = %.lr.ph40.split.i.i
-  %indvars.iv.next53.i.i = add nuw nsw i64 %indvars.iv52.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next53.i.i, %wide.trip.count58.i.i
-  br i1 %exitcond.not.i.i, label %_ZN6icu_777UVector15removeElementAtEi.exit, label %.lr.ph40.split.i.i, !llvm.loop !30
+23:                                               ; preds = %.lr.ph35.split.i.i
+  %indvars.iv.next48.i.i = add nuw nsw i64 %indvars.iv47.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next48.i.i, %wide.trip.count53.i.i
+  br i1 %exitcond.not.i.i, label %_ZN6icu_777UVector15removeElementAtEi.exit, label %.lr.ph35.split.i.i, !llvm.loop !30
 
-_ZNK6icu_777UVector7indexOfEPvi.exit:             ; preds = %11, %.lr.ph40.split.i.i
-  %.1.i.i.in = phi i64 [ %indvars.iv52.i.i, %.lr.ph40.split.i.i ], [ %indvars.iv.i.i, %11 ]
+_ZNK6icu_777UVector7indexOfEPvi.exit:             ; preds = %11, %.lr.ph35.split.i.i
+  %.1.i.i.in = phi i64 [ %indvars.iv47.i.i, %.lr.ph35.split.i.i ], [ %indvars.iv.i.i, %11 ]
   %.1.i.i = trunc i64 %.1.i.i.in to i32
   %24 = icmp sgt i32 %.1.i.i, -1
   br i1 %24, label %25, label %_ZN6icu_777UVector15removeElementAtEi.exit
@@ -2106,8 +2106,8 @@ _ZN6icu_777UVector15orphanElementAtEi.exit.i:     ; preds = %.lr.ph.i.i5, %28
   tail call void %46(ptr noundef nonnull %33)
   br label %_ZN6icu_777UVector15removeElementAtEi.exit
 
-_ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %16, %23, %.preheader33.i.i, %.preheader.i.i, %47, %44, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %25, %_ZNK6icu_777UVector7indexOfEPvi.exit
-  %.0 = phi i8 [ 0, %_ZNK6icu_777UVector7indexOfEPvi.exit ], [ 1, %25 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %44 ], [ 1, %47 ], [ 0, %.preheader.i.i ], [ 0, %.preheader33.i.i ], [ 0, %23 ], [ 0, %16 ]
+_ZN6icu_777UVector15removeElementAtEi.exit:       ; preds = %16, %23, %.preheader28.i.i, %.preheader.i.i, %47, %44, %_ZN6icu_777UVector15orphanElementAtEi.exit.i, %25, %_ZNK6icu_777UVector7indexOfEPvi.exit
+  %.0 = phi i8 [ 0, %_ZNK6icu_777UVector7indexOfEPvi.exit ], [ 1, %25 ], [ 1, %_ZN6icu_777UVector15orphanElementAtEi.exit.i ], [ 1, %44 ], [ 1, %47 ], [ 0, %.preheader.i.i ], [ 0, %.preheader28.i.i ], [ 0, %23 ], [ 0, %16 ]
   ret i8 %.0
 }
 
@@ -2119,25 +2119,25 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull readonly
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !18
   %8 = icmp slt i32 %2, %7
-  br i1 %.not.i, label %.preheader.i, label %.preheader33.i
+  br i1 %.not.i, label %.preheader.i, label %.preheader28.i
 
-.preheader33.i:                                   ; preds = %3
+.preheader28.i:                                   ; preds = %3
   br i1 %8, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-.lr.ph.i:                                         ; preds = %.preheader33.i
+.lr.ph.i:                                         ; preds = %.preheader28.i
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = sext i32 %2 to i64
   br label %14
 
 .preheader.i:                                     ; preds = %3
-  br i1 %8, label %.lr.ph40.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
+  br i1 %8, label %.lr.ph35.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
+.lr.ph35.i:                                       ; preds = %.preheader.i
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %2 to i64
-  %wide.trip.count58.i = sext i32 %7 to i64
-  br label %.lr.ph40.split.i
+  %wide.trip.count53.i = sext i32 %7 to i64
+  br label %.lr.ph35.split.i
 
 14:                                               ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %10, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
@@ -2147,7 +2147,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull readonly
   %.sroa.0.0.copyload.i = load ptr, ptr %17, align 8, !tbaa !19
   %18 = tail call noundef signext i8 %15(ptr %1, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %18, 0
-  br i1 %.not23.i, label %19, label %.thread.loopexit64.split.loop.exit.i
+  br i1 %.not23.i, label %19, label %.thread.loopexit59.split.loop.exit61.i
 
 19:                                               ; preds = %14
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -2156,28 +2156,28 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEPvi(ptr noundef nonnull readonly
   %22 = icmp slt i64 %indvars.iv.next.i, %21
   br i1 %22, label %14, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, !llvm.loop !33
 
-.lr.ph40.split.i:                                 ; preds = %26, %.lr.ph40.i
-  %indvars.iv52.i = phi i64 [ %indvars.iv.next53.i, %26 ], [ %13, %.lr.ph40.i ]
-  %23 = getelementptr inbounds %union.UElement, ptr %12, i64 %indvars.iv52.i
+.lr.ph35.split.i:                                 ; preds = %26, %.lr.ph35.i
+  %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %26 ], [ %13, %.lr.ph35.i ]
+  %23 = getelementptr inbounds %union.UElement, ptr %12, i64 %indvars.iv47.i
   %24 = load ptr, ptr %23, align 8, !tbaa !19
   %25 = icmp eq ptr %1, %24
-  br i1 %25, label %.thread.loopexit62.split.loop.exit68.i, label %26
+  br i1 %25, label %.thread.loopexit57.split.loop.exit.i, label %26
 
-26:                                               ; preds = %.lr.ph40.split.i
-  %indvars.iv.next53.i = add nsw i64 %indvars.iv52.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count58.i
-  br i1 %exitcond.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %.lr.ph40.split.i, !llvm.loop !30
+26:                                               ; preds = %.lr.ph35.split.i
+  %indvars.iv.next48.i = add nsw i64 %indvars.iv47.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next48.i, %wide.trip.count53.i
+  br i1 %exitcond.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %.lr.ph35.split.i, !llvm.loop !30
 
-.thread.loopexit62.split.loop.exit68.i:           ; preds = %.lr.ph40.split.i
-  %27 = trunc nsw i64 %indvars.iv52.i to i32
+.thread.loopexit57.split.loop.exit.i:             ; preds = %.lr.ph35.split.i
+  %27 = trunc nsw i64 %indvars.iv47.i to i32
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-.thread.loopexit64.split.loop.exit.i:             ; preds = %14
+.thread.loopexit59.split.loop.exit61.i:           ; preds = %14
   %28 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %19, %26, %.preheader33.i, %.preheader.i, %.thread.loopexit62.split.loop.exit68.i, %.thread.loopexit64.split.loop.exit.i
-  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader33.i ], [ %27, %.thread.loopexit62.split.loop.exit68.i ], [ %28, %.thread.loopexit64.split.loop.exit.i ], [ -1, %26 ], [ -1, %19 ]
+_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %19, %26, %.preheader28.i, %.preheader.i, %.thread.loopexit57.split.loop.exit.i, %.thread.loopexit59.split.loop.exit61.i
+  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader28.i ], [ %27, %.thread.loopexit57.split.loop.exit.i ], [ %28, %.thread.loopexit59.split.loop.exit61.i ], [ -1, %26 ], [ -1, %19 ]
   ret i32 %.1.i
 }
 
@@ -2265,37 +2265,37 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !18
   %9 = icmp slt i32 %2, %8
-  br i1 %.not.i, label %.preheader.i, label %.preheader33.i
+  br i1 %.not.i, label %.preheader.i, label %.preheader28.i
 
-.preheader33.i:                                   ; preds = %3
+.preheader28.i:                                   ; preds = %3
   br i1 %9, label %.lr.ph.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-.lr.ph.i:                                         ; preds = %.preheader33.i
+.lr.ph.i:                                         ; preds = %.preheader28.i
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = sext i32 %2 to i64
   br label %19
 
 .preheader.i:                                     ; preds = %3
-  br i1 %9, label %.lr.ph40.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
+  br i1 %9, label %.lr.ph35.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-.lr.ph40.i:                                       ; preds = %.preheader.i
+.lr.ph35.i:                                       ; preds = %.preheader.i
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %2 to i64
-  %wide.trip.count58.i = sext i32 %8 to i64
-  br label %.lr.ph40.split.us.i
+  %wide.trip.count53.i = sext i32 %8 to i64
+  br label %.lr.ph35.split.us.i
 
-.lr.ph40.split.us.i:                              ; preds = %18, %.lr.ph40.i
-  %indvars.iv55.i = phi i64 [ %indvars.iv.next56.i, %18 ], [ %14, %.lr.ph40.i ]
-  %15 = getelementptr inbounds %union.UElement, ptr %13, i64 %indvars.iv55.i
+.lr.ph35.split.us.i:                              ; preds = %18, %.lr.ph35.i
+  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %18 ], [ %14, %.lr.ph35.i ]
+  %15 = getelementptr inbounds %union.UElement, ptr %13, i64 %indvars.iv50.i
   %16 = load i32, ptr %15, align 8, !tbaa !19
   %17 = icmp eq i32 %16, %1
-  br i1 %17, label %.thread.loopexit.split.loop.exit70.i, label %18
+  br i1 %17, label %.thread.loopexit.split.loop.exit.i, label %18
 
-18:                                               ; preds = %.lr.ph40.split.us.i
-  %indvars.iv.next56.i = add nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %.lr.ph40.split.us.i, !llvm.loop !30
+18:                                               ; preds = %.lr.ph35.split.us.i
+  %indvars.iv.next51.i = add nsw i64 %indvars.iv50.i, 1
+  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %wide.trip.count53.i
+  br i1 %exitcond54.not.i, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, label %.lr.ph35.split.us.i, !llvm.loop !30
 
 19:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %11, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
@@ -2305,7 +2305,7 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
   %.sroa.0.0.copyload.i = load ptr, ptr %22, align 8, !tbaa !19
   %23 = tail call noundef signext i8 %20(ptr %4, ptr %.sroa.0.0.copyload.i)
   %.not23.i = icmp eq i8 %23, 0
-  br i1 %.not23.i, label %24, label %.thread.loopexit64.split.loop.exit.i
+  br i1 %.not23.i, label %24, label %.thread.loopexit59.split.loop.exit61.i
 
 24:                                               ; preds = %19
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -2314,16 +2314,16 @@ define noundef i32 @_ZNK6icu_777UVector7indexOfEii(ptr noundef nonnull readonly 
   %27 = icmp slt i64 %indvars.iv.next.i, %26
   br i1 %27, label %19, label %_ZNK6icu_777UVector7indexOfE8UElementia.exit, !llvm.loop !33
 
-.thread.loopexit.split.loop.exit70.i:             ; preds = %.lr.ph40.split.us.i
-  %28 = trunc nsw i64 %indvars.iv55.i to i32
+.thread.loopexit.split.loop.exit.i:               ; preds = %.lr.ph35.split.us.i
+  %28 = trunc nsw i64 %indvars.iv50.i to i32
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-.thread.loopexit64.split.loop.exit.i:             ; preds = %19
+.thread.loopexit59.split.loop.exit61.i:           ; preds = %19
   %29 = trunc nsw i64 %indvars.iv.i to i32
   br label %_ZNK6icu_777UVector7indexOfE8UElementia.exit
 
-_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %24, %18, %.preheader33.i, %.preheader.i, %.thread.loopexit.split.loop.exit70.i, %.thread.loopexit64.split.loop.exit.i
-  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader33.i ], [ %28, %.thread.loopexit.split.loop.exit70.i ], [ %29, %.thread.loopexit64.split.loop.exit.i ], [ -1, %18 ], [ -1, %24 ]
+_ZNK6icu_777UVector7indexOfE8UElementia.exit:     ; preds = %24, %18, %.preheader28.i, %.preheader.i, %.thread.loopexit.split.loop.exit.i, %.thread.loopexit59.split.loop.exit61.i
+  %.1.i = phi i32 [ -1, %.preheader.i ], [ -1, %.preheader28.i ], [ %28, %.thread.loopexit.split.loop.exit.i ], [ %29, %.thread.loopexit59.split.loop.exit61.i ], [ -1, %18 ], [ -1, %24 ]
   ret i32 %.1.i
 }
 

@@ -2544,8 +2544,8 @@ _ZNSolsEPFRSoS_E.exit297:                         ; preds = %.noexc475
   %1000 = load i64, ptr %655, align 8, !tbaa !90
   %1001 = urem i64 %999, %1000
   %1002 = load i64, ptr %677, align 8, !tbaa !101
-  %.not32.i = icmp eq i64 %1002, 0
-  br i1 %.not32.i, label %.critedge.i, label %1003
+  %.not30.i = icmp eq i64 %1002, 0
+  br i1 %.not30.i, label %.critedge.i, label %1003
 
 1003:                                             ; preds = %.noexc480
   %1004 = load ptr, ptr %29, align 8, !tbaa !88
@@ -3039,8 +3039,8 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE9push_backERKS3_.exit32
   %1216 = load i64, ptr %655, align 8, !tbaa !90
   %1217 = urem i64 %1215, %1216
   %1218 = load i64, ptr %677, align 8, !tbaa !101
-  %.not32.i486 = icmp eq i64 %1218, 0
-  br i1 %.not32.i486, label %.critedge.i493, label %1219
+  %.not30.i486 = icmp eq i64 %1218, 0
+  br i1 %.not30.i486, label %.critedge.i493, label %1219
 
 1219:                                             ; preds = %.noexc502
   %1220 = load ptr, ptr %29, align 8, !tbaa !88
@@ -12770,8 +12770,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %18 = load i64, ptr %17, align 8, !tbaa !90
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !101
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !88
@@ -13212,8 +13212,8 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal8TypeNodeES2_S
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !116
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !3
@@ -13622,8 +13622,8 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal8TypeNodeES2_S
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !116
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !3

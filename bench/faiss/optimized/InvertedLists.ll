@@ -1139,24 +1139,24 @@ define noundef i64 @_ZNK5faiss19HStackInvertedLists13get_single_idEmm(ptr nounde
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !57
   %8 = load ptr, ptr %5, align 8, !tbaa !53
-  %.not43 = icmp eq ptr %7, %8
-  br i1 %.not43, label %._crit_edge, label %.lr.ph
+  %.not41 = icmp eq ptr %7, %8
+  br i1 %.not41, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %3 ]
   %9 = phi ptr [ %19, %16 ], [ %8, %3 ]
-  %.02242 = phi i64 [ %17, %16 ], [ %2, %3 ]
+  %.02240 = phi i64 [ %17, %16 ], [ %2, %3 ]
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !58
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(25) %11, i64 noundef %1)
-  %.not = icmp ult i64 %.02242, %15
+  %.not = icmp ult i64 %.02240, %15
   br i1 %.not, label %44, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = sub nuw i64 %.02242, %15
+  %17 = sub nuw i64 %.02240, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load ptr, ptr %6, align 8, !tbaa !57
   %19 = load ptr, ptr %5, align 8, !tbaa !53
@@ -1224,7 +1224,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %39, %
   %45 = load ptr, ptr %11, align 8, !tbaa !4
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load ptr, ptr %46, align 8
-  %48 = tail call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(25) %11, i64 noundef %1, i64 noundef %.02242)
+  %48 = tail call noundef i64 %47(ptr noundef nonnull align 8 dereferenceable(25) %11, i64 noundef %1, i64 noundef %.02240)
   ret i64 %48
 
 49:                                               ; preds = %34
@@ -1238,20 +1238,20 @@ define noalias noundef nonnull ptr @_ZNK5faiss19HStackInvertedLists15get_single_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !57
   %8 = load ptr, ptr %5, align 8, !tbaa !53
-  %.not45 = icmp eq ptr %7, %8
-  br i1 %.not45, label %._crit_edge, label %.lr.ph
+  %.not43 = icmp eq ptr %7, %8
+  br i1 %.not43, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %3 ]
   %9 = phi ptr [ %34, %31 ], [ %8, %3 ]
-  %.02444 = phi i64 [ %32, %31 ], [ %2, %3 ]
+  %.02442 = phi i64 [ %32, %31 ], [ %2, %3 ]
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !58
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8
   %15 = tail call noundef i64 %14(ptr noundef nonnull align 8 dereferenceable(25) %11, i64 noundef %1)
-  %.not = icmp ult i64 %.02444, %15
+  %.not = icmp ult i64 %.02442, %15
   br i1 %.not, label %16, label %31
 
 16:                                               ; preds = %.lr.ph
@@ -1261,7 +1261,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss19HStackInvertedLists15get_single_
   %20 = load ptr, ptr %11, align 8, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 64
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(25) %11, i64 noundef %1, i64 noundef %.02444)
+  %23 = tail call noundef ptr %22(ptr noundef nonnull align 8 dereferenceable(25) %11, i64 noundef %1, i64 noundef %.02442)
   %24 = load i64, ptr %17, align 8, !tbaa !10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %19, ptr align 1 %23, i64 %24, i1 false)
   %25 = load ptr, ptr %11, align 8, !tbaa !4
@@ -1278,7 +1278,7 @@ define noalias noundef nonnull ptr @_ZNK5faiss19HStackInvertedLists15get_single_
   unreachable
 
 31:                                               ; preds = %.lr.ph
-  %32 = sub nuw i64 %.02444, %15
+  %32 = sub nuw i64 %.02442, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %33 = load ptr, ptr %6, align 8, !tbaa !57
   %34 = load ptr, ptr %5, align 8, !tbaa !53

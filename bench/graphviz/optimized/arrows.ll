@@ -1064,10 +1064,10 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
   br label %30
 
 30:                                               ; preds = %9, %52
-  %.sroa.434.047 = phi double [ %3, %9 ], [ %54, %52 ]
-  %.sroa.032.046 = phi double [ %2, %9 ], [ %53, %52 ]
-  %.03645 = phi i32 [ 0, %9 ], [ %55, %52 ]
-  %31 = shl nuw nsw i32 %.03645, 3
+  %.sroa.434.046 = phi double [ %3, %9 ], [ %54, %52 ]
+  %.sroa.032.045 = phi double [ %2, %9 ], [ %53, %52 ]
+  %.03644 = phi i32 [ 0, %9 ], [ %55, %52 ]
+  %31 = shl nuw nsw i32 %.03644, 3
   %32 = lshr i32 %8, %31
   %33 = and i32 %32, 255
   %34 = icmp eq i32 %33, 0
@@ -1097,19 +1097,19 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
   %46 = fmul double %29, %44
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !104
-  %49 = tail call { double, double } %48(ptr noundef nonnull %0, double %.sroa.032.046, double %.sroa.434.047, double %45, double %46, double noundef %6, double noundef %7, i32 noundef range(i32 1, 256) %33) #13
+  %49 = tail call { double, double } %48(ptr noundef nonnull %0, double %.sroa.032.045, double %.sroa.434.046, double %45, double %46, double noundef %6, double noundef %7, i32 noundef range(i32 1, 256) %33) #13
   br label %52
 
 .loopexit.loopexit.i:                             ; preds = %37
-  %50 = insertvalue { double, double } poison, double %.sroa.032.046, 0
-  %51 = insertvalue { double, double } %50, double %.sroa.434.047, 1
+  %50 = insertvalue { double, double } poison, double %.sroa.032.045, 0
+  %51 = insertvalue { double, double } %50, double %.sroa.434.046, 1
   br label %52
 
 52:                                               ; preds = %.loopexit.loopexit.i, %.thread.i
   %.fca.1.insert.merged.i = phi { double, double } [ %49, %.thread.i ], [ %51, %.loopexit.loopexit.i ]
   %53 = extractvalue { double, double } %.fca.1.insert.merged.i, 0
   %54 = extractvalue { double, double } %.fca.1.insert.merged.i, 1
-  %55 = add nuw nsw i32 %.03645, 1
+  %55 = add nuw nsw i32 %.03644, 1
   %exitcond.not = icmp eq i32 %55, 4
   br i1 %exitcond.not, label %56, label %30, !llvm.loop !105
 

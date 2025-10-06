@@ -2524,7 +2524,7 @@ tlsa_md_get.exit.thread.i:                        ; preds = %tlsa_md_get.exit.i,
 86:                                               ; preds = %82
   %87 = load ptr, ptr %8, align 8, !tbaa !275
   call void @X509_free(ptr noundef %87) #20
-  br label %.thread118.i
+  br label %.thread117.i
 
 88:                                               ; preds = %82
   %89 = getelementptr inbounds nuw i8, ptr %19, i64 1320
@@ -2543,7 +2543,7 @@ tlsa_md_get.exit.thread.i:                        ; preds = %tlsa_md_get.exit.i,
   %97 = load ptr, ptr %8, align 8, !tbaa !275
   %98 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %96, ptr noundef %97) #20
   %.not106.i = icmp eq i32 %98, 0
-  br i1 %.not106.i, label %99, label %.thread118.i
+  br i1 %.not106.i, label %99, label %.thread117.i
 
 99:                                               ; preds = %95, %92
   call void @ERR_new() #20
@@ -2586,13 +2586,13 @@ tlsa_md_get.exit.thread.i:                        ; preds = %tlsa_md_get.exit.i,
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %113, ptr %115, align 8, !tbaa !276
-  br label %.thread118.i
+  br label %.thread117.i
 
 116:                                              ; preds = %111
   call void @EVP_PKEY_free(ptr noundef %113) #20
-  br label %.thread118.i
+  br label %.thread117.i
 
-.thread118.i:                                     ; preds = %116, %114, %95, %86
+.thread117.i:                                     ; preds = %116, %114, %95, %86
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -2605,37 +2605,37 @@ tlsa_md_get.exit.thread.i:                        ; preds = %tlsa_md_get.exit.i,
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dane_tlsa_add.exit
 
-118:                                              ; preds = %.thread118.i, %63
+118:                                              ; preds = %.thread117.i, %63
   %119 = load ptr, ptr %21, align 8, !tbaa !267
   %120 = call i32 @OPENSSL_sk_num(ptr noundef %119) #20
   %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %.lr.ph.i, label %.thread127.i
+  br i1 %121, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %118
   %122 = zext i8 %3 to i64
   br label %123
 
-123:                                              ; preds = %.thread122.i, %.lr.ph.i
-  %.082132.i = phi i32 [ 0, %.lr.ph.i ], [ %148, %.thread122.i ]
+123:                                              ; preds = %select.unfold.i, %.lr.ph.i
+  %.082123.i = phi i32 [ 0, %.lr.ph.i ], [ %148, %select.unfold.i ]
   %124 = load ptr, ptr %21, align 8, !tbaa !267
-  %125 = call ptr @OPENSSL_sk_value(ptr noundef %124, i32 noundef %.082132.i) #20
+  %125 = call ptr @OPENSSL_sk_value(ptr noundef %124, i32 noundef %.082123.i) #20
   %126 = load i8, ptr %125, align 8, !tbaa !279
   %127 = icmp ugt i8 %126, %1
-  br i1 %127, label %.thread122.i, label %128
+  br i1 %127, label %select.unfold.i, label %128
 
 128:                                              ; preds = %123
   %129 = icmp ult i8 %126, %1
-  br i1 %129, label %.thread127.i, label %130
+  br i1 %129, label %._crit_edge.i, label %130
 
 130:                                              ; preds = %128
   %131 = getelementptr inbounds nuw i8, ptr %125, i64 1
   %132 = load i8, ptr %131, align 1, !tbaa !280
   %133 = icmp ugt i8 %132, %2
-  br i1 %133, label %.thread122.i, label %134
+  br i1 %133, label %select.unfold.i, label %134
 
 134:                                              ; preds = %130
   %135 = icmp ult i8 %132, %2
-  br i1 %135, label %.thread127.i, label %136
+  br i1 %135, label %._crit_edge.i, label %136
 
 136:                                              ; preds = %134
   %137 = load ptr, ptr %20, align 8, !tbaa !271
@@ -2649,28 +2649,28 @@ tlsa_md_get.exit.thread.i:                        ; preds = %tlsa_md_get.exit.i,
   %145 = getelementptr inbounds nuw i8, ptr %139, i64 %122
   %146 = load i8, ptr %145, align 1, !tbaa !261
   %147 = icmp ugt i8 %144, %146
-  br i1 %147, label %.thread122.i, label %.thread127.i
+  br i1 %147, label %select.unfold.i, label %._crit_edge.i
 
-.thread122.i:                                     ; preds = %136, %130, %123
-  %148 = add nuw nsw i32 %.082132.i, 1
+select.unfold.i:                                  ; preds = %136, %130, %123
+  %148 = add nuw nsw i32 %.082123.i, 1
   %exitcond.not.i = icmp eq i32 %148, %120
-  br i1 %exitcond.not.i, label %.thread127.i, label %123, !llvm.loop !287
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %123, !llvm.loop !287
 
-.thread127.i:                                     ; preds = %.thread122.i, %136, %134, %128, %118
-  %.082.lcssa.i = phi i32 [ 0, %118 ], [ %120, %.thread122.i ], [ %.082132.i, %136 ], [ %.082132.i, %128 ], [ %.082132.i, %134 ]
+._crit_edge.i:                                    ; preds = %select.unfold.i, %136, %134, %128, %118
+  %.082.lcssa.i = phi i32 [ 0, %118 ], [ %120, %select.unfold.i ], [ %.082123.i, %136 ], [ %.082123.i, %134 ], [ %.082123.i, %128 ]
   %149 = load ptr, ptr %21, align 8, !tbaa !267
   %150 = call i32 @OPENSSL_sk_insert(ptr noundef %149, ptr noundef nonnull %54, i32 noundef %.082.lcssa.i) #20
   %.not107.i = icmp eq i32 %150, 0
   br i1 %.not107.i, label %151, label %152
 
-151:                                              ; preds = %.thread127.i
+151:                                              ; preds = %._crit_edge.i
   call void @tlsa_free(ptr noundef nonnull %54)
   call void @ERR_new() #20
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 440, ptr noundef nonnull @__func__.dane_tlsa_add) #20
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 20, i32 noundef 524303, ptr noundef null) #20
   br label %dane_tlsa_add.exit
 
-152:                                              ; preds = %.thread127.i
+152:                                              ; preds = %._crit_edge.i
   %153 = shl nuw nsw i32 1, %31
   %154 = getelementptr inbounds nuw i8, ptr %19, i64 1344
   %155 = load i32, ptr %154, align 8, !tbaa !288

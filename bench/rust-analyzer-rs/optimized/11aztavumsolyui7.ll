@@ -13323,18 +13323,18 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.preheader.split.preheader, label %.thread
 
 .preheader.split.preheader:                       ; preds = %4
-  %exitcond.not14 = icmp eq i64 %1, 0
-  br i1 %exitcond.not14, label %.thread, label %.lr.ph
+  %exitcond.not13 = icmp eq i64 %1, 0
+  br i1 %exitcond.not13, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17hd131da47a2c4fd78E.llvm.4103369960975828492.exit, %.preheader.split.backedge, %.lr.ph, %13, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h56d27eb956e50a30E.exit.i.i.i.i", %32, %25, %40, %47, %.preheader.split.preheader, %4
   %.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %47 ], [ false, %40 ], [ false, %25 ], [ false, %32 ], [ false, %"_ZN67_$LT$chalk_ir..AliasTy$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h56d27eb956e50a30E.exit.i.i.i.i" ], [ false, %13 ], [ false, %.lr.ph ], [ true, %.preheader.split.backedge ], [ false, %_ZN4core3cmp9PartialEq2ne17hd131da47a2c4fd78E.llvm.4103369960975828492.exit ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
-  %.sroa.01.015 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
-  %5 = add i64 %.sroa.01.015, 1
-  %6 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %0, i64 %.sroa.01.015
-  %7 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %2, i64 %.sroa.01.015
+  %.sroa.01.014 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
+  %5 = add i64 %.sroa.01.014, 1
+  %6 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %0, i64 %.sroa.01.014
+  %7 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %2, i64 %.sroa.01.014
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4140)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4143)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4145)
@@ -13458,18 +13458,18 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split, label %.thread
 
 _ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split: ; preds = %4
-  %.not12 = icmp eq i64 %1, 0
-  br i1 %.not12, label %.thread, label %.lr.ph
+  %.not11 = icmp eq i64 %1, 0
+  br i1 %.not11, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %11, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.backedge, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split, %4
   %.0 = phi i1 [ false, %4 ], [ true, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split ], [ false, %11 ], [ true, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.backedge ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.backedge
-  %.sroa.01.010 = phi i64 [ %5, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.backedge ], [ 0, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split ]
-  %5 = add nuw i64 %.sroa.01.010, 1
-  %6 = getelementptr inbounds ptr, ptr %0, i64 %.sroa.01.010
-  %7 = getelementptr inbounds ptr, ptr %2, i64 %.sroa.01.010
+  %.sroa.01.09 = phi i64 [ %5, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.backedge ], [ 0, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split ]
+  %5 = add nuw i64 %.sroa.01.09, 1
+  %6 = getelementptr inbounds ptr, ptr %0, i64 %.sroa.01.09
+  %7 = getelementptr inbounds ptr, ptr %2, i64 %.sroa.01.09
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4193)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4196)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4198)
@@ -13498,18 +13498,18 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.preheader.split.preheader, label %.thread
 
 .preheader.split.preheader:                       ; preds = %4
-  %exitcond.not14 = icmp eq i64 %1, 0
-  br i1 %exitcond.not14, label %.thread, label %.lr.ph
+  %exitcond.not13 = icmp eq i64 %1, 0
+  br i1 %exitcond.not13, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %_ZN4core3cmp9PartialEq2ne17h42f6457f3efe33a4E.llvm.4103369960975828492.exit, %.preheader.split.backedge, %.lr.ph, %14, %18, %.preheader.split.preheader, %4
   %.0 = phi i1 [ false, %4 ], [ true, %.preheader.split.preheader ], [ false, %18 ], [ false, %14 ], [ false, %.lr.ph ], [ true, %.preheader.split.backedge ], [ false, %_ZN4core3cmp9PartialEq2ne17h42f6457f3efe33a4E.llvm.4103369960975828492.exit ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
-  %.sroa.01.015 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
-  %5 = add i64 %.sroa.01.015, 1
-  %6 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %0, i64 %.sroa.01.015
-  %7 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %2, i64 %.sroa.01.015
+  %.sroa.01.014 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
+  %5 = add i64 %.sroa.01.014, 1
+  %6 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %0, i64 %.sroa.01.014
+  %7 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %2, i64 %.sroa.01.014
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4214)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4216)
@@ -13584,8 +13584,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4248)
   %9 = load ptr, ptr %7, align 8, !alias.scope !4250, !noalias !4251, !nonnull !11, !noundef !11
   %10 = load ptr, ptr %8, align 8, !alias.scope !4251, !noalias !4250, !nonnull !11, !noundef !11
-  %.not9 = icmp eq ptr %9, %10
-  br i1 %.not9, label %.preheader.split, label %.thread
+  %.not8 = icmp eq ptr %9, %10
+  br i1 %.not8, label %.preheader.split, label %.thread
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -13668,8 +13668,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4309)
   %13 = load i32, ptr %11, align 8, !alias.scope !4311, !noalias !4312, !noundef !11
   %14 = load i32, ptr %12, align 8, !alias.scope !4312, !noalias !4311, !noundef !11
-  %.not10 = icmp eq i32 %13, %14
-  br i1 %.not10, label %.preheader.split, label %.thread
+  %.not9 = icmp eq i32 %13, %14
+  br i1 %.not9, label %.preheader.split, label %.thread
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: readwrite) uwtable
@@ -13678,18 +13678,18 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %.not, label %.critedge.preheader.split, label %.thread
 
 .critedge.preheader.split:                        ; preds = %4
-  %.not14 = icmp eq i64 %1, 0
-  br i1 %.not14, label %.thread, label %.lr.ph
+  %.not13 = icmp eq i64 %1, 0
+  br i1 %.not13, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %12, %_ZN4core3cmp9PartialEq2ne17hac6d0557486846e0E.llvm.4103369960975828492.exit, %.critedge.backedge, %.lr.ph, %.critedge.preheader.split, %4
   %.0 = phi i1 [ false, %4 ], [ true, %.critedge.preheader.split ], [ false, %12 ], [ false, %_ZN4core3cmp9PartialEq2ne17hac6d0557486846e0E.llvm.4103369960975828492.exit ], [ true, %.critedge.backedge ], [ false, %.lr.ph ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.critedge.preheader.split, %.critedge.backedge
-  %.sroa.01.011 = phi i64 [ %5, %.critedge.backedge ], [ 0, %.critedge.preheader.split ]
-  %5 = add nuw i64 %.sroa.01.011, 1
-  %6 = getelementptr inbounds { i8, [15 x i8] }, ptr %0, i64 %.sroa.01.011
-  %7 = getelementptr inbounds { i8, [15 x i8] }, ptr %2, i64 %.sroa.01.011
+  %.sroa.01.010 = phi i64 [ %5, %.critedge.backedge ], [ 0, %.critedge.preheader.split ]
+  %5 = add nuw i64 %.sroa.01.010, 1
+  %6 = getelementptr inbounds { i8, [15 x i8] }, ptr %0, i64 %.sroa.01.010
+  %7 = getelementptr inbounds { i8, [15 x i8] }, ptr %2, i64 %.sroa.01.010
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4313)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4316)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4318)
@@ -13788,8 +13788,8 @@ _ZN4core3cmp9PartialEq2ne17hda82c985c2264263E.llvm.4103369960975828492.exit: ; p
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4359)
   %26 = load i64, ptr %24, align 8, !alias.scope !4361, !noalias !4362, !noundef !11
   %27 = load i64, ptr %25, align 8, !alias.scope !4362, !noalias !4361, !noundef !11
-  %.not10 = icmp eq i64 %26, %27
-  br i1 %.not10, label %.preheader.split, label %.thread
+  %.not9 = icmp eq i64 %26, %27
+  br i1 %.not9, label %.preheader.split, label %.thread
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -14618,14 +14618,14 @@ define hidden noundef zeroext i1 @"_ZN84_$LT$chalk_ir..ProgramClauseImplication$
   br i1 %.not.i.i, label %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split.i.i, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17hbd40c06f0eb6fa5eE.exit"
 
 _ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split.i.i: ; preds = %"_ZN70_$LT$chalk_ir..DomainGoal$LT$I$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7aaa36a507ed59adE.exit.thread24"
-  %.not12.i.i = icmp eq i64 %.val1, 0
-  br i1 %.not12.i.i, label %.loopexit, label %.lr.ph.i.i
+  %.not11.i.i = icmp eq i64 %.val1, 0
+  br i1 %.not11.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split.i.i, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.backedge.i.i
-  %.sroa.01.010.i.i = phi i64 [ %158, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.backedge.i.i ], [ 0, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split.i.i ]
-  %158 = add nuw i64 %.sroa.01.010.i.i, 1
-  %159 = getelementptr inbounds ptr, ptr %.val, i64 %.sroa.01.010.i.i
-  %160 = getelementptr inbounds ptr, ptr %.val2, i64 %.sroa.01.010.i.i
+  %.sroa.01.09.i.i = phi i64 [ %158, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.backedge.i.i ], [ 0, %_ZN4core3cmp9PartialEq2ne17h80bca501c10ea9a1E.llvm.4103369960975828492.exit.preheader.split.i.i ]
+  %158 = add nuw i64 %.sroa.01.09.i.i, 1
+  %159 = getelementptr inbounds ptr, ptr %.val, i64 %.sroa.01.09.i.i
+  %160 = getelementptr inbounds ptr, ptr %.val2, i64 %.sroa.01.09.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4686)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4689)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4691)
@@ -19937,12 +19937,12 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visi
   br label %15
 
 15:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i", %.lr.ph.i.i
-  %.sroa.0.09.i.i = phi ptr [ %8, %.lr.ph.i.i ], [ %16, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i" ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 16
+  %.sroa.0.08.i.i = phi ptr [ %8, %.lr.ph.i.i ], [ %16, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i" ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5512)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5515)
   tail call void %6(ptr noundef nonnull align 1 %1), !noalias !5518
-  %17 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i.i), !noalias !5520
+  %17 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i.i), !noalias !5520
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5521)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5524)
   %18 = load i64, ptr %17, align 8, !range !69, !alias.scope !5521, !noalias !5526, !noundef !11
@@ -19972,8 +19972,8 @@ default.unreachable:                              ; preds = %15
   br i1 %28, label %"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i"
 
 "_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i": ; preds = %26, %23, %20
-  %.not16.i.i = icmp eq ptr %16, %10
-  br i1 %.not16.i.i, label %"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit", label %15
+  %.not15.i.i = icmp eq ptr %16, %10
+  br i1 %.not15.i.i, label %"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit", label %15
 
 "_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit": ; preds = %20, %23, %26, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i", %4
   %.lcssa.i.i = phi i1 [ false, %4 ], [ true, %26 ], [ true, %23 ], [ true, %20 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i" ]
@@ -20002,7 +20002,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visi
 ; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN8chalk_ir1_104_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..DomainGoal$LT$I$GT$$GT$16super_visit_with17h6bb276c7adb1d279E"(ptr noalias noundef readonly align 8 dereferenceable(40) %0, ptr noundef nonnull align 1 %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %2, i32 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = load i32, ptr %0, align 8, !range !1311, !noundef !11
-  switch i32 %5, label %default.unreachable60 [
+  switch i32 %5, label %default.unreachable48 [
     i32 0, label %6
     i32 1, label %11
     i32 2, label %45
@@ -20017,7 +20017,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_104_$LT$impl$u20$chalk_ir..visi
     i32 11, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit"
   ]
 
-default.unreachable60:                            ; preds = %113, %60, %26, %4
+default.unreachable48:                            ; preds = %113, %60, %26, %4
   unreachable
 
 6:                                                ; preds = %4
@@ -20059,17 +20059,17 @@ default.unreachable60:                            ; preds = %113, %60, %26, %4
   br label %26
 
 26:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i", %.lr.ph.i.i.i.i
-  %.sroa.0.09.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i ], [ %27, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i" ]
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i.i.i, i64 16
+  %.sroa.0.08.i.i.i.i = phi ptr [ %19, %.lr.ph.i.i.i.i ], [ %27, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i" ]
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5547)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5550)
   tail call void %17(ptr noundef nonnull align 1 %1), !noalias !5553
-  %28 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i.i.i.i), !noalias !5555
+  %28 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i.i.i.i), !noalias !5555
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5556)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5559)
   %29 = load i64, ptr %28, align 8, !range !69, !alias.scope !5556, !noalias !5561, !noundef !11
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  switch i64 %29, label %default.unreachable60 [
+  switch i64 %29, label %default.unreachable48 [
     i64 0, label %31
     i64 1, label %34
     i64 2, label %37
@@ -20091,8 +20091,8 @@ default.unreachable60:                            ; preds = %113, %60, %26, %4
   br i1 %39, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit.thread", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i"
 
 "_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i": ; preds = %37, %34, %31
-  %.not16.i.i.i.i = icmp eq ptr %27, %21
-  br i1 %.not16.i.i.i.i, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit", label %26
+  %.not15.i.i.i.i = icmp eq ptr %27, %21
+  br i1 %.not15.i.i.i.i, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit", label %26
 
 40:                                               ; preds = %11
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20121,32 +20121,32 @@ default.unreachable60:                            ; preds = %113, %60, %26, %4
   %52 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$17substitution_data17he98a6d5e86f7f388E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %46), !noalias !5574
   %53 = extractvalue { ptr, i64 } %52, 0
   %54 = extractvalue { ptr, i64 } %52, 1
-  %.idx.i.i.i33 = shl nsw i64 %54, 4
-  %55 = getelementptr inbounds i8, ptr %53, i64 %.idx.i.i.i33
+  %.idx.i.i.i25 = shl nsw i64 %54, 4
+  %55 = getelementptr inbounds i8, ptr %53, i64 %.idx.i.i.i25
   %56 = icmp ne ptr %53, null
   tail call void @llvm.assume(i1 %56)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5579)
-  %.not.i.i.i.i34 = icmp eq i64 %54, 0
-  br i1 %.not.i.i.i.i34, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit", label %.lr.ph.i.i.i.i35
+  %.not.i.i.i.i26 = icmp eq i64 %54, 0
+  br i1 %.not.i.i.i.i26, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit", label %.lr.ph.i.i.i.i27
 
-.lr.ph.i.i.i.i35:                                 ; preds = %49
+.lr.ph.i.i.i.i27:                                 ; preds = %49
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %58 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %60
 
-60:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i37", %.lr.ph.i.i.i.i35
-  %.sroa.0.09.i.i.i.i36 = phi ptr [ %53, %.lr.ph.i.i.i.i35 ], [ %61, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i37" ]
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i.i.i36, i64 16
+60:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i29", %.lr.ph.i.i.i.i27
+  %.sroa.0.08.i.i.i.i28 = phi ptr [ %53, %.lr.ph.i.i.i.i27 ], [ %61, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i29" ]
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i.i28, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5582)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5585)
   tail call void %51(ptr noundef nonnull align 1 %1), !noalias !5588
-  %62 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i.i.i.i36), !noalias !5590
+  %62 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i.i.i.i28), !noalias !5590
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5591)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5594)
   %63 = load i64, ptr %62, align 8, !range !69, !alias.scope !5591, !noalias !5596, !noundef !11
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
-  switch i64 %63, label %default.unreachable60 [
+  switch i64 %63, label %default.unreachable48 [
     i64 0, label %65
     i64 1, label %68
     i64 2, label %71
@@ -20155,21 +20155,21 @@ default.unreachable60:                            ; preds = %113, %60, %26, %4
 65:                                               ; preds = %60
   %66 = load ptr, ptr %59, align 8, !invariant.load !11, !alias.scope !5596, !noalias !5597, !nonnull !11
   %67 = tail call noundef zeroext i1 %66(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %64, i32 noundef %3), !noalias !5596
-  br i1 %67, label %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i37"
+  br i1 %67, label %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i29"
 
 68:                                               ; preds = %60
   %69 = load ptr, ptr %58, align 8, !invariant.load !11, !alias.scope !5596, !noalias !5597, !nonnull !11
   %70 = tail call noundef zeroext i1 %69(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %64, i32 noundef %3), !noalias !5596
-  br i1 %70, label %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i37"
+  br i1 %70, label %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i29"
 
 71:                                               ; preds = %60
   %72 = load ptr, ptr %57, align 8, !invariant.load !11, !alias.scope !5596, !noalias !5597, !nonnull !11
   %73 = tail call noundef zeroext i1 %72(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %64, i32 noundef %3), !noalias !5596
-  br i1 %73, label %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i37"
+  br i1 %73, label %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i29"
 
-"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i37": ; preds = %71, %68, %65
-  %.not16.i.i.i.i38 = icmp eq ptr %61, %55
-  br i1 %.not16.i.i.i.i38, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit", label %60
+"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i29": ; preds = %71, %68, %65
+  %.not15.i.i.i.i30 = icmp eq ptr %61, %55
+  br i1 %.not15.i.i.i.i30, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit", label %60
 
 74:                                               ; preds = %45
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -20240,17 +20240,17 @@ default.unreachable60:                            ; preds = %113, %60, %26, %4
   br label %113
 
 113:                                              ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i", %.lr.ph.i.i.i
-  %.sroa.0.09.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i ], [ %114, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i.i, i64 16
+  %.sroa.0.08.i.i.i = phi ptr [ %106, %.lr.ph.i.i.i ], [ %114, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5617)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5620)
   tail call void %104(ptr noundef nonnull align 1 %1), !noalias !5623
-  %115 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i.i.i), !noalias !5625
+  %115 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i.i.i), !noalias !5625
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5626)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5629)
   %116 = load i64, ptr %115, align 8, !range !69, !alias.scope !5626, !noalias !5631, !noundef !11
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 8
-  switch i64 %116, label %default.unreachable60 [
+  switch i64 %116, label %default.unreachable48 [
     i64 0, label %118
     i64 1, label %121
     i64 2, label %124
@@ -20272,8 +20272,8 @@ default.unreachable60:                            ; preds = %113, %60, %26, %4
   br i1 %126, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i"
 
 "_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i": ; preds = %124, %121, %118
-  %.not16.i.i.i = icmp eq ptr %114, %108
-  br i1 %.not16.i.i.i, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit", label %113
+  %.not15.i.i.i = icmp eq ptr %114, %108
+  br i1 %.not15.i.i.i, label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit", label %113
 
 127:                                              ; preds = %4
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -20282,8 +20282,8 @@ default.unreachable60:                            ; preds = %113, %60, %26, %4
   %131 = tail call noundef zeroext i1 %130(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %128, i32 noundef %3)
   br label %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit"
 
-"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit": ; preds = %118, %121, %124, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i", %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i37", %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i", %"_ZN8chalk_ir1_98_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Normalize$LT$I$GT$$GT$10visit_with17h94effaf5fd3ffe65E.exit", %79, %101, %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread", %74, %49, %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit.thread", %40, %15, %96, %91, %86, %6, %127, %4, %4, %4
-  %.0 = phi i1 [ false, %4 ], [ false, %4 ], [ false, %4 ], [ %131, %127 ], [ %10, %6 ], [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ true, %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit.thread" ], [ false, %40 ], [ false, %15 ], [ true, %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread" ], [ false, %74 ], [ false, %49 ], [ false, %101 ], [ true, %79 ], [ %85, %"_ZN8chalk_ir1_98_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Normalize$LT$I$GT$$GT$10visit_with17h94effaf5fd3ffe65E.exit" ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i" ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i37" ], [ true, %118 ], [ true, %121 ], [ true, %124 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
+"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit": ; preds = %118, %121, %124, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i", %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i29", %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i", %"_ZN8chalk_ir1_98_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Normalize$LT$I$GT$$GT$10visit_with17h94effaf5fd3ffe65E.exit", %79, %101, %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread", %74, %49, %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit.thread", %40, %15, %96, %91, %86, %6, %127, %4, %4, %4
+  %.0 = phi i1 [ false, %4 ], [ false, %4 ], [ false, %4 ], [ %131, %127 ], [ %10, %6 ], [ %90, %86 ], [ %95, %91 ], [ %100, %96 ], [ true, %"_ZN8chalk_ir1_99_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$10visit_with17hda56b2a4ab2e8812E.exit.thread" ], [ false, %40 ], [ false, %15 ], [ true, %"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$10visit_with17h7c13acb2347b3d36E.exit.thread" ], [ false, %74 ], [ false, %49 ], [ false, %101 ], [ true, %79 ], [ %85, %"_ZN8chalk_ir1_98_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Normalize$LT$I$GT$$GT$10visit_with17h94effaf5fd3ffe65E.exit" ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i" ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i.i29" ], [ true, %118 ], [ true, %121 ], [ true, %124 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
   ret i1 %.0
 }
 
@@ -20328,12 +20328,12 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_105_$LT$impl$u20$chalk_ir..visi
   br label %22
 
 22:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i", %.lr.ph.i.i.i
-  %.sroa.0.09.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %23, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i.i, i64 16
+  %.sroa.0.08.i.i.i = phi ptr [ %15, %.lr.ph.i.i.i ], [ %23, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5647)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5650)
   tail call void %13(ptr noundef nonnull align 1 %1), !noalias !5653
-  %24 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i.i.i), !noalias !5655
+  %24 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i.i.i), !noalias !5655
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5656)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5659)
   %25 = load i64, ptr %24, align 8, !range !69, !alias.scope !5656, !noalias !5661, !noundef !11
@@ -20363,8 +20363,8 @@ default.unreachable:                              ; preds = %22
   br i1 %35, label %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17hea2c3d53ae447c88E.llvm.4103369960975828492.exit.thread", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i"
 
 "_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i": ; preds = %33, %30, %27
-  %.not16.i.i.i = icmp eq ptr %23, %17
-  br i1 %.not16.i.i.i, label %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17hea2c3d53ae447c88E.llvm.4103369960975828492.exit", label %22
+  %.not15.i.i.i = icmp eq ptr %23, %17
+  br i1 %.not15.i.i.i, label %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$10visit_with17hea2c3d53ae447c88E.llvm.4103369960975828492.exit", label %22
 
 36:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5663)
@@ -20656,12 +20656,12 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_113_$LT$impl$u20$chalk_ir..visi
   br label %32
 
 32:                                               ; preds = %60, %.lr.ph.i.i
-  %.sroa.0.010.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %33, %60 ]
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i.i, i64 32
+  %.sroa.0.09.i.i = phi ptr [ %25, %.lr.ph.i.i ], [ %33, %60 ]
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5713)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5716)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5719)
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i.i, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5721)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5724)
   tail call void %11(ptr noundef nonnull align 1 %1), !noalias !5727
@@ -20688,9 +20688,9 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_113_$LT$impl$u20$chalk_ir..visi
 44:                                               ; preds = %40
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5736)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5739)
-  %45 = load i64, ptr %.sroa.0.010.i.i, align 8, !range !1184, !alias.scope !5741, !noalias !5742, !noundef !11
+  %45 = load i64, ptr %.sroa.0.09.i.i, align 8, !range !1184, !alias.scope !5741, !noalias !5742, !noundef !11
   %trunc.i.i.i.i.i = trunc nuw i64 %45 to i1
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 8
   br i1 %trunc.i.i.i.i.i, label %50, label %47
 
 47:                                               ; preds = %44
@@ -20704,19 +20704,19 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_113_$LT$impl$u20$chalk_ir..visi
   br i1 %52, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17he95d25829c1c7399E.llvm.4103369960975828492.exit", label %56
 
 53:                                               ; preds = %47
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i.i, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 16
   %55 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %54, i32 noundef %3), !noalias !5742
   br i1 %55, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17he95d25829c1c7399E.llvm.4103369960975828492.exit", label %60
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i.i, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 16
   %58 = load ptr, ptr %30, align 8, !invariant.load !11, !alias.scope !5742, !noalias !5743, !nonnull !11
   %59 = tail call noundef zeroext i1 %58(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %57, i32 noundef %3), !noalias !5742
   br i1 %59, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17he95d25829c1c7399E.llvm.4103369960975828492.exit", label %60
 
 60:                                               ; preds = %56, %53
-  %.not19.i.i = icmp eq ptr %33, %27
-  br i1 %.not19.i.i, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17he95d25829c1c7399E.llvm.4103369960975828492.exit", label %32
+  %.not18.i.i = icmp eq ptr %33, %27
+  br i1 %.not18.i.i, label %"_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17he95d25829c1c7399E.llvm.4103369960975828492.exit", label %32
 
 "_ZN8chalk_ir5visit12boring_impls94_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Goals$LT$I$GT$$GT$10visit_with17he95d25829c1c7399E.llvm.4103369960975828492.exit": ; preds = %19, %56, %53, %50, %47, %60, %41, %22, %4
   %.0 = phi i1 [ true, %4 ], [ false, %22 ], [ true, %41 ], [ true, %56 ], [ true, %53 ], [ true, %50 ], [ true, %47 ], [ false, %60 ], [ true, %19 ]
@@ -21815,12 +21815,12 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_96_$LT$impl$u20$chalk_ir..visit
   br label %18
 
 18:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i", %.lr.ph.i.i.i
-  %.sroa.0.09.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %19, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i.i, i64 16
+  %.sroa.0.08.i.i.i = phi ptr [ %11, %.lr.ph.i.i.i ], [ %19, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5892)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5895)
   tail call void %9(ptr noundef nonnull align 1 %1), !noalias !5898
-  %20 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i.i.i), !noalias !5900
+  %20 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i.i.i), !noalias !5900
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5901)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5904)
   %21 = load i64, ptr %20, align 8, !range !69, !alias.scope !5901, !noalias !5906, !noundef !11
@@ -21853,8 +21853,8 @@ default.unreachable:                              ; preds = %42
   br i1 %31, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i"
 
 "_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i": ; preds = %29, %26, %23
-  %.not16.i.i.i = icmp eq ptr %19, %13
-  br i1 %.not16.i.i.i, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %18
+  %.not15.i.i.i = icmp eq ptr %19, %13
+  br i1 %.not15.i.i.i, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %18
 
 32:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5908)
@@ -21864,27 +21864,27 @@ default.unreachable:                              ; preds = %42
   %34 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$17substitution_data17he98a6d5e86f7f388E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6), !noalias !5914
   %35 = extractvalue { ptr, i64 } %34, 0
   %36 = extractvalue { ptr, i64 } %34, 1
-  %.idx.i.i7 = shl nsw i64 %36, 4
-  %37 = getelementptr inbounds i8, ptr %35, i64 %.idx.i.i7
+  %.idx.i.i5 = shl nsw i64 %36, 4
+  %37 = getelementptr inbounds i8, ptr %35, i64 %.idx.i.i5
   %38 = icmp ne ptr %35, null
   tail call void @llvm.assume(i1 %38)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5919)
-  %.not.i.i.i8 = icmp eq i64 %36, 0
-  br i1 %.not.i.i.i8, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %.lr.ph.i.i.i9
+  %.not.i.i.i6 = icmp eq i64 %36, 0
+  br i1 %.not.i.i.i6, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %.lr.ph.i.i.i7
 
-.lr.ph.i.i.i9:                                    ; preds = %32
+.lr.ph.i.i.i7:                                    ; preds = %32
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 32
   br label %42
 
-42:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i11", %.lr.ph.i.i.i9
-  %.sroa.0.09.i.i.i10 = phi ptr [ %35, %.lr.ph.i.i.i9 ], [ %43, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i11" ]
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i.i10, i64 16
+42:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i9", %.lr.ph.i.i.i7
+  %.sroa.0.08.i.i.i8 = phi ptr [ %35, %.lr.ph.i.i.i7 ], [ %43, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i9" ]
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i.i8, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5922)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5925)
   tail call void %33(ptr noundef nonnull align 1 %1), !noalias !5928
-  %44 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i.i.i10), !noalias !5930
+  %44 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i.i.i8), !noalias !5930
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5931)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5934)
   %45 = load i64, ptr %44, align 8, !range !69, !alias.scope !5931, !noalias !5936, !noundef !11
@@ -21898,24 +21898,24 @@ default.unreachable:                              ; preds = %42
 47:                                               ; preds = %42
   %48 = load ptr, ptr %41, align 8, !invariant.load !11, !alias.scope !5936, !noalias !5937, !nonnull !11
   %49 = tail call noundef zeroext i1 %48(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46, i32 noundef %3), !noalias !5936
-  br i1 %49, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i11"
+  br i1 %49, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i9"
 
 50:                                               ; preds = %42
   %51 = load ptr, ptr %40, align 8, !invariant.load !11, !alias.scope !5936, !noalias !5937, !nonnull !11
   %52 = tail call noundef zeroext i1 %51(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46, i32 noundef %3), !noalias !5936
-  br i1 %52, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i11"
+  br i1 %52, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i9"
 
 53:                                               ; preds = %42
   %54 = load ptr, ptr %39, align 8, !invariant.load !11, !alias.scope !5936, !noalias !5937, !nonnull !11
   %55 = tail call noundef zeroext i1 %54(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %46, i32 noundef %3), !noalias !5936
-  br i1 %55, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i11"
+  br i1 %55, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i9"
 
-"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i11": ; preds = %53, %50, %47
-  %.not16.i.i.i12 = icmp eq ptr %43, %37
-  br i1 %.not16.i.i.i12, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %42
+"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i9": ; preds = %53, %50, %47
+  %.not15.i.i.i10 = icmp eq ptr %43, %37
+  br i1 %.not15.i.i.i10, label %"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit", label %42
 
-"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit": ; preds = %23, %26, %29, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i", %47, %50, %53, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i11", %8, %32
-  %.0 = phi i1 [ false, %32 ], [ false, %8 ], [ true, %47 ], [ true, %50 ], [ true, %53 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i11" ], [ true, %23 ], [ true, %26 ], [ true, %29 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
+"_ZN8chalk_ir1_101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProjectionTy$LT$I$GT$$GT$10visit_with17h254273db9060b6f0E.llvm.4103369960975828492.exit": ; preds = %23, %26, %29, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i", %47, %50, %53, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i9", %8, %32
+  %.0 = phi i1 [ false, %32 ], [ false, %8 ], [ true, %47 ], [ true, %50 ], [ true, %53 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i9" ], [ true, %23 ], [ true, %26 ], [ true, %29 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i.i" ]
   ret i1 %.0
 }
 
@@ -22157,7 +22157,7 @@ define internal fastcc void @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..Type
   %7 = alloca ptr, align 8
   %8 = alloca { i64, [3 x i64] }, align 8
   %9 = load i32, ptr %1, align 8, !range !1311, !noundef !11
-  switch i32 %9, label %default.unreachable156 [
+  switch i32 %9, label %default.unreachable151 [
     i32 0, label %10
     i32 1, label %14
     i32 2, label %32
@@ -22172,7 +22172,7 @@ define internal fastcc void @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..Type
     i32 11, label %136
   ]
 
-default.unreachable156:                           ; preds = %5
+default.unreachable151:                           ; preds = %5
   unreachable
 
 10:                                               ; preds = %5
@@ -22216,24 +22216,24 @@ default.unreachable156:                           ; preds = %5
   %.sroa.6.0.i = phi ptr [ %24, %17 ], [ %29, %25 ]
   %.sroa.0.0.i = phi ptr [ %20, %17 ], [ null, %25 ]
   %31 = ptrtoint ptr %.sroa.6.0.i to i64
-  %.sroa.693.16.extract.trunc = trunc i64 %31 to i32
-  %.sroa.693.20.extract.shift = lshr i64 %31, 32
-  %.sroa.693.20.extract.trunc = trunc nuw i64 %.sroa.693.20.extract.shift to i32
+  %.sroa.690.16.extract.trunc = trunc i64 %31 to i32
+  %.sroa.690.20.extract.shift = lshr i64 %31, 32
+  %.sroa.690.20.extract.trunc = trunc nuw i64 %.sroa.690.20.extract.shift to i32
   br label %125
 
 32:                                               ; preds = %5
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.094.0.copyload = load ptr, ptr %33, align 8
-  %.sroa.295.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.295.0.copyload = load ptr, ptr %.sroa.295.0..sroa_idx, align 8
+  %.sroa.091.0.copyload = load ptr, ptr %33, align 8
+  %.sroa.292.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.292.0.copyload = load ptr, ptr %.sroa.292.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5967)
-  %34 = icmp eq ptr %.sroa.094.0.copyload, null
+  %34 = icmp eq ptr %.sroa.091.0.copyload, null
   br i1 %34, label %43, label %35
 
 35:                                               ; preds = %32
-  %36 = ptrtoint ptr %.sroa.295.0.copyload to i64
-  %.sroa.295.8.extract.trunc = trunc i64 %36 to i32
-  %37 = tail call { ptr, i32 } @"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$13try_fold_with17hd942c2801f160f22E"(ptr noundef nonnull %.sroa.094.0.copyload, i32 noundef %.sroa.295.8.extract.trunc, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4), !noalias !5970
+  %36 = ptrtoint ptr %.sroa.292.0.copyload to i64
+  %.sroa.292.8.extract.trunc = trunc i64 %36 to i32
+  %37 = tail call { ptr, i32 } @"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..TraitRef$LT$I$GT$$GT$13try_fold_with17hd942c2801f160f22E"(ptr noundef nonnull %.sroa.091.0.copyload, i32 noundef %.sroa.292.8.extract.trunc, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4), !noalias !5970
   %38 = extractvalue { ptr, i32 } %37, 0
   %39 = icmp eq ptr %38, null
   %40 = extractvalue { ptr, i32 } %37, 1
@@ -22242,47 +22242,47 @@ default.unreachable156:                           ; preds = %5
   br i1 %39, label %127, label %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit"
 
 43:                                               ; preds = %32
-  %44 = icmp ne ptr %.sroa.295.0.copyload, null
+  %44 = icmp ne ptr %.sroa.292.0.copyload, null
   tail call void @llvm.assume(i1 %44)
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %46 = load ptr, ptr %45, align 8, !invariant.load !11, !alias.scope !5967, !noalias !5970, !nonnull !11
-  %47 = tail call noundef ptr %46(ptr noundef nonnull align 1 %2, ptr noundef nonnull %.sroa.295.0.copyload, i32 noundef %4), !noalias !5973
+  %47 = tail call noundef ptr %46(ptr noundef nonnull align 1 %2, ptr noundef nonnull %.sroa.292.0.copyload, i32 noundef %4), !noalias !5973
   %48 = icmp eq ptr %47, null
   br i1 %48, label %127, label %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit"
 
 "_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit": ; preds = %35, %43
-  %.sroa.6.0.i88 = phi ptr [ %42, %35 ], [ %47, %43 ]
-  %.sroa.0.0.i89 = phi ptr [ %38, %35 ], [ null, %43 ]
-  %49 = ptrtoint ptr %.sroa.6.0.i88 to i64
-  %.sroa.698.16.extract.trunc = trunc i64 %49 to i32
-  %.sroa.698.20.extract.shift = lshr i64 %49, 32
-  %.sroa.698.20.extract.trunc = trunc nuw i64 %.sroa.698.20.extract.shift to i32
+  %.sroa.6.0.i85 = phi ptr [ %42, %35 ], [ %47, %43 ]
+  %.sroa.0.0.i86 = phi ptr [ %38, %35 ], [ null, %43 ]
+  %49 = ptrtoint ptr %.sroa.6.0.i85 to i64
+  %.sroa.695.16.extract.trunc = trunc i64 %49 to i32
+  %.sroa.695.20.extract.shift = lshr i64 %49, 32
+  %.sroa.695.20.extract.trunc = trunc nuw i64 %.sroa.695.20.extract.shift to i32
   br label %125
 
 50:                                               ; preds = %5
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.sroa.099.0.copyload = load i64, ptr %51, align 8
-  %.sroa.2100.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.sroa.2100.0.copyload = load ptr, ptr %.sroa.2100.0..sroa_idx, align 8, !nonnull !11, !noundef !11
+  %.sroa.096.0.copyload = load i64, ptr %51, align 8
+  %.sroa.297.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.sroa.297.0.copyload = load ptr, ptr %.sroa.297.0..sroa_idx, align 8, !nonnull !11, !noundef !11
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4102.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.sroa.4102.0.copyload = load ptr, ptr %.sroa.4102.0..sroa_idx, align 8, !nonnull !11, !noundef !11
+  %.sroa.499.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.sroa.499.0.copyload = load ptr, ptr %.sroa.499.0..sroa_idx, align 8, !nonnull !11, !noundef !11
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5974)
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !5977
-  store ptr %.sroa.4102.0.copyload, ptr %7, align 8, !noalias !5977
+  store ptr %.sroa.499.0.copyload, ptr %7, align 8, !noalias !5977
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !5977
-  %52 = invoke noundef ptr @"_ZN8chalk_ir4fold12boring_impls99_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$13try_fold_with17h0a13f70ad179422bE.llvm.4103369960975828492"(ptr noundef nonnull %.sroa.2100.0.copyload, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4)
+  %52 = invoke noundef ptr @"_ZN8chalk_ir4fold12boring_impls99_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$13try_fold_with17h0a13f70ad179422bE.llvm.4103369960975828492"(ptr noundef nonnull %.sroa.297.0.copyload, ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3, i32 noundef %4)
           to label %.noexc.i unwind label %83, !noalias !5980
 
 .noexc.i:                                         ; preds = %50
   %53 = icmp eq ptr %52, null
-  %54 = icmp eq i64 %.sroa.099.0.copyload, 2
+  %54 = icmp eq i64 %.sroa.096.0.copyload, 2
   %or.cond.i = select i1 %53, i1 true, i1 %54
   br i1 %or.cond.i, label %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..AliasTy$LT$I$GT$$GT$13try_fold_with17h82457ad776b6f1e0E.exit.thread.i", label %55
 
 55:                                               ; preds = %.noexc.i
-  store i64 %.sroa.099.0.copyload, ptr %6, align 8, !noalias !5977
+  store i64 %.sroa.096.0.copyload, ptr %6, align 8, !noalias !5977
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %52, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !5977
   %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -22293,7 +22293,7 @@ default.unreachable156:                           ; preds = %5
   %59 = trunc i64 %58 to i32
   %60 = lshr i64 %58, 32
   %61 = trunc nuw i64 %60 to i32
-  %62 = invoke noundef ptr %57(ptr noundef nonnull align 1 %2, ptr noundef nonnull %.sroa.4102.0.copyload, i32 noundef %4)
+  %62 = invoke noundef ptr %57(ptr noundef nonnull align 1 %2, ptr noundef nonnull %.sroa.499.0.copyload, i32 noundef %4)
           to label %65 unwind label %63, !noalias !5980
 
 63:                                               ; preds = %55
@@ -22321,7 +22321,7 @@ default.unreachable156:                           ; preds = %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5977
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5981)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5984)
-  %70 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h010f4f0a069f4beaE.llvm.9851347475423145587(ptr noundef nonnull %.sroa.4102.0.copyload, i8 noundef 2)
+  %70 = invoke noundef i64 @_ZN4core4sync6atomic11atomic_load17h010f4f0a069f4beaE.llvm.9851347475423145587(ptr noundef nonnull %.sroa.499.0.copyload, i8 noundef 2)
           to label %.noexc.i.i.i unwind label %73, !noalias !5987
 
 .noexc.i.i.i:                                     ; preds = %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..AliasTy$LT$I$GT$$GT$13try_fold_with17h82457ad776b6f1e0E.exit.thread.i"
@@ -22343,7 +22343,7 @@ default.unreachable156:                           ; preds = %5
           to label %common.resume.i unwind label %81, !noalias !5980
 
 "_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37792129b5c0f412E.llvm.15963164601899926706.exit.i.i.i": ; preds = %"._ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37792129b5c0f412E.llvm.15963164601899926706.exit_crit_edge.i.i.i", %.noexc.i.i.i
-  %75 = phi ptr [ %.pre.i.i.i, %"._ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37792129b5c0f412E.llvm.15963164601899926706.exit_crit_edge.i.i.i" ], [ %.sroa.4102.0.copyload, %.noexc.i.i.i ]
+  %75 = phi ptr [ %.pre.i.i.i, %"._ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37792129b5c0f412E.llvm.15963164601899926706.exit_crit_edge.i.i.i" ], [ %.sroa.499.0.copyload, %.noexc.i.i.i ]
   call void @llvm.experimental.noalias.scope.decl(metadata !5993)
   call void @llvm.experimental.noalias.scope.decl(metadata !5994)
   %76 = atomicrmw sub ptr %75, i64 1 release, align 8, !noalias !5995
@@ -22440,9 +22440,9 @@ common.resume.i:                                  ; preds = %83, %73, %63
 125:                                              ; preds = %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit", %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit", %115, %106, %99, %92, %85, %5, %5, %136, %128, %122
   %.sroa.27.sroa.8.sroa.0.0 = phi i64 [ %.sroa.6.sroa.0.0.copyload, %122 ], [ undef, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit" ], [ undef, %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit" ], [ %.sroa.0.i.sroa.6.0.copyload, %128 ], [ undef, %85 ], [ undef, %92 ], [ undef, %99 ], [ undef, %106 ], [ undef, %115 ], [ undef, %5 ], [ undef, %5 ], [ undef, %136 ]
   %.sroa.27.sroa.8.sroa.6.0 = phi ptr [ %.sroa.6.sroa.4.0.copyload, %122 ], [ undef, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit" ], [ undef, %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit" ], [ %62, %128 ], [ undef, %85 ], [ undef, %92 ], [ undef, %99 ], [ undef, %106 ], [ undef, %115 ], [ undef, %5 ], [ undef, %5 ], [ undef, %136 ]
-  %.sroa.27.sroa.0.0 = phi i32 [ %.sroa.561.0.copyload, %122 ], [ %.sroa.693.20.extract.trunc, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit" ], [ %.sroa.698.20.extract.trunc, %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit" ], [ %61, %128 ], [ undef, %85 ], [ undef, %92 ], [ undef, %99 ], [ undef, %106 ], [ undef, %115 ], [ undef, %5 ], [ undef, %5 ], [ undef, %136 ]
-  %.sroa.26.0 = phi i32 [ %.sroa.460.0.copyload, %122 ], [ %.sroa.693.16.extract.trunc, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit" ], [ %.sroa.698.16.extract.trunc, %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit" ], [ %59, %128 ], [ undef, %85 ], [ undef, %92 ], [ undef, %99 ], [ %114, %106 ], [ undef, %115 ], [ undef, %5 ], [ undef, %5 ], [ undef, %136 ]
-  %.sroa.17.0 = phi ptr [ %123, %122 ], [ %.sroa.0.0.i, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit" ], [ %.sroa.0.0.i89, %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit" ], [ %129, %128 ], [ %90, %85 ], [ %97, %92 ], [ %104, %99 ], [ %112, %106 ], [ %120, %115 ], [ undef, %5 ], [ undef, %5 ], [ undef, %136 ]
+  %.sroa.27.sroa.0.0 = phi i32 [ %.sroa.561.0.copyload, %122 ], [ %.sroa.690.20.extract.trunc, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit" ], [ %.sroa.695.20.extract.trunc, %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit" ], [ %61, %128 ], [ undef, %85 ], [ undef, %92 ], [ undef, %99 ], [ undef, %106 ], [ undef, %115 ], [ undef, %5 ], [ undef, %5 ], [ undef, %136 ]
+  %.sroa.26.0 = phi i32 [ %.sroa.460.0.copyload, %122 ], [ %.sroa.690.16.extract.trunc, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit" ], [ %.sroa.695.16.extract.trunc, %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit" ], [ %59, %128 ], [ undef, %85 ], [ undef, %92 ], [ undef, %99 ], [ %114, %106 ], [ undef, %115 ], [ undef, %5 ], [ undef, %5 ], [ undef, %136 ]
+  %.sroa.17.0 = phi ptr [ %123, %122 ], [ %.sroa.0.0.i, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit" ], [ %.sroa.0.0.i86, %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit" ], [ %129, %128 ], [ %90, %85 ], [ %97, %92 ], [ %104, %99 ], [ %112, %106 ], [ %120, %115 ], [ undef, %5 ], [ undef, %5 ], [ undef, %136 ]
   %.sroa.16.0 = phi i32 [ undef, %122 ], [ undef, %"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..WellFormed$LT$I$GT$$GT$13try_fold_with17h538c77ccac85fffeE.exit" ], [ undef, %"_ZN8chalk_ir1_94_$LT$impl$u20$chalk_ir..fold..TypeFoldable$LT$I$GT$$u20$for$u20$chalk_ir..FromEnv$LT$I$GT$$GT$13try_fold_with17ha45f0523c0ce15aaE.exit" ], [ undef, %128 ], [ undef, %85 ], [ undef, %92 ], [ undef, %99 ], [ undef, %106 ], [ undef, %115 ], [ undef, %5 ], [ undef, %5 ], [ %138, %136 ]
   store i32 %9, ptr %0, align 8
   %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -22471,7 +22471,7 @@ common.resume.i:                                  ; preds = %83, %73, %63
   %.sroa.0.i.sroa.6.0.copyload = load i64, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i, align 8, !noalias !5977
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !5977
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !5977
-  %129 = inttoptr i64 %.sroa.099.0.copyload to ptr
+  %129 = inttoptr i64 %.sroa.096.0.copyload to ptr
   br label %125
 
 130:                                              ; preds = %78, %"_ZN67_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h37792129b5c0f412E.llvm.15963164601899926706.exit.i.i.i", %67
@@ -22580,14 +22580,14 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit
   br label %39
 
 39:                                               ; preds = %40, %29
-  %.sroa.0.0.i.i29 = phi ptr [ %34, %29 ], [ %41, %40 ]
-  %.not.not.not.i.not.not.not.i30.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i29, %36
-  br i1 %.not.not.not.i.not.not.not.i30.not.not.not.not, label %40, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17h224e8c3cdc05ddbeE.exit"
+  %.sroa.0.0.i.i22 = phi ptr [ %34, %29 ], [ %41, %40 ]
+  %.not.not.not.i.not.not.not.i23.not.not.not.not = icmp ne ptr %.sroa.0.0.i.i22, %36
+  br i1 %.not.not.not.i.not.not.not.i23.not.not.not.not, label %40, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17h224e8c3cdc05ddbeE.exit"
 
 40:                                               ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i29, i64 8
-  %.val4.i.i31 = load ptr, ptr %38, align 8, !alias.scope !6015, !noalias !6009
-  %42 = tail call noundef zeroext i1 %.val4.i.i31(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.0.i.i29, i32 noundef %3), !noalias !6015
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i22, i64 8
+  %.val4.i.i24 = load ptr, ptr %38, align 8, !alias.scope !6015, !noalias !6009
+  %42 = tail call noundef zeroext i1 %.val4.i.i24(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.sroa.0.0.i.i22, i32 noundef %3), !noalias !6015
   br i1 %42, label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17h224e8c3cdc05ddbeE.exit", label %39
 
 43:                                               ; preds = %4
@@ -22691,7 +22691,7 @@ default.unreachable:                              ; preds = %"_ZN8chalk_ir5visit
   br label %"_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17h224e8c3cdc05ddbeE.exit"
 
 "_ZN8chalk_ir5visit12boring_impls103_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClauses$LT$I$GT$$GT$10visit_with17h224e8c3cdc05ddbeE.exit": ; preds = %40, %39, %26, %"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..SubtypeGoal$LT$I$GT$$GT$10visit_with17h9f98ad507d8e4f54E.exit", %83, %"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..EqGoal$LT$I$GT$$GT$10visit_with17h0df5333cf934ee01E.exit.thread", %79, %75, %71, %89, %43, %9, %93, %4
-  %.0 = phi i1 [ false, %4 ], [ %97, %93 ], [ %14, %9 ], [ %47, %43 ], [ %92, %89 ], [ true, %"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..EqGoal$LT$I$GT$$GT$10visit_with17h0df5333cf934ee01E.exit.thread" ], [ false, %79 ], [ false, %75 ], [ false, %71 ], [ true, %83 ], [ %88, %"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..SubtypeGoal$LT$I$GT$$GT$10visit_with17h9f98ad507d8e4f54E.exit" ], [ true, %26 ], [ %.not.not.not.i.not.not.not.i30.not.not.not.not, %39 ], [ %.not.not.not.i.not.not.not.i30.not.not.not.not, %40 ]
+  %.0 = phi i1 [ false, %4 ], [ %97, %93 ], [ %14, %9 ], [ %47, %43 ], [ %92, %89 ], [ true, %"_ZN8chalk_ir1_95_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..EqGoal$LT$I$GT$$GT$10visit_with17h0df5333cf934ee01E.exit.thread" ], [ false, %79 ], [ false, %75 ], [ false, %71 ], [ true, %83 ], [ %88, %"_ZN8chalk_ir1_100_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..SubtypeGoal$LT$I$GT$$GT$10visit_with17h9f98ad507d8e4f54E.exit" ], [ true, %26 ], [ %.not.not.not.i.not.not.not.i23.not.not.not.not, %39 ], [ %.not.not.not.i.not.not.not.i23.not.not.not.not, %40 ]
   ret i1 %.0
 
 93:                                               ; preds = %25
@@ -22726,12 +22726,12 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit
   br label %15
 
 15:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i", %.lr.ph.i.i
-  %.sroa.0.09.i.i = phi ptr [ %8, %.lr.ph.i.i ], [ %16, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i" ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 16
+  %.sroa.0.08.i.i = phi ptr [ %8, %.lr.ph.i.i ], [ %16, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i" ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6056)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6059)
   tail call void %6(ptr noundef nonnull align 1 %1), !noalias !6062
-  %17 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i.i), !noalias !6064
+  %17 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i.i), !noalias !6064
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6065)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6068)
   %18 = load i64, ptr %17, align 8, !range !69, !alias.scope !6065, !noalias !6070, !noundef !11
@@ -22761,8 +22761,8 @@ default.unreachable:                              ; preds = %15
   br i1 %28, label %"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i"
 
 "_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i": ; preds = %26, %23, %20
-  %.not16.i.i = icmp eq ptr %16, %10
-  br i1 %.not16.i.i, label %"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit", label %15
+  %.not15.i.i = icmp eq ptr %16, %10
+  br i1 %.not15.i.i, label %"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit", label %15
 
 "_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit": ; preds = %20, %23, %26, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i", %4
   %.lcssa.i.i = phi i1 [ false, %4 ], [ true, %26 ], [ true, %23 ], [ true, %20 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i" ]
@@ -22793,12 +22793,12 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir1_97_$LT$impl$u20$chalk_ir..visit
   br label %15
 
 15:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i", %.lr.ph.i.i
-  %.sroa.0.09.i.i = phi ptr [ %8, %.lr.ph.i.i ], [ %16, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i" ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 16
+  %.sroa.0.08.i.i = phi ptr [ %8, %.lr.ph.i.i ], [ %16, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i" ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6081)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6084)
   tail call void %6(ptr noundef nonnull align 1 %1), !noalias !6087
-  %17 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i.i), !noalias !6089
+  %17 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i.i), !noalias !6089
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6090)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6093)
   %18 = load i64, ptr %17, align 8, !range !69, !alias.scope !6090, !noalias !6095, !noundef !11
@@ -22828,8 +22828,8 @@ default.unreachable:                              ; preds = %15
   br i1 %28, label %"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit", label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i"
 
 "_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i": ; preds = %26, %23, %20
-  %.not16.i.i = icmp eq ptr %16, %10
-  br i1 %.not16.i.i, label %"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit", label %15
+  %.not15.i.i = icmp eq ptr %16, %10
+  br i1 %.not15.i.i, label %"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit", label %15
 
 "_ZN8chalk_ir5visit12boring_impls101_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$chalk_ir..Substitution$LT$I$GT$$GT$10visit_with17haee4134a7d2d31eeE.llvm.4103369960975828492.exit": ; preds = %20, %23, %26, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i", %4
   %.lcssa.i.i = phi i1 [ false, %4 ], [ true, %26 ], [ true, %23 ], [ true, %20 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i.i" ]
@@ -26861,7 +26861,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5debug72_$LT$impl$u20$core..fmt..
   %84 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %85 = alloca ptr, align 8
   %86 = load i8, ptr %0, align 8, !range !877, !noundef !11
-  switch i8 %86, label %default.unreachable72 [
+  switch i8 %86, label %default.unreachable71 [
     i8 0, label %87
     i8 1, label %98
     i8 2, label %109
@@ -26887,7 +26887,7 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5debug72_$LT$impl$u20$core..fmt..
     i8 22, label %277
   ]
 
-default.unreachable72:                            ; preds = %277, %2
+default.unreachable71:                            ; preds = %277, %2
   unreachable
 
 87:                                               ; preds = %2
@@ -27439,7 +27439,7 @@ default.unreachable72:                            ; preds = %277, %2
 277:                                              ; preds = %2
   %278 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %279 = load i8, ptr %278, align 1, !range !336, !noundef !11
-  switch i8 %279, label %default.unreachable72 [
+  switch i8 %279, label %default.unreachable71 [
     i8 0, label %315
     i8 1, label %323
     i8 2, label %331
@@ -28121,12 +28121,12 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls100_$LT$impl$
   br label %15
 
 15:                                               ; preds = %43, %.lr.ph.i
-  %.sroa.0.010.i = phi ptr [ %8, %.lr.ph.i ], [ %16, %43 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 32
+  %.sroa.0.09.i = phi ptr [ %8, %.lr.ph.i ], [ %16, %43 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7167)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7170)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7173)
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 24
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7175)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7178)
   tail call void %6(ptr noundef nonnull align 1 %1), !noalias !7181
@@ -28153,9 +28153,9 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls100_$LT$impl$
 27:                                               ; preds = %23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7190)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7193)
-  %28 = load i64, ptr %.sroa.0.010.i, align 8, !range !1184, !alias.scope !7195, !noalias !7196, !noundef !11
+  %28 = load i64, ptr %.sroa.0.09.i, align 8, !range !1184, !alias.scope !7195, !noalias !7196, !noundef !11
   %trunc.i.i.i.i = trunc nuw i64 %28 to i1
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 8
   br i1 %trunc.i.i.i.i, label %33, label %30
 
 30:                                               ; preds = %27
@@ -28169,19 +28169,19 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls100_$LT$impl$
   br i1 %35, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h09501f855c6118c3E.llvm.4103369960975828492.exit, label %39
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 16
   %38 = tail call noundef zeroext i1 %31(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37, i32 noundef %3), !noalias !7196
   br i1 %38, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h09501f855c6118c3E.llvm.4103369960975828492.exit, label %43
 
 39:                                               ; preds = %33
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 16
   %41 = load ptr, ptr %13, align 8, !invariant.load !11, !alias.scope !7196, !noalias !7195, !nonnull !11
   %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 1 %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %40, i32 noundef %3), !noalias !7196
   br i1 %42, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h09501f855c6118c3E.llvm.4103369960975828492.exit, label %43
 
 43:                                               ; preds = %39, %36
-  %.not19.i = icmp eq ptr %16, %10
-  br i1 %.not19.i, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h09501f855c6118c3E.llvm.4103369960975828492.exit, label %15
+  %.not18.i = icmp eq ptr %16, %10
+  br i1 %.not18.i, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17h09501f855c6118c3E.llvm.4103369960975828492.exit, label %15
 
 _ZN8chalk_ir5visit12boring_impls10visit_iter17h09501f855c6118c3E.llvm.4103369960975828492.exit: ; preds = %30, %33, %36, %39, %43, %24, %4
   %44 = phi i1 [ false, %4 ], [ true, %24 ], [ true, %30 ], [ true, %33 ], [ true, %36 ], [ true, %39 ], [ false, %43 ]
@@ -28211,12 +28211,12 @@ define hidden noundef zeroext i1 @"_ZN8chalk_ir5visit12boring_impls101_$LT$impl$
   br label %15
 
 15:                                               ; preds = %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i", %.lr.ph.i
-  %.sroa.0.09.i = phi ptr [ %8, %.lr.ph.i ], [ %16, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i" ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i, i64 16
+  %.sroa.0.08.i = phi ptr [ %8, %.lr.ph.i ], [ %16, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i" ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7200)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7203)
   tail call void %6(ptr noundef nonnull align 1 %1), !noalias !7206
-  %17 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09.i), !noalias !7208
+  %17 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08.i), !noalias !7208
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7209)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7212)
   %18 = load i64, ptr %17, align 8, !range !69, !alias.scope !7209, !noalias !7214, !noundef !11
@@ -28246,8 +28246,8 @@ default.unreachable:                              ; preds = %15
   br i1 %28, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hcdeb33c9c0f56e10E.llvm.4103369960975828492.exit, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i"
 
 "_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i": ; preds = %26, %23, %20
-  %.not16.i = icmp eq ptr %16, %10
-  br i1 %.not16.i, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hcdeb33c9c0f56e10E.llvm.4103369960975828492.exit, label %15
+  %.not15.i = icmp eq ptr %16, %10
+  br i1 %.not15.i, label %_ZN8chalk_ir5visit12boring_impls10visit_iter17hcdeb33c9c0f56e10E.llvm.4103369960975828492.exit, label %15
 
 _ZN8chalk_ir5visit12boring_impls10visit_iter17hcdeb33c9c0f56e10E.llvm.4103369960975828492.exit: ; preds = %20, %23, %26, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i", %4
   %.lcssa.i = phi i1 [ false, %4 ], [ false, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit.i" ], [ true, %20 ], [ true, %23 ], [ true, %26 ]
@@ -28281,12 +28281,12 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br label %12
 
 12:                                               ; preds = %.lr.ph, %41
-  %.sroa.0.010 = phi ptr [ %0, %.lr.ph ], [ %13, %41 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 32
+  %.sroa.0.09 = phi ptr [ %0, %.lr.ph ], [ %13, %41 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7229)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7230)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7231)
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 24
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7232)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7233)
   tail call void %8(ptr noundef nonnull align 1 %2), !noalias !7234
@@ -28313,9 +28313,9 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
 24:                                               ; preds = %20
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7239)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7242)
-  %25 = load i64, ptr %.sroa.0.010, align 8, !range !1184, !alias.scope !7244, !noalias !7245, !noundef !11
+  %25 = load i64, ptr %.sroa.0.09, align 8, !range !1184, !alias.scope !7244, !noalias !7245, !noundef !11
   %trunc.i.i.i = trunc nuw i64 %25 to i1
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 8
   br i1 %trunc.i.i.i, label %30, label %27
 
 27:                                               ; preds = %24
@@ -28329,12 +28329,12 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br i1 %32, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h2100a1d932c3ab8fE.exit", label %36
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 16
   %35 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %34, i32 noundef %4), !noalias !7245
   br i1 %35, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h2100a1d932c3ab8fE.exit", label %41
 
 36:                                               ; preds = %30
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.010, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 16
   %38 = load ptr, ptr %10, align 8, !invariant.load !11, !alias.scope !7245, !noalias !7244, !nonnull !11
   %39 = tail call noundef zeroext i1 %38(ptr noundef nonnull align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %37, i32 noundef %4), !noalias !7245
   br i1 %39, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h2100a1d932c3ab8fE.exit", label %41
@@ -28344,8 +28344,8 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   ret i1 %40
 
 41:                                               ; preds = %36, %33
-  %.not19 = icmp eq ptr %13, %1
-  br i1 %.not19, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h2100a1d932c3ab8fE.exit", label %12
+  %.not18 = icmp eq ptr %13, %1
+  br i1 %.not18, label %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h2100a1d932c3ab8fE.exit", label %12
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -28386,12 +28386,12 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17
   br label %12
 
 12:                                               ; preds = %.lr.ph, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit"
-  %.sroa.0.09 = phi ptr [ %0, %.lr.ph ], [ %13, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit" ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.09, i64 16
+  %.sroa.0.08 = phi ptr [ %0, %.lr.ph ], [ %13, %"_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit" ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.0.08, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7253)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7254)
   tail call void %8(ptr noundef nonnull align 1 %2), !noalias !7255
-  %14 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.09), !noalias !7246
+  %14 = tail call noundef align 8 dereferenceable(16) ptr @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16generic_arg_data17hc0ba233dcb1138e5E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0.08), !noalias !7246
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7256)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7259)
   %15 = load i64, ptr %14, align 8, !range !69, !alias.scope !7256, !noalias !7261, !noundef !11
@@ -28425,8 +28425,8 @@ default.unreachable:                              ; preds = %12
   ret i1 %.lcssa
 
 "_ZN8chalk_ir5visit12boring_impls75_$LT$impl$u20$chalk_ir..visit..TypeVisitable$LT$I$GT$$u20$for$u20$$RF$T$GT$10visit_with17h8e3aa7a8f4190754E.exit": ; preds = %23, %20, %17
-  %.not16 = icmp eq ptr %13, %1
-  br i1 %.not16, label %._crit_edge, label %12
+  %.not15 = icmp eq ptr %13, %1
+  br i1 %.not15, label %._crit_edge, label %12
 }
 
 ; Function Attrs: nonlazybind uwtable

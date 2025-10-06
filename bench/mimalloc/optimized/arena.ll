@@ -602,8 +602,8 @@ mi_lock_acquire.exit.i:                           ; preds = %85, %.critedge.i
 
 94:                                               ; preds = %86, %mi_lock_acquire.exit.i, %mi_arena_segment_clear_abandoned_next_field.exit.thread
   %95 = load i64, ptr %0, align 8, !tbaa !40
-  %.not45.i = icmp eq i64 %95, 0
-  br i1 %.not45.i, label %mi_arena_segment_clear_abandoned_next_list.exit, label %.lr.ph.i9
+  %.not44.i = icmp eq i64 %95, 0
+  br i1 %.not44.i, label %mi_arena_segment_clear_abandoned_next_list.exit, label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %94
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 32

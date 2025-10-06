@@ -237,14 +237,14 @@ define internal fastcc ptr @generate_v3(ptr noundef %0, ptr noundef %1, i32 noun
   br label %44
 
 40:                                               ; preds = %49
-  %41 = add nuw nsw i32 %.034.i81, 1
+  %41 = add nuw nsw i32 %.034.i80, 1
   %42 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %36) #7
   %43 = icmp slt i32 %41, %42
   br i1 %43, label %44, label %.loopexit, !llvm.loop !19
 
 44:                                               ; preds = %.lr.ph, %40
-  %.034.i81 = phi i32 [ 0, %.lr.ph ], [ %41, %40 ]
-  %45 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %36, i32 noundef %.034.i81) #7
+  %.034.i80 = phi i32 [ 0, %.lr.ph ], [ %41, %40 ]
+  %45 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %36, i32 noundef %.034.i80) #7
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !21
   %48 = call fastcc ptr @generate_v3(ptr noundef %47, ptr noundef nonnull %1, i32 noundef %39, ptr noundef nonnull %3)
@@ -537,10 +537,10 @@ asn1_multi.exit:                                  ; preds = %49, %44, %30, %35, 
   br label %asn1_str2type.exit
 
 149:                                              ; preds = %77, %142, %137, %126, %115, %107, %105, %101, %95, %89, %83
-  %.sink107 = phi i32 [ 611, %83 ], [ 624, %89 ], [ 635, %95 ], [ 647, %101 ], [ 651, %105 ], [ 656, %107 ], [ 682, %115 ], [ 697, %126 ], [ 705, %137 ], [ 712, %142 ], [ 728, %77 ]
+  %.sink106 = phi i32 [ 611, %83 ], [ 624, %89 ], [ 635, %95 ], [ 647, %101 ], [ 651, %105 ], [ 656, %107 ], [ 682, %115 ], [ 697, %126 ], [ 705, %137 ], [ 712, %142 ], [ 728, %77 ]
   %.sink = phi i32 [ 176, %83 ], [ 180, %89 ], [ 183, %95 ], [ 524301, %101 ], [ 524301, %105 ], [ 184, %107 ], [ 524301, %115 ], [ 178, %126 ], [ 524301, %137 ], [ 188, %142 ], [ 196, %77 ]
   call void @ERR_new() #7
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink107, ptr noundef nonnull @__func__.asn1_str2type) #7
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink106, ptr noundef nonnull @__func__.asn1_str2type) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef %.sink, ptr noundef null) #7
   call void (i32, ...) @ERR_add_error_data(i32 noundef 2, ptr noundef nonnull @.str.56, ptr noundef nonnull %spec.store.select.i) #7
   br label %150
@@ -620,33 +620,33 @@ asn1_str2type.exit:                               ; preds = %76, %.thread.i, %15
   %182 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %183 = load i32, ptr %18, align 8, !tbaa !16
   %184 = icmp sgt i32 %183, 0
-  br i1 %184, label %.lr.ph85.preheader, label %._crit_edge
+  br i1 %184, label %.lr.ph84.preheader, label %._crit_edge
 
-.lr.ph85.preheader:                               ; preds = %181
+.lr.ph84.preheader:                               ; preds = %181
   %185 = zext nneg i32 %183 to i64
   %186 = getelementptr inbounds nuw %struct.tag_exp_type, ptr %182, i64 %185
-  br label %.lr.ph85
+  br label %.lr.ph84
 
-.lr.ph85:                                         ; preds = %.lr.ph85.preheader, %.lr.ph85
-  %.15784 = phi i32 [ %193, %.lr.ph85 ], [ %.056, %.lr.ph85.preheader ]
-  %.05883 = phi i32 [ %194, %.lr.ph85 ], [ 0, %.lr.ph85.preheader ]
-  %.pn82 = phi ptr [ %.060, %.lr.ph85 ], [ %186, %.lr.ph85.preheader ]
-  %.060 = getelementptr inbounds i8, ptr %.pn82, i64 -24
-  %187 = getelementptr inbounds i8, ptr %.pn82, i64 -12
+.lr.ph84:                                         ; preds = %.lr.ph84.preheader, %.lr.ph84
+  %.15783 = phi i32 [ %193, %.lr.ph84 ], [ %.056, %.lr.ph84.preheader ]
+  %.05882 = phi i32 [ %194, %.lr.ph84 ], [ 0, %.lr.ph84.preheader ]
+  %.pn81 = phi ptr [ %.060, %.lr.ph84 ], [ %186, %.lr.ph84.preheader ]
+  %.060 = getelementptr inbounds i8, ptr %.pn81, i64 -24
+  %187 = getelementptr inbounds i8, ptr %.pn81, i64 -12
   %188 = load i32, ptr %187, align 4, !tbaa !30
-  %189 = add nsw i32 %188, %.15784
+  %189 = add nsw i32 %188, %.15783
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds i8, ptr %.pn82, i64 -8
+  %191 = getelementptr inbounds i8, ptr %.pn81, i64 -8
   store i64 %190, ptr %191, align 8, !tbaa !32
   %192 = load i32, ptr %.060, align 8, !tbaa !33
   %193 = call i32 @ASN1_object_size(i32 noundef 0, i32 noundef %189, i32 noundef %192) #7
-  %194 = add nuw nsw i32 %.05883, 1
+  %194 = add nuw nsw i32 %.05882, 1
   %195 = load i32, ptr %18, align 8, !tbaa !16
   %196 = icmp slt i32 %194, %195
-  br i1 %196, label %.lr.ph85, label %._crit_edge, !llvm.loop !34
+  br i1 %196, label %.lr.ph84, label %._crit_edge, !llvm.loop !34
 
-._crit_edge:                                      ; preds = %.lr.ph85, %181
-  %.157.lcssa = phi i32 [ %.056, %181 ], [ %193, %.lr.ph85 ]
+._crit_edge:                                      ; preds = %.lr.ph84, %181
+  %.157.lcssa = phi i32 [ %.056, %181 ], [ %193, %.lr.ph84 ]
   %197 = sext i32 %.157.lcssa to i64
   %198 = call noalias ptr @CRYPTO_malloc(i64 noundef %197, ptr noundef nonnull @.str, i32 noundef 196) #7
   %199 = icmp eq ptr %198, null
@@ -656,45 +656,45 @@ asn1_str2type.exit:                               ; preds = %76, %.thread.i, %15
   store ptr %198, ptr %11, align 8, !tbaa !7
   %201 = load i32, ptr %18, align 8, !tbaa !16
   %202 = icmp sgt i32 %201, 0
-  br i1 %202, label %.lr.ph89, label %._crit_edge90
+  br i1 %202, label %.lr.ph88, label %._crit_edge89
 
-.lr.ph89:                                         ; preds = %200, %216
-  %.15987 = phi i32 [ %217, %216 ], [ 0, %200 ]
-  %.16186 = phi ptr [ %218, %216 ], [ %182, %200 ]
-  %203 = getelementptr inbounds nuw i8, ptr %.16186, i64 8
+.lr.ph88:                                         ; preds = %200, %216
+  %.15986 = phi i32 [ %217, %216 ], [ 0, %200 ]
+  %.16185 = phi ptr [ %218, %216 ], [ %182, %200 ]
+  %203 = getelementptr inbounds nuw i8, ptr %.16185, i64 8
   %204 = load i32, ptr %203, align 8, !tbaa !35
-  %205 = getelementptr inbounds nuw i8, ptr %.16186, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %.16185, i64 16
   %206 = load i64, ptr %205, align 8, !tbaa !32
   %207 = trunc i64 %206 to i32
-  %208 = load i32, ptr %.16186, align 8, !tbaa !33
-  %209 = getelementptr inbounds nuw i8, ptr %.16186, i64 4
+  %208 = load i32, ptr %.16185, align 8, !tbaa !33
+  %209 = getelementptr inbounds nuw i8, ptr %.16185, i64 4
   %210 = load i32, ptr %209, align 4, !tbaa !36
   call void @ASN1_put_object(ptr noundef nonnull %11, i32 noundef %204, i32 noundef %207, i32 noundef %208, i32 noundef %210) #7
-  %211 = getelementptr inbounds nuw i8, ptr %.16186, i64 12
+  %211 = getelementptr inbounds nuw i8, ptr %.16185, i64 12
   %212 = load i32, ptr %211, align 4, !tbaa !30
   %.not76 = icmp eq i32 %212, 0
   br i1 %.not76, label %216, label %213
 
-213:                                              ; preds = %.lr.ph89
+213:                                              ; preds = %.lr.ph88
   %214 = load ptr, ptr %11, align 8, !tbaa !7
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 1
   store ptr %215, ptr %11, align 8, !tbaa !7
   store i8 0, ptr %214, align 1, !tbaa !23
   br label %216
 
-216:                                              ; preds = %.lr.ph89, %213
-  %217 = add nuw nsw i32 %.15987, 1
-  %218 = getelementptr inbounds nuw i8, ptr %.16186, i64 24
+216:                                              ; preds = %.lr.ph88, %213
+  %217 = add nuw nsw i32 %.15986, 1
+  %218 = getelementptr inbounds nuw i8, ptr %.16185, i64 24
   %219 = load i32, ptr %18, align 8, !tbaa !16
   %220 = icmp slt i32 %217, %219
-  br i1 %220, label %.lr.ph89, label %._crit_edge90, !llvm.loop !37
+  br i1 %220, label %.lr.ph88, label %._crit_edge89, !llvm.loop !37
 
-._crit_edge90:                                    ; preds = %216, %200
+._crit_edge89:                                    ; preds = %216, %200
   %221 = load i32, ptr %8, align 8, !tbaa !12
   %.not75 = icmp eq i32 %221, -1
   br i1 %.not75, label %228, label %222
 
-222:                                              ; preds = %._crit_edge90
+222:                                              ; preds = %._crit_edge89
   %223 = load i32, ptr %16, align 4, !tbaa !14
   %224 = icmp eq i32 %223, 0
   %225 = and i32 %221, -2
@@ -706,7 +706,7 @@ asn1_str2type.exit:                               ; preds = %76, %.thread.i, %15
   call void @ASN1_put_object(ptr noundef nonnull %11, i32 noundef %.2, i32 noundef %227, i32 noundef %221, i32 noundef %223) #7
   br label %228
 
-228:                                              ; preds = %222, %._crit_edge90
+228:                                              ; preds = %222, %._crit_edge89
   %229 = load ptr, ptr %11, align 8, !tbaa !7
   %230 = load ptr, ptr %10, align 8, !tbaa !7
   %231 = sext i32 %.054 to i64

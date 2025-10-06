@@ -4404,7 +4404,7 @@ define dso_local noundef zeroext i1 @_ZN7doctest6detail7Subcase12checkFiltersEv(
 define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_110matchesAnyEPKcRKSt6vectorINS_6StringESaIS4_EEbb(ptr noundef readonly captures(none) %0, ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val, i1 noundef zeroext %1, i1 noundef zeroext %2) unnamed_addr #20 {
   %4 = icmp eq ptr %.0.val, %.8.val
   %or.cond = and i1 %4, %1
-  br i1 %4, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.lr.ph
+  br i1 %4, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = load i8, ptr %0, align 1, !tbaa !37
@@ -4412,12 +4412,12 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_110matchesAny
   br i1 %.not56.i, label %.preheader.i.us, label %.lr.ph.split
 
 .preheader.i.us:                                  ; preds = %.lr.ph, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us
-  %.sroa.01.039.us = phi ptr [ %13, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us ], [ %.0.val, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.01.039.us, i64 23
+  %.sroa.01.037.us = phi ptr [ %13, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us ], [ %.0.val, %.lr.ph ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.01.037.us, i64 23
   %7 = load i8, ptr %6, align 1, !tbaa !37
-  %8 = load ptr, ptr %.sroa.01.039.us, align 8
+  %8 = load ptr, ptr %.sroa.01.037.us, align 8
   %9 = icmp slt i8 %7, 0
-  %.0.i.i.us = select i1 %9, ptr %8, ptr %.sroa.01.039.us
+  %.0.i.i.us = select i1 %9, ptr %8, ptr %.sroa.01.037.us
   br label %10
 
 10:                                               ; preds = %10, %.preheader.i.us
@@ -4426,29 +4426,29 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_110matchesAny
   %12 = getelementptr inbounds nuw i8, ptr %.3.i.us, i64 1
   switch i8 %11, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us [
     i8 42, label %10
-    i8 0, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7
+    i8 0, label %.thread
   ]
 
 _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.039.us, i64 24
-  %.not10.us.not = icmp eq ptr %13, %.8.val
-  br i1 %.not10.us.not, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.preheader.i.us
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.01.037.us, i64 24
+  %.not11.us = icmp eq ptr %13, %.8.val
+  br i1 %.not11.us, label %.thread, label %.preheader.i.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %2, label %.lr.ph.i.us, label %.lr.ph.i
 
-.lr.ph.i.us:                                      ; preds = %.lr.ph.split, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48
-  %.sroa.01.039.us43 = phi ptr [ %44, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48 ], [ %.0.val, %.lr.ph.split ]
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.039.us43, i64 23
+.lr.ph.i.us:                                      ; preds = %.lr.ph.split, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43
+  %.sroa.01.037.us38 = phi ptr [ %44, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43 ], [ %.0.val, %.lr.ph.split ]
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.037.us38, i64 23
   %15 = load i8, ptr %14, align 1, !tbaa !37
-  %16 = load ptr, ptr %.sroa.01.039.us43, align 8
+  %16 = load ptr, ptr %.sroa.01.037.us38, align 8
   %17 = icmp slt i8 %15, 0
-  %.0.i.i.us44 = select i1 %17, ptr %16, ptr %.sroa.01.039.us43
+  %.0.i.i.us39 = select i1 %17, ptr %16, ptr %.sroa.01.037.us38
   br label %.lr.ph.split.us.i.us
 
 .lr.ph.split.us.i.us:                             ; preds = %.lr.ph.i.us, %21
   %18 = phi i8 [ %24, %21 ], [ %5, %.lr.ph.i.us ]
-  %.03358.us.i.us = phi ptr [ %22, %21 ], [ %.0.i.i.us44, %.lr.ph.i.us ]
+  %.03358.us.i.us = phi ptr [ %22, %21 ], [ %.0.i.i.us39, %.lr.ph.i.us ]
   %.03557.us.i.us = phi ptr [ %23, %21 ], [ %0, %.lr.ph.i.us ]
   %19 = load i8, ptr %.03358.us.i.us, align 1, !tbaa !37
   %.not42.us.i.us = icmp eq i8 %19, 42
@@ -4458,14 +4458,14 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
   %.not47.us.i.us = icmp eq i8 %19, %18
   %.not48.old.us.i.us = icmp eq i8 %19, 63
   %or.cond49.us.i.us = or i1 %.not47.us.i.us, %.not48.old.us.i.us
-  br i1 %or.cond49.us.i.us, label %21, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48
+  br i1 %or.cond49.us.i.us, label %21, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %.03358.us.i.us, i64 1
   %23 = getelementptr inbounds nuw i8, ptr %.03557.us.i.us, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !37
   %.not.us.i.us = icmp eq i8 %24, 0
-  br i1 %.not.us.i.us, label %.preheader.i.us45.preheader, label %.lr.ph.split.us.i.us, !llvm.loop !143
+  br i1 %.not.us.i.us, label %.preheader.i.us40.preheader, label %.lr.ph.split.us.i.us, !llvm.loop !143
 
 .lr.ph71.split.us.i.usthread-pre-split:           ; preds = %40
   %.pr = load i8, ptr %.2.us.i.us, align 1, !tbaa !37
@@ -4474,7 +4474,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
 .lr.ph71.split.us.i.us:                           ; preds = %.lr.ph.split.us.i.us, %.lr.ph71.split.us.i.usthread-pre-split
   %25 = phi i8 [ %.pr, %.lr.ph71.split.us.i.usthread-pre-split ], [ 42, %.lr.ph.split.us.i.us ]
   %26 = phi i8 [ %41, %.lr.ph71.split.us.i.usthread-pre-split ], [ %18, %.lr.ph.split.us.i.us ]
-  %.070.us.i.us = phi ptr [ %.1.us.i.us, %.lr.ph71.split.us.i.usthread-pre-split ], [ %.0.i.i.us44, %.lr.ph.split.us.i.us ]
+  %.070.us.i.us = phi ptr [ %.1.us.i.us, %.lr.ph71.split.us.i.usthread-pre-split ], [ %.0.i.i.us39, %.lr.ph.split.us.i.us ]
   %.03069.us.i.us = phi ptr [ %.131.us.i.us, %.lr.ph71.split.us.i.usthread-pre-split ], [ %0, %.lr.ph.split.us.i.us ]
   %.13468.us.i.us = phi ptr [ %.2.us.i.us, %.lr.ph71.split.us.i.usthread-pre-split ], [ %.03358.us.i.us, %.lr.ph.split.us.i.us ]
   %.13667.us.i.us = phi ptr [ %.237.us.i.us, %.lr.ph71.split.us.i.usthread-pre-split ], [ %.03557.us.i.us, %.lr.ph.split.us.i.us ]
@@ -4500,7 +4500,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
   %36 = getelementptr inbounds nuw i8, ptr %.13468.us.i.us, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !37
   %.not45.us.i.us = icmp eq i8 %37, 0
-  br i1 %.not45.us.i.us, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %38
+  br i1 %.not45.us.i.us, label %.thread, label %38
 
 38:                                               ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %.13667.us.i.us, i64 1
@@ -4513,33 +4513,33 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us: ; preds = %10
   %.1.us.i.us = phi ptr [ %36, %38 ], [ %.070.us.i.us, %32 ], [ %.070.us.i.us, %30 ]
   %41 = load i8, ptr %.237.us.i.us, align 1, !tbaa !37
   %.not43.us.i.us = icmp eq i8 %41, 0
-  br i1 %.not43.us.i.us, label %.preheader.i.us45.preheader, label %.lr.ph71.split.us.i.usthread-pre-split, !llvm.loop !144
+  br i1 %.not43.us.i.us, label %.preheader.i.us40.preheader, label %.lr.ph71.split.us.i.usthread-pre-split, !llvm.loop !144
 
-.preheader.i.us45.preheader:                      ; preds = %21, %40
-  %.3.i.us47.ph = phi ptr [ %.2.us.i.us, %40 ], [ %22, %21 ]
-  br label %.preheader.i.us45
+.preheader.i.us40.preheader:                      ; preds = %21, %40
+  %.3.i.us42.ph = phi ptr [ %.2.us.i.us, %40 ], [ %22, %21 ]
+  br label %.preheader.i.us40
 
-.preheader.i.us45:                                ; preds = %.preheader.i.us45.preheader, %.preheader.i.us45
-  %.3.i.us47 = phi ptr [ %43, %.preheader.i.us45 ], [ %.3.i.us47.ph, %.preheader.i.us45.preheader ]
-  %42 = load i8, ptr %.3.i.us47, align 1, !tbaa !37
-  %43 = getelementptr inbounds nuw i8, ptr %.3.i.us47, i64 1
-  switch i8 %42, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48 [
-    i8 42, label %.preheader.i.us45
-    i8 0, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7
+.preheader.i.us40:                                ; preds = %.preheader.i.us40.preheader, %.preheader.i.us40
+  %.3.i.us42 = phi ptr [ %43, %.preheader.i.us40 ], [ %.3.i.us42.ph, %.preheader.i.us40.preheader ]
+  %42 = load i8, ptr %.3.i.us42, align 1, !tbaa !37
+  %43 = getelementptr inbounds nuw i8, ptr %.3.i.us42, i64 1
+  switch i8 %42, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43 [
+    i8 42, label %.preheader.i.us40
+    i8 0, label %.thread
   ]
 
-_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.preheader.i.us45
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.01.039.us43, i64 24
-  %.not10.us49.not = icmp eq ptr %44, %.8.val
-  br i1 %.not10.us49.not, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.lr.ph.i.us
+_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43: ; preds = %20, %.preheader.i.us40
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.01.037.us38, i64 24
+  %.not11.us44 = icmp eq ptr %44, %.8.val
+  br i1 %.not11.us44, label %.thread, label %.lr.ph.i.us
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread
-  %.sroa.01.039 = phi ptr [ %84, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread ], [ %.0.val, %.lr.ph.split ]
-  %45 = getelementptr inbounds nuw i8, ptr %.sroa.01.039, i64 23
+  %.sroa.01.037 = phi ptr [ %84, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread ], [ %.0.val, %.lr.ph.split ]
+  %45 = getelementptr inbounds nuw i8, ptr %.sroa.01.037, i64 23
   %46 = load i8, ptr %45, align 1, !tbaa !37
-  %47 = load ptr, ptr %.sroa.01.039, align 8
+  %47 = load ptr, ptr %.sroa.01.037, align 8
   %48 = icmp slt i8 %46, 0
-  %.0.i.i = select i1 %48, ptr %47, ptr %.sroa.01.039
+  %.0.i.i = select i1 %48, ptr %47, ptr %.sroa.01.037
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %56
@@ -4568,11 +4568,11 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.pre
   br i1 %.not.i, label %.preheader.i.preheader, label %.lr.ph.split.i, !llvm.loop !143
 
 .lr.ph71.split.ithread-pre-split:                 ; preds = %80
-  %.pr94 = load i8, ptr %.2.i, align 1, !tbaa !37
+  %.pr84 = load i8, ptr %.2.i, align 1, !tbaa !37
   br label %.lr.ph71.split.i
 
 .lr.ph71.split.i:                                 ; preds = %.lr.ph.split.i, %.lr.ph71.split.ithread-pre-split
-  %60 = phi i8 [ %.pr94, %.lr.ph71.split.ithread-pre-split ], [ 42, %.lr.ph.split.i ]
+  %60 = phi i8 [ %.pr84, %.lr.ph71.split.ithread-pre-split ], [ 42, %.lr.ph.split.i ]
   %61 = phi i8 [ %81, %.lr.ph71.split.ithread-pre-split ], [ %49, %.lr.ph.split.i ]
   %.070.i = phi ptr [ %.1.i, %.lr.ph71.split.ithread-pre-split ], [ %.0.i.i, %.lr.ph.split.i ]
   %.03069.i = phi ptr [ %.131.i, %.lr.ph71.split.ithread-pre-split ], [ %0, %.lr.ph.split.i ]
@@ -4585,7 +4585,7 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.pre
   %64 = getelementptr inbounds nuw i8, ptr %.13468.i, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !37
   %.not45.i = icmp eq i8 %65, 0
-  br i1 %.not45.i, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %66
+  br i1 %.not45.i, label %.thread, label %66
 
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %.13667.i, i64 1
@@ -4629,16 +4629,16 @@ _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48: ; preds = %20, %.pre
   %83 = getelementptr inbounds nuw i8, ptr %.3.i, i64 1
   switch i8 %82, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread [
     i8 42, label %.preheader.i
-    i8 0, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7
+    i8 0, label %.thread
   ]
 
 _ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread: ; preds = %51, %.preheader.i
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.01.039, i64 24
-  %.not10.not = icmp eq ptr %84, %.8.val
-  br i1 %.not10.not, label %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7, label %.lr.ph.i
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.01.037, i64 24
+  %.not11 = icmp eq ptr %84, %.8.val
+  br i1 %.not11, label %.thread, label %.lr.ph.i
 
-_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread7: ; preds = %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread, %63, %.preheader.i, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48, %35, %.preheader.i.us45, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us, %10, %3
-  %.0 = phi i1 [ %or.cond, %3 ], [ true, %10 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us ], [ true, %.preheader.i.us45 ], [ true, %35 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us48 ], [ true, %.preheader.i ], [ true, %63 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread ]
+.thread:                                          ; preds = %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread, %63, %.preheader.i, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43, %35, %.preheader.i.us40, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us, %10, %3
+  %.0 = phi i1 [ %or.cond, %3 ], [ true, %10 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.loopexit.us ], [ true, %.preheader.i.us40 ], [ true, %35 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread.us43 ], [ true, %.preheader.i ], [ true, %63 ], [ false, %_ZN7doctest12_GLOBAL__N_17wildcmpEPKcS2_b.exit.thread ]
   ret i1 %.0
 }
 
@@ -12089,8 +12089,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.critedge46.us.i.i, %.lr.ph.i.i
-  %indvars.iv66.i.i = phi i64 [ %indvars.iv.next67.i.i, %.critedge46.us.i.i ], [ %6, %.lr.ph.i.i ]
-  %7 = getelementptr ptr, ptr %1, i64 %indvars.iv66.i.i
+  %indvars.iv67.i.i = phi i64 [ %indvars.iv.next68.i.i, %.critedge46.us.i.i ], [ %6, %.lr.ph.i.i ]
+  %7 = getelementptr ptr, ptr %1, i64 %indvars.iv67.i.i
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load ptr, ptr %8, align 8, !tbaa !5
   %10 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %4) #52
@@ -12120,13 +12120,13 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br i1 %19, label %_ZN7doctest6StringD2Ev.exit, label %.critedge46.us.i.i
 
 .critedge46.us.i.i:                               ; preds = %15, %.critedge.us.i.i, %11, %.lr.ph.split.us.i.i
-  %indvars.iv.next67.i.i = add nsw i64 %indvars.iv66.i.i, -1
-  %20 = icmp sgt i64 %indvars.iv66.i.i, 1
+  %indvars.iv.next68.i.i = add nsw i64 %indvars.iv67.i.i, -1
+  %20 = icmp sgt i64 %indvars.iv67.i.i, 1
   br i1 %20, label %.lr.ph.split.us.i.i, label %.lr.ph.split.us.i, !llvm.loop !358
 
 .lr.ph.split.us.i:                                ; preds = %.critedge46.us.i.i, %.critedge46.us.i
-  %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %.critedge46.us.i ], [ %6, %.critedge46.us.i.i ]
-  %21 = getelementptr ptr, ptr %1, i64 %indvars.iv66.i
+  %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %.critedge46.us.i ], [ %6, %.critedge46.us.i.i ]
+  %21 = getelementptr ptr, ptr %1, i64 %indvars.iv67.i
   %22 = getelementptr i8, ptr %21, i64 -8
   %23 = load ptr, ptr %22, align 8, !tbaa !5
   %24 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull readonly dereferenceable(1) %2) #52
@@ -12156,8 +12156,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br i1 %33, label %_ZN7doctest6StringD2Ev.exit, label %.critedge46.us.i
 
 .critedge46.us.i:                                 ; preds = %29, %.critedge.us.i, %25, %.lr.ph.split.us.i
-  %indvars.iv.next67.i = add nsw i64 %indvars.iv66.i, -1
-  %34 = icmp sgt i64 %indvars.iv66.i, 1
+  %indvars.iv.next68.i = add nsw i64 %indvars.iv67.i, -1
+  %34 = icmp sgt i64 %indvars.iv67.i, 1
   br i1 %34, label %.lr.ph.split.us.i, label %_ZN7doctest6StringD2Ev.exit, !llvm.loop !358
 
 _ZN7doctest6StringD2Ev.exit:                      ; preds = %.critedge.us.i.i, %.critedge.us.i, %.critedge46.us.i, %3
@@ -16135,8 +16135,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
   br i1 %.not41, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge46.us
-  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.critedge46.us ], [ %7, %.lr.ph ]
-  %8 = getelementptr ptr, ptr %1, i64 %indvars.iv66
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.critedge46.us ], [ %7, %.lr.ph ]
+  %8 = getelementptr ptr, ptr %1, i64 %indvars.iv67
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8, !tbaa !5
   %11 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) %2) #52
@@ -16166,8 +16166,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
   br i1 %20, label %.critedge50, label %.critedge46.us
 
 .critedge46.us:                                   ; preds = %16, %.critedge.us, %12, %.lr.ph.split.us
-  %indvars.iv.next67 = add nsw i64 %indvars.iv66, -1
-  %21 = icmp sgt i64 %indvars.iv66, 1
+  %indvars.iv.next68 = add nsw i64 %indvars.iv67, -1
+  %21 = icmp sgt i64 %indvars.iv67, 1
   br i1 %21, label %.lr.ph.split.us, label %.critedge50, !llvm.loop !358
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge46
@@ -16177,20 +16177,20 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
   %24 = load ptr, ptr %23, align 8, !tbaa !5
   %25 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %2) #52
   %.not = icmp eq ptr %25, null
-  br i1 %.not, label %.critedge46, label %.preheader61
+  br i1 %.not, label %.critedge46, label %.preheader62
 
-.preheader61:                                     ; preds = %.lr.ph.split, %26
+.preheader62:                                     ; preds = %.lr.ph.split, %26
   %.032 = phi ptr [ %27, %26 ], [ %24, %.lr.ph.split ]
   %.not42 = icmp eq ptr %.032, %25
   br i1 %.not42, label %.critedge, label %26
 
-26:                                               ; preds = %.preheader61
+26:                                               ; preds = %.preheader62
   %27 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   %28 = load i8, ptr %.032, align 1, !tbaa !37
   %.not43 = icmp eq i8 %28, 45
-  br i1 %.not43, label %.preheader61, label %.critedge46, !llvm.loop !357
+  br i1 %.not43, label %.preheader62, label %.critedge46, !llvm.loop !357
 
-.critedge:                                        ; preds = %.preheader61
+.critedge:                                        ; preds = %.preheader62
   %29 = load i8, ptr %24, align 1, !tbaa !37
   %30 = icmp eq i8 %29, 45
   br i1 %30, label %31, label %.critedge46
@@ -17680,9 +17680,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIyySaIyENSt8__detail
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !183
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %14, label %.thread36
+  br i1 %.not.not, label %14, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load i64, ptr %1, align 8, !tbaa !185
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !188
@@ -17716,7 +17716,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIyySaIyENSt8__detail
   %25 = urem i64 %16, %24
   br label %.critedge
 
-26:                                               ; preds = %.thread36
+26:                                               ; preds = %.thread34
   %27 = load ptr, ptr %13, align 8, !tbaa !184
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !185
@@ -17743,9 +17743,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIyySaIyENSt8__detail
 ..loopexit_crit_edge21.i.i:                       ; preds = %34
   br label %.critedge, !llvm.loop !451
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread34
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread34 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #51
   store ptr null, ptr %40, align 8, !tbaa !184
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8

@@ -320,7 +320,7 @@ prepare_probe_slot.exit.i:                        ; preds = %38, %20
   %78 = phi ptr [ %132, %130 ], [ %70, %66 ]
   %.078.i27.i.i = phi i32 [ %93, %130 ], [ %68, %66 ]
   %.090.i26.i.i = phi i32 [ %121, %130 ], [ 0, %66 ]
-  %.val9759.i25.i.i = phi i32 [ %.val97.i.i.i, %130 ], [ %.val96.i.i.i, %66 ]
+  %.val9758.i25.i.i = phi i32 [ %.val97.i.i.i, %130 ], [ %.val96.i.i.i, %66 ]
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load i32, ptr %79, align 8
   %81 = icmp eq i32 %52, %80
@@ -331,16 +331,16 @@ prepare_probe_slot.exit.i:                        ; preds = %38, %20
   %.val100.i.i.i = load ptr, ptr %51, align 8
   %.val101.i.i.i = load ptr, ptr %83, align 8
   %84 = tail call fastcc zeroext i1 @MemoizeHash_equal(ptr %.val100.i.i.i, ptr %.val101.i.i.i)
-  br i1 %84, label %136, label %._crit_edge57.i.i.i
+  br i1 %84, label %136, label %._crit_edge56.i.i.i
 
-._crit_edge57.i.i.i:                              ; preds = %82
+._crit_edge56.i.i.i:                              ; preds = %82
   %.val.pre.i.i.i = load i32, ptr %79, align 8
   %.val97.pre.i.i.i = load i32, ptr %56, align 4
   br label %85
 
-85:                                               ; preds = %._crit_edge57.i.i.i, %.lr.ph.i33.i
-  %.val97.i.i.i = phi i32 [ %.val97.pre.i.i.i, %._crit_edge57.i.i.i ], [ %.val9759.i25.i.i, %.lr.ph.i33.i ]
-  %.val.i.i.i = phi i32 [ %.val.pre.i.i.i, %._crit_edge57.i.i.i ], [ %80, %.lr.ph.i33.i ]
+85:                                               ; preds = %._crit_edge56.i.i.i, %.lr.ph.i33.i
+  %.val97.i.i.i = phi i32 [ %.val97.pre.i.i.i, %._crit_edge56.i.i.i ], [ %.val9758.i25.i.i, %.lr.ph.i33.i ]
+  %.val.i.i.i = phi i32 [ %.val.pre.i.i.i, %._crit_edge56.i.i.i ], [ %80, %.lr.ph.i33.i ]
   %86 = and i32 %.val.i.i.i, %.val97.i.i.i
   %.not.i.i.i.i = icmp ugt i32 %86, %.078.i27.i.i
   br i1 %.not.i.i.i.i, label %87, label %memoize_distance.exit.i.i.i
@@ -357,22 +357,22 @@ memoize_distance.exit.i.i.i:                      ; preds = %87, %85
   %91 = icmp ugt i32 %.090.i26.i.i, %.0.i.i.i.i
   %92 = add i32 %.078.i27.i.i, 1
   %93 = and i32 %.val97.i.i.i, %92
-  br i1 %91, label %.preheader14.i.preheader.i.i, label %120
+  br i1 %91, label %.preheader13.i.preheader.i.i, label %120
 
-.preheader14.i.preheader.i.i:                     ; preds = %memoize_distance.exit.i.i.i
+.preheader13.i.preheader.i.i:                     ; preds = %memoize_distance.exit.i.i.i
   %94 = zext i32 %93 to i64
   %95 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %67, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 20
   %97 = load i8, ptr %96, align 4
-  %.not13.i32.i.i = icmp eq i8 %97, 0
-  br i1 %.not13.i32.i.i, label %.preheader.i.i.i, label %.lr.ph34.i.i
+  %.not12.i32.i.i = icmp eq i8 %97, 0
+  br i1 %.not12.i32.i.i, label %.preheader.i.i.i, label %.lr.ph34.i.i
 
-.lr.ph34.i.i:                                     ; preds = %.preheader14.i.preheader.i.i, %.preheader14.i.i.i
-  %98 = phi i32 [ %109, %.preheader14.i.i.i ], [ %93, %.preheader14.i.preheader.i.i ]
-  %.080.i33.i.i = phi i32 [ %99, %.preheader14.i.i.i ], [ 0, %.preheader14.i.preheader.i.i ]
+.lr.ph34.i.i:                                     ; preds = %.preheader13.i.preheader.i.i, %.preheader13.i.i.i
+  %98 = phi i32 [ %109, %.preheader13.i.i.i ], [ %93, %.preheader13.i.preheader.i.i ]
+  %.080.i33.i.i = phi i32 [ %99, %.preheader13.i.i.i ], [ 0, %.preheader13.i.preheader.i.i ]
   %99 = add i32 %.080.i33.i.i, 1
   %100 = icmp sgt i32 %99, 150
-  br i1 %100, label %101, label %.preheader14.i.i.i, !prof !9
+  br i1 %100, label %101, label %.preheader13.i.i.i, !prof !9
 
 101:                                              ; preds = %.lr.ph34.i.i
   %102 = load i32, ptr %53, align 8
@@ -381,34 +381,34 @@ memoize_distance.exit.i.i.i:                      ; preds = %87, %85
   %105 = uitofp i64 %104 to double
   %106 = fdiv double %103, %105
   %107 = fcmp ult double %106, 1.000000e-01
-  br i1 %107, label %.preheader14.i.i.i, label %.loopexit.loopexit.i.i.i
+  br i1 %107, label %.preheader13.i.i.i, label %.loopexit.loopexit.i.i.i
 
-.preheader14.i.i.i:                               ; preds = %101, %.lr.ph34.i.i
+.preheader13.i.i.i:                               ; preds = %101, %.lr.ph34.i.i
   %108 = add i32 %98, 1
   %109 = and i32 %108, %.val97.i.i.i
   %110 = zext i32 %109 to i64
   %111 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %67, i64 %110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 20
   %113 = load i8, ptr %112, align 4
-  %.not13.i.i.i = icmp eq i8 %113, 0
-  br i1 %.not13.i.i.i, label %.preheader.i.i.i, label %.lr.ph34.i.i
+  %.not12.i.i.i = icmp eq i8 %113, 0
+  br i1 %.not12.i.i.i, label %.preheader.i.i.i, label %.lr.ph34.i.i
 
-.preheader.i.i.i:                                 ; preds = %.preheader14.i.i.i, %.preheader14.i.preheader.i.i
-  %.lcssa18.i.i = phi i32 [ %93, %.preheader14.i.preheader.i.i ], [ %109, %.preheader14.i.i.i ]
-  %.lcssa16.i.i = phi ptr [ %95, %.preheader14.i.preheader.i.i ], [ %111, %.preheader14.i.i.i ]
+.preheader.i.i.i:                                 ; preds = %.preheader13.i.i.i, %.preheader13.i.preheader.i.i
+  %.lcssa18.i.i = phi i32 [ %93, %.preheader13.i.preheader.i.i ], [ %109, %.preheader13.i.i.i ]
+  %.lcssa16.i.i = phi ptr [ %95, %.preheader13.i.preheader.i.i ], [ %111, %.preheader13.i.i.i ]
   %.lcssa3.lcssa.i.i = getelementptr inbounds nuw i8, ptr %78, i64 20
-  %.not9541.i.i.i = icmp eq i32 %.lcssa18.i.i, %.078.i27.i.i
-  br i1 %.not9541.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not9540.i.i.i = icmp eq i32 %.lcssa18.i.i, %.078.i27.i.i
+  br i1 %.not9540.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %.lr.ph.i.i.i
-  %.08243.i.i.i = phi i32 [ %115, %.lr.ph.i.i.i ], [ %.lcssa18.i.i, %.preheader.i.i.i ]
-  %.28642.i.i.i = phi ptr [ %117, %.lr.ph.i.i.i ], [ %.lcssa16.i.i, %.preheader.i.i.i ]
+  %.08242.i.i.i = phi i32 [ %115, %.lr.ph.i.i.i ], [ %.lcssa18.i.i, %.preheader.i.i.i ]
+  %.28641.i.i.i = phi ptr [ %117, %.lr.ph.i.i.i ], [ %.lcssa16.i.i, %.preheader.i.i.i ]
   %.val102.i.i.i = load i32, ptr %56, align 4
-  %114 = add i32 %.08243.i.i.i, -1
+  %114 = add i32 %.08242.i.i.i, -1
   %115 = and i32 %.val102.i.i.i, %114
   %116 = zext i32 %115 to i64
   %117 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %67, i64 %116
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.28642.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.28641.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %117, i64 24, i1 false)
   %.not95.i.i.i = icmp eq i32 %115, %.078.i27.i.i
   br i1 %.not95.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !11
 
@@ -1839,29 +1839,29 @@ entry_purge_tuples.exit.i:                        ; preds = %.lr.ph.i.i35, %156
   %191 = load i32, ptr %190, align 8
   %192 = add i32 %191, -1
   store i32 %192, ptr %190, align 8
-  %.val3035.i.i = load i32, ptr %182, align 4
+  %.val3034.i.i = load i32, ptr %182, align 4
   %193 = add i32 %189, 1
-  %194 = and i32 %193, %.val3035.i.i
+  %194 = and i32 %193, %.val3034.i.i
   %195 = zext i32 %194 to i64
   %196 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %184, i64 %195
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 20
   %198 = load i8, ptr %197, align 4
-  %.not36.i.i = icmp eq i8 %198, 1
-  br i1 %.not36.i.i, label %.lr.ph.i10.i, label %remove_cache_entry.exit
+  %.not35.i.i = icmp eq i8 %198, 1
+  br i1 %.not35.i.i, label %.lr.ph.i10.i, label %remove_cache_entry.exit
 
 .lr.ph.i10.i:                                     ; preds = %entry_purge_tuples.exit.i, %204
   %199 = phi ptr [ %209, %204 ], [ %196, %entry_purge_tuples.exit.i ]
   %200 = phi i32 [ %206, %204 ], [ %194, %entry_purge_tuples.exit.i ]
-  %.val3038.i.i = phi i32 [ %.val30.i.i, %204 ], [ %.val3035.i.i, %entry_purge_tuples.exit.i ]
-  %.02537.i.i = phi ptr [ %199, %204 ], [ %63, %entry_purge_tuples.exit.i ]
+  %.val3037.i.i = phi i32 [ %.val30.i.i, %204 ], [ %.val3034.i.i, %entry_purge_tuples.exit.i ]
+  %.02536.i.i = phi ptr [ %199, %204 ], [ %63, %entry_purge_tuples.exit.i ]
   %201 = getelementptr i8, ptr %199, i64 16
   %.val.i.i36 = load i32, ptr %201, align 8
-  %202 = and i32 %.val.i.i36, %.val3038.i.i
+  %202 = and i32 %.val.i.i36, %.val3037.i.i
   %203 = icmp eq i32 %202, %200
   br i1 %203, label %remove_cache_entry.exit, label %204
 
 204:                                              ; preds = %.lr.ph.i10.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.02537.i.i, ptr noundef nonnull align 8 dereferenceable(24) %199, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.02536.i.i, ptr noundef nonnull align 8 dereferenceable(24) %199, i64 24, i1 false)
   %.val30.i.i = load i32, ptr %182, align 4
   %205 = add i32 %200, 1
   %206 = and i32 %.val30.i.i, %205
@@ -1874,7 +1874,7 @@ entry_purge_tuples.exit.i:                        ; preds = %.lr.ph.i.i35, %156
   br i1 %.not.i11.i, label %.lr.ph.i10.i, label %remove_cache_entry.exit
 
 remove_cache_entry.exit:                          ; preds = %.lr.ph.i10.i, %204, %entry_purge_tuples.exit.i
-  %.025.lcssa.sink.i.i = phi ptr [ %63, %entry_purge_tuples.exit.i ], [ %199, %204 ], [ %.02537.i.i, %.lr.ph.i10.i ]
+  %.025.lcssa.sink.i.i = phi ptr [ %63, %entry_purge_tuples.exit.i ], [ %199, %204 ], [ %.02536.i.i, %.lr.ph.i10.i ]
   %212 = getelementptr inbounds nuw i8, ptr %.025.lcssa.sink.i.i, i64 20
   store i8 0, ptr %212, align 4
   %213 = load ptr, ptr %153, align 8
@@ -2077,46 +2077,46 @@ memoize_update_parameters.exit:                   ; preds = %memoize_compute_siz
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink.i, ptr %36, align 8
-  %.not72 = icmp eq i64 %3, 0
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+  %.not71 = icmp eq i64 %3, 0
+  br i1 %.not71, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %memoize_update_parameters.exit, %45
   %37 = phi i64 [ %47, %45 ], [ 0, %memoize_update_parameters.exit ]
-  %.064 = phi i32 [ %46, %45 ], [ 0, %memoize_update_parameters.exit ]
+  %.063 = phi i32 [ %46, %45 ], [ 0, %memoize_update_parameters.exit ]
   %38 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %5, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %40 = load i8, ptr %39, align 4
   %.not = icmp eq i8 %40, 1
-  br i1 %.not, label %41, label %.lr.ph71.preheader
+  br i1 %.not, label %41, label %.lr.ph70.preheader
 
 41:                                               ; preds = %.lr.ph
   %42 = getelementptr i8, ptr %38, i64 16
   %.val56 = load i32, ptr %42, align 8
   %43 = and i32 %.val56, %30
-  %44 = icmp eq i32 %43, %.064
-  br i1 %44, label %.lr.ph71.preheader, label %45
+  %44 = icmp eq i32 %43, %.063
+  br i1 %44, label %.lr.ph70.preheader, label %45
 
 45:                                               ; preds = %41
-  %46 = add i32 %.064, 1
+  %46 = add i32 %.063, 1
   %47 = zext i32 %46 to i64
   %48 = icmp ugt i64 %3, %47
-  br i1 %48, label %.lr.ph, label %.lr.ph71.preheader, !llvm.loop !16
+  br i1 %48, label %.lr.ph, label %.lr.ph70.preheader, !llvm.loop !16
 
-.lr.ph71.preheader:                               ; preds = %45, %.lr.ph, %41
-  %.05169.ph = phi i32 [ %.064, %41 ], [ %.064, %.lr.ph ], [ 0, %45 ]
-  br label %.lr.ph71
+.lr.ph70.preheader:                               ; preds = %45, %.lr.ph, %41
+  %.05168.ph = phi i32 [ %.063, %41 ], [ %.063, %.lr.ph ], [ 0, %45 ]
+  br label %.lr.ph70
 
-.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %64
-  %.170 = phi i32 [ %67, %64 ], [ 0, %.lr.ph71.preheader ]
-  %.05169 = phi i32 [ %spec.store.select, %64 ], [ %.05169.ph, %.lr.ph71.preheader ]
-  %49 = zext i32 %.05169 to i64
+.lr.ph70:                                         ; preds = %.lr.ph70.preheader, %64
+  %.169 = phi i32 [ %67, %64 ], [ 0, %.lr.ph70.preheader ]
+  %.05168 = phi i32 [ %spec.store.select, %64 ], [ %.05168.ph, %.lr.ph70.preheader ]
+  %49 = zext i32 %.05168 to i64
   %50 = getelementptr inbounds nuw %struct.MemoizeEntry, ptr %5, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %52, 1
   br i1 %53, label %54, label %64
 
-54:                                               ; preds = %.lr.ph71
+54:                                               ; preds = %.lr.ph70
   %55 = getelementptr i8, ptr %50, i64 16
   %.val57 = load i32, ptr %55, align 8
   %.val59 = load i32, ptr %31, align 4
@@ -2137,15 +2137,15 @@ memoize_update_parameters.exit:                   ; preds = %memoize_compute_siz
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
   br label %64
 
-64:                                               ; preds = %63, %.lr.ph71
-  %65 = add i32 %.05169, 1
+64:                                               ; preds = %63, %.lr.ph70
+  %65 = add i32 %.05168, 1
   %66 = zext i32 %65 to i64
   %.not55 = icmp ugt i64 %3, %66
   %spec.store.select = select i1 %.not55, i32 %65, i32 0
-  %67 = add i32 %.170, 1
+  %67 = add i32 %.169, 1
   %68 = zext i32 %67 to i64
   %69 = icmp ugt i64 %3, %68
-  br i1 %69, label %.lr.ph71, label %._crit_edge, !llvm.loop !17
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %64, %memoize_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #10

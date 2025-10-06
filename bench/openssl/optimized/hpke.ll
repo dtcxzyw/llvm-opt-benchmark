@@ -1544,8 +1544,8 @@ define internal fastcc range(i32 0, 2) i32 @hpke_decap(ptr noundef nonnull captu
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !21
   %22 = and i32 %21, -2
-  %switch70 = icmp eq i32 %22, 2
-  br i1 %switch70, label %23, label %59
+  %switch = icmp eq i32 %22, 2
+  br i1 %switch, label %23, label %59
 
 23:                                               ; preds = %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1569,8 +1569,8 @@ define internal fastcc range(i32 0, 2) i32 @hpke_decap(ptr noundef nonnull captu
 hpke_kem_id_nist_curve.exit:                      ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !43
-  %.not75 = icmp eq ptr %33, null
-  br i1 %.not75, label %hpke_kem_id_nist_curve.exit.thread, label %34
+  %.not73 = icmp eq ptr %33, null
+  br i1 %.not73, label %hpke_kem_id_nist_curve.exit.thread, label %34
 
 34:                                               ; preds = %hpke_kem_id_nist_curve.exit
   %35 = load ptr, ptr %0, align 8, !tbaa !3

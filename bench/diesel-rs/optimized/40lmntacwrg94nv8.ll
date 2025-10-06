@@ -315,27 +315,27 @@ define hidden void @"_ZN88_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$
   %7 = add i64 %6, %2
   %8 = tail call { i64, i64 } @"_ZN97_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h6fa7abb433d65b39E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef %7), !noalias !33
   %.fca.0.extract.i = extractvalue { i64, i64 } %8, 0
-  %switch.i = icmp eq i64 %.fca.0.extract.i, 0
-  br i1 %switch.i, label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit.thread", label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit"
+  %9 = icmp eq i64 %.fca.0.extract.i, 0
+  br i1 %9, label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit.thread", label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit"
 
 "_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit": ; preds = %3
   %.fca.1.extract.i = extractvalue { i64, i64 } %8, 1
-  %.not.i.i = icmp ule i64 %6, %.fca.1.extract.i
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !36, !noalias !39
-  %11 = icmp ult i64 %.fca.1.extract.i, %10
-  %.016.i.i = select i1 %.not.i.i, i1 %11, i1 false
-  br i1 %.016.i.i, label %12, label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit.thread"
+  %.not.i.i = icmp ugt i64 %6, %.fca.1.extract.i
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = load i64, ptr %10, align 8, !alias.scope !36, !noalias !39
+  %12 = icmp uge i64 %.fca.1.extract.i, %11
+  %.016.i.i.not = select i1 %.not.i.i, i1 true, i1 %12
+  br i1 %.016.i.i.not, label %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit.thread", label %13
 
-12:                                               ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit"
+13:                                               ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit"
   tail call void @"_ZN118_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..Row$LT$diesel..sqlite..backend..Sqlite$GT$$GT$3get17h7563ebc967f85ed2E"(ptr noalias noundef nonnull sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4, i64 noundef %.fca.1.extract.i)
-  br label %13
+  br label %14
 
 "_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit.thread": ; preds = %3, %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit"
   store ptr null, ptr %0, align 8
-  br label %13
+  br label %14
 
-13:                                               ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit.thread", %12
+14:                                               ; preds = %"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17hcebbc6cfbf663b04E.llvm.13821364776674032361.exit.thread", %13
   ret void
 }
 
@@ -347,25 +347,25 @@ define hidden { i64, i64 } @"_ZN96_$LT$diesel..row..private..PartialRow$LT$R$GT$
   %6 = add i64 %5, %1
   %7 = tail call { i64, i64 } @"_ZN97_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h6fa7abb433d65b39E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %3, i64 noundef %6)
   %.fca.0.extract = extractvalue { i64, i64 } %7, 0
-  %switch = icmp eq i64 %.fca.0.extract, 0
-  br i1 %switch, label %12, label %8
+  %8 = icmp eq i64 %.fca.0.extract, 0
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   %.fca.1.extract = extractvalue { i64, i64 } %7, 1
   %.not.i = icmp ule i64 %5, %.fca.1.extract
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %10 = load i64, ptr %9, align 8, !alias.scope !41, !noalias !44
-  %11 = icmp ult i64 %.fca.1.extract, %10
-  %.016.i = select i1 %.not.i, i1 %11, i1 false
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %11 = load i64, ptr %10, align 8, !alias.scope !41, !noalias !44
+  %12 = icmp ult i64 %.fca.1.extract, %11
+  %.016.i = select i1 %.not.i, i1 %12, i1 false
   %.sroa.0.1 = zext i1 %.016.i to i64
-  br label %12
+  br label %13
 
-12:                                               ; preds = %2, %8
-  %.sroa.4.0 = phi i64 [ %.fca.1.extract, %8 ], [ undef, %2 ]
-  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %8 ], [ 0, %2 ]
-  %13 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %14
+13:                                               ; preds = %2, %9
+  %.sroa.4.0 = phi i64 [ %.fca.1.extract, %9 ], [ undef, %2 ]
+  %.sroa.0.0 = phi i64 [ %.sroa.0.1, %9 ], [ 0, %2 ]
+  %14 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %15 = insertvalue { i64, i64 } %14, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable

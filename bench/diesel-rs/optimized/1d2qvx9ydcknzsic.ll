@@ -27,16 +27,16 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.val.i.i = load ptr, ptr %5, align 8, !alias.scope !7, !noalias !10, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.val13.i.i = load ptr, ptr %6, align 8, !alias.scope !7, !noalias !10, !noundef !13
-  %7 = ptrtoint ptr %.val13.i.i to i64
+  %.val11.i.i = load ptr, ptr %6, align 8, !alias.scope !7, !noalias !10, !noundef !13
+  %7 = ptrtoint ptr %.val11.i.i to i64
   %8 = ptrtoint ptr %.val.i.i to i64
   %9 = sub nuw i64 %7, %8
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %.val14.i.i = load ptr, ptr %10, align 8, !alias.scope !7, !noalias !10, !noundef !13
+  %.val12.i.i = load ptr, ptr %10, align 8, !alias.scope !7, !noalias !10, !noundef !13
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %.val15.i.i = load ptr, ptr %11, align 8, !alias.scope !7, !noalias !10, !noundef !13
-  %12 = ptrtoint ptr %.val15.i.i to i64
-  %13 = ptrtoint ptr %.val14.i.i to i64
+  %.val13.i.i = load ptr, ptr %11, align 8, !alias.scope !7, !noalias !10, !noundef !13
+  %12 = ptrtoint ptr %.val13.i.i to i64
+  %13 = ptrtoint ptr %.val12.i.i to i64
   %14 = sub nuw i64 %12, %13
   %15 = udiv exact i64 %14, 24
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %9, i64 %15)
@@ -60,12 +60,12 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %39 unwind label %37, !noalias !15
 
 19:                                               ; preds = %34, %.lr.ph.i
-  %20 = phi ptr [ %.val14.i.i, %.lr.ph.i ], [ %32, %34 ]
+  %20 = phi ptr [ %.val12.i.i, %.lr.ph.i ], [ %32, %34 ]
   %21 = phi ptr [ %.val.i.i, %.lr.ph.i ], [ %27, %34 ]
   %.val15.i = phi i64 [ %.sroa.5.0.copyload, %.lr.ph.i ], [ %36, %34 ]
-  %.sroa.01.028.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %34 ]
-  %22 = add nuw nsw i64 %.sroa.01.028.i, 1
-  %23 = icmp eq ptr %21, %.val13.i.i
+  %.sroa.01.027.i = phi i64 [ 0, %.lr.ph.i ], [ %22, %34 ]
+  %22 = add nuw nsw i64 %.sroa.01.027.i, 1
+  %23 = icmp eq ptr %21, %.val11.i.i
   br i1 %23, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdd04275d7af68a6E.exit.i", label %24
 
 24:                                               ; preds = %19
@@ -79,7 +79,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %28 = icmp ne i8 %.0.i.i, 20
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
-  %29 = icmp eq ptr %20, %.val15.i.i
+  %29 = icmp eq ptr %20, %.val13.i.i
   br i1 %29, label %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0659a77a6ff6a1e0E.exit.i", label %30
 
 30:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hfdd04275d7af68a6E.exit.i"
@@ -638,7 +638,7 @@ define hidden void @"_ZN114_$LT$diesel..expression..operators..Desc$LT$Expr$GT$$
   switch i64 %6, label %default.unreachable [
     i64 0, label %7
     i64 1, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2124073ec05e7cd0E.exit"
-    i64 4, label %.thread39
+    i64 4, label %.thread38
     i64 2, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2124073ec05e7cd0E.exit"
     i64 3, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2124073ec05e7cd0E.exit"
   ]
@@ -662,7 +662,7 @@ default.unreachable:                              ; preds = %3
   %13 = icmp eq i64 %12, -9223372036854775798
   br i1 %13, label %.thread31.i, label %"_ZN118_$LT$all_about_inserts_mysql..schema..users..columns..id$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdcea629e0b362248E.exit.thread"
 
-.thread39:                                        ; preds = %3
+.thread38:                                        ; preds = %3
   %.sroa.6.0.in.i13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.6.0.i14 = load ptr, ptr %.sroa.6.0.in.i13, align 8, !alias.scope !165, !noalias !168, !nonnull !13, !align !170, !noundef !13
   store i8 0, ptr %.sroa.6.0.i14, align 1, !noalias !189
@@ -684,9 +684,9 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN140_$LT$diesel..mysql..query_builder..MysqlQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..mysql..backend..Mysql$GT$$GT$15push_identifier17h81c4a00180c02f59E"(ptr noalias noundef nonnull sret({ i64, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.6.0.i, ptr noalias noundef nonnull readonly align 1 @anon.3a7200eba26683bd0834a5ba84a91366.58.llvm.12717259899696012883, i64 noundef 2), !noalias !201
   %14 = load i64, ptr %4, align 8, !range !163, !noalias !196, !noundef !13
   %15 = icmp eq i64 %14, -9223372036854775798
-  br i1 %15, label %.thread36, label %"_ZN118_$LT$all_about_inserts_mysql..schema..users..columns..id$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdcea629e0b362248E.exit"
+  br i1 %15, label %.thread35, label %"_ZN118_$LT$all_about_inserts_mysql..schema..users..columns..id$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdcea629e0b362248E.exit"
 
-.thread36:                                        ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2124073ec05e7cd0E.exit.thread.i"
+.thread35:                                        ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2124073ec05e7cd0E.exit.thread.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !196
   tail call void @"_ZN140_$LT$diesel..mysql..query_builder..MysqlQueryBuilder$u20$as$u20$diesel..query_builder..QueryBuilder$LT$diesel..mysql..backend..Mysql$GT$$GT$8push_sql17h9e2d6187c4aa6542E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %.sroa.6.0.i, ptr noalias noundef nonnull readonly align 1 @anon.dea924d530ff41a057a7177f7ef306ed.3.llvm.8559575631518112565, i64 noundef 6), !noalias !202
   br label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2124073ec05e7cd0E.exit"
@@ -697,13 +697,13 @@ default.unreachable:                              ; preds = %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !196
   br label %16
 
-"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2124073ec05e7cd0E.exit": ; preds = %3, %3, %3, %.thread36, %.thread39
+"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17h2124073ec05e7cd0E.exit": ; preds = %3, %3, %3, %.thread35, %.thread38
   store i64 -9223372036854775798, ptr %0, align 8
   br label %17
 
 16:                                               ; preds = %"_ZN118_$LT$all_about_inserts_mysql..schema..users..columns..id$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdcea629e0b362248E.exit", %"_ZN118_$LT$all_about_inserts_mysql..schema..users..columns..id$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdcea629e0b362248E.exit.thread"
-  %.sroa.0.127 = phi i64 [ %12, %"_ZN118_$LT$all_about_inserts_mysql..schema..users..columns..id$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdcea629e0b362248E.exit.thread" ], [ %14, %"_ZN118_$LT$all_about_inserts_mysql..schema..users..columns..id$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdcea629e0b362248E.exit" ]
-  store i64 %.sroa.0.127, ptr %0, align 8
+  %.sroa.0.126 = phi i64 [ %12, %"_ZN118_$LT$all_about_inserts_mysql..schema..users..columns..id$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdcea629e0b362248E.exit.thread" ], [ %14, %"_ZN118_$LT$all_about_inserts_mysql..schema..users..columns..id$u20$as$u20$diesel..query_builder..QueryFragment$LT$DB$GT$$GT$8walk_ast17hdcea629e0b362248E.exit" ]
+  store i64 %.sroa.0.126, ptr %0, align 8
   %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.28.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.6, i64 24, i1 false)
   br label %17
@@ -1418,16 +1418,16 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.i = load ptr, ptr %4, align 8, !alias.scope !368, !noalias !371, !noundef !13
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.val13.i = load ptr, ptr %5, align 8, !alias.scope !368, !noalias !371, !noundef !13
-  %6 = ptrtoint ptr %.val13.i to i64
+  %.val11.i = load ptr, ptr %5, align 8, !alias.scope !368, !noalias !371, !noundef !13
+  %6 = ptrtoint ptr %.val11.i to i64
   %7 = ptrtoint ptr %.val.i to i64
   %8 = sub nuw i64 %6, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val14.i = load ptr, ptr %9, align 8, !alias.scope !368, !noalias !371, !noundef !13
+  %.val12.i = load ptr, ptr %9, align 8, !alias.scope !368, !noalias !371, !noundef !13
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.val15.i = load ptr, ptr %10, align 8, !alias.scope !368, !noalias !371, !noundef !13
-  %11 = ptrtoint ptr %.val15.i to i64
-  %12 = ptrtoint ptr %.val14.i to i64
+  %.val13.i = load ptr, ptr %10, align 8, !alias.scope !368, !noalias !371, !noundef !13
+  %11 = ptrtoint ptr %.val13.i to i64
+  %12 = ptrtoint ptr %.val12.i to i64
   %13 = sub nuw i64 %11, %12
   %14 = udiv exact i64 %13, 24
   %.0.sroa.speculated.i.i = tail call noundef i64 @llvm.umin.i64(i64 %8, i64 %14)
@@ -1458,8 +1458,8 @@ define hidden void @"_ZN99_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$a
 
 20:                                               ; preds = %.lr.ph, %35
   %.val15 = phi i64 [ %.promoted, %.lr.ph ], [ %37, %35 ]
-  %.sroa.01.028 = phi i64 [ 0, %.lr.ph ], [ %21, %35 ]
-  %21 = add nuw nsw i64 %.sroa.01.028, 1
+  %.sroa.01.027 = phi i64 [ 0, %.lr.ph ], [ %21, %35 ]
+  %21 = add nuw nsw i64 %.sroa.01.027, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !373)
   %22 = load ptr, ptr %4, align 8, !alias.scope !373, !noundef !13
   %23 = load ptr, ptr %5, align 8, !alias.scope !373, !noundef !13

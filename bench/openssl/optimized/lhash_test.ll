@@ -131,9 +131,9 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 101, ptr noundef nonnull @.str.6, ptr noundef %3) #13
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %78, label %.preheader73
+  br i1 %.not, label %78, label %.preheader72
 
-.preheader73:                                     ; preds = %0, %10
+.preheader72:                                     ; preds = %0, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %0 ]
   %5 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv
   %6 = tail call ptr @OPENSSL_LH_insert(ptr noundef %3, ptr noundef nonnull %5) #13
@@ -141,26 +141,26 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
   %.not65 = icmp eq i32 %7, 0
   br i1 %.not65, label %8, label %10
 
-8:                                                ; preds = %.preheader73
+8:                                                ; preds = %.preheader72
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 107, ptr noundef nonnull @.str.8, i32 noundef %9) #13
   br label %78
 
-10:                                               ; preds = %.preheader73
+10:                                               ; preds = %.preheader72
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 21
-  br i1 %exitcond.not, label %11, label %.preheader73, !llvm.loop !4
+  br i1 %exitcond.not, label %11, label %.preheader72, !llvm.loop !4
 
 11:                                               ; preds = %10
   %12 = tail call i64 @OPENSSL_LH_num_items(ptr noundef %3) #13
   %13 = trunc i64 %12 to i32
   %14 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 112, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, i32 noundef %13, i32 noundef 21) #13
   %.not52 = icmp eq i32 %14, 0
-  br i1 %.not52, label %78, label %.preheader72
+  br i1 %.not52, label %78, label %.preheader71
 
-.preheader72:                                     ; preds = %11, %22
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %22 ], [ 0, %11 ]
-  %15 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv93
+.preheader71:                                     ; preds = %11, %22
+  %indvars.iv92 = phi i64 [ %indvars.iv.next93, %22 ], [ 0, %11 ]
+  %15 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv92
   %16 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %3, ptr noundef nonnull %15) #13
   %17 = load i32, ptr %16, align 4, !tbaa !6
   %18 = load i32, ptr %15, align 4, !tbaa !6
@@ -168,33 +168,33 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
   %.not64 = icmp eq i32 %19, 0
   br i1 %.not64, label %20, label %22
 
-20:                                               ; preds = %.preheader72
-  %21 = trunc nuw nsw i64 %indvars.iv93 to i32
+20:                                               ; preds = %.preheader71
+  %21 = trunc nuw nsw i64 %indvars.iv92 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 118, ptr noundef nonnull @.str.13, i32 noundef %21) #13
   br label %78
 
-22:                                               ; preds = %.preheader72
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond96.not = icmp eq i64 %indvars.iv.next94, 21
-  br i1 %exitcond96.not, label %.preheader71, label %.preheader72, !llvm.loop !10
+22:                                               ; preds = %.preheader71
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond95.not = icmp eq i64 %indvars.iv.next93, 21
+  br i1 %exitcond95.not, label %.preheader70, label %.preheader71, !llvm.loop !10
 
-.preheader71:                                     ; preds = %22, %28
-  %indvars.iv97 = phi i64 [ %indvars.iv.next98, %28 ], [ 0, %22 ]
-  %23 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv97
+.preheader70:                                     ; preds = %22, %28
+  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %28 ], [ 0, %22 ]
+  %23 = getelementptr inbounds nuw i32, ptr @int_tests, i64 %indvars.iv96
   %24 = tail call ptr @OPENSSL_LH_retrieve(ptr noundef %3, ptr noundef nonnull %23) #13
   %25 = tail call i32 @test_ptr_eq(ptr noundef nonnull @.str.5, i32 noundef 122, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef %24, ptr noundef nonnull %23) #13
   %.not63 = icmp eq i32 %25, 0
   br i1 %.not63, label %26, label %28
 
-26:                                               ; preds = %.preheader71
-  %27 = trunc nuw nsw i64 %indvars.iv97 to i32
+26:                                               ; preds = %.preheader70
+  %27 = trunc nuw nsw i64 %indvars.iv96 to i32
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 123, ptr noundef nonnull @.str.16, i32 noundef %27) #13
   br label %78
 
-28:                                               ; preds = %.preheader71
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 21
-  br i1 %exitcond100.not, label %29, label %.preheader71, !llvm.loop !11
+28:                                               ; preds = %.preheader70
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond99.not = icmp eq i64 %indvars.iv.next97, 21
+  br i1 %exitcond99.not, label %29, label %.preheader70, !llvm.loop !11
 
 29:                                               ; preds = %28
   store i32 1, ptr %1, align 4, !tbaa !6
@@ -229,30 +229,30 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
   %42 = sext i16 %41 to i32
   %43 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 143, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %42, i32 noundef 0) #13
   %.not57 = icmp eq i32 %43, 0
-  br i1 %.not57, label %44, label %.preheader70
+  br i1 %.not57, label %44, label %.preheader69
 
 44:                                               ; preds = %40
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 144, ptr noundef nonnull @.str.26) #13
   br label %78
 
-.preheader70:                                     ; preds = %40, %51
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %51 ], [ 0, %40 ]
-  %45 = getelementptr inbounds nuw i16, ptr @int_found, i64 %indvars.iv101
+.preheader69:                                     ; preds = %40, %51
+  %indvars.iv100 = phi i64 [ %indvars.iv.next101, %51 ], [ 0, %40 ]
+  %45 = getelementptr inbounds nuw i16, ptr @int_found, i64 %indvars.iv100
   %46 = load i16, ptr %45, align 2, !tbaa !12
   %47 = sext i16 %46 to i32
   %48 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 148, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %47, i32 noundef 1) #13
   %.not62 = icmp eq i32 %48, 0
   br i1 %.not62, label %49, label %51
 
-49:                                               ; preds = %.preheader70
-  %50 = trunc nuw nsw i64 %indvars.iv101 to i32
+49:                                               ; preds = %.preheader69
+  %50 = trunc nuw nsw i64 %indvars.iv100 to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 149, ptr noundef nonnull @.str.29, i32 noundef %50) #13
   br label %78
 
-51:                                               ; preds = %.preheader70
-  %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond104.not = icmp eq i64 %indvars.iv.next102, 21
-  br i1 %exitcond104.not, label %52, label %.preheader70, !llvm.loop !14
+51:                                               ; preds = %.preheader69
+  %indvars.iv.next101 = add nuw nsw i64 %indvars.iv100, 1
+  %exitcond103.not = icmp eq i64 %indvars.iv.next101, 21
+  br i1 %exitcond103.not, label %52, label %.preheader69, !llvm.loop !14
 
 52:                                               ; preds = %51
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(42) @int_found, i8 0, i64 42, i1 false)
@@ -262,34 +262,34 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
   %54 = sext i16 %53 to i32
   %55 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 157, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %54, i32 noundef 0) #13
   %.not58 = icmp eq i32 %55, 0
-  br i1 %.not58, label %56, label %.preheader69
+  br i1 %.not58, label %56, label %.preheader68
 
 56:                                               ; preds = %52
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 158, ptr noundef nonnull @.str.30) #13
   br label %78
 
-.preheader69:                                     ; preds = %52, %63
-  %indvars.iv105 = phi i64 [ %indvars.iv.next106, %63 ], [ 0, %52 ]
-  %57 = getelementptr inbounds nuw i16, ptr @int_found, i64 %indvars.iv105
+.preheader68:                                     ; preds = %52, %63
+  %indvars.iv104 = phi i64 [ %indvars.iv.next105, %63 ], [ 0, %52 ]
+  %57 = getelementptr inbounds nuw i16, ptr @int_found, i64 %indvars.iv104
   %58 = load i16, ptr %57, align 2, !tbaa !12
   %59 = sext i16 %58 to i32
   %60 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 162, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i32 noundef %59, i32 noundef 1) #13
   %.not61 = icmp eq i32 %60, 0
   br i1 %.not61, label %61, label %63
 
-61:                                               ; preds = %.preheader69
-  %62 = trunc nuw nsw i64 %indvars.iv105 to i32
+61:                                               ; preds = %.preheader68
+  %62 = trunc nuw nsw i64 %indvars.iv104 to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 163, ptr noundef nonnull @.str.31, i32 noundef %62) #13
   br label %78
 
-63:                                               ; preds = %.preheader69
-  %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
-  %exitcond108.not = icmp eq i64 %indvars.iv.next106, 21
-  br i1 %exitcond108.not, label %.preheader, label %.preheader69, !llvm.loop !15
+63:                                               ; preds = %.preheader68
+  %indvars.iv.next105 = add nuw nsw i64 %indvars.iv104, 1
+  %exitcond107.not = icmp eq i64 %indvars.iv.next105, 21
+  br i1 %exitcond107.not, label %.preheader, label %.preheader68, !llvm.loop !15
 
 .preheader:                                       ; preds = %63, %74
-  %indvars.iv109 = phi i64 [ %indvars.iv.next110, %74 ], [ 0, %63 ]
-  %64 = getelementptr inbounds nuw %struct.anon, ptr @test_int_lhash.dels, i64 %indvars.iv109
+  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %74 ], [ 0, %63 ]
+  %64 = getelementptr inbounds nuw %struct.anon, ptr @test_int_lhash.dels, i64 %indvars.iv108
   %65 = call ptr @OPENSSL_LH_delete(ptr noundef %3, ptr noundef nonnull %64) #13
   %66 = icmp eq ptr %65, null
   %67 = zext i1 %66 to i32
@@ -301,14 +301,14 @@ define internal range(i32 0, 2) i32 @test_int_lhash() #0 {
   br i1 %.not60, label %72, label %74
 
 72:                                               ; preds = %.preheader
-  %73 = trunc nuw nsw i64 %indvars.iv109 to i32
+  %73 = trunc nuw nsw i64 %indvars.iv108 to i32
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 171, ptr noundef nonnull @.str.33, i32 noundef %73) #13
   br label %78
 
 74:                                               ; preds = %.preheader
-  %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
-  %exitcond112.not = icmp eq i64 %indvars.iv.next110, 6
-  br i1 %exitcond112.not, label %75, label %.preheader, !llvm.loop !18
+  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %exitcond111.not = icmp eq i64 %indvars.iv.next109, 6
+  br i1 %exitcond111.not, label %75, label %.preheader, !llvm.loop !18
 
 75:                                               ; preds = %74
   %76 = call i32 @OPENSSL_LH_error(ptr noundef %3) #13
@@ -331,27 +331,27 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
   %3 = tail call ptr @OPENSSL_LH_set_thunks(ptr noundef %2, ptr noundef nonnull @lh_int_hfn_thunk, ptr noundef nonnull @lh_int_cfn_thunk, ptr noundef nonnull @lh_int_doall_thunk, ptr noundef nonnull @lh_int_doall_arg_thunk) #13
   %4 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 351, ptr noundef nonnull @.str.6, ptr noundef %3) #13
   %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %.loopexit, label %.preheader31
+  br i1 %.not, label %.loopexit, label %.preheader30
 
-.preheader31:                                     ; preds = %0, %8
-  %.02235 = phi i32 [ %12, %8 ], [ 0, %0 ]
+.preheader30:                                     ; preds = %0, %8
+  %.02234 = phi i32 [ %12, %8 ], [ 0, %0 ]
   %5 = tail call noalias ptr @CRYPTO_malloc(i64 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 358) #13
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 359, ptr noundef nonnull @.str.20, ptr noundef %5) #13
   %.not27 = icmp eq i32 %6, 0
   br i1 %.not27, label %7, label %8
 
-7:                                                ; preds = %.preheader31
-  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 360, ptr noundef nonnull @.str.35, i32 noundef %.02235) #13
+7:                                                ; preds = %.preheader30
+  tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 360, ptr noundef nonnull @.str.35, i32 noundef %.02234) #13
   br label %.loopexit
 
-8:                                                ; preds = %.preheader31
-  %9 = mul nuw nsw i32 %.02235, 3
+8:                                                ; preds = %.preheader30
+  %9 = mul nuw nsw i32 %.02234, 3
   %10 = add nuw nsw i32 %9, 1
   store i32 %10, ptr %5, align 4, !tbaa !6
   %11 = tail call ptr @OPENSSL_LH_insert(ptr noundef %3, ptr noundef nonnull %5) #13
-  %12 = add nuw nsw i32 %.02235, 1
+  %12 = add nuw nsw i32 %.02234, 1
   %exitcond.not = icmp eq i32 %12, 2500000
-  br i1 %exitcond.not, label %13, label %.preheader31, !llvm.loop !19
+  br i1 %exitcond.not, label %13, label %.preheader30, !llvm.loop !19
 
 13:                                               ; preds = %8
   %14 = tail call i64 @OPENSSL_LH_num_items(ptr noundef %3) #13
@@ -361,9 +361,9 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
   br i1 %.not24, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %13, %30
-  %.136 = phi i32 [ %31, %30 ], [ 0, %13 ]
+  %.135 = phi i32 [ %31, %30 ], [ 0, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %17 = mul nuw nsw i32 %.136, 7
+  %17 = mul nuw nsw i32 %.135, 7
   %18 = add nuw nsw i32 %17, 4
   %19 = urem i32 %18, 2500000
   %20 = mul nuw nsw i32 %19, 3
@@ -375,7 +375,7 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
   br i1 %.not25, label %24, label %25
 
 24:                                               ; preds = %.preheader
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 376, ptr noundef nonnull @.str.39, i32 noundef %.136) #13
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 376, ptr noundef nonnull @.str.39, i32 noundef %.135) #13
   br label %.thread
 
 25:                                               ; preds = %.preheader
@@ -386,7 +386,7 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
   br i1 %.not26, label %29, label %30
 
 29:                                               ; preds = %25
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 380, ptr noundef nonnull @.str.42, i32 noundef %.136) #13
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 380, ptr noundef nonnull @.str.42, i32 noundef %.135) #13
   br label %.thread
 
 .thread:                                          ; preds = %29, %24
@@ -396,9 +396,9 @@ define internal range(i32 0, 2) i32 @test_stress() #0 {
 30:                                               ; preds = %25
   call void @CRYPTO_free(ptr noundef nonnull %22, ptr noundef nonnull @.str.5, i32 noundef 383) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %31 = add nuw nsw i32 %.136, 1
-  %exitcond40.not = icmp eq i32 %31, 2500000
-  br i1 %exitcond40.not, label %.loopexit, label %.preheader, !llvm.loop !20
+  %31 = add nuw nsw i32 %.135, 1
+  %exitcond39.not = icmp eq i32 %31, 2500000
+  br i1 %exitcond39.not, label %.loopexit, label %.preheader, !llvm.loop !20
 
 .loopexit:                                        ; preds = %30, %.thread, %13, %0, %7
   %.021 = phi i32 [ 0, %7 ], [ 0, %13 ], [ 0, %0 ], [ 0, %.thread ], [ 1, %30 ]
@@ -579,18 +579,18 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   br label %14
 
 14:                                               ; preds = %9, %25
-  %.02844 = phi i32 [ 0, %9 ], [ %26, %25 ]
+  %.02843 = phi i32 [ 0, %9 ], [ %26, %25 ]
   %15 = call noalias ptr @CRYPTO_malloc(i64 noundef 4, ptr noundef nonnull @.str.5, i32 noundef 436) #13
   %16 = call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 437, ptr noundef nonnull @.str.20, ptr noundef %15) #13
   %.not34 = icmp eq i32 %16, 0
   br i1 %.not34, label %17, label %18
 
 17:                                               ; preds = %14
-  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 438, ptr noundef nonnull @.str.52, i32 noundef %.02844) #13
+  call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 438, ptr noundef nonnull @.str.52, i32 noundef %.02843) #13
   br label %.loopexit
 
 18:                                               ; preds = %14
-  %19 = mul nuw nsw i32 %.02844, 3
+  %19 = mul nuw nsw i32 %.02843, 3
   %20 = add nuw nsw i32 %19, 1
   store i32 %20, ptr %15, align 4, !tbaa !6
   store i32 %20, ptr %11, align 8, !tbaa !29
@@ -609,7 +609,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   br label %.loopexit
 
 25:                                               ; preds = %18
-  %26 = add nuw nsw i32 %.02844, 1
+  %26 = add nuw nsw i32 %.02843, 1
   %exitcond.not = icmp eq i32 %26, 2500000
   br i1 %exitcond.not, label %27, label %14, !llvm.loop !44
 
@@ -623,7 +623,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
 .preheader:                                       ; preds = %27
   switch i32 %0, label %.preheader.split.preheader [
     i32 0, label %.preheader.split.us
-    i32 1, label %.preheader.split.us46
+    i32 1, label %.preheader.split.us45
   ]
 
 .preheader.split.preheader:                       ; preds = %.preheader
@@ -631,8 +631,8 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   br label %.loopexit
 
 .preheader.split.us:                              ; preds = %.preheader, %38
-  %.145.us = phi i32 [ %39, %38 ], [ %0, %.preheader ]
-  %31 = mul nuw nsw i32 %.145.us, 7
+  %.144.us = phi i32 [ %39, %38 ], [ %0, %.preheader ]
+  %31 = mul nuw nsw i32 %.144.us, 7
   %32 = add nuw nsw i32 %31, 4
   %33 = urem i32 %32, 2500000
   %34 = mul nuw nsw i32 %33, 3
@@ -644,13 +644,13 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   br i1 %.not33.us, label %.split.us, label %38
 
 38:                                               ; preds = %.preheader.split.us
-  %39 = add nuw nsw i32 %.145.us, 1
-  %exitcond63.not = icmp eq i32 %39, 2500000
-  br i1 %exitcond63.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !45
+  %39 = add nuw nsw i32 %.144.us, 1
+  %exitcond62.not = icmp eq i32 %39, 2500000
+  br i1 %exitcond62.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !45
 
-.preheader.split.us46:                            ; preds = %.preheader, %59
-  %.145.us47 = phi i32 [ %60, %59 ], [ 0, %.preheader ]
-  %40 = mul nuw nsw i32 %.145.us47, 7
+.preheader.split.us45:                            ; preds = %.preheader, %59
+  %.144.us46 = phi i32 [ %60, %59 ], [ 0, %.preheader ]
+  %40 = mul nuw nsw i32 %.144.us46, 7
   %41 = add nuw nsw i32 %40, 4
   %42 = urem i32 %41, 2500000
   %43 = mul nuw nsw i32 %42, 3
@@ -662,7 +662,7 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   %46 = icmp eq ptr %45, null
   br i1 %46, label %ossl_ht_test_int_get.exit.us, label %47
 
-47:                                               ; preds = %.preheader.split.us46
+47:                                               ; preds = %.preheader.split.us45
   %48 = call ptr @ossl_rcu_uptr_deref(ptr noundef nonnull %2) #13
   %49 = icmp eq ptr %48, null
   br i1 %49, label %ossl_ht_test_int_get.exit.us, label %50
@@ -677,34 +677,34 @@ define internal range(i32 0, 2) i32 @test_hashtable_stress(i32 noundef %0) #0 {
   %54 = load ptr, ptr %48, align 8, !tbaa !30
   br label %ossl_ht_test_int_get.exit.us
 
-ossl_ht_test_int_get.exit.us:                     ; preds = %53, %50, %47, %.preheader.split.us46
-  %.0.i.us = phi ptr [ null, %.preheader.split.us46 ], [ %54, %53 ], [ null, %47 ], [ null, %50 ]
+ossl_ht_test_int_get.exit.us:                     ; preds = %53, %50, %47, %.preheader.split.us45
+  %.0.i.us = phi ptr [ null, %.preheader.split.us45 ], [ %54, %53 ], [ null, %47 ], [ null, %50 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %55 = call i32 @test_ptr(ptr noundef nonnull @.str.5, i32 noundef 467, ptr noundef nonnull @.str.58, ptr noundef %.0.i.us) #13
   %.not31.us = icmp eq i32 %55, 0
-  br i1 %.not31.us, label %.split49.us, label %56
+  br i1 %.not31.us, label %.split48.us, label %56
 
 56:                                               ; preds = %ossl_ht_test_int_get.exit.us
   %57 = load i32, ptr %.0.i.us, align 4, !tbaa !6
   %58 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 468, ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41, i32 noundef %57, i32 noundef %44) #13
   %.not32.us = icmp eq i32 %58, 0
-  br i1 %.not32.us, label %.split49.us, label %59
+  br i1 %.not32.us, label %.split48.us, label %59
 
 59:                                               ; preds = %56
-  %60 = add nuw nsw i32 %.145.us47, 1
-  %exitcond62.not = icmp eq i32 %60, 2500000
-  br i1 %exitcond62.not, label %.loopexit, label %.preheader.split.us46, !llvm.loop !45
+  %60 = add nuw nsw i32 %.144.us46, 1
+  %exitcond61.not = icmp eq i32 %60, 2500000
+  br i1 %exitcond61.not, label %.loopexit, label %.preheader.split.us45, !llvm.loop !45
 
 .split.us:                                        ; preds = %.preheader.split.us
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 462, ptr noundef nonnull @.str.57, i32 noundef %35) #13
   br label %.loopexit
 
-.split49.us:                                      ; preds = %ossl_ht_test_int_get.exit.us, %56
+.split48.us:                                      ; preds = %ossl_ht_test_int_get.exit.us, %56
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 469, ptr noundef nonnull @.str.59, i32 noundef %44) #13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %59, %38, %.preheader.split.preheader, %.split.us, %.split49.us, %27, %1, %23, %17
-  %.029 = phi i32 [ 0, %23 ], [ 0, %17 ], [ 0, %27 ], [ 0, %1 ], [ 0, %.split49.us ], [ 0, %.split.us ], [ 1, %.preheader.split.preheader ], [ 1, %38 ], [ 1, %59 ]
+.loopexit:                                        ; preds = %59, %38, %.preheader.split.preheader, %.split.us, %.split48.us, %27, %1, %23, %17
+  %.029 = phi i32 [ 0, %23 ], [ 0, %17 ], [ 0, %27 ], [ 0, %1 ], [ 0, %.split48.us ], [ 0, %.split.us ], [ 1, %.preheader.split.preheader ], [ 1, %38 ], [ 1, %59 ]
   call void @ossl_ht_free(ptr noundef %7) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

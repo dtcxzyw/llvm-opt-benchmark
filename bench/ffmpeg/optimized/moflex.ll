@@ -53,8 +53,8 @@ bytestream2_get_be16.exit31:                      ; preds = %13
 
 .preheader:                                       ; preds = %bytestream2_get_be16.exit31
   %19 = add nuw nsw i64 %14, 2
-  %gepdiff66 = sub nsw i64 %8, %19
-  %20 = icmp sgt i64 %gepdiff66, 0
+  %gepdiff65 = sub nsw i64 %8, %19
+  %20 = icmp sgt i64 %gepdiff65, 0
   br i1 %20, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %.preheader
@@ -62,15 +62,15 @@ bytestream2_get_be16.exit31:                      ; preds = %13
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %52
-  %22 = phi i64 [ %58, %52 ], [ %gepdiff66, %.lr.ph.preheader ]
-  %.02765 = phi i32 [ %.3, %52 ], [ 15, %.lr.ph.preheader ]
-  %.sroa.0.064 = phi ptr [ %56, %52 ], [ %21, %.lr.ph.preheader ]
+  %22 = phi i64 [ %58, %52 ], [ %gepdiff65, %.lr.ph.preheader ]
+  %.02764 = phi i32 [ %.3, %52 ], [ 15, %.lr.ph.preheader ]
+  %.sroa.0.063 = phi ptr [ %56, %52 ], [ %21, %.lr.ph.preheader ]
   %23 = icmp slt i64 %22, 1
   br i1 %23, label %bytestream2_get_byte.exit, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.064, i64 1
-  %26 = load i8, ptr %.sroa.0.064, align 1, !tbaa !12
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.063, i64 1
+  %26 = load i8, ptr %.sroa.0.063, align 1, !tbaa !12
   %27 = zext i8 %26 to i32
   %.pre = ptrtoint ptr %25 to i64
   br label %bytestream2_get_byte.exit
@@ -98,7 +98,7 @@ bytestream2_get_byte.exit35:                      ; preds = %bytestream2_get_byt
 .thread:                                          ; preds = %bytestream2_get_byte.exit35
   %35 = icmp eq i32 %.0.i34, 0
   %36 = select i1 %35, i32 5, i32 0
-  %37 = add nsw i32 %36, %.02765
+  %37 = add nsw i32 %36, %.02764
   br label %.loopexit
 
 38:                                               ; preds = %bytestream2_get_byte.exit35
@@ -126,11 +126,11 @@ bytestream2_get_byte.exit35:                      ; preds = %bytestream2_get_byt
   br i1 %or.cond7, label %50, label %52
 
 50:                                               ; preds = %47, %44, %41, %38
-  %51 = add nsw i32 %.02765, 20
+  %51 = add nsw i32 %.02764, 20
   br label %52
 
 52:                                               ; preds = %47, %50
-  %.3 = phi i32 [ %51, %50 ], [ %.02765, %47 ]
+  %.3 = phi i32 [ %51, %50 ], [ %.02764, %47 ]
   %53 = ptrtoint ptr %.sroa.0.5 to i64
   %54 = sub i64 %10, %53
   %55 = zext nneg i32 %.0.i34 to i64

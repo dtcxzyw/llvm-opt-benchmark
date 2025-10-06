@@ -350,7 +350,7 @@ define internal fastcc void @curveTo(ptr noundef nonnull captures(none) %0, doub
 ._crit_edge.i.i:                                  ; preds = %7
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !22
-  %.pre45.i.i = load ptr, ptr %0, align 8, !tbaa !13
+  %.pre44.i.i = load ptr, ptr %0, align 8, !tbaa !13
   br label %bezier_path_append.exit
 
 13:                                               ; preds = %7
@@ -405,7 +405,7 @@ define internal fastcc void @curveTo(ptr noundef nonnull captures(none) %0, doub
   unreachable
 
 bezier_path_append.exit:                          ; preds = %._crit_edge.i.i, %37
-  %43 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %19, %37 ]
+  %43 = phi ptr [ %.pre44.i.i, %._crit_edge.i.i ], [ %19, %37 ]
   %44 = phi i64 [ %11, %._crit_edge.i.i ], [ %spec.select.i.i, %37 ]
   %45 = phi i64 [ %9, %._crit_edge.i.i ], [ %28, %37 ]
   %.pre.i.i15 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %38, %37 ]

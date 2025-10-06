@@ -2018,21 +2018,21 @@ define dso_local { ptr, i8 } @_ZNK4Luau5Scope19lookupUnrefinedTypeENS_7NotNullIK
   br label %7
 
 7:                                                ; preds = %2, %.critedge
-  %.020 = phi ptr [ %0, %2 ], [ %30, %.critedge ]
-  %8 = getelementptr inbounds nuw i8, ptr %.020, i64 656
-  %9 = getelementptr inbounds nuw i8, ptr %.020, i64 672
+  %.018 = phi ptr [ %0, %2 ], [ %30, %.critedge ]
+  %8 = getelementptr inbounds nuw i8, ptr %.018, i64 656
+  %9 = getelementptr inbounds nuw i8, ptr %.018, i64 672
   %10 = load i64, ptr %9, align 8, !tbaa !121
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %.020, i64 680
+  %13 = getelementptr inbounds nuw i8, ptr %.018, i64 680
   %14 = load ptr, ptr %13, align 8, !tbaa !122
   %15 = icmp eq ptr %1, %14
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.020, i64 664
+  %17 = getelementptr inbounds nuw i8, ptr %.018, i64 664
   %18 = load i64, ptr %17, align 8, !tbaa !123
   %19 = add i64 %18, -1
   %20 = load ptr, ptr %8, align 8, !tbaa !124
@@ -2058,7 +2058,7 @@ define dso_local { ptr, i8 } @_ZNK4Luau5Scope19lookupUnrefinedTypeENS_7NotNullIK
   br i1 %.not.i.i, label %.critedge, label %21, !llvm.loop !125
 
 .critedge:                                        ; preds = %27, %25, %7, %12
-  %30 = load ptr, ptr %.020, align 8, !tbaa !94
+  %30 = load ptr, ptr %.018, align 8, !tbaa !94
   %.not = icmp eq ptr %30, null
   br i1 %.not, label %.loopexit, label %7, !llvm.loop !129
 
@@ -2068,9 +2068,9 @@ define dso_local { ptr, i8 } @_ZNK4Luau5Scope19lookupUnrefinedTypeENS_7NotNullIK
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.critedge, %31
-  %.sroa.010.017 = phi ptr [ %33, %31 ], [ undef, %.critedge ]
+  %.sroa.010.015 = phi ptr [ %33, %31 ], [ undef, %.critedge ]
   %.sroa.2.1 = phi i8 [ 1, %31 ], [ 0, %.critedge ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.010.017, 0
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.010.015, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { ptr, i8 } %.fca.1.insert
 }
@@ -2084,21 +2084,21 @@ define dso_local { ptr, i8 } @_ZNK4Luau5Scope6lookupENS_7NotNullIKNS_3DefEEE(ptr
   br label %7
 
 7:                                                ; preds = %2, %.critedge18
-  %.041 = phi ptr [ %0, %2 ], [ %52, %.critedge18 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.041, i64 696
-  %9 = getelementptr inbounds nuw i8, ptr %.041, i64 712
+  %.039 = phi ptr [ %0, %2 ], [ %52, %.critedge18 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.039, i64 696
+  %9 = getelementptr inbounds nuw i8, ptr %.039, i64 712
   %10 = load i64, ptr %9, align 8, !tbaa !121
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %.critedge, label %12
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %.041, i64 720
+  %13 = getelementptr inbounds nuw i8, ptr %.039, i64 720
   %14 = load ptr, ptr %13, align 8, !tbaa !122
   %15 = icmp eq ptr %1, %14
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.041, i64 704
+  %17 = getelementptr inbounds nuw i8, ptr %.039, i64 704
   %18 = load i64, ptr %17, align 8, !tbaa !123
   %19 = add i64 %18, -1
   %20 = load ptr, ptr %8, align 8, !tbaa !124
@@ -2124,20 +2124,20 @@ define dso_local { ptr, i8 } @_ZNK4Luau5Scope6lookupENS_7NotNullIKNS_3DefEEE(ptr
   br i1 %.not.i.i, label %.critedge, label %21, !llvm.loop !125
 
 .critedge:                                        ; preds = %27, %25, %7, %12
-  %30 = getelementptr inbounds nuw i8, ptr %.041, i64 656
-  %31 = getelementptr inbounds nuw i8, ptr %.041, i64 672
+  %30 = getelementptr inbounds nuw i8, ptr %.039, i64 656
+  %31 = getelementptr inbounds nuw i8, ptr %.039, i64 672
   %32 = load i64, ptr %31, align 8, !tbaa !121
   %33 = icmp eq i64 %32, 0
   br i1 %33, label %.critedge18, label %34
 
 34:                                               ; preds = %.critedge
-  %35 = getelementptr inbounds nuw i8, ptr %.041, i64 680
+  %35 = getelementptr inbounds nuw i8, ptr %.039, i64 680
   %36 = load ptr, ptr %35, align 8, !tbaa !122
   %37 = icmp eq ptr %1, %36
   br i1 %37, label %.critedge18, label %38
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %.041, i64 664
+  %39 = getelementptr inbounds nuw i8, ptr %.039, i64 664
   %40 = load i64, ptr %39, align 8, !tbaa !123
   %41 = add i64 %40, -1
   %42 = load ptr, ptr %30, align 8, !tbaa !124
@@ -2163,7 +2163,7 @@ define dso_local { ptr, i8 } @_ZNK4Luau5Scope6lookupENS_7NotNullIKNS_3DefEEE(ptr
   br i1 %.not.i.i22, label %.critedge18, label %43, !llvm.loop !125
 
 .critedge18:                                      ; preds = %49, %47, %.critedge, %34
-  %52 = load ptr, ptr %.041, align 8, !tbaa !94
+  %52 = load ptr, ptr %.039, align 8, !tbaa !94
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %.thread, label %7, !llvm.loop !130
 
@@ -2174,9 +2174,9 @@ define dso_local { ptr, i8 } @_ZNK4Luau5Scope6lookupENS_7NotNullIKNS_3DefEEE(ptr
   br label %.thread
 
 .thread:                                          ; preds = %.critedge18, %.thread.sink.split
-  %.sroa.028.037 = phi ptr [ %54, %.thread.sink.split ], [ undef, %.critedge18 ]
+  %.sroa.028.035 = phi ptr [ %54, %.thread.sink.split ], [ undef, %.critedge18 ]
   %.sroa.3.1 = phi i8 [ 1, %.thread.sink.split ], [ 0, %.critedge18 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.028.037, 0
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.028.035, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.1, 1
   ret { ptr, i8 } %.fca.1.insert
 }
@@ -2624,21 +2624,21 @@ _ZN4Luau12DenseHashMapIPKNS_3DefEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3
   br label %31
 
 31:                                               ; preds = %.critedge18.i, %21
-  %.041.i = phi ptr [ %0, %21 ], [ %76, %.critedge18.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %.041.i, i64 696
-  %33 = getelementptr inbounds nuw i8, ptr %.041.i, i64 712
+  %.039.i = phi ptr [ %0, %21 ], [ %76, %.critedge18.i ]
+  %32 = getelementptr inbounds nuw i8, ptr %.039.i, i64 696
+  %33 = getelementptr inbounds nuw i8, ptr %.039.i, i64 712
   %34 = load i64, ptr %33, align 8, !tbaa !121
   %35 = icmp eq i64 %34, 0
   br i1 %35, label %.critedge.i, label %36
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds nuw i8, ptr %.041.i, i64 720
+  %37 = getelementptr inbounds nuw i8, ptr %.039.i, i64 720
   %38 = load ptr, ptr %37, align 8, !tbaa !122
   %39 = icmp eq ptr %26, %38
   br i1 %39, label %.critedge.i, label %40
 
 40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %.041.i, i64 704
+  %41 = getelementptr inbounds nuw i8, ptr %.039.i, i64 704
   %42 = load i64, ptr %41, align 8, !tbaa !123
   %43 = add i64 %42, -1
   %44 = load ptr, ptr %32, align 8, !tbaa !124
@@ -2664,20 +2664,20 @@ _ZN4Luau12DenseHashMapIPKNS_3DefEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3
   br i1 %.not.i.i.i, label %.critedge.i, label %45, !llvm.loop !125
 
 .critedge.i:                                      ; preds = %51, %49, %36, %31
-  %54 = getelementptr inbounds nuw i8, ptr %.041.i, i64 656
-  %55 = getelementptr inbounds nuw i8, ptr %.041.i, i64 672
+  %54 = getelementptr inbounds nuw i8, ptr %.039.i, i64 656
+  %55 = getelementptr inbounds nuw i8, ptr %.039.i, i64 672
   %56 = load i64, ptr %55, align 8, !tbaa !121
   %57 = icmp eq i64 %56, 0
   br i1 %57, label %.critedge18.i, label %58
 
 58:                                               ; preds = %.critedge.i
-  %59 = getelementptr inbounds nuw i8, ptr %.041.i, i64 680
+  %59 = getelementptr inbounds nuw i8, ptr %.039.i, i64 680
   %60 = load ptr, ptr %59, align 8, !tbaa !122
   %61 = icmp eq ptr %26, %60
   br i1 %61, label %.critedge18.i, label %62
 
 62:                                               ; preds = %58
-  %63 = getelementptr inbounds nuw i8, ptr %.041.i, i64 664
+  %63 = getelementptr inbounds nuw i8, ptr %.039.i, i64 664
   %64 = load i64, ptr %63, align 8, !tbaa !123
   %65 = add i64 %64, -1
   %66 = load ptr, ptr %54, align 8, !tbaa !124
@@ -2703,7 +2703,7 @@ _ZN4Luau12DenseHashMapIPKNS_3DefEPKNS_4TypeENS_16DenseHashPointerESt8equal_toIS3
   br i1 %.not.i.i22.i, label %.critedge18.i, label %67, !llvm.loop !125
 
 .critedge18.i:                                    ; preds = %73, %71, %58, %.critedge.i
-  %76 = load ptr, ptr %.041.i, align 8, !tbaa !94
+  %76 = load ptr, ptr %.039.i, align 8, !tbaa !94
   %.not.i20 = icmp eq ptr %76, null
   br i1 %.not.i20, label %_ZNK4Luau5Scope6lookupENS_7NotNullIKNS_3DefEEE.exit, label %31, !llvm.loop !130
 
@@ -2900,19 +2900,19 @@ define dso_local noundef zeroext i1 @_ZNK4Luau5Scope16shouldWarnGlobalENSt7__cxx
   br label %3
 
 3:                                                ; preds = %2, %6
-  %.058 = phi ptr [ %0, %2 ], [ %7, %6 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.058, i64 736
+  %.059 = phi ptr [ %0, %2 ], [ %7, %6 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.059, i64 736
   %5 = tail call noundef ptr @_ZNK4Luau6detail14DenseHashTableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_NS0_16ItemInterfaceSetIS7_EESt4hashIS7_ESt8equal_toIS7_EE4findERKS7_(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %.not7.not.not.not.not = icmp ne ptr %5, null
-  br i1 %.not7.not.not.not.not, label %8, label %6
+  %.not8.not.not.not.not = icmp ne ptr %5, null
+  br i1 %.not8.not.not.not.not, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = load ptr, ptr %.058, align 8, !tbaa !94
+  %7 = load ptr, ptr %.059, align 8, !tbaa !94
   %.not.not = icmp eq ptr %7, null
   br i1 %.not.not, label %8, label %3, !llvm.loop !163
 
-8:                                                ; preds = %3, %6
-  ret i1 %.not7.not.not.not.not
+8:                                                ; preds = %6, %3
+  ret i1 %.not8.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

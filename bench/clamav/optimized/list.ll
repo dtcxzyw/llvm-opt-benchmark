@@ -103,10 +103,10 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %39 = getelementptr inbounds nuw i8, ptr %3, i64 31188
   br label %40
 
-40:                                               ; preds = %.lr.ph, %.thread166
-  %.0280 = phi i64 [ 0, %.lr.ph ], [ %.1, %.thread166 ]
-  %.095279 = phi i64 [ 0, %.lr.ph ], [ %.196, %.thread166 ]
-  %.0137278 = phi i32 [ 0, %.lr.ph ], [ %.1138, %.thread166 ]
+40:                                               ; preds = %.lr.ph, %.thread164
+  %.0276 = phi i64 [ 0, %.lr.ph ], [ %.1, %.thread164 ]
+  %.095275 = phi i64 [ 0, %.lr.ph ], [ %.196, %.thread164 ]
+  %.0137274 = phi i32 [ 0, %.lr.ph ], [ %.1138, %.thread164 ]
   %41 = load i8, ptr %24, align 2, !tbaa !7, !range !26, !noundef !27
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %44
@@ -122,7 +122,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
           to label %46 unwind label %47
 
 46:                                               ; preds = %44
-  br i1 %45, label %.preheader, label %.thread166, !llvm.loop !28
+  br i1 %45, label %.preheader, label %.thread164, !llvm.loop !28
 
 47:                                               ; preds = %44
   %48 = landingpad { ptr, i32 }
@@ -130,15 +130,15 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br label %151
 
 .preheader:                                       ; preds = %46, %149
-  %.2139 = phi i32 [ %133, %149 ], [ %.0137278, %46 ]
-  %.0119 = phi i1 [ %.1120196, %149 ], [ true, %46 ]
-  %.297 = phi i64 [ %.398, %149 ], [ %.095279, %46 ]
-  %.2 = phi i64 [ %.3, %149 ], [ %.0280, %46 ]
+  %.2139 = phi i32 [ %133, %149 ], [ %.0137274, %46 ]
+  %.0119 = phi i1 [ %.1120192, %149 ], [ true, %46 ]
+  %.297 = phi i64 [ %.398, %149 ], [ %.095275, %46 ]
+  %.2 = phi i64 [ %.3, %149 ], [ %.0276, %46 ]
   %49 = invoke noundef zeroext i1 @_ZN7Archive9IsArchiveEb(ptr noundef nonnull align 8 dereferenceable(57108) %3, i1 noundef zeroext true)
           to label %50 unwind label %55
 
 50:                                               ; preds = %.preheader
-  br i1 %49, label %51, label %.thread166
+  br i1 %49, label %51, label %.thread164
 
 51:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -151,8 +151,8 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 
 53:                                               ; preds = %52
   %54 = load i64, ptr %26, align 8, !tbaa !31
-  %.not179 = icmp eq i64 %54, 0
-  br i1 %.not179, label %.split.preheader, label %59
+  %.not175 = icmp eq i64 %54, 0
+  br i1 %.not175, label %.split.preheader, label %59
 
 55:                                               ; preds = %.preheader
   %56 = landingpad { ptr, i32 }
@@ -207,23 +207,23 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 67:                                               ; preds = %66
   %68 = load i32, ptr %27, align 4, !tbaa !32
   switch i32 %68, label %82 [
-    i32 5, label %.split269.us
+    i32 5, label %.split265.us
     i32 2, label %69
   ]
 
 69:                                               ; preds = %67
   %70 = invoke noundef i32 @_ZN11CommandData13IsProcessFileER10FileHeaderPbibPwj(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull align 8 dereferenceable(17184) %30, ptr noundef null, i32 noundef 6, i1 noundef zeroext false, ptr noundef null, i32 noundef 0)
-          to label %71 unwind label %.split275.us
+          to label %71 unwind label %.split271.us
 
 71:                                               ; preds = %69
-  %.not180.us = icmp eq i32 %70, 0
-  br i1 %.not180.us, label %82, label %72
+  %.not176.us = icmp eq i32 %70, 0
+  br i1 %.not176.us, label %82, label %72
 
 72:                                               ; preds = %71
   %73 = load i8, ptr %29, align 1, !tbaa !76, !range !26, !noundef !27
   %74 = trunc nuw i8 %73 to i1
   invoke fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull align 8 dereferenceable(17184) %30, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext %14, i1 noundef zeroext true, i1 noundef zeroext %74)
-          to label %75 unwind label %.split275.us
+          to label %75 unwind label %.split271.us
 
 75:                                               ; preds = %72
   %76 = load i8, ptr %31, align 8, !tbaa !77, !range !26, !noundef !27
@@ -240,14 +240,14 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %.3118.us = phi i64 [ %81, %75 ], [ %.0115.us, %71 ], [ %.0115.us, %67 ]
   %.3113.us = phi i64 [ %.4114.us, %75 ], [ %.0110.us, %71 ], [ %.0110.us, %67 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
-          to label %63 unwind label %.split275.us
+          to label %63 unwind label %.split271.us
 
 .loopexit.split.us:                               ; preds = %66, %63
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
-.split275.us:                                     ; preds = %72, %82, %69
+.split271.us:                                     ; preds = %72, %82, %69
   %83 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
@@ -270,15 +270,15 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 87:                                               ; preds = %86
   %88 = load i32, ptr %27, align 4, !tbaa !32
   switch i32 %88, label %115 [
-    i32 5, label %.split269.us
+    i32 5, label %.split265.us
     i32 2, label %98
     i32 3, label %111
   ]
 
-.split269.us:                                     ; preds = %87, %67
-  %.us-phi270 = phi i1 [ %.1120.us, %67 ], [ %.1120, %87 ]
-  %.us-phi271 = phi i64 [ %.0115.us, %67 ], [ %.0115, %87 ]
-  %.us-phi272 = phi i64 [ %.0110.us, %67 ], [ %.0110, %87 ]
+.split265.us:                                     ; preds = %87, %67
+  %.us-phi266 = phi i1 [ %.1120.us, %67 ], [ %.1120, %87 ]
+  %.us-phi267 = phi i64 [ %.0115.us, %67 ], [ %.0115, %87 ]
+  %.us-phi268 = phi i64 [ %.0110.us, %67 ], [ %.0110, %87 ]
   %89 = load i8, ptr %34, align 1, !tbaa !79, !range !26, !noundef !27
   %90 = trunc nuw i8 %89 to i1
   %91 = load i32, ptr %35, align 8
@@ -286,7 +286,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %or.cond = select i1 %90, i1 %92, i1 false
   br i1 %or.cond, label %93, label %.thread
 
-93:                                               ; preds = %.split269.us
+93:                                               ; preds = %.split265.us
   %94 = load i32, ptr %36, align 4, !tbaa !80
   %95 = add i32 %94, 1
   %96 = call i32 (ptr, i64, ptr, ...) @swprintf(ptr noundef nonnull %6, i64 noundef 50, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef %95) #6
@@ -302,24 +302,24 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
           cleanup
   br label %.loopexit
 
-.split275:                                        ; preds = %112, %101, %115, %98
+.split271:                                        ; preds = %112, %101, %115, %98
   %97 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit
 
 98:                                               ; preds = %87
   %99 = invoke noundef i32 @_ZN11CommandData13IsProcessFileER10FileHeaderPbibPwj(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull align 8 dereferenceable(17184) %30, ptr noundef null, i32 noundef 6, i1 noundef zeroext false, ptr noundef null, i32 noundef 0)
-          to label %100 unwind label %.split275
+          to label %100 unwind label %.split271
 
 100:                                              ; preds = %98
-  %.not180 = icmp eq i32 %99, 0
-  br i1 %.not180, label %115, label %101
+  %.not176 = icmp eq i32 %99, 0
+  br i1 %.not176, label %115, label %101
 
 101:                                              ; preds = %100
   %102 = load i8, ptr %29, align 1, !tbaa !76, !range !26, !noundef !27
   %103 = trunc nuw i8 %102 to i1
   invoke fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull align 8 dereferenceable(17184) %30, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext %14, i1 noundef zeroext false, i1 noundef zeroext %103)
-          to label %104 unwind label %.split275
+          to label %104 unwind label %.split271
 
 104:                                              ; preds = %101
   %105 = load i8, ptr %31, align 8, !tbaa !77, !range !26, !noundef !27
@@ -340,19 +340,19 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %113 = load i8, ptr %29, align 1, !tbaa !76, !range !26, !noundef !27
   %114 = trunc nuw i8 %113 to i1
   invoke fastcc void @_ZL14ListFileHeaderR7ArchiveR10FileHeaderRbbbbb(ptr noundef nonnull align 8 dereferenceable(57108) %3, ptr noundef nonnull align 8 dereferenceable(17184) %28, ptr noundef nonnull align 1 dereferenceable(1) %4, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext %114)
-          to label %115 unwind label %.split275
+          to label %115 unwind label %.split271
 
 115:                                              ; preds = %112, %111, %87, %100, %104
   %.4123 = phi i1 [ true, %104 ], [ false, %100 ], [ %.1120, %111 ], [ true, %112 ], [ %.1120, %87 ]
   %.3118 = phi i64 [ %110, %104 ], [ %.0115, %100 ], [ %.0115, %111 ], [ %.0115, %112 ], [ %.0115, %87 ]
   %.3113 = phi i64 [ %.4114, %104 ], [ %.0110, %100 ], [ %.0110, %111 ], [ %.0110, %112 ], [ %.0110, %87 ]
   invoke void @_ZN7Archive10SeekToNextEv(ptr noundef nonnull align 8 dereferenceable(57108) %3)
-          to label %.split unwind label %.split275
+          to label %.split unwind label %.split271
 
-.thread:                                          ; preds = %85, %65, %.split269.us, %93
-  %.1120196 = phi i1 [ %.us-phi270, %.split269.us ], [ %.us-phi270, %93 ], [ %.1120.us, %65 ], [ %.1120, %85 ]
-  %.0115192 = phi i64 [ %.us-phi271, %.split269.us ], [ %.us-phi271, %93 ], [ %.0115.us, %65 ], [ %.0115, %85 ]
-  %.0110188 = phi i64 [ %.us-phi272, %.split269.us ], [ %.us-phi272, %93 ], [ %.0110.us, %65 ], [ %.0110, %85 ]
+.thread:                                          ; preds = %85, %65, %.split265.us, %93
+  %.1120192 = phi i1 [ %.us-phi266, %.split265.us ], [ %.us-phi266, %93 ], [ %.1120.us, %65 ], [ %.1120, %85 ]
+  %.0115188 = phi i64 [ %.us-phi267, %.split265.us ], [ %.us-phi267, %93 ], [ %.0115.us, %65 ], [ %.0115, %85 ]
+  %.0110184 = phi i64 [ %.us-phi268, %.split265.us ], [ %.us-phi268, %93 ], [ %.0110.us, %65 ], [ %.0110, %85 ]
   switch i32 %13, label %116 [
     i32 84, label %132
     i32 66, label %132
@@ -365,19 +365,19 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 
 119:                                              ; preds = %116
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  invoke void @_Z4itoalPwm(i64 noundef %.0110188, ptr noundef nonnull %7, i64 noundef 20)
+  invoke void @_Z4itoalPwm(i64 noundef %.0110184, ptr noundef nonnull %7, i64 noundef 20)
           to label %120 unwind label %124
 
 120:                                              ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  invoke void @_Z4itoalPwm(i64 noundef %.0115192, ptr noundef nonnull %8, i64 noundef 20)
+  invoke void @_Z4itoalPwm(i64 noundef %.0115188, ptr noundef nonnull %8, i64 noundef 20)
           to label %121 unwind label %126
 
 121:                                              ; preds = %120
   br i1 %22, label %122, label %128
 
 122:                                              ; preds = %121
-  %123 = invoke noundef i32 @_Z14ToPercentUnlimll(i64 noundef %.0115192, i64 noundef %.0110188)
+  %123 = invoke noundef i32 @_Z14ToPercentUnlimll(i64 noundef %.0115188, i64 noundef %.0110184)
           to label %128 unwind label %126
 
 124:                                              ; preds = %119
@@ -392,8 +392,8 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   br label %131
 
 128:                                              ; preds = %121, %122
-  %129 = add nsw i64 %.0110188, %.297
-  %130 = add nsw i64 %.0115192, %.2
+  %129 = add nsw i64 %.0110184, %.297
+  %130 = add nsw i64 %.0115188, %.2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %132
@@ -409,7 +409,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %133 = add i32 %.2139, 1
   %134 = load i64, ptr %37, align 8, !tbaa !81
   %.not151 = icmp eq i64 %134, 0
-  br i1 %.not151, label %.thread175, label %135
+  br i1 %.not151, label %.thread172, label %135
 
 135:                                              ; preds = %132
   %136 = load i8, ptr %38, align 1, !tbaa !82, !range !26, !noundef !27
@@ -422,7 +422,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %141 = load i8, ptr %39, align 4, !range !26
   %142 = trunc nuw i8 %141 to i1
   %or.cond14 = select i1 %140, i1 %142, i1 false
-  br i1 %or.cond14, label %143, label %.thread175
+  br i1 %or.cond14, label %143, label %.thread172
 
 143:                                              ; preds = %138, %135
   %144 = load i32, ptr %11, align 4, !tbaa !3
@@ -430,14 +430,14 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
           to label %146 unwind label %.loopexit.split-lp
 
 146:                                              ; preds = %143
-  br i1 %145, label %147, label %.thread175
+  br i1 %145, label %147, label %.thread172
 
 147:                                              ; preds = %146
   invoke void @_ZN7Archive4SeekEli(ptr noundef nonnull align 8 dereferenceable(57108) %3, i64 noundef 0, i32 noundef 0)
           to label %149 unwind label %.loopexit.split-lp
 
-.loopexit:                                        ; preds = %.split275, %.split275.us, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %131
-  %.pn152 = phi { ptr, i32 } [ %.pn, %131 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %97, %.split275 ], [ %83, %.split275.us ]
+.loopexit:                                        ; preds = %.split271, %.split271.us, %.loopexit.split-lp, %.loopexit.split.us, %.loopexit.split, %131
+  %.pn152 = phi { ptr, i32 } [ %.pn, %131 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit.split ], [ %lpad.loopexit.us, %.loopexit.split.us ], [ %97, %.split271 ], [ %83, %.split271.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %148
 
@@ -446,20 +446,20 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %151
 
-.thread175:                                       ; preds = %146, %138, %132
+.thread172:                                       ; preds = %146, %138, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread166
+  br label %.thread164
 
 149:                                              ; preds = %147
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.preheader
 
-.thread166:                                       ; preds = %50, %.thread175, %46
-  %.1138 = phi i32 [ %.0137278, %46 ], [ %133, %.thread175 ], [ %.2139, %50 ]
-  %.196 = phi i64 [ %.095279, %46 ], [ %.398, %.thread175 ], [ %.297, %50 ]
-  %.1 = phi i64 [ %.0280, %46 ], [ %.3, %.thread175 ], [ %.2, %50 ]
+.thread164:                                       ; preds = %50, %.thread172, %46
+  %.1138 = phi i32 [ %.0137274, %46 ], [ %133, %.thread172 ], [ %.2139, %50 ]
+  %.196 = phi i64 [ %.095275, %46 ], [ %.398, %.thread172 ], [ %.297, %50 ]
+  %.1 = phi i64 [ %.0276, %46 ], [ %.3, %.thread172 ], [ %.2, %50 ]
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %150 = call noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %2, i32 noundef 2048)
@@ -472,7 +472,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn152.pn.pn.pn
 
-._crit_edge.loopexit:                             ; preds = %.thread166
+._crit_edge.loopexit:                             ; preds = %.thread164
   %152 = icmp ult i32 %.1138, 2
   br label %._crit_edge
 

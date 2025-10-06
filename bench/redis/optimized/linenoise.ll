@@ -1374,8 +1374,8 @@ define dso_local void @linenoisePrintKeyCodes() local_unnamed_addr #9 {
 
 4:                                                ; preds = %0
   store i32 538976288, ptr %.sroa.0, align 4
-  %.sroa.0.1..sroa_idx6 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
-  %.sroa.0.3..sroa_idx7 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
+  %.sroa.0.1..sroa_idx4 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 1
+  %.sroa.0.3..sroa_idx5 = getelementptr inbounds nuw i8, ptr %.sroa.0, i64 3
   br label %5
 
 5:                                                ; preds = %23, %4
@@ -1386,12 +1386,12 @@ define dso_local void @linenoisePrintKeyCodes() local_unnamed_addr #9 {
   br i1 %8, label %23, label %9
 
 9:                                                ; preds = %5
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %.sroa.0, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.0.1..sroa_idx6, i64 3, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(3) %.sroa.0, ptr noundef nonnull align 1 dereferenceable(3) %.sroa.0.1..sroa_idx4, i64 3, i1 false)
   %10 = load i8, ptr %1, align 1, !tbaa !21
-  store i8 %10, ptr %.sroa.0.3..sroa_idx7, align 1, !tbaa !21
+  store i8 %10, ptr %.sroa.0.3..sroa_idx5, align 1, !tbaa !21
   %.sroa.0.0..sroa.0.0.lhsv = load i32, ptr %.sroa.0, align 4
-  %.not5 = icmp eq i32 %.sroa.0.0..sroa.0.0.lhsv, 1953068401
-  br i1 %.not5, label %24, label %11
+  %.not3 = icmp eq i32 %.sroa.0.0..sroa.0.0.lhsv, 1953068401
+  br i1 %.not3, label %24, label %11
 
 11:                                               ; preds = %9
   %12 = tail call ptr @__ctype_b_loc() #29
@@ -1837,7 +1837,7 @@ getCursorPosition.exit34.i.i.i:                   ; preds = %119
   br label %getColumns.exit.i.i
 
 getColumns.exit.i.i:                              ; preds = %131, %126, %124, %getCursorPosition.exit34.i.i.i, %getCursorPosition.exit34.thread.i.i.i, %102, %getCursorPosition.exit.i.i.i, %getCursorPosition.exit.thread.i.i.i, %66
-  %.1.i.i.i = phi i32 [ %132, %131 ], [ 80, %66 ], [ 80, %getCursorPosition.exit.i.i.i ], [ 80, %102 ], [ 80, %getCursorPosition.exit34.i.i.i ], [ 80, %getCursorPosition.exit.thread.i.i.i ], [ 80, %getCursorPosition.exit34.thread.i.i.i ], [ %122, %124 ], [ %122, %126 ]
+  %.1.i.i.i = phi i32 [ %132, %131 ], [ %122, %126 ], [ %122, %124 ], [ 80, %66 ], [ 80, %getCursorPosition.exit.i.i.i ], [ 80, %102 ], [ 80, %getCursorPosition.exit34.i.i.i ], [ 80, %getCursorPosition.exit.thread.i.i.i ], [ 80, %getCursorPosition.exit34.thread.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %133 = sext i32 %.1.i.i.i to i64
   %134 = getelementptr inbounds nuw i8, ptr %12, i64 72
@@ -2989,7 +2989,7 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
 
 5:                                                ; preds = %4
   %.b9 = load i1, ptr @cycle_to_next_search, align 4
-  %.pre77 = add nsw i32 %3, -1
+  %.pre76 = add nsw i32 %3, -1
   br i1 %.b9, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %5
@@ -3005,110 +3005,110 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %10) #25
   %16 = icmp eq i32 %15, 0
   %17 = icmp eq ptr %14, null
-  %or.cond.us40 = select i1 %17, i1 true, i1 %16
-  br i1 %or.cond.us40, label %.lr.ph42, label %.split30.us
+  %or.cond.us39 = select i1 %17, i1 true, i1 %16
+  br i1 %or.cond.us39, label %.lr.ph41, label %.split29.us
 
-.lr.ph42:                                         ; preds = %.split.us
+.lr.ph41:                                         ; preds = %.split.us
   %.pre = load i32, ptr @reverse_search_direction, align 4
   %18 = icmp eq i32 %.pre, 1
-  br i1 %18, label %.lr.ph42.split.us.preheader, label %.lr.ph42.split
+  br i1 %18, label %.lr.ph41.split.us.preheader, label %.lr.ph41.split
 
-.lr.ph42.split.us.preheader:                      ; preds = %.lr.ph42
-  %sext75 = sext i32 %.pre77 to i64
-  br label %.lr.ph42.split.us
+.lr.ph41.split.us.preheader:                      ; preds = %.lr.ph41
+  %sext74 = sext i32 %.pre76 to i64
+  br label %.lr.ph41.split.us
 
-.lr.ph42.split.us:                                ; preds = %.lr.ph42.split.us.preheader, %20
-  %indvars.iv73 = phi i64 [ %11, %.lr.ph42.split.us.preheader ], [ %indvars.iv.next74, %20 ]
-  %19 = icmp eq i64 %indvars.iv73, %sext75
+.lr.ph41.split.us:                                ; preds = %.lr.ph41.split.us.preheader, %20
+  %indvars.iv72 = phi i64 [ %11, %.lr.ph41.split.us.preheader ], [ %indvars.iv.next73, %20 ]
+  %19 = icmp eq i64 %indvars.iv72, %sext74
   br i1 %19, label %.loopexit, label %20
 
-20:                                               ; preds = %.lr.ph42.split.us
-  %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
-  %21 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.next74
+20:                                               ; preds = %.lr.ph41.split.us
+  %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
+  %21 = getelementptr inbounds ptr, ptr %7, i64 %indvars.iv.next73
   %22 = load ptr, ptr %21, align 8, !tbaa !15
   %23 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %1) #25
   %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %22, ptr noundef nonnull dereferenceable(1) %10) #25
   %25 = icmp eq i32 %24, 0
   %26 = icmp eq ptr %23, null
   %or.cond.us.us = select i1 %26, i1 true, i1 %25
-  br i1 %or.cond.us.us, label %.lr.ph42.split.us, label %.split30.us.loopexit
+  br i1 %or.cond.us.us, label %.lr.ph41.split.us, label %.split29.us.loopexit
 
-.lr.ph42.split:                                   ; preds = %.lr.ph42, %28
-  %indvars.iv70 = phi i64 [ %indvars.iv.next71, %28 ], [ %11, %.lr.ph42 ]
-  %27 = icmp slt i64 %indvars.iv70, 1
+.lr.ph41.split:                                   ; preds = %.lr.ph41, %28
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %28 ], [ %11, %.lr.ph41 ]
+  %27 = icmp slt i64 %indvars.iv69, 1
   br i1 %27, label %.loopexit, label %28
 
-28:                                               ; preds = %.lr.ph42.split
-  %indvars.iv.next71 = add nsw i64 %indvars.iv70, -1
-  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next71
+28:                                               ; preds = %.lr.ph41.split
+  %indvars.iv.next70 = add nsw i64 %indvars.iv69, -1
+  %29 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next70
   %30 = load ptr, ptr %29, align 8, !tbaa !15
   %31 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %1) #25
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %10) #25
   %33 = icmp eq i32 %32, 0
   %34 = icmp eq ptr %31, null
   %or.cond.us = select i1 %34, i1 true, i1 %33
-  br i1 %or.cond.us, label %.lr.ph42.split, label %.split30.us.loopexit50
+  br i1 %or.cond.us, label %.lr.ph41.split, label %.split29.us.loopexit49
 
 .split:                                           ; preds = %5
   %35 = load i32, ptr @reverse_search_direction, align 4, !tbaa !4
   %36 = icmp eq i32 %35, -1
-  %37 = select i1 %36, i32 %.pre77, i32 0
+  %37 = select i1 %36, i32 %.pre76, i32 0
   %38 = load ptr, ptr @history, align 8, !tbaa !40
   %39 = sext i32 %37 to i64
   %40 = getelementptr inbounds ptr, ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !15
   %42 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %41, ptr noundef nonnull dereferenceable(1) %1) #25
   %43 = icmp eq ptr %42, null
-  br i1 %43, label %.lr.ph, label %.split30.us
+  br i1 %43, label %.lr.ph, label %.split29.us
 
 .lr.ph:                                           ; preds = %.split
   %44 = icmp eq i32 %35, 1
   br i1 %44, label %.lr.ph.split.us.preheader, label %.lr.ph.split
 
 .lr.ph.split.us.preheader:                        ; preds = %.lr.ph
-  %sext = sext i32 %.pre77 to i64
+  %sext = sext i32 %.pre76 to i64
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %46
-  %indvars.iv67 = phi i64 [ %39, %.lr.ph.split.us.preheader ], [ %indvars.iv.next68, %46 ]
-  %45 = icmp eq i64 %indvars.iv67, %sext
+  %indvars.iv66 = phi i64 [ %39, %.lr.ph.split.us.preheader ], [ %indvars.iv.next67, %46 ]
+  %45 = icmp eq i64 %indvars.iv66, %sext
   br i1 %45, label %.loopexit, label %46
 
 46:                                               ; preds = %.lr.ph.split.us
-  %indvars.iv.next68 = add nsw i64 %indvars.iv67, 1
-  %47 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.next68
+  %indvars.iv.next67 = add nsw i64 %indvars.iv66, 1
+  %47 = getelementptr inbounds ptr, ptr %38, i64 %indvars.iv.next67
   %48 = load ptr, ptr %47, align 8, !tbaa !15
   %49 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %48, ptr noundef nonnull dereferenceable(1) %1) #25
   %50 = icmp eq ptr %49, null
-  br i1 %50, label %.lr.ph.split.us, label %.split30.us.loopexit52
+  br i1 %50, label %.lr.ph.split.us, label %.split29.us.loopexit51
 
-.split30.us.loopexit:                             ; preds = %20
-  %51 = trunc nsw i64 %indvars.iv.next74 to i32
-  br label %.split30.us
+.split29.us.loopexit:                             ; preds = %20
+  %51 = trunc nsw i64 %indvars.iv.next73 to i32
+  br label %.split29.us
 
-.split30.us.loopexit50:                           ; preds = %28
-  %52 = trunc nuw nsw i64 %indvars.iv.next71 to i32
-  br label %.split30.us
+.split29.us.loopexit49:                           ; preds = %28
+  %52 = trunc nuw nsw i64 %indvars.iv.next70 to i32
+  br label %.split29.us
 
-.split30.us.loopexit52:                           ; preds = %46
-  %53 = trunc nsw i64 %indvars.iv.next68 to i32
-  br label %.split30.us
+.split29.us.loopexit51:                           ; preds = %46
+  %53 = trunc nsw i64 %indvars.iv.next67 to i32
+  br label %.split29.us
 
-.split30.us.loopexit54:                           ; preds = %67
+.split29.us.loopexit53:                           ; preds = %67
   %54 = trunc nuw nsw i64 %indvars.iv.next to i32
-  br label %.split30.us
+  br label %.split29.us
 
-.split30.us:                                      ; preds = %.split30.us.loopexit54, %.split30.us.loopexit52, %.split30.us.loopexit50, %.split30.us.loopexit, %.split, %.split.us
-  %.us-phi = phi i32 [ %6, %.split.us ], [ %37, %.split ], [ %51, %.split30.us.loopexit ], [ %52, %.split30.us.loopexit50 ], [ %53, %.split30.us.loopexit52 ], [ %54, %.split30.us.loopexit54 ]
-  %.us-phi31 = phi ptr [ %13, %.split.us ], [ %41, %.split ], [ %22, %.split30.us.loopexit ], [ %30, %.split30.us.loopexit50 ], [ %48, %.split30.us.loopexit52 ], [ %69, %.split30.us.loopexit54 ]
-  %.us-phi32 = phi ptr [ %14, %.split.us ], [ %42, %.split ], [ %23, %.split30.us.loopexit ], [ %31, %.split30.us.loopexit50 ], [ %49, %.split30.us.loopexit52 ], [ %70, %.split30.us.loopexit54 ]
-  %55 = ptrtoint ptr %.us-phi32 to i64
-  %56 = ptrtoint ptr %.us-phi31 to i64
+.split29.us:                                      ; preds = %.split29.us.loopexit53, %.split29.us.loopexit51, %.split29.us.loopexit49, %.split29.us.loopexit, %.split, %.split.us
+  %.us-phi = phi i32 [ %6, %.split.us ], [ %37, %.split ], [ %51, %.split29.us.loopexit ], [ %52, %.split29.us.loopexit49 ], [ %53, %.split29.us.loopexit51 ], [ %54, %.split29.us.loopexit53 ]
+  %.us-phi30 = phi ptr [ %13, %.split.us ], [ %41, %.split ], [ %22, %.split29.us.loopexit ], [ %30, %.split29.us.loopexit49 ], [ %48, %.split29.us.loopexit51 ], [ %69, %.split29.us.loopexit53 ]
+  %.us-phi31 = phi ptr [ %14, %.split.us ], [ %42, %.split ], [ %23, %.split29.us.loopexit ], [ %31, %.split29.us.loopexit49 ], [ %49, %.split29.us.loopexit51 ], [ %70, %.split29.us.loopexit53 ]
+  %55 = ptrtoint ptr %.us-phi31 to i64
+  %56 = ptrtoint ptr %.us-phi30 to i64
   %57 = sub i64 %55, %56
   %58 = trunc i64 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.us-phi31, ptr %59, align 8, !tbaa !35
-  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.us-phi31) #25
+  store ptr %.us-phi30, ptr %59, align 8, !tbaa !35
+  %60 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.us-phi30) #25
   %61 = trunc i64 %60 to i32
   store i32 %61, ptr %0, align 8, !tbaa !69
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3131,9 +3131,9 @@ define dso_local void @searchInHistory(ptr dead_on_unwind noalias writable write
   %69 = load ptr, ptr %68, align 8, !tbaa !15
   %70 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %69, ptr noundef nonnull dereferenceable(1) %1) #25
   %71 = icmp eq ptr %70, null
-  br i1 %71, label %.lr.ph.split, label %.split30.us.loopexit54
+  br i1 %71, label %.lr.ph.split, label %.split29.us.loopexit53
 
-.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph42.split, %.lr.ph42.split.us, %.split30.us, %2, %4
+.loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph41.split, %.lr.ph41.split.us, %.split29.us, %2, %4
   ret void
 }
 

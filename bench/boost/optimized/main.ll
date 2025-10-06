@@ -6599,8 +6599,8 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail11object_poolINS1_13epoll_
   %.add.i.i.i = add nsw i64 %.idx.i.i.i, -16
   %.ptr1.i.i.i = getelementptr inbounds i8, ptr %.05.i, i64 %.add.i.i.i
   %7 = load ptr, ptr %.ptr1.i.i.i, align 8, !tbaa !206
-  %.not6.i.i.i.i = icmp eq ptr %7, null
-  br i1 %.not6.i.i.i.i, label %_ZN5boost4asio6detail8op_queueINS1_10reactor_opEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i
+  %.not5.i.i.i.i = icmp eq ptr %7, null
+  br i1 %.not5.i.i.i.i, label %_ZN5boost4asio6detail8op_queueINS1_10reactor_opEED2Ev.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.preheader.i.i
   %8 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i.i, i64 8
@@ -6667,8 +6667,8 @@ _ZN5boost4asio6detail11object_poolINS1_13epoll_reactor16descriptor_stateEE12dest
   %.add.i.i.i6 = add nsw i64 %.idx.i.i.i5, -16
   %.ptr1.i.i.i7 = getelementptr inbounds i8, ptr %.05.i3, i64 %.add.i.i.i6
   %29 = load ptr, ptr %.ptr1.i.i.i7, align 8, !tbaa !206
-  %.not6.i.i.i.i8 = icmp eq ptr %29, null
-  br i1 %.not6.i.i.i.i8, label %_ZN5boost4asio6detail8op_queueINS1_10reactor_opEED2Ev.exit.i.i.i11, label %.lr.ph.i.i.i.i9
+  %.not5.i.i.i.i8 = icmp eq ptr %29, null
+  br i1 %.not5.i.i.i.i8, label %_ZN5boost4asio6detail8op_queueINS1_10reactor_opEED2Ev.exit.i.i.i11, label %.lr.ph.i.i.i.i9
 
 .lr.ph.i.i.i.i9:                                  ; preds = %.preheader.i.i4
   %30 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i.i7, i64 8
@@ -6875,8 +6875,8 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ;
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load ptr, ptr %17, align 8, !tbaa !205
-  %.not36 = icmp eq ptr %18, null
-  br i1 %.not36, label %._crit_edge, label %.preheader.lr.ph
+  %.not34 = icmp eq ptr %18, null
+  br i1 %.not34, label %._crit_edge, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6896,25 +6896,25 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ;
   %27 = icmp eq ptr %26, %22
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !3
-  br i1 %27, label %30, label %._crit_edge38
+  br i1 %27, label %30, label %._crit_edge36
 
 30:                                               ; preds = %24
   store ptr %29, ptr %17, align 8, !tbaa !205
-  br label %._crit_edge38
+  br label %._crit_edge36
 
-._crit_edge38:                                    ; preds = %24, %30
+._crit_edge36:                                    ; preds = %24, %30
   %31 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %.not.i = icmp eq ptr %32, null
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %22, i64 24
   br i1 %.not.i, label %._crit_edge.i, label %33
 
-33:                                               ; preds = %._crit_edge38
+33:                                               ; preds = %._crit_edge36
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %29, ptr %34, align 8, !tbaa !3
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %33, %._crit_edge38
+._crit_edge.i:                                    ; preds = %33, %._crit_edge36
   %.not12.i = icmp eq ptr %29, null
   br i1 %.not12.i, label %46, label %35
 
@@ -6969,7 +6969,7 @@ _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_op
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load ptr, ptr %51, align 8
   invoke void %52(ptr noundef nonnull align 8 dereferenceable(16) %.07.i, ptr noundef nonnull align 8 dereferenceable(16) %4)
-          to label %.noexc unwind label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit26
+          to label %.noexc unwind label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit25
 
 .noexc:                                           ; preds = %.lr.ph.i
   %53 = getelementptr inbounds nuw i8, ptr %.07.i, i64 8
@@ -7011,15 +7011,15 @@ _ZN5boost4asio6detail15timer_queue_set14get_all_timersERNS1_8op_queueINS1_19sche
 
 _ZN5boost4asio6detail9scheduler18abandon_operationsERNS1_8op_queueINS1_19scheduler_operationEEE.exit: ; preds = %60
   %.pr = load ptr, ptr %4, align 8, !tbaa !216
-  %.not6.i22 = icmp eq ptr %.pr, null
-  br i1 %.not6.i22, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i23
+  %.not5.i = icmp eq ptr %.pr, null
+  br i1 %.not5.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i22
 
-.lr.ph.i23:                                       ; preds = %_ZN5boost4asio6detail9scheduler18abandon_operationsERNS1_8op_queueINS1_19scheduler_operationEEE.exit
+.lr.ph.i22:                                       ; preds = %_ZN5boost4asio6detail9scheduler18abandon_operationsERNS1_8op_queueINS1_19scheduler_operationEEE.exit
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %66
 
-66:                                               ; preds = %74, %.lr.ph.i23
-  %67 = phi ptr [ %.pr, %.lr.ph.i23 ], [ %75, %74 ]
+66:                                               ; preds = %74, %.lr.ph.i22
+  %67 = phi ptr [ %.pr, %.lr.ph.i22 ], [ %75, %74 ]
   %68 = load ptr, ptr %67, align 8, !tbaa !83
   store ptr %68, ptr %4, align 8, !tbaa !216
   %69 = icmp eq ptr %68, null
@@ -7041,8 +7041,8 @@ _ZN5boost4asio6detail9scheduler18abandon_operationsERNS1_8op_queueINS1_19schedul
 74:                                               ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %75 = load ptr, ptr %4, align 8, !tbaa !216
-  %.not.i24 = icmp eq ptr %75, null
-  br i1 %.not.i24, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %66
+  %.not.i23 = icmp eq ptr %75, null
+  br i1 %.not.i23, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %66
 
 76:                                               ; preds = %71
   %77 = landingpad { ptr, i32 }
@@ -7055,7 +7055,7 @@ _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit26: ; preds = %.lr.ph.i
+_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit25: ; preds = %.lr.ph.i
   %79 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #32
@@ -7872,8 +7872,8 @@ declare i32 @close(i32 noundef) local_unnamed_addr #17
 define linkonce_odr hidden void @_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::system::error_code", align 8
   %3 = load ptr, ptr %0, align 8, !tbaa !216
-  %.not6 = icmp eq ptr %3, null
-  br i1 %.not6, label %._crit_edge, label %.lr.ph
+  %.not5 = icmp eq ptr %3, null
+  br i1 %.not5, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8115,8 +8115,8 @@ _ZN5boost4asio6detail12posix_threadD2Ev.exit:     ; preds = %_ZN5boost4asio6deta
 _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit: ; preds = %_ZN5boost4asio6detail12posix_threadD2Ev.exit, %_ZN5boost4asio6detail12posix_thread4joinEv.exit, %1
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %51 = load ptr, ptr %50, align 8, !tbaa !216
-  %.not6.i = icmp eq ptr %51, null
-  br i1 %.not6.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
+  %.not5.i = icmp eq ptr %51, null
+  br i1 %.not5.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -8694,8 +8694,8 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %86 = getelementptr inbounds nuw i8, ptr %4, i64 112
   %87 = load ptr, ptr %86, align 8, !tbaa !216
-  %.not6.i.i = icmp eq ptr %87, null
-  br i1 %.not6.i.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader, label %.lr.ph.i.i
+  %.not5.i.i = icmp eq ptr %87, null
+  br i1 %.not5.i.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader, label %.lr.ph.i.i
 
 _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i.preheader: ; preds = %97, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit13
   br label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.i
@@ -9194,8 +9194,8 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail21scheduler_thread_infoD2E
   %2 = alloca %"class.boost::system::error_code", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !216
-  %.not6.i = icmp eq ptr %4, null
-  br i1 %.not6.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader, label %.lr.ph.i
+  %.not5.i = icmp eq ptr %4, null
+  br i1 %.not5.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader, label %.lr.ph.i
 
 _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit.preheader: ; preds = %14, %1
   br label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit
@@ -10528,18 +10528,18 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18signal_set_service6cance
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   %7 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #32
   %8 = load ptr, ptr %2, align 8, !tbaa !275
-  %.not26 = icmp eq ptr %8, null
-  br i1 %.not26, label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit19, label %.lr.ph
+  %.not25 = icmp eq ptr %8, null
+  br i1 %.not25, label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.pre27 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !136, !noalias !276
+  %.pre26 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN5boost6system6detail17system_cat_holderIvE8instanceE, i64 8), align 8, !tbaa !136, !noalias !276
   br label %11
 
 11:                                               ; preds = %.lr.ph, %29
   %12 = phi ptr [ null, %.lr.ph ], [ %14, %29 ]
-  %13 = phi i64 [ %.pre27, %.lr.ph ], [ %21, %29 ]
+  %13 = phi i64 [ %.pre26, %.lr.ph ], [ %21, %29 ]
   %14 = phi ptr [ %8, %.lr.ph ], [ %30, %29 ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = and i64 %13, -2
@@ -10602,8 +10602,8 @@ _ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit19: ; pred
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %35 = load ptr, ptr %6, align 8, !tbaa !216
-  %.not6.i = icmp eq ptr %35, null
-  br i1 %.not6.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
+  %.not5.i = icmp eq ptr %35, null
+  br i1 %.not5.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10778,14 +10778,14 @@ _ZN5boost4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneE
           to label %..noexc_crit_edge unwind label %63
 
 ..noexc_crit_edge:                                ; preds = %54
-  %.pre32 = load i8, ptr %22, align 8, !range !123
+  %.pre31 = load i8, ptr %22, align 8, !range !123
   br label %.noexc
 
 .noexc:                                           ; preds = %..noexc_crit_edge, %51, %47
-  %58 = phi i8 [ %.pre32, %..noexc_crit_edge ], [ %35, %51 ], [ %35, %47 ]
+  %58 = phi i8 [ %.pre31, %..noexc_crit_edge ], [ %35, %51 ], [ %35, %47 ]
   %59 = trunc nuw i8 %58 to i1
-  %or.cond29 = select i1 %24, i1 %59, i1 false
-  br i1 %or.cond29, label %60, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
+  %or.cond28 = select i1 %24, i1 %59, i1 false
+  br i1 %or.cond28, label %60, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
 60:                                               ; preds = %.noexc
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -11176,8 +11176,8 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail9scheduler25post_immediate
   %7 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5boost4asio6detail15keyword_tss_ptrINS1_10call_stackINS1_14thread_contextENS1_16thread_info_baseEE7contextEE6value_E)
   %.08.i = load ptr, ptr %7, align 8
   %.not9.i = icmp ne ptr %.08.i, null
-  %or.cond27.not = select i1 %or.cond, i1 %.not9.i, i1 false
-  br i1 %or.cond27.not, label %.lr.ph.i, label %.thread
+  %or.cond26.not = select i1 %or.cond, i1 %.not9.i, i1 false
+  br i1 %or.cond26.not, label %.lr.ph.i, label %.thread
 
 .lr.ph.i:                                         ; preds = %3, %10
   %.010.i = phi ptr [ %.0.i, %10 ], [ %.08.i, %3 ]
@@ -11225,9 +11225,9 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit.thre
   store ptr null, ptr %1, align 8, !tbaa !83
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %28 = load ptr, ptr %27, align 8, !tbaa !213
-  %.not.i1233 = icmp eq ptr %28, null
-  %..i1334 = select i1 %.not.i1233, ptr %26, ptr %28
-  store ptr %1, ptr %..i1334, align 8, !tbaa !3
+  %.not.i1232 = icmp eq ptr %28, null
+  %..i1333 = select i1 %.not.i1232, ptr %26, ptr %28
+  store ptr %1, ptr %..i1333, align 8, !tbaa !3
   store ptr %1, ptr %27, align 8, !tbaa !213
   br label %44
 
@@ -11284,8 +11284,8 @@ _ZN5boost4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneE
 .noexc:                                           ; preds = %51, %48, %44
   %55 = load i8, ptr %23, align 8, !range !123
   %56 = trunc nuw i8 %55 to i1
-  %or.cond29 = select i1 %25, i1 %56, i1 false
-  br i1 %or.cond29, label %57, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
+  %or.cond28 = select i1 %25, i1 %56, i1 false
+  br i1 %or.cond28, label %57, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
 57:                                               ; preds = %.noexc
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -13184,8 +13184,8 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail14io_object_implINS1_18sig
 
 _ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit: ; preds = %8, %12
   %20 = load ptr, ptr %7, align 8, !tbaa !275
-  %.not6.i.i = icmp eq ptr %20, null
-  br i1 %.not6.i.i, label %_ZN5boost4asio6detail18signal_set_service19implementation_typeD2Ev.exit, label %.lr.ph.i.i
+  %.not5.i.i = icmp eq ptr %20, null
+  br i1 %.not5.i.i, label %_ZN5boost4asio6detail18signal_set_service19implementation_typeD2Ev.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5boost4asio9execution6detail17any_executor_baseD2Ev.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14745,8 +14745,8 @@ _ZN5boost4asio6detail8op_queueINS1_10reactor_opEE3popEv.exit: ; preds = %47, %41
 
 .thread:                                          ; preds = %_ZN5boost4asio6detail10reactor_op7performEv.exit, %35, %50, %26
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %.not37 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not37, label %18, label %26, !llvm.loop !523
+  %.not36 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not36, label %18, label %26, !llvm.loop !523
 
 _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE3popEv.exit: ; preds = %25, %18
   br i1 %11, label %53, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
@@ -14820,8 +14820,8 @@ _ZN5boost4asio6detail9scheduler25compensating_work_startedEv.exit: ; preds = %.l
 26:                                               ; preds = %5, %9, %_ZN5boost4asio6detail9scheduler25compensating_work_startedEv.exit
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !216
-  %.not6.i = icmp eq ptr %28, null
-  br i1 %.not6.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
+  %.not5.i = icmp eq ptr %28, null
+  br i1 %.not5.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -14922,35 +14922,35 @@ define linkonce_odr hidden void @_ZN5boost4asio6detail18signal_set_service14deli
   %3 = alloca %"class.boost::asio::detail::op_queue.19", align 8
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #32
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4asio6detail16get_signal_stateEvE5state, i64 56), align 8, !tbaa !503
-  %.not39 = icmp eq ptr %5, null
-  br i1 %.not39, label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit29, label %.lr.ph42
+  %.not38 = icmp eq ptr %5, null
+  br i1 %.not38, label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit29, label %.lr.ph41
 
-.lr.ph42:                                         ; preds = %1
+.lr.ph41:                                         ; preds = %1
   %6 = sext i32 %0 to i64
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %8
 
-8:                                                ; preds = %.lr.ph42, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit
-  %.01940 = phi ptr [ %5, %.lr.ph42 ], [ %39, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit ]
+8:                                                ; preds = %.lr.ph41, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit
+  %.01939 = phi ptr [ %5, %.lr.ph41 ], [ %39, %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, i8 0, i64 16, i1 false)
-  %9 = getelementptr inbounds nuw i8, ptr %.01940, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %.01939, i64 64
   %10 = getelementptr inbounds ptr, ptr %9, i64 %6
-  %.02035 = load ptr, ptr %10, align 8, !tbaa !3
-  %.not2436 = icmp eq ptr %.02035, null
-  br i1 %.not2436, label %._crit_edge, label %.lr.ph38
+  %.02034 = load ptr, ptr %10, align 8, !tbaa !3
+  %.not2435 = icmp eq ptr %.02034, null
+  br i1 %.not2435, label %._crit_edge, label %.lr.ph37
 
-.lr.ph38:                                         ; preds = %8, %.thread
+.lr.ph37:                                         ; preds = %8, %.thread
   %11 = phi ptr [ %33, %.thread ], [ null, %8 ]
-  %.02037 = phi ptr [ %.020, %.thread ], [ %.02035, %8 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.02037, i64 8
+  %.02036 = phi ptr [ %.020, %.thread ], [ %.02034, %8 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.02036, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !514
   %14 = load ptr, ptr %13, align 8, !tbaa !275
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %.lr.ph
 
-16:                                               ; preds = %.lr.ph38
-  %17 = getelementptr inbounds nuw i8, ptr %.02037, i64 16
+16:                                               ; preds = %.lr.ph37
+  %17 = getelementptr inbounds nuw i8, ptr %.02036, i64 16
   %18 = load i64, ptr %17, align 8, !tbaa !525
   %19 = add i64 %18, 1
   store i64 %19, ptr %17, align 8, !tbaa !525
@@ -14964,10 +14964,10 @@ _ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit: ; preds 
   %21 = call i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) @_ZZN5boost4asio6detail16get_signal_stateEvE5state) #32
   resume { ptr, i32 } %20
 
-.lr.ph:                                           ; preds = %.lr.ph38, %30
-  %22 = phi ptr [ %23, %30 ], [ %11, %.lr.ph38 ]
-  %23 = phi ptr [ %32, %30 ], [ %14, %.lr.ph38 ]
-  %24 = phi ptr [ %31, %30 ], [ %13, %.lr.ph38 ]
+.lr.ph:                                           ; preds = %.lr.ph37, %30
+  %22 = phi ptr [ %23, %30 ], [ %11, %.lr.ph37 ]
+  %23 = phi ptr [ %32, %30 ], [ %14, %.lr.ph37 ]
+  %24 = phi ptr [ %31, %30 ], [ %13, %.lr.ph37 ]
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 56
   store i32 %0, ptr %25, align 8, !tbaa !526
   %26 = load ptr, ptr %23, align 8, !tbaa !83
@@ -14993,23 +14993,23 @@ _ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit: ; preds 
 
 .thread:                                          ; preds = %30, %16
   %33 = phi ptr [ %11, %16 ], [ %23, %30 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.02037, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %.02036, i64 24
   %.020 = load ptr, ptr %34, align 8, !tbaa !3
   %.not24 = icmp eq ptr %.020, null
-  br i1 %.not24, label %._crit_edge, label %.lr.ph38, !llvm.loop !528
+  br i1 %.not24, label %._crit_edge, label %.lr.ph37, !llvm.loop !528
 
 ._crit_edge:                                      ; preds = %.thread, %8
-  %35 = getelementptr inbounds nuw i8, ptr %.01940, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %.01939, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !280
   invoke void @_ZN5boost4asio6detail9scheduler25post_deferred_completionsERNS1_8op_queueINS1_19scheduler_operationEEE(ptr noundef nonnull align 8 dereferenceable(256) %36, ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %37 unwind label %_ZN5boost4asio6detail11scoped_lockINS1_18posix_static_mutexEED2Ev.exit
 
 37:                                               ; preds = %._crit_edge
-  %38 = getelementptr inbounds nuw i8, ptr %.01940, i64 584
+  %38 = getelementptr inbounds nuw i8, ptr %.01939, i64 584
   %39 = load ptr, ptr %38, align 8, !tbaa !506
   %40 = load ptr, ptr %3, align 8, !tbaa !216
-  %.not6.i = icmp eq ptr %40, null
-  br i1 %.not6.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
+  %.not5.i = icmp eq ptr %40, null
+  br i1 %.not5.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %37, %48
   %41 = phi ptr [ %49, %48 ], [ %40, %37 ]
@@ -15308,8 +15308,8 @@ _ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEE4pushINS1_10reactor_op
   br i1 %exitcond.not, label %23, label %33, !llvm.loop !530
 
 _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit: ; preds = %23, %30, %27
-  %.not6.i = icmp eq ptr %.sroa.0.1, null
-  br i1 %.not6.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
+  %.not5.i = icmp eq ptr %.sroa.0.1, null
+  br i1 %.not5.i, label %_ZN5boost4asio6detail8op_queueINS1_19scheduler_operationEED2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit, %47
   %43 = phi ptr [ %44, %47 ], [ %.sroa.0.1, %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lock6unlockEv.exit ]
@@ -16860,9 +16860,9 @@ _ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockC2ERS2_.exit.thre
   store ptr null, ptr %1, align 8, !tbaa !83
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %22 = load ptr, ptr %21, align 8, !tbaa !213
-  %.not.i930 = icmp eq ptr %22, null
-  %..i1031 = select i1 %.not.i930, ptr %20, ptr %22
-  store ptr %1, ptr %..i1031, align 8, !tbaa !3
+  %.not.i929 = icmp eq ptr %22, null
+  %..i1030 = select i1 %.not.i929, ptr %20, ptr %22
+  store ptr %1, ptr %..i1030, align 8, !tbaa !3
   store ptr %1, ptr %21, align 8, !tbaa !213
   br label %38
 
@@ -16919,8 +16919,8 @@ _ZN5boost4asio6detail27conditionally_enabled_event27maybe_unlock_and_signal_oneE
 .noexc:                                           ; preds = %45, %42, %38
   %49 = load i8, ptr %17, align 8, !range !123
   %50 = trunc nuw i8 %49 to i1
-  %or.cond26 = select i1 %19, i1 %50, i1 false
-  br i1 %or.cond26, label %51, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
+  %or.cond25 = select i1 %19, i1 %50, i1 false
+  br i1 %or.cond25, label %51, label %_ZN5boost4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit
 
 51:                                               ; preds = %.noexc
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 56

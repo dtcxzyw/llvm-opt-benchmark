@@ -92,9 +92,9 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as
 
 20:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit.i", %.lr.ph.i
   %.val10.i = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %35, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit.i" ]
-  %.sroa.01.017.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit.i" ]
-  %21 = add nuw nsw i64 %.sroa.01.017.i, 1
-  %22 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } } }, ptr %8, i64 %.sroa.01.017.i
+  %.sroa.01.016.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit.i" ]
+  %21 = add nuw nsw i64 %.sroa.01.016.i, 1
+  %22 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } } }, ptr %8, i64 %.sroa.01.016.i
   %23 = getelementptr i8, ptr %22, i64 8
   %.val12.i = load ptr, ptr %23, align 8, !noalias !28, !nonnull !9, !noundef !9
   %24 = getelementptr i8, ptr %22, i64 16
@@ -558,9 +558,9 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 13:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit.i.i", %.lr.ph.i.i
   %.val10.i.i = phi i64 [ %.sroa.52.0.copyload, %.lr.ph.i.i ], [ %28, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit.i.i" ]
-  %.sroa.01.017.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %14, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit.i.i" ]
-  %14 = add nuw nsw i64 %.sroa.01.017.i.i, 1
-  %15 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.0.0.copyload, i64 %.sroa.01.017.i.i
+  %.sroa.01.016.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %14, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit.i.i" ]
+  %14 = add nuw nsw i64 %.sroa.01.016.i.i, 1
+  %15 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.0.0.copyload, i64 %.sroa.01.016.i.i
   %16 = getelementptr i8, ptr %15, i64 8
   %.val12.i.i = load ptr, ptr %16, align 8, !noalias !220, !nonnull !9, !noundef !9
   %17 = getelementptr i8, ptr %15, i64 16
@@ -4629,9 +4629,9 @@ define hidden void @"_ZN98_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$
 
 20:                                               ; preds = %.lr.ph, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit"
   %.val10 = phi i64 [ %.promoted, %.lr.ph ], [ %35, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit" ]
-  %.sroa.01.017 = phi i64 [ 0, %.lr.ph ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit" ]
-  %21 = add nuw nsw i64 %.sroa.01.017, 1
-  %22 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } } }, ptr %8, i64 %.sroa.01.017
+  %.sroa.01.016 = phi i64 [ 0, %.lr.ph ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hfcd9c7ecbbb6f3f2E.exit" ]
+  %21 = add nuw nsw i64 %.sroa.01.016, 1
+  %22 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } } }, ptr %8, i64 %.sroa.01.016
   %23 = getelementptr i8, ptr %22, i64 8
   %.val12 = load ptr, ptr %23, align 8, !nonnull !9, !noundef !9
   %24 = getelementptr i8, ptr %22, i64 16
@@ -5823,8 +5823,8 @@ define internal fastcc { i64, i64 } @_ZN6uucore8features6format4spec22eat_asteri
   %6 = load i64, ptr %0, align 8, !noundef !9
   %7 = icmp uge i64 %6, %.8.val
   %8 = getelementptr inbounds i8, ptr %.0.val, i64 %6
-  %.not4 = icmp eq ptr %.0.val, null
-  %.not = select i1 %7, i1 true, i1 %.not4
+  %.not3 = icmp eq ptr %.0.val, null
+  %.not = select i1 %7, i1 true, i1 %.not3
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %1

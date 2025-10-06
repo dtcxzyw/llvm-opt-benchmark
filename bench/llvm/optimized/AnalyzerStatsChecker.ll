@@ -735,17 +735,17 @@ _ZNK4llvm15SmallPtrSetImplIPKN5clang8CFGBlockEE5countES4_.exit.thread.loopexit.u
   %107 = zext i32 %106 to i64
   %.idx.i.i.i = shl nuw nsw i64 %107, 3
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 %.idx.i.i.i
-  %.not36.i.i.i = icmp eq i32 %106, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not34.i.i.i = icmp eq i32 %106, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %104, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %110, %.critedge.i.i.i ], [ %105, %104 ]
-  %109 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !3, !noalias !140
+  %.02935.i.i.i = phi ptr [ %110, %.critedge.i.i.i ], [ %105, %104 ]
+  %109 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !3, !noalias !140
   %.not17.i.i.i = icmp eq ptr %109, %.sroa.0152.0.copyload.i
   br i1 %.not17.i.i.i, label %_ZNK5clang12ProgramPoint5getAsINS_13BlockEntranceEEESt8optionalIT_Ev.exit.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %110 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %110, %108
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !143
 

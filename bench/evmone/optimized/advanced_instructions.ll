@@ -5386,11 +5386,11 @@ define internal noundef ptr @_ZN6evmone8advanced12_GLOBAL__N_12opIXadL_ZNS0_5ins
   br label %53
 
 53:                                               ; preds = %13, %17
-  %.sink16 = phi i64 [ %18, %17 ], [ 0, %13 ]
+  %.sink15 = phi i64 [ %18, %17 ], [ 0, %13 ]
   %.sink.in = phi ptr [ %51, %17 ], [ %15, %13 ]
   %54 = phi ptr [ %52, %17 ], [ null, %13 ]
   %.sink = ptrtoint ptr %.sink.in to i64
-  store i64 %.sink16, ptr %7, align 8, !tbaa !106
+  store i64 %.sink15, ptr %7, align 8, !tbaa !106
   store i64 %.sink, ptr %6, align 8, !tbaa !57
   ret ptr %54
 }

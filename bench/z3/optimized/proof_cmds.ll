@@ -5851,7 +5851,7 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
 _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit24: ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit, %31
   %.0.i.i23 = phi i32 [ %33, %31 ], [ 0, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit ]
   %.not21.not = icmp eq i32 %.0.i.i, %.0.i.i23
-  br i1 %.not21.not, label %.thread68, label %34
+  br i1 %.not21.not, label %.thread67, label %34
 
 34:                                               ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit24
   invoke void @_ZN10proof_trim9mk_clauseERK10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(4449) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -6084,16 +6084,16 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %146 = icmp eq ptr %145, null
   br i1 %146, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit.thread, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
 
-.thread68:                                        ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit24
+.thread67:                                        ; preds = %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit24
   br i1 %24, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit.thread.thread, label %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i
 
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit.thread.thread: ; preds = %.thread68
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEED2Ev.exit.thread.thread: ; preds = %.thread67
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN10proof_trim9mk_clauseERK10ref_vectorI4expr11ast_managerE(ptr noundef nonnull align 8 dereferenceable(4449) %0, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br label %173
 
-_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %.thread68, %144
-  %147 = phi ptr [ %23, %.thread68 ], [ %145, %144 ]
+_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i:           ; preds = %.thread67, %144
+  %147 = phi ptr [ %23, %.thread67 ], [ %145, %144 ]
   %148 = getelementptr inbounds i8, ptr %147, i64 -4
   %149 = load i32, ptr %148, align 4, !tbaa !179
   %150 = zext i32 %149 to i64
@@ -6190,14 +6190,14 @@ _ZNK10proof_trim6is_rupEP4expr.exit44:            ; preds = %173
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 4424
   %187 = load ptr, ptr %186, align 8, !tbaa !256
   %188 = icmp eq ptr %187, null
-  br i1 %188, label %.thread67, label %189
+  br i1 %188, label %.thread66, label %189
 
 189:                                              ; preds = %184
   %190 = getelementptr inbounds i8, ptr %187, i64 -4
   %191 = load i32, ptr %190, align 4, !tbaa !179
-  br label %.thread67
+  br label %.thread66
 
-.thread67:                                        ; preds = %189, %184
+.thread66:                                        ; preds = %189, %184
   %.0.i45 = phi i32 [ %191, %189 ], [ 0, %184 ]
   call void @_ZN3sat10proof_trim5inferEj(ptr noundef nonnull align 8 dereferenceable(4376) %185, i32 noundef %.0.i45)
   %192 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorI10ref_vectorI4expr11ast_managerELb1EjE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %186, ptr noundef nonnull align 8 dereferenceable(16) %1)
@@ -6221,8 +6221,8 @@ _ZNK10proof_trim6is_rupEP4expr.exit44.thread:     ; preds = %.thread, %173, %_ZN
   %201 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6vectorI10ref_vectorI4expr11ast_managerELb1EjE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(8) %194, ptr noundef nonnull align 8 dereferenceable(16) %1)
   br i1 %.not, label %231, label %202
 
-202:                                              ; preds = %.thread67, %200
-  %203 = phi ptr [ %186, %.thread67 ], [ %194, %200 ]
+202:                                              ; preds = %.thread66, %200
+  %203 = phi ptr [ %186, %.thread66 ], [ %194, %200 ]
   %204 = load ptr, ptr %203, align 8, !tbaa !256
   %205 = icmp eq ptr %204, null
   br i1 %205, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i52, label %206

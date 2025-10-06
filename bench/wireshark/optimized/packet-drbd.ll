@@ -891,8 +891,8 @@ drbd_ib_append_col_info.exit.i31:                 ; preds = %81, %78
 
 85:                                               ; preds = %86
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 74
-  br i1 %exitcond.i.i, label %dissect_drbd_ib_message.exit, label %86, !llvm.loop !8
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 74
+  br i1 %exitcond.not.i.i, label %dissect_drbd_ib_message.exit, label %86, !llvm.loop !8
 
 86:                                               ; preds = %85, %84
   %indvars.iv.i.i = phi i64 [ 0, %84 ], [ %indvars.iv.next.i.i, %85 ]
@@ -1165,12 +1165,12 @@ cmp_address.exit.i:                               ; preds = %50
   %.fr.i = freeze i32 %57
   %58 = icmp slt i32 %.fr.i, 0
   %spec.select = select i1 %58, ptr %36, ptr %35
-  %spec.select57 = select i1 %58, ptr %35, ptr %36
+  %spec.select52 = select i1 %58, ptr %35, ptr %36
   br label %.thread40.i
 
 .thread40.i:                                      ; preds = %cmp_address.exit.i, %50, %48, %42, %40, %28
   %59 = phi ptr [ %35, %50 ], [ %35, %42 ], [ %35, %28 ], [ %36, %48 ], [ %36, %40 ], [ %spec.select, %cmp_address.exit.i ]
-  %60 = phi ptr [ %36, %50 ], [ %36, %42 ], [ %36, %28 ], [ %35, %48 ], [ %35, %40 ], [ %spec.select57, %cmp_address.exit.i ]
+  %60 = phi ptr [ %36, %50 ], [ %36, %42 ], [ %36, %28 ], [ %35, %48 ], [ %35, %40 ], [ %spec.select52, %cmp_address.exit.i ]
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %62 = load i32, ptr %61, align 4
   %63 = tail call ptr @find_conversation(i32 noundef %62, ptr noundef nonnull %60, ptr noundef nonnull %59, i32 noundef 2, i32 noundef %..i, i32 noundef 0, i32 noundef 131072)
@@ -1205,8 +1205,8 @@ find_drbd_conversation.exit:                      ; preds = %.thread40.i, %64
 
 76:                                               ; preds = %77
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 74
-  br i1 %exitcond.i, label %.thread, label %77, !llvm.loop !8
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 74
+  br i1 %exitcond.not.i, label %.thread, label %77, !llvm.loop !8
 
 77:                                               ; preds = %76, %75
   %indvars.iv.i = phi i64 [ 0, %75 ], [ %indvars.iv.next.i, %76 ]
@@ -1226,8 +1226,8 @@ find_payload_decoder.exit:                        ; preds = %77
   %88 = and i64 %indvars.iv.i, 2305843009213693950
   %.not48.not = icmp eq i64 %88, 28
   %89 = and i1 %86, %.not48.not
-  %or.cond58 = and i1 %89, %87
-  br i1 %or.cond58, label %90, label %93
+  %or.cond53 = and i1 %89, %87
+  br i1 %or.cond53, label %90, label %93
 
 90:                                               ; preds = %find_payload_decoder.exit
   %91 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -1241,9 +1241,9 @@ find_payload_decoder.exit:                        ; preds = %77
 
 .thread:                                          ; preds = %76
   %95 = icmp eq ptr %2, null
-  br i1 %95, label %101, label %.thread55
+  br i1 %95, label %101, label %.thread51
 
-.thread55:                                        ; preds = %.thread
+.thread51:                                        ; preds = %.thread
   tail call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %8, ptr noundef nonnull @.str.380, ptr noundef %15)
   br label %101
 
@@ -1261,7 +1261,7 @@ find_payload_decoder.exit:                        ; preds = %77
   tail call void %99(ptr noundef nonnull %11, ptr noundef %10, ptr noundef %.0)
   br label %101
 
-101:                                              ; preds = %.thread55, %.thread, %93, %100, %97, %96, %3
+101:                                              ; preds = %.thread51, %.thread, %93, %100, %97, %96, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -2236,12 +2236,12 @@ define internal i32 @dissect_drbd_lb_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
   %11 = load i32, ptr @hf_drbd_lb_tcp_length, align 4
   %12 = tail call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %11, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %13 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %.not38 = icmp ult i32 %13, 16
-  br i1 %.not38, label %.loopexit, label %.lr.ph
+  %.not37 = icmp ult i32 %13, 16
+  br i1 %.not37, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %33
-  %.03039 = phi i32 [ %35, %33 ], [ 8, %4 ]
-  %14 = tail call fastcc i32 @read_drbd_packet_len(ptr noundef %0, i32 noundef %.03039)
+  %.03038 = phi i32 [ %35, %33 ], [ 8, %4 ]
+  %14 = tail call fastcc i32 @read_drbd_packet_len(ptr noundef %0, i32 noundef %.03038)
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %33
 
@@ -2278,9 +2278,9 @@ define internal i32 @dissect_drbd_lb_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr
   br label %.loopexit
 
 33:                                               ; preds = %.lr.ph
-  %34 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.03039, i32 noundef %14)
+  %34 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef %.03038, i32 noundef %14)
   tail call fastcc void @dissect_drbd_message(ptr noundef %34, ptr noundef %1, ptr noundef %2)
-  %35 = add i32 %14, %.03039
+  %35 = add i32 %14, %.03038
   %36 = tail call i32 @tvb_captured_length(ptr noundef %0)
   %37 = add i32 %35, 8
   %.not = icmp ult i32 %36, %37

@@ -3038,13 +3038,13 @@ _ZNK6HandleclEv.exit52.thread:                    ; preds = %3
 
 _ZNK6HandleclEv.exit53:                           ; preds = %_ZNK6HandleclEv.exit52.thread, %11
   %.in = phi ptr [ %17, %11 ], [ %10, %_ZNK6HandleclEv.exit52.thread ]
-  %.in93.in = phi ptr [ %13, %11 ], [ %8, %_ZNK6HandleclEv.exit52.thread ]
-  %.in94.in = phi ptr [ %15, %11 ], [ %9, %_ZNK6HandleclEv.exit52.thread ]
+  %.in91.in = phi ptr [ %13, %11 ], [ %8, %_ZNK6HandleclEv.exit52.thread ]
+  %.in92.in = phi ptr [ %15, %11 ], [ %9, %_ZNK6HandleclEv.exit52.thread ]
   %19 = phi ptr [ %18, %11 ], [ null, %_ZNK6HandleclEv.exit52.thread ]
-  %.in94 = icmp ne ptr %.in94.in, null
-  %20 = zext i1 %.in94 to i8
-  %.in93 = icmp ne ptr %.in93.in, null
-  %21 = zext i1 %.in93 to i8
+  %.in92 = icmp ne ptr %.in92.in, null
+  %20 = zext i1 %.in92 to i8
+  %.in91 = icmp ne ptr %.in91.in, null
+  %21 = zext i1 %.in91 to i8
   %22 = icmp ne ptr %.in, null
   %23 = tail call noundef i32 @_ZN27java_lang_invoke_MemberName5flagsEP7oopDesc(ptr noundef %19) #14
   %.not = icmp eq i32 %1, 0
@@ -3183,8 +3183,8 @@ _ZNK5Klass11java_mirrorEv.exit:                   ; preds = %_ZNK6HandleclEv.exi
   %93 = tail call noundef ptr @_ZN11StringTable6internEP6SymbolP10JavaThread(ptr noundef %92, ptr noundef nonnull %2) #14
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = load ptr, ptr %94, align 8
-  %.not97 = icmp eq ptr %95, null
-  br i1 %.not97, label %96, label %123
+  %.not95 = icmp eq ptr %95, null
+  br i1 %.not95, label %96, label %123
 
 96:                                               ; preds = %82
   br i1 %7, label %_ZNK6HandleclEv.exit56, label %97
@@ -3215,8 +3215,8 @@ _ZNK6HandleclEv.exit56:                           ; preds = %96, %97
   %112 = tail call ptr @_ZN16java_lang_String18create_from_symbolEP6SymbolP10JavaThread(ptr noundef %111, ptr noundef nonnull %2) #14
   %113 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %114 = load ptr, ptr %113, align 8
-  %.not98 = icmp eq ptr %114, null
-  br i1 %.not98, label %115, label %123
+  %.not96 = icmp eq ptr %114, null
+  br i1 %.not96, label %115, label %123
 
 115:                                              ; preds = %101
   br i1 %7, label %_ZNK6HandleclEv.exit57, label %116
@@ -3302,8 +3302,8 @@ _ZNK6HandleclEv.exit60:                           ; preds = %132, %135
   %153 = call noundef ptr @_ZN11StringTable6internEP6SymbolP10JavaThread(ptr noundef %.0.i.i, ptr noundef %2) #14
   %154 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %155 = load ptr, ptr %154, align 8
-  %.not95 = icmp eq ptr %155, null
-  br i1 %.not95, label %156, label %.thread
+  %.not93 = icmp eq ptr %155, null
+  br i1 %.not93, label %156, label %.thread
 
 156:                                              ; preds = %146
   br i1 %7, label %_ZNK6HandleclEv.exit61, label %157
@@ -3356,8 +3356,8 @@ _ZNK6HandleclEv.exit61:                           ; preds = %156, %157
   store ptr %178, ptr %6, align 8
   %179 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %180 = load ptr, ptr %179, align 8
-  %.not96 = icmp eq ptr %180, null
-  br i1 %.not96, label %181, label %.thread
+  %.not94 = icmp eq ptr %180, null
+  br i1 %.not94, label %181, label %.thread
 
 181:                                              ; preds = %171, %161
   %182 = phi ptr [ %178, %171 ], [ %169, %161 ]

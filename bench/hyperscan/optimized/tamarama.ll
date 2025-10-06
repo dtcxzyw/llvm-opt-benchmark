@@ -1478,8 +1478,8 @@ define internal fastcc void @copyQueueItems(ptr noundef readonly captures(none) 
   %24 = icmp ult i8 %switch.tableidx, 8
   %switch.shifted = lshr i8 -3, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond69 = select i1 %24, i1 %switch.lobit, i1 false
-  br i1 %or.cond69, label %isMultiTopType.exit, label %25
+  %or.cond67 = select i1 %24, i1 %switch.lobit, i1 false
+  br i1 %or.cond67, label %isMultiTopType.exit, label %25
 
 25:                                               ; preds = %23
   %26 = add i8 %21, -11
@@ -1511,7 +1511,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   %.not34.us = icmp uge i32 %38, %9
   %41 = icmp ult i32 %38, %19
   %or.cond.us = select i1 %.not34.us, i1 %41, i1 false
-  br i1 %or.cond.us, label %42, label %.thread40
+  br i1 %or.cond.us, label %42, label %.thread39
 
 42:                                               ; preds = %.lr.ph.split.us
   %43 = load i32, ptr %33, align 4, !alias.scope !11
@@ -1567,7 +1567,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   %.not34 = icmp uge i32 %69, %9
   %72 = icmp ult i32 %69, %19
   %or.cond = select i1 %.not34, i1 %72, i1 false
-  br i1 %or.cond, label %73, label %.thread40
+  br i1 %or.cond, label %73, label %.thread39
 
 73:                                               ; preds = %.lr.ph.split
   %reass.sub = sub nuw i32 %69, %9
@@ -1607,7 +1607,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   store i32 %92, ptr %33, align 4, !alias.scope !11
   br label %99
 
-.thread40:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
+.thread39:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i64 [ %40, %.lr.ph.split.us ], [ %71, %.lr.ph.split ]
   %93 = load i32, ptr %33, align 4, !alias.scope !14
   %94 = zext i32 %93 to i64
@@ -1629,7 +1629,7 @@ isMultiTopType.exit:                              ; preds = %23, %18, %18, %25
   %103 = icmp ult i32 %101, %102
   br i1 %103, label %.lr.ph.split, label %.loopexit
 
-.loopexit:                                        ; preds = %99, %61, %isMultiTopType.exit, %.thread40
+.loopexit:                                        ; preds = %99, %61, %isMultiTopType.exit, %.thread39
   ret void
 }
 

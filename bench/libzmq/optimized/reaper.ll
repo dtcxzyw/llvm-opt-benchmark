@@ -273,8 +273,8 @@ define void @_ZN3zmq8reaper_t8in_eventEv(ptr noundef nonnull align 8 dereference
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %4 = load i32, ptr %3, align 8, !tbaa !34
   %5 = tail call i32 @getpid() #18
-  %.not11 = icmp eq i32 %4, %5
-  br i1 %.not11, label %.lr.ph, label %.loopexit, !prof !36
+  %.not9 = icmp eq i32 %4, %5
+  br i1 %.not9, label %.lr.ph, label %.loopexit, !prof !36
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32

@@ -2884,12 +2884,12 @@ declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_a
 define internal fastcc range(i32 0, 2097152) i32 @next_hfs_char(ptr noundef nonnull captures(none) %0) unnamed_addr #5 {
   %2 = tail call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %0, ptr noundef null)
   %3 = load ptr, ptr %0, align 8, !tbaa !9
-  %.not11 = icmp eq ptr %3, null
-  br i1 %.not11, label %.thread, label %.lr.ph
+  %.not9 = icmp eq ptr %3, null
+  br i1 %.not9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %5
   %4 = phi i32 [ %6, %5 ], [ %2, %1 ]
-  switch i32 %4, label %.thread [
+  switch i32 %4, label %._crit_edge [
     i32 8204, label %5
     i32 8205, label %5
     i32 8206, label %5
@@ -2912,11 +2912,11 @@ define internal fastcc range(i32 0, 2097152) i32 @next_hfs_char(ptr noundef nonn
   %6 = tail call fastcc i32 @pick_one_utf8_char(ptr noundef nonnull %0, ptr noundef null)
   %7 = load ptr, ptr %0, align 8, !tbaa !9
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.thread:                                          ; preds = %5, %.lr.ph, %1
-  %.110 = phi i32 [ 0, %1 ], [ %4, %.lr.ph ], [ 0, %5 ]
-  ret i32 %.110
+._crit_edge:                                      ; preds = %5, %.lr.ph, %1
+  %.1.ph = phi i32 [ 0, %1 ], [ %4, %.lr.ph ], [ 0, %5 ]
+  ret i32 %.1.ph
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

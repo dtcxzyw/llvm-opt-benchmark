@@ -534,8 +534,8 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %21 = load i32, ptr %20, align 4, !tbaa !42
   %22 = add nsw i32 %21, %19
   store i32 %22, ptr %20, align 4, !tbaa !42
-  %.not184 = icmp eq ptr %12, null
-  br i1 %.not184, label %.loopexit.thread, label %.lr.ph
+  %.not182 = icmp eq ptr %12, null
+  br i1 %.not182, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -543,37 +543,37 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   br label %25
 
 25:                                               ; preds = %.lr.ph, %140
-  %.0189 = phi ptr [ null, %.lr.ph ], [ %.2, %140 ]
-  %.0114188 = phi i16 [ 0, %.lr.ph ], [ %.2116, %140 ]
-  %.0121187 = phi ptr [ %12, %.lr.ph ], [ %141, %140 ]
-  %.0134186 = phi i8 [ 0, %.lr.ph ], [ %..0134, %140 ]
-  %.0136185 = phi i8 [ 0, %.lr.ph ], [ %.0136., %140 ]
+  %.0187 = phi ptr [ null, %.lr.ph ], [ %.2, %140 ]
+  %.0114186 = phi i16 [ 0, %.lr.ph ], [ %.2116, %140 ]
+  %.0121185 = phi ptr [ %12, %.lr.ph ], [ %141, %140 ]
+  %.0134184 = phi i8 [ 0, %.lr.ph ], [ %..0134, %140 ]
+  %.0136183 = phi i8 [ 0, %.lr.ph ], [ %.0136., %140 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8
   br label %26
 
 26:                                               ; preds = %25, %26
-  %.0138183 = phi ptr [ %.0121187, %25 ], [ %41, %26 ]
-  %.0139182 = phi i32 [ 256, %25 ], [ %40, %26 ]
-  %.0140181 = phi i32 [ 256, %25 ], [ %38, %26 ]
-  %.0141180 = phi i16 [ 0, %25 ], [ %30, %26 ]
-  %27 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138183, i32 noundef 0, i8 noundef zeroext 110) #5
+  %.0138181 = phi ptr [ %.0121185, %25 ], [ %41, %26 ]
+  %.0139180 = phi i32 [ 256, %25 ], [ %40, %26 ]
+  %.0140179 = phi i32 [ 256, %25 ], [ %38, %26 ]
+  %.0141178 = phi i16 [ 0, %25 ], [ %30, %26 ]
+  %27 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138181, i32 noundef 0, i8 noundef zeroext 110) #5
   %28 = ptrtoint ptr %27 to i64
   %29 = trunc i64 %28 to i16
-  %30 = add i16 %.0141180, %29
-  %31 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138183, i32 noundef 0, i8 noundef zeroext 108) #5
+  %30 = add i16 %.0141178, %29
+  %31 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138181, i32 noundef 0, i8 noundef zeroext 108) #5
   %32 = ptrtoint ptr %31 to i64
   %.sroa.0.0.extract.trunc.i.i = trunc i64 %32 to i32
   %33 = call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i.i, i32 1)
-  %34 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138183, i32 noundef 0, i8 noundef zeroext 109) #5
+  %34 = call ptr @lv_obj_get_style_prop(ptr noundef nonnull %.0138181, i32 noundef 0, i8 noundef zeroext 109) #5
   %35 = ptrtoint ptr %34 to i64
   %.sroa.0.0.extract.trunc.i.i161 = trunc i64 %35 to i32
   %36 = call range(i32 1, -2147483648) i32 @llvm.smax.i32(i32 %.sroa.0.0.extract.trunc.i.i161, i32 1)
-  %37 = mul nuw nsw i32 %33, %.0140181
+  %37 = mul nuw nsw i32 %33, %.0140179
   %38 = lshr i32 %37, 8
-  %39 = mul nuw nsw i32 %36, %.0139182
+  %39 = mul nuw nsw i32 %36, %.0139180
   %40 = lshr i32 %39, 8
-  %41 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0138183) #5
+  %41 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0138181) #5
   %.not142 = icmp eq ptr %41, null
   br i1 %.not142, label %42, label %26, !llvm.loop !45
 
@@ -600,29 +600,29 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %54 = sext i16 %51 to i32
   call void @lv_point_transform(ptr noundef nonnull %3, i32 noundef %54, i32 noundef %52, i32 noundef %53, ptr noundef nonnull %2, i1 noundef zeroext false) #5
   %.pre = load i32, ptr %3, align 8, !tbaa !46
-  %.pre200 = load i32, ptr %23, align 4, !tbaa !47
+  %.pre198 = load i32, ptr %23, align 4, !tbaa !47
   br label %55
 
 55:                                               ; preds = %42, %50
-  %56 = phi i32 [ %49, %42 ], [ %.pre200, %50 ]
+  %56 = phi i32 [ %49, %42 ], [ %.pre198, %50 ]
   %57 = phi i32 [ %47, %42 ], [ %.pre, %50 ]
   %58 = call i32 @llvm.abs.i32(i32 %57, i1 true)
   %59 = call i32 @llvm.abs.i32(i32 %56, i1 true)
   %60 = icmp samesign ugt i32 %58, %59
-  %.0136. = select i1 %60, i8 %.0136185, i8 1
-  %..0134 = select i1 %60, i8 1, i8 %.0134186
-  %61 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121187, i32 noundef 16) #5
+  %.0136. = select i1 %60, i8 %.0136183, i8 1
+  %..0134 = select i1 %60, i8 1, i8 %.0134184
+  %61 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 16) #5
   br i1 %61, label %70, label %62
 
 62:                                               ; preds = %55
-  %63 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121187, i32 noundef 256) #5
+  %63 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 256) #5
   %64 = xor i1 %63, true
   %65 = trunc nuw i8 %..0134 to i1
   %or.cond5 = select i1 %64, i1 %65, i1 false
   br i1 %or.cond5, label %.thread, label %66
 
 66:                                               ; preds = %62
-  %67 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121187, i32 noundef 512) #5
+  %67 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 512) #5
   %68 = xor i1 %67, true
   %69 = trunc nuw i8 %.0136. to i1
   %or.cond7 = select i1 %68, i1 %69, i1 false
@@ -631,7 +631,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
 70:                                               ; preds = %55
   %71 = trunc nuw i8 %.0136. to i1
   %72 = trunc nuw i8 %..0134 to i1
-  %73 = call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %.0121187) #5
+  %73 = call i32 @lv_obj_get_scroll_dir(ptr noundef nonnull %.0121185) #5
   %74 = and i32 %73, 1
   %75 = icmp ne i32 %74, 0
   %76 = and i32 %73, 2
@@ -643,13 +643,13 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %80 = and i32 %73, 8
   %81 = icmp eq i32 %80, 0
   %.0128 = select i1 %81, i8 0, i8 %.0136.
-  %82 = call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %.0121187) #5
+  %82 = call i32 @lv_obj_get_scroll_snap_x(ptr noundef nonnull %.0121185) #5
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %89
 
 84:                                               ; preds = %70
-  %85 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %.0121187) #5
-  %86 = call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %.0121187) #5
+  %85 = call i32 @lv_obj_get_scroll_left(ptr noundef nonnull %.0121185) #5
+  %86 = call i32 @lv_obj_get_scroll_right(ptr noundef nonnull %.0121185) #5
   %87 = icmp sgt i32 %85, 0
   %88 = icmp sgt i32 %86, 0
   br label %94
@@ -657,7 +657,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
 89:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call fastcc void @has_more_snap_points(ptr noundef %.0121187, i32 noundef 3, ptr noundef %4, ptr noundef %5)
+  call fastcc void @has_more_snap_points(ptr noundef %.0121185, i32 noundef 3, ptr noundef %4, ptr noundef %5)
   %90 = load i8, ptr %4, align 1, !tbaa !39, !range !40, !noundef !41
   %91 = trunc nuw i8 %90 to i1
   %92 = load i8, ptr %5, align 1, !tbaa !39, !range !40, !noundef !41
@@ -669,13 +669,13 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
 94:                                               ; preds = %89, %84
   %.0120 = phi i1 [ %87, %84 ], [ %91, %89 ]
   %.0119 = phi i1 [ %88, %84 ], [ %93, %89 ]
-  %95 = call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %.0121187) #5
+  %95 = call i32 @lv_obj_get_scroll_snap_y(ptr noundef nonnull %.0121185) #5
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %102
 
 97:                                               ; preds = %94
-  %98 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %.0121187) #5
-  %99 = call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %.0121187) #5
+  %98 = call i32 @lv_obj_get_scroll_top(ptr noundef nonnull %.0121185) #5
+  %99 = call i32 @lv_obj_get_scroll_bottom(ptr noundef nonnull %.0121185) #5
   %100 = icmp sgt i32 %98, 0
   %101 = icmp sgt i32 %99, 0
   br label %107
@@ -683,7 +683,7 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
 102:                                              ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call fastcc void @has_more_snap_points(ptr noundef %.0121187, i32 noundef 12, ptr noundef %6, ptr noundef %7)
+  call fastcc void @has_more_snap_points(ptr noundef %.0121185, i32 noundef 12, ptr noundef %6, ptr noundef %7)
   %103 = load i8, ptr %6, align 1, !tbaa !39, !range !40, !noundef !41
   %104 = trunc nuw i8 %103 to i1
   %105 = load i8, ptr %7, align 1, !tbaa !39, !range !40, !noundef !41
@@ -705,46 +705,46 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %or.cond153.not = select i1 %109, i1 %.not143, i1 false
   %111 = trunc nuw i8 %.0128 to i1
   %.not144 = icmp sle i32 %110, %24
-  %or.cond169.not = select i1 %111, i1 %.not144, i1 false
-  %or.cond191 = select i1 %or.cond153.not, i1 true, i1 %or.cond169.not
-  %spec.select193 = select i1 %or.cond191, i16 12, i16 %.0114188
-  %spec.select194 = select i1 %or.cond191, ptr %.0121187, ptr %.0189
+  %or.cond167.not = select i1 %111, i1 %.not144, i1 false
+  %or.cond189 = select i1 %or.cond153.not, i1 true, i1 %or.cond167.not
+  %spec.select191 = select i1 %or.cond189, i16 12, i16 %.0114186
+  %spec.select192 = select i1 %or.cond189, ptr %.0121185, ptr %.0187
   br label %112
 
 112:                                              ; preds = %108, %107
-  %.3117 = phi i16 [ %.0114188, %107 ], [ %spec.select193, %108 ]
-  %.3 = phi ptr [ %.0189, %107 ], [ %spec.select194, %108 ]
+  %.3117 = phi i16 [ %.0114186, %107 ], [ %spec.select191, %108 ]
+  %.3 = phi ptr [ %.0187, %107 ], [ %spec.select192, %108 ]
   %or.cond11 = select i1 %.0120, i1 true, i1 %.0119
-  %.pre201 = load i32, ptr %3, align 8
+  %.pre199 = load i32, ptr %3, align 8
   %113 = trunc nuw i8 %..0134 to i1
   %114 = select i1 %75, i1 %113, i1 false
   br i1 %or.cond11, label %115, label %._crit_edge
 
 115:                                              ; preds = %112
-  %.not145 = icmp sge i32 %.pre201, %10
+  %.not145 = icmp sge i32 %.pre199, %10
   %or.cond155.not = select i1 %114, i1 %.not145, i1 false
   %116 = trunc nuw i8 %.0124 to i1
-  %.not146 = icmp sle i32 %.pre201, %24
-  %or.cond171.not = select i1 %116, i1 %.not146, i1 false
-  %or.cond192 = select i1 %or.cond155.not, i1 true, i1 %or.cond171.not
-  %spec.select195 = select i1 %or.cond192, i16 3, i16 %.3117
-  %spec.select196 = select i1 %or.cond192, ptr %.0121187, ptr %.3
+  %.not146 = icmp sle i32 %.pre199, %24
+  %or.cond169.not = select i1 %116, i1 %.not146, i1 false
+  %or.cond190 = select i1 %or.cond155.not, i1 true, i1 %or.cond169.not
+  %spec.select193 = select i1 %or.cond190, i16 3, i16 %.3117
+  %spec.select194 = select i1 %or.cond190, ptr %.0121185, ptr %.3
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %112, %115
-  %.4118 = phi i16 [ %spec.select195, %115 ], [ %.3117, %112 ]
-  %.4 = phi ptr [ %spec.select196, %115 ], [ %.3, %112 ]
+  %.4118 = phi i16 [ %spec.select193, %115 ], [ %.3117, %112 ]
+  %.4 = phi ptr [ %spec.select194, %115 ], [ %.3, %112 ]
   %117 = select i1 %.0120, i1 %114, i1 false
-  %.not147 = icmp sge i32 %.pre201, %10
+  %.not147 = icmp sge i32 %.pre199, %10
   %or.cond158.not = select i1 %117, i1 %.not147, i1 false
   br i1 %or.cond158.not, label %128, label %118
 
 118:                                              ; preds = %._crit_edge
   %119 = trunc nuw i8 %.0124 to i1
   %120 = select i1 %.0119, i1 %119, i1 false
-  %.not148 = icmp sle i32 %.pre201, %24
-  %or.cond173.not = select i1 %120, i1 %.not148, i1 false
-  br i1 %or.cond173.not, label %128, label %121
+  %.not148 = icmp sle i32 %.pre199, %24
+  %or.cond171.not = select i1 %120, i1 %.not148, i1 false
+  br i1 %or.cond171.not, label %128, label %121
 
 121:                                              ; preds = %118
   %122 = trunc nuw i8 %.0130 to i1
@@ -758,8 +758,8 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   %126 = trunc nuw i8 %.0128 to i1
   %127 = select i1 %.0112, i1 %126, i1 false
   %.not150 = icmp sle i32 %124, %24
-  %or.cond175.not = select i1 %127, i1 %.not150, i1 false
-  br i1 %or.cond175.not, label %128, label %134
+  %or.cond173.not = select i1 %127, i1 %.not150, i1 false
+  br i1 %or.cond173.not, label %128, label %134
 
 128:                                              ; preds = %125, %118, %121, %._crit_edge
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 228
@@ -771,28 +771,28 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   br label %.thread
 
 134:                                              ; preds = %125
-  %135 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121187, i32 noundef 256) #5
+  %135 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 256) #5
   %136 = xor i1 %135, true
   %or.cond13 = select i1 %136, i1 %72, i1 false
   br i1 %or.cond13, label %.thread, label %137
 
 137:                                              ; preds = %134
-  %138 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121187, i32 noundef 512) #5
+  %138 = call zeroext i1 @lv_obj_has_flag(ptr noundef nonnull %.0121185, i32 noundef 512) #5
   %139 = xor i1 %138, true
   %or.cond15 = select i1 %139, i1 %71, i1 false
   br i1 %or.cond15, label %.thread, label %140
 
 .thread:                                          ; preds = %62, %66, %134, %137, %128
-  %.2116.ph = phi i16 [ %.4118, %128 ], [ %.0114188, %62 ], [ %.0114188, %66 ], [ %.4118, %137 ], [ %.4118, %134 ]
-  %.2.ph = phi ptr [ %.4, %128 ], [ %.0189, %62 ], [ %.0189, %66 ], [ %.4, %137 ], [ %.4, %134 ]
+  %.2116.ph = phi i16 [ %.4118, %128 ], [ %.0114186, %62 ], [ %.0114186, %66 ], [ %.4118, %137 ], [ %.4118, %134 ]
+  %.2.ph = phi ptr [ %.4, %128 ], [ %.0187, %62 ], [ %.0187, %66 ], [ %.4, %137 ], [ %.4, %134 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
 140:                                              ; preds = %137, %66
-  %.2116 = phi i16 [ %.0114188, %66 ], [ %.4118, %137 ]
-  %.2 = phi ptr [ %.0189, %66 ], [ %.4, %137 ]
-  %141 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0121187) #5
+  %.2116 = phi i16 [ %.0114186, %66 ], [ %.4118, %137 ]
+  %.2 = phi ptr [ %.0187, %66 ], [ %.4, %137 ]
+  %141 = call ptr @lv_obj_get_parent(ptr noundef nonnull %.0121185) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.not = icmp eq ptr %141, null
@@ -817,8 +817,8 @@ define ptr @lv_indev_find_scroll_obj(ptr noundef captures(none) %0) local_unname
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %1, %142, %.loopexit
-  %.1206 = phi ptr [ %.1, %142 ], [ null, %.loopexit ], [ null, %1 ]
-  ret ptr %.1206
+  %.1204 = phi ptr [ %.1, %142 ], [ null, %.loopexit ], [ null, %1 ]
+  ret ptr %.1204
 }
 
 declare void @lv_obj_remove_state(ptr noundef, i16 noundef zeroext) local_unnamed_addr #1

@@ -1716,8 +1716,8 @@ define internal fastcc i32 @table_iter_next(ptr noundef %0, ptr noundef %1) unna
 .preheader:                                       ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load i32, ptr %5, align 8, !tbaa !69
-  %.not1526 = icmp eq i32 %6, 0
-  br i1 %.not1526, label %.lr.ph, label %.thread
+  %.not1525 = icmp eq i32 %6, 0
+  br i1 %.not1525, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120

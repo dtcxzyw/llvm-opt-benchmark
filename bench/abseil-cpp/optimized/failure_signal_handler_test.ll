@@ -3530,13 +3530,13 @@ define internal void @_ZN12_GLOBAL__N_163FailureSignalHandlerDeathTest_AbslFatal
   br label %.critedge.i
 
 47:                                               ; preds = %.critedge.i
-  %.013.add.i = add nuw nsw i64 %.013.idx27.i, 8
+  %.013.add.i = add nuw nsw i64 %.013.idx25.i, 8
   %.not.i = icmp eq i64 %.013.add.i, 40
   br i1 %.not.i, label %._crit_edge.i.i19.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %47, %1
-  %.013.idx27.i = phi i64 [ 0, %1 ], [ %.013.add.i, %47 ]
-  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_19GetTmpDirB5cxx11EvE11kTmpEnvVars, i64 %.013.idx27.i
+  %.013.idx25.i = phi i64 [ 0, %1 ], [ %.013.add.i, %47 ]
+  %.013.ptr.i = getelementptr inbounds nuw i8, ptr @_ZZN12_GLOBAL__N_19GetTmpDirB5cxx11EvE11kTmpEnvVars, i64 %.013.idx25.i
   %48 = load ptr, ptr %.013.ptr.i, align 8, !tbaa !41, !noalias !117
   %49 = tail call ptr @getenv(ptr noundef %48) #35, !noalias !117
   %.not16.i = icmp eq ptr %49, null

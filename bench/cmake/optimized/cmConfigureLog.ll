@@ -2844,8 +2844,8 @@ _ZN14cmConfigureLog9BeginLineEv.exit50:           ; preds = %.lr.ph.i48, %39
   br label %47
 
 47:                                               ; preds = %_ZN14cmConfigureLog9BeginLineEv.exit50, %_ZN14cmConfigureLog9BeginLineEv.exit59
-  %.04173 = phi i64 [ 0, %_ZN14cmConfigureLog9BeginLineEv.exit50 ], [ %.1, %_ZN14cmConfigureLog9BeginLineEv.exit59 ]
-  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %.04173
+  %.04172 = phi i64 [ 0, %_ZN14cmConfigureLog9BeginLineEv.exit50 ], [ %.1, %_ZN14cmConfigureLog9BeginLineEv.exit59 ]
+  %48 = getelementptr inbounds nuw i8, ptr %4, i64 %.04172
   %49 = load i8, ptr %48, align 1, !tbaa !14
   switch i8 %49, label %96 [
     i8 13, label %50
@@ -2855,7 +2855,7 @@ _ZN14cmConfigureLog9BeginLineEv.exit50:           ; preds = %.lr.ph.i48, %39
   ]
 
 50:                                               ; preds = %47
-  %51 = add nuw i64 %.04173, 1
+  %51 = add nuw i64 %.04172, 1
   %52 = icmp eq i64 %51, %3
   br i1 %52, label %56, label %53
 
@@ -2881,7 +2881,7 @@ _ZN14cmConfigureLog11WriteEscapeEh.exit:          ; preds = %56, %59
   br label %_ZN14cmConfigureLog9BeginLineEv.exit59
 
 62:                                               ; preds = %47
-  %63 = add nuw i64 %.04173, 1
+  %63 = add nuw i64 %.04172, 1
   %64 = icmp ult i64 %63, %3
   br i1 %64, label %65, label %_ZN14cmConfigureLog9BeginLineEv.exit59
 
@@ -2936,12 +2936,12 @@ _ZN14cmConfigureLog7EndLineEv.exit55:             ; preds = %75, %78
 
 90:                                               ; preds = %47
   %91 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef signext 9)
-  %92 = add nuw i64 %.04173, 1
+  %92 = add nuw i64 %.04172, 1
   br label %_ZN14cmConfigureLog9BeginLineEv.exit59
 
 93:                                               ; preds = %47
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.17, i64 noundef 2)
-  %95 = add nuw i64 %.04173, 1
+  %95 = add nuw i64 %.04172, 1
   br label %_ZN14cmConfigureLog9BeginLineEv.exit59
 
 96:                                               ; preds = %47
@@ -2951,7 +2951,7 @@ _ZN14cmConfigureLog7EndLineEv.exit55:             ; preds = %75, %78
 
 98:                                               ; preds = %96
   %99 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %17, i8 noundef signext %49)
-  %100 = add nuw i64 %.04173, 1
+  %100 = add nuw i64 %.04172, 1
   br label %_ZN14cmConfigureLog9BeginLineEv.exit59
 
 101:                                              ; preds = %96
@@ -2977,7 +2977,7 @@ _ZN14cmConfigureLog7EndLineEv.exit55:             ; preds = %75, %78
   %111 = sub i64 %109, %110
   %112 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %48, i64 noundef %111)
   %113 = and i64 %111, 4294967295
-  %114 = add i64 %113, %.04173
+  %114 = add i64 %113, %.04172
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN14cmConfigureLog9BeginLineEv.exit59
 
@@ -2995,7 +2995,7 @@ _ZN14cmConfigureLog7EndLineEv.exit55:             ; preds = %75, %78
 
 _ZN14cmConfigureLog11WriteEscapeEh.exit60:        ; preds = %115, %119
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %122 = add nuw i64 %.04173, 1
+  %122 = add nuw i64 %.04172, 1
   br label %_ZN14cmConfigureLog9BeginLineEv.exit59
 
 _ZN14cmConfigureLog9BeginLineEv.exit59:           ; preds = %.lr.ph.i57, %108, %_ZN14cmConfigureLog7EndLineEv.exit55, %62, %53, %_ZN14cmConfigureLog11WriteEscapeEh.exit, %_ZN14cmConfigureLog11WriteEscapeEh.exit60, %98, %93, %90

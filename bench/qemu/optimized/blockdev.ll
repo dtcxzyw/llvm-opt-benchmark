@@ -5400,14 +5400,14 @@ declare void @visit_free(ptr noundef) local_unnamed_addr #1
 define dso_local void @qmp_blockdev_reopen(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
-  %.not29 = icmp eq ptr %0, null
-  br i1 %.not29, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq ptr %0, null
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %25
-  %.01631 = phi ptr [ %26, %25 ], [ null, %2 ]
-  %.01730 = phi ptr [ %27, %25 ], [ %0, %2 ]
+  %.01630 = phi ptr [ %26, %25 ], [ null, %2 ]
+  %.01729 = phi ptr [ %27, %25 ], [ %0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %5 = getelementptr inbounds nuw i8, ptr %.01730, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.01729, i64 8
   %6 = load ptr, ptr %5, align 8
   store ptr %6, ptr %3, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -5467,10 +5467,10 @@ qobject_type.exit.i:                              ; preds = %20
 25:                                               ; preds = %qobject_type.exit.i, %24
   %.0.i = phi ptr [ null, %24 ], [ %19, %qobject_type.exit.i ]
   call void @qdict_flatten(ptr noundef %.0.i) #14
-  %26 = call ptr @bdrv_reopen_queue(ptr noundef %.01631, ptr noundef nonnull %11, ptr noundef %.0.i, i1 noundef zeroext false) #14
+  %26 = call ptr @bdrv_reopen_queue(ptr noundef %.01630, ptr noundef nonnull %11, ptr noundef %.0.i, i1 noundef zeroext false) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %27 = load ptr, ptr %.01730, align 8
+  %27 = load ptr, ptr %.01729, align 8
   %.not = icmp eq ptr %27, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
@@ -5480,7 +5480,7 @@ qobject_type.exit.i:                              ; preds = %20
   br label %29
 
 29:                                               ; preds = %.thread, %._crit_edge
-  %.2 = phi ptr [ null, %._crit_edge ], [ %.01631, %.thread ]
+  %.2 = phi ptr [ null, %._crit_edge ], [ %.01630, %.thread ]
   call void @bdrv_reopen_queue_free(ptr noundef %.2) #14
   ret void
 }

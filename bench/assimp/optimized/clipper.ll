@@ -2565,19 +2565,19 @@ define hidden noundef ptr @_ZN10ClipperLib14FindNextLocMinEPNS_5TEdgeE(ptr nound
   %28 = getelementptr inbounds nuw i8, ptr %.1, i64 48
   %29 = load double, ptr %28, align 8
   %30 = fcmp oeq double %29, -1.000000e+40
-  br i1 %30, label %.preheader35, label %31
+  br i1 %30, label %.preheader33, label %31
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %33 = load double, ptr %32, align 8
   %34 = fcmp oeq double %33, -1.000000e+40
-  br i1 %34, label %.preheader35, label %.loopexit
+  br i1 %34, label %.preheader33, label %.loopexit
 
-.preheader35:                                     ; preds = %31, %27
+.preheader33:                                     ; preds = %31, %27
   br label %35
 
-35:                                               ; preds = %.preheader35, %35
-  %.3 = phi ptr [ %37, %35 ], [ %.1, %.preheader35 ]
+35:                                               ; preds = %.preheader33, %35
+  %.3 = phi ptr [ %37, %35 ], [ %.1, %.preheader33 ]
   %36 = getelementptr inbounds nuw i8, ptr %.3, i64 88
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
@@ -2592,8 +2592,8 @@ define hidden noundef ptr @_ZN10ClipperLib14FindNextLocMinEPNS_5TEdgeE(ptr nound
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.425 = phi ptr [ %45, %.lr.ph ], [ %.3, %.preheader ]
-  %44 = getelementptr inbounds nuw i8, ptr %.425, i64 80
+  %.423 = phi ptr [ %45, %.lr.ph ], [ %.3, %.preheader ]
+  %44 = getelementptr inbounds nuw i8, ptr %.423, i64 80
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 48
   %47 = load double, ptr %46, align 8
@@ -4074,8 +4074,8 @@ _ZNSt6vectorIPN10ClipperLib5TEdgeESaIS2_EE9push_backERKS2_.exit246: ; preds = %3
   br i1 %481, label %.lr.ph.i247, label %._crit_edge.i
 
 .lr.ph.i247:                                      ; preds = %.preheader.i, %.lr.ph.i247
-  %.425.i = phi ptr [ %483, %.lr.ph.i247 ], [ %.3.i, %.preheader.i ]
-  %482 = getelementptr inbounds nuw i8, ptr %.425.i, i64 80
+  %.423.i = phi ptr [ %483, %.lr.ph.i247 ], [ %.3.i, %.preheader.i ]
+  %482 = getelementptr inbounds nuw i8, ptr %.423.i, i64 80
   %483 = load ptr, ptr %482, align 8
   %484 = getelementptr inbounds nuw i8, ptr %483, i64 48
   %485 = load double, ptr %484, align 8
@@ -4573,55 +4573,55 @@ define hidden void @_ZN10ClipperLib11ClipperBase9GetBoundsEv(ptr dead_on_unwind 
   br label %18
 
 18:                                               ; preds = %9, %51
-  %.sroa.023.065 = phi ptr [ %4, %9 ], [ %52, %51 ]
+  %.sroa.023.064 = phi ptr [ %4, %9 ], [ %52, %51 ]
   %19 = phi i64 [ %14, %9 ], [ %24, %51 ]
-  %.promoted485664 = phi i64 [ %12, %9 ], [ %42, %51 ]
-  %.promoted5863 = phi i64 [ %12, %9 ], [ %44, %51 ]
-  %.promoted535962 = phi i64 [ %14, %9 ], [ %47, %51 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.023.065, i64 8
+  %.promoted475563 = phi i64 [ %12, %9 ], [ %42, %51 ]
+  %.promoted5762 = phi i64 [ %12, %9 ], [ %44, %51 ]
+  %.promoted525861 = phi i64 [ %14, %9 ], [ %47, %51 ]
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.023.064, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = tail call i64 @llvm.smax.i64(i64 %19, i64 %23)
   store i64 %24, ptr %17, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.023.065, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.023.064, i64 16
   br label %26
 
 26:                                               ; preds = %49, %18
-  %27 = phi i64 [ %.promoted535962, %18 ], [ %47, %49 ]
-  %.promoted4451 = phi i64 [ %.promoted5863, %18 ], [ %44, %49 ]
-  %.promoted49 = phi i64 [ %.promoted485664, %18 ], [ %42, %49 ]
+  %27 = phi i64 [ %.promoted525861, %18 ], [ %47, %49 ]
+  %.promoted4350 = phi i64 [ %.promoted5762, %18 ], [ %44, %49 ]
+  %.promoted48 = phi i64 [ %.promoted475563, %18 ], [ %42, %49 ]
   %.014 = phi ptr [ %21, %18 ], [ %50, %49 ]
   %28 = getelementptr inbounds nuw i8, ptr %.014, i64 96
   %29 = load ptr, ptr %28, align 8
-  %.not45 = icmp eq ptr %29, null
-  br i1 %.not45, label %._crit_edge, label %.lr.ph
+  %.not44 = icmp eq ptr %29, null
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %26, %.lr.ph
   %30 = phi ptr [ %35, %.lr.ph ], [ %29, %26 ]
-  %.147 = phi ptr [ %30, %.lr.ph ], [ %.014, %26 ]
-  %spec.store.select4346 = phi i64 [ %spec.store.select, %.lr.ph ], [ %.promoted49, %26 ]
-  %31 = phi i64 [ %spec.store.select37, %.lr.ph ], [ %.promoted4451, %26 ]
-  %32 = load i64, ptr %.147, align 8
-  %spec.store.select = tail call i64 @llvm.smin.i64(i64 %32, i64 %spec.store.select4346)
+  %.146 = phi ptr [ %30, %.lr.ph ], [ %.014, %26 ]
+  %spec.store.select4245 = phi i64 [ %spec.store.select, %.lr.ph ], [ %.promoted48, %26 ]
+  %31 = phi i64 [ %spec.store.select36, %.lr.ph ], [ %.promoted4350, %26 ]
+  %32 = load i64, ptr %.146, align 8
+  %spec.store.select = tail call i64 @llvm.smin.i64(i64 %32, i64 %spec.store.select4245)
   store i64 %spec.store.select, ptr %0, align 8
-  %33 = load i64, ptr %.147, align 8
-  %spec.store.select37 = tail call i64 @llvm.smax.i64(i64 %33, i64 %31)
-  store i64 %spec.store.select37, ptr %16, align 8
+  %33 = load i64, ptr %.146, align 8
+  %spec.store.select36 = tail call i64 @llvm.smax.i64(i64 %33, i64 %31)
+  store i64 %spec.store.select36, ptr %16, align 8
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !45
 
 ._crit_edge:                                      ; preds = %.lr.ph, %26
-  %.promoted4452 = phi i64 [ %.promoted4451, %26 ], [ %spec.store.select37, %.lr.ph ]
-  %.promoted50 = phi i64 [ %.promoted49, %26 ], [ %spec.store.select, %.lr.ph ]
+  %.promoted4351 = phi i64 [ %.promoted4350, %26 ], [ %spec.store.select36, %.lr.ph ]
+  %.promoted49 = phi i64 [ %.promoted48, %26 ], [ %spec.store.select, %.lr.ph ]
   %.1.lcssa = phi ptr [ %.014, %26 ], [ %30, %.lr.ph ]
   %36 = load i64, ptr %.1.lcssa, align 8
-  %37 = tail call i64 @llvm.smin.i64(i64 %36, i64 %.promoted50)
+  %37 = tail call i64 @llvm.smin.i64(i64 %36, i64 %.promoted49)
   store i64 %37, ptr %0, align 8
   %38 = load i64, ptr %.1.lcssa, align 8
-  %39 = tail call i64 @llvm.smax.i64(i64 %.promoted4452, i64 %38)
+  %39 = tail call i64 @llvm.smax.i64(i64 %.promoted4351, i64 %38)
   store i64 %39, ptr %16, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 32
   %41 = load i64, ptr %40, align 8
@@ -4642,9 +4642,9 @@ define hidden void @_ZN10ClipperLib11ClipperBase9GetBoundsEv(ptr dead_on_unwind 
   br label %26
 
 51:                                               ; preds = %._crit_edge
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.023.065, i64 24
-  %.not38 = icmp eq ptr %52, %6
-  br i1 %.not38, label %.loopexit, label %18, !llvm.loop !46
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.023.064, i64 24
+  %.not37 = icmp eq ptr %52, %6
+  br i1 %.not37, label %.loopexit, label %18, !llvm.loop !46
 
 .loopexit:                                        ; preds = %51, %8
   ret void
@@ -19616,49 +19616,49 @@ _ZN10ClipperLib11ClipperBase8AddPathsERKSt6vectorIS1_INS_8IntPointESaIS2_EESaIS4
   br label %69
 
 69:                                               ; preds = %97, %63
-  %.sroa.023.065.i = phi ptr [ %59, %63 ], [ %99, %97 ]
+  %.sroa.023.064.i = phi ptr [ %59, %63 ], [ %99, %97 ]
   %70 = phi i64 [ %68, %63 ], [ %98, %97 ]
-  %.promoted485664.i = phi i64 [ %66, %63 ], [ %91, %97 ]
-  %.promoted5863.i = phi i64 [ %66, %63 ], [ %92, %97 ]
-  %.promoted535962.i = phi i64 [ %68, %63 ], [ %95, %97 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.023.065.i, i64 8
+  %.promoted475563.i = phi i64 [ %66, %63 ], [ %91, %97 ]
+  %.promoted5762.i = phi i64 [ %66, %63 ], [ %92, %97 ]
+  %.promoted525861.i = phi i64 [ %68, %63 ], [ %95, %97 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 8
   %72 = load ptr, ptr %71, align 8, !noalias !168
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i64, ptr %73, align 8, !noalias !168
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.023.065.i, i64 16
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 16
   %76 = load ptr, ptr %75, align 8, !noalias !168
   br label %77
 
 77:                                               ; preds = %._crit_edge.i, %69
-  %78 = phi i64 [ %.promoted535962.i, %69 ], [ %95, %._crit_edge.i ]
-  %.promoted4451.i = phi i64 [ %.promoted5863.i, %69 ], [ %92, %._crit_edge.i ]
-  %.promoted49.i = phi i64 [ %.promoted485664.i, %69 ], [ %91, %._crit_edge.i ]
+  %78 = phi i64 [ %.promoted525861.i, %69 ], [ %95, %._crit_edge.i ]
+  %.promoted4350.i = phi i64 [ %.promoted5762.i, %69 ], [ %92, %._crit_edge.i ]
+  %.promoted48.i = phi i64 [ %.promoted475563.i, %69 ], [ %91, %._crit_edge.i ]
   %.014.i = phi ptr [ %72, %69 ], [ %76, %._crit_edge.i ]
   %79 = getelementptr inbounds nuw i8, ptr %.014.i, i64 96
   %80 = load ptr, ptr %79, align 8, !noalias !168
-  %.not45.i = icmp eq ptr %80, null
-  br i1 %.not45.i, label %._crit_edge.i, label %.lr.ph.i19
+  %.not44.i = icmp eq ptr %80, null
+  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i19
 
 .lr.ph.i19:                                       ; preds = %77, %.lr.ph.i19
   %81 = phi ptr [ %85, %.lr.ph.i19 ], [ %80, %77 ]
-  %.147.i = phi ptr [ %81, %.lr.ph.i19 ], [ %.014.i, %77 ]
-  %spec.store.select4346.i = phi i64 [ %spec.store.select.i, %.lr.ph.i19 ], [ %.promoted49.i, %77 ]
-  %82 = phi i64 [ %spec.store.select37.i, %.lr.ph.i19 ], [ %.promoted4451.i, %77 ]
-  %83 = load i64, ptr %.147.i, align 8, !noalias !168
-  %spec.store.select.i = call i64 @llvm.smin.i64(i64 %83, i64 %spec.store.select4346.i)
-  %spec.store.select37.i = call i64 @llvm.smax.i64(i64 %83, i64 %82)
+  %.146.i = phi ptr [ %81, %.lr.ph.i19 ], [ %.014.i, %77 ]
+  %spec.store.select4245.i = phi i64 [ %spec.store.select.i, %.lr.ph.i19 ], [ %.promoted48.i, %77 ]
+  %82 = phi i64 [ %spec.store.select36.i, %.lr.ph.i19 ], [ %.promoted4350.i, %77 ]
+  %83 = load i64, ptr %.146.i, align 8, !noalias !168
+  %spec.store.select.i = call i64 @llvm.smin.i64(i64 %83, i64 %spec.store.select4245.i)
+  %spec.store.select36.i = call i64 @llvm.smax.i64(i64 %83, i64 %82)
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 96
   %85 = load ptr, ptr %84, align 8, !noalias !168
   %.not.i20 = icmp eq ptr %85, null
   br i1 %.not.i20, label %._crit_edge.i, label %.lr.ph.i19, !llvm.loop !45
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i19, %77
-  %.promoted4452.i = phi i64 [ %.promoted4451.i, %77 ], [ %spec.store.select37.i, %.lr.ph.i19 ]
-  %.promoted50.i = phi i64 [ %.promoted49.i, %77 ], [ %spec.store.select.i, %.lr.ph.i19 ]
+  %.promoted4351.i = phi i64 [ %.promoted4350.i, %77 ], [ %spec.store.select36.i, %.lr.ph.i19 ]
+  %.promoted49.i = phi i64 [ %.promoted48.i, %77 ], [ %spec.store.select.i, %.lr.ph.i19 ]
   %.1.lcssa.i = phi ptr [ %.014.i, %77 ], [ %81, %.lr.ph.i19 ]
   %86 = load i64, ptr %.1.lcssa.i, align 8, !noalias !168
-  %87 = call i64 @llvm.smin.i64(i64 %86, i64 %.promoted50.i)
-  %88 = call i64 @llvm.smax.i64(i64 %.promoted4452.i, i64 %86)
+  %87 = call i64 @llvm.smin.i64(i64 %86, i64 %.promoted49.i)
+  %88 = call i64 @llvm.smax.i64(i64 %.promoted4351.i, i64 %86)
   %89 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 32
   %90 = load i64, ptr %89, align 8, !noalias !168
   %91 = call i64 @llvm.smin.i64(i64 %90, i64 %87)
@@ -19671,9 +19671,9 @@ _ZN10ClipperLib11ClipperBase8AddPathsERKSt6vectorIS1_INS_8IntPointESaIS2_EESaIS4
 
 97:                                               ; preds = %._crit_edge.i
   %98 = call i64 @llvm.smax.i64(i64 %70, i64 %74)
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.023.065.i, i64 24
-  %.not38.i = icmp eq ptr %99, %61
-  br i1 %.not38.i, label %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit, label %69, !llvm.loop !46
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 24
+  %.not37.i = icmp eq ptr %99, %61
+  br i1 %.not37.i, label %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit, label %69, !llvm.loop !46
 
 _ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit: ; preds = %97
   %100 = add nsw i64 %91, -10
@@ -22072,49 +22072,49 @@ _ZN10ClipperLib11ClipperBase8AddPathsERKSt6vectorIS1_INS_8IntPointESaIS2_EESaIS4
   br label %87
 
 87:                                               ; preds = %115, %81
-  %.sroa.023.065.i = phi ptr [ %77, %81 ], [ %117, %115 ]
+  %.sroa.023.064.i = phi ptr [ %77, %81 ], [ %117, %115 ]
   %88 = phi i64 [ %86, %81 ], [ %116, %115 ]
-  %.promoted485664.i = phi i64 [ %84, %81 ], [ %109, %115 ]
-  %.promoted5863.i = phi i64 [ %84, %81 ], [ %110, %115 ]
-  %.promoted535962.i = phi i64 [ %86, %81 ], [ %113, %115 ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.023.065.i, i64 8
+  %.promoted475563.i = phi i64 [ %84, %81 ], [ %109, %115 ]
+  %.promoted5762.i = phi i64 [ %84, %81 ], [ %110, %115 ]
+  %.promoted525861.i = phi i64 [ %86, %81 ], [ %113, %115 ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 8
   %90 = load ptr, ptr %89, align 8, !noalias !235
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i64, ptr %91, align 8, !noalias !235
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.023.065.i, i64 16
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 16
   %94 = load ptr, ptr %93, align 8, !noalias !235
   br label %95
 
 95:                                               ; preds = %._crit_edge.i40, %87
-  %96 = phi i64 [ %.promoted535962.i, %87 ], [ %113, %._crit_edge.i40 ]
-  %.promoted4451.i = phi i64 [ %.promoted5863.i, %87 ], [ %110, %._crit_edge.i40 ]
-  %.promoted49.i = phi i64 [ %.promoted485664.i, %87 ], [ %109, %._crit_edge.i40 ]
+  %96 = phi i64 [ %.promoted525861.i, %87 ], [ %113, %._crit_edge.i40 ]
+  %.promoted4350.i = phi i64 [ %.promoted5762.i, %87 ], [ %110, %._crit_edge.i40 ]
+  %.promoted48.i = phi i64 [ %.promoted475563.i, %87 ], [ %109, %._crit_edge.i40 ]
   %.014.i = phi ptr [ %90, %87 ], [ %94, %._crit_edge.i40 ]
   %97 = getelementptr inbounds nuw i8, ptr %.014.i, i64 96
   %98 = load ptr, ptr %97, align 8, !noalias !235
-  %.not45.i = icmp eq ptr %98, null
-  br i1 %.not45.i, label %._crit_edge.i40, label %.lr.ph.i38
+  %.not44.i = icmp eq ptr %98, null
+  br i1 %.not44.i, label %._crit_edge.i40, label %.lr.ph.i38
 
 .lr.ph.i38:                                       ; preds = %95, %.lr.ph.i38
   %99 = phi ptr [ %103, %.lr.ph.i38 ], [ %98, %95 ]
-  %.147.i = phi ptr [ %99, %.lr.ph.i38 ], [ %.014.i, %95 ]
-  %spec.store.select4346.i = phi i64 [ %spec.store.select.i, %.lr.ph.i38 ], [ %.promoted49.i, %95 ]
-  %100 = phi i64 [ %spec.store.select37.i, %.lr.ph.i38 ], [ %.promoted4451.i, %95 ]
-  %101 = load i64, ptr %.147.i, align 8, !noalias !235
-  %spec.store.select.i = call i64 @llvm.smin.i64(i64 %101, i64 %spec.store.select4346.i)
-  %spec.store.select37.i = call i64 @llvm.smax.i64(i64 %101, i64 %100)
+  %.146.i = phi ptr [ %99, %.lr.ph.i38 ], [ %.014.i, %95 ]
+  %spec.store.select4245.i = phi i64 [ %spec.store.select.i, %.lr.ph.i38 ], [ %.promoted48.i, %95 ]
+  %100 = phi i64 [ %spec.store.select36.i, %.lr.ph.i38 ], [ %.promoted4350.i, %95 ]
+  %101 = load i64, ptr %.146.i, align 8, !noalias !235
+  %spec.store.select.i = call i64 @llvm.smin.i64(i64 %101, i64 %spec.store.select4245.i)
+  %spec.store.select36.i = call i64 @llvm.smax.i64(i64 %101, i64 %100)
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 96
   %103 = load ptr, ptr %102, align 8, !noalias !235
   %.not.i39 = icmp eq ptr %103, null
   br i1 %.not.i39, label %._crit_edge.i40, label %.lr.ph.i38, !llvm.loop !45
 
 ._crit_edge.i40:                                  ; preds = %.lr.ph.i38, %95
-  %.promoted4452.i = phi i64 [ %.promoted4451.i, %95 ], [ %spec.store.select37.i, %.lr.ph.i38 ]
-  %.promoted50.i = phi i64 [ %.promoted49.i, %95 ], [ %spec.store.select.i, %.lr.ph.i38 ]
+  %.promoted4351.i = phi i64 [ %.promoted4350.i, %95 ], [ %spec.store.select36.i, %.lr.ph.i38 ]
+  %.promoted49.i = phi i64 [ %.promoted48.i, %95 ], [ %spec.store.select.i, %.lr.ph.i38 ]
   %.1.lcssa.i = phi ptr [ %.014.i, %95 ], [ %99, %.lr.ph.i38 ]
   %104 = load i64, ptr %.1.lcssa.i, align 8, !noalias !235
-  %105 = call i64 @llvm.smin.i64(i64 %104, i64 %.promoted50.i)
-  %106 = call i64 @llvm.smax.i64(i64 %.promoted4452.i, i64 %104)
+  %105 = call i64 @llvm.smin.i64(i64 %104, i64 %.promoted49.i)
+  %106 = call i64 @llvm.smax.i64(i64 %.promoted4351.i, i64 %104)
   %107 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 32
   %108 = load i64, ptr %107, align 8, !noalias !235
   %109 = call i64 @llvm.smin.i64(i64 %108, i64 %105)
@@ -22127,9 +22127,9 @@ _ZN10ClipperLib11ClipperBase8AddPathsERKSt6vectorIS1_INS_8IntPointESaIS2_EESaIS4
 
 115:                                              ; preds = %._crit_edge.i40
   %116 = call i64 @llvm.smax.i64(i64 %88, i64 %92)
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.023.065.i, i64 24
-  %.not38.i = icmp eq ptr %117, %79
-  br i1 %.not38.i, label %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit, label %87, !llvm.loop !46
+  %117 = getelementptr inbounds nuw i8, ptr %.sroa.023.064.i, i64 24
+  %.not37.i = icmp eq ptr %117, %79
+  br i1 %.not37.i, label %_ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit, label %87, !llvm.loop !46
 
 _ZN10ClipperLib11ClipperBase9GetBoundsEv.exit.loopexit: ; preds = %115
   %118 = add nsw i64 %109, -10
@@ -22897,7 +22897,7 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit64: ; preds = %1
   %139 = load ptr, ptr %107, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   store ptr %140, ptr %107, align 8
-  %.pre105 = load ptr, ptr %109, align 8
+  %.pre104 = load ptr, ptr %109, align 8
   br label %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backERKS1_.exit
 
 141:                                              ; preds = %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backEOS1_.exit64
@@ -22955,7 +22955,7 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gn
   br label %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE9push_backERKS1_.exit: ; preds = %138, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %161 = phi ptr [ %.pre105, %138 ], [ %160, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
+  %161 = phi ptr [ %.pre104, %138 ], [ %160, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   %162 = phi ptr [ %140, %138 ], [ %158, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i ]
   %163 = load ptr, ptr %89, align 8
   %164 = getelementptr inbounds nuw %"struct.ClipperLib::IntPoint", ptr %163, i64 %11

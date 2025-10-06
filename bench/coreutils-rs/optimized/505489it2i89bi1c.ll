@@ -788,16 +788,16 @@ define hidden { i64, i8 } @_ZN5uu_wc4utf810Incomplete20try_complete_offsets17h99
 
 20:                                               ; preds = %14
   %21 = sub i64 %.sroa.01.0.copyload, %7
-  %.not32 = icmp ult i64 %.sroa.01.0.copyload, %7
-  br i1 %.not32, label %26, label %16
+  %.not28 = icmp ult i64 %.sroa.01.0.copyload, %7
+  br i1 %.not28, label %26, label %16
 
 22:                                               ; preds = %19
   %.sroa.52.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 17
   %.sroa.52.0.copyload = load i8, ptr %.sroa.52.0..sroa_idx, align 1
   %23 = zext i8 %.sroa.52.0.copyload to i64
   %24 = sub nsw i64 %23, %7
-  %.not33 = icmp ult i8 %.sroa.52.0.copyload, %6
-  br i1 %.not33, label %25, label %16
+  %.not29 = icmp ult i8 %.sroa.52.0.copyload, %6
+  br i1 %.not29, label %25, label %16
 
 25:                                               ; preds = %22
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.da842841755b59d00e4ceb51b0ca2ba9.25) #20

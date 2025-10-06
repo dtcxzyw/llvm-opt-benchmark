@@ -2920,13 +2920,13 @@ define noundef range(i32 0, 2) i32 @_ZN12colvarmodule10atom_group8add_atomERKNS_
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 14:                                               ; preds = %.lr.ph
-  %15 = add nuw i64 %.01750, 1
+  %15 = add nuw i64 %.01748, 1
   %exitcond.not = icmp eq i64 %15, %13
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !163
 
 .lr.ph:                                           ; preds = %.preheader, %14
-  %.01750 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %.01750
+  %.01748 = phi i64 [ %15, %14 ], [ 0, %.preheader ]
+  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %.01748
   %17 = load i32, ptr %16, align 4, !tbaa !135
   %18 = icmp eq i32 %17, %4
   br i1 %18, label %.loopexit, label %14
@@ -2940,8 +2940,8 @@ define noundef range(i32 0, 2) i32 @_ZN12colvarmodule10atom_group8add_atomERKNS_
 ._crit_edge.thread:                               ; preds = %.preheader
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %22 = load ptr, ptr %21, align 8, !tbaa !63
-  %.not.i57 = icmp eq ptr %8, %22
-  br i1 %.not.i57, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, label %23
+  %.not.i55 = icmp eq ptr %8, %22
+  br i1 %.not.i55, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, label %23
 
 23:                                               ; preds = %._crit_edge.thread, %._crit_edge
   store i32 %4, ptr %8, align 4, !tbaa !135
@@ -3375,13 +3375,13 @@ define noundef range(i32 0, 2) i32 @_ZN12colvarmodule10atom_group11add_atom_idEi
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
-  %13 = add nuw i64 %.01045, 1
+  %13 = add nuw i64 %.01043, 1
   %exitcond.not = icmp eq i64 %13, %11
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !166
 
 .lr.ph:                                           ; preds = %.preheader, %12
-  %.01045 = phi i64 [ %13, %12 ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %.01045
+  %.01043 = phi i64 [ %13, %12 ], [ 0, %.preheader ]
+  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %.01043
   %15 = load i32, ptr %14, align 4, !tbaa !135
   %16 = icmp eq i32 %15, %1
   br i1 %16, label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit, label %12
@@ -3395,8 +3395,8 @@ define noundef range(i32 0, 2) i32 @_ZN12colvarmodule10atom_group11add_atom_idEi
 ._crit_edge.thread:                               ; preds = %.preheader
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %20 = load ptr, ptr %19, align 8, !tbaa !63
-  %.not.i50 = icmp eq ptr %6, %20
-  br i1 %.not.i50, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, label %21
+  %.not.i48 = icmp eq ptr %6, %20
+  br i1 %.not.i48, label %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i, label %21
 
 21:                                               ; preds = %._crit_edge.thread, %._crit_edge
   store i32 %1, ptr %6, align 4, !tbaa !135
@@ -15711,47 +15711,47 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZN12colvarmodule10atom_
   %4 = load ptr, ptr %3, align 8, !tbaa !154
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 512
   %6 = load ptr, ptr %5, align 8, !tbaa !154
-  %.not22 = icmp eq ptr %4, %6
-  br i1 %.not22, label %.loopexit, label %.lr.ph25
+  %.not25 = icmp eq ptr %4, %6
+  br i1 %.not25, label %.loopexit, label %.lr.ph28
 
-.lr.ph25:                                         ; preds = %2
+.lr.ph28:                                         ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 504
   %8 = load ptr, ptr %7, align 8, !tbaa !154
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 512
   %10 = load ptr, ptr %9, align 8, !tbaa !154
-  %.not1920 = icmp eq ptr %8, %10
-  br i1 %.not1920, label %.loopexit, label %.lr.ph
+  %.not2223 = icmp eq ptr %8, %10
+  br i1 %.not2223, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph25, %._crit_edge
-  %.sroa.013.023 = phi ptr [ %20, %._crit_edge ], [ %4, %.lr.ph25 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.013.023, i64 4
+.lr.ph:                                           ; preds = %.lr.ph28, %._crit_edge
+  %.sroa.013.026 = phi ptr [ %19, %._crit_edge ], [ %4, %.lr.ph28 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !131
   br label %15
 
 13:                                               ; preds = %15
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.09.021, i64 120
-  %.not19 = icmp eq ptr %14, %10
-  br i1 %.not19, label %._crit_edge, label %15, !llvm.loop !405
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.09.024, i64 120
+  %.not22 = icmp eq ptr %14, %10
+  br i1 %.not22, label %._crit_edge, label %15, !llvm.loop !405
 
 15:                                               ; preds = %.lr.ph, %13
-  %.sroa.09.021 = phi ptr [ %8, %.lr.ph ], [ %14, %13 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.09.021, i64 4
+  %.sroa.09.024 = phi ptr [ %8, %.lr.ph ], [ %14, %13 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.09.024, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !131
   %18 = icmp eq i32 %12, %17
-  br i1 %18, label %.thread, label %13
-
-.thread:                                          ; preds = %15
-  %19 = add nsw i32 %12, 1
-  br label %.loopexit
+  br i1 %18, label %20, label %13
 
 ._crit_edge:                                      ; preds = %13
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.013.023, i64 120
-  %.not = icmp eq ptr %20, %6
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.013.026, i64 120
+  %.not = icmp eq ptr %19, %6
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !406
 
-.loopexit:                                        ; preds = %._crit_edge, %.lr.ph25, %2, %.thread
-  %spec.select = phi i32 [ %19, %.thread ], [ 0, %2 ], [ 0, %.lr.ph25 ], [ 0, %._crit_edge ]
-  ret i32 %spec.select
+20:                                               ; preds = %15
+  %21 = add nsw i32 %12, 1
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %._crit_edge, %.lr.ph28, %2, %20
+  %22 = phi i32 [ %21, %20 ], [ 0, %2 ], [ 0, %.lr.ph28 ], [ 0, %._crit_edge ]
+  ret i32 %22
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

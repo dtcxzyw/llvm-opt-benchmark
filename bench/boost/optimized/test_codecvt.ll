@@ -7394,15 +7394,15 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE6
   %10 = ptrtoint ptr %6 to i64
   %11 = icmp ult ptr %5, %6
   %12 = icmp ult ptr %2, %3
-  %.not102.not105 = and i1 %11, %12
-  br i1 %.not102.not105, label %.lr.ph, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
+  %.not101.not104 = and i1 %11, %12
+  br i1 %.not101.not104, label %.lr.ph, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit
 
 .lr.ph:                                           ; preds = %8, %96
-  %.0108 = phi ptr [ %97, %96 ], [ %2, %8 ]
-  %.038107 = phi ptr [ %.240.ph, %96 ], [ %5, %8 ]
-  %.045106 = phi i16 [ %.449.ph, %96 ], [ %9, %8 ]
-  %.not = icmp eq i16 %.045106, 0
-  %13 = load i16, ptr %.0108, align 2, !tbaa !79
+  %.0107 = phi ptr [ %97, %96 ], [ %2, %8 ]
+  %.038106 = phi ptr [ %.240.ph, %96 ], [ %5, %8 ]
+  %.045105 = phi i16 [ %.449.ph, %96 ], [ %9, %8 ]
+  %.not = icmp eq i16 %.045105, 0
+  %13 = load i16, ptr %.0107, align 2, !tbaa !79
   br i1 %.not, label %17, label %14
 
 14:                                               ; preds = %.lr.ph
@@ -7422,7 +7422,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE6
 
 23:                                               ; preds = %17
   %24 = icmp ult i16 %13, 128
-  br i1 %24, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127, label %25
+  br i1 %24, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread126, label %25
 
 25:                                               ; preds = %23
   %26 = zext i16 %13 to i32
@@ -7431,7 +7431,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE6
   br label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit
 
 .thread68:                                        ; preds = %14
-  %29 = and i16 %.045106, 1023
+  %29 = and i16 %.045105, 1023
   %30 = zext nneg i16 %29 to i32
   %31 = shl nuw nsw i32 %30, 10
   %32 = and i16 %13, 1023
@@ -7443,32 +7443,32 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE6
 _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %.thread68, %25, %20
   %.15164 = phi i32 [ 65533, %20 ], [ %26, %25 ], [ %35, %.thread68 ]
   %.0.i = phi i64 [ 3, %20 ], [ %28, %25 ], [ 4, %.thread68 ]
-  %36 = ptrtoint ptr %.038107 to i64
+  %36 = ptrtoint ptr %.038106 to i64
   %37 = sub i64 %10, %36
   %38 = icmp slt i64 %37, %.0.i
   br i1 %38, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit, label %50
 
-_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127: ; preds = %23
-  %39 = ptrtoint ptr %.038107 to i64
+_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread126: ; preds = %23
+  %39 = ptrtoint ptr %.038106 to i64
   %40 = sub i64 %10, %39
   %41 = icmp slt i64 %40, 1
   br i1 %41, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit, label %47
 
 _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %14
-  %42 = ptrtoint ptr %.038107 to i64
+  %42 = ptrtoint ptr %.038106 to i64
   %43 = sub i64 %10, %42
   %44 = icmp slt i64 %43, 3
-  br i1 %44, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit, label %.thread95
+  br i1 %44, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit, label %.thread93
 
-.thread95:                                        ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread
-  %45 = getelementptr inbounds nuw i8, ptr %.038107, i64 1
-  %46 = getelementptr inbounds nuw i8, ptr %.038107, i64 2
+.thread93:                                        ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread
+  %45 = getelementptr inbounds nuw i8, ptr %.038106, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.038106, i64 2
   br label %65
 
-47:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127
+47:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread126
   %48 = trunc nuw i16 %13 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %.038107, i64 1
-  store i8 %48, ptr %.038107, align 1, !tbaa !22
+  %49 = getelementptr inbounds nuw i8, ptr %.038106, i64 1
+  store i8 %48, ptr %.038106, align 1, !tbaa !22
   br label %96
 
 50:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit
@@ -7479,38 +7479,38 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %14
   %53 = lshr i32 %.15164, 6
   %54 = trunc nuw nsw i32 %53 to i8
   %55 = or disjoint i8 %54, -64
-  %56 = getelementptr inbounds nuw i8, ptr %.038107, i64 1
-  store i8 %55, ptr %.038107, align 1, !tbaa !22
+  %56 = getelementptr inbounds nuw i8, ptr %.038106, i64 1
+  store i8 %55, ptr %.038106, align 1, !tbaa !22
   %57 = trunc i32 %.15164 to i8
   %58 = and i8 %57, 63
   %59 = or disjoint i8 %58, -128
-  %60 = getelementptr inbounds nuw i8, ptr %.038107, i64 2
+  %60 = getelementptr inbounds nuw i8, ptr %.038106, i64 2
   store i8 %59, ptr %56, align 1, !tbaa !22
   br label %96
 
 61:                                               ; preds = %50
   %62 = icmp samesign ult i32 %.15164, 65536
-  %63 = getelementptr inbounds nuw i8, ptr %.038107, i64 1
-  %64 = getelementptr inbounds nuw i8, ptr %.038107, i64 2
+  %63 = getelementptr inbounds nuw i8, ptr %.038106, i64 1
+  %64 = getelementptr inbounds nuw i8, ptr %.038106, i64 2
   br i1 %62, label %65, label %79, !prof !147
 
-65:                                               ; preds = %.thread95, %61
-  %66 = phi ptr [ %46, %.thread95 ], [ %64, %61 ]
-  %67 = phi ptr [ %45, %.thread95 ], [ %63, %61 ]
-  %.1516489919497 = phi i32 [ 65533, %.thread95 ], [ %.15164, %61 ]
-  %68 = lshr i32 %.1516489919497, 12
+65:                                               ; preds = %.thread93, %61
+  %66 = phi ptr [ %46, %.thread93 ], [ %64, %61 ]
+  %67 = phi ptr [ %45, %.thread93 ], [ %63, %61 ]
+  %.1516487899295 = phi i32 [ 65533, %.thread93 ], [ %.15164, %61 ]
+  %68 = lshr i32 %.1516487899295, 12
   %69 = trunc nuw nsw i32 %68 to i8
   %70 = or disjoint i8 %69, -32
-  store i8 %70, ptr %.038107, align 1, !tbaa !22
-  %71 = lshr i32 %.1516489919497, 6
+  store i8 %70, ptr %.038106, align 1, !tbaa !22
+  %71 = lshr i32 %.1516487899295, 6
   %72 = trunc i32 %71 to i8
   %73 = and i8 %72, 63
   %74 = or disjoint i8 %73, -128
   store i8 %74, ptr %67, align 1, !tbaa !22
-  %75 = trunc i32 %.1516489919497 to i8
+  %75 = trunc i32 %.1516487899295 to i8
   %76 = and i8 %75, 63
   %77 = or disjoint i8 %76, -128
-  %78 = getelementptr inbounds nuw i8, ptr %.038107, i64 3
+  %78 = getelementptr inbounds nuw i8, ptr %.038106, i64 3
   store i8 %77, ptr %66, align 1, !tbaa !22
   br label %96
 
@@ -7518,7 +7518,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %14
   %80 = lshr i32 %.15164, 18
   %81 = trunc nuw nsw i32 %80 to i8
   %82 = or i8 %81, -16
-  store i8 %82, ptr %.038107, align 1, !tbaa !22
+  store i8 %82, ptr %.038106, align 1, !tbaa !22
   %83 = lshr i32 %.15164, 12
   %84 = trunc i32 %83 to i8
   %85 = and i8 %84, 63
@@ -7528,38 +7528,38 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %14
   %88 = trunc i32 %87 to i8
   %89 = and i8 %88, 63
   %90 = or disjoint i8 %89, -128
-  %91 = getelementptr inbounds nuw i8, ptr %.038107, i64 3
+  %91 = getelementptr inbounds nuw i8, ptr %.038106, i64 3
   store i8 %90, ptr %64, align 1, !tbaa !22
   %92 = trunc i32 %.15164 to i8
   %93 = and i8 %92, 63
   %94 = or disjoint i8 %93, -128
-  %95 = getelementptr inbounds nuw i8, ptr %.038107, i64 4
+  %95 = getelementptr inbounds nuw i8, ptr %.038106, i64 4
   store i8 %94, ptr %91, align 1, !tbaa !22
   br label %96
 
 96:                                               ; preds = %20, %47, %52, %65, %79
   %.449.ph = phi i16 [ 0, %79 ], [ 0, %65 ], [ 0, %52 ], [ 0, %47 ], [ %13, %20 ]
-  %.240.ph = phi ptr [ %95, %79 ], [ %78, %65 ], [ %60, %52 ], [ %49, %47 ], [ %.038107, %20 ]
-  %97 = getelementptr inbounds nuw i8, ptr %.0108, i64 2
+  %.240.ph = phi ptr [ %95, %79 ], [ %78, %65 ], [ %60, %52 ], [ %49, %47 ], [ %.038106, %20 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.0107, i64 2
   %98 = icmp ult ptr %.240.ph, %6
   %99 = icmp ult ptr %97, %3
-  %.not102.not = select i1 %98, i1 %99, i1 false
-  br i1 %.not102.not, label %.lr.ph, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit, !llvm.loop !148
+  %.not101.not = select i1 %98, i1 %99, i1 false
+  br i1 %.not101.not, label %.lr.ph, label %_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit, !llvm.loop !148
 
-_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %96, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127, %8
-  %.045.lcssa = phi i16 [ %9, %8 ], [ 0, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127 ], [ %.045106, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.045106, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %.449.ph, %96 ]
-  %.038.lcssa = phi ptr [ %5, %8 ], [ %.038107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127 ], [ %.038107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.038107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %.240.ph, %96 ]
-  %.0.lcssa = phi ptr [ %2, %8 ], [ %.0108, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127 ], [ %.0108, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.0108, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %97, %96 ]
-  %.not102.not.lcssa = phi i1 [ false, %8 ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread127 ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ false, %96 ]
+_ZN5boost6nowide3utf10utf_traitsIcLi1EE6encodeIPcEET_jS6_.exit: ; preds = %96, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread126, %8
+  %.045.lcssa = phi i16 [ %9, %8 ], [ 0, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread126 ], [ %.045105, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %.045105, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.449.ph, %96 ]
+  %.038.lcssa = phi ptr [ %5, %8 ], [ %.038106, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread126 ], [ %.038106, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %.038106, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %.240.ph, %96 ]
+  %.0.lcssa = phi ptr [ %2, %8 ], [ %.0107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread126 ], [ %.0107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ %.0107, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ %97, %96 ]
+  %.not101.not.lcssa = phi i1 [ false, %8 ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread126 ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread ], [ true, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit ], [ false, %96 ]
   store ptr %.0.lcssa, ptr %4, align 8, !tbaa !55
   store ptr %.038.lcssa, ptr %7, align 8, !tbaa !55
   %100 = icmp ne ptr %.0.lcssa, %3
   %101 = icmp ne i16 %.045.lcssa, 0
-  %102 = select i1 %.not102.not.lcssa, i1 true, i1 %100
+  %102 = select i1 %.not101.not.lcssa, i1 true, i1 %100
   %narrow = select i1 %102, i1 true, i1 %101
-  %.4 = zext i1 %narrow to i32
+  %spec.select98 = zext i1 %narrow to i32
   store i16 %.045.lcssa, ptr %1, align 4
-  ret i32 %.4
+  ret i32 %spec.select98
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7600,7 +7600,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
   %16 = icmp ult ptr %.032, %6
   %17 = icmp ult ptr %2, %3
   %18 = and i1 %16, %17
-  br i1 %18, label %.lr.ph, label %.thread71
+  br i1 %18, label %.lr.ph, label %.thread70
 
 .lr.ph:                                           ; preds = %15
   %19 = ptrtoint ptr %6 to i64
@@ -7608,7 +7608,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
 
 20:                                               ; preds = %.lr.ph, %55
   %21 = phi ptr [ %2, %.lr.ph ], [ %57, %55 ]
-  %.194 = phi ptr [ %.032, %.lr.ph ], [ %.0.i, %55 ]
+  %.193 = phi ptr [ %.032, %.lr.ph ], [ %.0.i, %55 ]
   %22 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %3)
   switch i32 %22, label %23 [
     i32 -1, label %.thread54
@@ -7617,16 +7617,16 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
 
 23:                                               ; preds = %20
   %24 = icmp ugt i32 %22, 65535
-  %spec.select81 = select i1 %24, i64 2, i64 1
-  %25 = ptrtoint ptr %.194 to i64
+  %spec.select80 = select i1 %24, i64 2, i64 1
+  %25 = ptrtoint ptr %.193 to i64
   %26 = sub i64 %19, %25
   %27 = ashr exact i64 %26, 1
-  %.not49 = icmp slt i64 %27, %spec.select81
+  %.not49 = icmp slt i64 %27, %spec.select80
   %28 = icmp ult i32 %22, 65536
   br i1 %.not49, label %44, label %31, !prof !144
 
 .thread54:                                        ; preds = %20
-  %29 = ptrtoint ptr %.194 to i64
+  %29 = ptrtoint ptr %.193 to i64
   %30 = sub i64 %19, %29
   %.not4956 = icmp slt i64 %30, 2
   br i1 %.not4956, label %.thread62, label %.thread59, !prof !144
@@ -7637,7 +7637,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
 .thread59:                                        ; preds = %.thread54, %31
   %.031535761 = phi i32 [ %22, %31 ], [ 65533, %.thread54 ]
   %32 = trunc nuw i32 %.031535761 to i16
-  %33 = getelementptr inbounds nuw i8, ptr %.194, i64 2
+  %33 = getelementptr inbounds nuw i8, ptr %.193, i64 2
   br label %55
 
 34:                                               ; preds = %31
@@ -7645,11 +7645,11 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
   %36 = lshr i32 %35, 10
   %37 = trunc i32 %36 to i16
   %38 = or i16 %37, -10240
-  %39 = getelementptr inbounds nuw i8, ptr %.194, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.193, i64 2
   %40 = trunc i32 %22 to i16
   %41 = and i16 %40, 1023
   %42 = or disjoint i16 %41, -9216
-  %43 = getelementptr inbounds nuw i8, ptr %.194, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.193, i64 4
   store i16 %42, ptr %39, align 2, !tbaa !79
   br label %55
 
@@ -7659,7 +7659,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
 .thread62:                                        ; preds = %.thread54, %44
   %.031535864 = phi i32 [ %22, %44 ], [ 65533, %.thread54 ]
   %45 = trunc nuw i32 %.031535864 to i16
-  br label %.thread77
+  br label %.thread76
 
 46:                                               ; preds = %44
   %47 = add i32 %22, 16711680
@@ -7669,47 +7669,47 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE5
   %51 = trunc i32 %22 to i16
   %52 = and i16 %51, 1023
   %53 = or disjoint i16 %52, -9216
-  br label %.thread77
+  br label %.thread76
 
-.thread77:                                        ; preds = %46, %.thread62
+.thread76:                                        ; preds = %46, %.thread62
   %.sroa.5.0 = phi i16 [ 0, %.thread62 ], [ %53, %46 ]
   %.sink.i50 = phi i16 [ %45, %.thread62 ], [ %50, %46 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.194, i64 2
-  store i16 %.sink.i50, ptr %.194, align 2, !tbaa !79
+  %54 = getelementptr inbounds nuw i8, ptr %.193, i64 2
+  store i16 %.sink.i50, ptr %.193, align 2, !tbaa !79
   %.pre = load ptr, ptr %9, align 8, !tbaa !55
-  br label %.thread71
+  br label %.thread70
 
 55:                                               ; preds = %34, %.thread59
   %.sink.i = phi i16 [ %32, %.thread59 ], [ %38, %34 ]
   %.0.i = phi ptr [ %33, %.thread59 ], [ %43, %34 ]
-  store i16 %.sink.i, ptr %.194, align 2, !tbaa !79
+  store i16 %.sink.i, ptr %.193, align 2, !tbaa !79
   %56 = icmp ult ptr %.0.i, %6
   %57 = load ptr, ptr %9, align 8
   %58 = icmp ult ptr %57, %3
   %59 = select i1 %56, i1 %58, i1 false
-  br i1 %59, label %20, label %.thread71
+  br i1 %59, label %20, label %.thread70
 
 60:                                               ; preds = %20
   store ptr %21, ptr %4, align 8, !tbaa !55
-  store ptr %.194, ptr %7, align 8, !tbaa !55
+  store ptr %.193, ptr %7, align 8, !tbaa !55
   br label %64
 
-.thread71:                                        ; preds = %55, %15, %.thread77
-  %61 = phi ptr [ %.pre, %.thread77 ], [ %2, %15 ], [ %57, %55 ]
-  %storemerge = phi ptr [ %54, %.thread77 ], [ %.032, %15 ], [ %.0.i, %55 ]
-  %.23575 = phi i16 [ %.sroa.5.0, %.thread77 ], [ %.033, %15 ], [ %.033, %55 ]
+.thread70:                                        ; preds = %55, %15, %.thread76
+  %61 = phi ptr [ %.pre, %.thread76 ], [ %2, %15 ], [ %57, %55 ]
+  %storemerge = phi ptr [ %54, %.thread76 ], [ %.032, %15 ], [ %.0.i, %55 ]
+  %.23574 = phi i16 [ %.sroa.5.0, %.thread76 ], [ %.033, %15 ], [ %.033, %55 ]
   store ptr %61, ptr %4, align 8, !tbaa !55
   store ptr %storemerge, ptr %7, align 8, !tbaa !55
   %62 = icmp ne ptr %61, %3
-  %63 = icmp ne i16 %.23575, 0
+  %63 = icmp ne i16 %.23574, 0
   %or.cond = select i1 %62, i1 true, i1 %63
   %spec.select = zext i1 %or.cond to i32
   br label %64
 
-64:                                               ; preds = %60, %.thread71
-  %.23576 = phi i16 [ %.033, %60 ], [ %.23575, %.thread71 ]
-  %.340 = phi i32 [ 1, %60 ], [ %spec.select, %.thread71 ]
-  store i16 %.23576, ptr %1, align 4
+64:                                               ; preds = %60, %.thread70
+  %.23575 = phi i16 [ %.033, %60 ], [ %.23574, %.thread70 ]
+  %.340 = phi i32 [ 1, %60 ], [ %spec.select, %.thread70 ]
+  store i16 %.23575, ptr %1, align 4
   ret i32 %.340
 }
 
@@ -7741,7 +7741,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE9
 
 .lr.ph:                                           ; preds = %5, %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit
   %14 = phi ptr [ %28, %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit ], [ %2, %5 ]
-  %.147 = phi i64 [ %26, %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit ], [ %spec.select28, %5 ]
+  %.146 = phi i64 [ %26, %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit ], [ %spec.select28, %5 ]
   %15 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   switch i32 %15, label %17 [
     i32 -1, label %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit
@@ -7754,8 +7754,8 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE9
 
 17:                                               ; preds = %.lr.ph
   %18 = icmp ugt i32 %15, 65535
-  %spec.select42 = select i1 %18, i64 2, i64 1
-  %.not = icmp ult i64 %.147, %spec.select42
+  %spec.select41 = select i1 %18, i64 2, i64 1
+  %.not = icmp ult i64 %.146, %spec.select41
   br i1 %.not, label %19, label %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit, !prof !144
 
 19:                                               ; preds = %17
@@ -7769,8 +7769,8 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDsLi2EE9
   br label %_ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit.thread
 
 _ZN5boost6nowide3utf10utf_traitsIDsLi2EE6encodeIPtEET_jS6_.exit: ; preds = %.lr.ph, %17
-  %25 = phi i64 [ %spec.select42, %17 ], [ 1, %.lr.ph ]
-  %26 = sub i64 %.147, %25
+  %25 = phi i64 [ %spec.select41, %17 ], [ 1, %.lr.ph ]
+  %26 = sub i64 %.146, %25
   %27 = icmp ne i64 %26, 0
   %28 = load ptr, ptr %6, align 8
   %29 = icmp ult ptr %28, %3
@@ -7860,9 +7860,9 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDiLi4EE6
   br label %13
 
 13:                                               ; preds = %.lr.ph, %70
-  %.02148 = phi ptr [ %2, %.lr.ph ], [ %71, %70 ]
-  %.02647 = phi ptr [ %5, %.lr.ph ], [ %.0.i32, %70 ]
-  %14 = load i32, ptr %.02148, align 4, !tbaa !90
+  %.02147 = phi ptr [ %2, %.lr.ph ], [ %71, %70 ]
+  %.02646 = phi ptr [ %5, %.lr.ph ], [ %.0.i32, %70 ]
+  %14 = load i32, ptr %.02147, align 4, !tbaa !90
   %15 = icmp ult i32 %14, 1114112
   %16 = and i32 %14, 2095104
   %or.cond.i = icmp ne i32 %16, 55296
@@ -7876,21 +7876,21 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %13
   %19 = icmp ult i32 %spec.select, 65536
   %..i = select i1 %19, i64 3, i64 4
   %.0.i31 = select i1 %18, i64 2, i64 %..i
-  %20 = ptrtoint ptr %.02647 to i64
+  %20 = ptrtoint ptr %.02646 to i64
   %21 = sub i64 %12, %20
   %22 = icmp slt i64 %21, %.0.i31
   br i1 %22, label %75, label %28
 
 _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
-  %23 = ptrtoint ptr %.02647 to i64
+  %23 = ptrtoint ptr %.02646 to i64
   %24 = sub i64 %12, %23
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %75, label %.thread
 
 .thread:                                          ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread
   %26 = trunc nuw nsw i32 %spec.select to i8
-  %27 = getelementptr inbounds nuw i8, ptr %.02647, i64 1
-  store i8 %26, ptr %.02647, align 1, !tbaa !22
+  %27 = getelementptr inbounds nuw i8, ptr %.02646, i64 1
+  store i8 %26, ptr %.02646, align 1, !tbaa !22
   br label %70
 
 28:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit
@@ -7900,25 +7900,25 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %30 = lshr i32 %spec.select, 6
   %31 = trunc nuw nsw i32 %30 to i8
   %32 = or disjoint i8 %31, -64
-  %33 = getelementptr inbounds nuw i8, ptr %.02647, i64 1
-  store i8 %32, ptr %.02647, align 1, !tbaa !22
+  %33 = getelementptr inbounds nuw i8, ptr %.02646, i64 1
+  store i8 %32, ptr %.02646, align 1, !tbaa !22
   %34 = trunc i32 %spec.select to i8
   %35 = and i8 %34, 63
   %36 = or disjoint i8 %35, -128
-  %37 = getelementptr inbounds nuw i8, ptr %.02647, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.02646, i64 2
   store i8 %36, ptr %33, align 1, !tbaa !22
   br label %70
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds nuw i8, ptr %.02647, i64 1
-  %40 = getelementptr inbounds nuw i8, ptr %.02647, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.02646, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.02646, i64 2
   br i1 %19, label %41, label %53, !prof !81
 
 41:                                               ; preds = %38
   %42 = lshr i32 %spec.select, 12
   %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
-  store i8 %44, ptr %.02647, align 1, !tbaa !22
+  store i8 %44, ptr %.02646, align 1, !tbaa !22
   %45 = lshr i32 %spec.select, 6
   %46 = trunc i32 %45 to i8
   %47 = and i8 %46, 63
@@ -7927,7 +7927,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %49 = trunc i32 %spec.select to i8
   %50 = and i8 %49, 63
   %51 = or disjoint i8 %50, -128
-  %52 = getelementptr inbounds nuw i8, ptr %.02647, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.02646, i64 3
   store i8 %51, ptr %40, align 1, !tbaa !22
   br label %70
 
@@ -7935,7 +7935,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %54 = lshr i32 %spec.select, 18
   %55 = trunc i32 %54 to i8
   %56 = or i8 %55, -16
-  store i8 %56, ptr %.02647, align 1, !tbaa !22
+  store i8 %56, ptr %.02646, align 1, !tbaa !22
   %57 = lshr i32 %spec.select, 12
   %58 = trunc i32 %57 to i8
   %59 = and i8 %58, 63
@@ -7945,26 +7945,26 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %62 = trunc i32 %61 to i8
   %63 = and i8 %62, 63
   %64 = or disjoint i8 %63, -128
-  %65 = getelementptr inbounds nuw i8, ptr %.02647, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %.02646, i64 3
   store i8 %64, ptr %40, align 1, !tbaa !22
   %66 = trunc i32 %spec.select to i8
   %67 = and i8 %66, 63
   %68 = or disjoint i8 %67, -128
-  %69 = getelementptr inbounds nuw i8, ptr %.02647, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.02646, i64 4
   store i8 %68, ptr %65, align 1, !tbaa !22
   br label %70
 
 70:                                               ; preds = %53, %41, %29, %.thread
   %.0.i32 = phi ptr [ %27, %.thread ], [ %37, %29 ], [ %52, %41 ], [ %69, %53 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.02148, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.02147, i64 4
   %72 = icmp ult ptr %.0.i32, %6
   %73 = icmp ult ptr %71, %3
   %74 = select i1 %72, i1 %73, i1 false
   br i1 %74, label %13, label %._crit_edge
 
 75:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread
-  store ptr %.02148, ptr %4, align 8, !tbaa !55
-  store ptr %.02647, ptr %7, align 8, !tbaa !55
+  store ptr %.02147, ptr %4, align 8, !tbaa !55
+  store ptr %.02646, ptr %7, align 8, !tbaa !55
   br label %76
 
 ._crit_edge:                                      ; preds = %70, %8
@@ -7972,12 +7972,12 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %.021.lcssa = phi ptr [ %2, %8 ], [ %71, %70 ]
   store ptr %.021.lcssa, ptr %4, align 8, !tbaa !55
   store ptr %.026.lcssa, ptr %7, align 8, !tbaa !55
-  %.not42 = icmp ne ptr %.021.lcssa, %3
-  %spec.select3043 = zext i1 %.not42 to i32
+  %.not41 = icmp ne ptr %.021.lcssa, %3
+  %spec.select3042 = zext i1 %.not41 to i32
   br label %76
 
 76:                                               ; preds = %75, %._crit_edge
-  %77 = phi i32 [ %spec.select3043, %._crit_edge ], [ 1, %75 ]
+  %77 = phi i32 [ %spec.select3042, %._crit_edge ], [ 1, %75 ]
   ret i32 %77
 }
 
@@ -7998,7 +7998,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDiLi4EE5
 
 .lr.ph:                                           ; preds = %8, %15
   %13 = phi ptr [ %18, %15 ], [ %2, %8 ]
-  %.01634 = phi ptr [ %16, %15 ], [ %5, %8 ]
+  %.01633 = phi ptr [ %16, %15 ], [ %5, %8 ]
   %14 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %3)
   switch i32 %14, label %.fold.split [
     i32 -1, label %15
@@ -8010,8 +8010,8 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDiLi4EE5
 
 15:                                               ; preds = %.fold.split, %.lr.ph
   %.015 = phi i32 [ 65533, %.lr.ph ], [ %14, %.fold.split ]
-  %16 = getelementptr inbounds nuw i8, ptr %.01634, i64 4
-  store i32 %.015, ptr %.01634, align 4, !tbaa !90
+  %16 = getelementptr inbounds nuw i8, ptr %.01633, i64 4
+  store i32 %.015, ptr %.01633, align 4, !tbaa !90
   %17 = icmp ult ptr %16, %6
   %18 = load ptr, ptr %9, align 8
   %19 = icmp ult ptr %18, %3
@@ -8020,7 +8020,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDiLi4EE5
 
 21:                                               ; preds = %.lr.ph
   store ptr %13, ptr %4, align 8, !tbaa !55
-  store ptr %.01634, ptr %7, align 8, !tbaa !55
+  store ptr %.01633, ptr %7, align 8, !tbaa !55
   br label %23
 
 ._crit_edge:                                      ; preds = %15, %8
@@ -8028,12 +8028,12 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDiLi4EE5
   %.016.lcssa = phi ptr [ %5, %8 ], [ %16, %15 ]
   store ptr %22, ptr %4, align 8, !tbaa !55
   store ptr %.016.lcssa, ptr %7, align 8, !tbaa !55
-  %.not29 = icmp ne ptr %22, %3
-  %spec.select30 = zext i1 %.not29 to i32
+  %.not28 = icmp ne ptr %22, %3
+  %spec.select29 = zext i1 %.not28 to i32
   br label %23
 
 23:                                               ; preds = %21, %._crit_edge
-  %24 = phi i32 [ %spec.select30, %._crit_edge ], [ 1, %21 ]
+  %24 = phi i32 [ %spec.select29, %._crit_edge ], [ 1, %21 ]
   ret i32 %24
 }
 
@@ -8059,24 +8059,24 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIDiLi4EE9
 .lr.ph.preheader:                                 ; preds = %5
   %10 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %11 = icmp eq i32 %10, -2
-  br i1 %11, label %.loopexit, label %.lr.ph25
+  br i1 %11, label %.loopexit, label %.lr.ph24
 
-.lr.ph25:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.081624 = phi i64 [ %12, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %12 = add i64 %.081624, -1
+.lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.081523 = phi i64 [ %12, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %12 = add i64 %.081523, -1
   %13 = icmp ne i64 %12, 0
   %14 = load ptr, ptr %6, align 8
   %15 = icmp ult ptr %14, %3
   %16 = select i1 %13, i1 %15, i1 false
   br i1 %16, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph25
+.lr.ph:                                           ; preds = %.lr.ph24
   %17 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %18 = icmp eq i32 %17, -2
-  br i1 %18, label %.loopexit, label %.lr.ph25
+  br i1 %18, label %.loopexit, label %.lr.ph24
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %.lr.ph.preheader, %5
-  %19 = phi ptr [ %2, %5 ], [ %2, %.lr.ph.preheader ], [ %14, %.lr.ph25 ], [ %14, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %.lr.ph.preheader, %5
+  %19 = phi ptr [ %2, %5 ], [ %2, %.lr.ph.preheader ], [ %14, %.lr.ph24 ], [ %14, %.lr.ph ]
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %2 to i64
   %22 = sub i64 %20, %21
@@ -8401,9 +8401,9 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE6d
   br label %13
 
 13:                                               ; preds = %.lr.ph, %70
-  %.02148 = phi ptr [ %2, %.lr.ph ], [ %71, %70 ]
-  %.02647 = phi ptr [ %5, %.lr.ph ], [ %.0.i32, %70 ]
-  %14 = load i32, ptr %.02148, align 4, !tbaa !36
+  %.02147 = phi ptr [ %2, %.lr.ph ], [ %71, %70 ]
+  %.02646 = phi ptr [ %5, %.lr.ph ], [ %.0.i32, %70 ]
+  %14 = load i32, ptr %.02147, align 4, !tbaa !36
   %15 = icmp ult i32 %14, 1114112
   %16 = and i32 %14, 2095104
   %or.cond.i = icmp ne i32 %16, 55296
@@ -8417,21 +8417,21 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit: ; preds = %13
   %19 = icmp ult i32 %spec.select, 65536
   %..i = select i1 %19, i64 3, i64 4
   %.0.i31 = select i1 %18, i64 2, i64 %..i
-  %20 = ptrtoint ptr %.02647 to i64
+  %20 = ptrtoint ptr %.02646 to i64
   %21 = sub i64 %12, %20
   %22 = icmp slt i64 %21, %.0.i31
   br i1 %22, label %75, label %28
 
 _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
-  %23 = ptrtoint ptr %.02647 to i64
+  %23 = ptrtoint ptr %.02646 to i64
   %24 = sub i64 %12, %23
   %25 = icmp slt i64 %24, 1
   br i1 %25, label %75, label %.thread
 
 .thread:                                          ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread
   %26 = trunc nuw nsw i32 %spec.select to i8
-  %27 = getelementptr inbounds nuw i8, ptr %.02647, i64 1
-  store i8 %26, ptr %.02647, align 1, !tbaa !22
+  %27 = getelementptr inbounds nuw i8, ptr %.02646, i64 1
+  store i8 %26, ptr %.02646, align 1, !tbaa !22
   br label %70
 
 28:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit
@@ -8441,25 +8441,25 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %30 = lshr i32 %spec.select, 6
   %31 = trunc nuw nsw i32 %30 to i8
   %32 = or disjoint i8 %31, -64
-  %33 = getelementptr inbounds nuw i8, ptr %.02647, i64 1
-  store i8 %32, ptr %.02647, align 1, !tbaa !22
+  %33 = getelementptr inbounds nuw i8, ptr %.02646, i64 1
+  store i8 %32, ptr %.02646, align 1, !tbaa !22
   %34 = trunc i32 %spec.select to i8
   %35 = and i8 %34, 63
   %36 = or disjoint i8 %35, -128
-  %37 = getelementptr inbounds nuw i8, ptr %.02647, i64 2
+  %37 = getelementptr inbounds nuw i8, ptr %.02646, i64 2
   store i8 %36, ptr %33, align 1, !tbaa !22
   br label %70
 
 38:                                               ; preds = %28
-  %39 = getelementptr inbounds nuw i8, ptr %.02647, i64 1
-  %40 = getelementptr inbounds nuw i8, ptr %.02647, i64 2
+  %39 = getelementptr inbounds nuw i8, ptr %.02646, i64 1
+  %40 = getelementptr inbounds nuw i8, ptr %.02646, i64 2
   br i1 %19, label %41, label %53, !prof !81
 
 41:                                               ; preds = %38
   %42 = lshr i32 %spec.select, 12
   %43 = trunc nuw nsw i32 %42 to i8
   %44 = or disjoint i8 %43, -32
-  store i8 %44, ptr %.02647, align 1, !tbaa !22
+  store i8 %44, ptr %.02646, align 1, !tbaa !22
   %45 = lshr i32 %spec.select, 6
   %46 = trunc i32 %45 to i8
   %47 = and i8 %46, 63
@@ -8468,7 +8468,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %49 = trunc i32 %spec.select to i8
   %50 = and i8 %49, 63
   %51 = or disjoint i8 %50, -128
-  %52 = getelementptr inbounds nuw i8, ptr %.02647, i64 3
+  %52 = getelementptr inbounds nuw i8, ptr %.02646, i64 3
   store i8 %51, ptr %40, align 1, !tbaa !22
   br label %70
 
@@ -8476,7 +8476,7 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %54 = lshr i32 %spec.select, 18
   %55 = trunc i32 %54 to i8
   %56 = or i8 %55, -16
-  store i8 %56, ptr %.02647, align 1, !tbaa !22
+  store i8 %56, ptr %.02646, align 1, !tbaa !22
   %57 = lshr i32 %spec.select, 12
   %58 = trunc i32 %57 to i8
   %59 = and i8 %58, 63
@@ -8486,26 +8486,26 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %62 = trunc i32 %61 to i8
   %63 = and i8 %62, 63
   %64 = or disjoint i8 %63, -128
-  %65 = getelementptr inbounds nuw i8, ptr %.02647, i64 3
+  %65 = getelementptr inbounds nuw i8, ptr %.02646, i64 3
   store i8 %64, ptr %40, align 1, !tbaa !22
   %66 = trunc i32 %spec.select to i8
   %67 = and i8 %66, 63
   %68 = or disjoint i8 %67, -128
-  %69 = getelementptr inbounds nuw i8, ptr %.02647, i64 4
+  %69 = getelementptr inbounds nuw i8, ptr %.02646, i64 4
   store i8 %68, ptr %65, align 1, !tbaa !22
   br label %70
 
 70:                                               ; preds = %53, %41, %29, %.thread
   %.0.i32 = phi ptr [ %27, %.thread ], [ %37, %29 ], [ %52, %41 ], [ %69, %53 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.02148, i64 4
+  %71 = getelementptr inbounds nuw i8, ptr %.02147, i64 4
   %72 = icmp ult ptr %.0.i32, %6
   %73 = icmp ult ptr %71, %3
   %74 = select i1 %72, i1 %73, i1 false
   br i1 %74, label %13, label %._crit_edge
 
 75:                                               ; preds = %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit, %_ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread
-  store ptr %.02148, ptr %4, align 8, !tbaa !55
-  store ptr %.02647, ptr %7, align 8, !tbaa !55
+  store ptr %.02147, ptr %4, align 8, !tbaa !55
+  store ptr %.02646, ptr %7, align 8, !tbaa !55
   br label %76
 
 ._crit_edge:                                      ; preds = %70, %8
@@ -8513,12 +8513,12 @@ _ZN5boost6nowide3utf10utf_traitsIcLi1EE5widthEj.exit.thread: ; preds = %13
   %.021.lcssa = phi ptr [ %2, %8 ], [ %71, %70 ]
   store ptr %.021.lcssa, ptr %4, align 8, !tbaa !55
   store ptr %.026.lcssa, ptr %7, align 8, !tbaa !55
-  %.not42 = icmp ne ptr %.021.lcssa, %3
-  %spec.select3043 = zext i1 %.not42 to i32
+  %.not41 = icmp ne ptr %.021.lcssa, %3
+  %spec.select3042 = zext i1 %.not41 to i32
   br label %76
 
 76:                                               ; preds = %75, %._crit_edge
-  %77 = phi i32 [ %spec.select3043, %._crit_edge ], [ 1, %75 ]
+  %77 = phi i32 [ %spec.select3042, %._crit_edge ], [ 1, %75 ]
   ret i32 %77
 }
 
@@ -8539,7 +8539,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE5d
 
 .lr.ph:                                           ; preds = %8, %15
   %13 = phi ptr [ %18, %15 ], [ %2, %8 ]
-  %.01634 = phi ptr [ %16, %15 ], [ %5, %8 ]
+  %.01633 = phi ptr [ %16, %15 ], [ %5, %8 ]
   %14 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull %3)
   switch i32 %14, label %.fold.split [
     i32 -1, label %15
@@ -8551,8 +8551,8 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE5d
 
 15:                                               ; preds = %.fold.split, %.lr.ph
   %.015 = phi i32 [ 65533, %.lr.ph ], [ %14, %.fold.split ]
-  %16 = getelementptr inbounds nuw i8, ptr %.01634, i64 4
-  store i32 %.015, ptr %.01634, align 4, !tbaa !36
+  %16 = getelementptr inbounds nuw i8, ptr %.01633, i64 4
+  store i32 %.015, ptr %.01633, align 4, !tbaa !36
   %17 = icmp ult ptr %16, %6
   %18 = load ptr, ptr %9, align 8
   %19 = icmp ult ptr %18, %3
@@ -8561,7 +8561,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE5d
 
 21:                                               ; preds = %.lr.ph
   store ptr %13, ptr %4, align 8, !tbaa !55
-  store ptr %.01634, ptr %7, align 8, !tbaa !55
+  store ptr %.01633, ptr %7, align 8, !tbaa !55
   br label %23
 
 ._crit_edge:                                      ; preds = %15, %8
@@ -8569,12 +8569,12 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE5d
   %.016.lcssa = phi ptr [ %5, %8 ], [ %16, %15 ]
   store ptr %22, ptr %4, align 8, !tbaa !55
   store ptr %.016.lcssa, ptr %7, align 8, !tbaa !55
-  %.not29 = icmp ne ptr %22, %3
-  %spec.select30 = zext i1 %.not29 to i32
+  %.not28 = icmp ne ptr %22, %3
+  %spec.select29 = zext i1 %.not28 to i32
   br label %23
 
 23:                                               ; preds = %21, %._crit_edge
-  %24 = phi i32 [ %spec.select30, %._crit_edge ], [ 1, %21 ]
+  %24 = phi i32 [ %spec.select29, %._crit_edge ], [ 1, %21 ]
   ret i32 %24
 }
 
@@ -8600,24 +8600,24 @@ define linkonce_odr hidden noundef i32 @_ZNK5boost6nowide12utf8_codecvtIwLi4EE9d
 .lr.ph.preheader:                                 ; preds = %5
   %10 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %11 = icmp eq i32 %10, -2
-  br i1 %11, label %.loopexit, label %.lr.ph25
+  br i1 %11, label %.loopexit, label %.lr.ph24
 
-.lr.ph25:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %.081624 = phi i64 [ %12, %.lr.ph ], [ %4, %.lr.ph.preheader ]
-  %12 = add i64 %.081624, -1
+.lr.ph24:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %.081523 = phi i64 [ %12, %.lr.ph ], [ %4, %.lr.ph.preheader ]
+  %12 = add i64 %.081523, -1
   %13 = icmp ne i64 %12, 0
   %14 = load ptr, ptr %6, align 8
   %15 = icmp ult ptr %14, %3
   %16 = select i1 %13, i1 %15, i1 false
   br i1 %16, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.lr.ph25
+.lr.ph:                                           ; preds = %.lr.ph24
   %17 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %3)
   %18 = icmp eq i32 %17, -2
-  br i1 %18, label %.loopexit, label %.lr.ph25
+  br i1 %18, label %.loopexit, label %.lr.ph24
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph25, %.lr.ph.preheader, %5
-  %19 = phi ptr [ %2, %5 ], [ %2, %.lr.ph.preheader ], [ %14, %.lr.ph25 ], [ %14, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph24, %.lr.ph.preheader, %5
+  %19 = phi ptr [ %2, %5 ], [ %2, %.lr.ph.preheader ], [ %14, %.lr.ph24 ], [ %14, %.lr.ph ]
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %2 to i64
   %22 = sub i64 %20, %21

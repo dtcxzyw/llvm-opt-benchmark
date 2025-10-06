@@ -945,8 +945,8 @@ define noundef zeroext i1 @_ZN9grpc_core19XdsEndpointResource10DropConfig10Shoul
   %6 = load ptr, ptr %5, align 8, !tbaa !96
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !96
-  %.not1727.not = icmp eq ptr %6, %8
-  br i1 %.not1727.not, label %.loopexit, label %.lr.ph
+  %.not1828.not = icmp eq ptr %6, %8
+  br i1 %.not1828.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -954,7 +954,7 @@ define noundef zeroext i1 @_ZN9grpc_core19XdsEndpointResource10DropConfig10Shoul
   br label %11
 
 11:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.014.028 = phi ptr [ %6, %.lr.ph ], [ %25, %.critedge ]
+  %.sroa.014.029 = phi ptr [ %6, %.lr.ph ], [ %24, %.critedge ]
   call void @_ZN4absl12lts_202407225Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(8) %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -993,23 +993,23 @@ _ZN4absl12lts_202407229MutexLockD2Ev.exit2.i:     ; preds = %17
   resume { ptr, i32 } %18
 
 "_ZZN9grpc_core19XdsEndpointResource10DropConfig10ShouldDropEPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEv.exit": ; preds = %13
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.014.028, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.014.029, i64 32
   %23 = load i32, ptr %22, align 8, !tbaa !99
   %.not = icmp ult i32 %12, %23
-  br i1 %.not, label %24, label %.critedge
-
-24:                                               ; preds = %"_ZZN9grpc_core19XdsEndpointResource10DropConfig10ShouldDropEPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEv.exit"
-  store ptr %.sroa.014.028, ptr %1, align 8, !tbaa !47
-  br label %.loopexit
+  br i1 %.not, label %25, label %.critedge
 
 .critedge:                                        ; preds = %"_ZZN9grpc_core19XdsEndpointResource10DropConfig10ShouldDropEPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEv.exit"
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.014.028, i64 40
-  %.not17.not = icmp eq ptr %25, %8
-  br i1 %.not17.not, label %.loopexit, label %11
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.014.029, i64 40
+  %.not18.not = icmp eq ptr %24, %8
+  br i1 %.not18.not, label %.loopexit, label %11
 
-.loopexit:                                        ; preds = %.critedge, %2, %24
-  %.not1721 = phi i1 [ true, %24 ], [ false, %2 ], [ false, %.critedge ]
-  ret i1 %.not1721
+25:                                               ; preds = %"_ZZN9grpc_core19XdsEndpointResource10DropConfig10ShouldDropEPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEv.exit"
+  store ptr %.sroa.014.029, ptr %1, align 8, !tbaa !47
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %.critedge, %2, %25
+  %.not1822 = phi i1 [ true, %25 ], [ false, %2 ], [ false, %.critedge ]
+  ret i1 %.not1822
 }
 
 ; Function Attrs: mustprogress uwtable

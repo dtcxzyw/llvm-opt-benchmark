@@ -1035,7 +1035,7 @@ define noundef zeroext i1 @_ZNK3zmq18tcp_address_mask_t13match_addressEPK8sockad
 
 .sink.split:                                      ; preds = %23, %27
   %.str.6.sink = phi ptr [ @.str.6, %27 ], [ @.str.5, %23 ]
-  %.sink44.ph = phi i64 [ 4, %27 ], [ 8, %23 ]
+  %.sink43.ph = phi i64 [ 4, %27 ], [ 8, %23 ]
   %.026.ph = phi i32 [ 32, %27 ], [ 128, %23 ]
   %30 = load ptr, ptr @stderr, align 8, !tbaa !9
   %31 = tail call i32 @fflush(ptr noundef %30)
@@ -1043,10 +1043,10 @@ define noundef zeroext i1 @_ZNK3zmq18tcp_address_mask_t13match_addressEPK8sockad
   br label %32
 
 32:                                               ; preds = %.sink.split, %26, %22
-  %.sink44 = phi i64 [ 8, %22 ], [ 4, %26 ], [ %.sink44.ph, %.sink.split ]
+  %.sink43 = phi i64 [ 8, %22 ], [ 4, %26 ], [ %.sink43.ph, %.sink.split ]
   %.026 = phi i32 [ 128, %22 ], [ 32, %26 ], [ %.026.ph, %.sink.split ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink44
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink44
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink43
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink43
   %35 = load i32, ptr %4, align 4, !tbaa !32
   %spec.select38 = tail call i32 @llvm.smin.i32(i32 %35, i32 %.026)
   %36 = sdiv i32 %spec.select38, 8

@@ -1952,7 +1952,7 @@ GetBits.exit202:                                  ; preds = %55
 102:                                              ; preds = %105, %99
   %103 = phi i64 [ %.promoted.i203, %99 ], [ %106, %105 ]
   %.not.i208 = phi i1 [ false, %99 ], [ true, %105 ]
-  %storemerge17.i205 = phi i32 [ 0, %99 ], [ %117, %105 ]
+  %storemerge16.i205 = phi i32 [ 0, %99 ], [ %117, %105 ]
   %104 = lshr i64 %103, 3
   %.not15.not.i206 = icmp ult i64 %104, %76
   br i1 %.not15.not.i206, label %105, label %118
@@ -1968,7 +1968,7 @@ GetBits.exit202:                                  ; preds = %55
   %113 = and i32 %112, %109
   %114 = icmp ne i32 %113, 0
   %115 = zext i1 %114 to i32
-  %116 = shl i32 %storemerge17.i205, 1
+  %116 = shl i32 %storemerge16.i205, 1
   %117 = or disjoint i32 %116, %115
   br i1 %.not.i208, label %GetBits.exit209, label %102
 
@@ -2064,7 +2064,7 @@ GetBits.exit209:                                  ; preds = %105
 161:                                              ; preds = %164, %._crit_edge
   %162 = phi i64 [ %101, %._crit_edge ], [ %165, %164 ]
   %.in.i211 = phi i64 [ 7, %._crit_edge ], [ %166, %164 ]
-  %storemerge17.i212 = phi i32 [ 0, %._crit_edge ], [ %177, %164 ]
+  %storemerge16.i212 = phi i32 [ 0, %._crit_edge ], [ %177, %164 ]
   %163 = lshr i64 %162, 3
   %.not15.not.i213 = icmp ult i64 %163, %76
   br i1 %.not15.not.i213, label %164, label %179
@@ -2081,7 +2081,7 @@ GetBits.exit209:                                  ; preds = %105
   %173 = and i32 %172, %169
   %174 = icmp ne i32 %173, 0
   %175 = zext i1 %174 to i32
-  %176 = shl i32 %storemerge17.i212, 1
+  %176 = shl i32 %storemerge16.i212, 1
   %177 = or disjoint i32 %176, %175
   %.not.i215 = icmp eq i64 %166, 0
   br i1 %.not.i215, label %GetBits.exit216.preheader, label %161
@@ -2673,7 +2673,7 @@ GetBits.exit129:                                  ; preds = %78
 94:                                               ; preds = %98, %92
   %95 = phi i64 [ %80, %92 ], [ %96, %98 ]
   %.in.i.i = phi i64 [ 7, %92 ], [ %99, %98 ]
-  %storemerge17.i.i = phi i32 [ 0, %92 ], [ %110, %98 ]
+  %storemerge16.i.i = phi i32 [ 0, %92 ], [ %110, %98 ]
   %96 = add i64 %95, 1
   store i64 %96, ptr %3, align 8, !tbaa !20
   %97 = lshr i64 %95, 3
@@ -2691,7 +2691,7 @@ GetBits.exit129:                                  ; preds = %78
   %106 = and i32 %105, %102
   %107 = icmp ne i32 %106, 0
   %108 = zext i1 %107 to i32
-  %109 = shl i32 %storemerge17.i.i, 1
+  %109 = shl i32 %storemerge16.i.i, 1
   %110 = or disjoint i32 %109, %108
   store i32 %110, ptr %93, align 4, !tbaa !22
   %.not.i.i = icmp eq i64 %99, 0
@@ -2766,7 +2766,7 @@ GetBits.exit137:                                  ; preds = %.preheader
 139:                                              ; preds = %143, %137
   %140 = phi i64 [ %125, %137 ], [ %141, %143 ]
   %.in.i.i139 = phi i64 [ 6, %137 ], [ %144, %143 ]
-  %storemerge17.i.i140 = phi i32 [ 0, %137 ], [ %155, %143 ]
+  %storemerge16.i.i140 = phi i32 [ 0, %137 ], [ %155, %143 ]
   %141 = add i64 %140, 1
   store i64 %141, ptr %3, align 8, !tbaa !20
   %142 = lshr i64 %140, 3
@@ -2784,7 +2784,7 @@ GetBits.exit137:                                  ; preds = %.preheader
   %151 = and i32 %150, %147
   %152 = icmp ne i32 %151, 0
   %153 = zext i1 %152 to i32
-  %154 = shl i32 %storemerge17.i.i140, 1
+  %154 = shl i32 %storemerge16.i.i140, 1
   %155 = or disjoint i32 %154, %153
   store i32 %155, ptr %138, align 4, !tbaa !22
   %.not.i.i143 = icmp eq i64 %144, 0
@@ -2899,7 +2899,7 @@ GetBits.exit155:                                  ; preds = %190
 206:                                              ; preds = %210, %204
   %207 = phi i64 [ %192, %204 ], [ %208, %210 ]
   %.in.i157 = phi i64 [ 8, %204 ], [ %211, %210 ]
-  %storemerge17.i158 = phi i32 [ 0, %204 ], [ %222, %210 ]
+  %storemerge16.i158 = phi i32 [ 0, %204 ], [ %222, %210 ]
   %208 = add i64 %207, 1
   store i64 %208, ptr %3, align 8, !tbaa !20
   %209 = lshr i64 %207, 3
@@ -2917,7 +2917,7 @@ GetBits.exit155:                                  ; preds = %190
   %218 = and i32 %217, %214
   %219 = icmp ne i32 %218, 0
   %220 = zext i1 %219 to i32
-  %221 = shl i32 %storemerge17.i158, 1
+  %221 = shl i32 %storemerge16.i158, 1
   %222 = or disjoint i32 %221, %220
   store i32 %222, ptr %205, align 4, !tbaa !22
   %.not.i161 = icmp eq i64 %211, 0
@@ -2989,7 +2989,7 @@ GetBits.exit.preheader:                           ; preds = %4
 GetBits.exit:                                     ; preds = %GetBits.exit.preheader, %22
   %19 = phi i64 [ %20, %22 ], [ %5, %GetBits.exit.preheader ]
   %.in.i60 = phi i64 [ %23, %22 ], [ 6, %GetBits.exit.preheader ]
-  %storemerge17.i61 = phi i32 [ %34, %22 ], [ 0, %GetBits.exit.preheader ]
+  %storemerge16.i61 = phi i32 [ %34, %22 ], [ 0, %GetBits.exit.preheader ]
   %20 = add i64 %19, 1
   store i64 %20, ptr %3, align 8, !tbaa !20
   %21 = lshr i64 %19, 3
@@ -3007,7 +3007,7 @@ GetBits.exit:                                     ; preds = %GetBits.exit.prehea
   %30 = and i32 %29, %26
   %31 = icmp ne i32 %30, 0
   %32 = zext i1 %31 to i32
-  %33 = shl i32 %storemerge17.i61, 1
+  %33 = shl i32 %storemerge16.i61, 1
   %34 = or disjoint i32 %33, %32
   %.not.i64 = icmp eq i64 %23, 0
   br i1 %.not.i64, label %GetBits.exit65, label %GetBits.exit
@@ -3021,7 +3021,7 @@ GetBits.exit:                                     ; preds = %GetBits.exit.prehea
 GetBits.exit65:                                   ; preds = %22, %41
   %38 = phi i64 [ %39, %41 ], [ %20, %22 ]
   %.in.i67 = phi i64 [ %42, %41 ], [ 3, %22 ]
-  %storemerge17.i68 = phi i32 [ %53, %41 ], [ 0, %22 ]
+  %storemerge16.i68 = phi i32 [ %53, %41 ], [ 0, %22 ]
   %39 = add i64 %38, 1
   store i64 %39, ptr %3, align 8, !tbaa !20
   %40 = lshr i64 %38, 3
@@ -3039,7 +3039,7 @@ GetBits.exit65:                                   ; preds = %22, %41
   %49 = and i32 %48, %45
   %50 = icmp ne i32 %49, 0
   %51 = zext i1 %50 to i32
-  %52 = shl i32 %storemerge17.i68, 1
+  %52 = shl i32 %storemerge16.i68, 1
   %53 = or disjoint i32 %52, %51
   %.not.i71 = icmp eq i64 %42, 0
   br i1 %.not.i71, label %GetBits.exit72.preheader, label %GetBits.exit65
@@ -3185,7 +3185,7 @@ define internal fastcc range(i32 0, 2) i32 @GetSignedBits(ptr noundef readonly c
 6:                                                ; preds = %10, %5
   %7 = phi i64 [ %.promoted.i, %5 ], [ %8, %10 ]
   %.in.i = phi i64 [ %2, %5 ], [ %11, %10 ]
-  %storemerge17.i = phi i32 [ 0, %5 ], [ %22, %10 ]
+  %storemerge16.i = phi i32 [ 0, %5 ], [ %22, %10 ]
   %8 = add i64 %7, 1
   store i64 %8, ptr %4, align 8, !tbaa !20
   %9 = lshr i64 %7, 3
@@ -3203,7 +3203,7 @@ define internal fastcc range(i32 0, 2) i32 @GetSignedBits(ptr noundef readonly c
   %18 = and i32 %17, %14
   %19 = icmp ne i32 %18, 0
   %20 = zext i1 %19 to i32
-  %21 = shl i32 %storemerge17.i, 1
+  %21 = shl i32 %storemerge16.i, 1
   %22 = or disjoint i32 %21, %20
   store i32 %22, ptr %3, align 4, !tbaa !22
   %.not.i = icmp eq i64 %11, 0

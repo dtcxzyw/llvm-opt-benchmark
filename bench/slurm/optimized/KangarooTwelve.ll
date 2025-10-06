@@ -31,7 +31,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 452
   %8 = load i32, ptr %7, align 4
   %.not = icmp eq i32 %8, 1
-  br i1 %.not, label %9, label %.thread116
+  br i1 %.not, label %9, label %.thread113
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 440
@@ -48,7 +48,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %20 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %19, ptr noundef %1, i64 noundef %18) #4
   %.not94 = icmp eq i32 %20, 0
-  br i1 %.not94, label %21, label %.thread116
+  br i1 %.not94, label %21, label %.thread113
 
 21:                                               ; preds = %15
   %22 = trunc nuw i64 %18 to i32
@@ -82,7 +82,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
 
 .critedge:                                        ; preds = %29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread116
+  br label %.thread113
 
 35:                                               ; preds = %9
   %.not89 = icmp eq i32 %14, 0
@@ -94,7 +94,7 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   %39 = tail call i64 @llvm.umin.i64(i64 %2, i64 %38)
   %40 = tail call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %39) #4
   %.not90 = icmp eq i32 %40, 0
-  br i1 %.not90, label %41, label %.thread116
+  br i1 %.not90, label %41, label %.thread113
 
 41:                                               ; preds = %36
   %42 = trunc nuw i64 %39 to i32
@@ -126,43 +126,43 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   %56 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %55, ptr noundef nonnull %5, i64 noundef 32) #4
   %.not93 = icmp eq i32 %56, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not93, label %.thread, label %.thread116
+  br i1 %.not93, label %.thread, label %.thread113
 
 .critedge103:                                     ; preds = %52, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread116
+  br label %.thread113
 
 .thread:                                          ; preds = %21, %54, %41, %35
   %.181 = phi i64 [ %2, %35 ], [ %44, %41 ], [ %44, %54 ], [ %24, %21 ]
   %.170 = phi ptr [ %1, %35 ], [ %43, %41 ], [ %43, %54 ], [ %23, %21 ]
-  %.not96127 = icmp eq i64 %.181, 0
-  br i1 %.not96127, label %.thread116, label %.lr.ph
+  %.not96122 = icmp eq i64 %.181, 0
+  br i1 %.not96122, label %.thread113, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread.thread, %.thread
-  %.170143 = phi ptr [ %23, %.thread.thread ], [ %.170, %.thread ]
-  %.181142 = phi i64 [ %24, %.thread.thread ], [ %.181, %.thread ]
+  %.170138 = phi ptr [ %23, %.thread.thread ], [ %.170, %.thread ]
+  %.181137 = phi i64 [ %24, %.thread.thread ], [ %.181, %.thread ]
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 216
   br label %59
 
 59:                                               ; preds = %.lr.ph, %78
-  %.372129 = phi ptr [ %.170143, %.lr.ph ], [ %66, %78 ]
-  %.383128 = phi i64 [ %.181142, %.lr.ph ], [ %67, %78 ]
-  %60 = call i64 @llvm.umin.i64(i64 %.383128, i64 8192)
+  %.372124 = phi ptr [ %.170138, %.lr.ph ], [ %66, %78 ]
+  %.383123 = phi i64 [ %.181137, %.lr.ph ], [ %67, %78 ]
+  %60 = call i64 @llvm.umin.i64(i64 %.383123, i64 8192)
   %61 = trunc nuw nsw i64 %60 to i32
   %62 = call i32 @KeccakWidth1600_12rounds_SpongeInitialize(ptr noundef nonnull %0, i32 noundef 1344, i32 noundef 256) #4
   %.not97 = icmp eq i32 %62, 0
-  br i1 %.not97, label %63, label %.thread116
+  br i1 %.not97, label %63, label %.thread113
 
 63:                                               ; preds = %59
-  %64 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %.372129, i64 noundef %60) #4
+  %64 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %0, ptr noundef %.372124, i64 noundef %60) #4
   %.not98 = icmp eq i32 %64, 0
-  br i1 %.not98, label %65, label %.thread116
+  br i1 %.not98, label %65, label %.thread113
 
 65:                                               ; preds = %63
-  %66 = getelementptr inbounds nuw i8, ptr %.372129, i64 %60
-  %67 = sub i64 %.383128, %60
-  %68 = icmp ugt i64 %.383128, 8191
+  %66 = getelementptr inbounds nuw i8, ptr %.372124, i64 %60
+  %67 = sub i64 %.383123, %60
+  %68 = icmp ugt i64 %.383123, 8191
   br i1 %68, label %69, label %77
 
 69:                                               ; preds = %65
@@ -172,33 +172,33 @@ define dso_local range(i32 0, 2) i32 @KangarooTwelve_Update(ptr noundef %0, ptr 
   store i64 %71, ptr %10, align 8
   %72 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorbLastFewBits(ptr noundef nonnull %0, i8 noundef zeroext 11) #4
   %.not99 = icmp eq i32 %72, 0
-  br i1 %.not99, label %73, label %.critedge108
+  br i1 %.not99, label %73, label %.critedge107
 
 73:                                               ; preds = %69
   %74 = call i32 @KeccakWidth1600_12rounds_SpongeSqueeze(ptr noundef nonnull %0, ptr noundef nonnull %6, i64 noundef 32) #4
   %.not100 = icmp eq i32 %74, 0
-  br i1 %.not100, label %75, label %.critedge108
+  br i1 %.not100, label %75, label %.critedge107
 
 75:                                               ; preds = %73
   %76 = call i32 @KeccakWidth1600_12rounds_SpongeAbsorb(ptr noundef nonnull %58, ptr noundef nonnull %6, i64 noundef 32) #4
   %.not101 = icmp eq i32 %76, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not101, label %78, label %.thread116
+  br i1 %.not101, label %78, label %.thread113
 
 77:                                               ; preds = %65
   store i32 %61, ptr %57, align 8
   br label %78
 
-.critedge108:                                     ; preds = %73, %69
+.critedge107:                                     ; preds = %73, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread116
+  br label %.thread113
 
 78:                                               ; preds = %77, %75
   %.not96 = icmp eq i64 %67, 0
-  br i1 %.not96, label %.thread116, label %59
+  br i1 %.not96, label %.thread113, label %59
 
-.thread116:                                       ; preds = %78, %75, %59, %63, %.thread, %.critedge108, %.critedge103, %36, %54, %15, %.critedge, %3
-  %.0 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 1, %15 ], [ 1, %54 ], [ 1, %36 ], [ 1, %.critedge103 ], [ 1, %.critedge108 ], [ 0, %.thread ], [ 0, %78 ], [ 1, %75 ], [ 1, %59 ], [ 1, %63 ]
+.thread113:                                       ; preds = %78, %75, %59, %63, %.thread, %.critedge107, %.critedge103, %36, %54, %15, %.critedge, %3
+  %.0 = phi i32 [ 1, %3 ], [ 1, %.critedge ], [ 1, %15 ], [ 1, %54 ], [ 1, %36 ], [ 1, %.critedge103 ], [ 1, %.critedge107 ], [ 0, %.thread ], [ 0, %78 ], [ 1, %75 ], [ 1, %59 ], [ 1, %63 ]
   ret i32 %.0
 }
 

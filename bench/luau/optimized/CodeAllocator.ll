@@ -326,10 +326,9 @@ define dso_local noundef zeroext i1 @_ZN4Luau7CodeGen13CodeAllocator16allocateNe
   %23 = and i64 %21, %22
   %24 = tail call ptr @mmap(ptr noundef null, i64 noundef %23, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
   %magicptr.i = ptrtoint ptr %24 to i64
-  switch i64 %magicptr.i, label %25 [
-    i64 -1, label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
-    i64 0, label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %25, label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -495,8 +494,8 @@ _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_itera
   store ptr %97, ptr %73, align 8, !tbaa !30
   br label %_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit
 
-_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit:     ; preds = %18, %18, %_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm.exit, %_ZNSt6vectorIPhSaIS0_EE9push_backERKS0_.exit, %75, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %62, %2
-  %.05 = phi i1 [ false, %2 ], [ false, %_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm.exit ], [ true, %_ZNSt6vectorIPhSaIS0_EE9push_backERKS0_.exit ], [ true, %75 ], [ true, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ false, %62 ], [ false, %18 ], [ false, %18 ]
+_ZNSt6vectorIPvSaIS0_EE9push_backERKS0_.exit:     ; preds = %18, %_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm.exit, %_ZNSt6vectorIPhSaIS0_EE9push_backERKS0_.exit, %75, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %62, %2
+  %.05 = phi i1 [ false, %2 ], [ false, %_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm.exit ], [ true, %_ZNSt6vectorIPhSaIS0_EE9push_backERKS0_.exit ], [ true, %75 ], [ true, %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i ], [ false, %62 ], [ false, %18 ]
   ret i1 %.05
 }
 
@@ -512,10 +511,9 @@ define dso_local noundef ptr @_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm(
   %7 = and i64 %5, %6
   %8 = tail call ptr @mmap(ptr noundef null, i64 noundef %7, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
   %magicptr = ptrtoint ptr %8 to i64
-  switch i64 %magicptr, label %9 [
-    i64 -1, label %15
-    i64 0, label %15
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %9, label %15
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -529,8 +527,8 @@ define dso_local noundef ptr @_ZNK4Luau7CodeGen13CodeAllocator13allocatePagesEm(
   tail call void %11(ptr noundef %14, ptr noundef null, i64 noundef 0, ptr noundef nonnull %8, i64 noundef %7)
   br label %15
 
-15:                                               ; preds = %2, %2, %9, %12
-  %.0 = phi ptr [ null, %2 ], [ %8, %12 ], [ %8, %9 ], [ null, %2 ]
+15:                                               ; preds = %2, %9, %12
+  %.0 = phi ptr [ %8, %12 ], [ %8, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 

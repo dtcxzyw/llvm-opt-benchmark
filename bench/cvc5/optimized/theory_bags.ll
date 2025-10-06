@@ -5832,8 +5832,8 @@ define hidden void @_ZN4cvc58internal6theory4bags10TheoryBags11runStrategyENS1_6
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1968
   %4 = tail call ptr @_ZN4cvc58internal6theory4bags8Strategy9stepBeginENS1_6Theory6EffortE(ptr noundef nonnull align 8 dereferenceable(80) %3, i32 noundef %1)
   %5 = tail call ptr @_ZN4cvc58internal6theory4bags8Strategy7stepEndENS1_6Theory6EffortE(ptr noundef nonnull align 8 dereferenceable(80) %3, i32 noundef %1)
-  %.not47 = icmp eq ptr %4, %5
-  br i1 %.not47, label %.thread, label %.lr.ph
+  %.not46 = icmp eq ptr %4, %5
+  br i1 %.not46, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 280
@@ -5841,8 +5841,8 @@ define hidden void @_ZN4cvc58internal6theory4bags10TheoryBags11runStrategyENS1_6
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.sroa.040.048 = phi ptr [ %4, %.lr.ph ], [ %.sroa.040.048.be, %.backedge.backedge ]
-  %8 = load i32, ptr %.sroa.040.048, align 8, !tbaa !351
+  %.sroa.040.047 = phi ptr [ %4, %.lr.ph ], [ %.sroa.040.047.be, %.backedge.backedge ]
+  %8 = load i32, ptr %.sroa.040.047, align 8, !tbaa !351
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %15
 
@@ -5852,13 +5852,13 @@ define hidden void @_ZN4cvc58internal6theory4bags10TheoryBags11runStrategyENS1_6
 
 12:                                               ; preds = %10
   %13 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory24InferenceManagerBuffered10hasPendingEv(ptr noundef nonnull align 8 dereferenceable(337) %7)
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.040.048, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.040.047, i64 16
   %.not = icmp eq ptr %14, %5
   %or.cond = select i1 %13, i1 true, i1 %.not
   br i1 %or.cond, label %.thread, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %12, %17
-  %.sroa.040.048.be = phi ptr [ %14, %12 ], [ %.old, %17 ]
+  %.sroa.040.047.be = phi ptr [ %14, %12 ], [ %.old, %17 ]
   br label %.backedge
 
 15:                                               ; preds = %.backedge
@@ -5867,10 +5867,10 @@ define hidden void @_ZN4cvc58internal6theory4bags10TheoryBags11runStrategyENS1_6
 
 17:                                               ; preds = %15
   %18 = tail call noundef zeroext i1 @_ZNK4cvc58internal6theory11TheoryState12isInConflictEv(ptr noundef nonnull align 8 dereferenceable(160) %6)
-  %.old = getelementptr inbounds nuw i8, ptr %.sroa.040.048, i64 16
+  %.old = getelementptr inbounds nuw i8, ptr %.sroa.040.047, i64 16
   %.not.old = icmp eq ptr %.old, %5
-  %or.cond53 = select i1 %18, i1 true, i1 %.not.old
-  br i1 %or.cond53, label %.thread, label %.backedge.backedge
+  %or.cond52 = select i1 %18, i1 true, i1 %.not.old
+  br i1 %or.cond52, label %.thread, label %.backedge.backedge
 
 .thread:                                          ; preds = %12, %10, %17, %15, %2
   ret void

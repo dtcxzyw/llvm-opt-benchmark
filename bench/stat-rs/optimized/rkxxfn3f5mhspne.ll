@@ -121,27 +121,27 @@ define hidden noundef zeroext i1 @_ZN4core3ops5range11RangeBounds8contains17hb4e
   %3 = load double, ptr %0, align 8, !alias.scope !5, !noalias !8, !noundef !4
   %4 = load double, ptr %1, align 8, !alias.scope !8, !noalias !5, !noundef !4
   %5 = fcmp ugt double %3, %4
-  br i1 %5, label %10, label %6
+  br i1 %5, label %11, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8, !range !10, !alias.scope !11, !noundef !4
   %.sroa.3.0.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %switch.not.not = icmp eq i8 %8, 0
-  %9 = load double, ptr %.sroa.3.0.i, align 8, !noalias !4, !noundef !4
-  br i1 %switch.not.not, label %11, label %13
+  %9 = icmp eq i8 %8, 0
+  %10 = load double, ptr %.sroa.3.0.i, align 8, !noalias !4, !noundef !4
+  br i1 %9, label %12, label %14
 
-10:                                               ; preds = %11, %13, %2
-  %.sroa.04.0 = phi i1 [ false, %2 ], [ %12, %11 ], [ %14, %13 ]
+11:                                               ; preds = %12, %14, %2
+  %.sroa.04.0 = phi i1 [ false, %2 ], [ %13, %12 ], [ %15, %14 ]
   ret i1 %.sroa.04.0
 
-11:                                               ; preds = %6
-  %12 = fcmp ole double %4, %9
-  br label %10
+12:                                               ; preds = %6
+  %13 = fcmp ole double %4, %10
+  br label %11
 
-13:                                               ; preds = %6
-  %14 = fcmp olt double %4, %9
-  br label %10
+14:                                               ; preds = %6
+  %15 = fcmp olt double %4, %10
+  br label %11
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
@@ -176,13 +176,13 @@ define hidden noundef double @_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1
   br label %7
 
 7:                                                ; preds = %.lr.ph, %7
-  %.sroa.0.015 = phi double [ %2, %.lr.ph ], [ %12, %7 ]
-  %.sroa.0.0814 = phi i64 [ %0, %.lr.ph ], [ %8, %7 ]
-  %8 = add i64 %.sroa.0.0814, 1
-  %9 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, i64 noundef %.sroa.0.0814), !noalias !24
+  %.sroa.0.013 = phi double [ %2, %.lr.ph ], [ %12, %7 ]
+  %.sroa.0.0812 = phi i64 [ %0, %.lr.ph ], [ %8, %7 ]
+  %8 = add i64 %.sroa.0.0812, 1
+  %9 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %6, i64 noundef %.sroa.0.0812), !noalias !24
   %10 = tail call noundef double @llvm.log.f64(double %9)
   %11 = fmul double %9, %10
-  %12 = fsub double %.sroa.0.015, %11
+  %12 = fsub double %.sroa.0.013, %11
   %exitcond.not = icmp eq i64 %8, %1
   br i1 %exitcond.not, label %._crit_edge, label %7
 
@@ -1265,14 +1265,14 @@ define { i64, double } @"_ZN112_$LT$statrs..distribution..binomial..Binomial$u20
   br i1 %.not, label %_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13", %.lr.ph.i
-  %.sroa.0.015.i = phi double [ %24, %.lr.ph.i ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
-  %.sroa.0.0814.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
-  %20 = add nuw i64 %.sroa.0.0814.i, 1
-  %21 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %.sroa.0.0814.i), !noalias !73
+  %.sroa.0.013.i = phi double [ %24, %.lr.ph.i ], [ 0.000000e+00, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
+  %.sroa.0.0812.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13" ]
+  %20 = add nuw i64 %.sroa.0.0812.i, 1
+  %21 = tail call noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$as$u20$statrs..distribution..Discrete$LT$u64$C$f64$GT$$GT$3pmf17h17be1c0ad76ac1c0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %0, i64 noundef %.sroa.0.0812.i), !noalias !73
   %22 = tail call noundef double @llvm.log.f64(double %21)
   %23 = fmul double %21, %22
-  %24 = fsub double %.sroa.0.015.i, %23
-  %exitcond.not.i = icmp eq i64 %.sroa.0.0814.i, %19
+  %24 = fsub double %.sroa.0.013.i, %23
+  %exitcond.not.i = icmp eq i64 %.sroa.0.0812.i, %19
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582.exit, label %.lr.ph.i
 
 _ZN4core4iter6traits8iterator8Iterator4fold17h2ea1f6f0ec3f9327E.llvm.13986783010576937582.exit: ; preds = %.lr.ph.i, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit", %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7.thread13", %1, %15, %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit7"
@@ -2858,13 +2858,13 @@ define noundef double @_ZN6statrs8function8harmonic12gen_harmonic17hf5a5ac6ebead
   br label %6
 
 6:                                                ; preds = %6, %4
-  %.sroa.0.015.i = phi double [ 0.000000e+00, %4 ], [ %11, %6 ]
-  %.sroa.0.0814.i = phi i64 [ 0, %4 ], [ %7, %6 ]
-  %7 = add nuw i64 %.sroa.0.0814.i, 1
-  %8 = uitofp i64 %.sroa.0.0814.i to double
+  %.sroa.0.013.i = phi double [ 0.000000e+00, %4 ], [ %11, %6 ]
+  %.sroa.0.0812.i = phi i64 [ 0, %4 ], [ %7, %6 ]
+  %7 = add nuw i64 %.sroa.0.0812.i, 1
+  %8 = uitofp i64 %.sroa.0.0812.i to double
   %9 = fadd double %8, 1.000000e+00
   %10 = tail call double @llvm.pow.f64(double %9, double %5)
-  %11 = fadd double %.sroa.0.015.i, %10
+  %11 = fadd double %.sroa.0.013.i, %10
   %exitcond.not.i = icmp eq i64 %7, %0
   br i1 %exitcond.not.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17hc47baaa93031c30eE.exit, label %6
 

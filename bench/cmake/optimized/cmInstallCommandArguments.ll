@@ -1774,22 +1774,22 @@ define dso_local noundef zeroext i1 @_ZN25cmInstallCommandArguments16CheckPermis
   br i1 %13, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %98
-  %.0114.i.i.i.i = phi i64 [ %102, %98 ], [ %12, %1 ]
-  %.sroa.067.0113.i.i.i.i = phi ptr [ %101, %98 ], [ %6, %1 ]
+  %.0108.i.i.i.i = phi i64 [ %102, %98 ], [ %12, %1 ]
+  %.sroa.061.0107.i.i.i.i = phi ptr [ %101, %98 ], [ %6, %1 ]
   %14 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
-  %.not13.not.i.i.i.i.i.i.i = icmp eq ptr %14, null
-  br i1 %.not13.not.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i
+  %.not14.not.i.i.i.i.i.i.i = icmp eq ptr %14, null
+  br i1 %.not14.not.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i
 
 15:                                               ; preds = %.lr.ph.i.i.i.i.i.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i.i.i.i.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i.i.i.i.i, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !68
   %.not.not.i.i.i.i.i.i.i = icmp eq ptr %17, null
   br i1 %.not.not.i.i.i.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i.i.i.i.i, !llvm.loop !69
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i.i, %15
   %18 = phi ptr [ %17, %15 ], [ %14, %.lr.ph.i.i.i.i ]
-  %.0814.i.i.i.i.i.i.i = phi ptr [ %16, %15 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %.lr.ph.i.i.i.i ]
-  %19 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.067.0113.i.i.i.i, ptr noundef nonnull %18) #27
+  %.0815.i.i.i.i.i.i.i = phi ptr [ %16, %15 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %.lr.ph.i.i.i.i ]
+  %19 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.061.0107.i.i.i.i, ptr noundef nonnull %18) #27
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %15
 
@@ -1804,7 +1804,7 @@ define dso_local noundef zeroext i1 @_ZN25cmInstallCommandArguments16CheckPermis
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i.i.i.i.i: ; preds = %21
   %25 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.25, i64 noundef 1)
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.067.0113.i.i.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.061.0107.i.i.i.i, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !10
   %28 = load i64, ptr %3, align 8, !tbaa !10
   %29 = sub i64 4611686018427387903, %28
@@ -1816,22 +1816,22 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i.i.i.i.i: 
   unreachable
 
 32:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i.i.i.i.i
-  %33 = load ptr, ptr %.sroa.067.0113.i.i.i.i, align 8, !tbaa !42
+  %33 = load ptr, ptr %.sroa.061.0107.i.i.i.i, align 8, !tbaa !42
   %34 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %33, i64 noundef %27)
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.067.0113.i.i.i.i, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.061.0107.i.i.i.i, i64 32
   %36 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
-  %.not13.not.i.i.i22.i.i.i.i = icmp eq ptr %36, null
-  br i1 %.not13.not.i.i.i22.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i23.i.i.i.i
+  %.not14.not.i.i.i22.i.i.i.i = icmp eq ptr %36, null
+  br i1 %.not14.not.i.i.i22.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i23.i.i.i.i
 
 37:                                               ; preds = %.lr.ph.i.i.i23.i.i.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i24.i.i.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i24.i.i.i.i, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !68
   %.not.not.i.i.i25.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not.not.i.i.i25.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i23.i.i.i.i, !llvm.loop !69
 
 .lr.ph.i.i.i23.i.i.i.i:                           ; preds = %32, %37
   %40 = phi ptr [ %39, %37 ], [ %36, %32 ]
-  %.0814.i.i.i24.i.i.i.i = phi ptr [ %38, %37 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %32 ]
+  %.0815.i.i.i24.i.i.i.i = phi ptr [ %38, %37 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %32 ]
   %41 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %35, ptr noundef nonnull %40) #27
   %42 = icmp eq i32 %41, 0
   br i1 %42, label %43, label %37
@@ -1847,7 +1847,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i.i.i.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i26.i.i.i.i: ; preds = %43
   %47 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.25, i64 noundef 1)
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.067.0113.i.i.i.i, i64 40
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.061.0107.i.i.i.i, i64 40
   %49 = load i64, ptr %48, align 8, !tbaa !10
   %50 = load i64, ptr %3, align 8, !tbaa !10
   %51 = sub i64 4611686018427387903, %50
@@ -1861,106 +1861,106 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i26.i.i.i.i
 54:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i26.i.i.i.i
   %55 = load ptr, ptr %35, align 8, !tbaa !42
   %56 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %55, i64 noundef %49)
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.067.0113.i.i.i.i, i64 64
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.061.0107.i.i.i.i, i64 64
   %58 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
-  %.not13.not.i.i.i29.i.i.i.i = icmp eq ptr %58, null
-  br i1 %.not13.not.i.i.i29.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i30.i.i.i.i
+  %.not14.not.i.i.i28.i.i.i.i = icmp eq ptr %58, null
+  br i1 %.not14.not.i.i.i28.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i29.i.i.i.i
 
-59:                                               ; preds = %.lr.ph.i.i.i30.i.i.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i31.i.i.i.i, i64 8
+59:                                               ; preds = %.lr.ph.i.i.i29.i.i.i.i
+  %60 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i30.i.i.i.i, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !68
-  %.not.not.i.i.i32.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.not.i.i.i32.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i30.i.i.i.i, !llvm.loop !69
+  %.not.not.i.i.i31.i.i.i.i = icmp eq ptr %61, null
+  br i1 %.not.not.i.i.i31.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i29.i.i.i.i, !llvm.loop !69
 
-.lr.ph.i.i.i30.i.i.i.i:                           ; preds = %54, %59
+.lr.ph.i.i.i29.i.i.i.i:                           ; preds = %54, %59
   %62 = phi ptr [ %61, %59 ], [ %58, %54 ]
-  %.0814.i.i.i31.i.i.i.i = phi ptr [ %60, %59 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %54 ]
+  %.0815.i.i.i30.i.i.i.i = phi ptr [ %60, %59 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %54 ]
   %63 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull %62) #27
   %64 = icmp eq i32 %63, 0
   br i1 %64, label %65, label %59
 
-65:                                               ; preds = %.lr.ph.i.i.i30.i.i.i.i
+65:                                               ; preds = %.lr.ph.i.i.i29.i.i.i.i
   %66 = load i64, ptr %3, align 8, !tbaa !10
   %67 = icmp eq i64 %66, 4611686018427387903
-  br i1 %67, label %68, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i33.i.i.i.i
+  br i1 %67, label %68, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i32.i.i.i.i
 
 68:                                               ; preds = %65
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i33.i.i.i.i: ; preds = %65
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i32.i.i.i.i: ; preds = %65
   %69 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.25, i64 noundef 1)
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.067.0113.i.i.i.i, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.061.0107.i.i.i.i, i64 72
   %71 = load i64, ptr %70, align 8, !tbaa !10
   %72 = load i64, ptr %3, align 8, !tbaa !10
   %73 = sub i64 4611686018427387903, %72
   %74 = icmp ult i64 %73, %71
   br i1 %74, label %75, label %76
 
-75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i33.i.i.i.i
+75:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i32.i.i.i.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-76:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i33.i.i.i.i
+76:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i32.i.i.i.i
   %77 = load ptr, ptr %57, align 8, !tbaa !42
   %78 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %77, i64 noundef %71)
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.067.0113.i.i.i.i, i64 96
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.061.0107.i.i.i.i, i64 96
   %80 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
-  %.not13.not.i.i.i36.i.i.i.i = icmp eq ptr %80, null
-  br i1 %.not13.not.i.i.i36.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i37.i.i.i.i
+  %.not14.not.i.i.i34.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not14.not.i.i.i34.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i35.i.i.i.i
 
-81:                                               ; preds = %.lr.ph.i.i.i37.i.i.i.i
-  %82 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i38.i.i.i.i, i64 8
+81:                                               ; preds = %.lr.ph.i.i.i35.i.i.i.i
+  %82 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i36.i.i.i.i, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !68
-  %.not.not.i.i.i39.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.not.i.i.i39.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i37.i.i.i.i, !llvm.loop !69
+  %.not.not.i.i.i37.i.i.i.i = icmp eq ptr %83, null
+  br i1 %.not.not.i.i.i37.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i35.i.i.i.i, !llvm.loop !69
 
-.lr.ph.i.i.i37.i.i.i.i:                           ; preds = %76, %81
+.lr.ph.i.i.i35.i.i.i.i:                           ; preds = %76, %81
   %84 = phi ptr [ %83, %81 ], [ %80, %76 ]
-  %.0814.i.i.i38.i.i.i.i = phi ptr [ %82, %81 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %76 ]
+  %.0815.i.i.i36.i.i.i.i = phi ptr [ %82, %81 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %76 ]
   %85 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %79, ptr noundef nonnull %84) #27
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %87, label %81
 
-87:                                               ; preds = %.lr.ph.i.i.i37.i.i.i.i
+87:                                               ; preds = %.lr.ph.i.i.i35.i.i.i.i
   %88 = load i64, ptr %3, align 8, !tbaa !10
   %89 = icmp eq i64 %88, 4611686018427387903
-  br i1 %89, label %90, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i40.i.i.i.i
+  br i1 %89, label %90, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i38.i.i.i.i
 
 90:                                               ; preds = %87
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i40.i.i.i.i: ; preds = %87
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i38.i.i.i.i: ; preds = %87
   %91 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.25, i64 noundef 1)
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.067.0113.i.i.i.i, i64 104
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.061.0107.i.i.i.i, i64 104
   %93 = load i64, ptr %92, align 8, !tbaa !10
   %94 = load i64, ptr %3, align 8, !tbaa !10
   %95 = sub i64 4611686018427387903, %94
   %96 = icmp ult i64 %95, %93
   br i1 %96, label %97, label %98
 
-97:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i40.i.i.i.i
+97:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i38.i.i.i.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-98:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i40.i.i.i.i
+98:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i38.i.i.i.i
   %99 = load ptr, ptr %79, align 8, !tbaa !42
   %100 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %99, i64 noundef %93)
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.067.0113.i.i.i.i, i64 128
-  %102 = add nsw i64 %.0114.i.i.i.i, -1
-  %103 = icmp sgt i64 %.0114.i.i.i.i, 1
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.061.0107.i.i.i.i, i64 128
+  %102 = add nsw i64 %.0108.i.i.i.i, -1
+  %103 = icmp sgt i64 %.0108.i.i.i.i, 1
   br i1 %103, label %.lr.ph.i.i.i.i, label %._crit_edge.loopexit.i.i.i.i, !llvm.loop !70
 
 ._crit_edge.loopexit.i.i.i.i:                     ; preds = %98
   %.pre.i.i.i.i = ptrtoint ptr %101 to i64
-  %.pre156.i.i.i.i = sub i64 %9, %.pre.i.i.i.i
+  %.pre150.i.i.i.i = sub i64 %9, %.pre.i.i.i.i
   br label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %1
-  %.pre-phi157.i.i.i.i = phi i64 [ %.pre156.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %11, %1 ]
-  %.sroa.067.0.lcssa.i.i.i.i = phi ptr [ %101, %._crit_edge.loopexit.i.i.i.i ], [ %6, %1 ]
-  %104 = ashr exact i64 %.pre-phi157.i.i.i.i, 5
+  %.pre-phi151.i.i.i.i = phi i64 [ %.pre150.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %11, %1 ]
+  %.sroa.061.0.lcssa.i.i.i.i = phi ptr [ %101, %._crit_edge.loopexit.i.i.i.i ], [ %6, %1 ]
+  %104 = ashr exact i64 %.pre-phi151.i.i.i.i, 5
   switch i64 %104, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit" [
     i64 3, label %105
     i64 2, label %128
@@ -1969,145 +1969,145 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i40.i.i.i.i
 
 105:                                              ; preds = %._crit_edge.i.i.i.i
   %106 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
-  %.not13.not.i.i.i43.i.i.i.i = icmp eq ptr %106, null
-  br i1 %.not13.not.i.i.i43.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i44.i.i.i.i
+  %.not14.not.i.i.i40.i.i.i.i = icmp eq ptr %106, null
+  br i1 %.not14.not.i.i.i40.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i41.i.i.i.i
 
-107:                                              ; preds = %.lr.ph.i.i.i44.i.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i45.i.i.i.i, i64 8
+107:                                              ; preds = %.lr.ph.i.i.i41.i.i.i.i
+  %108 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i42.i.i.i.i, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !68
-  %.not.not.i.i.i46.i.i.i.i = icmp eq ptr %109, null
-  br i1 %.not.not.i.i.i46.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i44.i.i.i.i, !llvm.loop !69
+  %.not.not.i.i.i43.i.i.i.i = icmp eq ptr %109, null
+  br i1 %.not.not.i.i.i43.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i41.i.i.i.i, !llvm.loop !69
 
-.lr.ph.i.i.i44.i.i.i.i:                           ; preds = %105, %107
+.lr.ph.i.i.i41.i.i.i.i:                           ; preds = %105, %107
   %110 = phi ptr [ %109, %107 ], [ %106, %105 ]
-  %.0814.i.i.i45.i.i.i.i = phi ptr [ %108, %107 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %105 ]
-  %111 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.067.0.lcssa.i.i.i.i, ptr noundef nonnull %110) #27
+  %.0815.i.i.i42.i.i.i.i = phi ptr [ %108, %107 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %105 ]
+  %111 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.061.0.lcssa.i.i.i.i, ptr noundef nonnull %110) #27
   %112 = icmp eq i32 %111, 0
   br i1 %112, label %113, label %107
 
-113:                                              ; preds = %.lr.ph.i.i.i44.i.i.i.i
+113:                                              ; preds = %.lr.ph.i.i.i41.i.i.i.i
   %114 = load i64, ptr %3, align 8, !tbaa !10
   %115 = icmp eq i64 %114, 4611686018427387903
-  br i1 %115, label %116, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i47.i.i.i.i
+  br i1 %115, label %116, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i44.i.i.i.i
 
 116:                                              ; preds = %113
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i47.i.i.i.i: ; preds = %113
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i44.i.i.i.i: ; preds = %113
   %117 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.25, i64 noundef 1)
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.lcssa.i.i.i.i, i64 8
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.061.0.lcssa.i.i.i.i, i64 8
   %119 = load i64, ptr %118, align 8, !tbaa !10
   %120 = load i64, ptr %3, align 8, !tbaa !10
   %121 = sub i64 4611686018427387903, %120
   %122 = icmp ult i64 %121, %119
   br i1 %122, label %123, label %124
 
-123:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i47.i.i.i.i
+123:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i44.i.i.i.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-124:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i47.i.i.i.i
-  %125 = load ptr, ptr %.sroa.067.0.lcssa.i.i.i.i, align 8, !tbaa !42
+124:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i44.i.i.i.i
+  %125 = load ptr, ptr %.sroa.061.0.lcssa.i.i.i.i, align 8, !tbaa !42
   %126 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %125, i64 noundef %119)
-  %127 = getelementptr inbounds nuw i8, ptr %.sroa.067.0.lcssa.i.i.i.i, i64 32
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.061.0.lcssa.i.i.i.i, i64 32
   br label %128
 
 128:                                              ; preds = %124, %._crit_edge.i.i.i.i
-  %.sroa.067.1.i.i.i.i = phi ptr [ %127, %124 ], [ %.sroa.067.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.sroa.061.1.i.i.i.i = phi ptr [ %127, %124 ], [ %.sroa.061.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %129 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
-  %.not13.not.i.i.i50.i.i.i.i = icmp eq ptr %129, null
-  br i1 %.not13.not.i.i.i50.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i51.i.i.i.i
+  %.not14.not.i.i.i46.i.i.i.i = icmp eq ptr %129, null
+  br i1 %.not14.not.i.i.i46.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i47.i.i.i.i
 
-130:                                              ; preds = %.lr.ph.i.i.i51.i.i.i.i
-  %131 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i52.i.i.i.i, i64 8
+130:                                              ; preds = %.lr.ph.i.i.i47.i.i.i.i
+  %131 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i48.i.i.i.i, i64 8
   %132 = load ptr, ptr %131, align 8, !tbaa !68
-  %.not.not.i.i.i53.i.i.i.i = icmp eq ptr %132, null
-  br i1 %.not.not.i.i.i53.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i51.i.i.i.i, !llvm.loop !69
+  %.not.not.i.i.i49.i.i.i.i = icmp eq ptr %132, null
+  br i1 %.not.not.i.i.i49.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i47.i.i.i.i, !llvm.loop !69
 
-.lr.ph.i.i.i51.i.i.i.i:                           ; preds = %128, %130
+.lr.ph.i.i.i47.i.i.i.i:                           ; preds = %128, %130
   %133 = phi ptr [ %132, %130 ], [ %129, %128 ]
-  %.0814.i.i.i52.i.i.i.i = phi ptr [ %131, %130 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %128 ]
-  %134 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.067.1.i.i.i.i, ptr noundef nonnull %133) #27
+  %.0815.i.i.i48.i.i.i.i = phi ptr [ %131, %130 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %128 ]
+  %134 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.061.1.i.i.i.i, ptr noundef nonnull %133) #27
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %136, label %130
 
-136:                                              ; preds = %.lr.ph.i.i.i51.i.i.i.i
+136:                                              ; preds = %.lr.ph.i.i.i47.i.i.i.i
   %137 = load i64, ptr %3, align 8, !tbaa !10
   %138 = icmp eq i64 %137, 4611686018427387903
-  br i1 %138, label %139, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i54.i.i.i.i
+  br i1 %138, label %139, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i50.i.i.i.i
 
 139:                                              ; preds = %136
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i54.i.i.i.i: ; preds = %136
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i50.i.i.i.i: ; preds = %136
   %140 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.25, i64 noundef 1)
-  %141 = getelementptr inbounds nuw i8, ptr %.sroa.067.1.i.i.i.i, i64 8
+  %141 = getelementptr inbounds nuw i8, ptr %.sroa.061.1.i.i.i.i, i64 8
   %142 = load i64, ptr %141, align 8, !tbaa !10
   %143 = load i64, ptr %3, align 8, !tbaa !10
   %144 = sub i64 4611686018427387903, %143
   %145 = icmp ult i64 %144, %142
   br i1 %145, label %146, label %147
 
-146:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i54.i.i.i.i
+146:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i50.i.i.i.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-147:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i54.i.i.i.i
-  %148 = load ptr, ptr %.sroa.067.1.i.i.i.i, align 8, !tbaa !42
+147:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i50.i.i.i.i
+  %148 = load ptr, ptr %.sroa.061.1.i.i.i.i, align 8, !tbaa !42
   %149 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %148, i64 noundef %142)
-  %150 = getelementptr inbounds nuw i8, ptr %.sroa.067.1.i.i.i.i, i64 32
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.061.1.i.i.i.i, i64 32
   br label %151
 
 151:                                              ; preds = %147, %._crit_edge.i.i.i.i
-  %.sroa.067.2.i.i.i.i = phi ptr [ %150, %147 ], [ %.sroa.067.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
+  %.sroa.061.2.i.i.i.i = phi ptr [ %150, %147 ], [ %.sroa.061.0.lcssa.i.i.i.i, %._crit_edge.i.i.i.i ]
   %152 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
-  %.not13.not.i.i.i57.i.i.i.i = icmp eq ptr %152, null
-  br i1 %.not13.not.i.i.i57.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i58.i.i.i.i
+  %.not14.not.i.i.i52.i.i.i.i = icmp eq ptr %152, null
+  br i1 %.not14.not.i.i.i52.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i53.i.i.i.i
 
-153:                                              ; preds = %.lr.ph.i.i.i58.i.i.i.i
-  %154 = getelementptr inbounds nuw i8, ptr %.0814.i.i.i59.i.i.i.i, i64 8
+153:                                              ; preds = %.lr.ph.i.i.i53.i.i.i.i
+  %154 = getelementptr inbounds nuw i8, ptr %.0815.i.i.i54.i.i.i.i, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !68
-  %.not.not.i.i.i60.i.i.i.i = icmp eq ptr %155, null
-  br i1 %.not.not.i.i.i60.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i58.i.i.i.i, !llvm.loop !69
+  %.not.not.i.i.i55.i.i.i.i = icmp eq ptr %155, null
+  br i1 %.not.not.i.i.i55.i.i.i.i, label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit", label %.lr.ph.i.i.i53.i.i.i.i, !llvm.loop !69
 
-.lr.ph.i.i.i58.i.i.i.i:                           ; preds = %151, %153
+.lr.ph.i.i.i53.i.i.i.i:                           ; preds = %151, %153
   %156 = phi ptr [ %155, %153 ], [ %152, %151 ]
-  %.0814.i.i.i59.i.i.i.i = phi ptr [ %154, %153 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %151 ]
-  %157 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.067.2.i.i.i.i, ptr noundef nonnull %156) #27
+  %.0815.i.i.i54.i.i.i.i = phi ptr [ %154, %153 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %151 ]
+  %157 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.061.2.i.i.i.i, ptr noundef nonnull %156) #27
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %153
 
-159:                                              ; preds = %.lr.ph.i.i.i58.i.i.i.i
+159:                                              ; preds = %.lr.ph.i.i.i53.i.i.i.i
   %160 = load i64, ptr %3, align 8, !tbaa !10
   %161 = icmp eq i64 %160, 4611686018427387903
-  br i1 %161, label %162, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i61.i.i.i.i
+  br i1 %161, label %162, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i56.i.i.i.i
 
 162:                                              ; preds = %159
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i61.i.i.i.i: ; preds = %159
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i56.i.i.i.i: ; preds = %159
   %163 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull @.str.25, i64 noundef 1)
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.067.2.i.i.i.i, i64 8
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.061.2.i.i.i.i, i64 8
   %165 = load i64, ptr %164, align 8, !tbaa !10
   %166 = load i64, ptr %3, align 8, !tbaa !10
   %167 = sub i64 4611686018427387903, %166
   %168 = icmp ult i64 %167, %165
   br i1 %168, label %169, label %170
 
-169:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i61.i.i.i.i
+169:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i56.i.i.i.i
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-170:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i61.i.i.i.i
-  %171 = load ptr, ptr %.sroa.067.2.i.i.i.i, align 8, !tbaa !42
+170:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i.i.i56.i.i.i.i
+  %171 = load ptr, ptr %.sroa.061.2.i.i.i.i, align 8, !tbaa !42
   %172 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %171, i64 noundef %165)
   br label %"_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit"
 
 "_ZSt6all_ofIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEZN25cmInstallCommandArguments16CheckPermissionsEvE3$_0EbT_SF_T0_.exit": ; preds = %.lr.ph.i.i.i.i, %32, %54, %76, %15, %37, %59, %81, %107, %130, %153, %._crit_edge.i.i.i.i, %105, %128, %151, %170
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %8, %170 ], [ %8, %._crit_edge.i.i.i.i ], [ %.sroa.067.0.lcssa.i.i.i.i, %105 ], [ %.sroa.067.1.i.i.i.i, %128 ], [ %.sroa.067.2.i.i.i.i, %151 ], [ %.sroa.067.2.i.i.i.i, %153 ], [ %.sroa.067.1.i.i.i.i, %130 ], [ %.sroa.067.0.lcssa.i.i.i.i, %107 ], [ %79, %81 ], [ %57, %59 ], [ %35, %37 ], [ %.sroa.067.0113.i.i.i.i, %15 ], [ %79, %76 ], [ %57, %54 ], [ %35, %32 ], [ %.sroa.067.0113.i.i.i.i, %.lr.ph.i.i.i.i ]
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i = phi ptr [ %8, %170 ], [ %8, %._crit_edge.i.i.i.i ], [ %.sroa.061.0.lcssa.i.i.i.i, %105 ], [ %.sroa.061.1.i.i.i.i, %128 ], [ %.sroa.061.2.i.i.i.i, %151 ], [ %.sroa.061.2.i.i.i.i, %153 ], [ %.sroa.061.1.i.i.i.i, %130 ], [ %.sroa.061.0.lcssa.i.i.i.i, %107 ], [ %79, %81 ], [ %57, %59 ], [ %35, %37 ], [ %.sroa.061.0107.i.i.i.i, %15 ], [ %79, %76 ], [ %57, %54 ], [ %35, %32 ], [ %.sroa.061.0107.i.i.i.i, %.lr.ph.i.i.i.i ]
   %173 = icmp eq ptr %8, %.sroa.08.0.in.sroa.speculated.i.i.i.i
   ret i1 %173
 }
@@ -2117,18 +2117,18 @@ declare void @_ZN5cmsys11SystemTools20ConvertToUnixSlashesERNSt7__cxx1112basic_s
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN25cmInstallCommandArguments16CheckPermissionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr @_ZN25cmInstallCommandArguments16PermissionsTableE, align 16, !tbaa !68
-  %.not13.not = icmp eq ptr %3, null
-  br i1 %.not13.not, label %.loopexit, label %.lr.ph
+  %.not14.not = icmp eq ptr %3, null
+  br i1 %.not14.not, label %.loopexit, label %.lr.ph
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds nuw i8, ptr %.0814, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.0815, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !68
   %.not.not = icmp eq ptr %6, null
   br i1 %.not.not, label %.loopexit, label %.lr.ph, !llvm.loop !69
 
 .lr.ph:                                           ; preds = %2, %4
   %7 = phi ptr [ %6, %4 ], [ %3, %2 ]
-  %.0814 = phi ptr [ %5, %4 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %2 ]
+  %.0815 = phi ptr [ %5, %4 ], [ @_ZN25cmInstallCommandArguments16PermissionsTableE, %2 ]
   %8 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %7) #27
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %4
@@ -2150,20 +2150,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %10
   %18 = load i64, ptr %11, align 8, !tbaa !10
   %19 = sub i64 4611686018427387903, %18
   %20 = icmp ult i64 %19, %17
-  br i1 %20, label %21, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
+  br i1 %20, label %21, label %22
 
 21:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.29) #29
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
-  %22 = load ptr, ptr %0, align 8, !tbaa !42
-  %23 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %22, i64 noundef %17)
+22:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit
+  %23 = load ptr, ptr %0, align 8, !tbaa !42
+  %24 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %23, i64 noundef %17)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %4, %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit
-  %.not12 = phi i1 [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit ], [ false, %2 ], [ false, %4 ]
-  ret i1 %.not12
+.loopexit:                                        ; preds = %4, %2, %22
+  %.not13 = phi i1 [ true, %22 ], [ false, %2 ], [ false, %4 ]
+  ret i1 %.not13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable

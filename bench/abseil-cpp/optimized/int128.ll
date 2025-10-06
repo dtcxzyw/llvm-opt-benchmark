@@ -154,16 +154,16 @@ define internal fastcc void @_ZN4absl12_GLOBAL__N_124Uint128ToFormattedStringB5c
 _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i: ; preds = %20
   %.not.i.not.i = icmp eq i64 %2, 0
   %spec.select.i = select i1 %.not.i.not.i, i64 %1, i64 %2
-  %spec.select116.i = select i1 %.not.i.not.i, i32 63, i32 127
+  %spec.select113.i = select i1 %.not.i.not.i, i32 63, i32 127
   %22 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i, i1 true)
   %23 = trunc nuw nsw i64 %22 to i32
-  %24 = xor i32 %spec.select116.i, %23
+  %24 = xor i32 %spec.select113.i, %23
   %25 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0134.0, i1 true)
   %26 = trunc nuw nsw i64 %25 to i32
   %27 = xor i32 %26, 63
   %28 = sub nsw i32 %24, %27
-  %.not98.i = icmp slt i32 %28, 0
-  br i1 %.not98.i, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit, label %.lr.ph.preheader.i
+  %.not95.i = icmp slt i32 %28, 0
+  br i1 %.not95.i, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i
   %29 = zext nneg i32 %28 to i128
@@ -176,50 +176,50 @@ _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i: ; preds = %20
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.0105.i = phi i32 [ %38, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.sroa.886.0104.i = phi i64 [ %.sroa.886.1.i, %.lr.ph.i ], [ %2, %.lr.ph.preheader.i ]
-  %.sroa.084.0103.i = phi i64 [ %.sroa.084.1.i, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
-  %.sroa.8.0102.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i47.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.sroa.071.0101.i = phi i64 [ %.sroa.071.1.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
-  %.sroa.075.0100.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i68.i, %.lr.ph.i ], [ %.sroa.0.0.extract.trunc.i.i.i, %.lr.ph.preheader.i ]
-  %.sroa.10.099.i = phi i64 [ %.sroa.2.0.extract.shift.i.i69.i, %.lr.ph.i ], [ %.sroa.2.0.extract.trunc.i.i.i, %.lr.ph.preheader.i ]
-  %.sroa.22.0.insert.ext.i.i41.i = zext i64 %.sroa.8.0102.i to i128
-  %.sroa.01.0.insert.ext.i.i43.i = zext i64 %.sroa.071.0101.i to i128
-  %33 = shl i128 %.sroa.22.0.insert.ext.i.i41.i, 65
-  %34 = shl nuw nsw i128 %.sroa.01.0.insert.ext.i.i43.i, 1
+  %.0102.i = phi i32 [ %38, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.sroa.885.0101.i = phi i64 [ %.sroa.885.1.i, %.lr.ph.i ], [ %2, %.lr.ph.preheader.i ]
+  %.sroa.083.0100.i = phi i64 [ %.sroa.083.1.i, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
+  %.sroa.8.099.i = phi i64 [ %.sroa.2.0.extract.trunc.i.i46.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.sroa.070.098.i = phi i64 [ %.sroa.070.1.i, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
+  %.sroa.074.097.i = phi i64 [ %.sroa.0.0.extract.trunc.i.i67.i, %.lr.ph.i ], [ %.sroa.0.0.extract.trunc.i.i.i, %.lr.ph.preheader.i ]
+  %.sroa.10.096.i = phi i64 [ %.sroa.2.0.extract.shift.i.i68.i, %.lr.ph.i ], [ %.sroa.2.0.extract.trunc.i.i.i, %.lr.ph.preheader.i ]
+  %.sroa.22.0.insert.ext.i.i40.i = zext i64 %.sroa.8.099.i to i128
+  %.sroa.01.0.insert.ext.i.i42.i = zext i64 %.sroa.070.098.i to i128
+  %33 = shl i128 %.sroa.22.0.insert.ext.i.i40.i, 65
+  %34 = shl nuw nsw i128 %.sroa.01.0.insert.ext.i.i42.i, 1
   %35 = or disjoint i128 %34, %33
-  %.sroa.0.0.extract.trunc.i.i45.i = trunc i128 %34 to i64
-  %.sroa.2.0.extract.shift.i.i46.i = lshr i128 %35, 64
-  %.sroa.2.0.extract.trunc.i.i47.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i46.i to i64
-  %.sroa.22.0.insert.ext.i.i48.i = zext i64 %.sroa.886.0104.i to i128
-  %.sroa.22.0.insert.shift.i.i49.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i48.i, 64
-  %.sroa.01.0.insert.ext.i.i50.i = zext i64 %.sroa.084.0103.i to i128
-  %.sroa.01.0.insert.insert.i.i51.i = or disjoint i128 %.sroa.22.0.insert.shift.i.i49.i, %.sroa.01.0.insert.ext.i.i50.i
-  %.sroa.2.0.insert.ext.i.i52.i = zext i64 %.sroa.10.099.i to i128
-  %.sroa.2.0.insert.shift.i.i53.i = shl nuw i128 %.sroa.2.0.insert.ext.i.i52.i, 64
-  %.sroa.0.0.insert.ext.i.i54.i = zext i64 %.sroa.075.0100.i to i128
-  %.sroa.0.0.insert.insert.i.i55.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i53.i, %.sroa.0.0.insert.ext.i.i54.i
-  %.not97.i = icmp uge i128 %.sroa.01.0.insert.insert.i.i51.i, %.sroa.0.0.insert.insert.i.i55.i
-  %.sroa.03.0.insert.insert.i.i.i = sub i128 %.sroa.01.0.insert.insert.i.i51.i, %.sroa.0.0.insert.ext.i.i54.i
-  %.sroa.0.0.extract.trunc.i.i57.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
+  %.sroa.0.0.extract.trunc.i.i44.i = trunc i128 %34 to i64
+  %.sroa.2.0.extract.shift.i.i45.i = lshr i128 %35, 64
+  %.sroa.2.0.extract.trunc.i.i46.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i45.i to i64
+  %.sroa.22.0.insert.ext.i.i47.i = zext i64 %.sroa.885.0101.i to i128
+  %.sroa.22.0.insert.shift.i.i48.i = shl nuw i128 %.sroa.22.0.insert.ext.i.i47.i, 64
+  %.sroa.01.0.insert.ext.i.i49.i = zext i64 %.sroa.083.0100.i to i128
+  %.sroa.01.0.insert.insert.i.i50.i = or disjoint i128 %.sroa.22.0.insert.shift.i.i48.i, %.sroa.01.0.insert.ext.i.i49.i
+  %.sroa.2.0.insert.ext.i.i51.i = zext i64 %.sroa.10.096.i to i128
+  %.sroa.2.0.insert.shift.i.i52.i = shl nuw i128 %.sroa.2.0.insert.ext.i.i51.i, 64
+  %.sroa.0.0.insert.ext.i.i53.i = zext i64 %.sroa.074.097.i to i128
+  %.sroa.0.0.insert.insert.i.i54.i = or disjoint i128 %.sroa.2.0.insert.shift.i.i52.i, %.sroa.0.0.insert.ext.i.i53.i
+  %.not94.i = icmp uge i128 %.sroa.01.0.insert.insert.i.i50.i, %.sroa.0.0.insert.insert.i.i54.i
+  %.sroa.03.0.insert.insert.i.i.i = sub i128 %.sroa.01.0.insert.insert.i.i50.i, %.sroa.0.0.insert.ext.i.i53.i
+  %.sroa.0.0.extract.trunc.i.i56.i = trunc i128 %.sroa.03.0.insert.insert.i.i.i to i64
   %36 = lshr i128 %.sroa.03.0.insert.insert.i.i.i, 64
   %.tr.i.i.i = trunc nuw i128 %36 to i64
-  %.narrow.i.i.i = sub i64 %.tr.i.i.i, %.sroa.10.099.i
-  %.sroa.03.0.insert.insert.i6.i.i = zext i1 %.not97.i to i64
-  %.sroa.071.1.i = or disjoint i64 %.sroa.03.0.insert.insert.i6.i.i, %.sroa.0.0.extract.trunc.i.i45.i
-  %.sroa.084.1.i = select i1 %.not97.i, i64 %.sroa.0.0.extract.trunc.i.i57.i, i64 %.sroa.084.0103.i
-  %.sroa.886.1.i = select i1 %.not97.i, i64 %.narrow.i.i.i, i64 %.sroa.886.0104.i
-  %37 = lshr i128 %.sroa.0.0.insert.insert.i.i55.i, 1
-  %.sroa.0.0.extract.trunc.i.i68.i = trunc i128 %37 to i64
-  %.sroa.2.0.extract.shift.i.i69.i = lshr i64 %.sroa.10.099.i, 1
-  %38 = add nuw nsw i32 %.0105.i, 1
+  %.narrow.i.i.i = sub i64 %.tr.i.i.i, %.sroa.10.096.i
+  %.sroa.03.0.insert.insert.i6.i.i = zext i1 %.not94.i to i64
+  %.sroa.070.1.i = or disjoint i64 %.sroa.03.0.insert.insert.i6.i.i, %.sroa.0.0.extract.trunc.i.i44.i
+  %.sroa.083.1.i = select i1 %.not94.i, i64 %.sroa.0.0.extract.trunc.i.i56.i, i64 %.sroa.083.0100.i
+  %.sroa.885.1.i = select i1 %.not94.i, i64 %.narrow.i.i.i, i64 %.sroa.885.0101.i
+  %37 = lshr i128 %.sroa.0.0.insert.insert.i.i54.i, 1
+  %.sroa.0.0.extract.trunc.i.i67.i = trunc i128 %37 to i64
+  %.sroa.2.0.extract.shift.i.i68.i = lshr i64 %.sroa.10.096.i, 1
+  %38 = add nuw nsw i32 %.0102.i, 1
   %exitcond.not.i = icmp eq i32 %38, %32
   br i1 %exitcond.not.i, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit: ; preds = %.lr.ph.i, %9, %20, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i
-  %.sroa.0127.0 = phi i64 [ 0, %9 ], [ 1, %20 ], [ 0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.071.1.i, %.lr.ph.i ]
-  %.sroa.13.0 = phi i64 [ 0, %9 ], [ 0, %20 ], [ 0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.2.0.extract.trunc.i.i47.i, %.lr.ph.i ]
-  %.sroa.0126.0 = phi i64 [ %1, %9 ], [ 0, %20 ], [ %1, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.084.1.i, %.lr.ph.i ]
+  %.sroa.0127.0 = phi i64 [ 0, %9 ], [ 1, %20 ], [ 0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.070.1.i, %.lr.ph.i ]
+  %.sroa.13.0 = phi i64 [ 0, %9 ], [ 0, %20 ], [ 0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.2.0.extract.trunc.i.i46.i, %.lr.ph.i ]
+  %.sroa.0126.0 = phi i64 [ %1, %9 ], [ 0, %20 ], [ %1, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i ], [ %.sroa.083.1.i, %.lr.ph.i ]
   %.sroa.22.0.insert.ext.i.i.i41 = zext i64 %.sroa.13.0 to i128
   %.sroa.22.0.insert.shift.i.i.i42 = shl nuw i128 %.sroa.22.0.insert.ext.i.i.i41, 64
   %.sroa.01.0.insert.ext.i.i.i43 = zext i64 %.sroa.0127.0 to i128
@@ -234,16 +234,16 @@ _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit: ; preds = %.lr.p
 _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49: ; preds = %40
   %.not.i.not.i50 = icmp eq i64 %.sroa.13.0, 0
   %spec.select.i51 = select i1 %.not.i.not.i50, i64 %.sroa.0127.0, i64 %.sroa.13.0
-  %spec.select116.i52 = select i1 %.not.i.not.i50, i32 63, i32 127
+  %spec.select113.i52 = select i1 %.not.i.not.i50, i32 63, i32 127
   %42 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %spec.select.i51, i1 true)
   %43 = trunc nuw nsw i64 %42 to i32
-  %44 = xor i32 %spec.select116.i52, %43
+  %44 = xor i32 %spec.select113.i52, %43
   %45 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %.sroa.0134.0, i1 true)
   %46 = trunc nuw nsw i64 %45 to i32
   %47 = xor i32 %46, 63
   %48 = sub nsw i32 %44, %47
-  %.not98.i56 = icmp slt i32 %48, 0
-  br i1 %.not98.i56, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread, label %.lr.ph.preheader.i57
+  %.not95.i56 = icmp slt i32 %48, 0
+  br i1 %.not95.i56, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread, label %.lr.ph.preheader.i57
 
 .lr.ph.preheader.i57:                             ; preds = %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49
   %49 = zext nneg i32 %48 to i128
@@ -254,45 +254,45 @@ _ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49: ; preds = %40
   br label %.lr.ph.i61
 
 .lr.ph.i61:                                       ; preds = %.lr.ph.i61, %.lr.ph.preheader.i57
-  %.0105.i62 = phi i32 [ %53, %.lr.ph.i61 ], [ 0, %.lr.ph.preheader.i57 ]
-  %.sroa.886.0104.i63 = phi i64 [ %.sroa.886.1.i90, %.lr.ph.i61 ], [ %.sroa.13.0, %.lr.ph.preheader.i57 ]
-  %.sroa.084.0103.i64 = phi i64 [ %.sroa.084.1.i89, %.lr.ph.i61 ], [ %.sroa.0127.0, %.lr.ph.preheader.i57 ]
-  %.sroa.071.0101.i66 = phi i64 [ %.sroa.071.1.i88, %.lr.ph.i61 ], [ 0, %.lr.ph.preheader.i57 ]
-  %.sroa.075.0100.i67 = phi i64 [ %.sroa.0.0.extract.trunc.i.i68.i91, %.lr.ph.i61 ], [ %.sroa.0.0.extract.trunc.i.i.i60, %.lr.ph.preheader.i57 ]
-  %.sroa.10.099.i68 = phi i64 [ %.sroa.2.0.extract.shift.i.i69.i92, %.lr.ph.i61 ], [ %.sroa.2.0.extract.trunc.i.i.i59, %.lr.ph.preheader.i57 ]
-  %.sroa.0.0.extract.trunc.i.i45.i71 = shl i64 %.sroa.071.0101.i66, 1
-  %.sroa.22.0.insert.ext.i.i48.i74 = zext i64 %.sroa.886.0104.i63 to i128
-  %.sroa.22.0.insert.shift.i.i49.i75 = shl nuw i128 %.sroa.22.0.insert.ext.i.i48.i74, 64
-  %.sroa.01.0.insert.ext.i.i50.i76 = zext i64 %.sroa.084.0103.i64 to i128
-  %.sroa.01.0.insert.insert.i.i51.i77 = or disjoint i128 %.sroa.22.0.insert.shift.i.i49.i75, %.sroa.01.0.insert.ext.i.i50.i76
-  %.sroa.2.0.insert.ext.i.i52.i78 = zext i64 %.sroa.10.099.i68 to i128
-  %.sroa.2.0.insert.shift.i.i53.i79 = shl nuw i128 %.sroa.2.0.insert.ext.i.i52.i78, 64
-  %.sroa.0.0.insert.ext.i.i54.i80 = zext i64 %.sroa.075.0100.i67 to i128
-  %.sroa.0.0.insert.insert.i.i55.i81 = or disjoint i128 %.sroa.2.0.insert.shift.i.i53.i79, %.sroa.0.0.insert.ext.i.i54.i80
-  %.not97.i82 = icmp uge i128 %.sroa.01.0.insert.insert.i.i51.i77, %.sroa.0.0.insert.insert.i.i55.i81
-  %.sroa.03.0.insert.insert.i.i.i83 = sub i128 %.sroa.01.0.insert.insert.i.i51.i77, %.sroa.0.0.insert.ext.i.i54.i80
-  %.sroa.0.0.extract.trunc.i.i57.i84 = trunc i128 %.sroa.03.0.insert.insert.i.i.i83 to i64
+  %.0102.i62 = phi i32 [ %53, %.lr.ph.i61 ], [ 0, %.lr.ph.preheader.i57 ]
+  %.sroa.885.0101.i63 = phi i64 [ %.sroa.885.1.i90, %.lr.ph.i61 ], [ %.sroa.13.0, %.lr.ph.preheader.i57 ]
+  %.sroa.083.0100.i64 = phi i64 [ %.sroa.083.1.i89, %.lr.ph.i61 ], [ %.sroa.0127.0, %.lr.ph.preheader.i57 ]
+  %.sroa.070.098.i66 = phi i64 [ %.sroa.070.1.i88, %.lr.ph.i61 ], [ 0, %.lr.ph.preheader.i57 ]
+  %.sroa.074.097.i67 = phi i64 [ %.sroa.0.0.extract.trunc.i.i67.i91, %.lr.ph.i61 ], [ %.sroa.0.0.extract.trunc.i.i.i60, %.lr.ph.preheader.i57 ]
+  %.sroa.10.096.i68 = phi i64 [ %.sroa.2.0.extract.shift.i.i68.i92, %.lr.ph.i61 ], [ %.sroa.2.0.extract.trunc.i.i.i59, %.lr.ph.preheader.i57 ]
+  %.sroa.0.0.extract.trunc.i.i44.i71 = shl i64 %.sroa.070.098.i66, 1
+  %.sroa.22.0.insert.ext.i.i47.i74 = zext i64 %.sroa.885.0101.i63 to i128
+  %.sroa.22.0.insert.shift.i.i48.i75 = shl nuw i128 %.sroa.22.0.insert.ext.i.i47.i74, 64
+  %.sroa.01.0.insert.ext.i.i49.i76 = zext i64 %.sroa.083.0100.i64 to i128
+  %.sroa.01.0.insert.insert.i.i50.i77 = or disjoint i128 %.sroa.22.0.insert.shift.i.i48.i75, %.sroa.01.0.insert.ext.i.i49.i76
+  %.sroa.2.0.insert.ext.i.i51.i78 = zext i64 %.sroa.10.096.i68 to i128
+  %.sroa.2.0.insert.shift.i.i52.i79 = shl nuw i128 %.sroa.2.0.insert.ext.i.i51.i78, 64
+  %.sroa.0.0.insert.ext.i.i53.i80 = zext i64 %.sroa.074.097.i67 to i128
+  %.sroa.0.0.insert.insert.i.i54.i81 = or disjoint i128 %.sroa.2.0.insert.shift.i.i52.i79, %.sroa.0.0.insert.ext.i.i53.i80
+  %.not94.i82 = icmp uge i128 %.sroa.01.0.insert.insert.i.i50.i77, %.sroa.0.0.insert.insert.i.i54.i81
+  %.sroa.03.0.insert.insert.i.i.i83 = sub i128 %.sroa.01.0.insert.insert.i.i50.i77, %.sroa.0.0.insert.ext.i.i53.i80
+  %.sroa.0.0.extract.trunc.i.i56.i84 = trunc i128 %.sroa.03.0.insert.insert.i.i.i83 to i64
   %51 = lshr i128 %.sroa.03.0.insert.insert.i.i.i83, 64
   %.tr.i.i.i85 = trunc nuw i128 %51 to i64
-  %.narrow.i.i.i86 = sub i64 %.tr.i.i.i85, %.sroa.10.099.i68
-  %.sroa.03.0.insert.insert.i6.i.i87 = zext i1 %.not97.i82 to i64
-  %.sroa.071.1.i88 = or disjoint i64 %.sroa.0.0.extract.trunc.i.i45.i71, %.sroa.03.0.insert.insert.i6.i.i87
-  %.sroa.084.1.i89 = select i1 %.not97.i82, i64 %.sroa.0.0.extract.trunc.i.i57.i84, i64 %.sroa.084.0103.i64
-  %.sroa.886.1.i90 = select i1 %.not97.i82, i64 %.narrow.i.i.i86, i64 %.sroa.886.0104.i63
-  %52 = lshr i128 %.sroa.0.0.insert.insert.i.i55.i81, 1
-  %.sroa.0.0.extract.trunc.i.i68.i91 = trunc i128 %52 to i64
-  %.sroa.2.0.extract.shift.i.i69.i92 = lshr i64 %.sroa.10.099.i68, 1
-  %53 = add nuw nsw i32 %.0105.i62, 1
-  %exitcond.not.i93 = icmp eq i32 %.0105.i62, %48
+  %.narrow.i.i.i86 = sub i64 %.tr.i.i.i85, %.sroa.10.096.i68
+  %.sroa.03.0.insert.insert.i6.i.i87 = zext i1 %.not94.i82 to i64
+  %.sroa.070.1.i88 = or disjoint i64 %.sroa.0.0.extract.trunc.i.i44.i71, %.sroa.03.0.insert.insert.i6.i.i87
+  %.sroa.083.1.i89 = select i1 %.not94.i82, i64 %.sroa.0.0.extract.trunc.i.i56.i84, i64 %.sroa.083.0100.i64
+  %.sroa.885.1.i90 = select i1 %.not94.i82, i64 %.narrow.i.i.i86, i64 %.sroa.885.0101.i63
+  %52 = lshr i128 %.sroa.0.0.insert.insert.i.i54.i81, 1
+  %.sroa.0.0.extract.trunc.i.i67.i91 = trunc i128 %52 to i64
+  %.sroa.2.0.extract.shift.i.i68.i92 = lshr i64 %.sroa.10.096.i68, 1
+  %53 = add nuw nsw i32 %.0102.i62, 1
+  %exitcond.not.i93 = icmp eq i32 %.0102.i62, %48
   br i1 %exitcond.not.i93, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103, label %.lr.ph.i61, !llvm.loop !23
 
 _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103: ; preds = %.lr.ph.i61
-  %.not = icmp eq i64 %.sroa.071.1.i88, 0
+  %.not = icmp eq i64 %.sroa.070.1.i88, 0
   br i1 %.not, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread, label %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread141
 
 _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread141: ; preds = %40, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103
-  %.sroa.0.0146 = phi i64 [ %.sroa.084.1.i89, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ 0, %40 ]
-  %.sroa.0127.1145 = phi i64 [ %.sroa.071.1.i88, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ 1, %40 ]
+  %.sroa.0.0146 = phi i64 [ %.sroa.083.1.i89, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ 0, %40 ]
+  %.sroa.0127.1145 = phi i64 [ %.sroa.070.1.i88, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ 1, %40 ]
   %54 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef %.sroa.0127.1145)
           to label %55 unwind label %87
 
@@ -366,7 +366,7 @@ _ZNSolsEm.exit107:                                ; preds = %78
   br label %.body
 
 _ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103.thread: ; preds = %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103
-  %.sroa.0.0140 = phi i64 [ %.sroa.084.1.i89, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ %.sroa.0127.0, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit ], [ %.sroa.0127.0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49 ]
+  %.sroa.0.0140 = phi i64 [ %.sroa.083.1.i89, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit103 ], [ %.sroa.0127.0, %_ZN4absl12_GLOBAL__N_110DivModImplENS_7uint128ES1_PS1_S2_.exit ], [ %.sroa.0127.0, %_ZN4absl12_GLOBAL__N_16Fls128ENS_7uint128E.exit.i49 ]
   %.not36 = icmp eq i64 %.sroa.0.0140, 0
   br i1 %.not36, label %121, label %89
 

@@ -597,9 +597,9 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %74, label %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h6eb366a26b40ccbfE.llvm.5601064412946870057.exit", label %.lr.ph.i.i
 
 "_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17h6eb366a26b40ccbfE.llvm.5601064412946870057.exit": ; preds = %73, %2, %69
-  %switch = phi i64 [ 0, %2 ], [ %72, %69 ], [ 0, %73 ]
+  %storemerge.i.i = phi i64 [ 0, %2 ], [ %72, %69 ], [ 0, %73 ]
   %75 = insertvalue { ptr, i64 } poison, ptr %0, 0
-  %76 = insertvalue { ptr, i64 } %75, i64 %switch, 1
+  %76 = insertvalue { ptr, i64 } %75, i64 %storemerge.i.i, 1
   ret { ptr, i64 } %76
 }
 

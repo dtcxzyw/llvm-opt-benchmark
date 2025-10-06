@@ -5719,18 +5719,18 @@ define noundef zeroext i1 @_Z30haveFepPerturbedNBInteractionsRK10gmx_mtop_t(ptr 
   %3 = load ptr, ptr %2, align 8, !tbaa !267
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !267
-  %.not1926.not = icmp eq ptr %3, %5
-  br i1 %.not1926.not, label %.thread, label %.preheader
+  %.not2128.not = icmp eq ptr %3, %5
+  br i1 %.not2128.not, label %_Z9PERTURBEDRK6t_atom.exit.thread, label %.preheader
 
 .preheader:                                       ; preds = %1, %._crit_edge
-  %.sroa.015.027 = phi ptr [ %27, %._crit_edge ], [ %3, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 8
+  %.sroa.015.029 = phi ptr [ %27, %._crit_edge ], [ %3, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.015.029, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !132
-  %.not24 = icmp sgt i32 %7, 0
-  br i1 %.not24, label %.lr.ph, label %._crit_edge
+  %.not26 = icmp sgt i32 %7, 0
+  br i1 %.not26, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.015.029, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !166
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %11
@@ -5747,7 +5747,7 @@ define noundef zeroext i1 @_Z30haveFepPerturbedNBInteractionsRK10gmx_mtop_t(ptr 
   %14 = load float, ptr %13, align 4, !tbaa !287
   %15 = load float, ptr %12, align 4, !tbaa !288
   %16 = fcmp une float %14, %15
-  br i1 %16, label %.thread, label %17
+  br i1 %16, label %_Z9PERTURBEDRK6t_atom.exit.thread, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 12
@@ -5755,24 +5755,24 @@ define noundef zeroext i1 @_Z30haveFepPerturbedNBInteractionsRK10gmx_mtop_t(ptr 
   %20 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %21 = load float, ptr %20, align 4, !tbaa !169
   %22 = fcmp une float %19, %21
-  br i1 %22, label %.thread, label %_Z9PERTURBEDRK6t_atom.exit
+  br i1 %22, label %_Z9PERTURBEDRK6t_atom.exit.thread, label %_Z9PERTURBEDRK6t_atom.exit
 
 _Z9PERTURBEDRK6t_atom.exit:                       ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 18
   %24 = load i16, ptr %23, align 2, !tbaa !289
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %26 = load i16, ptr %25, align 4, !tbaa !290
-  %.not20 = icmp eq i16 %24, %26
-  br i1 %.not20, label %10, label %.thread
+  %.not22 = icmp eq i16 %24, %26
+  br i1 %.not22, label %10, label %_Z9PERTURBEDRK6t_atom.exit.thread
 
 ._crit_edge:                                      ; preds = %10, %.preheader
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.015.027, i64 2408
-  %.not19.not = icmp eq ptr %27, %5
-  br i1 %.not19.not, label %.thread, label %.preheader
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.015.029, i64 2408
+  %.not21.not = icmp eq ptr %27, %5
+  br i1 %.not21.not, label %_Z9PERTURBEDRK6t_atom.exit.thread, label %.preheader
 
-.thread:                                          ; preds = %._crit_edge, %11, %17, %_Z9PERTURBEDRK6t_atom.exit, %1
-  %.not1923 = phi i1 [ false, %1 ], [ true, %_Z9PERTURBEDRK6t_atom.exit ], [ true, %17 ], [ true, %11 ], [ false, %._crit_edge ]
-  ret i1 %.not1923
+_Z9PERTURBEDRK6t_atom.exit.thread:                ; preds = %._crit_edge, %11, %17, %_Z9PERTURBEDRK6t_atom.exit, %1
+  %.not2125 = phi i1 [ false, %1 ], [ true, %_Z9PERTURBEDRK6t_atom.exit ], [ true, %17 ], [ true, %11 ], [ false, %._crit_edge ]
+  ret i1 %.not2125
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -5781,18 +5781,18 @@ define noundef zeroext i1 @_Z22haveFepPerturbedMassesRK10gmx_mtop_t(ptr noundef 
   %3 = load ptr, ptr %2, align 8, !tbaa !267
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !267
-  %.not2430.not = icmp eq ptr %3, %5
-  br i1 %.not2430.not, label %.thread, label %.preheader
+  %.not2632.not = icmp eq ptr %3, %5
+  br i1 %.not2632.not, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %1, %._crit_edge
-  %.sroa.020.031 = phi ptr [ %17, %._crit_edge ], [ %3, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.020.031, i64 8
+  %.sroa.020.033 = phi ptr [ %17, %._crit_edge ], [ %3, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !132
-  %.not28 = icmp sgt i32 %7, 0
-  br i1 %.not28, label %.lr.ph, label %._crit_edge
+  %.not30 = icmp sgt i32 %7, 0
+  br i1 %.not30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.020.031, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !166
   %wide.trip.count = zext nneg i32 %7 to i64
   br label %11
@@ -5809,16 +5809,16 @@ define noundef zeroext i1 @_Z22haveFepPerturbedMassesRK10gmx_mtop_t(ptr noundef 
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %15 = load float, ptr %14, align 4, !tbaa !287
   %16 = fcmp oeq float %13, %15
-  br i1 %16, label %10, label %.thread
+  br i1 %16, label %10, label %.loopexit
 
 ._crit_edge:                                      ; preds = %10, %.preheader
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.020.031, i64 2408
-  %.not24.not = icmp eq ptr %17, %5
-  br i1 %.not24.not, label %.thread, label %.preheader
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.020.033, i64 2408
+  %.not26.not = icmp eq ptr %17, %5
+  br i1 %.not26.not, label %.loopexit, label %.preheader
 
-.thread:                                          ; preds = %._crit_edge, %11, %1
-  %.not2427 = phi i1 [ false, %1 ], [ true, %11 ], [ false, %._crit_edge ]
-  ret i1 %.not2427
+.loopexit:                                        ; preds = %._crit_edge, %11, %1
+  %.not2629 = phi i1 [ false, %1 ], [ true, %11 ], [ false, %._crit_edge ]
+  ret i1 %.not2629
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -5827,26 +5827,26 @@ define noundef zeroext i1 @_Z31haveFepPerturbedMassesInSettlesRK10gmx_mtop_t(ptr
   %3 = load ptr, ptr %2, align 8, !tbaa !267
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !267
-  %.not2936.not = icmp eq ptr %3, %5
-  br i1 %.not2936.not, label %.loopexit30, label %.lr.ph39
+  %.not3138.not = icmp eq ptr %3, %5
+  br i1 %.not3138.not, label %.loopexit32, label %.lr.ph41
 
-.lr.ph39:                                         ; preds = %1, %.loopexit
-  %.sroa.022.037 = phi ptr [ %22, %.loopexit ], [ %3, %1 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.sroa.022.037, i64 1616
+.lr.ph41:                                         ; preds = %1, %.loopexit
+  %.sroa.022.039 = phi ptr [ %22, %.loopexit ], [ %3, %1 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 1616
   %7 = load ptr, ptr %6, align 8, !tbaa !133
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.022.037, i64 1624
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 1624
   %9 = load ptr, ptr %8, align 8, !tbaa !133
   %10 = icmp eq ptr %7, %9
   br i1 %10, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph39
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.022.037, i64 8
+.preheader:                                       ; preds = %.lr.ph41
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !132
-  %.not34 = icmp sgt i32 %12, 0
-  br i1 %.not34, label %.lr.ph, label %.loopexit
+  %.not36 = icmp sgt i32 %12, 0
+  br i1 %.not36, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.022.037, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !166
   %wide.trip.count = zext nneg i32 %12 to i64
   br label %16
@@ -5863,16 +5863,16 @@ define noundef zeroext i1 @_Z31haveFepPerturbedMassesInSettlesRK10gmx_mtop_t(ptr
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load float, ptr %19, align 4, !tbaa !287
   %21 = fcmp oeq float %18, %20
-  br i1 %21, label %15, label %.loopexit30
+  br i1 %21, label %15, label %.loopexit32
 
-.loopexit:                                        ; preds = %15, %.preheader, %.lr.ph39
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.022.037, i64 2408
-  %.not29.not = icmp eq ptr %22, %5
-  br i1 %.not29.not, label %.loopexit30, label %.lr.ph39
+.loopexit:                                        ; preds = %15, %.preheader, %.lr.ph41
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.022.039, i64 2408
+  %.not31.not = icmp eq ptr %22, %5
+  br i1 %.not31.not, label %.loopexit32, label %.lr.ph41
 
-.loopexit30:                                      ; preds = %.loopexit, %16, %1
-  %.not2933 = phi i1 [ false, %1 ], [ true, %16 ], [ false, %.loopexit ]
-  ret i1 %.not2933
+.loopexit32:                                      ; preds = %.loopexit, %16, %1
+  %.not3135 = phi i1 [ false, %1 ], [ true, %16 ], [ false, %.loopexit ]
+  ret i1 %.not3135
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable

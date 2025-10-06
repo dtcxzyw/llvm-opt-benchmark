@@ -491,39 +491,39 @@ declare void @g_key_file_free(ptr noundef) local_unnamed_addr #1
 define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @xmlParseFile(ptr noundef %1)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.thread69.thread.thread, label %4
+  br i1 %.not, label %.thread68.thread.thread, label %4
 
-.thread69.thread.thread:                          ; preds = %2
+.thread68.thread.thread:                          ; preds = %2
   tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 5, ptr noundef nonnull @.str, ptr noundef %1)
   br label %43
 
 4:                                                ; preds = %2
   %5 = tail call ptr @xmlXPathNewContext(ptr noundef nonnull %3)
   %.not54 = icmp eq ptr %5, null
-  br i1 %.not54, label %.thread69.thread.thread82, label %.preheader
+  br i1 %.not54, label %.thread68.thread.thread81, label %.preheader
 
-.thread69.thread.thread82:                        ; preds = %4
+.thread68.thread.thread81:                        ; preds = %4
   tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 5, ptr noundef nonnull @.str.8)
   br label %42
 
 6:                                                ; preds = %.preheader
-  %7 = getelementptr i8, ptr %.04289, i64 16
-  %8 = getelementptr i8, ptr %.04289, i64 24
+  %7 = getelementptr i8, ptr %.04288, i64 16
+  %8 = getelementptr i8, ptr %.04288, i64 24
   %9 = load ptr, ptr %8, align 8
   %.not55 = icmp eq ptr %9, null
   br i1 %.not55, label %14, label %.preheader, !llvm.loop !10
 
 .preheader:                                       ; preds = %4, %6
   %10 = phi ptr [ %9, %6 ], [ @.str.42, %4 ]
-  %.04289 = phi ptr [ %7, %6 ], [ @namespaces, %4 ]
-  %11 = load ptr, ptr %.04289, align 8
+  %.04288 = phi ptr [ %7, %6 ], [ @namespaces, %4 ]
+  %11 = load ptr, ptr %.04288, align 8
   %12 = tail call i32 @xmlXPathRegisterNs(ptr noundef nonnull %5, ptr noundef %11, ptr noundef nonnull %10)
   %.not61 = icmp eq i32 %12, 0
   br i1 %.not61, label %6, label %13
 
 13:                                               ; preds = %.preheader
   tail call void (ptr, i32, ptr, ...) @ws_log(ptr noundef null, i32 noundef 5, ptr noundef nonnull @.str.9, ptr noundef %11, ptr noundef nonnull %10)
-  br label %.thread69
+  br label %.thread68
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -538,7 +538,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
 
 21:                                               ; preds = %14, %35
   %22 = phi ptr [ @.str.45, %14 ], [ %37, %35 ]
-  %.04190 = phi ptr [ @xpaths, %14 ], [ %36, %35 ]
+  %.04189 = phi ptr [ @xpaths, %14 ], [ %36, %35 ]
   %23 = tail call ptr @xmlXPathEvalExpression(ptr noundef nonnull %22, ptr noundef nonnull %5)
   %.not57 = icmp eq ptr %23, null
   br i1 %.not57, label %34, label %24
@@ -550,7 +550,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
   br i1 %.not58, label %34, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %.04190, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.04189, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not59 = icmp eq ptr %29, null
   br i1 %.not59, label %35, label %30
@@ -571,7 +571,7 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
 
 35:                                               ; preds = %27, %30, %32
   tail call void @xmlXPathFreeObject(ptr noundef nonnull %23)
-  %36 = getelementptr i8, ptr %.04190, i64 16
+  %36 = getelementptr i8, ptr %.04189, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not56 = icmp eq ptr %37, null
   br i1 %.not56, label %38, label %21, !llvm.loop !11
@@ -583,25 +583,25 @@ define hidden noundef ptr @epl_xdd_load(ptr noundef %0, ptr noundef %1) local_un
 40:                                               ; preds = %34, %38
   %.044 = phi ptr [ null, %34 ], [ %0, %38 ]
   %.not62 = icmp eq ptr %19, null
-  br i1 %.not62, label %.thread69, label %41
+  br i1 %.not62, label %.thread68, label %41
 
 41:                                               ; preds = %40
   tail call void @g_hash_table_destroy(ptr noundef nonnull %19)
-  br label %.thread69
+  br label %.thread68
 
-.thread69:                                        ; preds = %40, %41, %13
-  %.04474 = phi ptr [ %.044, %41 ], [ %.044, %40 ], [ null, %13 ]
+.thread68:                                        ; preds = %40, %41, %13
+  %.04473 = phi ptr [ %.044, %41 ], [ %.044, %40 ], [ null, %13 ]
   tail call void @xmlXPathFreeContext(ptr noundef nonnull %5)
   br label %42
 
-42:                                               ; preds = %.thread69, %.thread69.thread.thread82
-  %.044747984 = phi ptr [ null, %.thread69.thread.thread82 ], [ %.04474, %.thread69 ]
+42:                                               ; preds = %.thread68, %.thread68.thread.thread81
+  %.044737883 = phi ptr [ null, %.thread68.thread.thread81 ], [ %.04473, %.thread68 ]
   tail call void @xmlFreeDoc(ptr noundef nonnull %3)
   br label %43
 
-43:                                               ; preds = %.thread69.thread.thread, %42
-  %.044747981 = phi ptr [ null, %.thread69.thread.thread ], [ %.044747984, %42 ]
-  ret ptr %.044747981
+43:                                               ; preds = %.thread68.thread.thread, %42
+  %.044737880 = phi ptr [ null, %.thread68.thread.thread ], [ %.044737883, %42 ]
+  ret ptr %.044737880
 }
 
 ; Function Attrs: null_pointer_is_valid

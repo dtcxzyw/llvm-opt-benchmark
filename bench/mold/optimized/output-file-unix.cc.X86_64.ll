@@ -4612,20 +4612,20 @@ _ZNSt10filesystem7__cxx114pathC2ERKS1_.exit:      ; preds = %28, %30
 46:                                               ; preds = %36
   %47 = and i64 %13, 3
   %48 = icmp eq i64 %47, 0
-  br i1 %48, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread25
+  br i1 %48, label %_ZNKSt10filesystem7__cxx114path3endEv.exit, label %.thread24
 
 _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %46
   %49 = tail call noundef ptr @_ZNKSt10filesystem7__cxx114path5_List3endEv(ptr noundef nonnull align 8 dereferenceable(8) %11) #18, !noalias !393
   %.pre = load ptr, ptr %11, align 8, !tbaa !25
   %.pre.fr = freeze ptr %.pre
-  %.pre11 = ptrtoint ptr %.pre.fr to i64
-  %.pre12 = and i64 %.pre11, 3
-  %50 = icmp eq i64 %.pre12, 0
-  %spec.select30 = getelementptr inbounds i8, ptr %49, i64 -48
-  %spec.select = select i1 %50, ptr %spec.select30, ptr %1
-  br label %.thread25
+  %.pre10 = ptrtoint ptr %.pre.fr to i64
+  %.pre11 = and i64 %.pre10, 3
+  %50 = icmp eq i64 %.pre11, 0
+  %spec.select29 = getelementptr inbounds i8, ptr %49, i64 -48
+  %spec.select = select i1 %50, ptr %spec.select29, ptr %1
+  br label %.thread24
 
-.thread25:                                        ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit, %46
+.thread24:                                        ; preds = %_ZNKSt10filesystem7__cxx114path3endEv.exit, %46
   %51 = phi ptr [ %1, %46 ], [ %spec.select, %_ZNKSt10filesystem7__cxx114path3endEv.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !25
@@ -4634,7 +4634,7 @@ _ZNKSt10filesystem7__cxx114path3endEv.exit:       ; preds = %46
   %56 = icmp eq i64 %55, 3
   br i1 %56, label %57, label %.thread
 
-57:                                               ; preds = %.thread25
+57:                                               ; preds = %.thread24
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %58, ptr %0, align 8, !tbaa !11
   %59 = load ptr, ptr %51, align 8, !tbaa !18
@@ -4691,7 +4691,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm.exit.i.i.i2:
   tail call void @_ZNSt10filesystem7__cxx114path5_ListC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %78, ptr noundef nonnull align 8 dereferenceable(8) %52) #18
   br label %82
 
-.thread:                                          ; preds = %.thread25, %10
+.thread:                                          ; preds = %.thread24, %10
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %79, ptr %0, align 8, !tbaa !11
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8

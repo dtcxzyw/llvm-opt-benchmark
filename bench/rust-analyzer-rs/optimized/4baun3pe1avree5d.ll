@@ -2218,11 +2218,11 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha286eace345da491
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17ha4fcb9bc032ba63bE.llvm.4213059994663518309"(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #8 {
-  %switch = icmp eq i64 %1, 0
-  %spec.select = select i1 %switch, i64 1, i64 2
+  %4 = icmp eq i64 %1, 0
+  %spec.select = select i1 %4, i64 1, i64 2
   store i64 %spec.select, ptr %0, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %2, ptr %4, align 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %2, ptr %5, align 8
   ret void
 }
 
@@ -10498,7 +10498,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %6 = load ptr, ptr %5, align 8, !alias.scope !2446, !nonnull !7
   %7 = icmp eq ptr %3, %6
   %or.cond.i = select i1 %4, i1 true, i1 %7
-  br i1 %or.cond.i, label %17, label %8
+  br i1 %or.cond.i, label %18, label %8
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -10510,13 +10510,13 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %13 = tail call { i64, ptr } @"_ZN106_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_option17h3bd0a94538a43715E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %3)
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
-  %switch.i = icmp eq i64 %14, 0
-  %spec.select.i = select i1 %switch.i, i64 1, i64 2
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %15, ptr %16, align 8, !alias.scope !2454
-  br label %17
+  %16 = icmp eq i64 %14, 0
+  %spec.select.i = select i1 %16, i64 1, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %15, ptr %17, align 8, !alias.scope !2454
+  br label %18
 
-17:                                               ; preds = %2, %8
+18:                                               ; preds = %2, %8
   %spec.select.i.sink = phi i64 [ %spec.select.i, %8 ], [ 0, %2 ]
   store i64 %spec.select.i.sink, ptr %0, align 8
   ret void
@@ -11055,7 +11055,7 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
 
 14:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h447cf2243c7a13c6E.llvm.4213059994663518309.exit.i.i", %6, %2
   store i64 0, ptr %0, align 8
-  br label %23
+  br label %24
 
 15:                                               ; preds = %"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h447cf2243c7a13c6E.llvm.4213059994663518309.exit.i.i"
   %.sroa.6.0..sroa_idx2.i.i = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -11071,14 +11071,14 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %switch.i = icmp eq i64 %20, 0
-  %spec.select.i = select i1 %switch.i, i64 1, i64 2
+  %22 = icmp eq i64 %20, 0
+  %spec.select.i = select i1 %22, i64 1, i64 2
   store i64 %spec.select.i, ptr %0, align 8, !alias.scope !2645
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %21, ptr %22, align 8, !alias.scope !2645
-  br label %23
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %21, ptr %23, align 8, !alias.scope !2645
+  br label %24
 
-23:                                               ; preds = %15, %14
+24:                                               ; preds = %15, %14
   ret void
 }
 

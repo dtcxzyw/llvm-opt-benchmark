@@ -59,8 +59,8 @@ define void @ff_rtp_send_raw_rfc4175(ptr noundef %0, ptr noundef readonly captur
   br label %35
 
 35:                                               ; preds = %.lr.ph, %.thread
-  %.098125 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %.thread ]
-  %.0102124 = phi i32 [ 0, %.lr.ph ], [ %.2104, %.thread ]
+  %.098124 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %.thread ]
+  %.0102123 = phi i32 [ 0, %.lr.ph ], [ %.2104, %.thread ]
   %36 = load i32, ptr %27, align 8, !tbaa !43
   %37 = load ptr, ptr %28, align 8, !tbaa !44
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1
@@ -73,8 +73,8 @@ define void @ff_rtp_send_raw_rfc4175(ptr noundef %0, ptr noundef readonly captur
 41:                                               ; preds = %51, %35
   %.0109 = phi i32 [ %40, %35 ], [ %53, %51 ]
   %.0106 = phi ptr [ %39, %35 ], [ %77, %51 ]
-  %.1103 = phi i32 [ %.0102124, %35 ], [ %.2104, %51 ]
-  %.1 = phi i32 [ %.098125, %35 ], [ %spec.select, %51 ]
+  %.1103 = phi i32 [ %.0102123, %35 ], [ %.2104, %51 ]
+  %.1 = phi i32 [ %.098124, %35 ], [ %spec.select, %51 ]
   %42 = sub nsw i32 %14, %.1103
   %43 = mul nsw i32 %42, %.097
   %44 = sdiv i32 %43, %.0

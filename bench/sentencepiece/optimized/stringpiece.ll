@@ -382,12 +382,12 @@ define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11Str
 
 .lr.ph:                                           ; preds = %3
   %7 = add nsw i64 %5, -1
-  %spec.select12 = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   br label %9
 
 9:                                                ; preds = %.lr.ph, %select.unfold
-  %.0713 = phi i64 [ %spec.select12, %.lr.ph ], [ %13, %select.unfold ]
+  %.0713 = phi i64 [ %spec.select, %.lr.ph ], [ %13, %select.unfold ]
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.0713
   %11 = load i8, ptr %10, align 1, !tbaa !16
   %12 = icmp eq i8 %11, %1
@@ -395,11 +395,11 @@ define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11Str
 
 select.unfold:                                    ; preds = %9
   %13 = add nsw i64 %.0713, -1
-  %14 = icmp slt i64 %.0713, 1
-  br i1 %14, label %.loopexit, label %9, !llvm.loop !17
+  %14 = icmp sgt i64 %.0713, 0
+  br i1 %14, label %9, label %.loopexit, !llvm.loop !17
 
-.loopexit:                                        ; preds = %9, %select.unfold, %3
-  %.08 = phi i64 [ -1, %3 ], [ %.0713, %9 ], [ -1, %select.unfold ]
+.loopexit:                                        ; preds = %select.unfold, %9, %3
+  %.08 = phi i64 [ -1, %3 ], [ -1, %select.unfold ], [ %.0713, %9 ]
   ret i64 %.08
 }
 
@@ -620,12 +620,12 @@ define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11Str
 .lr.ph.i.i:                                       ; preds = %10
   %12 = load i8, ptr %1, align 1, !tbaa !16
   %13 = add nsw i64 %7, -1
-  %spec.select12.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %3)
+  %spec.select.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %3)
   %14 = load ptr, ptr %0, align 8, !tbaa !3
   br label %15
 
 15:                                               ; preds = %select.unfold.i.i, %.lr.ph.i.i
-  %.0713.i.i = phi i64 [ %spec.select12.i.i, %.lr.ph.i.i ], [ %19, %select.unfold.i.i ]
+  %.0713.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ %19, %select.unfold.i.i ]
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %.0713.i.i
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, %12
@@ -633,8 +633,8 @@ define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11Str
 
 select.unfold.i.i:                                ; preds = %15
   %19 = add nsw i64 %.0713.i.i, -1
-  %20 = icmp slt i64 %.0713.i.i, 1
-  br i1 %20, label %_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit, label %15, !llvm.loop !17
+  %20 = icmp sgt i64 %.0713.i.i, 0
+  br i1 %20, label %15, label %_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit, !llvm.loop !17
 
 21:                                               ; preds = %10
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -679,7 +679,7 @@ select.unfold:                                    ; preds = %30
   br label %_ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit
 
 _ZNK6google8protobuf11StringPiece12find_last_ofEcm.exit: ; preds = %select.unfold.i.i, %15, %4, %._crit_edge
-  %.012 = phi i64 [ %spec.select.ph, %._crit_edge ], [ -1, %4 ], [ %.0713.i.i, %15 ], [ -1, %select.unfold.i.i ]
+  %.012 = phi i64 [ %spec.select.ph, %._crit_edge ], [ -1, %4 ], [ -1, %select.unfold.i.i ], [ %.0713.i.i, %15 ]
   ret i64 %.012
 }
 
@@ -715,8 +715,8 @@ define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11Str
 
 select.unfold.i:                                  ; preds = %16
   %19 = add nsw i64 %.0713.i, -1
-  %20 = icmp slt i64 %.0713.i, 1
-  br i1 %20, label %_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit, label %16, !llvm.loop !28
+  %20 = icmp sgt i64 %.0713.i, 0
+  br i1 %20, label %16, label %_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit, !llvm.loop !28
 
 21:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -759,7 +759,7 @@ _ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit._crit_edge: ; p
   br label %_ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit
 
 _ZNK6google8protobuf11StringPiece16find_last_not_ofEcm.exit: ; preds = %select.unfold.i, %16, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit._crit_edge, %9, %4
-  %.0 = phi i64 [ -1, %4 ], [ %.2.ph, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit._crit_edge ], [ %.sroa.speculated, %9 ], [ -1, %select.unfold.i ], [ %.0713.i, %16 ]
+  %.0 = phi i64 [ -1, %4 ], [ %.2.ph, %_ZN6google8protobufL16BuildLookupTableENS0_11StringPieceEPb.exit._crit_edge ], [ %.sroa.speculated, %9 ], [ %.0713.i, %16 ], [ -1, %select.unfold.i ]
   ret i64 %.0
 }
 
@@ -772,12 +772,12 @@ define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11Str
 
 .lr.ph:                                           ; preds = %3
   %7 = add nsw i64 %5, -1
-  %spec.select12 = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %7, i64 %2)
   %8 = load ptr, ptr %0, align 8, !tbaa !3
   br label %9
 
 9:                                                ; preds = %.lr.ph, %select.unfold
-  %.0713 = phi i64 [ %spec.select12, %.lr.ph ], [ %12, %select.unfold ]
+  %.0713 = phi i64 [ %spec.select, %.lr.ph ], [ %12, %select.unfold ]
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.0713
   %11 = load i8, ptr %10, align 1, !tbaa !16
   %.not = icmp eq i8 %11, %1
@@ -785,11 +785,11 @@ define noundef range(i64 -1, 9223372036854775807) i64 @_ZNK6google8protobuf11Str
 
 select.unfold:                                    ; preds = %9
   %12 = add nsw i64 %.0713, -1
-  %13 = icmp slt i64 %.0713, 1
-  br i1 %13, label %.loopexit, label %9, !llvm.loop !28
+  %13 = icmp sgt i64 %.0713, 0
+  br i1 %13, label %9, label %.loopexit, !llvm.loop !28
 
-.loopexit:                                        ; preds = %9, %select.unfold, %3
-  %.08 = phi i64 [ -1, %3 ], [ %.0713, %9 ], [ -1, %select.unfold ]
+.loopexit:                                        ; preds = %select.unfold, %9, %3
+  %.08 = phi i64 [ -1, %3 ], [ -1, %select.unfold ], [ %.0713, %9 ]
   ret i64 %.08
 }
 

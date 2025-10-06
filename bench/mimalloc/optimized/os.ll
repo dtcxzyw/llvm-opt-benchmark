@@ -1350,8 +1350,8 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
 29:                                               ; preds = %24
   %30 = inttoptr i64 %.0.i to ptr
   %31 = tail call i64 @_mi_clock_start() #7
-  %.not113 = icmp eq i64 %0, 0
-  br i1 %.not113, label %.loopexit, label %.lr.ph
+  %.not112 = icmp eq i64 %0, 0
+  br i1 %.not112, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %29
   %32 = icmp sgt i64 %2, 0
@@ -1359,84 +1359,84 @@ define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i6
   br i1 %32, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %mi_os_prim_free.exit.us
-  %.05098.us = phi i64 [ %42, %mi_os_prim_free.exit.us ], [ 0, %.lr.ph ]
-  %.05297.us = phi i8 [ %spec.select.us, %mi_os_prim_free.exit.us ], [ 1, %.lr.ph ]
+  %.05097.us = phi i64 [ %42, %mi_os_prim_free.exit.us ], [ 0, %.lr.ph ]
+  %.05296.us = phi i8 [ %spec.select.us, %mi_os_prim_free.exit.us ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !24
-  %34 = shl i64 %.05098.us, 30
+  %34 = shl i64 %.05097.us, 30
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 %34
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !26
   %36 = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %35, i64 noundef 1073741824, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %37 = load i8, ptr %7, align 1, !tbaa !24, !range !9, !noundef !10
   %38 = trunc nuw i8 %37 to i1
-  %spec.select.us = select i1 %38, i8 %.05297.us, i8 0
+  %spec.select.us = select i1 %38, i8 %.05296.us, i8 0
   %.not67.us = icmp eq i32 %36, 0
   br i1 %.not67.us, label %39, label %.split.us
 
 39:                                               ; preds = %.lr.ph.split.us
   %40 = load ptr, ptr %8, align 8, !tbaa !26
   %.not68.us = icmp eq ptr %40, %35
-  br i1 %.not68.us, label %41, label %.split104.us
+  br i1 %.not68.us, label %41, label %.split103.us
 
 41:                                               ; preds = %39
-  %42 = add nuw i64 %.05098.us, 1
+  %42 = add nuw i64 %.05097.us, 1
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   %43 = call i64 @_mi_clock_end(i64 noundef %31) #7
-  %44 = add i64 %.05098.us, 2
+  %44 = add i64 %.05097.us, 2
   %45 = udiv i64 %43, %44
   %46 = mul i64 %45, %0
   %47 = icmp sgt i64 %46, %33
-  %.not7079.us = icmp sgt i64 %43, %2
-  %.not70.us = or i1 %.not7079.us, %47
+  %.not7078.us = icmp sgt i64 %43, %2
+  %.not70.us = or i1 %.not7078.us, %47
   br i1 %.not70.us, label %.thread, label %mi_os_prim_free.exit.us
 
 mi_os_prim_free.exit.us:                          ; preds = %41
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %exitcond148.not = icmp eq i64 %42, %0
-  br i1 %exitcond148.not, label %.loopexit, label %.lr.ph.split.us
+  %exitcond147.not = icmp eq i64 %42, %0
+  br i1 %exitcond147.not, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %mi_os_prim_free.exit
-  %.05098 = phi i64 [ %62, %mi_os_prim_free.exit ], [ 0, %.lr.ph ]
-  %.05297 = phi i8 [ %spec.select, %mi_os_prim_free.exit ], [ 1, %.lr.ph ]
+  %.05097 = phi i64 [ %62, %mi_os_prim_free.exit ], [ 0, %.lr.ph ]
+  %.05296 = phi i8 [ %spec.select, %mi_os_prim_free.exit ], [ 1, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !24
-  %48 = shl i64 %.05098, 30
+  %48 = shl i64 %.05097, 30
   %49 = getelementptr inbounds nuw i8, ptr %30, i64 %48
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !26
   %50 = call i32 @_mi_prim_alloc_huge_os_pages(ptr noundef nonnull %49, i64 noundef 1073741824, i32 noundef %1, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %51 = load i8, ptr %7, align 1, !tbaa !24, !range !9, !noundef !10
   %52 = trunc nuw i8 %51 to i1
-  %spec.select = select i1 %52, i8 %.05297, i8 0
+  %spec.select = select i1 %52, i8 %.05296, i8 0
   %.not67 = icmp eq i32 %50, 0
   br i1 %.not67, label %53, label %.split.us
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi ptr [ %35, %.lr.ph.split.us ], [ %49, %.lr.ph.split ]
-  %.us-phi100 = phi i32 [ %36, %.lr.ph.split.us ], [ %50, %.lr.ph.split ]
-  %.us-phi101 = phi i8 [ %spec.select.us, %.lr.ph.split.us ], [ %spec.select, %.lr.ph.split ]
-  %.us-phi102 = phi i64 [ %.05098.us, %.lr.ph.split.us ], [ %.05098, %.lr.ph.split ]
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.2, i32 noundef %.us-phi100, i32 noundef %.us-phi100, ptr noundef nonnull %.us-phi, i64 noundef 1073741824) #7
+  %.us-phi99 = phi i32 [ %36, %.lr.ph.split.us ], [ %50, %.lr.ph.split ]
+  %.us-phi100 = phi i8 [ %spec.select.us, %.lr.ph.split.us ], [ %spec.select, %.lr.ph.split ]
+  %.us-phi101 = phi i64 [ %.05097.us, %.lr.ph.split.us ], [ %.05097, %.lr.ph.split ]
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.2, i32 noundef %.us-phi99, i32 noundef %.us-phi99, ptr noundef nonnull %.us-phi, i64 noundef 1073741824) #7
   br label %mi_os_prim_free.exit.thread
 
 53:                                               ; preds = %.lr.ph.split
   %54 = load ptr, ptr %8, align 8, !tbaa !26
   %.not68 = icmp eq ptr %54, %49
-  br i1 %.not68, label %mi_os_prim_free.exit, label %.split104.us
+  br i1 %.not68, label %mi_os_prim_free.exit, label %.split103.us
 
-.split104.us:                                     ; preds = %53, %39
-  %.us-phi105 = phi ptr [ %40, %39 ], [ %54, %53 ]
-  %.us-phi106 = phi ptr [ %35, %39 ], [ %49, %53 ]
-  %.us-phi107 = phi i8 [ %spec.select.us, %39 ], [ %spec.select, %53 ]
-  %.us-phi108 = phi i64 [ %.05098.us, %39 ], [ %.05098, %53 ]
-  %.not71 = icmp eq ptr %.us-phi105, null
+.split103.us:                                     ; preds = %53, %39
+  %.us-phi104 = phi ptr [ %40, %39 ], [ %54, %53 ]
+  %.us-phi105 = phi ptr [ %35, %39 ], [ %49, %53 ]
+  %.us-phi106 = phi i8 [ %spec.select.us, %39 ], [ %spec.select, %53 ]
+  %.us-phi107 = phi i64 [ %.05097.us, %39 ], [ %.05097, %53 ]
+  %.not71 = icmp eq ptr %.us-phi104, null
   br i1 %.not71, label %mi_os_prim_free.exit.thread, label %55
 
-55:                                               ; preds = %.split104.us
-  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.3, i64 noundef %.us-phi108, ptr noundef nonnull %.us-phi106) #7
+55:                                               ; preds = %.split103.us
+  call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.3, i64 noundef %.us-phi107, ptr noundef nonnull %.us-phi105) #7
   %56 = load ptr, ptr %8, align 8, !tbaa !26
   %57 = icmp eq ptr %56, null
   br i1 %57, label %mi_os_prim_free.exit.thread, label %58
@@ -1456,7 +1456,7 @@ mi_os_prim_free.exit.us:                          ; preds = %41
   br label %mi_os_prim_free.exit.thread
 
 mi_os_prim_free.exit:                             ; preds = %53
-  %62 = add nuw i64 %.05098, 1
+  %62 = add nuw i64 %.05097, 1
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 96), i64 noundef 1073741824) #7
   call void @_mi_stat_increase(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 64), i64 noundef 1073741824) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1468,15 +1468,15 @@ mi_os_prim_free.exit:                             ; preds = %53
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.4, i64 noundef %42) #7
   br label %mi_os_prim_free.exit.thread
 
-mi_os_prim_free.exit.thread:                      ; preds = %.split.us, %.split104.us, %55, %61, %.thread
-  %spec.select88 = phi i8 [ %spec.select.us, %.thread ], [ %.us-phi107, %61 ], [ %.us-phi107, %55 ], [ %.us-phi107, %.split104.us ], [ %.us-phi101, %.split.us ]
-  %.2.ph = phi i64 [ %42, %.thread ], [ %.us-phi108, %61 ], [ %.us-phi108, %55 ], [ %.us-phi108, %.split104.us ], [ %.us-phi102, %.split.us ]
+mi_os_prim_free.exit.thread:                      ; preds = %.split.us, %.split103.us, %55, %61, %.thread
+  %spec.select87 = phi i8 [ %spec.select.us, %.thread ], [ %.us-phi106, %61 ], [ %.us-phi106, %55 ], [ %.us-phi106, %.split103.us ], [ %.us-phi100, %.split.us ]
+  %.2.ph = phi i64 [ %42, %.thread ], [ %.us-phi107, %61 ], [ %.us-phi107, %55 ], [ %.us-phi107, %.split103.us ], [ %.us-phi101, %.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %mi_os_prim_free.exit, %mi_os_prim_free.exit.us, %29, %mi_os_prim_free.exit.thread
-  %.153 = phi i8 [ %spec.select88, %mi_os_prim_free.exit.thread ], [ 1, %29 ], [ %spec.select.us, %mi_os_prim_free.exit.us ], [ %spec.select, %mi_os_prim_free.exit ]
+  %.153 = phi i8 [ %spec.select87, %mi_os_prim_free.exit.thread ], [ 1, %29 ], [ %spec.select.us, %mi_os_prim_free.exit.us ], [ %spec.select, %mi_os_prim_free.exit ]
   %.151 = phi i64 [ %.2.ph, %mi_os_prim_free.exit.thread ], [ 0, %29 ], [ %0, %mi_os_prim_free.exit.us ], [ %0, %mi_os_prim_free.exit ]
   br i1 %.not66, label %64, label %63
 

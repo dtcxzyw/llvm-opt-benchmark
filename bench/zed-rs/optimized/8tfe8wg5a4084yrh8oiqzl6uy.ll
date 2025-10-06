@@ -367,7 +367,7 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hc
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = sub i64 %4, %6
   %8 = icmp slt i64 %7, 1
-  br i1 %8, label %.thread31, label %9
+  br i1 %8, label %.thread29, label %9
 
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -409,20 +409,20 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hc
   %35 = sdiv i64 %27, 4
   %36 = icmp sle i64 %7, %35
   %or.cond = and i1 %34, %36
-  br i1 %or.cond, label %40, label %.thread31
+  br i1 %or.cond, label %40, label %.thread29
 
 37:                                               ; preds = %12
   %38 = load ptr, ptr %0, align 8, !nonnull !18, !noundef !18
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 256
   store atomic i64 %13, ptr %39 monotonic, align 8
-  br label %.thread31
+  br label %.thread29
 
 40:                                               ; preds = %23
   %41 = lshr i64 %27, 1
   tail call void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize17hdfbcf9b552ded828E.llvm.14005321476880639974"(ptr noundef nonnull align 8 %0, i64 noundef %41)
-  br label %.thread31
+  br label %.thread29
 
-.thread31:                                        ; preds = %62, %66, %58, %40, %23, %1, %56, %37
+.thread29:                                        ; preds = %62, %66, %58, %40, %23, %1, %56, %37
   %.sroa.7.0 = phi ptr [ undef, %37 ], [ undef, %56 ], [ undef, %1 ], [ %33, %40 ], [ %33, %23 ], [ %54, %58 ], [ %54, %66 ], [ %54, %62 ]
   %.sroa.0.0 = phi ptr [ null, %37 ], [ null, %56 ], [ null, %1 ], [ %32, %40 ], [ %32, %23 ], [ %53, %58 ], [ %53, %66 ], [ %spec.select, %62 ]
   %42 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
@@ -448,14 +448,14 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hc
 56:                                               ; preds = %16
   %57 = getelementptr inbounds nuw i8, ptr %18, i64 264
   store atomic i64 %4, ptr %57 monotonic, align 8
-  br label %.thread31
+  br label %.thread29
 
 58:                                               ; preds = %44
   %59 = icmp ugt i64 %48, 64
   %60 = sdiv i64 %48, 4
   %61 = icmp slt i64 %21, %60
   %or.cond3 = and i1 %59, %61
-  br i1 %or.cond3, label %66, label %.thread31
+  br i1 %or.cond3, label %66, label %.thread29
 
 62:                                               ; preds = %44
   %63 = cmpxchg ptr %19, i64 %17, i64 %4 seq_cst monotonic, align 8
@@ -465,12 +465,12 @@ define hidden { ptr, ptr } @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$3pop17hc
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 264
   store atomic i64 %4, ptr %65 monotonic, align 8
   %spec.select = select i1 %.sroa.18.0.in.i, ptr %53, ptr null
-  br label %.thread31
+  br label %.thread29
 
 66:                                               ; preds = %58
   %67 = lshr i64 %48, 1
   tail call void @"_ZN15crossbeam_deque5deque15Worker$LT$T$GT$6resize17hdfbcf9b552ded828E.llvm.14005321476880639974"(ptr noundef nonnull align 8 %0, i64 noundef %67)
-  br label %.thread31
+  br label %.thread29
 }
 
 ; Function Attrs: nonlazybind uwtable

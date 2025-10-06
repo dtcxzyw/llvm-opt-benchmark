@@ -622,8 +622,8 @@ proto_item_set_hidden.exit:                       ; preds = %26, %44, %47
   br label %54
 
 54:                                               ; preds = %.lr.ph, %257
-  %.04866 = phi i32 [ 0, %.lr.ph ], [ %258, %257 ]
-  %.04963 = phi i32 [ %34, %.lr.ph ], [ %259, %257 ]
+  %.04865 = phi i32 [ 0, %.lr.ph ], [ %258, %257 ]
+  %.04962 = phi i32 [ %34, %.lr.ph ], [ %259, %257 ]
   %55 = load i8, ptr %52, align 2
   %56 = icmp ult i8 %55, 4
   br i1 %56, label %57, label %66
@@ -637,7 +637,7 @@ proto_item_set_hidden.exit:                       ; preds = %26, %44, %47
   %62 = load i32, ptr @hf_zebra_command, align 4
   %63 = load i16, ptr %6, align 2
   %64 = zext i16 %63 to i32
-  %65 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %62, ptr noundef %0, i32 noundef %.04866, i32 noundef %64, i32 noundef %60)
+  %65 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %62, ptr noundef %0, i32 noundef %.04865, i32 noundef %64, i32 noundef %60)
   br label %86
 
 66:                                               ; preds = %54
@@ -652,7 +652,7 @@ proto_item_set_hidden.exit:                       ; preds = %26, %44, %47
 
 71:                                               ; preds = %66
   %72 = load i32, ptr @hf_zebra_command_v4, align 4
-  %73 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %72, ptr noundef %0, i32 noundef %.04866, i32 noundef %68, i32 noundef %70)
+  %73 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %72, ptr noundef %0, i32 noundef %.04865, i32 noundef %68, i32 noundef %70)
   %74 = load ptr, ptr %27, align 8
   %75 = call ptr @val_to_str(i32 noundef %70, ptr noundef nonnull @frr_zapi4_messages, ptr noundef nonnull @.str.388)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.387, ptr noundef %75)
@@ -660,7 +660,7 @@ proto_item_set_hidden.exit:                       ; preds = %26, %44, %47
 
 76:                                               ; preds = %66
   %77 = load i32, ptr @hf_zebra_command_v5, align 4
-  %78 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %77, ptr noundef %0, i32 noundef %.04866, i32 noundef %68, i32 noundef %70)
+  %78 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %77, ptr noundef %0, i32 noundef %.04865, i32 noundef %68, i32 noundef %70)
   %79 = load ptr, ptr %27, align 8
   %80 = call ptr @val_to_str(i32 noundef %70, ptr noundef nonnull @frr_zapi5_messages, ptr noundef nonnull @.str.388)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.387, ptr noundef %80)
@@ -668,7 +668,7 @@ proto_item_set_hidden.exit:                       ; preds = %26, %44, %47
 
 81:                                               ; preds = %66
   %82 = load i32, ptr @hf_zebra_command_v6, align 4
-  %83 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %82, ptr noundef %0, i32 noundef %.04866, i32 noundef %68, i32 noundef %70)
+  %83 = call ptr @proto_tree_add_uint(ptr noundef %40, i32 noundef %82, ptr noundef %0, i32 noundef %.04865, i32 noundef %68, i32 noundef %70)
   %84 = load ptr, ptr %27, align 8
   %85 = call ptr @val_to_str(i32 noundef %70, ptr noundef nonnull @frr_zapi6_messages, ptr noundef nonnull @.str.388)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %84, i32 noundef 25, ptr noundef nonnull @.str.387, ptr noundef %85)
@@ -682,10 +682,10 @@ proto_item_set_hidden.exit:                       ; preds = %26, %44, %47
   %89 = load i32, ptr @ett_zebra_request, align 4
   %90 = call ptr @proto_item_add_subtree(ptr noundef %.051, i32 noundef %89)
   %91 = load i32, ptr @hf_zebra_len, align 4
-  %92 = call ptr @proto_tree_add_uint(ptr noundef %90, i32 noundef %91, ptr noundef %0, i32 noundef %.04866, i32 noundef 2, i32 noundef %.pre-phi)
-  %93 = add i32 %.04866, 2
+  %92 = call ptr @proto_tree_add_uint(ptr noundef %90, i32 noundef %91, ptr noundef %0, i32 noundef %.04865, i32 noundef 2, i32 noundef %.pre-phi)
+  %93 = add i32 %.04865, 2
   %.not.i55 = icmp eq i8 %55, 0
-  %94 = add i32 %.04866, 3
+  %94 = add i32 %.04865, 3
   br i1 %.not.i55, label %.thread323.i, label %95
 
 95:                                               ; preds = %86
@@ -694,7 +694,7 @@ proto_item_set_hidden.exit:                       ; preds = %26, %44, %47
   %98 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %97, ptr noundef %0, i32 noundef %93, i32 noundef 1, i32 noundef 0)
   %99 = load i32, ptr @hf_zebra_version, align 4
   %100 = call ptr @proto_tree_add_uint(ptr noundef %90, i32 noundef %99, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef %96)
-  %101 = add i32 %.04866, 4
+  %101 = add i32 %.04865, 4
   %102 = add i8 %55, -3
   %or.cond.i = icmp ult i8 %102, 2
   br i1 %or.cond.i, label %105, label %103
@@ -706,23 +706,23 @@ proto_item_set_hidden.exit:                       ; preds = %26, %44, %47
 105:                                              ; preds = %95
   %106 = load i32, ptr @hf_zebra_vrfid, align 4
   %107 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %106, ptr noundef %0, i32 noundef %101, i32 noundef 2, i32 noundef 0)
-  %108 = add i32 %.04866, 6
+  %108 = add i32 %.04865, 6
   br i1 %56, label %.thread.i, label %.thread328.i
 
 109:                                              ; preds = %103
   %110 = load i32, ptr @hf_zebra_vrfid, align 4
   %111 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %110, ptr noundef %0, i32 noundef %101, i32 noundef 4, i32 noundef 0)
-  %112 = add i32 %.04866, 8
+  %112 = add i32 %.04865, 8
   %cond.i = icmp eq i8 %55, 5
   %113 = zext i16 %87 to i32
-  %114 = add i32 %.04866, 10
+  %114 = add i32 %.04865, 10
   br i1 %cond.i, label %.thread330.i, label %169
 
 .thread328.i:                                     ; preds = %105
   %115 = load i32, ptr @hf_zebra_command_v4, align 4
   %116 = zext i16 %87 to i32
   %117 = call ptr @proto_tree_add_uint(ptr noundef %90, i32 noundef %115, ptr noundef %0, i32 noundef %108, i32 noundef 2, i32 noundef %116)
-  %118 = add i32 %.04866, 8
+  %118 = add i32 %.04865, 8
   switch i16 %87, label %257 [
     i16 0, label %172
     i16 4, label %172
@@ -898,7 +898,7 @@ zebra_hello.exit.i:                               ; preds = %128
   br label %257
 
 166:                                              ; preds = %128, %128
-  %167 = sub i32 %.1325.i, %.04866
+  %167 = sub i32 %.1325.i, %.04865
   call fastcc void @zebra_nexthop_register(ptr noundef %90, ptr noundef %0, i32 noundef %.1325.i, i16 noundef zeroext %88, i32 noundef %167)
   br label %257
 
@@ -962,10 +962,10 @@ zebra_hello.exit.i:                               ; preds = %128
 178:                                              ; preds = %.thread328.i
   %179 = load i32, ptr @hf_zebra_routeridfamily, align 4
   %180 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %179, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef 0)
-  %181 = add i32 %.04866, 9
+  %181 = add i32 %.04865, 9
   %182 = load i32, ptr @hf_zebra_routeridaddress, align 4
   %183 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %182, ptr noundef %0, i32 noundef %181, i32 noundef 4, i32 noundef 0)
-  %184 = add i32 %.04866, 13
+  %184 = add i32 %.04865, 13
   %185 = load i32, ptr @hf_zebra_routeridmask, align 4
   %186 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %185, ptr noundef %0, i32 noundef %184, i32 noundef 1, i32 noundef 0)
   br label %257
@@ -978,7 +978,7 @@ zebra_hello.exit.i:                               ; preds = %128
 zebra_hello.exit:                                 ; preds = %.thread328.i
   %190 = load i32, ptr @hf_zebra_redist_default, align 4
   %191 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %190, ptr noundef %0, i32 noundef %118, i32 noundef 1, i32 noundef 0)
-  %192 = add i32 %.04866, 9
+  %192 = add i32 %.04865, 9
   %193 = load i32, ptr @hf_zebra_instance, align 4
   %194 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %193, ptr noundef %0, i32 noundef %192, i32 noundef 2, i32 noundef 0)
   br label %257
@@ -1022,10 +1022,10 @@ zebra_hello.exit:                                 ; preds = %.thread328.i
 206:                                              ; preds = %.thread330.i, %.thread330.i
   %207 = load i32, ptr @hf_zebra_afi, align 4
   %208 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %207, ptr noundef %0, i32 noundef %114, i32 noundef 1, i32 noundef 0)
-  %209 = add i32 %.04866, 11
+  %209 = add i32 %.04865, 11
   %hf_zebra_type_v5.val.i = load i32, ptr @hf_zebra_type_v5, align 4
   %210 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %hf_zebra_type_v5.val.i, ptr noundef %0, i32 noundef %209, i32 noundef 1, i32 noundef 0)
-  %211 = add i32 %.04866, 12
+  %211 = add i32 %.04865, 12
   %212 = load i32, ptr @hf_zebra_instance, align 4
   %213 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %212, ptr noundef %0, i32 noundef %211, i32 noundef 2, i32 noundef 0)
   br label %257
@@ -1040,7 +1040,7 @@ zebra_hello.exit:                                 ; preds = %.thread328.i
   br label %257
 
 218:                                              ; preds = %.thread330.i
-  call fastcc void @zebra_hello(ptr noundef %90, ptr noundef %0, i32 noundef %114, i32 noundef %.04963, i8 noundef zeroext 5)
+  call fastcc void @zebra_hello(ptr noundef %90, ptr noundef %0, i32 noundef %114, i32 noundef %.04962, i8 noundef zeroext 5)
   br label %257
 
 219:                                              ; preds = %.thread330.i
@@ -1067,7 +1067,7 @@ zebra_hello.exit:                                 ; preds = %.thread328.i
 226:                                              ; preds = %.thread330.i, %.thread330.i
   %227 = load i32, ptr @hf_zebra_proto, align 4
   %228 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %227, ptr noundef %0, i32 noundef %114, i32 noundef 1, i32 noundef 0)
-  %229 = add i32 %.04866, 11
+  %229 = add i32 %.04865, 11
   %230 = load i32, ptr @hf_zebra_instance, align 4
   %231 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %230, ptr noundef %0, i32 noundef %229, i32 noundef 2, i32 noundef 0)
   br label %257
@@ -1105,7 +1105,7 @@ zebra_hello.exit:                                 ; preds = %.thread328.i
   br label %257
 
 242:                                              ; preds = %169
-  call fastcc void @zebra_hello(ptr noundef %90, ptr noundef %0, i32 noundef %114, i32 noundef %.04963, i8 noundef zeroext %55)
+  call fastcc void @zebra_hello(ptr noundef %90, ptr noundef %0, i32 noundef %114, i32 noundef %.04962, i8 noundef zeroext %55)
   br label %257
 
 243:                                              ; preds = %169
@@ -1132,7 +1132,7 @@ zebra_hello.exit:                                 ; preds = %.thread328.i
 250:                                              ; preds = %169, %169
   %251 = load i32, ptr @hf_zebra_proto, align 4
   %252 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %251, ptr noundef %0, i32 noundef %114, i32 noundef 1, i32 noundef 0)
-  %253 = add i32 %.04866, 11
+  %253 = add i32 %.04865, 11
   %254 = load i32, ptr @hf_zebra_instance, align 4
   %255 = call ptr @proto_tree_add_item(ptr noundef %90, i32 noundef %254, ptr noundef %0, i32 noundef %253, i32 noundef 2, i32 noundef 0)
   br label %257
@@ -1142,8 +1142,8 @@ zebra_hello.exit:                                 ; preds = %.thread328.i
   br label %257
 
 257:                                              ; preds = %256, %250, %247, %246, %245, %244, %243, %242, %239, %238, %237, %236, %235, %234, %233, %232, %226, %223, %222, %221, %220, %219, %218, %215, %214, %206, %205, %204, %203, %202, %201, %200, %197, %196, %195, %zebra_hello.exit, %187, %178, %177, %176, %175, %174, %173, %172, %169, %168, %166, %zebra_hello.exit.i, %161, %160, %151, %145, %143, %137, %135, %134, %133, %132, %131, %130, %129, %128, %.thread330.i, %.thread328.i
-  %258 = add i32 %.04866, %.pre-phi
-  %259 = sub i32 %.04963, %.pre-phi
+  %258 = add i32 %.04865, %.pre-phi
+  %259 = sub i32 %.04962, %.pre-phi
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %260 = call fastcc zeroext i1 @zebra_get_header(ptr noundef %0, i32 noundef %258, ptr noundef nonnull %6)

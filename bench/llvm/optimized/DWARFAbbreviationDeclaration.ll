@@ -823,8 +823,8 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamls
 define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %0, i16 noundef zeroext %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !3
-  %.not10 = icmp eq i32 %4, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph
+  %.not8 = icmp eq i32 %4, 0
+  br i1 %.not8, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -832,21 +832,21 @@ define dso_local range(i64 0, 8589934592) i64 @_ZNK4llvm28DWARFAbbreviationDecla
   br label %7
 
 7:                                                ; preds = %.lr.ph, %12
-  %.0611 = phi i32 [ 0, %.lr.ph ], [ %13, %12 ]
-  %8 = zext i32 %.0611 to i64
+  %.069 = phi i32 [ 0, %.lr.ph ], [ %13, %12 ]
+  %8 = zext i32 %.069 to i64
   %9 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %6, i64 %8
   %10 = load i16, ptr %9, align 8, !tbaa !123
   %11 = icmp eq i16 %10, %1
   br i1 %11, label %._crit_edge.loopexit, label %12
 
 12:                                               ; preds = %7
-  %13 = add nuw i32 %.0611, 1
+  %13 = add nuw i32 %.069, 1
   %.not = icmp eq i32 %13, %4
   br i1 %.not, label %._crit_edge.loopexit, label %7, !llvm.loop !124
 
-._crit_edge.loopexit:                             ; preds = %7, %12
-  %.06.lcssa.ph = phi i32 [ %4, %12 ], [ %.0611, %7 ]
-  %.sroa.2.1.ph = phi i64 [ 0, %12 ], [ 4294967296, %7 ]
+._crit_edge.loopexit:                             ; preds = %12, %7
+  %.06.lcssa.ph = phi i32 [ %.069, %7 ], [ %4, %12 ]
+  %.sroa.2.1.ph = phi i64 [ 4294967296, %7 ], [ 0, %12 ]
   %14 = zext i32 %.06.lcssa.ph to i64
   %15 = or disjoint i64 %.sroa.2.1.ph, %14
   br label %._crit_edge
@@ -1052,8 +1052,8 @@ define dso_local void @_ZNK4llvm28DWARFAbbreviationDeclaration17getAttributeValu
   %10 = alloca i64, align 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !3
-  %.not10.i = icmp eq i32 %12, 0
-  br i1 %.not10.i, label %_ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE.exit.thread, label %.lr.ph.i
+  %.not8.i = icmp eq i32 %12, 0
+  br i1 %.not8.i, label %_ZNK4llvm28DWARFAbbreviationDeclaration18findAttributeIndexENS_5dwarf9AttributeE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1229,7 +1229,7 @@ define dso_local noundef range(i64 0, 197626) i64 @_ZNK4llvm28DWARFAbbreviationD
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %14 = load i8, ptr %13, align 1, !tbaa !81
   %.not10 = icmp eq i8 %14, 0
-  br i1 %.not10, label %25, label %15
+  br i1 %.not10, label %26, label %15
 
 15:                                               ; preds = %2
   %16 = zext i8 %14 to i64
@@ -1238,33 +1238,33 @@ define dso_local noundef range(i64 0, 197626) i64 @_ZNK4llvm28DWARFAbbreviationD
   %19 = icmp eq i16 %18, 2
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %21 = load i8, ptr %20, align 1
-  %switch.i.i.i.i.i = icmp eq i8 %21, 0
-  %..i.i.i.i.i = select i1 %switch.i.i.i.i.i, i8 4, i8 8
+  %22 = icmp eq i8 %21, 0
+  %..i.i.i.i.i = select i1 %22, i8 4, i8 8
   %.0.i.i.i = select i1 %19, i8 %9, i8 %..i.i.i.i.i
-  %22 = zext i8 %.0.i.i.i to i64
-  %23 = mul nuw nsw i64 %22, %16
-  %24 = add nuw nsw i64 %23, %.0
-  br label %25
+  %23 = zext i8 %.0.i.i.i to i64
+  %24 = mul nuw nsw i64 %23, %16
+  %25 = add nuw nsw i64 %24, %.0
+  br label %26
 
-25:                                               ; preds = %15, %2
-  %.1 = phi i64 [ %24, %15 ], [ %.0, %2 ]
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %27 = load i8, ptr %26, align 2, !tbaa !82
-  %.not11 = icmp eq i8 %27, 0
-  br i1 %.not11, label %35, label %28
+26:                                               ; preds = %15, %2
+  %.1 = phi i64 [ %25, %15 ], [ %.0, %2 ]
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %28 = load i8, ptr %27, align 2, !tbaa !82
+  %.not11 = icmp eq i8 %28, 0
+  br i1 %.not11, label %37, label %29
 
-28:                                               ; preds = %25
-  %29 = zext i8 %27 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 35
-  %31 = load i8, ptr %30, align 1, !tbaa !146
-  %switch.i.i.i.i = icmp eq i8 %31, 0
-  %32 = select i1 %switch.i.i.i.i, i64 2, i64 3
-  %33 = shl nuw nsw i64 %29, %32
-  %34 = add nuw nsw i64 %33, %.1
-  br label %35
+29:                                               ; preds = %26
+  %30 = zext i8 %28 to i64
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 35
+  %32 = load i8, ptr %31, align 1, !tbaa !146
+  %33 = icmp eq i8 %32, 0
+  %34 = select i1 %33, i64 2, i64 3
+  %35 = shl nuw nsw i64 %30, %34
+  %36 = add nuw nsw i64 %35, %.1
+  br label %37
 
-35:                                               ; preds = %28, %25
-  %.2 = phi i64 [ %34, %28 ], [ %.1, %25 ]
+37:                                               ; preds = %29, %26
+  %.2 = phi i64 [ %36, %29 ], [ %.1, %26 ]
   ret i64 %.2
 }
 
@@ -1292,7 +1292,7 @@ define dso_local { i64, i8 } @_ZNK4llvm28DWARFAbbreviationDeclaration26getFixedA
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 155
   %19 = load i8, ptr %18, align 1, !tbaa !81
   %.not10.i = icmp eq i8 %19, 0
-  br i1 %.not10.i, label %30, label %20
+  br i1 %.not10.i, label %31, label %20
 
 20:                                               ; preds = %6
   %21 = zext i8 %19 to i64
@@ -1301,34 +1301,34 @@ define dso_local { i64, i8 } @_ZNK4llvm28DWARFAbbreviationDeclaration26getFixedA
   %24 = icmp eq i16 %23, 2
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 35
   %26 = load i8, ptr %25, align 1
-  %switch.i.i.i.i.i.i = icmp eq i8 %26, 0
-  %..i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i8 4, i8 8
+  %27 = icmp eq i8 %26, 0
+  %..i.i.i.i.i.i = select i1 %27, i8 4, i8 8
   %.0.i.i.i.i = select i1 %24, i8 %14, i8 %..i.i.i.i.i.i
-  %27 = zext i8 %.0.i.i.i.i to i64
-  %28 = mul nuw nsw i64 %27, %21
-  %29 = add nuw nsw i64 %28, %.0.i
-  br label %30
+  %28 = zext i8 %.0.i.i.i.i to i64
+  %29 = mul nuw nsw i64 %28, %21
+  %30 = add nuw nsw i64 %29, %.0.i
+  br label %31
 
-30:                                               ; preds = %20, %6
-  %.1.i = phi i64 [ %29, %20 ], [ %.0.i, %6 ]
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %32 = load i8, ptr %31, align 4, !tbaa !82
-  %.not11.i = icmp eq i8 %32, 0
-  br i1 %.not11.i, label %_ZNK4llvm28DWARFAbbreviationDeclaration13FixedSizeInfo11getByteSizeERKNS_9DWARFUnitE.exit, label %33
+31:                                               ; preds = %20, %6
+  %.1.i = phi i64 [ %30, %20 ], [ %.0.i, %6 ]
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 156
+  %33 = load i8, ptr %32, align 4, !tbaa !82
+  %.not11.i = icmp eq i8 %33, 0
+  br i1 %.not11.i, label %_ZNK4llvm28DWARFAbbreviationDeclaration13FixedSizeInfo11getByteSizeERKNS_9DWARFUnitE.exit, label %34
 
-33:                                               ; preds = %30
-  %34 = zext i8 %32 to i64
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 35
-  %36 = load i8, ptr %35, align 1, !tbaa !146
-  %switch.i.i.i.i.i = icmp eq i8 %36, 0
-  %37 = select i1 %switch.i.i.i.i.i, i64 2, i64 3
-  %38 = shl nuw nsw i64 %34, %37
-  %39 = add nuw nsw i64 %38, %.1.i
+34:                                               ; preds = %31
+  %35 = zext i8 %33 to i64
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 35
+  %37 = load i8, ptr %36, align 1, !tbaa !146
+  %38 = icmp eq i8 %37, 0
+  %39 = select i1 %38, i64 2, i64 3
+  %40 = shl nuw nsw i64 %35, %39
+  %41 = add nuw nsw i64 %40, %.1.i
   br label %_ZNK4llvm28DWARFAbbreviationDeclaration13FixedSizeInfo11getByteSizeERKNS_9DWARFUnitE.exit
 
-_ZNK4llvm28DWARFAbbreviationDeclaration13FixedSizeInfo11getByteSizeERKNS_9DWARFUnitE.exit: ; preds = %2, %33, %30
-  %.sroa.0.0 = phi i64 [ %39, %33 ], [ %.1.i, %30 ], [ undef, %2 ]
-  %.sroa.2.0 = phi i8 [ 1, %33 ], [ 1, %30 ], [ 0, %2 ]
+_ZNK4llvm28DWARFAbbreviationDeclaration13FixedSizeInfo11getByteSizeERKNS_9DWARFUnitE.exit: ; preds = %2, %34, %31
+  %.sroa.0.0 = phi i64 [ %41, %34 ], [ %.1.i, %31 ], [ undef, %2 ]
+  %.sroa.2.0 = phi i8 [ 1, %34 ], [ 1, %31 ], [ 0, %2 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.0, 1
   ret { i64, i8 } %.fca.1.insert

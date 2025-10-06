@@ -937,14 +937,14 @@ define hidden noundef ptr @_ZN3smt17theory_array_base16mk_select_reduceEjPP4expr
   %11 = icmp ne i32 %10, 0
   %12 = icmp ult i32 %1, 2
   %or.cond = or i1 %11, %12
-  br i1 %or.cond, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %.lr.ph24.split.preheader
+  br i1 %or.cond, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %.lr.ph23.split.preheader
 
-.lr.ph24.split.preheader:                         ; preds = %3
+.lr.ph23.split.preheader:                         ; preds = %3
   %13 = zext i32 %1 to i64
-  br label %.lr.ph24.split
+  br label %.lr.ph23.split
 
-.lr.ph24.split:                                   ; preds = %.lr.ph24.split.preheader, %35
-  %14 = phi ptr [ %38, %35 ], [ %7, %.lr.ph24.split.preheader ]
+.lr.ph23.split:                                   ; preds = %.lr.ph23.split.preheader, %35
+  %14 = phi ptr [ %38, %35 ], [ %7, %.lr.ph23.split.preheader ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !572
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
@@ -952,7 +952,7 @@ define hidden noundef ptr @_ZN3smt17theory_array_base16mk_select_reduceEjPP4expr
   %.not.i.i.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i.i.i, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread, label %_ZNK17array_recognizers8is_storeEP4expr.exit
 
-_ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %.lr.ph24.split
+_ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %.lr.ph23.split
   %19 = load i32, ptr %4, align 8, !tbaa !580
   %20 = load i32, ptr %18, align 8, !tbaa !581
   %21 = icmp eq i32 %20, %19
@@ -989,9 +989,9 @@ _ZNK17array_recognizers8is_storeEP4expr.exit:     ; preds = %.lr.ph24.split
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 65535
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %.lr.ph24.split, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread
+  br i1 %42, label %.lr.ph23.split, label %_ZNK17array_recognizers8is_storeEP4expr.exit.thread
 
-_ZNK17array_recognizers8is_storeEP4expr.exit.thread: ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit, %35, %.lr.ph24.split, %._crit_edge, %3
+_ZNK17array_recognizers8is_storeEP4expr.exit.thread: ; preds = %_ZNK17array_recognizers8is_storeEP4expr.exit, %35, %.lr.ph23.split, %._crit_edge, %3
   %43 = load ptr, ptr %5, align 8, !tbaa !569
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !570
@@ -5591,17 +5591,17 @@ _ZNK3smt5enode7parents3endEv.exit:                ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not35.not = icmp eq i32 %7, 0
-  br i1 %.not35.not, label %.loopexit, label %.lr.ph38
+  %.not37.not = icmp eq i32 %7, 0
+  br i1 %.not37.not, label %.loopexit, label %.lr.ph40
 
-.lr.ph38:                                         ; preds = %_ZNK3smt5enode7parents3endEv.exit
+.lr.ph40:                                         ; preds = %_ZNK3smt5enode7parents3endEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8
   br label %13
 
-13:                                               ; preds = %.lr.ph38, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread
-  %.02336 = phi ptr [ %4, %.lr.ph38 ], [ %38, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread ]
-  %14 = load ptr, ptr %.02336, align 8, !tbaa !655
+13:                                               ; preds = %.lr.ph40, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread
+  %.02338 = phi ptr [ %4, %.lr.ph40 ], [ %38, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread ]
+  %14 = load ptr, ptr %.02338, align 8, !tbaa !655
   %15 = load ptr, ptr %14, align 8, !tbaa !587
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !572
@@ -5652,13 +5652,13 @@ _ZNK3smt5enode12get_num_argsEv.exit.us:           ; preds = %.lr.ph
   br i1 %37, label %.loopexit, label %_ZNK3smt5enode12get_num_argsEv.exit.us
 
 _ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread: ; preds = %_ZNK3smt5enode12get_num_argsEv.exit.us, %.preheader, %_ZNK3smt5enode12get_num_argsEv.exit.lr.ph, %13, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit
-  %38 = getelementptr inbounds nuw i8, ptr %.02336, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.02338, i64 8
   %.not.not = icmp eq ptr %38, %10
   br i1 %.not.not, label %.loopexit, label %13
 
 .loopexit:                                        ; preds = %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread, %.lr.ph, %2, %_ZNK3smt5enode7parents3endEv.exit
-  %.not32 = phi i1 [ false, %_ZNK3smt5enode7parents3endEv.exit ], [ false, %2 ], [ true, %.lr.ph ], [ false, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread ]
-  ret i1 %.not32
+  %.not34 = phi i1 [ false, %_ZNK3smt5enode7parents3endEv.exit ], [ false, %2 ], [ true, %.lr.ph ], [ false, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread ]
+  ret i1 %.not34
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5799,16 +5799,16 @@ _ZNK3smt5enode7parents3endEv.exit.i:              ; preds = %60
   %66 = zext i32 %65 to i64
   %67 = shl nuw nsw i64 %66, 3
   %68 = getelementptr inbounds nuw i8, ptr %62, i64 %67
-  %.not35.not.i = icmp eq i32 %65, 0
-  br i1 %.not35.not.i, label %_ZN3smt17theory_array_base13is_select_argEPNS_5enodeE.exit.thread, label %.lr.ph38.i
+  %.not37.not.i = icmp eq i32 %65, 0
+  br i1 %.not37.not.i, label %_ZN3smt17theory_array_base13is_select_argEPNS_5enodeE.exit.thread, label %.lr.ph40.i
 
-.lr.ph38.i:                                       ; preds = %_ZNK3smt5enode7parents3endEv.exit.i
+.lr.ph40.i:                                       ; preds = %_ZNK3smt5enode7parents3endEv.exit.i
   %69 = load i32, ptr %13, align 8
   br label %70
 
-70:                                               ; preds = %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread.i, %.lr.ph38.i
-  %.02336.i = phi ptr [ %62, %.lr.ph38.i ], [ %95, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread.i ]
-  %71 = load ptr, ptr %.02336.i, align 8, !tbaa !655
+70:                                               ; preds = %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread.i, %.lr.ph40.i
+  %.02338.i = phi ptr [ %62, %.lr.ph40.i ], [ %95, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread.i ]
+  %71 = load ptr, ptr %.02338.i, align 8, !tbaa !655
   %72 = load ptr, ptr %71, align 8, !tbaa !587
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   %74 = load ptr, ptr %73, align 8, !tbaa !572
@@ -5859,7 +5859,7 @@ _ZNK3smt5enode12get_num_argsEv.exit.us.i:         ; preds = %.lr.ph.i
   br i1 %94, label %_ZN3smt17theory_array_base13is_select_argEPNS_5enodeE.exit, label %_ZNK3smt5enode12get_num_argsEv.exit.us.i
 
 _ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.thread.i: ; preds = %_ZNK3smt5enode12get_num_argsEv.exit.us.i, %_ZNK3smt5enode12get_num_argsEv.exit.lr.ph.i, %.preheader.i, %_ZNK3smt17theory_array_base9is_selectEPKNS_5enodeE.exit.i, %70
-  %95 = getelementptr inbounds nuw i8, ptr %.02336.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.02338.i, i64 8
   %.not.not.i = icmp eq ptr %95, %68
   br i1 %.not.not.i, label %_ZN3smt17theory_array_base13is_select_argEPNS_5enodeE.exit.thread, label %70
 

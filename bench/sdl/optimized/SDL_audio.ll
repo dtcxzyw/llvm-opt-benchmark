@@ -2646,12 +2646,12 @@ define internal fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %.preheader, %UnrefPhysicalAudioDevice.exit
   %29 = phi ptr [ %55, %UnrefPhysicalAudioDevice.exit ], [ %27, %.preheader ]
-  %.230 = phi ptr [ %29, %UnrefPhysicalAudioDevice.exit ], [ %.1, %.preheader ]
+  %.229 = phi ptr [ %29, %UnrefPhysicalAudioDevice.exit ], [ %.1, %.preheader ]
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %30, i32 noundef 1) #14
-  %32 = load ptr, ptr %.230, align 8
+  %32 = load ptr, ptr %.229, align 8
   call void @SDL_UnlockMutex_REAL(ptr noundef %32) #14
-  %33 = getelementptr inbounds nuw i8, ptr %.230, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.229, i64 16
   %34 = call i32 @SDL_AddAtomicInt_REAL(ptr noundef nonnull %33, i32 noundef -1) #14
   %35 = icmp eq i32 %34, 1
   br i1 %35, label %36, label %UnrefPhysicalAudioDevice.exit
@@ -2660,7 +2660,7 @@ define internal fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
   call void @SDL_LockRWLockForWriting_REAL(ptr noundef %37) #14
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 144), align 8
-  %39 = getelementptr inbounds nuw i8, ptr %.230, i64 80
+  %39 = getelementptr inbounds nuw i8, ptr %.229, i64 80
   %40 = load i32, ptr %39, align 8
   %41 = zext i32 %40 to i64
   %42 = inttoptr i64 %41 to ptr
@@ -2668,7 +2668,7 @@ define internal fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef
   br i1 %43, label %44, label %50
 
 44:                                               ; preds = %36
-  %45 = getelementptr inbounds nuw i8, ptr %.230, i64 148
+  %45 = getelementptr inbounds nuw i8, ptr %.229, i64 148
   %46 = load i8, ptr %45, align 4, !range !6, !noundef !7
   %47 = trunc nuw i8 %46 to i1
   %48 = select i1 %47, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 196), ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 192)
@@ -2678,7 +2678,7 @@ define internal fastcc ptr @ObtainLogicalAudioDevice(i32 noundef %0, ptr noundef
 50:                                               ; preds = %44, %36
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @current_audio, i64 136), align 8
   call void @SDL_UnlockRWLock_REAL(ptr noundef %51) #14
-  call fastcc void @DestroyPhysicalAudioDevice(ptr noundef nonnull %.230)
+  call fastcc void @DestroyPhysicalAudioDevice(ptr noundef nonnull %.229)
   br label %UnrefPhysicalAudioDevice.exit
 
 UnrefPhysicalAudioDevice.exit:                    ; preds = %50, %.lr.ph
@@ -2697,15 +2697,15 @@ UnrefPhysicalAudioDevice.exit:                    ; preds = %50, %.lr.ph
   br i1 %.not22, label %.thread, label %58
 
 .thread:                                          ; preds = %7, %21, %._crit_edge
-  %.01629 = phi ptr [ %.2.lcssa, %._crit_edge ], [ null, %7 ], [ %.1, %21 ]
+  %.01628 = phi ptr [ %.2.lcssa, %._crit_edge ], [ null, %7 ], [ %.1, %21 ]
   %57 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.12) #14
   %.pre = load ptr, ptr %3, align 8
   br label %58
 
 58:                                               ; preds = %.thread, %._crit_edge
   %59 = phi ptr [ %.pre, %.thread ], [ %.pr, %._crit_edge ]
-  %.01628 = phi ptr [ %.01629, %.thread ], [ %.2.lcssa, %._crit_edge ]
-  store ptr %.01628, ptr %1, align 8
+  %.01627 = phi ptr [ %.01628, %.thread ], [ %.2.lcssa, %._crit_edge ]
+  store ptr %.01627, ptr %1, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %60
 
@@ -3927,24 +3927,24 @@ define hidden void @SDL_UnbindAudioStreams_REAL(ptr noundef readonly captures(ad
   %3 = icmp sgt i32 %1, 0
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3
-  br i1 %or.cond, label %.preheader75.preheader, label %.loopexit
+  br i1 %or.cond, label %.preheader74.preheader, label %.loopexit
 
-.preheader75.preheader:                           ; preds = %2
+.preheader74.preheader:                           ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
-  br label %.preheader75
+  br label %.preheader74
 
-.preheader75:                                     ; preds = %.preheader75.preheader, %.thread
-  %indvars.iv = phi i64 [ 0, %.preheader75.preheader ], [ %indvars.iv.next, %.thread ]
+.preheader74:                                     ; preds = %.preheader74.preheader, %.thread
+  %indvars.iv = phi i64 [ 0, %.preheader74.preheader ], [ %indvars.iv.next, %.thread ]
   %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not69 = icmp eq ptr %6, null
-  br i1 %.not69, label %.thread, label %.preheader74
+  br i1 %.not69, label %.thread, label %.preheader73
 
-.preheader74:                                     ; preds = %.preheader75
+.preheader73:                                     ; preds = %.preheader74
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 192
   br label %8
 
-8:                                                ; preds = %.backedge, %.preheader74
+8:                                                ; preds = %.backedge, %.preheader73
   %9 = load ptr, ptr %6, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %9) #14
   %10 = load ptr, ptr %7, align 8
@@ -3982,19 +3982,19 @@ define hidden void @SDL_UnbindAudioStreams_REAL(ptr noundef readonly captures(ad
 .backedge:                                        ; preds = %22, %20
   br label %8
 
-.thread:                                          ; preds = %16, %.preheader75
+.thread:                                          ; preds = %16, %.preheader74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph, label %.preheader75, !llvm.loop !25
+  br i1 %exitcond.not, label %.lr.ph, label %.preheader74, !llvm.loop !25
 
-.lr.ph79.preheader:                               ; preds = %52
+.lr.ph78.preheader:                               ; preds = %52
   %smax = tail call i32 @llvm.smax.i32(i32 %1, i32 1)
-  %wide.trip.count89 = zext nneg i32 %smax to i64
-  br label %.lr.ph79
+  %wide.trip.count88 = zext nneg i32 %smax to i64
+  br label %.lr.ph78
 
 .lr.ph:                                           ; preds = %.thread, %52
-  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %52 ], [ 0, %.thread ]
-  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv81
+  %indvars.iv80 = phi i64 [ %indvars.iv.next81, %52 ], [ 0, %.thread ]
+  %26 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv80
   %27 = load ptr, ptr %26, align 8
   %.not65 = icmp eq ptr %27, null
   br i1 %.not65, label %52, label %28
@@ -4052,18 +4052,18 @@ define hidden void @SDL_UnbindAudioStreams_REAL(ptr noundef readonly captures(ad
   br label %52
 
 52:                                               ; preds = %51, %31, %28, %.lr.ph
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count
-  br i1 %exitcond85.not, label %.lr.ph79.preheader, label %.lr.ph, !llvm.loop !26
+  %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1
+  %exitcond84.not = icmp eq i64 %indvars.iv.next81, %wide.trip.count
+  br i1 %exitcond84.not, label %.lr.ph78.preheader, label %.lr.ph, !llvm.loop !26
 
-.lr.ph79:                                         ; preds = %.lr.ph79.preheader, %64
-  %indvars.iv86 = phi i64 [ 0, %.lr.ph79.preheader ], [ %indvars.iv.next87, %64 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv86
+.lr.ph78:                                         ; preds = %.lr.ph78.preheader, %64
+  %indvars.iv85 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next86, %64 ]
+  %53 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv85
   %54 = load ptr, ptr %53, align 8
   %.not = icmp eq ptr %54, null
   br i1 %.not, label %64, label %55
 
-55:                                               ; preds = %.lr.ph79
+55:                                               ; preds = %.lr.ph78
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 192
   %57 = load ptr, ptr %56, align 8
   store ptr null, ptr %56, align 8
@@ -4081,10 +4081,10 @@ define hidden void @SDL_UnbindAudioStreams_REAL(ptr noundef readonly captures(ad
   tail call void @SDL_UnlockMutex_REAL(ptr noundef %63) #14
   br label %64
 
-64:                                               ; preds = %55, %59, %.lr.ph79
-  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %exitcond90.not = icmp eq i64 %indvars.iv.next87, %wide.trip.count89
-  br i1 %exitcond90.not, label %.loopexit, label %.lr.ph79, !llvm.loop !27
+64:                                               ; preds = %55, %59, %.lr.ph78
+  %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
+  %exitcond89.not = icmp eq i64 %indvars.iv.next86, %wide.trip.count88
+  br i1 %exitcond89.not, label %.loopexit, label %.lr.ph78, !llvm.loop !27
 
 .loopexit:                                        ; preds = %64, %2
   ret void
@@ -4413,8 +4413,8 @@ define hidden nonnull ptr @SDL_ClosestAudioFormats(i32 noundef %0) local_unnamed
 
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %7, label %3, !llvm.loop !28
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !28
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -4423,9 +4423,9 @@ define hidden nonnull ptr @SDL_ClosestAudioFormats(i32 noundef %0) local_unnamed
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
 
-7:                                                ; preds = %3, %2
-  %spec.select = phi ptr [ getelementptr inbounds nuw (i8, ptr @format_list, i64 32), %2 ], [ %4, %3 ]
-  ret ptr %spec.select
+7:                                                ; preds = %2, %3
+  %8 = phi ptr [ %4, %3 ], [ getelementptr inbounds nuw (i8, ptr @format_list, i64 32), %2 ]
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

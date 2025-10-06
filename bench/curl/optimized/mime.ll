@@ -3201,9 +3201,9 @@ define internal i64 @encoder_qp_read(ptr noundef writeonly captures(none) %0, i6
 13:                                               ; preds = %.lr.ph, %80
   %14 = phi i64 [ %10, %.lr.ph ], [ %92, %80 ]
   %15 = phi i64 [ %9, %.lr.ph ], [ %91, %80 ]
-  %.054107 = phi i64 [ 0, %.lr.ph ], [ %81, %80 ]
-  %.057106 = phi ptr [ %0, %.lr.ph ], [ %82, %80 ]
-  %.059105 = phi i64 [ %1, %.lr.ph ], [ %83, %80 ]
+  %.054105 = phi i64 [ 0, %.lr.ph ], [ %81, %80 ]
+  %.057104 = phi ptr [ %0, %.lr.ph ], [ %82, %80 ]
+  %.059103 = phi i64 [ %1, %.lr.ph ], [ %83, %80 ]
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !66
   %18 = zext i8 %17 to i32
@@ -3344,19 +3344,19 @@ qp_lookahead_eol.exit72:                          ; preds = %65
 .thread:                                          ; preds = %72, %62, %76, %.critedge, %qp_lookahead_eol.exit.thread79
   %.152 = phi i64 [ 3, %.critedge ], [ %.051, %76 ], [ %.051, %qp_lookahead_eol.exit.thread79 ], [ %.051, %62 ], [ %.051, %72 ]
   %.150 = phi i64 [ 0, %.critedge ], [ %.049, %76 ], [ %.049, %qp_lookahead_eol.exit.thread79 ], [ %.049, %62 ], [ %.049, %72 ]
-  %78 = icmp ugt i64 %.152, %.059105
+  %78 = icmp ugt i64 %.152, %.059103
   br i1 %78, label %79, label %80
 
 79:                                               ; preds = %.thread
-  %.not63 = icmp eq i64 %.054107, 0
-  %spec.select = select i1 %.not63, i64 -2, i64 %.054107
+  %.not63 = icmp eq i64 %.054105, 0
+  %spec.select = select i1 %.not63, i64 -2, i64 %.054105
   br label %.thread88
 
 80:                                               ; preds = %.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.057106, ptr noundef nonnull align 4 dereferenceable(1) %5, i64 %.152, i1 false)
-  %81 = add i64 %.152, %.054107
-  %82 = getelementptr inbounds nuw i8, ptr %.057106, i64 %.152
-  %83 = sub nuw i64 %.059105, %.152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.057104, ptr noundef nonnull align 4 dereferenceable(1) %5, i64 %.152, i1 false)
+  %81 = add i64 %.152, %.054105
+  %82 = getelementptr inbounds nuw i8, ptr %.057104, i64 %.152
+  %83 = sub nuw i64 %.059103, %.152
   %84 = load i64, ptr %6, align 8, !tbaa !98
   %85 = add i64 %84, %.152
   %86 = getelementptr i8, ptr %5, i64 %.152
@@ -3373,7 +3373,7 @@ qp_lookahead_eol.exit72:                          ; preds = %65
   br i1 %93, label %13, label %.thread88
 
 .thread88:                                        ; preds = %80, %qp_lookahead_eol.exit68, %qp_lookahead_eol.exit, %qp_lookahead_eol.exit72, %4, %79
-  %.2 = phi i64 [ %spec.select, %79 ], [ 0, %4 ], [ %81, %80 ], [ %.054107, %qp_lookahead_eol.exit68 ], [ %.054107, %qp_lookahead_eol.exit ], [ %.054107, %qp_lookahead_eol.exit72 ]
+  %.2 = phi i64 [ %spec.select, %79 ], [ 0, %4 ], [ %81, %80 ], [ %.054105, %qp_lookahead_eol.exit68 ], [ %.054105, %qp_lookahead_eol.exit ], [ %.054105, %qp_lookahead_eol.exit72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i64 %.2
 }

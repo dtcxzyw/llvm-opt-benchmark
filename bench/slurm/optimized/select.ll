@@ -799,36 +799,36 @@ declare i32 @plugin_context_destroy(ptr noundef) local_unnamed_addr #1
 declare void @slurm_xfree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @select_get_plugin_id_pos(i32 noundef %0) local_unnamed_addr #9 {
+define dso_local range(i32 -2147483648, 2147483647) i32 @select_get_plugin_id_pos(i32 noundef %0) local_unnamed_addr #9 {
   %2 = load i32, ptr @select_context_cnt, align 4
-  %.not9 = icmp sgt i32 %2, 0
-  br i1 %.not9, label %.lr.ph, label %._crit_edge
+  %3 = icmp sgt i32 %2, 0
+  br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %3 = load ptr, ptr @ops, align 8
+  %4 = load ptr, ptr @ops, align 8
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %4
+  br label %5
 
-4:                                                ; preds = %.lr.ph, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %5 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %3, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %7, %0
-  br i1 %8, label %._crit_edge.loopexit.split.loop.exit, label %9
+5:                                                ; preds = %.lr.ph, %10
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
+  %6 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %4, i64 %indvars.iv
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %8, %0
+  br i1 %9, label %._crit_edge.loopexit.split.loop.exit14, label %10
 
-9:                                                ; preds = %4
+10:                                               ; preds = %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %4, !llvm.loop !15
+  br i1 %exitcond.not, label %._crit_edge, label %5, !llvm.loop !15
 
-._crit_edge.loopexit.split.loop.exit:             ; preds = %4
-  %10 = trunc nuw nsw i64 %indvars.iv to i32
+._crit_edge.loopexit.split.loop.exit14:           ; preds = %5
+  %11 = trunc nuw nsw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %9, %._crit_edge.loopexit.split.loop.exit, %1
-  %spec.select = phi i32 [ -1, %1 ], [ %10, %._crit_edge.loopexit.split.loop.exit ], [ -1, %9 ]
-  ret i32 %spec.select
+._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit.split.loop.exit14, %1
+  %12 = phi i32 [ -1, %1 ], [ %11, %._crit_edge.loopexit.split.loop.exit14 ], [ -1, %10 ]
+  ret i32 %12
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1080,28 +1080,27 @@ declare void @pack32(i32 noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @select_g_select_nodeinfo_unpack(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 718, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack) #15
-  store ptr %7, ptr %0, align 8
-  %8 = icmp ugt i16 %2, 10239
-  br i1 %8, label %9, label %32
+  %5 = alloca i32, align 4
+  %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 718, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack) #15
+  store ptr %6, ptr %0, align 8
+  %7 = icmp ugt i16 %2, 10239
+  br i1 %7, label %8, label %32
 
-9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %10 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %1) #15
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %68
+8:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %9 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %1) #15
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %10, label %52
 
-11:                                               ; preds = %9
-  %12 = load i32, ptr %6, align 4
-  %13 = load i32, ptr @select_context_cnt, align 4
-  %.not9.i = icmp sgt i32 %13, 0
-  br i1 %.not9.i, label %.lr.ph.i, label %select_get_plugin_id_pos.exit.thread.preheader
+10:                                               ; preds = %8
+  %11 = load i32, ptr %5, align 4
+  %12 = load i32, ptr @select_context_cnt, align 4
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph.i, label %select_get_plugin_id_pos.exit.thread.preheader
 
-.lr.ph.i:                                         ; preds = %11
+.lr.ph.i:                                         ; preds = %10
   %14 = load ptr, ptr @ops, align 8
-  %wide.trip.count.i = zext nneg i32 %13 to i64
+  %wide.trip.count.i = zext nneg i32 %12 to i64
   br label %15
 
 15:                                               ; preds = %20, %.lr.ph.i
@@ -1109,7 +1108,7 @@ define dso_local range(i32 -1, 1) i32 @select_g_select_nodeinfo_unpack(ptr nound
   %16 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %14, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, %12
+  %19 = icmp eq i32 %18, %11
   br i1 %19, label %select_get_plugin_id_pos.exit, label %20
 
 20:                                               ; preds = %15
@@ -1117,7 +1116,7 @@ define dso_local range(i32 -1, 1) i32 @select_g_select_nodeinfo_unpack(ptr nound
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %15, !llvm.loop !15
 
-select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %11
+select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %10
   br label %select_get_plugin_id_pos.exit.thread
 
 21:                                               ; preds = %select_get_plugin_id_pos.exit.thread
@@ -1128,7 +1127,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   %indvars.iv.i24 = phi i64 [ 1, %21 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
   %23 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv.i24
   %24 = load i32, ptr %23, align 16
-  %25 = icmp eq i32 %12, %24
+  %25 = icmp eq i32 %11, %24
   br i1 %25, label %26, label %21
 
 26:                                               ; preds = %select_get_plugin_id_pos.exit.thread
@@ -1137,119 +1136,91 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   br label %select_plugin_id_to_string.exit
 
 29:                                               ; preds = %21
-  %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %12) #15
+  %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %11) #15
   br label %select_plugin_id_to_string.exit
 
 select_plugin_id_to_string.exit:                  ; preds = %26, %29
   %.1.i = phi ptr [ null, %29 ], [ %28, %26 ]
   %31 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack, ptr noundef %.1.i) #15
-  br label %68
+  br label %52
 
 32:                                               ; preds = %3
   %33 = zext nneg i16 %2 to i32
   %34 = load i32, ptr @select_context_default, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %34, ptr %35, align 8
   %36 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack, i32 noundef %33) #15
-  br label %.thread35
+  br label %.thread28
 
 select_get_plugin_id_pos.exit:                    ; preds = %15
   %37 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %37, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = and i64 %indvars.iv.i, 4294967295
   %40 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %14, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 136
   %42 = load ptr, ptr %41, align 8
-  %43 = call i32 %42(ptr noundef %7, ptr noundef %1, i16 noundef zeroext %2) #15
+  %43 = call i32 %42(ptr noundef %6, ptr noundef %1, i16 noundef zeroext %2) #15
   %.not21 = icmp eq i32 %43, 0
-  br i1 %.not21, label %44, label %.thread35
+  br i1 %.not21, label %44, label %.thread28
 
 44:                                               ; preds = %select_get_plugin_id_pos.exit
   %45 = load i32, ptr %38, align 8
   %46 = load i32, ptr @select_context_default, align 4
   %.not22 = icmp eq i32 %45, %46
-  br i1 %.not22, label %82, label %47
+  br i1 %.not22, label %66, label %47
 
 47:                                               ; preds = %44
   %48 = call zeroext i1 @running_in_slurmctld() #15
-  br i1 %48, label %49, label %82
+  br i1 %48, label %49, label %66
 
 49:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %7, ptr %5, align 8
-  %50 = load ptr, ptr %7, align 8
-  %.not3.i = icmp eq ptr %50, null
-  br i1 %.not3.i, label %select_g_select_nodeinfo_free.exit, label %51
+  %50 = call i32 @select_g_select_nodeinfo_free(ptr noundef nonnull %6)
+  %51 = call ptr @select_g_select_nodeinfo_alloc()
+  store ptr %51, ptr %0, align 8
+  br label %66
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr @ops, align 8
-  %53 = load i32, ptr %38, align 8
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %52, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 152
-  %57 = load ptr, ptr %56, align 8
-  %58 = call i32 %57(ptr noundef nonnull %50) #15
+.thread28:                                        ; preds = %select_get_plugin_id_pos.exit, %32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr %6, ptr %4, align 8
+  br label %53
+
+52:                                               ; preds = %select_plugin_id_to_string.exit, %8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr %6, ptr %4, align 8
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %select_g_select_nodeinfo_free.exit, label %53
+
+53:                                               ; preds = %.thread28, %52
+  %54 = load ptr, ptr %6, align 8
+  %.not3.i = icmp eq ptr %54, null
+  br i1 %.not3.i, label %64, label %55
+
+55:                                               ; preds = %53
+  %56 = load ptr, ptr @ops, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %58 = load i32, ptr %57, align 8
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %56, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 152
+  %62 = load ptr, ptr %61, align 8
+  %63 = call i32 %62(ptr noundef nonnull %54) #15
+  br label %64
+
+64:                                               ; preds = %55, %53
+  call void @slurm_xfree(ptr noundef nonnull %4) #15
   br label %select_g_select_nodeinfo_free.exit
 
-select_g_select_nodeinfo_free.exit:               ; preds = %49, %51
-  call void @slurm_xfree(ptr noundef nonnull %5) #15
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %59 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 770, ptr noundef nonnull @__func__.select_g_select_nodeinfo_alloc) #15
-  %60 = load i32, ptr @select_context_default, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 %60, ptr %61, align 8
-  %62 = load ptr, ptr @ops, align 8
-  %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %62, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 144
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr %66() #15
-  store ptr %67, ptr %59, align 8
-  store ptr %59, ptr %0, align 8
-  br label %82
-
-.thread35:                                        ; preds = %select_get_plugin_id_pos.exit, %32
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %7, ptr %4, align 8
-  br label %69
-
-68:                                               ; preds = %select_plugin_id_to_string.exit, %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %7, ptr %4, align 8
-  %.not.i26 = icmp eq ptr %7, null
-  br i1 %.not.i26, label %select_g_select_nodeinfo_free.exit30, label %69
-
-69:                                               ; preds = %.thread35, %68
-  %70 = load ptr, ptr %7, align 8
-  %.not3.i27 = icmp eq ptr %70, null
-  br i1 %.not3.i27, label %80, label %71
-
-71:                                               ; preds = %69
-  %72 = load ptr, ptr @ops, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %74 = load i32, ptr %73, align 8
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %72, i64 %75
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 152
-  %78 = load ptr, ptr %77, align 8
-  %79 = call i32 %78(ptr noundef nonnull %70) #15
-  br label %80
-
-80:                                               ; preds = %71, %69
-  call void @slurm_xfree(ptr noundef nonnull %4) #15
-  br label %select_g_select_nodeinfo_free.exit30
-
-select_g_select_nodeinfo_free.exit30:             ; preds = %68, %80
+select_g_select_nodeinfo_free.exit:               ; preds = %52, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr null, ptr %0, align 8
-  %81 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack) #15
-  br label %82
+  %65 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.select_g_select_nodeinfo_unpack) #15
+  br label %66
 
-82:                                               ; preds = %44, %47, %select_g_select_nodeinfo_free.exit, %select_g_select_nodeinfo_free.exit30
-  %.018 = phi i32 [ -1, %select_g_select_nodeinfo_free.exit30 ], [ 0, %select_g_select_nodeinfo_free.exit ], [ 0, %47 ], [ 0, %44 ]
+66:                                               ; preds = %44, %47, %49, %select_g_select_nodeinfo_free.exit
+  %.018 = phi i32 [ -1, %select_g_select_nodeinfo_free.exit ], [ 0, %49 ], [ 0, %47 ], [ 0, %44 ]
   ret i32 %.018
 }
 
@@ -1524,28 +1495,27 @@ define dso_local i32 @select_g_select_jobinfo_pack(ptr noundef readonly captures
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @select_g_select_jobinfo_unpack(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  %5 = alloca ptr, align 8
-  %6 = alloca i32, align 4
-  %7 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 967, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack) #15
-  store ptr %7, ptr %0, align 8
-  %8 = icmp ugt i16 %2, 10239
-  br i1 %8, label %9, label %32
+  %5 = alloca i32, align 4
+  %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 967, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack) #15
+  store ptr %6, ptr %0, align 8
+  %7 = icmp ugt i16 %2, 10239
+  br i1 %7, label %8, label %32
 
-9:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %10 = call i32 @unpack32(ptr noundef nonnull %6, ptr noundef %1) #15
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %11, label %68
+8:                                                ; preds = %3
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %9 = call i32 @unpack32(ptr noundef nonnull %5, ptr noundef %1) #15
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %10, label %52
 
-11:                                               ; preds = %9
-  %12 = load i32, ptr %6, align 4
-  %13 = load i32, ptr @select_context_cnt, align 4
-  %.not9.i = icmp sgt i32 %13, 0
-  br i1 %.not9.i, label %.lr.ph.i, label %select_get_plugin_id_pos.exit.thread.preheader
+10:                                               ; preds = %8
+  %11 = load i32, ptr %5, align 4
+  %12 = load i32, ptr @select_context_cnt, align 4
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph.i, label %select_get_plugin_id_pos.exit.thread.preheader
 
-.lr.ph.i:                                         ; preds = %11
+.lr.ph.i:                                         ; preds = %10
   %14 = load ptr, ptr @ops, align 8
-  %wide.trip.count.i = zext nneg i32 %13 to i64
+  %wide.trip.count.i = zext nneg i32 %12 to i64
   br label %15
 
 15:                                               ; preds = %20, %.lr.ph.i
@@ -1553,7 +1523,7 @@ define dso_local range(i32 -1, 1) i32 @select_g_select_jobinfo_unpack(ptr nounde
   %16 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %14, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %17, align 4
-  %19 = icmp eq i32 %18, %12
+  %19 = icmp eq i32 %18, %11
   br i1 %19, label %select_get_plugin_id_pos.exit, label %20
 
 20:                                               ; preds = %15
@@ -1561,7 +1531,7 @@ define dso_local range(i32 -1, 1) i32 @select_g_select_jobinfo_unpack(ptr nounde
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %select_get_plugin_id_pos.exit.thread.preheader, label %15, !llvm.loop !15
 
-select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %11
+select_get_plugin_id_pos.exit.thread.preheader:   ; preds = %20, %10
   br label %select_get_plugin_id_pos.exit.thread
 
 21:                                               ; preds = %select_get_plugin_id_pos.exit.thread
@@ -1572,7 +1542,7 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   %indvars.iv.i24 = phi i64 [ 1, %21 ], [ 0, %select_get_plugin_id_pos.exit.thread.preheader ]
   %23 = getelementptr inbounds nuw %struct.plugin_id_name, ptr @plugin_ids, i64 %indvars.iv.i24
   %24 = load i32, ptr %23, align 16
-  %25 = icmp eq i32 %12, %24
+  %25 = icmp eq i32 %11, %24
   br i1 %25, label %26, label %21
 
 26:                                               ; preds = %select_get_plugin_id_pos.exit.thread
@@ -1581,119 +1551,91 @@ select_get_plugin_id_pos.exit.thread:             ; preds = %select_get_plugin_i
   br label %select_plugin_id_to_string.exit
 
 29:                                               ; preds = %21
-  %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %12) #15
+  %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.select_plugin_id_to_string, i32 noundef %11) #15
   br label %select_plugin_id_to_string.exit
 
 select_plugin_id_to_string.exit:                  ; preds = %26, %29
   %.1.i = phi ptr [ null, %29 ], [ %28, %26 ]
   %31 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack, ptr noundef %.1.i) #15
-  br label %68
+  br label %52
 
 32:                                               ; preds = %3
   %33 = zext nneg i16 %2 to i32
   %34 = load i32, ptr @select_context_default, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %34, ptr %35, align 8
   %36 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.29, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack, i32 noundef %33) #15
-  br label %.thread35
+  br label %.thread28
 
 select_get_plugin_id_pos.exit:                    ; preds = %15
   %37 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i32 %37, ptr %38, align 8
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %39 = and i64 %indvars.iv.i, 4294967295
   %40 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %14, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 232
   %42 = load ptr, ptr %41, align 8
-  %43 = call i32 %42(ptr noundef %7, ptr noundef %1, i16 noundef zeroext %2) #15
+  %43 = call i32 %42(ptr noundef %6, ptr noundef %1, i16 noundef zeroext %2) #15
   %.not21 = icmp eq i32 %43, 0
-  br i1 %.not21, label %44, label %.thread35
+  br i1 %.not21, label %44, label %.thread28
 
 44:                                               ; preds = %select_get_plugin_id_pos.exit
   %45 = load i32, ptr %38, align 8
   %46 = load i32, ptr @select_context_default, align 4
   %.not22 = icmp eq i32 %45, %46
-  br i1 %.not22, label %82, label %47
+  br i1 %.not22, label %66, label %47
 
 47:                                               ; preds = %44
   %48 = call zeroext i1 @running_in_slurmctld() #15
-  br i1 %48, label %49, label %82
+  br i1 %48, label %49, label %66
 
 49:                                               ; preds = %47
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store ptr %7, ptr %5, align 8
-  %50 = load ptr, ptr %7, align 8
-  %.not3.i = icmp eq ptr %50, null
-  br i1 %.not3.i, label %select_g_select_jobinfo_free.exit, label %51
+  %50 = call i32 @select_g_select_jobinfo_free(ptr noundef nonnull %6)
+  %51 = call ptr @select_g_select_jobinfo_alloc()
+  store ptr %51, ptr %0, align 8
+  br label %66
 
-51:                                               ; preds = %49
-  %52 = load ptr, ptr @ops, align 8
-  %53 = load i32, ptr %38, align 8
-  %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %52, i64 %54
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 192
-  %57 = load ptr, ptr %56, align 8
-  %58 = call i32 %57(ptr noundef nonnull %50) #15
+.thread28:                                        ; preds = %select_get_plugin_id_pos.exit, %32
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr %6, ptr %4, align 8
+  br label %53
+
+52:                                               ; preds = %select_plugin_id_to_string.exit, %8
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  store ptr %6, ptr %4, align 8
+  %.not.i = icmp eq ptr %6, null
+  br i1 %.not.i, label %select_g_select_jobinfo_free.exit, label %53
+
+53:                                               ; preds = %.thread28, %52
+  %54 = load ptr, ptr %6, align 8
+  %.not3.i = icmp eq ptr %54, null
+  br i1 %.not3.i, label %64, label %55
+
+55:                                               ; preds = %53
+  %56 = load ptr, ptr @ops, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %58 = load i32, ptr %57, align 8
+  %59 = zext i32 %58 to i64
+  %60 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %56, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 192
+  %62 = load ptr, ptr %61, align 8
+  %63 = call i32 %62(ptr noundef nonnull %54) #15
+  br label %64
+
+64:                                               ; preds = %55, %53
+  call void @slurm_xfree(ptr noundef nonnull %4) #15
   br label %select_g_select_jobinfo_free.exit
 
-select_g_select_jobinfo_free.exit:                ; preds = %49, %51
-  call void @slurm_xfree(ptr noundef nonnull %5) #15
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %59 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 16, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 834, ptr noundef nonnull @__func__.select_g_select_jobinfo_alloc) #15
-  %60 = load i32, ptr @select_context_default, align 4
-  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 %60, ptr %61, align 8
-  %62 = load ptr, ptr @ops, align 8
-  %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds %struct.slurm_select_ops_t, ptr %62, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 184
-  %66 = load ptr, ptr %65, align 8
-  %67 = call ptr %66() #15
-  store ptr %67, ptr %59, align 8
-  store ptr %59, ptr %0, align 8
-  br label %82
-
-.thread35:                                        ; preds = %select_get_plugin_id_pos.exit, %32
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %7, ptr %4, align 8
-  br label %69
-
-68:                                               ; preds = %select_plugin_id_to_string.exit, %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store ptr %7, ptr %4, align 8
-  %.not.i26 = icmp eq ptr %7, null
-  br i1 %.not.i26, label %select_g_select_jobinfo_free.exit30, label %69
-
-69:                                               ; preds = %.thread35, %68
-  %70 = load ptr, ptr %7, align 8
-  %.not3.i27 = icmp eq ptr %70, null
-  br i1 %.not3.i27, label %80, label %71
-
-71:                                               ; preds = %69
-  %72 = load ptr, ptr @ops, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %74 = load i32, ptr %73, align 8
-  %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct.slurm_select_ops_t, ptr %72, i64 %75
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 192
-  %78 = load ptr, ptr %77, align 8
-  %79 = call i32 %78(ptr noundef nonnull %70) #15
-  br label %80
-
-80:                                               ; preds = %71, %69
-  call void @slurm_xfree(ptr noundef nonnull %4) #15
-  br label %select_g_select_jobinfo_free.exit30
-
-select_g_select_jobinfo_free.exit30:              ; preds = %68, %80
+select_g_select_jobinfo_free.exit:                ; preds = %52, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store ptr null, ptr %0, align 8
-  %81 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack) #15
-  br label %82
+  %65 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.31, ptr noundef nonnull @__func__.select_g_select_jobinfo_unpack) #15
+  br label %66
 
-82:                                               ; preds = %44, %47, %select_g_select_jobinfo_free.exit, %select_g_select_jobinfo_free.exit30
-  %.018 = phi i32 [ -1, %select_g_select_jobinfo_free.exit30 ], [ 0, %select_g_select_jobinfo_free.exit ], [ 0, %47 ], [ 0, %44 ]
+66:                                               ; preds = %44, %47, %49, %select_g_select_jobinfo_free.exit
+  %.018 = phi i32 [ -1, %select_g_select_jobinfo_free.exit ], [ 0, %49 ], [ 0, %47 ], [ 0, %44 ]
   ret i32 %.018
 }
 

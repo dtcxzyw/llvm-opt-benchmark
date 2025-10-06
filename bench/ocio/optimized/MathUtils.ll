@@ -663,8 +663,8 @@ _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev15VecContainsZeroEPKfi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %.not9 = icmp sgt i32 %1, 0
-  br i1 %.not9, label %.lr.ph.preheader, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit._crit_edge
+  %3 = icmp sgt i32 %1, 0
+  br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -672,42 +672,42 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev15VecContainsZeroEPKfi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread ]
-  %3 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  %4 = load float, ptr %3, align 4, !tbaa !5
-  %5 = bitcast float %4 to i32
-  %6 = and i32 %5, 2139095040
-  %7 = icmp eq i32 %6, 2139095040
-  br i1 %7, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit
+  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %5 = load float, ptr %4, align 4, !tbaa !5
+  %6 = bitcast float %5 to i32
+  %7 = and i32 %6, 2139095040
+  %8 = icmp eq i32 %7, 2139095040
+  br i1 %8, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit
 
 _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit: ; preds = %.lr.ph
-  %8 = tail call float @llvm.fabs.f32(float %4)
-  %9 = fneg float %8
-  %10 = bitcast float %9 to i32
-  %11 = bitcast float %8 to i32
-  %12 = sub nuw i32 -2147483648, %11
-  %13 = icmp slt i32 %5, 0
-  %14 = select i1 %13, i32 %12, i32 %10
-  %15 = sub nuw i32 -2147483648, %14
-  %16 = xor i32 %14, -2147483648
-  %17 = icmp slt i32 %14, 0
-  %18 = select i1 %17, i32 %16, i32 %15
-  %19 = icmp ult i32 %18, 3
-  br i1 %19, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit._crit_edge, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread
+  %9 = tail call float @llvm.fabs.f32(float %5)
+  %10 = fneg float %9
+  %11 = bitcast float %10 to i32
+  %12 = bitcast float %9 to i32
+  %13 = sub nuw i32 -2147483648, %12
+  %14 = icmp slt i32 %6, 0
+  %15 = select i1 %14, i32 %13, i32 %11
+  %16 = sub nuw i32 -2147483648, %15
+  %17 = xor i32 %15, -2147483648
+  %18 = icmp slt i32 %15, 0
+  %19 = select i1 %18, i32 %17, i32 %16
+  %20 = icmp ult i32 %19, 3
+  br i1 %20, label %._crit_edge, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread
 
 _ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread: ; preds = %.lr.ph, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit._crit_edge: ; preds = %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ true, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit ], [ false, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread, %2
+  %.lcssa = phi i1 [ false, %2 ], [ false, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit.thread ], [ true, %_ZN19OpenColorIO_v2_5dev19IsScalarEqualToZeroIfEEbT_.exit ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev14VecContainsOneEPKfi(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %.not9 = icmp sgt i32 %1, 0
-  br i1 %.not9, label %.lr.ph.preheader, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit._crit_edge
+  %3 = icmp sgt i32 %1, 0
+  br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext nneg i32 %1 to i64
@@ -715,36 +715,36 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev14VecContainsOneEPKfi(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread ]
-  %3 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  %4 = load float, ptr %3, align 4, !tbaa !5
-  %5 = bitcast float %4 to i32
-  %6 = and i32 %5, 2139095040
-  %7 = icmp eq i32 %6, 2139095040
-  br i1 %7, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit
+  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %5 = load float, ptr %4, align 4, !tbaa !5
+  %6 = bitcast float %5 to i32
+  %7 = and i32 %6, 2139095040
+  %8 = icmp eq i32 %7, 2139095040
+  br i1 %8, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit
 
 _ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit: ; preds = %.lr.ph
-  %8 = tail call float @llvm.fabs.f32(float %4)
-  %9 = fneg float %8
-  %10 = bitcast float %9 to i32
-  %11 = bitcast float %8 to i32
-  %12 = sub nuw i32 -2147483648, %11
-  %13 = icmp slt i32 %5, 0
-  %14 = select i1 %13, i32 %12, i32 %10
-  %15 = icmp ult i32 %14, -1082130432
-  %16 = sub nuw i32 -1082130432, %14
-  %17 = add nsw i32 %14, 1082130432
-  %18 = select i1 %15, i32 %16, i32 %17
-  %19 = icmp ult i32 %18, 3
-  br i1 %19, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit._crit_edge, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread
+  %9 = tail call float @llvm.fabs.f32(float %5)
+  %10 = fneg float %9
+  %11 = bitcast float %10 to i32
+  %12 = bitcast float %9 to i32
+  %13 = sub nuw i32 -2147483648, %12
+  %14 = icmp slt i32 %6, 0
+  %15 = select i1 %14, i32 %13, i32 %11
+  %16 = icmp ult i32 %15, -1082130432
+  %17 = sub nuw i32 -1082130432, %15
+  %18 = add nsw i32 %15, 1082130432
+  %19 = select i1 %16, i32 %17, i32 %18
+  %20 = icmp ult i32 %19, 3
+  br i1 %20, label %._crit_edge, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread
 
 _ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread: ; preds = %.lr.ph, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit._crit_edge, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !21
 
-_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit._crit_edge: ; preds = %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ true, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit ], [ false, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread, %2
+  %.lcssa = phi i1 [ false, %2 ], [ false, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit.thread ], [ true, %_ZN19OpenColorIO_v2_5dev18IsScalarEqualToOneIfEEbT_.exit ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

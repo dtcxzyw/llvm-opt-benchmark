@@ -5279,7 +5279,7 @@ define internal fastcc range(i32 0, 2) i32 @LZ4IO_decompressSrcFile(ptr noundef 
 16:                                               ; preds = %14
   %17 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %18 = icmp sgt i32 %17, 0
-  br i1 %18, label %19, label %.thread9
+  br i1 %18, label %19, label %.thread8
 
 19:                                               ; preds = %16
   %20 = load ptr, ptr @stderr, align 8, !tbaa !8
@@ -5297,7 +5297,7 @@ define internal fastcc range(i32 0, 2) i32 @LZ4IO_decompressSrcFile(ptr noundef 
 27:                                               ; preds = %19, %24
   %28 = phi i32 [ %22, %19 ], [ %.pr, %24 ]
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %.thread9
+  br i1 %29, label %30, label %.thread8
 
 30:                                               ; preds = %27
   %31 = load ptr, ptr @stderr, align 8, !tbaa !8
@@ -5312,27 +5312,27 @@ define internal fastcc range(i32 0, 2) i32 @LZ4IO_decompressSrcFile(ptr noundef 
 38:                                               ; preds = %30
   %39 = load ptr, ptr @stderr, align 8, !tbaa !8
   %40 = tail call i32 @fflush(ptr noundef %39)
-  %.pr8.pre = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  %.pr7.pre = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %38, %30
-  %41 = phi i32 [ %36, %30 ], [ %.pr8.pre, %38 ]
+  %41 = phi i32 [ %36, %30 ], [ %.pr7.pre, %38 ]
   %42 = icmp sgt i32 %41, 0
-  br i1 %42, label %43, label %.thread9
+  br i1 %42, label %43, label %.thread8
 
 43:                                               ; preds = %thread-pre-split
   %44 = load ptr, ptr @stderr, align 8, !tbaa !8
   %45 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %44) #27
   %46 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %47 = icmp sgt i32 %46, 3
-  br i1 %47, label %48, label %.thread9
+  br i1 %47, label %48, label %.thread8
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr @stderr, align 8, !tbaa !8
   %50 = tail call i32 @fflush(ptr noundef %49)
-  br label %.thread9
+  br label %.thread8
 
-.thread9:                                         ; preds = %27, %16, %43, %48, %thread-pre-split
+.thread8:                                         ; preds = %27, %16, %43, %48, %thread-pre-split
   %51 = tail call i32 @fflush(ptr noundef null)
   tail call void @exit(i32 noundef 45) #28
   unreachable
@@ -5340,7 +5340,7 @@ thread-pre-split:                                 ; preds = %38, %30
 52:                                               ; preds = %14, %.loopexit
   %53 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %54 = icmp sgt i32 %53, 1
-  br i1 %54, label %55, label %.thread11
+  br i1 %54, label %55, label %.thread10
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr @stderr, align 8, !tbaa !8
@@ -5352,32 +5352,32 @@ thread-pre-split:                                 ; preds = %38, %30
 60:                                               ; preds = %55
   %61 = load ptr, ptr @stderr, align 8, !tbaa !8
   %62 = tail call i32 @fflush(ptr noundef %61)
-  %.pr10 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  %.pr9 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   br label %63
 
 63:                                               ; preds = %55, %60
-  %64 = phi i32 [ %58, %55 ], [ %.pr10, %60 ]
+  %64 = phi i32 [ %58, %55 ], [ %.pr9, %60 ]
   %65 = icmp sgt i32 %64, 1
-  br i1 %65, label %66, label %.thread11
+  br i1 %65, label %66, label %.thread10
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr @stderr, align 8, !tbaa !8
   %68 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %67, ptr noundef nonnull @.str.84, ptr noundef %2, i64 noundef %.020) #26
   %69 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %70 = icmp sgt i32 %69, 3
-  br i1 %70, label %71, label %.thread11
+  br i1 %70, label %71, label %.thread10
 
 71:                                               ; preds = %66
   %72 = load ptr, ptr @stderr, align 8, !tbaa !8
   %73 = tail call i32 @fflush(ptr noundef %72)
-  br label %.thread11
+  br label %.thread10
 
-.thread11:                                        ; preds = %52, %66, %71, %63
+.thread10:                                        ; preds = %52, %66, %71, %63
   store i64 %.020, ptr %0, align 8, !tbaa !32
   br label %74
 
-74:                                               ; preds = %4, %.thread11
-  %.0 = phi i32 [ %.122.ph, %.thread11 ], [ 1, %4 ]
+74:                                               ; preds = %4, %.thread10
+  %.0 = phi i32 [ %.122.ph, %.thread10 ], [ 1, %4 ]
   ret i32 %.0
 }
 
@@ -5553,8 +5553,8 @@ UTIL_getOpenFileSize.exit.i:                      ; preds = %88, %86
   %.0.i.i42 = phi i64 [ 0, %86 ], [ %spec.select381, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %93 = call i32 @feof(ptr noundef nonnull %80) #24
-  %.not208.i = icmp eq i32 %93, 0
-  br i1 %.not208.i, label %.lr.ph.i, label %.loopexit152.sink.split.sink.split
+  %.not207.i = icmp eq i32 %93, 0
+  br i1 %.not207.i, label %.lr.ph.i, label %.loopexit152.sink.split.sink.split
 
 .lr.ph.i:                                         ; preds = %UTIL_getOpenFileSize.exit.i, %.thread165.i
   %.sroa.11.2 = phi i64 [ %488, %.thread165.i ], [ 0, %UTIL_getOpenFileSize.exit.i ]
@@ -5636,8 +5636,8 @@ thread-pre-split.i:                               ; preds = %114, %109
 128:                                              ; preds = %.lr.ph.i
   %129 = load i32, ptr %7, align 16
   %130 = and i32 %129, -16
-  %.not180.i = icmp eq i32 %130, 407710288
-  %spec.select.i = select i1 %.not180.i, i32 407710288, i32 %129
+  %.not179.i = icmp eq i32 %130, 407710288
+  %spec.select.i = select i1 %.not179.i, i32 407710288, i32 %129
   switch i32 %spec.select.i, label %452 [
     i32 407708164, label %131
     i32 407642370, label %282
@@ -6066,21 +6066,21 @@ thread-pre-split.i.i:                             ; preds = %312, %307
 
 LZ4IO_skipLegacyBlocksData.exit.thread.i:         ; preds = %285, %339, %283, %336, %331, %328
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit182.i
+  br label %.loopexit181.i
 
 LZ4IO_skipLegacyBlocksData.exit.i:                ; preds = %291, %285
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   switch i64 %.020.i.i, label %355 [
-    i64 -1, label %.loopexit182.i
+    i64 -1, label %.loopexit181.i
     i64 0, label %LZ4IO_getCompressedFileInfo.exit.thread140
   ]
 
-.loopexit182.i:                                   ; preds = %LZ4IO_skipLegacyBlocksData.exit.i, %LZ4IO_skipLegacyBlocksData.exit.thread.i
+.loopexit181.i:                                   ; preds = %LZ4IO_skipLegacyBlocksData.exit.i, %LZ4IO_skipLegacyBlocksData.exit.thread.i
   %345 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %346 = icmp sgt i32 %345, 0
   br i1 %346, label %347, label %LZ4IO_getCompressedFileInfo.exit.thread140
 
-347:                                              ; preds = %.loopexit182.i
+347:                                              ; preds = %.loopexit181.i
   %348 = load ptr, ptr @stderr, align 8, !tbaa !8
   %349 = call i64 @fwrite(ptr nonnull @.str.116, i64 24, i64 1, ptr %348) #27
   %350 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
@@ -6298,11 +6298,11 @@ fseek_u32.exit.thread.i:                          ; preds = %412, %fseek_u32.exi
 461:                                              ; preds = %456
   %462 = load ptr, ptr @stderr, align 8, !tbaa !8
   %463 = call i32 @fflush(ptr noundef %462)
-  %.pre224.i = load i32, ptr @g_displayLevel, align 4
+  %.pre223.i = load i32, ptr @g_displayLevel, align 4
   br label %464
 
 464:                                              ; preds = %461, %456
-  %465 = phi i32 [ %459, %456 ], [ %.pre224.i, %461 ]
+  %465 = phi i32 [ %459, %456 ], [ %.pre223.i, %461 ]
   %466 = icmp ne i64 %453, -1
   %467 = icmp sgt i32 %465, 2
   %or.cond.i = select i1 %466, i1 %467, i1 false
@@ -6370,7 +6370,7 @@ LZ4IO_getCompressedFileInfo.exit.thread118:       ; preds = %.thread165.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
 
-LZ4IO_getCompressedFileInfo.exit.thread140:       ; preds = %LZ4IO_skipLegacyBlocksData.exit.i, %.thread172.i, %.thread168.i, %347, %352, %.loopexit182.i, %480, %484, %477, %452
+LZ4IO_getCompressedFileInfo.exit.thread140:       ; preds = %LZ4IO_skipLegacyBlocksData.exit.i, %.thread172.i, %.thread168.i, %347, %352, %.loopexit181.i, %480, %484, %477, %452
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.loopexit152.sink.split.sink.split
 
@@ -7715,8 +7715,8 @@ thread-pre-split.i:                               ; preds = %89, %83
 103:                                              ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not5193.i = icmp eq i64 %67, 0
-  br i1 %.not5193.i, label %.loopexit.i, label %.lr.ph.i
+  %.not5192.i = icmp eq i64 %67, 0
+  br i1 %.not5192.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %103
   %104 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7730,8 +7730,8 @@ thread-pre-split.i:                               ; preds = %89, %83
 
 .preheader.i.preheader:                           ; preds = %.lr.ph.i, %183
   %107 = phi i64 [ %184, %183 ], [ %106, %.lr.ph.i ]
-  %.04394.i108 = phi i32 [ %.548.i, %183 ], [ 0, %.lr.ph.i ]
-  %.096.i107 = phi i64 [ %.5.i, %183 ], [ 0, %.lr.ph.i ]
+  %.04393.i108 = phi i32 [ %.548.i, %183 ], [ 0, %.lr.ph.i ]
+  %.095.i107 = phi i64 [ %.5.i, %183 ], [ 0, %.lr.ph.i ]
   br label %.preheader.i
 
 108:                                              ; preds = %182
@@ -7742,14 +7742,14 @@ thread-pre-split.i:                               ; preds = %89, %83
   br i1 %112, label %.preheader.i, label %183
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %108
-  %.392.i = phi i64 [ %.5.i, %108 ], [ %.096.i107, %.preheader.i.preheader ]
-  %.03691.i = phi i64 [ %153, %108 ], [ 0, %.preheader.i.preheader ]
-  %.34690.i = phi i32 [ %.548.i, %108 ], [ %.04394.i108, %.preheader.i.preheader ]
+  %.391.i = phi i64 [ %.5.i, %108 ], [ %.095.i107, %.preheader.i.preheader ]
+  %.03690.i = phi i64 [ %153, %108 ], [ 0, %.preheader.i.preheader ]
+  %.34689.i = phi i32 [ %.548.i, %108 ], [ %.04393.i108, %.preheader.i.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %113 = sub i64 %107, %.03691.i
+  %113 = sub i64 %107, %.03690.i
   store i64 %113, ptr %11, align 8, !tbaa !29
   store i64 %.sroa.6.0.copyload, ptr %10, align 8, !tbaa !29
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.03691.i
+  %114 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload, i64 %.03690.i
   %115 = call i64 @LZ4F_decompress_usingDict(ptr noundef %.sroa.751.0.copyload, ptr noundef %.sroa.5.0.copyload, ptr noundef nonnull %10, ptr noundef nonnull %114, ptr noundef nonnull %11, ptr noundef %.sroa.8.0.copyload, i64 noundef %.sroa.9.0.copyload, ptr noundef null) #24
   %116 = call i32 @LZ4F_isError(i64 noundef %115) #24
   %.not53.i = icmp eq i32 %116, 0
@@ -7816,7 +7816,7 @@ thread-pre-split64.i:                             ; preds = %137, %131
 
 151:                                              ; preds = %.preheader.i
   %152 = load i64, ptr %11, align 8, !tbaa !29
-  %153 = add i64 %152, %.03691.i
+  %153 = add i64 %152, %.03690.i
   %154 = load i64, ptr %10, align 8, !tbaa !29
   %.not54.i = icmp eq i64 %154, 0
   br i1 %.not54.i, label %182, label %155
@@ -7828,14 +7828,14 @@ thread-pre-split64.i:                             ; preds = %137, %131
 
 157:                                              ; preds = %155
   %158 = load i32, ptr %105, align 4, !tbaa !22
-  %159 = call fastcc i32 @LZ4IO_fwriteSparse(ptr noundef %2, ptr noundef %.sroa.5.0.copyload, i64 noundef %154, i32 noundef %158, i32 noundef %.34690.i)
+  %159 = call fastcc i32 @LZ4IO_fwriteSparse(ptr noundef %2, ptr noundef %.sroa.5.0.copyload, i64 noundef %154, i32 noundef %158, i32 noundef %.34689.i)
   %.pre.i = load i64, ptr %10, align 8, !tbaa !29
   br label %160
 
 160:                                              ; preds = %157, %155
   %161 = phi i64 [ %154, %155 ], [ %.pre.i, %157 ]
-  %.6.i = phi i32 [ %.34690.i, %155 ], [ %159, %157 ]
-  %162 = add i64 %161, %.392.i
+  %.6.i = phi i32 [ %.34689.i, %155 ], [ %159, %157 ]
+  %162 = add i64 %161, %.391.i
   %163 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %164 = icmp sgt i32 %163, 1
   br i1 %164, label %165, label %182
@@ -7866,8 +7866,8 @@ thread-pre-split64.i:                             ; preds = %137, %131
   br label %182
 
 182:                                              ; preds = %179, %171, %165, %160, %151
-  %.548.i = phi i32 [ %.6.i, %179 ], [ %.6.i, %171 ], [ %.6.i, %165 ], [ %.6.i, %160 ], [ %.34690.i, %151 ]
-  %.5.i = phi i64 [ %162, %179 ], [ %162, %171 ], [ %162, %165 ], [ %162, %160 ], [ %.392.i, %151 ]
+  %.548.i = phi i32 [ %.6.i, %179 ], [ %.6.i, %171 ], [ %.6.i, %165 ], [ %.6.i, %160 ], [ %.34689.i, %151 ]
+  %.5.i = phi i64 [ %162, %179 ], [ %162, %171 ], [ %162, %165 ], [ %162, %160 ], [ %.391.i, %151 ]
   %.not56.i = icmp eq i64 %115, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %.not56.i, label %.loopexit.sink.split.i, label %108
@@ -7882,15 +7882,15 @@ thread-pre-split64.i:                             ; preds = %137, %131
   br i1 %.not52.i, label %.loopexit.sink.split.i, label %.preheader.i.preheader
 
 .loopexit.sink.split.i:                           ; preds = %183, %182, %.lr.ph.i
-  %.04388.ph.i = phi i32 [ 0, %.lr.ph.i ], [ %.548.i, %182 ], [ %.548.i, %183 ]
-  %.085.ph.i = phi i64 [ 0, %.lr.ph.i ], [ %.5.i, %182 ], [ %.5.i, %183 ]
+  %.04387.ph.i = phi i32 [ 0, %.lr.ph.i ], [ %.548.i, %182 ], [ %.548.i, %183 ]
+  %.084.ph.i = phi i64 [ 0, %.lr.ph.i ], [ %.5.i, %182 ], [ %.5.i, %183 ]
   %.138.ph.i = phi i64 [ %spec.select.i105, %.lr.ph.i ], [ 0, %182 ], [ %spec.select.i, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.loopexit.sink.split.i, %103
-  %.04388.i = phi i32 [ 0, %103 ], [ %.04388.ph.i, %.loopexit.sink.split.i ]
-  %.085.i = phi i64 [ 0, %103 ], [ %.085.ph.i, %.loopexit.sink.split.i ]
+  %.04387.i = phi i32 [ 0, %103 ], [ %.04387.ph.i, %.loopexit.sink.split.i ]
+  %.084.i = phi i64 [ 0, %103 ], [ %.084.ph.i, %.loopexit.sink.split.i ]
   %.138.i = phi i64 [ 0, %103 ], [ %.138.ph.i, %.loopexit.sink.split.i ]
   %185 = call i32 @ferror(ptr noundef nonnull %1) #24
   %.not57.i = icmp eq i32 %185, 0
@@ -7899,7 +7899,7 @@ thread-pre-split64.i:                             ; preds = %137, %131
 186:                                              ; preds = %.loopexit.i
   %187 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %188 = icmp sgt i32 %187, 0
-  br i1 %188, label %189, label %.thread77.i
+  br i1 %188, label %189, label %.thread76.i
 
 189:                                              ; preds = %186
   %190 = load ptr, ptr @stderr, align 8, !tbaa !8
@@ -7911,45 +7911,45 @@ thread-pre-split64.i:                             ; preds = %137, %131
 194:                                              ; preds = %189
   %195 = load ptr, ptr @stderr, align 8, !tbaa !8
   %196 = call i32 @fflush(ptr noundef %195)
-  %.pr73.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  %.pr72.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   br label %197
 
 197:                                              ; preds = %194, %189
-  %198 = phi i32 [ %192, %189 ], [ %.pr73.i, %194 ]
+  %198 = phi i32 [ %192, %189 ], [ %.pr72.i, %194 ]
   %199 = icmp sgt i32 %198, 0
-  br i1 %199, label %200, label %.thread77.i
+  br i1 %199, label %200, label %.thread76.i
 
 200:                                              ; preds = %197
   %201 = load ptr, ptr @stderr, align 8, !tbaa !8
   %202 = call i64 @fwrite(ptr nonnull @.str.96, i64 10, i64 1, ptr %201) #27
   %203 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %204 = icmp sgt i32 %203, 3
-  br i1 %204, label %205, label %thread-pre-split75.i
+  br i1 %204, label %205, label %thread-pre-split74.i
 
 205:                                              ; preds = %200
   %206 = load ptr, ptr @stderr, align 8, !tbaa !8
   %207 = call i32 @fflush(ptr noundef %206)
-  %.pr76.pre.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
-  br label %thread-pre-split75.i
+  %.pr75.pre.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  br label %thread-pre-split74.i
 
-thread-pre-split75.i:                             ; preds = %205, %200
-  %208 = phi i32 [ %203, %200 ], [ %.pr76.pre.i, %205 ]
+thread-pre-split74.i:                             ; preds = %205, %200
+  %208 = phi i32 [ %203, %200 ], [ %.pr75.pre.i, %205 ]
   %209 = icmp sgt i32 %208, 0
-  br i1 %209, label %210, label %.thread77.i
+  br i1 %209, label %210, label %.thread76.i
 
-210:                                              ; preds = %thread-pre-split75.i
+210:                                              ; preds = %thread-pre-split74.i
   %211 = load ptr, ptr @stderr, align 8, !tbaa !8
   %212 = call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %211) #27
   %213 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %214 = icmp sgt i32 %213, 3
-  br i1 %214, label %215, label %.thread77.i
+  br i1 %214, label %215, label %.thread76.i
 
 215:                                              ; preds = %210
   %216 = load ptr, ptr @stderr, align 8, !tbaa !8
   %217 = call i32 @fflush(ptr noundef %216)
-  br label %.thread77.i
+  br label %.thread76.i
 
-.thread77.i:                                      ; preds = %215, %210, %thread-pre-split75.i, %197, %186
+.thread76.i:                                      ; preds = %215, %210, %thread-pre-split74.i, %197, %186
   %218 = call i32 @fflush(ptr noundef null)
   call void @exit(i32 noundef 67) #28
   unreachable
@@ -7961,7 +7961,7 @@ thread-pre-split75.i:                             ; preds = %205, %200
   br i1 %.not58.i, label %222, label %223
 
 222:                                              ; preds = %219
-  call fastcc void @LZ4IO_fwriteSparseEnd(ptr noundef %2, i32 noundef %.04388.i)
+  call fastcc void @LZ4IO_fwriteSparseEnd(ptr noundef %2, i32 noundef %.04387.i)
   br label %223
 
 223:                                              ; preds = %222, %219
@@ -7971,7 +7971,7 @@ thread-pre-split75.i:                             ; preds = %205, %200
 224:                                              ; preds = %223
   %225 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %226 = icmp sgt i32 %225, 0
-  br i1 %226, label %227, label %.thread82.i
+  br i1 %226, label %227, label %.thread81.i
 
 227:                                              ; preds = %224
   %228 = load ptr, ptr @stderr, align 8, !tbaa !8
@@ -7983,13 +7983,13 @@ thread-pre-split75.i:                             ; preds = %205, %200
 232:                                              ; preds = %227
   %233 = load ptr, ptr @stderr, align 8, !tbaa !8
   %234 = call i32 @fflush(ptr noundef %233)
-  %.pr78.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  %.pr77.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   br label %235
 
 235:                                              ; preds = %232, %227
-  %236 = phi i32 [ %230, %227 ], [ %.pr78.i, %232 ]
+  %236 = phi i32 [ %230, %227 ], [ %.pr77.i, %232 ]
   %237 = icmp sgt i32 %236, 0
-  br i1 %237, label %238, label %.thread82.i
+  br i1 %237, label %238, label %.thread81.i
 
 238:                                              ; preds = %235
   %239 = load ptr, ptr @stderr, align 8, !tbaa !8
@@ -7997,32 +7997,32 @@ thread-pre-split75.i:                             ; preds = %205, %200
   %241 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %239, ptr noundef nonnull @.str.97, i32 noundef %240) #26
   %242 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %243 = icmp sgt i32 %242, 3
-  br i1 %243, label %244, label %thread-pre-split80.i
+  br i1 %243, label %244, label %thread-pre-split79.i
 
 244:                                              ; preds = %238
   %245 = load ptr, ptr @stderr, align 8, !tbaa !8
   %246 = call i32 @fflush(ptr noundef %245)
-  %.pr81.pre.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
-  br label %thread-pre-split80.i
+  %.pr80.pre.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  br label %thread-pre-split79.i
 
-thread-pre-split80.i:                             ; preds = %244, %238
-  %247 = phi i32 [ %242, %238 ], [ %.pr81.pre.i, %244 ]
+thread-pre-split79.i:                             ; preds = %244, %238
+  %247 = phi i32 [ %242, %238 ], [ %.pr80.pre.i, %244 ]
   %248 = icmp sgt i32 %247, 0
-  br i1 %248, label %249, label %.thread82.i
+  br i1 %248, label %249, label %.thread81.i
 
-249:                                              ; preds = %thread-pre-split80.i
+249:                                              ; preds = %thread-pre-split79.i
   %250 = load ptr, ptr @stderr, align 8, !tbaa !8
   %251 = call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %250) #27
   %252 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %253 = icmp sgt i32 %252, 3
-  br i1 %253, label %254, label %.thread82.i
+  br i1 %253, label %254, label %.thread81.i
 
 254:                                              ; preds = %249
   %255 = load ptr, ptr @stderr, align 8, !tbaa !8
   %256 = call i32 @fflush(ptr noundef %255)
-  br label %.thread82.i
+  br label %.thread81.i
 
-.thread82.i:                                      ; preds = %254, %249, %thread-pre-split80.i, %235, %224
+.thread81.i:                                      ; preds = %254, %249, %thread-pre-split79.i, %235, %224
   %257 = call i32 @fflush(ptr noundef null)
   call void @exit(i32 noundef 68) #28
   unreachable
@@ -8338,7 +8338,7 @@ thread-pre-split60.i:                             ; preds = %407, %402
 427:                                              ; preds = %.thread51.i
   %428 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %429 = icmp sgt i32 %428, 0
-  br i1 %429, label %430, label %.thread74.i
+  br i1 %429, label %430, label %.thread73.i
 
 430:                                              ; preds = %427
   %431 = load ptr, ptr @stderr, align 8, !tbaa !8
@@ -8350,45 +8350,45 @@ thread-pre-split60.i:                             ; preds = %407, %402
 435:                                              ; preds = %430
   %436 = load ptr, ptr @stderr, align 8, !tbaa !8
   %437 = tail call i32 @fflush(ptr noundef %436)
-  %.pr70.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  %.pr69.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   br label %438
 
 438:                                              ; preds = %435, %430
-  %439 = phi i32 [ %433, %430 ], [ %.pr70.i, %435 ]
+  %439 = phi i32 [ %433, %430 ], [ %.pr69.i, %435 ]
   %440 = icmp sgt i32 %439, 0
-  br i1 %440, label %441, label %.thread74.i
+  br i1 %440, label %441, label %.thread73.i
 
 441:                                              ; preds = %438
   %442 = load ptr, ptr @stderr, align 8, !tbaa !8
   %443 = tail call i64 @fwrite(ptr nonnull @.str.108, i64 19, i64 1, ptr %442) #27
   %444 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %445 = icmp sgt i32 %444, 3
-  br i1 %445, label %446, label %thread-pre-split72.i
+  br i1 %445, label %446, label %thread-pre-split71.i
 
 446:                                              ; preds = %441
   %447 = load ptr, ptr @stderr, align 8, !tbaa !8
   %448 = tail call i32 @fflush(ptr noundef %447)
-  %.pr73.pre.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
-  br label %thread-pre-split72.i
+  %.pr72.pre.i = load i32, ptr @g_displayLevel, align 4, !tbaa !4
+  br label %thread-pre-split71.i
 
-thread-pre-split72.i:                             ; preds = %446, %441
-  %449 = phi i32 [ %444, %441 ], [ %.pr73.pre.i, %446 ]
+thread-pre-split71.i:                             ; preds = %446, %441
+  %449 = phi i32 [ %444, %441 ], [ %.pr72.pre.i, %446 ]
   %450 = icmp sgt i32 %449, 0
-  br i1 %450, label %451, label %.thread74.i
+  br i1 %450, label %451, label %.thread73.i
 
-451:                                              ; preds = %thread-pre-split72.i
+451:                                              ; preds = %thread-pre-split71.i
   %452 = load ptr, ptr @stderr, align 8, !tbaa !8
   %453 = tail call i64 @fwrite(ptr nonnull @.str.2, i64 2, i64 1, ptr %452) #27
   %454 = load i32, ptr @g_displayLevel, align 4, !tbaa !4
   %455 = icmp sgt i32 %454, 3
-  br i1 %455, label %456, label %.thread74.i
+  br i1 %455, label %456, label %.thread73.i
 
 456:                                              ; preds = %451
   %457 = load ptr, ptr @stderr, align 8, !tbaa !8
   %458 = tail call i32 @fflush(ptr noundef %457)
-  br label %.thread74.i
+  br label %.thread73.i
 
-.thread74.i:                                      ; preds = %456, %451, %thread-pre-split72.i, %438, %427
+.thread73.i:                                      ; preds = %456, %451, %thread-pre-split71.i, %438, %427
   %459 = tail call i32 @fflush(ptr noundef null)
   tail call void @exit(i32 noundef 65) #28
   unreachable
@@ -8859,7 +8859,7 @@ thread-pre-split73:                               ; preds = %658, %653
   br label %fseek_u32.exit.thread
 
 fseek_u32.exit.thread:                            ; preds = %518, %672, %506, %fseek_u32.exit.thread63, %.thread54, %697, %704, %700, %LZ4IO_passThrough.exit, %LZ4IO_decodeLegacyStream.exit, %LZ4IO_decompressLZ4F.exit
-  %.1 = phi i64 [ %602, %LZ4IO_passThrough.exit ], [ %.085.i, %LZ4IO_decompressLZ4F.exit ], [ %.0.i, %LZ4IO_decodeLegacyStream.exit ], [ -2, %700 ], [ -2, %704 ], [ -2, %697 ], [ -1, %.thread54 ], [ 0, %fseek_u32.exit.thread63 ], [ 0, %506 ], [ -2, %672 ], [ 0, %518 ]
+  %.1 = phi i64 [ %602, %LZ4IO_passThrough.exit ], [ %.084.i, %LZ4IO_decompressLZ4F.exit ], [ %.0.i, %LZ4IO_decodeLegacyStream.exit ], [ -2, %700 ], [ -2, %704 ], [ -2, %697 ], [ -1, %.thread54 ], [ 0, %fseek_u32.exit.thread63 ], [ 0, %506 ], [ -2, %672 ], [ 0, %518 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   ret i64 %.1
 }

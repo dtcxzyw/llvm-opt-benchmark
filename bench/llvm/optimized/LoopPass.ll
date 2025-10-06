@@ -804,8 +804,8 @@ _ZN4llvm10TimeRegionD2Ev.exit:                    ; preds = %152, %153
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 4
   %164 = load i32, ptr %163, align 4
   %165 = and i32 %164, 268435456
-  %.not9.i = icmp eq i32 %165, 0
-  br i1 %.not9.i, label %_ZNK4llvm4Loop7getNameEv.exit, label %166
+  %.not8.i = icmp eq i32 %165, 0
+  br i1 %.not8.i, label %_ZNK4llvm4Loop7getNameEv.exit, label %166
 
 166:                                              ; preds = %162
   %167 = call { ptr, i64 } @_ZNK4llvm5Value7getNameEv(ptr noundef nonnull align 8 dereferenceable(24) %161) #21

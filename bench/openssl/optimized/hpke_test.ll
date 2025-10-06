@@ -2293,8 +2293,8 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 51:                                               ; preds = %44
   %52 = load i32, ptr %0, align 8, !tbaa !41
   %53 = and i32 %52, -2
-  %switch176 = icmp eq i32 %53, 2
-  br i1 %switch176, label %54, label %79
+  %switch = icmp eq i32 %53, 2
+  br i1 %switch, label %54, label %79
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -2400,14 +2400,14 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   %122 = call fastcc i32 @cmpkey(ptr noundef %120, ptr noundef nonnull %6, i64 noundef %121)
   %123 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 156, ptr noundef nonnull @.str.43, i32 noundef %122) #7
   %.not155 = icmp eq i32 %123, 0
-  br i1 %.not155, label %.loopexit, label %.preheader183
+  br i1 %.not155, label %.loopexit, label %.preheader181
 
-.preheader183:                                    ; preds = %119, %150
+.preheader181:                                    ; preds = %119, %150
   %.0135 = phi i64 [ %151, %150 ], [ 0, %119 ]
   %exitcond.not = icmp eq i64 %.0135, %2
   br i1 %exitcond.not, label %153, label %124
 
-124:                                              ; preds = %.preheader183
+124:                                              ; preds = %.preheader181
   store i64 256, ptr %10, align 8, !tbaa !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %5, i8 0, i64 256, i1 false)
   %125 = getelementptr inbounds nuw %struct.TEST_AEADDATA, ptr %1, i64 %.0135
@@ -2448,9 +2448,9 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   %151 = load i64, ptr %20, align 8, !tbaa !11
   %152 = add nuw nsw i64 %.0135, 1
   %.not174 = icmp eq i64 %151, %152
-  br i1 %.not174, label %.preheader183, label %.loopexit, !llvm.loop !60
+  br i1 %.not174, label %.preheader181, label %.loopexit, !llvm.loop !60
 
-153:                                              ; preds = %.preheader183
+153:                                              ; preds = %.preheader181
   %154 = load i32, ptr %0, align 8, !tbaa !41
   %.0.copyload = load i48, ptr %23, align 4
   %155 = call ptr @OSSL_HPKE_CTX_new(i32 noundef %154, i48 %.0.copyload, i32 noundef 1, ptr noundef %22, ptr noundef nonnull @.str.62) #7
@@ -2510,8 +2510,8 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 183:                                              ; preds = %._crit_edge, %157
   %184 = phi i32 [ %.pre, %._crit_edge ], [ %158, %157 ]
   %185 = and i32 %184, -2
-  %switch178 = icmp eq i32 %185, 2
-  br i1 %switch178, label %186, label %192
+  %switch177 = icmp eq i32 %185, 2
+  br i1 %switch177, label %186, label %192
 
 186:                                              ; preds = %183
   %187 = load i64, ptr %15, align 8, !tbaa !11
@@ -2532,18 +2532,18 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   %199 = zext i1 %198 to i32
   %200 = call i32 @test_true(ptr noundef nonnull @.str.31, i32 noundef 193, ptr noundef nonnull @.str.52, i32 noundef %199) #7
   %.not162 = icmp eq i32 %200, 0
-  br i1 %.not162, label %.loopexit, label %.preheader181
+  br i1 %.not162, label %.loopexit, label %.preheader179
 
-.preheader181:                                    ; preds = %192, %228
+.preheader179:                                    ; preds = %192, %228
   %.1 = phi i64 [ %229, %228 ], [ 0, %192 ]
-  %exitcond188.not = icmp eq i64 %.1, %2
-  br i1 %exitcond188.not, label %.preheader, label %202
+  %exitcond186.not = icmp eq i64 %.1, %2
+  br i1 %exitcond186.not, label %.preheader, label %202
 
-.preheader:                                       ; preds = %.preheader181
+.preheader:                                       ; preds = %.preheader179
   %201 = icmp eq i64 %2, 0
   br label %231
 
-202:                                              ; preds = %.preheader181
+202:                                              ; preds = %.preheader179
   store i64 256, ptr %8, align 8, !tbaa !11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %7, i8 0, i64 256, i1 false)
   %203 = getelementptr inbounds nuw %struct.TEST_AEADDATA, ptr %1, i64 %.1
@@ -2584,11 +2584,11 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
   %229 = load i64, ptr %20, align 8, !tbaa !11
   %230 = add nuw nsw i64 %.1, 1
   %.not170 = icmp eq i64 %229, %230
-  br i1 %.not170, label %.preheader181, label %.loopexit, !llvm.loop !61
+  br i1 %.not170, label %.preheader179, label %.loopexit, !llvm.loop !61
 
 231:                                              ; preds = %.preheader, %262
-  %.2185 = phi i64 [ 0, %.preheader ], [ %263, %262 ]
-  %232 = getelementptr inbounds nuw %struct.TEST_EXPORTDATA, ptr %3, i64 %.2185
+  %.2183 = phi i64 [ 0, %.preheader ], [ %263, %262 ]
+  %232 = getelementptr inbounds nuw %struct.TEST_EXPORTDATA, ptr %3, i64 %.2183
   %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
   %234 = load i64, ptr %233, align 8, !tbaa !62
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -2641,9 +2641,9 @@ define internal fastcc range(i32 0, 2) i32 @do_testhpke(ptr noundef nonnull read
 
 262:                                              ; preds = %256, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %263 = add nuw nsw i64 %.2185, 1
-  %exitcond189.not = icmp eq i64 %263, 3
-  br i1 %exitcond189.not, label %.loopexit, label %231, !llvm.loop !67
+  %263 = add nuw nsw i64 %.2183, 1
+  %exitcond187.not = icmp eq i64 %263, 3
+  br i1 %exitcond187.not, label %.loopexit, label %231, !llvm.loop !67
 
 .loopexit:                                        ; preds = %150, %145, %138, %124, %228, %223, %216, %202, %262, %.thread, %192, %186, %173, %170, %153, %119, %109, %98, %88, %79, %73, %65, %62, %44, %40, %32, %4
   %.0134 = phi i32 [ 0, %192 ], [ 0, %186 ], [ 0, %173 ], [ 0, %170 ], [ 0, %153 ], [ 0, %119 ], [ 0, %109 ], [ 0, %98 ], [ 0, %88 ], [ 0, %79 ], [ 0, %73 ], [ 0, %65 ], [ 0, %62 ], [ 0, %44 ], [ 0, %40 ], [ 0, %32 ], [ 0, %4 ], [ 0, %.thread ], [ 1, %262 ], [ 0, %202 ], [ 0, %216 ], [ 0, %223 ], [ 0, %228 ], [ 0, %124 ], [ 0, %138 ], [ 0, %145 ], [ 0, %150 ]

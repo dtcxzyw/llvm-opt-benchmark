@@ -2436,15 +2436,15 @@ direct_query.exit:                                ; preds = %rbimpl_RB_TYPE_P_fa
 
 .lr.ph:                                           ; preds = %25, %53
   %29 = phi i64 [ %54, %53 ], [ %27, %25 ]
-  %.02547 = phi i32 [ %.2, %53 ], [ 0, %25 ]
-  %.12746 = phi i32 [ %.3, %53 ], [ %.026, %25 ]
+  %.02546 = phi i32 [ %.2, %53 ], [ 0, %25 ]
+  %.12745 = phi i32 [ %.3, %53 ], [ %.026, %25 ]
   %30 = tail call i64 @rb_num2uint(i64 noundef %29) #12
   %31 = trunc i64 %30 to i32
   %32 = icmp eq i32 %31, 59
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %.lr.ph
-  %34 = sext i32 %.02547 to i64
+  %34 = sext i32 %.02546 to i64
   %35 = shl nsw i64 %34, 1
   %36 = or disjoint i64 %35, 1
   %37 = tail call i64 @rb_ary_push(i64 noundef %26, i64 noundef %36) #12
@@ -2456,14 +2456,14 @@ direct_query.exit:                                ; preds = %rbimpl_RB_TYPE_P_fa
   br i1 %40, label %45, label %41
 
 41:                                               ; preds = %38
-  %42 = mul nsw i32 %.02547, 10
+  %42 = mul nsw i32 %.02546, 10
   %43 = add i32 %42, -48
   %44 = add i32 %43, %31
   br label %53
 
 45:                                               ; preds = %38
-  %.not37 = icmp ne i32 %.12746, 0
-  %46 = icmp eq i32 %.12746, %31
+  %.not37 = icmp ne i32 %.12745, 0
+  %46 = icmp eq i32 %.12745, %31
   %or.cond = and i1 %.not37, %46
   br i1 %or.cond, label %53, label %.thread
 
@@ -2471,7 +2471,7 @@ direct_query.exit:                                ; preds = %rbimpl_RB_TYPE_P_fa
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %47 = trunc i64 %30 to i8
   store i8 %47, ptr %3, align 1, !tbaa !19
-  %48 = sext i32 %.02547 to i64
+  %48 = sext i32 %.02546 to i64
   %49 = shl nsw i64 %48, 1
   %50 = or disjoint i64 %49, 1
   %51 = tail call i64 @rb_ary_push(i64 noundef %26, i64 noundef %50) #12
@@ -2480,8 +2480,8 @@ direct_query.exit:                                ; preds = %rbimpl_RB_TYPE_P_fa
   br label %.loopexit
 
 53:                                               ; preds = %33, %41, %45
-  %.3 = phi i32 [ %.12746, %33 ], [ %.12746, %41 ], [ 0, %45 ]
-  %.2 = phi i32 [ 0, %33 ], [ %44, %41 ], [ %.02547, %45 ]
+  %.3 = phi i32 [ %.12745, %33 ], [ %.12745, %41 ], [ 0, %45 ]
+  %.2 = phi i32 [ 0, %33 ], [ %44, %41 ], [ %.02546, %45 ]
   %54 = tail call i64 @rb_io_getbyte(i64 noundef %0) #12
   %55 = icmp eq i64 %54, 4
   br i1 %55, label %.loopexit, label %.lr.ph

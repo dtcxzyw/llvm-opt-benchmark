@@ -14046,14 +14046,14 @@ define internal fastcc { i32, ptr } @_ZL9parse_hexPKci(ptr noundef %0, i32 nound
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
-  %.05564 = phi i32 [ %.257.ph, %26 ], [ 0, %.lr.ph.preheader ]
-  %.05863 = phi ptr [ %27, %26 ], [ %0, %.lr.ph.preheader ]
-  %8 = load i8, ptr %.05863, align 1, !tbaa !20
+  %.05563 = phi i32 [ %.257.ph, %26 ], [ 0, %.lr.ph.preheader ]
+  %.05862 = phi ptr [ %27, %26 ], [ %0, %.lr.ph.preheader ]
+  %8 = load i8, ptr %.05862, align 1, !tbaa !20
   %.not = icmp eq i8 %8, 0
   br i1 %.not, label %.critedge, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = shl i32 %.05564, 4
+  %10 = shl i32 %.05563, 4
   %11 = sext i8 %8 to i32
   %12 = add i8 %8, -97
   %or.cond = icmp ult i8 %12, 6
@@ -14086,13 +14086,13 @@ define internal fastcc { i32, ptr } @_ZL9parse_hexPKci(ptr noundef %0, i32 nound
 
 26:                                               ; preds = %18, %23, %13
   %.257.ph = phi i32 [ %25, %23 ], [ %20, %18 ], [ %15, %13 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.05863, i64 1
+  %27 = getelementptr inbounds nuw i8, ptr %.05862, i64 1
   %28 = icmp ult ptr %27, %7
   br i1 %28, label %.lr.ph, label %.critedge, !llvm.loop !219
 
 .critedge:                                        ; preds = %.lr.ph, %26, %21
-  %.058.lcssa.ph = phi ptr [ %.05863, %.lr.ph ], [ %27, %26 ], [ %.05863, %21 ]
-  %.156.ph = phi i32 [ %.05564, %.lr.ph ], [ %.257.ph, %26 ], [ %10, %21 ]
+  %.058.lcssa.ph = phi ptr [ %.05862, %.lr.ph ], [ %27, %26 ], [ %.05862, %21 ]
+  %.156.ph = phi i32 [ %.05563, %.lr.ph ], [ %.257.ph, %26 ], [ %10, %21 ]
   %.not37 = icmp eq ptr %.058.lcssa.ph, %7
   br i1 %.not37, label %65, label %29
 

@@ -925,12 +925,12 @@ define internal fastcc void @resolve_relative_paths(ptr noundef %0, i1 noundef z
   br i1 %13, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %2
-  %wide.trip.count26.i = zext nneg i32 %9 to i64
+  %wide.trip.count25.i = zext nneg i32 %9 to i64
   br i1 %1, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %24
-  %indvars.iv23.i = phi i64 [ %indvars.iv.next24.i, %24 ], [ 0, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv23.i
+  %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %24 ], [ 0, %.lr.ph.i ]
+  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv22.i
   %15 = load ptr, ptr %14, align 8, !tbaa !51
   %16 = call zeroext i1 @pmix_path_is_absolute(ptr noundef %15) #25
   %17 = load ptr, ptr %14, align 8, !tbaa !51
@@ -947,14 +947,14 @@ define internal fastcc void @resolve_relative_paths(ptr noundef %0, i1 noundef z
 22:                                               ; preds = %20, %18
   %.041.us.i = phi ptr [ %21, %20 ], [ %19, %18 ]
   %23 = icmp eq ptr %.041.us.i, null
-  br i1 %23, label %.thread9.i, label %24
+  br i1 %23, label %.thread8.i, label %24
 
 24:                                               ; preds = %22
   %25 = call i32 @pmix_argv_append(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %.041.us.i) #25
   call void @free(ptr noundef nonnull %.041.us.i) #25
-  %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
-  %exitcond27.not.i = icmp eq i64 %indvars.iv.next24.i, %wide.trip.count26.i
-  br i1 %exitcond27.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !66
+  %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
+  %exitcond26.not.i = icmp eq i64 %indvars.iv.next23.i, %wide.trip.count25.i
+  br i1 %exitcond26.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !66
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %40
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %40 ], [ 0, %.lr.ph.i ]
@@ -985,21 +985,21 @@ define internal fastcc void @resolve_relative_paths(ptr noundef %0, i1 noundef z
   %.041.i = phi ptr [ %31, %30 ], [ %37, %36 ], [ %35, %34 ]
   %.038.i = phi ptr [ %0, %30 ], [ %0, %36 ], [ %12, %34 ]
   %39 = icmp eq ptr %.041.i, null
-  br i1 %39, label %.thread9.i, label %40
+  br i1 %39, label %.thread8.i, label %40
 
 40:                                               ; preds = %38
   %41 = call i32 @pmix_argv_append(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %.041.i) #25
   call void @free(ptr noundef nonnull %.041.i) #25
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count26.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count25.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !66
 
-.thread9.i:                                       ; preds = %38, %22
+.thread8.i:                                       ; preds = %38, %22
   %.us-phi.i = phi ptr [ %0, %22 ], [ %.038.i, %38 ]
-  %indvars.iv23.i.pn = phi i64 [ %indvars.iv23.i, %22 ], [ %indvars.iv.i, %38 ]
-  %.us-phi15.i = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv23.i.pn
+  %indvars.iv22.i.pn = phi i64 [ %indvars.iv22.i, %22 ], [ %indvars.iv.i, %38 ]
+  %.us-phi14.i = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv22.i.pn
   %42 = call i32 @getpid() #25
-  %43 = load ptr, ptr %.us-phi15.i, align 8, !tbaa !51
+  %43 = load ptr, ptr %.us-phi14.i, align 8, !tbaa !51
   %44 = call i32 (ptr, ptr, i32, ...) @pmix_show_help(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.70, i32 noundef 1, i32 noundef %42, ptr noundef %43, ptr noundef %.us-phi.i) #25
   br label %48
 
@@ -1012,13 +1012,13 @@ define internal fastcc void @resolve_relative_paths(ptr noundef %0, i1 noundef z
   %.not46.i = icmp eq ptr %8, null
   br i1 %.not46.i, label %50, label %48
 
-48:                                               ; preds = %._crit_edge.i, %.thread9.i
-  %49 = phi i1 [ false, %.thread9.i ], [ true, %._crit_edge.i ]
+48:                                               ; preds = %._crit_edge.i, %.thread8.i
+  %49 = phi i1 [ false, %.thread8.i ], [ true, %._crit_edge.i ]
   call void @PMIx_Argv_free(ptr noundef nonnull %8) #25
   br label %50
 
 50:                                               ; preds = %48, %._crit_edge.i
-  %.1713.i = phi i1 [ %49, %48 ], [ true, %._crit_edge.i ]
+  %.1612.i = phi i1 [ %49, %48 ], [ true, %._crit_edge.i ]
   %51 = load ptr, ptr %3, align 8, !tbaa !64
   %.not47.i = icmp eq ptr %51, null
   br i1 %.not47.i, label %53, label %52
@@ -1039,7 +1039,7 @@ define internal fastcc void @resolve_relative_paths(ptr noundef %0, i1 noundef z
 fixup_files.exit:                                 ; preds = %53, %54
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.1713.i, label %55, label %66
+  br i1 %.1612.i, label %55, label %66
 
 55:                                               ; preds = %fixup_files.exit
   %56 = load ptr, ptr @pmix_mca_base_var_file_prefix, align 8, !tbaa !51

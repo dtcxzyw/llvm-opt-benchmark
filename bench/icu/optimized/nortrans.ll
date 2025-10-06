@@ -752,8 +752,8 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit64:       ; preds = %35
 68:                                               ; preds = %65
   %69 = load i16, ptr %14, align 8, !tbaa !10
   %70 = and i16 %69, 1
-  %.not80 = icmp eq i16 %70, 0
-  br i1 %.not80, label %.thread, label %104
+  %.not79 = icmp eq i16 %70, 0
+  br i1 %.not79, label %.thread, label %104
 
 71:                                               ; preds = %65
   %72 = icmp slt i16 %66, 0
@@ -782,8 +782,8 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit64:       ; preds = %35
           to label %90 unwind label %.loopexit.split-lp
 
 90:                                               ; preds = %85
-  %.not81 = icmp eq i8 %89, 0
-  br i1 %.not81, label %.thread, label %104
+  %.not80 = icmp eq i8 %89, 0
+  br i1 %.not80, label %.thread, label %104
 
 .thread:                                          ; preds = %68, %71, %90
   %91 = load ptr, ptr %1, align 8, !tbaa !13
@@ -812,16 +812,16 @@ _ZNK6icu_7711Replaceable8char32AtEi.exit64:       ; preds = %35
   br i1 %105, label %_ZNK6icu_7711Replaceable8char32AtEi.exit, label %.thread66, !llvm.loop !30
 
 .thread66:                                        ; preds = %62, %53, %104
-  %.273 = phi i32 [ %.2, %104 ], [ %33, %62 ], [ %.0, %53 ]
-  %.14272 = phi i32 [ %.142, %104 ], [ %.041, %62 ], [ %.041, %53 ]
-  store i32 %.273, ptr %8, align 4, !tbaa !25
+  %.272 = phi i32 [ %.2, %104 ], [ %33, %62 ], [ %.0, %53 ]
+  %.14271 = phi i32 [ %.142, %104 ], [ %.041, %62 ], [ %.041, %53 ]
+  store i32 %.272, ptr %8, align 4, !tbaa !25
   %106 = load i32, ptr %10, align 4, !tbaa !27
-  %107 = sub i32 %.14272, %106
+  %107 = sub i32 %.14271, %106
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %109 = load i32, ptr %108, align 4, !tbaa !31
   %110 = add nsw i32 %107, %109
   store i32 %110, ptr %108, align 4, !tbaa !31
-  store i32 %.14272, ptr %10, align 4, !tbaa !27
+  store i32 %.14271, ptr %10, align 4, !tbaa !27
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #7

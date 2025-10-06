@@ -840,21 +840,21 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL21x509_store_load_certsP
   %21 = tail call ptr @OPENSSL_sk_new_null()
   store ptr %21, ptr %3, align 8, !tbaa !29
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %72, label %.thread124
+  br i1 %22, label %72, label %.thread123
 
 23:                                               ; preds = %19
   %24 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit.thread.thread, label %.lr.ph.split.us
 
-.thread124:                                       ; preds = %20
+.thread123:                                       ; preds = %20
   %26 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %27 = icmp eq ptr %26, null
   br i1 %27, label %.loopexit.thread.thread, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %23, %.thread.us
   %28 = phi ptr [ %34, %.thread.us ], [ %24, %23 ]
-  %.04390.us = phi i64 [ %33, %.thread.us ], [ 0, %23 ]
+  %.04389.us = phi i64 [ %33, %.thread.us ], [ 0, %23 ]
   tail call void @ERR_clear_error()
   %29 = tail call i32 @X509_STORE_add_cert(ptr noundef nonnull %0, ptr noundef nonnull %28)
   %.not60.us = icmp eq i32 %29, 0
@@ -868,14 +868,14 @@ define internal fastcc noundef range(i32 0, 13) i32 @_ZL21x509_store_load_certsP
 
 .thread.us:                                       ; preds = %30, %.lr.ph.split.us
   tail call void @X509_free(ptr noundef nonnull %28)
-  %33 = add i64 %.04390.us, 1
+  %33 = add i64 %.04389.us, 1
   %34 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.loopexit.thread, label %.lr.ph.split.us, !llvm.loop !31
 
-.lr.ph.split:                                     ; preds = %.thread124, %.thread
-  %36 = phi ptr [ %56, %.thread ], [ %26, %.thread124 ]
-  %.04390 = phi i64 [ %55, %.thread ], [ 0, %.thread124 ]
+.lr.ph.split:                                     ; preds = %.thread123, %.thread
+  %36 = phi ptr [ %56, %.thread ], [ %26, %.thread123 ]
+  %.04389 = phi i64 [ %55, %.thread ], [ 0, %.thread123 ]
   %37 = tail call ptr @X509_get_subject_name(ptr noundef nonnull %36)
   %38 = icmp eq ptr %37, null
   br i1 %38, label %39, label %42
@@ -918,8 +918,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
   br i1 %or.cond, label %.thread, label %.split.us
 
 .split.us:                                        ; preds = %49, %30
-  %.us-phi = phi i64 [ %.04390.us, %30 ], [ %.04390, %49 ]
-  %.us-phi93 = phi ptr [ %28, %30 ], [ %36, %49 ]
+  %.us-phi = phi i64 [ %.04389.us, %30 ], [ %.04389, %49 ]
+  %.us-phi92 = phi ptr [ %28, %30 ], [ %36, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageC1EPKciNS2_8ErrorTagE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull @.str.1, i32 noundef 751) #31
   invoke void @_ZN4absl12lts_2024072212log_internal10LogMessage19CopyToEncodedBufferILNS2_10StringTypeE0EEEvSt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, i64 46, ptr nonnull @.str.44)
@@ -939,19 +939,19 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
 
 .thread:                                          ; preds = %49, %45
   tail call void @X509_free(ptr noundef nonnull %36)
-  %55 = add i64 %.04390, 1
+  %55 = add i64 %.04389, 1
   %56 = tail call ptr @PEM_read_bio_X509_AUX(ptr noundef nonnull %10, ptr noundef null, ptr noundef null, ptr noundef nonnull @.str)
   %57 = icmp eq ptr %56, null
   br i1 %57, label %.loopexit.thread, label %.lr.ph.split, !llvm.loop !31
 
 .loopexit:                                        ; preds = %42, %54, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit
-  %.04389 = phi i64 [ %.04390, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ %.us-phi, %54 ], [ %.04390, %42 ]
-  %58 = phi ptr [ %36, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ %.us-phi93, %54 ], [ %36, %42 ]
+  %.04388 = phi i64 [ %.04389, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ %.us-phi, %54 ], [ %.04389, %42 ]
+  %58 = phi ptr [ %36, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ %.us-phi92, %54 ], [ %36, %42 ]
   %.1 = phi i32 [ 2, %_ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit ], [ 7, %54 ], [ 12, %42 ]
-  %59 = icmp eq i64 %.04389, 0
-  br i1 %59, label %61, label %.thread130
+  %59 = icmp eq i64 %.04388, 0
+  br i1 %59, label %61, label %.thread129
 
-.loopexit.thread.thread:                          ; preds = %23, %.thread124
+.loopexit.thread.thread:                          ; preds = %23, %.thread123
   tail call void @ERR_clear_error()
   br label %61
 
@@ -959,7 +959,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
   %.043.lcssa = phi i64 [ %33, %.thread.us ], [ %55, %.thread ]
   tail call void @ERR_clear_error()
   %60 = icmp eq i64 %.043.lcssa, 0
-  br i1 %60, label %61, label %.thread128
+  br i1 %60, label %61, label %.thread127
 
 61:                                               ; preds = %.loopexit.thread.thread, %.loopexit.thread, %.loopexit
   %62 = phi i1 [ true, %.loopexit.thread ], [ false, %.loopexit ], [ true, %.loopexit.thread.thread ]
@@ -979,31 +979,31 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi42EEERS2_RAT__Kc.exit: ; pr
 66:                                               ; preds = %61
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %62, label %68, label %.thread130
+  br i1 %62, label %68, label %.thread129
 
-.thread130:                                       ; preds = %.loopexit, %66
-  %.477132 = phi i32 [ 2, %66 ], [ %.1, %.loopexit ]
+.thread129:                                       ; preds = %.loopexit, %66
+  %.476131 = phi i32 [ 2, %66 ], [ %.1, %.loopexit ]
   %67 = phi ptr [ %63, %66 ], [ %58, %.loopexit ]
   call void @X509_free(ptr noundef nonnull %67)
   br label %68
 
-68:                                               ; preds = %.thread130, %66
-  %.477133 = phi i32 [ %.477132, %.thread130 ], [ 2, %66 ]
-  br i1 %.not59, label %.thread128, label %69
+68:                                               ; preds = %.thread129, %66
+  %.476132 = phi i32 [ %.476131, %.thread129 ], [ 2, %66 ]
+  br i1 %.not59, label %.thread127, label %69
 
 69:                                               ; preds = %68
   %70 = load ptr, ptr %3, align 8, !tbaa !29
   call void @OPENSSL_sk_pop_free_ex(ptr noundef %70, ptr noundef nonnull @sk_X509_NAME_call_free_func, ptr noundef nonnull @X509_NAME_free)
   store ptr null, ptr %3, align 8, !tbaa !29
-  br label %.thread128
+  br label %.thread127
 
-.thread128:                                       ; preds = %.loopexit.thread, %69, %68
-  %.478 = phi i32 [ %.477133, %69 ], [ %.477133, %68 ], [ 0, %.loopexit.thread ]
+.thread127:                                       ; preds = %.loopexit.thread, %69, %68
+  %.477 = phi i32 [ %.476132, %69 ], [ %.476132, %68 ], [ 0, %.loopexit.thread ]
   %71 = call i32 @BIO_free(ptr noundef nonnull %10)
   br label %72
 
-72:                                               ; preds = %20, %17, %9, %.thread128
-  %.0 = phi i32 [ %.478, %.thread128 ], [ 2, %9 ], [ 12, %17 ], [ 12, %20 ]
+72:                                               ; preds = %20, %17, %9, %.thread127
+  %.0 = phi i32 [ %.477, %.thread127 ], [ 2, %9 ], [ 12, %17 ], [ 12, %20 ]
   ret i32 %.0
 
 73:                                               ; preds = %64, %52, %40
@@ -1927,8 +1927,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi45EEERS2_RAT__Kc.exit: ; pr
   tail call void @SSL_CTX_set_cert_verify_callback(ptr noundef nonnull %26, ptr noundef nonnull %_ZL18NullVerifyCallbackP17x509_store_ctx_stPv._ZL26CustomVerificationFunctionP17x509_store_ctx_stPv, ptr noundef null)
   %150 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %151 = load ptr, ptr %150, align 8, !tbaa !123
-  %.not144 = icmp eq ptr %151, null
-  br i1 %.not144, label %156, label %152
+  %.not143 = icmp eq ptr %151, null
+  br i1 %.not143, label %156, label %152
 
 152:                                              ; preds = %146
   %153 = load ptr, ptr %46, align 8, !tbaa !43
@@ -5467,22 +5467,22 @@ define internal fastcc noundef i32 @_ZL40add_subject_alt_names_properties_to_pee
   %8 = alloca [46 x i8], align 16
   %9 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
   %10 = alloca %"class.absl::lts_20240722::log_internal::LogMessage", align 8
-  %.not100 = icmp eq i64 %2, 0
-  br i1 %.not100, label %.thread82, label %.lr.ph
+  %.not98 = icmp eq i64 %2, 0
+  br i1 %.not98, label %.thread82, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %15
 
-13:                                               ; preds = %.thread86
-  %14 = add nuw i64 %.097, 1
+13:                                               ; preds = %.thread85
+  %14 = add nuw i64 %.095, 1
   %exitcond.not = icmp eq i64 %14, %2
   br i1 %exitcond.not, label %.thread82, label %15, !llvm.loop !194
 
 15:                                               ; preds = %.lr.ph, %13
-  %.097 = phi i64 [ 0, %.lr.ph ], [ %14, %13 ]
-  %16 = call ptr @OPENSSL_sk_value(ptr noundef %1, i64 noundef %.097)
+  %.095 = phi i64 [ 0, %.lr.ph ], [ %14, %13 ]
+  %16 = call ptr @OPENSSL_sk_value(ptr noundef %1, i64 noundef %.095)
   %17 = load i32, ptr %16, align 8, !tbaa !13
   switch i32 %17, label %111 [
     i32 2, label %18
@@ -5627,7 +5627,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %cond1, label %.thread86, label %.thread82
+  br i1 %cond1, label %.thread85, label %.thread82
 
 75:                                               ; preds = %46, %27
   %.pn66.pn = phi { ptr, i32 } [ %.pn66, %46 ], [ %28, %27 ]
@@ -5728,7 +5728,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; pr
   %108 = getelementptr inbounds %struct.tsi_peer_property, ptr %104, i64 %107
   %109 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.40, ptr noundef nonnull %91, ptr noundef %108)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread86
+  br label %.thread85
 
 110:                                              ; preds = %94, %86
   %.pn = phi { ptr, i32 } [ %95, %94 ], [ %87, %86 ]
@@ -5743,9 +5743,9 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; pr
   %115 = sext i32 %113 to i64
   %116 = getelementptr inbounds %struct.tsi_peer_property, ptr %112, i64 %115
   %117 = call noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.41, ptr noundef %116)
-  br label %.thread86
+  br label %.thread85
 
-.thread86:                                        ; preds = %103, %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+.thread85:                                        ; preds = %103, %111, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.4 = phi i32 [ %.256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %109, %103 ], [ %117, %111 ]
   %.not70 = icmp eq i32 %.4, 0
   br i1 %.not70, label %13, label %.thread82
@@ -5754,8 +5754,8 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi41EEERS2_RAT__Kc.exit: ; pr
   %.pn66.pn.pn = phi { ptr, i32 } [ %.pn66.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75 ], [ %.pn, %110 ]
   resume { ptr, i32 } %.pn66.pn.pn
 
-.thread82:                                        ; preds = %13, %.thread86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %4, %.thread
-  %.155 = phi i32 [ %.5.ph, %.thread ], [ 0, %4 ], [ 0, %13 ], [ %.4, %.thread86 ], [ %.256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+.thread82:                                        ; preds = %13, %.thread85, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %4, %.thread
+  %.155 = phi i32 [ %.5.ph, %.thread ], [ 0, %4 ], [ 0, %13 ], [ %.4, %.thread85 ], [ %.256, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret i32 %.155
 }
 

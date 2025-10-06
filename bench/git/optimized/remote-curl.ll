@@ -2117,8 +2117,8 @@ define internal fastcc range(i32 -1, 1) i32 @stateless_connect(ptr noundef %0) u
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %54 = call fastcc i32 @rpc_read_from_out(ptr noundef nonnull %2, i32 noundef 1, ptr noundef %4, ptr noundef %5)
-  %.not1925 = icmp eq i32 %54, 0
-  br i1 %.not1925, label %._crit_edge, label %.lr.ph
+  %.not1924 = icmp eq i32 %54, 0
+  br i1 %.not1924, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %61, %53
   call void (ptr, i32, ptr, ...) @BUG_fl(ptr noundef nonnull @.str.1, i32 noundef 1529, ptr noundef nonnull @.str.92) #18
@@ -3065,12 +3065,12 @@ xstrdup_or_null.exit:                             ; preds = %28, %41
   br label %80
 
 80:                                               ; preds = %79, %67
-  %.042.lcssa61 = phi i32 [ -1, %79 ], [ 0, %67 ]
+  %.042.lcssa60 = phi i32 [ -1, %79 ], [ 0, %67 ]
   %81 = load i32, ptr %11, align 4, !tbaa !116
   %82 = call i32 @close(i32 noundef %81) #17
   store i32 -1, ptr %11, align 4, !tbaa !116
   %83 = call i32 @finish_command(ptr noundef nonnull %7) #17
-  %84 = or i32 %83, %.042.lcssa61
+  %84 = or i32 %83, %.042.lcssa60
   %85 = load ptr, ptr %39, align 8, !tbaa !84
   call void @free(ptr noundef %85) #17
   %86 = load ptr, ptr %46, align 8, !tbaa !85

@@ -1124,8 +1124,8 @@ _ZN5serde2de9SeqAccess12next_element17h1f4ddd3e93e9853aE.llvm.163234042581944928
   call void @llvm.experimental.noalias.scope.decl(metadata !310)
   call void @llvm.experimental.noalias.scope.decl(metadata !313)
   %144 = load i32, ptr %24, align 4, !range !315, !alias.scope !316, !noalias !323, !noundef !3
-  %.not.i.not.i.i.not.not10.i = icmp eq i32 %144, 2
-  br i1 %.not.i.not.i.i.not.not10.i, label %.critedge.i, label %.lr.ph.i
+  %.not.i.not.i.i12.i = icmp eq i32 %144, 2
+  br i1 %.not.i.not.i.i12.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h9b3989387f581501E.exit", %148
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !327
@@ -1152,14 +1152,14 @@ _ZN5serde2de9SeqAccess12next_element17h1f4ddd3e93e9853aE.llvm.163234042581944928
 148:                                              ; preds = %.noexc29
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !327
   %149 = load i32, ptr %24, align 4, !range !315, !alias.scope !331, !noalias !323, !noundef !3
-  %.not.i.not.i.i.not.not.i = icmp eq i32 %149, 2
-  br i1 %.not.i.not.i.i.not.not.i, label %.critedge.i, label %.lr.ph.i
+  %.not.i.not.i.i.i = icmp eq i32 %149, 2
+  br i1 %.not.i.not.i.i.i, label %._crit_edge.i, label %.lr.ph.i
 
-.critedge.i:                                      ; preds = %148, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h9b3989387f581501E.exit"
+._crit_edge.i:                                    ; preds = %148, %"_ZN9toml_edit4repr18Formatted$LT$T$GT$10into_value17h9b3989387f581501E.exit"
   store i64 2, ptr %31, align 8, !alias.scope !310, !noalias !313
   br label %"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_map17hc7e6abcb06b91276E.exit"
 
-"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_map17hc7e6abcb06b91276E.exit": ; preds = %.critedge.i, %147
+"_ZN73_$LT$serde..de..ignored_any..IgnoredAny$u20$as$u20$serde..de..Visitor$GT$9visit_map17hc7e6abcb06b91276E.exit": ; preds = %._crit_edge.i, %147
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %61
 

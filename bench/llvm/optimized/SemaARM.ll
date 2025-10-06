@@ -1012,13 +1012,13 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit15
   %438 = getelementptr inbounds nuw i8, ptr %437, i64 16
   %439 = load i8, ptr %438, align 16
   %440 = icmp ne i8 %439, 13
-  %.not.not24.i = icmp eq ptr %437, null
-  %.not.not.i = or i1 %.not.not24.i, %440
+  %.not.not21.i = icmp eq ptr %437, null
+  %.not.not.i = or i1 %.not.not21.i, %440
   br i1 %.not.not.i, label %441, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 441:                                              ; preds = %429
   %442 = icmp ne i8 %439, 46
-  %.not13.not.i = or i1 %.not.not24.i, %442
+  %.not13.not.i = or i1 %.not.not21.i, %442
   br i1 %.not13.not.i, label %456, label %443
 
 443:                                              ; preds = %441
@@ -1673,8 +1673,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
   %8 = icmp ne i8 %7, 13
-  %.not.not24 = icmp eq ptr %5, null
-  %.not.not = or i1 %.not.not24, %8
+  %.not.not21 = icmp eq ptr %5, null
+  %.not.not = or i1 %.not.not21, %8
   br i1 %.not.not, label %14, label %9
 
 9:                                                ; preds = %1
@@ -1687,7 +1687,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
 
 14:                                               ; preds = %1
   %15 = icmp ne i8 %7, 46
-  %.not13.not = or i1 %.not.not24, %15
+  %.not13.not = or i1 %.not.not21, %15
   br i1 %.not13.not, label %29, label %16
 
 16:                                               ; preds = %14
@@ -2621,7 +2621,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang7SemaARM17CheckImmediateAr
   %29 = load i24, ptr %28, align 8
   %30 = and i24 %29, 196608
   %or.cond.not = icmp eq i24 %30, 0
-  br i1 %or.cond.not, label %31, label %113
+  br i1 %or.cond.not, label %31, label %114
 
 31:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -2633,7 +2633,7 @@ define internal fastcc noundef zeroext i1 @"_ZZN5clang7SemaARM17CheckImmediateAr
   %34 = load ptr, ptr %11, align 8, !tbaa !3
   %35 = call noundef zeroext i1 @_ZN5clang4Sema18BuiltinConstantArgEPNS_8CallExprEiRN4llvm6APSIntE(ptr noundef nonnull align 8 dereferenceable(17504) %34, ptr noundef nonnull %13, i32 noundef %16, ptr noundef nonnull align 8 dereferenceable(13) %8) #20
   %.pre28 = load i32, ptr %32, align 8, !tbaa !77
-  br i1 %35, label %106, label %36
+  br i1 %35, label %107, label %36
 
 36:                                               ; preds = %31
   %.idx15 = shl nuw nsw i64 %2, 3
@@ -2685,125 +2685,125 @@ _ZNK4llvm5APInt12getSExtValueEv.exit:             ; preds = %39, %46
   br i1 %62, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit.thread
 
 ._crit_edge.i.i.i:                                ; preds = %_ZNK4llvm5APInt12getSExtValueEv.exit
-  %switch = icmp eq i64 %2, 3
-  br i1 %switch, label %63, label %._crit_edge._crit_edge.i.i.i
+  %63 = icmp eq i64 %2, 3
+  br i1 %63, label %64, label %._crit_edge._crit_edge.i.i.i
 
-63:                                               ; preds = %._crit_edge.i.i.i
-  %64 = load i64, ptr %1, align 8, !tbaa !55
-  %65 = icmp eq i64 %64, %.0.i
-  br i1 %65, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit, label %66
+64:                                               ; preds = %._crit_edge.i.i.i
+  %65 = load i64, ptr %1, align 8, !tbaa !55
+  %66 = icmp eq i64 %65, %.0.i
+  br i1 %66, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit, label %67
 
-66:                                               ; preds = %63
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %._crit_edge._crit_edge.i.i.i
 
-._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %66
-  %.1.i.i.i = phi ptr [ %67, %66 ], [ %1, %._crit_edge.i.i.i ]
-  %68 = load i64, ptr %.1.i.i.i, align 8, !tbaa !55
-  %69 = icmp eq i64 %68, %.0.i
-  br i1 %69, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit, label %._crit_edge._crit_edge52.i.i.i
+._crit_edge._crit_edge.i.i.i:                     ; preds = %._crit_edge.i.i.i, %67
+  %.1.i.i.i = phi ptr [ %68, %67 ], [ %1, %._crit_edge.i.i.i ]
+  %69 = load i64, ptr %.1.i.i.i, align 8, !tbaa !55
+  %70 = icmp eq i64 %69, %.0.i
+  br i1 %70, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit, label %._crit_edge._crit_edge52.i.i.i
 
 ._crit_edge._crit_edge52.i.i.i:                   ; preds = %._crit_edge._crit_edge.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
-  %71 = load i64, ptr %70, align 8, !tbaa !55
-  %72 = icmp eq i64 %71, %.0.i
-  br i1 %72, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit.thread
+  %71 = getelementptr inbounds nuw i8, ptr %.1.i.i.i, i64 8
+  %72 = load i64, ptr %71, align 8, !tbaa !55
+  %73 = icmp eq i64 %72, %.0.i
+  br i1 %73, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit.thread
 
-_ZSt4findIPKllET_S2_S2_RKT0_.exit:                ; preds = %.lr.ph.i.i.i, %59, %55, %51, %63, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
-  %.028.i.i.i = phi ptr [ %1, %63 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %70, %._crit_edge._crit_edge52.i.i.i ], [ %52, %51 ], [ %56, %55 ], [ %60, %59 ], [ %1, %.lr.ph.i.i.i ]
-  %73 = icmp eq ptr %.028.i.i.i, %37
-  br i1 %73, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit.thread, label %106
+_ZSt4findIPKllET_S2_S2_RKT0_.exit:                ; preds = %.lr.ph.i.i.i, %59, %55, %51, %64, %._crit_edge._crit_edge.i.i.i, %._crit_edge._crit_edge52.i.i.i
+  %.028.i.i.i = phi ptr [ %1, %64 ], [ %.1.i.i.i, %._crit_edge._crit_edge.i.i.i ], [ %71, %._crit_edge._crit_edge52.i.i.i ], [ %52, %51 ], [ %56, %55 ], [ %60, %59 ], [ %1, %.lr.ph.i.i.i ]
+  %74 = icmp eq ptr %.028.i.i.i, %37
+  br i1 %74, label %_ZSt4findIPKllET_S2_S2_RKT0_.exit.thread, label %107
 
 _ZSt4findIPKllET_S2_S2_RKT0_.exit.thread:         ; preds = %59, %._crit_edge._crit_edge52.i.i.i, %_ZSt4findIPKllET_S2_S2_RKT0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %74 = load ptr, ptr %0, align 8, !tbaa !75
-  %75 = load ptr, ptr %74, align 8, !tbaa !65
-  %76 = call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %75) #21
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %11, i32 %76, i32 noundef %3, i1 noundef zeroext false) #20
-  %77 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #21
-  %78 = getelementptr inbounds nuw i8, ptr %9, i64 120
-  %79 = load i8, ptr %78, align 8, !tbaa !18, !range !21, !noundef !22
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %83
+  %75 = load ptr, ptr %0, align 8, !tbaa !75
+  %76 = load ptr, ptr %75, align 8, !tbaa !65
+  %77 = call i32 @_ZNK5clang8CallExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(24) %76) #21
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %11, i32 %77, i32 noundef %3, i1 noundef zeroext false) #20
+  %78 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %28) #21
+  %79 = getelementptr inbounds nuw i8, ptr %9, i64 120
+  %80 = load i8, ptr %79, align 8, !tbaa !18, !range !21, !noundef !22
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %84
 
-81:                                               ; preds = %_ZSt4findIPKllET_S2_S2_RKT0_.exit.thread
-  %82 = getelementptr inbounds nuw i8, ptr %9, i64 32
+82:                                               ; preds = %_ZSt4findIPKllET_S2_S2_RKT0_.exit.thread
+  %83 = getelementptr inbounds nuw i8, ptr %9, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store i64 %77, ptr %6, align 8
+  store i64 %78, ptr %6, align 8
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8
-  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %82, ptr noundef nonnull align 4 dereferenceable(9) %6)
+  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(84) %83, ptr noundef nonnull align 4 dereferenceable(9) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
-83:                                               ; preds = %_ZSt4findIPKllET_S2_S2_RKT0_.exit.thread
-  %84 = getelementptr inbounds nuw i8, ptr %9, i64 128
-  %85 = getelementptr inbounds nuw i8, ptr %9, i64 132
-  %86 = load i8, ptr %85, align 4, !tbaa !23, !range !21, !noundef !22
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
+84:                                               ; preds = %_ZSt4findIPKllET_S2_S2_RKT0_.exit.thread
+  %85 = getelementptr inbounds nuw i8, ptr %9, i64 128
+  %86 = getelementptr inbounds nuw i8, ptr %9, i64 132
+  %87 = load i8, ptr %86, align 4, !tbaa !23, !range !21, !noundef !22
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
-88:                                               ; preds = %83
-  %89 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %9) #20
+89:                                               ; preds = %84
+  %90 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %9) #20
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %90 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %91 = load ptr, ptr %90, align 8, !tbaa !25
-  %.not.i.i = icmp eq ptr %91, null
-  br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %92
+  %91 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %92 = load ptr, ptr %91, align 8, !tbaa !25
+  %.not.i.i = icmp eq ptr %92, null
+  br i1 %.not.i.i, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %93
 
-92:                                               ; preds = %88
-  %93 = load ptr, ptr %91, align 8, !tbaa !37
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  %95 = load ptr, ptr %94, align 8
-  %96 = call noundef ptr %95(ptr noundef nonnull align 8 dereferenceable(168) %91) #20
+93:                                               ; preds = %89
+  %94 = load ptr, ptr %92, align 8, !tbaa !37
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %96 = load ptr, ptr %95, align 8
+  %97 = call noundef ptr %96(ptr noundef nonnull align 8 dereferenceable(168) %92) #20
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %92, %88
-  %97 = phi ptr [ %96, %92 ], [ null, %88 ]
-  store ptr %97, ptr %7, align 8, !tbaa !39
-  %98 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %89, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %99 = load i32, ptr %84, align 8, !tbaa !41
-  %100 = zext i32 %99 to i64
-  %101 = load ptr, ptr %98, align 8, !tbaa !42
-  %102 = getelementptr inbounds nuw %"struct.std::pair.1226", ptr %101, i64 %100
-  %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %93, %89
+  %98 = phi ptr [ %97, %93 ], [ null, %89 ]
+  store ptr %98, ptr %7, align 8, !tbaa !39
+  %99 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %90, ptr noundef nonnull align 8 dereferenceable(8) %7)
+  %100 = load i32, ptr %85, align 8, !tbaa !41
+  %101 = zext i32 %100 to i64
+  %102 = load ptr, ptr %99, align 8, !tbaa !42
+  %103 = getelementptr inbounds nuw %"struct.std::pair.1226", ptr %102, i64 %101
+  %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %77, ptr %5, align 8
+  store i64 %78, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i8 1, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8
-  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %103, ptr noundef nonnull align 4 dereferenceable(9) %5)
+  call void @_ZNK5clang19StreamingDiagnostic14AddSourceRangeERKNS_15CharSourceRangeE(ptr noundef nonnull align 8 dereferenceable(20) %104, ptr noundef nonnull align 4 dereferenceable(9) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %81, %83, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
-  %104 = load i8, ptr %78, align 8, !tbaa !18, !range !21, !noundef !22
-  %105 = trunc nuw i8 %104 to i1
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: ; preds = %82, %84, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
+  %105 = load i8, ptr %79, align 8, !tbaa !18, !range !21, !noundef !22
+  %106 = trunc nuw i8 %105 to i1
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %9) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pre = load i32, ptr %32, align 8, !tbaa !77
-  br label %106
+  br label %107
 
-106:                                              ; preds = %_ZSt4findIPKllET_S2_S2_RKT0_.exit, %31, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
-  %107 = phi i32 [ %.pre, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ %.pre28, %31 ], [ %.pre28, %_ZSt4findIPKllET_S2_S2_RKT0_.exit ]
-  %.1 = phi i1 [ %105, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ true, %31 ], [ false, %_ZSt4findIPKllET_S2_S2_RKT0_.exit ]
-  %108 = icmp ugt i32 %107, 64
-  br i1 %108, label %109, label %_ZN4llvm5APIntD2Ev.exit
+107:                                              ; preds = %_ZSt4findIPKllET_S2_S2_RKT0_.exit, %31, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
+  %108 = phi i32 [ %.pre, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ %.pre28, %31 ], [ %.pre28, %_ZSt4findIPKllET_S2_S2_RKT0_.exit ]
+  %.1 = phi i1 [ %106, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ true, %31 ], [ false, %_ZSt4findIPKllET_S2_S2_RKT0_.exit ]
+  %109 = icmp ugt i32 %108, 64
+  br i1 %109, label %110, label %_ZN4llvm5APIntD2Ev.exit
 
-109:                                              ; preds = %106
-  %110 = load ptr, ptr %8, align 8, !tbaa !11
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %_ZN4llvm5APIntD2Ev.exit, label %112
+110:                                              ; preds = %107
+  %111 = load ptr, ptr %8, align 8, !tbaa !11
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %_ZN4llvm5APIntD2Ev.exit, label %113
 
-112:                                              ; preds = %109
-  call void @_ZdaPv(ptr noundef nonnull %110) #22
+113:                                              ; preds = %110
+  call void @_ZdaPv(ptr noundef nonnull %111) #22
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %106, %109, %112
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %107, %110, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %113
+  br label %114
 
-113:                                              ; preds = %4, %_ZN4llvm5APIntD2Ev.exit
+114:                                              ; preds = %4, %_ZN4llvm5APIntD2Ev.exit
   %.0 = phi i1 [ %.1, %_ZN4llvm5APIntD2Ev.exit ], [ false, %4 ]
   ret i1 %.0
 }
@@ -2932,8 +2932,8 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN5clang21getArmStreamingFnTypeEP
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_23ArmLocallyStreamingAttrEEEbv.exit.thread25, label %.lr.ph.i.i.i.i.i, !llvm.loop !83
 
 _ZNK5clang4Decl7hasAttrINS_23ArmLocallyStreamingAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not48 = icmp eq ptr %.sroa.07.1.i.i.i.i, %11
-  br i1 %.not48, label %_ZNK5clang4Decl7hasAttrINS_23ArmLocallyStreamingAttrEEEbv.exit.thread25, label %56
+  %.not47 = icmp eq ptr %.sroa.07.1.i.i.i.i, %11
+  br i1 %.not47, label %_ZNK5clang4Decl7hasAttrINS_23ArmLocallyStreamingAttrEEEbv.exit.thread25, label %56
 
 _ZNK5clang4Decl7hasAttrINS_23ArmLocallyStreamingAttrEEEbv.exit.thread25: ; preds = %16, %5, %1, %_ZNK5clang4Decl7hasAttrINS_23ArmLocallyStreamingAttrEEEbv.exit
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -11216,12 +11216,12 @@ _ZN5clang7SemaARM19PerformSVEImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt
   br label %_ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit: ; preds = %719, %_ZN5clang7SemaARM19PerformSVEImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiEEEE.exit, %2568
-  %.41956 = phi i1 [ %.4, %_ZN5clang7SemaARM19PerformSVEImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiEEEE.exit ], [ %.4, %2568 ], [ false, %719 ]
+  %.41955 = phi i1 [ %.4, %_ZN5clang7SemaARM19PerformSVEImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiEEEE.exit ], [ %.4, %2568 ], [ false, %719 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge
 
 .critedge:                                        ; preds = %switch.lookup, %_ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit
-  %.3 = phi i1 [ %.41956, %_ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit ], [ true, %switch.lookup ]
+  %.3 = phi i1 [ %.41955, %_ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit ], [ true, %switch.lookup ]
   ret i1 %.3
 }
 
@@ -24019,12 +24019,12 @@ _ZN5clang7SemaARM19PerformSVEImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt
   br label %_ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit
 
 _ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit: ; preds = %2163, %_ZN5clang7SemaARM19PerformSVEImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiEEEE.exit, %3557
-  %.447 = phi i1 [ %.4, %_ZN5clang7SemaARM19PerformSVEImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiEEEE.exit ], [ %.4, %3557 ], [ false, %2163 ]
+  %.446 = phi i1 [ %.4, %_ZN5clang7SemaARM19PerformSVEImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiEEEE.exit ], [ %.4, %3557 ], [ false, %2163 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.critedge
 
 .critedge:                                        ; preds = %switch.lookup, %_ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit
-  %.3 = phi i1 [ %.447, %_ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit ], [ true, %switch.lookup ]
+  %.3 = phi i1 [ %.446, %_ZN4llvm11SmallVectorISt5tupleIJiiiEELj3EED2Ev.exit ], [ true, %switch.lookup ]
   ret i1 %.3
 }
 
@@ -25366,7 +25366,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaARM28CheckNeonBuiltinFunction
   store i64 0, ptr %8, align 8, !tbaa !11
   %1291 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i8 0, ptr %1291, align 4, !tbaa !79
-  switch i32 %2, label %.thread82 [
+  switch i32 %2, label %.thread80 [
     i32 1463, label %1373
     i32 1464, label %1373
     i32 1465, label %1292
@@ -26408,7 +26408,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   br label %2138
 
 1434:                                             ; preds = %1388
-  br i1 %.ph, label %1435, label %.thread82
+  br i1 %.ph, label %1435, label %.thread80
 
 1435:                                             ; preds = %1434
   %1436 = load i32, ptr %3, align 8
@@ -26424,8 +26424,8 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit: 
   %1446 = load ptr, ptr %1445, align 8, !tbaa !9
   %1447 = load i16, ptr %1446, align 8
   %1448 = and i16 %1447, 511
-  %.not88 = icmp eq i16 %1448, 81
-  br i1 %.not88, label %1449, label %switch.edge
+  %.not86 = icmp eq i16 %1448, 81
+  br i1 %.not86, label %1449, label %switch.edge
 
 1449:                                             ; preds = %1435
   %1450 = getelementptr inbounds nuw i8, ptr %1446, i64 16
@@ -26444,8 +26444,8 @@ switch.edge:                                      ; preds = %1449, %1435
   %.sroa.0.0.copyload.i = load i64, ptr %1456, align 8, !tbaa !11
   %1457 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %1458 = load i32, ptr %1457, align 8, !tbaa !3018
-  %.off64 = add i32 %1458, -3
-  %switch65 = icmp ult i32 %.off64, 3
+  %.off63 = add i32 %1458, -3
+  %switch64 = icmp ult i32 %.off63, 3
   %1459 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %1460 = load i32, ptr %1459, align 8, !tbaa !3026
   %1461 = icmp eq i32 %1460, 7
@@ -26498,11 +26498,11 @@ switch.edge:                                      ; preds = %1449, %1435
   br label %_ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit
 
 1474:                                             ; preds = %switch.edge
-  %.v24.i = select i1 %switch65, i64 18592, i64 18544
+  %.v24.i = select i1 %switch64, i64 18592, i64 18544
   br label %_ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit
 
 1475:                                             ; preds = %switch.edge
-  %.v.i = select i1 %switch65, i64 18600, i64 18552
+  %.v.i = select i1 %switch64, i64 18600, i64 18552
   br label %_ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit
 
 1476:                                             ; preds = %switch.edge
@@ -26544,10 +26544,10 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   %1493 = inttoptr i64 %1492 to ptr
   %1494 = call noundef zeroext i1 @_ZN5clang4Sema24DiagnoseAssignmentResultENS0_17AssignConvertTypeENS_14SourceLocationENS_8QualTypeES3_PNS_4ExprENS_16AssignmentActionEPb(ptr noundef nonnull align 8 dereferenceable(17504) %1490, i32 noundef %1486, i32 %1491, i64 %1484, i64 %.sroa.0.0.copyload.i, ptr noundef %1493, i32 noundef 0, ptr noundef null) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %1494, label %2138, label %.thread82
+  br i1 %1494, label %2138, label %.thread80
 
-.thread82:                                        ; preds = %1289, %1489, %1434
-  %.05386 = phi i32 [ %1386, %1489 ], [ %1386, %1434 ], [ -1, %1289 ]
+.thread80:                                        ; preds = %1289, %1489, %1434
+  %.05384 = phi i32 [ %1386, %1489 ], [ %1386, %1434 ], [ -1, %1289 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %1495 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %1495, ptr %11, align 8, !tbaa !45
@@ -26876,7 +26876,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
     i32 2558, label %2132
   ]
 
-1498:                                             ; preds = %.thread82
+1498:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 1, ptr %12, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -26892,7 +26892,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %2134
 
-1500:                                             ; preds = %.thread82
+1500:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store i32 1, ptr %16, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -26908,7 +26908,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %2134
 
-1502:                                             ; preds = %.thread82
+1502:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 1, ptr %20, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -26924,7 +26924,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %2134
 
-1504:                                             ; preds = %.thread82
+1504:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   store i32 1, ptr %24, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
@@ -26940,7 +26940,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   br label %2134
 
-1506:                                             ; preds = %.thread82
+1506:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   store i32 1, ptr %28, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -26956,7 +26956,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   br label %2134
 
-1508:                                             ; preds = %.thread82
+1508:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   store i32 1, ptr %32, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
@@ -26972,7 +26972,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   br label %2134
 
-1510:                                             ; preds = %.thread82
+1510:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 1, ptr %36, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
@@ -26988,7 +26988,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   br label %2134
 
-1512:                                             ; preds = %.thread82
+1512:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   store i32 1, ptr %40, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
@@ -27004,7 +27004,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
   br label %2134
 
-1514:                                             ; preds = %.thread82
+1514:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   store i32 1, ptr %44, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
@@ -27020,7 +27020,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   br label %2134
 
-1516:                                             ; preds = %.thread82
+1516:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i32 1, ptr %48, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -27036,7 +27036,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   br label %2134
 
-1518:                                             ; preds = %.thread82
+1518:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %52)
   store i32 1, ptr %52, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
@@ -27052,7 +27052,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   br label %2134
 
-1520:                                             ; preds = %.thread82
+1520:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store i32 1, ptr %56, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
@@ -27068,7 +27068,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %56)
   br label %2134
 
-1522:                                             ; preds = %.thread82
+1522:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   store i32 2, ptr %60, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
@@ -27084,7 +27084,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   br label %2134
 
-1524:                                             ; preds = %.thread82
+1524:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %64)
   store i32 2, ptr %64, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
@@ -27100,7 +27100,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %64)
   br label %2134
 
-1526:                                             ; preds = %.thread82
+1526:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   store i32 2, ptr %68, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %69)
@@ -27116,7 +27116,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %68)
   br label %2134
 
-1528:                                             ; preds = %.thread82
+1528:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %72)
   store i32 2, ptr %72, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %73)
@@ -27132,7 +27132,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %72)
   br label %2134
 
-1530:                                             ; preds = %.thread82
+1530:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %76)
   store i32 1, ptr %76, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %77)
@@ -27148,7 +27148,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %76)
   br label %2134
 
-1532:                                             ; preds = %.thread82
+1532:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %80)
   store i32 1, ptr %80, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %81)
@@ -27164,7 +27164,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %80)
   br label %2134
 
-1534:                                             ; preds = %.thread82
+1534:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   store i32 1, ptr %84, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %85)
@@ -27180,7 +27180,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %84)
   br label %2134
 
-1536:                                             ; preds = %.thread82
+1536:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %88)
   store i32 1, ptr %88, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %89)
@@ -27196,7 +27196,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %88)
   br label %2134
 
-1538:                                             ; preds = %.thread82
+1538:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %92)
   store i32 1, ptr %92, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %93)
@@ -27212,7 +27212,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   br label %2134
 
-1540:                                             ; preds = %.thread82
+1540:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %96)
   store i32 1, ptr %96, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %97)
@@ -27228,7 +27228,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %96)
   br label %2134
 
-1542:                                             ; preds = %.thread82
+1542:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %100)
   store i32 1, ptr %100, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
@@ -27244,7 +27244,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %100)
   br label %2134
 
-1544:                                             ; preds = %.thread82
+1544:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
   store i32 1, ptr %104, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %105)
@@ -27260,7 +27260,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %104)
   br label %2134
 
-1546:                                             ; preds = %.thread82
+1546:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
   store i32 1, ptr %108, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %109)
@@ -27276,7 +27276,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
   br label %2134
 
-1548:                                             ; preds = %.thread82
+1548:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %112)
   store i32 1, ptr %112, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %113)
@@ -27292,7 +27292,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   br label %2134
 
-1550:                                             ; preds = %.thread82
+1550:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
   store i32 2, ptr %116, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
@@ -27308,7 +27308,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %116)
   br label %2134
 
-1552:                                             ; preds = %.thread82
+1552:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %120)
   store i32 2, ptr %120, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %121)
@@ -27324,7 +27324,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %120)
   br label %2134
 
-1554:                                             ; preds = %.thread82
+1554:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %124)
   store i32 4, ptr %124, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
@@ -27340,7 +27340,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %124)
   br label %2134
 
-1556:                                             ; preds = %.thread82
+1556:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %128)
   store i32 4, ptr %128, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %129)
@@ -27356,7 +27356,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %128)
   br label %2134
 
-1558:                                             ; preds = %.thread82
+1558:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %132)
   store i32 5, ptr %132, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %133)
@@ -27372,7 +27372,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %132)
   br label %2134
 
-1560:                                             ; preds = %.thread82
+1560:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %136)
   store i32 5, ptr %136, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %137)
@@ -27388,7 +27388,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %136)
   br label %2134
 
-1562:                                             ; preds = %.thread82
+1562:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %140)
   store i32 6, ptr %140, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %141)
@@ -27404,7 +27404,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %140)
   br label %2134
 
-1564:                                             ; preds = %.thread82
+1564:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %144)
   store i32 6, ptr %144, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %145)
@@ -27420,7 +27420,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %144)
   br label %2134
 
-1566:                                             ; preds = %.thread82
+1566:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %148)
   store i32 1, ptr %148, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %149)
@@ -27436,7 +27436,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %148)
   br label %2134
 
-1568:                                             ; preds = %.thread82
+1568:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %152)
   store i32 1, ptr %152, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %153)
@@ -27452,7 +27452,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %152)
   br label %2134
 
-1570:                                             ; preds = %.thread82
+1570:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
   store i32 1, ptr %156, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %157)
@@ -27468,7 +27468,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %156)
   br label %2134
 
-1572:                                             ; preds = %.thread82
+1572:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %160)
   store i32 1, ptr %160, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %161)
@@ -27484,7 +27484,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %160)
   br label %2134
 
-1574:                                             ; preds = %.thread82
+1574:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %164)
   store i32 3, ptr %164, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %165)
@@ -27500,7 +27500,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %164)
   br label %2134
 
-1576:                                             ; preds = %.thread82
+1576:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %168)
   store i32 3, ptr %168, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %169)
@@ -27516,7 +27516,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %168)
   br label %2134
 
-1578:                                             ; preds = %.thread82
+1578:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %172)
   store i32 3, ptr %172, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %173)
@@ -27532,7 +27532,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %172)
   br label %2134
 
-1580:                                             ; preds = %.thread82
+1580:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %176)
   store i32 3, ptr %176, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %177)
@@ -27548,7 +27548,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %176)
   br label %2134
 
-1582:                                             ; preds = %.thread82
+1582:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %180)
   store i32 3, ptr %180, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %181)
@@ -27564,7 +27564,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %180)
   br label %2134
 
-1584:                                             ; preds = %.thread82
+1584:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %184)
   store i32 3, ptr %184, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %185)
@@ -27580,7 +27580,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %184)
   br label %2134
 
-1586:                                             ; preds = %.thread82
+1586:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %188)
   store i32 2, ptr %188, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %189)
@@ -27596,7 +27596,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %188)
   br label %2134
 
-1588:                                             ; preds = %.thread82
+1588:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %192)
   store i32 2, ptr %192, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %193)
@@ -27612,7 +27612,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %192)
   br label %2134
 
-1590:                                             ; preds = %.thread82
+1590:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %196)
   store i32 1, ptr %196, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %197)
@@ -27628,7 +27628,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %196)
   br label %2134
 
-1592:                                             ; preds = %.thread82
+1592:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %200)
   store i32 1, ptr %200, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %201)
@@ -27644,7 +27644,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %200)
   br label %2134
 
-1594:                                             ; preds = %.thread82
+1594:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %204)
   store i32 1, ptr %204, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %205)
@@ -27660,7 +27660,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %204)
   br label %2134
 
-1596:                                             ; preds = %.thread82
+1596:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %208)
   store i32 1, ptr %208, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %209)
@@ -27676,7 +27676,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %208)
   br label %2134
 
-1598:                                             ; preds = %.thread82
+1598:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %212)
   store i32 1, ptr %212, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %213)
@@ -27692,7 +27692,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %212)
   br label %2134
 
-1600:                                             ; preds = %.thread82
+1600:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %216)
   store i32 1, ptr %216, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %217)
@@ -27708,7 +27708,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %216)
   br label %2134
 
-1602:                                             ; preds = %.thread82
+1602:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %220)
   store i32 2, ptr %220, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %221)
@@ -27724,7 +27724,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %220)
   br label %2134
 
-1604:                                             ; preds = %.thread82
+1604:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %224)
   store i32 2, ptr %224, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %225)
@@ -27740,7 +27740,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %224)
   br label %2134
 
-1606:                                             ; preds = %.thread82
+1606:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %228)
   store i32 3, ptr %228, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %229)
@@ -27756,7 +27756,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %228)
   br label %2134
 
-1608:                                             ; preds = %.thread82
+1608:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %232)
   store i32 3, ptr %232, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %233)
@@ -27772,7 +27772,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %232)
   br label %2134
 
-1610:                                             ; preds = %.thread82
+1610:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %236)
   store i32 3, ptr %236, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %237)
@@ -27788,7 +27788,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %236)
   br label %2134
 
-1612:                                             ; preds = %.thread82
+1612:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %240)
   store i32 3, ptr %240, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %241)
@@ -27804,7 +27804,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %240)
   br label %2134
 
-1614:                                             ; preds = %.thread82
+1614:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %244)
   store i32 3, ptr %244, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %245)
@@ -27820,7 +27820,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %244)
   br label %2134
 
-1616:                                             ; preds = %.thread82
+1616:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %248)
   store i32 3, ptr %248, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %249)
@@ -27836,7 +27836,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %248)
   br label %2134
 
-1618:                                             ; preds = %.thread82
+1618:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %252)
   store i32 3, ptr %252, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %253)
@@ -27852,7 +27852,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %252)
   br label %2134
 
-1620:                                             ; preds = %.thread82
+1620:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %256)
   store i32 3, ptr %256, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %257)
@@ -27868,7 +27868,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %256)
   br label %2134
 
-1622:                                             ; preds = %.thread82
+1622:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %260)
   store i32 1, ptr %260, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %261)
@@ -27884,7 +27884,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %260)
   br label %2134
 
-1624:                                             ; preds = %.thread82
+1624:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %264)
   store i32 1, ptr %264, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %265)
@@ -27900,7 +27900,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %264)
   br label %2134
 
-1626:                                             ; preds = %.thread82
+1626:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %268)
   store i32 1, ptr %268, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %269)
@@ -27916,7 +27916,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %268)
   br label %2134
 
-1628:                                             ; preds = %.thread82
+1628:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %272)
   store i32 1, ptr %272, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %273)
@@ -27932,7 +27932,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %272)
   br label %2134
 
-1630:                                             ; preds = %.thread82
+1630:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %276)
   store i32 1, ptr %276, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %277)
@@ -27948,7 +27948,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %276)
   br label %2134
 
-1632:                                             ; preds = %.thread82
+1632:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %280)
   store i32 1, ptr %280, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %281)
@@ -27964,7 +27964,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %280)
   br label %2134
 
-1634:                                             ; preds = %.thread82
+1634:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %284)
   store i32 1, ptr %284, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %285)
@@ -27980,7 +27980,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %284)
   br label %2134
 
-1636:                                             ; preds = %.thread82
+1636:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %288)
   store i32 1, ptr %288, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %289)
@@ -27996,7 +27996,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %288)
   br label %2134
 
-1638:                                             ; preds = %.thread82
+1638:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %292)
   store i32 1, ptr %292, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %293)
@@ -28012,7 +28012,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %292)
   br label %2134
 
-1640:                                             ; preds = %.thread82
+1640:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %296)
   store i32 1, ptr %296, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %297)
@@ -28028,7 +28028,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %296)
   br label %2134
 
-1642:                                             ; preds = %.thread82
+1642:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %300)
   store i32 1, ptr %300, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %301)
@@ -28044,7 +28044,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %300)
   br label %2134
 
-1644:                                             ; preds = %.thread82
+1644:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %304)
   store i32 1, ptr %304, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %305)
@@ -28060,7 +28060,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %304)
   br label %2134
 
-1646:                                             ; preds = %.thread82
+1646:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %308)
   store i32 1, ptr %308, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %309)
@@ -28076,7 +28076,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %308)
   br label %2134
 
-1648:                                             ; preds = %.thread82
+1648:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %312)
   store i32 1, ptr %312, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %313)
@@ -28092,7 +28092,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %312)
   br label %2134
 
-1650:                                             ; preds = %.thread82
+1650:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %316)
   store i32 1, ptr %316, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %317)
@@ -28108,7 +28108,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %316)
   br label %2134
 
-1652:                                             ; preds = %.thread82
+1652:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %320)
   store i32 1, ptr %320, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %321)
@@ -28124,7 +28124,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %320)
   br label %2134
 
-1654:                                             ; preds = %.thread82
+1654:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %324)
   store i32 1, ptr %324, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %325)
@@ -28140,7 +28140,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %324)
   br label %2134
 
-1656:                                             ; preds = %.thread82
+1656:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %328)
   store i32 1, ptr %328, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %329)
@@ -28156,7 +28156,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %328)
   br label %2134
 
-1658:                                             ; preds = %.thread82
+1658:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %332)
   store i32 1, ptr %332, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %333)
@@ -28172,7 +28172,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %332)
   br label %2134
 
-1660:                                             ; preds = %.thread82
+1660:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %336)
   store i32 1, ptr %336, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %337)
@@ -28188,7 +28188,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %336)
   br label %2134
 
-1662:                                             ; preds = %.thread82
+1662:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %340)
   store i32 1, ptr %340, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %341)
@@ -28204,7 +28204,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %340)
   br label %2134
 
-1664:                                             ; preds = %.thread82
+1664:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %344)
   store i32 1, ptr %344, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %345)
@@ -28220,7 +28220,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %344)
   br label %2134
 
-1666:                                             ; preds = %.thread82
+1666:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %348)
   store i32 1, ptr %348, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %349)
@@ -28236,7 +28236,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %348)
   br label %2134
 
-1668:                                             ; preds = %.thread82
+1668:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %352)
   store i32 1, ptr %352, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %353)
@@ -28252,7 +28252,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %352)
   br label %2134
 
-1670:                                             ; preds = %.thread82
+1670:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %356)
   store i32 1, ptr %356, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %357)
@@ -28268,7 +28268,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %356)
   br label %2134
 
-1672:                                             ; preds = %.thread82
+1672:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %360)
   store i32 1, ptr %360, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %361)
@@ -28284,7 +28284,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %360)
   br label %2134
 
-1674:                                             ; preds = %.thread82
+1674:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %364)
   store i32 1, ptr %364, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %365)
@@ -28300,7 +28300,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %364)
   br label %2134
 
-1676:                                             ; preds = %.thread82
+1676:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %368)
   store i32 1, ptr %368, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %369)
@@ -28316,7 +28316,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %368)
   br label %2134
 
-1678:                                             ; preds = %.thread82
+1678:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %372)
   store i32 1, ptr %372, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %373)
@@ -28332,7 +28332,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %372)
   br label %2134
 
-1680:                                             ; preds = %.thread82
+1680:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %376)
   store i32 1, ptr %376, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %377)
@@ -28348,7 +28348,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %376)
   br label %2134
 
-1682:                                             ; preds = %.thread82
+1682:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %380)
   store i32 2, ptr %380, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %381)
@@ -28364,7 +28364,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %380)
   br label %2134
 
-1684:                                             ; preds = %.thread82
+1684:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %384)
   store i32 2, ptr %384, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %385)
@@ -28380,7 +28380,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %384)
   br label %2134
 
-1686:                                             ; preds = %.thread82
+1686:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %388)
   store i32 1, ptr %388, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %389)
@@ -28396,7 +28396,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %388)
   br label %2134
 
-1688:                                             ; preds = %.thread82
+1688:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %392)
   store i32 1, ptr %392, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %393)
@@ -28412,7 +28412,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %392)
   br label %2134
 
-1690:                                             ; preds = %.thread82
+1690:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %396)
   store i32 2, ptr %396, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %397)
@@ -28428,7 +28428,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %396)
   br label %2134
 
-1692:                                             ; preds = %.thread82
+1692:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %400)
   store i32 2, ptr %400, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %401)
@@ -28444,7 +28444,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %400)
   br label %2134
 
-1694:                                             ; preds = %.thread82
+1694:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %404)
   store i32 1, ptr %404, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %405)
@@ -28460,7 +28460,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %404)
   br label %2134
 
-1696:                                             ; preds = %.thread82
+1696:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %408)
   store i32 1, ptr %408, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %409)
@@ -28476,7 +28476,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %408)
   br label %2134
 
-1698:                                             ; preds = %.thread82
+1698:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %412)
   store i32 2, ptr %412, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %413)
@@ -28492,7 +28492,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %412)
   br label %2134
 
-1700:                                             ; preds = %.thread82
+1700:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %416)
   store i32 2, ptr %416, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %417)
@@ -28508,7 +28508,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %416)
   br label %2134
 
-1702:                                             ; preds = %.thread82
+1702:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %420)
   store i32 1, ptr %420, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %421)
@@ -28524,7 +28524,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %420)
   br label %2134
 
-1704:                                             ; preds = %.thread82
+1704:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %424)
   store i32 1, ptr %424, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %425)
@@ -28540,7 +28540,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %424)
   br label %2134
 
-1706:                                             ; preds = %.thread82
+1706:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %428)
   store i32 1, ptr %428, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %429)
@@ -28556,7 +28556,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %428)
   br label %2134
 
-1708:                                             ; preds = %.thread82
+1708:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %432)
   store i32 1, ptr %432, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %433)
@@ -28572,7 +28572,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %432)
   br label %2134
 
-1710:                                             ; preds = %.thread82
+1710:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %436)
   store i32 1, ptr %436, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %437)
@@ -28588,7 +28588,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %436)
   br label %2134
 
-1712:                                             ; preds = %.thread82
+1712:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %440)
   store i32 1, ptr %440, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %441)
@@ -28604,7 +28604,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %440)
   br label %2134
 
-1714:                                             ; preds = %.thread82
+1714:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %444)
   store i32 1, ptr %444, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %445)
@@ -28620,7 +28620,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %444)
   br label %2134
 
-1716:                                             ; preds = %.thread82
+1716:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %448)
   store i32 1, ptr %448, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %449)
@@ -28636,7 +28636,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %448)
   br label %2134
 
-1718:                                             ; preds = %.thread82
+1718:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %452)
   store i32 1, ptr %452, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %453)
@@ -28652,7 +28652,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %452)
   br label %2134
 
-1720:                                             ; preds = %.thread82
+1720:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %456)
   store i32 1, ptr %456, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %457)
@@ -28668,7 +28668,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %456)
   br label %2134
 
-1722:                                             ; preds = %.thread82
+1722:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %460)
   store i32 1, ptr %460, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %461)
@@ -28684,7 +28684,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %460)
   br label %2134
 
-1724:                                             ; preds = %.thread82
+1724:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %464)
   store i32 1, ptr %464, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %465)
@@ -28700,7 +28700,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %464)
   br label %2134
 
-1726:                                             ; preds = %.thread82
+1726:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %468)
   store i32 1, ptr %468, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %469)
@@ -28716,7 +28716,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %468)
   br label %2134
 
-1728:                                             ; preds = %.thread82
+1728:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %472)
   store i32 1, ptr %472, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %473)
@@ -28732,7 +28732,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %472)
   br label %2134
 
-1730:                                             ; preds = %.thread82
+1730:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %476)
   store i32 1, ptr %476, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %477)
@@ -28748,7 +28748,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %476)
   br label %2134
 
-1732:                                             ; preds = %.thread82
+1732:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %480)
   store i32 1, ptr %480, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %481)
@@ -28764,7 +28764,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %480)
   br label %2134
 
-1734:                                             ; preds = %.thread82
+1734:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %484)
   store i32 2, ptr %484, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %485)
@@ -28780,7 +28780,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %484)
   br label %2134
 
-1736:                                             ; preds = %.thread82
+1736:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %488)
   store i32 2, ptr %488, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %489)
@@ -28796,7 +28796,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %488)
   br label %2134
 
-1738:                                             ; preds = %.thread82
+1738:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %492)
   store i32 2, ptr %492, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %493)
@@ -28812,7 +28812,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %492)
   br label %2134
 
-1740:                                             ; preds = %.thread82
+1740:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %496)
   store i32 2, ptr %496, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %497)
@@ -28828,7 +28828,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %496)
   br label %2134
 
-1742:                                             ; preds = %.thread82
+1742:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %500)
   store i32 2, ptr %500, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %501)
@@ -28844,7 +28844,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %500)
   br label %2134
 
-1744:                                             ; preds = %.thread82
+1744:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %504)
   store i32 2, ptr %504, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %505)
@@ -28860,7 +28860,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %504)
   br label %2134
 
-1746:                                             ; preds = %.thread82
+1746:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %508)
   store i32 2, ptr %508, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %509)
@@ -28876,7 +28876,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %508)
   br label %2134
 
-1748:                                             ; preds = %.thread82
+1748:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %512)
   store i32 2, ptr %512, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %513)
@@ -28892,7 +28892,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %512)
   br label %2134
 
-1750:                                             ; preds = %.thread82
+1750:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %516)
   store i32 3, ptr %516, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %517)
@@ -28908,7 +28908,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %516)
   br label %2134
 
-1752:                                             ; preds = %.thread82
+1752:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %520)
   store i32 3, ptr %520, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %521)
@@ -28924,7 +28924,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %520)
   br label %2134
 
-1754:                                             ; preds = %.thread82
+1754:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %524)
   store i32 3, ptr %524, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %525)
@@ -28940,7 +28940,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %524)
   br label %2134
 
-1756:                                             ; preds = %.thread82
+1756:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %528)
   store i32 3, ptr %528, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %529)
@@ -28956,7 +28956,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %528)
   br label %2134
 
-1758:                                             ; preds = %.thread82
+1758:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %532)
   store i32 1, ptr %532, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %533)
@@ -28972,7 +28972,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %532)
   br label %2134
 
-1760:                                             ; preds = %.thread82
+1760:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %536)
   store i32 1, ptr %536, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %537)
@@ -28988,7 +28988,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %536)
   br label %2134
 
-1762:                                             ; preds = %.thread82
+1762:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %540)
   store i32 1, ptr %540, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %541)
@@ -29004,7 +29004,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %540)
   br label %2134
 
-1764:                                             ; preds = %.thread82
+1764:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %544)
   store i32 1, ptr %544, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %545)
@@ -29020,7 +29020,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %544)
   br label %2134
 
-1766:                                             ; preds = %.thread82
+1766:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %548)
   store i32 1, ptr %548, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %549)
@@ -29036,7 +29036,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %548)
   br label %2134
 
-1768:                                             ; preds = %.thread82
+1768:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %552)
   store i32 1, ptr %552, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %553)
@@ -29052,7 +29052,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %552)
   br label %2134
 
-1770:                                             ; preds = %.thread82
+1770:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %556)
   store i32 1, ptr %556, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %557)
@@ -29068,7 +29068,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %556)
   br label %2134
 
-1772:                                             ; preds = %.thread82
+1772:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %560)
   store i32 1, ptr %560, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %561)
@@ -29084,7 +29084,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %560)
   br label %2134
 
-1774:                                             ; preds = %.thread82
+1774:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %564)
   store i32 2, ptr %564, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %565)
@@ -29100,7 +29100,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %564)
   br label %2134
 
-1776:                                             ; preds = %.thread82
+1776:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %568)
   store i32 2, ptr %568, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %569)
@@ -29116,7 +29116,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %568)
   br label %2134
 
-1778:                                             ; preds = %.thread82
+1778:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %572)
   store i32 2, ptr %572, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %573)
@@ -29132,7 +29132,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %572)
   br label %2134
 
-1780:                                             ; preds = %.thread82
+1780:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %576)
   store i32 2, ptr %576, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %577)
@@ -29148,7 +29148,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %576)
   br label %2134
 
-1782:                                             ; preds = %.thread82
+1782:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %580)
   store i32 3, ptr %580, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %581)
@@ -29164,7 +29164,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %580)
   br label %2134
 
-1784:                                             ; preds = %.thread82
+1784:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %584)
   store i32 3, ptr %584, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %585)
@@ -29180,7 +29180,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %584)
   br label %2134
 
-1786:                                             ; preds = %.thread82
+1786:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %588)
   store i32 4, ptr %588, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %589)
@@ -29196,7 +29196,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %588)
   br label %2134
 
-1788:                                             ; preds = %.thread82
+1788:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %592)
   store i32 4, ptr %592, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %593)
@@ -29212,7 +29212,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %592)
   br label %2134
 
-1790:                                             ; preds = %.thread82
+1790:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %596)
   store i32 5, ptr %596, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %597)
@@ -29228,7 +29228,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %596)
   br label %2134
 
-1792:                                             ; preds = %.thread82
+1792:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %600)
   store i32 5, ptr %600, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %601)
@@ -29244,7 +29244,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %600)
   br label %2134
 
-1794:                                             ; preds = %.thread82
+1794:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %604)
   store i32 1, ptr %604, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %605)
@@ -29260,7 +29260,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %604)
   br label %2134
 
-1796:                                             ; preds = %.thread82
+1796:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %608)
   store i32 1, ptr %608, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %609)
@@ -29276,7 +29276,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %608)
   br label %2134
 
-1798:                                             ; preds = %.thread82
+1798:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %612)
   store i32 1, ptr %612, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %613)
@@ -29292,7 +29292,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %612)
   br label %2134
 
-1800:                                             ; preds = %.thread82
+1800:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %616)
   store i32 1, ptr %616, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %617)
@@ -29308,7 +29308,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %616)
   br label %2134
 
-1802:                                             ; preds = %.thread82
+1802:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %620)
   store i32 1, ptr %620, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %621)
@@ -29324,7 +29324,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %620)
   br label %2134
 
-1804:                                             ; preds = %.thread82
+1804:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %624)
   store i32 1, ptr %624, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %625)
@@ -29340,7 +29340,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %624)
   br label %2134
 
-1806:                                             ; preds = %.thread82
+1806:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %628)
   store i32 1, ptr %628, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %629)
@@ -29356,7 +29356,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %628)
   br label %2134
 
-1808:                                             ; preds = %.thread82
+1808:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %632)
   store i32 1, ptr %632, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %633)
@@ -29372,7 +29372,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %632)
   br label %2134
 
-1810:                                             ; preds = %.thread82
+1810:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %636)
   store i32 1, ptr %636, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %637)
@@ -29388,7 +29388,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %636)
   br label %2134
 
-1812:                                             ; preds = %.thread82
+1812:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %640)
   store i32 1, ptr %640, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %641)
@@ -29404,7 +29404,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %640)
   br label %2134
 
-1814:                                             ; preds = %.thread82
+1814:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %644)
   store i32 1, ptr %644, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %645)
@@ -29420,7 +29420,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %644)
   br label %2134
 
-1816:                                             ; preds = %.thread82
+1816:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %648)
   store i32 1, ptr %648, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %649)
@@ -29436,7 +29436,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %648)
   br label %2134
 
-1818:                                             ; preds = %.thread82
+1818:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %652)
   store i32 1, ptr %652, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %653)
@@ -29452,7 +29452,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %652)
   br label %2134
 
-1820:                                             ; preds = %.thread82
+1820:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %656)
   store i32 1, ptr %656, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %657)
@@ -29468,7 +29468,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %656)
   br label %2134
 
-1822:                                             ; preds = %.thread82
+1822:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %660)
   store i32 3, ptr %660, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %661)
@@ -29484,7 +29484,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %660)
   br label %2134
 
-1824:                                             ; preds = %.thread82
+1824:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %664)
   store i32 3, ptr %664, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %665)
@@ -29500,7 +29500,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %664)
   br label %2134
 
-1826:                                             ; preds = %.thread82
+1826:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %668)
   store i32 3, ptr %668, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %669)
@@ -29516,7 +29516,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %668)
   br label %2134
 
-1828:                                             ; preds = %.thread82
+1828:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %672)
   store i32 3, ptr %672, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %673)
@@ -29532,7 +29532,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %672)
   br label %2134
 
-1830:                                             ; preds = %.thread82
+1830:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %676)
   store i32 3, ptr %676, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %677)
@@ -29548,7 +29548,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %676)
   br label %2134
 
-1832:                                             ; preds = %.thread82
+1832:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %680)
   store i32 3, ptr %680, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %681)
@@ -29564,7 +29564,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %680)
   br label %2134
 
-1834:                                             ; preds = %.thread82
+1834:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %684)
   store i32 3, ptr %684, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %685)
@@ -29580,7 +29580,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %684)
   br label %2134
 
-1836:                                             ; preds = %.thread82
+1836:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %688)
   store i32 3, ptr %688, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %689)
@@ -29596,7 +29596,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %688)
   br label %2134
 
-1838:                                             ; preds = %.thread82
+1838:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %692)
   store i32 2, ptr %692, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %693)
@@ -29612,7 +29612,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %692)
   br label %2134
 
-1840:                                             ; preds = %.thread82
+1840:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %696)
   store i32 2, ptr %696, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %697)
@@ -29628,7 +29628,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %696)
   br label %2134
 
-1842:                                             ; preds = %.thread82
+1842:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %700)
   store i32 3, ptr %700, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %701)
@@ -29644,7 +29644,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %700)
   br label %2134
 
-1844:                                             ; preds = %.thread82
+1844:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %704)
   store i32 3, ptr %704, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %705)
@@ -29660,7 +29660,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %704)
   br label %2134
 
-1846:                                             ; preds = %.thread82
+1846:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %708)
   store i32 3, ptr %708, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %709)
@@ -29676,7 +29676,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %708)
   br label %2134
 
-1848:                                             ; preds = %.thread82
+1848:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %712)
   store i32 3, ptr %712, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %713)
@@ -29692,7 +29692,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %712)
   br label %2134
 
-1850:                                             ; preds = %.thread82
+1850:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %716)
   store i32 3, ptr %716, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %717)
@@ -29708,7 +29708,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %716)
   br label %2134
 
-1852:                                             ; preds = %.thread82
+1852:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %720)
   store i32 3, ptr %720, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %721)
@@ -29724,7 +29724,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %720)
   br label %2134
 
-1854:                                             ; preds = %.thread82
+1854:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %724)
   store i32 3, ptr %724, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %725)
@@ -29740,7 +29740,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %724)
   br label %2134
 
-1856:                                             ; preds = %.thread82
+1856:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %728)
   store i32 3, ptr %728, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %729)
@@ -29756,7 +29756,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %728)
   br label %2134
 
-1858:                                             ; preds = %.thread82
+1858:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %732)
   store i32 1, ptr %732, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %733)
@@ -29772,7 +29772,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %732)
   br label %2134
 
-1860:                                             ; preds = %.thread82
+1860:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %736)
   store i32 1, ptr %736, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %737)
@@ -29788,7 +29788,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %736)
   br label %2134
 
-1862:                                             ; preds = %.thread82
+1862:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %740)
   store i32 1, ptr %740, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %741)
@@ -29804,7 +29804,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %740)
   br label %2134
 
-1864:                                             ; preds = %.thread82
+1864:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %744)
   store i32 1, ptr %744, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %745)
@@ -29820,7 +29820,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %744)
   br label %2134
 
-1866:                                             ; preds = %.thread82
+1866:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %748)
   store i32 1, ptr %748, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %749)
@@ -29836,7 +29836,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %748)
   br label %2134
 
-1868:                                             ; preds = %.thread82
+1868:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %752)
   store i32 1, ptr %752, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %753)
@@ -29852,7 +29852,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %752)
   br label %2134
 
-1870:                                             ; preds = %.thread82
+1870:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %756)
   store i32 1, ptr %756, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %757)
@@ -29868,7 +29868,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %756)
   br label %2134
 
-1872:                                             ; preds = %.thread82
+1872:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %760)
   store i32 1, ptr %760, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %761)
@@ -29884,7 +29884,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %760)
   br label %2134
 
-1874:                                             ; preds = %.thread82
+1874:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %764)
   store i32 1, ptr %764, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %765)
@@ -29900,7 +29900,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %764)
   br label %2134
 
-1876:                                             ; preds = %.thread82
+1876:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %768)
   store i32 1, ptr %768, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %769)
@@ -29916,7 +29916,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %768)
   br label %2134
 
-1878:                                             ; preds = %.thread82
+1878:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %772)
   store i32 2, ptr %772, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %773)
@@ -29932,7 +29932,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %772)
   br label %2134
 
-1880:                                             ; preds = %.thread82
+1880:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %776)
   store i32 2, ptr %776, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %777)
@@ -29948,7 +29948,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %776)
   br label %2134
 
-1882:                                             ; preds = %.thread82
+1882:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %780)
   store i32 4, ptr %780, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %781)
@@ -29964,7 +29964,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %780)
   br label %2134
 
-1884:                                             ; preds = %.thread82
+1884:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %784)
   store i32 4, ptr %784, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %785)
@@ -29980,7 +29980,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %784)
   br label %2134
 
-1886:                                             ; preds = %.thread82
+1886:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %788)
   store i32 5, ptr %788, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %789)
@@ -29996,7 +29996,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %788)
   br label %2134
 
-1888:                                             ; preds = %.thread82
+1888:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %792)
   store i32 5, ptr %792, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %793)
@@ -30012,7 +30012,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %792)
   br label %2134
 
-1890:                                             ; preds = %.thread82
+1890:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %796)
   store i32 6, ptr %796, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %797)
@@ -30028,7 +30028,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %796)
   br label %2134
 
-1892:                                             ; preds = %.thread82
+1892:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %800)
   store i32 6, ptr %800, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %801)
@@ -30044,7 +30044,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %800)
   br label %2134
 
-1894:                                             ; preds = %.thread82
+1894:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %804)
   store i32 2, ptr %804, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %805)
@@ -30060,7 +30060,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %804)
   br label %2134
 
-1896:                                             ; preds = %.thread82
+1896:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %808)
   store i32 2, ptr %808, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %809)
@@ -30076,7 +30076,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %808)
   br label %2134
 
-1898:                                             ; preds = %.thread82
+1898:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %812)
   store i32 2, ptr %812, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %813)
@@ -30092,7 +30092,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %812)
   br label %2134
 
-1900:                                             ; preds = %.thread82
+1900:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %816)
   store i32 2, ptr %816, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %817)
@@ -30108,7 +30108,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %816)
   br label %2134
 
-1902:                                             ; preds = %.thread82
+1902:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %820)
   store i32 2, ptr %820, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %821)
@@ -30124,7 +30124,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %820)
   br label %2134
 
-1904:                                             ; preds = %.thread82
+1904:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %824)
   store i32 2, ptr %824, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %825)
@@ -30140,7 +30140,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %824)
   br label %2134
 
-1906:                                             ; preds = %.thread82
+1906:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %828)
   store i32 2, ptr %828, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %829)
@@ -30156,7 +30156,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %828)
   br label %2134
 
-1908:                                             ; preds = %.thread82
+1908:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %832)
   store i32 2, ptr %832, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %833)
@@ -30172,7 +30172,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %832)
   br label %2134
 
-1910:                                             ; preds = %.thread82
+1910:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %836)
   store i32 2, ptr %836, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %837)
@@ -30188,7 +30188,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %836)
   br label %2134
 
-1912:                                             ; preds = %.thread82
+1912:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %840)
   store i32 2, ptr %840, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %841)
@@ -30204,7 +30204,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %840)
   br label %2134
 
-1914:                                             ; preds = %.thread82
+1914:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %844)
   store i32 2, ptr %844, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %845)
@@ -30220,7 +30220,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %844)
   br label %2134
 
-1916:                                             ; preds = %.thread82
+1916:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %848)
   store i32 2, ptr %848, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %849)
@@ -30236,7 +30236,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %848)
   br label %2134
 
-1918:                                             ; preds = %.thread82
+1918:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %852)
   store i32 2, ptr %852, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %853)
@@ -30252,7 +30252,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %852)
   br label %2134
 
-1920:                                             ; preds = %.thread82
+1920:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %856)
   store i32 2, ptr %856, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %857)
@@ -30268,7 +30268,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %856)
   br label %2134
 
-1922:                                             ; preds = %.thread82
+1922:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %860)
   store i32 2, ptr %860, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %861)
@@ -30284,7 +30284,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %860)
   br label %2134
 
-1924:                                             ; preds = %.thread82
+1924:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %864)
   store i32 2, ptr %864, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %865)
@@ -30300,7 +30300,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %864)
   br label %2134
 
-1926:                                             ; preds = %.thread82
+1926:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %868)
   store i32 2, ptr %868, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %869)
@@ -30316,7 +30316,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %868)
   br label %2134
 
-1928:                                             ; preds = %.thread82
+1928:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %872)
   store i32 2, ptr %872, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %873)
@@ -30332,7 +30332,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %872)
   br label %2134
 
-1930:                                             ; preds = %.thread82
+1930:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %876)
   store i32 2, ptr %876, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %877)
@@ -30348,7 +30348,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %876)
   br label %2134
 
-1932:                                             ; preds = %.thread82
+1932:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %880)
   store i32 2, ptr %880, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %881)
@@ -30364,7 +30364,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %880)
   br label %2134
 
-1934:                                             ; preds = %.thread82
+1934:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %884)
   store i32 2, ptr %884, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %885)
@@ -30380,7 +30380,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %884)
   br label %2134
 
-1936:                                             ; preds = %.thread82
+1936:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %888)
   store i32 2, ptr %888, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %889)
@@ -30396,7 +30396,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %888)
   br label %2134
 
-1938:                                             ; preds = %.thread82
+1938:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %892)
   store i32 2, ptr %892, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %893)
@@ -30412,7 +30412,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %892)
   br label %2134
 
-1940:                                             ; preds = %.thread82
+1940:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %896)
   store i32 2, ptr %896, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %897)
@@ -30428,7 +30428,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %896)
   br label %2134
 
-1942:                                             ; preds = %.thread82
+1942:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %900)
   store i32 2, ptr %900, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %901)
@@ -30444,7 +30444,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %900)
   br label %2134
 
-1944:                                             ; preds = %.thread82
+1944:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %904)
   store i32 2, ptr %904, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %905)
@@ -30460,7 +30460,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %904)
   br label %2134
 
-1946:                                             ; preds = %.thread82
+1946:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %908)
   store i32 2, ptr %908, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %909)
@@ -30476,7 +30476,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %908)
   br label %2134
 
-1948:                                             ; preds = %.thread82
+1948:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %912)
   store i32 2, ptr %912, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %913)
@@ -30492,7 +30492,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %912)
   br label %2134
 
-1950:                                             ; preds = %.thread82
+1950:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %916)
   store i32 2, ptr %916, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %917)
@@ -30508,7 +30508,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %916)
   br label %2134
 
-1952:                                             ; preds = %.thread82
+1952:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %920)
   store i32 2, ptr %920, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %921)
@@ -30524,7 +30524,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %920)
   br label %2134
 
-1954:                                             ; preds = %.thread82
+1954:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %924)
   store i32 2, ptr %924, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %925)
@@ -30540,7 +30540,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %924)
   br label %2134
 
-1956:                                             ; preds = %.thread82
+1956:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %928)
   store i32 2, ptr %928, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %929)
@@ -30556,7 +30556,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %928)
   br label %2134
 
-1958:                                             ; preds = %.thread82
+1958:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %932)
   store i32 2, ptr %932, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %933)
@@ -30572,7 +30572,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %932)
   br label %2134
 
-1960:                                             ; preds = %.thread82
+1960:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %936)
   store i32 2, ptr %936, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %937)
@@ -30588,7 +30588,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %936)
   br label %2134
 
-1962:                                             ; preds = %.thread82
+1962:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %940)
   store i32 2, ptr %940, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %941)
@@ -30604,7 +30604,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %940)
   br label %2134
 
-1964:                                             ; preds = %.thread82
+1964:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %944)
   store i32 2, ptr %944, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %945)
@@ -30620,7 +30620,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %944)
   br label %2134
 
-1966:                                             ; preds = %.thread82
+1966:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %948)
   store i32 2, ptr %948, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %949)
@@ -30636,7 +30636,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %948)
   br label %2134
 
-1968:                                             ; preds = %.thread82
+1968:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %952)
   store i32 2, ptr %952, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %953)
@@ -30652,7 +30652,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %952)
   br label %2134
 
-1970:                                             ; preds = %.thread82
+1970:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %956)
   store i32 2, ptr %956, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %957)
@@ -30668,7 +30668,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %956)
   br label %2134
 
-1972:                                             ; preds = %.thread82
+1972:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %960)
   store i32 2, ptr %960, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %961)
@@ -30684,7 +30684,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %960)
   br label %2134
 
-1974:                                             ; preds = %.thread82
+1974:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %964)
   store i32 2, ptr %964, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %965)
@@ -30700,7 +30700,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %964)
   br label %2134
 
-1976:                                             ; preds = %.thread82
+1976:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %968)
   store i32 2, ptr %968, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %969)
@@ -30716,7 +30716,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %968)
   br label %2134
 
-1978:                                             ; preds = %.thread82
+1978:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %972)
   store i32 2, ptr %972, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %973)
@@ -30732,7 +30732,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %972)
   br label %2134
 
-1980:                                             ; preds = %.thread82
+1980:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %976)
   store i32 3, ptr %976, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %977)
@@ -30748,7 +30748,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %976)
   br label %2134
 
-1982:                                             ; preds = %.thread82
+1982:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %980)
   store i32 3, ptr %980, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %981)
@@ -30764,7 +30764,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %980)
   br label %2134
 
-1984:                                             ; preds = %.thread82
+1984:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %984)
   store i32 2, ptr %984, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %985)
@@ -30780,7 +30780,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %984)
   br label %2134
 
-1986:                                             ; preds = %.thread82
+1986:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %988)
   store i32 2, ptr %988, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %989)
@@ -30796,7 +30796,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %988)
   br label %2134
 
-1988:                                             ; preds = %.thread82
+1988:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %992)
   store i32 2, ptr %992, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %993)
@@ -30812,7 +30812,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %992)
   br label %2134
 
-1990:                                             ; preds = %.thread82
+1990:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %996)
   store i32 3, ptr %996, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %997)
@@ -30828,7 +30828,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %996)
   br label %2134
 
-1992:                                             ; preds = %.thread82
+1992:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1000)
   store i32 3, ptr %1000, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1001)
@@ -30844,7 +30844,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1000)
   br label %2134
 
-1994:                                             ; preds = %.thread82
+1994:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1004)
   store i32 3, ptr %1004, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1005)
@@ -30860,7 +30860,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1004)
   br label %2134
 
-1996:                                             ; preds = %.thread82
+1996:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1008)
   store i32 3, ptr %1008, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1009)
@@ -30876,7 +30876,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1008)
   br label %2134
 
-1998:                                             ; preds = %.thread82
+1998:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1012)
   store i32 3, ptr %1012, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1013)
@@ -30892,7 +30892,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1012)
   br label %2134
 
-2000:                                             ; preds = %.thread82
+2000:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1016)
   store i32 3, ptr %1016, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1017)
@@ -30908,7 +30908,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1016)
   br label %2134
 
-2002:                                             ; preds = %.thread82
+2002:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1020)
   store i32 3, ptr %1020, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1021)
@@ -30924,7 +30924,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1020)
   br label %2134
 
-2004:                                             ; preds = %.thread82
+2004:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1024)
   store i32 3, ptr %1024, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1025)
@@ -30940,7 +30940,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1024)
   br label %2134
 
-2006:                                             ; preds = %.thread82
+2006:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1028)
   store i32 3, ptr %1028, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1029)
@@ -30956,7 +30956,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1028)
   br label %2134
 
-2008:                                             ; preds = %.thread82
+2008:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1032)
   store i32 3, ptr %1032, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1033)
@@ -30972,7 +30972,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1032)
   br label %2134
 
-2010:                                             ; preds = %.thread82
+2010:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1036)
   store i32 3, ptr %1036, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1037)
@@ -30988,7 +30988,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1036)
   br label %2134
 
-2012:                                             ; preds = %.thread82
+2012:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1040)
   store i32 3, ptr %1040, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1041)
@@ -31004,7 +31004,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1040)
   br label %2134
 
-2014:                                             ; preds = %.thread82
+2014:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1044)
   store i32 3, ptr %1044, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1045)
@@ -31020,7 +31020,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1044)
   br label %2134
 
-2016:                                             ; preds = %.thread82
+2016:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1048)
   store i32 3, ptr %1048, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1049)
@@ -31036,7 +31036,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1048)
   br label %2134
 
-2018:                                             ; preds = %.thread82
+2018:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1052)
   store i32 3, ptr %1052, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1053)
@@ -31052,7 +31052,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1052)
   br label %2134
 
-2020:                                             ; preds = %.thread82
+2020:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1056)
   store i32 3, ptr %1056, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1057)
@@ -31068,7 +31068,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1056)
   br label %2134
 
-2022:                                             ; preds = %.thread82
+2022:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1060)
   store i32 3, ptr %1060, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1061)
@@ -31084,7 +31084,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1060)
   br label %2134
 
-2024:                                             ; preds = %.thread82
+2024:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1064)
   store i32 3, ptr %1064, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1065)
@@ -31100,7 +31100,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1064)
   br label %2134
 
-2026:                                             ; preds = %.thread82
+2026:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1068)
   store i32 3, ptr %1068, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1069)
@@ -31116,7 +31116,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1068)
   br label %2134
 
-2028:                                             ; preds = %.thread82
+2028:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1072)
   store i32 3, ptr %1072, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1073)
@@ -31132,7 +31132,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1072)
   br label %2134
 
-2030:                                             ; preds = %.thread82
+2030:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1076)
   store i32 2, ptr %1076, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1077)
@@ -31148,7 +31148,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1076)
   br label %2134
 
-2032:                                             ; preds = %.thread82
+2032:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1080)
   store i32 2, ptr %1080, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1081)
@@ -31164,7 +31164,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1080)
   br label %2134
 
-2034:                                             ; preds = %.thread82
+2034:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1084)
   store i32 2, ptr %1084, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1085)
@@ -31180,7 +31180,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1084)
   br label %2134
 
-2036:                                             ; preds = %.thread82
+2036:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1088)
   store i32 2, ptr %1088, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1089)
@@ -31196,7 +31196,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1088)
   br label %2134
 
-2038:                                             ; preds = %.thread82
+2038:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1092)
   store i32 1, ptr %1092, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1093)
@@ -31212,7 +31212,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1092)
   br label %2134
 
-2040:                                             ; preds = %.thread82
+2040:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1096)
   store i32 1, ptr %1096, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1097)
@@ -31228,7 +31228,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1096)
   br label %2134
 
-2042:                                             ; preds = %.thread82
+2042:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1100)
   store i32 1, ptr %1100, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1101)
@@ -31244,7 +31244,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1100)
   br label %2134
 
-2044:                                             ; preds = %.thread82
+2044:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1104)
   store i32 1, ptr %1104, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1105)
@@ -31260,7 +31260,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1104)
   br label %2134
 
-2046:                                             ; preds = %.thread82
+2046:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1108)
   store i32 1, ptr %1108, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1109)
@@ -31276,7 +31276,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1108)
   br label %2134
 
-2048:                                             ; preds = %.thread82
+2048:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1112)
   store i32 1, ptr %1112, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1113)
@@ -31292,7 +31292,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1112)
   br label %2134
 
-2050:                                             ; preds = %.thread82
+2050:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1116)
   store i32 1, ptr %1116, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1117)
@@ -31308,7 +31308,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1116)
   br label %2134
 
-2052:                                             ; preds = %.thread82
+2052:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1120)
   store i32 1, ptr %1120, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1121)
@@ -31324,7 +31324,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1120)
   br label %2134
 
-2054:                                             ; preds = %.thread82
+2054:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1124)
   store i32 1, ptr %1124, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1125)
@@ -31340,7 +31340,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1124)
   br label %2134
 
-2056:                                             ; preds = %.thread82
+2056:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1128)
   store i32 1, ptr %1128, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1129)
@@ -31356,7 +31356,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1128)
   br label %2134
 
-2058:                                             ; preds = %.thread82
+2058:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1132)
   store i32 1, ptr %1132, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1133)
@@ -31372,7 +31372,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1132)
   br label %2134
 
-2060:                                             ; preds = %.thread82
+2060:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1136)
   store i32 2, ptr %1136, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1137)
@@ -31388,7 +31388,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1136)
   br label %2134
 
-2062:                                             ; preds = %.thread82
+2062:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1140)
   store i32 2, ptr %1140, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1141)
@@ -31404,7 +31404,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1140)
   br label %2134
 
-2064:                                             ; preds = %.thread82
+2064:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1144)
   store i32 2, ptr %1144, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1145)
@@ -31420,7 +31420,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1144)
   br label %2134
 
-2066:                                             ; preds = %.thread82
+2066:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1148)
   store i32 2, ptr %1148, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1149)
@@ -31436,7 +31436,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1148)
   br label %2134
 
-2068:                                             ; preds = %.thread82
+2068:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1152)
   store i32 2, ptr %1152, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1153)
@@ -31452,7 +31452,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1152)
   br label %2134
 
-2070:                                             ; preds = %.thread82
+2070:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1156)
   store i32 2, ptr %1156, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1157)
@@ -31468,7 +31468,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1156)
   br label %2134
 
-2072:                                             ; preds = %.thread82
+2072:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1160)
   store i32 2, ptr %1160, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1161)
@@ -31484,7 +31484,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1160)
   br label %2134
 
-2074:                                             ; preds = %.thread82
+2074:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1164)
   store i32 2, ptr %1164, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1165)
@@ -31500,7 +31500,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1164)
   br label %2134
 
-2076:                                             ; preds = %.thread82
+2076:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1168)
   store i32 2, ptr %1168, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1169)
@@ -31516,7 +31516,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1168)
   br label %2134
 
-2078:                                             ; preds = %.thread82
+2078:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1172)
   store i32 2, ptr %1172, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1173)
@@ -31532,7 +31532,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1172)
   br label %2134
 
-2080:                                             ; preds = %.thread82
+2080:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1176)
   store i32 2, ptr %1176, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1177)
@@ -31548,7 +31548,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1176)
   br label %2134
 
-2082:                                             ; preds = %.thread82
+2082:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1180)
   store i32 2, ptr %1180, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1181)
@@ -31564,7 +31564,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1180)
   br label %2134
 
-2084:                                             ; preds = %.thread82
+2084:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1184)
   store i32 1, ptr %1184, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1185)
@@ -31580,7 +31580,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1184)
   br label %2134
 
-2086:                                             ; preds = %.thread82
+2086:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1188)
   store i32 1, ptr %1188, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1189)
@@ -31596,7 +31596,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1188)
   br label %2134
 
-2088:                                             ; preds = %.thread82
+2088:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1192)
   store i32 1, ptr %1192, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1193)
@@ -31612,7 +31612,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1192)
   br label %2134
 
-2090:                                             ; preds = %.thread82
+2090:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1196)
   store i32 1, ptr %1196, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1197)
@@ -31628,7 +31628,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1196)
   br label %2134
 
-2092:                                             ; preds = %.thread82
+2092:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1200)
   store i32 1, ptr %1200, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1201)
@@ -31644,7 +31644,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1200)
   br label %2134
 
-2094:                                             ; preds = %.thread82
+2094:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1204)
   store i32 1, ptr %1204, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1205)
@@ -31660,7 +31660,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1204)
   br label %2134
 
-2096:                                             ; preds = %.thread82
+2096:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1208)
   store i32 2, ptr %1208, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1209)
@@ -31676,7 +31676,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1208)
   br label %2134
 
-2098:                                             ; preds = %.thread82
+2098:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1212)
   store i32 2, ptr %1212, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1213)
@@ -31692,7 +31692,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1212)
   br label %2134
 
-2100:                                             ; preds = %.thread82
+2100:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1216)
   store i32 2, ptr %1216, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1217)
@@ -31708,7 +31708,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1216)
   br label %2134
 
-2102:                                             ; preds = %.thread82
+2102:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1220)
   store i32 2, ptr %1220, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1221)
@@ -31724,7 +31724,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1220)
   br label %2134
 
-2104:                                             ; preds = %.thread82
+2104:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1224)
   store i32 3, ptr %1224, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1225)
@@ -31740,7 +31740,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1224)
   br label %2134
 
-2106:                                             ; preds = %.thread82
+2106:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1228)
   store i32 3, ptr %1228, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1229)
@@ -31756,7 +31756,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1228)
   br label %2134
 
-2108:                                             ; preds = %.thread82
+2108:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1232)
   store i32 4, ptr %1232, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1233)
@@ -31772,7 +31772,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1232)
   br label %2134
 
-2110:                                             ; preds = %.thread82
+2110:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1236)
   store i32 4, ptr %1236, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1237)
@@ -31788,7 +31788,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1236)
   br label %2134
 
-2112:                                             ; preds = %.thread82
+2112:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1240)
   store i32 5, ptr %1240, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1241)
@@ -31804,7 +31804,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1240)
   br label %2134
 
-2114:                                             ; preds = %.thread82
+2114:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1244)
   store i32 5, ptr %1244, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1245)
@@ -31820,7 +31820,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1244)
   br label %2134
 
-2116:                                             ; preds = %.thread82
+2116:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1248)
   store i32 2, ptr %1248, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1249)
@@ -31836,7 +31836,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1248)
   br label %2134
 
-2118:                                             ; preds = %.thread82
+2118:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1252)
   store i32 2, ptr %1252, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1253)
@@ -31852,7 +31852,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1252)
   br label %2134
 
-2120:                                             ; preds = %.thread82
+2120:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1256)
   store i32 2, ptr %1256, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1257)
@@ -31868,7 +31868,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1256)
   br label %2134
 
-2122:                                             ; preds = %.thread82
+2122:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1260)
   store i32 2, ptr %1260, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1261)
@@ -31884,7 +31884,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1260)
   br label %2134
 
-2124:                                             ; preds = %.thread82
+2124:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1264)
   store i32 2, ptr %1264, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1265)
@@ -31900,7 +31900,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1264)
   br label %2134
 
-2126:                                             ; preds = %.thread82
+2126:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1268)
   store i32 2, ptr %1268, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1269)
@@ -31916,7 +31916,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1268)
   br label %2134
 
-2128:                                             ; preds = %.thread82
+2128:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1272)
   store i32 2, ptr %1272, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1273)
@@ -31932,7 +31932,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1272)
   br label %2134
 
-2130:                                             ; preds = %.thread82
+2130:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1276)
   store i32 2, ptr %1276, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1277)
@@ -31948,7 +31948,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %1276)
   br label %2134
 
-2132:                                             ; preds = %.thread82
+2132:                                             ; preds = %.thread80
   call void @llvm.lifetime.start.p0(ptr nonnull %1280)
   store i32 2, ptr %1280, align 4, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %1281)
@@ -31965,7 +31965,7 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   br label %2134
 
 2134:                                             ; preds = %1498, %1500, %1502, %1504, %1506, %1508, %1510, %1512, %1514, %1516, %1518, %1520, %1522, %1524, %1526, %1528, %1530, %1532, %1534, %1536, %1538, %1540, %1542, %1544, %1546, %1548, %1550, %1552, %1554, %1556, %1558, %1560, %1562, %1564, %1566, %1568, %1570, %1572, %1574, %1576, %1578, %1580, %1582, %1584, %1586, %1588, %1590, %1592, %1594, %1596, %1598, %1600, %1602, %1604, %1606, %1608, %1610, %1612, %1614, %1616, %1618, %1620, %1622, %1624, %1626, %1628, %1630, %1632, %1634, %1636, %1638, %1640, %1642, %1644, %1646, %1648, %1650, %1652, %1654, %1656, %1658, %1660, %1662, %1664, %1666, %1668, %1670, %1672, %1674, %1676, %1678, %1680, %1682, %1684, %1686, %1688, %1690, %1692, %1694, %1696, %1698, %1700, %1702, %1704, %1706, %1708, %1710, %1712, %1714, %1716, %1718, %1720, %1722, %1724, %1726, %1728, %1730, %1732, %1734, %1736, %1738, %1740, %1742, %1744, %1746, %1748, %1750, %1752, %1754, %1756, %1758, %1760, %1762, %1764, %1766, %1768, %1770, %1772, %1774, %1776, %1778, %1780, %1782, %1784, %1786, %1788, %1790, %1792, %1794, %1796, %1798, %1800, %1802, %1804, %1806, %1808, %1810, %1812, %1814, %1816, %1818, %1820, %1822, %1824, %1826, %1828, %1830, %1832, %1834, %1836, %1838, %1840, %1842, %1844, %1846, %1848, %1850, %1852, %1854, %1856, %1858, %1860, %1862, %1864, %1866, %1868, %1870, %1872, %1874, %1876, %1878, %1880, %1882, %1884, %1886, %1888, %1890, %1892, %1894, %1896, %1898, %1900, %1902, %1904, %1906, %1908, %1910, %1912, %1914, %1916, %1918, %1920, %1922, %1924, %1926, %1928, %1930, %1932, %1934, %1936, %1938, %1940, %1942, %1944, %1946, %1948, %1950, %1952, %1954, %1956, %1958, %1960, %1962, %1964, %1966, %1968, %1970, %1972, %1974, %1976, %1978, %1980, %1982, %1984, %1986, %1988, %1990, %1992, %1994, %1996, %1998, %2000, %2002, %2004, %2006, %2008, %2010, %2012, %2014, %2016, %2018, %2020, %2022, %2024, %2026, %2028, %2030, %2032, %2034, %2036, %2038, %2040, %2042, %2044, %2046, %2048, %2050, %2052, %2054, %2056, %2058, %2060, %2062, %2064, %2066, %2068, %2070, %2072, %2074, %2076, %2078, %2080, %2082, %2084, %2086, %2088, %2090, %2092, %2094, %2096, %2098, %2100, %2102, %2104, %2106, %2108, %2110, %2112, %2114, %2116, %2118, %2120, %2122, %2124, %2126, %2128, %2130, %2132
-  %2135 = call noundef zeroext i1 @_ZN5clang7SemaARM20PerformNeonImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiiEEEEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %.05386)
+  %2135 = call noundef zeroext i1 @_ZN5clang7SemaARM20PerformNeonImmChecksEPNS_8CallExprERN4llvm15SmallVectorImplISt5tupleIJiiiiEEEEi(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %.05384)
   %.pre = load ptr, ptr %11, align 8, !tbaa !45
   %2136 = icmp eq ptr %.pre, %1495
   br i1 %2136, label %_ZN4llvm11SmallVectorISt5tupleIJiiiiEELj2EED2Ev.exit, label %2137
@@ -31974,8 +31974,8 @@ _ZN5clangL14getNeonEltTypeENS_13NeonTypeFlagsERNS_10ASTContextEbb.exit: ; preds 
   call void @free(ptr noundef %.pre) #20
   br label %_ZN4llvm11SmallVectorISt5tupleIJiiiiEELj2EED2Ev.exit
 
-_ZN4llvm11SmallVectorISt5tupleIJiiiiEELj2EED2Ev.exit: ; preds = %.thread82, %2134, %2137
-  %.495 = phi i1 [ %2135, %2134 ], [ %2135, %2137 ], [ false, %.thread82 ]
+_ZN4llvm11SmallVectorISt5tupleIJiiiiEELj2EED2Ev.exit: ; preds = %.thread80, %2134, %2137
+  %.493 = phi i1 [ %2135, %2134 ], [ %2135, %2137 ], [ false, %.thread80 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %2138
 
@@ -31984,7 +31984,7 @@ _ZN4llvm11SmallVectorISt5tupleIJiiiiEELj2EED2Ev.exit: ; preds = %.thread82, %213
   br label %2138
 
 2138:                                             ; preds = %.critedge, %1373, %1489, %_ZN4llvm11SmallVectorISt5tupleIJiiiiEELj2EED2Ev.exit, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit
-  %.2 = phi i1 [ %1433, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ %.495, %_ZN4llvm11SmallVectorISt5tupleIJiiiiEELj2EED2Ev.exit ], [ true, %1489 ], [ true, %1373 ], [ true, %.critedge ]
+  %.2 = phi i1 [ %1433, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit ], [ %.493, %_ZN4llvm11SmallVectorISt5tupleIJiiiiEELj2EED2Ev.exit ], [ true, %1489 ], [ true, %1373 ], [ true, %.critedge ]
   %2139 = load i32, ptr %1290, align 8, !tbaa !77
   %2140 = icmp ugt i32 %2139, 64
   br i1 %2140, label %2141, label %_ZN4llvm5APIntD2Ev.exit
@@ -34615,13 +34615,13 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit98
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 16
   %557 = load i8, ptr %556, align 16
   %558 = icmp ne i8 %557, 13
-  %.not.not24.i = icmp eq ptr %555, null
-  %.not.not.i = or i1 %.not.not24.i, %558
+  %.not.not21.i = icmp eq ptr %555, null
+  %.not.not.i = or i1 %.not.not21.i, %558
   br i1 %.not.not.i, label %559, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 559:                                              ; preds = %536
   %560 = icmp ne i8 %557, 46
-  %.not13.not.i = or i1 %.not.not24.i, %560
+  %.not13.not.i = or i1 %.not.not21.i, %560
   br i1 %.not13.not.i, label %574, label %561
 
 561:                                              ; preds = %559

@@ -711,7 +711,7 @@ _ZL12GetSignatureB5cxx11PKN5clang12FunctionDeclE.exit.i: ; preds = %_ZNSt7__cxx1
   %269 = icmp eq ptr %268, %47
   %270 = load ptr, ptr %24, align 8, !tbaa !25, !noalias !15
   %271 = icmp eq ptr %270, %85
-  %.pre43.i = load i64, ptr %86, align 8, !tbaa !22, !noalias !15
+  %.pre41.i = load i64, ptr %86, align 8, !tbaa !22, !noalias !15
   br i1 %269, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i18.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i12.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i18.i: ; preds = %_ZL12GetSignatureB5cxx11PKN5clang12FunctionDeclE.exit.i
@@ -721,9 +721,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br i1 %271, label %272, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i13.i
 
 272:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i12.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i18.i
-  %273 = icmp ult i64 %.pre43.i, 16
+  %273 = icmp ult i64 %.pre41.i, 16
   call void @llvm.assume(i1 %273)
-  switch i64 %.pre43.i, label %276 [
+  switch i64 %.pre41.i, label %276 [
     i64 0, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i16.i
     i64 1, label %274
   ]
@@ -734,7 +734,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i16.i
 
 276:                                              ; preds = %272
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %268, ptr align 1 %270, i64 %.pre43.i, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %268, ptr align 1 %270, i64 %.pre41.i, i1 false)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i16.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i16.i: ; preds = %276, %274, %272
@@ -748,7 +748,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i16.i:
 
 .thread.i19.i:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i18.i
   store ptr %270, ptr %34, align 8, !tbaa !25, !alias.scope !15
-  store i64 %.pre43.i, ptr %48, align 8, !tbaa !22, !alias.scope !15
+  store i64 %.pre41.i, ptr %48, align 8, !tbaa !22, !alias.scope !15
   %280 = load i64, ptr %85, align 8, !tbaa !8, !noalias !15
   store i64 %280, ptr %47, align 8, !tbaa !8, !alias.scope !15
   br label %284
@@ -756,7 +756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit.i16.i:
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i13.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread36.i12.i
   %281 = load i64, ptr %47, align 8, !tbaa !8, !alias.scope !15
   store ptr %270, ptr %34, align 8, !tbaa !25, !alias.scope !15
-  store i64 %.pre43.i, ptr %48, align 8, !tbaa !22, !alias.scope !15
+  store i64 %.pre41.i, ptr %48, align 8, !tbaa !22, !alias.scope !15
   %282 = load i64, ptr %85, align 8, !tbaa !8, !noalias !15
   store i64 %282, ptr %47, align 8, !tbaa !8, !alias.scope !15
   %.not.i14.i = icmp eq ptr %268, null

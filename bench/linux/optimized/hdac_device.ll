@@ -312,12 +312,11 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 796
   store i32 %125, ptr %126, align 4
   %127 = load i32, ptr %52, align 8
-  switch i32 %127, label %149 [
-    i32 -1, label %128
-    i32 0, label %128
-  ]
+  %.off = add i32 %127, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %149, label %128
 
-128:                                              ; preds = %118, %118
+128:                                              ; preds = %118
   %129 = load i32, ptr %26, align 8
   %130 = icmp ult i32 %129, 16
   %131 = icmp ult i16 %115, 128
@@ -351,7 +350,7 @@ define dso_local range(i32 -2147483648, 1) i32 @snd_hdac_device_init(ptr noundef
   %148 = call i32 @snd_hdac_bus_exec_verb(ptr noundef %146, i32 noundef %147, i32 noundef %139, ptr noundef nonnull %52) #9
   br label %149
 
-149:                                              ; preds = %145, %143, %118
+149:                                              ; preds = %118, %145, %143
   %150 = load i32, ptr %40, align 4
   %151 = lshr i32 %150, 16
   br label %152

@@ -762,8 +762,8 @@ try_crl.exit:                                     ; preds = %258, %255, %244, %t
 
 300:                                              ; preds = %298, %294
   %301 = load ptr, ptr %6, align 8
-  %.not9.i = icmp eq ptr %301, null
-  br i1 %.not9.i, label %.lr.ph.i.preheader, label %302
+  %.not8.i = icmp eq ptr %301, null
+  br i1 %.not8.i, label %.lr.ph.i.preheader, label %302
 
 302:                                              ; preds = %300
   %303 = call ptr @OSSL_STORE_INFO_new_CERT(ptr noundef nonnull %301) #5

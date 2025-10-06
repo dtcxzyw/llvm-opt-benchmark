@@ -544,15 +544,15 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %189
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 16
   %255 = load i32, ptr %254, align 8, !tbaa !214
   %256 = and i32 %255, -2
-  %switch39.i = icmp eq i32 %256, 4
-  br i1 %switch39.i, label %.critedge2.i, label %..critedge_crit_edge.i
+  %switch.i = icmp eq i32 %256, 4
+  br i1 %switch.i, label %.critedge2.i, label %..critedge_crit_edge.i
 
 ..critedge_crit_edge.i:                           ; preds = %252
-  %.pre42.i = and i64 %indvars.iv.i, 4294967295
+  %.pre41.i = and i64 %indvars.iv.i, 4294967295
   br label %.critedge.i
 
 .critedge.i:                                      ; preds = %.critedge2.i, %..critedge_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre42.i, %..critedge_crit_edge.i ], [ %wide.trip.count.i, %.critedge2.i ]
+  %.pre-phi.i = phi i64 [ %.pre41.i, %..critedge_crit_edge.i ], [ %wide.trip.count.i, %.critedge2.i ]
   %257 = getelementptr inbounds nuw %"struct.std::pair.260", ptr %.pre.i318, i64 %.pre-phi.i
   %258 = getelementptr inbounds i8, ptr %164, i64 -80
   %259 = load ptr, ptr %257, align 8, !tbaa !217
@@ -1564,8 +1564,8 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %740, %_ZNK4llvm8Ca
   %746 = ptrtoint ptr %.0.i.i3.i.i to i64
   %747 = sub i64 %.0.i.i1.i.i, %746
   %748 = and i64 %747, 68719476720
-  %.not14.i = icmp eq i64 %748, 0
-  br i1 %.not14.i, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread, label %.critedge.i352.preheader
+  %.not12.i = icmp eq i64 %748, 0
+  br i1 %.not12.i, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread, label %.critedge.i352.preheader
 
 .critedge.i352.preheader:                         ; preds = %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i
   %749 = lshr exact i64 %747, 4
@@ -2678,8 +2678,8 @@ define linkonce_odr hidden { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValue
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 255
   %9 = icmp ne i32 %8, 14
-  %.not.not39 = icmp eq ptr %2, null
-  %.not.not = or i1 %.not.not39, %9
+  %.not.not36 = icmp eq ptr %2, null
+  %.not.not = or i1 %.not.not36, %9
   br i1 %.not.not, label %18, label %10
 
 10:                                               ; preds = %4
@@ -2695,7 +2695,7 @@ define linkonce_odr hidden { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValue
 18:                                               ; preds = %4
   %19 = add nsw i32 %8, -19
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i32 %19, -2
-  %.not26.not = or i1 %.not.not39, %spec.select.i.i.i.i.i.i.i.i
+  %.not26.not = or i1 %.not.not36, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not26.not, label %56, label %20
 
 20:                                               ; preds = %18
@@ -2705,8 +2705,8 @@ define linkonce_odr hidden { i16, ptr } @_ZNK4llvm18TargetLoweringBase12getValue
   %24 = load i32, ptr %23, align 8
   %25 = and i32 %24, 255
   %26 = icmp ne i32 %25, 14
-  %.not2741 = icmp eq ptr %22, null
-  %.not27 = or i1 %.not2741, %26
+  %.not2738 = icmp eq ptr %22, null
+  %.not27 = or i1 %.not2738, %26
   br i1 %.not27, label %36, label %27
 
 27:                                               ; preds = %20

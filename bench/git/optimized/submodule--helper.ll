@@ -1184,8 +1184,8 @@ define internal i32 @module_add(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 
 112:                                              ; preds = %107
   %.val = load i8, ptr %110, align 1, !tbaa !28
-  %.not58 = icmp eq i8 %.val, 47
-  br i1 %.not58, label %115, label %113
+  %.not57 = icmp eq i8 %.val, 47
+  br i1 %.not57, label %115, label %113
 
 113:                                              ; preds = %112
   %114 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.98, ptr noundef nonnull %2, ptr noundef nonnull %110) #20
@@ -1250,8 +1250,8 @@ define internal i32 @module_add(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 
 143:                                              ; preds = %141
   %.val51 = load i8, ptr %139, align 1, !tbaa !28
-  %.not59 = icmp eq i8 %.val51, 47
-  br i1 %.not59, label %146, label %144
+  %.not58 = icmp eq i8 %.val51, 47
+  br i1 %.not58, label %146, label %144
 
 144:                                              ; preds = %143
   %145 = call ptr (ptr, ...) @xstrfmt(ptr noundef nonnull @.str.98, ptr noundef nonnull %2, ptr noundef nonnull %139) #20
@@ -1287,8 +1287,8 @@ define internal i32 @module_add(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 158:                                              ; preds = %149
   %159 = load ptr, ptr %130, align 8, !tbaa !32
   %160 = load i8, ptr %159, align 1, !tbaa !28
-  %.not60 = icmp eq i8 %160, 47
-  br i1 %.not60, label %166, label %161
+  %.not59 = icmp eq i8 %160, 47
+  br i1 %.not59, label %166, label %161
 
 161:                                              ; preds = %158
   %162 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %159, i32 noundef 58) #22
@@ -2383,9 +2383,9 @@ define internal i32 @module_update(i32 noundef %0, ptr noundef %1, ptr noundef %
   %249 = call i32 @parse_options(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %31, ptr noundef nonnull %32, i32 noundef 0) #20
   %250 = load i32, ptr %219, align 4, !tbaa !96
   %.not = icmp eq i32 %250, 0
-  br i1 %.not, label %251, label %.thread97
+  br i1 %.not, label %251, label %.thread96
 
-.thread97:                                        ; preds = %4
+.thread96:                                        ; preds = %4
   store i32 1, ptr %61, align 8, !tbaa !102
   br label %257
 
@@ -2402,7 +2402,7 @@ define internal i32 @module_update(i32 noundef %0, ptr noundef %1, ptr noundef %
   call void @usage_with_options(ptr noundef nonnull %32, ptr noundef nonnull %31) #21
   unreachable
 
-257:                                              ; preds = %.thread97, %251
+257:                                              ; preds = %.thread96, %251
   %258 = load ptr, ptr %30, align 8, !tbaa !18
   %.not16 = icmp eq ptr %258, null
   br i1 %.not16, label %266, label %259
@@ -2481,7 +2481,7 @@ define internal i32 @module_update(i32 noundef %0, ptr noundef %1, ptr noundef %
   br i1 %292, label %.lr.ph.i, label %module_list_active.exit
 
 .lr.ph.i:                                         ; preds = %289, %313
-  %.pre7778 = phi i32 [ %.pre7779, %313 ], [ %291, %289 ]
+  %.pre7677 = phi i32 [ %.pre7678, %313 ], [ %291, %289 ]
   %293 = phi i32 [ %314, %313 ], [ %291, %289 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %313 ], [ 0, %289 ]
   %.sroa.13.030.i = phi i32 [ %.sroa.13.1.i, %313 ], [ 0, %289 ]
@@ -2517,11 +2517,11 @@ define internal i32 @module_update(i32 noundef %0, ptr noundef %1, ptr noundef %
 st_mult.exit.i:                                   ; preds = %302
   %308 = shl nuw nsw i64 %306, 3
   %309 = call ptr @xrealloc(ptr noundef %.sroa.0.028.i, i64 noundef %308) #20
-  %.pre77.pre = load i32, ptr %290, align 4, !tbaa !111
+  %.pre76.pre = load i32, ptr %290, align 4, !tbaa !111
   br label %310
 
 310:                                              ; preds = %st_mult.exit.i, %300
-  %.pre77 = phi i32 [ %.pre77.pre, %st_mult.exit.i ], [ %.pre7778, %300 ]
+  %.pre76 = phi i32 [ %.pre76.pre, %st_mult.exit.i ], [ %.pre7677, %300 ]
   %.sroa.0.2.i = phi ptr [ %309, %st_mult.exit.i ], [ %.sroa.0.028.i, %300 ]
   %.sroa.7.3.i = phi i32 [ %..i, %st_mult.exit.i ], [ %.sroa.7.029.i, %300 ]
   %311 = sext i32 %.sroa.13.030.i to i64
@@ -2530,8 +2530,8 @@ st_mult.exit.i:                                   ; preds = %302
   br label %313
 
 313:                                              ; preds = %310, %.lr.ph.i
-  %.pre7779 = phi i32 [ %.pre77, %310 ], [ %.pre7778, %.lr.ph.i ]
-  %314 = phi i32 [ %.pre77, %310 ], [ %293, %.lr.ph.i ]
+  %.pre7678 = phi i32 [ %.pre76, %310 ], [ %.pre7677, %.lr.ph.i ]
+  %314 = phi i32 [ %.pre76, %310 ], [ %293, %.lr.ph.i ]
   %.sroa.0.1.i = phi ptr [ %.sroa.0.2.i, %310 ], [ %.sroa.0.028.i, %.lr.ph.i ]
   %.sroa.7.1.i = phi i32 [ %.sroa.7.3.i, %310 ], [ %.sroa.7.029.i, %.lr.ph.i ]
   %.sroa.13.1.i = phi i32 [ %301, %310 ], [ %.sroa.13.030.i, %.lr.ph.i ]
@@ -3193,8 +3193,8 @@ _.exit78.i.i:                                     ; preds = %573, %571
   %.not.i79.not.i.i = icmp eq i32 %bcmp.i.i.i, 0
   %579 = load i32, ptr %52, align 8
   %.not59.i.i = icmp eq i32 %579, 0
-  %or.cond41 = select i1 %.not.i79.not.i.i, i1 %.not59.i.i, i1 false
-  br i1 %or.cond41, label %728, label %580
+  %or.cond40 = select i1 %.not.i79.not.i.i, i1 %.not59.i.i, i1 false
+  br i1 %or.cond40, label %728, label %580
 
 580:                                              ; preds = %578
   %bcmp.i.i.i.i = call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(32) %359, ptr noundef nonnull dereferenceable(32) @is_null_oid.null_hash, i64 32)
@@ -3258,8 +3258,8 @@ fetch_in_submodule.exit.i.i.i:                    ; preds = %599, %598
   %.not23.i.i.i = icmp ne i32 %601, 0
   %602 = load i32, ptr %198, align 4
   %.not24.i.i.i = icmp eq i32 %602, 0
-  %or.cond42 = select i1 %.not23.i.i.i, i1 %.not24.i.i.i, i1 false
-  br i1 %or.cond42, label %603, label %611
+  %or.cond41 = select i1 %.not23.i.i.i, i1 %.not24.i.i.i, i1 false
+  br i1 %or.cond41, label %603, label %611
 
 603:                                              ; preds = %fetch_in_submodule.exit.i.i.i
   %604 = load ptr, ptr @stderr, align 8, !tbaa !79

@@ -263,14 +263,14 @@ ChooseExtendedStatisticNameAddition.exit:         ; preds = %106, %114, %80, %.l
   %120 = ptrtoint ptr %119 to i64
   %121 = zext i32 %84 to i64
   %122 = call i32 @GetSysCacheOid(i32 noundef 63, i16 noundef signext 1, i64 noundef %120, i64 noundef %121, i64 noundef 0, i64 noundef 0) #9
-  %.not4.i = icmp eq i32 %122, 0
-  br i1 %.not4.i, label %ChooseExtendedStatisticName.exit, label %.lr.ph.i256
+  %.not3.i = icmp eq i32 %122, 0
+  br i1 %.not3.i, label %ChooseExtendedStatisticName.exit, label %.lr.ph.i256
 
 .lr.ph.i256:                                      ; preds = %ChooseExtendedStatisticNameAddition.exit, %.lr.ph.i256
   %123 = phi ptr [ %126, %.lr.ph.i256 ], [ %119, %ChooseExtendedStatisticNameAddition.exit ]
-  %.0105.i = phi i32 [ %124, %.lr.ph.i256 ], [ 0, %ChooseExtendedStatisticNameAddition.exit ]
+  %.0104.i = phi i32 [ %124, %.lr.ph.i256 ], [ 0, %ChooseExtendedStatisticNameAddition.exit ]
   call void @pfree(ptr noundef %123) #9
-  %124 = add i32 %.0105.i, 1
+  %124 = add i32 %.0104.i, 1
   %125 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.4, i32 noundef %124) #9
   %126 = call ptr @makeObjectName(ptr noundef nonnull %85, ptr noundef %118, ptr noundef nonnull %2) #9
   %127 = ptrtoint ptr %126 to i64

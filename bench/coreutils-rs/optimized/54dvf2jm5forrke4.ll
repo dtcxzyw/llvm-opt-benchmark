@@ -654,8 +654,8 @@ define hidden { ptr, i64 } @"_ZN91_$LT$clap_builder..builder..os_str..OsStr$u20$
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef range(i32 1, 3) i32 @"_ZN78_$LT$uu_numfmt..errors..NumfmtError$u20$as$u20$uucore..mods..error..UError$GT$4code17h2fe655149edafce9E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #8 {
   %2 = load i64, ptr %0, align 8, !range !119, !noundef !31
-  %switch = icmp samesign ult i64 %2, 2
-  %. = select i1 %switch, i32 1, i32 2
+  %3 = icmp eq i64 %2, 2
+  %. = select i1 %3, i32 2, i32 1
   ret i32 %.
 }
 

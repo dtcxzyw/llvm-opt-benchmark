@@ -577,14 +577,14 @@ define void @_ZN16WirelessTimeline23captureFileReadFinishedEv(ptr noundef align 
 
 .preheader:                                       ; preds = %10
   %15 = icmp ugt i32 %13, 1
-  br i1 %15, label %.lr.ph, label %._crit_edge
+  br i1 %15, label %.lr.ph, label %.critedge
 
 16:                                               ; preds = %61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %18 = zext i32 %17 to i64
   %19 = icmp samesign ult i64 %indvars.iv.next, %18
-  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !6
+  br i1 %19, label %.lr.ph, label %.critedge, !llvm.loop !6
 
 .lr.ph:                                           ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 1, %.preheader ]
@@ -856,7 +856,7 @@ _ZN7QStringD2Ev.exit69:                           ; preds = %94, %_ZN17QArrayDat
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN5QListIiED2Ev.exit75
 
-._crit_edge:                                      ; preds = %16, %.preheader
+.critedge:                                        ; preds = %16, %.preheader
   %96 = load ptr, ptr %11, align 8
   %97 = tail call noundef ptr @g_hash_table_lookup(ptr noundef %96, ptr noundef nonnull inttoptr (i64 1 to ptr))
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 864
@@ -884,7 +884,7 @@ _ZN7QStringD2Ev.exit69:                           ; preds = %94, %_ZN17QArrayDat
   tail call void @_ZN7QWidget6updateEv(ptr noundef align 8 dereferenceable_or_null(40) %0)
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %_ZN7QStringD2Ev.exit32, %_ZN7QStringD2Ev.exit57, %1, %10, %._crit_edge
+.critedge.thread:                                 ; preds = %_ZN7QStringD2Ev.exit32, %_ZN7QStringD2Ev.exit57, %1, %10, %.critedge
   ret void
 
 _ZN5QListIiED2Ev.exit75:                          ; preds = %_ZN7QStringD2Ev.exit44, %_ZN7QStringD2Ev.exit69
@@ -2513,8 +2513,8 @@ _ZN16WirelessTimeline8positionEmf.exit214:        ; preds = %236, %_ZN16Wireless
   %256 = sitofp i32 %.0.i210 to float
   %257 = fdiv float %256, %41
   %258 = fpext float %257 to double
-  %reass.sub289 = sub i32 %.0.i213, %.0.i210
-  %259 = add i32 %reass.sub289, 1
+  %reass.sub287 = sub i32 %.0.i213, %.0.i210
+  %259 = add i32 %reass.sub287, 1
   %260 = sitofp i32 %259 to float
   %261 = fdiv float %260, %41
   %262 = fpext float %261 to double
@@ -2630,7 +2630,7 @@ _ZN16WirelessTimeline8positionEmf.exit214:        ; preds = %236, %_ZN16Wireless
   %308 = zext nneg i32 %304 to i64
   %309 = inttoptr i64 %308 to ptr
   %310 = invoke noundef ptr @g_hash_table_lookup(ptr noundef %307, ptr noundef %309)
-          to label %.noexc219 unwind label %.loopexit280
+          to label %.noexc219 unwind label %.loopexit278
 
 .noexc219:                                        ; preds = %306
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 24
@@ -2646,11 +2646,11 @@ _ZN16WirelessTimeline8positionEmf.exit214:        ; preds = %236, %_ZN16Wireless
 _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %278, %.noexc218, %._crit_edge.loopexit.i, %.thread.i
   %.0.i216 = phi i32 [ %305, %.thread.i ], [ %286, %.noexc218 ], [ %300, %._crit_edge.loopexit.i ], [ %286, %278 ], [ %.02256.i, %.lr.ph.i ]
   %313 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
-  %.not182284 = icmp ugt i32 %.0.i216, %313
-  br i1 %.not182284, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %.lr.ph
+  %.not182282 = icmp ugt i32 %.0.i216, %313
+  br i1 %.not182282, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %278, %_ZN16WirelessTimeline15find_packet_tsfEm.exit
-  %.0.i216316 = phi i32 [ %.0.i216, %_ZN16WirelessTimeline15find_packet_tsfEm.exit ], [ %286, %278 ]
+  %.0.i216314 = phi i32 [ %.0.i216, %_ZN16WirelessTimeline15find_packet_tsfEm.exit ], [ %286, %278 ]
   %314 = getelementptr inbounds nuw i8, ptr %0, i64 888
   %315 = sitofp i32 %47 to float
   %316 = sitofp i32 %44 to float
@@ -2675,10 +2675,10 @@ _ZN16WirelessTimeline15find_packet_tsfEm.exit:    ; preds = %.lr.ph.i, %278, %.n
   br label %335
 
 335:                                              ; preds = %.lr.ph, %.loopexit
-  %.0152286 = phi i32 [ %.0.i216316, %.lr.ph ], [ %568, %.loopexit ]
-  %.0153285 = phi i32 [ -1, %.lr.ph ], [ %.1154.ph, %.loopexit ]
+  %.0152284 = phi i32 [ %.0.i216314, %.lr.ph ], [ %568, %.loopexit ]
+  %.0153283 = phi i32 [ -1, %.lr.ph ], [ %.1154.ph, %.loopexit ]
   %336 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 256), align 8
-  %337 = invoke ptr @frame_data_sequence_find(ptr noundef %336, i32 noundef %.0152286)
+  %337 = invoke ptr @frame_data_sequence_find(ptr noundef %336, i32 noundef %.0152284)
           to label %338 unwind label %347
 
 338:                                              ; preds = %335
@@ -2698,7 +2698,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
           cleanup
   br label %594
 
-.loopexit280:                                     ; preds = %306
+.loopexit278:                                     ; preds = %306
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %593
@@ -2748,14 +2748,14 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   %370 = sitofp i64 %369 to double
   %371 = fmul double %65, %370
   %372 = fptrunc double %371 to float
-  %373 = icmp slt i32 %.0153285, 0
+  %373 = icmp slt i32 %.0153283, 0
   %374 = fptosi float %372 to i32
-  %.not184 = icmp eq i32 %.0153285, %374
+  %.not184 = icmp eq i32 %.0153283, %374
   %or.cond203 = select i1 %373, i1 true, i1 %.not184
   br i1 %or.cond203, label %378, label %375
 
 375:                                              ; preds = %367
-  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.0153285, ptr noundef nonnull %9, float noundef %41)
+  invoke fastcc void @_ZL13render_pixelsR8QPainteriiPA3_ff(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %.0153283, ptr noundef nonnull %9, float noundef %41)
           to label %378 unwind label %376
 
 376:                                              ; preds = %375
@@ -2764,7 +2764,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   br label %593
 
 378:                                              ; preds = %375, %367
-  %.3156 = phi i32 [ %.0153285, %367 ], [ -1, %375 ]
+  %.3156 = phi i32 [ %.0153283, %367 ], [ -1, %375 ]
   %379 = fcmp ult float %372, %315
   br i1 %379, label %380, label %_ZL14accumulate_rgbPA3_fiiffff.exit
 
@@ -2789,7 +2789,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   br i1 %393, label %394, label %395
 
 394:                                              ; preds = %391
-  store i32 %.0152286, ptr %317, align 8
+  store i32 %.0152284, ptr %317, align 8
   br label %395
 
 395:                                              ; preds = %394, %391
@@ -2835,7 +2835,7 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   br i1 %or.cond3, label %424, label %463
 
 424:                                              ; preds = %421
-  %425 = shl i32 %.0152286, 1
+  %425 = shl i32 %.0152284, 1
   %426 = and i32 %425, 62
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %427 = fdiv float %389, %41
@@ -2922,8 +2922,8 @@ _ZN16WirelessTimeline14get_wlan_radioEj.exit221:  ; preds = %338
   %468 = and i16 %467, 1
   %.not.i222 = icmp eq i16 %468, 0
   %469 = or disjoint i32 %spec.store.select4, 32
-  %narrow267 = sub nuw nsw i32 32, %spec.store.select4
-  %470 = zext nneg i32 %narrow267 to i64
+  %narrow265 = sub nuw nsw i32 32, %spec.store.select4
+  %470 = zext nneg i32 %narrow265 to i64
   %471 = zext nneg i32 %469 to i64
   %wide.trip.count.i = select i1 %.not.i222, i64 32, i64 %471
   br label %.lr.ph.i223
@@ -3092,15 +3092,15 @@ _ZL14accumulate_rgbPA3_fiiffff.exit234:           ; preds = %.lr.ph.i230
   store float %566, ptr %563, align 4
   %indvars.iv.next.i241 = add nuw nsw i64 %indvars.iv.i240, 1
   %exitcond.not.i242 = icmp eq i64 %indvars.iv.next.i241, %wide.trip.count.i238
-  br i1 %exitcond.not.i242, label %.loopexit.loopexit290, label %.lr.ph.i239, !llvm.loop !15
+  br i1 %exitcond.not.i242, label %.loopexit.loopexit288, label %.lr.ph.i239, !llvm.loop !15
 
-.loopexit.loopexit290:                            ; preds = %.lr.ph.i239
+.loopexit.loopexit288:                            ; preds = %.lr.ph.i239
   %567 = fptosi float %.0165 to i32
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph.i223, %.loopexit.loopexit290, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221, %363, %351, %380, %388, %551
-  %.1154.ph = phi i32 [ -1, %551 ], [ %.3156, %388 ], [ %.3156, %380 ], [ %.0153285, %351 ], [ %.0153285, %363 ], [ %.0153285, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221 ], [ %567, %.loopexit.loopexit290 ], [ %374, %.lr.ph.i223 ]
-  %568 = add i32 %.0152286, 1
+.loopexit:                                        ; preds = %.lr.ph.i223, %.loopexit.loopexit288, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221, %363, %351, %380, %388, %551
+  %.1154.ph = phi i32 [ -1, %551 ], [ %.3156, %388 ], [ %.3156, %380 ], [ %.0153283, %351 ], [ %.0153283, %363 ], [ %.0153283, %_ZN16WirelessTimeline14get_wlan_radioEj.exit221 ], [ %567, %.loopexit.loopexit288 ], [ %374, %.lr.ph.i223 ]
+  %568 = add i32 %.0152284, 1
   %569 = load i32, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 72), align 8
   %.not182 = icmp ugt i32 %568, %569
   br i1 %.not182, label %_ZL14accumulate_rgbPA3_fiiffff.exit, label %335, !llvm.loop !16
@@ -3156,8 +3156,8 @@ _ZL14accumulate_rgbPA3_fiiffff.exit:              ; preds = %.loopexit, %378, %_
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %593
 
-593:                                              ; preds = %.loopexit280, %.loopexit.split-lp, %347, %376, %462, %549, %349, %591
-  %.pn192 = phi { ptr, i32 } [ %592, %591 ], [ %348, %347 ], [ %350, %349 ], [ %550, %549 ], [ %.pn186, %462 ], [ %377, %376 ], [ %lpad.loopexit, %.loopexit280 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+593:                                              ; preds = %.loopexit278, %.loopexit.split-lp, %347, %376, %462, %549, %349, %591
+  %.pn192 = phi { ptr, i32 } [ %592, %591 ], [ %348, %347 ], [ %350, %349 ], [ %550, %549 ], [ %.pn186, %462 ], [ %377, %376 ], [ %lpad.loopexit, %.loopexit278 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN14QGraphicsSceneD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(16) %17) #19
   br label %594
 

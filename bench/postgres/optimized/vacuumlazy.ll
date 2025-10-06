@@ -634,8 +634,8 @@ lazy_scan_new_or_empty.exit.thread.i:             ; preds = %lazy_scan_new_or_em
 
 311:                                              ; preds = %305
   %312 = load i32, ptr %22, align 4
-  %.not160.i = icmp eq i32 %312, 0
-  br i1 %.not160.i, label %314, label %313
+  %.not158.i = icmp eq i32 %312, 0
+  br i1 %.not158.i, label %314, label %313
 
 313:                                              ; preds = %311
   call void @ReleaseBuffer(i32 noundef %312) #9
@@ -654,8 +654,8 @@ lazy_scan_new_or_empty.exit.thread.i:             ; preds = %lazy_scan_new_or_em
 317:                                              ; preds = %314, %305
   %.1121.i = phi i32 [ %.0.i, %314 ], [ %.0120.i, %305 ]
   %318 = call i32 @read_stream_next_buffer(ptr noundef %281, ptr noundef nonnull %21) #9
-  %.not161.i = icmp eq i32 %318, 0
-  br i1 %.not161.i, label %690, label %319
+  %.not159.i = icmp eq i32 %318, 0
+  br i1 %.not159.i, label %690, label %319
 
 319:                                              ; preds = %317
   %320 = load ptr, ptr %21, align 8
@@ -740,7 +740,7 @@ BufferGetPage.exit.i:                             ; preds = %329, %323
   call void @LockBuffer(i32 noundef %318, i32 noundef 2) #9
   %.val35.i.i = load i16, ptr %357, align 4
   %361 = icmp ult i16 %.val35.i.i, 25
-  br i1 %361, label %362, label %lazy_scan_new_or_empty.exit.thread178.i
+  br i1 %361, label %362, label %lazy_scan_new_or_empty.exit.thread176.i
 
 362:                                              ; preds = %360, %359
   %363 = getelementptr i8, ptr %.0.i.i.i, i64 10
@@ -834,9 +834,9 @@ BufferGetPage.exit.i:                             ; preds = %329, %323
   br label %lazy_scan_new_or_empty.exit.thread.i.backedge
 
 lazy_scan_new_or_empty.exit.i:                    ; preds = %356
-  br i1 %346, label %.thread.i244, label %lazy_scan_new_or_empty.exit.thread178.i
+  br i1 %346, label %.thread.i244, label %lazy_scan_new_or_empty.exit.thread176.i
 
-lazy_scan_new_or_empty.exit.thread178.i:          ; preds = %lazy_scan_new_or_empty.exit.i, %360
+lazy_scan_new_or_empty.exit.thread176.i:          ; preds = %lazy_scan_new_or_empty.exit.i, %360
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %413 = load i32, ptr %148, align 8
   store i32 %413, ptr %17, align 4
@@ -854,7 +854,7 @@ lazy_scan_new_or_empty.exit.thread178.i:          ; preds = %lazy_scan_new_or_em
   %.not114.i.i = select i1 %415, i1 true, i1 %.not114127.i.i
   br i1 %.not114.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %lazy_scan_new_or_empty.exit.thread178.i
+.lr.ph.i.i:                                       ; preds = %lazy_scan_new_or_empty.exit.thread176.i
   %420 = getelementptr i8, ptr %.0.i.i.i, i64 20
   %421 = lshr i32 %335, 16
   %422 = trunc nuw i32 %421 to i16
@@ -973,7 +973,7 @@ default.unreachable:                              ; preds = %424
   %467 = icmp eq i32 %466, 0
   br i1 %467, label %470, label %473
 
-._crit_edge.thread.i.i:                           ; preds = %lazy_scan_new_or_empty.exit.thread178.i
+._crit_edge.thread.i.i:                           ; preds = %lazy_scan_new_or_empty.exit.thread176.i
   store i16 0, ptr %283, align 4
   %468 = load i32, ptr %78, align 8
   %469 = icmp eq i32 %468, 0
@@ -1428,8 +1428,8 @@ lazy_scan_new_or_empty.exit.thread.i.backedge:    ; preds = %689, %687, %682, %6
 690:                                              ; preds = %317
   store i32 -1, ptr %282, align 8
   %691 = load i32, ptr %22, align 4
-  %.not162.i = icmp eq i32 %691, 0
-  br i1 %.not162.i, label %693, label %692
+  %.not160.i = icmp eq i32 %691, 0
+  br i1 %.not160.i, label %693, label %692
 
 692:                                              ; preds = %690
   call void @ReleaseBuffer(i32 noundef %691) #9
@@ -3005,8 +3005,8 @@ lazy_vacuum_all_indexes.exit:                     ; preds = %78, %81, %104
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @vacuum_delay_point(i1 noundef zeroext false) #9
   %128 = call i32 @read_stream_next_buffer(ptr noundef %127, ptr noundef nonnull %5) #9
-  %.not38.i = icmp eq i32 %128, 0
-  br i1 %.not38.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not37.i = icmp eq i32 %128, 0
+  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %114
   %129 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -3022,7 +3022,7 @@ lazy_vacuum_all_indexes.exit:                     ; preds = %78, %81, %104
 
 138:                                              ; preds = %293, %.lr.ph.i
   %139 = phi i32 [ %128, %.lr.ph.i ], [ %297, %293 ]
-  %.03039.i = phi i32 [ 0, %.lr.ph.i ], [ %296, %293 ]
+  %.03038.i = phi i32 [ 0, %.lr.ph.i ], [ %296, %293 ]
   %140 = call i32 @BufferGetBlockNumber(i32 noundef %139) #9
   store i32 %140, ptr %117, align 8
   %141 = load ptr, ptr %5, align 8
@@ -3150,9 +3150,9 @@ BufferGetPage.exit.i.i.i:                         ; preds = %199, %193
   %209 = add nuw nsw i32 %208, 262120
   %210 = lshr i32 %209, 2
   %211 = trunc i32 %210 to i16
-  %.not5657.i.i.i = icmp eq i16 %211, 0
-  %.not56.i.i.i = select i1 %207, i1 true, i1 %.not5657.i.i.i
-  br i1 %.not56.i.i.i, label %.loopexit.thread.i.i, label %.lr.ph.i.i.i
+  %.not5455.i.i.i = icmp eq i16 %211, 0
+  %.not54.i.i.i = select i1 %207, i1 true, i1 %.not5455.i.i.i
+  br i1 %.not54.i.i.i, label %.loopexit.thread.i.i, label %.lr.ph.i.i.i
 
 .loopexit.thread.i.i:                             ; preds = %BufferGetPage.exit.i.i.i
   store i16 0, ptr %115, align 4
@@ -3168,10 +3168,10 @@ BufferGetPage.exit.i.i.i:                         ; preds = %199, %193
 216:                                              ; preds = %256, %.lr.ph.i.i.i
   %.047.i.i = phi i8 [ 1, %.lr.ph.i.i.i ], [ %.148.i.i, %256 ]
   %.0.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.1.i.i, %256 ]
-  %.055.i.i.i = phi i16 [ 1, %.lr.ph.i.i.i ], [ %257, %256 ]
+  %.053.i.i.i = phi i16 [ 1, %.lr.ph.i.i.i ], [ %257, %256 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i16 %.055.i.i.i, ptr %115, align 4
-  %217 = zext i16 %.055.i.i.i to i64
+  store i16 %.053.i.i.i, ptr %115, align 4
+  %217 = zext i16 %.053.i.i.i to i64
   %218 = getelementptr %struct.ItemIdData, ptr %212, i64 %217
   %219 = load i32, ptr %218, align 4
   %220 = lshr i32 %219, 15
@@ -3184,7 +3184,7 @@ BufferGetPage.exit.i.i.i:                         ; preds = %199, %193
 222:                                              ; preds = %216
   store i16 %214, ptr %129, align 4
   store i16 %215, ptr %130, align 2
-  store i16 %.055.i.i.i, ptr %131, align 8
+  store i16 %.053.i.i.i, ptr %131, align 8
   %223 = and i32 %219, 98304
   %224 = icmp eq i32 %223, 98304
   br i1 %224, label %heap_page_is_all_visible.exit.i.i, label %225
@@ -3259,9 +3259,9 @@ HeapTupleHeaderGetXmin.exit.i.i.i:                ; preds = %242, %239
   %.148.i.i = phi i8 [ 0, %246 ], [ %.047.i.i, %216 ], [ %.047.i.i, %216 ], [ %spec.select56.i.i, %250 ]
   %.1.i.i = phi i32 [ %spec.select55.i.i, %246 ], [ %.0.i.i, %216 ], [ %.0.i.i, %216 ], [ %spec.select55.i.i, %250 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %257 = add i16 %.055.i.i.i, 1
-  %.not64.i.i.i = icmp ugt i16 %257, %211
-  br i1 %.not64.i.i.i, label %.loopexit.i.i, label %216, !llvm.loop !21
+  %257 = add i16 %.053.i.i.i, 1
+  %.not62.i.i.i = icmp ugt i16 %257, %211
+  br i1 %.not62.i.i.i, label %.loopexit.i.i, label %216, !llvm.loop !21
 
 heap_page_is_all_visible.exit.i.i:                ; preds = %HeapTupleHeaderGetXmin.exit.i.i.i, %235, %225, %225, %225, %225, %222
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3341,7 +3341,7 @@ lazy_vacuum_heap_page.exit.i:                     ; preds = %278, %275, %272, %2
   call void @UnlockReleaseBuffer(i32 noundef %139) #9
   %295 = load ptr, ptr %0, align 8
   call void @RecordPageWithFreeSpace(ptr noundef %295, i32 noundef %140, i64 noundef %294) #9
-  %296 = add i32 %.03039.i, 1
+  %296 = add i32 %.03038.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3359,8 +3359,8 @@ lazy_vacuum_heap_page.exit.i:                     ; preds = %278, %275, %272, %2
   call void @TidStoreEndIterate(ptr noundef %123) #9
   store i32 -1, ptr %117, align 8
   %298 = load i32, ptr %4, align 4
-  %.not36.i = icmp eq i32 %298, 0
-  br i1 %.not36.i, label %300, label %299
+  %.not35.i = icmp eq i32 %298, 0
+  br i1 %.not35.i, label %300, label %299
 
 299:                                              ; preds = %._crit_edge.i
   call void @ReleaseBuffer(i32 noundef %298) #9

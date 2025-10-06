@@ -2687,8 +2687,8 @@ define hidden noundef zeroext i1 @_ZN5osgeo4proj14DiskChunkCache35update_links_o
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN5osgeo4proj14DiskChunkCache7prepareEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.48") align 8 %4, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.34)
   %7 = load ptr, ptr %4, align 8, !tbaa !81
-  %.not58 = icmp eq ptr %7, null
-  br i1 %.not58, label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit.thread, label %8
+  %.not55 = icmp eq ptr %7, null
+  br i1 %.not55, label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit.thread, label %8
 
 _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit.thread: ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2782,10 +2782,10 @@ _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN5osgeo4proj14DiskChunkCache7prepareEPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.48") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.35)
   %45 = load ptr, ptr %5, align 8, !tbaa !81
-  %.not59 = icmp eq ptr %45, null
-  br i1 %.not59, label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit44.thread, label %46
+  %.not56 = icmp eq ptr %45, null
+  br i1 %.not56, label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit43.thread, label %46
 
-_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit44.thread: ; preds = %44
+_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit43.thread: ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %82
 
@@ -2797,18 +2797,18 @@ _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exi
 
 50:                                               ; preds = %46
   %51 = invoke i32 @sqlite3_bind_int64(ptr noundef %47, i32 noundef %49, i64 noundef %1)
-          to label %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit38 unwind label %52
+          to label %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit37 unwind label %52
 
-52:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit38, %54, %50
+52:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit37, %54, %50
   %53 = landingpad { ptr, i32 }
           cleanup
   br label %80
 
 54:                                               ; preds = %46
   %55 = invoke i32 @sqlite3_bind_null(ptr noundef %47, i32 noundef %49)
-          to label %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit38 unwind label %52
+          to label %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit37 unwind label %52
 
-_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit38: ; preds = %54, %50
+_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit37: ; preds = %54, %50
   %56 = load i32, ptr %48, align 8, !tbaa !97
   %57 = add nsw i32 %56, 1
   store i32 %57, ptr %48, align 8, !tbaa !97
@@ -2816,20 +2816,20 @@ _ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit38: ; preds = %54, %50
   %59 = invoke i32 @sqlite3_bind_int64(ptr noundef %58, i32 noundef %57, i64 noundef %2)
           to label %60 unwind label %52
 
-60:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit38
+60:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement9bindInt64Ex.exit37
   %61 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !97
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %61, align 8, !tbaa !97
   %64 = load ptr, ptr %45, align 8, !tbaa !83
   %65 = invoke noundef i32 @sqlite3_step(ptr noundef %64)
-          to label %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit41 unwind label %72
+          to label %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit40 unwind label %72
 
-_ZN5osgeo4proj15SQLiteStatement7executeEv.exit41: ; preds = %60
+_ZN5osgeo4proj15SQLiteStatement7executeEv.exit40: ; preds = %60
   %.not31 = icmp eq i32 %65, 101
   br i1 %.not31, label %74, label %66
 
-66:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit41
+66:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit40
   %67 = load ptr, ptr %0, align 8, !tbaa !58
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load ptr, ptr %68, align 8, !tbaa !77
@@ -2845,10 +2845,10 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit41: ; preds = %60
           cleanup
   br label %80
 
-74:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit41, %71
+74:                                               ; preds = %_ZN5osgeo4proj15SQLiteStatement7executeEv.exit40, %71
   %75 = load ptr, ptr %45, align 8, !tbaa !83
   %76 = invoke i32 @sqlite3_finalize(ptr noundef %75)
-          to label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit44 unwind label %77
+          to label %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit43 unwind label %77
 
 77:                                               ; preds = %74
   %78 = landingpad { ptr, i32 }
@@ -2857,7 +2857,7 @@ _ZN5osgeo4proj15SQLiteStatement7executeEv.exit41: ; preds = %60
   tail call void @__clang_call_terminate(ptr %79) #35
   unreachable
 
-_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit44: ; preds = %74
+_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit43: ; preds = %74
   tail call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef 16) #31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %.not31, label %81, label %82
@@ -2868,11 +2868,11 @@ _ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %83
 
-81:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit44, %43
+81:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit43, %43
   br label %82
 
-82:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit44.thread, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit44, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit, %81
-  %.3 = phi i1 [ true, %81 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit44 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit.thread ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit44.thread ]
+82:                                               ; preds = %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit43.thread, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit43, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit, %81
+  %.3 = phi i1 [ true, %81 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit43 ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit.thread ], [ false, %_ZNSt10unique_ptrIN5osgeo4proj15SQLiteStatementESt14default_deleteIS2_EED2Ev.exit43.thread ]
   ret i1 %.3
 
 83:                                               ; preds = %80, %42

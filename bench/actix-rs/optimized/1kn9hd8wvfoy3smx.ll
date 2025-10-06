@@ -1526,12 +1526,11 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
   tail call void @_ZN12tracing_core5event5Event8dispatch17h353e27ce600df890E(ptr nonnull align 8 %8, ptr align 8 %1)
   store i64 2, ptr %7, align 8
   %9 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.4), !range !17
-  switch i8 %9, label %12 [
-    i8 0, label %.critedge
-    i8 -1, label %.critedge
-  ]
+  %.off = add nsw i8 %9, -1
+  %switch = icmp ult i8 %.off, -2
+  br i1 %switch, label %12, label %.critedge
 
-.critedge:                                        ; preds = %2, %2
+.critedge:                                        ; preds = %2
   %10 = call i8 @_ZN4core4sync6atomic11atomic_load17h7c87fcf425c275e2E(ptr nonnull @_ZN12tracing_core10dispatcher6EXISTS17hd85f1dd96f61d43bE, i8 0)
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %13, label %12
@@ -1544,12 +1543,11 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
   %14 = call i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull @_ZN3log20MAX_LOG_LEVEL_FILTER17h80d64c2d11ed85cbE, i8 0)
   store i64 %14, ptr %5, align 8
   %15 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %6, ptr nonnull align 8 %5), !range !17
-  switch i8 %15, label %12 [
-    i8 0, label %.critedge10
-    i8 -1, label %.critedge10
-  ]
+  %.off11 = add nsw i8 %15, -1
+  %switch12 = icmp ult i8 %.off11, -2
+  br i1 %switch12, label %12, label %.critedge10
 
-.critedge10:                                      ; preds = %13, %13
+.critedge10:                                      ; preds = %13
   %16 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17h0a82d0b112dcb714E, align 8, !nonnull !3, !align !11, !noundef !3
   %17 = load i64, ptr %6, align 8, !range !18, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -1586,12 +1584,11 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
   tail call void @_ZN12tracing_core5event5Event8dispatch17h353e27ce600df890E(ptr nonnull align 8 %8, ptr align 8 %1)
   store i64 2, ptr %7, align 8
   %9 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %7, ptr nonnull align 8 @anon.cd780be17f47d01eb0baa4c39ee3792c.4), !range !17
-  switch i8 %9, label %12 [
-    i8 0, label %.critedge
-    i8 -1, label %.critedge
-  ]
+  %.off = add nsw i8 %9, -1
+  %switch = icmp ult i8 %.off, -2
+  br i1 %switch, label %12, label %.critedge
 
-.critedge:                                        ; preds = %2, %2
+.critedge:                                        ; preds = %2
   %10 = call i8 @_ZN4core4sync6atomic11atomic_load17h7c87fcf425c275e2E(ptr nonnull @_ZN12tracing_core10dispatcher6EXISTS17hd85f1dd96f61d43bE, i8 0)
   %11 = icmp eq i8 %10, 0
   br i1 %11, label %13, label %12
@@ -1604,12 +1601,11 @@ define hidden void @"_ZN12actix_router8resource11ResourceDef5parse28_$u7b$$u7b$c
   %14 = call i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull @_ZN3log20MAX_LOG_LEVEL_FILTER17h80d64c2d11ed85cbE, i8 0)
   store i64 %14, ptr %5, align 8
   %15 = call i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %6, ptr nonnull align 8 %5), !range !17
-  switch i8 %15, label %12 [
-    i8 0, label %.critedge10
-    i8 -1, label %.critedge10
-  ]
+  %.off11 = add nsw i8 %15, -1
+  %switch12 = icmp ult i8 %.off11, -2
+  br i1 %switch12, label %12, label %.critedge10
 
-.critedge10:                                      ; preds = %13, %13
+.critedge10:                                      ; preds = %13
   %16 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17hd8341e3515fb854cE, align 8, !nonnull !3, !align !11, !noundef !3
   %17 = load i64, ptr %6, align 8, !range !18, !noundef !3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32

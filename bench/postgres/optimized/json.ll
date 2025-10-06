@@ -2812,32 +2812,32 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %39
   %indvars.iv = phi i64 [ %24, %.lr.ph.preheader ], [ %indvars.iv.next, %39 ]
-  %.14968 = phi i32 [ %.048, %.lr.ph.preheader ], [ %.3, %39 ]
+  %.14967 = phi i32 [ %.048, %.lr.ph.preheader ], [ %.3, %39 ]
   %25 = getelementptr inbounds i8, ptr %1, i64 %indvars.iv
-  %.val65 = load <16 x i8>, ptr %25, align 1
-  %26 = icmp ult <16 x i8> %.val65, splat (i8 32)
-  %27 = icmp eq <16 x i8> %.val65, splat (i8 34)
+  %.val64 = load <16 x i8>, ptr %25, align 1
+  %26 = icmp ult <16 x i8> %.val64, splat (i8 32)
+  %27 = icmp eq <16 x i8> %.val64, splat (i8 34)
   %28 = or <16 x i1> %26, %27
-  %29 = icmp eq <16 x i8> %.val65, splat (i8 92)
+  %29 = icmp eq <16 x i8> %.val64, splat (i8 92)
   %30 = or <16 x i1> %29, %28
   %31 = bitcast <16 x i1> %30 to i16
-  %or.cond64.not = icmp eq i16 %31, 0
+  %or.cond63.not = icmp eq i16 %31, 0
   %32 = trunc nsw i64 %indvars.iv to i32
-  br i1 %or.cond64.not, label %33, label %.thread
+  br i1 %or.cond63.not, label %33, label %.thread
 
 33:                                               ; preds = %.lr.ph
-  %34 = sub i32 %32, %.14968
+  %34 = sub i32 %32, %.14967
   %35 = icmp sgt i32 %34, 511
   br i1 %35, label %36, label %39
 
 36:                                               ; preds = %33
-  %37 = sext i32 %.14968 to i64
+  %37 = sext i32 %.14967 to i64
   %38 = getelementptr inbounds i8, ptr %1, i64 %37
   tail call void @appendBinaryStringInfo(ptr noundef %0, ptr noundef %38, i32 noundef %34) #9
   br label %39
 
 39:                                               ; preds = %36, %33
-  %.3 = phi i32 [ %32, %36 ], [ %.14968, %33 ]
+  %.3 = phi i32 [ %32, %36 ], [ %.14967, %33 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 16
   %40 = icmp slt i64 %indvars.iv.next, %22
   br i1 %40, label %.lr.ph, label %.thread.split.loop.exit, !llvm.loop !14
@@ -2848,7 +2848,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
 
 .thread:                                          ; preds = %.lr.ph, %.thread.split.loop.exit
   %.151.lcssa = phi i32 [ %indvars.le, %.thread.split.loop.exit ], [ %32, %.lr.ph ]
-  %.149.lcssa = phi i32 [ %.3, %.thread.split.loop.exit ], [ %.14968, %.lr.ph ]
+  %.149.lcssa = phi i32 [ %.3, %.thread.split.loop.exit ], [ %.14967, %.lr.ph ]
   %41 = icmp slt i32 %.149.lcssa, %.151.lcssa
   br i1 %41, label %42, label %.thread.thread.preheader
 
@@ -2860,18 +2860,18 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   br label %.thread.thread.preheader
 
 .thread.thread.preheader:                         ; preds = %.critedge, %42, %.thread
-  %.25273.ph = phi i32 [ %.151.lcssa, %.thread ], [ %.151.lcssa, %42 ], [ %.048, %.critedge ]
+  %.25272.ph = phi i32 [ %.151.lcssa, %.thread ], [ %.151.lcssa, %42 ], [ %.048, %.critedge ]
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %.thread.thread.preheader, %escape_json_char.exit
-  %.074 = phi i32 [ %77, %escape_json_char.exit ], [ 0, %.thread.thread.preheader ]
-  %.25273 = phi i32 [ %48, %escape_json_char.exit ], [ %.25273.ph, %.thread.thread.preheader ]
-  %46 = icmp eq i32 %.25273, %2
+  %.073 = phi i32 [ %77, %escape_json_char.exit ], [ 0, %.thread.thread.preheader ]
+  %.25272 = phi i32 [ %48, %escape_json_char.exit ], [ %.25272.ph, %.thread.thread.preheader ]
+  %46 = icmp eq i32 %.25272, %2
   br i1 %46, label %78, label %47
 
 47:                                               ; preds = %.thread.thread
-  %48 = add i32 %.25273, 1
-  %49 = sext i32 %.25273 to i64
+  %48 = add i32 %.25272, 1
+  %49 = sext i32 %.25272 to i64
   %50 = getelementptr inbounds i8, ptr %1, i64 %49
   %51 = load i8, ptr %50, align 1
   %52 = sext i8 %51 to i32
@@ -2947,7 +2947,7 @@ define dso_local void @escape_json_with_len(ptr noundef %0, ptr noundef %1, i32 
   br label %escape_json_char.exit
 
 escape_json_char.exit:                            ; preds = %53, %54, %55, %56, %57, %58, %59, %62, %67, %68
-  %77 = add nuw nsw i32 %.074, 1
+  %77 = add nuw nsw i32 %.073, 1
   %exitcond = icmp eq i32 %77, 16
   br i1 %exitcond, label %.critedge.loopexit, label %.thread.thread, !llvm.loop !13
 

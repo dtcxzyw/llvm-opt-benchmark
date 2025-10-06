@@ -4932,8 +4932,8 @@ define noundef range(i8 0, 3) i8 @"_ZN10raft_proto10confchange59_$LT$impl$u20$ra
   ret i8 %.sroa.0.0
 
 9:                                                ; preds = %4, %1
-  %switch = icmp samesign ult i8 %3, 2
-  %. = zext i1 %switch to i8
+  %10 = icmp ne i8 %3, 2
+  %. = zext i1 %10 to i8
   br label %8
 }
 

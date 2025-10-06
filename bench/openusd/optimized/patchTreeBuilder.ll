@@ -10495,7 +10495,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 ._crit_edge:                                      ; preds = %5
   %.pre = load ptr, ptr %1, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre63 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre62 = load i32, ptr %.phi.trans.insert, align 8
   br label %16
 
 6:                                                ; preds = %5
@@ -10511,7 +10511,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   br i1 %15, label %45, label %16
 
 16:                                               ; preds = %._crit_edge, %6
-  %17 = phi i32 [ %.pre63, %._crit_edge ], [ %9, %6 ]
+  %17 = phi i32 [ %.pre62, %._crit_edge ], [ %9, %6 ]
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %7, %6 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %20 = shl nsw i32 %17, 1
@@ -10569,9 +10569,9 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   ]
 
 ..thread55_crit_edge:                             ; preds = %45
-  %.pre64 = load ptr, ptr %1, align 8
-  %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre66 = load i32, ptr %.phi.trans.insert65, align 8
+  %.pre63 = load ptr, ptr %1, align 8
+  %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.pre65 = load i32, ptr %.phi.trans.insert64, align 8
   br label %.thread55
 
 46:                                               ; preds = %45
@@ -10618,8 +10618,8 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit.sink.split
 
 .thread55:                                        ; preds = %..thread55_crit_edge, %63
-  %71 = phi i32 [ %.pre66, %..thread55_crit_edge ], [ %56, %63 ]
-  %72 = phi ptr [ %.pre64, %..thread55_crit_edge ], [ %54, %63 ]
+  %71 = phi i32 [ %.pre65, %..thread55_crit_edge ], [ %56, %63 ]
+  %72 = phi ptr [ %.pre63, %..thread55_crit_edge ], [ %54, %63 ]
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %75 = shl nsw i32 %71, 1
@@ -10715,10 +10715,10 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdg
   br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit, label %123, !llvm.loop !141
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit.sink.split: ; preds = %46, %33, %.thread
-  %.sink72.in = phi ptr [ %2, %.thread ], [ %34, %33 ], [ %2, %46 ]
+  %.sink71.in = phi ptr [ %2, %.thread ], [ %34, %33 ], [ %2, %46 ]
   %.sink = phi double [ 5.000000e-01, %.thread ], [ 1.250000e-01, %33 ], [ 5.000000e-01, %46 ]
-  %.sink72 = load ptr, ptr %.sink72.in, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %.sink72, i64 8
+  %.sink71 = load ptr, ptr %.sink71.in, align 8
+  %128 = getelementptr inbounds nuw i8, ptr %.sink71, i64 8
   store double %.sink, ptr %128, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIdE4MaskEEEvRKT_RT0_.exit
 
@@ -12542,7 +12542,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
 ._crit_edge:                                      ; preds = %5
   %.pre = load ptr, ptr %1, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre63 = load i32, ptr %.phi.trans.insert, align 8
+  %.pre62 = load i32, ptr %.phi.trans.insert, align 8
   br label %16
 
 6:                                                ; preds = %5
@@ -12558,7 +12558,7 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   br i1 %15, label %45, label %16
 
 16:                                               ; preds = %._crit_edge, %6
-  %17 = phi i32 [ %.pre63, %._crit_edge ], [ %9, %6 ]
+  %17 = phi i32 [ %.pre62, %._crit_edge ], [ %9, %6 ]
   %18 = phi ptr [ %.pre, %._crit_edge ], [ %7, %6 ]
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 144
   %20 = shl nsw i32 %17, 1
@@ -12616,9 +12616,9 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   ]
 
 ..thread55_crit_edge:                             ; preds = %45
-  %.pre64 = load ptr, ptr %1, align 8
-  %.phi.trans.insert65 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre66 = load i32, ptr %.phi.trans.insert65, align 8
+  %.pre63 = load ptr, ptr %1, align 8
+  %.phi.trans.insert64 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.pre65 = load i32, ptr %.phi.trans.insert64, align 8
   br label %.thread55
 
 46:                                               ; preds = %45
@@ -12665,8 +12665,8 @@ define linkonce_odr void @_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit.sink.split
 
 .thread55:                                        ; preds = %..thread55_crit_edge, %63
-  %71 = phi i32 [ %.pre66, %..thread55_crit_edge ], [ %56, %63 ]
-  %72 = phi ptr [ %.pre64, %..thread55_crit_edge ], [ %54, %63 ]
+  %71 = phi i32 [ %.pre65, %..thread55_crit_edge ], [ %56, %63 ]
+  %72 = phi ptr [ %.pre63, %..thread55_crit_edge ], [ %54, %63 ]
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 144
   %75 = shl nsw i32 %71, 1
@@ -12761,10 +12761,10 @@ _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdg
   br i1 %exitcond.not, label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit, label %122, !llvm.loop !164
 
 _ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit.sink.split: ; preds = %46, %33, %.thread
-  %.sink72.in = phi ptr [ %2, %.thread ], [ %34, %33 ], [ %2, %46 ]
+  %.sink71.in = phi ptr [ %2, %.thread ], [ %34, %33 ], [ %2, %46 ]
   %.sink = phi float [ 5.000000e-01, %.thread ], [ 1.250000e-01, %33 ], [ 5.000000e-01, %46 ]
-  %.sink72 = load ptr, ptr %.sink72.in, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %.sink72, i64 4
+  %.sink71 = load ptr, ptr %.sink71.in, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %.sink71, i64 4
   store float %.sink, ptr %127, align 4
   br label %_ZNK10OpenSubdiv6v3_6_03Sdc6SchemeILNS1_10SchemeTypeE2EE23assignSmoothMaskForEdgeINS0_3Vtr8internal13EdgeInterfaceENS0_3Far18PrimvarRefinerRealIfE4MaskEEEvRKT_RT0_.exit
 

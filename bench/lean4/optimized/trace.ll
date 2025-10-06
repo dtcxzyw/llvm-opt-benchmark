@@ -854,17 +854,17 @@ define internal fastcc noundef zeroext i1 @_ZN4leanL18is_trace_class_setERKSt6ve
   %.val = load ptr, ptr %0, align 8, !tbaa !58
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val21 = load ptr, ptr %7, align 8, !tbaa !58
-  %.not4.not.i = icmp eq ptr %.val, %.val21
-  br i1 %.not4.not.i, label %.loopexit, label %.lr.ph.i
+  %.not5.not.i = icmp eq ptr %.val, %.val21
+  br i1 %.not5.not.i, label %.loopexit, label %.lr.ph.i
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 8
   %.not.not.i = icmp eq ptr %9, %.val21
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %8
-  %.sroa.01.05.i = phi ptr [ %9, %8 ], [ %.val, %2 ]
-  %10 = tail call noundef zeroext i1 @_ZN4lean12is_prefix_ofERKNS_4nameES2_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.05.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
+  %.sroa.01.06.i = phi ptr [ %9, %8 ], [ %.val, %2 ]
+  %10 = tail call noundef zeroext i1 @_ZN4lean12is_prefix_ofERKNS_4nameES2_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.06.i, ptr noundef nonnull align 8 dereferenceable(8) %1)
   br i1 %10, label %_ZN4leanL23is_trace_class_set_coreERKSt6vectorINS_4nameESaIS1_EERKS1_.exit, label %8
 
 .loopexit:                                        ; preds = %8, %2
@@ -2938,17 +2938,17 @@ define internal fastcc void @"_ZN4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8fo
   %.val.i = load ptr, ptr %11, align 8, !tbaa !58
   %12 = getelementptr i8, ptr %11, i64 8
   %.val2.i = load ptr, ptr %12, align 8, !tbaa !58
-  %.not4.not.i.i = icmp eq ptr %.val.i, %.val2.i
-  br i1 %.not4.not.i.i, label %"_ZZN4leanL18is_trace_class_setERKSt6vectorINS_4nameESaIS1_EERKS1_ENK3$_0clES7_.exit", label %.lr.ph.i.i
+  %.not5.not.i.i = icmp eq ptr %.val.i, %.val2.i
+  br i1 %.not5.not.i.i, label %"_ZZN4leanL18is_trace_class_setERKSt6vectorINS_4nameESaIS1_EERKS1_ENK3$_0clES7_.exit", label %.lr.ph.i.i
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i.i, i64 8
   %.not.not.i.i = icmp eq ptr %14, %.val2.i
   br i1 %.not.not.i.i, label %"_ZZN4leanL18is_trace_class_setERKSt6vectorINS_4nameESaIS1_EERKS1_ENK3$_0clES7_.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %13
-  %.sroa.01.05.i.i = phi ptr [ %14, %13 ], [ %.val.i, %10 ]
-  %15 = tail call noundef zeroext i1 @_ZN4lean12is_prefix_ofERKNS_4nameES2_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.05.i.i, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %.sroa.01.06.i.i = phi ptr [ %14, %13 ], [ %.val.i, %10 ]
+  %15 = tail call noundef zeroext i1 @_ZN4lean12is_prefix_ofERKNS_4nameES2_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.06.i.i, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br i1 %15, label %_ZN4leanL23is_trace_class_set_coreERKSt6vectorINS_4nameESaIS1_EERKS1_.exit.i, label %13
 
 _ZN4leanL23is_trace_class_set_coreERKSt6vectorINS_4nameESaIS1_EERKS1_.exit.i: ; preds = %.lr.ph.i.i

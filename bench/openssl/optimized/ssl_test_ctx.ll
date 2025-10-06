@@ -580,14 +580,14 @@ define dso_local ptr @SSL_TEST_CTX_create(ptr noundef %0, ptr noundef %1, ptr no
 SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
   %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 867, ptr noundef nonnull @.str.2, ptr noundef %7) #8
   %.not51 = icmp eq i32 %12, 0
-  br i1 %.not51, label %.thread, label %.preheader63
+  br i1 %.not51, label %.thread, label %.preheader62
 
-.preheader63:                                     ; preds = %SSL_TEST_CTX_new.exit
+.preheader62:                                     ; preds = %SSL_TEST_CTX_new.exit
   %13 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #8
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader63
+.lr.ph:                                           ; preds = %.preheader62
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 360
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 224
@@ -597,8 +597,8 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
   br label %21
 
 21:                                               ; preds = %.lr.ph, %83
-  %.04972 = phi i32 [ 0, %.lr.ph ], [ %84, %83 ]
-  %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.04972) #8
+  %.04971 = phi i32 [ 0, %.lr.ph ], [ %84, %83 ]
+  %22 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.04971) #8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %25 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(7) @.str.3) #9
@@ -673,13 +673,13 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
   br i1 %.not54, label %.thread, label %83
 
 66:                                               ; preds = %.preheader
-  %67 = add nuw nsw i64 %.04868, 1
+  %67 = add nuw nsw i64 %.04867, 1
   %exitcond = icmp eq i64 %67, 32
   br i1 %exitcond, label %.critedge, label %.preheader, !llvm.loop !33
 
 .preheader:                                       ; preds = %59, %66
-  %.04868 = phi i64 [ %67, %66 ], [ 0, %59 ]
-  %68 = getelementptr inbounds nuw %struct.ssl_test_ctx_option, ptr @ssl_test_ctx_options, i64 %.04868
+  %.04867 = phi i64 [ %67, %66 ], [ 0, %59 ]
+  %68 = getelementptr inbounds nuw %struct.ssl_test_ctx_option, ptr @ssl_test_ctx_options, i64 %.04867
   %69 = load ptr, ptr %68, align 16, !tbaa !34
   %70 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %24, ptr noundef nonnull dereferenceable(1) %69) #9
   %71 = icmp eq i32 %70, 0
@@ -707,7 +707,7 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
   br label %.thread
 
 83:                                               ; preds = %72, %34, %48, %62, %55, %41, %27
-  %84 = add nuw nsw i32 %.04972, 1
+  %84 = add nuw nsw i32 %.04971, 1
   %85 = tail call i32 @OPENSSL_sk_num(ptr noundef %4) #8
   %86 = icmp slt i32 %84, %85
   br i1 %86, label %21, label %.loopexit, !llvm.loop !37
@@ -717,8 +717,8 @@ SSL_TEST_CTX_new.exit:                            ; preds = %6, %8
   tail call void @SSL_TEST_CTX_free(ptr noundef %.050)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %83, %.preheader63, %.thread
-  %.1 = phi ptr [ null, %.thread ], [ %7, %.preheader63 ], [ %7, %83 ]
+.loopexit:                                        ; preds = %83, %.preheader62, %.thread
+  %.1 = phi ptr [ null, %.thread ], [ %7, %.preheader62 ], [ %7, %83 ]
   ret ptr %.1
 }
 

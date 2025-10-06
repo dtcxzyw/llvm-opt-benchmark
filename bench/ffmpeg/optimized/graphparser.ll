@@ -178,8 +178,8 @@ parse_sws_flags.exit:                             ; preds = %31, %16
   %34 = tail call i64 @strspn(ptr noundef nonnull %.2, ptr noundef nonnull @.str.4) #8
   %35 = getelementptr inbounds nuw i8, ptr %.2, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !33
-  %.not2076 = icmp eq i8 %36, 0
-  br i1 %.not2076, label %parse_sws_flags.exit.._crit_edge_crit_edge, label %.lr.ph
+  %.not2075 = icmp eq i8 %36, 0
+  br i1 %.not2075, label %parse_sws_flags.exit.._crit_edge_crit_edge, label %.lr.ph
 
 parse_sws_flags.exit.._crit_edge_crit_edge:       ; preds = %parse_sws_flags.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -188,10 +188,10 @@ parse_sws_flags.exit.._crit_edge_crit_edge:       ; preds = %parse_sws_flags.exi
 
 .lr.ph:                                           ; preds = %parse_sws_flags.exit, %chain_free.exit
   %37 = phi ptr [ %124, %chain_free.exit ], [ %15, %parse_sws_flags.exit ]
-  %.03677 = phi ptr [ %127, %chain_free.exit ], [ %35, %parse_sws_flags.exit ]
+  %.03676 = phi ptr [ %127, %chain_free.exit ], [ %35, %parse_sws_flags.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store ptr %.03677, ptr %7, align 8, !tbaa !32
+  store ptr %.03676, ptr %7, align 8, !tbaa !32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i32 0, ptr %9, align 4, !tbaa !26
@@ -202,7 +202,7 @@ parse_sws_flags.exit.._crit_edge_crit_edge:       ; preds = %parse_sws_flags.exi
   br i1 %.not.i23, label %chain_parse.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph
-  %39 = load i8, ptr %.03677, align 1, !tbaa !33
+  %39 = load i8, ptr %.03676, align 1, !tbaa !33
   %.not2641.i = icmp eq i8 %39, 0
   br i1 %.not2641.i, label %.loopexit, label %.lr.ph.preheader.i
 
@@ -364,7 +364,7 @@ filter_parse.exit.thread.i:                       ; preds = %.lr.ph.i, %.loopexi
   %.023.ph.i = phi i32 [ %.0.i.ph.i, %filter_parse.exit.thread.i ], [ -22, %94 ], [ %86, %88 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %102 = load ptr, ptr %7, align 8, !tbaa !32
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.22, ptr noundef nonnull %.03677, ptr noundef %102) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.22, ptr noundef nonnull %.03676, ptr noundef %102) #7
   %103 = load i64, ptr %40, align 8, !tbaa !47
   %.not10.i.i = icmp eq i64 %103, 0
   br i1 %.not10.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -392,7 +392,7 @@ chain_parse.exit.thread:                          ; preds = %.lr.ph, %._crit_edg
   br label %chain_free.exit.thread
 
 .loopexit:                                        ; preds = %100, %.loopexit.sink.split.i, %.preheader.i
-  %109 = phi ptr [ %.03677, %.preheader.i ], [ %.ph.i, %.loopexit.sink.split.i ], [ %98, %100 ]
+  %109 = phi ptr [ %.03676, %.preheader.i ], [ %.ph.i, %.loopexit.sink.split.i ], [ %98, %100 ]
   store ptr %38, ptr %13, align 8, !tbaa !35
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -475,7 +475,7 @@ parse_sws_flags.exit.thread:                      ; preds = %24, %23, %chain_fre
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %5, label %80
+  br i1 %.not, label %5, label %81
 
 5:                                                ; preds = %4
   %6 = tail call i32 @avfilter_graph_segment_create_filters(ptr noundef %0, i32 noundef 0)
@@ -560,29 +560,29 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply(ptr noundef r
 44:                                               ; preds = %8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !34
-  %.not4853.not.i = icmp eq i64 %46, 0
-  br i1 %.not4853.not.i, label %avfilter_graph_segment_init.exit, label %.lr.ph55.i
+  %.not58.i = icmp eq i64 %46, 0
+  br i1 %.not58.i, label %avfilter_graph_segment_init.exit, label %.lr.ph57.i
 
-.lr.ph55.i:                                       ; preds = %44
+.lr.ph57.i:                                       ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %48
 
-48:                                               ; preds = %._crit_edge.i29, %.lr.ph55.i
-  %49 = phi i64 [ %46, %.lr.ph55.i ], [ %75, %._crit_edge.i29 ]
-  %.02454.i = phi i64 [ 0, %.lr.ph55.i ], [ %76, %._crit_edge.i29 ]
+48:                                               ; preds = %._crit_edge.i29, %.lr.ph57.i
+  %49 = phi i64 [ %46, %.lr.ph57.i ], [ %75, %._crit_edge.i29 ]
+  %.02456.i = phi i64 [ 0, %.lr.ph57.i ], [ %76, %._crit_edge.i29 ]
   %50 = load ptr, ptr %47, align 8, !tbaa !52
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.02454.i
+  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.02456.i
   %52 = load ptr, ptr %51, align 8, !tbaa !35
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !47
-  %.not56.i = icmp eq i64 %54, 0
-  br i1 %.not56.i, label %._crit_edge.i29, label %.lr.ph.i25
+  %.not59.i = icmp eq i64 %54, 0
+  br i1 %.not59.i, label %._crit_edge.i29, label %.lr.ph.i25
 
 .lr.ph.i25:                                       ; preds = %48, %71
   %55 = phi i64 [ %72, %71 ], [ %54, %48 ]
-  %.02552.i = phi i64 [ %73, %71 ], [ 0, %48 ]
+  %.02555.i = phi i64 [ %73, %71 ], [ 0, %48 ]
   %56 = load ptr, ptr %52, align 8, !tbaa !50
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.02552.i
+  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.02555.i
   %58 = load ptr, ptr %57, align 8, !tbaa !37
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !39
@@ -609,41 +609,41 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_apply(ptr noundef r
 68:                                               ; preds = %64
   %69 = tail call i32 @avfilter_init_dict(ptr noundef nonnull %63, ptr noundef null) #7
   %70 = icmp slt i32 %69, 0
-  br i1 %70, label %.sink.split, label %._crit_edge61.i
+  br i1 %70, label %.sink.split, label %._crit_edge64.i
 
-._crit_edge61.i:                                  ; preds = %68
+._crit_edge64.i:                                  ; preds = %68
   %.pre.i30 = load i64, ptr %53, align 8, !tbaa !47
   br label %71
 
-71:                                               ; preds = %._crit_edge61.i, %64, %62
-  %72 = phi i64 [ %.pre.i30, %._crit_edge61.i ], [ %55, %64 ], [ %55, %62 ]
-  %73 = add nuw i64 %.02552.i, 1
+71:                                               ; preds = %._crit_edge64.i, %64, %62
+  %72 = phi i64 [ %.pre.i30, %._crit_edge64.i ], [ %55, %64 ], [ %55, %62 ]
+  %73 = add nuw i64 %.02555.i, 1
   %74 = icmp ult i64 %73, %72
   br i1 %74, label %.lr.ph.i25, label %._crit_edge.loopexit.i28, !llvm.loop !69
 
 ._crit_edge.loopexit.i28:                         ; preds = %71
-  %.pre62.i = load i64, ptr %45, align 8, !tbaa !34
+  %.pre65.i = load i64, ptr %45, align 8, !tbaa !34
   br label %._crit_edge.i29
 
 ._crit_edge.i29:                                  ; preds = %._crit_edge.loopexit.i28, %48
-  %75 = phi i64 [ %.pre62.i, %._crit_edge.loopexit.i28 ], [ %49, %48 ]
-  %76 = add nuw i64 %.02454.i, 1
-  %.not48.i = icmp ult i64 %76, %75
-  br i1 %.not48.i, label %48, label %avfilter_graph_segment_init.exit, !llvm.loop !70
+  %75 = phi i64 [ %.pre65.i, %._crit_edge.loopexit.i28 ], [ %49, %48 ]
+  %76 = add nuw i64 %.02456.i, 1
+  %77 = icmp ult i64 %76, %75
+  br i1 %77, label %48, label %avfilter_graph_segment_init.exit, !llvm.loop !70
 
 avfilter_graph_segment_init.exit:                 ; preds = %._crit_edge.i29, %44
-  %77 = tail call i32 @avfilter_graph_segment_link(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
-  %78 = icmp slt i32 %77, 0
-  br i1 %78, label %.sink.split, label %80
+  %78 = tail call i32 @avfilter_graph_segment_link(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
+  %79 = icmp slt i32 %78, 0
+  br i1 %79, label %.sink.split, label %81
 
 .sink.split:                                      ; preds = %68, %._crit_edge.i, %avfilter_graph_segment_init.exit, %61, %11, %13, %.thread25.i, %5
   %.str.15.sink = phi ptr [ @.str.12, %5 ], [ @.str.13, %.thread25.i ], [ @.str.13, %13 ], [ @.str.13, %11 ], [ @.str.14, %61 ], [ @.str.15, %avfilter_graph_segment_init.exit ], [ @.str.13, %._crit_edge.i ], [ @.str.14, %68 ]
-  %.0.ph = phi i32 [ %6, %5 ], [ %9, %.thread25.i ], [ %9, %13 ], [ %9, %11 ], [ -22, %61 ], [ %77, %avfilter_graph_segment_init.exit ], [ %9, %._crit_edge.i ], [ %69, %68 ]
-  %79 = load ptr, ptr %0, align 8, !tbaa !27
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %79, i32 noundef 16, ptr noundef nonnull %.str.15.sink) #7
-  br label %80
+  %.0.ph = phi i32 [ %6, %5 ], [ %9, %.thread25.i ], [ %9, %13 ], [ %9, %11 ], [ -22, %61 ], [ %78, %avfilter_graph_segment_init.exit ], [ %9, %._crit_edge.i ], [ %69, %68 ]
+  %80 = load ptr, ptr %0, align 8, !tbaa !27
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %80, i32 noundef 16, ptr noundef nonnull %.str.15.sink) #7
+  br label %81
 
-80:                                               ; preds = %.sink.split, %avfilter_graph_segment_init.exit, %4
+81:                                               ; preds = %.sink.split, %avfilter_graph_segment_init.exit, %4
   %.0 = phi i32 [ -38, %4 ], [ 0, %avfilter_graph_segment_init.exit ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
@@ -1434,34 +1434,34 @@ declare i32 @av_dict_count(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_init(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %.preheader, label %select.unfold
+  br i1 %.not, label %.preheader, label %.thread49
 
 .preheader:                                       ; preds = %2
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !34
-  %.not4853.not = icmp eq i64 %4, 0
-  br i1 %.not4853.not, label %select.unfold, label %.lr.ph55
+  %.not58 = icmp eq i64 %4, 0
+  br i1 %.not58, label %.thread49, label %.lr.ph57
 
-.lr.ph55:                                         ; preds = %.preheader
+.lr.ph57:                                         ; preds = %.preheader
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %6
 
-6:                                                ; preds = %.lr.ph55, %._crit_edge
-  %7 = phi i64 [ %4, %.lr.ph55 ], [ %33, %._crit_edge ]
-  %.02454 = phi i64 [ 0, %.lr.ph55 ], [ %34, %._crit_edge ]
+6:                                                ; preds = %.lr.ph57, %._crit_edge
+  %7 = phi i64 [ %4, %.lr.ph57 ], [ %33, %._crit_edge ]
+  %.02456 = phi i64 [ 0, %.lr.ph57 ], [ %34, %._crit_edge ]
   %8 = load ptr, ptr %5, align 8, !tbaa !52
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02454
+  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02456
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !47
-  %.not56 = icmp eq i64 %12, 0
-  br i1 %.not56, label %._crit_edge, label %.lr.ph
+  %.not59 = icmp eq i64 %12, 0
+  br i1 %.not59, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %29
   %13 = phi i64 [ %30, %29 ], [ %12, %6 ]
-  %.02552 = phi i64 [ %31, %29 ], [ 0, %6 ]
+  %.02555 = phi i64 [ %31, %29 ], [ 0, %6 ]
   %14 = load ptr, ptr %10, align 8, !tbaa !50
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.02552
+  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.02555
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !39
@@ -1471,7 +1471,7 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_init(ptr noundef re
 19:                                               ; preds = %.lr.ph
   %.val = load ptr, ptr %0, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %.val, i32 noundef 16, ptr noundef nonnull @.str.26, ptr noundef nonnull %18, ptr noundef nonnull @__func__.avfilter_graph_segment_init) #7
-  br label %select.unfold
+  br label %.thread49
 
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr %16, align 8, !tbaa !53
@@ -1488,29 +1488,29 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_init(ptr noundef re
 26:                                               ; preds = %22
   %27 = tail call i32 @avfilter_init_dict(ptr noundef nonnull %21, ptr noundef null) #7
   %28 = icmp slt i32 %27, 0
-  br i1 %28, label %select.unfold, label %._crit_edge61
+  br i1 %28, label %.thread49, label %._crit_edge64
 
-._crit_edge61:                                    ; preds = %26
+._crit_edge64:                                    ; preds = %26
   %.pre = load i64, ptr %11, align 8, !tbaa !47
   br label %29
 
-29:                                               ; preds = %._crit_edge61, %22, %20
-  %30 = phi i64 [ %.pre, %._crit_edge61 ], [ %13, %22 ], [ %13, %20 ]
-  %31 = add nuw i64 %.02552, 1
+29:                                               ; preds = %._crit_edge64, %22, %20
+  %30 = phi i64 [ %.pre, %._crit_edge64 ], [ %13, %22 ], [ %13, %20 ]
+  %31 = add nuw i64 %.02555, 1
   %32 = icmp ult i64 %31, %30
   br i1 %32, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !69
 
 ._crit_edge.loopexit:                             ; preds = %29
-  %.pre62 = load i64, ptr %3, align 8, !tbaa !34
+  %.pre65 = load i64, ptr %3, align 8, !tbaa !34
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %6
-  %33 = phi i64 [ %.pre62, %._crit_edge.loopexit ], [ %7, %6 ]
-  %34 = add nuw i64 %.02454, 1
-  %.not48 = icmp ult i64 %34, %33
-  br i1 %.not48, label %6, label %select.unfold, !llvm.loop !70
+  %33 = phi i64 [ %.pre65, %._crit_edge.loopexit ], [ %7, %6 ]
+  %34 = add nuw i64 %.02456, 1
+  %35 = icmp ult i64 %34, %33
+  br i1 %35, label %6, label %.thread49, !llvm.loop !70
 
-select.unfold:                                    ; preds = %._crit_edge, %26, %.preheader, %19, %2
+.thread49:                                        ; preds = %._crit_edge, %26, %.preheader, %19, %2
   %.0 = phi i32 [ -38, %2 ], [ -22, %19 ], [ 0, %.preheader ], [ %27, %26 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
@@ -1662,29 +1662,29 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
 70:                                               ; preds = %60
   %71 = load i64, ptr %7, align 8, !tbaa !34
   %72 = icmp ult i64 %.037191, %71
-  br i1 %72, label %.lr.ph81.i.i, label %.split44.i
+  br i1 %72, label %.lr.ph80.i.i, label %.split44.i
 
-.lr.ph81.i.i:                                     ; preds = %70
+.lr.ph80.i.i:                                     ; preds = %70
   %73 = load ptr, ptr %9, align 8, !tbaa !52
   br label %74
 
-74:                                               ; preds = %._crit_edge.i.i, %.lr.ph81.i.i
-  %.04779.i.i = phi i64 [ %.037191, %.lr.ph81.i.i ], [ %101, %._crit_edge.i.i ]
-  %.04878.i.i = phi i64 [ %.035190, %.lr.ph81.i.i ], [ 0, %._crit_edge.i.i ]
-  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %.04779.i.i
+74:                                               ; preds = %._crit_edge.i.i, %.lr.ph80.i.i
+  %.04778.i.i = phi i64 [ %.037191, %.lr.ph80.i.i ], [ %101, %._crit_edge.i.i ]
+  %.04877.i.i = phi i64 [ %.035190, %.lr.ph80.i.i ], [ 0, %._crit_edge.i.i ]
+  %75 = getelementptr inbounds nuw ptr, ptr %73, i64 %.04778.i.i
   %76 = load ptr, ptr %75, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !47
-  %79 = icmp ult i64 %.04878.i.i, %78
-  br i1 %79, label %.lr.ph77.i.i, label %._crit_edge.i.i
+  %79 = icmp ult i64 %.04877.i.i, %78
+  br i1 %79, label %.lr.ph76.i.i, label %._crit_edge.i.i
 
-.lr.ph77.i.i:                                     ; preds = %74
+.lr.ph76.i.i:                                     ; preds = %74
   %80 = load ptr, ptr %76, align 8, !tbaa !50
   br label %81
 
-81:                                               ; preds = %.loopexit.i.i, %.lr.ph77.i.i
-  %.14976.i.i = phi i64 [ %.04878.i.i, %.lr.ph77.i.i ], [ %100, %.loopexit.i.i ]
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %.14976.i.i
+81:                                               ; preds = %.loopexit.i.i, %.lr.ph76.i.i
+  %.14975.i.i = phi i64 [ %.04877.i.i, %.lr.ph76.i.i ], [ %100, %.loopexit.i.i ]
+  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %.14975.i.i
   %83 = load ptr, ptr %82, align 8, !tbaa !37
   %.in.i.i = getelementptr inbounds nuw i8, ptr %83, i64 48
   %84 = load ptr, ptr %.in.i.i, align 8, !tbaa !102
@@ -1700,8 +1700,8 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
   %.in56.i.i = getelementptr inbounds nuw i8, ptr %85, i64 64
   %89 = load i32, ptr %.in56.i.i, align 8, !tbaa !26
   %90 = tail call i32 @llvm.umin.i32(i32 %87, i32 %89)
-  %.not6074.not.i.i = icmp eq i32 %90, 0
-  br i1 %.not6074.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
+  %.not6073.not.i.i = icmp eq i32 %90, 0
+  br i1 %.not6073.not.i.i, label %.loopexit.i.i, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %86
   %wide.trip.count.i.i = zext i32 %90 to i64
@@ -1732,14 +1732,14 @@ define range(i32 -2147483648, 1) i32 @avfilter_graph_segment_link(ptr noundef re
   br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !104
 
 .loopexit.i.i:                                    ; preds = %99, %86, %81
-  %100 = add nuw i64 %.14976.i.i, 1
-  %exitcond86.not.i.i = icmp eq i64 %100, %78
-  br i1 %exitcond86.not.i.i, label %._crit_edge.i.i, label %81, !llvm.loop !105
+  %100 = add nuw i64 %.14975.i.i, 1
+  %exitcond85.not.i.i = icmp eq i64 %100, %78
+  br i1 %exitcond85.not.i.i, label %._crit_edge.i.i, label %81, !llvm.loop !105
 
 ._crit_edge.i.i:                                  ; preds = %.loopexit.i.i, %74
-  %101 = add nuw i64 %.04779.i.i, 1
-  %exitcond87.not.i.i = icmp eq i64 %101, %71
-  br i1 %exitcond87.not.i.i, label %.split44.i, label %74, !llvm.loop !106
+  %101 = add nuw i64 %.04778.i.i, 1
+  %exitcond86.not.i.i = icmp eq i64 %101, %71
+  br i1 %exitcond86.not.i.i, label %.split44.i, label %74, !llvm.loop !106
 
 find_linklabel.exit.i:                            ; preds = %97
   %102 = trunc nuw i64 %indvars.iv.i.i to i32
@@ -1883,29 +1883,29 @@ link_inputs.exit:                                 ; preds = %link_inputs.exit.lo
 154:                                              ; preds = %153
   %155 = load i64, ptr %7, align 8, !tbaa !34
   %156 = icmp ult i64 %.037191, %155
-  br i1 %156, label %.lr.ph81.i.i66, label %.thread110.i
+  br i1 %156, label %.lr.ph80.i.i66, label %.thread110.i
 
-.lr.ph81.i.i66:                                   ; preds = %154
+.lr.ph80.i.i66:                                   ; preds = %154
   %157 = load ptr, ptr %9, align 8, !tbaa !52
   br label %158
 
-158:                                              ; preds = %._crit_edge.i.i69, %.lr.ph81.i.i66
-  %.04779.i.i67 = phi i64 [ %.037191, %.lr.ph81.i.i66 ], [ %185, %._crit_edge.i.i69 ]
-  %.04878.i.i68 = phi i64 [ %.035190, %.lr.ph81.i.i66 ], [ 0, %._crit_edge.i.i69 ]
-  %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %.04779.i.i67
+158:                                              ; preds = %._crit_edge.i.i69, %.lr.ph80.i.i66
+  %.04778.i.i67 = phi i64 [ %.037191, %.lr.ph80.i.i66 ], [ %185, %._crit_edge.i.i69 ]
+  %.04877.i.i68 = phi i64 [ %.035190, %.lr.ph80.i.i66 ], [ 0, %._crit_edge.i.i69 ]
+  %159 = getelementptr inbounds nuw ptr, ptr %157, i64 %.04778.i.i67
   %160 = load ptr, ptr %159, align 8, !tbaa !35
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i64, ptr %161, align 8, !tbaa !47
-  %163 = icmp ult i64 %.04878.i.i68, %162
-  br i1 %163, label %.lr.ph77.i.i71, label %._crit_edge.i.i69
+  %163 = icmp ult i64 %.04877.i.i68, %162
+  br i1 %163, label %.lr.ph76.i.i71, label %._crit_edge.i.i69
 
-.lr.ph77.i.i71:                                   ; preds = %158
+.lr.ph76.i.i71:                                   ; preds = %158
   %164 = load ptr, ptr %160, align 8, !tbaa !50
   br label %165
 
-165:                                              ; preds = %.loopexit.i.i86, %.lr.ph77.i.i71
-  %.14976.i.i72 = phi i64 [ %.04878.i.i68, %.lr.ph77.i.i71 ], [ %184, %.loopexit.i.i86 ]
-  %166 = getelementptr inbounds nuw ptr, ptr %164, i64 %.14976.i.i72
+165:                                              ; preds = %.loopexit.i.i86, %.lr.ph76.i.i71
+  %.14975.i.i72 = phi i64 [ %.04877.i.i68, %.lr.ph76.i.i71 ], [ %184, %.loopexit.i.i86 ]
+  %166 = getelementptr inbounds nuw ptr, ptr %164, i64 %.14975.i.i72
   %167 = load ptr, ptr %166, align 8, !tbaa !37
   %.in.i.i73 = getelementptr inbounds nuw i8, ptr %167, i64 32
   %168 = load ptr, ptr %.in.i.i73, align 8, !tbaa !102
@@ -1921,8 +1921,8 @@ link_inputs.exit:                                 ; preds = %link_inputs.exit.lo
   %.in56.i.i77 = getelementptr inbounds nuw i8, ptr %169, i64 40
   %173 = load i32, ptr %.in56.i.i77, align 8, !tbaa !26
   %174 = tail call i32 @llvm.umin.i32(i32 %171, i32 %173)
-  %.not6074.not.i.i78 = icmp eq i32 %174, 0
-  br i1 %.not6074.not.i.i78, label %.loopexit.i.i86, label %.lr.ph.preheader.i.i79
+  %.not6073.not.i.i78 = icmp eq i32 %174, 0
+  br i1 %.not6073.not.i.i78, label %.loopexit.i.i86, label %.lr.ph.preheader.i.i79
 
 .lr.ph.preheader.i.i79:                           ; preds = %170
   %wide.trip.count.i.i80 = zext i32 %174 to i64
@@ -1953,14 +1953,14 @@ link_inputs.exit:                                 ; preds = %link_inputs.exit.lo
   br i1 %exitcond.not.i.i85, label %.loopexit.i.i86, label %.lr.ph.i.i81, !llvm.loop !104
 
 .loopexit.i.i86:                                  ; preds = %183, %170, %165
-  %184 = add nuw i64 %.14976.i.i72, 1
-  %exitcond86.not.i.i87 = icmp eq i64 %184, %162
-  br i1 %exitcond86.not.i.i87, label %._crit_edge.i.i69, label %165, !llvm.loop !105
+  %184 = add nuw i64 %.14975.i.i72, 1
+  %exitcond85.not.i.i87 = icmp eq i64 %184, %162
+  br i1 %exitcond85.not.i.i87, label %._crit_edge.i.i69, label %165, !llvm.loop !105
 
 ._crit_edge.i.i69:                                ; preds = %.loopexit.i.i86, %158
-  %185 = add nuw i64 %.04779.i.i67, 1
-  %exitcond87.not.i.i70 = icmp eq i64 %185, %155
-  br i1 %exitcond87.not.i.i70, label %.thread110.i, label %158, !llvm.loop !106
+  %185 = add nuw i64 %.04778.i.i67, 1
+  %exitcond86.not.i.i70 = icmp eq i64 %185, %155
+  br i1 %exitcond86.not.i.i70, label %.thread110.i, label %158, !llvm.loop !106
 
 find_linklabel.exit.i90:                          ; preds = %181
   %186 = trunc nuw i64 %indvars.iv.i.i82 to i32
@@ -2285,44 +2285,44 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
 68:                                               ; preds = %32
   %69 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %70 = load i64, ptr %69, align 8, !tbaa !34
-  %.not4853.not.i = icmp eq i64 %70, 0
-  br i1 %.not4853.not.i, label %avfilter_graph_segment_init.exit, label %.lr.ph55.i
+  %.not58.i = icmp eq i64 %70, 0
+  br i1 %.not58.i, label %avfilter_graph_segment_init.exit, label %.lr.ph57.i
 
-.lr.ph55.i:                                       ; preds = %68
+.lr.ph57.i:                                       ; preds = %68
   %71 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %72
 
-72:                                               ; preds = %._crit_edge.i86, %.lr.ph55.i
-  %73 = phi i64 [ %70, %.lr.ph55.i ], [ %99, %._crit_edge.i86 ]
-  %.02454.i = phi i64 [ 0, %.lr.ph55.i ], [ %100, %._crit_edge.i86 ]
+72:                                               ; preds = %._crit_edge.i85, %.lr.ph57.i
+  %73 = phi i64 [ %70, %.lr.ph57.i ], [ %99, %._crit_edge.i85 ]
+  %.02456.i = phi i64 [ 0, %.lr.ph57.i ], [ %100, %._crit_edge.i85 ]
   %74 = load ptr, ptr %71, align 8, !tbaa !52
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %.02454.i
+  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %.02456.i
   %76 = load ptr, ptr %75, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !47
-  %.not56.i = icmp eq i64 %78, 0
-  br i1 %.not56.i, label %._crit_edge.i86, label %.lr.ph.i82
+  %.not59.i = icmp eq i64 %78, 0
+  br i1 %.not59.i, label %._crit_edge.i85, label %.lr.ph.i81
 
-.lr.ph.i82:                                       ; preds = %72, %95
+.lr.ph.i81:                                       ; preds = %72, %95
   %79 = phi i64 [ %96, %95 ], [ %78, %72 ]
-  %.02552.i = phi i64 [ %97, %95 ], [ 0, %72 ]
+  %.02555.i = phi i64 [ %97, %95 ], [ 0, %72 ]
   %80 = load ptr, ptr %76, align 8, !tbaa !50
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %.02552.i
+  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %.02555.i
   %82 = load ptr, ptr %81, align 8, !tbaa !37
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !39
-  %.not32.i83 = icmp eq ptr %84, null
-  br i1 %.not32.i83, label %86, label %85
+  %.not32.i82 = icmp eq ptr %84, null
+  br i1 %.not32.i82, label %86, label %85
 
-85:                                               ; preds = %.lr.ph.i82
+85:                                               ; preds = %.lr.ph.i81
   %.val.i = load ptr, ptr %29, align 8, !tbaa !27
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %.val.i, i32 noundef 16, ptr noundef nonnull @.str.26, ptr noundef nonnull %84, ptr noundef nonnull @__func__.avfilter_graph_segment_init) #7
   br label %.loopexit
 
-86:                                               ; preds = %.lr.ph.i82
+86:                                               ; preds = %.lr.ph.i81
   %87 = load ptr, ptr %82, align 8, !tbaa !53
-  %.not33.i84 = icmp eq ptr %87, null
-  br i1 %.not33.i84, label %95, label %88
+  %.not33.i83 = icmp eq ptr %87, null
+  br i1 %.not33.i83, label %95, label %88
 
 88:                                               ; preds = %86
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 160
@@ -2334,480 +2334,480 @@ define i32 @avfilter_graph_parse_ptr(ptr noundef %0, ptr noundef %1, ptr noundef
 92:                                               ; preds = %88
   %93 = tail call i32 @avfilter_init_dict(ptr noundef nonnull %87, ptr noundef null) #7
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %.loopexit, label %._crit_edge61.i
+  br i1 %94, label %.loopexit, label %._crit_edge64.i
 
-._crit_edge61.i:                                  ; preds = %92
-  %.pre.i87 = load i64, ptr %77, align 8, !tbaa !47
+._crit_edge64.i:                                  ; preds = %92
+  %.pre.i86 = load i64, ptr %77, align 8, !tbaa !47
   br label %95
 
-95:                                               ; preds = %._crit_edge61.i, %88, %86
-  %96 = phi i64 [ %.pre.i87, %._crit_edge61.i ], [ %79, %88 ], [ %79, %86 ]
-  %97 = add nuw i64 %.02552.i, 1
+95:                                               ; preds = %._crit_edge64.i, %88, %86
+  %96 = phi i64 [ %.pre.i86, %._crit_edge64.i ], [ %79, %88 ], [ %79, %86 ]
+  %97 = add nuw i64 %.02555.i, 1
   %98 = icmp ult i64 %97, %96
-  br i1 %98, label %.lr.ph.i82, label %._crit_edge.loopexit.i85, !llvm.loop !69
+  br i1 %98, label %.lr.ph.i81, label %._crit_edge.loopexit.i84, !llvm.loop !69
 
-._crit_edge.loopexit.i85:                         ; preds = %95
-  %.pre62.i = load i64, ptr %69, align 8, !tbaa !34
-  br label %._crit_edge.i86
+._crit_edge.loopexit.i84:                         ; preds = %95
+  %.pre65.i = load i64, ptr %69, align 8, !tbaa !34
+  br label %._crit_edge.i85
 
-._crit_edge.i86:                                  ; preds = %._crit_edge.loopexit.i85, %72
-  %99 = phi i64 [ %.pre62.i, %._crit_edge.loopexit.i85 ], [ %73, %72 ]
-  %100 = add nuw i64 %.02454.i, 1
-  %.not48.i = icmp ult i64 %100, %99
-  br i1 %.not48.i, label %72, label %avfilter_graph_segment_init.exit, !llvm.loop !70
+._crit_edge.i85:                                  ; preds = %._crit_edge.loopexit.i84, %72
+  %99 = phi i64 [ %.pre65.i, %._crit_edge.loopexit.i84 ], [ %73, %72 ]
+  %100 = add nuw i64 %.02456.i, 1
+  %101 = icmp ult i64 %100, %99
+  br i1 %101, label %72, label %avfilter_graph_segment_init.exit, !llvm.loop !70
 
-avfilter_graph_segment_init.exit:                 ; preds = %._crit_edge.i86, %68
-  %101 = phi i64 [ 0, %68 ], [ %99, %._crit_edge.i86 ]
-  %102 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %103 = load ptr, ptr %102, align 8, !tbaa !52
-  %104 = load ptr, ptr %103, align 8, !tbaa !35
-  %105 = load ptr, ptr %104, align 8, !tbaa !50
-  %106 = load ptr, ptr %105, align 8, !tbaa !37
-  %107 = load ptr, ptr %106, align 8, !tbaa !53
-  %108 = getelementptr inbounds nuw i8, ptr %107, i64 40
-  %109 = load i32, ptr %108, align 8, !tbaa !95
-  %110 = icmp eq i32 %109, 1
-  br i1 %110, label %111, label %118
+avfilter_graph_segment_init.exit:                 ; preds = %._crit_edge.i85, %68
+  %102 = phi i64 [ 0, %68 ], [ %99, %._crit_edge.i85 ]
+  %103 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !52
+  %105 = load ptr, ptr %104, align 8, !tbaa !35
+  %106 = load ptr, ptr %105, align 8, !tbaa !50
+  %107 = load ptr, ptr %106, align 8, !tbaa !37
+  %108 = load ptr, ptr %107, align 8, !tbaa !53
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
+  %110 = load i32, ptr %109, align 8, !tbaa !95
+  %111 = icmp eq i32 %110, 1
+  br i1 %111, label %112, label %119
 
-111:                                              ; preds = %avfilter_graph_segment_init.exit
-  %112 = getelementptr inbounds nuw i8, ptr %106, i64 32
-  %113 = load ptr, ptr %112, align 8, !tbaa !73
-  %.not67 = icmp eq ptr %113, null
-  br i1 %.not67, label %114, label %118
+112:                                              ; preds = %avfilter_graph_segment_init.exit
+  %113 = getelementptr inbounds nuw i8, ptr %107, i64 32
+  %114 = load ptr, ptr %113, align 8, !tbaa !73
+  %.not67 = icmp eq ptr %114, null
+  br i1 %.not67, label %115, label %119
 
-114:                                              ; preds = %111
+115:                                              ; preds = %112
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store ptr @.str.16, ptr %11, align 8, !tbaa !32
-  %115 = getelementptr inbounds nuw i8, ptr %106, i64 40
-  %116 = call fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef %11, ptr noundef nonnull %112, ptr noundef nonnull %115)
-  %117 = icmp slt i32 %116, 0
+  %116 = getelementptr inbounds nuw i8, ptr %107, i64 40
+  %117 = call fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef %11, ptr noundef nonnull %113, ptr noundef nonnull %116)
+  %118 = icmp slt i32 %117, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %117, label %.loopexit, label %._crit_edge216
+  br i1 %118, label %.loopexit, label %._crit_edge213
 
-._crit_edge216:                                   ; preds = %114
+._crit_edge213:                                   ; preds = %115
   %.pre = load ptr, ptr %10, align 8, !tbaa !16
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre217 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
-  %.phi.trans.insert218 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
-  %.pre219 = load i64, ptr %.phi.trans.insert218, align 8, !tbaa !34
-  br label %118
+  %.pre214 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
+  %.phi.trans.insert215 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
+  %.pre216 = load i64, ptr %.phi.trans.insert215, align 8, !tbaa !34
+  br label %119
 
-118:                                              ; preds = %._crit_edge216, %111, %avfilter_graph_segment_init.exit
-  %119 = phi i64 [ %.pre219, %._crit_edge216 ], [ %101, %111 ], [ %101, %avfilter_graph_segment_init.exit ]
-  %120 = phi ptr [ %.pre217, %._crit_edge216 ], [ %103, %111 ], [ %103, %avfilter_graph_segment_init.exit ]
-  %121 = phi ptr [ %.pre, %._crit_edge216 ], [ %29, %111 ], [ %29, %avfilter_graph_segment_init.exit ]
-  %122 = getelementptr ptr, ptr %120, i64 %119
-  %123 = getelementptr i8, ptr %122, i64 -8
-  %124 = load ptr, ptr %123, align 8, !tbaa !35
-  %125 = load ptr, ptr %124, align 8, !tbaa !50
-  %126 = getelementptr inbounds nuw i8, ptr %124, i64 8
-  %127 = load i64, ptr %126, align 8, !tbaa !47
-  %128 = getelementptr ptr, ptr %125, i64 %127
-  %129 = getelementptr i8, ptr %128, i64 -8
-  %130 = load ptr, ptr %129, align 8, !tbaa !37
-  %131 = load ptr, ptr %130, align 8, !tbaa !53
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 64
-  %133 = load i32, ptr %132, align 8, !tbaa !108
-  %134 = icmp eq i32 %133, 1
-  br i1 %134, label %135, label %142
+119:                                              ; preds = %._crit_edge213, %112, %avfilter_graph_segment_init.exit
+  %120 = phi i64 [ %.pre216, %._crit_edge213 ], [ %102, %112 ], [ %102, %avfilter_graph_segment_init.exit ]
+  %121 = phi ptr [ %.pre214, %._crit_edge213 ], [ %104, %112 ], [ %104, %avfilter_graph_segment_init.exit ]
+  %122 = phi ptr [ %.pre, %._crit_edge213 ], [ %29, %112 ], [ %29, %avfilter_graph_segment_init.exit ]
+  %123 = getelementptr ptr, ptr %121, i64 %120
+  %124 = getelementptr i8, ptr %123, i64 -8
+  %125 = load ptr, ptr %124, align 8, !tbaa !35
+  %126 = load ptr, ptr %125, align 8, !tbaa !50
+  %127 = getelementptr inbounds nuw i8, ptr %125, i64 8
+  %128 = load i64, ptr %127, align 8, !tbaa !47
+  %129 = getelementptr ptr, ptr %126, i64 %128
+  %130 = getelementptr i8, ptr %129, i64 -8
+  %131 = load ptr, ptr %130, align 8, !tbaa !37
+  %132 = load ptr, ptr %131, align 8, !tbaa !53
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 64
+  %134 = load i32, ptr %133, align 8, !tbaa !108
+  %135 = icmp eq i32 %134, 1
+  br i1 %135, label %136, label %143
 
-135:                                              ; preds = %118
-  %136 = getelementptr inbounds nuw i8, ptr %130, i64 48
-  %137 = load ptr, ptr %136, align 8, !tbaa !77
-  %.not68 = icmp eq ptr %137, null
-  br i1 %.not68, label %138, label %142
+136:                                              ; preds = %119
+  %137 = getelementptr inbounds nuw i8, ptr %131, i64 48
+  %138 = load ptr, ptr %137, align 8, !tbaa !77
+  %.not68 = icmp eq ptr %138, null
+  br i1 %.not68, label %139, label %143
 
-138:                                              ; preds = %135
+139:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store ptr @.str.17, ptr %12, align 8, !tbaa !32
-  %139 = getelementptr inbounds nuw i8, ptr %130, i64 56
-  %140 = call fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %136, ptr noundef nonnull %139)
-  %141 = icmp slt i32 %140, 0
+  %140 = getelementptr inbounds nuw i8, ptr %131, i64 56
+  %141 = call fastcc i32 @linklabels_parse(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %137, ptr noundef nonnull %140)
+  %142 = icmp slt i32 %141, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br i1 %141, label %.loopexit, label %._crit_edge220
+  br i1 %142, label %.loopexit, label %._crit_edge217
 
-._crit_edge220:                                   ; preds = %138
-  %.pre221 = load ptr, ptr %10, align 8, !tbaa !16
-  br label %142
+._crit_edge217:                                   ; preds = %139
+  %.pre218 = load ptr, ptr %10, align 8, !tbaa !16
+  br label %143
 
-142:                                              ; preds = %._crit_edge220, %135, %118
-  %143 = phi ptr [ %.pre221, %._crit_edge220 ], [ %121, %135 ], [ %121, %118 ]
-  %144 = call i32 @avfilter_graph_segment_apply(ptr noundef %143, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9)
+143:                                              ; preds = %._crit_edge217, %136, %119
+  %144 = phi ptr [ %.pre218, %._crit_edge217 ], [ %122, %136 ], [ %122, %119 ]
+  %145 = call i32 @avfilter_graph_segment_apply(ptr noundef %144, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9)
   call void @avfilter_graph_segment_free(ptr noundef nonnull %10)
-  %145 = icmp slt i32 %144, 0
-  br i1 %145, label %.loopexit, label %.preheader169
+  %146 = icmp slt i32 %145, 0
+  br i1 %146, label %.loopexit, label %.preheader166
 
-.preheader169:                                    ; preds = %142
-  %146 = load ptr, ptr %8, align 8, !tbaa !4
-  %.not69190 = icmp eq ptr %146, null
-  br i1 %.not69190, label %.preheader, label %.lr.ph
+.preheader166:                                    ; preds = %143
+  %147 = load ptr, ptr %8, align 8, !tbaa !4
+  %.not69187 = icmp eq ptr %147, null
+  br i1 %.not69187, label %.preheader, label %.lr.ph
 
-.preheader:                                       ; preds = %append_inout.exit, %.preheader169
-  %.144.lcssa = phi i32 [ 0, %.preheader169 ], [ %.245, %append_inout.exit ]
-  %147 = load ptr, ptr %9, align 8, !tbaa !4
-  %.not70193 = icmp eq ptr %147, null
-  br i1 %.not70193, label %log_unknown_opt.exit, label %.lr.ph195
+.preheader:                                       ; preds = %append_inout.exit, %.preheader166
+  %.144.lcssa = phi i32 [ 0, %.preheader166 ], [ %.245, %append_inout.exit ]
+  %148 = load ptr, ptr %9, align 8, !tbaa !4
+  %.not70190 = icmp eq ptr %148, null
+  br i1 %.not70190, label %log_unknown_opt.exit, label %.lr.ph192
 
-.lr.ph:                                           ; preds = %.preheader169, %append_inout.exit
-  %.pr.i99 = phi ptr [ %.pr.i99222, %append_inout.exit ], [ %21, %.preheader169 ]
-  %148 = phi ptr [ %182, %append_inout.exit ], [ %146, %.preheader169 ]
-  %.144191 = phi i32 [ %.245, %append_inout.exit ], [ 0, %.preheader169 ]
+.lr.ph:                                           ; preds = %.preheader166, %append_inout.exit
+  %.pr.i98 = phi ptr [ %.pr.i98219, %append_inout.exit ], [ %21, %.preheader166 ]
+  %149 = phi ptr [ %183, %append_inout.exit ], [ %147, %.preheader166 ]
+  %.144188 = phi i32 [ %.245, %append_inout.exit ], [ 0, %.preheader166 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr null, ptr %14, align 8, !tbaa !4
-  store ptr %148, ptr %13, align 8, !tbaa !4
-  %149 = getelementptr inbounds nuw i8, ptr %148, i64 24
-  %150 = load ptr, ptr %149, align 8, !tbaa !9
-  store ptr %150, ptr %8, align 8, !tbaa !4
-  store ptr null, ptr %149, align 8, !tbaa !9
-  %151 = load ptr, ptr %148, align 8, !tbaa !80
-  %.not73 = icmp eq ptr %151, null
-  %152 = load ptr, ptr %7, align 8
-  %.not21.i = icmp eq ptr %152, null
+  store ptr %149, ptr %13, align 8, !tbaa !4
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %151 = load ptr, ptr %150, align 8, !tbaa !9
+  store ptr %151, ptr %8, align 8, !tbaa !4
+  store ptr null, ptr %150, align 8, !tbaa !9
+  %152 = load ptr, ptr %149, align 8, !tbaa !80
+  %.not73 = icmp eq ptr %152, null
+  %153 = load ptr, ptr %7, align 8
+  %.not21.i = icmp eq ptr %153, null
   %or.cond = select i1 %.not73, i1 true, i1 %.not21.i
-  br i1 %or.cond, label %thread-pre-split.thread, label %.lr.ph.i88
+  br i1 %or.cond, label %thread-pre-split.thread, label %.lr.ph.i87
 
-.lr.ph.i88:                                       ; preds = %.lr.ph, %.critedge2.i
-  %153 = phi ptr [ %158, %.critedge2.i ], [ %152, %.lr.ph ]
-  %.022.i = phi ptr [ %157, %.critedge2.i ], [ %7, %.lr.ph ]
-  %154 = load ptr, ptr %153, align 8, !tbaa !80
-  %.not16.i = icmp eq ptr %154, null
-  br i1 %.not16.i, label %.critedge2.i, label %155
+.lr.ph.i87:                                       ; preds = %.lr.ph, %.critedge2.i
+  %154 = phi ptr [ %159, %.critedge2.i ], [ %153, %.lr.ph ]
+  %.022.i = phi ptr [ %158, %.critedge2.i ], [ %7, %.lr.ph ]
+  %155 = load ptr, ptr %154, align 8, !tbaa !80
+  %.not16.i = icmp eq ptr %155, null
+  br i1 %.not16.i, label %.critedge2.i, label %156
 
-155:                                              ; preds = %.lr.ph.i88
-  %156 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %154, ptr noundef nonnull readonly dereferenceable(1) %151) #8
-  %.not17.i = icmp eq i32 %156, 0
-  br i1 %.not17.i, label %159, label %.critedge2.i
+156:                                              ; preds = %.lr.ph.i87
+  %157 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %155, ptr noundef nonnull readonly dereferenceable(1) %152) #8
+  %.not17.i = icmp eq i32 %157, 0
+  br i1 %.not17.i, label %160, label %.critedge2.i
 
-.critedge2.i:                                     ; preds = %155, %.lr.ph.i88
-  %157 = getelementptr inbounds nuw i8, ptr %153, i64 24
-  %158 = load ptr, ptr %157, align 8, !tbaa !4
-  %.not.i89 = icmp eq ptr %158, null
-  br i1 %.not.i89, label %thread-pre-split.thread, label %.lr.ph.i88, !llvm.loop !84
+.critedge2.i:                                     ; preds = %156, %.lr.ph.i87
+  %158 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  %159 = load ptr, ptr %158, align 8, !tbaa !4
+  %.not.i88 = icmp eq ptr %159, null
+  br i1 %.not.i88, label %thread-pre-split.thread, label %.lr.ph.i87, !llvm.loop !84
 
-159:                                              ; preds = %155
-  %160 = getelementptr inbounds nuw i8, ptr %153, i64 24
-  %161 = load ptr, ptr %160, align 8, !tbaa !9
-  store ptr %161, ptr %.022.i, align 8, !tbaa !4
-  store ptr null, ptr %160, align 8, !tbaa !9
-  store ptr %153, ptr %14, align 8, !tbaa !4
-  %162 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  %163 = load ptr, ptr %162, align 8, !tbaa !81
-  %164 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  %165 = load i32, ptr %164, align 8, !tbaa !85
-  %166 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %167 = load ptr, ptr %166, align 8, !tbaa !81
-  %168 = getelementptr inbounds nuw i8, ptr %148, i64 16
-  %169 = load i32, ptr %168, align 8, !tbaa !85
-  %170 = call i32 @avfilter_link(ptr noundef %163, i32 noundef %165, ptr noundef %167, i32 noundef %169) #7
+160:                                              ; preds = %156
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 24
+  %162 = load ptr, ptr %161, align 8, !tbaa !9
+  store ptr %162, ptr %.022.i, align 8, !tbaa !4
+  store ptr null, ptr %161, align 8, !tbaa !9
+  store ptr %154, ptr %14, align 8, !tbaa !4
+  %163 = getelementptr inbounds nuw i8, ptr %154, i64 8
+  %164 = load ptr, ptr %163, align 8, !tbaa !81
+  %165 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %166 = load i32, ptr %165, align 8, !tbaa !85
+  %167 = getelementptr inbounds nuw i8, ptr %149, i64 8
+  %168 = load ptr, ptr %167, align 8, !tbaa !81
+  %169 = getelementptr inbounds nuw i8, ptr %149, i64 16
+  %170 = load i32, ptr %169, align 8, !tbaa !85
+  %171 = call i32 @avfilter_link(ptr noundef %164, i32 noundef %166, ptr noundef %168, i32 noundef %170) #7
   %.pr.i = load ptr, ptr %14, align 8, !tbaa !4
   %.not6.i = icmp eq ptr %.pr.i, null
-  br i1 %.not6.i, label %avfilter_inout_free.exit, label %.lr.ph.i90
+  br i1 %.not6.i, label %avfilter_inout_free.exit, label %.lr.ph.i89
 
-.lr.ph.i90:                                       ; preds = %159, %.lr.ph.i90
-  %171 = phi ptr [ %173, %.lr.ph.i90 ], [ %.pr.i, %159 ]
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  %173 = load ptr, ptr %172, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %171) #7
+.lr.ph.i89:                                       ; preds = %160, %.lr.ph.i89
+  %172 = phi ptr [ %174, %.lr.ph.i89 ], [ %.pr.i, %160 ]
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 24
+  %174 = load ptr, ptr %173, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %172) #7
   call void @av_freep(ptr noundef nonnull %14) #7
-  store ptr %173, ptr %14, align 8, !tbaa !4
-  %.not.i91 = icmp eq ptr %173, null
-  br i1 %.not.i91, label %avfilter_inout_free.exit, label %.lr.ph.i90, !llvm.loop !14
+  store ptr %174, ptr %14, align 8, !tbaa !4
+  %.not.i90 = icmp eq ptr %174, null
+  br i1 %.not.i90, label %avfilter_inout_free.exit, label %.lr.ph.i89, !llvm.loop !14
 
-avfilter_inout_free.exit:                         ; preds = %.lr.ph.i90, %159
-  %.pr.i93 = load ptr, ptr %13, align 8, !tbaa !4
-  %.not6.i94 = icmp eq ptr %.pr.i93, null
-  br i1 %.not6.i94, label %avfilter_inout_free.exit98, label %.lr.ph.i95
+avfilter_inout_free.exit:                         ; preds = %.lr.ph.i89, %160
+  %.pr.i92 = load ptr, ptr %13, align 8, !tbaa !4
+  %.not6.i93 = icmp eq ptr %.pr.i92, null
+  br i1 %.not6.i93, label %avfilter_inout_free.exit97, label %.lr.ph.i94
 
-.lr.ph.i95:                                       ; preds = %avfilter_inout_free.exit, %.lr.ph.i95
-  %174 = phi ptr [ %176, %.lr.ph.i95 ], [ %.pr.i93, %avfilter_inout_free.exit ]
-  %175 = getelementptr inbounds nuw i8, ptr %174, i64 24
-  %176 = load ptr, ptr %175, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %174) #7
+.lr.ph.i94:                                       ; preds = %avfilter_inout_free.exit, %.lr.ph.i94
+  %175 = phi ptr [ %177, %.lr.ph.i94 ], [ %.pr.i92, %avfilter_inout_free.exit ]
+  %176 = getelementptr inbounds nuw i8, ptr %175, i64 24
+  %177 = load ptr, ptr %176, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %175) #7
   call void @av_freep(ptr noundef nonnull %13) #7
-  store ptr %176, ptr %13, align 8, !tbaa !4
-  %.not.i96 = icmp eq ptr %176, null
-  br i1 %.not.i96, label %avfilter_inout_free.exit98, label %.lr.ph.i95, !llvm.loop !14
+  store ptr %177, ptr %13, align 8, !tbaa !4
+  %.not.i95 = icmp eq ptr %177, null
+  br i1 %.not.i95, label %avfilter_inout_free.exit97, label %.lr.ph.i94, !llvm.loop !14
 
-avfilter_inout_free.exit98:                       ; preds = %.lr.ph.i95, %avfilter_inout_free.exit
-  %177 = icmp slt i32 %170, 0
-  br i1 %177, label %.thread, label %avfilter_inout_free.exit98._crit_edge
+avfilter_inout_free.exit97:                       ; preds = %.lr.ph.i94, %avfilter_inout_free.exit
+  %178 = icmp slt i32 %171, 0
+  br i1 %178, label %.thread, label %avfilter_inout_free.exit97._crit_edge
 
-avfilter_inout_free.exit98._crit_edge:            ; preds = %avfilter_inout_free.exit98
-  %.pre225 = load ptr, ptr %8, align 8, !tbaa !4
+avfilter_inout_free.exit97._crit_edge:            ; preds = %avfilter_inout_free.exit97
+  %.pre222 = load ptr, ptr %8, align 8, !tbaa !4
   br label %append_inout.exit
 
 thread-pre-split.thread:                          ; preds = %.critedge2.i, %.lr.ph
-  %.not15.i = icmp eq ptr %.pr.i99, null
-  br i1 %.not15.i, label %._crit_edge.i102, label %.lr.ph.i100
+  %.not15.i = icmp eq ptr %.pr.i98, null
+  br i1 %.not15.i, label %._crit_edge.i101, label %.lr.ph.i99
 
-.lr.ph.i100:                                      ; preds = %thread-pre-split.thread, %.lr.ph.i100
-  %178 = phi ptr [ %180, %.lr.ph.i100 ], [ %.pr.i99, %thread-pre-split.thread ]
-  %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  %180 = load ptr, ptr %179, align 8, !tbaa !4
-  %.not11.i = icmp eq ptr %180, null
-  br i1 %.not11.i, label %.critedge.i101, label %.lr.ph.i100, !llvm.loop !101
+.lr.ph.i99:                                       ; preds = %thread-pre-split.thread, %.lr.ph.i99
+  %179 = phi ptr [ %181, %.lr.ph.i99 ], [ %.pr.i98, %thread-pre-split.thread ]
+  %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
+  %181 = load ptr, ptr %180, align 8, !tbaa !4
+  %.not11.i = icmp eq ptr %181, null
+  br i1 %.not11.i, label %.critedge.i100, label %.lr.ph.i99, !llvm.loop !101
 
-._crit_edge.i102:                                 ; preds = %thread-pre-split.thread
-  store ptr %148, ptr %6, align 8, !tbaa !4
+._crit_edge.i101:                                 ; preds = %thread-pre-split.thread
+  store ptr %149, ptr %6, align 8, !tbaa !4
   br label %append_inout.exit
 
-.critedge.i101:                                   ; preds = %.lr.ph.i100
-  %181 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  store ptr %148, ptr %181, align 8, !tbaa !9
+.critedge.i100:                                   ; preds = %.lr.ph.i99
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 24
+  store ptr %149, ptr %182, align 8, !tbaa !9
   br label %append_inout.exit
 
-.thread:                                          ; preds = %avfilter_inout_free.exit98
+.thread:                                          ; preds = %avfilter_inout_free.exit97
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %.loopexit
 
-append_inout.exit:                                ; preds = %.critedge.i101, %._crit_edge.i102, %avfilter_inout_free.exit98._crit_edge
-  %182 = phi ptr [ %.pre225, %avfilter_inout_free.exit98._crit_edge ], [ %150, %._crit_edge.i102 ], [ %150, %.critedge.i101 ]
-  %.pr.i99222 = phi ptr [ %.pr.i99, %avfilter_inout_free.exit98._crit_edge ], [ %148, %._crit_edge.i102 ], [ %.pr.i99, %.critedge.i101 ]
-  %.245 = phi i32 [ %170, %avfilter_inout_free.exit98._crit_edge ], [ %.144191, %._crit_edge.i102 ], [ %.144191, %.critedge.i101 ]
+append_inout.exit:                                ; preds = %.critedge.i100, %._crit_edge.i101, %avfilter_inout_free.exit97._crit_edge
+  %183 = phi ptr [ %.pre222, %avfilter_inout_free.exit97._crit_edge ], [ %151, %._crit_edge.i101 ], [ %151, %.critedge.i100 ]
+  %.pr.i98219 = phi ptr [ %.pr.i98, %avfilter_inout_free.exit97._crit_edge ], [ %149, %._crit_edge.i101 ], [ %.pr.i98, %.critedge.i100 ]
+  %.245 = phi i32 [ %171, %avfilter_inout_free.exit97._crit_edge ], [ %.144188, %._crit_edge.i101 ], [ %.144188, %.critedge.i100 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %.not69 = icmp eq ptr %182, null
+  %.not69 = icmp eq ptr %183, null
   br i1 %.not69, label %.preheader, label %.lr.ph
 
-.lr.ph195:                                        ; preds = %.preheader, %append_inout.exit130
-  %183 = phi ptr [ %217, %append_inout.exit130 ], [ %147, %.preheader ]
-  %.4194 = phi i32 [ %.5, %append_inout.exit130 ], [ %.144.lcssa, %.preheader ]
+.lr.ph192:                                        ; preds = %.preheader, %append_inout.exit129
+  %184 = phi ptr [ %218, %append_inout.exit129 ], [ %148, %.preheader ]
+  %.4191 = phi i32 [ %.5, %append_inout.exit129 ], [ %.144.lcssa, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr null, ptr %16, align 8, !tbaa !4
-  store ptr %183, ptr %15, align 8, !tbaa !4
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %185 = load ptr, ptr %184, align 8, !tbaa !9
-  store ptr %185, ptr %9, align 8, !tbaa !4
-  store ptr null, ptr %184, align 8, !tbaa !9
-  %186 = load ptr, ptr %183, align 8, !tbaa !80
-  %.not71 = icmp eq ptr %186, null
-  %187 = load ptr, ptr %6, align 8
-  %.not21.i103 = icmp eq ptr %187, null
-  %or.cond296 = select i1 %.not71, i1 true, i1 %.not21.i103
-  br i1 %or.cond296, label %thread-pre-split159.thread, label %.lr.ph.i104
+  store ptr %184, ptr %15, align 8, !tbaa !4
+  %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
+  %186 = load ptr, ptr %185, align 8, !tbaa !9
+  store ptr %186, ptr %9, align 8, !tbaa !4
+  store ptr null, ptr %185, align 8, !tbaa !9
+  %187 = load ptr, ptr %184, align 8, !tbaa !80
+  %.not71 = icmp eq ptr %187, null
+  %188 = load ptr, ptr %6, align 8
+  %.not21.i102 = icmp eq ptr %188, null
+  %or.cond293 = select i1 %.not71, i1 true, i1 %.not21.i102
+  br i1 %or.cond293, label %thread-pre-split157.thread, label %.lr.ph.i103
 
-.lr.ph.i104:                                      ; preds = %.lr.ph195, %.critedge2.i108
-  %188 = phi ptr [ %193, %.critedge2.i108 ], [ %187, %.lr.ph195 ]
-  %.022.i105 = phi ptr [ %192, %.critedge2.i108 ], [ %6, %.lr.ph195 ]
-  %189 = load ptr, ptr %188, align 8, !tbaa !80
-  %.not16.i106 = icmp eq ptr %189, null
-  br i1 %.not16.i106, label %.critedge2.i108, label %190
+.lr.ph.i103:                                      ; preds = %.lr.ph192, %.critedge2.i107
+  %189 = phi ptr [ %194, %.critedge2.i107 ], [ %188, %.lr.ph192 ]
+  %.022.i104 = phi ptr [ %193, %.critedge2.i107 ], [ %6, %.lr.ph192 ]
+  %190 = load ptr, ptr %189, align 8, !tbaa !80
+  %.not16.i105 = icmp eq ptr %190, null
+  br i1 %.not16.i105, label %.critedge2.i107, label %191
 
-190:                                              ; preds = %.lr.ph.i104
-  %191 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %189, ptr noundef nonnull readonly dereferenceable(1) %186) #8
-  %.not17.i107 = icmp eq i32 %191, 0
-  br i1 %.not17.i107, label %194, label %.critedge2.i108
+191:                                              ; preds = %.lr.ph.i103
+  %192 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %190, ptr noundef nonnull readonly dereferenceable(1) %187) #8
+  %.not17.i106 = icmp eq i32 %192, 0
+  br i1 %.not17.i106, label %195, label %.critedge2.i107
 
-.critedge2.i108:                                  ; preds = %190, %.lr.ph.i104
-  %192 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  %193 = load ptr, ptr %192, align 8, !tbaa !4
-  %.not.i109 = icmp eq ptr %193, null
-  br i1 %.not.i109, label %thread-pre-split159.thread, label %.lr.ph.i104, !llvm.loop !84
+.critedge2.i107:                                  ; preds = %191, %.lr.ph.i103
+  %193 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  %194 = load ptr, ptr %193, align 8, !tbaa !4
+  %.not.i108 = icmp eq ptr %194, null
+  br i1 %.not.i108, label %thread-pre-split157.thread, label %.lr.ph.i103, !llvm.loop !84
 
-194:                                              ; preds = %190
-  %195 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  %196 = load ptr, ptr %195, align 8, !tbaa !9
-  store ptr %196, ptr %.022.i105, align 8, !tbaa !4
-  store ptr null, ptr %195, align 8, !tbaa !9
-  store ptr %188, ptr %16, align 8, !tbaa !4
-  %197 = getelementptr inbounds nuw i8, ptr %183, i64 8
-  %198 = load ptr, ptr %197, align 8, !tbaa !81
-  %199 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  %200 = load i32, ptr %199, align 8, !tbaa !85
-  %201 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %202 = load ptr, ptr %201, align 8, !tbaa !81
-  %203 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %204 = load i32, ptr %203, align 8, !tbaa !85
-  %205 = call i32 @avfilter_link(ptr noundef %198, i32 noundef %200, ptr noundef %202, i32 noundef %204) #7
-  %.pr.i112 = load ptr, ptr %16, align 8, !tbaa !4
-  %.not6.i113 = icmp eq ptr %.pr.i112, null
-  br i1 %.not6.i113, label %avfilter_inout_free.exit117, label %.lr.ph.i114
+195:                                              ; preds = %191
+  %196 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  %197 = load ptr, ptr %196, align 8, !tbaa !9
+  store ptr %197, ptr %.022.i104, align 8, !tbaa !4
+  store ptr null, ptr %196, align 8, !tbaa !9
+  store ptr %189, ptr %16, align 8, !tbaa !4
+  %198 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  %199 = load ptr, ptr %198, align 8, !tbaa !81
+  %200 = getelementptr inbounds nuw i8, ptr %184, i64 16
+  %201 = load i32, ptr %200, align 8, !tbaa !85
+  %202 = getelementptr inbounds nuw i8, ptr %189, i64 8
+  %203 = load ptr, ptr %202, align 8, !tbaa !81
+  %204 = getelementptr inbounds nuw i8, ptr %189, i64 16
+  %205 = load i32, ptr %204, align 8, !tbaa !85
+  %206 = call i32 @avfilter_link(ptr noundef %199, i32 noundef %201, ptr noundef %203, i32 noundef %205) #7
+  %.pr.i111 = load ptr, ptr %16, align 8, !tbaa !4
+  %.not6.i112 = icmp eq ptr %.pr.i111, null
+  br i1 %.not6.i112, label %avfilter_inout_free.exit116, label %.lr.ph.i113
 
-.lr.ph.i114:                                      ; preds = %194, %.lr.ph.i114
-  %206 = phi ptr [ %208, %.lr.ph.i114 ], [ %.pr.i112, %194 ]
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 24
-  %208 = load ptr, ptr %207, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %206) #7
+.lr.ph.i113:                                      ; preds = %195, %.lr.ph.i113
+  %207 = phi ptr [ %209, %.lr.ph.i113 ], [ %.pr.i111, %195 ]
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
+  %209 = load ptr, ptr %208, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %207) #7
   call void @av_freep(ptr noundef nonnull %16) #7
-  store ptr %208, ptr %16, align 8, !tbaa !4
-  %.not.i115 = icmp eq ptr %208, null
-  br i1 %.not.i115, label %avfilter_inout_free.exit117, label %.lr.ph.i114, !llvm.loop !14
+  store ptr %209, ptr %16, align 8, !tbaa !4
+  %.not.i114 = icmp eq ptr %209, null
+  br i1 %.not.i114, label %avfilter_inout_free.exit116, label %.lr.ph.i113, !llvm.loop !14
 
-avfilter_inout_free.exit117:                      ; preds = %.lr.ph.i114, %194
-  %.pr.i118 = load ptr, ptr %15, align 8, !tbaa !4
-  %.not6.i119 = icmp eq ptr %.pr.i118, null
-  br i1 %.not6.i119, label %avfilter_inout_free.exit123, label %.lr.ph.i120
+avfilter_inout_free.exit116:                      ; preds = %.lr.ph.i113, %195
+  %.pr.i117 = load ptr, ptr %15, align 8, !tbaa !4
+  %.not6.i118 = icmp eq ptr %.pr.i117, null
+  br i1 %.not6.i118, label %avfilter_inout_free.exit122, label %.lr.ph.i119
 
-.lr.ph.i120:                                      ; preds = %avfilter_inout_free.exit117, %.lr.ph.i120
-  %209 = phi ptr [ %211, %.lr.ph.i120 ], [ %.pr.i118, %avfilter_inout_free.exit117 ]
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
-  %211 = load ptr, ptr %210, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %209) #7
+.lr.ph.i119:                                      ; preds = %avfilter_inout_free.exit116, %.lr.ph.i119
+  %210 = phi ptr [ %212, %.lr.ph.i119 ], [ %.pr.i117, %avfilter_inout_free.exit116 ]
+  %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
+  %212 = load ptr, ptr %211, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %210) #7
   call void @av_freep(ptr noundef nonnull %15) #7
-  store ptr %211, ptr %15, align 8, !tbaa !4
-  %.not.i121 = icmp eq ptr %211, null
-  br i1 %.not.i121, label %avfilter_inout_free.exit123, label %.lr.ph.i120, !llvm.loop !14
+  store ptr %212, ptr %15, align 8, !tbaa !4
+  %.not.i120 = icmp eq ptr %212, null
+  br i1 %.not.i120, label %avfilter_inout_free.exit122, label %.lr.ph.i119, !llvm.loop !14
 
-avfilter_inout_free.exit123:                      ; preds = %.lr.ph.i120, %avfilter_inout_free.exit117
-  %212 = icmp slt i32 %205, 0
-  br i1 %212, label %.thread162, label %avfilter_inout_free.exit123._crit_edge
+avfilter_inout_free.exit122:                      ; preds = %.lr.ph.i119, %avfilter_inout_free.exit116
+  %213 = icmp slt i32 %206, 0
+  br i1 %213, label %.thread160, label %avfilter_inout_free.exit122._crit_edge
 
-avfilter_inout_free.exit123._crit_edge:           ; preds = %avfilter_inout_free.exit123
-  %.pre226 = load ptr, ptr %9, align 8, !tbaa !4
-  br label %append_inout.exit130
+avfilter_inout_free.exit122._crit_edge:           ; preds = %avfilter_inout_free.exit122
+  %.pre223 = load ptr, ptr %9, align 8, !tbaa !4
+  br label %append_inout.exit129
 
-thread-pre-split159.thread:                       ; preds = %.critedge2.i108, %.lr.ph195
-  %.pr.i124 = load ptr, ptr %7, align 8, !tbaa !4
-  %.not15.i125 = icmp eq ptr %.pr.i124, null
-  br i1 %.not15.i125, label %._crit_edge.i129, label %.lr.ph.i126
+thread-pre-split157.thread:                       ; preds = %.critedge2.i107, %.lr.ph192
+  %.pr.i123 = load ptr, ptr %7, align 8, !tbaa !4
+  %.not15.i124 = icmp eq ptr %.pr.i123, null
+  br i1 %.not15.i124, label %._crit_edge.i128, label %.lr.ph.i125
 
-.lr.ph.i126:                                      ; preds = %thread-pre-split159.thread, %.lr.ph.i126
-  %213 = phi ptr [ %215, %.lr.ph.i126 ], [ %.pr.i124, %thread-pre-split159.thread ]
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 24
-  %215 = load ptr, ptr %214, align 8, !tbaa !4
-  %.not11.i127 = icmp eq ptr %215, null
-  br i1 %.not11.i127, label %.critedge.i128, label %.lr.ph.i126, !llvm.loop !101
+.lr.ph.i125:                                      ; preds = %thread-pre-split157.thread, %.lr.ph.i125
+  %214 = phi ptr [ %216, %.lr.ph.i125 ], [ %.pr.i123, %thread-pre-split157.thread ]
+  %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
+  %216 = load ptr, ptr %215, align 8, !tbaa !4
+  %.not11.i126 = icmp eq ptr %216, null
+  br i1 %.not11.i126, label %.critedge.i127, label %.lr.ph.i125, !llvm.loop !101
 
-._crit_edge.i129:                                 ; preds = %thread-pre-split159.thread
-  store ptr %183, ptr %7, align 8, !tbaa !4
-  br label %append_inout.exit130
+._crit_edge.i128:                                 ; preds = %thread-pre-split157.thread
+  store ptr %184, ptr %7, align 8, !tbaa !4
+  br label %append_inout.exit129
 
-.critedge.i128:                                   ; preds = %.lr.ph.i126
-  %216 = getelementptr inbounds nuw i8, ptr %213, i64 24
-  store ptr %183, ptr %216, align 8, !tbaa !9
-  br label %append_inout.exit130
+.critedge.i127:                                   ; preds = %.lr.ph.i125
+  %217 = getelementptr inbounds nuw i8, ptr %214, i64 24
+  store ptr %184, ptr %217, align 8, !tbaa !9
+  br label %append_inout.exit129
 
-.thread162:                                       ; preds = %avfilter_inout_free.exit123
+.thread160:                                       ; preds = %avfilter_inout_free.exit122
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.loopexit
 
-append_inout.exit130:                             ; preds = %.critedge.i128, %._crit_edge.i129, %avfilter_inout_free.exit123._crit_edge
-  %217 = phi ptr [ %.pre226, %avfilter_inout_free.exit123._crit_edge ], [ %185, %._crit_edge.i129 ], [ %185, %.critedge.i128 ]
-  %.5 = phi i32 [ %205, %avfilter_inout_free.exit123._crit_edge ], [ %.4194, %._crit_edge.i129 ], [ %.4194, %.critedge.i128 ]
+append_inout.exit129:                             ; preds = %.critedge.i127, %._crit_edge.i128, %avfilter_inout_free.exit122._crit_edge
+  %218 = phi ptr [ %.pre223, %avfilter_inout_free.exit122._crit_edge ], [ %186, %._crit_edge.i128 ], [ %186, %.critedge.i127 ]
+  %.5 = phi i32 [ %206, %avfilter_inout_free.exit122._crit_edge ], [ %.4191, %._crit_edge.i128 ], [ %.4191, %.critedge.i127 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %.not70 = icmp eq ptr %217, null
-  br i1 %.not70, label %log_unknown_opt.exit, label %.lr.ph195
+  %.not70 = icmp eq ptr %218, null
+  br i1 %.not70, label %log_unknown_opt.exit, label %.lr.ph192
 
-log_unknown_opt.exit:                             ; preds = %append_inout.exit130, %.preheader
-  %.4.lcssa = phi i32 [ %.144.lcssa, %.preheader ], [ %.5, %append_inout.exit130 ]
+log_unknown_opt.exit:                             ; preds = %append_inout.exit129, %.preheader
+  %.4.lcssa = phi i32 [ %.144.lcssa, %.preheader ], [ %.5, %append_inout.exit129 ]
   call void @avfilter_graph_segment_free(ptr noundef nonnull %10)
-  br label %227
+  br label %228
 
-.loopexit:                                        ; preds = %92, %._crit_edge.i, %85, %.thread162, %.thread, %.thread25.i, %37, %114, %138, %142, %35, %28, %24
-  %.043.ph = phi i32 [ %205, %.thread162 ], [ %170, %.thread ], [ -1414549496, %.thread25.i ], [ -1414549496, %37 ], [ %116, %114 ], [ %140, %138 ], [ %144, %142 ], [ %33, %35 ], [ %30, %28 ], [ %26, %24 ], [ -22, %85 ], [ -1414549496, %._crit_edge.i ], [ %93, %92 ]
+.loopexit:                                        ; preds = %92, %._crit_edge.i, %85, %.thread160, %.thread, %.thread25.i, %37, %115, %139, %143, %35, %28, %24
+  %.043.ph = phi i32 [ %206, %.thread160 ], [ %171, %.thread ], [ -1414549496, %.thread25.i ], [ -1414549496, %37 ], [ %117, %115 ], [ %141, %139 ], [ %145, %143 ], [ %33, %35 ], [ %30, %28 ], [ %26, %24 ], [ -22, %85 ], [ -1414549496, %._crit_edge.i ], [ %93, %92 ]
   call void @avfilter_graph_segment_free(ptr noundef nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %17, i8 0, i64 64, i1 false)
-  %218 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.043.ph, ptr noundef nonnull %17, i64 noundef 64) #7
+  %219 = call i32 @av_strerror(i32 noundef range(i32 -2147483648, 0) %.043.ph, ptr noundef nonnull %17, i64 noundef 64) #7
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.18, ptr noundef nonnull %17) #7
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %220 = load i32, ptr %219, align 8, !tbaa !18
-  %.not75197 = icmp eq i32 %220, 0
-  br i1 %.not75197, label %._crit_edge, label %.lr.ph198
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %221 = load i32, ptr %220, align 8, !tbaa !18
+  %.not75194 = icmp eq i32 %221, 0
+  br i1 %.not75194, label %._crit_edge, label %.lr.ph195
 
-.lr.ph198:                                        ; preds = %.loopexit
-  %221 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br label %222
+.lr.ph195:                                        ; preds = %.loopexit
+  %222 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br label %223
 
-222:                                              ; preds = %.lr.ph198, %222
-  %223 = load ptr, ptr %221, align 8, !tbaa !23
-  %224 = load ptr, ptr %223, align 8, !tbaa !24
-  call void @avfilter_free(ptr noundef %224) #7
-  %225 = load i32, ptr %219, align 8, !tbaa !18
-  %.not75 = icmp eq i32 %225, 0
-  br i1 %.not75, label %._crit_edge, label %222, !llvm.loop !115
+223:                                              ; preds = %.lr.ph195, %223
+  %224 = load ptr, ptr %222, align 8, !tbaa !23
+  %225 = load ptr, ptr %224, align 8, !tbaa !24
+  call void @avfilter_free(ptr noundef %225) #7
+  %226 = load i32, ptr %220, align 8, !tbaa !18
+  %.not75 = icmp eq i32 %226, 0
+  br i1 %.not75, label %._crit_edge, label %223, !llvm.loop !115
 
-._crit_edge:                                      ; preds = %222, %.loopexit
-  %226 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @av_freep(ptr noundef nonnull %226) #7
-  br label %227
+._crit_edge:                                      ; preds = %223, %.loopexit
+  %227 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @av_freep(ptr noundef nonnull %227) #7
+  br label %228
 
-227:                                              ; preds = %log_unknown_opt.exit, %._crit_edge
-  %.043167 = phi i32 [ %.043.ph, %._crit_edge ], [ %.4.lcssa, %log_unknown_opt.exit ]
-  %.pr.i131 = load ptr, ptr %6, align 8, !tbaa !4
-  br i1 %.not, label %229, label %228
+228:                                              ; preds = %log_unknown_opt.exit, %._crit_edge
+  %.043164 = phi i32 [ %.043.ph, %._crit_edge ], [ %.4.lcssa, %log_unknown_opt.exit ]
+  %.pr.i130 = load ptr, ptr %6, align 8, !tbaa !4
+  br i1 %.not, label %230, label %229
 
-228:                                              ; preds = %227
-  store ptr %.pr.i131, ptr %2, align 8, !tbaa !4
-  br label %avfilter_inout_free.exit136
+229:                                              ; preds = %228
+  store ptr %.pr.i130, ptr %2, align 8, !tbaa !4
+  br label %avfilter_inout_free.exit135
 
-229:                                              ; preds = %227
-  %.not6.i132 = icmp eq ptr %.pr.i131, null
-  br i1 %.not6.i132, label %avfilter_inout_free.exit136, label %.lr.ph.i133
+230:                                              ; preds = %228
+  %.not6.i131 = icmp eq ptr %.pr.i130, null
+  br i1 %.not6.i131, label %avfilter_inout_free.exit135, label %.lr.ph.i132
 
-.lr.ph.i133:                                      ; preds = %229, %.lr.ph.i133
-  %230 = phi ptr [ %232, %.lr.ph.i133 ], [ %.pr.i131, %229 ]
-  %231 = getelementptr inbounds nuw i8, ptr %230, i64 24
-  %232 = load ptr, ptr %231, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %230) #7
+.lr.ph.i132:                                      ; preds = %230, %.lr.ph.i132
+  %231 = phi ptr [ %233, %.lr.ph.i132 ], [ %.pr.i130, %230 ]
+  %232 = getelementptr inbounds nuw i8, ptr %231, i64 24
+  %233 = load ptr, ptr %232, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %231) #7
   call void @av_freep(ptr noundef nonnull %6) #7
-  store ptr %232, ptr %6, align 8, !tbaa !4
-  %.not.i134 = icmp eq ptr %232, null
-  br i1 %.not.i134, label %avfilter_inout_free.exit136, label %.lr.ph.i133, !llvm.loop !14
+  store ptr %233, ptr %6, align 8, !tbaa !4
+  %.not.i133 = icmp eq ptr %233, null
+  br i1 %.not.i133, label %avfilter_inout_free.exit135, label %.lr.ph.i132, !llvm.loop !14
 
-avfilter_inout_free.exit136:                      ; preds = %.lr.ph.i133, %229, %228
-  %.pr.i137 = load ptr, ptr %7, align 8, !tbaa !4
-  br i1 %.not66, label %234, label %233
+avfilter_inout_free.exit135:                      ; preds = %.lr.ph.i132, %230, %229
+  %.pr.i136 = load ptr, ptr %7, align 8, !tbaa !4
+  br i1 %.not66, label %235, label %234
 
-233:                                              ; preds = %avfilter_inout_free.exit136
-  store ptr %.pr.i137, ptr %3, align 8, !tbaa !4
-  br label %avfilter_inout_free.exit142
+234:                                              ; preds = %avfilter_inout_free.exit135
+  store ptr %.pr.i136, ptr %3, align 8, !tbaa !4
+  br label %avfilter_inout_free.exit141
 
-234:                                              ; preds = %avfilter_inout_free.exit136
-  %.not6.i138 = icmp eq ptr %.pr.i137, null
-  br i1 %.not6.i138, label %avfilter_inout_free.exit142, label %.lr.ph.i139
+235:                                              ; preds = %avfilter_inout_free.exit135
+  %.not6.i137 = icmp eq ptr %.pr.i136, null
+  br i1 %.not6.i137, label %avfilter_inout_free.exit141, label %.lr.ph.i138
 
-.lr.ph.i139:                                      ; preds = %234, %.lr.ph.i139
-  %235 = phi ptr [ %237, %.lr.ph.i139 ], [ %.pr.i137, %234 ]
-  %236 = getelementptr inbounds nuw i8, ptr %235, i64 24
-  %237 = load ptr, ptr %236, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %235) #7
+.lr.ph.i138:                                      ; preds = %235, %.lr.ph.i138
+  %236 = phi ptr [ %238, %.lr.ph.i138 ], [ %.pr.i136, %235 ]
+  %237 = getelementptr inbounds nuw i8, ptr %236, i64 24
+  %238 = load ptr, ptr %237, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %236) #7
   call void @av_freep(ptr noundef nonnull %7) #7
-  store ptr %237, ptr %7, align 8, !tbaa !4
-  %.not.i140 = icmp eq ptr %237, null
-  br i1 %.not.i140, label %avfilter_inout_free.exit142, label %.lr.ph.i139, !llvm.loop !14
+  store ptr %238, ptr %7, align 8, !tbaa !4
+  %.not.i139 = icmp eq ptr %238, null
+  br i1 %.not.i139, label %avfilter_inout_free.exit141, label %.lr.ph.i138, !llvm.loop !14
 
-avfilter_inout_free.exit142:                      ; preds = %.lr.ph.i139, %234, %233
-  %.pr.i143 = load ptr, ptr %8, align 8, !tbaa !4
-  %.not6.i144 = icmp eq ptr %.pr.i143, null
-  br i1 %.not6.i144, label %avfilter_inout_free.exit148, label %.lr.ph.i145
+avfilter_inout_free.exit141:                      ; preds = %.lr.ph.i138, %235, %234
+  %.pr.i142 = load ptr, ptr %8, align 8, !tbaa !4
+  %.not6.i143 = icmp eq ptr %.pr.i142, null
+  br i1 %.not6.i143, label %avfilter_inout_free.exit147, label %.lr.ph.i144
 
-.lr.ph.i145:                                      ; preds = %avfilter_inout_free.exit142, %.lr.ph.i145
-  %238 = phi ptr [ %240, %.lr.ph.i145 ], [ %.pr.i143, %avfilter_inout_free.exit142 ]
-  %239 = getelementptr inbounds nuw i8, ptr %238, i64 24
-  %240 = load ptr, ptr %239, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %238) #7
+.lr.ph.i144:                                      ; preds = %avfilter_inout_free.exit141, %.lr.ph.i144
+  %239 = phi ptr [ %241, %.lr.ph.i144 ], [ %.pr.i142, %avfilter_inout_free.exit141 ]
+  %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
+  %241 = load ptr, ptr %240, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %239) #7
   call void @av_freep(ptr noundef nonnull %8) #7
-  store ptr %240, ptr %8, align 8, !tbaa !4
-  %.not.i146 = icmp eq ptr %240, null
-  br i1 %.not.i146, label %avfilter_inout_free.exit148, label %.lr.ph.i145, !llvm.loop !14
+  store ptr %241, ptr %8, align 8, !tbaa !4
+  %.not.i145 = icmp eq ptr %241, null
+  br i1 %.not.i145, label %avfilter_inout_free.exit147, label %.lr.ph.i144, !llvm.loop !14
 
-avfilter_inout_free.exit148:                      ; preds = %.lr.ph.i145, %avfilter_inout_free.exit142
-  %.pr.i149 = load ptr, ptr %9, align 8, !tbaa !4
-  %.not6.i150 = icmp eq ptr %.pr.i149, null
-  br i1 %.not6.i150, label %avfilter_inout_free.exit154, label %.lr.ph.i151
+avfilter_inout_free.exit147:                      ; preds = %.lr.ph.i144, %avfilter_inout_free.exit141
+  %.pr.i148 = load ptr, ptr %9, align 8, !tbaa !4
+  %.not6.i149 = icmp eq ptr %.pr.i148, null
+  br i1 %.not6.i149, label %avfilter_inout_free.exit153, label %.lr.ph.i150
 
-.lr.ph.i151:                                      ; preds = %avfilter_inout_free.exit148, %.lr.ph.i151
-  %241 = phi ptr [ %243, %.lr.ph.i151 ], [ %.pr.i149, %avfilter_inout_free.exit148 ]
-  %242 = getelementptr inbounds nuw i8, ptr %241, i64 24
-  %243 = load ptr, ptr %242, align 8, !tbaa !9
-  call void @av_freep(ptr noundef nonnull %241) #7
+.lr.ph.i150:                                      ; preds = %avfilter_inout_free.exit147, %.lr.ph.i150
+  %242 = phi ptr [ %244, %.lr.ph.i150 ], [ %.pr.i148, %avfilter_inout_free.exit147 ]
+  %243 = getelementptr inbounds nuw i8, ptr %242, i64 24
+  %244 = load ptr, ptr %243, align 8, !tbaa !9
+  call void @av_freep(ptr noundef nonnull %242) #7
   call void @av_freep(ptr noundef nonnull %9) #7
-  store ptr %243, ptr %9, align 8, !tbaa !4
-  %.not.i152 = icmp eq ptr %243, null
-  br i1 %.not.i152, label %avfilter_inout_free.exit154, label %.lr.ph.i151, !llvm.loop !14
+  store ptr %244, ptr %9, align 8, !tbaa !4
+  %.not.i151 = icmp eq ptr %244, null
+  br i1 %.not.i151, label %avfilter_inout_free.exit153, label %.lr.ph.i150, !llvm.loop !14
 
-avfilter_inout_free.exit154:                      ; preds = %.lr.ph.i151, %avfilter_inout_free.exit148
+avfilter_inout_free.exit153:                      ; preds = %.lr.ph.i150, %avfilter_inout_free.exit147
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  ret i32 %.043167
+  ret i32 %.043164
 }
 
 ; Function Attrs: nounwind uwtable

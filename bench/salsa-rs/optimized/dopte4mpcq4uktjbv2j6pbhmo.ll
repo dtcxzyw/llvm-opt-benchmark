@@ -666,8 +666,8 @@ define noundef range(i8 0, 3) i8 @_ZN5salsa8function19maybe_changed_after12Verif
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN5salsa8function19maybe_changed_after13ShallowUpdate3yes17h82d22bdacdf3c116E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #8 {
   %2 = load i8, ptr %0, align 1, !range !37, !noundef !3
-  %switch = icmp samesign ult i8 %2, 2
-  ret i1 %switch
+  %3 = icmp ne i8 %2, 2
+  ret i1 %3
 }
 
 ; Function Attrs: nonlazybind uwtable

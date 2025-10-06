@@ -2359,21 +2359,21 @@ _ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit167
   %.val.i = load ptr, ptr %222, align 8, !tbaa !308
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %.val149.i = load ptr, ptr %223, align 8, !tbaa !308
-  %.not4.i.i = icmp eq ptr %.val.i, %.val149.i
-  br i1 %.not4.i.i, label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
+  %.not6.i.i = icmp eq ptr %.val.i, %.val149.i
+  br i1 %.not6.i.i, label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %221, %225
-  %.sroa.01.05.i.i = phi ptr [ %226, %225 ], [ %.val.i, %221 ]
-  %224 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.01.05.i.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #15
+  %.sroa.01.07.i.i = phi ptr [ %226, %225 ], [ %.val.i, %221 ]
+  %224 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.01.07.i.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #15
   br i1 %224, label %227, label %225
 
 225:                                              ; preds = %.lr.ph.i.i
-  %226 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 80
+  %226 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 80
   %.not.i.i = icmp eq ptr %226, %.val149.i
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_120IteratorRangeChecker12checkPreCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
 
 227:                                              ; preds = %.lr.ph.i.i
-  %228 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 64
+  %228 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 64
   %229 = load ptr, ptr %1, align 8, !tbaa !7
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 72
   %231 = load ptr, ptr %230, align 8
@@ -2383,7 +2383,7 @@ _ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit167
 
 234:                                              ; preds = %227
   %.unpack138.i = load i64, ptr %228, align 8, !tbaa !16
-  %.elt139.i = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 72
+  %.elt139.i = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 72
   %.unpack140.i = load i64, ptr %.elt139.i, align 8, !tbaa !16
   %235 = getelementptr inbounds i8, ptr %0, i64 %.unpack140.i
   %236 = and i64 %.unpack138.i, 1
@@ -2424,7 +2424,7 @@ _ZN4llvm8dyn_castIN5clang4ento15CXXInstanceCallEKNS2_9CallEventEEEDcPT0_.exit167
   %257 = load ptr, ptr %256, align 8, !tbaa !163
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %.unpack.i = load i64, ptr %228, align 8, !tbaa !16
-  %.elt135.i = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.i, i64 72
+  %.elt135.i = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i, i64 72
   %.unpack136.i = load i64, ptr %.elt135.i, align 8, !tbaa !16
   %259 = getelementptr inbounds i8, ptr %0, i64 %.unpack136.i
   %260 = and i64 %.unpack.i, 1
@@ -2499,8 +2499,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type27isIntegralOrEnum
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
   %8 = icmp ne i8 %7, 13
-  %.not.not22 = icmp eq ptr %5, null
-  %.not.not = or i1 %.not.not22, %8
+  %.not.not19 = icmp eq ptr %5, null
+  %.not.not = or i1 %.not.not19, %8
   br i1 %.not.not, label %14, label %9
 
 9:                                                ; preds = %1
@@ -2513,7 +2513,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type27isIntegralOrEnum
 
 14:                                               ; preds = %1
   %15 = icmp ne i8 %7, 46
-  %.not12.not = or i1 %.not.not22, %15
+  %.not12.not = or i1 %.not.not19, %15
   br i1 %.not12.not, label %24, label %16
 
 16:                                               ; preds = %14
@@ -2980,13 +2980,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit.i: ; pre
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i8, ptr %49, align 16
   %51 = icmp ne i8 %50, 13
-  %.not.not22.i.i = icmp eq ptr %48, null
-  %.not.not.i.i = or i1 %.not.not22.i.i, %51
+  %.not.not19.i.i = icmp eq ptr %48, null
+  %.not.not.i.i = or i1 %.not.not19.i.i, %51
   br i1 %.not.not.i.i, label %52, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i
 
 52:                                               ; preds = %30
   %53 = icmp ne i8 %50, 46
-  %.not12.not.i.i = or i1 %.not.not22.i.i, %53
+  %.not12.not.i.i = or i1 %.not.not19.i.i, %53
   br i1 %.not12.not.i.i, label %62, label %54
 
 54:                                               ; preds = %52

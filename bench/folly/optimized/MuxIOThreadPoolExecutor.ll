@@ -2586,8 +2586,8 @@ _ZNSt12__shared_ptrIN5folly23MuxIOThreadPoolExecutor8IOThreadELN9__gnu_cxx12_Loc
   store i64 %93, ptr %10, align 8, !tbaa !89
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %95 = load ptr, ptr %94, align 8, !tbaa !139
-  %.not87 = icmp eq ptr %95, null
-  br i1 %.not87, label %100, label %96
+  %.not85 = icmp eq ptr %95, null
+  br i1 %.not85, label %100, label %96
 
 96:                                               ; preds = %_ZNSt12__shared_ptrIN5folly23MuxIOThreadPoolExecutor8IOThreadELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %97 = trunc i64 %93 to i32
@@ -2710,33 +2710,33 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %147, ptr %.sroa.069.2 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !163
   %148 = load atomic i64, ptr %128 acquire, align 64
-  %.0.i.i5189 = inttoptr i64 %148 to ptr
-  %.not.i13.i90 = icmp eq i64 %147, %148
-  br i1 %.not.i13.i90, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, !prof !164
+  %.0.i.i5187 = inttoptr i64 %148 to ptr
+  %.not.i13.i88 = icmp eq i64 %147, %148
+  br i1 %.not.i13.i88, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, !prof !164
 
 _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i
-  %.0.i.i5191 = phi ptr [ %.0.i.i51, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ], [ %.0.i.i5189, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+  %.0.i.i5189 = phi ptr [ %.0.i.i51, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ], [ %.0.i.i5187, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
   store atomic i64 0, ptr %.sroa.069.2 release, align 8
-  %149 = ptrtoint ptr %.0.i.i5191 to i64
+  %149 = ptrtoint ptr %.0.i.i5189 to i64
   store atomic i64 %149, ptr %.sroa.069.2 release, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !163
   %150 = load atomic i64, ptr %128 acquire, align 64
   %.0.i.i51 = inttoptr i64 %150 to ptr
-  %.not.i13.i = icmp eq ptr %.0.i.i5191, %.0.i.i51
+  %.not.i13.i = icmp eq ptr %.0.i.i5189, %.0.i.i51
   br i1 %.not.i13.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, !prof !165
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
-  %.0.i.i51.lcssa = phi ptr [ %.0.i.i5189, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %.0.i.i51, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ]
+  %.0.i.i51.lcssa = phi ptr [ %.0.i.i5187, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %.0.i.i51, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ]
   %151 = atomicrmw add ptr %130, i64 1 acq_rel, align 8
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i51.lcssa, i64 40
   %153 = load i64, ptr %152, align 8, !tbaa !166
   %154 = add i64 %153, 256
-  %.not.i93 = icmp ult i64 %151, %154
-  br i1 %.not.i93, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11findSegmentEPNS6_7SegmentEm.exit, label %.lr.ph, !prof !164
+  %.not.i91 = icmp ult i64 %151, %154
+  br i1 %.not.i91, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11findSegmentEPNS6_7SegmentEm.exit, label %.lr.ph, !prof !164
 
 .lr.ph:                                           ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, %.lr.ph
-  %.0.i94 = phi ptr [ %155, %.lr.ph ], [ %.0.i.i51.lcssa, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i ]
-  %155 = call noundef ptr @_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE19getAllocNextSegmentEPNS6_7SegmentEm(ptr noundef nonnull align 64 dereferenceable(80) %128, ptr noundef nonnull %.0.i94, i64 noundef %151) #29
+  %.0.i92 = phi ptr [ %155, %.lr.ph ], [ %.0.i.i51.lcssa, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i ]
+  %155 = call noundef ptr @_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE19getAllocNextSegmentEPNS6_7SegmentEm(ptr noundef nonnull align 64 dereferenceable(80) %128, ptr noundef nonnull %.0.i92, i64 noundef %151) #29
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 40
   %157 = load i64, ptr %156, align 8, !tbaa !166
   %158 = add i64 %157, 256
@@ -2744,11 +2744,11 @@ _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15Eve
   br i1 %.not.i, label %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11findSegmentEPNS6_7SegmentEm.exit, label %.lr.ph, !prof !165, !llvm.loop !175
 
 _ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11findSegmentEPNS6_7SegmentEm.exit: ; preds = %.lr.ph, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i
-  %.0.i.lcssa92 = phi ptr [ %.0.i.i51.lcssa, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i ], [ %155, %.lr.ph ]
-  %159 = getelementptr inbounds nuw i8, ptr %.0.i.lcssa92, i64 40
+  %.0.i.lcssa90 = phi ptr [ %.0.i.i51.lcssa, %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i ], [ %155, %.lr.ph ]
+  %159 = getelementptr inbounds nuw i8, ptr %.0.i.lcssa90, i64 40
   %160 = mul i64 %151, 27
   %161 = and i64 %160, 255
-  %162 = getelementptr inbounds nuw i8, ptr %.0.i.lcssa92, i64 64
+  %162 = getelementptr inbounds nuw i8, ptr %.0.i.lcssa90, i64 64
   %163 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::detail::EventBasePoller::Handle *, true, false, false>::Entry", ptr %162, i64 %161
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i64 2000, ptr %8, align 8
@@ -2974,8 +2974,8 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %255 = load ptr, ptr %254, align 8, !tbaa !107
   %256 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %257 = load ptr, ptr %256, align 16, !tbaa !107
-  %.not8897 = icmp eq ptr %255, %257
-  br i1 %.not8897, label %._crit_edge, label %.lr.ph99
+  %.not8695 = icmp eq ptr %255, %257
+  br i1 %.not8695, label %._crit_edge, label %.lr.ph97
 
 ._crit_edge:                                      ; preds = %266, %253
   %258 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2987,9 +2987,9 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
           cleanup
   br label %331
 
-.lr.ph99:                                         ; preds = %253, %266
-  %.sroa.063.098 = phi ptr [ %267, %266 ], [ %255, %253 ]
-  %261 = load ptr, ptr %.sroa.063.098, align 8, !tbaa !111
+.lr.ph97:                                         ; preds = %253, %266
+  %.sroa.063.096 = phi ptr [ %267, %266 ], [ %255, %253 ]
+  %261 = load ptr, ptr %.sroa.063.096, align 8, !tbaa !111
   %262 = load ptr, ptr %1, align 8, !tbaa !18
   %263 = load ptr, ptr %261, align 8, !tbaa !25
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
@@ -2997,12 +2997,12 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   invoke void %265(ptr noundef nonnull align 8 dereferenceable(8) %261, ptr noundef %262)
           to label %266 unwind label %268
 
-266:                                              ; preds = %.lr.ph99
-  %267 = getelementptr inbounds nuw i8, ptr %.sroa.063.098, i64 16
-  %.not88 = icmp eq ptr %267, %257
-  br i1 %.not88, label %._crit_edge, label %.lr.ph99
+266:                                              ; preds = %.lr.ph97
+  %267 = getelementptr inbounds nuw i8, ptr %.sroa.063.096, i64 16
+  %.not86 = icmp eq ptr %267, %257
+  br i1 %.not86, label %._crit_edge, label %.lr.ph97
 
-268:                                              ; preds = %.lr.ph99
+268:                                              ; preds = %.lr.ph97
   %269 = landingpad { ptr, i32 }
           cleanup
   br label %330
@@ -3240,7 +3240,7 @@ _ZN5folly16ThrottledLifoSem4postEj.exit:          ; preds = %._crit_edge.i, %27
   ret void
 
 28:                                               ; preds = %.lr.ph, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit
-  %.040 = phi i64 [ 0, %.lr.ph ], [ %165, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit ]
+  %.039 = phi i64 [ 0, %.lr.ph ], [ %165, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit ]
   %29 = load ptr, ptr %3, align 8, !tbaa !152, !noalias !281
   %.not.i9.i = icmp eq ptr %29, null
   br i1 %.not.i9.i, label %30, label %_ZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEv.exit.i, !prof !93
@@ -3275,23 +3275,23 @@ _ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_do
   store atomic i64 %40, ptr %.sroa.0.2 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !163
   %41 = load atomic i64, ptr %4 acquire, align 64
-  %.0.i.i637 = inttoptr i64 %41 to ptr
-  %.not.i15.i38 = icmp eq i64 %40, %41
-  br i1 %.not.i15.i38, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, !prof !164
+  %.0.i.i636 = inttoptr i64 %41 to ptr
+  %.not.i15.i37 = icmp eq i64 %40, %41
+  br i1 %.not.i15.i37, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, !prof !164
 
 _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i: ; preds = %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i
-  %.0.i.i639 = phi ptr [ %.0.i.i6, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ], [ %.0.i.i637, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
+  %.0.i.i638 = phi ptr [ %.0.i.i6, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ], [ %.0.i.i636, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ]
   store atomic i64 0, ptr %.sroa.0.2 release, align 8
-  %42 = ptrtoint ptr %.0.i.i639 to i64
+  %42 = ptrtoint ptr %.0.i.i638 to i64
   store atomic i64 %42, ptr %.sroa.0.2 release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !163
   %43 = load atomic i64, ptr %4 acquire, align 64
   %.0.i.i6 = inttoptr i64 %43 to ptr
-  %.not.i15.i = icmp eq ptr %.0.i.i639, %.0.i.i6
+  %.not.i15.i = icmp eq ptr %.0.i.i638, %.0.i.i6
   br i1 %.not.i15.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, !prof !165
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
-  %.0.i.i6.lcssa = phi ptr [ %.0.i.i637, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %.0.i.i6, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ]
+  %.0.i.i6.lcssa = phi ptr [ %.0.i.i636, %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i ], [ %.0.i.i6, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ]
   %44 = load atomic i64, ptr %5 acquire, align 8
   %45 = add i64 %44, 1
   store atomic i64 %45, ptr %5 release, align 8
@@ -3562,7 +3562,7 @@ _ZN5folly13hazptr_holderISt6atomicED2Ev.exit.i:   ; preds = %_ZN5folly13hazptr_d
   resume { ptr, i32 } %136
 
 _ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE11enqueueImplIS4_EEvOT_.exit: ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread
-  %165 = add nuw i64 %.040, 1
+  %165 = add nuw i64 %.039, 1
   %exitcond.not = icmp eq i64 %165, %1
   br i1 %exitcond.not, label %._crit_edge, label %28, !llvm.loop !287
 }
@@ -8035,8 +8035,8 @@ declare void @_ZN5folly6detail17distributed_mutex16DistributedMutexISt6atomicLb1
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN5folly6detail8function5call_IKZNS_23MuxIOThreadPoolExecutorC1EmNS3_7OptionsESt10shared_ptrINS_13ThreadFactoryEEPNS_16EventBaseManagerEE3$_0Lb1ELb1EvJNS_5RangeIPPNS0_15EventBasePoller6HandleEEEEEET2_DpT3_RNS1_4DataE"(ptr %0, ptr %1, ptr noundef nonnull readonly align 16 captures(none) dereferenceable(48) %2) #0 personality ptr @__gxx_personality_v0 {
   %.val = load ptr, ptr %2, align 16, !tbaa !474
-  %.not35.i = icmp eq ptr %0, %1
-  br i1 %.not35.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not34.i = icmp eq ptr %0, %1
+  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
@@ -8089,8 +8089,8 @@ _ZN5folly16ThrottledLifoSem8casStateERmm.exit.i.i: ; preds = %._crit_edge.i, %_Z
           to label %"_ZZN5folly23MuxIOThreadPoolExecutorC1EmNS0_7OptionsESt10shared_ptrINS_13ThreadFactoryEEPNS_16EventBaseManagerEENK3$_0clENS_5RangeIPPNS_6detail15EventBasePoller6HandleEEE.exit" unwind label %.loopexit.split-lp.i
 
 33:                                               ; preds = %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i, %.lr.ph.i
-  %.036.i = phi ptr [ %0, %.lr.ph.i ], [ %171, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i ]
-  %34 = load ptr, ptr %.036.i, align 8, !tbaa !116
+  %.035.i = phi ptr [ %0, %.lr.ph.i ], [ %171, %_ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i ]
+  %34 = load ptr, ptr %.035.i, align 8, !tbaa !116
   %35 = load ptr, ptr %4, align 8, !tbaa !152
   %.not.i19.i = icmp eq ptr %35, null
   br i1 %.not.i19.i, label %36, label %.noexc7.i, !prof !93
@@ -8125,23 +8125,23 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.thread.i: ; preds = %_ZN5folly9haz
   store atomic i64 %46, ptr %.sroa.03.2.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !163
   %47 = load atomic i64, ptr %5 acquire, align 8
-  %.0.i.i3132.i = inttoptr i64 %47 to ptr
-  %.not.i2733.i = icmp eq i64 %46, %47
-  br i1 %.not.i2733.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, !prof !164
+  %.0.i.i3131.i = inttoptr i64 %47 to ptr
+  %.not.i2732.i = icmp eq i64 %46, %47
+  br i1 %.not.i2732.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, !prof !164
 
 _ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i: ; preds = %.noexc.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i
-  %.0.i.i3134.i = phi ptr [ %.0.i.i31.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ], [ %.0.i.i3132.i, %.noexc.i ]
+  %.0.i.i3133.i = phi ptr [ %.0.i.i31.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ], [ %.0.i.i3131.i, %.noexc.i ]
   store atomic i64 0, ptr %.sroa.03.2.i release, align 8
-  %48 = ptrtoint ptr %.0.i.i3134.i to i64
+  %48 = ptrtoint ptr %.0.i.i3133.i to i64
   store atomic i64 %48, ptr %.sroa.03.2.i release, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !163
   %49 = load atomic i64, ptr %5 acquire, align 8
   %.0.i.i31.i = inttoptr i64 %49 to ptr
-  %.not.i27.i = icmp eq ptr %.0.i.i3134.i, %.0.i.i31.i
+  %.not.i27.i = icmp eq ptr %.0.i.i3133.i, %.0.i.i31.i
   br i1 %.not.i27.i, label %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i, label %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, !prof !165
 
 _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EESD_SG_T0_.exit.i: ; preds = %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i, %.noexc.i
-  %.0.i.i31.lcssa.i = phi ptr [ %.0.i.i3132.i, %.noexc.i ], [ %.0.i.i31.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ]
+  %.0.i.i31.lcssa.i = phi ptr [ %.0.i.i3131.i, %.noexc.i ], [ %.0.i.i31.i, %_ZN5folly13hazptr_holderISt6atomicE11try_protectINS_14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ES1_E7SegmentEZNS2_7protectISA_EEPT_RKS1_ISD_EEUlPSA_E_EEbRSD_SG_T0_.exit.i ]
   %50 = load atomic i64, ptr %6 acquire, align 8
   %51 = add i64 %50, 1
   store atomic i64 %51, ptr %6 release, align 8
@@ -8409,7 +8409,7 @@ _ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i36.i: ; preds = %.crit
   unreachable
 
 _ZN5folly14UnboundedQueueIPNS_6detail15EventBasePoller6HandleELb1ELb0ELb0ELm8ELm6ESt6atomicE7enqueueERKS4_.exit.i: ; preds = %_ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i36.i, %_ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit28.thread.i
-  %171 = getelementptr inbounds nuw i8, ptr %.036.i, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.035.i, i64 8
   %.not.i = icmp eq ptr %171, %1
   br i1 %.not.i, label %._crit_edge.i, label %33
 
@@ -9219,11 +9219,11 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
 
 50:                                               ; preds = %.critedge.i.i.i.i.i.i
   %51 = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 224, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !529
-  %.pre36.i = load i32, ptr %2, align 4, !tbaa !92, !noalias !529
+  %.pre35.i = load i32, ptr %2, align 4, !tbaa !92, !noalias !529
   br label %52
 
 52:                                               ; preds = %50, %.critedge.i.i.i.i.i.i
-  %53 = phi i32 [ %.pre36.i, %50 ], [ %48, %.critedge.i.i.i.i.i.i ]
+  %53 = phi i32 [ %.pre35.i, %50 ], [ %48, %.critedge.i.i.i.i.i.i ]
   %54 = lshr i32 %53, 1
   %55 = and i32 %54, 256
   %56 = and i32 %53, -673
@@ -10033,11 +10033,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomi
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %.pre36 = load i32, ptr %1, align 4, !tbaa !92
+  %.pre35 = load i32, ptr %1, align 4, !tbaa !92
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = phi i32 [ %.pre36, %8 ], [ %6, %5 ]
+  %11 = phi i32 [ %.pre35, %8 ], [ %6, %5 ]
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 256
   %14 = and i32 %11, -673
@@ -13714,12 +13714,12 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly6detail11MemoryIdler16futexWait
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %8
-  %.not32 = icmp eq i64 %5, 0
-  br i1 %.not32, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %12
+  %.not31 = icmp eq i64 %5, 0
+  br i1 %.not31, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %12
 
 12:                                               ; preds = %11
   %13 = fcmp ugt float %7, 0.000000e+00
-  br i1 %13, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39
+  br i1 %13, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38
 
 _ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit: ; preds = %12
   %14 = tail call noundef i64 @_ZN5folly18getCurrentThreadIDEv()
@@ -13753,18 +13753,18 @@ _ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratio
   %42 = fmul float %41, %40
   %43 = fptoui float %42 to i64
   %44 = tail call i64 @llvm.smax.i64(i64 %43, i64 0)
-  %.not33 = icmp slt i64 %43, 1
-  br i1 %.not33, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39
+  %.not32 = icmp slt i64 %43, 1
+  br i1 %.not32, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread, label %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38
 
-_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39: ; preds = %12, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit
-  %.sroa.024.042 = phi i64 [ %44, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit ], [ %5, %12 ]
+_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38: ; preds = %12, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit
+  %.sroa.024.041 = phi i64 [ %44, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit ], [ %5, %12 ]
   %45 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #29
-  %46 = add nsw i64 %45, %.sroa.024.042
+  %46 = add nsw i64 %45, %.sroa.024.041
   %.sroa.0.0.copyload.i2.i = load i64, ptr %3, align 8, !tbaa !89
   %47 = icmp slt i64 %46, %.sroa.0.0.copyload.i2.i
   br i1 %47, label %_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit, label %.thread
 
-_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit: ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39
+_ZN5folly6detail14futexWaitUntilISt6atomicIjENSt6chrono3_V212steady_clockENS4_8durationIlSt5ratioILl1ELl1000000000EEEEEENS0_11FutexResultEPKT_jRKNS4_10time_pointIT0_T1_EEj.exit: ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 %46, ptr %9, align 8
   %48 = call noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef nonnull %1, i32 noundef %2, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(8) %9, i32 noundef %4)
@@ -13781,8 +13781,8 @@ _ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratio
   call void @_ZN5folly6detail11MemoryIdler16unmapUnusedStackEm(i64 noundef %6)
   br label %.thread
 
-.thread:                                          ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39, %49, %8, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread
-  %.011 = phi i1 [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread ], [ false, %8 ], [ true, %49 ], [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread39 ]
+.thread:                                          ; preds = %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38, %49, %8, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread
+  %.011 = phi i1 [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread ], [ false, %8 ], [ true, %49 ], [ false, %_ZN5folly6detail11MemoryIdler19getVariationTimeoutINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_RKS8_f.exit.thread38 ]
   ret i1 %.011
 }
 
@@ -15258,11 +15258,11 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
 
 50:                                               ; preds = %.critedge.i.i.i.i.i.i
   %51 = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 224, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !737
-  %.pre36.i = load i32, ptr %2, align 4, !tbaa !92, !noalias !737
+  %.pre35.i = load i32, ptr %2, align 4, !tbaa !92, !noalias !737
   br label %52
 
 52:                                               ; preds = %50, %.critedge.i.i.i.i.i.i
-  %53 = phi i32 [ %.pre36.i, %50 ], [ %48, %.critedge.i.i.i.i.i.i ]
+  %53 = phi i32 [ %.pre35.i, %50 ], [ %48, %.critedge.i.i.i.i.i.i ]
   %54 = lshr i32 %53, 1
   %55 = and i32 %54, 256
   %56 = and i32 %53, -673
@@ -19956,8 +19956,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly19SaturatingSemaphoreILb0ESt6at
 22:                                               ; preds = %.lr.ph.i9
   %23 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #29
   %.sroa.0.0.copyload.i2.i.i5.i = load i64, ptr %1, align 8, !tbaa !89
-  %.not10.i = icmp slt i64 %23, %.sroa.0.0.copyload.i2.i.i5.i
-  br i1 %.not10.i, label %24, label %_ZN5folly6detail16spin_pause_untilINSt6chrono3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEZNS_19SaturatingSemaphoreILb0ESt6atomicE11tryWaitSlowIS4_S8_EEbRKNS2_10time_pointIT_T0_EERKNS_11WaitOptionsEEUlvE_EENS0_11spin_resultESI_SL_T1_.exit
+  %.not9.i = icmp slt i64 %23, %.sroa.0.0.copyload.i2.i.i5.i
+  br i1 %.not9.i, label %24, label %_ZN5folly6detail16spin_pause_untilINSt6chrono3_V212steady_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEZNS_19SaturatingSemaphoreILb0ESt6atomicE11tryWaitSlowIS4_S8_EEbRKNS2_10time_pointIT_T0_EERKNS_11WaitOptionsEEUlvE_EENS0_11spin_resultESI_SL_T1_.exit
 
 24:                                               ; preds = %22, %.lr.ph.i9
   %25 = tail call noundef i32 @sched_yield() #29

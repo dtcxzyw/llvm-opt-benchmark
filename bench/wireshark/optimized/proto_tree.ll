@@ -10142,11 +10142,11 @@ _ZN5QListISt4pairIiiEE5clearEv.exit:              ; preds = %2, %_ZN17QArrayData
   %30 = icmp sgt i32 %29, -1
   %31 = load i32, ptr %27, align 4
   %32 = icmp sgt i32 %31, -1
-  %or.cond19 = select i1 %30, i1 %32, i1 false
+  %or.cond18 = select i1 %30, i1 %32, i1 false
   %33 = load ptr, ptr %28, align 8
   %34 = icmp ne ptr %33, null
-  %or.cond1820 = select i1 %or.cond19, i1 %34, i1 false
-  br i1 %or.cond1820, label %.lr.ph, label %_ZNK11QModelIndex7isValidEv.exit.thread
+  %or.cond1719 = select i1 %or.cond18, i1 %34, i1 false
+  br i1 %or.cond1719, label %.lr.ph, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 .lr.ph:                                           ; preds = %_ZN5QListISt4pairIiiEE5clearEv.exit
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -10272,8 +10272,8 @@ _ZN16FieldInformation10HeaderInfoD2Ev.exit:       ; preds = %_ZN7QStringD2Ev.exi
   %or.cond = select i1 %73, i1 %75, i1 false
   %76 = load ptr, ptr %28, align 8
   %77 = icmp ne ptr %76, null
-  %or.cond18 = select i1 %or.cond, i1 %77, i1 false
-  br i1 %or.cond18, label %42, label %_ZNK11QModelIndex7isValidEv.exit.thread
+  %or.cond17 = select i1 %or.cond, i1 %77, i1 false
+  br i1 %or.cond17, label %42, label %_ZNK11QModelIndex7isValidEv.exit.thread
 
 78:                                               ; preds = %49
   %79 = landingpad { ptr, i32 }
@@ -12174,9 +12174,9 @@ define void @_ZN9ProtoTree10moveCursorEN17QAbstractItemView12CursorActionE6QFlag
 _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i.i: ; preds = %12
   %15 = load atomic i32, ptr %14 monotonic, align 4
   %16 = icmp sgt i32 %15, 1
-  br i1 %16, label %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i.i, label %.thread23
+  br i1 %16, label %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i.i, label %.thread22
 
-.thread23:                                        ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i.i
+.thread22:                                        ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load ptr, ptr %17, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef align 8 dereferenceable(24) %18, i64 24, i1 false)
@@ -12194,8 +12194,8 @@ _ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i.i: ; pre
   %.not.i.i.i = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i, label %_ZN5QListI11QModelIndexED2Ev.exit, label %_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i
 
-_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i: ; preds = %.thread23, %19
-  %22 = phi ptr [ %14, %.thread23 ], [ %.pre, %19 ]
+_ZN17QArrayDataPointerI11QModelIndexE5derefEv.exit.i.i: ; preds = %.thread22, %19
+  %22 = phi ptr [ %14, %.thread22 ], [ %.pre, %19 ]
   %23 = atomicrmw sub ptr %22, i32 1 seq_cst, align 4
   %.not.i.i = icmp eq i32 %23, 1
   br i1 %.not.i.i, label %24, label %_ZN5QListI11QModelIndexED2Ev.exit
@@ -12238,12 +12238,12 @@ _ZNK11QModelIndex6parentEv.exit:                  ; preds = %28, %32
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, -1
-  %or.cond15 = select i1 %or.cond, i1 %40, i1 false
+  %or.cond14 = select i1 %or.cond, i1 %40, i1 false
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = icmp ne ptr %42, null
-  %or.cond18 = select i1 %or.cond15, i1 %43, i1 false
-  br i1 %or.cond18, label %44, label %.critedge
+  %or.cond17 = select i1 %or.cond14, i1 %43, i1 false
+  br i1 %or.cond17, label %44, label %.critedge
 
 44:                                               ; preds = %_ZNK11QModelIndex6parentEv.exit
   call void @_ZNK17QAbstractItemView9rootIndexEv(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %7, ptr noundef align 8 dereferenceable_or_null(40) %1)
@@ -12275,9 +12275,9 @@ _ZNK11QModelIndexneERKS_.exit:                    ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = load ptr, ptr %41, align 8
-  %.not19 = icmp eq ptr %60, %61
+  %.not18 = icmp eq ptr %60, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not19, label %68, label %.thread
+  br i1 %.not18, label %68, label %.thread
 
 62:                                               ; preds = %_ZNK17QArrayDataPointerI11QModelIndexE11needsDetachEv.exit.thread.i.i.i.i
   %63 = landingpad { ptr, i32 }

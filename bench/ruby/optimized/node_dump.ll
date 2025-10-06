@@ -744,12 +744,12 @@ define internal fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 nound
   br i1 %.not4582, label %common.ret, label %57
 
 57:                                               ; preds = %44
-  %.val4916 = load i64, ptr %56, align 8, !tbaa !12
-  %58 = and i64 %.val4916, 32512
+  %.val4915 = load i64, ptr %56, align 8, !tbaa !12
+  %58 = and i64 %.val4915, 32512
   %59 = icmp eq i64 %58, 256
   br i1 %59, label %44, label %.critedge, !llvm.loop !29
 
-common.ret:                                       ; preds = %7, %774, %.critedge4637, %1780, %.critedge4713, %.split, %.critedge4716, %1794, %.critedge4718, %.critedge4758, %rb_dump_literal.exit4985, %3119, %.critedge4863, %3126, %.critedge4866, %3133, %.critedge4869, %3140, %.critedge4872, %3693, %.critedge4908, %3759, %3758, %.critedge4635, %.critedge4638.loopexit5042, %.critedge4638.loopexit5044, %.critedge4638.loopexit5046, %add_id.exit4943, %add_id.exit4947, %add_id.exit4949, %add_id.exit4951, %add_id.exit4953, %add_id.exit4955, %add_id.exit4957, %.critedge4749, %.critedge4752, %rb_dump_literal.exit, %rb_dump_literal.exit4961, %rb_dump_literal.exit4965, %rb_dump_literal.exit4969, %rb_dump_literal.exit4973, %rb_dump_literal.exit4977, %rb_dump_literal.exit4981, %rb_dump_literal.exit4989, %add_id.exit4997, %dump_parser_array.exit, %add_id.exit5002, %.critedge4861, %.critedge4638.loopexit5116, %.critedge4638.loopexit5120, %rb_dump_literal.exit5016, %rb_dump_literal.exit5020, %44, %.critedge4638.loopexit5121, %.critedge4638.loopexit5117, %.critedge4638.loopexit5113, %._crit_edge, %add_id.exit5010, %.critedge4638.loopexit5108, %.critedge4891, %.critedge4888, %.critedge4885, %add_id.exit5004, %.critedge4879, %.critedge4876, %.critedge4849, %add_id.exit5000, %.critedge4840, %.critedge4837, %.critedge4834, %.critedge4825, %add_id.exit4993, %add_id.exit4991, %.critedge4638.loopexit5089, %.critedge4813, %.critedge4810, %.critedge4807, %.critedge4804, %.critedge4638.loopexit5083, %.critedge4786, %.critedge4762, %.critedge4638.loopexit5074, %.critedge4728, %.critedge4638.loopexit5063, %.critedge4711, %add_id.exit4945, %add_id.exit4941, %add_id.exit4939, %add_id.exit4937, %.critedge4638.loopexit5056, %.critedge4687, %add_id.exit4933, %add_id.exit4929, %.critedge4638.loopexit5051, %add_id.exit4925, %add_id.exit4923, %add_id.exit4921, %.critedge4638.loopexit5047, %.critedge4638.loopexit5045, %.critedge4638.loopexit5043, %.critedge4638.loopexit5041, %.critedge4650, %.critedge4647, %.critedge4644, %.critedge4641, %.critedge4632, %.critedge4629, %.critedge4626, %.critedge4623, %.critedge4620, %.critedge4617, %.critedge4611, %.critedge4608, %.critedge4605, %.critedge4602, %.critedge4599, %.critedge4596, %.critedge4593, %.critedge4590, %.critedge
+common.ret:                                       ; preds = %7, %774, %.critedge4637, %1780, %.critedge4713, %.split, %.critedge4716, %1794, %.critedge4718, %.critedge4758, %rb_dump_literal.exit4984, %3119, %.critedge4863, %3126, %.critedge4866, %3133, %.critedge4869, %3140, %.critedge4872, %3693, %.critedge4907, %3759, %3758, %.critedge4635, %.critedge4638.loopexit5041, %.critedge4638.loopexit5043, %.critedge4638.loopexit5045, %add_id.exit4942, %add_id.exit4946, %add_id.exit4948, %add_id.exit4950, %add_id.exit4952, %add_id.exit4954, %add_id.exit4956, %.critedge4749, %.critedge4752, %rb_dump_literal.exit, %rb_dump_literal.exit4960, %rb_dump_literal.exit4964, %rb_dump_literal.exit4968, %rb_dump_literal.exit4972, %rb_dump_literal.exit4976, %rb_dump_literal.exit4980, %rb_dump_literal.exit4988, %add_id.exit4996, %dump_parser_array.exit, %add_id.exit5001, %.critedge4861, %.critedge4638.loopexit5115, %.critedge4638.loopexit5119, %rb_dump_literal.exit5015, %rb_dump_literal.exit5019, %44, %.critedge4638.loopexit5120, %.critedge4638.loopexit5116, %.critedge4638.loopexit5112, %._crit_edge, %add_id.exit5009, %.critedge4638.loopexit5107, %.critedge4891, %.critedge4888, %.critedge4885, %add_id.exit5003, %.critedge4879, %.critedge4876, %.critedge4849, %add_id.exit4999, %.critedge4840, %.critedge4837, %.critedge4834, %.critedge4825, %add_id.exit4992, %add_id.exit4990, %.critedge4638.loopexit5088, %.critedge4813, %.critedge4810, %.critedge4807, %.critedge4804, %.critedge4638.loopexit5082, %.critedge4786, %.critedge4762, %.critedge4638.loopexit5073, %.critedge4728, %.critedge4638.loopexit5062, %.critedge4711, %add_id.exit4944, %add_id.exit4940, %add_id.exit4938, %add_id.exit4936, %.critedge4638.loopexit5055, %.critedge4687, %add_id.exit4932, %add_id.exit4928, %.critedge4638.loopexit5050, %add_id.exit4924, %add_id.exit4922, %add_id.exit4920, %.critedge4638.loopexit5046, %.critedge4638.loopexit5044, %.critedge4638.loopexit5042, %.critedge4638.loopexit5040, %.critedge4650, %.critedge4647, %.critedge4644, %.critedge4641, %.critedge4632, %.critedge4629, %.critedge4626, %.critedge4623, %.critedge4620, %.critedge4617, %.critedge4611, %.critedge4608, %.critedge4605, %.critedge4602, %.critedge4599, %.critedge4596, %.critedge4593, %.critedge4590, %.critedge
   ret void
 
 .critedge:                                        ; preds = %57
@@ -1865,17 +1865,17 @@ common.ret:                                       ; preds = %7, %774, %.critedge
   %926 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %927 = load ptr, ptr %926, align 8, !tbaa !176
   %.not4492 = icmp eq ptr %927, null
-  br i1 %.not4492, label %.critedge4638.loopexit5041, label %928
+  br i1 %.not4492, label %.critedge4638.loopexit5040, label %928
 
 928:                                              ; preds = %917
-  %.val4917 = load i64, ptr %927, align 8, !tbaa !12
-  %929 = trunc i64 %.val4917 to i32
+  %.val4916 = load i64, ptr %927, align 8, !tbaa !12
+  %929 = trunc i64 %.val4916 to i32
   %930 = lshr i32 %929, 8
   %931 = and i32 %930, 127
   %932 = icmp eq i32 %931, %33
-  br i1 %932, label %917, label %.critedge4638.loopexit5041
+  br i1 %932, label %917, label %.critedge4638.loopexit5040
 
-.critedge4638.loopexit5041:                       ; preds = %917, %928
+.critedge4638.loopexit5040:                       ; preds = %917, %928
   %933 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %934 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %935 = select i1 %.not4490, i32 6, i32 19
@@ -1942,9 +1942,9 @@ common.ret:                                       ; preds = %7, %774, %.critedge
   %984 = load ptr, ptr %983, align 8, !tbaa !184
   %.not4485 = icmp eq ptr %984, inttoptr (i64 -1 to ptr)
   %985 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
-  br i1 %.not4485, label %.critedge4638.loopexit5042, label %.critedge4638.loopexit5043
+  br i1 %.not4485, label %.critedge4638.loopexit5041, label %.critedge4638.loopexit5042
 
-.critedge4638.loopexit5043:                       ; preds = %.critedge4659
+.critedge4638.loopexit5042:                       ; preds = %.critedge4659
   %986 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %962, ptr noundef nonnull @.str.129) #5
   %987 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #5
   %988 = load ptr, ptr %983, align 8, !tbaa !184
@@ -1954,7 +1954,7 @@ common.ret:                                       ; preds = %7, %774, %.critedge
   %991 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %990) #5
   br label %common.ret
 
-.critedge4638.loopexit5042:                       ; preds = %.critedge4659
+.critedge4638.loopexit5041:                       ; preds = %.critedge4659
   %992 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %962, ptr noundef nonnull @.str.129) #5
   %993 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.130, i64 noundef 54) #5
   %994 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
@@ -2007,15 +2007,15 @@ add_id.exit:                                      ; preds = %1008, %1012, %1015
   %1020 = icmp eq ptr %1019, inttoptr (i64 -1 to ptr)
   %1021 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1022 = select i1 %.not4478, i32 8, i32 17
-  br i1 %1020, label %.critedge4638.loopexit5044, label %.critedge4638.loopexit5045
+  br i1 %1020, label %.critedge4638.loopexit5043, label %.critedge4638.loopexit5044
 
-.critedge4638.loopexit5044:                       ; preds = %add_id.exit
+.critedge4638.loopexit5043:                       ; preds = %add_id.exit
   %1023 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %1022, ptr noundef nonnull @.str.135) #5
   %1024 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.136, i64 noundef 57) #5
   %1025 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
-.critedge4638.loopexit5045:                       ; preds = %add_id.exit
+.critedge4638.loopexit5044:                       ; preds = %add_id.exit
   %1026 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1022, ptr noundef nonnull @.str.135) #5
   %1027 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #5
   %1028 = inttoptr i64 %1 to ptr
@@ -2053,38 +2053,38 @@ add_id.exit:                                      ; preds = %1008, %1012, %1015
 
 1049:                                             ; preds = %.critedge4666
   %1050 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4919
+  br label %add_id.exit4918
 
 1051:                                             ; preds = %.critedge4666
   %1052 = tail call i64 @rb_id2str(i64 noundef %1047) #5
-  %.not.i4918 = icmp eq i64 %1052, 0
-  br i1 %.not.i4918, label %1056, label %1053
+  %.not.i4917 = icmp eq i64 %1052, 0
+  br i1 %.not.i4917, label %1056, label %1053
 
 1053:                                             ; preds = %1051
   %1054 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1055 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1052) #5
-  br label %add_id.exit4919
+  br label %add_id.exit4918
 
 1056:                                             ; preds = %1051
   %1057 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1047) #5
-  br label %add_id.exit4919
+  br label %add_id.exit4918
 
-add_id.exit4919:                                  ; preds = %1049, %1053, %1056
+add_id.exit4918:                                  ; preds = %1049, %1053, %1056
   %1058 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1059 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %1060 = load ptr, ptr %1059, align 8, !tbaa !190
   %1061 = icmp eq ptr %1060, inttoptr (i64 -1 to ptr)
   %1062 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1063 = select i1 %.not4474, i32 8, i32 17
-  br i1 %1061, label %.critedge4638.loopexit5046, label %.critedge4638.loopexit5047
+  br i1 %1061, label %.critedge4638.loopexit5045, label %.critedge4638.loopexit5046
 
-.critedge4638.loopexit5046:                       ; preds = %add_id.exit4919
+.critedge4638.loopexit5045:                       ; preds = %add_id.exit4918
   %1064 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %1063, ptr noundef nonnull @.str.135) #5
   %1065 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.136, i64 noundef 57) #5
   %1066 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
-.critedge4638.loopexit5047:                       ; preds = %add_id.exit4919
+.critedge4638.loopexit5046:                       ; preds = %add_id.exit4918
   %1067 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %1063, ptr noundef nonnull @.str.135) #5
   %1068 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #5
   %1069 = inttoptr i64 %1 to ptr
@@ -2120,23 +2120,23 @@ add_id.exit4919:                                  ; preds = %1049, %1053, %1056
 
 1088:                                             ; preds = %.critedge4669
   %1089 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4921
+  br label %add_id.exit4920
 
 1090:                                             ; preds = %.critedge4669
   %1091 = tail call i64 @rb_id2str(i64 noundef %1086) #5
-  %.not.i4920 = icmp eq i64 %1091, 0
-  br i1 %.not.i4920, label %1095, label %1092
+  %.not.i4919 = icmp eq i64 %1091, 0
+  br i1 %.not.i4919, label %1095, label %1092
 
 1092:                                             ; preds = %1090
   %1093 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1094 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1091) #5
-  br label %add_id.exit4921
+  br label %add_id.exit4920
 
 1095:                                             ; preds = %1090
   %1096 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1086) #5
-  br label %add_id.exit4921
+  br label %add_id.exit4920
 
-add_id.exit4921:                                  ; preds = %1088, %1092, %1095
+add_id.exit4920:                                  ; preds = %1088, %1092, %1095
   %1097 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1098 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1099 = select i1 %.not4471, i32 8, i32 17
@@ -2176,23 +2176,23 @@ add_id.exit4921:                                  ; preds = %1088, %1092, %1095
 
 1122:                                             ; preds = %.critedge4672
   %1123 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4923
+  br label %add_id.exit4922
 
 1124:                                             ; preds = %.critedge4672
   %1125 = tail call i64 @rb_id2str(i64 noundef %1120) #5
-  %.not.i4922 = icmp eq i64 %1125, 0
-  br i1 %.not.i4922, label %1129, label %1126
+  %.not.i4921 = icmp eq i64 %1125, 0
+  br i1 %.not.i4921, label %1129, label %1126
 
 1126:                                             ; preds = %1124
   %1127 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1128 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1125) #5
-  br label %add_id.exit4923
+  br label %add_id.exit4922
 
 1129:                                             ; preds = %1124
   %1130 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1120) #5
-  br label %add_id.exit4923
+  br label %add_id.exit4922
 
-add_id.exit4923:                                  ; preds = %1122, %1126, %1129
+add_id.exit4922:                                  ; preds = %1122, %1126, %1129
   %1131 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1132 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1133 = select i1 %.not4468, i32 8, i32 17
@@ -2232,23 +2232,23 @@ add_id.exit4923:                                  ; preds = %1122, %1126, %1129
 
 1156:                                             ; preds = %.critedge4675
   %1157 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4925
+  br label %add_id.exit4924
 
 1158:                                             ; preds = %.critedge4675
   %1159 = tail call i64 @rb_id2str(i64 noundef %1154) #5
-  %.not.i4924 = icmp eq i64 %1159, 0
-  br i1 %.not.i4924, label %1163, label %1160
+  %.not.i4923 = icmp eq i64 %1159, 0
+  br i1 %.not.i4923, label %1163, label %1160
 
 1160:                                             ; preds = %1158
   %1161 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1162 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1159) #5
-  br label %add_id.exit4925
+  br label %add_id.exit4924
 
 1163:                                             ; preds = %1158
   %1164 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1154) #5
-  br label %add_id.exit4925
+  br label %add_id.exit4924
 
-add_id.exit4925:                                  ; preds = %1156, %1160, %1163
+add_id.exit4924:                                  ; preds = %1156, %1160, %1163
   %1165 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1166 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1167 = select i1 %.not4465, i32 8, i32 17
@@ -2293,23 +2293,23 @@ add_id.exit4925:                                  ; preds = %1156, %1160, %1163
 
 1192:                                             ; preds = %1189
   %1193 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4927
+  br label %add_id.exit4926
 
 1194:                                             ; preds = %1189
   %1195 = tail call i64 @rb_id2str(i64 noundef %1190) #5
-  %.not.i4926 = icmp eq i64 %1195, 0
-  br i1 %.not.i4926, label %1199, label %1196
+  %.not.i4925 = icmp eq i64 %1195, 0
+  br i1 %.not.i4925, label %1199, label %1196
 
 1196:                                             ; preds = %1194
   %1197 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1198 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1195) #5
-  br label %add_id.exit4927
+  br label %add_id.exit4926
 
 1199:                                             ; preds = %1194
   %1200 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1190) #5
-  br label %add_id.exit4927
+  br label %add_id.exit4926
 
-add_id.exit4927:                                  ; preds = %1192, %1196, %1199
+add_id.exit4926:                                  ; preds = %1192, %1196, %1199
   %1201 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1202 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1203 = select i1 %.not4457, i32 7, i32 19
@@ -2335,13 +2335,13 @@ add_id.exit4927:                                  ; preds = %1192, %1196, %1199
   %1219 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %1218) #5
   br label %1220
 
-1220:                                             ; preds = %add_id.exit4927, %.loopexit
+1220:                                             ; preds = %add_id.exit4926, %.loopexit
   %1221 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1222 = select i1 %.not4457, i32 12, i32 27
   %1223 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %1222, ptr noundef nonnull @.str.160) #5
   %1224 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %1225 = load i32, ptr %1224, align 8, !tbaa !203
-  switch i32 %1225, label %.critedge4638.loopexit5051 [
+  switch i32 %1225, label %.critedge4638.loopexit5050 [
     i32 0, label %1226
     i32 1, label %1228
     i32 2, label %1230
@@ -2350,21 +2350,21 @@ add_id.exit4927:                                  ; preds = %1192, %1196, %1199
 
 1226:                                             ; preds = %1220
   %1227 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.161, i64 noundef 4) #5
-  br label %.critedge4638.loopexit5051
+  br label %.critedge4638.loopexit5050
 
 1228:                                             ; preds = %1220
   %1229 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.162, i64 noundef 7) #5
-  br label %.critedge4638.loopexit5051
+  br label %.critedge4638.loopexit5050
 
 1230:                                             ; preds = %1220
   %1231 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.163, i64 noundef 17) #5
-  br label %.critedge4638.loopexit5051
+  br label %.critedge4638.loopexit5050
 
 1232:                                             ; preds = %1220
   %1233 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.164, i64 noundef 23) #5
-  br label %.critedge4638.loopexit5051
+  br label %.critedge4638.loopexit5050
 
-.critedge4638.loopexit5051:                       ; preds = %1220, %1226, %1228, %1230, %1232
+.critedge4638.loopexit5050:                       ; preds = %1220, %1226, %1228, %1230, %1232
   %1234 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1235 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1236 = select i1 %.not4457, i32 8, i32 17
@@ -2416,23 +2416,23 @@ add_id.exit4927:                                  ; preds = %1192, %1196, %1199
 
 1270:                                             ; preds = %.critedge4681
   %1271 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4929
+  br label %add_id.exit4928
 
 1272:                                             ; preds = %.critedge4681
   %1273 = tail call i64 @rb_id2str(i64 noundef %1268) #5
-  %.not.i4928 = icmp eq i64 %1273, 0
-  br i1 %.not.i4928, label %1277, label %1274
+  %.not.i4927 = icmp eq i64 %1273, 0
+  br i1 %.not.i4927, label %1277, label %1274
 
 1274:                                             ; preds = %1272
   %1275 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1276 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1273) #5
-  br label %add_id.exit4929
+  br label %add_id.exit4928
 
 1277:                                             ; preds = %1272
   %1278 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1268) #5
-  br label %add_id.exit4929
+  br label %add_id.exit4928
 
-add_id.exit4929:                                  ; preds = %1270, %1274, %1277
+add_id.exit4928:                                  ; preds = %1270, %1274, %1277
   %1279 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1280 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1281 = select i1 %.not4448, i32 8, i32 16
@@ -2553,23 +2553,23 @@ add_id.exit4929:                                  ; preds = %1270, %1274, %1277
 
 1379:                                             ; preds = %1376
   %1380 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4931
+  br label %add_id.exit4930
 
 1381:                                             ; preds = %1376
   %1382 = tail call i64 @rb_id2str(i64 noundef %1377) #5
-  %.not.i4930 = icmp eq i64 %1382, 0
-  br i1 %.not.i4930, label %1386, label %1383
+  %.not.i4929 = icmp eq i64 %1382, 0
+  br i1 %.not.i4929, label %1386, label %1383
 
 1383:                                             ; preds = %1381
   %1384 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1385 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1382) #5
-  br label %add_id.exit4931
+  br label %add_id.exit4930
 
 1386:                                             ; preds = %1381
   %1387 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1377) #5
-  br label %add_id.exit4931
+  br label %add_id.exit4930
 
-add_id.exit4931:                                  ; preds = %1379, %1383, %1386
+add_id.exit4930:                                  ; preds = %1379, %1383, %1386
   %1388 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1389 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1390 = select i1 %.not4440, i32 6, i32 17
@@ -2579,25 +2579,25 @@ add_id.exit4931:                                  ; preds = %1379, %1383, %1386
   %1394 = icmp eq i64 %1393, 0
   br i1 %1394, label %1395, label %1397
 
-1395:                                             ; preds = %add_id.exit4931
+1395:                                             ; preds = %add_id.exit4930
   %1396 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4933
+  br label %add_id.exit4932
 
-1397:                                             ; preds = %add_id.exit4931
+1397:                                             ; preds = %add_id.exit4930
   %1398 = tail call i64 @rb_id2str(i64 noundef %1393) #5
-  %.not.i4932 = icmp eq i64 %1398, 0
-  br i1 %.not.i4932, label %1402, label %1399
+  %.not.i4931 = icmp eq i64 %1398, 0
+  br i1 %.not.i4931, label %1402, label %1399
 
 1399:                                             ; preds = %1397
   %1400 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1401 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1398) #5
-  br label %add_id.exit4933
+  br label %add_id.exit4932
 
 1402:                                             ; preds = %1397
   %1403 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1393) #5
-  br label %add_id.exit4933
+  br label %add_id.exit4932
 
-add_id.exit4933:                                  ; preds = %1395, %1399, %1402
+add_id.exit4932:                                  ; preds = %1395, %1399, %1402
   %1404 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1405 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1406 = select i1 %.not4440, i32 8, i32 17
@@ -2732,53 +2732,53 @@ add_id.exit4933:                                  ; preds = %1395, %1399, %1402
 
 1505:                                             ; preds = %.critedge4693
   %1506 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4935
+  br label %add_id.exit4934
 
 1507:                                             ; preds = %.critedge4693
   %1508 = tail call i64 @rb_id2str(i64 noundef %1503) #5
-  %.not.i4934 = icmp eq i64 %1508, 0
-  br i1 %.not.i4934, label %1512, label %1509
+  %.not.i4933 = icmp eq i64 %1508, 0
+  br i1 %.not.i4933, label %1512, label %1509
 
 1509:                                             ; preds = %1507
   %1510 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1511 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1508) #5
-  br label %add_id.exit4935
+  br label %add_id.exit4934
 
 1512:                                             ; preds = %1507
   %1513 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1503) #5
-  br label %add_id.exit4935
+  br label %add_id.exit4934
 
-add_id.exit4935:                                  ; preds = %1505, %1509, %1512
+add_id.exit4934:                                  ; preds = %1505, %1509, %1512
   %1514 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1515 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1516 = select i1 %.not4430, i32 12, i32 27
   %1517 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %1516, ptr noundef nonnull @.str.160) #5
   %1518 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %1519 = load i32, ptr %1518, align 8, !tbaa !253
-  switch i32 %1519, label %.critedge4638.loopexit5056 [
+  switch i32 %1519, label %.critedge4638.loopexit5055 [
     i32 0, label %1520
     i32 1, label %1522
     i32 2, label %1524
     i32 3, label %1526
   ]
 
-1520:                                             ; preds = %add_id.exit4935
+1520:                                             ; preds = %add_id.exit4934
   %1521 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.161, i64 noundef 4) #5
-  br label %.critedge4638.loopexit5056
+  br label %.critedge4638.loopexit5055
 
-1522:                                             ; preds = %add_id.exit4935
+1522:                                             ; preds = %add_id.exit4934
   %1523 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.162, i64 noundef 7) #5
-  br label %.critedge4638.loopexit5056
+  br label %.critedge4638.loopexit5055
 
-1524:                                             ; preds = %add_id.exit4935
+1524:                                             ; preds = %add_id.exit4934
   %1525 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.163, i64 noundef 17) #5
-  br label %.critedge4638.loopexit5056
+  br label %.critedge4638.loopexit5055
 
-1526:                                             ; preds = %add_id.exit4935
+1526:                                             ; preds = %add_id.exit4934
   %1527 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.164, i64 noundef 23) #5
-  br label %.critedge4638.loopexit5056
+  br label %.critedge4638.loopexit5055
 
-.critedge4638.loopexit5056:                       ; preds = %add_id.exit4935, %1520, %1522, %1524, %1526
+.critedge4638.loopexit5055:                       ; preds = %add_id.exit4934, %1520, %1522, %1524, %1526
   %1528 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1529 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1530 = select i1 %.not4430, i32 8, i32 17
@@ -2816,23 +2816,23 @@ add_id.exit4935:                                  ; preds = %1505, %1509, %1512
 
 1551:                                             ; preds = %.critedge4696
   %1552 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4937
+  br label %add_id.exit4936
 
 1553:                                             ; preds = %.critedge4696
   %1554 = tail call i64 @rb_id2str(i64 noundef %1549) #5
-  %.not.i4936 = icmp eq i64 %1554, 0
-  br i1 %.not.i4936, label %1558, label %1555
+  %.not.i4935 = icmp eq i64 %1554, 0
+  br i1 %.not.i4935, label %1558, label %1555
 
 1555:                                             ; preds = %1553
   %1556 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1557 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1554) #5
-  br label %add_id.exit4937
+  br label %add_id.exit4936
 
 1558:                                             ; preds = %1553
   %1559 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1549) #5
-  br label %add_id.exit4937
+  br label %add_id.exit4936
 
-add_id.exit4937:                                  ; preds = %1551, %1555, %1558
+add_id.exit4936:                                  ; preds = %1551, %1555, %1558
   %1560 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1561 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1562 = select i1 %.not4426, i32 7, i32 18
@@ -2882,23 +2882,23 @@ add_id.exit4937:                                  ; preds = %1551, %1555, %1558
 
 1594:                                             ; preds = %.critedge4699
   %1595 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4939
+  br label %add_id.exit4938
 
 1596:                                             ; preds = %.critedge4699
   %1597 = tail call i64 @rb_id2str(i64 noundef %1592) #5
-  %.not.i4938 = icmp eq i64 %1597, 0
-  br i1 %.not.i4938, label %1601, label %1598
+  %.not.i4937 = icmp eq i64 %1597, 0
+  br i1 %.not.i4937, label %1601, label %1598
 
 1598:                                             ; preds = %1596
   %1599 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1600 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1597) #5
-  br label %add_id.exit4939
+  br label %add_id.exit4938
 
 1601:                                             ; preds = %1596
   %1602 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1592) #5
-  br label %add_id.exit4939
+  br label %add_id.exit4938
 
-add_id.exit4939:                                  ; preds = %1594, %1598, %1601
+add_id.exit4938:                                  ; preds = %1594, %1598, %1601
   %1603 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1604 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1605 = select i1 %.not4422, i32 7, i32 18
@@ -2948,23 +2948,23 @@ add_id.exit4939:                                  ; preds = %1594, %1598, %1601
 
 1637:                                             ; preds = %.critedge4702
   %1638 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4941
+  br label %add_id.exit4940
 
 1639:                                             ; preds = %.critedge4702
   %1640 = tail call i64 @rb_id2str(i64 noundef %1635) #5
-  %.not.i4940 = icmp eq i64 %1640, 0
-  br i1 %.not.i4940, label %1644, label %1641
+  %.not.i4939 = icmp eq i64 %1640, 0
+  br i1 %.not.i4939, label %1644, label %1641
 
 1641:                                             ; preds = %1639
   %1642 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1643 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1640) #5
-  br label %add_id.exit4941
+  br label %add_id.exit4940
 
 1644:                                             ; preds = %1639
   %1645 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1635) #5
-  br label %add_id.exit4941
+  br label %add_id.exit4940
 
-add_id.exit4941:                                  ; preds = %1637, %1641, %1644
+add_id.exit4940:                                  ; preds = %1637, %1641, %1644
   %1646 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1647 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1648 = select i1 %.not4419, i32 7, i32 19
@@ -3004,23 +3004,23 @@ add_id.exit4941:                                  ; preds = %1637, %1641, %1644
 
 1671:                                             ; preds = %.critedge4705
   %1672 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4943
+  br label %add_id.exit4942
 
 1673:                                             ; preds = %.critedge4705
   %1674 = tail call i64 @rb_id2str(i64 noundef %1669) #5
-  %.not.i4942 = icmp eq i64 %1674, 0
-  br i1 %.not.i4942, label %1678, label %1675
+  %.not.i4941 = icmp eq i64 %1674, 0
+  br i1 %.not.i4941, label %1678, label %1675
 
 1675:                                             ; preds = %1673
   %1676 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1677 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1674) #5
-  br label %add_id.exit4943
+  br label %add_id.exit4942
 
 1678:                                             ; preds = %1673
   %1679 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1669) #5
-  br label %add_id.exit4943
+  br label %add_id.exit4942
 
-add_id.exit4943:                                  ; preds = %1671, %1675, %1678
+add_id.exit4942:                                  ; preds = %1671, %1675, %1678
   %1680 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -3048,23 +3048,23 @@ add_id.exit4943:                                  ; preds = %1671, %1675, %1678
 
 1694:                                             ; preds = %.critedge4708
   %1695 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4945
+  br label %add_id.exit4944
 
 1696:                                             ; preds = %.critedge4708
   %1697 = tail call i64 @rb_id2str(i64 noundef %1692) #5
-  %.not.i4944 = icmp eq i64 %1697, 0
-  br i1 %.not.i4944, label %1701, label %1698
+  %.not.i4943 = icmp eq i64 %1697, 0
+  br i1 %.not.i4943, label %1701, label %1698
 
 1698:                                             ; preds = %1696
   %1699 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1700 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1697) #5
-  br label %add_id.exit4945
+  br label %add_id.exit4944
 
 1701:                                             ; preds = %1696
   %1702 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1692) #5
-  br label %add_id.exit4945
+  br label %add_id.exit4944
 
-add_id.exit4945:                                  ; preds = %1694, %1698, %1701
+add_id.exit4944:                                  ; preds = %1694, %1698, %1701
   %1703 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1704 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1705 = select i1 %.not4413, i32 7, i32 18
@@ -3237,20 +3237,20 @@ add_id.exit4945:                                  ; preds = %1694, %1698, %1701
   %1819 = select i1 %.not4402, i32 8, i32 44
   %1820 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %1819, ptr noundef nonnull @.str.229) #5
   %1821 = load i64, ptr %1802, align 8, !tbaa !286
-  switch i64 %1821, label %.critedge4638.loopexit5063 [
+  switch i64 %1821, label %.critedge4638.loopexit5062 [
     i64 0, label %1822
     i64 1, label %1824
   ]
 
 1822:                                             ; preds = %.critedge4722
   %1823 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.230, i64 noundef 20) #5
-  br label %.critedge4638.loopexit5063
+  br label %.critedge4638.loopexit5062
 
 1824:                                             ; preds = %.critedge4722
   %1825 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.231, i64 noundef 16) #5
-  br label %.critedge4638.loopexit5063
+  br label %.critedge4638.loopexit5062
 
-.critedge4638.loopexit5063:                       ; preds = %.critedge4722, %1822, %1824
+.critedge4638.loopexit5062:                       ; preds = %.critedge4722, %1822, %1824
   %1826 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %1827 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %1828 = select i1 %.not4402, i32 7, i32 18
@@ -3356,23 +3356,23 @@ add_id.exit4945:                                  ; preds = %1694, %1698, %1701
 
 1907:                                             ; preds = %.critedge4731
   %1908 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4947
+  br label %add_id.exit4946
 
 1909:                                             ; preds = %.critedge4731
   %1910 = tail call i64 @rb_id2str(i64 noundef %1905) #5
-  %.not.i4946 = icmp eq i64 %1910, 0
-  br i1 %.not.i4946, label %1914, label %1911
+  %.not.i4945 = icmp eq i64 %1910, 0
+  br i1 %.not.i4945, label %1914, label %1911
 
 1911:                                             ; preds = %1909
   %1912 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1913 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1910) #5
-  br label %add_id.exit4947
+  br label %add_id.exit4946
 
 1914:                                             ; preds = %1909
   %1915 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1905) #5
-  br label %add_id.exit4947
+  br label %add_id.exit4946
 
-add_id.exit4947:                                  ; preds = %1907, %1911, %1914
+add_id.exit4946:                                  ; preds = %1907, %1911, %1914
   %1916 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -3400,23 +3400,23 @@ add_id.exit4947:                                  ; preds = %1907, %1911, %1914
 
 1930:                                             ; preds = %.critedge4734
   %1931 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4949
+  br label %add_id.exit4948
 
 1932:                                             ; preds = %.critedge4734
   %1933 = tail call i64 @rb_id2str(i64 noundef %1928) #5
-  %.not.i4948 = icmp eq i64 %1933, 0
-  br i1 %.not.i4948, label %1937, label %1934
+  %.not.i4947 = icmp eq i64 %1933, 0
+  br i1 %.not.i4947, label %1937, label %1934
 
 1934:                                             ; preds = %1932
   %1935 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1936 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1933) #5
-  br label %add_id.exit4949
+  br label %add_id.exit4948
 
 1937:                                             ; preds = %1932
   %1938 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1928) #5
-  br label %add_id.exit4949
+  br label %add_id.exit4948
 
-add_id.exit4949:                                  ; preds = %1930, %1934, %1937
+add_id.exit4948:                                  ; preds = %1930, %1934, %1937
   %1939 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -3444,23 +3444,23 @@ add_id.exit4949:                                  ; preds = %1930, %1934, %1937
 
 1953:                                             ; preds = %.critedge4737
   %1954 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4951
+  br label %add_id.exit4950
 
 1955:                                             ; preds = %.critedge4737
   %1956 = tail call i64 @rb_id2str(i64 noundef %1951) #5
-  %.not.i4950 = icmp eq i64 %1956, 0
-  br i1 %.not.i4950, label %1960, label %1957
+  %.not.i4949 = icmp eq i64 %1956, 0
+  br i1 %.not.i4949, label %1960, label %1957
 
 1957:                                             ; preds = %1955
   %1958 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1959 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1956) #5
-  br label %add_id.exit4951
+  br label %add_id.exit4950
 
 1960:                                             ; preds = %1955
   %1961 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1951) #5
-  br label %add_id.exit4951
+  br label %add_id.exit4950
 
-add_id.exit4951:                                  ; preds = %1953, %1957, %1960
+add_id.exit4950:                                  ; preds = %1953, %1957, %1960
   %1962 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -3488,23 +3488,23 @@ add_id.exit4951:                                  ; preds = %1953, %1957, %1960
 
 1976:                                             ; preds = %.critedge4740
   %1977 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4953
+  br label %add_id.exit4952
 
 1978:                                             ; preds = %.critedge4740
   %1979 = tail call i64 @rb_id2str(i64 noundef %1974) #5
-  %.not.i4952 = icmp eq i64 %1979, 0
-  br i1 %.not.i4952, label %1983, label %1980
+  %.not.i4951 = icmp eq i64 %1979, 0
+  br i1 %.not.i4951, label %1983, label %1980
 
 1980:                                             ; preds = %1978
   %1981 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %1982 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1979) #5
-  br label %add_id.exit4953
+  br label %add_id.exit4952
 
 1983:                                             ; preds = %1978
   %1984 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1974) #5
-  br label %add_id.exit4953
+  br label %add_id.exit4952
 
-add_id.exit4953:                                  ; preds = %1976, %1980, %1983
+add_id.exit4952:                                  ; preds = %1976, %1980, %1983
   %1985 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -3532,23 +3532,23 @@ add_id.exit4953:                                  ; preds = %1976, %1980, %1983
 
 1999:                                             ; preds = %.critedge4743
   %2000 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4955
+  br label %add_id.exit4954
 
 2001:                                             ; preds = %.critedge4743
   %2002 = tail call i64 @rb_id2str(i64 noundef %1997) #5
-  %.not.i4954 = icmp eq i64 %2002, 0
-  br i1 %.not.i4954, label %2006, label %2003
+  %.not.i4953 = icmp eq i64 %2002, 0
+  br i1 %.not.i4953, label %2006, label %2003
 
 2003:                                             ; preds = %2001
   %2004 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %2005 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %2002) #5
-  br label %add_id.exit4955
+  br label %add_id.exit4954
 
 2006:                                             ; preds = %2001
   %2007 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %1997) #5
-  br label %add_id.exit4955
+  br label %add_id.exit4954
 
-add_id.exit4955:                                  ; preds = %1999, %2003, %2006
+add_id.exit4954:                                  ; preds = %1999, %2003, %2006
   %2008 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -3576,23 +3576,23 @@ add_id.exit4955:                                  ; preds = %1999, %2003, %2006
 
 2022:                                             ; preds = %.critedge4746
   %2023 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4957
+  br label %add_id.exit4956
 
 2024:                                             ; preds = %.critedge4746
   %2025 = tail call i64 @rb_id2str(i64 noundef %2020) #5
-  %.not.i4956 = icmp eq i64 %2025, 0
-  br i1 %.not.i4956, label %2029, label %2026
+  %.not.i4955 = icmp eq i64 %2025, 0
+  br i1 %.not.i4955, label %2029, label %2026
 
 2026:                                             ; preds = %2024
   %2027 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %2028 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %2025) #5
-  br label %add_id.exit4957
+  br label %add_id.exit4956
 
 2029:                                             ; preds = %2024
   %2030 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %2020) #5
-  br label %add_id.exit4957
+  br label %add_id.exit4956
 
-add_id.exit4957:                                  ; preds = %2022, %2026, %2029
+add_id.exit4956:                                  ; preds = %2022, %2026, %2029
   %2031 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -3747,9 +3747,9 @@ rb_dump_literal.exit:                             ; preds = %rbimpl_RB_TYPE_P_fa
   %2120 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2119) #5
   %2121 = load ptr, ptr %2111, align 8, !tbaa !322
   %.not4374 = icmp eq ptr %2121, null
-  br i1 %.not4374, label %common.ret, label %.critedge4638.loopexit5074
+  br i1 %.not4374, label %common.ret, label %.critedge4638.loopexit5073
 
-.critedge4638.loopexit5074:                       ; preds = %.critedge4758
+.critedge4638.loopexit5073:                       ; preds = %.critedge4758
   %2122 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %2123 = select i1 %.not4370, i32 7, i32 24
   %2124 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2123, ptr noundef nonnull @.str.272) #5
@@ -3843,29 +3843,29 @@ rb_dump_literal.exit:                             ; preds = %rbimpl_RB_TYPE_P_fa
   %2178 = trunc i64 %2177 to i32
   %2179 = and i32 %2178, 31
   switch i32 %2179, label %2185 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4958
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4958
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4958
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4957
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4957
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4957
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i4958:           ; preds = %2175, %2175, %2175
+rbimpl_RB_TYPE_P_fastpath.exit.i.i4957:           ; preds = %2175, %2175, %2175
   %2180 = tail call i64 @rb_class_path(i64 noundef %2170) #5
   %2181 = load i64, ptr %2176, align 8, !tbaa !7
   %2182 = and i64 %2181, 8223
-  %or.cond.i4959 = icmp eq i64 %2182, 8194
-  br i1 %or.cond.i4959, label %2183, label %rb_dump_literal.exit4961
+  %or.cond.i4958 = icmp eq i64 %2182, 8194
+  br i1 %or.cond.i4958, label %2183, label %rb_dump_literal.exit4960
 
-2183:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4958
+2183:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4957
   %2184 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %2180) #5
-  br label %rb_dump_literal.exit4961
+  br label %rb_dump_literal.exit4960
 
 2185:                                             ; preds = %2175, %.critedge4765
   %2186 = tail call i64 @rb_inspect(i64 noundef %2170) #5
-  br label %rb_dump_literal.exit4961
+  br label %rb_dump_literal.exit4960
 
-rb_dump_literal.exit4961:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4958, %2183, %2185
-  %.1.i4960 = phi i64 [ %2186, %2185 ], [ %2184, %2183 ], [ %2180, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4958 ]
-  %2187 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4960) #5
+rb_dump_literal.exit4960:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4957, %2183, %2185
+  %.1.i4959 = phi i64 [ %2186, %2185 ], [ %2184, %2183 ], [ %2180, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4957 ]
+  %2187 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4959) #5
   %2188 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -3899,29 +3899,29 @@ rb_dump_literal.exit4961:                         ; preds = %rbimpl_RB_TYPE_P_fa
   %2207 = trunc i64 %2206 to i32
   %2208 = and i32 %2207, 31
   switch i32 %2208, label %2214 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4962
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4962
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4962
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4961
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4961
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4961
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i4962:           ; preds = %2204, %2204, %2204
+rbimpl_RB_TYPE_P_fastpath.exit.i.i4961:           ; preds = %2204, %2204, %2204
   %2209 = tail call i64 @rb_class_path(i64 noundef %2199) #5
   %2210 = load i64, ptr %2205, align 8, !tbaa !7
   %2211 = and i64 %2210, 8223
-  %or.cond.i4963 = icmp eq i64 %2211, 8194
-  br i1 %or.cond.i4963, label %2212, label %rb_dump_literal.exit4965
+  %or.cond.i4962 = icmp eq i64 %2211, 8194
+  br i1 %or.cond.i4962, label %2212, label %rb_dump_literal.exit4964
 
-2212:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4962
+2212:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4961
   %2213 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %2209) #5
-  br label %rb_dump_literal.exit4965
+  br label %rb_dump_literal.exit4964
 
 2214:                                             ; preds = %2204, %.critedge4771
   %2215 = tail call i64 @rb_inspect(i64 noundef %2199) #5
-  br label %rb_dump_literal.exit4965
+  br label %rb_dump_literal.exit4964
 
-rb_dump_literal.exit4965:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4962, %2212, %2214
-  %.1.i4964 = phi i64 [ %2215, %2214 ], [ %2213, %2212 ], [ %2209, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4962 ]
-  %2216 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4964) #5
+rb_dump_literal.exit4964:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4961, %2212, %2214
+  %.1.i4963 = phi i64 [ %2215, %2214 ], [ %2213, %2212 ], [ %2209, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4961 ]
+  %2216 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4963) #5
   %2217 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -3955,29 +3955,29 @@ rb_dump_literal.exit4965:                         ; preds = %rbimpl_RB_TYPE_P_fa
   %2236 = trunc i64 %2235 to i32
   %2237 = and i32 %2236, 31
   switch i32 %2237, label %2243 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4966
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4966
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4966
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4965
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4965
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4965
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i4966:           ; preds = %2233, %2233, %2233
+rbimpl_RB_TYPE_P_fastpath.exit.i.i4965:           ; preds = %2233, %2233, %2233
   %2238 = tail call i64 @rb_class_path(i64 noundef %2228) #5
   %2239 = load i64, ptr %2234, align 8, !tbaa !7
   %2240 = and i64 %2239, 8223
-  %or.cond.i4967 = icmp eq i64 %2240, 8194
-  br i1 %or.cond.i4967, label %2241, label %rb_dump_literal.exit4969
+  %or.cond.i4966 = icmp eq i64 %2240, 8194
+  br i1 %or.cond.i4966, label %2241, label %rb_dump_literal.exit4968
 
-2241:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4966
+2241:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4965
   %2242 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %2238) #5
-  br label %rb_dump_literal.exit4969
+  br label %rb_dump_literal.exit4968
 
 2243:                                             ; preds = %2233, %.critedge4774
   %2244 = tail call i64 @rb_inspect(i64 noundef %2228) #5
-  br label %rb_dump_literal.exit4969
+  br label %rb_dump_literal.exit4968
 
-rb_dump_literal.exit4969:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4966, %2241, %2243
-  %.1.i4968 = phi i64 [ %2244, %2243 ], [ %2242, %2241 ], [ %2238, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4966 ]
-  %2245 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4968) #5
+rb_dump_literal.exit4968:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4965, %2241, %2243
+  %.1.i4967 = phi i64 [ %2244, %2243 ], [ %2242, %2241 ], [ %2238, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4965 ]
+  %2245 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4967) #5
   %2246 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -4011,29 +4011,29 @@ rb_dump_literal.exit4969:                         ; preds = %rbimpl_RB_TYPE_P_fa
   %2265 = trunc i64 %2264 to i32
   %2266 = and i32 %2265, 31
   switch i32 %2266, label %2272 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4970
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4970
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4970
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4969
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4969
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4969
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i4970:           ; preds = %2262, %2262, %2262
+rbimpl_RB_TYPE_P_fastpath.exit.i.i4969:           ; preds = %2262, %2262, %2262
   %2267 = tail call i64 @rb_class_path(i64 noundef %2257) #5
   %2268 = load i64, ptr %2263, align 8, !tbaa !7
   %2269 = and i64 %2268, 8223
-  %or.cond.i4971 = icmp eq i64 %2269, 8194
-  br i1 %or.cond.i4971, label %2270, label %rb_dump_literal.exit4973
+  %or.cond.i4970 = icmp eq i64 %2269, 8194
+  br i1 %or.cond.i4970, label %2270, label %rb_dump_literal.exit4972
 
-2270:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4970
+2270:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4969
   %2271 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %2267) #5
-  br label %rb_dump_literal.exit4973
+  br label %rb_dump_literal.exit4972
 
 2272:                                             ; preds = %2262, %.critedge4777
   %2273 = tail call i64 @rb_inspect(i64 noundef %2257) #5
-  br label %rb_dump_literal.exit4973
+  br label %rb_dump_literal.exit4972
 
-rb_dump_literal.exit4973:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4970, %2270, %2272
-  %.1.i4972 = phi i64 [ %2273, %2272 ], [ %2271, %2270 ], [ %2267, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4970 ]
-  %2274 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4972) #5
+rb_dump_literal.exit4972:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4969, %2270, %2272
+  %.1.i4971 = phi i64 [ %2273, %2272 ], [ %2271, %2270 ], [ %2267, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4969 ]
+  %2274 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4971) #5
   %2275 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -4067,29 +4067,29 @@ rb_dump_literal.exit4973:                         ; preds = %rbimpl_RB_TYPE_P_fa
   %2294 = trunc i64 %2293 to i32
   %2295 = and i32 %2294, 31
   switch i32 %2295, label %2301 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4974
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4974
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4974
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4973
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4973
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4973
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i4974:           ; preds = %2291, %2291, %2291
+rbimpl_RB_TYPE_P_fastpath.exit.i.i4973:           ; preds = %2291, %2291, %2291
   %2296 = tail call i64 @rb_class_path(i64 noundef %2286) #5
   %2297 = load i64, ptr %2292, align 8, !tbaa !7
   %2298 = and i64 %2297, 8223
-  %or.cond.i4975 = icmp eq i64 %2298, 8194
-  br i1 %or.cond.i4975, label %2299, label %rb_dump_literal.exit4977
+  %or.cond.i4974 = icmp eq i64 %2298, 8194
+  br i1 %or.cond.i4974, label %2299, label %rb_dump_literal.exit4976
 
-2299:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4974
+2299:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4973
   %2300 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %2296) #5
-  br label %rb_dump_literal.exit4977
+  br label %rb_dump_literal.exit4976
 
 2301:                                             ; preds = %2291, %.critedge4780
   %2302 = tail call i64 @rb_inspect(i64 noundef %2286) #5
-  br label %rb_dump_literal.exit4977
+  br label %rb_dump_literal.exit4976
 
-rb_dump_literal.exit4977:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4974, %2299, %2301
-  %.1.i4976 = phi i64 [ %2302, %2301 ], [ %2300, %2299 ], [ %2296, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4974 ]
-  %2303 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4976) #5
+rb_dump_literal.exit4976:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4973, %2299, %2301
+  %.1.i4975 = phi i64 [ %2302, %2301 ], [ %2300, %2299 ], [ %2296, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4973 ]
+  %2303 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4975) #5
   %2304 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -4123,29 +4123,29 @@ rb_dump_literal.exit4977:                         ; preds = %rbimpl_RB_TYPE_P_fa
   %2323 = trunc i64 %2322 to i32
   %2324 = and i32 %2323, 31
   switch i32 %2324, label %2330 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4978
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4978
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4978
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4977
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4977
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4977
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i4978:           ; preds = %2320, %2320, %2320
+rbimpl_RB_TYPE_P_fastpath.exit.i.i4977:           ; preds = %2320, %2320, %2320
   %2325 = tail call i64 @rb_class_path(i64 noundef %2315) #5
   %2326 = load i64, ptr %2321, align 8, !tbaa !7
   %2327 = and i64 %2326, 8223
-  %or.cond.i4979 = icmp eq i64 %2327, 8194
-  br i1 %or.cond.i4979, label %2328, label %rb_dump_literal.exit4981
+  %or.cond.i4978 = icmp eq i64 %2327, 8194
+  br i1 %or.cond.i4978, label %2328, label %rb_dump_literal.exit4980
 
-2328:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4978
+2328:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4977
   %2329 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %2325) #5
-  br label %rb_dump_literal.exit4981
+  br label %rb_dump_literal.exit4980
 
 2330:                                             ; preds = %2320, %.critedge4783
   %2331 = tail call i64 @rb_inspect(i64 noundef %2315) #5
-  br label %rb_dump_literal.exit4981
+  br label %rb_dump_literal.exit4980
 
-rb_dump_literal.exit4981:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4978, %2328, %2330
-  %.1.i4980 = phi i64 [ %2331, %2330 ], [ %2329, %2328 ], [ %2325, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4978 ]
-  %2332 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4980) #5
+rb_dump_literal.exit4980:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4977, %2328, %2330
+  %.1.i4979 = phi i64 [ %2331, %2330 ], [ %2329, %2328 ], [ %2325, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4977 ]
+  %2332 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4979) #5
   %2333 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2334 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %2335 = select i1 %.not4350, i32 11, i32 14
@@ -4284,36 +4284,36 @@ rb_dump_literal.exit4981:                         ; preds = %rbimpl_RB_TYPE_P_fa
   %2428 = trunc i64 %2427 to i32
   %2429 = and i32 %2428, 31
   switch i32 %2429, label %2435 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4982
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4982
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4982
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4981
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4981
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4981
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i4982:           ; preds = %2425, %2425, %2425
+rbimpl_RB_TYPE_P_fastpath.exit.i.i4981:           ; preds = %2425, %2425, %2425
   %2430 = tail call i64 @rb_class_path(i64 noundef %2420) #5
   %2431 = load i64, ptr %2426, align 8, !tbaa !7
   %2432 = and i64 %2431, 8223
-  %or.cond.i4983 = icmp eq i64 %2432, 8194
-  br i1 %or.cond.i4983, label %2433, label %rb_dump_literal.exit4985
+  %or.cond.i4982 = icmp eq i64 %2432, 8194
+  br i1 %or.cond.i4982, label %2433, label %rb_dump_literal.exit4984
 
-2433:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4982
+2433:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4981
   %2434 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %2430) #5
-  br label %rb_dump_literal.exit4985
+  br label %rb_dump_literal.exit4984
 
 2435:                                             ; preds = %2425, %.critedge4789
   %2436 = tail call i64 @rb_inspect(i64 noundef %2420) #5
-  br label %rb_dump_literal.exit4985
+  br label %rb_dump_literal.exit4984
 
-rb_dump_literal.exit4985:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4982, %2433, %2435
-  %.1.i4984 = phi i64 [ %2436, %2435 ], [ %2434, %2433 ], [ %2430, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4982 ]
-  %2437 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4984) #5
+rb_dump_literal.exit4984:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4981, %2433, %2435
+  %.1.i4983 = phi i64 [ %2436, %2435 ], [ %2434, %2433 ], [ %2430, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4981 ]
+  %2437 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4983) #5
   %2438 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2439 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %2440 = load ptr, ptr %2439, align 8, !tbaa !343
   %.not4345 = icmp eq ptr %2440, null
-  br i1 %.not4345, label %common.ret, label %.critedge4638.loopexit5083
+  br i1 %.not4345, label %common.ret, label %.critedge4638.loopexit5082
 
-.critedge4638.loopexit5083:                       ; preds = %rb_dump_literal.exit4985
+.critedge4638.loopexit5082:                       ; preds = %rb_dump_literal.exit4984
   %2441 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %2442 = select i1 %.not4343, i32 16, i32 32
   %2443 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %2442, ptr noundef nonnull @.str.309) #5
@@ -4370,29 +4370,29 @@ rb_dump_literal.exit4985:                         ; preds = %rbimpl_RB_TYPE_P_fa
   %2481 = trunc i64 %2480 to i32
   %2482 = and i32 %2481, 31
   switch i32 %2482, label %2488 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4986
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4986
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4986
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4985
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4985
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i4985
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i4986:           ; preds = %2478, %2478, %2478
+rbimpl_RB_TYPE_P_fastpath.exit.i.i4985:           ; preds = %2478, %2478, %2478
   %2483 = tail call i64 @rb_class_path(i64 noundef %2473) #5
   %2484 = load i64, ptr %2479, align 8, !tbaa !7
   %2485 = and i64 %2484, 8223
-  %or.cond.i4987 = icmp eq i64 %2485, 8194
-  br i1 %or.cond.i4987, label %2486, label %rb_dump_literal.exit4989
+  %or.cond.i4986 = icmp eq i64 %2485, 8194
+  br i1 %or.cond.i4986, label %2486, label %rb_dump_literal.exit4988
 
-2486:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4986
+2486:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4985
   %2487 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %2483) #5
-  br label %rb_dump_literal.exit4989
+  br label %rb_dump_literal.exit4988
 
 2488:                                             ; preds = %2478, %.critedge4801
   %2489 = tail call i64 @rb_inspect(i64 noundef %2473) #5
-  br label %rb_dump_literal.exit4989
+  br label %rb_dump_literal.exit4988
 
-rb_dump_literal.exit4989:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4986, %2486, %2488
-  %.1.i4988 = phi i64 [ %2489, %2488 ], [ %2487, %2486 ], [ %2483, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4986 ]
-  %2490 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4988) #5
+rb_dump_literal.exit4988:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i4985, %2486, %2488
+  %.1.i4987 = phi i64 [ %2489, %2488 ], [ %2487, %2486 ], [ %2483, %rbimpl_RB_TYPE_P_fastpath.exit.i.i4985 ]
+  %2490 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i4987) #5
   %2491 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -4589,13 +4589,13 @@ rb_dump_literal.exit4989:                         ; preds = %rbimpl_RB_TYPE_P_fa
 
 2631:                                             ; preds = %.critedge4816
   %2632 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.332, i64 noundef 17) #5
-  br label %.critedge4638.loopexit5089
+  br label %.critedge4638.loopexit5088
 
 2633:                                             ; preds = %.critedge4816
   %2634 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.333, i64 noundef 14) #5
-  br label %.critedge4638.loopexit5089
+  br label %.critedge4638.loopexit5088
 
-.critedge4638.loopexit5089:                       ; preds = %2631, %2633
+.critedge4638.loopexit5088:                       ; preds = %2631, %2633
   %2635 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2636 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %2637 = select i1 %.not4318, i32 7, i32 25
@@ -4658,23 +4658,23 @@ rb_dump_literal.exit4989:                         ; preds = %rbimpl_RB_TYPE_P_fa
 
 2682:                                             ; preds = %.critedge4819
   %2683 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4991
+  br label %add_id.exit4990
 
 2684:                                             ; preds = %.critedge4819
   %2685 = tail call i64 @rb_id2str(i64 noundef %2680) #5
-  %.not.i4990 = icmp eq i64 %2685, 0
-  br i1 %.not.i4990, label %2689, label %2686
+  %.not.i4989 = icmp eq i64 %2685, 0
+  br i1 %.not.i4989, label %2689, label %2686
 
 2686:                                             ; preds = %2684
   %2687 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %2688 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %2685) #5
-  br label %add_id.exit4991
+  br label %add_id.exit4990
 
 2689:                                             ; preds = %2684
   %2690 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %2680) #5
-  br label %add_id.exit4991
+  br label %add_id.exit4990
 
-add_id.exit4991:                                  ; preds = %2682, %2686, %2689
+add_id.exit4990:                                  ; preds = %2682, %2686, %2689
   %2691 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2692 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %2693 = select i1 %.not4315, i32 7, i32 27
@@ -4726,23 +4726,23 @@ add_id.exit4991:                                  ; preds = %2682, %2686, %2689
 
 2727:                                             ; preds = %.critedge4822
   %2728 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4993
+  br label %add_id.exit4992
 
 2729:                                             ; preds = %.critedge4822
   %2730 = tail call i64 @rb_id2str(i64 noundef %2725) #5
-  %.not.i4992 = icmp eq i64 %2730, 0
-  br i1 %.not.i4992, label %2734, label %2731
+  %.not.i4991 = icmp eq i64 %2730, 0
+  br i1 %.not.i4991, label %2734, label %2731
 
 2731:                                             ; preds = %2729
   %2732 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %2733 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %2730) #5
-  br label %add_id.exit4993
+  br label %add_id.exit4992
 
 2734:                                             ; preds = %2729
   %2735 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %2725) #5
-  br label %add_id.exit4993
+  br label %add_id.exit4992
 
-add_id.exit4993:                                  ; preds = %2727, %2731, %2734
+add_id.exit4992:                                  ; preds = %2727, %2731, %2734
   %2736 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2737 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %2738 = select i1 %.not4311, i32 7, i32 27
@@ -4830,23 +4830,23 @@ add_id.exit4993:                                  ; preds = %2727, %2731, %2734
 
 2798:                                             ; preds = %.critedge4828
   %2799 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4995
+  br label %add_id.exit4994
 
 2800:                                             ; preds = %.critedge4828
   %2801 = tail call i64 @rb_id2str(i64 noundef %2796) #5
-  %.not.i4994 = icmp eq i64 %2801, 0
-  br i1 %.not.i4994, label %2805, label %2802
+  %.not.i4993 = icmp eq i64 %2801, 0
+  br i1 %.not.i4993, label %2805, label %2802
 
 2802:                                             ; preds = %2800
   %2803 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %2804 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %2801) #5
-  br label %add_id.exit4995
+  br label %add_id.exit4994
 
 2805:                                             ; preds = %2800
   %2806 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %2796) #5
-  br label %add_id.exit4995
+  br label %add_id.exit4994
 
-add_id.exit4995:                                  ; preds = %2798, %2802, %2805
+add_id.exit4994:                                  ; preds = %2798, %2802, %2805
   %2807 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2808 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %2809 = select i1 %.not4303, i32 7, i32 18
@@ -4856,25 +4856,25 @@ add_id.exit4995:                                  ; preds = %2798, %2802, %2805
   %2813 = icmp eq i64 %2812, 0
   br i1 %2813, label %2814, label %2816
 
-2814:                                             ; preds = %add_id.exit4995
+2814:                                             ; preds = %add_id.exit4994
   %2815 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit4997
+  br label %add_id.exit4996
 
-2816:                                             ; preds = %add_id.exit4995
+2816:                                             ; preds = %add_id.exit4994
   %2817 = tail call i64 @rb_id2str(i64 noundef %2812) #5
-  %.not.i4996 = icmp eq i64 %2817, 0
-  br i1 %.not.i4996, label %2821, label %2818
+  %.not.i4995 = icmp eq i64 %2817, 0
+  br i1 %.not.i4995, label %2821, label %2818
 
 2818:                                             ; preds = %2816
   %2819 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %2820 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %2817) #5
-  br label %add_id.exit4997
+  br label %add_id.exit4996
 
 2821:                                             ; preds = %2816
   %2822 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %2812) #5
-  br label %add_id.exit4997
+  br label %add_id.exit4996
 
-add_id.exit4997:                                  ; preds = %2814, %2818, %2821
+add_id.exit4996:                                  ; preds = %2814, %2818, %2821
   %2823 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2824 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %2825 = select i1 %.not4303, i32 11, i32 14
@@ -4915,8 +4915,8 @@ add_id.exit4997:                                  ; preds = %2814, %2818, %2821
   %2851 = getelementptr inbounds nuw i8, ptr %2850, i64 16
   %2852 = load ptr, ptr %2849, align 8, !tbaa !399
   %2853 = load i32, ptr %2852, align 8, !tbaa !402
-  %.not.i4998 = icmp eq i32 %2853, 3
-  br i1 %.not.i4998, label %.preheader, label %2854
+  %.not.i4997 = icmp eq i32 %2853, 3
+  br i1 %.not.i4997, label %.preheader, label %2854
 
 2854:                                             ; preds = %.critedge4831
   tail call void (ptr, ...) @rb_bug(ptr noundef nonnull @.str.488, i32 noundef %2853) #6
@@ -4932,30 +4932,30 @@ add_id.exit4997:                                  ; preds = %2814, %2818, %2821
   %2861 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %2862 = load i64, ptr %2858, align 8, !tbaa !404
   %2863 = icmp sgt i64 %2862, 0
-  br i1 %2863, label %.lr.ph5131, label %dump_parser_array.exit
+  br i1 %2863, label %.lr.ph5130, label %dump_parser_array.exit
 
-.lr.ph5131:                                       ; preds = %.preheader
+.lr.ph5130:                                       ; preds = %.preheader
   %2864 = getelementptr inbounds nuw i8, ptr %2852, i64 8
   br label %2865
 
-2865:                                             ; preds = %.lr.ph5131, %2865
-  %2866 = phi i64 [ %2862, %.lr.ph5131 ], [ %2879, %2865 ]
-  %.0.i5130 = phi i64 [ 0, %.lr.ph5131 ], [ %2878, %2865 ]
-  %.028.i5129 = phi ptr [ @default_indent, %.lr.ph5131 ], [ %spec.select.i, %2865 ]
+2865:                                             ; preds = %.lr.ph5130, %2865
+  %2866 = phi i64 [ %2862, %.lr.ph5130 ], [ %2879, %2865 ]
+  %.0.i5129 = phi i64 [ 0, %.lr.ph5130 ], [ %2878, %2865 ]
+  %.028.i5128 = phi ptr [ @default_indent, %.lr.ph5130 ], [ %spec.select.i, %2865 ]
   %2867 = add nsw i64 %2866, -1
-  %2868 = icmp eq i64 %.0.i5130, %2867
-  %spec.select.i = select i1 %2868, ptr @.str.12, ptr %.028.i5129
+  %2868 = icmp eq i64 %.0.i5129, %2867
+  %spec.select.i = select i1 %2868, ptr @.str.12, ptr %.028.i5128
   %2869 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
-  %2870 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.490, ptr noundef nonnull %2844, i64 noundef %.0.i5130) #5
+  %2870 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.490, ptr noundef nonnull %2844, i64 noundef %.0.i5129) #5
   %2871 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef %spec.select.i) #5
   %2872 = load ptr, ptr %2864, align 8, !tbaa !405
-  %2873 = getelementptr ptr, ptr %2872, i64 %.0.i5130
+  %2873 = getelementptr ptr, ptr %2872, i64 %.0.i5129
   %2874 = load ptr, ptr %2873, align 8, !tbaa !406
   tail call fastcc void @dump_node(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %2874)
   %2875 = load i64, ptr %2851, align 8, !tbaa !27
   %2876 = add i64 %2875, -4
   %2877 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %2876) #5
-  %2878 = add nuw nsw i64 %.0.i5130, 1
+  %2878 = add nuw nsw i64 %.0.i5129, 1
   %2879 = load i64, ptr %2858, align 8, !tbaa !404
   %2880 = icmp slt i64 %2878, %2879
   br i1 %2880, label %2865, label %dump_parser_array.exit, !llvm.loop !407
@@ -5126,23 +5126,23 @@ dump_parser_array.exit:                           ; preds = %2865, %.preheader
 
 2999:                                             ; preds = %.critedge4843
   %3000 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit5000
+  br label %add_id.exit4999
 
 3001:                                             ; preds = %.critedge4843
   %3002 = tail call i64 @rb_id2str(i64 noundef %2997) #5
-  %.not.i4999 = icmp eq i64 %3002, 0
-  br i1 %.not.i4999, label %3006, label %3003
+  %.not.i4998 = icmp eq i64 %3002, 0
+  br i1 %.not.i4998, label %3006, label %3003
 
 3003:                                             ; preds = %3001
   %3004 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %3005 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %3002) #5
-  br label %add_id.exit5000
+  br label %add_id.exit4999
 
 3006:                                             ; preds = %3001
   %3007 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %2997) #5
-  br label %add_id.exit5000
+  br label %add_id.exit4999
 
-add_id.exit5000:                                  ; preds = %2999, %3003, %3006
+add_id.exit4999:                                  ; preds = %2999, %3003, %3006
   %3008 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %3009 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3010 = select i1 %.not4287, i32 7, i32 18
@@ -5182,23 +5182,23 @@ add_id.exit5000:                                  ; preds = %2999, %3003, %3006
 
 3033:                                             ; preds = %.critedge4846
   %3034 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit5002
+  br label %add_id.exit5001
 
 3035:                                             ; preds = %.critedge4846
   %3036 = tail call i64 @rb_id2str(i64 noundef %3031) #5
-  %.not.i5001 = icmp eq i64 %3036, 0
-  br i1 %.not.i5001, label %3040, label %3037
+  %.not.i5000 = icmp eq i64 %3036, 0
+  br i1 %.not.i5000, label %3040, label %3037
 
 3037:                                             ; preds = %3035
   %3038 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %3039 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %3036) #5
-  br label %add_id.exit5002
+  br label %add_id.exit5001
 
 3040:                                             ; preds = %3035
   %3041 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %3031) #5
-  br label %add_id.exit5002
+  br label %add_id.exit5001
 
-add_id.exit5002:                                  ; preds = %3033, %3037, %3040
+add_id.exit5001:                                  ; preds = %3033, %3037, %3040
   %3042 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
@@ -5461,23 +5461,23 @@ add_id.exit5002:                                  ; preds = %3033, %3037, %3040
 
 3207:                                             ; preds = %.critedge4882
   %3208 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit5004
+  br label %add_id.exit5003
 
 3209:                                             ; preds = %.critedge4882
   %3210 = tail call i64 @rb_id2str(i64 noundef %3205) #5
-  %.not.i5003 = icmp eq i64 %3210, 0
-  br i1 %.not.i5003, label %3214, label %3211
+  %.not.i5002 = icmp eq i64 %3210, 0
+  br i1 %.not.i5002, label %3214, label %3211
 
 3211:                                             ; preds = %3209
   %3212 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %3213 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %3210) #5
-  br label %add_id.exit5004
+  br label %add_id.exit5003
 
 3214:                                             ; preds = %3209
   %3215 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %3205) #5
-  br label %add_id.exit5004
+  br label %add_id.exit5003
 
-add_id.exit5004:                                  ; preds = %3207, %3211, %3214
+add_id.exit5003:                                  ; preds = %3207, %3211, %3214
   %3216 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %3217 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3218 = select i1 %.not4263, i32 7, i32 19
@@ -5650,9 +5650,9 @@ add_id.exit5004:                                  ; preds = %3207, %3211, %3214
   %3343 = load ptr, ptr %3342, align 8, !tbaa !466
   %.not4248 = icmp eq ptr %3343, inttoptr (i64 -1 to ptr)
   %3344 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
-  br i1 %.not4248, label %.loopexit5109, label %.loopexit5110
+  br i1 %.not4248, label %.loopexit5108, label %.loopexit5109
 
-.loopexit5110:                                    ; preds = %.critedge4894
+.loopexit5109:                                    ; preds = %.critedge4894
   %3345 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3341, ptr noundef nonnull @.str.432) #5
   %3346 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #5
   %3347 = inttoptr i64 %1 to ptr
@@ -5662,17 +5662,17 @@ add_id.exit5004:                                  ; preds = %3207, %3211, %3214
   %3350 = load i64, ptr %3348, align 8, !tbaa !27
   %3351 = add i64 %3350, -4
   %3352 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %3351) #5
-  br label %.critedge4638.loopexit5108
+  br label %.critedge4638.loopexit5107
 
-.loopexit5109:                                    ; preds = %.critedge4894
+.loopexit5108:                                    ; preds = %.critedge4894
   %3353 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %3341, ptr noundef nonnull @.str.432) #5
   %3354 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.130, i64 noundef 54) #5
   %3355 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %.pre = inttoptr i64 %1 to ptr
-  br label %.critedge4638.loopexit5108
+  br label %.critedge4638.loopexit5107
 
-.critedge4638.loopexit5108:                       ; preds = %.loopexit5110, %.loopexit5109
-  %.pre-phi = phi ptr [ %3347, %.loopexit5110 ], [ %.pre, %.loopexit5109 ]
+.critedge4638.loopexit5107:                       ; preds = %.loopexit5109, %.loopexit5108
+  %.pre-phi = phi ptr [ %3347, %.loopexit5109 ], [ %.pre, %.loopexit5108 ]
   %3356 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3357 = select i1 %.not4247, i32 6, i32 23
   %3358 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3357, ptr noundef nonnull @.str.433) #5
@@ -5765,23 +5765,23 @@ add_id.exit5004:                                  ; preds = %3207, %3211, %3214
 
 3425:                                             ; preds = %3383
   %3426 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit5006
+  br label %add_id.exit5005
 
 3427:                                             ; preds = %3383
   %3428 = tail call i64 @rb_id2str(i64 noundef %3423) #5
-  %.not.i5005 = icmp eq i64 %3428, 0
-  br i1 %.not.i5005, label %3432, label %3429
+  %.not.i5004 = icmp eq i64 %3428, 0
+  br i1 %.not.i5004, label %3432, label %3429
 
 3429:                                             ; preds = %3427
   %3430 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %3431 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %3428) #5
-  br label %add_id.exit5006
+  br label %add_id.exit5005
 
 3432:                                             ; preds = %3427
   %3433 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %3423) #5
-  br label %add_id.exit5006
+  br label %add_id.exit5005
 
-add_id.exit5006:                                  ; preds = %3425, %3429, %3432
+add_id.exit5005:                                  ; preds = %3425, %3429, %3432
   %3434 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %3435 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3436 = select i1 %.not4235, i32 17, i32 33
@@ -5793,29 +5793,29 @@ add_id.exit5006:                                  ; preds = %3425, %3429, %3432
     i64 0, label %3442
   ]
 
-3440:                                             ; preds = %add_id.exit5006
+3440:                                             ; preds = %add_id.exit5005
   %3441 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.444, i64 noundef 18) #5
-  br label %add_id.exit5008
+  br label %add_id.exit5007
 
-3442:                                             ; preds = %add_id.exit5006
+3442:                                             ; preds = %add_id.exit5005
   %3443 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit5008
+  br label %add_id.exit5007
 
-3444:                                             ; preds = %add_id.exit5006
+3444:                                             ; preds = %add_id.exit5005
   %3445 = tail call i64 @rb_id2str(i64 noundef %3439) #5
-  %.not.i5007 = icmp eq i64 %3445, 0
-  br i1 %.not.i5007, label %3449, label %3446
+  %.not.i5006 = icmp eq i64 %3445, 0
+  br i1 %.not.i5006, label %3449, label %3446
 
 3446:                                             ; preds = %3444
   %3447 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %3448 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %3445) #5
-  br label %add_id.exit5008
+  br label %add_id.exit5007
 
 3449:                                             ; preds = %3444
   %3450 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %3439) #5
-  br label %add_id.exit5008
+  br label %add_id.exit5007
 
-add_id.exit5008:                                  ; preds = %3449, %3446, %3442, %3440
+add_id.exit5007:                                  ; preds = %3449, %3446, %3442, %3440
   %3451 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %3452 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3453 = select i1 %.not4235, i32 18, i32 35
@@ -5825,25 +5825,25 @@ add_id.exit5008:                                  ; preds = %3449, %3446, %3442,
   %3457 = icmp eq i64 %3456, 0
   br i1 %3457, label %3458, label %3460
 
-3458:                                             ; preds = %add_id.exit5008
+3458:                                             ; preds = %add_id.exit5007
   %3459 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit5010
+  br label %add_id.exit5009
 
-3460:                                             ; preds = %add_id.exit5008
+3460:                                             ; preds = %add_id.exit5007
   %3461 = tail call i64 @rb_id2str(i64 noundef %3456) #5
-  %.not.i5009 = icmp eq i64 %3461, 0
-  br i1 %.not.i5009, label %3465, label %3462
+  %.not.i5008 = icmp eq i64 %3461, 0
+  br i1 %.not.i5008, label %3465, label %3462
 
 3462:                                             ; preds = %3460
   %3463 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %3464 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %3461) #5
-  br label %add_id.exit5010
+  br label %add_id.exit5009
 
 3465:                                             ; preds = %3460
   %3466 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %3456) #5
-  br label %add_id.exit5010
+  br label %add_id.exit5009
 
-add_id.exit5010:                                  ; preds = %3458, %3462, %3465
+add_id.exit5009:                                  ; preds = %3458, %3462, %3465
   %3467 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %3468 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3469 = select i1 %.not4235, i32 17, i32 38
@@ -5879,30 +5879,30 @@ add_id.exit5010:                                  ; preds = %3458, %3462, %3465
 
 3495:                                             ; preds = %9
   %.not4230 = icmp eq i32 %2, 0
-  br i1 %.not4230, label %.critedge4900, label %3496
+  br i1 %.not4230, label %.critedge4899, label %3496
 
 3496:                                             ; preds = %3495
   %3497 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3498 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.449, i64 noundef 14) #5
   %3499 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3500 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.450, i64 noundef 73) #5
-  br label %.critedge4900
+  br label %.critedge4899
 
-.critedge4900:                                    ; preds = %3495, %3496
+.critedge4899:                                    ; preds = %3495, %3496
   %3501 = phi i32 [ 20, %3496 ], [ 6, %3495 ]
   %3502 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3503 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %3501, ptr noundef nonnull @.str.451) #5
   %3504 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %3505 = load ptr, ptr %3504, align 8, !tbaa !481
   %.not4234 = icmp eq ptr %3505, null
-  br i1 %.not4234, label %.thread5218, label %3506
+  br i1 %.not4234, label %.thread5217, label %3506
 
-3506:                                             ; preds = %.critedge4900
+3506:                                             ; preds = %.critedge4899
   %3507 = load i32, ptr %3505, align 8, !tbaa !485
   %3508 = icmp eq i32 %3507, 0
-  br i1 %3508, label %.thread5218, label %3510
+  br i1 %3508, label %.thread5217, label %3510
 
-.thread5218:                                      ; preds = %3506, %.critedge4900
+.thread5217:                                      ; preds = %3506, %.critedge4899
   %3509 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.452, i64 noundef 7) #5
   br label %._crit_edge
 
@@ -5926,36 +5926,36 @@ add_id.exit5010:                                  ; preds = %3458, %3462, %3465
 
 3519:                                             ; preds = %3515
   %3520 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.482, i64 noundef 6) #5
-  br label %add_id.exit5012
+  br label %add_id.exit5011
 
 3521:                                             ; preds = %3515
   %3522 = tail call i64 @rb_id2str(i64 noundef %3517) #5
-  %.not.i5011 = icmp eq i64 %3522, 0
-  br i1 %.not.i5011, label %3526, label %3523
+  %.not.i5010 = icmp eq i64 %3522, 0
+  br i1 %.not.i5010, label %3526, label %3523
 
 3523:                                             ; preds = %3521
   %3524 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.483, i64 noundef 1) #5
   %3525 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %3522) #5
-  br label %add_id.exit5012
+  br label %add_id.exit5011
 
 3526:                                             ; preds = %3521
   %3527 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.484, i64 noundef %3517) #5
-  br label %add_id.exit5012
+  br label %add_id.exit5011
 
-add_id.exit5012:                                  ; preds = %3519, %3523, %3526
+add_id.exit5011:                                  ; preds = %3519, %3523, %3526
   %3528 = icmp samesign ult i64 %indvars.iv, %3514
   br i1 %3528, label %3529, label %3531
 
-3529:                                             ; preds = %add_id.exit5012
+3529:                                             ; preds = %add_id.exit5011
   %3530 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.453, i64 noundef 1) #5
   br label %3531
 
-3531:                                             ; preds = %add_id.exit5012, %3529
+3531:                                             ; preds = %add_id.exit5011, %3529
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %3515, !llvm.loop !487
 
-._crit_edge:                                      ; preds = %3531, %.thread5218, %3510
+._crit_edge:                                      ; preds = %3531, %.thread5217, %3510
   %3532 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   %3533 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3534 = select i1 %.not4230, i32 7, i32 19
@@ -5983,16 +5983,16 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
 
 3553:                                             ; preds = %9
   %.not4223 = icmp eq i32 %2, 0
-  br i1 %.not4223, label %.critedge4902, label %3554
+  br i1 %.not4223, label %.critedge4901, label %3554
 
 3554:                                             ; preds = %3553
   %3555 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3556 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.454, i64 noundef 18) #5
   %3557 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3558 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.455, i64 noundef 72) #5
-  br label %.critedge4902
+  br label %.critedge4901
 
-.critedge4902:                                    ; preds = %3553, %3554
+.critedge4901:                                    ; preds = %3553, %3554
   %3559 = phi i32 [ 24, %3554 ], [ 8, %3553 ]
   %3560 = phi i32 [ 20, %3554 ], [ 9, %3553 ]
   %3561 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
@@ -6019,9 +6019,9 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
   %3580 = load ptr, ptr %3579, align 8, !tbaa !493
   %.not4226 = icmp eq ptr %3580, inttoptr (i64 -1 to ptr)
   %3581 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
-  br i1 %.not4226, label %.loopexit5114, label %.loopexit5115
+  br i1 %.not4226, label %.loopexit5113, label %.loopexit5114
 
-.loopexit5115:                                    ; preds = %.critedge4902
+.loopexit5114:                                    ; preds = %.critedge4901
   %3582 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3559, ptr noundef nonnull @.str.458) #5
   %3583 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #5
   %3584 = load ptr, ptr %3579, align 8, !tbaa !493
@@ -6029,15 +6029,15 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
   %3585 = load i64, ptr %3566, align 8, !tbaa !27
   %3586 = add i64 %3585, -4
   %3587 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %3586) #5
-  br label %.critedge4638.loopexit5113
+  br label %.critedge4638.loopexit5112
 
-.loopexit5114:                                    ; preds = %.critedge4902
+.loopexit5113:                                    ; preds = %.critedge4901
   %3588 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %3559, ptr noundef nonnull @.str.458) #5
   %3589 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.130, i64 noundef 54) #5
   %3590 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
-  br label %.critedge4638.loopexit5113
+  br label %.critedge4638.loopexit5112
 
-.critedge4638.loopexit5113:                       ; preds = %.loopexit5115, %.loopexit5114
+.critedge4638.loopexit5112:                       ; preds = %.loopexit5114, %.loopexit5113
   %3591 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3592 = select i1 %.not4223, i32 9, i32 26
   %3593 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3592, ptr noundef nonnull @.str.459) #5
@@ -6052,16 +6052,16 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
 
 3600:                                             ; preds = %9
   %.not4214 = icmp eq i32 %2, 0
-  br i1 %.not4214, label %.critedge4904, label %3601
+  br i1 %.not4214, label %.critedge4903, label %3601
 
 3601:                                             ; preds = %3600
   %3602 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3603 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.460, i64 noundef 17) #5
   %3604 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3605 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.461, i64 noundef 70) #5
-  br label %.critedge4904
+  br label %.critedge4903
 
-.critedge4904:                                    ; preds = %3600, %3601
+.critedge4903:                                    ; preds = %3600, %3601
   %3606 = phi i32 [ 32, %3601 ], [ 12, %3600 ]
   %3607 = phi i32 [ 20, %3601 ], [ 9, %3600 ]
   %3608 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
@@ -6079,9 +6079,9 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
   %3619 = load ptr, ptr %3618, align 8, !tbaa !497
   %.not4216 = icmp eq ptr %3619, inttoptr (i64 -1 to ptr)
   %3620 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
-  br i1 %.not4216, label %.loopexit5118, label %.loopexit5119
+  br i1 %.not4216, label %.loopexit5117, label %.loopexit5118
 
-.loopexit5119:                                    ; preds = %.critedge4904
+.loopexit5118:                                    ; preds = %.critedge4903
   %3621 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3606, ptr noundef nonnull @.str.462) #5
   %3622 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @default_indent) #5
   %3623 = load ptr, ptr %3618, align 8, !tbaa !497
@@ -6091,13 +6091,13 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
   %3626 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %3625) #5
   br label %3630
 
-.loopexit5118:                                    ; preds = %.critedge4904
+.loopexit5117:                                    ; preds = %.critedge4903
   %3627 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %3606, ptr noundef nonnull @.str.462) #5
   %3628 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.130, i64 noundef 54) #5
   %3629 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %3630
 
-3630:                                             ; preds = %.loopexit5119, %.loopexit5118
+3630:                                             ; preds = %.loopexit5118, %.loopexit5117
   %3631 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3632 = select i1 %.not4214, i32 4, i32 16
   %3633 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3632, ptr noundef nonnull @.str.463) #5
@@ -6113,9 +6113,9 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
   %.not4220 = icmp eq ptr %3641, inttoptr (i64 -1 to ptr)
   %3642 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3643 = select i1 %.not4214, i32 13, i32 34
-  br i1 %.not4220, label %.critedge4638.loopexit5116, label %.critedge4638.loopexit5117
+  br i1 %.not4220, label %.critedge4638.loopexit5115, label %.critedge4638.loopexit5116
 
-.critedge4638.loopexit5117:                       ; preds = %3630
+.critedge4638.loopexit5116:                       ; preds = %3630
   %3644 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3643, ptr noundef nonnull @.str.464) #5
   %3645 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #5
   %3646 = load ptr, ptr %3640, align 8, !tbaa !499
@@ -6125,7 +6125,7 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
   %3649 = tail call i64 @rb_str_resize(i64 noundef %1, i64 noundef %3648) #5
   br label %common.ret
 
-.critedge4638.loopexit5116:                       ; preds = %3630
+.critedge4638.loopexit5115:                       ; preds = %3630
   %3650 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %3643, ptr noundef nonnull @.str.464) #5
   %3651 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.130, i64 noundef 54) #5
   %3652 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
@@ -6133,16 +6133,16 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
 
 3653:                                             ; preds = %9
   %.not4209 = icmp eq i32 %2, 0
-  br i1 %.not4209, label %.critedge4906, label %3654
+  br i1 %.not4209, label %.critedge4905, label %3654
 
 3654:                                             ; preds = %3653
   %3655 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3656 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.465, i64 noundef 17) #5
   %3657 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3658 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.466, i64 noundef 62) #5
-  br label %.critedge4906
+  br label %.critedge4905
 
-.critedge4906:                                    ; preds = %3653, %3654
+.critedge4905:                                    ; preds = %3653, %3654
   %3659 = phi i32 [ 37, %3654 ], [ 13, %3653 ]
   %3660 = phi i32 [ 30, %3654 ], [ 10, %3653 ]
   %3661 = phi i32 [ 20, %3654 ], [ 9, %3653 ]
@@ -6170,15 +6170,15 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
   %3681 = load ptr, ptr %3680, align 8, !tbaa !503
   %3682 = icmp eq ptr %3681, inttoptr (i64 -1 to ptr)
   %3683 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
-  br i1 %3682, label %.critedge4638.loopexit5120, label %.critedge4638.loopexit5121
+  br i1 %3682, label %.critedge4638.loopexit5119, label %.critedge4638.loopexit5120
 
-.critedge4638.loopexit5120:                       ; preds = %.critedge4906
+.critedge4638.loopexit5119:                       ; preds = %.critedge4905
   %3684 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %3659, ptr noundef nonnull @.str.468) #5
   %3685 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.469, i64 noundef 36) #5
   %3686 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
-.critedge4638.loopexit5121:                       ; preds = %.critedge4906
+.critedge4638.loopexit5120:                       ; preds = %.critedge4905
   %3687 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.13, i32 noundef %3659, ptr noundef nonnull @.str.468) #5
   %3688 = tail call i64 @rb_str_cat_cstr(i64 noundef %1, ptr noundef nonnull @.str.12) #5
   %3689 = load ptr, ptr %3680, align 8, !tbaa !503
@@ -6190,9 +6190,9 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
 
 3693:                                             ; preds = %9
   %.not4208 = icmp eq i32 %2, 0
-  br i1 %.not4208, label %common.ret, label %.critedge4908
+  br i1 %.not4208, label %common.ret, label %.critedge4907
 
-.critedge4908:                                    ; preds = %3693
+.critedge4907:                                    ; preds = %3693
   %3694 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3695 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.470, i64 noundef 9) #5
   %3696 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
@@ -6203,19 +6203,19 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
 
 3700:                                             ; preds = %9
   %.not4206 = icmp eq i32 %2, 0
-  br i1 %.not4206, label %.critedge4912, label %.critedge4911
+  br i1 %.not4206, label %.critedge4911, label %.critedge4910
 
-.critedge4911:                                    ; preds = %3700
+.critedge4910:                                    ; preds = %3700
   %3701 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3702 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.470, i64 noundef 9) #5
   %3703 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3704 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.473, i64 noundef 19) #5
   %3705 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3706 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.474, i64 noundef 22) #5
-  br label %.critedge4912
+  br label %.critedge4911
 
-.critedge4912:                                    ; preds = %3700, %.critedge4911
-  %3707 = phi i32 [ 11, %.critedge4911 ], [ 4, %3700 ]
+.critedge4911:                                    ; preds = %3700, %.critedge4910
+  %3707 = phi i32 [ 11, %.critedge4910 ], [ 4, %3700 ]
   %3708 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3709 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %3707, ptr noundef nonnull @.str.475) #5
   %3710 = tail call i64 @rb_node_file_path_val(ptr noundef nonnull %3) #5
@@ -6225,53 +6225,53 @@ add_id.exit5012:                                  ; preds = %3519, %3523, %3526
   %3714 = or i1 %3711, %3713
   br i1 %3714, label %3725, label %3715
 
-3715:                                             ; preds = %.critedge4912
+3715:                                             ; preds = %.critedge4911
   %3716 = inttoptr i64 %3710 to ptr
   %3717 = load i64, ptr %3716, align 8, !tbaa !7
   %3718 = trunc i64 %3717 to i32
   %3719 = and i32 %3718, 31
   switch i32 %3719, label %3725 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5013
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5013
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5013
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5012
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5012
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5012
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i5013:           ; preds = %3715, %3715, %3715
+rbimpl_RB_TYPE_P_fastpath.exit.i.i5012:           ; preds = %3715, %3715, %3715
   %3720 = tail call i64 @rb_class_path(i64 noundef %3710) #5
   %3721 = load i64, ptr %3716, align 8, !tbaa !7
   %3722 = and i64 %3721, 8223
-  %or.cond.i5014 = icmp eq i64 %3722, 8194
-  br i1 %or.cond.i5014, label %3723, label %rb_dump_literal.exit5016
+  %or.cond.i5013 = icmp eq i64 %3722, 8194
+  br i1 %or.cond.i5013, label %3723, label %rb_dump_literal.exit5015
 
-3723:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5013
+3723:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5012
   %3724 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %3720) #5
-  br label %rb_dump_literal.exit5016
+  br label %rb_dump_literal.exit5015
 
-3725:                                             ; preds = %3715, %.critedge4912
+3725:                                             ; preds = %3715, %.critedge4911
   %3726 = tail call i64 @rb_inspect(i64 noundef %3710) #5
-  br label %rb_dump_literal.exit5016
+  br label %rb_dump_literal.exit5015
 
-rb_dump_literal.exit5016:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5013, %3723, %3725
-  %.1.i5015 = phi i64 [ %3726, %3725 ], [ %3724, %3723 ], [ %3720, %rbimpl_RB_TYPE_P_fastpath.exit.i.i5013 ]
-  %3727 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i5015) #5
+rb_dump_literal.exit5015:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5012, %3723, %3725
+  %.1.i5014 = phi i64 [ %3726, %3725 ], [ %3724, %3723 ], [ %3720, %rbimpl_RB_TYPE_P_fastpath.exit.i.i5012 ]
+  %3727 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i5014) #5
   %3728 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 
 3729:                                             ; preds = %9
   %.not4204 = icmp eq i32 %2, 0
-  br i1 %.not4204, label %.critedge4915, label %.critedge4914
+  br i1 %.not4204, label %.critedge4914, label %.critedge4913
 
-.critedge4914:                                    ; preds = %3729
+.critedge4913:                                    ; preds = %3729
   %3730 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3731 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.476, i64 noundef 13) #5
   %3732 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3733 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.477, i64 noundef 18) #5
   %3734 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3735 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.478, i64 noundef 26) #5
-  br label %.critedge4915
+  br label %.critedge4914
 
-.critedge4915:                                    ; preds = %3729, %.critedge4914
-  %3736 = phi i32 [ 9, %.critedge4914 ], [ 3, %3729 ]
+.critedge4914:                                    ; preds = %3729, %.critedge4913
+  %3736 = phi i32 [ 9, %.critedge4913 ], [ 3, %3729 ]
   %3737 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %1) #5
   %3738 = tail call i64 (i64, ptr, ...) @rb_str_catf(i64 noundef %0, ptr noundef nonnull @.str.21, i32 noundef %3736, ptr noundef nonnull @.str.479) #5
   %3739 = tail call i64 @rb_node_encoding_val(ptr noundef nonnull %3) #5
@@ -6281,35 +6281,35 @@ rb_dump_literal.exit5016:                         ; preds = %rbimpl_RB_TYPE_P_fa
   %3743 = or i1 %3740, %3742
   br i1 %3743, label %3754, label %3744
 
-3744:                                             ; preds = %.critedge4915
+3744:                                             ; preds = %.critedge4914
   %3745 = inttoptr i64 %3739 to ptr
   %3746 = load i64, ptr %3745, align 8, !tbaa !7
   %3747 = trunc i64 %3746 to i32
   %3748 = and i32 %3747, 31
   switch i32 %3748, label %3754 [
-    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5017
-    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5017
-    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5017
+    i32 2, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5016
+    i32 3, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5016
+    i32 28, label %rbimpl_RB_TYPE_P_fastpath.exit.i.i5016
   ]
 
-rbimpl_RB_TYPE_P_fastpath.exit.i.i5017:           ; preds = %3744, %3744, %3744
+rbimpl_RB_TYPE_P_fastpath.exit.i.i5016:           ; preds = %3744, %3744, %3744
   %3749 = tail call i64 @rb_class_path(i64 noundef %3739) #5
   %3750 = load i64, ptr %3745, align 8, !tbaa !7
   %3751 = and i64 %3750, 8223
-  %or.cond.i5018 = icmp eq i64 %3751, 8194
-  br i1 %or.cond.i5018, label %3752, label %rb_dump_literal.exit5020
+  %or.cond.i5017 = icmp eq i64 %3751, 8194
+  br i1 %or.cond.i5017, label %3752, label %rb_dump_literal.exit5019
 
-3752:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5017
+3752:                                             ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5016
   %3753 = tail call i64 (ptr, ...) @rb_sprintf(ptr noundef nonnull @.str, i64 noundef %3749) #5
-  br label %rb_dump_literal.exit5020
+  br label %rb_dump_literal.exit5019
 
-3754:                                             ; preds = %3744, %.critedge4915
+3754:                                             ; preds = %3744, %.critedge4914
   %3755 = tail call i64 @rb_inspect(i64 noundef %3739) #5
-  br label %rb_dump_literal.exit5020
+  br label %rb_dump_literal.exit5019
 
-rb_dump_literal.exit5020:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5017, %3752, %3754
-  %.1.i5019 = phi i64 [ %3755, %3754 ], [ %3753, %3752 ], [ %3749, %rbimpl_RB_TYPE_P_fastpath.exit.i.i5017 ]
-  %3756 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i5019) #5
+rb_dump_literal.exit5019:                         ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i.i5016, %3752, %3754
+  %.1.i5018 = phi i64 [ %3755, %3754 ], [ %3753, %3752 ], [ %3749, %rbimpl_RB_TYPE_P_fastpath.exit.i.i5016 ]
+  %3756 = tail call i64 @rb_str_concat(i64 noundef %0, i64 noundef %.1.i5018) #5
   %3757 = tail call i64 @rb_str_cat(i64 noundef %0, ptr noundef nonnull @.str.24, i64 noundef 1) #5
   br label %common.ret
 

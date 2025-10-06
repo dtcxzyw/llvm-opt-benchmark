@@ -549,8 +549,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   br label %20
 
 20:                                               ; preds = %15, %6
-  %.not63 = icmp eq i64 %3, 0
-  br i1 %.not63, label %.thread56, label %.lr.ph
+  %.not54 = icmp eq i64 %3, 0
+  br i1 %.not54, label %select.unfold, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -565,11 +565,11 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
   %27 = and i64 %12, 4294967295
   br label %28
 
-28:                                               ; preds = %.lr.ph, %.thread
-  %.04066 = phi i64 [ %3, %.lr.ph ], [ %.255, %.thread ]
-  %.04165 = phi i64 [ 0, %.lr.ph ], [ %.14254, %.thread ]
-  %.04364 = phi i64 [ 0, %.lr.ph ], [ %126, %.thread ]
-  %29 = mul i64 %.04364, %.sroa.5.0.extract.shift
+28:                                               ; preds = %.lr.ph, %125
+  %.04057 = phi i64 [ %3, %.lr.ph ], [ %.2.ph, %125 ]
+  %.04156 = phi i64 [ 0, %.lr.ph ], [ %.142.ph, %125 ]
+  %.04355 = phi i64 [ 0, %.lr.ph ], [ %127, %125 ]
+  %29 = mul i64 %.04355, %.sroa.5.0.extract.shift
   %30 = trunc i64 %29 to i32
   %31 = add i32 %30, %.sroa.5.0.extract.trunc
   %32 = load i32, ptr %21, align 4, !tbaa !34
@@ -709,76 +709,76 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL25FASTCOVER_buildDictionary
 
 _ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT_cover_params_tEPt.exit: ; preds = %86, %.preheader.i
   %.sroa.049.sroa.0.0.insert.ext.i = zext i32 %.sroa.049.sroa.0.0.lcssa.i to i64
-  br i1 %.sroa.6.0.lcssa.i, label %122, label %93
+  br i1 %.sroa.6.0.lcssa.i, label %93, label %96
 
 93:                                               ; preds = %_ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT_cover_params_tEPt.exit
-  %94 = add i32 %25, %.sroa.049.sroa.4.0.lcssa.i
-  %95 = sub i32 %94, %.sroa.049.sroa.0.0.lcssa.i
-  %96 = zext i32 %95 to i64
-  %..040 = tail call i64 @llvm.umin.i64(i64 %.04066, i64 %96)
-  %97 = icmp samesign ult i64 %..040, %26
-  br i1 %97, label %.thread56, label %98
+  %94 = add nuw nsw i64 %.04156, 1
+  %95 = icmp ugt i64 %.04156, 8
+  br i1 %95, label %select.unfold, label %125
 
-98:                                               ; preds = %93
-  %99 = sub i64 %.04066, %..040
-  %100 = getelementptr inbounds nuw i8, ptr %2, i64 %99
-  %101 = load ptr, ptr %0, align 8, !tbaa !29
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 %.sroa.049.sroa.0.0.insert.ext.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %100, ptr align 1 %102, i64 %..040, i1 false)
-  %103 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4, !tbaa !10
-  %104 = icmp sgt i32 %103, 1
-  br i1 %104, label %105, label %.thread
+96:                                               ; preds = %_ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT_cover_params_tEPt.exit
+  %97 = add i32 %25, %.sroa.049.sroa.4.0.lcssa.i
+  %98 = sub i32 %97, %.sroa.049.sroa.0.0.lcssa.i
+  %99 = zext i32 %98 to i64
+  %..040 = tail call i64 @llvm.umin.i64(i64 %.04057, i64 %99)
+  %100 = icmp samesign ult i64 %..040, %26
+  br i1 %100, label %select.unfold, label %101
 
-105:                                              ; preds = %98
-  %106 = tail call i64 @clock() #15
-  %107 = load i64, ptr @_ZN11duckdb_zstdL6g_timeE, align 8, !tbaa !35
-  %108 = sub nsw i64 %106, %107
-  %109 = icmp sgt i64 %108, 150000
-  %110 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4
-  %111 = icmp sgt i32 %110, 3
-  %or.cond = select i1 %109, i1 true, i1 %111
-  br i1 %or.cond, label %112, label %.thread
+101:                                              ; preds = %96
+  %102 = sub i64 %.04057, %..040
+  %103 = getelementptr inbounds nuw i8, ptr %2, i64 %102
+  %104 = load ptr, ptr %0, align 8, !tbaa !29
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 %.sroa.049.sroa.0.0.insert.ext.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %103, ptr align 1 %105, i64 %..040, i1 false)
+  %106 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4, !tbaa !10
+  %107 = icmp sgt i32 %106, 1
+  br i1 %107, label %108, label %125
 
-112:                                              ; preds = %105
-  %113 = tail call i64 @clock() #15
-  store i64 %113, ptr @_ZN11duckdb_zstdL6g_timeE, align 8, !tbaa !35
-  %114 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %115 = sub i64 %3, %99
-  %116 = mul i64 %115, 100
-  %117 = udiv i64 %116, %3
-  %118 = trunc i64 %117 to i32
-  %119 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %114, ptr noundef nonnull @.str.13, i32 noundef %118) #13
-  %120 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %121 = tail call i32 @fflush(ptr noundef %120)
-  br label %.thread
+108:                                              ; preds = %101
+  %109 = tail call i64 @clock() #15
+  %110 = load i64, ptr @_ZN11duckdb_zstdL6g_timeE, align 8, !tbaa !35
+  %111 = sub nsw i64 %109, %110
+  %112 = icmp sgt i64 %111, 150000
+  %113 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4
+  %114 = icmp sgt i32 %113, 3
+  %or.cond = select i1 %112, i1 true, i1 %114
+  br i1 %or.cond, label %115, label %125
 
-122:                                              ; preds = %_ZN11duckdb_zstdL23FASTCOVER_selectSegmentEPKNS_15FASTCOVER_ctx_tEPjjjNS_20ZDICT_cover_params_tEPt.exit
-  %123 = add nuw nsw i64 %.04165, 1
-  %124 = icmp ugt i64 %.04165, 8
-  br i1 %124, label %.thread56, label %.thread
+115:                                              ; preds = %108
+  %116 = tail call i64 @clock() #15
+  store i64 %116, ptr @_ZN11duckdb_zstdL6g_timeE, align 8, !tbaa !35
+  %117 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %118 = sub i64 %3, %102
+  %119 = mul i64 %118, 100
+  %120 = udiv i64 %119, %3
+  %121 = trunc i64 %120 to i32
+  %122 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull @.str.13, i32 noundef %121) #13
+  %123 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %124 = tail call i32 @fflush(ptr noundef %123)
+  br label %125
 
-.thread:                                          ; preds = %98, %105, %112, %122
-  %.255 = phi i64 [ %.04066, %122 ], [ %99, %112 ], [ %99, %105 ], [ %99, %98 ]
-  %.14254 = phi i64 [ %123, %122 ], [ 0, %112 ], [ 0, %105 ], [ 0, %98 ]
-  %125 = add nsw i64 %.04364, 1
-  %126 = urem i64 %125, %27
-  %.not = icmp eq i64 %.255, 0
-  br i1 %.not, label %.thread56, label %28, !llvm.loop !48
+125:                                              ; preds = %93, %115, %108, %101
+  %.142.ph = phi i64 [ 0, %101 ], [ 0, %108 ], [ 0, %115 ], [ %94, %93 ]
+  %.2.ph = phi i64 [ %102, %101 ], [ %102, %108 ], [ %102, %115 ], [ %.04057, %93 ]
+  %126 = add nsw i64 %.04355, 1
+  %127 = urem i64 %126, %27
+  %.not = icmp eq i64 %.2.ph, 0
+  br i1 %.not, label %select.unfold, label %28, !llvm.loop !48
 
-.thread56:                                        ; preds = %.thread, %122, %93, %20
-  %.040.lcssa = phi i64 [ 0, %20 ], [ %.04066, %93 ], [ %.04066, %122 ], [ 0, %.thread ]
-  %127 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4, !tbaa !10
-  %128 = icmp sgt i32 %127, 1
-  br i1 %128, label %129, label %134
+select.unfold:                                    ; preds = %125, %96, %93, %20
+  %.040.lcssa = phi i64 [ 0, %20 ], [ %.04057, %93 ], [ %.04057, %96 ], [ 0, %125 ]
+  %128 = load i32, ptr @_ZN11duckdb_zstdL14g_displayLevelE, align 4, !tbaa !10
+  %129 = icmp sgt i32 %128, 1
+  br i1 %129, label %130, label %135
 
-129:                                              ; preds = %.thread56
-  %130 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %131 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %130, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #13
-  %132 = load ptr, ptr @stderr, align 8, !tbaa !13
-  %133 = tail call i32 @fflush(ptr noundef %132)
-  br label %134
+130:                                              ; preds = %select.unfold
+  %131 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %132 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %131, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #13
+  %133 = load ptr, ptr @stderr, align 8, !tbaa !13
+  %134 = tail call i32 @fflush(ptr noundef %133)
+  br label %135
 
-134:                                              ; preds = %129, %.thread56
+135:                                              ; preds = %130, %select.unfold
   ret i64 %.040.lcssa
 }
 

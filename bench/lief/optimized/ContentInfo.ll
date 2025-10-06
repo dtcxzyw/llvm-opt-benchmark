@@ -106,8 +106,8 @@ define void @_ZNK4LIEF2PE11ContentInfo6digestEv(ptr dead_on_unwind noalias writa
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str) #11
   %7 = icmp ne i32 %6, 0
-  %.not.not5 = icmp eq ptr %4, null
-  %.not.not = or i1 %.not.not5, %7
+  %.not.not4 = icmp eq ptr %4, null
+  %.not.not = or i1 %.not.not4, %7
   br i1 %.not.not, label %24, label %8
 
 8:                                                ; preds = %2

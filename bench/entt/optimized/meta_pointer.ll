@@ -52827,16 +52827,16 @@ define linkonce_odr hidden noundef ptr @_ZN4entt8internal8try_castERKNS0_12meta_
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %15 = load ptr, ptr %14, align 8, !tbaa !84
-  %.not32 = icmp eq ptr %15, null
-  br i1 %.not32, label %.thread, label %16
+  %.not30 = icmp eq ptr %15, null
+  br i1 %.not30, label %.thread, label %16
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !899
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !899
-  %.not3334 = icmp eq ptr %18, %20
-  br i1 %.not3334, label %.thread, label %.lr.ph
+  %.not3132 = icmp eq ptr %18, %20
+  br i1 %.not3132, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 128
@@ -52844,17 +52844,17 @@ define linkonce_odr hidden noundef ptr @_ZN4entt8internal8try_castERKNS0_12meta_
   br label %25
 
 23:                                               ; preds = %_ZN4entt8internal14meta_type_nodeD2Ev.exit
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.025.035, i64 24
-  %.not33 = icmp eq ptr %24, %20
-  br i1 %.not33, label %.thread, label %25
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.025.033, i64 24
+  %.not31 = icmp eq ptr %24, %20
+  br i1 %.not31, label %.thread, label %25
 
 25:                                               ; preds = %.lr.ph, %23
-  %.sroa.025.035 = phi ptr [ %18, %.lr.ph ], [ %24, %23 ]
+  %.sroa.025.033 = phi ptr [ %18, %.lr.ph ], [ %24, %23 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.025.035, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.025.033, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !901
   call void %27(ptr dead_on_unwind nonnull writable sret(%"struct.entt::internal::meta_type_node") align 8 %5, ptr noundef nonnull align 8 dereferenceable(56) %0) #25
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.025.035, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.025.033, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !903
   %30 = call noundef ptr %29(ptr noundef %3) #25
   %31 = call noundef ptr @_ZN4entt8internal8try_castERKNS0_12meta_contextERKNS0_14meta_type_nodeERKNS_9type_infoEPKv(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(136) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef %30) #25
@@ -52960,8 +52960,8 @@ _ZN4entt8internal14meta_type_nodeD2Ev.exit:       ; preds = %_ZNSt12__shared_ptr
   %.not24 = icmp eq ptr %31, null
   br i1 %.not24, label %23, label %.thread
 
-.thread:                                          ; preds = %23, %_ZN4entt8internal14meta_type_nodeD2Ev.exit, %16, %13, %7
-  %.0 = phi ptr [ %3, %7 ], [ null, %13 ], [ null, %16 ], [ null, %23 ], [ %31, %_ZN4entt8internal14meta_type_nodeD2Ev.exit ]
+.thread:                                          ; preds = %_ZN4entt8internal14meta_type_nodeD2Ev.exit, %23, %16, %13, %7
+  %.0 = phi ptr [ %3, %7 ], [ null, %13 ], [ null, %16 ], [ %31, %_ZN4entt8internal14meta_type_nodeD2Ev.exit ], [ null, %23 ]
   ret ptr %.0
 }
 

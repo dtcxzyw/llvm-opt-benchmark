@@ -5776,8 +5776,8 @@ define internal void @_ZL42on_metadata_server_detection_http_responsePvN4absl12l
   br label %16
 
 16:                                               ; preds = %.preheader, %28
-  %.018 = phi i64 [ 0, %.preheader ], [ %29, %28 ]
-  %17 = getelementptr inbounds nuw %struct.grpc_http_header, ptr %15, i64 %.018
+  %.017 = phi i64 [ 0, %.preheader ], [ %29, %28 ]
+  %17 = getelementptr inbounds nuw %struct.grpc_http_header, ptr %15, i64 %.017
   %18 = load ptr, ptr %17, align 8, !tbaa !190
   %19 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %18, ptr noundef nonnull dereferenceable(16) @.str.34) #41
   %20 = icmp eq i32 %19, 0
@@ -5796,7 +5796,7 @@ define internal void @_ZL42on_metadata_server_detection_http_responsePvN4absl12l
   br label %.loopexit
 
 28:                                               ; preds = %21, %16
-  %29 = add nuw i64 %.018, 1
+  %29 = add nuw i64 %.017, 1
   %exitcond.not = icmp eq i64 %29, %13
   br i1 %exitcond.not, label %.loopexit, label %16, !llvm.loop !193
 

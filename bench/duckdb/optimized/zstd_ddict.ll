@@ -133,9 +133,9 @@ _ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit: ; preds = %11, 
   br i1 %.not.i.i, label %27, label %25
 
 25:                                               ; preds = %24
-  %.sroa.238.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 27344
-  %.sroa.238.0.copyload.i = load ptr, ptr %.sroa.238.0..sroa_idx.i, align 8, !tbaa !47
-  %26 = tail call noundef ptr %.sroa.0.0.copyload.i(ptr noundef %.sroa.238.0.copyload.i, i64 noundef range(i64 1, 0) %1)
+  %.sroa.237.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 27344
+  %.sroa.237.0.copyload.i = load ptr, ptr %.sroa.237.0..sroa_idx.i, align 8, !tbaa !47
+  %26 = tail call noundef ptr %.sroa.0.0.copyload.i(ptr noundef %.sroa.237.0.copyload.i, i64 noundef range(i64 1, 0) %1)
   br label %_ZN11duckdb_zstdL17ZSTD_customMallocEmNS_14ZSTD_customMemE.exit.i
 
 27:                                               ; preds = %24
@@ -204,8 +204,8 @@ _ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dict
   br label %_ZN11duckdb_zstd14ZSTD_freeDDictEPNS_12ZSTD_DDict_sE.exit
 
 _ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i: ; preds = %40
-  %.not46.i = icmp eq i32 %3, 2
-  br i1 %.not46.i, label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit.thread, label %_ZN11duckdb_zstd14ZSTD_freeDDictEPNS_12ZSTD_DDict_sE.exit
+  %.not44.i = icmp eq i32 %3, 2
+  br i1 %.not44.i, label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit.thread, label %_ZN11duckdb_zstd14ZSTD_freeDDictEPNS_12ZSTD_DDict_sE.exit
 
 _ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit.thread: ; preds = %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i, %38, %43
   %.pr = load ptr, ptr %.0.i, align 8, !tbaa !49
@@ -377,8 +377,8 @@ define noundef ptr @_ZN11duckdb_zstd20ZSTD_initStaticDDictEPvmPKvmNS_21ZSTD_dict
   br label %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i
 
 _ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i: ; preds = %29
-  %.not46.i = icmp eq i32 %5, 2
-  br i1 %.not46.i, label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit, label %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i
+  %.not44.i = icmp eq i32 %5, 2
+  br i1 %.not44.i, label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit, label %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i
 
 _ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.thread.i: ; preds = %_ZN11duckdb_zstdL26ZSTD_loadEntropy_intoDDictEPNS_12ZSTD_DDict_sENS_22ZSTD_dictContentType_eE.exit.i, %35, %27, %18
   br label %_ZN11duckdb_zstdL23ZSTD_initDDict_internalEPNS_12ZSTD_DDict_sEPKvmNS_21ZSTD_dictLoadMethod_eENS_22ZSTD_dictContentType_eE.exit

@@ -145,14 +145,14 @@ define dso_local void @_ZNK4llvm21ValueProfileCollector3getENS_18InstrProfValueK
   %18 = load ptr, ptr %17, align 8, !tbaa !19
   %19 = getelementptr inbounds i8, ptr %.sroa.02.05.i.i.i.i.i.i, i64 -24
   %20 = load i8, ptr %19, align 8, !tbaa !22
-  %switch.i.i.i.i.i.i.i = icmp eq i8 %20, 85
-  br i1 %switch.i.i.i.i.i.i.i, label %21, label %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i
+  %21 = icmp eq i8 %20, 85
+  br i1 %21, label %22, label %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i
 
-21:                                               ; preds = %.lr.ph.i.i.i.i.i.i
+22:                                               ; preds = %.lr.ph.i.i.i.i.i.i
   tail call void @_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE16delegateCallInstERNS_8CallInstE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(88) %19)
   br label %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i
 
-_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i: ; preds = %21, %.lr.ph.i.i.i.i.i.i
+_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_11InstructionE.exit.i.i.i.i.i.i: ; preds = %22, %.lr.ph.i.i.i.i.i.i
   %.not.i.i.i.i.i.i = icmp eq ptr %18, %16
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm11InstVisitorI18MemIntrinsicPluginvE5visitERNS_10BasicBlockE.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !28
 

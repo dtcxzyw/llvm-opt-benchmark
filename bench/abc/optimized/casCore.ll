@@ -757,15 +757,15 @@ define void @WriteDDintoBLIFfile(ptr noundef captures(none) %0, ptr noundef %1, 
   %12 = tail call i32 @cuddCollectNodes(ptr noundef %11, ptr noundef %8) #14
   %13 = tail call ptr @st__init_gen(ptr noundef %8) #14
   %14 = call i32 @st__gen(ptr noundef %13, ptr noundef nonnull %6, ptr noundef null) #14
-  %.not78 = icmp eq i32 %14, 0
-  br i1 %.not78, label %._crit_edge, label %.lr.ph
+  %.not77 = icmp eq i32 %14, 0
+  br i1 %.not77, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
-  %.06679 = phi i64 [ %18, %.lr.ph ], [ 0, %5 ]
+  %.06678 = phi i64 [ %18, %.lr.ph ], [ 0, %5 ]
   %15 = load ptr, ptr %6, align 8, !tbaa !3
   %16 = ptrtoint ptr %15 to i64
   %17 = xor i64 %10, %16
-  %18 = or i64 %17, %.06679
+  %18 = or i64 %17, %.06678
   %19 = call i32 @st__gen(ptr noundef %13, ptr noundef nonnull %6, ptr noundef null) #14
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
@@ -776,13 +776,13 @@ define void @WriteDDintoBLIFfile(ptr noundef captures(none) %0, ptr noundef %1, 
   br label %20
 
 20:                                               ; preds = %20, %._crit_edge
-  %.06580 = phi i32 [ 0, %._crit_edge ], [ %23, %20 ]
-  %notmask = shl nsw i32 -1, %.06580
+  %.06579 = phi i32 [ 0, %._crit_edge ], [ %23, %20 ]
+  %notmask = shl nsw i32 -1, %.06579
   %21 = xor i32 %notmask, -1
   %22 = zext nneg i32 %21 to i64
   %.not72 = icmp sgt i64 %.066.lcssa, %22
-  %23 = add nuw nsw i32 %.06580, 4
-  %24 = icmp samesign ult i32 %.06580, 60
+  %23 = add nuw nsw i32 %.06579, 4
+  %24 = icmp samesign ult i32 %.06579, 60
   %or.cond = select i1 %.not72, i1 %24, i1 false
   br i1 %or.cond, label %20, label %25, !llvm.loop !56
 
@@ -798,16 +798,16 @@ define void @WriteDDintoBLIFfile(ptr noundef captures(none) %0, ptr noundef %1, 
   %31 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.19, ptr noundef nonnull %30) #14
   %32 = call ptr @st__init_gen(ptr noundef %8) #14
   %33 = call i32 @st__gen(ptr noundef %32, ptr noundef nonnull %6, ptr noundef null) #14
-  %.not7481 = icmp eq i32 %33, 0
-  br i1 %.not7481, label %._crit_edge84, label %.lr.ph83
+  %.not7480 = icmp eq i32 %33, 0
+  br i1 %.not7480, label %._crit_edge83, label %.lr.ph82
 
-.lr.ph83:                                         ; preds = %25, %.backedge
+.lr.ph82:                                         ; preds = %25, %.backedge
   %34 = load ptr, ptr %6, align 8, !tbaa !3
   %35 = load i32, ptr %34, align 8, !tbaa !38
   %36 = icmp eq i32 %35, 2147483647
   br i1 %36, label %37, label %49
 
-37:                                               ; preds = %.lr.ph83
+37:                                               ; preds = %.lr.ph82
   %38 = ptrtoint ptr %34 to i64
   %39 = and i64 %38, %22
   %40 = udiv i64 %39, 40
@@ -823,9 +823,9 @@ define void @WriteDDintoBLIFfile(ptr noundef captures(none) %0, ptr noundef %1, 
 .backedge:                                        ; preds = %58, %.thread, %37, %93
   %48 = call i32 @st__gen(ptr noundef %32, ptr noundef nonnull %6, ptr noundef null) #14
   %.not74 = icmp eq i32 %48, 0
-  br i1 %.not74, label %._crit_edge84, label %.lr.ph83, !llvm.loop !57
+  br i1 %.not74, label %._crit_edge83, label %.lr.ph82, !llvm.loop !57
 
-49:                                               ; preds = %.lr.ph83
+49:                                               ; preds = %.lr.ph82
   %50 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !39
@@ -886,7 +886,7 @@ define void @WriteDDintoBLIFfile(ptr noundef captures(none) %0, ptr noundef %1, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.backedge
 
-._crit_edge84:                                    ; preds = %.backedge, %25
+._crit_edge83:                                    ; preds = %.backedge, %25
   call void @st__free_gen(ptr noundef %32) #14
   call void @st__free_table(ptr noundef %8) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

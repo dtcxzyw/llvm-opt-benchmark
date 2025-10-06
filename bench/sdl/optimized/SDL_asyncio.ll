@@ -44,8 +44,8 @@ define hidden noundef ptr @SDL_AsyncIOFromFile_REAL(ptr noundef %0, ptr noundef 
 
 8:                                                ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %AsyncFileModeValid.exit.thread, label %.preheader, !llvm.loop !3
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %AsyncFileModeValid.exit.thread, label %.preheader, !llvm.loop !3
 
 .preheader:                                       ; preds = %5, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %5 ]

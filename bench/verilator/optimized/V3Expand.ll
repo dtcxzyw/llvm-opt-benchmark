@@ -9419,13 +9419,12 @@ _ZNK7AstNode6isWideEv.exit100:                    ; preds = %_ZNK7AstNode6isQuad
   br i1 %10, label %_ZNK7AstNode6isWideEv.exit100.thread, label %_ZNK7AstNode5widthEv.exit.i102
 
 _ZNK7AstNode5widthEv.exit.i102:                   ; preds = %_ZNK7AstNode6isWideEv.exit100
-  %139 = add i32 %9, -65
-  %spec.select.i103 = icmp ult i32 %139, -32
+  %139 = icmp slt i32 %9, 33
   br label %_ZNK7AstNode6isQuadEv.exit104
 
 _ZNK7AstNode6isQuadEv.exit104:                    ; preds = %.thread118, %_ZNK7AstNode5widthEv.exit.i102
   %140 = phi i1 [ %44, %_ZNK7AstNode5widthEv.exit.i102 ], [ %7, %.thread118 ]
-  %.not = phi i1 [ %spec.select.i103, %_ZNK7AstNode5widthEv.exit.i102 ], [ true, %.thread118 ]
+  %.not = phi i1 [ %139, %_ZNK7AstNode5widthEv.exit.i102 ], [ true, %.thread118 ]
   %or.cond7 = and i1 %140, %.not
   br i1 %or.cond7, label %141, label %_ZNK7AstNode6isWideEv.exit100.thread
 

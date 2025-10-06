@@ -745,15 +745,15 @@ define hidden range(i32 -1, 1) i32 @evmap_reinit_(ptr noundef %0) local_unnamed_
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %evmap_io_foreach_fd.exit.thread
 
-.lr.ph.i:                                         ; preds = %1, %.thread.i
-  %.014 = phi i32 [ %.1, %.thread.i ], [ 0, %1 ]
-  %6 = phi i32 [ %36, %.thread.i ], [ %4, %1 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %1 ]
+.lr.ph.i:                                         ; preds = %1, %select.unfold.i
+  %.014 = phi i32 [ %.1, %select.unfold.i ], [ 0, %1 ]
+  %6 = phi i32 [ %36, %select.unfold.i ], [ %4, %1 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i ], [ 0, %1 ]
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %.thread.i, label %10
+  br i1 %.not.i, label %select.unfold.i, label %10
 
 10:                                               ; preds = %.lr.ph.i
   %11 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -784,21 +784,21 @@ define hidden range(i32 -1, 1) i32 @evmap_reinit_(ptr noundef %0) local_unnamed_
 
 25:                                               ; preds = %24, %10
   %.not27.i = icmp eq i16 %.2.i, 0
-  br i1 %.not27.i, label %..thread_crit_edge.i, label %26
+  br i1 %.not27.i, label %.select.unfold_crit_edge.i, label %26
 
 26:                                               ; preds = %25
   %27 = load ptr, ptr %9, align 8
   %.not28.i = icmp eq ptr %27, null
-  br i1 %.not28.i, label %..thread_crit_edge.i, label %28
+  br i1 %.not28.i, label %.select.unfold_crit_edge.i, label %28
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 60
   %30 = load i16, ptr %29, align 4
   %31 = and i16 %30, 32
   %spec.select30.i = or disjoint i16 %31, %.2.i
-  br label %..thread_crit_edge.i
+  br label %.select.unfold_crit_edge.i
 
-..thread_crit_edge.i:                             ; preds = %28, %26, %25
+.select.unfold_crit_edge.i:                       ; preds = %28, %26, %25
   %.3.i = phi i16 [ %.2.i, %26 ], [ 0, %25 ], [ %spec.select30.i, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %33 = load ptr, ptr %32, align 8
@@ -806,17 +806,17 @@ define hidden range(i32 -1, 1) i32 @evmap_reinit_(ptr noundef %0) local_unnamed_
   %35 = icmp eq i32 %34, -1
   %spec.select = select i1 %35, i32 -1, i32 %.014
   %.pre.i = load i32, ptr %3, align 8
-  br label %.thread.i
+  br label %select.unfold.i
 
-.thread.i:                                        ; preds = %..thread_crit_edge.i, %.lr.ph.i
-  %.1 = phi i32 [ %.014, %.lr.ph.i ], [ %spec.select, %..thread_crit_edge.i ]
-  %36 = phi i32 [ %6, %.lr.ph.i ], [ %.pre.i, %..thread_crit_edge.i ]
+select.unfold.i:                                  ; preds = %.select.unfold_crit_edge.i, %.lr.ph.i
+  %.1 = phi i32 [ %.014, %.lr.ph.i ], [ %spec.select, %.select.unfold_crit_edge.i ]
+  %36 = phi i32 [ %6, %.lr.ph.i ], [ %.pre.i, %.select.unfold_crit_edge.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %37 = sext i32 %36 to i64
   %38 = icmp slt i64 %indvars.iv.next.i, %37
   br i1 %38, label %.lr.ph.i, label %evmap_io_foreach_fd.exit, !llvm.loop !10
 
-evmap_io_foreach_fd.exit:                         ; preds = %.thread.i
+evmap_io_foreach_fd.exit:                         ; preds = %select.unfold.i
   %39 = icmp slt i32 %.1, 0
   br i1 %39, label %evmap_signal_foreach_signal.exit, label %evmap_io_foreach_fd.exit.thread
 
@@ -831,21 +831,21 @@ evmap_io_foreach_fd.exit.thread:                  ; preds = %1, %evmap_io_foreac
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %.lr.ph.i3
 
-.lr.ph.i3:                                        ; preds = %.lr.ph.i3.preheader, %.thread.i9
-  %.pre.i818 = phi i32 [ %.pre.i819, %.thread.i9 ], [ %42, %.lr.ph.i3.preheader ]
-  %.3 = phi i32 [ %.4, %.thread.i9 ], [ 0, %.lr.ph.i3.preheader ]
-  %45 = phi i32 [ %59, %.thread.i9 ], [ %42, %.lr.ph.i3.preheader ]
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i10, %.thread.i9 ], [ 0, %.lr.ph.i3.preheader ]
+.lr.ph.i3:                                        ; preds = %.lr.ph.i3.preheader, %select.unfold.i9
+  %.pre.i818 = phi i32 [ %.pre.i819, %select.unfold.i9 ], [ %42, %.lr.ph.i3.preheader ]
+  %.3 = phi i32 [ %.4, %select.unfold.i9 ], [ 0, %.lr.ph.i3.preheader ]
+  %45 = phi i32 [ %59, %select.unfold.i9 ], [ %42, %.lr.ph.i3.preheader ]
+  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i10, %select.unfold.i9 ], [ 0, %.lr.ph.i3.preheader ]
   %46 = load ptr, ptr %40, align 8
   %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i4
   %48 = load ptr, ptr %47, align 8
   %.not.i5 = icmp eq ptr %48, null
-  br i1 %.not.i5, label %.thread.i9, label %49
+  br i1 %.not.i5, label %select.unfold.i9, label %49
 
 49:                                               ; preds = %.lr.ph.i3
   %50 = load ptr, ptr %48, align 8
   %51 = icmp eq ptr %50, null
-  br i1 %51, label %.thread.i9, label %52
+  br i1 %51, label %select.unfold.i9, label %52
 
 52:                                               ; preds = %49
   %53 = trunc nuw nsw i64 %indvars.iv.i4 to i32
@@ -856,9 +856,9 @@ evmap_io_foreach_fd.exit.thread:                  ; preds = %1, %evmap_io_foreac
   %58 = icmp eq i32 %57, -1
   %spec.select17 = select i1 %58, i32 -1, i32 %.3
   %.pre.i8.pre = load i32, ptr %41, align 8
-  br label %.thread.i9
+  br label %select.unfold.i9
 
-.thread.i9:                                       ; preds = %49, %52, %.lr.ph.i3
+select.unfold.i9:                                 ; preds = %49, %52, %.lr.ph.i3
   %.pre.i819 = phi i32 [ %.pre.i818, %.lr.ph.i3 ], [ %.pre.i818, %49 ], [ %.pre.i8.pre, %52 ]
   %.4 = phi i32 [ %.3, %.lr.ph.i3 ], [ %.3, %49 ], [ %spec.select17, %52 ]
   %59 = phi i32 [ %45, %.lr.ph.i3 ], [ %.pre.i818, %49 ], [ %.pre.i8.pre, %52 ]
@@ -867,7 +867,7 @@ evmap_io_foreach_fd.exit.thread:                  ; preds = %1, %evmap_io_foreac
   %61 = icmp slt i64 %indvars.iv.next.i10, %60
   br i1 %61, label %.lr.ph.i3, label %evmap_signal_foreach_signal.exit.loopexit, !llvm.loop !11
 
-evmap_signal_foreach_signal.exit.loopexit:        ; preds = %.thread.i9
+evmap_signal_foreach_signal.exit.loopexit:        ; preds = %select.unfold.i9
   %62 = ashr i32 %.4, 31
   br label %evmap_signal_foreach_signal.exit
 
@@ -884,82 +884,82 @@ define hidden void @evmap_delete_all_(ptr noundef readonly captures(none) %0) lo
   %5 = icmp sgt i32 %4, 0
   br i1 %5, label %.lr.ph.i, label %evmap_signal_foreach_signal.exit
 
-.lr.ph.i:                                         ; preds = %1, %.thread.i
-  %.pre.i14 = phi i32 [ %.pre.i15, %.thread.i ], [ %4, %1 ]
-  %6 = phi i32 [ %15, %.thread.i ], [ %4, %1 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %1 ]
+.lr.ph.i:                                         ; preds = %1, %select.unfold.i
+  %.pre.i14 = phi i32 [ %.pre.i15, %select.unfold.i ], [ %4, %1 ]
+  %6 = phi i32 [ %15, %select.unfold.i ], [ %4, %1 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i ], [ 0, %1 ]
   %7 = load ptr, ptr %2, align 8
   %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %9, null
-  br i1 %.not.i, label %.thread.i, label %10
+  br i1 %.not.i, label %select.unfold.i, label %10
 
 10:                                               ; preds = %.lr.ph.i
   %11 = load ptr, ptr %9, align 8
   %.not2.i.i = icmp eq ptr %11, null
-  br i1 %.not2.i.i, label %.thread.i, label %.lr.ph.i.i
+  br i1 %.not2.i.i, label %select.unfold.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %10, %.lr.ph.i.i
   %12 = phi ptr [ %14, %.lr.ph.i.i ], [ %11, %10 ]
   %13 = tail call i32 @event_del(ptr noundef nonnull %12) #7
   %14 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %14, null
-  br i1 %.not.i.i, label %..thread_crit_edge.i.loopexit, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %.select.unfold_crit_edge.i.loopexit, label %.lr.ph.i.i, !llvm.loop !12
 
-..thread_crit_edge.i.loopexit:                    ; preds = %.lr.ph.i.i
+.select.unfold_crit_edge.i.loopexit:              ; preds = %.lr.ph.i.i
   %.pre.i.pre = load i32, ptr %3, align 8
-  br label %.thread.i
+  br label %select.unfold.i
 
-.thread.i:                                        ; preds = %10, %..thread_crit_edge.i.loopexit, %.lr.ph.i
-  %.pre.i15 = phi i32 [ %.pre.i14, %.lr.ph.i ], [ %.pre.i.pre, %..thread_crit_edge.i.loopexit ], [ %.pre.i14, %10 ]
-  %15 = phi i32 [ %6, %.lr.ph.i ], [ %.pre.i.pre, %..thread_crit_edge.i.loopexit ], [ %.pre.i14, %10 ]
+select.unfold.i:                                  ; preds = %10, %.select.unfold_crit_edge.i.loopexit, %.lr.ph.i
+  %.pre.i15 = phi i32 [ %.pre.i14, %.lr.ph.i ], [ %.pre.i.pre, %.select.unfold_crit_edge.i.loopexit ], [ %.pre.i14, %10 ]
+  %15 = phi i32 [ %6, %.lr.ph.i ], [ %.pre.i.pre, %.select.unfold_crit_edge.i.loopexit ], [ %.pre.i14, %10 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %16 = sext i32 %15 to i64
   %17 = icmp slt i64 %indvars.iv.next.i, %16
   br i1 %17, label %.lr.ph.i, label %evmap_signal_foreach_signal.exit, !llvm.loop !11
 
-evmap_signal_foreach_signal.exit:                 ; preds = %.thread.i, %1
+evmap_signal_foreach_signal.exit:                 ; preds = %select.unfold.i, %1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 808
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %20 = load i32, ptr %19, align 8
   %21 = icmp sgt i32 %20, 0
   br i1 %21, label %.lr.ph.i3, label %evmap_io_foreach_fd.exit
 
-.lr.ph.i3:                                        ; preds = %evmap_signal_foreach_signal.exit, %.thread.i9
-  %.pre.i817 = phi i32 [ %.pre.i818, %.thread.i9 ], [ %20, %evmap_signal_foreach_signal.exit ]
-  %22 = phi i32 [ %31, %.thread.i9 ], [ %20, %evmap_signal_foreach_signal.exit ]
-  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i10, %.thread.i9 ], [ 0, %evmap_signal_foreach_signal.exit ]
+.lr.ph.i3:                                        ; preds = %evmap_signal_foreach_signal.exit, %select.unfold.i9
+  %.pre.i817 = phi i32 [ %.pre.i818, %select.unfold.i9 ], [ %20, %evmap_signal_foreach_signal.exit ]
+  %22 = phi i32 [ %31, %select.unfold.i9 ], [ %20, %evmap_signal_foreach_signal.exit ]
+  %indvars.iv.i4 = phi i64 [ %indvars.iv.next.i10, %select.unfold.i9 ], [ 0, %evmap_signal_foreach_signal.exit ]
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i4
   %25 = load ptr, ptr %24, align 8
   %.not.i5 = icmp eq ptr %25, null
-  br i1 %.not.i5, label %.thread.i9, label %26
+  br i1 %.not.i5, label %select.unfold.i9, label %26
 
 26:                                               ; preds = %.lr.ph.i3
   %27 = load ptr, ptr %25, align 8
   %.not2.i.i11 = icmp eq ptr %27, null
-  br i1 %.not2.i.i11, label %.thread.i9, label %.lr.ph.i.i12
+  br i1 %.not2.i.i11, label %select.unfold.i9, label %.lr.ph.i.i12
 
 .lr.ph.i.i12:                                     ; preds = %26, %.lr.ph.i.i12
   %28 = phi ptr [ %30, %.lr.ph.i.i12 ], [ %27, %26 ]
   %29 = tail call i32 @event_del(ptr noundef nonnull %28) #7
   %30 = load ptr, ptr %25, align 8
   %.not.i.i13 = icmp eq ptr %30, null
-  br i1 %.not.i.i13, label %..thread_crit_edge.i7.loopexit, label %.lr.ph.i.i12, !llvm.loop !12
+  br i1 %.not.i.i13, label %.select.unfold_crit_edge.i7.loopexit, label %.lr.ph.i.i12, !llvm.loop !12
 
-..thread_crit_edge.i7.loopexit:                   ; preds = %.lr.ph.i.i12
+.select.unfold_crit_edge.i7.loopexit:             ; preds = %.lr.ph.i.i12
   %.pre.i8.pre = load i32, ptr %19, align 8
-  br label %.thread.i9
+  br label %select.unfold.i9
 
-.thread.i9:                                       ; preds = %26, %..thread_crit_edge.i7.loopexit, %.lr.ph.i3
-  %.pre.i818 = phi i32 [ %.pre.i817, %.lr.ph.i3 ], [ %.pre.i8.pre, %..thread_crit_edge.i7.loopexit ], [ %.pre.i817, %26 ]
-  %31 = phi i32 [ %22, %.lr.ph.i3 ], [ %.pre.i8.pre, %..thread_crit_edge.i7.loopexit ], [ %.pre.i817, %26 ]
+select.unfold.i9:                                 ; preds = %26, %.select.unfold_crit_edge.i7.loopexit, %.lr.ph.i3
+  %.pre.i818 = phi i32 [ %.pre.i817, %.lr.ph.i3 ], [ %.pre.i8.pre, %.select.unfold_crit_edge.i7.loopexit ], [ %.pre.i817, %26 ]
+  %31 = phi i32 [ %22, %.lr.ph.i3 ], [ %.pre.i8.pre, %.select.unfold_crit_edge.i7.loopexit ], [ %.pre.i817, %26 ]
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i4, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i10, %32
   br i1 %33, label %.lr.ph.i3, label %evmap_io_foreach_fd.exit, !llvm.loop !10
 
-evmap_io_foreach_fd.exit:                         ; preds = %.thread.i9, %evmap_signal_foreach_signal.exit
+evmap_io_foreach_fd.exit:                         ; preds = %select.unfold.i9, %evmap_signal_foreach_signal.exit
   ret void
 }
 
@@ -1235,26 +1235,26 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %7 = icmp sgt i32 %6, 0
   br i1 %7, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %3, %.thread.i
-  %.pre.i43 = phi i32 [ %.pre.i44, %.thread.i ], [ %6, %3 ]
-  %8 = phi i32 [ %16, %.thread.i ], [ %6, %3 ]
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i ], [ 0, %3 ]
+.lr.ph.i:                                         ; preds = %3, %select.unfold.i
+  %.pre.i43 = phi i32 [ %.pre.i44, %select.unfold.i ], [ %6, %3 ]
+  %8 = phi i32 [ %16, %select.unfold.i ], [ %6, %3 ]
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %select.unfold.i ], [ 0, %3 ]
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %.thread.i, label %12
+  br i1 %.not.i, label %select.unfold.i, label %12
 
 12:                                               ; preds = %.lr.ph.i
   %.0912.i = load ptr, ptr %11, align 8
   %.not13.i = icmp eq ptr %.0912.i, null
-  br i1 %.not13.i, label %.thread.i, label %.lr.ph.i15
+  br i1 %.not13.i, label %select.unfold.i, label %.lr.ph.i15
 
 13:                                               ; preds = %.lr.ph.i15
   %14 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 72
   %.09.i = load ptr, ptr %14, align 8
   %.not.i16 = icmp eq ptr %.09.i, null
-  br i1 %.not.i16, label %..thread_crit_edge.i.loopexit, label %.lr.ph.i15, !llvm.loop !14
+  br i1 %.not.i16, label %.select.unfold_crit_edge.i.loopexit, label %.lr.ph.i15, !llvm.loop !14
 
 .lr.ph.i15:                                       ; preds = %12, %13
   %.0914.i = phi ptr [ %.09.i, %13 ], [ %.0912.i, %12 ]
@@ -1262,45 +1262,45 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %.not11.i = icmp eq i32 %15, 0
   br i1 %.not11.i, label %13, label %evmap_io_foreach_fd.exit
 
-..thread_crit_edge.i.loopexit:                    ; preds = %13
+.select.unfold_crit_edge.i.loopexit:              ; preds = %13
   %.pre.i.pre = load i32, ptr %5, align 8
-  br label %.thread.i
+  br label %select.unfold.i
 
-.thread.i:                                        ; preds = %12, %..thread_crit_edge.i.loopexit, %.lr.ph.i
-  %.pre.i44 = phi i32 [ %.pre.i43, %.lr.ph.i ], [ %.pre.i.pre, %..thread_crit_edge.i.loopexit ], [ %.pre.i43, %12 ]
-  %16 = phi i32 [ %8, %.lr.ph.i ], [ %.pre.i.pre, %..thread_crit_edge.i.loopexit ], [ %.pre.i43, %12 ]
+select.unfold.i:                                  ; preds = %12, %.select.unfold_crit_edge.i.loopexit, %.lr.ph.i
+  %.pre.i44 = phi i32 [ %.pre.i43, %.lr.ph.i ], [ %.pre.i.pre, %.select.unfold_crit_edge.i.loopexit ], [ %.pre.i43, %12 ]
+  %16 = phi i32 [ %8, %.lr.ph.i ], [ %.pre.i.pre, %.select.unfold_crit_edge.i.loopexit ], [ %.pre.i43, %12 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %17 = sext i32 %16 to i64
   %18 = icmp slt i64 %indvars.iv.next.i, %17
   br i1 %18, label %.lr.ph.i, label %.loopexit, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.thread.i, %3
+.loopexit:                                        ; preds = %select.unfold.i, %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 824
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph.i7, label %evmap_io_foreach_fd.exit
 
-.lr.ph.i7:                                        ; preds = %.loopexit, %.thread.i13
-  %.pre.i1246 = phi i32 [ %.pre.i1247, %.thread.i13 ], [ %21, %.loopexit ]
-  %23 = phi i32 [ %31, %.thread.i13 ], [ %21, %.loopexit ]
-  %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i14, %.thread.i13 ], [ 0, %.loopexit ]
+.lr.ph.i7:                                        ; preds = %.loopexit, %select.unfold.i13
+  %.pre.i1246 = phi i32 [ %.pre.i1247, %select.unfold.i13 ], [ %21, %.loopexit ]
+  %23 = phi i32 [ %31, %select.unfold.i13 ], [ %21, %.loopexit ]
+  %indvars.iv.i8 = phi i64 [ %indvars.iv.next.i14, %select.unfold.i13 ], [ 0, %.loopexit ]
   %24 = load ptr, ptr %19, align 8
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i8
   %26 = load ptr, ptr %25, align 8
   %.not.i9 = icmp eq ptr %26, null
-  br i1 %.not.i9, label %.thread.i13, label %27
+  br i1 %.not.i9, label %select.unfold.i13, label %27
 
 27:                                               ; preds = %.lr.ph.i7
   %.0912.i17 = load ptr, ptr %26, align 8
   %.not13.i18 = icmp eq ptr %.0912.i17, null
-  br i1 %.not13.i18, label %.thread.i13, label %.lr.ph.i19
+  br i1 %.not13.i18, label %select.unfold.i13, label %.lr.ph.i19
 
 28:                                               ; preds = %.lr.ph.i19
   %29 = getelementptr inbounds nuw i8, ptr %.0914.i20, i64 72
   %.09.i23 = load ptr, ptr %29, align 8
   %.not.i24 = icmp eq ptr %.09.i23, null
-  br i1 %.not.i24, label %..thread_crit_edge.i11.loopexit, label %.lr.ph.i19, !llvm.loop !15
+  br i1 %.not.i24, label %.select.unfold_crit_edge.i11.loopexit, label %.lr.ph.i19, !llvm.loop !15
 
 .lr.ph.i19:                                       ; preds = %27, %28
   %.0914.i20 = phi ptr [ %.09.i23, %28 ], [ %.0912.i17, %27 ]
@@ -1308,20 +1308,20 @@ define hidden i32 @evmap_foreach_event_(ptr noundef %0, ptr noundef readonly cap
   %.not11.i21 = icmp eq i32 %30, 0
   br i1 %.not11.i21, label %28, label %evmap_io_foreach_fd.exit
 
-..thread_crit_edge.i11.loopexit:                  ; preds = %28
+.select.unfold_crit_edge.i11.loopexit:            ; preds = %28
   %.pre.i12.pre = load i32, ptr %20, align 8
-  br label %.thread.i13
+  br label %select.unfold.i13
 
-.thread.i13:                                      ; preds = %27, %..thread_crit_edge.i11.loopexit, %.lr.ph.i7
-  %.pre.i1247 = phi i32 [ %.pre.i1246, %.lr.ph.i7 ], [ %.pre.i12.pre, %..thread_crit_edge.i11.loopexit ], [ %.pre.i1246, %27 ]
-  %31 = phi i32 [ %23, %.lr.ph.i7 ], [ %.pre.i12.pre, %..thread_crit_edge.i11.loopexit ], [ %.pre.i1246, %27 ]
+select.unfold.i13:                                ; preds = %27, %.select.unfold_crit_edge.i11.loopexit, %.lr.ph.i7
+  %.pre.i1247 = phi i32 [ %.pre.i1246, %.lr.ph.i7 ], [ %.pre.i12.pre, %.select.unfold_crit_edge.i11.loopexit ], [ %.pre.i1246, %27 ]
+  %31 = phi i32 [ %23, %.lr.ph.i7 ], [ %.pre.i12.pre, %.select.unfold_crit_edge.i11.loopexit ], [ %.pre.i1246, %27 ]
   %indvars.iv.next.i14 = add nuw nsw i64 %indvars.iv.i8, 1
   %32 = sext i32 %31 to i64
   %33 = icmp slt i64 %indvars.iv.next.i14, %32
   br i1 %33, label %.lr.ph.i7, label %evmap_io_foreach_fd.exit, !llvm.loop !11
 
-evmap_io_foreach_fd.exit:                         ; preds = %.lr.ph.i15, %.thread.i13, %.lr.ph.i19, %.loopexit
-  %.0 = phi i32 [ 0, %.loopexit ], [ %30, %.lr.ph.i19 ], [ 0, %.thread.i13 ], [ %15, %.lr.ph.i15 ]
+evmap_io_foreach_fd.exit:                         ; preds = %.lr.ph.i15, %select.unfold.i13, %.lr.ph.i19, %.loopexit
+  %.0 = phi i32 [ 0, %.loopexit ], [ %30, %.lr.ph.i19 ], [ 0, %select.unfold.i13 ], [ %15, %.lr.ph.i15 ]
   ret i32 %.0
 }
 

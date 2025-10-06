@@ -526,10 +526,10 @@ define void @_ZN9anthropic5Model19cache_configuration17h8795eb97ef6d2647E(ptr de
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef i64 @_ZN9anthropic5Model15max_token_count17h03de8344b34648b9E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !93, !noundef !4
-  %switch = icmp slt i64 %2, -9223372036854775804
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %4 = load i64, ptr %3, align 8
-  %.sroa.0.0 = select i1 %switch, i64 200000, i64 %4
+  %3 = icmp sgt i64 %2, -9223372036854775805
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %5 = load i64, ptr %4, align 8
+  %.sroa.0.0 = select i1 %3, i64 %5, i64 200000
   ret i64 %.sroa.0.0
 }
 
@@ -569,20 +569,20 @@ default.unreachable:                              ; preds = %1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef float @_ZN9anthropic5Model19default_temperature17hc12e41a1f6cc6cddE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(120) %0) unnamed_addr #3 {
   %2 = load i64, ptr %0, align 8, !range !93, !noundef !4
-  %switch = icmp slt i64 %2, -9223372036854775804
-  br i1 %switch, label %8, label %3
+  %3 = icmp sgt i64 %2, -9223372036854775805
+  br i1 %3, label %4, label %9
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %5 = load i32, ptr %4, align 8, !range !95, !noundef !4
-  %trunc = trunc nuw i32 %5 to i1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %7 = load float, ptr %6, align 4
-  %.sroa.0.1 = select i1 %trunc, float %7, float 1.000000e+00
-  br label %8
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %6 = load i32, ptr %5, align 8, !range !95, !noundef !4
+  %trunc = trunc nuw i32 %6 to i1
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %8 = load float, ptr %7, align 4
+  %.sroa.0.1 = select i1 %trunc, float %8, float 1.000000e+00
+  br label %9
 
-8:                                                ; preds = %1, %3
-  %.sroa.0.0 = phi float [ %.sroa.0.1, %3 ], [ 1.000000e+00, %1 ]
+9:                                                ; preds = %1, %4
+  %.sroa.0.0 = phi float [ %.sroa.0.1, %4 ], [ 1.000000e+00, %1 ]
   ret float %.sroa.0.0
 }
 
@@ -788,8 +788,8 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   br label %110
 
 52:                                               ; preds = %44
-  %.cast115 = ptrtoint ptr %48 to i64
-  call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17hb47349b29c6e3529E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %.cast115)
+  %.cast108 = ptrtoint ptr %48 to i64
+  call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17hb47349b29c6e3529E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %10, ptr noalias noundef nonnull readonly align 1 %45, i64 noundef %.cast108)
   %53 = load i8, ptr %10, align 8, !range !99, !noundef !4
   %trunc91 = trunc nuw i8 %53 to i1
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -825,8 +825,8 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   br label %110
 
 68:                                               ; preds = %60
-  %.cast116 = ptrtoint ptr %64 to i64
-  call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17hb47349b29c6e3529E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 1 %61, i64 noundef %.cast116)
+  %.cast109 = ptrtoint ptr %64 to i64
+  call void @"_ZN4core3num62_$LT$impl$u20$core..str..traits..FromStr$u20$for$u20$usize$GT$8from_str17hb47349b29c6e3529E"(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %8, ptr noalias noundef nonnull readonly align 1 %61, i64 noundef %.cast109)
   %69 = load i8, ptr %8, align 8, !range !99, !noundef !4
   %trunc93 = trunc nuw i8 %69 to i1
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -850,7 +850,7 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   %78 = icmp eq ptr %77, null
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %80 = load ptr, ptr %79, align 8
-  %.cast117 = ptrtoint ptr %80 to i64
+  %.cast110 = ptrtoint ptr %80 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %78, label %89, label %84
 
@@ -868,7 +868,7 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   %86 = icmp eq ptr %85, null
   %87 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %88 = load ptr, ptr %87, align 8
-  %.cast118 = ptrtoint ptr %88 to i64
+  %.cast111 = ptrtoint ptr %88 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %86, label %96, label %91
 
@@ -881,7 +881,7 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
 91:                                               ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @"_ZN6chrono8datetime50DateTime$LT$chrono..offset..fixed..FixedOffset$GT$18parse_from_rfc333917had21281d8e3ab490E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %77, i64 noundef %.cast117)
+  call void @"_ZN6chrono8datetime50DateTime$LT$chrono..offset..fixed..FixedOffset$GT$18parse_from_rfc333917had21281d8e3ab490E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %77, i64 noundef %.cast110)
   %92 = load i32, ptr %4, align 4, !noundef !4
   %93 = icmp eq i32 %92, 0
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -902,7 +902,7 @@ define void @_ZN9anthropic13RateLimitInfo12from_headers17hde56d9171d7f1b90E(ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.9)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.952)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @"_ZN6chrono8datetime50DateTime$LT$chrono..offset..fixed..FixedOffset$GT$18parse_from_rfc333917had21281d8e3ab490E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %85, i64 noundef %.cast118)
+  call void @"_ZN6chrono8datetime50DateTime$LT$chrono..offset..fixed..FixedOffset$GT$18parse_from_rfc333917had21281d8e3ab490E"(ptr noalias noundef nonnull sret([16 x i8]) align 4 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull readonly align 1 %85, i64 noundef %.cast111)
   %99 = load i32, ptr %3, align 4, !noundef !4
   %100 = icmp eq i32 %99, 0
   %101 = getelementptr inbounds nuw i8, ptr %3, i64 4

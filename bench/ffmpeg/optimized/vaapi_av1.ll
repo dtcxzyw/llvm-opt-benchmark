@@ -1136,7 +1136,7 @@ define internal i32 @vaapi_av1_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   store ptr %26, ptr %23, align 8, !tbaa !200
   store i32 %19, ptr %20, align 8, !tbaa !199
   %.pre = load i16, ptr %15, align 2, !tbaa !198
-  %.pre58 = load i16, ptr %12, align 4, !tbaa !197
+  %.pre57 = load i16, ptr %12, align 4, !tbaa !197
   br label %28
 
 27:                                               ; preds = %22
@@ -1144,10 +1144,10 @@ define internal i32 @vaapi_av1_decode_slice(ptr noundef %0, ptr noundef %1, i32 
   br label %56
 
 28:                                               ; preds = %.thread, %3
-  %29 = phi i16 [ %.pre58, %.thread ], [ %13, %3 ]
+  %29 = phi i16 [ %.pre57, %.thread ], [ %13, %3 ]
   %30 = phi i16 [ %.pre, %.thread ], [ %16, %3 ]
-  %.not5056 = icmp ugt i16 %30, %29
-  br i1 %.not5056, label %._crit_edge, label %.lr.ph
+  %.not5055 = icmp ugt i16 %30, %29
+  br i1 %.not5055, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 216

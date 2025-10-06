@@ -828,8 +828,8 @@ reversedirection.exit.i:                          ; preds = %.lr.ph.i.i, %147
   br i1 %177, label %.lr.ph.i22.i, label %tuplesort_heap_insert.exit.i
 
 .lr.ph.i22.i:                                     ; preds = %174, %185
-  %.01721.i.i = phi i32 [ %179, %185 ], [ %175, %174 ]
-  %178 = add nsw i32 %.01721.i.i, -1
+  %.01720.i.i = phi i32 [ %179, %185 ], [ %175, %174 ]
+  %178 = add nsw i32 %.01720.i.i, -1
   %179 = lshr i32 %178, 1
   %180 = load ptr, ptr %0, align 8
   %181 = zext nneg i32 %179 to i64
@@ -839,14 +839,14 @@ reversedirection.exit.i:                          ; preds = %.lr.ph.i.i, %147
   br i1 %184, label %tuplesort_heap_insert.exit.i, label %185
 
 185:                                              ; preds = %.lr.ph.i22.i
-  %186 = zext nneg i32 %.01721.i.i to i64
+  %186 = zext nneg i32 %.01720.i.i to i64
   %187 = getelementptr inbounds nuw %struct.SortTuple, ptr %170, i64 %186
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %187, ptr noundef nonnull align 8 dereferenceable(24) %182, i64 24, i1 false)
-  %.not24.i.i = icmp ult i32 %178, 2
-  br i1 %.not24.i.i, label %tuplesort_heap_insert.exit.i, label %.lr.ph.i22.i
+  %.not23.i.i = icmp ult i32 %178, 2
+  br i1 %.not23.i.i, label %tuplesort_heap_insert.exit.i, label %.lr.ph.i22.i
 
 tuplesort_heap_insert.exit.i:                     ; preds = %185, %.lr.ph.i22.i, %174
-  %.017.lcssa.i.i = phi i32 [ %175, %174 ], [ %.01721.i.i, %.lr.ph.i22.i ], [ %179, %185 ]
+  %.017.lcssa.i.i = phi i32 [ %175, %174 ], [ %.01720.i.i, %.lr.ph.i22.i ], [ %179, %185 ]
   %188 = sext i32 %.017.lcssa.i.i to i64
   %189 = getelementptr inbounds %struct.SortTuple, ptr %170, i64 %188
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %189, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
@@ -898,13 +898,13 @@ free_sort_tuple.exit.i:                           ; preds = %200, %198
 
 210:                                              ; preds = %209, %207
   %211 = load i32, ptr %60, align 8
-  %.not3237.i.i = icmp ugt i32 %211, 1
-  br i1 %.not3237.i.i, label %.lr.ph.i25.i, label %tuplesort_heap_replace_top.exit.i
+  %.not3236.i.i = icmp ugt i32 %211, 1
+  br i1 %.not3236.i.i, label %.lr.ph.i25.i, label %tuplesort_heap_replace_top.exit.i
 
 .lr.ph.i25.i:                                     ; preds = %210, %230
   %212 = phi i32 [ %233, %230 ], [ 1, %210 ]
   %213 = phi i32 [ %232, %230 ], [ 0, %210 ]
-  %.02838.i.i = phi i32 [ %.027.i.i, %230 ], [ 0, %210 ]
+  %.02837.i.i = phi i32 [ %.027.i.i, %230 ], [ 0, %210 ]
   %214 = add nuw i32 %213, 2
   %215 = icmp ult i32 %214, %211
   br i1 %215, label %216, label %224
@@ -927,7 +927,7 @@ free_sort_tuple.exit.i:                           ; preds = %200, %198
   %227 = getelementptr inbounds nuw %struct.SortTuple, ptr %196, i64 %226
   %228 = call i32 %225(ptr noundef %197, ptr noundef %227, ptr noundef nonnull %0) #12
   %229 = icmp slt i32 %228, 1
-  %.pre28.i = zext i32 %.02838.i.i to i64
+  %.pre28.i = zext i32 %.02837.i.i to i64
   br i1 %229, label %tuplesort_heap_replace_top.exit.i, label %230
 
 230:                                              ; preds = %224
@@ -1036,13 +1036,13 @@ free_sort_tuple.exit60:                           ; preds = %262, %265
 273:                                              ; preds = %272, %free_sort_tuple.exit60
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %275 = load i32, ptr %274, align 8
-  %.not3237.i = icmp ugt i32 %275, 1
-  br i1 %.not3237.i, label %.lr.ph.i62, label %tuplesort_heap_replace_top.exit
+  %.not3236.i = icmp ugt i32 %275, 1
+  br i1 %.not3236.i, label %.lr.ph.i62, label %tuplesort_heap_replace_top.exit
 
 .lr.ph.i62:                                       ; preds = %273, %294
   %276 = phi i32 [ %297, %294 ], [ 1, %273 ]
   %277 = phi i32 [ %296, %294 ], [ 0, %273 ]
-  %.02838.i = phi i32 [ %.027.i, %294 ], [ 0, %273 ]
+  %.02837.i = phi i32 [ %.027.i, %294 ], [ 0, %273 ]
   %278 = add nuw i32 %277, 2
   %279 = icmp ult i32 %278, %275
   br i1 %279, label %280, label %288
@@ -1065,7 +1065,7 @@ free_sort_tuple.exit60:                           ; preds = %262, %265
   %291 = getelementptr inbounds nuw %struct.SortTuple, ptr %270, i64 %290
   %292 = tail call i32 %289(ptr noundef %1, ptr noundef %291, ptr noundef nonnull %0) #12
   %293 = icmp slt i32 %292, 1
-  %.pre71 = zext i32 %.02838.i to i64
+  %.pre71 = zext i32 %.02837.i to i64
   br i1 %293, label %tuplesort_heap_replace_top.exit, label %294
 
 294:                                              ; preds = %288
@@ -1648,13 +1648,13 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
 
 110:                                              ; preds = %109, %102
   %111 = phi i32 [ %.pre.i.i, %109 ], [ %105, %102 ]
-  %.not3237.i.i.i = icmp ugt i32 %111, 1
-  br i1 %.not3237.i.i.i, label %.lr.ph.i.i.i, label %tuplesort_heap_delete_top.exit.i
+  %.not3236.i.i.i = icmp ugt i32 %111, 1
+  br i1 %.not3236.i.i.i, label %.lr.ph.i.i.i, label %tuplesort_heap_delete_top.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %110, %130
   %112 = phi i32 [ %133, %130 ], [ 1, %110 ]
   %113 = phi i32 [ %132, %130 ], [ 0, %110 ]
-  %.02838.i.i.i = phi i32 [ %.027.i.i.i, %130 ], [ 0, %110 ]
+  %.02837.i.i.i = phi i32 [ %.027.i.i.i, %130 ], [ 0, %110 ]
   %114 = add nuw i32 %113, 2
   %115 = icmp ult i32 %114, %111
   br i1 %115, label %116, label %124
@@ -1677,7 +1677,7 @@ leader_takeover_tapes.exit:                       ; preds = %86, %inittapestate.
   %127 = getelementptr inbounds nuw %struct.SortTuple, ptr %104, i64 %126
   %128 = tail call i32 %125(ptr noundef nonnull %107, ptr noundef nonnull %127, ptr noundef nonnull %0) #12
   %129 = icmp slt i32 %128, 1
-  %.pre6.i.i = zext i32 %.02838.i.i.i to i64
+  %.pre6.i.i = zext i32 %.02837.i.i.i to i64
   br i1 %129, label %tuplesort_heap_delete_top.exit.i, label %130
 
 130:                                              ; preds = %124
@@ -2272,13 +2272,13 @@ getlen.exit.i.i:                                  ; preds = %202
 
 213:                                              ; preds = %212, %208
   %214 = load i32, ptr %91, align 8
-  %.not3237.i.i = icmp ugt i32 %214, 1
-  br i1 %.not3237.i.i, label %.lr.ph.i.i, label %tuplesort_heap_replace_top.exit.i
+  %.not3236.i.i = icmp ugt i32 %214, 1
+  br i1 %.not3236.i.i, label %.lr.ph.i.i, label %tuplesort_heap_replace_top.exit.i
 
 .lr.ph.i.i:                                       ; preds = %213, %233
   %215 = phi i32 [ %236, %233 ], [ 1, %213 ]
   %216 = phi i32 [ %235, %233 ], [ 0, %213 ]
-  %.02838.i.i = phi i32 [ %.027.i.i, %233 ], [ 0, %213 ]
+  %.02837.i.i = phi i32 [ %.027.i.i, %233 ], [ 0, %213 ]
   %217 = add nuw i32 %216, 2
   %218 = icmp ult i32 %217, %214
   br i1 %218, label %219, label %227
@@ -2301,7 +2301,7 @@ getlen.exit.i.i:                                  ; preds = %202
   %230 = getelementptr inbounds nuw %struct.SortTuple, ptr %210, i64 %229
   %231 = call i32 %228(ptr noundef nonnull %5, ptr noundef %230, ptr noundef nonnull %0) #12
   %232 = icmp slt i32 %231, 1
-  %.pre.i = zext i32 %.02838.i.i to i64
+  %.pre.i = zext i32 %.02837.i.i to i64
   br i1 %232, label %tuplesort_heap_replace_top.exit.i, label %233
 
 233:                                              ; preds = %227
@@ -2340,13 +2340,13 @@ mergereadnext.exit.i:                             ; preds = %getlen.exit.i.i
 
 247:                                              ; preds = %246, %242
   %248 = phi i32 [ %.pre.i.i, %246 ], [ %240, %242 ]
-  %.not3237.i.i.i = icmp ugt i32 %248, 1
-  br i1 %.not3237.i.i.i, label %.lr.ph.i.i.i, label %tuplesort_heap_replace_top.exit.i.i
+  %.not3236.i.i.i = icmp ugt i32 %248, 1
+  br i1 %.not3236.i.i.i, label %.lr.ph.i.i.i, label %tuplesort_heap_replace_top.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %247, %267
   %249 = phi i32 [ %270, %267 ], [ 1, %247 ]
   %250 = phi i32 [ %269, %267 ], [ 0, %247 ]
-  %.02838.i.i.i = phi i32 [ %.027.i.i.i, %267 ], [ 0, %247 ]
+  %.02837.i.i.i = phi i32 [ %.027.i.i.i, %267 ], [ 0, %247 ]
   %251 = add nuw i32 %250, 2
   %252 = icmp ult i32 %251, %248
   br i1 %252, label %253, label %261
@@ -2369,7 +2369,7 @@ mergereadnext.exit.i:                             ; preds = %getlen.exit.i.i
   %264 = getelementptr inbounds nuw %struct.SortTuple, ptr %238, i64 %263
   %265 = call i32 %262(ptr noundef nonnull %244, ptr noundef %264, ptr noundef nonnull %0) #12
   %266 = icmp slt i32 %265, 1
-  %.pre6.i.i = zext i32 %.02838.i.i.i to i64
+  %.pre6.i.i = zext i32 %.02837.i.i.i to i64
   br i1 %266, label %tuplesort_heap_replace_top.exit.i.i, label %267
 
 267:                                              ; preds = %261
@@ -2821,13 +2821,13 @@ mergereadnext.exit:                               ; preds = %getlen.exit.i
 
 170:                                              ; preds = %169, %165
   %171 = phi i32 [ %.pre.i, %169 ], [ %163, %165 ]
-  %.not3237.i.i = icmp ugt i32 %171, 1
-  br i1 %.not3237.i.i, label %.lr.ph.i.i, label %tuplesort_heap_replace_top.exit.i
+  %.not3236.i.i = icmp ugt i32 %171, 1
+  br i1 %.not3236.i.i, label %.lr.ph.i.i, label %tuplesort_heap_replace_top.exit.i
 
 .lr.ph.i.i:                                       ; preds = %170, %190
   %172 = phi i32 [ %193, %190 ], [ 1, %170 ]
   %173 = phi i32 [ %192, %190 ], [ 0, %170 ]
-  %.02838.i.i = phi i32 [ %.027.i.i, %190 ], [ 0, %170 ]
+  %.02837.i.i = phi i32 [ %.027.i.i, %190 ], [ 0, %170 ]
   %174 = add nuw i32 %173, 2
   %175 = icmp ult i32 %174, %171
   br i1 %175, label %176, label %184
@@ -2850,7 +2850,7 @@ mergereadnext.exit:                               ; preds = %getlen.exit.i
   %187 = getelementptr inbounds nuw %struct.SortTuple, ptr %161, i64 %186
   %188 = call i32 %185(ptr noundef nonnull %167, ptr noundef %187, ptr noundef nonnull %0) #12
   %189 = icmp slt i32 %188, 1
-  %.pre6.i = zext i32 %.02838.i.i to i64
+  %.pre6.i = zext i32 %.02837.i.i to i64
   br i1 %189, label %tuplesort_heap_replace_top.exit.i, label %190
 
 190:                                              ; preds = %184
@@ -2892,13 +2892,13 @@ tuplesort_heap_delete_top.exit:                   ; preds = %mergereadnext.exit,
 
 205:                                              ; preds = %204, %198
   %206 = load i32, ptr %142, align 8
-  %.not3237.i = icmp ugt i32 %206, 1
-  br i1 %.not3237.i, label %.lr.ph.i, label %tuplesort_heap_replace_top.exit
+  %.not3236.i = icmp ugt i32 %206, 1
+  br i1 %.not3236.i, label %.lr.ph.i, label %tuplesort_heap_replace_top.exit
 
 .lr.ph.i:                                         ; preds = %205, %225
   %207 = phi i32 [ %228, %225 ], [ 1, %205 ]
   %208 = phi i32 [ %227, %225 ], [ 0, %205 ]
-  %.02838.i = phi i32 [ %.027.i, %225 ], [ 0, %205 ]
+  %.02837.i = phi i32 [ %.027.i, %225 ], [ 0, %205 ]
   %209 = add nuw i32 %208, 2
   %210 = icmp ult i32 %209, %206
   br i1 %210, label %211, label %219
@@ -2921,7 +2921,7 @@ tuplesort_heap_delete_top.exit:                   ; preds = %mergereadnext.exit,
   %222 = getelementptr inbounds nuw %struct.SortTuple, ptr %202, i64 %221
   %223 = call i32 %220(ptr noundef nonnull %6, ptr noundef %222, ptr noundef nonnull %0) #12
   %224 = icmp slt i32 %223, 1
-  %.pre = zext i32 %.02838.i to i64
+  %.pre = zext i32 %.02837.i to i64
   br i1 %224, label %tuplesort_heap_replace_top.exit, label %225
 
 225:                                              ; preds = %219
@@ -3539,8 +3539,8 @@ getlen.exit.i:                                    ; preds = %14
   br i1 %32, label %.lr.ph.i, label %tuplesort_heap_insert.exit
 
 .lr.ph.i:                                         ; preds = %29, %40
-  %.01721.i = phi i32 [ %34, %40 ], [ %30, %29 ]
-  %33 = add nsw i32 %.01721.i, -1
+  %.01720.i = phi i32 [ %34, %40 ], [ %30, %29 ]
+  %33 = add nsw i32 %.01720.i, -1
   %34 = lshr i32 %33, 1
   %35 = load ptr, ptr %0, align 8
   %36 = zext nneg i32 %34 to i64
@@ -3550,14 +3550,14 @@ getlen.exit.i:                                    ; preds = %14
   br i1 %39, label %tuplesort_heap_insert.exit, label %40
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = zext nneg i32 %.01721.i to i64
+  %41 = zext nneg i32 %.01720.i to i64
   %42 = getelementptr inbounds nuw %struct.SortTuple, ptr %26, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, ptr noundef nonnull align 8 dereferenceable(24) %37, i64 24, i1 false)
-  %.not24.i = icmp ult i32 %33, 2
-  br i1 %.not24.i, label %tuplesort_heap_insert.exit, label %.lr.ph.i
+  %.not23.i = icmp ult i32 %33, 2
+  br i1 %.not23.i, label %tuplesort_heap_insert.exit, label %.lr.ph.i
 
 tuplesort_heap_insert.exit:                       ; preds = %.lr.ph.i, %40, %29
-  %.017.lcssa.i = phi i32 [ %30, %29 ], [ %34, %40 ], [ %.01721.i, %.lr.ph.i ]
+  %.017.lcssa.i = phi i32 [ %30, %29 ], [ %34, %40 ], [ %.01720.i, %.lr.ph.i ]
   %43 = sext i32 %.017.lcssa.i to i64
   %44 = getelementptr inbounds %struct.SortTuple, ptr %26, i64 %43
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)

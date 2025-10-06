@@ -4185,11 +4185,11 @@ define linkonce_odr hidden void @_ZN7bv_util17log_bv_from_exprsEP3appjPKP4expr(p
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 912
   %9 = load ptr, ptr %8, align 8, !tbaa !217
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.loopexit35, label %.preheader
+  br i1 %.not, label %.loopexit33, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not46 = icmp eq i32 %2, 0
-  br i1 %.not46, label %._crit_edge, label %.lr.ph
+  %.not44 = icmp eq i32 %2, 0
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 856
@@ -4208,7 +4208,7 @@ define linkonce_odr hidden void @_ZN7bv_util17log_bv_from_exprsEP3appjPKP4expr(p
 17:                                               ; preds = %13
   %18 = load ptr, ptr %12, align 8, !tbaa !207
   %19 = icmp eq ptr %15, %18
-  br i1 %19, label %20, label %.loopexit35
+  br i1 %19, label %20, label %.loopexit33
 
 20:                                               ; preds = %13, %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4219,7 +4219,7 @@ define linkonce_odr hidden void @_ZN7bv_util17log_bv_from_exprsEP3appjPKP4expr(p
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !219
   %23 = tail call noundef zeroext i1 @_ZN11decl_plugin28log_constant_meaning_preludeEP3app(ptr noundef nonnull align 8 dereferenceable(20) %22, ptr noundef %1)
-  br i1 %23, label %24, label %.loopexit35
+  br i1 %23, label %24, label %.loopexit33
 
 24:                                               ; preds = %._crit_edge
   %25 = and i32 %2, 3
@@ -4228,7 +4228,7 @@ define linkonce_odr hidden void @_ZN7bv_util17log_bv_from_exprsEP3appjPKP4expr(p
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 912
   %29 = load ptr, ptr %28, align 8, !tbaa !217
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  br i1 %26, label %31, label %.lr.ph39.preheader
+  br i1 %26, label %31, label %.lr.ph37.preheader
 
 31:                                               ; preds = %24
   %32 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.5, i64 noundef 3)
@@ -4245,23 +4245,23 @@ define linkonce_odr hidden void @_ZN7bv_util17log_bv_from_exprsEP3appjPKP4expr(p
   %43 = and i32 %42, -75
   %44 = or disjoint i32 %43, 8
   store i32 %44, ptr %41, align 8, !tbaa !229
-  br i1 %.not46, label %._crit_edge45, label %.lr.ph44.preheader
+  br i1 %.not44, label %._crit_edge43, label %.lr.ph42.preheader
 
-.lr.ph44.preheader:                               ; preds = %31
-  %wide.trip.count57 = zext i32 %2 to i64
-  br label %.lr.ph44
+.lr.ph42.preheader:                               ; preds = %31
+  %wide.trip.count55 = zext i32 %2 to i64
+  br label %.lr.ph42
 
-._crit_edge45.loopexit:                           ; preds = %78
+._crit_edge43.loopexit:                           ; preds = %78
   %.pre = load ptr, ptr %6, align 8, !tbaa !208
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 912
-  %.pre59 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !217
-  %.phi.trans.insert60 = getelementptr inbounds nuw i8, ptr %.pre59, i64 16
-  %.pre61 = load ptr, ptr %.phi.trans.insert60, align 8, !tbaa !17
-  br label %._crit_edge45
+  %.pre57 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !217
+  %.phi.trans.insert58 = getelementptr inbounds nuw i8, ptr %.pre57, i64 16
+  %.pre59 = load ptr, ptr %.phi.trans.insert58, align 8, !tbaa !17
+  br label %._crit_edge43
 
-._crit_edge45:                                    ; preds = %._crit_edge45.loopexit, %31
-  %45 = phi ptr [ %.pre61, %._crit_edge45.loopexit ], [ %37, %31 ]
-  %46 = phi ptr [ %.pre59, %._crit_edge45.loopexit ], [ %35, %31 ]
+._crit_edge43:                                    ; preds = %._crit_edge43.loopexit, %31
+  %45 = phi ptr [ %.pre59, %._crit_edge43.loopexit ], [ %37, %31 ]
+  %46 = phi ptr [ %.pre57, %._crit_edge43.loopexit ], [ %35, %31 ]
   %47 = getelementptr i8, ptr %45, i64 -24
   %48 = load i64, ptr %47, align 8
   %49 = getelementptr i8, ptr %46, i64 %48
@@ -4272,14 +4272,14 @@ define linkonce_odr hidden void @_ZN7bv_util17log_bv_from_exprsEP3appjPKP4expr(p
   store i32 %53, ptr %50, align 8, !tbaa !229
   br label %.loopexit
 
-.lr.ph44:                                         ; preds = %.lr.ph44.preheader, %78
-  %indvars.iv55 = phi i64 [ 0, %.lr.ph44.preheader ], [ %indvars.iv.next56, %78 ]
-  %.02642 = phi i32 [ 0, %.lr.ph44.preheader ], [ %55, %78 ]
-  %.02840 = phi i8 [ 0, %.lr.ph44.preheader ], [ %.2, %78 ]
-  %54 = shl i8 %.02840, 1
-  %55 = add nuw i32 %.02642, 1
+.lr.ph42:                                         ; preds = %.lr.ph42.preheader, %78
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph42.preheader ], [ %indvars.iv.next54, %78 ]
+  %.02640 = phi i32 [ 0, %.lr.ph42.preheader ], [ %55, %78 ]
+  %.02838 = phi i8 [ 0, %.lr.ph42.preheader ], [ %.2, %78 ]
+  %54 = shl i8 %.02838, 1
+  %55 = add nuw i32 %.02640, 1
   %56 = load ptr, ptr %6, align 8, !tbaa !208
-  %57 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv55
+  %57 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv53
   %58 = load ptr, ptr %57, align 8, !tbaa !43
   %59 = getelementptr inbounds nuw i8, ptr %56, i64 856
   %60 = load ptr, ptr %59, align 8, !tbaa !146
@@ -4289,7 +4289,7 @@ define linkonce_odr hidden void @_ZN7bv_util17log_bv_from_exprsEP3appjPKP4expr(p
   %63 = icmp eq i32 %55, 4
   br i1 %63, label %64, label %78
 
-64:                                               ; preds = %.lr.ph44
+64:                                               ; preds = %.lr.ph42
   %65 = getelementptr inbounds nuw i8, ptr %56, i64 912
   %66 = load ptr, ptr %65, align 8, !tbaa !217
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -4316,43 +4316,43 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit: ; preds = %74, %76
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %78
 
-78:                                               ; preds = %.lr.ph44, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
-  %.2 = phi i8 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit ], [ %spec.select, %.lr.ph44 ]
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond58.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count57
-  br i1 %exitcond58.not, label %._crit_edge45.loopexit, label %.lr.ph44, !llvm.loop !231
+78:                                               ; preds = %.lr.ph42, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit
+  %.2 = phi i8 [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_h.exit ], [ %spec.select, %.lr.ph42 ]
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count55
+  br i1 %exitcond56.not, label %._crit_edge43.loopexit, label %.lr.ph42, !llvm.loop !231
 
-.lr.ph39.preheader:                               ; preds = %24
+.lr.ph37.preheader:                               ; preds = %24
   %79 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.6, i64 noundef 3)
-  %wide.trip.count53 = zext i32 %2 to i64
-  br label %.lr.ph39
+  %wide.trip.count51 = zext i32 %2 to i64
+  br label %.lr.ph37
 
-.lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
-  %indvars.iv50 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next51, %.lr.ph39 ]
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
+  %indvars.iv48 = phi i64 [ 0, %.lr.ph37.preheader ], [ %indvars.iv.next49, %.lr.ph37 ]
   %80 = load ptr, ptr %6, align 8, !tbaa !208
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 912
   %82 = load ptr, ptr %81, align 8, !tbaa !217
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
-  %84 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv50
+  %84 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv48
   %85 = load ptr, ptr %84, align 8, !tbaa !43
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 856
   %87 = load ptr, ptr %86, align 8, !tbaa !146
   %88 = icmp eq ptr %85, %87
   %89 = zext i1 %88 to i32
   %90 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %83, i32 noundef %89)
-  %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next51, %wide.trip.count53
-  br i1 %exitcond54.not, label %.loopexit, label %.lr.ph39, !llvm.loop !232
+  %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
+  %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
+  br i1 %exitcond52.not, label %.loopexit, label %.lr.ph37, !llvm.loop !232
 
-.loopexit:                                        ; preds = %.lr.ph39, %._crit_edge45
+.loopexit:                                        ; preds = %.lr.ph37, %._crit_edge43
   %91 = load ptr, ptr %6, align 8, !tbaa !208
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 912
   %93 = load ptr, ptr %92, align 8, !tbaa !217
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %94, ptr noundef nonnull @.str.7, i64 noundef 2)
-  br label %.loopexit35
+  br label %.loopexit33
 
-.loopexit35:                                      ; preds = %17, %._crit_edge, %.loopexit, %4
+.loopexit33:                                      ; preds = %17, %._crit_edge, %.loopexit, %4
   ret void
 }
 

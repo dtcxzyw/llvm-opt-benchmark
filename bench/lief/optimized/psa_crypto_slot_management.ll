@@ -161,25 +161,25 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
 
 4:                                                ; preds = %2
   %.not41 = icmp eq ptr %0, null
-  br i1 %.not41, label %.preheader, label %.preheader69
+  br i1 %.not41, label %.preheader, label %.preheader68
 
 .preheader:                                       ; preds = %4
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 176), align 8, !tbaa !3
   br label %36
 
-.preheader69:                                     ; preds = %4, %8
+.preheader68:                                     ; preds = %4, %8
   %.03041.i = phi i64 [ %9, %8 ], [ 0, %4 ]
   %6 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 %.03041.i
   %7 = load i64, ptr %6, align 8, !tbaa !22
   %.not.i = icmp eq i64 %7, -1
   br i1 %.not.i, label %8, label %.thread.i
 
-8:                                                ; preds = %.preheader69
+8:                                                ; preds = %.preheader68
   %9 = add nuw nsw i64 %.03041.i, 1
   %exitcond.not.i = icmp eq i64 %9, 22
-  br i1 %exitcond.not.i, label %psa_allocate_volatile_key_slot.exit, label %.preheader69, !llvm.loop !23
+  br i1 %exitcond.not.i, label %psa_allocate_volatile_key_slot.exit, label %.preheader68, !llvm.loop !23
 
-.thread.i:                                        ; preds = %.preheader69
+.thread.i:                                        ; preds = %.preheader68
   %10 = getelementptr inbounds nuw i64, ptr getelementptr inbounds nuw (i8, ptr @global_data, i64 184), i64 %.03041.i
   %11 = getelementptr inbounds nuw ptr, ptr @global_data, i64 %.03041.i
   %12 = load ptr, ptr %11, align 8, !tbaa !3
@@ -226,16 +226,16 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
   br label %psa_allocate_volatile_key_slot.exit
 
 36:                                               ; preds = %.preheader, %52
-  %.03078 = phi ptr [ null, %.preheader ], [ %.2.ph, %52 ]
-  %.03577 = phi i64 [ 0, %.preheader ], [ %53, %52 ]
-  %37 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %5, i64 %.03577
+  %.03077 = phi ptr [ null, %.preheader ], [ %.2.ph, %52 ]
+  %.03576 = phi i64 [ 0, %.preheader ], [ %53, %52 ]
+  %37 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %5, i64 %.03576
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load i32, ptr %38, align 8, !tbaa !9
   %40 = icmp eq i32 %39, 0
-  br i1 %40, label %.thread56.thread, label %41
+  br i1 %40, label %.thread55.thread, label %41
 
 41:                                               ; preds = %36
-  %42 = icmp eq ptr %.03078, null
+  %42 = icmp eq ptr %.03077, null
   br i1 %42, label %43, label %52
 
 43:                                               ; preds = %41
@@ -245,8 +245,8 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
 45:                                               ; preds = %43
   %46 = getelementptr i8, ptr %37, i64 32
   %.val = load i64, ptr %46, align 8, !tbaa !18
-  %.not68 = icmp eq i64 %.val, 0
-  br i1 %.not68, label %47, label %52
+  %.not67 = icmp eq i64 %.val, 0
+  br i1 %.not67, label %47, label %52
 
 47:                                               ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -257,14 +257,14 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
   br label %52
 
 52:                                               ; preds = %47, %45, %43, %41
-  %.2.ph = phi ptr [ %spec.select, %47 ], [ %.03078, %41 ], [ null, %43 ], [ null, %45 ]
-  %53 = add nuw nsw i64 %.03577, 1
+  %.2.ph = phi ptr [ %spec.select, %47 ], [ %.03077, %41 ], [ null, %43 ], [ null, %45 ]
+  %53 = add nuw nsw i64 %.03576, 1
   %exitcond.not = icmp eq i64 %53, 32
   br i1 %exitcond.not, label %54, label %36, !llvm.loop !27
 
 54:                                               ; preds = %52
-  %.not67 = icmp eq ptr %.2.ph, null
-  br i1 %.not67, label %psa_key_slot_state_transition.exit, label %55
+  %.not66 = icmp eq ptr %.2.ph, null
+  br i1 %.not66, label %psa_key_slot_state_transition.exit, label %55
 
 55:                                               ; preds = %54
   %56 = getelementptr inbounds nuw i8, ptr %.2.ph, i64 24
@@ -286,29 +286,29 @@ define hidden i32 @psa_reserve_free_key_slot(ptr noundef writeonly captures(addr
 psa_register_read.exit:                           ; preds = %55, %58, %62
   %64 = tail call i32 @psa_wipe_key_slot(ptr noundef nonnull %.2.ph) #12
   %.not43 = icmp eq i32 %64, 0
-  br i1 %.not43, label %.thread56, label %psa_key_slot_state_transition.exit
+  br i1 %.not43, label %.thread55, label %psa_key_slot_state_transition.exit
 
-.thread56:                                        ; preds = %psa_register_read.exit
+.thread55:                                        ; preds = %psa_register_read.exit
   %.pre = load i32, ptr %56, align 8, !tbaa !9
   %65 = icmp eq i32 %.pre, 0
-  br i1 %65, label %.thread56.thread, label %psa_key_slot_state_transition.exit
+  br i1 %65, label %.thread55.thread, label %psa_key_slot_state_transition.exit
 
-.thread56.thread:                                 ; preds = %36, %.thread56
-  %.334.ph94 = phi ptr [ %.2.ph, %.thread56 ], [ %37, %36 ]
-  %66 = getelementptr inbounds nuw i8, ptr %.334.ph94, i64 24
+.thread55.thread:                                 ; preds = %36, %.thread55
+  %.334.ph93 = phi ptr [ %.2.ph, %.thread55 ], [ %37, %36 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.334.ph93, i64 24
   store i32 1, ptr %66, align 8, !tbaa !9
-  %67 = getelementptr inbounds nuw i8, ptr %.334.ph94, i64 28
+  %67 = getelementptr inbounds nuw i8, ptr %.334.ph93, i64 28
   store i8 22, ptr %67, align 4, !tbaa !25
-  store ptr %.334.ph94, ptr %1, align 8, !tbaa !3
+  store ptr %.334.ph93, ptr %1, align 8, !tbaa !3
   br label %psa_allocate_volatile_key_slot.exit
 
-psa_key_slot_state_transition.exit:               ; preds = %.thread56, %54, %2, %psa_register_read.exit
-  %.036 = phi i32 [ %64, %psa_register_read.exit ], [ -137, %2 ], [ -141, %54 ], [ -151, %.thread56 ]
+psa_key_slot_state_transition.exit:               ; preds = %.thread55, %54, %2, %psa_register_read.exit
+  %.036 = phi i32 [ %64, %psa_register_read.exit ], [ -137, %2 ], [ -141, %54 ], [ -151, %.thread55 ]
   store ptr null, ptr %1, align 8, !tbaa !3
   br label %psa_allocate_volatile_key_slot.exit
 
-psa_allocate_volatile_key_slot.exit:              ; preds = %8, %33, %.thread._crit_edge.i, %17, %psa_key_slot_state_transition.exit, %.thread56.thread
-  %.0 = phi i32 [ %.036, %psa_key_slot_state_transition.exit ], [ 0, %.thread56.thread ], [ -141, %17 ], [ 0, %33 ], [ -151, %.thread._crit_edge.i ], [ -141, %8 ]
+psa_allocate_volatile_key_slot.exit:              ; preds = %8, %33, %.thread._crit_edge.i, %17, %psa_key_slot_state_transition.exit, %.thread55.thread
+  %.0 = phi i32 [ %.036, %psa_key_slot_state_transition.exit ], [ 0, %.thread55.thread ], [ -141, %17 ], [ 0, %33 ], [ -151, %.thread._crit_edge.i ], [ -141, %8 ]
   ret i32 %.0
 }
 
@@ -404,16 +404,16 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
   br label %47
 
 47:                                               ; preds = %63, %.loopexit48
-  %.03078.i = phi ptr [ null, %.loopexit48 ], [ %.2.ph.i, %63 ]
-  %.03577.i = phi i64 [ 0, %.loopexit48 ], [ %64, %63 ]
-  %48 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %46, i64 %.03577.i
+  %.03077.i = phi ptr [ null, %.loopexit48 ], [ %.2.ph.i, %63 ]
+  %.03576.i = phi i64 [ 0, %.loopexit48 ], [ %64, %63 ]
+  %48 = getelementptr inbounds nuw %struct.psa_key_slot_t, ptr %46, i64 %.03576.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !9
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %.loopexit, label %52
 
 52:                                               ; preds = %47
-  %53 = icmp eq ptr %.03078.i, null
+  %53 = icmp eq ptr %.03077.i, null
   br i1 %53, label %54, label %63
 
 54:                                               ; preds = %52
@@ -423,8 +423,8 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
 56:                                               ; preds = %54
   %57 = getelementptr i8, ptr %48, i64 32
   %.val.i = load i64, ptr %57, align 8, !tbaa !18
-  %.not68.i = icmp eq i64 %.val.i, 0
-  br i1 %.not68.i, label %58, label %63
+  %.not67.i = icmp eq i64 %.val.i, 0
+  br i1 %.not67.i, label %58, label %63
 
 58:                                               ; preds = %56
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 4
@@ -435,14 +435,14 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
   br label %63
 
 63:                                               ; preds = %58, %56, %54, %52
-  %.2.ph.i = phi ptr [ %spec.select.i, %58 ], [ %.03078.i, %52 ], [ null, %54 ], [ null, %56 ]
-  %64 = add nuw nsw i64 %.03577.i, 1
+  %.2.ph.i = phi ptr [ %spec.select.i, %58 ], [ %.03077.i, %52 ], [ null, %54 ], [ null, %56 ]
+  %64 = add nuw nsw i64 %.03576.i, 1
   %exitcond.not.i31 = icmp eq i64 %64, 32
   br i1 %exitcond.not.i31, label %65, label %47, !llvm.loop !27
 
 65:                                               ; preds = %63
-  %.not67.i = icmp eq ptr %.2.ph.i, null
-  br i1 %.not67.i, label %psa_reserve_free_key_slot.exit, label %66
+  %.not66.i = icmp eq ptr %.2.ph.i, null
+  br i1 %.not66.i, label %psa_reserve_free_key_slot.exit, label %66
 
 66:                                               ; preds = %65
   %67 = getelementptr inbounds nuw i8, ptr %.2.ph.i, i64 24
@@ -464,41 +464,41 @@ define hidden i32 @psa_get_and_lock_key_slot(i32 noundef %0, ptr noundef capture
 psa_register_read.exit.i:                         ; preds = %73, %69, %66
   %75 = tail call i32 @psa_wipe_key_slot(ptr noundef nonnull %.2.ph.i) #12
   %.not43.i = icmp eq i32 %75, 0
-  br i1 %.not43.i, label %.thread56.i, label %psa_reserve_free_key_slot.exit
+  br i1 %.not43.i, label %.thread55.i, label %psa_reserve_free_key_slot.exit
 
-.thread56.i:                                      ; preds = %psa_register_read.exit.i
+.thread55.i:                                      ; preds = %psa_register_read.exit.i
   %.pre.i = load i32, ptr %67, align 8, !tbaa !9
   %76 = icmp eq i32 %.pre.i, 0
   br i1 %76, label %.loopexit, label %psa_reserve_free_key_slot.exit
 
-psa_reserve_free_key_slot.exit:                   ; preds = %65, %psa_register_read.exit.i, %.thread56.i
-  %.036.i = phi i32 [ %75, %psa_register_read.exit.i ], [ -141, %65 ], [ -151, %.thread56.i ]
+psa_reserve_free_key_slot.exit:                   ; preds = %65, %psa_register_read.exit.i, %.thread55.i
+  %.036.i = phi i32 [ %75, %psa_register_read.exit.i ], [ -141, %65 ], [ -151, %.thread55.i ]
   store ptr null, ptr %1, align 8, !tbaa !3
   br label %psa_get_and_lock_key_slot_in_memory.exit
 
-.loopexit:                                        ; preds = %47, %.thread56.i
-  %.334.ph94.i = phi ptr [ %.2.ph.i, %.thread56.i ], [ %48, %47 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.334.ph94.i, i64 24
+.loopexit:                                        ; preds = %47, %.thread55.i
+  %.334.ph93.i = phi ptr [ %.2.ph.i, %.thread55.i ], [ %48, %47 ]
+  %77 = getelementptr inbounds nuw i8, ptr %.334.ph93.i, i64 24
   store i32 1, ptr %77, align 8, !tbaa !9
-  %78 = getelementptr inbounds nuw i8, ptr %.334.ph94.i, i64 28
+  %78 = getelementptr inbounds nuw i8, ptr %.334.ph93.i, i64 28
   store i8 22, ptr %78, align 4, !tbaa !25
-  store ptr %.334.ph94.i, ptr %1, align 8, !tbaa !3
-  %79 = getelementptr inbounds nuw i8, ptr %.334.ph94.i, i64 20
+  store ptr %.334.ph93.i, ptr %1, align 8, !tbaa !3
+  %79 = getelementptr inbounds nuw i8, ptr %.334.ph93.i, i64 20
   store i32 %0, ptr %79, align 4, !tbaa !28
-  %80 = getelementptr inbounds nuw i8, ptr %.334.ph94.i, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.334.ph93.i, i64 4
   store i32 1, ptr %80, align 4, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !22
-  %81 = call i32 @psa_load_persistent_key(ptr noundef nonnull %.334.ph94.i, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %81 = call i32 @psa_load_persistent_key(ptr noundef nonnull %.334.ph93.i, ptr noundef nonnull %3, ptr noundef nonnull %4) #12
   %.not.i33 = icmp eq i32 %81, 0
   br i1 %.not.i33, label %82, label %psa_load_persistent_key_into_slot.exit
 
 82:                                               ; preds = %.loopexit
   %83 = load ptr, ptr %3, align 8, !tbaa !30
   %84 = load i64, ptr %4, align 8, !tbaa !22
-  %85 = call i32 @psa_copy_key_material_into_slot(ptr noundef nonnull %.334.ph94.i, ptr noundef %83, i64 noundef %84) #12
+  %85 = call i32 @psa_copy_key_material_into_slot(ptr noundef nonnull %.334.ph93.i, ptr noundef %83, i64 noundef %84) #12
   br label %psa_load_persistent_key_into_slot.exit
 
 psa_load_persistent_key_into_slot.exit:           ; preds = %.loopexit, %82

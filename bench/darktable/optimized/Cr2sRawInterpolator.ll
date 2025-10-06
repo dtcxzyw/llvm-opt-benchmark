@@ -113,14 +113,14 @@ default.unreachable24:                            ; preds = %11
   br i1 %23, label %24, label %.thread
 
 24:                                               ; preds = %22
-  %switch = icmp eq i32 %1, 1
-  br i1 %switch, label %25, label %26
+  %25 = icmp eq i32 %1, 1
+  br i1 %25, label %26, label %27
 
-25:                                               ; preds = %24
+26:                                               ; preds = %24
   tail call void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi1EEEvv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   br label %_ZN8rawspeed19Cr2sRawInterpolator15interpolate_422ILi0EEEvv.exit
 
-26:                                               ; preds = %24
+27:                                               ; preds = %24
   tail call void @_ZN8rawspeed19Cr2sRawInterpolator15interpolate_420ILi2EEEvv(ptr noundef nonnull align 8 dereferenceable(56) %0)
   br label %_ZN8rawspeed19Cr2sRawInterpolator15interpolate_422ILi0EEEvv.exit
 
@@ -128,7 +128,7 @@ default.unreachable24:                            ; preds = %11
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed19Cr2sRawInterpolator11interpolateEi, i32 noundef %.pre, i32 noundef %8) #10
   unreachable
 
-_ZN8rawspeed19Cr2sRawInterpolator15interpolate_422ILi0EEEvv.exit: ; preds = %.lr.ph.i13, %.lr.ph.i10, %.lr.ph.i, %20, %18, %16, %26, %25
+_ZN8rawspeed19Cr2sRawInterpolator15interpolate_422ILi0EEEvv.exit: ; preds = %.lr.ph.i13, %.lr.ph.i10, %.lr.ph.i, %20, %18, %16, %27, %26
   ret void
 }
 

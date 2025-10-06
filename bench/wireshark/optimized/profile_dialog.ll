@@ -8835,10 +8835,10 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit: ; preds = %._c
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %22, align 8
-  %.idx30.i.i.i = mul i64 %41, 24
-  %45 = getelementptr i8, ptr %44, i64 %.idx30.i.i.i
-  %.not28.i.i.i = icmp eq i64 %.idx30.i.i.i, 0
-  br i1 %.not28.i.i.i, label %_ZNK23QListSpecialMethodsBaseI11QModelIndexE8containsIS0_EEbRKT_.exit.thread, label %.lr.ph.i.i.i
+  %.idx29.i.i.i = mul i64 %41, 24
+  %45 = getelementptr i8, ptr %44, i64 %.idx29.i.i.i
+  %.not27.i.i.i = icmp eq i64 %.idx29.i.i.i, 0
+  br i1 %.not27.i.i.i, label %_ZNK23QListSpecialMethodsBaseI11QModelIndexE8containsIS0_EEbRKT_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %43
   %46 = getelementptr i8, ptr %44, i64 -24
@@ -8847,25 +8847,25 @@ _ZN9QtPrivate17QForeachContainerI5QListI11QModelIndexEED2Ev.exit: ; preds = %._c
 
 48:                                               ; preds = %.backedge.i.i.i, %.lr.ph.i.i.i
   %49 = phi ptr [ %44, %.lr.ph.i.i.i ], [ %64, %.backedge.i.i.i ]
-  %.sroa.018.029.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i ], [ %49, %.backedge.i.i.i ]
+  %.sroa.018.028.i.i.i = phi ptr [ %46, %.lr.ph.i.i.i ], [ %49, %.backedge.i.i.i ]
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %34, %50
   br i1 %51, label %52, label %.backedge.i.i.i
 
 52:                                               ; preds = %48
-  %53 = getelementptr i8, ptr %.sroa.018.029.i.i.i, i64 32
+  %53 = getelementptr i8, ptr %.sroa.018.028.i.i.i, i64 32
   %54 = load i64, ptr %53, align 8
   %55 = icmp eq i64 %47, %54
   br i1 %55, label %56, label %.backedge.i.i.i
 
 56:                                               ; preds = %52
-  %57 = getelementptr i8, ptr %.sroa.018.029.i.i.i, i64 28
+  %57 = getelementptr i8, ptr %.sroa.018.028.i.i.i, i64 28
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %36, %58
   br i1 %59, label %60, label %.backedge.i.i.i
 
 60:                                               ; preds = %56
-  %61 = getelementptr i8, ptr %.sroa.018.029.i.i.i, i64 40
+  %61 = getelementptr i8, ptr %.sroa.018.028.i.i.i, i64 40
   %62 = load ptr, ptr %61, align 8
   %63 = icmp eq ptr %38, %62
   br i1 %63, label %_ZNK23QListSpecialMethodsBaseI11QModelIndexE8containsIS0_EEbRKT_.exit, label %.backedge.i.i.i
@@ -10466,10 +10466,10 @@ _ZNK11QModelIndexeqERKS_.exit.thread:             ; preds = %536, %540, %544, %_
 
 554:                                              ; preds = %551
   %555 = load ptr, ptr %487, align 8
-  %.idx30.i.i.i = mul i64 %552, 24
-  %556 = getelementptr i8, ptr %555, i64 %.idx30.i.i.i
-  %.not28.i.i.i = icmp eq i64 %.idx30.i.i.i, 0
-  br i1 %.not28.i.i.i, label %_ZNK23QListSpecialMethodsBaseI11QModelIndexE8containsIS0_EEbRKT_.exit.thread, label %.lr.ph.i.i.i
+  %.idx29.i.i.i = mul i64 %552, 24
+  %556 = getelementptr i8, ptr %555, i64 %.idx29.i.i.i
+  %.not27.i.i.i = icmp eq i64 %.idx29.i.i.i, 0
+  br i1 %.not27.i.i.i, label %_ZNK23QListSpecialMethodsBaseI11QModelIndexE8containsIS0_EEbRKT_.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %554
   %557 = getelementptr i8, ptr %555, i64 -24
@@ -10481,25 +10481,25 @@ _ZNK11QModelIndexeqERKS_.exit.thread:             ; preds = %536, %540, %544, %_
 
 562:                                              ; preds = %.backedge.i.i.i, %.lr.ph.i.i.i
   %563 = phi ptr [ %555, %.lr.ph.i.i.i ], [ %578, %.backedge.i.i.i ]
-  %.sroa.018.029.i.i.i = phi ptr [ %557, %.lr.ph.i.i.i ], [ %563, %.backedge.i.i.i ]
+  %.sroa.018.028.i.i.i = phi ptr [ %557, %.lr.ph.i.i.i ], [ %563, %.backedge.i.i.i ]
   %564 = load i32, ptr %563, align 8
   %565 = icmp eq i32 %558, %564
   br i1 %565, label %566, label %.backedge.i.i.i
 
 566:                                              ; preds = %562
-  %567 = getelementptr i8, ptr %.sroa.018.029.i.i.i, i64 32
+  %567 = getelementptr i8, ptr %.sroa.018.028.i.i.i, i64 32
   %568 = load i64, ptr %567, align 8
   %569 = icmp eq i64 %559, %568
   br i1 %569, label %570, label %.backedge.i.i.i
 
 570:                                              ; preds = %566
-  %571 = getelementptr i8, ptr %.sroa.018.029.i.i.i, i64 28
+  %571 = getelementptr i8, ptr %.sroa.018.028.i.i.i, i64 28
   %572 = load i32, ptr %571, align 4
   %573 = icmp eq i32 %560, %572
   br i1 %573, label %574, label %.backedge.i.i.i
 
 574:                                              ; preds = %570
-  %575 = getelementptr i8, ptr %.sroa.018.029.i.i.i, i64 40
+  %575 = getelementptr i8, ptr %.sroa.018.028.i.i.i, i64 40
   %576 = load ptr, ptr %575, align 8
   %577 = icmp eq ptr %561, %576
   br i1 %577, label %579, label %.backedge.i.i.i

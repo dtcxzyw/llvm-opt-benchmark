@@ -1220,8 +1220,8 @@ transcode.exit.thread:                            ; preds = %print_stream_maps.e
   %261 = call i64 @av_gettime_relative() #17
   %262 = load i64, ptr @stats_period, align 8, !tbaa !90
   %263 = call i32 @sch_wait(ptr noundef nonnull %25, i64 noundef %262, ptr noundef nonnull %19) #17
-  %.not2165.i = icmp eq i32 %263, 0
-  br i1 %.not2165.i, label %.lr.ph.i, label %check_keyboard_interaction.exit.thread41.i
+  %.not2164.i = icmp eq i32 %263, 0
+  br i1 %.not2164.i, label %.lr.ph.i, label %check_keyboard_interaction.exit.thread41.i
 
 .lr.ph.i:                                         ; preds = %260
   %264 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1557,7 +1557,7 @@ check_keyboard_interaction.exit.thread41.i:       ; preds = %check_keyboard_inte
   %397 = call i32 @sch_stop(ptr noundef nonnull %25, ptr noundef nonnull %19) #17
   %398 = load i32, ptr @nb_output_files, align 4, !tbaa !12
   %399 = icmp sgt i32 %398, 0
-  br i1 %399, label %.lr.ph69.i, label %._crit_edge.i
+  br i1 %399, label %.lr.ph68.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %err_merge.exit.i, %check_keyboard_interaction.exit.thread41.i
   %.018.lcssa.i = phi i32 [ %397, %check_keyboard_interaction.exit.thread41.i ], [ %.0.i38.i, %err_merge.exit.i ]
@@ -1569,33 +1569,33 @@ check_keyboard_interaction.exit.thread41.i:       ; preds = %check_keyboard_inte
   %401 = call i32 @tcsetattr(i32 noundef 0, i32 noundef 0, ptr noundef nonnull @oldtty) #17
   br label %transcode.exit
 
-.lr.ph69.i:                                       ; preds = %check_keyboard_interaction.exit.thread41.i, %err_merge.exit.i
+.lr.ph68.i:                                       ; preds = %check_keyboard_interaction.exit.thread41.i, %err_merge.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %err_merge.exit.i ], [ 0, %check_keyboard_interaction.exit.thread41.i ]
-  %.01867.i = phi i32 [ %.0.i38.i, %err_merge.exit.i ], [ %397, %check_keyboard_interaction.exit.thread41.i ]
+  %.01866.i = phi i32 [ %.0.i38.i, %err_merge.exit.i ], [ %397, %check_keyboard_interaction.exit.thread41.i ]
   %402 = load ptr, ptr @output_files, align 8, !tbaa !43
   %403 = getelementptr inbounds nuw ptr, ptr %402, i64 %indvars.iv.i
   %404 = load ptr, ptr %403, align 8, !tbaa !47
   %405 = call i32 @of_write_trailer(ptr noundef %404) #17
-  %406 = icmp sgt i32 %.01867.i, -1
-  %407 = icmp eq i32 %.01867.i, -541478725
+  %406 = icmp sgt i32 %.01866.i, -1
+  %407 = icmp eq i32 %.01866.i, -541478725
   %or.cond.i.i = or i1 %406, %407
   %408 = icmp slt i32 %405, 0
   %or.cond3.i.i = and i1 %or.cond.i.i, %408
   br i1 %or.cond3.i.i, label %err_merge.exit.i, label %409
 
-409:                                              ; preds = %.lr.ph69.i
-  %410 = icmp slt i32 %.01867.i, 0
+409:                                              ; preds = %.lr.ph68.i
+  %410 = icmp slt i32 %.01866.i, 0
   %411 = call i32 @llvm.smin.i32(i32 %405, i32 0)
-  %412 = select i1 %410, i32 %.01867.i, i32 %411
+  %412 = select i1 %410, i32 %.01866.i, i32 %411
   br label %err_merge.exit.i
 
-err_merge.exit.i:                                 ; preds = %409, %.lr.ph69.i
-  %.0.i38.i = phi i32 [ %412, %409 ], [ %405, %.lr.ph69.i ]
+err_merge.exit.i:                                 ; preds = %409, %.lr.ph68.i
+  %.0.i38.i = phi i32 [ %412, %409 ], [ %405, %.lr.ph68.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %413 = load i32, ptr @nb_output_files, align 4, !tbaa !12
   %414 = sext i32 %413 to i64
   %415 = icmp slt i64 %indvars.iv.next.i, %414
-  br i1 %415, label %.lr.ph69.i, label %._crit_edge.i, !llvm.loop !172
+  br i1 %415, label %.lr.ph68.i, label %._crit_edge.i, !llvm.loop !172
 
 transcode.exit:                                   ; preds = %._crit_edge.i, %400
   %416 = call i64 @av_gettime_relative() #17

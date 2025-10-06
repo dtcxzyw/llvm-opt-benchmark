@@ -1023,11 +1023,11 @@ SDL_EGL_GetVersion.exit:                          ; preds = %14, %18, %33
 ..thread_crit_edge:                               ; preds = %60
   %.pre = load ptr, ptr %11, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 224
-  %.pre67 = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre66 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %57
-  %64 = phi ptr [ %.pre67, %..thread_crit_edge ], [ %56, %57 ]
+  %64 = phi ptr [ %.pre66, %..thread_crit_edge ], [ %56, %57 ]
   %.046 = phi ptr [ %63, %..thread_crit_edge ], [ null, %57 ]
   %65 = call ptr %64(i32 noundef %3, ptr noundef %2, ptr noundef %.046) #7
   %66 = load ptr, ptr %11, align 8
@@ -1068,31 +1068,31 @@ SDL_EGL_GetVersion.exit:                          ; preds = %14, %18, %33
 86:                                               ; preds = %83
   %87 = call ptr %85(ptr noundef nonnull @.str.7) #7
   %.not24.i = icmp eq ptr %87, null
-  %.pre69 = load ptr, ptr %11, align 8
+  %.pre68 = load ptr, ptr %11, align 8
   br i1 %.not24.i, label %.thread.i, label %SDL_EGL_GetProcAddressInternal.exit
 
 .thread.i:                                        ; preds = %86, %83, %74
-  %88 = phi ptr [ %75, %74 ], [ %75, %83 ], [ %.pre69, %86 ]
+  %88 = phi ptr [ %75, %74 ], [ %75, %83 ], [ %.pre68, %86 ]
   %89 = load ptr, ptr %88, align 8
   %90 = call ptr @SDL_LoadFunction_REAL(ptr noundef %89, ptr noundef nonnull @.str.7) #7
   %91 = icmp ne ptr %90, null
   %or.cond3.i = or i1 %82, %91
-  %.pre70 = load ptr, ptr %11, align 8
+  %.pre69 = load ptr, ptr %11, align 8
   br i1 %or.cond3.i, label %SDL_EGL_GetProcAddressInternal.exit, label %92
 
 92:                                               ; preds = %.thread.i
-  %93 = getelementptr inbounds nuw i8, ptr %.pre70, i64 88
+  %93 = getelementptr inbounds nuw i8, ptr %.pre69, i64 88
   %94 = load ptr, ptr %93, align 8
   %.not25.i = icmp eq ptr %94, null
   br i1 %.not25.i, label %SDL_EGL_GetProcAddressInternal.exit, label %95
 
 95:                                               ; preds = %92
   %96 = call ptr %94(ptr noundef nonnull @.str.7) #7
-  %.pre68 = load ptr, ptr %11, align 8
+  %.pre67 = load ptr, ptr %11, align 8
   br label %SDL_EGL_GetProcAddressInternal.exit
 
 SDL_EGL_GetProcAddressInternal.exit:              ; preds = %86, %.thread.i, %92, %95
-  %97 = phi ptr [ %.pre70, %.thread.i ], [ %.pre68, %95 ], [ %.pre70, %92 ], [ %.pre69, %86 ]
+  %97 = phi ptr [ %.pre69, %.thread.i ], [ %.pre67, %95 ], [ %.pre69, %92 ], [ %.pre68, %86 ]
   %.0.i = phi ptr [ %90, %.thread.i ], [ %96, %95 ], [ null, %92 ], [ %87, %86 ]
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 232
   store ptr %.0.i, ptr %98, align 8
@@ -1124,21 +1124,21 @@ SDL_EGL_GetProcAddressInternal.exit:              ; preds = %86, %.thread.i, %92
 
 114:                                              ; preds = %111
   %115 = call zeroext i1 @SDL_GetHintBoolean_REAL(ptr noundef nonnull @.str.8, i1 noundef zeroext true) #7
-  %.pre72 = load ptr, ptr %11, align 8
+  %.pre71 = load ptr, ptr %11, align 8
   br i1 %115, label %116, label %122
 
 116:                                              ; preds = %114
-  %117 = getelementptr inbounds nuw i8, ptr %.pre72, i64 64
+  %117 = getelementptr inbounds nuw i8, ptr %.pre71, i64 64
   %118 = load ptr, ptr %117, align 8
   %119 = call ptr %118(ptr noundef %2) #7
   %120 = load ptr, ptr %11, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   store ptr %119, ptr %121, align 8
-  %.pre71 = load ptr, ptr %11, align 8
+  %.pre70 = load ptr, ptr %11, align 8
   br label %122
 
 122:                                              ; preds = %116, %114, %111, %106
-  %123 = phi ptr [ %.pre71, %116 ], [ %.pre72, %114 ], [ %107, %111 ], [ %107, %106 ]
+  %123 = phi ptr [ %.pre70, %116 ], [ %.pre71, %114 ], [ %107, %111 ], [ %107, %106 ]
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8
   %126 = icmp eq ptr %125, null

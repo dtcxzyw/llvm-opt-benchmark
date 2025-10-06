@@ -387,17 +387,17 @@ define void @_ZN5arrow14ParseHexValuesESt17basic_string_viewIcSt11char_traitsIcE
 
 .preheader:                                       ; preds = %4
   %7 = lshr exact i64 %1, 1
-  %.not16 = icmp eq i64 %1, 0
-  br i1 %.not16, label %._crit_edge, label %.lr.ph
+  %.not14 = icmp eq i64 %1, 0
+  br i1 %.not14, label %._crit_edge, label %.lr.ph
 
 8:                                                ; preds = %4
   tail call void @_ZN5arrow6Status8FromArgsIJRA27_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i8 noundef signext 4, ptr noundef nonnull align 1 dereferenceable(27) @.str.7)
   br label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN5arrow6StatusD2Ev.exit10
-  %.0815 = phi i64 [ %26, %_ZN5arrow6StatusD2Ev.exit10 ], [ 0, %.preheader ]
+  %.0813 = phi i64 [ %26, %_ZN5arrow6StatusD2Ev.exit10 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %9 = shl nuw i64 %.0815, 1
+  %9 = shl nuw i64 %.0813, 1
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %9
   %11 = load i8, ptr %10, align 1, !tbaa !9, !noalias !33
   %12 = add i8 %11, -48
@@ -422,7 +422,7 @@ define void @_ZN5arrow14ParseHexValuesESt17basic_string_viewIcSt11char_traitsIcE
   br i1 %or.cond.i, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6StatusD2Ev.exit.thread
 
 _ZN5arrow6StatusD2Ev.exit.thread:                 ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.0815
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 %.0813
   %23 = shl i8 %.0.i.i, 4
   %24 = or i8 %23, %.0.i12.i
   store i8 %24, ptr %22, align 1, !tbaa !9, !noalias !33
@@ -439,7 +439,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %.lr.ph
   br i1 %25, label %_ZN5arrow6StatusD2Ev.exit10, label %.critedge
 
 _ZN5arrow6StatusD2Ev.exit10:                      ; preds = %_ZN5arrow6StatusD2Ev.exit, %_ZN5arrow6StatusD2Ev.exit.thread
-  %26 = add nuw nsw i64 %.0815, 1
+  %26 = add nuw nsw i64 %.0813, 1
   %exitcond.not = icmp eq i64 %26, %7
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
 

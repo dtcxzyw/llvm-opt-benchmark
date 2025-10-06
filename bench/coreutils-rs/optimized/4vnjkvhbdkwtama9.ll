@@ -139,11 +139,11 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
   br label %11
 
 11:                                               ; preds = %.lr.ph, %19
-  %.013 = phi i64 [ %2, %.lr.ph ], [ %20, %19 ]
+  %.012 = phi i64 [ %2, %.lr.ph ], [ %20, %19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !30)
-  call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, i32 noundef %8, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef 1, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %.013, i32 noundef 0), !noalias !30
+  call void @_ZN3nix5fcntl6splice17h5e98b3398fbb50c9E(ptr noalias noundef nonnull sret({ i32, [3 x i32] }) align 8 captures(none) dereferenceable(16) %5, i32 noundef %8, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i32 noundef 1, ptr noalias noundef align 8 dereferenceable_or_null(8) null, i64 noundef %.012, i32 noundef 0), !noalias !30
   %12 = load i32, ptr %5, align 8, !range !31, !noundef !4
   %trunc = trunc nuw i32 %12 to i1
   %13 = load i64, ptr %9, align 8
@@ -177,7 +177,7 @@ define hidden noundef range(i32 0, 135) i32 @_ZN6uucore8features5pipes12splice_e
   unreachable
 
 19:                                               ; preds = %15
-  %20 = sub i64 %.013, %13
+  %20 = sub i64 %.012, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %21 = icmp eq i64 %20, 0
   br i1 %21, label %.loopexit, label %11

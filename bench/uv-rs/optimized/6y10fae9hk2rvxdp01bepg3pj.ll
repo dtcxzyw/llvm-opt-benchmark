@@ -78,14 +78,14 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 20:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac7eaab4d325aaf4E.llvm.9531491866117217993.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
   %21 = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %25, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac7eaab4d325aaf4E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac7eaab4d325aaf4E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
+  %.sroa.0.07.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac7eaab4d325aaf4E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !20
   %22 = load i64, ptr %.sroa.04.0.copyload, align 8, !noalias !31, !noundef !8
   invoke void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capacity_in17h093b73910c3e8264E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, i64 noundef %22)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac7eaab4d325aaf4E.llvm.9531491866117217993.exit.i.i.i.i.i" unwind label %.body, !noalias !37
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17hac7eaab4d325aaf4E.llvm.9531491866117217993.exit.i.i.i.i.i": ; preds = %20
-  %23 = add i64 %.sroa.0.09.i.i.i.i.i, 1
+  %23 = add i64 %.sroa.0.07.i.i.i.i.i, 1
   store i64 0, ptr %4, align 128, !noalias !38
   %24 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %15, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %24, ptr noundef nonnull align 128 dereferenceable(128) %4, i64 128, i1 false), !noalias !39
@@ -164,14 +164,14 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 20:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3982bb5a09654627E.llvm.9531491866117217993.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
   %21 = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %25, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3982bb5a09654627E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3982bb5a09654627E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
+  %.sroa.0.07.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3982bb5a09654627E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !72
   %22 = load i64, ptr %.sroa.04.0.copyload, align 8, !noalias !83, !noundef !8
   invoke void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capacity_in17h7f74a7e25bbb990dE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, i64 noundef %22)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3982bb5a09654627E.llvm.9531491866117217993.exit.i.i.i.i.i" unwind label %.body, !noalias !89
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h3982bb5a09654627E.llvm.9531491866117217993.exit.i.i.i.i.i": ; preds = %20
-  %23 = add i64 %.sroa.0.09.i.i.i.i.i, 1
+  %23 = add i64 %.sroa.0.07.i.i.i.i.i, 1
   store i64 0, ptr %4, align 128, !noalias !90
   %24 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %15, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %24, ptr noundef nonnull align 128 dereferenceable(128) %4, i64 128, i1 false), !noalias !91
@@ -250,14 +250,14 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 20:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8ff33029a8d3a534E.llvm.9531491866117217993.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
   %21 = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %25, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8ff33029a8d3a534E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8ff33029a8d3a534E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
+  %.sroa.0.07.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8ff33029a8d3a534E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !124
   %22 = load i64, ptr %.sroa.04.0.copyload, align 8, !noalias !135, !noundef !8
   invoke void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capacity_in17h38c410efb296e111E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, i64 noundef %22)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8ff33029a8d3a534E.llvm.9531491866117217993.exit.i.i.i.i.i" unwind label %.body, !noalias !141
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h8ff33029a8d3a534E.llvm.9531491866117217993.exit.i.i.i.i.i": ; preds = %20
-  %23 = add i64 %.sroa.0.09.i.i.i.i.i, 1
+  %23 = add i64 %.sroa.0.07.i.i.i.i.i, 1
   store i64 0, ptr %4, align 128, !noalias !142
   %24 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %15, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %24, ptr noundef nonnull align 128 dereferenceable(128) %4, i64 128, i1 false), !noalias !143
@@ -336,14 +336,14 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 20:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05f3208e519681b8E.llvm.9531491866117217993.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
   %21 = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %25, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05f3208e519681b8E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05f3208e519681b8E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
+  %.sroa.0.07.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05f3208e519681b8E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !176
   %22 = load i64, ptr %.sroa.04.0.copyload, align 8, !noalias !187, !noundef !8
   invoke void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capacity_in17h1e349b7ff1472249E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, i64 noundef %22)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05f3208e519681b8E.llvm.9531491866117217993.exit.i.i.i.i.i" unwind label %.body, !noalias !193
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h05f3208e519681b8E.llvm.9531491866117217993.exit.i.i.i.i.i": ; preds = %20
-  %23 = add i64 %.sroa.0.09.i.i.i.i.i, 1
+  %23 = add i64 %.sroa.0.07.i.i.i.i.i, 1
   store i64 0, ptr %4, align 128, !noalias !194
   %24 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %15, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %24, ptr noundef nonnull align 128 dereferenceable(128) %4, i64 128, i1 false), !noalias !195
@@ -422,14 +422,14 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 20:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he244b7e1c009c736E.llvm.9531491866117217993.exit.i.i.i.i.i", %.lr.ph.i.i.i.i.i
   %21 = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %25, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he244b7e1c009c736E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
-  %.sroa.0.09.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he244b7e1c009c736E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
+  %.sroa.0.07.i.i.i.i.i = phi i64 [ %.val, %.lr.ph.i.i.i.i.i ], [ %23, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he244b7e1c009c736E.llvm.9531491866117217993.exit.i.i.i.i.i" ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !228
   %22 = load i64, ptr %.sroa.04.0.copyload, align 8, !noalias !239, !noundef !8
   invoke void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capacity_in17he38b598bb628c57eE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i, i64 noundef %22)
           to label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he244b7e1c009c736E.llvm.9531491866117217993.exit.i.i.i.i.i" unwind label %.body, !noalias !245
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17he244b7e1c009c736E.llvm.9531491866117217993.exit.i.i.i.i.i": ; preds = %20
-  %23 = add i64 %.sroa.0.09.i.i.i.i.i, 1
+  %23 = add i64 %.sroa.0.07.i.i.i.i.i, 1
   store i64 0, ptr %4, align 128, !noalias !246
   %24 = getelementptr inbounds { { { { i64 } }, { { { ptr, i64, i64, i64 }, {}, {} } } }, [11 x i64] }, ptr %15, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 128 dereferenceable(128) %24, ptr noundef nonnull align 128 dereferenceable(128) %4, i64 128, i1 false), !noalias !247

@@ -1000,11 +1000,11 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_118UndefBranchChecker13FindU
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !109
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %5, align 8, !tbaa !46
-  %18 = icmp eq ptr %17, %.sroa.426.24.copyload
+  %18 = icmp ne ptr %17, %.sroa.426.24.copyload
   %19 = load i64, ptr %16, align 8
-  %20 = icmp eq i64 %19, %.sroa.6.24.copyload
-  %.not3.i.not33 = select i1 %18, i1 %20, i1 false
-  br i1 %.not3.i.not33, label %._crit_edge, label %.lr.ph
+  %20 = icmp ne i64 %19, %.sroa.6.24.copyload
+  %.not3.i35 = select i1 %18, i1 true, i1 %20
+  br i1 %.not3.i35, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %14, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
   %21 = phi i64 [ %45, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %19, %14 ]
@@ -1033,7 +1033,7 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 32:                                               ; preds = %28
   %33 = call fastcc noundef ptr @_ZN12_GLOBAL__N_118UndefBranchChecker13FindUndefExpr8FindExprEPKN5clang4ExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %27)
   %.not22 = icmp eq ptr %33, null
-  br i1 %.not22, label %.thread, label %._crit_edge
+  br i1 %.not22, label %.thread, label %.sink.split
 
 .thread:                                          ; preds = %28, %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %32
   %34 = load i64, ptr %16, align 8, !tbaa !113
@@ -1061,19 +1061,19 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 
 _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %37, %41, %42
   %43 = load ptr, ptr %5, align 8, !tbaa !46
-  %44 = icmp eq ptr %43, %.sroa.426.24.copyload
+  %44 = icmp ne ptr %43, %.sroa.426.24.copyload
   %45 = load i64, ptr %16, align 8
-  %46 = icmp eq i64 %45, %.sroa.6.24.copyload
-  %.not3.i.not = select i1 %44, i1 %46, i1 false
-  br i1 %.not3.i.not, label %._crit_edge, label %.lr.ph
+  %46 = icmp ne i64 %45, %.sroa.6.24.copyload
+  %.not3.i = select i1 %44, i1 true, i1 %46
+  br i1 %.not3.i, label %.lr.ph, label %.sink.split
 
-._crit_edge:                                      ; preds = %32, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %14
-  %spec.select = phi ptr [ %1, %14 ], [ %1, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %33, %32 ]
+.sink.split:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %32, %14
+  %.0.ph = phi ptr [ %1, %14 ], [ %33, %32 ], [ %1, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %47
 
-47:                                               ; preds = %._crit_edge, %2
-  %.0 = phi ptr [ null, %2 ], [ %spec.select, %._crit_edge ]
+47:                                               ; preds = %.sink.split, %2
+  %.0 = phi ptr [ null, %2 ], [ %.0.ph, %.sink.split ]
   ret ptr %.0
 }
 

@@ -811,9 +811,9 @@ _ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbd
   br label %60
 
 60:                                               ; preds = %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread, %57
-  %.sroa.0.0.i10 = phi i64 [ 0, %57 ], [ 1, %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread ]
+  %.sroa.0.0.i9 = phi i64 [ 0, %57 ], [ 1, %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread ]
   %61 = phi ptr [ %59, %57 ], [ %56, %_ZN9hashbrown3raw13RawTableInner30find_or_find_insert_slot_inner17had99f58361dbddaaE.exit.thread ]
-  %62 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i10, 0
+  %62 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0.i9, 0
   %63 = insertvalue { i64, ptr } %62, ptr %61, 1
   ret { i64, ptr } %63
 }

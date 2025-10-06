@@ -620,13 +620,13 @@ _ZN7Imf_3_43Xdr4readINS_8StreamIOENS_7IStreamEEEvRT0_iPc.exit: ; preds = %.lr.ph
   br i1 %25, label %71, label %.preheader
 
 26:                                               ; preds = %.preheader
-  %27 = add nuw nsw i64 %.094.i, 1
+  %27 = add nuw nsw i64 %.092.i, 1
   %exitcond.not.i = icmp eq i64 %27, 256
   br i1 %exitcond.not.i, label %31, label %.preheader, !llvm.loop !41
 
 .preheader:                                       ; preds = %_ZN7Imf_3_43Xdr4readINS_8StreamIOENS_7IStreamEEEvRT0_iPc.exit, %26
-  %.094.i = phi i64 [ %27, %26 ], [ 0, %_ZN7Imf_3_43Xdr4readINS_8StreamIOENS_7IStreamEEEvRT0_iPc.exit ]
-  %28 = getelementptr inbounds nuw i8, ptr %11, i64 %.094.i
+  %.092.i = phi i64 [ %27, %26 ], [ 0, %_ZN7Imf_3_43Xdr4readINS_8StreamIOENS_7IStreamEEEvRT0_iPc.exit ]
+  %28 = getelementptr inbounds nuw i8, ptr %11, i64 %.092.i
   %29 = load i8, ptr %28, align 1, !tbaa !26
   %30 = icmp eq i8 %29, 0
   br i1 %30, label %_ZN7Imf_3_412_GLOBAL__N_121checkIsNullTerminatedILm256EEEvRAT__KcPS2_.exit, label %26

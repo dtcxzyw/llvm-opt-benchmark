@@ -5179,9 +5179,9 @@ _ZNKSt8__detail15_Hashtable_baseIN4lean4exprESt4pairIKS2_bENS_10_Select1stESt8eq
 _ZNSt13unordered_mapIN4lean4exprEbNS0_9expr_hashESt8equal_toIS1_ESaISt4pairIKS1_bEEE4findERS6_.exit: ; preds = %_ZNKSt8__detail15_Hashtable_baseIN4lean4exprESt4pairIKS2_bENS_10_Select1stESt8equal_toIS2_ENS1_9expr_hashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS5_Lb1EEE.exit.i.i.i.i
   %46 = load ptr, ptr %.015.i.i.i.i, align 8, !tbaa !62
   %.not = icmp eq ptr %46, null
-  br i1 %.not, label %.thread, label %.thread44
+  br i1 %.not, label %.thread, label %.thread43
 
-.thread44:                                        ; preds = %_ZNSt13unordered_mapIN4lean4exprEbNS0_9expr_hashESt8equal_toIS1_ESaISt4pairIKS1_bEEE4findERS6_.exit
+.thread43:                                        ; preds = %_ZNSt13unordered_mapIN4lean4exprEbNS0_9expr_hashESt8equal_toIS1_ESaISt4pairIKS1_bEEE4findERS6_.exit
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load i8, ptr %47, align 8, !tbaa !141, !range !99, !noundef !100
   %49 = trunc nuw i8 %48 to i1
@@ -5419,8 +5419,8 @@ _ZN4lean10object_refD2Ev.exit35:                  ; preds = %96, %103, %105, %10
   invoke void @__cxa_end_catch()
           to label %133 unwind label %134
 
-132:                                              ; preds = %50, %.thread44, %129, %_ZN4lean10object_refD2Ev.exit35
-  %.1 = phi i1 [ %95, %_ZN4lean10object_refD2Ev.exit35 ], [ %128, %129 ], [ %53, %50 ], [ %49, %.thread44 ]
+132:                                              ; preds = %50, %.thread43, %129, %_ZN4lean10object_refD2Ev.exit35
+  %.1 = phi i1 [ %95, %_ZN4lean10object_refD2Ev.exit35 ], [ %128, %129 ], [ %53, %50 ], [ %49, %.thread43 ]
   ret i1 %.1
 
 133:                                              ; preds = %130, %123

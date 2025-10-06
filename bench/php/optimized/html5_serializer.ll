@@ -107,13 +107,13 @@ define hidden range(i32 -1, 1) i32 @dom_html5_serialize(ptr noundef readonly cap
 define internal fastcc noundef zeroext i1 @dom_html5_serializes_as_void(ptr noundef %0) unnamed_addr #0 {
   %2 = load ptr, ptr @php_dom_ns_is_html_magic_token, align 8, !tbaa !20
   %3 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef %0, ptr noundef %2) #5
-  br i1 %3, label %4, label %dom_local_name_compare_ex.exit73.thread108
+  br i1 %3, label %4, label %dom_local_name_compare_ex.exit73.thread107
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #6
-  switch i64 %7, label %dom_local_name_compare_ex.exit73.thread108 [
+  switch i64 %7, label %dom_local_name_compare_ex.exit73.thread107 [
     i64 4, label %dom_local_name_compare_ex.exit
     i64 2, label %dom_local_name_compare_ex.exit43
     i64 3, label %dom_local_name_compare_ex.exit45
@@ -151,7 +151,7 @@ dom_local_name_compare_ex.exit47:                 ; preds = %4
 dom_local_name_compare_ex.exit49:                 ; preds = %dom_local_name_compare_ex.exit43
   %bcmp.i48 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %6, ptr noundef nonnull dereferenceable(3) @.str.5, i64 3)
   %13 = icmp eq i32 %bcmp.i48, 0
-  br i1 %13, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread108
+  br i1 %13, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread107
 
 dom_local_name_compare_ex.exit51:                 ; preds = %dom_local_name_compare_ex.exit45
   %bcmp.i50 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
@@ -171,7 +171,7 @@ dom_local_name_compare_ex.exit55:                 ; preds = %dom_local_name_comp
 dom_local_name_compare_ex.exit57:                 ; preds = %dom_local_name_compare_ex.exit55
   %bcmp.i56 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %6, ptr noundef nonnull dereferenceable(5) @.str.9, i64 5)
   %17 = icmp eq i32 %bcmp.i56, 0
-  br i1 %17, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread108
+  br i1 %17, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread107
 
 dom_local_name_compare_ex.exit59:                 ; preds = %4
   %bcmp.i58 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %6, ptr noundef nonnull dereferenceable(7) @.str.10, i64 7)
@@ -187,17 +187,17 @@ dom_local_name_compare_ex.exit61:                 ; preds = %dom_local_name_comp
 dom_local_name_compare_ex.exit63:                 ; preds = %dom_local_name_compare_ex.exit51
   %bcmp.i62 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %6, ptr noundef nonnull dereferenceable(4) @.str.12, i64 4)
   %21 = icmp eq i32 %bcmp.i62, 0
-  br i1 %21, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread108
+  br i1 %21, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread107
 
 dom_local_name_compare_ex.exit65:                 ; preds = %4
   %bcmp.i64 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %6, ptr noundef nonnull dereferenceable(9) @.str.13, i64 9)
   %22 = icmp eq i32 %bcmp.i64, 0
-  br i1 %22, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread108
+  br i1 %22, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread107
 
 dom_local_name_compare_ex.exit67:                 ; preds = %4
   %bcmp.i66 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %6, ptr noundef nonnull dereferenceable(8) @.str.14, i64 8)
   %23 = icmp eq i32 %bcmp.i66, 0
-  br i1 %23, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread108
+  br i1 %23, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread107
 
 dom_local_name_compare_ex.exit69:                 ; preds = %dom_local_name_compare_ex.exit61
   %24 = add nuw nsw i64 %7, 1
@@ -209,19 +209,19 @@ dom_local_name_compare_ex.exit71:                 ; preds = %dom_local_name_comp
   %26 = add nuw nsw i64 %7, 1
   %bcmp.i70 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.16, i64 %26)
   %27 = icmp eq i32 %bcmp.i70, 0
-  br i1 %27, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread108
+  br i1 %27, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread107
 
 dom_local_name_compare_ex.exit73:                 ; preds = %dom_local_name_compare_ex.exit69
   %28 = add nuw nsw i64 %7, 1
   %bcmp.i72 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) @.str.17, i64 %28)
   %.not = icmp eq i32 %bcmp.i72, 0
-  br i1 %.not, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread108
+  br i1 %.not, label %dom_local_name_compare_ex.exit73.thread, label %dom_local_name_compare_ex.exit73.thread107
 
-dom_local_name_compare_ex.exit73.thread108:       ; preds = %dom_local_name_compare_ex.exit71, %4, %dom_local_name_compare_ex.exit57, %dom_local_name_compare_ex.exit63, %dom_local_name_compare_ex.exit67, %dom_local_name_compare_ex.exit65, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit73, %1
+dom_local_name_compare_ex.exit73.thread107:       ; preds = %dom_local_name_compare_ex.exit71, %4, %dom_local_name_compare_ex.exit57, %dom_local_name_compare_ex.exit63, %dom_local_name_compare_ex.exit67, %dom_local_name_compare_ex.exit65, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit73, %1
   br label %dom_local_name_compare_ex.exit73.thread
 
-dom_local_name_compare_ex.exit73.thread:          ; preds = %dom_local_name_compare_ex.exit, %dom_local_name_compare_ex.exit41, %dom_local_name_compare_ex.exit43, %dom_local_name_compare_ex.exit45, %dom_local_name_compare_ex.exit47, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit53, %dom_local_name_compare_ex.exit55, %dom_local_name_compare_ex.exit57, %dom_local_name_compare_ex.exit59, %dom_local_name_compare_ex.exit61, %dom_local_name_compare_ex.exit63, %dom_local_name_compare_ex.exit65, %dom_local_name_compare_ex.exit67, %dom_local_name_compare_ex.exit69, %dom_local_name_compare_ex.exit71, %dom_local_name_compare_ex.exit73, %dom_local_name_compare_ex.exit73.thread108
-  %.1 = phi i1 [ false, %dom_local_name_compare_ex.exit73.thread108 ], [ true, %dom_local_name_compare_ex.exit73 ], [ true, %dom_local_name_compare_ex.exit71 ], [ true, %dom_local_name_compare_ex.exit69 ], [ true, %dom_local_name_compare_ex.exit67 ], [ true, %dom_local_name_compare_ex.exit65 ], [ true, %dom_local_name_compare_ex.exit63 ], [ true, %dom_local_name_compare_ex.exit61 ], [ true, %dom_local_name_compare_ex.exit59 ], [ true, %dom_local_name_compare_ex.exit57 ], [ true, %dom_local_name_compare_ex.exit55 ], [ true, %dom_local_name_compare_ex.exit53 ], [ true, %dom_local_name_compare_ex.exit51 ], [ true, %dom_local_name_compare_ex.exit49 ], [ true, %dom_local_name_compare_ex.exit47 ], [ true, %dom_local_name_compare_ex.exit45 ], [ true, %dom_local_name_compare_ex.exit43 ], [ true, %dom_local_name_compare_ex.exit41 ], [ true, %dom_local_name_compare_ex.exit ]
+dom_local_name_compare_ex.exit73.thread:          ; preds = %dom_local_name_compare_ex.exit, %dom_local_name_compare_ex.exit41, %dom_local_name_compare_ex.exit43, %dom_local_name_compare_ex.exit45, %dom_local_name_compare_ex.exit47, %dom_local_name_compare_ex.exit49, %dom_local_name_compare_ex.exit51, %dom_local_name_compare_ex.exit53, %dom_local_name_compare_ex.exit55, %dom_local_name_compare_ex.exit57, %dom_local_name_compare_ex.exit59, %dom_local_name_compare_ex.exit61, %dom_local_name_compare_ex.exit63, %dom_local_name_compare_ex.exit65, %dom_local_name_compare_ex.exit67, %dom_local_name_compare_ex.exit69, %dom_local_name_compare_ex.exit71, %dom_local_name_compare_ex.exit73, %dom_local_name_compare_ex.exit73.thread107
+  %.1 = phi i1 [ false, %dom_local_name_compare_ex.exit73.thread107 ], [ true, %dom_local_name_compare_ex.exit73 ], [ true, %dom_local_name_compare_ex.exit71 ], [ true, %dom_local_name_compare_ex.exit69 ], [ true, %dom_local_name_compare_ex.exit67 ], [ true, %dom_local_name_compare_ex.exit65 ], [ true, %dom_local_name_compare_ex.exit63 ], [ true, %dom_local_name_compare_ex.exit61 ], [ true, %dom_local_name_compare_ex.exit59 ], [ true, %dom_local_name_compare_ex.exit57 ], [ true, %dom_local_name_compare_ex.exit55 ], [ true, %dom_local_name_compare_ex.exit53 ], [ true, %dom_local_name_compare_ex.exit51 ], [ true, %dom_local_name_compare_ex.exit49 ], [ true, %dom_local_name_compare_ex.exit47 ], [ true, %dom_local_name_compare_ex.exit45 ], [ true, %dom_local_name_compare_ex.exit43 ], [ true, %dom_local_name_compare_ex.exit41 ], [ true, %dom_local_name_compare_ex.exit ]
   ret i1 %.1
 }
 
@@ -448,26 +448,26 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
 
 97:                                               ; preds = %95
   %98 = getelementptr inbounds nuw i8, ptr %.039108, i64 88
-  %.069108.i = load ptr, ptr %98, align 8, !tbaa !33
-  %.not76109.i = icmp eq ptr %.069108.i, null
-  br i1 %.not76109.i, label %dom_html5_serialize_element_start.exit, label %.lr.ph112.i
+  %.069106.i = load ptr, ptr %98, align 8, !tbaa !33
+  %.not76107.i = icmp eq ptr %.069106.i, null
+  br i1 %.not76107.i, label %dom_html5_serialize_element_start.exit, label %.lr.ph110.i
 
 99:                                               ; preds = %._crit_edge.i
-  %100 = getelementptr inbounds nuw i8, ptr %.069110.i, i64 48
+  %100 = getelementptr inbounds nuw i8, ptr %.069108.i, i64 48
   %.069.i = load ptr, ptr %100, align 8, !tbaa !33
   %.not76.i = icmp eq ptr %.069.i, null
-  br i1 %.not76.i, label %dom_html5_serialize_element_start.exit, label %.lr.ph112.i
+  br i1 %.not76.i, label %dom_html5_serialize_element_start.exit, label %.lr.ph110.i
 
-.lr.ph112.i:                                      ; preds = %97, %99
-  %.069110.i = phi ptr [ %.069.i, %99 ], [ %.069108.i, %97 ]
+.lr.ph110.i:                                      ; preds = %97, %99
+  %.069108.i = phi ptr [ %.069.i, %99 ], [ %.069106.i, %97 ]
   %101 = load ptr, ptr %4, align 8, !tbaa !23
   %102 = load ptr, ptr %5, align 8, !tbaa !24
   %103 = tail call i32 %101(ptr noundef %102, ptr noundef nonnull @.str.36, i64 noundef 1) #5
   %.not77.i = icmp eq i32 %103, 0
   br i1 %.not77.i, label %104, label %dom_html5_serialize_doctype.exit.thread, !prof !25
 
-104:                                              ; preds = %.lr.ph112.i
-  %105 = getelementptr inbounds nuw i8, ptr %.069110.i, i64 72
+104:                                              ; preds = %.lr.ph110.i
+  %105 = getelementptr inbounds nuw i8, ptr %.069108.i, i64 72
   %106 = load ptr, ptr %105, align 8, !tbaa !34
   %107 = icmp eq ptr %106, null
   br i1 %107, label %108, label %114
@@ -475,7 +475,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
 108:                                              ; preds = %104
   %109 = load ptr, ptr %0, align 8, !tbaa !26
   %110 = load ptr, ptr %5, align 8, !tbaa !24
-  %111 = getelementptr inbounds nuw i8, ptr %.069110.i, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.069108.i, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !36
   %113 = tail call i32 %109(ptr noundef %110, ptr noundef %112) #5
   %.not89.i = icmp eq i32 %113, 0
@@ -483,7 +483,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
 
 114:                                              ; preds = %104
   %115 = load ptr, ptr @php_dom_ns_is_xml_magic_token, align 8, !tbaa !20
-  %116 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.069110.i, ptr noundef %115) #5
+  %116 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.069108.i, ptr noundef %115) #5
   br i1 %116, label %117, label %127
 
 117:                                              ; preds = %114
@@ -496,7 +496,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
 121:                                              ; preds = %117
   %122 = load ptr, ptr %0, align 8, !tbaa !26
   %123 = load ptr, ptr %5, align 8, !tbaa !24
-  %124 = getelementptr inbounds nuw i8, ptr %.069110.i, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.069108.i, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !36
   %126 = tail call i32 %122(ptr noundef %123, ptr noundef %125) #5
   %.not88.i = icmp eq i32 %126, 0
@@ -504,11 +504,11 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
 
 127:                                              ; preds = %114
   %128 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !20
-  %129 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.069110.i, ptr noundef %128) #5
+  %129 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.069108.i, ptr noundef %128) #5
   br i1 %129, label %130, label %146
 
 130:                                              ; preds = %127
-  %131 = getelementptr inbounds nuw i8, ptr %.069110.i, i64 16
+  %131 = getelementptr inbounds nuw i8, ptr %.069108.i, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !36
   %133 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %132, ptr noundef nonnull dereferenceable(6) @.str.41) #6
   %134 = icmp eq i32 %133, 0
@@ -536,7 +536,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
 
 146:                                              ; preds = %127
   %147 = load ptr, ptr @php_dom_ns_is_xlink_magic_token, align 8, !tbaa !20
-  %148 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.069110.i, ptr noundef %147) #5
+  %148 = tail call zeroext i1 @php_dom_ns_is_fast(ptr noundef nonnull %.069108.i, ptr noundef %147) #5
   br i1 %148, label %149, label %159
 
 149:                                              ; preds = %146
@@ -549,7 +549,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
 153:                                              ; preds = %149
   %154 = load ptr, ptr %0, align 8, !tbaa !26
   %155 = load ptr, ptr %5, align 8, !tbaa !24
-  %156 = getelementptr inbounds nuw i8, ptr %.069110.i, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %.069108.i, i64 16
   %157 = load ptr, ptr %156, align 8, !tbaa !36
   %158 = tail call i32 %154(ptr noundef %155, ptr noundef %157) #5
   %.not83.i = icmp eq i32 %158, 0
@@ -565,7 +565,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
   br i1 %163, label %166, label %170
 
 166:                                              ; preds = %159
-  %167 = getelementptr inbounds nuw i8, ptr %.069110.i, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %.069108.i, i64 16
   %168 = load ptr, ptr %167, align 8, !tbaa !36
   %169 = tail call i32 %164(ptr noundef %165, ptr noundef %168) #5
   %.not81.i = icmp eq i32 %169, 0
@@ -586,7 +586,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
 176:                                              ; preds = %172
   %177 = load ptr, ptr %0, align 8, !tbaa !26
   %178 = load ptr, ptr %5, align 8, !tbaa !24
-  %179 = getelementptr inbounds nuw i8, ptr %.069110.i, i64 16
+  %179 = getelementptr inbounds nuw i8, ptr %.069108.i, i64 16
   %180 = load ptr, ptr %179, align 8, !tbaa !36
   %181 = tail call i32 %177(ptr noundef %178, ptr noundef %180) #5
   %.not80.i = icmp eq i32 %181, 0
@@ -600,14 +600,14 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
   br i1 %.not90.i, label %186, label %dom_html5_serialize_doctype.exit.thread, !prof !25
 
 186:                                              ; preds = %182
-  %187 = getelementptr inbounds nuw i8, ptr %.069110.i, i64 24
-  %.0105.i = load ptr, ptr %187, align 8, !tbaa !39
-  %.not91106.i = icmp eq ptr %.0105.i, null
-  br i1 %.not91106.i, label %._crit_edge.i, label %.lr.ph.i
+  %187 = getelementptr inbounds nuw i8, ptr %.069108.i, i64 24
+  %.0103.i = load ptr, ptr %187, align 8, !tbaa !39
+  %.not91104.i = icmp eq ptr %.0103.i, null
+  br i1 %.not91104.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %186, %207
-  %.0107.i = phi ptr [ %.0.i65, %207 ], [ %.0105.i, %186 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.0107.i, i64 8
+  %.0105.i = phi ptr [ %.0.i65, %207 ], [ %.0103.i, %186 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.0105.i, i64 8
   %189 = load i32, ptr %188, align 8, !tbaa !4
   switch i32 %189, label %207 [
     i32 3, label %190
@@ -615,7 +615,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
   ]
 
 190:                                              ; preds = %.lr.ph.i
-  %191 = getelementptr inbounds nuw i8, ptr %.0107.i, i64 80
+  %191 = getelementptr inbounds nuw i8, ptr %.0105.i, i64 80
   %192 = load ptr, ptr %191, align 8, !tbaa !30
   %.not95.i = icmp eq ptr %192, null
   br i1 %.not95.i, label %207, label %193
@@ -633,7 +633,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
   br i1 %.not92.i, label %199, label %dom_html5_serialize_doctype.exit.thread, !prof !25
 
 199:                                              ; preds = %195
-  %200 = getelementptr inbounds nuw i8, ptr %.0107.i, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %.0105.i, i64 16
   %201 = load ptr, ptr %200, align 8, !tbaa !22
   %202 = tail call fastcc i32 @dom_html5_escape_string(ptr noundef nonnull readonly %0, ptr noundef %201, i1 noundef zeroext true)
   %.not93.i = icmp eq i32 %202, 0
@@ -647,7 +647,7 @@ dom_html5_serialize_comment.exit:                 ; preds = %81, %84
   br i1 %.not94.i, label %207, label %dom_html5_serialize_doctype.exit.thread, !prof !25
 
 207:                                              ; preds = %203, %193, %190, %.lr.ph.i
-  %208 = getelementptr inbounds nuw i8, ptr %.0107.i, i64 48
+  %208 = getelementptr inbounds nuw i8, ptr %.0105.i, i64 48
   %.0.i65 = load ptr, ptr %208, align 8, !tbaa !39
   %.not91.i = icmp eq ptr %.0.i65, null
   br i1 %.not91.i, label %._crit_edge.i, label %.lr.ph.i
@@ -797,8 +797,8 @@ dom_html5_serialize_element_end.exit75.thread100: ; preds = %265, %261, %dom_htm
   %278 = icmp eq ptr %277, null
   br i1 %278, label %.preheader, label %.backedge.backedge
 
-dom_html5_serialize_doctype.exit.thread:          ; preds = %dom_html5_serialize_doctype.exit, %dom_html5_serialize_text_node.exit, %dom_html5_serialize_processing_instruction.exit, %dom_html5_serialize_comment.exit, %dom_html5_serialize_element_start.exit, %dom_html5_serialize_entity_ref.exit, %9, %13, %53, %57, %63, %70, %77, %84, %91, %95, %dom_html5_serialize_element_end.exit, %231, %235, %243, %247, %._crit_edge.i, %182, %176, %172, %170, %166, %153, %149, %141, %139, %137, %121, %117, %108, %.lr.ph112.i, %271, %267, %dom_html5_serialize_element_end.exit75, %.preheader, %193, %195, %199, %203, %3
-  %.1 = phi i32 [ 0, %3 ], [ -1, %203 ], [ -1, %199 ], [ -1, %195 ], [ -1, %193 ], [ -1, %271 ], [ -1, %267 ], [ -1, %dom_html5_serialize_element_end.exit75 ], [ 0, %.preheader ], [ -1, %.lr.ph112.i ], [ -1, %108 ], [ -1, %117 ], [ -1, %121 ], [ -1, %137 ], [ -1, %139 ], [ -1, %141 ], [ -1, %149 ], [ -1, %153 ], [ -1, %166 ], [ -1, %170 ], [ -1, %172 ], [ -1, %176 ], [ -1, %182 ], [ -1, %._crit_edge.i ], [ -1, %247 ], [ -1, %243 ], [ -1, %235 ], [ -1, %231 ], [ -1, %dom_html5_serialize_element_end.exit ], [ -1, %95 ], [ -1, %91 ], [ -1, %84 ], [ -1, %77 ], [ -1, %70 ], [ -1, %63 ], [ -1, %57 ], [ -1, %53 ], [ -1, %13 ], [ -1, %9 ], [ -1, %dom_html5_serialize_entity_ref.exit ], [ -1, %dom_html5_serialize_element_start.exit ], [ -1, %dom_html5_serialize_comment.exit ], [ -1, %dom_html5_serialize_processing_instruction.exit ], [ -1, %dom_html5_serialize_text_node.exit ], [ -1, %dom_html5_serialize_doctype.exit ]
+dom_html5_serialize_doctype.exit.thread:          ; preds = %dom_html5_serialize_doctype.exit, %dom_html5_serialize_text_node.exit, %dom_html5_serialize_processing_instruction.exit, %dom_html5_serialize_comment.exit, %dom_html5_serialize_element_start.exit, %dom_html5_serialize_entity_ref.exit, %9, %13, %53, %57, %63, %70, %77, %84, %91, %95, %dom_html5_serialize_element_end.exit, %231, %235, %243, %247, %._crit_edge.i, %182, %176, %172, %170, %166, %153, %149, %141, %139, %137, %121, %117, %108, %.lr.ph110.i, %271, %267, %dom_html5_serialize_element_end.exit75, %.preheader, %193, %195, %199, %203, %3
+  %.1 = phi i32 [ 0, %3 ], [ -1, %203 ], [ -1, %199 ], [ -1, %195 ], [ -1, %193 ], [ -1, %271 ], [ -1, %267 ], [ -1, %dom_html5_serialize_element_end.exit75 ], [ 0, %.preheader ], [ -1, %.lr.ph110.i ], [ -1, %108 ], [ -1, %117 ], [ -1, %121 ], [ -1, %137 ], [ -1, %139 ], [ -1, %141 ], [ -1, %149 ], [ -1, %153 ], [ -1, %166 ], [ -1, %170 ], [ -1, %172 ], [ -1, %176 ], [ -1, %182 ], [ -1, %._crit_edge.i ], [ -1, %247 ], [ -1, %243 ], [ -1, %235 ], [ -1, %231 ], [ -1, %dom_html5_serialize_element_end.exit ], [ -1, %95 ], [ -1, %91 ], [ -1, %84 ], [ -1, %77 ], [ -1, %70 ], [ -1, %63 ], [ -1, %57 ], [ -1, %53 ], [ -1, %13 ], [ -1, %9 ], [ -1, %dom_html5_serialize_entity_ref.exit ], [ -1, %dom_html5_serialize_element_start.exit ], [ -1, %dom_html5_serialize_comment.exit ], [ -1, %dom_html5_serialize_processing_instruction.exit ], [ -1, %dom_html5_serialize_text_node.exit ], [ -1, %dom_html5_serialize_doctype.exit ]
   ret i32 %.1
 }
 

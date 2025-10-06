@@ -872,9 +872,9 @@ define dso_local { double, i8 } @_ZNK4llvm4json6Object9getNumberENS_9StringRefE(
   br label %26
 
 26:                                               ; preds = %12, %15, %18, %22, %3
-  %.sroa.0.09 = phi double [ undef, %3 ], [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ undef, %12 ]
+  %.sroa.0.08 = phi double [ undef, %3 ], [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ undef, %12 ]
   %.sroa.2.1 = phi i8 [ 0, %3 ], [ 1, %15 ], [ 1, %18 ], [ 1, %22 ], [ 0, %12 ]
-  %.fca.0.insert = insertvalue { double, i8 } poison, double %.sroa.0.09, 0
+  %.fca.0.insert = insertvalue { double, i8 } poison, double %.sroa.0.08, 0
   %.fca.1.insert = insertvalue { double, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { double, i8 } %.fca.1.insert
 }
@@ -920,15 +920,15 @@ define dso_local { i64, i8 } @_ZNK4llvm4json6Object10getIntegerENS_9StringRefE(p
   store double %24, ptr %4, align 8, !tbaa !42
   %25 = call double @modf(double noundef %24, ptr noundef nonnull %4) #27
   %26 = fcmp oeq double %25, 0.000000e+00
-  br i1 %26, label %27, label %.thread8.i, !prof !26
+  br i1 %26, label %27, label %.thread7.i, !prof !26
 
 27:                                               ; preds = %22
   %28 = load double, ptr %4, align 8, !tbaa !42
   %29 = tail call double @llvm.fabs.f64(double %28)
   %or.cond.i = fcmp ugt double %29, 0x43E0000000000000
-  br i1 %or.cond.i, label %.thread8.i, label %30, !prof !45
+  br i1 %or.cond.i, label %.thread7.i, label %30, !prof !45
 
-.thread8.i:                                       ; preds = %27, %22
+.thread7.i:                                       ; preds = %27, %22
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
@@ -937,10 +937,10 @@ define dso_local { i64, i8 } @_ZNK4llvm4json6Object10getIntegerENS_9StringRefE(p
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
-32:                                               ; preds = %13, %16, %19, %.thread8.i, %30, %3
-  %.sroa.0.010 = phi i64 [ undef, %3 ], [ %31, %30 ], [ %18, %16 ], [ undef, %.thread8.i ], [ undef, %13 ], [ %21, %19 ]
-  %.sroa.2.1 = phi i8 [ 0, %3 ], [ 1, %30 ], [ 1, %16 ], [ 0, %.thread8.i ], [ 0, %13 ], [ %spec.select.i6, %19 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.010, 0
+32:                                               ; preds = %13, %16, %19, %.thread7.i, %30, %3
+  %.sroa.0.09 = phi i64 [ undef, %3 ], [ %31, %30 ], [ %18, %16 ], [ undef, %.thread7.i ], [ undef, %13 ], [ %21, %19 ]
+  %.sroa.2.1 = phi i8 [ 0, %3 ], [ 1, %30 ], [ 1, %16 ], [ 0, %.thread7.i ], [ 0, %13 ], [ %spec.select.i6, %19 ]
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.09, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { i64, i8 } %.fca.1.insert
 }
@@ -1717,9 +1717,9 @@ switch.lookup:
   %switch.load = load i32, ptr %switch.gep, align 4
   %6 = load i16, ptr %1, align 8, !tbaa !32
   %7 = zext nneg i16 %6 to i64
-  %switch.gep114 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 %7
-  %switch.load115 = load i32, ptr %switch.gep114, align 4
-  %.not = icmp eq i32 %switch.load, %switch.load115
+  %switch.gep112 = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm4jsoneqERKNS0_5ValueES3_.22, i64 %7
+  %switch.load113 = load i32, ptr %switch.gep112, align 4
+  %.not = icmp eq i32 %switch.load, %switch.load113
   br i1 %.not, label %8, label %_ZNK4llvm4json5Value9getAsNullEv.exit28
 
 8:                                                ; preds = %switch.lookup
@@ -1732,7 +1732,7 @@ switch.lookup:
     i16 6, label %_ZNK4llvm4json5Value11getAsStringEv.exit
     i16 5, label %_ZNK4llvm4json5Value11getAsStringEv.exit
     i16 7, label %_ZNK4llvm4json5Value4kindEv.exit26
-    i16 8, label %82
+    i16 8, label %83
   ]
 
 9:                                                ; preds = %8
@@ -1780,15 +1780,15 @@ switch.lookup:
   store double %29, ptr %3, align 8, !tbaa !42
   %30 = call double @modf(double noundef %29, ptr noundef nonnull %3) #27
   %31 = fcmp oeq double %30, 0.000000e+00
-  br i1 %31, label %32, label %.thread8.i, !prof !26
+  br i1 %31, label %32, label %.thread7.i, !prof !26
 
 32:                                               ; preds = %27
   %33 = load double, ptr %3, align 8, !tbaa !42
   %34 = tail call double @llvm.fabs.f64(double %33)
   %or.cond.i = fcmp ugt double %34, 0x43E0000000000000
-  br i1 %or.cond.i, label %.thread8.i, label %35, !prof !45
+  br i1 %or.cond.i, label %.thread7.i, label %35, !prof !45
 
-.thread8.i:                                       ; preds = %32, %27
+.thread7.i:                                       ; preds = %32, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZNK4llvm4json5Value12getAsIntegerEv.exit
 
@@ -1800,9 +1800,9 @@ switch.lookup:
 default.unreachable:                              ; preds = %20
   unreachable
 
-_ZNK4llvm4json5Value12getAsIntegerEv.exit:        ; preds = %21, %24, %.thread8.i, %35
-  %.sroa.0.0.i = phi i64 [ %36, %35 ], [ %23, %21 ], [ undef, %.thread8.i ], [ %26, %24 ]
-  %.sroa.4.0.i = phi i8 [ 1, %35 ], [ 1, %21 ], [ 0, %.thread8.i ], [ %spec.select.i, %24 ]
+_ZNK4llvm4json5Value12getAsIntegerEv.exit:        ; preds = %21, %24, %.thread7.i, %35
+  %.sroa.0.0.i = phi i64 [ %36, %35 ], [ %23, %21 ], [ undef, %.thread7.i ], [ %26, %24 ]
+  %.sroa.4.0.i = phi i8 [ 1, %35 ], [ 1, %21 ], [ 0, %.thread7.i ], [ %spec.select.i, %24 ]
   switch i16 %6, label %_ZNK4llvm4json5Value12getAsIntegerEv.exit38 [
     i16 3, label %37
     i16 4, label %40
@@ -1828,15 +1828,15 @@ _ZNK4llvm4json5Value12getAsIntegerEv.exit:        ; preds = %21, %24, %.thread8.
   store double %45, ptr %2, align 8, !tbaa !42
   %46 = call double @modf(double noundef %45, ptr noundef nonnull %2) #27
   %47 = fcmp oeq double %46, 0.000000e+00
-  br i1 %47, label %48, label %.thread8.i30, !prof !26
+  br i1 %47, label %48, label %.thread7.i30, !prof !26
 
 48:                                               ; preds = %43
   %49 = load double, ptr %2, align 8, !tbaa !42
   %50 = tail call double @llvm.fabs.f64(double %49)
   %or.cond.i35 = fcmp ugt double %50, 0x43E0000000000000
-  br i1 %or.cond.i35, label %.thread8.i30, label %51, !prof !45
+  br i1 %or.cond.i35, label %.thread7.i30, label %51, !prof !45
 
-.thread8.i30:                                     ; preds = %48, %43
+.thread7.i30:                                     ; preds = %48, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK4llvm4json5Value12getAsIntegerEv.exit38
 
@@ -1845,9 +1845,9 @@ _ZNK4llvm4json5Value12getAsIntegerEv.exit:        ; preds = %21, %24, %.thread8.
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %_ZNK4llvm4json5Value12getAsIntegerEv.exit38
 
-_ZNK4llvm4json5Value12getAsIntegerEv.exit38:      ; preds = %_ZNK4llvm4json5Value12getAsIntegerEv.exit, %37, %40, %.thread8.i30, %51
-  %.sroa.0.0.i31 = phi i64 [ %52, %51 ], [ %39, %37 ], [ undef, %.thread8.i30 ], [ undef, %_ZNK4llvm4json5Value12getAsIntegerEv.exit ], [ %42, %40 ]
-  %.sroa.4.0.i32 = phi i8 [ 1, %51 ], [ 1, %37 ], [ 0, %.thread8.i30 ], [ 0, %_ZNK4llvm4json5Value12getAsIntegerEv.exit ], [ %spec.select.i37, %40 ]
+_ZNK4llvm4json5Value12getAsIntegerEv.exit38:      ; preds = %_ZNK4llvm4json5Value12getAsIntegerEv.exit, %37, %40, %.thread7.i30, %51
+  %.sroa.0.0.i31 = phi i64 [ %52, %51 ], [ %39, %37 ], [ undef, %.thread7.i30 ], [ undef, %_ZNK4llvm4json5Value12getAsIntegerEv.exit ], [ %42, %40 ]
+  %.sroa.4.0.i32 = phi i8 [ 1, %51 ], [ 1, %37 ], [ 0, %.thread7.i30 ], [ 0, %_ZNK4llvm4json5Value12getAsIntegerEv.exit ], [ %spec.select.i37, %40 ]
   %53 = trunc nuw i8 %.sroa.4.0.i to i1
   %54 = icmp eq i8 %.sroa.4.0.i, %.sroa.4.0.i32
   %brmerge.not.i = and i1 %54, %53
@@ -1856,109 +1856,109 @@ _ZNK4llvm4json5Value12getAsIntegerEv.exit38:      ; preds = %_ZNK4llvm4json5Valu
   br label %_ZNK4llvm4json5Value9getAsNullEv.exit28
 
 56:                                               ; preds = %17
-  %switch = icmp eq i16 %4, 2
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %switch, label %58, label %60, !prof !76
+  %57 = icmp eq i16 %4, 2
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %57, label %59, label %61, !prof !76
 
-58:                                               ; preds = %56
-  %59 = load double, ptr %57, align 8, !tbaa !42
+59:                                               ; preds = %56
+  %60 = load double, ptr %58, align 8, !tbaa !42
   br label %_ZNK4llvm4json5Value11getAsNumberEv.exit
 
-60:                                               ; preds = %56
-  %61 = load i64, ptr %57, align 8, !tbaa !23
-  %62 = uitofp i64 %61 to double
+61:                                               ; preds = %56
+  %62 = load i64, ptr %58, align 8, !tbaa !23
+  %63 = uitofp i64 %62 to double
   br label %_ZNK4llvm4json5Value11getAsNumberEv.exit
 
-_ZNK4llvm4json5Value11getAsNumberEv.exit:         ; preds = %58, %60
-  %.sroa.0.0.i40 = phi double [ %59, %58 ], [ %62, %60 ]
+_ZNK4llvm4json5Value11getAsNumberEv.exit:         ; preds = %59, %61
+  %.sroa.0.0.i40 = phi double [ %60, %59 ], [ %63, %61 ]
   switch i16 %6, label %_ZNK4llvm4json5Value11getAsNumberEv.exit47 [
-    i16 2, label %63
-    i16 4, label %66
+    i16 2, label %64
+    i16 4, label %67
   ], !prof !77
 
-63:                                               ; preds = %_ZNK4llvm4json5Value11getAsNumberEv.exit
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %65 = load double, ptr %64, align 8, !tbaa !42
+64:                                               ; preds = %_ZNK4llvm4json5Value11getAsNumberEv.exit
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %66 = load double, ptr %65, align 8, !tbaa !42
   br label %_ZNK4llvm4json5Value11getAsNumberEv.exit47
 
-66:                                               ; preds = %_ZNK4llvm4json5Value11getAsNumberEv.exit
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !23
-  %69 = uitofp i64 %68 to double
+67:                                               ; preds = %_ZNK4llvm4json5Value11getAsNumberEv.exit
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %69 = load i64, ptr %68, align 8, !tbaa !23
+  %70 = uitofp i64 %69 to double
   br label %_ZNK4llvm4json5Value11getAsNumberEv.exit47
 
-_ZNK4llvm4json5Value11getAsNumberEv.exit47:       ; preds = %_ZNK4llvm4json5Value11getAsNumberEv.exit, %63, %66
-  %.sroa.0.0.i44 = phi double [ %65, %63 ], [ %69, %66 ], [ undef, %_ZNK4llvm4json5Value11getAsNumberEv.exit ]
-  %70 = fcmp oeq double %.sroa.0.0.i40, %.sroa.0.0.i44
+_ZNK4llvm4json5Value11getAsNumberEv.exit47:       ; preds = %_ZNK4llvm4json5Value11getAsNumberEv.exit, %64, %67
+  %.sroa.0.0.i44 = phi double [ %66, %64 ], [ %70, %67 ], [ undef, %_ZNK4llvm4json5Value11getAsNumberEv.exit ]
+  %71 = fcmp oeq double %.sroa.0.0.i40, %.sroa.0.0.i44
   br label %_ZNK4llvm4json5Value9getAsNullEv.exit28
 
 _ZNK4llvm4json5Value11getAsStringEv.exit:         ; preds = %8, %8
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %74 = load i64, ptr %73, align 8
-  %.off108 = add i16 %6, -5
-  %switch109 = icmp ult i16 %.off108, 2
-  br i1 %switch109, label %_ZNK4llvm4json5Value11getAsStringEv.exit51, label %_ZNK4llvm4json5Value11getAsStringEv.exit51.thread, !prof !78
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %75 = load i64, ptr %74, align 8
+  %.off = add i16 %6, -5
+  %switch = icmp ult i16 %.off, 2
+  br i1 %switch, label %_ZNK4llvm4json5Value11getAsStringEv.exit51, label %_ZNK4llvm4json5Value11getAsStringEv.exit51.thread, !prof !78
 
 _ZNK4llvm4json5Value11getAsStringEv.exit51:       ; preds = %_ZNK4llvm4json5Value11getAsStringEv.exit
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !20
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %78 = load i64, ptr %77, align 8, !tbaa !23
-  %.not.i52 = icmp eq i64 %74, %78
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %77 = load ptr, ptr %76, align 8, !tbaa !20
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %79 = load i64, ptr %78, align 8, !tbaa !23
+  %.not.i52 = icmp eq i64 %75, %79
   br i1 %.not.i52, label %_ZNK4llvm4json5Value11getAsStringEv.exit51.thread, label %_ZNK4llvm4json5Value9getAsNullEv.exit28
 
 _ZNK4llvm4json5Value11getAsStringEv.exit51.thread: ; preds = %_ZNK4llvm4json5Value11getAsStringEv.exit, %_ZNK4llvm4json5Value11getAsStringEv.exit51
-  %.sroa.0.0107 = phi ptr [ %76, %_ZNK4llvm4json5Value11getAsStringEv.exit51 ], [ undef, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
-  %79 = icmp eq i64 %74, 0
-  br i1 %79, label %_ZNK4llvm4json5Value9getAsNullEv.exit28, label %80
+  %.sroa.0.0107 = phi ptr [ %77, %_ZNK4llvm4json5Value11getAsStringEv.exit51 ], [ undef, %_ZNK4llvm4json5Value11getAsStringEv.exit ]
+  %80 = icmp eq i64 %75, 0
+  br i1 %80, label %_ZNK4llvm4json5Value9getAsNullEv.exit28, label %81
 
-80:                                               ; preds = %_ZNK4llvm4json5Value11getAsStringEv.exit51.thread
-  %bcmp.i = tail call i32 @bcmp(ptr %72, ptr %.sroa.0.0107, i64 %74)
-  %81 = icmp eq i32 %bcmp.i, 0
+81:                                               ; preds = %_ZNK4llvm4json5Value11getAsStringEv.exit51.thread
+  %bcmp.i = tail call i32 @bcmp(ptr %73, ptr %.sroa.0.0107, i64 %75)
+  %82 = icmp eq i32 %bcmp.i, 0
   br label %_ZNK4llvm4json5Value9getAsNullEv.exit28
 
-82:                                               ; preds = %8
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %86 = load ptr, ptr %85, align 8, !tbaa !61
-  %87 = load ptr, ptr %83, align 8, !tbaa !66
-  %88 = ptrtoint ptr %86 to i64
+83:                                               ; preds = %8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %87 = load ptr, ptr %86, align 8, !tbaa !61
+  %88 = load ptr, ptr %84, align 8, !tbaa !66
   %89 = ptrtoint ptr %87 to i64
-  %90 = sub i64 %88, %89
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %92 = load ptr, ptr %91, align 8, !tbaa !61
-  %93 = load ptr, ptr %84, align 8, !tbaa !66
-  %94 = ptrtoint ptr %92 to i64
+  %90 = ptrtoint ptr %88 to i64
+  %91 = sub i64 %89, %90
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %93 = load ptr, ptr %92, align 8, !tbaa !61
+  %94 = load ptr, ptr %85, align 8, !tbaa !66
   %95 = ptrtoint ptr %93 to i64
-  %96 = sub i64 %94, %95
-  %97 = icmp eq i64 %90, %96
-  br i1 %97, label %.preheader, label %_ZNK4llvm4json5Value9getAsNullEv.exit28
+  %96 = ptrtoint ptr %94 to i64
+  %97 = sub i64 %95, %96
+  %98 = icmp eq i64 %91, %97
+  br i1 %98, label %.preheader, label %_ZNK4llvm4json5Value9getAsNullEv.exit28
 
-.preheader:                                       ; preds = %82
-  %.not.i.i93 = icmp eq ptr %87, %86
+.preheader:                                       ; preds = %83
+  %.not.i.i93 = icmp eq ptr %88, %87
   br i1 %.not.i.i93, label %_ZNK4llvm4json5Value9getAsNullEv.exit28, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0.i.i95 = phi ptr [ %100, %.lr.ph ], [ %93, %.preheader ]
-  %.08.i.i94 = phi ptr [ %99, %.lr.ph ], [ %87, %.preheader ]
-  %98 = tail call noundef zeroext i1 @_ZN4llvm4jsoneqERKNS0_5ValueES3_(ptr noundef nonnull align 8 dereferenceable(40) %.08.i.i94, ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i95)
-  %99 = getelementptr inbounds nuw i8, ptr %.08.i.i94, i64 40
-  %100 = getelementptr inbounds nuw i8, ptr %.0.i.i95, i64 40
-  %.not.i.i = icmp ne ptr %99, %86
-  %or.cond112.not = select i1 %98, i1 %.not.i.i, i1 false
-  br i1 %or.cond112.not, label %.lr.ph, label %_ZNK4llvm4json5Value9getAsNullEv.exit28, !llvm.loop !79
+  %.0.i.i95 = phi ptr [ %101, %.lr.ph ], [ %94, %.preheader ]
+  %.08.i.i94 = phi ptr [ %100, %.lr.ph ], [ %88, %.preheader ]
+  %99 = tail call noundef zeroext i1 @_ZN4llvm4jsoneqERKNS0_5ValueES3_(ptr noundef nonnull align 8 dereferenceable(40) %.08.i.i94, ptr noundef nonnull align 8 dereferenceable(40) %.0.i.i95)
+  %100 = getelementptr inbounds nuw i8, ptr %.08.i.i94, i64 40
+  %101 = getelementptr inbounds nuw i8, ptr %.0.i.i95, i64 40
+  %.not.i.i = icmp ne ptr %100, %87
+  %or.cond110.not = select i1 %99, i1 %.not.i.i, i1 false
+  br i1 %or.cond110.not, label %.lr.ph, label %_ZNK4llvm4json5Value9getAsNullEv.exit28, !llvm.loop !79
 
 _ZNK4llvm4json5Value4kindEv.exit26:               ; preds = %8
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %103 = tail call noundef zeroext i1 @_ZN4llvm4jsoneqERKNS0_6ObjectES3_(ptr noundef nonnull align 8 dereferenceable(24) %101, ptr noundef nonnull align 8 dereferenceable(24) %102)
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %104 = tail call noundef zeroext i1 @_ZN4llvm4jsoneqERKNS0_6ObjectES3_(ptr noundef nonnull align 8 dereferenceable(24) %102, ptr noundef nonnull align 8 dereferenceable(24) %103)
   br label %_ZNK4llvm4json5Value9getAsNullEv.exit28
 
-_ZNK4llvm4json5Value9getAsNullEv.exit28:          ; preds = %.lr.ph, %.preheader, %8, %_ZNK4llvm4json5Value12getAsIntegerEv.exit38, %82, %80, %_ZNK4llvm4json5Value11getAsStringEv.exit51.thread, %_ZNK4llvm4json5Value11getAsStringEv.exit51, %switch.lookup, %_ZNK4llvm4json5Value4kindEv.exit26, %_ZNK4llvm4json5Value11getAsNumberEv.exit47, %10
-  %.0 = phi i1 [ %16, %10 ], [ %70, %_ZNK4llvm4json5Value11getAsNumberEv.exit47 ], [ %103, %_ZNK4llvm4json5Value4kindEv.exit26 ], [ false, %switch.lookup ], [ %81, %80 ], [ false, %_ZNK4llvm4json5Value11getAsStringEv.exit51 ], [ true, %_ZNK4llvm4json5Value11getAsStringEv.exit51.thread ], [ false, %82 ], [ %spec.select, %_ZNK4llvm4json5Value12getAsIntegerEv.exit38 ], [ true, %8 ], [ true, %.preheader ], [ %98, %.lr.ph ]
+_ZNK4llvm4json5Value9getAsNullEv.exit28:          ; preds = %.lr.ph, %.preheader, %8, %_ZNK4llvm4json5Value12getAsIntegerEv.exit38, %83, %81, %_ZNK4llvm4json5Value11getAsStringEv.exit51.thread, %_ZNK4llvm4json5Value11getAsStringEv.exit51, %switch.lookup, %_ZNK4llvm4json5Value4kindEv.exit26, %_ZNK4llvm4json5Value11getAsNumberEv.exit47, %10
+  %.0 = phi i1 [ %16, %10 ], [ %71, %_ZNK4llvm4json5Value11getAsNumberEv.exit47 ], [ %104, %_ZNK4llvm4json5Value4kindEv.exit26 ], [ false, %switch.lookup ], [ %82, %81 ], [ false, %_ZNK4llvm4json5Value11getAsStringEv.exit51 ], [ true, %_ZNK4llvm4json5Value11getAsStringEv.exit51.thread ], [ false, %83 ], [ %spec.select, %_ZNK4llvm4json5Value12getAsIntegerEv.exit38 ], [ true, %8 ], [ true, %.preheader ], [ %99, %.lr.ph ]
   ret i1 %.0
 }
 

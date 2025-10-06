@@ -75,12 +75,12 @@ define dso_local ptr @logicalrep_worker_find(i32 noundef %0, i32 noundef %1, i1 
 .lr.ph:                                           ; preds = %3
   %6 = load ptr, ptr @LogicalRepCtx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %wide.trip.count34 = zext nneg i32 %4 to i64
+  %wide.trip.count32 = zext nneg i32 %4 to i64
   br i1 %2, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %26
-  %indvars.iv31 = phi i64 [ %indvars.iv.next32, %26 ], [ 0, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %7, i64 %indvars.iv31
+  %indvars.iv29 = phi i64 [ %indvars.iv.next30, %26 ], [ 0, %.lr.ph ]
+  %8 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %7, i64 %indvars.iv29
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 8, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
@@ -110,9 +110,9 @@ define dso_local ptr @logicalrep_worker_find(i32 noundef %0, i32 noundef %1, i1 
   br i1 %.not.us, label %26, label %.thread16
 
 26:                                               ; preds = %23, %19, %15, %12, %.lr.ph.split.us
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  br i1 %exitcond35.not, label %.thread16, label %.lr.ph.split.us, !llvm.loop !6
+  %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
+  %exitcond33.not = icmp eq i64 %indvars.iv.next30, %wide.trip.count32
+  br i1 %exitcond33.not, label %.thread16, label %.lr.ph.split.us, !llvm.loop !6
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ %indvars.iv.next, %42 ], [ 0, %.lr.ph ]
@@ -141,7 +141,7 @@ define dso_local ptr @logicalrep_worker_find(i32 noundef %0, i32 noundef %1, i1 
 
 42:                                               ; preds = %34, %38, %.lr.ph.split, %31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count34
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count32
   br i1 %exitcond.not, label %.thread16, label %.lr.ph.split, !llvm.loop !6
 
 .thread16:                                        ; preds = %42, %38, %26, %23, %3
@@ -826,7 +826,7 @@ define dso_local void @logicalrep_worker_stop(i32 noundef %0, i32 noundef %1) lo
 .lr.ph.i:                                         ; preds = %2
   %8 = load ptr, ptr @LogicalRepCtx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %wide.trip.count34.i = zext nneg i32 %6 to i64
+  %wide.trip.count32.i = zext nneg i32 %6 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %25, %.lr.ph.i
@@ -856,7 +856,7 @@ define dso_local void @logicalrep_worker_stop(i32 noundef %0, i32 noundef %1) lo
 
 25:                                               ; preds = %21, %17, %14, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count34.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count32.i
   br i1 %exitcond.not.i, label %logicalrep_worker_find.exit.thread, label %.lr.ph.split.i, !llvm.loop !6
 
 logicalrep_worker_find.exit:                      ; preds = %21
@@ -877,14 +877,14 @@ define internal fastcc void @logicalrep_worker_stop_internal(ptr noundef readonl
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load i8, ptr %5, align 8, !range !4
-  %.pre34.pre = load ptr, ptr %6, align 8
+  %.pre33.pre = load ptr, ptr %6, align 8
   %7 = trunc nuw i8 %.pre to i1
   br label %8
 
 8:                                                ; preds = %28, %2
-  %.pre34 = phi ptr [ null, %28 ], [ %.pre34.pre, %2 ]
+  %.pre33 = phi ptr [ null, %28 ], [ %.pre33.pre, %2 ]
   %9 = phi i1 [ true, %28 ], [ %7, %2 ]
-  %.not = icmp eq ptr %.pre34, null
+  %.not = icmp eq ptr %.pre33, null
   %or.cond = select i1 %9, i1 %.not, i1 false
   br i1 %or.cond, label %10, label %.critedge
 
@@ -928,13 +928,13 @@ define internal fastcc void @logicalrep_worker_stop_internal(ptr noundef readonl
   br i1 %.not18, label %8, label %.critedge
 
 .critedge:                                        ; preds = %28, %8
-  %30 = phi ptr [ %29, %28 ], [ %.pre34, %8 ]
+  %30 = phi ptr [ %29, %28 ], [ %.pre33, %8 ]
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 60
   %32 = load i32, ptr %31, align 4
   %33 = tail call i32 @kill(i32 noundef %32, i32 noundef %1) #12
   %34 = load ptr, ptr %6, align 8
-  %.not1931 = icmp eq ptr %34, null
-  br i1 %.not1931, label %.thread, label %.lr.ph
+  %.not1930 = icmp eq ptr %34, null
+  br i1 %.not1930, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge, %46
   %35 = load i16, ptr %3, align 2
@@ -1052,12 +1052,12 @@ define dso_local void @logicalrep_worker_wakeup(i32 noundef %0, i32 noundef %1) 
 .lr.ph.i:                                         ; preds = %2
   %8 = load ptr, ptr @LogicalRepCtx, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %wide.trip.count34.i = zext nneg i32 %6 to i64
+  %wide.trip.count32.i = zext nneg i32 %6 to i64
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %28, %.lr.ph.i
-  %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %28 ], [ 0, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %9, i64 %indvars.iv31.i
+  %indvars.iv29.i = phi i64 [ %indvars.iv.next30.i, %28 ], [ 0, %.lr.ph.i ]
+  %10 = getelementptr inbounds nuw %struct.LogicalRepWorker, ptr %9, i64 %indvars.iv29.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -1087,9 +1087,9 @@ define dso_local void @logicalrep_worker_wakeup(i32 noundef %0, i32 noundef %1) 
   br i1 %.not.us.i, label %28, label %logicalrep_worker_find.exit
 
 28:                                               ; preds = %25, %21, %17, %14, %.lr.ph.split.us.i
-  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count34.i
-  br i1 %exitcond35.not.i, label %logicalrep_worker_find.exit.thread, label %.lr.ph.split.us.i, !llvm.loop !6
+  %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
+  %exitcond33.not.i = icmp eq i64 %indvars.iv.next30.i, %wide.trip.count32.i
+  br i1 %exitcond33.not.i, label %logicalrep_worker_find.exit.thread, label %.lr.ph.split.us.i, !llvm.loop !6
 
 logicalrep_worker_find.exit:                      ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 36
@@ -1695,7 +1695,7 @@ get_subscription_list.exit:                       ; preds = %.lr.ph.i, %14
 .lr.ph.i39:                                       ; preds = %62
   %69 = load ptr, ptr @LogicalRepCtx, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %wide.trip.count34.i = zext nneg i32 %67 to i64
+  %wide.trip.count32.i = zext nneg i32 %67 to i64
   br label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %86, %.lr.ph.i39
@@ -1725,7 +1725,7 @@ get_subscription_list.exit:                       ; preds = %.lr.ph.i, %14
 
 86:                                               ; preds = %82, %78, %75, %.lr.ph.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count34.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count32.i
   br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.split.i, !llvm.loop !6
 
 logicalrep_worker_find.exit:                      ; preds = %82
@@ -1955,7 +1955,7 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   %17 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %16, i32 noundef 1) #12
   %18 = load i32, ptr @max_logical_replication_workers, align 4
   %19 = icmp sgt i32 %18, 0
-  br i1 %19, label %.lr.ph, label %._crit_edge
+  br i1 %19, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %11
   %.not36 = icmp eq i32 %12, 0
@@ -1979,8 +1979,8 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   %37 = getelementptr inbounds nuw i8, ptr %14, i64 48
   br label %38
 
-38:                                               ; preds = %.lr.ph, %90
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
+38:                                               ; preds = %.lr.ph, %select.unfold
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %select.unfold ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %2, i8 0, i64 80, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2010,7 +2010,7 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 120
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
   %.not = icmp eq ptr %.sroa.810.0.copyload, null
-  br i1 %.not, label %.thread40, label %42
+  br i1 %.not, label %select.unfold, label %42
 
 42:                                               ; preds = %38
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.810.0.copyload, i64 60
@@ -2018,8 +2018,8 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   %45 = call zeroext i1 @IsBackendPid(i32 noundef %44) #12
   %.not37 = icmp eq i32 %.sroa.1113.0.copyload, %12
   %or.cond38 = select i1 %.not36, i1 true, i1 %.not37
-  %or.cond47 = select i1 %45, i1 %or.cond38, i1 false
-  br i1 %or.cond47, label %46, label %.thread40
+  %or.cond43 = select i1 %45, i1 %or.cond38, i1 false
+  br i1 %or.cond43, label %46, label %select.unfold
 
 46:                                               ; preds = %42
   %47 = load i32, ptr %43, align 4
@@ -2134,14 +2134,9 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1353, ptr noundef nonnull @__func__.pg_stat_get_subscription) #12
   unreachable
 
-.thread40:                                        ; preds = %42, %38
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %90
-
-.sink.split:                                      ; preds = %79, %81, %80
-  %.str.27.sink = phi ptr [ @.str.28, %80 ], [ @.str.29, %81 ], [ @.str.27, %79 ]
-  %85 = call ptr @cstring_to_text(ptr noundef nonnull %.str.27.sink) #12
+.sink.split:                                      ; preds = %79, %80, %81
+  %.str.29.sink = phi ptr [ @.str.29, %81 ], [ @.str.28, %80 ], [ @.str.27, %79 ]
+  %85 = call ptr @cstring_to_text(ptr noundef nonnull %.str.29.sink) #12
   %86 = ptrtoint ptr %85 to i64
   store i64 %86, ptr %35, align 8
   br label %87
@@ -2150,18 +2145,23 @@ define dso_local noundef i64 @pg_stat_get_subscription(ptr noundef %0) local_unn
   %88 = load ptr, ptr %36, align 8
   %89 = load ptr, ptr %37, align 8
   call void @tuplestore_putvalues(ptr noundef %88, ptr noundef %89, ptr noundef nonnull %2, ptr noundef nonnull %3) #12
+  br i1 %.not36, label %select.unfold, label %90
+
+90:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not36, label %90, label %._crit_edge
+  br label %.loopexit
 
-90:                                               ; preds = %.thread40, %87
+select.unfold:                                    ; preds = %87, %42, %38
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i32, ptr @max_logical_replication_workers, align 4
   %92 = sext i32 %91 to i64
   %93 = icmp slt i64 %indvars.iv.next, %92
-  br i1 %93, label %38, label %._crit_edge, !llvm.loop !20
+  br i1 %93, label %38, label %.loopexit, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %90, %87, %11
+.loopexit:                                        ; preds = %select.unfold, %11, %90
   %94 = load ptr, ptr @MainLWLockArray, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 5504
   call void @LWLockRelease(ptr noundef nonnull %95) #12

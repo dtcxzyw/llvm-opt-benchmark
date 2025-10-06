@@ -3685,15 +3685,15 @@ define internal fastcc range(i32 0, 2) i32 @flushDisplay() unnamed_addr #0 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 133888), align 8, !tbaa !232
   %4 = tail call i32 %2(ptr noundef %3) #20
   %5 = icmp eq i32 %4, -1
-  br i1 %5, label %.lr.ph8, label %.loopexit
+  br i1 %5, label %.lr.ph7, label %.loopexit
 
-.lr.ph8:                                          ; preds = %0
+.lr.ph7:                                          ; preds = %0
   %6 = tail call ptr @__errno_location() #21
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 6
   br label %9
 
-9:                                                ; preds = %.lr.ph8, %._crit_edge
+9:                                                ; preds = %.lr.ph7, %._crit_edge
   %10 = load i32, ptr %6, align 4, !tbaa !147
   %.not = icmp eq i32 %10, 11
   br i1 %.not, label %11, label %.loopexit
@@ -6465,13 +6465,13 @@ define internal void @dataSourceHandleSend(ptr readnone captures(none) %0, ptr n
 8:                                                ; preds = %6
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 134160), align 8, !tbaa !344
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
-  %.not2026 = icmp eq i64 %10, 0
-  br i1 %.not2026, label %.loopexit, label %.lr.ph
+  %.not2024 = icmp eq i64 %10, 0
+  br i1 %.not2024, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %21
-  %.01428 = phi ptr [ %.1, %21 ], [ %9, %8 ]
-  %.01527 = phi i64 [ %.116, %21 ], [ %10, %8 ]
-  %11 = tail call i64 @write(i32 noundef %3, ptr noundef %.01428, i64 noundef %.01527) #20
+  %.01426 = phi ptr [ %.1, %21 ], [ %9, %8 ]
+  %.01525 = phi i64 [ %.116, %21 ], [ %10, %8 ]
+  %11 = tail call i64 @write(i32 noundef %3, ptr noundef %.01426, i64 noundef %.01525) #20
   %12 = icmp eq i64 %11, -1
   br i1 %12, label %13, label %18
 
@@ -6487,13 +6487,13 @@ define internal void @dataSourceHandleSend(ptr readnone captures(none) %0, ptr n
   br label %.loopexit
 
 18:                                               ; preds = %.lr.ph
-  %19 = sub i64 %.01527, %11
-  %20 = getelementptr inbounds i8, ptr %.01428, i64 %11
+  %19 = sub i64 %.01525, %11
+  %20 = getelementptr inbounds i8, ptr %.01426, i64 %11
   br label %21
 
 21:                                               ; preds = %13, %18
-  %.116 = phi i64 [ %19, %18 ], [ %.01527, %13 ]
-  %.1 = phi ptr [ %20, %18 ], [ %.01428, %13 ]
+  %.116 = phi i64 [ %19, %18 ], [ %.01525, %13 ]
+  %.1 = phi ptr [ %20, %18 ], [ %.01426, %13 ]
   %.not20 = icmp eq i64 %.116, 0
   br i1 %.not20, label %.loopexit, label %.lr.ph
 

@@ -361,10 +361,9 @@ define dso_local noalias noundef ptr @sodium_malloc(i64 noundef %0) local_unname
   %16 = add i64 %14, %15
   %17 = tail call ptr @mmap(ptr noundef null, i64 noundef %16, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #14
   %magicptr.i = ptrtoint ptr %17 to i64
-  switch i64 %magicptr.i, label %_sodium_malloc.exit [
-    i64 -1, label %_sodium_malloc.exit.thread
-    i64 0, label %_sodium_malloc.exit.thread
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %_sodium_malloc.exit, label %_sodium_malloc.exit.thread
 
 _sodium_malloc.exit:                              ; preds = %10
   %18 = load i64, ptr @page_size, align 8
@@ -395,8 +394,8 @@ _sodium_malloc.exit:                              ; preds = %10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %35, i8 noundef -37, i64 noundef %0, i1 noundef false) #14
   br label %_sodium_malloc.exit.thread
 
-_sodium_malloc.exit.thread:                       ; preds = %10, %10, %5, %_sodium_malloc.exit, %38
-  %.0 = phi ptr [ %35, %38 ], [ null, %_sodium_malloc.exit ], [ null, %5 ], [ null, %10 ], [ null, %10 ]
+_sodium_malloc.exit.thread:                       ; preds = %10, %5, %_sodium_malloc.exit, %38
+  %.0 = phi ptr [ %35, %38 ], [ null, %_sodium_malloc.exit ], [ null, %5 ], [ null, %10 ]
   ret ptr %.0
 }
 

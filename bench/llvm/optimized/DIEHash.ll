@@ -239,19 +239,19 @@ _ZN4llvm7DIEHash10addULEB128Em.exit13:            ; preds = %37
 _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %_ZN4llvm7DIEHash10addULEB128Em.exit13
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.val, align 8
   %42 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %.not1113.i = icmp eq i64 %42, 0
-  br i1 %.not1113.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
+  %.not911.i = icmp eq i64 %42, 0
+  br i1 %.not911.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %.critedge.i
-  %.sroa.01.014.in.i = phi i64 [ %56, %.critedge.i ], [ %42, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
-  %.sroa.01.014.i = inttoptr i64 %.sroa.01.014.in.i to ptr
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 12
+  %.sroa.01.012.in.i = phi i64 [ %56, %.critedge.i ], [ %42, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
+  %.sroa.01.012.i = inttoptr i64 %.sroa.01.012.in.i to ptr
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.01.012.i, i64 12
   %44 = load i16, ptr %43, align 4, !tbaa !49
   %.not.i14 = icmp eq i16 %44, 3
   br i1 %.not.i14, label %45, label %.critedge.i
 
 45:                                               ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.01.012.i, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %46, align 8
   %47 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %48 = icmp eq i64 %47, 0
@@ -270,13 +270,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %_ZN4llvm7DIEHash10a
   br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.014.i, align 8
+  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.012.i, align 8
   %55 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
   %.not.i.i.i9.i = icmp ne i64 %55, 0
   %56 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
-  %.not1119.i = icmp eq i64 %56, 0
-  %.not11.i = or i1 %.not.i.i.i9.i, %.not1119.i
-  br i1 %.not11.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
+  %.not917.i = icmp eq i64 %56, 0
+  %.not9.i = or i1 %.not.i.i.i9.i, %.not917.i
+  br i1 %.not9.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit.thread, label %.lr.ph.i
 
 _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %51, %53
   %.pn4.i.i.i = phi ptr [ %52, %51 ], [ %.sroa.0.0.copyload.i.i.i, %53 ]
@@ -5613,19 +5613,19 @@ define dso_local void @_ZN4llvm7DIEHash12hashDIEEntryENS_5dwarf9AttributeENS1_3T
 _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %15
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.val, align 8
   %17 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %.not1113.i = icmp eq i64 %17, 0
-  br i1 %.not1113.i, label %.thread, label %.lr.ph.i
+  %.not911.i = icmp eq i64 %17, 0
+  br i1 %.not911.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %.critedge.i
-  %.sroa.01.014.in.i = phi i64 [ %31, %.critedge.i ], [ %17, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
-  %.sroa.01.014.i = inttoptr i64 %.sroa.01.014.in.i to ptr
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 12
+  %.sroa.01.012.in.i = phi i64 [ %31, %.critedge.i ], [ %17, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
+  %.sroa.01.012.i = inttoptr i64 %.sroa.01.012.in.i to ptr
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.012.i, i64 12
   %19 = load i16, ptr %18, align 4, !tbaa !49
   %.not.i = icmp eq i16 %19, 3
   br i1 %.not.i, label %20, label %.critedge.i
 
 20:                                               ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 16
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.01.012.i, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %21, align 8
   %22 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %23 = icmp eq i64 %22, 0
@@ -5644,13 +5644,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %15
   br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.014.i, align 8
+  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.012.i, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
   %.not.i.i.i9.i = icmp ne i64 %30, 0
   %31 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
-  %.not1119.i = icmp eq i64 %31, 0
-  %.not11.i = or i1 %.not.i.i.i9.i, %.not1119.i
-  br i1 %.not11.i, label %.thread, label %.lr.ph.i
+  %.not917.i = icmp eq i64 %31, 0
+  %.not9.i = or i1 %.not.i.i.i9.i, %.not917.i
+  br i1 %.not9.i, label %.thread, label %.lr.ph.i
 
 _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %26, %28
   %.pn4.i.i.i = phi ptr [ %27, %26 ], [ %.sroa.0.0.copyload.i.i.i, %28 ]
@@ -5942,19 +5942,19 @@ select.unfold._crit_edge:                         ; preds = %select.unfold, %_ZN
 _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %29
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.val, align 8
   %31 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %.not1113.i = icmp eq i64 %31, 0
-  br i1 %.not1113.i, label %.critedge, label %.lr.ph.i
+  %.not911.i = icmp eq i64 %31, 0
+  br i1 %.not911.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %.critedge.i
-  %.sroa.01.014.in.i = phi i64 [ %45, %.critedge.i ], [ %31, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
-  %.sroa.01.014.i = inttoptr i64 %.sroa.01.014.in.i to ptr
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 12
+  %.sroa.01.012.in.i = phi i64 [ %45, %.critedge.i ], [ %31, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
+  %.sroa.01.012.i = inttoptr i64 %.sroa.01.012.in.i to ptr
+  %32 = getelementptr inbounds nuw i8, ptr %.sroa.01.012.i, i64 12
   %33 = load i16, ptr %32, align 4, !tbaa !49
   %.not.i18 = icmp eq i16 %33, 3
   br i1 %.not.i18, label %34, label %.critedge.i
 
 34:                                               ; preds = %.lr.ph.i
-  %35 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.01.012.i, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %35, align 8
   %36 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %37 = icmp eq i64 %36, 0
@@ -5973,13 +5973,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %29
   br label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.014.i, align 8
+  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.012.i, align 8
   %44 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
   %.not.i.i.i9.i = icmp ne i64 %44, 0
   %45 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
-  %.not1119.i = icmp eq i64 %45, 0
-  %.not11.i = or i1 %.not.i.i.i9.i, %.not1119.i
-  br i1 %.not11.i, label %.critedge, label %.lr.ph.i
+  %.not917.i = icmp eq i64 %45, 0
+  %.not9.i = or i1 %.not.i.i.i9.i, %.not917.i
+  br i1 %.not9.i, label %.critedge, label %.lr.ph.i
 
 _ZL16getDIEStringAttrRKN4llvm3DIEEt.exit:         ; preds = %40, %42
   %.pn4.i.i.i = phi ptr [ %41, %40 ], [ %.sroa.0.0.copyload.i.i.i, %42 ]
@@ -6131,19 +6131,19 @@ define dso_local void @_ZN4llvm7DIEHash13hashBlockDataERKNS_14iterator_rangeINS_
 _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %13
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.val, align 8
   %25 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
-  %.not1113.i = icmp eq i64 %25, 0
-  br i1 %.not1113.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %.lr.ph.i
+  %.not911.i = icmp eq i64 %25, 0
+  br i1 %.not911.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit.i, %.critedge.i
-  %.sroa.01.014.in.i = phi i64 [ %39, %.critedge.i ], [ %25, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
-  %.sroa.01.014.i = inttoptr i64 %.sroa.01.014.in.i to ptr
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 12
+  %.sroa.01.012.in.i = phi i64 [ %39, %.critedge.i ], [ %25, %_ZNK4llvm12DIEValueList6valuesEv.exit.i ]
+  %.sroa.01.012.i = inttoptr i64 %.sroa.01.012.in.i to ptr
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.01.012.i, i64 12
   %27 = load i16, ptr %26, align 4, !tbaa !49
   %.not.i = icmp eq i16 %27, 3
   br i1 %.not.i, label %28, label %.critedge.i
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.01.014.i, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.01.012.i, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %29, align 8
   %30 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 4
   %31 = icmp eq i64 %30, 0
@@ -6162,13 +6162,13 @@ _ZNK4llvm12DIEValueList6valuesEv.exit.i:          ; preds = %13
   br label %40
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.014.i, align 8
+  %.0.copyload.i.i.i.i.i.i8.i = load i64, ptr %.sroa.01.012.i, align 8
   %38 = and i64 %.0.copyload.i.i.i.i.i.i8.i, 4
   %.not.i.i.i9.i = icmp ne i64 %38, 0
   %39 = and i64 %.0.copyload.i.i.i.i.i.i8.i, -8
-  %.not1119.i = icmp eq i64 %39, 0
-  %.not11.i = or i1 %.not.i.i.i9.i, %.not1119.i
-  br i1 %.not11.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %.lr.ph.i
+  %.not917.i = icmp eq i64 %39, 0
+  %.not9.i = or i1 %.not.i.i.i9.i, %.not917.i
+  br i1 %.not9.i, label %_ZL16getDIEStringAttrRKN4llvm3DIEEt.exit, label %.lr.ph.i
 
 40:                                               ; preds = %36, %34
   %.pn4.i.i.i = phi ptr [ %35, %34 ], [ %.sroa.0.0.copyload.i.i.i, %36 ]

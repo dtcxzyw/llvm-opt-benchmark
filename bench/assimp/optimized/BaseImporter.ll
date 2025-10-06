@@ -4217,9 +4217,9 @@ define noundef zeroext i1 @_ZNK6Assimp11BatchLoader13getValidationEv(ptr noundef
 define noundef i32 @_ZN6Assimp11BatchLoader14AddLoadRequestERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjPKNS0_11PropertyMapE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.sroa.05.020 = load ptr, ptr %6, align 8
-  %.not1821 = icmp eq ptr %.sroa.05.020, %6
-  br i1 %.not1821, label %._crit_edge, label %.lr.ph
+  %.sroa.05.018 = load ptr, ptr %6, align 8
+  %.not1619 = icmp eq ptr %.sroa.05.018, %6
+  br i1 %.not1619, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %.not = icmp eq ptr %3, null
@@ -4227,9 +4227,9 @@ define noundef i32 @_ZN6Assimp11BatchLoader14AddLoadRequestERKNSt7__cxx1112basic
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us
   %7 = phi ptr [ %29, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us ], [ %5, %.lr.ph ]
-  %.sroa.05.022.us = phi ptr [ %.sroa.05.0.us, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us ], [ %.sroa.05.020, %.lr.ph ]
+  %.sroa.05.020.us = phi ptr [ %.sroa.05.0.us, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us ], [ %.sroa.05.018, %.lr.ph ]
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.022.us, i64 16
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.us, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load ptr, ptr %1, align 8
   %12 = load ptr, ptr %8, align 8
@@ -4239,37 +4239,37 @@ define noundef i32 @_ZN6Assimp11BatchLoader14AddLoadRequestERKNSt7__cxx1112basic
   br i1 %15, label %16, label %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us
 
 16:                                               ; preds = %.lr.ph.split.us
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.022.us, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.us, i64 112
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.022.us, i64 160
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.us, i64 160
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, 0
   %or.cond.i.us = select i1 %19, i1 %22, i1 false
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.05.022.us, i64 208
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.us, i64 208
   %24 = load i64, ptr %23, align 8
   %25 = icmp eq i64 %24, 0
   %or.cond7.i.us = select i1 %or.cond.i.us, i1 %25, i1 false
   br i1 %or.cond7.i.us, label %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.us, label %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us
 
 _ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.us: ; preds = %16
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.05.022.us, i64 256
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.05.020.us, i64 256
   %27 = load i64, ptr %26, align 8
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %.split.us, label %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us
 
 _ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us: ; preds = %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.us, %16, %.lr.ph.split.us
-  %.sroa.05.0.us = load ptr, ptr %.sroa.05.022.us, align 8
+  %.sroa.05.0.us = load ptr, ptr %.sroa.05.020.us, align 8
   %29 = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %.not18.us = icmp eq ptr %.sroa.05.0.us, %30
-  br i1 %.not18.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !62
+  %.not16.us = icmp eq ptr %.sroa.05.0.us, %30
+  br i1 %.not16.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !62
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread
   %31 = phi ptr [ %43, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread ], [ %5, %.lr.ph ]
-  %.sroa.05.022 = phi ptr [ %.sroa.05.0, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread ], [ %.sroa.05.020, %.lr.ph ]
+  %.sroa.05.020 = phi ptr [ %.sroa.05.0, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread ], [ %.sroa.05.018, %.lr.ph ]
   %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.05.022, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.05.020, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %1, align 8
   %36 = load ptr, ptr %32, align 8
@@ -4279,19 +4279,19 @@ _ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread.us: ; preds = %_ZNK6As
   br i1 %39, label %40, label %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread
 
 40:                                               ; preds = %.lr.ph.split
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.05.022, i64 72
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.05.020, i64 72
   %42 = tail call noundef zeroext i1 @_ZNK6Assimp11BatchLoader11PropertyMapeqERKS1_(ptr noundef nonnull align 8 dereferenceable(192) %41, ptr noundef nonnull align 8 dereferenceable(192) %3)
   br i1 %42, label %.split.us, label %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread
 
 _ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.thread: ; preds = %.lr.ph.split, %40
-  %.sroa.05.0 = load ptr, ptr %.sroa.05.022, align 8
+  %.sroa.05.0 = load ptr, ptr %.sroa.05.020, align 8
   %43 = load ptr, ptr %0, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %.not18 = icmp eq ptr %.sroa.05.0, %44
-  br i1 %.not18, label %._crit_edge, label %.lr.ph.split, !llvm.loop !62
+  %.not16 = icmp eq ptr %.sroa.05.0, %44
+  br i1 %.not16, label %._crit_edge, label %.lr.ph.split, !llvm.loop !62
 
 .split.us:                                        ; preds = %40, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.us
-  %.us-phi = phi ptr [ %.sroa.05.022.us, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.us ], [ %.sroa.05.022, %40 ]
+  %.us-phi = phi ptr [ %.sroa.05.020.us, %_ZNK6Assimp11BatchLoader11PropertyMap5emptyEv.exit.us ], [ %.sroa.05.020, %40 ]
   %45 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 52
   %46 = load i32, ptr %45, align 4
   %47 = add i32 %46, 1
@@ -4502,53 +4502,53 @@ _ZSteqIjiSt4lessIjESaISt4pairIKjiEEEbRKSt3mapIT_T0_T1_T2_ESD_.exit: ; preds = %.
 define noundef ptr @_ZN6Assimp11BatchLoader9GetImportEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, i32 noundef %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.sroa.06.015 = load ptr, ptr %4, align 8
-  %.not1316 = icmp eq ptr %.sroa.06.015, %4
-  br i1 %.not1316, label %.loopexit, label %.lr.ph
+  %.sroa.06.017 = load ptr, ptr %4, align 8
+  %.not1518 = icmp eq ptr %.sroa.06.017, %4
+  br i1 %.not1518, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %24
-  %.sroa.06.017 = phi ptr [ %.sroa.06.0, %24 ], [ %.sroa.06.015, %2 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.017, i64 264
+  %.sroa.06.019 = phi ptr [ %.sroa.06.0, %24 ], [ %.sroa.06.017, %2 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.06.019, i64 264
   %6 = load i32, ptr %5, align 8
   %7 = icmp eq i32 %6, %1
   br i1 %7, label %8, label %24
 
 8:                                                ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.017, i64 64
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.06.019, i64 64
   %10 = load i8, ptr %9, align 8, !range !60, !noundef !61
   %11 = trunc nuw i8 %10 to i1
   br i1 %11, label %12, label %24
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.06.017, i64 56
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.06.019, i64 56
   %14 = load ptr, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.017, i64 52
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.019, i64 52
   %16 = load i32, ptr %15, align 4
   %17 = add i32 %16, -1
   store i32 %17, ptr %15, align 4
   %.not = icmp eq i32 %17, 0
-  br i1 %.not, label %18, label %.loopexit
+  br i1 %.not, label %18, label %.thread
 
 18:                                               ; preds = %12
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.017, i64 16
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.06.019, i64 16
   %20 = load ptr, ptr %0, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %22 = load i64, ptr %21, align 8
   %23 = add i64 %22, -1
   store i64 %23, ptr %21, align 8
-  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.017) #27
+  tail call void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.06.019) #27
   tail call void @_ZN6Assimp11LoadRequestD2Ev(ptr noundef nonnull align 8 dereferenceable(252) %19) #27
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.06.017, i64 noundef 272) #28
-  br label %.loopexit
+  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.06.019, i64 noundef 272) #28
+  br label %.thread
 
 24:                                               ; preds = %.lr.ph, %8
-  %.sroa.06.0 = load ptr, ptr %.sroa.06.017, align 8
-  %.not13 = icmp eq ptr %.sroa.06.0, %4
-  br i1 %.not13, label %.loopexit, label %.lr.ph, !llvm.loop !66
+  %.sroa.06.0 = load ptr, ptr %.sroa.06.019, align 8
+  %.not15 = icmp eq ptr %.sroa.06.0, %4
+  br i1 %.not15, label %.thread, label %.lr.ph, !llvm.loop !66
 
-.loopexit:                                        ; preds = %24, %2, %12, %18
-  %spec.select = phi ptr [ %14, %18 ], [ %14, %12 ], [ null, %2 ], [ null, %24 ]
-  ret ptr %spec.select
+.thread:                                          ; preds = %24, %2, %12, %18
+  %25 = phi ptr [ %14, %18 ], [ %14, %12 ], [ null, %2 ], [ null, %24 ]
+  ret ptr %25
 }
 
 ; Function Attrs: mustprogress uwtable

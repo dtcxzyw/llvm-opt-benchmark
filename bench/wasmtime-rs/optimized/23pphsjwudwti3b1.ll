@@ -9515,15 +9515,15 @@ define hidden void @_ZN16wasmtime_environ12module_types18ModuleTypesBuilder15sta
   ret void
 
 59:                                               ; preds = %.lr.ph, %68
-  %.sroa.7.050 = phi i64 [ 0, %.lr.ph ], [ %61, %68 ]
-  %.sroa.038.049 = phi i32 [ %2, %.lr.ph ], [ %60, %68 ]
-  %60 = add nuw i32 %.sroa.038.049, 1
-  %61 = add nuw nsw i64 %.sroa.7.050, 1
+  %.sroa.7.049 = phi i64 [ 0, %.lr.ph ], [ %61, %68 ]
+  %.sroa.038.048 = phi i32 [ %2, %.lr.ph ], [ %60, %68 ]
+  %60 = add nuw i32 %.sroa.038.048, 1
+  %61 = add nuw nsw i64 %.sroa.7.049, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i32 %.sroa.038.049, ptr %9, align 4
+  store i32 %.sroa.038.048, ptr %9, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %62 = load i64, ptr %37, align 8, !noundef !9
-  %63 = add i64 %62, %.sroa.7.050
+  %63 = add i64 %62, %.sroa.7.049
   %64 = trunc i64 %63 to i32
   store i32 %64, ptr %8, align 4
   %65 = load atomic i64, ptr @_ZN3log20MAX_LOG_LEVEL_FILTER17h410246c97b67d9dfE monotonic, align 8
@@ -9534,7 +9534,7 @@ define hidden void @_ZN16wasmtime_environ12module_types18ModuleTypesBuilder15sta
 
 68:                                               ; preds = %59, %"_ZN91_$LT$wasmparser..validator..types..TypeList$u20$as$u20$core..ops..index..Index$LT$T$GT$$GT$5index17h93395718a57cc745E.exit"
   %69 = phi i32 [ %64, %59 ], [ %.pre, %"_ZN91_$LT$wasmparser..validator..types..TypeList$u20$as$u20$core..ops..index..Index$LT$T$GT$$GT$5index17h93395718a57cc745E.exit" ]
-  %.sroa.015.0.copyload = phi i32 [ %.sroa.038.049, %59 ], [ %.sroa.015.0.copyload.pre, %"_ZN91_$LT$wasmparser..validator..types..TypeList$u20$as$u20$core..ops..index..Index$LT$T$GT$$GT$5index17h93395718a57cc745E.exit" ]
+  %.sroa.015.0.copyload = phi i32 [ %.sroa.038.048, %59 ], [ %.sroa.015.0.copyload.pre, %"_ZN91_$LT$wasmparser..validator..types..TypeList$u20$as$u20$core..ops..index..Index$LT$T$GT$$GT$5index17h93395718a57cc745E.exit" ]
   %70 = call { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h4ad27d618f0d2649E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %50, i32 %.sroa.015.0.copyload, i32 noundef %69)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -9546,7 +9546,7 @@ define hidden void @_ZN16wasmtime_environ12module_types18ModuleTypesBuilder15sta
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i32 %.sroa.038.049, ptr %5, align 4, !noalias !1011
+  store i32 %.sroa.038.048, ptr %5, align 4, !noalias !1011
   %72 = call noundef i64 @"_ZN105_$LT$wasmparser..validator..types..CoreTypeId$u20$as$u20$wasmparser..validator..types..TypeIdentifier$GT$5index17h981bfb52c3b28b53E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !1011
   %73 = call noundef align 8 dereferenceable_or_null(48) ptr @"_ZN10wasmparser9validator5types21SnapshotList$LT$T$GT$3get17h9964d054a96798e7E.llvm.12426178672938875897"(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %40, i64 noundef %72), !noalias !1015
   %74 = icmp eq ptr %73, null
@@ -11306,8 +11306,8 @@ define hidden noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg10tr
   %.pn.i.i.i.i = phi i64 [ %43, %14 ], [ %68, %66 ]
   %.sroa.01.0.i.i.i.i = and i64 %.pn.i.i.i.i, %.val5.i
   %48 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.01.0.i.i.i.i
-  %.0.copyload.i33.i.i.i = load <16 x i8>, ptr %48, align 1, !noalias !1332
-  %49 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i, %.15.vec.insert.i.i.i.i
+  %.0.copyload.i29.i.i.i = load <16 x i8>, ptr %48, align 1, !noalias !1332
+  %49 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, %.15.vec.insert.i.i.i.i
   %50 = bitcast <16 x i1> %49 to i16
   br label %51
 
@@ -11317,7 +11317,7 @@ define hidden noundef i32 @_ZN16wasmtime_environ9component3dfg12LinearizeDfg10tr
   br i1 %.not.i4.i.i.i, label %52, label %55
 
 52:                                               ; preds = %51
-  %53 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i, splat (i8 -1)
+  %53 = icmp eq <16 x i8> %.0.copyload.i29.i.i.i, splat (i8 -1)
   %54 = bitcast <16 x i1> %53 to i16
   %.not.i.i.i.i = icmp eq i16 %54, 0
   br i1 %.not.i.i.i.i, label %66, label %select.unfold

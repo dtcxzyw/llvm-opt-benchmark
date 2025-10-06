@@ -633,11 +633,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomi
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %.pre36 = load i32, ptr %1, align 4, !tbaa !24
+  %.pre35 = load i32, ptr %1, align 4, !tbaa !24
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = phi i32 [ %.pre36, %8 ], [ %6, %5 ]
+  %11 = phi i32 [ %.pre35, %8 ], [ %6, %5 ]
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 256
   %14 = and i32 %11, -673
@@ -1339,26 +1339,26 @@ define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl24registerThrea
   %5 = load ptr, ptr %0, align 8, !tbaa !75
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !75
-  %.not1314.i = icmp eq ptr %5, %7
-  br i1 %.not1314.i, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %.lr.ph.i
+  %.not1516.i = icmp eq ptr %5, %7
+  br i1 %.not1516.i, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %9
-  %.sroa.010.015.i = phi ptr [ %10, %9 ], [ %5, %4 ]
-  %8 = load ptr, ptr %.sroa.010.015.i, align 8, !tbaa !36
+  %.sroa.010.017.i = phi ptr [ %10, %9 ], [ %5, %4 ]
+  %8 = load ptr, ptr %.sroa.010.017.i, align 8, !tbaa !36
   %.not.i = icmp eq ptr %8, %1
   br i1 %.not.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit, label %9
 
 9:                                                ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 88
-  %.not13.i = icmp eq ptr %10, %7
-  br i1 %.not13.i, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %.lr.ph.i
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 88
+  %.not15.i = icmp eq ptr %10, %7
+  br i1 %.not15.i, label %_ZNSt6vectorImSaImEE9push_backERKm.exit, label %.lr.ph.i
 
 _ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit: ; preds = %.lr.ph.i
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 40
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 64
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 64
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 48
   %14 = load ptr, ptr %13, align 8, !tbaa !54
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !55
   %.not.i7 = icmp eq ptr %14, %16
   br i1 %.not.i7, label %19, label %17
@@ -1427,9 +1427,9 @@ _ZNSt6vectorINSt6thread2idESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
   br label %_ZNSt6vectorINSt6thread2idESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorINSt6thread2idESaIS1_EE9push_backERKS1_.exit: ; preds = %17, %_ZNSt6vectorINSt6thread2idESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 72
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 72
   %41 = load ptr, ptr %40, align 8, !tbaa !57
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 80
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 80
   %43 = load ptr, ptr %42, align 8, !tbaa !58
   %.not.i8 = icmp eq ptr %41, %43
   br i1 %.not.i8, label %46, label %44
@@ -1968,11 +1968,11 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
 
 50:                                               ; preds = %.critedge.i.i.i.i.i.i
   %51 = call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %39, ptr noundef nonnull align 4 dereferenceable(4) %2, i32 noundef 224, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !141
-  %.pre36.i = load i32, ptr %2, align 4, !tbaa !24, !noalias !141
+  %.pre35.i = load i32, ptr %2, align 4, !tbaa !24, !noalias !141
   br label %52
 
 52:                                               ; preds = %50, %.critedge.i.i.i.i.i.i
-  %53 = phi i32 [ %.pre36.i, %50 ], [ %48, %.critedge.i.i.i.i.i.i ]
+  %53 = phi i32 [ %.pre35.i, %50 ], [ %48, %.critedge.i.i.i.i.i.i ]
   %54 = lshr i32 %53, 1
   %55 = and i32 %54, 256
   %56 = and i32 %53, -673
@@ -4541,24 +4541,24 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit.i.i
   %18 = load ptr, ptr %0, align 8, !tbaa !75
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !75
-  %.not1314.i.i = icmp eq ptr %18, %20
-  br i1 %.not1314.i.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE.exit, label %.lr.ph.i.i
+  %.not1516.i.i = icmp eq ptr %18, %20
+  br i1 %.not1516.i.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %22
-  %.sroa.010.015.i.i = phi ptr [ %23, %22 ], [ %18, %17 ]
-  %21 = load ptr, ptr %.sroa.010.015.i.i, align 8, !tbaa !36
+  %.sroa.010.017.i.i = phi ptr [ %23, %22 ], [ %18, %17 ]
+  %21 = load ptr, ptr %.sroa.010.017.i.i, align 8, !tbaa !36
   %.not.i.i4 = icmp eq ptr %21, %1
   br i1 %.not.i.i4, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.i, label %22
 
 22:                                               ; preds = %.lr.ph.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i.i, i64 88
-  %.not13.i.i = icmp eq ptr %23, %20
-  br i1 %.not13.i.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE.exit, label %.lr.ph.i.i
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i.i, i64 88
+  %.not15.i.i = icmp eq ptr %23, %20
+  br i1 %.not15.i.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE.exit, label %.lr.ph.i.i
 
 _ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.i: ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i.i, i64 40
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i.i, i64 64
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i.i, i64 48
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i.i, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i.i, i64 64
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i.i, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !54
   %28 = load ptr, ptr %24, align 8, !tbaa !53
   %29 = ptrtoint ptr %27 to i64
@@ -4569,14 +4569,14 @@ _ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.i: ; 
   br i1 %.not.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE.exit, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = add i32 %.040.i, 1
+  %34 = add i32 %.039.i, 1
   %35 = zext i32 %34 to i64
   %36 = icmp ugt i64 %32, %35
   br i1 %36, label %.lr.ph.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl26unregisterThreadPoolThreadEPNS_18ThreadPoolListHookENSt6thread2idE.exit, !llvm.loop !251
 
 .lr.ph.i:                                         ; preds = %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.i, %33
   %37 = phi i64 [ %35, %33 ], [ 0, %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.i ]
-  %.040.i = phi i32 [ %34, %33 ], [ 0, %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.i ]
+  %.039.i = phi i32 [ %34, %33 ], [ 0, %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.i ]
   %38 = getelementptr inbounds nuw %"class.std::thread::id", ptr %28, i64 %37
   %.sroa.03.0.copyload.i = load i64, ptr %38, align 8, !tbaa !84
   %39 = icmp eq i64 %.sroa.03.0.copyload.i, %2
@@ -4602,7 +4602,7 @@ _ZNSt6vectorINSt6thread2idESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3
   %47 = load ptr, ptr %25, align 8, !tbaa !252
   %48 = getelementptr inbounds nuw i64, ptr %47, i64 %37
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i.i, i64 72
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i.i, i64 72
   %51 = load ptr, ptr %50, align 8, !tbaa !252
   %.not.i.i21.i = icmp eq ptr %49, %51
   br i1 %.not.i.i21.i, label %_ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EE.exit.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i.i
@@ -4651,24 +4651,24 @@ define void @_ZN5folly15debugger_detail24GlobalThreadPoolListImpl26unregisterThr
   %4 = load ptr, ptr %0, align 8, !tbaa !75
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !75
-  %.not1314.i = icmp eq ptr %4, %6
-  br i1 %.not1314.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.thread, label %.lr.ph.i
+  %.not1516.i = icmp eq ptr %4, %6
+  br i1 %.not1516.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %8
-  %.sroa.010.015.i = phi ptr [ %9, %8 ], [ %4, %3 ]
-  %7 = load ptr, ptr %.sroa.010.015.i, align 8, !tbaa !36
+  %.sroa.010.017.i = phi ptr [ %9, %8 ], [ %4, %3 ]
+  %7 = load ptr, ptr %.sroa.010.017.i, align 8, !tbaa !36
   %.not.i = icmp eq ptr %7, %1
   br i1 %.not.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit, label %8
 
 8:                                                ; preds = %.lr.ph.i
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 88
-  %.not13.i = icmp eq ptr %9, %6
-  br i1 %.not13.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.thread, label %.lr.ph.i
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 88
+  %.not15.i = icmp eq ptr %9, %6
+  br i1 %.not15.i, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.thread, label %.lr.ph.i
 
 _ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit: ; preds = %.lr.ph.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 40
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 64
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 48
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 64
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = load ptr, ptr %10, align 8, !tbaa !53
   %15 = ptrtoint ptr %13 to i64
@@ -4679,14 +4679,14 @@ _ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit: ; pr
   br i1 %.not, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.thread, label %.lr.ph
 
 19:                                               ; preds = %.lr.ph
-  %20 = add i32 %.040, 1
+  %20 = add i32 %.039, 1
   %21 = zext i32 %20 to i64
   %22 = icmp ugt i64 %18, %21
   br i1 %22, label %.lr.ph, label %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit.thread, !llvm.loop !251
 
 .lr.ph:                                           ; preds = %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit, %19
   %23 = phi i64 [ %21, %19 ], [ 0, %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit ]
-  %.040 = phi i32 [ %20, %19 ], [ 0, %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit ]
+  %.039 = phi i32 [ %20, %19 ], [ 0, %_ZN5folly15debugger_detail24GlobalThreadPoolListImpl5Pools7getPoolEPv.exit ]
   %24 = getelementptr inbounds nuw %"class.std::thread::id", ptr %14, i64 %23
   %.sroa.03.0.copyload = load i64, ptr %24, align 8, !tbaa !84
   %25 = icmp eq i64 %.sroa.03.0.copyload, %2
@@ -4712,7 +4712,7 @@ _ZNSt6vectorINSt6thread2idESaIS1_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS1_S3
   %33 = load ptr, ptr %11, align 8, !tbaa !252
   %34 = getelementptr inbounds nuw i64, ptr %33, i64 %23
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.010.017.i, i64 72
   %37 = load ptr, ptr %36, align 8, !tbaa !252
   %.not.i.i21 = icmp eq ptr %35, %37
   br i1 %.not.i.i21, label %_ZNSt6vectorImSaImEE5eraseEN9__gnu_cxx17__normal_iteratorIPKmS1_EE.exit, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPmSt6vectorImSaImEEEES6_ET0_T_S8_S7_.exit.i.i

@@ -606,8 +606,8 @@ define noundef ptr @_ZN7rocksdb5Arena15AllocateAlignedEmmPNS_6LoggerE(ptr nounde
   %14 = add nuw i64 %13, 1
   %15 = mul i64 %14, %2
   %16 = tail call noundef ptr @_ZN7rocksdb5Arena20AllocateFromHugePageEm(ptr noundef nonnull align 16 dereferenceable(2288) %0, i64 noundef %15)
-  %.not35 = icmp eq ptr %16, null
-  br i1 %.not35, label %17, label %_ZN7rocksdb5Arena16AllocateFallbackEmb.exit
+  %.not34 = icmp eq ptr %16, null
+  br i1 %.not34, label %17, label %_ZN7rocksdb5Arena16AllocateFallbackEmb.exit
 
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

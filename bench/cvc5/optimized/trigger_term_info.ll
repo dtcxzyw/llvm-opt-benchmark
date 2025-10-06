@@ -1156,14 +1156,14 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %.critedge89, %186, 
 .critedge91:                                      ; preds = %205, %199, %_ZN4cvc58internal8TypeNodeD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.pre164 = load ptr, ptr %3, align 8, !tbaa !8
+  %.pre162 = load ptr, ptr %3, align 8, !tbaa !8
   br i1 %182, label %209, label %.critedge91.thread
 
 209:                                              ; preds = %.critedge91
   store i8 1, ptr %1, align 1, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.experimental.noalias.scope.decl(metadata !38)
-  %210 = getelementptr inbounds nuw i8, ptr %.pre164, i64 8
+  %210 = getelementptr inbounds nuw i8, ptr %.pre162, i64 8
   %211 = load i64, ptr %210, align 8, !noalias !38
   %212 = trunc i64 %211 to i32
   %213 = and i32 %212, 1023
@@ -1172,7 +1172,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %.critedge89, %186, 
   %216 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %215), !noalias !38
   %217 = icmp eq i32 %216, 2
   %spec.select.i.i116 = select i1 %217, i64 2, i64 1
-  %218 = getelementptr inbounds nuw i8, ptr %.pre164, i64 24
+  %218 = getelementptr inbounds nuw i8, ptr %.pre162, i64 24
   %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %spec.select.i.i116
   %220 = load ptr, ptr %219, align 8, !tbaa !22, !noalias !38
   store ptr %220, ptr %9, align 8, !tbaa !8, !alias.scope !38
@@ -1424,7 +1424,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit132: ; preds = %_ZN4cvc58internal1
   br label %.critedge98
 
 .critedge91.thread:                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit132, %.critedge91
-  %336 = phi ptr [ %103, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.pre, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit132 ], [ %.pre164, %.critedge91 ]
+  %336 = phi ptr [ %103, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ %.pre, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit132 ], [ %.pre162, %.critedge91 ]
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %338 = load i64, ptr %337, align 8
   %339 = and i64 %338, 1023
@@ -1575,7 +1575,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit137:           ; preds = %.critedge93, %378, 
 
 .preheader:                                       ; preds = %.preheader.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit152
   %.not = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit152 ], [ false, %.preheader.preheader ]
-  %.049163 = phi i64 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit152 ], [ 0, %.preheader.preheader ]
+  %.049161 = phi i64 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit152 ], [ 0, %.preheader.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !49)
   %405 = load ptr, ptr %3, align 8, !tbaa !8, !noalias !49
@@ -1589,7 +1589,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit137:           ; preds = %.critedge93, %378, 
   %413 = icmp eq i32 %412, 2
   %414 = zext i1 %413 to i64
   %415 = getelementptr inbounds nuw i8, ptr %405, i64 24
-  %416 = getelementptr inbounds nuw ptr, ptr %415, i64 %.049163
+  %416 = getelementptr inbounds nuw ptr, ptr %415, i64 %.049161
   %417 = getelementptr inbounds nuw ptr, ptr %416, i64 %414
   %418 = load ptr, ptr %417, align 8, !tbaa !22, !noalias !49
   store ptr %418, ptr %13, align 8, !tbaa !8, !alias.scope !49
@@ -1641,7 +1641,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit137:           ; preds = %.critedge93, %378, 
 .noexc144:                                        ; preds = %439
   %448 = icmp eq i32 %447, 2
   %449 = zext i1 %448 to i64
-  %reass.sub = xor i64 %.049163, 1
+  %reass.sub = xor i64 %.049161, 1
   %450 = getelementptr inbounds nuw i8, ptr %440, i64 24
   %451 = getelementptr inbounds nuw ptr, ptr %450, i64 %reass.sub
   %452 = getelementptr inbounds nuw ptr, ptr %451, i64 %449

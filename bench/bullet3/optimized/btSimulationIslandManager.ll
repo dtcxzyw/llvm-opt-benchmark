@@ -457,7 +457,7 @@ define dso_local void @_ZN25btSimulationIslandManager12buildIslandsEP12btDispatc
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %6 = load i32, ptr %5, align 4, !tbaa !16
   %7 = icmp slt i32 %6, 0
-  br i1 %7, label %8, label %.loopexit142
+  br i1 %7, label %8, label %.loopexit141
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -492,33 +492,33 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %scevgep = getelementptr i8, ptr %18, i64 %20
   %21 = mul nsw i64 %19, -8
   call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %21, i1 false), !tbaa !67
-  br label %.loopexit142
+  br label %.loopexit141
 
-.loopexit142:                                     ; preds = %.lr.ph.i, %3
+.loopexit141:                                     ; preds = %.lr.ph.i, %3
   store i32 0, ptr %5, align 4, !tbaa !16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   invoke void @_ZN11btUnionFind11sortIslandsEv(ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %23 unwind label %43
 
-23:                                               ; preds = %.loopexit142
+23:                                               ; preds = %.loopexit141
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !69
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph152, label %._crit_edge
+  br i1 %26, label %.lr.ph151, label %._crit_edge
 
-.lr.ph152:                                        ; preds = %23
+.lr.ph151:                                        ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %29 = zext nneg i32 %25 to i64
   br label %30
 
-30:                                               ; preds = %.lr.ph152, %.loopexit
-  %.087151 = phi i32 [ 0, %.lr.ph152 ], [ %.085.lcssa, %.loopexit ]
+30:                                               ; preds = %.lr.ph151, %.loopexit
+  %.087150 = phi i32 [ 0, %.lr.ph151 ], [ %.085.lcssa, %.loopexit ]
   %31 = load ptr, ptr %27, align 8, !tbaa !70
-  %32 = zext nneg i32 %.087151 to i64
+  %32 = zext nneg i32 %.087150 to i64
   %33 = getelementptr inbounds nuw %struct.btElement, ptr %31, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !55
-  %35 = add nuw nsw i32 %.087151, 1
+  %35 = add nuw nsw i32 %.087150, 1
   %smax = call i32 @llvm.smax.i32(i32 %25, i32 %35)
   %36 = add nsw i32 %smax, -1
   br label %37
@@ -533,9 +533,9 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %40 = getelementptr inbounds nuw %struct.btElement, ptr %31, i64 %indvars.iv.next
   %41 = load i32, ptr %40, align 4, !tbaa !55
   %42 = icmp eq i32 %41, %34
-  br i1 %42, label %37, label %.critedge.split.loop.exit184, !llvm.loop !71
+  br i1 %42, label %37, label %.critedge.split.loop.exit183, !llvm.loop !71
 
-43:                                               ; preds = %.loopexit142
+43:                                               ; preds = %.loopexit141
   %44 = landingpad { ptr, i32 }
           cleanup
   br label %198
@@ -545,16 +545,16 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
           cleanup
   br label %198
 
-.critedge.split.loop.exit184:                     ; preds = %39
+.critedge.split.loop.exit183:                     ; preds = %39
   %47 = trunc nuw nsw i64 %indvars.iv to i32
   %48 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %.critedge.split.loop.exit184
-  %.085.in.lcssa = phi i32 [ %47, %.critedge.split.loop.exit184 ], [ %36, %37 ]
-  %.085.lcssa = phi i32 [ %48, %.critedge.split.loop.exit184 ], [ %smax, %37 ]
-  %.not105143 = icmp sgt i32 %.087151, %.085.in.lcssa
-  br i1 %.not105143, label %.loopexit, label %.lr.ph
+.critedge:                                        ; preds = %37, %.critedge.split.loop.exit183
+  %.085.in.lcssa = phi i32 [ %47, %.critedge.split.loop.exit183 ], [ %36, %37 ]
+  %.085.lcssa = phi i32 [ %48, %.critedge.split.loop.exit183 ], [ %smax, %37 ]
+  %.not105142 = icmp sgt i32 %.087150, %.085.in.lcssa
+  br i1 %.not105142, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
   %49 = load ptr, ptr %28, align 8, !tbaa !22
@@ -562,8 +562,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   br label %51
 
 51:                                               ; preds = %.lr.ph, %63
-  %indvars.iv158 = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next159, %63 ]
-  %52 = getelementptr inbounds nuw %struct.btElement, ptr %31, i64 %indvars.iv158
+  %indvars.iv157 = phi i64 [ %32, %.lr.ph ], [ %indvars.iv.next158, %63 ]
+  %52 = getelementptr inbounds nuw %struct.btElement, ptr %31, i64 %indvars.iv157
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   %54 = load i32, ptr %53, align 4, !tbaa !59
   %55 = sext i32 %54 to i64
@@ -578,27 +578,27 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 240
   %62 = load i32, ptr %61, align 8, !tbaa !72
   switch i32 %62, label %63 [
-    i32 1, label %.lr.ph147.preheader
-    i32 4, label %.lr.ph147.preheader
+    i32 1, label %.lr.ph146.preheader
+    i32 4, label %.lr.ph146.preheader
   ]
 
-.lr.ph147.preheader:                              ; preds = %60, %60
-  br label %.lr.ph147
+.lr.ph146.preheader:                              ; preds = %60, %60
+  br label %.lr.ph146
 
 63:                                               ; preds = %60, %51
-  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next159 to i32
+  %indvars.iv.next158 = add nuw nsw i64 %indvars.iv157, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next158 to i32
   %exitcond.not = icmp eq i32 %50, %lftr.wideiv
-  br i1 %exitcond.not, label %.lr.ph150.preheader, label %51, !llvm.loop !73
+  br i1 %exitcond.not, label %.lr.ph149.preheader, label %51, !llvm.loop !73
 
-.lr.ph150.preheader:                              ; preds = %63
+.lr.ph149.preheader:                              ; preds = %63
   %64 = add nuw nsw i32 %.085.in.lcssa, 1
-  br label %.lr.ph150
+  br label %.lr.ph149
 
-.lr.ph150:                                        ; preds = %.lr.ph150.preheader, %.critedge139
-  %indvars.iv166 = phi i64 [ %32, %.lr.ph150.preheader ], [ %indvars.iv.next167, %.critedge139 ]
+.lr.ph149:                                        ; preds = %.lr.ph149.preheader, %.critedge138
+  %indvars.iv165 = phi i64 [ %32, %.lr.ph149.preheader ], [ %indvars.iv.next166, %.critedge138 ]
   %65 = load ptr, ptr %27, align 8, !tbaa !70
-  %66 = getelementptr inbounds nuw %struct.btElement, ptr %65, i64 %indvars.iv166
+  %66 = getelementptr inbounds nuw %struct.btElement, ptr %65, i64 %indvars.iv165
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %68 = load i32, ptr %67, align 4, !tbaa !59
   %69 = load ptr, ptr %28, align 8, !tbaa !22
@@ -608,27 +608,27 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 228
   %74 = load i32, ptr %73, align 4, !tbaa !54
   %.not110 = icmp eq i32 %74, %34
-  br i1 %.not110, label %77, label %.critedge139
+  br i1 %.not110, label %77, label %.critedge138
 
 75:                                               ; preds = %77
   %76 = landingpad { ptr, i32 }
           cleanup
   br label %198
 
-77:                                               ; preds = %.lr.ph150
+77:                                               ; preds = %.lr.ph149
   invoke void @_ZNK17btCollisionObject18setActivationStateEi(ptr noundef nonnull align 8 dereferenceable(372) %72, i32 noundef 2)
-          to label %.critedge139 unwind label %75
+          to label %.critedge138 unwind label %75
 
-.critedge139:                                     ; preds = %77, %.lr.ph150
-  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %lftr.wideiv169 = trunc i64 %indvars.iv.next167 to i32
-  %exitcond170.not = icmp eq i32 %64, %lftr.wideiv169
-  br i1 %exitcond170.not, label %.loopexit, label %.lr.ph150, !llvm.loop !74
+.critedge138:                                     ; preds = %77, %.lr.ph149
+  %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
+  %lftr.wideiv168 = trunc i64 %indvars.iv.next166 to i32
+  %exitcond169.not = icmp eq i32 %64, %lftr.wideiv168
+  br i1 %exitcond169.not, label %.loopexit, label %.lr.ph149, !llvm.loop !74
 
-.lr.ph147:                                        ; preds = %.lr.ph147.preheader, %97
-  %indvars.iv161 = phi i64 [ %indvars.iv.next162, %97 ], [ %32, %.lr.ph147.preheader ]
+.lr.ph146:                                        ; preds = %.lr.ph146.preheader, %97
+  %indvars.iv160 = phi i64 [ %indvars.iv.next161, %97 ], [ %32, %.lr.ph146.preheader ]
   %78 = load ptr, ptr %27, align 8, !tbaa !70
-  %79 = getelementptr inbounds nuw %struct.btElement, ptr %78, i64 %indvars.iv161
+  %79 = getelementptr inbounds nuw %struct.btElement, ptr %78, i64 %indvars.iv160
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !59
   %82 = load ptr, ptr %28, align 8, !tbaa !22
@@ -645,7 +645,7 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
           cleanup
   br label %198
 
-90:                                               ; preds = %.lr.ph147
+90:                                               ; preds = %.lr.ph146
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 240
   %92 = load i32, ptr %91, align 8, !tbaa !72
   %93 = icmp eq i32 %92, 2
@@ -660,13 +660,13 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   store float 0.000000e+00, ptr %96, align 4, !tbaa !75
   br label %97
 
-97:                                               ; preds = %90, %95, %.lr.ph147
-  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
-  %lftr.wideiv164 = trunc i64 %indvars.iv.next162 to i32
-  %exitcond165.not = icmp eq i32 %50, %lftr.wideiv164
-  br i1 %exitcond165.not, label %.loopexit, label %.lr.ph147, !llvm.loop !76
+97:                                               ; preds = %90, %95, %.lr.ph146
+  %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
+  %lftr.wideiv163 = trunc i64 %indvars.iv.next161 to i32
+  %exitcond164.not = icmp eq i32 %50, %lftr.wideiv163
+  br i1 %exitcond164.not, label %.loopexit, label %.lr.ph146, !llvm.loop !76
 
-.loopexit:                                        ; preds = %97, %.critedge139, %.critedge
+.loopexit:                                        ; preds = %97, %.critedge138, %.critedge
   %98 = icmp slt i32 %.085.lcssa, %25
   br i1 %98, label %30, label %._crit_edge, !llvm.loop !77
 
@@ -679,9 +679,9 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
 
 .preheader:                                       ; preds = %._crit_edge
   %103 = icmp sgt i32 %102, 0
-  br i1 %103, label %.lr.ph154, label %._crit_edge155
+  br i1 %103, label %.lr.ph153, label %._crit_edge154
 
-.lr.ph154:                                        ; preds = %.preheader
+.lr.ph153:                                        ; preds = %.preheader
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -689,12 +689,12 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 64
   br label %109
 
-109:                                              ; preds = %.lr.ph154, %196
-  %.086153 = phi i32 [ 0, %.lr.ph154 ], [ %197, %196 ]
+109:                                              ; preds = %.lr.ph153, %196
+  %.086152 = phi i32 [ 0, %.lr.ph153 ], [ %197, %196 ]
   %110 = load ptr, ptr %1, align 8, !tbaa !4
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 80
   %112 = load ptr, ptr %111, align 8
-  %113 = invoke noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.086153)
+  %113 = invoke noundef ptr %112(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.086152)
           to label %114 unwind label %123
 
 114:                                              ; preds = %109
@@ -746,8 +746,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %138 = getelementptr inbounds nuw i8, ptr %127, i64 224
   %139 = load i32, ptr %138, align 8, !tbaa !47
   %140 = and i32 %139, 2
-  %.not137 = icmp eq i32 %140, 0
-  br i1 %.not137, label %149, label %141
+  %.not136 = icmp eq i32 %140, 0
+  br i1 %.not136, label %149, label %141
 
 141:                                              ; preds = %137
   %142 = getelementptr inbounds nuw i8, ptr %127, i64 240
@@ -771,8 +771,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %150 = getelementptr inbounds nuw i8, ptr %129, i64 224
   %151 = load i32, ptr %150, align 8, !tbaa !47
   %152 = and i32 %151, 2
-  %.not138 = icmp eq i32 %152, 0
-  br i1 %.not138, label %159, label %153
+  %.not137 = icmp eq i32 %152, 0
+  br i1 %.not137, label %159, label %153
 
 153:                                              ; preds = %149
   %154 = getelementptr inbounds nuw i8, ptr %129, i64 240
@@ -780,8 +780,8 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; pre
   %.not102 = icmp ne i32 %155, 2
   %156 = and i32 %151, 4
   %157 = icmp eq i32 %156, 0
-  %or.cond136 = and i1 %157, %.not102
-  br i1 %or.cond136, label %158, label %159
+  %or.cond135 = and i1 %157, %.not102
+  br i1 %or.cond135, label %158, label %159
 
 158:                                              ; preds = %153
   invoke void @_ZNK17btCollisionObject8activateEb(ptr noundef nonnull align 8 dereferenceable(372) %127, i1 noundef zeroext false)
@@ -888,11 +888,11 @@ _ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit: ; preds
   br label %196
 
 196:                                              ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE9push_backERKS1_.exit, %133, %134, %167, %159, %117
-  %197 = add nuw nsw i32 %.086153, 1
-  %exitcond171.not = icmp eq i32 %197, %102
-  br i1 %exitcond171.not, label %._crit_edge155, label %109, !llvm.loop !86
+  %197 = add nuw nsw i32 %.086152, 1
+  %exitcond170.not = icmp eq i32 %197, %102
+  br i1 %exitcond170.not, label %._crit_edge154, label %109, !llvm.loop !86
 
-._crit_edge155:                                   ; preds = %196, %.preheader
+._crit_edge154:                                   ; preds = %196, %.preheader
   call void @_ZN14CProfileSampleD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

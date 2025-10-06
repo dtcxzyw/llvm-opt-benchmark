@@ -427,19 +427,19 @@ define hidden noundef range(i32 0, -1) i32 @_ZNK6spacer10model_node15index_in_pa
 _ZNK6vectorIPN6spacer10model_nodeELb0EjE4sizeEv.exit: ; preds = %4
   %8 = getelementptr inbounds i8, ptr %6, i64 -4
   %9 = load i32, ptr %8, align 4, !tbaa !43
-  %.not15 = icmp eq i32 %9, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq i32 %9, 0
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIPN6spacer10model_nodeELb0EjE4sizeEv.exit, %14
-  %.0814 = phi i32 [ %15, %14 ], [ 0, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE4sizeEv.exit ]
-  %10 = zext i32 %.0814 to i64
+  %.0812 = phi i32 [ %15, %14 ], [ 0, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE4sizeEv.exit ]
+  %10 = zext i32 %.0812 to i64
   %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !44
   %13 = icmp eq ptr %0, %12
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = add nuw i32 %.0814, 1
+  %15 = add nuw i32 %.0812, 1
   %exitcond.not = icmp eq i32 %15, %9
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !49
 
@@ -449,7 +449,7 @@ _ZNK6vectorIPN6spacer10model_nodeELb0EjE4sizeEv.exit: ; preds = %4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph, %1, %._crit_edge
-  %.07 = phi i32 [ 0, %._crit_edge ], [ 0, %1 ], [ %.0814, %.lr.ph ]
+  %.07 = phi i32 [ 0, %._crit_edge ], [ 0, %1 ], [ %.0812, %.lr.ph ]
   ret i32 %.07
 }
 
@@ -470,17 +470,17 @@ _ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit: ; preds = %1
   %7 = zext i32 %6 to i64
   %8 = shl nuw nsw i64 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
-  %.not22 = icmp eq i32 %6, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq i32 %6, 0
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.01323, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01321, i64 8
   %.not = icmp eq ptr %11, %9
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit, %10
-  %.01323 = phi ptr [ %11, %10 ], [ %3, %_ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit ]
-  %12 = load ptr, ptr %.01323, align 8, !tbaa !44
+  %.01321 = phi ptr [ %11, %10 ], [ %3, %_ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit ]
+  %12 = load ptr, ptr %.01321, align 8, !tbaa !44
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load i8, ptr %13, align 8, !tbaa !41, !range !45, !noundef !46
   %15 = trunc nuw i8 %14 to i1
@@ -489,20 +489,20 @@ _ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit: ; preds = %1
 ._crit_edge:                                      ; preds = %10, %1, %_ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i8 1, ptr %16, align 8, !tbaa !41
-  %.0.in24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.025 = load ptr, ptr %.0.in24, align 8, !tbaa !32
-  %.not1526 = icmp eq ptr %.025, null
-  br i1 %.not1526, label %.critedge, label %.lr.ph29
+  %.0.in22 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.023 = load ptr, ptr %.0.in22, align 8, !tbaa !32
+  %.not1524 = icmp eq ptr %.023, null
+  br i1 %.not1524, label %.critedge, label %.lr.ph27
 
-.lr.ph29:                                         ; preds = %._crit_edge, %_ZN6spacer10model_node10is_1closedEv.exit
-  %.027 = phi ptr [ %.0, %_ZN6spacer10model_node10is_1closedEv.exit ], [ %.025, %._crit_edge ]
-  %17 = getelementptr inbounds nuw i8, ptr %.027, i64 48
+.lr.ph27:                                         ; preds = %._crit_edge, %_ZN6spacer10model_node10is_1closedEv.exit
+  %.025 = phi ptr [ %.0, %_ZN6spacer10model_node10is_1closedEv.exit ], [ %.023, %._crit_edge ]
+  %17 = getelementptr inbounds nuw i8, ptr %.025, i64 48
   %18 = load i8, ptr %17, align 8, !tbaa !41, !range !45, !noundef !46
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %_ZN6spacer10model_node10is_1closedEv.exit, label %20
 
-20:                                               ; preds = %.lr.ph29
-  %21 = getelementptr inbounds nuw i8, ptr %.027, i64 16
+20:                                               ; preds = %.lr.ph27
+  %21 = getelementptr inbounds nuw i8, ptr %.025, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !42
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.critedge, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit.i
@@ -532,12 +532,12 @@ _ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit.i: ; preds = %20
   %34 = trunc nuw i8 %33 to i1
   br i1 %34, label %29, label %.critedge
 
-_ZN6spacer10model_node10is_1closedEv.exit:        ; preds = %29, %.lr.ph29
+_ZN6spacer10model_node10is_1closedEv.exit:        ; preds = %29, %.lr.ph27
   store i8 1, ptr %17, align 8, !tbaa !41
-  %.0.in = getelementptr inbounds nuw i8, ptr %.027, i64 8
+  %.0.in = getelementptr inbounds nuw i8, ptr %.025, i64 8
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !32
   %.not15 = icmp eq ptr %.0, null
-  br i1 %.not15, label %.critedge, label %.lr.ph29, !llvm.loop !50
+  br i1 %.not15, label %.critedge, label %.lr.ph27, !llvm.loop !50
 
 .critedge:                                        ; preds = %.lr.ph, %_ZN6spacer10model_node10is_1closedEv.exit, %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit.i, %20, %.lr.ph.i, %._crit_edge
   ret void
@@ -3040,17 +3040,17 @@ _ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit.i: ; preds = %._crit_edge
   %152 = zext i32 %151 to i64
   %153 = shl nuw nsw i64 %152, 3
   %154 = getelementptr inbounds nuw i8, ptr %148, i64 %153
-  %.not22.i = icmp eq i32 %151, 0
-  br i1 %.not22.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not20.i = icmp eq i32 %151, 0
+  br i1 %.not20.i, label %._crit_edge.i, label %.lr.ph.i
 
 155:                                              ; preds = %.lr.ph.i
-  %156 = getelementptr inbounds nuw i8, ptr %.01323.i, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %.01321.i, i64 8
   %.not.i78 = icmp eq ptr %156, %154
   br i1 %.not.i78, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit.i, %155
-  %.01323.i = phi ptr [ %156, %155 ], [ %148, %_ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit.i ]
-  %157 = load ptr, ptr %.01323.i, align 8, !tbaa !44
+  %.01321.i = phi ptr [ %156, %155 ], [ %148, %_ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit.i ]
+  %157 = load ptr, ptr %.01321.i, align 8, !tbaa !44
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %159 = load i8, ptr %158, align 8, !tbaa !41, !range !45, !noundef !46
   %160 = trunc nuw i8 %159 to i1
@@ -3059,20 +3059,20 @@ _ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit.i: ; preds = %._crit_edge
 ._crit_edge.i:                                    ; preds = %155, %_ZN6vectorIPN6spacer10model_nodeELb0EjE3endEv.exit.i, %._crit_edge
   %161 = getelementptr inbounds nuw i8, ptr %37, i64 48
   store i8 1, ptr %161, align 8, !tbaa !41
-  %.0.in24.i = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %.025.i = load ptr, ptr %.0.in24.i, align 8, !tbaa !32
-  %.not1526.i = icmp eq ptr %.025.i, null
-  br i1 %.not1526.i, label %_ZN6spacer10model_node16check_pre_closedEv.exit, label %.lr.ph29.i
+  %.0.in22.i = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %.023.i = load ptr, ptr %.0.in22.i, align 8, !tbaa !32
+  %.not1524.i = icmp eq ptr %.023.i, null
+  br i1 %.not1524.i, label %_ZN6spacer10model_node16check_pre_closedEv.exit, label %.lr.ph27.i
 
-.lr.ph29.i:                                       ; preds = %._crit_edge.i, %_ZN6spacer10model_node10is_1closedEv.exit.i
-  %.027.i = phi ptr [ %.0.i, %_ZN6spacer10model_node10is_1closedEv.exit.i ], [ %.025.i, %._crit_edge.i ]
-  %162 = getelementptr inbounds nuw i8, ptr %.027.i, i64 48
+.lr.ph27.i:                                       ; preds = %._crit_edge.i, %_ZN6spacer10model_node10is_1closedEv.exit.i
+  %.025.i = phi ptr [ %.0.i, %_ZN6spacer10model_node10is_1closedEv.exit.i ], [ %.023.i, %._crit_edge.i ]
+  %162 = getelementptr inbounds nuw i8, ptr %.025.i, i64 48
   %163 = load i8, ptr %162, align 8, !tbaa !41, !range !45, !noundef !46
   %164 = trunc nuw i8 %163 to i1
   br i1 %164, label %_ZN6spacer10model_node10is_1closedEv.exit.i, label %165
 
-165:                                              ; preds = %.lr.ph29.i
-  %166 = getelementptr inbounds nuw i8, ptr %.027.i, i64 16
+165:                                              ; preds = %.lr.ph27.i
+  %166 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
   %167 = load ptr, ptr %166, align 8, !tbaa !42
   %168 = icmp eq ptr %167, null
   br i1 %168, label %_ZN6spacer10model_node16check_pre_closedEv.exit, label %_ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit.i.i
@@ -3102,12 +3102,12 @@ _ZNK6vectorIPN6spacer10model_nodeELb0EjE5emptyEv.exit.i.i: ; preds = %165
   %179 = trunc nuw i8 %178 to i1
   br i1 %179, label %174, label %_ZN6spacer10model_node16check_pre_closedEv.exit
 
-_ZN6spacer10model_node10is_1closedEv.exit.i:      ; preds = %174, %.lr.ph29.i
+_ZN6spacer10model_node10is_1closedEv.exit.i:      ; preds = %174, %.lr.ph27.i
   store i8 1, ptr %162, align 8, !tbaa !41
-  %.0.in.i = getelementptr inbounds nuw i8, ptr %.027.i, i64 8
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %.025.i, i64 8
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !32
   %.not15.i = icmp eq ptr %.0.i, null
-  br i1 %.not15.i, label %_ZN6spacer10model_node16check_pre_closedEv.exit, label %.lr.ph29.i, !llvm.loop !50
+  br i1 %.not15.i, label %_ZN6spacer10model_node16check_pre_closedEv.exit, label %.lr.ph27.i, !llvm.loop !50
 
 .lr.ph:                                           ; preds = %142, %196
   %.043103 = phi ptr [ %197, %196 ], [ %143, %142 ]

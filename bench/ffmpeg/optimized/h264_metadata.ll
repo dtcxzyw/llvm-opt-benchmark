@@ -122,7 +122,7 @@ define internal i32 @h264_metadata_init(ptr noundef %0) #0 {
 
 8:                                                ; preds = %6, %39
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %39 ]
-  %.03961 = phi i32 [ 0, %6 ], [ %.2.ph, %39 ]
+  %.03959 = phi i32 [ 0, %6 ], [ %.2.ph, %39 ]
   %9 = load ptr, ptr %4, align 8, !tbaa !14
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %11 = load i8, ptr %10, align 1, !tbaa !30
@@ -148,12 +148,12 @@ define internal i32 @h264_metadata_init(ptr noundef %0) #0 {
   %21 = icmp samesign ult i32 %spec.select.i.i, 58
   %22 = add nsw i32 %spec.select.i.i, -87
   %23 = select i1 %21, i32 %16, i32 %22
-  %24 = and i32 %.03961, 1
+  %24 = and i32 %.03959, 1
   %.not47 = icmp eq i32 %24, 0
   br i1 %.not47, label %32, label %25
 
 25:                                               ; preds = %20
-  %26 = sdiv i32 %.03961, 2
+  %26 = sdiv i32 %.03959, 2
   %27 = sext i32 %26 to i64
   %28 = getelementptr inbounds i8, ptr %7, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !30
@@ -165,18 +165,18 @@ define internal i32 @h264_metadata_init(ptr noundef %0) #0 {
 32:                                               ; preds = %20
   %.tr = trunc nsw i32 %23 to i8
   %33 = shl i8 %.tr, 4
-  %34 = ashr exact i32 %.03961, 1
+  %34 = ashr exact i32 %.03959, 1
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %7, i64 %35
   store i8 %33, ptr %36, align 1, !tbaa !30
   br label %37
 
 37:                                               ; preds = %32, %25
-  %38 = add nsw i32 %.03961, 1
+  %38 = add nsw i32 %.03959, 1
   br label %39
 
 39:                                               ; preds = %37, %8
-  %.2.ph = phi i32 [ %.03961, %8 ], [ %38, %37 ]
+  %.2.ph = phi i32 [ %.03959, %8 ], [ %38, %37 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = icmp slt i32 %.2.ph, 32
   %41 = icmp samesign ult i64 %indvars.iv, 63

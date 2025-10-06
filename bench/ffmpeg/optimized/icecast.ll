@@ -175,8 +175,8 @@ cat_header.exit77:                                ; preds = %cat_header.exit74, 
   %.val = load i32, ptr %42, align 8, !tbaa !26
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 12
   %.val65 = load i32, ptr %43, align 4, !tbaa !28
-  %.not81 = icmp ult i32 %.val, %.val65
-  br i1 %.not81, label %46, label %44
+  %.not80 = icmp ult i32 %.val, %.val65
+  br i1 %.not80, label %46, label %44
 
 44:                                               ; preds = %cat_header.exit77
   %45 = call i32 @av_bprint_finalize(ptr noundef nonnull %12, ptr noundef null) #6

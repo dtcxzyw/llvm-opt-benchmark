@@ -553,25 +553,25 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %49, %47
-  %.sroa.046.0.in.i.i.i = phi ptr [ %48, %47 ], [ %.sroa.046.0.i.i.i, %49 ]
-  %.sroa.046.0.i.i.i = load ptr, ptr %.sroa.046.0.in.i.i.i, align 8, !noalias !19
-  %.not62.i.i.i = icmp eq ptr %.sroa.046.0.i.i.i, %48
-  br i1 %.not62.i.i.i, label %.loopexit.i, label %49
+  %.sroa.045.0.in.i.i.i = phi ptr [ %48, %47 ], [ %.sroa.045.0.i.i.i, %49 ]
+  %.sroa.045.0.i.i.i = load ptr, ptr %.sroa.045.0.in.i.i.i, align 8, !noalias !19
+  %.not57.i.i.i = icmp eq ptr %.sroa.045.0.i.i.i, %48
+  br i1 %.not57.i.i.i, label %.loopexit.i, label %49
 
 49:                                               ; preds = %.critedge.i.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i.i.i, i64 16
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i.i, i64 16
   %51 = load ptr, ptr %50, align 8, !noalias !19
   %52 = icmp eq ptr %51, %1
   br i1 %52, label %_ZN3ue223add_edge_if_not_presentINS_8NGHolderEEESt4pairINT_15edge_descriptorEbENS3_17vertex_descriptorES6_RS3_.exit, label %.critedge.i.i.i
 
 .critedge24.i.i.i:                                ; preds = %.lr.ph102, %53
-  %.sroa.035.0.in.i.i.i = phi ptr [ %.sroa.035.0.i.i.i, %53 ], [ %3, %.lr.ph102 ]
-  %.sroa.035.0.i.i.i = load ptr, ptr %.sroa.035.0.in.i.i.i, align 8, !noalias !19
-  %.not.i.i.i40 = icmp eq ptr %.sroa.035.0.i.i.i, %3
+  %.sroa.034.0.in.i.i.i = phi ptr [ %.sroa.034.0.i.i.i, %53 ], [ %3, %.lr.ph102 ]
+  %.sroa.034.0.i.i.i = load ptr, ptr %.sroa.034.0.in.i.i.i, align 8, !noalias !19
+  %.not.i.i.i40 = icmp eq ptr %.sroa.034.0.i.i.i, %3
   br i1 %.not.i.i.i40, label %.loopexit.i, label %53
 
 53:                                               ; preds = %.critedge24.i.i.i
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.i.i.i, i64 40
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i.i, i64 40
   %55 = load ptr, ptr %54, align 8, !noalias !19
   %56 = icmp eq ptr %55, %42
   br i1 %56, label %_ZN3ue223add_edge_if_not_presentINS_8NGHolderEEESt4pairINT_15edge_descriptorEbENS3_17vertex_descriptorES6_RS3_.exit, label %.critedge24.i.i.i

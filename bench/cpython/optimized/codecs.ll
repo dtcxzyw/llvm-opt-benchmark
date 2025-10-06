@@ -2374,13 +2374,13 @@ define hidden i32 @_PyCodec_UnregisterError(ptr noundef %0) local_unnamed_addr #
   br label %4
 
 2:                                                ; preds = %4
-  %3 = add nuw nsw i64 %.0913, 1
+  %3 = add nuw nsw i64 %.0911, 1
   %exitcond.not = icmp eq i64 %3, 8
   br i1 %exitcond.not, label %12, label %4, !llvm.loop !111
 
 4:                                                ; preds = %1, %2
-  %.0913 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr ptr, ptr @codecs_builtin_error_handlers, i64 %.0913
+  %.0911 = phi i64 [ 0, %1 ], [ %3, %2 ]
+  %5 = getelementptr ptr, ptr @codecs_builtin_error_handlers, i64 %.0911
   %6 = load ptr, ptr %5, align 8, !tbaa !112
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %6) #11
   %8 = icmp eq i32 %7, 0
@@ -4158,13 +4158,13 @@ define hidden void @_PyCodec_InitRegistry(ptr dead_on_unwind noalias writable sr
   br label %.thread
 
 17:                                               ; preds = %Py_DECREF.exit25
-  %18 = add nuw nsw i64 %.030, 1
+  %18 = add nuw nsw i64 %.028, 1
   %exitcond.not = icmp eq i64 %18, 8
   br i1 %exitcond.not, label %34, label %.preheader, !llvm.loop !127
 
 .preheader:                                       ; preds = %12, %17
-  %.030 = phi i64 [ %18, %17 ], [ 0, %12 ]
-  %19 = getelementptr %struct.anon.806, ptr @_PyCodec_InitRegistry.methods, i64 %.030
+  %.028 = phi i64 [ %18, %17 ], [ 0, %12 ]
+  %19 = getelementptr %struct.anon.806, ptr @_PyCodec_InitRegistry.methods, i64 %.028
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = tail call ptr @PyCMethod_New(ptr noundef nonnull %20, ptr noundef null, ptr noundef null, ptr noundef null) #10
   %22 = icmp eq ptr %21, null

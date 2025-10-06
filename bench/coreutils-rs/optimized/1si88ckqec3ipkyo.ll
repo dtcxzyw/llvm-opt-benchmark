@@ -92,8 +92,8 @@ define hidden { i64, i64 } @_ZN6memchr4arch7generic6memchr21search_slice_with_ra
   %.0.i.i = inttoptr i64 %8 to ptr
   %9 = tail call { i64, ptr } %.0.i.i(i8 noundef %6, i8 noundef %7, ptr noundef nonnull %0, ptr noundef nonnull %5), !noalias !4
   %10 = extractvalue { i64, ptr } %9, 0
-  %switch8.not = icmp eq i64 %10, 0
-  br i1 %switch8.not, label %17, label %11
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %4
   %12 = extractvalue { i64, ptr } %9, 1
@@ -158,14 +158,14 @@ define void @"_ZN74_$LT$uu_cut..matcher..ExactMatcher$u20$as$u20$uu_cut..matcher
   %.0.i.i.us = inttoptr i64 %13 to ptr
   %14 = tail call { i64, ptr } %.0.i.i.us(i8 noundef %12, ptr noundef nonnull readonly align 1 %2, ptr noundef nonnull readonly %8), !noalias !10
   %15 = extractvalue { i64, ptr } %14, 0
-  %switch8.i.not.us = icmp eq i64 %15, 0
+  %.not34.us = icmp eq i64 %15, 0
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split.split.preheader
 
 .lr.ph.split.split.preheader:                     ; preds = %.lr.ph
-  br i1 %switch8.i.not.us, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.lr.ph81
+  br i1 %.not34.us, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.lr.ph81
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  br i1 %switch8.i.not.us, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.split48.us
+  br i1 %.not34.us, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.split48.us
 
 .split48.us:                                      ; preds = %.lr.ph.split.us
   %16 = extractvalue { i64, ptr } %14, 1
@@ -196,8 +196,8 @@ define void @"_ZN74_$LT$uu_cut..matcher..ExactMatcher$u20$as$u20$uu_cut..matcher
   br i1 %30, label %.split57.us, label %34
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread: ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge", %.lr.ph.split.split.preheader, %.lr.ph.split.us, %.split48
-  %.sroa.0.0.i34 = phi i64 [ 1, %.split48 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.split.preheader ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge" ]
-  store i64 %.sroa.0.0.i34, ptr %0, align 8
+  %.sroa.0.0.i33 = phi i64 [ 1, %.split48 ], [ 0, %.lr.ph.split.us ], [ 0, %.lr.ph.split.split.preheader ], [ 0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$11starts_with17h264b331da921283aE.exit.backedge" ]
+  store i64 %.sroa.0.0.i33, ptr %0, align 8
   ret void
 
 .split48:                                         ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17ha096326d6343c9deE.exit.i", %.split48.us
@@ -231,8 +231,8 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.t
   %.0.i.i = inttoptr i64 %40 to ptr
   %41 = tail call { i64, ptr } %.0.i.i(i8 noundef %38, ptr noundef nonnull readonly align 1 %39, ptr noundef nonnull readonly %8), !noalias !10
   %42 = extractvalue { i64, ptr } %41, 0
-  %switch8.i.not = icmp eq i64 %42, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.lr.ph81
+  %.not34 = icmp eq i64 %42, 0
+  br i1 %.not34, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17h0fc16ebcfda6d3f2E.exit.thread, label %.lr.ph81
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -242,8 +242,8 @@ define void @"_ZN79_$LT$uu_cut..matcher..WhitespaceMatcher$u20$as$u20$uu_cut..ma
   %.0.i.i = inttoptr i64 %6 to ptr
   %7 = tail call { i64, ptr } %.0.i.i(i8 noundef 32, i8 noundef 9, ptr noundef nonnull readonly align 1 %2, ptr noundef nonnull readonly %5), !noalias !20
   %8 = extractvalue { i64, ptr } %7, 0
-  %switch8.i.not = icmp eq i64 %8, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.thread, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.thread, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit: ; preds = %4
   %9 = extractvalue { i64, ptr } %7, 1
@@ -252,17 +252,17 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
   %12 = sub i64 %10, %11
   %13 = icmp sgt i64 %12, -1
   tail call void @llvm.assume(i1 %13)
-  %.016 = add nuw i64 %12, 1
-  %14 = icmp ult i64 %.016, %3
+  %.015 = add nuw i64 %12, 1
+  %14 = icmp ult i64 %.015, %3
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.thread: ; preds = %4, %._crit_edge
-  %.sroa.0.0.i15 = phi i64 [ 1, %._crit_edge ], [ 0, %4 ]
-  store i64 %.sroa.0.0.i15, ptr %0, align 8
+  %.sroa.0.0.i14 = phi i64 [ 1, %._crit_edge ], [ 0, %4 ]
+  store i64 %.sroa.0.0.i14, ptr %0, align 8
   ret void
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit
-  %.0.lcssa = phi i64 [ %.016, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit ], [ %3, %19 ], [ %.017, %.lr.ph ]
+  %.0.lcssa = phi i64 [ %.015, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit ], [ %3, %19 ], [ %.016, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %12, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -270,8 +270,8 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
   br label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit.thread
 
 .lr.ph:                                           ; preds = %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit, %19
-  %.017 = phi i64 [ %.0, %19 ], [ %.016, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit ]
-  %17 = getelementptr inbounds i8, ptr %2, i64 %.017
+  %.016 = phi i64 [ %.0, %19 ], [ %.015, %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.18437011518490787362.exit ]
+  %17 = getelementptr inbounds i8, ptr %2, i64 %.016
   %18 = load i8, ptr %17, align 1, !noundef !7
   switch i8 %18, label %._crit_edge [
     i8 32, label %19
@@ -279,7 +279,7 @@ _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hf16fe1276752952fE.llvm.1
   ]
 
 19:                                               ; preds = %.lr.ph, %.lr.ph
-  %.0 = add nuw i64 %.017, 1
+  %.0 = add nuw i64 %.016, 1
   %20 = icmp ult i64 %.0, %3
   br i1 %20, label %.lr.ph, label %._crit_edge
 }

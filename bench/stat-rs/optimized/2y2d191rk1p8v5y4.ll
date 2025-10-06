@@ -104,10 +104,10 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %11 = phi i64 [ %20, %.lr.ph.i ], [ %.sroa.4.0.copyload, %2 ]
-  %.sroa.0.010.i = phi i64 [ %12, %.lr.ph.i ], [ %4, %2 ]
-  %12 = add nuw i64 %.sroa.0.010.i, 1
+  %.sroa.0.08.i = phi i64 [ %12, %.lr.ph.i ], [ %4, %2 ]
+  %12 = add nuw i64 %.sroa.0.08.i, 1
   %13 = load double, ptr %7, align 8, !noalias !6, !noundef !4
-  %14 = uitofp i64 %.sroa.0.010.i to double
+  %14 = uitofp i64 %.sroa.0.08.i to double
   %15 = load double, ptr %9, align 8, !noalias !6, !noundef !4
   %16 = fmul double %15, %14
   %17 = fadd double %13, %16
@@ -602,9 +602,9 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4core4iter6trait
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind uwtable
 define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5c7eb1fd42f57f80E.llvm.9554138872291501309(i64 noundef %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(40) %2) unnamed_addr #12 personality ptr @rust_eh_personality {
   %4 = icmp ult i64 %0, %1
-  br i1 %4, label %.lr.ph, label %._crit_edge11
+  br i1 %4, label %.lr.ph, label %._crit_edge9
 
-._crit_edge11:                                    ; preds = %3
+._crit_edge9:                                     ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !alias.scope !146
   br label %23
@@ -622,12 +622,12 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5c7eb1fd42f57f
 
 12:                                               ; preds = %.lr.ph, %12
   %13 = phi i64 [ %.promoted, %.lr.ph ], [ %22, %12 ]
-  %.sroa.0.010 = phi i64 [ %0, %.lr.ph ], [ %14, %12 ]
-  %14 = add nuw i64 %.sroa.0.010, 1
+  %.sroa.0.08 = phi i64 [ %0, %.lr.ph ], [ %14, %12 ]
+  %14 = add nuw i64 %.sroa.0.08, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !167)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   %15 = load double, ptr %6, align 8, !noalias !157, !noundef !4
-  %16 = uitofp i64 %.sroa.0.010 to double
+  %16 = uitofp i64 %.sroa.0.08 to double
   %17 = load double, ptr %8, align 8, !noalias !157, !noundef !4
   %18 = fmul double %17, %16
   %19 = fadd double %15, %18
@@ -644,8 +644,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h5c7eb1fd42f57f
   store i64 %22, ptr %11, align 8, !alias.scope !162
   br label %23
 
-23:                                               ; preds = %._crit_edge11, %._crit_edge
-  %24 = phi i64 [ %.pre, %._crit_edge11 ], [ %22, %._crit_edge ]
+23:                                               ; preds = %._crit_edge9, %._crit_edge
+  %24 = phi i64 [ %.pre, %._crit_edge9 ], [ %22, %._crit_edge ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !173)
@@ -861,28 +861,28 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
   %trunc = trunc nuw i64 %3 to i1
   %4 = load i64, ptr %1, align 8, !range !240, !noundef !4
   %trunc1 = trunc nuw i64 %4 to i1
-  br i1 %trunc, label %6, label %5
+  br i1 %trunc, label %7, label %5
 
 5:                                                ; preds = %2
-  %switch3 = xor i1 %trunc1, true
-  br label %7
+  %6 = xor i1 %trunc1, true
+  br label %8
 
-6:                                                ; preds = %2
-  br i1 %trunc1, label %8, label %7
+7:                                                ; preds = %2
+  br i1 %trunc1, label %9, label %8
 
-7:                                                ; preds = %6, %5, %8
-  %.sroa.0.0 = phi i1 [ %13, %8 ], [ %switch3, %5 ], [ false, %6 ]
+8:                                                ; preds = %7, %5, %9
+  %.sroa.0.0 = phi i1 [ %14, %9 ], [ %6, %5 ], [ false, %7 ]
   ret i1 %.sroa.0.0
 
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
+9:                                                ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !241)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
-  %11 = load i64, ptr %9, align 8, !alias.scope !241, !noalias !244, !noundef !4
-  %12 = load i64, ptr %10, align 8, !alias.scope !244, !noalias !241, !noundef !4
-  %13 = icmp eq i64 %11, %12
-  br label %7
+  %12 = load i64, ptr %10, align 8, !alias.scope !241, !noalias !244, !noundef !4
+  %13 = load i64, ptr %11, align 8, !alias.scope !244, !noalias !241, !noundef !4
+  %14 = icmp eq i64 %12, %13
+  br label %8
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

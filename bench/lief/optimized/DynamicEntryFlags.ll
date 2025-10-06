@@ -464,9 +464,9 @@ define void @_ZN4LIEF3ELF17DynamicEntryFlags6removeENS1_4FLAGE(ptr noundef nonnu
 
 6:                                                ; preds = %2
   %7 = icmp ugt i64 %1, 4294967295
-  br i1 %7, label %20, label %.thread10
+  br i1 %7, label %20, label %.thread9
 
-.thread10:                                        ; preds = %6
+.thread9:                                         ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !10
   %10 = xor i64 %1, -1
@@ -488,7 +488,7 @@ define void @_ZN4LIEF3ELF17DynamicEntryFlags6removeENS1_4FLAGE(ptr noundef nonnu
   store i64 %19, ptr %16, align 8, !tbaa !10
   br label %20
 
-20:                                               ; preds = %.thread10, %6, %15, %12
+20:                                               ; preds = %.thread9, %6, %15, %12
   ret void
 }
 

@@ -80,17 +80,17 @@ lean_box_uint64.exit:                             ; preds = %lean_dec.exit
 
 ; Function Attrs: nounwind uwtable
 define i64 @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_hashParams___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %.not51 = icmp eq i64 %1, %2
-  br i1 %.not51, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq i64 %1, %2
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %62
-  %.02553 = phi i64 [ %1, %.lr.ph ], [ %65, %62 ]
-  %.02752 = phi i64 [ %3, %.lr.ph ], [ %64, %62 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02553
+  %.02551 = phi i64 [ %1, %.lr.ph ], [ %65, %62 ]
+  %.02750 = phi i64 [ %3, %.lr.ph ], [ %64, %62 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02551
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -120,8 +120,8 @@ lean_array_uget.exit:                             ; preds = %6, %13, %15, %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
-  %.not48 = icmp eq i64 %20, 0
-  br i1 %.not48, label %21, label %lean_inc.exit
+  %.not46 = icmp eq i64 %20, 0
+  br i1 %.not46, label %21, label %lean_inc.exit
 
 21:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %18, align 4, !tbaa !8
@@ -170,8 +170,8 @@ lean_dec.exit30:                                  ; preds = %35, %34, %32, %lean
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
-  %.not49 = icmp eq i64 %40, 0
-  br i1 %.not49, label %41, label %lean_inc.exit31
+  %.not47 = icmp eq i64 %40, 0
+  br i1 %.not47, label %41, label %lean_inc.exit31
 
 41:                                               ; preds = %lean_dec.exit30
   %.val.i38 = load i32, ptr %38, align 4, !tbaa !8
@@ -214,7 +214,7 @@ lean_inc.exit31:                                  ; preds = %46, %45, %43, %lean
 
 lean_dec.exit29:                                  ; preds = %53, %52, %50, %lean_inc.exit31
   %54 = tail call i64 @l_Lean_Expr_hash(ptr noundef %38) #3
-  br i1 %.not49, label %55, label %62
+  br i1 %.not47, label %55, label %62
 
 55:                                               ; preds = %lean_dec.exit29
   %56 = load i32, ptr %38, align 4, !tbaa !8
@@ -236,8 +236,8 @@ lean_dec.exit29:                                  ; preds = %53, %52, %50, %lean
 
 62:                                               ; preds = %lean_dec.exit29, %58, %60, %61
   %63 = tail call i64 @lean_uint64_mix_hash(i64 noundef %36, i64 noundef %54) #3
-  %64 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.02752, i64 noundef %63) #3
-  %65 = add i64 %.02553, 1
+  %64 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.02750, i64 noundef %63) #3
+  %65 = add i64 %.02551, 1
   %.not = icmp eq i64 %65, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -654,17 +654,17 @@ lean_dec.exit19:                                  ; preds = %lean_nat_lt.exit, %
 
 ; Function Attrs: nounwind uwtable
 define i64 @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_hashAlts___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %.not28 = icmp eq i64 %1, %2
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq i64 %1, %2
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %26
-  %.01630 = phi i64 [ %1, %.lr.ph ], [ %29, %26 ]
-  %.01829 = phi i64 [ %3, %.lr.ph ], [ %28, %26 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01630
+  %.01628 = phi i64 [ %1, %.lr.ph ], [ %29, %26 ]
+  %.01827 = phi i64 [ %3, %.lr.ph ], [ %28, %26 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01628
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -714,8 +714,8 @@ lean_array_uget.exit:                             ; preds = %6
 
 26:                                               ; preds = %lean_array_uget.exit, %22, %24, %25
   %27 = phi i64 [ %17, %lean_array_uget.exit ], [ %19, %22 ], [ %19, %24 ], [ %19, %25 ]
-  %28 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.01829, i64 noundef %27) #3
-  %29 = add i64 %.01630, 1
+  %28 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.01827, i64 noundef %27) #3
+  %29 = add i64 %.01628, 1
   %.not = icmp eq i64 %29, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -894,17 +894,17 @@ lean_dec.exit13:                                  ; preds = %24, %23, %21, %lean
   br label %lean_dec.exit12
 
 lean_dec.exit12:                                  ; preds = %34, %33, %31, %lean_dec.exit13
-  %.not28.i = icmp eq i64 %.val21, %.val
-  br i1 %.not28.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_hashAlts___spec__1.exit, label %.lr.ph.i
+  %.not26.i = icmp eq i64 %.val21, %.val
+  br i1 %.not26.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_hashAlts___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit12
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %36
 
 36:                                               ; preds = %56, %.lr.ph.i
-  %.01630.i = phi i64 [ %.val21, %.lr.ph.i ], [ %59, %56 ]
-  %.01829.i = phi i64 [ %.val22, %.lr.ph.i ], [ %58, %56 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01630.i
+  %.01628.i = phi i64 [ %.val21, %.lr.ph.i ], [ %59, %56 ]
+  %.01827.i = phi i64 [ %.val22, %.lr.ph.i ], [ %58, %56 ]
+  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01628.i
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
@@ -954,8 +954,8 @@ lean_array_uget.exit.i:                           ; preds = %36
 
 56:                                               ; preds = %55, %54, %52, %lean_array_uget.exit.i
   %57 = phi i64 [ %47, %lean_array_uget.exit.i ], [ %49, %52 ], [ %49, %54 ], [ %49, %55 ]
-  %58 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.01829.i, i64 noundef %57) #3
-  %59 = add i64 %.01630.i, 1
+  %58 = tail call i64 @lean_uint64_mix_hash(i64 noundef %.01827.i, i64 noundef %57) #3
+  %59 = add i64 %.01628.i, 1
   %.not.i23 = icmp eq i64 %59, %.val
   br i1 %.not.i23, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_hashAlts___spec__1.exit, label %36
 

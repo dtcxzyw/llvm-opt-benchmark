@@ -2159,8 +2159,8 @@ _ZNK6vectorIjLb0EjE3endEv.exit.i:                 ; preds = %39
   %45 = zext i32 %44 to i64
   %46 = shl nuw nsw i64 %45, 2
   %47 = getelementptr inbounds nuw i8, ptr %41, i64 %46
-  %.not21.not.i = icmp eq i32 %44, 0
-  br i1 %.not21.not.i, label %_Z6any_ofI7svectorIjjEZN3nra6solver3imp5checkERK10ptr_vectorIN2dd6solver8equationEEEUljE_EbRKT_RKT0_.exit.thread, label %.lr.ph.i
+  %.not24.not.i = icmp eq i32 %44, 0
+  br i1 %.not24.not.i, label %_Z6any_ofI7svectorIjjEZN3nra6solver3imp5checkERK10ptr_vectorIN2dd6solver8equationEEEUljE_EbRKT_RKT0_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIjLb0EjE3endEv.exit.i
   %48 = load i32, ptr %27, align 8, !tbaa !21
@@ -2171,8 +2171,8 @@ _ZNK6vectorIjLb0EjE3endEv.exit.i:                 ; preds = %39
   br label %53
 
 53:                                               ; preds = %.loopexit.i, %.lr.ph.i
-  %.01322.i = phi ptr [ %41, %.lr.ph.i ], [ %80, %.loopexit.i ]
-  %54 = load i32, ptr %.01322.i, align 4, !tbaa !38
+  %.01325.i = phi ptr [ %41, %.lr.ph.i ], [ %80, %.loopexit.i ]
+  %54 = load i32, ptr %.01325.i, align 4, !tbaa !38
   %55 = and i32 %54, %49
   %56 = zext i32 %55 to i64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %56, 4
@@ -2235,7 +2235,7 @@ _ZNK6vectorIjLb0EjE3endEv.exit.i:                 ; preds = %39
   br i1 %.not27.i.i.i.i.i, label %.loopexit.i, label %.lr.ph34.i.i.i.i.i, !llvm.loop !191
 
 .loopexit.i:                                      ; preds = %.lr.ph.i.i.i.i.i, %78, %.lr.ph34.i.i.i.i.i, %.preheader.i.i.i.i.i
-  %80 = getelementptr inbounds nuw i8, ptr %.01322.i, i64 4
+  %80 = getelementptr inbounds nuw i8, ptr %.01325.i, i64 4
   %.not.not.i = icmp eq ptr %80, %47
   br i1 %.not.not.i, label %_Z6any_ofI7svectorIjjEZN3nra6solver3imp5checkERK10ptr_vectorIN2dd6solver8equationEEEUljE_EbRKT_RKT0_.exit.thread, label %53
 

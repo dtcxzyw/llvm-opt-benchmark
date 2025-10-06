@@ -54,8 +54,8 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   %.not82 = icmp eq ptr %4, null
   br i1 %.not82, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %153
-  %.083 = phi ptr [ %.1, %153 ], [ %4, %1 ]
+.lr.ph:                                           ; preds = %1, %152
+  %.083 = phi ptr [ %.1, %152 ], [ %4, %1 ]
   %5 = getelementptr inbounds nuw i8, ptr %.083, i64 116
   %6 = load i32, ptr %5, align 4, !tbaa !34
   %7 = tail call i32 @lv_tick_elaps(i32 noundef %6) #10
@@ -248,118 +248,116 @@ define internal void @anim_timer(ptr readnone captures(none) %0) #0 {
   br i1 %108, label %._crit_edge.i, label %109
 
 109:                                              ; preds = %105
-  switch i32 %.pre.i, label %110 [
-    i32 0, label %._crit_edge.i
-    i32 -1, label %._crit_edge.i
-  ]
+  %.off.i = add i32 %.pre.i, -1
+  %switch.i = icmp ult i32 %.off.i, -2
+  br i1 %switch.i, label %110, label %._crit_edge.i
 
 110:                                              ; preds = %109
-  %111 = add i32 %.pre.i, -1
-  store i32 %111, ptr %.phi.trans.insert.i, align 8, !tbaa !49
+  store i32 %.off.i, ptr %.phi.trans.insert.i, align 8, !tbaa !49
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %110, %109, %109, %105
-  %112 = phi i32 [ %.pre.i, %109 ], [ %.pre.i, %109 ], [ %111, %110 ], [ %.pre.i, %105 ]
-  %113 = icmp eq i32 %112, 0
-  %114 = getelementptr inbounds nuw i8, ptr %.083, i64 96
-  %115 = load i32, ptr %114, align 8, !tbaa !50
-  %116 = icmp eq i32 %115, 0
-  %brmerge.i = or i1 %108, %116
-  %or.cond.i = select i1 %113, i1 %brmerge.i, i1 false
-  br i1 %or.cond.i, label %117, label %._crit_edge47.i
+._crit_edge.i:                                    ; preds = %110, %109, %105
+  %111 = phi i32 [ %.pre.i, %109 ], [ %.off.i, %110 ], [ %.pre.i, %105 ]
+  %112 = icmp eq i32 %111, 0
+  %113 = getelementptr inbounds nuw i8, ptr %.083, i64 96
+  %114 = load i32, ptr %113, align 8, !tbaa !50
+  %115 = icmp eq i32 %114, 0
+  %brmerge.i = or i1 %108, %115
+  %or.cond.i = select i1 %112, i1 %brmerge.i, i1 false
+  br i1 %or.cond.i, label %116, label %._crit_edge47.i
 
-117:                                              ; preds = %._crit_edge.i
+116:                                              ; preds = %._crit_edge.i
   tail call void @lv_ll_remove(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.083) #10
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30
-  %118 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
-  %119 = icmp eq ptr %118, null
-  %120 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
-  br i1 %119, label %121, label %122
+  %117 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  %118 = icmp eq ptr %117, null
+  %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 296), align 8, !tbaa !3
+  br i1 %118, label %120, label %121
 
-121:                                              ; preds = %117
-  tail call void @lv_timer_pause(ptr noundef %120) #10
+120:                                              ; preds = %116
+  tail call void @lv_timer_pause(ptr noundef %119) #10
   br label %anim_mark_list_change.exit.i
 
-122:                                              ; preds = %117
-  tail call void @lv_timer_resume(ptr noundef %120) #10
+121:                                              ; preds = %116
+  tail call void @lv_timer_resume(ptr noundef %119) #10
   br label %anim_mark_list_change.exit.i
 
-anim_mark_list_change.exit.i:                     ; preds = %122, %121
-  %123 = getelementptr inbounds nuw i8, ptr %.083, i64 32
-  %124 = load ptr, ptr %123, align 8, !tbaa !51
-  %.not45.i = icmp eq ptr %124, null
-  br i1 %.not45.i, label %126, label %125
+anim_mark_list_change.exit.i:                     ; preds = %121, %120
+  %122 = getelementptr inbounds nuw i8, ptr %.083, i64 32
+  %123 = load ptr, ptr %122, align 8, !tbaa !51
+  %.not45.i = icmp eq ptr %123, null
+  br i1 %.not45.i, label %125, label %124
 
-125:                                              ; preds = %anim_mark_list_change.exit.i
-  tail call void %124(ptr noundef nonnull %.083) #10
-  br label %126
+124:                                              ; preds = %anim_mark_list_change.exit.i
+  tail call void %123(ptr noundef nonnull %.083) #10
+  br label %125
 
-126:                                              ; preds = %125, %anim_mark_list_change.exit.i
-  %127 = getelementptr inbounds nuw i8, ptr %.083, i64 40
-  %128 = load ptr, ptr %127, align 8, !tbaa !52
-  %.not46.i = icmp eq ptr %128, null
-  br i1 %.not46.i, label %130, label %129
+125:                                              ; preds = %124, %anim_mark_list_change.exit.i
+  %126 = getelementptr inbounds nuw i8, ptr %.083, i64 40
+  %127 = load ptr, ptr %126, align 8, !tbaa !52
+  %.not46.i = icmp eq ptr %127, null
+  br i1 %.not46.i, label %129, label %128
 
-129:                                              ; preds = %126
-  tail call void %128(ptr noundef nonnull %.083) #10
-  br label %130
+128:                                              ; preds = %125
+  tail call void %127(ptr noundef nonnull %.083) #10
+  br label %129
 
-130:                                              ; preds = %129, %126
+129:                                              ; preds = %128, %125
   tail call void @lv_free(ptr noundef nonnull %.083) #10
   br label %anim_completed_handler.exit
 
 ._crit_edge47.i:                                  ; preds = %._crit_edge.i
-  %131 = icmp sgt i32 %103, %104
-  %132 = sub nsw i32 %103, %104
-  %spec.select.i = select i1 %131, i32 %132, i32 0
-  %133 = getelementptr inbounds nuw i8, ptr %.083, i64 100
-  %134 = load i32, ptr %133, align 4, !tbaa !53
-  %135 = sub nsw i32 %spec.select.i, %134
-  store i32 %135, ptr %68, align 8, !tbaa !38
-  br i1 %116, label %anim_completed_handler.exit, label %136
+  %130 = icmp sgt i32 %103, %104
+  %131 = sub nsw i32 %103, %104
+  %spec.select.i = select i1 %130, i32 %131, i32 0
+  %132 = getelementptr inbounds nuw i8, ptr %.083, i64 100
+  %133 = load i32, ptr %132, align 4, !tbaa !53
+  %134 = sub nsw i32 %spec.select.i, %133
+  store i32 %134, ptr %68, align 8, !tbaa !38
+  br i1 %115, label %anim_completed_handler.exit, label %135
 
-136:                                              ; preds = %._crit_edge47.i
-  br i1 %108, label %141, label %137
+135:                                              ; preds = %._crit_edge47.i
+  br i1 %108, label %140, label %136
 
-137:                                              ; preds = %136
-  %138 = getelementptr inbounds nuw i8, ptr %.083, i64 92
-  %139 = load i32, ptr %138, align 4, !tbaa !54
-  %140 = sub nsw i32 0, %139
-  store i32 %140, ptr %68, align 8, !tbaa !38
-  br label %141
+136:                                              ; preds = %135
+  %137 = getelementptr inbounds nuw i8, ptr %.083, i64 92
+  %138 = load i32, ptr %137, align 4, !tbaa !54
+  %139 = sub nsw i32 0, %138
+  store i32 %139, ptr %68, align 8, !tbaa !38
+  br label %140
 
-141:                                              ; preds = %137, %136
-  %142 = xor i8 %106, 2
-  store i8 %142, ptr %8, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %.083, i64 72
-  %144 = load i32, ptr %143, align 8, !tbaa !40
-  %145 = getelementptr inbounds nuw i8, ptr %.083, i64 80
-  %146 = load i32, ptr %145, align 8, !tbaa !41
-  store i32 %146, ptr %143, align 8, !tbaa !40
-  store i32 %144, ptr %145, align 8, !tbaa !41
-  store i32 %115, ptr %72, align 4, !tbaa !43
-  store i32 %104, ptr %114, align 8, !tbaa !50
+140:                                              ; preds = %136, %135
+  %141 = xor i8 %106, 2
+  store i8 %141, ptr %8, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %.083, i64 72
+  %143 = load i32, ptr %142, align 8, !tbaa !40
+  %144 = getelementptr inbounds nuw i8, ptr %.083, i64 80
+  %145 = load i32, ptr %144, align 8, !tbaa !41
+  store i32 %145, ptr %142, align 8, !tbaa !40
+  store i32 %143, ptr %144, align 8, !tbaa !41
+  store i32 %114, ptr %72, align 4, !tbaa !43
+  store i32 %104, ptr %113, align 8, !tbaa !50
   br label %anim_completed_handler.exit
 
-anim_completed_handler.exit:                      ; preds = %141, %._crit_edge47.i, %130, %95, %102, %67, %33, %29
-  %147 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30, !range !32, !noundef !33
-  %148 = trunc nuw i8 %147 to i1
-  br i1 %148, label %149, label %151
+anim_completed_handler.exit:                      ; preds = %140, %._crit_edge47.i, %129, %95, %102, %67, %33, %29
+  %146 = load i8, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 288), align 8, !tbaa !30, !range !32, !noundef !33
+  %147 = trunc nuw i8 %146 to i1
+  br i1 %147, label %148, label %150
 
-149:                                              ; preds = %anim_completed_handler.exit
-  %150 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
-  br label %153
+148:                                              ; preds = %anim_completed_handler.exit
+  %149 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
+  br label %152
 
-151:                                              ; preds = %anim_completed_handler.exit
-  %152 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.083) #10
-  br label %153
+150:                                              ; preds = %anim_completed_handler.exit
+  %151 = tail call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304), ptr noundef nonnull %.083) #10
+  br label %152
 
-153:                                              ; preds = %151, %149
-  %.1 = phi ptr [ %150, %149 ], [ %152, %151 ]
+152:                                              ; preds = %150, %148
+  %.1 = phi ptr [ %149, %148 ], [ %151, %150 ]
   %.not = icmp eq ptr %.1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %153, %1
+._crit_edge:                                      ; preds = %152, %1
   ret void
 }
 

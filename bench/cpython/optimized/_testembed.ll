@@ -1333,19 +1333,19 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 6:                                                ; preds = %.preheader, %10
   %7 = phi ptr [ @.str.2, %.preheader ], [ %12, %10 ]
-  %.0183036 = phi ptr [ @TestCases, %.preheader ], [ %11, %10 ]
+  %.0182834 = phi ptr [ @TestCases, %.preheader ], [ %11, %10 ]
   %8 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %7) #19
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.critedge, label %10
 
 10:                                               ; preds = %6
-  %11 = getelementptr i8, ptr %.0183036, i64 16
+  %11 = getelementptr i8, ptr %.0182834, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %.not22 = icmp eq ptr %12, null
   br i1 %.not22, label %.critedge.thread, label %6
 
 .critedge:                                        ; preds = %6
-  %13 = getelementptr inbounds nuw i8, ptr %.0183036, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.0182834, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %15 = tail call i32 %14() #20
   br label %.critedge2
@@ -1357,9 +1357,9 @@ define hidden i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 18:                                               ; preds = %.critedge.thread, %18
   %19 = phi ptr [ @.str.2, %.critedge.thread ], [ %22, %18 ]
-  %.03137 = phi ptr [ @TestCases, %.critedge.thread ], [ %21, %18 ]
+  %.02935 = phi ptr [ @TestCases, %.critedge.thread ], [ %21, %18 ]
   %20 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef nonnull %19)
-  %21 = getelementptr i8, ptr %.03137, i64 16
+  %21 = getelementptr i8, ptr %.02935, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !13
   %.not24 = icmp eq ptr %22, null
   br i1 %.not24, label %.critedge2, label %18
@@ -1555,13 +1555,13 @@ define internal i32 @test_repeated_init_and_inittab() #0 {
   br label %8
 
 6:                                                ; preds = %init_from_config_clear.exit
-  %7 = add nuw nsw i32 %.01014, 1
-  %exitcond = icmp eq i32 %7, 5
-  br i1 %exitcond, label %.loopexit, label %8, !llvm.loop !35
+  %7 = add nuw nsw i32 %.01016, 1
+  %exitcond.not = icmp eq i32 %7, 5
+  br i1 %exitcond.not, label %.thread, label %8, !llvm.loop !35
 
 8:                                                ; preds = %0, %6
-  %.01014 = phi i32 [ 1, %0 ], [ %7, %6 ]
-  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.83, i32 noundef %.01014)
+  %.01016 = phi i32 [ 1, %0 ], [ %7, %6 ]
+  %9 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.83, i32 noundef %.01016)
   %10 = call i32 @PyImport_AppendInittab(ptr noundef nonnull @.str.86, ptr noundef nonnull @PyInit_embedded_ext) #20
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %14, label %11
@@ -1569,7 +1569,7 @@ define internal i32 @test_repeated_init_and_inittab() #0 {
 11:                                               ; preds = %8
   %12 = load ptr, ptr @stderr, align 8, !tbaa !16
   %13 = call i64 @fwrite(ptr nonnull @.str.87, i64 32, i64 1, ptr %12) #23
-  br label %.loopexit
+  br label %.thread
 
 14:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -1607,11 +1607,11 @@ init_from_config_clear.exit:                      ; preds = %config_set_argv.exi
   %.not12 = icmp eq i32 %19, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not12, label %6, label %.loopexit
+  br i1 %.not12, label %6, label %.thread
 
-.loopexit:                                        ; preds = %6, %init_from_config_clear.exit, %11
-  %spec.select = phi i32 [ 1, %11 ], [ 0, %6 ], [ %19, %init_from_config_clear.exit ]
-  ret i32 %spec.select
+.thread:                                          ; preds = %init_from_config_clear.exit, %6, %11
+  %20 = phi i32 [ 1, %11 ], [ %19, %init_from_config_clear.exit ], [ 0, %6 ]
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind uwtable
@@ -4016,12 +4016,12 @@ define internal i32 @test_run_main_loop() #0 {
   br label %1
 
 1:                                                ; preds = %1, %0
-  %.0911 = phi i32 [ 0, %0 ], [ %3, %1 ]
+  %.0913 = phi i32 [ 0, %0 ], [ %3, %1 ]
   %2 = tail call i32 @test_run_main()
   %.not = icmp ne i32 %2, 0
-  %3 = add nuw nsw i32 %.0911, 1
-  %exitcond = icmp eq i32 %3, 5
-  %or.cond = select i1 %.not, i1 true, i1 %exitcond
+  %3 = add nuw nsw i32 %.0913, 1
+  %exitcond.not = icmp eq i32 %3, 5
+  %or.cond = select i1 %.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %4, label %1, !llvm.loop !79
 
 4:                                                ; preds = %1

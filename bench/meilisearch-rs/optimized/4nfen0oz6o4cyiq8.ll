@@ -127,8 +127,8 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !51, !noalias !54, !noundef !27
   %.promoted.i.i = load i64, ptr %0, align 8, !alias.scope !51, !noalias !54
-  %.not.i8.i.i = icmp eq i64 %5, %.promoted.i.i
-  br i1 %.not.i8.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192.exit", label %.lr.ph.i.i
+  %.not.i6.i.i = icmp eq i64 %5, %.promoted.i.i
+  br i1 %.not.i6.i.i, label %"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2f962ee7be3c8b9eE.llvm.17336248082475965192.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %6 = phi i64 [ %7, %.lr.ph.i.i ], [ %.promoted.i.i, %2 ]
@@ -1364,8 +1364,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a18957
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !358, !noundef !27
   %.promoted = load i64, ptr %0, align 8, !alias.scope !358
-  %.not.i8 = icmp eq i64 %5, %.promoted
-  br i1 %.not.i8, label %._crit_edge, label %.lr.ph
+  %.not.i6 = icmp eq i64 %5, %.promoted
+  br i1 %.not.i6, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %.val.i.i = load ptr, ptr %1, align 8, !nonnull !27, !align !90, !noundef !27
@@ -1733,8 +1733,8 @@ define hidden void @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !429, !noalias !432, !noundef !27
   %.promoted.i = load i64, ptr %0, align 8, !alias.scope !429, !noalias !432
-  %.not.i8.i = icmp eq i64 %5, %.promoted.i
-  br i1 %.not.i8.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a189574d8616E.llvm.17336248082475965192.exit, label %.lr.ph.i
+  %.not.i6.i = icmp eq i64 %5, %.promoted.i
+  br i1 %.not.i6.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h4b09a189574d8616E.llvm.17336248082475965192.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %6 = phi i64 [ %7, %.lr.ph.i ], [ %.promoted.i, %2 ]

@@ -181,19 +181,19 @@ sampler_random_fract.exit:                        ; preds = %9
   %13 = fsub double %12, %4
   %14 = fdiv double %13, %12
   %15 = fcmp ogt double %14, %10
-  br i1 %15, label %.lr.ph, label %.loopexit98
+  br i1 %15, label %.lr.ph, label %.loopexit97
 
 .lr.ph:                                           ; preds = %sampler_random_fract.exit, %.lr.ph
-  %.077110 = phi double [ %17, %.lr.ph ], [ %12, %sampler_random_fract.exit ]
-  %.079109 = phi double [ %16, %.lr.ph ], [ 0.000000e+00, %sampler_random_fract.exit ]
-  %.080108 = phi double [ %20, %.lr.ph ], [ %14, %sampler_random_fract.exit ]
-  %16 = fadd double %.079109, 1.000000e+00
-  %17 = fadd double %.077110, 1.000000e+00
+  %.077109 = phi double [ %17, %.lr.ph ], [ %12, %sampler_random_fract.exit ]
+  %.079108 = phi double [ %16, %.lr.ph ], [ 0.000000e+00, %sampler_random_fract.exit ]
+  %.080107 = phi double [ %20, %.lr.ph ], [ %14, %sampler_random_fract.exit ]
+  %16 = fadd double %.079108, 1.000000e+00
+  %17 = fadd double %.077109, 1.000000e+00
   %18 = fsub double %17, %4
   %19 = fdiv double %18, %17
-  %20 = fmul double %.080108, %19
+  %20 = fmul double %.080107, %19
   %21 = fcmp ogt double %20, %10
-  br i1 %21, label %.lr.ph, label %.loopexit98, !llvm.loop !8
+  br i1 %21, label %.lr.ph, label %.loopexit97, !llvm.loop !8
 
 22:                                               ; preds = %3
   %23 = load double, ptr %0, align 8
@@ -246,27 +246,27 @@ sampler_random_fract.exit92:                      ; preds = %30
   %58 = fcmp ogt double %35, %4
   %.086 = select i1 %58, double %38, double %27
   %59 = fcmp ult double %54, %.086
-  br i1 %59, label %.preheader, label %.lr.ph114.preheader
+  br i1 %59, label %.preheader, label %.lr.ph113.preheader
 
-.lr.ph114.preheader:                              ; preds = %51
+.lr.ph113.preheader:                              ; preds = %51
   %60 = fadd double %24, %35
   %.084 = select i1 %58, double %1, double %60
-  br label %.lr.ph114
+  br label %.lr.ph113
 
-.preheader:                                       ; preds = %.lr.ph114, %51
-  %.078.lcssa = phi double [ %57, %51 ], [ %62, %.lr.ph114 ]
+.preheader:                                       ; preds = %.lr.ph113, %51
+  %.078.lcssa = phi double [ %57, %51 ], [ %62, %.lr.ph113 ]
   br label %66
 
-.lr.ph114:                                        ; preds = %.lr.ph114.preheader, %.lr.ph114
-  %.078113 = phi double [ %62, %.lr.ph114 ], [ %57, %.lr.ph114.preheader ]
-  %.083112 = phi double [ %64, %.lr.ph114 ], [ %54, %.lr.ph114.preheader ]
-  %.185111 = phi double [ %63, %.lr.ph114 ], [ %.084, %.lr.ph114.preheader ]
-  %61 = fdiv double %.083112, %.185111
-  %62 = fmul double %.078113, %61
-  %63 = fadd double %.185111, -1.000000e+00
-  %64 = fadd double %.083112, -1.000000e+00
+.lr.ph113:                                        ; preds = %.lr.ph113.preheader, %.lr.ph113
+  %.078112 = phi double [ %62, %.lr.ph113 ], [ %57, %.lr.ph113.preheader ]
+  %.083111 = phi double [ %64, %.lr.ph113 ], [ %54, %.lr.ph113.preheader ]
+  %.185110 = phi double [ %63, %.lr.ph113 ], [ %.084, %.lr.ph113.preheader ]
+  %61 = fdiv double %.083111, %.185110
+  %62 = fmul double %.078112, %61
+  %63 = fadd double %.185110, -1.000000e+00
+  %64 = fadd double %.083111, -1.000000e+00
   %65 = fcmp ult double %64, %.086
-  br i1 %65, label %.preheader, label %.lr.ph114, !llvm.loop !9
+  br i1 %65, label %.preheader, label %.lr.ph113, !llvm.loop !9
 
 66:                                               ; preds = %.preheader, %66
   %67 = tail call double @pg_prng_double(ptr noundef nonnull %26) #6
@@ -288,9 +288,9 @@ sampler_random_fract.exit93:                      ; preds = %66
 .loopexit:                                        ; preds = %sampler_random_fract.exit93, %49
   %.182.ph = phi double [ %50, %49 ], [ %72, %sampler_random_fract.exit93 ]
   store double %.182.ph, ptr %0, align 8
-  br label %.loopexit98
+  br label %.loopexit97
 
-.loopexit98:                                      ; preds = %.lr.ph, %sampler_random_fract.exit, %.loopexit
+.loopexit97:                                      ; preds = %.lr.ph, %sampler_random_fract.exit, %.loopexit
   %.1 = phi double [ %35, %.loopexit ], [ 0.000000e+00, %sampler_random_fract.exit ], [ %16, %.lr.ph ]
   ret double %.1
 }

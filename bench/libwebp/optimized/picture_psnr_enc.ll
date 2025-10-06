@@ -528,8 +528,8 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
 
 49:                                               ; preds = %42, %63
   %indvars.iv = phi i64 [ 0, %42 ], [ %indvars.iv.next, %63 ]
-  %.04568 = phi double [ 0.000000e+00, %42 ], [ %66, %63 ]
-  %.04667 = phi double [ 0.000000e+00, %42 ], [ %67, %63 ]
+  %.04567 = phi double [ 0.000000e+00, %42 ], [ %66, %63 ]
+  %.04666 = phi double [ 0.000000e+00, %42 ], [ %67, %63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %50 = load i32, ptr %43, align 8, !tbaa !36
   %51 = sext i32 %50 to i64
@@ -553,8 +553,8 @@ define range(i32 0, 2) i32 @WebPPictureDistortion(ptr noundef %0, ptr noundef %1
 63:                                               ; preds = %49
   %64 = load float, ptr %7, align 4, !tbaa !10
   %65 = fpext float %64 to double
-  %66 = fadd double %.04568, %65
-  %67 = fadd double %.04667, %48
+  %66 = fadd double %.04567, %65
+  %67 = fadd double %.04666, %48
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

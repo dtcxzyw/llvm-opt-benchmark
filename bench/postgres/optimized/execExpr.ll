@@ -10934,8 +10934,8 @@ define internal fastcc noundef zeroext i1 @isAssignmentIndirectionExpr(ptr nound
   br i1 %2, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse.backedge
-  %.tr33 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
-  %3 = load i32, ptr %.tr33, align 4
+  %.tr30 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
+  %3 = load i32, ptr %.tr30, align 4
   switch i32 %3, label %.loopexit [
     i32 26, label %4
     i32 14, label %10
@@ -10944,7 +10944,7 @@ define internal fastcc noundef zeroext i1 @isAssignmentIndirectionExpr(ptr nound
   ]
 
 4:                                                ; preds = %.lr.ph
-  %5 = getelementptr inbounds nuw i8, ptr %.tr33, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %.tr30, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not23 = icmp eq ptr %6, null
   br i1 %.not23, label %.thread, label %7
@@ -10958,27 +10958,27 @@ define internal fastcc noundef zeroext i1 @isAssignmentIndirectionExpr(ptr nound
   br label %.loopexit
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.tr33, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %.tr30, i64 40
   %12 = load ptr, ptr %11, align 8
   %.not = icmp eq ptr %12, null
-  br i1 %.not, label %.thread28, label %13
+  br i1 %.not, label %.thread26, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %12, align 4
   %15 = icmp eq i32 %14, 34
-  br i1 %15, label %.loopexit, label %.thread28
+  br i1 %15, label %.loopexit, label %.thread26
 
-.thread28:                                        ; preds = %10, %13
+.thread26:                                        ; preds = %10, %13
   br label %.loopexit
 
 tailrecurse.backedge:                             ; preds = %.lr.ph, %.lr.ph
-  %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr33, i64 8
+  %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr30, i64 8
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   %16 = icmp eq ptr %.tr.be, null
   br i1 %16, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %1, %.thread, %.thread28, %13, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %13 ], [ false, %.thread28 ], [ false, %.thread ], [ false, %1 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %.lr.ph, %1, %.thread, %.thread26, %13, %7
+  %.0 = phi i1 [ true, %7 ], [ true, %13 ], [ false, %.thread26 ], [ false, %.thread ], [ false, %1 ], [ false, %.lr.ph ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 }
 

@@ -1847,16 +1847,15 @@ define linkonce_odr void @_ZN5QListI29FilterNameParameterValuesPairE6appendERKS0
   %11 = load ptr, ptr %10, align 8
   store ptr %11, ptr %9, align 8
   %12 = load atomic i32, ptr %11 monotonic, align 4
-  switch i32 %12, label %13 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i.i
-  ]
+  %.off.i.i.i.i.i = add i32 %12, -1
+  %switch.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i, -2
+  br i1 %switch.i.i.i.i.i, label %13, label %_ZN7QStringC2ERKS_.exit.i.i.i
 
 13:                                               ; preds = %.noexc
   %14 = atomicrmw add ptr %11, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %13, %.noexc, %.noexc
+_ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %13, %.noexc
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16)
@@ -1900,37 +1899,36 @@ _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
 28:                                               ; preds = %2
   %29 = tail call noundef ptr @_ZN9QListData6appendEv(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %30 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14
-          to label %.noexc12 unwind label %40
+          to label %.noexc14 unwind label %40
 
-.noexc12:                                         ; preds = %28
+.noexc14:                                         ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
   store ptr %33, ptr %31, align 8
   %34 = load atomic i32, ptr %33 monotonic, align 4
-  switch i32 %34, label %35 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i.i10
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i.i10
-  ]
+  %.off.i.i.i.i.i10 = add i32 %34, -1
+  %switch.i.i.i.i.i11 = icmp ult i32 %.off.i.i.i.i.i10, -2
+  br i1 %switch.i.i.i.i.i11, label %35, label %_ZN7QStringC2ERKS_.exit.i.i.i12
 
-35:                                               ; preds = %.noexc12
+35:                                               ; preds = %.noexc14
   %36 = atomicrmw add ptr %33, i32 1 seq_cst, align 4
-  br label %_ZN7QStringC2ERKS_.exit.i.i.i10
+  br label %_ZN7QStringC2ERKS_.exit.i.i.i12
 
-_ZN7QStringC2ERKS_.exit.i.i.i10:                  ; preds = %35, %.noexc12, %.noexc12
+_ZN7QStringC2ERKS_.exit.i.i.i12:                  ; preds = %35, %.noexc14
   %37 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
   invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38)
-          to label %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit15 unwind label %.body.i11
+          to label %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit17 unwind label %.body.i13
 
-.body.i11:                                        ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i10
+.body.i13:                                        ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i12
   %39 = landingpad { ptr, i32 }
           catch ptr null
   tail call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #11
   tail call void @_ZdlPv(ptr noundef nonnull %30) #13
-  br label %.body13
+  br label %.body15
 
-_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit15: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i10
+_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit17: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i12
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV29FilterNameParameterValuesPair, i64 16), ptr %30, align 8
   store ptr %30, ptr %29, align 8
   br label %50
@@ -1938,11 +1936,11 @@ _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
 40:                                               ; preds = %28
   %41 = landingpad { ptr, i32 }
           catch ptr null
-  br label %.body13
+  br label %.body15
 
-.body13:                                          ; preds = %.body.i11, %40
-  %eh.lpad-body14 = phi { ptr, i32 } [ %41, %40 ], [ %39, %.body.i11 ]
-  %42 = extractvalue { ptr, i32 } %eh.lpad-body14, 0
+.body15:                                          ; preds = %.body.i13, %40
+  %eh.lpad-body16 = phi { ptr, i32 } [ %41, %40 ], [ %39, %.body.i13 ]
+  %42 = extractvalue { ptr, i32 } %eh.lpad-body16, 0
   %43 = tail call ptr @__cxa_begin_catch(ptr %42) #11
   %44 = load ptr, ptr %0, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 12
@@ -1952,13 +1950,13 @@ _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
   invoke void @__cxa_rethrow() #15
           to label %55 unwind label %48
 
-48:                                               ; preds = %.body13
+48:                                               ; preds = %.body15
   %49 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %51 unwind label %52
 
-50:                                               ; preds = %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit15, %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
+50:                                               ; preds = %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit17, %_ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
   ret void
 
 51:                                               ; preds = %48, %26
@@ -1972,7 +1970,7 @@ _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit
   tail call void @__clang_call_terminate(ptr %54) #12
   unreachable
 
-55:                                               ; preds = %.body13, %.body
+55:                                               ; preds = %.body15, %.body
   unreachable
 }
 
@@ -2016,16 +2014,15 @@ define linkonce_odr void @_ZNK29FilterNameParameterValuesPair10filterNameEv(ptr 
   %4 = load ptr, ptr %3, align 8
   store ptr %4, ptr %0, align 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
-  switch i32 %5, label %6 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %5, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %6, label %_ZN7QStringC2ERKS_.exit
 
 6:                                                ; preds = %2
   %7 = atomicrmw add ptr %4, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %2, %6
+_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %6
   ret void
 }
 
@@ -2285,16 +2282,15 @@ define linkonce_odr void @_ZN5QListI29FilterNameParameterValuesPairE9node_copyEP
   %10 = load ptr, ptr %9, align 8
   store ptr %10, ptr %8, align 8
   %11 = load atomic i32, ptr %10 monotonic, align 4
-  switch i32 %11, label %12 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit.i.i
-    i32 0, label %_ZN7QStringC2ERKS_.exit.i.i
-  ]
+  %.off.i.i.i.i = add i32 %11, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %12, label %_ZN7QStringC2ERKS_.exit.i.i
 
 12:                                               ; preds = %6
   %13 = atomicrmw add ptr %10, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit.i.i
 
-_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %6, %6
+_ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %12, %6
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
   invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15)

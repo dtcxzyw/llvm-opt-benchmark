@@ -166874,19 +166874,19 @@ _ZN4core4hash6Hasher11write_isize17hef9e965d30d9f734E.exit: ; preds = %9, %16
   %storemerge.i.i = phi i8 [ 64, %16 ], [ %15, %9 ]
   store i128 %.sink.i, ptr %1, align 16, !alias.scope !15998
   store i8 %storemerge.i.i, ptr %3, align 8, !alias.scope !15998
-  %switch = icmp samesign ult i64 %6, 4
-  %32 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %33 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
-  br i1 %switch, label %tailrecurse.backedge, label %34
+  %32 = icmp eq i64 %6, 4
+  %33 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
+  %34 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
+  br i1 %32, label %35, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %_ZN4core4hash6Hasher11write_isize17hef9e965d30d9f734E.exit
-  tail call fastcc void @"_ZN73_$LT$polars_plan..dsl..selector..Selector$u20$as$u20$core..hash..Hash$GT$4hash17hce9608f10c08e85eE"(ptr noalias noundef readonly align 8 dereferenceable(24) %33, ptr noalias noundef align 16 dereferenceable(64) %1)
+  tail call fastcc void @"_ZN73_$LT$polars_plan..dsl..selector..Selector$u20$as$u20$core..hash..Hash$GT$4hash17hce9608f10c08e85eE"(ptr noalias noundef readonly align 8 dereferenceable(24) %34, ptr noalias noundef align 16 dereferenceable(64) %1)
   %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %.tr.be = load ptr, ptr %.tr.be.in, align 8, !nonnull !4, !noundef !4
   br label %tailrecurse
 
-34:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hef9e965d30d9f734E.exit
-  tail call void @"_ZN65_$LT$polars_plan..dsl..expr..Expr$u20$as$u20$core..hash..Hash$GT$4hash17h7cdd44debf984bbaE"(ptr noundef nonnull align 16 %33, ptr noalias noundef nonnull align 16 dereferenceable(64) %1)
+35:                                               ; preds = %_ZN4core4hash6Hasher11write_isize17hef9e965d30d9f734E.exit
+  tail call void @"_ZN65_$LT$polars_plan..dsl..expr..Expr$u20$as$u20$core..hash..Hash$GT$4hash17h7cdd44debf984bbaE"(ptr noundef nonnull align 16 %34, ptr noalias noundef nonnull align 16 dereferenceable(64) %1)
   ret void
 }
 

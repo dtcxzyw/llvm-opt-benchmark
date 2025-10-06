@@ -203,8 +203,8 @@ define hidden ptr @dfilter_resolve_unparsed(ptr noundef %0, ptr noundef %1) loca
 7:                                                ; preds = %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8
-  %.not15.i = icmp eq i32 %9, 0
-  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not13.i = icmp eq i32 %9, 0
+  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i
 
 10:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -242,8 +242,8 @@ declare ptr @proto_registrar_get_byalias(ptr noundef) local_unnamed_addr #5
 define hidden void @add_deprecated_token(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8
-  %.not15 = icmp eq i32 %4, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq i32 %4, 0
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

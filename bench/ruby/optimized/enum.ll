@@ -766,25 +766,25 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %35, ptr noundef nonnull readonly align 16 dereferenceable(8) %2, i64 noundef range(i64 8, 17) %24, i1 noundef false) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %36 = add i64 %.0129, -1
-  %.not140160 = icmp sgt i64 %.0132, %36
-  br i1 %.not140160, label %.preheader, label %.lr.ph
+  %.not140159 = icmp sgt i64 %.0132, %36
+  br i1 %.not140159, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %61, %27
   %.0126.lcssa = phi i64 [ %.0132, %27 ], [ %.1127, %61 ]
   %.0121.lcssa = phi i64 [ 1, %27 ], [ %.1, %61 ]
   %.lcssa = phi i64 [ %36, %27 ], [ %62, %61 ]
   %37 = icmp slt i64 %.lcssa, %.0129
-  %.not141166 = icmp sgt i64 %.0129, %.0126.lcssa
-  %or.cond167 = select i1 %37, i1 %.not141166, i1 false
-  br i1 %or.cond167, label %.lr.ph170, label %._crit_edge
+  %.not141165 = icmp sgt i64 %.0129, %.0126.lcssa
+  %or.cond166 = select i1 %37, i1 %.not141165, i1 false
+  br i1 %or.cond166, label %.lr.ph169, label %._crit_edge
 
 .lr.ph:                                           ; preds = %27, %61
   %38 = phi i64 [ %62, %61 ], [ %36, %27 ]
-  %.0121163 = phi i64 [ %.1, %61 ], [ 1, %27 ]
-  %.0124162 = phi i64 [ %.1125, %61 ], [ %.0132, %27 ]
-  %.0126161 = phi i64 [ %.1127, %61 ], [ %.0132, %27 ]
+  %.0121162 = phi i64 [ %.1, %61 ], [ 1, %27 ]
+  %.0124161 = phi i64 [ %.1125, %61 ], [ %.0132, %27 ]
+  %.0126160 = phi i64 [ %.1127, %61 ], [ %.0132, %27 ]
   %39 = load ptr, ptr %26, align 8, !tbaa !19
-  %40 = shl i64 %.0124162, %25
+  %40 = shl i64 %.0124161, %25
   %41 = getelementptr i64, ptr %.0.i.i, i64 %40
   %42 = call i32 %39(ptr noundef %41, ptr noundef nonnull %35, ptr noundef nonnull %0) #14
   %43 = load i8, ptr %20, align 8
@@ -803,7 +803,7 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %41, ptr noundef nonnull readonly align 1 dereferenceable(8) %50, i64 noundef range(i64 8, 17) %24, i1 noundef false) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %50, ptr noundef nonnull readonly align 16 dereferenceable(8) %3, i64 noundef range(i64 8, 17) %24, i1 noundef false) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %51 = add i64 %.0121163, 1
+  %51 = add i64 %.0121162, 1
   br label %61, !llvm.loop !38
 
 52:                                               ; preds = %.lr.ph
@@ -813,47 +813,47 @@ RARRAY_PTR.exit:                                  ; preds = %15, %17
 54:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %55 = call nonnull ptr @__memcpy_chk(ptr noundef nonnull %4, ptr noundef nonnull readonly %41, i64 noundef range(i64 8, 17) %24, i64 noundef 16) #14, !alias.scope !39
-  %56 = shl i64 %.0126161, %25
+  %56 = shl i64 %.0126160, %25
   %57 = getelementptr i64, ptr %.0.i.i, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %41, ptr noundef nonnull readonly align 1 dereferenceable(8) %57, i64 noundef range(i64 8, 17) %24, i1 noundef false) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %57, ptr noundef nonnull readonly align 16 dereferenceable(8) %4, i64 noundef range(i64 8, 17) %24, i1 noundef false) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %58 = add i64 %.0126161, 1
+  %58 = add i64 %.0126160, 1
   br label %59
 
 59:                                               ; preds = %54, %52
-  %.2128 = phi i64 [ %58, %54 ], [ %.0126161, %52 ]
-  %60 = add i64 %.0124162, 1
+  %.2128 = phi i64 [ %58, %54 ], [ %.0126160, %52 ]
+  %60 = add i64 %.0124161, 1
   br label %61
 
 61:                                               ; preds = %59, %47
-  %.1127 = phi i64 [ %.0126161, %47 ], [ %.2128, %59 ]
-  %.1125 = phi i64 [ %.0124162, %47 ], [ %60, %59 ]
-  %.1 = phi i64 [ %51, %47 ], [ %.0121163, %59 ]
+  %.1127 = phi i64 [ %.0126160, %47 ], [ %.2128, %59 ]
+  %.1125 = phi i64 [ %.0124161, %47 ], [ %60, %59 ]
+  %.1 = phi i64 [ %51, %47 ], [ %.0121162, %59 ]
   %62 = sub i64 %.0129, %.1
   %.not140 = icmp sgt i64 %.1125, %62
   br i1 %.not140, label %.preheader, label %.lr.ph
 
-.lr.ph170:                                        ; preds = %.preheader, %.lr.ph170
-  %.0123169 = phi i64 [ %68, %.lr.ph170 ], [ %.0126.lcssa, %.preheader ]
-  %.2168 = phi i64 [ %69, %.lr.ph170 ], [ %.0129, %.preheader ]
+.lr.ph169:                                        ; preds = %.preheader, %.lr.ph169
+  %.0123168 = phi i64 [ %68, %.lr.ph169 ], [ %.0126.lcssa, %.preheader ]
+  %.2167 = phi i64 [ %69, %.lr.ph169 ], [ %.0129, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %63 = shl i64 %.0123169, %25
+  %63 = shl i64 %.0123168, %25
   %64 = getelementptr i64, ptr %.0.i.i, i64 %63
   %65 = call nonnull ptr @__memcpy_chk(ptr noundef nonnull %5, ptr noundef nonnull readonly %64, i64 noundef range(i64 8, 17) %24, i64 noundef 16) #14, !alias.scope !43
-  %66 = shl i64 %.2168, %25
+  %66 = shl i64 %.2167, %25
   %67 = getelementptr i64, ptr %.0.i.i, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %64, ptr noundef nonnull readonly align 1 dereferenceable(8) %67, i64 noundef range(i64 8, 17) %24, i1 noundef false) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %67, ptr noundef nonnull readonly align 16 dereferenceable(8) %5, i64 noundef range(i64 8, 17) %24, i1 noundef false) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %68 = add nsw i64 %.0123169, 1
-  %69 = add nsw i64 %.2168, -1
+  %68 = add nsw i64 %.0123168, 1
+  %69 = add nsw i64 %.2167, -1
   %70 = icmp slt i64 %.lcssa, %69
   %.not141 = icmp sgt i64 %69, %68
   %or.cond = select i1 %70, i1 %.not141, i1 false
-  br i1 %or.cond, label %.lr.ph170, label %._crit_edge, !llvm.loop !47
+  br i1 %or.cond, label %.lr.ph169, label %._crit_edge, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %.lr.ph170, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph169, %.preheader
   %.not144 = icmp sgt i64 %.0126.lcssa, %8
   %71 = add i64 %.0121.lcssa, %.0126.lcssa
   %.not145 = icmp sgt i64 %8, %71
@@ -3385,42 +3385,42 @@ RARRAY_PTR.exit:                                  ; preds = %9, %11
 20:                                               ; preds = %.lr.ph
   %.pr.i = load i64, ptr @enum_zip.rbimpl_id, align 8, !tbaa !7
   %.not4.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not4.i, label %.lr.ph.i, label %.lr.ph52.preheader
+  br i1 %.not4.i, label %.lr.ph.i, label %.lr.ph51.preheader
 
 .lr.ph.i:                                         ; preds = %20, %.lr.ph.i
   %21 = tail call i64 @rb_intern2(ptr noundef nonnull @.str.90, i64 noundef 7) #14
   store i64 %21, ptr @enum_zip.rbimpl_id, align 8, !tbaa !7
   %.not.i = icmp eq i64 %21, 0
-  br i1 %.not.i, label %.lr.ph.i, label %.lr.ph52.preheader, !llvm.loop !86
+  br i1 %.not.i, label %.lr.ph.i, label %.lr.ph51.preheader, !llvm.loop !86
 
-.lr.ph52.preheader:                               ; preds = %.lr.ph.i, %20
+.lr.ph51.preheader:                               ; preds = %.lr.ph.i, %20
   %.lcssa.i = phi i64 [ %.pr.i, %20 ], [ %21, %.lr.ph.i ]
   %smax = tail call i32 @llvm.smax.i32(i32 %0, i32 1)
-  %wide.trip.count60 = zext nneg i32 %smax to i64
-  br label %.lr.ph52
+  %wide.trip.count59 = zext nneg i32 %smax to i64
+  br label %.lr.ph51
 
-.lr.ph52:                                         ; preds = %.lr.ph52.preheader, %29
-  %indvars.iv57 = phi i64 [ 0, %.lr.ph52.preheader ], [ %indvars.iv.next58, %29 ]
-  %22 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv57
+.lr.ph51:                                         ; preds = %.lr.ph51.preheader, %29
+  %indvars.iv56 = phi i64 [ 0, %.lr.ph51.preheader ], [ %indvars.iv.next57, %29 ]
+  %22 = getelementptr i64, ptr %.0.i.i, i64 %indvars.iv56
   %23 = load i64, ptr %22, align 8, !tbaa !7
   %24 = tail call i32 @rb_respond_to(i64 noundef %23, i64 noundef 3073) #14
   %.not35 = icmp eq i32 %24, 0
   br i1 %.not35, label %25, label %29
 
-25:                                               ; preds = %.lr.ph52
+25:                                               ; preds = %.lr.ph51
   %26 = load i64, ptr @rb_eTypeError, align 8, !tbaa !7
   %27 = load i64, ptr %22, align 8, !tbaa !7
   %28 = tail call i64 @rb_obj_class(i64 noundef %27) #14
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %26, ptr noundef nonnull @.str.91, i64 noundef %28) #15
   unreachable
 
-29:                                               ; preds = %.lr.ph52
+29:                                               ; preds = %.lr.ph51
   %30 = load i64, ptr %22, align 8, !tbaa !7
   %31 = tail call i64 @rb_funcallv(i64 noundef %30, i64 noundef %.lcssa.i, i32 noundef 1, ptr noundef nonnull @enum_zip.sym_each) #14
   store i64 %31, ptr %22, align 8, !tbaa !7
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count60
-  br i1 %exitcond61.not, label %.loopexit, label %.lr.ph52, !llvm.loop !87
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
+  br i1 %exitcond60.not, label %.loopexit, label %.lr.ph51, !llvm.loop !87
 
 .loopexit:                                        ; preds = %19, %29, %RARRAY_PTR.exit
   %32 = phi ptr [ @zip_ary, %RARRAY_PTR.exit ], [ @zip_i, %29 ], [ @zip_ary, %19 ]

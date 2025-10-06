@@ -4047,8 +4047,8 @@ _ZN4llvm11SmallStringILj256EEC2ERKS1_.exit.i.i.i.i: ; preds = %.sink.split.i.i.i
   store i32 16, ptr %428, align 4, !tbaa !10, !alias.scope !308, !noalias !302
   %429 = getelementptr inbounds nuw i8, ptr %8, i64 320
   %430 = load i32, ptr %429, align 8, !tbaa !9, !noalias !315
-  %.not.i.i.i.i.i.i16 = icmp eq i32 %430, 0
-  br i1 %.not.i.i.i.i.i.i16, label %_ZNK4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEE5beginEv.exit.i, label %431
+  %.not.i.i.i.i.i.i15 = icmp eq i32 %430, 0
+  br i1 %.not.i.i.i.i.i.i15, label %_ZNK4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEE5beginEv.exit.i, label %431
 
 431:                                              ; preds = %_ZN4llvm11SmallStringILj256EEC2ERKS1_.exit.i.i.i.i
   %432 = icmp ugt i32 %430, 16
@@ -4173,18 +4173,18 @@ _ZNK4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEE3end
   %470 = load i8, ptr %469, align 8, !tbaa !316, !range !201, !noalias !334, !noundef !202
   store i8 %470, ptr %468, align 8, !tbaa !316, !alias.scope !331, !noalias !302
   %471 = call noundef zeroext i1 @_ZNK4llvm6object11ExportEntryeqERKS1_(ptr noundef nonnull align 8 dereferenceable(1360) %9, ptr noundef nonnull align 8 dereferenceable(1360) %10) #19, !noalias !302
-  br i1 %471, label %._crit_edge.i18, label %.lr.ph.i17
+  br i1 %471, label %._crit_edge.i17, label %.lr.ph.i16
 
-._crit_edge.i18:                                  ; preds = %"_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i", %_ZNK4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEE3endEv.exit.i
+._crit_edge.i17:                                  ; preds = %"_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i", %_ZNK4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEE3endEv.exit.i
   %472 = load ptr, ptr %454, align 8, !tbaa !3, !noalias !302
   %473 = icmp eq ptr %472, %456
   br i1 %473, label %_ZN4llvm11SmallVectorINS_6object11ExportEntry9NodeStateELj16EED2Ev.exit.i.i.i, label %474
 
-474:                                              ; preds = %._crit_edge.i18
+474:                                              ; preds = %._crit_edge.i17
   call void @free(ptr noundef %472) #19, !noalias !302
   br label %_ZN4llvm11SmallVectorINS_6object11ExportEntry9NodeStateELj16EED2Ev.exit.i.i.i
 
-_ZN4llvm11SmallVectorINS_6object11ExportEntry9NodeStateELj16EED2Ev.exit.i.i.i: ; preds = %474, %._crit_edge.i18
+_ZN4llvm11SmallVectorINS_6object11ExportEntry9NodeStateELj16EED2Ev.exit.i.i.i: ; preds = %474, %._crit_edge.i17
   %475 = load ptr, ptr %442, align 8, !tbaa !311, !noalias !302
   %476 = icmp eq ptr %475, %444
   br i1 %476, label %_ZN4llvm6object16content_iteratorINS0_11ExportEntryEED2Ev.exit.i, label %477
@@ -4282,7 +4282,7 @@ _ZN4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEED2Ev.
   %516 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %539
 
-.lr.ph.i17:                                       ; preds = %_ZNK4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEE3endEv.exit.i, %"_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i"
+.lr.ph.i16:                                       ; preds = %_ZNK4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEE3endEv.exit.i, %"_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i"
   %517 = call noundef i64 @_ZNK4llvm6object11ExportEntry5flagsEv(ptr noundef nonnull align 8 dereferenceable(1353) %9) #19, !noalias !302
   %518 = call noundef i64 @_ZNK4llvm6object11ExportEntry7addressEv(ptr noundef nonnull align 8 dereferenceable(1353) %9) #19, !noalias !302
   %519 = and i64 %517, 3
@@ -4291,17 +4291,17 @@ _ZN4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEED2Ev.
     i64 1, label %523
   ]
 
-520:                                              ; preds = %.lr.ph.i17
+520:                                              ; preds = %.lr.ph.i16
   %521 = trunc i64 %517 to i8
   %522 = lshr i8 %521, 1
   %spec.select.i.i = and i8 %522, 2
   br label %"_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i"
 
-523:                                              ; preds = %.lr.ph.i17
+523:                                              ; preds = %.lr.ph.i16
   br label %"_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i"
 
-"_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i": ; preds = %523, %520, %.lr.ph.i17
-  %.0.i.i = phi i8 [ 0, %.lr.ph.i17 ], [ 1, %523 ], [ %spec.select.i.i, %520 ]
+"_ZZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionEENK3$_0clImmEESt5tupleIJNS3_11SymbolFlagsENS3_13RecordLinkageEEET_T0_.exit.i": ; preds = %523, %520, %.lr.ph.i16
+  %.0.i.i = phi i8 [ 0, %.lr.ph.i16 ], [ 1, %523 ], [ %spec.select.i.i, %520 ]
   %524 = and i64 %517, 8
   %.not3.i.i = icmp eq i64 %524, 0
   %525 = select i1 %.not3.i.i, i8 4, i8 3
@@ -4322,10 +4322,10 @@ _ZN4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEED2Ev.
   store i8 %525, ptr %537, align 1, !tbaa !344, !noalias !302
   call void @_ZN4llvm6object11ExportEntry8moveNextEv(ptr noundef nonnull align 8 dereferenceable(1360) %9) #19, !noalias !302
   %538 = call noundef zeroext i1 @_ZNK4llvm6object11ExportEntryeqERKS1_(ptr noundef nonnull align 8 dereferenceable(1360) %9, ptr noundef nonnull align 8 dereferenceable(1360) %10) #19, !noalias !302
-  br i1 %538, label %._crit_edge.i18, label %.lr.ph.i17
+  br i1 %538, label %._crit_edge.i17, label %.lr.ph.i16
 
 539:                                              ; preds = %621, %.lr.ph110.i
-  %lhsv.i.i.i.i109.i = phi i64 [ %504, %.lr.ph110.i ], [ %lhsv.i.i.i.i.i22, %621 ]
+  %lhsv.i.i.i.i109.i = phi i64 [ %504, %.lr.ph110.i ], [ %lhsv.i.i.i.i.i21, %621 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !302
   %540 = load ptr, ptr %511, align 8, !tbaa !345, !noalias !348
   %541 = load ptr, ptr %540, align 8, !tbaa !37, !noalias !348
@@ -4334,9 +4334,9 @@ _ZN4llvm14iterator_rangeINS_6object16content_iteratorINS1_11ExportEntryEEEED2Ev.
   call void %543(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.267") align 8 %12, ptr noundef nonnull align 8 dereferenceable(48) %540, i64 %lhsv.i.i.i.i109.i) #19, !noalias !302
   %544 = load i8, ptr %512, align 8, !noalias !302
   %545 = trunc i8 %544 to i1
-  br i1 %545, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i26, label %548
+  br i1 %545, label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i25, label %548
 
-_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i26: ; preds = %539
+_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i25: ; preds = %539
   call void @llvm.experimental.noalias.scope.decl(metadata !351)
   %546 = load i64, ptr %12, align 8, !tbaa !11, !noalias !354
   %547 = inttoptr i64 %546 to ptr
@@ -4369,8 +4369,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i69.i:
   %.sroa.06.0.copyload.i = load ptr, ptr %13, align 8, !tbaa !86, !noalias !302
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !87, !noalias !302
   %559 = and i32 %549, 1
-  %.not.i19 = icmp eq i32 %559, 0
-  br i1 %.not.i19, label %565, label %560
+  %.not.i18 = icmp eq i32 %559, 0
+  br i1 %.not.i18, label %565, label %560
 
 560:                                              ; preds = %558
   %561 = load i8, ptr %514, align 2, !tbaa !362, !range !201, !noalias !302, !noundef !202
@@ -4443,19 +4443,19 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i72.i:
   %.2102.v.i = select i1 %.not41.i, i8 32, i8 64
   %.2102.i = or i8 %.2102.v.i, %.0.i
   %596 = call noundef ptr @_ZN4llvm5MachO12RecordsSlice9addRecordENS_9StringRefENS0_11SymbolFlagsENS0_12GlobalRecord4KindENS0_13RecordLinkageE(ptr noundef nonnull align 8 dereferenceable(304) %2, ptr %.sroa.06.0.copyload.i, i64 %.sroa.5.0.copyload.i, i8 noundef zeroext %.2102.i, i8 noundef zeroext %595, i8 noundef zeroext %.0103.i) #19, !noalias !302
-  %.pre.i24 = load i8, ptr %516, align 8, !noalias !302
+  %.pre.i23 = load i8, ptr %516, align 8, !noalias !302
   br label %597
 
 597:                                              ; preds = %592, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i72.i
-  %598 = phi i8 [ %.pre.i24, %592 ], [ %588, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i72.i ]
+  %598 = phi i8 [ %.pre.i23, %592 ], [ %588, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i72.i ]
   %.4.i = phi i32 [ 0, %592 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i72.i ]
   %599 = trunc i8 %598 to i1
   br i1 %599, label %600, label %_ZN4llvm8ExpectedINS_6object9SymbolRef4TypeEED2Ev.exit.i
 
 600:                                              ; preds = %597
   %601 = load ptr, ptr %14, align 8, !tbaa !11, !noalias !302
-  %.not.i.i.i25 = icmp eq ptr %601, null
-  br i1 %.not.i.i.i25, label %_ZN4llvm8ExpectedINS_6object9SymbolRef4TypeEED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
+  %.not.i.i.i24 = icmp eq ptr %601, null
+  br i1 %.not.i.i.i24, label %_ZN4llvm8ExpectedINS_6object9SymbolRef4TypeEED2Ev.exit.i, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i.i: ; preds = %600
   %602 = load ptr, ptr %601, align 8, !tbaa !37, !noalias !302
@@ -4473,28 +4473,28 @@ _ZN4llvm8ExpectedINS_6object9SymbolRef4TypeEED2Ev.exit.i: ; preds = %_ZNKSt14def
   %606 = phi i8 [ %554, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i69.i ], [ %.pre112.i, %_ZN4llvm8ExpectedINS_6object9SymbolRef4TypeEED2Ev.exit.i ], [ %554, %560 ], [ %554, %581 ]
   %.2.i = phi i32 [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i69.i ], [ %.4.i, %_ZN4llvm8ExpectedINS_6object9SymbolRef4TypeEED2Ev.exit.i ], [ 5, %560 ], [ 5, %581 ]
   %607 = trunc i8 %606 to i1
-  br i1 %607, label %608, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i20
+  br i1 %607, label %608, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i19
 
 608:                                              ; preds = %605
   %609 = load ptr, ptr %13, align 8, !tbaa !11, !noalias !302
   %.not.i.i74.i = icmp eq ptr %609, null
-  br i1 %.not.i.i74.i, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i20, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i75.i
+  br i1 %.not.i.i74.i, label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i19, label %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i75.i
 
 _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i75.i: ; preds = %608
   %610 = load ptr, ptr %609, align 8, !tbaa !37, !noalias !302
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 8
   %612 = load ptr, ptr %611, align 8, !noalias !302
   call void %612(ptr noundef nonnull align 8 dereferenceable(8) %609) #19, !noalias !302
-  br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i20
+  br label %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i19
 
-_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i20:   ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i75.i, %608, %605
+_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i19:   ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i75.i, %608, %605
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !302
   %.pre113.i = load i8, ptr %512, align 8, !noalias !302
   br label %613
 
-613:                                              ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i20, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i26
-  %614 = phi i8 [ %.pre113.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i20 ], [ %544, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i26 ]
-  %.1.i21 = phi i32 [ %.2.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i20 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i26 ]
+613:                                              ; preds = %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i19, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i25
+  %614 = phi i8 [ %.pre113.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i19 ], [ %544, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i25 ]
+  %.1.i20 = phi i32 [ %.2.i, %_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i19 ], [ 1, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i.i25 ]
   %615 = trunc i8 %614 to i1
   br i1 %615, label %616, label %_ZN4llvm8ExpectedIjED2Ev.exit.i
 
@@ -4512,7 +4512,7 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i78.i: ; preds = %6
 
 _ZN4llvm8ExpectedIjED2Ev.exit.i:                  ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i78.i, %616, %613
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !302
-  switch i32 %.1.i21, label %626 [
+  switch i32 %.1.i20, label %626 [
     i32 0, label %621
     i32 5, label %621
   ]
@@ -4523,8 +4523,8 @@ _ZN4llvm8ExpectedIjED2Ev.exit.i:                  ; preds = %_ZNKSt14default_del
   %624 = getelementptr inbounds nuw i8, ptr %623, i64 24
   %625 = load ptr, ptr %624, align 8, !noalias !302
   call void %625(ptr noundef nonnull align 8 dereferenceable(48) %622, ptr noundef nonnull align 8 dereferenceable(16) %11) #19, !noalias !302
-  %lhsv.i.i.i.i.i22 = load i64, ptr %11, align 8, !noalias !302
-  %.not.i.i.i.i.not.i = icmp eq i64 %lhsv.i.i.i.i.i22, %510
+  %lhsv.i.i.i.i.i21 = load i64, ptr %11, align 8, !noalias !302
+  %.not.i.i.i.i.not.i = icmp eq i64 %lhsv.i.i.i.i.i21, %510
   br i1 %.not.i.i.i.i.not.i, label %._crit_edge111.i, label %539
 
 626:                                              ; preds = %_ZN4llvm8ExpectedIjED2Ev.exit.i
@@ -4573,8 +4573,8 @@ _ZN4llvm8ExpectedIjED2Ev.exit.i:                  ; preds = %_ZNKSt14default_del
 
 642:                                              ; preds = %639, %.lr.ph.i.i, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.not.i.i23 = icmp eq i64 %indvars.iv.next.i.i, %635
-  br i1 %.not.i.i23, label %_ZN4llvm9StringMapISt4pairINS_5MachO11SymbolFlagsENS2_13RecordLinkageEENS_15MallocAllocatorEED2Ev.exit.i, label %.lr.ph.i.i, !llvm.loop !377
+  %.not.i.i22 = icmp eq i64 %indvars.iv.next.i.i, %635
+  br i1 %.not.i.i22, label %_ZN4llvm9StringMapISt4pairINS_5MachO11SymbolFlagsENS2_13RecordLinkageEENS_15MallocAllocatorEED2Ev.exit.i, label %.lr.ph.i.i, !llvm.loop !377
 
 _ZN4llvm9StringMapISt4pairINS_5MachO11SymbolFlagsENS2_13RecordLinkageEENS_15MallocAllocatorEED2Ev.exit.i: ; preds = %642, %632, %628
   %643 = load ptr, ptr %7, align 8, !tbaa !374, !noalias !302
@@ -4594,8 +4594,8 @@ _ZN4llvm9StringMapISt4pairINS_5MachO11SymbolFlagsENS2_13RecordLinkageEENS_15Mall
 _ZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionE.exit: ; preds = %_ZN4llvm9StringMapISt4pairINS_5MachO11SymbolFlagsENS2_13RecordLinkageEENS_15MallocAllocatorEED2Ev.exit.i, %646
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !302
   %650 = load ptr, ptr %0, align 8, !tbaa !81
-  %.not31 = icmp eq ptr %650, null
-  br i1 %.not31, label %.sink.split, label %651
+  %.not29 = icmp eq ptr %650, null
+  br i1 %.not29, label %.sink.split, label %651
 
 .sink.split:                                      ; preds = %_ZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionE.exit, %406, %25
   %.sink = phi ptr [ %26, %25 ], [ null, %406 ], [ null, %_ZL11readSymbolsPN4llvm6object15MachOObjectFileERNS_5MachO12RecordsSliceERKNS3_11DylibReader11ParseOptionE.exit ]

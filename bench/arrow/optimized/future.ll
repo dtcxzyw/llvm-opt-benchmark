@@ -7523,23 +7523,23 @@ _ZNKR5arrow6ResultISt6vectorINS0_INS_8internal5EmptyEEESaIS4_EEE10ValueOrDieEv.e
   store ptr null, ptr %9, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !214)
-  %.not8.i.i.i.i.i = icmp eq ptr %.val.i.i, %.val5.i.i
-  br i1 %.not8.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
+  %.not6.i.i.i.i.i = icmp eq ptr %.val.i.i, %.val5.i.i
+  br i1 %.not6.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNKR5arrow6ResultISt6vectorINS0_INS_8internal5EmptyEEESaIS4_EEE10ValueOrDieEv.exit.i.i, %.critedge.i.i.i.i.i
-  %.sroa.01.09.i.i.i.i.i = phi ptr [ %18, %.critedge.i.i.i.i.i ], [ %.val.i.i, %_ZNKR5arrow6ResultISt6vectorINS0_INS_8internal5EmptyEEESaIS4_EEE10ValueOrDieEv.exit.i.i ]
-  %16 = load ptr, ptr %.sroa.01.09.i.i.i.i.i, align 8, !tbaa !71, !noalias !214
+  %.sroa.01.07.i.i.i.i.i = phi ptr [ %18, %.critedge.i.i.i.i.i ], [ %.val.i.i, %_ZNKR5arrow6ResultISt6vectorINS0_INS_8internal5EmptyEEESaIS4_EEE10ValueOrDieEv.exit.i.i ]
+  %16 = load ptr, ptr %.sroa.01.07.i.i.i.i.i, align 8, !tbaa !71, !noalias !214
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.critedge.i.i.i.i.i, label %19
 
 .critedge.i.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.09.i.i.i.i.i, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.01.07.i.i.i.i.i, i64 16
   %.not.i.i.i.i.i = icmp eq ptr %18, %.val5.i.i
   br i1 %.not.i.i.i.i.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i.i.i.i
 
 19:                                               ; preds = %.lr.ph.i.i.i.i.i
   store ptr null, ptr %3, align 8, !tbaa !71, !alias.scope !214
-  invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.09.i.i.i.i.i)
+  invoke void @_ZN5arrow6Status8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.01.07.i.i.i.i.i)
           to label %"_ZZN5arrow11AllFinishedERKSt6vectorINS_6FutureINS_8internal5EmptyEEESaIS4_EEENK3$_0clERKS0_INS_6ResultIS3_EESaISB_EE.exit.i.i.i.i" unwind label %58
 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.critedge.i.i.i.i.i, %_ZNKR5arrow6ResultISt6vectorINS0_INS_8internal5EmptyEEESaIS4_EEE10ValueOrDieEv.exit.i.i

@@ -113,7 +113,7 @@ define dso_local i32 @ext4_getfsmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %7, i8 0, i64 208, i1 false)
   %8 = load i32, ptr %1, align 8
   %9 = icmp eq i32 %8, 0
-  %.sroa.gep14 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.sroa.gep16 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br i1 %9, label %10, label %173
 
 10:                                               ; preds = %4
@@ -121,10 +121,9 @@ define dso_local i32 @ext4_getfsmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load i32, ptr %12, align 8
-  switch i32 %13, label %14 [
-    i32 0, label %45
-    i32 -1, label %45
-  ]
+  %.off = add i32 %13, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %14, label %45
 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -163,14 +162,13 @@ define dso_local i32 @ext4_getfsmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %44 = icmp eq i32 %13, %43
   br i1 %44, label %45, label %173
 
-45:                                               ; preds = %33, %14, %10, %10
+45:                                               ; preds = %10, %33, %14
   %46 = getelementptr i8, ptr %1, i64 64
   %47 = getelementptr i8, ptr %1, i64 80
   %48 = load i32, ptr %47, align 8
-  switch i32 %48, label %49 [
-    i32 0, label %80
-    i32 -1, label %80
-  ]
+  %.off14 = add i32 %48, -1
+  %switch15 = icmp ult i32 %.off14, -2
+  br i1 %switch15, label %49, label %80
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -209,7 +207,7 @@ define dso_local i32 @ext4_getfsmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %79 = icmp eq i32 %48, %78
   br i1 %79, label %80, label %173
 
-80:                                               ; preds = %68, %49, %45, %45
+80:                                               ; preds = %45, %68, %49
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 0, ptr %81, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false)
@@ -247,7 +245,7 @@ define dso_local i32 @ext4_getfsmap(ptr noundef %0, ptr noundef %1, ptr noundef 
   %109 = or disjoint i32 %106, %108
   %110 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 %109, ptr %110, align 8
-  store ptr @ext4_getfsmap_logdev, ptr %.sroa.gep14, align 16
+  store ptr @ext4_getfsmap_logdev, ptr %.sroa.gep16, align 16
   br label %111
 
 111:                                              ; preds = %99, %80
@@ -309,7 +307,7 @@ define dso_local i32 @ext4_getfsmap(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 147:                                              ; preds = %169, %135
   %148 = phi i1 [ true, %135 ], [ false, %169 ]
-  %.sroa.phi = phi ptr [ %6, %135 ], [ %.sroa.gep14, %169 ]
+  %.sroa.phi = phi ptr [ %6, %135 ], [ %.sroa.gep16, %169 ]
   %149 = load ptr, ptr %.sroa.phi, align 16
   %150 = icmp eq ptr %149, null
   br i1 %150, label %169, label %151

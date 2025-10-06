@@ -165,17 +165,17 @@ _ZN4llvm17MachineBasicBlock6rbeginEv.exit:        ; preds = %_ZNK4llvm14ilist_it
   %76 = zext i32 %65 to i64
   %.idx.i.i = shl nuw nsw i64 %76, 3
   %77 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %65, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %65, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %75, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %79, %.critedge.i.i ], [ %66, %75 ]
-  %78 = load ptr, ptr %.02937.i.i, align 8, !tbaa !203, !noalias !204
+  %.02935.i.i = phi ptr [ %79, %.critedge.i.i ], [ %66, %75 ]
+  %78 = load ptr, ptr %.02935.i.i, align 8, !tbaa !203, !noalias !204
   %.not17.i.i = icmp eq ptr %78, %69
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %79 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %79 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %79, %77
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !207
 

@@ -88,16 +88,16 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %.166 = phi ptr [ %15, %14 ], [ %1, %6 ]
   %19 = tail call ptr @X509_INFO_new() #4
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.loopexit135, label %.preheader137
+  br i1 %20, label %.loopexit134, label %.preheader136
 
-.preheader137:                                    ; preds = %18
+.preheader136:                                    ; preds = %18
   %21 = tail call i32 @ERR_set_mark() #4
   %22 = call i32 @PEM_read_bio(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %11) #4
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader137
-  %.170.lcssa = phi ptr [ %19, %.preheader137 ], [ %.271, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %.preheader136
+  %.170.lcssa = phi ptr [ %19, %.preheader136 ], [ %.271, %.loopexit ]
   %24 = call i64 @ERR_peek_last_error() #4
   %25 = and i64 %24, 2147483648
   %.not.i = icmp eq i64 %25, 0
@@ -118,13 +118,13 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @X509_INFO_free(ptr noundef %.170.lcssa) #4
   br label %.preheader
 
-.lr.ph:                                           ; preds = %.preheader137, %.loopexit
-  %.170164 = phi ptr [ %.271, %.loopexit ], [ %19, %.preheader137 ]
+.lr.ph:                                           ; preds = %.preheader136, %.loopexit
+  %.170163 = phi ptr [ %.271, %.loopexit ], [ %19, %.preheader136 ]
   %33 = call i32 @ERR_clear_last_mark() #4
   br label %.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.lr.ph
-  %.271 = phi ptr [ %.170164, %.lr.ph ], [ %.271.be, %.backedge.backedge ]
+  %.271 = phi ptr [ %.170163, %.lr.ph ], [ %.271.be, %.backedge.backedge ]
   %34 = load ptr, ptr %7, align 8, !tbaa !3
   %35 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(12) @.str.1) #5
   %36 = icmp eq i32 %35, 0
@@ -148,12 +148,12 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
 45:                                               ; preds = %43
   %46 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %.166, ptr noundef nonnull %.271) #4
   %.not98 = icmp eq i32 %46, 0
-  br i1 %.not98, label %.loopexit135, label %47
+  br i1 %.not98, label %.loopexit134, label %47
 
 47:                                               ; preds = %45
   %48 = call ptr @X509_INFO_new() #4
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.loopexit135, label %.backedge.backedge
+  br i1 %49, label %.loopexit134, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %47, %63, %73
   %.271.be = phi ptr [ %48, %47 ], [ %64, %63 ], [ %74, %73 ]
@@ -166,7 +166,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %53 = call ptr @X509_new_ex(ptr noundef %4, ptr noundef %5) #4
   store ptr %53, ptr %.271, align 8, !tbaa !8
   %54 = icmp eq ptr %53, null
-  br i1 %54, label %.loopexit135, label %.loopexit136
+  br i1 %54, label %.loopexit134, label %.loopexit135
 
 55:                                               ; preds = %40
   %56 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(9) @.str.4) #5
@@ -177,17 +177,17 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %59 = getelementptr inbounds nuw i8, ptr %.271, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !16
   %.not89 = icmp eq ptr %60, null
-  br i1 %.not89, label %.loopexit136.loopexit, label %61
+  br i1 %.not89, label %.loopexit135.loopexit, label %61
 
 61:                                               ; preds = %58
   %62 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %.166, ptr noundef nonnull %.271) #4
   %.not90 = icmp eq i32 %62, 0
-  br i1 %.not90, label %.loopexit135, label %63
+  br i1 %.not90, label %.loopexit134, label %63
 
 63:                                               ; preds = %61
   %64 = call ptr @X509_INFO_new() #4
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit135, label %.backedge.backedge
+  br i1 %65, label %.loopexit134, label %.backedge.backedge
 
 66:                                               ; preds = %55
   %67 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(1) @.str.5) #5
@@ -203,12 +203,12 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
 71:                                               ; preds = %68
   %72 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %.166, ptr noundef nonnull %.271) #4
   %.not88 = icmp eq i32 %72, 0
-  br i1 %.not88, label %.loopexit135, label %73
+  br i1 %.not88, label %.loopexit134, label %73
 
 73:                                               ; preds = %71
   %74 = call ptr @X509_INFO_new() #4
   %75 = icmp eq ptr %74, null
-  br i1 %75, label %.loopexit135, label %.backedge.backedge
+  br i1 %75, label %.loopexit134, label %.backedge.backedge
 
 76:                                               ; preds = %68
   %77 = getelementptr inbounds nuw i8, ptr %.271, i64 16
@@ -236,7 +236,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %89 = call ptr @X509_PKEY_new() #4
   store ptr %89, ptr %77, align 8, !tbaa !17
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %.loopexit135, label %91
+  br i1 %90, label %.loopexit134, label %91
 
 91:                                               ; preds = %86
   %92 = load ptr, ptr %8, align 8, !tbaa !3
@@ -250,23 +250,23 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %98 = load ptr, ptr %7, align 8, !tbaa !3
   %99 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %98, ptr noundef nonnull dereferenceable(22) @.str.6) #5
   %100 = icmp eq i32 %99, 0
-  br i1 %100, label %117, label %.loopexit136
+  br i1 %100, label %117, label %.loopexit135
 
-.loopexit136.loopexit:                            ; preds = %58
+.loopexit135.loopexit:                            ; preds = %58
   %101 = getelementptr inbounds nuw i8, ptr %.271, i64 8
-  br label %.loopexit136
+  br label %.loopexit135
 
-.loopexit136:                                     ; preds = %.loopexit136.loopexit, %50, %96
-  %.068.ph.ph = phi ptr [ %97, %96 ], [ %.271, %50 ], [ %101, %.loopexit136.loopexit ]
-  %.061.ph.ph = phi i32 [ %.162, %96 ], [ 0, %50 ], [ 0, %.loopexit136.loopexit ]
-  %.1.ph.ph = phi ptr [ @d2i_AutoPrivateKey, %96 ], [ %d2i_X509_AUX.d2i_X509, %50 ], [ @d2i_X509_CRL, %.loopexit136.loopexit ]
+.loopexit135:                                     ; preds = %.loopexit135.loopexit, %50, %96
+  %.068.ph.ph = phi ptr [ %97, %96 ], [ %.271, %50 ], [ %101, %.loopexit135.loopexit ]
+  %.061.ph.ph = phi i32 [ %.162, %96 ], [ 0, %50 ], [ 0, %.loopexit135.loopexit ]
+  %.1.ph.ph = phi ptr [ @d2i_AutoPrivateKey, %96 ], [ %d2i_X509_AUX.d2i_X509, %50 ], [ @d2i_X509_CRL, %.loopexit135.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %102 = load ptr, ptr %8, align 8, !tbaa !3
   %103 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef %102, ptr noundef nonnull %12) #4
   %.not94 = icmp eq i32 %103, 0
   br i1 %.not94, label %.thread127, label %104
 
-104:                                              ; preds = %.loopexit136
+104:                                              ; preds = %.loopexit135
   %105 = load ptr, ptr %9, align 8, !tbaa !3
   %106 = call i32 @PEM_do_header(ptr noundef nonnull %12, ptr noundef %105, ptr noundef nonnull %11, ptr noundef %2, ptr noundef %3) #4
   %.not95 = icmp eq i32 %106, 0
@@ -296,9 +296,9 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 9, i32 noundef 524301, ptr noundef null) #4
   br label %.thread127
 
-.thread127:                                       ; preds = %.loopexit136, %104, %.thread127.sink.split
+.thread127:                                       ; preds = %.loopexit135, %104, %.thread127.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.loopexit135
+  br label %.loopexit134
 
 116:                                              ; preds = %110, %113
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -308,7 +308,7 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %118 = getelementptr inbounds nuw i8, ptr %.271, i64 24
   %119 = call i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef nonnull %92, ptr noundef nonnull %118) #4
   %.not97 = icmp eq i32 %119, 0
-  br i1 %.not97, label %.loopexit135, label %120
+  br i1 %.not97, label %.loopexit134, label %120
 
 120:                                              ; preds = %117
   %121 = load ptr, ptr %9, align 8, !tbaa !3
@@ -350,9 +350,9 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   %137 = getelementptr inbounds nuw i8, ptr %.170.lcssa, i64 56
   %138 = load ptr, ptr %137, align 8, !tbaa !19
   %.not102 = icmp eq ptr %138, null
-  br i1 %.not102, label %.thread130, label %139
+  br i1 %.not102, label %.thread129, label %139
 
-.thread130:                                       ; preds = %136
+.thread129:                                       ; preds = %136
   call void @X509_INFO_free(ptr noundef nonnull %.170.lcssa) #4
   br label %148
 
@@ -363,36 +363,36 @@ define ptr @PEM_X509_INFO_read_bio_ex(ptr noundef %0, ptr noundef %1, ptr nounde
   call void @X509_INFO_free(ptr noundef %spec.select) #4
   br i1 %.not103, label %.preheader, label %148
 
-.loopexit135:                                     ; preds = %117, %86, %50, %73, %71, %63, %61, %47, %45, %.thread127, %18
+.loopexit134:                                     ; preds = %117, %86, %50, %73, %71, %63, %61, %47, %45, %.thread127, %18
   %.069 = phi ptr [ null, %18 ], [ %.271, %.thread127 ], [ %.271, %71 ], [ null, %73 ], [ %.271, %61 ], [ null, %63 ], [ %.271, %45 ], [ null, %47 ], [ %.271, %50 ], [ %.271, %86 ], [ %.271, %117 ]
   call void @X509_INFO_free(ptr noundef %.069) #4
   br label %.preheader
 
-.preheader:                                       ; preds = %139, %.loopexit135, %17, %31
-  %.065134.ph = phi ptr [ %.166, %139 ], [ %.166, %31 ], [ null, %17 ], [ %.166, %.loopexit135 ]
-  %141 = call i32 @OPENSSL_sk_num(ptr noundef %.065134.ph) #4
+.preheader:                                       ; preds = %139, %.loopexit134, %17, %31
+  %.065133.ph = phi ptr [ %.166, %139 ], [ %.166, %31 ], [ null, %17 ], [ %.166, %.loopexit134 ]
+  %141 = call i32 @OPENSSL_sk_num(ptr noundef %.065133.ph) #4
   %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph166, label %._crit_edge167
+  br i1 %142, label %.lr.ph165, label %._crit_edge166
 
-.lr.ph166:                                        ; preds = %.preheader, %.lr.ph166
-  %.064165 = phi i32 [ %144, %.lr.ph166 ], [ 0, %.preheader ]
-  %143 = call ptr @OPENSSL_sk_value(ptr noundef %.065134.ph, i32 noundef %.064165) #4
+.lr.ph165:                                        ; preds = %.preheader, %.lr.ph165
+  %.064164 = phi i32 [ %144, %.lr.ph165 ], [ 0, %.preheader ]
+  %143 = call ptr @OPENSSL_sk_value(ptr noundef %.065133.ph, i32 noundef %.064164) #4
   call void @X509_INFO_free(ptr noundef %143) #4
-  %144 = add nuw nsw i32 %.064165, 1
-  %145 = call i32 @OPENSSL_sk_num(ptr noundef %.065134.ph) #4
+  %144 = add nuw nsw i32 %.064164, 1
+  %145 = call i32 @OPENSSL_sk_num(ptr noundef %.065133.ph) #4
   %146 = icmp slt i32 %144, %145
-  br i1 %146, label %.lr.ph166, label %._crit_edge167, !llvm.loop !24
+  br i1 %146, label %.lr.ph165, label %._crit_edge166, !llvm.loop !24
 
-._crit_edge167:                                   ; preds = %.lr.ph166, %.preheader
-  %.not105 = icmp eq ptr %.065134.ph, %1
+._crit_edge166:                                   ; preds = %.lr.ph165, %.preheader
+  %.not105 = icmp eq ptr %.065133.ph, %1
   br i1 %.not105, label %148, label %147
 
-147:                                              ; preds = %._crit_edge167
-  call void @OPENSSL_sk_free(ptr noundef %.065134.ph) #4
+147:                                              ; preds = %._crit_edge166
+  call void @OPENSSL_sk_free(ptr noundef %.065133.ph) #4
   br label %148
 
-148:                                              ; preds = %139, %.thread130, %._crit_edge167, %147
-  %.2 = phi ptr [ null, %147 ], [ null, %._crit_edge167 ], [ %.166, %.thread130 ], [ %.166, %139 ]
+148:                                              ; preds = %139, %.thread129, %._crit_edge166, %147
+  %.2 = phi ptr [ null, %147 ], [ null, %._crit_edge166 ], [ %.166, %.thread129 ], [ %.166, %139 ]
   %149 = load ptr, ptr %7, align 8, !tbaa !3
   call void @CRYPTO_free(ptr noundef %149, ptr noundef nonnull @.str, i32 noundef 211) #4
   %150 = load ptr, ptr %8, align 8, !tbaa !3

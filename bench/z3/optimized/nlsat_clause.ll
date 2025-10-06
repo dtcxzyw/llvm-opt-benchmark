@@ -70,8 +70,8 @@ define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEN3sat7literalE(ptr 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !9
-  %.not7.not = icmp eq i32 %5, 0
-  br i1 %.not7.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext i32 %5 to i64
@@ -88,8 +88,8 @@ define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEN3sat7literalE(ptr 
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !17
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %8, %.lr.ph ]
-  ret i1 %.not.lcssa
+  %.lcssa = phi i1 [ false, %2 ], [ %8, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -97,8 +97,8 @@ define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEj(ptr noundef nonnu
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !9
-  %.not8.not = icmp eq i32 %5, 0
-  br i1 %.not8.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq i32 %5, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %wide.trip.count = zext i32 %5 to i64
@@ -116,8 +116,8 @@ define hidden noundef zeroext i1 @_ZNK5nlsat6clause8containsEj(ptr noundef nonnu
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %9, %.lr.ph ]
-  ret i1 %.not.lcssa
+  %.lcssa = phi i1 [ false, %2 ], [ %9, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: uwtable

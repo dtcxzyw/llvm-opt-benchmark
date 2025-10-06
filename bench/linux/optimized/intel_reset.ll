@@ -3577,63 +3577,63 @@ define internal fastcc i32 @__gen11_reset_engines(ptr noundef readonly captures(
   %238 = icmp ult i8 %237, 2
   br i1 %238, label %241, label %239
 
-239:                                              ; preds = %273, %260, %242, %.lr.ph
+239:                                              ; preds = %274, %261, %243, %.lr.ph
   %240 = icmp eq i32 %225, 0
   br i1 %240, label %._crit_edge, label %.lr.ph, !llvm.loop !108
 
 241:                                              ; preds = %.lr.ph
-  %switch = icmp eq i8 %236, 1
-  br i1 %switch, label %242, label %250
+  %242 = icmp eq i8 %236, 1
+  br i1 %242, label %243, label %251
 
-242:                                              ; preds = %241
-  %243 = getelementptr inbounds nuw i8, ptr %228, i64 57
-  %244 = load i8, ptr %243, align 1
-  %245 = zext nneg i8 %244 to i64
-  %246 = shl nuw i64 1, %245
-  %247 = zext i8 %234 to i64
-  %248 = and i64 %246, %247
-  %249 = icmp eq i64 %248, 0
-  br i1 %249, label %239, label %250
+243:                                              ; preds = %241
+  %244 = getelementptr inbounds nuw i8, ptr %228, i64 57
+  %245 = load i8, ptr %244, align 1
+  %246 = zext nneg i8 %245 to i64
+  %247 = shl nuw i64 1, %246
+  %248 = zext i8 %234 to i64
+  %249 = and i64 %247, %248
+  %250 = icmp eq i64 %249, 0
+  br i1 %250, label %239, label %251
 
-250:                                              ; preds = %241, %242
-  %251 = phi i32 [ 2188, %242 ], [ 8220, %241 ]
-  %252 = getelementptr inbounds nuw i8, ptr %228, i64 72
-  %253 = load i32, ptr %252, align 8
-  %254 = add i32 %253, %251
-  %255 = icmp ult i32 %254, 262144
-  br i1 %255, label %256, label %260
+251:                                              ; preds = %241, %243
+  %252 = phi i32 [ 2188, %243 ], [ 8220, %241 ]
+  %253 = getelementptr inbounds nuw i8, ptr %228, i64 72
+  %254 = load i32, ptr %253, align 8
+  %255 = add i32 %254, %252
+  %256 = icmp ult i32 %255, 262144
+  br i1 %256, label %257, label %261
 
-256:                                              ; preds = %250
-  %257 = getelementptr inbounds nuw i8, ptr %230, i64 36
-  %258 = load i32, ptr %257, align 4
-  %259 = add i32 %258, %254
-  br label %260
+257:                                              ; preds = %251
+  %258 = getelementptr inbounds nuw i8, ptr %230, i64 36
+  %259 = load i32, ptr %258, align 4
+  %260 = add i32 %259, %255
+  br label %261
 
-260:                                              ; preds = %256, %250
-  %261 = phi i32 [ %259, %256 ], [ %254, %250 ]
-  %262 = load ptr, ptr %230, align 8
-  %263 = zext i32 %261 to i64
-  %264 = getelementptr i8, ptr %262, i64 %263
-  %265 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %264) #10, !srcloc !60
-  %266 = and i32 %265, -2
-  %267 = icmp eq i32 %266, %265
-  br i1 %267, label %239, label %268
+261:                                              ; preds = %257, %251
+  %262 = phi i32 [ %260, %257 ], [ %255, %251 ]
+  %263 = load ptr, ptr %230, align 8
+  %264 = zext i32 %262 to i64
+  %265 = getelementptr i8, ptr %263, i64 %264
+  %266 = tail call i32 asm sideeffect "movl $1,$0", "=r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %265) #10, !srcloc !60
+  %267 = and i32 %266, -2
+  %268 = icmp eq i32 %267, %266
+  br i1 %268, label %239, label %269
 
-268:                                              ; preds = %260
-  br i1 %255, label %269, label %273
+269:                                              ; preds = %261
+  br i1 %256, label %270, label %274
 
-269:                                              ; preds = %268
-  %270 = getelementptr inbounds nuw i8, ptr %230, i64 36
-  %271 = load i32, ptr %270, align 4
-  %272 = add i32 %271, %254
-  br label %273
+270:                                              ; preds = %269
+  %271 = getelementptr inbounds nuw i8, ptr %230, i64 36
+  %272 = load i32, ptr %271, align 4
+  %273 = add i32 %272, %255
+  br label %274
 
-273:                                              ; preds = %269, %268
-  %274 = phi i32 [ %272, %269 ], [ %254, %268 ]
-  %275 = load ptr, ptr %230, align 8
-  %276 = zext i32 %274 to i64
-  %277 = getelementptr i8, ptr %275, i64 %276
-  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %266, ptr elementtype(i32) %277) #10, !srcloc !16
+274:                                              ; preds = %270, %269
+  %275 = phi i32 [ %273, %270 ], [ %255, %269 ]
+  %276 = load ptr, ptr %230, align 8
+  %277 = zext i32 %275 to i64
+  %278 = getelementptr i8, ptr %276, i64 %277
+  tail call void asm sideeffect "movl $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i32 %267, ptr elementtype(i32) %278) #10, !srcloc !16
   br label %239
 
 ._crit_edge:                                      ; preds = %239, %.loopexit

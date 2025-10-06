@@ -1591,26 +1591,26 @@ define dso_local void @_ZN4Luau12tryGetLValueERKNS_7AstExprE(ptr dead_on_unwind 
   %9 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprGroupEE5valueE, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !28
-  %.not117 = icmp eq i32 %11, %9
-  br i1 %.not117, label %.lr.ph, label %._crit_edge
+  %.not116 = icmp eq i32 %11, %9
+  br i1 %.not116, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.039116 = phi ptr [ %13, %.lr.ph ], [ %1, %2 ]
-  %12 = getelementptr inbounds nuw i8, ptr %.039116, i64 32
+  %.039115 = phi ptr [ %13, %.lr.ph ], [ %1, %2 ]
+  %12 = getelementptr inbounds nuw i8, ptr %.039115, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !28
   %16 = icmp ne i32 %15, %9
-  %.not110 = icmp eq ptr %13, null
-  %.not = or i1 %.not110, %16
+  %.not109 = icmp eq ptr %13, null
+  %.not = or i1 %.not109, %16
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
   %17 = phi i32 [ %11, %2 ], [ %15, %.lr.ph ]
   %.039.lcssa = phi ptr [ %1, %2 ], [ %13, %.lr.ph ]
   %18 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprLocalEE5valueE, align 4, !tbaa !4
-  %.not129 = icmp eq i32 %17, %18
-  br i1 %.not129, label %19, label %24
+  %.not128 = icmp eq i32 %17, %18
+  br i1 %.not128, label %19, label %24
 
 19:                                               ; preds = %._crit_edge
   %20 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 32
@@ -1626,8 +1626,8 @@ define dso_local void @_ZN4Luau12tryGetLValueERKNS_7AstExprE(ptr dead_on_unwind 
 
 24:                                               ; preds = %._crit_edge
   %25 = load i32, ptr @_ZN4Luau7AstRttiINS_13AstExprGlobalEE5valueE, align 4, !tbaa !4
-  %.not130 = icmp eq i32 %17, %25
-  br i1 %.not130, label %26, label %31
+  %.not129 = icmp eq i32 %17, %25
+  br i1 %.not129, label %26, label %31
 
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %.039.lcssa, i64 32
@@ -1643,8 +1643,8 @@ define dso_local void @_ZN4Luau12tryGetLValueERKNS_7AstExprE(ptr dead_on_unwind 
 
 31:                                               ; preds = %24
   %32 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexNameEE5valueE, align 4, !tbaa !4
-  %.not131 = icmp eq i32 %17, %32
-  br i1 %.not131, label %33, label %113
+  %.not130 = icmp eq i32 %17, %32
+  br i1 %.not130, label %33, label %113
 
 33:                                               ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1782,9 +1782,9 @@ _ZN4Luau5FieldD2Ev.exit:                          ; preds = %_ZNKSt7__cxx1112bas
   store i64 %86, ptr %87, align 8, !tbaa !8
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 1, ptr %88, align 8, !tbaa !41
-  %.pre118 = load i8, ptr %36, align 8, !tbaa !41, !range !45
+  %.pre117 = load i8, ptr %36, align 8, !tbaa !41, !range !45
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %89 = trunc nuw i8 %.pre118 to i1
+  %89 = trunc nuw i8 %.pre117 to i1
   br i1 %89, label %90, label %_ZNSt14_Optional_baseIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEELb0ELb0EED2Ev.exit
 
 90:                                               ; preds = %_ZN4Luau5FieldD2Ev.exit
@@ -1848,8 +1848,8 @@ _ZNSt14_Optional_baseIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEELb0ELb0EED2Ev.ex
 
 113:                                              ; preds = %31
   %114 = load i32, ptr @_ZN4Luau7AstRttiINS_16AstExprIndexExprEE5valueE, align 4, !tbaa !4
-  %.not132 = icmp eq i32 %17, %114
-  br i1 %.not132, label %115, label %192
+  %.not131 = icmp eq i32 %17, %114
+  br i1 %.not131, label %115, label %192
 
 115:                                              ; preds = %113
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1868,8 +1868,8 @@ _ZNSt14_Optional_baseIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEELb0ELb0EED2Ev.ex
   %125 = load i32, ptr %124, align 8, !tbaa !28
   %126 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantStringEE5valueE, align 4, !tbaa !4
   %127 = icmp ne i32 %125, %126
-  %.not65115 = icmp eq ptr %123, null
-  %.not65 = or i1 %.not65115, %127
+  %.not65114 = icmp eq ptr %123, null
+  %.not65 = or i1 %.not65114, %127
   br i1 %.not65, label %168, label %128
 
 128:                                              ; preds = %121
@@ -1920,7 +1920,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %151 = load i64, ptr %144, align 8, !tbaa !60
   store i64 %151, ptr %142, align 8, !tbaa !60
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.pre119 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !8
+  %.pre118 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !8
   br label %.critedge78
 
 152:                                              ; preds = %128
@@ -1985,7 +1985,7 @@ _ZNSt14_Optional_baseIN4Luau7VariantIJNS0_6SymbolENS0_5FieldEEEELb0ELb0EED2Ev.ex
   br label %192
 
 .critedge78:                                      ; preds = %146, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i89
-  %177 = phi i64 [ %148, %146 ], [ %.pre119, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i89 ]
+  %177 = phi i64 [ %148, %146 ], [ %.pre118, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i89 ]
   %178 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %177, ptr %179, align 8, !tbaa !8
@@ -2203,12 +2203,12 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcmRKS3_(
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { ptr, ptr } @_ZN4Luau13getBaseSymbolERKNS_7VariantIJNS_6SymbolENS_5FieldEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8, !tbaa !20
-  %.not11 = icmp eq i32 %2, 1
-  br i1 %.not11, label %.lr.ph, label %._crit_edge
+  %.not10 = icmp eq i32 %2, 1
+  br i1 %.not10, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.012 = phi ptr [ %4, %.lr.ph ], [ %0, %1 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.012, i64 8
+  %.011 = phi ptr [ %4, %.lr.ph ], [ %0, %1 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.011, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8, !tbaa !20
   %.not = icmp eq i32 %5, 1

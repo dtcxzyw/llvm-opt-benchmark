@@ -1902,7 +1902,7 @@ thread-pre-split:                                 ; preds = %26, %11
 _ZL33register_jfr_phasetype_serializer12CompilerType.exit: ; preds = %70, %68, %36
   %71 = load i8, ptr @EnableJVMCI, align 1
   %72 = trunc i8 %71 to i1
-  br i1 %72, label %73, label %_ZL33register_jfr_phasetype_serializer12CompilerType.exit55
+  br i1 %72, label %73, label %_ZL33register_jfr_phasetype_serializer12CompilerType.exit54
 
 73:                                               ; preds = %_ZL33register_jfr_phasetype_serializer12CompilerType.exit
   %74 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1919,8 +1919,8 @@ _ZL33register_jfr_phasetype_serializer12CompilerType.exit: ; preds = %70, %68, %
   %85 = load i64, ptr %84, align 8
   %86 = tail call noundef i32 @_ZN13CompilerEvent10PhaseEvent12get_phase_idEPKcbbb(ptr noundef nonnull @.str.164, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #20
   %87 = load ptr, ptr %79, align 8
-  %.not.i.i.i.i.i53 = icmp eq ptr %87, null
-  br i1 %.not.i.i.i.i.i53, label %89, label %88
+  %.not.i.i.i.i.i52 = icmp eq ptr %87, null
+  br i1 %.not.i.i.i.i.i52, label %89, label %88
 
 88:                                               ; preds = %73
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %77, i64 noundef %85) #20
@@ -1929,24 +1929,24 @@ _ZL33register_jfr_phasetype_serializer12CompilerType.exit: ; preds = %70, %68, %
 
 89:                                               ; preds = %88, %73
   %90 = load ptr, ptr %80, align 8
-  %.not8.i.i.i.i.i54 = icmp eq ptr %90, %81
-  br i1 %.not8.i.i.i.i.i54, label %_ZL33register_jfr_phasetype_serializer12CompilerType.exit55, label %91
+  %.not8.i.i.i.i.i53 = icmp eq ptr %90, %81
+  br i1 %.not8.i.i.i.i.i53, label %_ZL33register_jfr_phasetype_serializer12CompilerType.exit54, label %91
 
 91:                                               ; preds = %89
   store ptr %79, ptr %78, align 8
   store ptr %81, ptr %80, align 8
   store ptr %83, ptr %82, align 8
-  br label %_ZL33register_jfr_phasetype_serializer12CompilerType.exit55
+  br label %_ZL33register_jfr_phasetype_serializer12CompilerType.exit54
 
-_ZL33register_jfr_phasetype_serializer12CompilerType.exit55: ; preds = %91, %89, %_ZL33register_jfr_phasetype_serializer12CompilerType.exit
+_ZL33register_jfr_phasetype_serializer12CompilerType.exit54: ; preds = %91, %89, %_ZL33register_jfr_phasetype_serializer12CompilerType.exit
   %92 = tail call noundef zeroext i1 @_ZN14CompilerOracle22should_collect_memstatEv() #20
   br i1 %92, label %93, label %94
 
-93:                                               ; preds = %_ZL33register_jfr_phasetype_serializer12CompilerType.exit55
+93:                                               ; preds = %_ZL33register_jfr_phasetype_serializer12CompilerType.exit54
   tail call void @_ZN26CompilationMemoryStatistic10initializeEv() #20
   br label %94
 
-94:                                               ; preds = %93, %_ZL33register_jfr_phasetype_serializer12CompilerType.exit55
+94:                                               ; preds = %93, %_ZL33register_jfr_phasetype_serializer12CompilerType.exit54
   tail call void @_ZN13CompileBroker21init_compiler_threadsEv()
   call void @_ZN13ExceptionMarkC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #20
   %95 = load ptr, ptr %2, align 8
@@ -1970,120 +1970,120 @@ _ZL33register_jfr_phasetype_serializer12CompilerType.exit55: ; preds = %91, %89,
   store ptr %104, ptr @_ZN13CompileBroker21_perf_osr_compilationE, align 8
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load ptr, ptr %105, align 8
-  %.not58 = icmp eq ptr %106, null
-  br i1 %.not58, label %107, label %.thread
+  %.not56 = icmp eq ptr %106, null
+  br i1 %.not56, label %107, label %.thread
 
 107:                                              ; preds = %102
   %108 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.19, i32 noundef 3, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %108, ptr @_ZN13CompileBroker26_perf_standard_compilationE, align 8
   %109 = load ptr, ptr %105, align 8
-  %.not59 = icmp eq ptr %109, null
-  br i1 %.not59, label %110, label %.thread
+  %.not57 = icmp eq ptr %109, null
+  br i1 %.not57, label %110, label %.thread
 
 110:                                              ; preds = %107
   %111 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.20, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %111, ptr @_ZN13CompileBroker25_perf_total_bailout_countE, align 8
   %112 = load ptr, ptr %105, align 8
-  %.not60 = icmp eq ptr %112, null
-  br i1 %.not60, label %113, label %.thread
+  %.not58 = icmp eq ptr %112, null
+  br i1 %.not58, label %113, label %.thread
 
 113:                                              ; preds = %110
   %114 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.21, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %114, ptr @_ZN13CompileBroker29_perf_total_invalidated_countE, align 8
   %115 = load ptr, ptr %105, align 8
-  %.not61 = icmp eq ptr %115, null
-  br i1 %.not61, label %116, label %.thread
+  %.not59 = icmp eq ptr %115, null
+  br i1 %.not59, label %116, label %.thread
 
 116:                                              ; preds = %113
   %117 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.22, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %117, ptr @_ZN13CompileBroker25_perf_total_compile_countE, align 8
   %118 = load ptr, ptr %105, align 8
-  %.not62 = icmp eq ptr %118, null
-  br i1 %.not62, label %119, label %.thread
+  %.not60 = icmp eq ptr %118, null
+  br i1 %.not60, label %119, label %.thread
 
 119:                                              ; preds = %116
   %120 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.23, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %120, ptr @_ZN13CompileBroker29_perf_total_osr_compile_countE, align 8
   %121 = load ptr, ptr %105, align 8
-  %.not63 = icmp eq ptr %121, null
-  br i1 %.not63, label %122, label %.thread
+  %.not61 = icmp eq ptr %121, null
+  br i1 %.not61, label %122, label %.thread
 
 122:                                              ; preds = %119
   %123 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.24, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %123, ptr @_ZN13CompileBroker34_perf_total_standard_compile_countE, align 8
   %124 = load ptr, ptr %105, align 8
-  %.not64 = icmp eq ptr %124, null
-  br i1 %.not64, label %125, label %.thread
+  %.not62 = icmp eq ptr %124, null
+  br i1 %.not62, label %125, label %.thread
 
 125:                                              ; preds = %122
   %126 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.25, i32 noundef 2, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %126, ptr @_ZN13CompileBroker28_perf_sum_osr_bytes_compiledE, align 8
   %127 = load ptr, ptr %105, align 8
-  %.not65 = icmp eq ptr %127, null
-  br i1 %.not65, label %128, label %.thread
+  %.not63 = icmp eq ptr %127, null
+  br i1 %.not63, label %128, label %.thread
 
 128:                                              ; preds = %125
   %129 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.26, i32 noundef 2, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %129, ptr @_ZN13CompileBroker33_perf_sum_standard_bytes_compiledE, align 8
   %130 = load ptr, ptr %105, align 8
-  %.not66 = icmp eq ptr %130, null
-  br i1 %.not66, label %131, label %.thread
+  %.not64 = icmp eq ptr %130, null
+  br i1 %.not64, label %131, label %.thread
 
 131:                                              ; preds = %128
   %132 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.27, i32 noundef 2, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %132, ptr @_ZN13CompileBroker22_perf_sum_nmethod_sizeE, align 8
   %133 = load ptr, ptr %105, align 8
-  %.not67 = icmp eq ptr %133, null
-  br i1 %.not67, label %134, label %.thread
+  %.not65 = icmp eq ptr %133, null
+  br i1 %.not65, label %134, label %.thread
 
 134:                                              ; preds = %131
   %135 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.28, i32 noundef 2, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %135, ptr @_ZN13CompileBroker27_perf_sum_nmethod_code_sizeE, align 8
   %136 = load ptr, ptr %105, align 8
-  %.not68 = icmp eq ptr %136, null
-  br i1 %.not68, label %137, label %.thread
+  %.not66 = icmp eq ptr %136, null
+  br i1 %.not66, label %137, label %.thread
 
 137:                                              ; preds = %134
   %138 = call noundef ptr @_ZN15PerfDataManager22create_string_variableE9CounterNSPKciS2_P10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.29, i32 noundef 160, ptr noundef nonnull @.str.30, ptr noundef nonnull %103) #20
   store ptr %138, ptr @_ZN13CompileBroker17_perf_last_methodE, align 8
   %139 = load ptr, ptr %105, align 8
-  %.not69 = icmp eq ptr %139, null
-  br i1 %.not69, label %140, label %.thread
+  %.not67 = icmp eq ptr %139, null
+  br i1 %.not67, label %140, label %.thread
 
 140:                                              ; preds = %137
   %141 = call noundef ptr @_ZN15PerfDataManager22create_string_variableE9CounterNSPKciS2_P10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.31, i32 noundef 160, ptr noundef nonnull @.str.30, ptr noundef nonnull %103) #20
   store ptr %141, ptr @_ZN13CompileBroker24_perf_last_failed_methodE, align 8
   %142 = load ptr, ptr %105, align 8
-  %.not70 = icmp eq ptr %142, null
-  br i1 %.not70, label %143, label %.thread
+  %.not68 = icmp eq ptr %142, null
+  br i1 %.not68, label %143, label %.thread
 
 143:                                              ; preds = %140
   %144 = call noundef ptr @_ZN15PerfDataManager22create_string_variableE9CounterNSPKciS2_P10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.32, i32 noundef 160, ptr noundef nonnull @.str.30, ptr noundef nonnull %103) #20
   store ptr %144, ptr @_ZN13CompileBroker29_perf_last_invalidated_methodE, align 8
   %145 = load ptr, ptr %105, align 8
-  %.not71 = icmp eq ptr %145, null
-  br i1 %.not71, label %146, label %.thread
+  %.not69 = icmp eq ptr %145, null
+  br i1 %.not69, label %146, label %.thread
 
 146:                                              ; preds = %143
   %147 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.33, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %147, ptr @_ZN13CompileBroker23_perf_last_compile_typeE, align 8
   %148 = load ptr, ptr %105, align 8
-  %.not72 = icmp eq ptr %148, null
-  br i1 %.not72, label %149, label %.thread
+  %.not70 = icmp eq ptr %148, null
+  br i1 %.not70, label %149, label %.thread
 
 149:                                              ; preds = %146
   %150 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.34, i32 noundef 2, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %150, ptr @_ZN13CompileBroker23_perf_last_compile_sizeE, align 8
   %151 = load ptr, ptr %105, align 8
-  %.not73 = icmp eq ptr %151, null
-  br i1 %.not73, label %152, label %.thread
+  %.not71 = icmp eq ptr %151, null
+  br i1 %.not71, label %152, label %.thread
 
 152:                                              ; preds = %149
   %153 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.35, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %153, ptr @_ZN13CompileBroker22_perf_last_failed_typeE, align 8
   %154 = load ptr, ptr %105, align 8
-  %.not74 = icmp eq ptr %154, null
-  br i1 %.not74, label %155, label %.thread
+  %.not72 = icmp eq ptr %154, null
+  br i1 %.not72, label %155, label %.thread
 
 .thread:                                          ; preds = %102, %107, %110, %113, %116, %119, %122, %125, %128, %131, %134, %137, %140, %143, %146, %149, %152
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
@@ -2093,9 +2093,9 @@ _ZL33register_jfr_phasetype_serializer12CompilerType.exit55: ; preds = %91, %89,
   %156 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 8, ptr noundef nonnull @.str.36, i32 noundef 1, i64 noundef 0, ptr noundef nonnull %103) #20
   store ptr %156, ptr @_ZN13CompileBroker27_perf_last_invalidated_typeE, align 8
   %157 = load ptr, ptr %105, align 8
-  %.not75 = icmp eq ptr %157, null
+  %.not73 = icmp eq ptr %157, null
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #20
-  br i1 %.not75, label %158, label %159
+  br i1 %.not73, label %158, label %159
 
 158:                                              ; preds = %155, %99
   store i8 1, ptr @_ZN13CompileBroker12_initializedE, align 1
@@ -3097,8 +3097,8 @@ define hidden void @_ZN13CompileBroker19compile_method_baseERK12methodHandleiiS2
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %11, align 8
   %12 = and i32 %.sroa.0.0.copyload.i.i, 1024
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %15, label %13
+  %.not50 = icmp eq i32 %12, 0
+  br i1 %.not50, label %15, label %13
 
 13:                                               ; preds = %8
   %14 = load ptr, ptr @g_assert_poison, align 8
@@ -3123,8 +3123,8 @@ define hidden void @_ZN13CompileBroker19compile_method_baseERK12methodHandleiiS2
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %25, ptr noundef nonnull align 8 dereferenceable(88) %19, i32 noundef %1, i32 noundef %2, i1 noundef zeroext true) #20
-  %.not50 = icmp eq ptr %26, null
-  br i1 %.not50, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread45, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread
+  %.not51 = icmp eq ptr %26, null
+  br i1 %.not51, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread45, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread
 
 27:                                               ; preds = %15
   %28 = tail call noundef zeroext i1 @_ZNK6Method17is_not_compilableEi(ptr noundef nonnull align 8 dereferenceable(88) %10, i32 noundef %2) #20
@@ -3150,8 +3150,8 @@ _ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread45: ; 
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 48
   %40 = load i32, ptr %39, align 4
   %41 = and i32 %40, 128
-  %.not51 = icmp eq i32 %41, 0
-  br i1 %.not51, label %42, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread
+  %.not52 = icmp eq i32 %41, 0
+  br i1 %.not52, label %42, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread
 
 42:                                               ; preds = %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread45
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -3193,8 +3193,8 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %_ZN
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, 128
-  %.not52 = icmp eq i32 %60, 0
-  br i1 %.not52, label %61, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread
+  %.not53 = icmp eq i32 %60, 0
+  br i1 %.not53, label %61, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread
 
 61:                                               ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit
   br i1 %.not.i, label %73, label %62
@@ -3212,8 +3212,8 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit: ; preds = %_ZN
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
   %72 = tail call noundef ptr @_ZNK13InstanceKlass18lookup_osr_nmethodEPK6Methodiib(ptr noundef nonnull align 8 dereferenceable(464) %71, ptr noundef nonnull align 8 dereferenceable(88) %65, i32 noundef %1, i32 noundef %2, i1 noundef zeroext true) #20
-  %.not53 = icmp eq ptr %72, null
-  br i1 %.not53, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread
+  %.not54 = icmp eq ptr %72, null
+  br i1 %.not54, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread
 
 73:                                               ; preds = %61
   %74 = tail call noundef zeroext i1 @_ZNK6Method17is_not_compilableEi(ptr noundef nonnull align 8 dereferenceable(88) %57, i32 noundef %2) #20
@@ -3251,7 +3251,7 @@ _ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48: 
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 64
   %93 = load ptr, ptr %92, align 8
   %94 = tail call noundef zeroext i1 %93(ptr noundef nonnull align 8 dereferenceable(888) %7) #20
-  %not.54 = xor i1 %94, true
+  %not.55 = xor i1 %94, true
   %95 = load i8, ptr @UseJVMCINativeLibrary, align 1
   %96 = trunc i8 %95 to i1
   br i1 %96, label %136, label %97
@@ -3307,7 +3307,7 @@ _ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48: 
   br i1 %131, label %._crit_edge, label %102, !llvm.loop !21
 
 ._crit_edge:                                      ; preds = %129, %115, %102, %97
-  %.4 = phi i1 [ %not.54, %97 ], [ false, %102 ], [ false, %115 ], [ %not.54, %129 ]
+  %.4 = phi i1 [ %not.55, %97 ], [ false, %102 ], [ false, %115 ], [ %not.55, %129 ]
   %132 = call noundef zeroext i1 @_ZN5JVMCI23is_compiler_initializedEv() #20
   br i1 %132, label %136, label %_ZN13CompileBroker8compilerEi.exit
 
@@ -3322,7 +3322,7 @@ _ZN13CompileBroker8compilerEi.exit:               ; preds = %._crit_edge
   br label %136
 
 136:                                              ; preds = %_ZN13CompileBroker8compilerEi.exit, %._crit_edge, %90
-  %.3 = phi i1 [ %not.54, %90 ], [ %.4, %._crit_edge ], [ %spec.select35, %_ZN13CompileBroker8compilerEi.exit ]
+  %.3 = phi i1 [ %not.55, %90 ], [ %.4, %._crit_edge ], [ %spec.select35, %_ZN13CompileBroker8compilerEi.exit ]
   %137 = call noundef zeroext i1 @_ZN5JVMCI11in_shutdownEv() #20
   %not. = xor i1 %137, true
   %138 = select i1 %not., i1 %.3, i1 false
@@ -3335,7 +3335,7 @@ _ZN13CompileBroker8compilerEi.exit:               ; preds = %._crit_edge
 
 _ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread: ; preds = %73, %62, %64, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit, %139
   %.033 = phi ptr [ %140, %139 ], [ null, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit ], [ null, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40 ], [ null, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48 ], [ null, %64 ], [ null, %62 ], [ null, %73 ]
-  %switch.not.not = phi i1 [ true, %139 ], [ false, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit ], [ false, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40 ], [ false, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48 ], [ false, %64 ], [ false, %62 ], [ false, %73 ]
+  %.not.not = phi i1 [ true, %139 ], [ false, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit ], [ false, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40 ], [ false, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48 ], [ false, %64 ], [ false, %62 ], [ false, %73 ]
   %.0 = phi i1 [ %.1, %139 ], [ %6, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit ], [ %6, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40 ], [ %6, %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread48 ], [ %6, %64 ], [ %6, %62 ], [ %6, %73 ]
   br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %141
 
@@ -3344,7 +3344,7 @@ _ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread: ; 
   br label %_ZN11MutexLockerD2Ev.exit
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit40.thread, %141
-  %brmerge.not = and i1 %switch.not.not, %.0
+  %brmerge.not = and i1 %.not.not, %.0
   br i1 %brmerge.not, label %142, label %_ZN13CompileBroker23compilation_is_completeERK12methodHandleii.exit.thread
 
 142:                                              ; preds = %_ZN11MutexLockerD2Ev.exit
@@ -4108,14 +4108,14 @@ _ZN12ConstantPool24resolve_string_constantsEP10JavaThread.exit: ; preds = %55, %
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %86 = load ptr, ptr %85, align 8
-  %.not79 = icmp eq ptr %86, null
-  br i1 %.not79, label %87, label %.thread
+  %.not78 = icmp eq ptr %86, null
+  br i1 %.not78, label %87, label %.thread
 
 87:                                               ; preds = %_ZN12ConstantPool24resolve_string_constantsEP10JavaThread.exit
   %88 = call noundef zeroext i1 @_ZN6Method22load_signature_classesERK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %7) #20
   %89 = load ptr, ptr %85, align 8
-  %.not80 = icmp eq ptr %89, null
-  br i1 %.not80, label %90, label %.thread
+  %.not79 = icmp eq ptr %89, null
+  br i1 %.not79, label %90, label %.thread
 
 .thread:                                          ; preds = %87, %_ZN12ConstantPool24resolve_string_constantsEP10JavaThread.exit
   call void @_ZN12ThreadShadow32clear_pending_nonasync_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %7) #20
@@ -4131,8 +4131,8 @@ _ZN12ConstantPool24resolve_string_constantsEP10JavaThread.exit: ; preds = %55, %
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %.sroa.0.0.copyload.i.i = load i32, ptr %93, align 8
   %94 = and i32 %.sroa.0.0.copyload.i.i, 256
-  %.not81 = icmp eq i32 %94, 0
-  br i1 %.not81, label %102, label %95
+  %.not80 = icmp eq i32 %94, 0
+  br i1 %.not80, label %102, label %95
 
 95:                                               ; preds = %91
   %96 = call noundef zeroext i1 @_ZNK6Method26is_method_handle_intrinsicEv(ptr noundef nonnull align 8 dereferenceable(88) %92) #20
@@ -4146,22 +4146,22 @@ _ZN12ConstantPool24resolve_string_constantsEP10JavaThread.exit: ; preds = %55, %
   %98 = call noundef ptr @_ZN12NativeLookup6lookupERK12methodHandleP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %7) #20
   %99 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %100 = load ptr, ptr %99, align 8
-  %.not82 = icmp eq ptr %100, null
-  %.pre86 = load ptr, ptr %0, align 8
-  br i1 %.not82, label %102, label %101
+  %.not81 = icmp eq ptr %100, null
+  %.pre85 = load ptr, ptr %0, align 8
+  br i1 %.not81, label %102, label %101
 
 101:                                              ; preds = %97
-  call void @_ZN6Method18set_not_compilableEPKcib(ptr noundef nonnull align 8 dereferenceable(88) %.pre86, ptr noundef nonnull @.str.51, i32 noundef -1, i1 noundef zeroext true) #20
+  call void @_ZN6Method18set_not_compilableEPKcib(ptr noundef nonnull align 8 dereferenceable(88) %.pre85, ptr noundef nonnull @.str.51, i32 noundef -1, i1 noundef zeroext true) #20
   call void @_ZN12ThreadShadow23clear_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(28) %7) #20
   br label %_ZN13CompileBroker8compilerEi.exit.thread
 
 102:                                              ; preds = %._crit_edge, %97, %91
-  %103 = phi ptr [ %.pre, %._crit_edge ], [ %.pre86, %97 ], [ %92, %91 ]
+  %103 = phi ptr [ %.pre, %._crit_edge ], [ %.pre85, %97 ], [ %92, %91 ]
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 48
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, 4
-  %.not83 = icmp eq i32 %106, 0
-  br i1 %.not83, label %107, label %_ZN13CompileBroker8compilerEi.exit.thread
+  %.not82 = icmp eq i32 %106, 0
+  br i1 %.not82, label %107, label %_ZN13CompileBroker8compilerEi.exit.thread
 
 107:                                              ; preds = %102
   %108 = load i8, ptr @_ZN11JvmtiExport33_should_post_compiled_method_loadE, align 1
@@ -4170,16 +4170,16 @@ _ZN12ConstantPool24resolve_string_constantsEP10JavaThread.exit: ; preds = %55, %
 
 110:                                              ; preds = %107
   %111 = call noundef ptr @_ZN6Method10jmethod_idEv(ptr noundef nonnull align 8 dereferenceable(88) %103) #20
-  %.pre87 = load ptr, ptr %0, align 8
+  %.pre86 = load ptr, ptr %0, align 8
   br label %112
 
 112:                                              ; preds = %110, %107
-  %113 = phi ptr [ %.pre87, %110 ], [ %103, %107 ]
+  %113 = phi ptr [ %.pre86, %110 ], [ %103, %107 ]
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
   %.sroa.0.0.copyload.i.i71 = load i32, ptr %114, align 8
   %115 = and i32 %.sroa.0.0.copyload.i.i71, 256
-  %.not84 = icmp eq i32 %115, 0
-  br i1 %.not84, label %130, label %116
+  %.not83 = icmp eq i32 %115, 0
+  br i1 %.not83, label %130, label %116
 
 116:                                              ; preds = %112
   %117 = load i8, ptr @PreferInterpreterNativeStubs, align 1
@@ -4193,7 +4193,7 @@ _ZN12ConstantPool24resolve_string_constantsEP10JavaThread.exit: ; preds = %55, %
 121:                                              ; preds = %119, %116
   %122 = load i32, ptr @UseSSE, align 4
   %123 = icmp sgt i32 %122, 0
-  br i1 %123, label %124, label %.thread78
+  br i1 %123, label %124, label %.thread77
 
 124:                                              ; preds = %121
   %125 = load ptr, ptr %0, align 8
@@ -4205,16 +4205,16 @@ _ZN12ConstantPool24resolve_string_constantsEP10JavaThread.exit: ; preds = %55, %
   ]
 
 128:                                              ; preds = %124
-  %.not85 = icmp eq i32 %122, 1
-  br i1 %.not85, label %.thread78, label %129
+  %.not84 = icmp eq i32 %122, 1
+  br i1 %.not84, label %.thread77, label %129
 
 129:                                              ; preds = %128
-  switch i16 %127, label %.thread78 [
+  switch i16 %127, label %.thread77 [
     i16 66, label %_ZN13CompileBroker8compilerEi.exit.thread
     i16 64, label %_ZN13CompileBroker8compilerEi.exit.thread
   ]
 
-.thread78:                                        ; preds = %129, %121, %128
+.thread77:                                        ; preds = %129, %121, %128
   call void @_ZN21AdapterHandlerLibrary21create_native_wrapperERK12methodHandle(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   br label %142
 
@@ -4239,7 +4239,7 @@ _ZN13CompileBroker23should_compile_new_jobsEv.exit: ; preds = %130
   call void @_ZN13CompileBroker19compile_method_baseERK12methodHandleiiS2_iN11CompileTask13CompileReasonEbP6Thread(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %141, ptr noundef %7)
   br label %142
 
-142:                                              ; preds = %135, %.thread78
+142:                                              ; preds = %135, %.thread77
   %143 = load ptr, ptr %0, align 8
   br i1 %21, label %144, label %147
 

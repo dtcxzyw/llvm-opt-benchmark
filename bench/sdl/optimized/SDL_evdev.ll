@@ -838,59 +838,59 @@ define hidden void @SDL_EVDEV_Poll() local_unnamed_addr #0 {
   %7 = tail call ptr @SDL_GetMouse() #10
   %8 = load ptr, ptr @_this, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.0214281 = load ptr, ptr %9, align 8
-  %.not222282 = icmp eq ptr %.0214281, null
-  br i1 %.not222282, label %.loopexit, label %.preheader272.lr.ph
+  %.0214280 = load ptr, ptr %9, align 8
+  %.not222281 = icmp eq ptr %.0214280, null
+  br i1 %.not222281, label %.loopexit, label %.preheader271.lr.ph
 
-.preheader272.lr.ph:                              ; preds = %3
+.preheader271.lr.ph:                              ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  br label %.preheader272
+  br label %.preheader271
 
-.preheader272:                                    ; preds = %.preheader272.lr.ph, %._crit_edge280
-  %.0214283 = phi ptr [ %.0214281, %.preheader272.lr.ph ], [ %.0214, %._crit_edge280 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.0214283, i64 8
+.preheader271:                                    ; preds = %.preheader271.lr.ph, %._crit_edge279
+  %.0214282 = phi ptr [ %.0214280, %.preheader271.lr.ph ], [ %.0214, %._crit_edge279 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.0214282, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = call i64 @read(i32 noundef %12, ptr noundef nonnull %1, i64 noundef 768) #10
   %14 = trunc i64 %13 to i32
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.lr.ph279, label %._crit_edge280
+  br i1 %15, label %.lr.ph278, label %._crit_edge279
 
-.lr.ph279:                                        ; preds = %.preheader272
-  %16 = getelementptr inbounds nuw i8, ptr %.0214283, i64 16
-  %17 = getelementptr inbounds nuw i8, ptr %.0214283, i64 17
-  %18 = getelementptr inbounds nuw i8, ptr %.0214283, i64 34
-  %19 = getelementptr inbounds nuw i8, ptr %.0214283, i64 60
-  %20 = getelementptr inbounds nuw i8, ptr %.0214283, i64 72
-  %21 = getelementptr inbounds nuw i8, ptr %.0214283, i64 36
-  %22 = getelementptr inbounds nuw i8, ptr %.0214283, i64 52
-  %23 = getelementptr inbounds nuw i8, ptr %.0214283, i64 40
-  %24 = getelementptr inbounds nuw i8, ptr %.0214283, i64 64
-  %25 = getelementptr inbounds nuw i8, ptr %.0214283, i64 44
-  %26 = getelementptr inbounds nuw i8, ptr %.0214283, i64 48
-  %27 = getelementptr inbounds nuw i8, ptr %.0214283, i64 33
-  %28 = getelementptr inbounds nuw i8, ptr %.0214283, i64 24
-  %29 = getelementptr inbounds nuw i8, ptr %.0214283, i64 32
+.lr.ph278:                                        ; preds = %.preheader271
+  %16 = getelementptr inbounds nuw i8, ptr %.0214282, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.0214282, i64 17
+  %18 = getelementptr inbounds nuw i8, ptr %.0214282, i64 34
+  %19 = getelementptr inbounds nuw i8, ptr %.0214282, i64 60
+  %20 = getelementptr inbounds nuw i8, ptr %.0214282, i64 72
+  %21 = getelementptr inbounds nuw i8, ptr %.0214282, i64 36
+  %22 = getelementptr inbounds nuw i8, ptr %.0214282, i64 52
+  %23 = getelementptr inbounds nuw i8, ptr %.0214282, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %.0214282, i64 64
+  %25 = getelementptr inbounds nuw i8, ptr %.0214282, i64 44
+  %26 = getelementptr inbounds nuw i8, ptr %.0214282, i64 48
+  %27 = getelementptr inbounds nuw i8, ptr %.0214282, i64 33
+  %28 = getelementptr inbounds nuw i8, ptr %.0214282, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.0214282, i64 32
   br label %30
 
-30:                                               ; preds = %.lr.ph279, %._crit_edge277
-  %31 = phi i64 [ %13, %.lr.ph279 ], [ %576, %._crit_edge277 ]
+30:                                               ; preds = %.lr.ph278, %._crit_edge276
+  %31 = phi i64 [ %13, %.lr.ph278 ], [ %576, %._crit_edge276 ]
   %32 = trunc i64 %31 to i32
-  %.not284 = icmp ult i32 %32, 24
-  br i1 %.not284, label %._crit_edge277, label %.lr.ph276.preheader
+  %.not283 = icmp ult i32 %32, 24
+  br i1 %.not283, label %._crit_edge276, label %.lr.ph275.preheader
 
-.lr.ph276.preheader:                              ; preds = %30
+.lr.ph275.preheader:                              ; preds = %30
   %33 = udiv i32 %32, 24
   %wide.trip.count = zext nneg i32 %33 to i64
-  br label %.lr.ph276
+  br label %.lr.ph275
 
-.lr.ph276:                                        ; preds = %.lr.ph276.preheader, %574
-  %indvars.iv286 = phi i64 [ 0, %.lr.ph276.preheader ], [ %indvars.iv.next287, %574 ]
-  %34 = getelementptr inbounds nuw %struct.input_event, ptr %1, i64 %indvars.iv286
+.lr.ph275:                                        ; preds = %.lr.ph275.preheader, %574
+  %indvars.iv285 = phi i64 [ 0, %.lr.ph275.preheader ], [ %indvars.iv.next286, %574 ]
+  %34 = getelementptr inbounds nuw %struct.input_event, ptr %1, i64 %indvars.iv285
   %35 = load i8, ptr %16, align 8, !range !8, !noundef !9
   %36 = trunc nuw i8 %35 to i1
   br i1 %36, label %37, label %47
 
-37:                                               ; preds = %.lr.ph276
+37:                                               ; preds = %.lr.ph275
   %38 = load i8, ptr %17, align 1, !range !8, !noundef !9
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %40, label %47
@@ -905,9 +905,9 @@ define hidden void @SDL_EVDEV_Poll() local_unnamed_addr #0 {
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 18
   %46 = load i16, ptr %45, align 2
   %.not223 = icmp eq i16 %46, 0
-  br i1 %.not223, label %47, label %._crit_edge277
+  br i1 %.not223, label %47, label %._crit_edge276
 
-47:                                               ; preds = %44, %40, %37, %.lr.ph276
+47:                                               ; preds = %44, %40, %37, %.lr.ph275
   %48 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %49 = load i16, ptr %48, align 8
   switch i16 %49, label %574 [
@@ -964,8 +964,8 @@ SDL_EVDEV_GetEventTimestamp.exit:                 ; preds = %54, %68
   %79 = load i8, ptr %17, align 1, !range !8, !noundef !9
   %80 = trunc nuw i8 %79 to i1
   %81 = icmp eq i16 %52, 330
-  %or.cond271 = and i1 %81, %80
-  br i1 %or.cond271, label %82, label %94
+  %or.cond270 = and i1 %81, %80
+  br i1 %or.cond270, label %82, label %94
 
 82:                                               ; preds = %78
   %83 = load ptr, ptr %28, align 8
@@ -1639,7 +1639,7 @@ SDL_EVDEV_GetEventTimestamp.exit253:              ; preds = %482, %495
   %503 = load i32, ptr %502, align 4
   %504 = sext i32 %503 to i64
   tail call void @SDL_SendTouch(i64 noundef %.0.i251, i64 noundef %497, i64 noundef %504, ptr noundef null, i32 noundef 1792, float noundef %457, float noundef %467, float noundef %.0215) #10
-  br label %.sink.split294
+  br label %.sink.split293
 
 505:                                              ; preds = %480
   %506 = tail call i64 @SDL_GetTicksNS_REAL() #10
@@ -1680,7 +1680,7 @@ SDL_EVDEV_GetEventTimestamp.exit257:              ; preds = %505, %518
   %531 = getelementptr inbounds nuw %struct.anon.0, ptr %530, i64 %indvars.iv
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 4
   store i32 0, ptr %532, align 4
-  br label %.sink.split294
+  br label %.sink.split293
 
 533:                                              ; preds = %480
   %534 = tail call i64 @SDL_GetTicksNS_REAL() #10
@@ -1715,9 +1715,9 @@ SDL_EVDEV_GetEventTimestamp.exit261:              ; preds = %533, %546
   %554 = load i32, ptr %553, align 4
   %555 = sext i32 %554 to i64
   tail call void @SDL_SendTouchMotion(i64 noundef %.0.i259, i64 noundef %548, i64 noundef %555, ptr noundef null, float noundef %457, float noundef %467, float noundef %.0215) #10
-  br label %.sink.split294
+  br label %.sink.split293
 
-.sink.split294:                                   ; preds = %SDL_EVDEV_GetEventTimestamp.exit261, %SDL_EVDEV_GetEventTimestamp.exit257, %SDL_EVDEV_GetEventTimestamp.exit253
+.sink.split293:                                   ; preds = %SDL_EVDEV_GetEventTimestamp.exit261, %SDL_EVDEV_GetEventTimestamp.exit257, %SDL_EVDEV_GetEventTimestamp.exit253
   %556 = load ptr, ptr %28, align 8
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 56
   %558 = load ptr, ptr %557, align 8
@@ -1725,7 +1725,7 @@ SDL_EVDEV_GetEventTimestamp.exit261:              ; preds = %533, %546
   store i32 0, ptr %559, align 4
   br label %560
 
-560:                                              ; preds = %.sink.split294, %480
+560:                                              ; preds = %.sink.split293, %480
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %561 = load ptr, ptr %28, align 8
   %562 = getelementptr inbounds nuw i8, ptr %561, i64 44
@@ -1753,28 +1753,28 @@ SDL_EVDEV_GetEventTimestamp.exit261:              ; preds = %533, %546
   br label %573
 
 573:                                              ; preds = %572, %569
-  tail call fastcc void @SDL_EVDEV_sync_device(ptr noundef nonnull %.0214283)
+  tail call fastcc void @SDL_EVDEV_sync_device(ptr noundef nonnull %.0214282)
   br label %574
 
 574:                                              ; preds = %573, %435, %568, %._crit_edge, %318, %300, %313, %279, %276, %287, %284, %295, %292, %308, %305, %273, %126, %123, %131, %155, %138, %163, %186, %166, %187, %210, %190, %211, %234, %214, %238, %248, %251, %242, %257, %267, %270, %261, %120, %82, %93, %92, %116, %SDL_EVDEV_GetEventTimestamp.exit, %47
-  %indvars.iv.next287 = add nuw nsw i64 %indvars.iv286, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next287, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge277, label %.lr.ph276, !llvm.loop !11
+  %indvars.iv.next286 = add nuw nsw i64 %indvars.iv285, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next286, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge276, label %.lr.ph275, !llvm.loop !11
 
-._crit_edge277:                                   ; preds = %574, %44, %30
+._crit_edge276:                                   ; preds = %574, %44, %30
   %575 = load i32, ptr %11, align 8
   %576 = call i64 @read(i32 noundef %575, ptr noundef nonnull %1, i64 noundef 768) #10
   %577 = trunc i64 %576 to i32
   %578 = icmp sgt i32 %577, 0
-  br i1 %578, label %30, label %._crit_edge280, !llvm.loop !12
+  br i1 %578, label %30, label %._crit_edge279, !llvm.loop !12
 
-._crit_edge280:                                   ; preds = %._crit_edge277, %.preheader272
-  %579 = getelementptr inbounds nuw i8, ptr %.0214283, i64 80
+._crit_edge279:                                   ; preds = %._crit_edge276, %.preheader271
+  %579 = getelementptr inbounds nuw i8, ptr %.0214282, i64 80
   %.0214 = load ptr, ptr %579, align 8
   %.not222 = icmp eq ptr %.0214, null
-  br i1 %.not222, label %.loopexit, label %.preheader272, !llvm.loop !13
+  br i1 %.not222, label %.loopexit, label %.preheader271, !llvm.loop !13
 
-.loopexit:                                        ; preds = %._crit_edge280, %3, %0
+.loopexit:                                        ; preds = %._crit_edge279, %3, %0
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   ret void
 }

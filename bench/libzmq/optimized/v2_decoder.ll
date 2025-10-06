@@ -483,8 +483,8 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31
   br i1 %7, label %10, label %.preheader
 
 .preheader:                                       ; preds = %4
-  %.not74 = icmp eq i64 %2, 0
-  br i1 %.not74, label %.thread, label %.lr.ph
+  %.not72 = icmp eq i64 %2, 0
+  br i1 %.not72, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -505,13 +505,13 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31
   %16 = load ptr, ptr @stderr, align 8, !tbaa !24
   %17 = tail call i32 @fflush(ptr noundef %16)
   tail call void @_ZN3zmq9zmq_abortEPKc(ptr noundef nonnull @.str.3)
-  %.pre62 = load ptr, ptr %5, align 8, !tbaa !26
-  %.pre63 = load i64, ptr %11, align 8, !tbaa !27
+  %.pre60 = load ptr, ptr %5, align 8, !tbaa !26
+  %.pre61 = load i64, ptr %11, align 8, !tbaa !27
   br label %18
 
 18:                                               ; preds = %10, %13
-  %19 = phi i64 [ %12, %10 ], [ %.pre63, %13 ]
-  %20 = phi ptr [ %6, %10 ], [ %.pre62, %13 ]
+  %19 = phi i64 [ %12, %10 ], [ %.pre61, %13 ]
+  %20 = phi ptr [ %6, %10 ], [ %.pre60, %13 ]
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %2
   store ptr %21, ptr %5, align 8, !tbaa !26
   %22 = sub i64 %19, %2
@@ -570,13 +570,13 @@ define linkonce_odr noundef i32 @_ZN3zmq14decoder_base_tINS_12v2_decoder_tENS_31
 
 49:                                               ; preds = %43
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %47, ptr align 1 %48, i64 %.sroa.speculated, i1 false)
-  %.pre60 = load ptr, ptr %5, align 8, !tbaa !26
-  %.pre61 = load i64, ptr %8, align 8, !tbaa !27
+  %.pre58 = load ptr, ptr %5, align 8, !tbaa !26
+  %.pre59 = load i64, ptr %8, align 8, !tbaa !27
   br label %50
 
 50:                                               ; preds = %49, %43
-  %51 = phi i64 [ %.pre61, %49 ], [ %44, %43 ]
-  %52 = phi ptr [ %.pre60, %49 ], [ %47, %43 ]
+  %51 = phi i64 [ %.pre59, %49 ], [ %44, %43 ]
+  %52 = phi ptr [ %.pre58, %49 ], [ %47, %43 ]
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.sroa.speculated
   store ptr %53, ptr %5, align 8, !tbaa !26
   %54 = sub i64 %51, %.sroa.speculated

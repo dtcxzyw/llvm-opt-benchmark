@@ -446,55 +446,55 @@ define internal fastcc i32 @get_reg_offset(ptr noundef nonnull readonly captures
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, 0
   %6 = select i1 %5, i32 8, i32 16
-  %switch = icmp eq i32 %1, 3
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %8 = load i32, ptr %7, align 8
-  br i1 %switch, label %23, label %9
+  %7 = icmp eq i32 %1, 3
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %9 = load i32, ptr %8, align 8
+  br i1 %7, label %24, label %10
 
-9:                                                ; preds = %2
-  %10 = lshr i32 %8, 3
-  %11 = and i32 %10, 7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i32, ptr %12, align 8
-  %14 = shl i32 %13, 2
-  %15 = and i32 %14, 8
-  %16 = or disjoint i32 %15, %11
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %18 = load i32, ptr %17, align 8
-  %19 = and i32 %18, 192
-  %20 = icmp ne i32 %19, 192
-  %21 = icmp eq i32 %16, 4
-  %22 = select i1 %20, i1 %21, i1 false
-  br i1 %22, label %.thread, label %37
+10:                                               ; preds = %2
+  %11 = lshr i32 %9, 3
+  %12 = and i32 %11, 7
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load i32, ptr %13, align 8
+  %15 = shl i32 %14, 2
+  %16 = and i32 %15, 8
+  %17 = or disjoint i32 %16, %12
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %19 = load i32, ptr %18, align 8
+  %20 = and i32 %19, 192
+  %21 = icmp ne i32 %20, 192
+  %22 = icmp eq i32 %17, 4
+  %23 = select i1 %21, i1 %22, i1 false
+  br i1 %23, label %.thread, label %38
 
-23:                                               ; preds = %2
-  %24 = and i32 %8, 7
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i32, ptr %25, align 8
-  %27 = and i32 %26, 192
-  %28 = icmp eq i32 %27, 0
-  %29 = icmp eq i32 %24, 5
-  %30 = select i1 %28, i1 %29, i1 false
-  br i1 %30, label %.thread, label %31
+24:                                               ; preds = %2
+  %25 = and i32 %9, 7
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = load i32, ptr %26, align 8
+  %28 = and i32 %27, 192
+  %29 = icmp eq i32 %28, 0
+  %30 = icmp eq i32 %25, 5
+  %31 = select i1 %29, i1 %30, i1 false
+  br i1 %31, label %.thread, label %32
 
-31:                                               ; preds = %23
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i32, ptr %32, align 8
-  %34 = shl i32 %33, 3
-  %35 = and i32 %34, 8
-  %36 = or disjoint i32 %35, %24
-  br label %37
+32:                                               ; preds = %24
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %34 = load i32, ptr %33, align 8
+  %35 = shl i32 %34, 3
+  %36 = and i32 %35, 8
+  %37 = or disjoint i32 %36, %25
+  br label %38
 
-37:                                               ; preds = %31, %9
-  %38 = phi i32 [ %16, %9 ], [ %36, %31 ]
-  %39 = icmp samesign ult i32 %38, %6
-  br i1 %39, label %43, label %40
+38:                                               ; preds = %32, %10
+  %39 = phi i32 [ %17, %10 ], [ %37, %32 ]
+  %40 = icmp samesign ult i32 %39, %6
+  br i1 %40, label %44, label %41
 
-40:                                               ; preds = %37
-  %41 = load i1, ptr @get_regno.__already_done, align 1
-  br i1 %41, label %.thread, label %42, !prof !17
+41:                                               ; preds = %38
+  %42 = load i1, ptr @get_regno.__already_done, align 1
+  br i1 %42, label %.thread, label %43, !prof !17
 
-42:                                               ; preds = %40
+43:                                               ; preds = %41
   store i1 true, ptr @get_regno.__already_done, align 1
   tail call void asm sideeffect "370: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 370b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 370) #7, !srcloc !18
   tail call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.1) #7
@@ -504,15 +504,15 @@ define internal fastcc i32 @get_reg_offset(ptr noundef nonnull readonly captures
   tail call void asm sideeffect "373: nop\0A\09.pushsection .discard.instr_end\0A\09.long 373b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 373) #7, !srcloc !22
   br label %.thread
 
-43:                                               ; preds = %37
-  %44 = zext nneg i32 %38 to i64
-  %45 = getelementptr i32, ptr @pt_regoff, i64 %44
-  %46 = load i32, ptr %45, align 4
+44:                                               ; preds = %38
+  %45 = zext nneg i32 %39 to i64
+  %46 = getelementptr i32, ptr @pt_regoff, i64 %45
+  %47 = load i32, ptr %46, align 4
   br label %.thread
 
-.thread:                                          ; preds = %42, %40, %23, %9, %43
-  %47 = phi i32 [ %46, %43 ], [ -22, %42 ], [ -22, %40 ], [ -33, %23 ], [ -33, %9 ]
-  ret i32 %47
+.thread:                                          ; preds = %43, %41, %24, %10, %44
+  %48 = phi i32 [ %47, %44 ], [ -22, %43 ], [ -22, %41 ], [ -33, %24 ], [ -33, %10 ]
+  ret i32 %48
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

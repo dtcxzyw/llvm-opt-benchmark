@@ -671,7 +671,7 @@ _ZNK8orgQhull10QhullFacet6isGoodEv.exit:          ; preds = %_ZNK8orgQhull10Qhul
   %207 = getelementptr inbounds nuw ptr, ptr %206, i64 %205
   %208 = load ptr, ptr %207, align 8, !tbaa !100
   %.not.i.i.i.i.i = icmp eq ptr %208, null
-  br i1 %.not.i.i.i.i.i, label %.thread36.i, label %209
+  br i1 %.not.i.i.i.i.i, label %.thread34.i, label %209
 
 209:                                              ; preds = %202
   %210 = load ptr, ptr %208, align 8, !tbaa !98
@@ -702,20 +702,20 @@ _ZNK8orgQhull10QhullFacet6isGoodEv.exit:          ; preds = %_ZNK8orgQhull10Qhul
   br label %.loopexit320, !llvm.loop !101
 
 .loopexit320:                                     ; preds = %.lr.ph.i.i.i.i.i, %.preheader319, %..loopexit_crit_edge21.i.i.i.i.i
-  br i1 %.not.not.i.i.i, label %.preheader, label %.loopexit320..thread36.i_crit_edge
+  br i1 %.not.not.i.i.i, label %.preheader, label %.loopexit320..thread34.i_crit_edge
 
-.loopexit320..thread36.i_crit_edge:               ; preds = %.loopexit320
+.loopexit320..thread34.i_crit_edge:               ; preds = %.loopexit320
   %.pre480 = load i64, ptr %138, align 8, !tbaa !63
   %.pre481 = load ptr, ptr %13, align 8, !tbaa !61
   %.pre490 = sext i32 %190 to i64
   %.pre491 = urem i64 %.pre490, %.pre480
-  br label %.thread36.i
+  br label %.thread34.i
 
-.thread36.i:                                      ; preds = %.loopexit320..thread36.i_crit_edge, %202
-  %.pre-phi492 = phi i64 [ %.pre491, %.loopexit320..thread36.i_crit_edge ], [ %205, %202 ]
-  %.pre-phi = phi i64 [ %.pre490, %.loopexit320..thread36.i_crit_edge ], [ %203, %202 ]
-  %222 = phi ptr [ %.pre481, %.loopexit320..thread36.i_crit_edge ], [ %206, %202 ]
-  %223 = phi i64 [ %.pre480, %.loopexit320..thread36.i_crit_edge ], [ %204, %202 ]
+.thread34.i:                                      ; preds = %.loopexit320..thread34.i_crit_edge, %202
+  %.pre-phi492 = phi i64 [ %.pre491, %.loopexit320..thread34.i_crit_edge ], [ %205, %202 ]
+  %.pre-phi = phi i64 [ %.pre490, %.loopexit320..thread34.i_crit_edge ], [ %203, %202 ]
+  %222 = phi ptr [ %.pre481, %.loopexit320..thread34.i_crit_edge ], [ %206, %202 ]
+  %223 = phi i64 [ %.pre480, %.loopexit320..thread34.i_crit_edge ], [ %204, %202 ]
   %224 = getelementptr inbounds nuw ptr, ptr %222, i64 %.pre-phi492
   %225 = load ptr, ptr %224, align 8, !tbaa !100
   %.not.i.i.i204 = icmp eq ptr %225, null
@@ -739,7 +739,7 @@ _ZNK8orgQhull10QhullFacet6isGoodEv.exit:          ; preds = %_ZNK8orgQhull10Qhul
   %233 = urem i64 %231, %232
   br label %.critedge.i
 
-234:                                              ; preds = %.thread36.i
+234:                                              ; preds = %.thread34.i
   %235 = load ptr, ptr %225, align 8, !tbaa !98
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   %237 = load i32, ptr %236, align 4, !tbaa !96
@@ -767,9 +767,9 @@ _ZNK8orgQhull10QhullFacet6isGoodEv.exit:          ; preds = %_ZNK8orgQhull10Qhul
 ..loopexit_crit_edge21.i.i.i:                     ; preds = %242
   br label %.critedge.i, !llvm.loop !103
 
-.critedge.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %230, %.thread36.i
-  %247 = phi i64 [ %233, %230 ], [ %.pre-phi492, %.thread36.i ], [ %.pre-phi492, %..loopexit_crit_edge21.i.i.i ], [ %.pre-phi492, %.lr.ph.i.i.i ]
-  %248 = phi i64 [ %231, %230 ], [ %.pre-phi, %.thread36.i ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i ]
+.critedge.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %230, %.thread34.i
+  %247 = phi i64 [ %233, %230 ], [ %.pre-phi492, %.thread34.i ], [ %.pre-phi492, %..loopexit_crit_edge21.i.i.i ], [ %.pre-phi492, %.lr.ph.i.i.i ]
+  %248 = phi i64 [ %231, %230 ], [ %.pre-phi, %.thread34.i ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i ]
   %249 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
           to label %.noexc206 unwind label %338
 
@@ -3102,7 +3102,7 @@ _ZNK8orgQhull10QhullFacet6isGoodEv.exit:          ; preds = %_ZNK8orgQhull10Qhul
   %284 = getelementptr inbounds nuw ptr, ptr %283, i64 %282
   %285 = load ptr, ptr %284, align 8, !tbaa !100
   %.not.i.i.i.i.i = icmp eq ptr %285, null
-  br i1 %.not.i.i.i.i.i, label %.thread36.i, label %286
+  br i1 %.not.i.i.i.i.i, label %.thread34.i, label %286
 
 286:                                              ; preds = %279
   %287 = load ptr, ptr %285, align 8, !tbaa !98
@@ -3133,20 +3133,20 @@ _ZNK8orgQhull10QhullFacet6isGoodEv.exit:          ; preds = %_ZNK8orgQhull10Qhul
   br label %.loopexit278, !llvm.loop !101
 
 .loopexit278:                                     ; preds = %.lr.ph.i.i.i.i.i, %.preheader277, %..loopexit_crit_edge21.i.i.i.i.i
-  br i1 %.not.not.i.i.i, label %.preheader, label %.loopexit278..thread36.i_crit_edge
+  br i1 %.not.not.i.i.i, label %.preheader, label %.loopexit278..thread34.i_crit_edge
 
-.loopexit278..thread36.i_crit_edge:               ; preds = %.loopexit278
+.loopexit278..thread34.i_crit_edge:               ; preds = %.loopexit278
   %.pre336 = load i64, ptr %194, align 8, !tbaa !63
   %.pre337 = load ptr, ptr %14, align 8, !tbaa !61
   %.pre345 = sext i32 %269 to i64
   %.pre346 = urem i64 %.pre345, %.pre336
-  br label %.thread36.i
+  br label %.thread34.i
 
-.thread36.i:                                      ; preds = %.loopexit278..thread36.i_crit_edge, %279
-  %.pre-phi347 = phi i64 [ %.pre346, %.loopexit278..thread36.i_crit_edge ], [ %282, %279 ]
-  %.pre-phi = phi i64 [ %.pre345, %.loopexit278..thread36.i_crit_edge ], [ %280, %279 ]
-  %299 = phi ptr [ %.pre337, %.loopexit278..thread36.i_crit_edge ], [ %283, %279 ]
-  %300 = phi i64 [ %.pre336, %.loopexit278..thread36.i_crit_edge ], [ %281, %279 ]
+.thread34.i:                                      ; preds = %.loopexit278..thread34.i_crit_edge, %279
+  %.pre-phi347 = phi i64 [ %.pre346, %.loopexit278..thread34.i_crit_edge ], [ %282, %279 ]
+  %.pre-phi = phi i64 [ %.pre345, %.loopexit278..thread34.i_crit_edge ], [ %280, %279 ]
+  %299 = phi ptr [ %.pre337, %.loopexit278..thread34.i_crit_edge ], [ %283, %279 ]
+  %300 = phi i64 [ %.pre336, %.loopexit278..thread34.i_crit_edge ], [ %281, %279 ]
   %301 = getelementptr inbounds nuw ptr, ptr %299, i64 %.pre-phi347
   %302 = load ptr, ptr %301, align 8, !tbaa !100
   %.not.i.i.i206 = icmp eq ptr %302, null
@@ -3170,7 +3170,7 @@ _ZNK8orgQhull10QhullFacet6isGoodEv.exit:          ; preds = %_ZNK8orgQhull10Qhul
   %310 = urem i64 %308, %309
   br label %.critedge.i
 
-311:                                              ; preds = %.thread36.i
+311:                                              ; preds = %.thread34.i
   %312 = load ptr, ptr %302, align 8, !tbaa !98
   %313 = getelementptr inbounds nuw i8, ptr %312, i64 8
   %314 = load i32, ptr %313, align 4, !tbaa !96
@@ -3198,9 +3198,9 @@ _ZNK8orgQhull10QhullFacet6isGoodEv.exit:          ; preds = %_ZNK8orgQhull10Qhul
 ..loopexit_crit_edge21.i.i.i:                     ; preds = %319
   br label %.critedge.i, !llvm.loop !103
 
-.critedge.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %307, %.thread36.i
-  %324 = phi i64 [ %310, %307 ], [ %.pre-phi347, %.thread36.i ], [ %.pre-phi347, %..loopexit_crit_edge21.i.i.i ], [ %.pre-phi347, %.lr.ph.i.i.i ]
-  %325 = phi i64 [ %308, %307 ], [ %.pre-phi, %.thread36.i ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i ]
+.critedge.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %307, %.thread34.i
+  %324 = phi i64 [ %310, %307 ], [ %.pre-phi347, %.thread34.i ], [ %.pre-phi347, %..loopexit_crit_edge21.i.i.i ], [ %.pre-phi347, %.lr.ph.i.i.i ]
+  %325 = phi i64 [ %308, %307 ], [ %.pre-phi, %.thread34.i ], [ %.pre-phi, %..loopexit_crit_edge21.i.i.i ], [ %.pre-phi, %.lr.ph.i.i.i ]
   %326 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
           to label %.noexc208 unwind label %412
 

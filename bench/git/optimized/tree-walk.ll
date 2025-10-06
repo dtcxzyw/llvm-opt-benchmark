@@ -861,8 +861,8 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   br label %.lr.ph204.preheader, !llvm.loop !68
 
 .lr.ph204.preheader:                              ; preds = %56, %.lr.ph204.preheader.loopexit
-  %.0125346 = phi i32 [ %.0.i170187, %.lr.ph204.preheader.loopexit ], [ 1, %56 ]
-  %.0127345 = phi i32 [ %.2129, %.lr.ph204.preheader.loopexit ], [ 0, %56 ]
+  %.0125345 = phi i32 [ %.0.i170187, %.lr.ph204.preheader.loopexit ], [ 1, %56 ]
+  %.0127344 = phi i32 [ %.2129, %.lr.ph204.preheader.loopexit ], [ 0, %56 ]
   br label %.lr.ph204
 
 .lr.ph204:                                        ; preds = %.lr.ph204.preheader, %extended_entry_extract.exit
@@ -1288,12 +1288,12 @@ extended_entry_extract.exit169:                   ; preds = %.lr.ph50.i, %.crite
 243:                                              ; preds = %._crit_edge222
   %.val155 = load ptr, ptr %62, align 8, !tbaa !82
   %244 = icmp eq ptr %.val155, null
-  %245 = icmp eq i32 %.0125346, 2
+  %245 = icmp eq i32 %.0125345, 2
   %or.cond.i = or i1 %245, %244
   br i1 %or.cond.i, label %.thread, label %246
 
 246:                                              ; preds = %243
-  %247 = icmp slt i32 %.0125346, 0
+  %247 = icmp slt i32 %.0125345, 0
   br i1 %247, label %.lr.ph230.preheader, label %248
 
 248:                                              ; preds = %246
@@ -1356,14 +1356,14 @@ prune_traversal.exit:                             ; preds = %248, %267
   br i1 %.not147, label %.lr.ph230.preheader, label %276
 
 276:                                              ; preds = %274, %.thread
-  %.3130 = phi i32 [ %272, %274 ], [ %.0127345, %.thread ]
+  %.3130 = phi i32 [ %272, %274 ], [ %.0127344, %.thread ]
   %277 = sext i32 %272 to i64
   %278 = and i64 %.1120, %277
   br label %279
 
 279:                                              ; preds = %276, %270
   %.0.i170187 = phi i32 [ %.0.i170186192, %276 ], [ 0, %270 ]
-  %.2129 = phi i32 [ %.3130, %276 ], [ %.0127345, %270 ]
+  %.2129 = phi i32 [ %.3130, %276 ], [ %.0127344, %270 ]
   %.2121 = phi i64 [ %278, %276 ], [ %.1120, %270 ]
   br label %.lr.ph228
 
@@ -1405,7 +1405,7 @@ update_extended_entry.exit:                       ; preds = %291, %290, %.lr.ph2
   br i1 %exitcond276.not, label %.lr.ph204.preheader.loopexit, label %.lr.ph228, !llvm.loop !68
 
 .lr.ph230.preheader:                              ; preds = %246, %274, %prune_traversal.exit, %._crit_edge222
-  %.1128.ph = phi i32 [ %.0127345, %246 ], [ %272, %274 ], [ %.0127345, %prune_traversal.exit ], [ %.0127345, %._crit_edge222 ]
+  %.1128.ph = phi i32 [ %.0127344, %246 ], [ %272, %274 ], [ %.0127344, %prune_traversal.exit ], [ %.0127344, %._crit_edge222 ]
   %wide.trip.count281 = zext nneg i32 %65 to i64
   br label %.lr.ph230
 
@@ -1430,7 +1430,7 @@ free_extended_entry.exit:                         ; preds = %.lr.ph.i171, %.lr.p
   br i1 %exitcond282.not, label %._crit_edge231, label %.lr.ph230, !llvm.loop !91
 
 ._crit_edge231:                                   ; preds = %free_extended_entry.exit, %56
-  %.1128.ph317 = phi i32 [ 0, %56 ], [ %.1128.ph, %free_extended_entry.exit ]
+  %.1128.ph316 = phi i32 [ 0, %56 ], [ %.1128.ph, %free_extended_entry.exit ]
   call void @free(ptr noundef %27) #15
   call void @free(ptr noundef %25) #15
   call void @free(ptr noundef %.0124) #15
@@ -1442,7 +1442,7 @@ free_extended_entry.exit:                         ; preds = %.lr.ph.i171, %.lr.p
   br label %302
 
 302:                                              ; preds = %._crit_edge231, %13
-  %.0122 = phi i32 [ -1, %13 ], [ %.1128.ph317, %._crit_edge231 ]
+  %.0122 = phi i32 [ -1, %13 ], [ %.1128.ph316, %._crit_edge231 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0122
 }

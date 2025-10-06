@@ -497,7 +497,7 @@ define range(i32 0, 2) i32 @ossl_x509_init_sig_info(ptr noundef initializes((176
   store i32 %17, ptr %10, align 4, !tbaa !46
   switch i32 %21, label %34 [
     i32 0, label %22
-    i32 64, label %.thread43.i
+    i32 64, label %.thread42.i
     i32 4, label %32
     i32 809, label %33
   ]
@@ -533,17 +533,17 @@ define range(i32 0, 2) i32 @ossl_x509_init_sig_info(ptr noundef initializes((176
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 142, ptr noundef null) #8
   br label %x509_sig_info_init.exit
 
-.thread43.i:                                      ; preds = %20
+.thread42.i:                                      ; preds = %20
   store i32 63, ptr %11, align 4, !tbaa !47
   br label %45
 
 32:                                               ; preds = %20
   store i32 39, ptr %11, align 4, !tbaa !47
-  br label %.thread42.i
+  br label %.thread41.i
 
 33:                                               ; preds = %20
   store i32 105, ptr %11, align 4, !tbaa !47
-  br label %.thread42.i
+  br label %.thread41.i
 
 34:                                               ; preds = %20
   %35 = call ptr @OBJ_nid2sn(i32 noundef %21) #8
@@ -573,27 +573,27 @@ define range(i32 0, 2) i32 @ossl_x509_init_sig_info(ptr noundef initializes((176
 
 44:                                               ; preds = %.sink.split.i, %27
   %.pr.i = load i32, ptr %3, align 4, !tbaa !37
-  switch i32 %.pr.i, label %.thread42.i [
+  switch i32 %.pr.i, label %.thread41.i [
     i32 64, label %45
     i32 672, label %45
     i32 673, label %45
     i32 674, label %45
   ]
 
-45:                                               ; preds = %44, %44, %44, %44, %.thread43.i
+45:                                               ; preds = %44, %44, %44, %44, %.thread42.i
   %46 = load i32, ptr %12, align 4, !tbaa !48
   %47 = or i32 %46, 2
   store i32 %47, ptr %12, align 4, !tbaa !48
-  br label %.thread42.i
+  br label %.thread41.i
 
-.thread42.i:                                      ; preds = %45, %44, %33, %32
+.thread41.i:                                      ; preds = %45, %44, %33, %32
   %48 = load i32, ptr %12, align 4, !tbaa !48
   %49 = or i32 %48, 1
   store i32 %49, ptr %12, align 4, !tbaa !48
   br label %x509_sig_info_init.exit
 
-x509_sig_info_init.exit:                          ; preds = %19, %.thread.i, %38, %39, %.thread42.i
-  %.0.i = phi i32 [ 0, %19 ], [ 0, %38 ], [ 1, %.thread42.i ], [ 0, %.thread.i ], [ 0, %39 ]
+x509_sig_info_init.exit:                          ; preds = %19, %.thread.i, %38, %39, %.thread41.i
+  %.0.i = phi i32 [ 0, %19 ], [ 0, %38 ], [ 1, %.thread41.i ], [ 0, %.thread.i ], [ 0, %39 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0.i

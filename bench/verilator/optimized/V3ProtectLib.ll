@@ -2497,38 +2497,38 @@ define linkonce_odr dso_local void @_ZN14ProtectVisitor5visitEP13AstNodeModule(p
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %22 = load ptr, ptr %21, align 8, !tbaa !102
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %.01424.i = load ptr, ptr %23, align 8, !tbaa !144
-  %.not25.not.i = icmp eq ptr %.01424.i, null
-  br i1 %.not25.not.i, label %_ZN14ProtectVisitor18checkIfClockExistsEP13AstNodeModule.exit, label %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.i
+  %.01425.i = load ptr, ptr %23, align 8, !tbaa !144
+  %.not26.not.i = icmp eq ptr %.01425.i, null
+  br i1 %.not26.not.i, label %_ZN14ProtectVisitor18checkIfClockExistsEP13AstNodeModule.exit, label %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.i
 
 _ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.i: ; preds = %20, %.critedge18.i
-  %.01426.i = phi ptr [ %.014.i, %.critedge18.i ], [ %.01424.i, %20 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.01426.i, i64 64
+  %.01427.i = phi ptr [ %.014.i, %.critedge18.i ], [ %.01425.i, %20 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.01427.i, i64 64
   %.sroa.0.0.copyload.i.i.i.i = load i16, ptr %24, align 8, !tbaa !145
-  %.not22.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 49
-  br i1 %.not22.i, label %25, label %.critedge18.i
+  %.not23.i = icmp eq i16 %.sroa.0.0.copyload.i.i.i.i, 49
+  br i1 %.not23.i, label %25, label %.critedge18.i
 
 25:                                               ; preds = %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.i
-  %26 = getelementptr inbounds nuw i8, ptr %.01426.i, i64 249
+  %26 = getelementptr inbounds nuw i8, ptr %.01427.i, i64 249
   %.sroa.0.0.copyload.i.i = load i8, ptr %26, align 1, !tbaa !146
   %27 = icmp eq i8 %.sroa.0.0.copyload.i.i, 1
   br i1 %27, label %28, label %.critedge18.i
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %.01426.i, i64 260
+  %29 = getelementptr inbounds nuw i8, ptr %.01427.i, i64 260
   %30 = load i64, ptr %29, align 4
   %31 = and i64 %30, 2048
-  %.not23.i = icmp eq i64 %31, 0
-  br i1 %.not23.i, label %32, label %_ZN14ProtectVisitor18checkIfClockExistsEP13AstNodeModule.exit
+  %.not24.i = icmp eq i64 %31, 0
+  br i1 %.not24.i, label %32, label %_ZN14ProtectVisitor18checkIfClockExistsEP13AstNodeModule.exit
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %.01426.i, i64 252
+  %33 = getelementptr inbounds nuw i8, ptr %.01427.i, i64 252
   %.sroa.0.0.copyload.i19.i = load i8, ptr %33, align 4, !tbaa !148
   %34 = icmp eq i8 %.sroa.0.0.copyload.i19.i, 1
   br i1 %34, label %_ZN14ProtectVisitor18checkIfClockExistsEP13AstNodeModule.exit, label %.critedge18.i
 
 .critedge18.i:                                    ; preds = %32, %25, %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.i
-  %35 = getelementptr inbounds nuw i8, ptr %.01426.i, i64 8
+  %35 = getelementptr inbounds nuw i8, ptr %.01427.i, i64 8
   %.014.i = load ptr, ptr %35, align 8, !tbaa !144
   %.not.not.i = icmp eq ptr %.014.i, null
   br i1 %.not.not.i, label %_ZN14ProtectVisitor18checkIfClockExistsEP13AstNodeModule.exit, label %_ZN7AstNode11privateCastI6AstVarPS_EEPT_S2_.exit.i, !llvm.loop !150

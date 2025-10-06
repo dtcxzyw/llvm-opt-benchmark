@@ -1719,10 +1719,10 @@ define noundef i32 @_ZN9grpc_core18ChannelCompression22HandleOutgoingMetadataER1
 
 _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE4TakeISA_EENSt9enable_ifIXeqsrT_11kRepeatableLb0EESt8optionalINS15: ; preds = %2, %6
   %10 = phi i16 [ %9, %6 ], [ %4, %2 ]
-  %.sroa.0.06.i = phi i32 [ %8, %6 ], [ 0, %2 ]
+  %.sroa.0.05.i = phi i32 [ %8, %6 ], [ 0, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !31
-  %.0.i = select i1 %.not.i.i.not.i.i.not, i32 %12, i32 %.sroa.0.06.i
+  %.0.i = select i1 %.not.i.i.not.i.i.not, i32 %12, i32 %.sroa.0.05.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %.sroa.0.0.copyload.i = load i8, ptr %13, align 4, !tbaa !56
   %storemerge.i.i.i.i = or i16 %10, 1024
@@ -1809,10 +1809,10 @@ define void @_ZN9grpc_core23ClientCompressionFilter4Call23OnClientInitialMetadat
 
 _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE4TakeISA_EENSt9enable_ifIXeqsrT_11kRepeatableLb0EESt8optionalINS15: ; preds = %7, %3
   %11 = phi i16 [ %10, %7 ], [ %5, %3 ]
-  %.sroa.0.06.i.i = phi i32 [ %9, %7 ], [ 0, %3 ]
+  %.sroa.0.05.i.i = phi i32 [ %9, %7 ], [ 0, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !31
-  %.0.i.i = select i1 %.not.i.i.not.i.i.not.i, i32 %13, i32 %.sroa.0.06.i.i
+  %.0.i.i = select i1 %.not.i.i.not.i.i.not.i, i32 %13, i32 %.sroa.0.05.i.i
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %.sroa.0.0.copyload.i.i = load i8, ptr %14, align 4, !tbaa !56
   %storemerge.i.i.i.i.i = or i16 %11, 1024
@@ -2149,10 +2149,10 @@ define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnServerInitialMetadat
 
 _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE4TakeISA_EENSt9enable_ifIXeqsrT_11kRepeatableLb0EESt8optionalINS15: ; preds = %7, %3
   %11 = phi i16 [ %10, %7 ], [ %5, %3 ]
-  %.sroa.0.06.i.i = phi i32 [ %9, %7 ], [ 0, %3 ]
+  %.sroa.0.05.i.i = phi i32 [ %9, %7 ], [ 0, %3 ]
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !31
-  %.0.i.i = select i1 %.not.i.i.not.i.i.not.i, i32 %13, i32 %.sroa.0.06.i.i
+  %.0.i.i = select i1 %.not.i.i.not.i.i.not.i, i32 %13, i32 %.sroa.0.05.i.i
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %.sroa.0.0.copyload.i.i = load i8, ptr %14, align 4, !tbaa !56
   %storemerge.i.i.i.i.i = or i16 %11, 1024
@@ -5179,10 +5179,10 @@ define linkonce_odr void @_ZN9grpc_core21promise_filter_detail11RunCallImplIMNS_
 
 _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE4TakeISA_EENSt9enable_ifIXeqsrT_11kRepeatableLb0EESt8optionalINS15: ; preds = %13, %4
   %17 = phi i16 [ %16, %13 ], [ %11, %4 ]
-  %.sroa.0.06.i.i.i = phi i32 [ %15, %13 ], [ 0, %4 ]
+  %.sroa.0.05.i.i.i = phi i32 [ %15, %13 ], [ 0, %4 ]
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !31
-  %.0.i.i.i = select i1 %.not.i.i.not.i.i.not.i.i, i32 %19, i32 %.sroa.0.06.i.i.i
+  %.0.i.i.i = select i1 %.not.i.i.not.i.i.not.i.i, i32 %19, i32 %.sroa.0.05.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %20, align 4, !tbaa !56
   %storemerge.i.i.i.i.i.i = or i16 %17, 1024
@@ -6304,10 +6304,10 @@ define linkonce_odr void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_m
 
 _ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEE4TakeISA_EENSt9enable_ifIXeqsrT_11kRepeatableLb0EESt8optionalINS15: ; preds = %15, %3
   %19 = phi i16 [ %18, %15 ], [ %13, %3 ]
-  %.sroa.0.06.i.i.i.i.i = phi i32 [ %17, %15 ], [ 0, %3 ]
+  %.sroa.0.05.i.i.i.i.i = phi i32 [ %17, %15 ], [ 0, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !31, !noalias !362
-  %.0.i.i.i.i.i = select i1 %.not.i.i.not.i.i.not.i.i.i.i, i32 %21, i32 %.sroa.0.06.i.i.i.i.i
+  %.0.i.i.i.i.i = select i1 %.not.i.i.not.i.i.not.i.i.i.i, i32 %21, i32 %.sroa.0.05.i.i.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %.sroa.0.0.copyload.i.i.i.i.i = load i8, ptr %22, align 4, !tbaa !56, !noalias !362
   %storemerge.i.i.i.i.i.i.i.i = or i16 %19, 1024

@@ -115,14 +115,14 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
 
 16:                                               ; preds = %10
   store i64 %12, ptr @ssl_names_count, align 8, !tbaa !15
-  %.not89 = icmp eq i32 %11, 0
-  br i1 %.not89, label %.loopexit, label %.lr.ph88
+  %.not87 = icmp eq i32 %11, 0
+  br i1 %.not87, label %.loopexit, label %.lr.ph86
 
-.lr.ph88:                                         ; preds = %16, %.thread66
-  %.05687 = phi i64 [ %65, %.thread66 ], [ 0, %16 ]
+.lr.ph86:                                         ; preds = %16, %.thread65
+  %.05685 = phi i64 [ %65, %.thread65 ], [ 0, %16 ]
   %17 = load ptr, ptr @ssl_names, align 8, !tbaa !3
-  %18 = getelementptr inbounds nuw %struct.ssl_conf_name_st, ptr %17, i64 %.05687
-  %19 = trunc i64 %.05687 to i32
+  %18 = getelementptr inbounds nuw %struct.ssl_conf_name_st, ptr %17, i64 %.05685
+  %19 = trunc i64 %.05685 to i32
   %20 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %19) #7
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !22
@@ -131,7 +131,7 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
   %25 = icmp slt i32 %24, 1
   br i1 %25, label %26, label %33
 
-26:                                               ; preds = %.lr.ph88
+26:                                               ; preds = %.lr.ph86
   %27 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %28 = icmp eq ptr %23, null
   %29 = select i1 %28, i32 118, i32 117
@@ -143,7 +143,7 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 14, i32 noundef %29, ptr noundef nonnull @.str.3, ptr noundef %31, ptr noundef %32) #7
   br label %.thread
 
-33:                                               ; preds = %.lr.ph88
+33:                                               ; preds = %.lr.ph86
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = tail call noalias ptr @CRYPTO_strdup(ptr noundef %35, ptr noundef nonnull @.str.1, i32 noundef 100) #7
@@ -164,20 +164,20 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
 45:                                               ; preds = %38
   %46 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store i64 %40, ptr %46, align 8, !tbaa !14
-  %.not90 = icmp eq i32 %39, 0
-  br i1 %.not90, label %.thread66, label %.lr.ph
+  %.not88 = icmp eq i32 %39, 0
+  br i1 %.not88, label %.thread65, label %.lr.ph
 
 47:                                               ; preds = %.lr.ph
-  %48 = add nuw i64 %.05885, 1
+  %48 = add nuw i64 %.05883, 1
   %exitcond.not = icmp eq i64 %48, %40
-  br i1 %exitcond.not, label %.thread66, label %.lr.ph, !llvm.loop !25
+  br i1 %exitcond.not, label %.thread65, label %.lr.ph, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %45, %47
-  %.05885 = phi i64 [ %48, %47 ], [ 0, %45 ]
-  %49 = trunc i64 %.05885 to i32
+  %.05883 = phi i64 [ %48, %47 ], [ 0, %45 ]
+  %49 = trunc i64 %.05883 to i32
   %50 = tail call ptr @OPENSSL_sk_value(ptr noundef %23, i32 noundef %49) #7
   %51 = load ptr, ptr %43, align 8, !tbaa !16
-  %52 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %51, i64 %.05885
+  %52 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %51, i64 %.05883
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !24
   %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 46) #6
@@ -197,19 +197,19 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
   %or.cond.not = select i1 %63, i1 %64, i1 false
   br i1 %or.cond.not, label %47, label %.thread
 
-.thread66:                                        ; preds = %47, %45
-  %65 = add nuw i64 %.05687, 1
+.thread65:                                        ; preds = %47, %45
+  %65 = add nuw i64 %.05685, 1
   %66 = load i64, ptr @ssl_names_count, align 8, !tbaa !15
   %67 = icmp ult i64 %65, %66
-  br i1 %67, label %.lr.ph88, label %.loopexit, !llvm.loop !26
+  br i1 %67, label %.lr.ph86, label %.loopexit, !llvm.loop !26
 
 .thread:                                          ; preds = %38, %33, %.lr.ph, %26, %7, %10
   tail call void @ssl_module_free(ptr poison)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread66, %16, %.thread
-  %.05972 = phi i32 [ 0, %.thread ], [ 1, %16 ], [ 1, %.thread66 ]
-  ret i32 %.05972
+.loopexit:                                        ; preds = %.thread65, %16, %.thread
+  %.05970 = phi i32 [ 0, %.thread ], [ 1, %16 ], [ 1, %.thread65 ]
+  ret i32 %.05970
 }
 
 ; Function Attrs: nounwind uwtable

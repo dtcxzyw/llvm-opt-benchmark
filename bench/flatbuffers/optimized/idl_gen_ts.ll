@@ -18891,41 +18891,41 @@ _ZN11flatbuffers2ts11TsGenerator11GetTypeNameB5cxx11ERKNS_7EnumDefEbb.exit134: ;
   %.val131.fr = freeze i64 %.val131
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val.i = load ptr, ptr %83, align 8, !tbaa !144
-  %.not3.not.i = icmp eq ptr %.val.i, %56
-  br i1 %.not3.not.i, label %.loopexit448, label %.lr.ph.preheader.i
+  %.not4.not.i = icmp eq ptr %.val.i, %56
+  br i1 %.not4.not.i, label %.loopexit448, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN11flatbuffers2ts11TsGenerator11GetTypeNameB5cxx11ERKNS_7EnumDefEbb.exit134
   %84 = icmp eq i64 %.val131.fr, 0
   br i1 %84, label %.lr.ph.i.us, label %.lr.ph.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.preheader.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us
-  %.sroa.01.04.i.us = phi ptr [ %88, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us ], [ %.val.i, %.lr.ph.preheader.i ]
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i.us, i64 72
+  %.sroa.01.05.i.us = phi ptr [ %88, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us ], [ %.val.i, %.lr.ph.preheader.i ]
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.us, i64 72
   %86 = load i64, ptr %85, align 8, !tbaa !142
   %87 = icmp eq i64 %86, 0
   br i1 %87, label %.split.us, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us: ; preds = %.lr.ph.i.us
-  %88 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.04.i.us) #30
+  %88 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05.i.us) #30
   %.not.not.i.us = icmp eq ptr %88, %56
   br i1 %.not.not.i.us, label %.loopexit448, label %.lr.ph.i.us, !llvm.loop !654
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i
-  %.sroa.01.04.i = phi ptr [ %95, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i ], [ %.val.i, %.lr.ph.preheader.i ]
-  %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i, i64 72
+  %.sroa.01.05.i = phi ptr [ %95, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i ], [ %.val.i, %.lr.ph.preheader.i ]
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 72
   %90 = load i64, ptr %89, align 8, !tbaa !142
   %91 = icmp eq i64 %90, %.val131.fr
   br i1 %91, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %.lr.ph.i
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i, i64 64
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 64
   %93 = load ptr, ptr %92, align 8, !tbaa !16
   %bcmp.i.i = call i32 @bcmp(ptr %93, ptr readonly %.val130, i64 %.val131.fr)
   %94 = icmp eq i32 %bcmp.i.i, 0
   br i1 %94, label %.split.us, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i
-  %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.04.i) #30
+  %95 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05.i) #30
   %.not.not.i = icmp eq ptr %95, %56
   br i1 %.not.not.i, label %.loopexit448, label %.lr.ph.i, !llvm.loop !654
 
@@ -22617,41 +22617,41 @@ _ZN11flatbuffers2ts11TsGenerator11GetTypeNameB5cxx11ERKNS_9StructDefEbb.exit134:
   %.val131.fr = freeze i64 %.val131
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.val.i = load ptr, ptr %82, align 8, !tbaa !144
-  %.not3.not.i = icmp eq ptr %.val.i, %55
-  br i1 %.not3.not.i, label %.loopexit436, label %.lr.ph.preheader.i
+  %.not4.not.i = icmp eq ptr %.val.i, %55
+  br i1 %.not4.not.i, label %.loopexit436, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZN11flatbuffers2ts11TsGenerator11GetTypeNameB5cxx11ERKNS_9StructDefEbb.exit134
   %83 = icmp eq i64 %.val131.fr, 0
   br i1 %83, label %.lr.ph.i.us, label %.lr.ph.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.preheader.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us
-  %.sroa.01.04.i.us = phi ptr [ %87, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us ], [ %.val.i, %.lr.ph.preheader.i ]
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i.us, i64 72
+  %.sroa.01.05.i.us = phi ptr [ %87, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us ], [ %.val.i, %.lr.ph.preheader.i ]
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i.us, i64 72
   %85 = load i64, ptr %84, align 8, !tbaa !142
   %86 = icmp eq i64 %85, 0
   br i1 %86, label %.split.us, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i.us: ; preds = %.lr.ph.i.us
-  %87 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.04.i.us) #30
+  %87 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05.i.us) #30
   %.not.not.i.us = icmp eq ptr %87, %55
   br i1 %.not.not.i.us, label %.loopexit436, label %.lr.ph.i.us, !llvm.loop !654
 
 .lr.ph.i:                                         ; preds = %.lr.ph.preheader.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i
-  %.sroa.01.04.i = phi ptr [ %94, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i ], [ %.val.i, %.lr.ph.preheader.i ]
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i, i64 72
+  %.sroa.01.05.i = phi ptr [ %94, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i ], [ %.val.i, %.lr.ph.preheader.i ]
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 72
   %89 = load i64, ptr %88, align 8, !tbaa !142
   %90 = icmp eq i64 %89, %.val131.fr
   br i1 %90, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %.lr.ph.i
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.01.04.i, i64 64
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 64
   %92 = load ptr, ptr %91, align 8, !tbaa !16
   %bcmp.i.i = call i32 @bcmp(ptr %92, ptr readonly %.val130, i64 %.val131.fr)
   %93 = icmp eq i32 %bcmp.i.i, 0
   br i1 %93, label %.split.us, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread2.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i
-  %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.04.i) #30
+  %94 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.01.05.i) #30
   %.not.not.i = icmp eq ptr %94, %55
   br i1 %.not.not.i, label %.loopexit436, label %.lr.ph.i, !llvm.loop !654
 

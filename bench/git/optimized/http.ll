@@ -3359,16 +3359,16 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
 
 18:                                               ; preds = %14
   store i64 0, ptr %6, align 8, !tbaa !120
-  br label %.preheader27.preheader
+  br label %.preheader26.preheader
 
 19:                                               ; preds = %14
   %20 = sdiv i64 %17, 1000
   store i64 %20, ptr %6, align 8, !tbaa !120
   %21 = srem i64 %17, 1000
   %22 = mul nsw i64 %21, 1000
-  br label %.preheader27.preheader
+  br label %.preheader26.preheader
 
-.preheader27.preheader:                           ; preds = %18, %19
+.preheader26.preheader:                           ; preds = %18, %19
   %storemerge = phi i64 [ 50000, %18 ], [ %22, %19 ]
   store i64 %storemerge, ptr %11, align 8, !tbaa !122
   store i32 -1, ptr %5, align 4, !tbaa !38
@@ -3381,7 +3381,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %.thread
 
-27:                                               ; preds = %.preheader27.preheader
+27:                                               ; preds = %.preheader26.preheader
   %28 = load i64, ptr %6, align 8, !tbaa !120
   %29 = icmp sgt i64 %28, 0
   %30 = load i64, ptr %11, align 8
@@ -3394,7 +3394,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.si
   store i64 50000, ptr %11, align 8, !tbaa !122
   br label %.thread
 
-.thread:                                          ; preds = %.preheader27.preheader, %32, %27
+.thread:                                          ; preds = %.preheader26.preheader, %32, %27
   %33 = add nsw i32 %25, 1
   %34 = call i32 @select(i32 noundef %33, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %6) #23
   br label %thread-pre-split.sink.split, !llvm.loop !119

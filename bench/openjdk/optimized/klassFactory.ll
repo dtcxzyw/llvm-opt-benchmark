@@ -108,7 +108,7 @@ define hidden noundef ptr @_ZN12KlassFactory33check_shared_class_file_load_hookE
   %11 = alloca %class.ClassFileParser, align 8
   %12 = load i8, ptr @_ZN11JvmtiExport33_should_post_class_file_load_hookE, align 1
   %13 = trunc i8 %12 to i1
-  br i1 %13, label %14, label %84
+  br i1 %13, label %14, label %85
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 800
@@ -226,36 +226,36 @@ _ZN15ClassLoaderData17class_loader_dataEP7oopDesc.exit: ; preds = %_ZNK6Handlecl
   br label %78
 
 78:                                               ; preds = %30, %26, %77
-  %switch = phi i1 [ false, %77 ], [ false, %26 ], [ true, %30 ]
+  %79 = phi i1 [ false, %77 ], [ false, %26 ], [ true, %30 ]
   %.0 = phi ptr [ %.1, %77 ], [ null, %26 ], [ undef, %30 ]
-  %79 = load ptr, ptr %18, align 8
-  %.not.i.i.i.i = icmp eq ptr %79, null
-  br i1 %.not.i.i.i.i, label %81, label %80
+  %80 = load ptr, ptr %18, align 8
+  %.not.i.i.i.i = icmp eq ptr %80, null
+  br i1 %.not.i.i.i.i, label %82, label %81
 
-80:                                               ; preds = %78
+81:                                               ; preds = %78
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %16, i64 noundef %24) #8
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %18) #8
-  br label %81
+  br label %82
 
-81:                                               ; preds = %80, %78
-  %82 = load ptr, ptr %19, align 8
-  %.not8.i.i.i.i = icmp eq ptr %82, %20
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %83
+82:                                               ; preds = %81, %78
+  %83 = load ptr, ptr %19, align 8
+  %.not8.i.i.i.i = icmp eq ptr %83, %20
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %84
 
-83:                                               ; preds = %81
+84:                                               ; preds = %82
   store ptr %18, ptr %17, align 8
   store ptr %20, ptr %19, align 8
   store ptr %22, ptr %21, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %81, %83
-  br i1 %switch, label %84, label %85
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %82, %84
+  br i1 %79, label %85, label %86
 
-84:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %6
-  br label %85
+85:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %6
+  br label %86
 
-85:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %84
-  %.2 = phi ptr [ null, %84 ], [ %.0, %_ZN12ResourceMarkD2Ev.exit ]
+86:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %85
+  %.2 = phi ptr [ null, %85 ], [ %.0, %_ZN12ResourceMarkD2Ev.exit ]
   ret ptr %.2
 }
 

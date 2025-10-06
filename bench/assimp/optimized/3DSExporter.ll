@@ -7030,39 +7030,39 @@ define internal fastcc void @_ZN6Assimp12_GLOBAL__N_111GetMeshNameB5cxx11ERK6aiM
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %11, %4
-  %.154.i.i.ph = phi ptr [ %7, %4 ], [ %12, %11 ]
-  %.13351.i.i.ph = phi i32 [ 1, %4 ], [ 2, %11 ]
-  %.13850.i.i.ph = phi i32 [ %2, %4 ], [ %13, %11 ]
+  %.153.i.i.ph = phi ptr [ %7, %4 ], [ %12, %11 ]
+  %.13350.i.i.ph = phi i32 [ 1, %4 ], [ 2, %11 ]
+  %.13849.i.i.ph = phi i32 [ %2, %4 ], [ %13, %11 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %24
-  %.154.i.i = phi ptr [ %.3.i.i, %24 ], [ %.154.i.i.ph, %.lr.ph.i.i.preheader ]
-  %.02753.i.i = phi i1 [ %or.cond3.i.i, %24 ], [ false, %.lr.ph.i.i.preheader ]
-  %.03052.i.i = phi i32 [ %25, %24 ], [ 1000000000, %.lr.ph.i.i.preheader ]
-  %.13351.i.i = phi i32 [ %.335.i.i, %24 ], [ %.13351.i.i.ph, %.lr.ph.i.i.preheader ]
-  %.13850.i.i = phi i32 [ %.239.i.i, %24 ], [ %.13850.i.i.ph, %.lr.ph.i.i.preheader ]
-  %14 = sdiv i32 %.13850.i.i, %.03052.i.i
-  %.recomposed = srem i32 %.13850.i.i, %.03052.i.i
+  %.153.i.i = phi ptr [ %.3.i.i, %24 ], [ %.153.i.i.ph, %.lr.ph.i.i.preheader ]
+  %.02752.i.i = phi i1 [ %or.cond3.i.i, %24 ], [ false, %.lr.ph.i.i.preheader ]
+  %.03051.i.i = phi i32 [ %25, %24 ], [ 1000000000, %.lr.ph.i.i.preheader ]
+  %.13350.i.i = phi i32 [ %.335.i.i, %24 ], [ %.13350.i.i.ph, %.lr.ph.i.i.preheader ]
+  %.13849.i.i = phi i32 [ %.239.i.i, %24 ], [ %.13849.i.i.ph, %.lr.ph.i.i.preheader ]
+  %14 = sdiv i32 %.13849.i.i, %.03051.i.i
+  %.recomposed = srem i32 %.13849.i.i, %.03051.i.i
   %15 = icmp ne i32 %14, 0
-  %16 = icmp eq i32 %.03052.i.i, 1
+  %16 = icmp eq i32 %.03051.i.i, 1
   %17 = or i1 %16, %15
-  %or.cond3.i.i = select i1 %.02753.i.i, i1 true, i1 %17
+  %or.cond3.i.i = select i1 %.02752.i.i, i1 true, i1 %17
   br i1 %or.cond3.i.i, label %18, label %24
 
 18:                                               ; preds = %.lr.ph.i.i
   %19 = trunc i32 %14 to i8
   %20 = add i8 %19, 48
-  %21 = getelementptr inbounds nuw i8, ptr %.154.i.i, i64 1
-  store i8 %20, ptr %.154.i.i, align 1
-  %22 = add nuw nsw i32 %.13351.i.i, 1
-  %23 = mul i32 %14, %.03052.i.i
+  %21 = getelementptr inbounds nuw i8, ptr %.153.i.i, i64 1
+  store i8 %20, ptr %.153.i.i, align 1
+  %22 = add nuw nsw i32 %.13350.i.i, 1
+  %23 = mul i32 %14, %.03051.i.i
   br i1 %16, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, label %24
 
 24:                                               ; preds = %18, %.lr.ph.i.i
-  %.239.i.i = phi i32 [ %.recomposed, %18 ], [ %.13850.i.i, %.lr.ph.i.i ]
-  %.335.i.i = phi i32 [ %22, %18 ], [ %.13351.i.i, %.lr.ph.i.i ]
-  %.3.i.i = phi ptr [ %21, %18 ], [ %.154.i.i, %.lr.ph.i.i ]
-  %25 = sdiv i32 %.03052.i.i, 10
+  %.239.i.i = phi i32 [ %.recomposed, %18 ], [ %.13849.i.i, %.lr.ph.i.i ]
+  %.335.i.i = phi i32 [ %22, %18 ], [ %.13350.i.i, %.lr.ph.i.i ]
+  %.3.i.i = phi ptr [ %21, %18 ], [ %.153.i.i, %.lr.ph.i.i ]
+  %25 = sdiv i32 %.03051.i.i, 10
   %26 = icmp ult i32 %.335.i.i, 10
   br i1 %26, label %.lr.ph.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit
 
@@ -7395,39 +7395,39 @@ define internal fastcc void @_ZN6Assimp12_GLOBAL__N_115GetMaterialNameB5cxx11ERK
   br label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %18, %16
-  %.154.i.i.ph = phi ptr [ %5, %16 ], [ %19, %18 ]
-  %.13351.i.i.ph = phi i32 [ 1, %16 ], [ 2, %18 ]
-  %.13850.i.i.ph = phi i32 [ %2, %16 ], [ %20, %18 ]
+  %.153.i.i.ph = phi ptr [ %5, %16 ], [ %19, %18 ]
+  %.13350.i.i.ph = phi i32 [ 1, %16 ], [ 2, %18 ]
+  %.13849.i.i.ph = phi i32 [ %2, %16 ], [ %20, %18 ]
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %31
-  %.154.i.i = phi ptr [ %.3.i.i, %31 ], [ %.154.i.i.ph, %.lr.ph.i.i.preheader ]
-  %.02753.i.i = phi i1 [ %or.cond3.i.i, %31 ], [ false, %.lr.ph.i.i.preheader ]
-  %.03052.i.i = phi i32 [ %32, %31 ], [ 1000000000, %.lr.ph.i.i.preheader ]
-  %.13351.i.i = phi i32 [ %.335.i.i, %31 ], [ %.13351.i.i.ph, %.lr.ph.i.i.preheader ]
-  %.13850.i.i = phi i32 [ %.239.i.i, %31 ], [ %.13850.i.i.ph, %.lr.ph.i.i.preheader ]
-  %21 = sdiv i32 %.13850.i.i, %.03052.i.i
-  %.recomposed = srem i32 %.13850.i.i, %.03052.i.i
+  %.153.i.i = phi ptr [ %.3.i.i, %31 ], [ %.153.i.i.ph, %.lr.ph.i.i.preheader ]
+  %.02752.i.i = phi i1 [ %or.cond3.i.i, %31 ], [ false, %.lr.ph.i.i.preheader ]
+  %.03051.i.i = phi i32 [ %32, %31 ], [ 1000000000, %.lr.ph.i.i.preheader ]
+  %.13350.i.i = phi i32 [ %.335.i.i, %31 ], [ %.13350.i.i.ph, %.lr.ph.i.i.preheader ]
+  %.13849.i.i = phi i32 [ %.239.i.i, %31 ], [ %.13849.i.i.ph, %.lr.ph.i.i.preheader ]
+  %21 = sdiv i32 %.13849.i.i, %.03051.i.i
+  %.recomposed = srem i32 %.13849.i.i, %.03051.i.i
   %22 = icmp ne i32 %21, 0
-  %23 = icmp eq i32 %.03052.i.i, 1
+  %23 = icmp eq i32 %.03051.i.i, 1
   %24 = or i1 %23, %22
-  %or.cond3.i.i = select i1 %.02753.i.i, i1 true, i1 %24
+  %or.cond3.i.i = select i1 %.02752.i.i, i1 true, i1 %24
   br i1 %or.cond3.i.i, label %25, label %31
 
 25:                                               ; preds = %.lr.ph.i.i
   %26 = trunc i32 %21 to i8
   %27 = add i8 %26, 48
-  %28 = getelementptr inbounds nuw i8, ptr %.154.i.i, i64 1
-  store i8 %27, ptr %.154.i.i, align 1
-  %29 = add nuw nsw i32 %.13351.i.i, 1
-  %30 = mul i32 %21, %.03052.i.i
+  %28 = getelementptr inbounds nuw i8, ptr %.153.i.i, i64 1
+  store i8 %27, ptr %.153.i.i, align 1
+  %29 = add nuw nsw i32 %.13350.i.i, 1
+  %30 = mul i32 %21, %.03051.i.i
   br i1 %23, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit, label %31
 
 31:                                               ; preds = %25, %.lr.ph.i.i
-  %.239.i.i = phi i32 [ %.recomposed, %25 ], [ %.13850.i.i, %.lr.ph.i.i ]
-  %.335.i.i = phi i32 [ %29, %25 ], [ %.13351.i.i, %.lr.ph.i.i ]
-  %.3.i.i = phi ptr [ %28, %25 ], [ %.154.i.i, %.lr.ph.i.i ]
-  %32 = sdiv i32 %.03052.i.i, 10
+  %.239.i.i = phi i32 [ %.recomposed, %25 ], [ %.13849.i.i, %.lr.ph.i.i ]
+  %.335.i.i = phi i32 [ %29, %25 ], [ %.13350.i.i, %.lr.ph.i.i ]
+  %.3.i.i = phi ptr [ %28, %25 ], [ %.153.i.i, %.lr.ph.i.i ]
+  %32 = sdiv i32 %.03051.i.i, 10
   %33 = icmp ult i32 %.335.i.i, 10
   br i1 %33, label %.lr.ph.i.i, label %_ZN6Assimp13ASSIMP_itoa10ILm10EEEjRAT__ci.exit
 

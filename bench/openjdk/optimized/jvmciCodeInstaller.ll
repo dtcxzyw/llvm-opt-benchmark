@@ -9089,8 +9089,8 @@ define hidden void @_ZN13CodeInstaller12record_scopeEiP25HotSpotCompiledCodeStre
 
 12:                                               ; preds = %10, %8
   %13 = and i8 %3, 4
-  %.not61 = icmp eq i8 %13, 0
-  br i1 %.not61, label %.loopexit, label %14
+  %.not60 = icmp eq i8 %13, 0
+  br i1 %.not60, label %.loopexit, label %14
 
 14:                                               ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -9151,8 +9151,8 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit:  ; preds = %19, %45
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 2
   store ptr %49, ptr %20, align 8
   %50 = zext i16 %48 to i32
-  %.not64 = icmp eq i16 %48, 0
-  br i1 %.not64, label %.loopexit, label %.lr.ph
+  %.not63 = icmp eq i16 %48, 0
+  br i1 %.not63, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit
   %51 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -9161,7 +9161,7 @@ _ZN25HotSpotCompiledCodeStream7read_u2EPKc.exit:  ; preds = %19, %45
   br label %54
 
 54:                                               ; preds = %.lr.ph, %210
-  %.063 = phi i32 [ 0, %.lr.ph ], [ %212, %210 ]
+  %.062 = phi i32 [ 0, %.lr.ph ], [ %212, %210 ]
   %55 = load ptr, ptr %51, align 8
   %56 = load i8, ptr %15, align 8
   %57 = trunc i8 %56 to i1
@@ -9409,8 +9409,8 @@ _ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %162, %186
   %192 = icmp ne i8 %191, 0
   %193 = icmp sgt i32 %149, -1
   %194 = and i8 %189, 8
-  %.not62 = icmp eq i8 %194, 0
-  %.1 = and i1 %193, %.not62
+  %.not61 = icmp eq i8 %194, 0
+  %.1 = and i1 %193, %.not61
   %195 = call noundef ptr @_ZN13CodeInstaller26read_local_or_stack_valuesEP25HotSpotCompiledCodeStreamhbP8JVMCIEnv(ptr noundef nonnull align 8 dereferenceable(225) %0, ptr noundef nonnull %2, i8 noundef zeroext %189, i1 noundef zeroext true, ptr noundef %7)
   %196 = call noundef zeroext i8 @_ZN8JVMCIEnv21has_pending_exceptionEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #11
   %.not54 = icmp eq i8 %196, 0
@@ -9450,7 +9450,7 @@ _ZN25HotSpotCompiledCodeStream7read_u1EPKc.exit:  ; preds = %162, %186
   %211 = load ptr, ptr %53, align 8
   call void @_ZN24DebugInformationRecorder14describe_scopeEiRK12methodHandleP8ciMethodibbbbbbP10DebugTokenS6_S6_(ptr noundef nonnull align 8 dereferenceable(76) %211, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null, i32 noundef %149, i1 noundef zeroext %.048, i1 noundef zeroext %.049, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef %.051, ptr noundef %.052, ptr noundef %.053) #11
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #11
-  %212 = add nuw nsw i32 %.063, 1
+  %212 = add nuw nsw i32 %.062, 1
   %exitcond.not = icmp eq i32 %212, %50
   br i1 %exitcond.not, label %.loopexit, label %54, !llvm.loop !50
 

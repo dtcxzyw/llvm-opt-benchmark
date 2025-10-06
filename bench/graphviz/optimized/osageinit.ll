@@ -181,7 +181,7 @@ clist_append.exit:                                ; preds = %5
 
 ._crit_edge.i.i21:                                ; preds = %14
   %.pre.i.i23 = load i64, ptr %.0.sroa.phi5, align 8, !tbaa !59
-  %.pre46.i.i24 = load ptr, ptr %.0, align 8, !tbaa !54
+  %.pre45.i.i24 = load ptr, ptr %.0, align 8, !tbaa !54
   br label %clist_append.exit28
 
 19:                                               ; preds = %14
@@ -235,7 +235,7 @@ clist_append.exit:                                ; preds = %5
   unreachable
 
 clist_append.exit28:                              ; preds = %._crit_edge.i.i21, %42
-  %48 = phi ptr [ %.pre46.i.i24, %._crit_edge.i.i21 ], [ %25, %42 ]
+  %48 = phi ptr [ %.pre45.i.i24, %._crit_edge.i.i21 ], [ %25, %42 ]
   %49 = phi i64 [ %17, %._crit_edge.i.i21 ], [ %spec.select.i.i25, %42 ]
   %50 = phi i64 [ %16, %._crit_edge.i.i21 ], [ %33, %42 ]
   %51 = phi i64 [ %.pre.i.i23, %._crit_edge.i.i21 ], [ %43, %42 ]

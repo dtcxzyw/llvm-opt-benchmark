@@ -654,9 +654,9 @@ define internal range(i32 -1094995529, 1) i32 @vorbis_packet(ptr noundef %0, i32
   %32 = load ptr, ptr %11, align 8, !tbaa !56
   %33 = call i32 @av_vorbis_parse_frame_flags(ptr noundef %32, ptr noundef %29, i32 noundef 1, ptr noundef nonnull %3) #9
   %34 = icmp sgt i32 %33, -1
-  br i1 %34, label %38, label %.thread129
+  br i1 %34, label %38, label %.thread128
 
-.thread129:                                       ; preds = %24
+.thread128:                                       ; preds = %24
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !75
   %37 = or i32 %36, 2
@@ -689,20 +689,20 @@ define internal range(i32 -1094995529, 1) i32 @vorbis_packet(ptr noundef %0, i32
   %52 = sext i32 %31 to i64
   br label %53
 
-53:                                               ; preds = %.lr.ph, %._crit_edge142
-  %54 = phi i32 [ %45, %.lr.ph ], [ %74, %._crit_edge142 ]
-  %indvars.iv = phi i64 [ %52, %.lr.ph ], [ %indvars.iv.next, %._crit_edge142 ]
-  %.098137 = phi i32 [ %33, %.lr.ph ], [ %.2, %._crit_edge142 ]
-  %.0100136 = phi ptr [ %50, %.lr.ph ], [ %76, %._crit_edge142 ]
-  %.0101135 = phi ptr [ %50, %.lr.ph ], [ %.1102, %._crit_edge142 ]
+53:                                               ; preds = %.lr.ph, %._crit_edge141
+  %54 = phi i32 [ %45, %.lr.ph ], [ %74, %._crit_edge141 ]
+  %indvars.iv = phi i64 [ %52, %.lr.ph ], [ %indvars.iv.next, %._crit_edge141 ]
+  %.098136 = phi i32 [ %33, %.lr.ph ], [ %.2, %._crit_edge141 ]
+  %.0100135 = phi ptr [ %50, %.lr.ph ], [ %76, %._crit_edge141 ]
+  %.0101134 = phi ptr [ %50, %.lr.ph ], [ %.1102, %._crit_edge141 ]
   %55 = getelementptr inbounds i8, ptr %51, i64 %indvars.iv
   %56 = load i8, ptr %55, align 1, !tbaa !19
   %.not118 = icmp eq i8 %56, -1
-  br i1 %.not118, label %._crit_edge142, label %57
+  br i1 %.not118, label %._crit_edge141, label %57
 
 57:                                               ; preds = %53
   %58 = load ptr, ptr %11, align 8, !tbaa !56
-  %59 = call i32 @av_vorbis_parse_frame_flags(ptr noundef %58, ptr noundef %.0101135, i32 noundef 1, ptr noundef nonnull %3) #9
+  %59 = call i32 @av_vorbis_parse_frame_flags(ptr noundef %58, ptr noundef %.0101134, i32 noundef 1, ptr noundef nonnull %3) #9
   %60 = icmp slt i32 %59, 0
   br i1 %60, label %71, label %61
 
@@ -718,32 +718,32 @@ define internal range(i32 -1094995529, 1) i32 @vorbis_packet(ptr noundef %0, i32
   br label %.thread
 
 .thread:                                          ; preds = %64, %61
-  %66 = add nuw nsw i32 %59, %.098137
+  %66 = add nuw nsw i32 %59, %.098136
   %67 = load i8, ptr %55, align 1, !tbaa !19
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw i8, ptr %.0100136, i64 %68
+  %69 = getelementptr inbounds nuw i8, ptr %.0100135, i64 %68
   %.pre = load i32, ptr %44, align 4, !tbaa !76
   %70 = zext i8 %67 to i64
-  br label %._crit_edge142
+  br label %._crit_edge141
 
 71:                                               ; preds = %57
   %72 = load i64, ptr %21, align 8, !tbaa !73
   %73 = trunc i64 %72 to i32
   br label %.loopexit
 
-._crit_edge142:                                   ; preds = %53, %.thread
+._crit_edge141:                                   ; preds = %53, %.thread
   %74 = phi i32 [ %.pre, %.thread ], [ %54, %53 ]
   %75 = phi i64 [ %70, %.thread ], [ 255, %53 ]
-  %.1102 = phi ptr [ %69, %.thread ], [ %.0101135, %53 ]
-  %.2 = phi i32 [ %66, %.thread ], [ %.098137, %53 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.0100136, i64 %75
+  %.1102 = phi ptr [ %69, %.thread ], [ %.0101134, %53 ]
+  %.2 = phi i32 [ %66, %.thread ], [ %.098136, %53 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.0100135, i64 %75
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %77 = sext i32 %74 to i64
   %78 = icmp slt i64 %indvars.iv.next, %77
   br i1 %78, label %53, label %.loopexit, !llvm.loop !77
 
-.loopexit:                                        ; preds = %._crit_edge142, %43, %71
-  %.199 = phi i32 [ %73, %71 ], [ %33, %43 ], [ %.2, %._crit_edge142 ]
+.loopexit:                                        ; preds = %._crit_edge141, %43, %71
+  %.199 = phi i32 [ %73, %71 ], [ %33, %43 ], [ %.2, %._crit_edge141 ]
   %79 = load i64, ptr %21, align 8, !tbaa !73
   %80 = sext i32 %.199 to i64
   %81 = sub i64 %79, %80
@@ -861,7 +861,7 @@ define internal range(i32 -1094995529, 1) i32 @vorbis_packet(ptr noundef %0, i32
 
 ._crit_edge:                                      ; preds = %135
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 28
-  %.pre139 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !82
+  %.pre138 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !82
   br label %164
 
 143:                                              ; preds = %135
@@ -894,14 +894,14 @@ define internal range(i32 -1094995529, 1) i32 @vorbis_packet(ptr noundef %0, i32
   br label %164
 
 164:                                              ; preds = %._crit_edge, %159
-  %165 = phi i32 [ %.pre139, %._crit_edge ], [ %163, %159 ]
+  %165 = phi i32 [ %.pre138, %._crit_edge ], [ %163, %159 ]
   %166 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %167 = add i32 %142, %165
   store i32 %167, ptr %166, align 8, !tbaa !83
   br label %168
 
-168:                                              ; preds = %.thread129, %126, %164, %2, %115
-  %.0 = phi i32 [ 0, %115 ], [ -1094995529, %2 ], [ 0, %164 ], [ 0, %126 ], [ 0, %.thread129 ]
+168:                                              ; preds = %.thread128, %126, %164, %2, %115
+  %.0 = phi i32 [ 0, %115 ], [ -1094995529, %2 ], [ 0, %164 ], [ 0, %126 ], [ 0, %.thread128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

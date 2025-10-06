@@ -6706,7 +6706,7 @@ _ZL13getDDSettingsRKN3gmx8MDLoggerERKNS_13DomdecOptionsERKNS_12MdrunOptionsERK10
   store i8 %459, ptr %68, align 8, !tbaa !570, !alias.scope !603
   %460 = getelementptr inbounds nuw i8, ptr %68, i64 24
   store float %11, ptr %460, align 8, !tbaa !606, !alias.scope !603
-  br i1 %10, label %461, label %.preheader13.i.i
+  br i1 %10, label %461, label %.preheader9.i.i
 
 461:                                              ; preds = %432
   %462 = getelementptr inbounds nuw i8, ptr %435, i64 136
@@ -6801,13 +6801,13 @@ _ZN3gmx14LogEntryWriterD2Ev.exit21.i.i:           ; preds = %504, %_ZNKSt7__cxx1
   call void @llvm.lifetime.end.p0(ptr nonnull %41), !noalias !603
   br label %.body91
 
-.preheader13.i.i:                                 ; preds = %432
+.preheader9.i.i:                                  ; preds = %432
   %510 = getelementptr inbounds nuw i8, ptr %435, i64 112
   %.val.i81 = load ptr, ptr %510, align 8, !noalias !603
   %511 = getelementptr inbounds nuw i8, ptr %435, i64 120
   %.val50.i = load ptr, ptr %511, align 8, !noalias !603
-  %.not16.i.i = icmp eq ptr %.val.i81, %.val50.i
-  br i1 %.not16.i.i, label %.loopexit.i.thread, label %.lr.ph.i55.i
+  %.not12.i.i = icmp eq ptr %.val.i81, %.val50.i
+  br i1 %.not12.i.i, label %.loopexit.i.thread, label %.lr.ph.i55.i
 
 512:                                              ; preds = %_ZN3gmx14LogEntryWriterD2Ev.exit.i.i, %._crit_edge.i.i
   %513 = getelementptr inbounds nuw i8, ptr %435, i64 112
@@ -6823,12 +6823,12 @@ _ZN3gmx14LogEntryWriterD2Ev.exit21.i.i:           ; preds = %504, %_ZNKSt7__cxx1
   br i1 %520, label %.preheader.i.i, label %521
 
 .preheader.i.i:                                   ; preds = %512
-  %.not25.i.i = icmp eq ptr %.val50106.i, %.val105.i
-  br i1 %.not25.i.i, label %.loopexit.i.thread176, label %.lr.ph21.preheader.i.i
+  %.not21.i.i = icmp eq ptr %.val50106.i, %.val105.i
+  br i1 %.not21.i.i, label %.loopexit.i.thread176, label %.lr.ph17.preheader.i.i
 
-.lr.ph21.preheader.i.i:                           ; preds = %.preheader.i.i
+.lr.ph17.preheader.i.i:                           ; preds = %.preheader.i.i
   %umax.i.i = call i64 @llvm.umax.i64(i64 %515, i64 1)
-  br label %.lr.ph21.i.i
+  br label %.lr.ph17.i.i
 
 521:                                              ; preds = %512
   invoke void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.112, ptr noundef nonnull @"__PRETTY_FUNCTION__._ZZL23moleculesAreAlwaysWholeRK10gmx_mtop_tbN3gmx8ArrayRefIKNS2_17RangePartitioningEEEENK3$_0clEv", ptr noundef nonnull @.str, i32 noundef 1801) #27
@@ -6837,14 +6837,14 @@ _ZN3gmx14LogEntryWriterD2Ev.exit21.i.i:           ; preds = %504, %_ZNKSt7__cxx1
 .noexc93:                                         ; preds = %521
   unreachable
 
-522:                                              ; preds = %.lr.ph21.i.i
-  %523 = add nuw i64 %.01320.i.i, 1
+522:                                              ; preds = %.lr.ph17.i.i
+  %523 = add nuw i64 %.01316.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %523, %umax.i.i
-  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph21.i.i, !llvm.loop !659
+  br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph17.i.i, !llvm.loop !659
 
-.lr.ph21.i.i:                                     ; preds = %522, %.lr.ph21.preheader.i.i
-  %.01320.i.i = phi i64 [ %523, %522 ], [ 0, %.lr.ph21.preheader.i.i ]
-  %524 = getelementptr inbounds %"class.gmx::RangePartitioning", ptr %437, i64 %.01320.i.i
+.lr.ph17.i.i:                                     ; preds = %522, %.lr.ph17.preheader.i.i
+  %.01316.i.i = phi i64 [ %523, %522 ], [ 0, %.lr.ph17.preheader.i.i ]
+  %524 = getelementptr inbounds %"class.gmx::RangePartitioning", ptr %437, i64 %.01316.i.i
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 8
   %526 = load ptr, ptr %525, align 8, !tbaa !150, !noalias !603
   %527 = load ptr, ptr %524, align 8, !tbaa !21, !noalias !603
@@ -6857,18 +6857,18 @@ _ZN3gmx14LogEntryWriterD2Ev.exit21.i.i:           ; preds = %504, %_ZNKSt7__cxx1
   br i1 %533, label %522, label %.thread.i
 
 534:                                              ; preds = %.lr.ph.i55.i
-  %535 = getelementptr inbounds nuw i8, ptr %.sroa.01.017.i.i, i64 2408
+  %535 = getelementptr inbounds nuw i8, ptr %.sroa.01.013.i.i, i64 2408
   %.not.i56.i = icmp eq ptr %535, %.val50.i
   br i1 %.not.i56.i, label %.loopexit.i, label %.lr.ph.i55.i
 
-.lr.ph.i55.i:                                     ; preds = %.preheader13.i.i, %534
-  %.sroa.01.017.i.i = phi ptr [ %535, %534 ], [ %.val.i81, %.preheader13.i.i ]
-  %536 = getelementptr inbounds nuw i8, ptr %.sroa.01.017.i.i, i64 8
+.lr.ph.i55.i:                                     ; preds = %.preheader9.i.i, %534
+  %.sroa.01.013.i.i = phi ptr [ %535, %534 ], [ %.val.i81, %.preheader9.i.i ]
+  %536 = getelementptr inbounds nuw i8, ptr %.sroa.01.013.i.i, i64 8
   %537 = load i32, ptr %536, align 8, !tbaa !660, !noalias !603
   %538 = icmp slt i32 %537, 2
   br i1 %538, label %534, label %.thread.i
 
-.thread.i:                                        ; preds = %.lr.ph.i55.i, %.lr.ph21.i.i
+.thread.i:                                        ; preds = %.lr.ph.i55.i, %.lr.ph17.i.i
   store i8 0, ptr %452, align 4, !tbaa !571, !alias.scope !603
   store i8 1, ptr %453, align 1, !tbaa !572, !alias.scope !603
   br label %548
@@ -6893,7 +6893,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit21.i.i:           ; preds = %504, %_ZNKSt7__cxx1
   store i8 0, ptr %454, align 2, !tbaa !233, !alias.scope !603
   br label %658
 
-.loopexit.i.thread:                               ; preds = %.preheader13.i.i
+.loopexit.i.thread:                               ; preds = %.preheader9.i.i
   store i8 1, ptr %452, align 4, !tbaa !571, !alias.scope !603
   %545 = getelementptr inbounds nuw i8, ptr %435, i64 160
   %546 = load i8, ptr %545, align 8, !range !19, !noalias !603

@@ -4332,28 +4332,27 @@ _ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitDeclEPKN5clang4DeclE.exit:
   %.not8.i5.i10.i4.i.i.i = icmp eq i32 %160, 0
   br i1 %.not8.i5.i10.i4.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i5.i.i.i
 
-.lr.ph.i6.i12.i5.i.i.i:                           ; preds = %153, %.critedge2.i8.i14.i8.i.i.i
-  %.sroa.0.3.i6.i.i.i = phi ptr [ %163, %.critedge2.i8.i14.i8.i.i.i ], [ %157, %153 ]
+.lr.ph.i6.i12.i5.i.i.i:                           ; preds = %153, %.critedge2.i10.i16.i10.i.i.i
+  %.sroa.0.3.i6.i.i.i = phi ptr [ %163, %.critedge2.i10.i16.i10.i.i.i ], [ %157, %153 ]
   %.sroa.05.0.copyload.i7.i13.i7.i.i.i = load i32, ptr %.sroa.0.3.i6.i.i.i, align 4, !tbaa !312
-  switch i32 %.sroa.05.0.copyload.i7.i13.i7.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit.i.i [
-    i32 0, label %.critedge2.i8.i14.i8.i.i.i
-    i32 -1, label %.critedge2.i8.i14.i8.i.i.i
-  ]
+  %.sroa.05.0.copyload.off.i8.i14.i8.i.i.i = add i32 %.sroa.05.0.copyload.i7.i13.i7.i.i.i, -1
+  %switch.i9.i15.i9.i.i.i = icmp ult i32 %.sroa.05.0.copyload.off.i8.i14.i8.i.i.i, -2
+  br i1 %switch.i9.i15.i9.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit.i.i, label %.critedge2.i10.i16.i10.i.i.i
 
-.critedge2.i8.i14.i8.i.i.i:                       ; preds = %.lr.ph.i6.i12.i5.i.i.i, %.lr.ph.i6.i12.i5.i.i.i
+.critedge2.i10.i16.i10.i.i.i:                     ; preds = %.lr.ph.i6.i12.i5.i.i.i
   %163 = getelementptr inbounds nuw i8, ptr %.sroa.0.3.i6.i.i.i, i64 12
-  %.not.i9.i15.i9.i.i.i = icmp eq ptr %163, %162
-  br i1 %.not.i9.i15.i9.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i5.i.i.i, !llvm.loop !1205
+  %.not.i11.i17.i11.i.i.i = icmp eq ptr %163, %162
+  br i1 %.not.i11.i17.i11.i.i.i, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit.i.i, label %.lr.ph.i6.i12.i5.i.i.i, !llvm.loop !1205
 
-_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit.i.i: ; preds = %.critedge2.i8.i14.i8.i.i.i, %.lr.ph.i6.i12.i5.i.i.i, %153, %144
-  %.pre-phi39.i = phi i64 [ 0, %153 ], [ %151, %144 ], [ %161, %.lr.ph.i6.i12.i5.i.i.i ], [ %161, %.critedge2.i8.i14.i8.i.i.i ]
-  %.pre-phi.i = phi ptr [ %157, %153 ], [ %147, %144 ], [ %157, %.lr.ph.i6.i12.i5.i.i.i ], [ %157, %.critedge2.i8.i14.i8.i.i.i ]
-  %.pn16.i.i.i = phi ptr [ %157, %153 ], [ %152, %144 ], [ %163, %.critedge2.i8.i14.i8.i.i.i ], [ %.sroa.0.3.i6.i.i.i, %.lr.ph.i6.i12.i5.i.i.i ]
-  %.pn14.i.i.i = phi ptr [ %162, %153 ], [ %152, %144 ], [ %162, %.lr.ph.i6.i12.i5.i.i.i ], [ %162, %.critedge2.i8.i14.i8.i.i.i ]
+_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit.i.i: ; preds = %.critedge2.i10.i16.i10.i.i.i, %.lr.ph.i6.i12.i5.i.i.i, %153, %144
+  %.pre-phi39.i = phi i64 [ 0, %153 ], [ %151, %144 ], [ %161, %.lr.ph.i6.i12.i5.i.i.i ], [ %161, %.critedge2.i10.i16.i10.i.i.i ]
+  %.pre-phi.i = phi ptr [ %157, %153 ], [ %147, %144 ], [ %157, %.lr.ph.i6.i12.i5.i.i.i ], [ %157, %.critedge2.i10.i16.i10.i.i.i ]
+  %.pn18.i.i.i = phi ptr [ %157, %153 ], [ %152, %144 ], [ %163, %.critedge2.i10.i16.i10.i.i.i ], [ %.sroa.0.3.i6.i.i.i, %.lr.ph.i6.i12.i5.i.i.i ]
+  %.pn16.i.i.i = phi ptr [ %162, %153 ], [ %152, %144 ], [ %162, %.lr.ph.i6.i12.i5.i.i.i ], [ %162, %.critedge2.i10.i16.i10.i.i.i ]
   %164 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %165 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %166 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1234", ptr %.pre-phi.i, i64 %.pre-phi39.i
-  %.not57.i.i = icmp eq ptr %.pn16.i.i.i, %166
+  %.not57.i.i = icmp eq ptr %.pn18.i.i.i, %166
   br i1 %.not57.i.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E5beginEv.exit.i.i
@@ -4369,7 +4368,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLo
   br label %176
 
 176:                                              ; preds = %_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i, %.lr.ph.i.i
-  %.sroa.051.058.i.i = phi ptr [ %.pn16.i.i.i, %.lr.ph.i.i ], [ %.sroa.051.2.i.i, %_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i ]
+  %.sroa.051.058.i.i = phi ptr [ %.pn18.i.i.i, %.lr.ph.i.i ], [ %.sroa.051.2.i.i, %_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i ]
   %177 = getelementptr inbounds nuw i8, ptr %.sroa.051.058.i.i, i64 8
   %.sroa.06.0.copyload.i.i = load i32, ptr %177, align 4, !tbaa !312
   %178 = icmp slt i32 %.sroa.06.0.copyload.i.i, 0
@@ -4636,24 +4635,23 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_
 
 _ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.thread.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit.i.i, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit.i.i.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.i.i, %_ZNK5clang13SourceManager9getFileIDENS_14SourceLocationE.exit.i.i.i
   %291 = getelementptr inbounds nuw i8, ptr %.sroa.051.058.i.i, i64 12
-  %.not8.i3.i.i.i = icmp eq ptr %291, %.pn14.i.i.i
+  %.not8.i3.i.i.i = icmp eq ptr %291, %.pn16.i.i.i
   br i1 %.not8.i3.i.i.i, label %_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i, label %.lr.ph.i4.i.i.i
 
-.lr.ph.i4.i.i.i:                                  ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.thread.i.i, %.critedge2.i6.i.i.i
-  %.sroa.051.1.i.i = phi ptr [ %292, %.critedge2.i6.i.i.i ], [ %291, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.thread.i.i ]
+.lr.ph.i4.i.i.i:                                  ; preds = %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.thread.i.i, %.critedge2.i8.i.i.i
+  %.sroa.051.1.i.i = phi ptr [ %292, %.critedge2.i8.i.i.i ], [ %291, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.thread.i.i ]
   %.sroa.05.0.copyload.i5.i.i.i = load i32, ptr %.sroa.051.1.i.i, align 4, !tbaa !312
-  switch i32 %.sroa.05.0.copyload.i5.i.i.i, label %_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i [
-    i32 0, label %.critedge2.i6.i.i.i
-    i32 -1, label %.critedge2.i6.i.i.i
-  ]
+  %.sroa.05.0.copyload.off.i6.i.i.i = add i32 %.sroa.05.0.copyload.i5.i.i.i, -1
+  %switch.i7.i.i.i = icmp ult i32 %.sroa.05.0.copyload.off.i6.i.i.i, -2
+  br i1 %switch.i7.i.i.i, label %_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i, label %.critedge2.i8.i.i.i
 
-.critedge2.i6.i.i.i:                              ; preds = %.lr.ph.i4.i.i.i, %.lr.ph.i4.i.i.i
+.critedge2.i8.i.i.i:                              ; preds = %.lr.ph.i4.i.i.i
   %292 = getelementptr inbounds nuw i8, ptr %.sroa.051.1.i.i, i64 12
-  %.not.i7.i.i.i = icmp eq ptr %292, %.pn14.i.i.i
-  br i1 %.not.i7.i.i.i, label %_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i, label %.lr.ph.i4.i.i.i, !llvm.loop !1205
+  %.not.i9.i.i.i = icmp eq ptr %292, %.pn16.i.i.i
+  br i1 %.not.i9.i.i.i, label %_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i, label %.lr.ph.i4.i.i.i, !llvm.loop !1205
 
-_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i: ; preds = %.critedge2.i6.i.i.i, %.lr.ph.i4.i.i.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.thread.i.i
-  %.sroa.051.2.i.i = phi ptr [ %291, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.thread.i.i ], [ %292, %.critedge2.i6.i.i.i ], [ %.sroa.051.1.i.i, %.lr.ph.i4.i.i.i ]
+_ZN4llvm16DenseMapIteratorIN5clang6FileIDESt4pairIjNS1_14SourceLocationEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S5_EELb0EEppEv.exit.i.i: ; preds = %.critedge2.i8.i.i.i, %.lr.ph.i4.i.i.i, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.thread.i.i
+  %.sroa.051.2.i.i = phi ptr [ %291, %_ZN12_GLOBAL__N_122CoverageMappingBuilder24getIncludeOrExpansionLocEN5clang14SourceLocationEb.exit.thread.i.i ], [ %292, %.critedge2.i8.i.i.i ], [ %.sroa.051.1.i.i, %.lr.ph.i4.i.i.i ]
   %.not.i.i = icmp eq ptr %.sroa.051.2.i.i, %166
   br i1 %.not.i.i, label %_ZN12_GLOBAL__N_122CoverageMappingBuilder20emitExpansionRegionsEv.exit.i, label %176
 
@@ -7120,17 +7118,17 @@ declare noundef i32 @_ZN5clang5Lexer18MeasureTokenLengthENS_14SourceLocationERKN
 define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_129CounterCoverageMappingBuilderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.backedge2434, %2
-  %.tr320 = phi ptr [ %1, %2 ], [ %.tr320.be2435, %tailrecurse.backedge2434 ]
-  %3 = load i16, ptr %.tr320, align 8
+tailrecurse:                                      ; preds = %tailrecurse.backedge2433, %2
+  %.tr319 = phi ptr [ %1, %2 ], [ %.tr319.be2434, %tailrecurse.backedge2433 ]
+  %3 = load i16, ptr %.tr319, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %4, 120
-  %.not318 = icmp eq ptr %.tr320, null
-  %.not = or i1 %.not318, %spec.select.i.i.i.i.i.i.i.i
+  %.not317 = icmp eq ptr %.tr319, null
+  %.not = or i1 %.not317, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %43, label %5
 
 5:                                                ; preds = %tailrecurse
-  %6 = load i32, ptr %.tr320, align 8
+  %6 = load i32, ptr %.tr319, align 8
   %7 = lshr i32 %6, 19
   %8 = and i32 %7, 63
   %9 = trunc i32 %6 to i16
@@ -7171,145 +7169,145 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 10:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 11:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 12:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 13:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 14:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 15:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 16:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 17:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 18:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 19:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 20:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 21:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 22:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 23:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 24:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 25:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 26:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 27:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 28:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 29:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12VisitBinLAndEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12VisitBinLAndEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 30:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder11VisitBinLOrEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder11VisitBinLOrEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 31:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 32:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 33:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 34:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 35:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 36:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 37:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 38:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 39:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 40:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 41:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 42:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 43:                                               ; preds = %tailrecurse
   %44 = and i16 %3, 511
   %45 = icmp ne i16 %44, 4
-  %.not314 = or i1 %.not318, %45
+  %.not314 = or i1 %.not317, %45
   br i1 %.not314, label %.critedge, label %46
 
 46:                                               ; preds = %43
-  %47 = load i32, ptr %.tr320, align 8
+  %47 = load i32, ptr %.tr319, align 8
   %48 = lshr i32 %47, 19
   %49 = and i32 %48, 31
   %50 = trunc i32 %47 to i16
@@ -7331,59 +7329,59 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 51:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 52:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 53:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 54:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 55:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 56:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 57:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 58:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 59:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 60:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 61:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 62:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 63:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 64:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %46, %43, %5
@@ -7652,1034 +7650,1034 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   unreachable
 
 68:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14VisitWhileStmtEPKN5clang9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14VisitWhileStmtEPKN5clang9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 69:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14VisitLabelStmtEPKN5clang9LabelStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14VisitLabelStmtEPKN5clang9LabelStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 70:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 71:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 72:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 73:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 74:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 75:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 76:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 77:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 78:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 79:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 80:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 81:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 82:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 83:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 84:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 85:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 86:                                               ; preds = %.critedge
-  %87 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.tr319, i64 16
   %88 = load ptr, ptr %87, align 8, !tbaa !1350
   tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %88)
   br label %.critedge.thread
 
 89:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 90:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 91:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 92:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 93:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 94:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 95:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 96:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 97:                                               ; preds = %.critedge
-  %98 = load i32, ptr %.tr320, align 8
+  %98 = load i32, ptr %.tr319, align 8
   %99 = and i32 %98, 524288
   %.not.i = icmp eq i32 %99, 0
-  br i1 %.not.i, label %.critedge.thread, label %tailrecurse1224.backedge
+  br i1 %.not.i, label %.critedge.thread, label %tailrecurse1223.backedge
 
-tailrecurse1224.backedge:                         ; preds = %97, %195
-  %.tr320.pn = phi ptr [ %197, %195 ], [ %.tr320, %97 ]
-  %.tr1225.be.in = getelementptr inbounds nuw i8, ptr %.tr320.pn, i64 16
-  br label %tailrecurse.backedge2434
+tailrecurse1223.backedge:                         ; preds = %97, %195
+  %.tr319.pn = phi ptr [ %197, %195 ], [ %.tr319, %97 ]
+  %.tr1224.be.in = getelementptr inbounds nuw i8, ptr %.tr319.pn, i64 16
+  br label %tailrecurse.backedge2433
 
 100:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 101:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 102:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 103:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 104:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 105:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 106:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 107:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 108:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 109:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 110:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 111:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 112:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 113:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 114:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 115:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 116:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 117:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 118:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 119:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 120:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 121:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 122:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 123:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 124:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 125:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 126:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 127:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 128:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 129:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 130:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 131:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 132:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 133:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 134:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 135:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 136:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 137:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 138:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 139:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 140:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 141:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 142:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 143:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 tailrecurse.backedge:                             ; preds = %.critedge, %.critedge
-  %.tr320.be.in = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
-  br label %tailrecurse.backedge2434
+  %.tr319.be.in = getelementptr inbounds nuw i8, ptr %.tr319, i64 24
+  br label %tailrecurse.backedge2433
 
-tailrecurse.backedge2434:                         ; preds = %tailrecurse.backedge, %tailrecurse1224.backedge
-  %.tr320.be2435.in = phi ptr [ %.tr320.be.in, %tailrecurse.backedge ], [ %.tr1225.be.in, %tailrecurse1224.backedge ]
-  %.tr320.be2435 = load ptr, ptr %.tr320.be2435.in, align 8, !tbaa !1352
+tailrecurse.backedge2433:                         ; preds = %tailrecurse.backedge, %tailrecurse1223.backedge
+  %.tr319.be2434.in = phi ptr [ %.tr319.be.in, %tailrecurse.backedge ], [ %.tr1224.be.in, %tailrecurse1223.backedge ]
+  %.tr319.be2434 = load ptr, ptr %.tr319.be2434.in, align 8, !tbaa !1352
   br label %tailrecurse
 
 144:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 145:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 146:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 147:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 148:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 149:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 150:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 151:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 152:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 153:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 154:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 155:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 156:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 157:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 158:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 159:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 160:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 161:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 162:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 163:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 164:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 165:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 166:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 167:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17VisitCXXThrowExprEPKN5clang12CXXThrowExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17VisitCXXThrowExprEPKN5clang12CXXThrowExprE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 168:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 169:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 170:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 171:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 172:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 173:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 174:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 175:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 176:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 177:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 178:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 179:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 180:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 181:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 182:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 183:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 184:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 185:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 186:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 187:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 188:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 189:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 190:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 191:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 192:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 193:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 194:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 195:                                              ; preds = %.critedge
-  %196 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %.tr319, i64 16
   %197 = load ptr, ptr %196, align 8, !tbaa !1183
-  br label %tailrecurse1224.backedge
+  br label %tailrecurse1223.backedge
 
 198:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 199:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 200:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder32VisitAbstractConditionalOperatorEPKN5clang27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder32VisitAbstractConditionalOperatorEPKN5clang27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 201:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder32VisitAbstractConditionalOperatorEPKN5clang27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder32VisitAbstractConditionalOperatorEPKN5clang27AbstractConditionalOperatorE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 202:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 203:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitSwitchStmtEPKN5clang10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitSwitchStmtEPKN5clang10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 204:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitSwitchCaseEPKN5clang10SwitchCaseE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitSwitchCaseEPKN5clang10SwitchCaseE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 205:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitSwitchCaseEPKN5clang10SwitchCaseE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitSwitchCaseEPKN5clang10SwitchCaseE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 206:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 207:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 208:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 209:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 210:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 211:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitReturnStmtEPKN5clang10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitReturnStmtEPKN5clang10ReturnStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 212:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 213:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 214:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 215:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 216:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 217:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 218:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 219:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 220:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 221:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 222:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 223:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 224:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 225:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder26VisitObjCForCollectionStmtEPKN5clang21ObjCForCollectionStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder26VisitObjCForCollectionStmtEPKN5clang21ObjCForCollectionStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 226:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 227:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 228:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 229:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 230:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 231:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 232:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 233:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 234:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 235:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 236:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 237:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 238:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 239:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 240:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 241:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 242:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 243:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 244:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 245:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 246:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 247:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 248:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 249:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 250:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 251:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 252:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 253:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 254:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 255:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 256:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 257:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 258:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 259:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 260:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 261:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 262:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 263:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 264:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 265:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 266:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 267:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 268:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 269:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 270:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 271:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 272:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 273:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 274:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 275:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 276:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 277:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 278:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 279:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 280:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 281:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 282:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 283:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 284:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 285:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 286:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 287:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 288:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 289:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 290:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 291:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 292:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 293:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 294:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 295:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 296:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 297:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 298:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 299:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 300:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 301:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 302:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 303:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 304:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 305:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 306:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 307:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 308:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 309:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 310:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 311:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder11VisitIfStmtEPKN5clang6IfStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder11VisitIfStmtEPKN5clang6IfStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 312:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15terminateRegionEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15terminateRegionEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 313:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12VisitForStmtEPKN5clang7ForStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder12VisitForStmtEPKN5clang7ForStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 314:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder11VisitDoStmtEPKN5clang6DoStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder11VisitDoStmtEPKN5clang6DoStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 315:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 316:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder22VisitCoroutineBodyStmtEPKN5clang17CoroutineBodyStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder22VisitCoroutineBodyStmtEPKN5clang17CoroutineBodyStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 317:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17VisitCoreturnStmtEPKN5clang12CoreturnStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17VisitCoreturnStmtEPKN5clang12CoreturnStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 318:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17VisitContinueStmtEPKN5clang12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17VisitContinueStmtEPKN5clang12ContinueStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 319:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 320:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 321:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitCXXTryStmtEPKN5clang10CXXTryStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder15VisitCXXTryStmtEPKN5clang10CXXTryStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 322:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20VisitCXXForRangeStmtEPKN5clang15CXXForRangeStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder20VisitCXXForRangeStmtEPKN5clang15CXXForRangeStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 323:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17VisitCXXCatchStmtEPKN5clang12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder17VisitCXXCatchStmtEPKN5clang12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 324:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14VisitBreakStmtEPKN5clang9BreakStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder14VisitBreakStmtEPKN5clang9BreakStmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 325:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 326:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN12_GLOBAL__N_129CounterCoverageMappingBuilder9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(2376) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %97, %.critedge, %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %146, %145, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %96, %95, %94, %93, %92, %91, %90, %89, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71, %70, %69, %68
@@ -19208,23 +19206,23 @@ _ZNSt8_Rb_treeIN5clang14SourceLocationES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE1
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not13.i = icmp eq i32 %34, 0
+  %.not11.i = icmp eq i32 %34, 0
   %.sroa.05.0.copyload.pre = load i32, ptr %2, align 4, !tbaa !312
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %39
-  %.0914.i = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %37 = load i32, ptr %.0914.i, align 4, !tbaa !291
+  %.0912.i = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %37 = load i32, ptr %.0912.i, align 4, !tbaa !291
   %38 = icmp eq i32 %37, %.sroa.05.0.copyload.pre
   br i1 %38, label %_ZNK4llvm8SmallSetIN5clang14SourceLocationELj8ESt4lessIS2_EE5vfindERKS2_.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %40, %36
   br i1 %.not.i, label %_ZNK4llvm8SmallSetIN5clang14SourceLocationELj8ESt4lessIS2_EE5vfindERKS2_.exit, label %.lr.ph.i, !llvm.loop !1518
 
 _ZNK4llvm8SmallSetIN5clang14SourceLocationELj8ESt4lessIS2_EE5vfindERKS2_.exit: ; preds = %.lr.ph.i, %39
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %36, %39 ]
+  %.1.i = phi ptr [ %36, %39 ], [ %.0912.i, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIN5clang14SourceLocationESt4lessIS1_ESaIS1_EE6insertERKS1_.exit
@@ -23855,8 +23853,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_122CoverageMappingBuilder17emitSour
   %.val26 = load ptr, ptr %8, align 8, !tbaa !1355
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   %.val25 = load ptr, ptr %9, align 8, !tbaa !1355
-  %.not104106 = icmp eq ptr %.val26, %.val25
-  br i1 %.not104106, label %._crit_edge, label %.lr.ph
+  %.not105107 = icmp eq ptr %.val26, %.val25
+  br i1 %.not105107, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -23924,12 +23922,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_122CoverageMappingBuilder17emitSour
   %72 = ptrtoint ptr %3 to i64
   br label %73
 
-._crit_edge:                                      ; preds = %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101, %2
+._crit_edge:                                      ; preds = %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102, %2
   ret void
 
-73:                                               ; preds = %.lr.ph, %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101
-  %.sroa.097.0107 = phi ptr [ %.val26, %.lr.ph ], [ %288, %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101 ]
-  %74 = getelementptr i8, ptr %.sroa.097.0107, i64 32
+73:                                               ; preds = %.lr.ph, %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102
+  %.sroa.098.0108 = phi ptr [ %.val26, %.lr.ph ], [ %288, %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102 ]
+  %74 = getelementptr i8, ptr %.sroa.098.0108, i64 32
   %.val = load i32, ptr %74, align 4, !tbaa !312
   %75 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4llvm8coverage21SystemHeadersCoverageE, i64 120), align 8, !tbaa !34, !range !54, !noundef !55
   %76 = trunc nuw i8 %75 to i1
@@ -23951,7 +23949,7 @@ _ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit: ; preds = %
 
 _ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit: ; preds = %_ZNK5clang13SourceManager14getSpellingLocENS_14SourceLocationE.exit
   %83 = call noundef i32 @_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %78, i32 %.sroa.01.0.i) #25
-  switch i32 %83, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101 [
+  switch i32 %83, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102 [
     i32 3, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread
     i32 0, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit.thread
   ]
@@ -24020,12 +24018,12 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLo
   %112 = zext i32 %96 to i64
   %113 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.1234", ptr %94, i64 %112
   %.not.i.not = icmp eq ptr %.sroa.0.1.i.i, %113
-  br i1 %.not.i.not, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101, label %114
+  br i1 %.not.i.not, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102, label %114
 
 114:                                              ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit.i
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 4
   %116 = load i32, ptr %115, align 4, !tbaa !312
-  %117 = getelementptr i8, ptr %.sroa.097.0107, i64 40
+  %117 = getelementptr i8, ptr %.sroa.098.0108, i64 40
   %.val28 = load i32, ptr %117, align 4, !tbaa !312
   %118 = load i64, ptr %14, align 8, !tbaa !1204
   %119 = icmp eq i64 %118, 0
@@ -24037,21 +24035,21 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLo
   %123 = zext i32 %122 to i64
   %.idx.i.i.i = shl nuw nsw i64 %123, 3
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 %.idx.i.i.i
-  %.not13.i.i.i = icmp eq i32 %122, 0
-  br i1 %.not13.i.i.i, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit, label %.lr.ph.i.i.i34
+  %.not11.i.i.i = icmp eq i32 %122, 0
+  br i1 %.not11.i.i.i, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit, label %.lr.ph.i.i.i34
 
 .lr.ph.i.i.i34:                                   ; preds = %120, %131
-  %.0914.i.i.i = phi ptr [ %132, %131 ], [ %121, %120 ]
-  %125 = load i32, ptr %.0914.i.i.i, align 4, !tbaa !291
+  %.0912.i.i.i = phi ptr [ %132, %131 ], [ %121, %120 ]
+  %125 = load i32, ptr %.0912.i.i.i, align 4, !tbaa !291
   %126 = icmp eq i32 %125, %.val
-  %127 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 4
+  %127 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 4
   %128 = load i32, ptr %127, align 4
   %129 = icmp eq i32 %128, %.val28
   %130 = select i1 %126, i1 %129, i1 false
   br i1 %130, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit, label %131
 
 131:                                              ; preds = %.lr.ph.i.i.i34
-  %132 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 8
+  %132 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %132, %124
   br i1 %.not.i.i.i, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit, label %.lr.ph.i.i.i34, !llvm.loop !1565
 
@@ -24101,19 +24099,19 @@ _ZNKSt8_Rb_treeISt4pairIN5clang14SourceLocationES2_ES3_St9_IdentityIS3_ESt4lessI
 
 149:                                              ; preds = %145
   %150 = icmp ult i32 %147, %.val
-  br i1 %150, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101, label %_ZNKSt4lessISt4pairIN5clang14SourceLocationES2_EEclERKS3_S6_.exit.i.i.i.i
+  br i1 %150, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102, label %_ZNKSt4lessISt4pairIN5clang14SourceLocationES2_EEclERKS3_S6_.exit.i.i.i.i
 
 _ZNKSt4lessISt4pairIN5clang14SourceLocationES2_EEclERKS3_S6_.exit.i.i.i.i: ; preds = %149
   %151 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i.i, i64 36
   %152 = load i32, ptr %151, align 4, !tbaa !291
   %153 = icmp ult i32 %.val28, %152
-  br i1 %153, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101
+  br i1 %153, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102
 
 _ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit: ; preds = %.lr.ph.i.i.i34, %131, %120
-  %.1.i.i.i = phi ptr [ %124, %120 ], [ %124, %131 ], [ %.0914.i.i.i, %.lr.ph.i.i.i34 ]
+  %.1.i.i.i = phi ptr [ %124, %120 ], [ %.0912.i.i.i, %.lr.ph.i.i.i34 ], [ %124, %131 ]
   %154 = getelementptr inbounds nuw %"struct.std::pair.1853", ptr %121, i64 %123
-  %.not105 = icmp eq ptr %.1.i.i.i, %154
-  br i1 %.not105, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101
+  %.not106 = icmp eq ptr %.1.i.i.i, %154
+  br i1 %.not106, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102
 
 _ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread: ; preds = %145, %133, %_ZNKSt8_Rb_treeISt4pairIN5clang14SourceLocationES2_ES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS3_EPKSt18_Rb_tree_node_baseRKS3_.exit.i.i.i.i, %_ZNKSt4lessISt4pairIN5clang14SourceLocationES2_EEclERKS3_S6_.exit.i.i.i.i, %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit
   %155 = load ptr, ptr %10, align 8, !tbaa !1180
@@ -24121,14 +24119,14 @@ _ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countER
   %157 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %155, i32 %.val, ptr noundef null) #25
   %158 = call noundef i32 @_ZNK5clang13SourceManager21getSpellingLineNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %155, i32 %.val28, ptr noundef null) #25
   %159 = call noundef i32 @_ZNK5clang13SourceManager23getSpellingColumnNumberENS_14SourceLocationEPb(ptr noundef nonnull align 8 dereferenceable(696) %155, i32 %.val28, ptr noundef null) #25
-  %160 = getelementptr i8, ptr %.sroa.097.0107, i64 48
+  %160 = getelementptr i8, ptr %.sroa.098.0108, i64 48
   %.val31 = load i8, ptr %160, align 4, !tbaa !1246, !range !54, !noundef !55
   %161 = trunc nuw i8 %.val31 to i1
   br i1 %161, label %162, label %183
 
 162:                                              ; preds = %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.sroa.03.0.copyload = load i64, ptr %.sroa.097.0107, align 4
+  %.sroa.03.0.copyload = load i64, ptr %.sroa.098.0108, align 4
   %163 = or i32 %159, -2147483648
   store i64 %.sroa.03.0.copyload, ptr %3, align 8, !alias.scope !1567
   store i32 0, ptr %62, align 8, !tbaa !1178, !alias.scope !1567
@@ -24180,10 +24178,10 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_
   %182 = add i32 %181, 1
   store i32 %182, ptr %29, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101
+  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102
 
 183:                                              ; preds = %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread
-  %184 = getelementptr i8, ptr %.sroa.097.0107, i64 49
+  %184 = getelementptr i8, ptr %.sroa.098.0108, i64 49
   %.val32 = load i8, ptr %184, align 1, !tbaa !1255, !range !54, !noundef !55
   %185 = trunc nuw i8 %.val32 to i1
   br i1 %185, label %186, label %206
@@ -24238,22 +24236,22 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_
   %205 = add i32 %204, 1
   store i32 %205, ptr %29, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101
+  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102
 
 206:                                              ; preds = %183
-  %207 = getelementptr i8, ptr %.sroa.097.0107, i64 16
+  %207 = getelementptr i8, ptr %.sroa.098.0108, i64 16
   %.val24 = load i8, ptr %207, align 4, !tbaa !1244, !range !54, !noundef !55
   %208 = trunc nuw i8 %.val24 to i1
   br i1 %208, label %209, label %234
 
 209:                                              ; preds = %206
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.sroa.02.0.copyload = load i64, ptr %.sroa.097.0107, align 4
-  %210 = getelementptr inbounds nuw i8, ptr %.sroa.097.0107, i64 8
+  %.sroa.02.0.copyload = load i64, ptr %.sroa.098.0108, align 4
+  %210 = getelementptr inbounds nuw i8, ptr %.sroa.098.0108, i64 8
   %.sroa.01.0.copyload = load i64, ptr %210, align 4
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.097.0107, i64 20
+  %211 = getelementptr inbounds nuw i8, ptr %.sroa.098.0108, i64 20
   call void @llvm.experimental.noalias.scope.decl(metadata !1573)
-  %212 = getelementptr inbounds nuw i8, ptr %.sroa.097.0107, i64 28
+  %212 = getelementptr inbounds nuw i8, ptr %.sroa.098.0108, i64 28
   %213 = load i8, ptr %212, align 4, !tbaa !1089, !noalias !1573
   %.not.i42 = icmp eq i8 %213, 2
   %214 = select i1 %.not.i42, i32 6, i32 4
@@ -24306,40 +24304,40 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_
   %233 = add i32 %232, 1
   store i32 %233, ptr %29, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101
+  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102
 
 234:                                              ; preds = %206
-  %235 = getelementptr i8, ptr %.sroa.097.0107, i64 28
+  %235 = getelementptr i8, ptr %.sroa.098.0108, i64 28
   %.val33 = load i8, ptr %235, align 4, !tbaa !1089
   br label %236
 
 236:                                              ; preds = %242, %234
   %.0813.i.i.i = phi i64 [ 0, %234 ], [ %243, %242 ]
-  %.0912.i.i.i = phi i64 [ 3, %234 ], [ %.1.i.i.i50, %242 ]
+  %.0912.i.i.i50 = phi i64 [ 3, %234 ], [ %.1.i.i.i51, %242 ]
   %237 = getelementptr inbounds nuw i8, ptr @__const._ZSt24__find_uniq_type_in_packIN4llvm8coverage4mcdc18DecisionParametersEJSt9monostateS3_NS2_16BranchParametersEEEmv.__found, i64 %.0813.i.i.i
   %238 = load i8, ptr %237, align 1, !tbaa !53, !range !54, !noundef !55
   %239 = trunc nuw i8 %238 to i1
   br i1 %239, label %240, label %242
 
 240:                                              ; preds = %236
-  %241 = icmp samesign ult i64 %.0912.i.i.i, 3
+  %241 = icmp samesign ult i64 %.0912.i.i.i50, 3
   br i1 %241, label %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit, label %242
 
 242:                                              ; preds = %240, %236
-  %.1.i.i.i50 = phi i64 [ %.0912.i.i.i, %236 ], [ %.0813.i.i.i, %240 ]
+  %.1.i.i.i51 = phi i64 [ %.0912.i.i.i50, %236 ], [ %.0813.i.i.i, %240 ]
   %243 = add nuw nsw i64 %.0813.i.i.i, 1
   %exitcond.i.i.i = icmp eq i64 %243, 3
   br i1 %exitcond.i.i.i, label %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit, label %236, !llvm.loop !1576
 
 _ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit: ; preds = %240, %242
-  %spec.select.i.i.i = phi i64 [ 3, %240 ], [ %.1.i.i.i50, %242 ]
+  %spec.select.i.i.i = phi i64 [ 3, %240 ], [ %.1.i.i.i51, %242 ]
   %244 = zext i8 %.val33 to i64
   %245 = icmp eq i64 %spec.select.i.i.i, %244
   br i1 %245, label %246, label %268
 
 246:                                              ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %247 = getelementptr inbounds nuw i8, ptr %.sroa.097.0107, i64 20
+  %247 = getelementptr inbounds nuw i8, ptr %.sroa.098.0108, i64 20
   call void @llvm.experimental.noalias.scope.decl(metadata !1577)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %6, i8 0, i64 16, i1 false), !alias.scope !1577
   %248 = load i64, ptr %247, align 4, !noalias !1577
@@ -24356,46 +24354,46 @@ _ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit: ; preds = %240, 
   %250 = zext i32 %249 to i64
   %251 = add nuw nsw i64 %250, 1
   %252 = load i32, ptr %30, align 4, !tbaa !27
-  %.not.i.i.not.i51 = icmp ult i32 %249, %252
-  %.pre3.i52 = load ptr, ptr %18, align 8, !tbaa !25
-  br i1 %.not.i.i.not.i51, label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit57, label %253, !prof !33
+  %.not.i.i.not.i52 = icmp ult i32 %249, %252
+  %.pre3.i53 = load ptr, ptr %18, align 8, !tbaa !25
+  br i1 %.not.i.i.not.i52, label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit58, label %253, !prof !33
 
 253:                                              ; preds = %246
-  %254 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.pre3.i52, i64 %250
-  %255 = icmp uge ptr %6, %.pre3.i52
+  %254 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.pre3.i53, i64 %250
+  %255 = icmp uge ptr %6, %.pre3.i53
   %256 = icmp ult ptr %6, %254
-  %spec.select.i.i.i.i.i53 = and i1 %255, %256
-  br i1 %spec.select.i.i.i.i.i53, label %257, label %.critedge.i.i.i54, !prof !1028
+  %spec.select.i.i.i.i.i54 = and i1 %255, %256
+  br i1 %spec.select.i.i.i.i.i54, label %257, label %.critedge.i.i.i55, !prof !1028
 
 257:                                              ; preds = %253
-  %258 = ptrtoint ptr %.pre3.i52 to i64
+  %258 = ptrtoint ptr %.pre3.i53 to i64
   %259 = sub i64 %42, %258
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %31, i64 noundef %251, i64 noundef 56) #25
   %260 = load ptr, ptr %18, align 8, !tbaa !25
   %261 = getelementptr inbounds i8, ptr %260, i64 %259
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit57
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit58
 
-.critedge.i.i.i54:                                ; preds = %253
+.critedge.i.i.i55:                                ; preds = %253
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %31, i64 noundef %251, i64 noundef 56) #25
-  %.pre.i55 = load ptr, ptr %18, align 8, !tbaa !25
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit57
+  %.pre.i56 = load ptr, ptr %18, align 8, !tbaa !25
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit58
 
-_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit57: ; preds = %246, %257, %.critedge.i.i.i54
-  %262 = phi ptr [ %.pre3.i52, %246 ], [ %260, %257 ], [ %.pre.i55, %.critedge.i.i.i54 ]
-  %.016.i.i.i56 = phi ptr [ %6, %246 ], [ %261, %257 ], [ %6, %.critedge.i.i.i54 ]
+_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit58: ; preds = %246, %257, %.critedge.i.i.i55
+  %262 = phi ptr [ %.pre3.i53, %246 ], [ %260, %257 ], [ %.pre.i56, %.critedge.i.i.i55 ]
+  %.016.i.i.i57 = phi ptr [ %6, %246 ], [ %261, %257 ], [ %6, %.critedge.i.i.i55 ]
   %263 = load i32, ptr %29, align 8, !tbaa !26
   %264 = zext i32 %263 to i64
   %265 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %262, i64 %264
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %265, ptr noundef nonnull align 4 dereferenceable(56) %.016.i.i.i56, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %265, ptr noundef nonnull align 4 dereferenceable(56) %.016.i.i.i57, i64 56, i1 false)
   %266 = load i32, ptr %29, align 8, !tbaa !26
   %267 = add i32 %266, 1
   store i32 %267, ptr %29, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101
+  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102
 
 268:                                              ; preds = %_ZNK12_GLOBAL__N_119SourceMappingRegion14isMCDCDecisionEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.sroa.0.0.copyload = load i64, ptr %.sroa.097.0107, align 4
+  %.sroa.0.0.copyload = load i64, ptr %.sroa.098.0108, align 4
   store i64 %.sroa.0.0.copyload, ptr %7, align 8, !alias.scope !1580
   store i32 0, ptr %19, align 8, !tbaa !1178, !alias.scope !1580
   store i32 0, ptr %20, align 4, !tbaa !1179, !alias.scope !1580
@@ -24411,47 +24409,47 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_
   %270 = zext i32 %269 to i64
   %271 = add nuw nsw i64 %270, 1
   %272 = load i32, ptr %30, align 4, !tbaa !27
-  %.not.i.i.not.i58 = icmp ult i32 %269, %272
-  %.pre3.i59 = load ptr, ptr %18, align 8, !tbaa !25
-  br i1 %.not.i.i.not.i58, label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit64, label %273, !prof !33
+  %.not.i.i.not.i59 = icmp ult i32 %269, %272
+  %.pre3.i60 = load ptr, ptr %18, align 8, !tbaa !25
+  br i1 %.not.i.i.not.i59, label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit65, label %273, !prof !33
 
 273:                                              ; preds = %268
-  %274 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.pre3.i59, i64 %270
-  %275 = icmp uge ptr %7, %.pre3.i59
+  %274 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %.pre3.i60, i64 %270
+  %275 = icmp uge ptr %7, %.pre3.i60
   %276 = icmp ult ptr %7, %274
-  %spec.select.i.i.i.i.i60 = and i1 %275, %276
-  br i1 %spec.select.i.i.i.i.i60, label %277, label %.critedge.i.i.i61, !prof !1028
+  %spec.select.i.i.i.i.i61 = and i1 %275, %276
+  br i1 %spec.select.i.i.i.i.i61, label %277, label %.critedge.i.i.i62, !prof !1028
 
 277:                                              ; preds = %273
-  %278 = ptrtoint ptr %.pre3.i59 to i64
+  %278 = ptrtoint ptr %.pre3.i60 to i64
   %279 = sub i64 %32, %278
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %31, i64 noundef %271, i64 noundef 56) #25
   %280 = load ptr, ptr %18, align 8, !tbaa !25
   %281 = getelementptr inbounds i8, ptr %280, i64 %279
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit64
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit65
 
-.critedge.i.i.i61:                                ; preds = %273
+.critedge.i.i.i62:                                ; preds = %273
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %31, i64 noundef %271, i64 noundef 56) #25
-  %.pre.i62 = load ptr, ptr %18, align 8, !tbaa !25
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit64
+  %.pre.i63 = load ptr, ptr %18, align 8, !tbaa !25
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit65
 
-_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit64: ; preds = %268, %277, %.critedge.i.i.i61
-  %282 = phi ptr [ %.pre3.i59, %268 ], [ %280, %277 ], [ %.pre.i62, %.critedge.i.i.i61 ]
-  %.016.i.i.i63 = phi ptr [ %7, %268 ], [ %281, %277 ], [ %7, %.critedge.i.i.i61 ]
+_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit65: ; preds = %268, %277, %.critedge.i.i.i62
+  %282 = phi ptr [ %.pre3.i60, %268 ], [ %280, %277 ], [ %.pre.i63, %.critedge.i.i.i62 ]
+  %.016.i.i.i64 = phi ptr [ %7, %268 ], [ %281, %277 ], [ %7, %.critedge.i.i.i62 ]
   %283 = load i32, ptr %29, align 8, !tbaa !26
   %284 = zext i32 %283 to i64
   %285 = getelementptr inbounds nuw %"struct.llvm::coverage::CounterMappingRegion", ptr %282, i64 %284
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %285, ptr noundef nonnull align 4 dereferenceable(56) %.016.i.i.i63, i64 56, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %285, ptr noundef nonnull align 4 dereferenceable(56) %.016.i.i.i64, i64 56, i1 false)
   %286 = load i32, ptr %29, align 8, !tbaa !26
   %287 = add i32 %286, 1
   store i32 %287, ptr %29, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101
+  br label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102
 
-_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread101: ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit.i, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNKSt4lessISt4pairIN5clang14SourceLocationES2_EEclERKS3_S6_.exit.i.i.i.i, %149, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit49, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit64, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit57, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit41, %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit
-  %288 = getelementptr inbounds nuw i8, ptr %.sroa.097.0107, i64 52
-  %.not104 = icmp eq ptr %288, %.val25
-  br i1 %.not104, label %._crit_edge, label %73
+_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit.thread102: ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E4findERKS3_.exit.i, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNKSt4lessISt4pairIN5clang14SourceLocationES2_EEclERKS3_S6_.exit.i.i.i.i, %149, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit49, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit65, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit58, %_ZN4llvm23SmallVectorTemplateBaseINS_8coverage20CounterMappingRegionELb1EE9push_backERKS2_.exit41, %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5countERKS4_.exit
+  %288 = getelementptr inbounds nuw i8, ptr %.sroa.098.0108, i64 52
+  %.not105 = icmp eq ptr %288, %.val25
+  br i1 %.not105, label %._crit_edge, label %73
 }
 
 declare void @_ZN4llvm8coverage21CoverageMappingWriter5writeERNS_11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #4
@@ -25030,23 +25028,23 @@ _ZNSt8_Rb_treeIN5clang6FileIDES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_inser
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not13.i = icmp eq i32 %34, 0
+  %.not11.i = icmp eq i32 %34, 0
   %.sroa.05.0.copyload.pre = load i32, ptr %2, align 4, !tbaa !312
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %39
-  %.0914.i = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %37 = load i32, ptr %.0914.i, align 4, !tbaa !1586
+  %.0912.i = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %37 = load i32, ptr %.0912.i, align 4, !tbaa !1586
   %38 = icmp eq i32 %37, %.sroa.05.0.copyload.pre
   br i1 %38, label %_ZNK4llvm8SmallSetIN5clang6FileIDELj8ESt4lessIS2_EE5vfindERKS2_.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %40, %36
   br i1 %.not.i, label %_ZNK4llvm8SmallSetIN5clang6FileIDELj8ESt4lessIS2_EE5vfindERKS2_.exit, label %.lr.ph.i, !llvm.loop !1588
 
 _ZNK4llvm8SmallSetIN5clang6FileIDELj8ESt4lessIS2_EE5vfindERKS2_.exit: ; preds = %.lr.ph.i, %39
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %36, %39 ]
+  %.1.i = phi ptr [ %36, %39 ], [ %.0912.i, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw %"class.clang::FileID", ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIN5clang6FileIDESt4lessIS1_ESaIS1_EE6insertERKS1_.exit
@@ -26728,10 +26726,9 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang6FileIDESt4pairI
   %.032.idx41 = phi i64 [ 0, %23 ], [ %.032.add, %33 ]
   %.032.ptr43 = getelementptr inbounds nuw i8, ptr %24, i64 %.032.idx41
   %.sroa.07.0.copyload = load i32, ptr %.032.ptr43, align 4, !tbaa !312
-  switch i32 %.sroa.07.0.copyload, label %28 [
-    i32 0, label %33
-    i32 -1, label %33
-  ]
+  %.sroa.07.0.copyload.off = add i32 %.sroa.07.0.copyload, -1
+  %switch = icmp ult i32 %.sroa.07.0.copyload.off, -2
+  br i1 %switch, label %28, label %33
 
 28:                                               ; preds = %27
   store i32 %.sroa.07.0.copyload, ptr %.03142, align 4, !tbaa !312
@@ -26742,8 +26739,8 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIN5clang6FileIDESt4pairI
   %32 = getelementptr inbounds nuw i8, ptr %.03142, i64 12
   br label %33
 
-33:                                               ; preds = %27, %27, %28
-  %.1 = phi ptr [ %.03142, %27 ], [ %32, %28 ], [ %.03142, %27 ]
+33:                                               ; preds = %27, %28
+  %.1 = phi ptr [ %32, %28 ], [ %.03142, %27 ]
   %.032.add = add nuw nsw i64 %.032.idx41, 12
   %.not35 = icmp eq i64 %.032.add, 96
   br i1 %.not35, label %25, label %27, !llvm.loop !1607
@@ -26835,10 +26832,9 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLo
 .lr.ph:                                           ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E9initEmptyEv.exit, %48
   %.026 = phi ptr [ %49, %48 ], [ %1, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E9initEmptyEv.exit ]
   %.sroa.03.0.copyload = load i32, ptr %.026, align 4, !tbaa !312
-  switch i32 %.sroa.03.0.copyload, label %16 [
-    i32 0, label %48
-    i32 -1, label %48
-  ]
+  %.sroa.03.0.copyload.off = add i32 %.sroa.03.0.copyload, -1
+  %switch = icmp ult i32 %.sroa.03.0.copyload.off, -2
+  br i1 %switch, label %16, label %48
 
 16:                                               ; preds = %.lr.ph
   %17 = load i32, ptr %0, align 8
@@ -26901,7 +26897,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLo
   store i32 %47, ptr %0, align 8
   br label %48
 
-48:                                               ; preds = %.lr.ph, %.lr.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit
+48:                                               ; preds = %.lr.ph, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang6FileIDESt4pairIjNS2_14SourceLocationEELj8ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S6_EEEES3_S6_S8_SB_E15LookupBucketForIS3_EEbRKT_RPSB_.exit
   %49 = getelementptr inbounds nuw i8, ptr %.026, i64 12
   %.not = icmp eq ptr %49, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !1608
@@ -26948,8 +26944,8 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetISt4pairIN5clang14SourceLocati
   %14 = zext i32 %13 to i64
   %.idx.i = shl nuw nsw i64 %14, 3
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i
-  %.not13.i = icmp eq i32 %13, 0
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  %.not11.i = icmp eq i32 %13, 0
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
   %16 = load i32, ptr %2, align 4, !tbaa !291
@@ -26958,22 +26954,22 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetISt4pairIN5clang14SourceLocati
   br label %19
 
 19:                                               ; preds = %26, %.lr.ph.i
-  %.0914.i = phi ptr [ %11, %.lr.ph.i ], [ %27, %26 ]
-  %20 = load i32, ptr %.0914.i, align 4, !tbaa !291
+  %.0912.i = phi ptr [ %11, %.lr.ph.i ], [ %27, %26 ]
+  %20 = load i32, ptr %.0912.i, align 4, !tbaa !291
   %21 = icmp eq i32 %20, %16
-  %22 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %22 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %18
   %25 = select i1 %21, i1 %24, i1 false
   br i1 %25, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5vfindERKS4_.exit, label %26
 
 26:                                               ; preds = %19
-  %27 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
   %.not.i = icmp eq ptr %27, %15
   br i1 %.not.i, label %_ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5vfindERKS4_.exit, label %19, !llvm.loop !1565
 
 _ZNK4llvm8SmallSetISt4pairIN5clang14SourceLocationES3_ELj8ESt4lessIS4_EE5vfindERKS4_.exit: ; preds = %19, %26
-  %.1.i = phi ptr [ %.0914.i, %19 ], [ %15, %26 ]
+  %.1.i = phi ptr [ %15, %26 ], [ %.0912.i, %19 ]
   %28 = getelementptr inbounds nuw %"struct.std::pair.1853", ptr %11, i64 %14
   %.not = icmp eq ptr %.1.i, %28
   br i1 %.not, label %29, label %47

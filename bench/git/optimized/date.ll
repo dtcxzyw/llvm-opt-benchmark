@@ -1853,11 +1853,11 @@ set_date.exit.i:                                  ; preds = %324, %317, %310, %3
   %333 = icmp eq i32 %332, -1
   %334 = load i32, ptr %16, align 4
   %335 = icmp eq i32 %334, 0
-  %or.cond182 = select i1 %333, i1 %335, i1 false
+  %or.cond181 = select i1 %333, i1 %335, i1 false
   %336 = load i32, ptr %9, align 8
   %.not144.i = icmp eq i32 %336, 0
-  %or.cond183 = select i1 %or.cond182, i1 %.not144.i, i1 false
-  br i1 %or.cond183, label %337, label %maybeiso8601.exit.thread.i
+  %or.cond182 = select i1 %or.cond181, i1 %.not144.i, i1 false
+  br i1 %or.cond182, label %337, label %maybeiso8601.exit.thread.i
 
 337:                                              ; preds = %331
   switch i32 %281, label %.thread134.i [
@@ -1951,8 +1951,8 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   %or.cond9.i = icmp ult i64 %366, 31
   %367 = load i32, ptr %13, align 4
   %368 = icmp slt i32 %367, 0
-  %or.cond185 = select i1 %or.cond9.i, i1 %368, i1 false
-  br i1 %or.cond185, label %369, label %371
+  %or.cond184 = select i1 %or.cond9.i, i1 %368, i1 false
+  br i1 %or.cond184, label %369, label %371
 
 369:                                              ; preds = %365
   %370 = trunc nuw nsw i64 %239 to i32
@@ -1963,8 +1963,8 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   %372 = icmp eq i64 %indvars.iv.next.i71, 2
   %373 = load i32, ptr %11, align 4
   %374 = icmp slt i32 %373, 0
-  %or.cond187 = select i1 %372, i1 %374, i1 false
-  br i1 %or.cond187, label %375, label %.thread139.i
+  %or.cond186 = select i1 %372, i1 %374, i1 false
+  br i1 %or.cond186, label %375, label %.thread139.i
 
 375:                                              ; preds = %371
   %376 = icmp ult i64 %239, 10
@@ -1993,8 +1993,8 @@ maybeiso8601.exit.thread.i:                       ; preds = %.thread134.i, %331
   %or.cond11.i = icmp ult i64 %366, 12
   %386 = load i32, ptr %12, align 8
   %387 = icmp slt i32 %386, 0
-  %or.cond189 = select i1 %or.cond11.i, i1 %387, i1 false
-  br i1 %or.cond189, label %388, label %match_digit.exit
+  %or.cond188 = select i1 %or.cond11.i, i1 %387, i1 false
+  br i1 %or.cond188, label %388, label %match_digit.exit
 
 388:                                              ; preds = %.thread139.i
   %389 = trunc nuw nsw i64 %239 to i32
@@ -2209,20 +2209,20 @@ tm_to_time_t.exit.cont:                           ; preds = %tm_to_time_t.exit, 
 
 492:                                              ; preds = %487, %483
   %storemerge = phi i32 [ %491, %487 ], [ %486, %483 ]
-  br i1 %.not62, label %.cont92.thread175, label %.cont92.thread
+  br i1 %.not62, label %.cont92.thread174, label %.cont92.thread
 
 .cont92:                                          ; preds = %.cont107
   %.not68 = icmp eq i32 %.0148, 0
   br i1 %.not68, label %493, label %.cont95.cont
 
-.cont92.thread175:                                ; preds = %492
-  %.not68177 = icmp eq i32 %.0148, 0
-  br i1 %.not68177, label %.cont103, label %.cont95.cont
+.cont92.thread174:                                ; preds = %492
+  %.not68176 = icmp eq i32 %.0148, 0
+  br i1 %.not68176, label %.cont103, label %.cont95.cont
 
 .cont92.thread:                                   ; preds = %492
   store i32 %storemerge, ptr %2, align 4, !tbaa !17
-  %.not68169 = icmp eq i32 %.0148, 0
-  br i1 %.not68169, label %.cont103, label %.cont95.cont
+  %.not68168 = icmp eq i32 %.0148, 0
+  br i1 %.not68168, label %.cont103, label %.cont95.cont
 
 493:                                              ; preds = %.cont92
   br i1 %.not62, label %.cont103, label %..else105_crit_edge
@@ -2231,9 +2231,9 @@ tm_to_time_t.exit.cont:                           ; preds = %tm_to_time_t.exit, 
   %.else.val106.pre = load i32, ptr %2, align 4, !tbaa !17
   br label %.cont103
 
-.cont103:                                         ; preds = %.cont92.thread, %..else105_crit_edge, %.cont92.thread175, %493
-  %.4170174 = phi i32 [ %.1143, %493 ], [ %storemerge, %.cont92.thread175 ], [ %.1143, %..else105_crit_edge ], [ %.1143, %.cont92.thread ]
-  %494 = phi i32 [ %.1143, %493 ], [ %storemerge, %.cont92.thread175 ], [ %.else.val106.pre, %..else105_crit_edge ], [ %storemerge, %.cont92.thread ]
+.cont103:                                         ; preds = %.cont92.thread, %..else105_crit_edge, %.cont92.thread174, %493
+  %.4169173 = phi i32 [ %.1143, %493 ], [ %storemerge, %.cont92.thread174 ], [ %.1143, %..else105_crit_edge ], [ %.1143, %.cont92.thread ]
+  %494 = phi i32 [ %.1143, %493 ], [ %storemerge, %.cont92.thread174 ], [ %.else.val106.pre, %..else105_crit_edge ], [ %storemerge, %.cont92.thread ]
   %495 = icmp sgt i32 %494, 0
   br i1 %495, label %496, label %501
 
@@ -2259,7 +2259,7 @@ tm_to_time_t.exit.cont:                           ; preds = %tm_to_time_t.exit, 
   br label %.cont99
 
 .cont99:                                          ; preds = %501, %.else101
-  %502 = phi i32 [ %.4170174, %501 ], [ %.else.val102, %.else101 ]
+  %502 = phi i32 [ %.4169173, %501 ], [ %.else.val102, %.else101 ]
   %503 = icmp slt i32 %502, 0
   br i1 %503, label %504, label %510
 
@@ -2286,7 +2286,7 @@ tm_to_time_t.exit.cont:                           ; preds = %tm_to_time_t.exit, 
   br label %.cont95
 
 .cont95:                                          ; preds = %510, %.else97
-  %511 = phi i32 [ %.4170174, %510 ], [ %.else.val98, %.else97 ]
+  %511 = phi i32 [ %.4169173, %510 ], [ %.else.val98, %.else97 ]
   br i1 %.not, label %.cont95.cont, label %.cont95.else
 
 .cont95.else:                                     ; preds = %.cont95
@@ -2297,8 +2297,8 @@ tm_to_time_t.exit.cont:                           ; preds = %tm_to_time_t.exit, 
   store i64 %514, ptr %1, align 8, !tbaa !24
   br label %.cont95.cont
 
-.cont95.cont:                                     ; preds = %.cont95.else, %.cont95, %.cont92.thread175, %.cont92.thread, %match_object_header_date.exit, %.cont92, %.cont125, %.cont129, %tm_to_time_t.exit.cont
-  %.0 = phi i32 [ 0, %match_object_header_date.exit ], [ -1, %tm_to_time_t.exit.cont ], [ -1, %.cont129 ], [ -1, %.cont125 ], [ 0, %.cont92 ], [ 0, %.cont92.thread ], [ 0, %.cont92.thread175 ], [ 0, %.cont95 ], [ 0, %.cont95.else ]
+.cont95.cont:                                     ; preds = %.cont95.else, %.cont95, %.cont92.thread174, %.cont92.thread, %match_object_header_date.exit, %.cont92, %.cont125, %.cont129, %tm_to_time_t.exit.cont
+  %.0 = phi i32 [ 0, %match_object_header_date.exit ], [ -1, %tm_to_time_t.exit.cont ], [ -1, %.cont129 ], [ -1, %.cont125 ], [ 0, %.cont92 ], [ 0, %.cont92.thread ], [ 0, %.cont92.thread174 ], [ 0, %.cont95 ], [ 0, %.cont95.else ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.0
 }
@@ -2423,8 +2423,8 @@ get_time.exit:                                    ; preds = %21, %25
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 12
   store i32 -1, ptr %30, align 4, !tbaa !13
   %31 = load i8, ptr %0, align 1, !tbaa !23
-  %.not40.i = icmp eq i8 %31, 0
-  br i1 %.not40.i, label %pending_number.exit22.thread.i, label %.lr.ph.i
+  %.not38.i = icmp eq i8 %31, 0
+  br i1 %.not38.i, label %pending_number.exit22.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %get_time.exit
   %32 = getelementptr inbounds nuw i8, ptr %11, i64 12
@@ -2435,8 +2435,8 @@ get_time.exit:                                    ; preds = %21, %25
 
 36:                                               ; preds = %approxidate_alpha.exit.i, %.lr.ph.i
   %37 = phi i8 [ %31, %.lr.ph.i ], [ %452, %approxidate_alpha.exit.i ]
-  %.0942.i = phi ptr [ %0, %.lr.ph.i ], [ %.1.i, %approxidate_alpha.exit.i ]
-  %.0141.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %approxidate_alpha.exit.i ]
+  %.0940.i = phi ptr [ %0, %.lr.ph.i ], [ %.1.i, %approxidate_alpha.exit.i ]
+  %.0139.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %approxidate_alpha.exit.i ]
   %38 = zext i8 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !23
@@ -2510,7 +2510,7 @@ get_time.exit:                                    ; preds = %21, %25
 pending_number.exit.i:                            ; preds = %68, %66, %65, %61, %56, %54, %49, %43
   %70 = load i64, ptr %12, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %71 = call i64 @strtoumax(ptr noundef nonnull %.0942.i, ptr noundef nonnull %8, i32 noundef 10) #20
+  %71 = call i64 @strtoumax(ptr noundef nonnull %.0940.i, ptr noundef nonnull %8, i32 noundef 10) #20
   %72 = load ptr, ptr %8, align 8, !tbaa !27
   %73 = load i8, ptr %72, align 1, !tbaa !23
   switch i8 %73, label %85 [
@@ -2531,10 +2531,10 @@ pending_number.exit.i:                            ; preds = %68, %66, %65, %61, 
   br i1 %.not.i14.i, label %85, label %81
 
 81:                                               ; preds = %74
-  %82 = call fastcc i32 @match_multi_number(i64 noundef %71, i8 noundef signext %73, ptr noundef nonnull %.0942.i, ptr noundef nonnull %72, ptr noundef nonnull %10, i64 noundef %70)
+  %82 = call fastcc i32 @match_multi_number(i64 noundef %71, i8 noundef signext %73, ptr noundef nonnull %.0940.i, ptr noundef nonnull %72, ptr noundef nonnull %10, i64 noundef %70)
   %.not15.i.i = icmp eq i32 %82, 0
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds i8, ptr %.0942.i, i64 %83
+  %84 = getelementptr inbounds i8, ptr %.0940.i, i64 %83
   br i1 %.not15.i.i, label %._crit_edge.i.i, label %approxidate_digit.exit.i
 
 ._crit_edge.i.i:                                  ; preds = %81
@@ -2543,10 +2543,10 @@ pending_number.exit.i:                            ; preds = %68, %66, %65, %61, 
 
 85:                                               ; preds = %._crit_edge.i.i, %74, %pending_number.exit.i
   %.pre.pre.i.i = phi ptr [ %.pre.pre.pre.i.i, %._crit_edge.i.i ], [ %72, %74 ], [ %72, %pending_number.exit.i ]
-  %86 = load i8, ptr %.0942.i, align 1, !tbaa !23
+  %86 = load i8, ptr %.0940.i, align 1, !tbaa !23
   %.not16.i.i = icmp ne i8 %86, 48
   %87 = ptrtoint ptr %.pre.pre.i.i to i64
-  %88 = ptrtoint ptr %.0942.i to i64
+  %88 = ptrtoint ptr %.0940.i to i64
   %89 = sub i64 %87, %88
   %90 = icmp slt i64 %89, 3
   %or.cond.i15.i = select i1 %.not16.i.i, i1 true, i1 %90
@@ -2563,13 +2563,13 @@ approxidate_digit.exit.i:                         ; preds = %91, %85, %81
   br label %approxidate_alpha.exit.i
 
 93:                                               ; preds = %36
-  %94 = getelementptr inbounds nuw i8, ptr %.0942.i, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.0940.i, i64 1
   %95 = and i32 %41, 4
   %.not12.i = icmp eq i32 %95, 0
   br i1 %.not12.i, label %approxidate_alpha.exit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %93, %.preheader.i
-  %.0105.i.i = phi ptr [ %96, %.preheader.i ], [ %.0942.i, %93 ]
+  %.0105.i.i = phi ptr [ %96, %.preheader.i ], [ %.0940.i, %93 ]
   %96 = getelementptr inbounds nuw i8, ptr %.0105.i.i, i64 1
   %97 = load i8, ptr %96, align 1, !tbaa !23
   %98 = zext i8 %97 to i64
@@ -2589,7 +2589,7 @@ approxidate_digit.exit.i:                         ; preds = %91, %85, %81
   %104 = phi i8 [ %127, %123 ], [ %37, %.lr.ph.i.preheader.i.i ]
   %.023.i.i.i = phi i32 [ %126, %123 ], [ 0, %.lr.ph.i.preheader.i.i ]
   %.01022.i.i.i = phi ptr [ %125, %123 ], [ %103, %.lr.ph.i.preheader.i.i ]
-  %.01121.i.i.i = phi ptr [ %124, %123 ], [ %.0942.i, %.lr.ph.i.preheader.i.i ]
+  %.01121.i.i.i = phi ptr [ %124, %123 ], [ %.0940.i, %.lr.ph.i.preheader.i.i ]
   %105 = load i8, ptr %.01022.i.i.i, align 1, !tbaa !23
   %106 = icmp eq i8 %104, %105
   br i1 %106, label %123, label %107
@@ -2652,7 +2652,7 @@ match_string.exit.thread.i.i:                     ; preds = %match_string.exit.i
   %133 = phi i8 [ %156, %152 ], [ %37, %.lr.ph.i123.preheader.i.i ]
   %.023.i124.i.i = phi i32 [ %155, %152 ], [ 0, %.lr.ph.i123.preheader.i.i ]
   %.01022.i125.i.i = phi ptr [ %154, %152 ], [ %131, %.lr.ph.i123.preheader.i.i ]
-  %.01121.i126.i.i = phi ptr [ %153, %152 ], [ %.0942.i, %.lr.ph.i123.preheader.i.i ]
+  %.01121.i126.i.i = phi ptr [ %153, %152 ], [ %.0940.i, %.lr.ph.i123.preheader.i.i ]
   %134 = load i8, ptr %.01022.i125.i.i, align 1, !tbaa !23
   %135 = icmp eq i8 %133, %134
   br i1 %135, label %152, label %136
@@ -2725,7 +2725,7 @@ match_string.exit135.i.i:                         ; preds = %152, %150
   %167 = phi i8 [ %190, %186 ], [ %37, %.preheader.i.i ]
   %.023.i138.i.i = phi i32 [ %189, %186 ], [ 0, %.preheader.i.i ]
   %.01022.i139.i.i = phi ptr [ %188, %186 ], [ %165, %.preheader.i.i ]
-  %.01121.i140.i.i = phi ptr [ %187, %186 ], [ %.0942.i, %.preheader.i.i ]
+  %.01121.i140.i.i = phi ptr [ %187, %186 ], [ %.0940.i, %.preheader.i.i ]
   %168 = load i8, ptr %.01022.i139.i.i, align 1, !tbaa !23
   %169 = icmp eq i8 %167, %168
   br i1 %169, label %186, label %170
@@ -2784,7 +2784,7 @@ match_string.exit149.i.i:                         ; preds = %186, %184
   %194 = phi i8 [ %217, %213 ], [ %37, %193 ]
   %.023.i152.i.i = phi i32 [ %216, %213 ], [ 0, %193 ]
   %.01022.i153.i.i = phi ptr [ %215, %213 ], [ @.str.130, %193 ]
-  %.01121.i154.i.i = phi ptr [ %214, %213 ], [ %.0942.i, %193 ]
+  %.01121.i154.i.i = phi ptr [ %214, %213 ], [ %.0940.i, %193 ]
   %195 = load i8, ptr %.01022.i153.i.i, align 1, !tbaa !23
   %196 = icmp eq i8 %194, %195
   br i1 %196, label %213, label %197
@@ -2841,7 +2841,7 @@ match_string.exit163.i.i:                         ; preds = %213, %211
   %222 = phi i8 [ %245, %241 ], [ %37, %.preheader245.i.i ]
   %.023.i166.i.i = phi i32 [ %244, %241 ], [ 0, %.preheader245.i.i ]
   %.01022.i167.i.i = phi ptr [ %243, %241 ], [ %220, %.preheader245.i.i ]
-  %.01121.i168.i.i = phi ptr [ %242, %241 ], [ %.0942.i, %.preheader245.i.i ]
+  %.01121.i168.i.i = phi ptr [ %242, %241 ], [ %.0940.i, %.preheader245.i.i ]
   %223 = load i8, ptr %.01022.i167.i.i, align 1, !tbaa !23
   %224 = icmp eq i8 %222, %223
   br i1 %224, label %241, label %225
@@ -2955,7 +2955,7 @@ match_string.exit177.i.i:                         ; preds = %241, %239
   %280 = phi i8 [ %303, %299 ], [ %37, %.lr.ph.i179.preheader.i.i ]
   %.023.i180.i.i = phi i32 [ %302, %299 ], [ 0, %.lr.ph.i179.preheader.i.i ]
   %.01022.i181.i.i = phi ptr [ %301, %299 ], [ %279, %.lr.ph.i179.preheader.i.i ]
-  %.01121.i182.i.i = phi ptr [ %300, %299 ], [ %.0942.i, %.lr.ph.i179.preheader.i.i ]
+  %.01121.i182.i.i = phi ptr [ %300, %299 ], [ %.0940.i, %.lr.ph.i179.preheader.i.i ]
   %281 = load i8, ptr %.01022.i181.i.i, align 1, !tbaa !23
   %282 = icmp eq i8 %280, %281
   br i1 %282, label %299, label %283
@@ -3065,7 +3065,7 @@ match_string.exit191.thread.i.i:                  ; preds = %match_string.exit19
   %338 = phi i8 [ %361, %357 ], [ %37, %match_string.exit191.thread.i.i ]
   %.023.i195.i.i = phi i32 [ %360, %357 ], [ 0, %match_string.exit191.thread.i.i ]
   %.01022.i196.i.i = phi ptr [ %359, %357 ], [ @.str.131, %match_string.exit191.thread.i.i ]
-  %.01121.i197.i.i = phi ptr [ %358, %357 ], [ %.0942.i, %match_string.exit191.thread.i.i ]
+  %.01121.i197.i.i = phi ptr [ %358, %357 ], [ %.0940.i, %match_string.exit191.thread.i.i ]
   %339 = load i8, ptr %.01022.i196.i.i, align 1, !tbaa !23
   %340 = icmp eq i8 %338, %339
   br i1 %340, label %357, label %341
@@ -3167,10 +3167,10 @@ update_tm.exit207.i.i:                            ; preds = %381, %377, %373
   %389 = call i32 @llvm.umax.i32(i32 %387, i32 -12)
   %390 = add i32 %389, %386
   %391 = icmp ne i32 %390, %385
-  %umin.i.neg43.i = sext i1 %391 to i32
+  %umin.i.neg41.i = sext i1 %391 to i32
   %umin.i.i = zext i1 %391 to i32
-  %.neg9.i = sub i32 %390, %385
-  %392 = add i32 %.neg9.i, %umin.i.neg43.i
+  %.neg7.i = sub i32 %390, %385
+  %392 = add i32 %.neg7.i, %umin.i.neg41.i
   %393 = udiv i32 %392, 12
   %394 = add nuw nsw i32 %393, %umin.i.i
   %395 = mul i32 %394, 12
@@ -3191,7 +3191,7 @@ update_tm.exit207.i.i:                            ; preds = %381, %377, %373
   %402 = phi i8 [ %425, %421 ], [ %37, %.lr.ph.i209.i.i.preheader ]
   %.023.i210.i.i = phi i32 [ %424, %421 ], [ 0, %.lr.ph.i209.i.i.preheader ]
   %.01022.i211.i.i = phi ptr [ %423, %421 ], [ @.str.132, %.lr.ph.i209.i.i.preheader ]
-  %.01121.i212.i.i = phi ptr [ %422, %421 ], [ %.0942.i, %.lr.ph.i209.i.i.preheader ]
+  %.01121.i212.i.i = phi ptr [ %422, %421 ], [ %.0940.i, %.lr.ph.i209.i.i.preheader ]
   %403 = load i8, ptr %.01022.i211.i.i, align 1, !tbaa !23
   %404 = icmp eq i8 %402, %403
   br i1 %404, label %421, label %405
@@ -3286,7 +3286,7 @@ update_tm.exit:                                   ; preds = %437, %441, %445
   br label %approxidate_alpha.exit.i
 
 approxidate_alpha.exit.i:                         ; preds = %update_tm.exit, %match_string.exit221.i.i, %419, %401, %334, %.thread231.i.i, %219, %match_string.exit163.i.i, %211, %.thread227.i.i, %.thread225.i.i, %129, %93, %approxidate_digit.exit.i
-  %.2.i = phi i32 [ %.0141.i, %93 ], [ 1, %approxidate_digit.exit.i ], [ %.0141.i, %match_string.exit163.i.i ], [ %.0141.i, %211 ], [ %.0141.i, %match_string.exit221.i.i ], [ %.0141.i, %419 ], [ 1, %update_tm.exit ], [ 1, %401 ], [ 1, %334 ], [ 1, %.thread231.i.i ], [ 1, %219 ], [ 1, %.thread227.i.i ], [ 1, %.thread225.i.i ], [ 1, %129 ]
+  %.2.i = phi i32 [ %.0139.i, %93 ], [ 1, %approxidate_digit.exit.i ], [ %.0139.i, %match_string.exit163.i.i ], [ %.0139.i, %211 ], [ %.0139.i, %match_string.exit221.i.i ], [ %.0139.i, %419 ], [ 1, %update_tm.exit ], [ 1, %401 ], [ 1, %334 ], [ 1, %.thread231.i.i ], [ 1, %219 ], [ 1, %.thread227.i.i ], [ 1, %.thread225.i.i ], [ 1, %129 ]
   %.1.i = phi ptr [ %94, %93 ], [ %.1.i.i, %approxidate_digit.exit.i ], [ %96, %match_string.exit163.i.i ], [ %96, %211 ], [ %96, %match_string.exit221.i.i ], [ %96, %419 ], [ %96, %update_tm.exit ], [ %96, %401 ], [ %96, %334 ], [ %96, %.thread231.i.i ], [ %96, %219 ], [ %96, %.thread227.i.i ], [ %96, %.thread225.i.i ], [ %96, %129 ]
   %452 = load i8, ptr %.1.i, align 1, !tbaa !23
   %.not.i6 = icmp eq i8 %452, 0

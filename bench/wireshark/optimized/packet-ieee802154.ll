@@ -1977,8 +1977,8 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 0, ptr %11, align 8
   %12 = load i32, ptr @num_ieee802154_keys, align 4
-  %.not54 = icmp eq i32 %12, 0
-  br i1 %.not54, label %._crit_edge.thread, label %.lr.ph
+  %.not52 = icmp eq i32 %12, 0
+  br i1 %.not52, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %8
   store ptr null, ptr %5, align 8
@@ -1989,10 +1989,10 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
   br label %14
 
 14:                                               ; preds = %.lr.ph, %.thread
-  %.03449 = phi ptr [ null, %.lr.ph ], [ %.3.ph, %.thread ]
-  %storemerge48 = phi i32 [ 0, %.lr.ph ], [ %31, %.thread ]
+  %.03447 = phi ptr [ null, %.lr.ph ], [ %.3.ph, %.thread ]
+  %storemerge46 = phi i32 [ 0, %.lr.ph ], [ %31, %.thread ]
   %15 = load ptr, ptr @ieee802154_keys, align 8
-  %16 = zext i32 %storemerge48 to i64
+  %16 = zext i32 %storemerge46 to i64
   %17 = getelementptr %struct.ieee802154_key_t, ptr %15, i64 %16
   %18 = call i32 %6(ptr noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %17)
   %.not = icmp eq i32 %18, 0
@@ -2004,12 +2004,12 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
   %21 = load ptr, ptr %13, align 8
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, -2
-  %switch38 = icmp eq i32 %23, 6
-  br i1 %switch38, label %24, label %._crit_edge
+  %switch = icmp eq i32 %23, 6
+  br i1 %switch, label %24, label %._crit_edge
 
 24:                                               ; preds = %19
-  %.not47 = icmp eq i32 %18, 1
-  br i1 %.not47, label %.thread, label %25
+  %.not45 = icmp eq i32 %18, 1
+  br i1 %.not45, label %.thread, label %25
 
 25:                                               ; preds = %24
   store ptr %10, ptr %5, align 8
@@ -2017,11 +2017,11 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
   %27 = load ptr, ptr %13, align 8
   %28 = load i32, ptr %27, align 4
   %29 = and i32 %28, -2
-  %switch40 = icmp eq i32 %29, 6
-  br i1 %switch40, label %.thread, label %._crit_edge
+  %switch39 = icmp eq i32 %29, 6
+  br i1 %switch39, label %.thread, label %._crit_edge
 
 .thread:                                          ; preds = %25, %14, %24
-  %.3.ph = phi ptr [ %20, %24 ], [ %.03449, %14 ], [ %26, %25 ]
+  %.3.ph = phi ptr [ %20, %24 ], [ %.03447, %14 ], [ %26, %25 ]
   %30 = load i32, ptr %11, align 8
   %31 = add i32 %30, 1
   store i32 %31, ptr %11, align 8
@@ -2032,22 +2032,22 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
 ._crit_edge:                                      ; preds = %.thread, %25, %19
   %.1.ph = phi ptr [ %.3.ph, %.thread ], [ %26, %25 ], [ %20, %19 ]
   %.pre = load i32, ptr %11, align 8
-  %.pre55 = load i32, ptr @num_ieee802154_keys, align 4
-  %34 = icmp eq i32 %.pre, %.pre55
+  %.pre53 = load i32, ptr @num_ieee802154_keys, align 4
+  %34 = icmp eq i32 %.pre, %.pre53
   store ptr null, ptr %5, align 8
   br i1 %34, label %35, label %38
 
 35:                                               ; preds = %._crit_edge.thread, %._crit_edge
-  %.163 = phi ptr [ null, %._crit_edge.thread ], [ %.1.ph, %._crit_edge ]
+  %.161 = phi ptr [ null, %._crit_edge.thread ], [ %.1.ph, %._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %37 = load ptr, ptr %36, align 8
   store i32 5, ptr %37, align 4
-  %.pre56 = load i32, ptr %11, align 8
+  %.pre54 = load i32, ptr %11, align 8
   br label %38
 
 38:                                               ; preds = %35, %._crit_edge
-  %.162 = phi ptr [ %.163, %35 ], [ %.1.ph, %._crit_edge ]
-  %39 = phi i32 [ %.pre56, %35 ], [ %.pre, %._crit_edge ]
+  %.160 = phi ptr [ %.161, %35 ], [ %.1.ph, %._crit_edge ]
+  %39 = phi i32 [ %.pre54, %35 ], [ %.pre, %._crit_edge ]
   %40 = load i32, ptr @hf_ieee802154_key_number, align 4
   %41 = call ptr @proto_tree_add_uint(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef 0, i32 noundef 0, i32 noundef %39)
   %.not.i = icmp eq ptr %41, null
@@ -2069,7 +2069,7 @@ define hidden ptr @decrypt_ieee802154_payload(ptr noundef %0, i32 noundef %1, pt
 proto_item_set_hidden.exit:                       ; preds = %38, %42, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  ret ptr %.162
+  ret ptr %.160
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

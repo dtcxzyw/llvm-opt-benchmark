@@ -3508,7 +3508,7 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, ptr noundef readonly cap
   %24 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 4, i32 noundef %23)
   %25 = call i32 @connect(i32 noundef %15, ptr noundef nonnull %5, i32 noundef 16)
   %26 = icmp eq i32 %25, -1
-  br i1 %26, label %27, label %.critedge66
+  br i1 %26, label %27, label %.critedge65
 
 27:                                               ; preds = %21
   %28 = tail call ptr @__errno_location() #24
@@ -3552,7 +3552,7 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, ptr noundef readonly cap
   store i32 4, ptr %4, align 4
   %48 = call i32 @getsockopt(i32 noundef %15, i32 noundef 1, i32 noundef 4, ptr noundef nonnull %7, ptr noundef nonnull %4) #23
   %49 = load i32, ptr %7, align 4
-  %.not68 = icmp eq i32 %49, 0
+  %.not67 = icmp eq i32 %49, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %50 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 3)
@@ -3563,7 +3563,7 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, ptr noundef readonly cap
   %53 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %15, i32 noundef 1, i32 noundef 21, ptr noundef nonnull %3, i32 noundef 16) #23
   %54 = call i32 @setsockopt(i32 noundef range(i32 0, -1) %15, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %3, i32 noundef 16) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not68, label %68, label %61
+  br i1 %.not67, label %68, label %61
 
 55:                                               ; preds = %36, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3586,7 +3586,7 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, ptr noundef readonly cap
   %62 = call i32 @close(i32 noundef %15)
   br label %79
 
-.critedge66:                                      ; preds = %21
+.critedge65:                                      ; preds = %21
   %63 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 3)
   %64 = and i32 %63, -2049
   %65 = call i32 (i32, i32, ...) @fcntl(i32 noundef range(i32 0, -1) %15, i32 noundef 4, i32 noundef %64)
@@ -3597,7 +3597,7 @@ define internal fastcc i32 @adb_connect(ptr noundef %0, ptr noundef readonly cap
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %68
 
-68:                                               ; preds = %.critedge66, %.thread
+68:                                               ; preds = %.critedge65, %.thread
   store i32 16, ptr %4, align 4
   %69 = call i32 @getsockname(i32 noundef %15, ptr noundef nonnull %6, ptr noundef nonnull %4) #23
   %.not58 = icmp eq i32 %69, 0

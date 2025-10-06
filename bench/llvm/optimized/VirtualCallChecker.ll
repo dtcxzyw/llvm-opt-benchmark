@@ -2742,17 +2742,17 @@ define internal fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llv
   %.pre8 = load i64, ptr %.phi.trans.insert7, align 8, !tbaa !12
   br label %5
 
-5:                                                ; preds = %49, %1
-  %.val2.pr11 = phi i32 [ %.val2.pr914, %49 ], [ %.pre5, %1 ]
-  %6 = phi i64 [ %53, %49 ], [ %.pre8, %1 ]
-  %7 = phi ptr [ %.val, %49 ], [ %.pre, %1 ]
+5:                                                ; preds = %50, %1
+  %.val2.pr11 = phi i32 [ %.val2.pr914, %50 ], [ %.pre5, %1 ]
+  %6 = phi i64 [ %54, %50 ], [ %.pre8, %1 ]
+  %7 = phi ptr [ %.val, %50 ], [ %.pre, %1 ]
   %8 = zext i32 %.val2.pr11 to i64
   %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = and i64 %6, -4
   %12 = inttoptr i64 %11 to ptr
   %13 = and i64 %6, 3
-  switch i64 %13, label %48 [
+  switch i64 %13, label %49 [
     i64 0, label %14
     i64 1, label %27
     i64 3, label %40
@@ -2840,32 +2840,32 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
   %45 = load i64, ptr %44, align 8, !tbaa !12
   %46 = and i64 %45, 3
-  %switch.i.i = icmp eq i64 %46, 0
-  %..i.i = select i1 %switch.i.i, i64 1, i64 3
-  %47 = or i64 %..i.i, %45
-  store i64 %47, ptr %44, align 8, !tbaa !12
-  br label %49
+  %47 = icmp eq i64 %46, 0
+  %..i.i = select i1 %47, i64 1, i64 3
+  %48 = or i64 %..i.i, %45
+  store i64 %48, ptr %44, align 8, !tbaa !12
+  br label %50
 
-48:                                               ; preds = %5
+49:                                               ; preds = %5
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111ObjectStateEEEEppEv.exit: ; preds = %25, %38, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i
   %.val2.pr9 = phi i32 [ %24, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %37, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i ], [ %.val2.pr11, %38 ], [ %.val2.pr11, %25 ]
   %.not.i.i = icmp eq i32 %.val2.pr9, 0
-  br i1 %.not.i.i, label %.critedge, label %49
+  br i1 %.not.i.i, label %.critedge, label %50
 
-49:                                               ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111ObjectStateEEEEppEv.exit.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111ObjectStateEEEEppEv.exit
+50:                                               ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111ObjectStateEEEEppEv.exit.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111ObjectStateEEEEppEv.exit
   %.val2.pr914 = phi i32 [ %41, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111ObjectStateEEEEppEv.exit.thread ], [ %.val2.pr9, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111ObjectStateEEEEppEv.exit ]
   %.val = load ptr, ptr %0, align 8, !tbaa !493
-  %50 = zext i32 %.val2.pr914 to i64
-  %51 = getelementptr inbounds nuw i64, ptr %.val, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -8
-  %53 = load i64, ptr %52, align 8, !tbaa !12
-  %54 = and i64 %53, 3
-  %.not = icmp eq i64 %54, 1
+  %51 = zext i32 %.val2.pr914 to i64
+  %52 = getelementptr inbounds nuw i64, ptr %.val, i64 %51
+  %53 = getelementptr inbounds i8, ptr %52, i64 -8
+  %54 = load i64, ptr %53, align 8, !tbaa !12
+  %55 = and i64 %54, 3
+  %.not = icmp eq i64 %55, 1
   br i1 %.not, label %.critedge, label %5, !llvm.loop !531
 
-.critedge:                                        ; preds = %40, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111ObjectStateEEEEppEv.exit, %49
+.critedge:                                        ; preds = %40, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionEN12_GLOBAL__N_111ObjectStateEEEEppEv.exit, %50
   ret ptr %0
 }
 

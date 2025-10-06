@@ -1544,13 +1544,13 @@ _PyPerfTrampoline_Fini.exit:                      ; preds = %7, %22
   %31 = load ptr, ptr %30, align 8, !tbaa !189
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8472
   %33 = load ptr, ptr %32, align 8, !tbaa !190
-  %.not12 = icmp eq ptr %33, @py_trampoline_evaluator
+  %.not11 = icmp eq ptr %33, @py_trampoline_evaluator
   %34 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2632), align 8, !tbaa !191
   %.not.i6 = icmp eq i32 %34, 1
   br i1 %.not.i6, label %35, label %_PyPerfTrampoline_Fini.exit9
 
 35:                                               ; preds = %27
-  br i1 %.not12, label %36, label %.thread.i7
+  br i1 %.not11, label %36, label %.thread.i7
 
 36:                                               ; preds = %35
   tail call void @_PyInterpreterState_SetEvalFrameFunc(ptr noundef nonnull %31, ptr noundef null) #10
@@ -1571,7 +1571,7 @@ _PyPerfTrampoline_Fini.exit:                      ; preds = %7, %22
   br label %_PyPerfTrampoline_Fini.exit9
 
 _PyPerfTrampoline_Fini.exit9:                     ; preds = %27, %41
-  br i1 %.not12, label %42, label %_PyPerfTrampoline_Init.exit
+  br i1 %.not11, label %42, label %_PyPerfTrampoline_Init.exit
 
 42:                                               ; preds = %_PyPerfTrampoline_Fini.exit9
   %43 = load ptr, ptr %28, align 8, !tbaa !188

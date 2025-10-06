@@ -1653,8 +1653,8 @@ define internal fastcc range(i32 -2147483648, 1) i32 @progress_init(ptr noundef 
   %17 = mul nuw nsw i64 %16, 96
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %14, i8 0, i64 %17, i1 false)
   %18 = load i32, ptr %3, align 8, !tbaa !78
-  %.not3846 = icmp ult i32 %18, %1
-  br i1 %.not3846, label %.lr.ph.preheader, label %.lr.ph49
+  %.not3845 = icmp ult i32 %18, %1
+  br i1 %.not3845, label %.lr.ph.preheader, label %.lr.ph48
 
 .lr.ph.preheader:                                 ; preds = %11
   %19 = sext i32 %18 to i64
@@ -1673,28 +1673,28 @@ define internal fastcc range(i32 -2147483648, 1) i32 @progress_init(ptr noundef 
   %25 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %25, ptr %3, align 8, !tbaa !78
   %.not38 = icmp ugt i32 %1, %25
-  br i1 %.not38, label %.lr.ph, label %.lr.ph49, !llvm.loop !119
+  br i1 %.not38, label %.lr.ph, label %.lr.ph48, !llvm.loop !119
 
 .loopexit:                                        ; preds = %2
-  %.not50 = icmp eq i32 %1, 0
-  br i1 %.not50, label %.thread41, label %.lr.ph49
+  %.not49 = icmp eq i32 %1, 0
+  br i1 %.not49, label %.thread41, label %.lr.ph48
 
-.lr.ph49:                                         ; preds = %24, %11, %.loopexit
+.lr.ph48:                                         ; preds = %24, %11, %.loopexit
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %wide.trip.count = zext i32 %1 to i64
   br label %27
 
-27:                                               ; preds = %.lr.ph49, %27
-  %indvars.iv54 = phi i64 [ 0, %.lr.ph49 ], [ %indvars.iv.next55, %27 ]
+27:                                               ; preds = %.lr.ph48, %27
+  %indvars.iv53 = phi i64 [ 0, %.lr.ph48 ], [ %indvars.iv.next54, %27 ]
   %28 = load ptr, ptr %26, align 8, !tbaa !80
-  %29 = getelementptr inbounds nuw %struct.ThreadProgress, ptr %28, i64 %indvars.iv54
+  %29 = getelementptr inbounds nuw %struct.ThreadProgress, ptr %28, i64 %indvars.iv53
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !120
   %.not.i = icmp eq i32 %31, 0
   %32 = select i1 %.not.i, i32 2147483647, i32 -1
   store i32 %32, ptr %29, align 4, !tbaa !42
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next54, %wide.trip.count
   br i1 %exitcond.not, label %.thread41, label %27, !llvm.loop !122
 
 .thread41:                                        ; preds = %.lr.ph, %27, %.loopexit, %6

@@ -778,8 +778,8 @@ parallel_vacuum_process_unsafe_indexes.exit.thread: ; preds = %._crit_edge.i, %1
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 44
   %131 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %130, i32 1, ptr nonnull elementtype(i32) %130) #9, !srcloc !11
   %132 = load i32, ptr %20, align 8
-  %.not1318.i = icmp slt i32 %131, %132
-  br i1 %.not1318.i, label %.lr.ph.i89, label %._crit_edge.i88
+  %.not1316.i = icmp slt i32 %131, %132
+  br i1 %.not1316.i, label %.lr.ph.i89, label %._crit_edge.i88
 
 .lr.ph.i89:                                       ; preds = %parallel_vacuum_process_unsafe_indexes.exit.thread
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -913,8 +913,8 @@ parallel_vacuum_process_unsafe_indexes.exit97.thread: ; preds = %._crit_edge.i91
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 44
   %201 = tail call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %200, i32 1, ptr nonnull elementtype(i32) %200) #9, !srcloc !11
   %202 = load i32, ptr %20, align 8
-  %.not1318.i99 = icmp slt i32 %201, %202
-  br i1 %.not1318.i99, label %.lr.ph.i102, label %._crit_edge.i100
+  %.not1316.i99 = icmp slt i32 %201, %202
+  br i1 %.not1316.i99, label %.lr.ph.i102, label %._crit_edge.i100
 
 .lr.ph.i102:                                      ; preds = %parallel_vacuum_process_unsafe_indexes.exit97.thread
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1133,8 +1133,8 @@ define dso_local void @parallel_vacuum_main(ptr noundef readnone captures(none) 
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 44
   %64 = call i32 asm sideeffect "\09lock\09\09\09\09\0A\09xaddl\09$0,$1\09\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %63, i32 1, ptr nonnull elementtype(i32) %63) #9, !srcloc !11
   %65 = load i32, ptr %33, align 8
-  %.not1318.i = icmp slt i32 %64, %65
-  br i1 %.not1318.i, label %.lr.ph.i, label %._crit_edge.i
+  %.not1316.i = icmp slt i32 %64, %65
+  br i1 %.not1316.i, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %61, %77
   %66 = phi i32 [ %80, %77 ], [ %64, %61 ]

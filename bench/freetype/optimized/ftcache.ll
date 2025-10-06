@@ -654,8 +654,8 @@ define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, pt
   %9 = load ptr, ptr %8, align 8, !tbaa !98
   %10 = call i32 %9(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %0) #12
   %11 = and i32 %10, 255
-  %.not2736 = icmp eq i32 %11, 64
-  br i1 %.not2736, label %.lr.ph, label %._crit_edge
+  %.not2735 = icmp eq i32 %11, 64
+  br i1 %.not2735, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -664,12 +664,12 @@ define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, pt
 
 14:                                               ; preds = %.lr.ph, %41
   %15 = phi i32 [ %10, %.lr.ph ], [ %43, %41 ]
-  %.02337 = phi i32 [ 4, %.lr.ph ], [ %.1, %41 ]
+  %.02336 = phi i32 [ 4, %.lr.ph ], [ %.1, %41 ]
   %16 = load ptr, ptr %12, align 8, !tbaa !85
   %17 = icmp ne ptr %16, null
-  %18 = icmp ne i32 %.02337, 0
+  %18 = icmp ne i32 %.02336, 0
   %or.cond.i = and i1 %18, %17
-  br i1 %or.cond.i, label %19, label %.thread32
+  br i1 %or.cond.i, label %19, label %.thread31
 
 19:                                               ; preds = %14
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -694,7 +694,7 @@ define internal fastcc i32 @FTC_Cache_NewNode(ptr noundef %0, i64 noundef %1, pt
 30:                                               ; preds = %28, %22
   %.1.i = phi i32 [ %29, %28 ], [ %.0.i, %22 ]
   %31 = icmp ne ptr %.018.i, %16
-  %32 = icmp ult i32 %.1.i, %.02337
+  %32 = icmp ult i32 %.1.i, %.02336
   %33 = select i1 %31, i1 %32, i1 false
   br i1 %33, label %22, label %FTC_Manager_FlushN.exit, !llvm.loop !100
 
@@ -703,19 +703,19 @@ FTC_Manager_FlushN.exit:                          ; preds = %30
   br i1 %34, label %._crit_edge, label %35
 
 35:                                               ; preds = %FTC_Manager_FlushN.exit
-  %36 = icmp eq i32 %.1.i, %.02337
+  %36 = icmp eq i32 %.1.i, %.02336
   br i1 %36, label %37, label %41
 
 37:                                               ; preds = %35
-  %38 = icmp slt i32 %.02337, 0
+  %38 = icmp slt i32 %.02336, 0
   %.pre = load i32, ptr %13, align 8, !tbaa !101
-  %39 = shl nuw i32 %.02337, 1
+  %39 = shl nuw i32 %.02336, 1
   %40 = call i32 @llvm.umin.i32(i32 %39, i32 %.pre)
   %spec.select = select i1 %38, i32 %.pre, i32 %40
   br label %41
 
 41:                                               ; preds = %37, %35
-  %.1 = phi i32 [ %.02337, %35 ], [ %spec.select, %37 ]
+  %.1 = phi i32 [ %.02336, %35 ], [ %spec.select, %37 ]
   %42 = load ptr, ptr %8, align 8, !tbaa !98
   %43 = call i32 %42(ptr noundef nonnull %5, ptr noundef nonnull %2, ptr noundef %0) #12
   %44 = and i32 %43, 255
@@ -723,12 +723,12 @@ FTC_Manager_FlushN.exit:                          ; preds = %30
   br i1 %.not27, label %14, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %FTC_Manager_FlushN.exit, %41, %4
-  %.lcssa35 = phi i32 [ %10, %4 ], [ %43, %41 ], [ %15, %FTC_Manager_FlushN.exit ]
-  %.not.le = icmp eq i32 %.lcssa35, 0
-  br i1 %.not.le, label %46, label %.thread32
+  %.lcssa34 = phi i32 [ %10, %4 ], [ %43, %41 ], [ %15, %FTC_Manager_FlushN.exit ]
+  %.not.le = icmp eq i32 %.lcssa34, 0
+  br i1 %.not.le, label %46, label %.thread31
 
-.thread32:                                        ; preds = %14, %._crit_edge
-  %45 = phi i32 [ %.lcssa35, %._crit_edge ], [ %15, %14 ]
+.thread31:                                        ; preds = %14, %._crit_edge
+  %45 = phi i32 [ %.lcssa34, %._crit_edge ], [ %15, %14 ]
   store ptr null, ptr %5, align 8, !tbaa !44
   br label %ftc_cache_add.exit
 
@@ -848,8 +848,8 @@ FTC_Manager_Compress.exit.i:                      ; preds = %FTC_Manager_Compres
   store i16 %110, ptr %53, align 2, !tbaa !90
   br label %ftc_cache_add.exit
 
-ftc_cache_add.exit:                               ; preds = %FTC_Manager_Compress.exit.i, %ftc_node_mru_link.exit.i, %.thread32
-  %111 = phi i32 [ 0, %FTC_Manager_Compress.exit.i ], [ 0, %ftc_node_mru_link.exit.i ], [ %45, %.thread32 ]
+ftc_cache_add.exit:                               ; preds = %FTC_Manager_Compress.exit.i, %ftc_node_mru_link.exit.i, %.thread31
+  %111 = phi i32 [ 0, %FTC_Manager_Compress.exit.i ], [ 0, %ftc_node_mru_link.exit.i ], [ %45, %.thread31 ]
   %112 = load ptr, ptr %5, align 8, !tbaa !44
   store ptr %112, ptr %3, align 8, !tbaa !44
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1657,8 +1657,8 @@ FTC_MruList_Remove.exit:                          ; preds = %FTC_MruNode_Remove.
 define internal zeroext range(i8 0, 2) i8 @ftc_snode_compare(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
   %5 = alloca i64, align 8
   %6 = load i32, ptr %1, align 8, !tbaa !62
-  %.not76 = icmp eq ptr %3, null
-  br i1 %.not76, label %8, label %7
+  %.not75 = icmp eq ptr %3, null
+  br i1 %.not75, label %8, label %7
 
 7:                                                ; preds = %4
   store i8 0, ptr %3, align 1, !tbaa !97
@@ -1705,22 +1705,22 @@ define internal zeroext range(i8 0, 2) i8 @ftc_snode_compare(ptr noundef capture
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   %35 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %0, ptr noundef %34, i32 noundef %6, ptr noundef nonnull %5)
   %36 = and i32 %35, 255
-  %.not5671 = icmp eq i32 %36, 64
-  br i1 %.not5671, label %.lr.ph, label %._crit_edge
+  %.not5670 = icmp eq i32 %36, 64
+  br i1 %.not5670, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %29
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  br i1 %.not76, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not75, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %65
   %39 = phi i32 [ %67, %65 ], [ %35, %.lr.ph ]
-  %.04472.us = phi i32 [ %.145.us, %65 ], [ 4, %.lr.ph ]
+  %.04471.us = phi i32 [ %.145.us, %65 ], [ 4, %.lr.ph ]
   %40 = load ptr, ptr %37, align 8, !tbaa !85
   %41 = icmp ne ptr %40, null
-  %42 = icmp ne i32 %.04472.us, 0
+  %42 = icmp ne i32 %.04471.us, 0
   %or.cond.i.us = and i1 %42, %41
-  br i1 %or.cond.i.us, label %43, label %.thread69
+  br i1 %or.cond.i.us, label %43, label %.thread68
 
 43:                                               ; preds = %.lr.ph.split.us
   %44 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -1745,7 +1745,7 @@ define internal zeroext range(i8 0, 2) i8 @ftc_snode_compare(ptr noundef capture
 54:                                               ; preds = %52, %46
   %.1.i.us = phi i32 [ %53, %52 ], [ %.0.i.us, %46 ]
   %55 = icmp ne ptr %.018.i.us, %40
-  %56 = icmp ult i32 %.1.i.us, %.04472.us
+  %56 = icmp ult i32 %.1.i.us, %.04471.us
   %57 = select i1 %55, i1 %56, i1 false
   br i1 %57, label %46, label %FTC_Manager_FlushN.exit.us, !llvm.loop !100
 
@@ -1754,19 +1754,19 @@ FTC_Manager_FlushN.exit.us:                       ; preds = %54
   br i1 %58, label %._crit_edge, label %59
 
 59:                                               ; preds = %FTC_Manager_FlushN.exit.us
-  %60 = icmp eq i32 %.1.i.us, %.04472.us
+  %60 = icmp eq i32 %.1.i.us, %.04471.us
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %59
-  %62 = icmp slt i32 %.04472.us, 0
-  %.pre81 = load i32, ptr %38, align 8, !tbaa !101
-  %63 = shl nuw i32 %.04472.us, 1
-  %64 = call i32 @llvm.umin.i32(i32 %63, i32 %.pre81)
-  %spec.select = select i1 %62, i32 %.pre81, i32 %64
+  %62 = icmp slt i32 %.04471.us, 0
+  %.pre80 = load i32, ptr %38, align 8, !tbaa !101
+  %63 = shl nuw i32 %.04471.us, 1
+  %64 = call i32 @llvm.umin.i32(i32 %63, i32 %.pre80)
+  %spec.select = select i1 %62, i32 %.pre80, i32 %64
   br label %65
 
 65:                                               ; preds = %61, %59
-  %.145.us = phi i32 [ %.04472.us, %59 ], [ %spec.select, %61 ]
+  %.145.us = phi i32 [ %.04471.us, %59 ], [ %spec.select, %61 ]
   %66 = load ptr, ptr %33, align 8, !tbaa !18
   %67 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %0, ptr noundef %66, i32 noundef %6, ptr noundef nonnull %5)
   %68 = and i32 %67, 255
@@ -1775,14 +1775,14 @@ FTC_Manager_FlushN.exit.us:                       ; preds = %54
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %95
   %69 = phi i32 [ %97, %95 ], [ %35, %.lr.ph ]
-  %.04472 = phi i32 [ %.145, %95 ], [ 4, %.lr.ph ]
+  %.04471 = phi i32 [ %.145, %95 ], [ 4, %.lr.ph ]
   %70 = load ptr, ptr %37, align 8, !tbaa !85
   %71 = icmp ne ptr %70, null
-  %72 = icmp ne i32 %.04472, 0
+  %72 = icmp ne i32 %.04471, 0
   %or.cond.i = and i1 %72, %71
-  br i1 %or.cond.i, label %75, label %.thread69
+  br i1 %or.cond.i, label %75, label %.thread68
 
-.thread69:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
+.thread68:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
   %73 = load i16, ptr %30, align 2, !tbaa !90
   %74 = add i16 %73, -1
   store i16 %74, ptr %30, align 2, !tbaa !90
@@ -1811,29 +1811,29 @@ FTC_Manager_FlushN.exit.us:                       ; preds = %54
 86:                                               ; preds = %84, %78
   %.1.i = phi i32 [ %85, %84 ], [ %.0.i, %78 ]
   %87 = icmp ne ptr %.018.i, %70
-  %88 = icmp ult i32 %.1.i, %.04472
+  %88 = icmp ult i32 %.1.i, %.04471
   %89 = select i1 %87, i1 %88, i1 false
   br i1 %89, label %78, label %FTC_Manager_FlushN.exit, !llvm.loop !100
 
 FTC_Manager_FlushN.exit:                          ; preds = %86
-  %.not77 = icmp eq i32 %.1.i, 0
-  br i1 %.not77, label %._crit_edge, label %.thread62
+  %.not76 = icmp eq i32 %.1.i, 0
+  br i1 %.not76, label %._crit_edge, label %.thread62
 
 .thread62:                                        ; preds = %FTC_Manager_FlushN.exit
   store i8 1, ptr %3, align 1, !tbaa !97
-  %90 = icmp eq i32 %.1.i, %.04472
+  %90 = icmp eq i32 %.1.i, %.04471
   br i1 %90, label %91, label %95
 
 91:                                               ; preds = %.thread62
-  %92 = icmp slt i32 %.04472, 0
+  %92 = icmp slt i32 %.04471, 0
   %.pre = load i32, ptr %38, align 8, !tbaa !101
-  %93 = shl nuw i32 %.04472, 1
+  %93 = shl nuw i32 %.04471, 1
   %94 = call i32 @llvm.umin.i32(i32 %93, i32 %.pre)
-  %spec.select93 = select i1 %92, i32 %.pre, i32 %94
+  %spec.select92 = select i1 %92, i32 %.pre, i32 %94
   br label %95
 
 95:                                               ; preds = %91, %.thread62
-  %.145 = phi i32 [ %.04472, %.thread62 ], [ %spec.select93, %91 ]
+  %.145 = phi i32 [ %.04471, %.thread62 ], [ %spec.select92, %91 ]
   %96 = load ptr, ptr %33, align 8, !tbaa !18
   %97 = call fastcc i32 @ftc_snode_load(ptr noundef nonnull %0, ptr noundef %96, i32 noundef %6, ptr noundef nonnull %5)
   %98 = and i32 %97, 255
@@ -1857,8 +1857,8 @@ FTC_Manager_FlushN.exit:                          ; preds = %86
   store i64 %106, ptr %104, align 8, !tbaa !104
   br label %107
 
-107:                                              ; preds = %.thread69, %._crit_edge, %101
-  %.2 = phi i8 [ 1, %101 ], [ 0, %._crit_edge ], [ 0, %.thread69 ]
+107:                                              ; preds = %.thread68, %._crit_edge, %101
+  %.2 = phi i8 [ 1, %101 ], [ 0, %._crit_edge ], [ 0, %.thread68 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge
 
@@ -3423,10 +3423,10 @@ FTC_MruList_RemoveSelection.exit:                 ; preds = %31, %3
   %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !40
   %38 = load i32, ptr %37, align 8, !tbaa !30
-  %.not40.i = icmp eq i32 %38, 0
-  br i1 %.not40.i, label %FTC_Cache_RemoveFaceID.exit, label %.lr.ph38.i
+  %.not39.i = icmp eq i32 %38, 0
+  br i1 %.not39.i, label %FTC_Cache_RemoveFaceID.exit, label %.lr.ph37.i
 
-.lr.ph38.i:                                       ; preds = %35
+.lr.ph37.i:                                       ; preds = %35
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 88
   %40 = load ptr, ptr %39, align 8, !tbaa !18
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -3440,17 +3440,17 @@ FTC_MruList_RemoveSelection.exit:                 ; preds = %31, %3
   %wide.trip.count.i = zext i32 %38 to i64
   br label %49
 
-49:                                               ; preds = %._crit_edge.i, %.lr.ph38.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph38.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
+49:                                               ; preds = %._crit_edge.i, %.lr.ph37.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %50 = load ptr, ptr %41, align 8, !tbaa !33
   %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !44
-  %.not34.i = icmp eq ptr %52, null
-  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not33.i = icmp eq ptr %52, null
+  br i1 %.not33.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %49, %76
   %53 = phi ptr [ %77, %76 ], [ %52, %49 ]
-  %.02835.i = phi ptr [ %.1.i, %76 ], [ %51, %49 ]
+  %.02834.i = phi ptr [ %.1.i, %76 ], [ %51, %49 ]
   %54 = load ptr, ptr %42, align 8, !tbaa !178
   %55 = tail call zeroext i8 %54(ptr noundef nonnull %53, ptr noundef %1, ptr noundef nonnull %37, ptr noundef null) #12
   %.not30.i = icmp eq i8 %55, 0
@@ -3459,7 +3459,7 @@ FTC_MruList_RemoveSelection.exit:                 ; preds = %31, %3
 
 57:                                               ; preds = %.lr.ph.i
   %58 = load ptr, ptr %56, align 8, !tbaa !84
-  store ptr %58, ptr %.02835.i, align 8, !tbaa !44
+  store ptr %58, ptr %.02834.i, align 8, !tbaa !44
   %59 = load ptr, ptr %43, align 8, !tbaa !103
   %60 = tail call i64 %59(ptr noundef nonnull %53, ptr noundef nonnull %37) #12
   %61 = load i64, ptr %44, align 8, !tbaa !104
@@ -3496,7 +3496,7 @@ ftc_node_mru_unlink.exit.i:                       ; preds = %.sink.split.i.i.i10
   br label %76
 
 76:                                               ; preds = %ftc_node_mru_unlink.exit.i, %.lr.ph.i
-  %.1.i = phi ptr [ %.02835.i, %ftc_node_mru_unlink.exit.i ], [ %56, %.lr.ph.i ]
+  %.1.i = phi ptr [ %.02834.i, %ftc_node_mru_unlink.exit.i ], [ %56, %.lr.ph.i ]
   %77 = load ptr, ptr %.1.i, align 8, !tbaa !44
   %.not.i9 = icmp eq ptr %77, null
   br i1 %.not.i9, label %._crit_edge.i, label %.lr.ph.i
@@ -4744,13 +4744,13 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre = load i32, ptr %0, align 8, !tbaa !30
-  %.pre100 = load i32, ptr %4, align 4, !tbaa !31
-  %.pre101 = load i64, ptr %5, align 8, !tbaa !32
+  %.pre99 = load i32, ptr %4, align 4, !tbaa !31
+  %.pre100 = load i64, ptr %5, align 8, !tbaa !32
   br label %8
 
 8:                                                ; preds = %77, %1
-  %9 = phi i64 [ %78, %77 ], [ %.pre101, %1 ]
-  %10 = phi i32 [ %79, %77 ], [ %.pre100, %1 ]
+  %9 = phi i64 [ %78, %77 ], [ %.pre100, %1 ]
+  %10 = phi i32 [ %79, %77 ], [ %.pre99, %1 ]
   %11 = phi i32 [ %storemerge, %77 ], [ %.pre, %1 ]
   %12 = add i32 %10, 1
   %13 = lshr i32 %12, 1
@@ -4759,12 +4759,12 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
 
 15:                                               ; preds = %8
   %16 = icmp eq i32 %11, %12
-  %.pre102 = load ptr, ptr %6, align 8, !tbaa !33
-  br i1 %16, label %17, label %._crit_edge103
+  %.pre101 = load ptr, ptr %6, align 8, !tbaa !33
+  br i1 %16, label %17, label %._crit_edge102
 
-._crit_edge103:                                   ; preds = %15
-  %.pre104 = zext i32 %11 to i64
-  %.pre105 = zext nneg i32 %13 to i64
+._crit_edge102:                                   ; preds = %15
+  %.pre103 = zext i32 %11 to i64
+  %.pre104 = zext nneg i32 %13 to i64
   br label %25
 
 17:                                               ; preds = %15
@@ -4773,7 +4773,7 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
   %19 = zext i32 %11 to i64
   %20 = shl i32 %11, 1
   %21 = zext i32 %20 to i64
-  %22 = call ptr @ft_mem_qrealloc(ptr noundef %18, i64 noundef 8, i64 noundef %19, i64 noundef %21, ptr noundef %.pre102, ptr noundef nonnull %2) #12
+  %22 = call ptr @ft_mem_qrealloc(ptr noundef %18, i64 noundef 8, i64 noundef %19, i64 noundef %21, ptr noundef %.pre101, ptr noundef nonnull %2) #12
   store ptr %22, ptr %6, align 8, !tbaa !33
   %23 = load i32, ptr %2, align 4, !tbaa !3
   %.not80 = icmp eq i32 %23, 0
@@ -4785,38 +4785,38 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %25
 
-25:                                               ; preds = %._crit_edge103, %.thread
-  %.pre-phi106 = phi i64 [ %.pre105, %._crit_edge103 ], [ %19, %.thread ]
-  %.pre-phi = phi i64 [ %.pre104, %._crit_edge103 ], [ %19, %.thread ]
-  %26 = phi ptr [ %.pre102, %._crit_edge103 ], [ %22, %.thread ]
-  %27 = phi i32 [ %10, %._crit_edge103 ], [ %24, %.thread ]
+25:                                               ; preds = %._crit_edge102, %.thread
+  %.pre-phi105 = phi i64 [ %.pre104, %._crit_edge102 ], [ %19, %.thread ]
+  %.pre-phi = phi i64 [ %.pre103, %._crit_edge102 ], [ %19, %.thread ]
+  %26 = phi ptr [ %.pre101, %._crit_edge102 ], [ %22, %.thread ]
+  %27 = phi i32 [ %10, %._crit_edge102 ], [ %24, %.thread ]
   %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %.pre-phi
-  %29 = sub nsw i64 0, %.pre-phi106
+  %29 = sub nsw i64 0, %.pre-phi105
   %30 = getelementptr inbounds ptr, ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !44
-  %.not8197 = icmp eq ptr %31, null
-  br i1 %.not8197, label %.thread85, label %.lr.ph
+  %.not8196 = icmp eq ptr %31, null
+  br i1 %.not8196, label %.thread85, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %39
   %32 = phi ptr [ %40, %39 ], [ %31, %25 ]
-  %.099 = phi ptr [ %.1, %39 ], [ %30, %25 ]
-  %.07198 = phi ptr [ %.172, %39 ], [ null, %25 ]
+  %.098 = phi ptr [ %.1, %39 ], [ %30, %25 ]
+  %.07197 = phi ptr [ %.172, %39 ], [ null, %25 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i64, ptr %33, align 8, !tbaa !78
-  %35 = and i64 %34, %.pre-phi106
+  %35 = and i64 %34, %.pre-phi105
   %.not82 = icmp eq i64 %35, 0
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   br i1 %.not82, label %39, label %37
 
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %36, align 8, !tbaa !84
-  store ptr %38, ptr %.099, align 8, !tbaa !44
-  store ptr %.07198, ptr %36, align 8, !tbaa !84
+  store ptr %38, ptr %.098, align 8, !tbaa !44
+  store ptr %.07197, ptr %36, align 8, !tbaa !84
   br label %39
 
 39:                                               ; preds = %.lr.ph, %37
-  %.172 = phi ptr [ %32, %37 ], [ %.07198, %.lr.ph ]
-  %.1 = phi ptr [ %.099, %37 ], [ %36, %.lr.ph ]
+  %.172 = phi ptr [ %32, %37 ], [ %.07197, %.lr.ph ]
+  %.1 = phi ptr [ %.098, %37 ], [ %36, %.lr.ph ]
   %40 = load ptr, ptr %.1, align 8, !tbaa !44
   %.not81 = icmp eq ptr %40, null
   br i1 %.not81, label %.thread85, label %.lr.ph
@@ -4853,7 +4853,7 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
   br i1 %56, label %57, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %55
-  %.pre107 = zext nneg i32 %13 to i64
+  %.pre106 = zext nneg i32 %13 to i64
   br label %65
 
 57:                                               ; preds = %55
@@ -4878,11 +4878,11 @@ define internal fastcc void @ftc_cache_resize(ptr noundef captures(none) %0) unn
   br label %.thread90
 
 65:                                               ; preds = %._crit_edge, %.thread88
-  %.pre-phi108 = phi i64 [ %.pre107, %._crit_edge ], [ %60, %.thread88 ]
+  %.pre-phi107 = phi i64 [ %.pre106, %._crit_edge ], [ %60, %.thread88 ]
   %66 = phi ptr [ %49, %._crit_edge ], [ %61, %.thread88 ]
   %67 = phi i32 [ %10, %._crit_edge ], [ %63, %.thread88 ]
   %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %51
-  %69 = sub nsw i64 0, %.pre-phi108
+  %69 = sub nsw i64 0, %.pre-phi107
   %70 = getelementptr inbounds ptr, ptr %68, i64 %69
   br label %71
 

@@ -331,21 +331,21 @@ define noundef ptr @_ZN5faiss19InvertedListsIOHook6lookupEi(i32 noundef %0) loca
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !18
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !18
-  %.not3032 = icmp eq ptr %5, %6
-  br i1 %.not3032, label %._crit_edge, label %.lr.ph
+  %.not2830 = icmp eq ptr %5, %6
+  br i1 %.not2830, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %10
-  %.sroa.023.033 = phi ptr [ %11, %10 ], [ %5, %1 ]
-  %7 = load ptr, ptr %.sroa.023.033, align 8, !tbaa !23
+  %.sroa.023.031 = phi ptr [ %11, %10 ], [ %5, %1 ]
+  %7 = load ptr, ptr %.sroa.023.031, align 8, !tbaa !23
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = tail call noundef i32 @_ZN5faiss6fourccERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %8)
   %.not = icmp eq i32 %0, %9
   br i1 %.not, label %49, label %10
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.023.033, i64 8
-  %.not30 = icmp eq ptr %11, %6
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.023.031, i64 8
+  %.not28 = icmp eq ptr %11, %6
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %10, %1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -450,7 +450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %44,
   resume { ptr, i32 } %.pn
 
 49:                                               ; preds = %.lr.ph
-  %50 = load ptr, ptr %.sroa.023.033, align 8
+  %50 = load ptr, ptr %.sroa.023.031, align 8
   ret ptr %50
 
 51:                                               ; preds = %35
@@ -503,9 +503,9 @@ define noundef ptr @_ZN5faiss19InvertedListsIOHook16lookup_classnameERKNSt7__cxx
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = load ptr, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, align 8, !tbaa !18
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5faiss12_GLOBAL__N_125InvertedListsIOHook_tableE, i64 8), align 8, !tbaa !18
-  %.not24 = icmp eq ptr %3, %4
+  %.not22 = icmp eq ptr %3, %4
   %.pre = load ptr, ptr %0, align 8, !tbaa !14
-  br i1 %.not24, label %._crit_edge, label %.lr.ph
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -514,8 +514,8 @@ define noundef ptr @_ZN5faiss19InvertedListsIOHook16lookup_classnameERKNSt7__cxx
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
-  %.sroa.015.025 = phi ptr [ %3, %.lr.ph ], [ %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18 ]
-  %9 = load ptr, ptr %.sroa.015.025, align 8, !tbaa !23
+  %.sroa.015.023 = phi ptr [ %3, %.lr.ph ], [ %17, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18 ]
+  %9 = load ptr, ptr %.sroa.015.023, align 8, !tbaa !23
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = load i64, ptr %11, align 8, !tbaa !10
@@ -532,7 +532,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br i1 %16, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread18: ; preds = %8, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.015.025, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.015.023, i64 8
   %.not = icmp eq ptr %17, %4
   br i1 %.not, label %._crit_edge, label %8
 

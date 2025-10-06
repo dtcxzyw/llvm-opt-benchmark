@@ -1569,51 +1569,51 @@ define internal noundef ptr @_ZN8nanobind6detailL26nb_func_vectorcall_complexEP7
   %38 = alloca i8, i64 %37, align 16
   %39 = alloca i8, i64 %36, align 16
   %40 = alloca i8, i64 %14, align 16
-  %.not409 = icmp eq i64 %14, 0
-  br i1 %.not409, label %._crit_edge, label %.lr.ph
+  %.not408 = icmp eq i64 %14, 0
+  br i1 %.not408, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %42
 
 ._crit_edge:                                      ; preds = %30
-  br i1 %.not, label %51, label %.loopexit347, !prof !25
+  br i1 %.not, label %51, label %.loopexit346, !prof !25
 
 ._crit_edge.thread:                               ; preds = %42
-  br i1 %49, label %51, label %.lr.ph366, !prof !25
+  br i1 %49, label %51, label %.lr.ph365, !prof !25
 
 42:                                               ; preds = %.lr.ph, %42
-  %.0230363 = phi i1 [ true, %.lr.ph ], [ %49, %42 ]
-  %.0233362 = phi i64 [ 0, %.lr.ph ], [ %50, %42 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %.0233362
+  %.0230362 = phi i1 [ true, %.lr.ph ], [ %49, %42 ]
+  %.0233361 = phi i64 [ 0, %.lr.ph ], [ %50, %42 ]
+  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %.0233361
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 32
   %46 = load i32, ptr %45, align 8
   %47 = and i32 %46, 3
   %48 = icmp ne i32 %47, 0
-  %49 = and i1 %.0230363, %48
-  %50 = add nuw nsw i64 %.0233362, 1
+  %49 = and i1 %.0230362, %48
+  %50 = add nuw nsw i64 %.0233361, 1
   %exitcond.not = icmp eq i64 %50, %14
   br i1 %exitcond.not, label %._crit_edge.thread, label %42, !llvm.loop !26
 
 51:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %52 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  br label %.loopexit347
+  br label %.loopexit346
 
-.lr.ph366:                                        ; preds = %._crit_edge.thread
+.lr.ph365:                                        ; preds = %._crit_edge.thread
   %53 = shl nuw nsw i64 %14, 3
   %54 = alloca i8, i64 %53, align 16
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %56
 
-56:                                               ; preds = %.lr.ph366, %_ZL10_Py_DECREFP7_object.exit
-  %.0235364 = phi i64 [ 0, %.lr.ph366 ], [ %78, %_ZL10_Py_DECREFP7_object.exit ]
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %.0235364
+56:                                               ; preds = %.lr.ph365, %_ZL10_Py_DECREFP7_object.exit
+  %.0235363 = phi i64 [ 0, %.lr.ph365 ], [ %78, %_ZL10_Py_DECREFP7_object.exit ]
+  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %.0235363
   %58 = load ptr, ptr %57, align 8
   %59 = load i64, ptr %58, align 8
   %60 = add nsw i64 %59, 1
   store i64 %60, ptr %58, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %54, i64 %.0235364
+  %61 = getelementptr inbounds nuw ptr, ptr %54, i64 %.0235363
   store ptr %58, ptr %61, align 8
   invoke void @PyUnicode_InternInPlace(ptr noundef nonnull %61)
           to label %62 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -1656,34 +1656,34 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit: ; preds = %69, %72
   br label %_ZL10_Py_DECREFP7_object.exit
 
 _ZL10_Py_DECREFP7_object.exit:                    ; preds = %65, %68, %_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit
-  %78 = add nuw i64 %.0235364, 1
-  %exitcond422.not = icmp eq i64 %78, %14
-  br i1 %exitcond422.not, label %.loopexit347, label %56, !llvm.loop !27
+  %78 = add nuw i64 %.0235363, 1
+  %exitcond421.not = icmp eq i64 %78, %14
+  br i1 %exitcond421.not, label %.loopexit346, label %56, !llvm.loop !27
 
-.loopexit347:                                     ; preds = %_ZL10_Py_DECREFP7_object.exit, %._crit_edge, %51
+.loopexit346:                                     ; preds = %_ZL10_Py_DECREFP7_object.exit, %._crit_edge, %51
   %.0229 = phi ptr [ %52, %51 ], [ %5, %._crit_edge ], [ %54, %_ZL10_Py_DECREFP7_object.exit ]
-  %.not411 = icmp eq i64 %8, 0
+  %.not410 = icmp eq i64 %8, 0
   %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %9
-  br i1 %.not411, label %.thread326, label %.preheader342.us.preheader
+  br i1 %.not410, label %.thread325, label %.preheader341.us.preheader
 
-.preheader342.us.preheader:                       ; preds = %.loopexit347
-  %.not414 = icmp ne i64 %14, 0
+.preheader341.us.preheader:                       ; preds = %.loopexit346
+  %.not413 = icmp ne i64 %14, 0
   %80 = icmp eq i64 %8, 1
   %81 = zext i1 %80 to i64
-  %brmerge408.not = select i1 %.not, i1 %.not414, i1 false
-  br label %.preheader342.us
+  %brmerge407.not = select i1 %.not, i1 %.not413, i1 false
+  br label %.preheader341.us
 
-.preheader342.us:                                 ; preds = %.preheader342.us.preheader, %._crit_edge393.us
-  %.0210396.us = phi ptr [ %.4319.us, %._crit_edge393.us ], [ null, %.preheader342.us.preheader ]
-  %.0236395.us = phi i64 [ 1, %._crit_edge393.us ], [ %81, %.preheader342.us.preheader ]
-  %82 = trunc nuw nsw i64 %.0236395.us to i8
+.preheader341.us:                                 ; preds = %.preheader341.us.preheader, %._crit_edge392.us
+  %.0210395.us = phi ptr [ %.4318.us, %._crit_edge392.us ], [ null, %.preheader341.us.preheader ]
+  %.0236394.us = phi i64 [ 1, %._crit_edge392.us ], [ %81, %.preheader341.us.preheader ]
+  %82 = trunc nuw nsw i64 %.0236394.us to i8
   %83 = or disjoint i8 %82, -2
   br label %84
 
-84:                                               ; preds = %.preheader342.us, %.thread314.us
-  %.2391.us = phi ptr [ %.0210396.us, %.preheader342.us ], [ %.4319.us, %.thread314.us ]
-  %.0238390.us = phi i64 [ 0, %.preheader342.us ], [ %201, %.thread314.us ]
-  %85 = getelementptr inbounds nuw %"struct.nanobind::detail::func_data", ptr %15, i64 %.0238390.us
+84:                                               ; preds = %.preheader341.us, %.thread313.us
+  %.2390.us = phi ptr [ %.0210395.us, %.preheader341.us ], [ %.4318.us, %.thread313.us ]
+  %.0238389.us = phi i64 [ 0, %.preheader341.us ], [ %201, %.thread313.us ]
+  %85 = getelementptr inbounds nuw %"struct.nanobind::detail::func_data", ptr %15, i64 %.0238389.us
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 56
   %87 = load i32, ptr %86, align 8
   %88 = and i32 %87, 128
@@ -1706,26 +1706,26 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %65, %68, %_ZN8nanob
   %102 = icmp samesign uge i64 %9, %95
   %or.cond8.us = select i1 %102, i1 true, i1 %89
   %or.cond273.us = select i1 %or.cond6.us, i1 %or.cond8.us, i1 false
-  br i1 %or.cond273.us, label %103, label %.thread314.us
+  br i1 %or.cond273.us, label %103, label %.thread313.us
 
 103:                                              ; preds = %84
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %40, i8 0, i64 %14, i1 false)
   %invariant.umin.us = call i64 @llvm.umin.i64(i64 %9, i64 %95)
-  %.not415 = icmp eq i32 %.lobit.us, %98
-  br i1 %.not415, label %.thread292.us, label %.lr.ph371.us
+  %.not414 = icmp eq i32 %.lobit.us, %98
+  br i1 %.not414, label %.thread292.us, label %.lr.ph370.us
 
-104:                                              ; preds = %.lr.ph371.us, %215
-  %.0241369.us = phi i64 [ 0, %.lr.ph371.us ], [ %216, %215 ]
-  %105 = icmp eq i64 %.0241369.us, %95
+104:                                              ; preds = %.lr.ph370.us, %215
+  %.0241368.us = phi i64 [ 0, %.lr.ph370.us ], [ %216, %215 ]
+  %105 = icmp eq i64 %.0241368.us, %95
   %or.cond269.us = and i1 %91, %105
   br i1 %or.cond269.us, label %215, label %106
 
 106:                                              ; preds = %104
-  %or.cond270.us = icmp ult i64 %.0241369.us, %invariant.umin.us
+  %or.cond270.us = icmp ult i64 %.0241368.us, %invariant.umin.us
   br i1 %or.cond270.us, label %107, label %110
 
 107:                                              ; preds = %106
-  %108 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0241369.us
+  %108 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0241368.us
   %109 = load ptr, ptr %108, align 8
   br label %110
 
@@ -1735,32 +1735,32 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %65, %68, %_ZN8nanob
 
 111:                                              ; preds = %110
   %112 = load ptr, ptr %219, align 8
-  %113 = getelementptr inbounds nuw %"struct.nanobind::detail::arg_data", ptr %112, i64 %.0241369.us
+  %113 = getelementptr inbounds nuw %"struct.nanobind::detail::arg_data", ptr %112, i64 %.0241368.us
   br i1 %.not, label %114, label %.thread282.us
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %116 = load ptr, ptr %115, align 8
   %.not259.us = icmp eq ptr %116, null
-  %brmerge = or i1 %.not259.us, %.not409
-  br i1 %brmerge, label %.thread282.us, label %.lr.ph368.us
+  %brmerge = or i1 %.not259.us, %.not408
+  br i1 %brmerge, label %.thread282.us, label %.lr.ph367.us
 
-.lr.ph368.us:                                     ; preds = %114, %120
-  %.0239367.us = phi i64 [ %121, %120 ], [ 0, %114 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %.0229, i64 %.0239367.us
+.lr.ph367.us:                                     ; preds = %114, %120
+  %.0239366.us = phi i64 [ %121, %120 ], [ 0, %114 ]
+  %117 = getelementptr inbounds nuw ptr, ptr %.0229, i64 %.0239366.us
   %118 = load ptr, ptr %117, align 8
   %119 = icmp eq ptr %118, %116
   br i1 %119, label %122, label %120
 
-120:                                              ; preds = %.lr.ph368.us
-  %121 = add nuw i64 %.0239367.us, 1
-  %exitcond423.not = icmp eq i64 %121, %14
-  br i1 %exitcond423.not, label %.thread282.us, label %.lr.ph368.us, !llvm.loop !28
+120:                                              ; preds = %.lr.ph367.us
+  %121 = add nuw i64 %.0239366.us, 1
+  %exitcond422.not = icmp eq i64 %121, %14
+  br i1 %exitcond422.not, label %.thread282.us, label %.lr.ph367.us, !llvm.loop !28
 
-122:                                              ; preds = %.lr.ph368.us
-  %123 = getelementptr inbounds nuw ptr, ptr %79, i64 %.0239367.us
+122:                                              ; preds = %.lr.ph367.us
+  %123 = getelementptr inbounds nuw ptr, ptr %79, i64 %.0239366.us
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %40, i64 %.0239367.us
+  %125 = getelementptr inbounds nuw i8, ptr %40, i64 %.0239366.us
   store i8 1, ptr %125, align 1
   %.not260.us = icmp eq ptr %124, null
   br i1 %.not260.us, label %.thread282.us, label %126
@@ -1799,16 +1799,16 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %65, %68, %_ZN8nanob
 
 137:                                              ; preds = %133
   %138 = and i8 %.0242.us, %83
-  %139 = getelementptr inbounds nuw i8, ptr %39, i64 %.0241369.us
+  %139 = getelementptr inbounds nuw i8, ptr %39, i64 %.0241368.us
   store i8 %138, ptr %139, align 1
-  %140 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0241369.us
+  %140 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0241368.us
   store ptr %.1245.us, ptr %140, align 8
   br label %215
 
 .thread292.us:                                    ; preds = %215, %133, %132, %126, %103
-  %.0241.lcssa.us = phi i64 [ 0, %103 ], [ %.0241369.us, %126 ], [ %.0241369.us, %132 ], [ %.0241369.us, %133 ], [ %216, %215 ]
+  %.0241.lcssa.us = phi i64 [ 0, %103 ], [ %.0241368.us, %126 ], [ %.0241368.us, %132 ], [ %.0241368.us, %133 ], [ %216, %215 ]
   %.not264.us = icmp eq i64 %.0241.lcssa.us, %100
-  br i1 %.not264.us, label %141, label %.thread314.us
+  br i1 %.not264.us, label %141, label %.thread313.us
 
 141:                                              ; preds = %.thread292.us
   br i1 %91, label %142, label %155
@@ -1816,9 +1816,9 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %65, %68, %_ZN8nanob
 142:                                              ; preds = %141
   %143 = call i64 @llvm.usub.sat.i64(i64 %9, i64 %95)
   %144 = invoke ptr @PyTuple_New(i64 noundef %143)
-          to label %.preheader341.us unwind label %.loopexit.split-lp.loopexit.split.us
+          to label %.preheader340.us unwind label %.loopexit.split-lp.loopexit.split.us
 
-._crit_edge381.us:                                ; preds = %207, %.preheader341.us
+._crit_edge380.us:                                ; preds = %207, %.preheader340.us
   %145 = getelementptr inbounds nuw ptr, ptr %38, i64 %95
   store ptr %144, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %39, i64 %95
@@ -1828,13 +1828,13 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %65, %68, %_ZN8nanob
   %.not.i274.us = icmp ult i32 %147, %148
   br i1 %.not.i274.us, label %_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit275.us, label %149
 
-149:                                              ; preds = %._crit_edge381.us
+149:                                              ; preds = %._crit_edge380.us
   call void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #26
-  %.pre428 = load i32, ptr %6, align 8
+  %.pre427 = load i32, ptr %6, align 8
   br label %_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit275.us
 
-_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit275.us: ; preds = %149, %._crit_edge381.us
-  %150 = phi i32 [ %.pre428, %149 ], [ %147, %._crit_edge381.us ]
+_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit275.us: ; preds = %149, %._crit_edge380.us
+  %150 = phi i32 [ %.pre427, %149 ], [ %147, %._crit_edge380.us ]
   %151 = load ptr, ptr %32, align 8
   %152 = add i32 %150, 1
   store i32 %152, ptr %6, align 8
@@ -1848,9 +1848,9 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit275.us: ; preds = %149, %
 
 156:                                              ; preds = %155
   %157 = invoke ptr @PyDict_New()
-          to label %.preheader340.us unwind label %.loopexit.split-lp.loopexit.split.us
+          to label %.preheader339.us unwind label %.loopexit.split-lp.loopexit.split.us
 
-._crit_edge384.us:                                ; preds = %177, %.preheader340.us
+._crit_edge383.us:                                ; preds = %177, %.preheader339.us
   %158 = getelementptr inbounds nuw ptr, ptr %38, i64 %100
   store ptr %157, ptr %158, align 8
   %159 = getelementptr inbounds nuw i8, ptr %39, i64 %100
@@ -1860,13 +1860,13 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit275.us: ; preds = %149, %
   %.not.i276.us = icmp ult i32 %160, %161
   br i1 %.not.i276.us, label %_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us, label %162
 
-162:                                              ; preds = %._crit_edge384.us
+162:                                              ; preds = %._crit_edge383.us
   call void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #26
-  %.pre429 = load i32, ptr %6, align 8
+  %.pre428 = load i32, ptr %6, align 8
   br label %_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us
 
-_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %._crit_edge384.us
-  %163 = phi i32 [ %.pre429, %162 ], [ %160, %._crit_edge384.us ]
+_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %._crit_edge383.us
+  %163 = phi i32 [ %.pre428, %162 ], [ %160, %._crit_edge383.us ]
   %164 = load ptr, ptr %32, align 8
   %165 = add i32 %163, 1
   store i32 %165, ptr %6, align 8
@@ -1875,30 +1875,30 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %
   store ptr %157, ptr %167, align 8
   br label %.critedge
 
-.lr.ph383.us:                                     ; preds = %.preheader340.us, %177
-  %.0234382.us = phi i64 [ %178, %177 ], [ 0, %.preheader340.us ]
-  %168 = getelementptr inbounds nuw i8, ptr %40, i64 %.0234382.us
+.lr.ph382.us:                                     ; preds = %.preheader339.us, %177
+  %.0234381.us = phi i64 [ %178, %177 ], [ 0, %.preheader339.us ]
+  %168 = getelementptr inbounds nuw i8, ptr %40, i64 %.0234381.us
   %169 = load i8, ptr %168, align 1, !range !13, !noundef !14
   %170 = trunc nuw i8 %169 to i1
   br i1 %170, label %177, label %171
 
-171:                                              ; preds = %.lr.ph383.us
-  %172 = getelementptr inbounds nuw ptr, ptr %.0229, i64 %.0234382.us
+171:                                              ; preds = %.lr.ph382.us
+  %172 = getelementptr inbounds nuw ptr, ptr %.0229, i64 %.0234381.us
   %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds nuw ptr, ptr %79, i64 %.0234382.us
+  %174 = getelementptr inbounds nuw ptr, ptr %79, i64 %.0234381.us
   %175 = load ptr, ptr %174, align 8
   %176 = invoke i32 @PyDict_SetItem(ptr noundef %157, ptr noundef %173, ptr noundef %175)
           to label %177 unwind label %.loopexit.split.us
 
-177:                                              ; preds = %171, %.lr.ph383.us
-  %178 = add nuw i64 %.0234382.us, 1
-  %exitcond425.not = icmp eq i64 %178, %14
-  br i1 %exitcond425.not, label %._crit_edge384.us, label %.lr.ph383.us, !llvm.loop !29
+177:                                              ; preds = %171, %.lr.ph382.us
+  %178 = add nuw i64 %.0234381.us, 1
+  %exitcond424.not = icmp eq i64 %178, %14
+  br i1 %exitcond424.not, label %._crit_edge383.us, label %.lr.ph382.us, !llvm.loop !29
 
 179:                                              ; preds = %155
-  br i1 %brmerge408.not, label %.lr.ph387.us, label %.critedge
+  br i1 %brmerge407.not, label %.lr.ph386.us, label %.critedge
 
-.critedge:                                        ; preds = %179, %._crit_edge388.us, %_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us
+.critedge:                                        ; preds = %179, %._crit_edge387.us, %_ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us
   br i1 %21, label %180, label %183
 
 180:                                              ; preds = %.critedge
@@ -1924,7 +1924,7 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %
   %192 = extractvalue { ptr, i32 } %190, 1
   %193 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind17builtin_exceptionE) #26
   %194 = icmp eq i32 %192, %193
-  br i1 %194, label %195, label %.split400.us
+  br i1 %194, label %195, label %.split399.us
 
 195:                                              ; preds = %189
   %196 = call ptr @__cxa_begin_catch(ptr %191) #26
@@ -1938,73 +1938,73 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %
 
 199:                                              ; preds = %183
   %.not265.us = icmp eq ptr %188, null
-  br i1 %.not265.us, label %.thread326, label %200, !prof !11
+  br i1 %.not265.us, label %.thread325, label %200, !prof !11
 
 200:                                              ; preds = %199, %198
   %.7.us = phi ptr [ %188, %199 ], [ %spec.select.us, %198 ]
   %.not266.us = icmp eq ptr %.7.us, inttoptr (i64 1 to ptr)
-  br i1 %.not266.us, label %.thread314.us, label %.split404.us
+  br i1 %.not266.us, label %.thread313.us, label %.split403.us
 
-.thread314.us:                                    ; preds = %200, %._crit_edge388.us, %.thread292.us, %84
-  %.4319.us = phi ptr [ inttoptr (i64 1 to ptr), %200 ], [ %.2391.us, %.thread292.us ], [ %.2391.us, %84 ], [ %.2391.us, %._crit_edge388.us ]
-  %201 = add nuw i64 %.0238390.us, 1
-  %exitcond427.not = icmp eq i64 %201, %8
-  br i1 %exitcond427.not, label %._crit_edge393.us, label %84, !llvm.loop !30
+.thread313.us:                                    ; preds = %200, %._crit_edge387.us, %.thread292.us, %84
+  %.4318.us = phi ptr [ inttoptr (i64 1 to ptr), %200 ], [ %.2390.us, %.thread292.us ], [ %.2390.us, %84 ], [ %.2390.us, %._crit_edge387.us ]
+  %201 = add nuw i64 %.0238389.us, 1
+  %exitcond426.not = icmp eq i64 %201, %8
+  br i1 %exitcond426.not, label %._crit_edge392.us, label %84, !llvm.loop !30
 
-.lr.ph387.us:                                     ; preds = %179, %.lr.ph387.us
-  %.0231386.us = phi i64 [ %206, %.lr.ph387.us ], [ 0, %179 ]
-  %.0232385.us = phi i1 [ %205, %.lr.ph387.us ], [ true, %179 ]
-  %202 = getelementptr inbounds nuw i8, ptr %40, i64 %.0231386.us
+.lr.ph386.us:                                     ; preds = %179, %.lr.ph386.us
+  %.0231385.us = phi i64 [ %206, %.lr.ph386.us ], [ 0, %179 ]
+  %.0232384.us = phi i1 [ %205, %.lr.ph386.us ], [ true, %179 ]
+  %202 = getelementptr inbounds nuw i8, ptr %40, i64 %.0231385.us
   %203 = load i8, ptr %202, align 1, !range !13, !noundef !14
   %204 = icmp ne i8 %203, 0
-  %205 = and i1 %.0232385.us, %204
-  %206 = add nuw nsw i64 %.0231386.us, 1
-  %exitcond426.not = icmp eq i64 %206, %14
-  br i1 %exitcond426.not, label %._crit_edge388.us, label %.lr.ph387.us, !llvm.loop !31
+  %205 = and i1 %.0232384.us, %204
+  %206 = add nuw nsw i64 %.0231385.us, 1
+  %exitcond425.not = icmp eq i64 %206, %14
+  br i1 %exitcond425.not, label %._crit_edge387.us, label %.lr.ph386.us, !llvm.loop !31
 
-207:                                              ; preds = %.lr.ph380.us, %207
-  %.0237379.us = phi i64 [ %95, %.lr.ph380.us ], [ %214, %207 ]
-  %208 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0237379.us
+207:                                              ; preds = %.lr.ph379.us, %207
+  %.0237378.us = phi i64 [ %95, %.lr.ph379.us ], [ %214, %207 ]
+  %208 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0237378.us
   %209 = load ptr, ptr %208, align 8
   %210 = load i64, ptr %209, align 8
   %211 = add nsw i64 %210, 1
   store i64 %211, ptr %209, align 8
-  %212 = sub nuw nsw i64 %.0237379.us, %95
+  %212 = sub nuw nsw i64 %.0237378.us, %95
   %213 = getelementptr inbounds nuw ptr, ptr %220, i64 %212
   store ptr %209, ptr %213, align 8
-  %214 = add nuw nsw i64 %.0237379.us, 1
-  %exitcond424.not = icmp eq i64 %214, %9
-  br i1 %exitcond424.not, label %._crit_edge381.us, label %207, !llvm.loop !32
+  %214 = add nuw nsw i64 %.0237378.us, 1
+  %exitcond423.not = icmp eq i64 %214, %9
+  br i1 %exitcond423.not, label %._crit_edge380.us, label %207, !llvm.loop !32
 
 215:                                              ; preds = %137, %104
-  %216 = add nuw i64 %.0241369.us, 1
+  %216 = add nuw i64 %.0241368.us, 1
   %217 = icmp ult i64 %216, %100
   br i1 %217, label %104, label %.thread292.us, !llvm.loop !33
 
-.preheader340.us:                                 ; preds = %156
-  br i1 %.not409, label %._crit_edge384.us, label %.lr.ph383.us
+.preheader339.us:                                 ; preds = %156
+  br i1 %.not408, label %._crit_edge383.us, label %.lr.ph382.us
 
-.preheader341.us:                                 ; preds = %142
+.preheader340.us:                                 ; preds = %142
   %218 = icmp samesign ugt i64 %9, %95
-  br i1 %218, label %.lr.ph380.us, label %._crit_edge381.us
+  br i1 %218, label %.lr.ph379.us, label %._crit_edge380.us
 
-.lr.ph371.us:                                     ; preds = %103
+.lr.ph370.us:                                     ; preds = %103
   %219 = getelementptr inbounds nuw i8, ptr %85, i64 88
   br label %104
 
-.lr.ph380.us:                                     ; preds = %.preheader341.us
+.lr.ph379.us:                                     ; preds = %.preheader340.us
   %220 = getelementptr inbounds nuw i8, ptr %144, i64 24
   br label %207
 
-._crit_edge388.us:                                ; preds = %.lr.ph387.us
-  br i1 %205, label %.critedge, label %.thread314.us
+._crit_edge387.us:                                ; preds = %.lr.ph386.us
+  br i1 %205, label %.critedge, label %.thread313.us
 
-._crit_edge393.us:                                ; preds = %.thread314.us
-  %221 = icmp eq i64 %.0236395.us, 0
-  br i1 %221, label %.preheader342.us, label %.thread326, !llvm.loop !34
+._crit_edge392.us:                                ; preds = %.thread313.us
+  %221 = icmp eq i64 %.0236394.us, 0
+  br i1 %221, label %.preheader341.us, label %.thread325, !llvm.loop !34
 
 .loopexit.split-lp.loopexit.split.us:             ; preds = %198, %195, %156, %142
-  %lpad.loopexit343.us = landingpad { ptr, i32 }
+  %lpad.loopexit342.us = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
@@ -2013,30 +2013,30 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %
           catch ptr null
   br label %.loopexit.split-lp
 
-.split400.us:                                     ; preds = %189
+.split399.us:                                     ; preds = %189
   %222 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #26
   %223 = icmp eq i32 %192, %222
   %224 = call ptr @__cxa_begin_catch(ptr %191) #26
   br i1 %223, label %225, label %226
 
-225:                                              ; preds = %.split400.us
+225:                                              ; preds = %.split399.us
   call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %224) #26
   br label %.invoke
 
 .invoke:                                          ; preds = %226, %225
   invoke void @__cxa_end_catch()
-          to label %.thread326 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
+          to label %.thread325 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
-226:                                              ; preds = %.split400.us
+226:                                              ; preds = %.split399.us
   call fastcc void @_ZN8nanobind6detailL29nb_func_convert_cpp_exceptionEv() #26
   br label %.invoke
 
-.split404.us:                                     ; preds = %200
+.split403.us:                                     ; preds = %200
   %227 = icmp ne ptr %.7.us, null
   %or.cond10 = and i1 %21, %227
-  br i1 %or.cond10, label %228, label %.thread326
+  br i1 %or.cond10, label %228, label %.thread325
 
-228:                                              ; preds = %.split404.us
+228:                                              ; preds = %.split403.us
   %229 = getelementptr inbounds nuw i8, ptr %26, i64 20
   %230 = load i32, ptr %229, align 4
   %231 = and i32 %230, -20
@@ -2044,7 +2044,7 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %
   store i32 %232, ptr %229, align 4
   %233 = and i32 %230, 128
   %.not267 = icmp eq i32 %233, 0
-  br i1 %.not267, label %.thread326, label %234, !prof !8
+  br i1 %.not267, label %.thread325, label %234, !prof !8
 
 234:                                              ; preds = %228
   %235 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -2068,21 +2068,21 @@ _ZN8nanobind6detail12cleanup_list6appendEP7_object.exit277.us: ; preds = %162, %
 _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %234, %246
   %248 = phi ptr [ %247, %246 ], [ %244, %234 ]
   call void %238(ptr noundef %248, ptr noundef nonnull %26) #26
-  br label %.thread326
+  br label %.thread325
 
-.thread326:                                       ; preds = %._crit_edge393.us, %199, %.invoke, %.loopexit347, %228, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit, %.split404.us
-  %.1211330 = phi ptr [ %.7.us, %228 ], [ %.7.us, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ %.7.us, %.split404.us ], [ null, %.loopexit347 ], [ null, %.invoke ], [ null, %199 ], [ %.4319.us, %._crit_edge393.us ]
-  %.not268 = phi i1 [ true, %228 ], [ true, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ true, %.split404.us ], [ false, %.loopexit347 ], [ true, %.invoke ], [ false, %199 ], [ false, %._crit_edge393.us ]
-  %.7228 = phi ptr [ null, %228 ], [ null, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ null, %.split404.us ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %.loopexit347 ], [ null, %.invoke ], [ @_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_, %199 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %._crit_edge393.us ]
+.thread325:                                       ; preds = %._crit_edge392.us, %199, %.invoke, %.loopexit346, %228, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit, %.split403.us
+  %.1211329 = phi ptr [ %.7.us, %228 ], [ %.7.us, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ %.7.us, %.split403.us ], [ null, %.loopexit346 ], [ null, %.invoke ], [ null, %199 ], [ %.4318.us, %._crit_edge392.us ]
+  %.not268 = phi i1 [ true, %228 ], [ true, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ true, %.split403.us ], [ false, %.loopexit346 ], [ true, %.invoke ], [ false, %199 ], [ false, %._crit_edge392.us ]
+  %.7228 = phi ptr [ null, %228 ], [ null, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ null, %.split403.us ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %.loopexit346 ], [ null, %.invoke ], [ @_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_, %199 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %._crit_edge392.us ]
   %249 = load i32, ptr %6, align 8
-  %.not338 = icmp eq i32 %249, 1
-  br i1 %.not338, label %251, label %250, !prof !8
+  %.not337 = icmp eq i32 %249, 1
+  br i1 %.not337, label %251, label %250, !prof !8
 
-250:                                              ; preds = %.thread326
+250:                                              ; preds = %.thread325
   call void @_ZN8nanobind6detail12cleanup_list7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #26
   br label %251
 
-251:                                              ; preds = %250, %.thread326
+251:                                              ; preds = %250, %.thread325
   br i1 %.not268, label %254, label %252, !prof !8
 
 252:                                              ; preds = %251
@@ -2090,7 +2090,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %234, %246
   br label %254
 
 254:                                              ; preds = %251, %252
-  %.1 = phi ptr [ %253, %252 ], [ %.1211330, %251 ]
+  %.1 = phi ptr [ %253, %252 ], [ %.1211329, %251 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %255
 
@@ -2099,7 +2099,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %234, %246
   ret ptr %.0
 
 .loopexit.split-lp.loopexit.split-lp.loopexit:    ; preds = %56, %68
-  %lpad.loopexit348 = landingpad { ptr, i32 }
+  %lpad.loopexit347 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
@@ -2109,7 +2109,7 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %234, %246
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split.us, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split.us
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit343.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit348, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit342.us, %.loopexit.split-lp.loopexit.split.us ], [ %lpad.loopexit347, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
   %256 = extractvalue { ptr, i32 } %lpad.phi, 0
   call void @__clang_call_terminate(ptr %256) #25
   unreachable
@@ -2412,50 +2412,50 @@ define internal noundef ptr @_ZN8nanobind6detailL25nb_func_vectorcall_simpleEP7_
 ._crit_edge:                                      ; preds = %.lr.ph, %23
   %30 = phi ptr [ null, %23 ], [ %29, %.lr.ph ]
   %.075.in.lcssa = phi i1 [ %27, %23 ], [ %34, %.lr.ph ]
-  br i1 %.075.in.lcssa, label %.thread95, label %36
+  br i1 %.075.in.lcssa, label %.thread112, label %36
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.075.in125 = phi i1 [ %34, %.lr.ph ], [ %28, %.lr.ph.preheader ]
-  %.076124 = phi i64 [ %35, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %.076124
+  %.075.in131 = phi i1 [ %34, %.lr.ph ], [ %28, %.lr.ph.preheader ]
+  %.076130 = phi i64 [ %35, %.lr.ph ], [ 0, %.lr.ph.preheader ]
+  %31 = getelementptr inbounds nuw ptr, ptr %1, i64 %.076130
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, @_Py_NoneStruct
-  %34 = or i1 %.075.in125, %33
-  %35 = add nuw nsw i64 %.076124, 1
+  %34 = or i1 %.075.in131, %33
+  %35 = add nuw nsw i64 %.076130, 1
   %exitcond.not = icmp eq i64 %35, %10
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !37
 
 36:                                               ; preds = %._crit_edge
   %37 = icmp ult i64 %9, 2
   %38 = zext i1 %37 to i64
-  %.not148 = icmp eq i64 %9, 0
-  br i1 %.not148, label %.split, label %.preheader.us
+  %.not154 = icmp eq i64 %9, 0
+  br i1 %.not154, label %.split, label %.preheader.us
 
-.preheader.us:                                    ; preds = %36, %._crit_edge131.us
-  %.1134.us = phi ptr [ %.5.us, %._crit_edge131.us ], [ null, %36 ]
-  %.077133.us = phi i64 [ 1, %._crit_edge131.us ], [ %38, %36 ]
-  %39 = trunc nuw nsw i64 %.077133.us to i8
+.preheader.us:                                    ; preds = %36, %._crit_edge137.us
+  %.1140.us = phi ptr [ %.5.us, %._crit_edge137.us ], [ null, %36 ]
+  %.077139.us = phi i64 [ 1, %._crit_edge137.us ], [ %38, %36 ]
+  %39 = trunc nuw nsw i64 %.077139.us to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %5, i8 %39, i64 8, i1 false)
-  br i1 %16, label %40, label %.lr.ph130.us.preheader
+  br i1 %16, label %40, label %.lr.ph136.us.preheader
 
 40:                                               ; preds = %.preheader.us
   store i8 2, ptr %5, align 1
-  br label %.lr.ph130.us.preheader
+  br label %.lr.ph136.us.preheader
 
-.lr.ph130.us.preheader:                           ; preds = %40, %.preheader.us
-  br label %.lr.ph130.us
+.lr.ph136.us.preheader:                           ; preds = %40, %.preheader.us
+  br label %.lr.ph136.us
 
-.lr.ph130.us:                                     ; preds = %.lr.ph130.us.preheader, %64
-  %.3128.us = phi ptr [ %.5.us, %64 ], [ %.1134.us, %.lr.ph130.us.preheader ]
-  %.078127.us = phi i64 [ %65, %64 ], [ 0, %.lr.ph130.us.preheader ]
-  %41 = getelementptr inbounds nuw %"struct.nanobind::detail::func_data", ptr %7, i64 %.078127.us
+.lr.ph136.us:                                     ; preds = %.lr.ph136.us.preheader, %64
+  %.3134.us = phi ptr [ %.5.us, %64 ], [ %.1140.us, %.lr.ph136.us.preheader ]
+  %.078133.us = phi i64 [ %65, %64 ], [ 0, %.lr.ph136.us.preheader ]
+  %41 = getelementptr inbounds nuw %"struct.nanobind::detail::func_data", ptr %7, i64 %.078133.us
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 60
   %43 = load i16, ptr %42, align 4
   %44 = zext i16 %43 to i64
   %.not.us = icmp eq i64 %10, %44
   br i1 %.not.us, label %45, label %64
 
-45:                                               ; preds = %.lr.ph130.us
+45:                                               ; preds = %.lr.ph136.us
   %46 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %41, i64 56
@@ -2473,7 +2473,7 @@ define internal noundef ptr @_ZN8nanobind6detailL25nb_func_vectorcall_simpleEP7_
   %55 = extractvalue { ptr, i32 } %53, 1
   %56 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind17builtin_exceptionE) #26
   %57 = icmp eq i32 %55, %56
-  br i1 %57, label %58, label %.split136.us
+  br i1 %57, label %58, label %.split142.us
 
 58:                                               ; preds = %52
   %59 = call ptr @__cxa_begin_catch(ptr %54) #26
@@ -2487,128 +2487,128 @@ define internal noundef ptr @_ZN8nanobind6detailL25nb_func_vectorcall_simpleEP7_
 
 62:                                               ; preds = %45
   %.not85.us = icmp eq ptr %51, null
-  br i1 %.not85.us, label %.thread95, label %63, !prof !11
+  br i1 %.not85.us, label %.thread112, label %63, !prof !11
 
 63:                                               ; preds = %62, %61
   %.7.us = phi ptr [ %51, %62 ], [ %spec.select.us, %61 ]
   %.not86.us = icmp eq ptr %.7.us, inttoptr (i64 1 to ptr)
-  br i1 %.not86.us, label %64, label %.split141.us
+  br i1 %.not86.us, label %64, label %.split147.us
 
-64:                                               ; preds = %63, %.lr.ph130.us
-  %.5.us = phi ptr [ %.3128.us, %.lr.ph130.us ], [ inttoptr (i64 1 to ptr), %63 ]
-  %65 = add nuw i64 %.078127.us, 1
-  %exitcond160.not = icmp eq i64 %65, %9
-  br i1 %exitcond160.not, label %._crit_edge131.us, label %.lr.ph130.us, !llvm.loop !38
+64:                                               ; preds = %63, %.lr.ph136.us
+  %.5.us = phi ptr [ %.3134.us, %.lr.ph136.us ], [ inttoptr (i64 1 to ptr), %63 ]
+  %65 = add nuw i64 %.078133.us, 1
+  %exitcond163.not = icmp eq i64 %65, %9
+  br i1 %exitcond163.not, label %._crit_edge137.us, label %.lr.ph136.us, !llvm.loop !38
 
-._crit_edge131.us:                                ; preds = %64
-  %.not151 = icmp eq i64 %.077133.us, 0
-  br i1 %.not151, label %.preheader.us, label %.thread95, !llvm.loop !39
+._crit_edge137.us:                                ; preds = %64
+  %66 = icmp eq i64 %.077139.us, 0
+  br i1 %66, label %.preheader.us, label %.thread112, !llvm.loop !39
 
 .loopexit.split.us:                               ; preds = %61, %58
   %lpad.loopexit.us = landingpad { ptr, i32 }
           catch ptr null
-  br label %102
+  br label %105
 
 .split:                                           ; preds = %36
-  br i1 %16, label %.preheader.us143.preheader, label %.preheader
+  br i1 %16, label %.preheader.us149.preheader, label %.preheader
 
-.preheader.us143.preheader:                       ; preds = %.split
-  %66 = getelementptr inbounds nuw i8, ptr %5, i64 1
+.preheader.us149.preheader:                       ; preds = %.split
+  %67 = getelementptr inbounds nuw i8, ptr %5, i64 1
   store i8 2, ptr %5, align 1
-  br label %.preheader.us143
+  br label %.preheader.us149
 
-.preheader.us143:                                 ; preds = %.preheader.us143.preheader, %.preheader.us143
-  %.077133.us144 = phi i64 [ 1, %.preheader.us143 ], [ %38, %.preheader.us143.preheader ]
-  %67 = trunc nuw nsw i64 %.077133.us144 to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %66, i8 %67, i64 7, i1 false)
-  %.not150 = icmp eq i64 %.077133.us144, 0
-  br i1 %.not150, label %.preheader.us143, label %.thread95, !llvm.loop !39
+.preheader.us149:                                 ; preds = %.preheader.us149.preheader, %.preheader.us149
+  %.077139.us150 = phi i64 [ 1, %.preheader.us149 ], [ %38, %.preheader.us149.preheader ]
+  %68 = trunc nuw nsw i64 %.077139.us150 to i8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %67, i8 %68, i64 7, i1 false)
+  %69 = icmp eq i64 %.077139.us150, 0
+  br i1 %69, label %.preheader.us149, label %.thread112, !llvm.loop !39
 
 .preheader:                                       ; preds = %.split, %.preheader
-  %.077133 = phi i64 [ 1, %.preheader ], [ %38, %.split ]
-  %68 = trunc nuw nsw i64 %.077133 to i8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %5, i8 %68, i64 8, i1 false)
-  %.not149 = icmp eq i64 %.077133, 0
-  br i1 %.not149, label %.preheader, label %.thread95, !llvm.loop !39
+  %.077139 = phi i64 [ 1, %.preheader ], [ %38, %.split ]
+  %70 = trunc nuw nsw i64 %.077139 to i8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(8) %5, i8 %70, i64 8, i1 false)
+  %71 = icmp eq i64 %.077139, 0
+  br i1 %71, label %.preheader, label %.thread112, !llvm.loop !39
 
-.split136.us:                                     ; preds = %52
-  %69 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #26
-  %70 = icmp eq i32 %55, %69
-  %71 = call ptr @__cxa_begin_catch(ptr %54) #26
-  br i1 %70, label %72, label %73
+.split142.us:                                     ; preds = %52
+  %72 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTIN8nanobind12python_errorE) #26
+  %73 = icmp eq i32 %55, %72
+  %74 = call ptr @__cxa_begin_catch(ptr %54) #26
+  br i1 %73, label %75, label %76
 
-72:                                               ; preds = %.split136.us
-  call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %71) #26
+75:                                               ; preds = %.split142.us
+  call void @_ZN8nanobind12python_error7restoreEv(ptr noundef nonnull align 8 dereferenceable(40) %74) #26
   br label %.invoke
 
-.invoke:                                          ; preds = %73, %72
+.invoke:                                          ; preds = %76, %75
   invoke void @__cxa_end_catch()
-          to label %.thread95 unwind label %.loopexit.split-lp
+          to label %.thread112 unwind label %.loopexit.split-lp
 
-73:                                               ; preds = %.split136.us
+76:                                               ; preds = %.split142.us
   call fastcc void @_ZN8nanobind6detailL29nb_func_convert_cpp_exceptionEv() #26
   br label %.invoke
 
-.split141.us:                                     ; preds = %63
-  %74 = icmp ne ptr %.7.us, null
-  %or.cond3 = and i1 %16, %74
-  br i1 %or.cond3, label %75, label %.thread95
+.split147.us:                                     ; preds = %63
+  %77 = icmp ne ptr %.7.us, null
+  %or.cond3 = and i1 %16, %77
+  br i1 %or.cond3, label %78, label %.thread112
 
-75:                                               ; preds = %.split141.us
-  %76 = getelementptr inbounds nuw i8, ptr %30, i64 20
-  %77 = load i32, ptr %76, align 4
-  %78 = and i32 %77, -20
-  %79 = or disjoint i32 %78, 18
-  store i32 %79, ptr %76, align 4
-  %80 = and i32 %77, 128
-  %.not87 = icmp eq i32 %80, 0
-  br i1 %.not87, label %.thread95, label %81, !prof !8
+78:                                               ; preds = %.split147.us
+  %79 = getelementptr inbounds nuw i8, ptr %30, i64 20
+  %80 = load i32, ptr %79, align 4
+  %81 = and i32 %80, -20
+  %82 = or disjoint i32 %81, 18
+  store i32 %82, ptr %79, align 4
+  %83 = and i32 %80, 128
+  %.not87 = icmp eq i32 %83, 0
+  br i1 %.not87, label %.thread112, label %84, !prof !8
 
-81:                                               ; preds = %75
-  %82 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 976
-  %85 = load ptr, ptr %84, align 8
-  %86 = ptrtoint ptr %30 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %88 = load i32, ptr %87, align 8
-  %89 = sext i32 %88 to i64
-  %90 = add nsw i64 %89, %86
-  %91 = inttoptr i64 %90 to ptr
-  %92 = and i32 %77, 4
-  %.not.i = icmp eq i32 %92, 0
-  br i1 %.not.i, label %93, label %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit
+84:                                               ; preds = %78
+  %85 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %86, i64 976
+  %88 = load ptr, ptr %87, align 8
+  %89 = ptrtoint ptr %30 to i64
+  %90 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %91 = load i32, ptr %90, align 8
+  %92 = sext i32 %91 to i64
+  %93 = add nsw i64 %92, %89
+  %94 = inttoptr i64 %93 to ptr
+  %95 = and i32 %80, 4
+  %.not.i = icmp eq i32 %95, 0
+  br i1 %.not.i, label %96, label %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit
 
-93:                                               ; preds = %81
-  %94 = load ptr, ptr %91, align 8
+96:                                               ; preds = %84
+  %97 = load ptr, ptr %94, align 8
   br label %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit
 
-_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %81, %93
-  %95 = phi ptr [ %94, %93 ], [ %91, %81 ]
-  call void %85(ptr noundef %95, ptr noundef nonnull %30) #26
-  br label %.thread95
+_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %84, %96
+  %98 = phi ptr [ %97, %96 ], [ %94, %84 ]
+  call void %88(ptr noundef %98, ptr noundef nonnull %30) #26
+  br label %.thread112
 
-.thread95:                                        ; preds = %._crit_edge131.us, %62, %.preheader, %.preheader.us143, %.invoke, %75, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit, %.split141.us, %._crit_edge
-  %.not88 = phi i1 [ false, %._crit_edge ], [ true, %75 ], [ true, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ true, %.split141.us ], [ true, %.invoke ], [ false, %.preheader.us143 ], [ false, %.preheader ], [ false, %62 ], [ false, %._crit_edge131.us ]
-  %.068 = phi ptr [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %._crit_edge ], [ null, %75 ], [ null, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ null, %.split141.us ], [ null, %.invoke ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %.preheader.us143 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %.preheader ], [ @_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_, %62 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %._crit_edge131.us ]
-  %.067 = phi ptr [ null, %._crit_edge ], [ %.7.us, %75 ], [ %.7.us, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ %.7.us, %.split141.us ], [ null, %.invoke ], [ null, %.preheader.us143 ], [ null, %.preheader ], [ null, %62 ], [ %.5.us, %._crit_edge131.us ]
-  %96 = load i32, ptr %6, align 8
-  %.not111 = icmp eq i32 %96, 1
-  br i1 %.not111, label %98, label %97, !prof !8
+.thread112:                                       ; preds = %._crit_edge137.us, %62, %.preheader, %.preheader.us149, %.invoke, %.split147.us, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit, %78, %._crit_edge
+  %.not88 = phi i1 [ false, %._crit_edge ], [ true, %78 ], [ true, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ true, %.split147.us ], [ true, %.invoke ], [ false, %.preheader.us149 ], [ false, %.preheader ], [ false, %62 ], [ false, %._crit_edge137.us ]
+  %.068 = phi ptr [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %._crit_edge ], [ null, %78 ], [ null, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ null, %.split147.us ], [ null, %.invoke ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %.preheader.us149 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %.preheader ], [ @_ZN8nanobind6detailL23nb_func_error_noconvertEP7_objectPKS2_mS2_, %62 ], [ @_ZN8nanobind6detailL22nb_func_error_overloadEP7_objectPKS2_mS2_, %._crit_edge137.us ]
+  %.067 = phi ptr [ null, %._crit_edge ], [ %.7.us, %78 ], [ %.7.us, %_ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit ], [ %.7.us, %.split147.us ], [ null, %.invoke ], [ null, %.preheader.us149 ], [ null, %.preheader ], [ null, %62 ], [ %.5.us, %._crit_edge137.us ]
+  %99 = load i32, ptr %6, align 8
+  %.not117 = icmp eq i32 %99, 1
+  br i1 %.not117, label %101, label %100, !prof !8
 
-97:                                               ; preds = %.thread95
+100:                                              ; preds = %.thread112
   call void @_ZN8nanobind6detail12cleanup_list7releaseEv(ptr noundef nonnull align 8 dereferenceable(64) %6) #26
-  br label %98
-
-98:                                               ; preds = %97, %.thread95
-  br i1 %.not88, label %101, label %99, !prof !8
-
-99:                                               ; preds = %98
-  %100 = call noundef ptr %.068(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %10, ptr noundef %3) #26, !callees !35
   br label %101
 
-101:                                              ; preds = %98, %99
-  %.0 = phi ptr [ %100, %99 ], [ %.067, %98 ]
+101:                                              ; preds = %100, %.thread112
+  br i1 %.not88, label %104, label %102, !prof !8
+
+102:                                              ; preds = %101
+  %103 = call noundef ptr %.068(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %10, ptr noundef %3) #26, !callees !35
+  br label %104
+
+104:                                              ; preds = %101, %102
+  %.0 = phi ptr [ %103, %102 ], [ %.067, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.0
@@ -2616,12 +2616,12 @@ _ZN8nanobind6detail8inst_ptrEPNS0_7nb_instE.exit: ; preds = %81, %93
 .loopexit.split-lp:                               ; preds = %.invoke
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %102
+  br label %105
 
-102:                                              ; preds = %.loopexit.split-lp, %.loopexit.split.us
+105:                                              ; preds = %.loopexit.split-lp, %.loopexit.split.us
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit.us, %.loopexit.split.us ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %103 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %103) #25
+  %106 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %106) #25
   unreachable
 }
 

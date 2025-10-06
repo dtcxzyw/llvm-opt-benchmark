@@ -993,41 +993,41 @@ define dso_local void @appendPGArray(ptr noundef %0, ptr noundef %1) local_unnam
 10:                                               ; preds = %9, %2
   %11 = load i8, ptr %1, align 1
   %12 = icmp eq i8 %11, 0
-  br i1 %12, label %.thread80, label %13
+  br i1 %12, label %.thread79, label %13
 
 13:                                               ; preds = %10
   %14 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull @.str.12) #11
   %15 = icmp eq i32 %14, 0
-  br i1 %15, label %.thread80, label %.preheader
+  br i1 %15, label %.thread79, label %.preheader
 
 .preheader:                                       ; preds = %13, %17
   %.068 = phi ptr [ %18, %17 ], [ %1, %13 ]
   %16 = load i8, ptr %.068, align 1
   switch i8 %16, label %17 [
     i8 0, label %25
-    i8 125, label %.thread80
-    i8 123, label %.thread80
-    i8 92, label %.thread80
-    i8 44, label %.thread80
-    i8 34, label %.thread80
-    i8 32, label %.thread80
-    i8 13, label %.thread80
-    i8 12, label %.thread80
-    i8 11, label %.thread80
-    i8 10, label %.thread80
-    i8 9, label %.thread80
+    i8 125, label %.thread79
+    i8 123, label %.thread79
+    i8 92, label %.thread79
+    i8 44, label %.thread79
+    i8 34, label %.thread79
+    i8 32, label %.thread79
+    i8 13, label %.thread79
+    i8 12, label %.thread79
+    i8 11, label %.thread79
+    i8 10, label %.thread79
+    i8 9, label %.thread79
   ]
 
 17:                                               ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %.068, i64 1
   br label %.preheader, !llvm.loop !19
 
-.thread80:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %10, %13
+.thread79:                                        ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %10, %13
   tail call void @appendPQExpBufferChar(ptr noundef nonnull %0, i8 noundef signext 34) #11
   br label %19
 
-19:                                               ; preds = %22, %.thread80
-  %.169 = phi ptr [ %1, %.thread80 ], [ %23, %22 ]
+19:                                               ; preds = %22, %.thread79
+  %.169 = phi ptr [ %1, %.thread79 ], [ %23, %22 ]
   %20 = load i8, ptr %.169, align 1
   switch i8 %20, label %22 [
     i8 0, label %24

@@ -826,17 +826,17 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %6 = load ptr, ptr %1, align 8, !tbaa !14
   %7 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef %6, ptr noundef %2)
   store ptr %7, ptr %5, align 8, !tbaa !14
-  %.not92 = icmp eq ptr %7, %2
-  br i1 %.not92, label %.thread73, label %.lr.ph
+  %.not89 = icmp eq ptr %7, %2
+  br i1 %.not89, label %.thread70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %35
-  %.sroa.0.093 = phi i64 [ %.sroa.0.4, %35 ], [ 0, %4 ]
+  %.sroa.0.090 = phi i64 [ %.sroa.0.4, %35 ], [ 0, %4 ]
   call void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE19parse_subexpressionERPKcS6_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2, i32 noundef %3)
-  %.not48 = icmp eq i64 %.sroa.0.093, 0
+  %.not48 = icmp eq i64 %.sroa.0.090, 0
   br i1 %.not48, label %10, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = inttoptr i64 %.sroa.0.093 to ptr
+  %9 = inttoptr i64 %.sroa.0.090 to ptr
   call void %9(ptr noundef nonnull align 8 dereferenceable(176) %0)
   br label %10
 
@@ -845,7 +845,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %12 = call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef %11, ptr noundef %2)
   store ptr %12, ptr %5, align 8, !tbaa !14
   %.not49 = icmp eq ptr %12, %2
-  br i1 %.not49, label %.thread73, label %13
+  br i1 %.not49, label %.thread70, label %13
 
 13:                                               ; preds = %10
   %14 = load i8, ptr %12, align 1, !tbaa !44
@@ -870,58 +870,58 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 .thread:                                          ; preds = %16
   store ptr %15, ptr %5, align 8, !tbaa !14
   %19 = add i32 %3, -1
-  br label %.thread73
+  br label %.thread70
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %24
-  %.01528.i.idx = phi i64 [ %.01528.i.add, %24 ], [ 0, %.lr.ph.i.preheader ]
-  %.01827.i = phi ptr [ %26, %24 ], [ %12, %.lr.ph.i.preheader ]
-  %20 = load i8, ptr %.01827.i, align 1, !tbaa !44
-  %exitcond = icmp eq i64 %.01528.i.idx, 3
+  %.01533.i.idx = phi i64 [ %.01533.i.add, %24 ], [ 0, %.lr.ph.i.preheader ]
+  %.01832.i = phi ptr [ %26, %24 ], [ %12, %.lr.ph.i.preheader ]
+  %20 = load i8, ptr %.01832.i, align 1, !tbaa !44
+  %exitcond = icmp eq i64 %.01533.i.idx, 3
   br i1 %exitcond, label %21, label %24
 
 21:                                               ; preds = %.lr.ph.i
   %22 = sext i8 %20 to i32
   %23 = call i32 @isspace(i32 noundef %22) #23
-  %.not24.i = icmp eq i32 %23, 0
-  br i1 %.not24.i, label %.loopexit78, label %35
+  %.not29.i = icmp eq i32 %23, 0
+  br i1 %.not29.i, label %.loopexit75, label %35
 
 24:                                               ; preds = %.lr.ph.i
-  %.01528.i.ptr = getelementptr inbounds nuw i8, ptr @.str.100, i64 %.01528.i.idx
-  %25 = load i8, ptr %.01528.i.ptr, align 1, !tbaa !44
+  %.01533.i.ptr = getelementptr inbounds nuw i8, ptr @.str.100, i64 %.01533.i.idx
+  %25 = load i8, ptr %.01533.i.ptr, align 1, !tbaa !44
   %.not20.i = icmp ne i8 %20, %25
-  %26 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 1
-  %.01528.i.add = add nuw nsw i64 %.01528.i.idx, 1
+  %26 = getelementptr inbounds nuw i8, ptr %.01832.i, i64 1
+  %.01533.i.add = add nuw nsw i64 %.01533.i.idx, 1
   %.not.i = icmp eq ptr %26, %2
   %or.cond.i = select i1 %.not20.i, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %.loopexit78, label %.lr.ph.i, !llvm.loop !64
+  br i1 %or.cond.i, label %.loopexit75, label %.lr.ph.i, !llvm.loop !64
 
-.loopexit78:                                      ; preds = %24, %21
+.loopexit75:                                      ; preds = %24, %21
   %27 = icmp eq i8 %14, 124
   br i1 %27, label %35, label %.lr.ph.i52.preheader
 
-.lr.ph.i52.preheader:                             ; preds = %.loopexit78
-  %scevgep104 = getelementptr i8, ptr %12, i64 2
+.lr.ph.i52.preheader:                             ; preds = %.loopexit75
+  %scevgep101 = getelementptr i8, ptr %12, i64 2
   br label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %.lr.ph.i52.preheader, %32
-  %.01528.i53.idx = phi i64 [ %.01528.i53.add, %32 ], [ 0, %.lr.ph.i52.preheader ]
-  %.01827.i54 = phi ptr [ %34, %32 ], [ %12, %.lr.ph.i52.preheader ]
-  %28 = load i8, ptr %.01827.i54, align 1, !tbaa !44
-  %exitcond105 = icmp eq i64 %.01528.i53.idx, 2
-  br i1 %exitcond105, label %29, label %32
+  %.01533.i53.idx = phi i64 [ %.01533.i53.add, %32 ], [ 0, %.lr.ph.i52.preheader ]
+  %.01832.i54 = phi ptr [ %34, %32 ], [ %12, %.lr.ph.i52.preheader ]
+  %28 = load i8, ptr %.01832.i54, align 1, !tbaa !44
+  %exitcond102 = icmp eq i64 %.01533.i53.idx, 2
+  br i1 %exitcond102, label %29, label %32
 
 29:                                               ; preds = %.lr.ph.i52
   %30 = sext i8 %28 to i32
   %31 = call i32 @isspace(i32 noundef %30) #23
-  %.not24.i59 = icmp eq i32 %31, 0
-  br i1 %.not24.i59, label %.loopexit, label %35
+  %.not29.i58 = icmp eq i32 %31, 0
+  br i1 %.not29.i58, label %.loopexit, label %35
 
 32:                                               ; preds = %.lr.ph.i52
-  %.01528.i53.ptr = getelementptr inbounds nuw i8, ptr @.str.102, i64 %.01528.i53.idx
-  %33 = load i8, ptr %.01528.i53.ptr, align 1, !tbaa !44
+  %.01533.i53.ptr = getelementptr inbounds nuw i8, ptr @.str.102, i64 %.01533.i53.idx
+  %33 = load i8, ptr %.01533.i53.ptr, align 1, !tbaa !44
   %.not20.i55 = icmp ne i8 %28, %33
-  %34 = getelementptr inbounds nuw i8, ptr %.01827.i54, i64 1
-  %.01528.i53.add = add nuw nsw i64 %.01528.i53.idx, 1
+  %34 = getelementptr inbounds nuw i8, ptr %.01832.i54, i64 1
+  %.01533.i53.add = add nuw nsw i64 %.01533.i53.idx, 1
   %.not.i56 = icmp eq ptr %34, %2
   %or.cond.i57 = select i1 %.not20.i55, i1 true, i1 %.not.i56
   br i1 %or.cond.i57, label %.loopexit, label %.lr.ph.i52, !llvm.loop !64
@@ -930,9 +930,9 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 203, ptr noundef nonnull @.str.79) #22
   unreachable
 
-35:                                               ; preds = %13, %.loopexit78, %21, %29
-  %.061 = phi ptr [ %15, %.loopexit78 ], [ %15, %13 ], [ %scevgep, %21 ], [ %scevgep104, %29 ]
-  %.sroa.0.4 = phi i64 [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE5on_orEv to i64), %.loopexit78 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE6on_andEv to i64), %13 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE6on_andEv to i64), %21 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE5on_orEv to i64), %29 ]
+35:                                               ; preds = %13, %.loopexit75, %21, %29
+  %.061 = phi ptr [ %15, %.loopexit75 ], [ %15, %13 ], [ %scevgep, %21 ], [ %scevgep101, %29 ]
+  %.sroa.0.4 = phi i64 [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE5on_orEv to i64), %.loopexit75 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE6on_andEv to i64), %13 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE6on_andEv to i64), %21 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE5on_orEv to i64), %29 ]
   %36 = call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %.061, ptr noundef %2)
   store ptr %36, ptr %5, align 8, !tbaa !14
   %.not = icmp eq ptr %36, %2
@@ -942,19 +942,19 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 214, ptr noundef nonnull @.str.80) #22
   unreachable
 
-.thread73:                                        ; preds = %10, %4, %.thread
+.thread70:                                        ; preds = %10, %4, %.thread
   %37 = phi ptr [ %15, %.thread ], [ %7, %4 ], [ %12, %10 ]
-  %.177 = phi i32 [ %19, %.thread ], [ %3, %4 ], [ %3, %10 ]
+  %.174 = phi i32 [ %19, %.thread ], [ %3, %4 ], [ %3, %10 ]
   %38 = icmp eq ptr %37, %2
-  %39 = icmp ne i32 %.177, 0
+  %39 = icmp ne i32 %.174, 0
   %or.cond = and i1 %39, %38
   br i1 %or.cond, label %40, label %41
 
-40:                                               ; preds = %.thread73
+40:                                               ; preds = %.thread70
   call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 219, ptr noundef nonnull @.str.81) #22
   unreachable
 
-41:                                               ; preds = %.thread73
+41:                                               ; preds = %.thread70
   store ptr %37, ptr %1, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -1376,17 +1376,17 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %6 = load ptr, ptr %1, align 8, !tbaa !14
   %7 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef %6, ptr noundef %2)
   store ptr %7, ptr %5, align 8, !tbaa !14
-  %.not92 = icmp eq ptr %7, %2
-  br i1 %.not92, label %.thread73, label %.lr.ph
+  %.not89 = icmp eq ptr %7, %2
+  br i1 %.not89, label %.thread70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %39
-  %.sroa.0.093 = phi i64 [ %.sroa.0.4, %39 ], [ 0, %4 ]
+  %.sroa.0.090 = phi i64 [ %.sroa.0.4, %39 ], [ 0, %4 ]
   call void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE19parse_subexpressionERPKwS6_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2, i32 noundef %3)
-  %.not48 = icmp eq i64 %.sroa.0.093, 0
+  %.not48 = icmp eq i64 %.sroa.0.090, 0
   br i1 %.not48, label %10, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = inttoptr i64 %.sroa.0.093 to ptr
+  %9 = inttoptr i64 %.sroa.0.090 to ptr
   call void %9(ptr noundef nonnull align 8 dereferenceable(176) %0)
   br label %10
 
@@ -1395,7 +1395,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   %12 = call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef %11, ptr noundef %2)
   store ptr %12, ptr %5, align 8, !tbaa !14
   %.not49 = icmp eq ptr %12, %2
-  br i1 %.not49, label %.thread73, label %13
+  br i1 %.not49, label %.thread70, label %13
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %12, align 4, !tbaa !76
@@ -1420,59 +1420,59 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 .thread:                                          ; preds = %16
   store ptr %15, ptr %5, align 8, !tbaa !14
   %19 = add i32 %3, -1
-  br label %.thread73
+  br label %.thread70
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %25
-  %.01528.i = phi ptr [ %27, %25 ], [ @.str.110, %.lr.ph.i.preheader ]
-  %.01827.i = phi ptr [ %26, %25 ], [ %12, %.lr.ph.i.preheader ]
-  %20 = load i32, ptr %.01827.i, align 4, !tbaa !76
-  %21 = load i32, ptr %.01528.i, align 4, !tbaa !76
+  %.01533.i = phi ptr [ %27, %25 ], [ @.str.110, %.lr.ph.i.preheader ]
+  %.01832.i = phi ptr [ %26, %25 ], [ %12, %.lr.ph.i.preheader ]
+  %20 = load i32, ptr %.01832.i, align 4, !tbaa !76
+  %21 = load i32, ptr %.01533.i, align 4, !tbaa !76
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %.lr.ph.i
   %24 = call i32 @iswspace(i32 noundef %20) #18
-  %.not24.i = icmp eq i32 %24, 0
-  br i1 %.not24.i, label %.loopexit78, label %39
+  %.not29.i = icmp eq i32 %24, 0
+  br i1 %.not29.i, label %.loopexit75, label %39
 
 25:                                               ; preds = %.lr.ph.i
   %.not20.i = icmp ne i32 %20, %21
-  %26 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 4
-  %27 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 4
+  %26 = getelementptr inbounds nuw i8, ptr %.01832.i, i64 4
+  %27 = getelementptr inbounds nuw i8, ptr %.01533.i, i64 4
   %.not.i = icmp eq ptr %26, %2
   %or.cond.i = select i1 %.not20.i, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %.loopexit78, label %.lr.ph.i, !llvm.loop !85
+  br i1 %or.cond.i, label %.loopexit75, label %.lr.ph.i, !llvm.loop !85
 
-.loopexit78:                                      ; preds = %25, %23
+.loopexit75:                                      ; preds = %25, %23
   %28 = icmp eq i32 %14, 124
   br i1 %28, label %39, label %29
 
-29:                                               ; preds = %.loopexit78
+29:                                               ; preds = %.loopexit75
   %30 = load ptr, ptr %5, align 8, !tbaa !14
-  %.not26.i51 = icmp eq ptr %30, %2
-  br i1 %.not26.i51, label %.loopexit, label %.lr.ph.i52.preheader
+  %.not31.i51 = icmp eq ptr %30, %2
+  br i1 %.not31.i51, label %.loopexit, label %.lr.ph.i52.preheader
 
 .lr.ph.i52.preheader:                             ; preds = %29
-  %scevgep104 = getelementptr i8, ptr %30, i64 8
+  %scevgep101 = getelementptr i8, ptr %30, i64 8
   br label %.lr.ph.i52
 
 .lr.ph.i52:                                       ; preds = %.lr.ph.i52.preheader, %36
-  %.01528.i53 = phi ptr [ %38, %36 ], [ @.str.111, %.lr.ph.i52.preheader ]
-  %.01827.i54 = phi ptr [ %37, %36 ], [ %30, %.lr.ph.i52.preheader ]
-  %31 = load i32, ptr %.01827.i54, align 4, !tbaa !76
-  %32 = load i32, ptr %.01528.i53, align 4, !tbaa !76
+  %.01533.i53 = phi ptr [ %38, %36 ], [ @.str.111, %.lr.ph.i52.preheader ]
+  %.01832.i54 = phi ptr [ %37, %36 ], [ %30, %.lr.ph.i52.preheader ]
+  %31 = load i32, ptr %.01832.i54, align 4, !tbaa !76
+  %32 = load i32, ptr %.01533.i53, align 4, !tbaa !76
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %.lr.ph.i52
   %35 = call i32 @iswspace(i32 noundef %31) #18
-  %.not24.i59 = icmp eq i32 %35, 0
-  br i1 %.not24.i59, label %.loopexit, label %39
+  %.not29.i58 = icmp eq i32 %35, 0
+  br i1 %.not29.i58, label %.loopexit, label %39
 
 36:                                               ; preds = %.lr.ph.i52
   %.not20.i55 = icmp ne i32 %31, %32
-  %37 = getelementptr inbounds nuw i8, ptr %.01827.i54, i64 4
-  %38 = getelementptr inbounds nuw i8, ptr %.01528.i53, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.01832.i54, i64 4
+  %38 = getelementptr inbounds nuw i8, ptr %.01533.i53, i64 4
   %.not.i56 = icmp eq ptr %37, %2
   %or.cond.i57 = select i1 %.not20.i55, i1 true, i1 %.not.i56
   br i1 %or.cond.i57, label %.loopexit, label %.lr.ph.i52, !llvm.loop !85
@@ -1481,9 +1481,9 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 203, ptr noundef nonnull @.str.79) #22
   unreachable
 
-39:                                               ; preds = %13, %.loopexit78, %23, %34
-  %.061 = phi ptr [ %15, %.loopexit78 ], [ %15, %13 ], [ %scevgep, %23 ], [ %scevgep104, %34 ]
-  %.sroa.0.4 = phi i64 [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE5on_orEv to i64), %.loopexit78 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE6on_andEv to i64), %13 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE6on_andEv to i64), %23 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE5on_orEv to i64), %34 ]
+39:                                               ; preds = %13, %.loopexit75, %23, %34
+  %.061 = phi ptr [ %15, %.loopexit75 ], [ %15, %13 ], [ %scevgep, %23 ], [ %scevgep101, %34 ]
+  %.sroa.0.4 = phi i64 [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE5on_orEv to i64), %.loopexit75 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE6on_andEv to i64), %13 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE6on_andEv to i64), %23 ], [ ptrtoint (ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE5on_orEv to i64), %34 ]
   %40 = call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef nonnull %.061, ptr noundef %2)
   store ptr %40, ptr %5, align 8, !tbaa !14
   %.not = icmp eq ptr %40, %2
@@ -1493,19 +1493,19 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 214, ptr noundef nonnull @.str.80) #22
   unreachable
 
-.thread73:                                        ; preds = %10, %4, %.thread
+.thread70:                                        ; preds = %10, %4, %.thread
   %41 = phi ptr [ %15, %.thread ], [ %7, %4 ], [ %12, %10 ]
-  %.177 = phi i32 [ %19, %.thread ], [ %3, %4 ], [ %3, %10 ]
+  %.174 = phi i32 [ %19, %.thread ], [ %3, %4 ], [ %3, %10 ]
   %42 = icmp eq ptr %41, %2
-  %43 = icmp ne i32 %.177, 0
+  %43 = icmp ne i32 %.174, 0
   %or.cond = and i1 %43, %42
   br i1 %or.cond, label %44, label %45
 
-44:                                               ; preds = %.thread73
+44:                                               ; preds = %.thread70
   call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 219, ptr noundef nonnull @.str.81) #22
   unreachable
 
-45:                                               ; preds = %.thread73
+45:                                               ; preds = %.thread70
   store ptr %41, ptr %1, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -2561,16 +2561,16 @@ declare noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spa
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE19parse_subexpressionERPKcS6_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !14
-  %.not5189 = icmp eq ptr %6, %2
-  br i1 %.not5189, label %._crit_edge, label %.lr.ph
+  %.not5185 = icmp eq ptr %6, %2
+  br i1 %.not5185, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit
-  %.03892 = phi i1 [ %41, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ false, %4 ]
-  %.03991 = phi i1 [ true, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ false, %4 ]
-  %.04190 = phi ptr [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ %6, %4 ]
-  %7 = load i8, ptr %.04190, align 1, !tbaa !44
+  %.03888 = phi i1 [ %41, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ false, %4 ]
+  %.03987 = phi i1 [ true, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ false, %4 ]
+  %.04186 = phi ptr [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit ], [ %6, %4 ]
+  %7 = load i8, ptr %.04186, align 1, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %8 = getelementptr inbounds nuw i8, ptr %.04190, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.04186, i64 1
   store ptr %8, ptr %5, align 8, !tbaa !14
   switch i8 %7, label %.lr.ph.i.preheader [
     i8 37, label %9
@@ -2578,7 +2578,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   ]
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %.04190, i64 3
+  %scevgep = getelementptr i8, ptr %.04186, i64 3
   br label %.lr.ph.i
 
 9:                                                ; preds = %.lr.ph
@@ -2609,7 +2609,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %22 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %21, ptr noundef %2)
-  br i1 %.03991, label %25, label %23
+  br i1 %.03987, label %25, label %23
 
 23:                                               ; preds = %20
   %24 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE14parse_relationEPKcS6_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %22, ptr noundef %2)
@@ -2620,24 +2620,24 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   br label %38
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %30
-  %.01528.i.idx = phi i64 [ %.01528.i.add, %30 ], [ 0, %.lr.ph.i.preheader ]
-  %.01827.i = phi ptr [ %32, %30 ], [ %.04190, %.lr.ph.i.preheader ]
-  %26 = load i8, ptr %.01827.i, align 1, !tbaa !44
-  %exitcond = icmp eq i64 %.01528.i.idx, 3
+  %.01533.i.idx = phi i64 [ %.01533.i.add, %30 ], [ 0, %.lr.ph.i.preheader ]
+  %.01832.i = phi ptr [ %32, %30 ], [ %.04186, %.lr.ph.i.preheader ]
+  %26 = load i8, ptr %.01832.i, align 1, !tbaa !44
+  %exitcond = icmp eq i64 %.01533.i.idx, 3
   br i1 %exitcond, label %27, label %30
 
 27:                                               ; preds = %.lr.ph.i
   %28 = sext i8 %26 to i32
   %29 = tail call i32 @isspace(i32 noundef %28) #23
-  %.not24.i = icmp eq i32 %29, 0
-  br i1 %.not24.i, label %.loopexit, label %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit
+  %.not29.i = icmp eq i32 %29, 0
+  br i1 %.not29.i, label %.loopexit, label %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit
 
 30:                                               ; preds = %.lr.ph.i
-  %.01528.i.ptr = getelementptr inbounds nuw i8, ptr @.str.98, i64 %.01528.i.idx
-  %31 = load i8, ptr %.01528.i.ptr, align 1, !tbaa !44
+  %.01533.i.ptr = getelementptr inbounds nuw i8, ptr @.str.98, i64 %.01533.i.idx
+  %31 = load i8, ptr %.01533.i.ptr, align 1, !tbaa !44
   %.not20.i = icmp ne i8 %26, %31
-  %32 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 1
-  %.01528.i.add = add nuw nsw i64 %.01528.i.idx, 1
+  %32 = getelementptr inbounds nuw i8, ptr %.01832.i, i64 1
+  %.01533.i.add = add nuw nsw i64 %.01533.i.idx, 1
   %.not.i = icmp eq ptr %32, %2
   %or.cond.i = select i1 %.not20.i, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !64
@@ -2658,19 +2658,19 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 38:                                               ; preds = %23, %25, %34
   %.3 = phi ptr [ %36, %34 ], [ %22, %25 ], [ %24, %23 ]
-  br i1 %.03892, label %39, label %.thread61
+  br i1 %.03888, label %39, label %.thread58
 
 39:                                               ; preds = %38
   call void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE11on_negationEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
-  br label %.thread61
+  br label %.thread58
 
-.thread61:                                        ; preds = %38, %39
+.thread58:                                        ; preds = %38, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge
 
 _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_.exit: ; preds = %27, %.lr.ph
   %40 = phi ptr [ %8, %.lr.ph ], [ %scevgep, %27 ]
-  %41 = xor i1 %.03892, true
+  %41 = xor i1 %.03888, true
   %42 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef %40, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not51 = icmp eq ptr %42, %2
@@ -2680,9 +2680,9 @@ _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 289, ptr noundef nonnull @.str.84) #22
   unreachable
 
-._crit_edge:                                      ; preds = %4, %.thread61
-  %.14267 = phi ptr [ %.3, %.thread61 ], [ %6, %4 ]
-  store ptr %.14267, ptr %1, align 8, !tbaa !14
+._crit_edge:                                      ; preds = %4, %.thread58
+  %.14263 = phi ptr [ %.3, %.thread58 ], [ %6, %4 ]
+  store ptr %.14263, ptr %1, align 8, !tbaa !14
   ret void
 }
 
@@ -2691,38 +2691,38 @@ declare void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIcE12scan_keywordEPKcS6_RS6_S6_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #6 comdat align 2 {
-  %.not26 = icmp eq ptr %0, %1
-  br i1 %.not26, label %.thread, label %.lr.ph
+  %.not31 = icmp eq ptr %0, %1
+  br i1 %.not31, label %.thread24, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %12
-  %.01528 = phi ptr [ %14, %12 ], [ %3, %4 ]
-  %.01827 = phi ptr [ %13, %12 ], [ %0, %4 ]
-  %5 = load i8, ptr %.01827, align 1, !tbaa !44
-  %6 = load i8, ptr %.01528, align 1, !tbaa !44
+.lr.ph:                                           ; preds = %4, %11
+  %.01533 = phi ptr [ %13, %11 ], [ %3, %4 ]
+  %.01832 = phi ptr [ %12, %11 ], [ %0, %4 ]
+  %5 = load i8, ptr %.01832, align 1, !tbaa !44
+  %6 = load i8, ptr %.01533, align 1, !tbaa !44
   %7 = icmp eq i8 %6, 0
-  br i1 %7, label %8, label %12
+  br i1 %7, label %8, label %11
 
 8:                                                ; preds = %.lr.ph
   %9 = sext i8 %5 to i32
   %10 = tail call i32 @isspace(i32 noundef %9) #23
-  %.not24 = icmp eq i32 %10, 0
-  br i1 %.not24, label %.thread, label %11
+  %.not29 = icmp eq i32 %10, 0
+  br i1 %.not29, label %.thread24, label %.thread.thread27
 
-11:                                               ; preds = %8
-  store ptr %.01827, ptr %2, align 8, !tbaa !14
-  br label %.thread
+.thread.thread27:                                 ; preds = %8
+  store ptr %.01832, ptr %2, align 8, !tbaa !14
+  br label %.thread24
 
-12:                                               ; preds = %.lr.ph
+11:                                               ; preds = %.lr.ph
   %.not20 = icmp ne i8 %5, %6
-  %13 = getelementptr inbounds nuw i8, ptr %.01827, i64 1
-  %14 = getelementptr inbounds nuw i8, ptr %.01528, i64 1
-  %.not = icmp eq ptr %13, %1
+  %12 = getelementptr inbounds nuw i8, ptr %.01832, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %.01533, i64 1
+  %.not = icmp eq ptr %12, %1
   %or.cond = select i1 %.not20, i1 true, i1 %.not
-  br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !64
+  br i1 %or.cond, label %.thread24, label %.lr.ph, !llvm.loop !64
 
-.thread:                                          ; preds = %12, %4, %8, %11
-  %not.switch = phi i1 [ false, %8 ], [ true, %11 ], [ false, %4 ], [ false, %12 ]
-  ret i1 %not.switch
+.thread24:                                        ; preds = %11, %4, %8, %.thread.thread27
+  %14 = phi i1 [ true, %.thread.thread27 ], [ false, %8 ], [ false, %4 ], [ false, %11 ]
+  ret i1 %14
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4109,27 +4109,27 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %12
-  %.01528.i.idx = phi i64 [ %.01528.i.add, %12 ], [ 0, %7 ]
-  %.01827.i = phi ptr [ %14, %12 ], [ %1, %7 ]
-  %8 = load i8, ptr %.01827.i, align 1, !tbaa !44
-  %exitcond = icmp eq i64 %.01528.i.idx, 1
+  %.01533.i.idx = phi i64 [ %.01533.i.add, %12 ], [ 0, %7 ]
+  %.01832.i = phi ptr [ %14, %12 ], [ %1, %7 ]
+  %8 = load i8, ptr %.01832.i, align 1, !tbaa !44
+  %exitcond = icmp eq i64 %.01533.i.idx, 1
   br i1 %exitcond, label %9, label %12
 
 9:                                                ; preds = %.lr.ph.i
   %10 = sext i8 %8 to i32
   %11 = tail call i32 @isspace(i32 noundef %10) #23
-  %.not24.i = icmp eq i32 %11, 0
-  br i1 %.not24.i, label %.loopexit98, label %15
+  %.not29.i = icmp eq i32 %11, 0
+  br i1 %.not29.i, label %.loopexit93, label %15
 
 12:                                               ; preds = %.lr.ph.i
-  %.01528.i.ptr = getelementptr inbounds nuw i8, ptr @.str.87, i64 %.01528.i.idx
-  %13 = load i8, ptr %.01528.i.ptr, align 1, !tbaa !44
+  %.01533.i.ptr = getelementptr inbounds nuw i8, ptr @.str.87, i64 %.01533.i.idx
+  %13 = load i8, ptr %.01533.i.ptr, align 1, !tbaa !44
   %.not20.i = icmp ne i8 %8, %13
-  %14 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 1
-  %.01528.i.add = add nuw nsw i64 %.01528.i.idx, 1
+  %14 = getelementptr inbounds nuw i8, ptr %.01832.i, i64 1
+  %.01533.i.add = add nuw nsw i64 %.01533.i.idx, 1
   %.not.i = icmp eq ptr %14, %2
   %or.cond.i = select i1 %.not20.i, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %.loopexit98, label %.lr.ph.i, !llvm.loop !64
+  br i1 %or.cond.i, label %.loopexit93, label %.lr.ph.i, !llvm.loop !64
 
 15:                                               ; preds = %9
   store ptr %scevgep, ptr %4, align 8, !tbaa !14
@@ -4139,38 +4139,38 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store i64 0, ptr %.repack45, align 8, !tbaa !136
   br label %72
 
-.loopexit98:                                      ; preds = %12, %9
-  %scevgep132 = getelementptr i8, ptr %1, i64 2
+.loopexit93:                                      ; preds = %12, %9
+  %scevgep127 = getelementptr i8, ptr %1, i64 2
   br label %.lr.ph.i48
 
-.lr.ph.i48:                                       ; preds = %.loopexit98, %21
-  %.01528.i49.idx = phi i64 [ %.01528.i49.add, %21 ], [ 0, %.loopexit98 ]
-  %.01827.i50 = phi ptr [ %23, %21 ], [ %1, %.loopexit98 ]
-  %17 = load i8, ptr %.01827.i50, align 1, !tbaa !44
-  %exitcond133 = icmp eq i64 %.01528.i49.idx, 2
-  br i1 %exitcond133, label %18, label %21
+.lr.ph.i48:                                       ; preds = %.loopexit93, %21
+  %.01533.i49.idx = phi i64 [ %.01533.i49.add, %21 ], [ 0, %.loopexit93 ]
+  %.01832.i50 = phi ptr [ %23, %21 ], [ %1, %.loopexit93 ]
+  %17 = load i8, ptr %.01832.i50, align 1, !tbaa !44
+  %exitcond128 = icmp eq i64 %.01533.i49.idx, 2
+  br i1 %exitcond128, label %18, label %21
 
 18:                                               ; preds = %.lr.ph.i48
   %19 = sext i8 %17 to i32
   %20 = tail call i32 @isspace(i32 noundef %19) #23
-  %.not24.i55 = icmp eq i32 %20, 0
-  br i1 %.not24.i55, label %.lr.ph.i58.preheader, label %24
+  %.not29.i54 = icmp eq i32 %20, 0
+  br i1 %.not29.i54, label %.lr.ph.i58.preheader, label %24
 
 .lr.ph.i58.preheader:                             ; preds = %21, %18
   br label %.lr.ph.i58
 
 21:                                               ; preds = %.lr.ph.i48
-  %.01528.i49.ptr = getelementptr inbounds nuw i8, ptr @.str.88, i64 %.01528.i49.idx
-  %22 = load i8, ptr %.01528.i49.ptr, align 1, !tbaa !44
+  %.01533.i49.ptr = getelementptr inbounds nuw i8, ptr @.str.88, i64 %.01533.i49.idx
+  %22 = load i8, ptr %.01533.i49.ptr, align 1, !tbaa !44
   %.not20.i51 = icmp ne i8 %17, %22
-  %23 = getelementptr inbounds nuw i8, ptr %.01827.i50, i64 1
-  %.01528.i49.add = add nuw nsw i64 %.01528.i49.idx, 1
+  %23 = getelementptr inbounds nuw i8, ptr %.01832.i50, i64 1
+  %.01533.i49.add = add nuw nsw i64 %.01533.i49.idx, 1
   %.not.i52 = icmp eq ptr %23, %2
   %or.cond.i53 = select i1 %.not20.i51, i1 true, i1 %.not.i52
   br i1 %or.cond.i53, label %.lr.ph.i58.preheader, label %.lr.ph.i48, !llvm.loop !64
 
 24:                                               ; preds = %18
-  store ptr %scevgep132, ptr %4, align 8, !tbaa !14
+  store ptr %scevgep127, ptr %4, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 33, ptr %25, align 8, !tbaa !136
   %.repack44 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4178,27 +4178,27 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   br label %72
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58.preheader, %30
-  %.01528.i59.idx = phi i64 [ %.01528.i59.add, %30 ], [ 0, %.lr.ph.i58.preheader ]
-  %.01827.i60 = phi ptr [ %32, %30 ], [ %1, %.lr.ph.i58.preheader ]
-  %26 = load i8, ptr %.01827.i60, align 1, !tbaa !44
-  %exitcond135 = icmp eq i64 %.01528.i59.idx, 1
-  br i1 %exitcond135, label %27, label %30
+  %.01533.i59.idx = phi i64 [ %.01533.i59.add, %30 ], [ 0, %.lr.ph.i58.preheader ]
+  %.01832.i60 = phi ptr [ %32, %30 ], [ %1, %.lr.ph.i58.preheader ]
+  %26 = load i8, ptr %.01832.i60, align 1, !tbaa !44
+  %exitcond130 = icmp eq i64 %.01533.i59.idx, 1
+  br i1 %exitcond130, label %27, label %30
 
 27:                                               ; preds = %.lr.ph.i58
   %28 = sext i8 %26 to i32
   %29 = tail call i32 @isspace(i32 noundef %28) #23
-  %.not24.i65 = icmp eq i32 %29, 0
-  br i1 %.not24.i65, label %.lr.ph.i68.preheader, label %33
+  %.not29.i64 = icmp eq i32 %29, 0
+  br i1 %.not29.i64, label %.lr.ph.i68.preheader, label %33
 
 .lr.ph.i68.preheader:                             ; preds = %30, %27
   br label %.lr.ph.i68
 
 30:                                               ; preds = %.lr.ph.i58
-  %.01528.i59.ptr = getelementptr inbounds nuw i8, ptr @.str.89, i64 %.01528.i59.idx
-  %31 = load i8, ptr %.01528.i59.ptr, align 1, !tbaa !44
+  %.01533.i59.ptr = getelementptr inbounds nuw i8, ptr @.str.89, i64 %.01533.i59.idx
+  %31 = load i8, ptr %.01533.i59.ptr, align 1, !tbaa !44
   %.not20.i61 = icmp ne i8 %26, %31
-  %32 = getelementptr inbounds nuw i8, ptr %.01827.i60, i64 1
-  %.01528.i59.add = add nuw nsw i64 %.01528.i59.idx, 1
+  %32 = getelementptr inbounds nuw i8, ptr %.01832.i60, i64 1
+  %.01533.i59.add = add nuw nsw i64 %.01533.i59.idx, 1
   %.not.i62 = icmp eq ptr %32, %2
   %or.cond.i63 = select i1 %.not20.i61, i1 true, i1 %.not.i62
   br i1 %or.cond.i63, label %.lr.ph.i68.preheader, label %.lr.ph.i58, !llvm.loop !64
@@ -4212,27 +4212,27 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   br label %72
 
 .lr.ph.i68:                                       ; preds = %.lr.ph.i68.preheader, %39
-  %.01528.i69.idx = phi i64 [ %.01528.i69.add, %39 ], [ 0, %.lr.ph.i68.preheader ]
-  %.01827.i70 = phi ptr [ %41, %39 ], [ %1, %.lr.ph.i68.preheader ]
-  %35 = load i8, ptr %.01827.i70, align 1, !tbaa !44
-  %exitcond137 = icmp eq i64 %.01528.i69.idx, 1
-  br i1 %exitcond137, label %36, label %39
+  %.01533.i69.idx = phi i64 [ %.01533.i69.add, %39 ], [ 0, %.lr.ph.i68.preheader ]
+  %.01832.i70 = phi ptr [ %41, %39 ], [ %1, %.lr.ph.i68.preheader ]
+  %35 = load i8, ptr %.01832.i70, align 1, !tbaa !44
+  %exitcond132 = icmp eq i64 %.01533.i69.idx, 1
+  br i1 %exitcond132, label %36, label %39
 
 36:                                               ; preds = %.lr.ph.i68
   %37 = sext i8 %35 to i32
   %38 = tail call i32 @isspace(i32 noundef %37) #23
-  %.not24.i75 = icmp eq i32 %38, 0
-  br i1 %.not24.i75, label %.lr.ph.i78.preheader, label %42
+  %.not29.i74 = icmp eq i32 %38, 0
+  br i1 %.not29.i74, label %.lr.ph.i78.preheader, label %42
 
 .lr.ph.i78.preheader:                             ; preds = %39, %36
   br label %.lr.ph.i78
 
 39:                                               ; preds = %.lr.ph.i68
-  %.01528.i69.ptr = getelementptr inbounds nuw i8, ptr @.str.90, i64 %.01528.i69.idx
-  %40 = load i8, ptr %.01528.i69.ptr, align 1, !tbaa !44
+  %.01533.i69.ptr = getelementptr inbounds nuw i8, ptr @.str.90, i64 %.01533.i69.idx
+  %40 = load i8, ptr %.01533.i69.ptr, align 1, !tbaa !44
   %.not20.i71 = icmp ne i8 %35, %40
-  %41 = getelementptr inbounds nuw i8, ptr %.01827.i70, i64 1
-  %.01528.i69.add = add nuw nsw i64 %.01528.i69.idx, 1
+  %41 = getelementptr inbounds nuw i8, ptr %.01832.i70, i64 1
+  %.01533.i69.add = add nuw nsw i64 %.01533.i69.idx, 1
   %.not.i72 = icmp eq ptr %41, %2
   %or.cond.i73 = select i1 %.not20.i71, i1 true, i1 %.not.i72
   br i1 %or.cond.i73, label %.lr.ph.i78.preheader, label %.lr.ph.i68, !llvm.loop !64
@@ -4246,30 +4246,30 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   br label %72
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i78.preheader, %48
-  %.01528.i79.idx = phi i64 [ %.01528.i79.add, %48 ], [ 0, %.lr.ph.i78.preheader ]
-  %.01827.i80 = phi ptr [ %50, %48 ], [ %1, %.lr.ph.i78.preheader ]
-  %44 = load i8, ptr %.01827.i80, align 1, !tbaa !44
-  %exitcond139 = icmp eq i64 %.01528.i79.idx, 2
-  br i1 %exitcond139, label %45, label %48
+  %.01533.i79.idx = phi i64 [ %.01533.i79.add, %48 ], [ 0, %.lr.ph.i78.preheader ]
+  %.01832.i80 = phi ptr [ %50, %48 ], [ %1, %.lr.ph.i78.preheader ]
+  %44 = load i8, ptr %.01832.i80, align 1, !tbaa !44
+  %exitcond134 = icmp eq i64 %.01533.i79.idx, 2
+  br i1 %exitcond134, label %45, label %48
 
 45:                                               ; preds = %.lr.ph.i78
   %46 = sext i8 %44 to i32
   %47 = tail call i32 @isspace(i32 noundef %46) #23
-  %.not24.i85 = icmp eq i32 %47, 0
-  br i1 %.not24.i85, label %.loopexit, label %51
+  %.not29.i84 = icmp eq i32 %47, 0
+  br i1 %.not29.i84, label %.loopexit, label %51
 
 48:                                               ; preds = %.lr.ph.i78
-  %.01528.i79.ptr = getelementptr inbounds nuw i8, ptr @.str.91, i64 %.01528.i79.idx
-  %49 = load i8, ptr %.01528.i79.ptr, align 1, !tbaa !44
+  %.01533.i79.ptr = getelementptr inbounds nuw i8, ptr @.str.91, i64 %.01533.i79.idx
+  %49 = load i8, ptr %.01533.i79.ptr, align 1, !tbaa !44
   %.not20.i81 = icmp ne i8 %44, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.01827.i80, i64 1
-  %.01528.i79.add = add nuw nsw i64 %.01528.i79.idx, 1
+  %50 = getelementptr inbounds nuw i8, ptr %.01832.i80, i64 1
+  %.01533.i79.add = add nuw nsw i64 %.01533.i79.idx, 1
   %.not.i82 = icmp eq ptr %50, %2
   %or.cond.i83 = select i1 %.not20.i81, i1 true, i1 %.not.i82
   br i1 %or.cond.i83, label %.loopexit, label %.lr.ph.i78, !llvm.loop !64
 
 51:                                               ; preds = %45
-  store ptr %scevgep132, ptr %4, align 8, !tbaa !14
+  store ptr %scevgep127, ptr %4, align 8, !tbaa !14
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 65, ptr %52, align 8, !tbaa !136
   %.repack41 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4282,8 +4282,8 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
 
 .preheader:                                       ; preds = %.loopexit
   %.promoted = load ptr, ptr %4, align 8, !tbaa !14
-  %.not39114 = icmp eq ptr %.promoted, %2
-  br i1 %.not39114, label %.critedge, label %.lr.ph
+  %.not39109 = icmp eq ptr %.promoted, %2
+  br i1 %.not39109, label %.critedge, label %.lr.ph
 
 54:                                               ; preds = %.loopexit
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6935,16 +6935,16 @@ declare noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spa
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE19parse_subexpressionERPKwS6_j(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #6 comdat align 2 {
   %5 = alloca ptr, align 8
   %6 = load ptr, ptr %1, align 8, !tbaa !14
-  %.not5189 = icmp eq ptr %6, %2
-  br i1 %.not5189, label %._crit_edge, label %.lr.ph
+  %.not5185 = icmp eq ptr %6, %2
+  br i1 %.not5185, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit
-  %.03892 = phi i1 [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ false, %4 ]
-  %.03991 = phi i1 [ true, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ false, %4 ]
-  %.04190 = phi ptr [ %43, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ %6, %4 ]
-  %7 = load i32, ptr %.04190, align 4, !tbaa !76
+  %.03888 = phi i1 [ %42, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ false, %4 ]
+  %.03987 = phi i1 [ true, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ false, %4 ]
+  %.04186 = phi ptr [ %43, %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit ], [ %6, %4 ]
+  %7 = load i32, ptr %.04186, align 4, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %8 = getelementptr inbounds nuw i8, ptr %.04190, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.04186, i64 4
   store ptr %8, ptr %5, align 8, !tbaa !14
   switch i32 %7, label %.lr.ph.i.preheader [
     i32 37, label %9
@@ -6952,7 +6952,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   ]
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph
-  %scevgep = getelementptr i8, ptr %.04190, i64 12
+  %scevgep = getelementptr i8, ptr %.04186, i64 12
   br label %.lr.ph.i
 
 9:                                                ; preds = %.lr.ph
@@ -6983,7 +6983,7 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %22 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef nonnull %21, ptr noundef %2)
-  br i1 %.03991, label %25, label %23
+  br i1 %.03987, label %25, label %23
 
 23:                                               ; preds = %20
   %24 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE14parse_relationEPKwS6_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef %22, ptr noundef %2)
@@ -6994,22 +6994,22 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
   br label %39
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %31
-  %.01528.i = phi ptr [ %33, %31 ], [ @.str.109, %.lr.ph.i.preheader ]
-  %.01827.i = phi ptr [ %32, %31 ], [ %.04190, %.lr.ph.i.preheader ]
-  %26 = load i32, ptr %.01827.i, align 4, !tbaa !76
-  %27 = load i32, ptr %.01528.i, align 4, !tbaa !76
+  %.01533.i = phi ptr [ %33, %31 ], [ @.str.109, %.lr.ph.i.preheader ]
+  %.01832.i = phi ptr [ %32, %31 ], [ %.04186, %.lr.ph.i.preheader ]
+  %26 = load i32, ptr %.01832.i, align 4, !tbaa !76
+  %27 = load i32, ptr %.01533.i, align 4, !tbaa !76
   %28 = icmp eq i32 %27, 0
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %.lr.ph.i
   %30 = tail call i32 @iswspace(i32 noundef %26) #18
-  %.not24.i = icmp eq i32 %30, 0
-  br i1 %.not24.i, label %.loopexit, label %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit
+  %.not29.i = icmp eq i32 %30, 0
+  br i1 %.not29.i, label %.loopexit, label %_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit
 
 31:                                               ; preds = %.lr.ph.i
   %.not20.i = icmp ne i32 %26, %27
-  %32 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 4
-  %33 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.01832.i, i64 4
+  %33 = getelementptr inbounds nuw i8, ptr %.01533.i, i64 4
   %.not.i = icmp eq ptr %32, %2
   %or.cond.i = select i1 %.not20.i, i1 true, i1 %.not.i
   br i1 %or.cond.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !85
@@ -7030,19 +7030,19 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous13filter_pa
 
 39:                                               ; preds = %23, %25, %35
   %.3 = phi ptr [ %37, %35 ], [ %22, %25 ], [ %24, %23 ]
-  br i1 %.03892, label %40, label %.thread61
+  br i1 %.03888, label %40, label %.thread58
 
 40:                                               ; preds = %39
   call void @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE11on_negationEv(ptr noundef nonnull align 8 dereferenceable(176) %0)
-  br label %.thread61
+  br label %.thread58
 
-.thread61:                                        ; preds = %39, %40
+.thread58:                                        ; preds = %39, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge
 
 _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_.exit: ; preds = %29, %.lr.ph
   %41 = phi ptr [ %8, %.lr.ph ], [ %scevgep, %29 ]
-  %42 = xor i1 %.03892, true
+  %42 = xor i1 %.03888, true
   %43 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE16trim_spaces_leftEPKwS6_(ptr noundef %41, ptr noundef %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not51 = icmp eq ptr %43, %2
@@ -7052,45 +7052,45 @@ _ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.77, i64 noundef 289, ptr noundef nonnull @.str.84) #22
   unreachable
 
-._crit_edge:                                      ; preds = %4, %.thread61
-  %.14267 = phi ptr [ %.3, %.thread61 ], [ %6, %4 ]
-  store ptr %.14267, ptr %1, align 8, !tbaa !14
+._crit_edge:                                      ; preds = %4, %.thread58
+  %.14263 = phi ptr [ %.3, %.thread58 ], [ %6, %4 ]
+  store ptr %.14263, ptr %1, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef zeroext i1 @_ZN5boost3log11v2_mt_posix9anonymous13filter_parserIwE12scan_keywordEPKwS6_RS6_S6_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3) local_unnamed_addr #6 comdat align 2 {
-  %.not26 = icmp eq ptr %0, %1
-  br i1 %.not26, label %.thread, label %.lr.ph
+  %.not31 = icmp eq ptr %0, %1
+  br i1 %.not31, label %.thread24, label %.lr.ph
 
-.lr.ph:                                           ; preds = %4, %11
-  %.01528 = phi ptr [ %13, %11 ], [ %3, %4 ]
-  %.01827 = phi ptr [ %12, %11 ], [ %0, %4 ]
-  %5 = load i32, ptr %.01827, align 4, !tbaa !76
-  %6 = load i32, ptr %.01528, align 4, !tbaa !76
+.lr.ph:                                           ; preds = %4, %10
+  %.01533 = phi ptr [ %12, %10 ], [ %3, %4 ]
+  %.01832 = phi ptr [ %11, %10 ], [ %0, %4 ]
+  %5 = load i32, ptr %.01832, align 4, !tbaa !76
+  %6 = load i32, ptr %.01533, align 4, !tbaa !76
   %7 = icmp eq i32 %6, 0
-  br i1 %7, label %8, label %11
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %.lr.ph
   %9 = tail call i32 @iswspace(i32 noundef %5) #18
-  %.not24 = icmp eq i32 %9, 0
-  br i1 %.not24, label %.thread, label %10
+  %.not29 = icmp eq i32 %9, 0
+  br i1 %.not29, label %.thread24, label %.thread.thread27
 
-10:                                               ; preds = %8
-  store ptr %.01827, ptr %2, align 8, !tbaa !14
-  br label %.thread
+.thread.thread27:                                 ; preds = %8
+  store ptr %.01832, ptr %2, align 8, !tbaa !14
+  br label %.thread24
 
-11:                                               ; preds = %.lr.ph
+10:                                               ; preds = %.lr.ph
   %.not20 = icmp ne i32 %5, %6
-  %12 = getelementptr inbounds nuw i8, ptr %.01827, i64 4
-  %13 = getelementptr inbounds nuw i8, ptr %.01528, i64 4
-  %.not = icmp eq ptr %12, %1
+  %11 = getelementptr inbounds nuw i8, ptr %.01832, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01533, i64 4
+  %.not = icmp eq ptr %11, %1
   %or.cond = select i1 %.not20, i1 true, i1 %.not
-  br i1 %or.cond, label %.thread, label %.lr.ph, !llvm.loop !85
+  br i1 %or.cond, label %.thread24, label %.lr.ph, !llvm.loop !85
 
-.thread:                                          ; preds = %11, %4, %8, %10
-  %not.switch = phi i1 [ false, %8 ], [ true, %10 ], [ false, %4 ], [ false, %11 ]
-  ret i1 %not.switch
+.thread24:                                        ; preds = %10, %4, %8, %.thread.thread27
+  %13 = phi i1 [ true, %.thread.thread27 ], [ false, %8 ], [ false, %4 ], [ false, %10 ]
+  ret i1 %13
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -8538,25 +8538,25 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %13
-  %.01528.i = phi ptr [ %15, %13 ], [ @.str.103, %7 ]
-  %.01827.i = phi ptr [ %14, %13 ], [ %1, %7 ]
-  %8 = load i32, ptr %.01827.i, align 4, !tbaa !76
-  %9 = load i32, ptr %.01528.i, align 4, !tbaa !76
+  %.01533.i = phi ptr [ %15, %13 ], [ @.str.103, %7 ]
+  %.01832.i = phi ptr [ %14, %13 ], [ %1, %7 ]
+  %8 = load i32, ptr %.01832.i, align 4, !tbaa !76
+  %9 = load i32, ptr %.01533.i, align 4, !tbaa !76
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
   %12 = tail call i32 @iswspace(i32 noundef %8) #18
-  %.not24.i = icmp eq i32 %12, 0
-  br i1 %.not24.i, label %.loopexit99, label %16
+  %.not29.i = icmp eq i32 %12, 0
+  br i1 %.not29.i, label %.loopexit94, label %16
 
 13:                                               ; preds = %.lr.ph.i
   %.not20.i = icmp ne i32 %8, %9
-  %14 = getelementptr inbounds nuw i8, ptr %.01827.i, i64 4
-  %15 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %.01832.i, i64 4
+  %15 = getelementptr inbounds nuw i8, ptr %.01533.i, i64 4
   %.not.i = icmp eq ptr %14, %2
   %or.cond.i = select i1 %.not20.i, i1 true, i1 %.not.i
-  br i1 %or.cond.i, label %.loopexit99, label %.lr.ph.i, !llvm.loop !85
+  br i1 %or.cond.i, label %.loopexit94, label %.lr.ph.i, !llvm.loop !85
 
 16:                                               ; preds = %11
   store ptr %scevgep, ptr %4, align 8, !tbaa !14
@@ -8566,36 +8566,36 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   store i64 0, ptr %.repack45, align 8, !tbaa !192
   br label %80
 
-.loopexit99:                                      ; preds = %13, %11
-  %scevgep130 = getelementptr i8, ptr %1, i64 8
+.loopexit94:                                      ; preds = %13, %11
+  %scevgep125 = getelementptr i8, ptr %1, i64 8
   br label %.lr.ph.i48
 
-.lr.ph.i48:                                       ; preds = %.loopexit99, %23
-  %.01528.i49 = phi ptr [ %25, %23 ], [ @.str.104, %.loopexit99 ]
-  %.01827.i50 = phi ptr [ %24, %23 ], [ %1, %.loopexit99 ]
-  %18 = load i32, ptr %.01827.i50, align 4, !tbaa !76
-  %19 = load i32, ptr %.01528.i49, align 4, !tbaa !76
+.lr.ph.i48:                                       ; preds = %.loopexit94, %23
+  %.01533.i49 = phi ptr [ %25, %23 ], [ @.str.104, %.loopexit94 ]
+  %.01832.i50 = phi ptr [ %24, %23 ], [ %1, %.loopexit94 ]
+  %18 = load i32, ptr %.01832.i50, align 4, !tbaa !76
+  %19 = load i32, ptr %.01533.i49, align 4, !tbaa !76
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %23
 
 21:                                               ; preds = %.lr.ph.i48
   %22 = tail call i32 @iswspace(i32 noundef %18) #18
-  %.not24.i55 = icmp eq i32 %22, 0
-  br i1 %.not24.i55, label %.lr.ph.i58.preheader, label %26
+  %.not29.i54 = icmp eq i32 %22, 0
+  br i1 %.not29.i54, label %.lr.ph.i58.preheader, label %26
 
 .lr.ph.i58.preheader:                             ; preds = %23, %21
   br label %.lr.ph.i58
 
 23:                                               ; preds = %.lr.ph.i48
   %.not20.i51 = icmp ne i32 %18, %19
-  %24 = getelementptr inbounds nuw i8, ptr %.01827.i50, i64 4
-  %25 = getelementptr inbounds nuw i8, ptr %.01528.i49, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.01832.i50, i64 4
+  %25 = getelementptr inbounds nuw i8, ptr %.01533.i49, i64 4
   %.not.i52 = icmp eq ptr %24, %2
   %or.cond.i53 = select i1 %.not20.i51, i1 true, i1 %.not.i52
   br i1 %or.cond.i53, label %.lr.ph.i58.preheader, label %.lr.ph.i48, !llvm.loop !85
 
 26:                                               ; preds = %21
-  store ptr %scevgep130, ptr %4, align 8, !tbaa !14
+  store ptr %scevgep125, ptr %4, align 8, !tbaa !14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 33, ptr %27, align 8, !tbaa !192
   %.repack44 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8603,25 +8603,25 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   br label %80
 
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58.preheader, %33
-  %.01528.i59 = phi ptr [ %35, %33 ], [ @.str.105, %.lr.ph.i58.preheader ]
-  %.01827.i60 = phi ptr [ %34, %33 ], [ %1, %.lr.ph.i58.preheader ]
-  %28 = load i32, ptr %.01827.i60, align 4, !tbaa !76
-  %29 = load i32, ptr %.01528.i59, align 4, !tbaa !76
+  %.01533.i59 = phi ptr [ %35, %33 ], [ @.str.105, %.lr.ph.i58.preheader ]
+  %.01832.i60 = phi ptr [ %34, %33 ], [ %1, %.lr.ph.i58.preheader ]
+  %28 = load i32, ptr %.01832.i60, align 4, !tbaa !76
+  %29 = load i32, ptr %.01533.i59, align 4, !tbaa !76
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %.lr.ph.i58
   %32 = tail call i32 @iswspace(i32 noundef %28) #18
-  %.not24.i65 = icmp eq i32 %32, 0
-  br i1 %.not24.i65, label %.lr.ph.i68.preheader, label %36
+  %.not29.i64 = icmp eq i32 %32, 0
+  br i1 %.not29.i64, label %.lr.ph.i68.preheader, label %36
 
 .lr.ph.i68.preheader:                             ; preds = %33, %31
   br label %.lr.ph.i68
 
 33:                                               ; preds = %.lr.ph.i58
   %.not20.i61 = icmp ne i32 %28, %29
-  %34 = getelementptr inbounds nuw i8, ptr %.01827.i60, i64 4
-  %35 = getelementptr inbounds nuw i8, ptr %.01528.i59, i64 4
+  %34 = getelementptr inbounds nuw i8, ptr %.01832.i60, i64 4
+  %35 = getelementptr inbounds nuw i8, ptr %.01533.i59, i64 4
   %.not.i62 = icmp eq ptr %34, %2
   %or.cond.i63 = select i1 %.not20.i61, i1 true, i1 %.not.i62
   br i1 %or.cond.i63, label %.lr.ph.i68.preheader, label %.lr.ph.i58, !llvm.loop !85
@@ -8635,25 +8635,25 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   br label %80
 
 .lr.ph.i68:                                       ; preds = %.lr.ph.i68.preheader, %43
-  %.01528.i69 = phi ptr [ %45, %43 ], [ @.str.106, %.lr.ph.i68.preheader ]
-  %.01827.i70 = phi ptr [ %44, %43 ], [ %1, %.lr.ph.i68.preheader ]
-  %38 = load i32, ptr %.01827.i70, align 4, !tbaa !76
-  %39 = load i32, ptr %.01528.i69, align 4, !tbaa !76
+  %.01533.i69 = phi ptr [ %45, %43 ], [ @.str.106, %.lr.ph.i68.preheader ]
+  %.01832.i70 = phi ptr [ %44, %43 ], [ %1, %.lr.ph.i68.preheader ]
+  %38 = load i32, ptr %.01832.i70, align 4, !tbaa !76
+  %39 = load i32, ptr %.01533.i69, align 4, !tbaa !76
   %40 = icmp eq i32 %39, 0
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %.lr.ph.i68
   %42 = tail call i32 @iswspace(i32 noundef %38) #18
-  %.not24.i75 = icmp eq i32 %42, 0
-  br i1 %.not24.i75, label %.lr.ph.i78.preheader, label %46
+  %.not29.i74 = icmp eq i32 %42, 0
+  br i1 %.not29.i74, label %.lr.ph.i78.preheader, label %46
 
 .lr.ph.i78.preheader:                             ; preds = %43, %41
   br label %.lr.ph.i78
 
 43:                                               ; preds = %.lr.ph.i68
   %.not20.i71 = icmp ne i32 %38, %39
-  %44 = getelementptr inbounds nuw i8, ptr %.01827.i70, i64 4
-  %45 = getelementptr inbounds nuw i8, ptr %.01528.i69, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.01832.i70, i64 4
+  %45 = getelementptr inbounds nuw i8, ptr %.01533.i69, i64 4
   %.not.i72 = icmp eq ptr %44, %2
   %or.cond.i73 = select i1 %.not20.i71, i1 true, i1 %.not.i72
   br i1 %or.cond.i73, label %.lr.ph.i78.preheader, label %.lr.ph.i68, !llvm.loop !85
@@ -8667,28 +8667,28 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   br label %80
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i78.preheader, %53
-  %.01528.i79 = phi ptr [ %55, %53 ], [ @.str.107, %.lr.ph.i78.preheader ]
-  %.01827.i80 = phi ptr [ %54, %53 ], [ %1, %.lr.ph.i78.preheader ]
-  %48 = load i32, ptr %.01827.i80, align 4, !tbaa !76
-  %49 = load i32, ptr %.01528.i79, align 4, !tbaa !76
+  %.01533.i79 = phi ptr [ %55, %53 ], [ @.str.107, %.lr.ph.i78.preheader ]
+  %.01832.i80 = phi ptr [ %54, %53 ], [ %1, %.lr.ph.i78.preheader ]
+  %48 = load i32, ptr %.01832.i80, align 4, !tbaa !76
+  %49 = load i32, ptr %.01533.i79, align 4, !tbaa !76
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %.lr.ph.i78
   %52 = tail call i32 @iswspace(i32 noundef %48) #18
-  %.not24.i85 = icmp eq i32 %52, 0
-  br i1 %.not24.i85, label %.loopexit, label %56
+  %.not29.i84 = icmp eq i32 %52, 0
+  br i1 %.not29.i84, label %.loopexit, label %56
 
 53:                                               ; preds = %.lr.ph.i78
   %.not20.i81 = icmp ne i32 %48, %49
-  %54 = getelementptr inbounds nuw i8, ptr %.01827.i80, i64 4
-  %55 = getelementptr inbounds nuw i8, ptr %.01528.i79, i64 4
+  %54 = getelementptr inbounds nuw i8, ptr %.01832.i80, i64 4
+  %55 = getelementptr inbounds nuw i8, ptr %.01533.i79, i64 4
   %.not.i82 = icmp eq ptr %54, %2
   %or.cond.i83 = select i1 %.not20.i81, i1 true, i1 %.not.i82
   br i1 %or.cond.i83, label %.loopexit, label %.lr.ph.i78, !llvm.loop !85
 
 56:                                               ; preds = %51
-  store ptr %scevgep130, ptr %4, align 8, !tbaa !14
+  store ptr %scevgep125, ptr %4, align 8, !tbaa !14
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 65, ptr %57, align 8, !tbaa !192
   %.repack41 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -8701,8 +8701,8 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
 
 .preheader:                                       ; preds = %.loopexit
   %59 = load ptr, ptr %4, align 8, !tbaa !14
-  %.not39114 = icmp eq ptr %59, %2
-  br i1 %.not39114, label %.critedge, label %.lr.ph
+  %.not39109 = icmp eq ptr %59, %2
+  br i1 %.not39109, label %.critedge, label %.lr.ph
 
 60:                                               ; preds = %.loopexit
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -8715,9 +8715,9 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous13fi
   %62 = phi ptr [ %68, %.critedge2 ], [ %59, %.preheader ]
   %63 = load i32, ptr %62, align 4, !tbaa !76
   %64 = call i32 @iswalnum(i32 noundef %63) #18
-  %.not95 = icmp eq i32 %64, 0
+  %.not90 = icmp eq i32 %64, 0
   %.pre = load ptr, ptr %4, align 8, !tbaa !14
-  br i1 %.not95, label %65, label %.critedge2
+  br i1 %.not90, label %65, label %.critedge2
 
 65:                                               ; preds = %.lr.ph
   %66 = load i32, ptr %.pre, align 4, !tbaa !76

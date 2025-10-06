@@ -216,12 +216,11 @@ if.then:                                          ; preds = %entry
 if.end:                                           ; preds = %entry
   %call = tail call ptr @mmap(ptr noundef null, i64 noundef %capacityBytes, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #17
   %magicptr = ptrtoint ptr %call to i64
-  switch i64 %magicptr, label %if.end6 [
-    i64 -1, label %if.then5
-    i64 0, label %if.then5
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %if.end6, label %if.then5
 
-if.then5:                                         ; preds = %if.end, %if.end
+if.then5:                                         ; preds = %if.end
   tail call void @llvm.trap()
   unreachable
 

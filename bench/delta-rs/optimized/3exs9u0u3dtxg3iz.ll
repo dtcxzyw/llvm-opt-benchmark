@@ -841,16 +841,15 @@ define void @"_ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$
   %13 = alloca { ptr, [5 x i64] }, align 8
   %14 = alloca i64, align 8
   %15 = load i64, ptr %1, align 8, !range !149, !noundef !5
-  switch i64 %15, label %16 [
-    i64 0, label %17
-    i64 3, label %17
-  ]
+  %.off = add nsw i64 %15, -1
+  %switch = icmp ult i64 %.off, 2
+  br i1 %switch, label %16, label %17
 
 16:                                               ; preds = %6
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.19f31fb185552d6b4fbe871626c80743.23, i64 noundef 19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.19f31fb185552d6b4fbe871626c80743.33) #17
   unreachable
 
-17:                                               ; preds = %6, %6
+17:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %5, ptr %14, align 8
   %18 = icmp eq i64 %5, 0

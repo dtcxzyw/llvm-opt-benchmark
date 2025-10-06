@@ -2763,11 +2763,11 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   br i1 %.sroa.0.0.i.i.i, label %28, label %.thread26
 
 .thread26:                                        ; preds = %3, %25
-  %.sroa.0.0.i1430.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
-  %.sroa.0.0.i1430.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
-  store i8 %.sroa.0.0.i1430.off8, ptr %5, align 1
+  %.sroa.0.0.i1429.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
+  %.sroa.0.0.i1429.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
+  store i8 %.sroa.0.0.i1429.off8, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.0.0.i1430.off16, ptr %26, align 1
+  store i8 %.sroa.0.0.i1429.off16, ptr %26, align 1
   %27 = load ptr, ptr %1, align 8, !nonnull !12, !noundef !12
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h83abee8b5a0a7a48E(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %46 unwind label %44

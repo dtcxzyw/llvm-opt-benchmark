@@ -1991,41 +1991,41 @@ define internal fastcc void @build_match_list(ptr noundef readonly captures(none
 
 sub_0:                                            ; preds = %6
   %30 = load i8, ptr %0, align 1
-  %.not196 = icmp eq i8 %30, 47
-  br i1 %.not196, label %.tail, label %.tail.thread
+  %.not195 = icmp eq i8 %30, 47
+  br i1 %.not195, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %32 = load i8, ptr %31, align 1
   %33 = icmp eq i8 %32, 0
-  br i1 %33, label %sub_0159, label %.tail.thread
+  br i1 %33, label %sub_0158, label %.tail.thread
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
   %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
-  br label %sub_0159
+  br label %sub_0158
 
-sub_0159:                                         ; preds = %.tail, %.tail.thread
+sub_0158:                                         ; preds = %.tail, %.tail.thread
   %.094 = phi i64 [ %34, %.tail.thread ], [ 0, %.tail ]
   %35 = load i8, ptr %2, align 1
-  %.not197 = icmp eq i8 %35, 47
-  br i1 %.not197, label %.tail158, label %.tail158.thread
+  %.not196 = icmp eq i8 %35, 47
+  br i1 %.not196, label %.tail157, label %.tail157.thread
 
-.tail158:                                         ; preds = %sub_0159
+.tail157:                                         ; preds = %sub_0158
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %37 = load i8, ptr %36, align 1
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %40, label %.tail158.thread
+  br i1 %38, label %40, label %.tail157.thread
 
-.tail158.thread:                                  ; preds = %sub_0159, %.tail158
+.tail157.thread:                                  ; preds = %sub_0158, %.tail157
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #17
   br label %40
 
-40:                                               ; preds = %.tail158.thread, %.tail158
-  %.093 = phi i64 [ %39, %.tail158.thread ], [ 0, %.tail158 ]
+40:                                               ; preds = %.tail157.thread, %.tail157
+  %.093 = phi i64 [ %39, %.tail157.thread ], [ 0, %.tail157 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !45
-  %.not198 = icmp eq i64 %42, 0
-  br i1 %.not198, label %.critedge.thread, label %.lr.ph
+  %.not197 = icmp eq i64 %42, 0
+  br i1 %.not197, label %.critedge.thread, label %.lr.ph
 
 .critedge.thread:                                 ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 4
@@ -2040,22 +2040,22 @@ sub_0159:                                         ; preds = %.tail, %.tail.threa
   %49 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %50 = load i64, ptr %44, align 8, !tbaa !45
   %.not = icmp eq i64 %50, 0
-  br i1 %.not, label %.critedge, label %.lr.ph254
+  br i1 %.not, label %.critedge, label %.lr.ph253
 
 51:                                               ; preds = %188
   %52 = load i64, ptr %44, align 8, !tbaa !45
   %53 = icmp ult i64 %.191, %52
-  br i1 %53, label %.lr.ph254, label %.critedge, !llvm.loop !69
+  br i1 %53, label %.lr.ph253, label %.critedge, !llvm.loop !69
 
-.lr.ph254:                                        ; preds = %.lr.ph, %51
-  %.090184253 = phi i64 [ %.191, %51 ], [ 0, %.lr.ph ]
-  %.089185252 = phi i64 [ %.1, %51 ], [ 0, %.lr.ph ]
+.lr.ph253:                                        ; preds = %.lr.ph, %51
+  %.090183252 = phi i64 [ %.191, %51 ], [ 0, %.lr.ph ]
+  %.089184251 = phi i64 [ %.1, %51 ], [ 0, %.lr.ph ]
   %54 = load ptr, ptr %45, align 8, !tbaa !46
-  %55 = getelementptr inbounds nuw %struct.trav_path_t, ptr %54, i64 %.089185252
+  %55 = getelementptr inbounds nuw %struct.trav_path_t, ptr %54, i64 %.089184251
   %56 = load ptr, ptr %55, align 8, !tbaa !70
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 %.094
   %58 = load ptr, ptr %46, align 8, !tbaa !46
-  %59 = getelementptr inbounds nuw %struct.trav_path_t, ptr %58, i64 %.090184253
+  %59 = getelementptr inbounds nuw %struct.trav_path_t, ptr %58, i64 %.090183252
   %60 = load ptr, ptr %59, align 8, !tbaa !70
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 %.093
   %62 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -2066,15 +2066,15 @@ sub_0159:                                         ; preds = %.tail, %.tail.threa
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %137
 
-68:                                               ; preds = %.lr.ph254
+68:                                               ; preds = %.lr.ph253
   %69 = load i32, ptr %47, align 4, !tbaa !71
   %.not.i = icmp eq i32 %69, 0
-  br i1 %.not.i, label %.loopexit163, label %70
+  br i1 %.not.i, label %.loopexit162, label %70
 
 70:                                               ; preds = %68
   %.01821.i = load ptr, ptr %48, align 8, !tbaa !72
   %.not2022.i = icmp eq ptr %.01821.i, null
-  br i1 %.not2022.i, label %.loopexit163, label %.lr.ph.i
+  br i1 %.not2022.i, label %.loopexit162, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %70, %88
   %.01823.i = phi ptr [ %.018.i, %88 ], [ %.01821.i, %70 ]
@@ -2110,26 +2110,26 @@ sub_0159:                                         ; preds = %.tail, %.tail.threa
   %89 = getelementptr inbounds nuw i8, ptr %.01823.i, i64 16
   %.018.i = load ptr, ptr %89, align 8, !tbaa !72
   %.not20.i = icmp eq ptr %.018.i, null
-  br i1 %.not20.i, label %.loopexit163, label %.lr.ph.i, !llvm.loop !76
+  br i1 %.not20.i, label %.loopexit162, label %.lr.ph.i, !llvm.loop !76
 
-.loopexit163:                                     ; preds = %88, %68, %70
+.loopexit162:                                     ; preds = %88, %68, %70
   store i32 1, ptr %7, align 4, !tbaa !28
   store i32 1, ptr %49, align 4, !tbaa !28
   %90 = load i32, ptr %62, align 8, !tbaa !54
   %91 = load ptr, ptr %8, align 8, !tbaa !19
   call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef nonnull %57, i32 noundef %90, ptr noundef %91) #14
   %92 = load ptr, ptr %45, align 8, !tbaa !46
-  %93 = getelementptr inbounds nuw %struct.trav_path_t, ptr %92, i64 %.089185252
+  %93 = getelementptr inbounds nuw %struct.trav_path_t, ptr %92, i64 %.089184251
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load i64, ptr %94, align 8, !tbaa !48
   %96 = load ptr, ptr %46, align 8, !tbaa !46
-  %97 = getelementptr inbounds nuw %struct.trav_path_t, ptr %96, i64 %.090184253
+  %97 = getelementptr inbounds nuw %struct.trav_path_t, ptr %96, i64 %.090183252
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %99 = load i64, ptr %98, align 8, !tbaa !48
   %100 = icmp eq i64 %95, %99
   br i1 %100, label %101, label %is_exclude_path.exit
 
-101:                                              ; preds = %.loopexit163
+101:                                              ; preds = %.loopexit162
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %102 = load i64, ptr %10, align 8, !tbaa !67
   %103 = getelementptr inbounds nuw i8, ptr %93, i64 12
@@ -2190,24 +2190,24 @@ sub_0159:                                         ; preds = %.tail, %.tail.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %free_exclude_path_list.exit
 
-is_exclude_path.exit:                             ; preds = %79, %.thread, %86, %.loopexit163
-  %135 = add i64 %.089185252, 1
-  %136 = add i64 %.090184253, 1
+is_exclude_path.exit:                             ; preds = %79, %.thread, %86, %.loopexit162
+  %135 = add i64 %.089184251, 1
+  %136 = add i64 %.090183252, 1
   br label %188
 
-137:                                              ; preds = %.lr.ph254
+137:                                              ; preds = %.lr.ph253
   %138 = icmp slt i32 %66, 0
   %139 = load i32, ptr %47, align 4, !tbaa !71
   %.not.i108 = icmp eq i32 %139, 0
   br i1 %138, label %140, label %164
 
 140:                                              ; preds = %137
-  br i1 %.not.i108, label %.loopexit164, label %141
+  br i1 %.not.i108, label %.loopexit163, label %141
 
 141:                                              ; preds = %140
   %.01821.i109 = load ptr, ptr %48, align 8, !tbaa !72
   %.not2022.i110 = icmp eq ptr %.01821.i109, null
-  br i1 %.not2022.i110, label %.loopexit164, label %.lr.ph.i111
+  br i1 %.not2022.i110, label %.loopexit163, label %.lr.ph.i111
 
 .lr.ph.i111:                                      ; preds = %141, %159
   %.01823.i112 = phi ptr [ %.018.i113, %159 ], [ %.01821.i109, %141 ]
@@ -2243,9 +2243,9 @@ is_exclude_path.exit:                             ; preds = %79, %.thread, %86, 
   %160 = getelementptr inbounds nuw i8, ptr %.01823.i112, i64 16
   %.018.i113 = load ptr, ptr %160, align 8, !tbaa !72
   %.not20.i114 = icmp eq ptr %.018.i113, null
-  br i1 %.not20.i114, label %.loopexit164, label %.lr.ph.i111, !llvm.loop !76
+  br i1 %.not20.i114, label %.loopexit163, label %.lr.ph.i111, !llvm.loop !76
 
-.loopexit164:                                     ; preds = %159, %140, %141
+.loopexit163:                                     ; preds = %159, %140, %141
   store i32 1, ptr %7, align 4, !tbaa !28
   store i32 0, ptr %49, align 4, !tbaa !28
   %161 = load i32, ptr %62, align 8, !tbaa !54
@@ -2253,17 +2253,17 @@ is_exclude_path.exit:                             ; preds = %79, %.thread, %86, 
   call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef nonnull %57, i32 noundef %161, ptr noundef %162) #14
   br label %is_exclude_path.exit116
 
-is_exclude_path.exit116:                          ; preds = %150, %157, %.loopexit164
-  %163 = add i64 %.089185252, 1
+is_exclude_path.exit116:                          ; preds = %150, %157, %.loopexit163
+  %163 = add i64 %.089184251, 1
   br label %188
 
 164:                                              ; preds = %137
-  br i1 %.not.i108, label %.loopexit165, label %165
+  br i1 %.not.i108, label %.loopexit164, label %165
 
 165:                                              ; preds = %164
   %.01821.i118 = load ptr, ptr %48, align 8, !tbaa !72
   %.not2022.i119 = icmp eq ptr %.01821.i118, null
-  br i1 %.not2022.i119, label %.loopexit165, label %.lr.ph.i120
+  br i1 %.not2022.i119, label %.loopexit164, label %.lr.ph.i120
 
 .lr.ph.i120:                                      ; preds = %165, %183
   %.01823.i121 = phi ptr [ %.018.i122, %183 ], [ %.01821.i118, %165 ]
@@ -2299,9 +2299,9 @@ is_exclude_path.exit116:                          ; preds = %150, %157, %.loopex
   %184 = getelementptr inbounds nuw i8, ptr %.01823.i121, i64 16
   %.018.i122 = load ptr, ptr %184, align 8, !tbaa !72
   %.not20.i123 = icmp eq ptr %.018.i122, null
-  br i1 %.not20.i123, label %.loopexit165, label %.lr.ph.i120, !llvm.loop !76
+  br i1 %.not20.i123, label %.loopexit164, label %.lr.ph.i120, !llvm.loop !76
 
-.loopexit165:                                     ; preds = %183, %164, %165
+.loopexit164:                                     ; preds = %183, %164, %165
   store i32 0, ptr %7, align 4, !tbaa !28
   store i32 1, ptr %49, align 4, !tbaa !28
   %185 = load i32, ptr %64, align 8, !tbaa !54
@@ -2309,53 +2309,53 @@ is_exclude_path.exit116:                          ; preds = %150, %157, %.loopex
   call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef nonnull %61, i32 noundef %185, ptr noundef %186) #14
   br label %is_exclude_path.exit125
 
-is_exclude_path.exit125:                          ; preds = %174, %181, %.loopexit165
-  %187 = add i64 %.090184253, 1
+is_exclude_path.exit125:                          ; preds = %174, %181, %.loopexit164
+  %187 = add i64 %.090183252, 1
   br label %188
 
 188:                                              ; preds = %is_exclude_path.exit116, %is_exclude_path.exit125, %is_exclude_path.exit
-  %.191 = phi i64 [ %136, %is_exclude_path.exit ], [ %.090184253, %is_exclude_path.exit116 ], [ %187, %is_exclude_path.exit125 ]
-  %.1 = phi i64 [ %135, %is_exclude_path.exit ], [ %163, %is_exclude_path.exit116 ], [ %.089185252, %is_exclude_path.exit125 ]
+  %.191 = phi i64 [ %136, %is_exclude_path.exit ], [ %.090183252, %is_exclude_path.exit116 ], [ %187, %is_exclude_path.exit125 ]
+  %.1 = phi i64 [ %135, %is_exclude_path.exit ], [ %163, %is_exclude_path.exit116 ], [ %.089184251, %is_exclude_path.exit125 ]
   %189 = load i64, ptr %41, align 8, !tbaa !45
   %190 = icmp ult i64 %.1, %189
-  br i1 %190, label %51, label %..critedge_crit_edge257, !llvm.loop !69
+  br i1 %190, label %51, label %..critedge_crit_edge256, !llvm.loop !69
 
-..critedge_crit_edge257:                          ; preds = %188
+..critedge_crit_edge256:                          ; preds = %188
   br label %.critedge, !llvm.loop !69
 
-.critedge:                                        ; preds = %51, %..critedge_crit_edge257, %.lr.ph
-  %191 = phi i64 [ %189, %..critedge_crit_edge257 ], [ %42, %.lr.ph ], [ %189, %51 ]
-  %.090.lcssa = phi i64 [ %.191, %..critedge_crit_edge257 ], [ 0, %.lr.ph ], [ %.191, %51 ]
-  %.089.lcssa = phi i64 [ %.1, %..critedge_crit_edge257 ], [ 0, %.lr.ph ], [ %.1, %51 ]
+.critedge:                                        ; preds = %51, %..critedge_crit_edge256, %.lr.ph
+  %191 = phi i64 [ %189, %..critedge_crit_edge256 ], [ %42, %.lr.ph ], [ %189, %51 ]
+  %.090.lcssa = phi i64 [ %.191, %..critedge_crit_edge256 ], [ 0, %.lr.ph ], [ %.191, %51 ]
+  %.089.lcssa = phi i64 [ %.1, %..critedge_crit_edge256 ], [ 0, %.lr.ph ], [ %.1, %51 ]
   store i32 1, ptr %7, align 4, !tbaa !28
   %192 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %192, align 4, !tbaa !28
   %193 = icmp ult i64 %.089.lcssa, %191
-  br i1 %193, label %.lr.ph191, label %._crit_edge
+  br i1 %193, label %.lr.ph190, label %._crit_edge
 
-.lr.ph191:                                        ; preds = %.critedge
+.lr.ph190:                                        ; preds = %.critedge
   %194 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %195 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %196 = getelementptr inbounds nuw i8, ptr %5, i64 104
   br label %197
 
-197:                                              ; preds = %.lr.ph191, %is_exclude_path.exit134
-  %198 = phi i64 [ %191, %.lr.ph191 ], [ %227, %is_exclude_path.exit134 ]
-  %.2190 = phi i64 [ %.089.lcssa, %.lr.ph191 ], [ %228, %is_exclude_path.exit134 ]
+197:                                              ; preds = %.lr.ph190, %is_exclude_path.exit134
+  %198 = phi i64 [ %191, %.lr.ph190 ], [ %227, %is_exclude_path.exit134 ]
+  %.2189 = phi i64 [ %.089.lcssa, %.lr.ph190 ], [ %228, %is_exclude_path.exit134 ]
   %199 = load ptr, ptr %194, align 8, !tbaa !46
-  %200 = getelementptr inbounds nuw %struct.trav_path_t, ptr %199, i64 %.2190
+  %200 = getelementptr inbounds nuw %struct.trav_path_t, ptr %199, i64 %.2189
   %201 = load ptr, ptr %200, align 8, !tbaa !70
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 %.094
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %204 = load i32, ptr %203, align 8, !tbaa !54
   %205 = load i32, ptr %195, align 4, !tbaa !71
   %.not.i126 = icmp eq i32 %205, 0
-  br i1 %.not.i126, label %.loopexit162, label %206
+  br i1 %.not.i126, label %.loopexit161, label %206
 
 206:                                              ; preds = %197
   %.01821.i127 = load ptr, ptr %196, align 8, !tbaa !72
   %.not2022.i128 = icmp eq ptr %.01821.i127, null
-  br i1 %.not2022.i128, label %.loopexit162, label %.lr.ph.i129
+  br i1 %.not2022.i128, label %.loopexit161, label %.lr.ph.i129
 
 .lr.ph.i129:                                      ; preds = %206, %224
   %.01823.i130 = phi ptr [ %.018.i131, %224 ], [ %.01821.i127, %206 ]
@@ -2391,41 +2391,41 @@ is_exclude_path.exit125:                          ; preds = %174, %181, %.loopex
   %225 = getelementptr inbounds nuw i8, ptr %.01823.i130, i64 16
   %.018.i131 = load ptr, ptr %225, align 8, !tbaa !72
   %.not20.i132 = icmp eq ptr %.018.i131, null
-  br i1 %.not20.i132, label %.loopexit162, label %.lr.ph.i129, !llvm.loop !76
+  br i1 %.not20.i132, label %.loopexit161, label %.lr.ph.i129, !llvm.loop !76
 
-.loopexit162:                                     ; preds = %224, %197, %206
+.loopexit161:                                     ; preds = %224, %197, %206
   %226 = load ptr, ptr %8, align 8, !tbaa !19
   call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef %202, i32 noundef %204, ptr noundef %226) #14
   %.pre = load i64, ptr %41, align 8, !tbaa !45
   br label %is_exclude_path.exit134
 
-is_exclude_path.exit134:                          ; preds = %215, %222, %.loopexit162
-  %227 = phi i64 [ %198, %222 ], [ %.pre, %.loopexit162 ], [ %198, %215 ]
-  %228 = add nuw i64 %.2190, 1
+is_exclude_path.exit134:                          ; preds = %215, %222, %.loopexit161
+  %227 = phi i64 [ %198, %222 ], [ %.pre, %.loopexit161 ], [ %198, %215 ]
+  %228 = add nuw i64 %.2189, 1
   %229 = icmp ult i64 %228, %227
   br i1 %229, label %197, label %._crit_edge, !llvm.loop !78
 
 ._crit_edge:                                      ; preds = %is_exclude_path.exit134, %.critedge.thread, %.critedge
   %230 = phi ptr [ %43, %.critedge.thread ], [ %192, %.critedge ], [ %192, %is_exclude_path.exit134 ]
-  %.090.lcssa227 = phi i64 [ 0, %.critedge.thread ], [ %.090.lcssa, %.critedge ], [ %.090.lcssa, %is_exclude_path.exit134 ]
+  %.090.lcssa226 = phi i64 [ 0, %.critedge.thread ], [ %.090.lcssa, %.critedge ], [ %.090.lcssa, %is_exclude_path.exit134 ]
   store i32 0, ptr %7, align 4, !tbaa !28
   store i32 1, ptr %230, align 4, !tbaa !28
   %231 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %232 = load i64, ptr %231, align 8, !tbaa !45
-  %233 = icmp ult i64 %.090.lcssa227, %232
-  br i1 %233, label %.lr.ph194, label %._crit_edge195
+  %233 = icmp ult i64 %.090.lcssa226, %232
+  br i1 %233, label %.lr.ph193, label %._crit_edge194
 
-.lr.ph194:                                        ; preds = %._crit_edge
+.lr.ph193:                                        ; preds = %._crit_edge
   %234 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %235 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %236 = getelementptr inbounds nuw i8, ptr %5, i64 104
   br label %237
 
-237:                                              ; preds = %.lr.ph194, %is_exclude_path.exit143
-  %238 = phi i64 [ %232, %.lr.ph194 ], [ %267, %is_exclude_path.exit143 ]
-  %.292192 = phi i64 [ %.090.lcssa227, %.lr.ph194 ], [ %268, %is_exclude_path.exit143 ]
+237:                                              ; preds = %.lr.ph193, %is_exclude_path.exit143
+  %238 = phi i64 [ %232, %.lr.ph193 ], [ %267, %is_exclude_path.exit143 ]
+  %.292191 = phi i64 [ %.090.lcssa226, %.lr.ph193 ], [ %268, %is_exclude_path.exit143 ]
   %239 = load ptr, ptr %234, align 8, !tbaa !46
-  %240 = getelementptr inbounds nuw %struct.trav_path_t, ptr %239, i64 %.292192
+  %240 = getelementptr inbounds nuw %struct.trav_path_t, ptr %239, i64 %.292191
   %241 = load ptr, ptr %240, align 8, !tbaa !70
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 %.093
   %243 = getelementptr inbounds nuw i8, ptr %240, i64 8
@@ -2478,30 +2478,30 @@ is_exclude_path.exit134:                          ; preds = %215, %222, %.loopex
 .loopexit:                                        ; preds = %264, %237, %246
   %266 = load ptr, ptr %8, align 8, !tbaa !19
   call void @trav_table_addflags(ptr noundef nonnull %7, ptr noundef %242, i32 noundef %244, ptr noundef %266) #14
-  %.pre209 = load i64, ptr %231, align 8, !tbaa !45
+  %.pre208 = load i64, ptr %231, align 8, !tbaa !45
   br label %is_exclude_path.exit143
 
 is_exclude_path.exit143:                          ; preds = %255, %262, %.loopexit
-  %267 = phi i64 [ %238, %262 ], [ %.pre209, %.loopexit ], [ %238, %255 ]
-  %268 = add nuw i64 %.292192, 1
+  %267 = phi i64 [ %238, %262 ], [ %.pre208, %.loopexit ], [ %238, %255 ]
+  %268 = add nuw i64 %.292191, 1
   %269 = icmp ult i64 %268, %267
-  br i1 %269, label %237, label %._crit_edge195, !llvm.loop !79
+  br i1 %269, label %237, label %._crit_edge194, !llvm.loop !79
 
-._crit_edge195:                                   ; preds = %is_exclude_path.exit143, %._crit_edge
+._crit_edge194:                                   ; preds = %is_exclude_path.exit143, %._crit_edge
   %270 = getelementptr i8, ptr %5, i64 104
   %.val = load ptr, ptr %270, align 8, !tbaa !80
   %.not1.i = icmp eq ptr %.val, null
   br i1 %.not1.i, label %free_exclude_path_list.exit, label %.lr.ph.i144
 
-.lr.ph.i144:                                      ; preds = %._crit_edge195, %.lr.ph.i144
-  %.02.i = phi ptr [ %272, %.lr.ph.i144 ], [ %.val, %._crit_edge195 ]
+.lr.ph.i144:                                      ; preds = %._crit_edge194, %.lr.ph.i144
+  %.02.i = phi ptr [ %272, %.lr.ph.i144 ], [ %.val, %._crit_edge194 ]
   %271 = getelementptr inbounds nuw i8, ptr %.02.i, i64 16
   %272 = load ptr, ptr %271, align 8, !tbaa !81
   call void @free(ptr noundef nonnull %.02.i) #14
   %.not.i145 = icmp eq ptr %272, null
   br i1 %.not.i145, label %free_exclude_path_list.exit, label %.lr.ph.i144, !llvm.loop !82
 
-free_exclude_path_list.exit:                      ; preds = %.lr.ph.i144, %._crit_edge195, %133, %22, %26, %14
+free_exclude_path_list.exit:                      ; preds = %.lr.ph.i144, %._crit_edge194, %133, %22, %26, %14
   %273 = load ptr, ptr %8, align 8, !tbaa !19
   store ptr %273, ptr %4, align 8, !tbaa !19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

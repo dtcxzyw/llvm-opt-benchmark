@@ -3023,19 +3023,19 @@ for.end344:                                       ; preds = %_ZNSt10shared_ptrIN
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp11.i)
   %133 = load ptr, ptr %_M_finish.i.i219, align 8
   %134 = load ptr, ptr %host_objects_.i218, align 8
-  %cmp50.not.i = icmp eq ptr %133, %134
-  br i1 %cmp50.not.i, label %if.end354, label %for.body.i268
+  %cmp48.not.i = icmp eq ptr %133, %134
+  br i1 %cmp48.not.i, label %if.end354, label %for.body.i268
 
 for.body.i268:                                    ; preds = %for.end344, %for.inc.i279
   %135 = phi ptr [ %154, %for.inc.i279 ], [ %134, %for.end344 ]
-  %conv52.i = phi i64 [ %conv.i, %for.inc.i279 ], [ 0, %for.end344 ]
-  %i.051.i = phi i32 [ %inc.i280, %for.inc.i279 ], [ 0, %for.end344 ]
-  %add.ptr.i.i269 = getelementptr inbounds nuw %"class.node::BaseObjectPtrImpl", ptr %135, i64 %conv52.i
+  %conv50.i = phi i64 [ %conv.i, %for.inc.i279 ], [ 0, %for.end344 ]
+  %i.049.i = phi i32 [ %inc.i280, %for.inc.i279 ], [ 0, %for.end344 ]
+  %add.ptr.i.i269 = getelementptr inbounds nuw %"class.node::BaseObjectPtrImpl", ptr %135, i64 %conv50.i
   %136 = load i64, ptr %add.ptr.i.i269, align 8
   %137 = inttoptr i64 %136 to ptr
   store ptr null, ptr %add.ptr.i.i269, align 8
   %138 = load i64, ptr %first_cloned_object_index_.i, align 8
-  %cmp8.i = icmp ugt i64 %138, %conv52.i
+  %cmp8.i = icmp ugt i64 %138, %conv50.i
   %vtable.i270 = load ptr, ptr %137, align 8
   %..i = select i1 %cmp8.i, i64 80, i64 88
   %ref.tmp.ref.tmp11.i = select i1 %cmp8.i, ptr %ref.tmp.i261, ptr %ref.tmp11.i
@@ -3142,7 +3142,7 @@ _ZN4node17BaseObjectPtrImplINS_10BaseObjectELb0EED2Ev.exit.thread.i: ; preds = %
 
 for.inc.i279:                                     ; preds = %_ZNSt6vectorISt10unique_ptrIN4node6worker12TransferDataESt14default_deleteIS3_EESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i, %if.then.i.i.i277
   call void @_ZN4node10BaseObject17decrease_refcountEv(ptr noundef nonnull align 8 dereferenceable(32) %137) #26
-  %inc.i280 = add i32 %i.051.i, 1
+  %inc.i280 = add i32 %i.049.i, 1
   %conv.i = zext i32 %inc.i280 to i64
   %153 = load ptr, ptr %_M_finish.i.i219, align 8
   %154 = load ptr, ptr %host_objects_.i218, align 8
@@ -6236,8 +6236,8 @@ if.then20:                                        ; preds = %_ZN2v810MaybeLocalI
 if.end29:                                         ; preds = %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit, %if.then20
   %processing_limit.0 = phi i64 [ %.sroa.speculated, %if.then20 ], [ -1, %_ZN2v810MaybeLocalINS_7ContextEE14ToLocalCheckedEv.exit ]
   %26 = load ptr, ptr %data_.i, align 8
-  %cmp.i23.not74 = icmp eq ptr %26, null
-  br i1 %cmp.i23.not74, label %cleanup165, label %while.body.lr.ph
+  %cmp.i23.not73 = icmp eq ptr %26, null
+  br i1 %cmp.i23.not73, label %cleanup165, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %if.end29
   %emit_message_fn_ = getelementptr inbounds nuw i8, ptr %this, i64 232
@@ -6248,9 +6248,9 @@ while.body.lr.ph:                                 ; preds = %if.end29
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %cleanup161
-  %processing_limit.175 = phi i64 [ %processing_limit.0, %while.body.lr.ph ], [ %dec, %cleanup161 ]
-  %dec = add i64 %processing_limit.175, -1
-  %cmp32 = icmp eq i64 %processing_limit.175, 0
+  %processing_limit.174 = phi i64 [ %processing_limit.0, %while.body.lr.ph ], [ %dec, %cleanup161 ]
+  %dec = add i64 %processing_limit.174, -1
+  %cmp32 = icmp eq i64 %processing_limit.174, 0
   br i1 %cmp32, label %if.then33, label %if.end34
 
 if.then33:                                        ; preds = %while.body
@@ -6298,11 +6298,11 @@ if.end34:                                         ; preds = %while.body
 
 if.then67:                                        ; preds = %if.end34
   %call68 = call noundef zeroext i1 @_ZNK2v88TryCatch9HasCaughtEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #26
-  br i1 %call68, label %land.lhs.true, label %reschedule.thread68
+  br i1 %call68, label %land.lhs.true, label %reschedule.thread67
 
 land.lhs.true:                                    ; preds = %if.then67
   %call69 = call noundef zeroext i1 @_ZNK2v88TryCatch13HasTerminatedEv(ptr noundef nonnull align 8 dereferenceable(41) %try_catch) #26
-  br i1 %call69, label %reschedule.thread68, label %reschedule
+  br i1 %call69, label %reschedule.thread67, label %reschedule
 
 if.end.i329:                                      ; preds = %if.end34
   call void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %try_catch) #26
@@ -6366,7 +6366,7 @@ if.end90:                                         ; preds = %_ZNK4node11Environm
   %cmp.i.i203 = icmp eq ptr %call109, null
   br i1 %cmp.i.i203, label %if.end155, label %cleanup161
 
-reschedule.thread68:                              ; preds = %if.then67, %land.lhs.true
+reschedule.thread67:                              ; preds = %if.then67, %land.lhs.true
   call void @_ZN4node6errors13TryCatchScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %try_catch) #26
   br label %if.end155
 
@@ -6395,7 +6395,7 @@ if.then117:                                       ; preds = %reschedule
   %call150 = call ptr @_ZN4node9AsyncWrap12MakeCallbackEN2v85LocalINS1_8FunctionEEEiPNS2_INS1_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr %retval.sroa.0.0.copyload.i, i32 noundef 3, ptr noundef nonnull %argv) #26
   br label %if.end155
 
-if.end155:                                        ; preds = %if.end90, %reschedule.thread68, %if.then117, %reschedule
+if.end155:                                        ; preds = %if.end90, %reschedule.thread67, %if.then117, %reschedule
   %61 = load ptr, ptr %data_.i, align 8
   %cmp.i52.not = icmp eq ptr %61, null
   br i1 %cmp.i52.not, label %cleanup161.thread, label %if.then158

@@ -6196,8 +6196,8 @@ define void @"_ZN100_$LT$quiche..recovery..gcongestion..recovery..GRecovery$u20$
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %102 = load i32, ptr %101, align 8, !range !370, !noalias !427, !noundef !3
   %103 = and i32 %102, 1073741822
-  %switch.i.i = icmp eq i32 %103, 1000000000
-  br i1 %switch.i.i, label %104, label %_ZN6quiche8recovery11gcongestion8recovery13RecoveryEpoch31detect_and_remove_acked_packets17hb37815f3e8059bd4E.exit
+  %.not4.i.i = icmp eq i32 %103, 1000000000
+  br i1 %.not4.i.i, label %104, label %_ZN6quiche8recovery11gcongestion8recovery13RecoveryEpoch31detect_and_remove_acked_packets17hb37815f3e8059bd4E.exit
 
 104:                                              ; preds = %95
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !434

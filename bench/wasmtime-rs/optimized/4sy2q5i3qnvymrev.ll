@@ -159,8 +159,8 @@ define hidden void @_ZN14wasmtime_fiber4unix10FiberStack3new17hb265b6db89da91a8E
 
 19:                                               ; preds = %2
   %20 = ptrtoint ptr %12 to i64
-  %sext46 = shl i64 %20, 48
-  %21 = ashr exact i64 %sext46, 48
+  %sext39 = shl i64 %20, 48
+  %21 = ashr exact i64 %sext39, 48
   %.neg = mul nsw i64 %21, -4294967296
   %22 = or disjoint i64 %.neg, 2
   %23 = inttoptr i64 %22 to ptr

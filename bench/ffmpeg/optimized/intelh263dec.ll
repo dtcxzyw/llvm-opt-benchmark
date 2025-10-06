@@ -259,12 +259,11 @@ check_marker.exit:                                ; preds = %23
   %161 = add i32 %spec.select.i97, 3
   %162 = tail call i32 @llvm.umin.i32(i32 %9, i32 %161)
   store i32 %162, ptr %3, align 8, !tbaa !4
-  switch i32 %160, label %164 [
-    i32 7, label %163
-    i32 0, label %163
-  ]
+  %.off = add nsw i32 %160, -1
+  %switch = icmp ult i32 %.off, 6
+  br i1 %switch, label %164, label %163
 
-163:                                              ; preds = %152, %152
+163:                                              ; preds = %152
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %36, i32 noundef 16, ptr noundef nonnull @.str.5) #5
   br label %336
 

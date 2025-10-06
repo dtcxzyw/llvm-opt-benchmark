@@ -976,20 +976,20 @@ define range(i32 0, 2) i32 @sws_test_frame(ptr noundef %0, i32 noundef %1) local
 
 .split.us:                                        ; preds = %2, %36
   %12 = phi i1 [ false, %36 ], [ true, %2 ]
-  %.0723.us = phi i32 [ 1, %36 ], [ 0, %2 ]
+  %.0729.us = phi i32 [ 1, %36 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %3, ptr noundef %0, i32 noundef %.0723.us)
+  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %3, ptr noundef %0, i32 noundef %.0729.us)
   %13 = load i32, ptr %3, align 8, !tbaa !20
   %14 = icmp sgt i32 %13, 0
   %15 = load i32, ptr %4, align 4
   %16 = icmp sgt i32 %15, 0
   %or.cond.us = select i1 %14, i1 %16, i1 false
-  br i1 %or.cond.us, label %17, label %.thread
+  br i1 %or.cond.us, label %17, label %.thread18
 
 17:                                               ; preds = %.split.us
   %18 = load i32, ptr %5, align 4, !tbaa !29
   %19 = icmp ult i32 %18, 256
-  br i1 %19, label %sws_test_format.exit.i.us, label %.thread
+  br i1 %19, label %sws_test_format.exit.i.us, label %.thread18
 
 sws_test_format.exit.i.us:                        ; preds = %17
   %20 = zext nneg i32 %18 to i64
@@ -997,11 +997,11 @@ sws_test_format.exit.i.us:                        ; preds = %17
   %22 = load i8, ptr %21, align 1
   %.shrunk.i.i.us = and i8 %22, 1
   %.not.i.us = icmp eq i8 %.shrunk.i.i.us, 0
-  br i1 %.not.i.us, label %.thread, label %23
+  br i1 %.not.i.us, label %.thread18, label %23
 
 23:                                               ; preds = %sws_test_format.exit.i.us
   %24 = load i32, ptr %6, align 4, !tbaa !33
-  switch i32 %24, label %.thread [
+  switch i32 %24, label %.thread18 [
     i32 2, label %sws_test_colorspace.exit.i.us
     i32 0, label %sws_test_colorspace.exit.i.us
     i32 1, label %sws_test_colorspace.exit.i.us
@@ -1018,7 +1018,7 @@ sws_test_colorspace.exit.i.us:                    ; preds = %23, %23, %23, %23, 
   %or.cond.i.i.us = icmp ult i32 %26, -22
   %27 = icmp eq i32 %25, 3
   %narrow.i.not.i.us = or i1 %27, %or.cond.i.i.us
-  br i1 %narrow.i.not.i.us, label %.thread, label %sws_test_transfer.exit.i.us
+  br i1 %narrow.i.not.i.us, label %.thread18, label %sws_test_transfer.exit.i.us
 
 sws_test_transfer.exit.i.us:                      ; preds = %sws_test_colorspace.exit.i.us
   %28 = load i32, ptr %8, align 4, !tbaa !64
@@ -1028,35 +1028,35 @@ sws_test_transfer.exit.i.us:                      ; preds = %sws_test_colorspace
   %.not23.i.us = select i1 %30, i1 %31, i1 false
   %32 = load i32, ptr %9, align 8
   %33 = icmp ugt i32 %32, 2
-  %or.cond19.us = select i1 %.not23.i.us, i1 true, i1 %33
+  %or.cond25.us = select i1 %.not23.i.us, i1 true, i1 %33
   %34 = load i32, ptr %10, align 8
   %35 = icmp ugt i32 %34, 6
-  %or.cond22.us = select i1 %or.cond19.us, i1 true, i1 %35
-  br i1 %or.cond22.us, label %.thread, label %36
+  %or.cond28.us = select i1 %or.cond25.us, i1 true, i1 %35
+  br i1 %or.cond28.us, label %.thread18, label %36
 
 36:                                               ; preds = %sws_test_transfer.exit.i.us
   %37 = load i32, ptr %11, align 8, !tbaa !28
   %.not10.not.us = icmp ne i32 %37, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %or.cond30 = and i1 %.not10.not.us, %12
-  br i1 %or.cond30, label %.split.us, label %.loopexit, !llvm.loop !65
+  br i1 %or.cond30, label %.split.us, label %.thread15, !llvm.loop !65
 
 .split:                                           ; preds = %2, %63
   %38 = phi i1 [ false, %63 ], [ true, %2 ]
-  %.0723 = phi i32 [ 1, %63 ], [ 0, %2 ]
+  %.0729 = phi i32 [ 1, %63 ], [ 0, %2 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %3, ptr noundef %0, i32 noundef %.0723)
+  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %3, ptr noundef %0, i32 noundef %.0729)
   %39 = load i32, ptr %3, align 8, !tbaa !20
   %40 = icmp sgt i32 %39, 0
   %41 = load i32, ptr %4, align 4
   %42 = icmp sgt i32 %41, 0
   %or.cond = select i1 %40, i1 %42, i1 false
-  br i1 %or.cond, label %43, label %.thread
+  br i1 %or.cond, label %43, label %.thread18
 
 43:                                               ; preds = %.split
   %44 = load i32, ptr %5, align 4, !tbaa !29
   %45 = icmp ult i32 %44, 256
-  br i1 %45, label %sws_test_format.exit.i, label %.thread
+  br i1 %45, label %sws_test_format.exit.i, label %.thread18
 
 sws_test_format.exit.i:                           ; preds = %43
   %46 = zext nneg i32 %44 to i64
@@ -1064,11 +1064,11 @@ sws_test_format.exit.i:                           ; preds = %43
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, 2
   %.not.i = icmp eq i8 %49, 0
-  br i1 %.not.i, label %.thread, label %50
+  br i1 %.not.i, label %.thread18, label %50
 
 50:                                               ; preds = %sws_test_format.exit.i
   %51 = load i32, ptr %6, align 4, !tbaa !33
-  switch i32 %51, label %.thread [
+  switch i32 %51, label %.thread18 [
     i32 2, label %sws_test_colorspace.exit.i
     i32 0, label %sws_test_colorspace.exit.i
     i32 1, label %sws_test_colorspace.exit.i
@@ -1085,7 +1085,7 @@ sws_test_colorspace.exit.i:                       ; preds = %50, %50, %50, %50, 
   %or.cond.i.i = icmp ult i32 %53, -22
   %54 = icmp eq i32 %52, 3
   %narrow.i.not.i = or i1 %54, %or.cond.i.i
-  br i1 %narrow.i.not.i, label %.thread, label %sws_test_transfer.exit.i
+  br i1 %narrow.i.not.i, label %.thread18, label %sws_test_transfer.exit.i
 
 sws_test_transfer.exit.i:                         ; preds = %sws_test_colorspace.exit.i
   %55 = load i32, ptr %8, align 4, !tbaa !64
@@ -1095,26 +1095,26 @@ sws_test_transfer.exit.i:                         ; preds = %sws_test_colorspace
   %.not23.i = select i1 %57, i1 %58, i1 false
   %59 = load i32, ptr %9, align 8
   %60 = icmp ugt i32 %59, 2
-  %or.cond19 = select i1 %.not23.i, i1 true, i1 %60
+  %or.cond25 = select i1 %.not23.i, i1 true, i1 %60
   %61 = load i32, ptr %10, align 8
   %62 = icmp ugt i32 %61, 6
-  %or.cond22 = select i1 %or.cond19, i1 true, i1 %62
-  br i1 %or.cond22, label %.thread, label %63
+  %or.cond28 = select i1 %or.cond25, i1 true, i1 %62
+  br i1 %or.cond28, label %.thread18, label %63
 
-.thread:                                          ; preds = %50, %43, %.split, %sws_test_format.exit.i, %sws_test_colorspace.exit.i, %sws_test_transfer.exit.i, %.split.us, %17, %sws_test_format.exit.i.us, %23, %sws_test_colorspace.exit.i.us, %sws_test_transfer.exit.i.us
+.thread18:                                        ; preds = %sws_test_transfer.exit.i, %sws_test_colorspace.exit.i, %sws_test_format.exit.i, %.split, %43, %50, %.split.us, %17, %sws_test_format.exit.i.us, %23, %sws_test_colorspace.exit.i.us, %sws_test_transfer.exit.i.us
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.loopexit
+  br label %.thread15
 
 63:                                               ; preds = %sws_test_transfer.exit.i
   %64 = load i32, ptr %11, align 8, !tbaa !28
   %.not10.not = icmp ne i32 %64, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %or.cond31 = and i1 %.not10.not, %38
-  br i1 %or.cond31, label %.split, label %.loopexit, !llvm.loop !65
+  br i1 %or.cond31, label %.split, label %.thread15, !llvm.loop !65
 
-.loopexit:                                        ; preds = %63, %36, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 1, %36 ], [ 1, %63 ]
-  ret i32 %.0
+.thread15:                                        ; preds = %63, %36, %.thread18
+  %65 = phi i32 [ 0, %.thread18 ], [ 1, %36 ], [ 1, %63 ]
+  ret i32 %65
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1157,63 +1157,63 @@ define range(i32 0, 2) i32 @sws_is_noop(ptr noundef %0, ptr noundef %1) local_un
 
 37:                                               ; preds = %ff_fmt_equal.exit.thread15, %2
   %38 = phi i1 [ true, %2 ], [ false, %ff_fmt_equal.exit.thread15 ]
-  %.0819 = phi i32 [ 0, %2 ], [ 1, %ff_fmt_equal.exit.thread15 ]
+  %.0825 = phi i32 [ 0, %2 ], [ 1, %ff_fmt_equal.exit.thread15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %3, ptr noundef %0, i32 noundef %.0819)
+  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %3, ptr noundef %0, i32 noundef %.0825)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %4, ptr noundef %1, i32 noundef %.0819)
+  call void @ff_fmt_from_frame(ptr dead_on_unwind nonnull writable sret(%struct.SwsFormat) align 8 %4, ptr noundef %1, i32 noundef %.0825)
   %39 = load i32, ptr %3, align 8, !tbaa !20
   %40 = load i32, ptr %4, align 8, !tbaa !20
   %41 = icmp eq i32 %39, %40
-  br i1 %41, label %42, label %.thread
+  br i1 %41, label %42, label %.thread22
 
 42:                                               ; preds = %37
   %43 = load i32, ptr %5, align 4, !tbaa !27
   %44 = load i32, ptr %6, align 4, !tbaa !27
   %45 = icmp eq i32 %43, %44
-  br i1 %45, label %46, label %.thread
+  br i1 %45, label %46, label %.thread22
 
 46:                                               ; preds = %42
   %47 = load i32, ptr %7, align 8, !tbaa !28
   %48 = load i32, ptr %8, align 8, !tbaa !28
   %49 = icmp eq i32 %47, %48
-  br i1 %49, label %50, label %.thread
+  br i1 %49, label %50, label %.thread22
 
 50:                                               ; preds = %46
   %51 = load i32, ptr %9, align 4, !tbaa !29
   %52 = load i32, ptr %10, align 4, !tbaa !29
   %53 = icmp eq i32 %51, %52
-  br i1 %53, label %54, label %.thread
+  br i1 %53, label %54, label %.thread22
 
 54:                                               ; preds = %50
   %55 = load i32, ptr %11, align 8, !tbaa !31
   %56 = load i32, ptr %12, align 8, !tbaa !31
   %57 = icmp eq i32 %55, %56
-  br i1 %57, label %58, label %.thread
+  br i1 %57, label %58, label %.thread22
 
 58:                                               ; preds = %54
   %59 = load i32, ptr %13, align 4, !tbaa !33
   %60 = load i32, ptr %14, align 4, !tbaa !33
   %61 = icmp eq i32 %59, %60
-  br i1 %61, label %62, label %.thread
+  br i1 %61, label %62, label %.thread22
 
 62:                                               ; preds = %58
   %63 = load i32, ptr %15, align 8, !tbaa !35
   %64 = load i32, ptr %16, align 8, !tbaa !35
   %65 = icmp eq i32 %63, %64
-  br i1 %65, label %66, label %.thread
+  br i1 %65, label %66, label %.thread22
 
 66:                                               ; preds = %62
   %67 = load i32, ptr %17, align 8, !tbaa !38
   %68 = load i32, ptr %18, align 8, !tbaa !38
   %69 = icmp eq i32 %67, %68
-  br i1 %69, label %70, label %.thread
+  br i1 %69, label %70, label %.thread22
 
 70:                                               ; preds = %66
   %71 = load i32, ptr %19, align 4, !tbaa !40
   %72 = load i32, ptr %20, align 4, !tbaa !40
   %73 = icmp eq i32 %71, %72
-  br i1 %73, label %74, label %.thread
+  br i1 %73, label %74, label %.thread22
 
 74:                                               ; preds = %70
   %75 = load i64, ptr %21, align 8
@@ -1235,7 +1235,7 @@ define range(i32 0, 2) i32 @sws_is_noop(ptr noundef %0, ptr noundef %1) local_un
   %82 = ashr i64 %75, 32
   %83 = mul nsw i64 %81, %82
   %.not.i.i.i.i.i = icmp eq i64 %80, %83
-  br i1 %.not.i.i.i.i.i, label %84, label %.thread
+  br i1 %.not.i.i.i.i.i, label %84, label %.thread22
 
 84:                                               ; preds = %77
   %85 = icmp ugt i64 %76, 4294967295
@@ -1250,7 +1250,7 @@ define range(i32 0, 2) i32 @sws_is_noop(ptr noundef %0, ptr noundef %1) local_un
   %.unshifted.i.i.i.i = xor i32 %.sroa.0.0.extract.trunc.i.i.i.i.i, %.sroa.011.0.extract.trunc.i.i.i.i.i
   %90 = icmp slt i32 %.unshifted.i.i.i.i, 0
   %or.cond.i.i.i = or i1 %or.cond5.i.i.not35.i.i.i, %90
-  br i1 %or.cond.i.i.i, label %.thread, label %ff_q_equal.exit.thread27.i.i.i
+  br i1 %or.cond.i.i.i, label %.thread22, label %ff_q_equal.exit.thread27.i.i.i
 
 ff_q_equal.exit.thread27.i.i.i:                   ; preds = %87, %84, %74
   %91 = load i64, ptr %23, align 8
@@ -1272,7 +1272,7 @@ ff_q_equal.exit.thread27.i.i.i:                   ; preds = %87, %84, %74
   %98 = ashr i64 %91, 32
   %99 = mul nsw i64 %97, %98
   %.not.i.i18.i.i.i = icmp eq i64 %96, %99
-  br i1 %.not.i.i18.i.i.i, label %100, label %.thread
+  br i1 %.not.i.i18.i.i.i, label %100, label %.thread22
 
 100:                                              ; preds = %93
   %101 = icmp ugt i64 %92, 4294967295
@@ -1287,7 +1287,7 @@ ff_q_equal.exit.thread27.i.i.i:                   ; preds = %87, %84, %74
   %.unshifted.i21.i.i.i = xor i32 %.sroa.0.0.extract.trunc.i.i15.i.i.i, %.sroa.011.0.extract.trunc.i.i14.i.i.i
   %106 = icmp slt i32 %.unshifted.i21.i.i.i, 0
   %or.cond33.i.i.i = or i1 %or.cond5.i.i20.not37.i.i.i, %106
-  br i1 %or.cond33.i.i.i, label %.thread, label %ff_q_equal.exit22.thread31.i.i.i
+  br i1 %or.cond33.i.i.i, label %.thread22, label %ff_q_equal.exit22.thread31.i.i.i
 
 ff_q_equal.exit22.thread31.i.i.i:                 ; preds = %103, %100, %ff_q_equal.exit.thread27.i.i.i
   %107 = load i64, ptr %25, align 8
@@ -1311,7 +1311,7 @@ ff_q_equal.exit22.thread31.i.i.i:                 ; preds = %103, %100, %ff_q_eq
   %116 = ashr i64 %107, 32
   %117 = mul nsw i64 %115, %116
   %.not.i.i.i.i.i.i.i = icmp eq i64 %114, %117
-  br i1 %.not.i.i.i.i.i.i.i, label %118, label %.thread
+  br i1 %.not.i.i.i.i.i.i.i, label %118, label %.thread22
 
 118:                                              ; preds = %111
   %119 = icmp ugt i64 %109, 4294967295
@@ -1326,7 +1326,7 @@ ff_q_equal.exit22.thread31.i.i.i:                 ; preds = %103, %100, %ff_q_eq
   %.unshifted.i.i.i.i.i.i = xor i32 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %.sroa.011.0.extract.trunc.i.i.i.i.i.i.i
   %124 = icmp slt i32 %.unshifted.i.i.i.i.i.i, 0
   %or.cond.i.i23.i.i.i = or i1 %or.cond5.i.i.not20.i.i.i.i.i, %124
-  br i1 %or.cond.i.i23.i.i.i, label %.thread, label %ff_q_equal.exit.thread17.i.i.i.i.i
+  br i1 %or.cond.i.i23.i.i.i, label %.thread22, label %ff_q_equal.exit.thread17.i.i.i.i.i
 
 ff_q_equal.exit.thread17.i.i.i.i.i:               ; preds = %121, %118, %ff_q_equal.exit22.thread31.i.i.i
   %.not.i3.i.i.i.i.i = icmp eq i64 %108, 0
@@ -1346,7 +1346,7 @@ ff_q_equal.exit.thread17.i.i.i.i.i:               ; preds = %121, %118, %ff_q_eq
   %130 = ashr i64 %108, 32
   %131 = mul nsw i64 %129, %130
   %.not.i.i10.i.i.i.i.i = icmp eq i64 %128, %131
-  br i1 %.not.i.i10.i.i.i.i.i, label %132, label %.thread
+  br i1 %.not.i.i10.i.i.i.i.i, label %132, label %.thread22
 
 132:                                              ; preds = %125
   %133 = icmp ugt i64 %110, 4294967295
@@ -1361,7 +1361,7 @@ ff_q_equal.exit.thread17.i.i.i.i.i:               ; preds = %121, %118, %ff_q_eq
   %.unshifted.i13.i.i.i.i.i = xor i32 %.sroa.0.0.extract.trunc.i.i7.i.i.i.i.i, %.sroa.011.0.extract.trunc.i.i6.i.i.i.i.i
   %138 = icmp slt i32 %.unshifted.i13.i.i.i.i.i, 0
   %or.cond.i24.i.i.i = or i1 %or.cond5.i.i12.i.not67.i.i.i.i, %138
-  br i1 %or.cond.i24.i.i.i, label %.thread, label %ff_cie_xy_equal.exit.thread59.i.i.i.i
+  br i1 %or.cond.i24.i.i.i, label %.thread22, label %ff_cie_xy_equal.exit.thread59.i.i.i.i
 
 ff_cie_xy_equal.exit.thread59.i.i.i.i:            ; preds = %135, %132, %ff_q_equal.exit.thread17.i.i.i.i.i
   %139 = load i64, ptr %29, align 8
@@ -1385,7 +1385,7 @@ ff_cie_xy_equal.exit.thread59.i.i.i.i:            ; preds = %135, %132, %ff_q_eq
   %148 = ashr i64 %139, 32
   %149 = mul nsw i64 %147, %148
   %.not.i.i.i14.i.i.i.i = icmp eq i64 %146, %149
-  br i1 %.not.i.i.i14.i.i.i.i, label %150, label %.thread
+  br i1 %.not.i.i.i14.i.i.i.i, label %150, label %.thread22
 
 150:                                              ; preds = %143
   %151 = icmp ugt i64 %141, 4294967295
@@ -1400,7 +1400,7 @@ ff_cie_xy_equal.exit.thread59.i.i.i.i:            ; preds = %135, %132, %ff_q_eq
   %.unshifted.i.i17.i.i.i.i = xor i32 %.sroa.0.0.extract.trunc.i.i.i11.i.i.i.i, %.sroa.011.0.extract.trunc.i.i.i10.i.i.i.i
   %156 = icmp slt i32 %.unshifted.i.i17.i.i.i.i, 0
   %or.cond.i18.i.i.i.i = or i1 %or.cond5.i.i.not20.i16.i.i.i.i, %156
-  br i1 %or.cond.i18.i.i.i.i, label %.thread, label %ff_q_equal.exit.thread17.i19.i.i.i.i
+  br i1 %or.cond.i18.i.i.i.i, label %.thread22, label %ff_q_equal.exit.thread17.i19.i.i.i.i
 
 ff_q_equal.exit.thread17.i19.i.i.i.i:             ; preds = %153, %150, %ff_cie_xy_equal.exit.thread59.i.i.i.i
   %.not.i3.i20.i.i.i.i = icmp eq i64 %140, 0
@@ -1420,7 +1420,7 @@ ff_q_equal.exit.thread17.i19.i.i.i.i:             ; preds = %153, %150, %ff_cie_
   %162 = ashr i64 %140, 32
   %163 = mul nsw i64 %161, %162
   %.not.i.i10.i27.i.i.i.i = icmp eq i64 %160, %163
-  br i1 %.not.i.i10.i27.i.i.i.i, label %164, label %.thread
+  br i1 %.not.i.i10.i27.i.i.i.i, label %164, label %.thread22
 
 164:                                              ; preds = %157
   %165 = icmp ugt i64 %142, 4294967295
@@ -1435,7 +1435,7 @@ ff_q_equal.exit.thread17.i19.i.i.i.i:             ; preds = %153, %150, %ff_cie_
   %.unshifted.i13.i30.i.i.i.i = xor i32 %.sroa.0.0.extract.trunc.i.i7.i24.i.i.i.i, %.sroa.011.0.extract.trunc.i.i6.i23.i.i.i.i
   %170 = icmp slt i32 %.unshifted.i13.i30.i.i.i.i, 0
   %or.cond65.i.i.i.i = or i1 %or.cond5.i.i12.i29.not69.i.i.i.i, %170
-  br i1 %or.cond65.i.i.i.i, label %.thread, label %ff_cie_xy_equal.exit31.thread63.i.i.i.i
+  br i1 %or.cond65.i.i.i.i, label %.thread22, label %ff_cie_xy_equal.exit31.thread63.i.i.i.i
 
 ff_cie_xy_equal.exit31.thread63.i.i.i.i:          ; preds = %167, %164, %ff_q_equal.exit.thread17.i19.i.i.i.i
   %171 = load i64, ptr %33, align 8
@@ -1459,7 +1459,7 @@ ff_cie_xy_equal.exit31.thread63.i.i.i.i:          ; preds = %167, %164, %ff_q_eq
   %180 = ashr i64 %171, 32
   %181 = mul nsw i64 %179, %180
   %.not.i.i.i39.i.i.i.i = icmp eq i64 %178, %181
-  br i1 %.not.i.i.i39.i.i.i.i, label %182, label %.thread
+  br i1 %.not.i.i.i39.i.i.i.i, label %182, label %.thread22
 
 182:                                              ; preds = %175
   %183 = icmp ugt i64 %173, 4294967295
@@ -1474,7 +1474,7 @@ ff_cie_xy_equal.exit31.thread63.i.i.i.i:          ; preds = %167, %164, %ff_q_eq
   %.unshifted.i.i42.i.i.i.i = xor i32 %.sroa.0.0.extract.trunc.i.i.i36.i.i.i.i, %.sroa.011.0.extract.trunc.i.i.i35.i.i.i.i
   %188 = icmp slt i32 %.unshifted.i.i42.i.i.i.i, 0
   %or.cond.i43.i.i.i.i = or i1 %or.cond5.i.i.not20.i41.i.i.i.i, %188
-  br i1 %or.cond.i43.i.i.i.i, label %.thread, label %ff_q_equal.exit.thread17.i44.i.i.i.i
+  br i1 %or.cond.i43.i.i.i.i, label %.thread22, label %ff_q_equal.exit.thread17.i44.i.i.i.i
 
 ff_q_equal.exit.thread17.i44.i.i.i.i:             ; preds = %185, %182, %ff_cie_xy_equal.exit31.thread63.i.i.i.i
   %.not.i3.i45.i.i.i.i = icmp eq i64 %172, 0
@@ -1494,7 +1494,7 @@ ff_q_equal.exit.thread17.i44.i.i.i.i:             ; preds = %185, %182, %ff_cie_
   %194 = ashr i64 %172, 32
   %195 = mul nsw i64 %193, %194
   %.not.i.i10.i52.i.i.i.i = icmp eq i64 %192, %195
-  br i1 %.not.i.i10.i52.i.i.i.i, label %196, label %.thread
+  br i1 %.not.i.i10.i52.i.i.i.i, label %196, label %.thread22
 
 196:                                              ; preds = %189
   %197 = icmp ugt i64 %174, 4294967295
@@ -1505,27 +1505,27 @@ ff_q_equal.exit.thread17.i44.i.i.i.i:             ; preds = %185, %182, %ff_cie_
 199:                                              ; preds = %196
   %200 = icmp eq i32 %.sroa.011.0.extract.trunc.i.i6.i48.i.i.i.i, 0
   %201 = icmp eq i32 %.sroa.0.0.extract.trunc.i.i7.i49.i.i.i.i, 0
-  %or.cond5.i.i12.i54.i.i.i.i.not21 = or i1 %200, %201
+  %or.cond5.i.i12.i54.i.i.i.i.not27 = or i1 %200, %201
   %.unshifted.i13.i55.i.i.i.i = xor i32 %.sroa.0.0.extract.trunc.i.i7.i49.i.i.i.i, %.sroa.011.0.extract.trunc.i.i6.i48.i.i.i.i
   %202 = icmp slt i32 %.unshifted.i13.i55.i.i.i.i, 0
-  %or.cond = or i1 %or.cond5.i.i12.i54.i.i.i.i.not21, %202
-  br i1 %or.cond, label %.thread, label %ff_fmt_equal.exit.thread15
+  %or.cond = or i1 %or.cond5.i.i12.i54.i.i.i.i.not27, %202
+  br i1 %or.cond, label %.thread22, label %ff_fmt_equal.exit.thread15
 
-.thread:                                          ; preds = %42, %37, %62, %58, %54, %50, %46, %70, %66, %199, %189, %185, %175, %135, %125, %121, %111, %167, %157, %153, %143, %87, %77, %103, %93
+.thread22:                                        ; preds = %93, %103, %77, %87, %143, %153, %157, %167, %111, %121, %125, %135, %175, %185, %189, %199, %66, %70, %46, %50, %54, %58, %62, %37, %42
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.loopexit
+  br label %.thread19
 
 ff_fmt_equal.exit.thread15:                       ; preds = %199, %196, %ff_q_equal.exit.thread17.i44.i.i.i.i
   %.not11.not = icmp ne i32 %47, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %or.cond23 = and i1 %.not11.not, %38
-  br i1 %or.cond23, label %37, label %.loopexit, !llvm.loop !66
+  %or.cond28 = and i1 %.not11.not, %38
+  br i1 %or.cond28, label %37, label %.thread19, !llvm.loop !66
 
-.loopexit:                                        ; preds = %ff_fmt_equal.exit.thread15, %.thread
-  %.0 = phi i32 [ 0, %.thread ], [ 1, %ff_fmt_equal.exit.thread15 ]
-  ret i32 %.0
+.thread19:                                        ; preds = %ff_fmt_equal.exit.thread15, %.thread22
+  %203 = phi i32 [ 0, %.thread22 ], [ 1, %ff_fmt_equal.exit.thread15 ]
+  ret i32 %203
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

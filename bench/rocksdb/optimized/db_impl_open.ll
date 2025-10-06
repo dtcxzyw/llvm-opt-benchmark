@@ -6310,8 +6310,8 @@ define void @_ZN7rocksdb6DBImpl15ValidateOptionsERKNS_9DBOptionsE(ptr dead_on_un
 97:                                               ; preds = %90
   %98 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %99 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull @.str) #27
-  %.not40 = icmp eq i32 %99, 0
-  br i1 %.not40, label %113, label %100
+  %.not39 = icmp eq i32 %99, 0
+  br i1 %.not39, label %113, label %100
 
 100:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %19)

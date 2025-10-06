@@ -145,12 +145,12 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
 20:                                               ; preds = %19, %6
   %21 = phi ptr [ %.pre, %19 ], [ %5, %6 ]
   %22 = load ptr, ptr %21, align 8
-  %.not3346 = icmp eq ptr %22, null
-  br i1 %.not3346, label %.critedge, label %.preheader
+  %.not3345 = icmp eq ptr %22, null
+  br i1 %.not3345, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %20, %37
   %23 = phi i64 [ %40, %37 ], [ 0, %20 ]
-  %.02847 = phi i32 [ %38, %37 ], [ 0, %20 ]
+  %.02846 = phi i32 [ %38, %37 ], [ 0, %20 ]
   br label %24
 
 24:                                               ; preds = %34, %.preheader
@@ -167,7 +167,7 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
 
 .thread:                                          ; preds = %24
   %33 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %.02847, ptr @dissect_corosynec_totemnet.last_key_index, align 4
+  store i32 %.02846, ptr @dissect_corosynec_totemnet.last_key_index, align 4
   store i32 %33, ptr @dissect_corosynec_totemnet.last_check_crypt_type_index, align 4
   br label %.critedge.thread
 
@@ -179,7 +179,7 @@ define internal i32 @dissect_corosynec_totemnet(ptr noundef %0, ptr noundef %1, 
   br i1 %or.cond, label %24, label %37, !llvm.loop !8
 
 37:                                               ; preds = %34
-  %38 = add i32 %.02847, 1
+  %38 = add i32 %.02846, 1
   %39 = load ptr, ptr @corosync_totemnet_private_keys_list, align 8
   %40 = sext i32 %38 to i64
   %41 = getelementptr ptr, ptr %39, i64 %40

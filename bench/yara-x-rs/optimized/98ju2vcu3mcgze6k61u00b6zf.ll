@@ -14068,25 +14068,25 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   %.sroa.527.sroa.0.0.copyload = load i64, ptr %.sroa.527.0..sroa_idx, align 8
   %.sroa.527.sroa.3.0..sroa.527.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 32
   %.sroa.527.sroa.3.0.copyload = load i8, ptr %.sroa.527.sroa.3.0..sroa.527.0..sroa_idx.sroa_idx, align 8
-  br i1 %20, label %22, label %23
+  br i1 %20, label %22, label %24
 
 22:                                               ; preds = %4
-  %switch = icmp eq i64 %.sroa.024.0.copyload, 0
-  br i1 %switch, label %27, label %.sink.split
+  %23 = icmp eq i64 %.sroa.024.0.copyload, 0
+  br i1 %23, label %28, label %.sink.split
 
-23:                                               ; preds = %4
+24:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %24 = icmp ne i64 %.sroa.024.0.copyload, 0
-  call void @llvm.assume(i1 %24)
-  br label %25
+  %25 = icmp ne i64 %.sroa.024.0.copyload, 0
+  call void @llvm.assume(i1 %25)
+  br label %26
 
-25:                                               ; preds = %27, %23
-  %.sroa.932.sroa.0.0.sink = phi i64 [ %.sroa.932.sroa.0.0, %27 ], [ %.sroa.527.sroa.0.0.copyload, %23 ]
-  %.sroa.932.sroa.5.0.sink = phi i8 [ %.sroa.932.sroa.5.0, %27 ], [ %.sroa.527.sroa.3.0.copyload, %23 ]
-  %storemerge = phi i64 [ 1, %27 ], [ 0, %23 ]
+26:                                               ; preds = %28, %24
+  %.sroa.932.sroa.0.0.sink = phi i64 [ %.sroa.932.sroa.0.0, %28 ], [ %.sroa.527.sroa.0.0.copyload, %24 ]
+  %.sroa.932.sroa.5.0.sink = phi i8 [ %.sroa.932.sroa.5.0, %28 ], [ %.sroa.527.sroa.3.0.copyload, %24 ]
+  %storemerge = phi i64 [ 1, %28 ], [ 0, %24 ]
   %.sink = inttoptr i64 %.sroa.024.0.copyload to ptr
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink, ptr %26, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink, ptr %27, align 8
   %.sroa.272.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.225.0.copyload, ptr %.sroa.272.0..sroa_idx, align 8
   %.sroa.373.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14099,15 +14099,15 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
 .sink.split:                                      ; preds = %22
   %.sroa.527.sroa.4.0..sroa.527.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.932.sroa.6, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.527.sroa.4.0..sroa.527.0..sroa_idx.sroa_idx, i64 7, i1 false)
-  br label %27
+  br label %28
 
-27:                                               ; preds = %22, %.sink.split
+28:                                               ; preds = %22, %.sink.split
   %.sroa.932.sroa.0.0 = phi i64 [ undef, %22 ], [ %.sroa.527.sroa.0.0.copyload, %.sink.split ]
   %.sroa.932.sroa.5.0 = phi i8 [ undef, %22 ], [ %.sroa.527.sroa.3.0.copyload, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.sroa.575.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.575.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.932.sroa.6, i64 7, i1 false)
-  br label %25
+  br label %26
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14242,13 +14242,13 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   %.sroa.212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.sroa.212.0.copyload = load i64, ptr %.sroa.212.0..sroa_idx, align 8
   %.sroa.514.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  br i1 %7, label %9, label %10
+  br i1 %7, label %9, label %11
 
 9:                                                ; preds = %4
-  %switch = icmp eq i64 %.sroa.011.0.copyload, 0
-  br i1 %switch, label %12, label %.sink.split
+  %10 = icmp eq i64 %.sroa.011.0.copyload, 0
+  br i1 %10, label %13, label %.sink.split
 
-10:                                               ; preds = %4
+11:                                               ; preds = %4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.919, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.514.0..sroa_idx, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14258,25 +14258,25 @@ define hidden void @"_ZN52_$LT$F$u20$as$u20$nom..internal..Parser$LT$I$GT$$GT$7p
   store i64 %.sroa.011.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.212.0.copyload, ptr %.sroa.5.0..sroa_idx, align 8
-  br label %11
+  br label %12
 
-11:                                               ; preds = %12, %10
+12:                                               ; preds = %13, %11
   ret void
 
 .sink.split:                                      ; preds = %9
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.919, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.514.0..sroa_idx, i64 16, i1 false)
-  br label %12
+  br label %13
 
-12:                                               ; preds = %9, %.sink.split
+13:                                               ; preds = %9, %.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.3.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.919, i64 16, i1 false)
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.011.0.copyload, ptr %13, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.011.0.copyload, ptr %14, align 8
   %.sroa.2.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.212.0.copyload, ptr %.sroa.2.0..sroa_idx39, align 8
   store ptr null, ptr %0, align 8
-  br label %11
+  br label %12
 }
 
 ; Function Attrs: nonlazybind uwtable

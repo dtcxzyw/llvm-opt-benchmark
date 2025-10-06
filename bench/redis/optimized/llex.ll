@@ -361,7 +361,7 @@ thread-pre-split:                                 ; preds = %thread-pre-split.ba
     i32 34, label %197
     i32 39, label %197
     i32 46, label %381
-    i32 -1, label %.thread168
+    i32 -1, label %.thread166
   ]
 
 13:                                               ; preds = %11, %11
@@ -396,7 +396,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   %27 = phi i32 [ %23, %18 ], [ %25, %24 ]
   store i32 %27, ptr %0, align 8, !tbaa !63
   %.not143 = icmp eq i32 %27, 45
-  br i1 %.not143, label %28, label %.thread168
+  br i1 %.not143, label %28, label %.thread166
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %10, align 8, !tbaa !57
@@ -426,7 +426,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   br i1 %42, label %43, label %.thread.preheader
 
 .thread.preheader:                                ; preds = %..thread_crit_edge, %40
-  %.ph = phi i32 [ %41, %40 ], [ %.pr167.pre, %..thread_crit_edge ]
+  %.ph = phi i32 [ %41, %40 ], [ %.pr165.pre, %..thread_crit_edge ]
   br label %.thread
 
 43:                                               ; preds = %40
@@ -438,7 +438,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   br i1 %47, label %48, label %..thread_crit_edge
 
 ..thread_crit_edge:                               ; preds = %43
-  %.pr167.pre = load i32, ptr %0, align 8, !tbaa !63
+  %.pr165.pre = load i32, ptr %0, align 8, !tbaa !63
   br label %.thread.preheader
 
 48:                                               ; preds = %43
@@ -489,11 +489,11 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
 
 69:                                               ; preds = %66
   tail call fastcc void @read_long_string(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %67)
-  br label %.thread168
+  br label %.thread166
 
 70:                                               ; preds = %66
   %71 = icmp eq i32 %67, -1
-  br i1 %71, label %.thread168, label %72
+  br i1 %71, label %.thread166, label %72
 
 72:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -541,7 +541,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   %98 = phi i32 [ %94, %89 ], [ %96, %95 ]
   store i32 %98, ptr %0, align 8, !tbaa !63
   %.not140 = icmp eq i32 %98, 61
-  br i1 %.not140, label %99, label %.thread168
+  br i1 %.not140, label %99, label %.thread166
 
 99:                                               ; preds = %97
   %100 = load ptr, ptr %10, align 8, !tbaa !57
@@ -567,7 +567,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
 111:                                              ; preds = %109, %103
   %112 = phi i32 [ %108, %103 ], [ %110, %109 ]
   store i32 %112, ptr %0, align 8, !tbaa !63
-  br label %.thread168
+  br label %.thread166
 
 113:                                              ; preds = %11
   %114 = load ptr, ptr %10, align 8, !tbaa !57
@@ -594,7 +594,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   %126 = phi i32 [ %122, %117 ], [ %124, %123 ]
   store i32 %126, ptr %0, align 8, !tbaa !63
   %.not137 = icmp eq i32 %126, 61
-  br i1 %.not137, label %127, label %.thread168
+  br i1 %.not137, label %127, label %.thread166
 
 127:                                              ; preds = %125
   %128 = load ptr, ptr %10, align 8, !tbaa !57
@@ -620,7 +620,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
 139:                                              ; preds = %137, %131
   %140 = phi i32 [ %136, %131 ], [ %138, %137 ]
   store i32 %140, ptr %0, align 8, !tbaa !63
-  br label %.thread168
+  br label %.thread166
 
 141:                                              ; preds = %11
   %142 = load ptr, ptr %10, align 8, !tbaa !57
@@ -647,7 +647,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   %154 = phi i32 [ %150, %145 ], [ %152, %151 ]
   store i32 %154, ptr %0, align 8, !tbaa !63
   %.not134 = icmp eq i32 %154, 61
-  br i1 %.not134, label %155, label %.thread168
+  br i1 %.not134, label %155, label %.thread166
 
 155:                                              ; preds = %153
   %156 = load ptr, ptr %10, align 8, !tbaa !57
@@ -673,7 +673,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
 167:                                              ; preds = %165, %159
   %168 = phi i32 [ %164, %159 ], [ %166, %165 ]
   store i32 %168, ptr %0, align 8, !tbaa !63
-  br label %.thread168
+  br label %.thread166
 
 169:                                              ; preds = %11
   %170 = load ptr, ptr %10, align 8, !tbaa !57
@@ -700,7 +700,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
   %182 = phi i32 [ %178, %173 ], [ %180, %179 ]
   store i32 %182, ptr %0, align 8, !tbaa !63
   %.not131 = icmp eq i32 %182, 61
-  br i1 %.not131, label %183, label %.thread168
+  br i1 %.not131, label %183, label %.thread166
 
 183:                                              ; preds = %181
   %184 = load ptr, ptr %10, align 8, !tbaa !57
@@ -726,7 +726,7 @@ thread-pre-split.backedge:                        ; preds = %.thread, %.thread, 
 195:                                              ; preds = %193, %187
   %196 = phi i32 [ %192, %187 ], [ %194, %193 ]
   store i32 %196, ptr %0, align 8, !tbaa !63
-  br label %.thread168
+  br label %.thread166
 
 197:                                              ; preds = %11, %11
   tail call fastcc void @save(ptr noundef nonnull %0, i32 noundef %12)
@@ -1096,7 +1096,7 @@ thread-pre-split.i:                               ; preds = %327, %314, %276, %2
 
 read_string.exit:                                 ; preds = %354, %373, %380
   store ptr %364, ptr %1, align 8, !tbaa !9
-  br label %.thread168
+  br label %.thread166
 
 381:                                              ; preds = %11
   tail call fastcc void @save(ptr noundef nonnull %0, i32 noundef 46)
@@ -1155,7 +1155,7 @@ read_string.exit:                                 ; preds = %354, %373, %380
   %409 = phi i32 [ %405, %400 ], [ %407, %406 ]
   store i32 %409, ptr %0, align 8, !tbaa !63
   %410 = trunc i32 %409 to i8
-  switch i8 %410, label %.thread168 [
+  switch i8 %410, label %.thread166 [
     i8 46, label %411
     i8 0, label %411
   ]
@@ -1166,8 +1166,8 @@ read_string.exit:                                 ; preds = %354, %373, %380
   %413 = load i64, ptr %412, align 8, !tbaa !60
   %414 = add i64 %413, -1
   store i64 %414, ptr %412, align 8, !tbaa !60
-  %.not8.i161 = icmp eq i64 %413, 0
-  br i1 %.not8.i161, label %421, label %415
+  %.not8.i160 = icmp eq i64 %413, 0
+  br i1 %.not8.i160, label %421, label %415
 
 415:                                              ; preds = %411
   %416 = getelementptr inbounds nuw i8, ptr %412, i64 8
@@ -1176,16 +1176,16 @@ read_string.exit:                                 ; preds = %354, %373, %380
   store ptr %418, ptr %416, align 8, !tbaa !62
   %419 = load i8, ptr %417, align 1, !tbaa !9
   %420 = zext i8 %419 to i32
-  br label %check_next.exit163
+  br label %check_next.exit162
 
 421:                                              ; preds = %411
   %422 = tail call i32 @luaZ_fill(ptr noundef nonnull %412) #8
-  br label %check_next.exit163
+  br label %check_next.exit162
 
-check_next.exit163:                               ; preds = %415, %421
+check_next.exit162:                               ; preds = %415, %421
   %423 = phi i32 [ %420, %415 ], [ %422, %421 ]
   store i32 %423, ptr %0, align 8, !tbaa !63
-  br label %.thread168
+  br label %.thread166
 
 424:                                              ; preds = %393
   %425 = tail call ptr @__ctype_b_loc() #9
@@ -1195,11 +1195,11 @@ check_next.exit163:                               ; preds = %415, %421
   %429 = load i16, ptr %428, align 2, !tbaa !14
   %430 = and i16 %429, 2048
   %.not128 = icmp eq i16 %430, 0
-  br i1 %.not128, label %.thread168, label %431
+  br i1 %.not128, label %.thread166, label %431
 
 431:                                              ; preds = %424
   tail call fastcc void @read_numeral(ptr noundef nonnull %0, ptr noundef %1)
-  br label %.thread168
+  br label %.thread166
 
 432:                                              ; preds = %11
   %433 = tail call ptr @__ctype_b_loc() #9
@@ -1245,7 +1245,7 @@ check_next.exit163:                               ; preds = %415, %421
 
 456:                                              ; preds = %454
   tail call fastcc void @read_numeral(ptr noundef nonnull %0, ptr noundef %1)
-  br label %.thread168
+  br label %.thread166
 
 457:                                              ; preds = %454
   %458 = and i32 %438, 1024
@@ -1287,8 +1287,8 @@ check_next.exit163:                               ; preds = %415, %421
   %478 = and i16 %477, 8
   %.not152 = icmp ne i16 %478, 0
   %479 = icmp eq i32 %473, 95
-  %or.cond157 = or i1 %479, %.not152
-  br i1 %or.cond157, label %.critedge2, label %480, !llvm.loop !70
+  %or.cond156 = or i1 %479, %.not152
+  br i1 %or.cond156, label %.critedge2, label %480, !llvm.loop !70
 
 480:                                              ; preds = %472
   %481 = load ptr, ptr %7, align 8, !tbaa !27
@@ -1317,8 +1317,8 @@ check_next.exit163:                               ; preds = %415, %421
   %500 = load i64, ptr %499, align 8, !tbaa !49
   %501 = getelementptr inbounds nuw i8, ptr %498, i64 112
   %502 = load i64, ptr %501, align 8, !tbaa !54
-  %.not.i164 = icmp ult i64 %500, %502
-  br i1 %.not.i164, label %luaX_newstring.exit, label %503
+  %.not.i163 = icmp ult i64 %500, %502
+  br i1 %.not.i163, label %luaX_newstring.exit, label %503
 
 503:                                              ; preds = %496
   tail call void @luaC_step(ptr noundef nonnull %486) #8
@@ -1333,11 +1333,11 @@ luaX_newstring.exit:                              ; preds = %480, %496, %503
 506:                                              ; preds = %luaX_newstring.exit
   %507 = zext i8 %505 to i32
   %508 = or disjoint i32 %507, 256
-  br label %.thread168
+  br label %.thread166
 
 509:                                              ; preds = %luaX_newstring.exit
   store ptr %487, ptr %1, align 8, !tbaa !9
-  br label %.thread168
+  br label %.thread166
 
 510:                                              ; preds = %457
   %511 = load ptr, ptr %10, align 8, !tbaa !57
@@ -1363,10 +1363,10 @@ luaX_newstring.exit:                              ; preds = %480, %496, %503
 522:                                              ; preds = %520, %514
   %523 = phi i32 [ %519, %514 ], [ %521, %520 ]
   store i32 %523, ptr %0, align 8, !tbaa !63
-  br label %.thread168
+  br label %.thread166
 
-.thread168:                                       ; preds = %26, %11, %408, %70, %69, %check_next.exit163, %506, %509, %424, %181, %153, %125, %97, %522, %456, %431, %read_string.exit, %195, %167, %139, %111
-  %.0 = phi i32 [ 284, %456 ], [ %12, %522 ], [ 280, %111 ], [ 282, %139 ], [ 281, %167 ], [ 283, %195 ], [ 286, %read_string.exit ], [ 284, %431 ], [ 61, %97 ], [ 60, %125 ], [ 62, %153 ], [ 126, %181 ], [ 46, %424 ], [ %508, %506 ], [ 285, %509 ], [ 279, %check_next.exit163 ], [ 278, %408 ], [ 91, %70 ], [ 286, %69 ], [ 287, %11 ], [ 45, %26 ]
+.thread166:                                       ; preds = %26, %11, %408, %70, %69, %check_next.exit162, %506, %509, %424, %181, %153, %125, %97, %522, %456, %431, %read_string.exit, %195, %167, %139, %111
+  %.0 = phi i32 [ 284, %456 ], [ %12, %522 ], [ 280, %111 ], [ 282, %139 ], [ 281, %167 ], [ 283, %195 ], [ 286, %read_string.exit ], [ 284, %431 ], [ 61, %97 ], [ 60, %125 ], [ 62, %153 ], [ 126, %181 ], [ 46, %424 ], [ %508, %506 ], [ 285, %509 ], [ 279, %check_next.exit162 ], [ 278, %408 ], [ 91, %70 ], [ 286, %69 ], [ 287, %11 ], [ 45, %26 ]
   ret i32 %.0
 }
 

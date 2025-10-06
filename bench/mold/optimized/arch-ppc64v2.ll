@@ -371,9 +371,9 @@ define dso_local void @_ZN4mold15write_plt_entryINS_7PPC64V2EEEvRNS_7ContextIT_E
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = load i32, ptr %8, align 8, !tbaa !261
   %10 = icmp eq i32 %9, -1
-  br i1 %10, label %.thread15.i, label %_ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i
+  br i1 %10, label %.thread14.i, label %_ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i
 
-.thread15.i:                                      ; preds = %3
+.thread14.i:                                      ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 4064
   %12 = load ptr, ptr %11, align 8, !tbaa !269
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -404,8 +404,8 @@ _ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i: ; preds =
   %30 = load i64, ptr %29, align 1
   br label %_ZNK4mold6SymbolINS_7PPC64V2EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
-_ZNK4mold6SymbolINS_7PPC64V2EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %.thread15.i, %21, %26
-  %.1.i = phi i64 [ %25, %21 ], [ %14, %.thread15.i ], [ %30, %26 ]
+_ZNK4mold6SymbolINS_7PPC64V2EE12get_plt_addrERNS_7ContextIS1_EE.exit: ; preds = %.thread14.i, %21, %26
+  %.1.i = phi i64 [ %25, %21 ], [ %14, %.thread14.i ], [ %30, %26 ]
   %31 = sub i64 %7, %.1.i
   %32 = trunc i64 %31 to i32
   %33 = and i32 %32, 16777215
@@ -1528,8 +1528,8 @@ define linkonce_odr dso_local noundef i64 @_ZNK4mold6SymbolINS_7PPC64V2EE8get_ad
   %14 = icmp ne i64 %13, 3
   %15 = and i64 %12, -4
   %16 = inttoptr i64 %15 to ptr
-  %.not.not62 = icmp eq i64 %15, 0
-  %.not.not = or i1 %14, %.not.not62
+  %.not.not61 = icmp eq i64 %15, 0
+  %.not.not = or i1 %14, %.not.not61
   br i1 %.not.not, label %32, label %17
 
 17:                                               ; preds = %3
@@ -1584,13 +1584,13 @@ define linkonce_odr dso_local noundef i64 @_ZNK4mold6SymbolINS_7PPC64V2EE8get_ad
 52:                                               ; preds = %32
   %53 = and i64 %2, 1
   %.not32 = icmp eq i64 %53, 0
-  br i1 %.not32, label %54, label %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread61
+  br i1 %.not32, label %54, label %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread60
 
 54:                                               ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load i32, ptr %55, align 8, !tbaa !261
   %57 = icmp eq i32 %56, -1
-  br i1 %57, label %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread61, label %_ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i
+  br i1 %57, label %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread60, label %_ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i
 
 _ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i: ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 3144
@@ -1606,7 +1606,7 @@ _ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit: ; preds = %_ZNK4
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 20
   %65 = load i32, ptr %64, align 4, !tbaa !333
   %.not = icmp eq i32 %65, -1
-  br i1 %.not, label %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread61, label %74
+  br i1 %.not, label %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread60, label %74
 
 _ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35: ; preds = %_ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 4056
@@ -1626,17 +1626,17 @@ _ZNK4mold6SymbolINS_7PPC64V2EE11get_plt_idxERNS_7ContextIS1_EE.exit.i35: ; preds
   %78 = load i64, ptr %77, align 1
   br label %_ZNK4mold6SymbolINS_7PPC64V2EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
-_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread61: ; preds = %54, %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit, %52
+_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread60: ; preds = %54, %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit, %52
   %79 = icmp ne i64 %13, 1
-  %.not33 = or i1 %79, %.not.not62
+  %.not33 = or i1 %79, %.not.not61
   br i1 %.not33, label %80, label %83
 
-80:                                               ; preds = %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread61
+80:                                               ; preds = %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread60
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !332
   br label %_ZNK4mold6SymbolINS_7PPC64V2EE12get_plt_addrERNS_7ContextIS1_EE.exit
 
-83:                                               ; preds = %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread61
+83:                                               ; preds = %_ZNK4mold6SymbolINS_7PPC64V2EE7has_pltERNS_7ContextIS1_EE.exit.thread60
   %84 = getelementptr inbounds nuw i8, ptr %16, i64 69
   %85 = load atomic i8, ptr %84 monotonic, align 1
   %86 = trunc i8 %85 to i1

@@ -5802,18 +5802,16 @@ define void @_ZN12yara_x_proto4yara16EnumValueOptions7set_i6417hd2d00f6d05dc21d4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef double @_ZN12yara_x_proto4yara16EnumValueOptions3f6417h9afcd7ed2a82c5caE(ptr noundef nonnull readonly align 8 captures(none) %0) unnamed_addr #5 {
   %2 = load i64, ptr %0, align 8, !range !6, !noundef !4
-  switch i64 %2, label %3 [
-    i64 2, label %6
-    i64 0, label %6
-  ]
+  %3 = icmp eq i64 %2, 1
+  br i1 %3, label %4, label %7
 
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load double, ptr %4, align 8, !noundef !4
-  br label %6
+4:                                                ; preds = %1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load double, ptr %5, align 8, !noundef !4
+  br label %7
 
-6:                                                ; preds = %1, %1, %3
-  %.sroa.0.0 = phi double [ %5, %3 ], [ 0.000000e+00, %1 ], [ 0.000000e+00, %1 ]
+7:                                                ; preds = %1, %4
+  %.sroa.0.0 = phi double [ %6, %4 ], [ 0.000000e+00, %1 ]
   ret double %.sroa.0.0
 }
 

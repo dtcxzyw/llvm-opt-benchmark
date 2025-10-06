@@ -2594,22 +2594,22 @@ _ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.thread.i.i
   br label %_ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEEC2EPNS_11InstructionEPNS_6MDNodeENS_8ArrayRefINS_17OperandBundleDefTIPNS_5ValueEEEEE.exit.i.i
 
 981:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.i.i.i.i
-  %.not1117.i.i.i = icmp eq i32 %922, 0
-  br i1 %.not1117.i.i.i, label %._crit_edge.i145.i.i, label %.lr.ph.i144.i.i
+  %.not1115.i.i.i = icmp eq i32 %922, 0
+  br i1 %.not1115.i.i.i, label %._crit_edge.i145.i.i, label %.lr.ph.i144.i.i
 
 .lr.ph.i144.i.i:                                  ; preds = %981, %.critedge.i.i.i
-  %.018.i.i.i = phi ptr [ %983, %.critedge.i.i.i ], [ %921, %981 ]
-  %982 = load i32, ptr %.018.i.i.i, align 8, !tbaa !228
+  %.016.i.i.i = phi ptr [ %983, %.critedge.i.i.i ], [ %921, %981 ]
+  %982 = load i32, ptr %.016.i.i.i, align 8, !tbaa !228
   %.not12.i.i.i = icmp eq i32 %982, 0
   br i1 %.not12.i.i.i, label %984, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i144.i.i
-  %983 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 16
+  %983 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
   %.not11.i.i.i = icmp eq ptr %983, %924
   br i1 %.not11.i.i.i, label %._crit_edge.i145.i.i, label %.lr.ph.i144.i.i
 
 984:                                              ; preds = %.lr.ph.i144.i.i
-  %985 = getelementptr inbounds nuw i8, ptr %.018.i.i.i, i64 8
+  %985 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
   store ptr %.pre.i.i115.i.i, ptr %985, align 8, !tbaa !232
   br label %_ZN4llvm13IRBuilderBase25AddOrRemoveMetadataToCopyEjPNS_6MDNodeE.exit.i.i
 
@@ -3422,12 +3422,12 @@ define internal fastcc noundef zeroext i1 @_ZL23isConstantUsingVectorTyPKN4llvm4
   %3 = load i32, ptr %2, align 8
   %4 = and i32 %3, 255
   %5 = add nsw i32 %4, -17
-  %spec.select.i19 = icmp ult i32 %5, 2
-  br i1 %spec.select.i19, label %.thread, label %.lr.ph
+  %spec.select.i17 = icmp ult i32 %5, 2
+  br i1 %spec.select.i17, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
   %6 = phi i32 [ %20, %tailrecurse ], [ %3, %1 ]
-  %.tr20 = phi ptr [ %18, %tailrecurse ], [ %0, %1 ]
+  %.tr18 = phi ptr [ %18, %tailrecurse ], [ %0, %1 ]
   %trunc = trunc i32 %6 to i8
   switch i8 %trunc, label %.thread [
     i8 15, label %7
@@ -3435,19 +3435,19 @@ define internal fastcc noundef zeroext i1 @_ZL23isConstantUsingVectorTyPKN4llvm4
   ]
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.tr20, i64 12
+  %8 = getelementptr inbounds nuw i8, ptr %.tr18, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !247
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %.thread, label %.lr.ph23
+  br i1 %.not, label %.thread, label %.lr.ph21
 
-.lr.ph23:                                         ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %.tr20, i64 16
+.lr.ph21:                                         ; preds = %7
+  %10 = getelementptr inbounds nuw i8, ptr %.tr18, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !251
   %wide.trip.count = zext i32 %9 to i64
   br label %12
 
-12:                                               ; preds = %12, %.lr.ph23
-  %indvars.iv = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next, %12 ]
+12:                                               ; preds = %12, %.lr.ph21
+  %indvars.iv = phi i64 [ 0, %.lr.ph21 ], [ %indvars.iv.next, %12 ]
   %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !252
   %15 = tail call fastcc noundef zeroext i1 @_ZL23isConstantUsingVectorTyPKN4llvm4TypeE(ptr noundef %14)
@@ -3457,7 +3457,7 @@ define internal fastcc noundef zeroext i1 @_ZL23isConstantUsingVectorTyPKN4llvm4
   br i1 %or.cond, label %.thread, label %12, !llvm.loop !253
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.tr20, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %.tr18, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !251
   %18 = load ptr, ptr %17, align 8, !tbaa !252
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8

@@ -186,8 +186,8 @@ declare void @strbuf_add(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @url_decode_internal(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #2 {
   %6 = load ptr, ptr %0, align 8, !tbaa !9
-  %.not78 = icmp eq i32 %1, 0
-  br i1 %.not78, label %.thread71, label %.lr.ph
+  %.not76 = icmp eq i32 %1, 0
+  br i1 %.not76, label %.thread71, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %.not43 = icmp eq ptr %2, null
@@ -197,9 +197,9 @@ define internal fastcc ptr @url_decode_internal(ptr noundef captures(none) %0, i
   br label %10
 
 10:                                               ; preds = %.lr.ph, %strbuf_addch.exit55
-  %.082 = phi i32 [ %1, %.lr.ph ], [ %58, %strbuf_addch.exit55 ]
-  %.03579 = phi ptr [ %6, %.lr.ph ], [ %57, %strbuf_addch.exit55 ]
-  %11 = load i8, ptr %.03579, align 1, !tbaa !4
+  %.080 = phi i32 [ %1, %.lr.ph ], [ %58, %strbuf_addch.exit55 ]
+  %.03577 = phi ptr [ %6, %.lr.ph ], [ %57, %strbuf_addch.exit55 ]
+  %11 = load i8, ptr %.03577, align 1, !tbaa !4
   %.not42 = icmp eq i8 %11, 0
   br i1 %.not42, label %.thread71, label %12
 
@@ -213,17 +213,17 @@ define internal fastcc ptr @url_decode_internal(ptr noundef captures(none) %0, i
   br i1 %.not44, label %18, label %16
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %.03579, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.03577, i64 1
   br label %.thread71
 
 18:                                               ; preds = %13, %12
   %19 = icmp eq i8 %11, 37
-  %or.cond = icmp ugt i32 %.082, 2
+  %or.cond = icmp ugt i32 %.080, 2
   %or.cond45 = and i1 %or.cond, %19
   br i1 %or.cond45, label %20, label %45
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %.03579, i64 1
+  %21 = getelementptr inbounds nuw i8, ptr %.03577, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %23 = zext i8 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %23
@@ -234,7 +234,7 @@ define internal fastcc ptr @url_decode_internal(ptr noundef captures(none) %0, i
 
 28:                                               ; preds = %20
   %29 = shl nuw nsw i32 %26, 4
-  %30 = getelementptr inbounds nuw i8, ptr %.03579, i64 2
+  %30 = getelementptr inbounds nuw i8, ptr %.03577, i64 2
   %31 = load i8, ptr %30, align 1, !tbaa !4
   %32 = zext i8 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr @hexval_table, i64 %32
@@ -307,25 +307,25 @@ strbuf_addch.exit55.sink.split:                   ; preds = %.thread69, %strbuf_
 
 strbuf_addch.exit55:                              ; preds = %strbuf_avail.exit.i47, %strbuf_avail.exit.i57, %strbuf_addch.exit55.sink.split, %42
   %.pre-phi.i.sink = phi i64 [ %.pre-phi.i, %42 ], [ %.neg.i48, %strbuf_avail.exit.i47 ], [ %.neg.i58, %strbuf_avail.exit.i57 ], [ %.pre7.i64, %strbuf_addch.exit55.sink.split ]
-  %.sink106 = phi i64 [ %43, %42 ], [ %49, %strbuf_avail.exit.i47 ], [ %51, %strbuf_avail.exit.i57 ], [ %.pre.i63, %strbuf_addch.exit55.sink.split ]
-  %.sink103 = phi i8 [ %44, %42 ], [ 32, %strbuf_avail.exit.i47 ], [ %11, %strbuf_avail.exit.i57 ], [ %.sink.ph, %strbuf_addch.exit55.sink.split ]
-  %.sink99 = phi i64 [ 3, %42 ], [ 1, %strbuf_avail.exit.i47 ], [ 1, %strbuf_avail.exit.i57 ], [ 1, %strbuf_addch.exit55.sink.split ]
-  %.sink98 = phi i32 [ -3, %42 ], [ -1, %strbuf_avail.exit.i47 ], [ -1, %strbuf_avail.exit.i57 ], [ -1, %strbuf_addch.exit55.sink.split ]
+  %.sink104 = phi i64 [ %43, %42 ], [ %49, %strbuf_avail.exit.i47 ], [ %51, %strbuf_avail.exit.i57 ], [ %.pre.i63, %strbuf_addch.exit55.sink.split ]
+  %.sink101 = phi i8 [ %44, %42 ], [ 32, %strbuf_avail.exit.i47 ], [ %11, %strbuf_avail.exit.i57 ], [ %.sink.ph, %strbuf_addch.exit55.sink.split ]
+  %.sink97 = phi i64 [ 3, %42 ], [ 1, %strbuf_avail.exit.i47 ], [ 1, %strbuf_avail.exit.i57 ], [ 1, %strbuf_addch.exit55.sink.split ]
+  %.sink96 = phi i32 [ -3, %42 ], [ -1, %strbuf_avail.exit.i47 ], [ -1, %strbuf_avail.exit.i57 ], [ -1, %strbuf_addch.exit55.sink.split ]
   %52 = load ptr, ptr %9, align 8, !tbaa !16
   store i64 %.pre-phi.i.sink, ptr %8, align 8, !tbaa !15
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.sink106
-  store i8 %.sink103, ptr %53, align 1, !tbaa !4
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.sink104
+  store i8 %.sink101, ptr %53, align 1, !tbaa !4
   %54 = load ptr, ptr %9, align 8, !tbaa !16
   %55 = load i64, ptr %8, align 8, !tbaa !15
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 %55
   store i8 0, ptr %56, align 1, !tbaa !4
-  %57 = getelementptr inbounds nuw i8, ptr %.03579, i64 %.sink99
-  %58 = add nsw i32 %.082, %.sink98
+  %57 = getelementptr inbounds nuw i8, ptr %.03577, i64 %.sink97
+  %58 = add nsw i32 %.080, %.sink96
   %.not = icmp eq i32 %58, 0
   br i1 %.not, label %.thread71, label %10
 
 .thread71:                                        ; preds = %strbuf_addch.exit55, %10, %5, %16
-  %.136 = phi ptr [ %17, %16 ], [ %6, %5 ], [ %57, %strbuf_addch.exit55 ], [ %.03579, %10 ]
+  %.136 = phi ptr [ %17, %16 ], [ %6, %5 ], [ %57, %strbuf_addch.exit55 ], [ %.03577, %10 ]
   store ptr %.136, ptr %0, align 8, !tbaa !9
   %59 = tail call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #9
   ret ptr %59

@@ -3169,19 +3169,19 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3pdb13UDTLayoutBase16hasVBPtrAtOff
   %11 = load ptr, ptr %10, align 8, !tbaa !223
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %13 = load ptr, ptr %12, align 8, !tbaa !223
-  %.not1516.not = icmp eq ptr %11, %13
-  br i1 %.not1516.not, label %.loopexit, label %.lr.ph
+  %.not1617 = icmp eq ptr %11, %13
+  br i1 %.not1617, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %.lr.ph
-  %.sroa.012.017 = phi ptr [ %19, %.lr.ph ], [ %11, %9 ]
-  %14 = load ptr, ptr %.sroa.012.017, align 8, !tbaa !227
+  %.sroa.012.018 = phi ptr [ %19, %.lr.ph ], [ %11, %9 ]
+  %14 = load ptr, ptr %.sroa.012.018, align 8, !tbaa !227
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 128
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = sub i32 %1, %16
   %18 = tail call noundef zeroext i1 @_ZNK4llvm3pdb13UDTLayoutBase16hasVBPtrAtOffsetEj(ptr noundef nonnull align 8 dereferenceable(320) %14, i32 noundef %17)
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.012.017, i64 8
-  %.not15.not = icmp eq ptr %19, %13
-  %or.cond = select i1 %18, i1 true, i1 %.not15.not
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.012.018, i64 8
+  %.not16 = icmp eq ptr %19, %13
+  %or.cond = select i1 %18, i1 true, i1 %.not16
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %9, %5

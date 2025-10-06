@@ -2091,12 +2091,12 @@ define internal i32 @attrgetter_traverse(ptr noundef readonly captures(none) %0,
 
 8:                                                ; preds = %6, %3
   %9 = getelementptr i8, ptr %0, i64 8
-  %.val22 = load ptr, ptr %9, align 8, !tbaa !19
-  %.not18 = icmp eq ptr %.val22, null
+  %.val21 = load ptr, ptr %9, align 8, !tbaa !19
+  %.not18 = icmp eq ptr %.val21, null
   br i1 %.not18, label %12, label %10
 
 10:                                               ; preds = %8
-  %11 = tail call i32 %1(ptr noundef nonnull %.val22, ptr noundef %2) #7
+  %11 = tail call i32 %1(ptr noundef nonnull %.val21, ptr noundef %2) #7
   %.not19.not = icmp eq i32 %11, 0
   br i1 %.not19.not, label %12, label %13
 
@@ -3117,12 +3117,12 @@ define internal ptr @itemgetter_call(ptr noundef readonly captures(none) %0, ptr
 ; Function Attrs: nounwind uwtable
 define internal i32 @itemgetter_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val22 = load ptr, ptr %4, align 8, !tbaa !19
-  %.not = icmp eq ptr %.val22, null
+  %.val21 = load ptr, ptr %4, align 8, !tbaa !19
+  %.not = icmp eq ptr %.val21, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val22, ptr noundef %2) #7
+  %6 = tail call i32 %1(ptr noundef nonnull %.val21, ptr noundef %2) #7
   %.not17.not = icmp eq i32 %6, 0
   br i1 %.not17.not, label %7, label %13
 
@@ -3590,12 +3590,12 @@ define internal i32 @methodcaller_traverse(ptr noundef readonly captures(none) %
 
 28:                                               ; preds = %26, %23
   %29 = getelementptr i8, ptr %0, i64 8
-  %.val78 = load ptr, ptr %29, align 8, !tbaa !19
-  %.not66 = icmp eq ptr %.val78, null
+  %.val73 = load ptr, ptr %29, align 8, !tbaa !19
+  %.not66 = icmp eq ptr %.val73, null
   br i1 %.not66, label %32, label %30
 
 30:                                               ; preds = %28
-  %31 = tail call i32 %1(ptr noundef nonnull %.val78, ptr noundef %2) #7
+  %31 = tail call i32 %1(ptr noundef nonnull %.val73, ptr noundef %2) #7
   %.not67.not = icmp eq i32 %31, 0
   br i1 %.not67.not, label %32, label %33
 

@@ -9946,10 +9946,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZN5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEED2Ev.exit.sink.split
 
 _ZN5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEED2Ev.exit.sink.split: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i15
-  %.sink59 = phi i64 [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i15 ], [ %93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ]
-  %.sink57 = phi ptr [ %84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i15 ], [ %90, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ]
-  %94 = add i64 %.sink59, 1
-  call void @_ZdlPvm(ptr noundef %.sink57, i64 noundef %94) #28
+  %.sink58 = phi i64 [ %87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i15 ], [ %93, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ]
+  %.sink56 = phi ptr [ %84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i15 ], [ %90, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i ]
+  %94 = add i64 %.sink58, 1
+  call void @_ZdlPvm(ptr noundef %.sink56, i64 noundef %94) #28
   br label %_ZN5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEED2Ev.exit
 
 _ZN5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEED2Ev.exit: ; preds = %_ZN5vcpkg9ExpectedTINS_17ExitCodeAndOutputENS_15LocalizedStringEED2Ev.exit.sink.split, %88, %83
@@ -20032,8 +20032,8 @@ define linkonce_odr dso_local ptr @_ZN3fmt3v116detail5writeIcNS0_14basic_appende
   br i1 %.not12.i, label %_ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, label %32, !llvm.loop !592
 
 _ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit: ; preds = %40, %.thread.i
-  %.sroa.019.128.i = phi i64 [ %38, %.thread.i ], [ %41, %40 ]
-  %42 = add i64 %.sroa.019.128.i, 1
+  %.sroa.019.127.i = phi i64 [ %38, %.thread.i ], [ %41, %40 ]
+  %42 = add i64 %.sroa.019.127.i, 1
   br label %43
 
 43:                                               ; preds = %_ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, %23
@@ -21260,19 +21260,19 @@ _ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back
   br i1 %.not12, label %.loopexit, label %21, !llvm.loop !620
 
 .loopexit:                                        ; preds = %51, %.thread
-  %.sroa.022.128 = phi ptr [ %.sroa.022.0, %.thread ], [ %52, %51 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 8
+  %.sroa.022.127 = phi ptr [ %.sroa.022.0, %.thread ], [ %52, %51 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !601
   %55 = add i64 %54, 1
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !603
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %59, label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit18
 
 59:                                               ; preds = %.loopexit
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !604
-  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.128, i64 noundef %55)
+  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.127, i64 noundef %55)
   %.pre.i.i16 = load i64, ptr %53, align 8, !tbaa !601
   %.pre2.i.i17 = add i64 %.pre.i.i16, 1
   br label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit18
@@ -21280,11 +21280,11 @@ _ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back
 _ZN3fmt3v1114basic_appenderIcEaSEc.exit18:        ; preds = %.loopexit, %59
   %.pre-phi.i.i15 = phi i64 [ %55, %.loopexit ], [ %.pre2.i.i17, %59 ]
   %62 = phi i64 [ %54, %.loopexit ], [ %.pre.i.i16, %59 ]
-  %63 = load ptr, ptr %.sroa.022.128, align 8, !tbaa !605
+  %63 = load ptr, ptr %.sroa.022.127, align 8, !tbaa !605
   store i64 %.pre-phi.i.i15, ptr %53, align 8, !tbaa !601
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   store i8 34, ptr %64, align 1, !tbaa !15
-  ret ptr %.sroa.022.128
+  ret ptr %.sroa.022.127
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -15436,90 +15436,90 @@ define linkonce_odr noundef zeroext i1 @_ZNSt15__tuple_compareISt5tupleIJN3nix14
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 177
   %8 = load i8, ptr %7, align 1
-  %switch.i.i.i.i.i.i.i.i.i = icmp eq i8 %8, 0
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 177
-  %10 = load i8, ptr %9, align 1
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %11, label %13
+  %9 = icmp eq i8 %8, 0
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 177
+  %11 = load i8, ptr %10, align 1
+  br i1 %9, label %12, label %14
 
-11:                                               ; preds = %2
-  %12 = icmp eq i8 %10, 0
-  br i1 %12, label %_ZNK3nix14ContentAddresseqERKS0_.exit, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+12:                                               ; preds = %2
+  %13 = icmp eq i8 %11, 0
+  br i1 %13, label %_ZNK3nix14ContentAddresseqERKS0_.exit, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-13:                                               ; preds = %2
-  %14 = icmp eq i8 %10, 1
-  br i1 %14, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+14:                                               ; preds = %2
+  %15 = icmp eq i8 %11, 1
+  br i1 %15, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i: ; preds = %13
-  %15 = load i8, ptr %3, align 8
-  %16 = load i8, ptr %4, align 8
-  %17 = icmp eq i8 %15, %16
-  br i1 %17, label %_ZNK3nix14ContentAddresseqERKS0_.exit, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i: ; preds = %14
+  %16 = load i8, ptr %3, align 8
+  %17 = load i8, ptr %4, align 8
+  %18 = icmp eq i8 %16, %17
+  br i1 %18, label %_ZNK3nix14ContentAddresseqERKS0_.exit, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-_ZNK3nix14ContentAddresseqERKS0_.exit:            ; preds = %11, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i
-  %18 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %5, ptr noundef nonnull align 8 dereferenceable(73) %6)
-  br i1 %18, label %19, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+_ZNK3nix14ContentAddresseqERKS0_.exit:            ; preds = %12, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i
+  %19 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %5, ptr noundef nonnull align 8 dereferenceable(73) %6)
+  br i1 %19, label %20, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-19:                                               ; preds = %_ZNK3nix14ContentAddresseqERKS0_.exit
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 89
-  %25 = load i8, ptr %24, align 1
-  %switch.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %25, 0
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 89
-  %27 = load i8, ptr %26, align 1
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i, label %28, label %30
+20:                                               ; preds = %_ZNK3nix14ContentAddresseqERKS0_.exit
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 89
+  %26 = load i8, ptr %25, align 1
+  %27 = icmp eq i8 %26, 0
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 89
+  %29 = load i8, ptr %28, align 1
+  br i1 %27, label %30, label %32
 
-28:                                               ; preds = %19
-  %29 = icmp eq i8 %27, 0
-  br i1 %29, label %_ZNK3nix14ContentAddresseqERKS0_.exit.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+30:                                               ; preds = %20
+  %31 = icmp eq i8 %29, 0
+  br i1 %31, label %_ZNK3nix14ContentAddresseqERKS0_.exit.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-30:                                               ; preds = %19
-  %31 = icmp eq i8 %27, 1
-  br i1 %31, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+32:                                               ; preds = %20
+  %33 = icmp eq i8 %29, 1
+  br i1 %33, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i: ; preds = %30
-  %32 = load i8, ptr %20, align 8
-  %33 = load i8, ptr %21, align 8
-  %34 = icmp eq i8 %32, %33
-  br i1 %34, label %_ZNK3nix14ContentAddresseqERKS0_.exit.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i: ; preds = %32
+  %34 = load i8, ptr %21, align 8
+  %35 = load i8, ptr %22, align 8
+  %36 = icmp eq i8 %34, %35
+  br i1 %36, label %_ZNK3nix14ContentAddresseqERKS0_.exit.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-_ZNK3nix14ContentAddresseqERKS0_.exit.i:          ; preds = %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i, %28
-  %35 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %22, ptr noundef nonnull align 8 dereferenceable(73) %23)
-  br i1 %35, label %36, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+_ZNK3nix14ContentAddresseqERKS0_.exit.i:          ; preds = %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i, %30
+  %37 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %23, ptr noundef nonnull align 8 dereferenceable(73) %24)
+  br i1 %37, label %38, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-36:                                               ; preds = %_ZNK3nix14ContentAddresseqERKS0_.exit.i
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %40 = load i8, ptr %39, align 1
-  %switch.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %40, 0
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1
+38:                                               ; preds = %_ZNK3nix14ContentAddresseqERKS0_.exit.i
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %42 = load i8, ptr %41, align 1
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i, label %43, label %45
+  %43 = icmp eq i8 %42, 0
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %45 = load i8, ptr %44, align 1
+  br i1 %43, label %46, label %48
 
-43:                                               ; preds = %36
-  %44 = icmp eq i8 %42, 0
-  br i1 %44, label %_ZNK3nix14ContentAddresseqERKS0_.exit.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+46:                                               ; preds = %38
+  %47 = icmp eq i8 %45, 0
+  br i1 %47, label %_ZNK3nix14ContentAddresseqERKS0_.exit.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-45:                                               ; preds = %36
-  %46 = icmp eq i8 %42, 1
-  br i1 %46, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+48:                                               ; preds = %38
+  %49 = icmp eq i8 %45, 1
+  br i1 %49, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i: ; preds = %45
-  %47 = load i8, ptr %0, align 8
-  %48 = load i8, ptr %1, align 8
-  %49 = icmp eq i8 %47, %48
-  br i1 %49, label %_ZNK3nix14ContentAddresseqERKS0_.exit.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
+_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i: ; preds = %48
+  %50 = load i8, ptr %0, align 8
+  %51 = load i8, ptr %1, align 8
+  %52 = icmp eq i8 %50, %51
+  br i1 %52, label %_ZNK3nix14ContentAddresseqERKS0_.exit.i.i, label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-_ZNK3nix14ContentAddresseqERKS0_.exit.i.i:        ; preds = %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i, %43
-  %50 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %37, ptr noundef nonnull align 8 dereferenceable(73) %38)
+_ZNK3nix14ContentAddresseqERKS0_.exit.i.i:        ; preds = %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i, %46
+  %53 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %39, ptr noundef nonnull align 8 dereferenceable(73) %40)
   br label %_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit
 
-_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit: ; preds = %13, %11, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i, %_ZNK3nix14ContentAddresseqERKS0_.exit.i.i, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i, %45, %43, %_ZNK3nix14ContentAddresseqERKS0_.exit.i, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i, %30, %28, %_ZNK3nix14ContentAddresseqERKS0_.exit
-  %51 = phi i1 [ false, %_ZNK3nix14ContentAddresseqERKS0_.exit ], [ false, %_ZNK3nix14ContentAddresseqERKS0_.exit.i ], [ false, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i ], [ false, %43 ], [ false, %45 ], [ %50, %_ZNK3nix14ContentAddresseqERKS0_.exit.i.i ], [ false, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i ], [ false, %28 ], [ false, %30 ], [ false, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i ], [ false, %11 ], [ false, %13 ]
-  ret i1 %51
+_ZNSt15__tuple_compareISt5tupleIJN3nix14ContentAddressES2_S2_EES3_Lm1ELm3EE4__eqERKS3_S6_.exit: ; preds = %14, %12, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i, %_ZNK3nix14ContentAddresseqERKS0_.exit.i.i, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i, %48, %46, %_ZNK3nix14ContentAddresseqERKS0_.exit.i, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i, %32, %30, %_ZNK3nix14ContentAddresseqERKS0_.exit
+  %54 = phi i1 [ false, %_ZNK3nix14ContentAddresseqERKS0_.exit ], [ false, %_ZNK3nix14ContentAddresseqERKS0_.exit.i ], [ false, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i ], [ false, %46 ], [ false, %48 ], [ %53, %_ZNK3nix14ContentAddresseqERKS0_.exit.i.i ], [ false, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i ], [ false, %30 ], [ false, %32 ], [ false, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i ], [ false, %12 ], [ false, %14 ]
+  ret i1 %54
 }
 
 declare noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73), ptr noundef nonnull align 8 dereferenceable(73)) local_unnamed_addr #0
@@ -24453,84 +24453,84 @@ define linkonce_odr void @_ZN7testing8internal11CmpHelperEQISt5tupleIJSt8optiona
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 104
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 97
   %19 = load i8, ptr %18, align 1
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %19, 0
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 97
-  %21 = load i8, ptr %20, align 1
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i, label %22, label %24
+  %20 = icmp eq i8 %19, 0
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 97
+  %22 = load i8, ptr %21, align 1
+  br i1 %20, label %23, label %25
 
-22:                                               ; preds = %15
-  %23 = icmp eq i8 %21, 0
-  br i1 %23, label %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i, label %53
+23:                                               ; preds = %15
+  %24 = icmp eq i8 %22, 0
+  br i1 %24, label %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i, label %55
 
-24:                                               ; preds = %15
-  %25 = icmp eq i8 %21, 1
-  br i1 %25, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i, label %53
+25:                                               ; preds = %15
+  %26 = icmp eq i8 %22, 1
+  br i1 %26, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i, label %55
 
-_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i: ; preds = %24
-  %26 = load i8, ptr %6, align 8
-  %27 = load i8, ptr %7, align 8
-  %28 = icmp eq i8 %26, %27
-  br i1 %28, label %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i, label %53
+_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i: ; preds = %25
+  %27 = load i8, ptr %6, align 8
+  %28 = load i8, ptr %7, align 8
+  %29 = icmp eq i8 %27, %28
+  br i1 %29, label %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i, label %55
 
-_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i: ; preds = %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i, %22
-  %29 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %16, ptr noundef nonnull align 8 dereferenceable(73) %17)
-  br i1 %29, label %30, label %53
+_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i: ; preds = %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i, %23
+  %30 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %16, ptr noundef nonnull align 8 dereferenceable(73) %17)
+  br i1 %30, label %31, label %55
 
 _ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i: ; preds = %5
-  br i1 %14, label %53, label %30
+  br i1 %14, label %55, label %31
 
-30:                                               ; preds = %_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i, %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 88
-  %32 = load i8, ptr %31, align 8
-  %33 = trunc i8 %32 to i1
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %35 = load i8, ptr %34, align 8
-  %36 = xor i8 %35, %32
-  %37 = trunc i8 %36 to i1
-  %.not.i.i.i.i = xor i1 %33, true
-  %brmerge.i.i.i.i = or i1 %.not.i.i.i.i, %37
-  br i1 %brmerge.i.i.i.i, label %_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i, label %38
+31:                                               ; preds = %_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i, %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 88
+  %33 = load i8, ptr %32, align 8
+  %34 = trunc i8 %33 to i1
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 88
+  %36 = load i8, ptr %35, align 8
+  %37 = xor i8 %36, %33
+  %38 = trunc i8 %37 to i1
+  %.not.i.i.i.i = xor i1 %34, true
+  %brmerge.i.i.i.i = or i1 %.not.i.i.i.i, %38
+  br i1 %brmerge.i.i.i.i, label %_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i, label %39
 
-38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 1
-  %42 = load i8, ptr %41, align 1
-  %switch.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %42, 0
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %44 = load i8, ptr %43, align 1
-  br i1 %switch.i.i.i.i.i.i.i.i.i.i.i.i.i, label %45, label %47
+39:                                               ; preds = %31
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %4, i64 1
+  %43 = load i8, ptr %42, align 1
+  %44 = icmp eq i8 %43, 0
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %46 = load i8, ptr %45, align 1
+  br i1 %44, label %47, label %49
 
-45:                                               ; preds = %38
-  %46 = icmp eq i8 %44, 0
-  br i1 %46, label %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i.i, label %53
+47:                                               ; preds = %39
+  %48 = icmp eq i8 %46, 0
+  br i1 %48, label %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i.i, label %55
 
-47:                                               ; preds = %38
-  %48 = icmp eq i8 %44, 1
-  br i1 %48, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i.i, label %53
+49:                                               ; preds = %39
+  %50 = icmp eq i8 %46, 1
+  br i1 %50, label %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i.i, label %55
 
-_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %47
-  %49 = load i8, ptr %3, align 8
-  %50 = load i8, ptr %4, align 8
-  %51 = icmp eq i8 %49, %50
-  br i1 %51, label %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i.i, label %53
+_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %49
+  %51 = load i8, ptr %3, align 8
+  %52 = load i8, ptr %4, align 8
+  %53 = icmp eq i8 %51, %52
+  br i1 %53, label %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i.i, label %55
 
-_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i.i: ; preds = %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i.i, %45
-  %52 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %39, ptr noundef nonnull align 8 dereferenceable(73) %40)
-  br i1 %52, label %_ZSteqIJSt8optionalIN3nix14ContentAddressEES3_EJS3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit, label %53
+_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i.i: ; preds = %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i.i, %47
+  %54 = tail call noundef zeroext i1 @_ZNK3nix4HasheqERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %40, ptr noundef nonnull align 8 dereferenceable(73) %41)
+  br i1 %54, label %_ZSteqIJSt8optionalIN3nix14ContentAddressEES3_EJS3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit, label %55
 
-_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i: ; preds = %30
-  br i1 %37, label %53, label %_ZSteqIJSt8optionalIN3nix14ContentAddressEES3_EJS3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
+_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i: ; preds = %31
+  br i1 %38, label %55, label %_ZSteqIJSt8optionalIN3nix14ContentAddressEES3_EJS3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
 
 _ZSteqIJSt8optionalIN3nix14ContentAddressEES3_EJS3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit: ; preds = %_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i, %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i.i
   tail call void @_ZN7testing16AssertionSuccessEv(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0)
-  br label %54
+  br label %56
 
-53:                                               ; preds = %_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i, %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i, %_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i, %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i.i, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i.i, %45, %47, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i, %22, %24
+55:                                               ; preds = %_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i, %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i, %_ZSteqIN3nix14ContentAddressES1_ENSt9enable_ifIXsr14is_convertibleIDTeqclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS3_ERKSC_IS6_E.exit.i.i.i, %_ZNK3nix20ContentAddressMethodeqERKS0_.exit.i.i.i.i.i.i.i, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i.i, %47, %49, %_ZSteqIJN3nix19TextIngestionMethodENS0_19FileIngestionMethodEEEbRKSt7variantIJDpT_EES8_.exit.i.i.i.i.i.i.i.i.i, %23, %25
   tail call void @_ZN7testing8internal18CmpHelperEQFailureISt5tupleIJSt8optionalIN3nix14ContentAddressEES6_EES7_EENS_15AssertionResultEPKcSA_RKT_RKT0_(ptr dead_on_unwind writable sret(%"class.testing::AssertionResult") align 8 %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(192) %3, ptr noundef nonnull align 8 dereferenceable(192) %4)
-  br label %54
+  br label %56
 
-54:                                               ; preds = %53, %_ZSteqIJSt8optionalIN3nix14ContentAddressEES3_EJS3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
+56:                                               ; preds = %55, %_ZSteqIJSt8optionalIN3nix14ContentAddressEES3_EJS3_S3_EEbRKSt5tupleIJDpT_EERKS4_IJDpT0_EE.exit
   ret void
 }
 

@@ -2186,17 +2186,17 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit:       ; preds = %18, %23
   %43 = zext i32 %42 to i64
   %.idx.i.i = shl nuw nsw i64 %43, 3
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %42, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %42, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %40, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %46, %.critedge.i.i ], [ %41, %40 ]
-  %45 = load ptr, ptr %.02937.i.i, align 8, !tbaa !300, !noalias !297
+  %.02935.i.i = phi ptr [ %46, %.critedge.i.i ], [ %41, %40 ]
+  %45 = load ptr, ptr %.02935.i.i, align 8, !tbaa !300, !noalias !297
   %.not17.i.i = icmp eq ptr %45, %.sroa.061.077
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %46 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %46 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %46, %44
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !301
 
@@ -2275,17 +2275,17 @@ _ZSt4nextIN4llvm14ilist_iteratorINS0_12ilist_detail12node_optionsINS0_17MachineB
   %78 = zext i32 %77 to i64
   %.idx.i.i40 = shl nuw nsw i64 %78, 3
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 %.idx.i.i40
-  %.not36.i.i41 = icmp eq i32 %77, 0
-  br i1 %.not36.i.i41, label %._crit_edge.i.i47, label %.lr.ph.i.i42
+  %.not34.i.i41 = icmp eq i32 %77, 0
+  br i1 %.not34.i.i41, label %._crit_edge.i.i47, label %.lr.ph.i.i42
 
 .lr.ph.i.i42:                                     ; preds = %75, %.critedge.i.i45
-  %.02937.i.i43 = phi ptr [ %81, %.critedge.i.i45 ], [ %76, %75 ]
-  %80 = load ptr, ptr %.02937.i.i43, align 8, !tbaa !300, !noalias !303
+  %.02935.i.i43 = phi ptr [ %81, %.critedge.i.i45 ], [ %76, %75 ]
+  %80 = load ptr, ptr %.02935.i.i43, align 8, !tbaa !300, !noalias !303
   %.not17.i.i44 = icmp eq ptr %80, %.sroa.054.071
   br i1 %.not17.i.i44, label %_ZN4llvm15SmallPtrSetImplIPKNS_17MachineBasicBlockEE6insertES3_.exit52, label %.critedge.i.i45
 
 .critedge.i.i45:                                  ; preds = %.lr.ph.i.i42
-  %81 = getelementptr inbounds nuw i8, ptr %.02937.i.i43, i64 8
+  %81 = getelementptr inbounds nuw i8, ptr %.02935.i.i43, i64 8
   %.not.i.i46 = icmp eq ptr %81, %79
   br i1 %.not.i.i46, label %._crit_edge.i.i47, label %.lr.ph.i.i42, !llvm.loop !301
 

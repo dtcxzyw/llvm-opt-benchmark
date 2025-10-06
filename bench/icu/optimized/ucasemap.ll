@@ -1652,9 +1652,9 @@ define internal fastcc void @_ZN12_GLOBAL__N_17toLowerEijPKhP12UCaseContextiiRN6
   %22 = tail call ptr @ucase_getTrie_77()
   %23 = load i32, ptr %8, align 4, !tbaa !13
   %24 = icmp slt i32 %23, 1
-  %.not252344352 = icmp slt i32 %4, %5
-  %or.cond264345353 = and i1 %24, %.not252344352
-  br i1 %or.cond264345353, label %.lr.ph.lr.ph, label %.thread304
+  %.not252338346 = icmp slt i32 %4, %5
+  %or.cond264339347 = and i1 %24, %.not252338346
+  br i1 %or.cond264339347, label %.lr.ph.lr.ph, label %.thread301
 
 .lr.ph.lr.ph:                                     ; preds = %21
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 44
@@ -1667,10 +1667,10 @@ define internal fastcc void @_ZN12_GLOBAL__N_17toLowerEijPKhP12UCaseContextiiRN6
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.backedge, %.lr.ph.lr.ph
-  %.1347 = phi i32 [ %4, %.lr.ph.lr.ph ], [ %.1347.be, %.lr.ph.backedge ]
-  %.1195346 = phi i32 [ %4, %.lr.ph.lr.ph ], [ %.1195346.be, %.lr.ph.backedge ]
-  %31 = add nsw i32 %.1195346, 1
-  %32 = sext i32 %.1195346 to i64
+  %.1341 = phi i32 [ %4, %.lr.ph.lr.ph ], [ %.1341.be, %.lr.ph.backedge ]
+  %.1195340 = phi i32 [ %4, %.lr.ph.lr.ph ], [ %.1195340.be, %.lr.ph.backedge ]
+  %31 = add nsw i32 %.1195340, 1
+  %32 = sext i32 %.1195340 to i64
   %33 = getelementptr inbounds i8, ptr %2, i64 %32
   %34 = load i8, ptr %33, align 1, !tbaa !20
   %35 = zext i8 %34 to i32
@@ -1682,17 +1682,17 @@ define internal fastcc void @_ZN12_GLOBAL__N_17toLowerEijPKhP12UCaseContextiiRN6
   %39 = getelementptr inbounds nuw i8, ptr %.0, i64 %38
   %40 = load i8, ptr %39, align 1, !tbaa !20
   switch i8 %40, label %41 [
-    i8 -128, label %.thread311
+    i8 -128, label %.thread308
     i8 0, label %.thread
   ], !llvm.loop !36
 
 41:                                               ; preds = %37
-  %42 = sub nsw i32 %.1195346, %.1347
+  %42 = sub nsw i32 %.1195340, %.1341
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %44, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit
 
 44:                                               ; preds = %41
-  %45 = sext i32 %.1347 to i64
+  %45 = sext i32 %.1341 to i64
   %46 = getelementptr inbounds i8, ptr %2, i64 %45
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %46, i32 noundef %42, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, ptr noundef %7)
   br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit
@@ -1736,7 +1736,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 
 64:                                               ; preds = %58
   %65 = zext nneg i8 %62 to i32
-  %66 = add nsw i32 %.1195346, 2
+  %66 = add nsw i32 %.1195340, 2
   %67 = shl nuw nsw i32 %35, 6
   %68 = add nsw i32 %67, -12288
   %69 = or disjoint i32 %68, %65
@@ -1745,27 +1745,27 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %72 = load i8, ptr %71, align 1, !tbaa !20
   %73 = sext i8 %72 to i32
   switch i8 %72, label %74 [
-    i8 -128, label %.thread311
+    i8 -128, label %.thread308
     i8 0, label %.thread
   ], !llvm.loop !36
 
 74:                                               ; preds = %64
-  %75 = sub nsw i32 %.1195346, %.1347
+  %75 = sub nsw i32 %.1195340, %.1341
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %77, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270
+  br i1 %76, label %77, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit269
 
 77:                                               ; preds = %74
-  %78 = sext i32 %.1347 to i64
+  %78 = sext i32 %.1341 to i64
   %79 = getelementptr inbounds i8, ptr %2, i64 %78
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %79, i32 noundef %75, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, ptr noundef %7)
-  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270
+  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit269
 
-_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270: ; preds = %74, %77
+_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit269: ; preds = %74, %77
   %80 = add nsw i32 %69, %73
   call void @_ZN6icu_7712ByteSinkUtil14appendTwoBytesEiRNS_8ByteSinkE(i32 noundef %80, ptr noundef nonnull align 8 dereferenceable(8) %6)
   br i1 %.not254, label %.thread, label %81, !llvm.loop !36
 
-81:                                               ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270
+81:                                               ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit269
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %7, i32 noundef 2, i32 noundef 2)
   br label %.thread, !llvm.loop !36
 
@@ -1777,7 +1777,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %or.cond10, label %86, label %97
 
 86:                                               ; preds = %82
-  %87 = add nsw i32 %.1195346, 3
+  %87 = add nsw i32 %.1195340, 3
   %.not253 = icmp sgt i32 %87, %5
   br i1 %.not253, label %97, label %88
 
@@ -1847,7 +1847,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %.not256, label %.thread, label %132
 
 132:                                              ; preds = %120
-  %133 = add nsw i32 %.1195346, 2
+  %133 = add nsw i32 %.1195340, 2
   %.not257 = icmp eq i32 %133, %5
   br i1 %.not257, label %.thread.thread, label %134
 
@@ -1974,7 +1974,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %218 = zext i16 %217 to i32
   %219 = and i32 %218, 8
   %.not261 = icmp eq i32 %219, 0
-  br i1 %.not261, label %220, label %.thread311
+  br i1 %.not261, label %220, label %.thread308
 
 220:                                              ; preds = %213
   %221 = and i32 %218, 2
@@ -1986,54 +1986,54 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 223:                                              ; preds = %220
   %224 = ashr i16 %217, 7
   %225 = sext i16 %224 to i32
-  %226 = sub nsw i32 %.1195346, %.1347
+  %226 = sub nsw i32 %.1195340, %.1341
   %227 = icmp sgt i32 %226, 0
-  br i1 %227, label %228, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit272
+  br i1 %227, label %228, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit271
 
 228:                                              ; preds = %223
-  %229 = sext i32 %.1347 to i64
+  %229 = sext i32 %.1341 to i64
   %230 = getelementptr inbounds i8, ptr %2, i64 %229
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %230, i32 noundef %226, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, ptr noundef %7)
-  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit272
+  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit271
 
-_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit272: ; preds = %223, %228
-  %231 = sub nsw i32 %162, %.1195346
+_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit271: ; preds = %223, %228
+  %231 = sub nsw i32 %162, %.1195340
   %232 = add nsw i32 %161, %225
   call void @_ZN6icu_7712ByteSinkUtil15appendCodePointEiiRNS_8ByteSinkEPNS_5EditsE(i32 noundef %231, i32 noundef %232, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
   br label %.thread
 
 .thread.thread:                                   ; preds = %97, %132, %143
   %233 = load i32, ptr %8, align 4, !tbaa !13
-  br label %.thread304
+  br label %.thread301
 
-.thread:                                          ; preds = %64, %102, %117, %120, %134, %148, %152, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270, %81, %37, %220, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit272, %93, %52
-  %.3197 = phi i32 [ %31, %52 ], [ %87, %93 ], [ %162, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit272 ], [ %162, %220 ], [ %31, %37 ], [ %66, %81 ], [ %66, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270 ], [ %31, %148 ], [ %31, %117 ], [ %31, %120 ], [ %133, %134 ], [ %31, %102 ], [ %.8202, %152 ], [ %66, %64 ]
-  %.4 = phi i32 [ %31, %52 ], [ %.1347, %93 ], [ %162, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit272 ], [ %.1347, %220 ], [ %.1347, %37 ], [ %66, %81 ], [ %66, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit270 ], [ %.1347, %148 ], [ %.1347, %117 ], [ %.1347, %120 ], [ %.1347, %134 ], [ %.1347, %102 ], [ %.1347, %152 ], [ %.1347, %64 ]
+.thread:                                          ; preds = %64, %102, %117, %120, %134, %148, %152, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit269, %81, %37, %220, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit271, %93, %52
+  %.3197 = phi i32 [ %31, %52 ], [ %87, %93 ], [ %162, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit271 ], [ %162, %220 ], [ %31, %37 ], [ %66, %81 ], [ %66, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit269 ], [ %31, %148 ], [ %31, %117 ], [ %31, %120 ], [ %133, %134 ], [ %31, %102 ], [ %.8202, %152 ], [ %66, %64 ]
+  %.4 = phi i32 [ %31, %52 ], [ %.1341, %93 ], [ %162, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit271 ], [ %.1341, %220 ], [ %.1341, %37 ], [ %66, %81 ], [ %66, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit269 ], [ %.1341, %148 ], [ %.1341, %117 ], [ %.1341, %120 ], [ %.1341, %134 ], [ %.1341, %102 ], [ %.1341, %152 ], [ %.1341, %64 ]
   %234 = load i32, ptr %8, align 4, !tbaa !13
   %235 = icmp slt i32 %234, 1
   %.not252 = icmp slt i32 %.3197, %5
   %or.cond264 = select i1 %235, i1 %.not252, i1 false
-  br i1 %or.cond264, label %.lr.ph.backedge, label %.thread304
+  br i1 %or.cond264, label %.lr.ph.backedge, label %.thread301
 
 .lr.ph.backedge:                                  ; preds = %.thread, %257
-  %.1347.be = phi i32 [ %.4, %.thread ], [ %.11, %257 ]
-  %.1195346.be = phi i32 [ %.3197, %.thread ], [ %.2196318, %257 ]
+  %.1341.be = phi i32 [ %.4, %.thread ], [ %.11, %257 ]
+  %.1195340.be = phi i32 [ %.3197, %.thread ], [ %.2196315, %257 ]
   br label %.lr.ph
 
-.thread311:                                       ; preds = %64, %37, %213
-  %.2196318 = phi i32 [ %162, %213 ], [ %31, %37 ], [ %66, %64 ]
-  %.2221316 = phi i32 [ %161, %213 ], [ %35, %37 ], [ %69, %64 ]
+.thread308:                                       ; preds = %64, %37, %213
+  %.2196315 = phi i32 [ %162, %213 ], [ %31, %37 ], [ %66, %64 ]
+  %.2221313 = phi i32 [ %161, %213 ], [ %35, %37 ], [ %69, %64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br i1 %28, label %236, label %238
 
-236:                                              ; preds = %.thread311
-  store i32 %.1195346, ptr %29, align 4, !tbaa !28
-  store i32 %.2196318, ptr %30, align 8, !tbaa !29
-  %237 = call i32 @ucase_toFullLower_77(i32 noundef %.2221316, ptr noundef nonnull @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva, ptr noundef %3, ptr noundef nonnull %11, i32 noundef %0)
+236:                                              ; preds = %.thread308
+  store i32 %.1195340, ptr %29, align 4, !tbaa !28
+  store i32 %.2196315, ptr %30, align 8, !tbaa !29
+  %237 = call i32 @ucase_toFullLower_77(i32 noundef %.2221313, ptr noundef nonnull @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva, ptr noundef %3, ptr noundef nonnull %11, i32 noundef %0)
   br label %240
 
-238:                                              ; preds = %.thread311
-  %239 = call i32 @ucase_toFullFolding_77(i32 noundef %.2221316, ptr noundef nonnull %11, i32 noundef %1)
+238:                                              ; preds = %.thread308
+  %239 = call i32 @ucase_toFullFolding_77(i32 noundef %.2221313, ptr noundef nonnull %11, i32 noundef %1)
   br label %240
 
 240:                                              ; preds = %238, %236
@@ -2042,21 +2042,21 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %241, label %242, label %257
 
 242:                                              ; preds = %240
-  %243 = sub nsw i32 %.1195346, %.1347
+  %243 = sub nsw i32 %.1195340, %.1341
   %244 = load i32, ptr %8, align 4, !tbaa !13
   %245 = icmp slt i32 %244, 1
   %246 = icmp sgt i32 %243, 0
-  %or.cond340 = select i1 %245, i1 %246, i1 false
-  br i1 %or.cond340, label %247, label %250
+  %or.cond334 = select i1 %245, i1 %246, i1 false
+  br i1 %or.cond334, label %247, label %250
 
 247:                                              ; preds = %242
-  %248 = sext i32 %.1347 to i64
+  %248 = sext i32 %.1341 to i64
   %249 = getelementptr inbounds i8, ptr %2, i64 %248
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %249, i32 noundef %243, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, ptr noundef %7)
   br label %250
 
 250:                                              ; preds = %247, %242
-  %251 = sub nsw i32 %.2196318, %.1195346
+  %251 = sub nsw i32 %.2196315, %.1195340
   %252 = icmp samesign ult i32 %.11230, 32
   br i1 %252, label %253, label %256
 
@@ -2070,31 +2070,31 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br label %257
 
 257:                                              ; preds = %240, %253, %256
-  %.11 = phi i32 [ %.1347, %240 ], [ %.2196318, %253 ], [ %.2196318, %256 ]
+  %.11 = phi i32 [ %.1341, %240 ], [ %.2196315, %253 ], [ %.2196315, %256 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %258 = load i32, ptr %8, align 4, !tbaa !13
   %259 = icmp slt i32 %258, 1
-  %.not252344 = icmp slt i32 %.2196318, %5
-  %or.cond264345 = select i1 %259, i1 %.not252344, i1 false
-  br i1 %or.cond264345, label %.lr.ph.backedge, label %.thread304
+  %.not252338 = icmp slt i32 %.2196315, %5
+  %or.cond264339 = select i1 %259, i1 %.not252338, i1 false
+  br i1 %or.cond264339, label %.lr.ph.backedge, label %.thread301
 
-.thread304:                                       ; preds = %257, %.thread, %.thread.thread, %21
+.thread301:                                       ; preds = %257, %.thread, %.thread.thread, %21
   %260 = phi i32 [ %23, %21 ], [ %233, %.thread.thread ], [ %258, %257 ], [ %234, %.thread ]
-  %.1195.lcssa = phi i32 [ %4, %21 ], [ %5, %.thread.thread ], [ %.2196318, %257 ], [ %.3197, %.thread ]
-  %.1.lcssa = phi i32 [ %4, %21 ], [ %.1347, %.thread.thread ], [ %.11, %257 ], [ %.4, %.thread ]
+  %.1195.lcssa = phi i32 [ %4, %21 ], [ %5, %.thread.thread ], [ %.2196315, %257 ], [ %.3197, %.thread ]
+  %.1.lcssa = phi i32 [ %4, %21 ], [ %.1341, %.thread.thread ], [ %.11, %257 ], [ %.4, %.thread ]
   %261 = sub nsw i32 %.1195.lcssa, %.1.lcssa
   %262 = icmp slt i32 %260, 1
   %263 = icmp sgt i32 %261, 0
-  %or.cond341 = select i1 %262, i1 %263, i1 false
-  br i1 %or.cond341, label %264, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit277
+  %or.cond335 = select i1 %262, i1 %263, i1 false
+  br i1 %or.cond335, label %264, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit276
 
-264:                                              ; preds = %.thread304
+264:                                              ; preds = %.thread301
   %265 = sext i32 %.1.lcssa to i64
   %266 = getelementptr inbounds i8, ptr %2, i64 %265
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %266, i32 noundef %261, ptr noundef nonnull align 8 dereferenceable(8) %6, i32 noundef %1, ptr noundef %7)
-  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit277
+  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit276
 
-_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit277: ; preds = %.thread304, %264
+_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit276: ; preds = %.thread301, %264
   ret void
 }
 
@@ -2244,20 +2244,20 @@ declare i32 @ucase_getTypeOrIgnorable_77(i32 noundef) local_unnamed_addr #8
 define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UErrorCode(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = icmp sgt i32 %2, 0
-  br i1 %8, label %.lr.ph335, label %.critedge310
+  br i1 %8, label %.lr.ph334, label %.critedge310
 
-.lr.ph335:                                        ; preds = %6
+.lr.ph334:                                        ; preds = %6
   %9 = icmp eq ptr %4, null
   %10 = and i32 %0, 16384
   %11 = icmp eq i32 %10, 0
   %or.cond308 = and i1 %11, %9
   br label %12
 
-12:                                               ; preds = %.lr.ph335, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread
-  %.0334 = phi i32 [ 0, %.lr.ph335 ], [ %.2238, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread ]
-  %.0195333 = phi i32 [ 0, %.lr.ph335 ], [ %.8, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread ]
-  %13 = add nsw i32 %.0195333, 1
-  %14 = sext i32 %.0195333 to i64
+12:                                               ; preds = %.lr.ph334, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread
+  %.0333 = phi i32 [ 0, %.lr.ph334 ], [ %.2238, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread ]
+  %.0195332 = phi i32 [ 0, %.lr.ph334 ], [ %.8, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread ]
+  %13 = add nsw i32 %.0195332, 1
+  %14 = sext i32 %.0195332 to i64
   %15 = getelementptr inbounds i8, ptr %1, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !20
   %17 = zext i8 %16 to i32
@@ -2317,7 +2317,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   br i1 %.not268, label %85, label %54
 
 54:                                               ; preds = %42
-  %55 = add nsw i32 %.0195333, 2
+  %55 = add nsw i32 %.0195332, 2
   %.not269 = icmp eq i32 %55, %2
   br i1 %.not269, label %85, label %56
 
@@ -2374,7 +2374,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   %86 = call i32 @ucase_getTypeOrIgnorable_77(i32 noundef %.3235)
   %87 = and i32 %86, 4
   %.not272 = icmp eq i32 %87, 0
-  %88 = and i32 %.0334, 1
+  %88 = and i32 %.0333, 1
   %.not273 = icmp ne i32 %86, 0
   %spec.select = zext i1 %.not273 to i32
   %.0236 = select i1 %.not272, i32 %spec.select, i32 %88
@@ -2386,7 +2386,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   %91 = and i32 %89, 1023
   %92 = and i32 %89, 4096
   %.not277 = icmp eq i32 %92, 0
-  %93 = and i32 %.0334, 6
+  %93 = and i32 %.0333, 6
   %.not278 = icmp eq i32 %93, 0
   %or.cond303 = select i1 %.not277, i1 true, i1 %.not278
   br i1 %or.cond303, label %99, label %94
@@ -2398,7 +2398,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   ]
 
 95:                                               ; preds = %94, %94
-  %96 = and i32 %.0334, 4
+  %96 = and i32 %.0333, 4
   %.not279 = icmp eq i32 %96, 0
   %97 = select i1 %.not279, i32 65536, i32 32768
   %98 = or i32 %89, %97
@@ -2414,11 +2414,11 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   br i1 %102, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %99, %177
-  %.5220324 = phi i32 [ %.5, %177 ], [ %.4219, %99 ]
-  %.0221323 = phi i32 [ %spec.select304, %177 ], [ %.lobit, %99 ]
-  %.1228322 = phi i32 [ %178, %177 ], [ %.0227, %99 ]
-  %103 = add nsw i32 %.5220324, 1
-  %104 = sext i32 %.5220324 to i64
+  %.5220323 = phi i32 [ %.5, %177 ], [ %.4219, %99 ]
+  %.0221322 = phi i32 [ %spec.select304, %177 ], [ %.lobit, %99 ]
+  %.1228321 = phi i32 [ %178, %177 ], [ %.0227, %99 ]
+  %103 = add nsw i32 %.5220323, 1
+  %104 = sext i32 %.5220323 to i64
   %105 = getelementptr inbounds i8, ptr %1, i64 %104
   %106 = load i8, ptr %105, align 1, !tbaa !20
   %107 = zext i8 %106 to i32
@@ -2478,7 +2478,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   br i1 %.not283, label %175, label %144
 
 144:                                              ; preds = %132
-  %145 = add nsw i32 %.5220324, 2
+  %145 = add nsw i32 %.5220323, 2
   %.not284 = icmp eq i32 %145, %2
   br i1 %.not284, label %175, label %146
 
@@ -2537,17 +2537,17 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   br i1 %.not287, label %.thread, label %177
 
 177:                                              ; preds = %175
-  %178 = or i32 %176, %.1228322
+  %178 = or i32 %176, %.1228321
   %179 = lshr i32 %176, 13
   %180 = and i32 %179, 1
-  %spec.select304 = add nuw nsw i32 %180, %.0221323
+  %spec.select304 = add nuw nsw i32 %180, %.0221322
   %181 = icmp slt i32 %.5, %2
   br i1 %181, label %.lr.ph, label %.thread
 
 .thread:                                          ; preds = %177, %175, %99
-  %.1228.lcssa = phi i32 [ %.0227, %99 ], [ %.1228322, %175 ], [ %178, %177 ]
-  %.0221.lcssa = phi i32 [ %.lobit, %99 ], [ %.0221323, %175 ], [ %spec.select304, %177 ]
-  %.5220.lcssa = phi i32 [ %.4219, %99 ], [ %.5220324, %175 ], [ %.5, %177 ]
+  %.1228.lcssa = phi i32 [ %.0227, %99 ], [ %.1228321, %175 ], [ %178, %177 ]
+  %.0221.lcssa = phi i32 [ %.lobit, %99 ], [ %.0221322, %175 ], [ %spec.select304, %177 ]
+  %.5220.lcssa = phi i32 [ %.4219, %99 ], [ %.5220323, %175 ], [ %.5, %177 ]
   %182 = and i32 %.1228.lcssa, 53248
   %183 = icmp eq i32 %182, 20480
   %184 = select i1 %.not281, i32 4, i32 2
@@ -2602,7 +2602,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   br label %.critedge
 
 201:                                              ; preds = %200
-  %202 = add nsw i32 %.0195333, 2
+  %202 = add nsw i32 %.0195332, 2
   %203 = icmp sgt i32 %202, %.5220.lcssa
   br i1 %203, label %219, label %204
 
@@ -2636,7 +2636,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
   br i1 %.not293, label %237, label %222
 
 222:                                              ; preds = %219
-  %223 = add nsw i32 %.0195333, 4
+  %223 = add nsw i32 %.0195332, 4
   %224 = icmp sgt i32 %223, %.5220.lcssa
   br i1 %224, label %234, label %225
 
@@ -2691,8 +2691,8 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
 253:                                              ; preds = %250, %237
   %.2 = phi i8 [ %252, %250 ], [ %.1200, %237 ]
   %.1198 = phi i32 [ %239, %250 ], [ %.0197, %237 ]
-  %254 = sub nsw i32 %.5220.lcssa, %.0195333
-  %255 = sub nsw i32 %.1198, %.0195333
+  %254 = sub nsw i32 %.5220.lcssa, %.0195332
+  %255 = sub nsw i32 %.1198, %.0195332
   %256 = shl nuw nsw i32 %.0221.lcssa, 1
   %257 = add nsw i32 %255, %256
   %258 = icmp ne i32 %254, %257
@@ -2743,17 +2743,17 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
 
 275:                                              ; preds = %271, %270
   %276 = icmp sgt i32 %.0221.lcssa, 0
-  br i1 %276, label %.lr.ph332, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread
+  br i1 %276, label %.lr.ph331, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread
 
-.lr.ph332:                                        ; preds = %275, %.lr.ph332
-  %.4225331 = phi i32 [ %280, %.lr.ph332 ], [ %.0221.lcssa, %275 ]
+.lr.ph331:                                        ; preds = %275, %.lr.ph331
+  %.4225330 = phi i32 [ %280, %.lr.ph331 ], [ %.0221.lcssa, %275 ]
   %277 = load ptr, ptr %3, align 8, !tbaa !21
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %279 = load ptr, ptr %278, align 8
   call void %279(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.4, i32 noundef 2)
-  %280 = add nsw i32 %.4225331, -1
-  %281 = icmp samesign ugt i32 %.4225331, 1
-  br i1 %281, label %.lr.ph332, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread, !llvm.loop !47
+  %280 = add nsw i32 %.4225330, -1
+  %281 = icmp samesign ugt i32 %.4225330, 1
+  br i1 %281, label %.lr.ph331, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread, !llvm.loop !47
 
 282:                                              ; preds = %85
   %283 = icmp sgt i32 %.3235, -1
@@ -2762,7 +2762,7 @@ define void @_ZN6icu_7710GreekUpper7toUpperEjPKhiRNS_8ByteSinkEPNS_5EditsER10UEr
 284:                                              ; preds = %282
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %285 = call i32 @ucase_toFullUpper_77(i32 noundef %.3235, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, i32 noundef 4)
-  %286 = sub nsw i32 %.4219, %.0195333
+  %286 = sub nsw i32 %.4219, %.0195332
   %287 = load ptr, ptr %7, align 8, !tbaa !30
   %288 = icmp slt i32 %285, 0
   br i1 %288, label %289, label %294
@@ -2801,7 +2801,7 @@ _ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorC
   br i1 %.not276.not, label %.critedge310, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread
 
 298:                                              ; preds = %282
-  %299 = sub nsw i32 %.4219, %.0195333
+  %299 = sub nsw i32 %.4219, %.0195332
   %300 = load i32, ptr %5, align 4, !tbaa !13
   %301 = icmp slt i32 %300, 1
   br i1 %301, label %302, label %.critedge310
@@ -2814,9 +2814,9 @@ _ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorC
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef nonnull %15, i32 noundef %299, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %0, ptr noundef %4)
   br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread
 
-_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread: ; preds = %.lr.ph332, %275, %302, %304, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread, %265, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit
-  %.2238 = phi i32 [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.1237, %265 ], [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.0236, %304 ], [ %.0236, %302 ], [ %.1237, %275 ], [ %.1237, %.lr.ph332 ]
-  %.8 = phi i32 [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.5220.lcssa, %265 ], [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.4219, %304 ], [ %.4219, %302 ], [ %.5220.lcssa, %275 ], [ %.5220.lcssa, %.lr.ph332 ]
+_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.thread: ; preds = %.lr.ph331, %275, %302, %304, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread, %265, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit
+  %.2238 = phi i32 [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.1237, %265 ], [ %.0236, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.0236, %304 ], [ %.0236, %302 ], [ %.1237, %275 ], [ %.1237, %.lr.ph331 ]
+  %.8 = phi i32 [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit ], [ %.5220.lcssa, %265 ], [ %.4219, %_ZN12_GLOBAL__N_112appendResultEiiPKDsRN6icu_778ByteSinkEjPNS2_5EditsER10UErrorCode.exit.thread ], [ %.4219, %304 ], [ %.4219, %302 ], [ %.5220.lcssa, %275 ], [ %.5220.lcssa, %.lr.ph331 ]
   %305 = icmp slt i32 %.8, %2
   br i1 %305, label %12, label %.critedge310, !llvm.loop !48
 
@@ -3096,9 +3096,9 @@ define internal void @_ZL28ucasemap_internalUTF8ToUpperijPN6icu_7713BreakIterato
   %18 = tail call ptr @ucase_getTrie_77()
   %19 = load i32, ptr %7, align 4, !tbaa !13
   %20 = icmp slt i32 %19, 1
-  %.not239331339.i = icmp sgt i32 %4, 0
-  %or.cond251332340.i = and i1 %.not239331339.i, %20
-  br i1 %or.cond251332340.i, label %.lr.ph.lr.ph.i, label %.thread291.i
+  %.not239325333.i = icmp sgt i32 %4, 0
+  %or.cond251326334.i = and i1 %.not239325333.i, %20
+  br i1 %or.cond251326334.i, label %.lr.ph.lr.ph.i, label %.thread288.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %14
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 44
@@ -3111,10 +3111,10 @@ define internal void @_ZL28ucasemap_internalUTF8ToUpperijPN6icu_7713BreakIterato
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.backedge, %.lr.ph.lr.ph.i
   %26 = phi i32 [ %19, %.lr.ph.lr.ph.i ], [ %.be, %.lr.ph.i.backedge ]
-  %.1334.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.1334.i.be, %.lr.ph.i.backedge ]
-  %.1184333.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.1184333.i.be, %.lr.ph.i.backedge ]
-  %27 = add nsw i32 %.1184333.i, 1
-  %28 = sext i32 %.1184333.i to i64
+  %.1328.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.1328.i.be, %.lr.ph.i.backedge ]
+  %.1184327.i = phi i32 [ 0, %.lr.ph.lr.ph.i ], [ %.1184327.i.be, %.lr.ph.i.backedge ]
+  %27 = add nsw i32 %.1184327.i, 1
+  %28 = sext i32 %.1184327.i to i64
   %29 = getelementptr inbounds i8, ptr %3, i64 %28
   %30 = load i8, ptr %29, align 1, !tbaa !20
   %31 = zext i8 %30 to i32
@@ -3126,17 +3126,17 @@ define internal void @_ZL28ucasemap_internalUTF8ToUpperijPN6icu_7713BreakIterato
   %35 = getelementptr inbounds nuw i8, ptr %_ZN6icu_779LatinCase11TO_UPPER_TRE._ZN6icu_779LatinCase15TO_UPPER_NORMALE.i, i64 %34
   %36 = load i8, ptr %35, align 1, !tbaa !20
   switch i8 %36, label %37 [
-    i8 -128, label %.thread298.i
+    i8 -128, label %.thread295.i
     i8 0, label %.thread.i
   ], !llvm.loop !53
 
 37:                                               ; preds = %33
-  %38 = sub nsw i32 %.1184333.i, %.1334.i
+  %38 = sub nsw i32 %.1184327.i, %.1328.i
   %39 = icmp sgt i32 %38, 0
   br i1 %39, label %40, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.i
 
 40:                                               ; preds = %37
-  %41 = sext i32 %.1334.i to i64
+  %41 = sext i32 %.1328.i to i64
   %42 = getelementptr inbounds i8, ptr %3, i64 %41
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %42, i32 noundef %38, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1, ptr noundef %6)
   br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit.i
@@ -3180,7 +3180,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 
 60:                                               ; preds = %54
   %61 = zext nneg i8 %58 to i32
-  %62 = add nsw i32 %.1184333.i, 2
+  %62 = add nsw i32 %.1184327.i, 2
   %63 = shl nuw nsw i32 %31, 6
   %64 = add nsw i32 %63, -12288
   %65 = or disjoint i32 %64, %61
@@ -3189,27 +3189,27 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %68 = load i8, ptr %67, align 1, !tbaa !20
   %69 = sext i8 %68 to i32
   switch i8 %68, label %70 [
-    i8 -128, label %.thread298.i
+    i8 -128, label %.thread295.i
     i8 0, label %.thread.i
   ], !llvm.loop !53
 
 70:                                               ; preds = %60
-  %71 = sub nsw i32 %.1184333.i, %.1334.i
+  %71 = sub nsw i32 %.1184327.i, %.1328.i
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %73, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i
+  br i1 %72, label %73, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit256.i
 
 73:                                               ; preds = %70
-  %74 = sext i32 %.1334.i to i64
+  %74 = sext i32 %.1328.i to i64
   %75 = getelementptr inbounds i8, ptr %3, i64 %74
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %75, i32 noundef %71, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1, ptr noundef %6)
-  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i
+  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit256.i
 
-_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i: ; preds = %73, %70
+_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit256.i: ; preds = %73, %70
   %76 = add nsw i32 %65, %69
   call void @_ZN6icu_7712ByteSinkUtil14appendTwoBytesEiRNS_8ByteSinkE(i32 noundef %76, ptr noundef nonnull align 8 dereferenceable(8) %5)
   br i1 %.not241.i, label %.thread.i, label %77, !llvm.loop !53
 
-77:                                               ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i
+77:                                               ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit256.i
   call void @_ZN6icu_775Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %6, i32 noundef 2, i32 noundef 2)
   br label %.thread.i, !llvm.loop !53
 
@@ -3221,7 +3221,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %or.cond8.i, label %82, label %93
 
 82:                                               ; preds = %78
-  %83 = add nsw i32 %.1184333.i, 3
+  %83 = add nsw i32 %.1184327.i, 3
   %.not240.i = icmp sgt i32 %83, %4
   br i1 %.not240.i, label %93, label %84
 
@@ -3240,7 +3240,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 
 93:                                               ; preds = %89, %84, %82, %78, %54, %51
   %.not242.i = icmp eq i32 %27, %4
-  br i1 %.not242.i, label %.thread291.i, label %94
+  br i1 %.not242.i, label %.thread288.i, label %94
 
 94:                                               ; preds = %93
   %95 = icmp samesign ugt i8 %30, -33
@@ -3291,9 +3291,9 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   br i1 %.not243.i, label %.thread.i, label %128
 
 128:                                              ; preds = %116
-  %129 = add nsw i32 %.1184333.i, 2
+  %129 = add nsw i32 %.1184327.i, 2
   %.not244.i = icmp eq i32 %129, %4
-  br i1 %.not244.i, label %.thread291.i, label %130
+  br i1 %.not244.i, label %.thread288.i, label %130
 
 130:                                              ; preds = %128
   %131 = shl nuw nsw i32 %114, 6
@@ -3315,7 +3315,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %142 = or disjoint i32 %140, %141
   %143 = add nsw i32 %.7190.i, 1
   %.not246.i = icmp eq i32 %143, %4
-  br i1 %.not246.i, label %.thread291.i, label %148
+  br i1 %.not246.i, label %.thread288.i, label %148
 
 144:                                              ; preds = %94
   %145 = icmp samesign ugt i8 %30, -63
@@ -3418,7 +3418,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %214 = zext i16 %213 to i32
   %215 = and i32 %214, 8
   %.not248.i = icmp eq i32 %215, 0
-  br i1 %.not248.i, label %216, label %.thread298.i
+  br i1 %.not248.i, label %216, label %.thread295.i
 
 216:                                              ; preds = %209
   %217 = and i32 %214, 3
@@ -3430,63 +3430,63 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 219:                                              ; preds = %216
   %220 = ashr i16 %213, 7
   %221 = sext i16 %220 to i32
-  %222 = sub nsw i32 %.1184333.i, %.1334.i
+  %222 = sub nsw i32 %.1184327.i, %.1328.i
   %223 = icmp sgt i32 %222, 0
-  br i1 %223, label %224, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit259.i
+  br i1 %223, label %224, label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit258.i
 
 224:                                              ; preds = %219
-  %225 = sext i32 %.1334.i to i64
+  %225 = sext i32 %.1328.i to i64
   %226 = getelementptr inbounds i8, ptr %3, i64 %225
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %226, i32 noundef %222, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1, ptr noundef %6)
-  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit259.i
+  br label %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit258.i
 
-_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit259.i: ; preds = %224, %219
-  %227 = sub nsw i32 %158, %.1184333.i
+_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit258.i: ; preds = %224, %219
+  %227 = sub nsw i32 %158, %.1184327.i
   %228 = add nsw i32 %157, %221
   call void @_ZN6icu_7712ByteSinkUtil15appendCodePointEiiRNS_8ByteSinkEPNS_5EditsE(i32 noundef %227, i32 noundef %228, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   br label %.thread.i
 
-.thread.i:                                        ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit259.i, %216, %148, %144, %130, %116, %113, %98, %89, %77, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i, %60, %48, %33
-  %.3186.i = phi i32 [ %27, %48 ], [ %83, %89 ], [ %158, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit259.i ], [ %158, %216 ], [ %27, %33 ], [ %62, %77 ], [ %62, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i ], [ %27, %144 ], [ %27, %113 ], [ %27, %116 ], [ %129, %130 ], [ %27, %98 ], [ %.8191.i, %148 ], [ %62, %60 ]
-  %.4.i = phi i32 [ %27, %48 ], [ %.1334.i, %89 ], [ %158, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit259.i ], [ %.1334.i, %216 ], [ %.1334.i, %33 ], [ %62, %77 ], [ %62, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit257.i ], [ %.1334.i, %144 ], [ %.1334.i, %113 ], [ %.1334.i, %116 ], [ %.1334.i, %130 ], [ %.1334.i, %98 ], [ %.1334.i, %148 ], [ %.1334.i, %60 ]
+.thread.i:                                        ; preds = %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit258.i, %216, %148, %144, %130, %116, %113, %98, %89, %77, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit256.i, %60, %48, %33
+  %.3186.i = phi i32 [ %27, %48 ], [ %83, %89 ], [ %158, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit258.i ], [ %158, %216 ], [ %27, %33 ], [ %62, %77 ], [ %62, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit256.i ], [ %27, %144 ], [ %27, %113 ], [ %27, %116 ], [ %129, %130 ], [ %27, %98 ], [ %.8191.i, %148 ], [ %62, %60 ]
+  %.4.i = phi i32 [ %27, %48 ], [ %.1328.i, %89 ], [ %158, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit258.i ], [ %.1328.i, %216 ], [ %.1328.i, %33 ], [ %62, %77 ], [ %62, %_ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErrorCode.exit256.i ], [ %.1328.i, %144 ], [ %.1328.i, %113 ], [ %.1328.i, %116 ], [ %.1328.i, %130 ], [ %.1328.i, %98 ], [ %.1328.i, %148 ], [ %.1328.i, %60 ]
   %229 = load i32, ptr %7, align 4, !tbaa !13
   %230 = icmp slt i32 %229, 1
   %.not239.i = icmp slt i32 %.3186.i, %4
   %or.cond251.i = select i1 %230, i1 %.not239.i, i1 false
-  br i1 %or.cond251.i, label %.lr.ph.i.backedge, label %.thread291.i
+  br i1 %or.cond251.i, label %.lr.ph.i.backedge, label %.thread288.i
 
 .lr.ph.i.backedge:                                ; preds = %.thread.i, %248
   %.be = phi i32 [ %229, %.thread.i ], [ %249, %248 ]
-  %.1334.i.be = phi i32 [ %.4.i, %.thread.i ], [ %.11.i, %248 ]
-  %.1184333.i.be = phi i32 [ %.3186.i, %.thread.i ], [ %.2185305.i, %248 ]
+  %.1328.i.be = phi i32 [ %.4.i, %.thread.i ], [ %.11.i, %248 ]
+  %.1184327.i.be = phi i32 [ %.3186.i, %.thread.i ], [ %.2185302.i, %248 ]
   br label %.lr.ph.i
 
-.thread298.i:                                     ; preds = %209, %60, %33
-  %.2185305.i = phi i32 [ %158, %209 ], [ %27, %33 ], [ %62, %60 ]
-  %.2210303.i = phi i32 [ %157, %209 ], [ %31, %33 ], [ %65, %60 ]
-  store i32 %.1184333.i, ptr %24, align 4, !tbaa !28
-  store i32 %.2185305.i, ptr %25, align 8, !tbaa !29
+.thread295.i:                                     ; preds = %209, %60, %33
+  %.2185302.i = phi i32 [ %158, %209 ], [ %27, %33 ], [ %62, %60 ]
+  %.2210300.i = phi i32 [ %157, %209 ], [ %31, %33 ], [ %65, %60 ]
+  store i32 %.1184327.i, ptr %24, align 4, !tbaa !28
+  store i32 %.2185302.i, ptr %25, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %231 = call i32 @ucase_toFullUpper_77(i32 noundef %.2210303.i, ptr noundef nonnull @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef range(i32 5, 4) %0)
+  %231 = call i32 @ucase_toFullUpper_77(i32 noundef %.2210300.i, ptr noundef nonnull @_ZN12_GLOBAL__N_124utf8_caseContextIteratorEPva, ptr noundef nonnull %11, ptr noundef nonnull %10, i32 noundef range(i32 5, 4) %0)
   %232 = icmp sgt i32 %231, -1
   br i1 %232, label %233, label %248
 
-233:                                              ; preds = %.thread298.i
-  %234 = sub nsw i32 %.1184333.i, %.1334.i
+233:                                              ; preds = %.thread295.i
+  %234 = sub nsw i32 %.1184327.i, %.1328.i
   %235 = load i32, ptr %7, align 4, !tbaa !13
   %236 = icmp slt i32 %235, 1
   %237 = icmp sgt i32 %234, 0
-  %or.cond327.i = select i1 %236, i1 %237, i1 false
-  br i1 %or.cond327.i, label %238, label %241
+  %or.cond321.i = select i1 %236, i1 %237, i1 false
+  br i1 %or.cond321.i, label %238, label %241
 
 238:                                              ; preds = %233
-  %239 = sext i32 %.1334.i to i64
+  %239 = sext i32 %.1328.i to i64
   %240 = getelementptr inbounds i8, ptr %3, i64 %239
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %240, i32 noundef %234, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1, ptr noundef %6)
   br label %241
 
 241:                                              ; preds = %238, %233
-  %242 = sub nsw i32 %.2185305.i, %.1184333.i
+  %242 = sub nsw i32 %.2185302.i, %.1184327.i
   %243 = icmp samesign ult i32 %231, 32
   br i1 %243, label %244, label %247
 
@@ -3499,32 +3499,32 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   call void @_ZN6icu_7712ByteSinkUtil15appendCodePointEiiRNS_8ByteSinkEPNS_5EditsE(i32 noundef %242, i32 noundef %231, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %6)
   br label %248
 
-248:                                              ; preds = %247, %244, %.thread298.i
-  %.11.i = phi i32 [ %.1334.i, %.thread298.i ], [ %.2185305.i, %244 ], [ %.2185305.i, %247 ]
+248:                                              ; preds = %247, %244, %.thread295.i
+  %.11.i = phi i32 [ %.1328.i, %.thread295.i ], [ %.2185302.i, %244 ], [ %.2185302.i, %247 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %249 = load i32, ptr %7, align 4, !tbaa !13
   %250 = icmp slt i32 %249, 1
-  %.not239331.i = icmp slt i32 %.2185305.i, %4
-  %or.cond251332.i = select i1 %250, i1 %.not239331.i, i1 false
-  br i1 %or.cond251332.i, label %.lr.ph.i.backedge, label %.thread291.i
+  %.not239325.i = icmp slt i32 %.2185302.i, %4
+  %or.cond251326.i = select i1 %250, i1 %.not239325.i, i1 false
+  br i1 %or.cond251326.i, label %.lr.ph.i.backedge, label %.thread288.i
 
-.thread291.i:                                     ; preds = %248, %.thread.i, %93, %128, %139, %14
+.thread288.i:                                     ; preds = %248, %.thread.i, %93, %128, %139, %14
   %251 = phi i32 [ %19, %14 ], [ %249, %248 ], [ %229, %.thread.i ], [ %26, %93 ], [ %26, %128 ], [ %26, %139 ]
-  %.1184.lcssa.i = phi i32 [ 0, %14 ], [ %.2185305.i, %248 ], [ %.3186.i, %.thread.i ], [ %4, %93 ], [ %4, %128 ], [ %4, %139 ]
-  %.1.lcssa.i = phi i32 [ 0, %14 ], [ %.11.i, %248 ], [ %.4.i, %.thread.i ], [ %.1334.i, %93 ], [ %.1334.i, %128 ], [ %.1334.i, %139 ]
+  %.1184.lcssa.i = phi i32 [ 0, %14 ], [ %.2185302.i, %248 ], [ %.3186.i, %.thread.i ], [ %4, %93 ], [ %4, %128 ], [ %4, %139 ]
+  %.1.lcssa.i = phi i32 [ 0, %14 ], [ %.11.i, %248 ], [ %.4.i, %.thread.i ], [ %.1328.i, %93 ], [ %.1328.i, %128 ], [ %.1328.i, %139 ]
   %252 = sub nsw i32 %.1184.lcssa.i, %.1.lcssa.i
   %253 = icmp slt i32 %251, 1
   %254 = icmp sgt i32 %252, 0
-  %or.cond328.i = select i1 %253, i1 %254, i1 false
-  br i1 %or.cond328.i, label %255, label %_ZN12_GLOBAL__N_17toUpperEijPKhP12UCaseContextiRN6icu_778ByteSinkEPNS4_5EditsER10UErrorCode.exit
+  %or.cond322.i = select i1 %253, i1 %254, i1 false
+  br i1 %or.cond322.i, label %255, label %_ZN12_GLOBAL__N_17toUpperEijPKhP12UCaseContextiRN6icu_778ByteSinkEPNS4_5EditsER10UErrorCode.exit
 
-255:                                              ; preds = %.thread291.i
+255:                                              ; preds = %.thread288.i
   %256 = sext i32 %.1.lcssa.i to i64
   %257 = getelementptr inbounds i8, ptr %3, i64 %256
   call void @_ZN6icu_7712ByteSinkUtil23appendNonEmptyUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsE(ptr noundef %257, i32 noundef %252, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %1, ptr noundef %6)
   br label %_ZN12_GLOBAL__N_17toUpperEijPKhP12UCaseContextiRN6icu_778ByteSinkEPNS4_5EditsER10UErrorCode.exit
 
-_ZN12_GLOBAL__N_17toUpperEijPKhP12UCaseContextiRN6icu_778ByteSinkEPNS4_5EditsER10UErrorCode.exit: ; preds = %.thread291.i, %255
+_ZN12_GLOBAL__N_17toUpperEijPKhP12UCaseContextiRN6icu_778ByteSinkEPNS4_5EditsER10UErrorCode.exit: ; preds = %.thread288.i, %255
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %258
 

@@ -647,8 +647,8 @@ run_one_gc_recent_objects_hook.exit.thread.i.i:   ; preds = %33
   %41 = load i32, ptr %25, align 4, !tbaa !91
   %42 = call ptr @xfdopen(i32 noundef %41, ptr noundef nonnull @.str.9) #11
   %43 = call i32 @strbuf_getline(ptr noundef nonnull %7, ptr noundef %42) #11
-  %.not915.i.i.i = icmp eq i32 %43, -1
-  br i1 %.not915.i.i.i, label %run_one_gc_recent_objects_hook.exit.i.i, label %.lr.ph.i.i.i
+  %.not914.i.i.i = icmp eq i32 %43, -1
+  br i1 %.not914.i.i.i, label %run_one_gc_recent_objects_hook.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %40, %55
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

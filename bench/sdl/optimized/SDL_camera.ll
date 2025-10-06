@@ -101,11 +101,11 @@ define hidden noundef zeroext i1 @SDL_AddCameraFormat(ptr noundef captures(none)
 .thread:                                          ; preds = %12
   store ptr %16, ptr %0, align 8
   store i32 %spec.select, ptr %8, align 4
-  %.pre32 = load i32, ptr %10, align 8
+  %.pre31 = load i32, ptr %10, align 8
   br label %17
 
 17:                                               ; preds = %.thread, %7
-  %18 = phi i32 [ %.pre32, %.thread ], [ %11, %7 ]
+  %18 = phi i32 [ %.pre31, %.thread ], [ %11, %7 ]
   %19 = phi ptr [ %16, %.thread ], [ %.pre, %7 ]
   %20 = sext i32 %18 to i64
   %21 = getelementptr inbounds %struct.SDL_CameraSpec, ptr %19, i64 %20

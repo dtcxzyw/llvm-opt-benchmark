@@ -379,7 +379,7 @@ ec_group_new_from_data.exit.thread:               ; preds = %26
   br label %ec_group_new_from_data.exit
 
 103:                                              ; preds = %96, %91, %88, %83, %77, %75, %69, %63, %60, %57, %54, %45, %38, %33, %28, %26, %18, %ec_curve_nid2curve.exit
-  %.sink176.i = phi i32 [ 3171, %ec_curve_nid2curve.exit ], [ 3183, %18 ], [ 3188, %26 ], [ 3202, %38 ], [ 3202, %33 ], [ 3202, %28 ], [ 3208, %45 ], [ 3213, %54 ], [ 3222, %57 ], [ 3231, %60 ], [ 3237, %69 ], [ 3237, %63 ], [ 3241, %75 ], [ 3246, %83 ], [ 3246, %77 ], [ 3250, %88 ], [ 3255, %91 ], [ 3277, %96 ]
+  %.sink175.i = phi i32 [ 3171, %ec_curve_nid2curve.exit ], [ 3183, %18 ], [ 3188, %26 ], [ 3202, %38 ], [ 3202, %33 ], [ 3202, %28 ], [ 3208, %45 ], [ 3213, %54 ], [ 3222, %57 ], [ 3231, %60 ], [ 3237, %69 ], [ 3237, %63 ], [ 3241, %75 ], [ 3246, %83 ], [ 3246, %77 ], [ 3250, %88 ], [ 3255, %91 ], [ 3277, %96 ]
   %.sink.i = phi i32 [ 524291, %ec_curve_nid2curve.exit ], [ 524304, %18 ], [ 524304, %26 ], [ 524291, %38 ], [ 524291, %33 ], [ 524291, %28 ], [ 524304, %45 ], [ 524304, %54 ], [ 524304, %57 ], [ 524304, %60 ], [ 524291, %69 ], [ 524291, %63 ], [ 524304, %75 ], [ 524291, %83 ], [ 524291, %77 ], [ 524304, %88 ], [ 524304, %91 ], [ 524296, %96 ]
   %.098.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ %36, %38 ], [ null, %33 ], [ null, %28 ], [ %36, %45 ], [ %36, %54 ], [ %36, %57 ], [ %36, %60 ], [ %36, %69 ], [ %36, %63 ], [ %36, %75 ], [ %36, %83 ], [ %36, %77 ], [ %36, %88 ], [ %36, %91 ], [ %36, %96 ]
   %.096.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ null, %38 ], [ null, %33 ], [ null, %28 ], [ %42, %45 ], [ %42, %54 ], [ %42, %57 ], [ %42, %60 ], [ %42, %69 ], [ %42, %63 ], [ %42, %75 ], [ %42, %83 ], [ %42, %77 ], [ %42, %88 ], [ %42, %91 ], [ %42, %96 ]
@@ -390,28 +390,28 @@ ec_group_new_from_data.exit.thread:               ; preds = %26
   %.089.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ null, %26 ], [ null, %38 ], [ null, %33 ], [ null, %28 ], [ null, %45 ], [ null, %54 ], [ null, %57 ], [ null, %60 ], [ %61, %69 ], [ %61, %63 ], [ %61, %75 ], [ %61, %83 ], [ %61, %77 ], [ %61, %88 ], [ %61, %91 ], [ %61, %96 ]
   %.088.ph.i = phi ptr [ null, %ec_curve_nid2curve.exit ], [ null, %18 ], [ %20, %26 ], [ %.1.i, %38 ], [ %.1.i, %33 ], [ %.1.i, %28 ], [ %.1.i, %45 ], [ null, %54 ], [ null, %57 ], [ %.2.i, %60 ], [ %.2.i, %69 ], [ %.2.i, %63 ], [ %.2.i, %75 ], [ %.2.i, %83 ], [ %.2.i, %77 ], [ %.2.i, %88 ], [ %.2.i, %91 ], [ %.2.i, %96 ]
   tail call void @ERR_new() #7
-  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink176.i, ptr noundef nonnull @__func__.ec_group_new_from_data) #7
+  tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink175.i, ptr noundef nonnull @__func__.ec_group_new_from_data) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 16, i32 noundef %.sink.i, ptr noundef null) #7
   tail call void @EC_GROUP_free(ptr noundef %.088.ph.i) #7
   br label %ec_group_new_from_data.exit
 
 ec_group_new_from_data.exit:                      ; preds = %103, %.thread.i, %93
-  %.089157.i = phi ptr [ %.089.ph.i, %103 ], [ %61, %.thread.i ], [ %61, %93 ]
-  %.090155.i = phi ptr [ %.090.ph.i, %103 ], [ %31, %.thread.i ], [ %31, %93 ]
-  %.092153.i = phi ptr [ %.092.ph.i, %103 ], [ %81, %.thread.i ], [ %81, %93 ]
-  %.093151.i = phi ptr [ %.093.ph.i, %103 ], [ %73, %.thread.i ], [ %73, %93 ]
-  %.095149.i = phi ptr [ %.095.ph.i, %103 ], [ %67, %.thread.i ], [ %67, %93 ]
-  %.096147.i = phi ptr [ %.096.ph.i, %103 ], [ %42, %.thread.i ], [ %42, %93 ]
-  %.098145.i = phi ptr [ %.098.ph.i, %103 ], [ %36, %.thread.i ], [ %36, %93 ]
+  %.089156.i = phi ptr [ %.089.ph.i, %103 ], [ %61, %.thread.i ], [ %61, %93 ]
+  %.090154.i = phi ptr [ %.090.ph.i, %103 ], [ %31, %.thread.i ], [ %31, %93 ]
+  %.092152.i = phi ptr [ %.092.ph.i, %103 ], [ %81, %.thread.i ], [ %81, %93 ]
+  %.093150.i = phi ptr [ %.093.ph.i, %103 ], [ %73, %.thread.i ], [ %73, %93 ]
+  %.095148.i = phi ptr [ %.095.ph.i, %103 ], [ %67, %.thread.i ], [ %67, %93 ]
+  %.096146.i = phi ptr [ %.096.ph.i, %103 ], [ %42, %.thread.i ], [ %42, %93 ]
+  %.098144.i = phi ptr [ %.098.ph.i, %103 ], [ %36, %.thread.i ], [ %36, %93 ]
   %.3.i = phi ptr [ null, %103 ], [ %.2.i, %.thread.i ], [ %.2.i, %93 ]
-  tail call void @EC_POINT_free(ptr noundef %.089157.i) #7
+  tail call void @EC_POINT_free(ptr noundef %.089156.i) #7
   tail call void @BN_CTX_free(ptr noundef %10) #7
-  tail call void @BN_free(ptr noundef %.090155.i) #7
-  tail call void @BN_free(ptr noundef %.098145.i) #7
-  tail call void @BN_free(ptr noundef %.096147.i) #7
-  tail call void @BN_free(ptr noundef %.092153.i) #7
-  tail call void @BN_free(ptr noundef %.095149.i) #7
-  tail call void @BN_free(ptr noundef %.093151.i) #7
+  tail call void @BN_free(ptr noundef %.090154.i) #7
+  tail call void @BN_free(ptr noundef %.098144.i) #7
+  tail call void @BN_free(ptr noundef %.096146.i) #7
+  tail call void @BN_free(ptr noundef %.092152.i) #7
+  tail call void @BN_free(ptr noundef %.095148.i) #7
+  tail call void @BN_free(ptr noundef %.093150.i) #7
   %104 = icmp eq ptr %.3.i, null
   br i1 %104, label %ec_curve_nid2curve.exit.thread, label %106
 
@@ -494,7 +494,7 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
   %4 = tail call i32 @EC_GROUP_get_curve_name(ptr noundef %0) #7
   %5 = tail call i32 @EC_GROUP_get_field_type(ptr noundef %0) #7
   %6 = tail call i64 @EC_GROUP_get_seed_len(ptr noundef %0) #7
-  %.fr97 = freeze i64 %6
+  %.fr96 = freeze i64 %6
   %7 = tail call ptr @EC_GROUP_get0_seed(ptr noundef %0) #7
   %8 = tail call ptr @EC_GROUP_get0_cofactor(ptr noundef %0) #7
   tail call void @BN_CTX_start(ptr noundef %1) #7
@@ -513,17 +513,17 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
   %20 = sext i32 %19 to i64
   %21 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %20, ptr noundef nonnull @.str, i32 noundef 3409) #7
   %22 = icmp eq ptr %21, null
-  br i1 %22, label %.loopexit, label %.preheader91
+  br i1 %22, label %.loopexit, label %.preheader90
 
-23:                                               ; preds = %.preheader91
-  %24 = add nuw nsw i64 %.06793, 1
+23:                                               ; preds = %.preheader90
+  %24 = add nuw nsw i64 %.06792, 1
   %exitcond.not = icmp eq i64 %24, 6
-  br i1 %exitcond.not, label %28, label %.preheader91, !llvm.loop !35
+  br i1 %exitcond.not, label %28, label %.preheader90, !llvm.loop !35
 
-.preheader91:                                     ; preds = %2, %23
-  %.06793 = phi i64 [ %24, %23 ], [ 0, %2 ]
+.preheader90:                                     ; preds = %2, %23
+  %.06792 = phi i64 [ %24, %23 ], [ 0, %2 ]
   %25 = tail call ptr @BN_CTX_get(ptr noundef %1) #7
-  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %.06793
+  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %.06792
   store ptr %25, ptr %26, align 8, !tbaa !36
   %27 = icmp eq ptr %25, null
   br i1 %27, label %.loopexit, label %23
@@ -557,25 +557,25 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
   %45 = load ptr, ptr %44, align 8, !tbaa !36
   %46 = tail call i32 @EC_GROUP_get_order(ptr noundef %0, ptr noundef %45, ptr noundef %1) #7
   %.not79 = icmp eq i32 %46, 0
-  br i1 %.not79, label %.loopexit, label %.preheader89
+  br i1 %.not79, label %.loopexit, label %.preheader88
 
-.preheader89:                                     ; preds = %43
+.preheader88:                                     ; preds = %43
   %47 = sext i32 %spec.select to i64
   br label %76
 
 48:                                               ; preds = %76
-  %49 = add nuw nsw i64 %.16894, 1
-  %exitcond102.not = icmp eq i64 %49, 6
-  br i1 %exitcond102.not, label %.preheader, label %76, !llvm.loop !37
+  %49 = add nuw nsw i64 %.16893, 1
+  %exitcond101.not = icmp eq i64 %49, 6
+  br i1 %exitcond101.not, label %.preheader, label %76, !llvm.loop !37
 
 .preheader:                                       ; preds = %48
   %50 = icmp slt i32 %4, 1
-  %51 = icmp eq i64 %.fr97, 0
+  %51 = icmp eq i64 %.fr96, 0
   br i1 %51, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %74
-  %.26995.us = phi i64 [ %75, %74 ], [ 0, %.preheader ]
-  %52 = getelementptr inbounds nuw %struct._ec_list_element_st, ptr @curve_list, i64 %.26995.us
+  %.26994.us = phi i64 [ %75, %74 ], [ 0, %.preheader ]
+  %52 = getelementptr inbounds nuw %struct._ec_list_element_st, ptr @curve_list, i64 %.26994.us
   %.sroa.0.0.copyload.us = load i32, ptr %52, align 16, !tbaa !38
   %.sroa.53.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.53.0.copyload.us = load ptr, ptr %.sroa.53.0..sroa_idx.us, align 8, !tbaa !39
@@ -616,23 +616,23 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
   br i1 %73, label %.loopexit, label %74
 
 74:                                               ; preds = %72, %67, %60, %.preheader.split.us
-  %75 = add nuw nsw i64 %.26995.us, 1
-  %exitcond104.not = icmp eq i64 %75, 82
-  br i1 %exitcond104.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !40
+  %75 = add nuw nsw i64 %.26994.us, 1
+  %exitcond103.not = icmp eq i64 %75, 82
+  br i1 %exitcond103.not, label %.loopexit, label %.preheader.split.us, !llvm.loop !40
 
-76:                                               ; preds = %.preheader89, %48
-  %.16894 = phi i64 [ 0, %.preheader89 ], [ %49, %48 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %3, i64 %.16894
+76:                                               ; preds = %.preheader88, %48
+  %.16893 = phi i64 [ 0, %.preheader88 ], [ %49, %48 ]
+  %77 = getelementptr inbounds nuw ptr, ptr %3, i64 %.16893
   %78 = load ptr, ptr %77, align 8, !tbaa !36
-  %79 = mul nsw i64 %.16894, %47
+  %79 = mul nsw i64 %.16893, %47
   %80 = getelementptr inbounds nuw i8, ptr %21, i64 %79
   %81 = tail call i32 @BN_bn2binpad(ptr noundef %78, ptr noundef nonnull %80, i32 noundef %spec.select) #7
   %82 = icmp slt i32 %81, 1
   br i1 %82, label %.loopexit, label %48
 
 .preheader.split:                                 ; preds = %.preheader, %113
-  %.26995 = phi i64 [ %114, %113 ], [ 0, %.preheader ]
-  %83 = getelementptr inbounds nuw %struct._ec_list_element_st, ptr @curve_list, i64 %.26995
+  %.26994 = phi i64 [ %114, %113 ], [ 0, %.preheader ]
+  %83 = getelementptr inbounds nuw %struct._ec_list_element_st, ptr @curve_list, i64 %.26994
   %.sroa.0.0.copyload = load i32, ptr %83, align 16, !tbaa !38
   %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.sroa.53.0.copyload = load ptr, ptr %.sroa.53.0..sroa_idx, align 8, !tbaa !39
@@ -651,8 +651,8 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
   %94 = icmp eq i32 %spec.select, %93
   %95 = icmp eq i32 %4, %.sroa.0.0.copyload
   %or.cond83 = select i1 %50, i1 true, i1 %95
-  %or.cond96 = select i1 %94, i1 %or.cond83, i1 false
-  br i1 %or.cond96, label %96, label %113
+  %or.cond95 = select i1 %94, i1 %or.cond83, i1 false
+  br i1 %or.cond95, label %96, label %113
 
 96:                                               ; preds = %91
   %97 = tail call i32 @BN_is_zero(ptr noundef %8) #7
@@ -674,11 +674,11 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
 
 106:                                              ; preds = %103
   %107 = sext i32 %104 to i64
-  %108 = icmp eq i64 %.fr97, %107
+  %108 = icmp eq i64 %.fr96, %107
   br i1 %108, label %109, label %113
 
 109:                                              ; preds = %106
-  %bcmp = tail call i32 @bcmp(ptr nonnull %84, ptr %7, i64 %.fr97)
+  %bcmp = tail call i32 @bcmp(ptr nonnull %84, ptr %7, i64 %.fr96)
   %110 = icmp eq i32 %bcmp, 0
   br i1 %110, label %111, label %113
 
@@ -688,12 +688,12 @@ define i32 @ossl_ec_curve_nid_from_params(ptr noundef %0, ptr noundef %1) local_
   br i1 %112, label %.loopexit, label %113
 
 113:                                              ; preds = %.preheader.split, %91, %98, %106, %109, %111
-  %114 = add nuw nsw i64 %.26995, 1
-  %exitcond103.not = icmp eq i64 %114, 82
-  br i1 %exitcond103.not, label %.loopexit, label %.preheader.split, !llvm.loop !40
+  %114 = add nuw nsw i64 %.26994, 1
+  %exitcond102.not = icmp eq i64 %114, 82
+  br i1 %exitcond102.not, label %.loopexit, label %.preheader.split, !llvm.loop !40
 
-.loopexit:                                        ; preds = %.preheader91, %76, %113, %111, %74, %72, %28, %35, %37, %43, %2
-  %.065 = phi i32 [ -1, %2 ], [ -1, %43 ], [ -1, %37 ], [ -1, %35 ], [ -1, %28 ], [ %.sroa.0.0.copyload.us, %72 ], [ 0, %74 ], [ %.sroa.0.0.copyload, %111 ], [ 0, %113 ], [ -1, %76 ], [ -1, %.preheader91 ]
+.loopexit:                                        ; preds = %.preheader90, %76, %113, %111, %74, %72, %28, %35, %37, %43, %2
+  %.065 = phi i32 [ -1, %2 ], [ -1, %43 ], [ -1, %37 ], [ -1, %35 ], [ -1, %28 ], [ %.sroa.0.0.copyload.us, %72 ], [ 0, %74 ], [ %.sroa.0.0.copyload, %111 ], [ 0, %113 ], [ -1, %76 ], [ -1, %.preheader90 ]
   tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 3470) #7
   tail call void @BN_CTX_end(ptr noundef %1) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

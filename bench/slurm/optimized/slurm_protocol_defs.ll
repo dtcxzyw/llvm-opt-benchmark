@@ -1049,8 +1049,8 @@ define dso_local ptr @node_state_base_string(i32 noundef %0) #2 {
 
 3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %.loopexit, label %4, !llvm.loop !13
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !13
 
 4:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
@@ -1065,8 +1065,8 @@ define dso_local ptr @node_state_base_string(i32 noundef %0) #2 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %8
-  %spec.select = phi ptr [ %10, %8 ], [ @.str.21, %3 ]
-  ret ptr %spec.select
+  %11 = phi ptr [ %10, %8 ], [ @.str.21, %3 ]
+  ret ptr %11
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1845,8 +1845,8 @@ define dso_local ptr @node_state_string_complete(i32 noundef %0) #1 {
 
 6:                                                ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.i, label %node_state_base_string.exit, label %7, !llvm.loop !13
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
+  br i1 %exitcond.not.i, label %node_state_base_string.exit, label %7, !llvm.loop !13
 
 7:                                                ; preds = %6, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %6 ]
@@ -1861,74 +1861,74 @@ define dso_local ptr @node_state_string_complete(i32 noundef %0) #1 {
   br label %node_state_base_string.exit
 
 node_state_base_string.exit:                      ; preds = %6, %11
-  %spec.select.i = phi ptr [ %13, %11 ], [ @.str.21, %6 ]
-  %14 = tail call ptr @xstrdup(ptr noundef %spec.select.i) #24
-  store ptr %14, ptr %3, align 8
-  %15 = and i32 %0, -16
+  %14 = phi ptr [ %13, %11 ], [ @.str.21, %6 ]
+  %15 = tail call ptr @xstrdup(ptr noundef %14) #24
+  store ptr %15, ptr %3, align 8
+  %16 = and i32 %0, -16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8
-  %.not.i13.i = icmp eq i32 %15, 0
+  %.not.i13.i = icmp eq i32 %16, 0
   br i1 %.not.i13.i, label %node_state_flag_string.exit.thread, label %.preheader.i.preheader.i
 
 node_state_flag_string.exit.thread:               ; preds = %node_state_base_string.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %28
+  br label %29
 
-.preheader.i.preheader.i:                         ; preds = %node_state_base_string.exit, %25
-  %16 = phi i32 [ %26, %25 ], [ %15, %node_state_base_string.exit ]
-  %.014.i = phi i32 [ %.18.i, %25 ], [ %15, %node_state_base_string.exit ]
+.preheader.i.preheader.i:                         ; preds = %node_state_base_string.exit, %26
+  %17 = phi i32 [ %27, %26 ], [ %16, %node_state_base_string.exit ]
+  %.014.i = phi i32 [ %.18.i, %26 ], [ %16, %node_state_base_string.exit ]
   br label %.preheader.i.i
 
-17:                                               ; preds = %.preheader.i.i
+18:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 20
   br i1 %exitcond.i.i, label %node_state_flag_string_single.exit.thread4.i, label %.preheader.i.i, !llvm.loop !14
 
-.preheader.i.i:                                   ; preds = %17, %.preheader.i.preheader.i
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %17 ], [ 0, %.preheader.i.preheader.i ]
-  %18 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv.i.i
-  %19 = load i32, ptr %18, align 16
-  %20 = and i32 %19, %16
-  %.not17.i.i = icmp eq i32 %20, 0
-  br i1 %.not17.i.i, label %17, label %node_state_flag_string_single.exit.i
+.preheader.i.i:                                   ; preds = %18, %.preheader.i.preheader.i
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %18 ], [ 0, %.preheader.i.preheader.i ]
+  %19 = getelementptr inbounds nuw %struct.node_state_flags_t, ptr @node_state_flags, i64 %indvars.iv.i.i
+  %20 = load i32, ptr %19, align 16
+  %21 = and i32 %20, %17
+  %.not17.i.i = icmp eq i32 %21, 0
+  br i1 %.not17.i.i, label %18, label %node_state_flag_string_single.exit.i
 
-node_state_flag_string_single.exit.thread4.i:     ; preds = %17
-  %21 = add i32 %16, -1
-  br label %25
+node_state_flag_string_single.exit.thread4.i:     ; preds = %18
+  %22 = add i32 %17, -1
+  br label %26
 
 node_state_flag_string_single.exit.i:             ; preds = %.preheader.i.i
-  %22 = xor i32 %19, -1
-  %23 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %24 = load ptr, ptr %23, align 8
-  br label %25
+  %23 = xor i32 %20, -1
+  %24 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %25 = load ptr, ptr %24, align 8
+  br label %26
 
-25:                                               ; preds = %node_state_flag_string_single.exit.i, %node_state_flag_string_single.exit.thread4.i
-  %.014.i9.i = phi ptr [ @.str.91, %node_state_flag_string_single.exit.thread4.i ], [ %24, %node_state_flag_string_single.exit.i ]
-  %.pn.i = phi i32 [ %21, %node_state_flag_string_single.exit.thread4.i ], [ %22, %node_state_flag_string_single.exit.i ]
+26:                                               ; preds = %node_state_flag_string_single.exit.i, %node_state_flag_string_single.exit.thread4.i
+  %.014.i9.i = phi ptr [ @.str.91, %node_state_flag_string_single.exit.thread4.i ], [ %25, %node_state_flag_string_single.exit.i ]
+  %.pn.i = phi i32 [ %22, %node_state_flag_string_single.exit.thread4.i ], [ %23, %node_state_flag_string_single.exit.i ]
   %.18.i = and i32 %.pn.i, %.014.i
   call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %2, ptr noundef nonnull @.str.229, ptr noundef nonnull %.014.i9.i) #24
-  %26 = and i32 %.18.i, -16
-  %.not.i.i = icmp eq i32 %26, 0
+  %27 = and i32 %.18.i, -16
+  %.not.i.i = icmp eq i32 %27, 0
   br i1 %.not.i.i, label %node_state_flag_string.exit, label %.preheader.i.preheader.i, !llvm.loop !15
 
-node_state_flag_string.exit:                      ; preds = %25
+node_state_flag_string.exit:                      ; preds = %26
   %.pre.i = load ptr, ptr %2, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store ptr %.pre.i, ptr %4, align 8
   %.not = icmp eq ptr %.pre.i, null
-  br i1 %.not, label %28, label %27
+  br i1 %.not, label %29, label %28
 
-27:                                               ; preds = %node_state_flag_string.exit
+28:                                               ; preds = %node_state_flag_string.exit
   call void @_xstrcat(ptr noundef nonnull %3, ptr noundef nonnull %.pre.i) #24
   call void @slurm_xfree(ptr noundef nonnull %4) #24
   %.pre = load ptr, ptr %3, align 8
-  br label %28
+  br label %29
 
-28:                                               ; preds = %node_state_flag_string.exit.thread, %27, %node_state_flag_string.exit
-  %29 = phi ptr [ %14, %node_state_flag_string.exit.thread ], [ %.pre, %27 ], [ %14, %node_state_flag_string.exit ]
+29:                                               ; preds = %node_state_flag_string.exit.thread, %28, %node_state_flag_string.exit
+  %30 = phi ptr [ %15, %node_state_flag_string.exit.thread ], [ %.pre, %28 ], [ %15, %node_state_flag_string.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret ptr %29
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable
@@ -5441,8 +5441,8 @@ define dso_local ptr @slurm_container_status_to_str(i32 noundef %0) local_unname
 
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond, label %.loopexit, label %3, !llvm.loop !29
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 8
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !29
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -5457,8 +5457,8 @@ define dso_local ptr @slurm_container_status_to_str(i32 noundef %0) local_unname
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %7
-  %spec.select = phi ptr [ %9, %7 ], [ @.str.22, %2 ]
-  ret ptr %spec.select
+  %10 = phi ptr [ %9, %7 ], [ @.str.22, %2 ]
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable

@@ -8065,24 +8065,24 @@ _ZNK3nla5monic3endEv.exit:                        ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 2
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not15 = icmp eq i32 %7, 0
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not17 = icmp eq i32 %7, 0
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.01416, i64 4
+  %12 = getelementptr inbounds nuw i8, ptr %.01418, i64 4
   %.not = icmp eq ptr %12, %10
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3nla5monic3endEv.exit, %11
-  %.01416 = phi ptr [ %12, %11 ], [ %4, %_ZNK3nla5monic3endEv.exit ]
-  %13 = load i32, ptr %.01416, align 4, !tbaa !44
+  %.01418 = phi ptr [ %12, %11 ], [ %4, %_ZNK3nla5monic3endEv.exit ]
+  %13 = load i32, ptr %.01418, align 4, !tbaa !44
   %14 = load ptr, ptr %0, align 8, !tbaa !41
   %15 = tail call noundef zeroext i1 @_ZNK3nla4core12var_is_fixedEj(ptr noundef nonnull align 8 dereferenceable(4736) %14, i32 noundef %13)
   br i1 %15, label %11, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %11, %2, %_ZNK3nla5monic3endEv.exit
-  %spec.select = phi i32 [ -1, %_ZNK3nla5monic3endEv.exit ], [ -1, %2 ], [ -1, %11 ], [ %13, %.lr.ph ]
-  ret i32 %spec.select
+  %16 = phi i32 [ -1, %_ZNK3nla5monic3endEv.exit ], [ -1, %2 ], [ -1, %11 ], [ %13, %.lr.ph ]
+  ret i32 %16
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1016,23 +1016,23 @@ _ZN5boost3log11v2_mt_posix9anonymous16formatter_parserIcED2Ev.exit: ; preds = %4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous16formatter_parserIcE5parseERPKcS6_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #6 comdat align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !14
-  %.not66 = icmp eq ptr %4, %2
-  br i1 %.not66, label %._crit_edge, label %.preheader
+  %.not65 = icmp eq ptr %4, %2
+  br i1 %.not65, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %3, %41
-  %.067 = phi ptr [ %.5, %41 ], [ %4, %3 ]
+  %.066 = phi ptr [ %.5, %41 ], [ %4, %3 ]
   br label %5
 
 5:                                                ; preds = %.preheader, %11
-  %.165 = phi ptr [ %.067, %.preheader ], [ %12, %11 ]
-  %6 = load i8, ptr %.165, align 1, !tbaa !44
+  %.164 = phi ptr [ %.066, %.preheader ], [ %12, %11 ]
+  %6 = load i8, ptr %.164, align 1, !tbaa !44
   switch i8 %6, label %11 [
     i8 92, label %7
     i8 37, label %13
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %.165, i64 1
+  %8 = getelementptr inbounds nuw i8, ptr %.164, i64 1
   %9 = icmp eq ptr %8, %2
   br i1 %9, label %10, label %11
 
@@ -1041,18 +1041,18 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous16formatter
   unreachable
 
 11:                                               ; preds = %5, %7
-  %.4.ph = phi ptr [ %8, %7 ], [ %.165, %5 ]
+  %.4.ph = phi ptr [ %8, %7 ], [ %.164, %5 ]
   %12 = getelementptr inbounds nuw i8, ptr %.4.ph, i64 1
   %.not51 = icmp eq ptr %12, %2
   br i1 %.not51, label %13, label %5, !llvm.loop !57
 
 13:                                               ; preds = %5, %11
-  %.1.lcssa = phi ptr [ %.165, %5 ], [ %12, %11 ]
-  %.not52 = icmp eq ptr %.067, %.1.lcssa
+  %.1.lcssa = phi ptr [ %.164, %5 ], [ %12, %11 ]
+  %.not52 = icmp eq ptr %.066, %.1.lcssa
   br i1 %.not52, label %15, label %14
 
 14:                                               ; preds = %13
-  tail call void @_ZN5boost3log11v2_mt_posix9anonymous16formatter_parserIcE11push_stringEPKcS6_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %.067, ptr noundef nonnull %.1.lcssa)
+  tail call void @_ZN5boost3log11v2_mt_posix9anonymous16formatter_parserIcE11push_stringEPKcS6_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %.066, ptr noundef nonnull %.1.lcssa)
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -1555,23 +1555,23 @@ _ZN5boost3log11v2_mt_posix9anonymous16formatter_parserIwED2Ev.exit: ; preds = %5
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous16formatter_parserIwE5parseERPKwS6_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2) local_unnamed_addr #6 comdat align 2 {
   %4 = load ptr, ptr %1, align 8, !tbaa !14
-  %.not66 = icmp eq ptr %4, %2
-  br i1 %.not66, label %._crit_edge, label %.preheader
+  %.not65 = icmp eq ptr %4, %2
+  br i1 %.not65, label %._crit_edge, label %.preheader
 
 .preheader:                                       ; preds = %3, %41
-  %.067 = phi ptr [ %.5, %41 ], [ %4, %3 ]
+  %.066 = phi ptr [ %.5, %41 ], [ %4, %3 ]
   br label %5
 
 5:                                                ; preds = %.preheader, %11
-  %.165 = phi ptr [ %.067, %.preheader ], [ %12, %11 ]
-  %6 = load i32, ptr %.165, align 4, !tbaa !70
+  %.164 = phi ptr [ %.066, %.preheader ], [ %12, %11 ]
+  %6 = load i32, ptr %.164, align 4, !tbaa !70
   switch i32 %6, label %11 [
     i32 92, label %7
     i32 37, label %13
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw i8, ptr %.165, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.164, i64 4
   %9 = icmp eq ptr %8, %2
   br i1 %9, label %10, label %11
 
@@ -1580,18 +1580,18 @@ define linkonce_odr hidden void @_ZN5boost3log11v2_mt_posix9anonymous16formatter
   unreachable
 
 11:                                               ; preds = %5, %7
-  %.4.ph = phi ptr [ %8, %7 ], [ %.165, %5 ]
+  %.4.ph = phi ptr [ %8, %7 ], [ %.164, %5 ]
   %12 = getelementptr inbounds nuw i8, ptr %.4.ph, i64 4
   %.not51 = icmp eq ptr %12, %2
   br i1 %.not51, label %13, label %5, !llvm.loop !82
 
 13:                                               ; preds = %5, %11
-  %.1.lcssa = phi ptr [ %.165, %5 ], [ %12, %11 ]
-  %.not52 = icmp eq ptr %.067, %.1.lcssa
+  %.1.lcssa = phi ptr [ %.164, %5 ], [ %12, %11 ]
+  %.not52 = icmp eq ptr %.066, %.1.lcssa
   br i1 %.not52, label %15, label %14
 
 14:                                               ; preds = %13
-  tail call void @_ZN5boost3log11v2_mt_posix9anonymous16formatter_parserIwE11push_stringEPKwS6_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %.067, ptr noundef nonnull %.1.lcssa)
+  tail call void @_ZN5boost3log11v2_mt_posix9anonymous16formatter_parserIwE11push_stringEPKwS6_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef %.066, ptr noundef nonnull %.1.lcssa)
   br label %15
 
 15:                                               ; preds = %14, %13
@@ -2675,9 +2675,9 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
 7:                                                ; preds = %3
   %8 = load i8, ptr %1, align 1, !tbaa !44
   %9 = icmp eq i8 %8, 41
-  br i1 %9, label %.thread, label %.preheader67
+  br i1 %9, label %.thread, label %.preheader66
 
-.preheader67:                                     ; preds = %7
+.preheader66:                                     ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -2685,19 +2685,19 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %15
 
-15:                                               ; preds = %.preheader67, %57
-  %.051 = phi ptr [ %59, %57 ], [ %1, %.preheader67 ]
-  %.05176 = ptrtoint ptr %.051 to i64
+15:                                               ; preds = %.preheader66, %57
+  %.051 = phi ptr [ %59, %57 ], [ %1, %.preheader66 ]
+  %.05175 = ptrtoint ptr %.051 to i64
   %16 = load i8, ptr %.051, align 1, !tbaa !44
   %17 = sext i8 %16 to i32
   %18 = tail call i32 @isalpha(i32 noundef %17) #28
-  %.not66 = icmp eq i32 %18, 0
-  br i1 %.not66, label %20, label %.preheader.preheader
+  %.not65 = icmp eq i32 %18, 0
+  br i1 %.not65, label %20, label %.preheader.preheader
 
 .preheader.preheader:                             ; preds = %15
   %scevgep = getelementptr i8, ptr %.051, i64 %4
-  %19 = sub i64 0, %.05176
-  %scevgep77 = getelementptr i8, ptr %scevgep, i64 %19
+  %19 = sub i64 0, %.05175
+  %scevgep76 = getelementptr i8, ptr %scevgep, i64 %19
   br label %.preheader
 
 20:                                               ; preds = %15
@@ -2731,10 +2731,10 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   unreachable
 
 32:                                               ; preds = %.preheader, %21
-  %.1.lcssa = phi ptr [ %scevgep77, %.preheader ], [ %.1, %21 ]
+  %.1.lcssa = phi ptr [ %scevgep76, %.preheader ], [ %.1, %21 ]
   %33 = load i64, ptr %11, align 8, !tbaa !42
   %34 = ptrtoint ptr %.1.lcssa to i64
-  %35 = sub i64 %34, %.05176
+  %35 = sub i64 %34, %.05175
   %36 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %10, i64 noundef 0, i64 noundef %33, ptr noundef nonnull %.051, i64 noundef %35)
   %37 = tail call noundef ptr @_ZN5boost3log11v2_mt_posix3aux14char_constantsIcE16trim_spaces_leftEPKcS6_(ptr noundef nonnull %.1.lcssa, ptr noundef %2)
   %38 = icmp eq ptr %37, %2
@@ -8068,9 +8068,9 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
 6:                                                ; preds = %3
   %7 = load i32, ptr %1, align 4, !tbaa !70
   %8 = icmp eq i32 %7, 41
-  br i1 %8, label %.thread, label %.preheader65
+  br i1 %8, label %.thread, label %.preheader64
 
-.preheader65:                                     ; preds = %6
+.preheader64:                                     ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -8078,12 +8078,12 @@ define linkonce_odr hidden noundef ptr @_ZN5boost3log11v2_mt_posix9anonymous16fo
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   br label %14
 
-14:                                               ; preds = %.preheader65, %55
-  %.049 = phi ptr [ %57, %55 ], [ %1, %.preheader65 ]
+14:                                               ; preds = %.preheader64, %55
+  %.049 = phi ptr [ %57, %55 ], [ %1, %.preheader64 ]
   %15 = load i32, ptr %.049, align 4, !tbaa !70
   %16 = tail call i32 @iswalpha(i32 noundef %15) #23
-  %.not64 = icmp eq i32 %16, 0
-  br i1 %.not64, label %17, label %.preheader
+  %.not63 = icmp eq i32 %16, 0
+  br i1 %.not63, label %17, label %.preheader
 
 17:                                               ; preds = %14
   tail call void @_ZN5boost3log11v2_mt_posix11parse_error6throw_EPKcmS4_(ptr noundef nonnull @.str.67, i64 noundef 303, ptr noundef nonnull @.str.74) #27

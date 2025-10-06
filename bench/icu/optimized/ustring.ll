@@ -2736,19 +2736,19 @@ define range(i32 -65535, 65536) i32 @u_memcmp_77(ptr noundef readonly captures(a
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
-  %.01320 = phi ptr [ %13, %12 ], [ %0, %.lr.ph.preheader ]
-  %.01419 = phi ptr [ %14, %12 ], [ %1, %.lr.ph.preheader ]
-  %7 = load i16, ptr %.01320, align 2, !tbaa !3
+  %.01319 = phi ptr [ %13, %12 ], [ %0, %.lr.ph.preheader ]
+  %.01418 = phi ptr [ %14, %12 ], [ %1, %.lr.ph.preheader ]
+  %7 = load i16, ptr %.01319, align 2, !tbaa !3
   %8 = zext i16 %7 to i32
-  %9 = load i16, ptr %.01419, align 2, !tbaa !3
+  %9 = load i16, ptr %.01418, align 2, !tbaa !3
   %10 = zext i16 %9 to i32
   %11 = sub nsw i32 %8, %10
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %12, label %.thread
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 2
-  %14 = getelementptr inbounds nuw i8, ptr %.01419, i64 2
+  %13 = getelementptr inbounds nuw i8, ptr %.01319, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.01418, i64 2
   %15 = icmp ult ptr %13, %6
   br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !58
 
@@ -3091,7 +3091,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %.063.us.us = phi ptr [ %23, %22 ], [ %.063.us.us.ph, %.split.us.split.us.outer ]
   %5 = load i8, ptr %.063.us.us, align 1, !tbaa !62
   switch i8 %5, label %22 [
-    i8 0, label %.split99.us
+    i8 0, label %.split98.us
     i8 92, label %6
   ]
 
@@ -3104,7 +3104,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %10 = call i32 @u_unescapeAt_77(ptr noundef nonnull @_ZL15_charPtr_charAtiPv, ptr noundef nonnull %4, i32 noundef %9, ptr noundef nonnull %7)
   %11 = load i32, ptr %4, align 4, !tbaa !59
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %.split103.us, label %.thread.us.us
+  br i1 %12, label %.split102.us, label %.thread.us.us
 
 .thread.us.us:                                    ; preds = %6
   %.not82.us.us = icmp eq ptr %.063.us.us, %.063.us.us.ph
@@ -3130,7 +3130,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %.063 = phi ptr [ %64, %63 ], [ %.063.ph, %.split.split.outer ]
   %24 = load i8, ptr %.063, align 1, !tbaa !62
   switch i8 %24, label %63 [
-    i8 0, label %.split99.us
+    i8 0, label %.split98.us
     i8 92, label %25
   ]
 
@@ -3162,7 +3162,7 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %39 = call i32 @u_unescapeAt_77(ptr noundef nonnull @_ZL15_charPtr_charAtiPv, ptr noundef nonnull %4, i32 noundef %38, ptr noundef nonnull %36)
   %40 = load i32, ptr %4, align 4, !tbaa !59
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.split103.us, label %42
+  br i1 %41, label %.split102.us, label %42
 
 42:                                               ; preds = %35
   %43 = sext i32 %40 to i64
@@ -3212,28 +3212,28 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   %64 = getelementptr inbounds nuw i8, ptr %.063, i64 1
   br label %.split.split, !llvm.loop !63
 
-.split99.us:                                      ; preds = %.split.split, %.split.us.split.us
+.split98.us:                                      ; preds = %.split.split, %.split.us.split.us
   %.us-phi = phi ptr [ %.063.us.us.ph, %.split.us.split.us ], [ %.063.ph, %.split.split ]
-  %.us-phi100 = phi i32 [ %.064.us.us.ph, %.split.us.split.us ], [ %.064.ph, %.split.split ]
-  %.us-phi101 = phi ptr [ %.063.us.us, %.split.us.split.us ], [ %.063, %.split.split ]
-  %.not79 = icmp eq ptr %.us-phi101, %.us-phi
+  %.us-phi99 = phi i32 [ %.064.us.us.ph, %.split.us.split.us ], [ %.064.ph, %.split.split ]
+  %.us-phi100 = phi ptr [ %.063.us.us, %.split.us.split.us ], [ %.063, %.split.split ]
+  %.not79 = icmp eq ptr %.us-phi100, %.us-phi
   br i1 %.not79, label %76, label %65
 
-65:                                               ; preds = %.split99.us
+65:                                               ; preds = %.split98.us
   br i1 %.not84, label %._crit_edge, label %66
 
 ._crit_edge:                                      ; preds = %65
-  %.pre = ptrtoint ptr %.us-phi101 to i64
-  %.pre132 = ptrtoint ptr %.us-phi to i64
-  %.pre134 = sub i64 %.pre, %.pre132
-  %.pre136 = trunc i64 %.pre134 to i32
+  %.pre = ptrtoint ptr %.us-phi100 to i64
+  %.pre131 = ptrtoint ptr %.us-phi to i64
+  %.pre133 = sub i64 %.pre, %.pre131
+  %.pre135 = trunc i64 %.pre133 to i32
   br label %74
 
 66:                                               ; preds = %65
-  %67 = sext i32 %.us-phi100 to i64
+  %67 = sext i32 %.us-phi99 to i64
   %68 = getelementptr inbounds i16, ptr %1, i64 %67
-  %69 = sub nsw i32 %2, %.us-phi100
-  %70 = ptrtoint ptr %.us-phi101 to i64
+  %69 = sub nsw i32 %2, %.us-phi99
+  %70 = ptrtoint ptr %.us-phi100 to i64
   %71 = ptrtoint ptr %.us-phi to i64
   %72 = sub i64 %70, %71
   %73 = trunc i64 %72 to i32
@@ -3243,12 +3243,12 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   br label %74
 
 74:                                               ; preds = %._crit_edge, %66
-  %.pre-phi137 = phi i32 [ %.pre136, %._crit_edge ], [ %73, %66 ]
-  %75 = add nsw i32 %.us-phi100, %.pre-phi137
+  %.pre-phi136 = phi i32 [ %.pre135, %._crit_edge ], [ %73, %66 ]
+  %75 = add nsw i32 %.us-phi99, %.pre-phi136
   br label %76
 
-76:                                               ; preds = %74, %.split99.us
-  %.5 = phi i32 [ %75, %74 ], [ %.us-phi100, %.split99.us ]
+76:                                               ; preds = %74, %.split98.us
+  %.5 = phi i32 [ %75, %74 ], [ %.us-phi99, %.split98.us ]
   %.not81 = icmp ne ptr %1, null
   %77 = icmp slt i32 %.5, %2
   %or.cond87 = select i1 %.not81, i1 %77, i1 false
@@ -3260,19 +3260,19 @@ define i32 @u_unescape_77(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_
   store i16 0, ptr %80, align 2, !tbaa !3
   br label %84
 
-.split103.us:                                     ; preds = %35, %6
+.split102.us:                                     ; preds = %35, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %81 = icmp ne ptr %1, null
   %82 = icmp sgt i32 %2, 0
   %or.cond = and i1 %81, %82
   br i1 %or.cond, label %83, label %84
 
-83:                                               ; preds = %.split103.us
+83:                                               ; preds = %.split102.us
   store i16 0, ptr %1, align 2, !tbaa !3
   br label %84
 
-84:                                               ; preds = %.split103.us, %83, %76, %78
-  %.062 = phi i32 [ %.5, %78 ], [ %.5, %76 ], [ 0, %83 ], [ 0, %.split103.us ]
+84:                                               ; preds = %.split102.us, %83, %76, %78
+  %.062 = phi i32 [ %.5, %78 ], [ %.5, %76 ], [ 0, %83 ], [ 0, %.split102.us ]
   ret i32 %.062
 }
 

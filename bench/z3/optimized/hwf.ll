@@ -2146,103 +2146,101 @@ define hidden void @_ZN11hwf_manager11to_rationalERK3hwfR11mpq_managerILb0EER3mp
   store ptr null, ptr %12, align 8, !tbaa !10
   %13 = load i64, ptr %1, align 8, !tbaa !13
   %14 = and i64 %13, 9218868437227405312
-  switch i64 %14, label %15 [
-    i64 9218868437227405312, label %20
-    i64 0, label %20
-  ]
+  %.off = add nsw i64 %14, -1
+  %switch = icmp ult i64 %.off, 9218868437227405311
+  %15 = and i64 %13, 4503599627370495
+  br i1 %switch, label %16, label %20
 
-15:                                               ; preds = %4
-  %16 = and i64 %13, 4503599627370495
-  %17 = or disjoint i64 %16, 4503599627370496
+16:                                               ; preds = %4
+  %17 = or disjoint i64 %15, 4503599627370496
   br label %.invoke
 
-18:                                               ; preds = %.invoke, %_ZN11mpq_managerILb0EE3negER3mpz.exit, %27
+18:                                               ; preds = %.invoke, %_ZN11mpq_managerILb0EE3negER3mpz.exit, %26
   %19 = landingpad { ptr, i32 }
           cleanup
-  br label %48
+  br label %47
 
-20:                                               ; preds = %4, %4
-  %21 = and i64 %13, 4503599627370495
-  %22 = icmp samesign ult i64 %21, 2147483647
-  br i1 %22, label %23, label %.invoke
+20:                                               ; preds = %4
+  %21 = icmp samesign ult i64 %15, 2147483647
+  br i1 %21, label %22, label %.invoke
 
-23:                                               ; preds = %20
-  %24 = trunc i64 %13 to i32
-  store i32 %24, ptr %7, align 8, !tbaa !3
+22:                                               ; preds = %20
+  %23 = trunc i64 %13 to i32
+  store i32 %23, ptr %7, align 8, !tbaa !3
   store i8 0, ptr %8, align 4
   br label %_ZN11mpq_managerILb0EE3setER3mpzm.exit
 
-.invoke:                                          ; preds = %20, %15
-  %25 = phi i64 [ %17, %15 ], [ %21, %20 ]
-  invoke void @_ZN11mpz_managerILb0EE12set_big_ui64ER3mpzm(ptr noundef nonnull align 8 dereferenceable(728) %2, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %25)
+.invoke:                                          ; preds = %20, %16
+  %24 = phi i64 [ %17, %16 ], [ %15, %20 ]
+  invoke void @_ZN11mpz_managerILb0EE12set_big_ui64ER3mpzm(ptr noundef nonnull align 8 dereferenceable(728) %2, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 noundef %24)
           to label %_ZN11mpq_managerILb0EE3setER3mpzm.exit unwind label %18
 
-_ZN11mpq_managerILb0EE3setER3mpzm.exit:           ; preds = %.invoke, %23
+_ZN11mpq_managerILb0EE3setER3mpzm.exit:           ; preds = %.invoke, %22
   %.0.copyload.i.i28 = load i64, ptr %1, align 8
-  %26 = icmp slt i64 %.0.copyload.i.i28, 0
-  br i1 %26, label %27, label %_ZN11mpq_managerILb0EE3negER3mpz.exit
+  %25 = icmp slt i64 %.0.copyload.i.i28, 0
+  br i1 %25, label %26, label %_ZN11mpq_managerILb0EE3negER3mpz.exit
 
-27:                                               ; preds = %_ZN11mpq_managerILb0EE3setER3mpzm.exit
+26:                                               ; preds = %_ZN11mpq_managerILb0EE3setER3mpzm.exit
   invoke void @_ZN11mpz_managerILb0EE3negER3mpz(ptr noundef nonnull align 8 dereferenceable(728) %2, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %_ZN11mpq_managerILb0EE3negER3mpz.exit unwind label %18
 
-_ZN11mpq_managerILb0EE3negER3mpz.exit:            ; preds = %27, %_ZN11mpq_managerILb0EE3setER3mpzm.exit
+_ZN11mpq_managerILb0EE3negER3mpz.exit:            ; preds = %26, %_ZN11mpq_managerILb0EE3setER3mpzm.exit
   invoke void @_ZN11mpz_managerILb0EE12set_big_ui64ER3mpzm(ptr noundef nonnull align 8 dereferenceable(728) %2, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef 4503599627370496)
           to label %_ZN11mpq_managerILb0EE3setER3mpzm.exit31 unwind label %18
 
 _ZN11mpq_managerILb0EE3setER3mpzm.exit31:         ; preds = %_ZN11mpq_managerILb0EE3negER3mpz.exit
   %.0.copyload.i.i32 = load i64, ptr %1, align 8
-  %28 = lshr i64 %.0.copyload.i.i32, 52
-  %29 = trunc nuw nsw i64 %28 to i32
-  %30 = and i32 %29, 2047
-  %31 = icmp samesign ugt i32 %30, 1022
-  %32 = sub nuw nsw i32 1023, %30
-  %33 = add nsw i32 %30, -1023
-  %34 = select i1 %31, ptr %7, ptr %10
-  %35 = select i1 %31, i32 %33, i32 %32
-  invoke void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %2, ptr noundef nonnull align 8 dereferenceable(16) %34, i32 noundef %35)
-          to label %38 unwind label %36
+  %27 = lshr i64 %.0.copyload.i.i32, 52
+  %28 = trunc nuw nsw i64 %27 to i32
+  %29 = and i32 %28, 2047
+  %30 = icmp samesign ugt i32 %29, 1022
+  %31 = sub nuw nsw i32 1023, %29
+  %32 = add nsw i32 %29, -1023
+  %33 = select i1 %30, ptr %7, ptr %10
+  %34 = select i1 %30, i32 %32, i32 %31
+  invoke void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %2, ptr noundef nonnull align 8 dereferenceable(16) %33, i32 noundef %34)
+          to label %37 unwind label %35
 
-36:                                               ; preds = %_ZN11mpq_managerILb0EE3setER3mpzm.exit31, %38
-  %37 = landingpad { ptr, i32 }
+35:                                               ; preds = %_ZN11mpq_managerILb0EE3setER3mpzm.exit31, %37
+  %36 = landingpad { ptr, i32 }
           cleanup
-  br label %48
+  br label %47
 
-38:                                               ; preds = %_ZN11mpq_managerILb0EE3setER3mpzm.exit31
+37:                                               ; preds = %_ZN11mpq_managerILb0EE3setER3mpzm.exit31
   invoke void @_ZN11mpq_managerILb0EE3setER3mpqRK3mpzS5_(ptr noundef nonnull align 8 dereferenceable(728) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %39 unwind label %36
+          to label %38 unwind label %35
 
-39:                                               ; preds = %38
-  %40 = load ptr, ptr %6, align 8, !tbaa !71
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %40, ptr noundef nonnull align 8 dereferenceable(16) %10)
-          to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit unwind label %41
+38:                                               ; preds = %37
+  %39 = load ptr, ptr %6, align 8, !tbaa !71
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %39, ptr noundef nonnull align 8 dereferenceable(16) %10)
+          to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit unwind label %40
 
-41:                                               ; preds = %39
-  %42 = landingpad { ptr, i32 }
+40:                                               ; preds = %38
+  %41 = landingpad { ptr, i32 }
           catch ptr null
-  %43 = extractvalue { ptr, i32 } %42, 0
-  call void @__clang_call_terminate(ptr %43) #28
+  %42 = extractvalue { ptr, i32 } %41, 0
+  call void @__clang_call_terminate(ptr %42) #28
   unreachable
 
-_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %39
+_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit: ; preds = %38
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %44 = load ptr, ptr %5, align 8, !tbaa !71
-  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %44, ptr noundef nonnull align 8 dereferenceable(16) %7)
-          to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit33 unwind label %45
+  %43 = load ptr, ptr %5, align 8, !tbaa !71
+  invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %43, ptr noundef nonnull align 8 dereferenceable(16) %7)
+          to label %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit33 unwind label %44
 
-45:                                               ; preds = %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit
-  %46 = landingpad { ptr, i32 }
+44:                                               ; preds = %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit
+  %45 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #28
+  %46 = extractvalue { ptr, i32 } %45, 0
+  call void @__clang_call_terminate(ptr %46) #28
   unreachable
 
 _ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit33: ; preds = %_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
 
-48:                                               ; preds = %36, %18
-  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %19, %18 ]
+47:                                               ; preds = %35, %18
+  %.pn = phi { ptr, i32 } [ %36, %35 ], [ %19, %18 ]
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #24
@@ -2503,10 +2501,9 @@ define hidden noundef zeroext i1 @_ZN11hwf_manager10is_regularERK3hwf(ptr nounde
 define hidden noundef zeroext i1 @_ZN11hwf_manager6is_intERK3hwf(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(736) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #9 align 2 {
   %3 = load i64, ptr %1, align 8, !tbaa !13
   %4 = and i64 %3, 9218868437227405312
-  switch i64 %4, label %5 [
-    i64 9218868437227405312, label %19
-    i64 0, label %19
-  ]
+  %.off = add nsw i64 %4, -1
+  %switch = icmp ult i64 %.off, 9218868437227405311
+  br i1 %switch, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = lshr i64 %3, 52
@@ -2529,8 +2526,8 @@ define hidden noundef zeroext i1 @_ZN11hwf_manager6is_intERK3hwf(ptr noundef non
   %18 = icmp eq i64 %17, 0
   br label %19
 
-19:                                               ; preds = %2, %2, %12, %5, %10
-  %.0 = phi i1 [ false, %2 ], [ %18, %12 ], [ true, %5 ], [ false, %10 ], [ false, %2 ]
+19:                                               ; preds = %2, %12, %5, %10
+  %.0 = phi i1 [ %18, %12 ], [ true, %5 ], [ false, %10 ], [ false, %2 ]
   ret i1 %.0
 }
 

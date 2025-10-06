@@ -1473,21 +1473,21 @@ define noundef i32 @_ZN3net20QuicTagToQuicVersionEj(i32 noundef %0) local_unname
   br label %4
 
 2:                                                ; preds = %4
-  %3 = add nuw nsw i64 %.079, 1
-  %exitcond = icmp eq i64 %3, 7
-  br i1 %exitcond, label %9, label %4, !llvm.loop !70
+  %3 = add nuw nsw i64 %.0711, 1
+  %exitcond.not = icmp eq i64 %3, 7
+  br i1 %exitcond.not, label %9, label %4, !llvm.loop !70
 
 4:                                                ; preds = %1, %2
-  %.079 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw i32, ptr @_ZN3netL22kSupportedQuicVersionsE, i64 %.079
+  %.0711 = phi i64 [ 0, %1 ], [ %3, %2 ]
+  %5 = getelementptr inbounds nuw i32, ptr @_ZN3netL22kSupportedQuicVersionsE, i64 %.0711
   %6 = load i32, ptr %5, align 4, !tbaa !66
   %7 = tail call noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %6)
   %8 = icmp eq i32 %0, %7
   br i1 %8, label %9, label %2
 
-9:                                                ; preds = %4, %2
-  %spec.select = phi i32 [ 0, %2 ], [ %6, %4 ]
-  ret i32 %spec.select
+9:                                                ; preds = %2, %4
+  %10 = phi i32 [ %6, %4 ], [ 0, %2 ]
+  ret i32 %10
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5915,30 +5915,30 @@ _ZNKSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE11
 _ZNK3net11IntervalSetImE25FindIntersectionCandidateERKS1_.exit34: ; preds = %_ZNKSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE11upper_boundERKS2_.exit.i.i29, %77
   %.sroa.02.0.i.i32 = phi ptr [ %78, %77 ], [ %.08.lcssa.i.i.i.i.i30, %_ZNKSt3setIN3net8IntervalImEENS0_11IntervalSetImE18IntervalComparatorESaIS2_EE11upper_boundERKS2_.exit.i.i29 ]
   %79 = icmp eq ptr %.sroa.02.0.i.i32, %60
-  br i1 %79, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.preheader56.i.i.preheader.lr.ph
+  br i1 %79, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.preheader55.i.i.preheader.lr.ph
 
-.preheader56.i.i.preheader.lr.ph:                 ; preds = %_ZNK3net11IntervalSetImE25FindIntersectionCandidateERKS1_.exit34
+.preheader55.i.i.preheader.lr.ph:                 ; preds = %_ZNK3net11IntervalSetImE25FindIntersectionCandidateERKS1_.exit34
   %.sroa.6.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %.preheader56.i.i.preheader
+  br label %.preheader55.i.i.preheader
 
-.preheader56.i.i.preheader:                       ; preds = %.preheader56.i.i.preheader.lr.ph, %_ZNK3net8IntervalImE10DifferenceERKS1_PS1_S4_.exit.thread.thread
-  %.sroa.047.068 = phi ptr [ %.sroa.02.0.i.i, %.preheader56.i.i.preheader.lr.ph ], [ %.sroa.047.1, %_ZNK3net8IntervalImE10DifferenceERKS1_PS1_S4_.exit.thread.thread ]
-  %.sroa.043.067 = phi ptr [ %.sroa.02.0.i.i32, %.preheader56.i.i.preheader.lr.ph ], [ %81, %_ZNK3net8IntervalImE10DifferenceERKS1_PS1_S4_.exit.thread.thread ]
+.preheader55.i.i.preheader:                       ; preds = %.preheader55.i.i.preheader.lr.ph, %_ZNK3net8IntervalImE10DifferenceERKS1_PS1_S4_.exit.thread.thread
+  %.sroa.047.068 = phi ptr [ %.sroa.02.0.i.i, %.preheader55.i.i.preheader.lr.ph ], [ %.sroa.047.1, %_ZNK3net8IntervalImE10DifferenceERKS1_PS1_S4_.exit.thread.thread ]
+  %.sroa.043.067 = phi ptr [ %.sroa.02.0.i.i32, %.preheader55.i.i.preheader.lr.ph ], [ %81, %_ZNK3net8IntervalImE10DifferenceERKS1_PS1_S4_.exit.thread.thread ]
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.047.068, i64 40
   %.pre77 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !76
-  br label %.preheader56.i.i
+  br label %.preheader55.i.i
 
-.preheader56.i.i:                                 ; preds = %.preheader56.i.i.preheader, %.critedge4.i.i
-  %80 = phi i64 [ %94, %.critedge4.i.i ], [ %.pre77, %.preheader56.i.i.preheader ]
-  %.sroa.047.2 = phi ptr [ %.sroa.047.3, %.critedge4.i.i ], [ %.sroa.047.068, %.preheader56.i.i.preheader ]
-  %81 = phi ptr [ %.lcssa57.i.i, %.critedge4.i.i ], [ %.sroa.043.067, %.preheader56.i.i.preheader ]
+.preheader55.i.i:                                 ; preds = %.preheader55.i.i.preheader, %.critedge4.i.i
+  %80 = phi i64 [ %94, %.critedge4.i.i ], [ %.pre77, %.preheader55.i.i.preheader ]
+  %.sroa.047.2 = phi ptr [ %.sroa.047.3, %.critedge4.i.i ], [ %.sroa.047.068, %.preheader55.i.i.preheader ]
+  %81 = phi ptr [ %.lcssa56.i.i, %.critedge4.i.i ], [ %.sroa.043.067, %.preheader55.i.i.preheader ]
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.047.2, i64 32
   %83 = load i64, ptr %82, align 8, !tbaa !76
   %.not.i.i.i = icmp ult i64 %83, %80
   br i1 %.not.i.i.i, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread.i.i
 
-_ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i:  ; preds = %.preheader56.i.i
+_ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i:  ; preds = %.preheader55.i.i
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %85 = load i64, ptr %84, align 8, !tbaa !76
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 40
@@ -5950,9 +5950,9 @@ _ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i:  ; preds = %.preheader56.i.i
   %spec.select.i.i.i = and i1 %90, %or.cond.i.i.i
   br i1 %spec.select.i.i.i, label %105, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread.i.i
 
-_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread.i.i: ; preds = %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i, %.preheader56.i.i
-  %.not5458.i.i = icmp eq ptr %.sroa.047.2, %35
-  br i1 %.not5458.i.i, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.lr.ph.i.i.preheader
+_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread.i.i: ; preds = %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i, %.preheader55.i.i
+  %.not5357.i.i = icmp eq ptr %.sroa.047.2, %35
+  br i1 %.not5357.i.i, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread.i.i
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 32
@@ -5968,38 +5968,38 @@ _ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread.i.i: ; preds = %_ZNK3net8Inte
 
 95:                                               ; preds = %.lr.ph.i.i
   %96 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.047.3) #32
-  %.not54.i.i = icmp eq ptr %96, %35
-  br i1 %.not54.i.i, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.lr.ph.i.i, !llvm.loop !294
+  %.not53.i.i = icmp eq ptr %96, %35
+  br i1 %.not53.i.i, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.lr.ph.i.i, !llvm.loop !294
 
 .critedge2.i.i:                                   ; preds = %.lr.ph.i.i
   %97 = icmp eq ptr %.sroa.047.3, %35
   br i1 %97, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %.critedge2.i.i
-  %.not5561.i.i = icmp eq ptr %81, %60
-  br i1 %.not5561.i.i, label %.critedge4.i.i, label %.lr.ph62.i.i.preheader
+  %.not5460.i.i = icmp eq ptr %81, %60
+  br i1 %.not5460.i.i, label %.critedge4.i.i, label %.lr.ph61.i.i.preheader
 
-.lr.ph62.i.i.preheader:                           ; preds = %.preheader.i.i
+.lr.ph61.i.i.preheader:                           ; preds = %.preheader.i.i
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.047.3, i64 32
   %99 = load i64, ptr %98, align 8, !tbaa !76
-  br label %.lr.ph62.i.i
+  br label %.lr.ph61.i.i
 
-.lr.ph62.i.i:                                     ; preds = %.lr.ph62.i.i.preheader, %102
-  %.sroa.043.2 = phi ptr [ %103, %102 ], [ %81, %.lr.ph62.i.i.preheader ]
+.lr.ph61.i.i:                                     ; preds = %.lr.ph61.i.i.preheader, %102
+  %.sroa.043.2 = phi ptr [ %103, %102 ], [ %81, %.lr.ph61.i.i.preheader ]
   %100 = getelementptr inbounds nuw i8, ptr %.sroa.043.2, i64 40
   %101 = load i64, ptr %100, align 8, !tbaa !76
   %.not42.i.i = icmp ugt i64 %101, %99
   br i1 %.not42.i.i, label %.critedge4.i.i, label %102
 
-102:                                              ; preds = %.lr.ph62.i.i
+102:                                              ; preds = %.lr.ph61.i.i
   %103 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.043.2) #32
-  %.not55.i.i = icmp eq ptr %103, %60
-  br i1 %.not55.i.i, label %.critedge4.i.i, label %.lr.ph62.i.i, !llvm.loop !295
+  %.not54.i.i = icmp eq ptr %103, %60
+  br i1 %.not54.i.i, label %.critedge4.i.i, label %.lr.ph61.i.i, !llvm.loop !295
 
-.critedge4.i.i:                                   ; preds = %102, %.lr.ph62.i.i, %.preheader.i.i
-  %.lcssa57.i.i = phi ptr [ %81, %.preheader.i.i ], [ %103, %102 ], [ %.sroa.043.2, %.lr.ph62.i.i ]
-  %104 = icmp eq ptr %.lcssa57.i.i, %60
-  br i1 %104, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.preheader56.i.i
+.critedge4.i.i:                                   ; preds = %102, %.lr.ph61.i.i, %.preheader.i.i
+  %.lcssa56.i.i = phi ptr [ %81, %.preheader.i.i ], [ %103, %102 ], [ %.sroa.043.2, %.lr.ph61.i.i ]
+  %104 = icmp eq ptr %.lcssa56.i.i, %60
+  br i1 %104, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.preheader55.i.i
 
 105:                                              ; preds = %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.i.i
   %106 = getelementptr inbounds nuw i8, ptr %81, i64 32
@@ -6102,7 +6102,7 @@ _ZNK3net8IntervalImE10DifferenceERKS1_PS1_S4_.exit.thread.thread: ; preds = %126
   %136 = icmp eq ptr %.sroa.047.1, %35
   %137 = icmp eq ptr %81, %60
   %or.cond = select i1 %136, i1 true, i1 %137
-  br i1 %or.cond, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.preheader56.i.i.preheader, !llvm.loop !296
+  br i1 %or.cond, label %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread, label %.preheader55.i.i.preheader, !llvm.loop !296
 
 _ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread: ; preds = %_ZNK3net8IntervalImE10DifferenceERKS1_PS1_S4_.exit.thread.thread, %.critedge2.i.i, %.critedge4.i.i, %_ZNK3net8IntervalImE10IntersectsERKS1_.exit.thread.i.i, %95, %_ZNK3net11IntervalSetImE25FindIntersectionCandidateERKS1_.exit34, %_ZNK3net11IntervalSetImE16SpanningIntervalEv.exit18, %_ZNK3net11IntervalSetImE25FindIntersectionCandidateERKS1_.exit, %_ZNK3net8IntervalImE10IntersectsERKS1_.exit
   ret void

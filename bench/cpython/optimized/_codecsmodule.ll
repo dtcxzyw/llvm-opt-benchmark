@@ -1596,8 +1596,8 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
   %12 = getelementptr i8, ptr %11, i64 8
   %.val = load ptr, ptr %12, align 8, !tbaa !4
   %13 = getelementptr i8, ptr %.val, i64 168
-  %.val38 = load i64, ptr %13, align 8, !tbaa !10
-  %14 = and i64 %.val38, 268435456
+  %.val37 = load i64, ptr %13, align 8, !tbaa !10
+  %14 = and i64 %.val37, 268435456
   %.not28 = icmp eq i64 %14, 0
   br i1 %.not28, label %24, label %15
 
@@ -1639,10 +1639,10 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
 
 32:                                               ; preds = %28
   %33 = getelementptr i8, ptr %30, i64 8
-  %.val37 = load ptr, ptr %33, align 8, !tbaa !4
-  %34 = getelementptr i8, ptr %.val37, i64 168
-  %.val39 = load i64, ptr %34, align 8, !tbaa !10
-  %35 = and i64 %.val39, 268435456
+  %.val36 = load ptr, ptr %33, align 8, !tbaa !4
+  %34 = getelementptr i8, ptr %.val36, i64 168
+  %.val38 = load i64, ptr %34, align 8, !tbaa !10
+  %35 = and i64 %.val38, 268435456
   %.not30 = icmp eq i64 %35, 0
   br i1 %.not30, label %45, label %36
 
@@ -1650,7 +1650,7 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %30, ptr noundef nonnull %6) #5
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread43, label %39
+  br i1 %38, label %.thread41, label %39
 
 39:                                               ; preds = %36
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #6
@@ -1661,9 +1661,9 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
 42:                                               ; preds = %39
   %43 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
   call void @PyErr_SetString(ptr noundef %43, ptr noundef nonnull @.str.44) #5
-  br label %.thread43
+  br label %.thread41
 
-.thread43:                                        ; preds = %42, %36
+.thread41:                                        ; preds = %42, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_codecs_escape_decode_impl.exit
 
@@ -1689,8 +1689,8 @@ define internal ptr @_codecs_escape_decode(ptr readnone captures(none) %0, ptr n
   %54 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %50, i64 noundef %53) #5
   br label %_codecs_escape_decode_impl.exit
 
-_codecs_escape_decode_impl.exit:                  ; preds = %52, %46, %.thread43, %.thread, %24, %8, %45
-  %.024 = phi ptr [ null, %45 ], [ null, %24 ], [ null, %8 ], [ null, %.thread ], [ null, %.thread43 ], [ %54, %52 ], [ null, %46 ]
+_codecs_escape_decode_impl.exit:                  ; preds = %52, %46, %.thread41, %.thread, %24, %8, %45
+  %.024 = phi ptr [ null, %45 ], [ null, %24 ], [ null, %8 ], [ null, %.thread ], [ null, %.thread41 ], [ %54, %52 ], [ null, %46 ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !32
   %.not32 = icmp eq ptr %56, null
@@ -1820,7 +1820,7 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
 
 13:                                               ; preds = %10
   %14 = icmp slt i64 %2, 2
-  br i1 %14, label %.thread39, label %15
+  br i1 %14, label %.thread38, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr i8, ptr %1, i64 8
@@ -1869,7 +1869,7 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
 33:                                               ; preds = %31, %15
   %.1 = phi ptr [ %24, %31 ], [ null, %15 ]
   %34 = icmp eq i64 %2, 2
-  br i1 %34, label %.thread39, label %35
+  br i1 %34, label %.thread38, label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr i8, ptr %1, i64 16
@@ -1879,13 +1879,13 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
   %39 = icmp slt i32 %.fr, 0
   br i1 %39, label %50, label %41
 
-.thread39:                                        ; preds = %13, %33
+.thread38:                                        ; preds = %13, %33
   %.021.ph = phi ptr [ %.1, %33 ], [ null, %13 ]
-  %.val3442 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val3441 = load ptr, ptr %5, align 8, !tbaa !28
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val3543 = load i64, ptr %40, align 8, !tbaa !31
+  %.val3542 = load i64, ptr %40, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %.val3543, ptr %4, align 8, !tbaa !21
+  store i64 %.val3542, ptr %4, align 8, !tbaa !21
   br label %43
 
 41:                                               ; preds = %35
@@ -1898,12 +1898,12 @@ define internal ptr @_codecs_utf_8_decode(ptr readnone captures(none) %0, ptr no
   %spec.select = select i1 %.not.i, ptr %4, ptr null
   br label %43
 
-43:                                               ; preds = %41, %.thread39
-  %.val3550 = phi i64 [ %.val3543, %.thread39 ], [ %.val35, %41 ]
-  %.val3448 = phi ptr [ %.val3442, %.thread39 ], [ %.val34, %41 ]
-  %.02146 = phi ptr [ %.021.ph, %.thread39 ], [ %.1, %41 ]
-  %44 = phi ptr [ %4, %.thread39 ], [ %spec.select, %41 ]
-  %45 = call ptr @PyUnicode_DecodeUTF8Stateful(ptr noundef %.val3448, i64 noundef %.val3550, ptr noundef %.02146, ptr noundef %44) #5
+43:                                               ; preds = %41, %.thread38
+  %.val3549 = phi i64 [ %.val3542, %.thread38 ], [ %.val35, %41 ]
+  %.val3447 = phi ptr [ %.val3441, %.thread38 ], [ %.val34, %41 ]
+  %.02145 = phi ptr [ %.021.ph, %.thread38 ], [ %.1, %41 ]
+  %44 = phi ptr [ %4, %.thread38 ], [ %spec.select, %41 ]
+  %45 = call ptr @PyUnicode_DecodeUTF8Stateful(ptr noundef %.val3447, i64 noundef %.val3549, ptr noundef %.02145, ptr noundef %44) #5
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_codecs_utf_8_decode_impl.exit, label %47
 
@@ -2048,7 +2048,7 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
 
 13:                                               ; preds = %10
   %14 = icmp slt i64 %2, 2
-  br i1 %14, label %.thread39, label %15
+  br i1 %14, label %.thread38, label %15
 
 15:                                               ; preds = %13
   %16 = getelementptr i8, ptr %1, i64 8
@@ -2097,7 +2097,7 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
 33:                                               ; preds = %31, %15
   %.1 = phi ptr [ %24, %31 ], [ null, %15 ]
   %34 = icmp eq i64 %2, 2
-  br i1 %34, label %.thread39, label %35
+  br i1 %34, label %.thread38, label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr i8, ptr %1, i64 16
@@ -2107,13 +2107,13 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
   %39 = icmp slt i32 %.fr, 0
   br i1 %39, label %50, label %41
 
-.thread39:                                        ; preds = %13, %33
+.thread38:                                        ; preds = %13, %33
   %.021.ph = phi ptr [ %.1, %33 ], [ null, %13 ]
-  %.val3442 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val3441 = load ptr, ptr %5, align 8, !tbaa !28
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val3543 = load i64, ptr %40, align 8, !tbaa !31
+  %.val3542 = load i64, ptr %40, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %.val3543, ptr %4, align 8, !tbaa !21
+  store i64 %.val3542, ptr %4, align 8, !tbaa !21
   br label %43
 
 41:                                               ; preds = %35
@@ -2126,12 +2126,12 @@ define internal ptr @_codecs_utf_7_decode(ptr readnone captures(none) %0, ptr no
   %spec.select = select i1 %.not.i, ptr %4, ptr null
   br label %43
 
-43:                                               ; preds = %41, %.thread39
-  %.val3550 = phi i64 [ %.val3543, %.thread39 ], [ %.val35, %41 ]
-  %.val3448 = phi ptr [ %.val3442, %.thread39 ], [ %.val34, %41 ]
-  %.02146 = phi ptr [ %.021.ph, %.thread39 ], [ %.1, %41 ]
-  %44 = phi ptr [ %4, %.thread39 ], [ %spec.select, %41 ]
-  %45 = call ptr @PyUnicode_DecodeUTF7Stateful(ptr noundef %.val3448, i64 noundef %.val3550, ptr noundef %.02146, ptr noundef %44) #5
+43:                                               ; preds = %41, %.thread38
+  %.val3549 = phi i64 [ %.val3542, %.thread38 ], [ %.val35, %41 ]
+  %.val3447 = phi ptr [ %.val3441, %.thread38 ], [ %.val34, %41 ]
+  %.02145 = phi ptr [ %.021.ph, %.thread38 ], [ %.1, %41 ]
+  %44 = phi ptr [ %4, %.thread38 ], [ %spec.select, %41 ]
+  %45 = call ptr @PyUnicode_DecodeUTF7Stateful(ptr noundef %.val3447, i64 noundef %.val3549, ptr noundef %.02145, ptr noundef %44) #5
   %46 = icmp eq ptr %45, null
   br i1 %46, label %_codecs_utf_7_decode_impl.exit, label %47
 
@@ -2477,7 +2477,7 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
 
 14:                                               ; preds = %11
   %15 = icmp slt i64 %2, 2
-  br i1 %15, label %.thread39, label %16
+  br i1 %15, label %.thread38, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %1, i64 8
@@ -2526,7 +2526,7 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
 34:                                               ; preds = %32, %16
   %.1 = phi ptr [ %25, %32 ], [ null, %16 ]
   %35 = icmp eq i64 %2, 2
-  br i1 %35, label %.thread39, label %36
+  br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %1, i64 16
@@ -2536,15 +2536,15 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
   %40 = icmp slt i32 %.fr, 0
   br i1 %40, label %51, label %42
 
-.thread39:                                        ; preds = %14, %34
+.thread38:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3441 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3542 = load i64, ptr %41, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %.val3543, ptr %5, align 8, !tbaa !21
+  store i64 %.val3542, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
@@ -2559,12 +2559,12 @@ define internal ptr @_codecs_utf_16_decode(ptr readnone captures(none) %0, ptr n
   %spec.select = select i1 %.not.i, ptr %5, ptr null
   br label %44
 
-44:                                               ; preds = %42, %.thread39
-  %.val3550 = phi i64 [ %.val3543, %.thread39 ], [ %.val35, %42 ]
-  %.val3448 = phi ptr [ %.val3442, %.thread39 ], [ %.val34, %42 ]
-  %.02146 = phi ptr [ %.021.ph, %.thread39 ], [ %.1, %42 ]
-  %45 = phi ptr [ %5, %.thread39 ], [ %spec.select, %42 ]
-  %46 = call ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %.val3448, i64 noundef %.val3550, ptr noundef %.02146, ptr noundef nonnull %4, ptr noundef %45) #5
+44:                                               ; preds = %42, %.thread38
+  %.val3549 = phi i64 [ %.val3542, %.thread38 ], [ %.val35, %42 ]
+  %.val3447 = phi ptr [ %.val3441, %.thread38 ], [ %.val34, %42 ]
+  %.02145 = phi ptr [ %.021.ph, %.thread38 ], [ %.1, %42 ]
+  %45 = phi ptr [ %5, %.thread38 ], [ %spec.select, %42 ]
+  %46 = call ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %.val3447, i64 noundef %.val3549, ptr noundef %.02145, ptr noundef nonnull %4, ptr noundef %45) #5
   %47 = icmp eq ptr %46, null
   br i1 %47, label %_codecs_utf_16_decode_impl.exit, label %48
 
@@ -2620,7 +2620,7 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
 
 14:                                               ; preds = %11
   %15 = icmp slt i64 %2, 2
-  br i1 %15, label %.thread39, label %16
+  br i1 %15, label %.thread38, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %1, i64 8
@@ -2669,7 +2669,7 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
 34:                                               ; preds = %32, %16
   %.1 = phi ptr [ %25, %32 ], [ null, %16 ]
   %35 = icmp eq i64 %2, 2
-  br i1 %35, label %.thread39, label %36
+  br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %1, i64 16
@@ -2679,15 +2679,15 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
   %40 = icmp slt i32 %.fr, 0
   br i1 %40, label %51, label %42
 
-.thread39:                                        ; preds = %14, %34
+.thread38:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3441 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3542 = load i64, ptr %41, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %.val3543, ptr %5, align 8, !tbaa !21
+  store i64 %.val3542, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
@@ -2702,12 +2702,12 @@ define internal ptr @_codecs_utf_16_le_decode(ptr readnone captures(none) %0, pt
   %spec.select = select i1 %.not.i, ptr %5, ptr null
   br label %44
 
-44:                                               ; preds = %42, %.thread39
-  %.val3550 = phi i64 [ %.val3543, %.thread39 ], [ %.val35, %42 ]
-  %.val3448 = phi ptr [ %.val3442, %.thread39 ], [ %.val34, %42 ]
-  %.02146 = phi ptr [ %.021.ph, %.thread39 ], [ %.1, %42 ]
-  %45 = phi ptr [ %5, %.thread39 ], [ %spec.select, %42 ]
-  %46 = call ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %.val3448, i64 noundef %.val3550, ptr noundef %.02146, ptr noundef nonnull %4, ptr noundef %45) #5
+44:                                               ; preds = %42, %.thread38
+  %.val3549 = phi i64 [ %.val3542, %.thread38 ], [ %.val35, %42 ]
+  %.val3447 = phi ptr [ %.val3441, %.thread38 ], [ %.val34, %42 ]
+  %.02145 = phi ptr [ %.021.ph, %.thread38 ], [ %.1, %42 ]
+  %45 = phi ptr [ %5, %.thread38 ], [ %spec.select, %42 ]
+  %46 = call ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %.val3447, i64 noundef %.val3549, ptr noundef %.02145, ptr noundef nonnull %4, ptr noundef %45) #5
   %47 = icmp eq ptr %46, null
   br i1 %47, label %_codecs_utf_16_le_decode_impl.exit, label %48
 
@@ -2763,7 +2763,7 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
 
 14:                                               ; preds = %11
   %15 = icmp slt i64 %2, 2
-  br i1 %15, label %.thread39, label %16
+  br i1 %15, label %.thread38, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %1, i64 8
@@ -2812,7 +2812,7 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
 34:                                               ; preds = %32, %16
   %.1 = phi ptr [ %25, %32 ], [ null, %16 ]
   %35 = icmp eq i64 %2, 2
-  br i1 %35, label %.thread39, label %36
+  br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %1, i64 16
@@ -2822,15 +2822,15 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
   %40 = icmp slt i32 %.fr, 0
   br i1 %40, label %51, label %42
 
-.thread39:                                        ; preds = %14, %34
+.thread38:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3441 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3542 = load i64, ptr %41, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %.val3543, ptr %5, align 8, !tbaa !21
+  store i64 %.val3542, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
@@ -2845,12 +2845,12 @@ define internal ptr @_codecs_utf_16_be_decode(ptr readnone captures(none) %0, pt
   %spec.select = select i1 %.not.i, ptr %5, ptr null
   br label %44
 
-44:                                               ; preds = %42, %.thread39
-  %.val3550 = phi i64 [ %.val3543, %.thread39 ], [ %.val35, %42 ]
-  %.val3448 = phi ptr [ %.val3442, %.thread39 ], [ %.val34, %42 ]
-  %.02146 = phi ptr [ %.021.ph, %.thread39 ], [ %.1, %42 ]
-  %45 = phi ptr [ %5, %.thread39 ], [ %spec.select, %42 ]
-  %46 = call ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %.val3448, i64 noundef %.val3550, ptr noundef %.02146, ptr noundef nonnull %4, ptr noundef %45) #5
+44:                                               ; preds = %42, %.thread38
+  %.val3549 = phi i64 [ %.val3542, %.thread38 ], [ %.val35, %42 ]
+  %.val3447 = phi ptr [ %.val3441, %.thread38 ], [ %.val34, %42 ]
+  %.02145 = phi ptr [ %.021.ph, %.thread38 ], [ %.1, %42 ]
+  %45 = phi ptr [ %5, %.thread38 ], [ %spec.select, %42 ]
+  %46 = call ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %.val3447, i64 noundef %.val3549, ptr noundef %.02145, ptr noundef nonnull %4, ptr noundef %45) #5
   %47 = icmp eq ptr %46, null
   br i1 %47, label %_codecs_utf_16_be_decode_impl.exit, label %48
 
@@ -2906,7 +2906,7 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
 
 14:                                               ; preds = %11
   %15 = icmp slt i64 %2, 2
-  br i1 %15, label %.thread45, label %16
+  br i1 %15, label %.thread44, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %1, i64 8
@@ -2955,7 +2955,7 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
 34:                                               ; preds = %32, %16
   %.1 = phi ptr [ %25, %32 ], [ null, %16 ]
   %35 = icmp eq i64 %2, 2
-  br i1 %35, label %.thread45, label %36
+  br i1 %35, label %.thread44, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %1, i64 16
@@ -2971,7 +2971,7 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
 
 43:                                               ; preds = %41, %36
   %44 = icmp samesign ult i64 %2, 4
-  br i1 %44, label %.thread45, label %45
+  br i1 %44, label %.thread44, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr i8, ptr %1, i64 24
@@ -2981,16 +2981,16 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
   %49 = icmp slt i32 %.fr, 0
   br i1 %49, label %61, label %51
 
-.thread45:                                        ; preds = %14, %34, %43
+.thread44:                                        ; preds = %14, %34, %43
   %.026.ph = phi ptr [ %.1, %43 ], [ %.1, %34 ], [ null, %14 ]
   %.025.ph = phi i32 [ %39, %43 ], [ 0, %34 ], [ 0, %14 ]
-  %.val4049 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val4048 = load ptr, ptr %6, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val4150 = load i64, ptr %50, align 8, !tbaa !31
+  %.val4149 = load i64, ptr %50, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %.025.ph, ptr %4, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %.val4150, ptr %5, align 8, !tbaa !21
+  store i64 %.val4149, ptr %5, align 8, !tbaa !21
   br label %53
 
 51:                                               ; preds = %45
@@ -3005,12 +3005,12 @@ define internal ptr @_codecs_utf_16_ex_decode(ptr readnone captures(none) %0, pt
   %spec.select = select i1 %.not.i, ptr %5, ptr null
   br label %53
 
-53:                                               ; preds = %51, %.thread45
-  %.val4157 = phi i64 [ %.val4150, %.thread45 ], [ %.val41, %51 ]
-  %.val4055 = phi ptr [ %.val4049, %.thread45 ], [ %.val40, %51 ]
-  %.02653 = phi ptr [ %.026.ph, %.thread45 ], [ %.1, %51 ]
-  %54 = phi ptr [ %5, %.thread45 ], [ %spec.select, %51 ]
-  %55 = call ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %.val4055, i64 noundef %.val4157, ptr noundef %.02653, ptr noundef nonnull %4, ptr noundef %54) #5
+53:                                               ; preds = %51, %.thread44
+  %.val4156 = phi i64 [ %.val4149, %.thread44 ], [ %.val41, %51 ]
+  %.val4054 = phi ptr [ %.val4048, %.thread44 ], [ %.val40, %51 ]
+  %.02652 = phi ptr [ %.026.ph, %.thread44 ], [ %.1, %51 ]
+  %54 = phi ptr [ %5, %.thread44 ], [ %spec.select, %51 ]
+  %55 = call ptr @PyUnicode_DecodeUTF16Stateful(ptr noundef %.val4054, i64 noundef %.val4156, ptr noundef %.02652, ptr noundef nonnull %4, ptr noundef %54) #5
   %56 = icmp eq ptr %55, null
   br i1 %56, label %_codecs_utf_16_ex_decode_impl.exit, label %57
 
@@ -3358,7 +3358,7 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
 
 14:                                               ; preds = %11
   %15 = icmp slt i64 %2, 2
-  br i1 %15, label %.thread39, label %16
+  br i1 %15, label %.thread38, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %1, i64 8
@@ -3407,7 +3407,7 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
 34:                                               ; preds = %32, %16
   %.1 = phi ptr [ %25, %32 ], [ null, %16 ]
   %35 = icmp eq i64 %2, 2
-  br i1 %35, label %.thread39, label %36
+  br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %1, i64 16
@@ -3417,15 +3417,15 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
   %40 = icmp slt i32 %.fr, 0
   br i1 %40, label %51, label %42
 
-.thread39:                                        ; preds = %14, %34
+.thread38:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3441 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3542 = load i64, ptr %41, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %.val3543, ptr %5, align 8, !tbaa !21
+  store i64 %.val3542, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
@@ -3440,12 +3440,12 @@ define internal ptr @_codecs_utf_32_decode(ptr readnone captures(none) %0, ptr n
   %spec.select = select i1 %.not.i, ptr %5, ptr null
   br label %44
 
-44:                                               ; preds = %42, %.thread39
-  %.val3550 = phi i64 [ %.val3543, %.thread39 ], [ %.val35, %42 ]
-  %.val3448 = phi ptr [ %.val3442, %.thread39 ], [ %.val34, %42 ]
-  %.02146 = phi ptr [ %.021.ph, %.thread39 ], [ %.1, %42 ]
-  %45 = phi ptr [ %5, %.thread39 ], [ %spec.select, %42 ]
-  %46 = call ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %.val3448, i64 noundef %.val3550, ptr noundef %.02146, ptr noundef nonnull %4, ptr noundef %45) #5
+44:                                               ; preds = %42, %.thread38
+  %.val3549 = phi i64 [ %.val3542, %.thread38 ], [ %.val35, %42 ]
+  %.val3447 = phi ptr [ %.val3441, %.thread38 ], [ %.val34, %42 ]
+  %.02145 = phi ptr [ %.021.ph, %.thread38 ], [ %.1, %42 ]
+  %45 = phi ptr [ %5, %.thread38 ], [ %spec.select, %42 ]
+  %46 = call ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %.val3447, i64 noundef %.val3549, ptr noundef %.02145, ptr noundef nonnull %4, ptr noundef %45) #5
   %47 = icmp eq ptr %46, null
   br i1 %47, label %_codecs_utf_32_decode_impl.exit, label %48
 
@@ -3501,7 +3501,7 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
 
 14:                                               ; preds = %11
   %15 = icmp slt i64 %2, 2
-  br i1 %15, label %.thread39, label %16
+  br i1 %15, label %.thread38, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %1, i64 8
@@ -3550,7 +3550,7 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
 34:                                               ; preds = %32, %16
   %.1 = phi ptr [ %25, %32 ], [ null, %16 ]
   %35 = icmp eq i64 %2, 2
-  br i1 %35, label %.thread39, label %36
+  br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %1, i64 16
@@ -3560,15 +3560,15 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
   %40 = icmp slt i32 %.fr, 0
   br i1 %40, label %51, label %42
 
-.thread39:                                        ; preds = %14, %34
+.thread38:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3441 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3542 = load i64, ptr %41, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %.val3543, ptr %5, align 8, !tbaa !21
+  store i64 %.val3542, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
@@ -3583,12 +3583,12 @@ define internal ptr @_codecs_utf_32_le_decode(ptr readnone captures(none) %0, pt
   %spec.select = select i1 %.not.i, ptr %5, ptr null
   br label %44
 
-44:                                               ; preds = %42, %.thread39
-  %.val3550 = phi i64 [ %.val3543, %.thread39 ], [ %.val35, %42 ]
-  %.val3448 = phi ptr [ %.val3442, %.thread39 ], [ %.val34, %42 ]
-  %.02146 = phi ptr [ %.021.ph, %.thread39 ], [ %.1, %42 ]
-  %45 = phi ptr [ %5, %.thread39 ], [ %spec.select, %42 ]
-  %46 = call ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %.val3448, i64 noundef %.val3550, ptr noundef %.02146, ptr noundef nonnull %4, ptr noundef %45) #5
+44:                                               ; preds = %42, %.thread38
+  %.val3549 = phi i64 [ %.val3542, %.thread38 ], [ %.val35, %42 ]
+  %.val3447 = phi ptr [ %.val3441, %.thread38 ], [ %.val34, %42 ]
+  %.02145 = phi ptr [ %.021.ph, %.thread38 ], [ %.1, %42 ]
+  %45 = phi ptr [ %5, %.thread38 ], [ %spec.select, %42 ]
+  %46 = call ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %.val3447, i64 noundef %.val3549, ptr noundef %.02145, ptr noundef nonnull %4, ptr noundef %45) #5
   %47 = icmp eq ptr %46, null
   br i1 %47, label %_codecs_utf_32_le_decode_impl.exit, label %48
 
@@ -3644,7 +3644,7 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
 
 14:                                               ; preds = %11
   %15 = icmp slt i64 %2, 2
-  br i1 %15, label %.thread39, label %16
+  br i1 %15, label %.thread38, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %1, i64 8
@@ -3693,7 +3693,7 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
 34:                                               ; preds = %32, %16
   %.1 = phi ptr [ %25, %32 ], [ null, %16 ]
   %35 = icmp eq i64 %2, 2
-  br i1 %35, label %.thread39, label %36
+  br i1 %35, label %.thread38, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %1, i64 16
@@ -3703,15 +3703,15 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
   %40 = icmp slt i32 %.fr, 0
   br i1 %40, label %51, label %42
 
-.thread39:                                        ; preds = %14, %34
+.thread38:                                        ; preds = %14, %34
   %.021.ph = phi ptr [ %.1, %34 ], [ null, %14 ]
-  %.val3442 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val3441 = load ptr, ptr %6, align 8, !tbaa !28
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val3543 = load i64, ptr %41, align 8, !tbaa !31
+  %.val3542 = load i64, ptr %41, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 1, ptr %4, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %.val3543, ptr %5, align 8, !tbaa !21
+  store i64 %.val3542, ptr %5, align 8, !tbaa !21
   br label %44
 
 42:                                               ; preds = %36
@@ -3726,12 +3726,12 @@ define internal ptr @_codecs_utf_32_be_decode(ptr readnone captures(none) %0, pt
   %spec.select = select i1 %.not.i, ptr %5, ptr null
   br label %44
 
-44:                                               ; preds = %42, %.thread39
-  %.val3550 = phi i64 [ %.val3543, %.thread39 ], [ %.val35, %42 ]
-  %.val3448 = phi ptr [ %.val3442, %.thread39 ], [ %.val34, %42 ]
-  %.02146 = phi ptr [ %.021.ph, %.thread39 ], [ %.1, %42 ]
-  %45 = phi ptr [ %5, %.thread39 ], [ %spec.select, %42 ]
-  %46 = call ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %.val3448, i64 noundef %.val3550, ptr noundef %.02146, ptr noundef nonnull %4, ptr noundef %45) #5
+44:                                               ; preds = %42, %.thread38
+  %.val3549 = phi i64 [ %.val3542, %.thread38 ], [ %.val35, %42 ]
+  %.val3447 = phi ptr [ %.val3441, %.thread38 ], [ %.val34, %42 ]
+  %.02145 = phi ptr [ %.021.ph, %.thread38 ], [ %.1, %42 ]
+  %45 = phi ptr [ %5, %.thread38 ], [ %spec.select, %42 ]
+  %46 = call ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %.val3447, i64 noundef %.val3549, ptr noundef %.02145, ptr noundef nonnull %4, ptr noundef %45) #5
   %47 = icmp eq ptr %46, null
   br i1 %47, label %_codecs_utf_32_be_decode_impl.exit, label %48
 
@@ -3787,7 +3787,7 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
 
 14:                                               ; preds = %11
   %15 = icmp slt i64 %2, 2
-  br i1 %15, label %.thread45, label %16
+  br i1 %15, label %.thread44, label %16
 
 16:                                               ; preds = %14
   %17 = getelementptr i8, ptr %1, i64 8
@@ -3836,7 +3836,7 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
 34:                                               ; preds = %32, %16
   %.1 = phi ptr [ %25, %32 ], [ null, %16 ]
   %35 = icmp eq i64 %2, 2
-  br i1 %35, label %.thread45, label %36
+  br i1 %35, label %.thread44, label %36
 
 36:                                               ; preds = %34
   %37 = getelementptr i8, ptr %1, i64 16
@@ -3852,7 +3852,7 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
 
 43:                                               ; preds = %41, %36
   %44 = icmp samesign ult i64 %2, 4
-  br i1 %44, label %.thread45, label %45
+  br i1 %44, label %.thread44, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr i8, ptr %1, i64 24
@@ -3862,16 +3862,16 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
   %49 = icmp slt i32 %.fr, 0
   br i1 %49, label %61, label %51
 
-.thread45:                                        ; preds = %14, %34, %43
+.thread44:                                        ; preds = %14, %34, %43
   %.026.ph = phi ptr [ %.1, %43 ], [ %.1, %34 ], [ null, %14 ]
   %.025.ph = phi i32 [ %39, %43 ], [ 0, %34 ], [ 0, %14 ]
-  %.val4049 = load ptr, ptr %6, align 8, !tbaa !28
+  %.val4048 = load ptr, ptr %6, align 8, !tbaa !28
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.val4150 = load i64, ptr %50, align 8, !tbaa !31
+  %.val4149 = load i64, ptr %50, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %.025.ph, ptr %4, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  store i64 %.val4150, ptr %5, align 8, !tbaa !21
+  store i64 %.val4149, ptr %5, align 8, !tbaa !21
   br label %53
 
 51:                                               ; preds = %45
@@ -3886,12 +3886,12 @@ define internal ptr @_codecs_utf_32_ex_decode(ptr readnone captures(none) %0, pt
   %spec.select = select i1 %.not.i, ptr %5, ptr null
   br label %53
 
-53:                                               ; preds = %51, %.thread45
-  %.val4157 = phi i64 [ %.val4150, %.thread45 ], [ %.val41, %51 ]
-  %.val4055 = phi ptr [ %.val4049, %.thread45 ], [ %.val40, %51 ]
-  %.02653 = phi ptr [ %.026.ph, %.thread45 ], [ %.1, %51 ]
-  %54 = phi ptr [ %5, %.thread45 ], [ %spec.select, %51 ]
-  %55 = call ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %.val4055, i64 noundef %.val4157, ptr noundef %.02653, ptr noundef nonnull %4, ptr noundef %54) #5
+53:                                               ; preds = %51, %.thread44
+  %.val4156 = phi i64 [ %.val4149, %.thread44 ], [ %.val41, %51 ]
+  %.val4054 = phi ptr [ %.val4048, %.thread44 ], [ %.val40, %51 ]
+  %.02652 = phi ptr [ %.026.ph, %.thread44 ], [ %.1, %51 ]
+  %54 = phi ptr [ %5, %.thread44 ], [ %spec.select, %51 ]
+  %55 = call ptr @PyUnicode_DecodeUTF32Stateful(ptr noundef %.val4054, i64 noundef %.val4156, ptr noundef %.02652, ptr noundef nonnull %4, ptr noundef %54) #5
   %56 = icmp eq ptr %55, null
   br i1 %56, label %_codecs_utf_32_ex_decode_impl.exit, label %57
 
@@ -4035,8 +4035,8 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8, !tbaa !4
   %14 = getelementptr i8, ptr %.val, i64 168
-  %.val46 = load i64, ptr %14, align 8, !tbaa !10
-  %15 = and i64 %.val46, 268435456
+  %.val45 = load i64, ptr %14, align 8, !tbaa !10
+  %15 = and i64 %.val45, 268435456
   %.not36 = icmp eq i64 %15, 0
   br i1 %.not36, label %25, label %16
 
@@ -4068,7 +4068,7 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
 
 27:                                               ; preds = %24, %25
   %28 = icmp slt i64 %2, 2
-  br i1 %28, label %.thread57, label %29
+  br i1 %28, label %.thread54, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr i8, ptr %1, i64 8
@@ -4078,10 +4078,10 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
 
 33:                                               ; preds = %29
   %34 = getelementptr i8, ptr %31, i64 8
-  %.val45 = load ptr, ptr %34, align 8, !tbaa !4
-  %35 = getelementptr i8, ptr %.val45, i64 168
-  %.val47 = load i64, ptr %35, align 8, !tbaa !10
-  %36 = and i64 %.val47, 268435456
+  %.val44 = load ptr, ptr %34, align 8, !tbaa !4
+  %35 = getelementptr i8, ptr %.val44, i64 168
+  %.val46 = load i64, ptr %35, align 8, !tbaa !10
+  %36 = and i64 %.val46, 268435456
   %.not38 = icmp eq i64 %36, 0
   br i1 %.not38, label %46, label %37
 
@@ -4089,7 +4089,7 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %31, ptr noundef nonnull %7) #5
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread53, label %40
+  br i1 %39, label %.thread51, label %40
 
 40:                                               ; preds = %37
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #6
@@ -4100,9 +4100,9 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
 43:                                               ; preds = %40
   %44 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
   call void @PyErr_SetString(ptr noundef %44, ptr noundef nonnull @.str.44) #5
-  br label %.thread53
+  br label %.thread51
 
-.thread53:                                        ; preds = %43, %37
+.thread51:                                        ; preds = %43, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
@@ -4117,7 +4117,7 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
 47:                                               ; preds = %45, %29
   %.129 = phi ptr [ %38, %45 ], [ null, %29 ]
   %48 = icmp eq i64 %2, 2
-  br i1 %48, label %.thread57, label %49
+  br i1 %48, label %.thread54, label %49
 
 49:                                               ; preds = %47
   %50 = getelementptr i8, ptr %1, i64 16
@@ -4127,31 +4127,31 @@ define internal ptr @_codecs_unicode_escape_decode(ptr readnone captures(none) %
   %53 = icmp slt i32 %.fr, 0
   br i1 %53, label %64, label %55
 
-.thread57:                                        ; preds = %27, %47
+.thread54:                                        ; preds = %27, %47
   %.028.ph = phi ptr [ %.129, %47 ], [ null, %27 ]
-  %.val4860 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val4757 = load ptr, ptr %5, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val4961 = load i64, ptr %54, align 8, !tbaa !31
+  %.val4858 = load i64, ptr %54, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %.val4961, ptr %4, align 8, !tbaa !21
+  store i64 %.val4858, ptr %4, align 8, !tbaa !21
   br label %57
 
 55:                                               ; preds = %49
-  %.val48 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val47 = load ptr, ptr %5, align 8, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val49 = load i64, ptr %56, align 8, !tbaa !31
+  %.val48 = load i64, ptr %56, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %.val49, ptr %4, align 8, !tbaa !21
+  store i64 %.val48, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %4, ptr null
   br label %57
 
-57:                                               ; preds = %55, %.thread57
-  %.val4966 = phi i64 [ %.val4961, %.thread57 ], [ %.val49, %55 ]
-  %.val4865 = phi ptr [ %.val4860, %.thread57 ], [ %.val48, %55 ]
-  %.02864 = phi ptr [ %.028.ph, %.thread57 ], [ %.129, %55 ]
-  %58 = phi ptr [ null, %.thread57 ], [ %spec.select, %55 ]
-  %59 = call ptr @_PyUnicode_DecodeUnicodeEscapeStateful(ptr noundef %.val4865, i64 noundef %.val4966, ptr noundef %.02864, ptr noundef %58) #5
+57:                                               ; preds = %55, %.thread54
+  %.val4863 = phi i64 [ %.val4858, %.thread54 ], [ %.val48, %55 ]
+  %.val4762 = phi ptr [ %.val4757, %.thread54 ], [ %.val47, %55 ]
+  %.02861 = phi ptr [ %.028.ph, %.thread54 ], [ %.129, %55 ]
+  %58 = phi ptr [ null, %.thread54 ], [ %spec.select, %55 ]
+  %59 = call ptr @_PyUnicode_DecodeUnicodeEscapeStateful(ptr noundef %.val4762, i64 noundef %.val4863, ptr noundef %.02861, ptr noundef %58) #5
   %60 = icmp eq ptr %59, null
   br i1 %60, label %_codecs_unicode_escape_decode_impl.exit, label %61
 
@@ -4165,8 +4165,8 @@ _codecs_unicode_escape_decode_impl.exit:          ; preds = %57, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
-64:                                               ; preds = %.thread53, %.thread, %49, %25, %9, %_codecs_unicode_escape_decode_impl.exit, %46
-  %.030 = phi ptr [ %.0.i.i, %_codecs_unicode_escape_decode_impl.exit ], [ null, %49 ], [ null, %46 ], [ null, %25 ], [ null, %9 ], [ null, %.thread ], [ null, %.thread53 ]
+64:                                               ; preds = %.thread51, %.thread, %49, %25, %9, %_codecs_unicode_escape_decode_impl.exit, %46
+  %.030 = phi ptr [ %.0.i.i, %_codecs_unicode_escape_decode_impl.exit ], [ null, %49 ], [ null, %46 ], [ null, %25 ], [ null, %9 ], [ null, %.thread ], [ null, %.thread51 ]
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !32
   %.not40 = icmp eq ptr %66, null
@@ -4293,8 +4293,8 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   %13 = getelementptr i8, ptr %12, i64 8
   %.val = load ptr, ptr %13, align 8, !tbaa !4
   %14 = getelementptr i8, ptr %.val, i64 168
-  %.val46 = load i64, ptr %14, align 8, !tbaa !10
-  %15 = and i64 %.val46, 268435456
+  %.val45 = load i64, ptr %14, align 8, !tbaa !10
+  %15 = and i64 %.val45, 268435456
   %.not36 = icmp eq i64 %15, 0
   br i1 %.not36, label %25, label %16
 
@@ -4326,7 +4326,7 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
 
 27:                                               ; preds = %24, %25
   %28 = icmp slt i64 %2, 2
-  br i1 %28, label %.thread57, label %29
+  br i1 %28, label %.thread54, label %29
 
 29:                                               ; preds = %27
   %30 = getelementptr i8, ptr %1, i64 8
@@ -4336,10 +4336,10 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
 
 33:                                               ; preds = %29
   %34 = getelementptr i8, ptr %31, i64 8
-  %.val45 = load ptr, ptr %34, align 8, !tbaa !4
-  %35 = getelementptr i8, ptr %.val45, i64 168
-  %.val47 = load i64, ptr %35, align 8, !tbaa !10
-  %36 = and i64 %.val47, 268435456
+  %.val44 = load ptr, ptr %34, align 8, !tbaa !4
+  %35 = getelementptr i8, ptr %.val44, i64 168
+  %.val46 = load i64, ptr %35, align 8, !tbaa !10
+  %36 = and i64 %.val46, 268435456
   %.not38 = icmp eq i64 %36, 0
   br i1 %.not38, label %46, label %37
 
@@ -4347,7 +4347,7 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %38 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %31, ptr noundef nonnull %7) #5
   %39 = icmp eq ptr %38, null
-  br i1 %39, label %.thread53, label %40
+  br i1 %39, label %.thread51, label %40
 
 40:                                               ; preds = %37
   %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #6
@@ -4358,9 +4358,9 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
 43:                                               ; preds = %40
   %44 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
   call void @PyErr_SetString(ptr noundef %44, ptr noundef nonnull @.str.44) #5
-  br label %.thread53
+  br label %.thread51
 
-.thread53:                                        ; preds = %43, %37
+.thread51:                                        ; preds = %43, %37
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %64
 
@@ -4375,7 +4375,7 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
 47:                                               ; preds = %45, %29
   %.129 = phi ptr [ %38, %45 ], [ null, %29 ]
   %48 = icmp eq i64 %2, 2
-  br i1 %48, label %.thread57, label %49
+  br i1 %48, label %.thread54, label %49
 
 49:                                               ; preds = %47
   %50 = getelementptr i8, ptr %1, i64 16
@@ -4385,31 +4385,31 @@ define internal ptr @_codecs_raw_unicode_escape_decode(ptr readnone captures(non
   %53 = icmp slt i32 %.fr, 0
   br i1 %53, label %64, label %55
 
-.thread57:                                        ; preds = %27, %47
+.thread54:                                        ; preds = %27, %47
   %.028.ph = phi ptr [ %.129, %47 ], [ null, %27 ]
-  %.val4860 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val4757 = load ptr, ptr %5, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val4961 = load i64, ptr %54, align 8, !tbaa !31
+  %.val4858 = load i64, ptr %54, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %.val4961, ptr %4, align 8, !tbaa !21
+  store i64 %.val4858, ptr %4, align 8, !tbaa !21
   br label %57
 
 55:                                               ; preds = %49
-  %.val48 = load ptr, ptr %5, align 8, !tbaa !28
+  %.val47 = load ptr, ptr %5, align 8, !tbaa !28
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.val49 = load i64, ptr %56, align 8, !tbaa !31
+  %.val48 = load i64, ptr %56, align 8, !tbaa !31
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i64 %.val49, ptr %4, align 8, !tbaa !21
+  store i64 %.val48, ptr %4, align 8, !tbaa !21
   %.not.i = icmp eq i32 %.fr, 0
   %spec.select = select i1 %.not.i, ptr %4, ptr null
   br label %57
 
-57:                                               ; preds = %55, %.thread57
-  %.val4966 = phi i64 [ %.val4961, %.thread57 ], [ %.val49, %55 ]
-  %.val4865 = phi ptr [ %.val4860, %.thread57 ], [ %.val48, %55 ]
-  %.02864 = phi ptr [ %.028.ph, %.thread57 ], [ %.129, %55 ]
-  %58 = phi ptr [ null, %.thread57 ], [ %spec.select, %55 ]
-  %59 = call ptr @_PyUnicode_DecodeRawUnicodeEscapeStateful(ptr noundef %.val4865, i64 noundef %.val4966, ptr noundef %.02864, ptr noundef %58) #5
+57:                                               ; preds = %55, %.thread54
+  %.val4863 = phi i64 [ %.val4858, %.thread54 ], [ %.val48, %55 ]
+  %.val4762 = phi ptr [ %.val4757, %.thread54 ], [ %.val47, %55 ]
+  %.02861 = phi ptr [ %.028.ph, %.thread54 ], [ %.129, %55 ]
+  %58 = phi ptr [ null, %.thread54 ], [ %spec.select, %55 ]
+  %59 = call ptr @_PyUnicode_DecodeRawUnicodeEscapeStateful(ptr noundef %.val4762, i64 noundef %.val4863, ptr noundef %.02861, ptr noundef %58) #5
   %60 = icmp eq ptr %59, null
   br i1 %60, label %_codecs_raw_unicode_escape_decode_impl.exit, label %61
 
@@ -4423,8 +4423,8 @@ _codecs_raw_unicode_escape_decode_impl.exit:      ; preds = %57, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %64
 
-64:                                               ; preds = %.thread53, %.thread, %49, %25, %9, %_codecs_raw_unicode_escape_decode_impl.exit, %46
-  %.030 = phi ptr [ %.0.i.i, %_codecs_raw_unicode_escape_decode_impl.exit ], [ null, %49 ], [ null, %46 ], [ null, %25 ], [ null, %9 ], [ null, %.thread ], [ null, %.thread53 ]
+64:                                               ; preds = %.thread51, %.thread, %49, %25, %9, %_codecs_raw_unicode_escape_decode_impl.exit, %46
+  %.030 = phi ptr [ %.0.i.i, %_codecs_raw_unicode_escape_decode_impl.exit ], [ null, %49 ], [ null, %46 ], [ null, %25 ], [ null, %9 ], [ null, %.thread ], [ null, %.thread51 ]
   %65 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !32
   %.not40 = icmp eq ptr %66, null
@@ -5079,8 +5079,8 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
   %12 = getelementptr i8, ptr %11, i64 8
   %.val = load ptr, ptr %12, align 8, !tbaa !4
   %13 = getelementptr i8, ptr %.val, i64 168
-  %.val38 = load i64, ptr %13, align 8, !tbaa !10
-  %14 = and i64 %.val38, 268435456
+  %.val37 = load i64, ptr %13, align 8, !tbaa !10
+  %14 = and i64 %.val37, 268435456
   %.not28 = icmp eq i64 %14, 0
   br i1 %.not28, label %24, label %15
 
@@ -5122,10 +5122,10 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
 
 32:                                               ; preds = %28
   %33 = getelementptr i8, ptr %30, i64 8
-  %.val37 = load ptr, ptr %33, align 8, !tbaa !4
-  %34 = getelementptr i8, ptr %.val37, i64 168
-  %.val39 = load i64, ptr %34, align 8, !tbaa !10
-  %35 = and i64 %.val39, 268435456
+  %.val36 = load ptr, ptr %33, align 8, !tbaa !4
+  %34 = getelementptr i8, ptr %.val36, i64 168
+  %.val38 = load i64, ptr %34, align 8, !tbaa !10
+  %35 = and i64 %.val38, 268435456
   %.not30 = icmp eq i64 %35, 0
   br i1 %.not30, label %45, label %36
 
@@ -5133,7 +5133,7 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = call ptr @PyUnicode_AsUTF8AndSize(ptr noundef %30, ptr noundef nonnull %6) #5
   %38 = icmp eq ptr %37, null
-  br i1 %38, label %.thread43, label %39
+  br i1 %38, label %.thread41, label %39
 
 39:                                               ; preds = %36
   %40 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #6
@@ -5144,9 +5144,9 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
 42:                                               ; preds = %39
   %43 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !22
   call void @PyErr_SetString(ptr noundef %43, ptr noundef nonnull @.str.44) #5
-  br label %.thread43
+  br label %.thread41
 
-.thread43:                                        ; preds = %42, %36
+.thread41:                                        ; preds = %42, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_codecs_readbuffer_encode_impl.exit
 
@@ -5171,8 +5171,8 @@ define internal ptr @_codecs_readbuffer_encode(ptr readnone captures(none) %0, p
   %54 = call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.55, ptr noundef nonnull %50, i64 noundef %53) #5
   br label %_codecs_readbuffer_encode_impl.exit
 
-_codecs_readbuffer_encode_impl.exit:              ; preds = %52, %46, %.thread43, %.thread, %24, %8, %45
-  %.024 = phi ptr [ null, %45 ], [ null, %24 ], [ null, %8 ], [ null, %.thread ], [ null, %.thread43 ], [ %54, %52 ], [ null, %46 ]
+_codecs_readbuffer_encode_impl.exit:              ; preds = %52, %46, %.thread41, %.thread, %24, %8, %45
+  %.024 = phi ptr [ null, %45 ], [ null, %24 ], [ null, %8 ], [ null, %.thread ], [ null, %.thread41 ], [ %54, %52 ], [ null, %46 ]
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !32
   %.not32 = icmp eq ptr %56, null

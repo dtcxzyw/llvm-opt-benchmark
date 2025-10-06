@@ -2946,8 +2946,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit454: ; preds = %25
 
 .lr.ph.i:                                         ; preds = %283, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %283 ]
-  %.03248.i = phi i32 [ -2147483648, %.lr.ph.preheader.i ], [ %285, %283 ]
-  %.03347.i = phi i32 [ 2147483647, %.lr.ph.preheader.i ], [ %284, %283 ]
+  %.03247.i = phi i32 [ -2147483648, %.lr.ph.preheader.i ], [ %285, %283 ]
+  %.03346.i = phi i32 [ 2147483647, %.lr.ph.preheader.i ], [ %284, %283 ]
   %277 = getelementptr inbounds nuw double, ptr %272, i64 %indvars.iv.i
   %278 = load double, ptr %277, align 8, !tbaa !40
   %279 = insertelement <2 x double> poison, double %278, i64 0
@@ -2957,8 +2957,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit454: ; preds = %25
   br i1 %282, label %298, label %283
 
 283:                                              ; preds = %.lr.ph.i
-  %284 = call i32 @llvm.smin.i32(i32 %.03347.i, i32 %280)
-  %285 = call i32 @llvm.smax.i32(i32 %.03248.i, i32 %280)
+  %284 = call i32 @llvm.smin.i32(i32 %.03346.i, i32 %280)
+  %285 = call i32 @llvm.smax.i32(i32 %.03247.i, i32 %280)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !85

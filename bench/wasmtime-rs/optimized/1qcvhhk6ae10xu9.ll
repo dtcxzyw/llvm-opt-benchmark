@@ -602,8 +602,8 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %.sroa.01.0.i.i = phi i64 [ 0, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h1d9ea7af87afe06fE.exit.i" ], [ %.sroa.01.1.i.i, %71 ]
   %.sroa.0.025.i.i = and i64 %.pn.i.i, %.val4.i
   %45 = getelementptr inbounds i8, ptr %.val.i, i64 %.sroa.0.025.i.i
-  %.0.copyload.i33.i.i = load <16 x i8>, ptr %45, align 1, !noalias !156
-  %46 = icmp eq <16 x i8> %.0.copyload.i33.i.i, %.15.vec.insert.i.i.i
+  %.0.copyload.i32.i.i = load <16 x i8>, ptr %45, align 1, !noalias !156
+  %46 = icmp eq <16 x i8> %.0.copyload.i32.i.i, %.15.vec.insert.i.i.i
   %47 = bitcast <16 x i1> %46 to i16
   br label %48
 
@@ -631,7 +631,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   br i1 %60, label %86, label %48
 
 61:                                               ; preds = %49
-  %62 = icmp slt <16 x i8> %.0.copyload.i33.i.i, zeroinitializer
+  %62 = icmp slt <16 x i8> %.0.copyload.i32.i.i, zeroinitializer
   %63 = bitcast <16 x i1> %62 to i16
   %.not.i15.i.i = icmp ne i16 %63, 0
   %64 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %63, i1 true)
@@ -646,7 +646,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 68:                                               ; preds = %61, %49
   %.sroa.6.1.i.i = phi i64 [ %.sroa.3.0.i16.i.i, %61 ], [ %.sroa.6.0.i.i, %49 ]
   %.sroa.01.1.i.i = phi i64 [ %.sroa.0.0.i17.i.i, %61 ], [ 1, %49 ]
-  %69 = icmp eq <16 x i8> %.0.copyload.i33.i.i, splat (i8 -1)
+  %69 = icmp eq <16 x i8> %.0.copyload.i32.i.i, splat (i8 -1)
   %70 = bitcast <16 x i1> %69 to i16
   %.not11.i.i = icmp eq i16 %70, 0
   br i1 %.not11.i.i, label %71, label %74

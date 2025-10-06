@@ -22745,11 +22745,11 @@ _ZNK6vectorISt4pairIijELb0EjE4sizeEv.exit:        ; preds = %_ZNK6vectorISt4pair
   %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !10
   %27 = icmp eq i32 %26, %22
-  %.pre99 = load ptr, ptr %10, align 8, !tbaa !17
+  %.pre97 = load ptr, ptr %10, align 8, !tbaa !17
   br i1 %27, label %28, label %_ZN3smt9theory_bv9find_wposEi.exit
 
 28:                                               ; preds = %18
-  %29 = getelementptr inbounds nuw %class.svector.13, ptr %.pre99, i64 %24
+  %29 = getelementptr inbounds nuw %class.svector.13, ptr %.pre97, i64 %24
   %30 = load ptr, ptr %29, align 8, !tbaa !14
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.preheader.i, label %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i
@@ -22819,7 +22819,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %28
   br label %_ZN3smt9theory_bv9find_wposEi.exit
 
 _ZN3smt9theory_bv9find_wposEi.exit:               ; preds = %42, %52, %._crit_edge.i, %18
-  %58 = phi ptr [ %.pre, %._crit_edge.i ], [ %.pre99, %18 ], [ %.pre99, %52 ], [ %.pre99, %42 ]
+  %58 = phi ptr [ %.pre, %._crit_edge.i ], [ %.pre97, %18 ], [ %.pre97, %52 ], [ %.pre97, %42 ]
   %59 = getelementptr inbounds nuw %class.svector.13, ptr %58, i64 %24
   %60 = load ptr, ptr %59, align 8, !tbaa !14
   %61 = zext i32 %22 to i64
@@ -22840,16 +22840,16 @@ _ZN3smt9theory_bv9find_wposEi.exit:               ; preds = %42, %52, %._crit_ed
   %74 = icmp eq i8 %69, -1
   %75 = zext i1 %74 to i32
   %spec.select = xor i32 %63, %75
-  %.04288 = load i32, ptr %73, align 4, !tbaa !10
-  %.not89 = icmp eq i32 %.04288, %20
-  br i1 %.not89, label %.loopexit, label %.lr.ph
+  %.04286 = load i32, ptr %73, align 4, !tbaa !10
+  %.not87 = icmp eq i32 %.04286, %20
+  br i1 %.not87, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %71, %_ZN6vectorISt4pairIijELb0EjE5resetEv.exit
   %76 = phi ptr [ %225, %_ZN6vectorISt4pairIijELb0EjE5resetEv.exit ], [ %72, %71 ]
   %77 = phi ptr [ %226, %_ZN6vectorISt4pairIijELb0EjE5resetEv.exit ], [ %64, %71 ]
-  %.04290 = phi i32 [ %.042, %_ZN6vectorISt4pairIijELb0EjE5resetEv.exit ], [ %.04288, %71 ]
+  %.04288 = phi i32 [ %.042, %_ZN6vectorISt4pairIijELb0EjE5resetEv.exit ], [ %.04286, %71 ]
   %78 = load ptr, ptr %10, align 8, !tbaa !17
-  %79 = zext i32 %.04290 to i64
+  %79 = zext i32 %.04288 to i64
   %80 = getelementptr inbounds nuw %class.svector.13, ptr %78, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !14
   %82 = getelementptr inbounds nuw %"class.sat::literal", ptr %81, i64 %61
@@ -22986,18 +22986,18 @@ _ZN6vectorIN3smt9theory_bv8bv_diseqELb0EjE13expand_vectorEv.exit: ; preds = %95,
   %.pre.i.i = phi ptr [ %98, %95 ], [ %136, %133 ]
   %.phi.trans.insert.i.i = getelementptr inbounds i8, ptr %.pre.i.i, i64 -4
   %.pre2.i.i = load i32, ptr %.phi.trans.insert.i.i, align 4, !tbaa !10
-  %.pre102 = load ptr, ptr %11, align 8, !tbaa !31
+  %.pre100 = load ptr, ptr %11, align 8, !tbaa !31
   br label %_ZN6vectorIN3smt9theory_bv8bv_diseqELb0EjE9push_backEOS2_.exit.i
 
 _ZN6vectorIN3smt9theory_bv8bv_diseqELb0EjE9push_backEOS2_.exit.i: ; preds = %_ZN6vectorIN3smt9theory_bv8bv_diseqELb0EjE13expand_vectorEv.exit, %89
-  %138 = phi ptr [ %.pre102, %_ZN6vectorIN3smt9theory_bv8bv_diseqELb0EjE13expand_vectorEv.exit ], [ %77, %89 ]
+  %138 = phi ptr [ %.pre100, %_ZN6vectorIN3smt9theory_bv8bv_diseqELb0EjE13expand_vectorEv.exit ], [ %77, %89 ]
   %139 = phi i32 [ %.pre2.i.i, %_ZN6vectorIN3smt9theory_bv8bv_diseqELb0EjE13expand_vectorEv.exit ], [ %91, %89 ]
   %140 = phi ptr [ %.pre.i.i, %_ZN6vectorIN3smt9theory_bv8bv_diseqELb0EjE13expand_vectorEv.exit ], [ %87, %89 ]
   %141 = zext i32 %139 to i64
   %142 = getelementptr inbounds nuw %"struct.smt::theory_bv::bv_diseq", ptr %140, i64 %141
   store i32 %20, ptr %142, align 4, !tbaa !10
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %142, i64 4
-  store i32 %.04290, ptr %.sroa.47.0..sroa_idx.i, align 4, !tbaa !10
+  store i32 %.04288, ptr %.sroa.47.0..sroa_idx.i, align 4, !tbaa !10
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %142, i64 8
   store i32 %22, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !10
   %143 = getelementptr inbounds i8, ptr %140, i64 -4
@@ -23154,8 +23154,8 @@ _ZN3smt9theory_bv19add_new_diseq_axiomEiij.exit:  ; preds = %151, %_ZN6vectorIP5
   br i1 %.not46, label %_ZN6vectorISt4pairIijELb0EjE5resetEv.exit, label %211
 
 211:                                              ; preds = %205
-  %spec.select76 = select i1 %74, i32 %83, i32 %.sroa.05.0.copyload
-  tail call void @_ZN3smt9theory_bv10assign_bitEN3sat7literalEiijS2_b(ptr noundef nonnull align 8 dereferenceable(1048) %0, i32 %spec.select76, i32 noundef %20, i32 noundef %.04290, i32 noundef %22, i32 %spec.select, i1 noundef zeroext false)
+  %spec.select74 = select i1 %74, i32 %83, i32 %.sroa.05.0.copyload
+  tail call void @_ZN3smt9theory_bv10assign_bitEN3sat7literalEiijS2_b(ptr noundef nonnull align 8 dereferenceable(1048) %0, i32 %spec.select74, i32 noundef %20, i32 noundef %.04288, i32 noundef %22, i32 %spec.select, i1 noundef zeroext false)
   %212 = load ptr, ptr %11, align 8, !tbaa !31
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 8984
   %214 = load ptr, ptr %213, align 8, !tbaa !773
@@ -23168,7 +23168,7 @@ _ZN3smt9theory_bv19add_new_diseq_axiomEiij.exit:  ; preds = %151, %_ZN6vectorIP5
   br i1 %220, label %221, label %._ZN6vectorISt4pairIijELb0EjE5resetEv.exit_crit_edge
 
 ._ZN6vectorISt4pairIijELb0EjE5resetEv.exit_crit_edge: ; preds = %211
-  %.pre100 = load ptr, ptr %12, align 8, !tbaa !21
+  %.pre98 = load ptr, ptr %12, align 8, !tbaa !21
   br label %_ZN6vectorISt4pairIijELb0EjE5resetEv.exit
 
 221:                                              ; preds = %211
@@ -23182,7 +23182,7 @@ _ZN3smt9theory_bv19add_new_diseq_axiomEiij.exit:  ; preds = %151, %_ZN6vectorIP5
   br label %_ZN6vectorISt4pairIijELb0EjE5resetEv.exit49
 
 _ZN6vectorISt4pairIijELb0EjE5resetEv.exit:        ; preds = %._ZN6vectorISt4pairIijELb0EjE5resetEv.exit_crit_edge, %205
-  %225 = phi ptr [ %76, %205 ], [ %.pre100, %._ZN6vectorISt4pairIijELb0EjE5resetEv.exit_crit_edge ]
+  %225 = phi ptr [ %76, %205 ], [ %.pre98, %._ZN6vectorISt4pairIijELb0EjE5resetEv.exit_crit_edge ]
   %226 = phi ptr [ %77, %205 ], [ %212, %._ZN6vectorISt4pairIijELb0EjE5resetEv.exit_crit_edge ]
   %227 = getelementptr inbounds nuw i32, ptr %225, i64 %79
   %.042 = load i32, ptr %227, align 4, !tbaa !10

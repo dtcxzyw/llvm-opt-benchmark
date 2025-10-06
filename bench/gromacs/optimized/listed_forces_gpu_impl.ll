@@ -240,17 +240,17 @@ define noundef zeroext i1 @_ZN3gmx28inputSupportsListedForcesGpuERK10t_inputrecR
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !15
-  %.not17.i = icmp eq ptr %8, %10
-  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not15.i = icmp eq ptr %8, %10
+  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
 
 11:                                               ; preds = %.noexc
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i, i64 2408
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 2408
   %.not.i = icmp eq ptr %12, %10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %11
-  %.sroa.010.018.i = phi ptr [ %12, %11 ], [ %8, %6 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i, i64 80
+  %.sroa.010.016.i = phi ptr [ %12, %11 ], [ %8, %6 ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 80
   %14 = invoke fastcc noundef zeroext i1 @_ZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EE(ptr noundef nonnull align 8 dereferenceable(2280) %13)
           to label %.noexc unwind label %.loopexit
 
@@ -260,8 +260,8 @@ define noundef zeroext i1 @_ZN3gmx28inputSupportsListedForcesGpuERK10t_inputrecR
 ._crit_edge.i:                                    ; preds = %11, %6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %16 = load ptr, ptr %15, align 8, !tbaa !17
-  %.not16.i = icmp eq ptr %16, null
-  br i1 %.not16.i, label %19, label %17
+  %.not14.i = icmp eq ptr %16, null
+  br i1 %.not14.i, label %19, label %17
 
 17:                                               ; preds = %._crit_edge.i
   %18 = invoke fastcc noundef zeroext i1 @_ZN3gmxL27someInteractionsCanRunOnGpuERKSt5arrayI15InteractionListLm95EE(ptr noundef nonnull align 8 dereferenceable(2280) %16)

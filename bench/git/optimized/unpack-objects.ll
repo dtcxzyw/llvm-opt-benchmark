@@ -1841,7 +1841,7 @@ define internal fastcc ptr @get_data(i64 noundef %0) unnamed_addr #0 {
 
 13:                                               ; preds = %1
   %.not10.i = icmp eq i32 %9, 0
-  br i1 %.not10.i, label %.preheader77, label %14
+  br i1 %.not10.i, label %.preheader76, label %14
 
 14:                                               ; preds = %13
   %15 = load ptr, ptr @the_repository, align 8, !tbaa !4
@@ -1858,14 +1858,14 @@ define internal fastcc ptr @get_data(i64 noundef %0) unnamed_addr #0 {
   %25 = zext i32 %24 to i64
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 16 @buffer, ptr nonnull align 1 %23, i64 %25, i1 false)
   store i32 0, ptr @offset, align 4, !tbaa !9
-  br label %.preheader77
+  br label %.preheader76
 
-.preheader77:                                     ; preds = %14, %13
-  %.ph78 = phi i64 [ 0, %13 ], [ %25, %14 ]
+.preheader76:                                     ; preds = %14, %13
+  %.ph77 = phi i64 [ 0, %13 ], [ %25, %14 ]
   br label %26
 
-26:                                               ; preds = %.preheader77, %35
-  %27 = phi i64 [ 0, %35 ], [ %.ph78, %.preheader77 ]
+26:                                               ; preds = %.preheader76, %35
+  %27 = phi i64 [ 0, %35 ], [ %.ph77, %.preheader76 ]
   %28 = getelementptr inbounds nuw i8, ptr @buffer, i64 %27
   %29 = sub nsw i64 4096, %27
   %30 = tail call i64 @xread(i32 noundef 0, ptr noundef nonnull %28, i64 noundef %29) #14
@@ -1911,8 +1911,8 @@ fill.exit:                                        ; preds = %35, %10
   %50 = load i64, ptr %49, align 8, !tbaa !84
   %51 = icmp eq i64 %50, %0
   %52 = icmp eq i32 %44, 1
-  %or.cond340 = select i1 %51, i1 %52, i1 false
-  br i1 %or.cond340, label %.loopexit, label %.lr.ph
+  %or.cond339 = select i1 %51, i1 %52, i1 false
+  br i1 %or.cond339, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %fill.exit, %98
   %53 = phi i32 [ %99, %98 ], [ %44, %fill.exit ]

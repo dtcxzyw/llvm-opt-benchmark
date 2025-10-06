@@ -203,11 +203,11 @@ define internal fastcc void @_ZL30try_initialize_global_cpu_infov() unnamed_addr
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = tail call i32 @feof(ptr noundef nonnull %8) #17
-  %.not1217.i.i = icmp eq i32 %10, 0
-  br i1 %.not1217.i.i, label %.lr.ph.i.i, label %.thread.i.i
+  %.not1216.i.i = icmp eq i32 %10, 0
+  br i1 %.not1216.i.i, label %.lr.ph.i.i, label %.thread.i.i
 
 .lr.ph.i.i:                                       ; preds = %9, %12
-  %.01018.i.i = phi i32 [ %spec.select.i.i, %12 ], [ 0, %9 ]
+  %.01017.i.i = phi i32 [ %spec.select.i.i, %12 ], [ 0, %9 ]
   %11 = call ptr @fgets(ptr noundef nonnull %6, i32 noundef 1024, ptr noundef nonnull %8)
   %.not13.i.i = icmp eq ptr %11, null
   br i1 %.not13.i.i, label %.thread.loopexit.i.i, label %12
@@ -216,13 +216,13 @@ define internal fastcc void @_ZL30try_initialize_global_cpu_infov() unnamed_addr
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(9) %6, ptr noundef nonnull dereferenceable(9) @.str.4, i64 9)
   %13 = icmp eq i32 %bcmp.i.i, 0
   %14 = zext i1 %13 to i32
-  %spec.select.i.i = add nuw nsw i32 %.01018.i.i, %14
+  %spec.select.i.i = add nuw nsw i32 %.01017.i.i, %14
   %15 = call i32 @feof(ptr noundef nonnull %8) #17
   %.not12.i.i = icmp eq i32 %15, 0
   br i1 %.not12.i.i, label %.lr.ph.i.i, label %.thread.loopexit.i.i
 
 .thread.loopexit.i.i:                             ; preds = %12, %.lr.ph.i.i
-  %.010.lcssa.ph.i.i = phi i32 [ %spec.select.i.i, %12 ], [ %.01018.i.i, %.lr.ph.i.i ]
+  %.010.lcssa.ph.i.i = phi i32 [ %spec.select.i.i, %12 ], [ %.01017.i.i, %.lr.ph.i.i ]
   %16 = call i32 @llvm.smax.i32(i32 %.010.lcssa.ph.i.i, i32 1)
   br label %.thread.i.i
 

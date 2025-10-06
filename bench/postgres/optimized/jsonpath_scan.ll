@@ -4336,14 +4336,14 @@ define internal fastcc noundef zeroext i1 @addUnicodeChar(i32 noundef %0, ptr no
 
 6:                                                ; preds = %3
   %7 = tail call zeroext i1 @errsave_start(ptr noundef %1, ptr noundef null) #17
-  br i1 %7, label %8, label %58
+  br i1 %7, label %8, label %59
 
 8:                                                ; preds = %6
   %9 = tail call i32 @errcode(i32 noundef 84017282) #17
   %10 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.67) #17
   %11 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.68) #17
   tail call void @errsave_finish(ptr noundef %1, ptr noundef nonnull @.str.16, i32 noundef 585, ptr noundef nonnull @__func__.addUnicodeChar) #17
-  br label %58
+  br label %59
 
 12:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4428,12 +4428,12 @@ addstring.exit:                                   ; preds = %24, %._crit_edge.i.
   br label %57
 
 57:                                               ; preds = %19, %21, %addstring.exit
-  %switch = phi i1 [ true, %addstring.exit ], [ false, %21 ], [ false, %19 ]
+  %58 = phi i1 [ true, %addstring.exit ], [ false, %21 ], [ false, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %58
+  br label %59
 
-58:                                               ; preds = %57, %6, %8
-  %.013 = phi i1 [ false, %8 ], [ false, %6 ], [ %switch, %57 ]
+59:                                               ; preds = %57, %6, %8
+  %.013 = phi i1 [ false, %8 ], [ false, %6 ], [ %58, %57 ]
   ret i1 %.013
 }
 

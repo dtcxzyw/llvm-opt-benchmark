@@ -355,11 +355,11 @@ define dso_local noundef range(i32 0, 2) i32 @_Z4helpSt6vectorINSt7__cxx1112basi
   br label %.loopexit
 
 11:                                               ; preds = %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13
-  %.sroa.017.020 = phi ptr [ %4, %.preheader ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
+  %.sroa.017.021 = phi ptr [ %4, %.preheader ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %8, ptr %3, align 8, !tbaa !9
-  %12 = load ptr, ptr %.sroa.017.020, align 8, !tbaa !12
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.017.020, i64 8
+  %12 = load ptr, ptr %.sroa.017.021, align 8, !tbaa !12
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.017.021, i64 8
   %14 = load i64, ptr %13, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 %14, ptr %2, align 8, !tbaa !16
@@ -435,7 +435,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.017.020, i64 32
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.017.021, i64 32
   %.not = icmp eq ptr %42, %6
   br i1 %.not, label %.loopexit, label %11
 

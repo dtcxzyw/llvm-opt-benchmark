@@ -765,12 +765,12 @@ X11_GetScreenResources.exit.us.i.us:              ; preds = %55, %.preheader58.u
   br i1 %.not51.us.i.us, label %94, label %X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge
 
 X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge: ; preds = %X11_GetScreenResources.exit.us.i.us
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %62, i64 32
-  %.pre33 = load i32, ptr %.phi.trans.insert32, align 8
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %62, i64 32
+  %.pre32 = load i32, ptr %.phi.trans.insert31, align 8
   br label %.preheader.us.i.us
 
 .preheader.us.i.us:                               ; preds = %X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge, %51
-  %63 = phi i32 [ %.pre33, %X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge ], [ %53, %51 ]
+  %63 = phi i32 [ %.pre32, %X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge ], [ %53, %51 ]
   %.0.i.us117.i.us = phi ptr [ %62, %X11_GetScreenResources.exit.us.i.us..preheader.us.i.us_crit_edge ], [ %50, %51 ]
   %64 = getelementptr inbounds nuw i8, ptr %.0.i.us117.i.us, i64 32
   %65 = icmp sgt i32 %63, 0
@@ -2234,7 +2234,7 @@ define internal fastcc void @SetXRandRDisplayName(ptr noundef %0, i64 noundef %1
   %21 = load ptr, ptr @X11_XRRGetOutputProperty, align 8
   %22 = call i32 %21(ptr noundef %0, i64 noundef %3, i64 noundef %1, i64 noundef 0, i64 noundef 100, i32 noundef 0, i32 noundef 0, i64 noundef 0, ptr noundef nonnull %12, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %8) #8
   %23 = icmp eq i32 %22, 0
-  br i1 %23, label %24, label %.thread39
+  br i1 %23, label %24, label %.thread38
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %8, align 8
@@ -2252,9 +2252,9 @@ define internal fastcc void @SetXRandRDisplayName(ptr noundef %0, i64 noundef %1
   %31 = load ptr, ptr @X11_XFree, align 8
   %32 = load ptr, ptr %8, align 8
   %33 = call i32 %31(ptr noundef %32) #8
-  br label %.thread39
+  br label %.thread38
 
-.thread39:                                        ; preds = %20, %30
+.thread38:                                        ; preds = %20, %30
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2276,7 +2276,7 @@ define internal fastcc void @SetXRandRDisplayName(ptr noundef %0, i64 noundef %1
   %.not36 = icmp eq ptr %14, null
   br i1 %.not36, label %37, label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %34, %.thread39, %._crit_edge
+._crit_edge.thread:                               ; preds = %34, %.thread38, %._crit_edge
   %35 = load ptr, ptr @X11_XFree, align 8
   %36 = call i32 %35(ptr noundef nonnull %14) #8
   br label %37

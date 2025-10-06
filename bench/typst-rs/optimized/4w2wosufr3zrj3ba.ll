@@ -569,7 +569,7 @@ common.resume:                                    ; preds = %49, %54, %25
   br i1 %.not.i23, label %"_ZN91_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$T$GT$$GT$6extend17hc0a9771a1ce3660dE.exit", label %35
 
 .lr.ph.preheader:                                 ; preds = %35
-  %.pre47.pre = load i64, ptr %31, align 8
+  %.pre46.pre = load i64, ptr %31, align 8
   br label %.lr.ph
 
 35:                                               ; preds = %.noexc
@@ -577,10 +577,10 @@ common.resume:                                    ; preds = %49, %54, %25
           to label %.lr.ph.preheader unwind label %.loopexit.split-lp
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.noexc26
-  %36 = phi i64 [ %47, %.noexc26 ], [ %.pre47.pre, %.lr.ph.preheader ]
-  %.sroa.035.046 = phi ptr [ %37, %.noexc26 ], [ %32, %.lr.ph.preheader ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.035.046, i64 1
-  %38 = load i8, ptr %.sroa.035.046, align 1, !alias.scope !70, !noalias !75, !noundef !4
+  %36 = phi i64 [ %47, %.noexc26 ], [ %.pre46.pre, %.lr.ph.preheader ]
+  %.sroa.035.045 = phi ptr [ %37, %.noexc26 ], [ %32, %.lr.ph.preheader ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.035.045, i64 1
+  %38 = load i8, ptr %.sroa.035.045, align 1, !alias.scope !70, !noalias !75, !noundef !4
   call void @llvm.experimental.noalias.scope.decl(metadata !78)
   %.val.i = load ptr, ptr %4, align 8, !alias.scope !78, !nonnull !4, !noundef !4
   %.not.i.i = icmp eq ptr %.val.i, inttoptr (i64 16 to ptr)

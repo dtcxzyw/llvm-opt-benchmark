@@ -1128,13 +1128,13 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_117ConversionChecker
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i8, ptr %27, align 16
   %29 = icmp ne i8 %28, 13
-  %.not.not24.i = icmp eq ptr %26, null
-  %.not.not.i = or i1 %.not.not24.i, %29
+  %.not.not21.i = icmp eq ptr %26, null
+  %.not.not.i = or i1 %.not.not21.i, %29
   br i1 %.not.not.i, label %30, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 30:                                               ; preds = %19
   %31 = icmp ne i8 %28, 46
-  %.not13.not.i = or i1 %.not.not24.i, %31
+  %.not13.not.i = or i1 %.not.not21.i, %31
   br i1 %.not13.not.i, label %45, label %32
 
 32:                                               ; preds = %30

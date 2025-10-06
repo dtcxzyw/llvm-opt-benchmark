@@ -358,7 +358,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %19
-  %20 = icmp ugt i32 %.1, 1073741823
+  %20 = icmp sgt i32 %.1, 1073741823
   br i1 %20, label %21, label %._crit_edge.thread
 
 21:                                               ; preds = %._crit_edge

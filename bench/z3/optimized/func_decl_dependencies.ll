@@ -2452,14 +2452,14 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit: ; pre
   tail call void @_ZN10bit_vector6resizeEjb(ptr noundef nonnull align 8 dereferenceable(16) %11, i32 noundef %24, i1 noundef zeroext false)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !13
-  %.pre270 = lshr i32 %10, 5
-  %.pre271 = zext nneg i32 %.pre270 to i64
+  %.pre269 = lshr i32 %10, 5
+  %.pre270 = zext nneg i32 %.pre269 to i64
   br label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit: ; preds = %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit, %23
-  %.pre-phi272 = phi i64 [ %19, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ], [ %.pre271, %23 ]
+  %.pre-phi271 = phi i64 [ %19, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ], [ %.pre270, %23 ]
   %25 = phi ptr [ %17, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit ], [ %.pre, %23 ]
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.pre-phi272
+  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %.pre-phi271
   %27 = load i32, ptr %26, align 4, !tbaa !72
   %28 = or i32 %27, %15
   store i32 %28, ptr %26, align 4, !tbaa !72
@@ -2487,7 +2487,7 @@ thread-pre-splitthread-pre-split:                 ; preds = %227, %_Z9is_groundP
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %thread-pre-splitthread-pre-split, %._crit_edge, %.thread176, %48
-  %.pr = phi i32 [ %.pr.pr, %thread-pre-splitthread-pre-split ], [ %.pre-phi286, %._crit_edge ], [ %40, %.thread176 ], [ %40, %48 ]
+  %.pr = phi i32 [ %.pr.pr, %thread-pre-splitthread-pre-split ], [ %.pre-phi285, %._crit_edge ], [ %40, %.thread176 ], [ %40, %48 ]
   %37 = icmp eq i32 %.pr, 0
   br i1 %37, label %232, label %.preheader.backedge
 
@@ -2555,8 +2555,8 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58: ; p
   %74 = and i32 %66, 31
   %75 = shl nuw i32 1, %74
   %76 = and i32 %73, %75
-  %.not184 = icmp eq i32 %76, 0
-  br i1 %.not184, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61, label %_ZN25collect_dependencies_procclEP3app.exit, !llvm.loop !115
+  %.not183 = icmp eq i32 %76, 0
+  br i1 %.not183, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61, label %_ZN25collect_dependencies_procclEP3app.exit, !llvm.loop !115
 
 77:                                               ; preds = %_ZNK4decl13get_family_idEv.exit.thread.i104
   %78 = landingpad { ptr, i32 }
@@ -2574,28 +2574,28 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58: ; p
           to label %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61_crit_edge unwind label %79
 
 ._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61_crit_edge: ; preds = %81
-  %.pre267 = load ptr, ptr %34, align 8, !tbaa !13
-  %.pre277 = lshr i32 %66, 5
-  %.pre279 = zext nneg i32 %.pre277 to i64
-  %.pre281 = and i32 %66, 31
-  %.pre283 = shl nuw i32 1, %.pre281
+  %.pre266 = load ptr, ptr %34, align 8, !tbaa !13
+  %.pre276 = lshr i32 %66, 5
+  %.pre278 = zext nneg i32 %.pre276 to i64
+  %.pre280 = and i32 %66, 31
+  %.pre282 = shl nuw i32 1, %.pre280
   br label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61: ; preds = %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61_crit_edge, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58
-  %.pre-phi284 = phi i32 [ %.pre283, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61_crit_edge ], [ %75, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58 ]
-  %.pre-phi280 = phi i64 [ %.pre279, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61_crit_edge ], [ %71, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58 ]
-  %83 = phi ptr [ %.pre267, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61_crit_edge ], [ %69, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58 ]
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %.pre-phi280
+  %.pre-phi283 = phi i32 [ %.pre282, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61_crit_edge ], [ %75, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58 ]
+  %.pre-phi279 = phi i64 [ %.pre278, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61_crit_edge ], [ %71, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58 ]
+  %83 = phi ptr [ %.pre266, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61_crit_edge ], [ %69, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58 ]
+  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %.pre-phi279
   %85 = load i32, ptr %84, align 4, !tbaa !72
-  %86 = or i32 %85, %.pre-phi284
+  %86 = or i32 %85, %.pre-phi283
   store i32 %86, ptr %84, align 4, !tbaa !72
   br label %87
 
 87:                                               ; preds = %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit61, %56
   %88 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %89 = load i32, ptr %88, align 4
-  %trunc185 = trunc i32 %89 to i16
-  switch i16 %trunc185, label %126 [
+  %trunc184 = trunc i32 %89 to i16
+  switch i16 %trunc184, label %126 [
     i16 1, label %_ZN25collect_dependencies_procclEP3app.exit
     i16 2, label %90
     i16 0, label %106
@@ -2740,20 +2740,20 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95: ; preds = %.noexc100, %
 _ZN25collect_dependencies_procclEP3app.exit:      ; preds = %106, %87, %127, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit58
   %128 = load i32, ptr %52, align 8, !tbaa !113
   %129 = icmp ult i32 %128, %51
-  br i1 %129, label %56, label %._crit_edge229
+  br i1 %129, label %56, label %._crit_edge228
 
-._crit_edge229:                                   ; preds = %_ZN25collect_dependencies_procclEP3app.exit
+._crit_edge228:                                   ; preds = %_ZN25collect_dependencies_procclEP3app.exit
   %130 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %.pre268 = load i32, ptr %31, align 8, !tbaa !105
-  %.pre269 = load i32, ptr %130, align 8, !tbaa !109
-  %.pre285 = add i32 %.pre268, -1
+  %.pre267 = load i32, ptr %31, align 8, !tbaa !105
+  %.pre268 = load i32, ptr %130, align 8, !tbaa !109
+  %.pre284 = add i32 %.pre267, -1
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %49, %._crit_edge229
-  %.pre-phi286 = phi i32 [ %.pre285, %._crit_edge229 ], [ %40, %49 ]
-  %131 = phi i32 [ %.pre269, %._crit_edge229 ], [ %51, %49 ]
+._crit_edge:                                      ; preds = %49, %._crit_edge228
+  %.pre-phi285 = phi i32 [ %.pre284, %._crit_edge228 ], [ %40, %49 ]
+  %131 = phi i32 [ %.pre268, %._crit_edge228 ], [ %51, %49 ]
   %132 = getelementptr inbounds nuw i8, ptr %43, i64 4
-  store i32 %.pre-phi286, ptr %31, align 8, !tbaa !105
+  store i32 %.pre-phi285, ptr %31, align 8, !tbaa !105
   %133 = icmp eq i32 %131, 0
   br i1 %133, label %thread-pre-split, label %134
 
@@ -2877,8 +2877,8 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit110: ; 
   %200 = and i32 %194, 31
   %201 = shl nuw i32 1, %200
   %202 = and i32 %199, %201
-  %.not183 = icmp eq i32 %202, 0
-  br i1 %.not183, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113, label %168, !llvm.loop !134
+  %.not182 = icmp eq i32 %202, 0
+  br i1 %.not182, label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113, label %168, !llvm.loop !134
 
 203:                                              ; preds = %205
   %204 = landingpad { ptr, i32 }
@@ -2891,25 +2891,25 @@ _ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit110: ; 
           to label %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113_crit_edge unwind label %203
 
 ._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113_crit_edge: ; preds = %205
-  %.pre287 = lshr i32 %194, 5
-  %.pre289 = zext nneg i32 %.pre287 to i64
-  %.pre291 = and i32 %194, 31
-  %.pre293 = shl nuw i32 1, %.pre291
+  %.pre286 = lshr i32 %194, 5
+  %.pre288 = zext nneg i32 %.pre286 to i64
+  %.pre290 = and i32 %194, 31
+  %.pre292 = shl nuw i32 1, %.pre290
   br label %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113
 
 _ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113: ; preds = %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit110, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113_crit_edge
-  %.pre-phi294 = phi i32 [ %.pre293, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113_crit_edge ], [ %201, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit110 ]
-  %.pre-phi290 = phi i64 [ %.pre289, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113_crit_edge ], [ %197, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit110 ]
+  %.pre-phi293 = phi i32 [ %.pre292, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113_crit_edge ], [ %201, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit110 ]
+  %.pre-phi289 = phi i64 [ %.pre288, %._ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113_crit_edge ], [ %197, %_ZNK8obj_markI4expr10bit_vector14default_t2uintIS0_EE9is_markedEPS0_.exit110 ]
   %207 = load ptr, ptr %34, align 8, !tbaa !13
-  %208 = getelementptr inbounds nuw i32, ptr %207, i64 %.pre-phi290
+  %208 = getelementptr inbounds nuw i32, ptr %207, i64 %.pre-phi289
   %209 = load i32, ptr %208, align 4, !tbaa !72
-  %210 = or i32 %209, %.pre-phi294
+  %210 = or i32 %209, %.pre-phi293
   store i32 %210, ptr %208, align 4, !tbaa !72
-  %.pre266 = load i32, ptr %31, align 8, !tbaa !105
+  %.pre265 = load i32, ptr %31, align 8, !tbaa !105
   br label %.loopexit
 
 .loopexit:                                        ; preds = %188, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113
-  %211 = phi i32 [ %.pre266, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113 ], [ %38, %188 ]
+  %211 = phi i32 [ %.pre265, %_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EE4markEPKS0_.exit113 ], [ %38, %188 ]
   %212 = load i32, ptr %32, align 4, !tbaa !104
   %.not.i114 = icmp ult i32 %211, %212
   br i1 %.not.i114, label %._crit_edge.i128, label %213
@@ -2983,11 +2983,11 @@ _ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126: ; preds = %.noexc131, 
 
 _ZN25collect_dependencies_procclEP3app.exit108:   ; preds = %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126, %._crit_edge.i128, %._crit_edge.i97, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95, %._crit_edge.i76, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74
   %.sink = phi i32 [ %91, %._crit_edge.i76 ], [ %.pre2.i75, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74 ], [ %111, %._crit_edge.i97 ], [ %.pre2.i96, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %211, %._crit_edge.i128 ], [ %.pre2.i127, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126 ]
-  %.sink370 = phi ptr [ %.pre.i77, %._crit_edge.i76 ], [ %97, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74 ], [ %.pre.i98, %._crit_edge.i97 ], [ %117, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %.pre.i129, %._crit_edge.i128 ], [ %217, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126 ]
-  %.0.i316.sink = phi ptr [ %60, %._crit_edge.i76 ], [ %60, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74 ], [ %60, %._crit_edge.i97 ], [ %60, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %.0.i, %._crit_edge.i128 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126 ]
+  %.sink369 = phi ptr [ %.pre.i77, %._crit_edge.i76 ], [ %97, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74 ], [ %.pre.i98, %._crit_edge.i97 ], [ %117, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %.pre.i129, %._crit_edge.i128 ], [ %217, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126 ]
+  %.0.i315.sink = phi ptr [ %60, %._crit_edge.i76 ], [ %60, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i74 ], [ %60, %._crit_edge.i97 ], [ %60, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i95 ], [ %.0.i, %._crit_edge.i128 ], [ %.0.i, %_ZN6bufferISt4pairIP4exprjELb0ELj16EE6expandEv.exit.i126 ]
   %228 = zext i32 %.sink to i64
-  %229 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink370, i64 %228
-  store ptr %.0.i316.sink, ptr %229, align 8
+  %229 = getelementptr inbounds nuw %"struct.std::pair", ptr %.sink369, i64 %228
+  store ptr %.0.i315.sink, ptr %229, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx, align 8
   %230 = load i32, ptr %31, align 8, !tbaa !105

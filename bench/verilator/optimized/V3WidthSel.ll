@@ -3380,12 +3380,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %44
   br label %_ZN7AstNode9privateIsI13AstBasicDTypeKP12AstNodeDTypeEEbPKS_.exit482
 
 .preheader:                                       ; preds = %452
-  %.not.i458587 = icmp eq ptr %78, null
-  br i1 %.not.i458587, label %.critedge, label %.lr.ph
+  %.not.i458586 = icmp eq ptr %78, null
+  br i1 %.not.i458586, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %_ZN7AstNode11privateCastI12AstMemberSelP11AstNodeExprEEPT_PS_.exit
-  %.0197588 = phi ptr [ %.3200, %_ZN7AstNode11privateCastI12AstMemberSelP11AstNodeExprEEPT_PS_.exit ], [ %78, %.preheader ]
-  %454 = getelementptr inbounds nuw i8, ptr %.0197588, i64 64
+  %.0197587 = phi ptr [ %.3200, %_ZN7AstNode11privateCastI12AstMemberSelP11AstNodeExprEEPT_PS_.exit ], [ %78, %.preheader ]
+  %454 = getelementptr inbounds nuw i8, ptr %.0197587, i64 64
   %.sroa.0.0.copyload.i.i.i459 = load i16, ptr %454, align 8, !tbaa !82
   switch i16 %.sroa.0.0.copyload.i.i.i459, label %455 [
     i16 122, label %_ZN7AstNode11privateCastI12AstMemberSelP11AstNodeExprEEPT_PS_.exit
@@ -3393,7 +3393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit455: ; preds = %44
   ]
 
 _ZN7AstNode11privateCastI12AstMemberSelP11AstNodeExprEEPT_PS_.exit: ; preds = %.lr.ph, %.lr.ph
-  %.3200.in = getelementptr inbounds nuw i8, ptr %.0197588, i64 24
+  %.3200.in = getelementptr inbounds nuw i8, ptr %.0197587, i64 24
   %.3200 = load ptr, ptr %.3200.in, align 8, !tbaa !75
   %.not.i458 = icmp eq ptr %.3200, null
   br i1 %.not.i458, label %.critedge, label %.lr.ph
@@ -3404,7 +3404,7 @@ _ZN7AstNode11privateCastI12AstMemberSelP11AstNodeExprEEPT_PS_.exit: ; preds = %.
   br i1 %spec.select.i.i, label %_ZN7AstNode11privateCastI13AstNodeVarRefP11AstNodeExprEEPT_PS_.exit, label %.critedge
 
 _ZN7AstNode11privateCastI13AstNodeVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %455
-  %457 = getelementptr inbounds nuw i8, ptr %.0197588, i64 176
+  %457 = getelementptr inbounds nuw i8, ptr %.0197587, i64 176
   %.sroa.0.0.copyload.i467 = load i8, ptr %457, align 8, !tbaa !103
   %458 = icmp eq i8 %.sroa.0.0.copyload.i467, 0
   br i1 %458, label %.critedge, label %464

@@ -3167,10 +3167,10 @@ define dso_local noundef zeroext i1 @_ZNK11FactPointTo8point_toEPK8Variable(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = load ptr, ptr %3, align 8, !tbaa !4
-  %.not10.not = icmp eq ptr %5, %6
-  br i1 %.not10.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %.thread, label %.lr.ph
 
-7:                                                ; preds = %19
+7:                                                ; preds = %20
   %8 = add nuw i64 %.0811, 1
   %9 = load ptr, ptr %4, align 8, !tbaa !18
   %10 = load ptr, ptr %3, align 8, !tbaa !4
@@ -3178,27 +3178,27 @@ define dso_local noundef zeroext i1 @_ZNK11FactPointTo8point_toEPK8Variable(ptr 
   %12 = ptrtoint ptr %10 to i64
   %13 = sub i64 %11, %12
   %14 = ashr exact i64 %13, 3
-  %.not = icmp ult i64 %8, %14
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !141
+  %15 = icmp ult i64 %8, %14
+  br i1 %15, label %.lr.ph, label %.thread, !llvm.loop !141
 
 .lr.ph:                                           ; preds = %2, %7
-  %15 = phi ptr [ %10, %7 ], [ %6, %2 ]
+  %16 = phi ptr [ %10, %7 ], [ %6, %2 ]
   %.0811 = phi i64 [ %8, %7 ], [ 0, %2 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.0811
-  %17 = load ptr, ptr %16, align 8, !tbaa !19
-  %18 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef %17)
-  br i1 %18, label %._crit_edge, label %19
+  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.0811
+  %18 = load ptr, ptr %17, align 8, !tbaa !19
+  %19 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef %18)
+  br i1 %19, label %.thread, label %20
 
-19:                                               ; preds = %.lr.ph
-  %20 = load ptr, ptr %3, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0811
-  %22 = load ptr, ptr %21, align 8, !tbaa !19
-  %23 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull %1)
-  br i1 %23, label %._crit_edge, label %7
+20:                                               ; preds = %.lr.ph
+  %21 = load ptr, ptr %3, align 8, !tbaa !4
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.0811
+  %23 = load ptr, ptr %22, align 8, !tbaa !19
+  %24 = tail call noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200) %23, ptr noundef nonnull %1)
+  br i1 %24, label %.thread, label %7
 
-._crit_edge:                                      ; preds = %7, %19, %.lr.ph, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ true, %19 ], [ false, %7 ]
-  ret i1 %.not.lcssa
+.thread:                                          ; preds = %7, %20, %.lr.ph, %2
+  %.lcssa = phi i1 [ false, %2 ], [ true, %.lr.ph ], [ true, %20 ], [ false, %7 ]
+  ret i1 %.lcssa
 }
 
 declare noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #0

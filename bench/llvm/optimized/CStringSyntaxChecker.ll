@@ -576,8 +576,8 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %4, 120
-  %.not318 = icmp eq ptr %1, null
-  %.not = or i1 %.not318, %spec.select.i.i.i.i.i.i.i.i
+  %.not317 = icmp eq ptr %1, null
+  %.not = or i1 %.not317, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %43, label %5
 
 5:                                                ; preds = %2
@@ -756,7 +756,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 43:                                               ; preds = %2
   %44 = and i16 %3, 511
   %45 = icmp ne i16 %44, 4
-  %.not314 = or i1 %.not318, %45
+  %.not314 = or i1 %.not317, %45
   br i1 %.not314, label %.critedge, label %46
 
 46:                                               ; preds = %43
@@ -2236,8 +2236,8 @@ _ZN5clang8CallExpr15getDirectCalleeEv.exit:       ; preds = %28
   %77 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %48) #21
   %78 = load i16, ptr %77, align 8
   %79 = and i16 %78, 511
-  %.not8.i.i.i = icmp eq i16 %79, 73
-  br i1 %.not8.i.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
+  %.not7.i.i.i = icmp eq i16 %79, 73
+  br i1 %.not7.i.i.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
 _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i: ; preds = %76
   %80 = getelementptr inbounds nuw i8, ptr %73, i64 16
@@ -2297,8 +2297,8 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit.i.i:  ; preds = %96
   %118 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %48) #21
   %119 = load i16, ptr %118, align 8
   %120 = and i16 %119, 511
-  %.not8.i.i31.i = icmp eq i16 %120, 73
-  br i1 %.not8.i.i31.i, label %_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.exit.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
+  %.not7.i.i31.i = icmp eq i16 %120, 73
+  br i1 %.not7.i.i31.i, label %_ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.exit.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i
 
 _ZN12_GLOBAL__N_17WalkAST8isStrlenEPKN5clang4ExprES4_.exit.i: ; preds = %117
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -2333,8 +2333,8 @@ _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i: ; preds = %
   %138 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %48) #21
   %139 = load i16, ptr %138, align 8
   %140 = and i16 %139, 511
-  %.not8.i.i35.i = icmp eq i16 %140, 73
-  br i1 %.not8.i.i35.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit36.i, label %.critedge.i
+  %.not7.i.i35.i = icmp eq i16 %140, 73
+  br i1 %.not7.i.i35.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit36.i, label %.critedge.i
 
 _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit36.i: ; preds = %137
   %141 = getelementptr inbounds nuw i8, ptr %134, i64 16
@@ -2424,8 +2424,8 @@ _ZN12_GLOBAL__N_17WalkAST5isOneEPKN5clang4ExprE.exit.i: ; preds = %170, %166, %_
   %185 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %48) #21
   %186 = load i16, ptr %185, align 8
   %187 = and i16 %186, 511
-  %.not8.i.i42.i = icmp eq i16 %187, 73
-  br i1 %.not8.i.i42.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit43.i, label %193
+  %.not7.i.i42.i = icmp eq i16 %187, 73
+  br i1 %.not7.i.i42.i, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit43.i, label %193
 
 _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit43.i: ; preds = %184
   %188 = getelementptr inbounds nuw i8, ptr %181, i64 16
@@ -2439,8 +2439,8 @@ _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit43.i: ; preds = %184
   %194 = call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %50) #21
   %195 = load i16, ptr %194, align 8
   %196 = and i16 %195, 511
-  %.not8.i.i47.i = icmp eq i16 %196, 73
-  br i1 %.not8.i.i47.i, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread
+  %.not7.i.i47.i = icmp eq i16 %196, 73
+  br i1 %.not7.i.i47.i, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit, label %_ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit.thread
 
 _ZN12_GLOBAL__N_17WalkAST25containsBadStrncatPatternEPKN5clang8CallExprE.exit: ; preds = %193
   %197 = getelementptr inbounds nuw i8, ptr %181, i64 16
@@ -2823,8 +2823,8 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit:          ; preds = %_ZN4llvm11raw_ostre
   %411 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull readonly align 8 dereferenceable(16) %390) #21
   %412 = load i16, ptr %411, align 8
   %413 = and i16 %412, 511
-  %.not8.i.i.i61 = icmp eq i16 %413, 73
-  br i1 %.not8.i.i.i61, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i62, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i55
+  %.not7.i.i.i61 = icmp eq i16 %413, 73
+  br i1 %.not7.i.i.i61, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i62, label %_ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.thread.i55
 
 _ZN12_GLOBAL__N_17WalkAST8isSizeofEPKN5clang4ExprES4_.exit.i62: ; preds = %410
   %414 = getelementptr inbounds nuw i8, ptr %407, i64 16

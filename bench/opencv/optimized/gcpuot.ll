@@ -3792,17 +3792,17 @@ define linkonce_odr hidden void @_ZN2cv4gapi2ot19GTrackFromFrameImpl5setupENS_10
   %11 = load ptr, ptr %4, align 8, !tbaa !162, !noalias !159
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !162, !noalias !159
-  %.not13.i = icmp eq ptr %11, %13
-  br i1 %.not13.i, label %.loopexit, label %.lr.ph.i
+  %.not11.i = icmp eq ptr %11, %13
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %.critedge.i
-  %.sroa.06.014.i = phi ptr [ %24, %.critedge.i ], [ %11, %5 ]
-  %14 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.014.i, ptr noundef nonnull @.str.16) #25, !noalias !159
+  %.sroa.06.012.i = phi ptr [ %24, %.critedge.i ], [ %11, %5 ]
+  %14 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.012.i, ptr noundef nonnull @.str.16) #25, !noalias !159
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.critedge.i
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 64
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 64
   %18 = load ptr, ptr %17, align 8, !tbaa !48, !noalias !159
   %19 = icmp eq ptr %18, null
   br i1 %19, label %_ZN2cv4util8any_castINS_4gapi2ot19ObjectTrackerParamsEEEPKT_PKNS0_3anyE.exit.thread.i.i.i, label %_ZN2cv4util8any_castINS_4gapi2ot19ObjectTrackerParamsEEEPKT_PKNS0_3anyE.exit.i.i.i
@@ -3833,7 +3833,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %common.resume
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 72
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 72
   %.not.i = icmp eq ptr %24, %13
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
@@ -7380,17 +7380,17 @@ define linkonce_odr hidden void @_ZN2cv4gapi2ot17GTrackFromMatImpl5setupENS_8GMa
   %10 = load ptr, ptr %3, align 8, !tbaa !162, !noalias !243
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !162, !noalias !243
-  %.not13.i = icmp eq ptr %10, %12
-  br i1 %.not13.i, label %.loopexit, label %.lr.ph.i
+  %.not11.i = icmp eq ptr %10, %12
+  br i1 %.not11.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %.critedge.i
-  %.sroa.06.014.i = phi ptr [ %23, %.critedge.i ], [ %10, %4 ]
-  %13 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.014.i, ptr noundef nonnull @.str.16) #25, !noalias !243
+  %.sroa.06.012.i = phi ptr [ %23, %.critedge.i ], [ %10, %4 ]
+  %13 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.012.i, ptr noundef nonnull @.str.16) #25, !noalias !243
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %.critedge.i
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 64
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !48, !noalias !243
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN2cv4util8any_castINS_4gapi2ot19ObjectTrackerParamsEEEPKT_PKNS0_3anyE.exit.thread.i.i.i, label %_ZN2cv4util8any_castINS_4gapi2ot19ObjectTrackerParamsEEEPKT_PKNS0_3anyE.exit.i.i.i
@@ -7421,7 +7421,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   br label %common.resume
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 72
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 72
   %.not.i = icmp eq ptr %23, %12
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 

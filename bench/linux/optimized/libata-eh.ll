@@ -9270,7 +9270,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
 32:                                               ; preds = %26, %24
   %33 = tail call ptr @ata_dev_next(ptr noundef null, ptr noundef nonnull %0, i32 noundef 0) #18
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.loopexit16, label %35
+  br i1 %34, label %.loopexit18, label %35
 
 35:                                               ; preds = %32
   %36 = icmp ult i32 %1, 3
@@ -9288,10 +9288,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   %45 = and i16 %42, 512
   %46 = icmp ne i16 %45, 0
   %47 = and i1 %44, %46
-  switch i16 %42, label %48 [
-    i16 0, label %54
-    i16 -1, label %54
-  ]
+  br i1 %44, label %48, label %54
 
 48:                                               ; preds = %.split.us
   %49 = getelementptr i8, ptr %37, i64 1052
@@ -9301,8 +9298,8 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   %53 = select i1 %52, i1 %19, i1 false
   br label %54
 
-54:                                               ; preds = %48, %.split.us, %.split.us
-  %55 = phi i1 [ false, %.split.us ], [ false, %.split.us ], [ %53, %48 ]
+54:                                               ; preds = %48, %.split.us
+  %55 = phi i1 [ false, %.split.us ], [ %53, %48 ]
   %56 = icmp eq ptr %40, null
   %57 = select i1 %56, ptr %37, ptr %40
   %58 = icmp eq ptr %39, null
@@ -9313,7 +9310,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   %63 = and i32 %62, %38
   %64 = tail call ptr @ata_dev_next(ptr noundef nonnull %37, ptr noundef nonnull %0, i32 noundef 0) #18
   %65 = icmp eq ptr %64, null
-  br i1 %65, label %.loopexit16, label %.split.us, !llvm.loop !173
+  br i1 %65, label %.loopexit18, label %.split.us, !llvm.loop !173
 
 .split:                                           ; preds = %35, %107
   %66 = phi ptr [ %108, %107 ], [ %33, %35 ]
@@ -9327,10 +9324,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   %74 = and i16 %71, 512
   %75 = icmp ne i16 %74, 0
   %76 = and i1 %73, %75
-  switch i16 %71, label %77 [
-    i16 0, label %83
-    i16 -1, label %83
-  ]
+  br i1 %73, label %77, label %83
 
 77:                                               ; preds = %.split
   %78 = getelementptr i8, ptr %66, i64 1052
@@ -9340,8 +9334,8 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   %82 = select i1 %81, i1 %19, i1 false
   br label %83
 
-83:                                               ; preds = %77, %.split, %.split
-  %84 = phi i1 [ false, %.split ], [ false, %.split ], [ %82, %77 ]
+83:                                               ; preds = %.split, %77
+  %84 = phi i1 [ false, %.split ], [ %82, %77 ]
   %85 = icmp eq ptr %69, null
   %86 = select i1 %85, ptr %66, ptr %69
   %87 = icmp eq ptr %68, null
@@ -9373,15 +9367,15 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
 107:                                              ; preds = %83, %93
   %108 = tail call ptr @ata_dev_next(ptr noundef nonnull %66, ptr noundef nonnull %0, i32 noundef 0) #18
   %109 = icmp eq ptr %108, null
-  br i1 %109, label %.loopexit16, label %.split, !llvm.loop !173
+  br i1 %109, label %.loopexit18, label %.split, !llvm.loop !173
 
-.loopexit16:                                      ; preds = %54, %107, %32
+.loopexit18:                                      ; preds = %54, %107, %32
   %110 = phi ptr [ null, %32 ], [ %86, %107 ], [ %57, %54 ]
   %111 = phi ptr [ null, %32 ], [ %90, %107 ], [ %61, %54 ]
   %112 = phi i32 [ 3, %32 ], [ %92, %107 ], [ %63, %54 ]
   br i1 %25, label %129, label %113
 
-113:                                              ; preds = %.loopexit16
+113:                                              ; preds = %.loopexit18
   %114 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 256
@@ -9394,9 +9388,9 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   %121 = getelementptr inbounds nuw i8, ptr %13, i64 14720
   %122 = load ptr, ptr %121, align 64
   %123 = icmp eq ptr %122, null
-  br i1 %123, label %.thread15, label %124
+  br i1 %123, label %.thread17, label %124
 
-.thread15:                                        ; preds = %120
+.thread17:                                        ; preds = %120
   store i32 %1, ptr %14, align 4
   br label %140
 
@@ -9407,7 +9401,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   %128 = tail call i32 %127(ptr noundef nonnull %122, i32 noundef %1, i32 noundef %112) #18
   br label %131
 
-129:                                              ; preds = %.loopexit16
+129:                                              ; preds = %.loopexit18
   %130 = tail call i32 @sata_pmp_set_lpm(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %112) #18
   br label %131
 
@@ -9433,7 +9427,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   store i32 %1, ptr %14, align 4
   br i1 %25, label %146, label %140
 
-140:                                              ; preds = %.thread15, %139
+140:                                              ; preds = %.thread17, %139
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 14720
   %142 = load ptr, ptr %141, align 64
   %143 = icmp eq ptr %142, null
@@ -9452,18 +9446,17 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
 149:                                              ; preds = %146
   %150 = icmp ugt i32 %1, 2
   %151 = select i1 %150, i1 %19, i1 false
-  br i1 %151, label %.split30.us, label %.split30
+  br i1 %151, label %.split32.us, label %.split32
 
-.split30.us:                                      ; preds = %149, %163
+.split32.us:                                      ; preds = %149, %163
   %152 = phi ptr [ %164, %163 ], [ %147, %149 ]
   %153 = getelementptr i8, ptr %152, i64 1048
   %154 = load i16, ptr %153, align 8
-  switch i16 %154, label %155 [
-    i16 0, label %163
-    i16 -1, label %163
-  ]
+  %.off14.us = add i16 %154, -1
+  %switch15.us = icmp ult i16 %.off14.us, -2
+  br i1 %switch15.us, label %155, label %163
 
-155:                                              ; preds = %.split30.us
+155:                                              ; preds = %.split32.us
   %156 = getelementptr i8, ptr %152, i64 1052
   %157 = load i16, ptr %156, align 4
   %158 = and i16 %157, 8
@@ -9473,20 +9466,20 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
 160:                                              ; preds = %155
   %161 = tail call i32 @ata_dev_set_feature(ptr noundef nonnull %152, i8 noundef zeroext 16, i8 noundef zeroext 3) #18
   %162 = icmp ugt i32 %161, 1
-  br i1 %162, label %.split32.us, label %163
+  br i1 %162, label %.split34.us, label %163
 
-163:                                              ; preds = %160, %155, %.split30.us, %.split30.us
+163:                                              ; preds = %160, %155, %.split32.us
   %164 = tail call ptr @ata_dev_next(ptr noundef nonnull %152, ptr noundef nonnull %0, i32 noundef 0) #18
   %165 = icmp eq ptr %164, null
-  br i1 %165, label %.loopexit, label %.split30.us, !llvm.loop !174
+  br i1 %165, label %.loopexit, label %.split32.us, !llvm.loop !174
 
-.split30:                                         ; preds = %149, %.split30
-  %166 = phi ptr [ %167, %.split30 ], [ %147, %149 ]
+.split32:                                         ; preds = %149, %.split32
+  %166 = phi ptr [ %167, %.split32 ], [ %147, %149 ]
   %167 = tail call ptr @ata_dev_next(ptr noundef nonnull %166, ptr noundef nonnull %0, i32 noundef 0) #18
   %168 = icmp eq ptr %167, null
-  br i1 %168, label %.loopexit, label %.split30, !llvm.loop !174
+  br i1 %168, label %.loopexit, label %.split32, !llvm.loop !174
 
-.split32.us:                                      ; preds = %160
+.split34.us:                                      ; preds = %160
   %169 = load ptr, ptr %152, align 64
   %170 = load ptr, ptr %169, align 64
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 36
@@ -9499,7 +9492,7 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   %178 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.209, i32 noundef %172, i32 noundef %177, i32 noundef %161) #20
   br label %183
 
-.loopexit:                                        ; preds = %.split30, %163, %146
+.loopexit:                                        ; preds = %.split32, %163, %146
   %179 = load volatile i64, ptr @jiffies, align 64
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 6400
   store i64 %179, ptr %180, align 64
@@ -9508,9 +9501,9 @@ define internal fastcc range(i32 -94, -95) i32 @ata_eh_set_lpm(ptr noundef nonnu
   store i32 %182, ptr %20, align 16
   br label %227
 
-183:                                              ; preds = %96, %.split32.us, %136
-  %184 = phi i32 [ %132, %136 ], [ -5, %.split32.us ], [ -5, %96 ]
-  %185 = phi ptr [ %138, %136 ], [ %152, %.split32.us ], [ %66, %96 ]
+183:                                              ; preds = %96, %.split34.us, %136
+  %184 = phi i32 [ %132, %136 ], [ -5, %.split34.us ], [ -5, %96 ]
+  %185 = phi ptr [ %138, %136 ], [ %152, %.split34.us ], [ %66, %96 ]
   store i32 %15, ptr %14, align 4
   br i1 %25, label %192, label %186
 

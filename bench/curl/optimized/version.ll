@@ -119,13 +119,13 @@ define noundef nonnull ptr @curl_version() local_unnamed_addr #0 {
 
 36:                                               ; preds = %0, %45
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %45 ]
-  %.02438 = phi ptr [ @curl_version.out, %0 ], [ %47, %45 ]
-  %.02636 = phi i64 [ 300, %0 ], [ %48, %45 ]
+  %.02437 = phi ptr [ @curl_version.out, %0 ], [ %47, %45 ]
+  %.02635 = phi i64 [ 300, %0 ], [ %48, %45 ]
   %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #8
   %40 = add i64 %39, 2
-  %.not = icmp ugt i64 %.02636, %40
+  %.not = icmp ugt i64 %.02635, %40
   br i1 %.not, label %41, label %49
 
 41:                                               ; preds = %36
@@ -133,16 +133,16 @@ define noundef nonnull ptr @curl_version() local_unnamed_addr #0 {
   br i1 %.not29, label %45, label %42
 
 42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %.02438, i64 1
-  store i8 32, ptr %.02438, align 1, !tbaa !8
-  %44 = add i64 %.02636, -1
+  %43 = getelementptr inbounds nuw i8, ptr %.02437, i64 1
+  store i8 32, ptr %.02437, align 1, !tbaa !8
+  %44 = add i64 %.02635, -1
   %.pre = load ptr, ptr %37, align 8, !tbaa !3
   br label %45
 
 45:                                               ; preds = %41, %42
   %46 = phi ptr [ %.pre, %42 ], [ %38, %41 ]
-  %.228 = phi i64 [ %44, %42 ], [ %.02636, %41 ]
-  %.3 = phi ptr [ %43, %42 ], [ %.02438, %41 ]
+  %.228 = phi i64 [ %44, %42 ], [ %.02635, %41 ]
+  %.3 = phi ptr [ %43, %42 ], [ %.02437, %41 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.3, ptr align 1 %46, i64 %39, i1 false)
   %47 = getelementptr inbounds nuw i8, ptr %.3, i64 %39
   %48 = sub i64 %.228, %39
@@ -151,7 +151,7 @@ define noundef nonnull ptr @curl_version() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %49, label %36, !llvm.loop !9
 
 49:                                               ; preds = %36, %45
-  %.024.lcssa = phi ptr [ %.02438, %36 ], [ %47, %45 ]
+  %.024.lcssa = phi ptr [ %.02437, %36 ], [ %47, %45 ]
   store i8 0, ptr %.024.lcssa, align 1, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

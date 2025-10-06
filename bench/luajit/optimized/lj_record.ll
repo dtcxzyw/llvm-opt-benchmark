@@ -2763,27 +2763,27 @@ define hidden range(i32 1, 3) i32 @lj_record_next(ptr noundef %0, ptr noundef ca
   %27 = sub nuw i32 %.021.lcssa.i, %9
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 52
   %29 = load i32, ptr %28, align 4, !tbaa !89
-  %.not44.i = icmp ugt i32 %27, %29
-  br i1 %.not44.i, label %rec_next_types.exit, label %.lr.ph47.i
+  %.not41.i = icmp ugt i32 %27, %29
+  br i1 %.not41.i, label %rec_next_types.exit, label %.lr.ph44.i
 
-.lr.ph47.i:                                       ; preds = %._crit_edge.i
+.lr.ph44.i:                                       ; preds = %._crit_edge.i
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %31 = load i64, ptr %30, align 8, !tbaa !90
   %32 = inttoptr i64 %31 to ptr
   br label %35
 
 33:                                               ; preds = %35
-  %34 = add i32 %.12245.i, 1
+  %34 = add i32 %.12242.i, 1
   %.not.i = icmp ugt i32 %34, %29
   br i1 %.not.i, label %rec_next_types.exit, label %35, !llvm.loop !96
 
-35:                                               ; preds = %33, %.lr.ph47.i
-  %.12245.i = phi i32 [ %27, %.lr.ph47.i ], [ %34, %33 ]
-  %36 = zext i32 %.12245.i to i64
+35:                                               ; preds = %33, %.lr.ph44.i
+  %.12242.i = phi i32 [ %27, %.lr.ph44.i ], [ %34, %33 ]
+  %36 = zext i32 %.12242.i to i64
   %37 = getelementptr inbounds nuw %struct.Node, ptr %32, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !4
-  %.not36.i = icmp eq i64 %38, -1
-  br i1 %.not36.i, label %33, label %39
+  %.not33.i = icmp eq i64 %38, -1
+  br i1 %.not33.i, label %33, label %39
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
@@ -2792,14 +2792,14 @@ define hidden range(i32 1, 3) i32 @lj_record_next(ptr noundef %0, ptr noundef ca
   %43 = icmp ult i64 %42, -14
   %44 = trunc nsw i64 %42 to i32
   %45 = xor i32 %44, -1
-  %.0.i27.i = select i1 %43, i32 14, i32 %45
+  %.0.i26.i = select i1 %43, i32 14, i32 %45
   %46 = ashr i64 %38, 47
   %47 = icmp ult i64 %46, -14
   %48 = trunc nsw i64 %46 to i32
   %49 = xor i32 %48, -1
   %50 = shl nuw nsw i32 %49, 8
   %51 = select i1 %47, i32 3584, i32 %50
-  %52 = or disjoint i32 %.0.i27.i, %51
+  %52 = or disjoint i32 %.0.i26.i, %51
   br label %rec_next_types.exit
 
 rec_next_types.exit:                              ; preds = %33, %18, %._crit_edge.i, %39
@@ -5890,9 +5890,9 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   br i1 %.not236, label %40, label %.sink.split
 
 .sink.split:                                      ; preds = %37, %35
-  %.sink307 = phi i32 [ %36, %35 ], [ 1, %37 ]
+  %.sink306 = phi i32 [ %36, %35 ], [ 1, %37 ]
   %.1.ph = phi i64 [ %.0202, %35 ], [ 1, %37 ]
-  %39 = add i32 %1, %.sink307
+  %39 = add i32 %1, %.sink306
   store i32 %39, ptr %20, align 4, !tbaa !36
   br label %40
 
@@ -5906,10 +5906,10 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   br i1 %45, label %51, label %.preheader
 
 .preheader:                                       ; preds = %40
-  %.not310 = icmp eq i64 %.1, 0
-  br i1 %.not310, label %.loopexit, label %.lr.ph280
+  %.not309 = icmp eq i64 %.1, 0
+  br i1 %.not309, label %.loopexit, label %.lr.ph279
 
-.lr.ph280:                                        ; preds = %.preheader
+.lr.ph279:                                        ; preds = %.preheader
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -5922,15 +5922,15 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   tail call void @lj_trace_err(ptr noundef nonnull %0, i32 noundef 3) #9
   unreachable
 
-52:                                               ; preds = %.lr.ph280, %81
-  %.pre = phi ptr [ %.pre.pre, %.lr.ph280 ], [ %.pre284, %81 ]
-  %.0204279 = phi i64 [ 0, %.lr.ph280 ], [ %85, %81 ]
-  %53 = icmp sgt i64 %19, %.0204279
+52:                                               ; preds = %.lr.ph279, %81
+  %.pre = phi ptr [ %.pre.pre, %.lr.ph279 ], [ %.pre283, %81 ]
+  %.0204278 = phi i64 [ 0, %.lr.ph279 ], [ %85, %81 ]
+  %53 = icmp sgt i64 %19, %.0204278
   br i1 %53, label %54, label %81
 
 54:                                               ; preds = %52
-  %reass.sub281 = sub nsw i64 %.0204279, %spec.store.select
-  %55 = add nsw i64 %reass.sub281, -2
+  %reass.sub280 = sub nsw i64 %.0204278, %spec.store.select
+  %55 = add nsw i64 %reass.sub280, -2
   %56 = getelementptr inbounds i32, ptr %.pre, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !37
   %.not237 = icmp eq i32 %57, 0
@@ -5969,14 +5969,14 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   br label %81
 
 81:                                               ; preds = %54, %52, %58
-  %.pre284 = phi ptr [ %79, %58 ], [ %.pre, %52 ], [ %.pre, %54 ]
+  %.pre283 = phi ptr [ %79, %58 ], [ %.pre, %52 ], [ %.pre, %54 ]
   %82 = phi i32 [ %.0.i241, %58 ], [ 32767, %52 ], [ %57, %54 ]
-  %83 = getelementptr inbounds nuw i32, ptr %.pre284, i64 %.0204279
+  %83 = getelementptr inbounds nuw i32, ptr %.pre283, i64 %.0204278
   %84 = getelementptr inbounds nuw i32, ptr %83, i64 %50
   store i32 %82, ptr %84, align 4, !tbaa !37
-  %85 = add nuw nsw i64 %.0204279, 1
-  %exitcond283.not = icmp eq i64 %85, %.1
-  br i1 %exitcond283.not, label %.loopexit, label %52, !llvm.loop !154
+  %85 = add nuw nsw i64 %.0204278, 1
+  %exitcond282.not = icmp eq i64 %85, %.1
+  br i1 %exitcond282.not, label %.loopexit, label %52, !llvm.loop !154
 
 86:                                               ; preds = %29
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -6018,10 +6018,10 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
 
 110:                                              ; preds = %103, %99
   %.sink = phi i32 [ %109, %103 ], [ %102, %99 ]
-  %.sink308 = phi i16 [ 2195, %103 ], [ 403, %99 ]
+  %.sink307 = phi i16 [ 2195, %103 ], [ 403, %99 ]
   %111 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %.sink) #8
   %112 = trunc i32 %111 to i16
-  store i16 %.sink308, ptr %88, align 4, !tbaa !4
+  store i16 %.sink307, ptr %88, align 4, !tbaa !4
   store i16 %98, ptr %87, align 8, !tbaa !4
   store i16 %112, ptr %89, align 2, !tbaa !4
   %113 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
@@ -6039,7 +6039,7 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   store i16 %119, ptr %89, align 2, !tbaa !4
   %120 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
   %.not = icmp eq i64 %97, 0
-  br i1 %.not, label %.loopexit275, label %.lr.ph
+  br i1 %.not, label %.loopexit274, label %.lr.ph
 
 .lr.ph:                                           ; preds = %110
   %121 = sub nsw i64 %16, %15
@@ -6049,12 +6049,12 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   br label %125
 
 125:                                              ; preds = %.lr.ph, %125
-  %.0207276 = phi i64 [ 0, %.lr.ph ], [ %145, %125 ]
+  %.0207275 = phi i64 [ 0, %.lr.ph ], [ %145, %125 ]
   %126 = load ptr, ptr %9, align 8, !tbaa !44
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %128 = load ptr, ptr %127, align 8, !tbaa !45
   %129 = getelementptr %union.TValue, ptr %128, i64 %121
-  %130 = getelementptr %union.TValue, ptr %129, i64 %.0207276
+  %130 = getelementptr %union.TValue, ptr %129, i64 %.0207275
   %131 = load i64, ptr %130, align 8, !tbaa !4
   %132 = ashr i64 %131, 47
   %133 = icmp ult i64 %132, -14
@@ -6063,7 +6063,7 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   %.0.i240 = select i1 %133, i32 14, i32 %135
   %136 = trunc i32 %.0.i240 to i16
   %137 = or i16 %136, 18560
-  %138 = trunc i64 %.0207276 to i16
+  %138 = trunc i64 %.0207275 to i16
   store i16 %137, ptr %88, align 4, !tbaa !4
   store i16 %122, ptr %87, align 8, !tbaa !4
   store i16 %138, ptr %89, align 2, !tbaa !4
@@ -6073,12 +6073,12 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   %141 = add nuw nsw i32 %reass.sub.i, 32767
   %.0.i242 = select i1 %140, i32 %141, i32 %139
   %142 = load ptr, ptr %123, align 8, !tbaa !43
-  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %.0207276
+  %143 = getelementptr inbounds nuw i32, ptr %142, i64 %.0207275
   %144 = getelementptr inbounds nuw i32, ptr %143, i64 %124
   store i32 %.0.i242, ptr %144, align 4, !tbaa !37
-  %145 = add nuw nsw i64 %.0207276, 1
+  %145 = add nuw nsw i64 %.0207275, 1
   %exitcond.not = icmp eq i64 %145, %97
-  br i1 %exitcond.not, label %.loopexit275, label %125, !llvm.loop !155
+  br i1 %exitcond.not, label %.loopexit274, label %125, !llvm.loop !155
 
 146:                                              ; preds = %94
   %147 = trunc i32 %90 to i16
@@ -6088,29 +6088,29 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   store i16 %147, ptr %87, align 8, !tbaa !4
   store i16 %149, ptr %89, align 2, !tbaa !4
   %150 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
-  br label %.loopexit275
+  br label %.loopexit274
 
-.loopexit275:                                     ; preds = %125, %110, %146
+.loopexit274:                                     ; preds = %125, %110, %146
   %.0203 = phi i64 [ 0, %146 ], [ %19, %110 ], [ %19, %125 ]
   %151 = icmp samesign ult i64 %.0203, %2
-  br i1 %151, label %.lr.ph278, label %._crit_edge
+  br i1 %151, label %.lr.ph277, label %._crit_edge
 
-.lr.ph278:                                        ; preds = %.loopexit275
+.lr.ph277:                                        ; preds = %.loopexit274
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %153 = load ptr, ptr %152, align 8, !tbaa !43
   %154 = zext i32 %1 to i64
   %invariant.gep = getelementptr i32, ptr %153, i64 %154
   br label %155
 
-155:                                              ; preds = %.lr.ph278, %155
-  %.1208277 = phi i64 [ %.0203, %.lr.ph278 ], [ %156, %155 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %.1208277
+155:                                              ; preds = %.lr.ph277, %155
+  %.1208276 = phi i64 [ %.0203, %.lr.ph277 ], [ %156, %155 ]
+  %gep = getelementptr i32, ptr %invariant.gep, i64 %.1208276
   store i32 32767, ptr %gep, align 4, !tbaa !37
-  %156 = add nuw nsw i64 %.1208277, 1
-  %exitcond282.not = icmp eq i64 %156, %2
-  br i1 %exitcond282.not, label %._crit_edge, label %155, !llvm.loop !156
+  %156 = add nuw nsw i64 %.1208276, 1
+  %exitcond281.not = icmp eq i64 %156, %2
+  br i1 %exitcond281.not, label %._crit_edge, label %155, !llvm.loop !156
 
-._crit_edge:                                      ; preds = %155, %.loopexit275
+._crit_edge:                                      ; preds = %155, %.loopexit274
   %.not233 = icmp eq i64 %2, 1
   br i1 %.not233, label %157, label %159
 
@@ -6324,28 +6324,28 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   store i16 %285, ptr %89, align 2, !tbaa !4
   %286 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
   %.not229 = icmp eq i8 %7, 0
-  %.pre287 = trunc i32 %286 to i16
-  br i1 %.not229, label %._crit_edge286, label %287
+  %.pre286 = trunc i32 %286 to i16
+  br i1 %.not229, label %._crit_edge285, label %287
 
 287:                                              ; preds = %281
   %288 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef 0) #8
   %289 = trunc i32 %288 to i16
   store i16 403, ptr %88, align 4, !tbaa !4
-  store i16 %.pre287, ptr %87, align 8, !tbaa !4
+  store i16 %.pre286, ptr %87, align 8, !tbaa !4
   store i16 %289, ptr %89, align 2, !tbaa !4
   %290 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
-  br label %._crit_edge286
+  br label %._crit_edge285
 
-._crit_edge286:                                   ; preds = %281, %287
+._crit_edge285:                                   ; preds = %281, %287
   %291 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef 3) #8
   %292 = trunc i32 %291 to i16
   store i16 9491, ptr %88, align 4, !tbaa !4
-  store i16 %.pre287, ptr %87, align 8, !tbaa !4
+  store i16 %.pre286, ptr %87, align 8, !tbaa !4
   store i16 %292, ptr %89, align 2, !tbaa !4
   %293 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #8
   br i1 %.not226, label %294, label %.thread272
 
-294:                                              ; preds = %._crit_edge286
+294:                                              ; preds = %._crit_edge285
   %295 = trunc i32 %.0211254263 to i16
   %296 = tail call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef -1) #8
   %297 = trunc i32 %296 to i16
@@ -6445,8 +6445,8 @@ define internal fastcc void @rec_varg(ptr noundef %0, i32 noundef %1, i64 nounde
   %.0.i247 = select i1 %343, i32 %344, i32 %342
   br label %.thread272
 
-.thread272:                                       ; preds = %._crit_edge286, %316, %317
-  %.2 = phi i32 [ %.0.i247, %317 ], [ %.0209, %316 ], [ %293, %._crit_edge286 ]
+.thread272:                                       ; preds = %._crit_edge285, %316, %317
+  %.2 = phi i32 [ %.0.i247, %317 ], [ %.0209, %316 ], [ %293, %._crit_edge285 ]
   %345 = load ptr, ptr %186, align 8, !tbaa !43
   %346 = add i32 %1, -3
   %347 = zext i32 %346 to i64

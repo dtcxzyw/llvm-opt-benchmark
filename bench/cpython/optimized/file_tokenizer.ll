@@ -1588,9 +1588,9 @@ tok_concatenate_interactive_new_line.exit.i48:    ; preds = %141, %138
   %148 = getelementptr i8, ptr %147, i64 %146
   store ptr %148, ptr %98, align 8, !tbaa !13
   %149 = load ptr, ptr %0, align 8, !tbaa !4
-  %.not23.i = icmp eq ptr %148, %149
+  %.not22.i = icmp eq ptr %148, %149
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not23.i, label %tok_readline_raw.exit.thread, label %150
+  br i1 %.not22.i, label %tok_readline_raw.exit.thread, label %150
 
 150:                                              ; preds = %145
   %151 = getelementptr i8, ptr %148, i64 -1

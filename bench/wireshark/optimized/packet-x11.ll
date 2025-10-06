@@ -35039,16 +35039,16 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   br i1 %.not106, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %12
-  %.0120.us = phi i32 [ %18, %12 ], [ %8, %.lr.ph ]
-  %.0101119.us = phi i32 [ %14, %12 ], [ 0, %.lr.ph ]
-  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0120.us)
-  %11 = add nsw i32 %.0120.us, 1
+  %.0119.us = phi i32 [ %18, %12 ], [ %8, %.lr.ph ]
+  %.0101118.us = phi i32 [ %14, %12 ], [ 0, %.lr.ph ]
+  %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0119.us)
+  %11 = add nsw i32 %.0119.us, 1
   %.not.us = icmp eq i8 %10, 0
   br i1 %.not.us, label %.thread, label %12
 
 12:                                               ; preds = %.lr.ph.split.us
   %13 = zext i8 %10 to i32
-  %14 = add i32 %.0101119.us, 1
+  %14 = add i32 %.0101118.us, 1
   %15 = icmp eq i8 %10, -1
   %16 = add nuw nsw i32 %13, 1
   %17 = select i1 %15, i32 4, i32 %16
@@ -35057,16 +35057,16 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   br i1 %19, label %.lr.ph.split.us, label %.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %22
-  %.0120 = phi i32 [ %28, %22 ], [ %8, %.lr.ph ]
-  %.0101119 = phi i32 [ %24, %22 ], [ 0, %.lr.ph ]
-  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0120)
-  %21 = add nsw i32 %.0120, 1
+  %.0119 = phi i32 [ %28, %22 ], [ %8, %.lr.ph ]
+  %.0101118 = phi i32 [ %24, %22 ], [ 0, %.lr.ph ]
+  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0119)
+  %21 = add nsw i32 %.0119, 1
   %.not = icmp eq i8 %20, 0
   br i1 %.not, label %.thread, label %22
 
 22:                                               ; preds = %.lr.ph.split
   %23 = zext i8 %20 to i32
-  %24 = add i32 %.0101119, 1
+  %24 = add i32 %.0101118, 1
   %25 = icmp eq i8 %20, -1
   %reass.add = shl nuw nsw i32 %23, 1
   %26 = or disjoint i32 %reass.add, 1
@@ -35076,30 +35076,30 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   br i1 %29, label %.lr.ph.split, label %.thread
 
 .thread:                                          ; preds = %22, %.lr.ph.split, %12, %.lr.ph.split.us, %7
-  %.0101.lcssa = phi i32 [ 0, %7 ], [ %.0101119.us, %.lr.ph.split.us ], [ %14, %12 ], [ %.0101119, %.lr.ph.split ], [ %24, %22 ]
+  %.0101.lcssa = phi i32 [ 0, %7 ], [ %.0101118.us, %.lr.ph.split.us ], [ %14, %12 ], [ %.0101118, %.lr.ph.split ], [ %24, %22 ]
   %.1 = phi i32 [ %8, %7 ], [ %11, %.lr.ph.split.us ], [ %18, %12 ], [ %21, %.lr.ph.split ], [ %28, %22 ]
   %30 = load i32, ptr %1, align 4
   %31 = sub i32 %.1, %30
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %3, ptr noundef %0, i32 noundef %30, i32 noundef %31, i32 noundef %6)
   %33 = load i32, ptr @ett_x11_list_of_text_item, align 4
   %34 = tail call ptr @proto_item_add_subtree(ptr noundef %32, i32 noundef %33)
-  %.not107128 = icmp eq i32 %.0101.lcssa, 0
-  br i1 %.not107128, label %._crit_edge, label %.lr.ph129
+  %.not107127 = icmp eq i32 %.0101.lcssa, 0
+  br i1 %.not107127, label %._crit_edge, label %.lr.ph128
 
-.lr.ph129:                                        ; preds = %.thread
+.lr.ph128:                                        ; preds = %.thread
   %35 = add i32 %.0101.lcssa, -1
   %.not108 = icmp eq i32 %4, 0
-  %.pre135 = load i32, ptr %1, align 4
-  br i1 %.not108, label %.lr.ph129.split.us, label %.lr.ph129.split
+  %.pre134 = load i32, ptr %1, align 4
+  br i1 %.not108, label %.lr.ph128.split.us, label %.lr.ph128.split
 
-.lr.ph129.split.us:                               ; preds = %.lr.ph129, %71
-  %36 = phi i32 [ %73, %71 ], [ %.pre135, %.lr.ph129 ]
-  %37 = phi i32 [ %74, %71 ], [ %35, %.lr.ph129 ]
+.lr.ph128.split.us:                               ; preds = %.lr.ph128, %71
+  %36 = phi i32 [ %73, %71 ], [ %.pre134, %.lr.ph128 ]
+  %37 = phi i32 [ %74, %71 ], [ %35, %.lr.ph128 ]
   %38 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %36)
   %39 = icmp eq i8 %38, -1
   br i1 %39, label %64, label %40
 
-40:                                               ; preds = %.lr.ph129.split.us
+40:                                               ; preds = %.lr.ph128.split.us
   %41 = zext i8 %38 to i32
   %42 = load i32, ptr %1, align 4
   %43 = add i32 %42, 1
@@ -35125,7 +35125,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   %63 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %55, i32 noundef %60, ptr noundef %0, i32 noundef %62, i32 noundef %41, ptr noundef %48, ptr noundef nonnull @.str.14927, ptr noundef %48)
   br label %71
 
-64:                                               ; preds = %.lr.ph129.split.us
+64:                                               ; preds = %.lr.ph128.split.us
   %65 = load i32, ptr %1, align 4
   %66 = add i32 %65, 1
   %67 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %66)
@@ -35135,17 +35135,17 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   br label %71
 
 71:                                               ; preds = %64, %40
-  %.sink154 = phi i32 [ 5, %64 ], [ %51, %40 ]
+  %.sink153 = phi i32 [ 5, %64 ], [ %51, %40 ]
   %72 = load i32, ptr %1, align 4
-  %73 = add i32 %72, %.sink154
+  %73 = add i32 %72, %.sink153
   store i32 %73, ptr %1, align 4
   %74 = add i32 %37, -1
   %.not107.us = icmp eq i32 %37, 0
-  br i1 %.not107.us, label %._crit_edge, label %.lr.ph129.split.us, !llvm.loop !52
+  br i1 %.not107.us, label %._crit_edge, label %.lr.ph128.split.us, !llvm.loop !52
 
-.lr.ph129.split:                                  ; preds = %.lr.ph129, %147
-  %75 = phi i32 [ %storemerge110, %147 ], [ %.pre135, %.lr.ph129 ]
-  %76 = phi i32 [ %148, %147 ], [ %35, %.lr.ph129 ]
+.lr.ph128.split:                                  ; preds = %.lr.ph128, %147
+  %75 = phi i32 [ %storemerge110, %147 ], [ %.pre134, %.lr.ph128 ]
+  %76 = phi i32 [ %148, %147 ], [ %35, %.lr.ph128 ]
   %77 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %75)
   %78 = zext i8 %77 to i32
   %79 = icmp eq i8 %77, -1
@@ -35153,7 +35153,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   %81 = add i32 %80, 1
   br i1 %79, label %82, label %89
 
-82:                                               ; preds = %.lr.ph129.split
+82:                                               ; preds = %.lr.ph128.split
   %83 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %81)
   %84 = load i32, ptr @hf_x11_textitem_font, align 4
   %85 = load i32, ptr %1, align 4
@@ -35162,7 +35162,7 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   %88 = add i32 %87, 5
   br label %147
 
-89:                                               ; preds = %.lr.ph129.split
+89:                                               ; preds = %.lr.ph128.split
   %90 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %81)
   %91 = load i32, ptr %1, align 4
   %.not8.i = icmp eq i8 %77, 0
@@ -35182,11 +35182,11 @@ define internal fastcc void @listOfTextItem(ptr noundef %0, ptr noundef captures
   br i1 %.not.i, label %.loopexit.loopexit, label %.lr.ph.i, !llvm.loop !44
 
 .loopexit.loopexit:                               ; preds = %93
-  %.pre134 = load i32, ptr %1, align 4
+  %.pre133 = load i32, ptr %1, align 4
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %89
-  %95 = phi i32 [ %.pre134, %.loopexit.loopexit ], [ %91, %89 ]
+  %95 = phi i32 [ %.pre133, %.loopexit.loopexit ], [ %91, %89 ]
   %96 = tail call ptr @wmem_packet_scope()
   %97 = add nuw nsw i32 %78, 1
   %98 = zext nneg i32 %97 to i64
@@ -35259,9 +35259,9 @@ stringIsActuallyAn8BitString.exit:                ; preds = %.lr.ph.i
   br label %144
 
 144:                                              ; preds = %stringIsActuallyAn8BitString.exit, %tvb_get_ascii_string16.exit
-  %.pre-phi136 = phi i32 [ %127, %stringIsActuallyAn8BitString.exit ], [ %111, %tvb_get_ascii_string16.exit ]
+  %.pre-phi135 = phi i32 [ %127, %stringIsActuallyAn8BitString.exit ], [ %111, %tvb_get_ascii_string16.exit ]
   %145 = load i32, ptr %1, align 4
-  %146 = add i32 %.pre-phi136, %145
+  %146 = add i32 %.pre-phi135, %145
   br label %147
 
 147:                                              ; preds = %144, %82
@@ -35269,7 +35269,7 @@ stringIsActuallyAn8BitString.exit:                ; preds = %.lr.ph.i
   store i32 %storemerge110, ptr %1, align 4
   %148 = add i32 %76, -1
   %.not107 = icmp eq i32 %76, 0
-  br i1 %.not107, label %._crit_edge, label %.lr.ph129.split, !llvm.loop !52
+  br i1 %.not107, label %._crit_edge, label %.lr.ph128.split, !llvm.loop !52
 
 ._crit_edge:                                      ; preds = %147, %71, %.thread
   ret void

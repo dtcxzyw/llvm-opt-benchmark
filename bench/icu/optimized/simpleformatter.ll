@@ -375,7 +375,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   br i1 %26, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
-  br i1 %.not.i.i.i, label %27, label %.preheader75.i
+  br i1 %.not.i.i.i, label %27, label %.preheader78.i
 
 27:                                               ; preds = %.critedge.i
   %28 = and i16 %9, 2
@@ -384,75 +384,75 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
 
 29:                                               ; preds = %27
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  br label %.preheader75.i
+  br label %.preheader78.i
 
 31:                                               ; preds = %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = load ptr, ptr %32, align 8, !tbaa !7
-  br label %.preheader75.i
+  br label %.preheader78.i
 
-.preheader75.i:                                   ; preds = %.critedge.i, %29, %31
+.preheader78.i:                                   ; preds = %.critedge.i, %29, %31
   %.0.i.i = phi ptr [ %30, %29 ], [ %33, %31 ], [ null, %.critedge.i ]
-  %.not77.i = icmp sgt i32 %23, 1
-  br i1 %.not77.i, label %.lr.ph79.split.i.preheader, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
+  %34 = icmp sgt i32 %23, 1
+  br i1 %34, label %.lr.ph81.split.i.preheader, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
-.lr.ph79.split.i.preheader:                       ; preds = %.preheader75.i
-  %34 = icmp eq ptr %1, %2
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  br label %.lr.ph79.split.i
+.lr.ph81.split.i.preheader:                       ; preds = %.preheader78.i
+  %35 = icmp eq ptr %1, %2
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  br label %.lr.ph81.split.i
 
-.lr.ph79.split.i:                                 ; preds = %.lr.ph79.split.i.preheader, %59
-  %.05678.i = phi i32 [ %.157.i, %59 ], [ 1, %.lr.ph79.split.i.preheader ]
-  %37 = add nsw i32 %.05678.i, 1
-  %38 = sext i32 %.05678.i to i64
-  %39 = getelementptr inbounds i16, ptr %.0.i.i, i64 %38
-  %40 = load i16, ptr %39, align 2, !tbaa !8
-  %41 = icmp ult i16 %40, 256
-  br i1 %41, label %42, label %51
+.lr.ph81.split.i:                                 ; preds = %.lr.ph81.split.i.preheader, %60
+  %.05680.i = phi i32 [ %.157.i, %60 ], [ 1, %.lr.ph81.split.i.preheader ]
+  %38 = add nsw i32 %.05680.i, 1
+  %39 = sext i32 %.05680.i to i64
+  %40 = getelementptr inbounds i16, ptr %.0.i.i, i64 %39
+  %41 = load i16, ptr %40, align 2, !tbaa !8
+  %42 = icmp ult i16 %41, 256
+  br i1 %42, label %43, label %52
 
-42:                                               ; preds = %.lr.ph79.split.i
-  br i1 %34, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %43
+43:                                               ; preds = %.lr.ph81.split.i
+  br i1 %35, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %44
 
-43:                                               ; preds = %42
-  %44 = load i16, ptr %35, align 8, !tbaa !7
-  %45 = icmp slt i16 %44, 0
-  %46 = ashr i16 %44, 5
-  %47 = sext i16 %46 to i32
-  %48 = load i32, ptr %36, align 4
-  %49 = select i1 %45, i32 %48, i32 %47
-  %50 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %49)
-  br label %59
+44:                                               ; preds = %43
+  %45 = load i16, ptr %36, align 8, !tbaa !7
+  %46 = icmp slt i16 %45, 0
+  %47 = ashr i16 %45, 5
+  %48 = sext i16 %47 to i32
+  %49 = load i32, ptr %37, align 4
+  %50 = select i1 %46, i32 %49, i32 %48
+  %51 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %50)
+  br label %60
 
-51:                                               ; preds = %.lr.ph79.split.i
-  %52 = zext i16 %40 to i32
-  %53 = add nsw i32 %52, -256
-  %54 = sext i32 %37 to i64
-  %55 = getelementptr inbounds i16, ptr %.0.i.i, i64 %54
-  %56 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %55, i32 noundef 0, i32 noundef %53)
+52:                                               ; preds = %.lr.ph81.split.i
+  %53 = zext i16 %41 to i32
+  %54 = add nsw i32 %53, -256
+  %55 = sext i32 %38 to i64
+  %56 = getelementptr inbounds i16, ptr %.0.i.i, i64 %55
+  %57 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %56, i32 noundef 0, i32 noundef %54)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i unwind label %.split.i
 
-_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i: ; preds = %51
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %55) #7, !srcloc !13
-  %57 = add nsw i32 %53, %37
-  br label %59
+_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i: ; preds = %52
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %56) #7, !srcloc !13
+  %58 = add nsw i32 %54, %38
+  br label %60
 
-.split.i:                                         ; preds = %51
-  %58 = landingpad { ptr, i32 }
+.split.i:                                         ; preds = %52
+  %59 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %55) #7, !srcloc !13
-  resume { ptr, i32 } %58
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %56) #7, !srcloc !13
+  resume { ptr, i32 } %59
 
-59:                                               ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i, %43
-  %.157.i = phi i32 [ %57, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i ], [ %37, %43 ]
-  %.not.i = icmp slt i32 %.157.i, %23
-  br i1 %.not.i, label %.lr.ph79.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit, !llvm.loop !14
+60:                                               ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i, %44
+  %.157.i = phi i32 [ %58, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i ], [ %38, %44 ]
+  %61 = icmp slt i32 %.157.i, %23
+  br i1 %61, label %.lr.ph81.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit, !llvm.loop !14
 
-_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split: ; preds = %42, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
+_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split: ; preds = %43, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
   store i32 1, ptr %3, align 4, !tbaa !3
   br label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
-_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit: ; preds = %59, %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, %.preheader75.i, %4
+_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit: ; preds = %60, %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, %.preheader78.i, %4
   ret ptr %2
 }
 
@@ -595,7 +595,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   br i1 %29, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
-  br i1 %.not.i.i.i, label %30, label %.preheader75.i
+  br i1 %.not.i.i.i, label %30, label %.preheader78.i
 
 30:                                               ; preds = %.critedge.i
   %31 = and i16 %12, 2
@@ -604,77 +604,77 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  br label %.preheader75.i
+  br label %.preheader78.i
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !7
-  br label %.preheader75.i
+  br label %.preheader78.i
 
-.preheader75.i:                                   ; preds = %.critedge.i, %32, %34
+.preheader78.i:                                   ; preds = %.critedge.i, %32, %34
   %.0.i.i = phi ptr [ %33, %32 ], [ %36, %34 ], [ null, %.critedge.i ]
-  %.not77.i = icmp sgt i32 %26, 1
-  br i1 %.not77.i, label %.lr.ph79.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
+  %37 = icmp sgt i32 %26, 1
+  br i1 %37, label %.lr.ph81.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
-.lr.ph79.split.i:                                 ; preds = %.preheader75.i, %66
-  %.05678.i = phi i32 [ %.157.i, %66 ], [ 1, %.preheader75.i ]
-  %37 = add nsw i32 %.05678.i, 1
-  %38 = sext i32 %.05678.i to i64
-  %39 = getelementptr inbounds i16, ptr %.0.i.i, i64 %38
-  %40 = load i16, ptr %39, align 2, !tbaa !8
-  %41 = icmp ult i16 %40, 256
-  br i1 %41, label %42, label %58
+.lr.ph81.split.i:                                 ; preds = %.preheader78.i, %67
+  %.05680.i = phi i32 [ %.157.i, %67 ], [ 1, %.preheader78.i ]
+  %38 = add nsw i32 %.05680.i, 1
+  %39 = sext i32 %.05680.i to i64
+  %40 = getelementptr inbounds i16, ptr %.0.i.i, i64 %39
+  %41 = load i16, ptr %40, align 2, !tbaa !8
+  %42 = icmp ult i16 %41, 256
+  br i1 %42, label %43, label %59
 
-42:                                               ; preds = %.lr.ph79.split.i
-  %43 = zext nneg i16 %40 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %6, i64 %43
-  %45 = load ptr, ptr %44, align 8, !tbaa !15
-  %46 = icmp eq ptr %45, null
-  %47 = icmp eq ptr %45, %3
-  %or.cond.i = or i1 %46, %47
-  br i1 %or.cond.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %48
+43:                                               ; preds = %.lr.ph81.split.i
+  %44 = zext nneg i16 %41 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %6, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !15
+  %47 = icmp eq ptr %46, null
+  %48 = icmp eq ptr %46, %3
+  %or.cond.i = or i1 %47, %48
+  br i1 %or.cond.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %49
 
-48:                                               ; preds = %42
-  %49 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %50 = load i16, ptr %49, align 8, !tbaa !7
-  %51 = icmp slt i16 %50, 0
-  %52 = ashr i16 %50, 5
-  %53 = sext i16 %52 to i32
-  %54 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = select i1 %51, i32 %55, i32 %53
-  %57 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %45, i32 noundef 0, i32 noundef %56)
-  br label %66
+49:                                               ; preds = %43
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %51 = load i16, ptr %50, align 8, !tbaa !7
+  %52 = icmp slt i16 %51, 0
+  %53 = ashr i16 %51, 5
+  %54 = sext i16 %53 to i32
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 12
+  %56 = load i32, ptr %55, align 4
+  %57 = select i1 %52, i32 %56, i32 %54
+  %58 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %46, i32 noundef 0, i32 noundef %57)
+  br label %67
 
-58:                                               ; preds = %.lr.ph79.split.i
-  %59 = zext i16 %40 to i32
-  %60 = add nsw i32 %59, -256
-  %61 = sext i32 %37 to i64
-  %62 = getelementptr inbounds i16, ptr %.0.i.i, i64 %61
-  %63 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %62, i32 noundef 0, i32 noundef %60)
+59:                                               ; preds = %.lr.ph81.split.i
+  %60 = zext i16 %41 to i32
+  %61 = add nsw i32 %60, -256
+  %62 = sext i32 %38 to i64
+  %63 = getelementptr inbounds i16, ptr %.0.i.i, i64 %62
+  %64 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %63, i32 noundef 0, i32 noundef %61)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i unwind label %.split.i
 
-_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i: ; preds = %58
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %62) #7, !srcloc !13
-  %64 = add nsw i32 %60, %37
-  br label %66
+_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i: ; preds = %59
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #7, !srcloc !13
+  %65 = add nsw i32 %61, %38
+  br label %67
 
-.split.i:                                         ; preds = %58
-  %65 = landingpad { ptr, i32 }
+.split.i:                                         ; preds = %59
+  %66 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %62) #7, !srcloc !13
-  resume { ptr, i32 } %65
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %63) #7, !srcloc !13
+  resume { ptr, i32 } %66
 
-66:                                               ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i, %48
-  %.157.i = phi i32 [ %64, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i ], [ %37, %48 ]
-  %.not.i = icmp slt i32 %.157.i, %26
-  br i1 %.not.i, label %.lr.ph79.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit, !llvm.loop !14
+67:                                               ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i, %49
+  %.157.i = phi i32 [ %65, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i ], [ %38, %49 ]
+  %68 = icmp slt i32 %.157.i, %26
+  br i1 %68, label %.lr.ph81.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit, !llvm.loop !14
 
-_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split: ; preds = %42, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
+_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split: ; preds = %43, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
   store i32 1, ptr %4, align 4, !tbaa !3
   br label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
-_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit: ; preds = %66, %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, %.preheader75.i, %5
+_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit: ; preds = %67, %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, %.preheader78.i, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %3
 }
@@ -730,7 +730,7 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
   br i1 %31, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i, %_ZNK6icu_7713UnicodeString9getBufferEv.exit.i.i
-  br i1 %.not.i.i.i, label %32, label %.preheader75.i
+  br i1 %.not.i.i.i, label %32, label %.preheader78.i
 
 32:                                               ; preds = %.critedge.i
   %33 = and i16 %14, 2
@@ -739,77 +739,77 @@ _ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i: ; preds = %_ZNK6icu_771
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  br label %.preheader75.i
+  br label %.preheader78.i
 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !7
-  br label %.preheader75.i
+  br label %.preheader78.i
 
-.preheader75.i:                                   ; preds = %.critedge.i, %34, %36
+.preheader78.i:                                   ; preds = %.critedge.i, %34, %36
   %.0.i.i = phi ptr [ %35, %34 ], [ %38, %36 ], [ null, %.critedge.i ]
-  %.not77.i = icmp sgt i32 %28, 1
-  br i1 %.not77.i, label %.lr.ph79.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
+  %39 = icmp sgt i32 %28, 1
+  br i1 %39, label %.lr.ph81.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
-.lr.ph79.split.i:                                 ; preds = %.preheader75.i, %68
-  %.05678.i = phi i32 [ %.157.i, %68 ], [ 1, %.preheader75.i ]
-  %39 = add nsw i32 %.05678.i, 1
-  %40 = sext i32 %.05678.i to i64
-  %41 = getelementptr inbounds i16, ptr %.0.i.i, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !8
-  %43 = icmp ult i16 %42, 256
-  br i1 %43, label %44, label %60
+.lr.ph81.split.i:                                 ; preds = %.preheader78.i, %69
+  %.05680.i = phi i32 [ %.157.i, %69 ], [ 1, %.preheader78.i ]
+  %40 = add nsw i32 %.05680.i, 1
+  %41 = sext i32 %.05680.i to i64
+  %42 = getelementptr inbounds i16, ptr %.0.i.i, i64 %41
+  %43 = load i16, ptr %42, align 2, !tbaa !8
+  %44 = icmp ult i16 %43, 256
+  br i1 %44, label %45, label %61
 
-44:                                               ; preds = %.lr.ph79.split.i
-  %45 = zext nneg i16 %42 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %7, i64 %45
-  %47 = load ptr, ptr %46, align 8, !tbaa !15
-  %48 = icmp eq ptr %47, null
-  %49 = icmp eq ptr %47, %4
-  %or.cond.i = or i1 %48, %49
-  br i1 %or.cond.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %50
+45:                                               ; preds = %.lr.ph81.split.i
+  %46 = zext nneg i16 %43 to i64
+  %47 = getelementptr inbounds nuw ptr, ptr %7, i64 %46
+  %48 = load ptr, ptr %47, align 8, !tbaa !15
+  %49 = icmp eq ptr %48, null
+  %50 = icmp eq ptr %48, %4
+  %or.cond.i = or i1 %49, %50
+  br i1 %or.cond.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, label %51
 
-50:                                               ; preds = %44
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %52 = load i16, ptr %51, align 8, !tbaa !7
-  %53 = icmp slt i16 %52, 0
-  %54 = ashr i16 %52, 5
-  %55 = sext i16 %54 to i32
-  %56 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  %57 = load i32, ptr %56, align 4
-  %58 = select i1 %53, i32 %57, i32 %55
-  %59 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %47, i32 noundef 0, i32 noundef %58)
-  br label %68
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %53 = load i16, ptr %52, align 8, !tbaa !7
+  %54 = icmp slt i16 %53, 0
+  %55 = ashr i16 %53, 5
+  %56 = sext i16 %55 to i32
+  %57 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  %58 = load i32, ptr %57, align 4
+  %59 = select i1 %54, i32 %58, i32 %56
+  %60 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %48, i32 noundef 0, i32 noundef %59)
+  br label %69
 
-60:                                               ; preds = %.lr.ph79.split.i
-  %61 = zext i16 %42 to i32
-  %62 = add nsw i32 %61, -256
-  %63 = sext i32 %39 to i64
-  %64 = getelementptr inbounds i16, ptr %.0.i.i, i64 %63
-  %65 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %64, i32 noundef 0, i32 noundef %62)
+61:                                               ; preds = %.lr.ph81.split.i
+  %62 = zext i16 %43 to i32
+  %63 = add nsw i32 %62, -256
+  %64 = sext i32 %40 to i64
+  %65 = getelementptr inbounds i16, ptr %.0.i.i, i64 %64
+  %66 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %65, i32 noundef 0, i32 noundef %63)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i unwind label %.split.i
 
-_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i: ; preds = %60
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #7, !srcloc !13
-  %66 = add nsw i32 %62, %39
-  br label %68
+_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i: ; preds = %61
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %65) #7, !srcloc !13
+  %67 = add nsw i32 %63, %40
+  br label %69
 
-.split.i:                                         ; preds = %60
-  %67 = landingpad { ptr, i32 }
+.split.i:                                         ; preds = %61
+  %68 = landingpad { ptr, i32 }
           cleanup
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %64) #7, !srcloc !13
-  resume { ptr, i32 } %67
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %65) #7, !srcloc !13
+  resume { ptr, i32 } %68
 
-68:                                               ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i, %50
-  %.157.i = phi i32 [ %66, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i ], [ %39, %50 ]
-  %.not.i = icmp slt i32 %.157.i, %28
-  br i1 %.not.i, label %.lr.ph79.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit, !llvm.loop !14
+69:                                               ; preds = %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i, %51
+  %.157.i = phi i32 [ %67, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.i ], [ %40, %51 ]
+  %70 = icmp slt i32 %.157.i, %28
+  br i1 %70, label %.lr.ph81.split.i, label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit, !llvm.loop !14
 
-_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split: ; preds = %44, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
+_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split: ; preds = %45, %_ZNK6icu_7715SimpleFormatter16getArgumentLimitEv.exit.i
   store i32 1, ptr %5, align 4, !tbaa !3
   br label %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit
 
-_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit: ; preds = %68, %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, %.preheader75.i, %6
+_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit: ; preds = %69, %_ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10UErrorCode.exit.sink.split, %.preheader78.i, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %4
 }
@@ -818,216 +818,216 @@ _ZNK6icu_7715SimpleFormatter15formatAndAppendEPKPKNS_13UnicodeStringEiRS1_PiiR10
 define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7715SimpleFormatter6formatEPKDsiPKPKNS_13UnicodeStringERS3_S5_aPiiR10UErrorCode(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull returned align 8 dereferenceable(64) %3, ptr noundef %4, i8 noundef signext %5, ptr noundef writeonly captures(none) %6, i32 noundef %7, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %8) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %10 = load i32, ptr %8, align 4, !tbaa !3
   %11 = icmp slt i32 %10, 1
-  br i1 %11, label %.preheader75, label %.thread
+  br i1 %11, label %.preheader78, label %.loopexit
 
-.preheader75:                                     ; preds = %9
+.preheader78:                                     ; preds = %9
   %12 = icmp sgt i32 %7, 0
   br i1 %12, label %.lr.ph.preheader, label %.preheader
 
-.lr.ph.preheader:                                 ; preds = %.preheader75
+.lr.ph.preheader:                                 ; preds = %.preheader78
   %13 = zext nneg i32 %7 to i64
   %14 = shl nuw nsw i64 %13, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %6, i8 -1, i64 %14, i1 false), !tbaa !18
   br label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph.preheader, %.preheader75
-  %.not77 = icmp sgt i32 %1, 1
-  br i1 %.not77, label %.lr.ph79, label %.thread
+.preheader:                                       ; preds = %.lr.ph.preheader, %.preheader78
+  %15 = icmp sgt i32 %1, 1
+  br i1 %15, label %.lr.ph81, label %.loopexit
 
-.lr.ph79:                                         ; preds = %.preheader
-  %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 12
+.lr.ph81:                                         ; preds = %.preheader
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %.not68 = icmp eq i8 %5, 0
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %18 = getelementptr inbounds nuw i8, ptr %4, i64 12
-  br i1 %.not68, label %.lr.ph79.split.us, label %.lr.ph79.split
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 12
+  br i1 %.not68, label %.lr.ph81.split.us, label %.lr.ph81.split
 
-.lr.ph79.split.us:                                ; preds = %.lr.ph79, %81
-  %.05678.us = phi i32 [ %.157.us, %81 ], [ 1, %.lr.ph79 ]
-  %19 = add nsw i32 %.05678.us, 1
-  %20 = sext i32 %.05678.us to i64
-  %21 = getelementptr inbounds i16, ptr %0, i64 %20
-  %22 = load i16, ptr %21, align 2, !tbaa !8
-  %23 = zext i16 %22 to i32
-  %24 = icmp ult i16 %22, 256
-  br i1 %24, label %31, label %25
+.lr.ph81.split.us:                                ; preds = %.lr.ph81, %82
+  %.05680.us = phi i32 [ %.157.us, %82 ], [ 1, %.lr.ph81 ]
+  %20 = add nsw i32 %.05680.us, 1
+  %21 = sext i32 %.05680.us to i64
+  %22 = getelementptr inbounds i16, ptr %0, i64 %21
+  %23 = load i16, ptr %22, align 2, !tbaa !8
+  %24 = zext i16 %23 to i32
+  %25 = icmp ult i16 %23, 256
+  br i1 %25, label %32, label %26
 
-25:                                               ; preds = %.lr.ph79.split.us
-  %26 = add nsw i32 %23, -256
-  %27 = sext i32 %19 to i64
-  %28 = getelementptr inbounds i16, ptr %0, i64 %27
-  %29 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %28, i32 noundef 0, i32 noundef %26)
+26:                                               ; preds = %.lr.ph81.split.us
+  %27 = add nsw i32 %24, -256
+  %28 = sext i32 %20 to i64
+  %29 = getelementptr inbounds i16, ptr %0, i64 %28
+  %30 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %29, i32 noundef 0, i32 noundef %27)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us unwind label %.split.us
 
-_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %25
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %28) #7, !srcloc !13
-  %30 = add nsw i32 %26, %19
-  br label %81
+_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us: ; preds = %26
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %29) #7, !srcloc !13
+  %31 = add nsw i32 %27, %20
+  br label %82
 
-31:                                               ; preds = %.lr.ph79.split.us
-  %32 = zext nneg i16 %22 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %2, i64 %32
-  %34 = load ptr, ptr %33, align 8, !tbaa !15
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %.thread.sink.split, label %36
+32:                                               ; preds = %.lr.ph81.split.us
+  %33 = zext nneg i16 %23 to i64
+  %34 = getelementptr inbounds nuw ptr, ptr %2, i64 %33
+  %35 = load ptr, ptr %34, align 8, !tbaa !15
+  %36 = icmp eq ptr %35, null
+  br i1 %36, label %.loopexit.sink.split, label %37
 
-36:                                               ; preds = %31
-  %37 = icmp eq ptr %34, %3
-  br i1 %37, label %58, label %38
+37:                                               ; preds = %32
+  %38 = icmp eq ptr %35, %3
+  br i1 %38, label %59, label %39
 
-38:                                               ; preds = %36
-  %39 = icmp sgt i32 %7, %23
-  br i1 %39, label %40, label %48
+39:                                               ; preds = %37
+  %40 = icmp sgt i32 %7, %24
+  br i1 %40, label %41, label %49
 
-40:                                               ; preds = %38
-  %41 = load i16, ptr %15, align 8, !tbaa !7
-  %42 = icmp slt i16 %41, 0
-  %43 = ashr i16 %41, 5
-  %44 = sext i16 %43 to i32
-  %45 = load i32, ptr %16, align 4
-  %46 = select i1 %42, i32 %45, i32 %44
-  %47 = getelementptr inbounds nuw i32, ptr %6, i64 %32
-  store i32 %46, ptr %47, align 4, !tbaa !18
-  br label %48
+41:                                               ; preds = %39
+  %42 = load i16, ptr %16, align 8, !tbaa !7
+  %43 = icmp slt i16 %42, 0
+  %44 = ashr i16 %42, 5
+  %45 = sext i16 %44 to i32
+  %46 = load i32, ptr %17, align 4
+  %47 = select i1 %43, i32 %46, i32 %45
+  %48 = getelementptr inbounds nuw i32, ptr %6, i64 %33
+  store i32 %47, ptr %48, align 4, !tbaa !18
+  br label %49
 
-48:                                               ; preds = %40, %38
-  %49 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %50 = load i16, ptr %49, align 8, !tbaa !7
-  %51 = icmp slt i16 %50, 0
-  %52 = ashr i16 %50, 5
-  %53 = sext i16 %52 to i32
-  %54 = getelementptr inbounds nuw i8, ptr %34, i64 12
-  %55 = load i32, ptr %54, align 4
-  %56 = select i1 %51, i32 %55, i32 %53
-  %57 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %34, i32 noundef 0, i32 noundef %56)
-  br label %81
+49:                                               ; preds = %41, %39
+  %50 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %51 = load i16, ptr %50, align 8, !tbaa !7
+  %52 = icmp slt i16 %51, 0
+  %53 = ashr i16 %51, 5
+  %54 = sext i16 %53 to i32
+  %55 = getelementptr inbounds nuw i8, ptr %35, i64 12
+  %56 = load i32, ptr %55, align 4
+  %57 = select i1 %52, i32 %56, i32 %54
+  %58 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %35, i32 noundef 0, i32 noundef %57)
+  br label %82
 
-58:                                               ; preds = %36
-  %59 = icmp eq i32 %19, 2
-  %60 = icmp sgt i32 %7, %23
-  br i1 %59, label %78, label %61
+59:                                               ; preds = %37
+  %60 = icmp eq i32 %20, 2
+  %61 = icmp sgt i32 %7, %24
+  br i1 %60, label %79, label %62
 
-61:                                               ; preds = %58
-  br i1 %60, label %62, label %70
+62:                                               ; preds = %59
+  br i1 %61, label %63, label %71
 
-62:                                               ; preds = %61
-  %63 = load i16, ptr %15, align 8, !tbaa !7
-  %64 = icmp slt i16 %63, 0
-  %65 = ashr i16 %63, 5
-  %66 = sext i16 %65 to i32
-  %67 = load i32, ptr %16, align 4
-  %68 = select i1 %64, i32 %67, i32 %66
-  %69 = getelementptr inbounds nuw i32, ptr %6, i64 %32
-  store i32 %68, ptr %69, align 4, !tbaa !18
-  br label %70
+63:                                               ; preds = %62
+  %64 = load i16, ptr %16, align 8, !tbaa !7
+  %65 = icmp slt i16 %64, 0
+  %66 = ashr i16 %64, 5
+  %67 = sext i16 %66 to i32
+  %68 = load i32, ptr %17, align 4
+  %69 = select i1 %65, i32 %68, i32 %67
+  %70 = getelementptr inbounds nuw i32, ptr %6, i64 %33
+  store i32 %69, ptr %70, align 4, !tbaa !18
+  br label %71
 
-70:                                               ; preds = %62, %61
-  %71 = load i16, ptr %17, align 8, !tbaa !7
-  %72 = icmp slt i16 %71, 0
-  %73 = ashr i16 %71, 5
-  %74 = sext i16 %73 to i32
-  %75 = load i32, ptr %18, align 4
-  %76 = select i1 %72, i32 %75, i32 %74
-  %77 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0, i32 noundef %76)
-  br label %81
+71:                                               ; preds = %63, %62
+  %72 = load i16, ptr %18, align 8, !tbaa !7
+  %73 = icmp slt i16 %72, 0
+  %74 = ashr i16 %72, 5
+  %75 = sext i16 %74 to i32
+  %76 = load i32, ptr %19, align 4
+  %77 = select i1 %73, i32 %76, i32 %75
+  %78 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %4, i32 noundef 0, i32 noundef %77)
+  br label %82
 
-78:                                               ; preds = %58
-  br i1 %60, label %79, label %81
+79:                                               ; preds = %59
+  br i1 %61, label %80, label %82
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i32, ptr %6, i64 %32
-  store i32 0, ptr %80, align 4, !tbaa !18
-  br label %81
+80:                                               ; preds = %79
+  %81 = getelementptr inbounds nuw i32, ptr %6, i64 %33
+  store i32 0, ptr %81, align 4, !tbaa !18
+  br label %82
 
-81:                                               ; preds = %79, %78, %70, %48, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us
-  %.157.us = phi i32 [ %30, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us ], [ %19, %48 ], [ 2, %78 ], [ 2, %79 ], [ %19, %70 ]
-  %.not.us = icmp slt i32 %.157.us, %1
-  br i1 %.not.us, label %.lr.ph79.split.us, label %.thread, !llvm.loop !14
+82:                                               ; preds = %80, %79, %71, %49, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us
+  %.157.us = phi i32 [ %31, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit.us ], [ %20, %49 ], [ 2, %79 ], [ 2, %80 ], [ %20, %71 ]
+  %83 = icmp slt i32 %.157.us, %1
+  br i1 %83, label %.lr.ph81.split.us, label %.loopexit, !llvm.loop !14
 
-.split.us:                                        ; preds = %25
-  %82 = landingpad { ptr, i32 }
+.split.us:                                        ; preds = %26
+  %84 = landingpad { ptr, i32 }
           cleanup
-  br label %122
+  br label %124
 
-.lr.ph79.split:                                   ; preds = %.lr.ph79, %123
-  %.05678 = phi i32 [ %.157, %123 ], [ 1, %.lr.ph79 ]
-  %83 = add nsw i32 %.05678, 1
-  %84 = sext i32 %.05678 to i64
-  %85 = getelementptr inbounds i16, ptr %0, i64 %84
-  %86 = load i16, ptr %85, align 2, !tbaa !8
-  %87 = zext i16 %86 to i32
-  %88 = icmp ult i16 %86, 256
-  br i1 %88, label %89, label %115
+.lr.ph81.split:                                   ; preds = %.lr.ph81, %125
+  %.05680 = phi i32 [ %.157, %125 ], [ 1, %.lr.ph81 ]
+  %85 = add nsw i32 %.05680, 1
+  %86 = sext i32 %.05680 to i64
+  %87 = getelementptr inbounds i16, ptr %0, i64 %86
+  %88 = load i16, ptr %87, align 2, !tbaa !8
+  %89 = zext i16 %88 to i32
+  %90 = icmp ult i16 %88, 256
+  br i1 %90, label %91, label %117
 
-89:                                               ; preds = %.lr.ph79.split
-  %90 = zext nneg i16 %86 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %2, i64 %90
-  %92 = load ptr, ptr %91, align 8, !tbaa !15
-  %93 = icmp eq ptr %92, null
-  %94 = icmp eq ptr %92, %3
-  %or.cond = or i1 %93, %94
-  br i1 %or.cond, label %.thread.sink.split, label %95
+91:                                               ; preds = %.lr.ph81.split
+  %92 = zext nneg i16 %88 to i64
+  %93 = getelementptr inbounds nuw ptr, ptr %2, i64 %92
+  %94 = load ptr, ptr %93, align 8, !tbaa !15
+  %95 = icmp eq ptr %94, null
+  %96 = icmp eq ptr %94, %3
+  %or.cond = or i1 %95, %96
+  br i1 %or.cond, label %.loopexit.sink.split, label %97
 
-95:                                               ; preds = %89
-  %96 = icmp sgt i32 %7, %87
-  br i1 %96, label %97, label %105
+97:                                               ; preds = %91
+  %98 = icmp sgt i32 %7, %89
+  br i1 %98, label %99, label %107
 
-97:                                               ; preds = %95
-  %98 = load i16, ptr %15, align 8, !tbaa !7
-  %99 = icmp slt i16 %98, 0
-  %100 = ashr i16 %98, 5
-  %101 = sext i16 %100 to i32
-  %102 = load i32, ptr %16, align 4
-  %103 = select i1 %99, i32 %102, i32 %101
-  %104 = getelementptr inbounds nuw i32, ptr %6, i64 %90
-  store i32 %103, ptr %104, align 4, !tbaa !18
-  br label %105
+99:                                               ; preds = %97
+  %100 = load i16, ptr %16, align 8, !tbaa !7
+  %101 = icmp slt i16 %100, 0
+  %102 = ashr i16 %100, 5
+  %103 = sext i16 %102 to i32
+  %104 = load i32, ptr %17, align 4
+  %105 = select i1 %101, i32 %104, i32 %103
+  %106 = getelementptr inbounds nuw i32, ptr %6, i64 %92
+  store i32 %105, ptr %106, align 4, !tbaa !18
+  br label %107
 
-105:                                              ; preds = %97, %95
-  %106 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %107 = load i16, ptr %106, align 8, !tbaa !7
-  %108 = icmp slt i16 %107, 0
-  %109 = ashr i16 %107, 5
-  %110 = sext i16 %109 to i32
-  %111 = getelementptr inbounds nuw i8, ptr %92, i64 12
-  %112 = load i32, ptr %111, align 4
-  %113 = select i1 %108, i32 %112, i32 %110
-  %114 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %92, i32 noundef 0, i32 noundef %113)
-  br label %123
+107:                                              ; preds = %99, %97
+  %108 = getelementptr inbounds nuw i8, ptr %94, i64 8
+  %109 = load i16, ptr %108, align 8, !tbaa !7
+  %110 = icmp slt i16 %109, 0
+  %111 = ashr i16 %109, 5
+  %112 = sext i16 %111 to i32
+  %113 = getelementptr inbounds nuw i8, ptr %94, i64 12
+  %114 = load i32, ptr %113, align 4
+  %115 = select i1 %110, i32 %114, i32 %112
+  %116 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %94, i32 noundef 0, i32 noundef %115)
+  br label %125
 
-115:                                              ; preds = %.lr.ph79.split
-  %116 = add nsw i32 %87, -256
-  %117 = sext i32 %83 to i64
-  %118 = getelementptr inbounds i16, ptr %0, i64 %117
-  %119 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %118, i32 noundef 0, i32 noundef %116)
+117:                                              ; preds = %.lr.ph81.split
+  %118 = add nsw i32 %89, -256
+  %119 = sext i32 %85 to i64
+  %120 = getelementptr inbounds i16, ptr %0, i64 %119
+  %121 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef %120, i32 noundef 0, i32 noundef %118)
           to label %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit unwind label %.split
 
-_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %115
-  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %118) #7, !srcloc !13
-  %120 = add nsw i32 %116, %83
-  br label %123
+_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %117
+  tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %120) #7, !srcloc !13
+  %122 = add nsw i32 %118, %85
+  br label %125
 
-.split:                                           ; preds = %115
-  %121 = landingpad { ptr, i32 }
+.split:                                           ; preds = %117
+  %123 = landingpad { ptr, i32 }
           cleanup
-  br label %122
+  br label %124
 
-122:                                              ; preds = %.split.us, %.split
-  %.us-phi = phi ptr [ %118, %.split ], [ %28, %.split.us ]
-  %.us-phi80 = phi { ptr, i32 } [ %121, %.split ], [ %82, %.split.us ]
+124:                                              ; preds = %.split.us, %.split
+  %.us-phi = phi ptr [ %120, %.split ], [ %29, %.split.us ]
+  %.us-phi82 = phi { ptr, i32 } [ %123, %.split ], [ %84, %.split.us ]
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %.us-phi) #7, !srcloc !13
-  resume { ptr, i32 } %.us-phi80
+  resume { ptr, i32 } %.us-phi82
 
-123:                                              ; preds = %105, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit
-  %.157 = phi i32 [ %120, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit ], [ %83, %105 ]
-  %.not = icmp slt i32 %.157, %1
-  br i1 %.not, label %.lr.ph79.split, label %.thread, !llvm.loop !14
+125:                                              ; preds = %107, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit
+  %.157 = phi i32 [ %122, %_ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit ], [ %85, %107 ]
+  %126 = icmp slt i32 %.157, %1
+  br i1 %126, label %.lr.ph81.split, label %.loopexit, !llvm.loop !14
 
-.thread.sink.split:                               ; preds = %89, %31
+.loopexit.sink.split:                             ; preds = %91, %32
   store i32 1, ptr %8, align 4, !tbaa !3
-  br label %.thread
+  br label %.loopexit
 
-.thread:                                          ; preds = %123, %81, %.thread.sink.split, %.preheader, %9
+.loopexit:                                        ; preds = %125, %82, %.loopexit.sink.split, %.preheader, %9
   ret ptr %3
 }
 

@@ -8078,18 +8078,18 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %.not = icmp eq ptr %16, null
-  br i1 %.not, label %.thread369, label %17
+  br i1 %.not, label %.thread366, label %17
 
 17:                                               ; preds = %2
   %18 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #11
   %19 = icmp ugt i64 %18, 1
-  br i1 %19, label %20, label %.thread369
+  br i1 %19, label %20, label %.thread366
 
 20:                                               ; preds = %17
   %21 = load i8, ptr %16, align 1, !tbaa !20
   switch i8 %21, label %22 [
     i8 91, label %31
-    i8 58, label %.thread355
+    i8 58, label %.thread353
   ]
 
 22:                                               ; preds = %20
@@ -8104,7 +8104,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %16, ptr noundef nonnull %28) #10
   %30 = icmp eq i32 %29, 1
-  br i1 %30, label %.thread, label %.thread355
+  br i1 %30, label %.thread, label %.thread353
 
 31:                                               ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 1
@@ -8113,17 +8113,17 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %34 = ptrtoint ptr %33 to i64
   %35 = ptrtoint ptr %32 to i64
   %36 = sub i64 %34, %35
-  br i1 %.not284, label %.thread, label %.thread355
+  br i1 %.not284, label %.thread, label %.thread353
 
-.thread355:                                       ; preds = %24, %20, %31
-  %.0236362 = phi ptr [ %33, %31 ], [ %23, %24 ], [ %16, %20 ]
-  %.1238361 = phi i64 [ %36, %31 ], [ %27, %24 ], [ 0, %20 ]
-  %.1240360 = phi ptr [ %32, %31 ], [ %16, %24 ], [ null, %20 ]
-  %37 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0236362, i32 noundef 58) #11
+.thread353:                                       ; preds = %24, %20, %31
+  %.0236360 = phi ptr [ %33, %31 ], [ %23, %24 ], [ %16, %20 ]
+  %.1238359 = phi i64 [ %36, %31 ], [ %27, %24 ], [ 0, %20 ]
+  %.1240358 = phi ptr [ %32, %31 ], [ %16, %24 ], [ null, %20 ]
+  %37 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.0236360, i32 noundef 58) #11
   %.not286 = icmp eq ptr %37, null
   br i1 %.not286, label %.thread, label %38
 
-38:                                               ; preds = %.thread355
+38:                                               ; preds = %.thread353
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 1
   %40 = call i64 @strtoul(ptr noundef nonnull captures(none) %39, ptr noundef null, i32 noundef 10) #10
   %41 = call zeroext i16 @curlx_ultous(i64 noundef %40) #10
@@ -8137,28 +8137,28 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %46 = call zeroext i16 @curlx_ultous(i64 noundef %45) #10
   br label %.thread
 
-.thread:                                          ; preds = %24, %.thread355, %43, %38, %31
-  %.1238352 = phi i64 [ 0, %31 ], [ %.1238361, %43 ], [ %.1238361, %.thread355 ], [ %.1238361, %38 ], [ %27, %24 ]
-  %.1240351 = phi ptr [ null, %31 ], [ %.1240360, %43 ], [ %.1240360, %.thread355 ], [ %.1240360, %38 ], [ %16, %24 ]
-  %.2248 = phi i16 [ 0, %31 ], [ %46, %43 ], [ 0, %.thread355 ], [ %41, %38 ], [ 0, %24 ]
-  %.2233 = phi i16 [ 0, %31 ], [ %41, %43 ], [ 0, %.thread355 ], [ %41, %38 ], [ 0, %24 ]
+.thread:                                          ; preds = %24, %.thread353, %43, %38, %31
+  %.1238350 = phi i64 [ 0, %31 ], [ %.1238359, %43 ], [ %.1238359, %.thread353 ], [ %.1238359, %38 ], [ %27, %24 ]
+  %.1240349 = phi ptr [ null, %31 ], [ %.1240358, %43 ], [ %.1240358, %.thread353 ], [ %.1240358, %38 ], [ %16, %24 ]
+  %.2248 = phi i16 [ 0, %31 ], [ %46, %43 ], [ 0, %.thread353 ], [ %41, %38 ], [ 0, %24 ]
+  %.2233 = phi i16 [ 0, %31 ], [ %41, %43 ], [ 0, %.thread353 ], [ %41, %38 ], [ 0, %24 ]
   %47 = icmp ugt i16 %.2233, %.2248
   %spec.select327 = select i1 %47, i16 0, i16 %.2248
   %spec.select328 = select i1 %47, i16 0, i16 %.2233
-  %.not288 = icmp eq i64 %.1238352, 0
-  br i1 %.not288, label %.thread369, label %.thread.thread
+  %.not288 = icmp eq i64 %.1238350, 0
+  br i1 %.not288, label %.thread366, label %.thread.thread
 
 .thread.thread:                                   ; preds = %22, %.thread
-  %spec.select328411 = phi i16 [ %spec.select328, %.thread ], [ 0, %22 ]
-  %spec.select327409 = phi i16 [ %spec.select327, %.thread ], [ 0, %22 ]
-  %.1240351408 = phi ptr [ %.1240351, %.thread ], [ %16, %22 ]
-  %.1238352407 = phi i64 [ %.1238352, %.thread ], [ %18, %22 ]
-  %48 = icmp ugt i64 %.1238352407, 49
-  br i1 %48, label %.thread384, label %49
+  %spec.select328405 = phi i16 [ %spec.select328, %.thread ], [ 0, %22 ]
+  %spec.select327403 = phi i16 [ %spec.select327, %.thread ], [ 0, %22 ]
+  %.1240349402 = phi ptr [ %.1240349, %.thread ], [ %16, %22 ]
+  %.1238350401 = phi i64 [ %.1238350, %.thread ], [ %18, %22 ]
+  %48 = icmp ugt i64 %.1238350401, 49
+  br i1 %48, label %.thread381, label %49
 
 49:                                               ; preds = %.thread.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %.1240351408, i64 %.1238352407, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %10, i64 %.1238352407
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %.1240349402, i64 %.1238350401, i1 false)
+  %50 = getelementptr inbounds nuw i8, ptr %10, i64 %.1238350401
   store i8 0, ptr %50, align 1, !tbaa !20
   %51 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %52 = load ptr, ptr %51, align 8, !tbaa !217
@@ -8168,18 +8168,18 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %56 = getelementptr inbounds nuw i8, ptr %13, i64 1400
   %57 = load i32, ptr %56, align 8, !tbaa !220
   %58 = call i32 @Curl_if2ip(i32 noundef %53, i32 noundef %55, i32 noundef %57, ptr noundef nonnull %10, ptr noundef nonnull %7, i64 noundef 1025) #10
-  switch i32 %58, label %.thread369 [
+  switch i32 %58, label %.thread366 [
     i32 0, label %71
-    i32 1, label %.thread384
+    i32 1, label %.thread381
     i32 2, label %59
   ]
 
 59:                                               ; preds = %49
   br label %71
 
-.thread369:                                       ; preds = %49, %.thread, %2, %17
-  %.0231377 = phi i16 [ 0, %17 ], [ 0, %2 ], [ %spec.select328, %.thread ], [ %spec.select328411, %49 ]
-  %.0246375 = phi i16 [ 0, %17 ], [ 0, %2 ], [ %spec.select327, %.thread ], [ %spec.select327409, %49 ]
+.thread366:                                       ; preds = %49, %.thread, %2, %17
+  %.0231374 = phi i16 [ 0, %17 ], [ 0, %2 ], [ %spec.select328, %.thread ], [ %spec.select328405, %49 ]
+  %.0246372 = phi i16 [ 0, %17 ], [ 0, %2 ], [ %spec.select327, %.thread ], [ %spec.select327403, %49 ]
   store i32 128, ptr %6, align 4, !tbaa !147
   %60 = getelementptr inbounds nuw i8, ptr %13, i64 568
   %61 = load i32, ptr %60, align 8, !tbaa !147
@@ -8187,26 +8187,26 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %.not290 = icmp eq i32 %62, 0
   br i1 %.not290, label %67, label %63
 
-63:                                               ; preds = %.thread369
+63:                                               ; preds = %.thread366
   %64 = tail call ptr @__errno_location() #12
   %65 = load i32, ptr %64, align 4, !tbaa !147
   %66 = call ptr @Curl_strerror(i32 noundef %65, ptr noundef nonnull %9, i64 noundef 256) #10
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.93, ptr noundef %66) #10
-  br label %.thread384
+  br label %.thread381
 
-67:                                               ; preds = %.thread369
+67:                                               ; preds = %.thread366
   %68 = load i16, ptr %5, align 8, !tbaa !221
   %cond = icmp eq i16 %68, 10
   %69 = zext i16 %68 to i32
-  %.sink581.sroa.sel.v = select i1 %cond, i64 8, i64 4
-  %.sink581.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink581.sroa.sel.v
-  %70 = call ptr @inet_ntop(i32 noundef %69, ptr noundef nonnull %.sink581.sroa.sel, ptr noundef nonnull %7, i32 noundef 1025) #10
+  %.sink575.sroa.sel.v = select i1 %cond, i64 8, i64 4
+  %.sink575.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.sink575.sroa.sel.v
+  %70 = call ptr @inet_ntop(i32 noundef %69, ptr noundef nonnull %.sink575.sroa.sel, ptr noundef nonnull %7, i32 noundef 1025) #10
   %.not291 = icmp eq ptr %70, null
-  br i1 %.not291, label %.thread384, label %71
+  br i1 %.not291, label %.thread381, label %71
 
 71:                                               ; preds = %49, %67, %59
-  %.0231376 = phi i16 [ %spec.select328411, %59 ], [ %.0231377, %67 ], [ %spec.select328411, %49 ]
-  %.0246374 = phi i16 [ %spec.select327409, %59 ], [ %.0246375, %67 ], [ %spec.select327409, %49 ]
+  %.0231373 = phi i16 [ %spec.select328405, %59 ], [ %.0231374, %67 ], [ %spec.select328405, %49 ]
+  %.0246371 = phi i16 [ %spec.select327403, %59 ], [ %.0246372, %67 ], [ %spec.select327403, %49 ]
   %.0241 = phi i1 [ true, %59 ], [ false, %67 ], [ true, %49 ]
   %.3 = phi ptr [ %7, %59 ], [ %7, %67 ], [ %10, %49 ]
   %72 = call i32 @Curl_resolv(ptr noundef nonnull %0, ptr noundef nonnull %.3, i32 noundef 0, i1 noundef zeroext false, ptr noundef nonnull %8) #10
@@ -8220,31 +8220,31 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
 76:                                               ; preds = %74, %71
   %77 = load ptr, ptr %8, align 8, !tbaa !198
   %.not292 = icmp eq ptr %77, null
-  br i1 %.not292, label %.thread389, label %78
+  br i1 %.not292, label %.thread385, label %78
 
 78:                                               ; preds = %76
   %79 = load ptr, ptr %77, align 8, !tbaa !204
   %.not293 = icmp eq ptr %79, null
-  br i1 %.not293, label %.thread389, label %.preheader
+  br i1 %.not293, label %.thread385, label %.preheader
 
 .preheader:                                       ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %13, i64 1410
   br label %81
 
-.thread389:                                       ; preds = %76, %78
+.thread385:                                       ; preds = %76, %78
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.94, ptr noundef nonnull %.3) #10
-  br label %.thread384
+  br label %.thread381
 
 81:                                               ; preds = %.preheader, %85
-  %.0222427 = phi ptr [ %79, %.preheader ], [ %87, %85 ]
+  %.0222421 = phi ptr [ %79, %.preheader ], [ %87, %85 ]
   %82 = load i8, ptr %80, align 2, !tbaa !223
   %83 = zext i8 %82 to i32
-  %84 = call i32 @Curl_socket_open(ptr noundef nonnull %0, ptr noundef nonnull %.0222427, ptr noundef null, i32 noundef %83, ptr noundef nonnull %3) #10
+  %84 = call i32 @Curl_socket_open(ptr noundef nonnull %0, ptr noundef nonnull %.0222421, ptr noundef null, i32 noundef %83, ptr noundef nonnull %3) #10
   %.not295 = icmp eq i32 %84, 0
   br i1 %.not295, label %91, label %85
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %.0222427, i64 40
+  %86 = getelementptr inbounds nuw i8, ptr %.0222421, i64 40
   %87 = load ptr, ptr %86, align 8, !tbaa !224
   %.not294 = icmp eq ptr %87, null
   br i1 %.not294, label %.critedge, label %81, !llvm.loop !227
@@ -8254,7 +8254,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %89 = load i32, ptr %88, align 4, !tbaa !147
   %90 = call ptr @Curl_strerror(i32 noundef %89, ptr noundef nonnull %9, i64 noundef 256) #10
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.95, ptr noundef %90) #10
-  br label %.thread384
+  br label %.thread381
 
 91:                                               ; preds = %81
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 2658
@@ -8302,20 +8302,20 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   br label %115
 
 115:                                              ; preds = %113, %104, %98, %91
-  %116 = getelementptr inbounds nuw i8, ptr %.0222427, i64 32
+  %116 = getelementptr inbounds nuw i8, ptr %.0222421, i64 32
   %117 = load ptr, ptr %116, align 8, !tbaa !228
-  %118 = getelementptr inbounds nuw i8, ptr %.0222427, i64 16
+  %118 = getelementptr inbounds nuw i8, ptr %.0222421, i64 16
   %119 = load i32, ptr %118, align 8, !tbaa !229
   %120 = zext i32 %119 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 2 %117, i64 %120, i1 false)
   %121 = load i32, ptr %118, align 8, !tbaa !229
   store i32 %121, ptr %6, align 4, !tbaa !147
-  %.not300430 = icmp ugt i16 %.0231376, %.0246374
+  %.not300424 = icmp ugt i16 %.0231373, %.0246371
   %122 = getelementptr inbounds nuw i8, ptr %5, i64 2
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 2658
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 4864
   %125 = getelementptr inbounds nuw i8, ptr %13, i64 568
-  br i1 %.not300430, label %.outer._crit_edge, label %.outer
+  br i1 %.not300424, label %.outer._crit_edge, label %.outer
 
 .outer:                                           ; preds = %115
   br i1 %.0241, label %.lr.ph.split, label %.lr.ph.split.us.preheader
@@ -8324,8 +8324,8 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   br label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %132
-  %.0244431.us = phi i16 [ %133, %132 ], [ %.0231376, %.lr.ph.split.us.preheader ]
-  %rev.i.us = call noundef i16 @llvm.bswap.i16(i16 %.0244431.us)
+  %.0244425.us = phi i16 [ %133, %132 ], [ %.0231373, %.lr.ph.split.us.preheader ]
+  %rev.i.us = call noundef i16 @llvm.bswap.i16(i16 %.0244425.us)
   store i16 %rev.i.us, ptr %122, align 2, !tbaa !230
   %126 = load i32, ptr %3, align 4, !tbaa !147
   %127 = load i32, ptr %6, align 4, !tbaa !147
@@ -8336,19 +8336,19 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
 129:                                              ; preds = %.lr.ph.split.us
   %130 = tail call ptr @__errno_location() #12
   %131 = load i32, ptr %130, align 4, !tbaa !147
-  switch i32 %131, label %.split433.us [
+  switch i32 %131, label %.split427.us [
     i32 98, label %132
     i32 13, label %132
   ]
 
 132:                                              ; preds = %129, %129
-  %133 = add i16 %.0244431.us, 1
-  %.not300.us = icmp ugt i16 %133, %.0246374
+  %133 = add i16 %.0244425.us, 1
+  %.not300.us = icmp ugt i16 %133, %.0246371
   br i1 %.not300.us, label %.outer._crit_edge, label %.lr.ph.split.us, !llvm.loop !231
 
 .lr.ph.split:                                     ; preds = %.outer, %160
-  %.0244431 = phi i16 [ %161, %160 ], [ %.0231376, %.outer ]
-  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %.0244431)
+  %.0244425 = phi i16 [ %161, %160 ], [ %.0231373, %.outer ]
+  %rev.i = call noundef i16 @llvm.bswap.i16(i16 %.0244425)
   store i16 %rev.i, ptr %122, align 2, !tbaa !230
   %134 = load i32, ptr %3, align 4, !tbaa !147
   %135 = load i32, ptr %6, align 4, !tbaa !147
@@ -8359,14 +8359,14 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
 137:                                              ; preds = %.lr.ph.split
   %138 = tail call ptr @__errno_location() #12
   %139 = load i32, ptr %138, align 4, !tbaa !147
-  switch i32 %139, label %.split433.us [
+  switch i32 %139, label %.split427.us [
     i32 99, label %140
     i32 98, label %160
     i32 13, label %160
   ]
 
 140:                                              ; preds = %137
-  %141 = zext i16 %.0244431 to i32
+  %141 = zext i16 %.0244425 to i32
   %142 = load i64, ptr %123, align 2
   %143 = and i64 %142, 2147483648
   %.not318 = icmp eq i64 %143, 0
@@ -8399,27 +8399,27 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %156 = load i32, ptr %138, align 4, !tbaa !147
   %157 = call ptr @Curl_strerror(i32 noundef %156, ptr noundef nonnull %9, i64 noundef 256) #10
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.93, ptr noundef %157) #10
-  br label %.thread384
+  br label %.thread381
 
-.split433.us:                                     ; preds = %137, %129
-  %.us-phi434 = phi i16 [ %.0244431.us, %129 ], [ %.0244431, %137 ]
-  %.us-phi435 = phi i32 [ %131, %129 ], [ %139, %137 ]
-  %158 = zext i16 %.us-phi434 to i32
-  %159 = call ptr @Curl_strerror(i32 noundef %.us-phi435, ptr noundef nonnull %9, i64 noundef 256) #10
+.split427.us:                                     ; preds = %137, %129
+  %.us-phi428 = phi i16 [ %.0244425.us, %129 ], [ %.0244425, %137 ]
+  %.us-phi429 = phi i32 [ %131, %129 ], [ %139, %137 ]
+  %158 = zext i16 %.us-phi428 to i32
+  %159 = call ptr @Curl_strerror(i32 noundef %.us-phi429, ptr noundef nonnull %9, i64 noundef 256) #10
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, i32 noundef %158, ptr noundef %159) #10
-  br label %.thread384
+  br label %.thread381
 
 160:                                              ; preds = %137, %137
-  %161 = add i16 %.0244431, 1
-  %.not300 = icmp ugt i16 %161, %.0246374
+  %161 = add i16 %.0244425, 1
+  %.not300 = icmp ugt i16 %161, %.0246371
   br i1 %.not300, label %.outer._crit_edge, label %.lr.ph.split, !llvm.loop !231
 
 .outer._crit_edge:                                ; preds = %160, %132, %115
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.99) #10
-  br label %.thread384
+  br label %.thread381
 
 .split.us:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us
-  %.us-phi = phi i16 [ %.0244431.us, %.lr.ph.split.us ], [ %.0244431, %.lr.ph.split ]
+  %.us-phi = phi i16 [ %.0244425.us, %.lr.ph.split.us ], [ %.0244425, %.lr.ph.split ]
   %162 = zext i16 %.us-phi to i32
   store i32 128, ptr %6, align 4, !tbaa !147
   %163 = load i32, ptr %3, align 4, !tbaa !147
@@ -8432,7 +8432,7 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %167 = load i32, ptr %166, align 4, !tbaa !147
   %168 = call ptr @Curl_strerror(i32 noundef %167, ptr noundef nonnull %9, i64 noundef 256) #10
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.93, ptr noundef %168) #10
-  br label %.thread384
+  br label %.thread381
 
 169:                                              ; preds = %.split.us
   %170 = load i64, ptr %123, align 2
@@ -8488,13 +8488,13 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %196 = load i32, ptr %195, align 4, !tbaa !147
   %197 = call ptr @Curl_strerror(i32 noundef %196, ptr noundef nonnull %9, i64 noundef 256) #10
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.95, ptr noundef %197) #10
-  br label %.thread384
+  br label %.thread381
 
 198:                                              ; preds = %191
   %199 = load i64, ptr %123, align 2
   %200 = and i64 %199, 2147483648
   %.not307 = icmp eq i64 %200, 0
-  br i1 %.not307, label %.thread395, label %201
+  br i1 %.not307, label %.thread391, label %201
 
 201:                                              ; preds = %198
   %202 = load ptr, ptr %124, align 8, !tbaa !102
@@ -8508,12 +8508,12 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %207 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8
   %208 = icmp sgt i32 %207, 0
   %or.cond13 = select i1 %206, i1 %208, i1 false
-  br i1 %or.cond13, label %210, label %.thread395
+  br i1 %or.cond13, label %210, label %.thread391
 
 209:                                              ; preds = %201
   %.old11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @Curl_trc_feat_ftp, i64 8), align 8, !tbaa !103
   %.old12 = icmp sgt i32 %.old11, 0
-  br i1 %.old12, label %210, label %.thread395
+  br i1 %.old12, label %210, label %.thread391
 
 210:                                              ; preds = %209, %203
   %211 = load ptr, ptr %12, align 8, !tbaa !105
@@ -8531,88 +8531,88 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
 218:                                              ; preds = %210, %212
   %219 = phi ptr [ %217, %212 ], [ @.str.8, %210 ]
   call void (ptr, ptr, ...) @Curl_trc_ftp(ptr noundef nonnull %0, ptr noundef nonnull @.str.101, ptr noundef %219, i32 noundef %162) #10
-  br label %.thread395
+  br label %.thread391
 
-.thread395:                                       ; preds = %218, %209, %203, %198
-  call void @Curl_printable_address(ptr noundef nonnull %.0222427, ptr noundef nonnull %4, i64 noundef 47) #10
+.thread391:                                       ; preds = %218, %209, %203, %198
+  call void @Curl_printable_address(ptr noundef nonnull %.0222421, ptr noundef nonnull %4, i64 noundef 47) #10
   %220 = getelementptr inbounds nuw i8, ptr %13, i64 952
   %221 = load i64, ptr %220, align 8
   %222 = and i64 %221, 67584
-  %or.cond336.not = icmp eq i64 %222, 2048
-  br i1 %or.cond336.not, label %223, label %225
+  %or.cond335.not = icmp eq i64 %222, 2048
+  br i1 %or.cond335.not, label %223, label %225
 
-223:                                              ; preds = %.thread395
+223:                                              ; preds = %.thread391
   %224 = or disjoint i64 %221, 65536
   store i64 %224, ptr %220, align 8
   br label %225
 
-225:                                              ; preds = %223, %.thread395
-  %226 = phi i64 [ %224, %223 ], [ %221, %.thread395 ]
-  %.fr481 = freeze i64 %226
-  %227 = and i64 %.fr481, 65536
+225:                                              ; preds = %223, %.thread391
+  %226 = phi i64 [ %224, %223 ], [ %221, %.thread391 ]
+  %.fr475 = freeze i64 %226
+  %227 = and i64 %.fr475, 65536
   %228 = icmp eq i64 %227, 0
   %229 = load i16, ptr %5, align 8
   %.fr = freeze i16 %229
   %.not313 = icmp eq i16 %.fr, 2
   %230 = load i16, ptr %122, align 2
-  %rev.i346 = call i16 @llvm.bswap.i16(i16 %230)
-  br i1 %228, label %.split447, label %.split447.us
+  %rev.i344 = call i16 @llvm.bswap.i16(i16 %230)
+  br i1 %228, label %.split441, label %.split441.us
 
-.split447.us:                                     ; preds = %225
-  br i1 %.not313, label %.split447.us.split.us.preheader, label %.split447.us.split.preheader
+.split441.us:                                     ; preds = %225
+  br i1 %.not313, label %.split441.us.split.us.preheader, label %.split441.us.split.preheader
 
-.split447.us.split.preheader:                     ; preds = %.split447.us
-  %.not482604 = icmp eq i32 %1, 1
-  br i1 %.not482604, label %.loopexit, label %.lr.ph.preheader
+.split441.us.split.preheader:                     ; preds = %.split441.us
+  %.not476598 = icmp eq i32 %1, 1
+  br i1 %.not476598, label %.loopexit, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.split447.us.split.preheader
-  %cond579 = icmp ne i16 %.fr, 10
+.lr.ph.preheader:                                 ; preds = %.split441.us.split.preheader
+  %cond573 = icmp ne i16 %.fr, 10
   br label %.lr.ph
 
-.split447.us.split.us.preheader:                  ; preds = %.split447.us, %231
-  %.0217446.us.us = phi i32 [ %232, %231 ], [ %1, %.split447.us ]
-  switch i32 %.0217446.us.us, label %231 [
-    i32 0, label %.split449.us
-    i32 1, label %.split454.us
+.split441.us.split.us.preheader:                  ; preds = %.split441.us, %231
+  %.0217440.us.us = phi i32 [ %232, %231 ], [ %1, %.split441.us ]
+  switch i32 %.0217440.us.us, label %231 [
+    i32 0, label %.split443.us
+    i32 1, label %.split448.us
   ]
 
-231:                                              ; preds = %.split447.us.split.us.preheader
-  %232 = add i32 %.0217446.us.us, 1
-  br label %.split447.us.split.us.preheader
+231:                                              ; preds = %.split441.us.split.us.preheader
+  %232 = add i32 %.0217440.us.us, 1
+  br label %.split441.us.split.us.preheader
 
-.split447.us.split:                               ; preds = %.lr.ph
-  %233 = add i32 %.0217446.us605, 1
-  %.not482 = icmp eq i32 %.0217446.us605, 0
-  br i1 %.not482, label %.loopexit, label %.lr.ph
+.split441.us.split:                               ; preds = %.lr.ph
+  %233 = add i32 %.0217440.us599, 1
+  %.not476 = icmp eq i32 %.0217440.us599, 0
+  br i1 %.not476, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.split447.us.split
-  %.0217446.us605 = phi i32 [ %233, %.split447.us.split ], [ %1, %.lr.ph.preheader ]
-  %234 = icmp ne i32 %.0217446.us605, 0
-  %brmerge = or i1 %cond579, %234
-  br i1 %brmerge, label %.split447.us.split, label %.split449.us
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.split441.us.split
+  %.0217440.us599 = phi i32 [ %233, %.split441.us.split ], [ %1, %.lr.ph.preheader ]
+  %234 = icmp ne i32 %.0217440.us599, 0
+  %brmerge = or i1 %cond573, %234
+  br i1 %brmerge, label %.split441.us.split, label %.split443.us
 
-.split447:                                        ; preds = %225
-  br i1 %.not313, label %.split454.us, label %.loopexit
+.split441:                                        ; preds = %225
+  br i1 %.not313, label %.split448.us, label %.loopexit
 
-.split449.us:                                     ; preds = %.lr.ph, %.split447.us.split.us.preheader
-  %.us-phi451 = phi i32 [ 1, %.split447.us.split.us.preheader ], [ 2, %.lr.ph ]
-  %235 = zext i16 %rev.i346 to i32
-  %236 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.102, ptr noundef nonnull @ftp_state_use_port.mode, i32 noundef %.us-phi451, ptr noundef nonnull %4, i32 noundef %235) #10
+.split443.us:                                     ; preds = %.lr.ph, %.split441.us.split.us.preheader
+  %.us-phi445 = phi i32 [ 1, %.split441.us.split.us.preheader ], [ 2, %.lr.ph ]
+  %235 = zext i16 %rev.i344 to i32
+  %236 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.102, ptr noundef nonnull @ftp_state_use_port.mode, i32 noundef %.us-phi445, ptr noundef nonnull %4, i32 noundef %235) #10
   %.not316 = icmp eq i32 %236, 0
   br i1 %.not316, label %.loopexit, label %237
 
-237:                                              ; preds = %.split449.us
+237:                                              ; preds = %.split443.us
   %238 = call ptr @curl_easy_strerror(i32 noundef %236) #10
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.103, ptr noundef %238) #10
-  br label %.thread384
+  br label %.thread381
 
-.split454.us:                                     ; preds = %.split447.us.split.us.preheader, %.split447
+.split448.us:                                     ; preds = %.split441.us.split.us.preheader, %.split441
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   br label %239
 
-239:                                              ; preds = %242, %.split454.us
-  %.0219 = phi ptr [ %4, %.split454.us ], [ %244, %242 ]
-  %.0218 = phi ptr [ %11, %.split454.us ], [ %243, %242 ]
+239:                                              ; preds = %242, %.split448.us
+  %.0219 = phi ptr [ %4, %.split448.us ], [ %244, %242 ]
+  %.0218 = phi ptr [ %11, %.split448.us ], [ %243, %242 ]
   %240 = load i8, ptr %.0219, align 1, !tbaa !20
   switch i8 %240, label %241 [
     i8 0, label %245
@@ -8631,15 +8631,15 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
 
 245:                                              ; preds = %239
   store i8 0, ptr %.0218, align 1, !tbaa !20
-  %246 = zext i16 %rev.i346 to i32
+  %246 = zext i16 %rev.i344 to i32
   %247 = lshr i32 %246, 8
   %248 = and i32 %246, 255
   %249 = call i32 (ptr, i64, ptr, ...) @curl_msnprintf(ptr noundef nonnull %.0218, i64 noundef 20, ptr noundef nonnull @.str.104, i32 noundef %247, i32 noundef %248) #10
   %250 = call i32 (ptr, ptr, ptr, ...) @Curl_pp_sendf(ptr noundef nonnull %0, ptr noundef nonnull %14, ptr noundef nonnull @.str.105, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @ftp_state_use_port.mode, i64 5), ptr noundef nonnull %11) #10
   %.not315 = icmp eq i32 %250, 0
-  br i1 %.not315, label %.thread396, label %251
+  br i1 %.not315, label %.thread392, label %251
 
-.thread396:                                       ; preds = %245
+.thread392:                                       ; preds = %245
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.loopexit
 
@@ -8647,32 +8647,32 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %252 = call ptr @curl_easy_strerror(i32 noundef %250) #10
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef nonnull %0, ptr noundef nonnull @.str.106, ptr noundef %252) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread384
+  br label %.thread381
 
-.loopexit:                                        ; preds = %.split447.us.split, %.split447.us.split.preheader, %.split447, %.thread396, %.split449.us
-  %.0217415 = phi i32 [ 1, %.thread396 ], [ 0, %.split449.us ], [ 2, %.split447 ], [ 2, %.split447.us.split.preheader ], [ 2, %.split447.us.split ]
+.loopexit:                                        ; preds = %.split441.us.split, %.split441.us.split.preheader, %.split441, %.thread392, %.split443.us
+  %.0217409 = phi i32 [ 1, %.thread392 ], [ 0, %.split443.us ], [ 2, %.split441 ], [ 2, %.split441.us.split.preheader ], [ 2, %.split441.us.split ]
   %253 = getelementptr inbounds nuw i8, ptr %13, i64 1344
-  store i32 %.0217415, ptr %253, align 8, !tbaa !161
+  store i32 %.0217409, ptr %253, align 8, !tbaa !161
   call fastcc void @_ftp_state(ptr noundef nonnull %0, i8 noundef zeroext 28)
   %254 = call i32 @Curl_conn_tcp_listen_set(ptr noundef nonnull %0, ptr noundef %13, i32 noundef 1, ptr noundef nonnull %3) #10
   %.not317 = icmp eq i32 %254, 0
-  br i1 %.not317, label %255, label %.thread384
+  br i1 %.not317, label %255, label %.thread381
 
 255:                                              ; preds = %.loopexit
   store i32 -1, ptr %3, align 4, !tbaa !147
-  br label %.thread384
+  br label %.thread381
 
-.thread384:                                       ; preds = %67, %63, %251, %.thread.thread, %49, %.loopexit, %255, %237, %194, %165, %.outer._crit_edge, %.split433.us, %155, %.critedge, %.thread389
-  %.0220 = phi i32 [ 30, %155 ], [ 30, %.split433.us ], [ 30, %.outer._crit_edge ], [ 30, %165 ], [ 30, %194 ], [ %236, %237 ], [ %254, %.loopexit ], [ 0, %255 ], [ %250, %251 ], [ 30, %.critedge ], [ 30, %.thread389 ], [ 30, %49 ], [ 30, %.thread.thread ], [ 30, %63 ], [ 30, %67 ]
+.thread381:                                       ; preds = %67, %63, %251, %.thread.thread, %49, %.loopexit, %255, %237, %194, %165, %.outer._crit_edge, %.split427.us, %155, %.critedge, %.thread385
+  %.0220 = phi i32 [ 30, %155 ], [ 30, %.split427.us ], [ 30, %.outer._crit_edge ], [ 30, %165 ], [ 30, %194 ], [ %236, %237 ], [ %254, %.loopexit ], [ 0, %255 ], [ %250, %251 ], [ 30, %.critedge ], [ 30, %.thread385 ], [ 30, %49 ], [ 30, %.thread.thread ], [ 30, %63 ], [ 30, %67 ]
   %256 = load ptr, ptr %8, align 8, !tbaa !198
   %.not321 = icmp eq ptr %256, null
   br i1 %.not321, label %258, label %257
 
-257:                                              ; preds = %.thread384
+257:                                              ; preds = %.thread381
   call void @Curl_resolv_unlink(ptr noundef nonnull %0, ptr noundef nonnull %8) #10
   br label %258
 
-258:                                              ; preds = %257, %.thread384
+258:                                              ; preds = %257, %.thread381
   %.not322 = icmp eq i32 %.0220, 0
   br i1 %.not322, label %281, label %259
 
@@ -8680,8 +8680,8 @@ define internal fastcc i32 @ftp_state_use_port(ptr noundef %0, i32 noundef range
   %260 = load ptr, ptr %12, align 8, !tbaa !105
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 1358
   %262 = load i8, ptr %261, align 2, !tbaa !136
-  %.not584 = icmp eq i8 %262, 0
-  br i1 %.not584, label %_ftp_state.exit, label %263
+  %.not578 = icmp eq i8 %262, 0
+  br i1 %.not578, label %_ftp_state.exit, label %263
 
 263:                                              ; preds = %259
   %264 = getelementptr inbounds nuw i8, ptr %0, i64 2658
@@ -8755,8 +8755,8 @@ _ftp_state.exit:                                  ; preds = %259, %263, %270, %2
   %300 = load i32, ptr %299, align 8, !tbaa !233
   %.not325 = icmp eq i32 %300, 0
   %narrow = select i1 %.not325, i32 60000, i32 %300
-  %spec.select343 = zext i32 %narrow to i64
-  call void @Curl_expire(ptr noundef nonnull %0, i64 noundef %spec.select343, i32 noundef 13) #10
+  %spec.select341 = zext i32 %narrow to i64
+  call void @Curl_expire(ptr noundef nonnull %0, i64 noundef %spec.select341, i32 noundef 13) #10
   br label %301
 
 301:                                              ; preds = %293, %_ftp_state.exit

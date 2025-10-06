@@ -1437,9 +1437,9 @@ define hidden void @_ZN11OopMapCache6lookupERK12methodHandleiP17InterpreterOopMa
   %21 = xor i32 %20, %19
   %22 = xor i32 %21, %2
   %23 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not53 = icmp eq ptr %23, null
+  %.not52 = icmp eq ptr %23, null
   %.pre = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  br i1 %.not53, label %_ZN12ResourceMarkD2Ev.exit, label %24
+  br i1 %.not52, label %_ZN12ResourceMarkD2Ev.exit, label %24
 
 24:                                               ; preds = %4
   %25 = load ptr, ptr %.pre, align 8
@@ -1454,8 +1454,8 @@ define hidden void @_ZN11OopMapCache6lookupERK12methodHandleiP17InterpreterOopMa
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %35 = load i64, ptr %34, align 8
   %36 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not54 = icmp eq ptr %36, null
-  br i1 %.not54, label %41, label %37
+  %.not53 = icmp eq ptr %36, null
+  br i1 %.not53, label %41, label %37
 
 37:                                               ; preds = %24
   %38 = load i32, ptr @_ZZN11OopMapCache6lookupERK12methodHandleiP17InterpreterOopMapE5count, align 4
@@ -1505,8 +1505,8 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %_ZN12ResourceMar
   br label %56
 
 56:                                               ; preds = %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit, %113
-  %.061 = phi i32 [ 0, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit ], [ %114, %113 ]
-  %57 = add nsw i32 %.061, %22
+  %.060 = phi i32 [ 0, %_ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit ], [ %114, %113 ]
+  %57 = add nsw i32 %.060, %22
   %58 = srem i32 %57, 32
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds ptr, ptr %0, i64 %59
@@ -1584,15 +1584,15 @@ _ZN13GlobalCounter15CriticalSectionC2EP6Thread.exit: ; preds = %_ZN12ResourceMar
 
 _ZN17InterpreterOopMap9copy_fromEPK16OopMapCacheEntry.exit: ; preds = %88, %95
   %111 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not56 = icmp eq ptr %111, null
-  br i1 %.not56, label %.thread, label %112
+  %.not55 = icmp eq ptr %111, null
+  br i1 %.not55, label %.thread, label %112
 
 112:                                              ; preds = %_ZN17InterpreterOopMap9copy_fromEPK16OopMapCacheEntry.exit
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.15, i32 noundef %57)
   br label %.thread
 
 113:                                              ; preds = %56, %62, %65
-  %114 = add nuw nsw i32 %.061, 1
+  %114 = add nuw nsw i32 %.060, 1
   %exitcond.not = icmp eq i32 %114, 3
   br i1 %exitcond.not, label %115, label %56, !llvm.loop !19
 
@@ -1694,8 +1694,8 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %157, %160, %163
   br label %.loopexit
 
 .preheader:                                       ; preds = %_ZN17InterpreterOopMap9copy_fromEPK16OopMapCacheEntry.exit44, %174
-  %.04262 = phi i32 [ %175, %174 ], [ 0, %_ZN17InterpreterOopMap9copy_fromEPK16OopMapCacheEntry.exit44 ]
-  %165 = add nsw i32 %.04262, %22
+  %.04261 = phi i32 [ %175, %174 ], [ 0, %_ZN17InterpreterOopMap9copy_fromEPK16OopMapCacheEntry.exit44 ]
+  %165 = add nsw i32 %.04261, %22
   %166 = srem i32 %165, 32
   %167 = sext i32 %166 to i64
   %168 = getelementptr inbounds ptr, ptr %0, i64 %167
@@ -1710,14 +1710,14 @@ _ZN16OopMapCacheEntry10deallocateEPS_.exit:       ; preds = %157, %160, %163
   br i1 %173, label %.loopexit, label %174
 
 174:                                              ; preds = %.preheader, %171
-  %175 = add nuw nsw i32 %.04262, 1
-  %exitcond67.not = icmp eq i32 %175, 3
-  br i1 %exitcond67.not, label %176, label %.preheader, !llvm.loop !20
+  %175 = add nuw nsw i32 %.04261, 1
+  %exitcond66.not = icmp eq i32 %175, 3
+  br i1 %exitcond66.not, label %176, label %.preheader, !llvm.loop !20
 
 176:                                              ; preds = %174
   %177 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not55 = icmp eq ptr %177, null
-  br i1 %.not55, label %179, label %178
+  %.not54 = icmp eq ptr %177, null
+  br i1 %.not54, label %179, label %178
 
 178:                                              ; preds = %176
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE62ELS1_102ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.16)

@@ -2679,8 +2679,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit61: ; preds = %60, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i59
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not85 = icmp eq ptr %59, null
-  br i1 %.not85, label %78, label %73
+  %.not84 = icmp eq ptr %59, null
+  br i1 %.not84, label %78, label %73
 
 65:                                               ; preds = %.noexc.i56
   %66 = landingpad { ptr, i32 }
@@ -2720,8 +2720,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %67,
   %83 = load ptr, ptr %82, align 8, !tbaa !169
   %84 = call ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops16_Iter_equals_valIA5_KcEEET_SJ_SJ_T0_St26random_access_iterator_tag(ptr %81, ptr %83, ptr nonnull align 1 dereferenceable(5) @.str.9)
   %85 = load ptr, ptr %82, align 8, !tbaa !169
-  %.not86 = icmp eq ptr %84, %85
-  br i1 %.not86, label %122, label %.noexc.i66
+  %.not85 = icmp eq ptr %84, %85
+  br i1 %.not85, label %122, label %.noexc.i66
 
 .noexc.i66:                                       ; preds = %78
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

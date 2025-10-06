@@ -426,10 +426,10 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %122
 
 122:                                              ; preds = %.lr.ph, %.thread345
-  %.0326351 = phi i32 [ 0, %.lr.ph ], [ %236, %.thread345 ]
-  %.1350 = phi ptr [ %.0327, %.lr.ph ], [ %.3, %.thread345 ]
-  %123 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0326351)
-  %124 = add i32 %.0326351, 1
+  %.0326350 = phi i32 [ 0, %.lr.ph ], [ %236, %.thread345 ]
+  %.1349 = phi ptr [ %.0327, %.lr.ph ], [ %.3, %.thread345 ]
+  %123 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0326350)
+  %124 = add i32 %.0326350, 1
   %125 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %124)
   %126 = icmp eq i8 %123, 1
   %127 = zext i8 %125 to i32
@@ -442,18 +442,18 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 130:                                              ; preds = %129
   %131 = load i32, ptr @hf_hsrp2_group_state_tlv, align 4
-  %132 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0328, i32 noundef %131, ptr noundef %0, i32 noundef %.0326351, i32 noundef 42, i32 noundef 1, ptr noundef nonnull @.str.139, i32 noundef 1, i32 noundef 40)
+  %132 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0328, i32 noundef %131, ptr noundef %0, i32 noundef %.0326350, i32 noundef 42, i32 noundef 1, ptr noundef nonnull @.str.139, i32 noundef 1, i32 noundef 40)
   br label %133
 
 133:                                              ; preds = %130, %129
-  %.2 = phi ptr [ %132, %130 ], [ %.1350, %129 ]
-  %134 = add i32 %.0326351, 3
+  %.2 = phi ptr [ %132, %130 ], [ %.1349, %129 ]
+  %134 = add i32 %.0326350, 3
   %135 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %134)
   %136 = load ptr, ptr %111, align 8
   %137 = zext i8 %135 to i32
   %138 = tail call ptr @val_to_str_const(i32 noundef %137, ptr noundef nonnull @hsrp2_opcode_vals, ptr noundef nonnull @.str.130)
   tail call void @col_set_str(ptr noundef %136, i32 noundef 25, ptr noundef %138)
-  %139 = add i32 %.0326351, 4
+  %139 = add i32 %.0326350, 4
   %140 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %139)
   %141 = load ptr, ptr %111, align 8
   %142 = zext i8 %140 to i32
@@ -462,7 +462,7 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not342, label %.thread345, label %144
 
 144:                                              ; preds = %133
-  %145 = add i32 %.0326351, 2
+  %145 = add i32 %.0326350, 2
   %146 = load i32, ptr @ett_hsrp2_group_state_tlv, align 4
   %147 = tail call ptr @proto_item_add_subtree(ptr noundef %.2, i32 noundef %146)
   %148 = load i32, ptr @hf_hsrp2_version, align 4
@@ -471,33 +471,33 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %151 = tail call ptr @proto_tree_add_uint(ptr noundef %147, i32 noundef %150, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef %137)
   %152 = load i32, ptr @hf_hsrp2_state, align 4
   %153 = tail call ptr @proto_tree_add_uint(ptr noundef %147, i32 noundef %152, ptr noundef %0, i32 noundef %139, i32 noundef 1, i32 noundef %142)
-  %154 = add i32 %.0326351, 5
+  %154 = add i32 %.0326350, 5
   %155 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %154)
   %156 = load i32, ptr @hf_hsrp2_ipversion, align 4
   %157 = zext i8 %155 to i32
   %158 = tail call ptr @proto_tree_add_uint(ptr noundef %147, i32 noundef %156, ptr noundef %0, i32 noundef %154, i32 noundef 1, i32 noundef %157)
-  %159 = add i32 %.0326351, 6
+  %159 = add i32 %.0326350, 6
   %160 = load i32, ptr @hf_hsrp2_group, align 4
   %161 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %160, ptr noundef %0, i32 noundef %159, i32 noundef 2, i32 noundef 0)
-  %162 = add i32 %.0326351, 8
+  %162 = add i32 %.0326350, 8
   %163 = load i32, ptr @hf_hsrp2_identifier, align 4
   %164 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %163, ptr noundef %0, i32 noundef %162, i32 noundef 6, i32 noundef 0)
-  %165 = add i32 %.0326351, 14
+  %165 = add i32 %.0326350, 14
   %166 = load i32, ptr @hf_hsrp2_priority, align 4
   %167 = tail call ptr @proto_tree_add_item(ptr noundef %147, i32 noundef %166, ptr noundef %0, i32 noundef %165, i32 noundef 4, i32 noundef 0)
-  %168 = add i32 %.0326351, 18
+  %168 = add i32 %.0326350, 18
   %169 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %168)
   %170 = load i32, ptr @hf_hsrp2_hellotime, align 4
   %171 = icmp eq i32 %169, 3000
   %172 = select i1 %171, ptr @.str.133, ptr @.str.134
   %173 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %147, i32 noundef %170, ptr noundef %0, i32 noundef %168, i32 noundef 4, i32 noundef %169, ptr noundef nonnull @.str.132, ptr noundef nonnull %172, i32 noundef %169)
-  %174 = add i32 %.0326351, 22
+  %174 = add i32 %.0326350, 22
   %175 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %174)
   %176 = load i32, ptr @hf_hsrp2_holdtime, align 4
   %177 = icmp eq i32 %175, 10000
   %178 = select i1 %177, ptr @.str.133, ptr @.str.134
   %179 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %147, i32 noundef %176, ptr noundef %0, i32 noundef %174, i32 noundef 4, i32 noundef %175, ptr noundef nonnull @.str.132, ptr noundef nonnull %178, i32 noundef %175)
-  %180 = add i32 %.0326351, 26
+  %180 = add i32 %.0326350, 26
   switch i8 %155, label %187 [
     i8 4, label %181
     i8 6, label %184
@@ -525,9 +525,9 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond8, label %193, label %210
 
 193:                                              ; preds = %190
-  %194 = add i32 %.0326351, 2
+  %194 = add i32 %.0326350, 2
   %195 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %194)
-  %196 = add i32 %.0326351, 4
+  %196 = add i32 %.0326350, 4
   %197 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %196)
   %198 = load ptr, ptr %111, align 8
   %199 = zext i16 %195 to i32
@@ -537,7 +537,7 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 201:                                              ; preds = %193
   %202 = load i32, ptr @hf_hsrp2_interface_state_tlv, align 4
-  %203 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0328, i32 noundef %202, ptr noundef %0, i32 noundef %.0326351, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.139, i32 noundef 2, i32 noundef 4)
+  %203 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0328, i32 noundef %202, ptr noundef %0, i32 noundef %.0326350, i32 noundef 6, i32 noundef 2, ptr noundef nonnull @.str.139, i32 noundef 2, i32 noundef 4)
   %204 = load i32, ptr @ett_hsrp2_interface_state_tlv, align 4
   %205 = tail call ptr @proto_item_add_subtree(ptr noundef %203, i32 noundef %204)
   %206 = load i32, ptr @hf_hsrp2_active_group, align 4
@@ -557,8 +557,8 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 214:                                              ; preds = %213
   %215 = load i32, ptr @hf_hsrp2_text_auth_tlv, align 4
-  %216 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0328, i32 noundef %215, ptr noundef %0, i32 noundef %.0326351, i32 noundef 10, i32 noundef 3, ptr noundef nonnull @.str.139, i32 noundef 3, i32 noundef 8)
-  %217 = add i32 %.0326351, 2
+  %216 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %.0328, i32 noundef %215, ptr noundef %0, i32 noundef %.0326350, i32 noundef 10, i32 noundef 3, ptr noundef nonnull @.str.139, i32 noundef 3, i32 noundef 8)
+  %217 = add i32 %.0326350, 2
   %218 = load i32, ptr @ett_hsrp2_text_auth_tlv, align 4
   %219 = tail call ptr @proto_item_add_subtree(ptr noundef %216, i32 noundef %218)
   %220 = load ptr, ptr %121, align 8
@@ -580,17 +580,17 @@ define internal i32 @dissect_hsrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not342, label %.thread345, label %231
 
 231:                                              ; preds = %230
-  tail call fastcc void @process_hsrp_md5_tlv_sequence(ptr noundef %0, ptr noundef %.0328, i32 noundef %.0326351)
+  tail call fastcc void @process_hsrp_md5_tlv_sequence(ptr noundef %0, ptr noundef %.0328, i32 noundef %.0326350)
   br label %.thread345
 
 232:                                              ; preds = %227
-  %233 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0326351)
+  %233 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %.0326350)
   %234 = tail call i32 @call_data_dissector(ptr noundef %233, ptr noundef %1, ptr noundef %.0328)
   br label %.thread344
 
 .thread345:                                       ; preds = %133, %184, %181, %193, %201, %231, %230, %213, %214
-  %.3 = phi ptr [ %216, %214 ], [ %.1350, %213 ], [ %.1350, %231 ], [ %.1350, %230 ], [ %203, %201 ], [ %.1350, %193 ], [ %.2, %181 ], [ %.2, %184 ], [ %.2, %133 ]
-  %235 = add i32 %.0326351, 2
+  %.3 = phi ptr [ %216, %214 ], [ %.1349, %213 ], [ %.1349, %231 ], [ %.1349, %230 ], [ %203, %201 ], [ %.1349, %193 ], [ %.2, %181 ], [ %.2, %184 ], [ %.2, %133 ]
+  %235 = add i32 %.0326350, 2
   %236 = add i32 %235, %127
   %237 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %236)
   %238 = icmp sgt i32 %237, 0

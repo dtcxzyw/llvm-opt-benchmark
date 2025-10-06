@@ -14442,24 +14442,24 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit: ; preds = %3, %22, %2
   %44 = icmp ugt i64 %43, 7
   call void @llvm.assume(i1 %44)
   %45 = and i64 %43, 7
-  %switch = icmp eq i64 %45, 0
-  br i1 %switch, label %46, label %48
+  %46 = icmp eq i64 %45, 0
+  br i1 %46, label %47, label %49
 
-46:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-  %47 = inttoptr i64 %43 to ptr
-  store ptr %47, ptr %42, align 8, !tbaa !161
+47:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
+  %48 = inttoptr i64 %43 to ptr
+  store ptr %48, ptr %42, align 8, !tbaa !161
   br label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
 
-48:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
-  %49 = and i64 %43, -8
-  %50 = inttoptr i64 %49 to ptr
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %.pre = load ptr, ptr %51, align 8, !tbaa !645
+49:                                               ; preds = %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
+  %50 = and i64 %43, -8
+  %51 = inttoptr i64 %50 to ptr
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %.pre = load ptr, ptr %52, align 8, !tbaa !645
   br label %_ZNK4llvm12MachineInstr11memoperandsEv.exit
 
-_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %46, %48
-  %52 = phi ptr [ %47, %46 ], [ %.pre, %48 ]
-  %53 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_RNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(80) %52) #17
+_ZNK4llvm12MachineInstr11memoperandsEv.exit:      ; preds = %47, %49
+  %53 = phi ptr [ %48, %47 ], [ %.pre, %49 ]
+  %54 = call { ptr, ptr } @_ZN4llvm16MachineIRBuilder10buildStoreERKNS_5SrcOpES3_RNS_17MachineMemOperandE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef nonnull align 8 dereferenceable(20) %5, ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(80) %53) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4llvm12MachineInstr15eraseFromParentEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17

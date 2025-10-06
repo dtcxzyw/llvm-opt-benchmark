@@ -2569,8 +2569,8 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader9readArrayERNS0_5TokenE(ptr 
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %41 = load ptr, ptr %40, align 8, !tbaa !50
   %.promoted.i = load ptr, ptr %39, align 8, !tbaa !51
-  %.not16.i = icmp eq ptr %.promoted.i, %41
-  br i1 %.not16.i, label %_ZN4Json6Reader10skipSpacesEv.exitthread-pre-split, label %.lr.ph.i
+  %.not15.i = icmp eq ptr %.promoted.i, %41
+  br i1 %.not15.i, label %_ZN4Json6Reader10skipSpacesEv.exitthread-pre-split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %44
   %42 = phi ptr [ %45, %44 ], [ %.promoted.i, %30 ]
@@ -3157,8 +3157,8 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader9readTokenERNS0_5TokenE(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8, !tbaa !50
   %.promoted.i = load ptr, ptr %3, align 8, !tbaa !51
-  %.not16.i = icmp eq ptr %.promoted.i, %5
-  br i1 %.not16.i, label %_ZN4Json6Reader10skipSpacesEv.exit, label %.lr.ph.i
+  %.not15.i = icmp eq ptr %.promoted.i, %5
+  br i1 %.not15.i, label %_ZN4Json6Reader10skipSpacesEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %8
   %6 = phi ptr [ %9, %8 ], [ %.promoted.i, %2 ]
@@ -3469,8 +3469,8 @@ define dso_local void @_ZN4Json6Reader10skipSpacesEv(ptr noundef nonnull align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8, !tbaa !50
   %.promoted = load ptr, ptr %2, align 8, !tbaa !51
-  %.not16 = icmp eq ptr %.promoted, %4
-  br i1 %.not16, label %.thread, label %.lr.ph
+  %.not15 = icmp eq ptr %.promoted, %4
+  br i1 %.not15, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
   %5 = phi ptr [ %8, %7 ], [ %.promoted, %1 ]
@@ -3574,8 +3574,8 @@ _ZN4Json6Reader11getNextCharEv.exit:              ; preds = %1
   ]
 
 9:                                                ; preds = %_ZN4Json6Reader11getNextCharEv.exit
-  %.not7.i = icmp eq ptr %.ptr70, %6
-  br i1 %.not7.i, label %.thread.i, label %_ZN4Json6Reader11getNextCharEv.exit.i
+  %.not6.i = icmp eq ptr %.ptr70, %6
+  br i1 %.not6.i, label %.thread.i, label %_ZN4Json6Reader11getNextCharEv.exit.i
 
 _ZN4Json6Reader11getNextCharEv.exit.i:            ; preds = %9, %_ZN4Json6Reader11getNextCharEv.exit.i.backedge
   %.idx58 = phi i64 [ %.add61, %_ZN4Json6Reader11getNextCharEv.exit.i.backedge ], [ 1, %9 ]
@@ -3856,8 +3856,8 @@ define dso_local noundef zeroext i1 @_ZN4Json6Reader17readCStyleCommentEv(ptr no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8, !tbaa !50
   %.promoted = load ptr, ptr %2, align 8, !tbaa !51
-  %.not7 = icmp eq ptr %.promoted, %4
-  br i1 %.not7, label %.thread, label %_ZN4Json6Reader11getNextCharEv.exit
+  %.not6 = icmp eq ptr %.promoted, %4
+  br i1 %.not6, label %.thread, label %_ZN4Json6Reader11getNextCharEv.exit
 
 _ZN4Json6Reader11getNextCharEv.exit:              ; preds = %1, %_ZN4Json6Reader11getNextCharEv.exit.backedge
   %5 = phi ptr [ %6, %_ZN4Json6Reader11getNextCharEv.exit.backedge ], [ %.promoted, %1 ]
@@ -10003,8 +10003,8 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader9readArrayERNS0_5TokenE(p
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %41 = load ptr, ptr %40, align 8, !tbaa !237
   %.promoted.i = load ptr, ptr %39, align 8, !tbaa !238
-  %.not16.i = icmp eq ptr %.promoted.i, %41
-  br i1 %.not16.i, label %_ZN4Json9OurReader10skipSpacesEv.exitthread-pre-split, label %.lr.ph.i
+  %.not15.i = icmp eq ptr %.promoted.i, %41
+  br i1 %.not15.i, label %_ZN4Json9OurReader10skipSpacesEv.exitthread-pre-split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %44
   %42 = phi ptr [ %45, %44 ], [ %.promoted.i, %30 ]
@@ -10558,8 +10558,8 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader9readTokenERNS0_5TokenE(p
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %5 = load ptr, ptr %4, align 8, !tbaa !237
   %.promoted.i = load ptr, ptr %3, align 8, !tbaa !238
-  %.not16.i = icmp eq ptr %.promoted.i, %5
-  br i1 %.not16.i, label %_ZN4Json9OurReader10skipSpacesEv.exit, label %.lr.ph.i
+  %.not15.i = icmp eq ptr %.promoted.i, %5
+  br i1 %.not15.i, label %_ZN4Json9OurReader10skipSpacesEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %8
   %6 = phi ptr [ %9, %8 ], [ %.promoted.i, %2 ]
@@ -11093,8 +11093,8 @@ define dso_local void @_ZN4Json9OurReader10skipSpacesEv(ptr noundef nonnull alig
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8, !tbaa !237
   %.promoted = load ptr, ptr %2, align 8, !tbaa !238
-  %.not16 = icmp eq ptr %.promoted, %4
-  br i1 %.not16, label %.thread, label %.lr.ph
+  %.not15 = icmp eq ptr %.promoted, %4
+  br i1 %.not15, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
   %5 = phi ptr [ %8, %7 ], [ %.promoted, %1 ]
@@ -11240,8 +11240,8 @@ _ZN4Json9OurReader11getNextCharEv.exit:           ; preds = %1
   ]
 
 9:                                                ; preds = %_ZN4Json9OurReader11getNextCharEv.exit
-  %.not7.i = icmp eq ptr %.ptr70, %6
-  br i1 %.not7.i, label %.thread.i, label %_ZN4Json9OurReader11getNextCharEv.exit.i
+  %.not6.i = icmp eq ptr %.ptr70, %6
+  br i1 %.not6.i, label %.thread.i, label %_ZN4Json9OurReader11getNextCharEv.exit.i
 
 _ZN4Json9OurReader11getNextCharEv.exit.i:         ; preds = %9, %_ZN4Json9OurReader11getNextCharEv.exit.i.backedge
   %.idx58 = phi i64 [ %.add61, %_ZN4Json9OurReader11getNextCharEv.exit.i.backedge ], [ 1, %9 ]
@@ -11538,8 +11538,8 @@ define dso_local noundef zeroext i1 @_ZN4Json9OurReader17readCStyleCommentEv(ptr
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8, !tbaa !237
   %.promoted = load ptr, ptr %2, align 8, !tbaa !238
-  %.not7 = icmp eq ptr %.promoted, %4
-  br i1 %.not7, label %.thread, label %_ZN4Json9OurReader11getNextCharEv.exit
+  %.not6 = icmp eq ptr %.promoted, %4
+  br i1 %.not6, label %.thread, label %_ZN4Json9OurReader11getNextCharEv.exit
 
 _ZN4Json9OurReader11getNextCharEv.exit:           ; preds = %1, %_ZN4Json9OurReader11getNextCharEv.exit.backedge
   %5 = phi ptr [ %6, %_ZN4Json9OurReader11getNextCharEv.exit.backedge ], [ %.promoted, %1 ]
@@ -30371,7 +30371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
 
 203:                                              ; preds = %201
   invoke void @_ZN4Json12StyledWriter11writeIndentEv(ptr noundef nonnull align 8 dereferenceable(105) %0)
-          to label %.noexc116 unwind label %.loopexit166
+          to label %.noexc116 unwind label %.loopexit165
 
 .noexc116:                                        ; preds = %203
   %204 = load i64, ptr %191, align 8, !tbaa !14
@@ -30382,7 +30382,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
 
 208:                                              ; preds = %.noexc116
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.125) #48
-          to label %.noexc117 unwind label %.loopexit.split-lp167
+          to label %.noexc117 unwind label %.loopexit.split-lp166
 
 .noexc117:                                        ; preds = %208
   unreachable
@@ -30390,7 +30390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %_Z
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i115: ; preds = %.noexc116
   %209 = load ptr, ptr %15, align 8, !tbaa !45
   %210 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %182, ptr noundef %209, i64 noundef %204)
-          to label %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119 unwind label %.loopexit166
+          to label %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119 unwind label %.loopexit165
 
 _ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit119: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i115
   %211 = load ptr, ptr %15, align 8, !tbaa !45
@@ -30472,18 +30472,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %22
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130
 
-.loopexit166:                                     ; preds = %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i115
-  %lpad.loopexit168 = landingpad { ptr, i32 }
+.loopexit165:                                     ; preds = %203, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i115
+  %lpad.loopexit167 = landingpad { ptr, i32 }
           cleanup
   br label %235
 
-.loopexit.split-lp167:                            ; preds = %208
-  %lpad.loopexit.split-lp169 = landingpad { ptr, i32 }
+.loopexit.split-lp166:                            ; preds = %208
+  %lpad.loopexit.split-lp168 = landingpad { ptr, i32 }
           cleanup
   br label %235
 
-235:                                              ; preds = %.loopexit.split-lp167, %.loopexit166
-  %lpad.phi170 = phi { ptr, i32 } [ %lpad.loopexit168, %.loopexit166 ], [ %lpad.loopexit.split-lp169, %.loopexit.split-lp167 ]
+235:                                              ; preds = %.loopexit.split-lp166, %.loopexit165
+  %lpad.phi169 = phi { ptr, i32 } [ %lpad.loopexit167, %.loopexit165 ], [ %lpad.loopexit.split-lp168, %.loopexit.split-lp166 ]
   %236 = load ptr, ptr %15, align 8, !tbaa !45
   %237 = icmp eq ptr %236, %192
   br i1 %237, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i128
@@ -30495,7 +30495,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i12
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130: ; preds = %235, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i128, %233
-  %.pn32 = phi { ptr, i32 } [ %234, %233 ], [ %lpad.phi170, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i128 ], [ %lpad.phi170, %235 ]
+  %.pn32 = phi { ptr, i32 } [ %234, %233 ], [ %lpad.phi169, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i128 ], [ %lpad.phi169, %235 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %302
 
@@ -31239,9 +31239,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZN
   %58 = load ptr, ptr %57, align 8, !tbaa !552
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !552
-  %.fr81 = freeze ptr %58
-  %.fr82 = freeze ptr %60
-  %61 = icmp eq ptr %.fr81, %.fr82
+  %.fr80 = freeze ptr %58
+  %.fr81 = freeze ptr %60
+  %61 = icmp eq ptr %.fr80, %.fr81
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %63 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef 0)
   call void @_ZN4Json12StyledWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %63)
@@ -31307,7 +31307,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.split: ; preds 
 
 _ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52.preheader: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.split
   %91 = add i32 %.0.i, -1
-  %wide.trip.count90 = zext i32 %91 to i64
+  %wide.trip.count89 = zext i32 %91 to i64
   br label %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52
 
 ._crit_edge:                                      ; preds = %114, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50.split
@@ -31315,16 +31315,16 @@ _ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_tr
   unreachable
 
 _ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52: ; preds = %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52.preheader, %114
-  %indvars.iv87 = phi i64 [ 0, %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52.preheader ], [ %indvars.iv.next88, %114 ]
+  %indvars.iv86 = phi i64 [ 0, %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52.preheader ], [ %indvars.iv.next87, %114 ]
   %92 = phi i64 [ %87, %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52.preheader ], [ %124, %114 ]
   %93 = phi ptr [ %85, %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52.preheader ], [ %122, %114 ]
   %94 = phi ptr [ %63, %_ZN4Json12StyledWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit52.preheader ], [ %119, %114 ]
   %95 = load ptr, ptr %93, align 8, !tbaa !45
   %96 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %50, ptr noundef %95, i64 noundef %92)
-  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
-  %indvars = trunc i64 %indvars.iv.next88 to i32
-  %exitcond91 = icmp eq i64 %indvars.iv87, %wide.trip.count90
-  br i1 %exitcond91, label %._crit_edge.i.i56, label %103
+  %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
+  %indvars = trunc i64 %indvars.iv.next87 to i32
+  %exitcond90 = icmp eq i64 %indvars.iv86, %wide.trip.count89
+  br i1 %exitcond90, label %._crit_edge.i.i56, label %103
 
 97:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit.i, %49, %._crit_edge.i.i41
   %98 = landingpad { ptr, i32 }
@@ -31377,7 +31377,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i: ; pr
   call void @_ZN4Json12StyledWriter32writeCommentAfterValueOnSameLineERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %94)
   %119 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %indvars)
   call void @_ZN4Json12StyledWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %119)
-  %120 = and i64 %indvars.iv.next88, 4294967295
+  %120 = and i64 %indvars.iv.next87, 4294967295
   %121 = load ptr, ptr %57, align 8, !tbaa !404
   %122 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %121, i64 %120
   call void @_ZN4Json12StyledWriter11writeIndentEv(ptr noundef nonnull align 8 dereferenceable(105) %0)
@@ -32872,11 +32872,11 @@ _ZN4Json18StyledStreamWriter11writeIndentEv.exit.i: ; preds = %193, %191
 
 _ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc110_crit_edge: ; preds = %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i
   %.pre = load ptr, ptr %17, align 8, !tbaa !45
-  %.pre184 = load i64, ptr %177, align 8, !tbaa !14
+  %.pre183 = load i64, ptr %177, align 8, !tbaa !14
   br label %.noexc110
 
 .noexc110:                                        ; preds = %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc110_crit_edge, %._crit_edge.i.i103
-  %200 = phi i64 [ %.pre184, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc110_crit_edge ], [ 1, %._crit_edge.i.i103 ]
+  %200 = phi i64 [ %.pre183, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc110_crit_edge ], [ 1, %._crit_edge.i.i103 ]
   %201 = phi ptr [ %.pre, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc110_crit_edge ], [ %176, %._crit_edge.i.i103 ]
   %202 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %203 = load ptr, ptr %202, align 8, !tbaa !595
@@ -33139,13 +33139,13 @@ _ZN4Json18StyledStreamWriter11writeIndentEv.exit.i147: ; preds = %309, %307
           to label %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i147..noexc151_crit_edge unwind label %327
 
 _ZN4Json18StyledStreamWriter11writeIndentEv.exit.i147..noexc151_crit_edge: ; preds = %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i147
-  %.pre185 = load ptr, ptr %19, align 8, !tbaa !45
-  %.pre186 = load i64, ptr %295, align 8, !tbaa !14
+  %.pre184 = load ptr, ptr %19, align 8, !tbaa !45
+  %.pre185 = load i64, ptr %295, align 8, !tbaa !14
   br label %.noexc151
 
 .noexc151:                                        ; preds = %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i147..noexc151_crit_edge, %_ZN4Json18StyledStreamWriter8unindentEv.exit
-  %314 = phi i64 [ %.pre186, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i147..noexc151_crit_edge ], [ 1, %_ZN4Json18StyledStreamWriter8unindentEv.exit ]
-  %315 = phi ptr [ %.pre185, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i147..noexc151_crit_edge ], [ %294, %_ZN4Json18StyledStreamWriter8unindentEv.exit ]
+  %314 = phi i64 [ %.pre185, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i147..noexc151_crit_edge ], [ 1, %_ZN4Json18StyledStreamWriter8unindentEv.exit ]
+  %315 = phi ptr [ %.pre184, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i147..noexc151_crit_edge ], [ %294, %_ZN4Json18StyledStreamWriter8unindentEv.exit ]
   %316 = load ptr, ptr %202, align 8, !tbaa !595
   %317 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef %315, i64 noundef %314)
           to label %318 unwind label %327
@@ -33775,11 +33775,11 @@ _ZN4Json18StyledStreamWriter11writeIndentEv.exit.i: ; preds = %62, %60
 
 _ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc48_crit_edge: ; preds = %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i
   %.pre = load ptr, ptr %8, align 8, !tbaa !45
-  %.pre96 = load i64, ptr %46, align 8, !tbaa !14
+  %.pre95 = load i64, ptr %46, align 8, !tbaa !14
   br label %.noexc48
 
 .noexc48:                                         ; preds = %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc48_crit_edge, %._crit_edge.i.i42
-  %69 = phi i64 [ %.pre96, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc48_crit_edge ], [ 1, %._crit_edge.i.i42 ]
+  %69 = phi i64 [ %.pre95, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc48_crit_edge ], [ 1, %._crit_edge.i.i42 ]
   %70 = phi ptr [ %.pre, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i..noexc48_crit_edge ], [ %45, %._crit_edge.i.i42 ]
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load ptr, ptr %71, align 8, !tbaa !595
@@ -33822,14 +33822,14 @@ _ZN4Json18StyledStreamWriter6indentEv.exit:       ; preds = %_ZNSt7__cxx1112basi
   %92 = load ptr, ptr %0, align 8, !tbaa !552
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !552
-  %.fr86 = freeze ptr %92
-  %.fr87 = freeze ptr %94
-  %95 = icmp eq ptr %.fr86, %.fr87
+  %.fr85 = freeze ptr %92
+  %.fr86 = freeze ptr %94
+  %95 = icmp eq ptr %.fr85, %.fr86
   br i1 %95, label %_ZN4Json18StyledStreamWriter6indentEv.exit.split.us, label %_ZN4Json18StyledStreamWriter6indentEv.exit.split.preheader
 
 _ZN4Json18StyledStreamWriter6indentEv.exit.split.preheader: ; preds = %_ZN4Json18StyledStreamWriter6indentEv.exit
   %96 = add i32 %.0.i, -1
-  %wide.trip.count94 = zext i32 %96 to i64
+  %wide.trip.count93 = zext i32 %96 to i64
   br label %_ZN4Json18StyledStreamWriter6indentEv.exit.split
 
 _ZN4Json18StyledStreamWriter6indentEv.exit.split.us: ; preds = %_ZN4Json18StyledStreamWriter6indentEv.exit, %120
@@ -33868,11 +33868,11 @@ _ZN4Json18StyledStreamWriter11writeIndentEv.exit.us: ; preds = %110, %108
   %112 = load ptr, ptr %88, align 8, !tbaa !45
   %113 = load i64, ptr %83, align 8, !tbaa !14
   %114 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.us, ptr noundef %112, i64 noundef %113)
-  %.pre97 = load i8, ptr %48, align 8
+  %.pre96 = load i8, ptr %48, align 8
   br label %115
 
 115:                                              ; preds = %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.us, %_ZN4Json18StyledStreamWriter6indentEv.exit.split.us
-  %116 = phi i8 [ %.pre97, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.us ], [ %98, %_ZN4Json18StyledStreamWriter6indentEv.exit.split.us ]
+  %116 = phi i8 [ %.pre96, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.us ], [ %98, %_ZN4Json18StyledStreamWriter6indentEv.exit.split.us ]
   %117 = or i8 %116, 2
   store i8 %117, ptr %48, align 8
   call void @_ZN4Json18StyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %97)
@@ -33890,12 +33890,12 @@ _ZN4Json18StyledStreamWriter11writeIndentEv.exit.us: ; preds = %110, %108
   br label %_ZN4Json18StyledStreamWriter6indentEv.exit.split.us
 
 _ZN4Json18StyledStreamWriter6indentEv.exit.split: ; preds = %_ZN4Json18StyledStreamWriter6indentEv.exit.split.preheader, %155
-  %indvars.iv91 = phi i64 [ 0, %_ZN4Json18StyledStreamWriter6indentEv.exit.split.preheader ], [ %indvars.iv.next92, %155 ]
-  %123 = trunc nuw i64 %indvars.iv91 to i32
+  %indvars.iv90 = phi i64 [ 0, %_ZN4Json18StyledStreamWriter6indentEv.exit.split.preheader ], [ %indvars.iv.next91, %155 ]
+  %123 = trunc nuw i64 %indvars.iv90 to i32
   %124 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %123)
   call void @_ZN4Json18StyledStreamWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %124)
   %125 = load ptr, ptr %0, align 8, !tbaa !404
-  %126 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %125, i64 %indvars.iv91
+  %126 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %125, i64 %indvars.iv90
   %127 = load i8, ptr %48, align 8
   %128 = and i8 %127, 2
   %.not.i53 = icmp eq i8 %128, 0
@@ -33939,8 +33939,8 @@ _ZN4Json18StyledStreamWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11c
   %storemerge.in = load i8, ptr %48, align 8
   %storemerge = and i8 %storemerge.in, -3
   store i8 %storemerge, ptr %48, align 8
-  %exitcond95 = icmp eq i64 %indvars.iv91, %wide.trip.count94
-  br i1 %exitcond95, label %._crit_edge.i.i61, label %155
+  %exitcond94 = icmp eq i64 %indvars.iv90, %wide.trip.count93
+  br i1 %exitcond94, label %._crit_edge.i.i61, label %155
 
 149:                                              ; preds = %.noexc48, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i, %62, %60
   %150 = landingpad { ptr, i32 }
@@ -33960,7 +33960,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit60: ; preds = %149
   br label %218
 
 155:                                              ; preds = %_ZN4Json18StyledStreamWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit57
-  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %156 = load ptr, ptr %71, align 8, !tbaa !595
   %157 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %156, ptr noundef nonnull @.str.107, i64 noundef 1)
   call void @_ZN4Json18StyledStreamWriter32writeCommentAfterValueOnSameLineERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(105) %0, ptr noundef nonnull align 8 dereferenceable(32) %124)
@@ -34016,13 +34016,13 @@ _ZN4Json18StyledStreamWriter11writeIndentEv.exit.i67: ; preds = %176, %174
           to label %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i67..noexc71_crit_edge unwind label %192
 
 _ZN4Json18StyledStreamWriter11writeIndentEv.exit.i67..noexc71_crit_edge: ; preds = %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i67
-  %.pre98 = load ptr, ptr %9, align 8, !tbaa !45
-  %.pre99 = load i64, ptr %162, align 8, !tbaa !14
+  %.pre97 = load ptr, ptr %9, align 8, !tbaa !45
+  %.pre98 = load i64, ptr %162, align 8, !tbaa !14
   br label %.noexc71
 
 .noexc71:                                         ; preds = %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i67..noexc71_crit_edge, %._crit_edge.i.i61
-  %181 = phi i64 [ %.pre99, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i67..noexc71_crit_edge ], [ 1, %._crit_edge.i.i61 ]
-  %182 = phi ptr [ %.pre98, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i67..noexc71_crit_edge ], [ %161, %._crit_edge.i.i61 ]
+  %181 = phi i64 [ %.pre98, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i67..noexc71_crit_edge ], [ 1, %._crit_edge.i.i61 ]
+  %182 = phi ptr [ %.pre97, %_ZN4Json18StyledStreamWriter11writeIndentEv.exit.i67..noexc71_crit_edge ], [ %161, %._crit_edge.i.i61 ]
   %183 = load ptr, ptr %71, align 8, !tbaa !595
   %184 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %183, ptr noundef %182, i64 noundef %181)
           to label %185 unwind label %192
@@ -35560,11 +35560,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i: ; preds = %189, 
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i
   %.pre = load ptr, ptr %16, align 8, !tbaa !45
-  %.pre175 = load i64, ptr %170, align 8, !tbaa !14
+  %.pre174 = load i64, ptr %170, align 8, !tbaa !14
   br label %_ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i
 
 _ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge, %._crit_edge.i.i92
-  %196 = phi i64 [ %.pre175, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge ], [ 1, %._crit_edge.i.i92 ]
+  %196 = phi i64 [ %.pre174, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge ], [ 1, %._crit_edge.i.i92 ]
   %197 = phi ptr [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge ], [ %169, %._crit_edge.i.i92 ]
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %199 = load ptr, ptr %198, align 8, !tbaa !615
@@ -35838,13 +35838,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i138: ; preds = %31
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i138._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i140_crit_edge unwind label %332
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i138._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i140_crit_edge: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i138
-  %.pre176 = load ptr, ptr %18, align 8, !tbaa !45
-  %.pre177 = load i64, ptr %298, align 8, !tbaa !14
+  %.pre175 = load ptr, ptr %18, align 8, !tbaa !45
+  %.pre176 = load i64, ptr %298, align 8, !tbaa !14
   br label %_ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i140
 
 _ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i140: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i138._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i140_crit_edge, %_ZN4Json23BuiltStyledStreamWriter8unindentEv.exit
-  %319 = phi i64 [ %.pre177, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i138._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i140_crit_edge ], [ 1, %_ZN4Json23BuiltStyledStreamWriter8unindentEv.exit ]
-  %320 = phi ptr [ %.pre176, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i138._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i140_crit_edge ], [ %297, %_ZN4Json23BuiltStyledStreamWriter8unindentEv.exit ]
+  %319 = phi i64 [ %.pre176, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i138._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i140_crit_edge ], [ 1, %_ZN4Json23BuiltStyledStreamWriter8unindentEv.exit ]
+  %320 = phi ptr [ %.pre175, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i138._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i140_crit_edge ], [ %297, %_ZN4Json23BuiltStyledStreamWriter8unindentEv.exit ]
   %321 = load ptr, ptr %198, align 8, !tbaa !615
   %322 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %321, ptr noundef %320, i64 noundef %319)
           to label %323 unwind label %332
@@ -36522,11 +36522,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i: ; preds = %68, %
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i
   %.pre = load ptr, ptr %7, align 8, !tbaa !45
-  %.pre93 = load i64, ptr %49, align 8, !tbaa !14
+  %.pre92 = load i64, ptr %49, align 8, !tbaa !14
   br label %_ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i
 
 _ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge, %.critedge
-  %75 = phi i64 [ %.pre93, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge ], [ 1, %.critedge ]
+  %75 = phi i64 [ %.pre92, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge ], [ 1, %.critedge ]
   %76 = phi ptr [ %.pre, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i_crit_edge ], [ %48, %.critedge ]
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %78 = load ptr, ptr %77, align 8, !tbaa !615
@@ -36569,9 +36569,9 @@ _ZN4Json23BuiltStyledStreamWriter6indentEv.exit:  ; preds = %_ZNSt7__cxx1112basi
   %98 = load ptr, ptr %97, align 8, !tbaa !552
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %100 = load ptr, ptr %99, align 8, !tbaa !552
-  %.fr84 = freeze ptr %98
-  %.fr85 = freeze ptr %100
-  %101 = icmp eq ptr %.fr84, %.fr85
+  %.fr83 = freeze ptr %98
+  %.fr84 = freeze ptr %100
+  %101 = icmp eq ptr %.fr83, %.fr84
   br i1 %101, label %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split.us, label %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split
 
 _ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split.us: ; preds = %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit, %128
@@ -36613,11 +36613,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.us: ; preds = %117,
   %119 = load ptr, ptr %93, align 8, !tbaa !45
   %120 = load i64, ptr %88, align 8, !tbaa !14
   %121 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.us, ptr noundef %119, i64 noundef %120)
-  %.pre94 = load i8, ptr %51, align 8
+  %.pre93 = load i8, ptr %51, align 8
   br label %_ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.us
 
 _ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.us: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.us, %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split.us
-  %122 = phi i8 [ %.pre94, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.us ], [ %103, %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split.us ]
+  %122 = phi i8 [ %.pre93, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.us ], [ %103, %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split.us ]
   %123 = or i8 %122, 2
   store i8 %123, ptr %51, align 8
   call void @_ZN4Json23BuiltStyledStreamWriter10writeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(32) %102)
@@ -36660,21 +36660,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %134
   br label %223
 
 .lr.ph:                                           ; preds = %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split, %.lr.ph
-  %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph ], [ 1, %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split ]
+  %indvars.iv88 = phi i64 [ %indvars.iv.next89, %.lr.ph ], [ 1, %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split ]
   %140 = phi ptr [ %144, %.lr.ph ], [ %131, %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split ]
   %141 = load ptr, ptr %77, align 8, !tbaa !615
   %142 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %141, ptr noundef nonnull @.str.107, i64 noundef 1)
   call void @_ZN4Json23BuiltStyledStreamWriter32writeCommentAfterValueOnSameLineERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(32) %140)
-  %143 = trunc nuw i64 %indvars.iv89 to i32
+  %143 = trunc nuw i64 %indvars.iv88 to i32
   %144 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4Json5ValueixEj(ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %143)
   call void @_ZN4Json23BuiltStyledStreamWriter23writeCommentBeforeValueERKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(32) %144)
   %145 = load ptr, ptr %97, align 8, !tbaa !404
-  %146 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %145, i64 %indvars.iv89
+  %146 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %145, i64 %indvars.iv88
   call void @_ZN4Json23BuiltStyledStreamWriter15writeWithIndentERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(32) %146)
-  %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
-  %lftr.wideiv = trunc i64 %indvars.iv.next90 to i32
-  %exitcond92 = icmp eq i32 %.0.i, %lftr.wideiv
-  br i1 %exitcond92, label %._crit_edge.i.i56, label %.lr.ph
+  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %lftr.wideiv = trunc i64 %indvars.iv.next89 to i32
+  %exitcond91 = icmp eq i32 %.0.i, %lftr.wideiv
+  br i1 %exitcond91, label %._crit_edge.i.i56, label %.lr.ph
 
 ._crit_edge.i.i56:                                ; preds = %.lr.ph, %_ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.us, %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split
   %.us-phi = phi ptr [ %131, %_ZN4Json23BuiltStyledStreamWriter6indentEv.exit.split ], [ %102, %_ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.us ], [ %144, %.lr.ph ]
@@ -36729,13 +36729,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i63: ; preds = %167
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i63._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i65_crit_edge unwind label %183
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i63._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i65_crit_edge: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i63
-  %.pre95 = load ptr, ptr %8, align 8, !tbaa !45
-  %.pre96 = load i64, ptr %151, align 8, !tbaa !14
+  %.pre94 = load ptr, ptr %8, align 8, !tbaa !45
+  %.pre95 = load i64, ptr %151, align 8, !tbaa !14
   br label %_ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i65
 
 _ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i65: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i63._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i65_crit_edge, %._crit_edge.i.i56
-  %172 = phi i64 [ %.pre96, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i63._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i65_crit_edge ], [ 1, %._crit_edge.i.i56 ]
-  %173 = phi ptr [ %.pre95, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i63._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i65_crit_edge ], [ %150, %._crit_edge.i.i56 ]
+  %172 = phi i64 [ %.pre95, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i63._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i65_crit_edge ], [ 1, %._crit_edge.i.i56 ]
+  %173 = phi ptr [ %.pre94, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.i.i63._ZN4Json23BuiltStyledStreamWriter11writeIndentEv.exit.i65_crit_edge ], [ %150, %._crit_edge.i.i56 ]
   %174 = load ptr, ptr %77, align 8, !tbaa !615
   %175 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %174, ptr noundef %173, i64 noundef %172)
           to label %176 unwind label %183

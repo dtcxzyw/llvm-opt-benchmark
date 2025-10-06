@@ -899,9 +899,9 @@ BufferGetPage.exit:                               ; preds = %25, %31
   %44 = add nuw nsw i32 %43, 262120
   %45 = lshr i32 %44, 2
   %46 = trunc i32 %45 to i16
-  %.not130139 = icmp eq i16 %46, 0
-  %.not130 = select i1 %42, i1 true, i1 %.not130139
-  br i1 %.not130, label %._crit_edge.thread, label %.lr.ph
+  %.not129138 = icmp eq i16 %46, 0
+  %.not129 = select i1 %42, i1 true, i1 %.not129138
+  br i1 %.not129, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %BufferGetPage.exit
   %47 = getelementptr i8, ptr %.0.i.i, i64 20
@@ -919,13 +919,13 @@ BufferGetPage.exit:                               ; preds = %25, %31
 .lr.ph.split.us.split.us.preheader:               ; preds = %.lr.ph.split.us
   %50 = and i32 %45, 65535
   %51 = add nuw nsw i32 %50, 1
-  %wide.trip.count147 = zext nneg i32 %51 to i64
+  %wide.trip.count146 = zext nneg i32 %51 to i64
   br label %.lr.ph.split.us.split.us
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us.split.us.preheader, %65
-  %indvars.iv144 = phi i64 [ 1, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next145, %65 ]
-  %.0101131.us.us = phi i32 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %.1102.us.us, %65 ]
-  %52 = getelementptr %struct.ItemIdData, ptr %47, i64 %indvars.iv144
+  %indvars.iv143 = phi i64 [ 1, %.lr.ph.split.us.split.us.preheader ], [ %indvars.iv.next144, %65 ]
+  %.0101130.us.us = phi i32 [ 0, %.lr.ph.split.us.split.us.preheader ], [ %.1102.us.us, %65 ]
+  %52 = getelementptr %struct.ItemIdData, ptr %47, i64 %indvars.iv143
   %.val120.us.us = load i32, ptr %52, align 4
   %53 = and i32 %.val120.us.us, 32767
   %54 = zext nneg i32 %53 to i64
@@ -936,10 +936,10 @@ BufferGetPage.exit:                               ; preds = %25, %31
   br i1 %.not115.not.us.us, label %.critedge119.us.us, label %.critedge.us.us
 
 .critedge.us.us:                                  ; preds = %.lr.ph.split.us.split.us
-  %58 = add i32 %.0101131.us.us, 1
-  %59 = sext i32 %.0101131.us.us to i64
+  %58 = add i32 %.0101130.us.us, 1
+  %59 = sext i32 %.0101130.us.us to i64
   %60 = getelementptr inbounds i16, ptr %14, i64 %59
-  %61 = trunc nuw i64 %indvars.iv144 to i16
+  %61 = trunc nuw i64 %indvars.iv143 to i16
   store i16 %61, ptr %60, align 2
   br label %65
 
@@ -953,10 +953,10 @@ BufferGetPage.exit:                               ; preds = %25, %31
   br label %65
 
 65:                                               ; preds = %62, %.critedge119.us.us, %.critedge.us.us
-  %.1102.us.us = phi i32 [ %58, %.critedge.us.us ], [ %.0101131.us.us, %62 ], [ %.0101131.us.us, %.critedge119.us.us ]
-  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144, 1
-  %exitcond148 = icmp eq i64 %indvars.iv.next145, %wide.trip.count147
-  br i1 %exitcond148, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !9
+  %.1102.us.us = phi i32 [ %58, %.critedge.us.us ], [ %.0101130.us.us, %62 ], [ %.0101130.us.us, %.critedge119.us.us ]
+  %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
+  %exitcond147 = icmp eq i64 %indvars.iv.next144, %wide.trip.count146
+  br i1 %exitcond147, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !9
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us
   br i1 %.not117, label %._crit_edge.thread, label %.lr.ph.split.us.split.split
@@ -969,11 +969,11 @@ BufferGetPage.exit:                               ; preds = %25, %31
 
 .critedge119.us:                                  ; preds = %.critedge119.us, %.lr.ph.split.us.split.split
   %67 = phi double [ %.promoted, %.lr.ph.split.us.split.split ], [ %68, %.critedge119.us ]
-  %.099132.us = phi i16 [ 1, %.lr.ph.split.us.split.split ], [ %69, %.critedge119.us ]
+  %.099131.us = phi i16 [ 1, %.lr.ph.split.us.split.split ], [ %69, %.critedge119.us ]
   %68 = fadd double %67, 1.000000e+00
-  %69 = add nuw i16 %.099132.us, 1
-  %exitcond143 = icmp eq i16 %69, %umax
-  br i1 %exitcond143, label %._crit_edge.split.us.split.split, label %.critedge119.us, !llvm.loop !9
+  %69 = add nuw i16 %.099131.us, 1
+  %exitcond142 = icmp eq i16 %69, %umax
+  br i1 %exitcond142, label %._crit_edge.split.us.split.split, label %.critedge119.us, !llvm.loop !9
 
 ._crit_edge.split.us.split.split:                 ; preds = %.critedge119.us
   store double %68, ptr %9, align 8
@@ -981,7 +981,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %90
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %90 ]
-  %.0101131 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1102, %90 ]
+  %.0101130 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %.1102, %90 ]
   %70 = getelementptr %struct.ItemIdData, ptr %47, i64 %indvars.iv
   %.val120 = load i32, ptr %70, align 4
   %71 = and i32 %.val120, 32767
@@ -1009,8 +1009,8 @@ BufferGetPage.exit:                               ; preds = %25, %31
   br i1 %.not115.not, label %.critedge119, label %.critedge
 
 .critedge:                                        ; preds = %76, %75, %80
-  %83 = add i32 %.0101131, 1
-  %84 = sext i32 %.0101131 to i64
+  %83 = add i32 %.0101130, 1
+  %84 = sext i32 %.0101130 to i64
   %85 = getelementptr inbounds i16, ptr %14, i64 %84
   %86 = trunc nuw i64 %indvars.iv to i16
   store i16 %86, ptr %85, align 2
@@ -1026,7 +1026,7 @@ BufferGetPage.exit:                               ; preds = %25, %31
   br label %90
 
 90:                                               ; preds = %.critedge119, %87, %.critedge
-  %.1102 = phi i32 [ %83, %.critedge ], [ %.0101131, %87 ], [ %.0101131, %.critedge119 ]
+  %.1102 = phi i32 [ %83, %.critedge ], [ %.0101130, %87 ], [ %.0101130, %.critedge119 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
@@ -1150,8 +1150,8 @@ BufferGetPage.exit122:                            ; preds = %131, %137
 150:                                              ; preds = %._crit_edge.thread, %147, %._crit_edge
   %151 = phi i32 [ %94, %147 ], [ %94, %._crit_edge ], [ %92, %._crit_edge.thread ]
   %.198 = phi i1 [ true, %147 ], [ %.097, %._crit_edge ], [ %.097, %._crit_edge.thread ]
-  %.not129 = icmp eq i32 %151, -1
-  br i1 %.not129, label %158, label %152
+  %.not128 = icmp eq i32 %151, -1
+  br i1 %.not128, label %158, label %152
 
 152:                                              ; preds = %150
   %153 = icmp eq i32 %.0, %3

@@ -3835,45 +3835,45 @@ _ZN9grpc_core21RefCountedStringValueD2Ev.exit.i:  ; preds = %7, %4, %1
 12:                                               ; preds = %_ZN9grpc_core21RefCountedStringValueD2Ev.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val1.i.i.i = load ptr, ptr %13, align 8
-  %switch.i.i.i.i = icmp eq i8 %.val.i.i.i, 0
+  %14 = icmp eq i8 %.val.i.i.i, 0
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val1.i.i.i, null
-  %or.cond.i.i.i.i = select i1 %switch.i.i.i.i, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit, label %14
+  %or.cond.i.i.i.i = select i1 %14, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit, label %15
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 8
-  %16 = atomicrmw add ptr %15, i64 -4294967295 acq_rel, align 8
-  %.mask.i.i.i.i.i.i.i.i.i.i.i = and i64 %16, -4294967296
-  %17 = icmp eq i64 %.mask.i.i.i.i.i.i.i.i.i.i.i, 4294967296
-  br i1 %17, label %18, label %.noexc.i.i.i.i.i.i.i.i.i.i, !prof !47
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 8
+  %17 = atomicrmw add ptr %16, i64 -4294967295 acq_rel, align 8
+  %.mask.i.i.i.i.i.i.i.i.i.i.i = and i64 %17, -4294967296
+  %18 = icmp eq i64 %.mask.i.i.i.i.i.i.i.i.i.i.i, 4294967296
+  br i1 %18, label %19, label %.noexc.i.i.i.i.i.i.i.i.i.i, !prof !47
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i)
-          to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %28
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i)
+          to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %29
 
-.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %18, %14
-  %22 = atomicrmw sub ptr %15, i64 1 acq_rel, align 8
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %24, label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit, !prof !47
+.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %19, %15
+  %23 = atomicrmw sub ptr %16, i64 1 acq_rel, align 8
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit, !prof !47
 
-24:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
-  %25 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i) #40
+25:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
+  %26 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i) #40
   br label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit
 
-28:                                               ; preds = %18
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %19
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #42
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #42
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit: ; preds = %12, %.noexc.i.i.i.i.i.i.i.i.i.i, %24, %_ZN9grpc_core21RefCountedStringValueD2Ev.exit.i
+_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit: ; preds = %12, %.noexc.i.i.i.i.i.i.i.i.i.i, %25, %_ZN9grpc_core21RefCountedStringValueD2Ev.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #43
   ret void
 }
@@ -3910,45 +3910,45 @@ _ZN9grpc_core21RefCountedStringValueD2Ev.exit:    ; preds = %1, %4, %7
 12:                                               ; preds = %_ZN9grpc_core21RefCountedStringValueD2Ev.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val1.i.i = load ptr, ptr %13, align 8
-  %switch.i.i.i = icmp eq i8 %.val.i.i, 0
+  %14 = icmp eq i8 %.val.i.i, 0
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val1.i.i, null
-  %or.cond.i.i.i = select i1 %switch.i.i.i, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS3_13RefCountedPtrIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_EEEEDcOT0_DpOT1_.exit.i.i, label %14
+  %or.cond.i.i.i = select i1 %14, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS3_13RefCountedPtrIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_EEEEDcOT0_DpOT1_.exit.i.i, label %15
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 8
-  %16 = atomicrmw add ptr %15, i64 -4294967295 acq_rel, align 8
-  %.mask.i.i.i.i.i.i.i.i.i.i = and i64 %16, -4294967296
-  %17 = icmp eq i64 %.mask.i.i.i.i.i.i.i.i.i.i, 4294967296
-  br i1 %17, label %18, label %.noexc.i.i.i.i.i.i.i.i.i, !prof !47
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %.val1.i.i, i64 8
+  %17 = atomicrmw add ptr %16, i64 -4294967295 acq_rel, align 8
+  %.mask.i.i.i.i.i.i.i.i.i.i = and i64 %17, -4294967296
+  %18 = icmp eq i64 %.mask.i.i.i.i.i.i.i.i.i.i, 4294967296
+  br i1 %18, label %19, label %.noexc.i.i.i.i.i.i.i.i.i, !prof !47
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %.val1.i.i, align 8, !tbaa !6
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i)
-          to label %.noexc.i.i.i.i.i.i.i.i.i unwind label %28
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %.val1.i.i, align 8, !tbaa !6
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i)
+          to label %.noexc.i.i.i.i.i.i.i.i.i unwind label %29
 
-.noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %18, %14
-  %22 = atomicrmw sub ptr %15, i64 1 acq_rel, align 8
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %24, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS3_13RefCountedPtrIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_EEEEDcOT0_DpOT1_.exit.i.i, !prof !47
+.noexc.i.i.i.i.i.i.i.i.i:                         ; preds = %19, %15
+  %23 = atomicrmw sub ptr %16, i64 1 acq_rel, align 8
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS3_13RefCountedPtrIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_EEEEDcOT0_DpOT1_.exit.i.i, !prof !47
 
-24:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i
-  %25 = load ptr, ptr %.val1.i.i, align 8, !tbaa !6
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i) #40
+25:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i
+  %26 = load ptr, ptr %.val1.i.i, align 8, !tbaa !6
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i) #40
   br label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS3_13RefCountedPtrIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_EEEEDcOT0_DpOT1_.exit.i.i
 
-28:                                               ; preds = %18
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %19
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #42
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #42
   unreachable
 
-_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS3_13RefCountedPtrIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_EEEEDcOT0_DpOT1_.exit.i.i: ; preds = %24, %.noexc.i.i.i.i.i.i.i.i.i, %12
+_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS3_13RefCountedPtrIS6_EEEE8_M_resetEvEUlOT_E_JRSt7variantIJS7_S9_EEEEDcOT0_DpOT1_.exit.i.i: ; preds = %25, %.noexc.i.i.i.i.i.i.i.i.i, %12
   store i8 -1, ptr %11, align 8, !tbaa !182
   br label %_ZNSt8__detail9__variant16_Variant_storageILb0EJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS2_13RefCountedPtrIS5_EEEED2Ev.exit
 
@@ -9086,45 +9086,45 @@ _ZN9grpc_core21RefCountedStringValueD2Ev.exit.i:  ; preds = %7, %4, %1
 12:                                               ; preds = %_ZN9grpc_core21RefCountedStringValueD2Ev.exit.i
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val1.i.i.i = load ptr, ptr %13, align 8
-  %switch.i.i.i.i = icmp eq i8 %.val.i.i.i, 0
+  %14 = icmp eq i8 %.val.i.i.i, 0
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val1.i.i.i, null
-  %or.cond.i.i.i.i = select i1 %switch.i.i.i.i, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit, label %14
+  %or.cond.i.i.i.i = select i1 %14, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit, label %15
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 8
-  %16 = atomicrmw add ptr %15, i64 -4294967295 acq_rel, align 8
-  %.mask.i.i.i.i.i.i.i.i.i.i.i = and i64 %16, -4294967296
-  %17 = icmp eq i64 %.mask.i.i.i.i.i.i.i.i.i.i.i, 4294967296
-  br i1 %17, label %18, label %.noexc.i.i.i.i.i.i.i.i.i.i, !prof !47
+15:                                               ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 8
+  %17 = atomicrmw add ptr %16, i64 -4294967295 acq_rel, align 8
+  %.mask.i.i.i.i.i.i.i.i.i.i.i = and i64 %17, -4294967296
+  %18 = icmp eq i64 %.mask.i.i.i.i.i.i.i.i.i.i.i, 4294967296
+  br i1 %18, label %19, label %.noexc.i.i.i.i.i.i.i.i.i.i, !prof !47
 
-18:                                               ; preds = %14
-  %19 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %21 = load ptr, ptr %20, align 8
-  invoke void %21(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i)
-          to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %28
+19:                                               ; preds = %15
+  %20 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %22 = load ptr, ptr %21, align 8
+  invoke void %22(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i)
+          to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %29
 
-.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %18, %14
-  %22 = atomicrmw sub ptr %15, i64 1 acq_rel, align 8
-  %23 = icmp eq i64 %22, 1
-  br i1 %23, label %24, label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit, !prof !47
+.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %19, %15
+  %23 = atomicrmw sub ptr %16, i64 1 acq_rel, align 8
+  %24 = icmp eq i64 %23, 1
+  br i1 %24, label %25, label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit, !prof !47
 
-24:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
-  %25 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %27 = load ptr, ptr %26, align 8
-  tail call void %27(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i) #40
+25:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
+  %26 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %28 = load ptr, ptr %27, align 8
+  tail call void %28(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i) #40
   br label %_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit
 
-28:                                               ; preds = %18
-  %29 = landingpad { ptr, i32 }
+29:                                               ; preds = %19
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %30 = extractvalue { ptr, i32 } %29, 0
-  tail call void @__clang_call_terminate(ptr %30) #42
+  %31 = extractvalue { ptr, i32 } %30, 0
+  tail call void @__clang_call_terminate(ptr %31) #42
   unreachable
 
-_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit: ; preds = %12, %.noexc.i.i.i.i.i.i.i.i.i.i, %24, %_ZN9grpc_core21RefCountedStringValueD2Ev.exit.i
+_ZN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb15SubchannelEntryD2Ev.exit: ; preds = %12, %.noexc.i.i.i.i.i.i.i.i.i.i, %25, %_ZN9grpc_core21RefCountedStringValueD2Ev.exit.i
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 64) #43
   ret void
 }
@@ -16893,48 +16893,48 @@ _ZSt3getILm1EJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEN
 
 23:                                               ; preds = %2
   %.val1.i.i.i = load ptr, ptr %0, align 8
-  %switch.i.i.i.i = icmp eq i8 %.val, 0
+  %24 = icmp eq i8 %.val, 0
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %.val1.i.i.i, null
-  %or.cond.i.i.i.i = select i1 %switch.i.i.i.i, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i
-  br i1 %or.cond.i.i.i.i, label %_ZNSt7variantIJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS0_13RefCountedPtrIS3_EEEE7emplaceILm1EJS6_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit, label %24
+  %or.cond.i.i.i.i = select i1 %24, i1 true, i1 %.not.i.i.i.i.i.i.i.i.i.i
+  br i1 %or.cond.i.i.i.i, label %_ZNSt7variantIJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS0_13RefCountedPtrIS3_EEEE7emplaceILm1EJS6_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit, label %25
 
-24:                                               ; preds = %23
-  %25 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 8
-  %26 = atomicrmw add ptr %25, i64 -4294967295 acq_rel, align 8
-  %.mask.i.i.i.i.i.i.i.i.i.i.i = and i64 %26, -4294967296
-  %27 = icmp eq i64 %.mask.i.i.i.i.i.i.i.i.i.i.i, 4294967296
-  br i1 %27, label %28, label %.noexc.i.i.i.i.i.i.i.i.i.i, !prof !47
+25:                                               ; preds = %23
+  %26 = getelementptr inbounds nuw i8, ptr %.val1.i.i.i, i64 8
+  %27 = atomicrmw add ptr %26, i64 -4294967295 acq_rel, align 8
+  %.mask.i.i.i.i.i.i.i.i.i.i.i = and i64 %27, -4294967296
+  %28 = icmp eq i64 %.mask.i.i.i.i.i.i.i.i.i.i.i, 4294967296
+  br i1 %28, label %29, label %.noexc.i.i.i.i.i.i.i.i.i.i, !prof !47
 
-28:                                               ; preds = %24
-  %29 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %31 = load ptr, ptr %30, align 8
-  invoke void %31(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i)
-          to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %38
+29:                                               ; preds = %25
+  %30 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8
+  invoke void %32(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i)
+          to label %.noexc.i.i.i.i.i.i.i.i.i.i unwind label %39
 
-.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %28, %24
-  %32 = atomicrmw sub ptr %25, i64 1 acq_rel, align 8
-  %33 = icmp eq i64 %32, 1
-  br i1 %33, label %34, label %_ZNSt7variantIJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS0_13RefCountedPtrIS3_EEEE7emplaceILm1EJS6_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit, !prof !47
+.noexc.i.i.i.i.i.i.i.i.i.i:                       ; preds = %29, %25
+  %33 = atomicrmw sub ptr %26, i64 1 acq_rel, align 8
+  %34 = icmp eq i64 %33, 1
+  br i1 %34, label %35, label %_ZNSt7variantIJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS0_13RefCountedPtrIS3_EEEE7emplaceILm1EJS6_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit, !prof !47
 
-34:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
-  %35 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = load ptr, ptr %36, align 8
-  tail call void %37(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i) #40
+35:                                               ; preds = %.noexc.i.i.i.i.i.i.i.i.i.i
+  %36 = load ptr, ptr %.val1.i.i.i, align 8, !tbaa !6
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %38 = load ptr, ptr %37, align 8
+  tail call void %38(ptr noundef nonnull align 8 dereferenceable(16) %.val1.i.i.i) #40
   br label %_ZNSt7variantIJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS0_13RefCountedPtrIS3_EEEE7emplaceILm1EJS6_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit
 
-38:                                               ; preds = %28
-  %39 = landingpad { ptr, i32 }
+39:                                               ; preds = %29
+  %40 = landingpad { ptr, i32 }
           catch ptr null
-  %40 = extractvalue { ptr, i32 } %39, 0
-  tail call void @__clang_call_terminate(ptr %40) #42
+  %41 = extractvalue { ptr, i32 } %40, 0
+  tail call void @__clang_call_terminate(ptr %41) #42
   unreachable
 
-_ZNSt7variantIJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS0_13RefCountedPtrIS3_EEEE7emplaceILm1EJS6_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit: ; preds = %2, %23, %.noexc.i.i.i.i.i.i.i.i.i.i, %34
+_ZNSt7variantIJPN9grpc_core12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperENS0_13RefCountedPtrIS3_EEEE7emplaceILm1EJS6_EEENSt9enable_ifIX18is_constructible_vINSt9_Nth_typeIXT_EJS4_S6_EE4typeEDpT0_EERSC_E4typeEDpOSD_.exit: ; preds = %2, %23, %.noexc.i.i.i.i.i.i.i.i.i.i, %35
   store ptr null, ptr %0, align 8, !tbaa !203
-  %41 = load ptr, ptr %1, align 8, !tbaa !203
-  store ptr %41, ptr %0, align 8, !tbaa !203
+  %42 = load ptr, ptr %1, align 8, !tbaa !203
+  store ptr %42, ptr %0, align 8, !tbaa !203
   store ptr null, ptr %1, align 8, !tbaa !203
   store i8 1, ptr %3, align 8, !tbaa !182
   br label %_ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_117XdsOverrideHostLb17SubchannelWrapperEEaSEOS4_.exit

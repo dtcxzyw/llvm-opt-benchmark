@@ -241,14 +241,14 @@ define hidden { ptr, ptr } @"_ZN48_$LT$T$u20$as$u20$http..extensions..AnyClone$G
   unreachable
 
 _ZN5alloc5alloc15exchange_malloc17h7c66b74b0b53badfE.exit: ; preds = %1
-  %switch.i = icmp eq i32 %.val, 1
-  %.sroa.4.0.i = select i1 %switch.i, i32 %.val1, i32 undef
+  %7 = icmp eq i32 %.val, 1
+  %.sroa.4.0.i = select i1 %7, i32 %.val1, i32 undef
   store i32 %.val, ptr %4, align 4
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i32 %.sroa.4.0.i, ptr %7, align 4
-  %8 = insertvalue { ptr, ptr } poison, ptr %4, 0
-  %9 = insertvalue { ptr, ptr } %8, ptr @anon.3db44a626391807891f7fadb31e8eb4e.10, 1
-  ret { ptr, ptr } %9
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i32 %.sroa.4.0.i, ptr %8, align 4
+  %9 = insertvalue { ptr, ptr } poison, ptr %4, 0
+  %10 = insertvalue { ptr, ptr } %9, ptr @anon.3db44a626391807891f7fadb31e8eb4e.10, 1
+  ret { ptr, ptr } %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -520,7 +520,7 @@ define { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$st
   switch i64 %9, label %10 [
     i64 0, label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit"
     i64 1, label %11
-    i64 2, label %27
+    i64 2, label %28
   ]
 
 10:                                               ; preds = %3
@@ -552,42 +552,42 @@ define { i64, ptr } @"_ZN68_$LT$http_client..async_body..AsyncBody$u20$as$u20$st
   store i64 %17, ptr %19, align 8, !noalias !91
   %20 = call { i64, ptr } @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h727e9d27c6a7f356E.llvm.14387802390865567696"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 1 %1, i64 noundef %2), !noalias !88
   %21 = extractvalue { i64, ptr } %20, 0
-  %switch.i = icmp eq i64 %21, 0
-  br i1 %switch.i, label %22, label %26
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
-  %23 = extractvalue { i64, ptr } %20, 1
-  %24 = ptrtoint ptr %23 to i64
+23:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
+  %24 = extractvalue { i64, ptr } %20, 1
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !91
-  %25 = add i64 %13, %24
-  store i64 %25, ptr %12, align 8, !alias.scope !88, !noalias !97
+  %26 = add i64 %13, %25
+  store i64 %26, ptr %12, align 8, !alias.scope !88, !noalias !97
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit"
 
-26:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
+27:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !91
   %.pre = extractvalue { i64, ptr } %20, 1
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit"
 
-27:                                               ; preds = %3
+28:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %28, ptr %5, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %1, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %2, ptr %30, align 8
-  %31 = call { i64, ptr } @_ZN8async_io6driver8block_on17h2fdc2333357ce770E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
-  %32 = extractvalue { i64, ptr } %31, 0
-  %33 = extractvalue { i64, ptr } %31, 1
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %29, ptr %5, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store ptr %1, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 %2, ptr %31, align 8
+  %32 = call { i64, ptr } @_ZN8async_io6driver8block_on17h2fdc2333357ce770E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %5)
+  %33 = extractvalue { i64, ptr } %32, 0
+  %34 = extractvalue { i64, ptr } %32, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit"
 
-"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit": ; preds = %26, %22, %3, %27
-  %.sroa.4.0 = phi ptr [ %33, %27 ], [ null, %3 ], [ %23, %22 ], [ %.pre, %26 ]
-  %.sroa.0.0 = phi i64 [ %32, %27 ], [ %9, %3 ], [ 0, %22 ], [ %21, %26 ]
-  %34 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %35 = insertvalue { i64, ptr } %34, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %35
+"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit": ; preds = %27, %23, %3, %28
+  %.sroa.4.0 = phi ptr [ %34, %28 ], [ null, %3 ], [ %24, %23 ], [ %.pre, %27 ]
+  %.sroa.0.0 = phi i64 [ %33, %28 ], [ %9, %3 ], [ 0, %23 ], [ %21, %27 ]
+  %35 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %36 = insertvalue { i64, ptr } %35, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %36
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -600,7 +600,7 @@ define { i64, ptr } @"_ZN84_$LT$http_client..async_body..AsyncBody$u20$as$u20$fu
   switch i64 %9, label %10 [
     i64 0, label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit"
     i64 1, label %11
-    i64 2, label %27
+    i64 2, label %28
   ]
 
 10:                                               ; preds = %4
@@ -632,40 +632,40 @@ define { i64, ptr } @"_ZN84_$LT$http_client..async_body..AsyncBody$u20$as$u20$fu
   store i64 %17, ptr %19, align 8, !noalias !108
   %20 = call { i64, ptr } @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$4read17h727e9d27c6a7f356E.llvm.14387802390865567696"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull align 1 %2, i64 noundef %3), !noalias !105
   %21 = extractvalue { i64, ptr } %20, 0
-  %switch.i = icmp eq i64 %21, 0
-  br i1 %switch.i, label %22, label %26
+  %22 = icmp eq i64 %21, 0
+  br i1 %22, label %23, label %27
 
-22:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
-  %23 = extractvalue { i64, ptr } %20, 1
-  %24 = ptrtoint ptr %23 to i64
+23:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
+  %24 = extractvalue { i64, ptr } %20, 1
+  %25 = ptrtoint ptr %24 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !108
-  %25 = add i64 %13, %24
-  store i64 %25, ptr %12, align 8, !alias.scope !105, !noalias !114
+  %26 = add i64 %13, %25
+  store i64 %26, ptr %12, align 8, !alias.scope !105, !noalias !114
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit"
 
-26:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
+27:                                               ; preds = %"_ZN3std2io6cursor15Cursor$LT$T$GT$15remaining_slice17h635ba6e8b0da1d43E.llvm.14387802390865567696.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !108
   %.pre = extractvalue { i64, ptr } %20, 1
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit"
 
-27:                                               ; preds = %4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8, !nonnull !8, !noundef !8
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load ptr, ptr %30, align 8, !nonnull !8, !align !31, !noundef !8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = load ptr, ptr %32, align 8, !invariant.load !8, !nonnull !8
-  %34 = tail call { i64, ptr } %33(ptr noundef nonnull align 1 %29, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
-  %35 = extractvalue { i64, ptr } %34, 0
-  %36 = extractvalue { i64, ptr } %34, 1
+28:                                               ; preds = %4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %30 = load ptr, ptr %29, align 8, !nonnull !8, !noundef !8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load ptr, ptr %31, align 8, !nonnull !8, !align !31, !noundef !8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %34 = load ptr, ptr %33, align 8, !invariant.load !8, !nonnull !8
+  %35 = tail call { i64, ptr } %34(ptr noundef nonnull align 1 %30, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 1 %2, i64 noundef %3)
+  %36 = extractvalue { i64, ptr } %35, 0
+  %37 = extractvalue { i64, ptr } %35, 1
   br label %"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit"
 
-"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit": ; preds = %26, %22, %4, %27
-  %.sroa.4.0 = phi ptr [ %36, %27 ], [ null, %4 ], [ %23, %22 ], [ %.pre, %26 ]
-  %.sroa.0.0 = phi i64 [ %35, %27 ], [ %9, %4 ], [ 0, %22 ], [ %21, %26 ]
-  %37 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
-  %38 = insertvalue { i64, ptr } %37, ptr %.sroa.4.0, 1
-  ret { i64, ptr } %38
+"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u20$std..io..Read$GT$4read17h4502728dd5412c25E.exit": ; preds = %27, %23, %4, %28
+  %.sroa.4.0 = phi ptr [ %37, %28 ], [ null, %4 ], [ %24, %23 ], [ %.pre, %27 ]
+  %.sroa.0.0 = phi i64 [ %36, %28 ], [ %9, %4 ], [ 0, %23 ], [ %21, %27 ]
+  %38 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
+  %39 = insertvalue { i64, ptr } %38, ptr %.sroa.4.0, 1
+  ret { i64, ptr } %39
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

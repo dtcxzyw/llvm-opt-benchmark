@@ -1506,10 +1506,9 @@ _ZN5lackr16push_abstractionEv.exit:               ; preds = %.noexc, %_ZN3refI9a
           to label %49 unwind label %56
 
 49:                                               ; preds = %46
-  switch i32 %48, label %58 [
-    i32 0, label %.thread
-    i32 -1, label %.thread
-  ]
+  %.off = add i32 %48, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %58, label %.thread
 
 50:                                               ; preds = %_ZN3refI9ackr_infoEC2ERKS1_.exit
   %51 = landingpad { ptr, i32 }
@@ -1681,8 +1680,8 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit:
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %118
 
-.thread:                                          ; preds = %49, %116, %49
-  %.151 = phi i32 [ %48, %49 ], [ 1, %116 ], [ %48, %49 ]
+.thread:                                          ; preds = %49, %116
+  %.151 = phi i32 [ 1, %116 ], [ %48, %49 ]
   call void @_ZN23lackr_model_constructorD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %2) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.151

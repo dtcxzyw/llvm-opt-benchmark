@@ -1797,8 +1797,8 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread53:       ; preds = %9, %_ZN4llvmeqENS_9
   %78 = extractvalue { ptr, i64 } %77, 0
   %79 = extractvalue { ptr, i64 } %77, 1
   %80 = load i8, ptr %70, align 8, !tbaa !260
-  %.not61 = icmp eq i8 %80, 21
-  br i1 %.not61, label %81, label %92
+  %.not60 = icmp eq i8 %80, 21
+  br i1 %.not60, label %81, label %92
 
 81:                                               ; preds = %75
   %82 = getelementptr inbounds nuw i8, ptr %70, i64 2
@@ -1850,8 +1850,8 @@ define internal fastcc { ptr, i64 } @_ZL18ClassifyDiagnosticN5clang8QualTypeE(i6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i8, ptr %9, align 16
   %11 = icmp ne i8 %10, 47
-  %.not68 = icmp eq ptr %8, null
-  %.not = or i1 %.not68, %11
+  %.not67 = icmp eq ptr %8, null
+  %.not = or i1 %.not67, %11
   br i1 %.not, label %46, label %12
 
 12:                                               ; preds = %1
@@ -2058,8 +2058,8 @@ declare noundef ptr @_ZN5clang4Expr14IgnoreImplicitEv(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef ptr @_ZN5clang12threadSafety12SExprBuilder9translateEPKNS_4StmtEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
-  %.not94 = icmp eq ptr %1, null
-  br i1 %.not94, label %.loopexit, label %.lr.ph
+  %.not91 = icmp eq ptr %1, null
+  br i1 %.not91, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2071,42 +2071,42 @@ define dso_local noundef ptr @_ZN5clang12threadSafety12SExprBuilder9translateEPK
   br i1 %8, label %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, label %.lr.ph.split
 
 _ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us: ; preds = %.lr.ph, %tailrecurse.backedge.us
-  %.tr6295.us = phi ptr [ %.tr62.be.us, %tailrecurse.backedge.us ], [ %1, %.lr.ph ]
-  %10 = load i16, ptr %.tr6295.us, align 8
+  %.tr5992.us = phi ptr [ %.tr59.be.us, %tailrecurse.backedge.us ], [ %1, %.lr.ph ]
+  %10 = load i16, ptr %.tr5992.us, align 8
   %11 = and i16 %10, 511
   switch i16 %11, label %.split.us [
-    i16 73, label %.split99.us
-    i16 100, label %.split102.us
-    i16 48, label %.split105.us
-    i16 36, label %.split108.us
-    i16 91, label %.split111.us
-    i16 94, label %.split114.us
-    i16 93, label %.split117.us
-    i16 4, label %.split120.us
-    i16 120, label %.split123.us
-    i16 121, label %.split123.us
-    i16 125, label %.split126.us
-    i16 130, label %.split129.us
-    i16 131, label %.split132.us
+    i16 73, label %.split96.us
+    i16 100, label %.split99.us
+    i16 48, label %.split102.us
+    i16 36, label %.split105.us
+    i16 91, label %.split108.us
+    i16 94, label %.split111.us
+    i16 93, label %.split114.us
+    i16 4, label %.split117.us
+    i16 120, label %.split120.us
+    i16 121, label %.split120.us
+    i16 125, label %.split123.us
+    i16 130, label %.split126.us
+    i16 131, label %.split129.us
     i16 63, label %30
     i16 22, label %27
     i16 62, label %24
     i16 118, label %21
     i16 50, label %12
-    i16 80, label %.split135.us
-    i16 106, label %.split135.us
-    i16 60, label %.split135.us
-    i16 117, label %.split135.us
-    i16 64, label %.split135.us
-    i16 57, label %.split135.us
-    i16 54, label %.split135.us
-    i16 10, label %.split135.us
-    i16 31, label %.split135.us
-    i16 245, label %.split138.us
+    i16 80, label %.split132.us
+    i16 106, label %.split132.us
+    i16 60, label %.split132.us
+    i16 117, label %.split132.us
+    i16 64, label %.split132.us
+    i16 57, label %.split132.us
+    i16 54, label %.split132.us
+    i16 10, label %.split132.us
+    i16 31, label %.split132.us
+    i16 245, label %.split135.us
   ]
 
 12:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %13 = getelementptr inbounds nuw i8, ptr %.tr6295.us, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %.tr5992.us, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i.us = load i64, ptr %13, align 8
   %14 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.us, 4
   %15 = icmp eq i64 %14, 0
@@ -2120,33 +2120,33 @@ _ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us: ; 
   br label %tailrecurse.backedge.us
 
 21:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %22 = getelementptr inbounds nuw i8, ptr %.tr6295.us, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.tr5992.us, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !383
   br label %tailrecurse.backedge.us
 
 24:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %25 = getelementptr inbounds nuw i8, ptr %.tr6295.us, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.tr5992.us, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !386
   br label %tailrecurse.backedge.us
 
 27:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %28 = getelementptr inbounds nuw i8, ptr %.tr6295.us, i64 24
+  %28 = getelementptr inbounds nuw i8, ptr %.tr5992.us, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !388
   br label %tailrecurse.backedge.us
 
 30:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %31 = getelementptr inbounds nuw i8, ptr %.tr6295.us, i64 16
+  %31 = getelementptr inbounds nuw i8, ptr %.tr5992.us, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !386
   br label %tailrecurse.backedge.us
 
 tailrecurse.backedge.us:                          ; preds = %12, %18, %30, %27, %24, %21
-  %.tr62.be.us = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %12 ]
-  %.not.us = icmp eq ptr %.tr62.be.us, null
+  %.tr59.be.us = phi ptr [ %32, %30 ], [ %29, %27 ], [ %26, %24 ], [ %23, %21 ], [ %20, %18 ], [ %17, %12 ]
+  %.not.us = icmp eq ptr %.tr59.be.us, null
   br i1 %.not.us, label %.loopexit, label %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %tailrecurse.backedge
-  %.tr6295 = phi ptr [ %.tr62.be, %tailrecurse.backedge ], [ %1, %.lr.ph ]
-  %33 = ptrtoint ptr %.tr6295 to i64
+  %.tr5992 = phi ptr [ %.tr59.be, %tailrecurse.backedge ], [ %1, %.lr.ph ]
+  %33 = ptrtoint ptr %.tr5992 to i64
   %34 = trunc i64 %33 to i32
   %35 = lshr i32 %34, 4
   %36 = lshr i32 %34, 9
@@ -2155,7 +2155,7 @@ tailrecurse.backedge.us:                          ; preds = %12, %18, %30, %27, 
   %38 = zext nneg i32 %.01826.i.i.i.i to i64
   %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.538", ptr %5, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !43
-  %41 = icmp eq ptr %.tr6295, %40
+  %41 = icmp eq ptr %.tr5992, %40
   br i1 %41, label %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit, label %.lr.ph.i.i.i.i, !prof !45
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.split, %44
@@ -2172,7 +2172,7 @@ tailrecurse.backedge.us:                          ; preds = %12, %18, %30, %27, 
   %47 = zext i32 %.018.i.i.i.i to i64
   %48 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.538", ptr %5, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !43
-  %50 = icmp eq ptr %.tr6295, %49
+  %50 = icmp eq ptr %.tr5992, %49
   br i1 %50, label %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit, label %.lr.ph.i.i.i.i, !prof !47, !llvm.loop !48
 
 _ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit: ; preds = %44, %.lr.ph.split
@@ -2184,125 +2184,125 @@ _ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit: ; preds = %4
   br i1 %.not54.not, label %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, label %.loopexit
 
 _ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread: ; preds = %.lr.ph.i.i.i.i, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit
-  %55 = load i16, ptr %.tr6295, align 8
+  %55 = load i16, ptr %.tr5992, align 8
   %56 = and i16 %55, 511
   switch i16 %56, label %.split.us [
-    i16 73, label %.split99.us
-    i16 100, label %.split102.us
-    i16 48, label %.split105.us
-    i16 36, label %.split108.us
-    i16 91, label %.split111.us
-    i16 94, label %.split114.us
-    i16 93, label %.split117.us
-    i16 4, label %.split120.us
-    i16 120, label %.split123.us
-    i16 121, label %.split123.us
-    i16 125, label %.split126.us
-    i16 130, label %.split129.us
-    i16 131, label %.split132.us
+    i16 73, label %.split96.us
+    i16 100, label %.split99.us
+    i16 48, label %.split102.us
+    i16 36, label %.split105.us
+    i16 91, label %.split108.us
+    i16 94, label %.split111.us
+    i16 93, label %.split114.us
+    i16 4, label %.split117.us
+    i16 120, label %.split120.us
+    i16 121, label %.split120.us
+    i16 125, label %.split123.us
+    i16 130, label %.split126.us
+    i16 131, label %.split129.us
     i16 63, label %69
     i16 22, label %72
     i16 62, label %75
     i16 118, label %78
     i16 50, label %81
-    i16 80, label %.split135.us
-    i16 106, label %.split135.us
-    i16 60, label %.split135.us
-    i16 117, label %.split135.us
-    i16 64, label %.split135.us
-    i16 57, label %.split135.us
-    i16 54, label %.split135.us
-    i16 10, label %.split135.us
-    i16 31, label %.split135.us
-    i16 245, label %.split138.us
+    i16 80, label %.split132.us
+    i16 106, label %.split132.us
+    i16 60, label %.split132.us
+    i16 117, label %.split132.us
+    i16 64, label %.split132.us
+    i16 57, label %.split132.us
+    i16 54, label %.split132.us
+    i16 10, label %.split132.us
+    i16 31, label %.split132.us
+    i16 245, label %.split135.us
   ]
 
-.split99.us:                                      ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi100 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %57 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder20translateDeclRefExprEPKNS_11DeclRefExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi100, ptr noundef %2)
+.split96.us:                                      ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
+  %.us-phi97 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %57 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder20translateDeclRefExprEPKNS_11DeclRefExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi97, ptr noundef %2)
   br label %.loopexit
 
-.split102.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
+.split99.us:                                      ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
   %58 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder20translateCXXThisExprEPKNS_11CXXThisExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr nonnull poison, ptr noundef %2)
   br label %.loopexit
 
+.split102.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
+  %.us-phi103 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %59 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder19translateMemberExprEPKNS_10MemberExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi103, ptr noundef %2)
+  br label %.loopexit
+
 .split105.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi106 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %59 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder19translateMemberExprEPKNS_10MemberExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi106, ptr noundef %2)
+  %.us-phi106 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %60 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder24translateObjCIVarRefExprEPKNS_15ObjCIvarRefExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi106, ptr noundef %2)
   br label %.loopexit
 
 .split108.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi109 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %60 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder24translateObjCIVarRefExprEPKNS_15ObjCIvarRefExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi109, ptr noundef %2)
+  %.us-phi109 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %61 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder17translateCallExprEPKNS_8CallExprEPNS1_14CallingContextEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi109, ptr noundef %2, ptr noundef null)
   br label %.loopexit
 
 .split111.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi112 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %61 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder17translateCallExprEPKNS_8CallExprEPNS1_14CallingContextEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi112, ptr noundef %2, ptr noundef null)
+  %.us-phi112 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %62 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder26translateCXXMemberCallExprEPKNS_17CXXMemberCallExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %.us-phi112, ptr noundef %2)
   br label %.loopexit
 
 .split114.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi115 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %62 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder26translateCXXMemberCallExprEPKNS_17CXXMemberCallExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %.us-phi115, ptr noundef %2)
+  %.us-phi115 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %63 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder28translateCXXOperatorCallExprEPKNS_19CXXOperatorCallExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi115, ptr noundef %2)
   br label %.loopexit
 
 .split117.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi118 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %63 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder28translateCXXOperatorCallExprEPKNS_19CXXOperatorCallExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi118, ptr noundef %2)
+  %.us-phi118 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %64 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder22translateUnaryOperatorEPKNS_13UnaryOperatorEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi118, ptr noundef %2)
   br label %.loopexit
 
-.split120.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi121 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %64 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder22translateUnaryOperatorEPKNS_13UnaryOperatorEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi121, ptr noundef %2)
+.split120.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
+  %.us-phi121 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %65 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder23translateBinaryOperatorEPKNS_14BinaryOperatorEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi121, ptr noundef %2)
   br label %.loopexit
 
-.split123.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi124 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %65 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder23translateBinaryOperatorEPKNS_14BinaryOperatorEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi124, ptr noundef %2)
+.split123.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
+  %.us-phi124 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %66 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder27translateArraySubscriptExprEPKNS_18ArraySubscriptExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi124, ptr noundef %2)
   br label %.loopexit
 
 .split126.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi127 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %66 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder27translateArraySubscriptExprEPKNS_18ArraySubscriptExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi127, ptr noundef %2)
+  %.us-phi127 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %67 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder36translateAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi127, ptr noundef %2)
   br label %.loopexit
 
 .split129.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi130 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %67 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder36translateAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi130, ptr noundef %2)
-  br label %.loopexit
-
-.split132.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi133 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %68 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder36translateAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi133, ptr noundef %2)
+  %.us-phi130 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %68 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder36translateAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi130, ptr noundef %2)
   br label %.loopexit
 
 69:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread
-  %70 = getelementptr inbounds nuw i8, ptr %.tr6295, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %.tr5992, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !386
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %87, %81, %69, %72, %75, %78
-  %.tr62.be = phi ptr [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %89, %87 ], [ %86, %81 ]
-  %.not = icmp eq ptr %.tr62.be, null
+  %.tr59.be = phi ptr [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %80, %78 ], [ %89, %87 ], [ %86, %81 ]
+  %.not = icmp eq ptr %.tr59.be, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split
 
 72:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread
-  %73 = getelementptr inbounds nuw i8, ptr %.tr6295, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.tr5992, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !388
   br label %tailrecurse.backedge
 
 75:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread
-  %76 = getelementptr inbounds nuw i8, ptr %.tr6295, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.tr5992, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !386
   br label %tailrecurse.backedge
 
 78:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread
-  %79 = getelementptr inbounds nuw i8, ptr %.tr6295, i64 24
+  %79 = getelementptr inbounds nuw i8, ptr %.tr5992, i64 24
   %80 = load ptr, ptr %79, align 8, !tbaa !383
   br label %tailrecurse.backedge
 
 81:                                               ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread
-  %82 = getelementptr inbounds nuw i8, ptr %.tr6295, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.tr5992, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %82, align 8
   %83 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
   %84 = icmp eq i64 %83, 0
@@ -2315,8 +2315,8 @@ tailrecurse.backedge:                             ; preds = %87, %81, %69, %72, 
   %89 = load ptr, ptr %88, align 8, !tbaa !380
   br label %tailrecurse.backedge
 
-.split135.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi136 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+.split132.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
+  %.us-phi133 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
   %90 = load ptr, ptr %0, align 8, !tbaa !356
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 80
   %92 = load i64, ptr %91, align 8, !tbaa !357
@@ -2335,13 +2335,13 @@ tailrecurse.backedge:                             ; preds = %87, %81, %69, %72, 
   %103 = and i1 %102, %.not.i.i.i.i.i
   br i1 %103, label %104, label %107, !prof !46
 
-104:                                              ; preds = %.split135.us
+104:                                              ; preds = %.split132.us
   %105 = inttoptr i64 %98 to ptr
   store ptr %105, ptr %90, align 8, !tbaa !358
   %106 = inttoptr i64 %97 to ptr
   br label %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit
 
-107:                                              ; preds = %.split135.us
+107:                                              ; preds = %.split132.us
   %108 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %90, i64 noundef 32, i64 noundef 32, i8 4)
   br label %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit
 
@@ -2351,23 +2351,23 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %104, 
   %109 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 1
   %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(19) %109, i8 0, i64 19, i1 false)
-  store ptr %.us-phi136, ptr %110, align 8, !tbaa !390
+  store ptr %.us-phi133, ptr %110, align 8, !tbaa !390
   br label %.loopexit
 
-.split138.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
-  %.us-phi139 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %111 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder17translateDeclStmtEPKNS_8DeclStmtEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi139, ptr noundef %2)
+.split135.us:                                     ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
+  %.us-phi136 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %111 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder17translateDeclStmtEPKNS_8DeclStmtEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi136, ptr noundef %2)
   br label %.loopexit
 
 .split.us:                                        ; preds = %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us
   %.us-phi = phi i16 [ %11, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %56, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
-  %.us-phi97 = phi ptr [ %.tr6295.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr6295, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
+  %.us-phi94 = phi ptr [ %.tr5992.us, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread.us ], [ %.tr5992, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit.thread ]
   %112 = add nsw i16 %.us-phi, -91
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %112, -10
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %115, label %113
 
 113:                                              ; preds = %.split.us
-  %114 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder17translateCastExprEPKNS_8CastExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi97, ptr noundef %2)
+  %114 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder17translateCastExprEPKNS_8CastExprEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull %.us-phi94, ptr noundef %2)
   br label %.loopexit
 
 115:                                              ; preds = %.split.us
@@ -2376,11 +2376,11 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %104, 
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %117, i8 0, i64 15, i1 false)
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 16
-  store ptr %.us-phi97, ptr %118, align 8, !tbaa !395
+  store ptr %.us-phi94, ptr %118, align 8, !tbaa !395
   br label %.loopexit
 
-.loopexit:                                        ; preds = %tailrecurse.backedge, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit, %tailrecurse.backedge.us, %3, %113, %115, %.split138.us, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit, %.split132.us, %.split129.us, %.split126.us, %.split123.us, %.split120.us, %.split117.us, %.split114.us, %.split111.us, %.split108.us, %.split105.us, %.split102.us, %.split99.us
-  %.0 = phi ptr [ %116, %115 ], [ %114, %113 ], [ %57, %.split99.us ], [ %58, %.split102.us ], [ %59, %.split105.us ], [ %60, %.split108.us ], [ %61, %.split111.us ], [ %62, %.split114.us ], [ %63, %.split117.us ], [ %64, %.split120.us ], [ %65, %.split123.us ], [ %66, %.split126.us ], [ %67, %.split129.us ], [ %68, %.split132.us ], [ %.0.i.i.i.i.i, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit ], [ %111, %.split138.us ], [ null, %3 ], [ null, %tailrecurse.backedge.us ], [ null, %tailrecurse.backedge ], [ %54, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit ]
+.loopexit:                                        ; preds = %tailrecurse.backedge, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit, %tailrecurse.backedge.us, %3, %113, %115, %.split135.us, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit, %.split129.us, %.split126.us, %.split123.us, %.split120.us, %.split117.us, %.split114.us, %.split111.us, %.split108.us, %.split105.us, %.split102.us, %.split99.us, %.split96.us
+  %.0 = phi ptr [ %116, %115 ], [ %114, %113 ], [ %57, %.split96.us ], [ %58, %.split99.us ], [ %59, %.split102.us ], [ %60, %.split105.us ], [ %61, %.split108.us ], [ %62, %.split111.us ], [ %63, %.split114.us ], [ %64, %.split117.us ], [ %65, %.split120.us ], [ %66, %.split123.us ], [ %67, %.split126.us ], [ %68, %.split129.us ], [ %.0.i.i.i.i.i, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit ], [ %111, %.split135.us ], [ null, %3 ], [ null, %tailrecurse.backedge.us ], [ null, %tailrecurse.backedge ], [ %54, %_ZN5clang12threadSafety12SExprBuilder10lookupStmtEPKNS_4StmtE.exit ]
   ret ptr %.0
 }
 
@@ -2813,8 +2813,8 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit16: ; preds = %73,
   br label %_ZL21getValueDeclFromSExprPKN5clang12threadSafety3til5SExprE.exit.i
 
 _ZL21getValueDeclFromSExprPKN5clang12threadSafety3til5SExprE.exit.i: ; preds = %84, %83, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit16, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit16
-  %.sink47.i.i = phi i64 [ 16, %84 ], [ 64, %83 ], [ 40, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit16 ], [ 40, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit16 ]
-  %85 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink47.i.i
+  %.sink41.i.i = phi i64 [ 16, %84 ], [ 64, %83 ], [ 40, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit16 ], [ 40, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit16 ]
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink41.i.i
   %86 = load ptr, ptr %85, align 8, !tbaa !269
   %.not.i = icmp eq ptr %86, null
   br i1 %.not.i, label %.critedge.i, label %87
@@ -2959,8 +2959,8 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit12: ; preds = %49,
   br label %_ZL21getValueDeclFromSExprPKN5clang12threadSafety3til5SExprE.exit.i
 
 _ZL21getValueDeclFromSExprPKN5clang12threadSafety3til5SExprE.exit.i: ; preds = %60, %59, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit12, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit12
-  %.sink47.i.i = phi i64 [ 16, %60 ], [ 64, %59 ], [ 40, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit12 ], [ 40, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit12 ]
-  %61 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink47.i.i
+  %.sink41.i.i = phi i64 [ 16, %60 ], [ 64, %59 ], [ 40, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit12 ], [ 40, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit12 ]
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink41.i.i
   %62 = load ptr, ptr %61, align 8, !tbaa !269
   %.not.i = icmp eq ptr %62, null
   br i1 %.not.i, label %.critedge.i, label %63
@@ -3159,8 +3159,8 @@ _ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread: ; preds = %37, %4, %13, %_ZN
   %105 = zext i32 %104 to i64
   %.idx = shl nuw nsw i64 %105, 3
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx
-  %.not57 = icmp eq i32 %104, 0
-  br i1 %.not57, label %._crit_edge, label %.lr.ph
+  %.not56 = icmp eq i32 %104, 0
+  br i1 %.not56, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit39, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread
   %.027.lcssa = phi ptr [ %93, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread ], [ %.0.i.i.i.i.i38, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit39 ]
@@ -3204,9 +3204,9 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit: ; preds = %121, 
   br label %154
 
 .lr.ph:                                           ; preds = %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit39
-  %.02759 = phi ptr [ %.0.i.i.i.i.i38, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit39 ], [ %93, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread ]
-  %.sroa.040.058 = phi ptr [ %153, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit39 ], [ %102, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread ]
-  %129 = load ptr, ptr %.sroa.040.058, align 8, !tbaa !43
+  %.02758 = phi ptr [ %.0.i.i.i.i.i38, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit39 ], [ %93, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread ]
+  %.sroa.040.057 = phi ptr [ %153, %_ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit39 ], [ %102, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit.thread ]
+  %129 = load ptr, ptr %.sroa.040.057, align 8, !tbaa !43
   %130 = tail call noundef ptr @_ZN5clang12threadSafety12SExprBuilder9translateEPKNS_4StmtEPNS1_14CallingContextE(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef %129, ptr noundef %2)
   %131 = load ptr, ptr %0, align 8, !tbaa !356
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 80
@@ -3242,10 +3242,10 @@ _ZN5clang12threadSafety3til5SExprnwEmRNS1_12MemRegionRefE.exit39: ; preds = %145
   %150 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i38, i64 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %150, i8 0, i64 15, i1 false)
   %151 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i38, i64 16
-  store ptr %.02759, ptr %151, align 8, !tbaa !442
+  store ptr %.02758, ptr %151, align 8, !tbaa !442
   %152 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i38, i64 24
   store ptr %130, ptr %152, align 8, !tbaa !444
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.040.058, i64 8
+  %153 = getelementptr inbounds nuw i8, ptr %.sroa.040.057, i64 8
   %.not = icmp eq ptr %153, %106
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -4901,13 +4901,13 @@ define dso_local noundef ptr @_ZN5clang12threadSafety12SExprBuilder27translateAr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 16
   %16 = icmp ne i8 %15, 13
-  %.not.not24.i.i.i = icmp eq ptr %13, null
-  %.not.not.i.i.i = or i1 %.not.not24.i.i.i, %16
+  %.not.not21.i.i.i = icmp eq ptr %13, null
+  %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %16
   br i1 %.not.not.i.i.i, label %17, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i
 
 17:                                               ; preds = %3
   %18 = icmp ne i8 %15, 46
-  %.not13.not.i.i.i = or i1 %.not.not24.i.i.i, %18
+  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %18
   br i1 %.not13.not.i.i.i, label %32, label %19
 
 19:                                               ; preds = %17
@@ -4963,13 +4963,13 @@ _ZNK5clang18ArraySubscriptExpr7getBaseEv.exit:    ; preds = %19, %27, %32, %_ZNK
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
   %52 = load i8, ptr %51, align 16
   %53 = icmp ne i8 %52, 13
-  %.not.not24.i.i.i9 = icmp eq ptr %50, null
-  %.not.not.i.i.i10 = or i1 %.not.not24.i.i.i9, %53
+  %.not.not21.i.i.i9 = icmp eq ptr %50, null
+  %.not.not.i.i.i10 = or i1 %.not.not21.i.i.i9, %53
   br i1 %.not.not.i.i.i10, label %54, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i11
 
 54:                                               ; preds = %_ZNK5clang18ArraySubscriptExpr7getBaseEv.exit
   %55 = icmp ne i8 %52, 46
-  %.not13.not.i.i.i14 = or i1 %.not.not24.i.i.i9, %55
+  %.not13.not.i.i.i14 = or i1 %.not.not21.i.i.i9, %55
   br i1 %.not13.not.i.i.i14, label %69, label %56
 
 56:                                               ; preds = %54
@@ -9750,8 +9750,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

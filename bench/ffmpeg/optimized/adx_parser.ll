@@ -18,12 +18,12 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %12 = load i32, ptr %11, align 8, !tbaa !15
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %13, label %.thread75
+  br i1 %.not, label %13, label %.thread74
 
 13:                                               ; preds = %6
   %14 = load i64, ptr %10, align 8, !tbaa !18
   %15 = icmp sgt i32 %5, 0
-  br i1 %15, label %.lr.ph.preheader, label %.loopexit105
+  br i1 %15, label %.lr.ph.preheader, label %.loopexit104
 
 .lr.ph.preheader:                                 ; preds = %13
   %wide.trip.count = zext nneg i32 %5 to i64
@@ -31,13 +31,13 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.thread ]
-  %.05683 = phi i64 [ %14, %.lr.ph.preheader ], [ %20, %.thread ]
-  %16 = shl i64 %.05683, 8
+  %.05682 = phi i64 [ %14, %.lr.ph.preheader ], [ %20, %.thread ]
+  %16 = shl i64 %.05682, 8
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %18 = load i8, ptr %17, align 1, !tbaa !19
   %19 = zext i8 %18 to i64
   %20 = or disjoint i64 %16, %19
-  %21 = and i64 %.05683, 72056494543077375
+  %21 = and i64 %.05682, 72056494543077375
   %22 = icmp eq i64 %21, 36028797019165188
   br i1 %22, label %23, label %.thread
 
@@ -53,7 +53,7 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
 .thread:                                          ; preds = %23, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit105, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %.loopexit104, label %.lr.ph, !llvm.loop !20
 
 .loopexit:                                        ; preds = %23
   %29 = trunc nuw nsw i64 %indvars.iv to i32
@@ -69,21 +69,21 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
   %37 = getelementptr inbounds nuw i8, ptr %9, i64 56
   store i32 %36, ptr %37, align 8, !tbaa !23
   store i64 %20, ptr %10, align 8, !tbaa !18
-  br label %.thread75
+  br label %.thread74
 
-.thread75:                                        ; preds = %.loopexit, %6
+.thread74:                                        ; preds = %.loopexit, %6
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %39 = load i32, ptr %38, align 8, !tbaa !23
   %.not71 = icmp eq i32 %39, 0
   br i1 %.not71, label %40, label %43
 
-40:                                               ; preds = %.thread75
+40:                                               ; preds = %.thread74
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %42 = load i32, ptr %41, align 4, !tbaa !22
   br label %43
 
-43:                                               ; preds = %40, %.thread75
-  %44 = phi i32 [ %42, %40 ], [ %39, %.thread75 ]
+43:                                               ; preds = %40, %.thread74
+  %44 = phi i32 [ %42, %40 ], [ %39, %.thread74 ]
   %.not72 = icmp sgt i32 %44, %5
   br i1 %.not72, label %46, label %45
 
@@ -96,7 +96,7 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
   store i32 %47, ptr %38, align 8, !tbaa !23
   br label %63
 
-.loopexit105:                                     ; preds = %.thread, %13
+.loopexit104:                                     ; preds = %.thread, %13
   %.1.ph = phi i64 [ %14, %13 ], [ %20, %.thread ]
   store i64 %.1.ph, ptr %10, align 8, !tbaa !18
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 356
@@ -104,7 +104,7 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %63
 
-51:                                               ; preds = %.loopexit105
+51:                                               ; preds = %.loopexit104
   %52 = getelementptr inbounds nuw i8, ptr %9, i64 52
   %53 = load i32, ptr %52, align 4, !tbaa !22
   %.not68 = icmp eq i32 %53, 0
@@ -133,8 +133,8 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
   store i32 %62, ptr %58, align 8, !tbaa !23
   br label %63
 
-63:                                               ; preds = %.loopexit105, %61, %60, %45, %46
-  %.055 = phi i32 [ %44, %45 ], [ -100, %46 ], [ %spec.select, %60 ], [ -100, %61 ], [ -100, %.loopexit105 ]
+63:                                               ; preds = %.loopexit104, %61, %60, %45, %46
+  %.055 = phi i32 [ %44, %45 ], [ -100, %46 ], [ %spec.select, %60 ], [ -100, %61 ], [ -100, %.loopexit104 ]
   %64 = call i32 @ff_combine_frame(ptr noundef nonnull %9, i32 noundef %.055, ptr noundef nonnull %7, ptr noundef nonnull %8) #2
   %65 = icmp sgt i32 %64, -1
   %66 = load i32, ptr %8, align 4
@@ -149,10 +149,10 @@ define internal i32 @adx_parse(ptr noundef captures(none) %0, ptr noundef readon
   br label %71
 
 71:                                               ; preds = %63, %68
-  %storemerge77 = phi ptr [ %70, %68 ], [ null, %63 ]
+  %storemerge76 = phi ptr [ %70, %68 ], [ null, %63 ]
   %storemerge = phi i32 [ %66, %68 ], [ 0, %63 ]
   %.054 = phi i32 [ %.055, %68 ], [ %66, %63 ]
-  store ptr %storemerge77, ptr %2, align 8, !tbaa !4
+  store ptr %storemerge76, ptr %2, align 8, !tbaa !4
   store i32 %storemerge, ptr %3, align 4, !tbaa !9
   ret i32 %.054
 }

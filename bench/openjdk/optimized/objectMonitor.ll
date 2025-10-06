@@ -4187,43 +4187,43 @@ define hidden void @_ZN13ObjectMonitor10InitializeEv() local_unnamed_addr #0 ali
   store ptr %9, ptr @_ZN13ObjectMonitor16_sync_InflationsE, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8
-  %.not16 = icmp eq ptr %11, null
-  br i1 %.not16, label %12, label %.thread
+  %.not15 = icmp eq ptr %11, null
+  br i1 %.not15, label %12, label %.thread
 
 12:                                               ; preds = %7
   %13 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 14, ptr noundef nonnull @.str.38, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %8) #12
   store ptr %13, ptr @_ZN13ObjectMonitor16_sync_DeflationsE, align 8
   %14 = load ptr, ptr %10, align 8
-  %.not17 = icmp eq ptr %14, null
-  br i1 %.not17, label %15, label %.thread
+  %.not16 = icmp eq ptr %14, null
+  br i1 %.not16, label %15, label %.thread
 
 15:                                               ; preds = %12
   %16 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 14, ptr noundef nonnull @.str.39, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %8) #12
   store ptr %16, ptr @_ZN13ObjectMonitor27_sync_ContendedLockAttemptsE, align 8
   %17 = load ptr, ptr %10, align 8
-  %.not18 = icmp eq ptr %17, null
-  br i1 %.not18, label %18, label %.thread
+  %.not17 = icmp eq ptr %17, null
+  br i1 %.not17, label %18, label %.thread
 
 18:                                               ; preds = %15
   %19 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 14, ptr noundef nonnull @.str.40, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %8) #12
   store ptr %19, ptr @_ZN13ObjectMonitor19_sync_FutileWakeupsE, align 8
   %20 = load ptr, ptr %10, align 8
-  %.not19 = icmp eq ptr %20, null
-  br i1 %.not19, label %21, label %.thread
+  %.not18 = icmp eq ptr %20, null
+  br i1 %.not18, label %21, label %.thread
 
 21:                                               ; preds = %18
   %22 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 14, ptr noundef nonnull @.str.41, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %8) #12
   store ptr %22, ptr @_ZN13ObjectMonitor11_sync_ParksE, align 8
   %23 = load ptr, ptr %10, align 8
-  %.not20 = icmp eq ptr %23, null
-  br i1 %.not20, label %24, label %.thread
+  %.not19 = icmp eq ptr %23, null
+  br i1 %.not19, label %24, label %.thread
 
 24:                                               ; preds = %21
   %25 = call noundef ptr @_ZN15PerfDataManager19create_long_counterE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 14, ptr noundef nonnull @.str.42, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %8) #12
   store ptr %25, ptr @_ZN13ObjectMonitor19_sync_NotificationsE, align 8
   %26 = load ptr, ptr %10, align 8
-  %.not21 = icmp eq ptr %26, null
-  br i1 %.not21, label %27, label %.thread
+  %.not20 = icmp eq ptr %26, null
+  br i1 %.not20, label %27, label %.thread
 
 .thread:                                          ; preds = %7, %12, %15, %18, %21, %24
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
@@ -4233,9 +4233,9 @@ define hidden void @_ZN13ObjectMonitor10InitializeEv() local_unnamed_addr #0 ali
   %28 = call noundef ptr @_ZN15PerfDataManager20create_long_variableE9CounterNSPKcN8PerfData5UnitsElP10JavaThread(i32 noundef 14, ptr noundef nonnull @.str.43, i32 noundef 4, i64 noundef 0, ptr noundef nonnull %8) #12
   store ptr %28, ptr @_ZN13ObjectMonitor15_sync_MonExtantE, align 8
   %29 = load ptr, ptr %10, align 8
-  %.not22 = icmp eq ptr %29, null
+  %.not21 = icmp eq ptr %29, null
   call void @_ZN13ExceptionMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #12
-  br i1 %.not22, label %30, label %32
+  br i1 %.not21, label %30, label %32
 
 30:                                               ; preds = %27, %4
   %31 = call noundef ptr @_ZN13OopStorageSet11create_weakEPKc8MEMFLAGS(ptr noundef nonnull @.str.44, i8 noundef zeroext 22) #12

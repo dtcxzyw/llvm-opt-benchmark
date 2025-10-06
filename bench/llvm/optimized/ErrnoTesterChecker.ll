@@ -3281,21 +3281,21 @@ define internal noundef zeroext i1 @_ZN5clang4ento4eval4Call9_evalCallIN12_GLOBA
   %.val = load ptr, ptr %4, align 8, !tbaa !270
   %5 = getelementptr i8, ptr %0, i64 40
   %.val3 = load ptr, ptr %5, align 8, !tbaa !270
-  %.not15.i.i = icmp eq ptr %.val, %.val3
-  br i1 %.not15.i.i, label %_ZNK12_GLOBAL__N_118ErrnoTesterChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
+  %.not17.i.i = icmp eq ptr %.val, %.val3
+  br i1 %.not17.i.i, label %_ZNK12_GLOBAL__N_118ErrnoTesterChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %3, %7
-  %.sroa.010.016.i.i = phi ptr [ %8, %7 ], [ %.val, %3 ]
-  %6 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.010.016.i.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #15
+  %.sroa.010.018.i.i = phi ptr [ %8, %7 ], [ %.val, %3 ]
+  %6 = tail call noundef zeroext i1 @_ZNK5clang4ento15CallDescription7matchesERKNS0_9CallEventE(ptr noundef nonnull align 8 dereferenceable(60) %.sroa.010.018.i.i, ptr noundef nonnull align 8 dereferenceable(72) %1) #15
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %.lr.ph.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i.i, i64 96
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i.i, i64 96
   %.not.i.i = icmp eq ptr %8, %.val3
   br i1 %.not.i.i, label %_ZNK12_GLOBAL__N_118ErrnoTesterChecker8evalCallERKN5clang4ento9CallEventERNS2_14CheckerContextE.exit, label %.lr.ph.i.i
 
 9:                                                ; preds = %.lr.ph.i.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i.i, i64 80
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i.i, i64 80
   %11 = load ptr, ptr %10, align 8, !tbaa !17
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %12, label %_ZNKSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEEclES3_S6_.exit.i
@@ -3305,8 +3305,8 @@ define internal noundef zeroext i1 @_ZN5clang4ento4eval4Call9_evalCallIN12_GLOBA
   unreachable
 
 _ZNKSt8functionIFvRN5clang4ento14CheckerContextERKNS1_9CallEventEEEclES3_S6_.exit.i: ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i.i, i64 64
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i.i, i64 88
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i.i, i64 64
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.018.i.i, i64 88
   %15 = load ptr, ptr %14, align 8, !tbaa !14
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(81) %2, ptr noundef nonnull align 8 dereferenceable(72) %1) #15
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 16

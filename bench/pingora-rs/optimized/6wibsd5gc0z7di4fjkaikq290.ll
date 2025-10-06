@@ -14135,14 +14135,14 @@ define void @_ZN12pingora_core9protocols4http2v16server27escape_illegal_request_
   store i32 0, ptr %11, align 8, !noalias !1162
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %18, ptr %.sroa.3.0..sroa_idx.i, align 8, !noalias !1162
-  %.sroa.419.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
-  store i64 %20, ptr %.sroa.419.0..sroa_idx.i, align 8, !noalias !1162
-  %.sroa.520.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store i64 0, ptr %.sroa.520.0..sroa_idx.i, align 8, !noalias !1162
-  %.sroa.6.0..sroa_idx21.i = getelementptr inbounds nuw i8, ptr %11, i64 32
-  store i64 %20, ptr %.sroa.6.0..sroa_idx21.i, align 8, !noalias !1162
-  %.sroa.722.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 40
-  store i8 0, ptr %.sroa.722.0..sroa_idx.i, align 8, !noalias !1162
+  %.sroa.418.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
+  store i64 %20, ptr %.sroa.418.0..sroa_idx.i, align 8, !noalias !1162
+  %.sroa.519.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store i64 0, ptr %.sroa.519.0..sroa_idx.i, align 8, !noalias !1162
+  %.sroa.6.0..sroa_idx20.i = getelementptr inbounds nuw i8, ptr %11, i64 32
+  store i64 %20, ptr %.sroa.6.0..sroa_idx20.i, align 8, !noalias !1162
+  %.sroa.721.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 40
+  store i8 0, ptr %.sroa.721.0..sroa_idx.i, align 8, !noalias !1162
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 0, ptr %21, align 8, !noalias !1162
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -14299,9 +14299,9 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1182
   store ptr null, ptr %7, align 8, !noalias !1182
   invoke void @_ZN4core9panicking13assert_failed17h77d57c61d0ad0ecdE(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h83a1099d3d0e26f7E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.8e071d1b15d522c405dc2a4db65745c3.18) #24
-          to label %.noexc13.i unwind label %99, !noalias !1179
+          to label %.noexc12.i unwind label %99, !noalias !1179
 
-.noexc13.i:                                       ; preds = %.noexc5.i.i
+.noexc12.i:                                       ; preds = %.noexc5.i.i
   unreachable
 
 .noexc6.i.i:                                      ; preds = %85

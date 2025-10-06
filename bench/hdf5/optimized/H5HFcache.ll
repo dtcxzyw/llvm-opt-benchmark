@@ -4131,7 +4131,7 @@ define internal range(i32 -1, 2) i32 @H5HF__cache_dblock_verify_chksum(ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.pre = load i8, ptr %16, align 1, !tbaa !40, !range !7
-  %.pre63 = load ptr, ptr %5, align 8, !tbaa !143
+  %.pre62 = load ptr, ptr %5, align 8, !tbaa !143
   %42 = shl nuw nsw i8 %.pre, 2
   %43 = add nuw nsw i8 %42, 5
   %44 = zext nneg i8 %43 to i64
@@ -4142,7 +4142,7 @@ define internal range(i32 -1, 2) i32 @H5HF__cache_dblock_verify_chksum(ptr nound
   br label %46
 
 46:                                               ; preds = %39, %45
-  %47 = phi ptr [ %.pre63, %39 ], [ %0, %45 ]
+  %47 = phi ptr [ %.pre62, %39 ], [ %0, %45 ]
   %narrow = phi i64 [ %44, %39 ], [ 9, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 618
   %49 = load i8, ptr %48, align 2, !tbaa !73

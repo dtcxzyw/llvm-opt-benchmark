@@ -6454,7 +6454,7 @@ define dso_local noundef zeroext i1 @path_is_reparameterizable_by_child(ptr noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %.thread116, label %5
+  br i1 %.not, label %.thread106, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6462,11 +6462,11 @@ define dso_local noundef zeroext i1 @path_is_reparameterizable_by_child(ptr noun
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %9 = load ptr, ptr %8, align 8
   %10 = tail call zeroext i1 @bms_overlap(ptr noundef %7, ptr noundef %9) #9
-  br i1 %10, label %11, label %.thread116
+  br i1 %10, label %11, label %.thread106
 
 11:                                               ; preds = %5
   %12 = load i32, ptr %0, align 4
-  switch i32 %12, label %.thread116 [
+  switch i32 %12, label %.thread106 [
     i32 278, label %pathlist_is_reparameterizable_by_child.exit.thread
     i32 279, label %pathlist_is_reparameterizable_by_child.exit.thread
     i32 281, label %13
@@ -6487,63 +6487,63 @@ define dso_local noundef zeroext i1 @path_is_reparameterizable_by_child(ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %15, ptr noundef nonnull %1)
-  br i1 %16, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread116
+  br i1 %16, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread106
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %19 = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %19, null
-  br i1 %.not.i, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.lr.ph147
+  br i1 %.not.i, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.lr.ph136
 
-.lr.ph147:                                        ; preds = %17
+.lr.ph136:                                        ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i32, ptr %20, align 4
   %23 = icmp sgt i32 %22, 0
-  br i1 %23, label %.lr.ph150, label %pathlist_is_reparameterizable_by_child.exit.thread
+  br i1 %23, label %.lr.ph139, label %pathlist_is_reparameterizable_by_child.exit.thread
 
-24:                                               ; preds = %.lr.ph150
-  %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
+24:                                               ; preds = %.lr.ph139
+  %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, 1
   %25 = load i32, ptr %20, align 4
   %26 = sext i32 %25 to i64
-  %27 = icmp slt i64 %indvars.iv.next165, %26
-  br i1 %27, label %.lr.ph150, label %pathlist_is_reparameterizable_by_child.exit.thread
+  %27 = icmp slt i64 %indvars.iv.next154, %26
+  br i1 %27, label %.lr.ph139, label %pathlist_is_reparameterizable_by_child.exit.thread
 
-.lr.ph150:                                        ; preds = %.lr.ph147, %24
-  %indvars.iv164 = phi i64 [ %indvars.iv.next165, %24 ], [ 0, %.lr.ph147 ]
+.lr.ph139:                                        ; preds = %.lr.ph136, %24
+  %indvars.iv153 = phi i64 [ %indvars.iv.next154, %24 ], [ 0, %.lr.ph136 ]
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv164
+  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv153
   %30 = load ptr, ptr %29, align 8
   %31 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %30, ptr noundef %1)
-  br i1 %31, label %24, label %.thread116
+  br i1 %31, label %24, label %.thread106
 
 32:                                               ; preds = %11
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %34 = load ptr, ptr %33, align 8
-  %.not.i79 = icmp eq ptr %34, null
-  br i1 %.not.i79, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.lr.ph142
+  %.not.i70 = icmp eq ptr %34, null
+  br i1 %.not.i70, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.lr.ph131
 
-.lr.ph142:                                        ; preds = %32
+.lr.ph131:                                        ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %37 = load i32, ptr %35, align 4
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph145, label %pathlist_is_reparameterizable_by_child.exit.thread
+  br i1 %38, label %.lr.ph134, label %pathlist_is_reparameterizable_by_child.exit.thread
 
-39:                                               ; preds = %.lr.ph145
-  %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
+39:                                               ; preds = %.lr.ph134
+  %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, 1
   %40 = load i32, ptr %35, align 4
   %41 = sext i32 %40 to i64
-  %42 = icmp slt i64 %indvars.iv.next162, %41
-  br i1 %42, label %.lr.ph145, label %pathlist_is_reparameterizable_by_child.exit.thread
+  %42 = icmp slt i64 %indvars.iv.next151, %41
+  br i1 %42, label %.lr.ph134, label %pathlist_is_reparameterizable_by_child.exit.thread
 
-.lr.ph145:                                        ; preds = %.lr.ph142, %39
-  %indvars.iv161 = phi i64 [ %indvars.iv.next162, %39 ], [ 0, %.lr.ph142 ]
+.lr.ph134:                                        ; preds = %.lr.ph131, %39
+  %indvars.iv150 = phi i64 [ %indvars.iv.next151, %39 ], [ 0, %.lr.ph131 ]
   %43 = load ptr, ptr %36, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv161
+  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv150
   %45 = load ptr, ptr %44, align 8
   %46 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %45, ptr noundef %1)
-  br i1 %46, label %39, label %.thread116
+  br i1 %46, label %39, label %.thread106
 
 47:                                               ; preds = %11
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6553,99 +6553,99 @@ define dso_local noundef zeroext i1 @path_is_reparameterizable_by_child(ptr noun
 
 50:                                               ; preds = %47
   %51 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef nonnull %49, ptr noundef nonnull %1)
-  br i1 %51, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread116
+  br i1 %51, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread106
 
 52:                                               ; preds = %11
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %54 = load ptr, ptr %53, align 8
-  %.not.i84 = icmp eq ptr %54, null
-  br i1 %.not.i84, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.lr.ph137
+  %.not.i75 = icmp eq ptr %54, null
+  br i1 %.not.i75, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.lr.ph126
 
-.lr.ph137:                                        ; preds = %52
+.lr.ph126:                                        ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %57 = load i32, ptr %55, align 4
   %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.lr.ph140, label %pathlist_is_reparameterizable_by_child.exit.thread
+  br i1 %58, label %.lr.ph129, label %pathlist_is_reparameterizable_by_child.exit.thread
 
-59:                                               ; preds = %.lr.ph140
-  %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
+59:                                               ; preds = %.lr.ph129
+  %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, 1
   %60 = load i32, ptr %55, align 4
   %61 = sext i32 %60 to i64
-  %62 = icmp slt i64 %indvars.iv.next159, %61
-  br i1 %62, label %.lr.ph140, label %pathlist_is_reparameterizable_by_child.exit.thread
+  %62 = icmp slt i64 %indvars.iv.next148, %61
+  br i1 %62, label %.lr.ph129, label %pathlist_is_reparameterizable_by_child.exit.thread
 
-.lr.ph140:                                        ; preds = %.lr.ph137, %59
-  %indvars.iv158 = phi i64 [ %indvars.iv.next159, %59 ], [ 0, %.lr.ph137 ]
+.lr.ph129:                                        ; preds = %.lr.ph126, %59
+  %indvars.iv147 = phi i64 [ %indvars.iv.next148, %59 ], [ 0, %.lr.ph126 ]
   %63 = load ptr, ptr %56, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv158
+  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv147
   %65 = load ptr, ptr %64, align 8
   %66 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %65, ptr noundef %1)
-  br i1 %66, label %59, label %.thread116
+  br i1 %66, label %59, label %.thread106
 
 67:                                               ; preds = %11, %11, %11
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %69 = load ptr, ptr %68, align 8
   %70 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %69, ptr noundef nonnull %1)
-  br i1 %70, label %71, label %.thread116
+  br i1 %70, label %71, label %.thread106
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %73 = load ptr, ptr %72, align 8
   %74 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %73, ptr noundef nonnull %1)
-  br i1 %74, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread116
+  br i1 %74, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread106
 
 75:                                               ; preds = %11
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %77 = load ptr, ptr %76, align 8
-  %.not.i89 = icmp eq ptr %77, null
-  br i1 %.not.i89, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.lr.ph
+  %.not.i80 = icmp eq ptr %77, null
+  br i1 %.not.i80, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %75
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
   %80 = load i32, ptr %78, align 4
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %.lr.ph135, label %pathlist_is_reparameterizable_by_child.exit.thread
+  br i1 %81, label %.lr.ph124, label %pathlist_is_reparameterizable_by_child.exit.thread
 
-82:                                               ; preds = %.lr.ph135
+82:                                               ; preds = %.lr.ph124
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = load i32, ptr %78, align 4
   %84 = sext i32 %83 to i64
   %85 = icmp slt i64 %indvars.iv.next, %84
-  br i1 %85, label %.lr.ph135, label %pathlist_is_reparameterizable_by_child.exit.thread
+  br i1 %85, label %.lr.ph124, label %pathlist_is_reparameterizable_by_child.exit.thread
 
-.lr.ph135:                                        ; preds = %.lr.ph, %82
+.lr.ph124:                                        ; preds = %.lr.ph, %82
   %indvars.iv = phi i64 [ %indvars.iv.next, %82 ], [ 0, %.lr.ph ]
   %86 = load ptr, ptr %79, align 8
   %87 = getelementptr inbounds nuw %union.ListCell, ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   %89 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %88, ptr noundef %1)
-  br i1 %89, label %82, label %.thread116
+  br i1 %89, label %82, label %.thread106
 
 90:                                               ; preds = %11
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %92 = load ptr, ptr %91, align 8
   %93 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %92, ptr noundef nonnull %1)
-  br i1 %93, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread116
+  br i1 %93, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread106
 
 94:                                               ; preds = %11
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %96 = load ptr, ptr %95, align 8
   %97 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %96, ptr noundef nonnull %1)
-  br i1 %97, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread116
+  br i1 %97, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread106
 
 98:                                               ; preds = %11
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %100 = load ptr, ptr %99, align 8
   %101 = tail call zeroext i1 @path_is_reparameterizable_by_child(ptr noundef %100, ptr noundef nonnull %1)
-  br i1 %101, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread116
+  br i1 %101, label %pathlist_is_reparameterizable_by_child.exit.thread, label %.thread106
 
-pathlist_is_reparameterizable_by_child.exit.thread: ; preds = %82, %59, %39, %24, %75, %.lr.ph, %52, %.lr.ph137, %32, %.lr.ph142, %17, %.lr.ph147, %50, %47, %71, %98, %94, %90, %13, %11, %11
-  br label %.thread116
+pathlist_is_reparameterizable_by_child.exit.thread: ; preds = %82, %59, %39, %24, %75, %.lr.ph, %52, %.lr.ph126, %32, %.lr.ph131, %17, %.lr.ph136, %50, %47, %71, %98, %94, %90, %13, %11, %11
+  br label %.thread106
 
-.thread116:                                       ; preds = %.lr.ph135, %.lr.ph140, %.lr.ph145, %.lr.ph150, %71, %67, %50, %98, %94, %90, %13, %11, %2, %5, %pathlist_is_reparameterizable_by_child.exit.thread
-  %.0 = phi i1 [ true, %pathlist_is_reparameterizable_by_child.exit.thread ], [ false, %13 ], [ false, %90 ], [ false, %94 ], [ false, %98 ], [ true, %5 ], [ true, %2 ], [ false, %11 ], [ false, %50 ], [ false, %67 ], [ false, %71 ], [ false, %.lr.ph150 ], [ false, %.lr.ph145 ], [ false, %.lr.ph140 ], [ false, %.lr.ph135 ]
+.thread106:                                       ; preds = %.lr.ph124, %.lr.ph129, %.lr.ph134, %.lr.ph139, %71, %67, %50, %98, %94, %90, %13, %11, %2, %5, %pathlist_is_reparameterizable_by_child.exit.thread
+  %.0 = phi i1 [ true, %pathlist_is_reparameterizable_by_child.exit.thread ], [ false, %13 ], [ false, %90 ], [ false, %94 ], [ false, %98 ], [ true, %5 ], [ true, %2 ], [ false, %11 ], [ false, %50 ], [ false, %67 ], [ false, %71 ], [ false, %.lr.ph139 ], [ false, %.lr.ph134 ], [ false, %.lr.ph129 ], [ false, %.lr.ph124 ]
   ret i1 %.0
 }
 

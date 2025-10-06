@@ -4875,19 +4875,19 @@ thread-pre-split:                                 ; preds = %.noexc24
 
 13:                                               ; preds = %thread-pre-split
   invoke void @_ZSt25__throw_bad_function_callv() #25
-          to label %.noexc unwind label %.loopexit.split-lp47
+          to label %.noexc unwind label %.loopexit.split-lp45
 
 .noexc:                                           ; preds = %13
   unreachable
 
 _ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i:     ; preds = %3, %thread-pre-split
-  %.06.i51 = phi ptr [ %16, %thread-pre-split ], [ %12, %3 ]
-  %14 = getelementptr inbounds nuw i8, ptr %.06.i51, i64 24
+  %.06.i49 = phi ptr [ %16, %thread-pre-split ], [ %12, %3 ]
+  %14 = getelementptr inbounds nuw i8, ptr %.06.i49, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !94
-  %16 = load ptr, ptr %.06.i51, align 8, !tbaa !95
+  %16 = load ptr, ptr %.06.i49, align 8, !tbaa !95
   %17 = load ptr, ptr %10, align 8, !tbaa !84
   invoke void %17(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(72) %15)
-          to label %.noexc24 unwind label %.loopexit46
+          to label %.noexc24 unwind label %.loopexit44
 
 .noexc24:                                         ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i
   %.not.i = icmp eq ptr %16, null
@@ -4942,13 +4942,13 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN9DfgVertex11forE
   store i64 %42, ptr %5, align 8, !tbaa !71
   store ptr @_ZNSt17_Function_handlerIFbRK9DfgVertexEZN23ExtractCyclicComponents14visitColorSCCsERS0_RNS4_11VertexStateEEUlS2_E_E9_M_invokeERKSt9_Any_dataS2_, ptr %40, align 8, !tbaa !257
   store ptr @_ZNSt17_Function_handlerIFbRK9DfgVertexEZN23ExtractCyclicComponents14visitColorSCCsERS0_RNS4_11VertexStateEEUlS2_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, ptr %39, align 8, !tbaa !87
-  %.01116.i = load ptr, ptr %11, align 8, !tbaa !259
-  %.not17.i = icmp eq ptr %.01116.i, null
-  br i1 %.not17.i, label %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit.thread, label %.lr.ph.i26
+  %.01119.i = load ptr, ptr %11, align 8, !tbaa !259
+  %.not20.i = icmp eq ptr %.01119.i, null
+  br i1 %.not20.i, label %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit.thread, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %38, %50
-  %.01118.i = phi ptr [ %.011.i, %50 ], [ %.01116.i, %38 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.01118.i, i64 24
+  %.01121.i = phi ptr [ %.011.i, %50 ], [ %.01119.i, %38 ]
+  %43 = getelementptr inbounds nuw i8, ptr %.01121.i, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !94
   %.not13.i = icmp eq ptr %44, null
   br i1 %.not13.i, label %50, label %45
@@ -4974,18 +4974,18 @@ _ZNKSt8functionIFbRK9DfgVertexEEclES2_.exit.i:    ; preds = %45
   br i1 %49, label %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit, label %50
 
 50:                                               ; preds = %.noexc30, %.lr.ph.i26
-  %.011.i = load ptr, ptr %.01118.i, align 8, !tbaa !259
+  %.011.i = load ptr, ptr %.01121.i, align 8, !tbaa !259
   %.not.i28 = icmp eq ptr %.011.i, null
   br i1 %.not.i28, label %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit, label %.lr.ph.i26, !llvm.loop !260
 
 _ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit: ; preds = %50, %.noexc30
-  %spec.select.i.ph = phi i1 [ false, %50 ], [ true, %.noexc30 ]
+  %.ph = phi i1 [ true, %.noexc30 ], [ false, %50 ]
   %.pr41 = load ptr, ptr %39, align 8, !tbaa !87
   %.not.i31 = icmp eq ptr %.pr41, null
   br i1 %.not.i31, label %_ZNSt14_Function_baseD2Ev.exit32, label %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit.thread
 
 _ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit.thread: ; preds = %38, %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit
-  %51 = phi i1 [ %spec.select.i.ph, %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit ], [ false, %38 ]
+  %51 = phi i1 [ %.ph, %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit ], [ false, %38 ]
   %52 = phi ptr [ %.pr41, %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit ], [ @_ZNSt17_Function_handlerIFbRK9DfgVertexEZN23ExtractCyclicComponents14visitColorSCCsERS0_RNS4_11VertexStateEEUlS2_E_E10_M_managerERSt9_Any_dataRKSA_St18_Manager_operation, %38 ]
   %53 = invoke noundef zeroext i1 %52(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
           to label %_ZNSt14_Function_baseD2Ev.exit32 unwind label %54
@@ -4998,7 +4998,7 @@ _ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit.thread: ; preds = %38,
   unreachable
 
 _ZNSt14_Function_baseD2Ev.exit32:                 ; preds = %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit, %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit.thread
-  %57 = phi i1 [ %spec.select.i.ph, %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit ], [ %51, %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit.thread ]
+  %57 = phi i1 [ %.ph, %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit ], [ %51, %_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE.exit.thread ]
   %or.cond = or i1 %.not, %57
   br i1 %or.cond, label %58, label %89
 
@@ -5024,18 +5024,18 @@ _ZNSt14_Function_baseD2Ev.exit32:                 ; preds = %_ZNK9DfgVertex8find
   %71 = icmp ult i64 %70, %8
   br i1 %71, label %_ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit, label %86
 
-.loopexit46:                                      ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i
-  %lpad.loopexit48 = landingpad { ptr, i32 }
+.loopexit44:                                      ; preds = %_ZNKSt8functionIFvR9DfgVertexEEclES1_.exit.i
+  %lpad.loopexit46 = landingpad { ptr, i32 }
           cleanup
   br label %72
 
-.loopexit.split-lp47:                             ; preds = %13
-  %lpad.loopexit.split-lp49 = landingpad { ptr, i32 }
+.loopexit.split-lp45:                             ; preds = %13
+  %lpad.loopexit.split-lp47 = landingpad { ptr, i32 }
           cleanup
   br label %72
 
-72:                                               ; preds = %.loopexit.split-lp47, %.loopexit46
-  %lpad.phi50 = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp49, %.loopexit.split-lp47 ]
+72:                                               ; preds = %.loopexit.split-lp45, %.loopexit44
+  %lpad.phi48 = phi { ptr, i32 } [ %lpad.loopexit46, %.loopexit44 ], [ %lpad.loopexit.split-lp47, %.loopexit.split-lp45 ]
   %73 = load ptr, ptr %9, align 8, !tbaa !87
   %.not.i33 = icmp eq ptr %73, null
   br i1 %.not.i33, label %_ZNSt14_Function_baseD2Ev.exit34, label %74
@@ -5156,7 +5156,7 @@ _ZNSt6vectorIP9DfgVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %86, %.lr.ph, %5
   ret void
 
 _ZNSt14_Function_baseD2Ev.exit34:                 ; preds = %81, %79, %74, %72
-  %.pn = phi { ptr, i32 } [ %lpad.phi50, %72 ], [ %lpad.phi50, %74 ], [ %lpad.phi, %79 ], [ %lpad.phi, %81 ]
+  %.pn = phi { ptr, i32 } [ %lpad.phi48, %72 ], [ %lpad.phi48, %74 ], [ %lpad.phi, %79 ], [ %lpad.phi, %81 ]
   resume { ptr, i32 } %.pn
 }
 
@@ -5501,9 +5501,9 @@ _ZSt4copyIPPN23ExtractCyclicComponents11VertexStateES3_ET0_T_S5_S4_.exit: ; pred
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr dso_local noundef ptr @_ZNK9DfgVertex8findSinkIS_EEPT_St8functionIFbRKS1_EE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef %1) #8 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.01116 = load ptr, ptr %3, align 8, !tbaa !259
-  %.not17 = icmp eq ptr %.01116, null
-  br i1 %.not17, label %.thread, label %.lr.ph
+  %.01119 = load ptr, ptr %3, align 8, !tbaa !259
+  %.not20 = icmp eq ptr %.01119, null
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5511,8 +5511,8 @@ define linkonce_odr dso_local noundef ptr @_ZNK9DfgVertex8findSinkIS_EEPT_St8fun
   br label %6
 
 6:                                                ; preds = %.lr.ph, %14
-  %.01118 = phi ptr [ %.01116, %.lr.ph ], [ %.011, %14 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.01118, i64 24
+  %.01121 = phi ptr [ %.01119, %.lr.ph ], [ %.011, %14 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.01121, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !94
   %.not13 = icmp eq ptr %8, null
   br i1 %.not13, label %14, label %9
@@ -5529,16 +5529,16 @@ define linkonce_odr dso_local noundef ptr @_ZNK9DfgVertex8findSinkIS_EEPT_St8fun
 _ZNKSt8functionIFbRK9DfgVertexEEclES2_.exit:      ; preds = %9
   %12 = load ptr, ptr %5, align 8, !tbaa !257
   %13 = tail call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  br i1 %13, label %.thread, label %14
+  br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %6, %_ZNKSt8functionIFbRK9DfgVertexEEclES2_.exit
-  %.011 = load ptr, ptr %.01118, align 8, !tbaa !259
+  %.011 = load ptr, ptr %.01121, align 8, !tbaa !259
   %.not = icmp eq ptr %.011, null
-  br i1 %.not, label %.thread, label %6, !llvm.loop !260
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !260
 
-.thread:                                          ; preds = %14, %_ZNKSt8functionIFbRK9DfgVertexEEclES2_.exit, %2
-  %spec.select = phi ptr [ null, %2 ], [ %8, %_ZNKSt8functionIFbRK9DfgVertexEEclES2_.exit ], [ null, %14 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %_ZNKSt8functionIFbRK9DfgVertexEEclES2_.exit, %14, %2
+  %15 = phi ptr [ null, %2 ], [ null, %14 ], [ %8, %_ZNKSt8functionIFbRK9DfgVertexEEclES2_.exit ]
+  ret ptr %15
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -11629,9 +11629,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPK9DfgVertexS2_SaIS
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !481
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !71
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11667,7 +11667,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPK9DfgVertexS2_SaIS
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !307
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !71
@@ -11695,10 +11695,10 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPK9DfgVertexS2_SaIS
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !483
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
   store ptr null, ptr %44, align 8, !tbaa !307
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

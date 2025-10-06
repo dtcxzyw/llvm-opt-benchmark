@@ -381,7 +381,7 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 249, ptr noundef nonnull @__func__.PKCS5_v2_scrypt_keyivgen_ex) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 131, ptr noundef null) #5
-  br label %.thread41
+  br label %.thread40
 
 18:                                               ; preds = %9
   %19 = tail call ptr @ASN1_TYPE_unpack_sequence(ptr noundef nonnull @SCRYPT_PARAMS_it.local_it, ptr noundef %3) #5
@@ -392,7 +392,7 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 258, ptr noundef nonnull @__func__.PKCS5_v2_scrypt_keyivgen_ex) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 114, ptr noundef null) #5
-  br label %.thread41
+  br label %.thread40
 
 22:                                               ; preds = %18
   %23 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %0) #5
@@ -403,7 +403,7 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.1, i32 noundef 264, ptr noundef nonnull @__func__.PKCS5_v2_scrypt_keyivgen_ex) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 130, ptr noundef null) #5
-  br label %.thread41
+  br label %.thread40
 
 26:                                               ; preds = %22
   %27 = zext nneg i32 %23 to i64
@@ -488,21 +488,21 @@ define i32 @PKCS5_v2_scrypt_keyivgen_ex(ptr noundef %0, ptr noundef %1, i32 noun
 71:                                               ; preds = %34, %57, %69, %56
   %.031 = phi i32 [ 0, %56 ], [ 0, %57 ], [ %70, %69 ], [ 0, %34 ]
   %.not37 = icmp eq i32 %23, 0
-  br i1 %.not37, label %.thread41, label %72
+  br i1 %.not37, label %.thread40, label %72
 
 72:                                               ; preds = %71
   call void @OPENSSL_cleanse(ptr noundef nonnull %10, i64 noundef %27) #5
-  br label %.thread41
+  br label %.thread40
 
-.thread41:                                        ; preds = %25, %21, %17, %72, %71
-  %.03047 = phi ptr [ %19, %72 ], [ %19, %71 ], [ %19, %25 ], [ null, %21 ], [ null, %17 ]
-  %.03146 = phi i32 [ %.031, %72 ], [ %.031, %71 ], [ 0, %25 ], [ 0, %21 ], [ 0, %17 ]
-  call void @ASN1_item_free(ptr noundef %.03047, ptr noundef nonnull @SCRYPT_PARAMS_it.local_it) #5
+.thread40:                                        ; preds = %25, %21, %17, %72, %71
+  %.03046 = phi ptr [ %19, %72 ], [ %19, %71 ], [ %19, %25 ], [ null, %21 ], [ null, %17 ]
+  %.03145 = phi i32 [ %.031, %72 ], [ %.031, %71 ], [ 0, %25 ], [ 0, %21 ], [ 0, %17 ]
+  call void @ASN1_item_free(ptr noundef %.03046, ptr noundef nonnull @SCRYPT_PARAMS_it.local_it) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  ret i32 %.03146
+  ret i32 %.03145
 }
 
 declare ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef) local_unnamed_addr #2

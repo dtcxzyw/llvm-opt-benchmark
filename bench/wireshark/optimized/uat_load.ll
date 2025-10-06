@@ -105,14 +105,14 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %33 = getelementptr ptr, ptr %30, i64 %32
   store ptr %29, ptr %33, align 8
   %.pre = load ptr, ptr %20, align 8
-  %.pre739 = load i64, ptr %31, align 8
-  %.phi.trans.insert740 = getelementptr ptr, ptr %.pre, i64 %.pre739
-  %.pre741 = load ptr, ptr %.phi.trans.insert740, align 8
+  %.pre738 = load i64, ptr %31, align 8
+  %.phi.trans.insert739 = getelementptr ptr, ptr %.pre, i64 %.pre738
+  %.pre740 = load ptr, ptr %.phi.trans.insert739, align 8
   br label %34
 
 34:                                               ; preds = %27, %22
-  %35 = phi ptr [ %.pre741, %27 ], [ %26, %22 ]
-  %36 = phi i64 [ %.pre739, %27 ], [ %24, %22 ]
+  %35 = phi ptr [ %.pre740, %27 ], [ %26, %22 ]
+  %36 = phi i64 [ %.pre738, %27 ], [ %24, %22 ]
   %37 = phi ptr [ %.pre, %27 ], [ %21, %22 ]
   %38 = getelementptr ptr, ptr %37, i64 %36
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 28
@@ -155,17 +155,17 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %66 = load i8, ptr %53, align 8
   store i8 %66, ptr %65, align 1
   %67 = load i32, ptr %54, align 4
-  br label %.loopexit523
+  br label %.loopexit522
 
-.loopexit523:                                     ; preds = %.loopexit523.backedge, %.loopexit
-  %.0415 = phi ptr [ %65, %.loopexit ], [ %.0415.be, %.loopexit523.backedge ]
-  %.0409 = phi ptr [ %65, %.loopexit ], [ %.0409.be, %.loopexit523.backedge ]
-  %.0404 = phi i32 [ %67, %.loopexit ], [ %.0404.be, %.loopexit523.backedge ]
+.loopexit522:                                     ; preds = %.loopexit522.backedge, %.loopexit
+  %.0415 = phi ptr [ %65, %.loopexit ], [ %.0415.be, %.loopexit522.backedge ]
+  %.0409 = phi ptr [ %65, %.loopexit ], [ %.0409.be, %.loopexit522.backedge ]
+  %.0404 = phi i32 [ %67, %.loopexit ], [ %.0404.be, %.loopexit522.backedge ]
   br label %68
 
-68:                                               ; preds = %._crit_edge, %.loopexit523
-  %.1410 = phi ptr [ %.0409, %.loopexit523 ], [ %106, %._crit_edge ]
-  %.1405 = phi i32 [ %.0404, %.loopexit523 ], [ %105, %._crit_edge ]
+68:                                               ; preds = %._crit_edge, %.loopexit522
+  %.1410 = phi ptr [ %.0409, %.loopexit522 ], [ %106, %._crit_edge ]
+  %.1405 = phi i32 [ %.0404, %.loopexit522 ], [ %105, %._crit_edge ]
   %69 = load i8, ptr %.1410, align 1
   %70 = zext i8 %69 to i64
   %71 = getelementptr i8, ptr @yy_ec, i64 %70
@@ -190,13 +190,13 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %83 = getelementptr i16, ptr @yy_chk, i64 %82
   %84 = load i16, ptr %83, align 2
   %85 = sext i16 %84 to i32
-  %.not454655 = icmp eq i32 %.1405, %85
-  br i1 %.not454655, label %._crit_edge, label %.lr.ph
+  %.not454654 = icmp eq i32 %.1405, %85
+  br i1 %.not454654, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %77, %94
   %86 = phi i64 [ %99, %94 ], [ %81, %77 ]
   %87 = phi i64 [ %95, %94 ], [ %73, %77 ]
-  %.0421656 = phi i8 [ %.1422, %94 ], [ %72, %77 ]
+  %.0421655 = phi i8 [ %.1422, %94 ], [ %72, %77 ]
   %88 = getelementptr i16, ptr @yy_def, i64 %87
   %89 = load i16, ptr %88, align 2
   %90 = icmp sgt i16 %89, 75
@@ -208,7 +208,7 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   br label %94
 
 94:                                               ; preds = %91, %.lr.ph
-  %.1422 = phi i8 [ %93, %91 ], [ %.0421656, %.lr.ph ]
+  %.1422 = phi i8 [ %93, %91 ], [ %.0421655, %.lr.ph ]
   %95 = sext i16 %89 to i64
   %96 = getelementptr i16, ptr @yy_base, i64 %95
   %97 = load i16, ptr %96, align 2
@@ -227,18 +227,18 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %105 = sext i16 %104 to i32
   %106 = getelementptr i8, ptr %.1410, i64 1
   %.not455 = icmp eq i16 %104, 75
-  br i1 %.not455, label %.backedge.sink.split1087, label %68, !llvm.loop !8
+  br i1 %.not455, label %.backedge.sink.split1086, label %68, !llvm.loop !8
 
-.backedge.sink.split1087:                         ; preds = %._crit_edge, %.backedge.sink.split1087.backedge
-  %.1416.ph = phi ptr [ %.1416.ph.be, %.backedge.sink.split1087.backedge ], [ %.0415, %._crit_edge ]
+.backedge.sink.split1086:                         ; preds = %._crit_edge, %.backedge.sink.split1086.backedge
+  %.1416.ph = phi ptr [ %.1416.ph.be, %.backedge.sink.split1086.backedge ], [ %.0415, %._crit_edge ]
   %107 = load ptr, ptr %56, align 8
   %108 = load i32, ptr %55, align 8
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1087
-  %.1416 = phi ptr [ %.1416.ph, %.backedge.sink.split1087 ], [ %1118, %.backedge.backedge ]
-  %.2411 = phi ptr [ %107, %.backedge.sink.split1087 ], [ %1120, %.backedge.backedge ]
-  %.3407 = phi i32 [ %108, %.backedge.sink.split1087 ], [ %.3407.be, %.backedge.backedge ]
+.backedge:                                        ; preds = %.backedge.backedge, %.backedge.sink.split1086
+  %.1416 = phi ptr [ %.1416.ph, %.backedge.sink.split1086 ], [ %1118, %.backedge.backedge ]
+  %.2411 = phi ptr [ %107, %.backedge.sink.split1086 ], [ %1120, %.backedge.backedge ]
+  %.3407 = phi i32 [ %108, %.backedge.sink.split1086 ], [ %.3407.be, %.backedge.backedge ]
   %109 = sext i32 %.3407 to i64
   %110 = getelementptr i16, ptr @yy_accept, i64 %109
   %111 = load i16, ptr %110, align 2
@@ -277,19 +277,19 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
     i32 16, label %711
     i32 17, label %740
     i32 18, label %765
-    i32 20, label %.loopexit522
-    i32 21, label %.loopexit522
-    i32 22, label %.loopexit522
-    i32 23, label %.loopexit522
-    i32 24, label %.loopexit522
-    i32 25, label %.loopexit522
+    i32 20, label %.loopexit521
+    i32 21, label %.loopexit521
+    i32 22, label %.loopexit521
+    i32 23, label %.loopexit521
+    i32 24, label %.loopexit521
+    i32 25, label %.loopexit521
     i32 19, label %771
   ]
 
 119:                                              ; preds = %118
   %120 = load i8, ptr %53, align 8
   store i8 %120, ptr %.2411, align 1
-  br label %.backedge.sink.split1087.backedge
+  br label %.backedge.sink.split1086.backedge
 
 121:                                              ; preds = %118
   %122 = load ptr, ptr %0, align 8
@@ -341,11 +341,11 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %156 = getelementptr inbounds nuw i8, ptr %144, i64 72
   %157 = load ptr, ptr %156, align 8
   %158 = call zeroext i1 %146(ptr noundef %149, ptr noundef %151, i32 noundef %153, ptr noundef %155, ptr noundef %157, ptr noundef nonnull %2)
-  %.pre771 = load ptr, ptr %0, align 8
+  %.pre770 = load ptr, ptr %0, align 8
   br i1 %158, label %175, label %159
 
 159:                                              ; preds = %147
-  %160 = getelementptr inbounds nuw i8, ptr %.pre771, i64 16
+  %160 = getelementptr inbounds nuw i8, ptr %.pre770, i64 16
   %161 = load ptr, ptr %160, align 8
   call void @g_free(ptr noundef %161)
   %162 = load ptr, ptr %0, align 8
@@ -364,11 +364,11 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %173 = load ptr, ptr %0, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
   store i8 0, ptr %174, align 8
-  %.pre770 = load ptr, ptr %0, align 8
+  %.pre769 = load ptr, ptr %0, align 8
   br label %175
 
 175:                                              ; preds = %147, %159, %131
-  %176 = phi ptr [ %.pre771, %147 ], [ %.pre770, %159 ], [ %137, %131 ]
+  %176 = phi ptr [ %.pre770, %147 ], [ %.pre769, %159 ], [ %137, %131 ]
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 104
   %179 = load ptr, ptr %178, align 8
@@ -439,15 +439,15 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %230 = getelementptr inbounds nuw i8, ptr %225, i64 48
   %231 = load ptr, ptr %230, align 8
   call void %228(ptr noundef %231)
-  %.pre772 = load ptr, ptr %0, align 8
+  %.pre771 = load ptr, ptr %0, align 8
   br label %232
 
 232:                                              ; preds = %229, %211
-  %233 = phi ptr [ %.pre772, %229 ], [ %225, %211 ]
+  %233 = phi ptr [ %.pre771, %229 ], [ %225, %211 ]
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 32
   %235 = load ptr, ptr %234, align 8
   call void @g_free(ptr noundef %235)
-  br label %.loopexit522
+  br label %.loopexit521
 
 236:                                              ; preds = %175
   store i32 5, ptr %54, align 4
@@ -554,15 +554,15 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %304 = getelementptr inbounds nuw i8, ptr %299, i64 48
   %305 = load ptr, ptr %304, align 8
   call void %302(ptr noundef %305)
-  %.pre769 = load ptr, ptr %0, align 8
+  %.pre768 = load ptr, ptr %0, align 8
   br label %306
 
 306:                                              ; preds = %303, %277
-  %307 = phi ptr [ %.pre769, %303 ], [ %299, %277 ]
+  %307 = phi ptr [ %.pre768, %303 ], [ %299, %277 ]
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 32
   %309 = load ptr, ptr %308, align 8
   call void @g_free(ptr noundef %309)
-  br label %.loopexit522
+  br label %.loopexit521
 
 310:                                              ; preds = %266
   %311 = getelementptr inbounds nuw i8, ptr %274, i64 28
@@ -609,11 +609,11 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %340 = getelementptr inbounds nuw i8, ptr %328, i64 72
   %341 = load ptr, ptr %340, align 8
   %342 = call zeroext i1 %330(ptr noundef %333, ptr noundef %335, i32 noundef %337, ptr noundef %339, ptr noundef %341, ptr noundef nonnull %3)
-  %.pre767 = load ptr, ptr %0, align 8
+  %.pre766 = load ptr, ptr %0, align 8
   br i1 %342, label %359, label %343
 
 343:                                              ; preds = %331
-  %344 = getelementptr inbounds nuw i8, ptr %.pre767, i64 16
+  %344 = getelementptr inbounds nuw i8, ptr %.pre766, i64 16
   %345 = load ptr, ptr %344, align 8
   call void @g_free(ptr noundef %345)
   %346 = load ptr, ptr %0, align 8
@@ -632,11 +632,11 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %357 = load ptr, ptr %0, align 8
   %358 = getelementptr inbounds nuw i8, ptr %357, i64 24
   store i8 0, ptr %358, align 8
-  %.pre766 = load ptr, ptr %0, align 8
+  %.pre765 = load ptr, ptr %0, align 8
   br label %359
 
 359:                                              ; preds = %331, %343, %320
-  %360 = phi ptr [ %.pre767, %331 ], [ %.pre766, %343 ], [ %321, %320 ]
+  %360 = phi ptr [ %.pre766, %331 ], [ %.pre765, %343 ], [ %321, %320 ]
   %361 = load ptr, ptr %360, align 8
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 104
   %363 = load ptr, ptr %362, align 8
@@ -707,15 +707,15 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %414 = getelementptr inbounds nuw i8, ptr %409, i64 48
   %415 = load ptr, ptr %414, align 8
   call void %412(ptr noundef %415)
-  %.pre768 = load ptr, ptr %0, align 8
+  %.pre767 = load ptr, ptr %0, align 8
   br label %416
 
 416:                                              ; preds = %413, %395
-  %417 = phi ptr [ %.pre768, %413 ], [ %409, %395 ]
+  %417 = phi ptr [ %.pre767, %413 ], [ %409, %395 ]
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 32
   %419 = load ptr, ptr %418, align 8
   call void @g_free(ptr noundef %419)
-  br label %.loopexit522
+  br label %.loopexit521
 
 420:                                              ; preds = %359
   store i32 5, ptr %54, align 4
@@ -734,9 +734,9 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %430 = getelementptr inbounds nuw i8, ptr %429, i64 120
   %431 = load i32, ptr %430, align 8
   %432 = icmp ult i32 %428, %431
-  br i1 %432, label %.lr.ph658, label %.thread.thread
+  br i1 %432, label %.lr.ph657, label %.thread.thread
 
-.lr.ph658:                                        ; preds = %421, %442
+.lr.ph657:                                        ; preds = %421, %442
   %433 = phi ptr [ %476, %442 ], [ %429, %421 ]
   %434 = phi i32 [ %475, %442 ], [ %428, %421 ]
   %435 = phi ptr [ %473, %442 ], [ %426, %421 ]
@@ -745,7 +745,7 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %.not464 = icmp eq ptr %437, null
   br i1 %.not464, label %.thread, label %438
 
-438:                                              ; preds = %.lr.ph658
+438:                                              ; preds = %.lr.ph657
   %439 = zext i32 %434 to i64
   %440 = getelementptr ptr, ptr %437, i64 %439
   %441 = load ptr, ptr %440, align 8
@@ -793,22 +793,22 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 120
   %478 = load i32, ptr %477, align 8
   %479 = icmp ult i32 %475, %478
-  br i1 %479, label %.lr.ph658, label %.thread
+  br i1 %479, label %.lr.ph657, label %.thread
 
-.thread:                                          ; preds = %442, %.lr.ph658, %438
-  %480 = phi ptr [ %433, %438 ], [ %433, %.lr.ph658 ], [ %476, %442 ]
-  %481 = phi ptr [ %435, %438 ], [ %435, %.lr.ph658 ], [ %473, %442 ]
-  %.phi.trans.insert761 = getelementptr inbounds nuw i8, ptr %481, i64 28
-  %.pre762 = load i32, ptr %.phi.trans.insert761, align 4
-  %.phi.trans.insert763 = getelementptr inbounds nuw i8, ptr %480, i64 120
-  %.pre764 = load i32, ptr %.phi.trans.insert763, align 8
-  %482 = icmp ult i32 %.pre762, %.pre764
+.thread:                                          ; preds = %442, %.lr.ph657, %438
+  %480 = phi ptr [ %433, %438 ], [ %433, %.lr.ph657 ], [ %476, %442 ]
+  %481 = phi ptr [ %435, %438 ], [ %435, %.lr.ph657 ], [ %473, %442 ]
+  %.phi.trans.insert760 = getelementptr inbounds nuw i8, ptr %481, i64 28
+  %.pre761 = load i32, ptr %.phi.trans.insert760, align 4
+  %.phi.trans.insert762 = getelementptr inbounds nuw i8, ptr %480, i64 120
+  %.pre763 = load i32, ptr %.phi.trans.insert762, align 8
+  %482 = icmp ult i32 %.pre761, %.pre763
   br i1 %482, label %483, label %.thread.thread
 
 483:                                              ; preds = %.thread
   %484 = getelementptr inbounds nuw i8, ptr %480, i64 104
   %485 = load ptr, ptr %484, align 8
-  %486 = zext i32 %.pre762 to i64
+  %486 = zext i32 %.pre761 to i64
   %487 = getelementptr %struct._uat_field_t, ptr %485, i64 %486
   %488 = load ptr, ptr %487, align 8
   %489 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6, ptr noundef %488)
@@ -832,21 +832,21 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %504 = getelementptr inbounds nuw i8, ptr %503, i64 80
   %505 = load ptr, ptr %504, align 8
   %.not466 = icmp eq ptr %505, null
-  br i1 %.not466, label %.thread516, label %506
+  br i1 %.not466, label %.thread515, label %506
 
 506:                                              ; preds = %483
   %507 = getelementptr inbounds nuw i8, ptr %502, i64 48
   %508 = load ptr, ptr %507, align 8
   call void %505(ptr noundef %508)
-  %.pre765 = load ptr, ptr %0, align 8
-  br label %.thread516
+  %.pre764 = load ptr, ptr %0, align 8
+  br label %.thread515
 
-.thread516:                                       ; preds = %483, %506
-  %509 = phi ptr [ %502, %483 ], [ %.pre765, %506 ]
+.thread515:                                       ; preds = %483, %506
+  %509 = phi ptr [ %502, %483 ], [ %.pre764, %506 ]
   %510 = getelementptr inbounds nuw i8, ptr %509, i64 32
   %511 = load ptr, ptr %510, align 8
   call void @g_free(ptr noundef %511)
-  br label %.loopexit522
+  br label %.loopexit521
 
 .thread.thread:                                   ; preds = %421, %.thread
   %512 = phi ptr [ %481, %.thread ], [ %426, %421 ]
@@ -910,15 +910,15 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %549 = getelementptr inbounds nuw i8, ptr %544, i64 48
   %550 = load ptr, ptr %549, align 8
   call void %547(ptr noundef %550)
-  %.pre760 = load ptr, ptr %0, align 8
+  %.pre759 = load ptr, ptr %0, align 8
   br label %551
 
 551:                                              ; preds = %548, %520
-  %552 = phi ptr [ %.pre760, %548 ], [ %544, %520 ]
+  %552 = phi ptr [ %.pre759, %548 ], [ %544, %520 ]
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 32
   %554 = load ptr, ptr %553, align 8
   call void @g_free(ptr noundef %554)
-  br label %.loopexit522
+  br label %.loopexit521
 
 555:                                              ; preds = %118
   %556 = load ptr, ptr %0, align 8
@@ -965,11 +965,11 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %587 = getelementptr inbounds nuw i8, ptr %575, i64 72
   %588 = load ptr, ptr %587, align 8
   %589 = call zeroext i1 %577(ptr noundef %580, ptr noundef %582, i32 noundef %584, ptr noundef %586, ptr noundef %588, ptr noundef nonnull %5)
-  %.pre754 = load ptr, ptr %0, align 8
+  %.pre753 = load ptr, ptr %0, align 8
   br i1 %589, label %606, label %590
 
 590:                                              ; preds = %578
-  %591 = getelementptr inbounds nuw i8, ptr %.pre754, i64 16
+  %591 = getelementptr inbounds nuw i8, ptr %.pre753, i64 16
   %592 = load ptr, ptr %591, align 8
   call void @g_free(ptr noundef %592)
   %593 = load ptr, ptr %0, align 8
@@ -988,11 +988,11 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %604 = load ptr, ptr %0, align 8
   %605 = getelementptr inbounds nuw i8, ptr %604, i64 24
   store i8 0, ptr %605, align 8
-  %.pre753 = load ptr, ptr %0, align 8
+  %.pre752 = load ptr, ptr %0, align 8
   br label %606
 
 606:                                              ; preds = %578, %590, %563
-  %607 = phi ptr [ %.pre754, %578 ], [ %.pre753, %590 ], [ %568, %563 ]
+  %607 = phi ptr [ %.pre753, %578 ], [ %.pre752, %590 ], [ %568, %563 ]
   %608 = load ptr, ptr %607, align 8
   %609 = getelementptr inbounds nuw i8, ptr %608, i64 104
   %610 = load ptr, ptr %609, align 8
@@ -1045,15 +1045,15 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
 
 650:                                              ; preds = %606
   %651 = call zeroext i1 %647(ptr noundef nonnull %643, ptr noundef nonnull %4)
-  %.pre755 = load ptr, ptr %0, align 8
-  br i1 %651, label %._crit_edge756, label %652
+  %.pre754 = load ptr, ptr %0, align 8
+  br i1 %651, label %._crit_edge755, label %652
 
-._crit_edge756:                                   ; preds = %650
-  %.pre757 = load ptr, ptr %.pre755, align 8
+._crit_edge755:                                   ; preds = %650
+  %.pre756 = load ptr, ptr %.pre754, align 8
   br label %658
 
 652:                                              ; preds = %650
-  %653 = getelementptr inbounds nuw i8, ptr %.pre755, i64 16
+  %653 = getelementptr inbounds nuw i8, ptr %.pre754, i64 16
   %654 = load ptr, ptr %653, align 8
   call void @g_free(ptr noundef %654)
   %655 = load ptr, ptr %4, align 8
@@ -1061,11 +1061,11 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %657 = getelementptr inbounds nuw i8, ptr %656, i64 16
   store ptr %655, ptr %657, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit522
+  br label %.loopexit521
 
-658:                                              ; preds = %._crit_edge756, %606
-  %659 = phi ptr [ %.pre757, %._crit_edge756 ], [ %645, %606 ]
-  %660 = phi ptr [ %.pre755, %._crit_edge756 ], [ %644, %606 ]
+658:                                              ; preds = %._crit_edge755, %606
+  %659 = phi ptr [ %.pre756, %._crit_edge755 ], [ %645, %606 ]
+  %660 = phi ptr [ %.pre754, %._crit_edge755 ], [ %644, %606 ]
   %661 = getelementptr inbounds nuw i8, ptr %659, i64 80
   %662 = load ptr, ptr %661, align 8
   %.not462 = icmp eq ptr %662, null
@@ -1075,13 +1075,13 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %664 = getelementptr inbounds nuw i8, ptr %660, i64 48
   %665 = load ptr, ptr %664, align 8
   call void %662(ptr noundef %665)
-  %.pre758 = load ptr, ptr %0, align 8
-  %.pre759 = load ptr, ptr %.pre758, align 8
+  %.pre757 = load ptr, ptr %0, align 8
+  %.pre758 = load ptr, ptr %.pre757, align 8
   br label %.critedge
 
 .critedge:                                        ; preds = %663, %658
-  %666 = phi ptr [ %.pre759, %663 ], [ %659, %658 ]
-  %667 = phi ptr [ %.pre758, %663 ], [ %660, %658 ]
+  %666 = phi ptr [ %.pre758, %663 ], [ %659, %658 ]
+  %667 = phi ptr [ %.pre757, %663 ], [ %660, %658 ]
   %668 = getelementptr inbounds nuw i8, ptr %667, i64 48
   %669 = load ptr, ptr %668, align 8
   %670 = getelementptr inbounds nuw i8, ptr %666, i64 8
@@ -1132,15 +1132,15 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %700 = getelementptr inbounds nuw i8, ptr %695, i64 48
   %701 = load ptr, ptr %700, align 8
   call void %698(ptr noundef %701)
-  %.pre752 = load ptr, ptr %0, align 8
+  %.pre751 = load ptr, ptr %0, align 8
   br label %702
 
 702:                                              ; preds = %699, %680
-  %703 = phi ptr [ %.pre752, %699 ], [ %695, %680 ]
+  %703 = phi ptr [ %.pre751, %699 ], [ %695, %680 ]
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 32
   %705 = load ptr, ptr %704, align 8
   call void @g_free(ptr noundef %705)
-  br label %.loopexit522
+  br label %.loopexit521
 
 706:                                              ; preds = %118
   %707 = load ptr, ptr %0, align 8
@@ -1184,15 +1184,15 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %734 = getelementptr inbounds nuw i8, ptr %729, i64 48
   %735 = load ptr, ptr %734, align 8
   call void %732(ptr noundef %735)
-  %.pre751 = load ptr, ptr %0, align 8
+  %.pre750 = load ptr, ptr %0, align 8
   br label %736
 
 736:                                              ; preds = %733, %711
-  %737 = phi ptr [ %.pre751, %733 ], [ %729, %711 ]
+  %737 = phi ptr [ %.pre750, %733 ], [ %729, %711 ]
   %738 = getelementptr inbounds nuw i8, ptr %737, i64 32
   %739 = load ptr, ptr %738, align 8
   call void @g_free(ptr noundef %739)
-  br label %.loopexit522
+  br label %.loopexit521
 
 740:                                              ; preds = %118
   %741 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.11)
@@ -1222,15 +1222,15 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %759 = getelementptr inbounds nuw i8, ptr %754, i64 48
   %760 = load ptr, ptr %759, align 8
   call void %757(ptr noundef %760)
-  %.pre750 = load ptr, ptr %0, align 8
+  %.pre749 = load ptr, ptr %0, align 8
   br label %761
 
 761:                                              ; preds = %758, %740
-  %762 = phi ptr [ %.pre750, %758 ], [ %754, %740 ]
+  %762 = phi ptr [ %.pre749, %758 ], [ %754, %740 ]
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 32
   %764 = load ptr, ptr %763, align 8
   call void @g_free(ptr noundef %764)
-  br label %.loopexit522
+  br label %.loopexit521
 
 765:                                              ; preds = %118
   %766 = load ptr, ptr %57, align 8
@@ -1266,16 +1266,16 @@ define hidden noundef i32 @uat_load_lex(ptr noundef %0) local_unnamed_addr #0 {
   %789 = load ptr, ptr %788, align 8
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 56
   store i32 1, ptr %790, align 8
-  %.pre742 = load ptr, ptr %59, align 8
-  %.pre743 = load i64, ptr %60, align 8
-  %.phi.trans.insert744 = getelementptr ptr, ptr %.pre742, i64 %.pre743
-  %.pre745 = load ptr, ptr %.phi.trans.insert744, align 8
+  %.pre741 = load ptr, ptr %59, align 8
+  %.pre742 = load i64, ptr %60, align 8
+  %.phi.trans.insert743 = getelementptr ptr, ptr %.pre741, i64 %.pre742
+  %.pre744 = load ptr, ptr %.phi.trans.insert743, align 8
   br label %791
 
 791:                                              ; preds = %781, %771
-  %792 = phi ptr [ %.pre745, %781 ], [ %777, %771 ]
-  %793 = phi i64 [ %.pre743, %781 ], [ %775, %771 ]
-  %794 = phi ptr [ %.pre742, %781 ], [ %774, %771 ]
+  %792 = phi ptr [ %.pre744, %781 ], [ %777, %771 ]
+  %793 = phi i64 [ %.pre742, %781 ], [ %775, %771 ]
+  %794 = phi ptr [ %.pre741, %781 ], [ %774, %771 ]
   %795 = load ptr, ptr %52, align 8
   %796 = getelementptr inbounds nuw i8, ptr %792, i64 8
   %797 = load ptr, ptr %796, align 8
@@ -1417,25 +1417,25 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i477, %856
   %875 = load i16, ptr %874, align 2
   %876 = icmp eq i16 %875, 75
   %877 = and i64 %.lcssa.i479, 9223372036854775807
-  %.not457520 = icmp eq i64 %877, 0
-  %.not457 = or i1 %876, %.not457520
-  br i1 %.not457, label %.backedge.sink.split1087.backedge, label %878
+  %.not457519 = icmp eq i64 %877, 0
+  %.not457 = or i1 %876, %.not457519
+  br i1 %.not457, label %.backedge.sink.split1086.backedge, label %878
 
-.backedge.sink.split1087.backedge:                ; preds = %yy_try_NUL_trans.exit, %119
+.backedge.sink.split1086.backedge:                ; preds = %yy_try_NUL_trans.exit, %119
   %.1416.ph.be = phi ptr [ %.1416, %119 ], [ %806, %yy_try_NUL_trans.exit ]
-  br label %.backedge.sink.split1087
+  br label %.backedge.sink.split1086
 
 878:                                              ; preds = %yy_try_NUL_trans.exit
   %879 = sext i16 %875 to i32
   %880 = getelementptr i8, ptr %808, i64 1
   store ptr %880, ptr %52, align 8
-  br label %.loopexit523.backedge
+  br label %.loopexit522.backedge
 
-.loopexit523.backedge:                            ; preds = %._crit_edge.i495, %878, %1068
+.loopexit522.backedge:                            ; preds = %._crit_edge.i495, %878, %1068
   %.0415.be = phi ptr [ %1066, %1068 ], [ %806, %878 ], [ %1066, %._crit_edge.i495 ]
   %.0409.be = phi ptr [ %1074, %1068 ], [ %880, %878 ], [ %1074, %._crit_edge.i495 ]
   %.0404.be = phi i32 [ %1075, %1068 ], [ %879, %878 ], [ %1116, %._crit_edge.i495 ]
-  br label %.loopexit523
+  br label %.loopexit522
 
 881:                                              ; preds = %791
   %882 = load ptr, ptr %57, align 8
@@ -1460,7 +1460,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i477, %856
 894:                                              ; preds = %888
   %895 = sub i64 %892, %893
   %896 = icmp eq i64 %895, 1
-  br i1 %896, label %yy_get_previous_state.exit498, label %yy_get_next_buffer.exit.thread518
+  br i1 %896, label %yy_get_previous_state.exit498, label %yy_get_next_buffer.exit.thread517
 
 897:                                              ; preds = %888
   %898 = xor i64 %893, -1
@@ -1771,33 +1771,33 @@ yy_get_next_buffer.exit:                          ; preds = %1011, %1040
   %1065 = getelementptr inbounds nuw i8, ptr %1064, i64 8
   %1066 = load ptr, ptr %1065, align 8
   store ptr %1066, ptr %57, align 8
-  switch i32 %.0123.i, label %default.unreachable823 [
+  switch i32 %.0123.i, label %default.unreachable822 [
     i32 1, label %yy_get_previous_state.exit498
     i32 0, label %1068
-    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread518_crit_edge
+    i32 2, label %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread517_crit_edge
   ]
 
-yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread518_crit_edge: ; preds = %yy_get_next_buffer.exit
+yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread517_crit_edge: ; preds = %yy_get_next_buffer.exit
   %1067 = getelementptr ptr, ptr %1061, i64 %1062
-  %.pre746 = load ptr, ptr %1067, align 8
-  %.phi.trans.insert747 = getelementptr inbounds nuw i8, ptr %.pre746, i64 8
-  %.pre748 = load ptr, ptr %.phi.trans.insert747, align 8
-  %.pre749 = load i32, ptr %61, align 4
-  %.pre773 = sext i32 %.pre749 to i64
-  br label %yy_get_next_buffer.exit.thread518
+  %.pre745 = load ptr, ptr %1067, align 8
+  %.phi.trans.insert746 = getelementptr inbounds nuw i8, ptr %.pre745, i64 8
+  %.pre747 = load ptr, ptr %.phi.trans.insert746, align 8
+  %.pre748 = load i32, ptr %61, align 4
+  %.pre772 = sext i32 %.pre748 to i64
+  br label %yy_get_next_buffer.exit.thread517
 
 1068:                                             ; preds = %yy_get_next_buffer.exit
   %1069 = ptrtoint ptr %.2411 to i64
   %1070 = ptrtoint ptr %772 to i64
   %1071 = xor i64 %1070, -1
   %1072 = add i64 %1071, %1069
-  %sext969 = shl i64 %1072, 32
-  %1073 = ashr exact i64 %sext969, 32
+  %sext968 = shl i64 %1072, 32
+  %1073 = ashr exact i64 %sext968, 32
   %1074 = getelementptr i8, ptr %1066, i64 %1073
   store ptr %1074, ptr %52, align 8
   %1075 = load i32, ptr %54, align 4
   %1076 = icmp ult ptr %1066, %1074
-  br i1 %1076, label %.lr.ph31.i485, label %.loopexit523.backedge
+  br i1 %1076, label %.lr.ph31.i485, label %.loopexit522.backedge
 
 .lr.ph31.i485:                                    ; preds = %1068, %._crit_edge.i495
   %.02129.i486 = phi i32 [ %1116, %._crit_edge.i495 ], [ %1075, %1068 ]
@@ -1871,25 +1871,25 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread518_crit_edge: ; preds = %
   %1116 = sext i16 %1115 to i32
   %1117 = getelementptr i8, ptr %.02328.i487, i64 1
   %exitcond.not.i497 = icmp eq ptr %1117, %1074
-  br i1 %exitcond.not.i497, label %.loopexit523.backedge, label %.lr.ph31.i485, !llvm.loop !12
+  br i1 %exitcond.not.i497, label %.loopexit522.backedge, label %.lr.ph31.i485, !llvm.loop !12
 
-yy_get_next_buffer.exit.thread518:                ; preds = %894, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread518_crit_edge
-  %.pre-phi = phi i64 [ %.pre773, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread518_crit_edge ], [ %799, %894 ]
-  %1118 = phi ptr [ %1066, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread518_crit_edge ], [ %882, %894 ]
-  %1119 = phi ptr [ %.pre748, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread518_crit_edge ], [ %797, %894 ]
+yy_get_next_buffer.exit.thread517:                ; preds = %894, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread517_crit_edge
+  %.pre-phi = phi i64 [ %.pre772, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread517_crit_edge ], [ %799, %894 ]
+  %1118 = phi ptr [ %1066, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread517_crit_edge ], [ %882, %894 ]
+  %1119 = phi ptr [ %.pre747, %yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread517_crit_edge ], [ %797, %894 ]
   %1120 = getelementptr i8, ptr %1119, i64 %.pre-phi
   store ptr %1120, ptr %52, align 8
   %1121 = load i32, ptr %54, align 4
   %1122 = icmp ult ptr %1118, %1120
   br i1 %1122, label %.lr.ph31.i500, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %._crit_edge.i510, %yy_get_next_buffer.exit.thread518
-  %.3407.be = phi i32 [ %1121, %yy_get_next_buffer.exit.thread518 ], [ %1162, %._crit_edge.i510 ]
+.backedge.backedge:                               ; preds = %._crit_edge.i510, %yy_get_next_buffer.exit.thread517
+  %.3407.be = phi i32 [ %1121, %yy_get_next_buffer.exit.thread517 ], [ %1162, %._crit_edge.i510 ]
   br label %.backedge
 
-.lr.ph31.i500:                                    ; preds = %yy_get_next_buffer.exit.thread518, %._crit_edge.i510
-  %.02129.i501 = phi i32 [ %1162, %._crit_edge.i510 ], [ %1121, %yy_get_next_buffer.exit.thread518 ]
-  %.02328.i502 = phi ptr [ %1163, %._crit_edge.i510 ], [ %1118, %yy_get_next_buffer.exit.thread518 ]
+.lr.ph31.i500:                                    ; preds = %yy_get_next_buffer.exit.thread517, %._crit_edge.i510
+  %.02129.i501 = phi i32 [ %1162, %._crit_edge.i510 ], [ %1121, %yy_get_next_buffer.exit.thread517 ]
+  %.02328.i502 = phi ptr [ %1163, %._crit_edge.i510 ], [ %1118, %yy_get_next_buffer.exit.thread517 ]
   %1123 = load i8, ptr %.02328.i502, align 1
   %.not.i503 = icmp eq i8 %1123, 0
   br i1 %.not.i503, label %1128, label %1124
@@ -1961,7 +1961,7 @@ yy_get_next_buffer.exit.thread518:                ; preds = %894, %yy_get_next_b
   %exitcond.not.i512 = icmp eq ptr %1163, %1120
   br i1 %exitcond.not.i512, label %.backedge.backedge, label %.lr.ph31.i500, !llvm.loop !12
 
-default.unreachable823:                           ; preds = %yy_get_next_buffer.exit
+default.unreachable822:                           ; preds = %yy_get_next_buffer.exit
   unreachable
 
 yy_get_previous_state.exit498:                    ; preds = %yy_get_next_buffer.exit, %894
@@ -1978,7 +1978,7 @@ yy_get_previous_state.exit498:                    ; preds = %yy_get_next_buffer.
   call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.12) #28
   unreachable
 
-.loopexit522:                                     ; preds = %118, %118, %118, %118, %118, %118, %.thread516, %652, %761, %736, %702, %551, %416, %306, %232
+.loopexit521:                                     ; preds = %118, %118, %118, %118, %118, %118, %.thread515, %652, %761, %736, %702, %551, %416, %306, %232
   ret i32 0
 }
 

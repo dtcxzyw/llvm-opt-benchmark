@@ -212,9 +212,9 @@ define hidden void @_ZN10wasmparser9validator9operators17OperatorValidator8new_f
   br label %80
 
 77:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit"
-  %.sroa.034.042 = phi ptr [ %72, %.lr.ph ], [ %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit" ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.034.042, i64 4
-  %.sroa.011.0.copyload = load i32, ptr %.sroa.034.042, align 1
+  %.sroa.034.041 = phi ptr [ %72, %.lr.ph ], [ %78, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cec11ea1559d9f6E.exit" ]
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.034.041, i64 4
+  %.sroa.011.0.copyload = load i32, ptr %.sroa.034.041, align 1
   %79 = invoke noundef zeroext i1 @_ZN10wasmparser9validator9operators6Locals6define17h638e428ec2fb3330E(ptr noalias noundef nonnull align 8 dereferenceable(56) %24, i32 noundef 1, i32 %.sroa.011.0.copyload)
           to label %81 unwind label %.loopexit
 

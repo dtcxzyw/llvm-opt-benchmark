@@ -140,17 +140,17 @@ _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit: ; preds = %.lr.ph.
   %47 = zext i32 %46 to i64
   %.idx.i.i = shl nuw nsw i64 %47, 3
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %46, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %46, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %44, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %50, %.critedge.i.i ], [ %45, %44 ]
-  %49 = load ptr, ptr %.02937.i.i, align 8, !tbaa !18, !noalias !24
+  %.02935.i.i = phi ptr [ %50, %.critedge.i.i ], [ %45, %44 ]
+  %49 = load ptr, ptr %.02935.i.i, align 8, !tbaa !18, !noalias !24
   %.not17.i.i = icmp eq ptr %49, %33
   br i1 %.not17.i.i, label %.loopexit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %50 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %50 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i8 = icmp eq ptr %50, %48
   br i1 %.not.i.i8, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
 
@@ -257,26 +257,26 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm8SmallSetINS_8DebugLocELj
   %18 = zext i32 %17 to i64
   %.idx.i = shl nuw nsw i64 %18, 3
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx.i
-  %.not13.i = icmp eq i32 %17, 0
-  br i1 %.not13.i, label %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i
+  %.not11.i = icmp eq i32 %17, 0
+  br i1 %.not11.i, label %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
   %20 = load ptr, ptr %1, align 8, !tbaa !21
   br label %21
 
 21:                                               ; preds = %24, %.lr.ph.i
-  %.0914.i = phi ptr [ %15, %.lr.ph.i ], [ %25, %24 ]
-  %22 = load ptr, ptr %.0914.i, align 8, !tbaa !21
+  %.0912.i = phi ptr [ %15, %.lr.ph.i ], [ %25, %24 ]
+  %22 = load ptr, ptr %.0912.i, align 8, !tbaa !21
   %23 = icmp eq ptr %22, %20
   br i1 %23, label %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
   %.not.i = icmp eq ptr %25, %19
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit, label %21, !llvm.loop !53
 
 _ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %21, %24, %14
-  %.1.i = phi ptr [ %19, %14 ], [ %19, %24 ], [ %.0914.i, %21 ]
+  %.1.i = phi ptr [ %19, %14 ], [ %.0912.i, %21 ], [ %19, %24 ]
   %26 = getelementptr inbounds nuw %"class.llvm::DebugLoc", ptr %15, i64 %18
   %.not.not = icmp eq ptr %.1.i, %26
   br i1 %.not.not, label %_ZN4llvm15SmallVectorImplINS_8DebugLocEE5eraseEPKS1_.exit, label %27
@@ -453,17 +453,17 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver12createdInstrERNS_12Machin
   %11 = zext i32 %10 to i64
   %.idx.i.i = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %10, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %10, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %14, %.critedge.i.i ], [ %8, %7 ]
-  %13 = load ptr, ptr %.02937.i.i, align 8, !tbaa !18, !noalias !59
+  %.02935.i.i = phi ptr [ %14, %.critedge.i.i ], [ %8, %7 ]
+  %13 = load ptr, ptr %.02935.i.i, align 8, !tbaa !18, !noalias !59
   %.not17.i.i = icmp eq ptr %13, %1
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %14, %12
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
 
@@ -513,28 +513,28 @@ _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
   %14 = zext i32 %13 to i64
   %.idx.i.i = shl nuw nsw i64 %14, 3
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
-  %.not1316.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not1316.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit, label %.lr.ph.i.i
+  %.not1316.i.i = icmp eq i32 %13, 0
+  br i1 %.not1316.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %10, %23
-  %.01217.i.i = phi ptr [ %24, %23 ], [ %11, %10 ]
+.lr.ph.i.i:                                       ; preds = %10, %18
+  %.01217.i.i = phi ptr [ %19, %18 ], [ %11, %10 ]
   %16 = load ptr, ptr %.01217.i.i, align 8, !tbaa !18
   %17 = icmp eq ptr %16, %1
-  br i1 %17, label %18, label %23
+  br i1 %17, label %20, label %18
 
 18:                                               ; preds = %.lr.ph.i.i
-  %19 = add i32 %13, -1
-  store i32 %19, ptr %12, align 4, !tbaa !9
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %11, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !18
-  store ptr %22, ptr %.01217.i.i, align 8, !tbaa !18
-  br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit
+  %19 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
+  %.not13.i.i = icmp eq ptr %19, %15
+  br i1 %.not13.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit, label %.lr.ph.i.i, !llvm.loop !80
 
-23:                                               ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
-  %.not13.not.i.i = icmp eq ptr %24, %15
-  br i1 %.not13.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit, label %.lr.ph.i.i, !llvm.loop !80
+20:                                               ; preds = %.lr.ph.i.i
+  %21 = add i32 %13, -1
+  store i32 %21, ptr %12, align 4, !tbaa !9
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %22
+  %24 = load ptr, ptr %23, align 8, !tbaa !18
+  store ptr %24, ptr %.01217.i.i, align 8, !tbaa !18
+  br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit
 
 25:                                               ; preds = %_ZL30irTranslatorNeverAddsLocationsj.exit
   %26 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull %1) #11
@@ -549,7 +549,7 @@ _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
   store i32 %30, ptr %28, align 8, !tbaa !12
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit
 
-_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit: ; preds = %23, %10, %18, %25, %27
+_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit: ; preds = %18, %10, %20, %25, %27
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %.not = icmp eq ptr %32, null
@@ -590,28 +590,28 @@ _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
   %14 = zext i32 %13 to i64
   %.idx.i.i = shl nuw nsw i64 %14, 3
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx.i.i
-  %.not1316.not.i.i = icmp eq i32 %13, 0
-  br i1 %.not1316.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit, label %.lr.ph.i.i
+  %.not1316.i.i = icmp eq i32 %13, 0
+  br i1 %.not1316.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %10, %23
-  %.01217.i.i = phi ptr [ %24, %23 ], [ %11, %10 ]
+.lr.ph.i.i:                                       ; preds = %10, %18
+  %.01217.i.i = phi ptr [ %19, %18 ], [ %11, %10 ]
   %16 = load ptr, ptr %.01217.i.i, align 8, !tbaa !18
   %17 = icmp eq ptr %16, %1
-  br i1 %17, label %18, label %23
+  br i1 %17, label %20, label %18
 
 18:                                               ; preds = %.lr.ph.i.i
-  %19 = add i32 %13, -1
-  store i32 %19, ptr %12, align 4, !tbaa !9
-  %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %11, i64 %20
-  %22 = load ptr, ptr %21, align 8, !tbaa !18
-  store ptr %22, ptr %.01217.i.i, align 8, !tbaa !18
-  br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit
+  %19 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
+  %.not13.i.i = icmp eq ptr %19, %15
+  br i1 %.not13.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit, label %.lr.ph.i.i, !llvm.loop !80
 
-23:                                               ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
-  %.not13.not.i.i = icmp eq ptr %24, %15
-  br i1 %.not13.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit, label %.lr.ph.i.i, !llvm.loop !80
+20:                                               ; preds = %.lr.ph.i.i
+  %21 = add i32 %13, -1
+  store i32 %21, ptr %12, align 4, !tbaa !9
+  %22 = zext i32 %21 to i64
+  %23 = getelementptr inbounds nuw ptr, ptr %11, i64 %22
+  %24 = load ptr, ptr %23, align 8, !tbaa !18
+  store ptr %24, ptr %.01217.i.i, align 8, !tbaa !18
+  br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit
 
 25:                                               ; preds = %_ZL30irTranslatorNeverAddsLocationsj.exit
   %26 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %6, ptr noundef nonnull %1) #11
@@ -626,7 +626,7 @@ _ZL30irTranslatorNeverAddsLocationsj.exit:        ; preds = %2
   store i32 %30, ptr %28, align 8, !tbaa !12
   br label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit
 
-_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit: ; preds = %23, %10, %18, %25, %27
+_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5eraseES2_.exit: ; preds = %18, %10, %20, %25, %27
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %.not = icmp eq ptr %32, null
@@ -656,17 +656,17 @@ define dso_local void @_ZN4llvm20LostDebugLocObserver12changedInstrERNS_12Machin
   %11 = zext i32 %10 to i64
   %.idx.i.i = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %10, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %10, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %14, %.critedge.i.i ], [ %8, %7 ]
-  %13 = load ptr, ptr %.02937.i.i, align 8, !tbaa !18, !noalias !81
+  %.02935.i.i = phi ptr [ %14, %.critedge.i.i ], [ %8, %7 ]
+  %13 = load ptr, ptr %.02935.i.i, align 8, !tbaa !18, !noalias !81
   %.not17.i.i = icmp eq ptr %13, %1
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_12MachineInstrEE6insertES2_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %14, %12
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !27
 
@@ -1093,26 +1093,26 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_E
   %15 = zext i32 %14 to i64
   %.idx.i = shl nuw nsw i64 %15, 3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
-  %.not13.i = icmp eq i32 %14, 0
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  %.not11.i = icmp eq i32 %14, 0
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
   %17 = load ptr, ptr %2, align 8, !tbaa !21
   br label %18
 
 18:                                               ; preds = %21, %.lr.ph.i
-  %.0914.i = phi ptr [ %12, %.lr.ph.i ], [ %22, %21 ]
-  %19 = load ptr, ptr %.0914.i, align 8, !tbaa !21
+  %.0912.i = phi ptr [ %12, %.lr.ph.i ], [ %22, %21 ]
+  %19 = load ptr, ptr %.0912.i, align 8, !tbaa !21
   %20 = icmp eq ptr %19, %17
   br i1 %20, label %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit, label %21
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 8
   %.not.i = icmp eq ptr %22, %16
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %18, !llvm.loop !53
 
 _ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %18
-  %.not = icmp eq ptr %.0914.i, %16
+  %.not = icmp eq ptr %.0912.i, %16
   br i1 %.not, label %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %63
 
 _ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit.thread: ; preds = %21, %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit
@@ -1224,11 +1224,11 @@ _ZN4llvm15SmallVectorImplINS_8DebugLocEE5clearEv.exit: ; preds = %_ZN4llvm8Debug
 
 63:                                               ; preds = %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit, %_ZN4llvm23SmallVectorTemplateBaseINS_8DebugLocELb0EE9push_backERKS1_.exit, %_ZN4llvm15SmallVectorImplINS_8DebugLocEE5clearEv.exit, %8
   %.sink52 = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseINS_8DebugLocELb0EE9push_backERKS1_.exit ], [ 0, %_ZN4llvm15SmallVectorImplINS_8DebugLocEE5clearEv.exit ], [ 0, %8 ], [ 1, %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit ]
-  %.0914.i.lcssa.sink = phi ptr [ %49, %_ZN4llvm23SmallVectorTemplateBaseINS_8DebugLocELb0EE9push_backERKS1_.exit ], [ %.fca.0.extract, %_ZN4llvm15SmallVectorImplINS_8DebugLocEE5clearEv.exit ], [ %.fca.0.extract9, %8 ], [ %.0914.i, %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit ]
+  %.0912.i.lcssa.sink = phi ptr [ %49, %_ZN4llvm23SmallVectorTemplateBaseINS_8DebugLocELb0EE9push_backERKS1_.exit ], [ %.fca.0.extract, %_ZN4llvm15SmallVectorImplINS_8DebugLocEE5clearEv.exit ], [ %.fca.0.extract9, %8 ], [ %.0912.i, %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit ]
   %.sink = phi i8 [ 1, %_ZN4llvm23SmallVectorTemplateBaseINS_8DebugLocELb0EE9push_backERKS1_.exit ], [ 1, %_ZN4llvm15SmallVectorImplINS_8DebugLocEE5clearEv.exit ], [ %.fca.1.extract10, %8 ], [ 0, %_ZNK4llvm8SmallSetINS_8DebugLocELj4ESt4lessIS1_EE5vfindERKS1_.exit ]
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %.sink52, ptr %64, align 8, !tbaa !100
-  %65 = ptrtoint ptr %.0914.i.lcssa.sink to i64
+  %65 = ptrtoint ptr %.0912.i.lcssa.sink to i64
   store i64 %65, ptr %0, align 8, !tbaa !102
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 %.sink, ptr %66, align 8, !tbaa !103

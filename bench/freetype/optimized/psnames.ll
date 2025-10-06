@@ -33,7 +33,7 @@ define internal ptr @psnames_get_service(ptr readnone captures(none) %0, ptr nou
 define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0) #1 {
   %2 = load i8, ptr %0, align 1, !tbaa !3
   %3 = icmp eq i8 %2, 117
-  br i1 %3, label %4, label %.thread91.preheader
+  br i1 %3, label %4, label %.thread89.preheader
 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -53,115 +53,115 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   br label %14
 
 14:                                               ; preds = %12, %23
-  %.068120 = phi i32 [ 4, %12 ], [ %26, %23 ]
-  %.069119 = phi ptr [ %13, %12 ], [ %27, %23 ]
-  %.070118 = phi i32 [ 0, %12 ], [ %25, %23 ]
-  %15 = load i8, ptr %.069119, align 1, !tbaa !3
+  %.068117 = phi i32 [ 4, %12 ], [ %26, %23 ]
+  %.069116 = phi ptr [ %13, %12 ], [ %27, %23 ]
+  %.070115 = phi i32 [ 0, %12 ], [ %25, %23 ]
+  %15 = load i8, ptr %.069116, align 1, !tbaa !3
   %16 = zext i8 %15 to i32
   %17 = add nsw i32 %16, -48
   %18 = icmp ugt i32 %17, 9
   %19 = add i8 %15, -71
   %20 = icmp ult i8 %19, -6
   %21 = add nsw i32 %16, -55
-  %spec.select84 = select i1 %20, i32 16, i32 %21
-  %.067 = select i1 %18, i32 %spec.select84, i32 %17
+  %spec.select83 = select i1 %20, i32 16, i32 %21
+  %.067 = select i1 %18, i32 %spec.select83, i32 %17
   %22 = icmp ugt i32 %.067, 15
   br i1 %22, label %.thread, label %23
 
 23:                                               ; preds = %14
-  %24 = shl i32 %.070118, 4
+  %24 = shl i32 %.070115, 4
   %25 = or disjoint i32 %.067, %24
-  %26 = add nsw i32 %.068120, -1
-  %27 = getelementptr inbounds nuw i8, ptr %.069119, i64 1
-  %28 = icmp samesign ugt i32 %.068120, 1
+  %26 = add nsw i32 %.068117, -1
+  %27 = getelementptr inbounds nuw i8, ptr %.069116, i64 1
+  %28 = icmp samesign ugt i32 %.068117, 1
   br i1 %28, label %14, label %29, !llvm.loop !6
 
 29:                                               ; preds = %23
   %30 = load i8, ptr %scevgep, align 1, !tbaa !3
   switch i8 %30, label %.thread [
-    i8 0, label %.thread87
+    i8 0, label %.thread86
     i8 46, label %31
   ]
 
 31:                                               ; preds = %29
   %32 = or i32 %25, -2147483648
-  br label %.thread87
+  br label %.thread86
 
 .thread:                                          ; preds = %14, %29, %8, %4
-  %scevgep154 = getelementptr i8, ptr %0, i64 7
+  %scevgep151 = getelementptr i8, ptr %0, i64 7
   br label %33
 
 33:                                               ; preds = %.thread, %42
-  %.058124 = phi ptr [ %5, %.thread ], [ %.058, %42 ]
-  %.059123 = phi i32 [ 0, %.thread ], [ %44, %42 ]
-  %.062122 = phi i32 [ 6, %.thread ], [ %45, %42 ]
-  %34 = load i8, ptr %.058124, align 1, !tbaa !3
+  %.058121 = phi ptr [ %5, %.thread ], [ %.058, %42 ]
+  %.059120 = phi i32 [ 0, %.thread ], [ %44, %42 ]
+  %.062119 = phi i32 [ 6, %.thread ], [ %45, %42 ]
+  %34 = load i8, ptr %.058121, align 1, !tbaa !3
   %35 = zext i8 %34 to i32
   %36 = add nsw i32 %35, -48
   %37 = icmp ugt i32 %36, 9
   %38 = add i8 %34, -71
   %39 = icmp ult i8 %38, -6
   %40 = add nsw i32 %35, -55
-  %spec.select85 = select i1 %39, i32 16, i32 %40
-  %.056 = select i1 %37, i32 %spec.select85, i32 %36
+  %spec.select84 = select i1 %39, i32 16, i32 %40
+  %.056 = select i1 %37, i32 %spec.select84, i32 %36
   %41 = icmp ugt i32 %.056, 15
   br i1 %41, label %47, label %42
 
 42:                                               ; preds = %33
-  %43 = shl i32 %.059123, 4
+  %43 = shl i32 %.059120, 4
   %44 = or disjoint i32 %.056, %43
-  %45 = add nsw i32 %.062122, -1
-  %.058 = getelementptr inbounds nuw i8, ptr %.058124, i64 1
-  %46 = icmp samesign ugt i32 %.062122, 1
-  br i1 %46, label %33, label %.thread93, !llvm.loop !8
+  %45 = add nsw i32 %.062119, -1
+  %.058 = getelementptr inbounds nuw i8, ptr %.058121, i64 1
+  %46 = icmp samesign ugt i32 %.062119, 1
+  br i1 %46, label %33, label %.thread91, !llvm.loop !8
 
 47:                                               ; preds = %33
-  %48 = icmp samesign ult i32 %.062122, 3
-  br i1 %48, label %.thread93, label %.thread91.preheader
+  %48 = icmp samesign ult i32 %.062119, 3
+  br i1 %48, label %.thread91, label %.thread89.preheader
 
-.thread91.preheader:                              ; preds = %1, %.thread93, %47
-  br label %.thread91
+.thread89.preheader:                              ; preds = %1, %.thread91, %47
+  br label %.thread89
 
-.thread93:                                        ; preds = %42, %47
-  %.059113 = phi i32 [ %.059123, %47 ], [ %44, %42 ]
-  %.058111 = phi ptr [ %.058124, %47 ], [ %scevgep154, %42 ]
-  %49 = load i8, ptr %.058111, align 1, !tbaa !3
-  switch i8 %49, label %.thread91.preheader [
-    i8 0, label %.thread87
+.thread91:                                        ; preds = %42, %47
+  %.059110 = phi i32 [ %.059120, %47 ], [ %44, %42 ]
+  %.058108 = phi ptr [ %.058121, %47 ], [ %scevgep151, %42 ]
+  %49 = load i8, ptr %.058108, align 1, !tbaa !3
+  switch i8 %49, label %.thread89.preheader [
+    i8 0, label %.thread86
     i8 46, label %50
   ]
 
-50:                                               ; preds = %.thread93
-  %51 = or i32 %.059113, -2147483648
-  br label %.thread87
+50:                                               ; preds = %.thread91
+  %51 = or i32 %.059110, -2147483648
+  br label %.thread86
 
-.thread91:                                        ; preds = %.thread91.preheader, %53
-  %52 = phi i8 [ %.pre, %53 ], [ %2, %.thread91.preheader ]
-  %.0.idx = phi i64 [ %.0.add, %53 ], [ 0, %.thread91.preheader ]
+.thread89:                                        ; preds = %.thread89.preheader, %53
+  %52 = phi i8 [ %.pre, %53 ], [ %2, %.thread89.preheader ]
+  %.0.idx = phi i64 [ %.0.add, %53 ], [ 0, %.thread89.preheader ]
   switch i8 %52, label %53 [
     i8 0, label %.critedge
     i8 46, label %.critedge
   ]
 
-53:                                               ; preds = %.thread91
+53:                                               ; preds = %.thread89
   %.0.add = add nuw nsw i64 %.0.idx, 1
   %.0.ptr.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 %.0.add
   %.pre = load i8, ptr %.0.ptr.phi.trans.insert, align 1, !tbaa !3
-  br label %.thread91, !llvm.loop !9
+  br label %.thread89, !llvm.loop !9
 
-.critedge:                                        ; preds = %.thread91, %.thread91
+.critedge:                                        ; preds = %.thread89, %.thread89
   %.0.ptr.le = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx
   %.not = icmp eq i64 %.0.idx, 0
-  br i1 %.not, label %.thread87, label %54
+  br i1 %.not, label %.thread86, label %54
 
 54:                                               ; preds = %.critedge
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %56
 
 56:                                               ; preds = %54, %72
-  %.055.i129 = phi i32 [ 52, %54 ], [ %.257.i, %72 ]
-  %.058.i128 = phi i32 [ 0, %54 ], [ %.260.i, %72 ]
-  %57 = add nuw nsw i32 %.055.i129, %.058.i128
+  %.055.i126 = phi i32 [ 52, %54 ], [ %.257.i, %72 ]
+  %.058.i125 = phi i32 [ 0, %54 ], [ %.260.i, %72 ]
+  %57 = add nuw nsw i32 %.055.i126, %.058.i125
   %58 = and i32 %57, -2
   %59 = zext nneg i32 %58 to i64
   %60 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @ft_adobe_glyph_list, i64 2), i64 %59
@@ -182,8 +182,8 @@ define internal i32 @ps_unicode_value(ptr noundef readonly captures(address) %0)
   %73 = lshr i32 %57, 1
   %74 = icmp slt i8 %70, %2
   %75 = add nuw nsw i32 %73, 1
-  %.260.i = select i1 %74, i32 %75, i32 %.058.i128
-  %.257.i = select i1 %74, i32 %.055.i129, i32 %73
+  %.260.i = select i1 %74, i32 %75, i32 %.058.i125
+  %.257.i = select i1 %74, i32 %.055.i126, i32 %73
   %76 = icmp slt i32 %.260.i, %.257.i
   br i1 %76, label %56, label %ft_get_adobe_glyph_index.exit
 
@@ -280,10 +280,10 @@ ft_get_adobe_glyph_index.exit:                    ; preds = %72, %98, %101, %116
   %120 = icmp eq i8 %52, 46
   %121 = or i32 %.0.i, -2147483648
   %spec.select = select i1 %120, i32 %121, i32 %.0.i
-  br label %.thread87
+  br label %.thread86
 
-.thread87:                                        ; preds = %.thread93, %50, %29, %31, %ft_get_adobe_glyph_index.exit, %.critedge
-  %.2 = phi i32 [ 0, %.critedge ], [ %spec.select, %ft_get_adobe_glyph_index.exit ], [ %25, %29 ], [ %32, %31 ], [ %.059113, %.thread93 ], [ %51, %50 ]
+.thread86:                                        ; preds = %.thread91, %50, %29, %31, %ft_get_adobe_glyph_index.exit, %.critedge
+  %.2 = phi i32 [ 0, %.critedge ], [ %spec.select, %ft_get_adobe_glyph_index.exit ], [ %25, %29 ], [ %32, %31 ], [ %.059110, %.thread91 ], [ %51, %50 ]
   ret i32 %.2
 }
 
@@ -480,8 +480,8 @@ ps_check_extra_glyph_unicode.exit:                ; preds = %35, %39
 define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) %0, i32 noundef %1) #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !11
-  %.not63 = icmp eq i32 %4, 0
-  br i1 %.not63, label %._crit_edge.thread, label %.lr.ph.preheader
+  %.not62 = icmp eq i32 %4, 0
+  br i1 %.not62, label %._crit_edge.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -494,25 +494,25 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %13
-  %.03362 = phi ptr [ %.2, %13 ], [ %9, %.lr.ph.preheader ]
-  %.03461 = phi ptr [ %.236, %13 ], [ %10, %.lr.ph.preheader ]
-  %.03760 = phi ptr [ %.239, %13 ], [ %6, %.lr.ph.preheader ]
-  %.04059 = phi ptr [ %spec.select, %13 ], [ null, %.lr.ph.preheader ]
-  %11 = load i32, ptr %.03362, align 4, !tbaa !25
+  %.03361 = phi ptr [ %.2, %13 ], [ %9, %.lr.ph.preheader ]
+  %.03460 = phi ptr [ %.236, %13 ], [ %10, %.lr.ph.preheader ]
+  %.03759 = phi ptr [ %.239, %13 ], [ %6, %.lr.ph.preheader ]
+  %.04058 = phi ptr [ %spec.select, %13 ], [ null, %.lr.ph.preheader ]
+  %11 = load i32, ptr %.03361, align 4, !tbaa !25
   %12 = icmp eq i32 %11, %1
-  br i1 %12, label %.thread53, label %13
+  br i1 %12, label %.thread52, label %13
 
 13:                                               ; preds = %.lr.ph
   %14 = and i32 %11, 2147483647
   %15 = icmp eq i32 %14, %1
-  %spec.select = select i1 %15, ptr %.03362, ptr %.04059
+  %spec.select = select i1 %15, ptr %.03361, ptr %.04058
   %16 = icmp ult i32 %14, %1
-  %17 = getelementptr inbounds nuw i8, ptr %.03362, i64 8
-  %.239 = select i1 %16, ptr %17, ptr %.03760
-  %.236 = select i1 %16, ptr %.03461, ptr %.03362
+  %17 = getelementptr inbounds nuw i8, ptr %.03361, i64 8
+  %.239 = select i1 %16, ptr %17, ptr %.03759
+  %.236 = select i1 %16, ptr %.03460, ptr %.03361
   %18 = sub i32 %1, %14
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %.03362, i64 %19
+  %20 = getelementptr inbounds nuw %struct.PS_UniMap_, ptr %.03361, i64 %19
   %.not = icmp uge ptr %20, %.236
   %21 = icmp ult ptr %20, %.239
   %or.cond = or i1 %.not, %21
@@ -527,16 +527,16 @@ define internal i32 @ps_unicodes_char_index(ptr noundef readonly captures(none) 
 
 ._crit_edge:                                      ; preds = %13
   %.not46 = icmp eq ptr %spec.select, null
-  br i1 %.not46, label %._crit_edge.thread, label %.thread53
+  br i1 %.not46, label %._crit_edge.thread, label %.thread52
 
-.thread53:                                        ; preds = %.lr.ph, %._crit_edge
-  %.14156 = phi ptr [ %spec.select, %._crit_edge ], [ %.03362, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i8, ptr %.14156, i64 4
+.thread52:                                        ; preds = %.lr.ph, %._crit_edge
+  %.14155 = phi ptr [ %spec.select, %._crit_edge ], [ %.03361, %.lr.ph ]
+  %28 = getelementptr inbounds nuw i8, ptr %.14155, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !27
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %2, %._crit_edge, %.thread53
-  %.032 = phi i32 [ %29, %.thread53 ], [ 0, %._crit_edge ], [ 0, %2 ]
+._crit_edge.thread:                               ; preds = %2, %._crit_edge, %.thread52
+  %.032 = phi i32 [ %29, %.thread52 ], [ 0, %._crit_edge ], [ 0, %2 ]
   ret i32 %.032
 }
 

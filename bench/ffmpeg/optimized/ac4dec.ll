@@ -20,26 +20,26 @@ define internal range(i32 0, 101) i32 @ac4_probe(ptr noundef readonly captures(n
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %41
-  %.02541 = phi i32 [ %42, %41 ], [ 0, %.lr.ph.preheader ]
-  %.02740 = phi i32 [ %43, %41 ], [ %3, %.lr.ph.preheader ]
-  %.02939 = phi ptr [ %45, %41 ], [ %6, %.lr.ph.preheader ]
-  %7 = load i8, ptr %.02939, align 1, !tbaa !12
+  %.02539 = phi i32 [ %42, %41 ], [ 0, %.lr.ph.preheader ]
+  %.02738 = phi i32 [ %43, %41 ], [ %3, %.lr.ph.preheader ]
+  %.02937 = phi ptr [ %45, %41 ], [ %6, %.lr.ph.preheader ]
+  %7 = load i8, ptr %.02937, align 1, !tbaa !12
   %8 = icmp eq i8 %7, -84
   br i1 %8, label %9, label %.thread.loopexit
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.02939, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.02937, i64 1
   %11 = load i8, ptr %10, align 1, !tbaa !12
   %12 = and i8 %11, -2
-  %switch33 = icmp eq i8 %12, 64
-  br i1 %switch33, label %13, label %.thread.loopexit
+  %switch = icmp eq i8 %12, 64
+  br i1 %switch, label %13, label %.thread.loopexit
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %.02939, i64 2
+  %14 = getelementptr inbounds nuw i8, ptr %.02937, i64 2
   %15 = load i8, ptr %14, align 1, !tbaa !12
   %16 = zext i8 %15 to i32
   %17 = shl nuw nsw i32 %16, 8
-  %18 = getelementptr inbounds nuw i8, ptr %.02939, i64 3
+  %18 = getelementptr inbounds nuw i8, ptr %.02937, i64 3
   %19 = load i8, ptr %18, align 1, !tbaa !12
   %20 = zext i8 %19 to i32
   %21 = or disjoint i32 %17, %20
@@ -47,16 +47,16 @@ define internal range(i32 0, 101) i32 @ac4_probe(ptr noundef readonly captures(n
   br i1 %22, label %23, label %38
 
 23:                                               ; preds = %13
-  %24 = getelementptr inbounds nuw i8, ptr %.02939, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.02937, i64 4
   %25 = load i8, ptr %24, align 1, !tbaa !12
   %26 = zext i8 %25 to i32
   %27 = shl nuw nsw i32 %26, 16
-  %28 = getelementptr inbounds nuw i8, ptr %.02939, i64 5
+  %28 = getelementptr inbounds nuw i8, ptr %.02937, i64 5
   %29 = load i8, ptr %28, align 1, !tbaa !12
   %30 = zext i8 %29 to i32
   %31 = shl nuw nsw i32 %30, 8
   %32 = or disjoint i32 %31, %27
-  %33 = getelementptr inbounds nuw i8, ptr %.02939, i64 6
+  %33 = getelementptr inbounds nuw i8, ptr %.02937, i64 6
   %34 = load i8, ptr %33, align 1, !tbaa !12
   %35 = zext i8 %34 to i32
   %36 = or disjoint i32 %32, %35
@@ -68,19 +68,19 @@ define internal range(i32 0, 101) i32 @ac4_probe(ptr noundef readonly captures(n
   %39 = icmp eq i8 %11, 65
   %spec.select.v = select i1 %39, i32 6, i32 4
   %spec.select = add nuw nsw i32 %.024, %spec.select.v
-  %40 = icmp samesign ult i32 %.02740, %spec.select
+  %40 = icmp samesign ult i32 %.02738, %spec.select
   br i1 %40, label %.thread.loopexit, label %41
 
 41:                                               ; preds = %38
-  %42 = add nuw nsw i32 %.02541, 1
-  %43 = sub nuw nsw i32 %.02740, %spec.select
+  %42 = add nuw nsw i32 %.02539, 1
+  %43 = sub nuw nsw i32 %.02738, %spec.select
   %44 = zext nneg i32 %spec.select to i64
-  %45 = getelementptr inbounds nuw i8, ptr %.02939, i64 %44
+  %45 = getelementptr inbounds nuw i8, ptr %.02937, i64 %44
   %46 = icmp samesign ugt i32 %43, 7
   br i1 %46, label %.lr.ph, label %.thread.loopexit
 
 .thread.loopexit:                                 ; preds = %.lr.ph, %9, %38, %41
-  %.025.lcssa.ph = phi i32 [ %42, %41 ], [ %.02541, %38 ], [ %.02541, %9 ], [ %.02541, %.lr.ph ]
+  %.025.lcssa.ph = phi i32 [ %42, %41 ], [ %.02539, %38 ], [ %.02539, %9 ], [ %.02539, %.lr.ph ]
   %47 = mul nuw nsw i32 %.025.lcssa.ph, 7
   %48 = tail call i32 @llvm.umin.i32(i32 %47, i32 100)
   br label %.thread

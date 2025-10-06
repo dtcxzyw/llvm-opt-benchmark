@@ -1428,727 +1428,726 @@ define internal range(i32 -1, 1) i32 @_datetime_exec(ptr noundef %0) #0 {
   %5 = call fastcc ptr @get_current_module(ptr noundef %4, ptr noundef nonnull %2)
   %6 = call ptr @PyErr_Occurred() #18
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %7, label %init_state.exit.thread
+  br i1 %.not, label %7, label %init_static_types.exit.thread
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %2, align 4, !tbaa !16
   %.not.i212 = icmp eq i32 %8, 0
-  br i1 %.not.i212, label %9, label %.critedge.preheader.preheader
+  br i1 %.not.i212, label %9, label %init_static_types.exit.preheader
+
+init_static_types.exit.preheader:                 ; preds = %10, %7
+  br label %init_static_types.exit
 
 9:                                                ; preds = %7
   store ptr @PyDateTime_TZInfoType, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_TimeZoneType, i64 256), align 8, !tbaa !18
   store ptr @PyDateTime_DateType, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DateTimeType, i64 256), align 8, !tbaa !18
-  br label %10
+  br label %12
 
-10:                                               ; preds = %10, %9
-  %.01011.i = phi i64 [ 0, %9 ], [ %15, %10 ]
-  %11 = getelementptr ptr, ptr @capi_types, i64 %.01011.i
-  %12 = load ptr, ptr %11, align 8, !tbaa !27
-  %13 = call i32 @_PyStaticType_InitForExtension(ptr noundef %4, ptr noundef %12) #18
-  %14 = icmp slt i32 %13, 0
-  %15 = add nuw nsw i64 %.01011.i, 1
-  %exitcond.not.i = icmp eq i64 %15, 6
-  %or.cond.i = select i1 %14, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %init_static_types.exit, label %10, !llvm.loop !28
+10:                                               ; preds = %12
+  %11 = add nuw nsw i64 %.01012.i, 1
+  %exitcond.not.i = icmp eq i64 %11, 6
+  br i1 %exitcond.not.i, label %init_static_types.exit.preheader, label %12, !llvm.loop !27
 
-init_static_types.exit:                           ; preds = %10
-  br i1 %14, label %init_state.exit.thread, label %.critedge.preheader.preheader
+12:                                               ; preds = %10, %9
+  %.01012.i = phi i64 [ 0, %9 ], [ %11, %10 ]
+  %13 = getelementptr ptr, ptr @capi_types, i64 %.01012.i
+  %14 = load ptr, ptr %13, align 8, !tbaa !29
+  %15 = call i32 @_PyStaticType_InitForExtension(ptr noundef %4, ptr noundef %14) #18
+  %16 = icmp sgt i32 %15, -1
+  br i1 %16, label %10, label %init_static_types.exit.thread
 
-.critedge.preheader.preheader:                    ; preds = %init_static_types.exit, %7
-  br label %.critedge.preheader
+17:                                               ; preds = %init_static_types.exit
+  %18 = add nuw nsw i64 %.0128299, 1
+  %exitcond.not = icmp eq i64 %18, 6
+  br i1 %exitcond.not, label %.thread, label %init_static_types.exit, !llvm.loop !30
 
-.critedge:                                        ; preds = %.critedge.preheader
-  %16 = add nuw nsw i64 %.0128298, 1
-  %exitcond.not = icmp eq i64 %16, 6
-  br i1 %exitcond.not, label %.thread, label %.critedge.preheader, !llvm.loop !30
+init_static_types.exit:                           ; preds = %init_static_types.exit.preheader, %17
+  %.0128299 = phi i64 [ %18, %17 ], [ 0, %init_static_types.exit.preheader ]
+  %19 = getelementptr ptr, ptr @capi_types, i64 %.0128299
+  %20 = load ptr, ptr %19, align 8, !tbaa !29
+  %21 = call ptr @_PyType_Name(ptr noundef %20) #18
+  %22 = call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef %21, ptr noundef %20) #18
+  %23 = icmp sgt i32 %22, -1
+  br i1 %23, label %17, label %init_static_types.exit.thread
 
-.critedge.preheader:                              ; preds = %.critedge.preheader.preheader, %.critedge
-  %.0128298 = phi i64 [ %16, %.critedge ], [ 0, %.critedge.preheader.preheader ]
-  %17 = getelementptr ptr, ptr @capi_types, i64 %.0128298
-  %18 = load ptr, ptr %17, align 8, !tbaa !27
-  %19 = call ptr @_PyType_Name(ptr noundef %18) #18
-  %20 = call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef %19, ptr noundef %18) #18
-  %21 = icmp sgt i32 %20, -1
-  br i1 %21, label %.critedge, label %init_state.exit.thread
+.thread:                                          ; preds = %17
+  %24 = call ptr @PyType_FromModuleAndSpec(ptr noundef %0, ptr noundef nonnull @isocal_spec, ptr noundef nonnull @PyTuple_Type) #18
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %init_static_types.exit.thread, label %26
 
-.thread:                                          ; preds = %.critedge
-  %22 = call ptr @PyType_FromModuleAndSpec(ptr noundef %0, ptr noundef nonnull @isocal_spec, ptr noundef nonnull @PyTuple_Type) #18
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %init_state.exit.thread, label %24
+26:                                               ; preds = %.thread
+  store ptr %24, ptr %.val, align 8, !tbaa !12
+  %.not.i213 = icmp eq ptr %5, null
+  br i1 %.not.i213, label %77, label %27
 
-24:                                               ; preds = %.thread
-  store ptr %22, ptr %.val, align 8, !tbaa !12
-  %.not.i214 = icmp eq ptr %5, null
-  br i1 %.not.i214, label %75, label %25
+27:                                               ; preds = %26
+  %28 = getelementptr i8, ptr %5, i64 32
+  %.val.i = load ptr, ptr %28, align 8, !tbaa !3
+  %29 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !31
+  %31 = load i32, ptr %30, align 8, !tbaa !15
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %_Py_NewRef.exit.i, label %33
 
-25:                                               ; preds = %24
-  %26 = getelementptr i8, ptr %5, i64 32
-  %.val.i = load ptr, ptr %26, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !31
-  %29 = load i32, ptr %28, align 8, !tbaa !15
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %_Py_NewRef.exit.i, label %31
-
-31:                                               ; preds = %25
-  %32 = add nuw i32 %29, 1
-  store i32 %32, ptr %28, align 8, !tbaa !15
+33:                                               ; preds = %27
+  %34 = add nuw i32 %31, 1
+  store i32 %34, ptr %30, align 8, !tbaa !15
   br label %_Py_NewRef.exit.i
 
-_Py_NewRef.exit.i:                                ; preds = %31, %25
-  %33 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
-  %34 = load ptr, ptr %33, align 8, !tbaa !32
-  %35 = load i32, ptr %34, align 8, !tbaa !15
-  %36 = icmp slt i32 %35, 0
-  br i1 %36, label %_Py_NewRef.exit35.i, label %37
+_Py_NewRef.exit.i:                                ; preds = %33, %27
+  %35 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !32
+  %37 = load i32, ptr %36, align 8, !tbaa !15
+  %38 = icmp slt i32 %37, 0
+  br i1 %38, label %_Py_NewRef.exit35.i, label %39
 
-37:                                               ; preds = %_Py_NewRef.exit.i
-  %38 = add nuw i32 %35, 1
-  store i32 %38, ptr %34, align 8, !tbaa !15
+39:                                               ; preds = %_Py_NewRef.exit.i
+  %40 = add nuw i32 %37, 1
+  store i32 %40, ptr %36, align 8, !tbaa !15
   br label %_Py_NewRef.exit35.i
 
-_Py_NewRef.exit35.i:                              ; preds = %37, %_Py_NewRef.exit.i
-  %39 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %40 = load ptr, ptr %39, align 8, !tbaa !33
-  %41 = load i32, ptr %40, align 8, !tbaa !15
-  %42 = icmp slt i32 %41, 0
-  br i1 %42, label %_Py_NewRef.exit36.i, label %43
+_Py_NewRef.exit35.i:                              ; preds = %39, %_Py_NewRef.exit.i
+  %41 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  %42 = load ptr, ptr %41, align 8, !tbaa !33
+  %43 = load i32, ptr %42, align 8, !tbaa !15
+  %44 = icmp slt i32 %43, 0
+  br i1 %44, label %_Py_NewRef.exit36.i, label %45
 
-43:                                               ; preds = %_Py_NewRef.exit35.i
-  %44 = add nuw i32 %41, 1
-  store i32 %44, ptr %40, align 8, !tbaa !15
+45:                                               ; preds = %_Py_NewRef.exit35.i
+  %46 = add nuw i32 %43, 1
+  store i32 %46, ptr %42, align 8, !tbaa !15
   br label %_Py_NewRef.exit36.i
 
-_Py_NewRef.exit36.i:                              ; preds = %43, %_Py_NewRef.exit35.i
-  %45 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
-  %46 = load ptr, ptr %45, align 8, !tbaa !34
-  %47 = load i32, ptr %46, align 8, !tbaa !15
-  %48 = icmp slt i32 %47, 0
-  br i1 %48, label %_Py_NewRef.exit37.i, label %49
+_Py_NewRef.exit36.i:                              ; preds = %45, %_Py_NewRef.exit35.i
+  %47 = getelementptr inbounds nuw i8, ptr %.val.i, i64 32
+  %48 = load ptr, ptr %47, align 8, !tbaa !34
+  %49 = load i32, ptr %48, align 8, !tbaa !15
+  %50 = icmp slt i32 %49, 0
+  br i1 %50, label %_Py_NewRef.exit37.i, label %51
 
-49:                                               ; preds = %_Py_NewRef.exit36.i
-  %50 = add nuw i32 %47, 1
-  store i32 %50, ptr %46, align 8, !tbaa !15
+51:                                               ; preds = %_Py_NewRef.exit36.i
+  %52 = add nuw i32 %49, 1
+  store i32 %52, ptr %48, align 8, !tbaa !15
   br label %_Py_NewRef.exit37.i
 
-_Py_NewRef.exit37.i:                              ; preds = %49, %_Py_NewRef.exit36.i
-  %51 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
-  %52 = load ptr, ptr %51, align 8, !tbaa !35
-  %53 = load i32, ptr %52, align 8, !tbaa !15
-  %54 = icmp slt i32 %53, 0
-  br i1 %54, label %_Py_NewRef.exit38.i, label %55
+_Py_NewRef.exit37.i:                              ; preds = %51, %_Py_NewRef.exit36.i
+  %53 = getelementptr inbounds nuw i8, ptr %.val.i, i64 40
+  %54 = load ptr, ptr %53, align 8, !tbaa !35
+  %55 = load i32, ptr %54, align 8, !tbaa !15
+  %56 = icmp slt i32 %55, 0
+  br i1 %56, label %_Py_NewRef.exit38.i, label %57
 
-55:                                               ; preds = %_Py_NewRef.exit37.i
-  %56 = add nuw i32 %53, 1
-  store i32 %56, ptr %52, align 8, !tbaa !15
+57:                                               ; preds = %_Py_NewRef.exit37.i
+  %58 = add nuw i32 %55, 1
+  store i32 %58, ptr %54, align 8, !tbaa !15
   br label %_Py_NewRef.exit38.i
 
-_Py_NewRef.exit38.i:                              ; preds = %55, %_Py_NewRef.exit37.i
-  %57 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
-  %58 = load ptr, ptr %57, align 8, !tbaa !36
-  %59 = load i32, ptr %58, align 8, !tbaa !15
-  %60 = icmp slt i32 %59, 0
-  br i1 %60, label %_Py_NewRef.exit39.i, label %61
+_Py_NewRef.exit38.i:                              ; preds = %57, %_Py_NewRef.exit37.i
+  %59 = getelementptr inbounds nuw i8, ptr %.val.i, i64 48
+  %60 = load ptr, ptr %59, align 8, !tbaa !36
+  %61 = load i32, ptr %60, align 8, !tbaa !15
+  %62 = icmp slt i32 %61, 0
+  br i1 %62, label %_Py_NewRef.exit39.i, label %63
 
-61:                                               ; preds = %_Py_NewRef.exit38.i
-  %62 = add nuw i32 %59, 1
-  store i32 %62, ptr %58, align 8, !tbaa !15
+63:                                               ; preds = %_Py_NewRef.exit38.i
+  %64 = add nuw i32 %61, 1
+  store i32 %64, ptr %60, align 8, !tbaa !15
   br label %_Py_NewRef.exit39.i
 
-_Py_NewRef.exit39.i:                              ; preds = %61, %_Py_NewRef.exit38.i
-  %63 = getelementptr inbounds nuw i8, ptr %.val.i, i64 56
-  %64 = load ptr, ptr %63, align 8, !tbaa !37
-  %65 = load i32, ptr %64, align 8, !tbaa !15
-  %66 = icmp slt i32 %65, 0
-  br i1 %66, label %_Py_NewRef.exit40.i, label %67
+_Py_NewRef.exit39.i:                              ; preds = %63, %_Py_NewRef.exit38.i
+  %65 = getelementptr inbounds nuw i8, ptr %.val.i, i64 56
+  %66 = load ptr, ptr %65, align 8, !tbaa !37
+  %67 = load i32, ptr %66, align 8, !tbaa !15
+  %68 = icmp slt i32 %67, 0
+  br i1 %68, label %_Py_NewRef.exit40.i, label %69
 
-67:                                               ; preds = %_Py_NewRef.exit39.i
-  %68 = add nuw i32 %65, 1
-  store i32 %68, ptr %64, align 8, !tbaa !15
+69:                                               ; preds = %_Py_NewRef.exit39.i
+  %70 = add nuw i32 %67, 1
+  store i32 %70, ptr %66, align 8, !tbaa !15
   br label %_Py_NewRef.exit40.i
 
-_Py_NewRef.exit40.i:                              ; preds = %67, %_Py_NewRef.exit39.i
-  %69 = getelementptr inbounds nuw i8, ptr %.val.i, i64 64
-  %70 = load ptr, ptr %69, align 8, !tbaa !38
-  %71 = load i32, ptr %70, align 8, !tbaa !15
-  %72 = icmp slt i32 %71, 0
-  br i1 %72, label %init_state.exit.thread244, label %73
+_Py_NewRef.exit40.i:                              ; preds = %69, %_Py_NewRef.exit39.i
+  %71 = getelementptr inbounds nuw i8, ptr %.val.i, i64 64
+  %72 = load ptr, ptr %71, align 8, !tbaa !38
+  %73 = load i32, ptr %72, align 8, !tbaa !15
+  %74 = icmp slt i32 %73, 0
+  br i1 %74, label %init_state.exit.thread244, label %75
 
-73:                                               ; preds = %_Py_NewRef.exit40.i
-  %74 = add nuw i32 %71, 1
-  store i32 %74, ptr %70, align 8, !tbaa !15
+75:                                               ; preds = %_Py_NewRef.exit40.i
+  %76 = add nuw i32 %73, 1
+  store i32 %76, ptr %72, align 8, !tbaa !15
   br label %init_state.exit.thread244
 
-init_state.exit.thread244:                        ; preds = %_Py_NewRef.exit40.i, %73
-  store ptr %22, ptr %.val, align 8, !tbaa !27
+init_state.exit.thread244:                        ; preds = %_Py_NewRef.exit40.i, %75
+  store ptr %24, ptr %.val, align 8, !tbaa !29
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store ptr %28, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %30, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store ptr %34, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %36, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store ptr %40, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %42, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  store ptr %46, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %48, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 40
-  store ptr %52, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %54, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  store ptr %58, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %60, ptr %.sroa.7.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  store ptr %64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !14
+  store ptr %66, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  store ptr %70, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !14
-  br label %106
-
-75:                                               ; preds = %24
-  %76 = call ptr @PyLong_FromLong(i64 noundef 1000) #18
-  %77 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  store ptr %76, ptr %77, align 8, !tbaa !31
-  %78 = icmp eq ptr %76, null
-  br i1 %78, label %init_state.exit.thread, label %79
-
-79:                                               ; preds = %75
-  %80 = call ptr @PyLong_FromLong(i64 noundef 1000000) #18
-  %81 = getelementptr inbounds nuw i8, ptr %.val, i64 16
-  store ptr %80, ptr %81, align 8, !tbaa !32
-  %82 = icmp eq ptr %80, null
-  br i1 %82, label %init_state.exit.thread, label %83
-
-83:                                               ; preds = %79
-  %84 = call ptr @PyLong_FromLong(i64 noundef 60000000) #18
-  %85 = getelementptr inbounds nuw i8, ptr %.val, i64 24
-  store ptr %84, ptr %85, align 8, !tbaa !33
-  %86 = icmp eq ptr %84, null
-  br i1 %86, label %init_state.exit.thread, label %87
-
-87:                                               ; preds = %83
-  %88 = call ptr @PyLong_FromLong(i64 noundef 86400) #18
-  %89 = getelementptr inbounds nuw i8, ptr %.val, i64 56
-  store ptr %88, ptr %89, align 8, !tbaa !37
-  %90 = icmp eq ptr %88, null
-  br i1 %90, label %init_state.exit.thread, label %91
-
-91:                                               ; preds = %87
-  %92 = call ptr @PyLong_FromDouble(double noundef 3.600000e+09) #18
-  %93 = getelementptr inbounds nuw i8, ptr %.val, i64 32
-  store ptr %92, ptr %93, align 8, !tbaa !34
-  %94 = icmp eq ptr %92, null
-  br i1 %94, label %init_state.exit.thread, label %95
-
-95:                                               ; preds = %91
-  %96 = call ptr @PyLong_FromDouble(double noundef 8.640000e+10) #18
-  %97 = getelementptr inbounds nuw i8, ptr %.val, i64 40
-  store ptr %96, ptr %97, align 8, !tbaa !35
-  %98 = icmp eq ptr %96, null
-  br i1 %98, label %init_state.exit.thread, label %99
-
-99:                                               ; preds = %95
-  %100 = call ptr @PyLong_FromDouble(double noundef 6.048000e+11) #18
-  %101 = getelementptr inbounds nuw i8, ptr %.val, i64 48
-  store ptr %100, ptr %101, align 8, !tbaa !36
-  %102 = icmp eq ptr %100, null
-  br i1 %102, label %init_state.exit.thread, label %init_state.exit
-
-init_state.exit:                                  ; preds = %99
-  %103 = call ptr @new_datetime_ex2(i32 noundef 1970, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @utc_timezone, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
-  %104 = getelementptr inbounds nuw i8, ptr %.val, i64 64
-  store ptr %103, ptr %104, align 8, !tbaa !38
-  %105 = icmp eq ptr %103, null
-  br i1 %105, label %init_state.exit.thread, label %106
-
-106:                                              ; preds = %init_state.exit.thread244, %init_state.exit
-  br i1 %.not.i212, label %107, label %.thread295
-
-107:                                              ; preds = %106
-  %108 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_DeltaType) #18
-  %109 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
-  %110 = call ptr %109(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
-  %.not15.i = icmp eq ptr %110, null
-  br i1 %.not15.i, label %init_state.exit.thread, label %111
-
-111:                                              ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  store i64 -1, ptr %112, align 8, !tbaa !40
-  %113 = getelementptr inbounds nuw i8, ptr %110, i64 24
-  store i32 0, ptr %113, align 8, !tbaa !42
-  %114 = getelementptr inbounds nuw i8, ptr %110, i64 28
-  store i32 0, ptr %114, align 4, !tbaa !43
-  %115 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  store i32 1, ptr %115, align 8, !tbaa !44
-  %116 = call i32 @PyDict_SetItemString(ptr noundef %108, ptr noundef nonnull @.str.3, ptr noundef nonnull %110) #18
-  %117 = icmp sgt i32 %116, -1
-  %118 = load i32, ptr %110, align 8, !tbaa !15
-  %.not.i = icmp sgt i32 %118, -1
-  br i1 %.not.i, label %119, label %123
-
-119:                                              ; preds = %111
-  %120 = add nsw i32 %118, -1
-  store i32 %120, ptr %110, align 8, !tbaa !15
-  %121 = icmp eq i32 %120, 0
-  br i1 %121, label %122, label %123
-
-122:                                              ; preds = %119
-  call void @_Py_Dealloc(ptr noundef nonnull %110) #18
-  br label %123
-
-123:                                              ; preds = %122, %119, %111
-  br i1 %117, label %124, label %init_state.exit.thread
-
-124:                                              ; preds = %123
-  %125 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
-  %126 = call ptr %125(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
-  %.not15.i218 = icmp eq ptr %126, null
-  br i1 %.not15.i218, label %init_state.exit.thread, label %127
-
-127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
-  store i64 -1, ptr %128, align 8, !tbaa !40
-  %129 = getelementptr inbounds nuw i8, ptr %126, i64 24
-  store i32 -999999999, ptr %129, align 8, !tbaa !42
-  %130 = getelementptr inbounds nuw i8, ptr %126, i64 28
-  store i32 0, ptr %130, align 4, !tbaa !43
-  %131 = getelementptr inbounds nuw i8, ptr %126, i64 32
-  store i32 0, ptr %131, align 8, !tbaa !44
-  %132 = call i32 @PyDict_SetItemString(ptr noundef %108, ptr noundef nonnull @.str.4, ptr noundef nonnull %126) #18
-  %133 = icmp sgt i32 %132, -1
-  %134 = load i32, ptr %126, align 8, !tbaa !15
-  %.not.i173 = icmp sgt i32 %134, -1
-  br i1 %.not.i173, label %135, label %139
-
-135:                                              ; preds = %127
-  %136 = add nsw i32 %134, -1
-  store i32 %136, ptr %126, align 8, !tbaa !15
-  %137 = icmp eq i32 %136, 0
-  br i1 %137, label %138, label %139
-
-138:                                              ; preds = %135
-  call void @_Py_Dealloc(ptr noundef nonnull %126) #18
-  br label %139
-
-139:                                              ; preds = %138, %135, %127
-  br i1 %133, label %140, label %init_state.exit.thread
-
-140:                                              ; preds = %139
-  %141 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
-  %142 = call ptr %141(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
-  %.not15.i222 = icmp eq ptr %142, null
-  br i1 %.not15.i222, label %init_state.exit.thread, label %143
-
-143:                                              ; preds = %140
-  %144 = getelementptr inbounds nuw i8, ptr %142, i64 16
-  store i64 -1, ptr %144, align 8, !tbaa !40
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 24
-  store i32 999999999, ptr %145, align 8, !tbaa !42
-  %146 = getelementptr inbounds nuw i8, ptr %142, i64 28
-  store i32 86399, ptr %146, align 4, !tbaa !43
-  %147 = getelementptr inbounds nuw i8, ptr %142, i64 32
-  store i32 999999, ptr %147, align 8, !tbaa !44
-  %148 = call i32 @PyDict_SetItemString(ptr noundef %108, ptr noundef nonnull @.str.5, ptr noundef nonnull %142) #18
-  %149 = icmp sgt i32 %148, -1
-  %150 = load i32, ptr %142, align 8, !tbaa !15
-  %.not.i175 = icmp sgt i32 %150, -1
-  br i1 %.not.i175, label %151, label %155
-
-151:                                              ; preds = %143
-  %152 = add nsw i32 %150, -1
-  store i32 %152, ptr %142, align 8, !tbaa !15
-  %153 = icmp eq i32 %152, 0
-  br i1 %153, label %154, label %155
-
-154:                                              ; preds = %151
-  call void @_Py_Dealloc(ptr noundef nonnull %142) #18
-  br label %155
-
-155:                                              ; preds = %154, %151, %143
-  br i1 %149, label %156, label %init_state.exit.thread
-
-156:                                              ; preds = %155
-  %157 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_DateType) #18
-  %158 = call ptr @new_date_ex(i32 noundef 1, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @PyDateTime_DateType)
-  %159 = icmp eq ptr %158, null
-  br i1 %159, label %init_state.exit.thread, label %160
-
-160:                                              ; preds = %156
-  %161 = call i32 @PyDict_SetItemString(ptr noundef %157, ptr noundef nonnull @.str.4, ptr noundef nonnull %158) #18
-  %162 = icmp sgt i32 %161, -1
-  %163 = load i32, ptr %158, align 8, !tbaa !15
-  %.not.i177 = icmp sgt i32 %163, -1
-  br i1 %.not.i177, label %164, label %168
-
-164:                                              ; preds = %160
-  %165 = add nsw i32 %163, -1
-  store i32 %165, ptr %158, align 8, !tbaa !15
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %168
-
-167:                                              ; preds = %164
-  call void @_Py_Dealloc(ptr noundef nonnull %158) #18
-  br label %168
-
-168:                                              ; preds = %167, %164, %160
-  br i1 %162, label %169, label %init_state.exit.thread
-
-169:                                              ; preds = %168
-  %170 = call ptr @new_date_ex(i32 noundef 9999, i32 noundef 12, i32 noundef 31, ptr noundef nonnull @PyDateTime_DateType)
-  %171 = icmp eq ptr %170, null
-  br i1 %171, label %init_state.exit.thread, label %172
-
-172:                                              ; preds = %169
-  %173 = call i32 @PyDict_SetItemString(ptr noundef %157, ptr noundef nonnull @.str.5, ptr noundef nonnull %170) #18
-  %174 = icmp sgt i32 %173, -1
-  %175 = load i32, ptr %170, align 8, !tbaa !15
-  %.not.i179 = icmp sgt i32 %175, -1
-  br i1 %.not.i179, label %176, label %180
-
-176:                                              ; preds = %172
-  %177 = add nsw i32 %175, -1
-  store i32 %177, ptr %170, align 8, !tbaa !15
-  %178 = icmp eq i32 %177, 0
-  br i1 %178, label %179, label %180
-
-179:                                              ; preds = %176
-  call void @_Py_Dealloc(ptr noundef nonnull %170) #18
-  br label %180
-
-180:                                              ; preds = %179, %176, %172
-  br i1 %174, label %181, label %init_state.exit.thread
-
-181:                                              ; preds = %180
-  %182 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
-  %183 = call ptr %182(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
-  %.not15.i226 = icmp eq ptr %183, null
-  br i1 %.not15.i226, label %init_state.exit.thread, label %184
-
-184:                                              ; preds = %181
-  %185 = getelementptr inbounds nuw i8, ptr %183, i64 16
-  store i64 -1, ptr %185, align 8, !tbaa !40
-  %186 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  store i32 1, ptr %186, align 8, !tbaa !42
-  %187 = getelementptr inbounds nuw i8, ptr %183, i64 28
-  store i32 0, ptr %187, align 4, !tbaa !43
-  %188 = getelementptr inbounds nuw i8, ptr %183, i64 32
-  store i32 0, ptr %188, align 8, !tbaa !44
-  %189 = call i32 @PyDict_SetItemString(ptr noundef %157, ptr noundef nonnull @.str.3, ptr noundef nonnull %183) #18
-  %190 = icmp sgt i32 %189, -1
-  %191 = load i32, ptr %183, align 8, !tbaa !15
-  %.not.i181 = icmp sgt i32 %191, -1
-  br i1 %.not.i181, label %192, label %196
-
-192:                                              ; preds = %184
-  %193 = add nsw i32 %191, -1
-  store i32 %193, ptr %183, align 8, !tbaa !15
-  %194 = icmp eq i32 %193, 0
-  br i1 %194, label %195, label %196
-
-195:                                              ; preds = %192
-  call void @_Py_Dealloc(ptr noundef nonnull %183) #18
-  br label %196
-
-196:                                              ; preds = %195, %192, %184
-  br i1 %190, label %197, label %init_state.exit.thread
-
-197:                                              ; preds = %196
-  %198 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_TimeType) #18
-  %199 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_TimeType, i64 304), align 8, !tbaa !39
-  %200 = call ptr %199(ptr noundef nonnull @PyDateTime_TimeType, i64 noundef 0) #18
-  %.not.i228 = icmp eq ptr %200, null
-  br i1 %.not.i228, label %init_state.exit.thread, label %201
-
-201:                                              ; preds = %197
-  %202 = getelementptr inbounds nuw i8, ptr %200, i64 24
-  store i8 0, ptr %202, align 8, !tbaa !45
-  %203 = getelementptr inbounds nuw i8, ptr %200, i64 16
-  store i64 -1, ptr %203, align 8, !tbaa !47
-  %204 = getelementptr inbounds nuw i8, ptr %200, i64 25
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %204, i8 0, i64 7, i1 false)
-  %205 = call i32 @PyDict_SetItemString(ptr noundef %198, ptr noundef nonnull @.str.4, ptr noundef nonnull %200) #18
-  %206 = icmp sgt i32 %205, -1
-  %207 = load i32, ptr %200, align 8, !tbaa !15
-  %.not.i183 = icmp sgt i32 %207, -1
-  br i1 %.not.i183, label %208, label %212
-
-208:                                              ; preds = %201
-  %209 = add nsw i32 %207, -1
-  store i32 %209, ptr %200, align 8, !tbaa !15
-  %210 = icmp eq i32 %209, 0
-  br i1 %210, label %211, label %212
-
-211:                                              ; preds = %208
-  call void @_Py_Dealloc(ptr noundef nonnull %200) #18
-  br label %212
-
-212:                                              ; preds = %211, %208, %201
-  br i1 %206, label %213, label %init_state.exit.thread
-
-213:                                              ; preds = %212
-  %214 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_TimeType, i64 304), align 8, !tbaa !39
-  %215 = call ptr %214(ptr noundef nonnull @PyDateTime_TimeType, i64 noundef 0) #18
-  %.not.i230 = icmp eq ptr %215, null
-  br i1 %.not.i230, label %init_state.exit.thread, label %216
-
-216:                                              ; preds = %213
-  %217 = getelementptr inbounds nuw i8, ptr %215, i64 24
-  store i8 0, ptr %217, align 8, !tbaa !45
-  %218 = getelementptr inbounds nuw i8, ptr %215, i64 16
-  store i64 -1, ptr %218, align 8, !tbaa !47
-  %219 = getelementptr inbounds nuw i8, ptr %215, i64 25
-  store i8 23, ptr %219, align 1, !tbaa !15
-  %220 = getelementptr i8, ptr %215, i64 26
-  store i8 59, ptr %220, align 2, !tbaa !15
-  %221 = getelementptr i8, ptr %215, i64 27
-  store i8 59, ptr %221, align 1, !tbaa !15
-  %222 = getelementptr i8, ptr %215, i64 28
-  store i8 15, ptr %222, align 4, !tbaa !15
-  %223 = getelementptr i8, ptr %215, i64 29
-  store i8 66, ptr %223, align 1, !tbaa !15
-  %224 = getelementptr i8, ptr %215, i64 30
-  store i8 63, ptr %224, align 2, !tbaa !15
-  %225 = getelementptr inbounds nuw i8, ptr %215, i64 31
-  store i8 0, ptr %225, align 1, !tbaa !48
-  %226 = call i32 @PyDict_SetItemString(ptr noundef %198, ptr noundef nonnull @.str.5, ptr noundef nonnull %215) #18
-  %227 = icmp sgt i32 %226, -1
-  %228 = load i32, ptr %215, align 8, !tbaa !15
-  %.not.i185 = icmp sgt i32 %228, -1
-  br i1 %.not.i185, label %229, label %233
-
-229:                                              ; preds = %216
-  %230 = add nsw i32 %228, -1
-  store i32 %230, ptr %215, align 8, !tbaa !15
-  %231 = icmp eq i32 %230, 0
-  br i1 %231, label %232, label %233
-
-232:                                              ; preds = %229
-  call void @_Py_Dealloc(ptr noundef nonnull %215) #18
-  br label %233
-
-233:                                              ; preds = %232, %229, %216
-  br i1 %227, label %234, label %init_state.exit.thread
-
-234:                                              ; preds = %233
-  %235 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
-  %236 = call ptr %235(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
-  %.not15.i235 = icmp eq ptr %236, null
-  br i1 %.not15.i235, label %init_state.exit.thread, label %237
-
-237:                                              ; preds = %234
-  %238 = getelementptr inbounds nuw i8, ptr %236, i64 16
-  store i64 -1, ptr %238, align 8, !tbaa !40
-  %239 = getelementptr inbounds nuw i8, ptr %236, i64 24
-  store i32 0, ptr %239, align 8, !tbaa !42
-  %240 = getelementptr inbounds nuw i8, ptr %236, i64 28
-  store i32 0, ptr %240, align 4, !tbaa !43
-  %241 = getelementptr inbounds nuw i8, ptr %236, i64 32
-  store i32 1, ptr %241, align 8, !tbaa !44
-  %242 = call i32 @PyDict_SetItemString(ptr noundef %198, ptr noundef nonnull @.str.3, ptr noundef nonnull %236) #18
-  %243 = icmp sgt i32 %242, -1
-  %244 = load i32, ptr %236, align 8, !tbaa !15
-  %.not.i187 = icmp sgt i32 %244, -1
-  br i1 %.not.i187, label %245, label %249
-
-245:                                              ; preds = %237
-  %246 = add nsw i32 %244, -1
-  store i32 %246, ptr %236, align 8, !tbaa !15
-  %247 = icmp eq i32 %246, 0
-  br i1 %247, label %248, label %249
-
-248:                                              ; preds = %245
-  call void @_Py_Dealloc(ptr noundef nonnull %236) #18
-  br label %249
-
-249:                                              ; preds = %248, %245, %237
-  br i1 %243, label %250, label %init_state.exit.thread
-
-250:                                              ; preds = %249
-  %251 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_DateTimeType) #18
-  %252 = call ptr @new_datetime_ex2(i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
-  %253 = icmp eq ptr %252, null
-  br i1 %253, label %init_state.exit.thread, label %254
-
-254:                                              ; preds = %250
-  %255 = call i32 @PyDict_SetItemString(ptr noundef %251, ptr noundef nonnull @.str.4, ptr noundef nonnull %252) #18
-  %256 = icmp sgt i32 %255, -1
-  %257 = load i32, ptr %252, align 8, !tbaa !15
-  %.not.i189 = icmp sgt i32 %257, -1
-  br i1 %.not.i189, label %258, label %262
-
-258:                                              ; preds = %254
-  %259 = add nsw i32 %257, -1
-  store i32 %259, ptr %252, align 8, !tbaa !15
-  %260 = icmp eq i32 %259, 0
-  br i1 %260, label %261, label %262
-
-261:                                              ; preds = %258
-  call void @_Py_Dealloc(ptr noundef nonnull %252) #18
-  br label %262
-
-262:                                              ; preds = %261, %258, %254
-  br i1 %256, label %263, label %init_state.exit.thread
-
-263:                                              ; preds = %262
-  %264 = call ptr @new_datetime_ex2(i32 noundef 9999, i32 noundef 12, i32 noundef 31, i32 noundef 23, i32 noundef 59, i32 noundef 59, i32 noundef 999999, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
-  %265 = icmp eq ptr %264, null
-  br i1 %265, label %init_state.exit.thread, label %266
-
-266:                                              ; preds = %263
-  %267 = call i32 @PyDict_SetItemString(ptr noundef %251, ptr noundef nonnull @.str.5, ptr noundef nonnull %264) #18
-  %268 = icmp sgt i32 %267, -1
-  %269 = load i32, ptr %264, align 8, !tbaa !15
-  %.not.i191 = icmp sgt i32 %269, -1
-  br i1 %.not.i191, label %270, label %274
-
-270:                                              ; preds = %266
-  %271 = add nsw i32 %269, -1
-  store i32 %271, ptr %264, align 8, !tbaa !15
-  %272 = icmp eq i32 %271, 0
-  br i1 %272, label %273, label %274
-
-273:                                              ; preds = %270
-  call void @_Py_Dealloc(ptr noundef nonnull %264) #18
-  br label %274
-
-274:                                              ; preds = %273, %270, %266
-  br i1 %268, label %275, label %init_state.exit.thread
-
-275:                                              ; preds = %274
-  %276 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
-  %277 = call ptr %276(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
-  %.not15.i239 = icmp eq ptr %277, null
-  br i1 %.not15.i239, label %init_state.exit.thread, label %278
-
-278:                                              ; preds = %275
-  %279 = getelementptr inbounds nuw i8, ptr %277, i64 16
-  store i64 -1, ptr %279, align 8, !tbaa !40
-  %280 = getelementptr inbounds nuw i8, ptr %277, i64 24
-  store i32 0, ptr %280, align 8, !tbaa !42
-  %281 = getelementptr inbounds nuw i8, ptr %277, i64 28
-  store i32 0, ptr %281, align 4, !tbaa !43
-  %282 = getelementptr inbounds nuw i8, ptr %277, i64 32
-  store i32 1, ptr %282, align 8, !tbaa !44
-  %283 = call i32 @PyDict_SetItemString(ptr noundef %251, ptr noundef nonnull @.str.3, ptr noundef nonnull %277) #18
-  %284 = icmp sgt i32 %283, -1
-  %285 = load i32, ptr %277, align 8, !tbaa !15
-  %.not.i193 = icmp sgt i32 %285, -1
-  br i1 %.not.i193, label %286, label %290
-
-286:                                              ; preds = %278
-  %287 = add nsw i32 %285, -1
-  store i32 %287, ptr %277, align 8, !tbaa !15
-  %288 = icmp eq i32 %287, 0
-  br i1 %288, label %289, label %290
-
-289:                                              ; preds = %286
-  call void @_Py_Dealloc(ptr noundef nonnull %277) #18
-  br label %290
-
-290:                                              ; preds = %289, %286, %278
-  br i1 %284, label %291, label %init_state.exit.thread
-
-291:                                              ; preds = %290
-  %292 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_TimeZoneType) #18
-  %293 = call i32 @PyDict_SetItemString(ptr noundef %292, ptr noundef nonnull @.str.6, ptr noundef nonnull @utc_timezone) #18
-  %294 = icmp slt i32 %293, 0
-  br i1 %294, label %init_state.exit.thread, label %295
-
-295:                                              ; preds = %291
-  %296 = call fastcc ptr @create_timezone_from_delta(i32 noundef -1, i32 noundef 60)
-  %297 = icmp eq ptr %296, null
-  br i1 %297, label %init_state.exit.thread, label %298
-
-298:                                              ; preds = %295
-  %299 = call i32 @PyDict_SetItemString(ptr noundef %292, ptr noundef nonnull @.str.4, ptr noundef nonnull %296) #18
-  %300 = icmp sgt i32 %299, -1
-  %301 = load i32, ptr %296, align 8, !tbaa !15
-  %.not.i195 = icmp sgt i32 %301, -1
-  br i1 %.not.i195, label %302, label %306
-
-302:                                              ; preds = %298
-  %303 = add nsw i32 %301, -1
-  store i32 %303, ptr %296, align 8, !tbaa !15
-  %304 = icmp eq i32 %303, 0
-  br i1 %304, label %305, label %306
-
-305:                                              ; preds = %302
-  call void @_Py_Dealloc(ptr noundef nonnull %296) #18
-  br label %306
-
-306:                                              ; preds = %305, %302, %298
-  br i1 %300, label %307, label %init_state.exit.thread
-
-307:                                              ; preds = %306
-  %308 = call fastcc ptr @create_timezone_from_delta(i32 noundef 0, i32 noundef 86340)
-  %309 = icmp eq ptr %308, null
-  br i1 %309, label %init_state.exit.thread, label %310
-
-310:                                              ; preds = %307
-  %311 = call i32 @PyDict_SetItemString(ptr noundef %292, ptr noundef nonnull @.str.5, ptr noundef nonnull %308) #18
-  %312 = icmp slt i32 %311, 0
-  %313 = load i32, ptr %308, align 8, !tbaa !15
-  %.not.i197 = icmp sgt i32 %313, -1
-  br i1 %.not.i197, label %314, label %Py_DECREF.exit198
-
-314:                                              ; preds = %310
-  %315 = add nsw i32 %313, -1
-  store i32 %315, ptr %308, align 8, !tbaa !15
-  %316 = icmp eq i32 %315, 0
-  br i1 %316, label %317, label %Py_DECREF.exit198
-
-317:                                              ; preds = %314
-  call void @_Py_Dealloc(ptr noundef nonnull %308) #18
+  store ptr %72, ptr %.sroa.9.0..sroa_idx.i, align 8, !tbaa !14
+  br label %108
+
+77:                                               ; preds = %26
+  %78 = call ptr @PyLong_FromLong(i64 noundef 1000) #18
+  %79 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  store ptr %78, ptr %79, align 8, !tbaa !31
+  %80 = icmp eq ptr %78, null
+  br i1 %80, label %init_static_types.exit.thread, label %81
+
+81:                                               ; preds = %77
+  %82 = call ptr @PyLong_FromLong(i64 noundef 1000000) #18
+  %83 = getelementptr inbounds nuw i8, ptr %.val, i64 16
+  store ptr %82, ptr %83, align 8, !tbaa !32
+  %84 = icmp eq ptr %82, null
+  br i1 %84, label %init_static_types.exit.thread, label %85
+
+85:                                               ; preds = %81
+  %86 = call ptr @PyLong_FromLong(i64 noundef 60000000) #18
+  %87 = getelementptr inbounds nuw i8, ptr %.val, i64 24
+  store ptr %86, ptr %87, align 8, !tbaa !33
+  %88 = icmp eq ptr %86, null
+  br i1 %88, label %init_static_types.exit.thread, label %89
+
+89:                                               ; preds = %85
+  %90 = call ptr @PyLong_FromLong(i64 noundef 86400) #18
+  %91 = getelementptr inbounds nuw i8, ptr %.val, i64 56
+  store ptr %90, ptr %91, align 8, !tbaa !37
+  %92 = icmp eq ptr %90, null
+  br i1 %92, label %init_static_types.exit.thread, label %93
+
+93:                                               ; preds = %89
+  %94 = call ptr @PyLong_FromDouble(double noundef 3.600000e+09) #18
+  %95 = getelementptr inbounds nuw i8, ptr %.val, i64 32
+  store ptr %94, ptr %95, align 8, !tbaa !34
+  %96 = icmp eq ptr %94, null
+  br i1 %96, label %init_static_types.exit.thread, label %97
+
+97:                                               ; preds = %93
+  %98 = call ptr @PyLong_FromDouble(double noundef 8.640000e+10) #18
+  %99 = getelementptr inbounds nuw i8, ptr %.val, i64 40
+  store ptr %98, ptr %99, align 8, !tbaa !35
+  %100 = icmp eq ptr %98, null
+  br i1 %100, label %init_static_types.exit.thread, label %101
+
+101:                                              ; preds = %97
+  %102 = call ptr @PyLong_FromDouble(double noundef 6.048000e+11) #18
+  %103 = getelementptr inbounds nuw i8, ptr %.val, i64 48
+  store ptr %102, ptr %103, align 8, !tbaa !36
+  %104 = icmp eq ptr %102, null
+  br i1 %104, label %init_static_types.exit.thread, label %init_state.exit
+
+init_state.exit:                                  ; preds = %101
+  %105 = call ptr @new_datetime_ex2(i32 noundef 1970, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @utc_timezone, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
+  %106 = getelementptr inbounds nuw i8, ptr %.val, i64 64
+  store ptr %105, ptr %106, align 8, !tbaa !38
+  %107 = icmp eq ptr %105, null
+  br i1 %107, label %init_static_types.exit.thread, label %108
+
+108:                                              ; preds = %init_state.exit.thread244, %init_state.exit
+  br i1 %.not.i212, label %109, label %.thread295
+
+109:                                              ; preds = %108
+  %110 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_DeltaType) #18
+  %111 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
+  %112 = call ptr %111(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
+  %.not15.i = icmp eq ptr %112, null
+  br i1 %.not15.i, label %init_static_types.exit.thread, label %113
+
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
+  store i64 -1, ptr %114, align 8, !tbaa !40
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 24
+  store i32 0, ptr %115, align 8, !tbaa !42
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 28
+  store i32 0, ptr %116, align 4, !tbaa !43
+  %117 = getelementptr inbounds nuw i8, ptr %112, i64 32
+  store i32 1, ptr %117, align 8, !tbaa !44
+  %118 = call i32 @PyDict_SetItemString(ptr noundef %110, ptr noundef nonnull @.str.3, ptr noundef nonnull %112) #18
+  %119 = icmp sgt i32 %118, -1
+  %120 = load i32, ptr %112, align 8, !tbaa !15
+  %.not.i = icmp sgt i32 %120, -1
+  br i1 %.not.i, label %121, label %125
+
+121:                                              ; preds = %113
+  %122 = add nsw i32 %120, -1
+  store i32 %122, ptr %112, align 8, !tbaa !15
+  %123 = icmp eq i32 %122, 0
+  br i1 %123, label %124, label %125
+
+124:                                              ; preds = %121
+  call void @_Py_Dealloc(ptr noundef nonnull %112) #18
+  br label %125
+
+125:                                              ; preds = %124, %121, %113
+  br i1 %119, label %126, label %init_static_types.exit.thread
+
+126:                                              ; preds = %125
+  %127 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
+  %128 = call ptr %127(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
+  %.not15.i217 = icmp eq ptr %128, null
+  br i1 %.not15.i217, label %init_static_types.exit.thread, label %129
+
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 16
+  store i64 -1, ptr %130, align 8, !tbaa !40
+  %131 = getelementptr inbounds nuw i8, ptr %128, i64 24
+  store i32 -999999999, ptr %131, align 8, !tbaa !42
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 28
+  store i32 0, ptr %132, align 4, !tbaa !43
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  store i32 0, ptr %133, align 8, !tbaa !44
+  %134 = call i32 @PyDict_SetItemString(ptr noundef %110, ptr noundef nonnull @.str.4, ptr noundef nonnull %128) #18
+  %135 = icmp sgt i32 %134, -1
+  %136 = load i32, ptr %128, align 8, !tbaa !15
+  %.not.i173 = icmp sgt i32 %136, -1
+  br i1 %.not.i173, label %137, label %141
+
+137:                                              ; preds = %129
+  %138 = add nsw i32 %136, -1
+  store i32 %138, ptr %128, align 8, !tbaa !15
+  %139 = icmp eq i32 %138, 0
+  br i1 %139, label %140, label %141
+
+140:                                              ; preds = %137
+  call void @_Py_Dealloc(ptr noundef nonnull %128) #18
+  br label %141
+
+141:                                              ; preds = %140, %137, %129
+  br i1 %135, label %142, label %init_static_types.exit.thread
+
+142:                                              ; preds = %141
+  %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
+  %144 = call ptr %143(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
+  %.not15.i221 = icmp eq ptr %144, null
+  br i1 %.not15.i221, label %init_static_types.exit.thread, label %145
+
+145:                                              ; preds = %142
+  %146 = getelementptr inbounds nuw i8, ptr %144, i64 16
+  store i64 -1, ptr %146, align 8, !tbaa !40
+  %147 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  store i32 999999999, ptr %147, align 8, !tbaa !42
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 28
+  store i32 86399, ptr %148, align 4, !tbaa !43
+  %149 = getelementptr inbounds nuw i8, ptr %144, i64 32
+  store i32 999999, ptr %149, align 8, !tbaa !44
+  %150 = call i32 @PyDict_SetItemString(ptr noundef %110, ptr noundef nonnull @.str.5, ptr noundef nonnull %144) #18
+  %151 = icmp sgt i32 %150, -1
+  %152 = load i32, ptr %144, align 8, !tbaa !15
+  %.not.i175 = icmp sgt i32 %152, -1
+  br i1 %.not.i175, label %153, label %157
+
+153:                                              ; preds = %145
+  %154 = add nsw i32 %152, -1
+  store i32 %154, ptr %144, align 8, !tbaa !15
+  %155 = icmp eq i32 %154, 0
+  br i1 %155, label %156, label %157
+
+156:                                              ; preds = %153
+  call void @_Py_Dealloc(ptr noundef nonnull %144) #18
+  br label %157
+
+157:                                              ; preds = %156, %153, %145
+  br i1 %151, label %158, label %init_static_types.exit.thread
+
+158:                                              ; preds = %157
+  %159 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_DateType) #18
+  %160 = call ptr @new_date_ex(i32 noundef 1, i32 noundef 1, i32 noundef 1, ptr noundef nonnull @PyDateTime_DateType)
+  %161 = icmp eq ptr %160, null
+  br i1 %161, label %init_static_types.exit.thread, label %162
+
+162:                                              ; preds = %158
+  %163 = call i32 @PyDict_SetItemString(ptr noundef %159, ptr noundef nonnull @.str.4, ptr noundef nonnull %160) #18
+  %164 = icmp sgt i32 %163, -1
+  %165 = load i32, ptr %160, align 8, !tbaa !15
+  %.not.i177 = icmp sgt i32 %165, -1
+  br i1 %.not.i177, label %166, label %170
+
+166:                                              ; preds = %162
+  %167 = add nsw i32 %165, -1
+  store i32 %167, ptr %160, align 8, !tbaa !15
+  %168 = icmp eq i32 %167, 0
+  br i1 %168, label %169, label %170
+
+169:                                              ; preds = %166
+  call void @_Py_Dealloc(ptr noundef nonnull %160) #18
+  br label %170
+
+170:                                              ; preds = %169, %166, %162
+  br i1 %164, label %171, label %init_static_types.exit.thread
+
+171:                                              ; preds = %170
+  %172 = call ptr @new_date_ex(i32 noundef 9999, i32 noundef 12, i32 noundef 31, ptr noundef nonnull @PyDateTime_DateType)
+  %173 = icmp eq ptr %172, null
+  br i1 %173, label %init_static_types.exit.thread, label %174
+
+174:                                              ; preds = %171
+  %175 = call i32 @PyDict_SetItemString(ptr noundef %159, ptr noundef nonnull @.str.5, ptr noundef nonnull %172) #18
+  %176 = icmp sgt i32 %175, -1
+  %177 = load i32, ptr %172, align 8, !tbaa !15
+  %.not.i179 = icmp sgt i32 %177, -1
+  br i1 %.not.i179, label %178, label %182
+
+178:                                              ; preds = %174
+  %179 = add nsw i32 %177, -1
+  store i32 %179, ptr %172, align 8, !tbaa !15
+  %180 = icmp eq i32 %179, 0
+  br i1 %180, label %181, label %182
+
+181:                                              ; preds = %178
+  call void @_Py_Dealloc(ptr noundef nonnull %172) #18
+  br label %182
+
+182:                                              ; preds = %181, %178, %174
+  br i1 %176, label %183, label %init_static_types.exit.thread
+
+183:                                              ; preds = %182
+  %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
+  %185 = call ptr %184(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
+  %.not15.i225 = icmp eq ptr %185, null
+  br i1 %.not15.i225, label %init_static_types.exit.thread, label %186
+
+186:                                              ; preds = %183
+  %187 = getelementptr inbounds nuw i8, ptr %185, i64 16
+  store i64 -1, ptr %187, align 8, !tbaa !40
+  %188 = getelementptr inbounds nuw i8, ptr %185, i64 24
+  store i32 1, ptr %188, align 8, !tbaa !42
+  %189 = getelementptr inbounds nuw i8, ptr %185, i64 28
+  store i32 0, ptr %189, align 4, !tbaa !43
+  %190 = getelementptr inbounds nuw i8, ptr %185, i64 32
+  store i32 0, ptr %190, align 8, !tbaa !44
+  %191 = call i32 @PyDict_SetItemString(ptr noundef %159, ptr noundef nonnull @.str.3, ptr noundef nonnull %185) #18
+  %192 = icmp sgt i32 %191, -1
+  %193 = load i32, ptr %185, align 8, !tbaa !15
+  %.not.i181 = icmp sgt i32 %193, -1
+  br i1 %.not.i181, label %194, label %198
+
+194:                                              ; preds = %186
+  %195 = add nsw i32 %193, -1
+  store i32 %195, ptr %185, align 8, !tbaa !15
+  %196 = icmp eq i32 %195, 0
+  br i1 %196, label %197, label %198
+
+197:                                              ; preds = %194
+  call void @_Py_Dealloc(ptr noundef nonnull %185) #18
+  br label %198
+
+198:                                              ; preds = %197, %194, %186
+  br i1 %192, label %199, label %init_static_types.exit.thread
+
+199:                                              ; preds = %198
+  %200 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_TimeType) #18
+  %201 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_TimeType, i64 304), align 8, !tbaa !39
+  %202 = call ptr %201(ptr noundef nonnull @PyDateTime_TimeType, i64 noundef 0) #18
+  %.not.i227 = icmp eq ptr %202, null
+  br i1 %.not.i227, label %init_static_types.exit.thread, label %203
+
+203:                                              ; preds = %199
+  %204 = getelementptr inbounds nuw i8, ptr %202, i64 24
+  store i8 0, ptr %204, align 8, !tbaa !45
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  store i64 -1, ptr %205, align 8, !tbaa !47
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 25
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %206, i8 0, i64 7, i1 false)
+  %207 = call i32 @PyDict_SetItemString(ptr noundef %200, ptr noundef nonnull @.str.4, ptr noundef nonnull %202) #18
+  %208 = icmp sgt i32 %207, -1
+  %209 = load i32, ptr %202, align 8, !tbaa !15
+  %.not.i183 = icmp sgt i32 %209, -1
+  br i1 %.not.i183, label %210, label %214
+
+210:                                              ; preds = %203
+  %211 = add nsw i32 %209, -1
+  store i32 %211, ptr %202, align 8, !tbaa !15
+  %212 = icmp eq i32 %211, 0
+  br i1 %212, label %213, label %214
+
+213:                                              ; preds = %210
+  call void @_Py_Dealloc(ptr noundef nonnull %202) #18
+  br label %214
+
+214:                                              ; preds = %213, %210, %203
+  br i1 %208, label %215, label %init_static_types.exit.thread
+
+215:                                              ; preds = %214
+  %216 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_TimeType, i64 304), align 8, !tbaa !39
+  %217 = call ptr %216(ptr noundef nonnull @PyDateTime_TimeType, i64 noundef 0) #18
+  %.not.i229 = icmp eq ptr %217, null
+  br i1 %.not.i229, label %init_static_types.exit.thread, label %218
+
+218:                                              ; preds = %215
+  %219 = getelementptr inbounds nuw i8, ptr %217, i64 24
+  store i8 0, ptr %219, align 8, !tbaa !45
+  %220 = getelementptr inbounds nuw i8, ptr %217, i64 16
+  store i64 -1, ptr %220, align 8, !tbaa !47
+  %221 = getelementptr inbounds nuw i8, ptr %217, i64 25
+  store i8 23, ptr %221, align 1, !tbaa !15
+  %222 = getelementptr i8, ptr %217, i64 26
+  store i8 59, ptr %222, align 2, !tbaa !15
+  %223 = getelementptr i8, ptr %217, i64 27
+  store i8 59, ptr %223, align 1, !tbaa !15
+  %224 = getelementptr i8, ptr %217, i64 28
+  store i8 15, ptr %224, align 4, !tbaa !15
+  %225 = getelementptr i8, ptr %217, i64 29
+  store i8 66, ptr %225, align 1, !tbaa !15
+  %226 = getelementptr i8, ptr %217, i64 30
+  store i8 63, ptr %226, align 2, !tbaa !15
+  %227 = getelementptr inbounds nuw i8, ptr %217, i64 31
+  store i8 0, ptr %227, align 1, !tbaa !48
+  %228 = call i32 @PyDict_SetItemString(ptr noundef %200, ptr noundef nonnull @.str.5, ptr noundef nonnull %217) #18
+  %229 = icmp sgt i32 %228, -1
+  %230 = load i32, ptr %217, align 8, !tbaa !15
+  %.not.i185 = icmp sgt i32 %230, -1
+  br i1 %.not.i185, label %231, label %235
+
+231:                                              ; preds = %218
+  %232 = add nsw i32 %230, -1
+  store i32 %232, ptr %217, align 8, !tbaa !15
+  %233 = icmp eq i32 %232, 0
+  br i1 %233, label %234, label %235
+
+234:                                              ; preds = %231
+  call void @_Py_Dealloc(ptr noundef nonnull %217) #18
+  br label %235
+
+235:                                              ; preds = %234, %231, %218
+  br i1 %229, label %236, label %init_static_types.exit.thread
+
+236:                                              ; preds = %235
+  %237 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
+  %238 = call ptr %237(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
+  %.not15.i234 = icmp eq ptr %238, null
+  br i1 %.not15.i234, label %init_static_types.exit.thread, label %239
+
+239:                                              ; preds = %236
+  %240 = getelementptr inbounds nuw i8, ptr %238, i64 16
+  store i64 -1, ptr %240, align 8, !tbaa !40
+  %241 = getelementptr inbounds nuw i8, ptr %238, i64 24
+  store i32 0, ptr %241, align 8, !tbaa !42
+  %242 = getelementptr inbounds nuw i8, ptr %238, i64 28
+  store i32 0, ptr %242, align 4, !tbaa !43
+  %243 = getelementptr inbounds nuw i8, ptr %238, i64 32
+  store i32 1, ptr %243, align 8, !tbaa !44
+  %244 = call i32 @PyDict_SetItemString(ptr noundef %200, ptr noundef nonnull @.str.3, ptr noundef nonnull %238) #18
+  %245 = icmp sgt i32 %244, -1
+  %246 = load i32, ptr %238, align 8, !tbaa !15
+  %.not.i187 = icmp sgt i32 %246, -1
+  br i1 %.not.i187, label %247, label %251
+
+247:                                              ; preds = %239
+  %248 = add nsw i32 %246, -1
+  store i32 %248, ptr %238, align 8, !tbaa !15
+  %249 = icmp eq i32 %248, 0
+  br i1 %249, label %250, label %251
+
+250:                                              ; preds = %247
+  call void @_Py_Dealloc(ptr noundef nonnull %238) #18
+  br label %251
+
+251:                                              ; preds = %250, %247, %239
+  br i1 %245, label %252, label %init_static_types.exit.thread
+
+252:                                              ; preds = %251
+  %253 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_DateTimeType) #18
+  %254 = call ptr @new_datetime_ex2(i32 noundef 1, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
+  %255 = icmp eq ptr %254, null
+  br i1 %255, label %init_static_types.exit.thread, label %256
+
+256:                                              ; preds = %252
+  %257 = call i32 @PyDict_SetItemString(ptr noundef %253, ptr noundef nonnull @.str.4, ptr noundef nonnull %254) #18
+  %258 = icmp sgt i32 %257, -1
+  %259 = load i32, ptr %254, align 8, !tbaa !15
+  %.not.i189 = icmp sgt i32 %259, -1
+  br i1 %.not.i189, label %260, label %264
+
+260:                                              ; preds = %256
+  %261 = add nsw i32 %259, -1
+  store i32 %261, ptr %254, align 8, !tbaa !15
+  %262 = icmp eq i32 %261, 0
+  br i1 %262, label %263, label %264
+
+263:                                              ; preds = %260
+  call void @_Py_Dealloc(ptr noundef nonnull %254) #18
+  br label %264
+
+264:                                              ; preds = %263, %260, %256
+  br i1 %258, label %265, label %init_static_types.exit.thread
+
+265:                                              ; preds = %264
+  %266 = call ptr @new_datetime_ex2(i32 noundef 9999, i32 noundef 12, i32 noundef 31, i32 noundef 23, i32 noundef 59, i32 noundef 59, i32 noundef 999999, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
+  %267 = icmp eq ptr %266, null
+  br i1 %267, label %init_static_types.exit.thread, label %268
+
+268:                                              ; preds = %265
+  %269 = call i32 @PyDict_SetItemString(ptr noundef %253, ptr noundef nonnull @.str.5, ptr noundef nonnull %266) #18
+  %270 = icmp sgt i32 %269, -1
+  %271 = load i32, ptr %266, align 8, !tbaa !15
+  %.not.i191 = icmp sgt i32 %271, -1
+  br i1 %.not.i191, label %272, label %276
+
+272:                                              ; preds = %268
+  %273 = add nsw i32 %271, -1
+  store i32 %273, ptr %266, align 8, !tbaa !15
+  %274 = icmp eq i32 %273, 0
+  br i1 %274, label %275, label %276
+
+275:                                              ; preds = %272
+  call void @_Py_Dealloc(ptr noundef nonnull %266) #18
+  br label %276
+
+276:                                              ; preds = %275, %272, %268
+  br i1 %270, label %277, label %init_static_types.exit.thread
+
+277:                                              ; preds = %276
+  %278 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyDateTime_DeltaType, i64 304), align 8, !tbaa !39
+  %279 = call ptr %278(ptr noundef nonnull @PyDateTime_DeltaType, i64 noundef 0) #18
+  %.not15.i238 = icmp eq ptr %279, null
+  br i1 %.not15.i238, label %init_static_types.exit.thread, label %280
+
+280:                                              ; preds = %277
+  %281 = getelementptr inbounds nuw i8, ptr %279, i64 16
+  store i64 -1, ptr %281, align 8, !tbaa !40
+  %282 = getelementptr inbounds nuw i8, ptr %279, i64 24
+  store i32 0, ptr %282, align 8, !tbaa !42
+  %283 = getelementptr inbounds nuw i8, ptr %279, i64 28
+  store i32 0, ptr %283, align 4, !tbaa !43
+  %284 = getelementptr inbounds nuw i8, ptr %279, i64 32
+  store i32 1, ptr %284, align 8, !tbaa !44
+  %285 = call i32 @PyDict_SetItemString(ptr noundef %253, ptr noundef nonnull @.str.3, ptr noundef nonnull %279) #18
+  %286 = icmp sgt i32 %285, -1
+  %287 = load i32, ptr %279, align 8, !tbaa !15
+  %.not.i193 = icmp sgt i32 %287, -1
+  br i1 %.not.i193, label %288, label %292
+
+288:                                              ; preds = %280
+  %289 = add nsw i32 %287, -1
+  store i32 %289, ptr %279, align 8, !tbaa !15
+  %290 = icmp eq i32 %289, 0
+  br i1 %290, label %291, label %292
+
+291:                                              ; preds = %288
+  call void @_Py_Dealloc(ptr noundef nonnull %279) #18
+  br label %292
+
+292:                                              ; preds = %291, %288, %280
+  br i1 %286, label %293, label %init_static_types.exit.thread
+
+293:                                              ; preds = %292
+  %294 = call ptr @_PyType_GetDict(ptr noundef nonnull @PyDateTime_TimeZoneType) #18
+  %295 = call i32 @PyDict_SetItemString(ptr noundef %294, ptr noundef nonnull @.str.6, ptr noundef nonnull @utc_timezone) #18
+  %296 = icmp slt i32 %295, 0
+  br i1 %296, label %init_static_types.exit.thread, label %297
+
+297:                                              ; preds = %293
+  %298 = call fastcc ptr @create_timezone_from_delta(i32 noundef -1, i32 noundef 60)
+  %299 = icmp eq ptr %298, null
+  br i1 %299, label %init_static_types.exit.thread, label %300
+
+300:                                              ; preds = %297
+  %301 = call i32 @PyDict_SetItemString(ptr noundef %294, ptr noundef nonnull @.str.4, ptr noundef nonnull %298) #18
+  %302 = icmp sgt i32 %301, -1
+  %303 = load i32, ptr %298, align 8, !tbaa !15
+  %.not.i195 = icmp sgt i32 %303, -1
+  br i1 %.not.i195, label %304, label %308
+
+304:                                              ; preds = %300
+  %305 = add nsw i32 %303, -1
+  store i32 %305, ptr %298, align 8, !tbaa !15
+  %306 = icmp eq i32 %305, 0
+  br i1 %306, label %307, label %308
+
+307:                                              ; preds = %304
+  call void @_Py_Dealloc(ptr noundef nonnull %298) #18
+  br label %308
+
+308:                                              ; preds = %307, %304, %300
+  br i1 %302, label %309, label %init_static_types.exit.thread
+
+309:                                              ; preds = %308
+  %310 = call fastcc ptr @create_timezone_from_delta(i32 noundef 0, i32 noundef 86340)
+  %311 = icmp eq ptr %310, null
+  br i1 %311, label %init_static_types.exit.thread, label %312
+
+312:                                              ; preds = %309
+  %313 = call i32 @PyDict_SetItemString(ptr noundef %294, ptr noundef nonnull @.str.5, ptr noundef nonnull %310) #18
+  %314 = icmp slt i32 %313, 0
+  %315 = load i32, ptr %310, align 8, !tbaa !15
+  %.not.i197 = icmp sgt i32 %315, -1
+  br i1 %.not.i197, label %316, label %Py_DECREF.exit198
+
+316:                                              ; preds = %312
+  %317 = add nsw i32 %315, -1
+  store i32 %317, ptr %310, align 8, !tbaa !15
+  %318 = icmp eq i32 %317, 0
+  br i1 %318, label %319, label %Py_DECREF.exit198
+
+319:                                              ; preds = %316
+  call void @_Py_Dealloc(ptr noundef nonnull %310) #18
   br label %Py_DECREF.exit198
 
-Py_DECREF.exit198:                                ; preds = %310, %314, %317
-  br i1 %312, label %init_state.exit.thread, label %.thread295
+Py_DECREF.exit198:                                ; preds = %312, %316, %319
+  br i1 %314, label %init_static_types.exit.thread, label %.thread295
 
-.thread295:                                       ; preds = %Py_DECREF.exit198, %106
-  %318 = call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 1) #18
-  %319 = icmp slt i32 %318, 0
-  br i1 %319, label %init_state.exit.thread, label %320
+.thread295:                                       ; preds = %Py_DECREF.exit198, %108
+  %320 = call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull @.str.7, i64 noundef 1) #18
+  %321 = icmp slt i32 %320, 0
+  br i1 %321, label %init_static_types.exit.thread, label %322
 
-320:                                              ; preds = %.thread295
-  %321 = call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef 9999) #18
-  %322 = icmp slt i32 %321, 0
-  br i1 %322, label %init_state.exit.thread, label %323
+322:                                              ; preds = %.thread295
+  %323 = call i32 @PyModule_AddIntConstant(ptr noundef %0, ptr noundef nonnull @.str.8, i64 noundef 9999) #18
+  %324 = icmp slt i32 %323, 0
+  br i1 %324, label %init_static_types.exit.thread, label %325
 
-323:                                              ; preds = %320
-  %324 = call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @utc_timezone) #18
-  %325 = icmp slt i32 %324, 0
-  br i1 %325, label %init_state.exit.thread, label %326
+325:                                              ; preds = %322
+  %326 = call i32 @PyModule_AddObjectRef(ptr noundef %0, ptr noundef nonnull @.str.9, ptr noundef nonnull @utc_timezone) #18
+  %327 = icmp slt i32 %326, 0
+  br i1 %327, label %init_static_types.exit.thread, label %328
 
-326:                                              ; preds = %323
-  %327 = call ptr @PyCapsule_New(ptr noundef nonnull @capi, ptr noundef nonnull @.str.10, ptr noundef null) #18
-  %328 = call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %327) #18
-  %329 = icmp slt i32 %328, 0
-  br i1 %329, label %init_state.exit.thread, label %330
+328:                                              ; preds = %325
+  %329 = call ptr @PyCapsule_New(ptr noundef nonnull @capi, ptr noundef nonnull @.str.10, ptr noundef null) #18
+  %330 = call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %329) #18
+  %331 = icmp slt i32 %330, 0
+  br i1 %331, label %init_static_types.exit.thread, label %332
 
-330:                                              ; preds = %326
-  %331 = call fastcc i32 @set_current_module(ptr noundef %4, ptr noundef %0)
-  %332 = icmp slt i32 %331, 0
-  br i1 %332, label %init_state.exit.thread, label %333
+332:                                              ; preds = %328
+  %333 = call fastcc i32 @set_current_module(ptr noundef %4, ptr noundef %0)
+  %334 = icmp slt i32 %333, 0
+  br i1 %334, label %init_static_types.exit.thread, label %335
 
-init_state.exit.thread:                           ; preds = %.critedge.preheader, %123, %139, %155, %168, %180, %196, %212, %233, %249, %262, %274, %290, %306, %Py_DECREF.exit198, %295, %275, %263, %250, %234, %213, %197, %181, %169, %156, %140, %124, %107, %307, %291, %.thread, %99, %95, %91, %87, %83, %79, %75, %330, %326, %323, %320, %.thread295, %init_state.exit, %init_static_types.exit, %1
+init_static_types.exit.thread:                    ; preds = %12, %init_static_types.exit, %125, %141, %157, %170, %182, %198, %214, %235, %251, %264, %276, %292, %308, %Py_DECREF.exit198, %297, %277, %265, %252, %236, %215, %199, %183, %171, %158, %142, %126, %109, %309, %293, %.thread, %101, %97, %93, %89, %85, %81, %77, %332, %328, %325, %322, %.thread295, %init_state.exit, %1
   call fastcc void @clear_state(ptr noundef %.val)
-  br label %333
+  br label %335
 
-333:                                              ; preds = %330, %init_state.exit.thread
-  %.0127 = phi i32 [ -1, %init_state.exit.thread ], [ 0, %330 ]
-  %.not.i241 = icmp eq ptr %5, null
-  br i1 %.not.i241, label %Py_XDECREF.exit, label %334
+335:                                              ; preds = %332, %init_static_types.exit.thread
+  %.0127 = phi i32 [ -1, %init_static_types.exit.thread ], [ 0, %332 ]
+  %.not.i240 = icmp eq ptr %5, null
+  br i1 %.not.i240, label %Py_XDECREF.exit, label %336
 
-334:                                              ; preds = %333
-  %335 = load i32, ptr %5, align 8, !tbaa !15
-  %.not.i.i = icmp sgt i32 %335, -1
-  br i1 %.not.i.i, label %336, label %Py_XDECREF.exit
+336:                                              ; preds = %335
+  %337 = load i32, ptr %5, align 8, !tbaa !15
+  %.not.i.i = icmp sgt i32 %337, -1
+  br i1 %.not.i.i, label %338, label %Py_XDECREF.exit
 
-336:                                              ; preds = %334
-  %337 = add nsw i32 %335, -1
-  store i32 %337, ptr %5, align 8, !tbaa !15
-  %338 = icmp eq i32 %337, 0
-  br i1 %338, label %339, label %Py_XDECREF.exit
+338:                                              ; preds = %336
+  %339 = add nsw i32 %337, -1
+  store i32 %339, ptr %5, align 8, !tbaa !15
+  %340 = icmp eq i32 %339, 0
+  br i1 %340, label %341, label %Py_XDECREF.exit
 
-339:                                              ; preds = %336
+341:                                              ; preds = %338
   call void @_Py_Dealloc(ptr noundef nonnull %5) #18
   br label %Py_XDECREF.exit
 
-Py_XDECREF.exit:                                  ; preds = %339, %336, %334, %333
+Py_XDECREF.exit:                                  ; preds = %341, %338, %336, %335
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0127
 }
@@ -2818,12 +2817,12 @@ Py_DECREF.exit:                                   ; preds = %14, %11, %8, %5, %2
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @clear_state(ptr noundef captures(none) %0) unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !27
+  %2 = load ptr, ptr %0, align 8, !tbaa !29
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Py_DECREF.exit76, label %3
 
 3:                                                ; preds = %1
-  store ptr null, ptr %0, align 8, !tbaa !27
+  store ptr null, ptr %0, align 8, !tbaa !29
   %4 = load i32, ptr %2, align 8, !tbaa !15
   %.not.i75 = icmp sgt i32 %4, -1
   br i1 %.not.i75, label %5, label %Py_DECREF.exit76
@@ -4050,11 +4049,9 @@ define internal fastcc void @ord_to_ymd(i32 noundef %0, ptr noundef nonnull capt
   %19 = add nsw i32 %18, %16
   %20 = add nsw i32 %19, %.sext
   store i32 %20, ptr %1, align 4, !tbaa !16
-  %.off = add nsw i32 %12, -1460
-  %21 = icmp ult i32 %.off, 365
-  %.off41 = add nsw i32 %7, -146096
-  %22 = icmp ult i32 %.off41, 36524
-  %or.cond = select i1 %21, i1 true, i1 %22
+  %21 = icmp eq i32 %12, 1460
+  %22 = icmp eq i32 %7, 146096
+  %or.cond = or i1 %21, %22
   br i1 %or.cond, label %23, label %25
 
 23:                                               ; preds = %4
@@ -8032,60 +8029,134 @@ define internal ptr @datetime_date_fromtimestamp(ptr noundef %0, ptr noundef %1)
 ; Function Attrs: nounwind uwtable
 define internal ptr @date_fromordinal(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  %4 = alloca i32, align 4
-  %5 = alloca i32, align 4
-  %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %3) #18
-  %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %26, label %8
+  %4 = call i32 (ptr, ptr, ...) @PyArg_ParseTuple(ptr noundef %1, ptr noundef nonnull @.str.123, ptr noundef nonnull %3) #18
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %new_date_subclass_ex.exit, label %5
 
-8:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %9 = load i32, ptr %3, align 4, !tbaa !16
-  %10 = icmp slt i32 %9, 1
-  br i1 %10, label %11, label %13
+5:                                                ; preds = %2
+  %6 = load i32, ptr %3, align 4, !tbaa !16
+  %7 = icmp slt i32 %6, 1
+  br i1 %7, label %8, label %10
 
-11:                                               ; preds = %8
-  %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
-  call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.124) #18
+8:                                                ; preds = %5
+  %9 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !14
+  call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.124) #18
   br label %new_date_subclass_ex.exit
 
-13:                                               ; preds = %8
-  call fastcc void @ord_to_ymd(i32 noundef %9, ptr noundef %4, ptr noundef %5, ptr noundef %6)
-  %14 = load i32, ptr %4, align 4, !tbaa !16
-  %15 = load i32, ptr %5, align 4, !tbaa !16
-  %16 = load i32, ptr %6, align 4, !tbaa !16
-  %17 = icmp eq ptr %0, @PyDateTime_DateType
-  br i1 %17, label %18, label %20
+10:                                               ; preds = %5
+  %11 = add nsw i32 %6, -1
+  %12 = udiv i32 %11, 146097
+  %13 = urem i32 %11, 146097
+  %14 = mul nuw nsw i32 %12, 400
+  %15 = udiv i32 %13, 36524
+  %16 = urem i32 %13, 36524
+  %.lhs.trunc = trunc nuw i32 %16 to i16
+  %17 = udiv i16 %.lhs.trunc, 1461
+  %18 = urem i16 %.lhs.trunc, 1461
+  %19 = udiv i16 %18, 365
+  %.sext.i = zext nneg i16 %19 to i32
+  %20 = urem i16 %18, 365
+  %.sext46.i = zext nneg i16 %20 to i32
+  %21 = mul nuw nsw i32 %15, 100
+  %22 = shl nuw nsw i16 %17, 2
+  %23 = zext nneg i16 %22 to i32
+  %24 = or disjoint i32 %14, 1
+  %25 = add nuw nsw i32 %24, %21
+  %26 = add nuw nsw i32 %25, %23
+  %27 = add nuw nsw i32 %26, %.sext.i
+  %28 = icmp eq i16 %18, 1460
+  %29 = icmp eq i32 %13, 146096
+  %or.cond.i = or i1 %29, %28
+  br i1 %or.cond.i, label %30, label %32
 
-18:                                               ; preds = %13
-  %19 = call ptr @new_date_ex(i32 noundef %14, i32 noundef %15, i32 noundef %16, ptr noundef nonnull @PyDateTime_DateType)
+30:                                               ; preds = %10
+  %31 = add nsw i32 %27, -1
+  br label %ord_to_ymd.exit
+
+32:                                               ; preds = %10
+  %33 = icmp samesign ugt i16 %18, 1094
+  br i1 %33, label %34, label %38
+
+34:                                               ; preds = %32
+  %35 = icmp samesign ult i32 %16, 35064
+  %36 = icmp samesign ugt i32 %13, 109571
+  %37 = select i1 %35, i1 true, i1 %36
+  br label %38
+
+38:                                               ; preds = %34, %32
+  %39 = phi i1 [ false, %32 ], [ %37, %34 ]
+  %40 = add nuw nsw i32 %.sext46.i, 50
+  %41 = lshr i32 %40, 5
+  %42 = zext nneg i32 %41 to i64
+  %43 = getelementptr i32, ptr @_days_before_month, i64 %42
+  %44 = load i32, ptr %43, align 4, !tbaa !16
+  %45 = icmp samesign ugt i16 %20, 45
+  %46 = select i1 %45, i1 %39, i1 false
+  %47 = zext i1 %46 to i32
+  %48 = add i32 %44, %47
+  %49 = icmp sgt i32 %48, %.sext46.i
+  br i1 %49, label %50, label %62
+
+50:                                               ; preds = %38
+  %51 = add nsw i32 %41, -1
+  %52 = icmp eq i32 %51, 2
+  %53 = and i32 %27, 3
+  %54 = icmp eq i32 %53, 0
+  %or.cond.i.i = and i1 %52, %54
+  br i1 %or.cond.i.i, label %55, label %is_leap.exit.thread.i.i
+
+55:                                               ; preds = %50
+  %56 = urem i32 %27, 100
+  %.not.i.i.i = icmp ne i32 %56, 0
+  %57 = urem i32 %27, 400
+  %.not.i.i = icmp eq i32 %57, 0
+  %or.cond8.i.i = or i1 %.not.i.i.i, %.not.i.i
+  br i1 %or.cond8.i.i, label %days_in_month.exit.i, label %is_leap.exit.thread.i.i
+
+is_leap.exit.thread.i.i:                          ; preds = %55, %50
+  %58 = zext nneg i32 %51 to i64
+  %59 = getelementptr i32, ptr @_days_in_month, i64 %58
+  %60 = load i32, ptr %59, align 4, !tbaa !16
+  br label %days_in_month.exit.i
+
+days_in_month.exit.i:                             ; preds = %is_leap.exit.thread.i.i, %55
+  %.0.i.i = phi i32 [ %60, %is_leap.exit.thread.i.i ], [ 29, %55 ]
+  %61 = sub i32 %48, %.0.i.i
+  br label %62
+
+62:                                               ; preds = %days_in_month.exit.i, %38
+  %.09 = phi i32 [ %51, %days_in_month.exit.i ], [ %41, %38 ]
+  %.0.i = phi i32 [ %61, %days_in_month.exit.i ], [ %48, %38 ]
+  %63 = add nuw nsw i32 %.sext46.i, 1
+  %64 = sub i32 %63, %.0.i
+  br label %ord_to_ymd.exit
+
+ord_to_ymd.exit:                                  ; preds = %30, %62
+  %.110 = phi i32 [ 12, %30 ], [ %.09, %62 ]
+  %.08 = phi i32 [ %31, %30 ], [ %27, %62 ]
+  %storemerge.i = phi i32 [ 31, %30 ], [ %64, %62 ]
+  %65 = icmp eq ptr %0, @PyDateTime_DateType
+  br i1 %65, label %66, label %68
+
+66:                                               ; preds = %ord_to_ymd.exit
+  %67 = call ptr @new_date_ex(i32 noundef %.08, i32 noundef %.110, i32 noundef %storemerge.i, ptr noundef nonnull @PyDateTime_DateType)
   br label %new_date_subclass_ex.exit
 
-20:                                               ; preds = %13
-  %21 = icmp eq ptr %0, @PyDateTime_DateTimeType
-  br i1 %21, label %22, label %24
+68:                                               ; preds = %ord_to_ymd.exit
+  %69 = icmp eq ptr %0, @PyDateTime_DateTimeType
+  br i1 %69, label %70, label %72
 
-22:                                               ; preds = %20
-  %23 = call ptr @new_datetime_ex2(i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
+70:                                               ; preds = %68
+  %71 = call ptr @new_datetime_ex2(i32 noundef %.08, i32 noundef %.110, i32 noundef %storemerge.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
   br label %new_date_subclass_ex.exit
 
-24:                                               ; preds = %20
-  %25 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %0, ptr noundef nonnull @.str.63, i32 noundef %14, i32 noundef %15, i32 noundef %16) #18
+72:                                               ; preds = %68
+  %73 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %0, ptr noundef nonnull @.str.63, i32 noundef %.08, i32 noundef %.110, i32 noundef %storemerge.i) #18
   br label %new_date_subclass_ex.exit
 
-new_date_subclass_ex.exit:                        ; preds = %24, %22, %18, %11
-  %.1 = phi ptr [ null, %11 ], [ %19, %18 ], [ %23, %22 ], [ %25, %24 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %26
-
-26:                                               ; preds = %new_date_subclass_ex.exit, %2
-  %.0 = phi ptr [ %.1, %new_date_subclass_ex.exit ], [ null, %2 ]
+new_date_subclass_ex.exit:                        ; preds = %8, %66, %70, %72, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %8 ], [ %67, %66 ], [ %71, %70 ], [ %73, %72 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.0
 }
@@ -8963,7 +9034,7 @@ define internal ptr @datetime_date_replace(ptr noundef readonly captures(none) %
 .thread:                                          ; preds = %8, %28
   %30 = phi ptr [ %29, %28 ], [ %1, %8 ]
   %.not51 = icmp eq i64 %10, 0
-  br i1 %.not51, label %56, label %31
+  br i1 %.not51, label %57, label %31
 
 31:                                               ; preds = %.thread
   %32 = load ptr, ptr %30, align 8, !tbaa !14
@@ -8983,7 +9054,7 @@ define internal ptr @datetime_date_replace(ptr noundef readonly captures(none) %
 38:                                               ; preds = %36, %33
   %39 = add i64 %10, -1
   %.not54 = icmp eq i64 %39, 0
-  br i1 %.not54, label %56, label %40
+  br i1 %.not54, label %57, label %40
 
 40:                                               ; preds = %38, %31
   %.039 = phi i64 [ %39, %38 ], [ %10, %31 ]
@@ -8991,7 +9062,7 @@ define internal ptr @datetime_date_replace(ptr noundef readonly captures(none) %
   %41 = getelementptr i8, ptr %30, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !14
   %.not55 = icmp eq ptr %42, null
-  br i1 %.not55, label %49, label %43
+  br i1 %.not55, label %50, label %43
 
 43:                                               ; preds = %40
   %44 = call i32 @PyLong_AsInt(ptr noundef nonnull %42) #18
@@ -9004,49 +9075,49 @@ define internal ptr @datetime_date_replace(ptr noundef readonly captures(none) %
   br i1 %.not56, label %48, label %datetime_date_replace_impl.exit
 
 48:                                               ; preds = %46, %43
-  %.not57 = icmp eq i64 %.039, 1
-  br i1 %.not57, label %56, label %49
+  %49 = icmp ugt i64 %.039, 1
+  br i1 %49, label %50, label %57
 
-49:                                               ; preds = %48, %40
+50:                                               ; preds = %48, %40
   %.1 = phi i32 [ %44, %48 ], [ %21, %40 ]
-  %50 = getelementptr i8, ptr %30, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !14
-  %52 = call i32 @PyLong_AsInt(ptr noundef %51) #18
-  %53 = icmp eq i32 %52, -1
-  br i1 %53, label %54, label %56
+  %51 = getelementptr i8, ptr %30, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !14
+  %53 = call i32 @PyLong_AsInt(ptr noundef %52) #18
+  %54 = icmp eq i32 %53, -1
+  br i1 %54, label %55, label %57
 
-54:                                               ; preds = %49
-  %55 = call ptr @PyErr_Occurred() #18
-  %.not58 = icmp eq ptr %55, null
-  br i1 %.not58, label %56, label %datetime_date_replace_impl.exit
+55:                                               ; preds = %50
+  %56 = call ptr @PyErr_Occurred() #18
+  %.not57 = icmp eq ptr %56, null
+  br i1 %.not57, label %57, label %datetime_date_replace_impl.exit
 
-56:                                               ; preds = %49, %54, %48, %38, %.thread
-  %.037 = phi i32 [ %.138, %54 ], [ %.138, %49 ], [ %.138, %48 ], [ %34, %38 ], [ %18, %.thread ]
-  %.036 = phi i32 [ %.1, %54 ], [ %.1, %49 ], [ %44, %48 ], [ %21, %38 ], [ %21, %.thread ]
-  %.0 = phi i32 [ -1, %54 ], [ %52, %49 ], [ %24, %48 ], [ %24, %38 ], [ %24, %.thread ]
-  %57 = getelementptr i8, ptr %0, i64 8
-  %.val59 = load ptr, ptr %57, align 8, !tbaa !51
-  %58 = icmp eq ptr %.val59, @PyDateTime_DateType
-  br i1 %58, label %59, label %61
+57:                                               ; preds = %50, %55, %48, %38, %.thread
+  %.037 = phi i32 [ %.138, %55 ], [ %.138, %50 ], [ %.138, %48 ], [ %34, %38 ], [ %18, %.thread ]
+  %.036 = phi i32 [ %.1, %55 ], [ %.1, %50 ], [ %44, %48 ], [ %21, %38 ], [ %21, %.thread ]
+  %.0 = phi i32 [ -1, %55 ], [ %53, %50 ], [ %24, %48 ], [ %24, %38 ], [ %24, %.thread ]
+  %58 = getelementptr i8, ptr %0, i64 8
+  %.val58 = load ptr, ptr %58, align 8, !tbaa !51
+  %59 = icmp eq ptr %.val58, @PyDateTime_DateType
+  br i1 %59, label %60, label %62
 
-59:                                               ; preds = %56
-  %60 = call ptr @new_date_ex(i32 noundef %.037, i32 noundef %.036, i32 noundef %.0, ptr noundef nonnull @PyDateTime_DateType)
+60:                                               ; preds = %57
+  %61 = call ptr @new_date_ex(i32 noundef %.037, i32 noundef %.036, i32 noundef %.0, ptr noundef nonnull @PyDateTime_DateType)
   br label %datetime_date_replace_impl.exit
 
-61:                                               ; preds = %56
-  %62 = icmp eq ptr %.val59, @PyDateTime_DateTimeType
-  br i1 %62, label %63, label %65
+62:                                               ; preds = %57
+  %63 = icmp eq ptr %.val58, @PyDateTime_DateTimeType
+  br i1 %63, label %64, label %66
 
-63:                                               ; preds = %61
-  %64 = call ptr @new_datetime_ex2(i32 noundef %.037, i32 noundef %.036, i32 noundef %.0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
+64:                                               ; preds = %62
+  %65 = call ptr @new_datetime_ex2(i32 noundef %.037, i32 noundef %.036, i32 noundef %.0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @_Py_NoneStruct, i32 noundef 0, ptr noundef nonnull @PyDateTime_DateTimeType)
   br label %datetime_date_replace_impl.exit
 
-65:                                               ; preds = %61
-  %66 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %.val59, ptr noundef nonnull @.str.63, i32 noundef %.037, i32 noundef %.036, i32 noundef %.0) #18
+66:                                               ; preds = %62
+  %67 = call ptr (ptr, ptr, ...) @PyObject_CallFunction(ptr noundef %.val58, ptr noundef nonnull @.str.63, i32 noundef %.037, i32 noundef %.036, i32 noundef %.0) #18
   br label %datetime_date_replace_impl.exit
 
-datetime_date_replace_impl.exit:                  ; preds = %65, %63, %59, %54, %46, %36, %28
-  %.040 = phi ptr [ null, %36 ], [ null, %46 ], [ null, %54 ], [ null, %28 ], [ %60, %59 ], [ %64, %63 ], [ %66, %65 ]
+datetime_date_replace_impl.exit:                  ; preds = %66, %64, %60, %55, %46, %36, %28
+  %.040 = phi ptr [ null, %36 ], [ null, %46 ], [ null, %55 ], [ null, %28 ], [ %61, %60 ], [ %65, %64 ], [ %67, %66 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret ptr %.040
 }
@@ -9126,21 +9197,21 @@ define internal fastcc range(i32 -7, 1) i32 @parse_isoformat_date(ptr noundef no
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10, %5
-  %.01319.i = phi i64 [ %15, %10 ], [ 0, %5 ]
-  %.01418.i = phi ptr [ %11, %10 ], [ %0, %5 ]
-  %6 = load i8, ptr %.01418.i, align 1, !tbaa !15
+  %.01321.i = phi i64 [ %15, %10 ], [ 0, %5 ]
+  %.01420.i = phi ptr [ %11, %10 ], [ %0, %5 ]
+  %6 = load i8, ptr %.01420.i, align 1, !tbaa !15
   %7 = sext i8 %6 to i32
   %8 = add nsw i32 %7, -48
   %9 = icmp ult i32 %8, 10
   br i1 %9, label %10, label %parse_digits.exit.thread
 
 10:                                               ; preds = %.lr.ph.i
-  %11 = getelementptr i8, ptr %.01418.i, i64 1
+  %11 = getelementptr i8, ptr %.01420.i, i64 1
   %12 = load i32, ptr %2, align 4, !tbaa !16
   %13 = mul i32 %12, 10
   %14 = add i32 %13, %8
   store i32 %14, ptr %2, align 4, !tbaa !16
-  %15 = add nuw nsw i64 %.01319.i, 1
+  %15 = add nuw nsw i64 %.01321.i, 1
   %exitcond.not.i = icmp eq i64 %15, 4
   br i1 %exitcond.not.i, label %parse_digits.exit, label %.lr.ph.i, !llvm.loop !79
 
@@ -9151,37 +9222,37 @@ parse_digits.exit:                                ; preds = %10
 17:                                               ; preds = %parse_digits.exit
   %18 = load i8, ptr %11, align 1, !tbaa !15
   %19 = icmp eq i8 %18, 45
-  %20 = getelementptr i8, ptr %.01418.i, i64 2
+  %20 = getelementptr i8, ptr %.01420.i, i64 2
   %spec.select = select i1 %19, ptr %20, ptr %11
   %21 = load i8, ptr %spec.select, align 1, !tbaa !15
   %22 = icmp eq i8 %21, 87
-  br i1 %22, label %23, label %.lr.ph.i53
+  br i1 %22, label %23, label %.lr.ph.i51
 
 23:                                               ; preds = %17
   %scevgep = getelementptr i8, ptr %spec.select, i64 3
   br label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %28, %23
-  %.071 = phi i32 [ 0, %23 ], [ %30, %28 ]
-  %exitcond.not.i45 = phi i1 [ false, %23 ], [ true, %28 ]
-  %spec.select.pn = phi ptr [ %spec.select, %23 ], [ %.01418.i43, %28 ]
-  %.01418.i43 = getelementptr i8, ptr %spec.select.pn, i64 1
-  %24 = load i8, ptr %.01418.i43, align 1, !tbaa !15
+  %.067 = phi i32 [ 0, %23 ], [ %30, %28 ]
+  %exitcond.not.i44 = phi i1 [ false, %23 ], [ true, %28 ]
+  %spec.select.pn = phi ptr [ %spec.select, %23 ], [ %.01420.i43, %28 ]
+  %.01420.i43 = getelementptr i8, ptr %spec.select.pn, i64 1
+  %24 = load i8, ptr %.01420.i43, align 1, !tbaa !15
   %25 = sext i8 %24 to i32
   %26 = add nsw i32 %25, -48
   %27 = icmp ult i32 %26, 10
   br i1 %27, label %28, label %parse_digits.exit.thread
 
 28:                                               ; preds = %.lr.ph.i41
-  %29 = mul i32 %.071, 10
+  %29 = mul i32 %.067, 10
   %30 = add i32 %26, %29
-  br i1 %exitcond.not.i45, label %parse_digits.exit46, label %.lr.ph.i41, !llvm.loop !79
+  br i1 %exitcond.not.i44, label %parse_digits.exit45, label %.lr.ph.i41, !llvm.loop !79
 
-parse_digits.exit46:                              ; preds = %28
+parse_digits.exit45:                              ; preds = %28
   %31 = icmp eq ptr %scevgep, null
   br i1 %31, label %parse_digits.exit.thread, label %32
 
-32:                                               ; preds = %parse_digits.exit46
+32:                                               ; preds = %parse_digits.exit45
   %33 = ptrtoint ptr %scevgep to i64
   %34 = ptrtoint ptr %0 to i64
   %35 = sub i64 %33, %34
@@ -9189,92 +9260,92 @@ parse_digits.exit46:                              ; preds = %28
   br i1 %36, label %37, label %46
 
 37:                                               ; preds = %32
-  br i1 %19, label %38, label %.lr.ph.i47
+  br i1 %19, label %38, label %.lr.ph.i46
 
 38:                                               ; preds = %37
-  %39 = getelementptr i8, ptr %.01418.i, i64 6
+  %39 = getelementptr i8, ptr %.01420.i, i64 6
   %40 = load i8, ptr %scevgep, align 1, !tbaa !15
   %.not39 = icmp eq i8 %40, 45
-  br i1 %.not39, label %.lr.ph.i47, label %parse_digits.exit.thread
+  br i1 %.not39, label %.lr.ph.i46, label %parse_digits.exit.thread
 
-.lr.ph.i47:                                       ; preds = %38, %37
+.lr.ph.i46:                                       ; preds = %38, %37
   %.133 = phi ptr [ %39, %38 ], [ %scevgep, %37 ]
   %41 = load i8, ptr %.133, align 1, !tbaa !15
   %42 = sext i8 %41 to i32
   %43 = add nsw i32 %42, -48
   %44 = icmp ugt i32 %43, 9
-  %scevgep102 = getelementptr i8, ptr %.133, i64 1
-  %45 = icmp eq ptr %scevgep102, null
+  %scevgep94 = getelementptr i8, ptr %.133, i64 1
+  %45 = icmp eq ptr %scevgep94, null
   %or.cond = or i1 %44, %45
   br i1 %or.cond, label %parse_digits.exit.thread, label %46
 
-46:                                               ; preds = %.lr.ph.i47, %32
-  %.068 = phi i32 [ 1, %32 ], [ %43, %.lr.ph.i47 ]
-  %47 = tail call fastcc i32 @iso_to_ymd(i32 noundef %14, i32 noundef %30, i32 noundef %.068, ptr noundef %2, ptr noundef %3, ptr noundef %4)
+46:                                               ; preds = %.lr.ph.i46, %32
+  %.064 = phi i32 [ 1, %32 ], [ %43, %.lr.ph.i46 ]
+  %47 = tail call fastcc i32 @iso_to_ymd(i32 noundef %14, i32 noundef %30, i32 noundef %.064, ptr noundef %2, ptr noundef %3, ptr noundef %4)
   %.not40 = icmp eq i32 %47, 0
   %48 = add nsw i32 %47, -3
   %.2 = select i1 %.not40, i32 0, i32 %48
   br label %parse_digits.exit.thread
 
-.lr.ph.i53:                                       ; preds = %17, %53
-  %exitcond.not.i57 = phi i1 [ true, %53 ], [ false, %17 ]
-  %.01418.i55 = phi ptr [ %54, %53 ], [ %spec.select, %17 ]
-  %49 = load i8, ptr %.01418.i55, align 1, !tbaa !15
+.lr.ph.i51:                                       ; preds = %17, %53
+  %exitcond.not.i54 = phi i1 [ true, %53 ], [ false, %17 ]
+  %.01420.i53 = phi ptr [ %54, %53 ], [ %spec.select, %17 ]
+  %49 = load i8, ptr %.01420.i53, align 1, !tbaa !15
   %50 = sext i8 %49 to i32
   %51 = add nsw i32 %50, -48
   %52 = icmp ult i32 %51, 10
   br i1 %52, label %53, label %parse_digits.exit.thread
 
-53:                                               ; preds = %.lr.ph.i53
-  %54 = getelementptr i8, ptr %.01418.i55, i64 1
+53:                                               ; preds = %.lr.ph.i51
+  %54 = getelementptr i8, ptr %.01420.i53, i64 1
   %55 = load i32, ptr %3, align 4, !tbaa !16
   %56 = mul i32 %55, 10
   %57 = add i32 %56, %51
   store i32 %57, ptr %3, align 4, !tbaa !16
-  br i1 %exitcond.not.i57, label %parse_digits.exit58, label %.lr.ph.i53, !llvm.loop !79
+  br i1 %exitcond.not.i54, label %parse_digits.exit55, label %.lr.ph.i51, !llvm.loop !79
 
-parse_digits.exit58:                              ; preds = %53
+parse_digits.exit55:                              ; preds = %53
   %58 = icmp eq ptr %54, null
   br i1 %58, label %parse_digits.exit.thread, label %59
 
-59:                                               ; preds = %parse_digits.exit58
-  br i1 %19, label %60, label %.lr.ph.i59.preheader
+59:                                               ; preds = %parse_digits.exit55
+  br i1 %19, label %60, label %.lr.ph.i56.preheader
 
 60:                                               ; preds = %59
-  %61 = getelementptr i8, ptr %.01418.i55, i64 2
+  %61 = getelementptr i8, ptr %.01420.i53, i64 2
   %62 = load i8, ptr %54, align 1, !tbaa !15
   %.not = icmp eq i8 %62, 45
-  br i1 %.not, label %.lr.ph.i59.preheader, label %parse_digits.exit.thread
+  br i1 %.not, label %.lr.ph.i56.preheader, label %parse_digits.exit.thread
 
-.lr.ph.i59.preheader:                             ; preds = %60, %59
-  %.01418.i61.ph = phi ptr [ %54, %59 ], [ %61, %60 ]
-  br label %.lr.ph.i59
+.lr.ph.i56.preheader:                             ; preds = %60, %59
+  %.01420.i58.ph = phi ptr [ %54, %59 ], [ %61, %60 ]
+  br label %.lr.ph.i56
 
-.lr.ph.i59:                                       ; preds = %.lr.ph.i59.preheader, %67
-  %exitcond.not.i63 = phi i1 [ true, %67 ], [ false, %.lr.ph.i59.preheader ]
-  %.01418.i61 = phi ptr [ %68, %67 ], [ %.01418.i61.ph, %.lr.ph.i59.preheader ]
-  %63 = load i8, ptr %.01418.i61, align 1, !tbaa !15
+.lr.ph.i56:                                       ; preds = %.lr.ph.i56.preheader, %67
+  %exitcond.not.i59 = phi i1 [ true, %67 ], [ false, %.lr.ph.i56.preheader ]
+  %.01420.i58 = phi ptr [ %68, %67 ], [ %.01420.i58.ph, %.lr.ph.i56.preheader ]
+  %63 = load i8, ptr %.01420.i58, align 1, !tbaa !15
   %64 = sext i8 %63 to i32
   %65 = add nsw i32 %64, -48
   %66 = icmp ult i32 %65, 10
-  br i1 %66, label %67, label %parse_digits.exit64
+  br i1 %66, label %67, label %parse_digits.exit60
 
-67:                                               ; preds = %.lr.ph.i59
-  %68 = getelementptr i8, ptr %.01418.i61, i64 1
+67:                                               ; preds = %.lr.ph.i56
+  %68 = getelementptr i8, ptr %.01420.i58, i64 1
   %69 = load i32, ptr %4, align 4, !tbaa !16
   %70 = mul i32 %69, 10
   %71 = add i32 %70, %65
   store i32 %71, ptr %4, align 4, !tbaa !16
-  br i1 %exitcond.not.i63, label %parse_digits.exit64, label %.lr.ph.i59, !llvm.loop !79
+  br i1 %exitcond.not.i59, label %parse_digits.exit60, label %.lr.ph.i56, !llvm.loop !79
 
-parse_digits.exit64:                              ; preds = %.lr.ph.i59, %67
-  %spec.select.i62 = phi ptr [ null, %.lr.ph.i59 ], [ %68, %67 ]
-  %72 = icmp eq ptr %spec.select.i62, null
-  %. = sext i1 %72 to i32
+parse_digits.exit60:                              ; preds = %.lr.ph.i56, %67
+  %72 = phi ptr [ %68, %67 ], [ null, %.lr.ph.i56 ]
+  %73 = icmp eq ptr %72, null
+  %. = sext i1 %73 to i32
   br label %parse_digits.exit.thread
 
-parse_digits.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph.i53, %.lr.ph.i41, %.lr.ph.i47, %46, %parse_digits.exit46, %38, %parse_digits.exit58, %60, %parse_digits.exit64, %parse_digits.exit
-  %.0 = phi i32 [ -1, %parse_digits.exit ], [ -1, %parse_digits.exit58 ], [ -2, %60 ], [ %., %parse_digits.exit64 ], [ %.2, %46 ], [ -3, %parse_digits.exit46 ], [ -2, %38 ], [ -4, %.lr.ph.i47 ], [ -3, %.lr.ph.i41 ], [ -1, %.lr.ph.i53 ], [ -1, %.lr.ph.i ]
+parse_digits.exit.thread:                         ; preds = %.lr.ph.i, %.lr.ph.i51, %.lr.ph.i41, %.lr.ph.i46, %46, %parse_digits.exit45, %38, %parse_digits.exit55, %60, %parse_digits.exit60, %parse_digits.exit
+  %.0 = phi i32 [ -1, %parse_digits.exit ], [ -1, %parse_digits.exit55 ], [ -2, %60 ], [ %., %parse_digits.exit60 ], [ %.2, %46 ], [ -3, %parse_digits.exit45 ], [ -2, %38 ], [ -4, %.lr.ph.i46 ], [ -3, %.lr.ph.i41 ], [ -1, %.lr.ph.i51 ], [ -1, %.lr.ph.i ]
   ret i32 %.0
 }
 
@@ -12717,25 +12788,25 @@ define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %0, p
   store ptr %4, ptr %9, align 16, !tbaa !84
   br label %10
 
-10:                                               ; preds = %6, %select.unfold75
-  %.048117 = phi ptr [ %0, %6 ], [ %.250, %select.unfold75 ]
-  %.054116 = phi i64 [ 0, %6 ], [ %38, %select.unfold75 ]
-  %.055115 = phi i8 [ 1, %6 ], [ %.156, %select.unfold75 ]
-  %11 = getelementptr ptr, ptr %7, i64 %.054116
+10:                                               ; preds = %6, %select.unfold73
+  %.048114 = phi ptr [ %0, %6 ], [ %.250, %select.unfold73 ]
+  %.054113 = phi i64 [ 0, %6 ], [ %38, %select.unfold73 ]
+  %.055112 = phi i8 [ 1, %6 ], [ %.156, %select.unfold73 ]
+  %11 = getelementptr ptr, ptr %7, i64 %.054113
   %12 = load ptr, ptr %11, align 8, !tbaa !84
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %10
   %exitcond.not.i = phi i1 [ true, %17 ], [ false, %10 ]
-  %.01418.i = phi ptr [ %18, %17 ], [ %.048117, %10 ]
-  %13 = load i8, ptr %.01418.i, align 1, !tbaa !15
+  %.01420.i = phi ptr [ %18, %17 ], [ %.048114, %10 ]
+  %13 = load i8, ptr %.01420.i, align 1, !tbaa !15
   %14 = sext i8 %13 to i32
   %15 = add nsw i32 %14, -48
   %16 = icmp ult i32 %15, 10
-  br i1 %16, label %17, label %.thread80
+  br i1 %16, label %17, label %.thread78
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = getelementptr i8, ptr %.01418.i, i64 1
+  %18 = getelementptr i8, ptr %.01420.i, i64 1
   %19 = load i32, ptr %12, align 4, !tbaa !16
   %20 = mul i32 %19, 10
   %21 = add i32 %20, %15
@@ -12744,27 +12815,27 @@ define internal fastcc range(i32 -4, 2) i32 @parse_hh_mm_ss_ff(ptr noundef %0, p
 
 parse_digits.exit:                                ; preds = %17
   %22 = icmp eq ptr %18, null
-  br i1 %22, label %.thread80, label %23
+  br i1 %22, label %.thread78, label %23
 
 23:                                               ; preds = %parse_digits.exit
-  %24 = getelementptr i8, ptr %.01418.i, i64 2
+  %24 = getelementptr i8, ptr %.01420.i, i64 2
   %25 = load i8, ptr %18, align 1, !tbaa !15
-  %26 = icmp eq i64 %.054116, 0
+  %26 = icmp eq i64 %.054113, 0
   %27 = icmp eq i8 %25, 58
   %28 = zext i1 %27 to i8
-  %.156 = select i1 %26, i8 %28, i8 %.055115
+  %.156 = select i1 %26, i8 %28, i8 %.055112
   %.not = icmp ult ptr %24, %1
   br i1 %.not, label %32, label %29
 
 29:                                               ; preds = %23
   %30 = icmp ne i8 %25, 0
   %31 = zext i1 %30 to i32
-  br label %.thread80
+  br label %.thread78
 
 32:                                               ; preds = %23
   %33 = icmp ne i8 %.156, 0
   %or.cond = select i1 %33, i1 %27, i1 false
-  br i1 %or.cond, label %select.unfold75, label %34
+  br i1 %or.cond, label %select.unfold73, label %34
 
 34:                                               ; preds = %32
   %35 = and i8 %25, -3
@@ -12772,89 +12843,89 @@ parse_digits.exit:                                ; preds = %17
   br i1 %or.cond5, label %36, label %37
 
 36:                                               ; preds = %34
-  %.not63 = icmp eq i64 %.054116, 2
-  br i1 %.not63, label %.thread85, label %.thread80
+  %.not63 = icmp eq i64 %.054113, 2
+  br i1 %.not63, label %.thread83, label %.thread78
 
 37:                                               ; preds = %34
   %.not62 = icmp eq i8 %.156, 0
-  br i1 %.not62, label %select.unfold75, label %.thread80
+  br i1 %.not62, label %select.unfold73, label %.thread78
 
-select.unfold75:                                  ; preds = %37, %32
+select.unfold73:                                  ; preds = %37, %32
   %.250 = phi ptr [ %24, %32 ], [ %18, %37 ]
-  %38 = add nuw nsw i64 %.054116, 1
+  %38 = add nuw nsw i64 %.054113, 1
   %exitcond.not = icmp eq i64 %38, 3
-  br i1 %exitcond.not, label %.thread85, label %10, !llvm.loop !86
+  br i1 %exitcond.not, label %.thread83, label %10, !llvm.loop !86
 
-.thread85:                                        ; preds = %select.unfold75, %36
-  %.14990 = phi ptr [ %24, %36 ], [ %.250, %select.unfold75 ]
+.thread83:                                        ; preds = %select.unfold73, %36
+  %.14988 = phi ptr [ %24, %36 ], [ %.250, %select.unfold73 ]
   %39 = ptrtoint ptr %1 to i64
-  %40 = ptrtoint ptr %.14990 to i64
+  %40 = ptrtoint ptr %.14988 to i64
   %41 = sub i64 %39, %40
   %spec.store.select = tail call i64 @llvm.umin.i64(i64 %41, i64 6)
-  %.not17.not.i = icmp eq ptr %1, %.14990
-  br i1 %.not17.not.i, label %parse_digits.exit73.thread, label %.lr.ph.i68
+  %.not.i = icmp eq ptr %1, %.14988
+  br i1 %.not.i, label %parse_digits.exit72.thread, label %.lr.ph.i68
 
-.lr.ph.i68:                                       ; preds = %.thread85, %46
-  %.01319.i69 = phi i64 [ %51, %46 ], [ 0, %.thread85 ]
-  %.01418.i70 = phi ptr [ %47, %46 ], [ %.14990, %.thread85 ]
-  %42 = load i8, ptr %.01418.i70, align 1, !tbaa !15
+.lr.ph.i68:                                       ; preds = %.thread83, %46
+  %.01321.i69 = phi i64 [ %51, %46 ], [ 0, %.thread83 ]
+  %.01420.i70 = phi ptr [ %47, %46 ], [ %.14988, %.thread83 ]
+  %42 = load i8, ptr %.01420.i70, align 1, !tbaa !15
   %43 = sext i8 %42 to i32
   %44 = add nsw i32 %43, -48
   %45 = icmp ult i32 %44, 10
-  br i1 %45, label %46, label %.thread80
+  br i1 %45, label %46, label %.thread78
 
 46:                                               ; preds = %.lr.ph.i68
-  %47 = getelementptr i8, ptr %.01418.i70, i64 1
+  %47 = getelementptr i8, ptr %.01420.i70, i64 1
   %48 = load i32, ptr %5, align 4, !tbaa !16
   %49 = mul i32 %48, 10
   %50 = add i32 %49, %44
   store i32 %50, ptr %5, align 4, !tbaa !16
-  %51 = add nuw i64 %.01319.i69, 1
-  %exitcond.not.i72 = icmp eq i64 %51, %spec.store.select
-  br i1 %exitcond.not.i72, label %parse_digits.exit73, label %.lr.ph.i68, !llvm.loop !79
+  %51 = add nuw i64 %.01321.i69, 1
+  %exitcond.not.i71 = icmp eq i64 %51, %spec.store.select
+  br i1 %exitcond.not.i71, label %parse_digits.exit72, label %.lr.ph.i68, !llvm.loop !79
 
-parse_digits.exit73:                              ; preds = %46
+parse_digits.exit72:                              ; preds = %46
   %52 = icmp eq ptr %47, null
-  br i1 %52, label %.thread80, label %54
+  br i1 %52, label %.thread78, label %54
 
-parse_digits.exit73.thread:                       ; preds = %.thread85
-  %53 = icmp eq ptr %.14990, null
-  br i1 %53, label %.thread80, label %.thread
+parse_digits.exit72.thread:                       ; preds = %.thread83
+  %53 = icmp eq ptr %.14988, null
+  br i1 %53, label %.thread78, label %.thread
 
-54:                                               ; preds = %parse_digits.exit73
+54:                                               ; preds = %parse_digits.exit72
   %55 = icmp ult i64 %41, 6
   br i1 %55, label %.thread, label %.preheader
 
-.thread:                                          ; preds = %parse_digits.exit73.thread, %54
-  %spec.select.i71141144 = phi ptr [ %47, %54 ], [ %.14990, %parse_digits.exit73.thread ]
-  %56 = getelementptr i32, ptr @parse_hh_mm_ss_ff.correction, i64 %spec.store.select
-  %57 = getelementptr i8, ptr %56, i64 -4
-  %58 = load i32, ptr %57, align 4, !tbaa !16
-  %59 = load i32, ptr %5, align 4, !tbaa !16
-  %60 = mul i32 %59, %58
-  store i32 %60, ptr %5, align 4, !tbaa !16
+.thread:                                          ; preds = %parse_digits.exit72.thread, %54
+  %56 = phi ptr [ %47, %54 ], [ %.14988, %parse_digits.exit72.thread ]
+  %57 = getelementptr i32, ptr @parse_hh_mm_ss_ff.correction, i64 %spec.store.select
+  %58 = getelementptr i8, ptr %57, i64 -4
+  %59 = load i32, ptr %58, align 4, !tbaa !16
+  %60 = load i32, ptr %5, align 4, !tbaa !16
+  %61 = mul i32 %60, %59
+  store i32 %61, ptr %5, align 4, !tbaa !16
   br label %.preheader
 
 .preheader:                                       ; preds = %.thread, %54
-  %.351.ph = phi ptr [ %47, %54 ], [ %spec.select.i71141144, %.thread ]
-  br label %61
+  %.351.ph = phi ptr [ %47, %54 ], [ %56, %.thread ]
+  br label %62
 
-61:                                               ; preds = %.preheader, %61
-  %.351 = phi ptr [ %66, %61 ], [ %.351.ph, %.preheader ]
-  %62 = load i8, ptr %.351, align 1, !tbaa !15
-  %63 = sext i8 %62 to i32
-  %64 = add nsw i32 %63, -58
-  %65 = icmp ult i32 %64, -10
-  %66 = getelementptr i8, ptr %.351, i64 1
-  br i1 %65, label %67, label %61, !llvm.loop !87
+62:                                               ; preds = %.preheader, %62
+  %.351 = phi ptr [ %67, %62 ], [ %.351.ph, %.preheader ]
+  %63 = load i8, ptr %.351, align 1, !tbaa !15
+  %64 = sext i8 %63 to i32
+  %65 = add nsw i32 %64, -58
+  %66 = icmp ult i32 %65, -10
+  %67 = getelementptr i8, ptr %.351, i64 1
+  br i1 %66, label %68, label %62, !llvm.loop !87
 
-67:                                               ; preds = %61
-  %68 = icmp ne i8 %62, 0
-  %69 = zext i1 %68 to i32
-  br label %.thread80
+68:                                               ; preds = %62
+  %69 = icmp ne i8 %63, 0
+  %70 = zext i1 %69 to i32
+  br label %.thread78
 
-.thread80:                                        ; preds = %37, %parse_digits.exit, %.lr.ph.i, %.lr.ph.i68, %parse_digits.exit73.thread, %29, %36, %67, %parse_digits.exit73
-  %.3 = phi i32 [ %69, %67 ], [ -3, %parse_digits.exit73 ], [ %31, %29 ], [ -3, %36 ], [ -3, %parse_digits.exit73.thread ], [ -3, %.lr.ph.i68 ], [ -3, %.lr.ph.i ], [ -4, %37 ], [ -3, %parse_digits.exit ]
+.thread78:                                        ; preds = %37, %parse_digits.exit, %.lr.ph.i, %.lr.ph.i68, %parse_digits.exit72.thread, %29, %36, %68, %parse_digits.exit72
+  %.3 = phi i32 [ %70, %68 ], [ -3, %parse_digits.exit72 ], [ %31, %29 ], [ -3, %36 ], [ -3, %parse_digits.exit72.thread ], [ -3, %.lr.ph.i68 ], [ -3, %.lr.ph.i ], [ -4, %37 ], [ -3, %parse_digits.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %.3
 }
@@ -13783,8 +13854,8 @@ define internal ptr @datetime_richcompare(ptr noundef %0, ptr noundef %1, i32 no
 
 PyObject_TypeCheck.exit:                          ; preds = %3
   %5 = tail call i32 @PyType_IsSubtype(ptr noundef %.val97, ptr noundef nonnull @PyDateTime_DateTimeType) #18
-  %.not135 = icmp eq i32 %5, 0
-  br i1 %.not135, label %diff_to_bool.exit, label %PyObject_TypeCheck.exit.thread
+  %.not134 = icmp eq i32 %5, 0
+  br i1 %.not134, label %diff_to_bool.exit, label %PyObject_TypeCheck.exit.thread
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %3, %PyObject_TypeCheck.exit
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -13913,8 +13984,8 @@ PyObject_TypeCheck.exit104.thread:                ; preds = %54, %PyObject_TypeC
 
 PyObject_TypeCheck.exit106:                       ; preds = %PyObject_TypeCheck.exit104.thread
   %58 = tail call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyDateTime_DeltaType) #18
-  %.not136 = icmp eq i32 %58, 0
-  br i1 %.not136, label %delta_cmp.exit.thread, label %PyObject_TypeCheck.exit106.thread
+  %.not135 = icmp eq i32 %58, 0
+  br i1 %.not135, label %delta_cmp.exit.thread, label %PyObject_TypeCheck.exit106.thread
 
 PyObject_TypeCheck.exit106.thread:                ; preds = %PyObject_TypeCheck.exit104.thread, %PyObject_TypeCheck.exit106
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -18996,19 +19067,19 @@ PyObject_TypeCheck.exit.thread.i:                 ; preds = %PyObject_TypeCheck.
 
 delta_cmp.exit.i:                                 ; preds = %25, %19, %PyObject_TypeCheck.exit.thread.i
   %.0.i.i = phi i1 [ %30, %25 ], [ false, %19 ], [ false, %PyObject_TypeCheck.exit.thread.i ]
-  %switch = icmp eq i32 %2, 2
-  br i1 %switch, label %31, label %32
+  %31 = icmp eq i32 %2, 2
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %delta_cmp.exit.i
+32:                                               ; preds = %delta_cmp.exit.i
   %_Py_TrueStruct._Py_FalseStruct.i.i = select i1 %.0.i.i, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct
   br label %delta_richcompare.exit
 
-32:                                               ; preds = %delta_cmp.exit.i
+33:                                               ; preds = %delta_cmp.exit.i
   %_Py_FalseStruct._Py_TrueStruct.i.i = select i1 %.0.i.i, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct
   br label %delta_richcompare.exit
 
-delta_richcompare.exit:                           ; preds = %32, %31, %PyObject_TypeCheck.exit.i, %PyObject_TypeCheck.exit, %3
-  %.0 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit.i ], [ %_Py_TrueStruct._Py_FalseStruct.i.i, %31 ], [ %_Py_FalseStruct._Py_TrueStruct.i.i, %32 ]
+delta_richcompare.exit:                           ; preds = %33, %32, %PyObject_TypeCheck.exit.i, %PyObject_TypeCheck.exit, %3
+  %.0 = phi ptr [ @_Py_NotImplementedStruct, %3 ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit ], [ @_Py_NotImplementedStruct, %PyObject_TypeCheck.exit.i ], [ %_Py_TrueStruct._Py_FalseStruct.i.i, %32 ], [ %_Py_FalseStruct._Py_TrueStruct.i.i, %33 ]
   ret ptr %.0
 }
 
@@ -19317,10 +19388,10 @@ attributes #19 = { nounwind willreturn memory(read) }
 !24 = !{!"p1 _ZTS11PyMemberDef", !9, i64 0}
 !25 = !{!"p1 _ZTS11PyGetSetDef", !9, i64 0}
 !26 = !{!"short", !6, i64 0}
-!27 = !{!8, !8, i64 0}
-!28 = distinct !{!28, !29}
-!29 = !{!"llvm.loop.mustprogress"}
-!30 = distinct !{!30, !29}
+!27 = distinct !{!27, !28}
+!28 = !{!"llvm.loop.mustprogress"}
+!29 = !{!8, !8, i64 0}
+!30 = distinct !{!30, !28}
 !31 = !{!13, !10, i64 8}
 !32 = !{!13, !10, i64 16}
 !33 = !{!13, !10, i64 24}
@@ -19369,22 +19440,22 @@ attributes #19 = { nounwind willreturn memory(read) }
 !76 = !{!"tm", !17, i64 0, !17, i64 4, !17, i64 8, !17, i64 12, !17, i64 16, !17, i64 20, !17, i64 24, !17, i64 28, !17, i64 32, !21, i64 40, !22, i64 48}
 !77 = !{!76, !17, i64 16}
 !78 = !{!76, !17, i64 12}
-!79 = distinct !{!79, !29}
-!80 = distinct !{!80, !29}
+!79 = distinct !{!79, !28}
+!80 = distinct !{!80, !28}
 !81 = !{!19, !9, i64 320}
-!82 = distinct !{!82, !29}
-!83 = distinct !{!83, !29}
+!82 = distinct !{!82, !28}
+!83 = distinct !{!83, !28}
 !84 = !{!85, !85, i64 0}
 !85 = !{!"p1 int", !9, i64 0}
-!86 = distinct !{!86, !29}
-!87 = distinct !{!87, !29}
+!86 = distinct !{!86, !28}
+!87 = distinct !{!87, !28}
 !88 = !{!55, !21, i64 16}
 !89 = !{ptr @_PyTime_gmtime, ptr @_PyTime_localtime}
 !90 = !{!76, !17, i64 8}
 !91 = !{!76, !17, i64 4}
 !92 = !{!76, !17, i64 0}
-!93 = distinct !{!93, !29}
-!94 = distinct !{!94, !29}
-!95 = distinct !{!95, !29}
+!93 = distinct !{!93, !28}
+!94 = distinct !{!94, !28}
+!95 = distinct !{!95, !28}
 !96 = !{!76, !22, i64 48}
 !97 = !{!76, !21, i64 40}

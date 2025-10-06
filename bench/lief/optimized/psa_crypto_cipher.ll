@@ -470,23 +470,23 @@ mbedtls_cipher_info_get_block_size.exit.i:        ; preds = %28, %24
   %.059.i = phi i64 [ %2, %34 ], [ %41, %49 ], [ %41, %37 ]
   %.056.i = phi ptr [ %3, %34 ], [ %51, %49 ], [ %3, %37 ]
   %.054.i = phi ptr [ %1, %34 ], [ %42, %49 ], [ %42, %37 ]
-  %.not7080.i = icmp ult i64 %.059.i, %.0.i.i
-  br i1 %.not7080.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not7079.i = icmp ult i64 %.059.i, %.0.i.i
+  br i1 %.not7079.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread.i, %56
-  %.15583.i = phi ptr [ %58, %56 ], [ %.054.i, %.thread.i ]
-  %.382.i = phi ptr [ %60, %56 ], [ %.056.i, %.thread.i ]
-  %.16081.i = phi i64 [ %57, %56 ], [ %.059.i, %.thread.i ]
-  %54 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %25, ptr noundef %.15583.i, i64 noundef %.0.i.i, ptr noundef %.382.i, ptr noundef nonnull %7) #8
+  %.15582.i = phi ptr [ %58, %56 ], [ %.054.i, %.thread.i ]
+  %.381.i = phi ptr [ %60, %56 ], [ %.056.i, %.thread.i ]
+  %.16080.i = phi i64 [ %57, %56 ], [ %.059.i, %.thread.i ]
+  %54 = call i32 @mbedtls_cipher_update(ptr noundef nonnull %25, ptr noundef %.15582.i, i64 noundef %.0.i.i, ptr noundef %.381.i, ptr noundef nonnull %7) #8
   %55 = call i32 @mbedtls_to_psa_error(i32 noundef %54) #8
   %.not72.i = icmp eq i32 %55, 0
   br i1 %.not72.i, label %56, label %psa_cipher_update_ecb.exit
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = sub i64 %.16081.i, %.0.i.i
-  %58 = getelementptr inbounds nuw i8, ptr %.15583.i, i64 %.0.i.i
+  %57 = sub i64 %.16080.i, %.0.i.i
+  %58 = getelementptr inbounds nuw i8, ptr %.15582.i, i64 %.0.i.i
   %59 = load i64, ptr %7, align 8, !tbaa !7
-  %60 = getelementptr inbounds nuw i8, ptr %.382.i, i64 %59
+  %60 = getelementptr inbounds nuw i8, ptr %.381.i, i64 %59
   %61 = load i64, ptr %5, align 8, !tbaa !7
   %62 = add i64 %61, %59
   store i64 %62, ptr %5, align 8, !tbaa !7

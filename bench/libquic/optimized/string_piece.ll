@@ -1192,19 +1192,19 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br i1 %12, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %14
-  %.0914.i.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i.i, %7 ]
-  %13 = icmp eq i64 %.0914.i.i, 0
+  %.0915.i.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i.i, %7 ]
+  %13 = icmp eq i64 %.0915.i.i, 0
   br i1 %13, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i.i
-  %15 = add i64 %.0914.i.i, -1
+  %15 = add i64 %.0915.i.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, %1
   br i1 %18, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %.lr.ph.i.i, !llvm.loop !23
 
 _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit: ; preds = %.lr.ph.i.i, %14, %3, %7
-  %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ -1, %.lr.ph.i.i ], [ %15, %14 ]
+  %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i.i ]
   ret i64 %.010.i.i
 }
 
@@ -1225,19 +1225,19 @@ define noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx111
   br i1 %12, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %14
-  %.0914.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i, %7 ]
-  %13 = icmp eq i64 %.0914.i, 0
+  %.0915.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i, %7 ]
+  %13 = icmp eq i64 %.0915.i, 0
   br i1 %13, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = add i64 %.0914.i, -1
+  %15 = add i64 %.0915.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, %1
   br i1 %18, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, label %.lr.ph.i, !llvm.loop !23
 
 _ZN4base8internal6rfindTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit: ; preds = %.lr.ph.i, %14, %3, %7
-  %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i ]
+  %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ -1, %.lr.ph.i ], [ %15, %14 ]
   ret i64 %.010.i
 }
 
@@ -1799,12 +1799,12 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br i1 %18, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %11, %20
-  %.0914.i.i.i = phi i64 [ %21, %20 ], [ %.sroa.speculated.i.i.i, %11 ]
-  %19 = icmp eq i64 %.0914.i.i.i, 0
+  %.0915.i.i.i = phi i64 [ %21, %20 ], [ %.sroa.speculated.i.i.i, %11 ]
+  %19 = icmp eq i64 %.0915.i.i.i, 0
   br i1 %19, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i.i.i
-  %21 = add i64 %.0914.i.i.i, -1
+  %21 = add i64 %.0915.i.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = icmp eq i8 %23, %13
@@ -1852,7 +1852,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   br label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
 
 _ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit: ; preds = %.lr.ph.i.i.i, %20, %3, %8, %11, %42
-  %.014.i = phi i64 [ %spec.select.i, %42 ], [ -1, %8 ], [ -1, %3 ], [ %.sroa.speculated.i.i.i, %11 ], [ %21, %20 ], [ -1, %.lr.ph.i.i.i ]
+  %.014.i = phi i64 [ %spec.select.i, %42 ], [ -1, %8 ], [ -1, %3 ], [ %.sroa.speculated.i.i.i, %11 ], [ -1, %.lr.ph.i.i.i ], [ %21, %20 ]
   ret i64 %.014.i
 }
 
@@ -1884,12 +1884,12 @@ define noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7
   br i1 %18, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %20
-  %.0914.i.i = phi i64 [ %21, %20 ], [ %.sroa.speculated.i.i, %11 ]
-  %19 = icmp eq i64 %.0914.i.i, 0
+  %.0915.i.i = phi i64 [ %21, %20 ], [ %.sroa.speculated.i.i, %11 ]
+  %19 = icmp eq i64 %.0915.i.i, 0
   br i1 %19, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = add i64 %.0914.i.i, -1
+  %21 = add i64 %.0915.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = icmp eq i8 %23, %13
@@ -1937,7 +1937,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   br label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit
 
 _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit: ; preds = %20, %.lr.ph.i.i, %8, %11, %3, %42
-  %.014 = phi i64 [ %spec.select, %42 ], [ -1, %8 ], [ -1, %3 ], [ %.sroa.speculated.i.i, %11 ], [ -1, %.lr.ph.i.i ], [ %21, %20 ]
+  %.014 = phi i64 [ %spec.select, %42 ], [ -1, %8 ], [ -1, %3 ], [ %.sroa.speculated.i.i, %11 ], [ %21, %20 ], [ -1, %.lr.ph.i.i ]
   ret i64 %.014
 }
 
@@ -1958,19 +1958,19 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br i1 %12, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5rfindEcm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %7, %14
-  %.0914.i.i.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i.i.i, %7 ]
-  %13 = icmp eq i64 %.0914.i.i.i, 0
+  %.0915.i.i.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i.i.i, %7 ]
+  %13 = icmp eq i64 %.0915.i.i.i, 0
   br i1 %13, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5rfindEcm.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i.i.i
-  %15 = add i64 %.0914.i.i.i, -1
+  %15 = add i64 %.0915.i.i.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, %1
   br i1 %18, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5rfindEcm.exit, label %.lr.ph.i.i.i, !llvm.loop !23
 
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5rfindEcm.exit: ; preds = %.lr.ph.i.i.i, %14, %3, %7
-  %.010.i.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i.i.i ]
+  %.010.i.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i.i, %7 ], [ -1, %.lr.ph.i.i.i ], [ %15, %14 ]
   ret i64 %.010.i.i.i
 }
 
@@ -1998,20 +1998,20 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.speculated.i
   %17 = load i8, ptr %16, align 1, !tbaa !16
-  %.not.not14.i.i.i = icmp eq i8 %17, %14
-  br i1 %.not.not14.i.i.i, label %.lr.ph.i.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
+  %.not15.i.i.i = icmp eq i8 %17, %14
+  br i1 %.not15.i.i.i, label %.lr.ph.i.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
 
 .lr.ph.i.i.i:                                     ; preds = %12, %19
-  %.0915.i.i.i = phi i64 [ %20, %19 ], [ %.sroa.speculated.i, %12 ]
-  %18 = icmp eq i64 %.0915.i.i.i, 0
+  %.0916.i.i.i = phi i64 [ %20, %19 ], [ %.sroa.speculated.i, %12 ]
+  %18 = icmp eq i64 %.0916.i.i.i, 0
   br i1 %18, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i.i.i
-  %20 = add i64 %.0915.i.i.i, -1
+  %20 = add i64 %.0916.i.i.i, -1
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !16
-  %.not.not.i.i.i = icmp eq i8 %22, %14
-  br i1 %.not.not.i.i.i, label %.lr.ph.i.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, !llvm.loop !33
+  %.not.i.i.i = icmp eq i8 %22, %14
+  br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit, !llvm.loop !33
 
 23:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2061,7 +2061,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   br label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit
 
 _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_m.exit: ; preds = %.lr.ph.i.i.i, %19, %3, %8, %12, %._crit_edge.i
-  %.013.i = phi i64 [ -1, %3 ], [ %.2.i, %._crit_edge.i ], [ %.sroa.speculated.i, %8 ], [ %.sroa.speculated.i, %12 ], [ %20, %19 ], [ -1, %.lr.ph.i.i.i ]
+  %.013.i = phi i64 [ -1, %3 ], [ %.2.i, %._crit_edge.i ], [ %.sroa.speculated.i, %8 ], [ %.sroa.speculated.i, %12 ], [ -1, %.lr.ph.i.i.i ], [ %20, %19 ]
   ret i64 %.013.i
 }
 
@@ -2089,20 +2089,20 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
   %15 = load ptr, ptr %0, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.speculated
   %17 = load i8, ptr %16, align 1, !tbaa !16
-  %.not.not14.i.i = icmp eq i8 %17, %14
-  br i1 %.not.not14.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit
+  %.not15.i.i = icmp eq i8 %17, %14
+  br i1 %.not15.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit
 
 .lr.ph.i.i:                                       ; preds = %12, %19
-  %.0915.i.i = phi i64 [ %20, %19 ], [ %.sroa.speculated, %12 ]
-  %18 = icmp eq i64 %.0915.i.i, 0
+  %.0916.i.i = phi i64 [ %20, %19 ], [ %.sroa.speculated, %12 ]
+  %18 = icmp eq i64 %.0916.i.i, 0
   br i1 %18, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %19
 
 19:                                               ; preds = %.lr.ph.i.i
-  %20 = add i64 %.0915.i.i, -1
+  %20 = add i64 %.0916.i.i, -1
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 %20
   %22 = load i8, ptr %21, align 1, !tbaa !16
-  %.not.not.i.i = icmp eq i8 %22, %14
-  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, !llvm.loop !33
+  %.not.i.i = icmp eq i8 %22, %14
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, !llvm.loop !33
 
 23:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -2152,7 +2152,7 @@ _ZN4base12_GLOBAL__N_116BuildLookupTableERKNS_16BasicStringPieceINSt7__cxx1112ba
   br label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit
 
 _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit: ; preds = %19, %.lr.ph.i.i, %8, %12, %._crit_edge, %3
-  %.013 = phi i64 [ -1, %3 ], [ %.2, %._crit_edge ], [ %.sroa.speculated, %8 ], [ %.sroa.speculated, %12 ], [ -1, %.lr.ph.i.i ], [ %20, %19 ]
+  %.013 = phi i64 [ -1, %3 ], [ %.2, %._crit_edge ], [ %.sroa.speculated, %8 ], [ %.sroa.speculated, %12 ], [ %20, %19 ], [ -1, %.lr.ph.i.i ]
   ret i64 %.013
 }
 
@@ -2169,23 +2169,23 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.speculated.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !16
-  %.not.not14.i.i = icmp eq i8 %11, %1
-  br i1 %.not.not14.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit
+  %.not15.i.i = icmp eq i8 %11, %1
+  br i1 %.not15.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit
 
 .lr.ph.i.i:                                       ; preds = %7, %13
-  %.0915.i.i = phi i64 [ %14, %13 ], [ %.sroa.speculated.i.i, %7 ]
-  %12 = icmp eq i64 %.0915.i.i, 0
+  %.0916.i.i = phi i64 [ %14, %13 ], [ %.sroa.speculated.i.i, %7 ]
+  %12 = icmp eq i64 %.0916.i.i, 0
   br i1 %12, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = add i64 %.0915.i.i, -1
+  %14 = add i64 %.0916.i.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !16
-  %.not.not.i.i = icmp eq i8 %16, %1
-  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, !llvm.loop !33
+  %.not.i.i = icmp eq i8 %16, %1
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit, !llvm.loop !33
 
 _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcm.exit: ; preds = %.lr.ph.i.i, %13, %3, %7
-  %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ -1, %.lr.ph.i.i ], [ %14, %13 ]
+  %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ %14, %13 ], [ -1, %.lr.ph.i.i ]
   ret i64 %.010.i.i
 }
 
@@ -2202,23 +2202,23 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.speculated.i
   %11 = load i8, ptr %10, align 1, !tbaa !16
-  %.not.not14.i = icmp eq i8 %11, %1
-  br i1 %.not.not14.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit
+  %.not15.i = icmp eq i8 %11, %1
+  br i1 %.not15.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit
 
 .lr.ph.i:                                         ; preds = %7, %13
-  %.0915.i = phi i64 [ %14, %13 ], [ %.sroa.speculated.i, %7 ]
-  %12 = icmp eq i64 %.0915.i, 0
+  %.0916.i = phi i64 [ %14, %13 ], [ %.sroa.speculated.i, %7 ]
+  %12 = icmp eq i64 %.0916.i, 0
   br i1 %12, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = add i64 %.0915.i, -1
+  %14 = add i64 %.0916.i, -1
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 %14
   %16 = load i8, ptr %15, align 1, !tbaa !16
-  %.not.not.i = icmp eq i8 %16, %1
-  br i1 %.not.not.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, !llvm.loop !33
+  %.not.i = icmp eq i8 %16, %1
+  br i1 %.not.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit, !llvm.loop !33
 
 _ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEmRKNS_16BasicStringPieceIT_EENS9_10value_typeEm.exit: ; preds = %.lr.ph.i, %13, %3, %7
-  %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %14, %13 ], [ -1, %.lr.ph.i ]
+  %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ -1, %.lr.ph.i ], [ %14, %13 ]
   ret i64 %.010.i
 }
 
@@ -3244,19 +3244,19 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br i1 %12, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %14
-  %.0914.i.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i.i, %7 ]
-  %13 = icmp eq i64 %.0914.i.i, 0
+  %.0915.i.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i.i, %7 ]
+  %13 = icmp eq i64 %.0915.i.i, 0
   br i1 %13, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i.i
-  %15 = add i64 %.0914.i.i, -1
+  %15 = add i64 %.0915.i.i, -1
   %16 = getelementptr inbounds nuw i16, ptr %9, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !44
   %18 = icmp eq i16 %17, %1
   br i1 %18, label %_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %.lr.ph.i.i, !llvm.loop !50
 
 _ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit: ; preds = %.lr.ph.i.i, %14, %3, %7
-  %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ -1, %.lr.ph.i.i ], [ %15, %14 ]
+  %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i.i ]
   ret i64 %.010.i.i
 }
 
@@ -3277,19 +3277,19 @@ define noundef i64 @_ZN4base8internal5rfindERKNS_16BasicStringPieceINSt7__cxx111
   br i1 %12, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %14
-  %.0914.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i, %7 ]
-  %13 = icmp eq i64 %.0914.i, 0
+  %.0915.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i, %7 ]
+  %13 = icmp eq i64 %.0915.i, 0
   br i1 %13, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i
-  %15 = add i64 %.0914.i, -1
+  %15 = add i64 %.0915.i, -1
   %16 = getelementptr inbounds nuw i16, ptr %9, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !44
   %18 = icmp eq i16 %17, %1
   br i1 %18, label %_ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %.lr.ph.i, !llvm.loop !50
 
 _ZN4base8internal6rfindTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit: ; preds = %.lr.ph.i, %14, %3, %7
-  %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i ]
+  %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ -1, %.lr.ph.i ], [ %15, %14 ]
   ret i64 %.010.i
 }
 
@@ -3304,9 +3304,9 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %10 = load i64, ptr %9, align 8, !tbaa !38
   %.idx.i = shl nuw nsw i64 %10, 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %.not26.i.i = icmp samesign eq i64 %2, %6
-  %.not1624.i.i = icmp eq i64 %10, 0
-  %or.cond.i.i = or i1 %.not26.i.i, %.not1624.i.i
+  %.not24.i.i = icmp samesign eq i64 %2, %6
+  %.not1622.i.i = icmp eq i64 %10, 0
+  %or.cond.i.i = or i1 %.not24.i.i, %.not1622.i.i
   br i1 %or.cond.i.i, label %_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.preheader.i.preheader.i
 
 .preheader.i.preheader.i:                         ; preds = %3
@@ -3314,32 +3314,32 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.preheader.i.preheader.i
-  %.01427.i.i = phi ptr [ %19, %._crit_edge.i.i ], [ %12, %.preheader.i.preheader.i ]
-  %13 = load i16, ptr %.01427.i.i, align 2, !tbaa !44
+  %.01425.i.i = phi ptr [ %19, %._crit_edge.i.i ], [ %12, %.preheader.i.preheader.i ]
+  %13 = load i16, ptr %.01425.i.i, align 2, !tbaa !44
   br label %16
 
 14:                                               ; preds = %16
-  %15 = getelementptr inbounds nuw i8, ptr %.01225.i.i, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01223.i.i, i64 2
   %.not16.i.i = icmp eq ptr %15, %11
   br i1 %.not16.i.i, label %._crit_edge.i.i, label %16, !llvm.loop !51
 
 16:                                               ; preds = %14, %.preheader.i.i
-  %.01225.i.i = phi ptr [ %8, %.preheader.i.i ], [ %15, %14 ]
-  %17 = load i16, ptr %.01225.i.i, align 2, !tbaa !44
+  %.01223.i.i = phi ptr [ %8, %.preheader.i.i ], [ %15, %14 ]
+  %17 = load i16, ptr %.01223.i.i, align 2, !tbaa !44
   %18 = icmp eq i16 %13, %17
   br i1 %18, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.i, label %14
 
 ._crit_edge.i.i:                                  ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.01427.i.i, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.01425.i.i, i64 2
   %.not.i.i = icmp eq ptr %19, %7
   br i1 %.not.i.i, label %_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.preheader.i.i, !llvm.loop !52
 
 _ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.i: ; preds = %16
-  %20 = icmp eq ptr %.01427.i.i, %7
+  %20 = icmp eq ptr %.01425.i.i, %7
   br i1 %20, label %_ZN4base8internal13find_first_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %21
 
 21:                                               ; preds = %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.i
-  %22 = ptrtoint ptr %.01427.i.i to i64
+  %22 = ptrtoint ptr %.01425.i.i to i64
   %23 = ptrtoint ptr %4 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 1
@@ -3361,9 +3361,9 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
   %10 = load i64, ptr %9, align 8, !tbaa !38
   %.idx = shl nuw nsw i64 %10, 1
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
-  %.not26.i = icmp samesign eq i64 %2, %6
-  %.not1624.i = icmp eq i64 %10, 0
-  %or.cond.i = or i1 %.not26.i, %.not1624.i
+  %.not24.i = icmp samesign eq i64 %2, %6
+  %.not1622.i = icmp eq i64 %10, 0
+  %or.cond.i = or i1 %.not24.i, %.not1622.i
   br i1 %or.cond.i, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.thread, label %.preheader.i.preheader
 
 .preheader.i.preheader:                           ; preds = %3
@@ -3371,32 +3371,32 @@ define noundef range(i64 -4611686018427387904, 4611686018427387904) i64 @_ZN4bas
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %._crit_edge.i
-  %.01427.i = phi ptr [ %19, %._crit_edge.i ], [ %12, %.preheader.i.preheader ]
-  %13 = load i16, ptr %.01427.i, align 2, !tbaa !44
+  %.01425.i = phi ptr [ %19, %._crit_edge.i ], [ %12, %.preheader.i.preheader ]
+  %13 = load i16, ptr %.01425.i, align 2, !tbaa !44
   br label %16
 
 14:                                               ; preds = %16
-  %15 = getelementptr inbounds nuw i8, ptr %.01225.i, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.01223.i, i64 2
   %.not16.i = icmp eq ptr %15, %11
   br i1 %.not16.i, label %._crit_edge.i, label %16, !llvm.loop !51
 
 16:                                               ; preds = %14, %.preheader.i
-  %.01225.i = phi ptr [ %8, %.preheader.i ], [ %15, %14 ]
-  %17 = load i16, ptr %.01225.i, align 2, !tbaa !44
+  %.01223.i = phi ptr [ %8, %.preheader.i ], [ %15, %14 ]
+  %17 = load i16, ptr %.01223.i, align 2, !tbaa !44
   %18 = icmp eq i16 %13, %17
   br i1 %18, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit, label %14
 
 ._crit_edge.i:                                    ; preds = %14
-  %19 = getelementptr inbounds nuw i8, ptr %.01427.i, i64 2
+  %19 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 2
   %.not.i = icmp eq ptr %19, %7
   br i1 %.not.i, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.thread, label %.preheader.i, !llvm.loop !52
 
 _ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit:   ; preds = %16
-  %20 = icmp eq ptr %.01427.i, %7
+  %20 = icmp eq ptr %.01425.i, %7
   br i1 %20, label %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit.thread, label %21
 
 21:                                               ; preds = %_ZSt13find_first_ofIPKtS1_ET_S2_S2_T0_S3_.exit
-  %22 = ptrtoint ptr %.01427.i to i64
+  %22 = ptrtoint ptr %.01425.i to i64
   %23 = ptrtoint ptr %4 to i64
   %24 = sub i64 %22, %23
   %25 = ashr exact i64 %24, 1
@@ -3534,42 +3534,42 @@ _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traits
 define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE17find_first_not_ofERKS6_m(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !38
-  %.not28.i = icmp ult i64 %2, %5
-  br i1 %.not28.i, label %.preheader.lr.ph.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit
+  %6 = icmp ult i64 %2, %5
+  br i1 %6, label %.preheader.lr.ph.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit
 
 .preheader.lr.ph.i:                               ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !38
-  %.not.i = icmp eq i64 %7, 0
-  %8 = load ptr, ptr %0, align 8
-  %9 = load ptr, ptr %1, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8, !tbaa !38
+  %.not.i = icmp eq i64 %8, 0
+  %9 = load ptr, ptr %0, align 8
+  %10 = load ptr, ptr %1, align 8
   br i1 %.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.preheader.us.i
 
-.preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %18
-  %.01829.us.i = phi i64 [ %19, %18 ], [ %2, %.preheader.lr.ph.i ]
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %.01829.us.i
-  %11 = load i16, ptr %10, align 2, !tbaa !44
-  br label %14
+.preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %19
+  %.01831.us.i = phi i64 [ %20, %19 ], [ %2, %.preheader.lr.ph.i ]
+  %11 = getelementptr inbounds nuw i16, ptr %9, i64 %.01831.us.i
+  %12 = load i16, ptr %11, align 2, !tbaa !44
+  br label %15
 
-12:                                               ; preds = %14
-  %13 = add nuw i64 %.026.us.i, 1
-  %exitcond.not.i = icmp eq i64 %13, %7
-  br i1 %exitcond.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %14, !llvm.loop !53
+13:                                               ; preds = %15
+  %14 = add nuw i64 %.029.us.i, 1
+  %exitcond.not.i = icmp eq i64 %14, %8
+  br i1 %exitcond.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %15, !llvm.loop !53
 
-14:                                               ; preds = %12, %.preheader.us.i
-  %.026.us.i = phi i64 [ 0, %.preheader.us.i ], [ %13, %12 ]
-  %15 = getelementptr inbounds nuw i16, ptr %9, i64 %.026.us.i
-  %16 = load i16, ptr %15, align 2, !tbaa !44
-  %17 = icmp eq i16 %11, %16
-  br i1 %17, label %18, label %12
+15:                                               ; preds = %13, %.preheader.us.i
+  %.029.us.i = phi i64 [ 0, %.preheader.us.i ], [ %14, %13 ]
+  %16 = getelementptr inbounds nuw i16, ptr %10, i64 %.029.us.i
+  %17 = load i16, ptr %16, align 2, !tbaa !44
+  %18 = icmp eq i16 %12, %17
+  br i1 %18, label %19, label %13
 
-18:                                               ; preds = %14
-  %19 = add nuw i64 %.01829.us.i, 1
-  %exitcond32.not.i = icmp eq i64 %19, %5
-  br i1 %exitcond32.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.preheader.us.i, !llvm.loop !54
+19:                                               ; preds = %15
+  %20 = add nuw i64 %.01831.us.i, 1
+  %exitcond34.not.i = icmp eq i64 %20, %5
+  br i1 %exitcond34.not.i, label %_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.preheader.us.i, !llvm.loop !54
 
-_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit: ; preds = %18, %12, %3, %.preheader.lr.ph.i
-  %.019.i = phi i64 [ -1, %3 ], [ %2, %.preheader.lr.ph.i ], [ %.01829.us.i, %12 ], [ -1, %18 ]
+_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit: ; preds = %19, %13, %3, %.preheader.lr.ph.i
+  %.019.i = phi i64 [ -1, %3 ], [ %2, %.preheader.lr.ph.i ], [ %.01831.us.i, %13 ], [ -1, %19 ]
   ret i64 %.019.i
 }
 
@@ -3577,42 +3577,42 @@ _ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_
 define noundef i64 @_ZN4base8internal17find_first_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !38
-  %.not28 = icmp ult i64 %2, %5
-  br i1 %.not28, label %.preheader.lr.ph, label %.loopexit
+  %6 = icmp ult i64 %2, %5
+  br i1 %6, label %.preheader.lr.ph, label %.loopexit
 
 .preheader.lr.ph:                                 ; preds = %3
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %7 = load i64, ptr %6, align 8, !tbaa !38
-  %.not = icmp eq i64 %7, 0
-  %8 = load ptr, ptr %0, align 8
-  %9 = load ptr, ptr %1, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %8 = load i64, ptr %7, align 8, !tbaa !38
+  %.not = icmp eq i64 %8, 0
+  %9 = load ptr, ptr %0, align 8
+  %10 = load ptr, ptr %1, align 8
   br i1 %.not, label %.loopexit, label %.preheader.us
 
-.preheader.us:                                    ; preds = %.preheader.lr.ph, %18
-  %.01829.us = phi i64 [ %19, %18 ], [ %2, %.preheader.lr.ph ]
-  %10 = getelementptr inbounds nuw i16, ptr %8, i64 %.01829.us
-  %11 = load i16, ptr %10, align 2, !tbaa !44
-  br label %14
+.preheader.us:                                    ; preds = %.preheader.lr.ph, %19
+  %.01831.us = phi i64 [ %20, %19 ], [ %2, %.preheader.lr.ph ]
+  %11 = getelementptr inbounds nuw i16, ptr %9, i64 %.01831.us
+  %12 = load i16, ptr %11, align 2, !tbaa !44
+  br label %15
 
-12:                                               ; preds = %14
-  %13 = add nuw i64 %.026.us, 1
-  %exitcond.not = icmp eq i64 %13, %7
-  br i1 %exitcond.not, label %.loopexit, label %14, !llvm.loop !53
+13:                                               ; preds = %15
+  %14 = add nuw i64 %.029.us, 1
+  %exitcond.not = icmp eq i64 %14, %8
+  br i1 %exitcond.not, label %.loopexit, label %15, !llvm.loop !53
 
-14:                                               ; preds = %.preheader.us, %12
-  %.026.us = phi i64 [ 0, %.preheader.us ], [ %13, %12 ]
-  %15 = getelementptr inbounds nuw i16, ptr %9, i64 %.026.us
-  %16 = load i16, ptr %15, align 2, !tbaa !44
-  %17 = icmp eq i16 %11, %16
-  br i1 %17, label %18, label %12
+15:                                               ; preds = %.preheader.us, %13
+  %.029.us = phi i64 [ 0, %.preheader.us ], [ %14, %13 ]
+  %16 = getelementptr inbounds nuw i16, ptr %10, i64 %.029.us
+  %17 = load i16, ptr %16, align 2, !tbaa !44
+  %18 = icmp eq i16 %12, %17
+  br i1 %18, label %19, label %13
 
-18:                                               ; preds = %14
-  %19 = add nuw i64 %.01829.us, 1
-  %exitcond32.not = icmp eq i64 %19, %5
-  br i1 %exitcond32.not, label %.loopexit, label %.preheader.us, !llvm.loop !54
+19:                                               ; preds = %15
+  %20 = add nuw i64 %.01831.us, 1
+  %exitcond34.not = icmp eq i64 %20, %5
+  br i1 %exitcond34.not, label %.loopexit, label %.preheader.us, !llvm.loop !54
 
-.loopexit:                                        ; preds = %18, %12, %.preheader.lr.ph, %3
-  %.019 = phi i64 [ -1, %3 ], [ %2, %.preheader.lr.ph ], [ %.01829.us, %12 ], [ -1, %18 ]
+.loopexit:                                        ; preds = %19, %13, %.preheader.lr.ph, %3
+  %.019 = phi i64 [ -1, %3 ], [ %2, %.preheader.lr.ph ], [ %.01831.us, %13 ], [ -1, %19 ]
   ret i64 %.019
 }
 
@@ -3682,10 +3682,10 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !38
-  %.not26.not.i = icmp eq i64 %9, 0
+  %.not30.not.i = icmp eq i64 %9, 0
   %10 = load ptr, ptr %0, align 8
   %11 = load ptr, ptr %1, align 8
-  br i1 %.not26.not.i, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.lr.ph.us.preheader.i
+  br i1 %.not30.not.i, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.lr.ph.us.preheader.i
 
 .lr.ph.us.preheader.i:                            ; preds = %7
   %12 = add i64 %5, -1
@@ -3699,7 +3699,7 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br label %19
 
 15:                                               ; preds = %19
-  %16 = add nuw i64 %.01427.us.i, 1
+  %16 = add nuw i64 %.01431.us.i, 1
   %exitcond.not.i = icmp eq i64 %16, %9
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %19, !llvm.loop !56
 
@@ -3708,8 +3708,8 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br label %.lr.ph.us.i, !llvm.loop !57
 
 19:                                               ; preds = %15, %.lr.ph.us.i
-  %.01427.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %16, %15 ]
-  %20 = getelementptr inbounds nuw i16, ptr %11, i64 %.01427.us.i
+  %.01431.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %16, %15 ]
+  %20 = getelementptr inbounds nuw i16, ptr %11, i64 %.01431.us.i
   %21 = load i16, ptr %20, align 2, !tbaa !44
   %22 = icmp eq i16 %14, %21
   br i1 %22, label %_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %15
@@ -3728,15 +3728,15 @@ define noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !38
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %.thread, label %7
+  br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !38
-  %.not26.not = icmp eq i64 %9, 0
+  %.not30.not = icmp eq i64 %9, 0
   %10 = load ptr, ptr %0, align 8
   %11 = load ptr, ptr %1, align 8
-  br i1 %.not26.not, label %.thread, label %.lr.ph.us.preheader
+  br i1 %.not30.not, label %.loopexit, label %.lr.ph.us.preheader
 
 .lr.ph.us.preheader:                              ; preds = %7
   %12 = add i64 %5, -1
@@ -3750,7 +3750,7 @@ define noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7
   br label %19
 
 15:                                               ; preds = %19
-  %16 = add nuw i64 %.01427.us, 1
+  %16 = add nuw i64 %.01431.us, 1
   %exitcond.not = icmp eq i64 %16, %9
   br i1 %exitcond.not, label %._crit_edge.us, label %19, !llvm.loop !56
 
@@ -3759,17 +3759,17 @@ define noundef i64 @_ZN4base8internal12find_last_ofERKNS_16BasicStringPieceINSt7
   br label %.lr.ph.us, !llvm.loop !57
 
 19:                                               ; preds = %.lr.ph.us, %15
-  %.01427.us = phi i64 [ 0, %.lr.ph.us ], [ %16, %15 ]
-  %20 = getelementptr inbounds nuw i16, ptr %11, i64 %.01427.us
+  %.01431.us = phi i64 [ 0, %.lr.ph.us ], [ %16, %15 ]
+  %20 = getelementptr inbounds nuw i16, ptr %11, i64 %.01431.us
   %21 = load i16, ptr %20, align 2, !tbaa !44
   %22 = icmp eq i16 %14, %21
-  br i1 %22, label %.thread, label %15
+  br i1 %22, label %.loopexit, label %15
 
 ._crit_edge.us:                                   ; preds = %15
   %23 = icmp eq i64 %.015.us, 0
-  br i1 %23, label %.thread, label %17
+  br i1 %23, label %.loopexit, label %17
 
-.thread:                                          ; preds = %._crit_edge.us, %19, %7, %3
+.loopexit:                                        ; preds = %._crit_edge.us, %19, %7, %3
   %.016 = phi i64 [ -1, %3 ], [ -1, %7 ], [ %.015.us, %19 ], [ -1, %._crit_edge.us ]
   ret i64 %.016
 }
@@ -3791,19 +3791,19 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br i1 %12, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %7, %14
-  %.0914.i.i.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i.i.i, %7 ]
-  %13 = icmp eq i64 %.0914.i.i.i, 0
+  %.0915.i.i.i = phi i64 [ %15, %14 ], [ %.sroa.speculated.i.i.i, %7 ]
+  %13 = icmp eq i64 %.0915.i.i.i, 0
   br i1 %13, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm.exit, label %14
 
 14:                                               ; preds = %.lr.ph.i.i.i
-  %15 = add i64 %.0914.i.i.i, -1
+  %15 = add i64 %.0915.i.i.i, -1
   %16 = getelementptr inbounds nuw i16, ptr %9, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !44
   %18 = icmp eq i16 %17, %1
   br i1 %18, label %_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm.exit, label %.lr.ph.i.i.i, !llvm.loop !50
 
 _ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEE5rfindEtm.exit: ; preds = %.lr.ph.i.i.i, %14, %3, %7
-  %.010.i.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i.i, %7 ], [ %15, %14 ], [ -1, %.lr.ph.i.i.i ]
+  %.010.i.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i.i, %7 ], [ -1, %.lr.ph.i.i.i ], [ %15, %14 ]
   ret i64 %.010.i.i.i
 }
 
@@ -3819,8 +3819,8 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %.sroa.speculated.i = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !38
-  %.not2831.not.i = icmp eq i64 %10, 0
-  br i1 %.not2831.not.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.lr.ph.lr.ph.i
+  %.not.i = icmp eq i64 %10, 0
+  br i1 %.not.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %.lr.ph.lr.ph.i
 
 .lr.ph.lr.ph.i:                                   ; preds = %7
   %11 = load ptr, ptr %0, align 8, !tbaa !35
@@ -3828,33 +3828,33 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   br label %.lr.ph.us.i
 
 .lr.ph.us.i:                                      ; preds = %21, %.lr.ph.lr.ph.i
-  %.01735.us.i = phi i64 [ %.sroa.speculated.i, %.lr.ph.lr.ph.i ], [ %22, %21 ]
-  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %.01735.us.i
+  %.01737.us.i = phi i64 [ %.sroa.speculated.i, %.lr.ph.lr.ph.i ], [ %22, %21 ]
+  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %.01737.us.i
   %14 = load i16, ptr %13, align 2, !tbaa !44
   br label %17
 
 15:                                               ; preds = %17
-  %16 = add nuw i64 %.01532.us.i, 1
+  %16 = add nuw i64 %.01534.us.i, 1
   %exitcond.not.i = icmp eq i64 %16, %10
   br i1 %exitcond.not.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %17, !llvm.loop !58
 
 17:                                               ; preds = %15, %.lr.ph.us.i
-  %.01532.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw i16, ptr %12, i64 %.01532.us.i
+  %.01534.us.i = phi i64 [ 0, %.lr.ph.us.i ], [ %16, %15 ]
+  %18 = getelementptr inbounds nuw i16, ptr %12, i64 %.01534.us.i
   %19 = load i16, ptr %18, align 2, !tbaa !44
   %20 = icmp eq i16 %14, %19
   br i1 %20, label %.critedge.us.i, label %15
 
 .critedge.us.i:                                   ; preds = %17
-  %.not.us.i = icmp eq i64 %.01735.us.i, 0
+  %.not.us.i = icmp eq i64 %.01737.us.i, 0
   br i1 %.not.us.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit, label %21
 
 21:                                               ; preds = %.critedge.us.i
-  %22 = add i64 %.01735.us.i, -1
+  %22 = add i64 %.01737.us.i, -1
   br label %.lr.ph.us.i
 
 _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEES9_m.exit: ; preds = %.critedge.us.i, %15, %3, %7
-  %.018.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %.01735.us.i, %15 ], [ -1, %.critedge.us.i ]
+  %.018.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %.01737.us.i, %15 ], [ -1, %.critedge.us.i ]
   ret i64 %.018.i
 }
 
@@ -3863,15 +3863,15 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !38
   %6 = icmp eq i64 %5, 0
-  br i1 %6, label %.critedge.thread, label %7
+  br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
   %8 = add i64 %5, -1
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %8, i64 %2)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !38
-  %.not2831.not = icmp eq i64 %10, 0
-  br i1 %.not2831.not, label %.critedge.thread, label %.lr.ph.lr.ph
+  %.not = icmp eq i64 %10, 0
+  br i1 %.not, label %.loopexit, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %7
   %11 = load ptr, ptr %0, align 8, !tbaa !35
@@ -3879,33 +3879,33 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %21, %.lr.ph.lr.ph
-  %.01735.us = phi i64 [ %.sroa.speculated, %.lr.ph.lr.ph ], [ %22, %21 ]
-  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %.01735.us
+  %.01737.us = phi i64 [ %.sroa.speculated, %.lr.ph.lr.ph ], [ %22, %21 ]
+  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %.01737.us
   %14 = load i16, ptr %13, align 2, !tbaa !44
   br label %17
 
 15:                                               ; preds = %17
-  %16 = add nuw i64 %.01532.us, 1
+  %16 = add nuw i64 %.01534.us, 1
   %exitcond.not = icmp eq i64 %16, %10
-  br i1 %exitcond.not, label %.critedge.thread, label %17, !llvm.loop !58
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !58
 
 17:                                               ; preds = %15, %.lr.ph.us
-  %.01532.us = phi i64 [ 0, %.lr.ph.us ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw i16, ptr %12, i64 %.01532.us
+  %.01534.us = phi i64 [ 0, %.lr.ph.us ], [ %16, %15 ]
+  %18 = getelementptr inbounds nuw i16, ptr %12, i64 %.01534.us
   %19 = load i16, ptr %18, align 2, !tbaa !44
   %20 = icmp eq i16 %14, %19
   br i1 %20, label %.critedge.us, label %15
 
 .critedge.us:                                     ; preds = %17
-  %.not.us = icmp eq i64 %.01735.us, 0
-  br i1 %.not.us, label %.critedge.thread, label %21
+  %.not.us = icmp eq i64 %.01737.us, 0
+  br i1 %.not.us, label %.loopexit, label %21
 
 21:                                               ; preds = %.critedge.us
-  %22 = add i64 %.01735.us, -1
+  %22 = add i64 %.01737.us, -1
   br label %.lr.ph.us
 
-.critedge.thread:                                 ; preds = %.critedge.us, %15, %7, %3
-  %.018 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ %.01735.us, %15 ], [ -1, %.critedge.us ]
+.loopexit:                                        ; preds = %.critedge.us, %15, %7, %3
+  %.018 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ %.01737.us, %15 ], [ -1, %.critedge.us ]
   ret i64 %.018
 }
 
@@ -3922,23 +3922,23 @@ define weak_odr noundef i64 @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stri
   %9 = load ptr, ptr %0, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i16, ptr %9, i64 %.sroa.speculated.i.i
   %11 = load i16, ptr %10, align 2, !tbaa !44
-  %.not.not14.i.i = icmp eq i16 %11, %1
-  br i1 %.not.not14.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit
+  %.not15.i.i = icmp eq i16 %11, %1
+  br i1 %.not15.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit
 
 .lr.ph.i.i:                                       ; preds = %7, %13
-  %.0915.i.i = phi i64 [ %14, %13 ], [ %.sroa.speculated.i.i, %7 ]
-  %12 = icmp eq i64 %.0915.i.i, 0
+  %.0916.i.i = phi i64 [ %14, %13 ], [ %.sroa.speculated.i.i, %7 ]
+  %12 = icmp eq i64 %.0916.i.i, 0
   br i1 %12, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i.i
-  %14 = add i64 %.0915.i.i, -1
+  %14 = add i64 %.0916.i.i, -1
   %15 = getelementptr inbounds nuw i16, ptr %9, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !44
-  %.not.not.i.i = icmp eq i16 %16, %1
-  br i1 %.not.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, !llvm.loop !59
+  %.not.i.i = icmp eq i16 %16, %1
+  br i1 %.not.i.i, label %.lr.ph.i.i, label %_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit, !llvm.loop !59
 
 _ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEtm.exit: ; preds = %.lr.ph.i.i, %13, %3, %7
-  %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ -1, %.lr.ph.i.i ], [ %14, %13 ]
+  %.010.i.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i.i, %7 ], [ %14, %13 ], [ -1, %.lr.ph.i.i ]
   ret i64 %.010.i.i
 }
 
@@ -3955,23 +3955,23 @@ define noundef i64 @_ZN4base8internal16find_last_not_ofERKNS_16BasicStringPieceI
   %9 = load ptr, ptr %0, align 8, !tbaa !35
   %10 = getelementptr inbounds nuw i16, ptr %9, i64 %.sroa.speculated.i
   %11 = load i16, ptr %10, align 2, !tbaa !44
-  %.not.not14.i = icmp eq i16 %11, %1
-  br i1 %.not.not14.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit
+  %.not15.i = icmp eq i16 %11, %1
+  br i1 %.not15.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit
 
 .lr.ph.i:                                         ; preds = %7, %13
-  %.0915.i = phi i64 [ %14, %13 ], [ %.sroa.speculated.i, %7 ]
-  %12 = icmp eq i64 %.0915.i, 0
+  %.0916.i = phi i64 [ %14, %13 ], [ %.sroa.speculated.i, %7 ]
+  %12 = icmp eq i64 %.0916.i, 0
   br i1 %12, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = add i64 %.0915.i, -1
+  %14 = add i64 %.0916.i, -1
   %15 = getelementptr inbounds nuw i16, ptr %9, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !44
-  %.not.not.i = icmp eq i16 %16, %1
-  br i1 %.not.not.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, !llvm.loop !59
+  %.not.i = icmp eq i16 %16, %1
+  br i1 %.not.i, label %.lr.ph.i, label %_ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit, !llvm.loop !59
 
 _ZN4base8internal17find_last_not_ofTINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEmRKNS_16BasicStringPieceIT_EENS8_10value_typeEm.exit: ; preds = %.lr.ph.i, %13, %3, %7
-  %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ %14, %13 ], [ -1, %.lr.ph.i ]
+  %.010.i = phi i64 [ -1, %3 ], [ %.sroa.speculated.i, %7 ], [ -1, %.lr.ph.i ], [ %14, %13 ]
   ret i64 %.010.i
 }
 

@@ -4894,8 +4894,8 @@ define noundef zeroext i1 @_ZN14ruff_formatter14format_element9PrintMode11is_exp
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @"_ZN135_$LT$ruff_formatter..format_element..PrintMode$u20$as$u20$core..convert..From$LT$ruff_formatter..format_element..tag..GroupMode$GT$$GT$4from17hf1442367aec67f0bE"(i8 noundef range(i8 0, 3) %0) unnamed_addr #4 {
-  %switch = icmp ne i8 %0, 0
-  ret i1 %switch
+  %2 = icmp ne i8 %0, 0
+  ret i1 %2
 }
 
 ; Function Attrs: nonlazybind uwtable

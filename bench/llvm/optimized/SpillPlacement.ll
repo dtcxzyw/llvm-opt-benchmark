@@ -1358,25 +1358,25 @@ define dso_local void @_ZN4llvm14SpillPlacement8addLinksENS_8ArrayRefIjEE(ptr no
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 4
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not23.i = icmp eq i32 %34, 0
-  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not21.i = icmp eq i32 %34, 0
+  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.critedge.i
-  %.024.i = phi ptr [ %39, %.critedge.i ], [ %32, %22 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
+  %.022.i = phi ptr [ %39, %.critedge.i ], [ %32, %22 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %38 = load i32, ptr %37, align 8, !tbaa !162
   %.not15.i = icmp eq i32 %38, %20
   br i1 %.not15.i, label %40, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %39 = getelementptr inbounds nuw i8, ptr %.024.i, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.022.i, i64 16
   %.not.i = icmp eq ptr %39, %36
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = load i64, ptr %.024.i, align 8, !tbaa !84
+  %41 = load i64, ptr %.022.i, align 8, !tbaa !84
   %spec.select.i16.i = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.02.0.copyload, i64 %41)
-  store i64 %spec.select.i16.i, ptr %.024.i, align 8, !tbaa !84
+  store i64 %spec.select.i16.i, ptr %.022.i, align 8, !tbaa !84
   br label %_ZN4llvm14SpillPlacement4Node7addLinkEjNS_14BlockFrequencyE.exit
 
 ._crit_edge.i:                                    ; preds = %.critedge.i, %22
@@ -1391,11 +1391,11 @@ define dso_local void @_ZN4llvm14SpillPlacement8addLinksENS_8ArrayRefIjEE(ptr no
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull %46, i64 noundef %45, i64 noundef 16) #18
   %.pre.i.i = load i32, ptr %33, align 8, !tbaa !82
   %.pre.i = load ptr, ptr %31, align 8, !tbaa !81
-  %.pre26.i = zext i32 %.pre.i.i to i64
+  %.pre24.i = zext i32 %.pre.i.i to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_14BlockFrequencyEjELb1EE9push_backES3_.exit.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_14BlockFrequencyEjELb1EE9push_backES3_.exit.i: ; preds = %44, %._crit_edge.i
-  %.pre-phi.i = phi i64 [ %35, %._crit_edge.i ], [ %.pre26.i, %44 ]
+  %.pre-phi.i = phi i64 [ %35, %._crit_edge.i ], [ %.pre24.i, %44 ]
   %47 = phi ptr [ %32, %._crit_edge.i ], [ %.pre.i, %44 ]
   %48 = getelementptr inbounds nuw %"struct.std::pair.197", ptr %47, i64 %.pre-phi.i
   store i64 %.sroa.02.0.copyload, ptr %48, align 1
@@ -1422,25 +1422,25 @@ _ZN4llvm14SpillPlacement4Node7addLinkEjNS_14BlockFrequencyE.exit: ; preds = %40,
   %60 = zext i32 %59 to i64
   %.idx.i25 = shl nuw nsw i64 %60, 4
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i25
-  %.not23.i26 = icmp eq i32 %59, 0
-  br i1 %.not23.i26, label %._crit_edge.i32, label %.lr.ph.i27
+  %.not21.i26 = icmp eq i32 %59, 0
+  br i1 %.not21.i26, label %._crit_edge.i32, label %.lr.ph.i27
 
 .lr.ph.i27:                                       ; preds = %_ZN4llvm14SpillPlacement4Node7addLinkEjNS_14BlockFrequencyE.exit, %.critedge.i30
-  %.024.i28 = phi ptr [ %64, %.critedge.i30 ], [ %57, %_ZN4llvm14SpillPlacement4Node7addLinkEjNS_14BlockFrequencyE.exit ]
-  %62 = getelementptr inbounds nuw i8, ptr %.024.i28, i64 8
+  %.022.i28 = phi ptr [ %64, %.critedge.i30 ], [ %57, %_ZN4llvm14SpillPlacement4Node7addLinkEjNS_14BlockFrequencyE.exit ]
+  %62 = getelementptr inbounds nuw i8, ptr %.022.i28, i64 8
   %63 = load i32, ptr %62, align 8, !tbaa !162
   %.not15.i29 = icmp eq i32 %63, %16
   br i1 %.not15.i29, label %65, label %.critedge.i30
 
 .critedge.i30:                                    ; preds = %.lr.ph.i27
-  %64 = getelementptr inbounds nuw i8, ptr %.024.i28, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %.022.i28, i64 16
   %.not.i31 = icmp eq ptr %64, %61
   br i1 %.not.i31, label %._crit_edge.i32, label %.lr.ph.i27
 
 65:                                               ; preds = %.lr.ph.i27
-  %66 = load i64, ptr %.024.i28, align 8, !tbaa !84
+  %66 = load i64, ptr %.022.i28, align 8, !tbaa !84
   %spec.select.i16.i40 = tail call i64 @llvm.uadd.sat.i64(i64 %.sroa.02.0.copyload, i64 %66)
-  store i64 %spec.select.i16.i40, ptr %.024.i28, align 8, !tbaa !84
+  store i64 %spec.select.i16.i40, ptr %.022.i28, align 8, !tbaa !84
   br label %_ZN4llvm14SpillPlacement4Node7addLinkEjNS_14BlockFrequencyE.exit41
 
 ._crit_edge.i32:                                  ; preds = %.critedge.i30, %_ZN4llvm14SpillPlacement4Node7addLinkEjNS_14BlockFrequencyE.exit
@@ -1455,11 +1455,11 @@ _ZN4llvm14SpillPlacement4Node7addLinkEjNS_14BlockFrequencyE.exit: ; preds = %40,
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %56, ptr noundef nonnull %71, i64 noundef %70, i64 noundef 16) #18
   %.pre.i.i34 = load i32, ptr %58, align 8, !tbaa !82
   %.pre.i35 = load ptr, ptr %56, align 8, !tbaa !81
-  %.pre26.i36 = zext i32 %.pre.i.i34 to i64
+  %.pre24.i36 = zext i32 %.pre.i.i34 to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_14BlockFrequencyEjELb1EE9push_backES3_.exit.i37
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_14BlockFrequencyEjELb1EE9push_backES3_.exit.i37: ; preds = %69, %._crit_edge.i32
-  %.pre-phi.i38 = phi i64 [ %60, %._crit_edge.i32 ], [ %.pre26.i36, %69 ]
+  %.pre-phi.i38 = phi i64 [ %60, %._crit_edge.i32 ], [ %.pre24.i36, %69 ]
   %72 = phi ptr [ %57, %._crit_edge.i32 ], [ %.pre.i35, %69 ]
   %73 = getelementptr inbounds nuw %"struct.std::pair.197", ptr %72, i64 %.pre-phi.i38
   store i64 %.sroa.02.0.copyload, ptr %73, align 1

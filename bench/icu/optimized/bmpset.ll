@@ -58,14 +58,14 @@ define void @_ZN6icu_776BMPSetC2EPKii(ptr noundef nonnull align 8 captures(none)
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %20 = phi i32 [ %26, %.lr.ph.i ], [ %19, %.lr.ph.i.preheader ]
-  %.02034.i = phi i32 [ %..020.i, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
-  %.02133.i = phi i32 [ %.021..i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.02033.i = phi i32 [ %..020.i, %.lr.ph.i ], [ %9, %.lr.ph.i.preheader ]
+  %.02132.i = phi i32 [ %.021..i, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %1, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = icmp sgt i32 %23, 2048
-  %.021..i = select i1 %24, i32 %.02133.i, i32 %20
-  %..020.i = select i1 %24, i32 %20, i32 %.02034.i
+  %.021..i = select i1 %24, i32 %.02132.i, i32 %20
+  %..020.i = select i1 %24, i32 %20, i32 %.02033.i
   %25 = add nsw i32 %..020.i, %.021..i
   %26 = ashr i32 %25, 1
   %27 = icmp eq i32 %26, %.021..i
@@ -113,15 +113,15 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit:       ; preds = %.lr.ph.i, %3, %12, 
 
 .lr.ph.i11:                                       ; preds = %.preheader.i10, %.lr.ph.i11
   %51 = phi i32 [ %58, %.lr.ph.i11 ], [ %49, %.preheader.i10 ]
-  %.02034.i12 = phi i32 [ %..020.i15, %.lr.ph.i11 ], [ %35, %.preheader.i10 ]
-  %.02133.i13 = phi i32 [ %.021..i14, %.lr.ph.i11 ], [ %33, %.preheader.i10 ]
+  %.02033.i12 = phi i32 [ %..020.i15, %.lr.ph.i11 ], [ %35, %.preheader.i10 ]
+  %.02132.i13 = phi i32 [ %.021..i14, %.lr.ph.i11 ], [ %33, %.preheader.i10 ]
   %52 = sext i32 %51 to i64
   %53 = getelementptr inbounds i32, ptr %1, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !13
   %55 = sext i32 %54 to i64
   %56 = icmp slt i64 %30, %55
-  %.021..i14 = select i1 %56, i32 %.02133.i13, i32 %51
-  %..020.i15 = select i1 %56, i32 %51, i32 %.02034.i12
+  %.021..i14 = select i1 %56, i32 %.02132.i13, i32 %51
+  %..020.i15 = select i1 %56, i32 %51, i32 %.02033.i12
   %57 = add nsw i32 %..020.i15, %.021..i14
   %58 = ashr i32 %57, 1
   %59 = icmp eq i32 %58, %.021..i14
@@ -169,14 +169,14 @@ _ZNK6icu_776BMPSet13findCodePointEiii.exit16:     ; preds = %.lr.ph.i11, %29, %4
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %81 = phi i32 [ %87, %.lr.ph.i.i ], [ %79, %.preheader.i.i ]
-  %.02034.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %67, %.preheader.i.i ]
-  %.02133.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %65, %.preheader.i.i ]
+  %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %67, %.preheader.i.i ]
+  %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %65, %.preheader.i.i ]
   %82 = sext i32 %81 to i64
   %83 = getelementptr inbounds i32, ptr %1, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !13
   %85 = icmp sgt i32 %84, 65533
-  %.021..i.i = select i1 %85, i32 %.02133.i.i, i32 %81
-  %..020.i.i = select i1 %85, i32 %81, i32 %.02034.i.i
+  %.021..i.i = select i1 %85, i32 %.02132.i.i, i32 %81
+  %..020.i.i = select i1 %85, i32 %81, i32 %.02033.i.i
   %86 = add nsw i32 %..020.i.i, %.021..i.i
   %87 = ashr i32 %86, 1
   %88 = icmp eq i32 %87, %.021..i.i
@@ -271,14 +271,14 @@ define noundef i32 @_ZNK6icu_776BMPSet13findCodePointEiii(ptr noundef nonnull re
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %20 = phi i32 [ %26, %.lr.ph ], [ %18, %.preheader ]
-  %.02034 = phi i32 [ %..020, %.lr.ph ], [ %3, %.preheader ]
-  %.02133 = phi i32 [ %.021., %.lr.ph ], [ %2, %.preheader ]
+  %.02033 = phi i32 [ %..020, %.lr.ph ], [ %3, %.preheader ]
+  %.02132 = phi i32 [ %.021., %.lr.ph ], [ %2, %.preheader ]
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %6, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = icmp slt i32 %1, %23
-  %.021. = select i1 %24, i32 %.02133, i32 %20
-  %..020 = select i1 %24, i32 %20, i32 %.02034
+  %.021. = select i1 %24, i32 %.02132, i32 %20
+  %..020 = select i1 %24, i32 %20, i32 %.02033
   %25 = add nsw i32 %..020, %.021.
   %26 = ashr i32 %25, 1
   %27 = icmp eq i32 %26, %.021.
@@ -319,14 +319,14 @@ define linkonce_odr noundef signext i8 @_ZNK6icu_776BMPSet12containsSlowEiii(ptr
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %20 = phi i32 [ %26, %.lr.ph.i ], [ %18, %.preheader.i ]
-  %.02034.i = phi i32 [ %..020.i, %.lr.ph.i ], [ %3, %.preheader.i ]
-  %.02133.i = phi i32 [ %.021..i, %.lr.ph.i ], [ %2, %.preheader.i ]
+  %.02033.i = phi i32 [ %..020.i, %.lr.ph.i ], [ %3, %.preheader.i ]
+  %.02132.i = phi i32 [ %.021..i, %.lr.ph.i ], [ %2, %.preheader.i ]
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i32, ptr %6, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !13
   %24 = icmp slt i32 %1, %23
-  %.021..i = select i1 %24, i32 %.02133.i, i32 %20
-  %..020.i = select i1 %24, i32 %20, i32 %.02034.i
+  %.021..i = select i1 %24, i32 %.02132.i, i32 %20
+  %..020.i = select i1 %24, i32 %20, i32 %.02033.i
   %25 = add nsw i32 %..020.i, %.021..i
   %26 = ashr i32 %25, 1
   %27 = icmp eq i32 %26, %.021..i
@@ -975,14 +975,14 @@ define noundef signext i8 @_ZNK6icu_776BMPSet8containsEi(ptr noundef nonnull rea
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %59 = phi i32 [ %65, %.lr.ph.i.i ], [ %57, %.preheader.i.i ]
-  %.02034.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %43, %.preheader.i.i ]
-  %.02133.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %41, %.preheader.i.i ]
+  %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %43, %.preheader.i.i ]
+  %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %41, %.preheader.i.i ]
   %60 = sext i32 %59 to i64
   %61 = getelementptr inbounds i32, ptr %45, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !13
   %63 = icmp slt i32 %1, %62
-  %.021..i.i = select i1 %63, i32 %.02133.i.i, i32 %59
-  %..020.i.i = select i1 %63, i32 %59, i32 %.02034.i.i
+  %.021..i.i = select i1 %63, i32 %.02132.i.i, i32 %59
+  %..020.i.i = select i1 %63, i32 %59, i32 %.02033.i.i
   %64 = add nsw i32 %..020.i.i, %.021..i.i
   %65 = ashr i32 %64, 1
   %66 = icmp eq i32 %65, %.021..i.i
@@ -1031,14 +1031,14 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %37, %5
 
 .lr.ph.i.i28:                                     ; preds = %.preheader.i.i27, %.lr.ph.i.i28
   %91 = phi i32 [ %97, %.lr.ph.i.i28 ], [ %89, %.preheader.i.i27 ]
-  %.02034.i.i29 = phi i32 [ %..020.i.i32, %.lr.ph.i.i28 ], [ %75, %.preheader.i.i27 ]
-  %.02133.i.i30 = phi i32 [ %.021..i.i31, %.lr.ph.i.i28 ], [ %73, %.preheader.i.i27 ]
+  %.02033.i.i29 = phi i32 [ %..020.i.i32, %.lr.ph.i.i28 ], [ %75, %.preheader.i.i27 ]
+  %.02132.i.i30 = phi i32 [ %.021..i.i31, %.lr.ph.i.i28 ], [ %73, %.preheader.i.i27 ]
   %92 = sext i32 %91 to i64
   %93 = getelementptr inbounds i32, ptr %77, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !13
   %95 = icmp slt i32 %1, %94
-  %.021..i.i31 = select i1 %95, i32 %.02133.i.i30, i32 %91
-  %..020.i.i32 = select i1 %95, i32 %91, i32 %.02034.i.i29
+  %.021..i.i31 = select i1 %95, i32 %.02132.i.i30, i32 %91
+  %..020.i.i32 = select i1 %95, i32 %91, i32 %.02033.i.i29
   %96 = add nsw i32 %..020.i.i32, %.021..i.i31
   %97 = ashr i32 %96, 1
   %98 = icmp eq i32 %97, %.021..i.i31
@@ -1068,7 +1068,7 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %8 to i64
   %14 = getelementptr inbounds i32, ptr %12, i64 %13
-  %.not.i.i135 = icmp sge i32 %8, %10
+  %.not.i.i134 = icmp sge i32 %8, %10
   %15 = sext i32 %10 to i64
   %16 = getelementptr i32, ptr %12, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -4
@@ -1081,7 +1081,7 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %22 to i64
   %26 = getelementptr inbounds i32, ptr %12, i64 %25
-  %.not.i.i125 = icmp sge i32 %22, %24
+  %.not.i.i124 = icmp sge i32 %22, %24
   %27 = sext i32 %24 to i64
   %28 = getelementptr i32, ptr %12, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -4
@@ -1090,23 +1090,23 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
   %32 = icmp eq i32 %31, %22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 780
-  br i1 %.not, label %.preheader, label %.preheader151
+  br i1 %.not, label %.preheader, label %.preheader148
 
-.preheader151:                                    ; preds = %4, %135
+.preheader148:                                    ; preds = %4, %135
   %.0 = phi ptr [ %136, %135 ], [ %1, %4 ]
   %35 = load i16, ptr %.0, align 2, !tbaa !30
   %36 = zext i16 %35 to i32
   %37 = icmp ult i16 %35, 256
   br i1 %37, label %38, label %42
 
-38:                                               ; preds = %.preheader151
+38:                                               ; preds = %.preheader148
   %39 = zext nneg i16 %35 to i64
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 %39
   %41 = load i8, ptr %40, align 1, !tbaa !21
   %.not92 = icmp eq i8 %41, 0
   br i1 %.not92, label %.thread, label %135
 
-42:                                               ; preds = %.preheader151
+42:                                               ; preds = %.preheader148
   %43 = icmp ult i16 %35, 2048
   br i1 %43, label %44, label %53
 
@@ -1174,14 +1174,14 @@ define noundef ptr @_ZNK6icu_776BMPSet4spanEPKDsS2_17USetSpanCondition(ptr nound
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %86 = phi i32 [ %92, %.lr.ph.i.i ], [ %84, %.preheader.i.i ]
-  %.02034.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %72, %.preheader.i.i ]
-  %.02133.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %70, %.preheader.i.i ]
+  %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %72, %.preheader.i.i ]
+  %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %70, %.preheader.i.i ]
   %87 = sext i32 %86 to i64
   %88 = getelementptr inbounds i32, ptr %12, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !13
   %90 = icmp sgt i32 %89, %36
-  %.021..i.i = select i1 %90, i32 %.02133.i.i, i32 %86
-  %..020.i.i = select i1 %90, i32 %86, i32 %.02034.i.i
+  %.021..i.i = select i1 %90, i32 %.02132.i.i, i32 %86
+  %..020.i.i = select i1 %90, i32 %86, i32 %.02033.i.i
   %91 = add nsw i32 %..020.i.i, %.021..i.i
   %92 = ashr i32 %91, 1
   %93 = icmp eq i32 %92, %.021..i.i
@@ -1211,34 +1211,34 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %67, %7
 103:                                              ; preds = %100, %97, %95
   %104 = load i32, ptr %26, align 4, !tbaa !13
   %105 = icmp sgt i32 %104, %36
-  %brmerge = select i1 %105, i1 true, i1 %.not.i.i125
+  %brmerge = select i1 %105, i1 true, i1 %.not.i.i124
   %.mux = select i1 %105, i32 %22, i32 %24
-  br i1 %brmerge, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit104, label %106
+  br i1 %brmerge, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit103, label %106
 
 106:                                              ; preds = %103
   %107 = load i32, ptr %29, align 4, !tbaa !13
-  %.not28.i.i97 = icmp sle i32 %107, %36
-  %brmerge154 = select i1 %.not28.i.i97, i1 true, i1 %32
-  br i1 %brmerge154, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit104, label %.lr.ph.i.i99
+  %.not28.i.i96 = icmp sle i32 %107, %36
+  %brmerge151 = select i1 %.not28.i.i96, i1 true, i1 %32
+  br i1 %brmerge151, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit103, label %.lr.ph.i.i98
 
-.lr.ph.i.i99:                                     ; preds = %106, %.lr.ph.i.i99
-  %108 = phi i32 [ %114, %.lr.ph.i.i99 ], [ %31, %106 ]
-  %.02034.i.i100 = phi i32 [ %..020.i.i103, %.lr.ph.i.i99 ], [ %24, %106 ]
-  %.02133.i.i101 = phi i32 [ %.021..i.i102, %.lr.ph.i.i99 ], [ %22, %106 ]
+.lr.ph.i.i98:                                     ; preds = %106, %.lr.ph.i.i98
+  %108 = phi i32 [ %114, %.lr.ph.i.i98 ], [ %31, %106 ]
+  %.02033.i.i99 = phi i32 [ %..020.i.i102, %.lr.ph.i.i98 ], [ %24, %106 ]
+  %.02132.i.i100 = phi i32 [ %.021..i.i101, %.lr.ph.i.i98 ], [ %22, %106 ]
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i32, ptr %12, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !13
   %112 = icmp sgt i32 %111, %36
-  %.021..i.i102 = select i1 %112, i32 %.02133.i.i101, i32 %108
-  %..020.i.i103 = select i1 %112, i32 %108, i32 %.02034.i.i100
-  %113 = add nsw i32 %..020.i.i103, %.021..i.i102
+  %.021..i.i101 = select i1 %112, i32 %.02132.i.i100, i32 %108
+  %..020.i.i102 = select i1 %112, i32 %108, i32 %.02033.i.i99
+  %113 = add nsw i32 %..020.i.i102, %.021..i.i101
   %114 = ashr i32 %113, 1
-  %115 = icmp eq i32 %114, %.021..i.i102
-  br i1 %115, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit104, label %.lr.ph.i.i99
+  %115 = icmp eq i32 %114, %.021..i.i101
+  br i1 %115, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit103, label %.lr.ph.i.i98
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit104:     ; preds = %.lr.ph.i.i99, %106, %103
-  %.019.i.i96 = phi i32 [ %.mux, %103 ], [ %24, %106 ], [ %..020.i.i103, %.lr.ph.i.i99 ]
-  %116 = and i32 %.019.i.i96, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit103:     ; preds = %.lr.ph.i.i98, %106, %103
+  %.019.i.i95 = phi i32 [ %.mux, %103 ], [ %24, %106 ], [ %..020.i.i102, %.lr.ph.i.i98 ]
+  %116 = and i32 %.019.i.i95, 1
   %.not90 = icmp eq i32 %116, 0
   br i1 %.not90, label %.thread, label %135
 
@@ -1249,42 +1249,42 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit104:     ; preds = %.lr.ph.i.i99, %106,
   %121 = add nuw nsw i32 %120, %118
   %122 = load i32, ptr %14, align 4, !tbaa !13
   %123 = icmp slt i32 %121, %122
-  %brmerge155 = select i1 %123, i1 true, i1 %.not.i.i135
-  %.mux156 = select i1 %123, i32 %8, i32 %10
-  br i1 %brmerge155, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit114, label %124
+  %brmerge152 = select i1 %123, i1 true, i1 %.not.i.i134
+  %.mux153 = select i1 %123, i32 %8, i32 %10
+  br i1 %brmerge152, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit113, label %124
 
 124:                                              ; preds = %117
   %125 = load i32, ptr %17, align 4, !tbaa !13
-  %.not28.i.i107 = icmp sge i32 %121, %125
-  %brmerge157 = select i1 %.not28.i.i107, i1 true, i1 %20
-  br i1 %brmerge157, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit114, label %.lr.ph.i.i109
+  %.not28.i.i106 = icmp sge i32 %121, %125
+  %brmerge154 = select i1 %.not28.i.i106, i1 true, i1 %20
+  br i1 %brmerge154, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit113, label %.lr.ph.i.i108
 
-.lr.ph.i.i109:                                    ; preds = %124, %.lr.ph.i.i109
-  %126 = phi i32 [ %132, %.lr.ph.i.i109 ], [ %19, %124 ]
-  %.02034.i.i110 = phi i32 [ %..020.i.i113, %.lr.ph.i.i109 ], [ %10, %124 ]
-  %.02133.i.i111 = phi i32 [ %.021..i.i112, %.lr.ph.i.i109 ], [ %8, %124 ]
+.lr.ph.i.i108:                                    ; preds = %124, %.lr.ph.i.i108
+  %126 = phi i32 [ %132, %.lr.ph.i.i108 ], [ %19, %124 ]
+  %.02033.i.i109 = phi i32 [ %..020.i.i112, %.lr.ph.i.i108 ], [ %10, %124 ]
+  %.02132.i.i110 = phi i32 [ %.021..i.i111, %.lr.ph.i.i108 ], [ %8, %124 ]
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %12, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !13
   %130 = icmp slt i32 %121, %129
-  %.021..i.i112 = select i1 %130, i32 %.02133.i.i111, i32 %126
-  %..020.i.i113 = select i1 %130, i32 %126, i32 %.02034.i.i110
-  %131 = add nsw i32 %..020.i.i113, %.021..i.i112
+  %.021..i.i111 = select i1 %130, i32 %.02132.i.i110, i32 %126
+  %..020.i.i112 = select i1 %130, i32 %126, i32 %.02033.i.i109
+  %131 = add nsw i32 %..020.i.i112, %.021..i.i111
   %132 = ashr i32 %131, 1
-  %133 = icmp eq i32 %132, %.021..i.i112
-  br i1 %133, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit114, label %.lr.ph.i.i109
+  %133 = icmp eq i32 %132, %.021..i.i111
+  br i1 %133, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit113, label %.lr.ph.i.i108
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit114:     ; preds = %.lr.ph.i.i109, %124, %117
-  %.019.i.i106 = phi i32 [ %.mux156, %117 ], [ %10, %124 ], [ %..020.i.i113, %.lr.ph.i.i109 ]
-  %134 = and i32 %.019.i.i106, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit113:     ; preds = %.lr.ph.i.i108, %124, %117
+  %.019.i.i105 = phi i32 [ %.mux153, %117 ], [ %10, %124 ], [ %..020.i.i112, %.lr.ph.i.i108 ]
+  %134 = and i32 %.019.i.i105, 1
   %.not89 = icmp eq i32 %134, 0
   br i1 %.not89, label %.thread, label %135
 
-135:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %65, %_ZNK6icu_776BMPSet12containsSlowEiii.exit114, %38, %_ZNK6icu_776BMPSet12containsSlowEiii.exit104, %44
-  %.1 = phi ptr [ %.0, %38 ], [ %.0, %44 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit104 ], [ %98, %_ZNK6icu_776BMPSet12containsSlowEiii.exit114 ], [ %.0, %65 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
+135:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %65, %_ZNK6icu_776BMPSet12containsSlowEiii.exit113, %38, %_ZNK6icu_776BMPSet12containsSlowEiii.exit103, %44
+  %.1 = phi ptr [ %.0, %38 ], [ %.0, %44 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit103 ], [ %98, %_ZNK6icu_776BMPSet12containsSlowEiii.exit113 ], [ %.0, %65 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
   %136 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %137 = icmp ult ptr %136, %2
-  br i1 %137, label %.preheader151, label %.thread, !llvm.loop !32
+  br i1 %137, label %.preheader148, label %.thread, !llvm.loop !32
 
 .preheader:                                       ; preds = %4, %236
   %.3 = phi ptr [ %237, %236 ], [ %1, %4 ]
@@ -1346,44 +1346,44 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit114:     ; preds = %.lr.ph.i.i109, %124
   %175 = getelementptr inbounds i32, ptr %12, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !13
   %177 = icmp sgt i32 %176, %139
-  br i1 %177, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit124, label %178
+  br i1 %177, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit123, label %178
 
 178:                                              ; preds = %168
-  %.not.i.i115 = icmp slt i32 %171, %173
-  br i1 %.not.i.i115, label %179, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit124
+  %.not.i.i114 = icmp slt i32 %171, %173
+  br i1 %.not.i.i114, label %179, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit123
 
 179:                                              ; preds = %178
   %180 = sext i32 %173 to i64
   %181 = getelementptr i32, ptr %12, i64 %180
   %182 = getelementptr i8, ptr %181, i64 -4
   %183 = load i32, ptr %182, align 4, !tbaa !13
-  %.not28.i.i117 = icmp sgt i32 %183, %139
-  br i1 %.not28.i.i117, label %.preheader.i.i118, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit124
+  %.not28.i.i116 = icmp sgt i32 %183, %139
+  br i1 %.not28.i.i116, label %.preheader.i.i117, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit123
 
-.preheader.i.i118:                                ; preds = %179
+.preheader.i.i117:                                ; preds = %179
   %184 = add nsw i32 %173, %171
   %185 = ashr i32 %184, 1
   %186 = icmp eq i32 %185, %171
-  br i1 %186, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit124, label %.lr.ph.i.i119
+  br i1 %186, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit123, label %.lr.ph.i.i118
 
-.lr.ph.i.i119:                                    ; preds = %.preheader.i.i118, %.lr.ph.i.i119
-  %187 = phi i32 [ %193, %.lr.ph.i.i119 ], [ %185, %.preheader.i.i118 ]
-  %.02034.i.i120 = phi i32 [ %..020.i.i123, %.lr.ph.i.i119 ], [ %173, %.preheader.i.i118 ]
-  %.02133.i.i121 = phi i32 [ %.021..i.i122, %.lr.ph.i.i119 ], [ %171, %.preheader.i.i118 ]
+.lr.ph.i.i118:                                    ; preds = %.preheader.i.i117, %.lr.ph.i.i118
+  %187 = phi i32 [ %193, %.lr.ph.i.i118 ], [ %185, %.preheader.i.i117 ]
+  %.02033.i.i119 = phi i32 [ %..020.i.i122, %.lr.ph.i.i118 ], [ %173, %.preheader.i.i117 ]
+  %.02132.i.i120 = phi i32 [ %.021..i.i121, %.lr.ph.i.i118 ], [ %171, %.preheader.i.i117 ]
   %188 = sext i32 %187 to i64
   %189 = getelementptr inbounds i32, ptr %12, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !13
   %191 = icmp sgt i32 %190, %139
-  %.021..i.i122 = select i1 %191, i32 %.02133.i.i121, i32 %187
-  %..020.i.i123 = select i1 %191, i32 %187, i32 %.02034.i.i120
-  %192 = add nsw i32 %..020.i.i123, %.021..i.i122
+  %.021..i.i121 = select i1 %191, i32 %.02132.i.i120, i32 %187
+  %..020.i.i122 = select i1 %191, i32 %187, i32 %.02033.i.i119
+  %192 = add nsw i32 %..020.i.i122, %.021..i.i121
   %193 = ashr i32 %192, 1
-  %194 = icmp eq i32 %193, %.021..i.i122
-  br i1 %194, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit124, label %.lr.ph.i.i119
+  %194 = icmp eq i32 %193, %.021..i.i121
+  br i1 %194, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit123, label %.lr.ph.i.i118
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit124:     ; preds = %.lr.ph.i.i119, %168, %178, %179, %.preheader.i.i118
-  %.019.i.i116 = phi i32 [ %171, %168 ], [ %173, %179 ], [ %173, %178 ], [ %173, %.preheader.i.i118 ], [ %..020.i.i123, %.lr.ph.i.i119 ]
-  %195 = and i32 %.019.i.i116, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit123:     ; preds = %.lr.ph.i.i118, %168, %178, %179, %.preheader.i.i117
+  %.019.i.i115 = phi i32 [ %171, %168 ], [ %173, %179 ], [ %173, %178 ], [ %173, %.preheader.i.i117 ], [ %..020.i.i122, %.lr.ph.i.i118 ]
+  %195 = and i32 %.019.i.i115, 1
   %.not85 = icmp eq i32 %195, 0
   br i1 %.not85, label %236, label %.thread
 
@@ -1405,34 +1405,34 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit124:     ; preds = %.lr.ph.i.i119, %168
 204:                                              ; preds = %201, %198, %196
   %205 = load i32, ptr %26, align 4, !tbaa !13
   %206 = icmp sgt i32 %205, %139
-  %brmerge158 = select i1 %206, i1 true, i1 %.not.i.i125
-  %.mux159 = select i1 %206, i32 %22, i32 %24
-  br i1 %brmerge158, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit134, label %207
+  %brmerge155 = select i1 %206, i1 true, i1 %.not.i.i124
+  %.mux156 = select i1 %206, i32 %22, i32 %24
+  br i1 %brmerge155, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit133, label %207
 
 207:                                              ; preds = %204
   %208 = load i32, ptr %29, align 4, !tbaa !13
-  %.not28.i.i127 = icmp sle i32 %208, %139
-  %brmerge160 = select i1 %.not28.i.i127, i1 true, i1 %32
-  br i1 %brmerge160, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit134, label %.lr.ph.i.i129
+  %.not28.i.i126 = icmp sle i32 %208, %139
+  %brmerge157 = select i1 %.not28.i.i126, i1 true, i1 %32
+  br i1 %brmerge157, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit133, label %.lr.ph.i.i128
 
-.lr.ph.i.i129:                                    ; preds = %207, %.lr.ph.i.i129
-  %209 = phi i32 [ %215, %.lr.ph.i.i129 ], [ %31, %207 ]
-  %.02034.i.i130 = phi i32 [ %..020.i.i133, %.lr.ph.i.i129 ], [ %24, %207 ]
-  %.02133.i.i131 = phi i32 [ %.021..i.i132, %.lr.ph.i.i129 ], [ %22, %207 ]
+.lr.ph.i.i128:                                    ; preds = %207, %.lr.ph.i.i128
+  %209 = phi i32 [ %215, %.lr.ph.i.i128 ], [ %31, %207 ]
+  %.02033.i.i129 = phi i32 [ %..020.i.i132, %.lr.ph.i.i128 ], [ %24, %207 ]
+  %.02132.i.i130 = phi i32 [ %.021..i.i131, %.lr.ph.i.i128 ], [ %22, %207 ]
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds i32, ptr %12, i64 %210
   %212 = load i32, ptr %211, align 4, !tbaa !13
   %213 = icmp sgt i32 %212, %139
-  %.021..i.i132 = select i1 %213, i32 %.02133.i.i131, i32 %209
-  %..020.i.i133 = select i1 %213, i32 %209, i32 %.02034.i.i130
-  %214 = add nsw i32 %..020.i.i133, %.021..i.i132
+  %.021..i.i131 = select i1 %213, i32 %.02132.i.i130, i32 %209
+  %..020.i.i132 = select i1 %213, i32 %209, i32 %.02033.i.i129
+  %214 = add nsw i32 %..020.i.i132, %.021..i.i131
   %215 = ashr i32 %214, 1
-  %216 = icmp eq i32 %215, %.021..i.i132
-  br i1 %216, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit134, label %.lr.ph.i.i129
+  %216 = icmp eq i32 %215, %.021..i.i131
+  br i1 %216, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit133, label %.lr.ph.i.i128
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit134:     ; preds = %.lr.ph.i.i129, %207, %204
-  %.019.i.i126 = phi i32 [ %.mux159, %204 ], [ %24, %207 ], [ %..020.i.i133, %.lr.ph.i.i129 ]
-  %217 = and i32 %.019.i.i126, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit133:     ; preds = %.lr.ph.i.i128, %207, %204
+  %.019.i.i125 = phi i32 [ %.mux156, %204 ], [ %24, %207 ], [ %..020.i.i132, %.lr.ph.i.i128 ]
+  %217 = and i32 %.019.i.i125, 1
   %.not84 = icmp eq i32 %217, 0
   br i1 %.not84, label %236, label %.thread
 
@@ -1443,45 +1443,45 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit134:     ; preds = %.lr.ph.i.i129, %207
   %222 = add nuw nsw i32 %221, %219
   %223 = load i32, ptr %14, align 4, !tbaa !13
   %224 = icmp slt i32 %222, %223
-  %brmerge161 = select i1 %224, i1 true, i1 %.not.i.i135
-  %.mux162 = select i1 %224, i32 %8, i32 %10
-  br i1 %brmerge161, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit144, label %225
+  %brmerge158 = select i1 %224, i1 true, i1 %.not.i.i134
+  %.mux159 = select i1 %224, i32 %8, i32 %10
+  br i1 %brmerge158, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit143, label %225
 
 225:                                              ; preds = %218
   %226 = load i32, ptr %17, align 4, !tbaa !13
-  %.not28.i.i137 = icmp sge i32 %222, %226
-  %brmerge163 = select i1 %.not28.i.i137, i1 true, i1 %20
-  br i1 %brmerge163, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit144, label %.lr.ph.i.i139
+  %.not28.i.i136 = icmp sge i32 %222, %226
+  %brmerge160 = select i1 %.not28.i.i136, i1 true, i1 %20
+  br i1 %brmerge160, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit143, label %.lr.ph.i.i138
 
-.lr.ph.i.i139:                                    ; preds = %225, %.lr.ph.i.i139
-  %227 = phi i32 [ %233, %.lr.ph.i.i139 ], [ %19, %225 ]
-  %.02034.i.i140 = phi i32 [ %..020.i.i143, %.lr.ph.i.i139 ], [ %10, %225 ]
-  %.02133.i.i141 = phi i32 [ %.021..i.i142, %.lr.ph.i.i139 ], [ %8, %225 ]
+.lr.ph.i.i138:                                    ; preds = %225, %.lr.ph.i.i138
+  %227 = phi i32 [ %233, %.lr.ph.i.i138 ], [ %19, %225 ]
+  %.02033.i.i139 = phi i32 [ %..020.i.i142, %.lr.ph.i.i138 ], [ %10, %225 ]
+  %.02132.i.i140 = phi i32 [ %.021..i.i141, %.lr.ph.i.i138 ], [ %8, %225 ]
   %228 = sext i32 %227 to i64
   %229 = getelementptr inbounds i32, ptr %12, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !13
   %231 = icmp slt i32 %222, %230
-  %.021..i.i142 = select i1 %231, i32 %.02133.i.i141, i32 %227
-  %..020.i.i143 = select i1 %231, i32 %227, i32 %.02034.i.i140
-  %232 = add nsw i32 %..020.i.i143, %.021..i.i142
+  %.021..i.i141 = select i1 %231, i32 %.02132.i.i140, i32 %227
+  %..020.i.i142 = select i1 %231, i32 %227, i32 %.02033.i.i139
+  %232 = add nsw i32 %..020.i.i142, %.021..i.i141
   %233 = ashr i32 %232, 1
-  %234 = icmp eq i32 %233, %.021..i.i142
-  br i1 %234, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit144, label %.lr.ph.i.i139
+  %234 = icmp eq i32 %233, %.021..i.i141
+  br i1 %234, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit143, label %.lr.ph.i.i138
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit144:     ; preds = %.lr.ph.i.i139, %225, %218
-  %.019.i.i136 = phi i32 [ %.mux162, %218 ], [ %10, %225 ], [ %..020.i.i143, %.lr.ph.i.i139 ]
-  %235 = and i32 %.019.i.i136, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit143:     ; preds = %.lr.ph.i.i138, %225, %218
+  %.019.i.i135 = phi i32 [ %.mux159, %218 ], [ %10, %225 ], [ %..020.i.i142, %.lr.ph.i.i138 ]
+  %235 = and i32 %.019.i.i135, 1
   %.not83 = icmp eq i32 %235, 0
   br i1 %.not83, label %236, label %.thread
 
-236:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit124, %167, %_ZNK6icu_776BMPSet12containsSlowEiii.exit144, %141, %_ZNK6icu_776BMPSet12containsSlowEiii.exit134, %147
-  %.4 = phi ptr [ %.3, %141 ], [ %.3, %147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit134 ], [ %199, %_ZNK6icu_776BMPSet12containsSlowEiii.exit144 ], [ %.3, %167 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit124 ]
+236:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit123, %167, %_ZNK6icu_776BMPSet12containsSlowEiii.exit143, %141, %_ZNK6icu_776BMPSet12containsSlowEiii.exit133, %147
+  %.4 = phi ptr [ %.3, %141 ], [ %.3, %147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit133 ], [ %199, %_ZNK6icu_776BMPSet12containsSlowEiii.exit143 ], [ %.3, %167 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit123 ]
   %237 = getelementptr inbounds nuw i8, ptr %.4, i64 2
   %238 = icmp ult ptr %237, %2
   br i1 %238, label %.preheader, label %.thread, !llvm.loop !33
 
-.thread:                                          ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %65, %135, %38, %44, %_ZNK6icu_776BMPSet12containsSlowEiii.exit104, %_ZNK6icu_776BMPSet12containsSlowEiii.exit114, %_ZNK6icu_776BMPSet12containsSlowEiii.exit124, %167, %236, %141, %147, %_ZNK6icu_776BMPSet12containsSlowEiii.exit134, %_ZNK6icu_776BMPSet12containsSlowEiii.exit144
-  %.2 = phi ptr [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit124 ], [ %.3, %167 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit144 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit134 ], [ %.3, %147 ], [ %237, %236 ], [ %.3, %141 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ], [ %.0, %65 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit114 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit104 ], [ %.0, %44 ], [ %.0, %38 ], [ %136, %135 ]
+.thread:                                          ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %65, %135, %38, %44, %_ZNK6icu_776BMPSet12containsSlowEiii.exit103, %_ZNK6icu_776BMPSet12containsSlowEiii.exit113, %_ZNK6icu_776BMPSet12containsSlowEiii.exit123, %167, %236, %141, %147, %_ZNK6icu_776BMPSet12containsSlowEiii.exit133, %_ZNK6icu_776BMPSet12containsSlowEiii.exit143
+  %.2 = phi ptr [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit123 ], [ %.3, %167 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit143 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit133 ], [ %.3, %147 ], [ %237, %236 ], [ %.3, %141 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ], [ %.0, %65 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit113 ], [ %.0, %_ZNK6icu_776BMPSet12containsSlowEiii.exit103 ], [ %.0, %44 ], [ %.0, %38 ], [ %136, %135 ]
   ret ptr %.2
 }
 
@@ -1496,7 +1496,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %6 to i64
   %12 = getelementptr inbounds i32, ptr %10, i64 %11
-  %.not.i.i139 = icmp sge i32 %6, %8
+  %.not.i.i138 = icmp sge i32 %6, %8
   %13 = sext i32 %8 to i64
   %14 = getelementptr i32, ptr %10, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -4
@@ -1509,7 +1509,7 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %20 to i64
   %24 = getelementptr inbounds i32, ptr %10, i64 %23
-  %.not.i.i129 = icmp sge i32 %20, %22
+  %.not.i.i128 = icmp sge i32 %20, %22
   %25 = sext i32 %22 to i64
   %26 = getelementptr i32, ptr %10, i64 %25
   %27 = getelementptr i8, ptr %26, i64 -4
@@ -1520,9 +1520,9 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 780
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 268
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %.not, label %.preheader, label %.preheader155
+  br i1 %.not, label %.preheader, label %.preheader152
 
-.preheader155:                                    ; preds = %4, %135
+.preheader152:                                    ; preds = %4, %135
   %.072 = phi ptr [ %.1, %135 ], [ %2, %4 ]
   %35 = getelementptr inbounds i8, ptr %.072, i64 -2
   %36 = load i16, ptr %35, align 2, !tbaa !30
@@ -1530,14 +1530,14 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
   %38 = icmp ult i16 %36, 256
   br i1 %38, label %39, label %43
 
-39:                                               ; preds = %.preheader155
+39:                                               ; preds = %.preheader152
   %40 = zext nneg i16 %36 to i64
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !21
   %.not94 = icmp eq i8 %42, 0
   br i1 %.not94, label %.loopexit, label %135
 
-43:                                               ; preds = %.preheader155
+43:                                               ; preds = %.preheader152
   %44 = icmp ult i16 %36, 2048
   br i1 %44, label %45, label %54
 
@@ -1605,14 +1605,14 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr n
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %87 = phi i32 [ %93, %.lr.ph.i.i ], [ %85, %.preheader.i.i ]
-  %.02034.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %73, %.preheader.i.i ]
-  %.02133.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %71, %.preheader.i.i ]
+  %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %73, %.preheader.i.i ]
+  %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %71, %.preheader.i.i ]
   %88 = sext i32 %87 to i64
   %89 = getelementptr inbounds i32, ptr %10, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !13
   %91 = icmp sgt i32 %90, %37
-  %.021..i.i = select i1 %91, i32 %.02133.i.i, i32 %87
-  %..020.i.i = select i1 %91, i32 %87, i32 %.02034.i.i
+  %.021..i.i = select i1 %91, i32 %.02132.i.i, i32 %87
+  %..020.i.i = select i1 %91, i32 %87, i32 %.02033.i.i
   %92 = add nsw i32 %..020.i.i, %.021..i.i
   %93 = ashr i32 %92, 1
   %94 = icmp eq i32 %93, %.021..i.i
@@ -1640,34 +1640,34 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit:        ; preds = %.lr.ph.i.i, %68, %7
 103:                                              ; preds = %99, %96
   %104 = load i32, ptr %24, align 4, !tbaa !13
   %105 = icmp sgt i32 %104, %37
-  %brmerge = select i1 %105, i1 true, i1 %.not.i.i129
+  %brmerge = select i1 %105, i1 true, i1 %.not.i.i128
   %.mux = select i1 %105, i32 %20, i32 %22
-  br i1 %brmerge, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit108, label %106
+  br i1 %brmerge, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit107, label %106
 
 106:                                              ; preds = %103
   %107 = load i32, ptr %27, align 4, !tbaa !13
-  %.not28.i.i101 = icmp sle i32 %107, %37
-  %brmerge161 = select i1 %.not28.i.i101, i1 true, i1 %30
-  br i1 %brmerge161, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit108, label %.lr.ph.i.i103
+  %.not28.i.i100 = icmp sle i32 %107, %37
+  %brmerge158 = select i1 %.not28.i.i100, i1 true, i1 %30
+  br i1 %brmerge158, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit107, label %.lr.ph.i.i102
 
-.lr.ph.i.i103:                                    ; preds = %106, %.lr.ph.i.i103
-  %108 = phi i32 [ %114, %.lr.ph.i.i103 ], [ %29, %106 ]
-  %.02034.i.i104 = phi i32 [ %..020.i.i107, %.lr.ph.i.i103 ], [ %22, %106 ]
-  %.02133.i.i105 = phi i32 [ %.021..i.i106, %.lr.ph.i.i103 ], [ %20, %106 ]
+.lr.ph.i.i102:                                    ; preds = %106, %.lr.ph.i.i102
+  %108 = phi i32 [ %114, %.lr.ph.i.i102 ], [ %29, %106 ]
+  %.02033.i.i103 = phi i32 [ %..020.i.i106, %.lr.ph.i.i102 ], [ %22, %106 ]
+  %.02132.i.i104 = phi i32 [ %.021..i.i105, %.lr.ph.i.i102 ], [ %20, %106 ]
   %109 = sext i32 %108 to i64
   %110 = getelementptr inbounds i32, ptr %10, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !13
   %112 = icmp sgt i32 %111, %37
-  %.021..i.i106 = select i1 %112, i32 %.02133.i.i105, i32 %108
-  %..020.i.i107 = select i1 %112, i32 %108, i32 %.02034.i.i104
-  %113 = add nsw i32 %..020.i.i107, %.021..i.i106
+  %.021..i.i105 = select i1 %112, i32 %.02132.i.i104, i32 %108
+  %..020.i.i106 = select i1 %112, i32 %108, i32 %.02033.i.i103
+  %113 = add nsw i32 %..020.i.i106, %.021..i.i105
   %114 = ashr i32 %113, 1
-  %115 = icmp eq i32 %114, %.021..i.i106
-  br i1 %115, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit108, label %.lr.ph.i.i103
+  %115 = icmp eq i32 %114, %.021..i.i105
+  br i1 %115, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit107, label %.lr.ph.i.i102
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit108:     ; preds = %.lr.ph.i.i103, %106, %103
-  %.019.i.i100 = phi i32 [ %.mux, %103 ], [ %22, %106 ], [ %..020.i.i107, %.lr.ph.i.i103 ]
-  %116 = and i32 %.019.i.i100, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit107:     ; preds = %.lr.ph.i.i102, %106, %103
+  %.019.i.i99 = phi i32 [ %.mux, %103 ], [ %22, %106 ], [ %..020.i.i106, %.lr.ph.i.i102 ]
+  %116 = and i32 %.019.i.i99, 1
   %.not92 = icmp eq i32 %116, 0
   br i1 %.not92, label %.loopexit, label %135
 
@@ -1678,41 +1678,41 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit108:     ; preds = %.lr.ph.i.i103, %106
   %121 = add nsw i32 %120, %119
   %122 = load i32, ptr %12, align 4, !tbaa !13
   %123 = icmp slt i32 %121, %122
-  %brmerge162 = select i1 %123, i1 true, i1 %.not.i.i139
-  %.mux163 = select i1 %123, i32 %6, i32 %8
-  br i1 %brmerge162, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit118, label %124
+  %brmerge159 = select i1 %123, i1 true, i1 %.not.i.i138
+  %.mux160 = select i1 %123, i32 %6, i32 %8
+  br i1 %brmerge159, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit117, label %124
 
 124:                                              ; preds = %117
   %125 = load i32, ptr %15, align 4, !tbaa !13
-  %.not28.i.i111 = icmp sge i32 %121, %125
-  %brmerge164 = select i1 %.not28.i.i111, i1 true, i1 %18
-  br i1 %brmerge164, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit118, label %.lr.ph.i.i113
+  %.not28.i.i110 = icmp sge i32 %121, %125
+  %brmerge161 = select i1 %.not28.i.i110, i1 true, i1 %18
+  br i1 %brmerge161, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit117, label %.lr.ph.i.i112
 
-.lr.ph.i.i113:                                    ; preds = %124, %.lr.ph.i.i113
-  %126 = phi i32 [ %132, %.lr.ph.i.i113 ], [ %17, %124 ]
-  %.02034.i.i114 = phi i32 [ %..020.i.i117, %.lr.ph.i.i113 ], [ %8, %124 ]
-  %.02133.i.i115 = phi i32 [ %.021..i.i116, %.lr.ph.i.i113 ], [ %6, %124 ]
+.lr.ph.i.i112:                                    ; preds = %124, %.lr.ph.i.i112
+  %126 = phi i32 [ %132, %.lr.ph.i.i112 ], [ %17, %124 ]
+  %.02033.i.i113 = phi i32 [ %..020.i.i116, %.lr.ph.i.i112 ], [ %8, %124 ]
+  %.02132.i.i114 = phi i32 [ %.021..i.i115, %.lr.ph.i.i112 ], [ %6, %124 ]
   %127 = sext i32 %126 to i64
   %128 = getelementptr inbounds i32, ptr %10, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !13
   %130 = icmp slt i32 %121, %129
-  %.021..i.i116 = select i1 %130, i32 %.02133.i.i115, i32 %126
-  %..020.i.i117 = select i1 %130, i32 %126, i32 %.02034.i.i114
-  %131 = add nsw i32 %..020.i.i117, %.021..i.i116
+  %.021..i.i115 = select i1 %130, i32 %.02132.i.i114, i32 %126
+  %..020.i.i116 = select i1 %130, i32 %126, i32 %.02033.i.i113
+  %131 = add nsw i32 %..020.i.i116, %.021..i.i115
   %132 = ashr i32 %131, 1
-  %133 = icmp eq i32 %132, %.021..i.i116
-  br i1 %133, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit118, label %.lr.ph.i.i113
+  %133 = icmp eq i32 %132, %.021..i.i115
+  br i1 %133, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit117, label %.lr.ph.i.i112
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit118:     ; preds = %.lr.ph.i.i113, %124, %117
-  %.019.i.i110 = phi i32 [ %.mux163, %117 ], [ %8, %124 ], [ %..020.i.i117, %.lr.ph.i.i113 ]
-  %134 = and i32 %.019.i.i110, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit117:     ; preds = %.lr.ph.i.i112, %124, %117
+  %.019.i.i109 = phi i32 [ %.mux160, %117 ], [ %8, %124 ], [ %..020.i.i116, %.lr.ph.i.i112 ]
+  %134 = and i32 %.019.i.i109, 1
   %.not91 = icmp eq i32 %134, 0
   br i1 %.not91, label %.loopexit, label %135
 
-135:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %66, %_ZNK6icu_776BMPSet12containsSlowEiii.exit118, %45, %_ZNK6icu_776BMPSet12containsSlowEiii.exit108, %39
-  %.1 = phi ptr [ %35, %39 ], [ %35, %45 ], [ %35, %_ZNK6icu_776BMPSet12containsSlowEiii.exit108 ], [ %100, %_ZNK6icu_776BMPSet12containsSlowEiii.exit118 ], [ %35, %66 ], [ %35, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
+135:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %66, %_ZNK6icu_776BMPSet12containsSlowEiii.exit117, %45, %_ZNK6icu_776BMPSet12containsSlowEiii.exit107, %39
+  %.1 = phi ptr [ %35, %39 ], [ %35, %45 ], [ %35, %_ZNK6icu_776BMPSet12containsSlowEiii.exit107 ], [ %100, %_ZNK6icu_776BMPSet12containsSlowEiii.exit117 ], [ %35, %66 ], [ %35, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ]
   %136 = icmp eq ptr %1, %.1
-  br i1 %136, label %.loopexit, label %.preheader155, !llvm.loop !34
+  br i1 %136, label %.loopexit, label %.preheader152, !llvm.loop !34
 
 .preheader:                                       ; preds = %4, %235
   %.3 = phi ptr [ %.4, %235 ], [ %2, %4 ]
@@ -1775,52 +1775,52 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit118:     ; preds = %.lr.ph.i.i113, %124
   %175 = getelementptr inbounds i32, ptr %10, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !13
   %177 = icmp sgt i32 %176, %139
-  br i1 %177, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit128, label %178
+  br i1 %177, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit127, label %178
 
 178:                                              ; preds = %168
-  %.not.i.i119 = icmp slt i32 %171, %173
-  br i1 %.not.i.i119, label %179, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit128
+  %.not.i.i118 = icmp slt i32 %171, %173
+  br i1 %.not.i.i118, label %179, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit127
 
 179:                                              ; preds = %178
   %180 = sext i32 %173 to i64
   %181 = getelementptr i32, ptr %10, i64 %180
   %182 = getelementptr i8, ptr %181, i64 -4
   %183 = load i32, ptr %182, align 4, !tbaa !13
-  %.not28.i.i121 = icmp sgt i32 %183, %139
-  br i1 %.not28.i.i121, label %.preheader.i.i122, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit128
+  %.not28.i.i120 = icmp sgt i32 %183, %139
+  br i1 %.not28.i.i120, label %.preheader.i.i121, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit127
 
-.preheader.i.i122:                                ; preds = %179
+.preheader.i.i121:                                ; preds = %179
   %184 = add nsw i32 %173, %171
   %185 = ashr i32 %184, 1
   %186 = icmp eq i32 %185, %171
-  br i1 %186, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit128, label %.lr.ph.i.i123
+  br i1 %186, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit127, label %.lr.ph.i.i122
 
-.lr.ph.i.i123:                                    ; preds = %.preheader.i.i122, %.lr.ph.i.i123
-  %187 = phi i32 [ %193, %.lr.ph.i.i123 ], [ %185, %.preheader.i.i122 ]
-  %.02034.i.i124 = phi i32 [ %..020.i.i127, %.lr.ph.i.i123 ], [ %173, %.preheader.i.i122 ]
-  %.02133.i.i125 = phi i32 [ %.021..i.i126, %.lr.ph.i.i123 ], [ %171, %.preheader.i.i122 ]
+.lr.ph.i.i122:                                    ; preds = %.preheader.i.i121, %.lr.ph.i.i122
+  %187 = phi i32 [ %193, %.lr.ph.i.i122 ], [ %185, %.preheader.i.i121 ]
+  %.02033.i.i123 = phi i32 [ %..020.i.i126, %.lr.ph.i.i122 ], [ %173, %.preheader.i.i121 ]
+  %.02132.i.i124 = phi i32 [ %.021..i.i125, %.lr.ph.i.i122 ], [ %171, %.preheader.i.i121 ]
   %188 = sext i32 %187 to i64
   %189 = getelementptr inbounds i32, ptr %10, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !13
   %191 = icmp sgt i32 %190, %139
-  %.021..i.i126 = select i1 %191, i32 %.02133.i.i125, i32 %187
-  %..020.i.i127 = select i1 %191, i32 %187, i32 %.02034.i.i124
-  %192 = add nsw i32 %..020.i.i127, %.021..i.i126
+  %.021..i.i125 = select i1 %191, i32 %.02132.i.i124, i32 %187
+  %..020.i.i126 = select i1 %191, i32 %187, i32 %.02033.i.i123
+  %192 = add nsw i32 %..020.i.i126, %.021..i.i125
   %193 = ashr i32 %192, 1
-  %194 = icmp eq i32 %193, %.021..i.i126
-  br i1 %194, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit128, label %.lr.ph.i.i123
+  %194 = icmp eq i32 %193, %.021..i.i125
+  br i1 %194, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit127, label %.lr.ph.i.i122
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit128:     ; preds = %.lr.ph.i.i123, %168, %178, %179, %.preheader.i.i122
-  %.019.i.i120 = phi i32 [ %171, %168 ], [ %173, %179 ], [ %173, %178 ], [ %173, %.preheader.i.i122 ], [ %..020.i.i127, %.lr.ph.i.i123 ]
-  %195 = and i32 %.019.i.i120, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit127:     ; preds = %.lr.ph.i.i122, %168, %178, %179, %.preheader.i.i121
+  %.019.i.i119 = phi i32 [ %171, %168 ], [ %173, %179 ], [ %173, %178 ], [ %173, %.preheader.i.i121 ], [ %..020.i.i126, %.lr.ph.i.i122 ]
+  %195 = and i32 %.019.i.i119, 1
   %.not87 = icmp eq i32 %195, 0
   br i1 %.not87, label %235, label %.loopexit
 
 196:                                              ; preds = %155
   %197 = icmp samesign ult i16 %138, -9216
   %198 = icmp eq ptr %1, %137
-  %or.cond98 = or i1 %197, %198
-  br i1 %or.cond98, label %203, label %199
+  %or.cond97 = or i1 %197, %198
+  br i1 %or.cond97, label %203, label %199
 
 199:                                              ; preds = %196
   %200 = getelementptr inbounds i8, ptr %.3, i64 -4
@@ -1832,34 +1832,34 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit128:     ; preds = %.lr.ph.i.i123, %168
 203:                                              ; preds = %199, %196
   %204 = load i32, ptr %24, align 4, !tbaa !13
   %205 = icmp sgt i32 %204, %139
-  %brmerge165 = select i1 %205, i1 true, i1 %.not.i.i129
-  %.mux166 = select i1 %205, i32 %20, i32 %22
-  br i1 %brmerge165, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit138, label %206
+  %brmerge162 = select i1 %205, i1 true, i1 %.not.i.i128
+  %.mux163 = select i1 %205, i32 %20, i32 %22
+  br i1 %brmerge162, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit137, label %206
 
 206:                                              ; preds = %203
   %207 = load i32, ptr %27, align 4, !tbaa !13
-  %.not28.i.i131 = icmp sle i32 %207, %139
-  %brmerge167 = select i1 %.not28.i.i131, i1 true, i1 %30
-  br i1 %brmerge167, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit138, label %.lr.ph.i.i133
+  %.not28.i.i130 = icmp sle i32 %207, %139
+  %brmerge164 = select i1 %.not28.i.i130, i1 true, i1 %30
+  br i1 %brmerge164, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit137, label %.lr.ph.i.i132
 
-.lr.ph.i.i133:                                    ; preds = %206, %.lr.ph.i.i133
-  %208 = phi i32 [ %214, %.lr.ph.i.i133 ], [ %29, %206 ]
-  %.02034.i.i134 = phi i32 [ %..020.i.i137, %.lr.ph.i.i133 ], [ %22, %206 ]
-  %.02133.i.i135 = phi i32 [ %.021..i.i136, %.lr.ph.i.i133 ], [ %20, %206 ]
+.lr.ph.i.i132:                                    ; preds = %206, %.lr.ph.i.i132
+  %208 = phi i32 [ %214, %.lr.ph.i.i132 ], [ %29, %206 ]
+  %.02033.i.i133 = phi i32 [ %..020.i.i136, %.lr.ph.i.i132 ], [ %22, %206 ]
+  %.02132.i.i134 = phi i32 [ %.021..i.i135, %.lr.ph.i.i132 ], [ %20, %206 ]
   %209 = sext i32 %208 to i64
   %210 = getelementptr inbounds i32, ptr %10, i64 %209
   %211 = load i32, ptr %210, align 4, !tbaa !13
   %212 = icmp sgt i32 %211, %139
-  %.021..i.i136 = select i1 %212, i32 %.02133.i.i135, i32 %208
-  %..020.i.i137 = select i1 %212, i32 %208, i32 %.02034.i.i134
-  %213 = add nsw i32 %..020.i.i137, %.021..i.i136
+  %.021..i.i135 = select i1 %212, i32 %.02132.i.i134, i32 %208
+  %..020.i.i136 = select i1 %212, i32 %208, i32 %.02033.i.i133
+  %213 = add nsw i32 %..020.i.i136, %.021..i.i135
   %214 = ashr i32 %213, 1
-  %215 = icmp eq i32 %214, %.021..i.i136
-  br i1 %215, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit138, label %.lr.ph.i.i133
+  %215 = icmp eq i32 %214, %.021..i.i135
+  br i1 %215, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit137, label %.lr.ph.i.i132
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit138:     ; preds = %.lr.ph.i.i133, %206, %203
-  %.019.i.i130 = phi i32 [ %.mux166, %203 ], [ %22, %206 ], [ %..020.i.i137, %.lr.ph.i.i133 ]
-  %216 = and i32 %.019.i.i130, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit137:     ; preds = %.lr.ph.i.i132, %206, %203
+  %.019.i.i129 = phi i32 [ %.mux163, %203 ], [ %22, %206 ], [ %..020.i.i136, %.lr.ph.i.i132 ]
+  %216 = and i32 %.019.i.i129, 1
   %.not86 = icmp eq i32 %216, 0
   br i1 %.not86, label %235, label %.loopexit
 
@@ -1870,44 +1870,44 @@ _ZNK6icu_776BMPSet12containsSlowEiii.exit138:     ; preds = %.lr.ph.i.i133, %206
   %221 = add nsw i32 %220, %219
   %222 = load i32, ptr %12, align 4, !tbaa !13
   %223 = icmp slt i32 %221, %222
-  %brmerge168 = select i1 %223, i1 true, i1 %.not.i.i139
-  %.mux169 = select i1 %223, i32 %6, i32 %8
-  br i1 %brmerge168, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit148, label %224
+  %brmerge165 = select i1 %223, i1 true, i1 %.not.i.i138
+  %.mux166 = select i1 %223, i32 %6, i32 %8
+  br i1 %brmerge165, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit147, label %224
 
 224:                                              ; preds = %217
   %225 = load i32, ptr %15, align 4, !tbaa !13
-  %.not28.i.i141 = icmp sge i32 %221, %225
-  %brmerge170 = select i1 %.not28.i.i141, i1 true, i1 %18
-  br i1 %brmerge170, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit148, label %.lr.ph.i.i143
+  %.not28.i.i140 = icmp sge i32 %221, %225
+  %brmerge167 = select i1 %.not28.i.i140, i1 true, i1 %18
+  br i1 %brmerge167, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit147, label %.lr.ph.i.i142
 
-.lr.ph.i.i143:                                    ; preds = %224, %.lr.ph.i.i143
-  %226 = phi i32 [ %232, %.lr.ph.i.i143 ], [ %17, %224 ]
-  %.02034.i.i144 = phi i32 [ %..020.i.i147, %.lr.ph.i.i143 ], [ %8, %224 ]
-  %.02133.i.i145 = phi i32 [ %.021..i.i146, %.lr.ph.i.i143 ], [ %6, %224 ]
+.lr.ph.i.i142:                                    ; preds = %224, %.lr.ph.i.i142
+  %226 = phi i32 [ %232, %.lr.ph.i.i142 ], [ %17, %224 ]
+  %.02033.i.i143 = phi i32 [ %..020.i.i146, %.lr.ph.i.i142 ], [ %8, %224 ]
+  %.02132.i.i144 = phi i32 [ %.021..i.i145, %.lr.ph.i.i142 ], [ %6, %224 ]
   %227 = sext i32 %226 to i64
   %228 = getelementptr inbounds i32, ptr %10, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !13
   %230 = icmp slt i32 %221, %229
-  %.021..i.i146 = select i1 %230, i32 %.02133.i.i145, i32 %226
-  %..020.i.i147 = select i1 %230, i32 %226, i32 %.02034.i.i144
-  %231 = add nsw i32 %..020.i.i147, %.021..i.i146
+  %.021..i.i145 = select i1 %230, i32 %.02132.i.i144, i32 %226
+  %..020.i.i146 = select i1 %230, i32 %226, i32 %.02033.i.i143
+  %231 = add nsw i32 %..020.i.i146, %.021..i.i145
   %232 = ashr i32 %231, 1
-  %233 = icmp eq i32 %232, %.021..i.i146
-  br i1 %233, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit148, label %.lr.ph.i.i143
+  %233 = icmp eq i32 %232, %.021..i.i145
+  br i1 %233, label %_ZNK6icu_776BMPSet12containsSlowEiii.exit147, label %.lr.ph.i.i142
 
-_ZNK6icu_776BMPSet12containsSlowEiii.exit148:     ; preds = %.lr.ph.i.i143, %224, %217
-  %.019.i.i140 = phi i32 [ %.mux169, %217 ], [ %8, %224 ], [ %..020.i.i147, %.lr.ph.i.i143 ]
-  %234 = and i32 %.019.i.i140, 1
+_ZNK6icu_776BMPSet12containsSlowEiii.exit147:     ; preds = %.lr.ph.i.i142, %224, %217
+  %.019.i.i139 = phi i32 [ %.mux166, %217 ], [ %8, %224 ], [ %..020.i.i146, %.lr.ph.i.i142 ]
+  %234 = and i32 %.019.i.i139, 1
   %.not85 = icmp eq i32 %234, 0
   br i1 %.not85, label %235, label %.loopexit
 
-235:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit128, %167, %_ZNK6icu_776BMPSet12containsSlowEiii.exit148, %147, %_ZNK6icu_776BMPSet12containsSlowEiii.exit138, %141
-  %.4 = phi ptr [ %137, %141 ], [ %137, %147 ], [ %137, %_ZNK6icu_776BMPSet12containsSlowEiii.exit138 ], [ %200, %_ZNK6icu_776BMPSet12containsSlowEiii.exit148 ], [ %137, %167 ], [ %137, %_ZNK6icu_776BMPSet12containsSlowEiii.exit128 ]
+235:                                              ; preds = %_ZNK6icu_776BMPSet12containsSlowEiii.exit127, %167, %_ZNK6icu_776BMPSet12containsSlowEiii.exit147, %147, %_ZNK6icu_776BMPSet12containsSlowEiii.exit137, %141
+  %.4 = phi ptr [ %137, %141 ], [ %137, %147 ], [ %137, %_ZNK6icu_776BMPSet12containsSlowEiii.exit137 ], [ %200, %_ZNK6icu_776BMPSet12containsSlowEiii.exit147 ], [ %137, %167 ], [ %137, %_ZNK6icu_776BMPSet12containsSlowEiii.exit127 ]
   %236 = icmp eq ptr %1, %.4
   br i1 %236, label %.loopexit, label %.preheader, !llvm.loop !35
 
-.loopexit:                                        ; preds = %135, %_ZNK6icu_776BMPSet12containsSlowEiii.exit118, %_ZNK6icu_776BMPSet12containsSlowEiii.exit108, %45, %39, %66, %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %235, %_ZNK6icu_776BMPSet12containsSlowEiii.exit148, %_ZNK6icu_776BMPSet12containsSlowEiii.exit138, %147, %141, %167, %_ZNK6icu_776BMPSet12containsSlowEiii.exit128
-  %.0 = phi ptr [ %1, %235 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit128 ], [ %.3, %167 ], [ %.3, %141 ], [ %.3, %147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit138 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit148 ], [ %1, %135 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ], [ %.072, %66 ], [ %.072, %39 ], [ %.072, %45 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit108 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit118 ]
+.loopexit:                                        ; preds = %135, %_ZNK6icu_776BMPSet12containsSlowEiii.exit117, %_ZNK6icu_776BMPSet12containsSlowEiii.exit107, %45, %39, %66, %_ZNK6icu_776BMPSet12containsSlowEiii.exit, %235, %_ZNK6icu_776BMPSet12containsSlowEiii.exit147, %_ZNK6icu_776BMPSet12containsSlowEiii.exit137, %147, %141, %167, %_ZNK6icu_776BMPSet12containsSlowEiii.exit127
+  %.0 = phi ptr [ %1, %235 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit127 ], [ %.3, %167 ], [ %.3, %141 ], [ %.3, %147 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit137 ], [ %.3, %_ZNK6icu_776BMPSet12containsSlowEiii.exit147 ], [ %1, %135 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit ], [ %.072, %66 ], [ %.072, %39 ], [ %.072, %45 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit107 ], [ %.072, %_ZNK6icu_776BMPSet12containsSlowEiii.exit117 ]
   ret ptr %.0
 }
 
@@ -2173,14 +2173,14 @@ define noundef ptr @_ZNK6icu_776BMPSet8spanUTF8EPKhi17USetSpanCondition(ptr noun
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %144 = phi i32 [ %150, %.lr.ph.i.i ], [ %142, %.preheader.i.i ]
-  %.02034.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %129, %.preheader.i.i ]
-  %.02133.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %127, %.preheader.i.i ]
+  %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %129, %.preheader.i.i ]
+  %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %127, %.preheader.i.i ]
   %145 = sext i32 %144 to i64
   %146 = getelementptr inbounds i32, ptr %130, i64 %145
   %147 = load i32, ptr %146, align 4, !tbaa !13
   %148 = icmp slt i32 %124, %147
-  %.021..i.i = select i1 %148, i32 %.02133.i.i, i32 %144
-  %..020.i.i = select i1 %148, i32 %144, i32 %.02034.i.i
+  %.021..i.i = select i1 %148, i32 %.02132.i.i, i32 %144
+  %..020.i.i = select i1 %148, i32 %144, i32 %.02033.i.i
   %149 = add nsw i32 %..020.i.i, %.021..i.i
   %150 = ashr i32 %149, 1
   %151 = icmp eq i32 %150, %.021..i.i
@@ -2443,14 +2443,14 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %90 = phi i32 [ %96, %.lr.ph.i.i ], [ %88, %.preheader.i.i ]
-  %.02034.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %75, %.preheader.i.i ]
-  %.02133.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %73, %.preheader.i.i ]
+  %.02033.i.i = phi i32 [ %..020.i.i, %.lr.ph.i.i ], [ %75, %.preheader.i.i ]
+  %.02132.i.i = phi i32 [ %.021..i.i, %.lr.ph.i.i ], [ %73, %.preheader.i.i ]
   %91 = sext i32 %90 to i64
   %92 = getelementptr inbounds i32, ptr %76, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !13
   %94 = icmp slt i32 %46, %93
-  %.021..i.i = select i1 %94, i32 %.02133.i.i, i32 %90
-  %..020.i.i = select i1 %94, i32 %90, i32 %.02034.i.i
+  %.021..i.i = select i1 %94, i32 %.02132.i.i, i32 %90
+  %..020.i.i = select i1 %94, i32 %90, i32 %.02033.i.i
   %95 = add nsw i32 %..020.i.i, %.021..i.i
   %96 = ashr i32 %95, 1
   %97 = icmp eq i32 %96, %.021..i.i
@@ -2486,14 +2486,14 @@ define noundef range(i32 -2147483647, -2147483648) i32 @_ZNK6icu_776BMPSet12span
 
 .lr.ph.i.i65:                                     ; preds = %.preheader.i.i64, %.lr.ph.i.i65
   %115 = phi i32 [ %121, %.lr.ph.i.i65 ], [ %113, %.preheader.i.i64 ]
-  %.02034.i.i66 = phi i32 [ %..020.i.i69, %.lr.ph.i.i65 ], [ %100, %.preheader.i.i64 ]
-  %.02133.i.i67 = phi i32 [ %.021..i.i68, %.lr.ph.i.i65 ], [ %99, %.preheader.i.i64 ]
+  %.02033.i.i66 = phi i32 [ %..020.i.i69, %.lr.ph.i.i65 ], [ %100, %.preheader.i.i64 ]
+  %.02132.i.i67 = phi i32 [ %.021..i.i68, %.lr.ph.i.i65 ], [ %99, %.preheader.i.i64 ]
   %116 = sext i32 %115 to i64
   %117 = getelementptr inbounds i32, ptr %101, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !13
   %119 = icmp slt i32 %46, %118
-  %.021..i.i68 = select i1 %119, i32 %.02133.i.i67, i32 %115
-  %..020.i.i69 = select i1 %119, i32 %115, i32 %.02034.i.i66
+  %.021..i.i68 = select i1 %119, i32 %.02132.i.i67, i32 %115
+  %..020.i.i69 = select i1 %119, i32 %115, i32 %.02033.i.i66
   %120 = add nsw i32 %..020.i.i69, %.021..i.i68
   %121 = ashr i32 %120, 1
   %122 = icmp eq i32 %121, %.021..i.i68

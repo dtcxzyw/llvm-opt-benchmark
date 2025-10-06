@@ -203,29 +203,29 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !21
-  %.not89 = icmp eq i64 %9, 0
-  br i1 %.not89, label %.loopexit65, label %.preheader64.lr.ph
+  %.not88 = icmp eq i64 %9, 0
+  br i1 %.not88, label %.loopexit64, label %.preheader63.lr.ph
 
-.preheader64.lr.ph:                               ; preds = %6
+.preheader63.lr.ph:                               ; preds = %6
   %10 = icmp sgt i32 %4, 0
   %11 = icmp slt i32 %3, 1
-  br i1 %10, label %.preheader64.us.preheader, label %.preheader64.lr.ph.split
+  br i1 %10, label %.preheader63.us.preheader, label %.preheader63.lr.ph.split
 
-.preheader64.us.preheader:                        ; preds = %.preheader64.lr.ph
+.preheader63.us.preheader:                        ; preds = %.preheader63.lr.ph
   %12 = zext i32 %3 to i64
-  br label %.preheader64.us
+  br label %.preheader63.us
 
-.preheader64.us:                                  ; preds = %.preheader64.us.preheader, %.loopexit.us
-  %13 = phi i64 [ %37, %.loopexit.us ], [ %9, %.preheader64.us.preheader ]
-  %.04876.us = phi i32 [ %3, %.loopexit.us ], [ 0, %.preheader64.us.preheader ]
-  %.04975.us.not = phi i1 [ true, %.loopexit.us ], [ false, %.preheader64.us.preheader ]
-  %.05574.us = phi i64 [ %.4.us, %.loopexit.us ], [ 0, %.preheader64.us.preheader ]
+.preheader63.us:                                  ; preds = %.preheader63.us.preheader, %.loopexit.us
+  %13 = phi i64 [ %37, %.loopexit.us ], [ %9, %.preheader63.us.preheader ]
+  %.04875.us = phi i32 [ %3, %.loopexit.us ], [ 0, %.preheader63.us.preheader ]
+  %.04974.us.not = phi i1 [ true, %.loopexit.us ], [ false, %.preheader63.us.preheader ]
+  %.05573.us = phi i64 [ %.4.us, %.loopexit.us ], [ 0, %.preheader63.us.preheader ]
   %14 = load ptr, ptr %5, align 8, !tbaa !26
-  %15 = sext i32 %.04876.us to i64
+  %15 = sext i32 %.04875.us to i64
   br label %39
 
 16:                                               ; preds = %..critedge_crit_edge.us
-  %17 = icmp eq i64 %spec.select.us, %.05574.us
+  %17 = icmp eq i64 %spec.select.us, %.05573.us
   br i1 %17, label %23, label %18
 
 18:                                               ; preds = %16
@@ -242,8 +242,8 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 %44
   %25 = load i8, ptr %24, align 1, !tbaa !27
   %26 = icmp eq i8 %25, 32
-  %sext106 = shl i64 %indvars.iv.next, 32
-  %27 = ashr exact i64 %sext106, 32
+  %sext105 = shl i64 %indvars.iv.next, 32
+  %27 = ashr exact i64 %sext105, 32
   %28 = getelementptr i8, ptr %7, i64 %27
   br i1 %26, label %31, label %29
 
@@ -255,40 +255,40 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
 
 31:                                               ; preds = %23
   store i8 0, ptr %28, align 1, !tbaa !27
-  %32 = add i64 %.04768.us, 2
+  %32 = add i64 %.04767.us, 2
   br label %33
 
 33:                                               ; preds = %31, %29, %18
-  %.4.us = phi i64 [ %32, %31 ], [ %.04768.us, %29 ], [ %spec.select.us, %18 ]
+  %.4.us = phi i64 [ %32, %31 ], [ %.04767.us, %29 ], [ %spec.select.us, %18 ]
   %34 = load ptr, ptr %0, align 8, !tbaa !8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8
   call void (ptr, i32, i32, ptr, ...) %36(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %7)
-  %brmerge = or i1 %.04975.us.not, %11
-  br i1 %brmerge, label %.loopexit.us, label %.lr.ph73.us.preheader
+  %brmerge = or i1 %.04974.us.not, %11
+  br i1 %brmerge, label %.loopexit.us, label %.lr.ph72.us.preheader
 
-.lr.ph73.us.preheader:                            ; preds = %33
+.lr.ph72.us.preheader:                            ; preds = %33
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %12, i1 false), !tbaa !27
   br label %.loopexit.us
 
-.loopexit.us:                                     ; preds = %.lr.ph73.us.preheader, %33
+.loopexit.us:                                     ; preds = %.lr.ph72.us.preheader, %33
   %37 = load i64, ptr %8, align 8, !tbaa !21
   %38 = icmp ult i64 %.4.us, %37
-  br i1 %38, label %.preheader64.us, label %.loopexit65
+  br i1 %38, label %.preheader63.us, label %.loopexit64
 
-39:                                               ; preds = %.preheader64.us, %39
-  %indvars.iv = phi i64 [ %15, %.preheader64.us ], [ %indvars.iv.next, %39 ]
-  %.04669.us = phi i32 [ 0, %.preheader64.us ], [ %45, %39 ]
-  %.04768.us = phi i64 [ %.05574.us, %.preheader64.us ], [ %44, %39 ]
-  %.15366.us = phi i64 [ %.05574.us, %.preheader64.us ], [ %spec.select.us, %39 ]
-  %40 = getelementptr inbounds nuw i8, ptr %14, i64 %.04768.us
+39:                                               ; preds = %.preheader63.us, %39
+  %indvars.iv = phi i64 [ %15, %.preheader63.us ], [ %indvars.iv.next, %39 ]
+  %.04668.us = phi i32 [ 0, %.preheader63.us ], [ %45, %39 ]
+  %.04767.us = phi i64 [ %.05573.us, %.preheader63.us ], [ %44, %39 ]
+  %.15365.us = phi i64 [ %.05573.us, %.preheader63.us ], [ %spec.select.us, %39 ]
+  %40 = getelementptr inbounds nuw i8, ptr %14, i64 %.04767.us
   %41 = load i8, ptr %40, align 1, !tbaa !27
   %42 = getelementptr inbounds i8, ptr %7, i64 %indvars.iv
   store i8 %41, ptr %42, align 1, !tbaa !27
   %43 = icmp eq i8 %41, 32
-  %44 = add nuw i64 %.04768.us, 1
-  %spec.select.us = select i1 %43, i64 %44, i64 %.15366.us
-  %45 = add nuw nsw i32 %.04669.us, 1
+  %44 = add nuw i64 %.04767.us, 1
+  %spec.select.us = select i1 %43, i64 %44, i64 %.15365.us
+  %45 = add nuw nsw i32 %.04668.us, 1
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %46 = icmp slt i32 %45, %4
   %47 = icmp ult i64 %44, %13
@@ -299,22 +299,22 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
   %48 = icmp eq i64 %44, %13
   br i1 %48, label %.thread, label %16
 
-.preheader64.lr.ph.split:                         ; preds = %.preheader64.lr.ph
-  br i1 %11, label %.preheader64.preheader, label %.preheader64.us77.preheader
+.preheader63.lr.ph.split:                         ; preds = %.preheader63.lr.ph
+  br i1 %11, label %.preheader63.preheader, label %.preheader63.us76.preheader
 
-.preheader64.us77.preheader:                      ; preds = %.preheader64.lr.ph.split
+.preheader63.us76.preheader:                      ; preds = %.preheader63.lr.ph.split
   %49 = zext nneg i32 %3 to i64
   br label %50
 
-50:                                               ; preds = %..loopexit_crit_edge.us86, %.preheader64.us77.preheader
-  %.04876.us78 = phi i32 [ %3, %..loopexit_crit_edge.us86 ], [ 0, %.preheader64.us77.preheader ]
-  %.04975.us79 = phi i1 [ false, %..loopexit_crit_edge.us86 ], [ true, %.preheader64.us77.preheader ]
-  %.05574.us80 = phi i64 [ %60, %..loopexit_crit_edge.us86 ], [ 0, %.preheader64.us77.preheader ]
+50:                                               ; preds = %..loopexit_crit_edge.us85, %.preheader63.us76.preheader
+  %.04875.us77 = phi i32 [ %3, %..loopexit_crit_edge.us85 ], [ 0, %.preheader63.us76.preheader ]
+  %.04974.us78 = phi i1 [ false, %..loopexit_crit_edge.us85 ], [ true, %.preheader63.us76.preheader ]
+  %.05573.us79 = phi i64 [ %60, %..loopexit_crit_edge.us85 ], [ 0, %.preheader63.us76.preheader ]
   %51 = load ptr, ptr %5, align 8, !tbaa !26
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.05574.us80
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.05573.us79
   %53 = load i8, ptr %52, align 1, !tbaa !27
   %54 = icmp eq i8 %53, 32
-  %55 = zext nneg i32 %.04876.us78 to i64
+  %55 = zext nneg i32 %.04875.us77 to i64
   %56 = getelementptr i8, ptr %7, i64 %55
   br i1 %54, label %59, label %57
 
@@ -326,62 +326,62 @@ define void @_ZNK5Ipopt10Journalist20PrintStringOverLinesENS_13EJournalLevelENS_
 59:                                               ; preds = %50, %57
   %.sink = phi i64 [ -1, %57 ], [ 1, %50 ]
   store i8 0, ptr %56, align 1, !tbaa !27
-  %60 = add i64 %.05574.us80, %.sink
+  %60 = add i64 %.05573.us79, %.sink
   %61 = load ptr, ptr %0, align 8, !tbaa !8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8
   call void (ptr, i32, i32, ptr, ...) %63(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %7)
-  br i1 %.04975.us79, label %.preheader.us83.preheader, label %..loopexit_crit_edge.us86
+  br i1 %.04974.us78, label %.preheader.us82.preheader, label %..loopexit_crit_edge.us85
 
-.preheader.us83.preheader:                        ; preds = %59
+.preheader.us82.preheader:                        ; preds = %59
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %7, i8 32, i64 %49, i1 false), !tbaa !27
-  br label %..loopexit_crit_edge.us86
+  br label %..loopexit_crit_edge.us85
 
-..loopexit_crit_edge.us86:                        ; preds = %.preheader.us83.preheader, %59
+..loopexit_crit_edge.us85:                        ; preds = %.preheader.us82.preheader, %59
   %64 = load i64, ptr %8, align 8, !tbaa !21
   %65 = icmp ult i64 %60, %64
-  br i1 %65, label %50, label %.loopexit65
+  br i1 %65, label %50, label %.loopexit64
 
 .thread:                                          ; preds = %..critedge_crit_edge.us
-  %sext107 = shl i64 %indvars.iv.next, 32
-  %66 = ashr exact i64 %sext107, 32
+  %sext106 = shl i64 %indvars.iv.next, 32
+  %66 = ashr exact i64 %sext106, 32
   %67 = getelementptr inbounds i8, ptr %7, i64 %66
   store i8 0, ptr %67, align 1, !tbaa !27
   %68 = load ptr, ptr %0, align 8, !tbaa !8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 16
   %70 = load ptr, ptr %69, align 8
   call void (ptr, i32, i32, ptr, ...) %70(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @.str, ptr noundef nonnull %7)
-  br label %.loopexit65
+  br label %.loopexit64
 
-.preheader64.preheader:                           ; preds = %.preheader64.lr.ph.split, %.preheader
-  %.04876 = phi i32 [ %3, %.preheader ], [ 0, %.preheader64.lr.ph.split ]
-  %.05574 = phi i64 [ %79, %.preheader ], [ 0, %.preheader64.lr.ph.split ]
+.preheader63.preheader:                           ; preds = %.preheader63.lr.ph.split, %.preheader
+  %.04875 = phi i32 [ %3, %.preheader ], [ 0, %.preheader63.lr.ph.split ]
+  %.05573 = phi i64 [ %79, %.preheader ], [ 0, %.preheader63.lr.ph.split ]
   %71 = load ptr, ptr %5, align 8, !tbaa !26
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %.05574
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 %.05573
   %73 = load i8, ptr %72, align 1, !tbaa !27
   %74 = icmp eq i8 %73, 32
-  %75 = sext i32 %.04876 to i64
+  %75 = sext i32 %.04875 to i64
   %76 = getelementptr i8, ptr %7, i64 %75
   br i1 %74, label %.preheader, label %77
 
-77:                                               ; preds = %.preheader64.preheader
+77:                                               ; preds = %.preheader63.preheader
   %78 = getelementptr i8, ptr %76, i64 -1
   store i8 45, ptr %78, align 1, !tbaa !27
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader64.preheader, %77
-  %.sink111 = phi i64 [ -1, %77 ], [ 1, %.preheader64.preheader ]
+.preheader:                                       ; preds = %.preheader63.preheader, %77
+  %.sink110 = phi i64 [ -1, %77 ], [ 1, %.preheader63.preheader ]
   store i8 0, ptr %76, align 1, !tbaa !27
-  %79 = add i64 %.05574, %.sink111
+  %79 = add i64 %.05573, %.sink110
   %80 = load ptr, ptr %0, align 8, !tbaa !8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load ptr, ptr %81, align 8
   call void (ptr, i32, i32, ptr, ...) %82(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @.str.1, ptr noundef nonnull %7)
   %83 = load i64, ptr %8, align 8, !tbaa !21
   %84 = icmp ult i64 %79, %83
-  br i1 %84, label %.preheader64.preheader, label %.loopexit65
+  br i1 %84, label %.preheader63.preheader, label %.loopexit64
 
-.loopexit65:                                      ; preds = %..loopexit_crit_edge.us86, %.preheader, %.loopexit.us, %6, %.thread
+.loopexit64:                                      ; preds = %..loopexit_crit_edge.us85, %.preheader, %.loopexit.us, %6, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }
@@ -580,35 +580,35 @@ define noundef zeroext i1 @_ZNK5Ipopt10Journalist13ProduceOutputENS_13EJournalLe
   %10 = sub i64 %8, %9
   %11 = lshr exact i64 %10, 3
   %12 = trunc i64 %11 to i32
-  %.not9 = icmp sgt i32 %12, 0
-  br i1 %.not9, label %.lr.ph, label %._crit_edge
+  %13 = icmp sgt i32 %12, 0
+  br i1 %13, label %.lr.ph, label %._crit_edge
 
-13:                                               ; preds = %.lr.ph
+14:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load ptr, ptr %5, align 8, !tbaa !14
-  %15 = load ptr, ptr %4, align 8, !tbaa !10
-  %16 = ptrtoint ptr %14 to i64
+  %15 = load ptr, ptr %5, align 8, !tbaa !14
+  %16 = load ptr, ptr %4, align 8, !tbaa !10
   %17 = ptrtoint ptr %15 to i64
-  %18 = sub i64 %16, %17
-  %sext = shl i64 %18, 29
-  %19 = ashr i64 %sext, 32
-  %.not = icmp slt i64 %indvars.iv.next, %19
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !32
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %sext = shl i64 %19, 29
+  %20 = ashr i64 %sext, 32
+  %21 = icmp slt i64 %indvars.iv.next, %20
+  br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !32
 
-.lr.ph:                                           ; preds = %3, %13
-  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %3 ]
-  %20 = phi ptr [ %15, %13 ], [ %7, %3 ]
-  %21 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %20, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %23 = load ptr, ptr %22, align 8, !tbaa !8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
-  %25 = load ptr, ptr %24, align 8
-  %26 = tail call noundef zeroext i1 %25(ptr noundef nonnull align 8 dereferenceable(176) %22, i32 noundef %2, i32 noundef %1)
-  br i1 %26, label %._crit_edge, label %13
+.lr.ph:                                           ; preds = %3, %14
+  %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %3 ]
+  %22 = phi ptr [ %16, %14 ], [ %7, %3 ]
+  %23 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr", ptr %22, i64 %indvars.iv
+  %24 = load ptr, ptr %23, align 8, !tbaa !15
+  %25 = load ptr, ptr %24, align 8, !tbaa !8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  %27 = load ptr, ptr %26, align 8
+  %28 = tail call noundef zeroext i1 %27(ptr noundef nonnull align 8 dereferenceable(176) %24, i32 noundef %2, i32 noundef %1)
+  br i1 %28, label %._crit_edge, label %14
 
-._crit_edge:                                      ; preds = %13, %.lr.ph, %3
-  %.not.lcssa = phi i1 [ false, %3 ], [ %26, %.lr.ph ], [ %26, %13 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %.lr.ph, %14, %3
+  %.lcssa = phi i1 [ false, %3 ], [ %28, %14 ], [ %28, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable

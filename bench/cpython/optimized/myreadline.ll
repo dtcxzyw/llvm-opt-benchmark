@@ -978,7 +978,7 @@ define hidden ptr @PyOS_StdioReadline(ptr noundef captures(none) %0, ptr noundef
   %28 = trunc nuw nsw i64 %14 to i32
   br label %29
 
-29:                                               ; preds = %47, %26
+29:                                               ; preds = %45, %26
   %30 = load ptr, ptr @PyOS_InputHook, align 8, !tbaa !13
   %.not.i = icmp eq ptr %30, null
   br i1 %.not.i, label %36, label %31
@@ -986,8 +986,8 @@ define hidden ptr @PyOS_StdioReadline(ptr noundef captures(none) %0, ptr noundef
 31:                                               ; preds = %29
   %32 = load ptr, ptr %11, align 8, !tbaa !14
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !25
-  %.not26.i = icmp eq ptr %32, %33
-  br i1 %.not26.i, label %34, label %36
+  %.not24.i = icmp eq ptr %32, %33
+  br i1 %.not24.i, label %34, label %36
 
 34:                                               ; preds = %31
   %35 = tail call i32 %30() #10
@@ -1013,25 +1013,25 @@ define hidden ptr @PyOS_StdioReadline(ptr noundef captures(none) %0, ptr noundef
 
 43:                                               ; preds = %39
   %44 = icmp eq i32 %40, 4
-  br i1 %44, label %47, label %45
+  br i1 %44, label %45, label %49
 
 45:                                               ; preds = %43
-  %46 = tail call i32 @_PyOS_InterruptOccurred(ptr noundef %4) #10
-  %.not19.i = icmp eq i32 %46, 0
+  tail call void @PyEval_RestoreThread(ptr noundef %4) #10
+  %46 = tail call i32 @PyErr_CheckSignals() #10
+  %47 = tail call ptr @PyEval_SaveThread() #10
+  %48 = icmp slt i32 %46, 0
+  br i1 %48, label %.loopexit, label %29
+
+49:                                               ; preds = %43
+  %50 = tail call i32 @_PyOS_InterruptOccurred(ptr noundef %4) #10
+  %.not19.i = icmp eq i32 %50, 0
   br i1 %.not19.i, label %select.unfold, label %.loopexit
 
-47:                                               ; preds = %43
-  tail call void @PyEval_RestoreThread(ptr noundef %4) #10
-  %48 = tail call i32 @PyErr_CheckSignals() #10
-  %49 = tail call ptr @PyEval_SaveThread() #10
-  %50 = icmp sgt i32 %48, -1
-  br i1 %50, label %29, label %.loopexit
-
-.loopexit:                                        ; preds = %47, %45
+.loopexit:                                        ; preds = %45, %49
   tail call void @PyMem_RawFree(ptr noundef nonnull %21) #10
   br label %.thread
 
-select.unfold:                                    ; preds = %45, %42
+select.unfold:                                    ; preds = %49, %42
   store i8 0, ptr %27, align 1, !tbaa !181
   br label %.loopexit67
 

@@ -1674,24 +1674,24 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator18hasDynam
   %6 = load ptr, ptr %5, align 8, !tbaa !54
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 448
   %8 = load ptr, ptr %7, align 8, !tbaa !54
-  %.not1213.not = icmp eq ptr %6, %8
-  br i1 %.not1213.not, label %._crit_edge, label %.lr.ph
+  %.not1314.not = icmp eq ptr %6, %8
+  br i1 %.not1314.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.sroa.09.014 = phi ptr [ %13, %.lr.ph ], [ %6, %2 ]
-  %9 = load ptr, ptr %.sroa.09.014, align 8, !tbaa !55
+  %.sroa.09.015 = phi ptr [ %13, %.lr.ph ], [ %6, %2 ]
+  %9 = load ptr, ptr %.sroa.09.015, align 8, !tbaa !55
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i32 %11(ptr noundef nonnull align 8 dereferenceable(8) %9) #26
   %.not = icmp eq i32 %12, %1
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 16
-  %.not12.not = icmp eq ptr %13, %8
-  %or.cond = select i1 %.not, i1 true, i1 %.not12.not
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 16
+  %.not13.not = icmp eq ptr %13, %8
+  %or.cond = select i1 %.not, i1 true, i1 %.not13.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.not12.lcssa = phi i1 [ false, %2 ], [ %.not, %.lr.ph ]
-  ret i1 %.not12.lcssa
+  %.not13.lcssa = phi i1 [ false, %2 ], [ %.not, %.lr.ph ]
+  ret i1 %.not13.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1708,17 +1708,17 @@ define void @_ZN19OpenColorIO_v2_5dev16GpuShaderCreator18addDynamicPropertyERSt1
   %12 = load ptr, ptr %11, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 448
   %14 = load ptr, ptr %13, align 8, !tbaa !54
-  %.not1213.not.i = icmp eq ptr %12, %14
-  br i1 %.not1213.not.i, label %.loopexit, label %.lr.ph.i
+  %.not1314.not.i = icmp eq ptr %12, %14
+  br i1 %.not1314.not.i, label %.loopexit, label %.lr.ph.i
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 16
-  %.not12.not.i = icmp eq ptr %16, %14
-  br i1 %.not12.not.i, label %.loopexit.loopexit, label %.lr.ph.i
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.09.015.i, i64 16
+  %.not13.not.i = icmp eq ptr %16, %14
+  br i1 %.not13.not.i, label %.loopexit.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %15
-  %.sroa.09.014.i = phi ptr [ %16, %15 ], [ %12, %2 ]
-  %17 = load ptr, ptr %.sroa.09.014.i, align 8, !tbaa !55
+  %.sroa.09.015.i = phi ptr [ %16, %15 ], [ %12, %2 ]
+  %17 = load ptr, ptr %.sroa.09.015.i, align 8, !tbaa !55
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = load ptr, ptr %18, align 8
   %20 = tail call noundef i32 %19(ptr noundef nonnull align 8 dereferenceable(8) %17) #26
@@ -2045,18 +2045,18 @@ define void @_ZNK19OpenColorIO_v2_5dev16GpuShaderCreator18getDynamicPropertyENS_
   %7 = load ptr, ptr %6, align 8, !tbaa !54
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 448
   %9 = load ptr, ptr %8, align 8, !tbaa !54
-  %.not1617 = icmp eq ptr %7, %9
-  br i1 %.not1617, label %._crit_edge, label %.lr.ph
+  %.not1415 = icmp eq ptr %7, %9
+  br i1 %.not1415, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %11
 
 11:                                               ; preds = %.lr.ph, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.sroa.010.018 = phi ptr [ %7, %.lr.ph ], [ %50, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
-  %12 = load ptr, ptr %.sroa.010.018, align 8, !tbaa !55
+  %.sroa.010.016 = phi ptr [ %7, %.lr.ph ], [ %50, %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
+  %12 = load ptr, ptr %.sroa.010.016, align 8, !tbaa !55
   store ptr %12, ptr %0, align 8, !tbaa !55
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !41
   store ptr %14, ptr %10, align 8, !tbaa !41
   %.not.i.i.i = icmp eq ptr %14, null
@@ -2085,7 +2085,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2ERKS2_.exit: ; pred
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i32 %25(ptr noundef nonnull align 8 dereferenceable(8) %23) #26
   %.not = icmp eq i32 %26, %2
-  br i1 %.not, label %55, label %27
+  br i1 %.not, label %.critedge, label %27
 
 27:                                               ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2ERKS2_.exit
   %28 = load ptr, ptr %10, align 8, !tbaa !41
@@ -2137,9 +2137,9 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %46, %44
   br label %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %27, %34, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %49
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
-  %.not16 = icmp eq ptr %50, %9
-  br i1 %.not16, label %._crit_edge, label %11
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 16
+  %.not14 = icmp eq ptr %50, %9
+  br i1 %.not14, label %._crit_edge, label %11
 
 ._crit_edge:                                      ; preds = %_ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %3
   %51 = tail call ptr @__cxa_allocate_exception(i64 16) #26
@@ -2156,7 +2156,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyELN9__gnu_cxx12_Lock_
   tail call void @__cxa_free_exception(ptr nonnull %51) #26
   resume { ptr, i32 } %54
 
-55:                                               ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2ERKS2_.exit
+.critedge:                                        ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_5dev15DynamicPropertyEEC2ERKS2_.exit
   ret void
 }
 

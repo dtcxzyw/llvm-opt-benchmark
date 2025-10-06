@@ -1048,27 +1048,27 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %9 = load i32, ptr %8, align 4, !tbaa !34
   %10 = icmp slt i32 %7, %9
-  br i1 %10, label %.preheader166.lr.ph, label %.thread156
+  br i1 %10, label %.preheader165.lr.ph, label %.thread155
 
-.preheader166.lr.ph:                              ; preds = %4
+.preheader165.lr.ph:                              ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.not203 = icmp eq i8 %3, 0
+  %.not202 = icmp eq i8 %3, 0
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  br label %.preheader166
+  br label %.preheader165
 
-.preheader166:                                    ; preds = %.preheader166.lr.ph, %108
-  %.0199 = phi i32 [ %7, %.preheader166.lr.ph ], [ %.1, %108 ]
-  %.093198 = phi i32 [ %9, %.preheader166.lr.ph ], [ %.2, %108 ]
+.preheader165:                                    ; preds = %.preheader165.lr.ph, %108
+  %.0198 = phi i32 [ %7, %.preheader165.lr.ph ], [ %.1, %108 ]
+  %.093197 = phi i32 [ %9, %.preheader165.lr.ph ], [ %.2, %108 ]
   %14 = load ptr, ptr %11, align 8, !tbaa !25
   %15 = load i16, ptr %14, align 2, !tbaa !21
-  %.not195 = icmp eq i16 %15, -1
-  br i1 %.not195, label %.loopexit, label %.lr.ph197
+  %.not194 = icmp eq i16 %15, -1
+  br i1 %.not194, label %.loopexit, label %.lr.ph196
 
-.lr.ph197:                                        ; preds = %.preheader166, %.thread
-  %.in = phi i16 [ %98, %.thread ], [ %15, %.preheader166 ]
-  %16 = phi ptr [ %97, %.thread ], [ %14, %.preheader166 ]
-  %.097196 = phi i32 [ %94, %.thread ], [ 0, %.preheader166 ]
+.lr.ph196:                                        ; preds = %.preheader165, %.thread
+  %.in = phi i16 [ %98, %.thread ], [ %15, %.preheader165 ]
+  %16 = phi ptr [ %97, %.thread ], [ %14, %.preheader165 ]
+  %.097195 = phi i32 [ %94, %.thread ], [ 0, %.preheader165 ]
   %17 = zext i16 %.in to i32
   %18 = getelementptr i8, ptr %16, i64 2
   %19 = load i16, ptr %18, align 2, !tbaa !21
@@ -1079,40 +1079,40 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %24 = getelementptr i8, ptr %16, i64 6
   %25 = load i16, ptr %24, align 2, !tbaa !21
   %26 = zext i16 %25 to i32
-  %27 = add nsw i32 %.097196, 5
+  %27 = add nsw i32 %.097195, 5
   %28 = getelementptr i8, ptr %16, i64 8
   %29 = load i16, ptr %28, align 2, !tbaa !21
   %30 = zext i16 %29 to i32
-  %.not205 = icmp eq i16 %.in, 0
-  br i1 %.not205, label %.preheader165, label %.lr.ph.preheader
+  %.not204 = icmp eq i16 %.in, 0
+  br i1 %.not204, label %.preheader164, label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph197
+.lr.ph.preheader:                                 ; preds = %.lr.ph196
   %31 = sext i32 %27 to i64
   %wide.trip.count = zext i16 %.in to i64
   br label %.lr.ph
 
 32:                                               ; preds = %37
-  %33 = add nsw i32 %.099180, 1
+  %33 = add nsw i32 %.099179, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader165, label %.lr.ph, !llvm.loop !35
+  br i1 %exitcond.not, label %.preheader164, label %.lr.ph, !llvm.loop !35
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %.099180 = phi i32 [ %.0199, %.lr.ph.preheader ], [ %33, %32 ]
-  %34 = icmp sge i32 %.099180, %.093198
+  %.099179 = phi i32 [ %.0198, %.lr.ph.preheader ], [ %33, %32 ]
+  %34 = icmp sge i32 %.099179, %.093197
   %35 = icmp ne i64 %indvars.iv, 0
   %or.cond5 = and i1 %34, %35
   br i1 %or.cond5, label %36, label %37
 
 36:                                               ; preds = %.lr.ph
-  br i1 %.not203, label %.thread, label %.thread156
+  br i1 %.not202, label %.thread, label %.thread155
 
 37:                                               ; preds = %.lr.ph
   %38 = load ptr, ptr %1, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
   %40 = load ptr, ptr %39, align 8
-  %41 = call noundef zeroext i16 %40(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.099180)
+  %41 = call noundef zeroext i16 %40(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.099179)
   %42 = load ptr, ptr %11, align 8, !tbaa !25
   %43 = getelementptr i16, ptr %42, i64 %indvars.iv
   %44 = getelementptr i16, ptr %43, i64 %31
@@ -1120,20 +1120,20 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %.not127.not = icmp eq i16 %41, %45
   br i1 %.not127.not, label %32, label %.thread
 
-.preheader165:                                    ; preds = %32, %.lr.ph197
-  %.1100.ph = phi i32 [ %.0199, %.lr.ph197 ], [ %33, %32 ]
+.preheader164:                                    ; preds = %32, %.lr.ph196
+  %.1100.ph = phi i32 [ %.0198, %.lr.ph196 ], [ %33, %32 ]
   %46 = sext i8 %23 to i32
   br label %47
 
-47:                                               ; preds = %.preheader165, %56
-  %.0109 = phi i32 [ %61, %56 ], [ 0, %.preheader165 ]
-  %.0106 = phi i32 [ %62, %56 ], [ 0, %.preheader165 ]
-  %.2101 = phi i32 [ %59, %56 ], [ %.1100.ph, %.preheader165 ]
-  %.not130 = icmp slt i32 %.2101, %.093198
+47:                                               ; preds = %.preheader164, %56
+  %.0109 = phi i32 [ %61, %56 ], [ 0, %.preheader164 ]
+  %.0106 = phi i32 [ %62, %56 ], [ 0, %.preheader164 ]
+  %.2101 = phi i32 [ %59, %56 ], [ %.1100.ph, %.preheader164 ]
+  %.not130 = icmp slt i32 %.2101, %.093197
   br i1 %.not130, label %49, label %48
 
 48:                                               ; preds = %47
-  br i1 %.not203, label %.thread140, label %.thread156
+  br i1 %.not202, label %.thread140, label %.thread155
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %1, align 8, !tbaa !19
@@ -1162,70 +1162,70 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   br i1 %.not131, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %.thread140
-  %.not206 = icmp eq i16 %19, 0
-  br i1 %.not206, label %.loopexit239, label %.lr.ph188
+  %.not205 = icmp eq i16 %19, 0
+  br i1 %.not205, label %.loopexit238, label %.lr.ph187
 
-.lr.ph188:                                        ; preds = %.preheader
+.lr.ph187:                                        ; preds = %.preheader
   %64 = add nsw i32 %27, %17
   %65 = sext i32 %64 to i64
-  %smax = call i32 @llvm.smax.i32(i32 %.3102, i32 %.093198)
+  %smax = call i32 @llvm.smax.i32(i32 %.3102, i32 %.093197)
   %66 = sub i32 %smax, %.3102
-  %wide.trip.count221 = zext i32 %66 to i64
-  %wide.trip.count223 = zext i16 %19 to i64
+  %wide.trip.count220 = zext i32 %66 to i64
+  %wide.trip.count222 = zext i16 %19 to i64
   br label %69
 
 67:                                               ; preds = %71
-  %68 = add nsw i32 %.5104186, 1
-  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %exitcond224.not = icmp eq i64 %indvars.iv.next219, %wide.trip.count223
-  br i1 %exitcond224.not, label %.loopexit239, label %69, !llvm.loop !36
+  %68 = add nsw i32 %.5104185, 1
+  %indvars.iv.next218 = add nuw nsw i64 %indvars.iv217, 1
+  %exitcond223.not = icmp eq i64 %indvars.iv.next218, %wide.trip.count222
+  br i1 %exitcond223.not, label %.loopexit238, label %69, !llvm.loop !36
 
-69:                                               ; preds = %.lr.ph188, %67
-  %indvars.iv218 = phi i64 [ 0, %.lr.ph188 ], [ %indvars.iv.next219, %67 ]
-  %.5104186 = phi i32 [ %.3102, %.lr.ph188 ], [ %68, %67 ]
-  %exitcond222.not = icmp eq i64 %indvars.iv218, %wide.trip.count221
-  br i1 %exitcond222.not, label %70, label %71
+69:                                               ; preds = %.lr.ph187, %67
+  %indvars.iv217 = phi i64 [ 0, %.lr.ph187 ], [ %indvars.iv.next218, %67 ]
+  %.5104185 = phi i32 [ %.3102, %.lr.ph187 ], [ %68, %67 ]
+  %exitcond221.not = icmp eq i64 %indvars.iv217, %wide.trip.count220
+  br i1 %exitcond221.not, label %70, label %71
 
 70:                                               ; preds = %69
-  br i1 %.not203, label %.thread, label %.thread156
+  br i1 %.not202, label %.thread, label %.thread155
 
 71:                                               ; preds = %69
   %72 = load ptr, ptr %1, align 8, !tbaa !19
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %74 = load ptr, ptr %73, align 8
-  %75 = call noundef zeroext i16 %74(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.5104186)
+  %75 = call noundef zeroext i16 %74(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.5104185)
   %76 = load ptr, ptr %11, align 8, !tbaa !25
-  %77 = getelementptr i16, ptr %76, i64 %indvars.iv218
+  %77 = getelementptr i16, ptr %76, i64 %indvars.iv217
   %78 = getelementptr i16, ptr %77, i64 %65
   %79 = load i16, ptr %78, align 2, !tbaa !21
   %.not133.not = icmp eq i16 %75, %79
   br i1 %.not133.not, label %67, label %.thread
 
-.loopexit239:                                     ; preds = %.preheader, %67
+.loopexit238:                                     ; preds = %.preheader, %67
   %.6105.ph = phi i32 [ %68, %67 ], [ %.3102, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6icu_7713UnicodeStringC1Ei(ptr noundef nonnull align 8 dereferenceable(64) %5, i32 noundef %.1110)
   %80 = load ptr, ptr %1, align 8, !tbaa !19
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
   %82 = load ptr, ptr %81, align 8
-  invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.0199, i32 noundef %.6105.ph, ptr noundef nonnull align 8 dereferenceable(64) %5)
-          to label %.thread160 unwind label %91
+  invoke void %82(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.0198, i32 noundef %.6105.ph, ptr noundef nonnull align 8 dereferenceable(64) %5)
+          to label %.thread159 unwind label %91
 
-.thread160:                                       ; preds = %.loopexit239
+.thread159:                                       ; preds = %.loopexit238
   %83 = load i16, ptr %12, align 8, !tbaa !37
   %84 = icmp slt i16 %83, 0
   %85 = ashr i16 %83, 5
   %86 = sext i16 %85 to i32
   %87 = load i32, ptr %13, align 4
   %88 = select i1 %84, i32 %87, i32 %86
-  %89 = add i32 %.0199, %.093198
+  %89 = add i32 %.0198, %.093197
   %.neg = sub i32 %89, %.6105.ph
   %90 = add i32 %.neg, %88
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
-91:                                               ; preds = %.loopexit239
+91:                                               ; preds = %.loopexit238
   %92 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #13
@@ -1240,39 +1240,39 @@ define void @_ZNK6icu_7722UnescapeTransliterator19handleTransliterateERNS_11Repl
   %97 = getelementptr inbounds i16, ptr %95, i64 %96
   %98 = load i16, ptr %97, align 2, !tbaa !21
   %.not = icmp eq i16 %98, -1
-  br i1 %.not, label %.loopexit, label %.lr.ph197
+  br i1 %.not, label %.loopexit, label %.lr.ph196
 
-.loopexit:                                        ; preds = %.thread, %.preheader166, %.thread160
-  %.2 = phi i32 [ %90, %.thread160 ], [ %.093198, %.preheader166 ], [ %.093198, %.thread ]
-  %99 = icmp slt i32 %.0199, %.2
+.loopexit:                                        ; preds = %.thread, %.preheader165, %.thread159
+  %.2 = phi i32 [ %90, %.thread159 ], [ %.093197, %.preheader165 ], [ %.093197, %.thread ]
+  %99 = icmp slt i32 %.0198, %.2
   br i1 %99, label %100, label %108
 
 100:                                              ; preds = %.loopexit
   %101 = load ptr, ptr %1, align 8, !tbaa !19
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 80
   %103 = load ptr, ptr %102, align 8
-  %104 = call noundef i32 %103(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.0199)
+  %104 = call noundef i32 %103(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.0198)
   %105 = icmp ult i32 %104, 65536
   %106 = select i1 %105, i32 1, i32 2
-  %107 = add nsw i32 %106, %.0199
+  %107 = add nsw i32 %106, %.0198
   br label %108
 
 108:                                              ; preds = %100, %.loopexit
-  %.1 = phi i32 [ %107, %100 ], [ %.0199, %.loopexit ]
+  %.1 = phi i32 [ %107, %100 ], [ %.0198, %.loopexit ]
   %109 = icmp slt i32 %.1, %.2
-  br i1 %109, label %.preheader166, label %.thread156, !llvm.loop !38
+  br i1 %109, label %.preheader165, label %.thread155, !llvm.loop !38
 
-.thread156:                                       ; preds = %108, %70, %48, %36, %4
-  %.093179 = phi i32 [ %9, %4 ], [ %.093198, %36 ], [ %.093198, %48 ], [ %.093198, %70 ], [ %.2, %108 ]
-  %.0176 = phi i32 [ %7, %4 ], [ %.0199, %36 ], [ %.0199, %48 ], [ %.0199, %70 ], [ %.1, %108 ]
+.thread155:                                       ; preds = %108, %70, %48, %36, %4
+  %.093178 = phi i32 [ %9, %4 ], [ %.093197, %36 ], [ %.093197, %48 ], [ %.093197, %70 ], [ %.2, %108 ]
+  %.0175 = phi i32 [ %7, %4 ], [ %.0198, %36 ], [ %.0198, %48 ], [ %.0198, %70 ], [ %.1, %108 ]
   %110 = load i32, ptr %8, align 4, !tbaa !34
-  %111 = sub i32 %.093179, %110
+  %111 = sub i32 %.093178, %110
   %112 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %113 = load i32, ptr %112, align 4, !tbaa !39
   %114 = add nsw i32 %111, %113
   store i32 %114, ptr %112, align 4, !tbaa !39
-  store i32 %.093179, ptr %8, align 4, !tbaa !34
-  store i32 %.0176, ptr %6, align 4, !tbaa !32
+  store i32 %.093178, ptr %8, align 4, !tbaa !34
+  store i32 %.0175, ptr %6, align 4, !tbaa !32
   ret void
 }
 

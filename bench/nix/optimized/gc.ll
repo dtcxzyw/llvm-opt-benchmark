@@ -68506,11 +68506,11 @@ _ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i.i.i.i.i.i: ; preds =
   store i64 %.sroa.075.0.insert.insert79.i.i.i.i.i, ptr %30, align 4
   %32 = load ptr, ptr %9, align 8
   %33 = invoke noundef i32 @_ZNK3nix11AutoCloseFD3getEv(ptr noundef nonnull align 4 dereferenceable(4) %32)
-          to label %_ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i unwind label %.thread123.i.i.i.i.i
+          to label %_ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i unwind label %.thread121.i.i.i.i.i
 
 _ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i: ; preds = %31
   %34 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-          to label %.noexc30.i.i.i.i.i unwind label %.thread123.i.i.i.i.i
+          to label %.noexc30.i.i.i.i.i unwind label %.thread121.i.i.i.i.i
 
 .noexc30.i.i.i.i.i:                               ; preds = %_ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -68521,7 +68521,7 @@ _ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i: ; preds
   store i64 %36, ptr %34, align 4
   call void @_ZdlPv(ptr noundef nonnull %30) #37
   %37 = invoke i32 @poll(ptr noundef nonnull %34, i64 noundef 2, i32 noundef -1)
-          to label %38 unwind label %.thread123.i.i.i.i.i
+          to label %38 unwind label %.thread121.i.i.i.i.i
 
 38:                                               ; preds = %.noexc30.i.i.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 6
@@ -68538,15 +68538,15 @@ _ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i: ; preds
 44:                                               ; preds = %41
   %45 = load ptr, ptr %9, align 8
   %46 = invoke noundef i32 @_ZNK3nix11AutoCloseFD3getEv(ptr noundef nonnull align 4 dereferenceable(4) %45)
-          to label %47 unwind label %.thread123.i.i.i.i.i
+          to label %47 unwind label %.thread121.i.i.i.i.i
 
 47:                                               ; preds = %44
   %48 = invoke i32 @accept(i32 noundef %46, ptr noundef null, ptr noundef null)
-          to label %49 unwind label %.thread123.i.i.i.i.i
+          to label %49 unwind label %.thread121.i.i.i.i.i
 
 49:                                               ; preds = %47
   invoke void @_ZN3nix11AutoCloseFDC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef %48)
-          to label %50 unwind label %.thread123.i.i.i.i.i
+          to label %50 unwind label %.thread121.i.i.i.i.i
 
 50:                                               ; preds = %49
   %51 = invoke noundef zeroext i1 @_ZNK3nix11AutoCloseFDcvbEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -68558,7 +68558,7 @@ _ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i: ; preds
 53:                                               ; preds = %75, %73, %50
   %54 = landingpad { ptr, i32 }
           cleanup
-  br label %.thread116.i.i.i.i.i
+  br label %.thread114.i.i.i.i.i
 
 55:                                               ; preds = %52
   %56 = load i32, ptr @_ZN3nix9verbosityE, align 4
@@ -68576,7 +68576,7 @@ _ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i: ; preds
   %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
-  br label %.thread116.i.i.i.i.i
+  br label %.thread114.i.i.i.i.i
 
 62:                                               ; preds = %58
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #34
@@ -68606,7 +68606,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i: ; pred
   %72 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #34
-  br label %.thread116.i.i.i.i.i
+  br label %.thread114.i.i.i.i.i
 
 73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i, %55
   %74 = invoke noundef i32 @_ZNK3nix11AutoCloseFD3getEv(ptr noundef nonnull align 4 dereferenceable(4) %5)
@@ -68780,7 +68780,7 @@ _ZN3nix4SyncISt3mapIiSt6threadSt4lessIiESaISt4pairIKiS2_EEESt5mutexE4LockD2Ev.ex
 .body34.i.i.i.i.i:                                ; preds = %124, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i, %89, %.body.i.i.i.i.i.i
   %eh.lpad-body35.i.i.i.i.i = phi { ptr, i32 } [ %125, %124 ], [ %81, %.body.i.i.i.i.i.i ], [ %90, %89 ], [ %90, %_ZNKSt14default_deleteINSt6thread6_StateEEclEPS1_.exit.i6.i.i.i.i.i.i ]
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #34
-  br label %.thread116.i.i.i.i.i
+  br label %.thread114.i.i.i.i.i
 
 126:                                              ; preds = %97
   %127 = landingpad { ptr, i32 }
@@ -68805,13 +68805,13 @@ _ZN3nix4SyncISt3mapIiSt6threadSt4lessIiESaISt4pairIKiS2_EEESt5mutexE4LockD2Ev.ex
   %.pn.i.i.i.i.i = phi { ptr, i32 } [ %129, %_ZN3nix4SyncISt3mapIiSt6threadSt4lessIiESaISt4pairIKiS2_EEESt5mutexE4LockD2Ev.exit44.i.i.i.i.i ], [ %127, %126 ]
   %.sroa.0.0.copyload.i.i45.i.i.i.i.i = load i64, ptr %7, align 8
   %.not.i46.i.i.i.i.i = icmp eq i64 %.sroa.0.0.copyload.i.i45.i.i.i.i.i, 0
-  br i1 %.not.i46.i.i.i.i.i, label %.thread116.i.i.i.i.i, label %133
+  br i1 %.not.i46.i.i.i.i.i, label %.thread114.i.i.i.i.i, label %133
 
 133:                                              ; preds = %132
   call void @_ZSt9terminatev() #39
   unreachable
 
-.thread116.i.i.i.i.i:                             ; preds = %132, %.body34.i.i.i.i.i, %71, %60, %53
+.thread114.i.i.i.i.i:                             ; preds = %132, %.body34.i.i.i.i.i, %71, %60, %53
   %.pn.pn.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body35.i.i.i.i.i, %.body34.i.i.i.i.i ], [ %72, %71 ], [ %54, %53 ], [ %61, %60 ], [ %.pn.i.i.i.i.i, %132 ]
   call void @_ZN3nix11AutoCloseFDD1Ev(ptr noundef nonnull align 4 dereferenceable(4) %5) #34
   br label %135
@@ -68824,7 +68824,7 @@ _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit.i.i.i.i.i:  ; preds = %_ZNSt6vectorI6pollf
   call void @_ZdlPv(ptr noundef nonnull %34) #37
   br label %27
 
-.thread123.i.i.i.i.i:                             ; preds = %49, %47, %44, %.noexc30.i.i.i.i.i, %_ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i, %31
+.thread121.i.i.i.i.i:                             ; preds = %49, %47, %44, %.noexc30.i.i.i.i.i, %_ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i, %31
   %.sroa.092.1.ph.i.i.i.i.i = phi ptr [ %30, %31 ], [ %30, %_ZNKSt6vectorI6pollfdSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i23.i.i.i.i.i ], [ %34, %.noexc30.i.i.i.i.i ], [ %34, %44 ], [ %34, %47 ], [ %34, %49 ]
   %lpad.thr_comm.i.i.i.i.i = landingpad { ptr, i32 }
           cleanup
@@ -68835,17 +68835,17 @@ _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit.i.i.i.i.i:  ; preds = %_ZNSt6vectorI6pollf
           cleanup
   br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit50.i.i.i.i.i
 
-135:                                              ; preds = %.thread123.i.i.i.i.i, %.thread116.i.i.i.i.i
-  %.pn.pn.pn121.i.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i.i, %.thread116.i.i.i.i.i ], [ %lpad.thr_comm.i.i.i.i.i, %.thread123.i.i.i.i.i ]
-  %.sroa.092.2120.i.i.i.i.i = phi ptr [ %34, %.thread116.i.i.i.i.i ], [ %.sroa.092.1.ph.i.i.i.i.i, %.thread123.i.i.i.i.i ]
-  call void @_ZdlPv(ptr noundef nonnull %.sroa.092.2120.i.i.i.i.i) #37
+135:                                              ; preds = %.thread121.i.i.i.i.i, %.thread114.i.i.i.i.i
+  %.pn.pn.pn119.i.i.i.i.i = phi { ptr, i32 } [ %.pn.pn.i.i.i.i.i, %.thread114.i.i.i.i.i ], [ %lpad.thr_comm.i.i.i.i.i, %.thread121.i.i.i.i.i ]
+  %.sroa.092.2118.i.i.i.i.i = phi ptr [ %34, %.thread114.i.i.i.i.i ], [ %.sroa.092.1.ph.i.i.i.i.i, %.thread121.i.i.i.i.i ]
+  call void @_ZdlPv(ptr noundef nonnull %.sroa.092.2118.i.i.i.i.i) #37
   br label %_ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit50.i.i.i.i.i
 
 _ZNSt6vectorI6pollfdSaIS0_EED2Ev.exit50.i.i.i.i.i: ; preds = %135, %134
-  %.pn.pn.pn122.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i.i, %134 ], [ %.pn.pn.pn121.i.i.i.i.i, %135 ]
+  %.pn.pn.pn120.i.i.i.i.i = phi { ptr, i32 } [ %lpad.thr_comm.split-lp.i.i.i.i.i, %134 ], [ %.pn.pn.pn119.i.i.i.i.i, %135 ]
   call fastcc void @"_ZN7FinallyIZZN3nix10LocalStore14collectGarbageERKNS0_9GCOptionsERNS0_9GCResultsEENK3$_0clEvEUlvE_ED2Ev"(ptr %17, ptr nonnull %4) #34
   call void @_ZN3nix4SyncISt3mapIiSt6threadSt4lessIiESaISt4pairIKiS2_EEESt5mutexED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %4) #34
-  resume { ptr, i32 } %.pn.pn.pn122.i.i.i.i.i
+  resume { ptr, i32 } %.pn.pn.pn120.i.i.i.i.i
 
 136:                                              ; preds = %38
   call void @_ZdlPv(ptr noundef nonnull %34) #37

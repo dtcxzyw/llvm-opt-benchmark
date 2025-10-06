@@ -5592,8 +5592,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %155 = load ptr, ptr %134, align 8, !tbaa !19
   %156 = load ptr, ptr %20, align 8, !tbaa !21
-  %.not8.not.i = icmp eq ptr %155, %156
-  br i1 %.not8.not.i, label %.loopexit.invoke, label %.lr.ph.preheader.i
+  %.not.i = icmp eq ptr %155, %156
+  br i1 %.not.i, label %.loopexit.invoke, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110
   %157 = ptrtoint ptr %155 to i64

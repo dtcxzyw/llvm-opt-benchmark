@@ -1901,8 +1901,8 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   br label %167
 
 .lr.ph:                                           ; preds = %.preheader, %X509v3_addr_add_inherit.exit
-  %.096215 = phi i32 [ %162, %X509v3_addr_add_inherit.exit ], [ 0, %.preheader ]
-  %13 = call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.096215) #15
+  %.096210 = phi i32 [ %162, %X509v3_addr_add_inherit.exit ], [ 0, %.preheader ]
+  %13 = call ptr @OPENSSL_sk_value(ptr noundef %2, i32 noundef %.096210) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1910,49 +1910,49 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %15 = load ptr, ptr %14, align 8, !tbaa !46
   %16 = call i32 @ossl_v3_name_cmp(ptr noundef %15, ptr noundef nonnull @.str.14) #15
   %.not104 = icmp eq i32 %16, 0
-  br i1 %.not104, label %.thread137.thread169, label %17
+  br i1 %.not104, label %.thread135.thread166, label %17
 
 17:                                               ; preds = %.lr.ph
   %18 = load ptr, ptr %14, align 8, !tbaa !46
   %19 = call i32 @ossl_v3_name_cmp(ptr noundef %18, ptr noundef nonnull @.str.15) #15
   %.not105 = icmp eq i32 %19, 0
-  br i1 %.not105, label %.thread137.thread169, label %20
+  br i1 %.not105, label %.thread135.thread166, label %20
 
 20:                                               ; preds = %17
   %21 = load ptr, ptr %14, align 8, !tbaa !46
   %22 = call i32 @ossl_v3_name_cmp(ptr noundef %21, ptr noundef nonnull @.str.16) #15
   %.not106 = icmp eq i32 %22, 0
-  br i1 %.not106, label %.thread137.thread161, label %23
+  br i1 %.not106, label %.thread135.thread158, label %23
 
 23:                                               ; preds = %20
   %24 = load ptr, ptr %14, align 8, !tbaa !46
   %25 = call i32 @ossl_v3_name_cmp(ptr noundef %24, ptr noundef nonnull @.str.17) #15
   %.not107 = icmp eq i32 %25, 0
-  br i1 %.not107, label %.thread137.thread161, label %26
+  br i1 %.not107, label %.thread135.thread158, label %26
 
 26:                                               ; preds = %23
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 970, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   %27 = load ptr, ptr %14, align 8, !tbaa !46
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 115, ptr noundef nonnull @.str.18, ptr noundef %27) #15
-  br label %.thread148
+  br label %.thread145
 
-.thread137.thread161:                             ; preds = %20, %23
+.thread135.thread158:                             ; preds = %20, %23
   %28 = phi i32 [ 16, %23 ], [ 4, %20 ]
-  %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars134142168 = phi ptr [ @v2i_IPAddrBlocks.v6addr_chars, %23 ], [ @v2i_IPAddrBlocks.v4addr_chars, %20 ]
-  %.095130144166 = phi i32 [ 2, %23 ], [ 1, %20 ]
+  %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars132139165 = phi ptr [ @v2i_IPAddrBlocks.v6addr_chars, %23 ], [ @v2i_IPAddrBlocks.v4addr_chars, %20 ]
+  %.095128141163 = phi i32 [ 2, %23 ], [ 1, %20 ]
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !48
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %33
 
-32:                                               ; preds = %.thread137.thread161
+32:                                               ; preds = %.thread135.thread158
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 992, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 124, ptr noundef null) #15
-  br label %.thread148
+  br label %.thread145
 
-33:                                               ; preds = %.thread137.thread161
+33:                                               ; preds = %.thread135.thread158
   %34 = call i64 @strtoul(ptr noundef nonnull %30, ptr noundef nonnull %4, i32 noundef 0) #15
   %35 = trunc i64 %34 to i32
   store i32 %35, ptr %7, align 4, !tbaa !20
@@ -1978,7 +1978,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %45 = load ptr, ptr %14, align 8, !tbaa !46
   %46 = load ptr, ptr %44, align 8, !tbaa !48
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %45, ptr noundef nonnull @.str.21, ptr noundef %46) #15
-  br label %.thread148
+  br label %.thread145
 
 47:                                               ; preds = %40
   %48 = call i64 @strspn(ptr noundef nonnull %41, ptr noundef nonnull @.str.19) #16
@@ -1987,23 +1987,23 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %50 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %49, ptr noundef nonnull @.str.13, i32 noundef 1003) #15
   br label %55
 
-.thread137.thread169:                             ; preds = %17, %.lr.ph
+.thread135.thread166:                             ; preds = %17, %.lr.ph
   %51 = phi i32 [ 4, %.lr.ph ], [ 16, %17 ]
-  %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars134142160 = phi ptr [ @v2i_IPAddrBlocks.v4addr_chars, %.lr.ph ], [ @v2i_IPAddrBlocks.v6addr_chars, %17 ]
-  %.095130144156 = phi i32 [ 1, %.lr.ph ], [ 2, %17 ]
+  %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars132139157 = phi ptr [ @v2i_IPAddrBlocks.v4addr_chars, %.lr.ph ], [ @v2i_IPAddrBlocks.v6addr_chars, %17 ]
+  %.095128141153 = phi i32 [ 1, %.lr.ph ], [ 2, %17 ]
   %52 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !48
   %54 = call noalias ptr @CRYPTO_strdup(ptr noundef %53, ptr noundef nonnull @.str.13, i32 noundef 1005) #15
   br label %55
 
-55:                                               ; preds = %.thread137.thread169, %47
-  %56 = phi i32 [ %28, %47 ], [ %51, %.thread137.thread169 ]
-  %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars134142159 = phi ptr [ %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars134142168, %47 ], [ %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars134142160, %.thread137.thread169 ]
-  %.094132143157 = phi ptr [ %7, %47 ], [ null, %.thread137.thread169 ]
-  %.095130144155 = phi i32 [ %.095130144166, %47 ], [ %.095130144156, %.thread137.thread169 ]
-  %.2 = phi ptr [ %50, %47 ], [ %54, %.thread137.thread169 ]
+55:                                               ; preds = %.thread135.thread166, %47
+  %56 = phi i32 [ %28, %47 ], [ %51, %.thread135.thread166 ]
+  %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars132139156 = phi ptr [ %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars132139165, %47 ], [ %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars132139157, %.thread135.thread166 ]
+  %.094130140154 = phi ptr [ %7, %47 ], [ null, %.thread135.thread166 ]
+  %.095128141152 = phi i32 [ %.095128141163, %47 ], [ %.095128141153, %.thread135.thread166 ]
+  %.2 = phi ptr [ %50, %47 ], [ %54, %.thread135.thread166 ]
   %57 = icmp eq ptr %.2, null
-  br i1 %57, label %.thread148, label %58
+  br i1 %57, label %.thread145, label %58
 
 58:                                               ; preds = %55
   %59 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.2, ptr noundef nonnull dereferenceable(8) @.str.22) #16
@@ -2011,7 +2011,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   br i1 %60, label %61, label %83
 
 61:                                               ; preds = %58
-  %62 = call fastcc ptr @make_IPAddressFamily(ptr noundef nonnull %8, i32 noundef %.095130144155, ptr noundef readonly %.094132143157)
+  %62 = call fastcc ptr @make_IPAddressFamily(ptr noundef nonnull %8, i32 noundef %.095128141152, ptr noundef readonly %.094130140154)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %79, label %64
 
@@ -2065,10 +2065,10 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %81 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %82 = load ptr, ptr %81, align 8, !tbaa !48
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %80, ptr noundef nonnull @.str.21, ptr noundef %82) #15
-  br label %.thread148
+  br label %.thread145
 
 83:                                               ; preds = %58
-  %84 = call i64 @strspn(ptr noundef nonnull %.2, ptr noundef nonnull %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars134142159) #16
+  %84 = call i64 @strspn(ptr noundef nonnull %.2, ptr noundef nonnull %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars132139156) #16
   %sext = shl i64 %84, 32
   %85 = ashr exact i64 %sext, 32
   %86 = getelementptr inbounds i8, ptr %.2, i64 %85
@@ -2093,7 +2093,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %97 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %98 = load ptr, ptr %97, align 8, !tbaa !48
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %96, ptr noundef nonnull @.str.21, ptr noundef %98) #15
-  br label %.thread148
+  br label %.thread145
 
 99:                                               ; preds = %83
   switch i8 %93, label %158 [
@@ -2127,10 +2127,10 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %112 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %113 = load ptr, ptr %112, align 8, !tbaa !48
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %111, ptr noundef nonnull @.str.21, ptr noundef %113) #15
-  br label %.thread148
+  br label %.thread145
 
 114:                                              ; preds = %107
-  %115 = call i32 @X509v3_addr_add_prefix(ptr noundef nonnull %8, i32 noundef %.095130144155, ptr noundef %.094132143157, ptr noundef nonnull %5, i32 noundef %104)
+  %115 = call i32 @X509v3_addr_add_prefix(ptr noundef nonnull %8, i32 noundef %.095128141152, ptr noundef %.094130140154, ptr noundef nonnull %5, i32 noundef %104)
   %.not117 = icmp eq i32 %115, 0
   br i1 %.not117, label %116, label %X509v3_addr_add_inherit.exit
 
@@ -2138,7 +2138,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1048, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #15
-  br label %.thread148
+  br label %.thread145
 
 117:                                              ; preds = %99
   %118 = sext i32 %90 to i64
@@ -2148,7 +2148,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %122 = add i32 %90, %121
   %123 = sext i32 %122 to i64
   %124 = getelementptr inbounds i8, ptr %.2, i64 %123
-  %125 = call i64 @strspn(ptr noundef nonnull %124, ptr noundef nonnull %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars134142159) #16
+  %125 = call i64 @strspn(ptr noundef nonnull %124, ptr noundef nonnull %v2i_IPAddrBlocks.v4addr_chars.v2i_IPAddrBlocks.v6addr_chars132139156) #16
   %126 = trunc i64 %125 to i32
   %127 = icmp eq i32 %126, 0
   br i1 %127, label %133, label %128
@@ -2169,7 +2169,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %135 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !48
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %134, ptr noundef nonnull @.str.21, ptr noundef %136) #15
-  br label %.thread148
+  br label %.thread145
 
 137:                                              ; preds = %128
   %138 = call i32 @ossl_a2i_ipadd(ptr noundef nonnull %6, ptr noundef nonnull %124) #15
@@ -2184,7 +2184,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %141 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %142 = load ptr, ptr %141, align 8, !tbaa !48
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %140, ptr noundef nonnull @.str.21, ptr noundef %142) #15
-  br label %.thread148
+  br label %.thread145
 
 143:                                              ; preds = %137
   %144 = zext nneg i32 %56 to i64
@@ -2200,10 +2200,10 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %149 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !48
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %148, ptr noundef nonnull @.str.21, ptr noundef %150) #15
-  br label %.thread148
+  br label %.thread145
 
 151:                                              ; preds = %143
-  %152 = call i32 @X509v3_addr_add_range(ptr noundef nonnull %8, i32 noundef %.095130144155, ptr noundef %.094132143157, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %152 = call i32 @X509v3_addr_add_range(ptr noundef nonnull %8, i32 noundef %.095128141152, ptr noundef %.094130140154, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not115 = icmp eq i32 %152, 0
   br i1 %.not115, label %153, label %X509v3_addr_add_inherit.exit
 
@@ -2211,11 +2211,11 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1071, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #15
-  br label %.thread148
+  br label %.thread145
 
 154:                                              ; preds = %99
   %155 = shl nuw nsw i32 %56, 3
-  %156 = call i32 @X509v3_addr_add_prefix(ptr noundef nonnull %8, i32 noundef %.095130144155, ptr noundef %.094132143157, ptr noundef nonnull %5, i32 noundef %155)
+  %156 = call i32 @X509v3_addr_add_prefix(ptr noundef nonnull %8, i32 noundef %.095128141152, ptr noundef %.094130140154, ptr noundef nonnull %5, i32 noundef %155)
   %.not112 = icmp eq i32 %156, 0
   br i1 %.not112, label %157, label %X509v3_addr_add_inherit.exit
 
@@ -2223,7 +2223,7 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   call void @ERR_new() #15
   call void @ERR_set_debug(ptr noundef nonnull @.str.13, i32 noundef 1077, ptr noundef nonnull @__func__.v2i_IPAddrBlocks) #15
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 34, i32 noundef 524322, ptr noundef null) #15
-  br label %.thread148
+  br label %.thread145
 
 158:                                              ; preds = %99
   call void @ERR_new() #15
@@ -2233,9 +2233,9 @@ define internal ptr @v2i_IPAddrBlocks(ptr readnone captures(none) %0, ptr readno
   %160 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !48
   call void (i32, ...) @ERR_add_error_data(i32 noundef 4, ptr noundef nonnull @.str.20, ptr noundef %159, ptr noundef nonnull @.str.21, ptr noundef %161) #15
-  br label %.thread148
+  br label %.thread145
 
-.thread148:                                       ; preds = %55, %26, %32, %43, %79, %95, %158, %110, %116, %133, %139, %147, %153, %157
+.thread145:                                       ; preds = %55, %26, %32, %43, %79, %95, %158, %110, %116, %133, %139, %147, %153, %157
   %.1.ph = phi ptr [ %.2, %157 ], [ %.2, %153 ], [ %.2, %147 ], [ %.2, %139 ], [ %.2, %133 ], [ %.2, %116 ], [ %.2, %110 ], [ %.2, %158 ], [ %.2, %95 ], [ %.2, %79 ], [ null, %43 ], [ null, %32 ], [ null, %26 ], [ null, %55 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2248,7 +2248,7 @@ X509v3_addr_add_inherit.exit:                     ; preds = %114, %151, %154, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %162 = add nuw nsw i32 %.096215, 1
+  %162 = add nuw nsw i32 %.096210, 1
   %163 = call i32 @OPENSSL_sk_num(ptr noundef %2) #15
   %164 = icmp slt i32 %162, %163
   br i1 %164, label %.lr.ph, label %._crit_edge, !llvm.loop !50
@@ -2258,8 +2258,8 @@ X509v3_addr_add_inherit.exit:                     ; preds = %114, %151, %154, %7
   %.not = icmp eq i32 %165, 0
   br i1 %.not, label %166, label %167
 
-166:                                              ; preds = %.thread148, %._crit_edge
-  %.3 = phi ptr [ null, %._crit_edge ], [ %.1.ph, %.thread148 ]
+166:                                              ; preds = %.thread145, %._crit_edge
+  %.3 = phi ptr [ null, %._crit_edge ], [ %.1.ph, %.thread145 ]
   call void @CRYPTO_free(ptr noundef %.3, ptr noundef nonnull @.str.13, i32 noundef 1099) #15
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %8, ptr noundef nonnull @IPAddressFamily_free) #15
   br label %167
@@ -2772,8 +2772,8 @@ define internal fastcc range(i32 0, 2) i32 @addr_validate_path_internal(ptr noun
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = load ptr, ptr %14, align 8, !tbaa !71
-  %.not214 = icmp eq ptr %15, null
-  br i1 %.not214, label %.critedge.thread185, label %.critedge163, !prof !74
+  %.not213 = icmp eq ptr %15, null
+  br i1 %.not213, label %.critedge.thread185, label %.critedge163, !prof !74
 
 .critedge:                                        ; preds = %3, %4
   %.not152 = icmp eq ptr %0, null
@@ -2837,21 +2837,21 @@ define internal fastcc range(i32 0, 2) i32 @addr_validate_path_internal(ptr noun
 
 40:                                               ; preds = %33
   tail call void @OPENSSL_sk_sort(ptr noundef nonnull %35) #15
-  %.1232 = add nsw i32 %.0127, 1
+  %.1231 = add nsw i32 %.0127, 1
   %41 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #15
-  %42 = icmp slt i32 %.1232, %41
-  br i1 %42, label %.lr.ph234, label %._crit_edge
+  %42 = icmp slt i32 %.1231, %41
+  br i1 %42, label %.lr.ph233, label %._crit_edge
 
-.lr.ph234:                                        ; preds = %40
+.lr.ph233:                                        ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %47
 
-47:                                               ; preds = %.lr.ph234, %.critedge170
-  %.1233 = phi i32 [ %.1232, %.lr.ph234 ], [ %.1, %.critedge170 ]
-  %48 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef %.1233) #15
+47:                                               ; preds = %.lr.ph233, %.critedge170
+  %.1232 = phi i32 [ %.1231, %.lr.ph233 ], [ %.1, %.critedge170 ]
+  %48 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef %.1232) #15
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 296
   %50 = load ptr, ptr %49, align 8, !tbaa !75
   %51 = tail call i32 @X509v3_addr_is_canonical(ptr noundef %50)
@@ -2863,7 +2863,7 @@ define internal fastcc range(i32 0, 2) i32 @addr_validate_path_internal(ptr noun
 
 53:                                               ; preds = %52
   store i32 41, ptr %43, align 8, !tbaa !72
-  store i32 %.1233, ptr %44, align 4, !tbaa !96
+  store i32 %.1232, ptr %44, align 4, !tbaa !96
   store ptr %48, ptr %45, align 8, !tbaa !97
   %54 = load ptr, ptr %46, align 8, !tbaa !71
   %55 = tail call i32 %54(i32 noundef 0, ptr noundef nonnull %0) #15
@@ -2873,29 +2873,29 @@ define internal fastcc range(i32 0, 2) i32 @addr_validate_path_internal(ptr noun
 57:                                               ; preds = %53, %47
   %58 = load ptr, ptr %49, align 8, !tbaa !75
   %59 = icmp eq ptr %58, null
-  br i1 %59, label %.preheader218, label %77
+  br i1 %59, label %.preheader217, label %77
 
-.preheader218:                                    ; preds = %57
+.preheader217:                                    ; preds = %57
   %60 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %35) #15
   %61 = icmp sgt i32 %60, 0
-  br i1 %61, label %.lr.ph231, label %.critedge170
+  br i1 %61, label %.lr.ph230, label %.critedge170
 
 62:                                               ; preds = %68
-  %63 = add nuw nsw i32 %.0128230, 1
+  %63 = add nuw nsw i32 %.0128229, 1
   %64 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %35) #15
   %65 = icmp slt i32 %63, %64
-  br i1 %65, label %.lr.ph231, label %.critedge170, !llvm.loop !98
+  br i1 %65, label %.lr.ph230, label %.critedge170, !llvm.loop !98
 
-.lr.ph231:                                        ; preds = %.preheader218, %62
-  %.0128230 = phi i32 [ %63, %62 ], [ 0, %.preheader218 ]
-  %66 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %35, i32 noundef %.0128230) #15
+.lr.ph230:                                        ; preds = %.preheader217, %62
+  %.0128229 = phi i32 [ %63, %62 ], [ 0, %.preheader217 ]
+  %66 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %35, i32 noundef %.0128229) #15
   %.val176 = load ptr, ptr %66, align 8, !tbaa !3
   %.val176.val = load i32, ptr %.val176, align 8, !tbaa !15
   %67 = and i32 %.val176.val, -2
   %or.cond.i.not = icmp eq i32 %67, 2
   br i1 %or.cond.i.not, label %68, label %.critedge165
 
-68:                                               ; preds = %.lr.ph231
+68:                                               ; preds = %.lr.ph230
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !17
   %71 = load i32, ptr %70, align 8, !tbaa !18
@@ -2907,12 +2907,12 @@ define internal fastcc range(i32 0, 2) i32 @addr_validate_path_internal(ptr noun
 
 73:                                               ; preds = %72
   store i32 46, ptr %43, align 8, !tbaa !72
-  store i32 %.1233, ptr %44, align 4, !tbaa !96
+  store i32 %.1232, ptr %44, align 4, !tbaa !96
   store ptr %48, ptr %45, align 8, !tbaa !97
   %74 = load ptr, ptr %46, align 8, !tbaa !71
   %75 = tail call i32 %74(i32 noundef 0, ptr noundef nonnull %0) #15
-  %.fr217 = freeze i32 %75
-  %76 = icmp eq i32 %.fr217, 0
+  %.fr216 = freeze i32 %75
+  %76 = icmp eq i32 %.fr216, 0
   br i1 %76, label %.critedge165, label %.critedge170
 
 77:                                               ; preds = %57
@@ -2924,8 +2924,8 @@ define internal fastcc range(i32 0, 2) i32 @addr_validate_path_internal(ptr noun
   br i1 %81, label %.lr.ph, label %.critedge170
 
 .lr.ph:                                           ; preds = %77, %136
-  %.1129229 = phi i32 [ %137, %136 ], [ 0, %77 ]
-  %82 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %35, i32 noundef %.1129229) #15
+  %.1129228 = phi i32 [ %137, %136 ], [ 0, %77 ]
+  %82 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %35, i32 noundef %.1129228) #15
   %83 = load ptr, ptr %49, align 8, !tbaa !75
   %84 = tail call i32 @OPENSSL_sk_find(ptr noundef %83, ptr noundef %82) #15
   %85 = load ptr, ptr %49, align 8, !tbaa !75
@@ -2945,12 +2945,12 @@ define internal fastcc range(i32 0, 2) i32 @addr_validate_path_internal(ptr noun
 
 94:                                               ; preds = %93
   store i32 46, ptr %43, align 8, !tbaa !72
-  store i32 %.1233, ptr %44, align 4, !tbaa !96
+  store i32 %.1232, ptr %44, align 4, !tbaa !96
   store ptr %48, ptr %45, align 8, !tbaa !97
   %95 = load ptr, ptr %46, align 8, !tbaa !71
   %96 = tail call i32 %95(i32 noundef 0, ptr noundef nonnull %0) #15
-  %.fr216 = freeze i32 %96
-  %97 = icmp eq i32 %.fr216, 0
+  %.fr215 = freeze i32 %96
+  %97 = icmp eq i32 %.fr215, 0
   br i1 %97, label %.critedge165, label %.critedge170
 
 98:                                               ; preds = %.lr.ph
@@ -2998,23 +2998,23 @@ X509v3_addr_get_afi.exit:                         ; preds = %112
   %122 = shl nuw nsw i32 %121, 8
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 1
   %124 = load i8, ptr %123, align 1, !tbaa !16
-  %.fr215 = freeze i8 %124
-  %125 = zext i8 %.fr215 to i32
+  %.fr214 = freeze i8 %124
+  %125 = zext i8 %.fr214 to i32
   %126 = or disjoint i32 %122, %125
   %switch.selectcmp.i = icmp eq i32 %126, 2
   %spec.select = select i1 %switch.selectcmp.i, i32 16, i32 0
   %switch.selectcmp2.i = icmp eq i32 %126, 1
-  %spec.select213 = select i1 %switch.selectcmp2.i, i32 4, i32 %spec.select
+  %spec.select212 = select i1 %switch.selectcmp2.i, i32 4, i32 %spec.select
   br label %.thread203
 
 .thread203:                                       ; preds = %X509v3_addr_get_afi.exit, %112
-  %127 = phi i32 [ 0, %112 ], [ %spec.select213, %X509v3_addr_get_afi.exit ]
+  %127 = phi i32 [ 0, %112 ], [ %spec.select212, %X509v3_addr_get_afi.exit ]
   %128 = tail call fastcc i32 @addr_contains(ptr noundef %114, ptr noundef %116, i32 noundef %127)
   %.not159 = icmp eq i32 %128, 0
   br i1 %.not159, label %131, label %129
 
 129:                                              ; preds = %.thread203, %107
-  %130 = tail call ptr @OPENSSL_sk_set(ptr noundef nonnull %35, i32 noundef %.1129229, ptr noundef nonnull %86) #15
+  %130 = tail call ptr @OPENSSL_sk_set(ptr noundef nonnull %35, i32 noundef %.1129228, ptr noundef nonnull %86) #15
   br label %136
 
 131:                                              ; preds = %.thread203
@@ -3022,7 +3022,7 @@ X509v3_addr_get_afi.exit:                         ; preds = %112
 
 132:                                              ; preds = %131
   store i32 46, ptr %43, align 8, !tbaa !72
-  store i32 %.1233, ptr %44, align 4, !tbaa !96
+  store i32 %.1232, ptr %44, align 4, !tbaa !96
   store ptr %48, ptr %45, align 8, !tbaa !97
   %133 = load ptr, ptr %46, align 8, !tbaa !71
   %134 = tail call i32 %133(i32 noundef 0, ptr noundef nonnull %0) #15
@@ -3030,20 +3030,20 @@ X509v3_addr_get_afi.exit:                         ; preds = %112
   br i1 %135, label %.critedge165, label %136
 
 136:                                              ; preds = %102, %132, %129, %88
-  %137 = add nuw nsw i32 %.1129229, 1
+  %137 = add nuw nsw i32 %.1129228, 1
   %138 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %35) #15
   %139 = icmp slt i32 %137, %138
   br i1 %139, label %.lr.ph, label %.critedge170, !llvm.loop !99
 
-.critedge170:                                     ; preds = %136, %62, %77, %.preheader218, %94, %73
-  %.1 = add nuw nsw i32 %.1233, 1
+.critedge170:                                     ; preds = %136, %62, %77, %.preheader217, %94, %73
+  %.1 = add nuw nsw i32 %.1232, 1
   %140 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %1) #15
   %141 = icmp slt i32 %.1, %140
   br i1 %141, label %47, label %._crit_edge, !llvm.loop !100
 
 ._crit_edge:                                      ; preds = %.critedge170, %40
   %.1134.lcssa = phi ptr [ %.0133, %40 ], [ %48, %.critedge170 ]
-  %.1.lcssa = phi i32 [ %.1232, %40 ], [ %.1, %.critedge170 ]
+  %.1.lcssa = phi i32 [ %.1231, %40 ], [ %.1, %.critedge170 ]
   %142 = getelementptr inbounds nuw i8, ptr %.1134.lcssa, i64 296
   %143 = load ptr, ptr %142, align 8, !tbaa !75
   %.not154 = icmp eq ptr %143, null
@@ -3053,25 +3053,25 @@ X509v3_addr_get_afi.exit:                         ; preds = %112
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %145 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %143) #15
   %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %.lr.ph237, label %.critedge165
+  br i1 %146, label %.lr.ph236, label %.critedge165
 
-.lr.ph237:                                        ; preds = %.preheader
+.lr.ph236:                                        ; preds = %.preheader
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  br i1 %8, label %.lr.ph237.split.us, label %.lr.ph237.split
+  br i1 %8, label %.lr.ph236.split.us, label %.lr.ph236.split
 
-.lr.ph237.split.us:                               ; preds = %.lr.ph237, %.critedge172.us
-  %.2236.us = phi i32 [ %165, %.critedge172.us ], [ 0, %.lr.ph237 ]
+.lr.ph236.split.us:                               ; preds = %.lr.ph236, %.critedge172.us
+  %.2235.us = phi i32 [ %165, %.critedge172.us ], [ 0, %.lr.ph236 ]
   %150 = load ptr, ptr %142, align 8, !tbaa !75
-  %151 = tail call ptr @OPENSSL_sk_value(ptr noundef %150, i32 noundef %.2236.us) #15
+  %151 = tail call ptr @OPENSSL_sk_value(ptr noundef %150, i32 noundef %.2235.us) #15
   %.val.us = load ptr, ptr %151, align 8, !tbaa !3
   %.val.val.us = load i32, ptr %.val.us, align 8, !tbaa !15
   %152 = and i32 %.val.val.us, -2
   %or.cond.i182.not.us = icmp eq i32 %152, 2
   br i1 %or.cond.i182.not.us, label %153, label %.critedge165
 
-153:                                              ; preds = %.lr.ph237.split.us
+153:                                              ; preds = %.lr.ph236.split.us
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !17
   %156 = load i32, ptr %155, align 8, !tbaa !18
@@ -3093,23 +3093,23 @@ X509v3_addr_get_afi.exit:                         ; preds = %112
   br i1 %164, label %.critedge165, label %.critedge172.us
 
 .critedge172.us:                                  ; preds = %161, %158, %153
-  %165 = add nuw nsw i32 %.2236.us, 1
+  %165 = add nuw nsw i32 %.2235.us, 1
   %166 = load ptr, ptr %142, align 8, !tbaa !75
   %167 = tail call i32 @OPENSSL_sk_num(ptr noundef %166) #15
   %168 = icmp slt i32 %165, %167
-  br i1 %168, label %.lr.ph237.split.us, label %.critedge165, !llvm.loop !101
+  br i1 %168, label %.lr.ph236.split.us, label %.critedge165, !llvm.loop !101
 
-.lr.ph237.split:                                  ; preds = %.lr.ph237, %.critedge172
-  %.2236 = phi i32 [ %180, %.critedge172 ], [ 0, %.lr.ph237 ]
+.lr.ph236.split:                                  ; preds = %.lr.ph236, %.critedge172
+  %.2235 = phi i32 [ %180, %.critedge172 ], [ 0, %.lr.ph236 ]
   %169 = load ptr, ptr %142, align 8, !tbaa !75
-  %170 = tail call ptr @OPENSSL_sk_value(ptr noundef %169, i32 noundef %.2236) #15
+  %170 = tail call ptr @OPENSSL_sk_value(ptr noundef %169, i32 noundef %.2235) #15
   %.val = load ptr, ptr %170, align 8, !tbaa !3
   %.val.val = load i32, ptr %.val, align 8, !tbaa !15
   %171 = and i32 %.val.val, -2
   %or.cond.i182.not = icmp eq i32 %171, 2
   br i1 %or.cond.i182.not, label %172, label %.critedge165
 
-172:                                              ; preds = %.lr.ph237.split
+172:                                              ; preds = %.lr.ph236.split
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %174 = load ptr, ptr %173, align 8, !tbaa !17
   %175 = load i32, ptr %174, align 8, !tbaa !18
@@ -3122,15 +3122,15 @@ X509v3_addr_get_afi.exit:                         ; preds = %112
   br i1 %179, label %.critedge165, label %.critedge172
 
 .critedge172:                                     ; preds = %177, %172
-  %180 = add nuw nsw i32 %.2236, 1
+  %180 = add nuw nsw i32 %.2235, 1
   %181 = load ptr, ptr %142, align 8, !tbaa !75
   %182 = tail call i32 @OPENSSL_sk_num(ptr noundef %181) #15
   %183 = icmp slt i32 %180, %182
-  br i1 %183, label %.lr.ph237.split, label %.critedge165, !llvm.loop !101
+  br i1 %183, label %.lr.ph236.split, label %.critedge165, !llvm.loop !101
 
-.critedge165:                                     ; preds = %94, %93, %73, %72, %52, %53, %131, %132, %98, %100, %.lr.ph231, %.critedge172, %.lr.ph237.split, %177, %.critedge172.us, %.lr.ph237.split.us, %161, %.preheader, %24, %._crit_edge, %37, %38, %25
-  %.0138 = phi i32 [ 0, %38 ], [ 0, %37 ], [ 0, %25 ], [ 1, %._crit_edge ], [ 0, %24 ], [ 1, %.preheader ], [ 1, %.critedge172.us ], [ 0, %.lr.ph237.split.us ], [ 0, %161 ], [ 1, %.critedge172 ], [ 0, %.lr.ph237.split ], [ 0, %177 ], [ 0, %.lr.ph231 ], [ 0, %100 ], [ 0, %98 ], [ 0, %132 ], [ 0, %131 ], [ 0, %53 ], [ 0, %52 ], [ 0, %72 ], [ 0, %73 ], [ 0, %93 ], [ 0, %94 ]
-  %.0126 = phi ptr [ null, %38 ], [ null, %37 ], [ null, %25 ], [ %35, %._crit_edge ], [ null, %24 ], [ %35, %.preheader ], [ %35, %161 ], [ %35, %.lr.ph237.split.us ], [ %35, %.critedge172.us ], [ %35, %177 ], [ %35, %.lr.ph237.split ], [ %35, %.critedge172 ], [ %35, %.lr.ph231 ], [ %35, %100 ], [ %35, %98 ], [ %35, %132 ], [ %35, %131 ], [ %35, %53 ], [ %35, %52 ], [ %35, %72 ], [ %35, %73 ], [ %35, %93 ], [ %35, %94 ]
+.critedge165:                                     ; preds = %94, %93, %73, %72, %52, %53, %131, %132, %98, %100, %.lr.ph230, %.critedge172, %.lr.ph236.split, %177, %.critedge172.us, %.lr.ph236.split.us, %161, %.preheader, %24, %._crit_edge, %37, %38, %25
+  %.0138 = phi i32 [ 0, %38 ], [ 0, %37 ], [ 0, %25 ], [ 1, %._crit_edge ], [ 0, %24 ], [ 1, %.preheader ], [ 1, %.critedge172.us ], [ 0, %.lr.ph236.split.us ], [ 0, %161 ], [ 1, %.critedge172 ], [ 0, %.lr.ph236.split ], [ 0, %177 ], [ 0, %.lr.ph230 ], [ 0, %100 ], [ 0, %98 ], [ 0, %132 ], [ 0, %131 ], [ 0, %53 ], [ 0, %52 ], [ 0, %72 ], [ 0, %73 ], [ 0, %93 ], [ 0, %94 ]
+  %.0126 = phi ptr [ null, %38 ], [ null, %37 ], [ null, %25 ], [ %35, %._crit_edge ], [ null, %24 ], [ %35, %.preheader ], [ %35, %161 ], [ %35, %.lr.ph236.split.us ], [ %35, %.critedge172.us ], [ %35, %177 ], [ %35, %.lr.ph236.split ], [ %35, %.critedge172 ], [ %35, %.lr.ph230 ], [ %35, %100 ], [ %35, %98 ], [ %35, %132 ], [ %35, %131 ], [ %35, %53 ], [ %35, %52 ], [ %35, %72 ], [ %35, %73 ], [ %35, %93 ], [ %35, %94 ]
   tail call void @OPENSSL_sk_free(ptr noundef %.0126) #15
   br label %.critedge.thread
 

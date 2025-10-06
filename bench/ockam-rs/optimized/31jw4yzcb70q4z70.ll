@@ -254,13 +254,13 @@ define hidden void @_ZN4core5array5drain16drain_array_with17hd41d718fd2d12c62E(p
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef i16 @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h1eaef3f3c88ecffaE.llvm.11192376679961209255"(i16 noundef %0, i16 returned %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca { {} }, align 1
-  %switch = icmp eq i16 %0, 0
-  br i1 %switch, label %7, label %8
-
-7:                                                ; preds = %5
-  ret i16 %1
+  %7 = icmp eq i16 %0, 0
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
+  ret i16 %1
+
+9:                                                ; preds = %5
   call void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.3948a07f4b57c45e9311d235f2dbd5e9.18.llvm.11192376679961209255, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #15
   unreachable
 }

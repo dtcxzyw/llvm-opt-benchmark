@@ -255,11 +255,11 @@ define range(i32 0, 5) i32 @SRP_VBASE_init(ptr noundef captures(none) %0, ptr no
   br label %32
 
 32:                                               ; preds = %.lr.ph, %115
-  %.1155 = phi i32 [ 4, %.lr.ph ], [ %.4, %115 ]
-  %.168154 = phi ptr [ %.067, %.lr.ph ], [ %.269, %115 ]
-  %.070153 = phi i32 [ 0, %.lr.ph ], [ %116, %115 ]
+  %.1154 = phi i32 [ 4, %.lr.ph ], [ %.4, %115 ]
+  %.168153 = phi ptr [ %.067, %.lr.ph ], [ %.269, %115 ]
+  %.070152 = phi i32 [ 0, %.lr.ph ], [ %116, %115 ]
   %33 = load ptr, ptr %27, align 8, !tbaa !23
-  %34 = call ptr @OPENSSL_sk_value(ptr noundef %33, i32 noundef %.070153) #7
+  %34 = call ptr @OPENSSL_sk_value(ptr noundef %33, i32 noundef %.070152) #7
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   %36 = load i8, ptr %35, align 1, !tbaa !31
   switch i8 %36, label %115 [
@@ -353,7 +353,7 @@ define range(i32 0, 5) i32 @SRP_VBASE_init(ptr noundef captures(none) %0, ptr no
   %87 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %81, ptr noundef nonnull @.str, i32 noundef 219) #7
   store ptr %87, ptr %71, align 8, !tbaa !11
   %88 = icmp eq ptr %87, null
-  br i1 %88, label %.thread109.thread125, label %89
+  br i1 %88, label %.thread108.thread124, label %89
 
 89:                                               ; preds = %86, %73
   %90 = icmp eq ptr %83, null
@@ -362,8 +362,8 @@ define range(i32 0, 5) i32 @SRP_VBASE_init(ptr noundef captures(none) %0, ptr no
 SRP_user_pwd_set1_ids.exit:                       ; preds = %89
   %91 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %83, ptr noundef nonnull @.str, i32 noundef 221) #7
   store ptr %91, ptr %84, align 8, !tbaa !12
-  %.not132 = icmp eq ptr %91, null
-  br i1 %.not132, label %.thread109.thread125, label %SRP_user_pwd_set1_ids.exit.thread97
+  %.not131 = icmp eq ptr %91, null
+  br i1 %.not131, label %.thread108.thread124, label %SRP_user_pwd_set1_ids.exit.thread97
 
 SRP_user_pwd_set1_ids.exit.thread97:              ; preds = %89, %SRP_user_pwd_set1_ids.exit
   %92 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -403,19 +403,19 @@ SRP_user_pwd_set1_ids.exit.thread97:              ; preds = %89, %SRP_user_pwd_s
 
 SRP_user_pwd_set_sv.exit.thread:                  ; preds = %SRP_user_pwd_set1_ids.exit.thread97, %100, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread109.thread125
+  br label %.thread108.thread124
 
 111:                                              ; preds = %106
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %112 = load ptr, ptr %0, align 8, !tbaa !15
   %113 = call i32 @OPENSSL_sk_insert(ptr noundef %112, ptr noundef nonnull %71, i32 noundef 0) #7
   %114 = icmp eq i32 %113, 0
-  br i1 %114, label %.thread109.thread125, label %115
+  br i1 %114, label %.thread108.thread124, label %115
 
 115:                                              ; preds = %66, %111, %32, %64, %62
-  %.269 = phi ptr [ %65, %64 ], [ %.168154, %62 ], [ %.168154, %32 ], [ %.168154, %111 ], [ %.168154, %66 ]
-  %.4 = phi i32 [ %.1155, %64 ], [ %.1155, %62 ], [ %.1155, %32 ], [ 2, %111 ], [ %.1155, %66 ]
-  %116 = add nuw nsw i32 %.070153, 1
+  %.269 = phi ptr [ %65, %64 ], [ %.168153, %62 ], [ %.168153, %32 ], [ %.168153, %111 ], [ %.168153, %66 ]
+  %.4 = phi i32 [ %.1154, %64 ], [ %.1154, %62 ], [ %.1154, %32 ], [ 2, %111 ], [ %.1154, %66 ]
+  %116 = add nuw nsw i32 %.070152, 1
   %117 = load ptr, ptr %27, align 8, !tbaa !23
   %118 = call i32 @OPENSSL_sk_num(ptr noundef %117) #7
   %119 = icmp slt i32 %116, %118
@@ -455,12 +455,12 @@ SRP_get_gN_by_id.exit:                            ; preds = %128, %120
   br i1 %133, label %SRP_user_pwd_free.exit, label %SRP_get_gN_by_id.exit.thread
 
 SRP_get_gN_by_id.exit.thread:                     ; preds = %124, %SRP_get_gN_by_id.exit
-  %.0.i93107 = phi ptr [ %132, %SRP_get_gN_by_id.exit ], [ %123, %124 ]
-  %134 = getelementptr inbounds nuw i8, ptr %.0.i93107, i64 8
+  %.0.i93106 = phi ptr [ %132, %SRP_get_gN_by_id.exit ], [ %123, %124 ]
+  %134 = getelementptr inbounds nuw i8, ptr %.0.i93106, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !33
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %135, ptr %136, align 8, !tbaa !37
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i93107, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i93106, i64 16
   %138 = load ptr, ptr %137, align 8, !tbaa !32
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %138, ptr %139, align 8, !tbaa !38
@@ -472,8 +472,8 @@ SRP_get_gN_by_id.exit.thread:                     ; preds = %124, %SRP_get_gN_by
   call void @CRYPTO_free(ptr noundef nonnull %38, ptr noundef nonnull @.str, i32 noundef 502) #7
   br label %SRP_user_pwd_free.exit
 
-.thread109.thread125:                             ; preds = %86, %SRP_user_pwd_set1_ids.exit, %111, %SRP_user_pwd_set_sv.exit.thread
-  %.056117129 = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %86 ], [ 4, %SRP_user_pwd_set1_ids.exit ], [ 2, %111 ]
+.thread108.thread124:                             ; preds = %86, %SRP_user_pwd_set1_ids.exit, %111, %SRP_user_pwd_set_sv.exit.thread
+  %.056116128 = phi i32 [ 2, %SRP_user_pwd_set_sv.exit.thread ], [ 4, %86 ], [ 4, %SRP_user_pwd_set1_ids.exit ], [ 2, %111 ]
   %142 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %143 = load ptr, ptr %142, align 8, !tbaa !3
   call void @BN_free(ptr noundef %143) #7
@@ -488,13 +488,13 @@ SRP_get_gN_by_id.exit.thread:                     ; preds = %124, %SRP_get_gN_by
   call void @CRYPTO_free(ptr noundef nonnull %71, ptr noundef nonnull @.str, i32 noundef 187) #7
   br label %SRP_user_pwd_free.exit
 
-SRP_user_pwd_free.exit:                           ; preds = %37, %70, %SRP_get_gN_by_id.exit, %SRP_get_gN_by_id.exit.thread, %._crit_edge, %140, %2, %10, %11, %13, %17, %.thread109.thread125
-  %.057116122 = phi ptr [ %18, %.thread109.thread125 ], [ null, %2 ], [ null, %10 ], [ null, %11 ], [ null, %13 ], [ null, %17 ], [ %18, %140 ], [ %18, %._crit_edge ], [ %18, %SRP_get_gN_by_id.exit.thread ], [ %18, %SRP_get_gN_by_id.exit ], [ %18, %70 ], [ %18, %37 ]
-  %.056117121 = phi i32 [ %.056117129, %.thread109.thread125 ], [ 4, %2 ], [ 3, %10 ], [ 3, %11 ], [ 3, %13 ], [ 1, %17 ], [ %.1155, %140 ], [ 0, %._crit_edge ], [ 0, %SRP_get_gN_by_id.exit.thread ], [ 2, %SRP_get_gN_by_id.exit ], [ %.1155, %37 ], [ 4, %70 ]
-  call void @TXT_DB_free(ptr noundef %.057116122) #7
+SRP_user_pwd_free.exit:                           ; preds = %37, %70, %SRP_get_gN_by_id.exit, %SRP_get_gN_by_id.exit.thread, %._crit_edge, %140, %2, %10, %11, %13, %17, %.thread108.thread124
+  %.057115121 = phi ptr [ %18, %.thread108.thread124 ], [ null, %2 ], [ null, %10 ], [ null, %11 ], [ null, %13 ], [ null, %17 ], [ %18, %140 ], [ %18, %._crit_edge ], [ %18, %SRP_get_gN_by_id.exit.thread ], [ %18, %SRP_get_gN_by_id.exit ], [ %18, %70 ], [ %18, %37 ]
+  %.056116120 = phi i32 [ %.056116128, %.thread108.thread124 ], [ 4, %2 ], [ 3, %10 ], [ 3, %11 ], [ 3, %13 ], [ 1, %17 ], [ %.1154, %140 ], [ 0, %._crit_edge ], [ 0, %SRP_get_gN_by_id.exit.thread ], [ 2, %SRP_get_gN_by_id.exit ], [ %.1154, %37 ], [ 4, %70 ]
+  call void @TXT_DB_free(ptr noundef %.057115121) #7
   call void @BIO_free_all(ptr noundef %6) #7
   call void @OPENSSL_sk_free(ptr noundef %4) #7
-  ret i32 %.056117121
+  ret i32 %.056116120
 }
 
 declare ptr @BIO_new(ptr noundef) local_unnamed_addr #1
@@ -962,7 +962,7 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
   %or.cond3 = or i1 %or.cond, %15
   %16 = icmp eq ptr %3, null
   %or.cond5 = or i1 %or.cond3, %16
-  br i1 %or.cond5, label %.thread93, label %17
+  br i1 %or.cond5, label %.thread91, label %17
 
 17:                                               ; preds = %8
   %.not = icmp eq ptr %4, null
@@ -971,27 +971,27 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
 18:                                               ; preds = %17
   %19 = call fastcc i32 @t_fromb64(ptr noundef %11, ptr noundef nonnull %4)
   %20 = icmp slt i32 %19, 1
-  br i1 %20, label %.thread93, label %21
+  br i1 %20, label %.thread91, label %21
 
 21:                                               ; preds = %18
   %22 = call ptr @BN_bin2bn(ptr noundef nonnull %11, i32 noundef %19, ptr noundef null) #7
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread93, label %24
+  br i1 %23, label %.thread91, label %24
 
 24:                                               ; preds = %21
   %25 = call fastcc i32 @t_fromb64(ptr noundef %11, ptr noundef %5)
   %26 = icmp slt i32 %25, 1
-  br i1 %26, label %.thread93, label %27
+  br i1 %26, label %.thread91, label %27
 
 27:                                               ; preds = %24
   %28 = call ptr @BN_bin2bn(ptr noundef nonnull %11, i32 noundef %25, ptr noundef null) #7
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread93, label %38
+  br i1 %29, label %.thread91, label %38
 
 30:                                               ; preds = %17
   %31 = tail call ptr @SRP_get_default_gN(ptr noundef %5) #7
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %.thread93, label %.thread
+  br i1 %32, label %.thread91, label %.thread
 
 .thread:                                          ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -1014,30 +1014,30 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
 41:                                               ; preds = %38
   %42 = call i32 @RAND_bytes_ex(ptr noundef %6, ptr noundef nonnull %12, i64 noundef 20, i32 noundef 0) #7
   %43 = icmp slt i32 %42, 1
-  br i1 %43, label %.thread93, label %47
+  br i1 %43, label %.thread91, label %47
 
 44:                                               ; preds = %38
   %45 = call fastcc i32 @t_fromb64(ptr noundef %12, ptr noundef nonnull %39)
   %46 = icmp slt i32 %45, 1
-  br i1 %46, label %.thread93, label %47
+  br i1 %46, label %.thread91, label %47
 
 47:                                               ; preds = %44, %41
   %.sink = phi i32 [ 20, %41 ], [ %45, %44 ]
   %48 = call ptr @BN_bin2bn(ptr noundef nonnull %12, i32 noundef %.sink, ptr noundef null) #7
   store ptr %48, ptr %9, align 8, !tbaa !44
   %49 = icmp eq ptr %48, null
-  br i1 %49, label %.thread93, label %50
+  br i1 %49, label %.thread91, label %50
 
 50:                                               ; preds = %47
   %51 = call i32 @SRP_create_verifier_BN_ex(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %.060, ptr noundef %.058, ptr noundef %6, ptr noundef %7)
   %.not81 = icmp eq i32 %51, 0
-  br i1 %.not81, label %.thread93, label %52
+  br i1 %.not81, label %.thread91, label %52
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %10, align 8, !tbaa !44
   %54 = call i32 @BN_bn2bin(ptr noundef %53, ptr noundef nonnull %11) #7
   %55 = icmp slt i32 %54, 0
-  br i1 %55, label %.thread93, label %56
+  br i1 %55, label %.thread91, label %56
 
 56:                                               ; preds = %52
   %57 = call i32 @BN_num_bits(ptr noundef %53) #7
@@ -1047,7 +1047,7 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
   %61 = sext i32 %60 to i64
   %62 = call noalias ptr @CRYPTO_malloc(i64 noundef %61, ptr noundef nonnull @.str, i32 noundef 676) #7
   %63 = icmp eq ptr %62, null
-  br i1 %63, label %.thread93, label %64
+  br i1 %63, label %.thread91, label %64
 
 64:                                               ; preds = %56
   %65 = call i32 @BN_num_bits(ptr noundef %53) #7
@@ -1055,7 +1055,7 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
   %67 = sdiv i32 %66, 8
   %68 = call fastcc i32 @t_tob64(ptr noundef %62, ptr noundef %11, i32 noundef %67)
   %.not82 = icmp eq i32 %68, 0
-  br i1 %.not82, label %.thread93, label %69
+  br i1 %.not82, label %.thread91, label %69
 
 69:                                               ; preds = %64
   %70 = load ptr, ptr %2, align 8, !tbaa !30
@@ -1065,7 +1065,7 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
 72:                                               ; preds = %69
   %73 = call noalias ptr @CRYPTO_malloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 684) #7
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %.thread93, label %75
+  br i1 %74, label %.thread91, label %75
 
 75:                                               ; preds = %72
   %76 = call fastcc i32 @t_tob64(ptr noundef %73, ptr noundef %12, i32 noundef 20)
@@ -1074,7 +1074,7 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
 
 77:                                               ; preds = %75
   call void @CRYPTO_free(ptr noundef nonnull %73, ptr noundef nonnull @.str, i32 noundef 688) #7
-  br label %.thread93
+  br label %.thread91
 
 78:                                               ; preds = %75
   store ptr %73, ptr %2, align 8, !tbaa !30
@@ -1082,9 +1082,9 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
 
 79:                                               ; preds = %78, %69
   store ptr %62, ptr %3, align 8, !tbaa !30
-  br label %.thread93
+  br label %.thread91
 
-.thread93:                                        ; preds = %72, %77, %30, %64, %56, %52, %50, %47, %44, %41, %27, %24, %21, %18, %8, %79
+.thread91:                                        ; preds = %72, %77, %30, %64, %56, %52, %50, %47, %44, %41, %27, %24, %21, %18, %8, %79
   %.063 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ %.052, %79 ], [ null, %64 ], [ null, %50 ], [ null, %44 ], [ null, %30 ], [ null, %77 ], [ null, %72 ]
   %.062 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ null, %79 ], [ %62, %64 ], [ null, %50 ], [ null, %44 ], [ null, %30 ], [ %62, %77 ], [ %62, %72 ]
   %.056 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ %22, %24 ], [ %22, %27 ], [ %.157, %41 ], [ %.157, %47 ], [ %.157, %52 ], [ %.157, %56 ], [ %.157, %79 ], [ %.157, %64 ], [ %.157, %50 ], [ %.157, %44 ], [ null, %30 ], [ %.157, %77 ], [ %.157, %72 ]

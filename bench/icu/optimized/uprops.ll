@@ -1858,24 +1858,22 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL18isIDSUnaryOperatorRK14Bi
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef signext range(i8 0, 2) i8 @_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 %2) #2 {
   %4 = icmp slt i32 %1, 8706
-  br i1 %4, label %7, label %.preheader
+  br i1 %4, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %3, %.preheader
-  %.011.idx14 = phi i64 [ %.011.add, %.preheader ], [ 0, %3 ]
-  %.011.ptr = getelementptr inbounds nuw i8, ptr @_ZL20ID_COMPAT_MATH_START, i64 %.011.idx14
-  %5 = load i32, ptr %.011.ptr, align 4, !tbaa !20
-  %.not13 = icmp eq i32 %1, %5
-  %.011.add = add nuw nsw i64 %.011.idx14, 4
-  %.not.not = icmp eq i64 %.011.add, 52
-  %or.cond = select i1 %.not13, i1 true, i1 %.not.not
-  br i1 %or.cond, label %6, label %.preheader
+5:                                                ; preds = %.preheader
+  %.011.add = add nuw nsw i64 %.011.idx15, 4
+  %.not = icmp eq i64 %.011.add, 52
+  br i1 %.not, label %.loopexit, label %.preheader
 
-6:                                                ; preds = %.preheader
-  %spec.select = zext i1 %.not13 to i8
-  br label %7
+.preheader:                                       ; preds = %3, %5
+  %.011.idx15 = phi i64 [ %.011.add, %5 ], [ 0, %3 ]
+  %.011.ptr = getelementptr inbounds nuw i8, ptr @_ZL20ID_COMPAT_MATH_START, i64 %.011.idx15
+  %6 = load i32, ptr %.011.ptr, align 4, !tbaa !20
+  %.not13 = icmp eq i32 %1, %6
+  br i1 %.not13, label %.loopexit, label %5
 
-7:                                                ; preds = %6, %3
-  %.0 = phi i8 [ 0, %3 ], [ %spec.select, %6 ]
+.loopexit:                                        ; preds = %.preheader, %5, %3
+  %.0 = phi i8 [ 0, %3 ], [ 0, %5 ], [ 1, %.preheader ]
   ret i8 %.0
 }
 
@@ -1905,22 +1903,20 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL22isIDCompatMathContinueRK
   %15 = icmp slt i32 %1, 8706
   br i1 %15, label %_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %14, %.preheader.i
-  %.011.idx14.i = phi i64 [ %.011.add.i, %.preheader.i ], [ 0, %14 ]
-  %.011.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL20ID_COMPAT_MATH_START, i64 %.011.idx14.i
-  %16 = load i32, ptr %.011.ptr.i, align 4, !tbaa !20
-  %.not13.i = icmp eq i32 %1, %16
-  %.011.add.i = add nuw nsw i64 %.011.idx14.i, 4
-  %.not.not.i = icmp eq i64 %.011.add.i, 52
-  %or.cond.i = select i1 %.not13.i, i1 true, i1 %.not.not.i
-  br i1 %or.cond.i, label %17, label %.preheader.i
+16:                                               ; preds = %.preheader.i
+  %.011.add.i = add nuw nsw i64 %.011.idx15.i, 4
+  %.not.i = icmp eq i64 %.011.add.i, 52
+  br i1 %.not.i, label %_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty.exit, label %.preheader.i
 
-17:                                               ; preds = %.preheader.i
-  %spec.select.i = zext i1 %.not13.i to i8
-  br label %_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty.exit
+.preheader.i:                                     ; preds = %14, %16
+  %.011.idx15.i = phi i64 [ %.011.add.i, %16 ], [ 0, %14 ]
+  %.011.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL20ID_COMPAT_MATH_START, i64 %.011.idx15.i
+  %17 = load i32, ptr %.011.ptr.i, align 4, !tbaa !20
+  %.not13.i = icmp eq i32 %1, %17
+  br i1 %.not13.i, label %_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty.exit, label %16
 
-_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty.exit: ; preds = %10, %6, %17, %14
-  %.1 = phi i8 [ 0, %14 ], [ %spec.select.i, %17 ], [ 0, %6 ], [ 1, %10 ]
+_ZL19isIDCompatMathStartRK14BinaryPropertyi9UProperty.exit: ; preds = %10, %6, %.preheader.i, %16, %14
+  %.1 = phi i8 [ 0, %14 ], [ 1, %.preheader.i ], [ 0, %16 ], [ 0, %6 ], [ 1, %10 ]
   ret i8 %.1
 }
 
@@ -1930,25 +1926,25 @@ define internal noundef signext range(i8 0, 2) i8 @_ZL23isModifierCombiningMarkR
 
 4:                                                ; preds = %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %5 = icmp samesign ugt i64 %indvars.iv, 15
-  br i1 %5, label %14, label %6, !llvm.loop !76
+  %5 = icmp samesign ult i64 %indvars.iv, 16
+  br i1 %5, label %6, label %.thread, !llvm.loop !76
 
 6:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
   %7 = getelementptr inbounds nuw i32, ptr @_ZL23MODIFIER_COMBINING_MARK, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8, !tbaa !20
   %9 = icmp slt i32 %1, %8
-  br i1 %9, label %14, label %10
+  br i1 %9, label %.thread, label %10
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !20
   %13 = icmp slt i32 %1, %12
-  br i1 %13, label %14, label %4
+  br i1 %13, label %.thread, label %4
 
-14:                                               ; preds = %10, %6, %4
-  %spec.select = phi i8 [ 0, %4 ], [ 0, %6 ], [ 1, %10 ]
-  ret i8 %spec.select
+.thread:                                          ; preds = %10, %6, %4
+  %14 = phi i8 [ 0, %4 ], [ 1, %10 ], [ 0, %6 ]
+  ret i8 %14
 }
 
 declare signext i8 @ubidi_isBidiControl_77(i32 noundef) local_unnamed_addr #1

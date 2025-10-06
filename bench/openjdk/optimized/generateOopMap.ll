@@ -3825,12 +3825,11 @@ define hidden void @_ZN14GenerateOopMap17do_exception_edgeEP14BytecodeStream(ptr
 14:                                               ; preds = %9
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %16 = load i32, ptr %15, align 4
-  switch i32 %16, label %.loopexit39 [
-    i32 -1, label %17
-    i32 0, label %17
-  ]
+  %.off = add i32 %16, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %.loopexit39, label %17
 
-17:                                               ; preds = %14, %14, %9, %10
+17:                                               ; preds = %14, %9, %10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %19 = load i32, ptr %18, align 4
   %.not28 = icmp eq i32 %19, 0

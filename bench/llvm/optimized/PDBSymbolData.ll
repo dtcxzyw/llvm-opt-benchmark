@@ -171,8 +171,8 @@ define dso_local noundef i32 @_ZNK4llvm3pdb13PDBSymbolData14getCompilandIdEv(ptr
 
 _ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv.exit: ; preds = %21, %33
   %.pr = load ptr, ptr %2, align 8, !tbaa !25
-  %.not90 = icmp eq ptr %.pr, null
-  br i1 %.not90, label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit.thread, label %45
+  %.not89 = icmp eq ptr %.pr, null
+  br i1 %.not89, label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit.thread, label %45
 
 45:                                               ; preds = %_ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -181,8 +181,8 @@ _ZNK4llvm3pdb13PDBSymbolData14getLineNumbersEv.exit: ; preds = %21, %33
   %48 = load ptr, ptr %47, align 8
   call void %48(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.10") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.pr) #7
   %49 = load ptr, ptr %3, align 8, !tbaa !26
-  %.not91 = icmp eq ptr %49, null
-  br i1 %.not91, label %.thread, label %50
+  %.not90 = icmp eq ptr %49, null
+  br i1 %.not90, label %.thread, label %50
 
 50:                                               ; preds = %45
   %51 = load ptr, ptr %49, align 8, !tbaa !3
@@ -220,10 +220,10 @@ _ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEEEclEP
 
 _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %.thread, %_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEEEclEPS4_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not91, label %61, label %172
+  br i1 %.not90, label %61, label %172
 
 61:                                               ; preds = %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit
-  %.23943 = phi i32 [ undef, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit.thread ], [ %.11432, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit ]
+  %.23942 = phi i32 [ undef, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit.thread ], [ %.11432, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14default_deleteIS4_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = load ptr, ptr %9, align 8, !tbaa !6
   %63 = load ptr, ptr %62, align 8, !tbaa !3
@@ -240,7 +240,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
   store i32 %71, ptr %5, align 4, !tbaa !28
   %72 = load i32, ptr %4, align 4, !tbaa !28
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %74, label %.thread45
+  br i1 %73, label %74, label %.thread44
 
 74:                                               ; preds = %61
   %75 = load ptr, ptr %9, align 8, !tbaa !6
@@ -261,11 +261,11 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
   br label %87
 
 87:                                               ; preds = %74, %80
-  %.pr44 = load i32, ptr %4, align 4, !tbaa !28
-  %.not22 = icmp eq i32 %.pr44, 0
-  br i1 %.not22, label %140, label %.thread45
+  %.pr43 = load i32, ptr %4, align 4, !tbaa !28
+  %.not22 = icmp eq i32 %.pr43, 0
+  br i1 %.not22, label %140, label %.thread44
 
-.thread45:                                        ; preds = %61, %87
+.thread44:                                        ; preds = %61, %87
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !18
@@ -274,15 +274,15 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_14IPDBLineNumberEEESt14defaul
   %92 = load ptr, ptr %91, align 8
   call void %92(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.18") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %89) #7
   %93 = load ptr, ptr %6, align 8, !tbaa !30
-  %.not92 = icmp eq ptr %93, null
-  br i1 %.not92, label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit.thread, label %.preheader
+  %.not91 = icmp eq ptr %93, null
+  br i1 %.not91, label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit.thread, label %.preheader
 
-_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit.thread: ; preds = %.thread45
+_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit.thread: ; preds = %.thread44
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread85
+  br label %.thread84
 
-.preheader:                                       ; preds = %.thread45, %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit
-  %.5 = phi i32 [ %.6.ph, %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit ], [ %.23943, %.thread45 ]
+.preheader:                                       ; preds = %.thread44, %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit
+  %.5 = phi i32 [ %.6.ph, %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit ], [ %.23942, %.thread44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %94 = load ptr, ptr %6, align 8, !tbaa !30
   %95 = load ptr, ptr %94, align 8, !tbaa !3
@@ -290,12 +290,12 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14de
   %97 = load ptr, ptr %96, align 8
   call void %97(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.26") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %94) #7
   %98 = load ptr, ptr %7, align 8, !tbaa !32
-  %.not93 = icmp eq ptr %98, null
-  br i1 %.not93, label %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit.thread, label %99
+  %.not92 = icmp eq ptr %98, null
+  br i1 %.not92, label %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit.thread, label %99
 
 _ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit.thread: ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit95
+  br label %.loopexit94
 
 99:                                               ; preds = %.preheader
   %100 = load ptr, ptr %98, align 8, !tbaa !3
@@ -341,39 +341,39 @@ _ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.ex
   br label %133
 
 133:                                              ; preds = %99, %106, %113, %127
-  %cond89 = phi i1 [ true, %99 ], [ true, %106 ], [ true, %113 ], [ false, %127 ]
+  %cond88 = phi i1 [ true, %99 ], [ true, %106 ], [ true, %113 ], [ false, %127 ]
   %.6.ph = phi i32 [ %.5, %99 ], [ %.5, %106 ], [ %.5, %113 ], [ %132, %127 ]
-  %.pr48 = load ptr, ptr %7, align 8, !tbaa !32
-  %.not.i26 = icmp eq ptr %.pr48, null
+  %.pr47 = load ptr, ptr %7, align 8, !tbaa !32
+  %.not.i26 = icmp eq ptr %.pr47, null
   br i1 %.not.i26, label %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3pdb18IPDBSectionContribEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm3pdb18IPDBSectionContribEEclEPS2_.exit.i: ; preds = %133
-  %134 = load ptr, ptr %.pr48, align 8, !tbaa !3
+  %134 = load ptr, ptr %.pr47, align 8, !tbaa !3
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8
-  call void %136(ptr noundef nonnull align 8 dereferenceable(8) %.pr48) #7
+  call void %136(ptr noundef nonnull align 8 dereferenceable(8) %.pr47) #7
   br label %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit: ; preds = %133, %_ZNKSt14default_deleteIN4llvm3pdb18IPDBSectionContribEEclEPS2_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %cond89, label %.preheader, label %.loopexit95
+  br i1 %cond88, label %.preheader, label %.loopexit94
 
-.loopexit95:                                      ; preds = %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit.thread
+.loopexit94:                                      ; preds = %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit.thread
   %.7.ph = phi i32 [ %.5, %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit.thread ], [ %.6.ph, %_ZNSt10unique_ptrIN4llvm3pdb18IPDBSectionContribESt14default_deleteIS2_EED2Ev.exit ]
-  %.pr59 = load ptr, ptr %6, align 8, !tbaa !30
-  %.not.i27 = icmp eq ptr %.pr59, null
+  %.pr58 = load ptr, ptr %6, align 8, !tbaa !30
+  %.not.i27 = icmp eq ptr %.pr58, null
   br i1 %.not.i27, label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEEEclEPS4_.exit.i
 
-_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEEEclEPS4_.exit.i: ; preds = %.loopexit95
-  %137 = load ptr, ptr %.pr59, align 8, !tbaa !3
+_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEEEclEPS4_.exit.i: ; preds = %.loopexit94
+  %137 = load ptr, ptr %.pr58, align 8, !tbaa !3
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = load ptr, ptr %138, align 8
-  call void %139(ptr noundef nonnull align 8 dereferenceable(8) %.pr59) #7
+  call void %139(ptr noundef nonnull align 8 dereferenceable(8) %.pr58) #7
   br label %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit
 
-_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %.loopexit95, %_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEEEclEPS4_.exit.i
+_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit: ; preds = %.loopexit94, %_ZNKSt14default_deleteIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEEEclEPS4_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not93, label %.thread85, label %.loopexit
+  br i1 %.not92, label %.thread84, label %.loopexit
 
 140:                                              ; preds = %87
   %141 = load ptr, ptr %9, align 8, !tbaa !6
@@ -385,7 +385,7 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14de
   br label %147
 
 147:                                              ; preds = %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit, %140
-  %.9 = phi i32 [ %.23943, %140 ], [ %.10.ph, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit ]
+  %.9 = phi i32 [ %.23942, %140 ], [ %.10.ph, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit ]
   %.0 = phi i32 [ %145, %140 ], [ %.1.ph, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %148 = load ptr, ptr %146, align 8, !tbaa !18
@@ -394,12 +394,12 @@ _ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14de
   %151 = load ptr, ptr %150, align 8
   call void %151(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.35") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %148, i32 noundef %.0) #7
   %152 = load ptr, ptr %8, align 8, !tbaa !34
-  %.not94 = icmp eq ptr %152, null
-  br i1 %.not94, label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit.thread, label %153
+  %.not93 = icmp eq ptr %152, null
+  br i1 %.not93, label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit.thread, label %153
 
 _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit.thread: ; preds = %147
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread85
+  br label %.thread84
 
 153:                                              ; preds = %147
   %154 = call noundef i32 @_ZNK4llvm3pdb9PDBSymbol9getSymTagEv(ptr noundef nonnull align 8 dereferenceable(32) %152) #7
@@ -426,29 +426,29 @@ _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit.thread:
   %.419.ph = phi i32 [ 1, %156 ], [ 5, %153 ], [ 0, %160 ]
   %.10.ph = phi i32 [ %.0, %156 ], [ %.9, %153 ], [ %.9, %160 ]
   %.1.ph = phi i32 [ %.0, %156 ], [ %.0, %153 ], [ %167, %160 ]
-  %.pr70 = load ptr, ptr %8, align 8, !tbaa !34
-  %.not.i28 = icmp eq ptr %.pr70, null
+  %.pr69 = load ptr, ptr %8, align 8, !tbaa !34
+  %.not.i28 = icmp eq ptr %.pr69, null
   br i1 %.not.i28, label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i: ; preds = %168
-  %169 = load ptr, ptr %.pr70, align 8, !tbaa !3
+  %169 = load ptr, ptr %.pr69, align 8, !tbaa !3
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load ptr, ptr %170, align 8
-  call void %171(ptr noundef nonnull align 8 dereferenceable(32) %.pr70) #7
+  call void %171(ptr noundef nonnull align 8 dereferenceable(32) %.pr69) #7
   br label %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit: ; preds = %168, %_ZNKSt14default_deleteIN4llvm3pdb9PDBSymbolEEclEPS2_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   switch i32 %.419.ph, label %.loopexit [
     i32 0, label %147
-    i32 5, label %.thread85
+    i32 5, label %.thread84
   ], !llvm.loop !36
 
-.thread85:                                        ; preds = %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit
+.thread84:                                        ; preds = %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit, %.thread85
-  %.8 = phi i32 [ 0, %.thread85 ], [ %.7.ph, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit ], [ %.10.ph, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit ]
+.loopexit:                                        ; preds = %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit, %.thread84
+  %.8 = phi i32 [ 0, %.thread84 ], [ %.7.ph, %_ZNSt10unique_ptrIN4llvm3pdb16IPDBEnumChildrenINS1_18IPDBSectionContribEEESt14default_deleteIS4_EED2Ev.exit ], [ %.10.ph, %_ZNSt10unique_ptrIN4llvm3pdb9PDBSymbolESt14default_deleteIS2_EED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %172

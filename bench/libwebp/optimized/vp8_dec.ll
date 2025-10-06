@@ -1296,9 +1296,9 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   store i32 0, ptr %23, align 4, !tbaa !102
   %25 = load i32, ptr %24, align 4, !tbaa !103
   %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %.lr.ph35.i, label %._crit_edge36.i
+  br i1 %26, label %.lr.ph34.i, label %._crit_edge35.i
 
-.lr.ph35.i:                                       ; preds = %22
+.lr.ph34.i:                                       ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1308,10 +1308,10 @@ define hidden range(i32 0, 2) i32 @VP8Decode(ptr noundef %0, ptr noundef %1) loc
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   br label %34
 
-34:                                               ; preds = %VP8SetError.exit.i, %.lr.ph35.i
-  %storemerge33.i = phi i32 [ 0, %.lr.ph35.i ], [ %69, %VP8SetError.exit.i ]
+34:                                               ; preds = %VP8SetError.exit.i, %.lr.ph34.i
+  %storemerge32.i = phi i32 [ 0, %.lr.ph34.i ], [ %69, %VP8SetError.exit.i ]
   %35 = load i32, ptr %28, align 8, !tbaa !27
-  %36 = and i32 %35, %storemerge33.i
+  %36 = and i32 %35, %storemerge32.i
   %37 = zext i32 %36 to i64
   %38 = getelementptr inbounds nuw %struct.VP8BitReader, ptr %27, i64 %37
   %39 = tail call i32 @VP8ParseIntraModeRow(ptr noundef nonnull %29, ptr noundef nonnull %0) #13
@@ -1391,15 +1391,15 @@ VP8SetError.exit.i:                               ; preds = %._crit_edge.i
   store i32 %69, ptr %23, align 4, !tbaa !102
   %70 = load i32, ptr %24, align 4, !tbaa !103
   %71 = icmp slt i32 %69, %70
-  br i1 %71, label %34, label %._crit_edge36.i, !llvm.loop !105
+  br i1 %71, label %34, label %._crit_edge35.i, !llvm.loop !105
 
-._crit_edge36.i:                                  ; preds = %VP8SetError.exit.i, %22
+._crit_edge35.i:                                  ; preds = %VP8SetError.exit.i, %22
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %73 = load i32, ptr %72, align 8, !tbaa !106
   %74 = icmp sgt i32 %73, 0
   br i1 %74, label %75, label %81
 
-75:                                               ; preds = %._crit_edge36.i
+75:                                               ; preds = %._crit_edge35.i
   %76 = tail call ptr @WebPGetWorkerInterface() #13
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 16
   %78 = load ptr, ptr %77, align 8, !tbaa !107
@@ -1408,7 +1408,7 @@ VP8SetError.exit.i:                               ; preds = %._crit_edge.i
   %.not.i = icmp eq i32 %80, 0
   br i1 %.not.i, label %82, label %81
 
-81:                                               ; preds = %75, %._crit_edge36.i
+81:                                               ; preds = %75, %._crit_edge35.i
   br label %82
 
 82:                                               ; preds = %20, %43, %46, %49, %52, %63, %66, %75, %81

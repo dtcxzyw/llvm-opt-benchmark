@@ -69,14 +69,14 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
 
 6:                                                ; preds = %1
   %7 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str) #15
-  br label %.thread67
+  br label %.thread66
 
 8:                                                ; preds = %1
   %9 = tail call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.1) #15
   %.not = icmp eq ptr %9, null
-  br i1 %.not, label %.thread116, label %11
+  br i1 %.not, label %.thread115, label %11
 
-.thread116:                                       ; preds = %8
+.thread115:                                       ; preds = %8
   %10 = tail call fastcc i32 @isremote()
   br label %.split.split.preheader
 
@@ -84,9 +84,9 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %.not55 = icmp eq ptr %13, null
-  br i1 %.not55, label %.thread106, label %15
+  br i1 %.not55, label %.thread105, label %15
 
-.thread106:                                       ; preds = %11
+.thread105:                                       ; preds = %11
   %14 = tail call fastcc i32 @isremote()
   br label %.split.us.split.us.preheader
 
@@ -97,7 +97,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
 
 18:                                               ; preds = %15
   %19 = tail call i32 (i32, ptr, ...) @logg(i32 noundef 5, ptr noundef nonnull @.str.2) #15
-  br label %.thread67
+  br label %.thread66
 
 20:                                               ; preds = %15
   %21 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %16, i32 noundef 58) #16
@@ -118,7 +118,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %28
   %30 = load ptr, ptr %2, align 8, !tbaa !4
   %31 = icmp ugt ptr %29, %30
-  br i1 %31, label %.thread73.sink.split, label %32
+  br i1 %31, label %.thread72.sink.split, label %32
 
 32:                                               ; preds = %20, %22, %24
   %.146 = phi i64 [ %27, %24 ], [ 1, %22 ], [ 1, %20 ]
@@ -128,7 +128,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   %36 = getelementptr inbounds nuw i8, ptr %16, i64 %35
   %37 = load ptr, ptr %2, align 8, !tbaa !4
   %38 = icmp ugt ptr %36, %37
-  br i1 %38, label %.thread73.sink.split, label %39
+  br i1 %38, label %.thread72.sink.split, label %39
 
 39:                                               ; preds = %32
   %.045.fr = freeze i64 %.146
@@ -137,10 +137,10 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   %42 = trunc i64 %.045.fr to i32
   br i1 %41, label %.split.us.split.us.preheader, label %.split.split.preheader
 
-.split.us.split.us.preheader:                     ; preds = %39, %.thread106
-  %.144115 = phi ptr [ null, %.thread106 ], [ %16, %39 ]
-  %.047111 = phi i64 [ 31, %.thread106 ], [ %34, %39 ]
-  %43 = call i64 @llvm.usub.sat.i64(i64 %.047111, i64 1)
+.split.us.split.us.preheader:                     ; preds = %39, %.thread105
+  %.144114 = phi ptr [ null, %.thread105 ], [ %16, %39 ]
+  %.047110 = phi i64 [ 31, %.thread105 ], [ %34, %39 ]
+  %43 = call i64 @llvm.usub.sat.i64(i64 %.047110, i64 1)
   br label %.split.us.split.us
 
 .split.us.split.us:                               ; preds = %.split.us.split.us.preheader, %62
@@ -156,7 +156,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   call void @recvlninit(ptr noundef nonnull %3, i32 noundef %45) #15
   %48 = call i32 @sendln(i32 noundef %45, ptr noundef nonnull %4, i32 noundef 6) #15
   %.not58.us.us = icmp eq i32 %48, 0
-  br i1 %.not58.us.us, label %.split80.us, label %49
+  br i1 %.not58.us.us, label %.split79.us, label %49
 
 49:                                               ; preds = %47
   %50 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.5) #15
@@ -166,8 +166,8 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
 
 52:                                               ; preds = %49, %.split.us.split.us
   %53 = add nuw i64 %.042.us.us, 1
-  %exitcond97.not = icmp eq i64 %.042.us.us, %43
-  br i1 %exitcond97.not, label %.critedge, label %54
+  %exitcond96.not = icmp eq i64 %.042.us.us, %43
+  br i1 %exitcond96.not, label %.critedge, label %54
 
 54:                                               ; preds = %52
   %55 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
@@ -188,12 +188,12 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   %63 = call i32 @sleep(i32 noundef 1) #15
   br label %.split.us.split.us
 
-.split.split.preheader:                           ; preds = %39, %.thread116
-  %64 = phi i32 [ 0, %.thread116 ], [ %42, %39 ]
-  %.045.fr123 = phi i64 [ 0, %.thread116 ], [ %.045.fr, %39 ]
-  %.144122 = phi ptr [ null, %.thread116 ], [ %16, %39 ]
-  %.047121 = phi i64 [ 0, %.thread116 ], [ %34, %39 ]
-  %65 = call i64 @llvm.usub.sat.i64(i64 %.047121, i64 1)
+.split.split.preheader:                           ; preds = %39, %.thread115
+  %64 = phi i32 [ 0, %.thread115 ], [ %42, %39 ]
+  %.045.fr122 = phi i64 [ 0, %.thread115 ], [ %.045.fr, %39 ]
+  %.144121 = phi ptr [ null, %.thread115 ], [ %16, %39 ]
+  %.047120 = phi i64 [ 0, %.thread115 ], [ %34, %39 ]
+  %65 = call i64 @llvm.usub.sat.i64(i64 %.047120, i64 1)
   br label %.split.split
 
 .split.split:                                     ; preds = %.split.split.preheader, %89
@@ -209,21 +209,21 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   call void @recvlninit(ptr noundef nonnull %3, i32 noundef %67) #15
   %70 = call i32 @sendln(i32 noundef %67, ptr noundef nonnull %4, i32 noundef 6) #15
   %.not58 = icmp eq i32 %70, 0
-  br i1 %.not58, label %.split80.us, label %76
+  br i1 %.not58, label %.split79.us, label %76
 
-.split80.us:                                      ; preds = %47, %69
-  %.144114 = phi ptr [ %.144122, %69 ], [ %.144115, %47 ]
+.split79.us:                                      ; preds = %47, %69
+  %.144113 = phi ptr [ %.144121, %69 ], [ %.144114, %47 ]
   %71 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i32, ptr %72, align 8, !tbaa !17
   %.not59 = icmp eq i32 %73, 0
   br i1 %.not59, label %74, label %.thread
 
-74:                                               ; preds = %.split80.us
+74:                                               ; preds = %.split79.us
   %75 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.7) #15
   br label %.thread
 
-.thread:                                          ; preds = %74, %.split80.us
+.thread:                                          ; preds = %74, %.split79.us
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %98
 
@@ -246,11 +246,11 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br i1 %.not60, label %87, label %85
 
 85:                                               ; preds = %81
-  %86 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.9, i64 noundef %.045.fr123) #15
+  %86 = call i32 (i32, ptr, ...) @logg(i32 noundef 2, ptr noundef nonnull @.str.9, i64 noundef %.045.fr122) #15
   br label %89
 
 87:                                               ; preds = %81
-  %88 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.11, i64 noundef %.045.fr123) #15
+  %88 = call i32 (i32, ptr, ...) @logg(i32 noundef 0, ptr noundef nonnull @.str.11, i64 noundef %.045.fr122) #15
   br label %89
 
 89:                                               ; preds = %87, %85
@@ -258,7 +258,7 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br label %.split.split
 
 .critedge:                                        ; preds = %52, %79
-  %.144113 = phi ptr [ %.144122, %79 ], [ %.144115, %52 ]
+  %.144112 = phi ptr [ %.144121, %79 ], [ %.144114, %52 ]
   %91 = call ptr @optget(ptr noundef nonnull %0, ptr noundef nonnull @.str.6) #15
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = load i32, ptr %92, align 8, !tbaa !17
@@ -274,27 +274,27 @@ define dso_local signext range(i16 -1, 2) i16 @ping_clamd(ptr noundef %0) local_
   br label %98
 
 98:                                               ; preds = %.thread, %94, %96
-  %.144112 = phi ptr [ %.144113, %94 ], [ %.144113, %96 ], [ %.144114, %.thread ]
+  %.144111 = phi ptr [ %.144112, %94 ], [ %.144112, %96 ], [ %.144113, %.thread ]
   %.040 = phi i16 [ 1, %94 ], [ 1, %96 ], [ 0, %.thread ]
-  %.not62 = icmp eq ptr %.144112, null
-  br i1 %.not62, label %.thread67, label %.thread73
+  %.not62 = icmp eq ptr %.144111, null
+  br i1 %.not62, label %.thread66, label %.thread72
 
-.thread73.sink.split:                             ; preds = %32, %24
+.thread72.sink.split:                             ; preds = %32, %24
   %.str.4.sink = phi ptr [ @.str.3, %24 ], [ @.str.4, %32 ]
   %99 = call i32 (i32, ptr, ...) @logg(i32 noundef 4, ptr noundef nonnull %.str.4.sink) #15
-  br label %.thread73
+  br label %.thread72
 
-.thread73:                                        ; preds = %.thread73.sink.split, %98
-  %.04078 = phi i16 [ %.040, %98 ], [ -1, %.thread73.sink.split ]
-  %.04377 = phi ptr [ %.144112, %98 ], [ %16, %.thread73.sink.split ]
-  call void @free(ptr noundef nonnull %.04377) #15
-  br label %.thread67
+.thread72:                                        ; preds = %.thread72.sink.split, %98
+  %.04077 = phi i16 [ %.040, %98 ], [ -1, %.thread72.sink.split ]
+  %.04376 = phi ptr [ %.144111, %98 ], [ %16, %.thread72.sink.split ]
+  call void @free(ptr noundef nonnull %.04376) #15
+  br label %.thread66
 
-.thread67:                                        ; preds = %18, %6, %.thread73, %98
-  %.04071 = phi i16 [ %.04078, %.thread73 ], [ %.040, %98 ], [ -1, %6 ], [ -1, %18 ]
+.thread66:                                        ; preds = %18, %6, %.thread72, %98
+  %.04070 = phi i16 [ %.04077, %.thread72 ], [ %.040, %98 ], [ -1, %6 ], [ -1, %18 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i16 %.04071
+  ret i16 %.04070
 }
 
 declare i32 @logg(i32 noundef, ptr noundef, ...) local_unnamed_addr #1

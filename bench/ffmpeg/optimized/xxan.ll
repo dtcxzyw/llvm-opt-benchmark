@@ -1143,16 +1143,16 @@ bytestream2_get_byte.exit:                        ; preds = %3, %14
   store ptr %22, ptr %6, align 8, !tbaa !45
   %23 = load i8, ptr %18, align 1, !tbaa !46
   %24 = zext i8 %23 to i32
-  %.pre72 = ptrtoint ptr %22 to i64
+  %.pre71 = ptrtoint ptr %22 to i64
   br label %bytestream2_get_byte.exit53
 
 bytestream2_get_byte.exit53:                      ; preds = %bytestream2_get_byte.exit, %21
-  %.pre-phi73 = phi i64 [ %.pre72, %21 ], [ %11, %bytestream2_get_byte.exit ]
+  %.pre-phi72 = phi i64 [ %.pre71, %21 ], [ %11, %bytestream2_get_byte.exit ]
   %25 = phi ptr [ %22, %21 ], [ %.sroa.10.0.copyload, %bytestream2_get_byte.exit ]
   %.0.i52 = phi i32 [ %24, %21 ], [ 0, %bytestream2_get_byte.exit ]
   %26 = add nuw nsw i32 %.0.i52, %.0.i51
   %27 = shl nuw nsw i32 %.0.i51, 1
-  %28 = sub i64 %11, %.pre-phi73
+  %28 = sub i64 %11, %.pre-phi72
   %29 = zext nneg i32 %27 to i64
   %..i = tail call i64 @llvm.smin.i64(i64 %28, i64 %29)
   %30 = getelementptr inbounds i8, ptr %25, i64 %..i

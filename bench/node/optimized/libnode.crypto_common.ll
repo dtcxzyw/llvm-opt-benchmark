@@ -950,12 +950,12 @@ do.end15.i:                                       ; preds = %do.end4.i
   br i1 %cmp.i.i, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread, label %for.cond.preheader.i
 
 for.cond.preheader.i:                             ; preds = %do.end15.i
-  %cmp3564.not.i = icmp eq i32 %call5.i, 0
-  br i1 %cmp3564.not.i, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread291, label %for.body.i
+  %cmp3563.not.i = icmp eq i32 %call5.i, 0
+  br i1 %cmp3563.not.i, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread291, label %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.preheader.i, %for.inc.i
-  %i.065.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
-  %call37.i = call ptr @X509_NAME_get_entry(ptr noundef nonnull %call.i, i32 noundef %i.065.i) #16
+  %i.064.i = phi i32 [ %inc.i, %for.inc.i ], [ 0, %for.cond.preheader.i ]
+  %call37.i = call ptr @X509_NAME_get_entry(ptr noundef nonnull %call.i, i32 noundef %i.064.i) #16
   %cmp39.not.i = icmp eq ptr %call37.i, null
   br i1 %cmp39.not.i, label %do.body44.i, label %do.end47.i
 
@@ -1079,7 +1079,7 @@ _ZN4node16OnScopeLeaveImplIZNS_6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subj
 for.inc.i:                                        ; preds = %if.else221.i, %if.end192.i
   %this.val.val.i.i = load ptr, ptr %value_str.i, align 8
   call void @CRYPTO_free(ptr noundef %this.val.val.i.i, ptr noundef nonnull @.str.127, i32 noundef 995) #16
-  %inc.i = add nuw nsw i32 %i.065.i, 1
+  %inc.i = add nuw nsw i32 %i.064.i, 1
   %exitcond.not.i = icmp eq i32 %inc.i, %call5.i
   br i1 %exitcond.not.i, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z21X509_get_subject_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread291, label %for.body.i, !llvm.loop !11
 
@@ -1171,12 +1171,12 @@ do.end15.i83:                                     ; preds = %do.end4.i80
   br i1 %cmp.i.i87, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread, label %for.cond.preheader.i88
 
 for.cond.preheader.i88:                           ; preds = %do.end15.i83
-  %cmp3564.not.i89 = icmp eq i32 %call5.i81, 0
-  br i1 %cmp3564.not.i89, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread301, label %for.body.i92
+  %cmp3563.not.i89 = icmp eq i32 %call5.i81, 0
+  br i1 %cmp3563.not.i89, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread301, label %for.body.i92
 
 for.body.i92:                                     ; preds = %for.cond.preheader.i88, %for.inc.i148
-  %i.065.i93 = phi i32 [ %inc.i150, %for.inc.i148 ], [ 0, %for.cond.preheader.i88 ]
-  %call37.i94 = call ptr @X509_NAME_get_entry(ptr noundef nonnull %call.i78, i32 noundef %i.065.i93) #16
+  %i.064.i93 = phi i32 [ %inc.i150, %for.inc.i148 ], [ 0, %for.cond.preheader.i88 ]
+  %call37.i94 = call ptr @X509_NAME_get_entry(ptr noundef nonnull %call.i78, i32 noundef %i.064.i93) #16
   %cmp39.not.i95 = icmp eq ptr %call37.i94, null
   br i1 %cmp39.not.i95, label %do.body44.i163, label %do.end47.i96
 
@@ -1300,7 +1300,7 @@ _ZN4node16OnScopeLeaveImplIZNS_6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issu
 for.inc.i148:                                     ; preds = %if.else221.i152, %if.end192.i140
   %this.val.val.i.i149 = load ptr, ptr %value_str.i76, align 8
   call void @CRYPTO_free(ptr noundef %this.val.val.i.i149, ptr noundef nonnull @.str.127, i32 noundef 995) #16
-  %inc.i150 = add nuw nsw i32 %i.065.i93, 1
+  %inc.i150 = add nuw nsw i32 %i.064.i93, 1
   %exitcond.not.i151 = icmp eq i32 %inc.i150, %call5.i81
   br i1 %exitcond.not.i151, label %_ZN4node6cryptoL17GetX509NameObjectIXadL_Z20X509_get_issuer_nameEEEEN2v810MaybeLocalINS2_5ValueEEEPNS_11EnvironmentEP7x509_st.exit.thread301, label %for.body.i92, !llvm.loop !13
 
@@ -2562,8 +2562,8 @@ sw.bb123:                                         ; preds = %if.then117
 31:                                               ; preds = %if.then117, %sw.bb123, %sw.bb122, %sw.bb120
   %prefix.0.ph = phi ptr [ @.str.84, %if.then117 ], [ @.str.88, %sw.bb123 ], [ @.str.87, %sw.bb122 ], [ @.str.85, %sw.bb120 ]
   %32 = load ptr, ptr %d118, align 8
-  %value81 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %33 = load ptr, ptr %value81, align 8
+  %value80 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %33 = load ptr, ptr %value80, align 8
   %34 = load i32, ptr %33, align 8
   %or.cond58 = icmp eq i32 %34, 12
   br i1 %or.cond58, label %if.then139, label %if.then132
@@ -2573,8 +2573,8 @@ sw.bb123:                                         ; preds = %if.then117
   %value = getelementptr inbounds nuw i8, ptr %35, i64 8
   %36 = load ptr, ptr %value, align 8
   %37 = load i32, ptr %36, align 8
-  %or.cond5888 = icmp eq i32 %37, 22
-  br i1 %or.cond5888, label %if.else143, label %if.then132
+  %or.cond5887 = icmp eq i32 %37, 22
+  br i1 %or.cond5887, label %if.else143, label %if.then132
 
 if.then132:                                       ; preds = %.thread, %if.then117, %31
   %38 = load ptr, ptr %out, align 8
@@ -2598,7 +2598,7 @@ if.then139:                                       ; preds = %31
 
 if.else143:                                       ; preds = %.thread
   %44 = load ptr, ptr %out, align 8
-  %call13793 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.90) #16
+  %call13792 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %44, ptr noundef nonnull @.str.90) #16
   %45 = load ptr, ptr %d118, align 8
   %value145 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %46 = load ptr, ptr %value145, align 8

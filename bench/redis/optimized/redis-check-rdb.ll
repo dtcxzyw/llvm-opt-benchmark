@@ -308,14 +308,14 @@ define dso_local noundef i32 @redis_check_rdb(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not.i, label %.preheader.i, label %rioRead.exit.thread
 
 .preheader.i:                                     ; preds = %14, %32
-  %.0255.i = phi i64 [ %34, %32 ], [ 9, %14 ]
-  %.0274.i = phi ptr [ %33, %32 ], [ %3, %14 ]
+  %.0254.i = phi i64 [ %34, %32 ], [ 9, %14 ]
+  %.0273.i = phi ptr [ %33, %32 ], [ %3, %14 ]
   %21 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 64), align 8, !tbaa !34
   %.not32.not.i = icmp eq i64 %21, 0
-  %22 = call i64 @llvm.umin.i64(i64 %21, i64 %.0255.i)
-  %23 = select i1 %.not32.not.i, i64 %.0255.i, i64 %22
+  %22 = call i64 @llvm.umin.i64(i64 %21, i64 %.0254.i)
+  %23 = select i1 %.not32.not.i, i64 %.0254.i, i64 %22
   %24 = load ptr, ptr @redis_check_rdb.rdb, align 8, !tbaa !35
-  %25 = call i64 %24(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274.i, i64 noundef %23) #15
+  %25 = call i64 %24(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0273.i, i64 noundef %23) #15
   %26 = icmp eq i64 %25, 0
   br i1 %26, label %.thread.i, label %29
 
@@ -331,12 +331,12 @@ define dso_local noundef i32 @redis_check_rdb(ptr noundef %0, ptr noundef %1) lo
   br i1 %.not33.i, label %32, label %31
 
 31:                                               ; preds = %29
-  call void %30(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274.i, i64 noundef %23) #15
+  call void %30(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0273.i, i64 noundef %23) #15
   br label %32
 
 32:                                               ; preds = %31, %29
-  %33 = getelementptr inbounds nuw i8, ptr %.0274.i, i64 %23
-  %34 = sub i64 %.0255.i, %23
+  %33 = getelementptr inbounds nuw i8, ptr %.0273.i, i64 %23
+  %34 = sub i64 %.0254.i, %23
   %35 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18
   %36 = add i64 %35, %23
   store i64 %36, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18
@@ -760,14 +760,14 @@ define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef nonnull %0, i64 
   br i1 %.not, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %2, %16
-  %.0255 = phi i64 [ %18, %16 ], [ %1, %2 ]
-  %.0274 = phi ptr [ %17, %16 ], [ %0, %2 ]
+  %.0254 = phi i64 [ %18, %16 ], [ %1, %2 ]
+  %.0273 = phi ptr [ %17, %16 ], [ %0, %2 ]
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 64), align 8, !tbaa !34
   %.not32.not = icmp eq i64 %5, 0
-  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %.0255)
-  %7 = select i1 %.not32.not, i64 %.0255, i64 %6
+  %6 = tail call i64 @llvm.umin.i64(i64 %5, i64 %.0254)
+  %7 = select i1 %.not32.not, i64 %.0254, i64 %6
   %8 = load ptr, ptr @redis_check_rdb.rdb, align 8, !tbaa !35
-  %9 = tail call i64 %8(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274, i64 noundef %7) #15
+  %9 = tail call i64 %8(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0273, i64 noundef %7) #15
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %.thread, label %13
 
@@ -783,12 +783,12 @@ define internal fastcc range(i64 0, 2) i64 @rioRead(ptr noundef nonnull %0, i64 
   br i1 %.not33, label %16, label %15
 
 15:                                               ; preds = %13
-  tail call void %14(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0274, i64 noundef %7) #15
+  tail call void %14(ptr noundef nonnull @redis_check_rdb.rdb, ptr noundef %.0273, i64 noundef %7) #15
   br label %16
 
 16:                                               ; preds = %13, %15
-  %17 = getelementptr inbounds nuw i8, ptr %.0274, i64 %7
-  %18 = sub i64 %.0255, %7
+  %17 = getelementptr inbounds nuw i8, ptr %.0273, i64 %7
+  %18 = sub i64 %.0254, %7
   %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18
   %20 = add i64 %19, %7
   store i64 %20, ptr getelementptr inbounds nuw (i8, ptr @redis_check_rdb.rdb, i64 56), align 8, !tbaa !18

@@ -885,8 +885,8 @@ define dso_local i32 @list_transfer_unique(ptr noundef %0, ptr noundef readonly 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
-  %.not3343 = icmp eq ptr %15, null
-  br i1 %.not3343, label %._crit_edge, label %.lr.ph
+  %.not3342 = icmp eq ptr %15, null
+  br i1 %.not3342, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -902,8 +902,8 @@ define dso_local i32 @list_transfer_unique(ptr noundef %0, ptr noundef readonly 
 
 25:                                               ; preds = %.lr.ph, %90
   %26 = phi ptr [ %15, %.lr.ph ], [ %91, %90 ]
-  %.045 = phi ptr [ %14, %.lr.ph ], [ %.1, %90 ]
-  %.02544 = phi i32 [ 0, %.lr.ph ], [ %.126, %90 ]
+  %.044 = phi ptr [ %14, %.lr.ph ], [ %.1, %90 ]
+  %.02543 = phi i32 [ 0, %.lr.ph ], [ %.126, %90 ]
   %27 = load ptr, ptr %26, align 8
   br label %28
 
@@ -1008,19 +1008,19 @@ _list_find_first_locked.exit.thread:              ; preds = %28, %_list_find_fir
   br i1 %.not37.i, label %_list_node_create.exit, label %.lr.ph.i, !llvm.loop !15
 
 _list_node_create.exit:                           ; preds = %62, %49
-  %64 = load ptr, ptr %.045, align 8
+  %64 = load ptr, ptr %.044, align 8
   %.not.i38 = icmp eq ptr %64, null
   br i1 %.not.i38, label %_list_node_destroy.exit, label %65
 
 65:                                               ; preds = %_list_node_create.exit
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load ptr, ptr %66, align 8
-  store ptr %67, ptr %.045, align 8
+  store ptr %67, ptr %.044, align 8
   %.not28.i = icmp eq ptr %67, null
   br i1 %.not28.i, label %68, label %69
 
 68:                                               ; preds = %65
-  store ptr %.045, ptr %21, align 8
+  store ptr %.044, ptr %21, align 8
   br label %69
 
 69:                                               ; preds = %68, %65
@@ -1042,7 +1042,7 @@ _list_node_create.exit:                           ; preds = %62, %49
   %76 = load ptr, ptr %66, align 8
   store ptr %76, ptr %72, align 8
   %77 = getelementptr inbounds nuw i8, ptr %.032.i, i64 24
-  store ptr %.045, ptr %77, align 8
+  store ptr %.044, ptr %77, align 8
   br label %83
 
 78:                                               ; preds = %.lr.ph.i39
@@ -1052,7 +1052,7 @@ _list_node_create.exit:                           ; preds = %62, %49
   br i1 %81, label %82, label %83
 
 82:                                               ; preds = %78
-  store ptr %.045, ptr %79, align 8
+  store ptr %.044, ptr %79, align 8
   br label %83
 
 83:                                               ; preds = %82, %78, %75
@@ -1068,17 +1068,17 @@ _list_node_create.exit:                           ; preds = %62, %49
   br label %_list_node_destroy.exit
 
 _list_node_destroy.exit:                          ; preds = %_list_node_create.exit, %._crit_edge.i
-  %86 = add nsw i32 %.02544, 1
+  %86 = add nsw i32 %.02543, 1
   br label %90
 
 87:                                               ; preds = %_list_find_first_locked.exit
-  %88 = load ptr, ptr %.045, align 8
+  %88 = load ptr, ptr %.044, align 8
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   br label %90
 
 90:                                               ; preds = %87, %_list_node_destroy.exit
-  %.126 = phi i32 [ %.02544, %87 ], [ %86, %_list_node_destroy.exit ]
-  %.1 = phi ptr [ %89, %87 ], [ %.045, %_list_node_destroy.exit ]
+  %.126 = phi i32 [ %.02543, %87 ], [ %86, %_list_node_destroy.exit ]
+  %.1 = phi ptr [ %89, %87 ], [ %.044, %_list_node_destroy.exit ]
   %91 = load ptr, ptr %.1, align 8
   %.not33 = icmp eq ptr %91, null
   br i1 %.not33, label %._crit_edge, label %25, !llvm.loop !20
@@ -1256,19 +1256,19 @@ define dso_local ptr @list_find_first(ptr noundef %0, ptr noundef readonly captu
   br label %_list_find_first_locked.exit.i
 
 _list_find_first_locked.exit.i:                   ; preds = %.preheader, %11
-  %spec.select.i.i = phi ptr [ %12, %11 ], [ null, %.preheader ]
-  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
-  %.not16.i = icmp eq i32 %13, 0
-  br i1 %.not16.i, label %_list_find_first_lock.exit, label %14
+  %13 = phi ptr [ %12, %11 ], [ null, %.preheader ]
+  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %.not16.i = icmp eq i32 %14, 0
+  br i1 %.not16.i, label %_list_find_first_lock.exit, label %15
 
-14:                                               ; preds = %_list_find_first_locked.exit.i
-  %15 = tail call ptr @__errno_location() #10
-  store i32 %13, ptr %15, align 4
+15:                                               ; preds = %_list_find_first_locked.exit.i
+  %16 = tail call ptr @__errno_location() #10
+  store i32 %14, ptr %16, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._list_find_first_lock) #11
   unreachable
 
 _list_find_first_lock.exit:                       ; preds = %_list_find_first_locked.exit.i
-  ret ptr %spec.select.i.i
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1302,19 +1302,19 @@ define dso_local ptr @list_find_first_ro(ptr noundef %0, ptr noundef readonly ca
   br label %_list_find_first_locked.exit.i
 
 _list_find_first_locked.exit.i:                   ; preds = %.preheader, %11
-  %spec.select.i.i = phi ptr [ %12, %11 ], [ null, %.preheader ]
-  %13 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
-  %.not16.i = icmp eq i32 %13, 0
-  br i1 %.not16.i, label %_list_find_first_lock.exit, label %14
+  %13 = phi ptr [ %12, %11 ], [ null, %.preheader ]
+  %14 = tail call i32 @pthread_rwlock_unlock(ptr noundef nonnull %4) #9
+  %.not16.i = icmp eq i32 %14, 0
+  br i1 %.not16.i, label %_list_find_first_lock.exit, label %15
 
-14:                                               ; preds = %_list_find_first_locked.exit.i
-  %15 = tail call ptr @__errno_location() #10
-  store i32 %13, ptr %15, align 4
+15:                                               ; preds = %_list_find_first_locked.exit.i
+  %16 = tail call ptr @__errno_location() #10
+  store i32 %14, ptr %16, align 4
   tail call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__._list_find_first_lock) #11
   unreachable
 
 _list_find_first_lock.exit:                       ; preds = %_list_find_first_locked.exit.i
-  ret ptr %spec.select.i.i
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1463,10 +1463,10 @@ define dso_local range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr nou
   br i1 %.not, label %.preheader, label %7
 
 .preheader:                                       ; preds = %3
-  %.040 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = load ptr, ptr %.040, align 8
-  %.not2941 = icmp eq ptr %6, null
-  br i1 %.not2941, label %.thread, label %.lr.ph
+  %.039 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %6 = load ptr, ptr %.039, align 8
+  %.not2940 = icmp eq ptr %6, null
+  br i1 %.not2940, label %.thread, label %.lr.ph
 
 7:                                                ; preds = %3
   %8 = tail call ptr @__errno_location() #10
@@ -1476,14 +1476,14 @@ define dso_local range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr nou
 
 .lr.ph:                                           ; preds = %.preheader, %47
   %9 = phi ptr [ %49, %47 ], [ %6, %.preheader ]
-  %.042 = phi ptr [ %.0, %47 ], [ %.040, %.preheader ]
+  %.041 = phi ptr [ %.0, %47 ], [ %.039, %.preheader ]
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %1(ptr noundef %10, ptr noundef %2) #9
   %12 = icmp sgt i32 %11, 0
   br i1 %12, label %13, label %45
 
 13:                                               ; preds = %.lr.ph
-  %14 = load ptr, ptr %.042, align 8
+  %14 = load ptr, ptr %.041, align 8
   %.not.i = icmp eq ptr %14, null
   br i1 %.not.i, label %.thread, label %15
 
@@ -1491,13 +1491,13 @@ define dso_local range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr nou
   %16 = load ptr, ptr %14, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = load ptr, ptr %17, align 8
-  store ptr %18, ptr %.042, align 8
+  store ptr %18, ptr %.041, align 8
   %.not28.i = icmp eq ptr %18, null
   br i1 %.not28.i, label %19, label %21
 
 19:                                               ; preds = %15
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.042, ptr %20, align 8
+  store ptr %.041, ptr %20, align 8
   br label %21
 
 21:                                               ; preds = %19, %15
@@ -1521,7 +1521,7 @@ define dso_local range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr nou
   %30 = load ptr, ptr %17, align 8
   store ptr %30, ptr %26, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.032.i, i64 24
-  store ptr %.042, ptr %31, align 8
+  store ptr %.041, ptr %31, align 8
   br label %37
 
 32:                                               ; preds = %.lr.ph.i
@@ -1531,7 +1531,7 @@ define dso_local range(i32 -1, 2) i32 @list_delete_first(ptr noundef %0, ptr nou
   br i1 %35, label %36, label %37
 
 36:                                               ; preds = %32
-  store ptr %.042, ptr %33, align 8
+  store ptr %.041, ptr %33, align 8
   br label %37
 
 37:                                               ; preds = %36, %32, %29
@@ -1563,7 +1563,7 @@ _list_node_destroy.exit:                          ; preds = %37, %21
   br i1 %46, label %.thread, label %47
 
 47:                                               ; preds = %45
-  %48 = load ptr, ptr %.042, align 8
+  %48 = load ptr, ptr %.041, align 8
   %.0 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %49 = load ptr, ptr %.0, align 8
   %.not29 = icmp eq ptr %49, null

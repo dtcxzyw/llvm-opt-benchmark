@@ -388,13 +388,13 @@ define internal fastcc range(i32 -1, 1) i32 @interp_config_from_dict(ptr noundef
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
-  %10 = alloca ptr, align 8
+  %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca [20 x i8], align 16
   %13 = alloca i32, align 4
   %14 = tail call ptr @PyDict_New() #6
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %Py_DECREF.exit92, label %16
+  br i1 %15, label %Py_DECREF.exit86, label %16
 
 16:                                               ; preds = %3
   %17 = tail call i32 @PyDict_Update(ptr noundef nonnull %14, ptr noundef %0) #6
@@ -402,22 +402,22 @@ define internal fastcc range(i32 -1, 1) i32 @interp_config_from_dict(ptr noundef
   br i1 %18, label %config_dict_get.exit.thread, label %19
 
 19:                                               ; preds = %16
-  call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %20 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str, ptr noundef nonnull %10) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %9)
+  %20 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str, ptr noundef nonnull %9) #6
   %21 = icmp slt i32 %20, 0
   br i1 %21, label %_config_dict_get.exit.thread.i, label %22
 
 22:                                               ; preds = %19
-  %23 = load ptr, ptr %10, align 8, !tbaa !16
+  %23 = load ptr, ptr %9, align 8, !tbaa !16
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_config_dict_get.exit.thread.i, label %25
 
 _config_dict_get.exit.thread.i:                   ; preds = %22, %19
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_config_dict_get_bool.exit
 
 25:                                               ; preds = %22
-  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %26 = icmp eq ptr %23, @_Py_TrueStruct
   %27 = icmp ne ptr %23, @_Py_FalseStruct
   %or.cond.i = xor i1 %26, %27
@@ -447,17 +447,17 @@ Py_DECREF.exit9.i:                                ; preds = %33, %30, %28
   %37 = zext i1 %26 to i32
   %38 = load i32, ptr %23, align 8, !tbaa !9
   %.not.i.i = icmp sgt i32 %38, -1
-  br i1 %.not.i.i, label %39, label %config_dict_get.exit.thread145
+  br i1 %.not.i.i, label %39, label %config_dict_get.exit.thread128
 
 39:                                               ; preds = %36
   %40 = add nsw i32 %38, -1
   store i32 %40, ptr %23, align 8, !tbaa !9
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %config_dict_get.exit.thread145
+  br i1 %41, label %42, label %config_dict_get.exit.thread128
 
 42:                                               ; preds = %39
   call void @_Py_Dealloc(ptr noundef nonnull %23) #6
-  br label %config_dict_get.exit.thread145
+  br label %config_dict_get.exit.thread128
 
 _config_dict_get_bool.exit:                       ; preds = %Py_DECREF.exit9.i, %_config_dict_get.exit.thread.i
   %43 = call ptr @PyErr_Occurred() #6
@@ -466,26 +466,26 @@ _config_dict_get_bool.exit:                       ; preds = %Py_DECREF.exit9.i, 
   br i1 %brmerge, label %config_dict_get.exit, label %44
 
 44:                                               ; preds = %_config_dict_get_bool.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %45 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str, ptr noundef nonnull %9) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %8)
+  %45 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str, ptr noundef nonnull %8) #6
   %46 = icmp slt i32 %45, 0
-  %47 = load ptr, ptr %9, align 8
+  %47 = load ptr, ptr %8, align 8
   %48 = icmp eq ptr %47, null
   %or.cond = select i1 %46, i1 true, i1 %48
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br i1 %or.cond, label %49, label %config_dict_get.exit.thread
 
 49:                                               ; preds = %44
   %50 = call ptr @PyErr_Occurred() #6
-  %.not.i95 = icmp eq ptr %50, null
-  br i1 %.not.i95, label %51, label %config_dict_get.exit.thread
+  %.not.i89 = icmp eq ptr %50, null
+  br i1 %.not.i89, label %51, label %config_dict_get.exit.thread
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !16
   %53 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %52, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str) #6
   br label %config_dict_get.exit.thread
 
-config_dict_get.exit.thread145:                   ; preds = %36, %39, %42
+config_dict_get.exit.thread128:                   ; preds = %36, %39, %42
   store i32 %37, ptr %1, align 4, !tbaa !4
   %54 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str, ptr noundef null) #6
   br label %55
@@ -493,146 +493,146 @@ config_dict_get.exit.thread145:                   ; preds = %36, %39, %42
 config_dict_get.exit:                             ; preds = %_config_dict_get_bool.exit
   br i1 %.not, label %config_dict_get.exit.thread, label %55
 
-55:                                               ; preds = %config_dict_get.exit.thread145, %config_dict_get.exit
-  call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %56 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef nonnull %8) #6
+55:                                               ; preds = %config_dict_get.exit.thread128, %config_dict_get.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %56 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #6
   %57 = icmp slt i32 %56, 0
-  br i1 %57, label %_config_dict_get.exit.thread.i102, label %58
+  br i1 %57, label %_config_dict_get.exit.thread.i96, label %58
 
 58:                                               ; preds = %55
-  %59 = load ptr, ptr %8, align 8, !tbaa !16
+  %59 = load ptr, ptr %7, align 8, !tbaa !16
   %60 = icmp eq ptr %59, null
-  br i1 %60, label %_config_dict_get.exit.thread.i102, label %61
+  br i1 %60, label %_config_dict_get.exit.thread.i96, label %61
 
-_config_dict_get.exit.thread.i102:                ; preds = %58, %55
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %_config_dict_get_bool.exit103
+_config_dict_get.exit.thread.i96:                 ; preds = %58, %55
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  br label %_config_dict_get_bool.exit97
 
 61:                                               ; preds = %58
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %62 = icmp eq ptr %59, @_Py_TrueStruct
   %63 = icmp ne ptr %59, @_Py_FalseStruct
-  %or.cond.i96 = xor i1 %62, %63
-  br i1 %or.cond.i96, label %64, label %72
+  %or.cond.i90 = xor i1 %62, %63
+  br i1 %or.cond.i90, label %64, label %72
 
 64:                                               ; preds = %61
   %65 = load i32, ptr %59, align 8, !tbaa !9
-  %.not.i8.i100 = icmp sgt i32 %65, -1
-  br i1 %.not.i8.i100, label %66, label %Py_DECREF.exit9.i101
+  %.not.i8.i94 = icmp sgt i32 %65, -1
+  br i1 %.not.i8.i94, label %66, label %Py_DECREF.exit9.i95
 
 66:                                               ; preds = %64
   %67 = add nsw i32 %65, -1
   store i32 %67, ptr %59, align 8, !tbaa !9
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %Py_DECREF.exit9.i101
+  br i1 %68, label %69, label %Py_DECREF.exit9.i95
 
 69:                                               ; preds = %66
   call void @_Py_Dealloc(ptr noundef nonnull %59) #6
-  br label %Py_DECREF.exit9.i101
+  br label %Py_DECREF.exit9.i95
 
-Py_DECREF.exit9.i101:                             ; preds = %69, %66, %64
+Py_DECREF.exit9.i95:                              ; preds = %69, %66, %64
   %70 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !16
   %71 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %70, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.1) #6
-  br label %_config_dict_get_bool.exit103
+  br label %_config_dict_get_bool.exit97
 
 72:                                               ; preds = %61
   %73 = zext i1 %62 to i32
   %74 = load i32, ptr %59, align 8, !tbaa !9
-  %.not.i.i97 = icmp sgt i32 %74, -1
-  br i1 %.not.i.i97, label %75, label %config_dict_get.exit106.thread153
+  %.not.i.i91 = icmp sgt i32 %74, -1
+  br i1 %.not.i.i91, label %75, label %config_dict_get.exit100.thread134
 
 75:                                               ; preds = %72
   %76 = add nsw i32 %74, -1
   store i32 %76, ptr %59, align 8, !tbaa !9
   %77 = icmp eq i32 %76, 0
-  br i1 %77, label %78, label %config_dict_get.exit106.thread153
+  br i1 %77, label %78, label %config_dict_get.exit100.thread134
 
 78:                                               ; preds = %75
   call void @_Py_Dealloc(ptr noundef nonnull %59) #6
-  br label %config_dict_get.exit106.thread153
+  br label %config_dict_get.exit100.thread134
 
-_config_dict_get_bool.exit103:                    ; preds = %Py_DECREF.exit9.i101, %_config_dict_get.exit.thread.i102
+_config_dict_get_bool.exit97:                     ; preds = %Py_DECREF.exit9.i95, %_config_dict_get.exit.thread.i96
   %79 = call ptr @PyErr_Occurred() #6
   %.not56 = icmp ne ptr %79, null
-  %brmerge81 = or i1 %2, %.not56
-  br i1 %brmerge81, label %config_dict_get.exit106, label %80
+  %brmerge75 = or i1 %2, %.not56
+  br i1 %brmerge75, label %config_dict_get.exit100, label %80
 
-80:                                               ; preds = %_config_dict_get_bool.exit103
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %81 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef nonnull %7) #6
+80:                                               ; preds = %_config_dict_get_bool.exit97
+  call void @llvm.lifetime.start.p0(ptr nonnull %6)
+  %81 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef nonnull %6) #6
   %82 = icmp slt i32 %81, 0
-  %83 = load ptr, ptr %7, align 8
+  %83 = load ptr, ptr %6, align 8
   %84 = icmp eq ptr %83, null
-  %or.cond193 = select i1 %82, i1 true, i1 %84
-  call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %or.cond193, label %85, label %config_dict_get.exit.thread
+  %or.cond161 = select i1 %82, i1 true, i1 %84
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br i1 %or.cond161, label %85, label %config_dict_get.exit.thread
 
 85:                                               ; preds = %80
   %86 = call ptr @PyErr_Occurred() #6
-  %.not.i105 = icmp eq ptr %86, null
-  br i1 %.not.i105, label %87, label %config_dict_get.exit.thread
+  %.not.i99 = icmp eq ptr %86, null
+  br i1 %.not.i99, label %87, label %config_dict_get.exit.thread
 
 87:                                               ; preds = %85
   %88 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !16
   %89 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %88, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.1) #6
   br label %config_dict_get.exit.thread
 
-config_dict_get.exit106.thread153:                ; preds = %72, %75, %78
+config_dict_get.exit100.thread134:                ; preds = %72, %75, %78
   %90 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %73, ptr %90, align 4, !tbaa !10
   %91 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.1, ptr noundef null) #6
   br label %92
 
-config_dict_get.exit106:                          ; preds = %_config_dict_get_bool.exit103
+config_dict_get.exit100:                          ; preds = %_config_dict_get_bool.exit97
   br i1 %.not56, label %config_dict_get.exit.thread, label %92
 
-92:                                               ; preds = %config_dict_get.exit106.thread153, %config_dict_get.exit106
-  call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %93 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.2, ptr noundef nonnull %6) #6
+92:                                               ; preds = %config_dict_get.exit100.thread134, %config_dict_get.exit100
+  call void @llvm.lifetime.start.p0(ptr nonnull %5)
+  %93 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #6
   %94 = icmp slt i32 %93, 0
-  br i1 %94, label %_config_dict_get.exit.thread.i113, label %95
+  br i1 %94, label %_config_dict_get.exit.thread.i107, label %95
 
 95:                                               ; preds = %92
-  %96 = load ptr, ptr %6, align 8, !tbaa !16
+  %96 = load ptr, ptr %5, align 8, !tbaa !16
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %_config_dict_get.exit.thread.i113, label %98
+  br i1 %97, label %_config_dict_get.exit.thread.i107, label %98
 
-_config_dict_get.exit.thread.i113:                ; preds = %95, %92
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %_config_dict_get_bool.exit114
+_config_dict_get.exit.thread.i107:                ; preds = %95, %92
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %_config_dict_get_bool.exit108
 
 98:                                               ; preds = %95
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %99 = icmp eq ptr %96, @_Py_TrueStruct
   %100 = icmp ne ptr %96, @_Py_FalseStruct
-  %or.cond.i107 = xor i1 %99, %100
-  br i1 %or.cond.i107, label %101, label %109
+  %or.cond.i101 = xor i1 %99, %100
+  br i1 %or.cond.i101, label %101, label %109
 
 101:                                              ; preds = %98
   %102 = load i32, ptr %96, align 8, !tbaa !9
-  %.not.i8.i111 = icmp sgt i32 %102, -1
-  br i1 %.not.i8.i111, label %103, label %Py_DECREF.exit9.i112
+  %.not.i8.i105 = icmp sgt i32 %102, -1
+  br i1 %.not.i8.i105, label %103, label %Py_DECREF.exit9.i106
 
 103:                                              ; preds = %101
   %104 = add nsw i32 %102, -1
   store i32 %104, ptr %96, align 8, !tbaa !9
   %105 = icmp eq i32 %104, 0
-  br i1 %105, label %106, label %Py_DECREF.exit9.i112
+  br i1 %105, label %106, label %Py_DECREF.exit9.i106
 
 106:                                              ; preds = %103
   call void @_Py_Dealloc(ptr noundef nonnull %96) #6
-  br label %Py_DECREF.exit9.i112
+  br label %Py_DECREF.exit9.i106
 
-Py_DECREF.exit9.i112:                             ; preds = %106, %103, %101
+Py_DECREF.exit9.i106:                             ; preds = %106, %103, %101
   %107 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !16
   %108 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %107, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.2) #6
-  br label %_config_dict_get_bool.exit114
+  br label %_config_dict_get_bool.exit108
 
 109:                                              ; preds = %98
   %110 = zext i1 %99 to i32
   %111 = load i32, ptr %96, align 8, !tbaa !9
-  %.not.i.i108 = icmp sgt i32 %111, -1
-  br i1 %.not.i.i108, label %112, label %.thread
+  %.not.i.i102 = icmp sgt i32 %111, -1
+  br i1 %.not.i.i102, label %112, label %.thread
 
 112:                                              ; preds = %109
   %113 = add nsw i32 %111, -1
@@ -644,13 +644,13 @@ Py_DECREF.exit9.i112:                             ; preds = %106, %103, %101
   call void @_Py_Dealloc(ptr noundef nonnull %96) #6
   br label %.thread
 
-_config_dict_get_bool.exit114:                    ; preds = %Py_DECREF.exit9.i112, %_config_dict_get.exit.thread.i113
+_config_dict_get_bool.exit108:                    ; preds = %Py_DECREF.exit9.i106, %_config_dict_get.exit.thread.i107
   %116 = call ptr @PyErr_Occurred() #6
   %.not57 = icmp ne ptr %116, null
-  %brmerge83 = or i1 %2, %.not57
-  br i1 %brmerge83, label %119, label %.thread161
+  %brmerge77 = or i1 %2, %.not57
+  br i1 %brmerge77, label %119, label %.thread140
 
-.thread161:                                       ; preds = %_config_dict_get_bool.exit114
+.thread140:                                       ; preds = %_config_dict_get_bool.exit108
   call fastcc void @config_dict_get(ptr noundef %14, ptr noundef nonnull @.str.2)
   br label %config_dict_get.exit.thread
 
@@ -660,276 +660,228 @@ _config_dict_get_bool.exit114:                    ; preds = %Py_DECREF.exit9.i11
   %118 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.2, ptr noundef null) #6
   br label %120
 
-119:                                              ; preds = %_config_dict_get_bool.exit114
+119:                                              ; preds = %_config_dict_get_bool.exit108
   br i1 %.not57, label %config_dict_get.exit.thread, label %120
 
 120:                                              ; preds = %.thread, %119
-  call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %121 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.3, ptr noundef nonnull %5) #6
+  call void @llvm.lifetime.start.p0(ptr nonnull %4)
+  %121 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.3, ptr noundef nonnull %4) #6
   %122 = icmp slt i32 %121, 0
-  br i1 %122, label %_config_dict_get.exit.thread.i121, label %123
+  br i1 %122, label %_config_dict_get.exit.thread.i115, label %123
 
 123:                                              ; preds = %120
-  %124 = load ptr, ptr %5, align 8, !tbaa !16
+  %124 = load ptr, ptr %4, align 8, !tbaa !16
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %_config_dict_get.exit.thread.i121, label %126
+  br i1 %125, label %_config_dict_get.exit.thread.i115, label %126
 
-_config_dict_get.exit.thread.i121:                ; preds = %123, %120
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %_config_dict_get_bool.exit122
+_config_dict_get.exit.thread.i115:                ; preds = %123, %120
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %_config_dict_get_bool.exit116
 
 126:                                              ; preds = %123
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %127 = icmp eq ptr %124, @_Py_TrueStruct
   %128 = icmp ne ptr %124, @_Py_FalseStruct
-  %or.cond.i115 = xor i1 %127, %128
-  br i1 %or.cond.i115, label %129, label %137
+  %or.cond.i109 = xor i1 %127, %128
+  br i1 %or.cond.i109, label %129, label %137
 
 129:                                              ; preds = %126
   %130 = load i32, ptr %124, align 8, !tbaa !9
-  %.not.i8.i119 = icmp sgt i32 %130, -1
-  br i1 %.not.i8.i119, label %131, label %Py_DECREF.exit9.i120
+  %.not.i8.i113 = icmp sgt i32 %130, -1
+  br i1 %.not.i8.i113, label %131, label %Py_DECREF.exit9.i114
 
 131:                                              ; preds = %129
   %132 = add nsw i32 %130, -1
   store i32 %132, ptr %124, align 8, !tbaa !9
   %133 = icmp eq i32 %132, 0
-  br i1 %133, label %134, label %Py_DECREF.exit9.i120
+  br i1 %133, label %134, label %Py_DECREF.exit9.i114
 
 134:                                              ; preds = %131
   call void @_Py_Dealloc(ptr noundef nonnull %124) #6
-  br label %Py_DECREF.exit9.i120
+  br label %Py_DECREF.exit9.i114
 
-Py_DECREF.exit9.i120:                             ; preds = %134, %131, %129
+Py_DECREF.exit9.i114:                             ; preds = %134, %131, %129
   %135 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !16
   %136 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %135, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.3) #6
-  br label %_config_dict_get_bool.exit122
+  br label %_config_dict_get_bool.exit116
 
 137:                                              ; preds = %126
   %138 = zext i1 %127 to i32
   %139 = load i32, ptr %124, align 8, !tbaa !9
-  %.not.i.i116 = icmp sgt i32 %139, -1
-  br i1 %.not.i.i116, label %140, label %.thread167
+  %.not.i.i110 = icmp sgt i32 %139, -1
+  br i1 %.not.i.i110, label %140, label %.thread145
 
 140:                                              ; preds = %137
   %141 = add nsw i32 %139, -1
   store i32 %141, ptr %124, align 8, !tbaa !9
   %142 = icmp eq i32 %141, 0
-  br i1 %142, label %143, label %.thread167
+  br i1 %142, label %143, label %.thread145
 
 143:                                              ; preds = %140
   call void @_Py_Dealloc(ptr noundef nonnull %124) #6
-  br label %.thread167
+  br label %.thread145
 
-_config_dict_get_bool.exit122:                    ; preds = %Py_DECREF.exit9.i120, %_config_dict_get.exit.thread.i121
+_config_dict_get_bool.exit116:                    ; preds = %Py_DECREF.exit9.i114, %_config_dict_get.exit.thread.i115
   %144 = call ptr @PyErr_Occurred() #6
   %.not58 = icmp ne ptr %144, null
-  %brmerge85 = or i1 %2, %.not58
-  br i1 %brmerge85, label %147, label %.thread170
+  %brmerge79 = or i1 %2, %.not58
+  br i1 %brmerge79, label %147, label %.thread147
 
-.thread170:                                       ; preds = %_config_dict_get_bool.exit122
+.thread147:                                       ; preds = %_config_dict_get_bool.exit116
   call fastcc void @config_dict_get(ptr noundef %14, ptr noundef nonnull @.str.3)
   br label %config_dict_get.exit.thread
 
-.thread167:                                       ; preds = %137, %140, %143
+.thread145:                                       ; preds = %137, %140, %143
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 %138, ptr %145, align 4, !tbaa !12
   %146 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.3, ptr noundef null) #6
   br label %148
 
-147:                                              ; preds = %_config_dict_get_bool.exit122
+147:                                              ; preds = %_config_dict_get_bool.exit116
   br i1 %.not58, label %config_dict_get.exit.thread, label %148
 
-148:                                              ; preds = %.thread167, %147
-  call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %149 = call i32 @PyDict_GetItemStringRef(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, ptr noundef nonnull %4) #6
+148:                                              ; preds = %.thread145, %147
+  call void @llvm.lifetime.start.p0(ptr nonnull %10)
+  %149 = call fastcc i32 @_config_dict_get_bool(ptr noundef %14, ptr noundef nonnull @.str.4, ptr noundef %10)
   %150 = icmp slt i32 %149, 0
-  br i1 %150, label %_config_dict_get.exit.thread.i129, label %151
+  br i1 %150, label %151, label %.thread149
 
 151:                                              ; preds = %148
-  %152 = load ptr, ptr %4, align 8, !tbaa !16
-  %153 = icmp eq ptr %152, null
-  br i1 %153, label %_config_dict_get.exit.thread.i129, label %154
+  %152 = call ptr @PyErr_Occurred() #6
+  %.not59 = icmp ne ptr %152, null
+  %brmerge81 = or i1 %2, %.not59
+  br i1 %brmerge81, label %156, label %.thread151
 
-_config_dict_get.exit.thread.i129:                ; preds = %151, %148
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %_config_dict_get_bool.exit130
-
-154:                                              ; preds = %151
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %155 = icmp eq ptr %152, @_Py_TrueStruct
-  %156 = icmp ne ptr %152, @_Py_FalseStruct
-  %or.cond.i123 = xor i1 %155, %156
-  br i1 %or.cond.i123, label %157, label %165
-
-157:                                              ; preds = %154
-  %158 = load i32, ptr %152, align 8, !tbaa !9
-  %.not.i8.i127 = icmp sgt i32 %158, -1
-  br i1 %.not.i8.i127, label %159, label %Py_DECREF.exit9.i128
-
-159:                                              ; preds = %157
-  %160 = add nsw i32 %158, -1
-  store i32 %160, ptr %152, align 8, !tbaa !9
-  %161 = icmp eq i32 %160, 0
-  br i1 %161, label %162, label %Py_DECREF.exit9.i128
-
-162:                                              ; preds = %159
-  call void @_Py_Dealloc(ptr noundef nonnull %152) #6
-  br label %Py_DECREF.exit9.i128
-
-Py_DECREF.exit9.i128:                             ; preds = %162, %159, %157
-  %163 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !16
-  %164 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %163, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.4) #6
-  br label %_config_dict_get_bool.exit130
-
-165:                                              ; preds = %154
-  %166 = zext i1 %155 to i32
-  %167 = load i32, ptr %152, align 8, !tbaa !9
-  %.not.i.i124 = icmp sgt i32 %167, -1
-  br i1 %.not.i.i124, label %168, label %.thread176
-
-168:                                              ; preds = %165
-  %169 = add nsw i32 %167, -1
-  store i32 %169, ptr %152, align 8, !tbaa !9
-  %170 = icmp eq i32 %169, 0
-  br i1 %170, label %171, label %.thread176
-
-171:                                              ; preds = %168
-  call void @_Py_Dealloc(ptr noundef nonnull %152) #6
-  br label %.thread176
-
-_config_dict_get_bool.exit130:                    ; preds = %Py_DECREF.exit9.i128, %_config_dict_get.exit.thread.i129
-  %172 = call ptr @PyErr_Occurred() #6
-  %.not59 = icmp ne ptr %172, null
-  %brmerge87 = or i1 %2, %.not59
-  br i1 %brmerge87, label %175, label %.thread179
-
-.thread179:                                       ; preds = %_config_dict_get_bool.exit130
+.thread151:                                       ; preds = %151
   call fastcc void @config_dict_get(ptr noundef %14, ptr noundef nonnull @.str.4)
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %config_dict_get.exit.thread
 
-.thread176:                                       ; preds = %165, %168, %171
-  %173 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %166, ptr %173, align 4, !tbaa !13
-  %174 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, ptr noundef null) #6
-  br label %176
+.thread149:                                       ; preds = %148
+  %153 = load i32, ptr %10, align 4, !tbaa !31
+  %154 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %153, ptr %154, align 4, !tbaa !13
+  %155 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.4, ptr noundef null) #6
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br label %157
 
-175:                                              ; preds = %_config_dict_get_bool.exit130
-  br i1 %.not59, label %config_dict_get.exit.thread, label %176
+156:                                              ; preds = %151
+  call void @llvm.lifetime.end.p0(ptr nonnull %10)
+  br i1 %.not59, label %config_dict_get.exit.thread, label %157
 
-176:                                              ; preds = %.thread176, %175
+157:                                              ; preds = %.thread149, %156
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %177 = call fastcc i32 @_config_dict_get_bool(ptr noundef %14, ptr noundef nonnull @.str.5, ptr noundef %11)
-  %178 = icmp slt i32 %177, 0
-  br i1 %178, label %179, label %.thread182
+  %158 = call fastcc i32 @_config_dict_get_bool(ptr noundef %14, ptr noundef nonnull @.str.5, ptr noundef %11)
+  %159 = icmp slt i32 %158, 0
+  br i1 %159, label %160, label %.thread153
 
-179:                                              ; preds = %176
-  %180 = call ptr @PyErr_Occurred() #6
-  %.not60 = icmp ne ptr %180, null
-  %brmerge89 = or i1 %2, %.not60
-  br i1 %brmerge89, label %184, label %.thread185
+160:                                              ; preds = %157
+  %161 = call ptr @PyErr_Occurred() #6
+  %.not60 = icmp ne ptr %161, null
+  %brmerge83 = or i1 %2, %.not60
+  br i1 %brmerge83, label %165, label %.thread155
 
-.thread185:                                       ; preds = %179
+.thread155:                                       ; preds = %160
   call fastcc void @config_dict_get(ptr noundef %14, ptr noundef nonnull @.str.5)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %config_dict_get.exit.thread
 
-.thread182:                                       ; preds = %176
-  %181 = load i32, ptr %11, align 4, !tbaa !31
-  %182 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  store i32 %181, ptr %182, align 4, !tbaa !14
-  %183 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.5, ptr noundef null) #6
+.thread153:                                       ; preds = %157
+  %162 = load i32, ptr %11, align 4, !tbaa !31
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  store i32 %162, ptr %163, align 4, !tbaa !14
+  %164 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.5, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %185
+  br label %166
 
-184:                                              ; preds = %179
+165:                                              ; preds = %160
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br i1 %.not60, label %config_dict_get.exit.thread, label %185
+  br i1 %.not60, label %config_dict_get.exit.thread, label %166
 
-185:                                              ; preds = %.thread182, %184
-  %186 = call fastcc i32 @_config_dict_copy_str(ptr noundef %14, ptr noundef %12)
-  %187 = icmp slt i32 %186, 0
-  br i1 %187, label %188, label %192
+166:                                              ; preds = %.thread153, %165
+  %167 = call fastcc i32 @_config_dict_copy_str(ptr noundef %14, ptr noundef %12)
+  %168 = icmp slt i32 %167, 0
+  br i1 %168, label %169, label %173
 
-188:                                              ; preds = %185
-  %189 = call ptr @PyErr_Occurred() #6
-  %.not61 = icmp eq ptr %189, null
-  br i1 %.not61, label %190, label %config_dict_get.exit.thread
+169:                                              ; preds = %166
+  %170 = call ptr @PyErr_Occurred() #6
+  %.not61 = icmp eq ptr %170, null
+  br i1 %.not61, label %171, label %config_dict_get.exit.thread
 
-190:                                              ; preds = %188
-  br i1 %2, label %199, label %191
+171:                                              ; preds = %169
+  br i1 %2, label %180, label %172
 
-191:                                              ; preds = %190
+172:                                              ; preds = %171
   call fastcc void @config_dict_get(ptr noundef %14, ptr noundef nonnull @.str.6)
   br label %config_dict_get.exit.thread
 
-192:                                              ; preds = %185
+173:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %193 = call fastcc i32 @gil_flag_from_str(ptr noundef %12, ptr noundef %13)
-  %194 = icmp slt i32 %193, 0
-  br i1 %194, label %198, label %.thread188
+  %174 = call fastcc i32 @gil_flag_from_str(ptr noundef %12, ptr noundef %13)
+  %175 = icmp slt i32 %174, 0
+  br i1 %175, label %179, label %.thread157
 
-.thread188:                                       ; preds = %192
-  %195 = load i32, ptr %13, align 4, !tbaa !31
-  %196 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store i32 %195, ptr %196, align 4, !tbaa !15
-  %197 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.6, ptr noundef null) #6
+.thread157:                                       ; preds = %173
+  %176 = load i32, ptr %13, align 4, !tbaa !31
+  %177 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store i32 %176, ptr %177, align 4, !tbaa !15
+  %178 = call i32 @PyDict_PopString(ptr noundef nonnull %14, ptr noundef nonnull @.str.6, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %199
+  br label %180
 
-198:                                              ; preds = %192
+179:                                              ; preds = %173
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %config_dict_get.exit.thread
 
-199:                                              ; preds = %.thread188, %190
-  %200 = getelementptr i8, ptr %14, i64 16
-  %.val = load i64, ptr %200, align 8, !tbaa !32
-  %201 = icmp eq i64 %.val, 1
-  br i1 %201, label %202, label %205
+180:                                              ; preds = %.thread157, %171
+  %181 = getelementptr i8, ptr %14, i64 16
+  %.val = load i64, ptr %181, align 8, !tbaa !32
+  %182 = icmp eq i64 %.val, 1
+  br i1 %182, label %183, label %186
 
-202:                                              ; preds = %199
-  %203 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !16
-  %204 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %203, ptr noundef nonnull @.str.12, ptr noundef nonnull %14) #6
+183:                                              ; preds = %180
+  %184 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !16
+  %185 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %184, ptr noundef nonnull @.str.12, ptr noundef nonnull %14) #6
   br label %config_dict_get.exit.thread
 
-205:                                              ; preds = %199
-  %206 = icmp sgt i64 %.val, 0
-  br i1 %206, label %207, label %210
+186:                                              ; preds = %180
+  %187 = icmp sgt i64 %.val, 0
+  br i1 %187, label %188, label %191
 
-207:                                              ; preds = %205
-  %208 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !16
-  %209 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %208, ptr noundef nonnull @.str.13, i64 noundef %.val, ptr noundef nonnull %14) #6
+188:                                              ; preds = %186
+  %189 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !16
+  %190 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %189, ptr noundef nonnull @.str.13, i64 noundef %.val, ptr noundef nonnull %14) #6
   br label %config_dict_get.exit.thread
 
-210:                                              ; preds = %205
-  %211 = load i32, ptr %14, align 8, !tbaa !9
-  %.not.i91 = icmp sgt i32 %211, -1
-  br i1 %.not.i91, label %212, label %Py_DECREF.exit92
+191:                                              ; preds = %186
+  %192 = load i32, ptr %14, align 8, !tbaa !9
+  %.not.i85 = icmp sgt i32 %192, -1
+  br i1 %.not.i85, label %193, label %Py_DECREF.exit86
 
-212:                                              ; preds = %210
-  %213 = add nsw i32 %211, -1
-  store i32 %213, ptr %14, align 8, !tbaa !9
-  %214 = icmp eq i32 %213, 0
-  br i1 %214, label %Py_DECREF.exit92.sink.split, label %Py_DECREF.exit92
+193:                                              ; preds = %191
+  %194 = add nsw i32 %192, -1
+  store i32 %194, ptr %14, align 8, !tbaa !9
+  %195 = icmp eq i32 %194, 0
+  br i1 %195, label %Py_DECREF.exit86.sink.split, label %Py_DECREF.exit86
 
-config_dict_get.exit.thread:                      ; preds = %80, %44, %87, %85, %51, %49, %198, %.thread185, %.thread179, %.thread170, %.thread161, %184, %175, %147, %119, %config_dict_get.exit106, %config_dict_get.exit, %188, %16, %207, %202, %191
-  %215 = load i32, ptr %14, align 8, !tbaa !9
-  %.not.i = icmp sgt i32 %215, -1
-  br i1 %.not.i, label %216, label %Py_DECREF.exit92
+config_dict_get.exit.thread:                      ; preds = %80, %44, %87, %85, %51, %49, %179, %.thread155, %.thread151, %.thread147, %.thread140, %165, %156, %147, %119, %config_dict_get.exit100, %config_dict_get.exit, %169, %16, %188, %183, %172
+  %196 = load i32, ptr %14, align 8, !tbaa !9
+  %.not.i = icmp sgt i32 %196, -1
+  br i1 %.not.i, label %197, label %Py_DECREF.exit86
 
-216:                                              ; preds = %config_dict_get.exit.thread
-  %217 = add nsw i32 %215, -1
-  store i32 %217, ptr %14, align 8, !tbaa !9
-  %218 = icmp eq i32 %217, 0
-  br i1 %218, label %Py_DECREF.exit92.sink.split, label %Py_DECREF.exit92
+197:                                              ; preds = %config_dict_get.exit.thread
+  %198 = add nsw i32 %196, -1
+  store i32 %198, ptr %14, align 8, !tbaa !9
+  %199 = icmp eq i32 %198, 0
+  br i1 %199, label %Py_DECREF.exit86.sink.split, label %Py_DECREF.exit86
 
-Py_DECREF.exit92.sink.split:                      ; preds = %216, %212
-  %.0.ph = phi i32 [ 0, %212 ], [ -1, %216 ]
+Py_DECREF.exit86.sink.split:                      ; preds = %197, %193
+  %.0.ph = phi i32 [ 0, %193 ], [ -1, %197 ]
   call void @_Py_Dealloc(ptr noundef nonnull %14) #6
-  br label %Py_DECREF.exit92
+  br label %Py_DECREF.exit86
 
-Py_DECREF.exit92:                                 ; preds = %Py_DECREF.exit92.sink.split, %216, %config_dict_get.exit.thread, %212, %210, %3
-  %.0 = phi i32 [ -1, %3 ], [ 0, %210 ], [ 0, %212 ], [ -1, %config_dict_get.exit.thread ], [ -1, %216 ], [ %.0.ph, %Py_DECREF.exit92.sink.split ]
+Py_DECREF.exit86:                                 ; preds = %Py_DECREF.exit86.sink.split, %197, %config_dict_get.exit.thread, %193, %191, %3
+  %.0 = phi i32 [ -1, %3 ], [ 0, %191 ], [ 0, %193 ], [ -1, %config_dict_get.exit.thread ], [ -1, %197 ], [ %.0.ph, %Py_DECREF.exit86.sink.split ]
   ret i32 %.0
 }
 

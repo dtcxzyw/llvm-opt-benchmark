@@ -1883,8 +1883,8 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit
   br label %25
 
 25:                                               ; preds = %.lr.ph, %_ZN7obj_refI4expr11ast_managerED2Ev.exit
-  %.02964 = phi ptr [ %12, %.lr.ph ], [ %54, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
-  %26 = load ptr, ptr %.02964, align 8, !tbaa !213
+  %.02962 = phi ptr [ %12, %.lr.ph ], [ %54, %_ZN7obj_refI4expr11ast_managerED2Ev.exit ]
+  %26 = load ptr, ptr %.02962, align 8, !tbaa !213
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN3smt10theory_seq6mk_lenEP4expr(ptr dead_on_unwind nonnull writable sret(%class.obj_ref) align 8 %5, ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1965,7 +1965,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN8rationalD2Ev.exit, %44, %50
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %54 = getelementptr inbounds nuw i8, ptr %.02964, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.02962, i64 8
   %.not = icmp eq ptr %54, %18
   br i1 %.not, label %._crit_edge, label %25
 
@@ -3120,8 +3120,8 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_seq10branch_nqsEv(ptr noundef 
   %2 = alloca %"class.smt::theory_seq::ne", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %4 = load i32, ptr %3, align 8, !tbaa !22
-  %.not27.not = icmp eq i32 %4, 0
-  br i1 %.not27.not, label %.loopexit, label %.lr.ph
+  %.not29.not = icmp eq i32 %4, 0
+  br i1 %.not29.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 320
@@ -3137,16 +3137,16 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_seq10branch_nqsEv(ptr noundef 
   %12 = getelementptr inbounds nuw %"class.smt::theory_seq::ne", ptr %10, i64 %11
   call void @_ZN3smt10theory_seq2neC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %2, ptr noundef nonnull align 8 dereferenceable(56) %12)
   %13 = invoke noundef i32 @_ZN3smt10theory_seq9branch_nqERKNS0_2neE(ptr noundef nonnull align 8 dereferenceable(4328) %0, ptr noundef nonnull align 8 dereferenceable(56) %2)
-          to label %14 unwind label %.loopexit16
+          to label %14 unwind label %.loopexit17
 
 14:                                               ; preds = %7
-  switch i32 %13, label %default.unreachable29 [
-    i32 0, label %.critedge
+  switch i32 %13, label %default.unreachable31 [
+    i32 0, label %.loopexit18
     i32 1, label %16
     i32 -1, label %17
   ]
 
-.loopexit16:                                      ; preds = %7, %16
+.loopexit17:                                      ; preds = %7, %16
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %15
@@ -3156,21 +3156,21 @@ define hidden noundef zeroext i1 @_ZN3smt10theory_seq10branch_nqsEv(ptr noundef 
           cleanup
   br label %15
 
-15:                                               ; preds = %.loopexit.split-lp, %.loopexit16
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit16 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+15:                                               ; preds = %.loopexit.split-lp, %.loopexit17
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit17 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN3smt10theory_seq2neD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %lpad.phi
 
 16:                                               ; preds = %14
   invoke void @_ZN13scoped_vectorIN3smt10theory_seq2neEE14erase_and_swapEj(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 0)
-          to label %18 unwind label %.loopexit16
+          to label %18 unwind label %.loopexit17
 
 17:                                               ; preds = %14
   invoke void @_ZN13scoped_vectorIN3smt10theory_seq2neEE14erase_and_swapEj(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef 0)
-          to label %.critedge unwind label %.loopexit.split-lp
+          to label %.loopexit18 unwind label %.loopexit.split-lp
 
-default.unreachable29:                            ; preds = %14
+default.unreachable31:                            ; preds = %14
   unreachable
 
 18:                                               ; preds = %16
@@ -3180,14 +3180,14 @@ default.unreachable29:                            ; preds = %14
   %.not.not = icmp eq i32 %19, 0
   br i1 %.not.not, label %.loopexit, label %7, !llvm.loop !267
 
-.critedge:                                        ; preds = %14, %17
+.loopexit18:                                      ; preds = %14, %17
   call void @_ZN3smt10theory_seq2neD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %2) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %1, %.critedge
-  %.not21 = phi i1 [ true, %.critedge ], [ false, %1 ], [ false, %18 ]
-  ret i1 %.not21
+.loopexit:                                        ; preds = %18, %1, %.loopexit18
+  %.not23 = phi i1 [ true, %.loopexit18 ], [ false, %1 ], [ false, %18 ]
+  ret i1 %.not23
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable

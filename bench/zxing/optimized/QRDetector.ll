@@ -4601,8 +4601,8 @@ define internal fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9Bit
   br label %19
 
 19:                                               ; preds = %5, %.thread
-  %.0.idx66 = phi i64 [ 0, %5 ], [ %.0.add, %.thread ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.0.idx66
+  %.0.idx64 = phi i64 [ 0, %5 ], [ %.0.add, %.thread ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.0.idx64
   %.sroa.048.0.copyload = load double, ptr %.0.ptr, align 8, !tbaa !46
   %.sroa.449.0..0.sroa_idx = getelementptr inbounds nuw i8, ptr %.0.ptr, i64 8
   %.sroa.449.0.copyload = load double, ptr %.sroa.449.0..0.sroa_idx, align 8, !tbaa !46
@@ -4646,8 +4646,8 @@ define internal fastcc void @_ZN5ZXing6QRCodeL22LocateAlignmentPatternERKNS_9Bit
 _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit:     ; preds = %28
   %41 = getelementptr inbounds nuw i8, ptr %36, i64 %34
   %42 = load i8, ptr %41, align 1, !tbaa !145
-  %.not62 = icmp eq i8 %42, 0
-  br i1 %.not62, label %.thread, label %43
+  %.not60 = icmp eq i8 %42, 0
+  br i1 %.not60, label %.thread, label %43
 
 43:                                               ; preds = %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -4698,7 +4698,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit:     ; preds = %28
 
 .thread:                                          ; preds = %19, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit, %.thread56
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.0.add = add nuw nsw i64 %.0.idx66, 16
+  %.0.add = add nuw nsw i64 %.0.idx64, 16
   %.not = icmp eq i64 %.0.add, 144
   br i1 %.not, label %66, label %19
 

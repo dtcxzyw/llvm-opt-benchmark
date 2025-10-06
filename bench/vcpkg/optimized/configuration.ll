@@ -2194,7 +2194,7 @@ _ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit18: ; preds =
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i.i, i64 696
   %46 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %45, ptr noundef nonnull @.str.44) #22
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit47, label %_ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit16
+  br i1 %47, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit46, label %_ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit16
 
 _ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit16: ; preds = %44, %_ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit18
   %48 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i.i, i64 1032
@@ -2206,7 +2206,7 @@ _ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit16: ; preds =
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i.i, i64 1040
   %53 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull @.str.44) #22
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit49, label %_ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit14
+  br i1 %54, label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit48, label %_ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit14
 
 _ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit14: ; preds = %51, %_ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit16
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i.i, i64 1376
@@ -2277,16 +2277,16 @@ _ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i.i, i64 344
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit47: ; preds = %44
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit46: ; preds = %44
   %83 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i.i, i64 688
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit49: ; preds = %51
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit48: ; preds = %51
   %84 = getelementptr inbounds nuw i8, ptr %.sroa.032.042.i.i.i.i.i, i64 1032
   br label %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit
 
-_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit: ; preds = %30, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit47, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit49, %78, %70, %62, %75, %._crit_edge.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %21, %._crit_edge.i.i.i.i.i ], [ %21, %75 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %62 ], [ %.sroa.032.1.i.i.i.i.i, %70 ], [ %spec.select, %78 ], [ %82, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit ], [ %83, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit47 ], [ %84, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit49 ], [ %.sroa.032.042.i.i.i.i.i, %30 ]
+_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit: ; preds = %30, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit46, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit48, %78, %70, %62, %75, %._crit_edge.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %21, %._crit_edge.i.i.i.i.i ], [ %21, %75 ], [ %.sroa.032.0.lcssa.i.i.i.i.i, %62 ], [ %.sroa.032.1.i.i.i.i.i, %70 ], [ %spec.select, %78 ], [ %82, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit ], [ %83, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit46 ], [ %84, %_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN5vcpkg14RegistryConfigESt6vectorIS3_SaIS3_EEEEPDoFbRS4_EEbT_SD_T0_.exit.loopexit.split.loop.exit48 ], [ %.sroa.032.042.i.i.i.i.i, %30 ]
   %85 = icmp ne ptr %21, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br label %_ZN5vcpkgL27registry_config_requests_ceERKNS_14RegistryConfigE.exit
 
@@ -7136,8 +7136,8 @@ define linkonce_odr dso_local ptr @_ZN3fmt3v116detail5writeIcNS0_14basic_appende
   br i1 %.not12.i, label %_ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, label %32, !llvm.loop !306
 
 _ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit: ; preds = %40, %.thread.i
-  %.sroa.019.128.i = phi i64 [ %38, %.thread.i ], [ %41, %40 ]
-  %42 = add i64 %.sroa.019.128.i, 1
+  %.sroa.019.127.i = phi i64 [ %38, %.thread.i ], [ %41, %40 ]
+  %42 = add i64 %.sroa.019.127.i, 1
   br label %43
 
 43:                                               ; preds = %_ZN3fmt3v116detail20write_escaped_stringIcNS1_17counting_iteratorEEET0_S4_NS0_17basic_string_viewIT_EE.exit, %23
@@ -8364,19 +8364,19 @@ _ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back
   br i1 %.not12, label %.loopexit, label %21, !llvm.loop !334
 
 .loopexit:                                        ; preds = %51, %.thread
-  %.sroa.022.128 = phi ptr [ %.sroa.022.0, %.thread ], [ %52, %51 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 8
+  %.sroa.022.127 = phi ptr [ %.sroa.022.0, %.thread ], [ %52, %51 ]
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 8
   %54 = load i64, ptr %53, align 8, !tbaa !315
   %55 = add i64 %54, 1
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 16
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !317
   %58 = icmp ugt i64 %55, %57
   br i1 %58, label %59, label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit18
 
 59:                                               ; preds = %.loopexit
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.022.128, i64 24
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.022.127, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !318
-  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.128, i64 noundef %55)
+  call void %61(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.022.127, i64 noundef %55)
   %.pre.i.i16 = load i64, ptr %53, align 8, !tbaa !315
   %.pre2.i.i17 = add i64 %.pre.i.i16, 1
   br label %_ZN3fmt3v1114basic_appenderIcEaSEc.exit18
@@ -8384,11 +8384,11 @@ _ZN3fmt3v116detail4copyIcPKcNS0_14basic_appenderIcEETnNSt9enable_ifIXsr23is_back
 _ZN3fmt3v1114basic_appenderIcEaSEc.exit18:        ; preds = %.loopexit, %59
   %.pre-phi.i.i15 = phi i64 [ %55, %.loopexit ], [ %.pre2.i.i17, %59 ]
   %62 = phi i64 [ %54, %.loopexit ], [ %.pre.i.i16, %59 ]
-  %63 = load ptr, ptr %.sroa.022.128, align 8, !tbaa !319
+  %63 = load ptr, ptr %.sroa.022.127, align 8, !tbaa !319
   store i64 %.pre-phi.i.i15, ptr %53, align 8, !tbaa !315
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 %62
   store i8 34, ptr %64, align 1, !tbaa !21
-  ret ptr %.sroa.022.128
+  ret ptr %.sroa.022.127
 }
 
 ; Function Attrs: mustprogress uwtable

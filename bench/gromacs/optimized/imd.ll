@@ -1598,13 +1598,13 @@ define noundef zeroext i1 @_ZNK3gmx10ImdSession4Impl14bForcesChangedEv(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %5 = load i32, ptr %4, align 8, !tbaa !177
   %.not = icmp eq i32 %3, %5
-  br i1 %.not, label %.preheader22, label %.thread
+  br i1 %.not, label %.preheader20, label %.thread
 
-.preheader22:                                     ; preds = %1
+.preheader20:                                     ; preds = %1
   %6 = icmp sgt i32 %3, 0
   br i1 %6, label %.lr.ph, label %.thread
 
-.lr.ph:                                           ; preds = %.preheader22
+.lr.ph:                                           ; preds = %.preheader20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %8 = load ptr, ptr %7, align 8, !tbaa !172
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1615,14 +1615,14 @@ define noundef zeroext i1 @_ZNK3gmx10ImdSession4Impl14bForcesChangedEv(ptr nound
 11:                                               ; preds = %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph27, label %16, !llvm.loop !179
+  br i1 %exitcond.not, label %.lr.ph24, label %16, !llvm.loop !179
 
-.lr.ph27:                                         ; preds = %11
+.lr.ph24:                                         ; preds = %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %13 = load ptr, ptr %12, align 8, !tbaa !174
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %15 = load ptr, ptr %14, align 8, !tbaa !180
-  %wide.trip.count34 = zext nneg i32 %3 to i64
+  %wide.trip.count31 = zext nneg i32 %3 to i64
   br label %21
 
 16:                                               ; preds = %.lr.ph, %11
@@ -1634,10 +1634,10 @@ define noundef zeroext i1 @_ZNK3gmx10ImdSession4Impl14bForcesChangedEv(ptr nound
   %.not15 = icmp eq i32 %18, %20
   br i1 %.not15, label %11, label %.thread
 
-21:                                               ; preds = %_ZN3gmxL12rvecs_differEPKfS1_.exit, %.lr.ph27
-  %indvars.iv31 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next32, %_ZN3gmxL12rvecs_differEPKfS1_.exit ]
-  %22 = getelementptr inbounds nuw [3 x float], ptr %13, i64 %indvars.iv31
-  %23 = getelementptr inbounds nuw [3 x float], ptr %15, i64 %indvars.iv31
+21:                                               ; preds = %_ZN3gmxL12rvecs_differEPKfS1_.exit, %.lr.ph24
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next29, %_ZN3gmxL12rvecs_differEPKfS1_.exit ]
+  %22 = getelementptr inbounds nuw [3 x float], ptr %13, i64 %indvars.iv28
+  %23 = getelementptr inbounds nuw [3 x float], ptr %15, i64 %indvars.iv28
   br label %24
 
 24:                                               ; preds = %24, %21
@@ -1653,13 +1653,13 @@ define noundef zeroext i1 @_ZNK3gmx10ImdSession4Impl14bForcesChangedEv(ptr nound
   br i1 %or.cond.i, label %_ZN3gmxL12rvecs_differEPKfS1_.exit, label %24, !llvm.loop !181
 
 _ZN3gmxL12rvecs_differEPKfS1_.exit:               ; preds = %24
-  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
-  %exitcond35.not = icmp eq i64 %indvars.iv.next32, %wide.trip.count34
-  %or.cond = select i1 %29, i1 true, i1 %exitcond35.not
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %exitcond32.not = icmp eq i64 %indvars.iv.next29, %wide.trip.count31
+  %or.cond = select i1 %29, i1 true, i1 %exitcond32.not
   br i1 %or.cond, label %.thread, label %21, !llvm.loop !182
 
-.thread:                                          ; preds = %16, %_ZN3gmxL12rvecs_differEPKfS1_.exit, %.preheader22, %1
-  %.013 = phi i1 [ true, %1 ], [ false, %.preheader22 ], [ %29, %_ZN3gmxL12rvecs_differEPKfS1_.exit ], [ true, %16 ]
+.thread:                                          ; preds = %16, %_ZN3gmxL12rvecs_differEPKfS1_.exit, %.preheader20, %1
+  %.013 = phi i1 [ true, %1 ], [ false, %.preheader20 ], [ %29, %_ZN3gmxL12rvecs_differEPKfS1_.exit ], [ true, %16 ]
   ret i1 %.013
 }
 
@@ -1718,13 +1718,13 @@ define void @_ZN3gmx10ImdSession4Impl12outputForcesEd(ptr noundef nonnull align 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %6 = load i32, ptr %5, align 8, !tbaa !177
   %.not.i = icmp eq i32 %4, %6
-  br i1 %.not.i, label %.preheader22.i, label %.loopexit
+  br i1 %.not.i, label %.preheader20.i, label %.loopexit
 
-.preheader22.i:                                   ; preds = %2
+.preheader20.i:                                   ; preds = %2
   %7 = icmp sgt i32 %4, 0
   br i1 %7, label %.lr.ph.i, label %_ZNK3gmx10ImdSession4Impl14bForcesChangedEv.exit
 
-.lr.ph.i:                                         ; preds = %.preheader22.i
+.lr.ph.i:                                         ; preds = %.preheader20.i
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %9 = load ptr, ptr %8, align 8, !tbaa !172
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -1754,14 +1754,14 @@ define void @_ZN3gmx10ImdSession4Impl12outputForcesEd(ptr noundef nonnull align 
   br i1 %.not15.i, label %12, label %.loopexit
 
 22:                                               ; preds = %_ZN3gmxL12rvecs_differEPKfS1_.exit.i
-  %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
-  %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count.i
-  br i1 %exitcond35.not.i, label %_ZNK3gmx10ImdSession4Impl14bForcesChangedEv.exit, label %23, !llvm.loop !182
+  %indvars.iv.next29.i = add nuw nsw i64 %indvars.iv28.i, 1
+  %exitcond32.not.i = icmp eq i64 %indvars.iv.next29.i, %wide.trip.count.i
+  br i1 %exitcond32.not.i, label %_ZNK3gmx10ImdSession4Impl14bForcesChangedEv.exit, label %23, !llvm.loop !182
 
 23:                                               ; preds = %22, %.preheader.i
-  %indvars.iv31.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next32.i, %22 ]
-  %24 = getelementptr inbounds nuw [3 x float], ptr %14, i64 %indvars.iv31.i
-  %25 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv31.i
+  %indvars.iv28.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next29.i, %22 ]
+  %24 = getelementptr inbounds nuw [3 x float], ptr %14, i64 %indvars.iv28.i
+  %25 = getelementptr inbounds nuw [3 x float], ptr %16, i64 %indvars.iv28.i
   br label %26
 
 26:                                               ; preds = %26, %23
@@ -1894,7 +1894,7 @@ _ZN3gmxL12rvecs_differEPKfS1_.exit:               ; preds = %74
   %106 = icmp slt i64 %indvars.iv.next, %105
   br i1 %106, label %68, label %._crit_edge, !llvm.loop !184
 
-_ZNK3gmx10ImdSession4Impl14bForcesChangedEv.exit: ; preds = %22, %52, %._crit_edge, %.preheader22.i
+_ZNK3gmx10ImdSession4Impl14bForcesChangedEv.exit: ; preds = %22, %52, %._crit_edge, %.preheader20.i
   ret void
 }
 

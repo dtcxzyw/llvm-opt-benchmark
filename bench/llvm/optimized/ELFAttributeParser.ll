@@ -399,10 +399,10 @@ define dso_local void @_ZN4llvm18ELFAttributeParser14parseIndexListERNS_15SmallV
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = tail call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %5) #15
   %7 = load ptr, ptr %5, align 8, !tbaa !37
-  %.not.i8 = icmp eq ptr %7, null
+  %.not.i7 = icmp eq ptr %7, null
   %8 = icmp ne i64 %6, 0
-  %or.cond9 = and i1 %8, %.not.i8
-  br i1 %or.cond9, label %.lr.ph, label %._crit_edge
+  %or.cond8 = and i1 %8, %.not.i7
+  br i1 %or.cond8, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -814,10 +814,10 @@ _ZN4llvm17createStringErrorESt10error_codeRKNS_5TwineE.exit: ; preds = %_ZN4llvm
 103:                                              ; preds = %102
   %104 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %23, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %24) #15
   %105 = load ptr, ptr %24, align 8, !tbaa !37
-  %.not.i8.i = icmp eq ptr %105, null
+  %.not.i7.i = icmp eq ptr %105, null
   %106 = icmp ne i64 %104, 0
-  %or.cond9.i = and i1 %106, %.not.i8.i
-  br i1 %or.cond9.i, label %.lr.ph.i72, label %_ZN4llvm18ELFAttributeParser14parseIndexListERNS_15SmallVectorImplIhEE.exit
+  %or.cond8.i = and i1 %106, %.not.i7.i
+  br i1 %or.cond8.i, label %.lr.ph.i72, label %_ZN4llvm18ELFAttributeParser14parseIndexListERNS_15SmallVectorImplIhEE.exit
 
 .lr.ph.i72:                                       ; preds = %103, %113
   %107 = phi i64 [ %119, %113 ], [ %104, %103 ]
@@ -851,10 +851,10 @@ _ZN4llvm17createStringErrorESt10error_codeRKNS_5TwineE.exit: ; preds = %_ZN4llvm
 122:                                              ; preds = %102
   %123 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %23, ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %24) #15
   %124 = load ptr, ptr %24, align 8, !tbaa !37
-  %.not.i8.i74 = icmp eq ptr %124, null
+  %.not.i7.i74 = icmp eq ptr %124, null
   %125 = icmp ne i64 %123, 0
-  %or.cond9.i75 = and i1 %125, %.not.i8.i74
-  br i1 %or.cond9.i75, label %.lr.ph.i77, label %_ZN4llvm18ELFAttributeParser14parseIndexListERNS_15SmallVectorImplIhEE.exit
+  %or.cond8.i75 = and i1 %125, %.not.i7.i74
+  br i1 %or.cond8.i75, label %.lr.ph.i77, label %_ZN4llvm18ELFAttributeParser14parseIndexListERNS_15SmallVectorImplIhEE.exit
 
 .lr.ph.i77:                                       ; preds = %122, %132
   %126 = phi i64 [ %138, %132 ], [ %123, %122 ]

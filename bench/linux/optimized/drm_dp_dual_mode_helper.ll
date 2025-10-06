@@ -341,11 +341,11 @@ define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr n
   %4 = alloca i8, align 1
   %5 = alloca [2 x %struct.i2c_msg], align 16
   %6 = icmp eq i32 %1, 0
-  br i1 %6, label %35, label %7
+  br i1 %6, label %34, label %7
 
 7:                                                ; preds = %3
   %8 = icmp ult i32 %1, 4
-  br i1 %8, label %35, label %9
+  br i1 %8, label %34, label %9
 
 9:                                                ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -379,41 +379,38 @@ define dso_local range(i32 0, 635001) i32 @drm_dp_dual_mode_max_tmds_clock(ptr n
   %.not = icmp eq i32 %21, 2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not, label %24, label %25
-
-24:                                               ; preds = %18
-  switch i8 %23, label %32 [
-    i8 -1, label %25
-    i8 0, label %25
-  ]
+  %.off = add i8 %23, -1
+  %switch = icmp ult i8 %.off, -2
+  %or.cond = select i1 %.not, i1 %switch, i1 false
+  br i1 %or.cond, label %31, label %24
 
 .critedge:                                        ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %.critedge, %24, %24, %18
-  %26 = icmp eq ptr %0, null
-  br i1 %26, label %30, label %27
+24:                                               ; preds = %.critedge, %18
+  %25 = icmp eq ptr %0, null
+  br i1 %25, label %29, label %26
 
-27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load ptr, ptr %28, align 8
-  br label %30
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %28 = load ptr, ptr %27, align 8
+  br label %29
 
-30:                                               ; preds = %27, %25
-  %31 = phi ptr [ %29, %27 ], [ null, %25 ]
-  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %31, i32 noundef 2, ptr noundef nonnull @.str.3) #9
-  br label %35
+29:                                               ; preds = %26, %24
+  %30 = phi ptr [ %28, %26 ], [ null, %24 ]
+  call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %30, i32 noundef 2, ptr noundef nonnull @.str.3) #9
+  br label %34
 
-32:                                               ; preds = %24
-  %33 = zext i8 %23 to i32
-  %34 = mul nuw nsw i32 %33, 2500
-  br label %35
+31:                                               ; preds = %18
+  %32 = zext i8 %23 to i32
+  %33 = mul nuw nsw i32 %32, 2500
+  br label %34
 
-35:                                               ; preds = %32, %30, %7, %3
-  %36 = phi i32 [ 165000, %30 ], [ %34, %32 ], [ 0, %3 ], [ 165000, %7 ]
-  ret i32 %36
+34:                                               ; preds = %31, %29, %7, %3
+  %35 = phi i32 [ 165000, %29 ], [ %33, %31 ], [ 0, %3 ], [ 165000, %7 ]
+  ret i32 %35
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

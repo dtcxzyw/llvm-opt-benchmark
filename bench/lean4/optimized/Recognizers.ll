@@ -2361,27 +2361,27 @@ define ptr @l_Lean_Expr_listLit_x3f_loop(ptr noundef %0, ptr noundef %1) local_u
   br i1 %5, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2, %lean_dec.exit43
-  %.03371 = phi ptr [ %29, %lean_dec.exit43 ], [ %0, %2 ]
-  %.03670 = phi ptr [ %50, %lean_dec.exit43 ], [ %1, %2 ]
+  %.03369 = phi ptr [ %29, %lean_dec.exit43 ], [ %0, %2 ]
+  %.03668 = phi ptr [ %50, %lean_dec.exit43 ], [ %1, %2 ]
   %6 = load ptr, ptr @l_Lean_Expr_listLit_x3f_loop___closed__5, align 8, !tbaa !4
-  %7 = tail call zeroext i8 @l_Lean_Expr_isAppOfArity_x27(ptr noundef %.03371, ptr noundef %6, ptr noundef nonnull inttoptr (i64 7 to ptr)) #4
+  %7 = tail call zeroext i8 @l_Lean_Expr_isAppOfArity_x27(ptr noundef %.03369, ptr noundef %6, ptr noundef nonnull inttoptr (i64 7 to ptr)) #4
   %8 = icmp eq i8 %7, 0
   br i1 %8, label %9, label %28
 
 9:                                                ; preds = %.lr.ph
-  %10 = ptrtoint ptr %.03670 to i64
+  %10 = ptrtoint ptr %.03668 to i64
   %11 = and i64 %10, 1
-  %.not64 = icmp eq i64 %11, 0
-  br i1 %.not64, label %12, label %lean_dec.exit44
+  %.not62 = icmp eq i64 %11, 0
+  br i1 %.not62, label %12, label %lean_dec.exit44
 
 12:                                               ; preds = %9
-  %13 = load i32, ptr %.03670, align 4, !tbaa !8
+  %13 = load i32, ptr %.03668, align 4, !tbaa !8
   %14 = icmp sgt i32 %13, 1
   br i1 %14, label %15, label %17, !prof !11
 
 15:                                               ; preds = %12
   %16 = add nsw i32 %13, -1
-  store i32 %16, ptr %.03670, align 4, !tbaa !8
+  store i32 %16, ptr %.03668, align 4, !tbaa !8
   br label %lean_dec.exit44
 
 17:                                               ; preds = %12
@@ -2389,23 +2389,23 @@ define ptr @l_Lean_Expr_listLit_x3f_loop(ptr noundef %0, ptr noundef %1) local_u
   br i1 %.not.i, label %lean_dec.exit44, label %18
 
 18:                                               ; preds = %17
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.03670) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.03668) #4
   br label %lean_dec.exit44
 
 lean_dec.exit44:                                  ; preds = %18, %17, %15, %9
-  %19 = ptrtoint ptr %.03371 to i64
+  %19 = ptrtoint ptr %.03369 to i64
   %20 = and i64 %19, 1
-  %.not65 = icmp eq i64 %20, 0
-  br i1 %.not65, label %21, label %81
+  %.not63 = icmp eq i64 %20, 0
+  br i1 %.not63, label %21, label %81
 
 21:                                               ; preds = %lean_dec.exit44
-  %22 = load i32, ptr %.03371, align 4, !tbaa !8
+  %22 = load i32, ptr %.03369, align 4, !tbaa !8
   %23 = icmp sgt i32 %22, 1
   br i1 %23, label %24, label %26, !prof !11
 
 24:                                               ; preds = %21
   %25 = add nsw i32 %22, -1
-  store i32 %25, ptr %.03371, align 4, !tbaa !8
+  store i32 %25, ptr %.03369, align 4, !tbaa !8
   br label %81
 
 26:                                               ; preds = %21
@@ -2413,25 +2413,25 @@ lean_dec.exit44:                                  ; preds = %18, %17, %15, %9
   br i1 %.not.i45, label %81, label %27
 
 27:                                               ; preds = %26
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.03371) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.03369) #4
   br label %81
 
 28:                                               ; preds = %.lr.ph
-  %29 = tail call ptr @l_Lean_Expr_appArg_x21_x27(ptr noundef %.03371) #4
-  %30 = tail call ptr @l_Lean_Expr_appFn_x21_x27(ptr noundef %.03371) #4
-  %31 = ptrtoint ptr %.03371 to i64
+  %29 = tail call ptr @l_Lean_Expr_appArg_x21_x27(ptr noundef %.03369) #4
+  %30 = tail call ptr @l_Lean_Expr_appFn_x21_x27(ptr noundef %.03369) #4
+  %31 = ptrtoint ptr %.03369 to i64
   %32 = and i64 %31, 1
-  %.not62 = icmp eq i64 %32, 0
-  br i1 %.not62, label %33, label %lean_dec.exit42
+  %.not60 = icmp eq i64 %32, 0
+  br i1 %.not60, label %33, label %lean_dec.exit42
 
 33:                                               ; preds = %28
-  %34 = load i32, ptr %.03371, align 4, !tbaa !8
+  %34 = load i32, ptr %.03369, align 4, !tbaa !8
   %35 = icmp sgt i32 %34, 1
   br i1 %35, label %36, label %38, !prof !11
 
 36:                                               ; preds = %33
   %37 = add nsw i32 %34, -1
-  store i32 %37, ptr %.03371, align 4, !tbaa !8
+  store i32 %37, ptr %.03369, align 4, !tbaa !8
   br label %lean_dec.exit42
 
 38:                                               ; preds = %33
@@ -2439,15 +2439,15 @@ lean_dec.exit44:                                  ; preds = %18, %17, %15, %9
   br i1 %.not.i47, label %lean_dec.exit42, label %39
 
 39:                                               ; preds = %38
-  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.03371) #4
+  tail call void @lean_dec_ref_cold(ptr noundef nonnull %.03369) #4
   br label %lean_dec.exit42
 
 lean_dec.exit42:                                  ; preds = %39, %38, %36, %28
   %40 = tail call ptr @l_Lean_Expr_appArg_x21_x27(ptr noundef %30) #4
   %41 = ptrtoint ptr %30 to i64
   %42 = and i64 %41, 1
-  %.not63 = icmp eq i64 %42, 0
-  br i1 %.not63, label %43, label %lean_dec.exit41
+  %.not61 = icmp eq i64 %42, 0
+  br i1 %.not61, label %43, label %lean_dec.exit41
 
 43:                                               ; preds = %lean_dec.exit42
   %44 = load i32, ptr %30, align 4, !tbaa !8
@@ -2547,7 +2547,7 @@ lean_dec.exit43:                                  ; preds = %lean_dec.exit41
   %76 = getelementptr inbounds nuw i8, ptr %50, i64 8
   store ptr %40, ptr %76, align 8, !tbaa !4
   %77 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  store ptr %.03670, ptr %77, align 8, !tbaa !4
+  store ptr %.03668, ptr %77, align 8, !tbaa !4
   %78 = load ptr, ptr @l_Lean_Expr_listLit_x3f_loop___closed__3, align 8, !tbaa !4
   %79 = tail call zeroext i8 @l_Lean_Expr_isAppOfArity_x27(ptr noundef %29, ptr noundef %78, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
   %80 = icmp eq i8 %79, 0

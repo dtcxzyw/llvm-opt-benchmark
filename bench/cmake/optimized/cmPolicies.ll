@@ -3982,11 +3982,11 @@ define dso_local noundef zeroext i1 @_ZNK10cmPolicies9PolicyMap7IsEmptyEv(ptr no
   br label %2
 
 2:                                                ; preds = %2, %1
-  %.057.i.i = phi i64 [ 0, %1 ], [ %5, %2 ]
-  %3 = getelementptr inbounds nuw i64, ptr %0, i64 %.057.i.i
+  %.058.i.i = phi i64 [ 0, %1 ], [ %5, %2 ]
+  %3 = getelementptr inbounds nuw i64, ptr %0, i64 %.058.i.i
   %4 = load i64, ptr %3, align 8, !tbaa !17
   %.not.not.i.i = icmp ne i64 %4, 0
-  %5 = add nuw nsw i64 %.057.i.i, 1
+  %5 = add nuw nsw i64 %.058.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %5, 9
   %or.cond.i.i = select i1 %.not.not.i.i, i1 true, i1 %exitcond.not.i.i
   br i1 %or.cond.i.i, label %_ZNKSt6bitsetILm558EE4noneEv.exit, label %2, !llvm.loop !194

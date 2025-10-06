@@ -3059,22 +3059,22 @@ move_to_ready_heap.exit.i:                        ; preds = %558, %539
 .backedge.i:                                      ; preds = %.backedge.i.backedge, %move_to_ready_heap.exit.i
   %561 = load i32, ptr %542, align 8
   %562 = icmp sgt i32 %561, 0
-  br i1 %562, label %.lr.ph69.i.i, label %._crit_edge.i.i254
+  br i1 %562, label %.lr.ph67.i.i, label %._crit_edge.i.i254
 
-.lr.ph69.i.i:                                     ; preds = %.backedge.i
+.lr.ph67.i.i:                                     ; preds = %.backedge.i
   %563 = load i32, ptr %535, align 8
   %564 = icmp sgt i32 %563, 0
-  br i1 %564, label %.lr.ph69.split.us.i.i, label %.lr.ph69.split.i.i
+  br i1 %564, label %.lr.ph67.split.us.i.i, label %.lr.ph67.split.i.i
 
-.lr.ph69.split.us.i.i:                            ; preds = %.lr.ph69.i.i
+.lr.ph67.split.us.i.i:                            ; preds = %.lr.ph67.i.i
   %565 = load ptr, ptr %560, align 8
-  %wide.trip.count85.i.i = zext nneg i32 %561 to i64
+  %wide.trip.count83.i.i = zext nneg i32 %561 to i64
   %wide.trip.count.i.i = zext nneg i32 %563 to i64
   br label %.lr.ph.us.i.i
 
-.lr.ph.us.i.i:                                    ; preds = %has_lock_conflicts.exit.thread50.us.i.i, %.lr.ph69.split.us.i.i
-  %indvars.iv82.i.i = phi i64 [ %indvars.iv.next83.i.i, %has_lock_conflicts.exit.thread50.us.i.i ], [ 0, %.lr.ph69.split.us.i.i ]
-  %566 = getelementptr inbounds nuw ptr, ptr %559, i64 %indvars.iv82.i.i
+.lr.ph.us.i.i:                                    ; preds = %has_lock_conflicts.exit.thread50.us.i.i, %.lr.ph67.split.us.i.i
+  %indvars.iv80.i.i = phi i64 [ %indvars.iv.next81.i.i, %has_lock_conflicts.exit.thread50.us.i.i ], [ 0, %.lr.ph67.split.us.i.i ]
+  %566 = getelementptr inbounds nuw ptr, ptr %559, i64 %indvars.iv80.i.i
   %567 = load ptr, ptr %566, align 8
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 224
   %569 = getelementptr inbounds nuw i8, ptr %567, i64 216
@@ -3083,8 +3083,8 @@ move_to_ready_heap.exit.i:                        ; preds = %558, %539
   br label %572
 
 572:                                              ; preds = %.loopexit.us.i.i, %.lr.ph.us.i.i
-  %indvars.iv79.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next80.i.i, %.loopexit.us.i.i ]
-  %573 = getelementptr inbounds nuw ptr, ptr %565, i64 %indvars.iv79.i.i
+  %indvars.iv77.i.i = phi i64 [ 0, %.lr.ph.us.i.i ], [ %indvars.iv.next78.i.i, %.loopexit.us.i.i ]
+  %573 = getelementptr inbounds nuw ptr, ptr %565, i64 %indvars.iv77.i.i
   %574 = load ptr, ptr %573, align 8
   %575 = icmp eq ptr %574, null
   br i1 %575, label %.loopexit.us.i.i, label %576
@@ -3092,13 +3092,13 @@ move_to_ready_heap.exit.i:                        ; preds = %558, %539
 576:                                              ; preds = %572
   %577 = load i32, ptr %568, align 8
   %578 = icmp sgt i32 %577, 0
-  br i1 %578, label %.preheader.lr.ph.i.us.i.i, label %.loopexit61.us.i.i
+  br i1 %578, label %.preheader.lr.ph.i.us.i.i, label %.loopexit59.us.i.i
 
 .preheader.lr.ph.i.us.i.i:                        ; preds = %576
   %579 = getelementptr inbounds nuw i8, ptr %574, i64 128
   %580 = load i32, ptr %579, align 8
   %581 = icmp sgt i32 %580, 0
-  br i1 %581, label %.preheader.lr.ph.split.us.i.us.i.i, label %.loopexit61.us.i.i
+  br i1 %581, label %.preheader.lr.ph.split.us.i.us.i.i, label %.loopexit59.us.i.i
 
 .preheader.lr.ph.split.us.i.us.i.i:               ; preds = %.preheader.lr.ph.i.us.i.i
   %582 = getelementptr inbounds nuw i8, ptr %574, i64 120
@@ -3129,15 +3129,15 @@ move_to_ready_heap.exit.i:                        ; preds = %558, %539
 ._crit_edge.us.i.us.i.i:                          ; preds = %592
   %indvars.iv.next.i.i258 = add nuw nsw i64 %indvars.iv.i.i257, 1
   %exitcond20.not.i.us.i.i = icmp eq i64 %indvars.iv.next.i.i258, %585
-  br i1 %exitcond20.not.i.us.i.i, label %.loopexit61.us.i.i, label %.preheader.us.i.us.i.i, !llvm.loop !31
+  br i1 %exitcond20.not.i.us.i.i, label %.loopexit59.us.i.i, label %.preheader.us.i.us.i.i, !llvm.loop !31
 
-.loopexit61.us.i.i:                               ; preds = %._crit_edge.us.i.us.i.i, %.preheader.lr.ph.i.us.i.i, %576
+.loopexit59.us.i.i:                               ; preds = %._crit_edge.us.i.us.i.i, %.preheader.lr.ph.i.us.i.i, %576
   %593 = getelementptr inbounds nuw i8, ptr %574, i64 224
   %594 = load i32, ptr %593, align 8
   %595 = icmp sgt i32 %594, 0
   br i1 %595, label %.preheader.lr.ph.i32.us.i.i, label %.loopexit.us.i.i
 
-.preheader.lr.ph.i32.us.i.i:                      ; preds = %.loopexit61.us.i.i
+.preheader.lr.ph.i32.us.i.i:                      ; preds = %.loopexit59.us.i.i
   %596 = load i32, ptr %570, align 8
   %597 = icmp sgt i32 %596, 0
   br i1 %597, label %.preheader.lr.ph.split.us.i33.us.i.i, label %.loopexit.us.i.i
@@ -3151,8 +3151,8 @@ move_to_ready_heap.exit.i:                        ; preds = %558, %539
   br label %.preheader.us.i35.us.i.i
 
 .preheader.us.i35.us.i.i:                         ; preds = %._crit_edge.us.i40.us.i.i, %.preheader.lr.ph.split.us.i33.us.i.i
-  %indvars.iv76.i.i = phi i64 [ %indvars.iv.next77.i.i, %._crit_edge.us.i40.us.i.i ], [ 0, %.preheader.lr.ph.split.us.i33.us.i.i ]
-  %602 = getelementptr inbounds nuw i32, ptr %599, i64 %indvars.iv76.i.i
+  %indvars.iv74.i.i = phi i64 [ %indvars.iv.next75.i.i, %._crit_edge.us.i40.us.i.i ], [ 0, %.preheader.lr.ph.split.us.i33.us.i.i ]
+  %602 = getelementptr inbounds nuw i32, ptr %599, i64 %indvars.iv74.i.i
   %603 = load i32, ptr %602, align 4
   br label %604
 
@@ -3169,26 +3169,26 @@ move_to_ready_heap.exit.i:                        ; preds = %558, %539
   br i1 %exitcond.not.i39.us.i.i, label %._crit_edge.us.i40.us.i.i, label %604, !llvm.loop !30
 
 ._crit_edge.us.i40.us.i.i:                        ; preds = %608
-  %indvars.iv.next77.i.i = add nuw nsw i64 %indvars.iv76.i.i, 1
-  %exitcond20.not.i41.us.i.i = icmp eq i64 %indvars.iv.next77.i.i, %601
+  %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
+  %exitcond20.not.i41.us.i.i = icmp eq i64 %indvars.iv.next75.i.i, %601
   br i1 %exitcond20.not.i41.us.i.i, label %.loopexit.us.i.i, label %.preheader.us.i35.us.i.i, !llvm.loop !31
 
 has_lock_conflicts.exit.thread50.us.i.i:          ; preds = %588, %604
-  %indvars.iv.next83.i.i = add nuw nsw i64 %indvars.iv82.i.i, 1
-  %exitcond86.not.i.i = icmp eq i64 %indvars.iv.next83.i.i, %wide.trip.count85.i.i
-  br i1 %exitcond86.not.i.i, label %._crit_edge.i.i254, label %.lr.ph.us.i.i, !llvm.loop !32
+  %indvars.iv.next81.i.i = add nuw nsw i64 %indvars.iv80.i.i, 1
+  %exitcond84.not.i.i = icmp eq i64 %indvars.iv.next81.i.i, %wide.trip.count83.i.i
+  br i1 %exitcond84.not.i.i, label %._crit_edge.i.i254, label %.lr.ph.us.i.i, !llvm.loop !32
 
-.loopexit.us.i.i:                                 ; preds = %._crit_edge.us.i40.us.i.i, %.preheader.lr.ph.i32.us.i.i, %.loopexit61.us.i.i, %572
-  %indvars.iv.next80.i.i = add nuw nsw i64 %indvars.iv79.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next80.i.i, %wide.trip.count.i.i
+.loopexit.us.i.i:                                 ; preds = %._crit_edge.us.i40.us.i.i, %.preheader.lr.ph.i32.us.i.i, %.loopexit59.us.i.i, %572
+  %indvars.iv.next78.i.i = add nuw nsw i64 %indvars.iv77.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next78.i.i, %wide.trip.count.i.i
   br i1 %exitcond.not.i.i, label %has_lock_conflicts.exit.loopexit.i.i, label %572, !llvm.loop !33
 
-.lr.ph69.split.i.i:                               ; preds = %.lr.ph69.i.i
+.lr.ph67.split.i.i:                               ; preds = %.lr.ph67.i.i
   %609 = load ptr, ptr %559, align 8
   br label %pop_next_work_item.exit.i
 
 has_lock_conflicts.exit.loopexit.i.i:             ; preds = %.loopexit.us.i.i
-  %610 = trunc nuw nsw i64 %indvars.iv82.i.i to i32
+  %610 = trunc nuw nsw i64 %indvars.iv80.i.i to i32
   br label %pop_next_work_item.exit.i
 
 ._crit_edge.i.i254:                               ; preds = %has_lock_conflicts.exit.thread50.us.i.i, %.backedge.i
@@ -3200,10 +3200,10 @@ has_lock_conflicts.exit.loopexit.i.i:             ; preds = %.loopexit.us.i.i
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.277) #23
   br label %pop_next_work_item.exit.thread.i
 
-pop_next_work_item.exit.i:                        ; preds = %has_lock_conflicts.exit.loopexit.i.i, %.lr.ph69.split.i.i
-  %.lcssa.i.i = phi ptr [ %609, %.lr.ph69.split.i.i ], [ %567, %has_lock_conflicts.exit.loopexit.i.i ]
-  %.026.lcssa62.i.i = phi i32 [ 0, %.lr.ph69.split.i.i ], [ %610, %has_lock_conflicts.exit.loopexit.i.i ]
-  call void @binaryheap_remove_node(ptr noundef nonnull %542, i32 noundef %.026.lcssa62.i.i) #23
+pop_next_work_item.exit.i:                        ; preds = %has_lock_conflicts.exit.loopexit.i.i, %.lr.ph67.split.i.i
+  %.lcssa.i.i = phi ptr [ %609, %.lr.ph67.split.i.i ], [ %567, %has_lock_conflicts.exit.loopexit.i.i ]
+  %.026.lcssa60.i.i = phi i32 [ 0, %.lr.ph67.split.i.i ], [ %610, %has_lock_conflicts.exit.loopexit.i.i ]
+  call void @binaryheap_remove_node(ptr noundef nonnull %542, i32 noundef %.026.lcssa60.i.i) #23
   %.not.i256 = icmp eq ptr %.lcssa.i.i, null
   br i1 %.not.i256, label %pop_next_work_item.exit.thread.i, label %614
 
@@ -3830,11 +3830,11 @@ define dso_local noundef i32 @ahprintf(ptr noundef %0, ptr noundef %1, ...) loca
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.lcssa19 = phi ptr [ %6, %2 ], [ %11, %.lr.ph ]
+  %.lcssa18 = phi ptr [ %6, %2 ], [ %11, %.lr.ph ]
   %.lcssa = phi i64 [ %7, %2 ], [ %12, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  call void @ahwrite(ptr noundef %.lcssa19, i64 noundef 1, i64 noundef %.lcssa, ptr noundef %0)
-  call void @free(ptr noundef %.lcssa19) #23
+  call void @ahwrite(ptr noundef %.lcssa18, i64 noundef 1, i64 noundef %.lcssa, ptr noundef %0)
+  call void @free(ptr noundef %.lcssa18) #23
   %14 = trunc i64 %.lcssa to i32
   ret i32 %14
 }
@@ -5776,7 +5776,7 @@ define dso_local i32 @archprintf(ptr noundef %0, ptr noundef %1, ...) local_unna
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.lcssa19 = phi ptr [ %6, %2 ], [ %11, %.lr.ph ]
+  %.lcssa18 = phi ptr [ %6, %2 ], [ %11, %.lr.ph ]
   %.lcssa = phi i64 [ %7, %2 ], [ %12, %.lr.ph ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 536
@@ -5792,8 +5792,8 @@ define dso_local i32 @archprintf(ptr noundef %0, ptr noundef %1, ...) local_unna
 WriteData.exit:                                   ; preds = %._crit_edge
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %18 = load ptr, ptr %17, align 8
-  call void %18(ptr noundef nonnull %0, ptr noundef %.lcssa19, i64 noundef %.lcssa) #23
-  call void @free(ptr noundef %.lcssa19) #23
+  call void %18(ptr noundef nonnull %0, ptr noundef %.lcssa18, i64 noundef %.lcssa) #23
+  call void @free(ptr noundef %.lcssa18) #23
   %19 = trunc i64 %.lcssa to i32
   ret i32 %19
 }

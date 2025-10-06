@@ -26208,11 +26208,11 @@ _ZNK4entt9basic_anyILm16ELm8EE4typeEv.exit:       ; preds = %7, %13, %16, %18
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %28 = load i8, ptr %27, align 8, !tbaa !57
   switch i8 %28, label %34 [
-    i8 4, label %.thread17
+    i8 4, label %.thread16
     i8 2, label %30
   ]
 
-.thread17:                                        ; preds = %26
+.thread16:                                        ; preds = %26
   %29 = load ptr, ptr %3, align 8, !tbaa !58
   br label %51
 
@@ -26256,8 +26256,8 @@ _ZN4entt9basic_anyILm16ELm8EE4dataEv.exit:        ; preds = %30, %34
   %50 = invoke noundef ptr %49(i8 noundef zeroext 6, ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef null)
           to label %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit unwind label %54
 
-51:                                               ; preds = %.thread17, %44
-  %52 = phi ptr [ %29, %.thread17 ], [ %45, %44 ]
+51:                                               ; preds = %.thread16, %44
+  %52 = phi ptr [ %29, %.thread16 ], [ %45, %44 ]
   %53 = load ptr, ptr %1, align 8, !tbaa !20
   br label %_ZNK4entt9basic_anyILm16ELm8EE4dataEv.exit
 

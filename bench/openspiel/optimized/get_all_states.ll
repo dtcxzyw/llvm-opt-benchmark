@@ -465,8 +465,8 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit71: ; pre
   %124 = load ptr, ptr %12, align 8
   %125 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %126 = load ptr, ptr %125, align 8
-  %.not9293 = icmp eq ptr %124, %126
-  br i1 %.not9293, label %._crit_edge, label %.lr.ph
+  %.not9192 = icmp eq ptr %124, %126
+  br i1 %.not9192, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %120
   %127 = add nsw i32 %3, 1
@@ -491,8 +491,8 @@ _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit71: ; pre
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 135:                                              ; preds = %.lr.ph, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit75
-  %.sroa.081.094 = phi ptr [ %124, %.lr.ph ], [ %152, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit75 ]
-  %136 = load i64, ptr %.sroa.081.094, align 8
+  %.sroa.081.093 = phi ptr [ %124, %.lr.ph ], [ %152, %_ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit75 ]
+  %136 = load i64, ptr %.sroa.081.093, align 8
   %137 = load ptr, ptr %0, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 192
   %139 = load ptr, ptr %138, align 8
@@ -526,9 +526,9 @@ _ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i74: ; preds = %147
 
 _ZNSt10unique_ptrIN10open_spiel5StateESt14default_deleteIS1_EED2Ev.exit75: ; preds = %147, %_ZNKSt14default_deleteIN10open_spiel5StateEEclEPS1_.exit.i74
   store ptr null, ptr %13, align 8
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.081.094, i64 8
-  %.not92 = icmp eq ptr %152, %126
-  br i1 %.not92, label %._crit_edge.loopexit, label %135
+  %152 = getelementptr inbounds nuw i8, ptr %.sroa.081.093, i64 8
+  %.not91 = icmp eq ptr %152, %126
+  br i1 %.not91, label %._crit_edge.loopexit, label %135
 
 153:                                              ; preds = %135
   %154 = landingpad { ptr, i32 }

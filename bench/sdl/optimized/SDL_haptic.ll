@@ -677,10 +677,10 @@ SDL_IsJoystickHaptic_REAL.exit:                   ; preds = %8
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.thread.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread.i.i ], [ 0, %.preheader.i.i ]
   %.034.i = phi ptr [ %.135.i, %.thread.i.i ], [ null, %.preheader.i.i ]
-  %.020.i.i = phi ptr [ %spec.select.i.i, %.thread.i.i ], [ %40, %.preheader.i.i ]
+  %.019.i.i = phi ptr [ %spec.select.i.i, %.thread.i.i ], [ %40, %.preheader.i.i ]
   %45 = load i32, ptr %3, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i8, ptr %.020.i.i, i64 %46
+  %47 = getelementptr inbounds i8, ptr %.019.i.i, i64 %46
   store i32 0, ptr %3, align 4
   %48 = trunc nuw nsw i64 %indvars.iv.i to i32
   %49 = and i32 %48, 7

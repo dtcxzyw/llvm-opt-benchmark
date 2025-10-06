@@ -8238,9 +8238,8 @@ define hidden void @_ZN17C2_MacroAssembler14string_indexofE8RegisterS0_S0_S0_iS0
   store i32 0, ptr %340, align 8
   call void @_ZN14MacroAssembler6movdquE11XMMRegister7Address(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %7, ptr noundef nonnull %50) #11
   call void @_ZN14MacroAssembler6subptrE8RegisterS0_(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 %6) #11
-  %341 = and i32 %9, -2
-  %or.cond5 = icmp eq i32 %341, 2
-  br i1 %or.cond5, label %342, label %343
+  %341 = icmp eq i32 %9, 3
+  br i1 %341, label %342, label %343
 
 342:                                              ; preds = %.thread, %332
   call void @_ZN9Assembler4shrlE8Registeri(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 %1, i32 noundef 1) #11

@@ -3586,11 +3586,11 @@ define internal fastcc void @php_url_scanner_session_handler_impl(ptr noundef %0
   tail call void @smart_str_erealloc(ptr noundef nonnull %12, i64 noundef %.0.i.i.i38) #19
   %.pre.i.i = load ptr, ptr %12, align 8, !tbaa !4
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 16
-  %.pre429.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !11
+  %.pre427.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !11
   br label %smart_str_alloc.exit.i.i
 
 smart_str_alloc.exit.i.i:                         ; preds = %19, %14
-  %20 = phi i64 [ %.pre429.i.i, %19 ], [ %16, %14 ]
+  %20 = phi i64 [ %.pre427.i.i, %19 ], [ %16, %14 ]
   %21 = phi ptr [ %.pre.i.i, %19 ], [ %13, %14 ]
   %.1.i.i.i39 = phi i64 [ %.0.i.i.i38, %19 ], [ %17, %14 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -3604,54 +3604,54 @@ smart_str_alloc.exit.i.i:                         ; preds = %19, %14
   %28 = select i1 %5, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1016), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1240)
   %29 = load i32, ptr %28, align 8, !tbaa !81
   switch i32 %29, label %.loopexit.i.i [
-    i32 0, label %.preheader381.i.i
+    i32 0, label %.preheader379.i.i
     i32 1, label %73
-    i32 2, label %.preheader375.i.i
+    i32 2, label %.preheader373.i.i
     i32 3, label %287
     i32 4, label %318
     i32 5, label %smart_str_alloc.exit._crit_edge.i.i
   ]
 
 smart_str_alloc.exit._crit_edge.i.i:              ; preds = %smart_str_alloc.exit.i.i
-  %.pre435.i.i = ptrtoint ptr %27 to i64
+  %.pre433.i.i = ptrtoint ptr %27 to i64
   %.pre120.i = ptrtoint ptr %26 to i64
   br label %351
 
 .loopexit.i.i:                                    ; preds = %passthru.exit291.i.i, %passthru.exit307.i.i, %183, %187, %197, %216, %check_host_whitelist.exit.i.i.i, %check_host_whitelist.exit.thread.i.i.i, %261, %smart_str_append_ex.exit.i.i.i, %select.unfold.i.i, %smart_str_alloc.exit.i.i
   %.6.i.i = phi ptr [ %26, %smart_str_alloc.exit.i.i ], [ %.9.i.i, %select.unfold.i.i ], [ %164, %smart_str_append_ex.exit.i.i.i ], [ %164, %261 ], [ %164, %check_host_whitelist.exit.thread.i.i.i ], [ %164, %check_host_whitelist.exit.i.i.i ], [ %164, %216 ], [ %164, %197 ], [ %164, %187 ], [ %164, %183 ], [ %164, %passthru.exit307.i.i ], [ %.15.i.i, %passthru.exit291.i.i ]
   store i32 0, ptr %28, align 8, !tbaa !81
-  br label %.preheader381.i.i
+  br label %.preheader379.i.i
 
-.preheader381.i.i:                                ; preds = %select.unfold.i.i, %.loopexit.i.i, %smart_str_alloc.exit.i.i
+.preheader379.i.i:                                ; preds = %select.unfold.i.i, %.loopexit.i.i, %smart_str_alloc.exit.i.i
   %.0205.ph.i.i = phi ptr [ %26, %smart_str_alloc.exit.i.i ], [ %.9.i.i, %select.unfold.i.i ], [ %.6.i.i, %.loopexit.i.i ]
-  %.not400.i.i = icmp ugt ptr %27, %.0205.ph.i.i
-  br i1 %.not400.i.i, label %.lr.ph.i.i, label %.thread.i.i
+  %.not398.i.i = icmp ugt ptr %27, %.0205.ph.i.i
+  br i1 %.not398.i.i, label %.lr.ph.i.i, label %.thread.i.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader381.i.i
+.lr.ph.i.i:                                       ; preds = %.preheader379.i.i
   %30 = select i1 %5, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176)
   %31 = select i1 %5, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184)
   %32 = load i8, ptr %.0205.ph.i.i, align 1, !tbaa !18
   %.not241.i79.i = icmp eq i8 %32, 60
-  br i1 %.not241.i79.i, label %._crit_edge.i, label %.preheader379.i.preheader.i
+  br i1 %.not241.i79.i, label %._crit_edge.i, label %.preheader377.i.preheader.i
 
-.preheader379.i.preheader.i:                      ; preds = %.lr.ph.i.i, %64
-  %.0205401.i80.i = phi ptr [ %33, %64 ], [ %.0205.ph.i.i, %.lr.ph.i.i ]
-  br label %.preheader379.i.i
+.preheader377.i.preheader.i:                      ; preds = %.lr.ph.i.i, %64
+  %.0205399.i80.i = phi ptr [ %33, %64 ], [ %.0205.ph.i.i, %.lr.ph.i.i ]
+  br label %.preheader377.i.i
 
-.preheader379.i.i:                                ; preds = %34, %.preheader379.i.preheader.i
-  %.8.i.i = phi ptr [ %33, %34 ], [ %.0205401.i80.i, %.preheader379.i.preheader.i ]
+.preheader377.i.i:                                ; preds = %34, %.preheader377.i.preheader.i
+  %.8.i.i = phi ptr [ %33, %34 ], [ %.0205399.i80.i, %.preheader377.i.preheader.i ]
   %33 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 1
   %.not242.i.i = icmp ugt ptr %27, %33
   br i1 %.not242.i.i, label %34, label %.thread.i.i
 
-34:                                               ; preds = %.preheader379.i.i
+34:                                               ; preds = %.preheader377.i.i
   %35 = load i8, ptr %33, align 1, !tbaa !18
   %.not243.i.i = icmp eq i8 %35, 60
-  br i1 %.not243.i.i, label %36, label %.preheader379.i.i
+  br i1 %.not243.i.i, label %36, label %.preheader377.i.i
 
 36:                                               ; preds = %34
   %37 = ptrtoint ptr %33 to i64
-  %38 = ptrtoint ptr %.0205401.i80.i to i64
+  %38 = ptrtoint ptr %.0205399.i80.i to i64
   %39 = sub i64 %37, %38
   %40 = load ptr, ptr %30, align 8, !tbaa !4
   %.not.i.i.i35.i = icmp eq ptr %40, null
@@ -3687,7 +3687,7 @@ smart_str_alloc.exit._crit_edge.i.i:              ; preds = %smart_str_alloc.exi
 48:                                               ; preds = %._crit_edge.i._crit_edge, %._crit_edge.thread.i
   %49 = phi i64 [ %.1.i.i.i38.i, %._crit_edge.thread.i ], [ %.pre, %._crit_edge.i._crit_edge ]
   %50 = phi ptr [ %72, %._crit_edge.thread.i ], [ %47, %._crit_edge.i._crit_edge ]
-  %.0205401.i.lcssa190.i = phi ptr [ %33, %._crit_edge.thread.i ], [ %.0205.ph.i.i, %._crit_edge.i._crit_edge ]
+  %.0205399.i.lcssa190.i = phi ptr [ %33, %._crit_edge.thread.i ], [ %.0205.ph.i.i, %._crit_edge.i._crit_edge ]
   %51 = phi ptr [ %69, %._crit_edge.thread.i ], [ %.pre.i, %._crit_edge.i._crit_edge ]
   %52 = add i64 %49, 1
   %53 = load i64, ptr %31, align 8, !tbaa !16
@@ -3696,18 +3696,18 @@ smart_str_alloc.exit._crit_edge.i.i:              ; preds = %smart_str_alloc.exi
 
 54:                                               ; preds = %48, %._crit_edge.i
   %55 = phi ptr [ %47, %._crit_edge.i ], [ %50, %48 ]
-  %.0205401.i.lcssa191.i = phi ptr [ %.0205.ph.i.i, %._crit_edge.i ], [ %.0205401.i.lcssa190.i, %48 ]
+  %.0205399.i.lcssa191.i = phi ptr [ %.0205.ph.i.i, %._crit_edge.i ], [ %.0205399.i.lcssa190.i, %48 ]
   %.0.i.i270.i.i = phi i64 [ 1, %._crit_edge.i ], [ %52, %48 ]
   tail call void @smart_str_erealloc(ptr noundef nonnull %30, i64 noundef %.0.i.i270.i.i) #19
   %.pre.i271.i.i = load ptr, ptr %30, align 8, !tbaa !4
   %.phi.trans.insert.i272.i.i = getelementptr inbounds nuw i8, ptr %.pre.i271.i.i, i64 16
   %.pre4.i273.i.i = load i64, ptr %.phi.trans.insert.i272.i.i, align 8, !tbaa !11
-  %.pre430.i.i = load i8, ptr %.0205401.i.lcssa191.i, align 1
+  %.pre428.i.i = load i8, ptr %.0205399.i.lcssa191.i, align 1
   br label %.thread330.i.i
 
 .thread330.i.i:                                   ; preds = %54, %48
   %56 = phi ptr [ %55, %54 ], [ %50, %48 ]
-  %57 = phi i8 [ %.pre430.i.i, %54 ], [ 60, %48 ]
+  %57 = phi i8 [ %.pre428.i.i, %54 ], [ 60, %48 ]
   %58 = phi i64 [ %.pre4.i273.i.i, %54 ], [ %49, %48 ]
   %59 = phi ptr [ %.pre.i271.i.i, %54 ], [ %51, %48 ]
   %.1.i.i274.i.i = phi i64 [ %.0.i.i270.i.i, %54 ], [ %52, %48 ]
@@ -3726,13 +3726,13 @@ smart_str_alloc.exit._crit_edge.i.i:              ; preds = %smart_str_alloc.exi
   %.1.i.i.i38.i = phi i64 [ %.0.i.i.i37.i, %46 ], [ %44, %41 ]
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 %65
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull align 1 dereferenceable(1) %.0205401.i80.i, i64 %39, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %68, ptr noundef nonnull align 1 dereferenceable(1) %.0205399.i80.i, i64 %39, i1 false)
   %69 = load ptr, ptr %30, align 8, !tbaa !4
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store i64 %.1.i.i.i38.i, ptr %70, align 8, !tbaa !11
   %71 = load i8, ptr %33, align 1, !tbaa !18
   %.not241.i.i = icmp eq i8 %71, 60
-  br i1 %.not241.i.i, label %._crit_edge.thread.i, label %.preheader379.i.preheader.i
+  br i1 %.not241.i.i, label %._crit_edge.thread.i, label %.preheader377.i.preheader.i
 
 ._crit_edge.thread.i:                             ; preds = %64
   %72 = getelementptr inbounds nuw i8, ptr %.8.i.i, i64 2
@@ -3749,7 +3749,7 @@ smart_str_alloc.exit._crit_edge.i.i:              ; preds = %smart_str_alloc.exi
   %77 = getelementptr inbounds nuw i8, ptr @xx_mainloop.yybm.9, i64 %76
   %78 = load i8, ptr %77, align 1, !tbaa !18
   %.not245.i.i = icmp sgt i8 %78, -1
-  br i1 %.not245.i.i, label %79, label %.preheader377.i.i
+  br i1 %.not245.i.i, label %79, label %.preheader375.i.i
 
 79:                                               ; preds = %74
   %80 = getelementptr inbounds nuw i8, ptr %.1206.i.i, i64 1
@@ -3774,11 +3774,11 @@ smart_str_alloc.exit._crit_edge.i.i:              ; preds = %smart_str_alloc.exi
   %.pre.i279.i.i = load ptr, ptr %81, align 8, !tbaa !4
   %.phi.trans.insert.i280.i.i = getelementptr inbounds nuw i8, ptr %.pre.i279.i.i, i64 16
   %.pre4.i281.i.i = load i64, ptr %.phi.trans.insert.i280.i.i, align 8, !tbaa !11
-  %.pre431.i.i = load i8, ptr %.1206.i.i, align 1
+  %.pre429.i.i = load i8, ptr %.1206.i.i, align 1
   br label %passthru.exit283.i.i
 
 passthru.exit283.i.i:                             ; preds = %88, %83
-  %89 = phi i8 [ %.pre431.i.i, %88 ], [ %75, %83 ]
+  %89 = phi i8 [ %.pre429.i.i, %88 ], [ %75, %83 ]
   %90 = phi i64 [ %.pre4.i281.i.i, %88 ], [ %85, %83 ]
   %91 = phi ptr [ %.pre.i279.i.i, %88 ], [ %82, %83 ]
   %.1.i.i282.i.i = phi i64 [ %.0.i.i278.i.i, %88 ], [ %86, %83 ]
@@ -3790,19 +3790,19 @@ passthru.exit283.i.i:                             ; preds = %88, %83
   store i64 %.1.i.i282.i.i, ptr %95, align 8, !tbaa !11
   br label %select.unfold.i.i
 
-.preheader377.i.i:                                ; preds = %74, %97
+.preheader375.i.i:                                ; preds = %74, %97
   %.10.i.i = phi ptr [ %96, %97 ], [ %.1206.i.i, %74 ]
   %96 = getelementptr inbounds nuw i8, ptr %.10.i.i, i64 1
   %.not246.i.i = icmp ugt ptr %27, %96
   br i1 %.not246.i.i, label %97, label %.thread.i.i
 
-97:                                               ; preds = %.preheader377.i.i
+97:                                               ; preds = %.preheader375.i.i
   %98 = load i8, ptr %96, align 1, !tbaa !18
   %99 = zext i8 %98 to i64
   %100 = getelementptr inbounds nuw i8, ptr @xx_mainloop.yybm.9, i64 %99
   %101 = load i8, ptr %100, align 1, !tbaa !18
   %.not247.i.i = icmp sgt i8 %101, -1
-  br i1 %.not247.i.i, label %102, label %.preheader377.i.i
+  br i1 %.not247.i.i, label %102, label %.preheader375.i.i
 
 102:                                              ; preds = %97
   tail call fastcc void @handle_tag(ptr noundef nonnull %., ptr noundef nonnull %.1206.i.i, ptr noundef nonnull %96)
@@ -3817,17 +3817,17 @@ select.unfold.i.i:                                ; preds = %102, %passthru.exit
   %.1202.i.i = phi i32 [ 9, %passthru.exit283.i.i ], [ %spec.select, %102 ]
   switch i32 %.1202.i.i, label %423 [
     i32 9, label %.loopexit.i.i
-    i32 3, label %.preheader381.i.i
-    i32 5, label %.preheader375.i.i
+    i32 3, label %.preheader379.i.i
+    i32 5, label %.preheader373.i.i
   ]
 
-.preheader375.sink.split.i.i:                     ; preds = %332, %415, %407, %passthru.exit327.i.i, %373, %325, %323, %310
+.preheader373.sink.split.i.i:                     ; preds = %332, %415, %407, %passthru.exit327.i.i, %373, %325, %323, %310
   %.2207.ph.ph.i.i = phi ptr [ %295, %310 ], [ %.4209.i.i, %323 ], [ %.4209.i.i, %325 ], [ %416, %415 ], [ %408, %407 ], [ %.24.i.i, %passthru.exit327.i.i ], [ %366, %373 ], [ %.4209.i.i, %332 ]
   store i32 2, ptr %28, align 8, !tbaa !81
-  br label %.preheader375.i.i
+  br label %.preheader373.i.i
 
-.preheader375.i.i:                                ; preds = %.preheader375.sink.split.i.i, %select.unfold.i.i, %smart_str_alloc.exit.i.i
-  %.2207.ph.i.i = phi ptr [ %26, %smart_str_alloc.exit.i.i ], [ %.9.i.i, %select.unfold.i.i ], [ %.2207.ph.ph.i.i, %.preheader375.sink.split.i.i ]
+.preheader373.i.i:                                ; preds = %.preheader373.sink.split.i.i, %select.unfold.i.i, %smart_str_alloc.exit.i.i
+  %.2207.ph.i.i = phi ptr [ %26, %smart_str_alloc.exit.i.i ], [ %.9.i.i, %select.unfold.i.i ], [ %.2207.ph.ph.i.i, %.preheader373.sink.split.i.i ]
   %105 = ptrtoint ptr %27 to i64
   %106 = select i1 %5, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176)
   %107 = select i1 %5, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 960), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1184)
@@ -3837,15 +3837,15 @@ select.unfold.i.i:                                ; preds = %102, %passthru.exit
   %111 = icmp slt i64 %110, 2
   br i1 %111, label %.thread.i.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader375.i.i, %handle_form.exit.i.i
-  %112 = phi i64 [ %151, %handle_form.exit.i.i ], [ %109, %.preheader375.i.i ]
-  %.2207.i81.i = phi ptr [ %144, %handle_form.exit.i.i ], [ %.2207.ph.i.i, %.preheader375.i.i ]
+.lr.ph.i:                                         ; preds = %.preheader373.i.i, %handle_form.exit.i.i
+  %112 = phi i64 [ %151, %handle_form.exit.i.i ], [ %109, %.preheader373.i.i ]
+  %.2207.i81.i = phi ptr [ %144, %handle_form.exit.i.i ], [ %.2207.ph.i.i, %.preheader373.i.i ]
   %113 = load i8, ptr %.2207.i81.i, align 1, !tbaa !18
   %114 = zext i8 %113 to i64
   %115 = getelementptr inbounds nuw i8, ptr @xx_mainloop.yybm.10, i64 %114
   %116 = load i8, ptr %115, align 1, !tbaa !18
   %.not248.i.i = icmp sgt i8 %116, -1
-  br i1 %.not248.i.i, label %117, label %.preheader373.i.i
+  br i1 %.not248.i.i, label %117, label %.preheader371.i.i
 
 117:                                              ; preds = %.lr.ph.i
   %118 = icmp ult i8 %113, 63
@@ -3910,19 +3910,19 @@ passthru.exit291.i.i:                             ; preds = %137, %132
   store i64 %.1.i.i290.i.i, ptr %143, align 8, !tbaa !11
   br label %.loopexit.i.i
 
-.preheader373.i.i:                                ; preds = %.lr.ph.i, %145
+.preheader371.i.i:                                ; preds = %.lr.ph.i, %145
   %.13.i.i = phi ptr [ %144, %145 ], [ %.2207.i81.i, %.lr.ph.i ]
   %144 = getelementptr inbounds nuw i8, ptr %.13.i.i, i64 1
   %.not250.i.i = icmp ugt ptr %27, %144
   br i1 %.not250.i.i, label %145, label %.thread.i.i
 
-145:                                              ; preds = %.preheader373.i.i
+145:                                              ; preds = %.preheader371.i.i
   %146 = load i8, ptr %144, align 1, !tbaa !18
   %147 = zext i8 %146 to i64
   %148 = getelementptr inbounds nuw i8, ptr @xx_mainloop.yybm.10, i64 %147
   %149 = load i8, ptr %148, align 1, !tbaa !18
   %.not251.i.i = icmp sgt i8 %149, -1
-  br i1 %.not251.i.i, label %150, label %.preheader373.i.i
+  br i1 %.not251.i.i, label %150, label %.preheader371.i.i
 
 150:                                              ; preds = %145
   %151 = ptrtoint ptr %144 to i64
@@ -4239,7 +4239,7 @@ handle_form.exit.i.i:                             ; preds = %159, %154
   %293 = add i8 %289, -97
   %or.cond5.i.i = icmp ult i8 %293, 26
   %or.cond267.i.i = or i1 %292, %or.cond5.i.i
-  br i1 %or.cond267.i.i, label %.preheader371.i.i, label %294
+  br i1 %or.cond267.i.i, label %.preheader369.i.i, label %294
 
 294:                                              ; preds = %291, %288
   %295 = getelementptr inbounds nuw i8, ptr %.3208.i.i, i64 1
@@ -4264,22 +4264,22 @@ handle_form.exit.i.i:                             ; preds = %159, %154
   %.pre.i315.i.i = load ptr, ptr %296, align 8, !tbaa !4
   %.phi.trans.insert.i316.i.i = getelementptr inbounds nuw i8, ptr %.pre.i315.i.i, i64 16
   %.pre4.i317.i.i = load i64, ptr %.phi.trans.insert.i316.i.i, align 8, !tbaa !11
-  %.pre432.i.i = load i8, ptr %.3208.i.i, align 1
+  %.pre430.i.i = load i8, ptr %.3208.i.i, align 1
   br label %310
 
-.preheader371.i.i:                                ; preds = %291, %305
+.preheader369.i.i:                                ; preds = %291, %305
   %.17.i.i = phi ptr [ %304, %305 ], [ %.3208.i.i, %291 ]
   %304 = getelementptr inbounds nuw i8, ptr %.17.i.i, i64 1
   %.not253.i.i = icmp ugt ptr %27, %304
   br i1 %.not253.i.i, label %305, label %.thread.i.i
 
-305:                                              ; preds = %.preheader371.i.i
+305:                                              ; preds = %.preheader369.i.i
   %306 = load i8, ptr %304, align 1, !tbaa !18
   %307 = zext i8 %306 to i64
   %308 = getelementptr inbounds nuw i8, ptr @xx_mainloop.yybm.11, i64 %307
   %309 = load i8, ptr %308, align 1, !tbaa !18
   %.not254.i.i = icmp sgt i8 %309, -1
-  br i1 %.not254.i.i, label %.thread346.i.i, label %.preheader371.i.i
+  br i1 %.not254.i.i, label %.thread346.i.i, label %.preheader369.i.i
 
 .thread346.i.i:                                   ; preds = %305
   tail call fastcc void @passthru(ptr noundef nonnull %., ptr noundef nonnull %.3208.i.i, ptr noundef nonnull %304)
@@ -4288,7 +4288,7 @@ handle_form.exit.i.i:                             ; preds = %159, %154
   br label %318
 
 310:                                              ; preds = %303, %298
-  %311 = phi i8 [ %.pre432.i.i, %303 ], [ %289, %298 ]
+  %311 = phi i8 [ %.pre430.i.i, %303 ], [ %289, %298 ]
   %312 = phi i64 [ %.pre4.i317.i.i, %303 ], [ %300, %298 ]
   %313 = phi ptr [ %.pre.i315.i.i, %303 ], [ %297, %298 ]
   %.1.i.i318.i.i = phi i64 [ %.0.i.i314.i.i, %303 ], [ %301, %298 ]
@@ -4298,7 +4298,7 @@ handle_form.exit.i.i:                             ; preds = %159, %154
   %316 = load ptr, ptr %296, align 8, !tbaa !4
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 16
   store i64 %.1.i.i318.i.i, ptr %317, align 8, !tbaa !11
-  br label %.preheader375.sink.split.i.i
+  br label %.preheader373.sink.split.i.i
 
 318:                                              ; preds = %.thread346.i.i, %smart_str_alloc.exit.i.i
   %.4209.i.i = phi ptr [ %26, %smart_str_alloc.exit.i.i ], [ %304, %.thread346.i.i ]
@@ -4310,45 +4310,45 @@ handle_form.exit.i.i:                             ; preds = %159, %154
 
 323:                                              ; preds = %318
   %324 = load i8, ptr %.4209.i.i, align 1, !tbaa !18
-  switch i8 %324, label %.preheader375.sink.split.i.i [
+  switch i8 %324, label %.preheader373.sink.split.i.i [
     i8 32, label %325
-    i8 61, label %.preheader367.i.i.preheader
+    i8 61, label %.preheader365.i.i.preheader
   ]
 
 325:                                              ; preds = %323
   %326 = getelementptr inbounds nuw i8, ptr %.4209.i.i, i64 1
   %327 = load i8, ptr %326, align 1, !tbaa !18
-  switch i8 %327, label %.preheader375.sink.split.i.i [
-    i8 32, label %.preheader369.i.i
-    i8 61, label %.preheader367.i.i.preheader
+  switch i8 %327, label %.preheader373.sink.split.i.i [
+    i8 32, label %.preheader367.i.i
+    i8 61, label %.preheader365.i.i.preheader
   ]
 
-.preheader367.i.i.preheader:                      ; preds = %332, %325, %323
+.preheader365.i.i.preheader:                      ; preds = %332, %325, %323
   %.19.i.i.ph = phi ptr [ %.4209.i.i, %323 ], [ %326, %325 ], [ %331, %332 ]
-  br label %.preheader367.i.i
+  br label %.preheader365.i.i
 
-.preheader367.i.i:                                ; preds = %.preheader367.i.i.preheader, %329
-  %.19.i.i = phi ptr [ %328, %329 ], [ %.19.i.i.ph, %.preheader367.i.i.preheader ]
+.preheader365.i.i:                                ; preds = %.preheader365.i.i.preheader, %329
+  %.19.i.i = phi ptr [ %328, %329 ], [ %.19.i.i.ph, %.preheader365.i.i.preheader ]
   %328 = getelementptr inbounds nuw i8, ptr %.19.i.i, i64 1
   %.not257.i.i = icmp ugt ptr %27, %328
   br i1 %.not257.i.i, label %329, label %.thread.i.i
 
-329:                                              ; preds = %.preheader367.i.i
+329:                                              ; preds = %.preheader365.i.i
   %330 = load i8, ptr %328, align 1, !tbaa !18
   %.not258.not.i.i = icmp eq i8 %330, 32
-  br i1 %.not258.not.i.i, label %.preheader367.i.i, label %334
+  br i1 %.not258.not.i.i, label %.preheader365.i.i, label %334
 
-.preheader369.i.i:                                ; preds = %325, %332
+.preheader367.i.i:                                ; preds = %325, %332
   %.21.i.i = phi ptr [ %331, %332 ], [ %326, %325 ]
   %331 = getelementptr inbounds nuw i8, ptr %.21.i.i, i64 1
   %.not256.i.i = icmp ugt ptr %27, %331
   br i1 %.not256.i.i, label %332, label %.thread.i.i
 
-332:                                              ; preds = %.preheader369.i.i
+332:                                              ; preds = %.preheader367.i.i
   %333 = load i8, ptr %331, align 1, !tbaa !18
-  switch i8 %333, label %.preheader375.sink.split.i.i [
-    i8 32, label %.preheader369.i.i
-    i8 61, label %.preheader367.i.i.preheader
+  switch i8 %333, label %.preheader373.sink.split.i.i [
+    i8 32, label %.preheader367.i.i
+    i8 61, label %.preheader365.i.i.preheader
   ]
 
 334:                                              ; preds = %329
@@ -4392,7 +4392,7 @@ passthru.exit.i:                                  ; preds = %344, %339
 
 351:                                              ; preds = %passthru.exit.i, %smart_str_alloc.exit._crit_edge.i.i
   %.pre-phi.i = phi i64 [ %336, %passthru.exit.i ], [ %.pre120.i, %smart_str_alloc.exit._crit_edge.i.i ]
-  %.pre-phi.i.i = phi i64 [ %319, %passthru.exit.i ], [ %.pre435.i.i, %smart_str_alloc.exit._crit_edge.i.i ]
+  %.pre-phi.i.i = phi i64 [ %319, %passthru.exit.i ], [ %.pre433.i.i, %smart_str_alloc.exit._crit_edge.i.i ]
   %.5210.i.i = phi ptr [ %328, %passthru.exit.i ], [ %26, %smart_str_alloc.exit._crit_edge.i.i ]
   %352 = sub i64 %.pre-phi.i.i, %.pre-phi.i
   %353 = icmp slt i64 %352, 2
@@ -4405,7 +4405,7 @@ passthru.exit.i:                                  ; preds = %344, %339
   %358 = load i8, ptr %357, align 1, !tbaa !18
   %359 = and i8 %358, 32
   %.not259.i.i = icmp eq i8 %359, 0
-  br i1 %.not259.i.i, label %360, label %.preheader365.i.i
+  br i1 %.not259.i.i, label %360, label %.preheader363.i.i
 
 360:                                              ; preds = %354
   %361 = icmp ult i8 %355, 33
@@ -4419,24 +4419,24 @@ passthru.exit.i:                                  ; preds = %344, %339
   %365 = icmp ult i8 %355, 40
   br i1 %365, label %397, label %374
 
-.preheader365.i.i:                                ; preds = %354, %367
+.preheader363.i.i:                                ; preds = %354, %367
   %.23.i.i = phi ptr [ %366, %367 ], [ %.5210.i.i, %354 ]
   %366 = getelementptr inbounds nuw i8, ptr %.23.i.i, i64 1
   %.not264.i.i = icmp ugt ptr %27, %366
   br i1 %.not264.i.i, label %367, label %.thread.i.i
 
-367:                                              ; preds = %.preheader365.i.i
+367:                                              ; preds = %.preheader363.i.i
   %368 = load i8, ptr %366, align 1, !tbaa !18
   %369 = zext i8 %368 to i64
   %370 = getelementptr inbounds nuw i8, ptr @xx_mainloop.yybm.13, i64 %369
   %371 = load i8, ptr %370, align 1, !tbaa !18
   %372 = and i8 %371, 32
   %.not265.i.i = icmp eq i8 %372, 0
-  br i1 %.not265.i.i, label %373, label %.preheader365.i.i
+  br i1 %.not265.i.i, label %373, label %.preheader363.i.i
 
 373:                                              ; preds = %367
   tail call fastcc void @handle_val(ptr noundef nonnull %., ptr noundef nonnull %.5210.i.i, ptr noundef nonnull %366, i8 noundef signext 0, i8 noundef signext 32)
-  br label %.preheader375.sink.split.i.i
+  br label %.preheader373.sink.split.i.i
 
 374:                                              ; preds = %364, %360
   %375 = getelementptr inbounds nuw i8, ptr %.5210.i.i, i64 1
@@ -4479,7 +4479,7 @@ passthru.exit327.i.i:                             ; preds = %386, %381
   %391 = load ptr, ptr %377, align 8, !tbaa !4
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 16
   store i64 %.1.i.i326.i.i, ptr %392, align 8, !tbaa !11
-  br label %.preheader375.sink.split.i.i
+  br label %.preheader373.sink.split.i.i
 
 393:                                              ; preds = %362
   %394 = getelementptr inbounds nuw i8, ptr %.5210.i.i, i64 1
@@ -4491,7 +4491,7 @@ passthru.exit327.i.i:                             ; preds = %386, %381
   %398 = getelementptr inbounds nuw i8, ptr %.5210.i.i, i64 1
   %399 = load i8, ptr %398, align 1, !tbaa !18
   %400 = icmp eq i8 %399, 62
-  br i1 %400, label %376, label %.preheader363.i.i
+  br i1 %400, label %376, label %.preheader361.i.i
 
 401:                                              ; preds = %403
   %402 = load i8, ptr %404, align 1, !tbaa !18
@@ -4517,13 +4517,13 @@ passthru.exit327.i.i:                             ; preds = %386, %381
 407:                                              ; preds = %405
   %408 = getelementptr inbounds nuw i8, ptr %.25.i.i, i64 1
   tail call fastcc void @handle_val(ptr noundef nonnull %., ptr noundef nonnull %.5210.i.i, ptr noundef nonnull %408, i8 noundef signext 1, i8 noundef signext 34)
-  br label %.preheader375.sink.split.i.i
+  br label %.preheader373.sink.split.i.i
 
 409:                                              ; preds = %411
   %410 = load i8, ptr %412, align 1, !tbaa !18
-  br label %.preheader363.i.i
+  br label %.preheader361.i.i
 
-.preheader363.i.i:                                ; preds = %397, %409
+.preheader361.i.i:                                ; preds = %397, %409
   %.26.i.i = phi ptr [ %412, %409 ], [ %398, %397 ]
   %.1.i39.i = phi i8 [ %410, %409 ], [ %399, %397 ]
   switch i8 %.1.i39.i, label %411 [
@@ -4531,42 +4531,42 @@ passthru.exit327.i.i:                             ; preds = %386, %381
     i8 39, label %413
   ]
 
-411:                                              ; preds = %.preheader363.i.i
+411:                                              ; preds = %.preheader361.i.i
   %412 = getelementptr inbounds nuw i8, ptr %.26.i.i, i64 1
   %.not261.i.i = icmp ugt ptr %27, %412
   br i1 %.not261.i.i, label %409, label %.thread.i.i
 
-413:                                              ; preds = %.preheader363.i.i, %.preheader363.i.i
+413:                                              ; preds = %.preheader361.i.i, %.preheader361.i.i
   %414 = icmp samesign ugt i8 %.1.i39.i, 39
   br i1 %414, label %376, label %415
 
 415:                                              ; preds = %413
   %416 = getelementptr inbounds nuw i8, ptr %.26.i.i, i64 1
   tail call fastcc void @handle_val(ptr noundef nonnull %., ptr noundef nonnull %.5210.i.i, ptr noundef nonnull %416, i8 noundef signext 1, i8 noundef signext 39)
-  br label %.preheader375.sink.split.i.i
+  br label %.preheader373.sink.split.i.i
 
-.thread.i.i:                                      ; preds = %.preheader379.i.i, %.preheader377.i.i, %handle_form.exit.i.i, %.preheader373.i.i, %.preheader371.i.i, %.preheader369.i.i, %.preheader367.i.i, %.preheader365.i.i, %411, %403, %351, %318, %287, %.preheader375.i.i, %73, %.preheader381.i.i
-  %.0204.i.i = phi ptr [ %.1206.i.i, %73 ], [ %.3208.i.i, %287 ], [ %.4209.i.i, %318 ], [ %.5210.i.i, %351 ], [ %.0205.ph.i.i, %.preheader381.i.i ], [ %.2207.ph.i.i, %.preheader375.i.i ], [ %.5210.i.i, %403 ], [ %.5210.i.i, %411 ], [ %.5210.i.i, %.preheader365.i.i ], [ %.4209.i.i, %.preheader367.i.i ], [ %.4209.i.i, %.preheader369.i.i ], [ %.3208.i.i, %.preheader371.i.i ], [ %.2207.i81.i, %.preheader373.i.i ], [ %144, %handle_form.exit.i.i ], [ %.1206.i.i, %.preheader377.i.i ], [ %.0205401.i80.i, %.preheader379.i.i ]
+.thread.i.i:                                      ; preds = %.preheader377.i.i, %.preheader375.i.i, %handle_form.exit.i.i, %.preheader371.i.i, %.preheader369.i.i, %.preheader367.i.i, %.preheader365.i.i, %.preheader363.i.i, %411, %403, %351, %318, %287, %.preheader373.i.i, %73, %.preheader379.i.i
+  %.0204.i.i = phi ptr [ %.5210.i.i, %351 ], [ %.1206.i.i, %73 ], [ %.3208.i.i, %287 ], [ %.4209.i.i, %318 ], [ %.0205.ph.i.i, %.preheader379.i.i ], [ %.2207.ph.i.i, %.preheader373.i.i ], [ %.5210.i.i, %403 ], [ %.5210.i.i, %411 ], [ %.5210.i.i, %.preheader363.i.i ], [ %.4209.i.i, %.preheader365.i.i ], [ %.4209.i.i, %.preheader367.i.i ], [ %.3208.i.i, %.preheader369.i.i ], [ %.2207.i81.i, %.preheader371.i.i ], [ %144, %handle_form.exit.i.i ], [ %.1206.i.i, %.preheader375.i.i ], [ %.0205399.i80.i, %.preheader377.i.i ]
   %417 = icmp ult ptr %27, %.0204.i.i
   %418 = ptrtoint ptr %27 to i64
   %419 = ptrtoint ptr %.0204.i.i to i64
   %420 = sub i64 %418, %419
   %.0203.i.i = select i1 %417, i64 0, i64 %420
   %.not266.i.i = icmp eq i64 %.0203.i.i, 0
-  %.pre434.i.i = load ptr, ptr %12, align 8, !tbaa !88
+  %.pre432.i.i = load ptr, ptr %12, align 8, !tbaa !88
   br i1 %.not266.i.i, label %xx_mainloop.exit.i, label %421
 
 421:                                              ; preds = %.thread.i.i
-  %422 = getelementptr inbounds nuw i8, ptr %.pre434.i.i, i64 24
+  %422 = getelementptr inbounds nuw i8, ptr %.pre432.i.i, i64 24
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %422, ptr align 1 %.0204.i.i, i64 %.0203.i.i, i1 false)
-  %.pre433.i.i = load ptr, ptr %12, align 8, !tbaa !88
+  %.pre431.i.i = load ptr, ptr %12, align 8, !tbaa !88
   br label %xx_mainloop.exit.i
 
 423:                                              ; preds = %select.unfold.i.i
   unreachable
 
 xx_mainloop.exit.i:                               ; preds = %421, %.thread.i.i
-  %424 = phi ptr [ %.pre433.i.i, %421 ], [ %.pre434.i.i, %.thread.i.i ]
+  %424 = phi ptr [ %.pre431.i.i, %421 ], [ %.pre432.i.i, %.thread.i.i ]
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 16
   store i64 %.0203.i.i, ptr %425, align 8, !tbaa !11
   %426 = select i1 %5, ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 952), ptr getelementptr inbounds nuw (i8, ptr @basic_globals, i64 1176)

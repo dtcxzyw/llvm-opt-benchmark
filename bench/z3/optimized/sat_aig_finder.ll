@@ -864,30 +864,30 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %_ZNK3sat3big9connec
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 4
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 %45
-  %.not22.not = icmp eq i32 %43, 0
-  br i1 %.not22.not, label %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread, label %.lr.ph
+  %.not23 = icmp eq i32 %43, 0
+  br i1 %.not23, label %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %.critedge19
-  %.01723 = phi ptr [ %55, %.critedge19 ], [ %40, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
-  %47 = getelementptr inbounds nuw i8, ptr %.01723, i64 8
+  %.01724 = phi ptr [ %55, %.critedge19 ], [ %40, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ]
+  %47 = getelementptr inbounds nuw i8, ptr %.01724, i64 8
   %48 = load i32, ptr %47, align 8, !tbaa !91
   %49 = and i32 %48, 3
   %50 = icmp eq i32 %49, 0
   br i1 %50, label %51, label %.critedge19
 
 51:                                               ; preds = %.lr.ph
-  %52 = load i64, ptr %.01723, align 8, !tbaa !94
+  %52 = load i64, ptr %.01724, align 8, !tbaa !94
   %53 = trunc i64 %52 to i32
   %54 = icmp eq i32 %2, %53
   br i1 %54, label %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread, label %.critedge19
 
 .critedge19:                                      ; preds = %.lr.ph, %51
-  %55 = getelementptr inbounds nuw i8, ptr %.01723, i64 16
-  %.not.not = icmp eq ptr %55, %46
-  br i1 %.not.not, label %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread, label %.lr.ph
+  %55 = getelementptr inbounds nuw i8, ptr %.01724, i64 16
+  %.not = icmp eq ptr %55, %46
+  br i1 %.not, label %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread, label %.lr.ph
 
-_ZNK3sat3big9connectedENS_7literalES1_.exit.thread: ; preds = %51, %.critedge19, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit
-  %.0 = phi i1 [ true, %_ZNK3sat3big9connectedENS_7literalES1_.exit ], [ true, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21 ], [ true, %51 ], [ false, %.critedge19 ]
+_ZNK3sat3big9connectedENS_7literalES1_.exit.thread: ; preds = %.critedge19, %51, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit
+  %.0 = phi i1 [ true, %_ZNK3sat3big9connectedENS_7literalES1_.exit ], [ true, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i ], [ false, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ false, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21 ], [ false, %.critedge19 ], [ true, %51 ]
   ret i1 %.0
 }
 
@@ -916,8 +916,8 @@ define hidden noundef zeroext i1 @_ZN3sat10aig_finder8find_aigERNS_6clauseE(ptr 
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
-  %.03665 = phi ptr [ %97, %.critedge ], [ %7, %.lr.ph.preheader ]
-  %16 = load i32, ptr %.03665, align 4, !tbaa !33
+  %.03666 = phi ptr [ %97, %.critedge ], [ %7, %.lr.ph.preheader ]
+  %16 = load i32, ptr %.03666, align 4, !tbaa !33
   %17 = zext i32 %16 to i64
   %18 = getelementptr inbounds nuw i32, ptr %11, i64 %17
   %19 = getelementptr inbounds nuw i32, ptr %13, i64 %17
@@ -928,10 +928,10 @@ define hidden noundef zeroext i1 @_ZN3sat10aig_finder8find_aigERNS_6clauseE(ptr 
   br label %24
 
 24:                                               ; preds = %.lr.ph, %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit
-  %.03761 = phi ptr [ %7, %.lr.ph ], [ %64, %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit ]
-  %25 = load i32, ptr %.03761, align 4, !tbaa !33
-  %.not56 = icmp eq i32 %16, %25
-  br i1 %.not56, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit, label %26
+  %.03762 = phi ptr [ %7, %.lr.ph ], [ %64, %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit ]
+  %25 = load i32, ptr %.03762, align 4, !tbaa !33
+  %.not57 = icmp eq i32 %16, %25
+  br i1 %.not57, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit, label %26
 
 26:                                               ; preds = %24
   %27 = xor i32 %25, 1
@@ -977,54 +977,54 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZNK3sat3big9connec
   %52 = zext i32 %51 to i64
   %53 = shl nuw nsw i64 %52, 4
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 %53
-  %.not22.not.i = icmp eq i32 %51, 0
-  br i1 %.not22.not.i, label %.critedge, label %.lr.ph.i
+  %.not23.i = icmp eq i32 %51, 0
+  br i1 %.not23.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %.critedge19.i
-  %.01723.i = phi ptr [ %63, %.critedge19.i ], [ %48, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 8
+  %.01724.i = phi ptr [ %63, %.critedge19.i ], [ %48, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ]
+  %55 = getelementptr inbounds nuw i8, ptr %.01724.i, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !91
   %57 = and i32 %56, 3
   %58 = icmp eq i32 %57, 0
   br i1 %58, label %59, label %.critedge19.i
 
 59:                                               ; preds = %.lr.ph.i
-  %60 = load i64, ptr %.01723.i, align 8, !tbaa !94
+  %60 = load i64, ptr %.01724.i, align 8, !tbaa !94
   %61 = trunc i64 %60 to i32
   %62 = icmp eq i32 %27, %61
   br i1 %62, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit, label %.critedge19.i
 
 .critedge19.i:                                    ; preds = %59, %.lr.ph.i
-  %63 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 16
-  %.not.not.i = icmp eq ptr %63, %54
-  br i1 %.not.not.i, label %.critedge, label %.lr.ph.i
+  %63 = getelementptr inbounds nuw i8, ptr %.01724.i, i64 16
+  %.not.i = icmp eq ptr %63, %54
+  br i1 %.not.i, label %.critedge, label %.lr.ph.i
 
 _ZN3sat10aig_finder7impliesENS_7literalES1_.exit: ; preds = %59, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %24
-  %64 = getelementptr inbounds nuw i8, ptr %.03761, i64 4
+  %64 = getelementptr inbounds nuw i8, ptr %.03762, i64 4
   %.not38 = icmp eq ptr %64, %9
-  br i1 %.not38, label %._crit_edge62, label %24
+  br i1 %.not38, label %._crit_edge63, label %24
 
-._crit_edge62:                                    ; preds = %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit
+._crit_edge63:                                    ; preds = %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %66 = load ptr, ptr %65, align 8, !tbaa !95
-  %.not.i = icmp eq ptr %66, null
-  br i1 %.not.i, label %.lr.ph71.preheader, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
+  %.not.i40 = icmp eq ptr %66, null
+  br i1 %.not.i40, label %.lr.ph72.preheader, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
 
-_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit:     ; preds = %._crit_edge62
+_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit:     ; preds = %._crit_edge63
   %67 = getelementptr inbounds i8, ptr %66, i64 -4
   store i32 0, ptr %67, align 4, !tbaa !33
   %.pre = load i32, ptr %4, align 4, !tbaa !81
-  %.pre78 = zext i32 %.pre to i64
-  %.pre79 = shl nuw nsw i64 %.pre78, 2
+  %.pre79 = zext i32 %.pre to i64
+  %.pre80 = shl nuw nsw i64 %.pre79, 2
   %68 = icmp eq i32 %.pre, 0
-  br i1 %68, label %._crit_edge72, label %.lr.ph71.preheader
+  br i1 %68, label %._crit_edge73, label %.lr.ph72.preheader
 
-.lr.ph71.preheader:                               ; preds = %._crit_edge62, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
-  %.idx.pn = phi i64 [ %.pre79, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit ], [ %.idx, %._crit_edge62 ]
+.lr.ph72.preheader:                               ; preds = %._crit_edge63, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
+  %.idx.pn = phi i64 [ %.pre80, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit ], [ %.idx, %._crit_edge63 ]
   %69 = getelementptr inbounds nuw i8, ptr %7, i64 %.idx.pn
-  br label %.lr.ph71
+  br label %.lr.ph72
 
-._crit_edge72:                                    ; preds = %94, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
+._crit_edge73:                                    ; preds = %94, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %16, ptr %3, align 4
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -1032,11 +1032,11 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit:     ; preds = %._crit_edge62
   %.not.i.i = icmp eq ptr %71, null
   br i1 %.not.i.i, label %72, label %_ZNKSt8functionIFvN3sat7literalERK7svectorIS1_jEEEclES1_S5_.exit
 
-72:                                               ; preds = %._crit_edge72
+72:                                               ; preds = %._crit_edge73
   tail call void @_ZSt25__throw_bad_function_callv() #23
   unreachable
 
-_ZNKSt8functionIFvN3sat7literalERK7svectorIS1_jEEEclES1_S5_.exit: ; preds = %._crit_edge72
+_ZNKSt8functionIFvN3sat7literalERK7svectorIS1_jEEEclES1_S5_.exit: ; preds = %._crit_edge73
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %75 = load ptr, ptr %74, align 8, !tbaa !96
@@ -1044,14 +1044,14 @@ _ZNKSt8functionIFvN3sat7literalERK7svectorIS1_jEEEclES1_S5_.exit: ; preds = %._c
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %94
-  %76 = phi ptr [ %95, %94 ], [ %66, %.lr.ph71.preheader ]
-  %.03570 = phi ptr [ %96, %94 ], [ %7, %.lr.ph71.preheader ]
-  %77 = load i32, ptr %.03570, align 4, !tbaa !33
-  %.not57 = icmp eq i32 %77, %16
-  br i1 %.not57, label %94, label %78
+.lr.ph72:                                         ; preds = %.lr.ph72.preheader, %94
+  %76 = phi ptr [ %95, %94 ], [ %66, %.lr.ph72.preheader ]
+  %.03571 = phi ptr [ %96, %94 ], [ %7, %.lr.ph72.preheader ]
+  %77 = load i32, ptr %.03571, align 4, !tbaa !33
+  %.not58 = icmp eq i32 %77, %16
+  br i1 %.not58, label %94, label %78
 
-78:                                               ; preds = %.lr.ph71
+78:                                               ; preds = %.lr.ph72
   %79 = xor i32 %77, 1
   %80 = icmp eq ptr %76, null
   br i1 %80, label %87, label %81
@@ -1082,14 +1082,14 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit: ; preds = %81, %87
   store i32 %93, ptr %90, align 4, !tbaa !33
   br label %94
 
-94:                                               ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit, %.lr.ph71
-  %95 = phi ptr [ %88, %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit ], [ %76, %.lr.ph71 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.03570, i64 4
+94:                                               ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit, %.lr.ph72
+  %95 = phi ptr [ %88, %_ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit ], [ %76, %.lr.ph72 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.03571, i64 4
   %.not39 = icmp eq ptr %96, %69
-  br i1 %.not39, label %._crit_edge72, label %.lr.ph71
+  br i1 %.not39, label %._crit_edge73, label %.lr.ph72
 
 .critedge:                                        ; preds = %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %.critedge19.i
-  %97 = getelementptr inbounds nuw i8, ptr %.03665, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %.03666, i64 4
   %.not.not = icmp eq ptr %97, %9
   br i1 %.not.not, label %.loopexit, label %.lr.ph
 
@@ -4586,27 +4586,27 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %_ZNK3sat3big9connec
   %118 = zext i32 %117 to i64
   %119 = shl nuw nsw i64 %118, 4
   %120 = getelementptr inbounds nuw i8, ptr %114, i64 %119
-  %.not22.not.i = icmp eq i32 %117, 0
-  br i1 %.not22.not.i, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit, label %.lr.ph.i
+  %.not23.i = icmp eq i32 %117, 0
+  br i1 %.not23.i, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %.critedge19.i
-  %.01723.i = phi ptr [ %129, %.critedge19.i ], [ %114, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ]
-  %121 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 8
+  %.01724.i = phi ptr [ %129, %.critedge19.i ], [ %114, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i ]
+  %121 = getelementptr inbounds nuw i8, ptr %.01724.i, i64 8
   %122 = load i32, ptr %121, align 8, !tbaa !91
   %123 = and i32 %122, 3
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %125, label %.critedge19.i
 
 125:                                              ; preds = %.lr.ph.i
-  %126 = load i64, ptr %.01723.i, align 8, !tbaa !94
+  %126 = load i64, ptr %.01724.i, align 8, !tbaa !94
   %127 = trunc i64 %126 to i32
   %128 = icmp eq i32 %2, %127
   br i1 %128, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48.sink.split, label %.critedge19.i
 
 .critedge19.i:                                    ; preds = %125, %.lr.ph.i
-  %129 = getelementptr inbounds nuw i8, ptr %.01723.i, i64 16
-  %.not.not.i = icmp eq ptr %129, %120
-  br i1 %.not.not.i, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit, label %.lr.ph.i
+  %129 = getelementptr inbounds nuw i8, ptr %.01724.i, i64 16
+  %.not.i = icmp eq ptr %129, %120
+  br i1 %.not.i, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit, label %.lr.ph.i
 
 _ZN3sat10aig_finder7impliesENS_7literalES1_.exit: ; preds = %.critedge19.i, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i
   %130 = xor i32 %0, 1
@@ -4655,27 +4655,27 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i27:   ; preds = %_ZNK3sat3big9connec
   %158 = zext i32 %157 to i64
   %159 = shl nuw nsw i64 %158, 4
   %160 = getelementptr inbounds nuw i8, ptr %154, i64 %159
-  %.not22.not.i28 = icmp eq i32 %157, 0
-  br i1 %.not22.not.i28, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit36, label %.lr.ph.i29
+  %.not23.i28 = icmp eq i32 %157, 0
+  br i1 %.not23.i28, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit36, label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i27, %.critedge19.i31
-  %.01723.i30 = phi ptr [ %169, %.critedge19.i31 ], [ %154, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i27 ]
-  %161 = getelementptr inbounds nuw i8, ptr %.01723.i30, i64 8
+  %.01724.i30 = phi ptr [ %169, %.critedge19.i31 ], [ %154, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i27 ]
+  %161 = getelementptr inbounds nuw i8, ptr %.01724.i30, i64 8
   %162 = load i32, ptr %161, align 8, !tbaa !91
   %163 = and i32 %162, 3
   %164 = icmp eq i32 %163, 0
   br i1 %164, label %165, label %.critedge19.i31
 
 165:                                              ; preds = %.lr.ph.i29
-  %166 = load i64, ptr %.01723.i30, align 8, !tbaa !94
+  %166 = load i64, ptr %.01724.i30, align 8, !tbaa !94
   %167 = trunc i64 %166 to i32
   %168 = icmp eq i32 %1, %167
   br i1 %168, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48.sink.split, label %.critedge19.i31
 
 .critedge19.i31:                                  ; preds = %165, %.lr.ph.i29
-  %169 = getelementptr inbounds nuw i8, ptr %.01723.i30, i64 16
-  %.not.not.i32 = icmp eq ptr %169, %160
-  br i1 %.not.not.i32, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit36, label %.lr.ph.i29
+  %169 = getelementptr inbounds nuw i8, ptr %.01724.i30, i64 16
+  %.not.i32 = icmp eq ptr %169, %160
+  br i1 %.not.i32, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit36, label %.lr.ph.i29
 
 _ZN3sat10aig_finder7impliesENS_7literalES1_.exit36: ; preds = %.critedge19.i31, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i27, %_ZNK3sat3big9connectedENS_7literalES1_.exit.thread21.i26
   %170 = icmp slt i32 %133, %86
@@ -4714,27 +4714,27 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i39:   ; preds = %_ZNK3sat3big9connec
   %188 = zext i32 %187 to i64
   %189 = shl nuw nsw i64 %188, 4
   %190 = getelementptr inbounds nuw i8, ptr %154, i64 %189
-  %.not22.not.i40 = icmp eq i32 %187, 0
-  br i1 %.not22.not.i40, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48, label %.lr.ph.i41
+  %.not23.i40 = icmp eq i32 %187, 0
+  br i1 %.not23.i40, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48, label %.lr.ph.i41
 
 .lr.ph.i41:                                       ; preds = %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i39, %.critedge19.i43
-  %.01723.i42 = phi ptr [ %199, %.critedge19.i43 ], [ %154, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i39 ]
-  %191 = getelementptr inbounds nuw i8, ptr %.01723.i42, i64 8
+  %.01724.i42 = phi ptr [ %199, %.critedge19.i43 ], [ %154, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i39 ]
+  %191 = getelementptr inbounds nuw i8, ptr %.01724.i42, i64 8
   %192 = load i32, ptr %191, align 8, !tbaa !91
   %193 = and i32 %192, 3
   %194 = icmp eq i32 %193, 0
   br i1 %194, label %195, label %.critedge19.i43
 
 195:                                              ; preds = %.lr.ph.i41
-  %196 = load i64, ptr %.01723.i42, align 8, !tbaa !94
+  %196 = load i64, ptr %.01724.i42, align 8, !tbaa !94
   %197 = trunc i64 %196 to i32
   %198 = icmp eq i32 %2, %197
   br i1 %198, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48.sink.split, label %.critedge19.i43
 
 .critedge19.i43:                                  ; preds = %195, %.lr.ph.i41
-  %199 = getelementptr inbounds nuw i8, ptr %.01723.i42, i64 16
-  %.not.not.i44 = icmp eq ptr %199, %190
-  br i1 %.not.not.i44, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48, label %.lr.ph.i41
+  %199 = getelementptr inbounds nuw i8, ptr %.01724.i42, i64 16
+  %.not.i44 = icmp eq ptr %199, %190
+  br i1 %.not.i44, label %_ZN3sat10aig_finder7impliesENS_7literalES1_.exit48, label %.lr.ph.i41
 
 _ZN3sat10aig_finder7impliesENS_7literalES1_.exit48.sink.split: ; preds = %125, %165, %195, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i34, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i35, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i46, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i47, %.loopexit25
   %.sink = phi ptr [ %.sroa.151.0.copyload, %.loopexit25 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i47 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i46 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i35 ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i34 ], [ null, %_ZNK3sat3big7reachesENS_7literalES1_.exit.i.i ], [ null, %_ZNK3sat3big9connectedENS_7literalES1_.exit.i ], [ null, %195 ], [ null, %165 ], [ null, %125 ]

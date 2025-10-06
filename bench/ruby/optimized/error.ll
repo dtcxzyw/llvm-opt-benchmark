@@ -3949,22 +3949,22 @@ define internal noundef i64 @exc_exception(i32 noundef %0, ptr noundef readonly 
   unreachable
 
 rb_check_arity.exit:                              ; preds = %3
-  %switch = icmp eq i32 %0, 0
-  br i1 %switch, label %12, label %5
+  %5 = icmp eq i32 %0, 0
+  br i1 %5, label %13, label %6
 
-5:                                                ; preds = %rb_check_arity.exit
-  %6 = load i64, ptr %1, align 8, !tbaa !15
-  %7 = icmp eq i64 %2, %6
-  br i1 %7, label %12, label %8
+6:                                                ; preds = %rb_check_arity.exit
+  %7 = load i64, ptr %1, align 8, !tbaa !15
+  %8 = icmp eq i64 %2, %7
+  br i1 %8, label %13, label %9
 
-8:                                                ; preds = %5
-  %9 = tail call i64 @rb_obj_clone(i64 noundef %2) #33
-  %10 = load i64, ptr %1, align 8, !tbaa !15
-  %11 = tail call i64 @rb_ivar_set(i64 noundef %9, i64 noundef 3473, i64 noundef %10) #33
-  br label %12
+9:                                                ; preds = %6
+  %10 = tail call i64 @rb_obj_clone(i64 noundef %2) #33
+  %11 = load i64, ptr %1, align 8, !tbaa !15
+  %12 = tail call i64 @rb_ivar_set(i64 noundef %10, i64 noundef 3473, i64 noundef %11) #33
+  br label %13
 
-12:                                               ; preds = %rb_check_arity.exit, %5, %8
-  %.0 = phi i64 [ %9, %8 ], [ %2, %rb_check_arity.exit ], [ %2, %5 ]
+13:                                               ; preds = %rb_check_arity.exit, %6, %9
+  %.0 = phi i64 [ %10, %9 ], [ %2, %rb_check_arity.exit ], [ %2, %6 ]
   ret i64 %.0
 }
 
@@ -11083,11 +11083,11 @@ append_basename.exit97:                           ; preds = %84, %91
   br i1 %.not82, label %135, label %16, !llvm.loop !172
 
 135:                                              ; preds = %19, %133
-  %.163115 = phi ptr [ %.163.ph, %133 ], [ %18, %19 ]
-  %.169113 = phi ptr [ %.169.ph, %133 ], [ %.068, %19 ]
-  store ptr %.163115, ptr %0, align 8, !tbaa !37
-  store i8 0, ptr %.169113, align 1, !tbaa !26
-  %136 = getelementptr i8, ptr %.169113, i64 1
+  %.163113 = phi ptr [ %.163.ph, %133 ], [ %18, %19 ]
+  %.169111 = phi ptr [ %.169.ph, %133 ], [ %.068, %19 ]
+  store ptr %.163113, ptr %0, align 8, !tbaa !37
+  store i8 0, ptr %.169111, align 1, !tbaa !26
+  %136 = getelementptr i8, ptr %.169111, i64 1
   br label %137
 
 137:                                              ; preds = %5, %9, %135

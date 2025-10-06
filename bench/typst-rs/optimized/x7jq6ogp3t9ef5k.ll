@@ -120,9 +120,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %51 = add i64 %50, -1
   %52 = icmp eq ptr %48, %49
   %spec.select = select i1 %52, ptr %16, ptr %49
-  %spec.select13 = select i1 %52, ptr %.fr16.i.i, ptr %48
-  %storemerge.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select13, i64 8
-  %53 = load double, ptr %spec.select13, align 8, !noalias !35, !noundef !7
+  %spec.select12 = select i1 %52, ptr %.fr16.i.i, ptr %48
+  %storemerge.i.i.i.i = getelementptr inbounds nuw i8, ptr %spec.select12, i64 8
+  %53 = load double, ptr %spec.select12, align 8, !noalias !35, !noundef !7
   %54 = invoke noundef double @_ZN5typst6layout3abs3Abs5to_pt17hb03eedad55f691b4E(double noundef %53)
           to label %.noexc5 unwind label %.loopexit.split-lp
 

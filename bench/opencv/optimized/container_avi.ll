@@ -2280,7 +2280,7 @@ define noundef zeroext i1 @_ZN2cv16AVIReadContainer9parseRiffERSt5dequeISt4pairI
 10:                                               ; preds = %.lr.ph, %36
   %11 = phi ptr [ %5, %.lr.ph ], [ %48, %36 ]
   %12 = phi ptr [ %4, %.lr.ph ], [ %47, %36 ]
-  %.0713 = phi i1 [ false, %.lr.ph ], [ %44, %36 ]
+  %.0712 = phi i1 [ false, %.lr.ph ], [ %44, %36 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = call noundef zeroext i1 @_ZNKSt12__basic_fileIcE7is_openEv(ptr noundef nonnull readonly align 8 dereferenceable(9) %13) #29
@@ -2330,7 +2330,7 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit: ; preds = %10, %15
   %41 = zext i32 %40 to i64
   %42 = add i64 %38, %41
   %43 = call noundef zeroext i1 @_ZN2cv16AVIReadContainer21parseAviWithFrameListERSt5dequeISt4pairImjESaIS3_EENS_6CodecsE(ptr noundef nonnull align 8 dereferenceable(137) %0, ptr noundef nonnull align 8 dereferenceable(80) %1, i32 noundef 0)
-  %44 = or i1 %.0713, %43
+  %44 = or i1 %.0712, %43
   %45 = load ptr, ptr %0, align 8, !tbaa !68
   %46 = call noundef nonnull align 8 dereferenceable(560) ptr @_ZN2cv16VideoInputStream5seekgEm(ptr noundef nonnull align 8 dereferenceable(560) %45, i64 noundef %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -2341,8 +2341,8 @@ _ZN2cvrsERNS_16VideoInputStreamERNS_8RiffListE.exit: ; preds = %10, %15
   br i1 %50, label %10, label %.loopexit
 
 .loopexit:                                        ; preds = %36, %2, %.thread
-  %.0712 = phi i1 [ %.0713, %.thread ], [ false, %2 ], [ %44, %36 ]
-  ret i1 %.0712
+  %.0711 = phi i1 [ %.0712, %.thread ], [ false, %2 ], [ %44, %36 ]
+  ret i1 %.0711
 }
 
 ; Function Attrs: mustprogress uwtable

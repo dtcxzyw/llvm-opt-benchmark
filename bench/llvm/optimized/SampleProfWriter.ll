@@ -3224,8 +3224,8 @@ define dso_local { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinar
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.0, i64 16
   %14 = tail call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_15FunctionSamplesE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(176) %13)
   %15 = extractvalue { i32, ptr } %14, 0
-  %.not20 = icmp eq i32 %15, 0
-  br i1 %.not20, label %11, label %.loopexit
+  %.not18 = icmp eq i32 %15, 0
+  br i1 %.not18, label %11, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %11, %2
   %16 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm19sampleprof_categoryEv() #24
@@ -5024,8 +5024,8 @@ _ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7Se
   %182 = getelementptr inbounds nuw i8, ptr %.sroa.010.0.i, i64 16
   %183 = tail call { i32, ptr } @_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_15FunctionSamplesE(ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(176) %182)
   %184 = extractvalue { i32, ptr } %183, 0
-  %.not20.i = icmp eq i32 %184, 0
-  br i1 %.not20.i, label %180, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
+  %.not18.i = icmp eq i32 %184, 0
+  br i1 %.not18.i, label %180, label %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase17writeFuncMetadataERKNS0_16SampleProfileMapE.exit
 
 185:                                              ; preds = %_ZN4llvm10sampleprof32SampleProfileWriterExtBinaryBase16markSectionStartENS0_7SecTypeEj.exit
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 568

@@ -39,8 +39,8 @@ define hidden void @"_ZN115_$LT$itertools..intersperse..IntersperseWith$LT$I$C$E
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.val57 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %9 = ptrtoint ptr %.val57 to i64
+  %.val51 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
+  %9 = ptrtoint ptr %.val51 to i64
   %10 = ptrtoint ptr %.val to i64
   %11 = sub nuw i64 %9, %10
   %12 = udiv exact i64 %11, 96
@@ -69,9 +69,9 @@ define hidden void @"_ZN115_$LT$itertools..intersperse..IntersperseWith$LT$I$C$E
   br i1 %.not, label %23, label %24
 
 .sink.split:                                      ; preds = %18, %24
-  %.sink59 = phi i64 [ %25, %24 ], [ %19, %18 ]
-  store i64 %.sink59, ptr %0, align 8
-  store i64 %.sink59, ptr %16, align 8
+  %.sink53 = phi i64 [ %25, %24 ], [ %19, %18 ]
+  store i64 %.sink53, ptr %0, align 8
+  store i64 %.sink53, ptr %16, align 8
   br label %23
 
 23:                                               ; preds = %.sink.split, %20

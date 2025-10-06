@@ -425,24 +425,24 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null
   %or.cond = or i1 %7, %8
-  br i1 %or.cond, label %.thread84, label %9
+  br i1 %or.cond, label %.thread83, label %9
 
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %11 = load i32, ptr %10, align 4, !tbaa !31
   %.not = icmp eq i32 %11, 3
-  br i1 %.not, label %12, label %.thread84
+  br i1 %.not, label %12, label %.thread83
 
 12:                                               ; preds = %9
   %13 = load ptr, ptr %1, align 8, !tbaa !33
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %.thread84, label %15
+  br i1 %14, label %.thread83, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !34
   %18 = icmp ugt i64 %17, 4294967286
-  br i1 %18, label %.thread84, label %19
+  br i1 %18, label %.thread83, label %19
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %0, align 8, !tbaa !21
@@ -452,14 +452,14 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
 21:                                               ; preds = %19
   %22 = load ptr, ptr %20, align 8, !tbaa !35
   %.not52 = icmp eq ptr %22, null
-  br i1 %.not52, label %.thread84, label %23
+  br i1 %.not52, label %.thread83, label %23
 
 23:                                               ; preds = %21
   %24 = load i32, ptr %22, align 8, !tbaa !17
   %25 = tail call i32 @ChunkGetIdFromTag(i32 noundef %24) #7
   %.pre = load i32, ptr %10, align 4, !tbaa !31
   %26 = icmp eq i32 %25, %.pre
-  br i1 %26, label %27, label %.thread84
+  br i1 %26, label %27, label %.thread83
 
 27:                                               ; preds = %23, %19
   call void @MuxImageInit(ptr noundef nonnull %4) #7
@@ -482,19 +482,19 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   store i32 %36, ptr %34, align 4, !tbaa !40
   %37 = icmp sgt i32 %32, -1
   %38 = icmp slt i32 %33, 16777216
-  %or.cond4.not72 = and i1 %37, %38
+  %or.cond4.not71 = and i1 %37, %38
   %39 = icmp sgt i32 %35, -1
   %40 = icmp slt i32 %36, 16777216
-  %.not75 = and i1 %39, %40
-  %or.cond10.not69 = select i1 %or.cond4.not72, i1 %.not75, i1 false
+  %.not74 = and i1 %39, %40
+  %or.cond10.not68 = select i1 %or.cond4.not71, i1 %.not74, i1 false
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %42 = load i32, ptr %41, align 8
   %43 = icmp ult i32 %42, 16777216
-  %or.cond16.not67 = select i1 %or.cond10.not69, i1 %43, i1 false
+  %or.cond16.not66 = select i1 %or.cond10.not68, i1 %43, i1 false
   %44 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %45 = load i32, ptr %44, align 8
   %.not55 = icmp ult i32 %45, 2
-  %or.cond60 = select i1 %or.cond16.not67, i1 %.not55, i1 false
+  %or.cond60 = select i1 %or.cond16.not66, i1 %.not55, i1 false
   br i1 %or.cond60, label %46, label %.thread
 
 46:                                               ; preds = %29
@@ -524,14 +524,14 @@ define i32 @WebPMuxPushFrame(ptr noundef %0, ptr noundef %1, i32 noundef %2) loc
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %56 = call i32 @MuxImagePush(ptr noundef nonnull %4, ptr noundef nonnull %0) #7
   %.not58 = icmp eq i32 %56, 1
-  br i1 %.not58, label %.thread84, label %57
+  br i1 %.not58, label %.thread83, label %57
 
 57:                                               ; preds = %.thread, %55, %27
   %.039 = phi i32 [ %28, %27 ], [ %56, %55 ], [ %.140.ph, %.thread ]
   %58 = call ptr @MuxImageRelease(ptr noundef nonnull %4) #7
-  br label %.thread84
+  br label %.thread83
 
-.thread84:                                        ; preds = %21, %55, %12, %15, %9, %3, %23, %57
+.thread83:                                        ; preds = %21, %55, %12, %15, %9, %3, %23, %57
   %.0 = phi i32 [ %.039, %57 ], [ -1, %23 ], [ -1, %3 ], [ -1, %9 ], [ -1, %15 ], [ -1, %12 ], [ 1, %55 ], [ -1, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

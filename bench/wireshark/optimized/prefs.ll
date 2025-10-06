@@ -7263,7 +7263,7 @@ define ptr @prefs_get_string_list(ptr noundef readonly captures(none) %0) local_
 9:                                                ; preds = %._crit_edge
   %10 = tail call ptr @g_string_free(ptr noundef %.141, i32 noundef 1)
   tail call void @g_list_free_full(ptr noundef %.2, ptr noundef nonnull @g_free)
-  br label %64
+  br label %65
 
 ._crit_edge.thread:                               ; preds = %1, %._crit_edge
   %.0.lcssa67 = phi ptr [ %.2, %._crit_edge ], [ null, %1 ]
@@ -7276,105 +7276,105 @@ define ptr @prefs_get_string_list(ptr noundef readonly captures(none) %0) local_
 13:                                               ; preds = %._crit_edge.thread
   %14 = tail call ptr @g_string_free(ptr noundef %.040.lcssa66, i32 noundef 0)
   %15 = tail call ptr @g_list_append(ptr noundef %.0.lcssa67, ptr noundef %14)
-  br label %64
+  br label %65
 
 16:                                               ; preds = %._crit_edge.thread
   %17 = tail call ptr @g_string_free(ptr noundef %.040.lcssa66, i32 noundef 1)
-  br label %64
+  br label %65
 
 18:                                               ; preds = %.lr.ph, %g_string_append_c_inline.exit
-  %19 = phi i8 [ %3, %.lr.ph ], [ %62, %g_string_append_c_inline.exit ]
+  %19 = phi i8 [ %3, %.lr.ph ], [ %63, %g_string_append_c_inline.exit ]
   %.057 = phi ptr [ null, %.lr.ph ], [ %.2, %g_string_append_c_inline.exit ]
   %.04056 = phi ptr [ %2, %.lr.ph ], [ %.141, %g_string_append_c_inline.exit ]
   %.04455 = phi i32 [ 0, %.lr.ph ], [ %.145, %g_string_append_c_inline.exit ]
   %.04654 = phi i8 [ 0, %.lr.ph ], [ %.147, %g_string_append_c_inline.exit ]
-  %.04853 = phi i32 [ 0, %.lr.ph ], [ %59, %g_string_append_c_inline.exit ]
+  %.04853 = phi i32 [ 0, %.lr.ph ], [ %60, %g_string_append_c_inline.exit ]
   %20 = icmp ne i8 %19, 34
   %21 = trunc nuw i8 %.04654 to i1
   %or.cond3 = select i1 %20, i1 true, i1 %21
-  br i1 %or.cond3, label %23, label %22
+  br i1 %or.cond3, label %24, label %22
 
 22:                                               ; preds = %18
-  %switch = icmp eq i32 %.04455, 1
-  %. = select i1 %switch, i32 2, i32 1
+  %23 = icmp eq i32 %.04455, 1
+  %. = select i1 %23, i32 2, i32 1
   br label %g_string_append_c_inline.exit
 
-23:                                               ; preds = %18
-  %24 = icmp ne i8 %19, 92
-  %or.cond5 = select i1 %24, i1 true, i1 %21
-  br i1 %or.cond5, label %27, label %25
+24:                                               ; preds = %18
+  %25 = icmp ne i8 %19, 92
+  %or.cond5 = select i1 %25, i1 true, i1 %21
+  br i1 %or.cond5, label %28, label %26
 
-25:                                               ; preds = %23
-  %26 = icmp eq i32 %.04455, 0
-  %spec.store.select = select i1 %26, i32 2, i32 %.04455
+26:                                               ; preds = %24
+  %27 = icmp eq i32 %.04455, 0
+  %spec.store.select = select i1 %27, i32 2, i32 %.04455
   br label %g_string_append_c_inline.exit
 
-27:                                               ; preds = %23
-  %28 = icmp ne i8 %19, 44
-  %29 = icmp eq i32 %.04455, 1
-  %or.cond7.not51 = select i1 %28, i1 true, i1 %29
+28:                                               ; preds = %24
+  %29 = icmp ne i8 %19, 44
+  %30 = icmp eq i32 %.04455, 1
+  %or.cond7.not51 = select i1 %29, i1 true, i1 %30
   %or.cond9 = select i1 %or.cond7.not51, i1 true, i1 %21
-  br i1 %or.cond9, label %37, label %30
+  br i1 %or.cond9, label %38, label %31
 
-30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %.04056, i64 8
-  %32 = load i64, ptr %31, align 8
-  %.not = icmp eq i64 %32, 0
-  br i1 %.not, label %g_string_append_c_inline.exit, label %33
+31:                                               ; preds = %28
+  %32 = getelementptr inbounds nuw i8, ptr %.04056, i64 8
+  %33 = load i64, ptr %32, align 8
+  %.not = icmp eq i64 %33, 0
+  br i1 %.not, label %g_string_append_c_inline.exit, label %34
 
-33:                                               ; preds = %30
-  %34 = tail call ptr @g_string_free(ptr noundef %.04056, i32 noundef 0)
-  %35 = tail call ptr @g_list_append(ptr noundef %.057, ptr noundef %34)
-  %36 = tail call ptr @g_string_sized_new(i64 noundef 64)
+34:                                               ; preds = %31
+  %35 = tail call ptr @g_string_free(ptr noundef %.04056, i32 noundef 0)
+  %36 = tail call ptr @g_list_append(ptr noundef %.057, ptr noundef %35)
+  %37 = tail call ptr @g_string_sized_new(i64 noundef 64)
   br label %g_string_append_c_inline.exit
 
-37:                                               ; preds = %27
-  %38 = zext i8 %19 to i64
-  %39 = getelementptr i16, ptr %5, i64 %38
-  %40 = load i16, ptr %39, align 2
-  %41 = and i16 %40, 256
-  %42 = icmp eq i16 %41, 0
-  %43 = icmp ne i32 %.04455, 0
-  %or.cond11 = select i1 %42, i1 true, i1 %43
-  br i1 %or.cond11, label %44, label %g_string_append_c_inline.exit
+38:                                               ; preds = %28
+  %39 = zext i8 %19 to i64
+  %40 = getelementptr i16, ptr %5, i64 %39
+  %41 = load i16, ptr %40, align 2
+  %42 = and i16 %41, 256
+  %43 = icmp eq i16 %42, 0
+  %44 = icmp ne i32 %.04455, 0
+  %or.cond11 = select i1 %43, i1 true, i1 %44
+  br i1 %or.cond11, label %45, label %g_string_append_c_inline.exit
 
-44:                                               ; preds = %37
-  %45 = getelementptr inbounds nuw i8, ptr %.04056, i64 8
-  %46 = load i64, ptr %45, align 8
-  %47 = add i64 %46, 1
-  %48 = getelementptr inbounds nuw i8, ptr %.04056, i64 16
-  %49 = load i64, ptr %48, align 8
-  %50 = icmp ult i64 %47, %49
-  br i1 %50, label %51, label %57
+45:                                               ; preds = %38
+  %46 = getelementptr inbounds nuw i8, ptr %.04056, i64 8
+  %47 = load i64, ptr %46, align 8
+  %48 = add i64 %47, 1
+  %49 = getelementptr inbounds nuw i8, ptr %.04056, i64 16
+  %50 = load i64, ptr %49, align 8
+  %51 = icmp ult i64 %48, %50
+  br i1 %51, label %52, label %58
 
-51:                                               ; preds = %44
-  %52 = load ptr, ptr %.04056, align 8
-  store i64 %47, ptr %45, align 8
-  %53 = getelementptr i8, ptr %52, i64 %46
-  store i8 %19, ptr %53, align 1
-  %54 = load ptr, ptr %.04056, align 8
-  %55 = load i64, ptr %45, align 8
-  %56 = getelementptr i8, ptr %54, i64 %55
-  store i8 0, ptr %56, align 1
+52:                                               ; preds = %45
+  %53 = load ptr, ptr %.04056, align 8
+  store i64 %48, ptr %46, align 8
+  %54 = getelementptr i8, ptr %53, i64 %47
+  store i8 %19, ptr %54, align 1
+  %55 = load ptr, ptr %.04056, align 8
+  %56 = load i64, ptr %46, align 8
+  %57 = getelementptr i8, ptr %55, i64 %56
+  store i8 0, ptr %57, align 1
   br label %g_string_append_c_inline.exit
 
-57:                                               ; preds = %44
-  %58 = tail call ptr @g_string_insert_c(ptr noundef %.04056, i64 noundef -1, i8 noundef signext %19)
+58:                                               ; preds = %45
+  %59 = tail call ptr @g_string_insert_c(ptr noundef %.04056, i64 noundef -1, i8 noundef signext %19)
   br label %g_string_append_c_inline.exit
 
-g_string_append_c_inline.exit:                    ; preds = %57, %51, %30, %33, %22, %25, %37
-  %.147 = phi i8 [ %.04654, %37 ], [ 1, %25 ], [ 0, %22 ], [ 0, %33 ], [ 0, %30 ], [ 0, %51 ], [ 0, %57 ]
-  %.145 = phi i32 [ 0, %37 ], [ %spec.store.select, %25 ], [ %., %22 ], [ 0, %33 ], [ 0, %30 ], [ %.04455, %51 ], [ %.04455, %57 ]
-  %.141 = phi ptr [ %.04056, %37 ], [ %.04056, %25 ], [ %.04056, %22 ], [ %36, %33 ], [ %.04056, %30 ], [ %.04056, %51 ], [ %.04056, %57 ]
-  %.2 = phi ptr [ %.057, %37 ], [ %.057, %25 ], [ %.057, %22 ], [ %35, %33 ], [ %.057, %30 ], [ %.057, %51 ], [ %.057, %57 ]
-  %59 = add i32 %.04853, 1
-  %60 = sext i32 %59 to i64
-  %61 = getelementptr i8, ptr %0, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = icmp eq i8 %62, 0
-  br i1 %63, label %._crit_edge, label %18
+g_string_append_c_inline.exit:                    ; preds = %58, %52, %31, %34, %22, %26, %38
+  %.147 = phi i8 [ %.04654, %38 ], [ 1, %26 ], [ 0, %22 ], [ 0, %34 ], [ 0, %31 ], [ 0, %52 ], [ 0, %58 ]
+  %.145 = phi i32 [ 0, %38 ], [ %spec.store.select, %26 ], [ %., %22 ], [ 0, %34 ], [ 0, %31 ], [ %.04455, %52 ], [ %.04455, %58 ]
+  %.141 = phi ptr [ %.04056, %38 ], [ %.04056, %26 ], [ %.04056, %22 ], [ %37, %34 ], [ %.04056, %31 ], [ %.04056, %52 ], [ %.04056, %58 ]
+  %.2 = phi ptr [ %.057, %38 ], [ %.057, %26 ], [ %.057, %22 ], [ %36, %34 ], [ %.057, %31 ], [ %.057, %52 ], [ %.057, %58 ]
+  %60 = add i32 %.04853, 1
+  %61 = sext i32 %60 to i64
+  %62 = getelementptr i8, ptr %0, i64 %61
+  %63 = load i8, ptr %62, align 1
+  %64 = icmp eq i8 %63, 0
+  br i1 %64, label %._crit_edge, label %18
 
-64:                                               ; preds = %16, %13, %9
+65:                                               ; preds = %16, %13, %9
   %.043 = phi ptr [ null, %9 ], [ %15, %13 ], [ %.0.lcssa67, %16 ]
   ret ptr %.043
 }

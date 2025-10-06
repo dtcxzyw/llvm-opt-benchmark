@@ -140,105 +140,105 @@ define hidden void @_Z15drawBoundingBoxN2cv3MatESt6vectorINS_6Point_IfEESaIS3_EE
   %10 = ptrtoint ptr %8 to i64
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
-  %.not = icmp eq i64 %12, 8
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  %13 = icmp eq i64 %12, 8
+  br i1 %13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br label %17
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  br label %18
 
-17:                                               ; preds = %.lr.ph, %17
-  %18 = phi ptr [ %9, %.lr.ph ], [ %39, %17 ]
-  %19 = phi i64 [ 0, %.lr.ph ], [ %29, %17 ]
-  %.030 = phi i32 [ 0, %.lr.ph ], [ %28, %17 ]
+18:                                               ; preds = %.lr.ph, %18
+  %19 = phi ptr [ %9, %.lr.ph ], [ %40, %18 ]
+  %20 = phi i64 [ 0, %.lr.ph ], [ %30, %18 ]
+  %.030 = phi i32 [ 0, %.lr.ph ], [ %29, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 0, ptr %14, align 8
+  store i64 0, ptr %15, align 8
   store i32 50397184, ptr %3, align 8, !tbaa !11
-  store ptr %0, ptr %13, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %18, i64 %19
-  %21 = load float, ptr %20, align 4, !tbaa !16
-  %22 = insertelement <4 x float> poison, float %21, i64 0
-  %23 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %22)
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %25 = load float, ptr %24, align 4, !tbaa !19
-  %26 = insertelement <4 x float> poison, float %25, i64 0
-  %27 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %26)
-  %.sroa.2.0.insert.ext.i17 = zext i32 %27 to i64
+  store ptr %0, ptr %14, align 8, !tbaa !15
+  %21 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %19, i64 %20
+  %22 = load float, ptr %21, align 4, !tbaa !16
+  %23 = insertelement <4 x float> poison, float %22, i64 0
+  %24 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %23)
+  %25 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  %26 = load float, ptr %25, align 4, !tbaa !19
+  %27 = insertelement <4 x float> poison, float %26, i64 0
+  %28 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %27)
+  %.sroa.2.0.insert.ext.i17 = zext i32 %28 to i64
   %.sroa.2.0.insert.shift.i18 = shl nuw i64 %.sroa.2.0.insert.ext.i17, 32
-  %.sroa.0.0.insert.ext.i19 = zext i32 %23 to i64
+  %.sroa.0.0.insert.ext.i19 = zext i32 %24 to i64
   %.sroa.0.0.insert.insert.i20 = or disjoint i64 %.sroa.2.0.insert.shift.i18, %.sroa.0.0.insert.ext.i19
-  %28 = add i32 %.030, 1
-  %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %18, i64 %29
-  %31 = load float, ptr %30, align 4, !tbaa !16
-  %32 = insertelement <4 x float> poison, float %31, i64 0
-  %33 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %32)
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 4
-  %35 = load float, ptr %34, align 4, !tbaa !19
-  %36 = insertelement <4 x float> poison, float %35, i64 0
-  %37 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %36)
-  %.sroa.2.0.insert.ext.i21 = zext i32 %37 to i64
+  %29 = add i32 %.030, 1
+  %30 = zext i32 %29 to i64
+  %31 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %19, i64 %30
+  %32 = load float, ptr %31, align 4, !tbaa !16
+  %33 = insertelement <4 x float> poison, float %32, i64 0
+  %34 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %33)
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 4
+  %36 = load float, ptr %35, align 4, !tbaa !19
+  %37 = insertelement <4 x float> poison, float %36, i64 0
+  %38 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %37)
+  %.sroa.2.0.insert.ext.i21 = zext i32 %38 to i64
   %.sroa.2.0.insert.shift.i22 = shl nuw i64 %.sroa.2.0.insert.ext.i21, 32
-  %.sroa.0.0.insert.ext.i23 = zext i32 %33 to i64
+  %.sroa.0.0.insert.ext.i23 = zext i32 %34 to i64
   %.sroa.0.0.insert.insert.i24 = or disjoint i64 %.sroa.2.0.insert.shift.i22, %.sroa.0.0.insert.ext.i23
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  store double 2.550000e+02, ptr %15, align 8, !tbaa !20
-  store double 0.000000e+00, ptr %16, align 8, !tbaa !20
+  store double 2.550000e+02, ptr %16, align 8, !tbaa !20
+  store double 0.000000e+00, ptr %17, align 8, !tbaa !20
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %3, i64 %.sroa.0.0.insert.insert.i20, i64 %.sroa.0.0.insert.insert.i24, ptr noundef nonnull align 8 dereferenceable(32) %4, i32 noundef 2, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %38 = load ptr, ptr %7, align 8, !tbaa !4
-  %39 = load ptr, ptr %1, align 8, !tbaa !10
-  %40 = ptrtoint ptr %38 to i64
+  %39 = load ptr, ptr %7, align 8, !tbaa !4
+  %40 = load ptr, ptr %1, align 8, !tbaa !10
   %41 = ptrtoint ptr %39 to i64
-  %42 = sub i64 %40, %41
-  %43 = ashr exact i64 %42, 3
-  %44 = add nsw i64 %43, -1
-  %45 = icmp ugt i64 %44, %29
-  br i1 %45, label %17, label %._crit_edge, !llvm.loop !22
+  %42 = ptrtoint ptr %40 to i64
+  %43 = sub i64 %41, %42
+  %44 = ashr exact i64 %43, 3
+  %45 = add nsw i64 %44, -1
+  %46 = icmp ugt i64 %45, %30
+  br i1 %46, label %18, label %._crit_edge, !llvm.loop !22
 
-._crit_edge:                                      ; preds = %17, %2
-  %.lcssa29 = phi ptr [ %9, %2 ], [ %39, %17 ]
-  %.lcssa = phi i64 [ 0, %2 ], [ %44, %17 ]
+._crit_edge:                                      ; preds = %18, %2
+  %.lcssa29 = phi ptr [ %9, %2 ], [ %40, %18 ]
+  %.lcssa = phi i64 [ 0, %2 ], [ %45, %18 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %47 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %47, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store i64 0, ptr %48, align 8
   store i32 50397184, ptr %5, align 8, !tbaa !11
-  store ptr %0, ptr %46, align 8, !tbaa !15
-  %48 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %.lcssa29, i64 %.lcssa
-  %49 = load float, ptr %48, align 4, !tbaa !16
-  %50 = insertelement <4 x float> poison, float %49, i64 0
-  %51 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %50)
-  %52 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  %53 = load float, ptr %52, align 4, !tbaa !19
-  %54 = insertelement <4 x float> poison, float %53, i64 0
-  %55 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %54)
-  %.sroa.2.0.insert.ext.i = zext i32 %55 to i64
+  store ptr %0, ptr %47, align 8, !tbaa !15
+  %49 = getelementptr inbounds nuw %"class.cv::Point_.0", ptr %.lcssa29, i64 %.lcssa
+  %50 = load float, ptr %49, align 4, !tbaa !16
+  %51 = insertelement <4 x float> poison, float %50, i64 0
+  %52 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %51)
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %54 = load float, ptr %53, align 4, !tbaa !19
+  %55 = insertelement <4 x float> poison, float %54, i64 0
+  %56 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %55)
+  %.sroa.2.0.insert.ext.i = zext i32 %56 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
-  %.sroa.0.0.insert.ext.i = zext i32 %51 to i64
+  %.sroa.0.0.insert.ext.i = zext i32 %52 to i64
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
-  %56 = load float, ptr %.lcssa29, align 4, !tbaa !16
-  %57 = insertelement <4 x float> poison, float %56, i64 0
-  %58 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %57)
-  %59 = getelementptr inbounds nuw i8, ptr %.lcssa29, i64 4
-  %60 = load float, ptr %59, align 4, !tbaa !19
-  %61 = insertelement <4 x float> poison, float %60, i64 0
-  %62 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %61)
-  %.sroa.2.0.insert.ext.i25 = zext i32 %62 to i64
+  %57 = load float, ptr %.lcssa29, align 4, !tbaa !16
+  %58 = insertelement <4 x float> poison, float %57, i64 0
+  %59 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %58)
+  %60 = getelementptr inbounds nuw i8, ptr %.lcssa29, i64 4
+  %61 = load float, ptr %60, align 4, !tbaa !19
+  %62 = insertelement <4 x float> poison, float %61, i64 0
+  %63 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %62)
+  %.sroa.2.0.insert.ext.i25 = zext i32 %63 to i64
   %.sroa.2.0.insert.shift.i26 = shl nuw i64 %.sroa.2.0.insert.ext.i25, 32
-  %.sroa.0.0.insert.ext.i27 = zext i32 %58 to i64
+  %.sroa.0.0.insert.ext.i27 = zext i32 %59 to i64
   %.sroa.0.0.insert.insert.i28 = or disjoint i64 %.sroa.2.0.insert.shift.i26, %.sroa.0.0.insert.ext.i27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %64 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  store double 2.550000e+02, ptr %63, align 8, !tbaa !20
-  %64 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store double 0.000000e+00, ptr %64, align 8, !tbaa !20
+  store double 2.550000e+02, ptr %64, align 8, !tbaa !20
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store double 0.000000e+00, ptr %65, align 8, !tbaa !20
   call void @_ZN2cv4lineERKNS_17_InputOutputArrayENS_6Point_IiEES4_RKNS_7Scalar_IdEEiii(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 %.sroa.0.0.insert.insert.i, i64 %.sroa.0.0.insert.insert.i28, ptr noundef nonnull align 8 dereferenceable(32) %6, i32 noundef 2, i32 noundef 8, i32 noundef 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

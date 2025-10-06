@@ -1589,18 +1589,18 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurve
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !44
-  %.not15 = icmp eq ptr %3, %5
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %3, %5
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.09.016, i64 8
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 8
   %.not = icmp eq ptr %7, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %6
-  %.sroa.09.016 = phi ptr [ %7, %6 ], [ %3, %1 ]
-  %8 = load float, ptr %.sroa.09.016, align 4, !tbaa !62
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.09.016, i64 4
+  %.sroa.09.014 = phi ptr [ %7, %6 ], [ %3, %1 ]
+  %8 = load float, ptr %.sroa.09.014, align 4, !tbaa !62
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 4
   %10 = load float, ptr %9, align 4, !tbaa !65
   %11 = fcmp oeq float %8, %10
   br i1 %11, label %6, label %.loopexit
@@ -1633,18 +1633,18 @@ define hidden noundef zeroext i1 @_ZN19OpenColorIO_v2_5dev22IsGradingCurveIdenti
   %8 = load ptr, ptr %7, align 8, !tbaa !44
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !44
-  %.not15.i = icmp eq ptr %8, %10
-  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not13.i = icmp eq ptr %8, %10
+  br i1 %.not13.i, label %._crit_edge.i, label %.lr.ph.i
 
 11:                                               ; preds = %.lr.ph.i
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.09.016.i, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 8
   %.not.i = icmp eq ptr %12, %10
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %11
-  %.sroa.09.016.i = phi ptr [ %12, %11 ], [ %8, %6 ]
-  %13 = load float, ptr %.sroa.09.016.i, align 4, !tbaa !62
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.09.016.i, i64 4
+  %.sroa.09.014.i = phi ptr [ %12, %11 ], [ %8, %6 ]
+  %13 = load float, ptr %.sroa.09.014.i, align 4, !tbaa !62
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 4
   %15 = load float, ptr %14, align 4, !tbaa !65
   %16 = fcmp oeq float %13, %15
   br i1 %16, label %11, label %_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10isIdentityEv.exit
@@ -1682,18 +1682,18 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl20computeK
   br i1 %16, label %28, label %17
 
 17:                                               ; preds = %3
-  %.not15.i = icmp eq ptr %12, %11
-  br i1 %.not15.i, label %_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10isIdentityEv.exit, label %.lr.ph.i
+  %.not13.i = icmp eq ptr %12, %11
+  br i1 %.not13.i, label %_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10isIdentityEv.exit, label %.lr.ph.i
 
 18:                                               ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.09.016.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 8
   %.not.i = icmp eq ptr %19, %11
   br i1 %.not.i, label %_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10isIdentityEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %18
-  %.sroa.09.016.i = phi ptr [ %19, %18 ], [ %12, %17 ]
-  %20 = load float, ptr %.sroa.09.016.i, align 4, !tbaa !62
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.09.016.i, i64 4
+  %.sroa.09.014.i = phi ptr [ %19, %18 ], [ %12, %17 ]
+  %20 = load float, ptr %.sroa.09.014.i, align 4, !tbaa !62
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 4
   %22 = load float, ptr %21, align 4, !tbaa !65
   %23 = fcmp oeq float %20, %22
   br i1 %23, label %18, label %_ZNK19OpenColorIO_v2_5dev23GradingBSplineCurveImpl10isIdentityEv.exit.thread

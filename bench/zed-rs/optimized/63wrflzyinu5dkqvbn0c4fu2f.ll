@@ -29,16 +29,16 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   br i1 %9, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17had0dd01e2dbc8affE.llvm.14260065603353968934.exit", label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %6
-  %.promoted23.i.i = ptrtoint ptr %.promoted.i.i to i64
+  %.promoted22.i.i = ptrtoint ptr %.promoted.i.i to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = add i64 %1, %10
-  %12 = sub i64 %11, %.promoted23.i.i
-  %13 = sub i64 %10, %.promoted23.i.i
+  %12 = sub i64 %11, %.promoted22.i.i
+  %13 = sub i64 %10, %.promoted22.i.i
   %scevgep.i.i = getelementptr i8, ptr %.promoted.i.i, i64 %13
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i", %.lr.ph.preheader.i.i
-  %.sroa.01.018.i.i = phi i64 [ %17, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i" ], [ %1, %.lr.ph.preheader.i.i ]
+  %.sroa.01.017.i.i = phi i64 [ %17, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i" ], [ %1, %.lr.ph.preheader.i.i ]
   %14 = phi ptr [ %15, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i" ], [ %.promoted.i.i, %.lr.ph.preheader.i.i ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
@@ -51,7 +51,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   ]
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i": ; preds = %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i, %.lr.ph.i.i
-  %17 = add i64 %.sroa.01.018.i.i, 1
+  %17 = add i64 %.sroa.01.017.i.i, 1
   %18 = icmp eq ptr %15, %8
   br i1 %18, label %..loopexit_crit_edge.i.i, label %.lr.ph.i.i
 
@@ -65,7 +65,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hcd99428c0983c1acE.exit.i: ; pr
   br label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17had0dd01e2dbc8affE.llvm.14260065603353968934.exit"
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17had0dd01e2dbc8affE.llvm.14260065603353968934.exit": ; preds = %2, %6, %..loopexit_crit_edge.i.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd99428c0983c1acE.exit.i
-  %.sroa.0.0.i = phi i64 [ %.sroa.01.018.i.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd99428c0983c1acE.exit.i ], [ %1, %2 ], [ %1, %6 ], [ %12, %..loopexit_crit_edge.i.i ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.01.017.i.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd99428c0983c1acE.exit.i ], [ %1, %2 ], [ %1, %6 ], [ %12, %..loopexit_crit_edge.i.i ]
   ret i64 %.sroa.0.0.i
 }
 
@@ -86,16 +86,16 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   br i1 %9, label %19, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %6
-  %.promoted23.i = ptrtoint ptr %.promoted.i to i64
+  %.promoted22.i = ptrtoint ptr %.promoted.i to i64
   %10 = ptrtoint ptr %8 to i64
   %11 = add i64 %1, %10
-  %12 = sub i64 %11, %.promoted23.i
-  %13 = sub i64 %10, %.promoted23.i
+  %12 = sub i64 %11, %.promoted22.i
+  %13 = sub i64 %10, %.promoted22.i
   %scevgep.i = getelementptr i8, ptr %.promoted.i, i64 %13
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i", %.lr.ph.preheader.i
-  %.sroa.01.018.i = phi i64 [ %17, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i" ], [ %1, %.lr.ph.preheader.i ]
+  %.sroa.01.017.i = phi i64 [ %17, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i" ], [ %1, %.lr.ph.preheader.i ]
   %14 = phi ptr [ %15, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i" ], [ %.promoted.i, %.lr.ph.preheader.i ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
@@ -108,7 +108,7 @@ define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhi
   ]
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i": ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %17 = add i64 %.sroa.01.018.i, 1
+  %17 = add i64 %.sroa.01.017.i, 1
   %18 = icmp eq ptr %15, %8
   br i1 %18, label %..loopexit_crit_edge.i, label %.lr.ph.i
 
@@ -122,7 +122,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17hcd99428c0983c1acE.exit: ; pred
   br label %19
 
 19:                                               ; preds = %6, %..loopexit_crit_edge.i, %2, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd99428c0983c1acE.exit
-  %.sroa.0.0 = phi i64 [ %.sroa.01.018.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd99428c0983c1acE.exit ], [ %1, %2 ], [ %1, %6 ], [ %12, %..loopexit_crit_edge.i ]
+  %.sroa.0.0 = phi i64 [ %.sroa.01.017.i, %_ZN4core4iter6traits8iterator8Iterator8try_fold17hcd99428c0983c1acE.exit ], [ %1, %2 ], [ %1, %6 ], [ %12, %..loopexit_crit_edge.i ]
   ret i64 %.sroa.0.0
 }
 
@@ -133,7 +133,7 @@ define hidden noundef i64 @_ZN14pulldown_cmark8scanners10scan_while17hb7cb6c459c
   br i1 %4, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h23763c177edfd5c2E.llvm.14260065603353968934.exit", label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %2, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i.i"
-  %.sroa.01.018.i.i.i = phi i64 [ %8, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i.i" ], [ 0, %2 ]
+  %.sroa.01.017.i.i.i = phi i64 [ %8, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i.i" ], [ 0, %2 ]
   %5 = phi ptr [ %7, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i.i" ], [ %0, %2 ]
   %6 = load i8, ptr %5, align 1, !alias.scope !36, !noalias !39, !noundef !8
   switch i8 %6, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h23763c177edfd5c2E.llvm.14260065603353968934.exit" [
@@ -145,12 +145,12 @@ define hidden noundef i64 @_ZN14pulldown_cmark8scanners10scan_while17hb7cb6c459c
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i.i": ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %8 = add nuw i64 %.sroa.01.018.i.i.i, 1
+  %8 = add nuw i64 %.sroa.01.017.i.i.i, 1
   %9 = icmp eq ptr %7, %3
   br i1 %9, label %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h23763c177edfd5c2E.llvm.14260065603353968934.exit", label %.lr.ph.i.i.i
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h23763c177edfd5c2E.llvm.14260065603353968934.exit": ; preds = %.lr.ph.i.i.i, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i.i", %2
-  %.sroa.0.0.i.i = phi i64 [ 0, %2 ], [ %.sroa.01.018.i.i.i, %.lr.ph.i.i.i ], [ %1, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i.i" ]
+  %.sroa.0.0.i.i = phi i64 [ 0, %2 ], [ %.sroa.01.017.i.i.i, %.lr.ph.i.i.i ], [ %1, %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hb4e8b43f71df8397E.exit.i.i.i" ]
   ret i64 %.sroa.0.0.i.i
 }
 

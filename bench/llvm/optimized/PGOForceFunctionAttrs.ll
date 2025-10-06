@@ -210,8 +210,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo25is
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !30
-  %.not36 = icmp eq ptr %7, null
-  br i1 %.not36, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %8
+  %.not32 = icmp eq ptr %7, null
+  br i1 %.not32, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %8
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -300,19 +300,19 @@ _ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i: ; preds = %16
 _ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit: ; preds = %_ZNK4llvm18ProfileSummaryInfo16hasSampleProfileEv.exit.i, %16, %.loopexit
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %.sroa.022.038 = load ptr, ptr %38, align 8, !tbaa !27
-  %.not3739 = icmp eq ptr %.sroa.022.038, %39
-  br i1 %.not3739, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %.lr.ph
+  %.sroa.020.034 = load ptr, ptr %38, align 8, !tbaa !27
+  %.not3335 = icmp eq ptr %.sroa.020.034, %39
+  br i1 %.not3335, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %.lr.ph
 
 40:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.022.040, i64 8
-  %.sroa.022.0 = load ptr, ptr %41, align 8, !tbaa !27
-  %.not37 = icmp eq ptr %.sroa.022.0, %39
-  br i1 %.not37, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %.lr.ph
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.020.036, i64 8
+  %.sroa.020.0 = load ptr, ptr %41, align 8, !tbaa !27
+  %.not33 = icmp eq ptr %.sroa.020.0, %39
+  br i1 %.not33, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_10BasicBlockENS_18BlockFrequencyInfoEEEbPKT_PT0_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit, %40
-  %.sroa.022.040 = phi ptr [ %.sroa.022.0, %40 ], [ %.sroa.022.038, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit ]
-  %42 = getelementptr inbounds i8, ptr %.sroa.022.040, i64 -24
+  %.sroa.020.036 = phi ptr [ %.sroa.020.0, %40 ], [ %.sroa.020.034, %_ZNK4llvm18ProfileSummaryInfo17getTotalCallCountINS_8FunctionEEESt8optionalImEPKT_.exit ]
+  %42 = getelementptr inbounds i8, ptr %.sroa.020.036, i64 -24
   %43 = call { i64, i8 } @_ZNK4llvm18BlockFrequencyInfo20getBlockProfileCountEPKNS_10BasicBlockEb(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %42, i1 noundef zeroext false) #4
   %44 = extractvalue { i64, i8 } %43, 1
   %45 = trunc nuw i8 %44 to i1

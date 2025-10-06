@@ -2403,9 +2403,9 @@ define dso_local { i64, i8 } @_ZNK4llvm19InstrProfCorrelator11getDataSizeEv(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %1, %13, %4
-  %.sroa.0.014 = phi i64 [ %12, %4 ], [ %21, %13 ], [ undef, %1 ]
+  %.sroa.0.013 = phi i64 [ %12, %4 ], [ %21, %13 ], [ undef, %1 ]
   %.sroa.3.1 = phi i8 [ 1, %4 ], [ 1, %13 ], [ 0, %1 ]
-  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.014, 0
+  %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.0.013, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.3.1, 1
   ret { i64, i8 } %.fca.1.insert
 }

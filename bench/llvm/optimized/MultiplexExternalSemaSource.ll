@@ -170,31 +170,31 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource15GetExterna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !16
-  %.not1314.not = icmp eq i32 %5, 0
-  br i1 %.not1314.not, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i32 %5, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i64 %.0915, 1
   %8 = load i32, ptr %4, align 8, !tbaa !16
   %9 = zext i32 %8 to i64
-  %.not13 = icmp samesign ult i64 %7, %9
-  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !20
+  %10 = icmp samesign ult i64 %7, %9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
 .lr.ph:                                           ; preds = %2, %6
   %.0915 = phi i64 [ %7, %6 ], [ 0, %2 ]
-  %10 = load ptr, ptr %3, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.0915
-  %12 = load ptr, ptr %11, align 8, !tbaa !17
-  %13 = load ptr, ptr %12, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 %1) #7
-  %.not = icmp eq ptr %16, null
+  %11 = load ptr, ptr %3, align 8, !tbaa !12
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.0915
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %14 = load ptr, ptr %13, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 %1) #7
+  %.not = icmp eq ptr %17, null
   br i1 %.not, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %2
-  %spec.select = phi ptr [ null, %2 ], [ null, %6 ], [ %16, %.lr.ph ]
-  ret ptr %spec.select
+  %18 = phi ptr [ null, %2 ], [ null, %6 ], [ %17, %.lr.ph ]
+  ret ptr %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -297,31 +297,31 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource19GetExterna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !16
-  %.not1314.not = icmp eq i32 %5, 0
-  br i1 %.not1314.not, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i32 %5, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i64 %.01115, 1
   %8 = load i32, ptr %4, align 8, !tbaa !16
   %9 = zext i32 %8 to i64
-  %.not13 = icmp samesign ult i64 %7, %9
-  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !25
+  %10 = icmp samesign ult i64 %7, %9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 
 .lr.ph:                                           ; preds = %2, %6
   %.01115 = phi i64 [ %7, %6 ], [ 0, %2 ]
-  %10 = load ptr, ptr %3, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01115
-  %12 = load ptr, ptr %11, align 8, !tbaa !17
-  %13 = load ptr, ptr %12, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %1) #7
-  %.not = icmp eq ptr %16, null
+  %11 = load ptr, ptr %3, align 8, !tbaa !12
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01115
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %14 = load ptr, ptr %13, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %1) #7
+  %.not = icmp eq ptr %17, null
   br i1 %.not, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %2
-  %spec.select = phi ptr [ null, %2 ], [ null, %6 ], [ %16, %.lr.ph ]
-  ret ptr %spec.select
+  %18 = phi ptr [ null, %2 ], [ null, %6 ], [ %17, %.lr.ph ]
+  ret ptr %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -329,31 +329,31 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource28GetExterna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !16
-  %.not1314.not = icmp eq i32 %5, 0
-  br i1 %.not1314.not, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i32 %5, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i64 %.01115, 1
   %8 = load i32, ptr %4, align 8, !tbaa !16
   %9 = zext i32 %8 to i64
-  %.not13 = icmp samesign ult i64 %7, %9
-  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !26
+  %10 = icmp samesign ult i64 %7, %9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !26
 
 .lr.ph:                                           ; preds = %2, %6
   %.01115 = phi i64 [ %7, %6 ], [ 0, %2 ]
-  %10 = load ptr, ptr %3, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01115
-  %12 = load ptr, ptr %11, align 8, !tbaa !17
-  %13 = load ptr, ptr %12, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i64 noundef %1) #7
-  %.not = icmp eq ptr %16, null
+  %11 = load ptr, ptr %3, align 8, !tbaa !12
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01115
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %14 = load ptr, ptr %13, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %13, i64 noundef %1) #7
+  %.not = icmp eq ptr %17, null
   br i1 %.not, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %2
-  %spec.select = phi ptr [ null, %2 ], [ null, %6 ], [ %16, %.lr.ph ]
-  ret ptr %spec.select
+  %18 = phi ptr [ null, %2 ], [ null, %6 ], [ %17, %.lr.ph ]
+  ret ptr %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -365,17 +365,17 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource30GetExterna
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not20 = icmp eq i32 %6, 0
-  br i1 %.not20, label %._crit_edge, label %.lr.ph
+  %.not22 = icmp eq i32 %6, 0
+  br i1 %.not22, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.01521, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.01523, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
-  %.01521 = phi ptr [ %10, %9 ], [ %4, %2 ]
-  %11 = load ptr, ptr %.01521, align 8, !tbaa !17
+  %.01523 = phi ptr [ %10, %9 ], [ %4, %2 ]
+  %11 = load ptr, ptr %.01523, align 8, !tbaa !17
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %14 = load ptr, ptr %13, align 8
@@ -384,8 +384,8 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource30GetExterna
   br i1 %.not19, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %spec.select = phi ptr [ null, %2 ], [ null, %9 ], [ %15, %.lr.ph ]
-  ret ptr %spec.select
+  %16 = phi ptr [ null, %2 ], [ null, %9 ], [ %15, %.lr.ph ]
+  ret ptr %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -397,17 +397,17 @@ define dso_local noundef range(i32 1, 0) i32 @_ZN5clang27MultiplexExternalSemaSo
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not21 = icmp eq i32 %6, 0
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i32 %6, 0
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.01722, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.01724, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
-  %.01722 = phi ptr [ %10, %9 ], [ %4, %2 ]
-  %11 = load ptr, ptr %.01722, align 8, !tbaa !17
+  %.01724 = phi ptr [ %10, %9 ], [ %4, %2 ]
+  %11 = load ptr, ptr %.01724, align 8, !tbaa !17
   %12 = load ptr, ptr %11, align 8, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
@@ -417,8 +417,8 @@ define dso_local noundef range(i32 1, 0) i32 @_ZN5clang27MultiplexExternalSemaSo
   br i1 %or.cond.not, label %9, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %9, %2
-  %spec.select = phi i32 [ 2, %2 ], [ 2, %9 ], [ %15, %.lr.ph ]
-  ret i32 %spec.select
+  %17 = phi i32 [ 2, %2 ], [ 2, %9 ], [ %15, %.lr.ph ]
+  ret i32 %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -825,65 +825,65 @@ define dso_local noundef ptr @_ZN5clang27MultiplexExternalSemaSource9getModuleEj
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !16
-  %.not1314.not = icmp eq i32 %5, 0
-  br i1 %.not1314.not, label %._crit_edge, label %.lr.ph
+  %.not18 = icmp eq i32 %5, 0
+  br i1 %.not18, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
   %7 = add nuw nsw i64 %.01115, 1
   %8 = load i32, ptr %4, align 8, !tbaa !16
   %9 = zext i32 %8 to i64
-  %.not13 = icmp samesign ult i64 %7, %9
-  br i1 %.not13, label %.lr.ph, label %._crit_edge, !llvm.loop !40
+  %10 = icmp samesign ult i64 %7, %9
+  br i1 %10, label %.lr.ph, label %._crit_edge, !llvm.loop !40
 
 .lr.ph:                                           ; preds = %2, %6
   %.01115 = phi i64 [ %7, %6 ], [ 0, %2 ]
-  %10 = load ptr, ptr %3, align 8, !tbaa !12
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01115
-  %12 = load ptr, ptr %11, align 8, !tbaa !17
-  %13 = load ptr, ptr %12, align 8, !tbaa !10
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 104
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call noundef ptr %15(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %1) #7
-  %.not = icmp eq ptr %16, null
+  %11 = load ptr, ptr %3, align 8, !tbaa !12
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01115
+  %13 = load ptr, ptr %12, align 8, !tbaa !17
+  %14 = load ptr, ptr %13, align 8, !tbaa !10
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 104
+  %16 = load ptr, ptr %15, align 8
+  %17 = tail call noundef ptr %16(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %1) #7
+  %.not = icmp eq ptr %17, null
   br i1 %.not, label %6, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6, %2
-  %spec.select = phi ptr [ null, %2 ], [ null, %6 ], [ %16, %.lr.ph ]
-  ret ptr %spec.select
+  %18 = phi ptr [ null, %2 ], [ null, %6 ], [ %17, %.lr.ph ]
+  ret ptr %18
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource16layoutRecordTypeEPKNS_10RecordDeclERmS4_RN4llvm8DenseMapIPKNS_9FieldDeclEmNS5_12DenseMapInfoIS9_vEENS5_6detail12DenseMapPairIS9_mEEEERNS6_IPKNS_13CXXRecordDeclENS_9CharUnitsENSA_ISJ_vEENSD_ISJ_SK_EEEESO_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 %4, ptr noundef nonnull align 1 %5, ptr noundef nonnull align 1 %6) unnamed_addr #1 align 2 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i32, ptr %8, align 8, !tbaa !16
-  %.not13.not = icmp eq i32 %9, 0
-  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %9, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %15
+  br label %16
 
-11:                                               ; preds = %15
+11:                                               ; preds = %16
   %12 = add nuw nsw i64 %.01114, 1
   %13 = load i32, ptr %8, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
-  %.not = icmp samesign ult i64 %12, %14
-  br i1 %.not, label %15, label %._crit_edge, !llvm.loop !41
+  %15 = icmp samesign ult i64 %12, %14
+  br i1 %15, label %16, label %._crit_edge, !llvm.loop !41
 
-15:                                               ; preds = %.lr.ph, %11
+16:                                               ; preds = %.lr.ph, %11
   %.01114 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
-  %16 = load ptr, ptr %10, align 8, !tbaa !12
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.01114
-  %18 = load ptr, ptr %17, align 8, !tbaa !17
-  %19 = load ptr, ptr %18, align 8, !tbaa !10
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 208
-  %21 = load ptr, ptr %20, align 8
-  %22 = tail call noundef zeroext i1 %21(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 %4, ptr noundef nonnull align 1 %5, ptr noundef nonnull align 1 %6) #7
-  br i1 %22, label %._crit_edge, label %11
+  %17 = load ptr, ptr %10, align 8, !tbaa !12
+  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.01114
+  %19 = load ptr, ptr %18, align 8, !tbaa !17
+  %20 = load ptr, ptr %19, align 8, !tbaa !10
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 208
+  %22 = load ptr, ptr %21, align 8
+  %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 %4, ptr noundef nonnull align 1 %5, ptr noundef nonnull align 1 %6) #7
+  br i1 %23, label %._crit_edge, label %11
 
-._crit_edge:                                      ; preds = %11, %15, %7
-  %.not.lcssa = phi i1 [ false, %7 ], [ %22, %15 ], [ %22, %11 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %16, %11, %7
+  %.lcssa = phi i1 [ false, %7 ], [ %23, %11 ], [ %23, %16 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -1492,8 +1492,8 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !16
   %14 = zext i32 %13 to i64
-  %.not22 = icmp eq i32 %13, 0
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %.not20 = icmp eq i32 %13, 0
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1504,9 +1504,9 @@ define dso_local void @_ZN5clang27MultiplexExternalSemaSource11CorrectTypoERKNS_
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_ZN5clang14TypoCorrectionD2Ev.exit
-  %.01621 = phi i64 [ 0, %.lr.ph ], [ %84, %_ZN5clang14TypoCorrectionD2Ev.exit ]
+  %.01619 = phi i64 [ 0, %.lr.ph ], [ %84, %_ZN5clang14TypoCorrectionD2Ev.exit ]
   %21 = load ptr, ptr %11, align 8, !tbaa !12
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.01621
+  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.01619
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %24 = load ptr, ptr %23, align 8, !tbaa !10
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 384
@@ -1671,7 +1671,7 @@ _ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i: ; preds = %76, %_ZS
   br label %_ZN5clang14TypoCorrectionD2Ev.exit
 
 _ZN5clang14TypoCorrectionD2Ev.exit:               ; preds = %_ZNSt6vectorIN5clang17PartialDiagnosticESaIS1_EED2Ev.exit.i, %83
-  %84 = add nuw nsw i64 %.01621, 1
+  %84 = add nuw nsw i64 %.01619, 1
   %exitcond.not = icmp eq i64 %84, %14
   br i1 %exitcond.not, label %._crit_edge, label %20, !llvm.loop !84
 
@@ -1701,8 +1701,8 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource32May
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i32, ptr %5, align 8, !tbaa !16
   %7 = zext i32 %6 to i64
-  %.not11.not = icmp eq i32 %6, 0
-  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.0912 = phi i64 [ %15, %.lr.ph ], [ 0, %3 ]
@@ -1719,8 +1719,8 @@ define dso_local noundef zeroext i1 @_ZN5clang27MultiplexExternalSemaSource32May
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.not.lcssa = phi i1 [ false, %3 ], [ %14, %.lr.ph ]
-  ret i1 %.not.lcssa
+  %.lcssa = phi i1 [ false, %3 ], [ %14, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

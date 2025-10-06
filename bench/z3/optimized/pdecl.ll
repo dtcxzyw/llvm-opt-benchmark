@@ -3429,31 +3429,31 @@ _ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit:   ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not16.not = icmp eq i32 %7, 0
-  br i1 %.not16.not, label %.loopexit, label %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit
+  %.not17.not = icmp eq i32 %7, 0
+  br i1 %.not17.not, label %.loopexit, label %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit
 
 11:                                               ; preds = %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit
-  %12 = getelementptr inbounds nuw i8, ptr %.01317, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.01318, i64 8
   %.not.not = icmp eq ptr %12, %10
   br i1 %.not.not, label %.loopexit, label %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit
 
 _ZNK14paccessor_decl16has_missing_refsER6symbol.exit: ; preds = %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit, %11
-  %.01317 = phi ptr [ %12, %11 ], [ %4, %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit ]
-  %13 = load ptr, ptr %.01317, align 8, !tbaa !162
+  %.01318 = phi ptr [ %12, %11 ], [ %4, %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit ]
+  %13 = load ptr, ptr %.01318, align 8, !tbaa !162
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load i32, ptr %14, align 8, !tbaa !130
   %16 = icmp eq i32 %15, 2
-  br i1 %16, label %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.thread, label %11
+  br i1 %16, label %17, label %11
 
-_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.thread: ; preds = %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %18 = load i64, ptr %17, align 8, !tbaa !74
-  store i64 %18, ptr %1, align 8, !tbaa !74
+17:                                               ; preds = %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit
+  %18 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %19 = load i64, ptr %18, align 8, !tbaa !74
+  store i64 %19, ptr %1, align 8, !tbaa !74
   br label %.loopexit
 
-.loopexit:                                        ; preds = %11, %2, %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit, %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.thread
-  %.not15 = phi i1 [ true, %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.thread ], [ false, %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit ], [ false, %2 ], [ false, %11 ]
-  ret i1 %.not15
+.loopexit:                                        ; preds = %11, %2, %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit, %17
+  %.not16 = phi i1 [ true, %17 ], [ false, %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit ], [ false, %2 ], [ false, %11 ]
+  ret i1 %.not16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
@@ -4061,7 +4061,7 @@ define hidden noundef zeroext i1 @_ZNK14pdatatype_decl16has_missing_refsER6symbo
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !178
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.loopexit15, label %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit
+  br i1 %5, label %.loopexit16, label %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit
 
 _ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit: ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 -4
@@ -4069,12 +4069,12 @@ _ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit: ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not19.not = icmp eq i32 %7, 0
-  br i1 %.not19.not, label %.loopexit15, label %.lr.ph
+  %.not20.not = icmp eq i32 %7, 0
+  br i1 %.not20.not, label %.loopexit16, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit, %.loopexit
-  %.01320 = phi ptr [ %28, %.loopexit ], [ %4, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit ]
-  %11 = load ptr, ptr %.01320, align 8, !tbaa !185
+  %.01321 = phi ptr [ %26, %.loopexit ], [ %4, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit ]
+  %11 = load ptr, ptr %.01321, align 8, !tbaa !185
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !159
   %14 = icmp eq ptr %13, null
@@ -4086,36 +4086,36 @@ _ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit.i: ; preds = %.lr.ph
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 %18
-  %.not16.not.i = icmp eq i32 %16, 0
-  br i1 %.not16.not.i, label %.loopexit, label %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.i
+  %.not17.not.i = icmp eq i32 %16, 0
+  br i1 %.not17.not.i, label %.loopexit, label %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.i
 
 20:                                               ; preds = %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.i
-  %21 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 8
+  %21 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
   %.not.not.i = icmp eq ptr %21, %19
   br i1 %.not.not.i, label %.loopexit, label %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.i
 
 _ZNK14paccessor_decl16has_missing_refsER6symbol.exit.i: ; preds = %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit.i, %20
-  %.01317.i = phi ptr [ %21, %20 ], [ %13, %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit.i ]
-  %22 = load ptr, ptr %.01317.i, align 8, !tbaa !162
+  %.01318.i = phi ptr [ %21, %20 ], [ %13, %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit.i ]
+  %22 = load ptr, ptr %.01318.i, align 8, !tbaa !162
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load i32, ptr %23, align 8, !tbaa !130
   %25 = icmp eq i32 %24, 2
-  br i1 %25, label %_ZNK17pconstructor_decl16has_missing_refsER6symbol.exit, label %20
-
-_ZNK17pconstructor_decl16has_missing_refsER6symbol.exit: ; preds = %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.i
-  %26 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  %27 = load i64, ptr %26, align 8, !tbaa !74
-  store i64 %27, ptr %1, align 8, !tbaa !74
-  br label %.loopexit15
+  br i1 %25, label %27, label %20
 
 .loopexit:                                        ; preds = %20, %_ZNK6vectorIP14paccessor_declLb0EjE3endEv.exit.i, %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %.01320, i64 8
-  %.not.not = icmp eq ptr %28, %10
-  br i1 %.not.not, label %.loopexit15, label %.lr.ph
+  %26 = getelementptr inbounds nuw i8, ptr %.01321, i64 8
+  %.not.not = icmp eq ptr %26, %10
+  br i1 %.not.not, label %.loopexit16, label %.lr.ph
 
-.loopexit15:                                      ; preds = %.loopexit, %2, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit, %_ZNK17pconstructor_decl16has_missing_refsER6symbol.exit
-  %.not18 = phi i1 [ true, %_ZNK17pconstructor_decl16has_missing_refsER6symbol.exit ], [ false, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit ], [ false, %2 ], [ false, %.loopexit ]
-  ret i1 %.not18
+27:                                               ; preds = %_ZNK14paccessor_decl16has_missing_refsER6symbol.exit.i
+  %28 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  %29 = load i64, ptr %28, align 8, !tbaa !74
+  store i64 %29, ptr %1, align 8, !tbaa !74
+  br label %.loopexit16
+
+.loopexit16:                                      ; preds = %.loopexit, %2, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit, %27
+  %.not19 = phi i1 [ true, %27 ], [ false, %_ZNK6vectorIP17pconstructor_declLb0EjE3endEv.exit ], [ false, %2 ], [ false, %.loopexit ]
+  ret i1 %.not19
 }
 
 ; Function Attrs: mustprogress uwtable

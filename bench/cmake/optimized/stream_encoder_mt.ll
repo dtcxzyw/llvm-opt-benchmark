@@ -637,8 +637,8 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
 
 102:                                              ; preds = %.critedge.i
   %.val.i.i = load i32, ptr %32, align 8, !tbaa !72, !noalias !71
-  %.val68.i.i = load i32, ptr %33, align 8, !tbaa !73, !noalias !71
-  %103 = icmp ult i32 %.val.i.i, %.val68.i.i
+  %.val66.i.i = load i32, ptr %33, align 8, !tbaa !73, !noalias !71
+  %103 = icmp ult i32 %.val.i.i, %.val66.i.i
   br i1 %103, label %104, label %get_thread.exit.i
 
 104:                                              ; preds = %102
@@ -661,22 +661,22 @@ define internal i32 @stream_encode_mt(ptr noundef %0, ptr noundef %1, ptr noalia
   %113 = call i32 @pthread_mutex_lock(ptr noundef nonnull %26) #12
   %.promoted.i.i = load ptr, ptr %37, align 8, !tbaa !74, !noalias !71
   %.not63.i.i = icmp eq ptr %.promoted.i.i, null
-  br i1 %.not63.i.i, label %.loopexit74.i.i, label %114
+  br i1 %.not63.i.i, label %.loopexit71.i.i, label %114
 
 114:                                              ; preds = %112
   store ptr %.promoted.i.i, ptr %30, align 8, !tbaa !47, !noalias !71
   %115 = getelementptr inbounds nuw i8, ptr %.promoted.i.i, i64 432
   %116 = load ptr, ptr %115, align 8, !tbaa !75
   store ptr %116, ptr %37, align 8, !tbaa !74, !noalias !71
-  br label %.loopexit74.i.i
+  br label %.loopexit71.i.i
 
-.loopexit74.i.i:                                  ; preds = %114, %112
+.loopexit71.i.i:                                  ; preds = %114, %112
   %117 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %26) #12
   %118 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !71
   %119 = icmp eq ptr %118, null
   br i1 %119, label %120, label %.loopexit.i.i
 
-120:                                              ; preds = %.loopexit74.i.i
+120:                                              ; preds = %.loopexit71.i.i
   %121 = load i32, ptr %38, align 4, !tbaa !49, !noalias !71
   %122 = load i32, ptr %39, align 8, !tbaa !26, !noalias !71
   %123 = icmp eq i32 %121, %122
@@ -751,8 +751,8 @@ initialize_new_thread.exit.i.i:                   ; preds = %138
   store ptr %127, ptr %30, align 8, !tbaa !47, !noalias !71
   br label %.loopexit.i.i
 
-.loopexit.i.i:                                    ; preds = %initialize_new_thread.exit.i.i, %.loopexit74.i.i
-  %156 = phi ptr [ %118, %.loopexit74.i.i ], [ %127, %initialize_new_thread.exit.i.i ]
+.loopexit.i.i:                                    ; preds = %initialize_new_thread.exit.i.i, %.loopexit71.i.i
+  %156 = phi ptr [ %118, %.loopexit71.i.i ], [ %127, %initialize_new_thread.exit.i.i ]
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 440
   %158 = call i32 @pthread_mutex_lock(ptr noundef nonnull %157) #12
   %159 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !71
@@ -780,8 +780,8 @@ initialize_new_thread.exit.i.i:                   ; preds = %138
 get_thread.exit.i:                                ; preds = %.loopexit.i.i, %152, %124, %120, %110, %104, %102
   %.046.i.i = phi i32 [ %111, %110 ], [ %106, %104 ], [ 0, %102 ], [ 0, %120 ], [ 0, %.loopexit.i.i ], [ 5, %152 ], [ 5, %124 ]
   %173 = load ptr, ptr %30, align 8, !tbaa !47, !noalias !71
-  %.not57.i = icmp eq ptr %173, null
-  br i1 %.not57.i, label %stream_encode_in.exit, label %.critedge.thread.i
+  %.not56.i = icmp eq ptr %173, null
+  br i1 %.not56.i, label %stream_encode_in.exit, label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %get_thread.exit.i, %.critedge.i, %98
   %174 = phi ptr [ %173, %get_thread.exit.i ], [ %.pre.i, %.critedge.i ], [ %.pre.i, %98 ]
@@ -818,14 +818,14 @@ get_thread.exit.i:                                ; preds = %.loopexit.i.i, %152
   %196 = load i64, ptr %13, align 8, !tbaa !41, !noalias !71
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 16
   store i64 %196, ptr %197, align 8, !tbaa !79
-  br i1 %189, label %198, label %.critedge68.i
+  br i1 %189, label %198, label %.critedge67.i
 
 198:                                              ; preds = %.split.i
   store i32 2, ptr %193, align 8, !tbaa !50
   %199 = getelementptr inbounds nuw i8, ptr %193, i64 480
   %200 = call i32 @pthread_cond_signal(ptr noundef nonnull %199) #12
-  %.pre61.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !71
-  %201 = getelementptr inbounds nuw i8, ptr %.pre61.i, i64 440
+  %.pre60.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !71
+  %201 = getelementptr inbounds nuw i8, ptr %.pre60.i, i64 440
   %202 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %201) #12
   store ptr null, ptr %30, align 8, !tbaa !47, !noalias !71
   br label %212
@@ -839,15 +839,15 @@ get_thread.exit.i:                                ; preds = %.loopexit.i.i, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !71
   br label %stream_encode_in.exit
 
-.critedge68.i:                                    ; preds = %.split.i
+.critedge67.i:                                    ; preds = %.split.i
   %208 = getelementptr inbounds nuw i8, ptr %193, i64 480
   %209 = call i32 @pthread_cond_signal(ptr noundef nonnull %208) #12
-  %.pre61.c.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !71
-  %210 = getelementptr inbounds nuw i8, ptr %.pre61.c.i, i64 440
+  %.pre60.c.i = load ptr, ptr %30, align 8, !tbaa !47, !noalias !71
+  %210 = getelementptr inbounds nuw i8, ptr %.pre60.c.i, i64 440
   %211 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %210) #12
   br label %212
 
-212:                                              ; preds = %.critedge68.i, %198
+212:                                              ; preds = %.critedge67.i, %198
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !71
   br label %95
 
@@ -1423,11 +1423,11 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 420
   %47 = load i32, ptr %46, align 4, !tbaa !46
   %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %.preheader75.preheader.sink.split
+  br i1 %48, label %49, label %.preheader74.preheader.sink.split
 
 49:                                               ; preds = %41
   store i32 %40, ptr %46, align 4, !tbaa !46
-  br label %.preheader75.preheader.sink.split
+  br label %.preheader74.preheader.sink.split
 
 50:                                               ; preds = %31
   %51 = load ptr, ptr %11, align 8, !tbaa !77
@@ -1443,11 +1443,11 @@ define internal noalias noundef ptr @worker_start(ptr noundef %0) #0 {
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 420
   %59 = load i32, ptr %58, align 4, !tbaa !46
   %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %.preheader75.preheader.sink.split
+  br i1 %60, label %61, label %.preheader74.preheader.sink.split
 
 61:                                               ; preds = %53
   store i32 %52, ptr %58, align 4, !tbaa !46
-  br label %.preheader75.preheader.sink.split
+  br label %.preheader74.preheader.sink.split
 
 62:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -1640,26 +1640,26 @@ worker_encode.exit:                               ; preds = %.loopexit115.i, %.l
   %.3 = phi i32 [ %28, %.loopexit ], [ %.1.i, %.loopexit115.i ]
   %.3.fr = freeze i32 %.3
   %165 = icmp eq i32 %.3.fr, 4
-  br i1 %165, label %209, label %.preheader71
+  br i1 %165, label %209, label %.preheader70
 
-.preheader75.preheader.sink.split:                ; preds = %53, %61, %41, %49
-  %.sink126 = phi ptr [ %45, %49 ], [ %45, %41 ], [ %57, %61 ], [ %57, %53 ]
-  %166 = getelementptr inbounds nuw i8, ptr %.sink126, i64 512
+.preheader74.preheader.sink.split:                ; preds = %53, %61, %41, %49
+  %.sink125 = phi ptr [ %45, %49 ], [ %45, %41 ], [ %57, %61 ], [ %57, %53 ]
+  %166 = getelementptr inbounds nuw i8, ptr %.sink125, i64 512
   %167 = call i32 @pthread_cond_signal(ptr noundef nonnull %166) #12
   %168 = load ptr, ptr %7, align 8, !tbaa !78
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 472
   %170 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %169) #12
-  br label %.preheader71
+  br label %.preheader70
 
-.preheader74:                                     ; preds = %.preheader71, %.preheader71.split
+.preheader73:                                     ; preds = %.preheader70, %.preheader70.split
   %171 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %4) #12
-  %172 = icmp eq i32 %.3.fr113, 2
+  %172 = icmp eq i32 %.3.fr112, 2
   %173 = load ptr, ptr %7, align 8, !tbaa !78
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 472
   %175 = call i32 @pthread_mutex_lock(ptr noundef nonnull %174) #12
   br i1 %172, label %.split.us.us, label %.split
 
-.split.us.us:                                     ; preds = %.preheader74
+.split.us.us:                                     ; preds = %.preheader73
   %176 = load i64, ptr %3, align 8, !tbaa !41
   %177 = load ptr, ptr %8, align 8, !tbaa !80
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 24
@@ -1675,19 +1675,19 @@ worker_encode.exit:                               ; preds = %.loopexit115.i, %.l
   store i64 %185, ptr %183, align 8, !tbaa !63
   br label %198
 
-.preheader71:                                     ; preds = %worker_encode.exit, %.preheader75.preheader.sink.split
-  %.3.fr113 = phi i32 [ %.3.fr, %worker_encode.exit ], [ 3, %.preheader75.preheader.sink.split ]
+.preheader70:                                     ; preds = %worker_encode.exit, %.preheader74.preheader.sink.split
+  %.3.fr112 = phi i32 [ %.3.fr, %worker_encode.exit ], [ 3, %.preheader74.preheader.sink.split ]
   %186 = call i32 @pthread_mutex_lock(ptr noundef nonnull %4) #12
   %187 = load i32, ptr %0, align 8, !tbaa !50
   %188 = icmp eq i32 %187, 4
-  br i1 %188, label %.preheader74, label %.preheader71.split
+  br i1 %188, label %.preheader73, label %.preheader70.split
 
-.preheader71.split:                               ; preds = %.preheader71
+.preheader70.split:                               ; preds = %.preheader70
   store i32 0, ptr %0, align 8, !tbaa !50
   %189 = call i32 @pthread_cond_signal(ptr noundef nonnull %5) #12
-  br label %.preheader74
+  br label %.preheader73
 
-.split:                                           ; preds = %.preheader74
+.split:                                           ; preds = %.preheader73
   %190 = load ptr, ptr %8, align 8, !tbaa !80
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 56
   %192 = load i64, ptr %191, align 8, !tbaa !41
@@ -1700,18 +1700,18 @@ worker_encode.exit:                               ; preds = %.loopexit115.i, %.l
   br label %198
 
 198:                                              ; preds = %.split.us.us, %.split
-  %.sink134 = phi ptr [ %182, %.split.us.us ], [ %193, %.split ]
-  %.sink133 = phi i64 [ %176, %.split.us.us ], [ %197, %.split ]
-  %199 = getelementptr inbounds nuw i8, ptr %.sink134, i64 464
+  %.sink133 = phi ptr [ %182, %.split.us.us ], [ %193, %.split ]
+  %.sink132 = phi i64 [ %176, %.split.us.us ], [ %197, %.split ]
+  %199 = getelementptr inbounds nuw i8, ptr %.sink133, i64 464
   %200 = load i64, ptr %199, align 8, !tbaa !64
-  %201 = add i64 %200, %.sink133
+  %201 = add i64 %200, %.sink132
   store i64 %201, ptr %199, align 8, !tbaa !64
-  %202 = getelementptr inbounds nuw i8, ptr %.sink134, i64 440
+  %202 = getelementptr inbounds nuw i8, ptr %.sink133, i64 440
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %203 = load ptr, ptr %202, align 8, !tbaa !74
   store ptr %203, ptr %18, align 8, !tbaa !75
   store ptr %0, ptr %202, align 8, !tbaa !74
-  %204 = getelementptr inbounds nuw i8, ptr %.sink134, i64 512
+  %204 = getelementptr inbounds nuw i8, ptr %.sink133, i64 512
   %205 = call i32 @pthread_cond_signal(ptr noundef nonnull %204) #12
   %206 = load ptr, ptr %7, align 8, !tbaa !78
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 472

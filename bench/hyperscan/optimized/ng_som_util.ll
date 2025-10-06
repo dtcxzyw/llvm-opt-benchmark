@@ -430,13 +430,13 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %84, %82
-  %.sroa.046.0.in.i.i.i.i = phi ptr [ %83, %82 ], [ %.sroa.046.0.i.i.i.i, %84 ]
-  %.sroa.046.0.i.i.i.i = load ptr, ptr %.sroa.046.0.in.i.i.i.i, align 8, !noalias !26
-  %.not62.i.i.i.i = icmp eq ptr %.sroa.046.0.i.i.i.i, %83
-  br i1 %.not62.i.i.i.i, label %.loopexit.i.i, label %84
+  %.sroa.045.0.in.i.i.i.i = phi ptr [ %83, %82 ], [ %.sroa.045.0.i.i.i.i, %84 ]
+  %.sroa.045.0.i.i.i.i = load ptr, ptr %.sroa.045.0.in.i.i.i.i, align 8, !noalias !26
+  %.not57.i.i.i.i = icmp eq ptr %.sroa.045.0.i.i.i.i, %83
+  br i1 %.not57.i.i.i.i, label %.loopexit.i.i, label %84
 
 84:                                               ; preds = %.critedge.i.i.i.i
-  %85 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i.i.i.i, i64 16
+  %85 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i.i.i, i64 16
   %86 = load ptr, ptr %85, align 8, !noalias !26
   %87 = icmp eq ptr %86, %.sroa.01.0.copyload.i
   br i1 %87, label %_ZN3ue223add_edge_if_not_presentINS_8NGHolderEEESt4pairINT_15edge_descriptorEbENS3_17vertex_descriptorES6_RS3_.exit.i, label %.critedge.i.i.i.i
@@ -446,13 +446,13 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
   br label %.critedge24.i.i.i.i
 
 .critedge24.i.i.i.i:                              ; preds = %90, %88
-  %.sroa.035.0.in.i.i.i.i = phi ptr [ %89, %88 ], [ %.sroa.035.0.i.i.i.i, %90 ]
-  %.sroa.035.0.i.i.i.i = load ptr, ptr %.sroa.035.0.in.i.i.i.i, align 8, !noalias !26
-  %.not.i.i.i.i = icmp eq ptr %.sroa.035.0.i.i.i.i, %89
+  %.sroa.034.0.in.i.i.i.i = phi ptr [ %89, %88 ], [ %.sroa.034.0.i.i.i.i, %90 ]
+  %.sroa.034.0.i.i.i.i = load ptr, ptr %.sroa.034.0.in.i.i.i.i, align 8, !noalias !26
+  %.not.i.i.i.i = icmp eq ptr %.sroa.034.0.i.i.i.i, %89
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %90
 
 90:                                               ; preds = %.critedge24.i.i.i.i
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.i.i.i.i, i64 40
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i.i.i, i64 40
   %92 = load ptr, ptr %91, align 8, !noalias !26
   %93 = icmp eq ptr %92, %76
   br i1 %93, label %_ZN3ue223add_edge_if_not_presentINS_8NGHolderEEESt4pairINT_15edge_descriptorEbENS3_17vertex_descriptorES6_RS3_.exit.i, label %.critedge24.i.i.i.i
@@ -1150,13 +1150,13 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolder
   br i1 %64, label %.critedge.i.i, label %69
 
 .critedge.i.i:                                    ; preds = %61, %65
-  %.sroa.046.0.in.i.i = phi ptr [ %.sroa.046.0.i.i, %65 ], [ %58, %61 ]
-  %.sroa.046.0.i.i = load ptr, ptr %.sroa.046.0.in.i.i, align 8, !noalias !62
-  %.not62.i.i = icmp eq ptr %.sroa.046.0.i.i, %58
-  br i1 %.not62.i.i, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit, label %65
+  %.sroa.045.0.in.i.i = phi ptr [ %.sroa.045.0.i.i, %65 ], [ %58, %61 ]
+  %.sroa.045.0.i.i = load ptr, ptr %.sroa.045.0.in.i.i, align 8, !noalias !62
+  %.not57.i.i = icmp eq ptr %.sroa.045.0.i.i, %58
+  br i1 %.not57.i.i, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit, label %65
 
 65:                                               ; preds = %.critedge.i.i
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i.i, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i, i64 16
   %67 = load ptr, ptr %66, align 8, !noalias !62
   %68 = icmp eq ptr %67, %.sroa.04.0.copyload
   br i1 %68, label %.loopexit, label %.critedge.i.i
@@ -1166,13 +1166,13 @@ _ZN3ue28flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolder
   br label %.critedge24.i.i
 
 .critedge24.i.i:                                  ; preds = %71, %69
-  %.sroa.035.0.in.i.i = phi ptr [ %70, %69 ], [ %.sroa.035.0.i.i, %71 ]
-  %.sroa.035.0.i.i = load ptr, ptr %.sroa.035.0.in.i.i, align 8, !noalias !62
-  %.not.i.i = icmp eq ptr %.sroa.035.0.i.i, %70
+  %.sroa.034.0.in.i.i = phi ptr [ %70, %69 ], [ %.sroa.034.0.i.i, %71 ]
+  %.sroa.034.0.i.i = load ptr, ptr %.sroa.034.0.in.i.i, align 8, !noalias !62
+  %.not.i.i = icmp eq ptr %.sroa.034.0.i.i, %70
   br i1 %.not.i.i, label %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit, label %71
 
 71:                                               ; preds = %.critedge24.i.i
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.i.i, i64 40
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i, i64 40
   %73 = load ptr, ptr %72, align 8, !noalias !62
   %74 = icmp eq ptr %73, %.sroa.0.0.copyload
   br i1 %74, label %.loopexit, label %.critedge24.i.i
@@ -2122,13 +2122,13 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
   br label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %292, %290
-  %.sroa.046.0.in.i.i.i = phi ptr [ %291, %290 ], [ %.sroa.046.0.i.i.i, %292 ]
-  %.sroa.046.0.i.i.i = load ptr, ptr %.sroa.046.0.in.i.i.i, align 8, !noalias !104
-  %.not62.i.i.i = icmp eq ptr %.sroa.046.0.i.i.i, %291
-  br i1 %.not62.i.i.i, label %.loopexit.i, label %292
+  %.sroa.045.0.in.i.i.i = phi ptr [ %291, %290 ], [ %.sroa.045.0.i.i.i, %292 ]
+  %.sroa.045.0.i.i.i = load ptr, ptr %.sroa.045.0.in.i.i.i, align 8, !noalias !104
+  %.not57.i.i.i = icmp eq ptr %.sroa.045.0.i.i.i, %291
+  br i1 %.not57.i.i.i, label %.loopexit.i, label %292
 
 292:                                              ; preds = %.critedge.i.i.i
-  %293 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i.i.i, i64 16
+  %293 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i.i, i64 16
   %294 = load ptr, ptr %293, align 8, !noalias !104
   %295 = icmp eq ptr %294, %.sroa.051.0.copyload
   br i1 %295, label %_ZN3ue223add_edge_if_not_presentINS_8NGHolderEEESt4pairINT_15edge_descriptorEbENS3_17vertex_descriptorES6_RS3_.exit, label %.critedge.i.i.i
@@ -2138,13 +2138,13 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
   br label %.critedge24.i.i.i
 
 .critedge24.i.i.i:                                ; preds = %298, %296
-  %.sroa.035.0.in.i.i.i = phi ptr [ %297, %296 ], [ %.sroa.035.0.i.i.i, %298 ]
-  %.sroa.035.0.i.i.i = load ptr, ptr %.sroa.035.0.in.i.i.i, align 8, !noalias !104
-  %.not.i.i.i258 = icmp eq ptr %.sroa.035.0.i.i.i, %297
+  %.sroa.034.0.in.i.i.i = phi ptr [ %297, %296 ], [ %.sroa.034.0.i.i.i, %298 ]
+  %.sroa.034.0.i.i.i = load ptr, ptr %.sroa.034.0.in.i.i.i, align 8, !noalias !104
+  %.not.i.i.i258 = icmp eq ptr %.sroa.034.0.i.i.i, %297
   br i1 %.not.i.i.i258, label %.loopexit.i, label %298
 
 298:                                              ; preds = %.critedge24.i.i.i
-  %299 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.i.i.i, i64 40
+  %299 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i.i, i64 40
   %300 = load ptr, ptr %299, align 8, !noalias !104
   %301 = icmp eq ptr %300, %284
   br i1 %301, label %_ZN3ue223add_edge_if_not_presentINS_8NGHolderEEESt4pairINT_15edge_descriptorEbENS3_17vertex_descriptorES6_RS3_.exit, label %.critedge24.i.i.i
@@ -2452,13 +2452,13 @@ _ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsE
   br label %.critedge.i.i.i275
 
 .critedge.i.i.i275:                               ; preds = %430, %428
-  %.sroa.046.0.in.i.i.i276 = phi ptr [ %429, %428 ], [ %.sroa.046.0.i.i.i277, %430 ]
-  %.sroa.046.0.i.i.i277 = load ptr, ptr %.sroa.046.0.in.i.i.i276, align 8, !noalias !139
-  %.not62.i.i.not.i = icmp eq ptr %.sroa.046.0.i.i.i277, %429
-  br i1 %.not62.i.i.not.i, label %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit, label %430
+  %.sroa.045.0.in.i.i.i276 = phi ptr [ %429, %428 ], [ %.sroa.045.0.i.i.i277, %430 ]
+  %.sroa.045.0.i.i.i277 = load ptr, ptr %.sroa.045.0.in.i.i.i276, align 8, !noalias !139
+  %.not57.i.i.not.i = icmp eq ptr %.sroa.045.0.i.i.i277, %429
+  br i1 %.not57.i.i.not.i, label %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit, label %430
 
 430:                                              ; preds = %.critedge.i.i.i275
-  %431 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i.i.i277, i64 16
+  %431 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i.i277, i64 16
   %432 = load ptr, ptr %431, align 8, !noalias !139
   %433 = icmp eq ptr %432, %.sroa.01.0.copyload.i
   br i1 %433, label %.loopexit487, label %.critedge.i.i.i275
@@ -2468,13 +2468,13 @@ _ZNK3ue29ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsE
   br label %.critedge24.i.i.i272
 
 .critedge24.i.i.i272:                             ; preds = %436, %434
-  %.sroa.035.0.in.i.i.i273 = phi ptr [ %435, %434 ], [ %.sroa.035.0.i.i.i274, %436 ]
-  %.sroa.035.0.i.i.i274 = load ptr, ptr %.sroa.035.0.in.i.i.i273, align 8, !noalias !139
-  %.not.i.i.not.i = icmp eq ptr %.sroa.035.0.i.i.i274, %435
+  %.sroa.034.0.in.i.i.i273 = phi ptr [ %435, %434 ], [ %.sroa.034.0.i.i.i274, %436 ]
+  %.sroa.034.0.i.i.i274 = load ptr, ptr %.sroa.034.0.in.i.i.i273, align 8, !noalias !139
+  %.not.i.i.not.i = icmp eq ptr %.sroa.034.0.i.i.i274, %435
   br i1 %.not.i.i.not.i, label %_ZN3ue211hasSelfLoopINS_8NGHolderEEEbRKNT_17vertex_descriptorERKS2_.exit, label %436
 
 436:                                              ; preds = %.critedge24.i.i.i272
-  %437 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.i.i.i274, i64 40
+  %437 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i.i274, i64 40
   %438 = load ptr, ptr %437, align 8, !noalias !139
   %439 = icmp eq ptr %438, %.sroa.01.0.copyload.i
   br i1 %439, label %.loopexit487, label %.critedge24.i.i.i272
@@ -2730,13 +2730,13 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
   br label %.critedge.i.i.i340
 
 .critedge.i.i.i340:                               ; preds = %527, %525
-  %.sroa.046.0.in.i.i.i341 = phi ptr [ %526, %525 ], [ %.sroa.046.0.i.i.i342, %527 ]
-  %.sroa.046.0.i.i.i342 = load ptr, ptr %.sroa.046.0.in.i.i.i341, align 8, !noalias !157
-  %.not62.i.i.i343 = icmp eq ptr %.sroa.046.0.i.i.i342, %526
-  br i1 %.not62.i.i.i343, label %.loopexit.i339, label %527
+  %.sroa.045.0.in.i.i.i341 = phi ptr [ %526, %525 ], [ %.sroa.045.0.i.i.i342, %527 ]
+  %.sroa.045.0.i.i.i342 = load ptr, ptr %.sroa.045.0.in.i.i.i341, align 8, !noalias !157
+  %.not57.i.i.i343 = icmp eq ptr %.sroa.045.0.i.i.i342, %526
+  br i1 %.not57.i.i.i343, label %.loopexit.i339, label %527
 
 527:                                              ; preds = %.critedge.i.i.i340
-  %528 = getelementptr inbounds nuw i8, ptr %.sroa.046.0.i.i.i342, i64 16
+  %528 = getelementptr inbounds nuw i8, ptr %.sroa.045.0.i.i.i342, i64 16
   %529 = load ptr, ptr %528, align 8, !noalias !157
   %530 = icmp eq ptr %529, %.sroa.015.0.copyload
   br i1 %530, label %_ZN3ue223add_edge_if_not_presentINS_8NGHolderEEESt4pairINT_15edge_descriptorEbENS3_17vertex_descriptorES6_RS3_.exit346, label %.critedge.i.i.i340
@@ -2746,13 +2746,13 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGH
   br label %.critedge24.i.i.i334
 
 .critedge24.i.i.i334:                             ; preds = %533, %531
-  %.sroa.035.0.in.i.i.i335 = phi ptr [ %532, %531 ], [ %.sroa.035.0.i.i.i336, %533 ]
-  %.sroa.035.0.i.i.i336 = load ptr, ptr %.sroa.035.0.in.i.i.i335, align 8, !noalias !157
-  %.not.i.i.i337 = icmp eq ptr %.sroa.035.0.i.i.i336, %532
+  %.sroa.034.0.in.i.i.i335 = phi ptr [ %532, %531 ], [ %.sroa.034.0.i.i.i336, %533 ]
+  %.sroa.034.0.i.i.i336 = load ptr, ptr %.sroa.034.0.in.i.i.i335, align 8, !noalias !157
+  %.not.i.i.i337 = icmp eq ptr %.sroa.034.0.i.i.i336, %532
   br i1 %.not.i.i.i337, label %.loopexit.i339, label %533
 
 533:                                              ; preds = %.critedge24.i.i.i334
-  %534 = getelementptr inbounds nuw i8, ptr %.sroa.035.0.i.i.i336, i64 40
+  %534 = getelementptr inbounds nuw i8, ptr %.sroa.034.0.i.i.i336, i64 40
   %535 = load ptr, ptr %534, align 8, !noalias !157
   %536 = icmp eq ptr %535, %.sroa.013.0.copyload
   br i1 %536, label %_ZN3ue223add_edge_if_not_presentINS_8NGHolderEEESt4pairINT_15edge_descriptorEbENS3_17vertex_descriptorES6_RS3_.exit346, label %.critedge24.i.i.i334

@@ -117,10 +117,9 @@ define dso_local noundef range(i32 -95, -1) i32 @forward_event_to_ibs(ptr nounde
   %4 = load i64, ptr %3, align 8
   %5 = lshr i64 %4, 15
   %6 = and i64 %5, 3
-  switch i64 %6, label %7 [
-    i64 0, label %.critedge
-    i64 3, label %.critedge
-  ]
+  %.off = add nsw i64 %6, -1
+  %switch = icmp ult i64 %.off, 2
+  br i1 %switch, label %7, label %.critedge
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %2, align 8
@@ -154,8 +153,8 @@ define dso_local noundef range(i32 -95, -1) i32 @forward_event_to_ibs(ptr nounde
   store i64 %17, ptr %19, align 8
   br label %.critedge
 
-.critedge:                                        ; preds = %7, %9, %.thread, %13, %1, %1
-  %20 = phi i32 [ -95, %1 ], [ -95, %1 ], [ -2, %.thread ], [ -2, %13 ], [ -2, %9 ], [ -2, %7 ]
+.critedge:                                        ; preds = %1, %7, %9, %.thread, %13
+  %20 = phi i32 [ -95, %1 ], [ -2, %.thread ], [ -2, %13 ], [ -2, %9 ], [ -2, %7 ]
   ret i32 %20
 }
 

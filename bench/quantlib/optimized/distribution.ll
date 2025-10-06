@@ -573,13 +573,13 @@ ehcleanup49.thread:                               ; preds = %invoke.cont38
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp39)
   %33 = load ptr, ptr %ref.tmp, align 8, !tbaa !32
   %34 = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 16
-  %cmp.i.i.i6485 = icmp eq ptr %33, %34
-  br i1 %cmp.i.i.i6485, label %cleanup.action.sink.split, label %ehcleanup53.thread94
+  %cmp.i.i.i6483 = icmp eq ptr %33, %34
+  br i1 %cmp.i.i.i6483, label %cleanup.action.sink.split, label %ehcleanup53.thread92
 
-ehcleanup53.thread94:                             ; preds = %ehcleanup49.thread
+ehcleanup53.thread92:                             ; preds = %ehcleanup49.thread
   %35 = load i64, ptr %34, align 8, !tbaa !36
-  %add.i.i.i6697 = add i64 %35, 1
-  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i6697) #21
+  %add.i.i.i6695 = add i64 %35, 1
+  call void @_ZdlPvm(ptr noundef %33, i64 noundef %add.i.i.i6695) #21
   br label %cleanup.action.sink.split
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i67: ; preds = %ehcleanup49
@@ -595,8 +595,8 @@ ehcleanup53:                                      ; preds = %ehcleanup49
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br i1 %cleanup.isactive.3, label %cleanup.action, label %ehcleanup57
 
-cleanup.action.sink.split:                        ; preds = %ehcleanup49.thread, %ehcleanup53.thread, %ehcleanup53.thread94
-  %.pn.pn.pn78.ph = phi { ptr, i32 } [ %32, %ehcleanup53.thread94 ], [ %21, %ehcleanup53.thread ], [ %32, %ehcleanup49.thread ]
+cleanup.action.sink.split:                        ; preds = %ehcleanup49.thread, %ehcleanup53.thread, %ehcleanup53.thread92
+  %.pn.pn.pn78.ph = phi { ptr, i32 } [ %32, %ehcleanup53.thread92 ], [ %21, %ehcleanup53.thread ], [ %32, %ehcleanup49.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp36)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   br label %cleanup.action
@@ -617,23 +617,23 @@ do.end:                                           ; preds = %if.then3.i31, %land
   %sub.ptr.rhs.cast.i = ptrtoint ptr %0 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
-  %cmp6198.not = icmp eq ptr %6, %0
-  br i1 %cmp6198.not, label %return, label %for.body
+  %cmp6196.not = icmp eq ptr %6, %0
+  br i1 %cmp6196.not, label %return, label %for.body
 
 for.body:                                         ; preds = %do.end, %for.inc
-  %i.099 = phi i64 [ %inc, %for.inc ], [ 0, %do.end ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %i.099
+  %i.097 = phi i64 [ %inc, %for.inc ], [ 0, %do.end ]
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %i.097
   %37 = load double, ptr %add.ptr.i, align 8, !tbaa !27
   %cmp64 = fcmp ogt double %37, %x
   br i1 %cmp64, label %return.loopexit, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %inc = add nuw i64 %i.099, 1
+  %inc = add nuw i64 %i.097, 1
   %exitcond.not = icmp eq i64 %inc, %sub.ptr.div.i
   br i1 %exitcond.not, label %return.loopexit, label %for.body, !llvm.loop !37
 
 return.loopexit:                                  ; preds = %for.inc, %for.body
-  %retval.1.in.in.ph = phi i64 [ %i.099, %for.body ], [ %sub.ptr.div.i, %for.inc ]
+  %retval.1.in.in.ph = phi i64 [ %i.097, %for.body ], [ %sub.ptr.div.i, %for.inc ]
   %38 = trunc i64 %retval.1.in.in.ph to i32
   %39 = add i32 %38, -1
   br label %return
@@ -793,8 +793,8 @@ for.cond.preheader:                               ; preds = %entry
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %2 = load ptr, ptr %_M_finish.i, align 8, !tbaa !24
   %3 = load ptr, ptr %count_, align 8, !tbaa !21
-  %cmp316.not = icmp eq ptr %2, %3
-  br i1 %cmp316.not, label %for.end, label %for.body.lr.ph
+  %cmp314.not = icmp eq ptr %2, %3
+  br i1 %cmp314.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %for.cond.preheader
   %sub.ptr.lhs.cast.i = ptrtoint ptr %2 to i64
@@ -813,28 +813,28 @@ if.then:                                          ; preds = %entry
   br label %if.end16
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %i.017 = phi i64 [ 0, %for.body.lr.ph ], [ %inc14, %for.inc ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %i.017
+  %i.015 = phi i64 [ 0, %for.body.lr.ph ], [ %inc14, %for.inc ]
+  %add.ptr.i = getelementptr inbounds nuw double, ptr %0, i64 %i.015
   %6 = load double, ptr %add.ptr.i, align 8, !tbaa !27
-  %add.ptr.i8 = getelementptr inbounds nuw double, ptr %4, i64 %i.017
+  %add.ptr.i8 = getelementptr inbounds nuw double, ptr %4, i64 %i.015
   %7 = load double, ptr %add.ptr.i8, align 8, !tbaa !27
   %add = fadd double %6, %7
   %cmp7 = fcmp ogt double %add, %value
   br i1 %cmp7, label %cleanup, label %for.inc
 
 for.inc:                                          ; preds = %for.body
-  %inc14 = add nuw i64 %i.017, 1
+  %inc14 = add nuw i64 %i.015, 1
   %exitcond.not = icmp eq i64 %inc14, %sub.ptr.div.i
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !47
 
 cleanup:                                          ; preds = %for.body
-  %add.ptr.i9 = getelementptr inbounds nuw i32, ptr %3, i64 %i.017
+  %add.ptr.i9 = getelementptr inbounds nuw i32, ptr %3, i64 %i.015
   %8 = load i32, ptr %add.ptr.i9, align 4, !tbaa !23
   %inc11 = add nsw i32 %8, 1
   store i32 %inc11, ptr %add.ptr.i9, align 4, !tbaa !23
   %average_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   %9 = load ptr, ptr %average_, align 8, !tbaa !25
-  %add.ptr.i10 = getelementptr inbounds nuw double, ptr %9, i64 %i.017
+  %add.ptr.i10 = getelementptr inbounds nuw double, ptr %9, i64 %i.015
   %10 = load double, ptr %add.ptr.i10, align 8, !tbaa !27
   %add13 = fadd double %value, %10
   store double %add13, ptr %add.ptr.i10, align 8, !tbaa !27
@@ -1385,8 +1385,8 @@ define noundef double @_ZN8QuantLib12Distribution15confidenceLevelEd(ptr noundef
 entry:
   tail call void @_ZN8QuantLib12Distribution9normalizeEv(ptr noundef nonnull align 8 dereferenceable(225) %this)
   %0 = load i32, ptr %this, align 8, !tbaa !3
-  %cmp13 = icmp sgt i32 %0, 0
-  br i1 %cmp13, label %for.body.lr.ph, label %for.end
+  %cmp11 = icmp sgt i32 %0, 0
+  br i1 %cmp11, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %entry
   %cumulativeDensity_ = getelementptr inbounds nuw i8, ptr %this, i64 120
@@ -4216,8 +4216,8 @@ do.end:                                           ; preds = %entry
   tail call void @_ZN8QuantLib12Distribution9normalizeEv(ptr noundef nonnull align 8 dereferenceable(225) %this)
   tail call void @_ZN8QuantLib12Distribution9normalizeEv(ptr noundef nonnull align 8 dereferenceable(225) %this)
   %17 = load i32, ptr %this, align 8, !tbaa !3
-  %cmp13.i = icmp sgt i32 %17, 0
-  br i1 %cmp13.i, label %for.body.lr.ph.i, label %for.end.i
+  %cmp11.i = icmp sgt i32 %17, 0
+  br i1 %cmp11.i, label %for.body.lr.ph.i, label %for.end.i
 
 for.body.lr.ph.i:                                 ; preds = %do.end
   %cumulativeDensity_.i = getelementptr inbounds nuw i8, ptr %this, i64 120

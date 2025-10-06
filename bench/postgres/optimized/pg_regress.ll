@@ -3530,31 +3530,31 @@ define internal void @psql_add_command(ptr noundef %0, ptr noundef %1, ...) unna
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %10 = load ptr, ptr %3, align 8
   %11 = load i8, ptr %10, align 1
-  %.not17 = icmp eq i8 %11, 0
-  br i1 %.not17, label %._crit_edge21, label %.lr.ph20
+  %.not16 = icmp eq i8 %11, 0
+  br i1 %.not16, label %._crit_edge20, label %.lr.ph19
 
-.lr.ph20:                                         ; preds = %._crit_edge, %15
+.lr.ph19:                                         ; preds = %._crit_edge, %15
   %12 = phi i8 [ %18, %15 ], [ %11, %._crit_edge ]
-  %.01118 = phi ptr [ %17, %15 ], [ %10, %._crit_edge ]
+  %.01117 = phi ptr [ %17, %15 ], [ %10, %._crit_edge ]
   %13 = sext i8 %12 to i32
   %memchr = call ptr @memchr(ptr noundef nonnull dereferenceable(1) @.str.214, i32 %13, i64 5)
   %.not14 = icmp eq ptr %memchr, null
   br i1 %.not14, label %15, label %14
 
-14:                                               ; preds = %.lr.ph20
+14:                                               ; preds = %.lr.ph19
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 92) #22
-  %.pre = load i8, ptr %.01118, align 1
+  %.pre = load i8, ptr %.01117, align 1
   br label %15
 
-15:                                               ; preds = %14, %.lr.ph20
-  %16 = phi i8 [ %.pre, %14 ], [ %12, %.lr.ph20 ]
+15:                                               ; preds = %14, %.lr.ph19
+  %16 = phi i8 [ %.pre, %14 ], [ %12, %.lr.ph19 ]
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext %16) #22
-  %17 = getelementptr inbounds nuw i8, ptr %.01118, i64 1
+  %17 = getelementptr inbounds nuw i8, ptr %.01117, i64 1
   %18 = load i8, ptr %17, align 1
   %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %._crit_edge21, label %.lr.ph20, !llvm.loop !36
+  br i1 %.not, label %._crit_edge20, label %.lr.ph19, !llvm.loop !36
 
-._crit_edge21:                                    ; preds = %15, %._crit_edge
+._crit_edge20:                                    ; preds = %15, %._crit_edge
   call void @appendStringInfoChar(ptr noundef %0, i8 noundef signext 34) #22
   %19 = load ptr, ptr %3, align 8
   call void @pfree(ptr noundef %19) #22

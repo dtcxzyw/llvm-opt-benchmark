@@ -1196,8 +1196,8 @@ _ZN4llvmplERKNS_5TwineES2_.exit312:               ; preds = %.thread530, %375, %
   %400 = and i32 %399, 255
   %401 = add nsw i32 %400, -19
   %spec.select.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %401, -2
-  %.not.not10.i.i = icmp eq ptr %397, null
-  %.not.not.i.i = or i1 %.not.not10.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
+  %.not.not9.i.i = icmp eq ptr %397, null
+  %.not.not.i.i = or i1 %.not.not9.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
   %402 = load ptr, ptr %397, align 8, !tbaa !314
   %403 = call noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %402) #16
   br i1 %.not.not.i.i, label %_ZN4llvm8ICmpInstC2ENS_14InsertPositionENS_7CmpInst9PredicateEPNS_5ValueES5_RKNS_5TwineE.exit, label %404

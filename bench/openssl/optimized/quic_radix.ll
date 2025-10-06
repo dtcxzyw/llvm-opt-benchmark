@@ -1057,8 +1057,8 @@ TERP_init.exit:                                   ; preds = %109, %115, %124
   %141 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val.i = load ptr, ptr %141, align 8, !tbaa !92
   %142 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.val135.i = load ptr, ptr %142, align 8, !tbaa !93
-  %143 = call i64 %.val.i(ptr noundef %.val135.i) #12
+  %.val132.i = load ptr, ptr %142, align 8, !tbaa !93
+  %143 = call i64 %.val.i(ptr noundef %.val132.i) #12
   store i64 %143, ptr %140, align 8, !tbaa !82
   %144 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 40
@@ -1076,17 +1076,17 @@ TERP_init.exit:                                   ; preds = %109, %115, %124
   %155 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %156 = getelementptr inbounds nuw i8, ptr %7, i64 112
   %157 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  br label %.thread212.i
+  br label %.thread205.i
 
-.thread212.i:                                     ; preds = %.thread212.i.backedge, %126
-  %.089.i = phi i64 [ 0, %126 ], [ %.089.i.be, %.thread212.i.backedge ]
-  %.085.i = phi i32 [ 0, %126 ], [ %.388.i, %.thread212.i.backedge ]
-  %.083.i = phi i64 [ -1, %126 ], [ %183, %.thread212.i.backedge ]
+.thread205.i:                                     ; preds = %.thread205.i.backedge, %126
+  %.089.i = phi i64 [ 0, %126 ], [ %.089.i.be, %.thread205.i.backedge ]
+  %.085.i = phi i32 [ 0, %126 ], [ %.388.i, %.thread205.i.backedge ]
+  %.083.i = phi i64 [ -1, %126 ], [ %183, %.thread205.i.backedge ]
   %158 = load i32, ptr %147, align 8, !tbaa !90
   %.not.i33 = icmp eq i32 %158, 0
   br i1 %.not.i33, label %170, label %159
 
-159:                                              ; preds = %.thread212.i
+159:                                              ; preds = %.thread205.i
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %130, i64 32, i1 false), !tbaa.struct !94
   %.not95.i = icmp eq i32 %.085.i, 0
@@ -1109,28 +1109,28 @@ TERP_log_spin.exit.i:                             ; preds = %163, %162
   %166 = call fastcc i32 @SRDR_print_one(ptr noundef %3, ptr noundef %129, i64 noundef -1, ptr noundef null)
   %167 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 692, ptr noundef nonnull @.str.252, i32 noundef %166) #12
   %.not96.i = icmp eq i32 %167, 0
-  br i1 %.not96.i, label %.thread233.i, label %.thread.i35
+  br i1 %.not96.i, label %.thread226.i, label %.thread.i35
 
 .thread.i35:                                      ; preds = %TERP_log_spin.exit.i
   %168 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %129, ptr noundef nonnull @.str.226) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %170
 
-.thread233.i:                                     ; preds = %TERP_log_spin.exit.i
+.thread226.i:                                     ; preds = %TERP_log_spin.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %169 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %129, ptr noundef nonnull @.str.268) #12
   br label %378
 
-170:                                              ; preds = %.thread.i35, %.thread212.i
-  %.388.i = phi i32 [ %.085.i, %.thread212.i ], [ 1, %.thread.i35 ]
+170:                                              ; preds = %.thread.i35, %.thread205.i
+  %.388.i = phi i32 [ %.085.i, %.thread205.i ], [ 1, %.thread.i35 ]
   %171 = load ptr, ptr %138, align 8, !tbaa !75
   %172 = load ptr, ptr %136, align 8, !tbaa !72
   %173 = ptrtoint ptr %171 to i64
   %174 = ptrtoint ptr %172 to i64
   %175 = sub i64 %173, %174
   %176 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %175, i64 noundef 8) #12
-  %.not.i141.i = icmp eq i32 %176, 0
-  br i1 %.not.i141.i, label %SRDR_get_operand.exit.i, label %177
+  %.not.i138.i = icmp eq i32 %176, 0
+  br i1 %.not.i138.i, label %SRDR_get_operand.exit.i, label %177
 
 177:                                              ; preds = %170
   %178 = load ptr, ptr %136, align 8, !tbaa !72
@@ -1140,11 +1140,11 @@ TERP_log_spin.exit.i:                             ; preds = %163, %162
   br label %SRDR_get_operand.exit.i
 
 SRDR_get_operand.exit.i:                          ; preds = %177, %170
-  %.0192.i = phi i64 [ 0, %170 ], [ %179, %177 ]
+  %.0189.i = phi i64 [ 0, %170 ], [ %179, %177 ]
   %.0.i.i = phi i32 [ 0, %170 ], [ 1, %177 ]
   %181 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 698, ptr noundef nonnull @.str.253, i32 noundef %.0.i.i) #12
   %.not97.i = icmp eq i32 %181, 0
-  br i1 %.not97.i, label %TERP_log_spin.exit144.i, label %182
+  br i1 %.not97.i, label %TERP_log_spin.exit141.i, label %182
 
 182:                                              ; preds = %SRDR_get_operand.exit.i
   %183 = add i64 %.083.i, 1
@@ -1155,29 +1155,29 @@ SRDR_get_operand.exit.i:                          ; preds = %177, %170
   %186 = load i64, ptr %150, align 8, !tbaa !97
   %187 = add i64 %186, 1
   store i64 %187, ptr %150, align 8, !tbaa !97
-  %.val136288.i = load ptr, ptr %141, align 8, !tbaa !92
-  %.val137289.i = load ptr, ptr %142, align 8, !tbaa !93
-  %188 = call i64 %.val136288.i(ptr noundef %.val137289.i) #12
+  %.val133281.i = load ptr, ptr %141, align 8, !tbaa !92
+  %.val134282.i = load ptr, ptr %142, align 8, !tbaa !93
+  %188 = call i64 %.val133281.i(ptr noundef %.val134282.i) #12
   %189 = load i64, ptr %144, align 8
-  %.not238290.i = icmp ult i64 %188, %189
-  br i1 %.not238290.i, label %.lr.ph.i37, label %._crit_edge.i36
+  %.not231283.i = icmp ult i64 %188, %189
+  br i1 %.not231283.i, label %.lr.ph.i37, label %._crit_edge.i36
 
 ._crit_edge.i36:                                  ; preds = %182, %368
   %.190.lcssa.i = phi i64 [ %371, %368 ], [ 0, %182 ]
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 708, ptr noundef nonnull @.str.254, i64 noundef %183) #12
   %190 = load i32, ptr %147, align 8, !tbaa !90
   %.not118.i = icmp eq i32 %190, 0
-  %.not.i143.i = icmp eq i64 %.190.lcssa.i, 0
-  %or.cond.i = select i1 %.not118.i, i1 true, i1 %.not.i143.i
-  br i1 %or.cond.i, label %TERP_log_spin.exit144.i, label %191
+  %.not.i140.i = icmp eq i64 %.190.lcssa.i, 0
+  %or.cond.i = select i1 %.not118.i, i1 true, i1 %.not.i140.i
+  br i1 %or.cond.i, label %TERP_log_spin.exit141.i, label %191
 
 191:                                              ; preds = %._crit_edge.i36
   %192 = load ptr, ptr %7, align 8, !tbaa !91
   %193 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %192, ptr noundef nonnull @.str.271, i64 noundef %.190.lcssa.i) #12
-  br label %TERP_log_spin.exit144.i
+  br label %TERP_log_spin.exit141.i
 
 .lr.ph.i37:                                       ; preds = %182, %368
-  %.190291.i = phi i64 [ %371, %368 ], [ 0, %182 ]
+  %.190284.i = phi i64 [ %371, %368 ], [ 0, %182 ]
   %194 = load ptr, ptr %151, align 8, !tbaa !98
   %.not98.i = icmp eq ptr %194, null
   br i1 %.not98.i, label %206, label %195
@@ -1195,18 +1195,18 @@ SRDR_get_operand.exit.i:                          ; preds = %177, %170
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 716, ptr noundef nonnull @.str.256, i64 noundef %183) #12
   %202 = load i32, ptr %147, align 8, !tbaa !90
   %.not100.i = icmp eq i32 %202, 0
-  %.not.i145.i = icmp eq i64 %.190291.i, 0
-  %or.cond237.i = select i1 %.not100.i, i1 true, i1 %.not.i145.i
-  br i1 %or.cond237.i, label %TERP_log_spin.exit144.i, label %203
+  %.not.i142.i = icmp eq i64 %.190284.i, 0
+  %or.cond230.i = select i1 %.not100.i, i1 true, i1 %.not.i142.i
+  br i1 %or.cond230.i, label %TERP_log_spin.exit141.i, label %203
 
 203:                                              ; preds = %201
   %204 = load ptr, ptr %7, align 8, !tbaa !91
-  %205 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %204, ptr noundef nonnull @.str.271, i64 noundef %.190291.i) #12
-  br label %TERP_log_spin.exit144.i
+  %205 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %204, ptr noundef nonnull @.str.271, i64 noundef %.190284.i) #12
+  br label %TERP_log_spin.exit141.i
 
 206:                                              ; preds = %195, %.lr.ph.i37
-  switch i64 %.0192.i, label %374 [
-    i64 1, label %TERP_log_spin.exit144.i
+  switch i64 %.0189.i, label %374 [
+    i64 1, label %TERP_log_spin.exit141.i
     i64 2, label %207
     i64 3, label %207
     i64 4, label %241
@@ -1222,24 +1222,24 @@ SRDR_get_operand.exit.i:                          ; preds = %177, %170
   %211 = ptrtoint ptr %209 to i64
   %212 = sub i64 %210, %211
   %213 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %212, i64 noundef 8) #12
-  %.not.i147.i = icmp eq i32 %213, 0
-  br i1 %.not.i147.i, label %SRDR_get_operand.exit149.i, label %214
+  %.not.i144.i = icmp eq i32 %213, 0
+  br i1 %.not.i144.i, label %SRDR_get_operand.exit146.i, label %214
 
 214:                                              ; preds = %207
   %215 = load ptr, ptr %136, align 8, !tbaa !72
   %216 = load i64, ptr %215, align 1
   %217 = getelementptr inbounds nuw i8, ptr %215, i64 8
   store ptr %217, ptr %136, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit149.i
+  br label %SRDR_get_operand.exit146.i
 
-SRDR_get_operand.exit149.i:                       ; preds = %214, %207
-  %.sroa.0186.0.i = phi i64 [ 0, %207 ], [ %216, %214 ]
-  %.0.i148.i = phi i32 [ 0, %207 ], [ 1, %214 ]
-  %218 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 730, ptr noundef nonnull @.str.257, i32 noundef %.0.i148.i) #12
+SRDR_get_operand.exit146.i:                       ; preds = %214, %207
+  %.sroa.0183.0.i = phi i64 [ 0, %207 ], [ %216, %214 ]
+  %.0.i145.i = phi i32 [ 0, %207 ], [ 1, %214 ]
+  %218 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 730, ptr noundef nonnull @.str.257, i32 noundef %.0.i145.i) #12
   %.not116.i = icmp eq i32 %218, 0
-  br i1 %.not116.i, label %TERP_log_spin.exit144.i, label %219
+  br i1 %.not116.i, label %TERP_log_spin.exit141.i, label %219
 
-219:                                              ; preds = %SRDR_get_operand.exit149.i
+219:                                              ; preds = %SRDR_get_operand.exit146.i
   %220 = load ptr, ptr %156, align 8, !tbaa !100
   %221 = load ptr, ptr %157, align 8, !tbaa !101
   %222 = ptrtoint ptr %220 to i64
@@ -1271,21 +1271,21 @@ SRDR_get_operand.exit149.i:                       ; preds = %214, %207
 TERP_stk_ensure_capacity.exit.i.i:                ; preds = %232, %226, %219
   %.0.i.i.i = phi i32 [ 1, %232 ], [ 1, %219 ], [ 0, %226 ]
   %236 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 618, ptr noundef nonnull @.str.272, i32 noundef %.0.i.i.i) #12
-  %.not.i150.i = icmp eq i32 %236, 0
-  br i1 %.not.i150.i, label %TERP_stk_push.exit.i, label %237
+  %.not.i147.i = icmp eq i32 %236, 0
+  br i1 %.not.i147.i, label %TERP_stk_push.exit.i, label %237
 
 237:                                              ; preds = %TERP_stk_ensure_capacity.exit.i.i
   %238 = load ptr, ptr %148, align 8, !tbaa !95
   %239 = getelementptr inbounds i8, ptr %238, i64 -8
   store ptr %239, ptr %148, align 8, !tbaa !95
-  store i64 %.sroa.0186.0.i, ptr %239, align 1
+  store i64 %.sroa.0183.0.i, ptr %239, align 1
   br label %TERP_stk_push.exit.i
 
 TERP_stk_push.exit.i:                             ; preds = %237, %TERP_stk_ensure_capacity.exit.i.i
-  %.0.i151.i = phi i32 [ 1, %237 ], [ 0, %TERP_stk_ensure_capacity.exit.i.i ]
-  %240 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 731, ptr noundef nonnull @.str.258, i32 noundef %.0.i151.i) #12
+  %.0.i148.i = phi i32 [ 1, %237 ], [ 0, %TERP_stk_ensure_capacity.exit.i.i ]
+  %240 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 731, ptr noundef nonnull @.str.258, i32 noundef %.0.i148.i) #12
   %.not117.i = icmp eq i32 %240, 0
-  br i1 %.not117.i, label %TERP_log_spin.exit144.i, label %.thread212.i.backedge
+  br i1 %.not117.i, label %TERP_log_spin.exit141.i, label %.thread205.i.backedge
 
 241:                                              ; preds = %206
   %242 = load ptr, ptr %138, align 8, !tbaa !75
@@ -1294,70 +1294,70 @@ TERP_stk_push.exit.i:                             ; preds = %237, %TERP_stk_ensu
   %245 = ptrtoint ptr %243 to i64
   %246 = sub i64 %244, %245
   %247 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %246, i64 noundef 8) #12
-  %.not.i152.i = icmp eq i32 %247, 0
-  br i1 %.not.i152.i, label %SRDR_get_operand.exit154.i, label %248
+  %.not.i149.i = icmp eq i32 %247, 0
+  br i1 %.not.i149.i, label %SRDR_get_operand.exit151.i, label %248
 
 248:                                              ; preds = %241
   %249 = load ptr, ptr %136, align 8, !tbaa !72
   %250 = load i64, ptr %249, align 1
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 8
   store ptr %251, ptr %136, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit154.i
+  br label %SRDR_get_operand.exit151.i
 
-SRDR_get_operand.exit154.i:                       ; preds = %248, %241
-  %.0191.i = phi i64 [ 0, %241 ], [ %250, %248 ]
-  %.0.i153.i = phi i32 [ 0, %241 ], [ 1, %248 ]
-  %252 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 738, ptr noundef nonnull @.str.257, i32 noundef %.0.i153.i) #12
+SRDR_get_operand.exit151.i:                       ; preds = %248, %241
+  %.0188.i = phi i64 [ 0, %241 ], [ %250, %248 ]
+  %.0.i150.i = phi i32 [ 0, %241 ], [ 1, %248 ]
+  %252 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 738, ptr noundef nonnull @.str.257, i32 noundef %.0.i150.i) #12
   %.not114.i = icmp eq i32 %252, 0
-  br i1 %.not114.i, label %TERP_log_spin.exit144.i, label %253
+  br i1 %.not114.i, label %TERP_log_spin.exit141.i, label %253
 
-253:                                              ; preds = %SRDR_get_operand.exit154.i
+253:                                              ; preds = %SRDR_get_operand.exit151.i
   %254 = load ptr, ptr %156, align 8, !tbaa !100
   %255 = load ptr, ptr %157, align 8, !tbaa !101
   %256 = ptrtoint ptr %254 to i64
   %257 = ptrtoint ptr %255 to i64
   %258 = sub i64 %256, %257
   %259 = icmp ugt i64 %258, 7
-  br i1 %259, label %TERP_stk_ensure_capacity.exit.i158.i, label %260
+  br i1 %259, label %TERP_stk_ensure_capacity.exit.i155.i, label %260
 
 260:                                              ; preds = %253
   %261 = load ptr, ptr %148, align 8, !tbaa !95
-  %.not.i.i155.i = icmp eq ptr %254, %255
+  %.not.i.i152.i = icmp eq ptr %254, %255
   %262 = shl nuw nsw i64 %258, 1
-  %263 = select i1 %.not.i.i155.i, i64 256, i64 %262
+  %263 = select i1 %.not.i.i152.i, i64 256, i64 %262
   %264 = call ptr @CRYPTO_realloc(ptr noundef %255, i64 noundef %263, ptr noundef nonnull @.str.42, i32 noundef 605) #12
   %265 = call i32 @test_ptr(ptr noundef nonnull @.str.42, i32 noundef 606, ptr noundef nonnull @.str.43, ptr noundef %264) #12
-  %.not20.i.i156.i = icmp eq i32 %265, 0
-  br i1 %.not20.i.i156.i, label %TERP_stk_ensure_capacity.exit.i158.i, label %266
+  %.not20.i.i153.i = icmp eq i32 %265, 0
+  br i1 %.not20.i.i153.i, label %TERP_stk_ensure_capacity.exit.i155.i, label %266
 
 266:                                              ; preds = %260
   %267 = ptrtoint ptr %261 to i64
-  %.neg.i.i157.i = sub i64 %267, %256
+  %.neg.i.i154.i = sub i64 %267, %256
   store ptr %264, ptr %157, align 8, !tbaa !101
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 %263
   store ptr %268, ptr %156, align 8, !tbaa !100
-  %269 = getelementptr inbounds i8, ptr %268, i64 %.neg.i.i157.i
+  %269 = getelementptr inbounds i8, ptr %268, i64 %.neg.i.i154.i
   store ptr %269, ptr %148, align 8, !tbaa !95
-  br label %TERP_stk_ensure_capacity.exit.i158.i
+  br label %TERP_stk_ensure_capacity.exit.i155.i
 
-TERP_stk_ensure_capacity.exit.i158.i:             ; preds = %266, %260, %253
-  %.0.i.i159.i = phi i32 [ 1, %266 ], [ 1, %253 ], [ 0, %260 ]
-  %270 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 618, ptr noundef nonnull @.str.272, i32 noundef %.0.i.i159.i) #12
-  %.not.i160.i = icmp eq i32 %270, 0
-  br i1 %.not.i160.i, label %TERP_stk_push.exit162.i, label %271
+TERP_stk_ensure_capacity.exit.i155.i:             ; preds = %266, %260, %253
+  %.0.i.i156.i = phi i32 [ 1, %266 ], [ 1, %253 ], [ 0, %260 ]
+  %270 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 618, ptr noundef nonnull @.str.272, i32 noundef %.0.i.i156.i) #12
+  %.not.i157.i = icmp eq i32 %270, 0
+  br i1 %.not.i157.i, label %TERP_stk_push.exit159.i, label %271
 
-271:                                              ; preds = %TERP_stk_ensure_capacity.exit.i158.i
+271:                                              ; preds = %TERP_stk_ensure_capacity.exit.i155.i
   %272 = load ptr, ptr %148, align 8, !tbaa !95
   %273 = getelementptr inbounds i8, ptr %272, i64 -8
   store ptr %273, ptr %148, align 8, !tbaa !95
-  store i64 %.0191.i, ptr %273, align 1
-  br label %TERP_stk_push.exit162.i
+  store i64 %.0188.i, ptr %273, align 1
+  br label %TERP_stk_push.exit159.i
 
-TERP_stk_push.exit162.i:                          ; preds = %271, %TERP_stk_ensure_capacity.exit.i158.i
-  %.0.i161.i = phi i32 [ 1, %271 ], [ 0, %TERP_stk_ensure_capacity.exit.i158.i ]
-  %274 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 739, ptr noundef nonnull @.str.258, i32 noundef %.0.i161.i) #12
+TERP_stk_push.exit159.i:                          ; preds = %271, %TERP_stk_ensure_capacity.exit.i155.i
+  %.0.i158.i = phi i32 [ 1, %271 ], [ 0, %TERP_stk_ensure_capacity.exit.i155.i ]
+  %274 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 739, ptr noundef nonnull @.str.258, i32 noundef %.0.i158.i) #12
   %.not115.i = icmp eq i32 %274, 0
-  br i1 %.not115.i, label %TERP_log_spin.exit144.i, label %.thread212.i.backedge
+  br i1 %.not115.i, label %TERP_log_spin.exit141.i, label %.thread205.i.backedge
 
 275:                                              ; preds = %206
   %276 = load ptr, ptr %138, align 8, !tbaa !75
@@ -1366,70 +1366,70 @@ TERP_stk_push.exit162.i:                          ; preds = %271, %TERP_stk_ensu
   %279 = ptrtoint ptr %277 to i64
   %280 = sub i64 %278, %279
   %281 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %280, i64 noundef 8) #12
-  %.not.i163.i = icmp eq i32 %281, 0
-  br i1 %.not.i163.i, label %SRDR_get_operand.exit165.i, label %282
+  %.not.i160.i = icmp eq i32 %281, 0
+  br i1 %.not.i160.i, label %SRDR_get_operand.exit162.i, label %282
 
 282:                                              ; preds = %275
   %283 = load ptr, ptr %136, align 8, !tbaa !72
   %284 = load i64, ptr %283, align 1
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 8
   store ptr %285, ptr %136, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit165.i
+  br label %SRDR_get_operand.exit162.i
 
-SRDR_get_operand.exit165.i:                       ; preds = %282, %275
-  %.0190.i = phi i64 [ 0, %275 ], [ %284, %282 ]
-  %.0.i164.i = phi i32 [ 0, %275 ], [ 1, %282 ]
-  %286 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 746, ptr noundef nonnull @.str.257, i32 noundef %.0.i164.i) #12
+SRDR_get_operand.exit162.i:                       ; preds = %282, %275
+  %.0187.i = phi i64 [ 0, %275 ], [ %284, %282 ]
+  %.0.i161.i = phi i32 [ 0, %275 ], [ 1, %282 ]
+  %286 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 746, ptr noundef nonnull @.str.257, i32 noundef %.0.i161.i) #12
   %.not112.i = icmp eq i32 %286, 0
-  br i1 %.not112.i, label %TERP_log_spin.exit144.i, label %287
+  br i1 %.not112.i, label %TERP_log_spin.exit141.i, label %287
 
-287:                                              ; preds = %SRDR_get_operand.exit165.i
+287:                                              ; preds = %SRDR_get_operand.exit162.i
   %288 = load ptr, ptr %156, align 8, !tbaa !100
   %289 = load ptr, ptr %157, align 8, !tbaa !101
   %290 = ptrtoint ptr %288 to i64
   %291 = ptrtoint ptr %289 to i64
   %292 = sub i64 %290, %291
   %293 = icmp ugt i64 %292, 7
-  br i1 %293, label %TERP_stk_ensure_capacity.exit.i169.i, label %294
+  br i1 %293, label %TERP_stk_ensure_capacity.exit.i166.i, label %294
 
 294:                                              ; preds = %287
   %295 = load ptr, ptr %148, align 8, !tbaa !95
-  %.not.i.i166.i = icmp eq ptr %288, %289
+  %.not.i.i163.i = icmp eq ptr %288, %289
   %296 = shl nuw nsw i64 %292, 1
-  %297 = select i1 %.not.i.i166.i, i64 256, i64 %296
+  %297 = select i1 %.not.i.i163.i, i64 256, i64 %296
   %298 = call ptr @CRYPTO_realloc(ptr noundef %289, i64 noundef %297, ptr noundef nonnull @.str.42, i32 noundef 605) #12
   %299 = call i32 @test_ptr(ptr noundef nonnull @.str.42, i32 noundef 606, ptr noundef nonnull @.str.43, ptr noundef %298) #12
-  %.not20.i.i167.i = icmp eq i32 %299, 0
-  br i1 %.not20.i.i167.i, label %TERP_stk_ensure_capacity.exit.i169.i, label %300
+  %.not20.i.i164.i = icmp eq i32 %299, 0
+  br i1 %.not20.i.i164.i, label %TERP_stk_ensure_capacity.exit.i166.i, label %300
 
 300:                                              ; preds = %294
   %301 = ptrtoint ptr %295 to i64
-  %.neg.i.i168.i = sub i64 %301, %290
+  %.neg.i.i165.i = sub i64 %301, %290
   store ptr %298, ptr %157, align 8, !tbaa !101
   %302 = getelementptr inbounds nuw i8, ptr %298, i64 %297
   store ptr %302, ptr %156, align 8, !tbaa !100
-  %303 = getelementptr inbounds i8, ptr %302, i64 %.neg.i.i168.i
+  %303 = getelementptr inbounds i8, ptr %302, i64 %.neg.i.i165.i
   store ptr %303, ptr %148, align 8, !tbaa !95
-  br label %TERP_stk_ensure_capacity.exit.i169.i
+  br label %TERP_stk_ensure_capacity.exit.i166.i
 
-TERP_stk_ensure_capacity.exit.i169.i:             ; preds = %300, %294, %287
-  %.0.i.i170.i = phi i32 [ 1, %300 ], [ 1, %287 ], [ 0, %294 ]
-  %304 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 618, ptr noundef nonnull @.str.272, i32 noundef %.0.i.i170.i) #12
-  %.not.i171.i = icmp eq i32 %304, 0
-  br i1 %.not.i171.i, label %TERP_stk_push.exit173.i, label %305
+TERP_stk_ensure_capacity.exit.i166.i:             ; preds = %300, %294, %287
+  %.0.i.i167.i = phi i32 [ 1, %300 ], [ 1, %287 ], [ 0, %294 ]
+  %304 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 618, ptr noundef nonnull @.str.272, i32 noundef %.0.i.i167.i) #12
+  %.not.i168.i = icmp eq i32 %304, 0
+  br i1 %.not.i168.i, label %TERP_stk_push.exit170.i, label %305
 
-305:                                              ; preds = %TERP_stk_ensure_capacity.exit.i169.i
+305:                                              ; preds = %TERP_stk_ensure_capacity.exit.i166.i
   %306 = load ptr, ptr %148, align 8, !tbaa !95
   %307 = getelementptr inbounds i8, ptr %306, i64 -8
   store ptr %307, ptr %148, align 8, !tbaa !95
-  store i64 %.0190.i, ptr %307, align 1
-  br label %TERP_stk_push.exit173.i
+  store i64 %.0187.i, ptr %307, align 1
+  br label %TERP_stk_push.exit170.i
 
-TERP_stk_push.exit173.i:                          ; preds = %305, %TERP_stk_ensure_capacity.exit.i169.i
-  %.0.i172.i = phi i32 [ 1, %305 ], [ 0, %TERP_stk_ensure_capacity.exit.i169.i ]
-  %308 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 747, ptr noundef nonnull @.str.258, i32 noundef %.0.i172.i) #12
+TERP_stk_push.exit170.i:                          ; preds = %305, %TERP_stk_ensure_capacity.exit.i166.i
+  %.0.i169.i = phi i32 [ 1, %305 ], [ 0, %TERP_stk_ensure_capacity.exit.i166.i ]
+  %308 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 747, ptr noundef nonnull @.str.258, i32 noundef %.0.i169.i) #12
   %.not113.i = icmp eq i32 %308, 0
-  br i1 %.not113.i, label %TERP_log_spin.exit144.i, label %.thread212.i.backedge
+  br i1 %.not113.i, label %TERP_log_spin.exit141.i, label %.thread205.i.backedge
 
 309:                                              ; preds = %206
   %310 = load ptr, ptr %138, align 8, !tbaa !75
@@ -1438,20 +1438,20 @@ TERP_stk_push.exit173.i:                          ; preds = %305, %TERP_stk_ensu
   %313 = ptrtoint ptr %311 to i64
   %314 = sub i64 %312, %313
   %315 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %314, i64 noundef 8) #12
-  %.not.i174.i = icmp eq i32 %315, 0
-  br i1 %.not.i174.i, label %SRDR_get_operand.exit176.i, label %316
+  %.not.i171.i = icmp eq i32 %315, 0
+  br i1 %.not.i171.i, label %SRDR_get_operand.exit173.i, label %316
 
 316:                                              ; preds = %309
   %317 = load ptr, ptr %136, align 8, !tbaa !72
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 8
   store ptr %318, ptr %136, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit176.i
+  br label %SRDR_get_operand.exit173.i
 
-SRDR_get_operand.exit176.i:                       ; preds = %316, %309
-  %.0.i175.i = phi i32 [ 1, %316 ], [ 0, %309 ]
-  %319 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 754, ptr noundef nonnull @.str.259, i32 noundef %.0.i175.i) #12
+SRDR_get_operand.exit173.i:                       ; preds = %316, %309
+  %.0.i172.i = phi i32 [ 1, %316 ], [ 0, %309 ]
+  %319 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 754, ptr noundef nonnull @.str.259, i32 noundef %.0.i172.i) #12
   %.not111.i = icmp eq i32 %319, 0
-  br i1 %.not111.i, label %TERP_log_spin.exit144.i, label %.thread212.i.backedge
+  br i1 %.not111.i, label %TERP_log_spin.exit141.i, label %.thread205.i.backedge
 
 320:                                              ; preds = %206
   %321 = load ptr, ptr %138, align 8, !tbaa !75
@@ -1460,8 +1460,8 @@ SRDR_get_operand.exit176.i:                       ; preds = %316, %309
   %324 = ptrtoint ptr %322 to i64
   %325 = sub i64 %323, %324
   %326 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %325, i64 noundef 8) #12
-  %.not.i177.i = icmp eq i32 %326, 0
-  br i1 %.not.i177.i, label %SRDR_get_operand.exit179.i, label %327
+  %.not.i174.i = icmp eq i32 %326, 0
+  br i1 %.not.i174.i, label %SRDR_get_operand.exit176.i, label %327
 
 327:                                              ; preds = %320
   %328 = load ptr, ptr %136, align 8, !tbaa !72
@@ -1469,24 +1469,24 @@ SRDR_get_operand.exit176.i:                       ; preds = %316, %309
   %330 = inttoptr i64 %329 to ptr
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 8
   store ptr %331, ptr %136, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit179.i
+  br label %SRDR_get_operand.exit176.i
 
-SRDR_get_operand.exit179.i:                       ; preds = %327, %320
-  %.0189.i = phi ptr [ null, %320 ], [ %330, %327 ]
-  %.0.i178.i = phi i32 [ 0, %320 ], [ 1, %327 ]
-  %332 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 764, ptr noundef nonnull @.str.257, i32 noundef %.0.i178.i) #12
+SRDR_get_operand.exit176.i:                       ; preds = %327, %320
+  %.0186.i = phi ptr [ null, %320 ], [ %330, %327 ]
+  %.0.i175.i = phi i32 [ 0, %320 ], [ 1, %327 ]
+  %332 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 764, ptr noundef nonnull @.str.257, i32 noundef %.0.i175.i) #12
   %.not101.i = icmp eq i32 %332, 0
-  br i1 %.not101.i, label %TERP_log_spin.exit144.i, label %333
+  br i1 %.not101.i, label %TERP_log_spin.exit141.i, label %333
 
-333:                                              ; preds = %SRDR_get_operand.exit179.i
+333:                                              ; preds = %SRDR_get_operand.exit176.i
   %334 = load ptr, ptr %138, align 8, !tbaa !75
   %335 = load ptr, ptr %136, align 8, !tbaa !72
   %336 = ptrtoint ptr %334 to i64
   %337 = ptrtoint ptr %335 to i64
   %338 = sub i64 %336, %337
   %339 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %338, i64 noundef 8) #12
-  %.not.i180.i = icmp eq i32 %339, 0
-  br i1 %.not.i180.i, label %SRDR_get_operand.exit182.i, label %340
+  %.not.i177.i = icmp eq i32 %339, 0
+  br i1 %.not.i177.i, label %SRDR_get_operand.exit179.i, label %340
 
 340:                                              ; preds = %333
   %341 = load ptr, ptr %136, align 8, !tbaa !72
@@ -1494,24 +1494,24 @@ SRDR_get_operand.exit179.i:                       ; preds = %327, %320
   %343 = inttoptr i64 %342 to ptr
   %344 = getelementptr inbounds nuw i8, ptr %341, i64 8
   store ptr %344, ptr %136, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit182.i
+  br label %SRDR_get_operand.exit179.i
 
-SRDR_get_operand.exit182.i:                       ; preds = %340, %333
-  %.0188.i = phi ptr [ null, %333 ], [ %343, %340 ]
-  %.0.i181.i = phi i32 [ 0, %333 ], [ 1, %340 ]
-  %345 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 765, ptr noundef nonnull @.str.260, i32 noundef %.0.i181.i) #12
+SRDR_get_operand.exit179.i:                       ; preds = %340, %333
+  %.0185.i = phi ptr [ null, %333 ], [ %343, %340 ]
+  %.0.i178.i = phi i32 [ 0, %333 ], [ 1, %340 ]
+  %345 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 765, ptr noundef nonnull @.str.260, i32 noundef %.0.i178.i) #12
   %.not102.i = icmp eq i32 %345, 0
-  br i1 %.not102.i, label %TERP_log_spin.exit144.i, label %346
+  br i1 %.not102.i, label %TERP_log_spin.exit141.i, label %346
 
-346:                                              ; preds = %SRDR_get_operand.exit182.i
-  %347 = icmp ne ptr %.0189.i, null
+346:                                              ; preds = %SRDR_get_operand.exit179.i
+  %347 = icmp ne ptr %.0186.i, null
   %348 = zext i1 %347 to i32
   %349 = call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 767, ptr noundef nonnull @.str.261, i32 noundef %348) #12
   %.not103.i = icmp eq i32 %349, 0
-  br i1 %.not103.i, label %TERP_log_spin.exit144.i, label %350
+  br i1 %.not103.i, label %TERP_log_spin.exit141.i, label %350
 
 350:                                              ; preds = %346
-  %351 = call i32 %.0189.i(ptr noundef nonnull %153) #12
+  %351 = call i32 %.0186.i(ptr noundef nonnull %153) #12
   %352 = load i32, ptr %154, align 4, !tbaa !102
   %.not104.i = icmp eq i32 %352, 0
   br i1 %.not104.i, label %360, label %353
@@ -1519,21 +1519,21 @@ SRDR_get_operand.exit182.i:                       ; preds = %340, %333
 353:                                              ; preds = %350
   %354 = call i32 @test_int_eq(ptr noundef nonnull @.str.42, i32 noundef 773, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.262, i32 noundef %351, i32 noundef 3) #12
   %.not109.i = icmp eq i32 %354, 0
-  br i1 %.not109.i, label %TERP_log_spin.exit144.i, label %355
+  br i1 %.not109.i, label %TERP_log_spin.exit141.i, label %355
 
 355:                                              ; preds = %353
   %356 = load i32, ptr %147, align 8, !tbaa !90
   %.not110.i = icmp eq i32 %356, 0
-  br i1 %.not110.i, label %.thread215.i, label %357
+  br i1 %.not110.i, label %.thread208.i, label %357
 
 357:                                              ; preds = %355
   %358 = load ptr, ptr %7, align 8, !tbaa !91
   %359 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %358, ptr noundef nonnull @.str.263) #12
-  br label %.thread215.i
+  br label %.thread208.i
 
-.thread215.i:                                     ; preds = %357, %355
+.thread208.i:                                     ; preds = %357, %355
   store i32 0, ptr %154, align 4, !tbaa !102
-  br label %TERP_log_spin.exit144.i
+  br label %TERP_log_spin.exit141.i
 
 360:                                              ; preds = %350
   %361 = load i32, ptr %155, align 8, !tbaa !103
@@ -1543,24 +1543,24 @@ SRDR_get_operand.exit182.i:                       ; preds = %340, %333
 362:                                              ; preds = %360
   %363 = call i32 @test_int_eq(ptr noundef nonnull @.str.42, i32 noundef 782, ptr noundef nonnull @.str.110, ptr noundef nonnull @.str.264, i32 noundef %351, i32 noundef 2) #12
   %.not108.i = icmp eq i32 %363, 0
-  br i1 %.not108.i, label %TERP_log_spin.exit144.i, label %368
+  br i1 %.not108.i, label %TERP_log_spin.exit141.i, label %368
 
 364:                                              ; preds = %360
   %365 = call i32 @test_false(ptr noundef nonnull @.str.42, i32 noundef 788, ptr noundef nonnull @.str.265, i32 noundef 0) #12
   %.not106.i = icmp eq i32 %365, 0
-  br i1 %.not106.i, label %TERP_log_spin.exit144.i, label %366
+  br i1 %.not106.i, label %TERP_log_spin.exit141.i, label %366
 
 366:                                              ; preds = %364
   %.not107.i = icmp eq i32 %351, 1
-  br i1 %.not107.i, label %.thread212.i.backedge, label %367
+  br i1 %.not107.i, label %.thread205.i.backedge, label %367
 
-.thread212.i.backedge:                            ; preds = %366, %SRDR_get_operand.exit176.i, %TERP_stk_push.exit173.i, %TERP_stk_push.exit162.i, %TERP_stk_push.exit.i
-  %.089.i.be = phi i64 [ %.190291.i, %366 ], [ 0, %TERP_stk_push.exit173.i ], [ 0, %TERP_stk_push.exit162.i ], [ 0, %TERP_stk_push.exit.i ], [ 0, %SRDR_get_operand.exit176.i ]
-  br label %.thread212.i
+.thread205.i.backedge:                            ; preds = %366, %SRDR_get_operand.exit173.i, %TERP_stk_push.exit170.i, %TERP_stk_push.exit159.i, %TERP_stk_push.exit.i
+  %.089.i.be = phi i64 [ %.190284.i, %366 ], [ 0, %TERP_stk_push.exit170.i ], [ 0, %TERP_stk_push.exit159.i ], [ 0, %TERP_stk_push.exit.i ], [ 0, %SRDR_get_operand.exit173.i ]
+  br label %.thread205.i
 
 367:                                              ; preds = %366
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 793, ptr noundef nonnull @.str.266, i64 noundef %183, ptr noundef %.0188.i, i32 noundef %351) #12
-  br label %TERP_log_spin.exit144.i
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 793, ptr noundef nonnull @.str.266, i64 noundef %183, ptr noundef %.0185.i, i32 noundef %351) #12
+  br label %TERP_log_spin.exit141.i
 
 368:                                              ; preds = %362
   store i32 0, ptr %155, align 8, !tbaa !103
@@ -1568,39 +1568,39 @@ SRDR_get_operand.exit182.i:                       ; preds = %340, %333
   store ptr %369, ptr %136, align 8, !tbaa !72
   %370 = load ptr, ptr %149, align 8, !tbaa !96
   store ptr %370, ptr %148, align 8, !tbaa !95
-  %371 = add i64 %.190291.i, 1
-  %.val136.i = load ptr, ptr %141, align 8, !tbaa !92
-  %.val137.i = load ptr, ptr %142, align 8, !tbaa !93
-  %372 = call i64 %.val136.i(ptr noundef %.val137.i) #12
+  %371 = add i64 %.190284.i, 1
+  %.val133.i = load ptr, ptr %141, align 8, !tbaa !92
+  %.val134.i = load ptr, ptr %142, align 8, !tbaa !93
+  %372 = call i64 %.val133.i(ptr noundef %.val134.i) #12
   %373 = load i64, ptr %144, align 8
-  %.not238.i = icmp ult i64 %372, %373
-  br i1 %.not238.i, label %.lr.ph.i37, label %._crit_edge.i36
+  %.not231.i = icmp ult i64 %372, %373
+  br i1 %.not231.i, label %.lr.ph.i37, label %._crit_edge.i36
 
 374:                                              ; preds = %206
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 800, ptr noundef nonnull @.str.267, i64 noundef %.0192.i) #12
-  br label %TERP_log_spin.exit144.i
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 800, ptr noundef nonnull @.str.267, i64 noundef %.0189.i) #12
+  br label %TERP_log_spin.exit141.i
 
-TERP_log_spin.exit144.i:                          ; preds = %364, %SRDR_get_operand.exit176.i, %TERP_stk_push.exit173.i, %SRDR_get_operand.exit165.i, %TERP_stk_push.exit162.i, %SRDR_get_operand.exit154.i, %TERP_stk_push.exit.i, %SRDR_get_operand.exit149.i, %SRDR_get_operand.exit.i, %362, %346, %SRDR_get_operand.exit182.i, %SRDR_get_operand.exit179.i, %206, %374, %367, %.thread215.i, %353, %203, %201, %191, %._crit_edge.i36
-  %.184.i = phi i64 [ %183, %._crit_edge.i36 ], [ %183, %374 ], [ %183, %201 ], [ %183, %191 ], [ %183, %203 ], [ %183, %.thread215.i ], [ %183, %367 ], [ %183, %353 ], [ %183, %206 ], [ %183, %SRDR_get_operand.exit179.i ], [ %183, %SRDR_get_operand.exit182.i ], [ %183, %346 ], [ %183, %362 ], [ %183, %SRDR_get_operand.exit176.i ], [ %.083.i, %SRDR_get_operand.exit.i ], [ %183, %SRDR_get_operand.exit149.i ], [ %183, %TERP_stk_push.exit.i ], [ %183, %SRDR_get_operand.exit154.i ], [ %183, %TERP_stk_push.exit162.i ], [ %183, %SRDR_get_operand.exit165.i ], [ %183, %TERP_stk_push.exit173.i ], [ %183, %364 ]
-  %.not120.i = phi i1 [ true, %._crit_edge.i36 ], [ true, %374 ], [ true, %201 ], [ true, %191 ], [ true, %203 ], [ false, %.thread215.i ], [ true, %367 ], [ true, %353 ], [ true, %362 ], [ true, %346 ], [ true, %SRDR_get_operand.exit182.i ], [ true, %SRDR_get_operand.exit179.i ], [ false, %206 ], [ true, %SRDR_get_operand.exit.i ], [ true, %SRDR_get_operand.exit149.i ], [ true, %TERP_stk_push.exit.i ], [ true, %SRDR_get_operand.exit154.i ], [ true, %TERP_stk_push.exit162.i ], [ true, %SRDR_get_operand.exit165.i ], [ true, %TERP_stk_push.exit173.i ], [ true, %SRDR_get_operand.exit176.i ], [ true, %364 ]
-  %.081.i = phi i32 [ 0, %._crit_edge.i36 ], [ 0, %374 ], [ 0, %201 ], [ 0, %191 ], [ 0, %203 ], [ 1, %.thread215.i ], [ 0, %367 ], [ 0, %353 ], [ 0, %362 ], [ 0, %346 ], [ 0, %SRDR_get_operand.exit182.i ], [ 0, %SRDR_get_operand.exit179.i ], [ 1, %206 ], [ 0, %SRDR_get_operand.exit.i ], [ 0, %SRDR_get_operand.exit149.i ], [ 0, %TERP_stk_push.exit.i ], [ 0, %SRDR_get_operand.exit154.i ], [ 0, %TERP_stk_push.exit162.i ], [ 0, %SRDR_get_operand.exit165.i ], [ 0, %TERP_stk_push.exit173.i ], [ 0, %SRDR_get_operand.exit176.i ], [ 0, %364 ]
+TERP_log_spin.exit141.i:                          ; preds = %364, %SRDR_get_operand.exit173.i, %TERP_stk_push.exit170.i, %SRDR_get_operand.exit162.i, %TERP_stk_push.exit159.i, %SRDR_get_operand.exit151.i, %TERP_stk_push.exit.i, %SRDR_get_operand.exit146.i, %SRDR_get_operand.exit.i, %362, %346, %SRDR_get_operand.exit179.i, %SRDR_get_operand.exit176.i, %206, %374, %367, %.thread208.i, %353, %203, %201, %191, %._crit_edge.i36
+  %.184.i = phi i64 [ %183, %._crit_edge.i36 ], [ %183, %374 ], [ %183, %201 ], [ %183, %191 ], [ %183, %203 ], [ %183, %.thread208.i ], [ %183, %367 ], [ %183, %353 ], [ %183, %206 ], [ %183, %SRDR_get_operand.exit176.i ], [ %183, %SRDR_get_operand.exit179.i ], [ %183, %346 ], [ %183, %362 ], [ %183, %SRDR_get_operand.exit173.i ], [ %.083.i, %SRDR_get_operand.exit.i ], [ %183, %SRDR_get_operand.exit146.i ], [ %183, %TERP_stk_push.exit.i ], [ %183, %SRDR_get_operand.exit151.i ], [ %183, %TERP_stk_push.exit159.i ], [ %183, %SRDR_get_operand.exit162.i ], [ %183, %TERP_stk_push.exit170.i ], [ %183, %364 ]
+  %.not120.i = phi i1 [ true, %._crit_edge.i36 ], [ true, %374 ], [ true, %201 ], [ true, %191 ], [ true, %203 ], [ false, %.thread208.i ], [ true, %367 ], [ true, %353 ], [ true, %362 ], [ true, %346 ], [ true, %SRDR_get_operand.exit179.i ], [ true, %SRDR_get_operand.exit176.i ], [ false, %206 ], [ true, %SRDR_get_operand.exit.i ], [ true, %SRDR_get_operand.exit146.i ], [ true, %TERP_stk_push.exit.i ], [ true, %SRDR_get_operand.exit151.i ], [ true, %TERP_stk_push.exit159.i ], [ true, %SRDR_get_operand.exit162.i ], [ true, %TERP_stk_push.exit170.i ], [ true, %SRDR_get_operand.exit173.i ], [ true, %364 ]
+  %.081.i = phi i32 [ 0, %._crit_edge.i36 ], [ 0, %374 ], [ 0, %201 ], [ 0, %191 ], [ 0, %203 ], [ 1, %.thread208.i ], [ 0, %367 ], [ 0, %353 ], [ 0, %362 ], [ 0, %346 ], [ 0, %SRDR_get_operand.exit179.i ], [ 0, %SRDR_get_operand.exit176.i ], [ 1, %206 ], [ 0, %SRDR_get_operand.exit.i ], [ 0, %SRDR_get_operand.exit146.i ], [ 0, %TERP_stk_push.exit.i ], [ 0, %SRDR_get_operand.exit151.i ], [ 0, %TERP_stk_push.exit159.i ], [ 0, %SRDR_get_operand.exit162.i ], [ 0, %TERP_stk_push.exit170.i ], [ 0, %SRDR_get_operand.exit173.i ], [ 0, %364 ]
   %.not119.i = icmp eq i32 %.388.i, 0
   br i1 %.not119.i, label %377, label %375
 
-375:                                              ; preds = %TERP_log_spin.exit144.i
+375:                                              ; preds = %TERP_log_spin.exit141.i
   %376 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %129, ptr noundef nonnull @.str.268) #12
   br i1 %.not120.i, label %378, label %382
 
-377:                                              ; preds = %TERP_log_spin.exit144.i
+377:                                              ; preds = %TERP_log_spin.exit141.i
   br i1 %.not120.i, label %378, label %382
 
-378:                                              ; preds = %377, %375, %.thread233.i
-  %.184224232.i = phi i64 [ %.184.i, %375 ], [ %.184.i, %377 ], [ %.083.i, %.thread233.i ]
-  %.081228231.i = phi i32 [ %.081.i, %375 ], [ %.081.i, %377 ], [ 0, %.thread233.i ]
+378:                                              ; preds = %377, %375, %.thread226.i
+  %.184217225.i = phi i64 [ %.184.i, %375 ], [ %.184.i, %377 ], [ %.083.i, %.thread226.i ]
+  %.081221224.i = phi i32 [ %.081.i, %375 ], [ %.081.i, %377 ], [ 0, %.thread226.i ]
   %379 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %380 = load ptr, ptr %379, align 8, !tbaa !83
   %381 = load ptr, ptr %380, align 8, !tbaa !55
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 814, ptr noundef nonnull @.str.269, ptr noundef %381, i64 noundef %.184224232.i) #12
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 814, ptr noundef nonnull @.str.269, ptr noundef %381, i64 noundef %.184217225.i) #12
   br label %.sink.split.i
 
 382:                                              ; preds = %377, %375
@@ -1613,15 +1613,15 @@ TERP_log_spin.exit144.i:                          ; preds = %364, %SRDR_get_oper
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %384, %378
-  %.081228229.ph.i = phi i32 [ %.081.i, %384 ], [ %.081228231.i, %378 ]
+  %.081221222.ph.i = phi i32 [ %.081.i, %384 ], [ %.081221224.i, %378 ]
   %385 = load ptr, ptr %7, align 8, !tbaa !91
   call void @ERR_print_errors(ptr noundef %385) #12
   %386 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %129, ptr noundef nonnull @.str.226) #12
   br label %TERP_execute.exit
 
 TERP_execute.exit:                                ; preds = %382, %.sink.split.i
-  %.081228229.i = phi i32 [ %.081.i, %382 ], [ %.081228229.ph.i, %.sink.split.i ]
-  %.not25 = icmp eq i32 %.081228229.i, 0
+  %.081221222.i = phi i32 [ %.081.i, %382 ], [ %.081221222.ph.i, %.sink.split.i ]
+  %.not25 = icmp eq i32 %.081221222.i, 0
   %.pre142 = load ptr, ptr %148, align 8, !tbaa !95
   %.pre144 = load ptr, ptr %156, align 8, !tbaa !100
   br i1 %.not25, label %392, label %387
@@ -5831,14 +5831,14 @@ define internal fastcc range(i32 0, 2) i32 @SRDR_print_one(ptr noundef nonnull c
   br label %SRDR_get_operand.exit
 
 SRDR_get_operand.exit:                            ; preds = %6, %15
-  %.0132 = phi i64 [ 0, %6 ], [ %17, %15 ]
+  %.0127 = phi i64 [ 0, %6 ], [ %17, %15 ]
   %.0.i = phi i32 [ 0, %6 ], [ 1, %15 ]
   %19 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 391, ptr noundef nonnull @.str.230, i32 noundef %.0.i) #12
   %.not61 = icmp eq i32 %19, 0
-  br i1 %.not61, label %print_opc.exit119, label %20
+  br i1 %.not61, label %print_opc.exit114, label %20
 
 20:                                               ; preds = %SRDR_get_operand.exit
-  switch i64 %.0132, label %178 [
+  switch i64 %.0127, label %178 [
     i64 1, label %21
     i64 2, label %30
     i64 3, label %52
@@ -5852,8 +5852,8 @@ SRDR_get_operand.exit:                            ; preds = %6, %15
   %22 = load ptr, ptr %0, align 8, !tbaa !74
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %12, %23
-  %.not.i86 = icmp eq i64 %2, -1
-  br i1 %.not.i86, label %27, label %25
+  %.not.i81 = icmp eq i64 %2, -1
+  br i1 %.not.i81, label %27, label %25
 
 25:                                               ; preds = %21
   %26 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.248, i64 noundef %2, i64 noundef %24, ptr noundef nonnull @.str.231) #12
@@ -5864,11 +5864,11 @@ SRDR_get_operand.exit:                            ; preds = %6, %15
   br label %print_opc.exit
 
 print_opc.exit:                                   ; preds = %25, %27
-  br i1 %.not, label %print_opc.exit119, label %29
+  br i1 %.not, label %print_opc.exit114, label %29
 
 29:                                               ; preds = %print_opc.exit
   store i32 1, ptr %3, align 4, !tbaa !71
-  br label %print_opc.exit119
+  br label %print_opc.exit114
 
 30:                                               ; preds = %20
   %31 = load ptr, ptr %9, align 8, !tbaa !75
@@ -5877,8 +5877,8 @@ print_opc.exit:                                   ; preds = %25, %27
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %35, i64 noundef 8) #12
-  %.not.i87 = icmp eq i32 %36, 0
-  br i1 %.not.i87, label %SRDR_get_operand.exit89, label %37
+  %.not.i82 = icmp eq i32 %36, 0
+  br i1 %.not.i82, label %SRDR_get_operand.exit84, label %37
 
 37:                                               ; preds = %30
   %38 = load ptr, ptr %7, align 8, !tbaa !72
@@ -5886,21 +5886,21 @@ print_opc.exit:                                   ; preds = %25, %27
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %41, ptr %7, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit89
+  br label %SRDR_get_operand.exit84
 
-SRDR_get_operand.exit89:                          ; preds = %30, %37
-  %.0131 = phi ptr [ null, %30 ], [ %40, %37 ]
-  %.0.i88 = phi i32 [ 0, %30 ], [ 1, %37 ]
-  %42 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 406, ptr noundef nonnull @.str.232, i32 noundef %.0.i88) #12
+SRDR_get_operand.exit84:                          ; preds = %30, %37
+  %.0126 = phi ptr [ null, %30 ], [ %40, %37 ]
+  %.0.i83 = phi i32 [ 0, %30 ], [ 1, %37 ]
+  %42 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 406, ptr noundef nonnull @.str.232, i32 noundef %.0.i83) #12
   %.not69 = icmp eq i32 %42, 0
-  br i1 %.not69, label %print_opc.exit119, label %43
+  br i1 %.not69, label %print_opc.exit114, label %43
 
-43:                                               ; preds = %SRDR_get_operand.exit89
+43:                                               ; preds = %SRDR_get_operand.exit84
   %44 = load ptr, ptr %0, align 8, !tbaa !74
   %45 = ptrtoint ptr %44 to i64
   %46 = sub i64 %12, %45
-  %.not.i90 = icmp eq i64 %2, -1
-  br i1 %.not.i90, label %49, label %47
+  %.not.i85 = icmp eq i64 %2, -1
+  br i1 %.not.i85, label %49, label %47
 
 47:                                               ; preds = %43
   %48 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.248, i64 noundef %2, i64 noundef %46, ptr noundef nonnull @.str.233) #12
@@ -5911,8 +5911,8 @@ SRDR_get_operand.exit89:                          ; preds = %30, %37
   br label %.thread
 
 .thread:                                          ; preds = %49, %47
-  %51 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.234, ptr noundef %.0131) #12
-  br label %print_opc.exit119
+  %51 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.234, ptr noundef %.0126) #12
+  br label %print_opc.exit114
 
 52:                                               ; preds = %20
   %53 = load ptr, ptr %9, align 8, !tbaa !75
@@ -5921,8 +5921,8 @@ SRDR_get_operand.exit89:                          ; preds = %30, %37
   %56 = ptrtoint ptr %54 to i64
   %57 = sub i64 %55, %56
   %58 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %57, i64 noundef 8) #12
-  %.not.i92 = icmp eq i32 %58, 0
-  br i1 %.not.i92, label %SRDR_get_operand.exit94, label %59
+  %.not.i87 = icmp eq i32 %58, 0
+  br i1 %.not.i87, label %SRDR_get_operand.exit89, label %59
 
 59:                                               ; preds = %52
   %60 = load ptr, ptr %7, align 8, !tbaa !72
@@ -5930,46 +5930,46 @@ SRDR_get_operand.exit89:                          ; preds = %30, %37
   %62 = inttoptr i64 %61 to ptr
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %63, ptr %7, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit94
+  br label %SRDR_get_operand.exit89
 
-SRDR_get_operand.exit94:                          ; preds = %52, %59
-  %.0130 = phi ptr [ null, %52 ], [ %62, %59 ]
-  %.0.i93 = phi i32 [ 0, %52 ], [ 1, %59 ]
-  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 415, ptr noundef nonnull @.str.232, i32 noundef %.0.i93) #12
+SRDR_get_operand.exit89:                          ; preds = %52, %59
+  %.0125 = phi ptr [ null, %52 ], [ %62, %59 ]
+  %.0.i88 = phi i32 [ 0, %52 ], [ 1, %59 ]
+  %64 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 415, ptr noundef nonnull @.str.232, i32 noundef %.0.i88) #12
   %.not67 = icmp eq i32 %64, 0
-  br i1 %.not67, label %print_opc.exit119, label %65
+  br i1 %.not67, label %print_opc.exit114, label %65
 
-65:                                               ; preds = %SRDR_get_operand.exit94
+65:                                               ; preds = %SRDR_get_operand.exit89
   %66 = load ptr, ptr %0, align 8, !tbaa !74
   %67 = ptrtoint ptr %66 to i64
   %68 = sub i64 %12, %67
-  %.not.i95 = icmp eq i64 %2, -1
-  br i1 %.not.i95, label %71, label %69
+  %.not.i90 = icmp eq i64 %2, -1
+  br i1 %.not.i90, label %71, label %69
 
 69:                                               ; preds = %65
   %70 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.248, i64 noundef %2, i64 noundef %68, ptr noundef nonnull @.str.235) #12
-  br label %print_opc.exit96
+  br label %print_opc.exit91
 
 71:                                               ; preds = %65
   %72 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.249, i64 noundef %68, ptr noundef nonnull @.str.235) #12
-  br label %print_opc.exit96
+  br label %print_opc.exit91
 
-print_opc.exit96:                                 ; preds = %69, %71
-  %.not68 = icmp eq ptr %.0130, null
+print_opc.exit91:                                 ; preds = %69, %71
+  %.not68 = icmp eq ptr %.0125, null
   br i1 %.not68, label %78, label %73
 
-73:                                               ; preds = %print_opc.exit96
-  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0130) #14
+73:                                               ; preds = %print_opc.exit91
+  %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0125) #14
   %75 = icmp eq i64 %74, 1
   br i1 %75, label %76, label %78
 
 76:                                               ; preds = %73
-  %77 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.236, ptr noundef nonnull %.0130, ptr noundef nonnull %.0130) #12
-  br label %print_opc.exit119
+  %77 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.236, ptr noundef nonnull %.0125, ptr noundef nonnull %.0125) #12
+  br label %print_opc.exit114
 
-78:                                               ; preds = %73, %print_opc.exit96
-  %79 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.237, ptr noundef %.0130, ptr noundef %.0130) #12
-  br label %print_opc.exit119
+78:                                               ; preds = %73, %print_opc.exit91
+  %79 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.237, ptr noundef %.0125, ptr noundef %.0125) #12
+  br label %print_opc.exit114
 
 80:                                               ; preds = %20
   %81 = load ptr, ptr %9, align 8, !tbaa !75
@@ -5978,41 +5978,41 @@ print_opc.exit96:                                 ; preds = %69, %71
   %84 = ptrtoint ptr %82 to i64
   %85 = sub i64 %83, %84
   %86 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %85, i64 noundef 8) #12
-  %.not.i97 = icmp eq i32 %86, 0
-  br i1 %.not.i97, label %SRDR_get_operand.exit99, label %87
+  %.not.i92 = icmp eq i32 %86, 0
+  br i1 %.not.i92, label %SRDR_get_operand.exit94, label %87
 
 87:                                               ; preds = %80
   %88 = load ptr, ptr %7, align 8, !tbaa !72
   %89 = load i64, ptr %88, align 1
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store ptr %90, ptr %7, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit99
+  br label %SRDR_get_operand.exit94
 
-SRDR_get_operand.exit99:                          ; preds = %80, %87
-  %.0129 = phi i64 [ 0, %80 ], [ %89, %87 ]
-  %.0.i98 = phi i32 [ 0, %80 ], [ 1, %87 ]
-  %91 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 427, ptr noundef nonnull @.str.232, i32 noundef %.0.i98) #12
+SRDR_get_operand.exit94:                          ; preds = %80, %87
+  %.0124 = phi i64 [ 0, %80 ], [ %89, %87 ]
+  %.0.i93 = phi i32 [ 0, %80 ], [ 1, %87 ]
+  %91 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 427, ptr noundef nonnull @.str.232, i32 noundef %.0.i93) #12
   %.not66 = icmp eq i32 %91, 0
-  br i1 %.not66, label %print_opc.exit119, label %92
+  br i1 %.not66, label %print_opc.exit114, label %92
 
-92:                                               ; preds = %SRDR_get_operand.exit99
+92:                                               ; preds = %SRDR_get_operand.exit94
   %93 = load ptr, ptr %0, align 8, !tbaa !74
   %94 = ptrtoint ptr %93 to i64
   %95 = sub i64 %12, %94
-  %.not.i100 = icmp eq i64 %2, -1
-  br i1 %.not.i100, label %98, label %96
+  %.not.i95 = icmp eq i64 %2, -1
+  br i1 %.not.i95, label %98, label %96
 
 96:                                               ; preds = %92
   %97 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.248, i64 noundef %2, i64 noundef %95, ptr noundef nonnull @.str.238) #12
-  br label %.thread138
+  br label %.thread131
 
 98:                                               ; preds = %92
   %99 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.249, i64 noundef %95, ptr noundef nonnull @.str.238) #12
-  br label %.thread138
+  br label %.thread131
 
-.thread138:                                       ; preds = %98, %96
-  %100 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.239, i64 noundef %.0129, i64 noundef %.0129) #12
-  br label %print_opc.exit119
+.thread131:                                       ; preds = %98, %96
+  %100 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.239, i64 noundef %.0124, i64 noundef %.0124) #12
+  br label %print_opc.exit114
 
 101:                                              ; preds = %20
   %102 = load ptr, ptr %9, align 8, !tbaa !75
@@ -6021,41 +6021,41 @@ SRDR_get_operand.exit99:                          ; preds = %80, %87
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
   %107 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %106, i64 noundef 8) #12
-  %.not.i102 = icmp eq i32 %107, 0
-  br i1 %.not.i102, label %SRDR_get_operand.exit104, label %108
+  %.not.i97 = icmp eq i32 %107, 0
+  br i1 %.not.i97, label %SRDR_get_operand.exit99, label %108
 
 108:                                              ; preds = %101
   %109 = load ptr, ptr %7, align 8, !tbaa !72
   %110 = load i64, ptr %109, align 1
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
   store ptr %111, ptr %7, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit104
+  br label %SRDR_get_operand.exit99
 
-SRDR_get_operand.exit104:                         ; preds = %101, %108
-  %.0128 = phi i64 [ 0, %101 ], [ %110, %108 ]
-  %.0.i103 = phi i32 [ 0, %101 ], [ 1, %108 ]
-  %112 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 437, ptr noundef nonnull @.str.232, i32 noundef %.0.i103) #12
+SRDR_get_operand.exit99:                          ; preds = %101, %108
+  %.0123 = phi i64 [ 0, %101 ], [ %110, %108 ]
+  %.0.i98 = phi i32 [ 0, %101 ], [ 1, %108 ]
+  %112 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 437, ptr noundef nonnull @.str.232, i32 noundef %.0.i98) #12
   %.not65 = icmp eq i32 %112, 0
-  br i1 %.not65, label %print_opc.exit119, label %113
+  br i1 %.not65, label %print_opc.exit114, label %113
 
-113:                                              ; preds = %SRDR_get_operand.exit104
+113:                                              ; preds = %SRDR_get_operand.exit99
   %114 = load ptr, ptr %0, align 8, !tbaa !74
   %115 = ptrtoint ptr %114 to i64
   %116 = sub i64 %12, %115
-  %.not.i105 = icmp eq i64 %2, -1
-  br i1 %.not.i105, label %119, label %117
+  %.not.i100 = icmp eq i64 %2, -1
+  br i1 %.not.i100, label %119, label %117
 
 117:                                              ; preds = %113
   %118 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.248, i64 noundef %2, i64 noundef %116, ptr noundef nonnull @.str.240) #12
-  br label %.thread141
+  br label %.thread133
 
 119:                                              ; preds = %113
   %120 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.249, i64 noundef %116, ptr noundef nonnull @.str.240) #12
-  br label %.thread141
+  br label %.thread133
 
-.thread141:                                       ; preds = %119, %117
-  %121 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.239, i64 noundef %.0128, i64 noundef %.0128) #12
-  br label %print_opc.exit119
+.thread133:                                       ; preds = %119, %117
+  %121 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.239, i64 noundef %.0123, i64 noundef %.0123) #12
+  br label %print_opc.exit114
 
 122:                                              ; preds = %20
   %123 = load ptr, ptr %9, align 8, !tbaa !75
@@ -6064,30 +6064,30 @@ SRDR_get_operand.exit104:                         ; preds = %101, %108
   %126 = ptrtoint ptr %124 to i64
   %127 = sub i64 %125, %126
   %128 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %127, i64 noundef 8) #12
-  %.not.i107 = icmp eq i32 %128, 0
-  br i1 %.not.i107, label %SRDR_get_operand.exit109, label %129
+  %.not.i102 = icmp eq i32 %128, 0
+  br i1 %.not.i102, label %SRDR_get_operand.exit104, label %129
 
 129:                                              ; preds = %122
   %130 = load ptr, ptr %7, align 8, !tbaa !72
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store ptr %131, ptr %7, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit109
+  br label %SRDR_get_operand.exit104
 
-SRDR_get_operand.exit109:                         ; preds = %122, %129
-  %.0.i108 = phi i32 [ 1, %129 ], [ 0, %122 ]
-  %132 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 448, ptr noundef nonnull @.str.232, i32 noundef %.0.i108) #12
+SRDR_get_operand.exit104:                         ; preds = %122, %129
+  %.0.i103 = phi i32 [ 1, %129 ], [ 0, %122 ]
+  %132 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 448, ptr noundef nonnull @.str.232, i32 noundef %.0.i103) #12
   %.not63 = icmp eq i32 %132, 0
-  br i1 %.not63, label %print_opc.exit119, label %133
+  br i1 %.not63, label %print_opc.exit114, label %133
 
-133:                                              ; preds = %SRDR_get_operand.exit109
+133:                                              ; preds = %SRDR_get_operand.exit104
   %134 = load ptr, ptr %9, align 8, !tbaa !75
   %135 = load ptr, ptr %7, align 8, !tbaa !72
   %136 = ptrtoint ptr %134 to i64
   %137 = ptrtoint ptr %135 to i64
   %138 = sub i64 %136, %137
   %139 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %138, i64 noundef 8) #12
-  %.not.i110 = icmp eq i32 %139, 0
-  br i1 %.not.i110, label %SRDR_get_operand.exit112, label %140
+  %.not.i105 = icmp eq i32 %139, 0
+  br i1 %.not.i105, label %SRDR_get_operand.exit107, label %140
 
 140:                                              ; preds = %133
   %141 = load ptr, ptr %7, align 8, !tbaa !72
@@ -6095,21 +6095,21 @@ SRDR_get_operand.exit109:                         ; preds = %122, %129
   %143 = inttoptr i64 %142 to ptr
   %144 = getelementptr inbounds nuw i8, ptr %141, i64 8
   store ptr %144, ptr %7, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit112
+  br label %SRDR_get_operand.exit107
 
-SRDR_get_operand.exit112:                         ; preds = %133, %140
-  %.0127 = phi ptr [ null, %133 ], [ %143, %140 ]
-  %.0.i111 = phi i32 [ 0, %133 ], [ 1, %140 ]
-  %145 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 449, ptr noundef nonnull @.str.241, i32 noundef %.0.i111) #12
+SRDR_get_operand.exit107:                         ; preds = %133, %140
+  %.0122 = phi ptr [ null, %133 ], [ %143, %140 ]
+  %.0.i106 = phi i32 [ 0, %133 ], [ 1, %140 ]
+  %145 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 449, ptr noundef nonnull @.str.241, i32 noundef %.0.i106) #12
   %.not64 = icmp eq i32 %145, 0
-  br i1 %.not64, label %print_opc.exit119, label %146
+  br i1 %.not64, label %print_opc.exit114, label %146
 
-146:                                              ; preds = %SRDR_get_operand.exit112
+146:                                              ; preds = %SRDR_get_operand.exit107
   %147 = load ptr, ptr %0, align 8, !tbaa !74
   %148 = ptrtoint ptr %147 to i64
   %149 = sub i64 %12, %148
-  %.not.i113 = icmp eq i64 %2, -1
-  br i1 %.not.i113, label %152, label %150
+  %.not.i108 = icmp eq i64 %2, -1
+  br i1 %.not.i108, label %152, label %150
 
 150:                                              ; preds = %146
   %151 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.248, i64 noundef %2, i64 noundef %149, ptr noundef nonnull @.str.242) #12
@@ -6120,8 +6120,8 @@ SRDR_get_operand.exit112:                         ; preds = %133, %140
   br label %154
 
 154:                                              ; preds = %152, %150
-  %155 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.62, ptr noundef %.0127) #12
-  br label %print_opc.exit119
+  %155 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.62, ptr noundef %.0122) #12
+  br label %print_opc.exit114
 
 156:                                              ; preds = %20
   %157 = load ptr, ptr %9, align 8, !tbaa !75
@@ -6130,8 +6130,8 @@ SRDR_get_operand.exit112:                         ; preds = %133, %140
   %160 = ptrtoint ptr %158 to i64
   %161 = sub i64 %159, %160
   %162 = tail call i32 @test_size_t_ge(ptr noundef nonnull @.str.42, i32 noundef 345, ptr noundef nonnull @.str.247, ptr noundef nonnull @.str.56, i64 noundef %161, i64 noundef 8) #12
-  %.not.i115 = icmp eq i32 %162, 0
-  br i1 %.not.i115, label %SRDR_get_operand.exit117, label %163
+  %.not.i110 = icmp eq i32 %162, 0
+  br i1 %.not.i110, label %SRDR_get_operand.exit112, label %163
 
 163:                                              ; preds = %156
   %164 = load ptr, ptr %7, align 8, !tbaa !72
@@ -6139,37 +6139,37 @@ SRDR_get_operand.exit112:                         ; preds = %133, %140
   %166 = inttoptr i64 %165 to ptr
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
   store ptr %167, ptr %7, align 8, !tbaa !72
-  br label %SRDR_get_operand.exit117
+  br label %SRDR_get_operand.exit112
 
-SRDR_get_operand.exit117:                         ; preds = %156, %163
-  %.0126 = phi ptr [ null, %156 ], [ %166, %163 ]
-  %.0.i116 = phi i32 [ 0, %156 ], [ 1, %163 ]
-  %168 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 460, ptr noundef nonnull @.str.243, i32 noundef %.0.i116) #12
+SRDR_get_operand.exit112:                         ; preds = %156, %163
+  %.0121 = phi ptr [ null, %156 ], [ %166, %163 ]
+  %.0.i111 = phi i32 [ 0, %156 ], [ 1, %163 ]
+  %168 = tail call i32 @test_true(ptr noundef nonnull @.str.42, i32 noundef 460, ptr noundef nonnull @.str.243, i32 noundef %.0.i111) #12
   %.not62 = icmp eq i32 %168, 0
-  br i1 %.not62, label %print_opc.exit119, label %169
+  br i1 %.not62, label %print_opc.exit114, label %169
 
-169:                                              ; preds = %SRDR_get_operand.exit117
-  %170 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.244, ptr noundef %.0126) #12
+169:                                              ; preds = %SRDR_get_operand.exit112
+  %170 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.244, ptr noundef %.0121) #12
   %171 = load ptr, ptr %0, align 8, !tbaa !74
   %172 = ptrtoint ptr %171 to i64
   %173 = sub i64 %12, %172
-  %.not.i118 = icmp eq i64 %2, -1
-  br i1 %.not.i118, label %176, label %174
+  %.not.i113 = icmp eq i64 %2, -1
+  br i1 %.not.i113, label %176, label %174
 
 174:                                              ; preds = %169
   %175 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.248, i64 noundef %2, i64 noundef %173, ptr noundef nonnull @.str.245) #12
-  br label %print_opc.exit119
+  br label %print_opc.exit114
 
 176:                                              ; preds = %169
   %177 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %1, ptr noundef nonnull @.str.249, i64 noundef %173, ptr noundef nonnull @.str.245) #12
-  br label %print_opc.exit119
+  br label %print_opc.exit114
 
 178:                                              ; preds = %20
-  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 468, ptr noundef nonnull @.str.246, i64 noundef %.0132) #12
-  br label %print_opc.exit119
+  tail call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.42, i32 noundef 468, ptr noundef nonnull @.str.246, i64 noundef %.0127) #12
+  br label %print_opc.exit114
 
-print_opc.exit119:                                ; preds = %176, %174, %SRDR_get_operand.exit112, %SRDR_get_operand.exit109, %76, %78, %29, %print_opc.exit, %.thread, %.thread138, %.thread141, %154, %SRDR_get_operand.exit117, %SRDR_get_operand.exit104, %SRDR_get_operand.exit99, %SRDR_get_operand.exit94, %SRDR_get_operand.exit89, %178, %SRDR_get_operand.exit
-  %.056 = phi i32 [ 0, %178 ], [ 0, %SRDR_get_operand.exit ], [ 0, %SRDR_get_operand.exit89 ], [ 0, %SRDR_get_operand.exit94 ], [ 0, %SRDR_get_operand.exit99 ], [ 0, %SRDR_get_operand.exit104 ], [ 0, %SRDR_get_operand.exit117 ], [ 1, %154 ], [ 1, %.thread141 ], [ 1, %.thread138 ], [ 1, %.thread ], [ 1, %print_opc.exit ], [ 1, %29 ], [ 1, %78 ], [ 1, %76 ], [ 0, %SRDR_get_operand.exit109 ], [ 0, %SRDR_get_operand.exit112 ], [ 1, %174 ], [ 1, %176 ]
+print_opc.exit114:                                ; preds = %176, %174, %SRDR_get_operand.exit107, %SRDR_get_operand.exit104, %76, %78, %29, %print_opc.exit, %.thread, %.thread131, %.thread133, %154, %SRDR_get_operand.exit112, %SRDR_get_operand.exit99, %SRDR_get_operand.exit94, %SRDR_get_operand.exit89, %SRDR_get_operand.exit84, %178, %SRDR_get_operand.exit
+  %.056 = phi i32 [ 0, %178 ], [ 0, %SRDR_get_operand.exit ], [ 0, %SRDR_get_operand.exit84 ], [ 0, %SRDR_get_operand.exit89 ], [ 0, %SRDR_get_operand.exit94 ], [ 0, %SRDR_get_operand.exit99 ], [ 0, %SRDR_get_operand.exit112 ], [ 1, %154 ], [ 1, %.thread133 ], [ 1, %.thread131 ], [ 1, %.thread ], [ 1, %print_opc.exit ], [ 1, %29 ], [ 1, %78 ], [ 1, %76 ], [ 0, %SRDR_get_operand.exit104 ], [ 0, %SRDR_get_operand.exit107 ], [ 1, %174 ], [ 1, %176 ]
   ret i32 %.056
 }
 

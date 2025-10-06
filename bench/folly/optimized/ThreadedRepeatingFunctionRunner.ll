@@ -111,16 +111,16 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit.i:       ; preds = %1
   %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %15 = load ptr, ptr %14, align 8, !tbaa !24
-  %.not11.i = icmp eq ptr %13, %15
-  br i1 %.not11.i, label %.thread, label %.lr.ph.i
+  %.not10.i = icmp eq ptr %13, %15
+  br i1 %.not10.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %.noexc1
-  %.sroa.06.012.i = phi ptr [ %16, %.noexc1 ], [ %13, %9 ]
-  invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.06.012.i)
+  %.sroa.06.011.i = phi ptr [ %16, %.noexc1 ], [ %13, %9 ]
+  invoke void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.06.011.i)
           to label %.noexc1 unwind label %.loopexit
 
 .noexc1:                                          ; preds = %.lr.ph.i
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i, i64 8
   %.not.i = icmp eq ptr %16, %15
   br i1 %.not.i, label %.thread, label %.lr.ph.i
 
@@ -245,13 +245,13 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %_ZNSt11unique_lockI
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8, !tbaa !24
-  %.not11 = icmp eq ptr %12, %14
-  br i1 %.not11, label %.loopexit, label %.lr.ph
+  %.not10 = icmp eq ptr %12, %14
+  br i1 %.not10, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
-  %.sroa.06.012 = phi ptr [ %15, %.lr.ph ], [ %12, %8 ]
-  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.06.012)
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 8
+  %.sroa.06.011 = phi ptr [ %15, %.lr.ph ], [ %12, %8 ]
+  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.06.011)
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.011, i64 8
   %.not = icmp eq ptr %15, %14
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -321,13 +321,13 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit.i:          ; preds = %_ZNSt11unique_lockI
   %12 = load ptr, ptr %11, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %14 = load ptr, ptr %13, align 8, !tbaa !24
-  %.not11.i = icmp eq ptr %12, %14
-  br i1 %.not11.i, label %_ZN5folly31ThreadedRepeatingFunctionRunner8stopImplEv.exit, label %.lr.ph.i
+  %.not10.i = icmp eq ptr %12, %14
+  br i1 %.not10.i, label %_ZN5folly31ThreadedRepeatingFunctionRunner8stopImplEv.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %.lr.ph.i
-  %.sroa.06.012.i = phi ptr [ %15, %.lr.ph.i ], [ %12, %8 ]
-  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.06.012.i)
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 8
+  %.sroa.06.011.i = phi ptr [ %15, %.lr.ph.i ], [ %12, %8 ]
+  tail call void @_ZNSt6thread4joinEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.06.011.i)
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i, i64 8
   %.not.i = icmp eq ptr %15, %14
   br i1 %.not.i, label %_ZN5folly31ThreadedRepeatingFunctionRunner8stopImplEv.exit, label %.lr.ph.i
 

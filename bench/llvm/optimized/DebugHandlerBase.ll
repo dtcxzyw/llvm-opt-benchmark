@@ -351,8 +351,8 @@ _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEE5resetEv.exit: ; preds = %26
 
 56:                                               ; preds = %.outer, %68
   %57 = phi ptr [ %54, %.outer ], [ %65, %68 ]
-  %.not36 = phi i1 [ %55, %.outer ], [ false, %68 ]
-  br i1 %.not36, label %105, label %58
+  %.not35 = phi i1 [ %55, %.outer ], [ false, %68 ]
+  br i1 %.not35, label %105, label %58
 
 58:                                               ; preds = %56
   %59 = load i64, ptr %57, align 8, !tbaa !91
@@ -372,8 +372,8 @@ _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEE5resetEv.exit: ; preds = %26
   %66 = ptrtoint ptr %65 to i64
   store i64 %66, ptr %4, align 8, !tbaa !92
   %67 = load ptr, ptr %53, align 8, !tbaa !93
-  %.not37 = icmp eq ptr %65, %67
-  br i1 %.not37, label %_ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit, label %68
+  %.not36 = icmp eq ptr %65, %67
+  br i1 %.not36, label %_ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit, label %68
 
 68:                                               ; preds = %60
   %69 = load i64, ptr %65, align 8, !tbaa !91
@@ -437,11 +437,11 @@ _ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit: ; preds = %88, %91
   %98 = load i32, ptr %7, align 8, !tbaa !26
   %99 = add i32 %98, 1
   store i32 %99, ptr %7, align 8, !tbaa !26
-  %.pre60 = load ptr, ptr %4, align 8, !tbaa !96
+  %.pre59 = load ptr, ptr %4, align 8, !tbaa !96
   br label %_ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit
 
 _ZNSt8optionalIN4llvm23DbgVariableFragmentInfoEEaSIS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS2_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES5_ISt6__and_IJSt9is_scalarIS1_ES6_IS1_NSt5decayIS9_E4typeEEEEESt16is_constructibleIS1_JS9_EESt13is_assignableIRS1_S9_EEERS2_E4typeEOS9_.exit: ; preds = %60, %73, %70, %87, %80, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit, %76
-  %100 = phi ptr [ %57, %76 ], [ %.pre60, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %57, %80 ], [ %57, %87 ], [ %65, %73 ], [ %65, %70 ], [ %65, %60 ]
+  %100 = phi ptr [ %57, %76 ], [ %.pre59, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %57, %80 ], [ %57, %87 ], [ %65, %73 ], [ %65, %70 ], [ %65, %60 ]
   %.3 = phi i64 [ %79, %76 ], [ 0, %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE9push_backEl.exit ], [ %.017.ph, %80 ], [ %.017.ph, %87 ], [ %75, %73 ], [ %72, %70 ], [ %.017.ph, %60 ]
   %101 = call noundef i32 @_ZNK4llvm12DIExpression11ExprOperand7getSizeEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #21
   %102 = zext i32 %101 to i64
@@ -530,16 +530,16 @@ _ZN4llvm15SmallVectorImplIlE12assignRemoteEOS1_.exit.i: ; preds = %135
 _ZSt4moveIPlS0_ET0_T_S2_S1_.exit35.i:             ; preds = %139
   %141 = zext i32 %133 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull %130, i64 noundef %141, i64 noundef 8) #21
-  %.pre61 = load i32, ptr %7, align 8, !tbaa !26
-  %.pre63 = zext i32 %.pre61 to i64
-  %.not.i.i.i = icmp eq i32 %.pre61, 0
+  %.pre60 = load i32, ptr %7, align 8, !tbaa !26
+  %.pre62 = zext i32 %.pre60 to i64
+  %.not.i.i.i = icmp eq i32 %.pre60, 0
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE18uninitialized_moveIPlS3_EEvT_S4_T0_.exit.i, label %_ZSt4moveIPlS0_ET0_T_S2_S1_.exit35.i.thread
 
 _ZSt4moveIPlS0_ET0_T_S2_S1_.exit35.i.thread:      ; preds = %139, %_ZSt4moveIPlS0_ET0_T_S2_S1_.exit35.i
-  %.pre-phi77 = phi i64 [ %.pre63, %_ZSt4moveIPlS0_ET0_T_S2_S1_.exit35.i ], [ 1, %139 ]
+  %.pre-phi76 = phi i64 [ %.pre62, %_ZSt4moveIPlS0_ET0_T_S2_S1_.exit35.i ], [ 1, %139 ]
   %142 = load ptr, ptr %5, align 8, !tbaa !25
   %143 = load ptr, ptr %129, align 8, !tbaa !25
-  %gepdiff.i = shl nuw nsw i64 %.pre-phi77, 3
+  %gepdiff.i = shl nuw nsw i64 %.pre-phi76, 3
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %143, ptr align 8 %142, i64 %gepdiff.i, i1 false)
   br label %_ZN4llvm23SmallVectorTemplateBaseIlLb1EE18uninitialized_moveIPlS3_EEvT_S4_T0_.exit.i
 
@@ -561,12 +561,12 @@ _ZNSt8optionalIN4llvm19DbgVariableLocationEEC2IS1_TnNSt9enable_ifIX7__and_vISt6_
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i8 %.sink, ptr %145, align 8, !tbaa !75
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre62 = load ptr, ptr %5, align 8, !tbaa !25
-  %146 = icmp eq ptr %.pre62, %6
+  %.pre61 = load ptr, ptr %5, align 8, !tbaa !25
+  %146 = icmp eq ptr %.pre61, %6
   br i1 %146, label %_ZN4llvm19DbgVariableLocationD2Ev.exit, label %147
 
 147:                                              ; preds = %.loopexit
-  call void @free(ptr noundef %.pre62) #21
+  call void @free(ptr noundef %.pre61) #21
   br label %_ZN4llvm19DbgVariableLocationD2Ev.exit
 
 _ZN4llvm19DbgVariableLocationD2Ev.exit:           ; preds = %24, %30, %.loopexit, %147
@@ -1643,14 +1643,14 @@ tailrecurse:                                      ; preds = %_ZNK4llvm13DIDerive
   %.tr = phi ptr [ %0, %1 ], [ %39, %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit ]
   %2 = load i8, ptr %.tr, align 4, !tbaa !313
   switch i8 %2, label %20 [
-    i8 34, label %.thread59
+    i8 34, label %.thread57
     i8 14, label %3
   ]
 
 3:                                                ; preds = %tailrecurse
   %4 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #21
   %5 = icmp eq i16 %4, 4
-  br i1 %5, label %6, label %.thread59
+  br i1 %5, label %6, label %.thread57
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds i8, ptr %.tr, i64 -16
@@ -1676,7 +1676,7 @@ _ZNK4llvm15DICompositeType11getBaseTypeEv.exit:   ; preds = %10, %13
   %18 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !315
   %.not38 = icmp eq ptr %19, null
-  br i1 %.not38, label %.thread59, label %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit._crit_edge
+  br i1 %.not38, label %.thread57, label %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit._crit_edge
 
 _ZNK4llvm15DICompositeType11getBaseTypeEv.exit._crit_edge: ; preds = %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit
   %.pre = load i8, ptr %19, align 4, !tbaa !313
@@ -1684,25 +1684,25 @@ _ZNK4llvm15DICompositeType11getBaseTypeEv.exit._crit_edge: ; preds = %_ZNK4llvm1
 
 20:                                               ; preds = %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit._crit_edge, %tailrecurse
   %21 = phi i8 [ %.pre, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit._crit_edge ], [ %2, %tailrecurse ]
-  %.151.ph = phi ptr [ %19, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit._crit_edge ], [ %.tr, %tailrecurse ]
+  %.150.ph = phi ptr [ %19, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit._crit_edge ], [ %.tr, %tailrecurse ]
   %22 = icmp eq i8 %21, 13
   br i1 %22, label %23, label %40
 
 23:                                               ; preds = %20
-  %24 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %.151.ph) #21
+  %24 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %.150.ph) #21
   %switch.tableidx = add i16 %24, -15
   %25 = icmp ult i16 %switch.tableidx, 52
   br i1 %25, label %switch.hole_check, label %26
 
 26:                                               ; preds = %switch.hole_check, %23
-  %27 = getelementptr inbounds i8, ptr %.151.ph, i64 -16
+  %27 = getelementptr inbounds i8, ptr %.150.ph, i64 -16
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 2
-  %.not.i.i.i.i43 = icmp eq i64 %29, 0
-  br i1 %.not.i.i.i.i43, label %33, label %30
+  %.not.i.i.i.i42 = icmp eq i64 %29, 0
+  br i1 %.not.i.i.i.i42, label %33, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds i8, ptr %.151.ph, i64 -32
+  %31 = getelementptr inbounds i8, ptr %.150.ph, i64 -32
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   br label %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit
 
@@ -1714,34 +1714,34 @@ _ZNK4llvm15DICompositeType11getBaseTypeEv.exit._crit_edge: ; preds = %_ZNK4llvm1
   br label %_ZNK4llvm13DIDerivedType11getBaseTypeEv.exit
 
 _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %30, %33
-  %.sroa.0.0.i.i.i.i44 = phi ptr [ %37, %33 ], [ %32, %30 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i44, i64 24
+  %.sroa.0.0.i.i.i.i43 = phi ptr [ %37, %33 ], [ %32, %30 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i43, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !315
   br label %tailrecurse
 
 40:                                               ; preds = %20
-  %41 = getelementptr inbounds nuw i8, ptr %.151.ph, i64 44
+  %41 = getelementptr inbounds nuw i8, ptr %.150.ph, i64 44
   %42 = load i32, ptr %41, align 4, !tbaa !330
-  %switch.tableidx64 = add i32 %42, -2
-  %43 = icmp ult i32 %switch.tableidx64, 15
-  %switch.maskindex68 = trunc i32 %switch.tableidx64 to i16
-  %switch.shifted69 = lshr i16 20577, %switch.maskindex68
-  %switch.lobit70 = trunc i16 %switch.shifted69 to i1
-  %or.cond = select i1 %43, i1 %switch.lobit70, i1 false
-  br i1 %or.cond, label %.thread59, label %44
+  %switch.tableidx61 = add i32 %42, -2
+  %43 = icmp ult i32 %switch.tableidx61, 15
+  %switch.maskindex65 = trunc i32 %switch.tableidx61 to i16
+  %switch.shifted66 = lshr i16 20577, %switch.maskindex65
+  %switch.lobit67 = trunc i16 %switch.shifted66 to i1
+  %or.cond = select i1 %43, i1 %switch.lobit67, i1 false
+  br i1 %or.cond, label %.thread57, label %44
 
 44:                                               ; preds = %40
-  %45 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %.151.ph) #21
+  %45 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %.150.ph) #21
   %46 = icmp eq i16 %45, 59
-  br label %.thread59
+  br label %.thread57
 
 switch.hole_check:                                ; preds = %23
   %switch.maskindex = zext nneg i16 %switch.tableidx to i64
   %switch.shifted = lshr i64 2251799813750787, %switch.maskindex
   %switch.lobit = trunc i64 %switch.shifted to i1
-  br i1 %switch.lobit, label %.thread59, label %26
+  br i1 %switch.lobit, label %.thread57, label %26
 
-.thread59:                                        ; preds = %tailrecurse, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit, %3, %switch.hole_check, %40, %44
+.thread57:                                        ; preds = %tailrecurse, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit, %3, %switch.hole_check, %40, %44
   %.0 = phi i1 [ %46, %44 ], [ true, %40 ], [ true, %switch.hole_check ], [ true, %3 ], [ false, %_ZNK4llvm15DICompositeType11getBaseTypeEv.exit ], [ true, %tailrecurse ]
   ret i1 %.0
 }

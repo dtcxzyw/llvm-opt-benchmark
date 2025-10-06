@@ -173,169 +173,179 @@ declare i32 @CBB_init(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i64 @CBS_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 256) i32 @cbs_convert_ber(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -32) %2, i8 noundef signext range(i8 0, 2) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @cbs_convert_ber(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, -32) %2, i8 noundef signext range(i8 0, 2) %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.cbs_st, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = alloca %struct.cbb_st, align 8
   %10 = icmp ugt i32 %4, 2048
-  br i1 %10, label %.loopexit, label %.preheader
+  br i1 %10, label %70, label %.preheader
 
 .preheader:                                       ; preds = %5
+  %11 = tail call i64 @CBS_len(ptr noundef %0) #4
+  %.not60 = icmp eq i64 %11, 0
+  br i1 %.not60, label %._crit_edge, label %.lr.ph
+
+.lr.ph:                                           ; preds = %.preheader
   %.not39 = icmp eq i32 %2, 0
-  %11 = add nuw nsw i32 %4, 1
-  br label %12
+  %12 = add nuw nsw i32 %4, 1
+  br label %13
 
-12:                                               ; preds = %.preheader, %63
-  %13 = call i64 @CBS_len(ptr noundef %0) #4
-  %.not = icmp eq i64 %13, 0
-  br i1 %.not, label %65, label %14
-
-14:                                               ; preds = %12
+13:                                               ; preds = %.lr.ph, %66
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %15 = call i32 @CBS_get_any_ber_asn1_element(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
-  %.not37 = icmp eq i32 %15, 0
-  br i1 %.not37, label %.thread, label %16
+  %14 = call i32 @CBS_get_any_ber_asn1_element(ptr noundef %0, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
+  %.not37 = icmp eq i32 %14, 0
+  br i1 %.not37, label %.thread, label %15
 
-16:                                               ; preds = %14
-  %17 = load i64, ptr %8, align 8, !tbaa !12
-  %18 = icmp eq i64 %17, 2
-  br i1 %18, label %19, label %is_eoc.exit.thread
+15:                                               ; preds = %13
+  %16 = load i64, ptr %8, align 8, !tbaa !12
+  %17 = icmp eq i64 %16, 2
+  br i1 %17, label %18, label %is_eoc.exit.thread
 
-19:                                               ; preds = %16
-  %20 = call i64 @CBS_len(ptr noundef nonnull %6) #4
-  %21 = icmp eq i64 %20, 2
-  br i1 %21, label %is_eoc.exit, label %is_eoc.exit.thread
+18:                                               ; preds = %15
+  %19 = call i64 @CBS_len(ptr noundef nonnull %6) #4
+  %20 = icmp eq i64 %19, 2
+  br i1 %20, label %is_eoc.exit, label %is_eoc.exit.thread
 
-is_eoc.exit:                                      ; preds = %19
-  %22 = call ptr @CBS_data(ptr noundef nonnull %6) #4
-  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %22, ptr noundef nonnull dereferenceable(2) @.str, i64 2)
-  %.not60 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not60, label %23, label %is_eoc.exit.thread
+is_eoc.exit:                                      ; preds = %18
+  %21 = call ptr @CBS_data(ptr noundef nonnull %6) #4
+  %bcmp.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %21, ptr noundef nonnull dereferenceable(2) @.str, i64 2)
+  %.not59 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not59, label %22, label %is_eoc.exit.thread
 
-23:                                               ; preds = %is_eoc.exit
-  %24 = zext nneg i8 %3 to i32
+22:                                               ; preds = %is_eoc.exit
+  %23 = zext nneg i8 %3 to i32
   br label %.thread
 
-is_eoc.exit.thread:                               ; preds = %16, %19, %is_eoc.exit
-  %25 = load i32, ptr %7, align 4, !tbaa !14
-  br i1 %.not39, label %28, label %26
+is_eoc.exit.thread:                               ; preds = %15, %18, %is_eoc.exit
+  %24 = load i32, ptr %7, align 4, !tbaa !14
+  br i1 %.not39, label %27, label %25
 
-26:                                               ; preds = %is_eoc.exit.thread
-  %27 = and i32 %25, -33
-  %.not43 = icmp eq i32 %27, %2
-  br i1 %.not43, label %37, label %.thread
+25:                                               ; preds = %is_eoc.exit.thread
+  %26 = and i32 %24, -33
+  %.not43 = icmp eq i32 %26, %2
+  br i1 %.not43, label %36, label %.thread
 
-28:                                               ; preds = %is_eoc.exit.thread
-  %29 = and i32 %25, 224
-  %or.cond68 = icmp eq i32 %29, 32
-  br i1 %or.cond68, label %30, label %34
+27:                                               ; preds = %is_eoc.exit.thread
+  %28 = and i32 %24, 224
+  %or.cond68 = icmp eq i32 %28, 32
+  br i1 %or.cond68, label %29, label %33
 
-30:                                               ; preds = %28
-  %31 = and i32 %25, 31
-  switch i32 %31, label %34 [
-    i32 3, label %32
-    i32 4, label %32
-    i32 12, label %32
-    i32 18, label %32
-    i32 19, label %32
-    i32 20, label %32
-    i32 21, label %32
-    i32 22, label %32
-    i32 25, label %32
-    i32 26, label %32
-    i32 27, label %32
-    i32 28, label %32
-    i32 30, label %32
+29:                                               ; preds = %27
+  %30 = and i32 %24, 31
+  switch i32 %30, label %33 [
+    i32 3, label %31
+    i32 4, label %31
+    i32 12, label %31
+    i32 18, label %31
+    i32 19, label %31
+    i32 20, label %31
+    i32 21, label %31
+    i32 22, label %31
+    i32 25, label %31
+    i32 26, label %31
+    i32 27, label %31
+    i32 28, label %31
+    i32 30, label %31
   ]
 
-32:                                               ; preds = %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30, %30
-  %33 = and i32 %25, -225
-  br label %34
+31:                                               ; preds = %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29, %29
+  %32 = and i32 %24, -225
+  br label %33
 
-34:                                               ; preds = %30, %32, %28
-  %.130 = phi i32 [ 0, %28 ], [ %33, %32 ], [ 0, %30 ]
-  %.0 = phi i32 [ %25, %28 ], [ %33, %32 ], [ %25, %30 ]
-  %35 = trunc i32 %.0 to i8
-  %36 = call i32 @CBB_add_asn1(ptr noundef %1, ptr noundef nonnull %9, i8 noundef zeroext %35) #4
-  %.not42.not = icmp eq i32 %36, 0
-  br i1 %.not42.not, label %.thread, label %37
+33:                                               ; preds = %29, %31, %27
+  %.130 = phi i32 [ 0, %27 ], [ %32, %31 ], [ 0, %29 ]
+  %.0 = phi i32 [ %24, %27 ], [ %32, %31 ], [ %24, %29 ]
+  %34 = trunc i32 %.0 to i8
+  %35 = call i32 @CBB_add_asn1(ptr noundef %1, ptr noundef nonnull %9, i8 noundef zeroext %34) #4
+  %.not42.not = icmp eq i32 %35, 0
+  br i1 %.not42.not, label %.thread, label %36
 
-37:                                               ; preds = %26, %34
-  %.029 = phi i32 [ %.130, %34 ], [ %2, %26 ]
-  %.2 = phi ptr [ %9, %34 ], [ %1, %26 ]
-  %38 = call i64 @CBS_len(ptr noundef nonnull %6) #4
-  %39 = load i64, ptr %8, align 8, !tbaa !12
-  %40 = icmp eq i64 %38, %39
-  %41 = icmp ne i64 %39, 0
-  %or.cond = and i1 %40, %41
-  br i1 %or.cond, label %42, label %51
+36:                                               ; preds = %25, %33
+  %.029 = phi i32 [ %.130, %33 ], [ %2, %25 ]
+  %.2 = phi ptr [ %9, %33 ], [ %1, %25 ]
+  %37 = call i64 @CBS_len(ptr noundef nonnull %6) #4
+  %38 = load i64, ptr %8, align 8, !tbaa !12
+  %39 = icmp eq i64 %37, %38
+  %40 = icmp ne i64 %38, 0
+  %or.cond = and i1 %39, %40
+  br i1 %or.cond, label %41, label %52
 
-42:                                               ; preds = %37
-  %43 = call ptr @CBS_data(ptr noundef nonnull %6) #4
-  %44 = load i64, ptr %8, align 8, !tbaa !12
-  %45 = getelementptr i8, ptr %43, i64 %44
-  %46 = getelementptr i8, ptr %45, i64 -1
-  %47 = load i8, ptr %46, align 1, !tbaa !6
-  %48 = icmp eq i8 %47, -128
-  br i1 %48, label %49, label %51
+41:                                               ; preds = %36
+  %42 = call ptr @CBS_data(ptr noundef nonnull %6) #4
+  %43 = load i64, ptr %8, align 8, !tbaa !12
+  %44 = getelementptr i8, ptr %42, i64 %43
+  %45 = getelementptr i8, ptr %44, i64 -1
+  %46 = load i8, ptr %45, align 1, !tbaa !6
+  %47 = icmp eq i8 %46, -128
+  br i1 %47, label %48, label %52
 
-49:                                               ; preds = %42
-  %50 = call fastcc i32 @cbs_convert_ber(ptr noundef %0, ptr noundef %.2, i32 noundef %.029, i8 noundef signext 1, i32 noundef %11)
-  %.not49 = icmp eq i32 %50, 0
-  br i1 %.not49, label %.thread, label %63
+48:                                               ; preds = %41
+  %49 = call fastcc i32 @cbs_convert_ber(ptr noundef %0, ptr noundef %.2, i32 noundef %.029, i8 noundef signext 1, i32 noundef %12)
+  %.not49 = icmp eq i32 %49, 0
+  br i1 %.not49, label %.thread, label %50
 
-51:                                               ; preds = %42, %37
-  %52 = phi i64 [ %44, %42 ], [ %39, %37 ]
-  %53 = call i32 @CBS_skip(ptr noundef nonnull %6, i64 noundef %52) #4
-  %.not44 = icmp eq i32 %53, 0
-  br i1 %.not44, label %.thread, label %54
+50:                                               ; preds = %48
+  %51 = call i32 @CBB_flush(ptr noundef %1) #4
+  %.not50 = icmp eq i32 %51, 0
+  br i1 %.not50, label %.thread, label %66
 
-54:                                               ; preds = %51
-  %55 = load i32, ptr %7, align 4, !tbaa !14
-  %56 = and i32 %55, 32
-  %.not45 = icmp eq i32 %56, 0
-  br i1 %.not45, label %59, label %57
+52:                                               ; preds = %41, %36
+  %53 = phi i64 [ %43, %41 ], [ %38, %36 ]
+  %54 = call i32 @CBS_skip(ptr noundef nonnull %6, i64 noundef %53) #4
+  %.not44 = icmp eq i32 %54, 0
+  br i1 %.not44, label %.thread, label %55
 
-57:                                               ; preds = %54
-  %58 = call fastcc i32 @cbs_convert_ber(ptr noundef nonnull %6, ptr noundef %.2, i32 noundef %.029, i8 noundef signext 0, i32 noundef %11)
-  %.not47 = icmp eq i32 %58, 0
-  br i1 %.not47, label %.thread, label %63
+55:                                               ; preds = %52
+  %56 = load i32, ptr %7, align 4, !tbaa !14
+  %57 = and i32 %56, 32
+  %.not45 = icmp eq i32 %57, 0
+  br i1 %.not45, label %60, label %58
 
-59:                                               ; preds = %54
-  %60 = call ptr @CBS_data(ptr noundef nonnull %6) #4
-  %61 = call i64 @CBS_len(ptr noundef nonnull %6) #4
-  %62 = call i32 @CBB_add_bytes(ptr noundef %.2, ptr noundef %60, i64 noundef %61) #4
-  %.not46 = icmp eq i32 %62, 0
-  br i1 %.not46, label %.thread, label %63
+58:                                               ; preds = %55
+  %59 = call fastcc i32 @cbs_convert_ber(ptr noundef nonnull %6, ptr noundef %.2, i32 noundef %.029, i8 noundef signext 0, i32 noundef %12)
+  %.not47 = icmp eq i32 %59, 0
+  br i1 %.not47, label %.thread, label %64
 
-.thread:                                          ; preds = %34, %14, %26, %49, %51, %57, %59, %23
-  %.233.ph = phi i32 [ %24, %23 ], [ 0, %59 ], [ 0, %57 ], [ 0, %51 ], [ 0, %49 ], [ 0, %26 ], [ 0, %14 ], [ 0, %34 ]
+60:                                               ; preds = %55
+  %61 = call ptr @CBS_data(ptr noundef nonnull %6) #4
+  %62 = call i64 @CBS_len(ptr noundef nonnull %6) #4
+  %63 = call i32 @CBB_add_bytes(ptr noundef %.2, ptr noundef %61, i64 noundef %62) #4
+  %.not46 = icmp eq i32 %63, 0
+  br i1 %.not46, label %.thread, label %64
+
+64:                                               ; preds = %60, %58
+  %65 = call i32 @CBB_flush(ptr noundef %1) #4
+  %.not48 = icmp eq i32 %65, 0
+  br i1 %.not48, label %.thread, label %66
+
+.thread:                                          ; preds = %33, %13, %25, %48, %52, %58, %60, %64, %50, %22
+  %.233.ph = phi i32 [ %23, %22 ], [ 0, %50 ], [ 0, %64 ], [ 0, %60 ], [ 0, %58 ], [ 0, %52 ], [ 0, %48 ], [ 0, %25 ], [ 0, %13 ], [ 0, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit
+  br label %70
 
-63:                                               ; preds = %57, %59, %49
-  %64 = call i32 @CBB_flush(ptr noundef %1) #4
-  %.026 = icmp eq i32 %64, 0
+66:                                               ; preds = %50, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.026, label %.loopexit, label %12
+  %67 = call i64 @CBS_len(ptr noundef %0) #4
+  %.not = icmp eq i64 %67, 0
+  br i1 %.not, label %._crit_edge, label %13
 
-65:                                               ; preds = %12
-  %66 = xor i8 %3, 1
-  %67 = zext nneg i8 %66 to i32
-  br label %.loopexit
+._crit_edge:                                      ; preds = %66, %.preheader
+  %68 = xor i8 %3, 1
+  %69 = zext nneg i8 %68 to i32
+  br label %70
 
-.loopexit:                                        ; preds = %63, %.thread, %5, %65
-  %.031 = phi i32 [ %67, %65 ], [ 0, %5 ], [ %.233.ph, %.thread ], [ 0, %63 ]
+70:                                               ; preds = %.thread, %5, %._crit_edge
+  %.031 = phi i32 [ %69, %._crit_edge ], [ 0, %5 ], [ %.233.ph, %.thread ]
   ret i32 %.031
 }
 
@@ -375,8 +385,8 @@ define hidden i32 @CBS_get_asn1_implicit_string(ptr noundef %0, ptr noundef %1, 
 
 .preheader:                                       ; preds = %17
   %20 = call i64 @CBS_len(ptr noundef nonnull %7) #4
-  %.not1623 = icmp eq i64 %20, 0
-  br i1 %.not1623, label %._crit_edge, label %.lr.ph
+  %.not1622 = icmp eq i64 %20, 0
+  br i1 %.not1622, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %8)

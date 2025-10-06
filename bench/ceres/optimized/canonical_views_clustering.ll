@@ -391,8 +391,8 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br i1 %46, label %77, label %._crit_edge.thread, !prof !49
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.i.i, %._crit_edge
-  %.077.lcssa133 = phi double [ %.1, %._crit_edge ], [ 0xFFEFFFFFFFFFFFFF, %._crit_edge.i.i ]
-  %47 = invoke noundef nonnull ptr @_ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(double noundef %.077.lcssa133, double noundef 0xFFEFFFFFFFFFFFFF, ptr noundef nonnull @.str.4)
+  %.077.lcssa132 = phi double [ %.1, %._crit_edge ], [ 0xFFEFFFFFFFFFFFFF, %._crit_edge.i.i ]
+  %47 = invoke noundef nonnull ptr @_ZN4absl12lts_2024011612log_internal17MakeCheckOpStringIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_T0_PKc(double noundef %.077.lcssa132, double noundef 0xFFEFFFFFFFFFFFFF, ptr noundef nonnull @.str.4)
           to label %_ZN4absl12lts_2024011612log_internal12Check_GTImplIddEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit unwind label %79
 
 48:                                               ; preds = %.thread, %_ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE5clearEv.exit
@@ -401,20 +401,20 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %174
 
 .lr.ph:                                           ; preds = %._crit_edge.i.i, %._crit_edge.i.i52
-  %.077104 = phi double [ %.1, %._crit_edge.i.i52 ], [ 0xFFEFFFFFFFFFFFFF, %._crit_edge.i.i ]
-  %.078103 = phi i32 [ %.179, %._crit_edge.i.i52 ], [ 0, %._crit_edge.i.i ]
-  %.sroa.9.0102 = phi ptr [ %.sroa.9.1, %._crit_edge.i.i52 ], [ %.sroa.5.0.i, %._crit_edge.i.i ]
-  %.sroa.063.0101 = phi ptr [ %.sroa.063.1, %._crit_edge.i.i52 ], [ %.sroa.0.0.i, %._crit_edge.i.i ]
-  %50 = load i32, ptr %.sroa.9.0102, align 4, !tbaa !21
+  %.077103 = phi double [ %.1, %._crit_edge.i.i52 ], [ 0xFFEFFFFFFFFFFFFF, %._crit_edge.i.i ]
+  %.078102 = phi i32 [ %.179, %._crit_edge.i.i52 ], [ 0, %._crit_edge.i.i ]
+  %.sroa.9.0101 = phi ptr [ %.sroa.9.1, %._crit_edge.i.i52 ], [ %.sroa.5.0.i, %._crit_edge.i.i ]
+  %.sroa.063.0100 = phi ptr [ %.sroa.063.1, %._crit_edge.i.i52 ], [ %.sroa.0.0.i, %._crit_edge.i.i ]
+  %50 = load i32, ptr %.sroa.9.0101, align 4, !tbaa !21
   %51 = invoke noundef double @_ZNK5ceres8internal24CanonicalViewsClustering34ComputeClusteringQualityDifferenceEiRKSt6vectorIiSaIiEE(ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %50, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %52 unwind label %56
 
 52:                                               ; preds = %.lr.ph
-  %53 = fcmp ogt double %51, %.077104
+  %53 = fcmp ogt double %51, %.077103
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %52
-  %55 = load i32, ptr %.sroa.9.0102, align 4, !tbaa !21
+  %55 = load i32, ptr %.sroa.9.0101, align 4, !tbaa !21
   br label %58
 
 56:                                               ; preds = %.lr.ph
@@ -423,10 +423,10 @@ _ZN4absl12lts_2024011618container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   br label %174
 
 58:                                               ; preds = %54, %52
-  %.179 = phi i32 [ %55, %54 ], [ %.078103, %52 ]
-  %.1 = phi double [ %51, %54 ], [ %.077104, %52 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.063.0101, i64 1
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.9.0102, i64 4
+  %.179 = phi i32 [ %55, %54 ], [ %.078102, %52 ]
+  %.1 = phi double [ %51, %54 ], [ %.077103, %52 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.sroa.063.0100, i64 1
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.9.0101, i64 4
   %61 = load i8, ptr %59, align 1, !tbaa !44
   %62 = icmp slt i8 %61, -1
   br i1 %62, label %.lr.ph.i.i54, label %._crit_edge.i.i52

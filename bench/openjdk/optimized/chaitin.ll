@@ -2783,10 +2783,9 @@ _ZN3LRG3ANDERK7RegMask.exit169:                   ; preds = %321, %317, %281
   %355 = getelementptr inbounds nuw i8, ptr %275, i64 24
   %356 = load ptr, ptr %355, align 8
   %magicptr = ptrtoint ptr %356 to i64
-  switch i64 %magicptr, label %357 [
-    i64 0, label %362
-    i64 -1, label %362
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %357, label %362
 
 357:                                              ; preds = %354
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 44
@@ -2795,7 +2794,7 @@ _ZN3LRG3ANDERK7RegMask.exit169:                   ; preds = %321, %317, %281
   %361 = icmp eq i32 %360, 18
   br i1 %361, label %.critedge, label %362
 
-362:                                              ; preds = %354, %354, %357
+362:                                              ; preds = %354, %357
   %363 = tail call noundef zeroext i1 @_ZNK7RegMask18is_misaligned_pairEv(ptr noundef nonnull align 8 dereferenceable(96) %322) #14
   br i1 %363, label %364, label %.critedge
 

@@ -2601,12 +2601,12 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %_ZN6hermes
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZL23DisassemblyOutputFormat, i64 152), align 8
   %switch.selectcmp = icmp eq i32 %18, 1
   %switch.select = select i1 %switch.selectcmp, i32 11, i32 10
-  %switch.selectcmp89 = icmp eq i32 %18, 2
-  %switch.select90 = select i1 %switch.selectcmp89, i32 26, i32 %switch.select
+  %switch.selectcmp88 = icmp eq i32 %18, 2
+  %switch.select89 = select i1 %switch.selectcmp88, i32 26, i32 %switch.select
   %19 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL11ListOpCodes, i64 152), align 8
   %tobool.i.i = trunc i8 %19 to i1
-  %or.i = or disjoint i32 %switch.select90, 32
-  %options.1 = select i1 %tobool.i.i, i32 %or.i, i32 %switch.select90
+  %or.i = or disjoint i32 %switch.select89, 32
+  %options.1 = select i1 %tobool.i.i, i32 %or.i, i32 %switch.select89
   store i32 %options.1, ptr %options_.i84, align 8
   %20 = load ptr, ptr %bcProvider, align 8
   store ptr %20, ptr %agg.tmp8, align 8
@@ -2747,8 +2747,8 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit61: ; preds = %_ZN4llvh
   %42 = load ptr, ptr %startupCommands, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %startupCommands, i64 8
   %43 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not91 = icmp eq ptr %42, %43
-  br i1 %cmp.i.not91, label %while.body.lr.ph, label %for.body
+  %cmp.i.not90 = icmp eq ptr %42, %43
+  br i1 %cmp.i.not90, label %while.body.lr.ph, label %for.body
 
 while.cond.preheader:                             ; preds = %for.body
   br i1 %spec.select, label %while.end, label %while.body.lr.ph
@@ -2759,11 +2759,11 @@ while.body.lr.ph:                                 ; preds = %_ZNSt10shared_ptrIN
   br label %while.body
 
 for.body:                                         ; preds = %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit61, %for.body
-  %terminateLoop.093 = phi i1 [ %spec.select, %for.body ], [ false, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit61 ]
-  %__begin1.sroa.0.092 = phi ptr [ %incdec.ptr.i, %for.body ], [ %42, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit61 ]
-  %call21 = call fastcc noundef zeroext i1 @_ZL14executeCommandRN4llvh11raw_ostreamERN6hermes15ProfileAnalyzerERNS2_3hbc20BytecodeDisassemblerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(392) %analyzer, ptr noundef nonnull align 8 dereferenceable(20) %disassembler, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.092)
-  %spec.select = select i1 %call21, i1 true, i1 %terminateLoop.093
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.092, i64 32
+  %terminateLoop.092 = phi i1 [ %spec.select, %for.body ], [ false, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit61 ]
+  %__begin1.sroa.0.091 = phi ptr [ %incdec.ptr.i, %for.body ], [ %42, %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit61 ]
+  %call21 = call fastcc noundef zeroext i1 @_ZL14executeCommandRN4llvh11raw_ostreamERN6hermes15ProfileAnalyzerERNS2_3hbc20BytecodeDisassemblerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(392) %analyzer, ptr noundef nonnull align 8 dereferenceable(20) %disassembler, ptr noundef nonnull align 8 dereferenceable(32) %__begin1.sroa.0.091)
+  %spec.select = select i1 %call21, i1 true, i1 %terminateLoop.092
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.091, i64 32
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %43
   br i1 %cmp.i.not, label %while.cond.preheader, label %for.body
 

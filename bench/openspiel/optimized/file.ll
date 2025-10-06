@@ -562,9 +562,9 @@ define noundef zeroext i1 @_ZN10open_spiel4file6MkdirsERKNSt7__cxx1112basic_stri
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 24
   br label %6
 
-6:                                                ; preds = %2, %.backedge
-  %.0712 = phi i64 [ 0, %2 ], [ %8, %.backedge ]
-  %7 = add nuw i64 %.0712, 1
+6:                                                ; preds = %2, %select.unfold11
+  %.0715 = phi i64 [ 0, %2 ], [ %8, %select.unfold11 ]
+  %7 = add nuw i64 %.0715, 1
   %8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, i64 noundef %7) #17
   call void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %8)
   %9 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
@@ -576,23 +576,26 @@ define noundef zeroext i1 @_ZN10open_spiel4file6MkdirsERKNSt7__cxx1112basic_stri
   %13 = load i32, ptr %5, align 8
   %14 = and i32 %13, 16384
   %.not9 = icmp eq i32 %14, 0
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  br i1 %.not9, label %18, label %.backedge
+  br i1 %.not9, label %.thread, label %select.unfold11
 
 15:                                               ; preds = %6
   %16 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   %17 = call i32 @mkdir(ptr noundef %16, i32 noundef %1) #17
-  %.not11 = icmp eq i32 %17, 0
+  %18 = icmp eq i32 %17, 0
+  br i1 %18, label %select.unfold11, label %.thread
+
+.thread:                                          ; preds = %15, %12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
-  br i1 %.not11, label %.backedge, label %18
+  br label %.loopexit
 
-.backedge:                                        ; preds = %15, %12
+select.unfold11:                                  ; preds = %15, %12
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   %.not = icmp eq i64 %8, -1
-  br i1 %.not, label %18, label %6
+  br i1 %.not, label %.loopexit, label %6
 
-18:                                               ; preds = %12, %.backedge, %15
-  %.not.lcssa = phi i1 [ false, %12 ], [ true, %.backedge ], [ false, %15 ]
-  ret i1 %.not.lcssa
+.loopexit:                                        ; preds = %select.unfold11, %.thread
+  %.not14 = phi i1 [ false, %.thread ], [ true, %select.unfold11 ]
+  ret i1 %.not14
 }
 
 ; Function Attrs: nounwind

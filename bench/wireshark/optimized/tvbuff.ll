@@ -8632,42 +8632,42 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %8 = lshr exact i32 %7, 1
   switch i32 %8, label %116 [
     i32 0, label %.preheader
-    i32 3, label %.preheader94
-    i32 7, label %.preheader96
+    i32 3, label %.preheader86
+    i32 7, label %.preheader88
     i32 1, label %52
   ]
 
-.preheader96:                                     ; preds = %5
+.preheader88:                                     ; preds = %5
   %invariant.umin = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %.thread79, label %.lr.ph
+  br i1 %.not, label %.thread73, label %.lr.ph
 
-.preheader94:                                     ; preds = %5
-  %.not112 = icmp eq i32 %2, 0
-  br i1 %.not112, label %.thread79, label %.lr.ph107.preheader
+.preheader86:                                     ; preds = %5
+  %.not104 = icmp eq i32 %2, 0
+  br i1 %.not104, label %.thread73, label %.lr.ph99.preheader
 
-.lr.ph107.preheader:                              ; preds = %.preheader94
-  %invariant.umin104 = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
-  %wide.trip.count = zext nneg i32 %invariant.umin104 to i64
-  br label %.lr.ph107
+.lr.ph99.preheader:                               ; preds = %.preheader86
+  %invariant.umin96 = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
+  %wide.trip.count = zext nneg i32 %invariant.umin96 to i64
+  br label %.lr.ph99
 
 .preheader:                                       ; preds = %5
-  %.not113 = icmp eq i32 %2, 0
-  br i1 %.not113, label %.thread79, label %.lr.ph111.preheader
+  %.not105 = icmp eq i32 %2, 0
+  br i1 %.not105, label %.thread73, label %.lr.ph103.preheader
 
-.lr.ph111.preheader:                              ; preds = %.preheader
-  %invariant.umin108 = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
-  %wide.trip.count125 = zext nneg i32 %invariant.umin108 to i64
-  br label %.lr.ph111
+.lr.ph103.preheader:                              ; preds = %.preheader
+  %invariant.umin100 = tail call i32 @llvm.umin.i32(i32 %2, i32 10)
+  %wide.trip.count117 = zext nneg i32 %invariant.umin100 to i64
+  br label %.lr.ph103
 
-.lr.ph111:                                        ; preds = %.lr.ph111.preheader, %20
-  %indvars.iv122 = phi i64 [ 0, %.lr.ph111.preheader ], [ %indvars.iv.next123, %20 ]
-  %.058110 = phi i32 [ %1, %.lr.ph111.preheader ], [ %21, %20 ]
-  %9 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.058110, i32 noundef 1)
+.lr.ph103:                                        ; preds = %.lr.ph103.preheader, %20
+  %indvars.iv114 = phi i64 [ 0, %.lr.ph103.preheader ], [ %indvars.iv.next115, %20 ]
+  %.058102 = phi i32 [ %1, %.lr.ph103.preheader ], [ %21, %20 ]
+  %9 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.058102, i32 noundef 1)
   %10 = load i8, ptr %9, align 1
   %11 = and i8 %10, 127
   %12 = zext nneg i8 %11 to i64
-  %13 = mul nuw nsw i64 %indvars.iv122, 7
+  %13 = mul nuw nsw i64 %indvars.iv114, 7
   %14 = shl i64 %12, %13
   %15 = load i64, ptr %3, align 8
   %16 = or i64 %14, %15
@@ -8675,21 +8675,21 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %17 = icmp sgt i8 %10, -1
   br i1 %17, label %.thread, label %20
 
-.thread:                                          ; preds = %.lr.ph111
-  %18 = trunc nuw nsw i64 %indvars.iv122 to i32
+.thread:                                          ; preds = %.lr.ph103
+  %18 = trunc nuw nsw i64 %indvars.iv114 to i32
   %19 = add nuw nsw i32 %18, 1
-  br label %.thread79
+  br label %.thread73
 
-20:                                               ; preds = %.lr.ph111
-  %21 = add i32 %.058110, 1
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %exitcond126.not = icmp eq i64 %indvars.iv.next123, %wide.trip.count125
-  br i1 %exitcond126.not, label %.thread79, label %.lr.ph111, !llvm.loop !36
+20:                                               ; preds = %.lr.ph103
+  %21 = add i32 %.058102, 1
+  %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
+  %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
+  br i1 %exitcond118.not, label %.thread73, label %.lr.ph103, !llvm.loop !36
 
-.lr.ph107:                                        ; preds = %.lr.ph107.preheader, %37
-  %indvars.iv = phi i64 [ 0, %.lr.ph107.preheader ], [ %indvars.iv.next, %37 ]
-  %.159106 = phi i32 [ %1, %.lr.ph107.preheader ], [ %38, %37 ]
-  %22 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.159106, i32 noundef 1)
+.lr.ph99:                                         ; preds = %.lr.ph99.preheader, %37
+  %indvars.iv = phi i64 [ 0, %.lr.ph99.preheader ], [ %indvars.iv.next, %37 ]
+  %.15998 = phi i32 [ %1, %.lr.ph99.preheader ], [ %38, %37 ]
+  %22 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.15998, i32 noundef 1)
   %23 = load i8, ptr %22, align 1
   %24 = and i8 %23, 127
   %25 = zext nneg i8 %24 to i64
@@ -8699,9 +8699,9 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %29 = or i64 %27, %28
   store i64 %29, ptr %3, align 8
   %30 = icmp sgt i8 %23, -1
-  br i1 %30, label %.thread74, label %37
+  br i1 %30, label %.thread70, label %37
 
-.thread74:                                        ; preds = %.lr.ph107
+.thread70:                                        ; preds = %.lr.ph99
   %31 = trunc nuw nsw i64 %indvars.iv to i32
   %32 = lshr i64 %29, 1
   %33 = and i64 %29, 1
@@ -8709,24 +8709,24 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %35 = xor i64 %32, %34
   store i64 %35, ptr %3, align 8
   %36 = add nuw nsw i32 %31, 1
-  br label %.thread79
+  br label %.thread73
 
-37:                                               ; preds = %.lr.ph107
-  %38 = add i32 %.159106, 1
+37:                                               ; preds = %.lr.ph99
+  %38 = add i32 %.15998, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond121.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond121.not, label %.thread79, label %.lr.ph107, !llvm.loop !37
+  %exitcond113.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond113.not, label %.thread73, label %.lr.ph99, !llvm.loop !37
 
-.lr.ph:                                           ; preds = %.preheader96, %51
-  %.057102 = phi i32 [ %50, %51 ], [ 0, %.preheader96 ]
-  %.260101 = phi i32 [ %39, %51 ], [ %1, %.preheader96 ]
-  %39 = add i32 %.260101, 1
-  %40 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.260101, i32 noundef 1)
-  %41 = icmp eq i32 %.057102, 9
+.lr.ph:                                           ; preds = %.preheader88, %51
+  %.05794 = phi i32 [ %50, %51 ], [ 0, %.preheader88 ]
+  %.26093 = phi i32 [ %39, %51 ], [ %1, %.preheader88 ]
+  %39 = add i32 %.26093, 1
+  %40 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %.26093, i32 noundef 1)
+  %41 = icmp eq i32 %.05794, 9
   %.pre = load i64, ptr %3, align 8
   %42 = icmp ugt i64 %.pre, 144115188075855871
   %or.cond = select i1 %41, i1 %42, i1 false
-  br i1 %or.cond, label %.thread79, label %43
+  br i1 %or.cond, label %.thread73, label %43
 
 43:                                               ; preds = %.lr.ph
   %44 = load i8, ptr %40, align 1
@@ -8736,12 +8736,12 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %48 = or disjoint i64 %45, %47
   store i64 %48, ptr %3, align 8
   %49 = icmp sgt i8 %44, -1
-  %50 = add nuw nsw i32 %.057102, 1
-  br i1 %49, label %.thread79, label %51
+  %50 = add nuw nsw i32 %.05794, 1
+  br i1 %49, label %.thread73, label %51
 
 51:                                               ; preds = %43
   %exitcond.not = icmp eq i32 %50, %invariant.umin
-  br i1 %exitcond.not, label %.thread79, label %.lr.ph, !llvm.loop !38
+  br i1 %exitcond.not, label %.thread73, label %.lr.ph, !llvm.loop !38
 
 52:                                               ; preds = %5
   %53 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 1)
@@ -8749,7 +8749,7 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %55 = zext i8 %54 to i64
   store i64 %55, ptr %3, align 8
   %56 = lshr i64 %55, 6
-  switch i64 %56, label %default.unreachable127 [
+  switch i64 %56, label %default.unreachable119 [
     i64 0, label %57
     i64 1, label %59
     i64 2, label %66
@@ -8759,7 +8759,7 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
 57:                                               ; preds = %52
   %58 = and i64 %55, 63
   store i64 %58, ptr %3, align 8
-  br label %.thread79
+  br label %.thread73
 
 59:                                               ; preds = %52
   %60 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 2)
@@ -8769,10 +8769,10 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %62 = zext i8 %.val.i to i64
   %63 = shl nuw nsw i64 %62, 8
   %64 = zext i8 %.val2.i to i64
-  %.masked93 = and i64 %63, 16128
-  %65 = or disjoint i64 %.masked93, %64
+  %.masked85 = and i64 %63, 16128
+  %65 = or disjoint i64 %.masked85, %64
   store i64 %65, ptr %3, align 8
-  br label %.thread79
+  br label %.thread73
 
 66:                                               ; preds = %52
   %67 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 4)
@@ -8790,12 +8790,12 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %79 = getelementptr i8, ptr %67, i64 3
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i64
-  %.masked92 = and i64 %70, 1056964608
-  %.masked91 = or disjoint i64 %74, %.masked92
-  %.masked90 = or disjoint i64 %.masked91, %78
-  %82 = or disjoint i64 %.masked90, %81
+  %.masked84 = and i64 %70, 1056964608
+  %.masked83 = or disjoint i64 %74, %.masked84
+  %.masked82 = or disjoint i64 %.masked83, %78
+  %82 = or disjoint i64 %.masked82, %81
   store i64 %82, ptr %3, align 8
-  br label %.thread79
+  br label %.thread73
 
 83:                                               ; preds = %52
   %84 = tail call fastcc ptr @fast_ensure_contiguous(ptr noundef %0, i32 noundef %1, i32 noundef 8)
@@ -8829,26 +8829,26 @@ define range(i32 0, 11) i32 @tvb_get_varint(ptr noundef %0, i32 noundef %1, i32 
   %112 = getelementptr i8, ptr %84, i64 7
   %113 = load i8, ptr %112, align 1
   %114 = zext i8 %113 to i64
-  %.masked89 = and i64 %87, 4539628424389459968
-  %.masked88 = or disjoint i64 %91, %.masked89
-  %.masked87 = or disjoint i64 %.masked88, %95
-  %.masked86 = or disjoint i64 %.masked87, %99
-  %.masked85 = or disjoint i64 %.masked86, %103
-  %.masked84 = or disjoint i64 %.masked85, %107
-  %.masked = or disjoint i64 %.masked84, %111
+  %.masked81 = and i64 %87, 4539628424389459968
+  %.masked80 = or disjoint i64 %91, %.masked81
+  %.masked79 = or disjoint i64 %.masked80, %95
+  %.masked78 = or disjoint i64 %.masked79, %99
+  %.masked77 = or disjoint i64 %.masked78, %103
+  %.masked76 = or disjoint i64 %.masked77, %107
+  %.masked = or disjoint i64 %.masked76, %111
   %115 = or i64 %.masked, %114
   store i64 %115, ptr %3, align 8
-  br label %.thread79
+  br label %.thread73
 
 116:                                              ; preds = %5
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 4874) #18
   unreachable
 
-.thread79:                                        ; preds = %51, %.lr.ph, %43, %37, %20, %.preheader96, %.preheader94, %.preheader, %.thread74, %.thread, %83, %66, %59, %57
-  %.1 = phi i32 [ 1, %57 ], [ 2, %59 ], [ 4, %66 ], [ 8, %83 ], [ %19, %.thread ], [ %36, %.thread74 ], [ 0, %.preheader ], [ 0, %.preheader94 ], [ 0, %.preheader96 ], [ 0, %20 ], [ 0, %37 ], [ 0, %51 ], [ 0, %.lr.ph ], [ %50, %43 ]
+.thread73:                                        ; preds = %51, %.lr.ph, %43, %37, %20, %.preheader88, %.preheader86, %.preheader, %.thread70, %.thread, %83, %66, %59, %57
+  %.1 = phi i32 [ 1, %57 ], [ 2, %59 ], [ 4, %66 ], [ 8, %83 ], [ %19, %.thread ], [ %36, %.thread70 ], [ 0, %.preheader ], [ 0, %.preheader86 ], [ 0, %.preheader88 ], [ 0, %20 ], [ 0, %37 ], [ 0, %51 ], [ 0, %.lr.ph ], [ %50, %43 ]
   ret i32 %.1
 
-default.unreachable127:                           ; preds = %52
+default.unreachable119:                           ; preds = %52
   unreachable
 }
 

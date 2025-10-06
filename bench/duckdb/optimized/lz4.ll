@@ -165,18 +165,18 @@ define internal fastcc noundef i32 @_ZN10duckdb_lz4L20LZ4_compress_genericEPNS_2
   %34 = load i32, ptr %33, align 8, !tbaa !8
   %35 = sub i32 %23, %34
   %.not501.i = icmp eq ptr %30, null
-  br i1 %.not501.i, label %.thread619.i, label %40
+  br i1 %.not501.i, label %.thread617.i, label %40
 
 .thread.i:                                        ; preds = %21
   %36 = icmp eq i32 %8, 2
-  %.not615.i = icmp samesign ult i32 %8, 2
-  %.not501616.i = icmp eq ptr %30, null
+  %.not613.i = icmp samesign ult i32 %8, 2
+  %.not501614.i = icmp eq ptr %30, null
   %37 = zext i32 %31 to i64
   %38 = getelementptr inbounds nuw i8, ptr %30, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 %25
-  %spec.select721.i = select i1 %.not501616.i, ptr null, ptr %38
-  %spec.select722.i = select i1 %.not501616.i, ptr null, ptr %39
-  br label %.thread619.i
+  %spec.select718.i = select i1 %.not501614.i, ptr null, ptr %38
+  %spec.select719.i = select i1 %.not501614.i, ptr null, ptr %39
+  br label %.thread617.i
 
 40:                                               ; preds = %32
   %41 = zext i32 %31 to i64
@@ -184,14 +184,14 @@ define internal fastcc noundef i32 @_ZN10duckdb_lz4L20LZ4_compress_genericEPNS_2
   %43 = zext i32 %34 to i64
   %44 = sub nsw i64 0, %43
   %45 = getelementptr inbounds i8, ptr %42, i64 %44
-  br label %.thread619.i
+  br label %.thread617.i
 
-.thread619.i:                                     ; preds = %40, %.thread.i, %32
-  %46 = phi ptr [ null, %32 ], [ %42, %40 ], [ %spec.select721.i, %.thread.i ]
-  %.not618.i = phi i1 [ false, %32 ], [ false, %40 ], [ %.not615.i, %.thread.i ]
+.thread617.i:                                     ; preds = %40, %.thread.i, %32
+  %46 = phi ptr [ null, %32 ], [ %42, %40 ], [ %spec.select718.i, %.thread.i ]
+  %.not616.i = phi i1 [ false, %32 ], [ false, %40 ], [ %.not613.i, %.thread.i ]
   %47 = phi i1 [ false, %32 ], [ false, %40 ], [ %36, %.thread.i ]
   %48 = phi i32 [ %35, %32 ], [ %35, %40 ], [ 0, %.thread.i ]
-  %49 = phi ptr [ null, %32 ], [ %45, %40 ], [ %spec.select722.i, %.thread.i ]
+  %49 = phi ptr [ null, %32 ], [ %45, %40 ], [ %spec.select719.i, %.thread.i ]
   %50 = sub i32 %23, %31
   %.pn.i = zext nneg i32 %3 to i64
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 %.pn.i
@@ -204,7 +204,7 @@ define internal fastcc noundef i32 @_ZN10duckdb_lz4L20LZ4_compress_genericEPNS_2
   %or.cond.i = and i1 %57, %56
   br i1 %or.cond.i, label %_ZN10duckdb_lz4L30LZ4_compress_generic_validatedEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi.exit, label %58
 
-58:                                               ; preds = %.thread619.i
+58:                                               ; preds = %.thread617.i
   %59 = icmp eq i32 %7, 3
   %60 = icmp samesign ugt i32 %3, 65546
   %or.cond8.i = select i1 %59, i1 %60, i1 false
@@ -237,7 +237,7 @@ define internal fastcc noundef i32 @_ZN10duckdb_lz4L20LZ4_compress_genericEPNS_2
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16404
   store i32 %7, ptr %75, align 4, !tbaa !16
   %76 = icmp samesign ult i32 %3, 13
-  br i1 %76, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i, label %77
+  br i1 %76, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i, label %77
 
 77:                                               ; preds = %73
   %78 = ptrtoint ptr %26 to i64
@@ -286,26 +286,26 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i: ; preds = %87, %
   %.not504.i = icmp eq i32 %6, 0
   %105 = ptrtoint ptr %55 to i64
   %.not508.i = icmp eq i32 %9, 0
-  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i
+  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i
 
-_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i: ; preds = %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i
-  %.0442.i = phi i32 [ %.0.i.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.0442.i.be, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge ]
-  %.0431.i = phi i32 [ 0, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.6437779.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge ]
-  %.1415.i = phi ptr [ %2, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.8422.ph.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge ]
-  %.1411.i = phi ptr [ %1, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.8.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge ]
-  %.0400.i = phi ptr [ %66, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.8408.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge ]
-  %.1393.i = phi ptr [ %96, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.1393.i.be, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge ]
+_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i: ; preds = %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i
+  %.0442.i = phi i32 [ %.0.i.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.0442.i.be, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge ]
+  %.0431.i = phi i32 [ 0, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.6437776.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge ]
+  %.1415.i = phi ptr [ %2, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.8422.ph.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge ]
+  %.1411.i = phi ptr [ %1, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.8.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge ]
+  %.0400.i = phi ptr [ %66, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.8408.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge ]
+  %.1393.i = phi ptr [ %96, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit.i ], [ %.1393.i.be, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge ]
   %.1411.fr.i = freeze ptr %.1411.i
-  %.1411847.i = ptrtoint ptr %.1411.fr.i to i64
+  %.1411844.i = ptrtoint ptr %.1411.fr.i to i64
   %.1393.fr.i = freeze ptr %.1393.i
   br label %106
 
-106:                                              ; preds = %.backedge, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i
-  %.0460.i = phi ptr [ %.1393.fr.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i ], [ %119, %.backedge ]
-  %.0459.i = phi i32 [ 1, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i ], [ %121, %.backedge ]
-  %.0458.i = phi i32 [ %97, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i ], [ %120, %.backedge ]
-  %.5447.i = phi i32 [ %.0442.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i ], [ %.0.i524623.i, %.backedge ]
-  %.3403.i = phi ptr [ %.0400.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i ], [ %.5405.i, %.backedge ]
+106:                                              ; preds = %.backedge, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i
+  %.0460.i = phi ptr [ %.1393.fr.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i ], [ %119, %.backedge ]
+  %.0459.i = phi i32 [ 1, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i ], [ %121, %.backedge ]
+  %.0458.i = phi i32 [ %97, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i ], [ %120, %.backedge ]
+  %.5447.i = phi i32 [ %.0442.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i ], [ %.0.i524621.i, %.backedge ]
+  %.3403.i = phi ptr [ %.0400.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i ], [ %.5405.i, %.backedge ]
   %107 = ptrtoint ptr %.0460.i to i64
   %108 = sub i64 %107, %78
   %109 = trunc i64 %108 to i32
@@ -330,7 +330,7 @@ _ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit.i: ; preds = %11
   %120 = add i32 %.0458.i, 1
   %121 = ashr i32 %.0458.i, 6
   %122 = icmp ugt ptr %119, %52
-  br i1 %122, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i, label %123, !prof !19
+  br i1 %122, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i, label %123, !prof !19
 
 123:                                              ; preds = %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit.i
   br i1 %29, label %124, label %135
@@ -398,7 +398,7 @@ _ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit.i: ; preds = %11
   br label %_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i
 
 _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %152, %147
-  %.0.i524623.i = phi i32 [ %150, %147 ], [ %154, %152 ]
+  %.0.i524621.i = phi i32 [ %150, %147 ], [ %154, %152 ]
   %157 = icmp ult i32 %.0441.i, %50
   %or.cond512.i = select i1 %.not502.i, i1 %157, i1 false
   br i1 %or.cond512.i, label %.backedge, label %158
@@ -420,8 +420,8 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %15
 
 163:                                              ; preds = %161
   %164 = sub i32 %109, %.0441.i
-  %spec.select.i = select i1 %.not618.i, i32 %.0431.i, i32 %164
-  %165 = trunc i64 %.1411847.i to i32
+  %spec.select.i = select i1 %.not616.i, i32 %.0431.i, i32 %164
+  %165 = trunc i64 %.1411844.i to i32
   %166 = trunc i64 %107 to i32
   %reass.sub.i = sub i32 %166, %165
   %167 = add i32 %reass.sub.i, 239
@@ -430,8 +430,8 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %15
   br label %170
 
 170:                                              ; preds = %174, %163
-  %indvars.iv854.i = phi i32 [ %169, %163 ], [ %indvars.iv.next855.i, %174 ]
-  %indvars.iv850.i = phi i32 [ %168, %163 ], [ %indvars.iv.next851.i, %174 ]
+  %indvars.iv851.i = phi i32 [ %169, %163 ], [ %indvars.iv.next852.i, %174 ]
+  %indvars.iv847.i = phi i32 [ %168, %163 ], [ %indvars.iv.next848.i, %174 ]
   %indvars.iv.i = phi i32 [ %167, %163 ], [ %indvars.iv.next.i, %174 ]
   %indvar.i = phi i32 [ 0, %163 ], [ %indvar.next.i, %174 ]
   %.8469.i = phi ptr [ %.7468.i, %163 ], [ %177, %174 ]
@@ -449,13 +449,13 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %15
   %179 = icmp eq i8 %176, %178
   %indvar.next.i = add i32 %indvar.i, 1
   %indvars.iv.next.i = add i32 %indvars.iv.i, -1
-  %indvars.iv.next851.i = add i32 %indvars.iv850.i, -1
-  %indvars.iv.next855.i = add i32 %indvars.iv854.i, -1
+  %indvars.iv.next848.i = add i32 %indvars.iv847.i, -1
+  %indvars.iv.next852.i = add i32 %indvars.iv851.i, -1
   br i1 %179, label %170, label %.critedge10.i, !llvm.loop !22
 
 .critedge10.i:                                    ; preds = %174, %170
   %180 = ptrtoint ptr %.4396.i to i64
-  %181 = sub i64 %180, %.1411847.i
+  %181 = sub i64 %180, %.1411844.i
   %182 = trunc i64 %181 to i32
   %183 = getelementptr i8, ptr %.1415.i, i64 1
   br i1 %99, label %184, label %192
@@ -468,10 +468,10 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %15
   %189 = zext nneg i32 %188 to i64
   %190 = getelementptr inbounds nuw i8, ptr %187, i64 %189
   %191 = icmp ugt ptr %190, %55
-  br i1 %191, label %_ZN10duckdb_lz4L30LZ4_compress_generic_validatedEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi.exit, label %.thread652.i, !prof !19
+  br i1 %191, label %_ZN10duckdb_lz4L30LZ4_compress_generic_validatedEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi.exit, label %.thread650.i, !prof !19
 
 192:                                              ; preds = %.critedge10.i
-  br i1 %56, label %193, label %.thread652.i
+  br i1 %56, label %193, label %.thread650.i
 
 193:                                              ; preds = %192
   %194 = add i32 %182, 240
@@ -482,13 +482,13 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %15
   %199 = getelementptr inbounds nuw i8, ptr %197, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 11
   %201 = icmp ugt ptr %200, %55
-  br i1 %201, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.i, label %.thread652.i, !prof !19
+  br i1 %201, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.i, label %.thread650.i, !prof !19
 
-.thread652.i:                                     ; preds = %193, %192, %184
+.thread650.i:                                     ; preds = %193, %192, %184
   %202 = icmp ugt i32 %182, 14
   br i1 %202, label %203, label %218
 
-203:                                              ; preds = %.thread652.i
+203:                                              ; preds = %.thread650.i
   %204 = add i32 %182, -15
   store i8 -16, ptr %.1415.i, align 1, !tbaa !3
   %205 = icmp sgt i32 %204, 254
@@ -499,29 +499,29 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %15
   %207 = add i32 %indvar.i, %206
   %208 = sub i32 %167, %207
   %209 = udiv i32 %208, 255
-  %narrow888.i = add nuw nsw i32 %209, 1
-  %210 = zext nneg i32 %narrow888.i to i64
+  %narrow885.i = add nuw nsw i32 %209, 1
+  %210 = zext nneg i32 %narrow885.i to i64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %183, i8 -1, i64 %210, i1 false), !tbaa !3
   %scevgep.i = getelementptr i8, ptr %.1415.i, i64 2
-  %smin852.i = tail call i32 @llvm.smin.i32(i32 %indvars.iv850.i, i32 509)
-  %211 = sub i32 %indvars.iv.i, %smin852.i
+  %smin849.i = tail call i32 @llvm.smin.i32(i32 %indvars.iv847.i, i32 509)
+  %211 = sub i32 %indvars.iv.i, %smin849.i
   %212 = udiv i32 %211, 255
   %213 = zext nneg i32 %212 to i64
-  %scevgep853.i = getelementptr i8, ptr %scevgep.i, i64 %213
+  %scevgep850.i = getelementptr i8, ptr %scevgep.i, i64 %213
   %214 = urem i32 %211, 255
-  %.neg.i = sub i32 %indvars.iv854.i, %211
+  %.neg.i = sub i32 %indvars.iv851.i, %211
   %215 = add i32 %.neg.i, %214
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.preheader.i, %203
   %.0430.lcssa.i = phi i32 [ %204, %203 ], [ %215, %.lr.ph.preheader.i ]
-  %.4418.lcssa.i = phi ptr [ %183, %203 ], [ %scevgep853.i, %.lr.ph.preheader.i ]
+  %.4418.lcssa.i = phi ptr [ %183, %203 ], [ %scevgep850.i, %.lr.ph.preheader.i ]
   %216 = trunc i32 %.0430.lcssa.i to i8
   %217 = getelementptr inbounds nuw i8, ptr %.4418.lcssa.i, i64 1
   store i8 %216, ptr %.4418.lcssa.i, align 1, !tbaa !3
   br label %220
 
-218:                                              ; preds = %.thread652.i
+218:                                              ; preds = %.thread650.i
   %.tr.i = trunc i64 %181 to i8
   %219 = shl nuw i8 %.tr.i, 4
   store i8 %219, ptr %.1415.i, align 1, !tbaa !3
@@ -546,42 +546,42 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit.i: ; preds = %15
 _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i: ; preds = %223
   %228 = getelementptr inbounds nuw i8, ptr %222, i64 11
   %229 = icmp ugt ptr %228, %55
-  %or.cond516776.i = select i1 %56, i1 %229, i1 false
-  br i1 %or.cond516776.i, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.i, label %.lr.ph787.i
+  %or.cond516773.i = select i1 %56, i1 %229, i1 false
+  br i1 %or.cond516773.i, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.i, label %.lr.ph784.i
 
-.lr.ph787.i:                                      ; preds = %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i
-  %.5397784.i = phi ptr [ %.8.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %.4396.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
-  %.6406782.i = phi ptr [ %.8408.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %.5405.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
-  %.6420780.i = phi ptr [ %529, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %222, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
-  %.6437779.i = phi i32 [ %spec.select519.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %spec.select.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
-  %.9470778.i = phi ptr [ %.11472.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %.8469.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
-  %.0476777.i = phi ptr [ %.8422.ph.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %.1415.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
-  br i1 %.not618.i, label %.thread656.i, label %234
+.lr.ph784.i:                                      ; preds = %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i
+  %.5397781.i = phi ptr [ %.8.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %.4396.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
+  %.6406779.i = phi ptr [ %.8408.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %.5405.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
+  %.6420777.i = phi ptr [ %529, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %222, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
+  %.6437776.i = phi i32 [ %spec.select519.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %spec.select.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
+  %.9470775.i = phi ptr [ %.11472.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %.8469.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
+  %.0476774.i = phi ptr [ %.8422.ph.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i ], [ %.1415.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
+  br i1 %.not616.i, label %.thread654.i, label %234
 
-.thread656.i:                                     ; preds = %.lr.ph787.i
-  %230 = ptrtoint ptr %.5397784.i to i64
-  %231 = ptrtoint ptr %.9470778.i to i64
+.thread654.i:                                     ; preds = %.lr.ph784.i
+  %230 = ptrtoint ptr %.5397781.i to i64
+  %231 = ptrtoint ptr %.9470775.i to i64
   %232 = sub i64 %230, %231
   %233 = trunc i64 %232 to i16
-  store i16 %233, ptr %.6420780.i, align 1, !tbaa !3
-  %.7421657.i = getelementptr inbounds nuw i8, ptr %.6420780.i, i64 2
+  store i16 %233, ptr %.6420777.i, align 1, !tbaa !3
+  %.7421655.i = getelementptr inbounds nuw i8, ptr %.6420777.i, i64 2
   br label %354
 
-234:                                              ; preds = %.lr.ph787.i
-  %235 = trunc i32 %.6437779.i to i16
-  store i16 %235, ptr %.6420780.i, align 1, !tbaa !3
-  %.7421.i = getelementptr inbounds nuw i8, ptr %.6420780.i, i64 2
-  %236 = icmp eq ptr %.6406782.i, %30
+234:                                              ; preds = %.lr.ph784.i
+  %235 = trunc i32 %.6437776.i to i16
+  store i16 %235, ptr %.6420777.i, align 1, !tbaa !3
+  %.7421.i = getelementptr inbounds nuw i8, ptr %.6420777.i, i64 2
+  %236 = icmp eq ptr %.6406779.i, %30
   br i1 %236, label %237, label %354
 
 237:                                              ; preds = %234
-  %238 = ptrtoint ptr %.9470778.i to i64
+  %238 = ptrtoint ptr %.9470775.i to i64
   %239 = sub i64 %100, %238
-  %240 = getelementptr inbounds i8, ptr %.5397784.i, i64 %239
+  %240 = getelementptr inbounds i8, ptr %.5397781.i, i64 %239
   %241 = icmp ugt ptr %240, %53
   %spec.select518.i = select i1 %241, ptr %53, ptr %240
-  %242 = getelementptr inbounds nuw i8, ptr %.5397784.i, i64 4
-  %243 = getelementptr inbounds nuw i8, ptr %.9470778.i, i64 4
+  %242 = getelementptr inbounds nuw i8, ptr %.5397781.i, i64 4
+  %243 = getelementptr inbounds nuw i8, ptr %.9470775.i, i64 4
   %244 = getelementptr inbounds i8, ptr %spec.select518.i, i64 -7
   %245 = icmp ult ptr %242, %244
   br i1 %245, label %246, label %256, !prof !24
@@ -593,8 +593,8 @@ _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i: ; preds = %223
   br i1 %.not.i529.i, label %.thread.i.i, label %249
 
 .thread.i.i:                                      ; preds = %246
-  %247 = getelementptr inbounds nuw i8, ptr %.5397784.i, i64 12
-  %248 = getelementptr inbounds nuw i8, ptr %.9470778.i, i64 12
+  %247 = getelementptr inbounds nuw i8, ptr %.5397781.i, i64 12
+  %248 = getelementptr inbounds nuw i8, ptr %.9470775.i, i64 12
   br label %256
 
 249:                                              ; preds = %246
@@ -700,7 +700,7 @@ _ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit.i:      ; preds = %293, %.thread66.i.i
   %.2.in.i.i = phi i64 [ %296, %293 ], [ %255, %249 ], [ %267, %.thread66.i.i ]
   %.2.i.i = trunc i64 %.2.in.i.i to i32
   %297 = and i64 %.2.in.i.i, 4294967295
-  %298 = getelementptr inbounds nuw i8, ptr %.5397784.i, i64 %297
+  %298 = getelementptr inbounds nuw i8, ptr %.5397781.i, i64 %297
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 4
   %300 = icmp eq ptr %299, %spec.select518.i
   br i1 %300, label %301, label %410
@@ -824,10 +824,10 @@ _ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit559.i:   ; preds = %347, %.thread66.i55
   %353 = getelementptr inbounds nuw i8, ptr %299, i64 %352
   br label %410
 
-354:                                              ; preds = %234, %.thread656.i
-  %.7421661.i = phi ptr [ %.7421657.i, %.thread656.i ], [ %.7421.i, %234 ]
-  %355 = getelementptr inbounds nuw i8, ptr %.5397784.i, i64 4
-  %356 = getelementptr inbounds nuw i8, ptr %.9470778.i, i64 4
+354:                                              ; preds = %234, %.thread654.i
+  %.7421659.i = phi ptr [ %.7421655.i, %.thread654.i ], [ %.7421.i, %234 ]
+  %355 = getelementptr inbounds nuw i8, ptr %.5397781.i, i64 4
+  %356 = getelementptr inbounds nuw i8, ptr %.9470775.i, i64 4
   %357 = icmp ult ptr %355, %101
   br i1 %357, label %358, label %368, !prof !24
 
@@ -838,8 +838,8 @@ _ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit559.i:   ; preds = %347, %.thread66.i55
   br i1 %.not.i587.i, label %.thread.i588.i, label %361
 
 .thread.i588.i:                                   ; preds = %358
-  %359 = getelementptr inbounds nuw i8, ptr %.5397784.i, i64 12
-  %360 = getelementptr inbounds nuw i8, ptr %.9470778.i, i64 12
+  %359 = getelementptr inbounds nuw i8, ptr %.5397781.i, i64 12
+  %360 = getelementptr inbounds nuw i8, ptr %.9470775.i, i64 12
   br label %368
 
 361:                                              ; preds = %358
@@ -943,18 +943,18 @@ _ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit589.i:   ; preds = %403, %.thread66.i58
   %.2.in.i570.i = phi i64 [ %406, %403 ], [ %367, %361 ], [ %379, %.thread66.i584.i ]
   %.2.i571.i = trunc i64 %.2.in.i570.i to i32
   %407 = and i64 %.2.in.i570.i, 4294967295
-  %408 = getelementptr inbounds nuw i8, ptr %.5397784.i, i64 %407
+  %408 = getelementptr inbounds nuw i8, ptr %.5397781.i, i64 %407
   %409 = getelementptr inbounds nuw i8, ptr %408, i64 4
   br label %410
 
 410:                                              ; preds = %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit589.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit559.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit.i
-  %.7421660.i = phi ptr [ %.7421661.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit589.i ], [ %.7421.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit559.i ], [ %.7421.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit.i ]
+  %.7421658.i = phi ptr [ %.7421659.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit589.i ], [ %.7421.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit559.i ], [ %.7421.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit.i ]
   %.1427.i = phi i32 [ %.2.i571.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit589.i ], [ %351, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit559.i ], [ %.2.i.i, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit.i ]
   %.7399.i = phi ptr [ %409, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit589.i ], [ %353, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit559.i ], [ %299, %_ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit.i ]
   br i1 %.not504.i, label %.loopexit.i, label %411
 
 411:                                              ; preds = %410
-  %412 = getelementptr inbounds nuw i8, ptr %.6420780.i, i64 8
+  %412 = getelementptr inbounds nuw i8, ptr %.6420777.i, i64 8
   %413 = add i32 %.1427.i, 240
   %414 = udiv i32 %413, 255
   %415 = zext nneg i32 %414 to i64
@@ -966,7 +966,7 @@ _ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit589.i:   ; preds = %403, %.thread66.i58
   br i1 %56, label %419, label %_ZN10duckdb_lz4L30LZ4_compress_generic_validatedEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi.exit
 
 419:                                              ; preds = %418
-  %420 = ptrtoint ptr %.7421660.i to i64
+  %420 = ptrtoint ptr %.7421658.i to i64
   %421 = sub i64 %105, %420
   %422 = trunc i64 %421 to i32
   %423 = mul i32 %422, 255
@@ -982,25 +982,25 @@ _ZN10duckdb_lz4L9LZ4_countEPKhS1_S1_.exit589.i:   ; preds = %403, %.thread66.i58
   br i1 %59, label %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.us.i, label %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i
 
 _ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.us.i: ; preds = %.preheader.i, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.us.i
-  %.0409768.us.i = phi ptr [ %433, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.us.i ], [ %428, %.preheader.i ]
-  %.val6.i593.us.i = load i32, ptr %.0409768.us.i, align 1, !tbaa !3
+  %.0409765.us.i = phi ptr [ %433, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.us.i ], [ %428, %.preheader.i ]
+  %.val6.i593.us.i = load i32, ptr %.0409765.us.i, align 1, !tbaa !3
   %429 = mul i32 %.val6.i593.us.i, -1640531535
   %430 = lshr i32 %429, 19
   %431 = zext nneg i32 %430 to i64
   %432 = getelementptr inbounds nuw i16, ptr %0, i64 %431
   store i16 0, ptr %432, align 2, !tbaa !17
-  %433 = getelementptr inbounds nuw i8, ptr %.0409768.us.i, i64 1
+  %433 = getelementptr inbounds nuw i8, ptr %.0409765.us.i, i64 1
   %.not506.us.i = icmp ugt ptr %433, %.0460.i
   br i1 %.not506.us.i, label %.loopexit.i, label %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.us.i, !llvm.loop !27
 
 _ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i: ; preds = %.preheader.i, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i
-  %.0409768.i = phi ptr [ %437, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i ], [ %428, %.preheader.i ]
-  %.val.i591.i = load i64, ptr %.0409768.i, align 1, !tbaa !3
+  %.0409765.i = phi ptr [ %437, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i ], [ %428, %.preheader.i ]
+  %.val.i591.i = load i64, ptr %.0409765.i, align 1, !tbaa !3
   %434 = mul i64 %.val.i591.i, -3523014627271114752
   %435 = lshr i64 %434, 52
   %436 = getelementptr inbounds nuw i32, ptr %0, i64 %435
   store i32 0, ptr %436, align 4, !tbaa !6
-  %437 = getelementptr inbounds nuw i8, ptr %.0409768.i, i64 1
+  %437 = getelementptr inbounds nuw i8, ptr %.0409765.i, i64 1
   %.not506.i = icmp ugt ptr %437, %.0460.i
   br i1 %.not506.i, label %.loopexit.i, label %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i, !llvm.loop !27
 
@@ -1009,32 +1009,32 @@ _ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i: ; preds = %.prehead
   %.8.i = phi ptr [ %.7399.i, %411 ], [ %.7399.i, %410 ], [ %428, %419 ], [ %428, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.us.i ], [ %428, %_ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i ]
   %.2428.fr.i = freeze i32 %.2428.i
   %438 = icmp ugt i32 %.2428.fr.i, 14
-  %439 = load i8, ptr %.0476777.i, align 1, !tbaa !3
+  %439 = load i8, ptr %.0476774.i, align 1, !tbaa !3
   br i1 %438, label %440, label %456
 
 440:                                              ; preds = %.loopexit.i
   %441 = add i8 %439, 15
-  store i8 %441, ptr %.0476777.i, align 1, !tbaa !3
+  store i8 %441, ptr %.0476774.i, align 1, !tbaa !3
   %442 = add i32 %.2428.fr.i, -15
-  store i32 -1, ptr %.7421660.i, align 1, !tbaa !3
+  store i32 -1, ptr %.7421658.i, align 1, !tbaa !3
   %443 = icmp ugt i32 %442, 1019
-  br i1 %443, label %.lr.ph772.preheader.i, label %._crit_edge773.i
+  br i1 %443, label %.lr.ph769.preheader.i, label %._crit_edge770.i
 
-.lr.ph772.preheader.i:                            ; preds = %440
-  %scevgep856.i = getelementptr i8, ptr %.7421660.i, i64 4
+.lr.ph769.preheader.i:                            ; preds = %440
+  %scevgep853.i = getelementptr i8, ptr %.7421658.i, i64 4
   %444 = add i32 %.2428.fr.i, -1035
   %445 = udiv i32 %444, 1020
   %446 = shl nuw nsw i32 %445, 2
   %447 = zext nneg i32 %446 to i64
   %448 = add nuw nsw i64 %447, 4
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep856.i, i8 -1, i64 %448, i1 false), !tbaa !3
-  %scevgep858.i = getelementptr i8, ptr %scevgep856.i, i64 %447
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep853.i, i8 -1, i64 %448, i1 false), !tbaa !3
+  %scevgep855.i = getelementptr i8, ptr %scevgep853.i, i64 %447
   %449 = urem i32 %444, 1020
-  br label %._crit_edge773.i
+  br label %._crit_edge770.i
 
-._crit_edge773.i:                                 ; preds = %.lr.ph772.preheader.i, %440
-  %.3429.lcssa.i = phi i32 [ %442, %440 ], [ %449, %.lr.ph772.preheader.i ]
-  %.9423.lcssa.i = phi ptr [ %.7421660.i, %440 ], [ %scevgep858.i, %.lr.ph772.preheader.i ]
+._crit_edge770.i:                                 ; preds = %.lr.ph769.preheader.i, %440
+  %.3429.lcssa.i = phi i32 [ %442, %440 ], [ %449, %.lr.ph769.preheader.i ]
+  %.9423.lcssa.i = phi ptr [ %.7421658.i, %440 ], [ %scevgep855.i, %.lr.ph769.preheader.i ]
   %.lhs.trunc.i = trunc nuw nsw i32 %.3429.lcssa.i to i16
   %450 = udiv i16 %.lhs.trunc.i, 255
   %451 = zext nneg i16 %450 to i64
@@ -1048,30 +1048,30 @@ _ZN10duckdb_lz4L13LZ4_clearHashEjPvNS_11tableType_tE.exit.i: ; preds = %.prehead
 456:                                              ; preds = %.loopexit.i
   %457 = trunc nuw nsw i32 %.2428.fr.i to i8
   %458 = add i8 %439, %457
-  store i8 %458, ptr %.0476777.i, align 1, !tbaa !3
+  store i8 %458, ptr %.0476774.i, align 1, !tbaa !3
   br label %459
 
-459:                                              ; preds = %456, %._crit_edge773.i
-  %.8422.ph.i = phi ptr [ %.7421660.i, %456 ], [ %455, %._crit_edge773.i ]
+459:                                              ; preds = %456, %._crit_edge770.i
+  %.8422.ph.i = phi ptr [ %.7421658.i, %456 ], [ %455, %._crit_edge770.i ]
   %.not507.i = icmp ult ptr %.8.i, %52
-  br i1 %.not507.i, label %460, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i
+  br i1 %.not507.i, label %460, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i
 
 460:                                              ; preds = %459
   %461 = getelementptr inbounds i8, ptr %.8.i, i64 -2
   %462 = ptrtoint ptr %461 to i64
   %463 = sub i64 %462, %78
-  br i1 %59, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.thread.i, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.i
+  br i1 %59, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.thread.i, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.i
 
-_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.thread.i: ; preds = %460
-  %.val6.i.i598.i = load i32, ptr %461, align 1, !tbaa !3
-  %464 = mul i32 %.val6.i.i598.i, -1640531535
+_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.thread.i: ; preds = %460
+  %.val6.i.i597.i = load i32, ptr %461, align 1, !tbaa !3
+  %464 = mul i32 %.val6.i.i597.i, -1640531535
   %465 = lshr i32 %464, 19
   %466 = zext nneg i32 %465 to i64
   %467 = trunc i64 %463 to i16
   %468 = getelementptr inbounds nuw i16, ptr %0, i64 %466
   store i16 %467, ptr %468, align 2, !tbaa !17
-  %.val6.i603.i = load i32, ptr %.8.i, align 1, !tbaa !3
-  %469 = mul i32 %.val6.i603.i, -1640531535
+  %.val6.i602.i = load i32, ptr %.8.i, align 1, !tbaa !3
+  %469 = mul i32 %.val6.i602.i, -1640531535
   %470 = lshr i32 %469, 19
   %471 = ptrtoint ptr %.8.i to i64
   %472 = sub i64 %471, %78
@@ -1079,42 +1079,42 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.thread.i: ; pred
   %474 = zext nneg i32 %470 to i64
   br label %487
 
-_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.i: ; preds = %460
-  %.val.i.i597.i = load i64, ptr %461, align 1, !tbaa !3
-  %475 = mul i64 %.val.i.i597.i, -3523014627271114752
+_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.i: ; preds = %460
+  %.val.i.i596.i = load i64, ptr %461, align 1, !tbaa !3
+  %475 = mul i64 %.val.i.i596.i, -3523014627271114752
   %476 = lshr i64 %475, 52
   %477 = trunc i64 %463 to i32
   %478 = getelementptr inbounds nuw i32, ptr %0, i64 %476
   store i32 %477, ptr %478, align 4, !tbaa !6
-  %.val.i601.i = load i64, ptr %.8.i, align 1, !tbaa !3
-  %479 = mul i64 %.val.i601.i, -3523014627271114752
+  %.val.i600.i = load i64, ptr %.8.i, align 1, !tbaa !3
+  %479 = mul i64 %.val.i600.i, -3523014627271114752
   %480 = lshr i64 %479, 52
   %481 = ptrtoint ptr %.8.i to i64
   %482 = sub i64 %481, %78
   %483 = trunc i64 %482 to i32
   br i1 %98, label %484, label %487
 
-484:                                              ; preds = %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.i
+484:                                              ; preds = %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.i
   %485 = getelementptr inbounds nuw i32, ptr %0, i64 %480
   %486 = load i32, ptr %485, align 4, !tbaa !6
-  br label %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit606.i
+  br label %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit605.i
 
-487:                                              ; preds = %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.thread.i
-  %488 = phi i64 [ %474, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.thread.i ], [ %480, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.i ]
-  %489 = phi i32 [ %473, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.thread.i ], [ %483, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit604.i ]
+487:                                              ; preds = %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.thread.i
+  %488 = phi i64 [ %474, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.thread.i ], [ %480, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.i ]
+  %489 = phi i32 [ %473, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.thread.i ], [ %483, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit603.i ]
   %490 = getelementptr inbounds nuw i16, ptr %0, i64 %488
   %491 = load i16, ptr %490, align 2, !tbaa !17
   %492 = zext i16 %491 to i32
-  br label %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit606.i
+  br label %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit605.i
 
-_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit606.i: ; preds = %487, %484
+_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit605.i: ; preds = %487, %484
   %493 = phi i64 [ %480, %484 ], [ %488, %487 ]
   %494 = phi i32 [ %483, %484 ], [ %489, %487 ]
-  %.0.i605.i = phi i32 [ %486, %484 ], [ %492, %487 ]
+  %.0.i604.i = phi i32 [ %486, %484 ], [ %492, %487 ]
   br i1 %29, label %495, label %506
 
-495:                                              ; preds = %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit606.i
-  %496 = icmp ult i32 %.0.i605.i, %23
+495:                                              ; preds = %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit605.i
+  %496 = icmp ult i32 %.0.i604.i, %23
   br i1 %496, label %497, label %503
 
 497:                                              ; preds = %495
@@ -1126,16 +1126,16 @@ _ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit606.i: ; preds = 
   br label %517
 
 503:                                              ; preds = %495
-  %504 = zext i32 %.0.i605.i to i64
+  %504 = zext i32 %.0.i604.i to i64
   %505 = getelementptr inbounds nuw i8, ptr %26, i64 %504
   br label %517
 
-506:                                              ; preds = %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit606.i
+506:                                              ; preds = %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit605.i
   br i1 %47, label %507, label %514
 
 507:                                              ; preds = %506
-  %508 = icmp ult i32 %.0.i605.i, %23
-  %509 = zext i32 %.0.i605.i to i64
+  %508 = icmp ult i32 %.0.i604.i, %23
+  %509 = zext i32 %.0.i604.i to i64
   br i1 %508, label %510, label %512
 
 510:                                              ; preds = %507
@@ -1147,39 +1147,39 @@ _ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit606.i: ; preds = 
   br label %517
 
 514:                                              ; preds = %506
-  %515 = zext i32 %.0.i605.i to i64
+  %515 = zext i32 %.0.i604.i to i64
   %516 = getelementptr inbounds nuw i8, ptr %26, i64 %515
   br label %517
 
 517:                                              ; preds = %514, %512, %510, %503, %497
   %.11472.i = phi ptr [ %501, %497 ], [ %505, %503 ], [ %511, %510 ], [ %513, %512 ], [ %516, %514 ]
-  %.8408.i = phi ptr [ %30, %497 ], [ %1, %503 ], [ %30, %510 ], [ %1, %512 ], [ %.6406782.i, %514 ]
-  %.0390.i = phi i32 [ %502, %497 ], [ %.0.i605.i, %503 ], [ %.0.i605.i, %510 ], [ %.0.i605.i, %512 ], [ %.0.i605.i, %514 ]
+  %.8408.i = phi ptr [ %30, %497 ], [ %1, %503 ], [ %30, %510 ], [ %1, %512 ], [ %.6406779.i, %514 ]
+  %.0390.i = phi i32 [ %502, %497 ], [ %.0.i604.i, %503 ], [ %.0.i604.i, %510 ], [ %.0.i604.i, %512 ], [ %.0.i604.i, %514 ]
   br i1 %59, label %520, label %518
 
 518:                                              ; preds = %517
   %519 = getelementptr inbounds nuw i32, ptr %0, i64 %493
   store i32 %494, ptr %519, align 4, !tbaa !6
-  br label %_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit609.i
+  br label %_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit607.i
 
 520:                                              ; preds = %517
   %521 = trunc i32 %494 to i16
   %522 = getelementptr inbounds nuw i16, ptr %0, i64 %493
   store i16 %521, ptr %522, align 2, !tbaa !17
-  br label %_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit609.i
+  br label %_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit607.i
 
-_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit609.i: ; preds = %520, %518
+_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit607.i: ; preds = %520, %518
   %523 = icmp uge i32 %.0390.i, %50
   %narrow.i = select i1 %.not508.i, i1 true, i1 %523
   br i1 %narrow.i, label %524, label %533
 
-524:                                              ; preds = %_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit609.i
+524:                                              ; preds = %_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit607.i
   %525 = add i32 %.0390.i, 65535
   %.not510.i = icmp uge i32 %525, %494
   %.not509.not.i = select i1 %59, i1 true, i1 %.not510.i
-  br i1 %.not509.not.i, label %527, label %.thread890.i
+  br i1 %.not509.not.i, label %527, label %.thread887.i
 
-.thread890.i:                                     ; preds = %524
+.thread887.i:                                     ; preds = %524
   %526 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
   br label %535
 
@@ -1193,48 +1193,48 @@ _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i:  ; preds = %527
   %529 = getelementptr inbounds nuw i8, ptr %.8422.ph.i, i64 1
   store i8 0, ptr %.8422.ph.i, align 1, !tbaa !3
   %530 = sub i32 %494, %.0390.i
-  %spec.select519.i = select i1 %.not618.i, i32 %.6437779.i, i32 %530
+  %spec.select519.i = select i1 %.not616.i, i32 %.6437776.i, i32 %530
   %531 = getelementptr inbounds nuw i8, ptr %.8422.ph.i, i64 12
   %532 = icmp ugt ptr %531, %55
   %or.cond516.i = select i1 %56, i1 %532, i1 false
-  br i1 %or.cond516.i, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.loopexit.i, label %.lr.ph787.i
+  br i1 %or.cond516.i, label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.loopexit.i, label %.lr.ph784.i
 
-533:                                              ; preds = %527, %_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit609.i
+533:                                              ; preds = %527, %_ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit607.i
   %534 = getelementptr inbounds nuw i8, ptr %.8.i, i64 1
   br i1 %59, label %540, label %535
 
-535:                                              ; preds = %533, %.thread890.i
-  %536 = phi ptr [ %526, %.thread890.i ], [ %534, %533 ]
-  %.val.i611.i = load i64, ptr %536, align 1, !tbaa !3
-  %537 = mul i64 %.val.i611.i, -3523014627271114752
+535:                                              ; preds = %533, %.thread887.i
+  %536 = phi ptr [ %526, %.thread887.i ], [ %534, %533 ]
+  %.val.i609.i = load i64, ptr %536, align 1, !tbaa !3
+  %537 = mul i64 %.val.i609.i, -3523014627271114752
   %538 = lshr i64 %537, 52
   %539 = trunc nuw nsw i64 %538 to i32
-  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge
+  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge
 
 540:                                              ; preds = %533
-  %.val6.i613.i = load i32, ptr %534, align 1, !tbaa !3
-  %541 = mul i32 %.val6.i613.i, -1640531535
+  %.val6.i611.i = load i32, ptr %534, align 1, !tbaa !3
+  %541 = mul i32 %.val6.i611.i, -1640531535
   %542 = lshr i32 %541, 19
-  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge
+  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge
 
-_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i.backedge: ; preds = %540, %535
+_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i.backedge: ; preds = %540, %535
   %.0442.i.be = phi i32 [ %539, %535 ], [ %542, %540 ]
   %.1393.i.be = phi ptr [ %536, %535 ], [ %534, %540 ]
-  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.i
+  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.i
 
-_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.loopexit.i: ; preds = %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i
+_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.loopexit.i: ; preds = %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i
   %.pre.i = ptrtoint ptr %.8.i to i64
-  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.i
+  br label %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.i
 
-_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.i: ; preds = %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i, %193, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.loopexit.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.loopexit.i ], [ %.1411847.i, %193 ], [ %.1411847.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
-  %.0414.ph.i = phi ptr [ %.8422.ph.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.loopexit.i ], [ %.1415.i, %193 ], [ %.1415.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
-  %.0410.ph.i = phi ptr [ %.8.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.loopexit.i ], [ %.1411.fr.i, %193 ], [ %.1411.fr.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
+_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.i: ; preds = %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i, %193, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.loopexit.i
+  %.pre-phi.i = phi i64 [ %.pre.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.loopexit.i ], [ %.1411844.i, %193 ], [ %.1411844.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
+  %.0414.ph.i = phi ptr [ %.8422.ph.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.loopexit.i ], [ %.1415.i, %193 ], [ %.1415.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
+  %.0410.ph.i = phi ptr [ %.8.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.loopexit.i ], [ %.1411.fr.i, %193 ], [ %.1411.fr.i, %_ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.preheader.i ]
   %543 = ptrtoint ptr %51 to i64
   %544 = sub i64 %543, %.pre-phi.i
   br label %548
 
-_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i: ; preds = %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit.i, %459, %73
+_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i: ; preds = %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit.i, %459, %73
   %.0414.i = phi ptr [ %2, %73 ], [ %.8422.ph.i, %459 ], [ %.1415.i, %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit.i ]
   %.0410.i = phi ptr [ %1, %73 ], [ %.8.i, %459 ], [ %.1411.fr.i, %_ZN10duckdb_lz4L18LZ4_getIndexOnHashEjPKvNS_11tableType_tE.exit.i ]
   %545 = ptrtoint ptr %51 to i64
@@ -1243,11 +1243,11 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i: ; pred
   %.not511.i = icmp eq i32 %6, 0
   br i1 %.not511.i, label %565, label %548
 
-548:                                              ; preds = %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.i
-  %549 = phi i64 [ %544, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.i ], [ %547, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i ]
-  %.0410717.i = phi ptr [ %.0410.ph.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.i ], [ %.0410.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i ]
-  %.0414715.i = phi ptr [ %.0414.ph.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.thread.i ], [ %.0414.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i ]
-  %550 = getelementptr inbounds nuw i8, ptr %.0414715.i, i64 %549
+548:                                              ; preds = %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.i
+  %549 = phi i64 [ %544, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.i ], [ %547, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i ]
+  %.0410714.i = phi ptr [ %.0410.ph.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.i ], [ %.0410.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i ]
+  %.0414712.i = phi ptr [ %.0414.ph.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.thread.i ], [ %.0414.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i ]
+  %550 = getelementptr inbounds nuw i8, ptr %.0414712.i, i64 %549
   %551 = getelementptr inbounds nuw i8, ptr %550, i64 1
   %552 = add i64 %549, 240
   %553 = udiv i64 %552, 255
@@ -1260,7 +1260,7 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i: ; pred
 
 557:                                              ; preds = %556
   %558 = ptrtoint ptr %55 to i64
-  %559 = ptrtoint ptr %.0414715.i to i64
+  %559 = ptrtoint ptr %.0414712.i to i64
   %560 = xor i64 %559, -1
   %561 = add i64 %560, %558
   %562 = add i64 %561, 241
@@ -1268,34 +1268,34 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i: ; pred
   %564 = sub i64 %561, %563
   br label %565
 
-565:                                              ; preds = %557, %548, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i
-  %.0410718.i = phi ptr [ %.0410717.i, %557 ], [ %.0410717.i, %548 ], [ %.0410.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i ]
-  %.0414716.i = phi ptr [ %.0414715.i, %557 ], [ %.0414715.i, %548 ], [ %.0414.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i ]
-  %.0389.i = phi i64 [ %564, %557 ], [ %549, %548 ], [ %547, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i ]
+565:                                              ; preds = %557, %548, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i
+  %.0410715.i = phi ptr [ %.0410714.i, %557 ], [ %.0410714.i, %548 ], [ %.0410.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i ]
+  %.0414713.i = phi ptr [ %.0414712.i, %557 ], [ %.0414712.i, %548 ], [ %.0414.i, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i ]
+  %.0389.i = phi i64 [ %564, %557 ], [ %549, %548 ], [ %547, %_ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i ]
   %566 = icmp ugt i64 %.0389.i, 14
   br i1 %566, label %567, label %576
 
 567:                                              ; preds = %565
   %568 = add i64 %.0389.i, -15
-  store i8 -16, ptr %.0414716.i, align 1, !tbaa !3
-  %.14792.i = getelementptr i8, ptr %.0414716.i, i64 1
+  store i8 -16, ptr %.0414713.i, align 1, !tbaa !3
+  %.14789.i = getelementptr i8, ptr %.0414713.i, i64 1
   %569 = icmp ugt i64 %568, 254
-  br i1 %569, label %.lr.ph796.preheader.i, label %._crit_edge797.i
+  br i1 %569, label %.lr.ph793.preheader.i, label %._crit_edge794.i
 
-.lr.ph796.preheader.i:                            ; preds = %567
+.lr.ph793.preheader.i:                            ; preds = %567
   %570 = add i64 %.0389.i, -270
   %571 = udiv i64 %570, 255
   %572 = add nuw nsw i64 %571, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.14792.i, i8 -1, i64 %572, i1 false), !tbaa !3
-  %.neg889.i = mul i64 %571, -255
-  %573 = add i64 %.neg889.i, %570
-  %574 = getelementptr i8, ptr %.0414716.i, i64 %571
-  %scevgep859.i = getelementptr i8, ptr %574, i64 2
-  br label %._crit_edge797.i
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.14789.i, i8 -1, i64 %572, i1 false), !tbaa !3
+  %.neg886.i = mul i64 %571, -255
+  %573 = add i64 %.neg886.i, %570
+  %574 = getelementptr i8, ptr %.0414713.i, i64 %571
+  %scevgep856.i = getelementptr i8, ptr %574, i64 2
+  br label %._crit_edge794.i
 
-._crit_edge797.i:                                 ; preds = %.lr.ph796.preheader.i, %567
-  %.0.lcssa.i = phi i64 [ %568, %567 ], [ %573, %.lr.ph796.preheader.i ]
-  %.14.lcssa.i = phi ptr [ %.14792.i, %567 ], [ %scevgep859.i, %.lr.ph796.preheader.i ]
+._crit_edge794.i:                                 ; preds = %.lr.ph793.preheader.i, %567
+  %.0.lcssa.i = phi i64 [ %568, %567 ], [ %573, %.lr.ph793.preheader.i ]
+  %.14.lcssa.i = phi ptr [ %.14789.i, %567 ], [ %scevgep856.i, %.lr.ph793.preheader.i ]
   %575 = trunc nuw i64 %.0.lcssa.i to i8
   store i8 %575, ptr %.14.lcssa.i, align 1, !tbaa !3
   br label %578
@@ -1303,18 +1303,18 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i: ; pred
 576:                                              ; preds = %565
   %.0389.tr.i = trunc nuw nsw i64 %.0389.i to i8
   %577 = shl nuw i8 %.0389.tr.i, 4
-  store i8 %577, ptr %.0414716.i, align 1, !tbaa !3
+  store i8 %577, ptr %.0414713.i, align 1, !tbaa !3
   br label %578
 
-578:                                              ; preds = %576, %._crit_edge797.i
-  %.14.pn.i = phi ptr [ %.14.lcssa.i, %._crit_edge797.i ], [ %.0414716.i, %576 ]
+578:                                              ; preds = %576, %._crit_edge794.i
+  %.14.pn.i = phi ptr [ %.14.lcssa.i, %._crit_edge794.i ], [ %.0414713.i, %576 ]
   %.15.i = getelementptr inbounds nuw i8, ptr %.14.pn.i, i64 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.15.i, ptr align 1 %.0410718.i, i64 %.0389.i, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.15.i, ptr align 1 %.0410715.i, i64 %.0389.i, i1 false)
   %579 = getelementptr inbounds nuw i8, ptr %.15.i, i64 %.0389.i
   br i1 %56, label %580, label %586
 
 580:                                              ; preds = %578
-  %581 = getelementptr inbounds nuw i8, ptr %.0410718.i, i64 %.0389.i
+  %581 = getelementptr inbounds nuw i8, ptr %.0410715.i, i64 %.0389.i
   %582 = ptrtoint ptr %581 to i64
   %583 = ptrtoint ptr %1 to i64
   %584 = sub i64 %582, %583
@@ -1329,8 +1329,8 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit614.thread.i: ; pred
   %590 = trunc i64 %589 to i32
   br label %_ZN10duckdb_lz4L30LZ4_compress_generic_validatedEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi.exit
 
-_ZN10duckdb_lz4L30LZ4_compress_generic_validatedEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi.exit: ; preds = %184, %418, %586, %556, %58, %.thread619.i, %18, %20, %15, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %15 ], [ 1, %20 ], [ 1, %18 ], [ %590, %586 ], [ 0, %.thread619.i ], [ 0, %58 ], [ 0, %556 ], [ 0, %418 ], [ 0, %184 ]
+_ZN10duckdb_lz4L30LZ4_compress_generic_validatedEPNS_21LZ4_stream_t_internalEPKcPciPiiNS_23limitedOutput_directiveENS_11tableType_tENS_14dict_directiveENS_19dictIssue_directiveEi.exit: ; preds = %184, %418, %586, %556, %58, %.thread617.i, %18, %20, %15, %11
+  %.0 = phi i32 [ 0, %11 ], [ 0, %15 ], [ 1, %20 ], [ 1, %18 ], [ %590, %586 ], [ 0, %.thread617.i ], [ 0, %58 ], [ 0, %556 ], [ 0, %418 ], [ 0, %184 ]
   ret i32 %.0
 }
 

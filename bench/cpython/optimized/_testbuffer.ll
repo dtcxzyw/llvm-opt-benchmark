@@ -532,8 +532,8 @@ define internal ptr @get_pointer(ptr readnone captures(none) %0, ptr noundef %1)
 
 26:                                               ; preds = %19
   %27 = load ptr, ptr %4, align 8, !tbaa !9
-  %.in38 = getelementptr i8, ptr %27, i64 16
-  %28 = load i64, ptr %.in38, align 8, !tbaa !28
+  %.in37 = getelementptr i8, ptr %27, i64 16
+  %28 = load i64, ptr %.in37, align 8, !tbaa !28
   %29 = sext i32 %21 to i64
   %.not22 = icmp eq i64 %28, %29
   br i1 %.not22, label %.preheader, label %32
@@ -552,7 +552,7 @@ define internal ptr @get_pointer(ptr readnone captures(none) %0, ptr noundef %1)
   br label %.thread
 
 34:                                               ; preds = %.lr.ph, %56
-  %.01741 = phi i64 [ 0, %.lr.ph ], [ %57, %56 ]
+  %.01740 = phi i64 [ 0, %.lr.ph ], [ %57, %56 ]
   %35 = load ptr, ptr %4, align 8, !tbaa !9
   %36 = getelementptr i8, ptr %35, i64 8
   %.val29 = load ptr, ptr %36, align 8, !tbaa !3
@@ -569,10 +569,10 @@ define internal ptr @get_pointer(ptr readnone captures(none) %0, ptr noundef %1)
 
 42:                                               ; preds = %34, %40
   %.pn = phi ptr [ %41, %40 ], [ %39, %34 ]
-  %.in = getelementptr ptr, ptr %.pn, i64 %.01741
+  %.in = getelementptr ptr, ptr %.pn, i64 %.01740
   %43 = load ptr, ptr %.in, align 8, !tbaa !9
   %44 = call i64 @PyLong_AsSsize_t(ptr noundef %43) #14
-  %45 = getelementptr i64, ptr %6, i64 %.01741
+  %45 = getelementptr i64, ptr %6, i64 %.01740
   store i64 %44, ptr %45, align 8, !tbaa !12
   %46 = call ptr @PyErr_Occurred() #14
   %.not24 = icmp eq ptr %46, null
@@ -584,18 +584,18 @@ define internal ptr @get_pointer(ptr readnone captures(none) %0, ptr noundef %1)
 
 49:                                               ; preds = %47
   %50 = load ptr, ptr %31, align 8, !tbaa !32
-  %51 = getelementptr i64, ptr %50, i64 %.01741
+  %51 = getelementptr i64, ptr %50, i64 %.01740
   %52 = load i64, ptr %51, align 8, !tbaa !12
   %.not25 = icmp slt i64 %44, %52
   br i1 %.not25, label %56, label %53
 
 53:                                               ; preds = %49, %47
   %54 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  %55 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %54, ptr noundef nonnull @.str.15, i64 noundef %44, i64 noundef %.01741) #14
+  %55 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %54, ptr noundef nonnull @.str.15, i64 noundef %44, i64 noundef %.01740) #14
   br label %.thread
 
 56:                                               ; preds = %49
-  %57 = add nuw nsw i64 %.01741, 1
+  %57 = add nuw nsw i64 %.01740, 1
   %58 = load i32, ptr %20, align 4, !tbaa !25
   %59 = sext i32 %58 to i64
   %60 = icmp slt i64 %57, %59
@@ -2357,19 +2357,19 @@ init_slice.exit:                                  ; preds = %142
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %198, %.lr.ph.preheader.i
-  %.036.i = phi i64 [ %199, %198 ], [ %194, %.lr.ph.preheader.i ]
-  %195 = getelementptr i64, ptr %181, i64 %.036.i
+  %.035.i = phi i64 [ %199, %198 ], [ %194, %.lr.ph.preheader.i ]
+  %195 = getelementptr i64, ptr %181, i64 %.035.i
   %196 = load i64, ptr %195, align 8, !tbaa !12
   %197 = icmp slt i64 %196, 0
   br i1 %197, label %198, label %.thread.i74
 
 198:                                              ; preds = %.lr.ph.i
-  %199 = add nsw i64 %.036.i, -1
-  %200 = icmp sgt i64 %.036.i, 0
+  %199 = add nsw i64 %.035.i, -1
+  %200 = icmp sgt i64 %.035.i, 0
   br i1 %200, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !59
 
 .thread.i74:                                      ; preds = %.lr.ph.i
-  %201 = getelementptr i64, ptr %181, i64 %.036.i
+  %201 = getelementptr i64, ptr %181, i64 %.035.i
   %202 = load ptr, ptr %137, align 8, !tbaa !42
   %203 = getelementptr i64, ptr %202, i64 %176
   %204 = load i64, ptr %203, align 8, !tbaa !12

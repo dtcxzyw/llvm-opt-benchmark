@@ -1317,9 +1317,9 @@ define internal noundef i32 @udp_close(ptr noundef %0) #0 {
   store i32 0, ptr %46, align 4, !tbaa !76
   %47 = call i32 @setsockopt(i32 noundef %28, i32 noundef 41, i32 noundef 21, ptr noundef nonnull %3, i32 noundef 20) #11
   %48 = icmp slt i32 %47, 0
-  br i1 %48, label %49, label %.thread18.i
+  br i1 %48, label %49, label %.thread16.i
 
-.thread18.i:                                      ; preds = %44
+.thread16.i:                                      ; preds = %44
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %udp_leave_multicast_group.exit
 
@@ -1328,7 +1328,7 @@ define internal noundef i32 @udp_close(ptr noundef %0) #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %udp_leave_multicast_group.exit
 
-udp_leave_multicast_group.exit:                   ; preds = %49, %.thread18.i, %41, %40, %22, %19
+udp_leave_multicast_group.exit:                   ; preds = %49, %.thread16.i, %41, %40, %22, %19
   %50 = load i32, ptr %6, align 8, !tbaa !65
   %.not27 = icmp eq i32 %50, 0
   br i1 %.not27, label %70, label %51
@@ -1694,9 +1694,9 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_join_multica
   store i32 0, ptr %28, align 4, !tbaa !76
   %29 = call i32 @setsockopt(i32 noundef %0, i32 noundef 41, i32 noundef 20, ptr noundef nonnull %6, i32 noundef 20) #11
   %30 = icmp slt i32 %29, 0
-  br i1 %30, label %31, label %.thread19
+  br i1 %30, label %31, label %.thread17
 
-.thread19:                                        ; preds = %26
+.thread17:                                        ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
@@ -1708,8 +1708,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @udp_join_multica
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %35
 
-35:                                               ; preds = %23, %.thread19, %31, %19
-  %.2 = phi i32 [ %34, %31 ], [ %22, %19 ], [ 0, %.thread19 ], [ 0, %23 ]
+35:                                               ; preds = %23, %.thread17, %31, %19
+  %.2 = phi i32 [ %34, %31 ], [ %22, %19 ], [ 0, %.thread17 ], [ 0, %23 ]
   ret i32 %.2
 }
 

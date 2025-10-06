@@ -631,13 +631,13 @@ switch.lookup:                                    ; preds = %.lr.ph
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE, i64 %19
   %switch.load = load i8, ptr %switch.gep, align 1
   %20 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep73 = getelementptr inbounds nuw i8, ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE.1, i64 %20
-  %switch.load74 = load i8, ptr %switch.gep73, align 1
+  %switch.gep71 = getelementptr inbounds nuw i8, ptr @switch.table._ZNSt3__14__fs10filesystem12__dir_stream7advanceERNS_10error_codeE.1, i64 %20
+  %switch.load72 = load i8, ptr %switch.gep71, align 1
   br label %_ZNSt3__14__fs10filesystem6detail13posix_readdirB8ne210000EP11__dirstreamRNS_10error_codeE.exit
 
 _ZNSt3__14__fs10filesystem6detail13posix_readdirB8ne210000EP11__dirstreamRNS_10error_codeE.exit: ; preds = %.lr.ph, %switch.lookup
   %switch.selectcmp1.i.i = phi i8 [ %switch.load, %switch.lookup ], [ 0, %.lr.ph ]
-  %.0.i.i = phi i8 [ %switch.load74, %switch.lookup ], [ 0, %.lr.ph ]
+  %.0.i.i = phi i8 [ %switch.load72, %switch.lookup ], [ 0, %.lr.ph ]
   %21 = tail call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(256) %15) #29, !noalias !53
   switch i64 %21, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit22.thread [
     i64 1, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit
@@ -822,8 +822,8 @@ _ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit33: ; preds = %.body, %82
   br i1 %90, label %._crit_edge, label %.lr.ph
 
 91:                                               ; preds = %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27
-  %or.cond.not69 = phi i1 [ false, %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit ], [ true, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27 ]
-  ret i1 %or.cond.not69
+  %or.cond.not67 = phi i1 [ false, %_ZNSt3__14__fs10filesystem12__dir_stream5closeEv.exit ], [ true, %_ZNSt3__14__fs10filesystem4pathD2B8ne210000Ev.exit27 ]
+  ret i1 %or.cond.not67
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2539,32 +2539,31 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br label %_ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit
 
 10:                                               ; preds = %3
-  %11 = add i64 %2, 9
-  %12 = icmp ult i64 %11, 31
-  br i1 %12, label %13, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
+  %11 = icmp ugt i64 %2, -10
+  br i1 %11, label %12, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
 
-13:                                               ; preds = %10
+12:                                               ; preds = %10
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne210000Ev() #31
   unreachable
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit: ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %2, i64 44)
-  %15 = or i64 %.sroa.speculated.i, 7
-  %16 = add nuw i64 %15, 1
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %2, i1 false)
-  store ptr %17, ptr %14, align 8, !tbaa !51
-  %18 = or disjoint i64 %16, 1
-  store i64 %18, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %19, align 8, !tbaa !51
+  %14 = or i64 %.sroa.speculated.i, 7
+  %15 = add nuw i64 %14, 1
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %1, i64 %2, i1 false)
+  store ptr %16, ptr %13, align 8, !tbaa !51
+  %17 = or disjoint i64 %15, 1
+  store i64 %17, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %2, ptr %18, align 8, !tbaa !51
   br label %_ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit
 
 _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit: ; preds = %9, %5, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
-  %.sink21 = phi ptr [ %17, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %6, %5 ], [ %6, %9 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink21, i64 %2
-  store i8 0, ptr %20, align 1, !tbaa !51
+  %.sink21 = phi ptr [ %16, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %6, %5 ], [ %6, %9 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sink21, i64 %2
+  store i8 0, ptr %19, align 1, !tbaa !51
   ret ptr %0
 }
 

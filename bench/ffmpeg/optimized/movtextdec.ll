@@ -618,17 +618,17 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   %12 = load i8, ptr %11, align 8, !tbaa !62
   %13 = and i8 %12, 8
   %.not = icmp eq i8 %13, 0
-  br i1 %.not, label %.lr.ph128, label %.lr.ph128.sink.split
+  br i1 %.not, label %.lr.ph127, label %.lr.ph127.sink.split
 
-.lr.ph128.sink.split:                             ; preds = %10
+.lr.ph127.sink.split:                             ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %15 = load i8, ptr %14, align 8, !tbaa !77
   %16 = icmp eq i8 %15, 1
   %.str.11..str.12 = select i1 %16, ptr @.str.11, ptr @.str.12
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull %.str.11..str.12) #8
-  br label %.lr.ph128
+  br label %.lr.ph127
 
-.lr.ph128:                                        ; preds = %.lr.ph128.sink.split, %10
+.lr.ph127:                                        ; preds = %.lr.ph127.sink.split, %10
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 82
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -647,11 +647,11 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 18
   br label %33
 
-33:                                               ; preds = %.lr.ph128, %164
-  %.091127 = phi i32 [ %8, %.lr.ph128 ], [ %.1, %164 ]
-  %.092126 = phi i32 [ 0, %.lr.ph128 ], [ %.193, %164 ]
-  %.095125 = phi i32 [ 0, %.lr.ph128 ], [ %167, %164 ]
-  %.097122 = phi ptr [ %1, %.lr.ph128 ], [ %166, %164 ]
+33:                                               ; preds = %.lr.ph127, %164
+  %.091126 = phi i32 [ %8, %.lr.ph127 ], [ %.1, %164 ]
+  %.092125 = phi i32 [ 0, %.lr.ph127 ], [ %.193, %164 ]
+  %.095124 = phi i32 [ 0, %.lr.ph127 ], [ %167, %164 ]
+  %.097121 = phi ptr [ %1, %.lr.ph127 ], [ %166, %164 ]
   %34 = load i8, ptr %17, align 8, !tbaa !62
   %35 = and i8 %34, 1
   %.not103 = icmp eq i8 %35, 0
@@ -660,40 +660,40 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
 36:                                               ; preds = %33
   %37 = load i16, ptr %18, align 2, !tbaa !63
   %38 = zext i16 %37 to i32
-  %39 = icmp slt i32 %.092126, %38
+  %39 = icmp slt i32 %.092125, %38
   br i1 %39, label %40, label %109
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %19, align 8, !tbaa !78
-  %42 = sext i32 %.092126 to i64
+  %42 = sext i32 %.092125 to i64
   %43 = getelementptr inbounds %struct.StyleBox, ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   %45 = load i16, ptr %44, align 2, !tbaa !79
   %46 = zext i16 %45 to i32
-  %47 = icmp eq i32 %.095125, %46
-  br i1 %47, label %48, label %.thread148
+  %47 = icmp eq i32 %.095124, %46
+  br i1 %47, label %48, label %.thread147
 
 48:                                               ; preds = %40
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.13) #8
   %49 = load i32, ptr %7, align 4, !tbaa !46
-  %50 = add nsw i32 %.092126, 1
+  %50 = add nsw i32 %.092125, 1
   %51 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %.pre = load i16, ptr %18, align 2, !tbaa !63
-  %.pre134 = zext i16 %.pre to i32
-  %52 = icmp slt i32 %50, %.pre134
-  br i1 %52, label %.thread148, label %109
+  %.pre133 = zext i16 %.pre to i32
+  %52 = icmp slt i32 %50, %.pre133
+  br i1 %52, label %.thread147, label %109
 
-.thread148:                                       ; preds = %40, %48
-  %.0155 = phi ptr [ %51, %48 ], [ %43, %40 ]
-  %.2154 = phi i32 [ %49, %48 ], [ %.091127, %40 ]
-  %.294153 = phi i32 [ %50, %48 ], [ %.092126, %40 ]
-  %53 = load i16, ptr %.0155, align 4, !tbaa !80
+.thread147:                                       ; preds = %40, %48
+  %.0154 = phi ptr [ %51, %48 ], [ %43, %40 ]
+  %.2153 = phi i32 [ %49, %48 ], [ %.091126, %40 ]
+  %.294152 = phi i32 [ %50, %48 ], [ %.092125, %40 ]
+  %53 = load i16, ptr %.0154, align 4, !tbaa !80
   %54 = zext i16 %53 to i32
-  %55 = icmp eq i32 %.095125, %54
+  %55 = icmp eq i32 %.095124, %54
   br i1 %55, label %56, label %109
 
-56:                                               ; preds = %.thread148
-  %57 = getelementptr inbounds nuw i8, ptr %.0155, i64 5
+56:                                               ; preds = %.thread147
+  %57 = getelementptr inbounds nuw i8, ptr %.0154, i64 5
   %58 = load i8, ptr %57, align 1, !tbaa !42
   %59 = load i8, ptr %20, align 1, !tbaa !42
   %.not104 = icmp eq i8 %58, %59
@@ -705,7 +705,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   br label %62
 
 62:                                               ; preds = %60, %56
-  %63 = getelementptr inbounds nuw i8, ptr %.0155, i64 6
+  %63 = getelementptr inbounds nuw i8, ptr %.0154, i64 6
   %64 = load i8, ptr %63, align 2, !tbaa !43
   %65 = load i8, ptr %21, align 2, !tbaa !43
   %.not105 = icmp eq i8 %64, %65
@@ -717,7 +717,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   br label %68
 
 68:                                               ; preds = %66, %62
-  %69 = getelementptr inbounds nuw i8, ptr %.0155, i64 7
+  %69 = getelementptr inbounds nuw i8, ptr %.0154, i64 7
   %70 = load i8, ptr %69, align 1, !tbaa !44
   %71 = load i8, ptr %22, align 1, !tbaa !44
   %.not106 = icmp eq i8 %70, %71
@@ -729,7 +729,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   br label %74
 
 74:                                               ; preds = %72, %68
-  %75 = getelementptr inbounds nuw i8, ptr %.0155, i64 13
+  %75 = getelementptr inbounds nuw i8, ptr %.0154, i64 13
   %76 = load i8, ptr %75, align 1, !tbaa !45
   %77 = load i8, ptr %23, align 1, !tbaa !45
   %.not107 = icmp eq i8 %76, %77
@@ -741,7 +741,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   br label %80
 
 80:                                               ; preds = %78, %74
-  %81 = getelementptr inbounds nuw i8, ptr %.0155, i64 14
+  %81 = getelementptr inbounds nuw i8, ptr %.0154, i64 14
   %82 = load i16, ptr %81, align 2, !tbaa !40
   %83 = load i16, ptr %24, align 2, !tbaa !40
   %.not108 = icmp eq i16 %82, %83
@@ -749,8 +749,8 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
 
 .preheader:                                       ; preds = %80
   %84 = load i16, ptr %25, align 4, !tbaa !29
-  %.not129 = icmp eq i16 %84, 0
-  br i1 %.not129, label %.loopexit, label %.lr.ph
+  %.not128 = icmp eq i16 %84, 0
+  br i1 %.not128, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %94
   %85 = phi i16 [ %95, %94 ], [ %84, %.preheader ]
@@ -766,11 +766,11 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   %92 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !55
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.18, ptr noundef %93) #8
-  %.pre132 = load i16, ptr %25, align 4, !tbaa !29
+  %.pre131 = load i16, ptr %25, align 4, !tbaa !29
   br label %94
 
 94:                                               ; preds = %.lr.ph, %91
-  %95 = phi i16 [ %85, %.lr.ph ], [ %.pre132, %91 ]
+  %95 = phi i16 [ %85, %.lr.ph ], [ %.pre131, %91 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %96 = zext i16 %95 to i64
   %97 = icmp samesign ult i64 %indvars.iv.next, %96
@@ -778,7 +778,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
 
 .loopexit:                                        ; preds = %94, %.preheader, %80
   %98 = load i32, ptr %7, align 4, !tbaa !46
-  %99 = getelementptr inbounds nuw i8, ptr %.0155, i64 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0154, i64 8
   %100 = load i32, ptr %99, align 4, !tbaa !46
   %.not109 = icmp eq i32 %98, %100
   br i1 %.not109, label %102, label %101
@@ -788,9 +788,9 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   br label %102
 
 102:                                              ; preds = %101, %.loopexit
-  %.4 = phi i32 [ %100, %101 ], [ %.2154, %.loopexit ]
+  %.4 = phi i32 [ %100, %101 ], [ %.2153, %.loopexit ]
   %103 = load i8, ptr %27, align 4, !tbaa !47
-  %104 = getelementptr inbounds nuw i8, ptr %.0155, i64 12
+  %104 = getelementptr inbounds nuw i8, ptr %.0154, i64 12
   %105 = load i8, ptr %104, align 4, !tbaa !47
   %.not110 = icmp eq i8 %103, %105
   br i1 %.not110, label %109, label %106
@@ -801,9 +801,9 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   tail call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, i32 noundef %108) #8
   br label %109
 
-109:                                              ; preds = %48, %.thread148, %106, %102, %36, %33
-  %.193 = phi i32 [ %.092126, %36 ], [ %.092126, %33 ], [ %.294153, %102 ], [ %.294153, %106 ], [ %.294153, %.thread148 ], [ %50, %48 ]
-  %.1 = phi i32 [ %.091127, %36 ], [ %.091127, %33 ], [ %.4, %102 ], [ %.4, %106 ], [ %.2154, %.thread148 ], [ %49, %48 ]
+109:                                              ; preds = %48, %.thread147, %106, %102, %36, %33
+  %.193 = phi i32 [ %.092125, %36 ], [ %.092125, %33 ], [ %.294152, %102 ], [ %.294152, %106 ], [ %.294152, %.thread147 ], [ %50, %48 ]
+  %.1 = phi i32 [ %.091126, %36 ], [ %.091126, %33 ], [ %.4, %102 ], [ %.4, %106 ], [ %.2153, %.thread147 ], [ %49, %48 ]
   %110 = load i8, ptr %17, align 8, !tbaa !62
   %111 = zext i8 %110 to i32
   %112 = and i32 %111, 2
@@ -813,7 +813,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
 113:                                              ; preds = %109
   %114 = load i16, ptr %28, align 8, !tbaa !82
   %115 = zext i16 %114 to i32
-  %116 = icmp eq i32 %.095125, %115
+  %116 = icmp eq i32 %.095124, %115
   br i1 %116, label %117, label %127
 
 117:                                              ; preds = %113
@@ -838,7 +838,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
 127:                                              ; preds = %119, %126, %113
   %128 = load i16, ptr %32, align 2, !tbaa !83
   %129 = zext i16 %128 to i32
-  %130 = icmp eq i32 %.095125, %129
+  %130 = icmp eq i32 %.095124, %129
   br i1 %130, label %131, label %137
 
 131:                                              ; preds = %127
@@ -857,7 +857,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   br label %137
 
 137:                                              ; preds = %127, %136, %135, %109
-  %138 = load i8, ptr %.097122, align 1, !tbaa !36
+  %138 = load i8, ptr %.097121, align 1, !tbaa !36
   %139 = zext i8 %138 to i32
   %140 = and i32 %139, 192
   %141 = icmp eq i32 %140, 128
@@ -871,7 +871,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %148, %.preheader.preheader.i
-  %.233.i.pn = phi ptr [ %.233.i, %148 ], [ %.097122, %.preheader.preheader.i ]
+  %.233.i.pn = phi ptr [ %.233.i, %148 ], [ %.097121, %.preheader.preheader.i ]
   %.027.i = phi i32 [ %153, %148 ], [ %139, %.preheader.preheader.i ]
   %.025.i = phi i32 [ %154, %148 ], [ %144, %.preheader.preheader.i ]
   %.233.i = getelementptr inbounds nuw i8, ptr %.233.i.pn, i64 1
@@ -895,7 +895,7 @@ define internal fastcc void @text_to_ass(ptr noundef nonnull %0, ptr noundef non
 
 get_utf8_length_at.exit:                          ; preds = %.preheader.i
   %155 = ptrtoint ptr %.233.i to i64
-  %156 = ptrtoint ptr %.097122 to i64
+  %156 = ptrtoint ptr %.097121 to i64
   %157 = sub i64 %155, %156
   %158 = trunc i64 %157 to i32
   %159 = icmp slt i32 %158, 1
@@ -903,11 +903,11 @@ get_utf8_length_at.exit:                          ; preds = %.preheader.i
 
 get_utf8_length_at.exit.thread:                   ; preds = %148, %146, %137, %get_utf8_length_at.exit
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %3, i32 noundef 16, ptr noundef nonnull @.str.25) #8
-  %.pre133 = load i8, ptr %.097122, align 1, !tbaa !36
+  %.pre132 = load i8, ptr %.097121, align 1, !tbaa !36
   br label %160
 
 160:                                              ; preds = %get_utf8_length_at.exit.thread, %get_utf8_length_at.exit
-  %161 = phi i8 [ %.pre133, %get_utf8_length_at.exit.thread ], [ %138, %get_utf8_length_at.exit ]
+  %161 = phi i8 [ %.pre132, %get_utf8_length_at.exit.thread ], [ %138, %get_utf8_length_at.exit ]
   %.090 = phi i32 [ 1, %get_utf8_length_at.exit.thread ], [ %158, %get_utf8_length_at.exit ]
   switch i8 %161, label %163 [
     i8 13, label %164
@@ -919,13 +919,13 @@ get_utf8_length_at.exit.thread:                   ; preds = %148, %146, %137, %g
   br label %164
 
 163:                                              ; preds = %160
-  tail call void @av_bprint_append_data(ptr noundef nonnull %0, ptr noundef nonnull %.097122, i32 noundef %.090) #8
+  tail call void @av_bprint_append_data(ptr noundef nonnull %0, ptr noundef nonnull %.097121, i32 noundef %.090) #8
   br label %164
 
 164:                                              ; preds = %163, %162, %160
   %165 = zext nneg i32 %.090 to i64
-  %166 = getelementptr inbounds nuw i8, ptr %.097122, i64 %165
-  %167 = add nuw nsw i32 %.095125, 1
+  %166 = getelementptr inbounds nuw i8, ptr %.097121, i64 %165
+  %167 = add nuw nsw i32 %.095124, 1
   %168 = icmp ult ptr %166, %2
   br i1 %168, label %33, label %._crit_edge, !llvm.loop !85
 

@@ -175,9 +175,9 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = load i32, ptr %0, align 8, !tbaa !13
   %.not = icmp slt i32 %9, %10
-  br i1 %.not, label %.lr.ph103, label %148
+  br i1 %.not, label %.lr.ph102, label %148
 
-.lr.ph103:                                        ; preds = %7
+.lr.ph102:                                        ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 292
   store i32 0, ptr %11, align 4, !tbaa !19
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -190,9 +190,9 @@ define signext range(i8 0, 2) i8 @uscript_nextRun_77(ptr noundef captures(addres
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 284
   br label %18
 
-18:                                               ; preds = %.lr.ph103, %135
-  %19 = phi i32 [ %10, %.lr.ph103 ], [ %138, %135 ]
-  %20 = phi i32 [ %9, %.lr.ph103 ], [ %137, %135 ]
+18:                                               ; preds = %.lr.ph102, %135
+  %19 = phi i32 [ %10, %.lr.ph102 ], [ %138, %135 ]
+  %20 = phi i32 [ %9, %.lr.ph102 ], [ %137, %135 ]
   %21 = load ptr, ptr %14, align 8, !tbaa !7
   %22 = sext i32 %20 to i64
   %23 = getelementptr inbounds i16, ptr %21, i64 %22
@@ -283,11 +283,11 @@ _ZL12getPairIndexi.exit:                          ; preds = %43
   br i1 %72, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %70
-  %.promoted101 = load i32, ptr %17, align 4
+  %.promoted100 = load i32, ptr %17, align 4
   br label %73
 
 73:                                               ; preds = %.lr.ph, %_ZL3popP10UScriptRun.exit
-  %74 = phi i32 [ %.promoted101, %.lr.ph ], [ %spec.store.select.i95, %_ZL3popP10UScriptRun.exit ]
+  %74 = phi i32 [ %.promoted100, %.lr.ph ], [ %spec.store.select.i95, %_ZL3popP10UScriptRun.exit ]
   %75 = phi i32 [ %57, %.lr.ph ], [ %84, %_ZL3popP10UScriptRun.exit ]
   %76 = sext i32 %74 to i64
   %77 = getelementptr inbounds %struct.ParenStackEntry, ptr %16, i64 %76

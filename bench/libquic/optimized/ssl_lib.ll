@@ -1107,8 +1107,8 @@ define internal fastcc i32 @ssl_read_impl(ptr noundef initializes((144, 148)) %0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %15 = load i32, ptr %14, align 4, !tbaa !128
   %16 = and i32 %15, 12288
-  %.not2729 = icmp eq i32 %16, 0
-  br i1 %.not2729, label %._crit_edge, label %.lr.ph
+  %.not2628 = icmp eq i32 %16, 0
+  br i1 %.not2628, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.thread
   store i32 1, ptr %5, align 8, !tbaa !109
@@ -1147,8 +1147,8 @@ SSL_do_handshake.exit:                            ; preds = %19
 .thread:                                          ; preds = %..thread_crit_edge, %19
   %27 = phi i32 [ %.pre, %..thread_crit_edge ], [ %20, %19 ]
   %28 = and i32 %27, 12288
-  %.not27 = icmp eq i32 %28, 0
-  br i1 %.not27, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq i32 %28, 0
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.thread, %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1199,8 +1199,8 @@ define hidden i32 @SSL_write(ptr noundef initializes((144, 148)) %0, ptr noundef
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %16 = load i32, ptr %15, align 4, !tbaa !128
   %17 = and i32 %16, 12288
-  %.not28 = icmp eq i32 %17, 0
-  br i1 %.not28, label %.thread, label %18
+  %.not27 = icmp eq i32 %17, 0
+  br i1 %.not27, label %.thread, label %18
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -2048,33 +2048,33 @@ define hidden range(i32 0, 2) i32 @SSL_set_wfd(ptr noundef captures(none) %0, i3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8, !tbaa !116
   %.not.i = icmp ne ptr %19, null
-  %.phi.trans.insert25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre26 = load ptr, ptr %.phi.trans.insert25, align 8, !tbaa !117
-  %20 = icmp eq ptr %.pre26, %19
+  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.pre25 = load ptr, ptr %.phi.trans.insert24, align 8, !tbaa !117
+  %20 = icmp eq ptr %.pre25, %19
   %or.cond = select i1 %.not.i, i1 %20, i1 false
-  br i1 %or.cond, label %21, label %._crit_edge24
+  br i1 %or.cond, label %21, label %._crit_edge23
 
 21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %.pre26, i64 56
+  %22 = getelementptr inbounds nuw i8, ptr %.pre25, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !132
-  store ptr %23, ptr %.phi.trans.insert25, align 8, !tbaa !117
+  store ptr %23, ptr %.phi.trans.insert24, align 8, !tbaa !117
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 56
   store ptr null, ptr %24, align 8, !tbaa !132
-  br label %._crit_edge24
+  br label %._crit_edge23
 
-._crit_edge24:                                    ; preds = %15, %21
-  %25 = phi ptr [ %23, %21 ], [ %.pre26, %15 ]
+._crit_edge23:                                    ; preds = %15, %21
+  %25 = phi ptr [ %23, %21 ], [ %.pre25, %15 ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.not22.i = icmp eq ptr %25, %13
   %.not23.i = icmp eq ptr %17, %25
-  %or.cond36 = select i1 %.not22.i, i1 true, i1 %.not23.i
-  br i1 %or.cond36, label %.thread, label %27
+  %or.cond35 = select i1 %.not22.i, i1 true, i1 %.not23.i
+  br i1 %or.cond35, label %.thread, label %27
 
-27:                                               ; preds = %._crit_edge24
+27:                                               ; preds = %._crit_edge23
   tail call void @BIO_free_all(ptr noundef %25) #21
   br label %.thread
 
-.thread:                                          ; preds = %27, %._crit_edge24
+.thread:                                          ; preds = %27, %._crit_edge23
   store ptr %17, ptr %3, align 8, !tbaa !118
   store ptr %13, ptr %26, align 8, !tbaa !117
   br label %41
@@ -2091,8 +2091,8 @@ define hidden range(i32 0, 2) i32 @SSL_set_wfd(ptr noundef captures(none) %0, i3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !117
   %33 = icmp eq ptr %.pre, %32
-  %or.cond37 = select i1 %.not.i18, i1 %33, i1 false
-  br i1 %or.cond37, label %34, label %._crit_edge
+  %or.cond36 = select i1 %.not.i18, i1 %33, i1 false
+  br i1 %or.cond36, label %34, label %._crit_edge
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 56
@@ -2175,11 +2175,11 @@ define hidden range(i32 0, 2) i32 @SSL_set_rfd(ptr noundef captures(none) %0, i3
 
 29:                                               ; preds = %25
   tail call void @BIO_free_all(ptr noundef %28) #21
-  %.pre25 = load ptr, ptr %3, align 8, !tbaa !117
+  %.pre24 = load ptr, ptr %3, align 8, !tbaa !117
   br label %30
 
 30:                                               ; preds = %29, %25
-  %31 = phi ptr [ %.pre25, %29 ], [ %26, %25 ]
+  %31 = phi ptr [ %.pre24, %29 ], [ %26, %25 ]
   %.not22.i = icmp eq ptr %31, %17
   br i1 %.not22.i, label %.thread, label %32
 
@@ -2207,8 +2207,8 @@ define hidden range(i32 0, 2) i32 @SSL_set_rfd(ptr noundef captures(none) %0, i3
   %39 = load ptr, ptr %38, align 8, !tbaa !116
   %.not.i18 = icmp ne ptr %39, null
   %40 = icmp eq ptr %37, %39
-  %or.cond24 = select i1 %.not.i18, i1 %40, i1 false
-  br i1 %or.cond24, label %41, label %45
+  %or.cond23 = select i1 %.not.i18, i1 %40, i1 false
+  br i1 %or.cond23, label %41, label %45
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 56

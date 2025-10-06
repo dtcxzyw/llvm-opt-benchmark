@@ -344,11 +344,11 @@ define dso_local i64 @meshopt_buildMeshlets(ptr noundef writeonly captures(none)
   br i1 %exitcond72.not.i, label %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit, label %.lr.ph67.i, !llvm.loop !27
 
 _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit: ; preds = %102
-  %.pre235 = udiv i64 %4, 3
+  %.pre234 = udiv i64 %4, 3
   br label %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit
 
 _ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit: ; preds = %.lr.ph67.i, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit, %.preheader.i181
-  %.pre-phi = phi i64 [ %.pre235, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %120, %.preheader.i181 ], [ %120, %.lr.ph67.i ]
+  %.pre-phi = phi i64 [ %.pre234, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %120, %.preheader.i181 ], [ %120, %.lr.ph67.i ]
   %166 = phi ptr [ %31, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %110, %.preheader.i181 ], [ %110, %.lr.ph67.i ]
   %167 = phi ptr [ %36, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %117, %.preheader.i181 ], [ %117, %.lr.ph67.i ]
   %168 = phi ptr [ %28, %_ZN7meshoptL28buildTriangleAdjacencySparseERNS_18TriangleAdjacency2EPKjmmR17meshopt_Allocator.exit.loopexit ], [ %107, %.preheader.i181 ], [ %107, %.lr.ph67.i ]
@@ -515,11 +515,11 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   br label %444
 
 .lr.ph:                                           ; preds = %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit, %.lr.ph
-  %.0143225 = phi i64 [ %286, %.lr.ph ], [ 0, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit ]
-  %284 = trunc i64 %.0143225 to i32
-  %285 = getelementptr inbounds nuw i32, ptr %271, i64 %.0143225
+  %.0143224 = phi i64 [ %286, %.lr.ph ], [ 0, %_ZN17meshopt_Allocator8allocateIjEEPT_m.exit ]
+  %284 = trunc i64 %.0143224 to i32
+  %285 = getelementptr inbounds nuw i32, ptr %271, i64 %.0143224
   store i32 %284, ptr %285, align 4, !tbaa !16
-  %286 = add nuw nsw i64 %.0143225, 1
+  %286 = add nuw nsw i64 %.0143224, 1
   %exitcond.not = icmp eq i64 %286, %.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
@@ -689,8 +689,8 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   br label %378
 
 378:                                              ; preds = %377, %.loopexit
-  %.0144229 = phi i64 [ 0, %377 ], [ %398, %.loopexit ]
-  %gep = getelementptr inbounds nuw i32, ptr %364, i64 %.0144229
+  %.0144228 = phi i64 [ 0, %377 ], [ %398, %.loopexit ]
+  %gep = getelementptr inbounds nuw i32, ptr %364, i64 %.0144228
   %379 = load i32, ptr %gep, align 4, !tbaa !16
   %380 = zext i32 %379 to i64
   %381 = getelementptr inbounds nuw i32, ptr %166, i64 %380
@@ -700,18 +700,18 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   %385 = getelementptr inbounds nuw i32, ptr %168, i64 %380
   %386 = load i32, ptr %385, align 4, !tbaa !16
   %387 = zext i32 %386 to i64
-  %.not230 = icmp eq i32 %386, 0
-  br i1 %.not230, label %.loopexit, label %.lr.ph228
+  %.not229 = icmp eq i32 %386, 0
+  br i1 %.not229, label %.loopexit, label %.lr.ph227
 
-.lr.ph228:                                        ; preds = %378, %.critedge
-  %.0133226 = phi i64 [ %397, %.critedge ], [ 0, %378 ]
-  %388 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133226
+.lr.ph227:                                        ; preds = %378, %.critedge
+  %.0133225 = phi i64 [ %397, %.critedge ], [ 0, %378 ]
+  %388 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133225
   %389 = load i32, ptr %388, align 4, !tbaa !16
   %.not170 = icmp eq i32 %389, %.1150210
   br i1 %.not170, label %390, label %.critedge
 
-390:                                              ; preds = %.lr.ph228
-  %391 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133226
+390:                                              ; preds = %.lr.ph227
+  %391 = getelementptr inbounds nuw i32, ptr %384, i64 %.0133225
   %392 = getelementptr i32, ptr %384, i64 %387
   %393 = getelementptr i8, ptr %392, i64 -4
   %394 = load i32, ptr %393, align 4, !tbaa !16
@@ -721,15 +721,15 @@ _ZN17meshopt_Allocator8allocateIjEEPT_m.exit:     ; preds = %_ZN7meshoptL20compu
   store i32 %396, ptr %385, align 4, !tbaa !16
   br label %.loopexit
 
-.critedge:                                        ; preds = %.lr.ph228
-  %397 = add nuw nsw i64 %.0133226, 1
-  %exitcond233.not = icmp eq i64 %397, %387
-  br i1 %exitcond233.not, label %.loopexit, label %.lr.ph228, !llvm.loop !45
+.critedge:                                        ; preds = %.lr.ph227
+  %397 = add nuw nsw i64 %.0133225, 1
+  %exitcond232.not = icmp eq i64 %397, %387
+  br i1 %exitcond232.not, label %.loopexit, label %.lr.ph227, !llvm.loop !45
 
 .loopexit:                                        ; preds = %.critedge, %378, %390
-  %398 = add nuw nsw i64 %.0144229, 1
-  %exitcond234.not = icmp eq i64 %398, 3
-  br i1 %exitcond234.not, label %399, label %378, !llvm.loop !46
+  %398 = add nuw nsw i64 %.0144228, 1
+  %exitcond233.not = icmp eq i64 %398, 3
+  br i1 %exitcond233.not, label %399, label %378, !llvm.loop !46
 
 399:                                              ; preds = %.loopexit
   %400 = zext i32 %.1150210 to i64

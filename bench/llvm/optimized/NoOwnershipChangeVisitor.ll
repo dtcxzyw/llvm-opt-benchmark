@@ -778,17 +778,17 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_124OwnershipBindingsHandler1
   %23 = zext i32 %22 to i64
   %.idx.i.i = shl nuw nsw i64 %23, 3
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %22, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %22, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %19, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %26, %.critedge.i.i ], [ %20, %19 ]
-  %25 = load ptr, ptr %.02937.i.i, align 8, !tbaa !126, !noalias !138
+  %.02935.i.i = phi ptr [ %26, %.critedge.i.i ], [ %20, %19 ]
+  %25 = load ptr, ptr %.02935.i.i, align 8, !tbaa !126, !noalias !138
   %.not17.i.i = icmp eq ptr %25, %3
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE6insertES5_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %26 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %26, %24
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !141
 

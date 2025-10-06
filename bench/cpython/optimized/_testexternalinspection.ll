@@ -1001,8 +1001,8 @@ find_map_start_address.exit.thread:               ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 256, ptr noundef nonnull %11)
-  %.not34.i = icmp eq ptr %16, null
-  br i1 %.not34.i, label %find_map_start_address.exit.thread63, label %.lr.ph.i
+  %.not33.i = icmp eq ptr %16, null
+  br i1 %.not33.i, label %find_map_start_address.exit.thread63, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

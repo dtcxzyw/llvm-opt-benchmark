@@ -5047,10 +5047,10 @@ define noundef range(i32 -1, 1) i32 @H5F_try_close(ptr noundef %0, ptr noundef w
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %51
 
-.loopexit67:                                      ; preds = %76
+.loopexit66:                                      ; preds = %76
   br label %51, !llvm.loop !135
 
-51:                                               ; preds = %.loopexit67, %50
+51:                                               ; preds = %.loopexit66, %50
   %52 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %53 = trunc nuw i8 %52 to i1
   %54 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -5099,36 +5099,36 @@ define noundef range(i32 -1, 1) i32 @H5F_try_close(ptr noundef %0, ptr noundef w
 H5F_get_obj_ids.exit:                             ; preds = %60, %64, %67, %70
   %74 = phi i1 [ true, %60 ], [ true, %70 ], [ false, %67 ], [ false, %64 ]
   %75 = load i64, ptr %5, align 8
-  %.not63 = icmp eq i64 %75, 0
-  br i1 %.not63, label %86, label %.preheader66
+  %.not62 = icmp eq i64 %75, 0
+  br i1 %.not62, label %86, label %.preheader65
 
-76:                                               ; preds = %.preheader66
-  %77 = add nuw i64 %.04171, 1
+76:                                               ; preds = %.preheader65
+  %77 = add nuw i64 %.04170, 1
   %exitcond.not = icmp eq i64 %77, %75
-  br i1 %exitcond.not, label %.loopexit67, label %.preheader66, !llvm.loop !136
+  br i1 %exitcond.not, label %.loopexit66, label %.preheader65, !llvm.loop !136
 
-.preheader66:                                     ; preds = %H5F_get_obj_ids.exit, %76
-  %.04171 = phi i64 [ %77, %76 ], [ 0, %H5F_get_obj_ids.exit ]
-  %78 = getelementptr inbounds nuw i64, ptr %6, i64 %.04171
+.preheader65:                                     ; preds = %H5F_get_obj_ids.exit, %76
+  %.04170 = phi i64 [ %77, %76 ], [ 0, %H5F_get_obj_ids.exit ]
+  %78 = getelementptr inbounds nuw i64, ptr %6, i64 %.04170
   %79 = load i64, ptr %78, align 8, !tbaa !10
   %80 = call i32 @H5I_dec_ref(i64 noundef %79) #22
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %76
 
-82:                                               ; preds = %.preheader66
+82:                                               ; preds = %.preheader65
   %83 = load i64, ptr @H5E_ID_g, align 8, !tbaa !10
   %84 = load i64, ptr @H5E_CLOSEERROR_g, align 8, !tbaa !10
   %85 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F_try_close, i32 noundef 2632, i64 noundef %83, i64 noundef %84, ptr noundef nonnull @.str.127) #22
   br label %.thread59
 
 86:                                               ; preds = %H5F_get_obj_ids.exit
-  br i1 %74, label %89, label %.preheader65
+  br i1 %74, label %89, label %.preheader64
 
-.preheader65:                                     ; preds = %86
+.preheader64:                                     ; preds = %86
   %87 = call i32 @H5F_get_obj_ids(ptr noundef nonnull %0, i32 noundef 40, i64 noundef 128, ptr noundef nonnull %6, i1 noundef zeroext false, ptr noundef nonnull %5)
   %88 = load i64, ptr %5, align 8
-  %.not6473 = icmp eq i64 %88, 0
-  br i1 %.not6473, label %._crit_edge, label %.preheader
+  %.not6372 = icmp eq i64 %88, 0
+  br i1 %.not6372, label %._crit_edge, label %.preheader
 
 89:                                               ; preds = %86
   %90 = load i64, ptr @H5E_FILE_g, align 8, !tbaa !10
@@ -5139,21 +5139,21 @@ H5F_get_obj_ids.exit:                             ; preds = %60, %64, %67, %70
 .loopexit:                                        ; preds = %96
   %93 = call i32 @H5F_get_obj_ids(ptr noundef nonnull %0, i32 noundef 40, i64 noundef 128, ptr noundef nonnull %6, i1 noundef zeroext false, ptr noundef nonnull %5)
   %94 = load i64, ptr %5, align 8
-  %.not64 = icmp eq i64 %94, 0
-  br i1 %.not64, label %._crit_edge, label %.preheader, !llvm.loop !137
+  %.not63 = icmp eq i64 %94, 0
+  br i1 %.not63, label %._crit_edge, label %.preheader, !llvm.loop !137
 
-.preheader:                                       ; preds = %.preheader65, %.loopexit
-  %95 = phi i64 [ %94, %.loopexit ], [ %88, %.preheader65 ]
+.preheader:                                       ; preds = %.preheader64, %.loopexit
+  %95 = phi i64 [ %94, %.loopexit ], [ %88, %.preheader64 ]
   br label %98
 
 96:                                               ; preds = %98
-  %97 = add nuw i64 %.172, 1
-  %exitcond77.not = icmp eq i64 %97, %95
-  br i1 %exitcond77.not, label %.loopexit, label %98, !llvm.loop !138
+  %97 = add nuw i64 %.171, 1
+  %exitcond76.not = icmp eq i64 %97, %95
+  br i1 %exitcond76.not, label %.loopexit, label %98, !llvm.loop !138
 
 98:                                               ; preds = %.preheader, %96
-  %.172 = phi i64 [ 0, %.preheader ], [ %97, %96 ]
-  %99 = getelementptr inbounds nuw i64, ptr %6, i64 %.172
+  %.171 = phi i64 [ 0, %.preheader ], [ %97, %96 ]
+  %99 = getelementptr inbounds nuw i64, ptr %6, i64 %.171
   %100 = load i64, ptr %99, align 8, !tbaa !10
   %101 = call i32 @H5I_dec_ref(i64 noundef %100) #22
   %102 = icmp slt i32 %101, 0
@@ -5165,8 +5165,8 @@ H5F_get_obj_ids.exit:                             ; preds = %60, %64, %67, %70
   %106 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5F_try_close, i32 noundef 2650, i64 noundef %104, i64 noundef %105, ptr noundef nonnull @.str.127) #22
   br label %.thread59
 
-._crit_edge:                                      ; preds = %.loopexit, %.preheader65
-  %.lcssa = phi i32 [ %87, %.preheader65 ], [ %93, %.loopexit ]
+._crit_edge:                                      ; preds = %.loopexit, %.preheader64
+  %.lcssa = phi i32 [ %87, %.preheader64 ], [ %93, %.loopexit ]
   %107 = icmp slt i32 %.lcssa, 0
   br i1 %107, label %108, label %112
 

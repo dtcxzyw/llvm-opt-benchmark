@@ -1496,7 +1496,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %7 = load ptr, ptr %0, align 8
   %8 = tail call ptr @sock_from_file(ptr noundef %7) #11
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %378, label %10, !prof !10
+  br i1 %9, label %375, label %10, !prof !10
 
 10:                                               ; preds = %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(376) %4, i8 0, i64 376, i1 false), !annotation !11
@@ -1514,7 +1514,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
 18:                                               ; preds = %10
   %19 = call fastcc i32 @io_recvmsg_copy_hdr(ptr noundef %0, ptr noundef nonnull %4)
   %20 = icmp eq i32 %19, 0
-  br i1 %20, label %._crit_edge, label %378
+  br i1 %20, label %._crit_edge, label %375
 
 ._crit_edge:                                      ; preds = %18
   %.pre = load i32, ptr %11, align 4
@@ -1536,7 +1536,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 31:                                               ; preds = %26
   %32 = call fastcc i32 @io_setup_async_msg(ptr noundef %0, ptr noundef %23, i32 noundef %1), !range !12
-  br label %378
+  br label %375
 
 33:                                               ; preds = %26, %21
   %34 = and i32 %1, 12
@@ -1594,11 +1594,11 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 81:                                               ; preds = %74
   %82 = call fastcc i32 @io_setup_async_msg(ptr noundef %0, ptr noundef %23, i32 noundef %1), !range !12
-  br label %378
+  br label %375
 
-83:                                               ; preds = %340, %36
-  %84 = phi i1 [ false, %36 ], [ true, %340 ]
-  %85 = phi i32 [ 0, %36 ], [ %216, %340 ]
+83:                                               ; preds = %337, %36
+  %84 = phi i1 [ false, %36 ], [ true, %337 ]
+  %85 = phi i32 [ 0, %36 ], [ %216, %337 ]
   %86 = load i32, ptr %11, align 4
   %87 = and i32 %86, 98336
   %88 = icmp eq i32 %87, 32
@@ -1617,7 +1617,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %95 = load i32, ptr %11, align 4
   %96 = and i32 %95, 67108864
   %97 = icmp eq i32 %96, 0
-  %.pre66 = load i64, ptr %5, align 8
+  %.pre65 = load i64, ptr %5, align 8
   br i1 %97, label %137, label %98
 
 98:                                               ; preds = %94
@@ -1627,7 +1627,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %102 = add nsw i64 %101, 16
   %103 = load i64, ptr %39, align 8
   %104 = add i64 %102, %103
-  %105 = icmp ult i64 %.pre66, %104
+  %105 = icmp ult i64 %.pre65, %104
   br i1 %105, label %115, label %106
 
 106:                                              ; preds = %98
@@ -1645,7 +1645,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   store ptr %92, ptr %42, align 8
   %112 = add i64 %104, %99
   %113 = inttoptr i64 %112 to ptr
-  %114 = sub i64 %.pre66, %104
+  %114 = sub i64 %.pre65, %104
   store i64 %114, ptr %43, align 8
   br label %137
 
@@ -1692,10 +1692,10 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
 .thread17:                                        ; preds = %89, %118, %120, %123, %129, %133
   %.ph = phi i32 [ -14, %133 ], [ -14, %129 ], [ -14, %123 ], [ -14, %120 ], [ -14, %118 ], [ -105, %89 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %378
+  br label %375
 
 137:                                              ; preds = %94, %111
-  %138 = phi i64 [ %.pre66, %94 ], [ %114, %111 ]
+  %138 = phi i64 [ %.pre65, %94 ], [ %114, %111 ]
   %139 = phi ptr [ %92, %94 ], [ %113, %111 ]
   store i64 0, ptr %47, align 8
   store i32 0, ptr %46, align 8
@@ -1833,7 +1833,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %222 = call fastcc i32 @io_setup_async_msg(ptr noundef %0, ptr noundef %23, i32 noundef %1), !range !12
   %223 = icmp ne i32 %222, -11
   %224 = or i1 %70, %223
-  br i1 %224, label %378, label %225
+  br i1 %224, label %375, label %225
 
 225:                                              ; preds = %221
   %226 = load i32, ptr %11, align 4
@@ -1843,17 +1843,17 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 229:                                              ; preds = %225
   %230 = call zeroext i1 @io_kbuf_recycle_legacy(ptr noundef %0, i32 noundef %1) #11
-  br label %378
+  br label %375
 
 231:                                              ; preds = %225
   %232 = and i32 %226, 65536
   %233 = icmp eq i32 %232, 0
-  br i1 %233, label %378, label %234
+  br i1 %233, label %375, label %234
 
 234:                                              ; preds = %231
   %235 = load ptr, ptr %44, align 8
   %236 = icmp eq ptr %235, null
-  br i1 %236, label %378, label %237
+  br i1 %236, label %375, label %237
 
 237:                                              ; preds = %234
   %238 = and i32 %226, 33554432
@@ -1866,7 +1866,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %243 = add i16 %242, 1
   store i16 %243, ptr %241, align 2
   store ptr null, ptr %44, align 8
-  br label %378
+  br label %375
 
 244:                                              ; preds = %237
   %245 = getelementptr inbounds nuw i8, ptr %235, i64 16
@@ -1874,7 +1874,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   store i16 %246, ptr %45, align 2
   %247 = and i32 %226, -33652737
   store i32 %247, ptr %11, align 4
-  br label %378
+  br label %375
 
 248:                                              ; preds = %218
   %249 = icmp slt i32 %215, 1
@@ -1897,7 +1897,7 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
   %261 = or i32 %260, 33554432
   store i32 %261, ptr %11, align 4
   %262 = call fastcc i32 @io_setup_async_msg(ptr noundef %0, ptr noundef %23, i32 noundef %1), !range !12
-  br label %378
+  br label %375
 
 263:                                              ; preds = %253, %248
   %264 = icmp eq i32 %215, -512
@@ -1991,127 +1991,121 @@ define dso_local i32 @io_recvmsg(ptr noundef %0, i32 noundef %1) local_unnamed_a
 
 318:                                              ; preds = %313
   %319 = call i32 @__io_put_kbuf(ptr noundef %0, i32 noundef %1) #11
+  %.pre66 = load i32, ptr %11, align 4
   br label %320
 
 320:                                              ; preds = %318, %313
-  %321 = phi i32 [ %319, %318 ], [ 0, %313 ]
-  %322 = load i32, ptr %54, align 4
-  switch i32 %322, label %323 [
-    i32 0, label %325
-    i32 -1, label %325
-  ]
+  %321 = phi i32 [ %.pre66, %318 ], [ %315, %313 ]
+  %322 = phi i32 [ %319, %318 ], [ 0, %313 ]
+  %323 = load i32, ptr %54, align 4
+  %.off = add i32 %323, -1
+  %switch = icmp ult i32 %.off, -2
+  %324 = or i32 %322, 4
+  %spec.select = select i1 %switch, i32 %324, i32 %322
+  %325 = and i32 %321, 67108864
+  %326 = icmp ne i32 %325, 0
+  %brmerge.not = and i1 %326, %214
+  br i1 %brmerge.not, label %327, label %.split.loop.exit37
 
-323:                                              ; preds = %320
-  %324 = or i32 %321, 4
-  br label %325
+327:                                              ; preds = %320
+  %328 = or i32 %spec.select, 2
+  %329 = call zeroext i1 @io_fill_cqe_req_aux(ptr noundef %0, i1 noundef zeroext %66, i32 noundef %314, i32 noundef %328) #11
+  br i1 %329, label %330, label %.split.loop.exit37.thread
 
-325:                                              ; preds = %323, %320, %320
-  %326 = phi i32 [ %324, %323 ], [ %321, %320 ], [ %321, %320 ]
-  %327 = load i32, ptr %11, align 4
-  %328 = and i32 %327, 67108864
-  %329 = icmp ne i32 %328, 0
-  %brmerge.not = and i1 %329, %214
-  br i1 %brmerge.not, label %330, label %.split.loop.exit38
-
-330:                                              ; preds = %325
-  %331 = or i32 %326, 2
-  %332 = call zeroext i1 @io_fill_cqe_req_aux(ptr noundef %0, i1 noundef zeroext %66, i32 noundef %314, i32 noundef %331) #11
-  br i1 %332, label %333, label %.split.loop.exit38.thread
-
-.split.loop.exit38.thread:                        ; preds = %330
+.split.loop.exit37.thread:                        ; preds = %327
   store i32 %314, ptr %67, align 8
-  store i32 %326, ptr %68, align 4
-  br label %378
+  store i32 %spec.select, ptr %68, align 4
+  br label %375
 
-333:                                              ; preds = %330
+330:                                              ; preds = %327
   store i32 0, ptr %64, align 4
   store i32 0, ptr %37, align 8
-  %334 = load i16, ptr %72, align 4
-  store i16 %334, ptr %45, align 2
-  %335 = and i32 %326, 4
-  %336 = icmp eq i32 %335, 0
-  br i1 %336, label %337, label %340
+  %331 = load i16, ptr %72, align 4
+  store i16 %331, ptr %45, align 2
+  %332 = and i32 %spec.select, 4
+  %333 = icmp eq i32 %332, 0
+  br i1 %333, label %334, label %337
 
-337:                                              ; preds = %333
-  %338 = load i32, ptr %54, align 4
-  %339 = icmp eq i32 %338, -1
-  br i1 %339, label %340, label %.thread21
+334:                                              ; preds = %330
+  %335 = load i32, ptr %54, align 4
+  %336 = icmp eq i32 %335, -1
+  br i1 %336, label %337, label %.thread21
 
-340:                                              ; preds = %337, %333
-  %341 = load i32, ptr %73, align 4
-  %342 = add i32 %341, 1
-  store i32 %342, ptr %73, align 4
-  %343 = icmp ult i32 %341, 32
-  br i1 %343, label %83, label %344
+337:                                              ; preds = %334, %330
+  %338 = load i32, ptr %73, align 4
+  %339 = add i32 %338, 1
+  store i32 %339, ptr %73, align 4
+  %340 = icmp ult i32 %338, 32
+  br i1 %340, label %83, label %341
 
-344:                                              ; preds = %340
+341:                                              ; preds = %337
   store i32 0, ptr %73, align 4
   br label %.thread21
 
-.thread21:                                        ; preds = %337, %344
-  %345 = phi i32 [ -3072, %344 ], [ -529, %337 ]
-  %346 = select i1 %70, i32 -11, i32 %345
-  br label %378
-
-.split.loop.exit38:                               ; preds = %325
-  %.mux.le = select i1 %329, i32 %71, i32 0
-  store i32 %314, ptr %67, align 8
-  store i32 %326, ptr %68, align 4
-  br i1 %214, label %378, label %347
-
-347:                                              ; preds = %.split.loop.exit38
-  %348 = getelementptr inbounds nuw i8, ptr %23, i64 128
-  %349 = load ptr, ptr %348, align 8
-  %350 = icmp eq ptr %349, null
-  br i1 %350, label %352, label %351
-
-351:                                              ; preds = %347
-  call void @kfree(ptr noundef nonnull %349) #11
-  br label %352
-
-352:                                              ; preds = %351, %347
-  %353 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %354 = load ptr, ptr %353, align 8
-  %355 = load i32, ptr %11, align 4
-  %356 = and i32 %355, 2097152
-  %357 = icmp ne i32 %356, 0
-  %358 = and i32 %1, 2
-  %359 = icmp eq i32 %358, 0
-  %360 = and i1 %359, %357
-  br i1 %360, label %361, label %375
-
-361:                                              ; preds = %352
-  %362 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %363 = load ptr, ptr %362, align 8
-  %364 = getelementptr inbounds nuw i8, ptr %363, i64 336
-  %365 = load i32, ptr %364, align 8
-  %366 = getelementptr inbounds nuw i8, ptr %363, i64 340
-  %367 = load i32, ptr %366, align 4
-  %368 = icmp ult i32 %365, %367
-  br i1 %368, label %369, label %375
-
-369:                                              ; preds = %361
-  %370 = getelementptr inbounds nuw i8, ptr %363, i64 328
-  %371 = add nuw i32 %365, 1
-  store i32 %371, ptr %364, align 8
-  %372 = load ptr, ptr %370, align 8
-  store ptr %372, ptr %354, align 8
-  store ptr %354, ptr %370, align 8
-  store ptr null, ptr %353, align 8
-  %373 = load i32, ptr %11, align 4
-  %374 = and i32 %373, -2097153
+.thread21:                                        ; preds = %334, %341
+  %342 = phi i32 [ -3072, %341 ], [ -529, %334 ]
+  %343 = select i1 %70, i32 -11, i32 %342
   br label %375
 
-375:                                              ; preds = %369, %361, %352
-  %376 = phi i32 [ %374, %369 ], [ %355, %361 ], [ %355, %352 ]
-  %377 = and i32 %376, -8193
-  store i32 %377, ptr %11, align 4
-  br label %378
+.split.loop.exit37:                               ; preds = %320
+  %.mux.le = select i1 %326, i32 %71, i32 0
+  store i32 %314, ptr %67, align 8
+  store i32 %spec.select, ptr %68, align 4
+  br i1 %214, label %375, label %344
 
-378:                                              ; preds = %.split.loop.exit38.thread, %.thread21, %.thread17, %375, %.split.loop.exit38, %257, %244, %240, %234, %231, %229, %221, %81, %31, %18, %2
-  %379 = phi i32 [ %262, %257 ], [ %82, %81 ], [ %32, %31 ], [ -88, %2 ], [ %19, %18 ], [ -529, %229 ], [ -529, %231 ], [ -529, %234 ], [ -529, %240 ], [ -529, %244 ], [ %222, %221 ], [ %.mux.le, %375 ], [ %.mux.le, %.split.loop.exit38 ], [ %.ph, %.thread17 ], [ %346, %.thread21 ], [ %71, %.split.loop.exit38.thread ]
+344:                                              ; preds = %.split.loop.exit37
+  %345 = getelementptr inbounds nuw i8, ptr %23, i64 128
+  %346 = load ptr, ptr %345, align 8
+  %347 = icmp eq ptr %346, null
+  br i1 %347, label %349, label %348
+
+348:                                              ; preds = %344
+  call void @kfree(ptr noundef nonnull %346) #11
+  br label %349
+
+349:                                              ; preds = %348, %344
+  %350 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %351 = load ptr, ptr %350, align 8
+  %352 = load i32, ptr %11, align 4
+  %353 = and i32 %352, 2097152
+  %354 = icmp ne i32 %353, 0
+  %355 = and i32 %1, 2
+  %356 = icmp eq i32 %355, 0
+  %357 = and i1 %356, %354
+  br i1 %357, label %358, label %372
+
+358:                                              ; preds = %349
+  %359 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %360 = load ptr, ptr %359, align 8
+  %361 = getelementptr inbounds nuw i8, ptr %360, i64 336
+  %362 = load i32, ptr %361, align 8
+  %363 = getelementptr inbounds nuw i8, ptr %360, i64 340
+  %364 = load i32, ptr %363, align 4
+  %365 = icmp ult i32 %362, %364
+  br i1 %365, label %366, label %372
+
+366:                                              ; preds = %358
+  %367 = getelementptr inbounds nuw i8, ptr %360, i64 328
+  %368 = add nuw i32 %362, 1
+  store i32 %368, ptr %361, align 8
+  %369 = load ptr, ptr %367, align 8
+  store ptr %369, ptr %351, align 8
+  store ptr %351, ptr %367, align 8
+  store ptr null, ptr %350, align 8
+  %370 = load i32, ptr %11, align 4
+  %371 = and i32 %370, -2097153
+  br label %372
+
+372:                                              ; preds = %366, %358, %349
+  %373 = phi i32 [ %371, %366 ], [ %352, %358 ], [ %352, %349 ]
+  %374 = and i32 %373, -8193
+  store i32 %374, ptr %11, align 4
+  br label %375
+
+375:                                              ; preds = %.split.loop.exit37.thread, %.thread21, %.thread17, %372, %.split.loop.exit37, %257, %244, %240, %234, %231, %229, %221, %81, %31, %18, %2
+  %376 = phi i32 [ %262, %257 ], [ %82, %81 ], [ %32, %31 ], [ -88, %2 ], [ %19, %18 ], [ -529, %229 ], [ -529, %231 ], [ -529, %234 ], [ -529, %240 ], [ -529, %244 ], [ %222, %221 ], [ %.mux.le, %372 ], [ %.mux.le, %.split.loop.exit37 ], [ %.ph, %.thread17 ], [ %343, %.thread21 ], [ %71, %.split.loop.exit37.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %379
+  ret i32 %376
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -2197,8 +2191,8 @@ define dso_local range(i32 -3072, 1) i32 @io_recv(ptr noundef %0, i32 noundef %1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %37, i8 0, i64 24, i1 false)
   br label %57
 
-57:                                               ; preds = %208, %33
-  %58 = phi i32 [ 0, %33 ], [ %148, %208 ]
+57:                                               ; preds = %205, %33
+  %58 = phi i32 [ 0, %33 ], [ %148, %205 ]
   %59 = load i32, ptr %10, align 4
   %60 = and i32 %59, 98336
   %61 = icmp eq i32 %60, 32
@@ -2206,7 +2200,7 @@ define dso_local range(i32 -3072, 1) i32 @io_recv(ptr noundef %0, i32 noundef %1
 
 ._crit_edge:                                      ; preds = %57
   %.pre = load ptr, ptr %38, align 8
-  %.pre30 = load i64, ptr %4, align 8
+  %.pre28 = load i64, ptr %4, align 8
   br label %68
 
 62:                                               ; preds = %57
@@ -2222,7 +2216,7 @@ define dso_local range(i32 -3072, 1) i32 @io_recv(ptr noundef %0, i32 noundef %1
   br label %68
 
 68:                                               ; preds = %._crit_edge, %65
-  %69 = phi i64 [ %.pre30, %._crit_edge ], [ %66, %65 ]
+  %69 = phi i64 [ %.pre28, %._crit_edge ], [ %66, %65 ]
   %70 = phi ptr [ %.pre, %._crit_edge ], [ %63, %65 ]
   %71 = call i32 @import_ubuf(i32 noundef 0, ptr noundef %70, i64 noundef %69, ptr noundef nonnull %39) #11
   %72 = icmp eq i32 %71, 0
@@ -2412,78 +2406,72 @@ define dso_local range(i32 -3072, 1) i32 @io_recv(ptr noundef %0, i32 noundef %1
 
 184:                                              ; preds = %178
   %185 = call i32 @__io_put_kbuf(ptr noundef %0, i32 noundef %1) #11
+  %.pre29 = load i32, ptr %10, align 4
   br label %186
 
 186:                                              ; preds = %184, %178
-  %187 = phi i32 [ %185, %184 ], [ 0, %178 ]
-  %188 = load i32, ptr %40, align 4
-  switch i32 %188, label %189 [
-    i32 0, label %191
-    i32 -1, label %191
-  ]
+  %187 = phi i32 [ %.pre29, %184 ], [ %181, %178 ]
+  %188 = phi i32 [ %185, %184 ], [ 0, %178 ]
+  %189 = load i32, ptr %40, align 4
+  %.off = add i32 %189, -1
+  %switch = icmp ult i32 %.off, -2
+  %190 = or i32 %188, 4
+  %spec.select = select i1 %switch, i32 %190, i32 %188
+  %191 = and i32 %187, 67108864
+  %192 = icmp eq i32 %191, 0
+  br i1 %192, label %193, label %194
 
-189:                                              ; preds = %186
-  %190 = or i32 %187, 4
-  br label %191
-
-191:                                              ; preds = %189, %186, %186
-  %192 = phi i32 [ %190, %189 ], [ %187, %186 ], [ %187, %186 ]
-  %193 = load i32, ptr %10, align 4
-  %194 = and i32 %193, 67108864
-  %195 = icmp eq i32 %194, 0
-  br i1 %195, label %196, label %197
-
-196:                                              ; preds = %191
+193:                                              ; preds = %186
   store i32 %179, ptr %54, align 8
-  store i32 %192, ptr %55, align 4
+  store i32 %spec.select, ptr %55, align 4
   br label %.thread
 
-197:                                              ; preds = %191
-  br i1 %180, label %215, label %198
+194:                                              ; preds = %186
+  br i1 %180, label %212, label %195
 
-198:                                              ; preds = %197
-  %199 = or i32 %192, 2
-  %200 = call zeroext i1 @io_fill_cqe_req_aux(ptr noundef %0, i1 noundef zeroext %49, i32 noundef %179, i32 noundef %199) #11
-  br i1 %200, label %201, label %215
+195:                                              ; preds = %194
+  %196 = or i32 %spec.select, 2
+  %197 = call zeroext i1 @io_fill_cqe_req_aux(ptr noundef %0, i1 noundef zeroext %49, i32 noundef %179, i32 noundef %196) #11
+  br i1 %197, label %198, label %212
 
-201:                                              ; preds = %198
+198:                                              ; preds = %195
   store i32 0, ptr %45, align 4
   store i32 0, ptr %7, align 8
-  %202 = load i16, ptr %50, align 4
-  store i16 %202, ptr %47, align 2
-  %203 = and i32 %192, 4
-  %204 = icmp ne i32 %203, 0
-  %205 = load i32, ptr %40, align 4
-  %206 = icmp eq i32 %205, -1
-  %207 = select i1 %204, i1 true, i1 %206
-  br i1 %207, label %208, label %.loopexit
+  %199 = load i16, ptr %50, align 4
+  store i16 %199, ptr %47, align 2
+  %200 = and i32 %spec.select, 4
+  %201 = icmp ne i32 %200, 0
+  %202 = load i32, ptr %40, align 4
+  %203 = icmp eq i32 %202, -1
+  %204 = select i1 %201, i1 true, i1 %203
+  br i1 %204, label %205, label %.loopexit
 
-208:                                              ; preds = %201
-  %209 = load i32, ptr %51, align 4
-  %210 = add i32 %209, 1
-  store i32 %210, ptr %51, align 4
-  %211 = icmp ult i32 %209, 32
-  br i1 %211, label %57, label %212
+205:                                              ; preds = %198
+  %206 = load i32, ptr %51, align 4
+  %207 = add i32 %206, 1
+  store i32 %207, ptr %51, align 4
+  %208 = icmp ult i32 %206, 32
+  br i1 %208, label %57, label %209
 
-212:                                              ; preds = %208
+209:                                              ; preds = %205
   store i32 0, ptr %51, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %201, %212
-  %213 = phi i32 [ -3072, %212 ], [ -529, %201 ]
-  %214 = select i1 %53, i32 -11, i32 %213
+.loopexit:                                        ; preds = %198, %209
+  %210 = phi i32 [ -3072, %209 ], [ -529, %198 ]
+  %211 = select i1 %53, i32 -11, i32 %210
   br label %.thread
 
-215:                                              ; preds = %198, %197
+212:                                              ; preds = %195, %194
   store i32 %179, ptr %54, align 8
-  store i32 %192, ptr %55, align 4
+  store i32 %spec.select, ptr %55, align 4
   br label %.thread
 
-.thread:                                          ; preds = %62, %.loopexit, %215, %196, %118, %107, %103, %97, %94, %92, %87, %29, %22, %14
-  %216 = phi i32 [ -11, %118 ], [ -11, %14 ], [ -11, %22 ], [ -88, %29 ], [ -11, %87 ], [ -529, %92 ], [ -529, %94 ], [ -529, %97 ], [ -529, %103 ], [ -529, %107 ], [ %214, %.loopexit ], [ %56, %215 ], [ 0, %196 ], [ -105, %62 ]
+.thread:                                          ; preds = %62, %.loopexit, %212, %193, %118, %107, %103, %97, %94, %92, %87, %29, %22, %14
+  %213 = phi i32 [ -11, %118 ], [ -11, %14 ], [ -11, %22 ], [ -88, %29 ], [ -11, %87 ], [ -529, %92 ], [ -529, %94 ], [ -529, %97 ], [ -529, %103 ], [ -529, %107 ], [ %211, %.loopexit ], [ %56, %212 ], [ 0, %193 ], [ -105, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %216
+  ret i32 %213
 }
 
 ; Function Attrs: null_pointer_is_valid

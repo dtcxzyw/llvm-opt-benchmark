@@ -396,144 +396,145 @@ define void @_ZN6icu_7717CollationSettings15aliasReorderingERKNS_13CollationData
 
 11:                                               ; preds = %8
   %.not30 = icmp eq ptr %6, null
-  br i1 %.not30, label %61, label %12
+  br i1 %.not30, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit, label %12
 
 12:                                               ; preds = %11
   %13 = icmp eq i32 %5, 0
-  br i1 %13, label %.preheader, label %17
+  br i1 %13, label %.preheader, label %18
 
-.preheader:                                       ; preds = %12, %.preheader
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 1, %12 ]
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
-  %15 = load i8, ptr %14, align 1, !tbaa !33
-  %16 = icmp eq i8 %15, 0
+14:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 256
-  %or.cond.i = select i1 %16, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit, label %.preheader, !llvm.loop !34
+  br i1 %exitcond.not.i, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit.thread, label %.preheader, !llvm.loop !33
 
-_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit: ; preds = %.preheader
-  br i1 %16, label %61, label %29
+.preheader:                                       ; preds = %12, %14
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %14 ], [ 1, %12 ]
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i
+  %16 = load i8, ptr %15, align 1, !tbaa !34
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit, label %14
 
-17:                                               ; preds = %12
-  %18 = icmp sgt i32 %5, 1
-  br i1 %18, label %19, label %61
+18:                                               ; preds = %12
+  %19 = icmp sgt i32 %5, 1
+  br i1 %19, label %20, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit
 
-19:                                               ; preds = %17
-  %20 = load i32, ptr %4, align 4, !tbaa !29
-  %21 = and i32 %20, 65535
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %23, label %61
+20:                                               ; preds = %18
+  %21 = load i32, ptr %4, align 4, !tbaa !29
+  %22 = and i32 %21, 65535
+  %23 = icmp eq i32 %22, 0
+  br i1 %23, label %24, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit
 
-23:                                               ; preds = %19
-  %24 = zext nneg i32 %5 to i64
-  %25 = getelementptr i32, ptr %4, i64 %24
-  %26 = getelementptr i8, ptr %25, i64 -4
-  %27 = load i32, ptr %26, align 4, !tbaa !29
-  %28 = and i32 %27, 65535
-  %.not31 = icmp eq i32 %28, 0
-  br i1 %.not31, label %61, label %29
+24:                                               ; preds = %20
+  %25 = zext nneg i32 %5 to i64
+  %26 = getelementptr i32, ptr %4, i64 %25
+  %27 = getelementptr i8, ptr %26, i64 -4
+  %28 = load i32, ptr %27, align 4, !tbaa !29
+  %29 = and i32 %28, 65535
+  %.not31 = icmp eq i32 %29, 0
+  br i1 %.not31, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit, label %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit.thread
 
-29:                                               ; preds = %23, %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit
+_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit.thread: ; preds = %14, %24
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %31 = load i32, ptr %30, align 4, !tbaa !27
   %.not33 = icmp eq i32 %31, 0
   br i1 %.not33, label %35, label %32
 
-32:                                               ; preds = %29
+32:                                               ; preds = %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit.thread
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   tail call void @uprv_free_77(ptr noundef %34)
   store i32 0, ptr %30, align 4, !tbaa !27
   br label %35
 
-35:                                               ; preds = %32, %29
+35:                                               ; preds = %32, %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit.thread
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %6, ptr %36, align 8, !tbaa !19
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %2, ptr %37, align 8, !tbaa !28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 %3, ptr %38, align 8, !tbaa !26
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %.critedge, label %.lr.ph.preheader
+  %39 = icmp sgt i32 %5, 0
+  br i1 %39, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %35
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %43
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %43 ]
-  %39 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
-  %40 = load i32, ptr %39, align 4, !tbaa !29
-  %41 = and i32 %40, 16711680
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %.critedge.loopexit
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %44
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %44 ]
+  %40 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %41 = load i32, ptr %40, align 4, !tbaa !29
+  %42 = and i32 %41, 16711680
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %.critedge.loopexit
 
-43:                                               ; preds = %.lr.ph
+44:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !35
 
 .critedge.loopexit:                               ; preds = %.lr.ph
-  %44 = trunc nuw nsw i64 %indvars.iv to i32
+  %45 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.loopexit, %35
-  %.0.lcssa = phi i32 [ 0, %35 ], [ %44, %.critedge.loopexit ]
-  %45 = icmp eq i32 %.0.lcssa, %5
-  br i1 %45, label %.critedge.thread, label %49
+  %.0.lcssa = phi i32 [ 0, %35 ], [ %45, %.critedge.loopexit ]
+  %46 = icmp eq i32 %.0.lcssa, %5
+  br i1 %46, label %.critedge.thread, label %50
 
-.critedge.thread:                                 ; preds = %43, %.critedge
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %46, align 8, !tbaa !20
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr null, ptr %47, align 8, !tbaa !21
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 0, ptr %48, align 8, !tbaa !22
+.critedge.thread:                                 ; preds = %44, %.critedge
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %47, align 8, !tbaa !20
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr null, ptr %48, align 8, !tbaa !21
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 0, ptr %49, align 8, !tbaa !22
   br label %62
 
-49:                                               ; preds = %.critedge
-  %50 = sext i32 %5 to i64
-  %51 = getelementptr i32, ptr %4, i64 %50
-  %52 = getelementptr i8, ptr %51, i64 -4
-  %53 = load i32, ptr %52, align 4, !tbaa !29
-  %54 = and i32 %53, -65536
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %54, ptr %55, align 8, !tbaa !20
-  %56 = zext nneg i32 %.0.lcssa to i64
-  %57 = getelementptr inbounds nuw i32, ptr %4, i64 %56
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %57, ptr %58, align 8, !tbaa !21
-  %59 = sub nsw i32 %5, %.0.lcssa
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %59, ptr %60, align 8, !tbaa !22
+50:                                               ; preds = %.critedge
+  %51 = sext i32 %5 to i64
+  %52 = getelementptr i32, ptr %4, i64 %51
+  %53 = getelementptr i8, ptr %52, i64 -4
+  %54 = load i32, ptr %53, align 4, !tbaa !29
+  %55 = and i32 %54, -65536
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %55, ptr %56, align 8, !tbaa !20
+  %57 = zext nneg i32 %.0.lcssa to i64
+  %58 = getelementptr inbounds nuw i32, ptr %4, i64 %57
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %58, ptr %59, align 8, !tbaa !21
+  %60 = sub nsw i32 %5, %.0.lcssa
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store i32 %60, ptr %61, align 8, !tbaa !22
   br label %62
 
-61:                                               ; preds = %23, %19, %17, %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit, %11
+_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit: ; preds = %.preheader, %24, %20, %18, %11
   tail call void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEPKiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(852) %0, ptr noundef nonnull align 8 dereferenceable(140) %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %7)
   br label %62
 
-62:                                               ; preds = %.critedge.thread, %49, %8, %61
+62:                                               ; preds = %.critedge.thread, %50, %8, %_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh.exit
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717CollationSettings25reorderTableHasSplitBytesEPKh(ptr noundef readonly captures(none) %0) local_unnamed_addr #9 align 2 {
-  br label %2
+  br label %3
 
-2:                                                ; preds = %2, %1
-  %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
-  %4 = load i8, ptr %3, align 1, !tbaa !33
-  %5 = icmp eq i8 %4, 0
+2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
-  %or.cond = select i1 %5, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %6, label %2, !llvm.loop !34
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !33
 
-6:                                                ; preds = %2
-  %spec.select = zext i1 %5 to i8
-  ret i8 %spec.select
+3:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 1, %1 ], [ %indvars.iv.next, %2 ]
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
+  %5 = load i8, ptr %4, align 1, !tbaa !34
+  %6 = icmp eq i8 %5, 0
+  br i1 %6, label %7, label %2
+
+7:                                                ; preds = %2, %3
+  %8 = phi i8 [ 1, %3 ], [ 0, %2 ]
+  ret i8 %8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -648,7 +649,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %52 = add i32 %47, %51
   %53 = trunc i32 %52 to i8
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
-  store i8 %53, ptr %54, align 1, !tbaa !33
+  store i8 %53, ptr %54, align 1, !tbaa !34
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !39
@@ -662,7 +663,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
 56:                                               ; preds = %._crit_edge
   %57 = zext nneg i32 %48 to i64
   %58 = getelementptr inbounds nuw i8, ptr %7, i64 %57
-  store i8 0, ptr %58, align 1, !tbaa !33
+  store i8 0, ptr %58, align 1, !tbaa !34
   %59 = add nuw nsw i32 %48, 1
   %60 = icmp slt i32 %.04862, 0
   %61 = trunc nuw nsw i64 %indvars.iv72 to i32
@@ -681,7 +682,7 @@ define void @_ZN6icu_7717CollationSettings13setReorderingERKNS_13CollationDataEP
   %63 = trunc nuw i64 %indvars.iv77 to i32
   %64 = trunc i64 %indvars.iv77 to i8
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv77
-  store i8 %64, ptr %65, align 1, !tbaa !33
+  store i8 %64, ptr %65, align 1, !tbaa !34
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
   %66 = icmp slt i32 %63, 255
   br i1 %66, label %.lr.ph69, label %._crit_edge70, !llvm.loop !41
@@ -1205,8 +1206,8 @@ attributes #17 = { noreturn nounwind }
 !30 = distinct !{!30, !31}
 !31 = !{!"llvm.loop.mustprogress"}
 !32 = distinct !{!32, !31}
-!33 = !{!11, !11, i64 0}
-!34 = distinct !{!34, !31}
+!33 = distinct !{!33, !31}
+!34 = !{!11, !11, i64 0}
 !35 = distinct !{!35, !31}
 !36 = !{!37, !10, i64 8}
 !37 = !{!"_ZTSN6icu_779UVector32E", !9, i64 0, !10, i64 8, !10, i64 12, !10, i64 16, !17, i64 24}

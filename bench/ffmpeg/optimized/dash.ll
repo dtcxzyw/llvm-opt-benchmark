@@ -24,26 +24,26 @@ define void @ff_dash_fill_tmpl_params(ptr noundef %0, i64 noundef %1, ptr nounde
   %9 = alloca ptr, align 8
   %10 = alloca [7 x i8], align 1
   %11 = add i64 %1, -1
-  %.not101 = icmp eq i64 %11, 0
-  br i1 %.not101, label %.critedge, label %.lr.ph
+  %.not100 = icmp eq i64 %11, 0
+  br i1 %.not100, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %99
   %12 = phi i64 [ %106, %99 ], [ 0, %7 ]
-  %.06099 = phi i32 [ %105, %99 ], [ 0, %7 ]
-  %.06198 = phi ptr [ %.076, %99 ], [ %2, %7 ]
-  %13 = load i8, ptr %.06198, align 1, !tbaa !4
+  %.06098 = phi i32 [ %105, %99 ], [ 0, %7 ]
+  %.06197 = phi ptr [ %.076, %99 ], [ %2, %7 ]
+  %13 = load i8, ptr %.06197, align 1, !tbaa !4
   %.not = icmp eq i8 %13, 0
   br i1 %.not, label %.critedge, label %14
 
 14:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %15 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06198, i32 noundef 36) #6
+  %15 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.06197, i32 noundef 36) #6
   %.not72 = icmp eq ptr %15, null
   br i1 %.not72, label %29, label %16
 
 16:                                               ; preds = %14
   %17 = ptrtoint ptr %15 to i64
-  %18 = ptrtoint ptr %.06198 to i64
+  %18 = ptrtoint ptr %.06197 to i64
   %19 = sub i64 %17, %18
   %20 = xor i64 %12, -1
   %21 = add i64 %1, %20
@@ -53,8 +53,8 @@ define void @ff_dash_fill_tmpl_params(ptr noundef %0, i64 noundef %1, ptr nounde
   %24 = shl i64 %., 32
   %sext = add i64 %24, 4294967296
   %25 = ashr exact i64 %sext, 32
-  %26 = call i64 @av_strlcpy(ptr noundef %23, ptr noundef nonnull %.06198, i64 noundef %25) #7
-  %27 = add nsw i32 %.06099, %22
+  %26 = call i64 @av_strlcpy(ptr noundef %23, ptr noundef nonnull %.06197, i64 noundef %25) #7
+  %27 = add nsw i32 %.06098, %22
   %28 = sext i32 %27 to i64
   %.not73 = icmp ugt i64 %11, %28
   br i1 %.not73, label %33, label %.thread
@@ -62,7 +62,7 @@ define void @ff_dash_fill_tmpl_params(ptr noundef %0, i64 noundef %1, ptr nounde
 29:                                               ; preds = %14
   %30 = getelementptr inbounds i8, ptr %0, i64 %12
   %31 = sub i64 %1, %12
-  %32 = call i64 @av_strlcpy(ptr noundef %30, ptr noundef nonnull %.06198, i64 noundef %31) #7
+  %32 = call i64 @av_strlcpy(ptr noundef %30, ptr noundef nonnull %.06197, i64 noundef %31) #7
   br label %.thread
 
 33:                                               ; preds = %16
@@ -168,7 +168,7 @@ dash_read_tmpl_id.exit:                           ; preds = %52, %75
   %.2 = phi ptr [ %55, %52 ], [ %.177, %75 ]
   %.0.i = phi i32 [ %.130.i, %52 ], [ %.3.i, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  switch i32 %.0.i, label %default.unreachable111 [
+  switch i32 %.0.i, label %default.unreachable110 [
     i32 0, label %76
     i32 1, label %79
     i32 2, label %83
@@ -214,7 +214,7 @@ dash_read_tmpl_id.exit:                           ; preds = %52, %75
   %98 = getelementptr inbounds nuw i8, ptr %15, i64 1
   br label %99
 
-default.unreachable111:                           ; preds = %dash_read_tmpl_id.exit
+default.unreachable110:                           ; preds = %dash_read_tmpl_id.exit
   unreachable
 
 .thread:                                          ; preds = %33, %16, %29

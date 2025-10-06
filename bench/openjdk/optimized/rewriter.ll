@@ -2683,8 +2683,8 @@ _ZN13GrowableArrayI18ResolvedFieldEntryEC2Ev.exit: ; preds = %.lr.ph.i.i.i
 90:                                               ; preds = %_ZN13GrowableArrayI18ResolvedFieldEntryEC2Ev.exit
   tail call void @_ZN8Rewriter24make_constant_pool_cacheEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull %4)
   %91 = load ptr, ptr %88, align 8
-  %.not40 = icmp eq ptr %91, null
-  br i1 %.not40, label %101, label %92
+  %.not39 = icmp eq ptr %91, null
+  br i1 %.not39, label %101, label %92
 
 92:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -2765,16 +2765,16 @@ _ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.
   %131 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %132 = load i32, ptr %131, align 4
   %133 = and i32 %132, 2
-  %.not41 = icmp eq i32 %133, 0
-  br i1 %.not41, label %149, label %134
+  %.not40 = icmp eq i32 %133, 0
+  br i1 %.not40, label %149, label %134
 
 134:                                              ; preds = %_ZN26GrowableArrayWithAllocatorIP8Metadata13GrowableArrayIS1_EE4pushERKS1_.exit.i
   call void @_ZN8Rewriter12rewrite_jsrsERK12methodHandleP10JavaThread(ptr dead_on_unwind nonnull writable sret(%class.methodHandle) align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull %4)
   %135 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN12methodHandleaSERKS_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %9) #10
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #10
   %136 = load ptr, ptr %88, align 8
-  %.not42 = icmp eq ptr %136, null
-  br i1 %.not42, label %146, label %137
+  %.not41 = icmp eq ptr %136, null
+  br i1 %.not41, label %146, label %137
 
 137:                                              ; preds = %134
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

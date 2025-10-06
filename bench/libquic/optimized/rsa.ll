@@ -1114,18 +1114,18 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
 
 56:                                               ; preds = %53
   %57 = call i64 @sk_num(ptr noundef nonnull %55) #10
-  %.not94 = icmp eq i64 %57, 0
-  br i1 %.not94, label %._crit_edge, label %.lr.ph
+  %.not93 = icmp eq i64 %57, 0
+  br i1 %.not93, label %._crit_edge, label %.lr.ph
 
 58:                                               ; preds = %70
-  %59 = add nuw i64 %.05493, 1
+  %59 = add nuw i64 %.05492, 1
   %exitcond.not = icmp eq i64 %59, %57
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 .lr.ph:                                           ; preds = %56, %58
-  %.05493 = phi i64 [ %59, %58 ], [ 0, %56 ]
+  %.05492 = phi i64 [ %59, %58 ], [ 0, %56 ]
   %60 = load ptr, ptr %54, align 8, !tbaa !51
-  %61 = call ptr @sk_value(ptr noundef %60, i64 noundef %.05493) #10
+  %61 = call ptr @sk_value(ptr noundef %60, i64 noundef %.05492) #10
   %62 = load ptr, ptr %61, align 8, !tbaa !26
   %63 = call i32 @BN_mul(ptr noundef nonnull %2, ptr noundef nonnull %2, ptr noundef %62, ptr noundef nonnull %33) #10
   %.not84 = icmp eq i32 %63, 0
@@ -1153,7 +1153,7 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
   br label %122
 
 ._crit_edge:                                      ; preds = %58, %53, %56
-  %.not94101 = phi i1 [ true, %56 ], [ true, %53 ], [ false, %58 ]
+  %.not93100 = phi i1 [ true, %56 ], [ true, %53 ], [ false, %58 ]
   %73 = call i32 @BN_div(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %33) #10
   %.not71 = icmp eq i32 %73, 0
   br i1 %.not71, label %80, label %74
@@ -1215,7 +1215,7 @@ RSA_is_opaque.exit.thread:                        ; preds = %1, %RSA_is_opaque.e
   br label %122
 
 100:                                              ; preds = %95
-  %or.cond = and i1 %.not94101, %91
+  %or.cond = and i1 %.not93100, %91
   br i1 %or.cond, label %101, label %122
 
 101:                                              ; preds = %100

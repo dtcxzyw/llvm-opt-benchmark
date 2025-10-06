@@ -1084,8 +1084,8 @@ vec_uint_push_back.exit.i:                        ; preds = %vec_uint_reserve.ex
   %103 = trunc nsw i64 %indvars.iv.next47.i to i32
   %104 = shl nuw i32 %103, 1
   %105 = or disjoint i32 %104, 1
-  %.val3451.i.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !101
-  %106 = icmp ult i32 %105, %.val3451.i.i
+  %.val3450.i.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !101
+  %106 = icmp ult i32 %105, %.val3450.i.i
   br i1 %106, label %.lr.ph.i.i, label %..thread_crit_edge.i.i
 
 ..thread_crit_edge.i.i:                           ; preds = %100
@@ -1102,21 +1102,21 @@ vec_uint_push_back.exit.i:                        ; preds = %vec_uint_reserve.ex
   br label %111
 
 111:                                              ; preds = %134, %.lr.ph.i.i
-  %.val3453.i.i = phi i32 [ %.val3451.i.i, %.lr.ph.i.i ], [ %.val34.i.i, %134 ]
+  %.val3452.i.i = phi i32 [ %.val3450.i.i, %.lr.ph.i.i ], [ %.val34.i.i, %134 ]
   %112 = phi i32 [ %105, %.lr.ph.i.i ], [ %139, %134 ]
   %113 = phi i32 [ %104, %.lr.ph.i.i ], [ %138, %134 ]
-  %.03252.i.i = phi i32 [ %103, %.lr.ph.i.i ], [ %133, %134 ]
+  %.03251.i.i = phi i32 [ %103, %.lr.ph.i.i ], [ %133, %134 ]
   %114 = add nuw i32 %113, 2
-  %115 = icmp ult i32 %114, %.val3453.i.i
+  %115 = icmp ult i32 %114, %.val3452.i.i
   br i1 %115, label %116, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %111
   %.pre.phi.trans.insert.i.i = zext i32 %112 to i64
   %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %.val40.i.i, i64 %.pre.phi.trans.insert.i.i
-  %.pre56.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !103
-  %.phi.trans.insert57.phi.trans.insert.i.i = zext i32 %.pre56.pre.i.i to i64
-  %.phi.trans.insert58.phi.trans.insert.i.i = getelementptr inbounds nuw i64, ptr %.val46.val.i.i, i64 %.phi.trans.insert57.phi.trans.insert.i.i
-  %.pre59.pre.i.i = load i64, ptr %.phi.trans.insert58.phi.trans.insert.i.i, align 8, !tbaa !122
+  %.pre55.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !103
+  %.phi.trans.insert56.phi.trans.insert.i.i = zext i32 %.pre55.pre.i.i to i64
+  %.phi.trans.insert57.phi.trans.insert.i.i = getelementptr inbounds nuw i64, ptr %.val46.val.i.i, i64 %.phi.trans.insert56.phi.trans.insert.i.i
+  %.pre58.pre.i.i = load i64, ptr %.phi.trans.insert57.phi.trans.insert.i.i, align 8, !tbaa !122
   br label %130
 
 116:                                              ; preds = %111
@@ -1139,19 +1139,19 @@ vec_uint_push_back.exit.i:                        ; preds = %vec_uint_reserve.ex
   br label %130
 
 130:                                              ; preds = %129, %116, %._crit_edge.i.i
-  %.pre-phi62.i.i = phi i64 [ %123, %116 ], [ %.phi.trans.insert57.phi.trans.insert.i.i, %._crit_edge.i.i ], [ %126, %129 ]
-  %131 = phi i64 [ %125, %116 ], [ %.pre59.pre.i.i, %._crit_edge.i.i ], [ %128, %129 ]
-  %132 = phi i32 [ %119, %116 ], [ %.pre56.pre.i.i, %._crit_edge.i.i ], [ %122, %129 ]
+  %.pre-phi61.i.i = phi i64 [ %123, %116 ], [ %.phi.trans.insert56.phi.trans.insert.i.i, %._crit_edge.i.i ], [ %126, %129 ]
+  %131 = phi i64 [ %125, %116 ], [ %.pre58.pre.i.i, %._crit_edge.i.i ], [ %128, %129 ]
+  %132 = phi i32 [ %119, %116 ], [ %.pre55.pre.i.i, %._crit_edge.i.i ], [ %122, %129 ]
   %133 = phi i32 [ %114, %116 ], [ %112, %._crit_edge.i.i ], [ %112, %129 ]
-  %.not50.i.i = icmp ugt i64 %131, %110
-  br i1 %.not50.i.i, label %134, label %.thread.loopexit.i.i
+  %.not49.i.i = icmp ugt i64 %131, %110
+  br i1 %.not49.i.i, label %134, label %.thread.loopexit.i.i
 
 134:                                              ; preds = %130
-  %135 = zext i32 %.03252.i.i to i64
+  %135 = zext i32 %.03251.i.i to i64
   %136 = getelementptr inbounds nuw i32, ptr %.val40.i.i, i64 %135
   store i32 %132, ptr %136, align 4, !tbaa !103
-  %137 = getelementptr inbounds nuw i32, ptr %.val43.i.i, i64 %.pre-phi62.i.i
-  store i32 %.03252.i.i, ptr %137, align 4, !tbaa !103
+  %137 = getelementptr inbounds nuw i32, ptr %.val43.i.i, i64 %.pre-phi61.i.i
+  store i32 %.03251.i.i, ptr %137, align 4, !tbaa !103
   %138 = shl i32 %133, 1
   %139 = or disjoint i32 %138, 1
   %.val34.i.i = load i32, ptr %.phi.trans.insert.i, align 4, !tbaa !101
@@ -1159,17 +1159,17 @@ vec_uint_push_back.exit.i:                        ; preds = %vec_uint_reserve.ex
   br i1 %140, label %111, label %.thread.loopexit.i.i
 
 .thread.loopexit.i.i:                             ; preds = %134, %130
-  %.032.lcssa.ph.i.i = phi i32 [ %133, %134 ], [ %.03252.i.i, %130 ]
-  %.pre63.i.i = zext i32 %.032.lcssa.ph.i.i to i64
+  %.032.lcssa.ph.i.i = phi i32 [ %133, %134 ], [ %.03251.i.i, %130 ]
+  %.pre62.i.i = zext i32 %.032.lcssa.ph.i.i to i64
   br label %heap_percolate_down.exit.i
 
 heap_percolate_down.exit.i:                       ; preds = %.thread.loopexit.i.i, %..thread_crit_edge.i.i
-  %.pre-phi65.i.i = phi i64 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %108, %.thread.loopexit.i.i ]
-  %.pre-phi64.i.i = phi i64 [ %indvars.iv.next47.i, %..thread_crit_edge.i.i ], [ %.pre63.i.i, %.thread.loopexit.i.i ]
+  %.pre-phi64.i.i = phi i64 [ %.pre.i.i, %..thread_crit_edge.i.i ], [ %108, %.thread.loopexit.i.i ]
+  %.pre-phi63.i.i = phi i64 [ %indvars.iv.next47.i, %..thread_crit_edge.i.i ], [ %.pre62.i.i, %.thread.loopexit.i.i ]
   %.032.lcssa.i.i = phi i32 [ %103, %..thread_crit_edge.i.i ], [ %.032.lcssa.ph.i.i, %.thread.loopexit.i.i ]
-  %141 = getelementptr inbounds nuw i32, ptr %.val40.i.i, i64 %.pre-phi64.i.i
+  %141 = getelementptr inbounds nuw i32, ptr %.val40.i.i, i64 %.pre-phi63.i.i
   store i32 %102, ptr %141, align 4, !tbaa !103
-  %142 = getelementptr inbounds nuw i32, ptr %.val43.i.i, i64 %.pre-phi65.i.i
+  %142 = getelementptr inbounds nuw i32, ptr %.val43.i.i, i64 %.pre-phi64.i.i
   store i32 %.032.lcssa.i.i, ptr %142, align 4, !tbaa !103
   %143 = icmp sgt i64 %indvars.iv46.i, 1
   br i1 %143, label %100, label %heap_build.exit, !llvm.loop !123

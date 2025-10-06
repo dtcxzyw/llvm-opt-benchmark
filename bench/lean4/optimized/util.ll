@@ -8666,26 +8666,26 @@ define hidden void @_ZN4lean17is_builtin_scalarERKNS_4exprE(ptr dead_on_unwind n
   %9 = load ptr, ptr %8, align 8, !tbaa !186
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !186
-  %.not15 = icmp eq ptr %9, %11
-  br i1 %.not15, label %._crit_edge, label %.lr.ph
+  %.not13 = icmp eq ptr %9, %11
+  br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %.critedge
-  %.sroa.07.016 = phi ptr [ %17, %.critedge ], [ %9, %7 ]
+  %.sroa.07.014 = phi ptr [ %17, %.critedge ], [ %9, %7 ]
   %12 = load ptr, ptr %1, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !3
-  %15 = load ptr, ptr %.sroa.07.016, align 8, !tbaa !3
+  %15 = load ptr, ptr %.sroa.07.014, align 8, !tbaa !3
   %16 = tail call zeroext i8 @lean_name_eq(ptr noundef %14, ptr noundef %15)
-  %.not13 = icmp eq i8 %16, 0
-  br i1 %.not13, label %.critedge, label %18
+  %.not11 = icmp eq i8 %16, 0
+  br i1 %.not11, label %.critedge, label %18
 
 .critedge:                                        ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 16
   %.not = icmp eq ptr %17, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 18:                                               ; preds = %.lr.ph
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 8
   store i8 1, ptr %0, align 4, !tbaa !8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load i32, ptr %19, align 4, !tbaa !11
@@ -16990,8 +16990,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4lean4nameES1_SaIS1_E
   %13 = load ptr, ptr %1, align 8, !tbaa !3
   %14 = load ptr, ptr %12, align 8, !tbaa !3
   %15 = tail call zeroext i8 @lean_name_eq(ptr noundef %13, ptr noundef %14)
-  %.not33 = icmp eq i8 %15, 0
-  br i1 %.not33, label %10, label %.loopexit, !llvm.loop !377
+  %.not31 = icmp eq i8 %15, 0
+  br i1 %.not31, label %10, label %.loopexit, !llvm.loop !377
 
 .thread:                                          ; preds = %10, %4
   %16 = load ptr, ptr %1, align 8, !tbaa !3
@@ -17012,8 +17012,8 @@ _ZNKSt8__detail15_Hash_code_baseIN4lean4nameES2_NS_9_IdentityENS1_12name_hash_fn
   %23 = load i64, ptr %22, align 8, !tbaa !378
   %24 = urem i64 %.0.i.i.i.i.i, %23
   %25 = load i64, ptr %6, align 8, !tbaa !375
-  %.not34 = icmp eq i64 %25, 0
-  br i1 %.not34, label %.critedge, label %26
+  %.not32 = icmp eq i64 %25, 0
+  br i1 %.not32, label %.critedge, label %26
 
 26:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIN4lean4nameES2_NS_9_IdentityENS1_12name_hash_fnENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS2_EEmRKT_.exit
   %27 = load ptr, ptr %0, align 8, !tbaa !379

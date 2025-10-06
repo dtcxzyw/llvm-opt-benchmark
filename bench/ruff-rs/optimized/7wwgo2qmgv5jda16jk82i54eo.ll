@@ -3634,27 +3634,27 @@ define hidden void @_ZN5salsa5table4memo21MemoTableWithTypesMut8map_memo17h095c2
 
 49:                                               ; preds = %44
   %50 = load i32, ptr %47, align 8, !range !239, !alias.scope !240, !noundef !4
-  %switch.i.i = icmp eq i32 %50, 1
-  br i1 %switch.i.i, label %51, label %_ZN4core3ops8function6FnOnce9call_once17h8edaccc122e61aa3E.exit
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %52, label %_ZN4core3ops8function6FnOnce9call_once17h8edaccc122e61aa3E.exit
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 88
-  %53 = load ptr, ptr %52, align 8, !alias.scope !245, !noundef !4
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ruff_db..parsed..ParsedModule$GT$$GT$17hd03c76308805436eE.exit.i.i", label %55
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 88
+  %54 = load ptr, ptr %53, align 8, !alias.scope !245, !noundef !4
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ruff_db..parsed..ParsedModule$GT$$GT$17hd03c76308805436eE.exit.i.i", label %56
 
-55:                                               ; preds = %51
-  invoke void @"_ZN4core3ptr50drop_in_place$LT$ruff_db..parsed..ParsedModule$GT$17ha343acae2648043eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %52)
-          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ruff_db..parsed..ParsedModule$GT$$GT$17hd03c76308805436eE.exit.i.i" unwind label %56
+56:                                               ; preds = %52
+  invoke void @"_ZN4core3ptr50drop_in_place$LT$ruff_db..parsed..ParsedModule$GT$17ha343acae2648043eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
+          to label %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ruff_db..parsed..ParsedModule$GT$$GT$17hd03c76308805436eE.exit.i.i" unwind label %57
 
-56:                                               ; preds = %55
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %56
+  %58 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %52, align 8, !alias.scope !240
-  resume { ptr, i32 } %57
+  store ptr null, ptr %53, align 8, !alias.scope !240
+  resume { ptr, i32 } %58
 
-"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ruff_db..parsed..ParsedModule$GT$$GT$17hd03c76308805436eE.exit.i.i": ; preds = %55, %51
-  store ptr null, ptr %52, align 8, !alias.scope !240
+"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ruff_db..parsed..ParsedModule$GT$$GT$17hd03c76308805436eE.exit.i.i": ; preds = %56, %52
+  store ptr null, ptr %53, align 8, !alias.scope !240
   br label %_ZN4core3ops8function6FnOnce9call_once17h8edaccc122e61aa3E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h8edaccc122e61aa3E.exit: ; preds = %16, %3, %"_ZN4core3ptr78drop_in_place$LT$core..option..Option$LT$ruff_db..parsed..ParsedModule$GT$$GT$17hd03c76308805436eE.exit.i.i", %49, %44, %36, %23
@@ -3751,27 +3751,27 @@ define hidden void @_ZN5salsa5table4memo21MemoTableWithTypesMut8map_memo17ha89df
 
 49:                                               ; preds = %44
   %50 = load i32, ptr %47, align 8, !range !239, !alias.scope !248, !noundef !4
-  %switch.i.i = icmp eq i32 %50, 1
-  br i1 %switch.i.i, label %51, label %_ZN4core3ops8function6FnOnce9call_once17h3640d4e34a2320e5E.exit
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %52, label %_ZN4core3ops8function6FnOnce9call_once17h3640d4e34a2320e5E.exit
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 88
-  %53 = load ptr, ptr %52, align 8, !alias.scope !253, !noundef !4
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$ruff_source_file..line_index..LineIndex$GT$$GT$17h7260e7a7d68c582eE.exit.i.i", label %55
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 88
+  %54 = load ptr, ptr %53, align 8, !alias.scope !253, !noundef !4
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$ruff_source_file..line_index..LineIndex$GT$$GT$17h7260e7a7d68c582eE.exit.i.i", label %56
 
-55:                                               ; preds = %51
-  invoke void @"_ZN4core3ptr60drop_in_place$LT$ruff_source_file..line_index..LineIndex$GT$17h7c71205925cc0797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %52)
-          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$ruff_source_file..line_index..LineIndex$GT$$GT$17h7260e7a7d68c582eE.exit.i.i" unwind label %56
+56:                                               ; preds = %52
+  invoke void @"_ZN4core3ptr60drop_in_place$LT$ruff_source_file..line_index..LineIndex$GT$17h7c71205925cc0797E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
+          to label %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$ruff_source_file..line_index..LineIndex$GT$$GT$17h7260e7a7d68c582eE.exit.i.i" unwind label %57
 
-56:                                               ; preds = %55
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %56
+  %58 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %52, align 8, !alias.scope !248
-  resume { ptr, i32 } %57
+  store ptr null, ptr %53, align 8, !alias.scope !248
+  resume { ptr, i32 } %58
 
-"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$ruff_source_file..line_index..LineIndex$GT$$GT$17h7260e7a7d68c582eE.exit.i.i": ; preds = %55, %51
-  store ptr null, ptr %52, align 8, !alias.scope !248
+"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$ruff_source_file..line_index..LineIndex$GT$$GT$17h7260e7a7d68c582eE.exit.i.i": ; preds = %56, %52
+  store ptr null, ptr %53, align 8, !alias.scope !248
   br label %_ZN4core3ops8function6FnOnce9call_once17h3640d4e34a2320e5E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17h3640d4e34a2320e5E.exit: ; preds = %16, %3, %"_ZN4core3ptr88drop_in_place$LT$core..option..Option$LT$ruff_source_file..line_index..LineIndex$GT$$GT$17h7260e7a7d68c582eE.exit.i.i", %49, %44, %36, %23
@@ -3868,27 +3868,27 @@ define hidden void @_ZN5salsa5table4memo21MemoTableWithTypesMut8map_memo17hc4028
 
 49:                                               ; preds = %44
   %50 = load i32, ptr %47, align 8, !range !239, !alias.scope !256, !noundef !4
-  %switch.i.i = icmp eq i32 %50, 1
-  br i1 %switch.i.i, label %51, label %_ZN4core3ops8function6FnOnce9call_once17hf0232a048fe2de46E.exit
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %52, label %_ZN4core3ops8function6FnOnce9call_once17hf0232a048fe2de46E.exit
 
-51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 88
-  %53 = load ptr, ptr %52, align 8, !alias.scope !261, !noundef !4
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$ruff_db..source..SourceText$GT$$GT$17he64724081c59b660E.exit.i.i", label %55
+52:                                               ; preds = %49
+  %53 = getelementptr inbounds nuw i8, ptr %47, i64 88
+  %54 = load ptr, ptr %53, align 8, !alias.scope !261, !noundef !4
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$ruff_db..source..SourceText$GT$$GT$17he64724081c59b660E.exit.i.i", label %56
 
-55:                                               ; preds = %51
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h5adcaf98c8cbdf34E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %52)
-          to label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$ruff_db..source..SourceText$GT$$GT$17he64724081c59b660E.exit.i.i" unwind label %56
+56:                                               ; preds = %52
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$ruff_db..source..SourceText$GT$17h5adcaf98c8cbdf34E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %53)
+          to label %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$ruff_db..source..SourceText$GT$$GT$17he64724081c59b660E.exit.i.i" unwind label %57
 
-56:                                               ; preds = %55
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %56
+  %58 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %52, align 8, !alias.scope !256
-  resume { ptr, i32 } %57
+  store ptr null, ptr %53, align 8, !alias.scope !256
+  resume { ptr, i32 } %58
 
-"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$ruff_db..source..SourceText$GT$$GT$17he64724081c59b660E.exit.i.i": ; preds = %55, %51
-  store ptr null, ptr %52, align 8, !alias.scope !256
+"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$ruff_db..source..SourceText$GT$$GT$17he64724081c59b660E.exit.i.i": ; preds = %56, %52
+  store ptr null, ptr %53, align 8, !alias.scope !256
   br label %_ZN4core3ops8function6FnOnce9call_once17hf0232a048fe2de46E.exit
 
 _ZN4core3ops8function6FnOnce9call_once17hf0232a048fe2de46E.exit: ; preds = %16, %3, %"_ZN4core3ptr76drop_in_place$LT$core..option..Option$LT$ruff_db..source..SourceText$GT$$GT$17he64724081c59b660E.exit.i.i", %49, %44, %36, %23

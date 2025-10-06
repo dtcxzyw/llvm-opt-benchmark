@@ -702,7 +702,7 @@ switch.lookup:                                    ; preds = %7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define i32 @hpke_setup_aead(ptr noundef %0, i16 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
-  switch i16 %1, label %13 [
+  switch i16 %1, label %14 [
     i16 1, label %4
     i16 2, label %6
     i16 3, label %8
@@ -723,17 +723,17 @@ define i32 @hpke_setup_aead(ptr noundef %0, i16 noundef zeroext %1, ptr noundef 
 10:                                               ; preds = %8, %6, %4
   %.0 = phi i32 [ %5, %4 ], [ %7, %6 ], [ %9, %8 ]
   %.not = icmp eq i32 %.0, 0
-  br i1 %.not, label %hpke_aead_key_len.exit, label %13
+  br i1 %.not, label %hpke_aead_key_len.exit, label %14
 
 hpke_aead_key_len.exit:                           ; preds = %10
   %11 = load ptr, ptr %0, align 8
-  %switch = icmp eq i16 %1, 1
-  %spec.select = select i1 %switch, i64 16, i64 32
-  %12 = tail call i32 @gcry_cipher_setkey(ptr noundef %11, ptr noundef %2, i64 noundef %spec.select)
-  br label %13
+  %12 = icmp eq i16 %1, 1
+  %spec.select = select i1 %12, i64 16, i64 32
+  %13 = tail call i32 @gcry_cipher_setkey(ptr noundef %11, ptr noundef %2, i64 noundef %spec.select)
+  br label %14
 
-13:                                               ; preds = %10, %3, %hpke_aead_key_len.exit
-  %.09 = phi i32 [ %12, %hpke_aead_key_len.exit ], [ 12, %3 ], [ %.0, %10 ]
+14:                                               ; preds = %10, %3, %hpke_aead_key_len.exit
+  %.09 = phi i32 [ %13, %hpke_aead_key_len.exit ], [ 12, %3 ], [ %.0, %10 ]
   ret i32 %.09
 }
 

@@ -33292,15 +33292,15 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   br label %.lr.ph.i.i.i
 
 149:                                              ; preds = %.lr.ph.i.i.i
-  %150 = add nuw i64 %.01225.i.i.i, 1
+  %150 = add nuw i64 %.01223.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %150, %148
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i, !llvm.loop !1075
 
 .lr.ph.i.i.i:                                     ; preds = %149, %.lr.ph.preheader.i.i.i
-  %.01225.i.i.i = phi i64 [ %150, %149 ], [ 0, %.lr.ph.preheader.i.i.i ]
-  %151 = getelementptr inbounds nuw %"class.(anonymous namespace)::JBTIndex", ptr %.val17.i.i.i, i64 %.01225.i.i.i
+  %.01223.i.i.i = phi i64 [ %150, %149 ], [ 0, %.lr.ph.preheader.i.i.i ]
+  %151 = getelementptr inbounds nuw %"class.(anonymous namespace)::JBTIndex", ptr %.val17.i.i.i, i64 %.01223.i.i.i
   %152 = load i32, ptr %151, align 4, !tbaa !1076
-  %153 = getelementptr inbounds nuw %"class.(anonymous namespace)::JBTIndex", ptr %.val15.i.i.i, i64 %.01225.i.i.i
+  %153 = getelementptr inbounds nuw %"class.(anonymous namespace)::JBTIndex", ptr %.val15.i.i.i, i64 %.01223.i.i.i
   %154 = load i32, ptr %153, align 4, !tbaa !1076
   %.not.i.i.i = icmp eq i32 %152, %154
   br i1 %.not.i.i.i, label %149, label %_ZNKSt8equal_toIN12_GLOBAL__N_111CompileDataEEclERKS1_S4_.exit

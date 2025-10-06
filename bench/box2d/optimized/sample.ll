@@ -1470,10 +1470,10 @@ define dso_local noundef i32 @_ZN6Sample9ParsePathEPKc6b2Vec2PS2_ifb(ptr noundef
   %7 = alloca float, align 4
   %8 = alloca float, align 4
   %9 = load i8, ptr %0, align 1, !tbaa !195
-  %.not89 = icmp eq i8 %9, 0
-  br i1 %.not89, label %.loopexit, label %.lr.ph95
+  %.not88 = icmp eq i8 %9, 0
+  br i1 %.not88, label %.loopexit, label %.lr.ph94
 
-.lr.ph95:                                         ; preds = %6
+.lr.ph94:                                         ; preds = %6
   %.sroa.064.0.vec.extract = extractelement <2 x float> %1, i64 0
   %10 = fneg float %4
   %.sroa.064.4.vec.extract = extractelement <2 x float> %1, i64 1
@@ -1487,14 +1487,14 @@ thread-pre-split:                                 ; preds = %.critedge
   %.not = icmp eq i8 %.pr, 0
   br i1 %.not, label %.loopexit, label %12
 
-12:                                               ; preds = %.lr.ph95, %thread-pre-split
-  %indvars.iv = phi i64 [ 0, %.lr.ph95 ], [ %indvars.iv.next, %thread-pre-split ]
-  %.06794 = phi i32 [ 0, %.lr.ph95 ], [ %61, %thread-pre-split ]
-  %.06893 = phi i8 [ %9, %.lr.ph95 ], [ %.169, %thread-pre-split ]
-  %.07092 = phi ptr [ %0, %.lr.ph95 ], [ %.5, %thread-pre-split ]
-  %.sroa.10.091 = phi float [ 0.000000e+00, %.lr.ph95 ], [ %.sroa.10.1, %thread-pre-split ]
-  %.sroa.048.090 = phi float [ 0.000000e+00, %.lr.ph95 ], [ %.sroa.048.1, %thread-pre-split ]
-  %13 = phi i8 [ %9, %.lr.ph95 ], [ %.pr, %thread-pre-split ]
+12:                                               ; preds = %.lr.ph94, %thread-pre-split
+  %indvars.iv = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next, %thread-pre-split ]
+  %.06793 = phi i32 [ 0, %.lr.ph94 ], [ %61, %thread-pre-split ]
+  %.06892 = phi i8 [ %9, %.lr.ph94 ], [ %.169, %thread-pre-split ]
+  %.07091 = phi ptr [ %0, %.lr.ph94 ], [ %.5, %thread-pre-split ]
+  %.sroa.10.090 = phi float [ 0.000000e+00, %.lr.ph94 ], [ %.sroa.10.1, %thread-pre-split ]
+  %.sroa.048.089 = phi float [ 0.000000e+00, %.lr.ph94 ], [ %.sroa.048.1, %thread-pre-split ]
+  %13 = phi i8 [ %9, %.lr.ph94 ], [ %.pr, %thread-pre-split ]
   %14 = sext i8 %13 to i32
   %15 = add nsw i32 %14, -48
   %isdigit = icmp ult i32 %15, 10
@@ -1516,12 +1516,12 @@ thread-pre-split:                                 ; preds = %.critedge
   ]
 
 .thread:                                          ; preds = %16, %16, %16, %16, %16, %16, %16, %16
-  %17 = getelementptr inbounds nuw i8, ptr %.07092, i64 2
+  %17 = getelementptr inbounds nuw i8, ptr %.07091, i64 2
   br label %18
 
 18:                                               ; preds = %16, %.thread, %12
-  %.171 = phi ptr [ %.07092, %12 ], [ %17, %.thread ], [ %.07092, %16 ]
-  %.169 = phi i8 [ %.06893, %12 ], [ %13, %.thread ], [ %13, %16 ]
+  %.171 = phi ptr [ %.07091, %12 ], [ %17, %.thread ], [ %.07091, %16 ]
+  %.169 = phi i8 [ %.06892, %12 ], [ %13, %.thread ], [ %13, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store float 0.000000e+00, ptr %7, align 4, !tbaa !196
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1572,9 +1572,9 @@ thread-pre-split:                                 ; preds = %.critedge
 
 38:                                               ; preds = %35
   %39 = load float, ptr %7, align 4, !tbaa !196
-  %40 = fadd float %.sroa.048.090, %39
+  %40 = fadd float %.sroa.048.089, %39
   %41 = load float, ptr %8, align 4, !tbaa !196
-  %42 = fadd float %.sroa.10.091, %41
+  %42 = fadd float %.sroa.10.090, %41
   br label %55
 
 43:                                               ; preds = %18
@@ -1584,7 +1584,7 @@ thread-pre-split:                                 ; preds = %.critedge
 
 46:                                               ; preds = %43
   %47 = load float, ptr %7, align 4, !tbaa !196
-  %48 = fadd float %.sroa.048.090, %47
+  %48 = fadd float %.sroa.048.089, %47
   br label %55
 
 49:                                               ; preds = %18
@@ -1594,12 +1594,12 @@ thread-pre-split:                                 ; preds = %.critedge
 
 52:                                               ; preds = %49
   %53 = load float, ptr %8, align 4, !tbaa !196
-  %54 = fadd float %.sroa.10.091, %53
+  %54 = fadd float %.sroa.10.090, %53
   br label %55
 
 55:                                               ; preds = %18, %52, %49, %46, %43, %38, %35, %33, %30, %28, %25, %22, %19
-  %.sroa.048.1 = phi float [ %.sroa.048.090, %18 ], [ %23, %22 ], [ %.sroa.048.090, %19 ], [ %29, %28 ], [ %.sroa.048.090, %25 ], [ %.sroa.048.090, %33 ], [ %.sroa.048.090, %30 ], [ %40, %38 ], [ %.sroa.048.090, %35 ], [ %48, %46 ], [ %.sroa.048.090, %43 ], [ %.sroa.048.090, %52 ], [ %.sroa.048.090, %49 ]
-  %.sroa.10.1 = phi float [ %.sroa.10.091, %18 ], [ %24, %22 ], [ %.sroa.10.091, %19 ], [ %.sroa.10.091, %28 ], [ %.sroa.10.091, %25 ], [ %34, %33 ], [ %.sroa.10.091, %30 ], [ %42, %38 ], [ %.sroa.10.091, %35 ], [ %.sroa.10.091, %46 ], [ %.sroa.10.091, %43 ], [ %54, %52 ], [ %.sroa.10.091, %49 ]
+  %.sroa.048.1 = phi float [ %.sroa.048.089, %18 ], [ %23, %22 ], [ %.sroa.048.089, %19 ], [ %29, %28 ], [ %.sroa.048.089, %25 ], [ %.sroa.048.089, %33 ], [ %.sroa.048.089, %30 ], [ %40, %38 ], [ %.sroa.048.089, %35 ], [ %48, %46 ], [ %.sroa.048.089, %43 ], [ %.sroa.048.089, %52 ], [ %.sroa.048.089, %49 ]
+  %.sroa.10.1 = phi float [ %.sroa.10.090, %18 ], [ %24, %22 ], [ %.sroa.10.090, %19 ], [ %.sroa.10.090, %28 ], [ %.sroa.10.090, %25 ], [ %34, %33 ], [ %.sroa.10.090, %30 ], [ %42, %38 ], [ %.sroa.10.090, %35 ], [ %.sroa.10.090, %46 ], [ %.sroa.10.090, %43 ], [ %54, %52 ], [ %.sroa.10.090, %49 ]
   %56 = fadd float %.sroa.064.0.vec.extract, %.sroa.048.1
   %57 = fmul float %4, %56
   %58 = fadd float %.sroa.064.4.vec.extract, %.sroa.10.1
@@ -1609,31 +1609,31 @@ thread-pre-split:                                 ; preds = %.critedge
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 4
   store float %59, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !196
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = add nuw nsw i32 %.06794, 1
+  %61 = add nuw nsw i32 %.06793, 1
   %62 = icmp eq i64 %indvars.iv.next, %11
   br i1 %62, label %75, label %.preheader
 
 .preheader:                                       ; preds = %55
   %63 = load i8, ptr %.171, align 1, !tbaa !195
-  %.not7585 = icmp eq i8 %63, 0
-  br i1 %.not7585, label %.critedge.preheader, label %.lr.ph
+  %.not7584 = icmp eq i8 %63, 0
+  br i1 %.not7584, label %.critedge.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %68
   %64 = phi i8 [ %70, %68 ], [ %63, %.preheader ]
-  %.486 = phi ptr [ %69, %68 ], [ %.171, %.preheader ]
+  %.485 = phi ptr [ %69, %68 ], [ %.171, %.preheader ]
   %65 = sext i8 %64 to i32
   %66 = call i32 @isspace(i32 noundef %65) #25
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %.critedge.preheader
 
 68:                                               ; preds = %.lr.ph
-  %69 = getelementptr inbounds nuw i8, ptr %.486, i64 1
+  %69 = getelementptr inbounds nuw i8, ptr %.485, i64 1
   %70 = load i8, ptr %69, align 1, !tbaa !195
   %.not75 = icmp eq i8 %70, 0
   br i1 %.not75, label %.critedge.preheader, label %.lr.ph, !llvm.loop !197
 
 .critedge.preheader:                              ; preds = %.lr.ph, %68, %.preheader
-  %.5.ph = phi ptr [ %.171, %.preheader ], [ %.486, %.lr.ph ], [ %69, %68 ]
+  %.5.ph = phi ptr [ %.171, %.preheader ], [ %.485, %.lr.ph ], [ %69, %68 ]
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge

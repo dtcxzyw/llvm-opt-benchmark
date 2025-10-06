@@ -4643,17 +4643,17 @@ _ZNK4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE5beginEv.exit: ; preds = %.lr.ph.i
   %211 = zext i32 %210 to i64
   %.idx.i.i145 = shl nuw nsw i64 %211, 3
   %212 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx.i.i145
-  %.not36.i.i146 = icmp eq i32 %210, 0
-  br i1 %.not36.i.i146, label %._crit_edge.i.i152, label %.lr.ph.i.i147
+  %.not34.i.i146 = icmp eq i32 %210, 0
+  br i1 %.not34.i.i146, label %._crit_edge.i.i152, label %.lr.ph.i.i147
 
 .lr.ph.i.i147:                                    ; preds = %208, %.critedge.i.i150
-  %.02937.i.i148 = phi ptr [ %214, %.critedge.i.i150 ], [ %209, %208 ]
-  %213 = load ptr, ptr %.02937.i.i148, align 8, !tbaa !272, !noalias !332
+  %.02935.i.i148 = phi ptr [ %214, %.critedge.i.i150 ], [ %209, %208 ]
+  %213 = load ptr, ptr %.02935.i.i148, align 8, !tbaa !272, !noalias !332
   %.not17.i.i149 = icmp eq ptr %213, %205
   br i1 %.not17.i.i149, label %_ZN4llvm15SmallPtrSetImplIPKNS_10BasicBlockEE6insertES3_.exit157, label %.critedge.i.i150
 
 .critedge.i.i150:                                 ; preds = %.lr.ph.i.i147
-  %214 = getelementptr inbounds nuw i8, ptr %.02937.i.i148, i64 8
+  %214 = getelementptr inbounds nuw i8, ptr %.02935.i.i148, i64 8
   %.not.i.i151 = icmp eq ptr %214, %212
   br i1 %.not.i.i151, label %._crit_edge.i.i152, label %.lr.ph.i.i147, !llvm.loop !335
 

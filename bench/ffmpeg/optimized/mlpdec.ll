@@ -1679,8 +1679,8 @@ thread-pre-split.i:                               ; preds = %799, %785, %782
   br i1 %882, label %886, label %.preheader.i.i248
 
 .preheader.i.i248:                                ; preds = %868
-  %.not71.i.i = icmp ult i32 %877, 268435456
-  br i1 %.not71.i.i, label %read_matrix_params.exit.i, label %.lr.ph.i.i
+  %.not70.i.i = icmp ult i32 %877, 268435456
+  br i1 %.not70.i.i, label %read_matrix_params.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i248
   %.pre.i.i = load i8, ptr %426, align 16, !tbaa !77
@@ -1694,7 +1694,7 @@ thread-pre-split.i:                               ; preds = %799, %785, %782
   br label %987
 
 887:                                              ; preds = %985, %.lr.ph.i.i
-  %indvars.iv75.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next76.i.i, %985 ]
+  %indvars.iv74.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next75.i.i, %985 ]
   %888 = load i32, ptr %37, align 8, !tbaa !51
   %889 = load i32, ptr %33, align 8, !tbaa !49
   %890 = load ptr, ptr %8, align 8, !tbaa !46
@@ -1710,7 +1710,7 @@ thread-pre-split.i:                               ; preds = %799, %785, %782
   %900 = call i32 @llvm.umin.i32(i32 %889, i32 %899)
   store i32 %900, ptr %37, align 8, !tbaa !51
   %901 = trunc nuw nsw i32 %898 to i8
-  %902 = getelementptr inbounds nuw i8, ptr %445, i64 %indvars.iv75.i.i
+  %902 = getelementptr inbounds nuw i8, ptr %445, i64 %indvars.iv74.i.i
   store i8 %901, ptr %902, align 1, !tbaa !39
   %903 = load i32, ptr %37, align 8, !tbaa !51
   %904 = load i32, ptr %33, align 8, !tbaa !49
@@ -1739,7 +1739,7 @@ thread-pre-split.i:                               ; preds = %799, %785, %782
   store i32 %spec.select.i.i.i, ptr %37, align 8, !tbaa !51
   %925 = trunc i32 %924 to i8
   %926 = lshr i8 %925, 7
-  %927 = getelementptr inbounds nuw i8, ptr %446, i64 %indvars.iv75.i.i
+  %927 = getelementptr inbounds nuw i8, ptr %446, i64 %indvars.iv74.i.i
   store i8 %926, ptr %927, align 1, !tbaa !39
   %928 = load i8, ptr %902, align 1, !tbaa !39
   %929 = icmp ugt i8 %928, %.pre.i.i
@@ -1764,7 +1764,7 @@ thread-pre-split.i:                               ; preds = %799, %785, %782
   %spec.select.i117.i = select i1 %.not.i.i249, i32 %884, i32 %883
   %937 = load ptr, ptr %8, align 8, !tbaa !46
   %938 = sub nuw nsw i32 14, %913
-  %939 = getelementptr inbounds nuw [8 x i32], ptr %447, i64 %indvars.iv75.i.i
+  %939 = getelementptr inbounds nuw [8 x i32], ptr %447, i64 %indvars.iv74.i.i
   %940 = add nuw nsw i32 %913, 2
   %941 = sub nuw nsw i32 30, %913
   %942 = add nuw nsw i32 %spec.select.i117.i, 1
@@ -1835,10 +1835,10 @@ thread-pre-split.i:                               ; preds = %799, %785, %782
 
 985:                                              ; preds = %971, %970
   %.sink.i.i = phi i8 [ %984, %971 ], [ 0, %970 ]
-  %986 = getelementptr inbounds nuw i8, ptr %448, i64 %indvars.iv75.i.i
+  %986 = getelementptr inbounds nuw i8, ptr %448, i64 %indvars.iv74.i.i
   store i8 %.sink.i.i, ptr %986, align 1, !tbaa !39
-  %indvars.iv.next76.i.i = add nuw nsw i64 %indvars.iv75.i.i, 1
-  %exitcond.not.i253 = icmp eq i64 %indvars.iv.next76.i.i, %885
+  %indvars.iv.next75.i.i = add nuw nsw i64 %indvars.iv74.i.i, 1
+  %exitcond.not.i253 = icmp eq i64 %indvars.iv.next75.i.i, %885
   br i1 %exitcond.not.i253, label %read_matrix_params.exit.i, label %887, !llvm.loop !125
 
 987:                                              ; preds = %934, %930, %886

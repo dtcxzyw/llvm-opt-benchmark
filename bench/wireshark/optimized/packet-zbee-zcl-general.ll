@@ -6985,7 +6985,7 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = icmp eq ptr %3, null
-  br i1 %6, label %390, label %7
+  br i1 %6, label %389, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 7
@@ -7150,7 +7150,7 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %112 = add nuw nsw i32 %storemerge278, 1
   %113 = and i32 %98, 24
   %114 = icmp eq i32 %113, 16
-  br i1 %114, label %115, label %.loopexit302
+  br i1 %114, label %115, label %.loopexit305
 
 115:                                              ; preds = %109
   %116 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %112)
@@ -7162,11 +7162,11 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %122 = load i32, ptr @hf_zbee_gp_group_list_len, align 4
   %123 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %122, ptr noundef %0, i32 noundef %112, i32 noundef 1, i32 noundef 0)
   %124 = or disjoint i32 %storemerge278, 2
-  %.not279303 = icmp eq i8 %116, 0
-  br i1 %.not279303, label %.loopexit302, label %.lr.ph
+  %.not279306 = icmp eq i8 %116, 0
+  br i1 %.not279306, label %.loopexit305, label %.lr.ph
 
 .lr.ph:                                           ; preds = %115, %.lr.ph
-  %.0258304 = phi i8 [ %132, %.lr.ph ], [ %116, %115 ]
+  %.0258307 = phi i8 [ %132, %.lr.ph ], [ %116, %115 ]
   %125 = phi i32 [ %131, %.lr.ph ], [ %124, %115 ]
   %126 = load i32, ptr @hf_zbee_gp_group_list_group_id, align 4
   %127 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 2, i32 noundef -2147483648)
@@ -7174,24 +7174,24 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %129 = load i32, ptr @hf_zbee_gp_group_list_alias, align 4
   %130 = tail call ptr @proto_tree_add_item(ptr noundef %121, i32 noundef %129, ptr noundef %0, i32 noundef %128, i32 noundef 2, i32 noundef -2147483648)
   %131 = add i32 %125, 4
-  %132 = add i8 %.0258304, -1
+  %132 = add i8 %.0258307, -1
   %.not279 = icmp eq i8 %132, 0
-  br i1 %.not279, label %.loopexit302, label %.lr.ph, !llvm.loop !28
+  br i1 %.not279, label %.loopexit305, label %.lr.ph, !llvm.loop !28
 
-.loopexit302:                                     ; preds = %.lr.ph, %115, %109
+.loopexit305:                                     ; preds = %.lr.ph, %115, %109
   %133 = phi i32 [ %124, %115 ], [ %112, %109 ], [ %131, %.lr.ph ]
   %134 = and i32 %98, 256
   %.not280 = icmp eq i32 %134, 0
   br i1 %.not280, label %139, label %135
 
-135:                                              ; preds = %.loopexit302
+135:                                              ; preds = %.loopexit305
   %136 = load i32, ptr @hf_zbee_gp_assigned_alias, align 4
   %137 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %136, ptr noundef %0, i32 noundef %133, i32 noundef 2, i32 noundef -2147483648)
   %138 = add i32 %133, 2
   br label %139
 
-139:                                              ; preds = %135, %.loopexit302
-  %140 = phi i32 [ %138, %135 ], [ %133, %.loopexit302 ]
+139:                                              ; preds = %135, %.loopexit305
+  %140 = phi i32 [ %138, %135 ], [ %133, %.loopexit305 ]
   %141 = load i32, ptr @hf_zbee_gp_forwarding_radius, align 4
   %142 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %141, ptr noundef %0, i32 noundef %140, i32 noundef 1, i32 noundef 0)
   %143 = add i32 %140, 1
@@ -7235,14 +7235,14 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %170 = add i32 %167, 1
   %171 = add i8 %.0259, -1
   %.old9.not = icmp eq i8 %171, 0
-  br i1 %.old9.not, label %.loopexit301, label %.preheader
+  br i1 %.old9.not, label %.loopexit304, label %.preheader
 
-.loopexit301:                                     ; preds = %.preheader
+.loopexit304:                                     ; preds = %.preheader
   store i32 %170, ptr %5, align 4
   br label %172
 
-172:                                              ; preds = %.loopexit301, %156
-  %173 = phi i32 [ %170, %.loopexit301 ], [ %165, %156 ]
+172:                                              ; preds = %.loopexit304, %156
+  %173 = phi i32 [ %170, %.loopexit304 ], [ %165, %156 ]
   %174 = and i32 %98, 1024
   %.not282 = icmp eq i32 %174, 0
   br i1 %.not282, label %.loopexit, label %175
@@ -7283,7 +7283,7 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %195 = phi i32 [ %193, %190 ], [ %188, %187 ]
   %196 = and i32 %181, 4
   %.not285 = icmp eq i32 %196, 0
-  br i1 %.not285, label %.loopexit300, label %197
+  br i1 %.not285, label %.loopexit303, label %197
 
 197:                                              ; preds = %194
   %198 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %195)
@@ -7295,30 +7295,30 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %204 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %203, ptr noundef %0, i32 noundef %195, i32 noundef 1, i32 noundef 0)
   %205 = add i32 %195, 1
   store i32 %205, ptr %5, align 4
-  %.not286309 = icmp eq i8 %198, 0
-  br i1 %.not286309, label %.loopexit300, label %.lr.ph311
+  %.not286312 = icmp eq i8 %198, 0
+  br i1 %.not286312, label %.loopexit303, label %.lr.ph314
 
-.lr.ph311:                                        ; preds = %197, %.lr.ph311
-  %.0260310 = phi i8 [ %210, %.lr.ph311 ], [ %198, %197 ]
-  %206 = phi i32 [ %209, %.lr.ph311 ], [ %205, %197 ]
+.lr.ph314:                                        ; preds = %197, %.lr.ph314
+  %.0260313 = phi i8 [ %210, %.lr.ph314 ], [ %198, %197 ]
+  %206 = phi i32 [ %209, %.lr.ph314 ], [ %205, %197 ]
   %207 = load i32, ptr @hf_zbee_gp_gpd_command, align 4
   %208 = tail call ptr @proto_tree_add_item(ptr noundef %202, i32 noundef %207, ptr noundef %0, i32 noundef %206, i32 noundef 1, i32 noundef 0)
   %209 = add i32 %206, 1
-  %210 = add i8 %.0260310, -1
+  %210 = add i8 %.0260313, -1
   %.not286 = icmp eq i8 %210, 0
-  br i1 %.not286, label %..loopexit300_crit_edge, label %.lr.ph311, !llvm.loop !29
+  br i1 %.not286, label %..loopexit303_crit_edge, label %.lr.ph314, !llvm.loop !29
 
-..loopexit300_crit_edge:                          ; preds = %.lr.ph311
+..loopexit303_crit_edge:                          ; preds = %.lr.ph314
   store i32 %209, ptr %5, align 4
-  br label %.loopexit300
+  br label %.loopexit303
 
-.loopexit300:                                     ; preds = %197, %..loopexit300_crit_edge, %194
-  %211 = phi i32 [ %205, %197 ], [ %209, %..loopexit300_crit_edge ], [ %195, %194 ]
+.loopexit303:                                     ; preds = %197, %..loopexit303_crit_edge, %194
+  %211 = phi i32 [ %205, %197 ], [ %209, %..loopexit303_crit_edge ], [ %195, %194 ]
   %212 = and i32 %181, 8
   %.not287 = icmp eq i32 %212, 0
   br i1 %.not287, label %.loopexit, label %213
 
-213:                                              ; preds = %.loopexit300
+213:                                              ; preds = %.loopexit303
   %214 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %211)
   %215 = zext i8 %214 to i32
   %216 = and i8 %214, 15
@@ -7345,39 +7345,39 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   br label %233
 
 233:                                              ; preds = %229, %233
-  %.0261315 = phi i8 [ %216, %229 ], [ %238, %233 ]
+  %.0261318 = phi i8 [ %216, %229 ], [ %238, %233 ]
   %234 = phi i32 [ %228, %229 ], [ %237, %233 ]
   %235 = load i32, ptr @hf_zbee_gp_gpd_cluster_id, align 4
   %236 = tail call ptr @proto_tree_add_item(ptr noundef %232, i32 noundef %235, ptr noundef %0, i32 noundef %234, i32 noundef 2, i32 noundef -2147483648)
   %237 = add i32 %234, 2
-  %238 = add nsw i8 %.0261315, -1
+  %238 = add nsw i8 %.0261318, -1
   %.not289 = icmp eq i8 %238, 0
-  br i1 %.not289, label %.loopexit299, label %233, !llvm.loop !30
+  br i1 %.not289, label %.loopexit302, label %233, !llvm.loop !30
 
-.loopexit299:                                     ; preds = %233
+.loopexit302:                                     ; preds = %233
   store i32 %237, ptr %5, align 4
   br label %239
 
-239:                                              ; preds = %.loopexit299, %213
-  %240 = phi i32 [ %237, %.loopexit299 ], [ %228, %213 ]
+239:                                              ; preds = %.loopexit302, %213
+  %240 = phi i32 [ %237, %.loopexit302 ], [ %228, %213 ]
   %.not290 = icmp ult i8 %214, 16
-  br i1 %.not290, label %.loopexit, label %.lr.ph321.preheader
+  br i1 %.not290, label %.loopexit, label %.lr.ph324.preheader
 
-.lr.ph321.preheader:                              ; preds = %239
+.lr.ph324.preheader:                              ; preds = %239
   %241 = shl nuw nsw i32 %222, 1
   %242 = load i32, ptr @ett_zbee_zcl_gp_cli_clusters, align 4
   %243 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %223, ptr noundef %0, i32 noundef %240, i32 noundef %241, i32 noundef %242, ptr noundef null, ptr noundef nonnull @.str.1754, i32 noundef %222)
-  br label %.lr.ph321
+  br label %.lr.ph324
 
-.lr.ph321:                                        ; preds = %.lr.ph321.preheader, %.lr.ph321
-  %.0262320 = phi i8 [ %248, %.lr.ph321 ], [ %217, %.lr.ph321.preheader ]
-  %244 = phi i32 [ %247, %.lr.ph321 ], [ %240, %.lr.ph321.preheader ]
+.lr.ph324:                                        ; preds = %.lr.ph324.preheader, %.lr.ph324
+  %.0262323 = phi i8 [ %248, %.lr.ph324 ], [ %217, %.lr.ph324.preheader ]
+  %244 = phi i32 [ %247, %.lr.ph324 ], [ %240, %.lr.ph324.preheader ]
   %245 = load i32, ptr @hf_zbee_gp_gpd_cluster_id, align 4
   %246 = tail call ptr @proto_tree_add_item(ptr noundef %243, i32 noundef %245, ptr noundef %0, i32 noundef %244, i32 noundef 2, i32 noundef -2147483648)
   %247 = add i32 %244, 2
-  %248 = add nsw i8 %.0262320, -1
+  %248 = add nsw i8 %.0262323, -1
   %.not291 = icmp eq i8 %248, 0
-  br i1 %.not291, label %..loopexit_crit_edge, label %.lr.ph321, !llvm.loop !31
+  br i1 %.not291, label %..loopexit_crit_edge, label %.lr.ph324, !llvm.loop !31
 
 249:                                              ; preds = %17
   %250 = load i32, ptr @hf_zbee_zcl_gp_cmd_sink_comm_mode_options, align 4
@@ -7409,11 +7409,11 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
   %266 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %265, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
   store i32 1, ptr %5, align 4
   switch i8 %9, label %.loopexit [
-    i8 11, label %381
+    i8 11, label %380
     i8 1, label %267
-    i8 2, label %335
-    i8 6, label %358
-    i8 10, label %380
+    i8 2, label %334
+    i8 6, label %357
+    i8 10, label %379
   ]
 
 267:                                              ; preds = %261
@@ -7440,209 +7440,206 @@ define internal i32 @dissect_zbee_zcl_gp(ptr noundef %0, ptr noundef %1, ptr nou
 282:                                              ; preds = %277, %274
   %283 = phi i32 [ 13, %277 ], [ 8, %274 ]
   store i32 %283, ptr %5, align 4
-  %284 = and i32 %268, 96
-  %285 = and i32 %268, 112
-  %or.cond = icmp eq i32 %285, 96
-  br i1 %or.cond, label %.thread298, label %292
+  %284 = and i32 %268, 112
+  %or.cond = icmp eq i32 %284, 96
+  br i1 %or.cond, label %.thread298, label %291
 
 .thread298:                                       ; preds = %282
-  %286 = load i32, ptr @hf_zbee_gp_sink_ieee, align 4
-  %287 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %286, ptr noundef %0, i32 noundef %283, i32 noundef 8, i32 noundef -2147483648)
-  %288 = add nuw nsw i32 %283, 8
-  %289 = load i32, ptr @hf_zbee_gp_sink_nwk, align 4
-  %290 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %289, ptr noundef %0, i32 noundef %288, i32 noundef 2, i32 noundef -2147483648)
-  %291 = add nuw nsw i32 %283, 10
+  %285 = load i32, ptr @hf_zbee_gp_sink_ieee, align 4
+  %286 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %285, ptr noundef %0, i32 noundef %283, i32 noundef 8, i32 noundef -2147483648)
+  %287 = add nuw nsw i32 %283, 8
+  %288 = load i32, ptr @hf_zbee_gp_sink_nwk, align 4
+  %289 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %288, ptr noundef %0, i32 noundef %287, i32 noundef 2, i32 noundef -2147483648)
+  %290 = add nuw nsw i32 %283, 10
   br label %.sink.split
 
-292:                                              ; preds = %282
+291:                                              ; preds = %282
+  %292 = and i32 %268, 96
   %293 = and i32 %268, 16
   %294 = icmp eq i32 %293, 0
-  br i1 %294, label %295, label %300
+  %.off = add nsw i32 %292, -1
+  %switch = icmp ult i32 %.off, 95
+  %or.cond301 = select i1 %294, i1 %switch, i1 false
+  br i1 %or.cond301, label %295, label %299
 
-295:                                              ; preds = %292
-  switch i32 %284, label %296 [
-    i32 96, label %300
-    i32 0, label %300
-  ]
-
-296:                                              ; preds = %295
-  %297 = load i32, ptr @hf_zbee_gp_sink_group_id, align 4
-  %298 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %297, ptr noundef %0, i32 noundef %283, i32 noundef 2, i32 noundef -2147483648)
-  %299 = or disjoint i32 %283, 2
+295:                                              ; preds = %291
+  %296 = load i32, ptr @hf_zbee_gp_sink_group_id, align 4
+  %297 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %296, ptr noundef %0, i32 noundef %283, i32 noundef 2, i32 noundef -2147483648)
+  %298 = or disjoint i32 %283, 2
   br label %.sink.split
 
-.sink.split:                                      ; preds = %296, %.thread298
-  %.sink = phi i32 [ %291, %.thread298 ], [ %299, %296 ]
+.sink.split:                                      ; preds = %295, %.thread298
+  %.sink = phi i32 [ %290, %.thread298 ], [ %298, %295 ]
   store i32 %.sink, ptr %5, align 4
-  br label %300
+  br label %299
 
-300:                                              ; preds = %.sink.split, %295, %295, %292
-  %301 = phi i32 [ %283, %295 ], [ %283, %295 ], [ %283, %292 ], [ %.sink, %.sink.split ]
-  %302 = and i32 %268, 8
-  %.not273 = icmp eq i32 %302, 0
-  br i1 %.not273, label %307, label %303
+299:                                              ; preds = %.sink.split, %291
+  %300 = phi i32 [ %283, %291 ], [ %.sink, %.sink.split ]
+  %301 = and i32 %268, 8
+  %.not273 = icmp eq i32 %301, 0
+  br i1 %.not273, label %306, label %302
 
-303:                                              ; preds = %300
-  %304 = load i32, ptr @hf_zbee_gp_device_id, align 4
-  %305 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %304, ptr noundef %0, i32 noundef %301, i32 noundef 1, i32 noundef 0)
-  %306 = add nuw nsw i32 %301, 1
-  store i32 %306, ptr %5, align 4
-  br label %307
+302:                                              ; preds = %299
+  %303 = load i32, ptr @hf_zbee_gp_device_id, align 4
+  %304 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %303, ptr noundef %0, i32 noundef %300, i32 noundef 1, i32 noundef 0)
+  %305 = add nuw nsw i32 %300, 1
+  store i32 %305, ptr %5, align 4
+  br label %306
 
-307:                                              ; preds = %303, %300
-  %308 = phi i32 [ %306, %303 ], [ %301, %300 ]
-  %309 = and i32 %268, 16384
-  %.not274 = icmp eq i32 %309, 0
-  br i1 %.not274, label %314, label %310
+306:                                              ; preds = %302, %299
+  %307 = phi i32 [ %305, %302 ], [ %300, %299 ]
+  %308 = and i32 %268, 16384
+  %.not274 = icmp eq i32 %308, 0
+  br i1 %.not274, label %313, label %309
 
-310:                                              ; preds = %307
-  %311 = load i32, ptr @hf_zbee_gp_secur_frame_counter, align 4
-  %312 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %311, ptr noundef %0, i32 noundef %308, i32 noundef 4, i32 noundef -2147483648)
-  %313 = add nuw nsw i32 %308, 4
-  store i32 %313, ptr %5, align 4
-  br label %314
+309:                                              ; preds = %306
+  %310 = load i32, ptr @hf_zbee_gp_secur_frame_counter, align 4
+  %311 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %310, ptr noundef %0, i32 noundef %307, i32 noundef 4, i32 noundef -2147483648)
+  %312 = add nuw nsw i32 %307, 4
+  store i32 %312, ptr %5, align 4
+  br label %313
 
-314:                                              ; preds = %310, %307
-  %315 = phi i32 [ %313, %310 ], [ %308, %307 ]
-  %316 = and i32 %268, 32768
-  %.not275 = icmp eq i32 %316, 0
-  br i1 %.not275, label %321, label %317
+313:                                              ; preds = %309, %306
+  %314 = phi i32 [ %312, %309 ], [ %307, %306 ]
+  %315 = and i32 %268, 32768
+  %.not275 = icmp eq i32 %315, 0
+  br i1 %.not275, label %320, label %316
 
-317:                                              ; preds = %314
-  %318 = load i32, ptr @hf_zbee_gp_gpd_key, align 4
-  %319 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %318, ptr noundef %0, i32 noundef %315, i32 noundef 16, i32 noundef 0)
-  %320 = add nuw nsw i32 %315, 16
-  store i32 %320, ptr %5, align 4
-  br label %321
+316:                                              ; preds = %313
+  %317 = load i32, ptr @hf_zbee_gp_gpd_key, align 4
+  %318 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %317, ptr noundef %0, i32 noundef %314, i32 noundef 16, i32 noundef 0)
+  %319 = add nuw nsw i32 %314, 16
+  store i32 %319, ptr %5, align 4
+  br label %320
 
-321:                                              ; preds = %317, %314
-  %322 = phi i32 [ %320, %317 ], [ %315, %314 ]
-  %323 = and i32 %268, 65536
-  %.not276 = icmp eq i32 %323, 0
-  br i1 %.not276, label %328, label %324
+320:                                              ; preds = %316, %313
+  %321 = phi i32 [ %319, %316 ], [ %314, %313 ]
+  %322 = and i32 %268, 65536
+  %.not276 = icmp eq i32 %322, 0
+  br i1 %.not276, label %327, label %323
 
-324:                                              ; preds = %321
-  %325 = load i32, ptr @hf_zbee_gp_assigned_alias, align 4
-  %326 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %325, ptr noundef %0, i32 noundef %322, i32 noundef 2, i32 noundef -2147483648)
-  %327 = add nuw nsw i32 %322, 2
-  store i32 %327, ptr %5, align 4
-  br label %328
+323:                                              ; preds = %320
+  %324 = load i32, ptr @hf_zbee_gp_assigned_alias, align 4
+  %325 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %324, ptr noundef %0, i32 noundef %321, i32 noundef 2, i32 noundef -2147483648)
+  %326 = add nuw nsw i32 %321, 2
+  store i32 %326, ptr %5, align 4
+  br label %327
 
-328:                                              ; preds = %324, %321
-  %329 = phi i32 [ %327, %324 ], [ %322, %321 ]
-  %330 = and i32 %268, 131072
-  %.not277 = icmp eq i32 %330, 0
-  br i1 %.not277, label %.loopexit, label %331
+327:                                              ; preds = %323, %320
+  %328 = phi i32 [ %326, %323 ], [ %321, %320 ]
+  %329 = and i32 %268, 131072
+  %.not277 = icmp eq i32 %329, 0
+  br i1 %.not277, label %.loopexit, label %330
 
-331:                                              ; preds = %328
-  %332 = load i32, ptr @hf_zbee_gp_forwarding_radius, align 4
-  %333 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %332, ptr noundef %0, i32 noundef %329, i32 noundef 1, i32 noundef 0)
-  %334 = add nuw nsw i32 %329, 1
-  store i32 %334, ptr %5, align 4
+330:                                              ; preds = %327
+  %331 = load i32, ptr @hf_zbee_gp_forwarding_radius, align 4
+  %332 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %331, ptr noundef %0, i32 noundef %328, i32 noundef 1, i32 noundef 0)
+  %333 = add nuw nsw i32 %328, 1
+  store i32 %333, ptr %5, align 4
   br label %.loopexit
 
-335:                                              ; preds = %261
-  %336 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %337 = load i32, ptr @hf_zbee_gp_cmd_proxy_commissioning_mode_options, align 4
-  %338 = load i32, ptr @ett_zbee_gp_cmd_proxy_commissioning_mode_options, align 4
-  %339 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %337, i32 noundef %338, ptr noundef nonnull @dissect_zbee_zcl_gp.pcm_options, i32 noundef 0)
-  %340 = zext i8 %336 to i32
-  %341 = and i32 %340, 1
-  %.not = icmp eq i32 %341, 0
-  br i1 %.not, label %346, label %342
+334:                                              ; preds = %261
+  %335 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %336 = load i32, ptr @hf_zbee_gp_cmd_proxy_commissioning_mode_options, align 4
+  %337 = load i32, ptr @ett_zbee_gp_cmd_proxy_commissioning_mode_options, align 4
+  %338 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %336, i32 noundef %337, ptr noundef nonnull @dissect_zbee_zcl_gp.pcm_options, i32 noundef 0)
+  %339 = zext i8 %335 to i32
+  %340 = and i32 %339, 1
+  %.not = icmp eq i32 %340, 0
+  br i1 %.not, label %345, label %341
 
-342:                                              ; preds = %335
-  %343 = load i32, ptr @hf_zbee_gp_cmd_proxy_commissioning_mode_exit_mode, align 4
-  %344 = load i32, ptr @ett_zbee_gp_cmd_proxy_commissioning_mode_exit_mode, align 4
-  %345 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %343, i32 noundef %344, ptr noundef nonnull @dissect_zbee_zcl_gp.exit_mode, i32 noundef 0)
-  br label %346
+341:                                              ; preds = %334
+  %342 = load i32, ptr @hf_zbee_gp_cmd_proxy_commissioning_mode_exit_mode, align 4
+  %343 = load i32, ptr @ett_zbee_gp_cmd_proxy_commissioning_mode_exit_mode, align 4
+  %344 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %342, i32 noundef %343, ptr noundef nonnull @dissect_zbee_zcl_gp.exit_mode, i32 noundef 0)
+  br label %345
 
-346:                                              ; preds = %342, %335
+345:                                              ; preds = %341, %334
   store i32 2, ptr %5, align 4
-  %347 = and i32 %340, 2
-  %.not268 = icmp eq i32 %347, 0
-  br i1 %.not268, label %351, label %348
+  %346 = and i32 %339, 2
+  %.not268 = icmp eq i32 %346, 0
+  br i1 %.not268, label %350, label %347
 
-348:                                              ; preds = %346
-  %349 = load i32, ptr @hf_zbee_zcl_gp_commissioning_window, align 4
-  %350 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %349, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+347:                                              ; preds = %345
+  %348 = load i32, ptr @hf_zbee_zcl_gp_commissioning_window, align 4
+  %349 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %348, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
   store i32 4, ptr %5, align 4
-  br label %351
+  br label %350
 
-351:                                              ; preds = %348, %346
-  %352 = phi i32 [ 4, %348 ], [ 2, %346 ]
-  %353 = and i32 %340, 16
-  %.not269 = icmp eq i32 %353, 0
-  br i1 %.not269, label %.loopexit, label %354
+350:                                              ; preds = %347, %345
+  %351 = phi i32 [ 4, %347 ], [ 2, %345 ]
+  %352 = and i32 %339, 16
+  %.not269 = icmp eq i32 %352, 0
+  br i1 %.not269, label %.loopexit, label %353
 
-354:                                              ; preds = %351
-  %355 = load i32, ptr @hf_zbee_zcl_gp_channel, align 4
-  %356 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %355, ptr noundef %0, i32 noundef %352, i32 noundef 1, i32 noundef 0)
-  %357 = or disjoint i32 %352, 1
-  store i32 %357, ptr %5, align 4
+353:                                              ; preds = %350
+  %354 = load i32, ptr @hf_zbee_zcl_gp_channel, align 4
+  %355 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %354, ptr noundef %0, i32 noundef %351, i32 noundef 1, i32 noundef 0)
+  %356 = or disjoint i32 %351, 1
+  store i32 %356, ptr %5, align 4
   br label %.loopexit
 
-358:                                              ; preds = %261
-  %359 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
-  %360 = load i32, ptr @hf_zbee_gp_cmd_response_options, align 4
-  %361 = load i32, ptr @ett_zbee_gp_cmd_response_options, align 4
-  %362 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %360, i32 noundef %361, ptr noundef nonnull @dissect_zbee_zcl_gp.rsp_options, i32 noundef -2147483648)
-  %363 = load i32, ptr @hf_zbee_gp_tmp_master_short_addr, align 4
-  %364 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %363, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
-  %365 = load i32, ptr @hf_zbee_gp_cmd_response_tx_channel, align 4
-  %366 = load i32, ptr @ett_zbee_gp_cmd_response_tx_channel, align 4
-  %367 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 4, i32 noundef %365, i32 noundef %366, ptr noundef nonnull @dissect_zbee_zcl_gp.tx_ch, i32 noundef -2147483648)
-  %368 = and i8 %359, 7
-  %369 = icmp eq i8 %368, 0
-  br i1 %369, label %370, label %373
+357:                                              ; preds = %261
+  %358 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 1)
+  %359 = load i32, ptr @hf_zbee_gp_cmd_response_options, align 4
+  %360 = load i32, ptr @ett_zbee_gp_cmd_response_options, align 4
+  %361 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 1, i32 noundef %359, i32 noundef %360, ptr noundef nonnull @dissect_zbee_zcl_gp.rsp_options, i32 noundef -2147483648)
+  %362 = load i32, ptr @hf_zbee_gp_tmp_master_short_addr, align 4
+  %363 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %362, ptr noundef %0, i32 noundef 2, i32 noundef 2, i32 noundef -2147483648)
+  %364 = load i32, ptr @hf_zbee_gp_cmd_response_tx_channel, align 4
+  %365 = load i32, ptr @ett_zbee_gp_cmd_response_tx_channel, align 4
+  %366 = tail call ptr @proto_tree_add_bitmask(ptr noundef %2, ptr noundef %0, i32 noundef 4, i32 noundef %364, i32 noundef %365, ptr noundef nonnull @dissect_zbee_zcl_gp.tx_ch, i32 noundef -2147483648)
+  %367 = and i8 %358, 7
+  %368 = icmp eq i8 %367, 0
+  br i1 %368, label %369, label %372
 
-370:                                              ; preds = %358
-  %371 = load i32, ptr @hf_zbee_gp_src_id, align 4
-  %372 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %371, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648)
-  br label %378
+369:                                              ; preds = %357
+  %370 = load i32, ptr @hf_zbee_gp_src_id, align 4
+  %371 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %370, ptr noundef %0, i32 noundef 5, i32 noundef 4, i32 noundef -2147483648)
+  br label %377
 
-373:                                              ; preds = %358
-  %374 = load i32, ptr @hf_zbee_gp_ieee, align 4
-  %375 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %374, ptr noundef %0, i32 noundef 5, i32 noundef 8, i32 noundef -2147483648)
-  %376 = load i32, ptr @hf_zbee_gp_endpoint, align 4
-  %377 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %376, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
-  br label %378
+372:                                              ; preds = %357
+  %373 = load i32, ptr @hf_zbee_gp_ieee, align 4
+  %374 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %373, ptr noundef %0, i32 noundef 5, i32 noundef 8, i32 noundef -2147483648)
+  %375 = load i32, ptr @hf_zbee_gp_endpoint, align 4
+  %376 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %375, ptr noundef %0, i32 noundef 13, i32 noundef 1, i32 noundef 0)
+  br label %377
 
-378:                                              ; preds = %373, %370
-  %storemerge = phi i32 [ 14, %373 ], [ 9, %370 ]
-  %379 = tail call fastcc i32 @dissect_zbee_zcl_gp_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %storemerge)
-  store i32 %379, ptr %5, align 4
+377:                                              ; preds = %372, %369
+  %storemerge = phi i32 [ 14, %372 ], [ 9, %369 ]
+  %378 = tail call fastcc i32 @dissect_zbee_zcl_gp_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %storemerge)
+  store i32 %378, ptr %5, align 4
   br label %.loopexit
 
-380:                                              ; preds = %261
+379:                                              ; preds = %261
   call fastcc void @dissect_zcl_gp_proxy_sink_table_response(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5, i16 noundef zeroext 1)
   br label %.loopexit
 
-381:                                              ; preds = %261
+380:                                              ; preds = %261
   call fastcc void @dissect_zcl_gp_proxy_sink_table_request(ptr noundef %2, ptr noundef %0, ptr noundef nonnull %5)
   br label %.loopexit
 
-..loopexit_crit_edge:                             ; preds = %.lr.ph321
+..loopexit_crit_edge:                             ; preds = %.lr.ph324
   store i32 %247, ptr %5, align 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %..loopexit_crit_edge, %351, %354, %328, %331, %172, %239, %.loopexit300, %83, %86, %39, %45, %378, %380, %381, %261, %249, %259, %260, %17
-  %382 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  %383 = load i32, ptr %5, align 4
-  %384 = icmp ugt i32 %382, %383
-  br i1 %384, label %385, label %388
+.loopexit:                                        ; preds = %..loopexit_crit_edge, %350, %353, %327, %330, %172, %239, %.loopexit303, %83, %86, %39, %45, %377, %379, %380, %261, %249, %259, %260, %17
+  %381 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  %382 = load i32, ptr %5, align 4
+  %383 = icmp ugt i32 %381, %382
+  br i1 %383, label %384, label %387
 
-385:                                              ; preds = %.loopexit
-  %386 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %383)
-  %387 = tail call i32 @call_data_dissector(ptr noundef %386, ptr noundef %1, ptr noundef %2)
-  br label %388
+384:                                              ; preds = %.loopexit
+  %385 = tail call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef %382)
+  %386 = tail call i32 @call_data_dissector(ptr noundef %385, ptr noundef %1, ptr noundef %2)
+  br label %387
 
-388:                                              ; preds = %385, %.loopexit
-  %389 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %390
+387:                                              ; preds = %384, %.loopexit
+  %388 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %389
 
-390:                                              ; preds = %4, %388
-  %.0 = phi i32 [ %389, %388 ], [ 0, %4 ]
+389:                                              ; preds = %4, %387
+  %.0 = phi i32 [ %388, %387 ], [ 0, %4 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
 }

@@ -4812,12 +4812,12 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %.16.val)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = tail call i32 @gtk_tree_model_iter_n_children(ptr noundef %0, ptr noundef null) #16
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph, label %.thread6
+  br i1 %12, label %.lr.ph, label %.thread5
 
 .lr.ph:                                           ; preds = %10, %54
-  %.not813 = phi i1 [ false, %54 ], [ true, %10 ]
-  %.02912 = phi i32 [ %56, %54 ], [ 0, %10 ]
-  br i1 %.not813, label %52, label %13
+  %.not712 = phi i1 [ false, %54 ], [ true, %10 ]
+  %.02911 = phi i32 [ %56, %54 ], [ 0, %10 ]
+  br i1 %.not712, label %52, label %13
 
 13:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -4897,11 +4897,11 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %.16.val)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !138
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not35, label %.thread6, label %.thread4
+  br i1 %.not35, label %.thread5, label %.thread3
 
 52:                                               ; preds = %.thread, %.lr.ph
-  %.not9 = icmp eq i32 %.02912, 0
-  %.1 = select i1 %.not9, ptr null, ptr %3
+  %.not8 = icmp eq i32 %.02911, 0
+  %.1 = select i1 %.not8, ptr null, ptr %3
   %53 = call i32 @gtk_tree_model_iter_n_children(ptr noundef %0, ptr noundef %.1) #16
   %.not36 = icmp eq i32 %53, 1
   br i1 %.not36, label %54, label %._crit_edge
@@ -4909,41 +4909,41 @@ define internal fastcc ptr @_create_filtered_model(ptr noundef %0, ptr %.16.val)
 54:                                               ; preds = %52
   %55 = call i32 @gtk_tree_model_iter_children(ptr noundef %0, ptr noundef nonnull %2, ptr noundef %.1) #16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !138
-  %56 = add nuw nsw i32 %.02912, 1
+  %56 = add nuw nsw i32 %.02911, 1
   %57 = call i32 @gtk_tree_model_iter_n_children(ptr noundef %0, ptr noundef nonnull %3) #16
   %58 = icmp sgt i32 %57, 0
-  br i1 %58, label %.lr.ph, label %.thread4
+  br i1 %58, label %.lr.ph, label %.thread3
 
 ._crit_edge:                                      ; preds = %52
-  %59 = icmp eq i32 %.02912, 0
-  br i1 %59, label %.thread6, label %.thread4
+  %59 = icmp eq i32 %.02911, 0
+  br i1 %59, label %.thread5, label %.thread3
 
-.thread4:                                         ; preds = %54, %50, %._crit_edge
+.thread3:                                         ; preds = %54, %50, %._crit_edge
   %60 = call i32 @gtk_tree_model_iter_n_children(ptr noundef %0, ptr noundef nonnull %3) #16
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %62, label %64
 
-62:                                               ; preds = %.thread4
+62:                                               ; preds = %.thread3
   %63 = call i32 @gtk_tree_model_iter_parent(ptr noundef %0, ptr noundef nonnull %2, ptr noundef nonnull %3) #16
   %.not37 = icmp eq i32 %63, 0
-  br i1 %.not37, label %64, label %.thread6.sink.split
+  br i1 %.not37, label %64, label %.thread5.sink.split
 
-64:                                               ; preds = %62, %.thread4
-  br label %.thread6.sink.split
+64:                                               ; preds = %62, %.thread3
+  br label %.thread5.sink.split
 
-.thread6.sink.split:                              ; preds = %62, %64
+.thread5.sink.split:                              ; preds = %62, %64
   %.sink = phi ptr [ %3, %64 ], [ %2, %62 ]
   %65 = call ptr @gtk_tree_model_get_path(ptr noundef %0, ptr noundef nonnull %.sink) #16
-  br label %.thread6
+  br label %.thread5
 
-.thread6:                                         ; preds = %.thread6.sink.split, %10, %50, %._crit_edge
-  %.127 = phi ptr [ null, %._crit_edge ], [ null, %50 ], [ null, %10 ], [ %65, %.thread6.sink.split ]
+.thread5:                                         ; preds = %.thread5.sink.split, %10, %50, %._crit_edge
+  %.127 = phi ptr [ null, %._crit_edge ], [ null, %50 ], [ null, %10 ], [ %65, %.thread5.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %66
 
-66:                                               ; preds = %.thread6, %1
-  %.026 = phi ptr [ %.127, %.thread6 ], [ null, %1 ]
+66:                                               ; preds = %.thread5, %1
+  %.026 = phi ptr [ %.127, %.thread5 ], [ null, %1 ]
   %67 = call ptr @gtk_tree_model_filter_new(ptr noundef %0, ptr noundef %.026) #16
   call void @gtk_tree_path_free(ptr noundef %.026) #16
   %68 = tail call i64 @gtk_tree_model_filter_get_type() #18

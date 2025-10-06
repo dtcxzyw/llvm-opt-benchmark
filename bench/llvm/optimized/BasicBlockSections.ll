@@ -2822,7 +2822,7 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_17MachineBasi
   %55 = load i32, ptr %54, align 4
   %56 = icmp eq i32 %55, %.sroa.047.4.extract.trunc.i
   %57 = select i1 %53, i1 %56, i1 false
-  br i1 %57, label %.loopexit20.i.i, label %.lr.ph.i.i.i.i, !prof !401
+  br i1 %57, label %.loopexit16.i.i, label %.lr.ph.i.i.i.i, !prof !401
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %63
   %58 = phi i32 [ %72, %63 ], [ %55, %38 ]
@@ -2846,9 +2846,9 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_17MachineBasi
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, %.sroa.047.4.extract.trunc.i
   %74 = select i1 %70, i1 %73, i1 false
-  br i1 %74, label %.loopexit20.i.i, label %.lr.ph.i.i.i.i, !prof !402, !llvm.loop !403
+  br i1 %74, label %.loopexit16.i.i, label %.lr.ph.i.i.i.i, !prof !402, !llvm.loop !403
 
-.loopexit20.i.i:                                  ; preds = %63, %38
+.loopexit16.i.i:                                  ; preds = %63, %38
   %75 = phi i64 [ %50, %38 ], [ %67, %63 ]
   %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %34, i64 %75
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %76, i64 16
@@ -2856,8 +2856,8 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbRKNS_17MachineBasi
   %77 = lshr i64 %.sroa.3.0.copyload.i.i, 32
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit.i
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit.i: ; preds = %.lr.ph.i.i.i.i, %.loopexit20.i.i
-  %.sroa.39.12.extract.shift.i = phi i64 [ %77, %.loopexit20.i.i ], [ 0, %.lr.ph.i.i.i.i ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit.i: ; preds = %.lr.ph.i.i.i.i, %.loopexit16.i.i
+  %.sroa.39.12.extract.shift.i = phi i64 [ %77, %.loopexit16.i.i ], [ 0, %.lr.ph.i.i.i.i ]
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 240
   %.sroa.01.0.copyload.i32.i = load i64, ptr %78, align 8
   %.sroa.0.0.extract.trunc.i = trunc i64 %.sroa.01.0.copyload.i32.i to i32
@@ -2880,7 +2880,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12Den
   %93 = load i32, ptr %92, align 4
   %94 = icmp eq i32 %93, %.sroa.0.4.extract.trunc.i
   %95 = select i1 %91, i1 %94, i1 false
-  br i1 %95, label %.loopexit20.i40.i, label %.lr.ph.i.i.i37.i, !prof !401
+  br i1 %95, label %.loopexit16.i40.i, label %.lr.ph.i.i.i37.i, !prof !401
 
 .lr.ph.i.i.i37.i:                                 ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit.i, %101
   %96 = phi i32 [ %110, %101 ], [ %93, %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit.i ]
@@ -2904,9 +2904,9 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12Den
   %110 = load i32, ptr %109, align 4
   %111 = icmp eq i32 %110, %.sroa.0.4.extract.trunc.i
   %112 = select i1 %108, i1 %111, i1 false
-  br i1 %112, label %.loopexit20.i40.i, label %.lr.ph.i.i.i37.i, !prof !402, !llvm.loop !403
+  br i1 %112, label %.loopexit16.i40.i, label %.lr.ph.i.i.i37.i, !prof !402, !llvm.loop !403
 
-.loopexit20.i40.i:                                ; preds = %101, %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit.i
+.loopexit16.i40.i:                                ; preds = %101, %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit.i
   %113 = phi i64 [ %88, %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E6lookupERKS2_.exit.i ], [ %105, %101 ]
   %114 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %34, i64 %113
   %.sroa.3.0..sroa_idx.i42.i = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -2923,8 +2923,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_10UniqueBBIDENS_13BBClusterInfoENS_12Den
   %122 = icmp slt i32 %119, %121
   br label %"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit"
 
-"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit": ; preds = %.lr.ph.i.i.i37.i, %9, %15, %19, %24, %31, %.loopexit20.i40.i, %117
-  %.0.i = phi i1 [ %122, %117 ], [ %23, %19 ], [ false, %15 ], [ true, %9 ], [ %27, %24 ], [ %116, %.loopexit20.i40.i ], [ false, %31 ], [ false, %.lr.ph.i.i.i37.i ]
+"_ZZN12_GLOBAL__N_118BasicBlockSections16handleBBSectionsERN4llvm15MachineFunctionEENK3$_0clERKNS1_17MachineBasicBlockES7_.exit": ; preds = %.lr.ph.i.i.i37.i, %9, %15, %19, %24, %31, %.loopexit16.i40.i, %117
+  %.0.i = phi i1 [ %122, %117 ], [ %23, %19 ], [ false, %15 ], [ true, %9 ], [ %27, %24 ], [ %116, %.loopexit16.i40.i ], [ false, %31 ], [ false, %.lr.ph.i.i.i37.i ]
   ret i1 %.0.i
 }
 

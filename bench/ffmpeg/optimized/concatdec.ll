@@ -523,7 +523,7 @@ safe_filename.exit.i.i:                           ; preds = %154, %138, %133
 
 187:                                              ; preds = %181
   store ptr %186, ptr %183, align 8, !tbaa !46
-  %.pre64.i.i = load i32, ptr %177, align 8, !tbaa !40
+  %.pre63.i.i = load i32, ptr %177, align 8, !tbaa !40
   br label %add_file.exit.i
 
 add_file.exit.thread.i:                           ; preds = %181, %179, %165, %157
@@ -539,7 +539,7 @@ add_file.exit.thread.i:                           ; preds = %181, %179, %165, %1
 
 add_file.exit.i:                                  ; preds = %187, %._crit_edge.i.i
   %.2153.i = phi i32 [ %.0151.ph222.i, %._crit_edge.i.i ], [ %spec.select.i.i, %187 ]
-  %189 = phi i32 [ %178, %._crit_edge.i.i ], [ %.pre64.i.i, %187 ]
+  %189 = phi i32 [ %178, %._crit_edge.i.i ], [ %.pre63.i.i, %187 ]
   %190 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %186, %187 ]
   %191 = add i32 %189, 1
   store i32 %191, ptr %177, align 8, !tbaa !40

@@ -17095,8 +17095,8 @@ _ZNK5clang9ASTWriter27isWritingStdCXXNamedModulesEv.exit: ; preds = %25, %25, %2
   %.not.i.i.i.i = icmp eq i64 %54, 0
   %55 = and i64 %.sroa.048.057, -8
   %56 = inttoptr i64 %55 to ptr
-  %.not.not8.i = icmp eq i64 %55, 0
-  %.not.not.i = or i1 %.not.i.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %55, 0
+  %.not.not.i = or i1 %.not.i.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12DeclListNode8iteratordeEv.exit, label %57
 
 57:                                               ; preds = %.lr.ph
@@ -17161,8 +17161,8 @@ _ZN4llvm11SmallVectorIPN5clang13NamespaceDeclELj6EED2Ev.exit: ; preds = %._crit_
   %.not.i.i.i.i32 = icmp eq i64 %75, 0
   %76 = and i64 %.sroa.043.059, -8
   %77 = inttoptr i64 %76 to ptr
-  %.not.not8.i33 = icmp eq i64 %76, 0
-  %.not.not.i34 = or i1 %.not.i.i.i.i32, %.not.not8.i33
+  %.not.not7.i33 = icmp eq i64 %76, 0
+  %.not.not.i34 = or i1 %.not.i.i.i.i32, %.not.not7.i33
   br i1 %.not.not.i34, label %_ZN5clang12DeclListNode8iteratorppEv.exit42.thread, label %_ZN5clang12DeclListNode8iteratorppEv.exit42
 
 _ZN5clang12DeclListNode8iteratorppEv.exit42.thread: ; preds = %.lr.ph61
@@ -22677,8 +22677,8 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %4, 120
-  %.not320 = icmp eq ptr %1, null
-  %.not = or i1 %.not320, %spec.select.i.i.i.i.i.i.i.i
+  %.not319 = icmp eq ptr %1, null
+  %.not = or i1 %.not319, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %43, label %5
 
 5:                                                ; preds = %2
@@ -22857,7 +22857,7 @@ define linkonce_odr hidden void @_ZN5clang15StmtVisitorBaseISt11add_pointerNS_13
 43:                                               ; preds = %2
   %44 = and i16 %3, 511
   %45 = icmp ne i16 %44, 4
-  %.not314 = or i1 %.not320, %45
+  %.not314 = or i1 %.not319, %45
   br i1 %.not314, label %.critedge, label %46
 
 46:                                               ; preds = %43
@@ -27442,8 +27442,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

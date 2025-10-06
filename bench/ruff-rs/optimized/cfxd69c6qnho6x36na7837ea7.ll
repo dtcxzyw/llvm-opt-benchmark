@@ -12051,8 +12051,8 @@ define void @"_ZN21ruff_python_formatter6string152_$LT$impl$u20$ruff_formatter..
   %6 = icmp ne i8 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %8 = load i8, ptr %7, align 1
-  %switch.not = icmp samesign ult i8 %8, 2
-  %or.cond = select i1 %6, i1 true, i1 %switch.not
+  %.not.not = icmp samesign ult i8 %8, 2
+  %or.cond = select i1 %6, i1 true, i1 %.not.not
   br i1 %or.cond, label %9, label %20
 
 9:                                                ; preds = %3

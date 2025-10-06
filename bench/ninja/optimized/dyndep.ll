@@ -1181,12 +1181,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
   %59 = trunc i64 %56 to i32
   %60 = add i32 %58, %59
   store i32 %60, ptr %57, align 8, !tbaa !94
-  %.not7983 = icmp eq ptr %52, %51
-  br i1 %.not7983, label %._crit_edge, label %.lr.ph
+  %.not7781 = icmp eq ptr %52, %51
+  br i1 %.not7781, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %38, %101
-  %.sroa.068.084 = phi ptr [ %102, %101 ], [ %52, %38 ]
-  %61 = load ptr, ptr %.sroa.068.084, align 8, !tbaa !51
+  %.sroa.068.082 = phi ptr [ %102, %101 ], [ %52, %38 ]
+  %61 = load ptr, ptr %.sroa.068.082, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 56
   %63 = load ptr, ptr %62, align 8, !tbaa !95
   %.not = icmp eq ptr %63, null
@@ -1291,9 +1291,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
 
 101:                                              ; preds = %.lr.ph
   store ptr %1, ptr %62, align 8, !tbaa !95
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.068.084, i64 8
-  %.not79 = icmp eq ptr %102, %51
-  br i1 %.not79, label %._crit_edge, label %.lr.ph
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.068.082, i64 8
+  %.not77 = icmp eq ptr %102, %51
+  br i1 %.not77, label %._crit_edge, label %.lr.ph
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i58
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1329,12 +1329,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %128 = trunc i64 %125 to i32
   %129 = add i32 %127, %128
   store i32 %129, ptr %126, align 8, !tbaa !97
-  %.not8086 = icmp eq ptr %121, %120
-  br i1 %.not8086, label %.loopexit, label %.lr.ph89
+  %.not7884 = icmp eq ptr %121, %120
+  br i1 %.not7884, label %.loopexit, label %.lr.ph87
 
-.lr.ph89:                                         ; preds = %._crit_edge, %_ZN4Node10AddOutEdgeEP4Edge.exit
-  %.sroa.061.087 = phi ptr [ %158, %_ZN4Node10AddOutEdgeEP4Edge.exit ], [ %121, %._crit_edge ]
-  %130 = load ptr, ptr %.sroa.061.087, align 8, !tbaa !51
+.lr.ph87:                                         ; preds = %._crit_edge, %_ZN4Node10AddOutEdgeEP4Edge.exit
+  %.sroa.061.085 = phi ptr [ %158, %_ZN4Node10AddOutEdgeEP4Edge.exit ], [ %121, %._crit_edge ]
+  %130 = load ptr, ptr %.sroa.061.085, align 8, !tbaa !51
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 64
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 72
   %133 = load ptr, ptr %132, align 8, !tbaa !98
@@ -1343,13 +1343,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %.not.i.i = icmp eq ptr %133, %135
   br i1 %.not.i.i, label %138, label %136
 
-136:                                              ; preds = %.lr.ph89
+136:                                              ; preds = %.lr.ph87
   store ptr %1, ptr %133, align 8, !tbaa !34
   %137 = getelementptr inbounds nuw i8, ptr %133, i64 8
   store ptr %137, ptr %132, align 8, !tbaa !98
   br label %_ZN4Node10AddOutEdgeEP4Edge.exit
 
-138:                                              ; preds = %.lr.ph89
+138:                                              ; preds = %.lr.ph87
   %139 = load ptr, ptr %131, align 8, !tbaa !100
   %140 = ptrtoint ptr %133 to i64
   %141 = ptrtoint ptr %139 to i64
@@ -1398,13 +1398,13 @@ _ZNSt6vectorIP4EdgeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_i
   br label %_ZN4Node10AddOutEdgeEP4Edge.exit
 
 _ZN4Node10AddOutEdgeEP4Edge.exit:                 ; preds = %136, %_ZNSt6vectorIP4EdgeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
-  %158 = getelementptr inbounds nuw i8, ptr %.sroa.061.087, i64 8
-  %.not80 = icmp eq ptr %158, %120
-  br i1 %.not80, label %.loopexit, label %.lr.ph89
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.061.085, i64 8
+  %.not78 = icmp eq ptr %158, %120
+  br i1 %.not78, label %.loopexit, label %.lr.ph87
 
 .loopexit:                                        ; preds = %_ZN4Node10AddOutEdgeEP4Edge.exit, %._crit_edge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59
-  %.not7982 = phi i1 [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59 ], [ true, %._crit_edge ], [ true, %_ZN4Node10AddOutEdgeEP4Edge.exit ]
-  ret i1 %.not7982
+  %.not7780 = phi i1 [ false, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i59 ], [ true, %._crit_edge ], [ true, %_ZN4Node10AddOutEdgeEP4Edge.exit ]
+  ret i1 %.not7780
 }
 
 declare void @_ZN10BindingEnv10AddBindingERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2

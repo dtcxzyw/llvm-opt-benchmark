@@ -6065,23 +6065,23 @@ define ptr @ucurr_getKeywordValuesForLocale_77(ptr noundef readnone captures(non
 41:                                               ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZN6icu_7720StackUResourceBundleC1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10)
-          to label %.preheader176 unwind label %67
+          to label %.preheader169 unwind label %67
 
-.preheader176:                                    ; preds = %41
+.preheader169:                                    ; preds = %41
   %42 = load i32, ptr %3, align 4, !tbaa !13
   %43 = icmp sgt i32 %42, 0
-  br i1 %43, label %.critedge.thread, label %.lr.ph183
+  br i1 %43, label %.critedge.thread, label %.lr.ph176
 
-.lr.ph183:                                        ; preds = %.preheader176
+.lr.ph176:                                        ; preds = %.preheader169
   %44 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %46 = icmp eq i8 %2, 0
   br label %47
 
-47:                                               ; preds = %.lr.ph183, %.critedge5
-  %48 = phi ptr [ %37, %.lr.ph183 ], [ %52, %.critedge5 ]
+47:                                               ; preds = %.lr.ph176, %.critedge5
+  %48 = phi ptr [ %37, %.lr.ph176 ], [ %52, %.critedge5 ]
   %49 = invoke signext i8 @ures_hasNext_77(ptr noundef %48)
-          to label %50 unwind label %.loopexit177
+          to label %50 unwind label %.loopexit170
 
 50:                                               ; preds = %47
   %.not120 = icmp eq i8 %49, 0
@@ -6090,7 +6090,7 @@ define ptr @ucurr_getKeywordValuesForLocale_77(ptr noundef readnone captures(non
 51:                                               ; preds = %50
   %52 = load ptr, ptr %6, align 8, !tbaa !39
   %53 = invoke ptr @ures_getNextResource_77(ptr noundef %52, ptr noundef nonnull %7, ptr noundef nonnull %3)
-          to label %54 unwind label %.loopexit177
+          to label %54 unwind label %.loopexit170
 
 54:                                               ; preds = %51
   %55 = load i32, ptr %3, align 4, !tbaa !13
@@ -6127,13 +6127,13 @@ define ptr @ucurr_getKeywordValuesForLocale_77(ptr noundef readnone captures(non
           cleanup
   br label %177
 
-.loopexit177:                                     ; preds = %47, %51
-  %lpad.loopexit179 = landingpad { ptr, i32 }
+.loopexit170:                                     ; preds = %47, %51
+  %lpad.loopexit172 = landingpad { ptr, i32 }
           cleanup
   br label %176
 
-.loopexit.split-lp178:                            ; preds = %138, %142, %143, %.thread167, %.critedge.thread, %168, %169
-  %lpad.loopexit.split-lp180 = landingpad { ptr, i32 }
+.loopexit.split-lp171:                            ; preds = %138, %142, %143, %.thread161, %.critedge.thread, %168, %169
+  %lpad.loopexit.split-lp173 = landingpad { ptr, i32 }
           cleanup
   br label %176
 
@@ -6143,7 +6143,7 @@ define ptr @ucurr_getKeywordValuesForLocale_77(ptr noundef readnone captures(non
 
 71:                                               ; preds = %69
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef %70)
-          to label %72 unwind label %.loopexit.split-lp172
+          to label %72 unwind label %.loopexit.split-lp165
 
 72:                                               ; preds = %71
   %73 = load ptr, ptr %11, align 8
@@ -6173,20 +6173,20 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit: ; preds = %79, %72
           cleanup
   br label %176
 
-.loopexit171:                                     ; preds = %.lr.ph, %93, %95
-  %lpad.loopexit173 = landingpad { ptr, i32 }
+.loopexit164:                                     ; preds = %.lr.ph, %93, %95
+  %lpad.loopexit166 = landingpad { ptr, i32 }
           cleanup
   br label %176
 
-.loopexit.split-lp172:                            ; preds = %71, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread
-  %lpad.loopexit.split-lp174 = landingpad { ptr, i32 }
+.loopexit.split-lp165:                            ; preds = %71, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread
+  %lpad.loopexit.split-lp167 = landingpad { ptr, i32 }
           cleanup
   br label %176
 
 _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit
   %86 = phi i1 [ %83, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit ], [ true, %77 ]
   %87 = invoke ptr @ures_getByKey_77(ptr noundef %52, ptr noundef %70, ptr noundef nonnull %8, ptr noundef nonnull %3)
-          to label %88 unwind label %.loopexit.split-lp172
+          to label %88 unwind label %.loopexit.split-lp165
 
 88:                                               ; preds = %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread
   %89 = load i32, ptr %3, align 4, !tbaa !13
@@ -6195,7 +6195,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6ic
 
 .lr.ph:                                           ; preds = %88, %.backedge
   %91 = invoke signext i8 @ures_hasNext_77(ptr noundef nonnull %8)
-          to label %92 unwind label %.loopexit171
+          to label %92 unwind label %.loopexit164
 
 92:                                               ; preds = %.lr.ph
   %.not124 = icmp eq i8 %91, 0
@@ -6203,11 +6203,11 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6ic
 
 93:                                               ; preds = %92
   %94 = invoke ptr @ures_getNextResource_77(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %3)
-          to label %95 unwind label %.loopexit171
+          to label %95 unwind label %.loopexit164
 
 95:                                               ; preds = %93
   %96 = invoke i32 @ures_getType_77(ptr noundef nonnull %9)
-          to label %97 unwind label %.loopexit171
+          to label %97 unwind label %.loopexit164
 
 97:                                               ; preds = %95
   %.not125 = icmp eq i32 %96, 2
@@ -6224,9 +6224,9 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6ic
 
 102:                                              ; preds = %100
   %103 = icmp eq ptr %101, null
-  br i1 %103, label %.thread158, label %106
+  br i1 %103, label %.thread156, label %106
 
-.thread158:                                       ; preds = %102
+.thread156:                                       ; preds = %102
   store i32 7, ptr %3, align 4, !tbaa !13
   br label %.critedge.thread
 
@@ -6244,9 +6244,9 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6ic
 108:                                              ; preds = %106
   %109 = load i32, ptr %3, align 4, !tbaa !13
   %110 = icmp slt i32 %109, 1
-  br i1 %110, label %113, label %.thread161
+  br i1 %110, label %113, label %.thread158
 
-.thread161:                                       ; preds = %108
+.thread158:                                       ; preds = %108
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge.thread
 
@@ -6328,19 +6328,19 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6ic
 
 138:                                              ; preds = %137
   %139 = invoke i32 @ulist_getListSize_77(ptr noundef %13)
-          to label %140 unwind label %.loopexit.split-lp178
+          to label %140 unwind label %.loopexit.split-lp171
 
 140:                                              ; preds = %138
   %141 = icmp eq i32 %139, 0
-  br i1 %141, label %142, label %.thread167
+  br i1 %141, label %142, label %.thread161
 
 142:                                              ; preds = %140
   invoke void @uenum_close_77(ptr noundef nonnull %17)
-          to label %143 unwind label %.loopexit.split-lp178
+          to label %143 unwind label %.loopexit.split-lp171
 
 143:                                              ; preds = %142
   %144 = invoke ptr @ucurr_getKeywordValuesForLocale_77(ptr noundef %0, ptr noundef nonnull @.str.11, i8 noundef signext 1, ptr noundef nonnull %3)
-          to label %.thread167 unwind label %.loopexit.split-lp178
+          to label %.thread161 unwind label %.loopexit.split-lp171
 
 145:                                              ; preds = %137
   invoke void @ulist_resetList_77(ptr noundef %15)
@@ -6352,7 +6352,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6ic
 
 147:                                              ; preds = %.preheader
   %.not136 = icmp eq ptr %146, null
-  br i1 %.not136, label %.thread167, label %148
+  br i1 %.not136, label %.thread161, label %148
 
 148:                                              ; preds = %147
   %149 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %146) #23
@@ -6374,7 +6374,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6ic
 
 157:                                              ; preds = %155
   store i32 7, ptr %3, align 4, !tbaa !13
-  br label %.thread167
+  br label %.thread161
 
 .loopexit:                                        ; preds = %.preheader, %148
   %lpad.loopexit = landingpad { ptr, i32 }
@@ -6401,30 +6401,30 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread: ; preds = %77, %_ZNK6ic
 163:                                              ; preds = %160
   %164 = load i32, ptr %3, align 4, !tbaa !13
   %165 = icmp slt i32 %164, 1
-  br i1 %165, label %.preheader.backedge, label %.thread167
+  br i1 %165, label %.preheader.backedge, label %.thread161
 
 .preheader.backedge:                              ; preds = %163, %152
   br label %.preheader, !llvm.loop !107
 
-.thread167:                                       ; preds = %163, %147, %157, %143, %140
+.thread161:                                       ; preds = %163, %147, %157, %143, %140
   %.0109 = phi ptr [ %17, %140 ], [ %144, %143 ], [ %17, %157 ], [ %17, %147 ], [ %17, %163 ]
   %166 = getelementptr inbounds nuw i8, ptr %.0109, i64 8
   %167 = load ptr, ptr %166, align 8, !tbaa !101
   invoke void @ulist_resetList_77(ptr noundef %167)
-          to label %169 unwind label %.loopexit.split-lp178
+          to label %169 unwind label %.loopexit.split-lp171
 
-.critedge.thread:                                 ; preds = %88, %.critedge5, %54, %.backedge, %.thread158, %.thread161, %.preheader176, %.critedge
+.critedge.thread:                                 ; preds = %88, %.critedge5, %54, %.backedge, %.thread156, %.thread158, %.preheader169, %.critedge
   invoke void @ulist_deleteList_77(ptr noundef %13)
-          to label %168 unwind label %.loopexit.split-lp178
+          to label %168 unwind label %.loopexit.split-lp171
 
 168:                                              ; preds = %.critedge.thread
   invoke void @uprv_free_77(ptr noundef nonnull %17)
-          to label %169 unwind label %.loopexit.split-lp178
+          to label %169 unwind label %.loopexit.split-lp171
 
-169:                                              ; preds = %168, %.thread167
-  %.1110 = phi ptr [ %.0109, %.thread167 ], [ null, %168 ]
+169:                                              ; preds = %168, %.thread161
+  %.1110 = phi ptr [ %.0109, %.thread161 ], [ null, %168 ]
   invoke void @ulist_deleteList_77(ptr noundef %15)
-          to label %170 unwind label %.loopexit.split-lp178
+          to label %170 unwind label %.loopexit.split-lp171
 
 170:                                              ; preds = %169
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #20
@@ -6454,8 +6454,8 @@ _ZN6icu_778internal16LocalOpenPointerI15UResourceBundleXadL_Z13ures_close_77EEED
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %182
 
-176:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit171, %.loopexit.split-lp172, %.loopexit177, %.loopexit.split-lp178, %158, %84, %104, %134
-  %.pn141 = phi { ptr, i32 } [ %85, %84 ], [ %.pn, %134 ], [ %105, %104 ], [ %159, %158 ], [ %lpad.loopexit179, %.loopexit177 ], [ %lpad.loopexit.split-lp180, %.loopexit.split-lp178 ], [ %lpad.loopexit173, %.loopexit171 ], [ %lpad.loopexit.split-lp174, %.loopexit.split-lp172 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+176:                                              ; preds = %.loopexit, %.loopexit.split-lp, %.loopexit164, %.loopexit.split-lp165, %.loopexit170, %.loopexit.split-lp171, %158, %84, %104, %134
+  %.pn141 = phi { ptr, i32 } [ %85, %84 ], [ %.pn, %134 ], [ %105, %104 ], [ %159, %158 ], [ %lpad.loopexit172, %.loopexit170 ], [ %lpad.loopexit.split-lp173, %.loopexit.split-lp171 ], [ %lpad.loopexit166, %.loopexit164 ], [ %lpad.loopexit.split-lp167, %.loopexit.split-lp165 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7720StackUResourceBundleD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %10) #20
   br label %177
 

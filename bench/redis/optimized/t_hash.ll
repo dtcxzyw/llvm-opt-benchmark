@@ -272,8 +272,8 @@ define dso_local void @listpackExExpire(ptr noundef %0, ptr noundef readonly cap
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !15
   %16 = tail call ptr @lpFirst(ptr noundef %15) #16
-  %.not57 = icmp eq ptr %16, null
-  br i1 %.not57, label %.critedge.thread, label %.lr.ph
+  %.not56 = icmp eq ptr %16, null
+  br i1 %.not56, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -284,8 +284,8 @@ define dso_local void @listpackExExpire(ptr noundef %0, ptr noundef readonly cap
 
 20:                                               ; preds = %.lr.ph, %40
   %21 = phi i64 [ %.pre, %.lr.ph ], [ %51, %40 ]
-  %.059 = phi i64 [ 0, %.lr.ph ], [ %52, %40 ]
-  %.03758 = phi ptr [ %16, %.lr.ph ], [ %49, %40 ]
+  %.058 = phi i64 [ 0, %.lr.ph ], [ %52, %40 ]
+  %.03757 = phi ptr [ %16, %.lr.ph ], [ %49, %40 ]
   %22 = load i64, ptr %18, align 8, !tbaa !22
   %23 = icmp ult i64 %21, %22
   br i1 %23, label %24, label %.critedge
@@ -294,9 +294,9 @@ define dso_local void @listpackExExpire(ptr noundef %0, ptr noundef readonly cap
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %25 = call ptr @lpGet(ptr noundef nonnull %.03758, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
+  %25 = call ptr @lpGet(ptr noundef nonnull %.03757, ptr noundef nonnull %5, ptr noundef nonnull %6) #16
   %26 = load ptr, ptr %14, align 8, !tbaa !15
-  %27 = call ptr @lpNext(ptr noundef %26, ptr noundef nonnull %.03758) #16
+  %27 = call ptr @lpNext(ptr noundef %26, ptr noundef nonnull %.03757) #16
   %.not42 = icmp eq ptr %27, null
   br i1 %.not42, label %28, label %29, !prof !23
 
@@ -313,8 +313,8 @@ define dso_local void @listpackExExpire(ptr noundef %0, ptr noundef readonly cap
 
 32:                                               ; preds = %29
   %33 = call i32 @lpGetIntegerValue(ptr noundef nonnull %31, ptr noundef nonnull %4) #16
-  %.not52 = icmp eq i32 %33, 0
-  br i1 %.not52, label %.critedge47, label %34, !prof !23
+  %.not51 = icmp eq i32 %33, 0
+  br i1 %.not51, label %.critedge47, label %34, !prof !23
 
 .critedge47:                                      ; preds = %29, %32
   call void @_serverAssert(ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.2, i32 noundef 407) #16
@@ -353,7 +353,7 @@ define dso_local void @listpackExExpire(ptr noundef %0, ptr noundef readonly cap
   %50 = load i64, ptr %17, align 8, !tbaa !19
   %51 = add i64 %50, 1
   store i64 %51, ptr %17, align 8, !tbaa !19
-  %52 = add i64 %.059, 1
+  %52 = add i64 %.058, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -361,13 +361,13 @@ define dso_local void @listpackExExpire(ptr noundef %0, ptr noundef readonly cap
   br i1 %.not, label %.critedge, label %20
 
 .critedge:                                        ; preds = %20, %40, %.thread
-  %.056 = phi i64 [ %.059, %.thread ], [ %.059, %20 ], [ %52, %40 ]
-  %.not45 = icmp eq i64 %.056, 0
+  %.055 = phi i64 [ %.058, %.thread ], [ %.058, %20 ], [ %52, %40 ]
+  %.not45 = icmp eq i64 %.055, 0
   br i1 %.not45, label %.critedge.thread, label %53
 
 53:                                               ; preds = %.critedge
   %54 = load ptr, ptr %14, align 8, !tbaa !15
-  %55 = mul i64 %.056, 3
+  %55 = mul i64 %.055, 3
   %56 = call ptr @lpDeleteRange(ptr noundef %54, i64 noundef 0, i64 noundef %55) #16
   store ptr %56, ptr %14, align 8, !tbaa !15
   %57 = call i64 @lpLength(ptr noundef %56) #16
@@ -375,7 +375,7 @@ define dso_local void @listpackExExpire(ptr noundef %0, ptr noundef readonly cap
   %59 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !27
   %61 = call i32 @getKeySlot(ptr noundef %60) #16
-  %62 = add i64 %58, %.056
+  %62 = add i64 %58, %.055
   call void @updateKeysizesHist(ptr noundef %0, i32 noundef %61, i32 noundef 4, i64 noundef %62, i64 noundef %58) #16
   br label %.critedge.thread
 
@@ -1214,192 +1214,192 @@ define dso_local void @hashTypeTryConversion(ptr noundef %0, ptr noundef %1, ptr
   br i1 %14, label %18, label %.preheader
 
 .preheader:                                       ; preds = %9
-  %.not3551 = icmp sgt i32 %3, %4
-  br i1 %.not3551, label %._crit_edge, label %.lr.ph
+  %.not3549 = icmp sgt i32 %3, %4
+  br i1 %.not3549, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %15 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7704), align 8
   %16 = sext i32 %3 to i64
   %17 = add i32 %4, 1
-  br label %25
+  br label %26
 
 18:                                               ; preds = %9
-  %switch49 = icmp eq i32 %8, 11
-  br i1 %switch49, label %19, label %20
-
-19:                                               ; preds = %18
-  tail call void @hashTypeConvertListpack(ptr noundef nonnull %1, i32 noundef 2)
-  br label %hashTypeConvert.exit
+  %19 = icmp eq i32 %8, 11
+  br i1 %19, label %20, label %21
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %21)
+  tail call void @hashTypeConvertListpack(ptr noundef nonnull %1, i32 noundef 2)
   br label %hashTypeConvert.exit
 
-hashTypeConvert.exit:                             ; preds = %19, %20
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %23 = load ptr, ptr %22, align 8, !tbaa !10
-  %24 = tail call i32 @dictExpand(ptr noundef %23, i64 noundef %12) #16
+21:                                               ; preds = %18
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %22)
+  br label %hashTypeConvert.exit
+
+hashTypeConvert.exit:                             ; preds = %20, %21
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !10
+  %25 = tail call i32 @dictExpand(ptr noundef %24, i64 noundef %12) #16
   br label %hashTypeConvert.exit40
 
-25:                                               ; preds = %.lr.ph, %63
-  %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %63 ]
-  %.02852 = phi i64 [ 0, %.lr.ph ], [ %.1, %63 ]
-  %26 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
-  %27 = load ptr, ptr %26, align 8, !tbaa !64
-  %28 = load i32, ptr %27, align 8
-  %29 = lshr i32 %28, 4
-  %30 = and i32 %29, 15
-  switch i32 %30, label %63 [
-    i32 0, label %31
-    i32 8, label %31
+26:                                               ; preds = %.lr.ph, %64
+  %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %64 ]
+  %.02850 = phi i64 [ 0, %.lr.ph ], [ %.1, %64 ]
+  %27 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %28 = load ptr, ptr %27, align 8, !tbaa !64
+  %29 = load i32, ptr %28, align 8
+  %30 = lshr i32 %29, 4
+  %31 = and i32 %30, 15
+  switch i32 %31, label %64 [
+    i32 0, label %32
+    i32 8, label %32
   ]
 
-31:                                               ; preds = %25, %25
-  %32 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %33 = load ptr, ptr %32, align 8, !tbaa !10
-  %34 = getelementptr inbounds i8, ptr %33, i64 -1
-  %35 = load i8, ptr %34, align 1, !tbaa !5
-  %36 = zext i8 %35 to i32
-  %37 = and i32 %36, 7
-  switch i32 %37, label %hashTypeConvert.exit38 [
-    i32 0, label %38
-    i32 1, label %41
-    i32 2, label %45
-    i32 3, label %49
-    i32 4, label %53
+32:                                               ; preds = %26, %26
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !10
+  %35 = getelementptr inbounds i8, ptr %34, i64 -1
+  %36 = load i8, ptr %35, align 1, !tbaa !5
+  %37 = zext i8 %36 to i32
+  %38 = and i32 %37, 7
+  switch i32 %38, label %hashTypeConvert.exit38 [
+    i32 0, label %39
+    i32 1, label %42
+    i32 2, label %46
+    i32 3, label %50
+    i32 4, label %54
   ]
 
-38:                                               ; preds = %31
-  %39 = lshr i32 %36, 3
-  %40 = zext nneg i32 %39 to i64
+39:                                               ; preds = %32
+  %40 = lshr i32 %37, 3
+  %41 = zext nneg i32 %40 to i64
   br label %sdslen.exit
 
-41:                                               ; preds = %31
-  %42 = getelementptr inbounds i8, ptr %33, i64 -3
-  %43 = load i8, ptr %42, align 1, !tbaa !5
-  %44 = zext i8 %43 to i64
+42:                                               ; preds = %32
+  %43 = getelementptr inbounds i8, ptr %34, i64 -3
+  %44 = load i8, ptr %43, align 1, !tbaa !5
+  %45 = zext i8 %44 to i64
   br label %sdslen.exit
 
-45:                                               ; preds = %31
-  %46 = getelementptr inbounds i8, ptr %33, i64 -5
-  %47 = load i16, ptr %46, align 1, !tbaa !8
-  %48 = zext i16 %47 to i64
+46:                                               ; preds = %32
+  %47 = getelementptr inbounds i8, ptr %34, i64 -5
+  %48 = load i16, ptr %47, align 1, !tbaa !8
+  %49 = zext i16 %48 to i64
   br label %sdslen.exit
 
-49:                                               ; preds = %31
-  %50 = getelementptr inbounds i8, ptr %33, i64 -9
-  %51 = load i32, ptr %50, align 1, !tbaa !65
-  %52 = zext i32 %51 to i64
+50:                                               ; preds = %32
+  %51 = getelementptr inbounds i8, ptr %34, i64 -9
+  %52 = load i32, ptr %51, align 1, !tbaa !65
+  %53 = zext i32 %52 to i64
   br label %sdslen.exit
 
-53:                                               ; preds = %31
-  %54 = getelementptr inbounds i8, ptr %33, i64 -17
-  %55 = load i64, ptr %54, align 1, !tbaa !28
+54:                                               ; preds = %32
+  %55 = getelementptr inbounds i8, ptr %34, i64 -17
+  %56 = load i64, ptr %55, align 1, !tbaa !28
   br label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %38, %41, %45, %49, %53
-  %.0.i = phi i64 [ %40, %38 ], [ %44, %41 ], [ %48, %45 ], [ %52, %49 ], [ %55, %53 ]
+sdslen.exit:                                      ; preds = %39, %42, %46, %50, %54
+  %.0.i = phi i64 [ %41, %39 ], [ %45, %42 ], [ %49, %46 ], [ %53, %50 ], [ %56, %54 ]
   %.not37 = icmp ugt i64 %.0.i, %15
-  br i1 %.not37, label %56, label %hashTypeConvert.exit38
+  br i1 %.not37, label %57, label %hashTypeConvert.exit38
 
-56:                                               ; preds = %sdslen.exit
-  switch i32 %8, label %61 [
-    i32 11, label %57
-    i32 12, label %58
-    i32 2, label %60
+57:                                               ; preds = %sdslen.exit
+  switch i32 %8, label %62 [
+    i32 11, label %58
+    i32 12, label %59
+    i32 2, label %61
   ]
 
-57:                                               ; preds = %56
+58:                                               ; preds = %57
   tail call void @hashTypeConvertListpack(ptr noundef nonnull %1, i32 noundef 2)
   br label %hashTypeConvert.exit40
 
-58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %59)
+59:                                               ; preds = %57
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %60)
   br label %hashTypeConvert.exit40
 
-60:                                               ; preds = %56
+61:                                               ; preds = %57
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1687, ptr noundef nonnull @.str.28) #16
   tail call void @abort() #17
   unreachable
 
-61:                                               ; preds = %56
+62:                                               ; preds = %57
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1689, ptr noundef nonnull @.str.11) #16
   tail call void @abort() #17
   unreachable
 
-hashTypeConvert.exit38:                           ; preds = %31, %sdslen.exit
-  %.0.i43 = phi i64 [ %.0.i, %sdslen.exit ], [ 0, %31 ]
-  %62 = add i64 %.0.i43, %.02852
-  br label %63
+hashTypeConvert.exit38:                           ; preds = %32, %sdslen.exit
+  %.0.i43 = phi i64 [ %.0.i, %sdslen.exit ], [ 0, %32 ]
+  %63 = add i64 %.0.i43, %.02850
+  br label %64
 
-63:                                               ; preds = %hashTypeConvert.exit38, %25
-  %.1 = phi i64 [ %62, %hashTypeConvert.exit38 ], [ %.02852, %25 ]
+64:                                               ; preds = %hashTypeConvert.exit38, %26
+  %.1 = phi i64 [ %63, %hashTypeConvert.exit38 ], [ %.02850, %26 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i32 %17, %lftr.wideiv
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !88
+  br i1 %exitcond.not, label %._crit_edge, label %26, !llvm.loop !88
 
-._crit_edge:                                      ; preds = %63, %.preheader
-  %.028.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %63 ]
-  switch i32 %8, label %70 [
-    i32 11, label %64
-    i32 12, label %66
+._crit_edge:                                      ; preds = %64, %.preheader
+  %.028.lcssa = phi i64 [ 0, %.preheader ], [ %.1, %64 ]
+  switch i32 %8, label %71 [
+    i32 11, label %65
+    i32 12, label %67
   ]
 
-64:                                               ; preds = %._crit_edge
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 8
+65:                                               ; preds = %._crit_edge
+  %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %hashTypeListpackGetLp.exit
 
-66:                                               ; preds = %._crit_edge
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %68 = load ptr, ptr %67, align 8, !tbaa !10
-  %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
+67:                                               ; preds = %._crit_edge
+  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %69 = load ptr, ptr %68, align 8, !tbaa !10
+  %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   br label %hashTypeListpackGetLp.exit
 
-70:                                               ; preds = %._crit_edge
+71:                                               ; preds = %._crit_edge
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 594, ptr noundef nonnull @.str.6, i32 noundef %8) #16
   tail call void @abort() #17
   unreachable
 
-hashTypeListpackGetLp.exit:                       ; preds = %64, %66
-  %.0.in.i = phi ptr [ %65, %64 ], [ %69, %66 ]
+hashTypeListpackGetLp.exit:                       ; preds = %65, %67
+  %.0.in.i = phi ptr [ %66, %65 ], [ %70, %67 ]
   %.0.i39 = load ptr, ptr %.0.in.i, align 8, !tbaa !86
-  %71 = tail call i32 @lpSafeToAdd(ptr noundef %.0.i39, i64 noundef %.028.lcssa) #16
-  %.not36 = icmp eq i32 %71, 0
-  br i1 %.not36, label %72, label %hashTypeConvert.exit40
+  %72 = tail call i32 @lpSafeToAdd(ptr noundef %.0.i39, i64 noundef %.028.lcssa) #16
+  %.not36 = icmp eq i32 %72, 0
+  br i1 %.not36, label %73, label %hashTypeConvert.exit40
 
-72:                                               ; preds = %hashTypeListpackGetLp.exit
-  %73 = load i32, ptr %1, align 8
-  %74 = lshr i32 %73, 4
-  %75 = and i32 %74, 15
-  switch i32 %75, label %80 [
-    i32 11, label %76
-    i32 12, label %77
-    i32 2, label %79
+73:                                               ; preds = %hashTypeListpackGetLp.exit
+  %74 = load i32, ptr %1, align 8
+  %75 = lshr i32 %74, 4
+  %76 = and i32 %75, 15
+  switch i32 %76, label %81 [
+    i32 11, label %77
+    i32 12, label %78
+    i32 2, label %80
   ]
 
-76:                                               ; preds = %72
+77:                                               ; preds = %73
   tail call void @hashTypeConvertListpack(ptr noundef nonnull %1, i32 noundef 2)
   br label %hashTypeConvert.exit40
 
-77:                                               ; preds = %72
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %78)
+78:                                               ; preds = %73
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %79)
   br label %hashTypeConvert.exit40
 
-79:                                               ; preds = %72
+80:                                               ; preds = %73
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1687, ptr noundef nonnull @.str.28) #16
   tail call void @abort() #17
   unreachable
 
-80:                                               ; preds = %72
+81:                                               ; preds = %73
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1689, ptr noundef nonnull @.str.11) #16
   tail call void @abort() #17
   unreachable
 
-hashTypeConvert.exit40:                           ; preds = %58, %57, %77, %76, %5, %hashTypeConvert.exit, %hashTypeListpackGetLp.exit
+hashTypeConvert.exit40:                           ; preds = %59, %58, %78, %77, %5, %hashTypeConvert.exit, %hashTypeListpackGetLp.exit
   ret void
 }
 
@@ -2303,819 +2303,819 @@ sdslen.exit133:                                   ; preds = %45, %48, %52, %56, 
   br i1 %63, label %64, label %hashTypeConvert.exit
 
 64:                                               ; preds = %sdslen.exit133, %sdslen.exit
-  %switch172 = icmp eq i32 %12, 11
-  br i1 %switch172, label %65, label %66
+  %65 = icmp eq i32 %12, 11
+  br i1 %65, label %66, label %67
 
-65:                                               ; preds = %64
+66:                                               ; preds = %64
   tail call void @hashTypeConvertListpack(ptr noundef nonnull %1, i32 noundef 2)
   br label %hashTypeConvert.exit
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  tail call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %67)
+67:                                               ; preds = %64
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %68)
   br label %hashTypeConvert.exit
 
-hashTypeConvert.exit:                             ; preds = %39, %66, %65, %5, %sdslen.exit133
-  %68 = load i32, ptr %1, align 8
-  %69 = lshr i32 %68, 4
-  %70 = and i32 %69, 15
-  switch i32 %70, label %441 [
-    i32 11, label %71
-    i32 12, label %208
-    i32 2, label %375
+hashTypeConvert.exit:                             ; preds = %39, %67, %66, %5, %sdslen.exit133
+  %69 = load i32, ptr %1, align 8
+  %70 = lshr i32 %69, 4
+  %71 = and i32 %70, 15
+  switch i32 %71, label %442 [
+    i32 11, label %72
+    i32 12, label %209
+    i32 2, label %376
   ]
 
-71:                                               ; preds = %hashTypeConvert.exit
+72:                                               ; preds = %hashTypeConvert.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !10
-  %74 = tail call ptr @lpFirst(ptr noundef %73) #16
-  %.not128 = icmp eq ptr %74, null
-  br i1 %.not128, label %129, label %75
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !10
+  %75 = tail call ptr @lpFirst(ptr noundef %74) #16
+  %.not128 = icmp eq ptr %75, null
+  br i1 %.not128, label %130, label %76
 
-75:                                               ; preds = %71
-  %76 = getelementptr inbounds i8, ptr %2, i64 -1
-  %77 = load i8, ptr %76, align 1, !tbaa !5
-  %78 = zext i8 %77 to i32
-  %79 = and i32 %78, 7
-  switch i32 %79, label %sdslen.exit135 [
-    i32 0, label %80
-    i32 1, label %83
-    i32 2, label %87
-    i32 3, label %91
-    i32 4, label %95
+76:                                               ; preds = %72
+  %77 = getelementptr inbounds i8, ptr %2, i64 -1
+  %78 = load i8, ptr %77, align 1, !tbaa !5
+  %79 = zext i8 %78 to i32
+  %80 = and i32 %79, 7
+  switch i32 %80, label %sdslen.exit135 [
+    i32 0, label %81
+    i32 1, label %84
+    i32 2, label %88
+    i32 3, label %92
+    i32 4, label %96
   ]
 
-80:                                               ; preds = %75
-  %81 = lshr i32 %78, 3
-  %82 = zext nneg i32 %81 to i64
+81:                                               ; preds = %76
+  %82 = lshr i32 %79, 3
+  %83 = zext nneg i32 %82 to i64
   br label %sdslen.exit135
 
-83:                                               ; preds = %75
-  %84 = getelementptr inbounds i8, ptr %2, i64 -3
-  %85 = load i8, ptr %84, align 1, !tbaa !5
-  %86 = zext i8 %85 to i64
+84:                                               ; preds = %76
+  %85 = getelementptr inbounds i8, ptr %2, i64 -3
+  %86 = load i8, ptr %85, align 1, !tbaa !5
+  %87 = zext i8 %86 to i64
   br label %sdslen.exit135
 
-87:                                               ; preds = %75
-  %88 = getelementptr inbounds i8, ptr %2, i64 -5
-  %89 = load i16, ptr %88, align 1, !tbaa !8
-  %90 = zext i16 %89 to i64
+88:                                               ; preds = %76
+  %89 = getelementptr inbounds i8, ptr %2, i64 -5
+  %90 = load i16, ptr %89, align 1, !tbaa !8
+  %91 = zext i16 %90 to i64
   br label %sdslen.exit135
 
-91:                                               ; preds = %75
-  %92 = getelementptr inbounds i8, ptr %2, i64 -9
-  %93 = load i32, ptr %92, align 1, !tbaa !65
-  %94 = zext i32 %93 to i64
+92:                                               ; preds = %76
+  %93 = getelementptr inbounds i8, ptr %2, i64 -9
+  %94 = load i32, ptr %93, align 1, !tbaa !65
+  %95 = zext i32 %94 to i64
   br label %sdslen.exit135
 
-95:                                               ; preds = %75
-  %96 = getelementptr inbounds i8, ptr %2, i64 -17
-  %97 = load i64, ptr %96, align 1, !tbaa !28
+96:                                               ; preds = %76
+  %97 = getelementptr inbounds i8, ptr %2, i64 -17
+  %98 = load i64, ptr %97, align 1, !tbaa !28
   br label %sdslen.exit135
 
-sdslen.exit135:                                   ; preds = %75, %80, %83, %87, %91, %95
-  %.0.i134 = phi i64 [ %82, %80 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ %97, %95 ], [ 0, %75 ]
-  %98 = trunc i64 %.0.i134 to i32
-  %99 = tail call ptr @lpFind(ptr noundef %73, ptr noundef nonnull %74, ptr noundef nonnull %2, i32 noundef %98, i32 noundef 1) #16
-  %.not129 = icmp eq ptr %99, null
-  br i1 %.not129, label %129, label %100
+sdslen.exit135:                                   ; preds = %76, %81, %84, %88, %92, %96
+  %.0.i134 = phi i64 [ %83, %81 ], [ %87, %84 ], [ %91, %88 ], [ %95, %92 ], [ %98, %96 ], [ 0, %76 ]
+  %99 = trunc i64 %.0.i134 to i32
+  %100 = tail call ptr @lpFind(ptr noundef %74, ptr noundef nonnull %75, ptr noundef nonnull %2, i32 noundef %99, i32 noundef 1) #16
+  %.not129 = icmp eq ptr %100, null
+  br i1 %.not129, label %130, label %101
 
-100:                                              ; preds = %sdslen.exit135
-  %101 = tail call ptr @lpNext(ptr noundef %73, ptr noundef nonnull %99) #16
-  store ptr %101, ptr %7, align 8, !tbaa !85
-  %.not130 = icmp eq ptr %101, null
-  br i1 %.not130, label %102, label %103, !prof !23
+101:                                              ; preds = %sdslen.exit135
+  %102 = tail call ptr @lpNext(ptr noundef %74, ptr noundef nonnull %100) #16
+  store ptr %102, ptr %7, align 8, !tbaa !85
+  %.not130 = icmp eq ptr %102, null
+  br i1 %.not130, label %103, label %104, !prof !23
 
-102:                                              ; preds = %100
+103:                                              ; preds = %101
   tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 911) #16
   tail call void @abort() #17
   unreachable
 
-103:                                              ; preds = %100
-  %104 = getelementptr inbounds i8, ptr %3, i64 -1
-  %105 = load i8, ptr %104, align 1, !tbaa !5
-  %106 = zext i8 %105 to i32
-  %107 = and i32 %106, 7
-  switch i32 %107, label %126 [
-    i32 0, label %108
-    i32 1, label %111
-    i32 2, label %115
-    i32 3, label %119
-    i32 4, label %123
+104:                                              ; preds = %101
+  %105 = getelementptr inbounds i8, ptr %3, i64 -1
+  %106 = load i8, ptr %105, align 1, !tbaa !5
+  %107 = zext i8 %106 to i32
+  %108 = and i32 %107, 7
+  switch i32 %108, label %127 [
+    i32 0, label %109
+    i32 1, label %112
+    i32 2, label %116
+    i32 3, label %120
+    i32 4, label %124
   ]
 
-108:                                              ; preds = %103
-  %109 = lshr i32 %106, 3
-  %110 = zext nneg i32 %109 to i64
-  br label %126
+109:                                              ; preds = %104
+  %110 = lshr i32 %107, 3
+  %111 = zext nneg i32 %110 to i64
+  br label %127
 
-111:                                              ; preds = %103
-  %112 = getelementptr inbounds i8, ptr %3, i64 -3
-  %113 = load i8, ptr %112, align 1, !tbaa !5
-  %114 = zext i8 %113 to i64
-  br label %126
+112:                                              ; preds = %104
+  %113 = getelementptr inbounds i8, ptr %3, i64 -3
+  %114 = load i8, ptr %113, align 1, !tbaa !5
+  %115 = zext i8 %114 to i64
+  br label %127
 
-115:                                              ; preds = %103
-  %116 = getelementptr inbounds i8, ptr %3, i64 -5
-  %117 = load i16, ptr %116, align 1, !tbaa !8
-  %118 = zext i16 %117 to i64
-  br label %126
+116:                                              ; preds = %104
+  %117 = getelementptr inbounds i8, ptr %3, i64 -5
+  %118 = load i16, ptr %117, align 1, !tbaa !8
+  %119 = zext i16 %118 to i64
+  br label %127
 
-119:                                              ; preds = %103
-  %120 = getelementptr inbounds i8, ptr %3, i64 -9
-  %121 = load i32, ptr %120, align 1, !tbaa !65
-  %122 = zext i32 %121 to i64
-  br label %126
+120:                                              ; preds = %104
+  %121 = getelementptr inbounds i8, ptr %3, i64 -9
+  %122 = load i32, ptr %121, align 1, !tbaa !65
+  %123 = zext i32 %122 to i64
+  br label %127
 
-123:                                              ; preds = %103
-  %124 = getelementptr inbounds i8, ptr %3, i64 -17
-  %125 = load i64, ptr %124, align 1, !tbaa !28
-  br label %126
+124:                                              ; preds = %104
+  %125 = getelementptr inbounds i8, ptr %3, i64 -17
+  %126 = load i64, ptr %125, align 1, !tbaa !28
+  br label %127
 
-126:                                              ; preds = %123, %119, %115, %111, %108, %103
-  %.0.i136 = phi i64 [ %110, %108 ], [ %114, %111 ], [ %118, %115 ], [ %122, %119 ], [ %125, %123 ], [ 0, %103 ]
-  %127 = trunc i64 %.0.i136 to i32
-  %128 = call ptr @lpReplace(ptr noundef %73, ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef %127) #16
-  br label %178
+127:                                              ; preds = %124, %120, %116, %112, %109, %104
+  %.0.i136 = phi i64 [ %111, %109 ], [ %115, %112 ], [ %119, %116 ], [ %123, %120 ], [ %126, %124 ], [ 0, %104 ]
+  %128 = trunc i64 %.0.i136 to i32
+  %129 = call ptr @lpReplace(ptr noundef %74, ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef %128) #16
+  br label %179
 
-129:                                              ; preds = %sdslen.exit135, %71
-  %130 = getelementptr inbounds i8, ptr %2, i64 -1
-  %131 = load i8, ptr %130, align 1, !tbaa !5
-  %132 = zext i8 %131 to i32
-  %133 = and i32 %132, 7
-  switch i32 %133, label %sdslen.exit139 [
-    i32 0, label %134
-    i32 1, label %137
-    i32 2, label %141
-    i32 3, label %145
-    i32 4, label %149
+130:                                              ; preds = %sdslen.exit135, %72
+  %131 = getelementptr inbounds i8, ptr %2, i64 -1
+  %132 = load i8, ptr %131, align 1, !tbaa !5
+  %133 = zext i8 %132 to i32
+  %134 = and i32 %133, 7
+  switch i32 %134, label %sdslen.exit139 [
+    i32 0, label %135
+    i32 1, label %138
+    i32 2, label %142
+    i32 3, label %146
+    i32 4, label %150
   ]
 
-134:                                              ; preds = %129
-  %135 = lshr i32 %132, 3
-  %136 = zext nneg i32 %135 to i64
+135:                                              ; preds = %130
+  %136 = lshr i32 %133, 3
+  %137 = zext nneg i32 %136 to i64
   br label %sdslen.exit139
 
-137:                                              ; preds = %129
-  %138 = getelementptr inbounds i8, ptr %2, i64 -3
-  %139 = load i8, ptr %138, align 1, !tbaa !5
-  %140 = zext i8 %139 to i64
+138:                                              ; preds = %130
+  %139 = getelementptr inbounds i8, ptr %2, i64 -3
+  %140 = load i8, ptr %139, align 1, !tbaa !5
+  %141 = zext i8 %140 to i64
   br label %sdslen.exit139
 
-141:                                              ; preds = %129
-  %142 = getelementptr inbounds i8, ptr %2, i64 -5
-  %143 = load i16, ptr %142, align 1, !tbaa !8
-  %144 = zext i16 %143 to i64
+142:                                              ; preds = %130
+  %143 = getelementptr inbounds i8, ptr %2, i64 -5
+  %144 = load i16, ptr %143, align 1, !tbaa !8
+  %145 = zext i16 %144 to i64
   br label %sdslen.exit139
 
-145:                                              ; preds = %129
-  %146 = getelementptr inbounds i8, ptr %2, i64 -9
-  %147 = load i32, ptr %146, align 1, !tbaa !65
-  %148 = zext i32 %147 to i64
+146:                                              ; preds = %130
+  %147 = getelementptr inbounds i8, ptr %2, i64 -9
+  %148 = load i32, ptr %147, align 1, !tbaa !65
+  %149 = zext i32 %148 to i64
   br label %sdslen.exit139
 
-149:                                              ; preds = %129
-  %150 = getelementptr inbounds i8, ptr %2, i64 -17
-  %151 = load i64, ptr %150, align 1, !tbaa !28
+150:                                              ; preds = %130
+  %151 = getelementptr inbounds i8, ptr %2, i64 -17
+  %152 = load i64, ptr %151, align 1, !tbaa !28
   br label %sdslen.exit139
 
-sdslen.exit139:                                   ; preds = %129, %134, %137, %141, %145, %149
-  %.0.i138 = phi i64 [ %136, %134 ], [ %140, %137 ], [ %144, %141 ], [ %148, %145 ], [ %151, %149 ], [ 0, %129 ]
-  %152 = trunc i64 %.0.i138 to i32
-  %153 = tail call ptr @lpAppend(ptr noundef %73, ptr noundef nonnull %2, i32 noundef %152) #16
-  %154 = getelementptr inbounds i8, ptr %3, i64 -1
-  %155 = load i8, ptr %154, align 1, !tbaa !5
-  %156 = zext i8 %155 to i32
-  %157 = and i32 %156, 7
-  switch i32 %157, label %sdslen.exit141 [
-    i32 0, label %158
-    i32 1, label %161
-    i32 2, label %165
-    i32 3, label %169
-    i32 4, label %173
+sdslen.exit139:                                   ; preds = %130, %135, %138, %142, %146, %150
+  %.0.i138 = phi i64 [ %137, %135 ], [ %141, %138 ], [ %145, %142 ], [ %149, %146 ], [ %152, %150 ], [ 0, %130 ]
+  %153 = trunc i64 %.0.i138 to i32
+  %154 = tail call ptr @lpAppend(ptr noundef %74, ptr noundef nonnull %2, i32 noundef %153) #16
+  %155 = getelementptr inbounds i8, ptr %3, i64 -1
+  %156 = load i8, ptr %155, align 1, !tbaa !5
+  %157 = zext i8 %156 to i32
+  %158 = and i32 %157, 7
+  switch i32 %158, label %sdslen.exit141 [
+    i32 0, label %159
+    i32 1, label %162
+    i32 2, label %166
+    i32 3, label %170
+    i32 4, label %174
   ]
 
-158:                                              ; preds = %sdslen.exit139
-  %159 = lshr i32 %156, 3
-  %160 = zext nneg i32 %159 to i64
+159:                                              ; preds = %sdslen.exit139
+  %160 = lshr i32 %157, 3
+  %161 = zext nneg i32 %160 to i64
   br label %sdslen.exit141
 
-161:                                              ; preds = %sdslen.exit139
-  %162 = getelementptr inbounds i8, ptr %3, i64 -3
-  %163 = load i8, ptr %162, align 1, !tbaa !5
-  %164 = zext i8 %163 to i64
+162:                                              ; preds = %sdslen.exit139
+  %163 = getelementptr inbounds i8, ptr %3, i64 -3
+  %164 = load i8, ptr %163, align 1, !tbaa !5
+  %165 = zext i8 %164 to i64
   br label %sdslen.exit141
 
-165:                                              ; preds = %sdslen.exit139
-  %166 = getelementptr inbounds i8, ptr %3, i64 -5
-  %167 = load i16, ptr %166, align 1, !tbaa !8
-  %168 = zext i16 %167 to i64
+166:                                              ; preds = %sdslen.exit139
+  %167 = getelementptr inbounds i8, ptr %3, i64 -5
+  %168 = load i16, ptr %167, align 1, !tbaa !8
+  %169 = zext i16 %168 to i64
   br label %sdslen.exit141
 
-169:                                              ; preds = %sdslen.exit139
-  %170 = getelementptr inbounds i8, ptr %3, i64 -9
-  %171 = load i32, ptr %170, align 1, !tbaa !65
-  %172 = zext i32 %171 to i64
+170:                                              ; preds = %sdslen.exit139
+  %171 = getelementptr inbounds i8, ptr %3, i64 -9
+  %172 = load i32, ptr %171, align 1, !tbaa !65
+  %173 = zext i32 %172 to i64
   br label %sdslen.exit141
 
-173:                                              ; preds = %sdslen.exit139
-  %174 = getelementptr inbounds i8, ptr %3, i64 -17
-  %175 = load i64, ptr %174, align 1, !tbaa !28
+174:                                              ; preds = %sdslen.exit139
+  %175 = getelementptr inbounds i8, ptr %3, i64 -17
+  %176 = load i64, ptr %175, align 1, !tbaa !28
   br label %sdslen.exit141
 
-sdslen.exit141:                                   ; preds = %sdslen.exit139, %158, %161, %165, %169, %173
-  %.0.i140 = phi i64 [ %160, %158 ], [ %164, %161 ], [ %168, %165 ], [ %172, %169 ], [ %175, %173 ], [ 0, %sdslen.exit139 ]
-  %176 = trunc i64 %.0.i140 to i32
-  %177 = tail call ptr @lpAppend(ptr noundef %153, ptr noundef nonnull %3, i32 noundef %176) #16
-  br label %178
+sdslen.exit141:                                   ; preds = %sdslen.exit139, %159, %162, %166, %170, %174
+  %.0.i140 = phi i64 [ %161, %159 ], [ %165, %162 ], [ %169, %166 ], [ %173, %170 ], [ %176, %174 ], [ 0, %sdslen.exit139 ]
+  %177 = trunc i64 %.0.i140 to i32
+  %178 = tail call ptr @lpAppend(ptr noundef %154, ptr noundef nonnull %3, i32 noundef %177) #16
+  br label %179
 
-178:                                              ; preds = %126, %sdslen.exit141
-  %.0105163 = phi i32 [ 1, %126 ], [ 0, %sdslen.exit141 ]
-  %.1108 = phi ptr [ %128, %126 ], [ %177, %sdslen.exit141 ]
-  store ptr %.1108, ptr %72, align 8, !tbaa !10
-  %179 = load i32, ptr %1, align 8
-  %180 = lshr i32 %179, 4
-  %181 = and i32 %180, 15
-  switch i32 %181, label %196 [
-    i32 11, label %182
-    i32 12, label %185
-    i32 2, label %190
+179:                                              ; preds = %127, %sdslen.exit141
+  %.0105163 = phi i32 [ 1, %127 ], [ 0, %sdslen.exit141 ]
+  %.1108 = phi ptr [ %129, %127 ], [ %178, %sdslen.exit141 ]
+  store ptr %.1108, ptr %73, align 8, !tbaa !10
+  %180 = load i32, ptr %1, align 8
+  %181 = lshr i32 %180, 4
+  %182 = and i32 %181, 15
+  switch i32 %182, label %197 [
+    i32 11, label %183
+    i32 12, label %186
+    i32 2, label %191
   ]
 
-182:                                              ; preds = %178
-  %183 = call i64 @lpLength(ptr noundef %.1108) #16
-  %184 = lshr i64 %183, 1
+183:                                              ; preds = %179
+  %184 = call i64 @lpLength(ptr noundef %.1108) #16
+  %185 = lshr i64 %184, 1
   br label %hashTypeLength.exit
 
-185:                                              ; preds = %178
-  %186 = getelementptr inbounds nuw i8, ptr %.1108, i64 24
-  %187 = load ptr, ptr %186, align 8, !tbaa !15
-  %188 = call i64 @lpLength(ptr noundef %187) #16
-  %189 = udiv i64 %188, 3
+186:                                              ; preds = %179
+  %187 = getelementptr inbounds nuw i8, ptr %.1108, i64 24
+  %188 = load ptr, ptr %187, align 8, !tbaa !15
+  %189 = call i64 @lpLength(ptr noundef %188) #16
+  %190 = udiv i64 %189, 3
   br label %hashTypeLength.exit
 
-190:                                              ; preds = %178
-  %191 = getelementptr inbounds nuw i8, ptr %.1108, i64 24
-  %192 = load i64, ptr %191, align 8, !tbaa !28
-  %193 = getelementptr inbounds nuw i8, ptr %.1108, i64 32
-  %194 = load i64, ptr %193, align 8, !tbaa !28
-  %195 = add i64 %194, %192
+191:                                              ; preds = %179
+  %192 = getelementptr inbounds nuw i8, ptr %.1108, i64 24
+  %193 = load i64, ptr %192, align 8, !tbaa !28
+  %194 = getelementptr inbounds nuw i8, ptr %.1108, i64 32
+  %195 = load i64, ptr %194, align 8, !tbaa !28
+  %196 = add i64 %195, %193
   br label %hashTypeLength.exit
 
-196:                                              ; preds = %178
+197:                                              ; preds = %179
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1325, ptr noundef nonnull @.str.11) #16
   call void @abort() #17
   unreachable
 
-hashTypeLength.exit:                              ; preds = %182, %185, %190
-  %.0.i142 = phi i64 [ %184, %182 ], [ %195, %190 ], [ %189, %185 ]
-  %197 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7696), align 8, !tbaa !87
-  %198 = icmp ugt i64 %.0.i142, %197
-  br i1 %198, label %199, label %hashTypeConvert.exit143
+hashTypeLength.exit:                              ; preds = %183, %186, %191
+  %.0.i142 = phi i64 [ %185, %183 ], [ %196, %191 ], [ %190, %186 ]
+  %198 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7696), align 8, !tbaa !87
+  %199 = icmp ugt i64 %.0.i142, %198
+  br i1 %199, label %200, label %hashTypeConvert.exit143
 
-199:                                              ; preds = %hashTypeLength.exit
-  %200 = load i32, ptr %1, align 8
-  %201 = lshr i32 %200, 4
-  %202 = and i32 %201, 15
-  switch i32 %202, label %207 [
-    i32 11, label %203
-    i32 12, label %204
-    i32 2, label %206
+200:                                              ; preds = %hashTypeLength.exit
+  %201 = load i32, ptr %1, align 8
+  %202 = lshr i32 %201, 4
+  %203 = and i32 %202, 15
+  switch i32 %203, label %208 [
+    i32 11, label %204
+    i32 12, label %205
+    i32 2, label %207
   ]
 
-203:                                              ; preds = %199
+204:                                              ; preds = %200
   call void @hashTypeConvertListpack(ptr noundef nonnull %1, i32 noundef 2)
   br label %hashTypeConvert.exit143
 
-204:                                              ; preds = %199
-  %205 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %205)
+205:                                              ; preds = %200
+  %206 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %206)
   br label %hashTypeConvert.exit143
 
-206:                                              ; preds = %199
+207:                                              ; preds = %200
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1687, ptr noundef nonnull @.str.28) #16
   call void @abort() #17
   unreachable
 
-207:                                              ; preds = %199
+208:                                              ; preds = %200
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1689, ptr noundef nonnull @.str.11) #16
   call void @abort() #17
   unreachable
 
-hashTypeConvert.exit143:                          ; preds = %204, %203, %hashTypeLength.exit
+hashTypeConvert.exit143:                          ; preds = %205, %204, %hashTypeLength.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %442
+  br label %443
 
-208:                                              ; preds = %hashTypeConvert.exit
+209:                                              ; preds = %hashTypeConvert.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr null, ptr %8, align 8, !tbaa !85
-  %209 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %210 = load ptr, ptr %209, align 8, !tbaa !10
+  %210 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %211 = load ptr, ptr %210, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i64 0, ptr %9, align 8, !tbaa !24
-  %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
-  %212 = load ptr, ptr %211, align 8, !tbaa !15
-  %213 = tail call ptr @lpFirst(ptr noundef %212) #16
-  %.not122 = icmp eq ptr %213, null
-  br i1 %.not122, label %286, label %214
+  %212 = getelementptr inbounds nuw i8, ptr %211, i64 24
+  %213 = load ptr, ptr %212, align 8, !tbaa !15
+  %214 = tail call ptr @lpFirst(ptr noundef %213) #16
+  %.not122 = icmp eq ptr %214, null
+  br i1 %.not122, label %287, label %215
 
-214:                                              ; preds = %208
-  %215 = load ptr, ptr %211, align 8, !tbaa !15
-  %216 = getelementptr inbounds i8, ptr %2, i64 -1
-  %217 = load i8, ptr %216, align 1, !tbaa !5
-  %218 = zext i8 %217 to i32
-  %219 = and i32 %218, 7
-  switch i32 %219, label %sdslen.exit145 [
-    i32 0, label %220
-    i32 1, label %223
-    i32 2, label %227
-    i32 3, label %231
-    i32 4, label %235
+215:                                              ; preds = %209
+  %216 = load ptr, ptr %212, align 8, !tbaa !15
+  %217 = getelementptr inbounds i8, ptr %2, i64 -1
+  %218 = load i8, ptr %217, align 1, !tbaa !5
+  %219 = zext i8 %218 to i32
+  %220 = and i32 %219, 7
+  switch i32 %220, label %sdslen.exit145 [
+    i32 0, label %221
+    i32 1, label %224
+    i32 2, label %228
+    i32 3, label %232
+    i32 4, label %236
   ]
 
-220:                                              ; preds = %214
-  %221 = lshr i32 %218, 3
-  %222 = zext nneg i32 %221 to i64
+221:                                              ; preds = %215
+  %222 = lshr i32 %219, 3
+  %223 = zext nneg i32 %222 to i64
   br label %sdslen.exit145
 
-223:                                              ; preds = %214
-  %224 = getelementptr inbounds i8, ptr %2, i64 -3
-  %225 = load i8, ptr %224, align 1, !tbaa !5
-  %226 = zext i8 %225 to i64
+224:                                              ; preds = %215
+  %225 = getelementptr inbounds i8, ptr %2, i64 -3
+  %226 = load i8, ptr %225, align 1, !tbaa !5
+  %227 = zext i8 %226 to i64
   br label %sdslen.exit145
 
-227:                                              ; preds = %214
-  %228 = getelementptr inbounds i8, ptr %2, i64 -5
-  %229 = load i16, ptr %228, align 1, !tbaa !8
-  %230 = zext i16 %229 to i64
+228:                                              ; preds = %215
+  %229 = getelementptr inbounds i8, ptr %2, i64 -5
+  %230 = load i16, ptr %229, align 1, !tbaa !8
+  %231 = zext i16 %230 to i64
   br label %sdslen.exit145
 
-231:                                              ; preds = %214
-  %232 = getelementptr inbounds i8, ptr %2, i64 -9
-  %233 = load i32, ptr %232, align 1, !tbaa !65
-  %234 = zext i32 %233 to i64
+232:                                              ; preds = %215
+  %233 = getelementptr inbounds i8, ptr %2, i64 -9
+  %234 = load i32, ptr %233, align 1, !tbaa !65
+  %235 = zext i32 %234 to i64
   br label %sdslen.exit145
 
-235:                                              ; preds = %214
-  %236 = getelementptr inbounds i8, ptr %2, i64 -17
-  %237 = load i64, ptr %236, align 1, !tbaa !28
+236:                                              ; preds = %215
+  %237 = getelementptr inbounds i8, ptr %2, i64 -17
+  %238 = load i64, ptr %237, align 1, !tbaa !28
   br label %sdslen.exit145
 
-sdslen.exit145:                                   ; preds = %214, %220, %223, %227, %231, %235
-  %.0.i144 = phi i64 [ %222, %220 ], [ %226, %223 ], [ %230, %227 ], [ %234, %231 ], [ %237, %235 ], [ 0, %214 ]
-  %238 = trunc i64 %.0.i144 to i32
-  %239 = tail call ptr @lpFind(ptr noundef %215, ptr noundef nonnull %213, ptr noundef nonnull %2, i32 noundef %238, i32 noundef 2) #16
-  %.not123 = icmp eq ptr %239, null
-  br i1 %.not123, label %286, label %240
+sdslen.exit145:                                   ; preds = %215, %221, %224, %228, %232, %236
+  %.0.i144 = phi i64 [ %223, %221 ], [ %227, %224 ], [ %231, %228 ], [ %235, %232 ], [ %238, %236 ], [ 0, %215 ]
+  %239 = trunc i64 %.0.i144 to i32
+  %240 = tail call ptr @lpFind(ptr noundef %216, ptr noundef nonnull %214, ptr noundef nonnull %2, i32 noundef %239, i32 noundef 2) #16
+  %.not123 = icmp eq ptr %240, null
+  br i1 %.not123, label %287, label %241
 
-240:                                              ; preds = %sdslen.exit145
-  %241 = load ptr, ptr %211, align 8, !tbaa !15
-  %242 = tail call ptr @lpNext(ptr noundef %241, ptr noundef nonnull %239) #16
-  store ptr %242, ptr %8, align 8, !tbaa !85
-  %.not124 = icmp eq ptr %242, null
-  br i1 %.not124, label %243, label %244, !prof !23
+241:                                              ; preds = %sdslen.exit145
+  %242 = load ptr, ptr %212, align 8, !tbaa !15
+  %243 = tail call ptr @lpNext(ptr noundef %242, ptr noundef nonnull %240) #16
+  store ptr %243, ptr %8, align 8, !tbaa !85
+  %.not124 = icmp eq ptr %243, null
+  br i1 %.not124, label %244, label %245, !prof !23
 
-243:                                              ; preds = %240
+244:                                              ; preds = %241
   tail call void @_serverAssert(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 940) #16
   tail call void @abort() #17
   unreachable
 
-244:                                              ; preds = %240
-  %245 = load ptr, ptr %211, align 8, !tbaa !15
-  %246 = getelementptr inbounds i8, ptr %3, i64 -1
-  %247 = load i8, ptr %246, align 1, !tbaa !5
-  %248 = zext i8 %247 to i32
-  %249 = and i32 %248, 7
-  switch i32 %249, label %sdslen.exit147 [
-    i32 0, label %250
-    i32 1, label %253
-    i32 2, label %257
-    i32 3, label %261
-    i32 4, label %265
+245:                                              ; preds = %241
+  %246 = load ptr, ptr %212, align 8, !tbaa !15
+  %247 = getelementptr inbounds i8, ptr %3, i64 -1
+  %248 = load i8, ptr %247, align 1, !tbaa !5
+  %249 = zext i8 %248 to i32
+  %250 = and i32 %249, 7
+  switch i32 %250, label %sdslen.exit147 [
+    i32 0, label %251
+    i32 1, label %254
+    i32 2, label %258
+    i32 3, label %262
+    i32 4, label %266
   ]
 
-250:                                              ; preds = %244
-  %251 = lshr i32 %248, 3
-  %252 = zext nneg i32 %251 to i64
+251:                                              ; preds = %245
+  %252 = lshr i32 %249, 3
+  %253 = zext nneg i32 %252 to i64
   br label %sdslen.exit147
 
-253:                                              ; preds = %244
-  %254 = getelementptr inbounds i8, ptr %3, i64 -3
-  %255 = load i8, ptr %254, align 1, !tbaa !5
-  %256 = zext i8 %255 to i64
+254:                                              ; preds = %245
+  %255 = getelementptr inbounds i8, ptr %3, i64 -3
+  %256 = load i8, ptr %255, align 1, !tbaa !5
+  %257 = zext i8 %256 to i64
   br label %sdslen.exit147
 
-257:                                              ; preds = %244
-  %258 = getelementptr inbounds i8, ptr %3, i64 -5
-  %259 = load i16, ptr %258, align 1, !tbaa !8
-  %260 = zext i16 %259 to i64
+258:                                              ; preds = %245
+  %259 = getelementptr inbounds i8, ptr %3, i64 -5
+  %260 = load i16, ptr %259, align 1, !tbaa !8
+  %261 = zext i16 %260 to i64
   br label %sdslen.exit147
 
-261:                                              ; preds = %244
-  %262 = getelementptr inbounds i8, ptr %3, i64 -9
-  %263 = load i32, ptr %262, align 1, !tbaa !65
-  %264 = zext i32 %263 to i64
+262:                                              ; preds = %245
+  %263 = getelementptr inbounds i8, ptr %3, i64 -9
+  %264 = load i32, ptr %263, align 1, !tbaa !65
+  %265 = zext i32 %264 to i64
   br label %sdslen.exit147
 
-265:                                              ; preds = %244
-  %266 = getelementptr inbounds i8, ptr %3, i64 -17
-  %267 = load i64, ptr %266, align 1, !tbaa !28
+266:                                              ; preds = %245
+  %267 = getelementptr inbounds i8, ptr %3, i64 -17
+  %268 = load i64, ptr %267, align 1, !tbaa !28
   br label %sdslen.exit147
 
-sdslen.exit147:                                   ; preds = %244, %250, %253, %257, %261, %265
-  %.0.i146 = phi i64 [ %252, %250 ], [ %256, %253 ], [ %260, %257 ], [ %264, %261 ], [ %267, %265 ], [ 0, %244 ]
-  %268 = trunc i64 %.0.i146 to i32
-  %269 = call ptr @lpReplace(ptr noundef %245, ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef %268) #16
-  store ptr %269, ptr %211, align 8, !tbaa !15
-  %270 = load ptr, ptr %8, align 8, !tbaa !85
-  %271 = call ptr @lpPrev(ptr noundef %269, ptr noundef %270) #16
-  %.not125 = icmp eq ptr %271, null
-  br i1 %.not125, label %272, label %273, !prof !23
+sdslen.exit147:                                   ; preds = %245, %251, %254, %258, %262, %266
+  %.0.i146 = phi i64 [ %253, %251 ], [ %257, %254 ], [ %261, %258 ], [ %265, %262 ], [ %268, %266 ], [ 0, %245 ]
+  %269 = trunc i64 %.0.i146 to i32
+  %270 = call ptr @lpReplace(ptr noundef %246, ptr noundef nonnull %8, ptr noundef nonnull %3, i32 noundef %269) #16
+  store ptr %270, ptr %212, align 8, !tbaa !15
+  %271 = load ptr, ptr %8, align 8, !tbaa !85
+  %272 = call ptr @lpPrev(ptr noundef %270, ptr noundef %271) #16
+  %.not125 = icmp eq ptr %272, null
+  br i1 %.not125, label %273, label %274, !prof !23
 
-272:                                              ; preds = %sdslen.exit147
+273:                                              ; preds = %sdslen.exit147
   call void @_serverAssert(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.2, i32 noundef 947) #16
   call void @abort() #17
   unreachable
 
-273:                                              ; preds = %sdslen.exit147
-  %274 = load ptr, ptr %211, align 8, !tbaa !15
-  %275 = load ptr, ptr %8, align 8, !tbaa !85
-  %276 = call ptr @lpNext(ptr noundef %274, ptr noundef %275) #16
-  %.not126 = icmp eq ptr %276, null
-  br i1 %.not126, label %.critedge, label %277, !prof !23
+274:                                              ; preds = %sdslen.exit147
+  %275 = load ptr, ptr %212, align 8, !tbaa !15
+  %276 = load ptr, ptr %8, align 8, !tbaa !85
+  %277 = call ptr @lpNext(ptr noundef %275, ptr noundef %276) #16
+  %.not126 = icmp eq ptr %277, null
+  br i1 %.not126, label %.critedge, label %278, !prof !23
 
-277:                                              ; preds = %273
-  %278 = call i32 @lpGetIntegerValue(ptr noundef nonnull %276, ptr noundef nonnull %9) #16
-  %.not173 = icmp eq i32 %278, 0
-  br i1 %.not173, label %.critedge, label %279, !prof !23
+278:                                              ; preds = %274
+  %279 = call i32 @lpGetIntegerValue(ptr noundef nonnull %277, ptr noundef nonnull %9) #16
+  %.not171 = icmp eq i32 %279, 0
+  br i1 %.not171, label %.critedge, label %280, !prof !23
 
-.critedge:                                        ; preds = %273, %277
+.critedge:                                        ; preds = %274, %278
   call void @_serverAssert(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.2, i32 noundef 950) #16
   call void @abort() #17
   unreachable
 
-279:                                              ; preds = %277
-  %280 = and i32 %4, 4
-  %281 = icmp eq i32 %280, 0
-  %282 = load i64, ptr %9, align 8
-  %283 = icmp ne i64 %282, 0
-  %or.cond5 = select i1 %281, i1 %283, i1 false
-  br i1 %or.cond5, label %284, label %342
+280:                                              ; preds = %278
+  %281 = and i32 %4, 4
+  %282 = icmp eq i32 %281, 0
+  %283 = load i64, ptr %9, align 8
+  %284 = icmp ne i64 %283, 0
+  %or.cond5 = select i1 %282, i1 %284, i1 false
+  br i1 %or.cond5, label %285, label %343
 
-284:                                              ; preds = %279
-  %285 = load ptr, ptr %8, align 8, !tbaa !85
-  call fastcc void @listpackExUpdateExpiry(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %271, ptr noundef %285, i64 noundef 0)
-  br label %342
+285:                                              ; preds = %280
+  %286 = load ptr, ptr %8, align 8, !tbaa !85
+  call fastcc void @listpackExUpdateExpiry(ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %272, ptr noundef %286, i64 noundef 0)
+  br label %343
 
-286:                                              ; preds = %sdslen.exit145, %208
-  %287 = getelementptr inbounds i8, ptr %2, i64 -1
-  %288 = load i8, ptr %287, align 1, !tbaa !5
-  %289 = zext i8 %288 to i32
-  %290 = and i32 %289, 7
-  switch i32 %290, label %sdslen.exit149 [
-    i32 0, label %291
-    i32 1, label %294
-    i32 2, label %298
-    i32 3, label %302
-    i32 4, label %306
+287:                                              ; preds = %sdslen.exit145, %209
+  %288 = getelementptr inbounds i8, ptr %2, i64 -1
+  %289 = load i8, ptr %288, align 1, !tbaa !5
+  %290 = zext i8 %289 to i32
+  %291 = and i32 %290, 7
+  switch i32 %291, label %sdslen.exit149 [
+    i32 0, label %292
+    i32 1, label %295
+    i32 2, label %299
+    i32 3, label %303
+    i32 4, label %307
   ]
 
-291:                                              ; preds = %286
-  %292 = lshr i32 %289, 3
-  %293 = zext nneg i32 %292 to i64
+292:                                              ; preds = %287
+  %293 = lshr i32 %290, 3
+  %294 = zext nneg i32 %293 to i64
   br label %sdslen.exit149
 
-294:                                              ; preds = %286
-  %295 = getelementptr inbounds i8, ptr %2, i64 -3
-  %296 = load i8, ptr %295, align 1, !tbaa !5
-  %297 = zext i8 %296 to i64
+295:                                              ; preds = %287
+  %296 = getelementptr inbounds i8, ptr %2, i64 -3
+  %297 = load i8, ptr %296, align 1, !tbaa !5
+  %298 = zext i8 %297 to i64
   br label %sdslen.exit149
 
-298:                                              ; preds = %286
-  %299 = getelementptr inbounds i8, ptr %2, i64 -5
-  %300 = load i16, ptr %299, align 1, !tbaa !8
-  %301 = zext i16 %300 to i64
+299:                                              ; preds = %287
+  %300 = getelementptr inbounds i8, ptr %2, i64 -5
+  %301 = load i16, ptr %300, align 1, !tbaa !8
+  %302 = zext i16 %301 to i64
   br label %sdslen.exit149
 
-302:                                              ; preds = %286
-  %303 = getelementptr inbounds i8, ptr %2, i64 -9
-  %304 = load i32, ptr %303, align 1, !tbaa !65
-  %305 = zext i32 %304 to i64
+303:                                              ; preds = %287
+  %304 = getelementptr inbounds i8, ptr %2, i64 -9
+  %305 = load i32, ptr %304, align 1, !tbaa !65
+  %306 = zext i32 %305 to i64
   br label %sdslen.exit149
 
-306:                                              ; preds = %286
-  %307 = getelementptr inbounds i8, ptr %2, i64 -17
-  %308 = load i64, ptr %307, align 1, !tbaa !28
+307:                                              ; preds = %287
+  %308 = getelementptr inbounds i8, ptr %2, i64 -17
+  %309 = load i64, ptr %308, align 1, !tbaa !28
   br label %sdslen.exit149
 
-sdslen.exit149:                                   ; preds = %286, %291, %294, %298, %302, %306
-  %.0.i148 = phi i64 [ %293, %291 ], [ %297, %294 ], [ %301, %298 ], [ %305, %302 ], [ %308, %306 ], [ 0, %286 ]
-  %309 = getelementptr inbounds i8, ptr %3, i64 -1
-  %310 = load i8, ptr %309, align 1, !tbaa !5
-  %311 = zext i8 %310 to i32
-  %312 = and i32 %311, 7
-  switch i32 %312, label %sdslen.exit151 [
-    i32 0, label %313
-    i32 1, label %316
-    i32 2, label %320
-    i32 3, label %324
-    i32 4, label %328
+sdslen.exit149:                                   ; preds = %287, %292, %295, %299, %303, %307
+  %.0.i148 = phi i64 [ %294, %292 ], [ %298, %295 ], [ %302, %299 ], [ %306, %303 ], [ %309, %307 ], [ 0, %287 ]
+  %310 = getelementptr inbounds i8, ptr %3, i64 -1
+  %311 = load i8, ptr %310, align 1, !tbaa !5
+  %312 = zext i8 %311 to i32
+  %313 = and i32 %312, 7
+  switch i32 %313, label %sdslen.exit151 [
+    i32 0, label %314
+    i32 1, label %317
+    i32 2, label %321
+    i32 3, label %325
+    i32 4, label %329
   ]
 
-313:                                              ; preds = %sdslen.exit149
-  %314 = lshr i32 %311, 3
-  %315 = zext nneg i32 %314 to i64
+314:                                              ; preds = %sdslen.exit149
+  %315 = lshr i32 %312, 3
+  %316 = zext nneg i32 %315 to i64
   br label %sdslen.exit151
 
-316:                                              ; preds = %sdslen.exit149
-  %317 = getelementptr inbounds i8, ptr %3, i64 -3
-  %318 = load i8, ptr %317, align 1, !tbaa !5
-  %319 = zext i8 %318 to i64
+317:                                              ; preds = %sdslen.exit149
+  %318 = getelementptr inbounds i8, ptr %3, i64 -3
+  %319 = load i8, ptr %318, align 1, !tbaa !5
+  %320 = zext i8 %319 to i64
   br label %sdslen.exit151
 
-320:                                              ; preds = %sdslen.exit149
-  %321 = getelementptr inbounds i8, ptr %3, i64 -5
-  %322 = load i16, ptr %321, align 1, !tbaa !8
-  %323 = zext i16 %322 to i64
+321:                                              ; preds = %sdslen.exit149
+  %322 = getelementptr inbounds i8, ptr %3, i64 -5
+  %323 = load i16, ptr %322, align 1, !tbaa !8
+  %324 = zext i16 %323 to i64
   br label %sdslen.exit151
 
-324:                                              ; preds = %sdslen.exit149
-  %325 = getelementptr inbounds i8, ptr %3, i64 -9
-  %326 = load i32, ptr %325, align 1, !tbaa !65
-  %327 = zext i32 %326 to i64
+325:                                              ; preds = %sdslen.exit149
+  %326 = getelementptr inbounds i8, ptr %3, i64 -9
+  %327 = load i32, ptr %326, align 1, !tbaa !65
+  %328 = zext i32 %327 to i64
   br label %sdslen.exit151
 
-328:                                              ; preds = %sdslen.exit149
-  %329 = getelementptr inbounds i8, ptr %3, i64 -17
-  %330 = load i64, ptr %329, align 1, !tbaa !28
+329:                                              ; preds = %sdslen.exit149
+  %330 = getelementptr inbounds i8, ptr %3, i64 -17
+  %331 = load i64, ptr %330, align 1, !tbaa !28
   br label %sdslen.exit151
 
-sdslen.exit151:                                   ; preds = %sdslen.exit149, %313, %316, %320, %324, %328
-  %.0.i150 = phi i64 [ %315, %313 ], [ %319, %316 ], [ %323, %320 ], [ %327, %324 ], [ %330, %328 ], [ 0, %sdslen.exit149 ]
+sdslen.exit151:                                   ; preds = %sdslen.exit149, %314, %317, %321, %325, %329
+  %.0.i150 = phi i64 [ %316, %314 ], [ %320, %317 ], [ %324, %321 ], [ %328, %325 ], [ %331, %329 ], [ 0, %sdslen.exit149 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %2, ptr %6, align 16, !tbaa !71
-  %331 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %332 = trunc i64 %.0.i148 to i32
-  store i32 %332, ptr %331, align 8, !tbaa !73
-  %333 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 0, ptr %333, align 4
-  %334 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store i64 0, ptr %334, align 16, !tbaa !74
-  %335 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %3, ptr %335, align 8, !tbaa !71
-  %336 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %337 = trunc i64 %.0.i150 to i32
-  store i32 %337, ptr %336, align 16, !tbaa !73
-  %338 = getelementptr inbounds nuw i8, ptr %6, i64 36
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %338, i8 0, i64 36, i1 false)
-  %.val.i = load ptr, ptr %209, align 8, !tbaa !10
-  %339 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
-  %340 = load ptr, ptr %339, align 8, !tbaa !15
-  %341 = call ptr @lpBatchAppend(ptr noundef %340, ptr noundef nonnull %6, i64 noundef 3) #16
-  store ptr %341, ptr %339, align 8, !tbaa !15
+  %332 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %333 = trunc i64 %.0.i148 to i32
+  store i32 %333, ptr %332, align 8, !tbaa !73
+  %334 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 0, ptr %334, align 4
+  %335 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store i64 0, ptr %335, align 16, !tbaa !74
+  %336 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %3, ptr %336, align 8, !tbaa !71
+  %337 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %338 = trunc i64 %.0.i150 to i32
+  store i32 %338, ptr %337, align 16, !tbaa !73
+  %339 = getelementptr inbounds nuw i8, ptr %6, i64 36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %339, i8 0, i64 36, i1 false)
+  %.val.i = load ptr, ptr %210, align 8, !tbaa !10
+  %340 = getelementptr inbounds nuw i8, ptr %.val.i, i64 24
+  %341 = load ptr, ptr %340, align 8, !tbaa !15
+  %342 = call ptr @lpBatchAppend(ptr noundef %341, ptr noundef nonnull %6, i64 noundef 3) #16
+  store ptr %342, ptr %340, align 8, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %342
+  br label %343
 
-342:                                              ; preds = %279, %284, %sdslen.exit151
-  %.2169 = phi i32 [ 0, %sdslen.exit151 ], [ 1, %284 ], [ 1, %279 ]
-  %343 = load i32, ptr %1, align 8
-  %344 = lshr i32 %343, 4
-  %345 = and i32 %344, 15
-  switch i32 %345, label %363 [
-    i32 11, label %346
-    i32 12, label %350
-    i32 2, label %356
+343:                                              ; preds = %280, %285, %sdslen.exit151
+  %.2169 = phi i32 [ 0, %sdslen.exit151 ], [ 1, %285 ], [ 1, %280 ]
+  %344 = load i32, ptr %1, align 8
+  %345 = lshr i32 %344, 4
+  %346 = and i32 %345, 15
+  switch i32 %346, label %364 [
+    i32 11, label %347
+    i32 12, label %351
+    i32 2, label %357
   ]
 
-346:                                              ; preds = %342
-  %347 = load ptr, ptr %209, align 8, !tbaa !10
-  %348 = call i64 @lpLength(ptr noundef %347) #16
-  %349 = lshr i64 %348, 1
+347:                                              ; preds = %343
+  %348 = load ptr, ptr %210, align 8, !tbaa !10
+  %349 = call i64 @lpLength(ptr noundef %348) #16
+  %350 = lshr i64 %349, 1
   br label %hashTypeLength.exit153
 
-350:                                              ; preds = %342
-  %351 = load ptr, ptr %209, align 8, !tbaa !10
-  %352 = getelementptr inbounds nuw i8, ptr %351, i64 24
-  %353 = load ptr, ptr %352, align 8, !tbaa !15
-  %354 = call i64 @lpLength(ptr noundef %353) #16
-  %355 = udiv i64 %354, 3
+351:                                              ; preds = %343
+  %352 = load ptr, ptr %210, align 8, !tbaa !10
+  %353 = getelementptr inbounds nuw i8, ptr %352, i64 24
+  %354 = load ptr, ptr %353, align 8, !tbaa !15
+  %355 = call i64 @lpLength(ptr noundef %354) #16
+  %356 = udiv i64 %355, 3
   br label %hashTypeLength.exit153
 
-356:                                              ; preds = %342
-  %357 = load ptr, ptr %209, align 8, !tbaa !10
-  %358 = getelementptr inbounds nuw i8, ptr %357, i64 24
-  %359 = load i64, ptr %358, align 8, !tbaa !28
-  %360 = getelementptr inbounds nuw i8, ptr %357, i64 32
-  %361 = load i64, ptr %360, align 8, !tbaa !28
-  %362 = add i64 %361, %359
+357:                                              ; preds = %343
+  %358 = load ptr, ptr %210, align 8, !tbaa !10
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 24
+  %360 = load i64, ptr %359, align 8, !tbaa !28
+  %361 = getelementptr inbounds nuw i8, ptr %358, i64 32
+  %362 = load i64, ptr %361, align 8, !tbaa !28
+  %363 = add i64 %362, %360
   br label %hashTypeLength.exit153
 
-363:                                              ; preds = %342
+364:                                              ; preds = %343
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1325, ptr noundef nonnull @.str.11) #16
   call void @abort() #17
   unreachable
 
-hashTypeLength.exit153:                           ; preds = %346, %350, %356
-  %.0.i152 = phi i64 [ %349, %346 ], [ %362, %356 ], [ %355, %350 ]
-  %364 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7696), align 8, !tbaa !87
-  %365 = icmp ugt i64 %.0.i152, %364
-  br i1 %365, label %366, label %hashTypeConvert.exit154
+hashTypeLength.exit153:                           ; preds = %347, %351, %357
+  %.0.i152 = phi i64 [ %350, %347 ], [ %363, %357 ], [ %356, %351 ]
+  %365 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7696), align 8, !tbaa !87
+  %366 = icmp ugt i64 %.0.i152, %365
+  br i1 %366, label %367, label %hashTypeConvert.exit154
 
-366:                                              ; preds = %hashTypeLength.exit153
-  %367 = load i32, ptr %1, align 8
-  %368 = lshr i32 %367, 4
-  %369 = and i32 %368, 15
-  switch i32 %369, label %374 [
-    i32 11, label %370
-    i32 12, label %371
-    i32 2, label %373
+367:                                              ; preds = %hashTypeLength.exit153
+  %368 = load i32, ptr %1, align 8
+  %369 = lshr i32 %368, 4
+  %370 = and i32 %369, 15
+  switch i32 %370, label %375 [
+    i32 11, label %371
+    i32 12, label %372
+    i32 2, label %374
   ]
 
-370:                                              ; preds = %366
+371:                                              ; preds = %367
   call void @hashTypeConvertListpack(ptr noundef nonnull %1, i32 noundef 2)
   br label %hashTypeConvert.exit154
 
-371:                                              ; preds = %366
-  %372 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %372)
+372:                                              ; preds = %367
+  %373 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  call void @hashTypeConvertListpackEx(ptr noundef nonnull %1, i32 noundef 2, ptr noundef nonnull %373)
   br label %hashTypeConvert.exit154
 
-373:                                              ; preds = %366
+374:                                              ; preds = %367
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1687, ptr noundef nonnull @.str.28) #16
   call void @abort() #17
   unreachable
 
-374:                                              ; preds = %366
+375:                                              ; preds = %367
   call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1689, ptr noundef nonnull @.str.11) #16
   call void @abort() #17
   unreachable
 
-hashTypeConvert.exit154:                          ; preds = %371, %370, %hashTypeLength.exit153
+hashTypeConvert.exit154:                          ; preds = %372, %371, %hashTypeLength.exit153
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %442
+  br label %443
 
-375:                                              ; preds = %hashTypeConvert.exit
-  %376 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %377 = load ptr, ptr %376, align 8, !tbaa !10
-  %378 = tail call i64 @dictGetHash(ptr noundef %377, ptr noundef %2) #16
-  %379 = tail call ptr @dictFindByHash(ptr noundef %377, ptr noundef %2, i64 noundef %378) #16
-  %380 = icmp eq ptr %379, null
-  br i1 %380, label %381, label %411
+376:                                              ; preds = %hashTypeConvert.exit
+  %377 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %378 = load ptr, ptr %377, align 8, !tbaa !10
+  %379 = tail call i64 @dictGetHash(ptr noundef %378, ptr noundef %2) #16
+  %380 = tail call ptr @dictFindByHash(ptr noundef %378, ptr noundef %2, i64 noundef %379) #16
+  %381 = icmp eq ptr %380, null
+  br i1 %381, label %382, label %412
 
-381:                                              ; preds = %375
-  %382 = getelementptr inbounds i8, ptr %2, i64 -1
-  %383 = load i8, ptr %382, align 1, !tbaa !5
-  %384 = zext i8 %383 to i32
-  %385 = and i32 %384, 7
-  switch i32 %385, label %sdslen.exit156 [
-    i32 0, label %386
-    i32 1, label %389
-    i32 2, label %393
-    i32 3, label %397
-    i32 4, label %401
+382:                                              ; preds = %376
+  %383 = getelementptr inbounds i8, ptr %2, i64 -1
+  %384 = load i8, ptr %383, align 1, !tbaa !5
+  %385 = zext i8 %384 to i32
+  %386 = and i32 %385, 7
+  switch i32 %386, label %sdslen.exit156 [
+    i32 0, label %387
+    i32 1, label %390
+    i32 2, label %394
+    i32 3, label %398
+    i32 4, label %402
   ]
 
-386:                                              ; preds = %381
-  %387 = lshr i32 %384, 3
-  %388 = zext nneg i32 %387 to i64
+387:                                              ; preds = %382
+  %388 = lshr i32 %385, 3
+  %389 = zext nneg i32 %388 to i64
   br label %sdslen.exit156
 
-389:                                              ; preds = %381
-  %390 = getelementptr inbounds i8, ptr %2, i64 -3
-  %391 = load i8, ptr %390, align 1, !tbaa !5
-  %392 = zext i8 %391 to i64
+390:                                              ; preds = %382
+  %391 = getelementptr inbounds i8, ptr %2, i64 -3
+  %392 = load i8, ptr %391, align 1, !tbaa !5
+  %393 = zext i8 %392 to i64
   br label %sdslen.exit156
 
-393:                                              ; preds = %381
-  %394 = getelementptr inbounds i8, ptr %2, i64 -5
-  %395 = load i16, ptr %394, align 1, !tbaa !8
-  %396 = zext i16 %395 to i64
+394:                                              ; preds = %382
+  %395 = getelementptr inbounds i8, ptr %2, i64 -5
+  %396 = load i16, ptr %395, align 1, !tbaa !8
+  %397 = zext i16 %396 to i64
   br label %sdslen.exit156
 
-397:                                              ; preds = %381
-  %398 = getelementptr inbounds i8, ptr %2, i64 -9
-  %399 = load i32, ptr %398, align 1, !tbaa !65
-  %400 = zext i32 %399 to i64
+398:                                              ; preds = %382
+  %399 = getelementptr inbounds i8, ptr %2, i64 -9
+  %400 = load i32, ptr %399, align 1, !tbaa !65
+  %401 = zext i32 %400 to i64
   br label %sdslen.exit156
 
-401:                                              ; preds = %381
-  %402 = getelementptr inbounds i8, ptr %2, i64 -17
-  %403 = load i64, ptr %402, align 1, !tbaa !28
+402:                                              ; preds = %382
+  %403 = getelementptr inbounds i8, ptr %2, i64 -17
+  %404 = load i64, ptr %403, align 1, !tbaa !28
   br label %sdslen.exit156
 
-sdslen.exit156:                                   ; preds = %381, %386, %389, %393, %397, %401
-  %.0.i155 = phi i64 [ %388, %386 ], [ %392, %389 ], [ %396, %393 ], [ %400, %397 ], [ %403, %401 ], [ 0, %381 ]
-  %404 = tail call ptr @mstrNew(ptr noundef nonnull %2, i64 noundef %.0.i155, i32 noundef 0) #16
-  %405 = getelementptr inbounds nuw i8, ptr %377, i64 48
-  %406 = load i16, ptr %405, align 8
-  %407 = or i16 %406, -32768
-  store i16 %407, ptr %405, align 8
-  %408 = tail call ptr @dictAddNonExistsByHash(ptr noundef %377, ptr noundef %404, i64 noundef %378) #16
-  %409 = load i16, ptr %405, align 8
-  %410 = and i16 %409, 32767
-  store i16 %410, ptr %405, align 8
-  br label %435
+sdslen.exit156:                                   ; preds = %382, %387, %390, %394, %398, %402
+  %.0.i155 = phi i64 [ %389, %387 ], [ %393, %390 ], [ %397, %394 ], [ %401, %398 ], [ %404, %402 ], [ 0, %382 ]
+  %405 = tail call ptr @mstrNew(ptr noundef nonnull %2, i64 noundef %.0.i155, i32 noundef 0) #16
+  %406 = getelementptr inbounds nuw i8, ptr %378, i64 48
+  %407 = load i16, ptr %406, align 8
+  %408 = or i16 %407, -32768
+  store i16 %408, ptr %406, align 8
+  %409 = tail call ptr @dictAddNonExistsByHash(ptr noundef %378, ptr noundef %405, i64 noundef %379) #16
+  %410 = load i16, ptr %406, align 8
+  %411 = and i16 %410, 32767
+  store i16 %411, ptr %406, align 8
+  br label %436
 
-411:                                              ; preds = %375
-  %412 = and i32 %4, 4
-  %.not = icmp eq i32 %412, 0
-  br i1 %.not, label %413, label %hfieldPersist.exit
+412:                                              ; preds = %376
+  %413 = and i32 %4, 4
+  %.not = icmp eq i32 %413, 0
+  br i1 %.not, label %414, label %hfieldPersist.exit
 
-413:                                              ; preds = %411
-  %414 = tail call ptr @dictGetKey(ptr noundef nonnull %379) #16
-  %415 = getelementptr i8, ptr %414, i64 -1
-  %.val.i.i.i = load i8, ptr %415, align 1, !tbaa !5
-  %416 = and i8 %.val.i.i.i, 4
-  %.not.i.i.i = icmp eq i8 %416, 0
+414:                                              ; preds = %412
+  %415 = tail call ptr @dictGetKey(ptr noundef nonnull %380) #16
+  %416 = getelementptr i8, ptr %415, i64 -1
+  %.val.i.i.i = load i8, ptr %416, align 1, !tbaa !5
+  %417 = and i8 %.val.i.i.i, 4
+  %.not.i.i.i = icmp eq i8 %417, 0
   br i1 %.not.i.i.i, label %hfieldPersist.exit, label %hfieldIsExpireAttached.exit.i.i
 
-hfieldIsExpireAttached.exit.i.i:                  ; preds = %413
-  %417 = tail call ptr @mstrFlagsRef(ptr noundef nonnull %414) #16
-  %418 = load i16, ptr %417, align 2, !tbaa !8
-  %419 = and i16 %418, 1
-  %.not.i.i = icmp eq i16 %419, 0
-  br i1 %.not.i.i, label %hfieldPersist.exit, label %420
+hfieldIsExpireAttached.exit.i.i:                  ; preds = %414
+  %418 = tail call ptr @mstrFlagsRef(ptr noundef nonnull %415) #16
+  %419 = load i16, ptr %418, align 2, !tbaa !8
+  %420 = and i16 %419, 1
+  %.not.i.i = icmp eq i16 %420, 0
+  br i1 %.not.i.i, label %hfieldPersist.exit, label %421
 
-420:                                              ; preds = %hfieldIsExpireAttached.exit.i.i
-  %421 = tail call ptr @mstrMetaRef(ptr noundef nonnull %414, ptr noundef nonnull @mstrFieldKind, i32 noundef 0) #16
-  %422 = getelementptr inbounds nuw i8, ptr %421, i64 6
-  %423 = load i16, ptr %422, align 2
-  %424 = and i16 %423, 256
-  %.not4.i.i = icmp eq i16 %424, 0
+421:                                              ; preds = %hfieldIsExpireAttached.exit.i.i
+  %422 = tail call ptr @mstrMetaRef(ptr noundef nonnull %415, ptr noundef nonnull @mstrFieldKind, i32 noundef 0) #16
+  %423 = getelementptr inbounds nuw i8, ptr %422, i64 6
+  %424 = load i16, ptr %423, align 2
+  %425 = and i16 %424, 256
+  %.not4.i.i = icmp eq i16 %425, 0
   br i1 %.not4.i.i, label %hfieldGetExpireTime.exit.i, label %hfieldPersist.exit
 
-hfieldGetExpireTime.exit.i:                       ; preds = %420
-  %425 = load ptr, ptr %376, align 8, !tbaa !10
-  %426 = getelementptr inbounds nuw i8, ptr %425, i64 62
-  %427 = load i16, ptr %426, align 2
-  %428 = and i16 %427, 256
-  %429 = icmp eq i16 %428, 0
-  br i1 %429, label %431, label %430, !prof !14
+hfieldGetExpireTime.exit.i:                       ; preds = %421
+  %426 = load ptr, ptr %377, align 8, !tbaa !10
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 62
+  %428 = load i16, ptr %427, align 2
+  %429 = and i16 %428, 256
+  %430 = icmp eq i16 %429, 0
+  br i1 %430, label %432, label %431, !prof !14
 
-430:                                              ; preds = %hfieldGetExpireTime.exit.i
+431:                                              ; preds = %hfieldGetExpireTime.exit.i
   tail call void @_serverAssert(ptr noundef nonnull @.str.81, ptr noundef nonnull @.str.2, i32 noundef 3468) #16
   tail call void @abort() #17
   unreachable
 
-431:                                              ; preds = %hfieldGetExpireTime.exit.i
-  %432 = getelementptr inbounds nuw i8, ptr %425, i64 72
-  %433 = tail call i32 @ebRemove(ptr noundef nonnull %432, ptr noundef nonnull @hashFieldExpireBucketsType, ptr noundef nonnull %414) #16
+432:                                              ; preds = %hfieldGetExpireTime.exit.i
+  %433 = getelementptr inbounds nuw i8, ptr %426, i64 72
+  %434 = tail call i32 @ebRemove(ptr noundef nonnull %433, ptr noundef nonnull @hashFieldExpireBucketsType, ptr noundef nonnull %415) #16
   br label %hfieldPersist.exit
 
-hfieldPersist.exit:                               ; preds = %431, %420, %hfieldIsExpireAttached.exit.i.i, %413, %411
-  %434 = tail call ptr @dictGetVal(ptr noundef nonnull %379) #16
-  tail call void @sdsfree(ptr noundef %434) #16
-  br label %435
+hfieldPersist.exit:                               ; preds = %432, %421, %hfieldIsExpireAttached.exit.i.i, %414, %412
+  %435 = tail call ptr @dictGetVal(ptr noundef nonnull %380) #16
+  tail call void @sdsfree(ptr noundef %435) #16
+  br label %436
 
-435:                                              ; preds = %hfieldPersist.exit, %sdslen.exit156
-  %.0109 = phi ptr [ %408, %sdslen.exit156 ], [ %379, %hfieldPersist.exit ]
+436:                                              ; preds = %hfieldPersist.exit, %sdslen.exit156
+  %.0109 = phi ptr [ %409, %sdslen.exit156 ], [ %380, %hfieldPersist.exit ]
   %.3 = phi i32 [ 0, %sdslen.exit156 ], [ 1, %hfieldPersist.exit ]
-  %436 = and i32 %4, 2
-  %.not121 = icmp eq i32 %436, 0
-  br i1 %.not121, label %439, label %437
+  %437 = and i32 %4, 2
+  %.not121 = icmp eq i32 %437, 0
+  br i1 %.not121, label %440, label %438
 
-437:                                              ; preds = %435
-  tail call void @dictSetVal(ptr noundef %377, ptr noundef %.0109, ptr noundef %3) #16
-  %438 = and i32 %4, -3
-  br label %442
+438:                                              ; preds = %436
+  tail call void @dictSetVal(ptr noundef %378, ptr noundef %.0109, ptr noundef %3) #16
+  %439 = and i32 %4, -3
+  br label %443
 
-439:                                              ; preds = %435
-  %440 = tail call ptr @sdsdup(ptr noundef %3) #16
-  tail call void @dictSetVal(ptr noundef %377, ptr noundef %.0109, ptr noundef %440) #16
-  br label %442
+440:                                              ; preds = %436
+  %441 = tail call ptr @sdsdup(ptr noundef %3) #16
+  tail call void @dictSetVal(ptr noundef %378, ptr noundef %.0109, ptr noundef %441) #16
+  br label %443
 
-441:                                              ; preds = %hashTypeConvert.exit
+442:                                              ; preds = %hashTypeConvert.exit
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1001, ptr noundef nonnull @.str.11) #16
   tail call void @abort() #17
   unreachable
 
-442:                                              ; preds = %437, %439, %hashTypeConvert.exit154, %hashTypeConvert.exit143
-  %.1106 = phi i32 [ %.0105163, %hashTypeConvert.exit143 ], [ %.2169, %hashTypeConvert.exit154 ], [ %.3, %439 ], [ %.3, %437 ]
-  %.0 = phi i32 [ %4, %hashTypeConvert.exit143 ], [ %4, %hashTypeConvert.exit154 ], [ %4, %439 ], [ %438, %437 ]
-  %443 = and i32 %.0, 1
-  %444 = icmp ne i32 %443, 0
-  %445 = icmp ne ptr %2, null
-  %or.cond = and i1 %445, %444
-  br i1 %or.cond, label %446, label %447
+443:                                              ; preds = %438, %440, %hashTypeConvert.exit154, %hashTypeConvert.exit143
+  %.1106 = phi i32 [ %.0105163, %hashTypeConvert.exit143 ], [ %.2169, %hashTypeConvert.exit154 ], [ %.3, %440 ], [ %.3, %438 ]
+  %.0 = phi i32 [ %4, %hashTypeConvert.exit143 ], [ %4, %hashTypeConvert.exit154 ], [ %4, %440 ], [ %439, %438 ]
+  %444 = and i32 %.0, 1
+  %445 = icmp ne i32 %444, 0
+  %446 = icmp ne ptr %2, null
+  %or.cond = and i1 %446, %445
+  br i1 %or.cond, label %447, label %448
 
-446:                                              ; preds = %442
+447:                                              ; preds = %443
   call void @sdsfree(ptr noundef nonnull %2) #16
-  br label %447
+  br label %448
 
-447:                                              ; preds = %446, %442
-  %448 = and i32 %.0, 2
-  %449 = icmp ne i32 %448, 0
-  %450 = icmp ne ptr %3, null
-  %or.cond3 = and i1 %450, %449
-  br i1 %or.cond3, label %451, label %452
+448:                                              ; preds = %447, %443
+  %449 = and i32 %.0, 2
+  %450 = icmp ne i32 %449, 0
+  %451 = icmp ne ptr %3, null
+  %or.cond3 = and i1 %451, %450
+  br i1 %or.cond3, label %452, label %453
 
-451:                                              ; preds = %447
+452:                                              ; preds = %448
   call void @sdsfree(ptr noundef nonnull %3) #16
-  br label %452
+  br label %453
 
-452:                                              ; preds = %451, %447
+453:                                              ; preds = %452, %448
   ret i32 %.1106
 }
 
@@ -3973,23 +3973,23 @@ define dso_local range(i32 -1, 1) i32 @hashTypeNext(ptr noundef captures(none) i
   switch i32 %6, label %130 [
     i32 11, label %29
     i32 12, label %52
-    i32 2, label %.preheader104
+    i32 2, label %.preheader101
   ]
 
-.preheader104:                                    ; preds = %2
+.preheader101:                                    ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.not76 = icmp eq i32 %1, 0
-  br i1 %.not76, label %.preheader104.split.us, label %.preheader104.split
+  br i1 %.not76, label %.preheader101.split.us, label %.preheader101.split
 
-.preheader104.split.us:                           ; preds = %.preheader104
+.preheader101.split.us:                           ; preds = %.preheader101
   %9 = load ptr, ptr %7, align 8, !tbaa !115
   %10 = tail call ptr @dictNext(ptr noundef %9) #16
   store ptr %10, ptr %8, align 8, !tbaa !116
   %.not.us = icmp eq ptr %10, null
   br i1 %.not.us, label %.loopexit, label %11
 
-11:                                               ; preds = %.preheader104.split.us
+11:                                               ; preds = %.preheader101.split.us
   %12 = tail call ptr @dictGetKey(ptr noundef nonnull %10) #16
   %13 = getelementptr i8, ptr %12, i64 -1
   %.val.i.i.us = load i8, ptr %13, align 1, !tbaa !5
@@ -4023,8 +4023,8 @@ hfieldIsExpireAttached.exit.i.us:                 ; preds = %11
   br label %hfieldGetExpireTime.exit.us
 
 hfieldGetExpireTime.exit.us:                      ; preds = %23, %18, %hfieldIsExpireAttached.exit.i.us, %11
-  %.0.i89.us = phi i64 [ 281474976710656, %hfieldIsExpireAttached.exit.i.us ], [ %28, %23 ], [ 281474976710656, %18 ], [ 281474976710656, %11 ]
-  store i64 %.0.i89.us, ptr %4, align 8, !tbaa !114
+  %.0.i88.us = phi i64 [ 281474976710656, %hfieldIsExpireAttached.exit.i.us ], [ %28, %23 ], [ 281474976710656, %18 ], [ 281474976710656, %11 ]
+  store i64 %.0.i88.us, ptr %4, align 8, !tbaa !114
   br label %.loopexit
 
 29:                                               ; preds = %2
@@ -4150,7 +4150,7 @@ hashTypeListpackGetLp.exit:                       ; preds = %57, %59
 80:                                               ; preds = %78, %74
   %.062 = phi ptr [ %75, %74 ], [ %79, %78 ]
   %81 = icmp eq ptr %.062, null
-  br i1 %81, label %.thread99, label %.preheader
+  br i1 %81, label %.thread97, label %.preheader
 
 .preheader:                                       ; preds = %80
   %.not81 = icmp eq i32 %1, 0
@@ -4168,12 +4168,12 @@ hashTypeListpackGetLp.exit:                       ; preds = %57, %59
 
 85:                                               ; preds = %83
   %86 = call i32 @lpGetIntegerValue(ptr noundef nonnull %84, ptr noundef nonnull %3) #16
-  %.not102.us = icmp eq i32 %86, 0
-  br i1 %.not102.us, label %.critedge, label %hashTypeIsExpired.exit.thread, !prof !23
+  %.not99.us = icmp eq i32 %86, 0
+  br i1 %.not99.us, label %.critedge, label %hashTypeIsExpired.exit.thread, !prof !23
 
 .preheader.split:                                 ; preds = %.preheader, %104
-  %.163116 = phi ptr [ %105, %104 ], [ %.062, %.preheader ]
-  %87 = call ptr @lpNext(ptr noundef %.0.i, ptr noundef nonnull %.163116) #16
+  %.163113 = phi ptr [ %105, %104 ], [ %.062, %.preheader ]
+  %87 = call ptr @lpNext(ptr noundef %.0.i, ptr noundef nonnull %.163113) #16
   %.not79 = icmp eq ptr %87, null
   br i1 %.not79, label %.split.us, label %88, !prof !23
 
@@ -4189,8 +4189,8 @@ hashTypeListpackGetLp.exit:                       ; preds = %57, %59
 
 90:                                               ; preds = %88
   %91 = call i32 @lpGetIntegerValue(ptr noundef nonnull %89, ptr noundef nonnull %3) #16
-  %.not102 = icmp eq i32 %91, 0
-  br i1 %.not102, label %.critedge, label %92, !prof !23
+  %.not99 = icmp eq i32 %91, 0
+  br i1 %.not99, label %.critedge, label %92, !prof !23
 
 .critedge:                                        ; preds = %90, %88, %83, %85
   call void @_serverAssert(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.2, i32 noundef 1412) #16
@@ -4223,25 +4223,25 @@ hashTypeListpackGetLp.exit:                       ; preds = %57, %59
 
 hashTypeIsExpired.exit:                           ; preds = %98, %100
   %103 = call i64 @commandTimeSnapshot() #16
-  %.not103 = icmp slt i64 %94, %103
-  br i1 %.not103, label %104, label %hashTypeIsExpired.exit.thread
+  %.not100 = icmp slt i64 %94, %103
+  br i1 %.not100, label %104, label %hashTypeIsExpired.exit.thread
 
 104:                                              ; preds = %hashTypeIsExpired.exit
   %105 = call ptr @lpNext(ptr noundef %.0.i, ptr noundef nonnull %89) #16
   %.not78 = icmp eq ptr %105, null
-  br i1 %.not78, label %.thread99, label %.preheader.split, !llvm.loop !120
+  br i1 %.not78, label %.thread97, label %.preheader.split, !llvm.loop !120
 
-.thread99:                                        ; preds = %104, %80
+.thread97:                                        ; preds = %104, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
 hashTypeIsExpired.exit.thread:                    ; preds = %hashTypeIsExpired.exit, %98, %100, %85
-  %.us-phi117 = phi ptr [ %84, %85 ], [ %89, %100 ], [ %89, %98 ], [ %89, %hashTypeIsExpired.exit ]
-  %.us-phi118 = phi ptr [ %82, %85 ], [ %87, %100 ], [ %87, %98 ], [ %87, %hashTypeIsExpired.exit ]
-  %.us-phi119 = phi ptr [ %.062, %85 ], [ %.163116, %100 ], [ %.163116, %98 ], [ %.163116, %hashTypeIsExpired.exit ]
-  store ptr %.us-phi119, ptr %64, align 8, !tbaa !117
-  store ptr %.us-phi118, ptr %66, align 8, !tbaa !118
-  store ptr %.us-phi117, ptr %67, align 8, !tbaa !119
+  %.us-phi114 = phi ptr [ %84, %85 ], [ %89, %100 ], [ %89, %98 ], [ %89, %hashTypeIsExpired.exit ]
+  %.us-phi115 = phi ptr [ %82, %85 ], [ %87, %100 ], [ %87, %98 ], [ %87, %hashTypeIsExpired.exit ]
+  %.us-phi116 = phi ptr [ %.062, %85 ], [ %.163113, %100 ], [ %.163113, %98 ], [ %.163113, %hashTypeIsExpired.exit ]
+  store ptr %.us-phi116, ptr %64, align 8, !tbaa !117
+  store ptr %.us-phi115, ptr %66, align 8, !tbaa !118
+  store ptr %.us-phi114, ptr %67, align 8, !tbaa !119
   %106 = load i64, ptr %3, align 8, !tbaa !24
   %.not83 = icmp eq i64 %106, 0
   %107 = select i1 %.not83, i64 281474976710656, i64 %106
@@ -4249,14 +4249,14 @@ hashTypeIsExpired.exit.thread:                    ; preds = %hashTypeIsExpired.e
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-.preheader104.split:                              ; preds = %.preheader104, %hfieldGetExpireTime.exit
+.preheader101.split:                              ; preds = %.preheader101, %hfieldGetExpireTime.exit
   %108 = load ptr, ptr %7, align 8, !tbaa !115
   %109 = tail call ptr @dictNext(ptr noundef %108) #16
   store ptr %109, ptr %8, align 8, !tbaa !116
   %.not = icmp eq ptr %109, null
   br i1 %.not, label %.loopexit, label %110
 
-110:                                              ; preds = %.preheader104.split
+110:                                              ; preds = %.preheader101.split
   %111 = tail call ptr @dictGetKey(ptr noundef nonnull %109) #16
   %112 = getelementptr i8, ptr %111, i64 -1
   %.val.i.i = load i8, ptr %112, align 1, !tbaa !5
@@ -4290,19 +4290,19 @@ hfieldIsExpireAttached.exit.i:                    ; preds = %110
   br label %hfieldGetExpireTime.exit
 
 hfieldGetExpireTime.exit:                         ; preds = %110, %hfieldIsExpireAttached.exit.i, %117, %122
-  %.0.i89 = phi i64 [ 281474976710656, %hfieldIsExpireAttached.exit.i ], [ %127, %122 ], [ 281474976710656, %117 ], [ 281474976710656, %110 ]
-  store i64 %.0.i89, ptr %4, align 8, !tbaa !114
+  %.0.i88 = phi i64 [ 281474976710656, %hfieldIsExpireAttached.exit.i ], [ %127, %122 ], [ 281474976710656, %117 ], [ 281474976710656, %110 ]
+  store i64 %.0.i88, ptr %4, align 8, !tbaa !114
   %128 = tail call i64 @commandTimeSnapshot() #16
-  %129 = icmp slt i64 %.0.i89, %128
-  br i1 %129, label %.preheader104.split, label %.loopexit, !llvm.loop !121
+  %129 = icmp slt i64 %.0.i88, %128
+  br i1 %129, label %.preheader101.split, label %.loopexit, !llvm.loop !121
 
 130:                                              ; preds = %2
   tail call void (ptr, i32, ptr, ...) @_serverPanic(ptr noundef nonnull @.str.2, i32 noundef 1437, ptr noundef nonnull @.str.11) #16
   tail call void @abort() #17
   unreachable
 
-.loopexit:                                        ; preds = %hfieldGetExpireTime.exit, %.preheader104.split, %hfieldGetExpireTime.exit.us, %.preheader104.split.us, %.thread, %hashTypeIsExpired.exit.thread, %.thread99, %47
-  %.165 = phi i32 [ -1, %47 ], [ -1, %.thread99 ], [ 0, %hashTypeIsExpired.exit.thread ], [ 0, %.thread ], [ -1, %.preheader104.split.us ], [ 0, %hfieldGetExpireTime.exit.us ], [ -1, %.preheader104.split ], [ 0, %hfieldGetExpireTime.exit ]
+.loopexit:                                        ; preds = %hfieldGetExpireTime.exit, %.preheader101.split, %hfieldGetExpireTime.exit.us, %.preheader101.split.us, %.thread, %hashTypeIsExpired.exit.thread, %.thread97, %47
+  %.165 = phi i32 [ -1, %47 ], [ -1, %.thread97 ], [ 0, %hashTypeIsExpired.exit.thread ], [ 0, %.thread ], [ -1, %.preheader101.split.us ], [ 0, %hfieldGetExpireTime.exit.us ], [ -1, %.preheader101.split ], [ 0, %hfieldGetExpireTime.exit ]
   ret i32 %.165
 }
 

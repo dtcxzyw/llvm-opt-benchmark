@@ -876,9 +876,9 @@ _ZN23cmCursesLongMessageForm9PrintKeysEv.exit:    ; preds = %8, %10, %17
   br label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit, %28, %29, %27
-  %.sink26 = phi i32 [ 555, %27 ], [ 557, %29 ], [ 556, %28 ], [ 554, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit ], [ 554, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit ], [ 554, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit ]
+  %.sink25 = phi i32 [ 555, %27 ], [ 557, %29 ], [ 556, %28 ], [ 554, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit ], [ 554, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit ], [ 554, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit ]
   %30 = load ptr, ptr %5, align 8, !tbaa !25
-  %31 = call i32 @form_driver(ptr noundef %30, i32 noundef %.sink26)
+  %31 = call i32 @form_driver(ptr noundef %30, i32 noundef %.sink25)
   br label %32
 
 32:                                               ; preds = %.sink.split, %_ZN23cmCursesLongMessageForm9PrintKeysEv.exit

@@ -2232,8 +2232,8 @@ _ZNKSt8__detail15_Hash_code_baseIPN4cvc58internal4expr9NodeValueES5_NS_9_Identit
   %43 = load i64, ptr %42, align 8, !tbaa !136
   %44 = urem i64 %.0.i.i.i, %43
   %45 = load i64, ptr %5, align 8, !tbaa !132
-  %.not38 = icmp eq i64 %45, 0
-  br i1 %.not38, label %.critedge, label %46
+  %.not36 = icmp eq i64 %45, 0
+  br i1 %.not36, label %.critedge, label %46
 
 46:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIPN4cvc58internal4expr9NodeValueES5_NS_9_IdentityENS3_25NodeValuePoolHashFunctionENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS5_EEmRKT_.exit
   %47 = load ptr, ptr %0, align 8, !tbaa !137

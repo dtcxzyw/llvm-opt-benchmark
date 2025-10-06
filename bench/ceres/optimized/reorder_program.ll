@@ -1660,8 +1660,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 _ZN4absl12lts_2024011612log_internal12Check_EQImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader: ; preds = %91
   %94 = load ptr, ptr %83, align 8, !tbaa !29
   %95 = load ptr, ptr %24, align 8, !tbaa !26
-  %.not114 = icmp eq ptr %94, %95
-  br i1 %.not114, label %_ZN4absl12lts_2024011612log_internal12Check_EQImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit._crit_edge, label %.lr.ph.preheader
+  %.not113 = icmp eq ptr %94, %95
+  br i1 %.not113, label %_ZN4absl12lts_2024011612log_internal12Check_EQImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZN4absl12lts_2024011612log_internal12Check_EQImplImiEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.preheader
   %96 = sext i32 %81 to i64
@@ -2409,8 +2409,8 @@ _ZN5ceres8internalL45ReorderSchurComplementColumnsUsingSuiteSparseERKNS_13Ordere
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %374 = sub i64 %363, %205
-  %sext103 = shl i64 %374, 32
-  %375 = ashr exact i64 %sext103, 32
+  %sext102 = shl i64 %374, 32
+  %375 = ashr exact i64 %sext102, 32
   store i8 0, ptr %13, align 8, !tbaa !132, !alias.scope !142
   %376 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %9, ptr %376, align 8, !tbaa !137, !alias.scope !142

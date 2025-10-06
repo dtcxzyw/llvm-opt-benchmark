@@ -265,8 +265,8 @@ define linkonce_odr hidden i64 @_ZNK4LIEF12BinaryStream7peek_inEPvmmm(ptr nounde
   %11 = icmp eq ptr %1, null
   %or.cond = or i1 %11, %.not
   %12 = icmp eq ptr %.fca.0.extract, null
-  %or.cond19 = select i1 %or.cond, i1 true, i1 %12
-  br i1 %or.cond19, label %.thread, label %13
+  %or.cond18 = select i1 %or.cond, i1 true, i1 %12
+  br i1 %or.cond18, label %.thread, label %13
 
 13:                                               ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %.fca.0.extract, i64 %3, i1 false)

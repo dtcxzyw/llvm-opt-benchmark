@@ -387,8 +387,8 @@ _ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread: ; preds = %.lr.ph.i.i
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i16, ptr %34, align 8, !tbaa !29
   %36 = icmp ne i16 %35, 0
-  %.not2530 = icmp eq ptr %1, null
-  %.not25 = or i1 %.not2530, %36
+  %.not2529 = icmp eq ptr %1, null
+  %.not25 = or i1 %.not2529, %36
   br i1 %.not25, label %41, label %37
 
 37:                                               ; preds = %_ZNK4llvm5VPlan16getSCEVExpansionEPKNS_4SCEVE.exit.thread

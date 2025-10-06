@@ -523,19 +523,19 @@ extcap_free_extcaps_info_array.exit.i:            ; preds = %._crit_edge.i.i
 
 169:                                              ; preds = %166
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 32
-  %.02343.i.i.i.i = load ptr, ptr %170, align 8
-  %.not3544.i.i.i.i = icmp eq ptr %.02343.i.i.i.i, null
-  br i1 %.not3544.i.i.i.i, label %extcap_if_executable.exit.i.i, label %.lr.ph.i.i.i.i
+  %.02342.i.i.i.i = load ptr, ptr %170, align 8
+  %.not3543.i.i.i.i = icmp eq ptr %.02342.i.i.i.i, null
+  br i1 %.not3543.i.i.i.i, label %extcap_if_executable.exit.i.i, label %.lr.ph.i.i.i.i
 
 171:                                              ; preds = %174
-  %172 = getelementptr inbounds nuw i8, ptr %.02345.i.i.i.i, i64 8
+  %172 = getelementptr inbounds nuw i8, ptr %.02344.i.i.i.i, i64 8
   %.023.i.i.i.i = load ptr, ptr %172, align 8
   %.not35.i.i.i.i = icmp eq ptr %.023.i.i.i.i, null
   br i1 %.not35.i.i.i.i, label %extcap_if_executable.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %169, %171
-  %.02345.i.i.i.i = phi ptr [ %.023.i.i.i.i, %171 ], [ %.02343.i.i.i.i, %169 ]
-  %173 = load ptr, ptr %.02345.i.i.i.i, align 8
+  %.02344.i.i.i.i = phi ptr [ %.023.i.i.i.i, %171 ], [ %.02342.i.i.i.i, %169 ]
+  %173 = load ptr, ptr %.02344.i.i.i.i, align 8
   %.not36.not.i.i.i.i = icmp eq ptr %173, null
   br i1 %.not36.not.i.i.i.i, label %extcap_if_executable.exit.i.i, label %174
 
@@ -811,19 +811,19 @@ define hidden ptr @extcap_get_if_dlts(ptr noundef %0, ptr noundef %1) local_unna
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %.02343.i = load ptr, ptr %17, align 8
-  %.not3544.i = icmp eq ptr %.02343.i, null
-  br i1 %.not3544.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
+  %.02342.i = load ptr, ptr %17, align 8
+  %.not3543.i = icmp eq ptr %.02342.i, null
+  br i1 %.not3543.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 18:                                               ; preds = %21
-  %19 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.02344.i, i64 8
   %.023.i = load ptr, ptr %19, align 8
   %.not35.i = icmp eq ptr %.023.i, null
   br i1 %.not35.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %18
-  %.02345.i = phi ptr [ %.023.i, %18 ], [ %.02343.i, %16 ]
-  %20 = load ptr, ptr %.02345.i, align 8
+  %.02344.i = phi ptr [ %.023.i, %18 ], [ %.02342.i, %16 ]
+  %20 = load ptr, ptr %.02344.i, align 8
   %.not36.not.i = icmp eq ptr %20, null
   br i1 %.not36.not.i, label %extcap_find_interface_for_ifname.exit.thread, label %21
 
@@ -1057,19 +1057,19 @@ define hidden ptr @extcap_get_help_for_ifname(ptr noundef %0) local_unnamed_addr
 
 12:                                               ; preds = %9
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %.02343.i = load ptr, ptr %13, align 8
-  %.not3544.i = icmp eq ptr %.02343.i, null
-  br i1 %.not3544.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
+  %.02342.i = load ptr, ptr %13, align 8
+  %.not3543.i = icmp eq ptr %.02342.i, null
+  br i1 %.not3543.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 14:                                               ; preds = %17
-  %15 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.02344.i, i64 8
   %.023.i = load ptr, ptr %15, align 8
   %.not35.i = icmp eq ptr %.023.i, null
   br i1 %.not35.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12, %14
-  %.02345.i = phi ptr [ %.023.i, %14 ], [ %.02343.i, %12 ]
-  %16 = load ptr, ptr %.02345.i, align 8
+  %.02344.i = phi ptr [ %.023.i, %14 ], [ %.02342.i, %12 ]
+  %16 = load ptr, ptr %.02344.i, align 8
   %.not36.not.i = icmp eq ptr %16, null
   br i1 %.not36.not.i, label %extcap_find_interface_for_ifname.exit.thread, label %17
 
@@ -1418,19 +1418,19 @@ define hidden ptr @extcap_get_if_configuration(ptr noundef %0) local_unnamed_add
 
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  %.02343.i = load ptr, ptr %14, align 8
-  %.not3544.i = icmp eq ptr %.02343.i, null
-  br i1 %.not3544.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
+  %.02342.i = load ptr, ptr %14, align 8
+  %.not3543.i = icmp eq ptr %.02342.i, null
+  br i1 %.not3543.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 15:                                               ; preds = %18
-  %16 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.02344.i, i64 8
   %.023.i = load ptr, ptr %16, align 8
   %.not35.i = icmp eq ptr %.023.i, null
   br i1 %.not35.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %15
-  %.02345.i = phi ptr [ %.023.i, %15 ], [ %.02343.i, %13 ]
-  %17 = load ptr, ptr %.02345.i, align 8
+  %.02344.i = phi ptr [ %.023.i, %15 ], [ %.02342.i, %13 ]
+  %17 = load ptr, ptr %.02344.i, align 8
   %.not36.not.i = icmp eq ptr %17, null
   br i1 %.not36.not.i, label %extcap_find_interface_for_ifname.exit.thread, label %18
 
@@ -1669,19 +1669,19 @@ define hidden ptr @extcap_get_if_configuration_values(ptr noundef %0, ptr nounde
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.02343.i = load ptr, ptr %16, align 8
-  %.not3544.i = icmp eq ptr %.02343.i, null
-  br i1 %.not3544.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
+  %.02342.i = load ptr, ptr %16, align 8
+  %.not3543.i = icmp eq ptr %.02342.i, null
+  br i1 %.not3543.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 17:                                               ; preds = %20
-  %18 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02344.i, i64 8
   %.023.i = load ptr, ptr %18, align 8
   %.not35.i = icmp eq ptr %.023.i, null
   br i1 %.not35.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %17
-  %.02345.i = phi ptr [ %.023.i, %17 ], [ %.02343.i, %15 ]
-  %19 = load ptr, ptr %.02345.i, align 8
+  %.02344.i = phi ptr [ %.023.i, %17 ], [ %.02342.i, %15 ]
+  %19 = load ptr, ptr %.02344.i, align 8
   %.not36.not.i = icmp eq ptr %19, null
   br i1 %.not36.not.i, label %extcap_find_interface_for_ifname.exit.thread, label %20
 
@@ -1979,19 +1979,19 @@ define hidden i32 @extcap_verify_capture_filter(ptr noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.02343.i = load ptr, ptr %16, align 8
-  %.not3544.i = icmp eq ptr %.02343.i, null
-  br i1 %.not3544.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
+  %.02342.i = load ptr, ptr %16, align 8
+  %.not3543.i = icmp eq ptr %.02342.i, null
+  br i1 %.not3543.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 17:                                               ; preds = %20
-  %18 = getelementptr inbounds nuw i8, ptr %.02345.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02344.i, i64 8
   %.023.i = load ptr, ptr %18, align 8
   %.not35.i = icmp eq ptr %.023.i, null
   br i1 %.not35.i, label %extcap_find_interface_for_ifname.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %15, %17
-  %.02345.i = phi ptr [ %.023.i, %17 ], [ %.02343.i, %15 ]
-  %19 = load ptr, ptr %.02345.i, align 8
+  %.02344.i = phi ptr [ %.023.i, %17 ], [ %.02342.i, %15 ]
+  %19 = load ptr, ptr %.02344.i, align 8
   %.not36.not.i = icmp eq ptr %19, null
   br i1 %.not36.not.i, label %extcap_find_interface_for_ifname.exit.thread, label %20
 
@@ -2132,8 +2132,8 @@ define hidden noalias noundef ptr @extcap_get_tool_by_ifname(ptr noundef %0) loc
   %.not = icmp eq ptr %6, null
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 361), align 1, !range !6
   %8 = trunc nuw i8 %7 to i1
-  %or.cond12 = select i1 %.not, i1 true, i1 %8
-  br i1 %or.cond12, label %extcap_ensure_interface.exit, label %9
+  %or.cond11 = select i1 %.not, i1 true, i1 %8
+  br i1 %or.cond11, label %extcap_ensure_interface.exit, label %9
 
 9:                                                ; preds = %5
   %10 = load ptr, ptr @_loaded_interfaces, align 8

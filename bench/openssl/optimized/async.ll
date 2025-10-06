@@ -524,12 +524,12 @@ define range(i32 0, 2) i32 @ASYNC_init_thread(i64 noundef %0, i64 noundef %1) lo
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store i64 %0, ptr %18, align 8, !tbaa !36
-  %.not3341 = icmp eq i64 %1, 0
-  br i1 %.not3341, label %.split.thread, label %.lr.ph
+  %.not3340 = icmp eq i64 %1, 0
+  br i1 %.not3340, label %.split.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %.split
   %.in = phi i64 [ %19, %.split ], [ %1, %17 ]
-  %.02542 = phi i64 [ %29, %.split ], [ 0, %17 ]
+  %.02541 = phi i64 [ %29, %.split ], [ 0, %17 ]
   %19 = add i64 %.in, -1
   %20 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 1216, ptr noundef nonnull @.str, i32 noundef 82) #8
   %21 = icmp eq ptr %20, null
@@ -554,14 +554,14 @@ async_job_free.exit:                              ; preds = %22
   store ptr null, ptr %25, align 8, !tbaa !24
   %27 = load ptr, ptr %10, align 8, !tbaa !32
   %28 = tail call i32 @OPENSSL_sk_push(ptr noundef %27, ptr noundef nonnull %20) #8
-  %29 = add nuw i64 %.02542, 1
+  %29 = add nuw i64 %.02541, 1
   %.not33 = icmp eq i64 %19, 0
   br i1 %.not33, label %.split.thread, label %.lr.ph
 
 .split.thread:                                    ; preds = %.split, %.lr.ph, %17, %async_job_free.exit
-  %.02540 = phi i64 [ %.02542, %async_job_free.exit ], [ 0, %17 ], [ %1, %.split ], [ %.02542, %.lr.ph ]
+  %.02539 = phi i64 [ %.02541, %async_job_free.exit ], [ 0, %17 ], [ %1, %.split ], [ %.02541, %.lr.ph ]
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %.02540, ptr %30, align 8, !tbaa !37
+  store i64 %.02539, ptr %30, align 8, !tbaa !37
   %31 = tail call i32 @CRYPTO_THREAD_set_local(ptr noundef nonnull @poolkey, ptr noundef nonnull %10) #8
   %.not35 = icmp eq i32 %31, 0
   br i1 %.not35, label %32, label %41

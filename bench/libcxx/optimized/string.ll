@@ -2528,28 +2528,28 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %18
-  %.01528.i.i = phi ptr [ %28, %._crit_edge.i.i ], [ %19, %18 ]
-  %22 = load i8, ptr %.01528.i.i, align 1, !tbaa !4
+  %.01526.i.i = phi ptr [ %28, %._crit_edge.i.i ], [ %19, %18 ]
+  %22 = load i8, ptr %.01526.i.i, align 1, !tbaa !4
   br label %25
 
 23:                                               ; preds = %25
-  %24 = getelementptr inbounds nuw i8, ptr %.01326.i.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.01324.i.i, i64 1
   %.not17.i.i = icmp eq ptr %24, %21
   br i1 %.not17.i.i, label %._crit_edge.i.i, label %25, !llvm.loop !15
 
 25:                                               ; preds = %23, %.preheader.i.i
-  %.01326.i.i = phi ptr [ %1, %.preheader.i.i ], [ %24, %23 ]
-  %26 = load i8, ptr %.01326.i.i, align 1, !tbaa !4
+  %.01324.i.i = phi ptr [ %1, %.preheader.i.i ], [ %24, %23 ]
+  %26 = load i8, ptr %.01324.i.i, align 1, !tbaa !4
   %27 = icmp eq i8 %22, %26
   br i1 %27, label %_ZNSt3__118__find_first_of_ceB8ne210000IPKcS2_RDoFbccEEET_S5_S5_T0_S6_OT1_.exit.i, label %23
 
 ._crit_edge.i.i:                                  ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 1
+  %28 = getelementptr inbounds nuw i8, ptr %.01526.i.i, i64 1
   %.not.i.i3 = icmp eq ptr %28, %20
   br i1 %.not.i.i3, label %_ZNSt3__118__find_first_of_ceB8ne210000IPKcS2_RDoFbccEEET_S5_S5_T0_S6_OT1_.exit.i, label %.preheader.i.i, !llvm.loop !16
 
 _ZNSt3__118__find_first_of_ceB8ne210000IPKcS2_RDoFbccEEET_S5_S5_T0_S6_OT1_.exit.i: ; preds = %._crit_edge.i.i, %25
-  %.2.i.i = phi ptr [ %.01528.i.i, %25 ], [ %20, %._crit_edge.i.i ]
+  %.2.i.i = phi ptr [ %.01526.i.i, %25 ], [ %20, %._crit_edge.i.i ]
   %29 = icmp eq ptr %.2.i.i, %20
   %30 = ptrtoint ptr %.2.i.i to i64
   %31 = ptrtoint ptr %10 to i64
@@ -2597,16 +2597,16 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   %24 = sext i8 %23 to i32
   %25 = tail call noundef ptr @memchr(ptr noundef %1, i32 noundef %24, i64 noundef %3) #28
   %.not26.i = icmp eq ptr %25, null
-  br i1 %.not26.i, label %20, label %26, !llvm.loop !17
+  br i1 %.not26.i, label %20, label %.thread.loopexit.split.loop.exit.i, !llvm.loop !17
 
-26:                                               ; preds = %21
-  %27 = ptrtoint ptr %22 to i64
-  %28 = ptrtoint ptr %10 to i64
-  %29 = sub i64 %27, %28
+.thread.loopexit.split.loop.exit.i:               ; preds = %21
+  %26 = ptrtoint ptr %22 to i64
+  %27 = ptrtoint ptr %10 to i64
+  %28 = sub i64 %26, %27
   br label %_ZNSt3__118__str_find_last_ofB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
 
-_ZNSt3__118__str_find_last_ofB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %20, %4, %26
-  %.3.i = phi i64 [ %29, %26 ], [ -1, %4 ], [ -1, %20 ]
+_ZNSt3__118__str_find_last_ofB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %20, %4, %.thread.loopexit.split.loop.exit.i
+  %.3.i = phi i64 [ -1, %4 ], [ %28, %.thread.loopexit.split.loop.exit.i ], [ -1, %20 ]
   ret i64 %.3.i
 }
 
@@ -2633,20 +2633,20 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23, %.lr.ph.preheader.i
-  %.01624.i = phi ptr [ %24, %23 ], [ %18, %.lr.ph.preheader.i ]
-  %19 = load i8, ptr %.01624.i, align 1, !tbaa !4
+  %.01623.i = phi ptr [ %24, %23 ], [ %18, %.lr.ph.preheader.i ]
+  %19 = load i8, ptr %.01623.i, align 1, !tbaa !4
   %20 = sext i8 %19 to i32
   %21 = tail call noundef ptr @memchr(ptr noundef %1, i32 noundef %20, i64 noundef %3) #28
   %22 = icmp eq ptr %21, null
   br i1 %22, label %25, label %23
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds nuw i8, ptr %.01624.i, i64 1
+  %24 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 1
   %.not.not.i = icmp eq ptr %24, %17
   br i1 %.not.not.i, label %_ZNSt3__123__str_find_first_not_ofB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %.lr.ph.i, !llvm.loop !18
 
 25:                                               ; preds = %.lr.ph.i
-  %26 = ptrtoint ptr %.01624.i to i64
+  %26 = ptrtoint ptr %.01623.i to i64
   %27 = ptrtoint ptr %10 to i64
   %28 = sub i64 %26, %27
   br label %_ZNSt3__123__str_find_first_not_ofB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
@@ -2696,8 +2696,8 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIcNS_11char_trait
   br label %_ZNSt3__122__str_find_last_not_ofB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
 
 _ZNSt3__122__str_find_last_not_ofB8ne210000IcmNS_11char_traitsIcEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %19, %26
-  %spec.select.i = phi i64 [ %29, %26 ], [ -1, %19 ]
-  ret i64 %spec.select.i
+  %30 = phi i64 [ %29, %26 ], [ -1, %19 ]
+  ret i64 %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -3288,32 +3288,31 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br label %_ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit
 
 10:                                               ; preds = %3
-  %11 = add i64 %2, 9
-  %12 = icmp ult i64 %11, 31
-  br i1 %12, label %13, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
+  %11 = icmp ugt i64 %2, -10
+  br i1 %11, label %12, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
 
-13:                                               ; preds = %10
+12:                                               ; preds = %10
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne210000Ev() #25
   unreachable
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit: ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %2, i64 44)
-  %15 = or i64 %.sroa.speculated.i, 7
-  %16 = add nuw i64 %15, 1
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #26
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %2, i1 false)
-  store ptr %17, ptr %14, align 8, !tbaa !4
-  %18 = or disjoint i64 %16, 1
-  store i64 %18, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %19, align 8, !tbaa !4
+  %14 = or i64 %.sroa.speculated.i, 7
+  %15 = add nuw i64 %14, 1
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %1, i64 %2, i1 false)
+  store ptr %16, ptr %13, align 8, !tbaa !4
+  %17 = or disjoint i64 %15, 1
+  store i64 %17, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %2, ptr %18, align 8, !tbaa !4
   br label %_ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit
 
 _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit: ; preds = %9, %5, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
-  %.sink21 = phi ptr [ %17, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %6, %5 ], [ %6, %9 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink21, i64 %2
-  store i8 0, ptr %20, align 1, !tbaa !4
+  %.sink21 = phi ptr [ %16, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %6, %5 ], [ %6, %9 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sink21, i64 %2
+  store i8 0, ptr %19, align 1, !tbaa !4
   ret ptr %0
 }
 
@@ -5421,28 +5420,28 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %18
-  %.01528.i.i = phi ptr [ %28, %._crit_edge.i.i ], [ %19, %18 ]
-  %22 = load i32, ptr %.01528.i.i, align 4, !tbaa !7
+  %.01526.i.i = phi ptr [ %28, %._crit_edge.i.i ], [ %19, %18 ]
+  %22 = load i32, ptr %.01526.i.i, align 4, !tbaa !7
   br label %25
 
 23:                                               ; preds = %25
-  %24 = getelementptr inbounds nuw i8, ptr %.01326.i.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.01324.i.i, i64 4
   %.not17.i.i = icmp eq ptr %24, %21
   br i1 %.not17.i.i, label %._crit_edge.i.i, label %25, !llvm.loop !27
 
 25:                                               ; preds = %23, %.preheader.i.i
-  %.01326.i.i = phi ptr [ %1, %.preheader.i.i ], [ %24, %23 ]
-  %26 = load i32, ptr %.01326.i.i, align 4, !tbaa !7
+  %.01324.i.i = phi ptr [ %1, %.preheader.i.i ], [ %24, %23 ]
+  %26 = load i32, ptr %.01324.i.i, align 4, !tbaa !7
   %27 = icmp eq i32 %22, %26
   br i1 %27, label %_ZNSt3__118__find_first_of_ceB8ne210000IPKwS2_RDoFbwwEEET_S5_S5_T0_S6_OT1_.exit.i, label %23
 
 ._crit_edge.i.i:                                  ; preds = %23
-  %28 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 4
+  %28 = getelementptr inbounds nuw i8, ptr %.01526.i.i, i64 4
   %.not.i.i3 = icmp eq ptr %28, %20
   br i1 %.not.i.i3, label %_ZNSt3__118__find_first_of_ceB8ne210000IPKwS2_RDoFbwwEEET_S5_S5_T0_S6_OT1_.exit.i, label %.preheader.i.i, !llvm.loop !28
 
 _ZNSt3__118__find_first_of_ceB8ne210000IPKwS2_RDoFbwwEEET_S5_S5_T0_S6_OT1_.exit.i: ; preds = %._crit_edge.i.i, %25
-  %.2.i.i = phi ptr [ %.01528.i.i, %25 ], [ %20, %._crit_edge.i.i ]
+  %.2.i.i = phi ptr [ %.01526.i.i, %25 ], [ %20, %._crit_edge.i.i ]
   %29 = icmp eq ptr %.2.i.i, %20
   %30 = ptrtoint ptr %.2.i.i to i64
   %31 = ptrtoint ptr %10 to i64
@@ -5490,17 +5489,17 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   %23 = load i32, ptr %22, align 4, !tbaa !7
   %24 = tail call noundef ptr @wmemchr(ptr noundef %1, i32 noundef signext %23, i64 noundef %3) #28
   %.not26.i = icmp eq ptr %24, null
-  br i1 %.not26.i, label %20, label %25, !llvm.loop !29
+  br i1 %.not26.i, label %20, label %.thread.loopexit.split.loop.exit.i, !llvm.loop !29
 
-25:                                               ; preds = %21
-  %26 = ptrtoint ptr %22 to i64
-  %27 = ptrtoint ptr %10 to i64
-  %28 = sub i64 %26, %27
-  %29 = ashr exact i64 %28, 2
+.thread.loopexit.split.loop.exit.i:               ; preds = %21
+  %25 = ptrtoint ptr %22 to i64
+  %26 = ptrtoint ptr %10 to i64
+  %27 = sub i64 %25, %26
+  %28 = ashr exact i64 %27, 2
   br label %_ZNSt3__118__str_find_last_ofB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
 
-_ZNSt3__118__str_find_last_ofB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %20, %4, %25
-  %.3.i = phi i64 [ %29, %25 ], [ -1, %4 ], [ -1, %20 ]
+_ZNSt3__118__str_find_last_ofB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %20, %4, %.thread.loopexit.split.loop.exit.i
+  %.3.i = phi i64 [ -1, %4 ], [ %28, %.thread.loopexit.split.loop.exit.i ], [ -1, %20 ]
   ret i64 %.3.i
 }
 
@@ -5527,19 +5526,19 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
-  %.01624.i = phi ptr [ %23, %22 ], [ %18, %.lr.ph.preheader.i ]
-  %19 = load i32, ptr %.01624.i, align 4, !tbaa !7
+  %.01623.i = phi ptr [ %23, %22 ], [ %18, %.lr.ph.preheader.i ]
+  %19 = load i32, ptr %.01623.i, align 4, !tbaa !7
   %20 = tail call noundef ptr @wmemchr(ptr noundef %1, i32 noundef signext %19, i64 noundef %3) #28
   %21 = icmp eq ptr %20, null
   br i1 %21, label %24, label %22
 
 22:                                               ; preds = %.lr.ph.i
-  %23 = getelementptr inbounds nuw i8, ptr %.01624.i, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %.01623.i, i64 4
   %.not.not.i = icmp eq ptr %23, %17
   br i1 %.not.not.i, label %_ZNSt3__123__str_find_first_not_ofB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit, label %.lr.ph.i, !llvm.loop !30
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = ptrtoint ptr %.01624.i to i64
+  %25 = ptrtoint ptr %.01623.i to i64
   %26 = ptrtoint ptr %10 to i64
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 2
@@ -5590,8 +5589,8 @@ define weak_odr dso_local noundef i64 @_ZNKSt3__112basic_stringIwNS_11char_trait
   br label %_ZNSt3__122__str_find_last_not_ofB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit
 
 _ZNSt3__122__str_find_last_not_ofB8ne210000IwmNS_11char_traitsIwEETnT0_Lm18446744073709551615EEES3_PKT_S3_S6_S3_S3_.exit: ; preds = %19, %25
-  %spec.select.i = phi i64 [ %29, %25 ], [ -1, %19 ]
-  ret i64 %spec.select.i
+  %30 = phi i64 [ %29, %25 ], [ -1, %19 ]
+  ret i64 %30
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6128,34 +6127,33 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br label %_ZNSt3__118__char_traits_baseIwjLj4294967295EE4copyB8ne210000EPwPKwm.exit
 
 11:                                               ; preds = %3
-  %12 = add i64 %2, -4611686018427387894
-  %13 = icmp ult i64 %12, -4611686018427387890
-  br i1 %13, label %14, label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE21__grow_by_and_replaceEmmmmmmPKw.exit
+  %12 = icmp ugt i64 %2, 4611686018427387893
+  br i1 %12, label %13, label %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE21__grow_by_and_replaceEmmmmmmPKw.exit
 
-14:                                               ; preds = %11
+13:                                               ; preds = %11
   tail call void @_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE20__throw_length_errorB8ne210000Ev() #25
   unreachable
 
 _ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE21__grow_by_and_replaceEmmmmmmPKw.exit: ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %2, i64 8)
-  %16 = or i64 %.sroa.speculated.i, 1
-  %17 = add nuw nsw i64 %16, 1
-  %18 = shl nuw i64 %17, 2
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #26
-  %20 = shl nuw i64 %2, 2
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr align 4 %1, i64 %20, i1 false)
-  store ptr %19, ptr %15, align 8, !tbaa !4
-  %21 = or disjoint i64 %17, 1
-  store i64 %21, ptr %0, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %22, align 8, !tbaa !4
+  %15 = or i64 %.sroa.speculated.i, 1
+  %16 = add nuw nsw i64 %15, 1
+  %17 = shl nuw i64 %16, 2
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %17) #26
+  %19 = shl nuw i64 %2, 2
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %1, i64 %19, i1 false)
+  store ptr %18, ptr %14, align 8, !tbaa !4
+  %20 = or disjoint i64 %16, 1
+  store i64 %20, ptr %0, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %2, ptr %21, align 8, !tbaa !4
   br label %_ZNSt3__118__char_traits_baseIwjLj4294967295EE4copyB8ne210000EPwPKwm.exit
 
 _ZNSt3__118__char_traits_baseIwjLj4294967295EE4copyB8ne210000EPwPKwm.exit: ; preds = %9, %5, %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE21__grow_by_and_replaceEmmmmmmPKw.exit
-  %.sink21 = phi ptr [ %19, %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE21__grow_by_and_replaceEmmmmmmPKw.exit ], [ %6, %5 ], [ %6, %9 ]
-  %23 = getelementptr inbounds nuw i32, ptr %.sink21, i64 %2
-  store i32 0, ptr %23, align 4, !tbaa !7
+  %.sink21 = phi ptr [ %18, %_ZNSt3__112basic_stringIwNS_11char_traitsIwEENS_9allocatorIwEEE21__grow_by_and_replaceEmmmmmmPKw.exit ], [ %6, %5 ], [ %6, %9 ]
+  %22 = getelementptr inbounds nuw i32, ptr %.sink21, i64 %2
+  store i32 0, ptr %22, align 4, !tbaa !7
   ret ptr %0
 }
 

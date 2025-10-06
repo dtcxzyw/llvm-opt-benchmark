@@ -6469,7 +6469,7 @@ define dso_local noundef range(i32 0, 25) i32 @_ZN4llvm6detail9IEEEFloat3modERKS
   %36 = and i8 %33, 7
   %37 = icmp ne i8 %36, 3
   %38 = and i1 %35, %37
-  br i1 %38, label %.lr.ph38, label %.critedge
+  br i1 %38, label %.lr.ph37, label %.critedge
 
 39:                                               ; preds = %_ZNK4llvm6detail9IEEEFloat10isSmallestEv.exit.thread
   %40 = load i8, ptr %16, align 4
@@ -6478,17 +6478,17 @@ define dso_local noundef range(i32 0, 25) i32 @_ZN4llvm6detail9IEEEFloat3modERKS
   %43 = and i8 %40, 7
   %44 = icmp ne i8 %43, 3
   %45 = and i1 %42, %44
-  br i1 %45, label %.lr.ph38, label %.critedge
+  br i1 %45, label %.lr.ph37, label %.critedge
 
-.lr.ph38:                                         ; preds = %.lr.ph, %39
-  %.0113037 = phi i32 [ %.0.i.i, %39 ], [ %7, %.lr.ph ]
+.lr.ph37:                                         ; preds = %.lr.ph, %39
+  %.0112936 = phi i32 [ %.0.i.i, %39 ], [ %7, %.lr.ph ]
   %46 = load i32, ptr %17, align 8, !tbaa !25
   %47 = load i32, ptr %18, align 8, !tbaa !25
   %48 = sub nsw i32 %46, %47
   %49 = icmp eq i32 %48, 0
   br i1 %49, label %50, label %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit
 
-50:                                               ; preds = %.lr.ph38
+50:                                               ; preds = %.lr.ph37
   %51 = load ptr, ptr %0, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 4, !tbaa !12
@@ -6509,8 +6509,8 @@ define dso_local noundef range(i32 0, 25) i32 @_ZN4llvm6detail9IEEEFloat3modERKS
   %65 = call noundef i32 @_ZN4llvm5APInt9tcCompareEPKmS2_j(ptr noundef %.0.i.i.i, ptr noundef %.0.i.i8.i, i32 noundef %.sroa.speculated.i.i.i) #27
   br label %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit
 
-_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit: ; preds = %.lr.ph38, %50
-  %.0.i = phi i32 [ %65, %50 ], [ %48, %.lr.ph38 ]
+_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit: ; preds = %.lr.ph37, %50
+  %.0.i = phi i32 [ %65, %50 ], [ %48, %.lr.ph37 ]
   %66 = icmp slt i32 %.0.i, 0
   br i1 %66, label %.critedge, label %67
 
@@ -6793,7 +6793,7 @@ _ZNK4llvm6detail9IEEEFloat10isSmallestEv.exit.thread: ; preds = %207, %213, %_ZN
   br i1 %232, label %39, label %.critedge
 
 .critedge:                                        ; preds = %39, %_ZNK4llvm6detail9IEEEFloat10isSmallestEv.exit.thread, %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit, %.lr.ph, %2, %.thread
-  %.1 = phi i32 [ %.0.i.i, %.thread ], [ %7, %2 ], [ %7, %.lr.ph ], [ %.0113037, %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit ], [ %.0.i.i, %_ZNK4llvm6detail9IEEEFloat10isSmallestEv.exit.thread ], [ %.0.i.i, %39 ]
+  %.1 = phi i32 [ %.0.i.i, %.thread ], [ %7, %2 ], [ %7, %.lr.ph ], [ %.0112936, %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit ], [ %.0.i.i, %_ZNK4llvm6detail9IEEEFloat10isSmallestEv.exit.thread ], [ %.0.i.i, %39 ]
   %233 = load i8, ptr %8, align 4
   %234 = and i8 %233, 7
   %235 = icmp eq i8 %234, 3
@@ -12424,15 +12424,12 @@ _ZN4llvm6detail9IEEEFloat7makeInfEb.exit:         ; preds = %24
 
 32:                                               ; preds = %30
   %33 = icmp sgt i64 %.fr, -1
-  br i1 %33, label %switch.early.test, label %38
+  %.off = add nsw i64 %10, -1
+  %switch = icmp ult i64 %.off, 32766
+  %or.cond29 = select i1 %33, i1 %switch, i1 false
+  br i1 %or.cond29, label %_ZNK4llvm6detail9IEEEFloat11exponentNaNEv.exit, label %38
 
-switch.early.test:                                ; preds = %32
-  switch i64 %10, label %_ZNK4llvm6detail9IEEEFloat11exponentNaNEv.exit [
-    i64 32767, label %38
-    i64 0, label %38
-  ]
-
-_ZNK4llvm6detail9IEEEFloat11exponentNaNEv.exit:   ; preds = %switch.early.test, %30
+_ZNK4llvm6detail9IEEEFloat11exponentNaNEv.exit:   ; preds = %32, %30
   %34 = and i8 %17, -8
   %35 = or disjoint i8 %34, 1
   store i8 %35, ptr %13, align 4
@@ -12443,7 +12440,7 @@ _ZNK4llvm6detail9IEEEFloat11exponentNaNEv.exit:   ; preds = %switch.early.test, 
   store i64 0, ptr %37, align 8, !tbaa !36
   br label %46
 
-38:                                               ; preds = %switch.early.test, %switch.early.test, %32
+38:                                               ; preds = %32
   %39 = and i8 %17, -8
   %40 = or disjoint i8 %39, 2
   store i8 %40, ptr %13, align 4

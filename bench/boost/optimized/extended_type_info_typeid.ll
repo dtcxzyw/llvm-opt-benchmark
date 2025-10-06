@@ -269,8 +269,8 @@ define void @_ZN5boost13serialization13typeid_system27extended_type_info_typeid_
 
 _ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit: ; preds = %6, %9, %11
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE12get_instanceEvE1t, i64 16), align 8, !tbaa !21
-  %.not10.i.i.i13 = icmp eq ptr %13, null
-  br i1 %.not10.i.i.i13, label %.thread, label %.lr.ph.i.i.i
+  %.not10.i.i.i12 = icmp eq ptr %13, null
+  br i1 %.not10.i.i.i12, label %.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit, %.lr.ph.i.i.i.backedge
   %.012.i.i.i = phi ptr [ %.012.i.i.i.be, %.lr.ph.i.i.i.backedge ], [ %13, %_ZN5boost13serialization9singletonISt8multisetIPKNS0_13typeid_system27extended_type_info_typeid_0ENS3_12type_compareESaIS6_EEE20get_mutable_instanceEv.exit ]

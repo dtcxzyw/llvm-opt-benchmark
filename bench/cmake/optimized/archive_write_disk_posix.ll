@@ -4363,62 +4363,62 @@ define internal fastcc i64 @write_data_block(ptr noundef %0, ptr noundef %1, i64
   %37 = phi i64 [ %7, %14 ], [ %.pre, %.thread ]
   %.079 = phi i64 [ 0, %14 ], [ %32, %.thread ]
   %38 = icmp sgt i64 %37, -1
-  br i1 %38, label %39, label %.lr.ph112
+  br i1 %38, label %39, label %.lr.ph111
 
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %41 = load i64, ptr %40, align 8, !tbaa !98
   %42 = add i64 %41, %2
   %43 = icmp sgt i64 %42, %37
-  br i1 %43, label %44, label %.lr.ph112
+  br i1 %43, label %44, label %.lr.ph111
 
 44:                                               ; preds = %39
   %45 = sub nsw i64 %37, %41
-  %.not90108 = icmp eq i64 %45, 0
-  br i1 %.not90108, label %.loopexit, label %.lr.ph112
+  %.not90107 = icmp eq i64 %45, 0
+  br i1 %.not90107, label %.loopexit, label %.lr.ph111
 
-.lr.ph112:                                        ; preds = %39, %36, %44
-  %.071140 = phi i64 [ %45, %44 ], [ %2, %36 ], [ %2, %39 ]
+.lr.ph111:                                        ; preds = %39, %36, %44
+  %.071139 = phi i64 [ %45, %44 ], [ %2, %36 ], [ %2, %39 ]
   %46 = icmp eq i64 %.079, 0
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 528
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  br i1 %46, label %.lr.ph112.split.us.preheader, label %.lr.ph.preheader
+  br i1 %46, label %.lr.ph111.split.us.preheader, label %.lr.ph.preheader
 
-.lr.ph112.split.us.preheader:                     ; preds = %.lr.ph112
-  %.pre121 = load i64, ptr %47, align 8, !tbaa !98
-  %.pre122 = load i64, ptr %48, align 8, !tbaa !92
-  %50 = icmp eq i64 %.pre121, %.pre122
-  br label %.lr.ph112.split.us
+.lr.ph111.split.us.preheader:                     ; preds = %.lr.ph111
+  %.pre120 = load i64, ptr %47, align 8, !tbaa !98
+  %.pre121 = load i64, ptr %48, align 8, !tbaa !92
+  %50 = icmp eq i64 %.pre120, %.pre121
+  br label %.lr.ph111.split.us
 
-.lr.ph112.split.us:                               ; preds = %.lr.ph112.split.us.preheader, %61
-  %.not92.us = phi i1 [ true, %61 ], [ %50, %.lr.ph112.split.us.preheader ]
-  %51 = phi i64 [ %67, %61 ], [ %.pre121, %.lr.ph112.split.us.preheader ]
-  %.068110.us = phi ptr [ %62, %61 ], [ %1, %.lr.ph112.split.us.preheader ]
-  %.172109.us = phi i64 [ %63, %61 ], [ %.071140, %.lr.ph112.split.us.preheader ]
-  %.pre124 = load i32, ptr %10, align 4, !tbaa !72
+.lr.ph111.split.us:                               ; preds = %.lr.ph111.split.us.preheader, %61
+  %.not92.us = phi i1 [ true, %61 ], [ %50, %.lr.ph111.split.us.preheader ]
+  %51 = phi i64 [ %67, %61 ], [ %.pre120, %.lr.ph111.split.us.preheader ]
+  %.068109.us = phi ptr [ %62, %61 ], [ %1, %.lr.ph111.split.us.preheader ]
+  %.172108.us = phi i64 [ %63, %61 ], [ %.071139, %.lr.ph111.split.us.preheader ]
+  %.pre123 = load i32, ptr %10, align 4, !tbaa !72
   br i1 %.not92.us, label %57, label %52
 
-52:                                               ; preds = %.lr.ph112.split.us
-  %53 = tail call i64 @lseek(i32 noundef %.pre124, i64 noundef %51, i32 noundef 0) #19
+52:                                               ; preds = %.lr.ph111.split.us
+  %53 = tail call i64 @lseek(i32 noundef %.pre123, i64 noundef %51, i32 noundef 0) #19
   %54 = icmp slt i64 %53, 0
   br i1 %54, label %.split.us, label %55
 
 55:                                               ; preds = %52
   %56 = load i64, ptr %47, align 8, !tbaa !98
   store i64 %56, ptr %48, align 8, !tbaa !92
-  %.pre123 = load i32, ptr %10, align 4, !tbaa !72
+  %.pre122 = load i32, ptr %10, align 4, !tbaa !72
   br label %57
 
-57:                                               ; preds = %55, %.lr.ph112.split.us
-  %58 = phi i32 [ %.pre123, %55 ], [ %.pre124, %.lr.ph112.split.us ]
-  %59 = tail call i64 @write(i32 noundef %58, ptr noundef %.068110.us, i64 noundef %.172109.us) #19
+57:                                               ; preds = %55, %.lr.ph111.split.us
+  %58 = phi i32 [ %.pre122, %55 ], [ %.pre123, %.lr.ph111.split.us ]
+  %59 = tail call i64 @write(i32 noundef %58, ptr noundef %.068109.us, i64 noundef %.172108.us) #19
   %60 = icmp slt i64 %59, 0
-  br i1 %60, label %.split115.us, label %61
+  br i1 %60, label %.split114.us, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %.068110.us, i64 %59
-  %63 = sub i64 %.172109.us, %59
+  %62 = getelementptr inbounds nuw i8, ptr %.068109.us, i64 %59
+  %63 = sub i64 %.172108.us, %59
   %64 = load i64, ptr %49, align 8, !tbaa !99
   %65 = add nsw i64 %64, %59
   store i64 %65, ptr %49, align 8, !tbaa !99
@@ -4427,52 +4427,52 @@ define internal fastcc i64 @write_data_block(ptr noundef %0, ptr noundef %1, i64
   store i64 %67, ptr %47, align 8, !tbaa !98
   store i64 %67, ptr %48, align 8, !tbaa !92
   %.not90.us = icmp eq i64 %63, 0
-  br i1 %.not90.us, label %.loopexit, label %.lr.ph112.split.us, !llvm.loop !111
+  br i1 %.not90.us, label %.loopexit, label %.lr.ph111.split.us, !llvm.loop !111
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph112, %100
-  %.068110 = phi ptr [ %101, %100 ], [ %1, %.lr.ph112 ]
-  %.172109 = phi i64 [ %102, %100 ], [ %.071140, %.lr.ph112 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.068110, i64 %.172109
+.lr.ph.preheader:                                 ; preds = %.lr.ph111, %100
+  %.068109 = phi ptr [ %101, %100 ], [ %1, %.lr.ph111 ]
+  %.172108 = phi i64 [ %102, %100 ], [ %.071139, %.lr.ph111 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.068109, i64 %.172108
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
-  %.070105 = phi ptr [ %71, %70 ], [ %.068110, %.lr.ph.preheader ]
-  %69 = load i8, ptr %.070105, align 1, !tbaa !40
+  %.070104 = phi ptr [ %71, %70 ], [ %.068109, %.lr.ph.preheader ]
+  %69 = load i8, ptr %.070104, align 1, !tbaa !40
   %.not91 = icmp eq i8 %69, 0
   br i1 %.not91, label %70, label %._crit_edge
 
 70:                                               ; preds = %.lr.ph
-  %71 = getelementptr inbounds nuw i8, ptr %.070105, i64 1
+  %71 = getelementptr inbounds nuw i8, ptr %.070104, i64 1
   %72 = icmp ult ptr %71, %68
   br i1 %72, label %.lr.ph, label %._crit_edge, !llvm.loop !112
 
 ._crit_edge:                                      ; preds = %70, %.lr.ph
-  %.070.lcssa.ph = phi ptr [ %71, %70 ], [ %.070105, %.lr.ph ]
+  %.070.lcssa.ph = phi ptr [ %71, %70 ], [ %.070104, %.lr.ph ]
   %73 = ptrtoint ptr %.070.lcssa.ph to i64
-  %74 = ptrtoint ptr %.068110 to i64
+  %74 = ptrtoint ptr %.068109 to i64
   %75 = sub i64 %73, %74
   %76 = load i64, ptr %47, align 8, !tbaa !98
   %77 = add nsw i64 %76, %75
   store i64 %77, ptr %47, align 8, !tbaa !98
-  %78 = sub i64 %.172109, %75
-  %79 = icmp eq i64 %.172109, %75
+  %78 = sub i64 %.172108, %75
+  %79 = icmp eq i64 %.172108, %75
   br i1 %79, label %.loopexit, label %.thread101
 
 .thread101:                                       ; preds = %._crit_edge
   %80 = sdiv i64 %77, %.079
   %81 = add nsw i64 %80, 1
   %82 = mul nsw i64 %81, %.079
-  %83 = add i64 %76, %.172109
+  %83 = add i64 %76, %.172108
   %84 = icmp sgt i64 %83, %82
   %85 = sub nsw i64 %82, %77
   %spec.select93 = select i1 %84, i64 %85, i64 %78
   %86 = load i64, ptr %48, align 8, !tbaa !92
   %.not92 = icmp eq i64 %77, %86
-  %.pre120 = load i32, ptr %10, align 4, !tbaa !72
+  %.pre119 = load i32, ptr %10, align 4, !tbaa !72
   br i1 %.not92, label %94, label %87
 
 87:                                               ; preds = %.thread101
-  %88 = tail call i64 @lseek(i32 noundef %.pre120, i64 noundef %77, i32 noundef 0) #19
+  %88 = tail call i64 @lseek(i32 noundef %.pre119, i64 noundef %77, i32 noundef 0) #19
   %89 = icmp slt i64 %88, 0
   br i1 %89, label %.split.us, label %92
 
@@ -4485,16 +4485,16 @@ define internal fastcc i64 @write_data_block(ptr noundef %0, ptr noundef %1, i64
 92:                                               ; preds = %87
   %93 = load i64, ptr %47, align 8, !tbaa !98
   store i64 %93, ptr %48, align 8, !tbaa !92
-  %.pre119 = load i32, ptr %10, align 4, !tbaa !72
+  %.pre118 = load i32, ptr %10, align 4, !tbaa !72
   br label %94
 
 94:                                               ; preds = %92, %.thread101
-  %95 = phi i32 [ %.pre119, %92 ], [ %.pre120, %.thread101 ]
+  %95 = phi i32 [ %.pre118, %92 ], [ %.pre119, %.thread101 ]
   %96 = tail call i64 @write(i32 noundef %95, ptr noundef nonnull %.070.lcssa.ph, i64 noundef %spec.select93) #19
   %97 = icmp slt i64 %96, 0
-  br i1 %97, label %.split115.us, label %100
+  br i1 %97, label %.split114.us, label %100
 
-.split115.us:                                     ; preds = %94, %57
+.split114.us:                                     ; preds = %94, %57
   %98 = tail call ptr @__errno_location() #21
   %99 = load i32, ptr %98, align 4, !tbaa !59
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %99, ptr noundef nonnull @.str.56) #19
@@ -4513,8 +4513,8 @@ define internal fastcc i64 @write_data_block(ptr noundef %0, ptr noundef %1, i64
   %.not90 = icmp eq i64 %102, 0
   br i1 %.not90, label %.loopexit, label %.lr.ph.preheader, !llvm.loop !111
 
-.loopexit:                                        ; preds = %._crit_edge, %100, %61, %44, %33, %3, %.split115.us, %.split.us, %13
-  %.0 = phi i64 [ -20, %13 ], [ -30, %.split.us ], [ -20, %.split115.us ], [ -20, %33 ], [ 0, %3 ], [ 0, %44 ], [ %.071140, %61 ], [ %.071140, %100 ], [ %.071140, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %100, %61, %44, %33, %3, %.split114.us, %.split.us, %13
+  %.0 = phi i64 [ -20, %13 ], [ -30, %.split.us ], [ -20, %.split114.us ], [ -20, %33 ], [ 0, %3 ], [ 0, %44 ], [ %.071139, %61 ], [ %.071139, %100 ], [ %.071139, %._crit_edge ]
   ret i64 %.0
 }
 

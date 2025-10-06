@@ -8816,8 +8816,8 @@ define noundef zeroext i1 @_ZN7glslang11HlslGrammar27acceptStructDeclarationList
   %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
   %84 = sub i64 %82, %83
-  %.not23 = icmp eq i64 %84, -72
-  br i1 %.not23, label %86, label %85
+  %.not22 = icmp eq i64 %84, -72
+  br i1 %.not22, label %86, label %85
 
 85:                                               ; preds = %79
   call void @_ZNSt6vectorIN7glslang19TFunctionDeclaratorENS0_14pool_allocatorIS1_EEE17_M_default_appendEm(ptr noundef nonnull align 8 dereferenceable(32) %3, i64 noundef 1)

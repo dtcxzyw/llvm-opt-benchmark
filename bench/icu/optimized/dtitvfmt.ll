@@ -6365,28 +6365,28 @@ _ZNK6icu_7713UnicodeString7extractEiiRS0_.exit:   ; preds = %33, %12, %_ZNK6icu_
   br label %60
 
 60:                                               ; preds = %90, %.lr.ph.i
-  %.044104.i = phi i8 [ 0, %.lr.ph.i ], [ %.145.ph.i, %90 ]
-  %.046103.i = phi i16 [ 0, %.lr.ph.i ], [ %.248.ph.i, %90 ]
-  %.053102.i = phi i32 [ 0, %.lr.ph.i ], [ %91, %90 ]
-  %.057101.i = phi i32 [ 0, %.lr.ph.i ], [ %.461.ph.i, %90 ]
-  %61 = icmp ult i32 %.053102.i, %55
+  %.044103.i = phi i8 [ 0, %.lr.ph.i ], [ %.145.ph.i, %90 ]
+  %.046102.i = phi i16 [ 0, %.lr.ph.i ], [ %.248.ph.i, %90 ]
+  %.053101.i = phi i32 [ 0, %.lr.ph.i ], [ %91, %90 ]
+  %.057100.i = phi i32 [ 0, %.lr.ph.i ], [ %.461.ph.i, %90 ]
+  %61 = icmp ult i32 %.053101.i, %55
   br i1 %61, label %62, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
 
 62:                                               ; preds = %60
-  %63 = zext nneg i32 %.053102.i to i64
+  %63 = zext nneg i32 %.053101.i to i64
   %64 = getelementptr inbounds nuw i16, ptr %59, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !81
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %62, %60
   %.0.i.i.i = phi i16 [ %65, %62 ], [ -1, %60 ]
-  %66 = icmp ne i16 %.0.i.i.i, %.046103.i
-  %67 = icmp sgt i32 %.057101.i, 0
+  %66 = icmp ne i16 %.0.i.i.i, %.046102.i
+  %67 = icmp sgt i32 %.057100.i, 0
   %or.cond.i = select i1 %66, i1 %67, i1 false
   br i1 %or.cond.i, label %68, label %74
 
 68:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
-  %69 = zext i16 %.046103.i to i64
+  %69 = zext i16 %.046102.i to i64
   %70 = getelementptr i8, ptr %6, i64 %69
   %71 = getelementptr i8, ptr %70, i64 -65
   %72 = load i8, ptr %71, align 1, !tbaa !25
@@ -6398,16 +6398,16 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %62, %60
   br label %74
 
 74:                                               ; preds = %.thread.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
-  %.259.i = phi i32 [ %.057101.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ 0, %.thread.i ]
+  %.259.i = phi i32 [ %.057100.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit.i ], [ 0, %.thread.i ]
   %75 = icmp eq i16 %.0.i.i.i, 39
   br i1 %75, label %76, label %85
 
 76:                                               ; preds = %74
-  %77 = add nsw i32 %.053102.i, 1
+  %77 = add nsw i32 %.053101.i, 1
   %78 = icmp slt i32 %77, %55
   %79 = icmp ult i32 %77, %55
-  %or.cond96.i = and i1 %78, %79
-  br i1 %or.cond96.i, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i
+  %or.cond95.i = and i1 %78, %79
+  br i1 %or.cond95.i, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit71.i:     ; preds = %76
   %80 = zext nneg i32 %77 to i64
@@ -6417,12 +6417,12 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit71.i:     ; preds = %76
   br i1 %83, label %90, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i, %76
-  %.not65.i = icmp eq i8 %.044104.i, 0
+  %.not65.i = icmp eq i8 %.044103.i, 0
   %84 = zext i1 %.not65.i to i8
   br label %90
 
 85:                                               ; preds = %74
-  %.not.i = icmp eq i8 %.044104.i, 0
+  %.not.i = icmp eq i8 %.044103.i, 0
   br i1 %.not.i, label %86, label %90
 
 86:                                               ; preds = %85
@@ -6431,14 +6431,14 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i: ; preds = %_ZNK6icu_7713Uni
   %or.cond66.i = icmp ult i16 %88, 26
   %89 = zext i1 %or.cond66.i to i32
   %spec.select67.i = add nsw i32 %.259.i, %89
-  %spec.select68.i = select i1 %or.cond66.i, i16 %.0.i.i.i, i16 %.046103.i
+  %spec.select68.i = select i1 %or.cond66.i, i16 %.0.i.i.i, i16 %.046102.i
   br label %90
 
 90:                                               ; preds = %86, %85, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i
   %.461.ph.i = phi i32 [ %spec.select67.i, %86 ], [ %.259.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i ], [ %.259.i, %85 ], [ %.259.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i ]
-  %.255.ph.i = phi i32 [ %.053102.i, %86 ], [ %77, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i ], [ %.053102.i, %85 ], [ %.053102.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i ]
-  %.248.ph.i = phi i16 [ %spec.select68.i, %86 ], [ %.046103.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i ], [ %.046103.i, %85 ], [ %.046103.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i ]
-  %.145.ph.i = phi i8 [ 0, %86 ], [ %.044104.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i ], [ 1, %85 ], [ %84, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i ]
+  %.255.ph.i = phi i32 [ %.053101.i, %86 ], [ %77, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i ], [ %.053101.i, %85 ], [ %.053101.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i ]
+  %.248.ph.i = phi i16 [ %spec.select68.i, %86 ], [ %.046102.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i ], [ %.046102.i, %85 ], [ %.046102.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i ]
+  %.145.ph.i = phi i8 [ 0, %86 ], [ %.044103.i, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.i ], [ 1, %85 ], [ %84, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i ]
   %91 = add nsw i32 %.255.ph.i, 1
   %92 = icmp slt i32 %91, %55
   br i1 %92, label %60, label %._crit_edge.i, !llvm.loop !92
@@ -6457,9 +6457,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i: ; preds = %_ZNK6icu_7713Uni
   br label %.loopexit
 
 .loopexit:                                        ; preds = %68, %94, %._crit_edge.i, %_ZNK6icu_7713UnicodeString7extractEiiRS0_.exit
-  %.05399.i = phi i32 [ %91, %._crit_edge.i ], [ %91, %94 ], [ 0, %_ZNK6icu_7713UnicodeString7extractEiiRS0_.exit ], [ %.053102.i, %68 ]
-  %.6.i = phi i32 [ %.461.ph.i, %._crit_edge.i ], [ %spec.select.i, %94 ], [ 0, %_ZNK6icu_7713UnicodeString7extractEiiRS0_.exit ], [ %.057101.i, %68 ]
-  %100 = sub nsw i32 %.05399.i, %.6.i
+  %.05398.i = phi i32 [ %91, %._crit_edge.i ], [ %91, %94 ], [ 0, %_ZNK6icu_7713UnicodeString7extractEiiRS0_.exit ], [ %.053101.i, %68 ]
+  %.6.i = phi i32 [ %.461.ph.i, %._crit_edge.i ], [ %spec.select.i, %94 ], [ 0, %_ZNK6icu_7713UnicodeString7extractEiiRS0_.exit ], [ %.057100.i, %68 ]
+  %100 = sub nsw i32 %.05398.i, %.6.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %8, align 8, !tbaa !15
@@ -6555,7 +6555,7 @@ define noundef i32 @_ZN6icu_7718DateIntervalFormat21splitPatternInto2PartERKNS_1
   %9 = load i32, ptr %8, align 4
   %10 = select i1 %5, i32 %9, i32 %7
   %11 = icmp sgt i32 %10, 0
-  br i1 %11, label %.lr.ph, label %.thread89
+  br i1 %11, label %.lr.ph, label %.thread88
 
 .lr.ph:                                           ; preds = %1
   %12 = and i16 %4, 2
@@ -6567,49 +6567,49 @@ define noundef i32 @_ZN6icu_7718DateIntervalFormat21splitPatternInto2PartERKNS_1
   br label %17
 
 17:                                               ; preds = %.lr.ph, %47
-  %.044104 = phi i8 [ 0, %.lr.ph ], [ %.145.ph, %47 ]
-  %.046103 = phi i16 [ 0, %.lr.ph ], [ %.248.ph, %47 ]
-  %.053102 = phi i32 [ 0, %.lr.ph ], [ %48, %47 ]
-  %.057101 = phi i32 [ 0, %.lr.ph ], [ %.461.ph, %47 ]
-  %18 = icmp ult i32 %.053102, %10
+  %.044103 = phi i8 [ 0, %.lr.ph ], [ %.145.ph, %47 ]
+  %.046102 = phi i16 [ 0, %.lr.ph ], [ %.248.ph, %47 ]
+  %.053101 = phi i32 [ 0, %.lr.ph ], [ %48, %47 ]
+  %.057100 = phi i32 [ 0, %.lr.ph ], [ %.461.ph, %47 ]
+  %18 = icmp ult i32 %.053101, %10
   br i1 %18, label %19, label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
 19:                                               ; preds = %17
-  %20 = zext nneg i32 %.053102 to i64
+  %20 = zext nneg i32 %.053101 to i64
   %21 = getelementptr inbounds nuw i16, ptr %16, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !81
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %17, %19
   %.0.i.i = phi i16 [ %22, %19 ], [ -1, %17 ]
-  %23 = icmp ne i16 %.0.i.i, %.046103
-  %24 = icmp sgt i32 %.057101, 0
+  %23 = icmp ne i16 %.0.i.i, %.046102
+  %24 = icmp sgt i32 %.057100, 0
   %or.cond = select i1 %23, i1 %24, i1 false
   br i1 %or.cond, label %25, label %31
 
 25:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %26 = zext i16 %.046103 to i64
+  %26 = zext i16 %.046102 to i64
   %27 = getelementptr i8, ptr %2, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -65
   %29 = load i8, ptr %28, align 1, !tbaa !25
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %.thread, label %.thread89
+  br i1 %30, label %.thread, label %.thread88
 
 .thread:                                          ; preds = %25
   store i8 1, ptr %28, align 1, !tbaa !25
   br label %31
 
 31:                                               ; preds = %.thread, %_ZNK6icu_7713UnicodeString6charAtEi.exit
-  %.259 = phi i32 [ %.057101, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 0, %.thread ]
+  %.259 = phi i32 [ %.057100, %_ZNK6icu_7713UnicodeString6charAtEi.exit ], [ 0, %.thread ]
   %32 = icmp eq i16 %.0.i.i, 39
   br i1 %32, label %33, label %42
 
 33:                                               ; preds = %31
-  %34 = add nsw i32 %.053102, 1
+  %34 = add nsw i32 %.053101, 1
   %35 = icmp slt i32 %34, %10
   %36 = icmp ult i32 %34, %10
-  %or.cond96 = and i1 %35, %36
-  br i1 %or.cond96, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread
+  %or.cond95 = and i1 %35, %36
+  br i1 %or.cond95, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit71:       ; preds = %33
   %37 = zext nneg i32 %34 to i64
@@ -6619,12 +6619,12 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit71:       ; preds = %33
   br i1 %40, label %47, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit71.thread: ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit71, %33
-  %.not65 = icmp eq i8 %.044104, 0
+  %.not65 = icmp eq i8 %.044103, 0
   %41 = zext i1 %.not65 to i8
   br label %47
 
 42:                                               ; preds = %31
-  %.not = icmp eq i8 %.044104, 0
+  %.not = icmp eq i8 %.044103, 0
   br i1 %.not, label %43, label %47
 
 43:                                               ; preds = %42
@@ -6633,21 +6633,21 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit71.thread: ; preds = %_ZNK6icu_7713Unico
   %or.cond66 = icmp ult i16 %45, 26
   %46 = zext i1 %or.cond66 to i32
   %spec.select67 = add nsw i32 %.259, %46
-  %spec.select68 = select i1 %or.cond66, i16 %.0.i.i, i16 %.046103
+  %spec.select68 = select i1 %or.cond66, i16 %.0.i.i, i16 %.046102
   br label %47
 
 47:                                               ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit71, %42, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread, %43
   %.461.ph = phi i32 [ %spec.select67, %43 ], [ %.259, %_ZNK6icu_7713UnicodeString6charAtEi.exit71 ], [ %.259, %42 ], [ %.259, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread ]
-  %.255.ph = phi i32 [ %.053102, %43 ], [ %34, %_ZNK6icu_7713UnicodeString6charAtEi.exit71 ], [ %.053102, %42 ], [ %.053102, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread ]
-  %.248.ph = phi i16 [ %spec.select68, %43 ], [ %.046103, %_ZNK6icu_7713UnicodeString6charAtEi.exit71 ], [ %.046103, %42 ], [ %.046103, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread ]
-  %.145.ph = phi i8 [ 0, %43 ], [ %.044104, %_ZNK6icu_7713UnicodeString6charAtEi.exit71 ], [ 1, %42 ], [ %41, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread ]
+  %.255.ph = phi i32 [ %.053101, %43 ], [ %34, %_ZNK6icu_7713UnicodeString6charAtEi.exit71 ], [ %.053101, %42 ], [ %.053101, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread ]
+  %.248.ph = phi i16 [ %spec.select68, %43 ], [ %.046102, %_ZNK6icu_7713UnicodeString6charAtEi.exit71 ], [ %.046102, %42 ], [ %.046102, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread ]
+  %.145.ph = phi i8 [ 0, %43 ], [ %.044103, %_ZNK6icu_7713UnicodeString6charAtEi.exit71 ], [ 1, %42 ], [ %41, %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread ]
   %48 = add nsw i32 %.255.ph, 1
   %49 = icmp slt i32 %48, %10
   br i1 %49, label %17, label %._crit_edge, !llvm.loop !92
 
 ._crit_edge:                                      ; preds = %47
   %50 = icmp sgt i32 %.461.ph, 0
-  br i1 %50, label %51, label %.thread89
+  br i1 %50, label %51, label %.thread88
 
 51:                                               ; preds = %._crit_edge
   %52 = zext i16 %.248.ph to i64
@@ -6656,12 +6656,12 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit71.thread: ; preds = %_ZNK6icu_7713Unico
   %55 = load i8, ptr %54, align 1, !tbaa !25
   %56 = icmp eq i8 %55, 0
   %spec.select = select i1 %56, i32 0, i32 %.461.ph
-  br label %.thread89
+  br label %.thread88
 
-.thread89:                                        ; preds = %25, %1, %51, %._crit_edge
-  %.05399 = phi i32 [ %48, %._crit_edge ], [ %48, %51 ], [ 0, %1 ], [ %.053102, %25 ]
-  %.6 = phi i32 [ %.461.ph, %._crit_edge ], [ %spec.select, %51 ], [ 0, %1 ], [ %.057101, %25 ]
-  %57 = sub nsw i32 %.05399, %.6
+.thread88:                                        ; preds = %25, %1, %51, %._crit_edge
+  %.05398 = phi i32 [ %48, %._crit_edge ], [ %48, %51 ], [ 0, %1 ], [ %.053101, %25 ]
+  %.6 = phi i32 [ %.461.ph, %._crit_edge ], [ %spec.select, %51 ], [ 0, %1 ], [ %.057100, %25 ]
+  %57 = sub nsw i32 %.05398, %.6
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %57
 }

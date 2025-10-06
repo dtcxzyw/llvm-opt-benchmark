@@ -4540,11 +4540,11 @@ define void @evbuffer_search_eol(ptr dead_on_unwind noalias writable sret(%struc
 
 .lr.ph.preheader.i:                               ; preds = %26
   %29 = load i64, ptr %28, align 8
-  %.promoted161 = load i64, ptr %0, align 8
+  %.promoted159 = load i64, ptr %0, align 8
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %54, %.lr.ph.preheader.i
-  %30 = phi i64 [ %55, %54 ], [ %.promoted161, %.lr.ph.preheader.i ]
+  %30 = phi i64 [ %55, %54 ], [ %.promoted159, %.lr.ph.preheader.i ]
   %.sroa.11.0.copyload = phi ptr [ %.026.i, %54 ], [ %.02648.i, %.lr.ph.preheader.i ]
   %.02850.i = phi i64 [ 0, %54 ], [ %29, %.lr.ph.preheader.i ]
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.11.0.copyload, i64 40
@@ -4698,7 +4698,7 @@ evbuffer_find_eol_char.exit:                      ; preds = %53, %.thread.i.i
   %103 = add i64 %91, %100
   %.027.i = load ptr, ptr %.sroa.11.0.copyload67, align 8
   %.not.i37 = icmp eq ptr %.027.i, null
-  br i1 %.not.i37, label %evbuffer_find_eol_char.exit.thread.loopexit116, label %90, !llvm.loop !30
+  br i1 %.not.i37, label %evbuffer_find_eol_char.exit.thread.loopexit114, label %90, !llvm.loop !30
 
 evbuffer_strchr.exit:                             ; preds = %90
   store ptr %.sroa.11.0.copyload67, ptr %87, align 8
@@ -4779,18 +4779,18 @@ evbuffer_strchr.exit:                             ; preds = %90
 
 evbuffer_ptr_subtract.exit:                       ; preds = %.critedge.i.i, %.sink.split.i.i
   %132 = icmp eq ptr %.sroa.11.0, null
-  %or.cond114 = or i1 %132, %.0.i.i
-  br i1 %or.cond114, label %evbuffer_strspn.exit, label %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge
+  %or.cond112 = or i1 %132, %.0.i.i
+  br i1 %or.cond112, label %evbuffer_strspn.exit, label %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge
 
 evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge: ; preds = %evbuffer_ptr_subtract.exit
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert213 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 16
-  %.pre214 = load i64, ptr %.phi.trans.insert213, align 8
+  %.phi.trans.insert211 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 16
+  %.pre212 = load i64, ptr %.phi.trans.insert211, align 8
   br label %evbuffer_getchr.exit
 
 evbuffer_getchr.exit:                             ; preds = %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge, %.thread
-  %133 = phi i64 [ %95, %.thread ], [ %.pre214, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
+  %133 = phi i64 [ %95, %.thread ], [ %.pre212, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
   %134 = phi ptr [ %93, %.thread ], [ %.pre, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
   %.sroa.11.190100 = phi ptr [ %.sroa.11.0.copyload67, %.thread ], [ %.sroa.11.0, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
   %.sroa.18.19198 = phi i64 [ %113, %.thread ], [ %.sroa.18.0, %evbuffer_ptr_subtract.exit.evbuffer_getchr.exit_crit_edge ]
@@ -4816,11 +4816,11 @@ evbuffer_getchr.exit:                             ; preds = %evbuffer_ptr_subtra
 
 .lr.ph.i43:                                       ; preds = %140
   %143 = load i64, ptr %142, align 8
-  %.promoted155 = load i64, ptr %0, align 8
+  %.promoted153 = load i64, ptr %0, align 8
   br label %144
 
 144:                                              ; preds = %156, %.lr.ph.i43
-  %145 = phi i64 [ %.promoted155, %.lr.ph.i43 ], [ %157, %156 ]
+  %145 = phi i64 [ %.promoted153, %.lr.ph.i43 ], [ %157, %156 ]
   %.02742.i44 = phi ptr [ %.02739.i41, %.lr.ph.i43 ], [ %.027.i49, %156 ]
   %.02941.i45 = phi i64 [ %143, %.lr.ph.i43 ], [ 0, %156 ]
   %146 = getelementptr inbounds nuw i8, ptr %.02742.i44, i64 40
@@ -4840,7 +4840,7 @@ evbuffer_getchr.exit:                             ; preds = %evbuffer_ptr_subtra
   %157 = add i64 %145, %154
   %.027.i49 = load ptr, ptr %.02742.i44, align 8
   %.not.i50 = icmp eq ptr %.027.i49, null
-  br i1 %.not.i50, label %evbuffer_find_eol_char.exit.thread.loopexit117, label %144, !llvm.loop !30
+  br i1 %.not.i50, label %evbuffer_find_eol_char.exit.thread.loopexit115, label %144, !llvm.loop !30
 
 evbuffer_strchr.exit51:                           ; preds = %144
   store ptr %.02742.i44, ptr %141, align 8
@@ -4887,7 +4887,7 @@ evbuffer_strchr.exit51:                           ; preds = %144
   %181 = add i64 %169, %178
   %.027.i60 = load ptr, ptr %.02742.i55, align 8
   %.not.i61 = icmp eq ptr %.027.i60, null
-  br i1 %.not.i61, label %evbuffer_find_eol_char.exit.thread.loopexit118, label %168, !llvm.loop !30
+  br i1 %.not.i61, label %evbuffer_find_eol_char.exit.thread.loopexit116, label %168, !llvm.loop !30
 
 evbuffer_strchr.exit62:                           ; preds = %168
   store ptr %.02742.i55, ptr %165, align 8
@@ -4909,21 +4909,21 @@ evbuffer_find_eol_char.exit.thread.loopexit:      ; preds = %54
   store i64 %55, ptr %0, align 8
   br label %evbuffer_find_eol_char.exit.thread
 
-evbuffer_find_eol_char.exit.thread.loopexit116:   ; preds = %102
+evbuffer_find_eol_char.exit.thread.loopexit114:   ; preds = %102
   store i64 %103, ptr %0, align 8
   br label %evbuffer_find_eol_char.exit.thread
 
-evbuffer_find_eol_char.exit.thread.loopexit117:   ; preds = %156
+evbuffer_find_eol_char.exit.thread.loopexit115:   ; preds = %156
   store i64 %157, ptr %0, align 8
   br label %evbuffer_find_eol_char.exit.thread
 
-evbuffer_find_eol_char.exit.thread.loopexit118:   ; preds = %180
+evbuffer_find_eol_char.exit.thread.loopexit116:   ; preds = %180
   store i64 %181, ptr %0, align 8
   br label %evbuffer_find_eol_char.exit.thread
 
-evbuffer_find_eol_char.exit.thread:               ; preds = %evbuffer_find_eol_char.exit.thread.loopexit118, %evbuffer_find_eol_char.exit.thread.loopexit117, %evbuffer_find_eol_char.exit.thread.loopexit116, %evbuffer_find_eol_char.exit.thread.loopexit, %evbuffer_strchr.exit, %85, %164, %140, %26, %25, %evbuffer_strchr.exit62, %evbuffer_strchr.exit51, %82, %evbuffer_find_eol_char.exit, %evbuffer_strspn.exit
-  %.not30 = phi i1 [ true, %25 ], [ true, %evbuffer_find_eol_char.exit ], [ false, %evbuffer_strspn.exit ], [ true, %82 ], [ true, %evbuffer_strchr.exit51 ], [ true, %evbuffer_strchr.exit62 ], [ true, %26 ], [ true, %140 ], [ true, %164 ], [ true, %85 ], [ true, %evbuffer_strchr.exit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit116 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit117 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit118 ]
-  %.3 = phi i64 [ 0, %25 ], [ 0, %evbuffer_find_eol_char.exit ], [ %.0, %evbuffer_strspn.exit ], [ 0, %82 ], [ 0, %evbuffer_strchr.exit51 ], [ 0, %evbuffer_strchr.exit62 ], [ 0, %26 ], [ 0, %140 ], [ 0, %164 ], [ 0, %85 ], [ 0, %evbuffer_strchr.exit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit116 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit117 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit118 ]
+evbuffer_find_eol_char.exit.thread:               ; preds = %evbuffer_find_eol_char.exit.thread.loopexit116, %evbuffer_find_eol_char.exit.thread.loopexit115, %evbuffer_find_eol_char.exit.thread.loopexit114, %evbuffer_find_eol_char.exit.thread.loopexit, %164, %140, %85, %26, %evbuffer_strchr.exit, %25, %evbuffer_strchr.exit62, %evbuffer_strchr.exit51, %82, %evbuffer_find_eol_char.exit, %evbuffer_strspn.exit
+  %.not30 = phi i1 [ true, %25 ], [ true, %evbuffer_find_eol_char.exit ], [ false, %evbuffer_strspn.exit ], [ true, %82 ], [ true, %evbuffer_strchr.exit51 ], [ true, %evbuffer_strchr.exit62 ], [ true, %evbuffer_strchr.exit ], [ true, %26 ], [ true, %85 ], [ true, %140 ], [ true, %164 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ true, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
+  %.3 = phi i64 [ 0, %25 ], [ 0, %evbuffer_find_eol_char.exit ], [ %.0, %evbuffer_strspn.exit ], [ 0, %82 ], [ 0, %evbuffer_strchr.exit51 ], [ 0, %evbuffer_strchr.exit62 ], [ 0, %evbuffer_strchr.exit ], [ 0, %26 ], [ 0, %85 ], [ 0, %140 ], [ 0, %164 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit114 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit115 ], [ 0, %evbuffer_find_eol_char.exit.thread.loopexit116 ]
   %188 = load ptr, ptr %14, align 8
   %.not29 = icmp eq ptr %188, null
   br i1 %.not29, label %192, label %189
@@ -5331,10 +5331,10 @@ define noundef i32 @evbuffer_read(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %17 = icmp slt i32 %.0.i, 1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.pre90 = trunc i64 %.pre to i32
-  %18 = icmp sgt i32 %.0.i, %.pre90
+  %.pre89 = trunc i64 %.pre to i32
+  %18 = icmp sgt i32 %.0.i, %.pre89
   %19 = select i1 %17, i1 true, i1 %18
-  %.047 = select i1 %19, i32 %.pre90, i32 %16
+  %.047 = select i1 %19, i32 %.pre89, i32 %16
   %20 = icmp slt i32 %2, 0
   %21 = call i32 @llvm.smin.i32(i32 %2, i32 %.047)
   %.045 = select i1 %20, i32 %.047, i32 %21
@@ -5374,8 +5374,8 @@ define noundef i32 @evbuffer_read(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 43:                                               ; preds = %.critedge.i, %34
   %.043.i = phi ptr [ %30, %.critedge.i ], [ %29, %34 ]
-  %.not75 = icmp eq i32 %.045, 0
-  br i1 %.not75, label %evbuffer_read_setup_vecs_.exit.thread, label %.lr.ph.split.i
+  %.not74 = icmp eq i32 %.045, 0
+  br i1 %.not74, label %evbuffer_read_setup_vecs_.exit.thread, label %.lr.ph.split.i
 
 .lr.ph.split.i:                                   ; preds = %43, %56
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %43 ]
@@ -5451,20 +5451,19 @@ evbuffer_read_setup_vecs_.exit.thread:            ; preds = %43, %25, %evbuffer_
   %.148.in = phi i64 [ %78, %74 ], [ %79, %evbuffer_read_setup_vecs_.exit.thread ]
   %.148 = trunc i64 %.148.in to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  switch i32 %.148, label %.preheader [
-    i32 -1, label %117
-    i32 0, label %117
-  ]
+  %.148.off = add i32 %.148, -1
+  %switch = icmp ult i32 %.148.off, -2
+  br i1 %switch, label %.preheader, label %117
 
 .preheader:                                       ; preds = %80
   %81 = icmp sgt i32 %.045.i68, 0
   br i1 %81, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %104
-  %.04385 = phi i32 [ %107, %104 ], [ %.148, %.preheader ]
-  %.04484 = phi i32 [ %109, %104 ], [ 0, %.preheader ]
-  %.06183 = phi ptr [ %108, %104 ], [ %.265, %.preheader ]
-  %82 = load ptr, ptr %.06183, align 8
+  %.04384 = phi i32 [ %107, %104 ], [ %.148, %.preheader ]
+  %.04483 = phi i32 [ %109, %104 ], [ 0, %.preheader ]
+  %.06182 = phi ptr [ %108, %104 ], [ %.265, %.preheader ]
+  %82 = load ptr, ptr %.06182, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load i32, ptr %83, align 8
   %85 = and i32 %84, 8
@@ -5485,7 +5484,7 @@ evbuffer_read_setup_vecs_.exit.thread:            ; preds = %43, %25, %evbuffer_
 
 96:                                               ; preds = %.lr.ph, %86
   %spec.store.select = phi i64 [ %95, %86 ], [ 0, %.lr.ph ]
-  %97 = sext i32 %.04385 to i64
+  %97 = sext i32 %.04384 to i64
   %98 = icmp slt i64 %spec.store.select, %97
   %99 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %100 = load i64, ptr %99, align 8
@@ -5495,16 +5494,16 @@ evbuffer_read_setup_vecs_.exit.thread:            ; preds = %43, %25, %evbuffer_
   %102 = add i64 %100, %97
   store i64 %102, ptr %99, align 8
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.06183, ptr %103, align 8
+  store ptr %.06182, ptr %103, align 8
   br label %.loopexit
 
 104:                                              ; preds = %96
   %105 = add i64 %100, %spec.store.select
   store i64 %105, ptr %99, align 8
   %106 = trunc nuw nsw i64 %spec.store.select to i32
-  %107 = sub nsw i32 %.04385, %106
-  %108 = load ptr, ptr %.06183, align 8
-  %109 = add nuw nsw i32 %.04484, 1
+  %107 = sub nsw i32 %.04384, %106
+  %108 = load ptr, ptr %.06182, align 8
+  %109 = add nuw nsw i32 %.04483, 1
   %exitcond.not = icmp eq i32 %109, %.045.i68
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !32
 
@@ -5522,8 +5521,8 @@ evbuffer_read_setup_vecs_.exit.thread:            ; preds = %43, %25, %evbuffer_
   call void @evbuffer_invoke_callbacks_(ptr noundef nonnull %0)
   br label %117
 
-117:                                              ; preds = %80, %80, %._crit_edge, %11, %.loopexit
-  %.046 = phi i32 [ %.148, %.loopexit ], [ -1, %11 ], [ -1, %._crit_edge ], [ %.148, %80 ], [ %.148, %80 ]
+117:                                              ; preds = %80, %._crit_edge, %11, %.loopexit
+  %.046 = phi i32 [ %.148, %.loopexit ], [ -1, %11 ], [ -1, %._crit_edge ], [ %.148, %80 ]
   %118 = load ptr, ptr %6, align 8
   %.not57 = icmp eq ptr %118, null
   br i1 %.not57, label %122, label %119
@@ -6713,15 +6712,15 @@ define internal fastcc range(i32 -1, 1) i32 @evbuffer_file_segment_materialize(p
   br i1 %35, label %.lr.ph, label %.thread86
 
 36:                                               ; preds = %.lr.ph
-  %37 = add nuw nsw i64 %42, %.05594
+  %37 = add nuw nsw i64 %42, %.05593
   %38 = icmp slt i64 %37, %7
   br i1 %38, label %.lr.ph, label %.thread86, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %.preheader, %36
-  %.05594 = phi i64 [ %37, %36 ], [ 0, %.preheader ]
-  %39 = getelementptr inbounds nuw i8, ptr %34, i64 %.05594
-  %40 = sub nsw i64 %7, %.05594
-  %41 = add nsw i64 %.05594, %9
+  %.05593 = phi i64 [ %37, %36 ], [ 0, %.preheader ]
+  %39 = getelementptr inbounds nuw i8, ptr %34, i64 %.05593
+  %40 = sub nsw i64 %7, %.05593
+  %41 = add nsw i64 %.05593, %9
   %42 = tail call i64 @pread(i32 noundef %5, ptr noundef nonnull %39, i64 noundef %40, i64 noundef %41) #16
   %43 = icmp slt i64 %42, 1
   br i1 %43, label %44, label %36

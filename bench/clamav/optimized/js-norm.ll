@@ -2973,12 +2973,12 @@ output_space.exit122.i:                           ; preds = %262, %259, %252, %2
 
 266:                                              ; preds = %output_space.exit122.i
   %267 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #21
-  %.not20.i.i = icmp eq ptr %.pr, null
-  br i1 %.not20.i.i, label %.loopexit.i, label %.lr.ph.i123.i
+  %.not19.i.i = icmp eq ptr %.pr, null
+  br i1 %.not19.i.i, label %.loopexit.i, label %.lr.ph.i123.i
 
 .lr.ph.i123.i:                                    ; preds = %266, %272
-  %.01021.i.i = phi ptr [ %274, %272 ], [ %.pr, %266 ]
-  %268 = tail call ptr @cli_hashtab_find(ptr noundef nonnull %.01021.i.i, ptr noundef nonnull %82, i64 noundef %267) #20
+  %.01020.i.i = phi ptr [ %274, %272 ], [ %.pr, %266 ]
+  %268 = tail call ptr @cli_hashtab_find(ptr noundef nonnull %.01020.i.i, ptr noundef nonnull %82, i64 noundef %267) #20
   %.not14.i.i = icmp eq ptr %268, null
   br i1 %.not14.i.i, label %272, label %269
 
@@ -2989,7 +2989,7 @@ output_space.exit122.i:                           ; preds = %262, %259, %252, %2
   br i1 %.not15.i.i, label %272, label %scope_lookup.exit.i
 
 272:                                              ; preds = %269, %.lr.ph.i123.i
-  %273 = getelementptr inbounds nuw i8, ptr %.01021.i.i, i64 32
+  %273 = getelementptr inbounds nuw i8, ptr %.01020.i.i, i64 32
   %274 = load ptr, ptr %273, align 8, !tbaa !39
   %.not.i125.i = icmp eq ptr %274, null
   br i1 %.not.i125.i, label %.loopexit.i, label %.lr.ph.i123.i
@@ -4612,127 +4612,125 @@ define internal fastcc range(i32 0, 21) i32 @parseString(ptr noundef nonnull cap
   br label %15
 
 15:                                               ; preds = %20, %4
-  %.044 = phi ptr [ %9, %4 ], [ %spec.select, %20 ]
+  %.044 = phi ptr [ %9, %4 ], [ %24, %20 ]
   %16 = ptrtoint ptr %.044 to i64
   %17 = sub i64 %13, %16
   %18 = tail call ptr @memchr(ptr noundef %.044, i32 noundef %14, i64 noundef %17) #21
   %.not = icmp ne ptr %18, null
   %19 = icmp ugt ptr %18, %9
   %or.cond = select i1 %.not, i1 %19, i1 false
-  br i1 %or.cond, label %20, label %.thread
+  br i1 %or.cond, label %20, label %25
 
 20:                                               ; preds = %15
   %21 = getelementptr inbounds i8, ptr %18, i64 -1
   %22 = load i8, ptr %21, align 1, !tbaa !3
   %23 = icmp eq i8 %22, 92
-  %spec.select.idx = zext i1 %23 to i64
-  %spec.select = getelementptr inbounds nuw i8, ptr %18, i64 %spec.select.idx
-  br i1 %23, label %15, label %.thread
+  %24 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  br i1 %23, label %15, label %25
 
-.thread:                                          ; preds = %15, %20
-  %.159 = phi ptr [ %spec.select, %20 ], [ %18, %15 ]
-  %.not48 = icmp eq ptr %.159, null
-  %.not49 = icmp ult ptr %.159, %9
+25:                                               ; preds = %15, %20
+  %.not48 = icmp eq ptr %18, null
+  %.not49 = icmp ult ptr %18, %9
   %or.cond52 = select i1 %.not48, i1 true, i1 %.not49
-  br i1 %or.cond52, label %28, label %.thread60
+  br i1 %or.cond52, label %30, label %.thread58
 
-.thread60:                                        ; preds = %.thread
-  %24 = ptrtoint ptr %.159 to i64
-  %25 = ptrtoint ptr %9 to i64
-  %26 = sub i64 %24, %25
-  %27 = tail call i32 @cli_textbuffer_append_normalize(ptr noundef %1, ptr noundef %9, i64 noundef %26) #20
-  br label %31
+.thread58:                                        ; preds = %25
+  %26 = ptrtoint ptr %18 to i64
+  %27 = ptrtoint ptr %9 to i64
+  %28 = sub i64 %26, %27
+  %29 = tail call i32 @cli_textbuffer_append_normalize(ptr noundef %1, ptr noundef %9, i64 noundef %28) #20
+  br label %33
 
-28:                                               ; preds = %.thread
-  %29 = sub i64 %11, %8
-  %30 = tail call i32 @cli_textbuffer_append_normalize(ptr noundef %1, ptr noundef %9, i64 noundef %29) #20
-  br i1 %.not48, label %62, label %31
+30:                                               ; preds = %25
+  %31 = sub i64 %11, %8
+  %32 = tail call i32 @cli_textbuffer_append_normalize(ptr noundef %1, ptr noundef %9, i64 noundef %31) #20
+  br i1 %.not48, label %64, label %33
 
-31:                                               ; preds = %.thread60, %28
-  %.04362 = phi i64 [ %26, %.thread60 ], [ %29, %28 ]
-  %32 = add i64 %.04362, 1
-  %33 = load i64, ptr %7, align 8, !tbaa !47
-  %34 = add i64 %32, %33
-  store i64 %34, ptr %7, align 8, !tbaa !47
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !52
-  %37 = add i64 %36, 1
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !50
-  %40 = icmp ugt i64 %37, %39
+33:                                               ; preds = %.thread58, %30
+  %.04360 = phi i64 [ %28, %.thread58 ], [ %31, %30 ]
+  %34 = add i64 %.04360, 1
+  %35 = load i64, ptr %7, align 8, !tbaa !47
+  %36 = add i64 %34, %35
+  store i64 %36, ptr %7, align 8, !tbaa !47
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %38 = load i64, ptr %37, align 8, !tbaa !52
+  %39 = add i64 %38, 1
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load i64, ptr %40, align 8, !tbaa !50
+  %42 = icmp ugt i64 %39, %41
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !51
-  br i1 %40, label %41, label %45
+  br i1 %42, label %43, label %47
 
-41:                                               ; preds = %31
-  %42 = add i64 %39, 4096
-  %..i.i = tail call i64 @llvm.umax.i64(i64 %37, i64 %42)
-  %43 = and i64 %..i.i, 4294967295
-  %44 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i, i64 noundef %43) #20
-  %.not.i.i = icmp eq ptr %44, null
+43:                                               ; preds = %33
+  %44 = add i64 %41, 4096
+  %..i.i = tail call i64 @llvm.umax.i64(i64 %39, i64 %44)
+  %45 = and i64 %..i.i, 4294967295
+  %46 = tail call ptr @cli_max_realloc(ptr noundef %.pre.i, i64 noundef %45) #20
+  %.not.i.i = icmp eq ptr %46, null
   br i1 %.not.i.i, label %textbuffer_putc.exit, label %.thread.i.i
 
-.thread.i.i:                                      ; preds = %41
-  store i64 %43, ptr %38, align 8, !tbaa !50
-  store ptr %44, ptr %1, align 8, !tbaa !51
-  %.pre5.i = load i64, ptr %35, align 8, !tbaa !52
+.thread.i.i:                                      ; preds = %43
+  store i64 %45, ptr %40, align 8, !tbaa !50
+  store ptr %46, ptr %1, align 8, !tbaa !51
+  %.pre5.i = load i64, ptr %37, align 8, !tbaa !52
   %.pre6.i = add i64 %.pre5.i, 1
-  br label %45
+  br label %47
 
-45:                                               ; preds = %.thread.i.i, %31
-  %.pre-phi.i = phi i64 [ %.pre6.i, %.thread.i.i ], [ %37, %31 ]
-  %46 = phi i64 [ %.pre5.i, %.thread.i.i ], [ %36, %31 ]
-  %47 = phi ptr [ %44, %.thread.i.i ], [ %.pre.i, %31 ]
-  store i64 %.pre-phi.i, ptr %35, align 8, !tbaa !52
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %46
-  store i8 0, ptr %48, align 1, !tbaa !3
+47:                                               ; preds = %.thread.i.i, %33
+  %.pre-phi.i = phi i64 [ %.pre6.i, %.thread.i.i ], [ %39, %33 ]
+  %48 = phi i64 [ %.pre5.i, %.thread.i.i ], [ %38, %33 ]
+  %49 = phi ptr [ %46, %.thread.i.i ], [ %.pre.i, %33 ]
+  store i64 %.pre-phi.i, ptr %37, align 8, !tbaa !52
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 %48
+  store i8 0, ptr %50, align 1, !tbaa !3
   br label %textbuffer_putc.exit
 
-textbuffer_putc.exit:                             ; preds = %41, %45
-  %49 = load ptr, ptr %1, align 8, !tbaa !43
-  %50 = load i64, ptr %35, align 8, !tbaa !59
-  %51 = tail call ptr @cli_max_realloc(ptr noundef %49, i64 noundef %50) #20
-  %.not.i = icmp eq ptr %51, null
-  br i1 %.not.i, label %52, label %textbuffer_done.exit
+textbuffer_putc.exit:                             ; preds = %43, %47
+  %51 = load ptr, ptr %1, align 8, !tbaa !43
+  %52 = load i64, ptr %37, align 8, !tbaa !59
+  %53 = tail call ptr @cli_max_realloc(ptr noundef %51, i64 noundef %52) #20
+  %.not.i = icmp eq ptr %53, null
+  br i1 %.not.i, label %54, label %textbuffer_done.exit
 
-52:                                               ; preds = %textbuffer_putc.exit
-  %53 = load ptr, ptr %1, align 8, !tbaa !43
+54:                                               ; preds = %textbuffer_putc.exit
+  %55 = load ptr, ptr %1, align 8, !tbaa !43
   br label %textbuffer_done.exit
 
-textbuffer_done.exit:                             ; preds = %textbuffer_putc.exit, %52
-  %.0.i54 = phi ptr [ %51, %textbuffer_putc.exit ], [ %53, %52 ]
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %.0.i54, ptr %54, align 8, !tbaa !57
-  %55 = load i64, ptr %35, align 8, !tbaa !59
-  %56 = add i64 %55, -1
-  %57 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store i64 %56, ptr %57, align 8, !tbaa !58
+textbuffer_done.exit:                             ; preds = %textbuffer_putc.exit, %54
+  %.0.i54 = phi ptr [ %53, %textbuffer_putc.exit ], [ %55, %54 ]
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %.0.i54, ptr %56, align 8, !tbaa !57
+  %57 = load i64, ptr %37, align 8, !tbaa !59
+  %58 = add i64 %57, -1
+  %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store i64 %58, ptr %59, align 8, !tbaa !58
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1, i8 0, i64 24, i1 false)
   %.not50 = icmp eq ptr %.0.i54, null
-  %spec.select70 = select i1 %.not50, i32 1, i32 2
-  %spec.select71 = select i1 %.not50, ptr @.str.42, ptr %.0.i54
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %spec.select70, ptr %58, align 4, !tbaa !27
-  store ptr %spec.select71, ptr %0, align 8, !tbaa !3
-  %59 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 0, ptr %59, align 8, !tbaa !15
-  %60 = load ptr, ptr %0, align 8, !tbaa !3
-  %.not51 = icmp eq ptr %60, null
-  br i1 %.not51, label %61, label %66
+  %spec.select = select i1 %.not50, i32 1, i32 2
+  %spec.select68 = select i1 %.not50, ptr @.str.42, ptr %.0.i54
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 %spec.select, ptr %60, align 4, !tbaa !27
+  store ptr %spec.select68, ptr %0, align 8, !tbaa !3
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store i32 0, ptr %61, align 8, !tbaa !15
+  %62 = load ptr, ptr %0, align 8, !tbaa !3
+  %.not51 = icmp eq ptr %62, null
+  br i1 %.not51, label %63, label %68
 
-61:                                               ; preds = %textbuffer_done.exit
+63:                                               ; preds = %textbuffer_done.exit
   tail call void @__assert_fail(ptr noundef nonnull @.str.141, ptr noundef nonnull @.str.40, i32 noundef 1596, ptr noundef nonnull @__PRETTY_FUNCTION__.parseString) #22
   unreachable
 
-62:                                               ; preds = %28
-  %63 = load i64, ptr %7, align 8, !tbaa !47
-  %64 = add i64 %63, %29
-  store i64 %64, ptr %7, align 8, !tbaa !47
-  %65 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i32 %3, ptr %65, align 8, !tbaa !15
-  br label %66
+64:                                               ; preds = %30
+  %65 = load i64, ptr %7, align 8, !tbaa !47
+  %66 = add i64 %65, %31
+  store i64 %66, ptr %7, align 8, !tbaa !47
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store i32 %3, ptr %67, align 8, !tbaa !15
+  br label %68
 
-66:                                               ; preds = %textbuffer_done.exit, %62
-  %.0 = phi i32 [ 0, %62 ], [ 20, %textbuffer_done.exit ]
+68:                                               ; preds = %textbuffer_done.exit, %64
+  %.0 = phi i32 [ 0, %64 ], [ 20, %textbuffer_done.exit ]
   ret i32 %.0
 }
 

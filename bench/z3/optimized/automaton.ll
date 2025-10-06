@@ -4432,7 +4432,7 @@ define weak_odr hidden void @_ZN9automatonIj21default_value_managerIjEE8compress
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %.critedge533.preheader, label %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph
+  br i1 %15, label %.critedge532.preheader, label %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph
 
 _ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph: ; preds = %1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4440,43 +4440,43 @@ _ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds i8, ptr %14, i64 -4
   %20 = load i32, ptr %19, align 4, !tbaa !22
-  %.not806 = icmp eq i32 %20, 0
-  br i1 %.not806, label %.critedge533.preheader, label %.preheader
+  %.not805 = icmp eq i32 %20, 0
+  br i1 %.not805, label %.critedge532.preheader, label %.preheader
 
-.critedge533.preheader:                           ; preds = %.critedge534, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph, %1
-  %21 = phi ptr [ null, %1 ], [ %14, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph ], [ %33, %.critedge534 ]
+.critedge532.preheader:                           ; preds = %.critedge533, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph, %1
+  %21 = phi ptr [ null, %1 ], [ %14, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph ], [ %33, %.critedge533 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %.critedge533
+  br label %.critedge532
 
-.preheader:                                       ; preds = %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph, %.critedge534
-  %indvars.iv805 = phi i64 [ %indvars.iv.next, %.critedge534 ], [ 0, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph ]
-  %24 = phi ptr [ %33, %.critedge534 ], [ %14, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph ]
-  %25 = getelementptr inbounds nuw %class.vector.1, ptr %24, i64 %indvars.iv805
+.preheader:                                       ; preds = %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph, %.critedge533
+  %indvars.iv804 = phi i64 [ %indvars.iv.next, %.critedge533 ], [ 0, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph ]
+  %24 = phi ptr [ %33, %.critedge533 ], [ %14, %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit.lr.ph ]
+  %25 = getelementptr inbounds nuw %class.vector.1, ptr %24, i64 %indvars.iv804
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %.critedge534, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit
+  br i1 %27, label %.critedge533, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit
 
 _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit: ; preds = %.preheader, %.critedge
   %28 = phi ptr [ %1050, %.critedge ], [ %24, %.preheader ]
   %29 = phi ptr [ %1052, %.critedge ], [ %26, %.preheader ]
-  %.0159593 = phi i32 [ %1049, %.critedge ], [ 0, %.preheader ]
+  %.0159592 = phi i32 [ %1049, %.critedge ], [ 0, %.preheader ]
   %30 = getelementptr inbounds i8, ptr %29, i64 -4
   %31 = load i32, ptr %30, align 4, !tbaa !22
-  %32 = icmp ult i32 %.0159593, %31
-  br i1 %32, label %38, label %.critedge534
+  %32 = icmp ult i32 %.0159592, %31
+  br i1 %32, label %38, label %.critedge533
 
-.critedge534:                                     ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit, %.critedge, %.preheader
+.critedge533:                                     ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit, %.critedge, %.preheader
   %33 = phi ptr [ %24, %.preheader ], [ %28, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit ], [ %1050, %.critedge ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv805, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv804, 1
   %34 = getelementptr inbounds i8, ptr %33, i64 -4
   %35 = load i32, ptr %34, align 4, !tbaa !22
   %36 = zext i32 %35 to i64
   %37 = icmp samesign ult i64 %indvars.iv.next, %36
-  br i1 %37, label %.preheader, label %.critedge533.preheader, !llvm.loop !50
+  br i1 %37, label %.preheader, label %.critedge532.preheader, !llvm.loop !50
 
 38:                                               ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit
-  %39 = zext i32 %.0159593 to i64
+  %39 = zext i32 %.0159592 to i64
   %40 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %29, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !12
@@ -4489,10 +4489,10 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit: ; 
 
 48:                                               ; preds = %38
   %49 = icmp eq i32 %42, %44
-  br i1 %49, label %._crit_edge612, label %50
+  br i1 %49, label %._crit_edge611, label %50
 
-._crit_edge612:                                   ; preds = %48
-  %.pre613 = zext i32 %42 to i64
+._crit_edge611:                                   ; preds = %48
+  %.pre612 = zext i32 %42 to i64
   br label %970
 
 50:                                               ; preds = %48
@@ -4543,8 +4543,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit: ; preds = %_
   %77 = and i32 %42, 31
   %78 = shl nuw i32 1, %77
   %79 = and i32 %76, %78
-  %.not523 = icmp eq i32 %79, 0
-  br i1 %.not523, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i227
+  %.not522 = icmp eq i32 %79, 0
+  br i1 %.not522, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i227
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i227:           ; preds = %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit
   %80 = lshr i32 %44, 5
@@ -4558,8 +4558,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit228: ; preds =
   %85 = and i32 %44, 31
   %86 = shl nuw i32 1, %85
   %87 = and i32 %84, %86
-  %.not524 = icmp eq i32 %87, 0
-  br i1 %.not524, label %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit.thread, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread
+  %.not523 = icmp eq i32 %87, 0
+  br i1 %.not523, label %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit.thread, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread
 
 _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread: ; preds = %67, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit228, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit
   %88 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -4614,8 +4614,8 @@ _ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit232: ; preds = %104
   %110 = icmp ne i32 %109, 1
   %111 = load i32, ptr %17, align 8
   %.not192 = icmp eq i32 %111, %44
-  %or.cond514 = select i1 %110, i1 true, i1 %.not192
-  br i1 %or.cond514, label %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit230.thread, label %112
+  %or.cond513 = select i1 %110, i1 true, i1 %.not192
+  br i1 %or.cond513, label %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit230.thread, label %112
 
 112:                                              ; preds = %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit232
   %113 = lshr i32 %44, 5
@@ -4636,8 +4636,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234: ; preds =
   %122 = and i32 %44, 31
   %123 = shl nuw i32 1, %122
   %124 = and i32 %121, %123
-  %.not525 = icmp eq i32 %124, 0
-  br i1 %.not525, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i235
+  %.not524 = icmp eq i32 %124, 0
+  br i1 %.not524, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i235
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i235:           ; preds = %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234
   %125 = lshr i32 %42, 5
@@ -4651,8 +4651,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit236: ; preds =
   %130 = and i32 %42, 31
   %131 = shl nuw i32 1, %130
   %132 = and i32 %129, %131
-  %.not526 = icmp eq i32 %132, 0
-  br i1 %.not526, label %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit230.thread, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234.thread
+  %.not525 = icmp eq i32 %132, 0
+  br i1 %.not525, label %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit230.thread, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234.thread
 
 _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234.thread: ; preds = %112, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i233, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit236, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234
   %133 = getelementptr inbounds nuw i8, ptr %99, i64 20
@@ -4713,8 +4713,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit240: ; preds =
   %158 = and i32 %44, 31
   %159 = shl nuw i32 1, %158
   %160 = and i32 %157, %159
-  %.not527 = icmp eq i32 %160, 0
-  br i1 %.not527, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit240.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i241
+  %.not526 = icmp eq i32 %160, 0
+  br i1 %.not526, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit240.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i241
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i241:           ; preds = %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit240
   %161 = lshr i32 %42, 5
@@ -4731,12 +4731,12 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit242: ; preds =
   %169 = icmp eq i32 %168, 0
   %170 = load i32, ptr %17, align 8
   %.not193 = icmp eq i32 %170, %44
-  %or.cond516 = select i1 %169, i1 true, i1 %.not193
-  br i1 %or.cond516, label %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit238.thread, label %171
+  %or.cond515 = select i1 %169, i1 true, i1 %.not193
+  br i1 %or.cond515, label %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit238.thread, label %171
 
 _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit240.thread: ; preds = %148, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i239, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit240
-  %.old515 = load i32, ptr %17, align 8, !tbaa !29
-  %.not193.old = icmp eq i32 %.old515, %44
+  %.old514 = load i32, ptr %17, align 8, !tbaa !29
+  %.not193.old = icmp eq i32 %.old514, %44
   br i1 %.not193.old, label %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit238.thread, label %171
 
 171:                                              ; preds = %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit242, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit240.thread
@@ -4752,8 +4752,8 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit: ; p
   %176 = zext i32 %175 to i64
   %177 = mul nuw nsw i64 %176, 24
   %178 = getelementptr inbounds nuw i8, ptr %172, i64 %177
-  %.not213563 = icmp eq i32 %175, 0
-  br i1 %.not213563, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit, label %.lr.ph
+  %.not213562 = icmp eq i32 %175, 0
+  br i1 %.not213562, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %200
   %.pre = load ptr, ptr %4, align 8, !tbaa !16
@@ -4766,16 +4766,16 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit: ; pr
   %182 = zext i32 %181 to i64
   %183 = mul nuw nsw i64 %182, 24
   %184 = getelementptr inbounds nuw i8, ptr %.pre, i64 %183
-  %.not214565 = icmp eq i32 %181, 0
-  br i1 %.not214565, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i, label %.lr.ph567
+  %.not214564 = icmp eq i32 %181, 0
+  br i1 %.not214564, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i, label %.lr.ph566
 
 .lr.ph:                                           ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit, %200
-  %.0179564 = phi ptr [ %209, %200 ], [ %172, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit ]
+  %.0179563 = phi ptr [ %209, %200 ], [ %172, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %185 = load ptr, ptr %0, align 8, !tbaa !42
-  %186 = getelementptr inbounds nuw i8, ptr %.0179564, i64 20
+  %186 = getelementptr inbounds nuw i8, ptr %.0179563, i64 20
   %187 = load i32, ptr %186, align 4, !tbaa !13
-  %188 = getelementptr inbounds nuw i8, ptr %.0179564, i64 8
+  %188 = getelementptr inbounds nuw i8, ptr %.0179563, i64 8
   %189 = load ptr, ptr %188, align 8, !tbaa !8
   invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERS1_jjPj(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 1 dereferenceable(1) %185, i32 noundef %42, i32 noundef %187, ptr noundef %189)
           to label %190 unwind label %210
@@ -4816,7 +4816,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit: ; pr
   store i32 %208, ptr %206, align 4, !tbaa !22
   call void @_ZN9automatonIj21default_value_managerIjEE4moveD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %209 = getelementptr inbounds nuw i8, ptr %.0179564, i64 24
+  %209 = getelementptr inbounds nuw i8, ptr %.0179563, i64 24
   %.not213 = icmp eq ptr %209, %178
   br i1 %.not213, label %._crit_edge, label %.lr.ph
 
@@ -4836,13 +4836,13 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %368
 
-._crit_edge568:                                   ; preds = %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit
-  %.pre606 = load ptr, ptr %4, align 8, !tbaa !16
-  %.not.i.i = icmp eq ptr %.pre606, null
+._crit_edge567:                                   ; preds = %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit
+  %.pre605 = load ptr, ptr %4, align 8, !tbaa !16
+  %.not.i.i = icmp eq ptr %.pre605, null
   br i1 %.not.i.i, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i
 
-_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i: ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit, %._crit_edge568
-  %215 = phi ptr [ %.pre606, %._crit_edge568 ], [ %.pre, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit ]
+_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i: ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit, %._crit_edge567
+  %215 = phi ptr [ %.pre605, %._crit_edge567 ], [ %.pre, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit ]
   %216 = getelementptr inbounds i8, ptr %215, i64 -4
   %217 = load i32, ptr %216, align 4, !tbaa !22
   %.not5.i.i.i.i.i.i = icmp eq i32 %217, 0
@@ -4874,15 +4874,15 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_element
   call void @__clang_call_terminate(ptr %224) #21
   unreachable
 
-_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit: ; preds = %._crit_edge, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit, %171, %._crit_edge568, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_elementsEv.exit.i.i
+_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit: ; preds = %._crit_edge, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit, %171, %._crit_edge567, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_elementsEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %970
 
-.lr.ph567:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit
-  %.0181566 = phi ptr [ %365, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit ], [ %.pre, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit ]
-  %225 = getelementptr inbounds nuw i8, ptr %.0181566, i64 20
+.lr.ph566:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit
+  %.0181565 = phi ptr [ %365, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit ], [ %.pre, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit ]
+  %225 = getelementptr inbounds nuw i8, ptr %.0181565, i64 20
   %226 = load i32, ptr %225, align 4, !tbaa !13
-  %227 = getelementptr inbounds nuw i8, ptr %.0181566, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %.0181565, i64 8
   %228 = load ptr, ptr %227, align 8, !tbaa !8
   %229 = load ptr, ptr %13, align 8, !tbaa !19
   %230 = getelementptr inbounds nuw %class.vector.1, ptr %229, i64 %97
@@ -4890,7 +4890,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit: ; pred
   %232 = icmp eq ptr %231, null
   br i1 %232, label %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i
 
-_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i: ; preds = %.lr.ph567
+_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i: ; preds = %.lr.ph566
   %233 = getelementptr inbounds i8, ptr %231, i64 -4
   %234 = load i32, ptr %233, align 4, !tbaa !22
   %.not.i.i.i = icmp eq i32 %234, 0
@@ -4929,7 +4929,7 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
   %247 = and i64 %indvars.iv.i.i.i, 4294967295
   br label %_ZN9automatonIj21default_value_managerIjEE6removeEjjPjR6vectorINS2_4moveELb1EjE.exit.i
 
-_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i: ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i245, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i, %.lr.ph567
+_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i: ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i245, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i, %.lr.ph566
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 666, ptr noundef nonnull @.str.7)
           to label %.noexc249 unwind label %366
 
@@ -5055,7 +5055,7 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
   %305 = load i32, ptr %304, align 4, !tbaa !22
   %306 = add i32 %305, -1
   store i32 %306, ptr %304, align 4, !tbaa !22
-  %307 = getelementptr inbounds nuw i8, ptr %.0181566, i64 16
+  %307 = getelementptr inbounds nuw i8, ptr %.0181565, i64 16
   %308 = load i32, ptr %307, align 8, !tbaa !12
   %309 = load ptr, ptr %13, align 8, !tbaa !19
   %310 = zext i32 %308 to i64
@@ -5114,7 +5114,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %337 = phi ptr [ %.pre.i.i253, %.noexc254 ], [ %312, %.thread.i ]
   %338 = zext i32 %336 to i64
   %339 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %337, i64 %338
-  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %339, ptr noundef nonnull align 8 dereferenceable(24) %.0181566)
+  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %339, ptr noundef nonnull align 8 dereferenceable(24) %.0181565)
           to label %.noexc255 unwind label %366
 
 .noexc255:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit.i
@@ -5154,7 +5154,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %358 = phi ptr [ %.pre.i6.i, %.noexc256 ], [ %348, %350 ]
   %359 = zext i32 %357 to i64
   %360 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %358, i64 %359
-  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %360, ptr noundef nonnull align 8 dereferenceable(24) %.0181566)
+  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %360, ptr noundef nonnull align 8 dereferenceable(24) %.0181565)
           to label %.noexc257 unwind label %366
 
 .noexc257:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit9.i
@@ -5166,9 +5166,9 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   br label %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit
 
 _ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit: ; preds = %.noexc257, %_ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exit.i
-  %365 = getelementptr inbounds nuw i8, ptr %.0181566, i64 24
+  %365 = getelementptr inbounds nuw i8, ptr %.0181565, i64 24
   %.not214 = icmp eq ptr %365, %184
-  br i1 %.not214, label %._crit_edge568, label %.lr.ph567
+  br i1 %.not214, label %._crit_edge567, label %.lr.ph566
 
 366:                                              ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit9.i, %356, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit.i, %335, %.noexc251, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17.i, %.noexc249, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i
   %367 = landingpad { ptr, i32 }
@@ -5238,8 +5238,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit261: ; preds =
   %393 = and i32 %44, 31
   %394 = shl nuw i32 1, %393
   %395 = and i32 %392, %394
-  %.not528 = icmp eq i32 %395, 0
-  br i1 %.not528, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit261.thread, label %_ZN9automatonIj21default_value_managerIjEE14all_epsilon_inEj.exit
+  %.not527 = icmp eq i32 %395, 0
+  br i1 %.not527, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit261.thread, label %_ZN9automatonIj21default_value_managerIjEE14all_epsilon_inEj.exit
 
 _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit261.thread: ; preds = %383, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i260, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit261
   %396 = getelementptr inbounds nuw i8, ptr %99, i64 20
@@ -5252,7 +5252,7 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit261.thread: ; 
   store ptr null, ptr %7, align 8, !tbaa !16
   %400 = load ptr, ptr %142, align 8, !tbaa !16
   %401 = icmp eq ptr %400, null
-  br i1 %401, label %._crit_edge576, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263
+  br i1 %401, label %._crit_edge575, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263
 
 _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263: ; preds = %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit261.thread
   %402 = getelementptr inbounds i8, ptr %400, i64 -4
@@ -5260,33 +5260,33 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263: 
   %404 = zext i32 %403 to i64
   %405 = mul nuw nsw i64 %404, 24
   %406 = getelementptr inbounds nuw i8, ptr %400, i64 %405
-  %.not195569 = icmp eq i32 %403, 0
-  br i1 %.not195569, label %._crit_edge576, label %.lr.ph571
+  %.not195568 = icmp eq i32 %403, 0
+  br i1 %.not195568, label %._crit_edge575, label %.lr.ph570
 
-._crit_edge572:                                   ; preds = %426
-  %.pre607 = load ptr, ptr %7, align 8, !tbaa !16
-  %407 = icmp eq ptr %.pre607, null
-  br i1 %407, label %._crit_edge576, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265
+._crit_edge571:                                   ; preds = %426
+  %.pre606 = load ptr, ptr %7, align 8, !tbaa !16
+  %407 = icmp eq ptr %.pre606, null
+  br i1 %407, label %._crit_edge575, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265
 
-_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265: ; preds = %._crit_edge572
-  %408 = getelementptr inbounds i8, ptr %.pre607, i64 -4
+_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265: ; preds = %._crit_edge571
+  %408 = getelementptr inbounds i8, ptr %.pre606, i64 -4
   %409 = load i32, ptr %408, align 4, !tbaa !22
   %410 = zext i32 %409 to i64
   %411 = mul nuw nsw i64 %410, 24
-  %412 = getelementptr inbounds nuw i8, ptr %.pre607, i64 %411
-  %.not196573 = icmp eq i32 %409, 0
-  br i1 %.not196573, label %._crit_edge576, label %.lr.ph575
+  %412 = getelementptr inbounds nuw i8, ptr %.pre606, i64 %411
+  %.not196572 = icmp eq i32 %409, 0
+  br i1 %.not196572, label %._crit_edge575, label %.lr.ph574
 
-.lr.ph571:                                        ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263, %426
-  %.0182570 = phi ptr [ %435, %426 ], [ %400, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263 ]
+.lr.ph570:                                        ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263, %426
+  %.0182569 = phi ptr [ %435, %426 ], [ %400, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %413 = load ptr, ptr %0, align 8, !tbaa !42
-  %414 = getelementptr inbounds nuw i8, ptr %.0182570, i64 16
+  %414 = getelementptr inbounds nuw i8, ptr %.0182569, i64 16
   %415 = load i32, ptr %414, align 8, !tbaa !12
   invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERS1_jjPj(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 1 dereferenceable(1) %413, i32 noundef %415, i32 noundef %397, ptr noundef %399)
           to label %416 unwind label %436
 
-416:                                              ; preds = %.lr.ph571
+416:                                              ; preds = %.lr.ph570
   %417 = load ptr, ptr %7, align 8, !tbaa !16
   %418 = icmp eq ptr %417, null
   br i1 %418, label %425, label %419
@@ -5322,11 +5322,11 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265: ;
   store i32 %434, ptr %432, align 4, !tbaa !22
   call void @_ZN9automatonIj21default_value_managerIjEE4moveD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %435 = getelementptr inbounds nuw i8, ptr %.0182570, i64 24
+  %435 = getelementptr inbounds nuw i8, ptr %.0182569, i64 24
   %.not195 = icmp eq ptr %435, %406
-  br i1 %.not195, label %._crit_edge572, label %.lr.ph571
+  br i1 %.not195, label %._crit_edge571, label %.lr.ph570
 
-436:                                              ; preds = %.lr.ph571
+436:                                              ; preds = %.lr.ph570
   %437 = landingpad { ptr, i32 }
           cleanup
   br label %440
@@ -5342,13 +5342,13 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %604
 
-._crit_edge576:                                   ; preds = %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit323, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit261.thread, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263, %._crit_edge572, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265
+._crit_edge575:                                   ; preds = %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit323, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit261.thread, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit263, %._crit_edge571, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265
   invoke void @_ZN9automatonIj21default_value_managerIjEE6removeEjjPj(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %44, i32 noundef %397, ptr noundef %399)
           to label %584 unwind label %602
 
-.lr.ph575:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit323
-  %.0183574 = phi ptr [ %581, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit323 ], [ %.pre607, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265 ]
-  %441 = getelementptr inbounds nuw i8, ptr %.0183574, i64 16
+.lr.ph574:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit323
+  %.0183573 = phi ptr [ %581, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit323 ], [ %.pre606, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265 ]
+  %441 = getelementptr inbounds nuw i8, ptr %.0183573, i64 16
   %442 = load i32, ptr %441, align 8, !tbaa !12
   %443 = load ptr, ptr %13, align 8, !tbaa !19
   %444 = zext i32 %442 to i64
@@ -5357,7 +5357,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit265: ;
   %447 = icmp eq ptr %446, null
   br i1 %447, label %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i280, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i271
 
-_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i271: ; preds = %.lr.ph575
+_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i271: ; preds = %.lr.ph574
   %448 = getelementptr inbounds i8, ptr %446, i64 -4
   %449 = load i32, ptr %448, align 4, !tbaa !22
   %.not.i.i.i272 = icmp eq i32 %449, 0
@@ -5396,7 +5396,7 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
   %462 = and i64 %indvars.iv.i.i.i276, 4294967295
   br label %_ZN9automatonIj21default_value_managerIjEE6removeEjjPjR6vectorINS2_4moveELb1EjE.exit.i284
 
-_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i280: ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i277, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i271, %.lr.ph575
+_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i280: ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i277, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i271, %.lr.ph574
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 666, ptr noundef nonnull @.str.7)
           to label %.noexc302 unwind label %582
 
@@ -5547,7 +5547,7 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4backEv.exit.i.i
 536:                                              ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4backEv.exit.i.i308
   %537 = getelementptr inbounds nuw i8, ptr %532, i64 20
   %538 = load i32, ptr %537, align 4, !tbaa !13
-  %539 = getelementptr inbounds nuw i8, ptr %.0183574, i64 20
+  %539 = getelementptr inbounds nuw i8, ptr %.0183573, i64 20
   %540 = load i32, ptr %539, align 4, !tbaa !13
   %541 = icmp eq i32 %538, %540
   br i1 %541, label %_ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exit.i318, label %.thread.i309
@@ -5555,7 +5555,7 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4backEv.exit.i.i
 _ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exit.i318: ; preds = %536
   %542 = getelementptr inbounds nuw i8, ptr %532, i64 8
   %543 = load ptr, ptr %542, align 8, !tbaa !8
-  %544 = getelementptr inbounds nuw i8, ptr %.0183574, i64 8
+  %544 = getelementptr inbounds nuw i8, ptr %.0183573, i64 8
   %545 = load ptr, ptr %544, align 8, !tbaa !8
   %546 = icmp eq ptr %543, %545
   br i1 %546, label %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit323, label %.thread.i309
@@ -5581,7 +5581,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %552 = phi ptr [ %.pre.i.i315, %.noexc319 ], [ %525, %.thread.i309 ]
   %553 = zext i32 %551 to i64
   %554 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %552, i64 %553
-  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %554, ptr noundef nonnull align 8 dereferenceable(24) %.0183574)
+  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %554, ptr noundef nonnull align 8 dereferenceable(24) %.0183573)
           to label %.noexc320 unwind label %582
 
 .noexc320:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit.i310
@@ -5590,7 +5590,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %557 = load i32, ptr %556, align 4, !tbaa !22
   %558 = add i32 %557, 1
   store i32 %558, ptr %556, align 4, !tbaa !22
-  %559 = getelementptr inbounds nuw i8, ptr %.0183574, i64 20
+  %559 = getelementptr inbounds nuw i8, ptr %.0183573, i64 20
   %560 = load i32, ptr %559, align 4, !tbaa !13
   %561 = load ptr, ptr %16, align 8, !tbaa !19
   %562 = zext i32 %560 to i64
@@ -5622,7 +5622,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %574 = phi ptr [ %.pre.i6.i312, %.noexc321 ], [ %564, %566 ]
   %575 = zext i32 %573 to i64
   %576 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %574, i64 %575
-  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %576, ptr noundef nonnull align 8 dereferenceable(24) %.0183574)
+  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %576, ptr noundef nonnull align 8 dereferenceable(24) %.0183573)
           to label %.noexc322 unwind label %582
 
 .noexc322:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit9.i311
@@ -5634,17 +5634,17 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   br label %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit323
 
 _ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit323: ; preds = %.noexc322, %_ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exit.i318
-  %581 = getelementptr inbounds nuw i8, ptr %.0183574, i64 24
+  %581 = getelementptr inbounds nuw i8, ptr %.0183573, i64 24
   %.not196 = icmp eq ptr %581, %412
-  br i1 %.not196, label %._crit_edge576, label %.lr.ph575
+  br i1 %.not196, label %._crit_edge575, label %.lr.ph574
 
 582:                                              ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit9.i311, %572, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit.i310, %550, %.noexc304, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17.i295, %.noexc302, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i280
   %583 = landingpad { ptr, i32 }
           cleanup
   br label %604
 
-584:                                              ; preds = %._crit_edge576
-  %585 = add i32 %.0159593, -1
+584:                                              ; preds = %._crit_edge575
+  %585 = add i32 %.0159592, -1
   %586 = load ptr, ptr %7, align 8, !tbaa !16
   %.not.i.i324 = icmp eq ptr %586, null
   br i1 %.not.i.i324, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit334, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i325
@@ -5703,7 +5703,7 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %_ZN6vectorIN9automa
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge
 
-602:                                              ; preds = %._crit_edge576
+602:                                              ; preds = %._crit_edge575
   %603 = landingpad { ptr, i32 }
           cleanup
   br label %604
@@ -5728,8 +5728,8 @@ _ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit337: ; preds = %_Z
   %610 = icmp ne i32 %609, 1
   %611 = load i32, ptr %17, align 8
   %.not200 = icmp eq i32 %611, %42
-  %or.cond519 = select i1 %610, i1 true, i1 %.not200
-  br i1 %or.cond519, label %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit416, label %612
+  %or.cond518 = select i1 %610, i1 true, i1 %.not200
+  br i1 %or.cond518, label %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit416, label %612
 
 612:                                              ; preds = %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit337
   %613 = lshr i32 %42, 5
@@ -5750,8 +5750,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339: ; preds =
   %622 = and i32 %42, 31
   %623 = shl nuw i32 1, %622
   %624 = and i32 %621, %623
-  %.not529 = icmp eq i32 %624, 0
-  br i1 %.not529, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i340
+  %.not528 = icmp eq i32 %624, 0
+  br i1 %.not528, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i340
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i340:           ; preds = %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339
   %625 = lshr i32 %44, 5
@@ -5765,8 +5765,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit341: ; preds =
   %630 = and i32 %44, 31
   %631 = shl nuw i32 1, %630
   %632 = and i32 %629, %631
-  %.not530 = icmp eq i32 %632, 0
-  br i1 %.not530, label %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit416.thread, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339.thread
+  %.not529 = icmp eq i32 %632, 0
+  br i1 %.not529, label %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit416.thread, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339.thread
 
 _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339.thread: ; preds = %612, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i338, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit341, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -5781,35 +5781,35 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit343: 
   %637 = zext i32 %636 to i64
   %638 = mul nuw nsw i64 %637, 24
   %639 = getelementptr inbounds nuw i8, ptr %633, i64 %638
-  %.not207577 = icmp eq i32 %636, 0
-  br i1 %.not207577, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361, label %.lr.ph579
+  %.not207576 = icmp eq i32 %636, 0
+  br i1 %.not207576, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361, label %.lr.ph578
 
-._crit_edge580:                                   ; preds = %661
-  %.pre608 = load ptr, ptr %9, align 8, !tbaa !16
-  %640 = icmp eq ptr %.pre608, null
+._crit_edge579:                                   ; preds = %661
+  %.pre607 = load ptr, ptr %9, align 8, !tbaa !16
+  %640 = icmp eq ptr %.pre607, null
   br i1 %640, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345
 
-_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345: ; preds = %._crit_edge580
-  %641 = getelementptr inbounds i8, ptr %.pre608, i64 -4
+_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345: ; preds = %._crit_edge579
+  %641 = getelementptr inbounds i8, ptr %.pre607, i64 -4
   %642 = load i32, ptr %641, align 4, !tbaa !22
   %643 = zext i32 %642 to i64
   %644 = mul nuw nsw i64 %643, 24
-  %645 = getelementptr inbounds nuw i8, ptr %.pre608, i64 %644
-  %.not208581 = icmp eq i32 %642, 0
-  br i1 %.not208581, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i352, label %.lr.ph583
+  %645 = getelementptr inbounds nuw i8, ptr %.pre607, i64 %644
+  %.not208580 = icmp eq i32 %642, 0
+  br i1 %.not208580, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i352, label %.lr.ph582
 
-.lr.ph579:                                        ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit343, %661
-  %.0184578 = phi ptr [ %670, %661 ], [ %633, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit343 ]
+.lr.ph578:                                        ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit343, %661
+  %.0184577 = phi ptr [ %670, %661 ], [ %633, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit343 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %646 = load ptr, ptr %0, align 8, !tbaa !42
-  %647 = getelementptr inbounds nuw i8, ptr %.0184578, i64 16
+  %647 = getelementptr inbounds nuw i8, ptr %.0184577, i64 16
   %648 = load i32, ptr %647, align 8, !tbaa !12
-  %649 = getelementptr inbounds nuw i8, ptr %.0184578, i64 8
+  %649 = getelementptr inbounds nuw i8, ptr %.0184577, i64 8
   %650 = load ptr, ptr %649, align 8, !tbaa !8
   invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERS1_jjPj(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 1 dereferenceable(1) %646, i32 noundef %648, i32 noundef %44, ptr noundef %650)
           to label %651 unwind label %671
 
-651:                                              ; preds = %.lr.ph579
+651:                                              ; preds = %.lr.ph578
   %652 = load ptr, ptr %9, align 8, !tbaa !16
   %653 = icmp eq ptr %652, null
   br i1 %653, label %660, label %654
@@ -5845,11 +5845,11 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345: ;
   store i32 %669, ptr %667, align 4, !tbaa !22
   call void @_ZN9automatonIj21default_value_managerIjEE4moveD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %670 = getelementptr inbounds nuw i8, ptr %.0184578, i64 24
+  %670 = getelementptr inbounds nuw i8, ptr %.0184577, i64 24
   %.not207 = icmp eq ptr %670, %639
-  br i1 %.not207, label %._crit_edge580, label %.lr.ph579
+  br i1 %.not207, label %._crit_edge579, label %.lr.ph578
 
-671:                                              ; preds = %.lr.ph579
+671:                                              ; preds = %.lr.ph578
   %672 = landingpad { ptr, i32 }
           cleanup
   br label %675
@@ -5865,13 +5865,13 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %830
 
-._crit_edge584:                                   ; preds = %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit414
-  %.pre609 = load ptr, ptr %9, align 8, !tbaa !16
-  %.not.i.i351 = icmp eq ptr %.pre609, null
+._crit_edge583:                                   ; preds = %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit414
+  %.pre608 = load ptr, ptr %9, align 8, !tbaa !16
+  %.not.i.i351 = icmp eq ptr %.pre608, null
   br i1 %.not.i.i351, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i352
 
-_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i352: ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345, %._crit_edge584
-  %676 = phi ptr [ %.pre609, %._crit_edge584 ], [ %.pre608, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345 ]
+_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i352: ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345, %._crit_edge583
+  %676 = phi ptr [ %.pre608, %._crit_edge583 ], [ %.pre607, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345 ]
   %677 = getelementptr inbounds i8, ptr %676, i64 -4
   %678 = load i32, ptr %677, align 4, !tbaa !22
   %.not5.i.i.i.i.i.i353 = icmp eq i32 %678, 0
@@ -5903,15 +5903,15 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_element
   call void @__clang_call_terminate(ptr %685) #21
   unreachable
 
-_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361: ; preds = %._crit_edge580, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit343, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339.thread, %._crit_edge584, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_elementsEv.exit.i.i360
+_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361: ; preds = %._crit_edge579, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit343, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit339.thread, %._crit_edge583, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_elementsEv.exit.i.i360
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %970
 
-.lr.ph583:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit414
-  %.0185582 = phi ptr [ %827, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit414 ], [ %.pre608, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345 ]
-  %686 = getelementptr inbounds nuw i8, ptr %.0185582, i64 16
+.lr.ph582:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit414
+  %.0185581 = phi ptr [ %827, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit414 ], [ %.pre607, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit345 ]
+  %686 = getelementptr inbounds nuw i8, ptr %.0185581, i64 16
   %687 = load i32, ptr %686, align 8, !tbaa !12
-  %688 = getelementptr inbounds nuw i8, ptr %.0185582, i64 8
+  %688 = getelementptr inbounds nuw i8, ptr %.0185581, i64 8
   %689 = load ptr, ptr %688, align 8, !tbaa !8
   %690 = load ptr, ptr %13, align 8, !tbaa !19
   %691 = zext i32 %687 to i64
@@ -5920,7 +5920,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361: ; p
   %694 = icmp eq ptr %693, null
   br i1 %694, label %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i371, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i362
 
-_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i362: ; preds = %.lr.ph583
+_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i362: ; preds = %.lr.ph582
   %695 = getelementptr inbounds i8, ptr %693, i64 -4
   %696 = load i32, ptr %695, align 4, !tbaa !22
   %.not.i.i.i363 = icmp eq i32 %696, 0
@@ -5959,7 +5959,7 @@ _ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1
   %709 = and i64 %indvars.iv.i.i.i367, 4294967295
   br label %_ZN9automatonIj21default_value_managerIjEE6removeEjjPjR6vectorINS2_4moveELb1EjE.exit.i375
 
-_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i371: ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i368, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i362, %.lr.ph583
+_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i371: ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i368, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.lr.ph.i.i.i362, %.lr.ph582
   invoke void @_Z26notify_assertion_violationPKciS0_(ptr noundef nonnull @.str.6, i32 noundef 666, ptr noundef nonnull @.str.7)
           to label %.noexc393 unwind label %828
 
@@ -6110,7 +6110,7 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4backEv.exit.i.i
 783:                                              ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4backEv.exit.i.i399
   %784 = getelementptr inbounds nuw i8, ptr %779, i64 20
   %785 = load i32, ptr %784, align 4, !tbaa !13
-  %786 = getelementptr inbounds nuw i8, ptr %.0185582, i64 20
+  %786 = getelementptr inbounds nuw i8, ptr %.0185581, i64 20
   %787 = load i32, ptr %786, align 4, !tbaa !13
   %788 = icmp eq i32 %785, %787
   br i1 %788, label %_ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exit.i409, label %.thread.i400
@@ -6143,7 +6143,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %798 = phi ptr [ %.pre.i.i406, %.noexc410 ], [ %772, %.thread.i400 ]
   %799 = zext i32 %797 to i64
   %800 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %798, i64 %799
-  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %800, ptr noundef nonnull align 8 dereferenceable(24) %.0185582)
+  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %800, ptr noundef nonnull align 8 dereferenceable(24) %.0185581)
           to label %.noexc411 unwind label %828
 
 .noexc411:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit.i401
@@ -6152,7 +6152,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %803 = load i32, ptr %802, align 4, !tbaa !22
   %804 = add i32 %803, 1
   store i32 %804, ptr %802, align 4, !tbaa !22
-  %805 = getelementptr inbounds nuw i8, ptr %.0185582, i64 20
+  %805 = getelementptr inbounds nuw i8, ptr %.0185581, i64 20
   %806 = load i32, ptr %805, align 4, !tbaa !13
   %807 = load ptr, ptr %16, align 8, !tbaa !19
   %808 = zext i32 %806 to i64
@@ -6184,7 +6184,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %820 = phi ptr [ %.pre.i6.i403, %.noexc412 ], [ %810, %812 ]
   %821 = zext i32 %819 to i64
   %822 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %820, i64 %821
-  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %822, ptr noundef nonnull align 8 dereferenceable(24) %.0185582)
+  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %822, ptr noundef nonnull align 8 dereferenceable(24) %.0185581)
           to label %.noexc413 unwind label %828
 
 .noexc413:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit9.i402
@@ -6196,9 +6196,9 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   br label %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit414
 
 _ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit414: ; preds = %.noexc413, %_ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exit.i409
-  %827 = getelementptr inbounds nuw i8, ptr %.0185582, i64 24
+  %827 = getelementptr inbounds nuw i8, ptr %.0185581, i64 24
   %.not208 = icmp eq ptr %827, %645
-  br i1 %.not208, label %._crit_edge584, label %.lr.ph583
+  br i1 %.not208, label %._crit_edge583, label %.lr.ph582
 
 828:                                              ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit9.i402, %818, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit.i401, %796, %.noexc395, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i17.i386, %.noexc393, %_ZN9automatonIj21default_value_managerIjEE9find_moveEjjPjRK6vectorINS2_4moveELb1EjE.exit.i.i371
   %829 = landingpad { ptr, i32 }
@@ -6234,8 +6234,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit418: ; preds =
   %841 = and i32 %42, 31
   %842 = shl nuw i32 1, %841
   %843 = and i32 %840, %842
-  %.not531 = icmp eq i32 %843, 0
-  br i1 %.not531, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i419, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420.thread
+  %.not530 = icmp eq i32 %843, 0
+  br i1 %.not530, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i419, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420.thread
 
 _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i419:           ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i417, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit418
   %844 = lshr i32 %44, 5
@@ -6249,8 +6249,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420: ; preds =
   %849 = and i32 %44, 31
   %850 = shl nuw i32 1, %849
   %851 = and i32 %848, %850
-  %.not532 = icmp eq i32 %851, 0
-  br i1 %.not532, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420.thread, label %.critedge
+  %.not531 = icmp eq i32 %851, 0
+  br i1 %.not531, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420.thread, label %.critedge
 
 _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420.thread: ; preds = %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit416.thread, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i419, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit418
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -6265,35 +6265,35 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit422: 
   %856 = zext i32 %855 to i64
   %857 = mul nuw nsw i64 %856, 24
   %858 = getelementptr inbounds nuw i8, ptr %852, i64 %857
-  %.not201585 = icmp eq i32 %855, 0
-  br i1 %.not201585, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440, label %.lr.ph587
+  %.not201584 = icmp eq i32 %855, 0
+  br i1 %.not201584, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440, label %.lr.ph586
 
-._crit_edge588:                                   ; preds = %880
-  %.pre610 = load ptr, ptr %11, align 8, !tbaa !16
-  %859 = icmp eq ptr %.pre610, null
+._crit_edge587:                                   ; preds = %880
+  %.pre609 = load ptr, ptr %11, align 8, !tbaa !16
+  %859 = icmp eq ptr %.pre609, null
   br i1 %859, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424
 
-_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424: ; preds = %._crit_edge588
-  %860 = getelementptr inbounds i8, ptr %.pre610, i64 -4
+_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424: ; preds = %._crit_edge587
+  %860 = getelementptr inbounds i8, ptr %.pre609, i64 -4
   %861 = load i32, ptr %860, align 4, !tbaa !22
   %862 = zext i32 %861 to i64
   %863 = mul nuw nsw i64 %862, 24
-  %864 = getelementptr inbounds nuw i8, ptr %.pre610, i64 %863
-  %.not202589 = icmp eq i32 %861, 0
-  br i1 %.not202589, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i431, label %.lr.ph591
+  %864 = getelementptr inbounds nuw i8, ptr %.pre609, i64 %863
+  %.not202588 = icmp eq i32 %861, 0
+  br i1 %.not202588, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i431, label %.lr.ph590
 
-.lr.ph587:                                        ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit422, %880
-  %.0180586 = phi ptr [ %889, %880 ], [ %852, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit422 ]
+.lr.ph586:                                        ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit422, %880
+  %.0180585 = phi ptr [ %889, %880 ], [ %852, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit422 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %865 = load ptr, ptr %0, align 8, !tbaa !42
-  %866 = getelementptr inbounds nuw i8, ptr %.0180586, i64 20
+  %866 = getelementptr inbounds nuw i8, ptr %.0180585, i64 20
   %867 = load i32, ptr %866, align 4, !tbaa !13
-  %868 = getelementptr inbounds nuw i8, ptr %.0180586, i64 8
+  %868 = getelementptr inbounds nuw i8, ptr %.0180585, i64 8
   %869 = load ptr, ptr %868, align 8, !tbaa !8
   invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERS1_jjPj(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 1 dereferenceable(1) %865, i32 noundef %42, i32 noundef %867, ptr noundef %869)
           to label %870 unwind label %890
 
-870:                                              ; preds = %.lr.ph587
+870:                                              ; preds = %.lr.ph586
   %871 = load ptr, ptr %11, align 8, !tbaa !16
   %872 = icmp eq ptr %871, null
   br i1 %872, label %879, label %873
@@ -6329,11 +6329,11 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424: ;
   store i32 %888, ptr %886, align 4, !tbaa !22
   call void @_ZN9automatonIj21default_value_managerIjEE4moveD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #20
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %889 = getelementptr inbounds nuw i8, ptr %.0180586, i64 24
+  %889 = getelementptr inbounds nuw i8, ptr %.0180585, i64 24
   %.not201 = icmp eq ptr %889, %858
-  br i1 %.not201, label %._crit_edge588, label %.lr.ph587
+  br i1 %.not201, label %._crit_edge587, label %.lr.ph586
 
-890:                                              ; preds = %.lr.ph587
+890:                                              ; preds = %.lr.ph586
   %891 = landingpad { ptr, i32 }
           cleanup
   br label %894
@@ -6349,13 +6349,13 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424: ;
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %969
 
-._crit_edge592:                                   ; preds = %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457
-  %.pre611 = load ptr, ptr %11, align 8, !tbaa !16
-  %.not.i.i430 = icmp eq ptr %.pre611, null
+._crit_edge591:                                   ; preds = %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457
+  %.pre610 = load ptr, ptr %11, align 8, !tbaa !16
+  %.not.i.i430 = icmp eq ptr %.pre610, null
   br i1 %.not.i.i430, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i431
 
-_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i431: ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424, %._crit_edge592
-  %895 = phi ptr [ %.pre611, %._crit_edge592 ], [ %.pre610, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424 ]
+_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit.i.i.i431: ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424, %._crit_edge591
+  %895 = phi ptr [ %.pre610, %._crit_edge591 ], [ %.pre609, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424 ]
   %896 = getelementptr inbounds i8, ptr %895, i64 -4
   %897 = load i32, ptr %896, align 4, !tbaa !22
   %.not5.i.i.i.i.i.i432 = icmp eq i32 %897, 0
@@ -6387,13 +6387,13 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_element
   call void @__clang_call_terminate(ptr %904) #21
   unreachable
 
-_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440: ; preds = %._crit_edge588, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit422, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420.thread, %._crit_edge592, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_elementsEv.exit.i.i439
+_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440: ; preds = %._crit_edge587, %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit422, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420.thread, %._crit_edge591, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_elementsEv.exit.i.i439
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %970
 
-.lr.ph591:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457
-  %.0162590 = phi ptr [ %966, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457 ], [ %.pre610, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424 ]
-  %905 = getelementptr inbounds nuw i8, ptr %.0162590, i64 16
+.lr.ph590:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457
+  %.0162589 = phi ptr [ %966, %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457 ], [ %.pre609, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE3endEv.exit424 ]
+  %905 = getelementptr inbounds nuw i8, ptr %.0162589, i64 16
   %906 = load i32, ptr %905, align 8, !tbaa !12
   %907 = load ptr, ptr %13, align 8, !tbaa !19
   %908 = zext i32 %906 to i64
@@ -6402,7 +6402,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440: ; p
   %911 = icmp eq ptr %910, null
   br i1 %911, label %935, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE5emptyEv.exit.i.i441
 
-_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE5emptyEv.exit.i.i441: ; preds = %.lr.ph591
+_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE5emptyEv.exit.i.i441: ; preds = %.lr.ph590
   %912 = getelementptr inbounds i8, ptr %910, i64 -4
   %913 = load i32, ptr %912, align 4, !tbaa !22
   %914 = icmp eq i32 %913, 0
@@ -6420,7 +6420,7 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4backEv.exit.i.i
 921:                                              ; preds = %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4backEv.exit.i.i442
   %922 = getelementptr inbounds nuw i8, ptr %917, i64 20
   %923 = load i32, ptr %922, align 4, !tbaa !13
-  %924 = getelementptr inbounds nuw i8, ptr %.0162590, i64 20
+  %924 = getelementptr inbounds nuw i8, ptr %.0162589, i64 20
   %925 = load i32, ptr %924, align 4, !tbaa !13
   %926 = icmp eq i32 %923, %925
   br i1 %926, label %_ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exit.i452, label %.thread.i443
@@ -6428,7 +6428,7 @@ _ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4backEv.exit.i.i
 _ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exit.i452: ; preds = %921
   %927 = getelementptr inbounds nuw i8, ptr %917, i64 8
   %928 = load ptr, ptr %927, align 8, !tbaa !8
-  %929 = getelementptr inbounds nuw i8, ptr %.0162590, i64 8
+  %929 = getelementptr inbounds nuw i8, ptr %.0162589, i64 8
   %930 = load ptr, ptr %929, align 8, !tbaa !8
   %931 = icmp eq ptr %928, %930
   br i1 %931, label %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457, label %.thread.i443
@@ -6439,7 +6439,7 @@ _ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exi
   %934 = icmp eq i32 %913, %933
   br i1 %934, label %935, label %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit.i444
 
-935:                                              ; preds = %.thread.i443, %.lr.ph591
+935:                                              ; preds = %.thread.i443, %.lr.ph590
   invoke void @_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %909)
           to label %.noexc453 unwind label %967
 
@@ -6454,7 +6454,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %937 = phi ptr [ %.pre.i.i449, %.noexc453 ], [ %910, %.thread.i443 ]
   %938 = zext i32 %936 to i64
   %939 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %937, i64 %938
-  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %939, ptr noundef nonnull align 8 dereferenceable(24) %.0162590)
+  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %939, ptr noundef nonnull align 8 dereferenceable(24) %.0162589)
           to label %.noexc454 unwind label %967
 
 .noexc454:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit.i444
@@ -6463,7 +6463,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %942 = load i32, ptr %941, align 4, !tbaa !22
   %943 = add i32 %942, 1
   store i32 %943, ptr %941, align 4, !tbaa !22
-  %944 = getelementptr inbounds nuw i8, ptr %.0162590, i64 20
+  %944 = getelementptr inbounds nuw i8, ptr %.0162589, i64 20
   %945 = load i32, ptr %944, align 4, !tbaa !13
   %946 = load ptr, ptr %16, align 8, !tbaa !19
   %947 = zext i32 %945 to i64
@@ -6495,7 +6495,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   %959 = phi ptr [ %.pre.i6.i446, %.noexc455 ], [ %949, %951 ]
   %960 = zext i32 %958 to i64
   %961 = getelementptr inbounds nuw %"class.automaton<unsigned int>::move", ptr %959, i64 %960
-  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %961, ptr noundef nonnull align 8 dereferenceable(24) %.0162590)
+  invoke void @_ZN9automatonIj21default_value_managerIjEE4moveC1ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %961, ptr noundef nonnull align 8 dereferenceable(24) %.0162589)
           to label %.noexc456 unwind label %967
 
 .noexc456:                                        ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit9.i445
@@ -6507,9 +6507,9 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.
   br label %_ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457
 
 _ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457: ; preds = %.noexc456, %_ZNK9automatonIj21default_value_managerIjEE18is_duplicate_cheapERKNS2_4moveE.exit.i452
-  %966 = getelementptr inbounds nuw i8, ptr %.0162590, i64 24
+  %966 = getelementptr inbounds nuw i8, ptr %.0162589, i64 24
   %.not202 = icmp eq ptr %966, %864
-  br i1 %.not202, label %._crit_edge592, label %.lr.ph591
+  br i1 %.not202, label %._crit_edge591, label %.lr.ph590
 
 967:                                              ; preds = %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit9.i445, %957, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE9push_backERKS4_.exit.i444, %935
   %968 = landingpad { ptr, i32 }
@@ -6522,8 +6522,8 @@ _ZN9automatonIj21default_value_managerIjEE3addERKNS2_4moveE.exit457: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %1054
 
-970:                                              ; preds = %._crit_edge612, %139, %94, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440
-  %.pre-phi = phi i64 [ %.pre613, %._crit_edge612 ], [ %52, %139 ], [ %52, %94 ], [ %52, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit ], [ %52, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361 ], [ %52, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440 ]
+970:                                              ; preds = %._crit_edge611, %139, %94, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440
+  %.pre-phi = phi i64 [ %.pre612, %._crit_edge611 ], [ %52, %139 ], [ %52, %94 ], [ %52, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit ], [ %52, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit361 ], [ %52, %_ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjED2Ev.exit440 ]
   %971 = load ptr, ptr %13, align 8, !tbaa !19
   %972 = getelementptr inbounds nuw %class.vector.1, ptr %971, i64 %.pre-phi
   %973 = load ptr, ptr %972, align 8, !tbaa !16
@@ -6683,35 +6683,35 @@ _ZN9automatonIj21default_value_managerIjEE6removeEjjPj.exit489: ; preds = %_ZN9a
   %1046 = load i32, ptr %1045, align 4, !tbaa !22
   %1047 = add i32 %1046, -1
   store i32 %1047, ptr %1045, align 4, !tbaa !22
-  %1048 = add i32 %.0159593, -1
+  %1048 = add i32 %.0159592, -1
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZN9automatonIj21default_value_managerIjEE14all_epsilon_inEj.exit, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234.thread, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread, %38, %_ZN9automatonIj21default_value_managerIjEE6removeEjjPj.exit489, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit416, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420, %_ZN6vectorIjLb0EjED2Ev.exit
-  %.2161 = phi i32 [ %585, %_ZN6vectorIjLb0EjED2Ev.exit ], [ %.0159593, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420 ], [ %.0159593, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit416 ], [ %1048, %_ZN9automatonIj21default_value_managerIjEE6removeEjjPj.exit489 ], [ %.0159593, %38 ], [ %.0159593, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread ], [ %.0159593, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234.thread ], [ %.0159593, %_ZN9automatonIj21default_value_managerIjEE14all_epsilon_inEj.exit ]
+  %.2161 = phi i32 [ %585, %_ZN6vectorIjLb0EjED2Ev.exit ], [ %.0159592, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit420 ], [ %.0159592, %_ZNK9automatonIj21default_value_managerIjEE10out_degreeEj.exit416 ], [ %1048, %_ZN9automatonIj21default_value_managerIjEE6removeEjjPj.exit489 ], [ %.0159592, %38 ], [ %.0159592, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread ], [ %.0159592, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit234.thread ], [ %.0159592, %_ZN9automatonIj21default_value_managerIjEE14all_epsilon_inEj.exit ]
   %1049 = add i32 %.2161, 1
   %1050 = load ptr, ptr %13, align 8, !tbaa !19
-  %1051 = getelementptr inbounds nuw %class.vector.1, ptr %1050, i64 %indvars.iv805
+  %1051 = getelementptr inbounds nuw %class.vector.1, ptr %1050, i64 %indvars.iv804
   %1052 = load ptr, ptr %1051, align 8, !tbaa !16
   %1053 = icmp eq ptr %1052, null
-  br i1 %1053, label %.critedge534, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit, !llvm.loop !52
+  br i1 %1053, label %.critedge533, label %_ZNK6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE4sizeEv.exit, !llvm.loop !52
 
 1054:                                             ; preds = %969, %830, %604, %368, %140, %95
   %.pn220 = phi { ptr, i32 } [ %96, %95 ], [ %141, %140 ], [ %.pn215.pn.pn, %368 ], [ %.pn209.pn.pn, %830 ], [ %.pn203.pn.pn, %969 ], [ %.pn.pn.pn, %604 ]
   resume { ptr, i32 } %.pn220
 
-.critedge533:                                     ; preds = %.critedge533.preheader, %1089
-  %1055 = phi ptr [ %21, %.critedge533.preheader ], [ %1090, %1089 ]
+.critedge532:                                     ; preds = %.critedge532.preheader, %1089
+  %1055 = phi ptr [ %21, %.critedge532.preheader ], [ %1090, %1089 ]
   %1056 = icmp eq ptr %1055, null
   br i1 %1056, label %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit491, label %1057
 
-1057:                                             ; preds = %.critedge533
+1057:                                             ; preds = %.critedge532
   %1058 = getelementptr inbounds i8, ptr %1055, i64 -4
   %1059 = load i32, ptr %1058, align 4, !tbaa !22
   %1060 = add i32 %1059, -1
   br label %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit491
 
-_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit491: ; preds = %.critedge533, %1057
-  %.0.i490 = phi i32 [ %1060, %1057 ], [ -1, %.critedge533 ]
+_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit491: ; preds = %.critedge532, %1057
+  %.0.i490 = phi i32 [ %1060, %1057 ], [ -1, %.critedge532 ]
   %1061 = load ptr, ptr %22, align 8, !tbaa !19
   %1062 = zext i32 %.0.i490 to i64
   %1063 = getelementptr inbounds nuw %class.vector.1, ptr %1061, i64 %1062
@@ -6725,12 +6725,12 @@ _ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit493: ; preds = %_ZNK
   %1068 = icmp ne i32 %1067, 0
   %1069 = load i32, ptr %23, align 8
   %.not = icmp eq i32 %1069, %.0.i490
-  %or.cond522 = select i1 %1068, i1 true, i1 %.not
-  br i1 %or.cond522, label %1094, label %1070
+  %or.cond521 = select i1 %1068, i1 true, i1 %.not
+  br i1 %or.cond521, label %1094, label %1070
 
 _ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit493.thread: ; preds = %_ZNK6vectorIS_IN9automatonIj21default_value_managerIjEE4moveELb1EjELb1EjE4sizeEv.exit491
-  %.old521 = load i32, ptr %23, align 8, !tbaa !29
-  %.not.old = icmp eq i32 %.old521, %.0.i490
+  %.old520 = load i32, ptr %23, align 8, !tbaa !29
+  %.not.old = icmp eq i32 %.old520, %.0.i490
   br i1 %.not.old, label %1094, label %1070
 
 1070:                                             ; preds = %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit493, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit493.thread
@@ -6795,7 +6795,7 @@ _ZN6vectorIN9automatonIj21default_value_managerIjEE4moveELb1EjE16destroy_element
   %1092 = load i32, ptr %1091, align 4, !tbaa !22
   %1093 = add i32 %1092, -1
   store i32 %1093, ptr %1091, align 4, !tbaa !22
-  br label %.critedge533
+  br label %.critedge532
 
 1094:                                             ; preds = %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit493.thread, %_ZNK9automatonIj21default_value_managerIjEE9in_degreeEj.exit493
   call void @_ZN9automatonIj21default_value_managerIjEE19sinkify_dead_statesEv(ptr noundef nonnull align 8 dereferenceable(80) %0)
@@ -8460,8 +8460,8 @@ _ZNK8uint_set3endEv.exit:                         ; preds = %_ZNK8uint_set5begin
   %.fca.1.load.i12 = load i64, ptr %19, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.sroa.3.8.extract.trunc = trunc i64 %.fca.1.load.i12 to i32
-  %.not15.not = icmp eq i32 %15, %.sroa.3.8.extract.trunc
-  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
+  %.not18.not = icmp eq i32 %15, %.sroa.3.8.extract.trunc
+  br i1 %.not18.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8uint_set3endEv.exit
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8487,8 +8487,8 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit: ; preds = %_
   %33 = and i32 %23, 31
   %34 = shl nuw i32 1, %33
   %35 = and i32 %32, %34
-  %.not14 = icmp eq i32 %35, 0
-  br i1 %.not14, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread, label %._crit_edge
+  %.not15 = icmp eq i32 %35, 0
+  br i1 %.not15, label %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread, label %._crit_edge
 
 _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread: ; preds = %22, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit
   %36 = add i32 %23, 1
@@ -8498,10 +8498,10 @@ _ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread: ; pre
   %.not.not = icmp eq i32 %37, %.sroa.3.8.extract.trunc
   br i1 %.not.not, label %._crit_edge, label %22
 
-._crit_edge:                                      ; preds = %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread, %_ZNK8uint_set3endEv.exit
-  %.not.lcssa = phi i1 [ false, %_ZNK8uint_set3endEv.exit ], [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread ], [ true, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit ]
+._crit_edge:                                      ; preds = %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit, %_ZNK8uint_set3endEv.exit
+  %.not17 = phi i1 [ false, %_ZNK8uint_set3endEv.exit ], [ true, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit ], [ false, %_ZNK9automatonIj21default_value_managerIjEE14is_final_stateEj.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i1 %.not.lcssa
+  ret i1 %.not17
 }
 
 ; Function Attrs: mustprogress uwtable

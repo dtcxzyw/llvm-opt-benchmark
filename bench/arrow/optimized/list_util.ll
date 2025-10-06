@@ -1767,13 +1767,13 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   br i1 %29, label %.lr.ph.i, label %._crit_edge.i, !prof !109
 
 .lr.ph.i:                                         ; preds = %.thread50
-  %.promoted19.i = load ptr, ptr %0, align 8
+  %.promoted18.i = load ptr, ptr %0, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %31
 
 31:                                               ; preds = %41, %.lr.ph.i
   %32 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %42, %41 ]
-  %33 = phi ptr [ %.promoted19.i, %.lr.ph.i ], [ %34, %41 ]
+  %33 = phi ptr [ %.promoted18.i, %.lr.ph.i ], [ %34, %41 ]
   %.0.copyload.i.i = load i64, ptr %33, align 1
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %34, ptr %0, align 8, !tbaa !108
@@ -1819,13 +1819,13 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb0EE14FindCurrentRunEv.exit: ; preds = 
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = trunc nuw nsw i64 %.pr to i32
   %54 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %51, i1 false)
-  %.sroa.speculated13.i = tail call i64 @llvm.umin.i64(i64 %54, i64 %.pr)
-  %.sroa.speculated.i = trunc nuw nsw i64 %.sroa.speculated13.i to i32
-  %55 = lshr i64 %51, %.sroa.speculated13.i
+  %.sroa.speculated12.i = tail call i64 @llvm.umin.i64(i64 %54, i64 %.pr)
+  %.sroa.speculated.i = trunc nuw nsw i64 %.sroa.speculated12.i to i32
+  %55 = lshr i64 %51, %.sroa.speculated12.i
   store i64 %55, ptr %52, align 8, !tbaa !106
   %56 = sub nsw i32 %53, %.sroa.speculated.i
   store i32 %56, ptr %4, align 8, !tbaa !107
-  %57 = sub nsw i64 %.pr, %.sroa.speculated13.i
+  %57 = sub nsw i64 %.pr, %.sroa.speculated12.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %45, %.thread.i
@@ -2131,13 +2131,13 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit: ; preds = 
   br i1 %26, label %.lr.ph.i, label %._crit_edge.i, !prof !109
 
 .lr.ph.i:                                         ; preds = %.thread51
-  %.promoted18.i = load ptr, ptr %0, align 8
+  %.promoted17.i = load ptr, ptr %0, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %28
 
 28:                                               ; preds = %37, %.lr.ph.i
   %29 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %38, %37 ]
-  %30 = phi ptr [ %.promoted18.i, %.lr.ph.i ], [ %31, %37 ]
+  %30 = phi ptr [ %.promoted17.i, %.lr.ph.i ], [ %31, %37 ]
   %31 = getelementptr inbounds i8, ptr %30, i64 -8
   store ptr %31, ptr %0, align 8, !tbaa !117
   %.0.copyload.i.i = load i64, ptr %31, align 1
@@ -2186,13 +2186,13 @@ _ZN5arrow8internal19BaseSetBitRunReaderILb1EE14FindCurrentRunEv.exit: ; preds = 
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %53 = trunc nuw nsw i64 %.pr to i32
   %54 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %51, i1 false)
-  %.sroa.speculated13.i = tail call i64 @llvm.umin.i64(i64 %54, i64 %.pr)
-  %.sroa.speculated.i = trunc nuw nsw i64 %.sroa.speculated13.i to i32
-  %55 = shl i64 %51, %.sroa.speculated13.i
+  %.sroa.speculated12.i = tail call i64 @llvm.umin.i64(i64 %54, i64 %.pr)
+  %.sroa.speculated.i = trunc nuw nsw i64 %.sroa.speculated12.i to i32
+  %55 = shl i64 %51, %.sroa.speculated12.i
   store i64 %55, ptr %52, align 8, !tbaa !115
   %56 = sub nsw i32 %53, %.sroa.speculated.i
   store i32 %56, ptr %4, align 8, !tbaa !116
-  %57 = sub nsw i64 %.pr, %.sroa.speculated13.i
+  %57 = sub nsw i64 %.pr, %.sroa.speculated12.i
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %41, %.thread.i

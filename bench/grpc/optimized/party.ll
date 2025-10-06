@@ -466,10 +466,10 @@ define void @_ZN9grpc_core5Party15SpawnSerializer7DestroyEv(ptr noundef nonnull 
 8:                                                ; preds = %4, %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load atomic i64, ptr %9 monotonic, align 8
-  %.0.i.i.i14 = inttoptr i64 %10 to ptr
-  %11 = load atomic i64, ptr %.0.i.i.i14 acquire, align 8
-  %.not815 = icmp eq i64 %11, 0
-  br i1 %.not815, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit.thread, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit
+  %.0.i.i.i13 = inttoptr i64 %10 to ptr
+  %11 = load atomic i64, ptr %.0.i.i.i13 acquire, align 8
+  %.not714 = icmp eq i64 %11, 0
+  br i1 %.not714, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit.thread, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit
 
 _ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit: ; preds = %8, %15
   %12 = phi i64 [ %20, %15 ], [ %11, %8 ]
@@ -488,8 +488,8 @@ _ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit: ; preds = %8, 
   %19 = load atomic i64, ptr %9 monotonic, align 8
   %.0.i.i.i = inttoptr i64 %19 to ptr
   %20 = load atomic i64, ptr %.0.i.i.i acquire, align 8
-  %.not8 = icmp eq i64 %20, 0
-  br i1 %.not8, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit.thread, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit
+  %.not7 = icmp eq i64 %20, 0
+  br i1 %.not7, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit.thread, label %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit
 
 _ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit.thread: ; preds = %_ZN9grpc_core9ArenaSpscIPNS_5Party11ParticipantELb0EE3PopEv.exit, %15, %8
   %21 = load atomic i64, ptr %9 monotonic, align 8
@@ -1543,15 +1543,15 @@ define noundef range(i64 -1, 65) i64 @_ZN9grpc_core5Party14AddParticipantEPNS0_1
   %4 = load atomic i64, ptr %3 acquire, align 8
   %5 = lshr i64 %4, 16
   %6 = and i64 %5, 65535
-  %.neg.i55 = add nuw nsw i64 %6, 1
+  %.neg.i53 = add nuw nsw i64 %6, 1
   %7 = xor i64 %6, -1
-  %8 = and i64 %.neg.i55, %7
+  %8 = and i64 %.neg.i53, %7
   %9 = and i64 %8, 65535
   %10 = icmp eq i64 %9, 0
   br i1 %10, label %_ZN9grpc_core5Party15WakeupFromStateILb1EEEvmt.exit, label %.lr.ph.preheader, !prof !124
 
 .lr.ph.preheader:                                 ; preds = %2
-  %11 = or i64 %.neg.i55, %6
+  %11 = or i64 %.neg.i53, %6
   %12 = shl nuw nsw i64 %11, 16
   %13 = or i64 %12, %4
   %14 = add i64 %13, 1099511627776
@@ -1581,15 +1581,15 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit: ; pr
   br i1 %30, label %_ZN9grpc_core5Party15WakeupFromStateILb1EEEvmt.exit, label %.lr.ph, !prof !125
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa71 = phi i64 [ %8, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %.lcssa69 = phi i64 [ %8, %.lr.ph.preheader ], [ %28, %.lr.ph ]
   %.lcssa = phi i64 [ %14, %.lr.ph.preheader ], [ %20, %.lr.ph ]
-  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa71, i1 false)
+  %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa69, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %33 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %32, i64 %31
   %34 = ptrtoint ptr %1 to i64
   store atomic i64 %34, ptr %33 release, align 8
-  %35 = trunc i64 %.lcssa71 to i16
-  %36 = and i64 %.lcssa71, 65535
+  %35 = trunc i64 %.lcssa69 to i16
+  %36 = and i64 %.lcssa69, 65535
   br label %37
 
 37:                                               ; preds = %.thread, %.lr.ph._crit_edge
@@ -1638,15 +1638,15 @@ define void @_ZN9grpc_core5Party24MaybeAsyncAddParticipantEPNS0_11ParticipantE(p
   %7 = load atomic i64, ptr %6 acquire, align 8
   %8 = lshr i64 %7, 16
   %9 = and i64 %8, 65535
-  %.neg.i55.i = add nuw nsw i64 %9, 1
+  %.neg.i53.i = add nuw nsw i64 %9, 1
   %10 = xor i64 %9, -1
-  %11 = and i64 %.neg.i55.i, %10
+  %11 = and i64 %.neg.i53.i, %10
   %12 = and i64 %11, 65535
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %.loopexit21, label %.lr.ph.i.preheader, !prof !124
 
 .lr.ph.i.preheader:                               ; preds = %2
-  %14 = or i64 %9, %.neg.i55.i
+  %14 = or i64 %9, %.neg.i53.i
   %15 = shl nuw nsw i64 %14, 16
   %16 = or i64 %15, %7
   %17 = add i64 %16, 1099511627776

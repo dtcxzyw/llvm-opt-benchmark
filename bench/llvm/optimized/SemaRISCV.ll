@@ -3716,8 +3716,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 16
   %8 = icmp ne i8 %7, 13
-  %.not.not24 = icmp eq ptr %5, null
-  %.not.not = or i1 %.not.not24, %8
+  %.not.not21 = icmp eq ptr %5, null
+  %.not.not = or i1 %.not.not21, %8
   br i1 %.not.not, label %14, label %9
 
 9:                                                ; preds = %1
@@ -3730,7 +3730,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang4Type13isIntegerTypeEv(
 
 14:                                               ; preds = %1
   %15 = icmp ne i8 %7, 46
-  %.not13.not = or i1 %.not.not24, %15
+  %.not13.not = or i1 %.not.not21, %15
   br i1 %.not13.not, label %29, label %16
 
 16:                                               ; preds = %14
@@ -4197,8 +4197,8 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.thread: ; preds = %5, %_ZNK4llvm9S
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
   %238 = load i8, ptr %237, align 16
   %239 = icmp ne i8 %238, 13
-  %.not.not24.i = icmp eq ptr %236, null
-  %.not.not.i = or i1 %.not.not24.i, %239
+  %.not.not21.i = icmp eq ptr %236, null
+  %.not.not.i = or i1 %.not.not21.i, %239
   br i1 %.not.not.i, label %245, label %240
 
 240:                                              ; preds = %229
@@ -4211,7 +4211,7 @@ _ZNK5clang4Type21isSpecificBuiltinTypeEj.exit.thread: ; preds = %5, %_ZNK4llvm9S
 
 245:                                              ; preds = %229
   %246 = icmp ne i8 %238, 46
-  %.not13.not.i = or i1 %.not.not24.i, %246
+  %.not13.not.i = or i1 %.not.not21.i, %246
   br i1 %.not13.not.i, label %260, label %247
 
 247:                                              ; preds = %245
@@ -6163,7 +6163,7 @@ define dso_local void @_ZN5clang9SemaRISCV19handleInterruptAttrEPNS_4DeclERKNS_1
   %21 = load i32, ptr %20, align 4
   %22 = and i32 %21, 256
   %.not.i = icmp eq i32 %22, 0
-  br i1 %.not.i, label %.loopexit111, label %23
+  br i1 %.not.i, label %.loopexit110, label %23
 
 23:                                               ; preds = %3
   %24 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #21
@@ -6174,7 +6174,7 @@ define dso_local void @_ZN5clang9SemaRISCV19handleInterruptAttrEPNS_4DeclERKNS_1
   %.idx.i.i = shl nuw nsw i64 %28, 3
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %27, 0
-  br i1 %.not.i.i, label %.loopexit111, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i, label %.loopexit110, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %23, %34
   %.sroa.07.1.i.i.i.i = phi ptr [ %35, %34 ], [ %25, %23 ]
@@ -6187,11 +6187,11 @@ define dso_local void @_ZN5clang9SemaRISCV19handleInterruptAttrEPNS_4DeclERKNS_1
 34:                                               ; preds = %.lr.ph.i.i.i.i.i
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %35, %29
-  br i1 %.not.i.i.i.i.i, label %.loopexit111, label %.lr.ph.i.i.i.i.i, !llvm.loop !829
+  br i1 %.not.i.i.i.i.i, label %.loopexit110, label %.lr.ph.i.i.i.i.i, !llvm.loop !829
 
 _ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i, %29
-  br i1 %.not5.i.i, label %.loopexit111, label %36
+  br i1 %.not5.i.i, label %.loopexit110, label %36
 
 36:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %37 = load ptr, ptr %25, align 8, !tbaa !827
@@ -6223,12 +6223,12 @@ _ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVec
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %12) #21
   br label %471
 
-.loopexit111:                                     ; preds = %34, %3, %_ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %23
+.loopexit110:                                     ; preds = %34, %3, %_ZN5clangneENS_22specific_attr_iteratorINS_18RISCVInterruptAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %23
   %50 = load ptr, ptr %0, align 8, !tbaa !730
   %51 = tail call noundef zeroext i1 @_ZNK5clang10ParsedAttr18checkAtMostNumArgsERNS_4SemaEj(ptr noundef nonnull align 8 dereferenceable(72) %2, ptr noundef nonnull align 8 dereferenceable(17504) %50, i32 noundef 1) #21
   br i1 %51, label %52, label %471
 
-52:                                               ; preds = %.loopexit111
+52:                                               ; preds = %.loopexit110
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -7063,7 +7063,7 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit51: ; preds = %434
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %471
 
-471:                                              ; preds = %.loopexit, %.loopexit111, %470
+471:                                              ; preds = %.loopexit, %.loopexit110, %470
   ret void
 }
 
@@ -11107,8 +11107,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

@@ -5124,8 +5124,8 @@ define hidden zeroext i1 @X11_SetWindowFocusable(ptr noundef readnone captures(n
 
 28:                                               ; preds = %3
   %29 = and i64 %6, 524296
-  %or.cond31 = icmp eq i64 %29, 524288
-  br i1 %or.cond31, label %30, label %58
+  %or.cond30 = icmp eq i64 %29, 524288
+  br i1 %or.cond30, label %30, label %58
 
 30:                                               ; preds = %28
   %31 = and i64 %6, 512

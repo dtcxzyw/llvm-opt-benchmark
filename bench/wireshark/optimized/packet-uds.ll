@@ -1199,8 +1199,8 @@ define internal void @uds_sa_subfunction_format(ptr noundef %0, i32 noundef %1) 
 
 uds_sa_subfunction_to_type.exit.i:                ; preds = %10
   %12 = and i8 %3, 1
-  %switch.i = icmp eq i8 %12, 0
-  %.str.600..str.599.i = select i1 %switch.i, ptr @.str.600, ptr @.str.599
+  %13 = icmp eq i8 %12, 0
+  %.str.600..str.599.i = select i1 %13, ptr @.str.600, ptr @.str.599
   br label %uds_sa_subfunction_to_string.exit
 
 uds_sa_subfunction_to_type.exit.thread9.i:        ; preds = %9
@@ -1208,7 +1208,7 @@ uds_sa_subfunction_to_type.exit.thread9.i:        ; preds = %9
 
 uds_sa_subfunction_to_string.exit:                ; preds = %2, %6, %9, %10, %uds_sa_subfunction_to_type.exit.i, %uds_sa_subfunction_to_type.exit.thread9.i
   %.0.i7 = phi ptr [ @.str.602, %uds_sa_subfunction_to_type.exit.thread9.i ], [ @.str.426, %6 ], [ %.str.600..str.599.i, %uds_sa_subfunction_to_type.exit.i ], [ @.str.598, %10 ], [ @.str.601, %9 ], [ @.str.426, %2 ]
-  %13 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.597, ptr noundef nonnull %.0.i7, i32 noundef %1)
+  %14 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef 240, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.597, ptr noundef nonnull %.0.i7, i32 noundef %1)
   ret void
 }
 
@@ -2089,8 +2089,8 @@ define internal fastcc noundef nonnull ptr @uds_sa_subfunction_to_string(i8 noun
 
 uds_sa_subfunction_to_type.exit:                  ; preds = %8
   %10 = and i8 %0, 1
-  %switch = icmp eq i8 %10, 0
-  %.str.600..str.599 = select i1 %switch, ptr @.str.600, ptr @.str.599
+  %11 = icmp eq i8 %10, 0
+  %.str.600..str.599 = select i1 %11, ptr @.str.600, ptr @.str.599
   br label %uds_sa_subfunction_to_type.exit.thread
 
 uds_sa_subfunction_to_type.exit.thread9:          ; preds = %7

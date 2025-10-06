@@ -909,40 +909,40 @@ define range(i32 -22, 1) i32 @ff_combine_frame(ptr noundef %0, i32 noundef %1, p
 
 90:                                               ; preds = %.thread, %67
   %91 = icmp slt i32 %spec.store.select, -8
-  br i1 %91, label %.thread102, label %94
+  br i1 %91, label %.thread101, label %94
 
-.thread102:                                       ; preds = %90
+.thread101:                                       ; preds = %90
   %92 = load i32, ptr %5, align 4, !tbaa !72
-  %reass.sub96 = sub i32 %92, %spec.store.select
-  %93 = add i32 %reass.sub96, -8
+  %reass.sub95 = sub i32 %92, %spec.store.select
+  %93 = add i32 %reass.sub95, -8
   store i32 %93, ptr %5, align 4, !tbaa !72
-  br label %.lr.ph93
+  br label %.lr.ph92
 
 94:                                               ; preds = %90
   %95 = icmp slt i32 %spec.store.select, 0
-  br i1 %95, label %.lr.ph93, label %.loopexit
+  br i1 %95, label %.lr.ph92, label %.loopexit
 
-.lr.ph93:                                         ; preds = %.thread102, %94
-  %.080104 = phi i32 [ -8, %.thread102 ], [ %spec.store.select, %94 ]
+.lr.ph92:                                         ; preds = %.thread101, %94
+  %.080103 = phi i32 [ -8, %.thread101 ], [ %spec.store.select, %94 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %97 = load ptr, ptr %0, align 8, !tbaa !74
   %98 = load i32, ptr %30, align 4, !tbaa !79
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.promoted = load i32, ptr %96, align 4, !tbaa !80
-  %.promoted94 = load i64, ptr %99, align 8, !tbaa !81
-  %.promoted95 = load i32, ptr %5, align 4, !tbaa !72
+  %.promoted93 = load i64, ptr %99, align 8, !tbaa !81
+  %.promoted94 = load i32, ptr %5, align 4, !tbaa !72
   %100 = tail call i32 @llvm.smax.i32(i32 %spec.store.select, i32 -8)
   %smax = sext i32 %100 to i64
   %101 = sext i32 %98 to i64
-  %102 = sub i32 %100, %.080104
+  %102 = sub i32 %100, %.080103
   %invariant.gep = getelementptr i8, ptr %97, i64 %101
   br label %103
 
-103:                                              ; preds = %.lr.ph93, %103
-  %indvars.iv = phi i64 [ %smax, %.lr.ph93 ], [ %indvars.iv.next, %103 ]
-  %104 = phi i32 [ %.promoted95, %.lr.ph93 ], [ %115, %103 ]
-  %105 = phi i64 [ %.promoted94, %.lr.ph93 ], [ %114, %103 ]
-  %106 = phi i32 [ %.promoted, %.lr.ph93 ], [ %110, %103 ]
+103:                                              ; preds = %.lr.ph92, %103
+  %indvars.iv = phi i64 [ %smax, %.lr.ph92 ], [ %indvars.iv.next, %103 ]
+  %104 = phi i32 [ %.promoted94, %.lr.ph92 ], [ %115, %103 ]
+  %105 = phi i64 [ %.promoted93, %.lr.ph92 ], [ %114, %103 ]
+  %106 = phi i32 [ %.promoted, %.lr.ph92 ], [ %110, %103 ]
   %107 = shl i32 %106, 8
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %108 = load i8, ptr %gep, align 1, !tbaa !76

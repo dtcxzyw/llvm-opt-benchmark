@@ -68,9 +68,9 @@ define internal range(i32 0, 3) i32 @run_mtu_tests() #0 {
   br i1 %12, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9, %26
-  %.02133 = phi i32 [ %27, %26 ], [ 0, %9 ]
-  %.132 = phi i32 [ %.2.ph, %26 ], [ 0, %9 ]
-  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %.02133) #7
+  %.02131 = phi i32 [ %27, %26 ], [ 0, %9 ]
+  %.130 = phi i32 [ %.2.ph, %26 ], [ 0, %9 ]
+  %13 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %.02131) #7
   %14 = tail call ptr @SSL_CIPHER_get_name(ptr noundef %13) #7
   %15 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.6, i64 noundef 4) #8
   %16 = icmp eq i32 %15, 0
@@ -98,8 +98,8 @@ define internal range(i32 0, 3) i32 @run_mtu_tests() #0 {
   br label %26
 
 26:                                               ; preds = %25, %.lr.ph, %20
-  %.2.ph = phi i32 [ 1, %20 ], [ %.132, %.lr.ph ], [ %23, %25 ]
-  %27 = add nuw nsw i32 %.02133, 1
+  %.2.ph = phi i32 [ 1, %20 ], [ %.130, %.lr.ph ], [ %23, %25 ]
+  %27 = add nuw nsw i32 %.02131, 1
   %28 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #7
   %29 = icmp slt i32 %27, %28
   br i1 %29, label %.lr.ph, label %.loopexit, !llvm.loop !4
@@ -326,13 +326,13 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
   %52 = load i64, ptr %6, align 16, !tbaa !12
   %53 = getelementptr inbounds nuw i8, ptr %6, i64 232
   %54 = load i64, ptr %53, align 8, !tbaa !12
-  %.not5681 = icmp ugt i64 %52, %54
-  br i1 %.not5681, label %._crit_edge, label %.lr.ph
+  %.not5680 = icmp ugt i64 %52, %54
+  br i1 %.not5680, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %80
-  %.04882 = phi i64 [ %81, %80 ], [ %52, %49 ]
+  %.04881 = phi i64 [ %81, %80 ], [ %52, %49 ]
   %55 = load ptr, ptr %5, align 8, !tbaa !6
-  %56 = trunc i64 %.04882 to i32
+  %56 = trunc i64 %.04881 to i32
   %57 = call i32 @SSL_write(ptr noundef %55, ptr noundef nonnull %7, i32 noundef %56) #7
   %58 = call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 105, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, i32 noundef %57, i32 noundef %56) #7
   %.not59 = icmp eq i32 %58, 0
@@ -344,16 +344,16 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
   br label %63
 
 62:                                               ; preds = %73
-  %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
-  %exitcond100.not = icmp eq i64 %indvars.iv.next98, 30
-  br i1 %exitcond100.not, label %80, label %63, !llvm.loop !14
+  %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
+  %exitcond99.not = icmp eq i64 %indvars.iv.next97, 30
+  br i1 %exitcond99.not, label %80, label %63, !llvm.loop !14
 
 63:                                               ; preds = %59, %62
-  %indvars.iv97 = phi i64 [ 0, %59 ], [ %indvars.iv.next98, %62 ]
-  %64 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv97
+  %indvars.iv96 = phi i64 [ 0, %59 ], [ %indvars.iv.next97, %62 ]
+  %64 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv96
   %65 = load i64, ptr %64, align 8, !tbaa !12
-  %.not60 = icmp ule i64 %.04882, %65
-  %66 = add nuw nsw i64 %indvars.iv97, 500
+  %.not60 = icmp ule i64 %.04881, %65
+  %66 = add nuw nsw i64 %indvars.iv96, 500
   %67 = icmp samesign ult i64 %66, %61
   %narrow = select i1 %.not60, i1 %67, i1 false
   %68 = zext i1 %narrow to i32
@@ -364,14 +364,14 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
 70:                                               ; preds = %63
   %71 = trunc nuw nsw i64 %66 to i32
   %72 = sext i32 %60 to i64
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 121, ptr noundef nonnull @.str.28, ptr noundef %1, i64 noundef %.04882, i64 noundef %65, i64 noundef %72, i32 noundef %71) #7
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 121, ptr noundef nonnull @.str.28, ptr noundef %1, i64 noundef %.04881, i64 noundef %65, i64 noundef %72, i32 noundef %71) #7
   br label %.thread
 
 73:                                               ; preds = %63
   %74 = icmp samesign uge i64 %66, %61
   %not..not60 = xor i1 %.not60, true
-  %narrow67 = select i1 %not..not60, i1 %74, i1 false
-  %75 = zext i1 %narrow67 to i32
+  %narrow66 = select i1 %not..not60, i1 %74, i1 false
+  %75 = zext i1 %narrow66 to i32
   %76 = call i32 @test_false(ptr noundef nonnull @.str.2, i32 noundef 124, ptr noundef nonnull @.str.29, i32 noundef %75) #7
   %.not62 = icmp eq i32 %76, 0
   br i1 %.not62, label %77, label %62
@@ -379,11 +379,11 @@ define internal fastcc range(i32 0, 3) i32 @mtu_test(ptr noundef %0, ptr noundef
 77:                                               ; preds = %73
   %78 = trunc nuw nsw i64 %66 to i32
   %79 = sext i32 %60 to i64
-  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 132, ptr noundef nonnull @.str.28, ptr noundef %1, i64 noundef %.04882, i64 noundef %65, i64 noundef %79, i32 noundef %78) #7
+  call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 132, ptr noundef nonnull @.str.28, ptr noundef %1, i64 noundef %.04881, i64 noundef %65, i64 noundef %79, i32 noundef %78) #7
   br label %.thread
 
 80:                                               ; preds = %62
-  %81 = add i64 %.04882, 1
+  %81 = add i64 %.04881, 1
   %.not56 = icmp ugt i64 %81, %54
   br i1 %.not56, label %._crit_edge, label %.lr.ph, !llvm.loop !15
 

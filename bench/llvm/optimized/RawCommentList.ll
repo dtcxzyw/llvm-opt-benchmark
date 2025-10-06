@@ -3647,10 +3647,9 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt3mapIjPNS2_10RawCommentESt4
 .lr.ph:                                           ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt3mapIjPNS2_10RawCommentESt4lessIjESaISt4pairIKjS6_EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SD_EEEES3_SD_SF_SI_E9initEmptyEv.exit, %58
   %.025 = phi ptr [ %59, %58 ], [ %1, %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang6FileIDESt3mapIjPNS2_10RawCommentESt4lessIjESaISt4pairIKjS6_EEENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_SD_EEEES3_SD_SF_SI_E9initEmptyEv.exit ]
   %.sroa.03.0.copyload = load i32, ptr %.025, align 4, !tbaa !3
-  switch i32 %.sroa.03.0.copyload, label %12 [
-    i32 0, label %58
-    i32 -1, label %58
-  ]
+  %.sroa.03.0.copyload.off = add i32 %.sroa.03.0.copyload, -1
+  %switch = icmp ult i32 %.sroa.03.0.copyload.off, -2
+  br i1 %switch, label %12, label %58
 
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr %0, align 8, !tbaa !433
@@ -3750,7 +3749,7 @@ _ZNSt3mapIjPN5clang10RawCommentESt4lessIjESaISt4pairIKjS2_EEEC2EOS9_.exit: ; pre
   tail call void @_ZNSt8_Rb_treeIjSt4pairIKjPN5clang10RawCommentEESt10_Select1stIS5_ESt4lessIjESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %32, ptr noundef %55)
   br label %58
 
-58:                                               ; preds = %.lr.ph, %.lr.ph, %_ZNSt3mapIjPN5clang10RawCommentESt4lessIjESaISt4pairIKjS2_EEEC2EOS9_.exit
+58:                                               ; preds = %.lr.ph, %_ZNSt3mapIjPN5clang10RawCommentESt4lessIjESaISt4pairIKjS2_EEEC2EOS9_.exit
   %59 = getelementptr inbounds nuw i8, ptr %.025, i64 56
   %.not = icmp eq ptr %59, %2
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !605

@@ -1205,7 +1205,7 @@ define hidden void @_ZN4cvc58internal6theory5arith12IAndTypeRule11computeTypeEPN
   %7 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %8 = alloca %"class.cvc5::internal::TypeNode", align 8
   %9 = alloca %"class.cvc5::internal::TypeNode", align 8
-  br i1 %3, label %10, label %96
+  br i1 %3, label %10, label %97
 
 10:                                               ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1288,18 +1288,18 @@ _ZN4cvc58internal6theory5arith14isMaybeIntegerERKNS0_8TypeNodeE.exit19: ; preds 
 47:                                               ; preds = %10
   %48 = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %96
 
 49:                                               ; preds = %32
   %50 = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %96
 
 51:                                               ; preds = %67, %45, %42, %_ZN4cvc58internal6theory5arith14isMaybeIntegerERKNS0_8TypeNodeE.exit.thread, %39, %37
   %52 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #19
-  br label %95
+  br label %96
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %45, %44
   call void @llvm.experimental.noalias.scope.decl(metadata !80)
@@ -1332,77 +1332,77 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %45, %44
           to label %_ZN4cvc58internal8TypeNode4nullEv.exit unwind label %51
 
 _ZN4cvc58internal8TypeNode4nullEv.exit:           ; preds = %.noexc17, %65, %59, %67, %_ZN4cvc58internal6theory5arith14isMaybeIntegerERKNS0_8TypeNodeE.exit19
-  %switch = phi i1 [ true, %_ZN4cvc58internal6theory5arith14isMaybeIntegerERKNS0_8TypeNodeE.exit19 ], [ false, %67 ], [ false, %59 ], [ false, %65 ], [ true, %.noexc17 ]
-  %69 = load ptr, ptr %9, align 8, !tbaa !6
-  %70 = load i64, ptr %69, align 8
-  %71 = and i64 %70, 1152920405095219200
-  %.not.i.i = icmp eq i64 %71, 1152920405095219200
-  br i1 %.not.i.i, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, label %72, !prof !13
+  %69 = phi i1 [ true, %_ZN4cvc58internal6theory5arith14isMaybeIntegerERKNS0_8TypeNodeE.exit19 ], [ false, %67 ], [ false, %59 ], [ false, %65 ], [ true, %.noexc17 ]
+  %70 = load ptr, ptr %9, align 8, !tbaa !6
+  %71 = load i64, ptr %70, align 8
+  %72 = and i64 %71, 1152920405095219200
+  %.not.i.i = icmp eq i64 %72, 1152920405095219200
+  br i1 %.not.i.i, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, label %73, !prof !13
 
-72:                                               ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit
-  %73 = add i64 %70, 1152920405095219200
-  %74 = and i64 %73, 1152920405095219200
-  %75 = and i64 %70, -1152920405095219201
-  %76 = or disjoint i64 %74, %75
-  store i64 %76, ptr %69, align 8
-  %77 = icmp eq i64 %74, 0
-  br i1 %77, label %78, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, !prof !13
+73:                                               ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit
+  %74 = add i64 %71, 1152920405095219200
+  %75 = and i64 %74, 1152920405095219200
+  %76 = and i64 %71, -1152920405095219201
+  %77 = or disjoint i64 %75, %76
+  store i64 %77, ptr %70, align 8
+  %78 = icmp eq i64 %75, 0
+  br i1 %78, label %79, label %_ZN4cvc58internal8TypeNodeD2Ev.exit, !prof !13
 
-78:                                               ; preds = %72
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %69)
-          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit unwind label %79
+79:                                               ; preds = %73
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %70)
+          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit unwind label %80
 
-79:                                               ; preds = %78
-  %80 = landingpad { ptr, i32 }
+80:                                               ; preds = %79
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %81 = extractvalue { ptr, i32 } %80, 0
-  call void @__clang_call_terminate(ptr %81) #22
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #22
   unreachable
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit, %72, %78
+_ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal8TypeNode4nullEv.exit, %73, %79
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %82 = load ptr, ptr %8, align 8, !tbaa !6
-  %83 = load i64, ptr %82, align 8
-  %84 = and i64 %83, 1152920405095219200
-  %.not.i.i22 = icmp eq i64 %84, 1152920405095219200
-  br i1 %.not.i.i22, label %_ZN4cvc58internal8TypeNodeD2Ev.exit23, label %85, !prof !13
+  %83 = load ptr, ptr %8, align 8, !tbaa !6
+  %84 = load i64, ptr %83, align 8
+  %85 = and i64 %84, 1152920405095219200
+  %.not.i.i22 = icmp eq i64 %85, 1152920405095219200
+  br i1 %.not.i.i22, label %_ZN4cvc58internal8TypeNodeD2Ev.exit23, label %86, !prof !13
 
-85:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
-  %86 = add i64 %83, 1152920405095219200
-  %87 = and i64 %86, 1152920405095219200
-  %88 = and i64 %83, -1152920405095219201
-  %89 = or disjoint i64 %87, %88
-  store i64 %89, ptr %82, align 8
-  %90 = icmp eq i64 %87, 0
-  br i1 %90, label %91, label %_ZN4cvc58internal8TypeNodeD2Ev.exit23, !prof !13
+86:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit
+  %87 = add i64 %84, 1152920405095219200
+  %88 = and i64 %87, 1152920405095219200
+  %89 = and i64 %84, -1152920405095219201
+  %90 = or disjoint i64 %88, %89
+  store i64 %90, ptr %83, align 8
+  %91 = icmp eq i64 %88, 0
+  br i1 %91, label %92, label %_ZN4cvc58internal8TypeNodeD2Ev.exit23, !prof !13
 
-91:                                               ; preds = %85
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %82)
-          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit23 unwind label %92
+92:                                               ; preds = %86
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %83)
+          to label %_ZN4cvc58internal8TypeNodeD2Ev.exit23 unwind label %93
 
-92:                                               ; preds = %91
-  %93 = landingpad { ptr, i32 }
+93:                                               ; preds = %92
+  %94 = landingpad { ptr, i32 }
           catch ptr null
-  %94 = extractvalue { ptr, i32 } %93, 0
-  call void @__clang_call_terminate(ptr %94) #22
+  %95 = extractvalue { ptr, i32 } %94, 0
+  call void @__clang_call_terminate(ptr %95) #22
   unreachable
 
-_ZN4cvc58internal8TypeNodeD2Ev.exit23:            ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %85, %91
+_ZN4cvc58internal8TypeNodeD2Ev.exit23:            ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit, %86, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %switch, label %96, label %97
+  br i1 %69, label %97, label %98
 
-95:                                               ; preds = %47, %49, %51
+96:                                               ; preds = %47, %49, %51
   %.pn12 = phi { ptr, i32 } [ %52, %51 ], [ %50, %49 ], [ %48, %47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   resume { ptr, i32 } %.pn12
 
-96:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit23, %5
+97:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit23, %5
   call void @_ZN4cvc58internal11NodeManager11integerTypeEv(ptr dead_on_unwind writable sret(%"class.cvc5::internal::TypeNode") align 8 %0, ptr noundef nonnull align 8 dereferenceable(3560) %1)
-  br label %97
+  br label %98
 
-97:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit23, %96
+98:                                               ; preds = %_ZN4cvc58internal8TypeNodeD2Ev.exit23, %97
   ret void
 }
 

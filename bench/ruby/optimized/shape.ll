@@ -865,8 +865,8 @@ shape_cache_get_iv_index.exit.i:                  ; preds = %21
 .thread.i:                                        ; preds = %15, %12
   %41 = getelementptr inbounds nuw i8, ptr %9, i64 28
   %42 = load i32, ptr %41, align 4, !tbaa !20
-  %.not16.i.i = icmp eq i32 %42, -1
-  br i1 %.not16.i.i, label %rb_shape_get_iv_index.exit, label %.lr.ph.i.i
+  %.not15.i.i = icmp eq i32 %42, -1
+  br i1 %.not15.i.i, label %rb_shape_get_iv_index.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.thread.i
   %43 = load ptr, ptr @rb_shape_tree_ptr, align 8
@@ -874,14 +874,14 @@ shape_cache_get_iv_index.exit.i:                  ; preds = %21
 
 44:                                               ; preds = %53, %.lr.ph.i.i
   %45 = phi i32 [ %42, %.lr.ph.i.i ], [ %58, %53 ]
-  %.01017.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %56, %53 ]
-  %46 = getelementptr inbounds nuw i8, ptr %.01017.i.i, i64 8
+  %.01016.i.i = phi ptr [ %9, %.lr.ph.i.i ], [ %56, %53 ]
+  %46 = getelementptr inbounds nuw i8, ptr %.01016.i.i, i64 8
   %47 = load i64, ptr %46, align 8, !tbaa !42
   %48 = icmp eq i64 %47, %1
   br i1 %48, label %49, label %53
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw i8, ptr %.01017.i.i, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %.01016.i.i, i64 24
   %51 = load i8, ptr %50, align 8, !tbaa !27
   switch i8 %51, label %53 [
     i8 1, label %shape_get_iv_index.exit.sink.split.i
@@ -905,8 +905,8 @@ shape_cache_get_iv_index.exit.i:                  ; preds = %21
   br i1 %.not.i8.i, label %rb_shape_get_iv_index.exit, label %44, !llvm.loop !62
 
 shape_get_iv_index.exit.sink.split.i:             ; preds = %49, %shape_cache_get_iv_index.exit.i
-  %.01017.i.lcssa.sink.i = phi ptr [ %40, %shape_cache_get_iv_index.exit.i ], [ %.01017.i.i, %49 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.01017.i.lcssa.sink.i, i64 16
+  %.01016.i.lcssa.sink.i = phi ptr [ %40, %shape_cache_get_iv_index.exit.i ], [ %.01016.i.i, %49 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.01016.i.lcssa.sink.i, i64 16
   %60 = load i32, ptr %59, align 8, !tbaa !40
   %61 = add i32 %60, -1
   store i32 %61, ptr %2, align 4, !tbaa !54
@@ -1063,8 +1063,8 @@ shape_cache_get_iv_index.exit.i66:                ; preds = %120
 .thread.i51:                                      ; preds = %114, %.critedge
   %140 = getelementptr inbounds nuw i8, ptr %spec.select69, i64 28
   %141 = load i32, ptr %140, align 4, !tbaa !20
-  %.not16.i.i52 = icmp eq i32 %141, -1
-  br i1 %.not16.i.i52, label %rb_shape_get_iv_index.exit, label %.lr.ph.i.i53
+  %.not15.i.i52 = icmp eq i32 %141, -1
+  br i1 %.not15.i.i52, label %rb_shape_get_iv_index.exit, label %.lr.ph.i.i53
 
 .lr.ph.i.i53:                                     ; preds = %.thread.i51
   %142 = load ptr, ptr @rb_shape_tree_ptr, align 8
@@ -1072,14 +1072,14 @@ shape_cache_get_iv_index.exit.i66:                ; preds = %120
 
 143:                                              ; preds = %152, %.lr.ph.i.i53
   %144 = phi i32 [ %141, %.lr.ph.i.i53 ], [ %157, %152 ]
-  %.01017.i.i54 = phi ptr [ %spec.select69, %.lr.ph.i.i53 ], [ %155, %152 ]
-  %145 = getelementptr inbounds nuw i8, ptr %.01017.i.i54, i64 8
+  %.01016.i.i54 = phi ptr [ %spec.select69, %.lr.ph.i.i53 ], [ %155, %152 ]
+  %145 = getelementptr inbounds nuw i8, ptr %.01016.i.i54, i64 8
   %146 = load i64, ptr %145, align 8, !tbaa !42
   %147 = icmp eq i64 %146, %1
   br i1 %147, label %148, label %152
 
 148:                                              ; preds = %143
-  %149 = getelementptr inbounds nuw i8, ptr %.01017.i.i54, i64 24
+  %149 = getelementptr inbounds nuw i8, ptr %.01016.i.i54, i64 24
   %150 = load i8, ptr %149, align 8, !tbaa !27
   switch i8 %150, label %152 [
     i8 1, label %shape_get_iv_index.exit.sink.split.i57
@@ -1103,8 +1103,8 @@ shape_cache_get_iv_index.exit.i66:                ; preds = %120
   br i1 %.not.i8.i55, label %rb_shape_get_iv_index.exit, label %143, !llvm.loop !62
 
 shape_get_iv_index.exit.sink.split.i57:           ; preds = %148, %shape_cache_get_iv_index.exit.i66
-  %.01017.i.lcssa.sink.i58 = phi ptr [ %139, %shape_cache_get_iv_index.exit.i66 ], [ %.01017.i.i54, %148 ]
-  %158 = getelementptr inbounds nuw i8, ptr %.01017.i.lcssa.sink.i58, i64 16
+  %.01016.i.lcssa.sink.i58 = phi ptr [ %139, %shape_cache_get_iv_index.exit.i66 ], [ %.01016.i.i54, %148 ]
+  %158 = getelementptr inbounds nuw i8, ptr %.01016.i.lcssa.sink.i58, i64 16
   %159 = load i32, ptr %158, align 8, !tbaa !40
   %160 = add i32 %159, -1
   store i32 %160, ptr %2, align 4, !tbaa !54
@@ -1175,8 +1175,8 @@ shape_cache_get_iv_index.exit:                    ; preds = %12
 .thread:                                          ; preds = %6, %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %33 = load i32, ptr %32, align 4, !tbaa !20
-  %.not16.i = icmp eq i32 %33, -1
-  br i1 %.not16.i, label %shape_get_iv_index.exit, label %.lr.ph.i
+  %.not15.i = icmp eq i32 %33, -1
+  br i1 %.not15.i, label %shape_get_iv_index.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread
   %34 = load ptr, ptr @rb_shape_tree_ptr, align 8
@@ -1184,14 +1184,14 @@ shape_cache_get_iv_index.exit:                    ; preds = %12
 
 35:                                               ; preds = %44, %.lr.ph.i
   %36 = phi i32 [ %33, %.lr.ph.i ], [ %49, %44 ]
-  %.01017.i = phi ptr [ %0, %.lr.ph.i ], [ %47, %44 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.01017.i, i64 8
+  %.01016.i = phi ptr [ %0, %.lr.ph.i ], [ %47, %44 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !42
   %39 = icmp eq i64 %38, %1
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds nuw i8, ptr %.01017.i, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.01016.i, i64 24
   %42 = load i8, ptr %41, align 8, !tbaa !27
   switch i8 %42, label %44 [
     i8 1, label %shape_get_iv_index.exit.sink.split
@@ -1215,8 +1215,8 @@ shape_cache_get_iv_index.exit:                    ; preds = %12
   br i1 %.not.i8, label %shape_get_iv_index.exit, label %35, !llvm.loop !62
 
 shape_get_iv_index.exit.sink.split:               ; preds = %40, %shape_cache_get_iv_index.exit
-  %.01017.i.lcssa.sink = phi ptr [ %31, %shape_cache_get_iv_index.exit ], [ %.01017.i, %40 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.01017.i.lcssa.sink, i64 16
+  %.01016.i.lcssa.sink = phi ptr [ %31, %shape_cache_get_iv_index.exit ], [ %.01016.i, %40 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.01016.i.lcssa.sink, i64 16
   %51 = load i32, ptr %50, align 8, !tbaa !40
   %52 = add i32 %51, -1
   store i32 %52, ptr %2, align 4, !tbaa !54

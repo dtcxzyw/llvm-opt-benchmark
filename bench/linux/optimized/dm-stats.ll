@@ -2090,10 +2090,9 @@ sub_056:                                          ; preds = %.tail.thread, %.tai
   %286 = phi i32 [ %284, %.thread54 ], [ 0, %80 ]
   %287 = add i32 %286, %74
   %288 = load i32, ptr %70, align 8
-  switch i32 %288, label %289 [
-    i32 0, label %.loopexit
-    i32 -1, label %.loopexit
-  ]
+  %.off = add i32 %288, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %289, label %.loopexit
 
 289:                                              ; preds = %285
   %290 = getelementptr inbounds nuw i8, ptr %75, i64 112
@@ -2130,8 +2129,8 @@ sub_056:                                          ; preds = %.tail.thread, %.tai
   %314 = icmp samesign ult i64 %311, %313
   br i1 %314, label %291, label %.loopexit, !llvm.loop !49
 
-.loopexit:                                        ; preds = %307, %285, %285
-  %315 = phi i32 [ %287, %285 ], [ %287, %285 ], [ %310, %307 ]
+.loopexit:                                        ; preds = %307, %285
+  %315 = phi i32 [ %287, %285 ], [ %310, %307 ]
   %316 = icmp ult i32 %315, %5
   br i1 %316, label %317, label %323
 
@@ -2838,10 +2837,9 @@ define internal fastcc void @__dm_stat_clear(ptr noundef nonnull %0, i64 noundef
   store i64 %78, ptr %76, align 8
   tail call void asm sideeffect "sti", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !67
   %79 = load i32, ptr %9, align 8
-  switch i32 %79, label %80 [
-    i32 0, label %.loopexit
-    i32 -1, label %.loopexit
-  ]
+  %.off = add i32 %79, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %80, label %.loopexit
 
 80:                                               ; preds = %14
   %81 = getelementptr inbounds nuw i8, ptr %12, i64 112
@@ -2872,7 +2870,7 @@ define internal fastcc void @__dm_stat_clear(ptr noundef nonnull %0, i64 noundef
   %100 = icmp samesign ult i64 %96, %99
   br i1 %100, label %82, label %.loopexit, !llvm.loop !69
 
-.loopexit:                                        ; preds = %82, %14, %14
+.loopexit:                                        ; preds = %82, %14
   %101 = tail call i32 @__SCT__cond_resched() #16
   %102 = add nuw i64 %11, 1
   %103 = icmp eq i64 %102, %2
@@ -3072,10 +3070,9 @@ define internal fastcc void @__dm_stat_init_temporary_percpu_totals(ptr noundef 
   %137 = add i64 %136, %135
   store i64 %137, ptr %64, align 8
   %138 = load i32, ptr %65, align 8
-  switch i32 %138, label %139 [
-    i32 0, label %.loopexit
-    i32 -1, label %.loopexit
-  ]
+  %.off = add i32 %138, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %139, label %.loopexit
 
 139:                                              ; preds = %86
   %140 = getelementptr inbounds nuw i8, ptr %90, i64 96
@@ -3098,7 +3095,7 @@ define internal fastcc void @__dm_stat_init_temporary_percpu_totals(ptr noundef 
   %154 = icmp samesign ult i64 %150, %153
   br i1 %154, label %141, label %.loopexit, !llvm.loop !72
 
-.loopexit:                                        ; preds = %141, %86, %86
+.loopexit:                                        ; preds = %141, %86
   %155 = add nuw nsw i64 %83, 1
   %156 = and i64 %155, 127
   %157 = icmp samesign ugt i64 %156, 63

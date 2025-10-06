@@ -313,10 +313,10 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   br label %81
 
 81:                                               ; preds = %81, %.lr.ph.i.i
-  %.024.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %91, %81 ]
+  %.023.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %91, %81 ]
   %82 = load ptr, ptr %73, align 8, !tbaa !61
   %83 = load i32, ptr %80, align 8, !tbaa !75
-  %84 = mul nsw i32 %83, %.024.i.i
+  %84 = mul nsw i32 %83, %.023.i.i
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %82, i64 %85
   %87 = load i32, ptr %71, align 8, !tbaa !45
@@ -324,7 +324,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #2 {
   %89 = mul nsw i32 %88, %87
   %90 = sext i32 %89 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %86, i8 0, i64 %90, i1 false)
-  %91 = add nuw nsw i32 %.024.i.i, 1
+  %91 = add nuw nsw i32 %.023.i.i, 1
   %92 = load i32, ptr %47, align 4, !tbaa !65
   %93 = icmp slt i32 %91, %92
   br i1 %93, label %81, label %.loopexit.loopexit.i, !llvm.loop !76
@@ -1872,10 +1872,10 @@ define internal range(i32 -12, 1) i32 @showwavespic_filter_frame(ptr noundef rea
   br label %30
 
 30:                                               ; preds = %30, %.lr.ph.i
-  %.024.i = phi i32 [ 0, %.lr.ph.i ], [ %40, %30 ]
+  %.023.i = phi i32 [ 0, %.lr.ph.i ], [ %40, %30 ]
   %31 = load ptr, ptr %21, align 8, !tbaa !61
   %32 = load i32, ptr %28, align 8, !tbaa !75
-  %33 = mul nsw i32 %32, %.024.i
+  %33 = mul nsw i32 %32, %.023.i
   %34 = sext i32 %33 to i64
   %35 = getelementptr inbounds i8, ptr %31, i64 %34
   %36 = load i32, ptr %17, align 8, !tbaa !45
@@ -1883,7 +1883,7 @@ define internal range(i32 -12, 1) i32 @showwavespic_filter_frame(ptr noundef rea
   %38 = mul nsw i32 %37, %36
   %39 = sext i32 %38 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %35, i8 0, i64 %39, i1 false)
-  %40 = add nuw nsw i32 %.024.i, 1
+  %40 = add nuw nsw i32 %.023.i, 1
   %41 = load i32, ptr %19, align 4, !tbaa !65
   %42 = icmp slt i32 %40, %41
   br i1 %42, label %30, label %.loopexit, !llvm.loop !76

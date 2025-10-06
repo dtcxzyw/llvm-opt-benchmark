@@ -87,8 +87,8 @@ define dso_local ptr @auth_get_plugin_name(i32 noundef %0) local_unnamed_addr #0
 
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond, label %.loopexit, label %3, !llvm.loop !8
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond.not, label %.loopexit, label %3, !llvm.loop !8
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -103,8 +103,8 @@ define dso_local ptr @auth_get_plugin_name(i32 noundef %0) local_unnamed_addr #0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %2, %7
-  %spec.select = phi ptr [ %9, %7 ], [ @.str.4, %2 ]
-  ret ptr %spec.select
+  %10 = phi ptr [ %9, %7 ], [ @.str.4, %2 ]
+  ret ptr %10
 }
 
 ; Function Attrs: nounwind uwtable
@@ -134,28 +134,28 @@ declare void @fatal(ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @auth_is_plugin_type_inited(i32 noundef %0) local_unnamed_addr #3 {
   %2 = load i32, ptr @g_context_num, align 4
-  %.not7 = icmp sgt i32 %2, 0
-  br i1 %.not7, label %.lr.ph, label %._crit_edge
+  %3 = icmp sgt i32 %2, 0
+  br i1 %3, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %3 = load ptr, ptr @ops, align 8
+  %4 = load ptr, ptr @ops, align 8
   %wide.trip.count = zext nneg i32 %2 to i64
-  br label %4
+  br label %5
 
-4:                                                ; preds = %4, %.lr.ph
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.auth_ops_t, ptr %3, i64 %indvars.iv
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i32, ptr %6, align 4
-  %8 = icmp eq i32 %0, %7
+5:                                                ; preds = %5, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
+  %6 = getelementptr inbounds nuw %struct.auth_ops_t, ptr %4, i64 %indvars.iv
+  %7 = load ptr, ptr %6, align 8
+  %8 = load i32, ptr %7, align 4
+  %9 = icmp eq i32 %0, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  %or.cond = select i1 %8, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge, label %4, !llvm.loop !13
+  %or.cond = select i1 %9, i1 true, i1 %exitcond.not
+  br i1 %or.cond, label %._crit_edge, label %5, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %4, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ %8, %4 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %5, %1
+  %.lcssa = phi i1 [ false, %1 ], [ %9, %5 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: nounwind uwtable
@@ -186,7 +186,7 @@ define dso_local range(i32 -1, 1) i32 @auth_g_init() local_unnamed_addr #1 {
 10:                                               ; preds = %7
   %11 = tail call ptr @getenv(ptr noundef nonnull @.str.8) #12
   %.not11 = icmp eq ptr %11, null
-  br i1 %.not11, label %22, label %12
+  br i1 %.not11, label %23, label %12
 
 12:                                               ; preds = %10
   tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160)) #12
@@ -194,8 +194,8 @@ define dso_local range(i32 -1, 1) i32 @auth_g_init() local_unnamed_addr #1 {
 
 13:                                               ; preds = %14
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %auth_get_plugin_name.exit, label %14, !llvm.loop !8
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %auth_get_plugin_name.exit, label %14, !llvm.loop !8
 
 14:                                               ; preds = %13, %12
   %indvars.iv.i = phi i64 [ 0, %12 ], [ %indvars.iv.next.i, %13 ]
@@ -210,171 +210,171 @@ define dso_local range(i32 -1, 1) i32 @auth_g_init() local_unnamed_addr #1 {
   br label %auth_get_plugin_name.exit
 
 auth_get_plugin_name.exit:                        ; preds = %13, %18
-  %spec.select.i = phi ptr [ %20, %18 ], [ @.str.4, %13 ]
-  %21 = tail call ptr @xstrdup(ptr noundef %spec.select.i) #12
-  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160), align 8
-  br label %22
+  %21 = phi ptr [ %20, %18 ], [ @.str.4, %13 ]
+  %22 = tail call ptr @xstrdup(ptr noundef %21) #12
+  store ptr %22, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160), align 8
+  br label %23
 
-22:                                               ; preds = %auth_get_plugin_name.exit, %10
-  %23 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #12
-  %.not12 = icmp eq ptr %23, null
-  br i1 %.not12, label %24, label %26
+23:                                               ; preds = %auth_get_plugin_name.exit, %10
+  %24 = tail call ptr @getenv(ptr noundef nonnull @.str.9) #12
+  %.not12 = icmp eq ptr %24, null
+  br i1 %.not12, label %25, label %27
 
-24:                                               ; preds = %22
-  %25 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #12
-  %.not13 = icmp eq ptr %25, null
-  br i1 %.not13, label %thread-pre-split, label %26
+25:                                               ; preds = %23
+  %26 = tail call ptr @getenv(ptr noundef nonnull @.str.10) #12
+  %.not13 = icmp eq ptr %26, null
+  br i1 %.not13, label %thread-pre-split, label %27
 
-26:                                               ; preds = %24, %22
+27:                                               ; preds = %25, %23
   tail call void @slurm_xfree(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160)) #12
-  br label %28
+  br label %29
 
-27:                                               ; preds = %28
+28:                                               ; preds = %29
   %indvars.iv.next.i22 = add nuw nsw i64 %indvars.iv.i21, 1
-  %exitcond.i23 = icmp eq i64 %indvars.iv.next.i22, 4
-  br i1 %exitcond.i23, label %auth_get_plugin_name.exit25, label %28, !llvm.loop !8
+  %exitcond.not.i23 = icmp eq i64 %indvars.iv.next.i22, 4
+  br i1 %exitcond.not.i23, label %auth_get_plugin_name.exit24, label %29, !llvm.loop !8
 
-28:                                               ; preds = %27, %26
-  %indvars.iv.i21 = phi i64 [ 0, %26 ], [ %indvars.iv.next.i22, %27 ]
-  %29 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i21
-  %30 = load i32, ptr %29, align 16
-  %31 = icmp eq i32 %30, 103
-  br i1 %31, label %32, label %27
+29:                                               ; preds = %28, %27
+  %indvars.iv.i21 = phi i64 [ 0, %27 ], [ %indvars.iv.next.i22, %28 ]
+  %30 = getelementptr inbounds nuw %struct.auth_plugin_types_t, ptr @auth_plugin_types, i64 %indvars.iv.i21
+  %31 = load i32, ptr %30, align 16
+  %32 = icmp eq i32 %31, 103
+  br i1 %32, label %33, label %28
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %34 = load ptr, ptr %33, align 8
-  br label %auth_get_plugin_name.exit25
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  %35 = load ptr, ptr %34, align 8
+  br label %auth_get_plugin_name.exit24
 
-auth_get_plugin_name.exit25:                      ; preds = %27, %32
-  %spec.select.i24 = phi ptr [ %34, %32 ], [ @.str.4, %27 ]
-  %35 = tail call ptr @xstrdup(ptr noundef %spec.select.i24) #12
-  store ptr %35, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160), align 8
-  br label %36
+auth_get_plugin_name.exit24:                      ; preds = %28, %33
+  %36 = phi ptr [ %35, %33 ], [ @.str.4, %28 ]
+  %37 = tail call ptr @xstrdup(ptr noundef %36) #12
+  store ptr %37, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160), align 8
+  br label %38
 
-thread-pre-split:                                 ; preds = %24
+thread-pre-split:                                 ; preds = %25
   %.pr = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 160), align 8
-  br label %36
+  br label %38
 
-36:                                               ; preds = %thread-pre-split, %auth_get_plugin_name.exit25
-  %37 = phi ptr [ %.pr, %thread-pre-split ], [ %35, %auth_get_plugin_name.exit25 ]
-  store ptr %37, ptr %2, align 8
-  %.not14 = icmp eq ptr %37, null
-  br i1 %.not14, label %.loopexit, label %38
+38:                                               ; preds = %thread-pre-split, %auth_get_plugin_name.exit24
+  %39 = phi ptr [ %.pr, %thread-pre-split ], [ %37, %auth_get_plugin_name.exit24 ]
+  store ptr %39, ptr %2, align 8
+  %.not14 = icmp eq ptr %39, null
+  br i1 %.not14, label %.loopexit, label %40
 
-38:                                               ; preds = %36
-  %39 = load i8, ptr %37, align 1
-  %40 = icmp eq i8 %39, 0
-  br i1 %40, label %.loopexit, label %41
+40:                                               ; preds = %38
+  %41 = load i8, ptr %39, align 1
+  %42 = icmp eq i8 %41, 0
+  br i1 %42, label %.loopexit, label %43
 
-41:                                               ; preds = %38
-  %42 = tail call zeroext i1 @run_in_daemon(ptr noundef nonnull @auth_g_init.daemon_run, ptr noundef nonnull @auth_g_init.daemon_set, ptr noundef nonnull @.str.11) #12
-  br i1 %42, label %43, label %.lr.ph.preheader
+43:                                               ; preds = %40
+  %44 = tail call zeroext i1 @run_in_daemon(ptr noundef nonnull @auth_g_init.daemon_run, ptr noundef nonnull @auth_g_init.daemon_set, ptr noundef nonnull @.str.11) #12
+  br i1 %44, label %45, label %.lr.ph.preheader
 
-43:                                               ; preds = %41
-  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 136), align 8
-  %45 = tail call ptr @xstrdup(ptr noundef %44) #12
-  store ptr %45, ptr %1, align 8
+45:                                               ; preds = %43
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 136), align 8
+  %47 = tail call ptr @xstrdup(ptr noundef %46) #12
+  store ptr %47, ptr %1, align 8
   br label %.lr.ph.preheader
 
-.lr.ph.preheader:                                 ; preds = %41, %43
-  %.07 = phi ptr [ %45, %43 ], [ null, %41 ]
+.lr.ph.preheader:                                 ; preds = %43, %45
+  %.07 = phi ptr [ %47, %45 ], [ null, %43 ]
   store i32 0, ptr @g_context_num, align 4
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %81
-  %.130 = phi ptr [ %.2, %81 ], [ %.07, %.lr.ph.preheader ]
-  %46 = load i32, ptr @g_context_num, align 4
-  %47 = add nsw i32 %46, 1
-  %48 = sext i32 %47 to i64
-  %49 = call ptr @slurm_xrecalloc(ptr noundef nonnull @ops, i64 noundef %48, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 224, ptr noundef nonnull @__func__.auth_g_init) #12
-  %50 = load i32, ptr @g_context_num, align 4
-  %51 = add nsw i32 %50, 1
-  %52 = sext i32 %51 to i64
-  %53 = call ptr @slurm_xrecalloc(ptr noundef nonnull @g_context, i64 noundef %52, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 226, ptr noundef nonnull @__func__.auth_g_init) #12
-  %54 = load ptr, ptr %2, align 8
-  %55 = call i32 @xstrncmp(ptr noundef %54, ptr noundef nonnull @.str.13, i64 noundef 5) #12
-  %.not16 = icmp eq i32 %55, 0
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %83
+  %.129 = phi ptr [ %.2, %83 ], [ %.07, %.lr.ph.preheader ]
+  %48 = load i32, ptr @g_context_num, align 4
+  %49 = add nsw i32 %48, 1
+  %50 = sext i32 %49 to i64
+  %51 = call ptr @slurm_xrecalloc(ptr noundef nonnull @ops, i64 noundef %50, i64 noundef 128, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 224, ptr noundef nonnull @__func__.auth_g_init) #12
+  %52 = load i32, ptr @g_context_num, align 4
+  %53 = add nsw i32 %52, 1
+  %54 = sext i32 %53 to i64
+  %55 = call ptr @slurm_xrecalloc(ptr noundef nonnull @g_context, i64 noundef %54, i64 noundef 24, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.12, i32 noundef 226, ptr noundef nonnull @__func__.auth_g_init) #12
+  %56 = load ptr, ptr %2, align 8
+  %57 = call i32 @xstrncmp(ptr noundef %56, ptr noundef nonnull @.str.13, i64 noundef 5) #12
+  %.not16 = icmp eq i32 %57, 0
   %.pre = load ptr, ptr %2, align 8
-  br i1 %.not16, label %56, label %58
+  br i1 %.not16, label %58, label %60
 
-56:                                               ; preds = %.lr.ph
-  %57 = getelementptr inbounds nuw i8, ptr %.pre, i64 5
-  store ptr %57, ptr %2, align 8
-  br label %58
+58:                                               ; preds = %.lr.ph
+  %59 = getelementptr inbounds nuw i8, ptr %.pre, i64 5
+  store ptr %59, ptr %2, align 8
+  br label %60
 
-58:                                               ; preds = %56, %.lr.ph
-  %59 = phi ptr [ %57, %56 ], [ %.pre, %.lr.ph ]
-  %60 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.14, ptr noundef %59) #12
-  store ptr %60, ptr %2, align 8
-  %61 = load ptr, ptr @ops, align 8
-  %62 = load i32, ptr @g_context_num, align 4
-  %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.auth_ops_t, ptr %61, i64 %63
-  %65 = call ptr @plugin_context_create(ptr noundef nonnull @.str.6, ptr noundef %60, ptr noundef %64, ptr noundef nonnull @syms, i64 noundef 128) #12
-  %66 = load ptr, ptr @g_context, align 8
-  %67 = load i32, ptr @g_context_num, align 4
-  %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
-  store ptr %65, ptr %69, align 8
-  %70 = load ptr, ptr @g_context, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %68
-  %72 = load ptr, ptr %71, align 8
-  %.not17 = icmp eq ptr %72, null
-  br i1 %.not17, label %73, label %76
+60:                                               ; preds = %58, %.lr.ph
+  %61 = phi ptr [ %59, %58 ], [ %.pre, %.lr.ph ]
+  %62 = call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.14, ptr noundef %61) #12
+  store ptr %62, ptr %2, align 8
+  %63 = load ptr, ptr @ops, align 8
+  %64 = load i32, ptr @g_context_num, align 4
+  %65 = sext i32 %64 to i64
+  %66 = getelementptr inbounds %struct.auth_ops_t, ptr %63, i64 %65
+  %67 = call ptr @plugin_context_create(ptr noundef nonnull @.str.6, ptr noundef %62, ptr noundef %66, ptr noundef nonnull @syms, i64 noundef 128) #12
+  %68 = load ptr, ptr @g_context, align 8
+  %69 = load i32, ptr @g_context_num, align 4
+  %70 = sext i32 %69 to i64
+  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  store ptr %67, ptr %71, align 8
+  %72 = load ptr, ptr @g_context, align 8
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %70
+  %74 = load ptr, ptr %73, align 8
+  %.not17 = icmp eq ptr %74, null
+  br i1 %.not17, label %75, label %78
 
-73:                                               ; preds = %58
-  %74 = load ptr, ptr %2, align 8
-  %75 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.6, ptr noundef %74) #12
+75:                                               ; preds = %60
+  %76 = load ptr, ptr %2, align 8
+  %77 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.6, ptr noundef %76) #12
   call void @slurm_xfree(ptr noundef nonnull %2) #12
   br label %.loopexit
 
-76:                                               ; preds = %58
-  %77 = add nsw i32 %67, 1
-  store i32 %77, ptr @g_context_num, align 4
+78:                                               ; preds = %60
+  %79 = add nsw i32 %69, 1
+  store i32 %79, ptr @g_context_num, align 4
   call void @slurm_xfree(ptr noundef nonnull %2) #12
-  %78 = load ptr, ptr %1, align 8
-  %.not18 = icmp eq ptr %78, null
-  br i1 %.not18, label %._crit_edge, label %79
+  %80 = load ptr, ptr %1, align 8
+  %.not18 = icmp eq ptr %80, null
+  br i1 %.not18, label %._crit_edge, label %81
 
-._crit_edge:                                      ; preds = %76
-  %.pre34 = load ptr, ptr %2, align 8
-  br label %81
+._crit_edge:                                      ; preds = %78
+  %.pre33 = load ptr, ptr %2, align 8
+  br label %83
 
-79:                                               ; preds = %76
-  %80 = call ptr @strtok_r(ptr noundef %.130, ptr noundef nonnull @.str.16, ptr noundef nonnull %3) #12
-  store ptr %80, ptr %2, align 8
-  br label %81
+81:                                               ; preds = %78
+  %82 = call ptr @strtok_r(ptr noundef %.129, ptr noundef nonnull @.str.16, ptr noundef nonnull %3) #12
+  store ptr %82, ptr %2, align 8
+  br label %83
 
-81:                                               ; preds = %._crit_edge, %79
-  %82 = phi ptr [ %80, %79 ], [ %.pre34, %._crit_edge ]
-  %.2 = phi ptr [ null, %79 ], [ %.130, %._crit_edge ]
-  %.not15 = icmp eq ptr %82, null
+83:                                               ; preds = %._crit_edge, %81
+  %84 = phi ptr [ %82, %81 ], [ %.pre33, %._crit_edge ]
+  %.2 = phi ptr [ null, %81 ], [ %.129, %._crit_edge ]
+  %.not15 = icmp eq ptr %84, null
   br i1 %.not15, label %.loopexit, label %.lr.ph, !llvm.loop !14
 
-.loopexit:                                        ; preds = %81, %36, %38, %7, %73
-  %.0 = phi i32 [ 0, %7 ], [ 0, %38 ], [ -1, %73 ], [ 0, %36 ], [ 0, %81 ]
+.loopexit:                                        ; preds = %83, %38, %40, %7, %75
+  %.0 = phi i32 [ 0, %7 ], [ 0, %40 ], [ -1, %75 ], [ 0, %38 ], [ 0, %83 ]
   %.b19 = load i1, ptr @at_forked, align 1
-  br i1 %.b19, label %85, label %83
+  br i1 %.b19, label %87, label %85
 
-83:                                               ; preds = %.loopexit
-  %84 = call i32 @pthread_atfork(ptr noundef null, ptr noundef null, ptr noundef nonnull @_atfork_child) #12
+85:                                               ; preds = %.loopexit
+  %86 = call i32 @pthread_atfork(ptr noundef null, ptr noundef null, ptr noundef nonnull @_atfork_child) #12
   store i1 true, ptr @at_forked, align 1
-  br label %85
+  br label %87
 
-85:                                               ; preds = %83, %.loopexit
+87:                                               ; preds = %85, %.loopexit
   call void @slurm_xfree(ptr noundef nonnull %1) #12
-  %86 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
-  %.not20 = icmp eq i32 %86, 0
-  br i1 %.not20, label %89, label %87
+  %88 = call i32 @pthread_rwlock_unlock(ptr noundef nonnull @context_lock) #12
+  %.not20 = icmp eq i32 %88, 0
+  br i1 %.not20, label %91, label %89
 
-87:                                               ; preds = %85
-  %88 = tail call ptr @__errno_location() #13
-  store i32 %86, ptr %88, align 4
+89:                                               ; preds = %87
+  %90 = tail call ptr @__errno_location() #13
+  store i32 %88, ptr %90, align 4
   call void (ptr, ...) @fatal_abort(ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.auth_g_init) #11
   unreachable
 
-89:                                               ; preds = %85
+91:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
@@ -1011,7 +1011,7 @@ define dso_local ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) loca
 
 4:                                                ; preds = %2
   %5 = icmp ugt i16 %1, 10239
-  br i1 %5, label %6, label %30
+  br i1 %5, label %6, label %31
 
 6:                                                ; preds = %4
   %7 = call i32 @unpack32(ptr noundef nonnull %3, ptr noundef nonnull %0) #12
@@ -1059,8 +1059,8 @@ define dso_local ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) loca
 
 22:                                               ; preds = %._crit_edge
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.i, label %auth_get_plugin_name.exit, label %._crit_edge, !llvm.loop !8
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
+  br i1 %exitcond.not.i, label %auth_get_plugin_name.exit, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %._crit_edge.preheader, %22
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %22 ], [ 0, %._crit_edge.preheader ]
@@ -1075,17 +1075,17 @@ define dso_local ptr @auth_g_unpack(ptr noundef %0, i16 noundef zeroext %1) loca
   br label %auth_get_plugin_name.exit
 
 auth_get_plugin_name.exit:                        ; preds = %22, %26
-  %spec.select.i = phi ptr [ %28, %26 ], [ @.str.4, %22 ]
-  %29 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__.auth_g_unpack, ptr noundef %spec.select.i, i32 noundef %.pre) #12
+  %29 = phi ptr [ %28, %26 ], [ @.str.4, %22 ]
+  %30 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef nonnull @__func__.auth_g_unpack, ptr noundef %29, i32 noundef %.pre) #12
   br label %.thread
 
-30:                                               ; preds = %4
-  %31 = zext nneg i16 %1 to i32
-  %32 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.auth_g_unpack, i32 noundef %31) #12
+31:                                               ; preds = %4
+  %32 = zext nneg i16 %1 to i32
+  %33 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__.auth_g_unpack, i32 noundef %32) #12
   br label %.thread
 
-.thread:                                          ; preds = %19, %15, %6, %2, %30, %auth_get_plugin_name.exit
-  %.016 = phi ptr [ null, %auth_get_plugin_name.exit ], [ null, %30 ], [ null, %2 ], [ null, %6 ], [ null, %15 ], [ %18, %19 ]
+.thread:                                          ; preds = %19, %15, %6, %2, %31, %auth_get_plugin_name.exit
+  %.016 = phi ptr [ null, %auth_get_plugin_name.exit ], [ null, %31 ], [ null, %2 ], [ null, %6 ], [ null, %15 ], [ %18, %19 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret ptr %.016
 }

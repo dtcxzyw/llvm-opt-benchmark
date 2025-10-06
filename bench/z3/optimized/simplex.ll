@@ -4484,13 +4484,13 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
   br i1 %47, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i, %54
-  %.01521.i.i = phi i32 [ %48, %54 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
-  %48 = ashr i32 %.01521.i.i, 1
+  %.01520.i.i = phi i32 [ %48, %54 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
+  %48 = ashr i32 %.01520.i.i, 1
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i32, ptr %39, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !48
   %52 = icmp ult i32 %46, %51
-  %53 = zext i32 %.01521.i.i to i64
+  %53 = zext i32 %.01520.i.i to i64
   br i1 %52, label %54, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -4498,13 +4498,13 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
   store i32 %51, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %51 to i64
   %57 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %56
-  store i32 %.01521.i.i, ptr %57, align 4, !tbaa !48
+  store i32 %.01520.i.i, ptr %57, align 4, !tbaa !48
   %58 = icmp ult i32 %48, 2
   br i1 %58, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit, label %.lr.ph.i.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit: ; preds = %54, %.lr.ph.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre-phi.i.i = phi i64 [ %44, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %49, %54 ], [ %53, %.lr.ph.i.i ]
-  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %48, %54 ], [ %.01521.i.i, %.lr.ph.i.i ]
+  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %48, %54 ], [ %.01520.i.i, %.lr.ph.i.i ]
   %59 = getelementptr inbounds nuw i32, ptr %39, i64 %.pre-phi.i.i
   store i32 %46, ptr %59, align 4, !tbaa !48
   %60 = zext i32 %46 to i64
@@ -6435,13 +6435,13 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
   br i1 %140, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i, %147
-  %.01521.i.i = phi i32 [ %141, %147 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
-  %141 = ashr i32 %.01521.i.i, 1
+  %.01520.i.i = phi i32 [ %141, %147 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
+  %141 = ashr i32 %.01520.i.i, 1
   %142 = zext i32 %141 to i64
   %143 = getelementptr inbounds nuw i32, ptr %132, i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !48
   %145 = icmp ult i32 %139, %144
-  %146 = zext i32 %.01521.i.i to i64
+  %146 = zext i32 %.01520.i.i to i64
   br i1 %145, label %147, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit
 
 147:                                              ; preds = %.lr.ph.i.i
@@ -6449,13 +6449,13 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
   store i32 %144, ptr %148, align 4, !tbaa !48
   %149 = zext i32 %144 to i64
   %150 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %149
-  store i32 %.01521.i.i, ptr %150, align 4, !tbaa !48
+  store i32 %.01520.i.i, ptr %150, align 4, !tbaa !48
   %151 = icmp ult i32 %141, 2
   br i1 %151, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit, label %.lr.ph.i.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE6insertEi.exit: ; preds = %147, %.lr.ph.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre-phi.i.i = phi i64 [ %137, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %142, %147 ], [ %146, %.lr.ph.i.i ]
-  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %141, %147 ], [ %.01521.i.i, %.lr.ph.i.i ]
+  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %141, %147 ], [ %.01520.i.i, %.lr.ph.i.i ]
   %152 = getelementptr inbounds nuw i32, ptr %132, i64 %.pre-phi.i.i
   store i32 %139, ptr %152, align 4, !tbaa !48
   %153 = zext i32 %139 to i64
@@ -6533,21 +6533,21 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
   %35 = add i32 %34, -1
   store i32 %35, ptr %15, align 4, !tbaa !48
   %36 = load i32, ptr %13, align 4, !tbaa !48
-  %.not33.i.i.i = icmp sgt i32 %35, 2
+  %.not32.i.i.i = icmp sgt i32 %35, 2
   %37 = load ptr, ptr %28, align 8
-  br i1 %.not33.i.i.i, label %.lr.ph.i.i.i, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i
+  br i1 %.not32.i.i.i, label %.lr.ph.i.i.i, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN6vectorIiLb0EjE4backEv.exit.i.i, %53
   %38 = phi i32 [ %58, %53 ], [ 2, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
-  %.034.i.i.i = phi i32 [ %51, %53 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
+  %.033.i.i.i = phi i32 [ %51, %53 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
   %39 = or disjoint i32 %38, 1
   %40 = icmp slt i32 %39, %35
-  br i1 %40, label %41, label %._crit_edge40.i.i.i
+  br i1 %40, label %41, label %._crit_edge39.i.i.i
 
-._crit_edge40.i.i.i:                              ; preds = %.lr.ph.i.i.i
+._crit_edge39.i.i.i:                              ; preds = %.lr.ph.i.i.i
   %.pre.phi.trans.insert.i.i.i = zext i32 %38 to i64
   %.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds nuw i32, ptr %6, i64 %.pre.phi.trans.insert.i.i.i
-  %.pre37.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !48
+  %.pre36.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !48
   br label %49
 
 41:                                               ; preds = %.lr.ph.i.i.i
@@ -6559,35 +6559,35 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
   %47 = load i32, ptr %46, align 4, !tbaa !48
   %48 = icmp ult i32 %44, %47
   %spec.select.i.i.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %47)
-  %spec.select50.i.i.i = select i1 %48, i32 %39, i32 %38
+  %spec.select49.i.i.i = select i1 %48, i32 %39, i32 %38
   br label %49
 
-49:                                               ; preds = %41, %._crit_edge40.i.i.i
-  %50 = phi i32 [ %.pre37.pre.i.i.i, %._crit_edge40.i.i.i ], [ %spec.select.i.i.i, %41 ]
-  %51 = phi i32 [ %38, %._crit_edge40.i.i.i ], [ %spec.select50.i.i.i, %41 ]
+49:                                               ; preds = %41, %._crit_edge39.i.i.i
+  %50 = phi i32 [ %.pre36.pre.i.i.i, %._crit_edge39.i.i.i ], [ %spec.select.i.i.i, %41 ]
+  %51 = phi i32 [ %38, %._crit_edge39.i.i.i ], [ %spec.select49.i.i.i, %41 ]
   %52 = icmp ult i32 %50, %36
   br i1 %52, label %53, label %._crit_edge.loopexit.i.i.i
 
 53:                                               ; preds = %49
-  %54 = zext i32 %.034.i.i.i to i64
+  %54 = zext i32 %.033.i.i.i to i64
   %55 = getelementptr inbounds nuw i32, ptr %6, i64 %54
   store i32 %50, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %50 to i64
   %57 = getelementptr inbounds nuw i32, ptr %37, i64 %56
-  store i32 %.034.i.i.i, ptr %57, align 4, !tbaa !48
+  store i32 %.033.i.i.i, ptr %57, align 4, !tbaa !48
   %58 = shl i32 %51, 1
   %.not.i.i.i = icmp slt i32 %58, %35
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %53, %49
-  %.0.lcssa.ph.i.i.i = phi i32 [ %.034.i.i.i, %49 ], [ %51, %53 ]
-  %.pre42.i.i.i = zext i32 %.0.lcssa.ph.i.i.i to i64
+  %.0.lcssa.ph.i.i.i = phi i32 [ %.033.i.i.i, %49 ], [ %51, %53 ]
+  %.pre41.i.i.i = zext i32 %.0.lcssa.ph.i.i.i to i64
   br label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i.i
-  %.pre-phi43.i.i.i = phi i64 [ %.pre42.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
+  %.pre-phi42.i.i.i = phi i64 [ %.pre41.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
   %.0.lcssa.i.i.i = phi i32 [ %.0.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
-  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi43.i.i.i
+  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi42.i.i.i
   store i32 %36, ptr %59, align 4, !tbaa !48
   %60 = zext i32 %36 to i64
   %61 = getelementptr inbounds nuw i32, ptr %37, i64 %60
@@ -6644,21 +6644,21 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
   %89 = add i32 %88, -1
   store i32 %89, ptr %69, align 4, !tbaa !48
   %90 = load i32, ptr %67, align 4, !tbaa !48
-  %.not33.i.i.i4 = icmp sgt i32 %89, 2
+  %.not32.i.i.i4 = icmp sgt i32 %89, 2
   %91 = load ptr, ptr %82, align 8
-  br i1 %.not33.i.i.i4, label %.lr.ph.i.i.i8, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i5
+  br i1 %.not32.i.i.i4, label %.lr.ph.i.i.i8, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i5
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZN6vectorIiLb0EjE4backEv.exit.i.i3, %107
   %92 = phi i32 [ %112, %107 ], [ 2, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
-  %.034.i.i.i9 = phi i32 [ %105, %107 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
+  %.033.i.i.i9 = phi i32 [ %105, %107 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
   %93 = or disjoint i32 %92, 1
   %94 = icmp slt i32 %93, %89
-  br i1 %94, label %95, label %._crit_edge40.i.i.i10
+  br i1 %94, label %95, label %._crit_edge39.i.i.i10
 
-._crit_edge40.i.i.i10:                            ; preds = %.lr.ph.i.i.i8
+._crit_edge39.i.i.i10:                            ; preds = %.lr.ph.i.i.i8
   %.pre.phi.trans.insert.i.i.i11 = zext i32 %92 to i64
   %.phi.trans.insert.phi.trans.insert.i.i.i12 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre.phi.trans.insert.i.i.i11
-  %.pre37.pre.i.i.i13 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i12, align 4, !tbaa !48
+  %.pre36.pre.i.i.i13 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i12, align 4, !tbaa !48
   br label %103
 
 95:                                               ; preds = %.lr.ph.i.i.i8
@@ -6670,35 +6670,35 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
   %101 = load i32, ptr %100, align 4, !tbaa !48
   %102 = icmp ult i32 %98, %101
   %spec.select.i.i.i18 = tail call i32 @llvm.umin.i32(i32 %98, i32 %101)
-  %spec.select50.i.i.i19 = select i1 %102, i32 %93, i32 %92
+  %spec.select49.i.i.i19 = select i1 %102, i32 %93, i32 %92
   br label %103
 
-103:                                              ; preds = %95, %._crit_edge40.i.i.i10
-  %104 = phi i32 [ %.pre37.pre.i.i.i13, %._crit_edge40.i.i.i10 ], [ %spec.select.i.i.i18, %95 ]
-  %105 = phi i32 [ %92, %._crit_edge40.i.i.i10 ], [ %spec.select50.i.i.i19, %95 ]
+103:                                              ; preds = %95, %._crit_edge39.i.i.i10
+  %104 = phi i32 [ %.pre36.pre.i.i.i13, %._crit_edge39.i.i.i10 ], [ %spec.select.i.i.i18, %95 ]
+  %105 = phi i32 [ %92, %._crit_edge39.i.i.i10 ], [ %spec.select49.i.i.i19, %95 ]
   %106 = icmp ult i32 %104, %90
   br i1 %106, label %107, label %._crit_edge.loopexit.i.i.i14
 
 107:                                              ; preds = %103
-  %108 = zext i32 %.034.i.i.i9 to i64
+  %108 = zext i32 %.033.i.i.i9 to i64
   %109 = getelementptr inbounds nuw i32, ptr %6, i64 %108
   store i32 %104, ptr %109, align 4, !tbaa !48
   %110 = zext i32 %104 to i64
   %111 = getelementptr inbounds nuw i32, ptr %91, i64 %110
-  store i32 %.034.i.i.i9, ptr %111, align 4, !tbaa !48
+  store i32 %.033.i.i.i9, ptr %111, align 4, !tbaa !48
   %112 = shl i32 %105, 1
   %.not.i.i.i17 = icmp slt i32 %112, %89
   br i1 %.not.i.i.i17, label %.lr.ph.i.i.i8, label %._crit_edge.loopexit.i.i.i14
 
 ._crit_edge.loopexit.i.i.i14:                     ; preds = %107, %103
-  %.0.lcssa.ph.i.i.i15 = phi i32 [ %.034.i.i.i9, %103 ], [ %105, %107 ]
-  %.pre42.i.i.i16 = zext i32 %.0.lcssa.ph.i.i.i15 to i64
+  %.0.lcssa.ph.i.i.i15 = phi i32 [ %.033.i.i.i9, %103 ], [ %105, %107 ]
+  %.pre41.i.i.i16 = zext i32 %.0.lcssa.ph.i.i.i15 to i64
   br label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i5
 
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i.i5: ; preds = %._crit_edge.loopexit.i.i.i14, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3
-  %.pre-phi43.i.i.i6 = phi i64 [ %.pre42.i.i.i16, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
+  %.pre-phi42.i.i.i6 = phi i64 [ %.pre41.i.i.i16, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
   %.0.lcssa.i.i.i7 = phi i32 [ %.0.lcssa.ph.i.i.i15, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
-  %113 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi43.i.i.i6
+  %113 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi42.i.i.i6
   store i32 %90, ptr %113, align 4, !tbaa !48
   %114 = zext i32 %90 to i64
   %115 = getelementptr inbounds nuw i32, ptr %91, i64 %114
@@ -7255,8 +7255,8 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
   store i8 0, ptr %5, align 1, !tbaa !135
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1, !tbaa !135
-  %.not100 = icmp eq i32 %.sroa.0.1.i86, %.0.i.i.i.i
-  br i1 %.not100, label %.critedge58, label %.lr.ph
+  %.not98 = icmp eq i32 %.sroa.0.1.i86, %.0.i.i.i.i
+  br i1 %.not98, label %.critedge58, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -7268,8 +7268,8 @@ _ZN7simplex13sparse_matrixINS_7mpz_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
 
 56:                                               ; preds = %.lr.ph, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit
   %57 = phi ptr [ %22, %.lr.ph ], [ %139, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
-  %.sroa.073.0101 = phi i32 [ %.sroa.0.1.i86, %.lr.ph ], [ %.sroa.073.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
-  %58 = zext i32 %.sroa.073.0101 to i64
+  %.sroa.073.099 = phi i32 [ %.sroa.0.1.i86, %.lr.ph ], [ %.sroa.073.2, %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit ]
+  %58 = zext i32 %.sroa.073.099 to i64
   %59 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %57, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load i32, ptr %60, align 8, !tbaa !83
@@ -7438,7 +7438,7 @@ _ZN15_scoped_numeralI15mpq_inf_managerILb0EEEaSERKS2_.exit: ; preds = %.critedge
   br label %156
 
 137:                                              ; preds = %56, %_ZNK7simplex7simplexINS_7mpz_extEE8at_lowerEj.exit, %_ZNK7simplex7simplexINS_7mpz_extEE8at_upperEj.exit, %113, %107, %119, %133, %_ZN15_scoped_numeralI15mpq_inf_managerILb0EEEaSERKS2_.exit, %129
-  %138 = add i32 %.sroa.073.0101, 1
+  %138 = add i32 %.sroa.073.099, 1
   %139 = load ptr, ptr %21, align 8, !tbaa !56
   %140 = icmp eq ptr %139, null
   br i1 %140, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.lr.ph.i.i
@@ -7463,7 +7463,7 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
   br label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i98, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i96, 1
   %151 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpz_ext>::_row_entry", ptr %139, i64 %indvars.iv.next.i.i
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load i32, ptr %152, align 8, !tbaa !83
@@ -7471,8 +7471,8 @@ _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
   br i1 %154, label %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit
 
 _ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph, %.lr.ph.i.i
-  %indvars.iv.i.i98 = phi i64 [ %144, %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %exitcond.not = icmp eq i64 %indvars.iv.i.i98, %150
+  %indvars.iv.i.i96 = phi i64 [ %144, %_ZNK7simplex13sparse_matrixINS_7mpz_extEE4_row11num_entriesEv.exit.i.i.lr.ph ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %exitcond.not = icmp eq i64 %indvars.iv.i.i96, %150
   br i1 %exitcond.not, label %_ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit, label %.lr.ph.i.i
 
 _ZN7simplex13sparse_matrixINS_7mpz_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit: ; preds = %.lr.ph.i.i
@@ -9201,21 +9201,21 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
   %31 = add i32 %30, -1
   store i32 %31, ptr %11, align 4, !tbaa !48
   %32 = load i32, ptr %9, align 4, !tbaa !48
-  %.not33.i.i = icmp sgt i32 %31, 2
+  %.not32.i.i = icmp sgt i32 %31, 2
   %33 = load ptr, ptr %24, align 8
-  br i1 %.not33.i.i, label %.lr.ph.i.i, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i
+  br i1 %.not32.i.i, label %.lr.ph.i.i, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6vectorIiLb0EjE4backEv.exit.i, %49
   %34 = phi i32 [ %54, %49 ], [ 2, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
-  %.034.i.i = phi i32 [ %47, %49 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
+  %.033.i.i = phi i32 [ %47, %49 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %35 = or disjoint i32 %34, 1
   %36 = icmp slt i32 %35, %31
-  br i1 %36, label %37, label %._crit_edge40.i.i
+  br i1 %36, label %37, label %._crit_edge39.i.i
 
-._crit_edge40.i.i:                                ; preds = %.lr.ph.i.i
+._crit_edge39.i.i:                                ; preds = %.lr.ph.i.i
   %.pre.phi.trans.insert.i.i = zext i32 %34 to i64
   %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %.pre.phi.trans.insert.i.i
-  %.pre37.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !48
+  %.pre36.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !48
   br label %45
 
 37:                                               ; preds = %.lr.ph.i.i
@@ -9227,35 +9227,35 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
   %43 = load i32, ptr %42, align 4, !tbaa !48
   %44 = icmp ult i32 %40, %43
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %40, i32 %43)
-  %spec.select50.i.i = select i1 %44, i32 %35, i32 %34
+  %spec.select49.i.i = select i1 %44, i32 %35, i32 %34
   br label %45
 
-45:                                               ; preds = %37, %._crit_edge40.i.i
-  %46 = phi i32 [ %.pre37.pre.i.i, %._crit_edge40.i.i ], [ %spec.select.i.i, %37 ]
-  %47 = phi i32 [ %34, %._crit_edge40.i.i ], [ %spec.select50.i.i, %37 ]
+45:                                               ; preds = %37, %._crit_edge39.i.i
+  %46 = phi i32 [ %.pre36.pre.i.i, %._crit_edge39.i.i ], [ %spec.select.i.i, %37 ]
+  %47 = phi i32 [ %34, %._crit_edge39.i.i ], [ %spec.select49.i.i, %37 ]
   %48 = icmp ult i32 %46, %32
   br i1 %48, label %49, label %._crit_edge.loopexit.i.i
 
 49:                                               ; preds = %45
-  %50 = zext i32 %.034.i.i to i64
+  %50 = zext i32 %.033.i.i to i64
   %51 = getelementptr inbounds nuw i32, ptr %3, i64 %50
   store i32 %46, ptr %51, align 4, !tbaa !48
   %52 = zext i32 %46 to i64
   %53 = getelementptr inbounds nuw i32, ptr %33, i64 %52
-  store i32 %.034.i.i, ptr %53, align 4, !tbaa !48
+  store i32 %.033.i.i, ptr %53, align 4, !tbaa !48
   %54 = shl i32 %47, 1
   %.not.i.i = icmp slt i32 %54, %31
   br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %49, %45
-  %.0.lcssa.ph.i.i = phi i32 [ %.034.i.i, %45 ], [ %47, %49 ]
-  %.pre42.i.i = zext i32 %.0.lcssa.ph.i.i to i64
+  %.0.lcssa.ph.i.i = phi i32 [ %.033.i.i, %45 ], [ %47, %49 ]
+  %.pre41.i.i = zext i32 %.0.lcssa.ph.i.i to i64
   br label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i
-  %.pre-phi43.i.i = phi i64 [ %.pre42.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
+  %.pre-phi42.i.i = phi i64 [ %.pre41.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %.0.lcssa.i.i = phi i32 [ %.0.lcssa.ph.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.pre-phi43.i.i
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.pre-phi42.i.i
   store i32 %32, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %32 to i64
   %57 = getelementptr inbounds nuw i32, ptr %33, i64 %56
@@ -9685,13 +9685,13 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36, %44
-  %.01521.i = phi i32 [ %38, %44 ], [ %7, %36 ]
-  %38 = ashr i32 %.01521.i, 1
+  %.01520.i = phi i32 [ %38, %44 ], [ %7, %36 ]
+  %38 = ashr i32 %.01520.i, 1
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i32, ptr %8, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !48
   %42 = icmp ult i32 %37, %41
-  %43 = zext i32 %.01521.i to i64
+  %43 = zext i32 %.01520.i to i64
   br i1 %42, label %44, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit
 
 44:                                               ; preds = %.lr.ph.i
@@ -9699,13 +9699,13 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
   store i32 %41, ptr %45, align 4, !tbaa !48
   %46 = zext i32 %41 to i64
   %47 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %46
-  store i32 %.01521.i, ptr %47, align 4, !tbaa !48
+  store i32 %.01520.i, ptr %47, align 4, !tbaa !48
   %48 = icmp ult i32 %38, 2
   br i1 %48, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit, label %.lr.ph.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit: ; preds = %44, %.lr.ph.i
   %.pre-phi.i = phi i64 [ %43, %.lr.ph.i ], [ %39, %44 ]
-  %.015.lcssa.i = phi i32 [ %.01521.i, %.lr.ph.i ], [ %38, %44 ]
+  %.015.lcssa.i = phi i32 [ %.01520.i, %.lr.ph.i ], [ %38, %44 ]
   %49 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi.i
   store i32 %37, ptr %49, align 4, !tbaa !48
   %50 = zext i32 %37 to i64
@@ -9716,21 +9716,21 @@ _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit: ; preds = %44
 52:                                               ; preds = %30, %_ZN6vectorIiLb0EjE4backEv.exit
   %53 = load i32, ptr %24, align 4, !tbaa !48
   %54 = shl i32 %7, 1
-  %.not33.i = icmp slt i32 %54, %29
+  %.not32.i = icmp slt i32 %54, %29
   %55 = load ptr, ptr %3, align 8
-  br i1 %.not33.i, label %.lr.ph.i14, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit
+  br i1 %.not32.i, label %.lr.ph.i14, label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit
 
 .lr.ph.i14:                                       ; preds = %52, %71
   %56 = phi i32 [ %76, %71 ], [ %54, %52 ]
-  %.034.i = phi i32 [ %69, %71 ], [ %7, %52 ]
+  %.033.i = phi i32 [ %69, %71 ], [ %7, %52 ]
   %57 = or disjoint i32 %56, 1
   %58 = icmp slt i32 %57, %29
-  br i1 %58, label %59, label %._crit_edge40.i
+  br i1 %58, label %59, label %._crit_edge39.i
 
-._crit_edge40.i:                                  ; preds = %.lr.ph.i14
+._crit_edge39.i:                                  ; preds = %.lr.ph.i14
   %.pre.phi.trans.insert.i = zext i32 %56 to i64
   %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.phi.trans.insert.i
-  %.pre37.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !48
+  %.pre36.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !48
   br label %67
 
 59:                                               ; preds = %.lr.ph.i14
@@ -9742,35 +9742,35 @@ _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE7move_upEi.exit: ; preds = %44
   %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = icmp ult i32 %62, %65
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %65)
-  %spec.select50.i = select i1 %66, i32 %57, i32 %56
+  %spec.select49.i = select i1 %66, i32 %57, i32 %56
   br label %67
 
-67:                                               ; preds = %59, %._crit_edge40.i
-  %68 = phi i32 [ %.pre37.pre.i, %._crit_edge40.i ], [ %spec.select.i, %59 ]
-  %69 = phi i32 [ %56, %._crit_edge40.i ], [ %spec.select50.i, %59 ]
+67:                                               ; preds = %59, %._crit_edge39.i
+  %68 = phi i32 [ %.pre36.pre.i, %._crit_edge39.i ], [ %spec.select.i, %59 ]
+  %69 = phi i32 [ %56, %._crit_edge39.i ], [ %spec.select49.i, %59 ]
   %70 = icmp ult i32 %68, %53
   br i1 %70, label %71, label %._crit_edge.loopexit.i
 
 71:                                               ; preds = %67
-  %72 = zext i32 %.034.i to i64
+  %72 = zext i32 %.033.i to i64
   %73 = getelementptr inbounds nuw i32, ptr %8, i64 %72
   store i32 %68, ptr %73, align 4, !tbaa !48
   %74 = zext i32 %68 to i64
   %75 = getelementptr inbounds nuw i32, ptr %55, i64 %74
-  store i32 %.034.i, ptr %75, align 4, !tbaa !48
+  store i32 %.033.i, ptr %75, align 4, !tbaa !48
   %76 = shl i32 %69, 1
   %.not.i = icmp slt i32 %76, %29
   br i1 %.not.i, label %.lr.ph.i14, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %71, %67
-  %.0.lcssa.ph.i = phi i32 [ %.034.i, %67 ], [ %69, %71 ]
-  %.pre42.i = zext i32 %.0.lcssa.ph.i to i64
+  %.0.lcssa.ph.i = phi i32 [ %.033.i, %67 ], [ %69, %71 ]
+  %.pre41.i = zext i32 %.0.lcssa.ph.i to i64
   br label %_ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit
 
 _ZN4heapIN7simplex7simplexINS0_7mpz_extEE6var_ltEE9move_downEi.exit: ; preds = %52, %._crit_edge.loopexit.i
-  %.pre-phi43.i = phi i64 [ %.pre42.i, %._crit_edge.loopexit.i ], [ %23, %52 ]
+  %.pre-phi42.i = phi i64 [ %.pre41.i, %._crit_edge.loopexit.i ], [ %23, %52 ]
   %.0.lcssa.i = phi i32 [ %.0.lcssa.ph.i, %._crit_edge.loopexit.i ], [ %7, %52 ]
-  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi43.i
+  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi42.i
   store i32 %53, ptr %77, align 4, !tbaa !48
   %78 = zext i32 %53 to i64
   %79 = getelementptr inbounds nuw i32, ptr %55, i64 %78
@@ -12134,8 +12134,8 @@ _ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit.thread: ; preds = %_ZNK7s
   br i1 %25, label %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit.thread, label %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit, !llvm.loop !192
 
 _ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit.thread: ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit, %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit, %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit, %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit.thread, %1
-  %switch = phi i1 [ true, %1 ], [ true, %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit ], [ false, %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit ], [ false, %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit ], [ true, %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit.thread ]
-  ret i1 %switch
+  %26 = phi i1 [ true, %1 ], [ true, %_ZNK6vectorIN7simplex7simplexINS0_7mpz_extEE8var_infoELb1EjE4sizeEv.exit ], [ false, %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit ], [ false, %_ZNK7simplex7simplexINS_7mpz_extEE11below_lowerEj.exit ], [ true, %_ZNK7simplex7simplexINS_7mpz_extEE11above_upperEj.exit.thread ]
+  ret i1 %26
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -16753,13 +16753,13 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
   br i1 %47, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i, %54
-  %.01521.i.i = phi i32 [ %48, %54 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
-  %48 = ashr i32 %.01521.i.i, 1
+  %.01520.i.i = phi i32 [ %48, %54 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
+  %48 = ashr i32 %.01520.i.i, 1
   %49 = zext i32 %48 to i64
   %50 = getelementptr inbounds nuw i32, ptr %39, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !48
   %52 = icmp ult i32 %46, %51
-  %53 = zext i32 %.01521.i.i to i64
+  %53 = zext i32 %.01520.i.i to i64
   br i1 %52, label %54, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit
 
 54:                                               ; preds = %.lr.ph.i.i
@@ -16767,13 +16767,13 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %35, %26
   store i32 %51, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %51 to i64
   %57 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %56
-  store i32 %.01521.i.i, ptr %57, align 4, !tbaa !48
+  store i32 %.01520.i.i, ptr %57, align 4, !tbaa !48
   %58 = icmp ult i32 %48, 2
   br i1 %58, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit, label %.lr.ph.i.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit: ; preds = %54, %.lr.ph.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre-phi.i.i = phi i64 [ %44, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %49, %54 ], [ %53, %.lr.ph.i.i ]
-  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %48, %54 ], [ %.01521.i.i, %.lr.ph.i.i ]
+  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %48, %54 ], [ %.01520.i.i, %.lr.ph.i.i ]
   %59 = getelementptr inbounds nuw i32, ptr %39, i64 %.pre-phi.i.i
   store i32 %46, ptr %59, align 4, !tbaa !48
   %60 = zext i32 %46 to i64
@@ -18441,13 +18441,13 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
   br i1 %140, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6vectorIiLb0EjE9push_backERKi.exit.i, %147
-  %.01521.i.i = phi i32 [ %141, %147 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
-  %141 = ashr i32 %.01521.i.i, 1
+  %.01520.i.i = phi i32 [ %141, %147 ], [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ]
+  %141 = ashr i32 %.01520.i.i, 1
   %142 = zext i32 %141 to i64
   %143 = getelementptr inbounds nuw i32, ptr %132, i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !48
   %145 = icmp ult i32 %139, %144
-  %146 = zext i32 %.01521.i.i to i64
+  %146 = zext i32 %.01520.i.i to i64
   br i1 %145, label %147, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit
 
 147:                                              ; preds = %.lr.ph.i.i
@@ -18455,13 +18455,13 @@ _ZN6vectorIiLb0EjE9push_backERKi.exit.i:          ; preds = %128, %118
   store i32 %144, ptr %148, align 4, !tbaa !48
   %149 = zext i32 %144 to i64
   %150 = getelementptr inbounds nuw i32, ptr %.pre.i3.i, i64 %149
-  store i32 %.01521.i.i, ptr %150, align 4, !tbaa !48
+  store i32 %.01520.i.i, ptr %150, align 4, !tbaa !48
   %151 = icmp ult i32 %141, 2
   br i1 %151, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit, label %.lr.ph.i.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE6insertEi.exit: ; preds = %147, %.lr.ph.i.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i
   %.pre-phi.i.i = phi i64 [ %137, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %142, %147 ], [ %146, %.lr.ph.i.i ]
-  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %141, %147 ], [ %.01521.i.i, %.lr.ph.i.i ]
+  %.015.lcssa.i.i = phi i32 [ %.0.i6.i, %_ZN6vectorIiLb0EjE9push_backERKi.exit.i ], [ %141, %147 ], [ %.01520.i.i, %.lr.ph.i.i ]
   %152 = getelementptr inbounds nuw i32, ptr %132, i64 %.pre-phi.i.i
   store i32 %139, ptr %152, align 4, !tbaa !48
   %153 = zext i32 %139 to i64
@@ -18539,21 +18539,21 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
   %35 = add i32 %34, -1
   store i32 %35, ptr %15, align 4, !tbaa !48
   %36 = load i32, ptr %13, align 4, !tbaa !48
-  %.not33.i.i.i = icmp sgt i32 %35, 2
+  %.not32.i.i.i = icmp sgt i32 %35, 2
   %37 = load ptr, ptr %28, align 8
-  br i1 %.not33.i.i.i, label %.lr.ph.i.i.i, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i
+  br i1 %.not32.i.i.i, label %.lr.ph.i.i.i, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN6vectorIiLb0EjE4backEv.exit.i.i, %53
   %38 = phi i32 [ %58, %53 ], [ 2, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
-  %.034.i.i.i = phi i32 [ %51, %53 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
+  %.033.i.i.i = phi i32 [ %51, %53 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
   %39 = or disjoint i32 %38, 1
   %40 = icmp slt i32 %39, %35
-  br i1 %40, label %41, label %._crit_edge40.i.i.i
+  br i1 %40, label %41, label %._crit_edge39.i.i.i
 
-._crit_edge40.i.i.i:                              ; preds = %.lr.ph.i.i.i
+._crit_edge39.i.i.i:                              ; preds = %.lr.ph.i.i.i
   %.pre.phi.trans.insert.i.i.i = zext i32 %38 to i64
   %.phi.trans.insert.phi.trans.insert.i.i.i = getelementptr inbounds nuw i32, ptr %6, i64 %.pre.phi.trans.insert.i.i.i
-  %.pre37.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !48
+  %.pre36.pre.i.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i, align 4, !tbaa !48
   br label %49
 
 41:                                               ; preds = %.lr.ph.i.i.i
@@ -18565,35 +18565,35 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i:               ; preds = %_ZNK4heapIN7simplex
   %47 = load i32, ptr %46, align 4, !tbaa !48
   %48 = icmp ult i32 %44, %47
   %spec.select.i.i.i = tail call i32 @llvm.umin.i32(i32 %44, i32 %47)
-  %spec.select50.i.i.i = select i1 %48, i32 %39, i32 %38
+  %spec.select49.i.i.i = select i1 %48, i32 %39, i32 %38
   br label %49
 
-49:                                               ; preds = %41, %._crit_edge40.i.i.i
-  %50 = phi i32 [ %.pre37.pre.i.i.i, %._crit_edge40.i.i.i ], [ %spec.select.i.i.i, %41 ]
-  %51 = phi i32 [ %38, %._crit_edge40.i.i.i ], [ %spec.select50.i.i.i, %41 ]
+49:                                               ; preds = %41, %._crit_edge39.i.i.i
+  %50 = phi i32 [ %.pre36.pre.i.i.i, %._crit_edge39.i.i.i ], [ %spec.select.i.i.i, %41 ]
+  %51 = phi i32 [ %38, %._crit_edge39.i.i.i ], [ %spec.select49.i.i.i, %41 ]
   %52 = icmp ult i32 %50, %36
   br i1 %52, label %53, label %._crit_edge.loopexit.i.i.i
 
 53:                                               ; preds = %49
-  %54 = zext i32 %.034.i.i.i to i64
+  %54 = zext i32 %.033.i.i.i to i64
   %55 = getelementptr inbounds nuw i32, ptr %6, i64 %54
   store i32 %50, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %50 to i64
   %57 = getelementptr inbounds nuw i32, ptr %37, i64 %56
-  store i32 %.034.i.i.i, ptr %57, align 4, !tbaa !48
+  store i32 %.033.i.i.i, ptr %57, align 4, !tbaa !48
   %58 = shl i32 %51, 1
   %.not.i.i.i = icmp slt i32 %58, %35
   br i1 %.not.i.i.i, label %.lr.ph.i.i.i, label %._crit_edge.loopexit.i.i.i
 
 ._crit_edge.loopexit.i.i.i:                       ; preds = %53, %49
-  %.0.lcssa.ph.i.i.i = phi i32 [ %.034.i.i.i, %49 ], [ %51, %53 ]
-  %.pre42.i.i.i = zext i32 %.0.lcssa.ph.i.i.i to i64
+  %.0.lcssa.ph.i.i.i = phi i32 [ %.033.i.i.i, %49 ], [ %51, %53 ]
+  %.pre41.i.i.i = zext i32 %.0.lcssa.ph.i.i.i to i64
   br label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i: ; preds = %._crit_edge.loopexit.i.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i.i
-  %.pre-phi43.i.i.i = phi i64 [ %.pre42.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
+  %.pre-phi42.i.i.i = phi i64 [ %.pre41.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
   %.0.lcssa.i.i.i = phi i32 [ %.0.lcssa.ph.i.i.i, %._crit_edge.loopexit.i.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i ]
-  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi43.i.i.i
+  %59 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi42.i.i.i
   store i32 %36, ptr %59, align 4, !tbaa !48
   %60 = zext i32 %36 to i64
   %61 = getelementptr inbounds nuw i32, ptr %37, i64 %60
@@ -18650,21 +18650,21 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
   %89 = add i32 %88, -1
   store i32 %89, ptr %69, align 4, !tbaa !48
   %90 = load i32, ptr %67, align 4, !tbaa !48
-  %.not33.i.i.i4 = icmp sgt i32 %89, 2
+  %.not32.i.i.i4 = icmp sgt i32 %89, 2
   %91 = load ptr, ptr %82, align 8
-  br i1 %.not33.i.i.i4, label %.lr.ph.i.i.i8, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i5
+  br i1 %.not32.i.i.i4, label %.lr.ph.i.i.i8, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i5
 
 .lr.ph.i.i.i8:                                    ; preds = %_ZN6vectorIiLb0EjE4backEv.exit.i.i3, %107
   %92 = phi i32 [ %112, %107 ], [ 2, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
-  %.034.i.i.i9 = phi i32 [ %105, %107 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
+  %.033.i.i.i9 = phi i32 [ %105, %107 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
   %93 = or disjoint i32 %92, 1
   %94 = icmp slt i32 %93, %89
-  br i1 %94, label %95, label %._crit_edge40.i.i.i10
+  br i1 %94, label %95, label %._crit_edge39.i.i.i10
 
-._crit_edge40.i.i.i10:                            ; preds = %.lr.ph.i.i.i8
+._crit_edge39.i.i.i10:                            ; preds = %.lr.ph.i.i.i8
   %.pre.phi.trans.insert.i.i.i11 = zext i32 %92 to i64
   %.phi.trans.insert.phi.trans.insert.i.i.i12 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre.phi.trans.insert.i.i.i11
-  %.pre37.pre.i.i.i13 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i12, align 4, !tbaa !48
+  %.pre36.pre.i.i.i13 = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i.i12, align 4, !tbaa !48
   br label %103
 
 95:                                               ; preds = %.lr.ph.i.i.i8
@@ -18676,35 +18676,35 @@ _ZN6vectorIiLb0EjE4backEv.exit.i.i3:              ; preds = %_ZNK4heapIN7simplex
   %101 = load i32, ptr %100, align 4, !tbaa !48
   %102 = icmp ult i32 %98, %101
   %spec.select.i.i.i18 = tail call i32 @llvm.umin.i32(i32 %98, i32 %101)
-  %spec.select50.i.i.i19 = select i1 %102, i32 %93, i32 %92
+  %spec.select49.i.i.i19 = select i1 %102, i32 %93, i32 %92
   br label %103
 
-103:                                              ; preds = %95, %._crit_edge40.i.i.i10
-  %104 = phi i32 [ %.pre37.pre.i.i.i13, %._crit_edge40.i.i.i10 ], [ %spec.select.i.i.i18, %95 ]
-  %105 = phi i32 [ %92, %._crit_edge40.i.i.i10 ], [ %spec.select50.i.i.i19, %95 ]
+103:                                              ; preds = %95, %._crit_edge39.i.i.i10
+  %104 = phi i32 [ %.pre36.pre.i.i.i13, %._crit_edge39.i.i.i10 ], [ %spec.select.i.i.i18, %95 ]
+  %105 = phi i32 [ %92, %._crit_edge39.i.i.i10 ], [ %spec.select49.i.i.i19, %95 ]
   %106 = icmp ult i32 %104, %90
   br i1 %106, label %107, label %._crit_edge.loopexit.i.i.i14
 
 107:                                              ; preds = %103
-  %108 = zext i32 %.034.i.i.i9 to i64
+  %108 = zext i32 %.033.i.i.i9 to i64
   %109 = getelementptr inbounds nuw i32, ptr %6, i64 %108
   store i32 %104, ptr %109, align 4, !tbaa !48
   %110 = zext i32 %104 to i64
   %111 = getelementptr inbounds nuw i32, ptr %91, i64 %110
-  store i32 %.034.i.i.i9, ptr %111, align 4, !tbaa !48
+  store i32 %.033.i.i.i9, ptr %111, align 4, !tbaa !48
   %112 = shl i32 %105, 1
   %.not.i.i.i17 = icmp slt i32 %112, %89
   br i1 %.not.i.i.i17, label %.lr.ph.i.i.i8, label %._crit_edge.loopexit.i.i.i14
 
 ._crit_edge.loopexit.i.i.i14:                     ; preds = %107, %103
-  %.0.lcssa.ph.i.i.i15 = phi i32 [ %.034.i.i.i9, %103 ], [ %105, %107 ]
-  %.pre42.i.i.i16 = zext i32 %.0.lcssa.ph.i.i.i15 to i64
+  %.0.lcssa.ph.i.i.i15 = phi i32 [ %.033.i.i.i9, %103 ], [ %105, %107 ]
+  %.pre41.i.i.i16 = zext i32 %.0.lcssa.ph.i.i.i15 to i64
   br label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i5
 
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i.i5: ; preds = %._crit_edge.loopexit.i.i.i14, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3
-  %.pre-phi43.i.i.i6 = phi i64 [ %.pre42.i.i.i16, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
+  %.pre-phi42.i.i.i6 = phi i64 [ %.pre41.i.i.i16, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
   %.0.lcssa.i.i.i7 = phi i32 [ %.0.lcssa.ph.i.i.i15, %._crit_edge.loopexit.i.i.i14 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i.i3 ]
-  %113 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi43.i.i.i6
+  %113 = getelementptr inbounds nuw i32, ptr %6, i64 %.pre-phi42.i.i.i6
   store i32 %90, ptr %113, align 4, !tbaa !48
   %114 = zext i32 %90 to i64
   %115 = getelementptr inbounds nuw i32, ptr %91, i64 %114
@@ -19285,8 +19285,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
   store i8 0, ptr %5, align 1, !tbaa !135
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i8 0, ptr %11, align 1, !tbaa !135
-  %.not104 = icmp eq i32 %.sroa.0.1.i90, %.0.i.i.i.i
-  br i1 %.not104, label %.critedge58, label %.lr.ph
+  %.not102 = icmp eq i32 %.sroa.0.1.i90, %.0.i.i.i.i
+  br i1 %.not102, label %.critedge58, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit
   %54 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -19300,8 +19300,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE9row_beginERKNS2_3rowE.exit: ; preds = %
 
 61:                                               ; preds = %.lr.ph, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit
   %62 = phi ptr [ %22, %.lr.ph ], [ %160, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
-  %.sroa.077.0105 = phi i32 [ %.sroa.0.1.i90, %.lr.ph ], [ %.sroa.077.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
-  %63 = zext i32 %.sroa.077.0105 to i64
+  %.sroa.077.0103 = phi i32 [ %.sroa.0.1.i90, %.lr.ph ], [ %.sroa.077.2, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit ]
+  %63 = zext i32 %.sroa.077.0103 to i64
   %64 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8, !tbaa !236
@@ -19506,7 +19506,7 @@ _ZN11mpq_managerILb0EE3setER3mpzRKS1_.exit.i.i67: ; preds = %147, %143
   br label %177
 
 158:                                              ; preds = %61, %_ZNK7simplex7simplexINS_7mpq_extEE8at_lowerEj.exit, %_ZNK7simplex7simplexINS_7mpq_extEE8at_upperEj.exit, %126, %120, %132, %155, %_ZN15_scoped_numeralI15mpq_inf_managerILb0EEEaSERKS2_.exit, %151
-  %159 = add i32 %.sroa.077.0105, 1
+  %159 = add i32 %.sroa.077.0103, 1
   %160 = load ptr, ptr %21, align 8, !tbaa !211
   %161 = icmp eq ptr %160, null
   br i1 %161, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i
@@ -19531,7 +19531,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
   br label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i102, 1
+  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i100, 1
   %172 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %160, i64 %indvars.iv.next.i.i
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
   %174 = load i32, ptr %173, align 8, !tbaa !236
@@ -19539,8 +19539,8 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph: ; 
   br i1 %175, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph, %.lr.ph.i.i
-  %indvars.iv.i.i102 = phi i64 [ %165, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %exitcond.not = icmp eq i64 %indvars.iv.i.i102, %171
+  %indvars.iv.i.i100 = phi i64 [ %165, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.lr.ph ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
+  %exitcond.not = icmp eq i64 %indvars.iv.i.i100, %171
   br i1 %exitcond.not, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit, label %.lr.ph.i.i
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit: ; preds = %.lr.ph.i.i
@@ -21386,21 +21386,21 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
   %31 = add i32 %30, -1
   store i32 %31, ptr %11, align 4, !tbaa !48
   %32 = load i32, ptr %9, align 4, !tbaa !48
-  %.not33.i.i = icmp sgt i32 %31, 2
+  %.not32.i.i = icmp sgt i32 %31, 2
   %33 = load ptr, ptr %24, align 8
-  br i1 %.not33.i.i, label %.lr.ph.i.i, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i
+  br i1 %.not32.i.i, label %.lr.ph.i.i, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN6vectorIiLb0EjE4backEv.exit.i, %49
   %34 = phi i32 [ %54, %49 ], [ 2, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
-  %.034.i.i = phi i32 [ %47, %49 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
+  %.033.i.i = phi i32 [ %47, %49 ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %35 = or disjoint i32 %34, 1
   %36 = icmp slt i32 %35, %31
-  br i1 %36, label %37, label %._crit_edge40.i.i
+  br i1 %36, label %37, label %._crit_edge39.i.i
 
-._crit_edge40.i.i:                                ; preds = %.lr.ph.i.i
+._crit_edge39.i.i:                                ; preds = %.lr.ph.i.i
   %.pre.phi.trans.insert.i.i = zext i32 %34 to i64
   %.phi.trans.insert.phi.trans.insert.i.i = getelementptr inbounds nuw i32, ptr %3, i64 %.pre.phi.trans.insert.i.i
-  %.pre37.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !48
+  %.pre36.pre.i.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i.i, align 4, !tbaa !48
   br label %45
 
 37:                                               ; preds = %.lr.ph.i.i
@@ -21412,35 +21412,35 @@ _ZN6vectorIiLb0EjE4backEv.exit.i:                 ; preds = %_ZNK4heapIN7simplex
   %43 = load i32, ptr %42, align 4, !tbaa !48
   %44 = icmp ult i32 %40, %43
   %spec.select.i.i = tail call i32 @llvm.umin.i32(i32 %40, i32 %43)
-  %spec.select50.i.i = select i1 %44, i32 %35, i32 %34
+  %spec.select49.i.i = select i1 %44, i32 %35, i32 %34
   br label %45
 
-45:                                               ; preds = %37, %._crit_edge40.i.i
-  %46 = phi i32 [ %.pre37.pre.i.i, %._crit_edge40.i.i ], [ %spec.select.i.i, %37 ]
-  %47 = phi i32 [ %34, %._crit_edge40.i.i ], [ %spec.select50.i.i, %37 ]
+45:                                               ; preds = %37, %._crit_edge39.i.i
+  %46 = phi i32 [ %.pre36.pre.i.i, %._crit_edge39.i.i ], [ %spec.select.i.i, %37 ]
+  %47 = phi i32 [ %34, %._crit_edge39.i.i ], [ %spec.select49.i.i, %37 ]
   %48 = icmp ult i32 %46, %32
   br i1 %48, label %49, label %._crit_edge.loopexit.i.i
 
 49:                                               ; preds = %45
-  %50 = zext i32 %.034.i.i to i64
+  %50 = zext i32 %.033.i.i to i64
   %51 = getelementptr inbounds nuw i32, ptr %3, i64 %50
   store i32 %46, ptr %51, align 4, !tbaa !48
   %52 = zext i32 %46 to i64
   %53 = getelementptr inbounds nuw i32, ptr %33, i64 %52
-  store i32 %.034.i.i, ptr %53, align 4, !tbaa !48
+  store i32 %.033.i.i, ptr %53, align 4, !tbaa !48
   %54 = shl i32 %47, 1
   %.not.i.i = icmp slt i32 %54, %31
   br i1 %.not.i.i, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i
 
 ._crit_edge.loopexit.i.i:                         ; preds = %49, %45
-  %.0.lcssa.ph.i.i = phi i32 [ %.034.i.i, %45 ], [ %47, %49 ]
-  %.pre42.i.i = zext i32 %.0.lcssa.ph.i.i to i64
+  %.0.lcssa.ph.i.i = phi i32 [ %.033.i.i, %45 ], [ %47, %49 ]
+  %.pre41.i.i = zext i32 %.0.lcssa.ph.i.i to i64
   br label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %_ZN6vectorIiLb0EjE4backEv.exit.i
-  %.pre-phi43.i.i = phi i64 [ %.pre42.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
+  %.pre-phi42.i.i = phi i64 [ %.pre41.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
   %.0.lcssa.i.i = phi i32 [ %.0.lcssa.ph.i.i, %._crit_edge.loopexit.i.i ], [ 1, %_ZN6vectorIiLb0EjE4backEv.exit.i ]
-  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.pre-phi43.i.i
+  %55 = getelementptr inbounds nuw i32, ptr %3, i64 %.pre-phi42.i.i
   store i32 %32, ptr %55, align 4, !tbaa !48
   %56 = zext i32 %32 to i64
   %57 = getelementptr inbounds nuw i32, ptr %33, i64 %56
@@ -21870,13 +21870,13 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %36, %44
-  %.01521.i = phi i32 [ %38, %44 ], [ %7, %36 ]
-  %38 = ashr i32 %.01521.i, 1
+  %.01520.i = phi i32 [ %38, %44 ], [ %7, %36 ]
+  %38 = ashr i32 %.01520.i, 1
   %39 = zext i32 %38 to i64
   %40 = getelementptr inbounds nuw i32, ptr %8, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !48
   %42 = icmp ult i32 %37, %41
-  %43 = zext i32 %.01521.i to i64
+  %43 = zext i32 %.01520.i to i64
   br i1 %42, label %44, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit
 
 44:                                               ; preds = %.lr.ph.i
@@ -21884,13 +21884,13 @@ _ZN6vectorIiLb0EjE4backEv.exit:                   ; preds = %_ZNK6vectorIiLb0EjE
   store i32 %41, ptr %45, align 4, !tbaa !48
   %46 = zext i32 %41 to i64
   %47 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %46
-  store i32 %.01521.i, ptr %47, align 4, !tbaa !48
+  store i32 %.01520.i, ptr %47, align 4, !tbaa !48
   %48 = icmp ult i32 %38, 2
   br i1 %48, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit, label %.lr.ph.i
 
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit: ; preds = %44, %.lr.ph.i
   %.pre-phi.i = phi i64 [ %43, %.lr.ph.i ], [ %39, %44 ]
-  %.015.lcssa.i = phi i32 [ %.01521.i, %.lr.ph.i ], [ %38, %44 ]
+  %.015.lcssa.i = phi i32 [ %.01520.i, %.lr.ph.i ], [ %38, %44 ]
   %49 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi.i
   store i32 %37, ptr %49, align 4, !tbaa !48
   %50 = zext i32 %37 to i64
@@ -21901,21 +21901,21 @@ _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit: ; preds = %44
 52:                                               ; preds = %30, %_ZN6vectorIiLb0EjE4backEv.exit
   %53 = load i32, ptr %24, align 4, !tbaa !48
   %54 = shl i32 %7, 1
-  %.not33.i = icmp slt i32 %54, %29
+  %.not32.i = icmp slt i32 %54, %29
   %55 = load ptr, ptr %3, align 8
-  br i1 %.not33.i, label %.lr.ph.i14, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit
+  br i1 %.not32.i, label %.lr.ph.i14, label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit
 
 .lr.ph.i14:                                       ; preds = %52, %71
   %56 = phi i32 [ %76, %71 ], [ %54, %52 ]
-  %.034.i = phi i32 [ %69, %71 ], [ %7, %52 ]
+  %.033.i = phi i32 [ %69, %71 ], [ %7, %52 ]
   %57 = or disjoint i32 %56, 1
   %58 = icmp slt i32 %57, %29
-  br i1 %58, label %59, label %._crit_edge40.i
+  br i1 %58, label %59, label %._crit_edge39.i
 
-._crit_edge40.i:                                  ; preds = %.lr.ph.i14
+._crit_edge39.i:                                  ; preds = %.lr.ph.i14
   %.pre.phi.trans.insert.i = zext i32 %56 to i64
   %.phi.trans.insert.phi.trans.insert.i = getelementptr inbounds nuw i32, ptr %8, i64 %.pre.phi.trans.insert.i
-  %.pre37.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !48
+  %.pre36.pre.i = load i32, ptr %.phi.trans.insert.phi.trans.insert.i, align 4, !tbaa !48
   br label %67
 
 59:                                               ; preds = %.lr.ph.i14
@@ -21927,35 +21927,35 @@ _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE7move_upEi.exit: ; preds = %44
   %65 = load i32, ptr %64, align 4, !tbaa !48
   %66 = icmp ult i32 %62, %65
   %spec.select.i = tail call i32 @llvm.umin.i32(i32 %62, i32 %65)
-  %spec.select50.i = select i1 %66, i32 %57, i32 %56
+  %spec.select49.i = select i1 %66, i32 %57, i32 %56
   br label %67
 
-67:                                               ; preds = %59, %._crit_edge40.i
-  %68 = phi i32 [ %.pre37.pre.i, %._crit_edge40.i ], [ %spec.select.i, %59 ]
-  %69 = phi i32 [ %56, %._crit_edge40.i ], [ %spec.select50.i, %59 ]
+67:                                               ; preds = %59, %._crit_edge39.i
+  %68 = phi i32 [ %.pre36.pre.i, %._crit_edge39.i ], [ %spec.select.i, %59 ]
+  %69 = phi i32 [ %56, %._crit_edge39.i ], [ %spec.select49.i, %59 ]
   %70 = icmp ult i32 %68, %53
   br i1 %70, label %71, label %._crit_edge.loopexit.i
 
 71:                                               ; preds = %67
-  %72 = zext i32 %.034.i to i64
+  %72 = zext i32 %.033.i to i64
   %73 = getelementptr inbounds nuw i32, ptr %8, i64 %72
   store i32 %68, ptr %73, align 4, !tbaa !48
   %74 = zext i32 %68 to i64
   %75 = getelementptr inbounds nuw i32, ptr %55, i64 %74
-  store i32 %.034.i, ptr %75, align 4, !tbaa !48
+  store i32 %.033.i, ptr %75, align 4, !tbaa !48
   %76 = shl i32 %69, 1
   %.not.i = icmp slt i32 %76, %29
   br i1 %.not.i, label %.lr.ph.i14, label %._crit_edge.loopexit.i
 
 ._crit_edge.loopexit.i:                           ; preds = %71, %67
-  %.0.lcssa.ph.i = phi i32 [ %.034.i, %67 ], [ %69, %71 ]
-  %.pre42.i = zext i32 %.0.lcssa.ph.i to i64
+  %.0.lcssa.ph.i = phi i32 [ %.033.i, %67 ], [ %69, %71 ]
+  %.pre41.i = zext i32 %.0.lcssa.ph.i to i64
   br label %_ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit
 
 _ZN4heapIN7simplex7simplexINS0_7mpq_extEE6var_ltEE9move_downEi.exit: ; preds = %52, %._crit_edge.loopexit.i
-  %.pre-phi43.i = phi i64 [ %.pre42.i, %._crit_edge.loopexit.i ], [ %23, %52 ]
+  %.pre-phi42.i = phi i64 [ %.pre41.i, %._crit_edge.loopexit.i ], [ %23, %52 ]
   %.0.lcssa.i = phi i32 [ %.0.lcssa.ph.i, %._crit_edge.loopexit.i ], [ %7, %52 ]
-  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi43.i
+  %77 = getelementptr inbounds nuw i32, ptr %8, i64 %.pre-phi42.i
   store i32 %53, ptr %77, align 4, !tbaa !48
   %78 = zext i32 %53 to i64
   %79 = getelementptr inbounds nuw i32, ptr %55, i64 %78
@@ -24226,8 +24226,8 @@ _ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit.thread: ; preds = %_ZNK7s
   br i1 %25, label %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit.thread, label %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit, !llvm.loop !327
 
 _ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit.thread: ; preds = %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit, %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit, %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit, %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit.thread, %1
-  %switch = phi i1 [ true, %1 ], [ true, %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit ], [ false, %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit ], [ false, %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit ], [ true, %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit.thread ]
-  ret i1 %switch
+  %26 = phi i1 [ true, %1 ], [ true, %_ZNK6vectorIN7simplex7simplexINS0_7mpq_extEE8var_infoELb1EjE4sizeEv.exit ], [ false, %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit ], [ false, %_ZNK7simplex7simplexINS_7mpq_extEE11below_lowerEj.exit ], [ true, %_ZNK7simplex7simplexINS_7mpq_extEE11above_upperEj.exit.thread ]
+  ret i1 %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -27326,8 +27326,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loope
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loopexit.split.loop.exit.i.i.i, %.lr.ph.i.i.preheader.i.i.i
   %.sroa.0.1.i.i28.i = phi i32 [ %339, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loopexit.split.loop.exit.i.i.i ], [ 0, %.lr.ph.i.i.preheader.i.i.i ]
-  %.not3337.i = icmp eq i32 %.sroa.0.1.i.i28.i, %329
-  br i1 %.not3337.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i187.preheader
+  %.not3135.i = icmp eq i32 %.sroa.0.1.i.i28.i, %329
+  br i1 %.not3135.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i187.preheader
 
 .lr.ph.i187.preheader:                            ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i
   %340 = zext i32 %329 to i64
@@ -27335,8 +27335,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i: ; preds = 
   br label %.lr.ph.i187
 
 .lr.ph.i187:                                      ; preds = %.lr.ph.i187.preheader, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i
-  %.sroa.015.038.i = phi i32 [ %.sroa.015.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i ], [ %.sroa.0.1.i.i28.i, %.lr.ph.i187.preheader ]
-  %342 = zext i32 %.sroa.015.038.i to i64
+  %.sroa.015.036.i = phi i32 [ %.sroa.015.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i ], [ %.sroa.0.1.i.i28.i, %.lr.ph.i187.preheader ]
+  %342 = zext i32 %.sroa.015.036.i to i64
   %343 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %326, i64 %342
   %344 = getelementptr inbounds nuw i8, ptr %343, i64 32
   %345 = load i32, ptr %344, align 8, !tbaa !236
@@ -27345,7 +27345,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i: ; preds = 
   br i1 %.not.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i: ; preds = %.lr.ph.i187
-  %347 = add i32 %.sroa.015.038.i, 1
+  %347 = add i32 %.sroa.015.036.i, 1
   %348 = icmp ult i32 %347, %329
   br i1 %348, label %.lr.ph.preheader.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i
 
@@ -27358,7 +27358,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i: 
   br i1 %353, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i35.i, 1
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i33.i, 1
   %354 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %326, i64 %indvars.iv.next.i.i.i
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 32
   %356 = load i32, ptr %355, align 8, !tbaa !236
@@ -27366,8 +27366,8 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i: 
   br i1 %357, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i: ; preds = %.lr.ph.preheader.i.i.i, %.lr.ph.i.i.i
-  %indvars.iv.i.i35.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ %349, %.lr.ph.preheader.i.i.i ]
-  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i35.i, %341
+  %indvars.iv.i.i33.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ %349, %.lr.ph.preheader.i.i.i ]
+  %exitcond.not.i = icmp eq i64 %indvars.iv.i.i33.i, %341
   br i1 %exitcond.not.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i.i.i
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i: ; preds = %.lr.ph.i.i.i
@@ -27376,8 +27376,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.l
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i, %.lr.ph.preheader.i.i.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i
   %.sroa.015.2.i = phi i32 [ %347, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i ], [ %347, %.lr.ph.preheader.i.i.i ], [ %358, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i ]
-  %.not33.i = icmp eq i32 %.sroa.015.2.i, %329
-  br i1 %.not33.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i187
+  %.not31.i = icmp eq i32 %.sroa.015.2.i, %329
+  br i1 %.not31.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i187
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i, %.lr.ph.i187, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i, %321, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i.i
   %.3.i = phi ptr [ %67, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i.i ], [ %67, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i ], [ %67, %321 ], [ %67, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i ], [ %67, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i ], [ %343, %.lr.ph.i187 ], [ %67, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i ]
@@ -29134,8 +29134,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loope
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loopexit.split.loop.exit.i.i.i, %.lr.ph.i.i.preheader.i.i.i
   %.sroa.0.1.i.i28.i = phi i32 [ %258, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loopexit.split.loop.exit.i.i.i ], [ 0, %.lr.ph.i.i.preheader.i.i.i ]
-  %.not3337.i = icmp eq i32 %.sroa.0.1.i.i28.i, %248
-  br i1 %.not3337.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i170.preheader
+  %.not3135.i = icmp eq i32 %.sroa.0.1.i.i28.i, %248
+  br i1 %.not3135.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i170.preheader
 
 .lr.ph.i170.preheader:                            ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i
   %259 = zext i32 %248 to i64
@@ -29143,8 +29143,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i: ; preds = 
   br label %.lr.ph.i170
 
 .lr.ph.i170:                                      ; preds = %.lr.ph.i170.preheader, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173
-  %.sroa.015.038.i = phi i32 [ %.sroa.015.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173 ], [ %.sroa.0.1.i.i28.i, %.lr.ph.i170.preheader ]
-  %261 = zext i32 %.sroa.015.038.i to i64
+  %.sroa.015.036.i = phi i32 [ %.sroa.015.2.i, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173 ], [ %.sroa.0.1.i.i28.i, %.lr.ph.i170.preheader ]
+  %261 = zext i32 %.sroa.015.036.i to i64
   %262 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %245, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 32
   %264 = load i32, ptr %263, align 8, !tbaa !236
@@ -29153,7 +29153,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i: ; preds = 
   br i1 %.not.i171, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i172
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i172: ; preds = %.lr.ph.i170
-  %266 = add i32 %.sroa.015.038.i, 1
+  %266 = add i32 %.sroa.015.036.i, 1
   %267 = icmp ult i32 %266, %248
   br i1 %267, label %.lr.ph.preheader.i.i.i174, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173
 
@@ -29166,7 +29166,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i17
   br i1 %272, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i176, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173
 
 .lr.ph.i.i.i178:                                  ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i176
-  %indvars.iv.next.i.i.i179 = add nuw nsw i64 %indvars.iv.i.i35.i, 1
+  %indvars.iv.next.i.i.i179 = add nuw nsw i64 %indvars.iv.i.i33.i, 1
   %273 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %245, i64 %indvars.iv.next.i.i.i179
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 32
   %275 = load i32, ptr %274, align 8, !tbaa !236
@@ -29174,8 +29174,8 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i17
   br i1 %276, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i176, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i180
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i176: ; preds = %.lr.ph.preheader.i.i.i174, %.lr.ph.i.i.i178
-  %indvars.iv.i.i35.i = phi i64 [ %indvars.iv.next.i.i.i179, %.lr.ph.i.i.i178 ], [ %268, %.lr.ph.preheader.i.i.i174 ]
-  %exitcond.not.i177 = icmp eq i64 %indvars.iv.i.i35.i, %260
+  %indvars.iv.i.i33.i = phi i64 [ %indvars.iv.next.i.i.i179, %.lr.ph.i.i.i178 ], [ %268, %.lr.ph.preheader.i.i.i174 ]
+  %exitcond.not.i177 = icmp eq i64 %indvars.iv.i.i33.i, %260
   br i1 %exitcond.not.i177, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i.i.i178
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i180: ; preds = %.lr.ph.i.i.i178
@@ -29184,8 +29184,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.l
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i180, %.lr.ph.preheader.i.i.i174, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i172
   %.sroa.015.2.i = phi i32 [ %266, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i172 ], [ %266, %.lr.ph.preheader.i.i.i174 ], [ %277, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i180 ]
-  %.not33.i = icmp eq i32 %.sroa.015.2.i, %248
-  br i1 %.not33.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i170
+  %.not31.i = icmp eq i32 %.sroa.015.2.i, %248
+  br i1 %.not31.i, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit, label %.lr.ph.i170
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i, %.lr.ph.i170, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i176, %242, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i.i
   %.3.i = phi ptr [ %79, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i.i ], [ %79, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i ], [ %79, %242 ], [ %79, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i176 ], [ %79, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i173 ], [ %262, %.lr.ph.i170 ], [ %79, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i ]
@@ -29559,8 +29559,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loope
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i201: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loopexit.split.loop.exit.i.i.i228, %.lr.ph.i.i.preheader.i.i.i200
   %.sroa.0.1.i.i28.i202 = phi i32 [ %416, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorC2ERNS2_4_rowEb.exit.loopexit.split.loop.exit.i.i.i228 ], [ 0, %.lr.ph.i.i.preheader.i.i.i200 ]
-  %.not3337.i204 = icmp eq i32 %.sroa.0.1.i.i28.i202, %406
-  br i1 %.not3337.i204, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit229, label %.lr.ph.i205.preheader
+  %.not3135.i204 = icmp eq i32 %.sroa.0.1.i.i28.i202, %406
+  br i1 %.not3135.i204, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit229, label %.lr.ph.i205.preheader
 
 .lr.ph.i205.preheader:                            ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i201
   %417 = zext i32 %406 to i64
@@ -29568,8 +29568,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i201: ; preds
   br label %.lr.ph.i205
 
 .lr.ph.i205:                                      ; preds = %.lr.ph.i205.preheader, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209
-  %.sroa.015.038.i206 = phi i32 [ %.sroa.015.2.i210, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209 ], [ %.sroa.0.1.i.i28.i202, %.lr.ph.i205.preheader ]
-  %419 = zext i32 %.sroa.015.038.i206 to i64
+  %.sroa.015.036.i206 = phi i32 [ %.sroa.015.2.i210, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209 ], [ %.sroa.0.1.i.i28.i202, %.lr.ph.i205.preheader ]
+  %419 = zext i32 %.sroa.015.036.i206 to i64
   %420 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %403, i64 %419
   %421 = getelementptr inbounds nuw i8, ptr %420, i64 32
   %422 = load i32, ptr %421, align 8, !tbaa !236
@@ -29578,7 +29578,7 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i201: ; preds
   br i1 %.not.i207, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit229, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i208
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i208: ; preds = %.lr.ph.i205
-  %424 = add i32 %.sroa.015.038.i206, 1
+  %424 = add i32 %.sroa.015.036.i206, 1
   %425 = icmp ult i32 %424, %406
   br i1 %425, label %.lr.ph.preheader.i.i.i214, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209
 
@@ -29591,7 +29591,7 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i20
   br i1 %430, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i216, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209
 
 .lr.ph.i.i.i219:                                  ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i216
-  %indvars.iv.next.i.i.i220 = add nuw nsw i64 %indvars.iv.i.i35.i217, 1
+  %indvars.iv.next.i.i.i220 = add nuw nsw i64 %indvars.iv.i.i33.i217, 1
   %431 = getelementptr inbounds nuw %"struct.simplex::sparse_matrix<simplex::mpq_ext>::_row_entry", ptr %403, i64 %indvars.iv.next.i.i.i220
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 32
   %433 = load i32, ptr %432, align 8, !tbaa !236
@@ -29599,8 +29599,8 @@ _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i20
   br i1 %434, label %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i216, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i221
 
 _ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i216: ; preds = %.lr.ph.preheader.i.i.i214, %.lr.ph.i.i.i219
-  %indvars.iv.i.i35.i217 = phi i64 [ %indvars.iv.next.i.i.i220, %.lr.ph.i.i.i219 ], [ %426, %.lr.ph.preheader.i.i.i214 ]
-  %exitcond.not.i218 = icmp eq i64 %indvars.iv.i.i35.i217, %418
+  %indvars.iv.i.i33.i217 = phi i64 [ %indvars.iv.next.i.i.i220, %.lr.ph.i.i.i219 ], [ %426, %.lr.ph.preheader.i.i.i214 ]
+  %exitcond.not.i218 = icmp eq i64 %indvars.iv.i.i33.i217, %418
   br i1 %exitcond.not.i218, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit229, label %.lr.ph.i.i.i219
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i221: ; preds = %.lr.ph.i.i.i219
@@ -29609,8 +29609,8 @@ _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.l
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209: ; preds = %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i221, %.lr.ph.preheader.i.i.i214, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i208
   %.sroa.015.2.i210 = phi i32 [ %424, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i208 ], [ %424, %.lr.ph.preheader.i.i.i214 ], [ %435, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.loopexit.split.loop.exit.i221 ]
-  %.not33.i211 = icmp eq i32 %.sroa.015.2.i210, %406
-  br i1 %.not33.i211, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit229, label %.lr.ph.i205
+  %.not31.i211 = icmp eq i32 %.sroa.015.2.i210, %406
+  br i1 %.not31.i211, label %_ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit229, label %.lr.ph.i205
 
 _ZN7simplex13sparse_matrixINS_7mpq_extEE9get_coeffENS2_3rowEj.exit229: ; preds = %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i223, %.lr.ph.i205, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i216, %398, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i201, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i.i198
   %.3.i213 = phi ptr [ %80, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.lr.ph.i.i.i.i.i198 ], [ %80, %_ZN7simplex13sparse_matrixINS_7mpq_extEE13row_entries_t3endEv.exit.i201 ], [ %80, %398 ], [ %80, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i216 ], [ %80, %_ZN7simplex13sparse_matrixINS_7mpq_extEE12row_iteratorppEv.exit.i209 ], [ %420, %.lr.ph.i205 ], [ %80, %_ZNK7simplex13sparse_matrixINS_7mpq_extEE4_row11num_entriesEv.exit.i.i.i.i.i223 ]

@@ -5869,9 +5869,9 @@ define hidden void @_ZN25InterpreterMacroAssembler29record_item_in_profile_helpe
   %26 = alloca %class.Label, align 8
   %27 = alloca %class.Label, align 8
   %28 = alloca %class.Label, align 8
-  %.not.not67 = icmp slt i32 %4, %6
+  %.not.not66 = icmp slt i32 %4, %6
   %.pre = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
-  br i1 %.not.not67, label %.lr.ph, label %.loopexit
+  br i1 %.not.not66, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %9
   %29 = add nsw i32 %6, -1
@@ -5899,16 +5899,16 @@ define hidden void @_ZN25InterpreterMacroAssembler29record_item_in_profile_helpe
   br label %51
 
 51:                                               ; preds = %.lr.ph, %98
-  %.068 = phi i32 [ %4, %.lr.ph ], [ %99, %98 ]
+  %.067 = phi i32 [ %4, %.lr.ph ], [ %99, %98 ]
   store i32 -1, ptr %26, align 8
   store i32 0, ptr %30, align 4
   store ptr null, ptr %31, align 8
   store i8 0, ptr %32, align 8
-  %52 = icmp eq i32 %.068, %4
-  %53 = call noundef i32 %7(i32 noundef %.068) #8
+  %52 = icmp eq i32 %.067, %4
+  %53 = call noundef i32 %7(i32 noundef %.067) #8
   %.sroa.015.0.copyload.sroa.speculated = select i1 %52, i32 %3, i32 -1
   call void @_ZN25InterpreterMacroAssembler16test_mdp_data_atE8RegisteriS0_S0_R5Label(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 %2, i32 noundef %53, i32 %1, i32 %.sroa.015.0.copyload.sroa.speculated, ptr noundef nonnull align 8 dereferenceable(33) %26)
-  %54 = call noundef i32 %8(i32 noundef %.068) #8
+  %54 = call noundef i32 %8(i32 noundef %.067) #8
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 %2, ptr %24, align 8
@@ -6044,7 +6044,7 @@ define hidden void @_ZN25InterpreterMacroAssembler29record_item_in_profile_helpe
   br label %.loopexit
 
 98:                                               ; preds = %68, %51
-  %99 = add i32 %.068, 1
+  %99 = add i32 %.067, 1
   %exitcond.not = icmp eq i32 %99, %6
   br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !8
 

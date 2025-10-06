@@ -1320,8 +1320,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$18trim_start_mat
   tail call void @llvm.assume(i1 %48)
   %49 = ptrtoint ptr %.sroa.0.0.ph.i.i to i64
   %50 = add i64 %.neg.i.i, %49
-  %.not.not.i = icmp eq i32 %.sroa.4.0.i.ph.i.i, %2
-  br i1 %.not.not.i, label %5, label %_ZN4core3str7pattern8Searcher11next_reject17h9949e1bb45a65bf9E.exit
+  %.not.i = icmp eq i32 %.sroa.4.0.i.ph.i.i, %2
+  br i1 %.not.i, label %5, label %_ZN4core3str7pattern8Searcher11next_reject17h9949e1bb45a65bf9E.exit
 
 _ZN4core3str7pattern8Searcher11next_reject17h9949e1bb45a65bf9E.exit: ; preds = %5, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hdfcff69adeede8a3E.exit.i"
   %.sroa.0.0 = phi i64 [ %6, %"_ZN81_$LT$core..str..pattern..CharSearcher$u20$as$u20$core..str..pattern..Searcher$GT$4next17hdfcff69adeede8a3E.exit.i" ], [ %1, %5 ]

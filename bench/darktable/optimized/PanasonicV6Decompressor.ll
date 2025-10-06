@@ -340,40 +340,40 @@ _ZNSt12__shared_ptrIN8rawspeed12RawImageDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.
 define hidden void @_ZNK8rawspeed23PanasonicV6Decompressor10decompressEv(ptr noundef nonnull align 8 dereferenceable(48) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 8, !tbaa !25
-  %switch = icmp eq i32 %3, 12
-  %4 = load ptr, ptr %0, align 8, !tbaa !6
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 44
-  %6 = load i32, ptr %5, align 4, !tbaa !117
-  %7 = icmp sgt i32 %6, 0
-  br i1 %switch, label %8, label %14
+  %4 = icmp eq i32 %3, 12
+  %5 = load ptr, ptr %0, align 8, !tbaa !6
+  %6 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %7 = load i32, ptr %6, align 4, !tbaa !117
+  %8 = icmp sgt i32 %7, 0
+  br i1 %4, label %9, label %15
 
-8:                                                ; preds = %1
-  br i1 %7, label %.lr.ph.i, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit
+9:                                                ; preds = %1
+  br i1 %8, label %.lr.ph.i, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit
 
-.lr.ph.i:                                         ; preds = %8, %.lr.ph.i
-  %.03.i = phi i32 [ %9, %.lr.ph.i ], [ 0, %8 ]
+.lr.ph.i:                                         ; preds = %9, %.lr.ph.i
+  %.03.i = phi i32 [ %10, %.lr.ph.i ], [ 0, %9 ]
   tail call void @_ZNK8rawspeed23PanasonicV6Decompressor13decompressRowIL_ZNS0_14TwelveBitBlockEEEEvi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %.03.i) #18
-  %9 = add nuw nsw i32 %.03.i, 1
-  %10 = load ptr, ptr %0, align 8, !tbaa !6
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 44
-  %12 = load i32, ptr %11, align 4, !tbaa !117
-  %13 = icmp slt i32 %9, %12
-  br i1 %13, label %.lr.ph.i, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit, !llvm.loop !118
+  %10 = add nuw nsw i32 %.03.i, 1
+  %11 = load ptr, ptr %0, align 8, !tbaa !6
+  %12 = getelementptr inbounds nuw i8, ptr %11, i64 44
+  %13 = load i32, ptr %12, align 4, !tbaa !117
+  %14 = icmp slt i32 %10, %13
+  br i1 %14, label %.lr.ph.i, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit, !llvm.loop !118
 
-14:                                               ; preds = %1
-  br i1 %7, label %.lr.ph.i1, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit
+15:                                               ; preds = %1
+  br i1 %8, label %.lr.ph.i1, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit
 
-.lr.ph.i1:                                        ; preds = %14, %.lr.ph.i1
-  %.03.i2 = phi i32 [ %15, %.lr.ph.i1 ], [ 0, %14 ]
+.lr.ph.i1:                                        ; preds = %15, %.lr.ph.i1
+  %.03.i2 = phi i32 [ %16, %.lr.ph.i1 ], [ 0, %15 ]
   tail call void @_ZNK8rawspeed23PanasonicV6Decompressor13decompressRowIL_ZNS0_16FourteenBitBlockEEEEvi(ptr noundef nonnull align 8 dereferenceable(48) %0, i32 noundef %.03.i2) #18
-  %15 = add nuw nsw i32 %.03.i2, 1
-  %16 = load ptr, ptr %0, align 8, !tbaa !6
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 44
-  %18 = load i32, ptr %17, align 4, !tbaa !117
-  %19 = icmp slt i32 %15, %18
-  br i1 %19, label %.lr.ph.i1, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit, !llvm.loop !120
+  %16 = add nuw nsw i32 %.03.i2, 1
+  %17 = load ptr, ptr %0, align 8, !tbaa !6
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 44
+  %19 = load i32, ptr %18, align 4, !tbaa !117
+  %20 = icmp slt i32 %16, %19
+  br i1 %20, label %.lr.ph.i1, label %_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit, !llvm.loop !120
 
-_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit: ; preds = %.lr.ph.i1, %.lr.ph.i, %14, %8
+_ZNK8rawspeed23PanasonicV6Decompressor18decompressInternalIL_ZNS0_14TwelveBitBlockEEEEvv.exit: ; preds = %.lr.ph.i1, %.lr.ph.i, %15, %9
   ret void
 }
 

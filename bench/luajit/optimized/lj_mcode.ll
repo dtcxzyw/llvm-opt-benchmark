@@ -109,10 +109,9 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %16 = inttoptr i64 %.02941.i to ptr
   %17 = tail call ptr @mmap64(ptr noundef nonnull %16, i64 noundef range(i64 0, -4095) %8, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #8
   %magicptr.i = ptrtoint ptr %17 to i64
-  switch i64 %magicptr.i, label %18 [
-    i64 -1, label %.critedge.thread.i.preheader
-    i64 0, label %.critedge.thread.i.preheader
-  ]
+  %magicptr.off.i = add i64 %magicptr.i, -1
+  %switch.i = icmp ult i64 %magicptr.off.i, -2
+  br i1 %switch.i, label %18, label %.critedge.thread.i.preheader
 
 18:                                               ; preds = %15
   %19 = add i64 %12, %magicptr.i
@@ -126,7 +125,7 @@ select.unfold:                                    ; preds = %select.unfold.prehe
   %24 = tail call i32 @munmap(ptr noundef nonnull %17, i64 noundef range(i64 0, -4095) %8) #8
   br label %.critedge.thread.i.preheader
 
-.critedge.thread.i.preheader:                     ; preds = %23, %15, %15, %select.unfold
+.critedge.thread.i.preheader:                     ; preds = %23, %15, %select.unfold
   br label %.critedge.thread.i
 
 .critedge.thread.i:                               ; preds = %.critedge.thread.i.preheader, %.critedge.thread.i

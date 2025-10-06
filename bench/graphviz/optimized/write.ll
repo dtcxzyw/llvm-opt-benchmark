@@ -1372,9 +1372,9 @@ getoutputbuffer.exit.i:                           ; preds = %10
 
 getoutputbuffer.exit:                             ; preds = %20
   %23 = icmp eq ptr %.pre.i.i, null
-  br i1 %23, label %.thread, label %.thread20
+  br i1 %23, label %.thread, label %.thread19
 
-.thread20:                                        ; preds = %getoutputbuffer.exit
+.thread19:                                        ; preds = %getoutputbuffer.exit
   %24 = tail call fastcc ptr @_agstrcanon(ptr noundef nonnull %2, ptr noundef nonnull %.pre.i.i)
   br label %agcanonStr.exit
 
@@ -1384,8 +1384,8 @@ getoutputbuffer.exit:                             ; preds = %20
   %26 = tail call fastcc ptr @_agstrcanon(ptr noundef nonnull %2, ptr noundef nonnull %22)
   br label %agcanonStr.exit
 
-agcanonStr.exit:                                  ; preds = %25, %.thread20, %18, %16, %getoutputbuffer.exit.i, %11
-  %.011 = phi ptr [ %26, %25 ], [ null, %getoutputbuffer.exit.i ], [ %.1.i10.i, %16 ], [ %19, %18 ], [ null, %11 ], [ %24, %.thread20 ]
+agcanonStr.exit:                                  ; preds = %25, %.thread19, %18, %16, %getoutputbuffer.exit.i, %11
+  %.011 = phi ptr [ %26, %25 ], [ null, %getoutputbuffer.exit.i ], [ %.1.i10.i, %16 ], [ %19, %18 ], [ null, %11 ], [ %24, %.thread19 ]
   %27 = getelementptr i8, ptr %0, i64 128
   %.val = load ptr, ptr %27, align 8, !tbaa !19
   %28 = getelementptr i8, ptr %.val, i64 8

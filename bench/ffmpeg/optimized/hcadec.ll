@@ -1372,10 +1372,9 @@ cipher_init56_create_table.exit.i.i:              ; preds = %219
   %225 = zext nneg i32 %224 to i64
   %226 = getelementptr inbounds nuw i8, ptr %4, i64 %225
   %227 = load i8, ptr %226, align 1, !tbaa !41
-  switch i8 %227, label %228 [
-    i8 0, label %232
-    i8 -1, label %232
-  ]
+  %.off.i.i = add i8 %227, -1
+  %switch.i.i = icmp ult i8 %.off.i.i, -2
+  br i1 %switch.i.i, label %228, label %232
 
 228:                                              ; preds = %.preheader.i.i
   %229 = add i32 %.02648.i.i, 1
@@ -1384,8 +1383,8 @@ cipher_init56_create_table.exit.i.i:              ; preds = %219
   store i8 %227, ptr %231, align 1, !tbaa !41
   br label %232
 
-232:                                              ; preds = %228, %.preheader.i.i, %.preheader.i.i
-  %.1.i.i = phi i32 [ %229, %228 ], [ %.02648.i.i, %.preheader.i.i ], [ %.02648.i.i, %.preheader.i.i ]
+232:                                              ; preds = %228, %.preheader.i.i
+  %.1.i.i = phi i32 [ %229, %228 ], [ %.02648.i.i, %.preheader.i.i ]
   %233 = add nuw nsw i32 %.049.i.i, 1
   %exitcond59.not.i.i = icmp eq i32 %233, 256
   br i1 %exitcond59.not.i.i, label %cipher_init56.exit.i, label %.preheader.i.i, !llvm.loop !97

@@ -1345,8 +1345,8 @@ define internal void @sccp_visit_instr(ptr noundef readonly %0, ptr noundef %1, 
 
 22:                                               ; preds = %3
   %23 = load i32, ptr %2, align 4, !tbaa !72
-  %.not.i1593 = icmp eq i32 %23, -1
-  br i1 %.not.i1593, label %get_op1_value.exit, label %24
+  %.not.i1592 = icmp eq i32 %23, -1
+  br i1 %.not.i1592, label %get_op1_value.exit, label %24
 
 24:                                               ; preds = %22
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1375,8 +1375,8 @@ get_op1_value.exit:                               ; preds = %14, %22, %24
 40:                                               ; preds = %get_op1_value.exit
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !74
-  %.not.i1594 = icmp eq i32 %42, -1
-  br i1 %.not.i1594, label %get_op2_value.exit, label %43
+  %.not.i1593 = icmp eq i32 %42, -1
+  br i1 %.not.i1593, label %get_op2_value.exit, label %43
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1386,7 +1386,7 @@ get_op1_value.exit:                               ; preds = %14, %22, %24
   br label %get_op2_value.exit
 
 get_op2_value.exit:                               ; preds = %32, %40, %43
-  %.0.i1595 = phi ptr [ %39, %32 ], [ %47, %43 ], [ null, %40 ]
+  %.0.i1594 = phi ptr [ %39, %32 ], [ %47, %43 ], [ null, %40 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %49 = load i8, ptr %48, align 4, !tbaa !77
   switch i8 %49, label %839 [
@@ -1444,8 +1444,8 @@ get_op2_value.exit:                               ; preds = %32, %40, %43
 75:                                               ; preds = %71
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %77 = getelementptr i8, ptr %0, i64 104
-  %.val1449 = load ptr, ptr %77, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1449, i32 noundef %73, ptr noundef nonnull %76)
+  %.val1448 = load ptr, ptr %77, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1448, i32 noundef %73, ptr noundef nonnull %76)
   br label %.critedge1289
 
 78:                                               ; preds = %50, %54
@@ -1456,8 +1456,8 @@ get_op2_value.exit:                               ; preds = %32, %40, %43
 
 82:                                               ; preds = %78
   %83 = getelementptr i8, ptr %0, i64 104
-  %.val1450 = load ptr, ptr %83, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1450, i32 noundef %80, ptr noundef %.0.i1595)
+  %.val1449 = load ptr, ptr %83, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1449, i32 noundef %80, ptr noundef %.0.i1594)
   br label %84
 
 84:                                               ; preds = %78, %82
@@ -1468,8 +1468,8 @@ get_op2_value.exit:                               ; preds = %32, %40, %43
 
 88:                                               ; preds = %84
   %89 = getelementptr i8, ptr %0, i64 104
-  %.val1451 = load ptr, ptr %89, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1451, i32 noundef %86, ptr noundef %.0.i1595)
+  %.val1450 = load ptr, ptr %89, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1450, i32 noundef %86, ptr noundef %.0.i1594)
   br label %.critedge1289
 
 90:                                               ; preds = %get_op2_value.exit
@@ -1486,23 +1486,23 @@ get_op2_value.exit:                               ; preds = %32, %40, %43
   %99 = load i32, ptr %98, align 8, !tbaa !41
   %100 = zext i32 %99 to i64
   %101 = getelementptr inbounds nuw %struct._zval_struct, ptr %97, i64 %100
-  br label %get_op1_value.exit1598
+  br label %get_op1_value.exit1597
 
 102:                                              ; preds = %90
   %103 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %104 = load i32, ptr %103, align 4, !tbaa !72
-  %.not.i1596 = icmp eq i32 %104, -1
-  br i1 %.not.i1596, label %get_op1_value.exit1598, label %105
+  %.not.i1595 = icmp eq i32 %104, -1
+  br i1 %.not.i1595, label %get_op1_value.exit1597, label %105
 
 105:                                              ; preds = %102
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %107 = load ptr, ptr %106, align 8, !tbaa !40
   %108 = sext i32 %104 to i64
   %109 = getelementptr inbounds %struct._zval_struct, ptr %107, i64 %108
-  br label %get_op1_value.exit1598
+  br label %get_op1_value.exit1597
 
-get_op1_value.exit1598:                           ; preds = %94, %102, %105
-  %.0.i1597 = phi ptr [ %101, %94 ], [ %109, %105 ], [ null, %102 ]
+get_op1_value.exit1597:                           ; preds = %94, %102, %105
+  %.0.i1596 = phi ptr [ %101, %94 ], [ %109, %105 ], [ null, %102 ]
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !65
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 72
@@ -1521,7 +1521,7 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
     i8 -1, label %.critedge1289
   ]
 
-122:                                              ; preds = %get_op1_value.exit1598
+122:                                              ; preds = %get_op1_value.exit1597
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %124 = load i32, ptr %123, align 4, !tbaa !84
   %125 = icmp sgt i32 %124, -1
@@ -1530,8 +1530,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 126:                                              ; preds = %122
   %127 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %128 = getelementptr i8, ptr %0, i64 104
-  %.val1452 = load ptr, ptr %128, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1452, i32 noundef %124, ptr noundef nonnull %127)
+  %.val1451 = load ptr, ptr %128, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1451, i32 noundef %124, ptr noundef nonnull %127)
   br label %129
 
 129:                                              ; preds = %122, %126
@@ -1543,22 +1543,22 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %135 = getelementptr i8, ptr %0, i64 104
-  %.val1453 = load ptr, ptr %135, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1453, i32 noundef %131, ptr noundef nonnull %134)
+  %.val1452 = load ptr, ptr %135, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1452, i32 noundef %131, ptr noundef nonnull %134)
   br label %.critedge1289
 
-136:                                              ; preds = %get_op1_value.exit1598
-  %137 = getelementptr inbounds nuw i8, ptr %.0.i1597, i64 8
+136:                                              ; preds = %get_op1_value.exit1597
+  %137 = getelementptr inbounds nuw i8, ptr %.0.i1596, i64 8
   %138 = load i8, ptr %137, align 8, !tbaa !41
   %139 = icmp eq i8 %138, -1
   br i1 %139, label %.critedge1289, label %140
 
 140:                                              ; preds = %136
-  %.not1277 = icmp eq ptr %.0.i1595, null
+  %.not1277 = icmp eq ptr %.0.i1594, null
   br i1 %.not1277, label %.critedge, label %141
 
 141:                                              ; preds = %140
-  %142 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %142 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %143 = load i8, ptr %142, align 8, !tbaa !41
   switch i8 %143, label %.critedge [
     i8 -1, label %.critedge1289
@@ -1574,8 +1574,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 148:                                              ; preds = %144
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %150 = getelementptr i8, ptr %0, i64 104
-  %.val1454 = load ptr, ptr %150, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1454, i32 noundef %146, ptr noundef nonnull %149)
+  %.val1453 = load ptr, ptr %150, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1453, i32 noundef %146, ptr noundef nonnull %149)
   br label %151
 
 151:                                              ; preds = %148, %144
@@ -1591,18 +1591,18 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   store ptr %157, ptr %4, align 8, !tbaa !41
   %158 = load i32, ptr %152, align 4, !tbaa !86
   %159 = icmp sgt i32 %158, -1
-  br i1 %159, label %160, label %.thread1888
+  br i1 %159, label %160, label %.thread1887
 
 160:                                              ; preds = %155
   %161 = getelementptr i8, ptr %0, i64 104
-  %.val1455 = load ptr, ptr %161, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1455, i32 noundef %158, ptr noundef nonnull %4)
-  %.phi.trans.insert1691 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %.pre1692 = load i8, ptr %.phi.trans.insert1691, align 1, !tbaa !41
-  %162 = icmp eq i8 %.pre1692, 0
-  br i1 %162, label %.critedge1289, label %.thread1888
+  %.val1454 = load ptr, ptr %161, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1454, i32 noundef %158, ptr noundef nonnull %4)
+  %.phi.trans.insert1690 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %.pre1691 = load i8, ptr %.phi.trans.insert1690, align 1, !tbaa !41
+  %162 = icmp eq i8 %.pre1691, 0
+  br i1 %162, label %.critedge1289, label %.thread1887
 
-.thread1888:                                      ; preds = %155, %160
+.thread1887:                                      ; preds = %155, %160
   %163 = load ptr, ptr %4, align 8, !tbaa !41
   %164 = load i32, ptr %163, align 4, !tbaa !67
   %165 = icmp ne i32 %164, 0
@@ -1612,7 +1612,7 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   %.not3.i = icmp eq i32 %166, 0
   br i1 %.not3.i, label %167, label %.critedge1289
 
-167:                                              ; preds = %.thread1888
+167:                                              ; preds = %.thread1887
   %168 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %168) #13
   br label %.critedge1289
@@ -1630,13 +1630,13 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 174:                                              ; preds = %170
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %176 = getelementptr i8, ptr %0, i64 104
-  %.val1456 = load ptr, ptr %176, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1456, i32 noundef %172, ptr noundef nonnull %175)
-  %.pre1693 = load i8, ptr %120, align 8, !tbaa !41
+  %.val1455 = load ptr, ptr %176, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1455, i32 noundef %172, ptr noundef nonnull %175)
+  %.pre1692 = load i8, ptr %120, align 8, !tbaa !41
   br label %177
 
 177:                                              ; preds = %174, %170
-  %178 = phi i8 [ %.pre1693, %174 ], [ %121, %170 ]
+  %178 = phi i8 [ %.pre1692, %174 ], [ %121, %170 ]
   switch i8 %178, label %223 [
     i8 -3, label %179
     i8 1, label %.thread
@@ -1654,14 +1654,14 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %184 = load i32, ptr %183, align 4, !tbaa !86
   %185 = icmp sgt i32 %184, -1
-  br i1 %185, label %.thread1632, label %.critedge1289
+  br i1 %185, label %.thread1631, label %.critedge1289
 
 186:                                              ; preds = %179
-  %.off1667 = add nsw i8 %178, -1
-  %switch = icmp ult i8 %.off1667, 2
-  br i1 %switch, label %.thread1632, label %190
+  %.off1665 = add nsw i8 %178, -1
+  %switch1666 = icmp ult i8 %.off1665, 2
+  br i1 %switch1666, label %.thread1631, label %190
 
-.thread1632:                                      ; preds = %186, %.thread
+.thread1631:                                      ; preds = %186, %.thread
   %187 = phi ptr [ %183, %.thread ], [ %180, %186 ]
   %188 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 509, ptr %188, align 8, !tbaa !41
@@ -1675,10 +1675,10 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   %193 = tail call ptr @zend_array_dup(ptr noundef %192) #13
   br label %194
 
-194:                                              ; preds = %190, %.thread1632
-  %storemerge1668 = phi ptr [ %193, %190 ], [ %189, %.thread1632 ]
-  %195 = phi ptr [ %180, %190 ], [ %187, %.thread1632 ]
-  store ptr %storemerge1668, ptr %4, align 8, !tbaa !41
+194:                                              ; preds = %190, %.thread1631
+  %storemerge1667 = phi ptr [ %193, %190 ], [ %189, %.thread1631 ]
+  %195 = phi ptr [ %180, %190 ], [ %187, %.thread1631 ]
+  store ptr %storemerge1667, ptr %4, align 8, !tbaa !41
   br i1 %.not1277, label %196, label %201
 
 196:                                              ; preds = %194
@@ -1688,12 +1688,12 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 
 199:                                              ; preds = %196
   %200 = getelementptr i8, ptr %0, i64 104
-  %.val1457 = load ptr, ptr %200, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1457, i32 noundef %197, ptr noundef nonnull %4)
+  %.val1456 = load ptr, ptr %200, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1456, i32 noundef %197, ptr noundef nonnull %4)
   br label %213
 
 201:                                              ; preds = %194
-  %202 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1595)
+  %202 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1594)
   %203 = icmp eq i32 %202, 0
   %204 = load i32, ptr %195, align 4, !tbaa !86
   %205 = icmp sgt i32 %204, -1
@@ -1704,8 +1704,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 
 207:                                              ; preds = %206
   %208 = getelementptr i8, ptr %0, i64 104
-  %.val1458 = load ptr, ptr %208, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1458, i32 noundef %204, ptr noundef nonnull %4)
+  %.val1457 = load ptr, ptr %208, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1457, i32 noundef %204, ptr noundef nonnull %4)
   br label %213
 
 209:                                              ; preds = %201
@@ -1714,15 +1714,15 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 210:                                              ; preds = %209
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %212 = getelementptr i8, ptr %0, i64 104
-  %.val1459 = load ptr, ptr %212, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1459, i32 noundef %204, ptr noundef nonnull %211)
+  %.val1458 = load ptr, ptr %212, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1458, i32 noundef %204, ptr noundef nonnull %211)
   br label %213
 
 213:                                              ; preds = %207, %206, %210, %209, %196, %199
   %214 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %215 = load i8, ptr %214, align 1, !tbaa !41
-  %.not.i1302 = icmp eq i8 %215, 0
-  br i1 %.not.i1302, label %.critedge1289, label %216
+  %.not.i1301 = icmp eq i8 %215, 0
+  br i1 %.not.i1301, label %.critedge1289, label %216
 
 216:                                              ; preds = %213
   %217 = load ptr, ptr %4, align 8, !tbaa !41
@@ -1731,8 +1731,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   tail call void @llvm.assume(i1 %219)
   %220 = add i32 %218, -1
   store i32 %220, ptr %217, align 4, !tbaa !67
-  %.not3.i1303 = icmp eq i32 %220, 0
-  br i1 %.not3.i1303, label %221, label %.critedge1289
+  %.not3.i1302 = icmp eq i32 %220, 0
+  br i1 %.not3.i1302, label %221, label %.critedge1289
 
 221:                                              ; preds = %216
   %222 = load ptr, ptr %4, align 8, !tbaa !41
@@ -1740,16 +1740,16 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   br label %.critedge1289
 
 223:                                              ; preds = %177
-  %.phi.trans.insert1695 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %.pre1696 = load i32, ptr %.phi.trans.insert1695, align 4, !tbaa !86
-  %224 = icmp sgt i32 %.pre1696, -1
+  %.phi.trans.insert1694 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %.pre1695 = load i32, ptr %.phi.trans.insert1694, align 4, !tbaa !86
+  %224 = icmp sgt i32 %.pre1695, -1
   br i1 %224, label %225, label %.critedge1289
 
 225:                                              ; preds = %223
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %227 = getelementptr i8, ptr %0, i64 104
-  %.val1460 = load ptr, ptr %227, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1460, i32 noundef %.pre1696, ptr noundef nonnull %226)
+  %.val1459 = load ptr, ptr %227, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1459, i32 noundef %.pre1695, ptr noundef nonnull %226)
   br label %.critedge1289
 
 228:                                              ; preds = %.critedge
@@ -1797,8 +1797,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 
 251:                                              ; preds = %247
   %252 = getelementptr i8, ptr %0, i64 104
-  %.val1461 = load ptr, ptr %252, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1461, i32 noundef %249, ptr noundef nonnull %.0.i1597)
+  %.val1460 = load ptr, ptr %252, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1460, i32 noundef %249, ptr noundef nonnull %.0.i1596)
   br label %253
 
 253:                                              ; preds = %247, %251
@@ -1809,13 +1809,13 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 
 257:                                              ; preds = %253
   %258 = getelementptr i8, ptr %0, i64 104
-  %.val1462 = load ptr, ptr %258, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1462, i32 noundef %255, ptr noundef nonnull %4)
+  %.val1461 = load ptr, ptr %258, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1461, i32 noundef %255, ptr noundef nonnull %4)
   br label %292
 
 .split:                                           ; preds = %243, %242
-  %.sink1908 = phi ptr [ %.0.i1595, %242 ], [ null, %243 ]
-  %259 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %.0.i1597, ptr noundef %.sink1908)
+  %.sink1907 = phi ptr [ %.0.i1594, %242 ], [ null, %243 ]
+  %259 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %.0.i1596, ptr noundef %.sink1907)
   %260 = icmp eq i32 %259, 0
   br i1 %260, label %261, label %278
 
@@ -1837,8 +1837,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 
 270:                                              ; preds = %266
   %271 = getelementptr i8, ptr %0, i64 104
-  %.val1463 = load ptr, ptr %271, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1463, i32 noundef %268, ptr noundef nonnull %.0.i1597)
+  %.val1462 = load ptr, ptr %271, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1462, i32 noundef %268, ptr noundef nonnull %.0.i1596)
   br label %272
 
 272:                                              ; preds = %266, %270
@@ -1849,8 +1849,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 
 276:                                              ; preds = %272
   %277 = getelementptr i8, ptr %0, i64 104
-  %.val1464 = load ptr, ptr %277, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1464, i32 noundef %274, ptr noundef nonnull %4)
+  %.val1463 = load ptr, ptr %277, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1463, i32 noundef %274, ptr noundef nonnull %4)
   br label %292
 
 278:                                              ; preds = %.split
@@ -1862,8 +1862,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 282:                                              ; preds = %278
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %284 = getelementptr i8, ptr %0, i64 104
-  %.val1465 = load ptr, ptr %284, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1465, i32 noundef %280, ptr noundef nonnull %283)
+  %.val1464 = load ptr, ptr %284, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1464, i32 noundef %280, ptr noundef nonnull %283)
   br label %285
 
 285:                                              ; preds = %278, %282
@@ -1875,15 +1875,15 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
 289:                                              ; preds = %285
   %290 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %291 = getelementptr i8, ptr %0, i64 104
-  %.val1466 = load ptr, ptr %291, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1466, i32 noundef %287, ptr noundef nonnull %290)
+  %.val1465 = load ptr, ptr %291, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1465, i32 noundef %287, ptr noundef nonnull %290)
   br label %292
 
 292:                                              ; preds = %276, %272, %289, %285, %253, %257
   %293 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %294 = load i8, ptr %293, align 1, !tbaa !41
-  %.not.i1305 = icmp eq i8 %294, 0
-  br i1 %.not.i1305, label %.critedge1289, label %295
+  %.not.i1304 = icmp eq i8 %294, 0
+  br i1 %.not.i1304, label %.critedge1289, label %295
 
 295:                                              ; preds = %292
   %296 = load ptr, ptr %4, align 8, !tbaa !41
@@ -1892,8 +1892,8 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   tail call void @llvm.assume(i1 %298)
   %299 = add i32 %297, -1
   store i32 %299, ptr %296, align 4, !tbaa !67
-  %.not3.i1306 = icmp eq i32 %299, 0
-  br i1 %.not3.i1306, label %300, label %.critedge1289
+  %.not3.i1305 = icmp eq i32 %299, 0
+  br i1 %.not3.i1305, label %300, label %.critedge1289
 
 300:                                              ; preds = %295
   %301 = load ptr, ptr %4, align 8, !tbaa !41
@@ -1933,23 +1933,23 @@ get_op1_value.exit1598:                           ; preds = %94, %102, %105
   %326 = load i32, ptr %325, align 8, !tbaa !41
   %327 = zext i32 %326 to i64
   %328 = getelementptr inbounds nuw %struct._zval_struct, ptr %324, i64 %327
-  br label %get_op1_value.exit1601
+  br label %get_op1_value.exit1600
 
 329:                                              ; preds = %317
   %330 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %331 = load i32, ptr %330, align 4, !tbaa !72
-  %.not.i1599 = icmp eq i32 %331, -1
-  br i1 %.not.i1599, label %get_op1_value.exit1601, label %332
+  %.not.i1598 = icmp eq i32 %331, -1
+  br i1 %.not.i1598, label %get_op1_value.exit1600, label %332
 
 332:                                              ; preds = %329
   %333 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %334 = load ptr, ptr %333, align 8, !tbaa !40
   %335 = sext i32 %331 to i64
   %336 = getelementptr inbounds %struct._zval_struct, ptr %334, i64 %335
-  br label %get_op1_value.exit1601
+  br label %get_op1_value.exit1600
 
-get_op1_value.exit1601:                           ; preds = %321, %329, %332
-  %.0.i1600 = phi ptr [ %328, %321 ], [ %336, %332 ], [ null, %329 ]
+get_op1_value.exit1600:                           ; preds = %321, %329, %332
+  %.0.i1599 = phi ptr [ %328, %321 ], [ %336, %332 ], [ null, %329 ]
   %337 = getelementptr inbounds nuw i8, ptr %308, i64 72
   %338 = load ptr, ptr %337, align 8, !tbaa !94
   %339 = load i32, ptr %2, align 4, !tbaa !72
@@ -1960,34 +1960,34 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   %.not1273 = icmp eq ptr %343, null
   br i1 %.not1273, label %348, label %344
 
-344:                                              ; preds = %get_op1_value.exit1601
+344:                                              ; preds = %get_op1_value.exit1600
   %345 = getelementptr inbounds nuw i8, ptr %343, i64 28
   %346 = load i32, ptr %345, align 4, !tbaa !99
   %347 = and i32 %346, 33024
   %or.cond1287.not = icmp eq i32 %347, 32768
   br i1 %or.cond1287.not, label %359, label %348
 
-348:                                              ; preds = %get_op1_value.exit1601, %344
+348:                                              ; preds = %get_op1_value.exit1600, %344
   %349 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %350 = load i32, ptr %349, align 4, !tbaa !84
   %351 = icmp sgt i32 %350, -1
-  br i1 %351, label %352, label %.thread1891
+  br i1 %351, label %352, label %.thread1890
 
 352:                                              ; preds = %348
   %353 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %354 = getelementptr i8, ptr %0, i64 104
-  %.val1467 = load ptr, ptr %354, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1467, i32 noundef %350, ptr noundef nonnull %353)
-  %.pre1690 = load i32, ptr %303, align 4, !tbaa !86
-  %355 = icmp sgt i32 %.pre1690, -1
-  br i1 %355, label %.thread1891, label %.critedge1289
+  %.val1466 = load ptr, ptr %354, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1466, i32 noundef %350, ptr noundef nonnull %353)
+  %.pre1689 = load i32, ptr %303, align 4, !tbaa !86
+  %355 = icmp sgt i32 %.pre1689, -1
+  br i1 %355, label %.thread1890, label %.critedge1289
 
-.thread1891:                                      ; preds = %348, %352
-  %356 = phi i32 [ %.pre1690, %352 ], [ %304, %348 ]
+.thread1890:                                      ; preds = %348, %352
+  %356 = phi i32 [ %.pre1689, %352 ], [ %304, %348 ]
   %357 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %358 = getelementptr i8, ptr %0, i64 104
-  %.val1468 = load ptr, ptr %358, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1468, i32 noundef %356, ptr noundef nonnull %357)
+  %.val1467 = load ptr, ptr %358, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1467, i32 noundef %356, ptr noundef nonnull %357)
   br label %.critedge1289
 
 359:                                              ; preds = %344
@@ -2002,33 +2002,33 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   %363 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %364 = load i32, ptr %363, align 4, !tbaa !84
   %365 = icmp sgt i32 %364, -1
-  br i1 %365, label %366, label %.thread1892
+  br i1 %365, label %366, label %.thread1891
 
 366:                                              ; preds = %362
   %367 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %368 = getelementptr i8, ptr %0, i64 104
-  %.val1469 = load ptr, ptr %368, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1469, i32 noundef %364, ptr noundef nonnull %367)
-  %.pre1684 = load i32, ptr %303, align 4, !tbaa !86
-  %369 = icmp sgt i32 %.pre1684, -1
-  br i1 %369, label %.thread1892, label %.critedge1289
+  %.val1468 = load ptr, ptr %368, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1468, i32 noundef %364, ptr noundef nonnull %367)
+  %.pre1683 = load i32, ptr %303, align 4, !tbaa !86
+  %369 = icmp sgt i32 %.pre1683, -1
+  br i1 %369, label %.thread1891, label %.critedge1289
 
-.thread1892:                                      ; preds = %362, %366
-  %370 = phi i32 [ %.pre1684, %366 ], [ %304, %362 ]
+.thread1891:                                      ; preds = %362, %366
+  %370 = phi i32 [ %.pre1683, %366 ], [ %304, %362 ]
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %372 = getelementptr i8, ptr %0, i64 104
-  %.val1470 = load ptr, ptr %372, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1470, i32 noundef %370, ptr noundef nonnull %371)
+  %.val1469 = load ptr, ptr %372, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1469, i32 noundef %370, ptr noundef nonnull %371)
   br label %.critedge1289
 
 373:                                              ; preds = %359
-  %374 = getelementptr inbounds nuw i8, ptr %.0.i1600, i64 8
+  %374 = getelementptr inbounds nuw i8, ptr %.0.i1599, i64 8
   %375 = load i8, ptr %374, align 8, !tbaa !41
   %376 = icmp eq i8 %375, -1
   br i1 %376, label %.critedge1289, label %377
 
 377:                                              ; preds = %373
-  %378 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %378 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %379 = load i8, ptr %378, align 8, !tbaa !41
   switch i8 %379, label %401 [
     i8 -1, label %.critedge1289
@@ -2044,8 +2044,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 384:                                              ; preds = %380
   %385 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %386 = getelementptr i8, ptr %0, i64 104
-  %.val1471 = load ptr, ptr %386, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1471, i32 noundef %382, ptr noundef nonnull %385)
+  %.val1470 = load ptr, ptr %386, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1470, i32 noundef %382, ptr noundef nonnull %385)
   br label %387
 
 387:                                              ; preds = %384, %380
@@ -2055,28 +2055,28 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   store ptr %389, ptr %4, align 8, !tbaa !41
   %390 = load i32, ptr %303, align 4, !tbaa !86
   %391 = icmp sgt i32 %390, -1
-  br i1 %391, label %392, label %.thread1893
+  br i1 %391, label %392, label %.thread1892
 
 392:                                              ; preds = %387
   %393 = getelementptr i8, ptr %0, i64 104
-  %.val1472 = load ptr, ptr %393, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1472, i32 noundef %390, ptr noundef nonnull %4)
-  %.phi.trans.insert1685 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %.pre1686 = load i8, ptr %.phi.trans.insert1685, align 1, !tbaa !41
-  %394 = icmp eq i8 %.pre1686, 0
-  br i1 %394, label %.critedge1289, label %.thread1893
+  %.val1471 = load ptr, ptr %393, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1471, i32 noundef %390, ptr noundef nonnull %4)
+  %.phi.trans.insert1684 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %.pre1685 = load i8, ptr %.phi.trans.insert1684, align 1, !tbaa !41
+  %394 = icmp eq i8 %.pre1685, 0
+  br i1 %394, label %.critedge1289, label %.thread1892
 
-.thread1893:                                      ; preds = %387, %392
+.thread1892:                                      ; preds = %387, %392
   %395 = load ptr, ptr %4, align 8, !tbaa !41
   %396 = load i32, ptr %395, align 4, !tbaa !67
   %397 = icmp ne i32 %396, 0
   tail call void @llvm.assume(i1 %397)
   %398 = add i32 %396, -1
   store i32 %398, ptr %395, align 4, !tbaa !67
-  %.not3.i1309 = icmp eq i32 %398, 0
-  br i1 %.not3.i1309, label %399, label %.critedge1289
+  %.not3.i1308 = icmp eq i32 %398, 0
+  br i1 %.not3.i1308, label %399, label %.critedge1289
 
-399:                                              ; preds = %.thread1893
+399:                                              ; preds = %.thread1892
   %400 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %400) #13
   br label %.critedge1289
@@ -2094,20 +2094,20 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 407:                                              ; preds = %403
   %408 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %409 = getelementptr i8, ptr %0, i64 104
-  %.val1473 = load ptr, ptr %409, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1473, i32 noundef %405, ptr noundef nonnull %408)
-  %.pre1687 = load i8, ptr %360, align 8, !tbaa !41
+  %.val1472 = load ptr, ptr %409, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1472, i32 noundef %405, ptr noundef nonnull %408)
+  %.pre1686 = load i8, ptr %360, align 8, !tbaa !41
   br label %410
 
 410:                                              ; preds = %407, %403
-  %411 = phi i8 [ %.pre1687, %407 ], [ %361, %403 ]
+  %411 = phi i8 [ %.pre1686, %407 ], [ %361, %403 ]
   switch i8 %411, label %437 [
     i8 -4, label %414
-    i8 1, label %.thread1634
-    i8 2, label %.thread1634
+    i8 1, label %.thread1633
+    i8 2, label %.thread1633
   ]
 
-.thread1634:                                      ; preds = %410, %410
+.thread1633:                                      ; preds = %410, %410
   %412 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %412, align 8, !tbaa !41
   %413 = tail call ptr @_zend_new_array_0() #13
@@ -2120,48 +2120,48 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   %417 = tail call ptr @zend_array_dup(ptr noundef %416) #13
   br label %418
 
-418:                                              ; preds = %414, %.thread1634
-  %storemerge = phi ptr [ %413, %.thread1634 ], [ %417, %414 ]
+418:                                              ; preds = %414, %.thread1633
+  %storemerge = phi ptr [ %413, %.thread1633 ], [ %417, %414 ]
   store ptr %storemerge, ptr %4, align 8, !tbaa !41
-  %419 = tail call fastcc i32 @ct_eval_del_obj_prop(ptr %storemerge, ptr noundef nonnull %.0.i1595)
+  %419 = tail call fastcc i32 @ct_eval_del_obj_prop(ptr %storemerge, ptr noundef nonnull %.0.i1594)
   %420 = icmp eq i32 %419, 0
   %421 = load i32, ptr %303, align 4, !tbaa !86
   %422 = icmp sgt i32 %421, -1
   br i1 %420, label %423, label %424
 
 423:                                              ; preds = %418
-  br i1 %422, label %428, label %.thread1896
+  br i1 %422, label %428, label %.thread1895
 
 424:                                              ; preds = %418
-  br i1 %422, label %425, label %.thread1896
+  br i1 %422, label %425, label %.thread1895
 
 425:                                              ; preds = %424
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %427 = getelementptr i8, ptr %0, i64 104
-  %.val1475 = load ptr, ptr %427, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1475, i32 noundef %421, ptr noundef nonnull %426)
-  br label %.thread1896
+  %.val1474 = load ptr, ptr %427, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1474, i32 noundef %421, ptr noundef nonnull %426)
+  br label %.thread1895
 
 428:                                              ; preds = %423
   %429 = getelementptr i8, ptr %0, i64 104
-  %.val1474 = load ptr, ptr %429, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1474, i32 noundef %421, ptr noundef nonnull %4)
-  %.phi.trans.insert1688 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %.pre1689 = load i8, ptr %.phi.trans.insert1688, align 1, !tbaa !41
-  %430 = icmp eq i8 %.pre1689, 0
-  br i1 %430, label %.critedge1289, label %.thread1896
+  %.val1473 = load ptr, ptr %429, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1473, i32 noundef %421, ptr noundef nonnull %4)
+  %.phi.trans.insert1687 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %.pre1688 = load i8, ptr %.phi.trans.insert1687, align 1, !tbaa !41
+  %430 = icmp eq i8 %.pre1688, 0
+  br i1 %430, label %.critedge1289, label %.thread1895
 
-.thread1896:                                      ; preds = %423, %425, %424, %428
+.thread1895:                                      ; preds = %423, %425, %424, %428
   %431 = load ptr, ptr %4, align 8, !tbaa !41
   %432 = load i32, ptr %431, align 4, !tbaa !67
   %433 = icmp ne i32 %432, 0
   tail call void @llvm.assume(i1 %433)
   %434 = add i32 %432, -1
   store i32 %434, ptr %431, align 4, !tbaa !67
-  %.not3.i1312 = icmp eq i32 %434, 0
-  br i1 %.not3.i1312, label %435, label %.critedge1289
+  %.not3.i1311 = icmp eq i32 %434, 0
+  br i1 %.not3.i1311, label %435, label %.critedge1289
 
-435:                                              ; preds = %.thread1896
+435:                                              ; preds = %.thread1895
   %436 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %436) #13
   br label %.critedge1289
@@ -2174,8 +2174,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 440:                                              ; preds = %437
   %441 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %442 = getelementptr i8, ptr %0, i64 104
-  %.val1476 = load ptr, ptr %442, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1476, i32 noundef %438, ptr noundef nonnull %441)
+  %.val1475 = load ptr, ptr %442, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1475, i32 noundef %438, ptr noundef nonnull %441)
   br label %.critedge1289
 
 443:                                              ; preds = %401
@@ -2207,7 +2207,7 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   br label %457
 
 457:                                              ; preds = %449, %454, %445
-  %458 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %.0.i1600, ptr noundef nonnull %.0.i1595)
+  %458 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %.0.i1599, ptr noundef nonnull %.0.i1594)
   %459 = icmp eq i32 %458, 0
   %460 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %461 = load i32, ptr %460, align 4, !tbaa !84
@@ -2219,8 +2219,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 
 464:                                              ; preds = %463
   %465 = getelementptr i8, ptr %0, i64 104
-  %.val1477 = load ptr, ptr %465, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1477, i32 noundef %461, ptr noundef nonnull %.0.i1600)
+  %.val1476 = load ptr, ptr %465, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1476, i32 noundef %461, ptr noundef nonnull %.0.i1599)
   br label %466
 
 466:                                              ; preds = %463, %464
@@ -2230,8 +2230,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 
 469:                                              ; preds = %466
   %470 = getelementptr i8, ptr %0, i64 104
-  %.val1478 = load ptr, ptr %470, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1478, i32 noundef %467, ptr noundef nonnull %4)
+  %.val1477 = load ptr, ptr %470, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1477, i32 noundef %467, ptr noundef nonnull %4)
   br label %481
 
 471:                                              ; preds = %457
@@ -2240,8 +2240,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 472:                                              ; preds = %471
   %473 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %474 = getelementptr i8, ptr %0, i64 104
-  %.val1479 = load ptr, ptr %474, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1479, i32 noundef %461, ptr noundef nonnull %473)
+  %.val1478 = load ptr, ptr %474, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1478, i32 noundef %461, ptr noundef nonnull %473)
   br label %475
 
 475:                                              ; preds = %471, %472
@@ -2252,15 +2252,15 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 478:                                              ; preds = %475
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %480 = getelementptr i8, ptr %0, i64 104
-  %.val1480 = load ptr, ptr %480, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1480, i32 noundef %476, ptr noundef nonnull %479)
+  %.val1479 = load ptr, ptr %480, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1479, i32 noundef %476, ptr noundef nonnull %479)
   br label %481
 
 481:                                              ; preds = %475, %478, %466, %469
   %482 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %483 = load i8, ptr %482, align 1, !tbaa !41
-  %.not.i1314 = icmp eq i8 %483, 0
-  br i1 %.not.i1314, label %.critedge1289, label %484
+  %.not.i1313 = icmp eq i8 %483, 0
+  br i1 %.not.i1313, label %.critedge1289, label %484
 
 484:                                              ; preds = %481
   %485 = load ptr, ptr %4, align 8, !tbaa !41
@@ -2269,8 +2269,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   tail call void @llvm.assume(i1 %487)
   %488 = add i32 %486, -1
   store i32 %488, ptr %485, align 4, !tbaa !67
-  %.not3.i1315 = icmp eq i32 %488, 0
-  br i1 %.not3.i1315, label %489, label %.critedge1289
+  %.not3.i1314 = icmp eq i32 %488, 0
+  br i1 %.not3.i1314, label %489, label %.critedge1289
 
 489:                                              ; preds = %484
   %490 = load ptr, ptr %4, align 8, !tbaa !41
@@ -2286,21 +2286,21 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 495:                                              ; preds = %491
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %497 = getelementptr i8, ptr %0, i64 104
-  %.val1481 = load ptr, ptr %497, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1481, i32 noundef %493, ptr noundef nonnull %496)
-  %.pre1683 = load i32, ptr %303, align 4, !tbaa !86
+  %.val1480 = load ptr, ptr %497, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1480, i32 noundef %493, ptr noundef nonnull %496)
+  %.pre1682 = load i32, ptr %303, align 4, !tbaa !86
   br label %498
 
 498:                                              ; preds = %491, %495
-  %499 = phi i32 [ %304, %491 ], [ %.pre1683, %495 ]
+  %499 = phi i32 [ %304, %491 ], [ %.pre1682, %495 ]
   %500 = icmp sgt i32 %499, -1
   br i1 %500, label %501, label %.critedge1289
 
 501:                                              ; preds = %498
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %503 = getelementptr i8, ptr %0, i64 104
-  %.val1482 = load ptr, ptr %503, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1482, i32 noundef %499, ptr noundef nonnull %502)
+  %.val1481 = load ptr, ptr %503, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1481, i32 noundef %499, ptr noundef nonnull %502)
   br label %.critedge1289
 
 504:                                              ; preds = %get_op2_value.exit, %get_op2_value.exit
@@ -2336,9 +2336,9 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   %525 = getelementptr inbounds nuw i8, ptr %523, i64 28
   %526 = load i8, ptr %525, align 4, !tbaa !77
   %.not1272 = icmp eq i8 %526, -127
-  br i1 %.not1272, label %.thread1636, label %.critedge1289
+  br i1 %.not1272, label %.thread1635, label %.critedge1289
 
-.thread1636:                                      ; preds = %524
+.thread1635:                                      ; preds = %524
   %527 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %528 = load ptr, ptr %527, align 8, !tbaa !65
   %529 = getelementptr inbounds nuw i8, ptr %528, i64 56
@@ -2382,8 +2382,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 
 554:                                              ; preds = %550
   %555 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.val1484 = load ptr, ptr %536, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1484, i32 noundef %552, ptr noundef nonnull %555)
+  %.val1483 = load ptr, ptr %536, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1483, i32 noundef %552, ptr noundef nonnull %555)
   br label %.critedge1289
 
 556:                                              ; preds = %535, %get_op2_value.exit
@@ -2398,11 +2398,11 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   br i1 %560, label %.critedge1289, label %561
 
 561:                                              ; preds = %557, %556
-  %.not1267 = icmp eq ptr %.0.i1595, null
+  %.not1267 = icmp eq ptr %.0.i1594, null
   br i1 %.not1267, label %566, label %562
 
 562:                                              ; preds = %561
-  %563 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %563 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %564 = load i8, ptr %563, align 8, !tbaa !41
   %565 = icmp eq i8 %564, -1
   br i1 %565, label %.critedge1289, label %566
@@ -2426,15 +2426,15 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 575:                                              ; preds = %571
   %576 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %577 = getelementptr i8, ptr %0, i64 104
-  %.val1485 = load ptr, ptr %577, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1485, i32 noundef %573, ptr noundef nonnull %576)
+  %.val1484 = load ptr, ptr %577, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1484, i32 noundef %573, ptr noundef nonnull %576)
   br label %.critedge1289
 
 578:                                              ; preds = %567, %566
   br i1 %.not1267, label %608, label %579
 
 579:                                              ; preds = %578
-  %580 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %580 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %581 = load i8, ptr %580, align 8, !tbaa !41
   %582 = icmp eq i8 %581, -2
   br i1 %582, label %583, label %608
@@ -2448,8 +2448,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 587:                                              ; preds = %583
   %588 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %589 = getelementptr i8, ptr %0, i64 104
-  %.val1486 = load ptr, ptr %589, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1486, i32 noundef %585, ptr noundef nonnull %588)
+  %.val1485 = load ptr, ptr %589, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1485, i32 noundef %585, ptr noundef nonnull %588)
   br label %590
 
 590:                                              ; preds = %587, %583
@@ -2465,28 +2465,28 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   store ptr %596, ptr %4, align 8, !tbaa !41
   %597 = load i32, ptr %591, align 4, !tbaa !84
   %598 = icmp sgt i32 %597, -1
-  br i1 %598, label %599, label %.thread1898
+  br i1 %598, label %599, label %.thread1897
 
 599:                                              ; preds = %594
   %600 = getelementptr i8, ptr %0, i64 104
-  %.val1487 = load ptr, ptr %600, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1487, i32 noundef %597, ptr noundef nonnull %4)
+  %.val1486 = load ptr, ptr %600, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1486, i32 noundef %597, ptr noundef nonnull %4)
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 9
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !41
   %601 = icmp eq i8 %.pre, 0
-  br i1 %601, label %.critedge1289, label %.thread1898
+  br i1 %601, label %.critedge1289, label %.thread1897
 
-.thread1898:                                      ; preds = %594, %599
+.thread1897:                                      ; preds = %594, %599
   %602 = load ptr, ptr %4, align 8, !tbaa !41
   %603 = load i32, ptr %602, align 4, !tbaa !67
   %604 = icmp ne i32 %603, 0
   tail call void @llvm.assume(i1 %604)
   %605 = add i32 %603, -1
   store i32 %605, ptr %602, align 4, !tbaa !67
-  %.not3.i1318 = icmp eq i32 %605, 0
-  br i1 %.not3.i1318, label %606, label %.critedge1289
+  %.not3.i1317 = icmp eq i32 %605, 0
+  br i1 %.not3.i1317, label %606, label %.critedge1289
 
-606:                                              ; preds = %.thread1898
+606:                                              ; preds = %.thread1897
   %607 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %607) #13
   br label %.critedge1289
@@ -2516,8 +2516,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 621:                                              ; preds = %617
   %622 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %623 = getelementptr i8, ptr %0, i64 104
-  %.val1488 = load ptr, ptr %623, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1488, i32 noundef %619, ptr noundef nonnull %622)
+  %.val1487 = load ptr, ptr %623, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1487, i32 noundef %619, ptr noundef nonnull %622)
   br label %624
 
 624:                                              ; preds = %621, %617
@@ -2555,12 +2555,12 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 
 640:                                              ; preds = %637
   %641 = getelementptr i8, ptr %0, i64 104
-  %.val1489 = load ptr, ptr %641, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1489, i32 noundef %638, ptr noundef nonnull %4)
+  %.val1488 = load ptr, ptr %641, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1488, i32 noundef %638, ptr noundef nonnull %4)
   br label %654
 
 642:                                              ; preds = %636
-  %643 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1595)
+  %643 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1594)
   %644 = icmp eq i32 %643, 0
   %645 = load i32, ptr %625, align 4, !tbaa !84
   %646 = icmp sgt i32 %645, -1
@@ -2571,8 +2571,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 
 648:                                              ; preds = %647
   %649 = getelementptr i8, ptr %0, i64 104
-  %.val1490 = load ptr, ptr %649, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1490, i32 noundef %645, ptr noundef nonnull %4)
+  %.val1489 = load ptr, ptr %649, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1489, i32 noundef %645, ptr noundef nonnull %4)
   br label %654
 
 650:                                              ; preds = %642
@@ -2581,15 +2581,15 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 651:                                              ; preds = %650
   %652 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %653 = getelementptr i8, ptr %0, i64 104
-  %.val1491 = load ptr, ptr %653, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1491, i32 noundef %645, ptr noundef nonnull %652)
+  %.val1490 = load ptr, ptr %653, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1490, i32 noundef %645, ptr noundef nonnull %652)
   br label %654
 
 654:                                              ; preds = %648, %647, %651, %650, %637, %640
   %655 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %656 = load i8, ptr %655, align 1, !tbaa !41
-  %.not.i1320 = icmp eq i8 %656, 0
-  br i1 %.not.i1320, label %.critedge1289, label %657
+  %.not.i1319 = icmp eq i8 %656, 0
+  br i1 %.not.i1319, label %.critedge1289, label %657
 
 657:                                              ; preds = %654
   %658 = load ptr, ptr %4, align 8, !tbaa !41
@@ -2598,8 +2598,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   tail call void @llvm.assume(i1 %660)
   %661 = add i32 %659, -1
   store i32 %661, ptr %658, align 4, !tbaa !67
-  %.not3.i1321 = icmp eq i32 %661, 0
-  br i1 %.not3.i1321, label %662, label %.critedge1289
+  %.not3.i1320 = icmp eq i32 %661, 0
+  br i1 %.not3.i1320, label %662, label %.critedge1289
 
 662:                                              ; preds = %657
   %663 = load ptr, ptr %4, align 8, !tbaa !41
@@ -2625,8 +2625,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   br label %673
 
 673:                                              ; preds = %670, %665
-  %.sink1680 = phi ptr [ %671, %670 ], [ %666, %665 ]
-  store ptr %.sink1680, ptr %4, align 8, !tbaa !41
+  %.sink1679 = phi ptr [ %671, %670 ], [ %666, %665 ]
+  store ptr %.sink1679, ptr %4, align 8, !tbaa !41
   br i1 %.not, label %706, label %674
 
 674:                                              ; preds = %673
@@ -2646,13 +2646,13 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 
 683:                                              ; preds = %679
   %684 = getelementptr i8, ptr %0, i64 104
-  %.val1492 = load ptr, ptr %684, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1492, i32 noundef %681, ptr noundef nonnull %4)
+  %.val1491 = load ptr, ptr %684, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1491, i32 noundef %681, ptr noundef nonnull %4)
   br label %712
 
 .split1085:                                       ; preds = %675, %674
-  %.sink1909 = phi ptr [ %.0.i1595, %674 ], [ null, %675 ]
-  %685 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef %.sink1909)
+  %.sink1908 = phi ptr [ %.0.i1594, %674 ], [ null, %675 ]
+  %685 = call fastcc i32 @ct_eval_add_array_elem(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef %.sink1908)
   %686 = icmp eq i32 %685, 0
   br i1 %686, label %687, label %699
 
@@ -2675,8 +2675,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 
 697:                                              ; preds = %693
   %698 = getelementptr i8, ptr %0, i64 104
-  %.val1493 = load ptr, ptr %698, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1493, i32 noundef %695, ptr noundef nonnull %4)
+  %.val1492 = load ptr, ptr %698, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1492, i32 noundef %695, ptr noundef nonnull %4)
   br label %712
 
 699:                                              ; preds = %.split1085
@@ -2688,8 +2688,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 703:                                              ; preds = %699
   %704 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %705 = getelementptr i8, ptr %0, i64 104
-  %.val1494 = load ptr, ptr %705, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1494, i32 noundef %701, ptr noundef nonnull %704)
+  %.val1493 = load ptr, ptr %705, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1493, i32 noundef %701, ptr noundef nonnull %704)
   br label %712
 
 706:                                              ; preds = %673
@@ -2700,15 +2700,15 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 
 710:                                              ; preds = %706
   %711 = getelementptr i8, ptr %0, i64 104
-  %.val1495 = load ptr, ptr %711, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1495, i32 noundef %708, ptr noundef nonnull %4)
+  %.val1494 = load ptr, ptr %711, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1494, i32 noundef %708, ptr noundef nonnull %4)
   br label %712
 
 712:                                              ; preds = %706, %710, %683, %679, %699, %703, %693, %697
   %713 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %714 = load i8, ptr %713, align 1, !tbaa !41
-  %.not.i1323 = icmp eq i8 %714, 0
-  br i1 %.not.i1323, label %.critedge1289, label %715
+  %.not.i1322 = icmp eq i8 %714, 0
+  br i1 %.not.i1322, label %.critedge1289, label %715
 
 715:                                              ; preds = %712
   %716 = load ptr, ptr %4, align 8, !tbaa !41
@@ -2717,8 +2717,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   tail call void @llvm.assume(i1 %718)
   %719 = add i32 %717, -1
   store i32 %719, ptr %716, align 4, !tbaa !67
-  %.not3.i1324 = icmp eq i32 %719, 0
-  br i1 %.not3.i1324, label %720, label %.critedge1289
+  %.not3.i1323 = icmp eq i32 %719, 0
+  br i1 %.not3.i1323, label %720, label %.critedge1289
 
 720:                                              ; preds = %715
   %721 = load ptr, ptr %4, align 8, !tbaa !41
@@ -2757,8 +2757,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 742:                                              ; preds = %732
   %743 = icmp eq i8 %730, -1
   %744 = icmp eq i8 %734, -1
-  %or.cond1662 = or i1 %743, %744
-  br i1 %or.cond1662, label %.critedge1289, label %745
+  %or.cond1660 = or i1 %743, %744
+  br i1 %or.cond1660, label %.critedge1289, label %745
 
 745:                                              ; preds = %742
   %746 = icmp eq i8 %730, 1
@@ -2793,8 +2793,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   br i1 %761, label %763, label %767
 
 763:                                              ; preds = %762
-  %.val1498 = load ptr, ptr %723, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1498, i32 noundef %760, ptr noundef nonnull %4)
+  %.val1497 = load ptr, ptr %723, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1497, i32 noundef %760, ptr noundef nonnull %4)
   br label %767
 
 764:                                              ; preds = %753
@@ -2802,15 +2802,15 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 
 765:                                              ; preds = %764
   %766 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.val1499 = load ptr, ptr %723, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1499, i32 noundef %760, ptr noundef nonnull %766)
+  %.val1498 = load ptr, ptr %723, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1498, i32 noundef %760, ptr noundef nonnull %766)
   br label %767
 
 767:                                              ; preds = %764, %765, %762, %763
   %768 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %769 = load i8, ptr %768, align 1, !tbaa !41
-  %.not.i1326 = icmp eq i8 %769, 0
-  br i1 %.not.i1326, label %.critedge1289, label %770
+  %.not.i1325 = icmp eq i8 %769, 0
+  br i1 %.not.i1325, label %.critedge1289, label %770
 
 770:                                              ; preds = %767
   %771 = load ptr, ptr %4, align 8, !tbaa !41
@@ -2819,8 +2819,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   tail call void @llvm.assume(i1 %773)
   %774 = add i32 %772, -1
   store i32 %774, ptr %771, align 4, !tbaa !67
-  %.not3.i1327 = icmp eq i32 %774, 0
-  br i1 %.not3.i1327, label %775, label %.critedge1289
+  %.not3.i1326 = icmp eq i32 %774, 0
+  br i1 %.not3.i1326, label %775, label %.critedge1289
 
 775:                                              ; preds = %770
   %776 = load ptr, ptr %4, align 8, !tbaa !41
@@ -2853,28 +2853,28 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   store ptr %794, ptr %4, align 8, !tbaa !41
   %795 = load i32, ptr %778, align 4, !tbaa !84
   %796 = icmp sgt i32 %795, -1
-  br i1 %796, label %797, label %.thread1900
+  br i1 %796, label %797, label %.thread1899
 
 797:                                              ; preds = %792
   %798 = getelementptr i8, ptr %0, i64 104
-  %.val1500 = load ptr, ptr %798, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1500, i32 noundef %795, ptr noundef nonnull %4)
-  %.phi.trans.insert1681 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %.pre1682 = load i8, ptr %.phi.trans.insert1681, align 1, !tbaa !41
-  %799 = icmp eq i8 %.pre1682, 0
-  br i1 %799, label %.critedge1289, label %.thread1900
+  %.val1499 = load ptr, ptr %798, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1499, i32 noundef %795, ptr noundef nonnull %4)
+  %.phi.trans.insert1680 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %.pre1681 = load i8, ptr %.phi.trans.insert1680, align 1, !tbaa !41
+  %799 = icmp eq i8 %.pre1681, 0
+  br i1 %799, label %.critedge1289, label %.thread1899
 
-.thread1900:                                      ; preds = %792, %797
+.thread1899:                                      ; preds = %792, %797
   %800 = load ptr, ptr %4, align 8, !tbaa !41
   %801 = load i32, ptr %800, align 4, !tbaa !67
   %802 = icmp ne i32 %801, 0
   tail call void @llvm.assume(i1 %802)
   %803 = add i32 %801, -1
   store i32 %803, ptr %800, align 4, !tbaa !67
-  %.not3.i1330 = icmp eq i32 %803, 0
-  br i1 %.not3.i1330, label %804, label %.critedge1289
+  %.not3.i1329 = icmp eq i32 %803, 0
+  br i1 %.not3.i1329, label %804, label %.critedge1289
 
-804:                                              ; preds = %.thread1900
+804:                                              ; preds = %.thread1899
   %805 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %805) #13
   br label %.critedge1289
@@ -2882,8 +2882,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 806:                                              ; preds = %781
   %807 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %808 = getelementptr i8, ptr %0, i64 104
-  %.val1501 = load ptr, ptr %808, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1501, i32 noundef %779, ptr noundef nonnull %807)
+  %.val1500 = load ptr, ptr %808, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1500, i32 noundef %779, ptr noundef nonnull %807)
   br label %.critedge1289
 
 809:                                              ; preds = %get_op2_value.exit, %get_op2_value.exit
@@ -2895,8 +2895,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 813:                                              ; preds = %809
   %814 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %815 = getelementptr i8, ptr %0, i64 104
-  %.val1502 = load ptr, ptr %815, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1502, i32 noundef %811, ptr noundef nonnull %814)
+  %.val1501 = load ptr, ptr %815, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1501, i32 noundef %811, ptr noundef nonnull %814)
   br label %816
 
 816:                                              ; preds = %809, %813
@@ -2908,8 +2908,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 820:                                              ; preds = %816
   %821 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %822 = getelementptr i8, ptr %0, i64 104
-  %.val1503 = load ptr, ptr %822, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1503, i32 noundef %818, ptr noundef nonnull %821)
+  %.val1502 = load ptr, ptr %822, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1502, i32 noundef %818, ptr noundef nonnull %821)
   br label %823
 
 823:                                              ; preds = %816, %820
@@ -2921,8 +2921,8 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 827:                                              ; preds = %823
   %828 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %829 = getelementptr i8, ptr %0, i64 104
-  %.val1504 = load ptr, ptr %829, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1504, i32 noundef %825, ptr noundef nonnull %828)
+  %.val1503 = load ptr, ptr %829, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1503, i32 noundef %825, ptr noundef nonnull %828)
   br label %830
 
 830:                                              ; preds = %827, %823
@@ -2936,44 +2936,44 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 836:                                              ; preds = %830
   %837 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %838 = getelementptr i8, ptr %0, i64 104
-  %.val1505 = load ptr, ptr %838, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1505, i32 noundef %834, ptr noundef nonnull %837)
+  %.val1504 = load ptr, ptr %838, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1504, i32 noundef %834, ptr noundef nonnull %837)
   br label %839
 
 839:                                              ; preds = %get_op2_value.exit, %830, %836
   %.01077 = phi ptr [ %2, %get_op2_value.exit ], [ %832, %836 ], [ %832, %830 ]
   %.01076 = phi ptr [ %1, %get_op2_value.exit ], [ %831, %836 ], [ %831, %830 ]
-  %.not1669 = icmp eq ptr %.0.i, null
-  br i1 %.not1669, label %843, label %._crit_edge1697
+  %.not1668 = icmp eq ptr %.0.i, null
+  br i1 %.not1668, label %843, label %._crit_edge1696
 
-._crit_edge1697:                                  ; preds = %839
-  %.phi.trans.insert1698 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %.pre1699 = load i8, ptr %.phi.trans.insert1698, align 8, !tbaa !41
+._crit_edge1696:                                  ; preds = %839
+  %.phi.trans.insert1697 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %.pre1698 = load i8, ptr %.phi.trans.insert1697, align 8, !tbaa !41
   br label %840
 
-840:                                              ; preds = %._crit_edge1697, %.thread1636
-  %841 = phi i8 [ %518, %.thread1636 ], [ %.pre1699, %._crit_edge1697 ]
-  %.010761646 = phi ptr [ %523, %.thread1636 ], [ %.01076, %._crit_edge1697 ]
-  %.010771640 = phi ptr [ %534, %.thread1636 ], [ %.01077, %._crit_edge1697 ]
+840:                                              ; preds = %._crit_edge1696, %.thread1635
+  %841 = phi i8 [ %518, %.thread1635 ], [ %.pre1698, %._crit_edge1696 ]
+  %.010761645 = phi ptr [ %523, %.thread1635 ], [ %.01076, %._crit_edge1696 ]
+  %.010771639 = phi ptr [ %534, %.thread1635 ], [ %.01077, %._crit_edge1696 ]
   %842 = icmp eq i8 %841, -2
   br i1 %842, label %850, label %843
 
 843:                                              ; preds = %840, %839
   %844 = phi i1 [ true, %840 ], [ false, %839 ]
-  %.010761645 = phi ptr [ %.010761646, %840 ], [ %.01076, %839 ]
-  %.010771639 = phi ptr [ %.010771640, %840 ], [ %.01077, %839 ]
-  %845 = icmp ne ptr %.0.i1595, null
+  %.010761644 = phi ptr [ %.010761645, %840 ], [ %.01076, %839 ]
+  %.010771638 = phi ptr [ %.010771639, %840 ], [ %.01077, %839 ]
+  %845 = icmp ne ptr %.0.i1594, null
   br i1 %845, label %846, label %871
 
 846:                                              ; preds = %843
-  %847 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %847 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %848 = load i8, ptr %847, align 8, !tbaa !41
   %849 = icmp eq i8 %848, -2
   br i1 %849, label %850, label %871
 
 850:                                              ; preds = %840, %846
-  %.010771644 = phi ptr [ %.010771640, %840 ], [ %.010771639, %846 ]
-  %851 = getelementptr inbounds nuw i8, ptr %.010771644, i64 20
+  %.010771643 = phi ptr [ %.010771639, %840 ], [ %.010771638, %846 ]
+  %851 = getelementptr inbounds nuw i8, ptr %.010771643, i64 20
   %852 = load i32, ptr %851, align 4, !tbaa !84
   %853 = icmp sgt i32 %852, -1
   br i1 %853, label %854, label %857
@@ -2981,12 +2981,12 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 854:                                              ; preds = %850
   %855 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %856 = getelementptr i8, ptr %0, i64 104
-  %.val1506 = load ptr, ptr %856, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1506, i32 noundef %852, ptr noundef nonnull %855)
+  %.val1505 = load ptr, ptr %856, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1505, i32 noundef %852, ptr noundef nonnull %855)
   br label %857
 
 857:                                              ; preds = %850, %854
-  %858 = getelementptr inbounds nuw i8, ptr %.010771644, i64 12
+  %858 = getelementptr inbounds nuw i8, ptr %.010771643, i64 12
   %859 = load i32, ptr %858, align 4, !tbaa !86
   %860 = icmp sgt i32 %859, -1
   br i1 %860, label %861, label %864
@@ -2994,12 +2994,12 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 861:                                              ; preds = %857
   %862 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %863 = getelementptr i8, ptr %0, i64 104
-  %.val1507 = load ptr, ptr %863, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1507, i32 noundef %859, ptr noundef nonnull %862)
+  %.val1506 = load ptr, ptr %863, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1506, i32 noundef %859, ptr noundef nonnull %862)
   br label %864
 
 864:                                              ; preds = %857, %861
-  %865 = getelementptr inbounds nuw i8, ptr %.010771644, i64 16
+  %865 = getelementptr inbounds nuw i8, ptr %.010771643, i64 16
   %866 = load i32, ptr %865, align 4, !tbaa !87
   %867 = icmp sgt i32 %866, -1
   br i1 %867, label %868, label %.critedge1289
@@ -3007,12 +3007,12 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 868:                                              ; preds = %864
   %869 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %870 = getelementptr i8, ptr %0, i64 104
-  %.val1508 = load ptr, ptr %870, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1508, i32 noundef %866, ptr noundef nonnull %869)
+  %.val1507 = load ptr, ptr %870, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1507, i32 noundef %866, ptr noundef nonnull %869)
   br label %.critedge1289
 
 871:                                              ; preds = %846, %843
-  %872 = getelementptr inbounds nuw i8, ptr %.010761645, i64 28
+  %872 = getelementptr inbounds nuw i8, ptr %.010761644, i64 28
   %873 = load i8, ptr %872, align 4, !tbaa !77
   switch i8 %873, label %2274 [
     i8 1, label %874
@@ -3093,7 +3093,7 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
   br i1 %877, label %.critedge1289, label %878
 
 878:                                              ; preds = %874
-  %879 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %879 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %880 = load i8, ptr %879, align 8, !tbaa !41
   %881 = icmp eq i8 %880, -1
   br i1 %881, label %.critedge1289, label %882
@@ -3101,31 +3101,31 @@ get_op1_value.exit1601:                           ; preds = %321, %329, %332
 882:                                              ; preds = %878
   %883 = icmp eq i8 %876, -3
   %884 = icmp eq i8 %880, -3
-  %or.cond1663 = or i1 %883, %884
-  br i1 %or.cond1663, label %ct_eval_binary_op.exit.thread, label %ct_eval_binary_op.exit
+  %or.cond1661 = or i1 %883, %884
+  br i1 %or.cond1661, label %ct_eval_binary_op.exit.thread, label %ct_eval_binary_op.exit
 
 ct_eval_binary_op.exit:                           ; preds = %882
-  %885 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext %873, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595) #13
+  %885 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext %873, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1594) #13
   %886 = icmp eq i32 %885, 0
   br i1 %886, label %887, label %ct_eval_binary_op.exit.thread
 
 887:                                              ; preds = %ct_eval_binary_op.exit
-  %888 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %888 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %889 = load i32, ptr %888, align 4, !tbaa !84
   %890 = icmp sgt i32 %889, -1
   br i1 %890, label %891, label %893
 
 891:                                              ; preds = %887
   %892 = getelementptr i8, ptr %0, i64 104
-  %.val1509 = load ptr, ptr %892, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1509, i32 noundef %889, ptr noundef nonnull %4)
+  %.val1508 = load ptr, ptr %892, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1508, i32 noundef %889, ptr noundef nonnull %4)
   br label %893
 
 893:                                              ; preds = %891, %887
   %894 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %895 = load i8, ptr %894, align 1, !tbaa !41
-  %.not.i1332 = icmp eq i8 %895, 0
-  br i1 %.not.i1332, label %.critedge1289, label %896
+  %.not.i1331 = icmp eq i8 %895, 0
+  br i1 %.not.i1331, label %.critedge1289, label %896
 
 896:                                              ; preds = %893
   %897 = load ptr, ptr %4, align 8, !tbaa !41
@@ -3134,8 +3134,8 @@ ct_eval_binary_op.exit:                           ; preds = %882
   call void @llvm.assume(i1 %899)
   %900 = add i32 %898, -1
   store i32 %900, ptr %897, align 4, !tbaa !67
-  %.not3.i1333 = icmp eq i32 %900, 0
-  br i1 %.not3.i1333, label %901, label %.critedge1289
+  %.not3.i1332 = icmp eq i32 %900, 0
+  br i1 %.not3.i1332, label %901, label %.critedge1289
 
 901:                                              ; preds = %896
   %902 = load ptr, ptr %4, align 8, !tbaa !41
@@ -3143,7 +3143,7 @@ ct_eval_binary_op.exit:                           ; preds = %882
   br label %.critedge1289
 
 ct_eval_binary_op.exit.thread:                    ; preds = %882, %ct_eval_binary_op.exit
-  %903 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %903 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %904 = load i32, ptr %903, align 4, !tbaa !84
   %905 = icmp sgt i32 %904, -1
   br i1 %905, label %906, label %.critedge1289
@@ -3151,8 +3151,8 @@ ct_eval_binary_op.exit.thread:                    ; preds = %882, %ct_eval_binar
 906:                                              ; preds = %ct_eval_binary_op.exit.thread
   %907 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %908 = getelementptr i8, ptr %0, i64 104
-  %.val1510 = load ptr, ptr %908, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1510, i32 noundef %904, ptr noundef nonnull %907)
+  %.val1509 = load ptr, ptr %908, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1509, i32 noundef %904, ptr noundef nonnull %907)
   br label %.critedge1289
 
 909:                                              ; preds = %871, %871, %871, %871
@@ -3168,7 +3168,7 @@ ct_eval_binary_op.exit.thread:                    ; preds = %882, %ct_eval_binar
   br i1 %845, label %915, label %919
 
 915:                                              ; preds = %914
-  %916 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %916 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %917 = load i8, ptr %916, align 8, !tbaa !41
   %918 = icmp eq i8 %917, -1
   br i1 %918, label %.critedge1289, label %919
@@ -3180,54 +3180,54 @@ ct_eval_binary_op.exit.thread:                    ; preds = %882, %ct_eval_binar
   ]
 
 920:                                              ; preds = %919
-  %921 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+  %921 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %922 = load i32, ptr %921, align 4, !tbaa !79
   %923 = trunc i32 %922 to i8
   %924 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %925 = load i8, ptr %924, align 8, !tbaa !41
   %926 = icmp eq i8 %925, -3
-  br i1 %926, label %ct_eval_binary_op.exit1604.thread, label %927
+  br i1 %926, label %ct_eval_binary_op.exit1603.thread, label %927
 
 927:                                              ; preds = %920
-  %928 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %928 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %929 = load i8, ptr %928, align 8, !tbaa !41
   %930 = icmp eq i8 %929, -3
-  br i1 %930, label %ct_eval_binary_op.exit1604.thread, label %ct_eval_binary_op.exit1604
+  br i1 %930, label %ct_eval_binary_op.exit1603.thread, label %ct_eval_binary_op.exit1603
 
-ct_eval_binary_op.exit1604:                       ; preds = %927
-  %931 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext %923, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595) #13
+ct_eval_binary_op.exit1603:                       ; preds = %927
+  %931 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext %923, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1594) #13
   %932 = icmp eq i32 %931, 0
-  br i1 %932, label %933, label %ct_eval_binary_op.exit1604.thread
+  br i1 %932, label %933, label %ct_eval_binary_op.exit1603.thread
 
-933:                                              ; preds = %ct_eval_binary_op.exit1604
-  %934 = getelementptr inbounds nuw i8, ptr %.010771639, i64 12
+933:                                              ; preds = %ct_eval_binary_op.exit1603
+  %934 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
   %935 = load i32, ptr %934, align 4, !tbaa !86
   %936 = icmp sgt i32 %935, -1
   br i1 %936, label %937, label %939
 
 937:                                              ; preds = %933
   %938 = getelementptr i8, ptr %0, i64 104
-  %.val1511 = load ptr, ptr %938, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1511, i32 noundef %935, ptr noundef nonnull %4)
+  %.val1510 = load ptr, ptr %938, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1510, i32 noundef %935, ptr noundef nonnull %4)
   br label %939
 
 939:                                              ; preds = %933, %937
-  %940 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %940 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %941 = load i32, ptr %940, align 4, !tbaa !84
   %942 = icmp sgt i32 %941, -1
   br i1 %942, label %943, label %945
 
 943:                                              ; preds = %939
   %944 = getelementptr i8, ptr %0, i64 104
-  %.val1512 = load ptr, ptr %944, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1512, i32 noundef %941, ptr noundef nonnull %4)
+  %.val1511 = load ptr, ptr %944, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1511, i32 noundef %941, ptr noundef nonnull %4)
   br label %945
 
 945:                                              ; preds = %943, %939
   %946 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %947 = load i8, ptr %946, align 1, !tbaa !41
-  %.not.i1335 = icmp eq i8 %947, 0
-  br i1 %.not.i1335, label %.critedge1289, label %948
+  %.not.i1334 = icmp eq i8 %947, 0
+  br i1 %.not.i1334, label %.critedge1289, label %948
 
 948:                                              ; preds = %945
   %949 = load ptr, ptr %4, align 8, !tbaa !41
@@ -3236,8 +3236,8 @@ ct_eval_binary_op.exit1604:                       ; preds = %927
   call void @llvm.assume(i1 %951)
   %952 = add i32 %950, -1
   store i32 %952, ptr %949, align 4, !tbaa !67
-  %.not3.i1336 = icmp eq i32 %952, 0
-  br i1 %.not3.i1336, label %953, label %.critedge1289
+  %.not3.i1335 = icmp eq i32 %952, 0
+  br i1 %.not3.i1335, label %953, label %.critedge1289
 
 953:                                              ; preds = %948
   %954 = load ptr, ptr %4, align 8, !tbaa !41
@@ -3247,21 +3247,21 @@ ct_eval_binary_op.exit1604:                       ; preds = %927
 955:                                              ; preds = %919
   %956 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %957 = load i8, ptr %956, align 8, !tbaa !41
-  switch i8 %957, label %ct_eval_binary_op.exit1604.thread [
+  switch i8 %957, label %ct_eval_binary_op.exit1603.thread [
     i8 -3, label %958
     i8 7, label %958
   ]
 
 958:                                              ; preds = %955, %955
-  %959 = getelementptr inbounds nuw i8, ptr %.010771639, i64 12
+  %959 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
   %960 = load i32, ptr %959, align 4, !tbaa !86
   %961 = icmp sgt i32 %960, -1
   %or.cond8 = and i1 %845, %961
-  br i1 %or.cond8, label %962, label %ct_eval_binary_op.exit1604.thread
+  br i1 %or.cond8, label %962, label %ct_eval_binary_op.exit1603.thread
 
 962:                                              ; preds = %958
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %963 = getelementptr inbounds nuw i8, ptr %.010761645, i64 61
+  %963 = getelementptr inbounds nuw i8, ptr %.010761644, i64 61
   %964 = load i8, ptr %963, align 1, !tbaa !89
   %965 = icmp eq i8 %964, 1
   br i1 %965, label %966, label %974
@@ -3270,36 +3270,36 @@ ct_eval_binary_op.exit1604:                       ; preds = %927
   %967 = load ptr, ptr %0, align 8, !tbaa !66
   %968 = getelementptr inbounds nuw i8, ptr %967, i64 192
   %969 = load ptr, ptr %968, align 8, !tbaa !90
-  %970 = getelementptr inbounds nuw i8, ptr %.010761645, i64 40
+  %970 = getelementptr inbounds nuw i8, ptr %.010761644, i64 40
   %971 = load i32, ptr %970, align 8, !tbaa !41
   %972 = zext i32 %971 to i64
   %973 = getelementptr inbounds nuw %struct._zval_struct, ptr %969, i64 %972
-  br label %get_op1_value.exit1607
+  br label %get_op1_value.exit1606
 
 974:                                              ; preds = %962
-  %975 = getelementptr inbounds nuw i8, ptr %.010771639, i64 36
+  %975 = getelementptr inbounds nuw i8, ptr %.010771638, i64 36
   %976 = load i32, ptr %975, align 4, !tbaa !72
-  %.not.i1605 = icmp eq i32 %976, -1
-  br i1 %.not.i1605, label %get_op1_value.exit1607, label %977
+  %.not.i1604 = icmp eq i32 %976, -1
+  br i1 %.not.i1604, label %get_op1_value.exit1606, label %977
 
 977:                                              ; preds = %974
   %978 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %979 = load ptr, ptr %978, align 8, !tbaa !40
   %980 = sext i32 %976 to i64
   %981 = getelementptr inbounds %struct._zval_struct, ptr %979, i64 %980
-  br label %get_op1_value.exit1607
+  br label %get_op1_value.exit1606
 
-get_op1_value.exit1607:                           ; preds = %966, %974, %977
-  %.0.i1606 = phi ptr [ %973, %966 ], [ %981, %977 ], [ null, %974 ]
-  %982 = getelementptr inbounds nuw i8, ptr %.0.i1606, i64 8
+get_op1_value.exit1606:                           ; preds = %966, %974, %977
+  %.0.i1605 = phi ptr [ %973, %966 ], [ %981, %977 ], [ null, %974 ]
+  %982 = getelementptr inbounds nuw i8, ptr %.0.i1605, i64 8
   %983 = load i8, ptr %982, align 8, !tbaa !41
   %984 = icmp eq i8 %983, -1
-  br i1 %984, label %zval_ptr_dtor_nogc.exit1343.thread, label %985
+  br i1 %984, label %zval_ptr_dtor_nogc.exit1342.thread, label %985
 
-985:                                              ; preds = %get_op1_value.exit1607
-  %986 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef %5, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595, i32 noundef 0)
+985:                                              ; preds = %get_op1_value.exit1606
+  %986 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef %5, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1594, i32 noundef 0)
   %987 = icmp eq i32 %986, 0
-  br i1 %987, label %988, label %zval_ptr_dtor_nogc.exit1343
+  br i1 %987, label %988, label %zval_ptr_dtor_nogc.exit1342
 
 988:                                              ; preds = %985
   %989 = load i8, ptr %982, align 8, !tbaa !41
@@ -3312,8 +3312,8 @@ get_op1_value.exit1607:                           ; preds = %966, %974, %977
   %993 = load ptr, ptr %.0.i, align 8, !tbaa !41
   %994 = tail call ptr @zend_array_dup(ptr noundef %993) #13
   store ptr %994, ptr %4, align 8, !tbaa !41
-  %995 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1595)
-  %996 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %995 = call fastcc i32 @ct_eval_del_array_elem(ptr noundef %4, ptr noundef %.0.i1594)
+  %996 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %997 = load i32, ptr %996, align 4, !tbaa !84
   %998 = icmp sgt i32 %997, -1
   br i1 %998, label %999, label %1002
@@ -3321,8 +3321,8 @@ get_op1_value.exit1607:                           ; preds = %966, %974, %977
 999:                                              ; preds = %991
   %1000 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1001 = getelementptr i8, ptr %0, i64 104
-  %.val1513 = load ptr, ptr %1001, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1513, i32 noundef %997, ptr noundef nonnull %1000)
+  %.val1512 = load ptr, ptr %1001, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1512, i32 noundef %997, ptr noundef nonnull %1000)
   br label %1002
 
 1002:                                             ; preds = %991, %999
@@ -3332,15 +3332,15 @@ get_op1_value.exit1607:                           ; preds = %966, %974, %977
 
 1005:                                             ; preds = %1002
   %1006 = getelementptr i8, ptr %0, i64 104
-  %.val1514 = load ptr, ptr %1006, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1514, i32 noundef %1003, ptr noundef nonnull %4)
+  %.val1513 = load ptr, ptr %1006, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1513, i32 noundef %1003, ptr noundef nonnull %4)
   br label %1007
 
 1007:                                             ; preds = %1005, %1002
   %1008 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %1009 = load i8, ptr %1008, align 1, !tbaa !41
-  %.not.i1338 = icmp eq i8 %1009, 0
-  br i1 %.not.i1338, label %zval_ptr_dtor_nogc.exit1340, label %1010
+  %.not.i1337 = icmp eq i8 %1009, 0
+  br i1 %.not.i1337, label %zval_ptr_dtor_nogc.exit1339, label %1010
 
 1010:                                             ; preds = %1007
   %1011 = load ptr, ptr %5, align 8, !tbaa !41
@@ -3349,65 +3349,65 @@ get_op1_value.exit1607:                           ; preds = %966, %974, %977
   tail call void @llvm.assume(i1 %1013)
   %1014 = add i32 %1012, -1
   store i32 %1014, ptr %1011, align 4, !tbaa !67
-  %.not3.i1339 = icmp eq i32 %1014, 0
-  br i1 %.not3.i1339, label %1015, label %zval_ptr_dtor_nogc.exit1340
+  %.not3.i1338 = icmp eq i32 %1014, 0
+  br i1 %.not3.i1338, label %1015, label %zval_ptr_dtor_nogc.exit1339
 
 1015:                                             ; preds = %1010
   %1016 = load ptr, ptr %5, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %1016) #13
-  br label %zval_ptr_dtor_nogc.exit1340
+  br label %zval_ptr_dtor_nogc.exit1339
 
-zval_ptr_dtor_nogc.exit1340:                      ; preds = %1007, %1010, %1015
+zval_ptr_dtor_nogc.exit1339:                      ; preds = %1007, %1010, %1015
   %1017 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1018 = load i8, ptr %1017, align 1, !tbaa !41
-  %.not.i1341 = icmp eq i8 %1018, 0
-  br i1 %.not.i1341, label %zval_ptr_dtor_nogc.exit1343.thread, label %1019
+  %.not.i1340 = icmp eq i8 %1018, 0
+  br i1 %.not.i1340, label %zval_ptr_dtor_nogc.exit1342.thread, label %1019
 
-1019:                                             ; preds = %zval_ptr_dtor_nogc.exit1340
+1019:                                             ; preds = %zval_ptr_dtor_nogc.exit1339
   %1020 = load ptr, ptr %4, align 8, !tbaa !41
   %1021 = load i32, ptr %1020, align 4, !tbaa !67
   %1022 = icmp ne i32 %1021, 0
   tail call void @llvm.assume(i1 %1022)
   %1023 = add i32 %1021, -1
   store i32 %1023, ptr %1020, align 4, !tbaa !67
-  %.not3.i1342 = icmp eq i32 %1023, 0
-  br i1 %.not3.i1342, label %1024, label %zval_ptr_dtor_nogc.exit1343.thread
+  %.not3.i1341 = icmp eq i32 %1023, 0
+  br i1 %.not3.i1341, label %1024, label %zval_ptr_dtor_nogc.exit1342.thread
 
 1024:                                             ; preds = %1019
   %1025 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %1025) #13
-  br label %zval_ptr_dtor_nogc.exit1343.thread
+  br label %zval_ptr_dtor_nogc.exit1342.thread
 
 1026:                                             ; preds = %988
   %1027 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %1028 = load i8, ptr %1027, align 8, !tbaa !41
   %1029 = icmp eq i8 %1028, -3
   %1030 = icmp eq i8 %989, -3
-  %or.cond1664 = or i1 %1030, %1029
-  br i1 %or.cond1664, label %ct_eval_binary_op.exit1609.thread, label %ct_eval_binary_op.exit1609
+  %or.cond1662 = or i1 %1030, %1029
+  br i1 %or.cond1662, label %ct_eval_binary_op.exit1608.thread, label %ct_eval_binary_op.exit1608
 
-ct_eval_binary_op.exit1609:                       ; preds = %1026
-  %1031 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+ct_eval_binary_op.exit1608:                       ; preds = %1026
+  %1031 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %1032 = load i32, ptr %1031, align 4, !tbaa !79
   %1033 = trunc i32 %1032 to i8
-  %1034 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %5, i8 noundef zeroext %1033, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1606) #13
+  %1034 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %5, i8 noundef zeroext %1033, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1605) #13
   %1035 = icmp eq i32 %1034, -1
-  br i1 %1035, label %ct_eval_binary_op.exit1609.thread, label %1058
+  br i1 %1035, label %ct_eval_binary_op.exit1608.thread, label %1058
 
-ct_eval_binary_op.exit1609.thread:                ; preds = %1026, %ct_eval_binary_op.exit1609
-  %1036 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+ct_eval_binary_op.exit1608.thread:                ; preds = %1026, %ct_eval_binary_op.exit1608
+  %1036 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1037 = load i32, ptr %1036, align 4, !tbaa !84
   %1038 = icmp sgt i32 %1037, -1
   br i1 %1038, label %1039, label %1042
 
-1039:                                             ; preds = %ct_eval_binary_op.exit1609.thread
+1039:                                             ; preds = %ct_eval_binary_op.exit1608.thread
   %1040 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1041 = getelementptr i8, ptr %0, i64 104
-  %.val1515 = load ptr, ptr %1041, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1515, i32 noundef %1037, ptr noundef nonnull %1040)
+  %.val1514 = load ptr, ptr %1041, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1514, i32 noundef %1037, ptr noundef nonnull %1040)
   br label %1042
 
-1042:                                             ; preds = %ct_eval_binary_op.exit1609.thread, %1039
+1042:                                             ; preds = %ct_eval_binary_op.exit1608.thread, %1039
   %1043 = load i32, ptr %959, align 4, !tbaa !86
   %1044 = icmp sgt i32 %1043, -1
   br i1 %1044, label %1045, label %1048
@@ -3415,15 +3415,15 @@ ct_eval_binary_op.exit1609.thread:                ; preds = %1026, %ct_eval_bina
 1045:                                             ; preds = %1042
   %1046 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1047 = getelementptr i8, ptr %0, i64 104
-  %.val1516 = load ptr, ptr %1047, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1516, i32 noundef %1043, ptr noundef nonnull %1046)
+  %.val1515 = load ptr, ptr %1047, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1515, i32 noundef %1043, ptr noundef nonnull %1046)
   br label %1048
 
 1048:                                             ; preds = %1045, %1042
   %1049 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %1050 = load i8, ptr %1049, align 1, !tbaa !41
-  %.not.i1344 = icmp eq i8 %1050, 0
-  br i1 %.not.i1344, label %zval_ptr_dtor_nogc.exit1343.thread, label %1051
+  %.not.i1343 = icmp eq i8 %1050, 0
+  br i1 %.not.i1343, label %zval_ptr_dtor_nogc.exit1342.thread, label %1051
 
 1051:                                             ; preds = %1048
   %1052 = load ptr, ptr %5, align 8, !tbaa !41
@@ -3432,15 +3432,15 @@ ct_eval_binary_op.exit1609.thread:                ; preds = %1026, %ct_eval_bina
   call void @llvm.assume(i1 %1054)
   %1055 = add i32 %1053, -1
   store i32 %1055, ptr %1052, align 4, !tbaa !67
-  %.not3.i1345 = icmp eq i32 %1055, 0
-  br i1 %.not3.i1345, label %1056, label %zval_ptr_dtor_nogc.exit1343.thread
+  %.not3.i1344 = icmp eq i32 %1055, 0
+  br i1 %.not3.i1344, label %1056, label %zval_ptr_dtor_nogc.exit1342.thread
 
 1056:                                             ; preds = %1051
   %1057 = load ptr, ptr %5, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1057) #13
-  br label %zval_ptr_dtor_nogc.exit1343.thread
+  br label %zval_ptr_dtor_nogc.exit1342.thread
 
-1058:                                             ; preds = %ct_eval_binary_op.exit1609
+1058:                                             ; preds = %ct_eval_binary_op.exit1608
   %1059 = load i8, ptr %956, align 8, !tbaa !41
   %1060 = icmp eq i8 %1059, -3
   br i1 %1060, label %1061, label %1065
@@ -3470,20 +3470,20 @@ ct_eval_binary_op.exit1609.thread:                ; preds = %1026, %ct_eval_bina
   br label %1073
 
 1073:                                             ; preds = %1065, %1070, %1061
-  %1074 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1595)
+  %1074 = call fastcc i32 @ct_eval_assign_dim(ptr noundef %4, ptr noundef nonnull %5, ptr noundef nonnull %.0.i1594)
   %1075 = icmp eq i32 %1074, 0
   br i1 %1075, label %1076, label %1106
 
 1076:                                             ; preds = %1073
-  %1077 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1077 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1078 = load i32, ptr %1077, align 4, !tbaa !84
   %1079 = icmp sgt i32 %1078, -1
   br i1 %1079, label %1080, label %1082
 
 1080:                                             ; preds = %1076
   %1081 = getelementptr i8, ptr %0, i64 104
-  %.val1517 = load ptr, ptr %1081, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1517, i32 noundef %1078, ptr noundef nonnull %5)
+  %.val1516 = load ptr, ptr %1081, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1516, i32 noundef %1078, ptr noundef nonnull %5)
   br label %1082
 
 1082:                                             ; preds = %1076, %1080
@@ -3493,15 +3493,15 @@ ct_eval_binary_op.exit1609.thread:                ; preds = %1026, %ct_eval_bina
 
 1085:                                             ; preds = %1082
   %1086 = getelementptr i8, ptr %0, i64 104
-  %.val1518 = load ptr, ptr %1086, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1518, i32 noundef %1083, ptr noundef nonnull %4)
+  %.val1517 = load ptr, ptr %1086, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1517, i32 noundef %1083, ptr noundef nonnull %4)
   br label %1087
 
 1087:                                             ; preds = %1085, %1082
   %1088 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %1089 = load i8, ptr %1088, align 1, !tbaa !41
-  %.not.i1347 = icmp eq i8 %1089, 0
-  br i1 %.not.i1347, label %zval_ptr_dtor_nogc.exit1349, label %1090
+  %.not.i1346 = icmp eq i8 %1089, 0
+  br i1 %.not.i1346, label %zval_ptr_dtor_nogc.exit1348, label %1090
 
 1090:                                             ; preds = %1087
   %1091 = load ptr, ptr %5, align 8, !tbaa !41
@@ -3510,40 +3510,40 @@ ct_eval_binary_op.exit1609.thread:                ; preds = %1026, %ct_eval_bina
   call void @llvm.assume(i1 %1093)
   %1094 = add i32 %1092, -1
   store i32 %1094, ptr %1091, align 4, !tbaa !67
-  %.not3.i1348 = icmp eq i32 %1094, 0
-  br i1 %.not3.i1348, label %1095, label %zval_ptr_dtor_nogc.exit1349
+  %.not3.i1347 = icmp eq i32 %1094, 0
+  br i1 %.not3.i1347, label %1095, label %zval_ptr_dtor_nogc.exit1348
 
 1095:                                             ; preds = %1090
   %1096 = load ptr, ptr %5, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1096) #13
-  br label %zval_ptr_dtor_nogc.exit1349
+  br label %zval_ptr_dtor_nogc.exit1348
 
-zval_ptr_dtor_nogc.exit1349:                      ; preds = %1087, %1090, %1095
+zval_ptr_dtor_nogc.exit1348:                      ; preds = %1087, %1090, %1095
   %1097 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1098 = load i8, ptr %1097, align 1, !tbaa !41
-  %.not.i1350 = icmp eq i8 %1098, 0
-  br i1 %.not.i1350, label %zval_ptr_dtor_nogc.exit1343.thread, label %1099
+  %.not.i1349 = icmp eq i8 %1098, 0
+  br i1 %.not.i1349, label %zval_ptr_dtor_nogc.exit1342.thread, label %1099
 
-1099:                                             ; preds = %zval_ptr_dtor_nogc.exit1349
+1099:                                             ; preds = %zval_ptr_dtor_nogc.exit1348
   %1100 = load ptr, ptr %4, align 8, !tbaa !41
   %1101 = load i32, ptr %1100, align 4, !tbaa !67
   %1102 = icmp ne i32 %1101, 0
   call void @llvm.assume(i1 %1102)
   %1103 = add i32 %1101, -1
   store i32 %1103, ptr %1100, align 4, !tbaa !67
-  %.not3.i1351 = icmp eq i32 %1103, 0
-  br i1 %.not3.i1351, label %1104, label %zval_ptr_dtor_nogc.exit1343.thread
+  %.not3.i1350 = icmp eq i32 %1103, 0
+  br i1 %.not3.i1350, label %1104, label %zval_ptr_dtor_nogc.exit1342.thread
 
 1104:                                             ; preds = %1099
   %1105 = load ptr, ptr %4, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1105) #13
-  br label %zval_ptr_dtor_nogc.exit1343.thread
+  br label %zval_ptr_dtor_nogc.exit1342.thread
 
 1106:                                             ; preds = %1073
   %1107 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %1108 = load i8, ptr %1107, align 1, !tbaa !41
-  %.not.i1353 = icmp eq i8 %1108, 0
-  br i1 %.not.i1353, label %zval_ptr_dtor_nogc.exit1355, label %1109
+  %.not.i1352 = icmp eq i8 %1108, 0
+  br i1 %.not.i1352, label %zval_ptr_dtor_nogc.exit1354, label %1109
 
 1109:                                             ; preds = %1106
   %1110 = load ptr, ptr %5, align 8, !tbaa !41
@@ -3552,59 +3552,59 @@ zval_ptr_dtor_nogc.exit1349:                      ; preds = %1087, %1090, %1095
   call void @llvm.assume(i1 %1112)
   %1113 = add i32 %1111, -1
   store i32 %1113, ptr %1110, align 4, !tbaa !67
-  %.not3.i1354 = icmp eq i32 %1113, 0
-  br i1 %.not3.i1354, label %1114, label %zval_ptr_dtor_nogc.exit1355
+  %.not3.i1353 = icmp eq i32 %1113, 0
+  br i1 %.not3.i1353, label %1114, label %zval_ptr_dtor_nogc.exit1354
 
 1114:                                             ; preds = %1109
   %1115 = load ptr, ptr %5, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1115) #13
-  br label %zval_ptr_dtor_nogc.exit1355
+  br label %zval_ptr_dtor_nogc.exit1354
 
-zval_ptr_dtor_nogc.exit1355:                      ; preds = %1106, %1109, %1114
+zval_ptr_dtor_nogc.exit1354:                      ; preds = %1106, %1109, %1114
   %1116 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1117 = load i8, ptr %1116, align 1, !tbaa !41
-  %.not.i1356 = icmp eq i8 %1117, 0
-  br i1 %.not.i1356, label %zval_ptr_dtor_nogc.exit1343, label %1118
+  %.not.i1355 = icmp eq i8 %1117, 0
+  br i1 %.not.i1355, label %zval_ptr_dtor_nogc.exit1342, label %1118
 
-1118:                                             ; preds = %zval_ptr_dtor_nogc.exit1355
+1118:                                             ; preds = %zval_ptr_dtor_nogc.exit1354
   %1119 = load ptr, ptr %4, align 8, !tbaa !41
   %1120 = load i32, ptr %1119, align 4, !tbaa !67
   %1121 = icmp ne i32 %1120, 0
   call void @llvm.assume(i1 %1121)
   %1122 = add i32 %1120, -1
   store i32 %1122, ptr %1119, align 4, !tbaa !67
-  %.not3.i1357 = icmp eq i32 %1122, 0
-  br i1 %.not3.i1357, label %1123, label %zval_ptr_dtor_nogc.exit1343
+  %.not3.i1356 = icmp eq i32 %1122, 0
+  br i1 %.not3.i1356, label %1123, label %zval_ptr_dtor_nogc.exit1342
 
 1123:                                             ; preds = %1118
   %1124 = load ptr, ptr %4, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1124) #13
-  br label %zval_ptr_dtor_nogc.exit1343
+  br label %zval_ptr_dtor_nogc.exit1342
 
-zval_ptr_dtor_nogc.exit1343.thread:               ; preds = %get_op1_value.exit1607, %zval_ptr_dtor_nogc.exit1340, %1019, %1024, %1048, %1051, %1056, %zval_ptr_dtor_nogc.exit1349, %1099, %1104
+zval_ptr_dtor_nogc.exit1342.thread:               ; preds = %get_op1_value.exit1606, %zval_ptr_dtor_nogc.exit1339, %1019, %1024, %1048, %1051, %1056, %zval_ptr_dtor_nogc.exit1348, %1099, %1104
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.critedge1289
 
-zval_ptr_dtor_nogc.exit1343:                      ; preds = %1123, %1118, %zval_ptr_dtor_nogc.exit1355, %985
+zval_ptr_dtor_nogc.exit1342:                      ; preds = %1123, %1118, %zval_ptr_dtor_nogc.exit1354, %985
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %ct_eval_binary_op.exit1604.thread
+  br label %ct_eval_binary_op.exit1603.thread
 
 1125:                                             ; preds = %919
   %1126 = icmp eq i8 %873, 28
   %or.cond10 = and i1 %844, %1126
-  br i1 %or.cond10, label %1127, label %ct_eval_binary_op.exit1604.thread
+  br i1 %or.cond10, label %1127, label %ct_eval_binary_op.exit1603.thread
 
 1127:                                             ; preds = %1125
   %1128 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
   %1129 = load i8, ptr %1128, align 8, !tbaa !41
   %1130 = icmp eq i8 %1129, -4
-  br i1 %1130, label %1131, label %ct_eval_binary_op.exit1604.thread
+  br i1 %1130, label %1131, label %ct_eval_binary_op.exit1603.thread
 
 1131:                                             ; preds = %1127
-  %1132 = getelementptr inbounds nuw i8, ptr %.010771639, i64 12
+  %1132 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
   %1133 = load i32, ptr %1132, align 4, !tbaa !86
   %1134 = icmp sgt i32 %1133, -1
-  br i1 %1134, label %1135, label %ct_eval_binary_op.exit1604.thread
+  br i1 %1134, label %1135, label %ct_eval_binary_op.exit1603.thread
 
 1135:                                             ; preds = %1131
   %1136 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3617,11 +3617,11 @@ zval_ptr_dtor_nogc.exit1343:                      ; preds = %1123, %1118, %zval_
   %1143 = load i8, ptr %1142, align 8
   %1144 = and i8 %1143, 48
   %1145 = icmp eq i8 %1144, 16
-  br i1 %1145, label %1146, label %ct_eval_binary_op.exit1604.thread
+  br i1 %1145, label %1146, label %ct_eval_binary_op.exit1603.thread
 
 1146:                                             ; preds = %1135
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %1147 = getelementptr inbounds nuw i8, ptr %.010761645, i64 61
+  %1147 = getelementptr inbounds nuw i8, ptr %.010761644, i64 61
   %1148 = load i8, ptr %1147, align 1, !tbaa !89
   %1149 = icmp eq i8 %1148, 1
   br i1 %1149, label %1150, label %1158
@@ -3630,36 +3630,36 @@ zval_ptr_dtor_nogc.exit1343:                      ; preds = %1123, %1118, %zval_
   %1151 = load ptr, ptr %0, align 8, !tbaa !66
   %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 192
   %1153 = load ptr, ptr %1152, align 8, !tbaa !90
-  %1154 = getelementptr inbounds nuw i8, ptr %.010761645, i64 40
+  %1154 = getelementptr inbounds nuw i8, ptr %.010761644, i64 40
   %1155 = load i32, ptr %1154, align 8, !tbaa !41
   %1156 = zext i32 %1155 to i64
   %1157 = getelementptr inbounds nuw %struct._zval_struct, ptr %1153, i64 %1156
-  br label %get_op1_value.exit1612
+  br label %get_op1_value.exit1611
 
 1158:                                             ; preds = %1146
-  %1159 = getelementptr inbounds nuw i8, ptr %.010771639, i64 36
+  %1159 = getelementptr inbounds nuw i8, ptr %.010771638, i64 36
   %1160 = load i32, ptr %1159, align 4, !tbaa !72
-  %.not.i1610 = icmp eq i32 %1160, -1
-  br i1 %.not.i1610, label %get_op1_value.exit1612, label %1161
+  %.not.i1609 = icmp eq i32 %1160, -1
+  br i1 %.not.i1609, label %get_op1_value.exit1611, label %1161
 
 1161:                                             ; preds = %1158
   %1162 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %1163 = load ptr, ptr %1162, align 8, !tbaa !40
   %1164 = sext i32 %1160 to i64
   %1165 = getelementptr inbounds %struct._zval_struct, ptr %1163, i64 %1164
-  br label %get_op1_value.exit1612
+  br label %get_op1_value.exit1611
 
-get_op1_value.exit1612:                           ; preds = %1150, %1158, %1161
-  %.0.i1611 = phi ptr [ %1157, %1150 ], [ %1165, %1161 ], [ null, %1158 ]
-  %1166 = getelementptr inbounds nuw i8, ptr %.0.i1611, i64 8
+get_op1_value.exit1611:                           ; preds = %1150, %1158, %1161
+  %.0.i1610 = phi ptr [ %1157, %1150 ], [ %1165, %1161 ], [ null, %1158 ]
+  %1166 = getelementptr inbounds nuw i8, ptr %.0.i1610, i64 8
   %1167 = load i8, ptr %1166, align 8, !tbaa !41
   %1168 = icmp eq i8 %1167, -1
-  br i1 %1168, label %zval_ptr_dtor_nogc.exit1364.thread, label %1169
+  br i1 %1168, label %zval_ptr_dtor_nogc.exit1363.thread, label %1169
 
-1169:                                             ; preds = %get_op1_value.exit1612
-  %1170 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %6, ptr noundef %.0.i, ptr noundef %.0.i1595)
+1169:                                             ; preds = %get_op1_value.exit1611
+  %1170 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %6, ptr noundef %.0.i, ptr noundef %.0.i1594)
   %1171 = icmp eq i32 %1170, 0
-  br i1 %1171, label %1172, label %zval_ptr_dtor_nogc.exit1364
+  br i1 %1171, label %1172, label %zval_ptr_dtor_nogc.exit1363
 
 1172:                                             ; preds = %1169
   %1173 = load i8, ptr %1166, align 8, !tbaa !41
@@ -3672,8 +3672,8 @@ get_op1_value.exit1612:                           ; preds = %1150, %1158, %1161
   %1177 = load ptr, ptr %.0.i, align 8, !tbaa !41
   %1178 = tail call ptr @zend_array_dup(ptr noundef %1177) #13
   store ptr %1178, ptr %4, align 8, !tbaa !41
-  %1179 = tail call fastcc i32 @ct_eval_del_obj_prop(ptr %1178, ptr noundef %.0.i1595)
-  %1180 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1179 = tail call fastcc i32 @ct_eval_del_obj_prop(ptr %1178, ptr noundef %.0.i1594)
+  %1180 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1181 = load i32, ptr %1180, align 4, !tbaa !84
   %1182 = icmp sgt i32 %1181, -1
   br i1 %1182, label %1183, label %1186
@@ -3681,8 +3681,8 @@ get_op1_value.exit1612:                           ; preds = %1150, %1158, %1161
 1183:                                             ; preds = %1175
   %1184 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1185 = getelementptr i8, ptr %0, i64 104
-  %.val1519 = load ptr, ptr %1185, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1519, i32 noundef %1181, ptr noundef nonnull %1184)
+  %.val1518 = load ptr, ptr %1185, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1518, i32 noundef %1181, ptr noundef nonnull %1184)
   br label %1186
 
 1186:                                             ; preds = %1175, %1183
@@ -3692,15 +3692,15 @@ get_op1_value.exit1612:                           ; preds = %1150, %1158, %1161
 
 1189:                                             ; preds = %1186
   %1190 = getelementptr i8, ptr %0, i64 104
-  %.val1520 = load ptr, ptr %1190, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1520, i32 noundef %1187, ptr noundef nonnull %4)
+  %.val1519 = load ptr, ptr %1190, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1519, i32 noundef %1187, ptr noundef nonnull %4)
   br label %1191
 
 1191:                                             ; preds = %1189, %1186
   %1192 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %1193 = load i8, ptr %1192, align 1, !tbaa !41
-  %.not.i1359 = icmp eq i8 %1193, 0
-  br i1 %.not.i1359, label %zval_ptr_dtor_nogc.exit1361, label %1194
+  %.not.i1358 = icmp eq i8 %1193, 0
+  br i1 %.not.i1358, label %zval_ptr_dtor_nogc.exit1360, label %1194
 
 1194:                                             ; preds = %1191
   %1195 = load ptr, ptr %6, align 8, !tbaa !41
@@ -3709,65 +3709,65 @@ get_op1_value.exit1612:                           ; preds = %1150, %1158, %1161
   tail call void @llvm.assume(i1 %1197)
   %1198 = add i32 %1196, -1
   store i32 %1198, ptr %1195, align 4, !tbaa !67
-  %.not3.i1360 = icmp eq i32 %1198, 0
-  br i1 %.not3.i1360, label %1199, label %zval_ptr_dtor_nogc.exit1361
+  %.not3.i1359 = icmp eq i32 %1198, 0
+  br i1 %.not3.i1359, label %1199, label %zval_ptr_dtor_nogc.exit1360
 
 1199:                                             ; preds = %1194
   %1200 = load ptr, ptr %6, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %1200) #13
-  br label %zval_ptr_dtor_nogc.exit1361
+  br label %zval_ptr_dtor_nogc.exit1360
 
-zval_ptr_dtor_nogc.exit1361:                      ; preds = %1191, %1194, %1199
+zval_ptr_dtor_nogc.exit1360:                      ; preds = %1191, %1194, %1199
   %1201 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1202 = load i8, ptr %1201, align 1, !tbaa !41
-  %.not.i1362 = icmp eq i8 %1202, 0
-  br i1 %.not.i1362, label %zval_ptr_dtor_nogc.exit1364.thread, label %1203
+  %.not.i1361 = icmp eq i8 %1202, 0
+  br i1 %.not.i1361, label %zval_ptr_dtor_nogc.exit1363.thread, label %1203
 
-1203:                                             ; preds = %zval_ptr_dtor_nogc.exit1361
+1203:                                             ; preds = %zval_ptr_dtor_nogc.exit1360
   %1204 = load ptr, ptr %4, align 8, !tbaa !41
   %1205 = load i32, ptr %1204, align 4, !tbaa !67
   %1206 = icmp ne i32 %1205, 0
   tail call void @llvm.assume(i1 %1206)
   %1207 = add i32 %1205, -1
   store i32 %1207, ptr %1204, align 4, !tbaa !67
-  %.not3.i1363 = icmp eq i32 %1207, 0
-  br i1 %.not3.i1363, label %1208, label %zval_ptr_dtor_nogc.exit1364.thread
+  %.not3.i1362 = icmp eq i32 %1207, 0
+  br i1 %.not3.i1362, label %1208, label %zval_ptr_dtor_nogc.exit1363.thread
 
 1208:                                             ; preds = %1203
   %1209 = load ptr, ptr %4, align 8, !tbaa !41
   tail call void @rc_dtor_func(ptr noundef %1209) #13
-  br label %zval_ptr_dtor_nogc.exit1364.thread
+  br label %zval_ptr_dtor_nogc.exit1363.thread
 
 1210:                                             ; preds = %1172
   %1211 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %1212 = load i8, ptr %1211, align 8, !tbaa !41
   %1213 = icmp eq i8 %1212, -3
   %1214 = icmp eq i8 %1173, -3
-  %or.cond1665 = or i1 %1214, %1213
-  br i1 %or.cond1665, label %ct_eval_binary_op.exit1614.thread, label %ct_eval_binary_op.exit1614
+  %or.cond1663 = or i1 %1214, %1213
+  br i1 %or.cond1663, label %ct_eval_binary_op.exit1613.thread, label %ct_eval_binary_op.exit1613
 
-ct_eval_binary_op.exit1614:                       ; preds = %1210
-  %1215 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+ct_eval_binary_op.exit1613:                       ; preds = %1210
+  %1215 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %1216 = load i32, ptr %1215, align 4, !tbaa !79
   %1217 = trunc i32 %1216 to i8
-  %1218 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %6, i8 noundef zeroext %1217, ptr noundef nonnull %6, ptr noundef nonnull %.0.i1611) #13
+  %1218 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %6, i8 noundef zeroext %1217, ptr noundef nonnull %6, ptr noundef nonnull %.0.i1610) #13
   %1219 = icmp eq i32 %1218, -1
-  br i1 %1219, label %ct_eval_binary_op.exit1614.thread, label %1242
+  br i1 %1219, label %ct_eval_binary_op.exit1613.thread, label %1242
 
-ct_eval_binary_op.exit1614.thread:                ; preds = %1210, %ct_eval_binary_op.exit1614
-  %1220 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+ct_eval_binary_op.exit1613.thread:                ; preds = %1210, %ct_eval_binary_op.exit1613
+  %1220 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1221 = load i32, ptr %1220, align 4, !tbaa !84
   %1222 = icmp sgt i32 %1221, -1
   br i1 %1222, label %1223, label %1226
 
-1223:                                             ; preds = %ct_eval_binary_op.exit1614.thread
+1223:                                             ; preds = %ct_eval_binary_op.exit1613.thread
   %1224 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1225 = getelementptr i8, ptr %0, i64 104
-  %.val1521 = load ptr, ptr %1225, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1521, i32 noundef %1221, ptr noundef nonnull %1224)
+  %.val1520 = load ptr, ptr %1225, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1520, i32 noundef %1221, ptr noundef nonnull %1224)
   br label %1226
 
-1226:                                             ; preds = %ct_eval_binary_op.exit1614.thread, %1223
+1226:                                             ; preds = %ct_eval_binary_op.exit1613.thread, %1223
   %1227 = load i32, ptr %1132, align 4, !tbaa !86
   %1228 = icmp sgt i32 %1227, -1
   br i1 %1228, label %1229, label %1232
@@ -3775,15 +3775,15 @@ ct_eval_binary_op.exit1614.thread:                ; preds = %1210, %ct_eval_bina
 1229:                                             ; preds = %1226
   %1230 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1231 = getelementptr i8, ptr %0, i64 104
-  %.val1522 = load ptr, ptr %1231, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1522, i32 noundef %1227, ptr noundef nonnull %1230)
+  %.val1521 = load ptr, ptr %1231, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1521, i32 noundef %1227, ptr noundef nonnull %1230)
   br label %1232
 
 1232:                                             ; preds = %1229, %1226
   %1233 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %1234 = load i8, ptr %1233, align 1, !tbaa !41
-  %.not.i1365 = icmp eq i8 %1234, 0
-  br i1 %.not.i1365, label %zval_ptr_dtor_nogc.exit1364.thread, label %1235
+  %.not.i1364 = icmp eq i8 %1234, 0
+  br i1 %.not.i1364, label %zval_ptr_dtor_nogc.exit1363.thread, label %1235
 
 1235:                                             ; preds = %1232
   %1236 = load ptr, ptr %6, align 8, !tbaa !41
@@ -3792,34 +3792,34 @@ ct_eval_binary_op.exit1614.thread:                ; preds = %1210, %ct_eval_bina
   call void @llvm.assume(i1 %1238)
   %1239 = add i32 %1237, -1
   store i32 %1239, ptr %1236, align 4, !tbaa !67
-  %.not3.i1366 = icmp eq i32 %1239, 0
-  br i1 %.not3.i1366, label %1240, label %zval_ptr_dtor_nogc.exit1364.thread
+  %.not3.i1365 = icmp eq i32 %1239, 0
+  br i1 %.not3.i1365, label %1240, label %zval_ptr_dtor_nogc.exit1363.thread
 
 1240:                                             ; preds = %1235
   %1241 = load ptr, ptr %6, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1241) #13
-  br label %zval_ptr_dtor_nogc.exit1364.thread
+  br label %zval_ptr_dtor_nogc.exit1363.thread
 
-1242:                                             ; preds = %ct_eval_binary_op.exit1614
+1242:                                             ; preds = %ct_eval_binary_op.exit1613
   %1243 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 508, ptr %1243, align 8, !tbaa !41
   %1244 = load ptr, ptr %.0.i, align 8, !tbaa !41
   %1245 = call ptr @zend_array_dup(ptr noundef %1244) #13
   store ptr %1245, ptr %4, align 8, !tbaa !41
-  %1246 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %6, ptr noundef %.0.i1595)
+  %1246 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %6, ptr noundef %.0.i1594)
   %1247 = icmp eq i32 %1246, 0
   br i1 %1247, label %1248, label %1278
 
 1248:                                             ; preds = %1242
-  %1249 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1249 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1250 = load i32, ptr %1249, align 4, !tbaa !84
   %1251 = icmp sgt i32 %1250, -1
   br i1 %1251, label %1252, label %1254
 
 1252:                                             ; preds = %1248
   %1253 = getelementptr i8, ptr %0, i64 104
-  %.val1523 = load ptr, ptr %1253, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1523, i32 noundef %1250, ptr noundef nonnull %6)
+  %.val1522 = load ptr, ptr %1253, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1522, i32 noundef %1250, ptr noundef nonnull %6)
   br label %1254
 
 1254:                                             ; preds = %1248, %1252
@@ -3829,15 +3829,15 @@ ct_eval_binary_op.exit1614.thread:                ; preds = %1210, %ct_eval_bina
 
 1257:                                             ; preds = %1254
   %1258 = getelementptr i8, ptr %0, i64 104
-  %.val1524 = load ptr, ptr %1258, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1524, i32 noundef %1255, ptr noundef nonnull %4)
+  %.val1523 = load ptr, ptr %1258, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1523, i32 noundef %1255, ptr noundef nonnull %4)
   br label %1259
 
 1259:                                             ; preds = %1257, %1254
   %1260 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %1261 = load i8, ptr %1260, align 1, !tbaa !41
-  %.not.i1368 = icmp eq i8 %1261, 0
-  br i1 %.not.i1368, label %zval_ptr_dtor_nogc.exit1370, label %1262
+  %.not.i1367 = icmp eq i8 %1261, 0
+  br i1 %.not.i1367, label %zval_ptr_dtor_nogc.exit1369, label %1262
 
 1262:                                             ; preds = %1259
   %1263 = load ptr, ptr %6, align 8, !tbaa !41
@@ -3846,40 +3846,40 @@ ct_eval_binary_op.exit1614.thread:                ; preds = %1210, %ct_eval_bina
   call void @llvm.assume(i1 %1265)
   %1266 = add i32 %1264, -1
   store i32 %1266, ptr %1263, align 4, !tbaa !67
-  %.not3.i1369 = icmp eq i32 %1266, 0
-  br i1 %.not3.i1369, label %1267, label %zval_ptr_dtor_nogc.exit1370
+  %.not3.i1368 = icmp eq i32 %1266, 0
+  br i1 %.not3.i1368, label %1267, label %zval_ptr_dtor_nogc.exit1369
 
 1267:                                             ; preds = %1262
   %1268 = load ptr, ptr %6, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1268) #13
-  br label %zval_ptr_dtor_nogc.exit1370
+  br label %zval_ptr_dtor_nogc.exit1369
 
-zval_ptr_dtor_nogc.exit1370:                      ; preds = %1259, %1262, %1267
+zval_ptr_dtor_nogc.exit1369:                      ; preds = %1259, %1262, %1267
   %1269 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1270 = load i8, ptr %1269, align 1, !tbaa !41
-  %.not.i1371 = icmp eq i8 %1270, 0
-  br i1 %.not.i1371, label %zval_ptr_dtor_nogc.exit1364.thread, label %1271
+  %.not.i1370 = icmp eq i8 %1270, 0
+  br i1 %.not.i1370, label %zval_ptr_dtor_nogc.exit1363.thread, label %1271
 
-1271:                                             ; preds = %zval_ptr_dtor_nogc.exit1370
+1271:                                             ; preds = %zval_ptr_dtor_nogc.exit1369
   %1272 = load ptr, ptr %4, align 8, !tbaa !41
   %1273 = load i32, ptr %1272, align 4, !tbaa !67
   %1274 = icmp ne i32 %1273, 0
   call void @llvm.assume(i1 %1274)
   %1275 = add i32 %1273, -1
   store i32 %1275, ptr %1272, align 4, !tbaa !67
-  %.not3.i1372 = icmp eq i32 %1275, 0
-  br i1 %.not3.i1372, label %1276, label %zval_ptr_dtor_nogc.exit1364.thread
+  %.not3.i1371 = icmp eq i32 %1275, 0
+  br i1 %.not3.i1371, label %1276, label %zval_ptr_dtor_nogc.exit1363.thread
 
 1276:                                             ; preds = %1271
   %1277 = load ptr, ptr %4, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1277) #13
-  br label %zval_ptr_dtor_nogc.exit1364.thread
+  br label %zval_ptr_dtor_nogc.exit1363.thread
 
 1278:                                             ; preds = %1242
   %1279 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %1280 = load i8, ptr %1279, align 1, !tbaa !41
-  %.not.i1374 = icmp eq i8 %1280, 0
-  br i1 %.not.i1374, label %zval_ptr_dtor_nogc.exit1376, label %1281
+  %.not.i1373 = icmp eq i8 %1280, 0
+  br i1 %.not.i1373, label %zval_ptr_dtor_nogc.exit1375, label %1281
 
 1281:                                             ; preds = %1278
   %1282 = load ptr, ptr %6, align 8, !tbaa !41
@@ -3888,58 +3888,58 @@ zval_ptr_dtor_nogc.exit1370:                      ; preds = %1259, %1262, %1267
   call void @llvm.assume(i1 %1284)
   %1285 = add i32 %1283, -1
   store i32 %1285, ptr %1282, align 4, !tbaa !67
-  %.not3.i1375 = icmp eq i32 %1285, 0
-  br i1 %.not3.i1375, label %1286, label %zval_ptr_dtor_nogc.exit1376
+  %.not3.i1374 = icmp eq i32 %1285, 0
+  br i1 %.not3.i1374, label %1286, label %zval_ptr_dtor_nogc.exit1375
 
 1286:                                             ; preds = %1281
   %1287 = load ptr, ptr %6, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1287) #13
-  br label %zval_ptr_dtor_nogc.exit1376
+  br label %zval_ptr_dtor_nogc.exit1375
 
-zval_ptr_dtor_nogc.exit1376:                      ; preds = %1278, %1281, %1286
+zval_ptr_dtor_nogc.exit1375:                      ; preds = %1278, %1281, %1286
   %1288 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1289 = load i8, ptr %1288, align 1, !tbaa !41
-  %.not.i1377 = icmp eq i8 %1289, 0
-  br i1 %.not.i1377, label %zval_ptr_dtor_nogc.exit1364, label %1290
+  %.not.i1376 = icmp eq i8 %1289, 0
+  br i1 %.not.i1376, label %zval_ptr_dtor_nogc.exit1363, label %1290
 
-1290:                                             ; preds = %zval_ptr_dtor_nogc.exit1376
+1290:                                             ; preds = %zval_ptr_dtor_nogc.exit1375
   %1291 = load ptr, ptr %4, align 8, !tbaa !41
   %1292 = load i32, ptr %1291, align 4, !tbaa !67
   %1293 = icmp ne i32 %1292, 0
   call void @llvm.assume(i1 %1293)
   %1294 = add i32 %1292, -1
   store i32 %1294, ptr %1291, align 4, !tbaa !67
-  %.not3.i1378 = icmp eq i32 %1294, 0
-  br i1 %.not3.i1378, label %1295, label %zval_ptr_dtor_nogc.exit1364
+  %.not3.i1377 = icmp eq i32 %1294, 0
+  br i1 %.not3.i1377, label %1295, label %zval_ptr_dtor_nogc.exit1363
 
 1295:                                             ; preds = %1290
   %1296 = load ptr, ptr %4, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1296) #13
-  br label %zval_ptr_dtor_nogc.exit1364
+  br label %zval_ptr_dtor_nogc.exit1363
 
-zval_ptr_dtor_nogc.exit1364.thread:               ; preds = %get_op1_value.exit1612, %zval_ptr_dtor_nogc.exit1361, %1203, %1208, %1232, %1235, %1240, %zval_ptr_dtor_nogc.exit1370, %1271, %1276
+zval_ptr_dtor_nogc.exit1363.thread:               ; preds = %get_op1_value.exit1611, %zval_ptr_dtor_nogc.exit1360, %1203, %1208, %1232, %1235, %1240, %zval_ptr_dtor_nogc.exit1369, %1271, %1276
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge1289
 
-zval_ptr_dtor_nogc.exit1364:                      ; preds = %1295, %1290, %zval_ptr_dtor_nogc.exit1376, %1169
+zval_ptr_dtor_nogc.exit1363:                      ; preds = %1295, %1290, %zval_ptr_dtor_nogc.exit1375, %1169
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %ct_eval_binary_op.exit1604.thread
+  br label %ct_eval_binary_op.exit1603.thread
 
-ct_eval_binary_op.exit1604.thread:                ; preds = %955, %920, %927, %zval_ptr_dtor_nogc.exit1364, %zval_ptr_dtor_nogc.exit1343, %ct_eval_binary_op.exit1604, %1125, %1135, %1131, %1127, %958
-  %1297 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+ct_eval_binary_op.exit1603.thread:                ; preds = %955, %920, %927, %zval_ptr_dtor_nogc.exit1363, %zval_ptr_dtor_nogc.exit1342, %ct_eval_binary_op.exit1603, %1125, %1135, %1131, %1127, %958
+  %1297 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1298 = load i32, ptr %1297, align 4, !tbaa !84
   %1299 = icmp sgt i32 %1298, -1
   br i1 %1299, label %1300, label %1303
 
-1300:                                             ; preds = %ct_eval_binary_op.exit1604.thread
+1300:                                             ; preds = %ct_eval_binary_op.exit1603.thread
   %1301 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1302 = getelementptr i8, ptr %0, i64 104
-  %.val1525 = load ptr, ptr %1302, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1525, i32 noundef %1298, ptr noundef nonnull %1301)
+  %.val1524 = load ptr, ptr %1302, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1524, i32 noundef %1298, ptr noundef nonnull %1301)
   br label %1303
 
-1303:                                             ; preds = %ct_eval_binary_op.exit1604.thread, %1300
-  %1304 = getelementptr inbounds nuw i8, ptr %.010771639, i64 12
+1303:                                             ; preds = %ct_eval_binary_op.exit1603.thread, %1300
+  %1304 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
   %1305 = load i32, ptr %1304, align 4, !tbaa !86
   %1306 = icmp sgt i32 %1305, -1
   br i1 %1306, label %1307, label %.critedge1289
@@ -3947,8 +3947,8 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %955, %920, %927, %z
 1307:                                             ; preds = %1303
   %1308 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1309 = getelementptr i8, ptr %0, i64 104
-  %.val1526 = load ptr, ptr %1309, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1526, i32 noundef %1305, ptr noundef nonnull %1308)
+  %.val1525 = load ptr, ptr %1309, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1525, i32 noundef %1305, ptr noundef nonnull %1308)
   br label %.critedge1289
 
 1310:                                             ; preds = %871, %871, %871, %871
@@ -3961,7 +3961,7 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %955, %920, %927, %z
   br i1 %1314, label %.critedge1289, label %1315
 
 1315:                                             ; preds = %1311
-  %1316 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %1316 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %1317 = load i8, ptr %1316, align 8, !tbaa !41
   %1318 = icmp eq i8 %1317, -1
   br i1 %1318, label %.critedge1289, label %1319
@@ -3971,7 +3971,7 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %955, %920, %927, %z
   br i1 %1320, label %1321, label %1395
 
 1321:                                             ; preds = %1319
-  %1322 = getelementptr inbounds nuw i8, ptr %.010771639, i64 12
+  %1322 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
   %1323 = load i32, ptr %1322, align 4, !tbaa !86
   %1324 = icmp sgt i32 %1323, -1
   br i1 %1324, label %1325, label %1395
@@ -3992,9 +3992,9 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %955, %920, %927, %z
 1336:                                             ; preds = %1325
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %1337 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %7, ptr noundef %.0.i, ptr noundef nonnull %.0.i1595)
+  %1337 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %7, ptr noundef %.0.i, ptr noundef nonnull %.0.i1594)
   %1338 = icmp eq i32 %1337, 0
-  br i1 %1338, label %1339, label %zval_ptr_dtor_nogc.exit1388.thread
+  br i1 %1338, label %1339, label %zval_ptr_dtor_nogc.exit1387.thread
 
 1339:                                             ; preds = %1336
   %1340 = load i8, ptr %872, align 4, !tbaa !77
@@ -4008,8 +4008,8 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %955, %920, %927, %z
   %1345 = load ptr, ptr %.0.i, align 8, !tbaa !41
   %1346 = call ptr @zend_array_dup(ptr noundef %1345) #13
   store ptr %1346, ptr %4, align 8, !tbaa !41
-  %1347 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %.0.i1595)
-  %1348 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1347 = call fastcc i32 @ct_eval_assign_obj(ptr noundef %4, ptr noundef nonnull %8, ptr noundef nonnull %.0.i1594)
+  %1348 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1349 = load i32, ptr %1348, align 4, !tbaa !84
   %1350 = icmp sgt i32 %1349, -1
   br i1 %1350, label %.sink.split, label %1354
@@ -4017,18 +4017,18 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %955, %920, %927, %z
 .sink.split:                                      ; preds = %1343
   %1351 = load i8, ptr %872, align 4, !tbaa !77
   %1352 = and i8 %1351, -2
-  %switch1301 = icmp eq i8 %1352, -124
-  %. = select i1 %switch1301, ptr %8, ptr %7
+  %switch = icmp eq i8 %1352, -124
+  %. = select i1 %switch, ptr %8, ptr %7
   %1353 = getelementptr i8, ptr %0, i64 104
-  %.val1528 = load ptr, ptr %1353, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1528, i32 noundef %1349, ptr noundef nonnull %.)
+  %.val1527 = load ptr, ptr %1353, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1527, i32 noundef %1349, ptr noundef nonnull %.)
   br label %1354
 
 1354:                                             ; preds = %1343, %.sink.split
   %1355 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %1356 = load i8, ptr %1355, align 1, !tbaa !41
-  %.not.i1380 = icmp eq i8 %1356, 0
-  br i1 %.not.i1380, label %zval_ptr_dtor_nogc.exit1382, label %1357
+  %.not.i1379 = icmp eq i8 %1356, 0
+  br i1 %.not.i1379, label %zval_ptr_dtor_nogc.exit1381, label %1357
 
 1357:                                             ; preds = %1354
   %1358 = load ptr, ptr %7, align 8, !tbaa !41
@@ -4037,50 +4037,50 @@ ct_eval_binary_op.exit1604.thread:                ; preds = %955, %920, %927, %z
   call void @llvm.assume(i1 %1360)
   %1361 = add i32 %1359, -1
   store i32 %1361, ptr %1358, align 4, !tbaa !67
-  %.not3.i1381 = icmp eq i32 %1361, 0
-  br i1 %.not3.i1381, label %1362, label %zval_ptr_dtor_nogc.exit1382
+  %.not3.i1380 = icmp eq i32 %1361, 0
+  br i1 %.not3.i1380, label %1362, label %zval_ptr_dtor_nogc.exit1381
 
 1362:                                             ; preds = %1357
   call void @rc_dtor_func(ptr noundef nonnull %1358) #13
-  br label %zval_ptr_dtor_nogc.exit1382
+  br label %zval_ptr_dtor_nogc.exit1381
 
-zval_ptr_dtor_nogc.exit1382:                      ; preds = %1354, %1357, %1362
+zval_ptr_dtor_nogc.exit1381:                      ; preds = %1354, %1357, %1362
   %1363 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %1364 = load i8, ptr %1363, align 1, !tbaa !41
-  %.not.i1383 = icmp eq i8 %1364, 0
-  br i1 %.not.i1383, label %zval_ptr_dtor_nogc.exit1385, label %1365
+  %.not.i1382 = icmp eq i8 %1364, 0
+  br i1 %.not.i1382, label %zval_ptr_dtor_nogc.exit1384, label %1365
 
-1365:                                             ; preds = %zval_ptr_dtor_nogc.exit1382
+1365:                                             ; preds = %zval_ptr_dtor_nogc.exit1381
   %1366 = load ptr, ptr %8, align 8, !tbaa !41
   %1367 = load i32, ptr %1366, align 4, !tbaa !67
   %1368 = icmp ne i32 %1367, 0
   call void @llvm.assume(i1 %1368)
   %1369 = add i32 %1367, -1
   store i32 %1369, ptr %1366, align 4, !tbaa !67
-  %.not3.i1384 = icmp eq i32 %1369, 0
-  br i1 %.not3.i1384, label %1370, label %zval_ptr_dtor_nogc.exit1385
+  %.not3.i1383 = icmp eq i32 %1369, 0
+  br i1 %.not3.i1383, label %1370, label %zval_ptr_dtor_nogc.exit1384
 
 1370:                                             ; preds = %1365
   %1371 = load ptr, ptr %8, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1371) #13
-  br label %zval_ptr_dtor_nogc.exit1385
+  br label %zval_ptr_dtor_nogc.exit1384
 
-zval_ptr_dtor_nogc.exit1385:                      ; preds = %zval_ptr_dtor_nogc.exit1382, %1365, %1370
+zval_ptr_dtor_nogc.exit1384:                      ; preds = %zval_ptr_dtor_nogc.exit1381, %1365, %1370
   %1372 = load i32, ptr %1322, align 4, !tbaa !86
   %1373 = icmp sgt i32 %1372, -1
   br i1 %1373, label %1374, label %1376
 
-1374:                                             ; preds = %zval_ptr_dtor_nogc.exit1385
+1374:                                             ; preds = %zval_ptr_dtor_nogc.exit1384
   %1375 = getelementptr i8, ptr %0, i64 104
-  %.val1529 = load ptr, ptr %1375, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1529, i32 noundef %1372, ptr noundef nonnull %4)
+  %.val1528 = load ptr, ptr %1375, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1528, i32 noundef %1372, ptr noundef nonnull %4)
   br label %1376
 
-1376:                                             ; preds = %1374, %zval_ptr_dtor_nogc.exit1385
+1376:                                             ; preds = %1374, %zval_ptr_dtor_nogc.exit1384
   %1377 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1378 = load i8, ptr %1377, align 1, !tbaa !41
-  %.not.i1386 = icmp eq i8 %1378, 0
-  br i1 %.not.i1386, label %zval_ptr_dtor_nogc.exit1388, label %1379
+  %.not.i1385 = icmp eq i8 %1378, 0
+  br i1 %.not.i1385, label %zval_ptr_dtor_nogc.exit1387, label %1379
 
 1379:                                             ; preds = %1376
   %1380 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4089,19 +4089,19 @@ zval_ptr_dtor_nogc.exit1385:                      ; preds = %zval_ptr_dtor_nogc.
   call void @llvm.assume(i1 %1382)
   %1383 = add i32 %1381, -1
   store i32 %1383, ptr %1380, align 4, !tbaa !67
-  %.not3.i1387 = icmp eq i32 %1383, 0
-  br i1 %.not3.i1387, label %1384, label %zval_ptr_dtor_nogc.exit1388
+  %.not3.i1386 = icmp eq i32 %1383, 0
+  br i1 %.not3.i1386, label %1384, label %zval_ptr_dtor_nogc.exit1387
 
 1384:                                             ; preds = %1379
   %1385 = load ptr, ptr %4, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %1385) #13
-  br label %zval_ptr_dtor_nogc.exit1388
+  br label %zval_ptr_dtor_nogc.exit1387
 
 1386:                                             ; preds = %1339
   %1387 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %1388 = load i8, ptr %1387, align 1, !tbaa !41
-  %.not.i1389 = icmp eq i8 %1388, 0
-  br i1 %.not.i1389, label %zval_ptr_dtor_nogc.exit1388.thread, label %1389
+  %.not.i1388 = icmp eq i8 %1388, 0
+  br i1 %.not.i1388, label %zval_ptr_dtor_nogc.exit1387.thread, label %1389
 
 1389:                                             ; preds = %1386
   %1390 = load ptr, ptr %7, align 8, !tbaa !41
@@ -4110,25 +4110,25 @@ zval_ptr_dtor_nogc.exit1385:                      ; preds = %zval_ptr_dtor_nogc.
   call void @llvm.assume(i1 %1392)
   %1393 = add i32 %1391, -1
   store i32 %1393, ptr %1390, align 4, !tbaa !67
-  %.not3.i1390 = icmp eq i32 %1393, 0
-  br i1 %.not3.i1390, label %1394, label %zval_ptr_dtor_nogc.exit1388.thread
+  %.not3.i1389 = icmp eq i32 %1393, 0
+  br i1 %.not3.i1389, label %1394, label %zval_ptr_dtor_nogc.exit1387.thread
 
 1394:                                             ; preds = %1389
   call void @rc_dtor_func(ptr noundef nonnull %1390) #13
-  br label %zval_ptr_dtor_nogc.exit1388.thread
+  br label %zval_ptr_dtor_nogc.exit1387.thread
 
-zval_ptr_dtor_nogc.exit1388.thread:               ; preds = %1336, %1386, %1389, %1394
+zval_ptr_dtor_nogc.exit1387.thread:               ; preds = %1336, %1386, %1389, %1394
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %1395
 
-zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
+zval_ptr_dtor_nogc.exit1387:                      ; preds = %1384, %1379, %1376
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge1289
 
-1395:                                             ; preds = %zval_ptr_dtor_nogc.exit1388.thread, %1310, %1325, %1321, %1319
-  %1396 = getelementptr inbounds nuw i8, ptr %.010771639, i64 12
+1395:                                             ; preds = %zval_ptr_dtor_nogc.exit1387.thread, %1310, %1325, %1321, %1319
+  %1396 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
   %1397 = load i32, ptr %1396, align 4, !tbaa !86
   %1398 = icmp sgt i32 %1397, -1
   br i1 %1398, label %1399, label %1402
@@ -4136,12 +4136,12 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1399:                                             ; preds = %1395
   %1400 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1401 = getelementptr i8, ptr %0, i64 104
-  %.val1530 = load ptr, ptr %1401, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1530, i32 noundef %1397, ptr noundef nonnull %1400)
+  %.val1529 = load ptr, ptr %1401, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1529, i32 noundef %1397, ptr noundef nonnull %1400)
   br label %1402
 
 1402:                                             ; preds = %1395, %1399
-  %1403 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1403 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1404 = load i32, ptr %1403, align 4, !tbaa !84
   %1405 = icmp sgt i32 %1404, -1
   br i1 %1405, label %1406, label %.critedge1289
@@ -4149,8 +4149,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1406:                                             ; preds = %1402
   %1407 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1408 = getelementptr i8, ptr %0, i64 104
-  %.val1531 = load ptr, ptr %1408, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1531, i32 noundef %1404, ptr noundef nonnull %1407)
+  %.val1530 = load ptr, ptr %1408, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1530, i32 noundef %1404, ptr noundef nonnull %1407)
   br label %.critedge1289
 
 1409:                                             ; preds = %871, %871
@@ -4162,7 +4162,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1413:                                             ; preds = %1409
   %1414 = call fastcc i32 @ct_eval_incdec(ptr noundef %4, i8 noundef zeroext %873, ptr noundef nonnull %.0.i)
   %1415 = icmp eq i32 %1414, 0
-  %1416 = getelementptr inbounds nuw i8, ptr %.010771639, i64 12
+  %1416 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
   %1417 = load i32, ptr %1416, align 4, !tbaa !86
   %1418 = icmp sgt i32 %1417, -1
   br i1 %1415, label %1419, label %1438
@@ -4172,27 +4172,27 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 
 1420:                                             ; preds = %1419
   %1421 = getelementptr i8, ptr %0, i64 104
-  %.val1532 = load ptr, ptr %1421, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1532, i32 noundef %1417, ptr noundef nonnull %4)
+  %.val1531 = load ptr, ptr %1421, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1531, i32 noundef %1417, ptr noundef nonnull %4)
   br label %1422
 
 1422:                                             ; preds = %1419, %1420
-  %1423 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1423 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1424 = load i32, ptr %1423, align 4, !tbaa !84
   %1425 = icmp sgt i32 %1424, -1
   br i1 %1425, label %1426, label %1428
 
 1426:                                             ; preds = %1422
   %1427 = getelementptr i8, ptr %0, i64 104
-  %.val1533 = load ptr, ptr %1427, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1533, i32 noundef %1424, ptr noundef nonnull %4)
+  %.val1532 = load ptr, ptr %1427, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1532, i32 noundef %1424, ptr noundef nonnull %4)
   br label %1428
 
 1428:                                             ; preds = %1426, %1422
   %1429 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1430 = load i8, ptr %1429, align 1, !tbaa !41
-  %.not.i1392 = icmp eq i8 %1430, 0
-  br i1 %.not.i1392, label %.critedge1289, label %1431
+  %.not.i1391 = icmp eq i8 %1430, 0
+  br i1 %.not.i1391, label %.critedge1289, label %1431
 
 1431:                                             ; preds = %1428
   %1432 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4201,8 +4201,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   call void @llvm.assume(i1 %1434)
   %1435 = add i32 %1433, -1
   store i32 %1435, ptr %1432, align 4, !tbaa !67
-  %.not3.i1393 = icmp eq i32 %1435, 0
-  br i1 %.not3.i1393, label %1436, label %.critedge1289
+  %.not3.i1392 = icmp eq i32 %1435, 0
+  br i1 %.not3.i1392, label %1436, label %.critedge1289
 
 1436:                                             ; preds = %1431
   %1437 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4215,12 +4215,12 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1439:                                             ; preds = %1438
   %1440 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1441 = getelementptr i8, ptr %0, i64 104
-  %.val1534 = load ptr, ptr %1441, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1534, i32 noundef %1417, ptr noundef nonnull %1440)
+  %.val1533 = load ptr, ptr %1441, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1533, i32 noundef %1417, ptr noundef nonnull %1440)
   br label %1442
 
 1442:                                             ; preds = %1438, %1439
-  %1443 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1443 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1444 = load i32, ptr %1443, align 4, !tbaa !84
   %1445 = icmp sgt i32 %1444, -1
   br i1 %1445, label %1446, label %.critedge1289
@@ -4228,8 +4228,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1446:                                             ; preds = %1442
   %1447 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1448 = getelementptr i8, ptr %0, i64 104
-  %.val1535 = load ptr, ptr %1448, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1535, i32 noundef %1444, ptr noundef nonnull %1447)
+  %.val1534 = load ptr, ptr %1448, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1534, i32 noundef %1444, ptr noundef nonnull %1447)
   br label %.critedge1289
 
 1449:                                             ; preds = %871, %871
@@ -4239,23 +4239,23 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   br i1 %1452, label %.critedge1289, label %1453
 
 1453:                                             ; preds = %1449
-  %1454 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1454 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1455 = load i32, ptr %1454, align 4, !tbaa !84
   %1456 = icmp sgt i32 %1455, -1
   br i1 %1456, label %1457, label %1459
 
 1457:                                             ; preds = %1453
   %1458 = getelementptr i8, ptr %0, i64 104
-  %.val1536 = load ptr, ptr %1458, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1536, i32 noundef %1455, ptr noundef nonnull %.0.i)
-  %.pre1710 = load i8, ptr %872, align 4, !tbaa !77
+  %.val1535 = load ptr, ptr %1458, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1535, i32 noundef %1455, ptr noundef nonnull %.0.i)
+  %.pre1709 = load i8, ptr %872, align 4, !tbaa !77
   br label %1459
 
 1459:                                             ; preds = %1457, %1453
-  %1460 = phi i8 [ %.pre1710, %1457 ], [ %873, %1453 ]
+  %1460 = phi i8 [ %.pre1709, %1457 ], [ %873, %1453 ]
   %1461 = call fastcc i32 @ct_eval_incdec(ptr noundef %4, i8 noundef zeroext %1460, ptr noundef nonnull %.0.i)
   %1462 = icmp eq i32 %1461, 0
-  %1463 = getelementptr inbounds nuw i8, ptr %.010771639, i64 12
+  %1463 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
   %1464 = load i32, ptr %1463, align 4, !tbaa !86
   %1465 = icmp sgt i32 %1464, -1
   br i1 %1462, label %1466, label %1479
@@ -4265,15 +4265,15 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 
 1467:                                             ; preds = %1466
   %1468 = getelementptr i8, ptr %0, i64 104
-  %.val1537 = load ptr, ptr %1468, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1537, i32 noundef %1464, ptr noundef nonnull %4)
+  %.val1536 = load ptr, ptr %1468, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1536, i32 noundef %1464, ptr noundef nonnull %4)
   br label %1469
 
 1469:                                             ; preds = %1467, %1466
   %1470 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1471 = load i8, ptr %1470, align 1, !tbaa !41
-  %.not.i1395 = icmp eq i8 %1471, 0
-  br i1 %.not.i1395, label %.critedge1289, label %1472
+  %.not.i1394 = icmp eq i8 %1471, 0
+  br i1 %.not.i1394, label %.critedge1289, label %1472
 
 1472:                                             ; preds = %1469
   %1473 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4282,8 +4282,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   call void @llvm.assume(i1 %1475)
   %1476 = add i32 %1474, -1
   store i32 %1476, ptr %1473, align 4, !tbaa !67
-  %.not3.i1396 = icmp eq i32 %1476, 0
-  br i1 %.not3.i1396, label %1477, label %.critedge1289
+  %.not3.i1395 = icmp eq i32 %1476, 0
+  br i1 %.not3.i1395, label %1477, label %.critedge1289
 
 1477:                                             ; preds = %1472
   %1478 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4296,8 +4296,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1480:                                             ; preds = %1479
   %1481 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1482 = getelementptr i8, ptr %0, i64 104
-  %.val1538 = load ptr, ptr %1482, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1538, i32 noundef %1464, ptr noundef nonnull %1481)
+  %.val1537 = load ptr, ptr %1482, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1537, i32 noundef %1464, ptr noundef nonnull %1481)
   br label %.critedge1289
 
 1483:                                             ; preds = %871, %871
@@ -4309,7 +4309,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   ]
 
 1486:                                             ; preds = %1483
-  %1487 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1487 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1488 = load i32, ptr %1487, align 4, !tbaa !84
   %1489 = icmp sgt i32 %1488, -1
   br i1 %1489, label %1490, label %.critedge1289
@@ -4317,14 +4317,14 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1490:                                             ; preds = %1486
   %1491 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1492 = getelementptr i8, ptr %0, i64 104
-  %.val1539 = load ptr, ptr %1492, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1539, i32 noundef %1488, ptr noundef nonnull %1491)
+  %.val1538 = load ptr, ptr %1492, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1538, i32 noundef %1488, ptr noundef nonnull %1491)
   br label %.critedge1289
 
 1493:                                             ; preds = %1483
   %1494 = call i32 @zend_optimizer_eval_unary_op(ptr noundef nonnull %4, i8 noundef zeroext %873, ptr noundef nonnull %.0.i) #13
   %1495 = icmp eq i32 %1494, 0
-  %1496 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1496 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1497 = load i32, ptr %1496, align 4, !tbaa !84
   %1498 = icmp sgt i32 %1497, -1
   br i1 %1495, label %1499, label %1512
@@ -4334,15 +4334,15 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 
 1500:                                             ; preds = %1499
   %1501 = getelementptr i8, ptr %0, i64 104
-  %.val1540 = load ptr, ptr %1501, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1540, i32 noundef %1497, ptr noundef nonnull %4)
+  %.val1539 = load ptr, ptr %1501, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1539, i32 noundef %1497, ptr noundef nonnull %4)
   br label %1502
 
 1502:                                             ; preds = %1500, %1499
   %1503 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1504 = load i8, ptr %1503, align 1, !tbaa !41
-  %.not.i1398 = icmp eq i8 %1504, 0
-  br i1 %.not.i1398, label %.critedge1289, label %1505
+  %.not.i1397 = icmp eq i8 %1504, 0
+  br i1 %.not.i1397, label %.critedge1289, label %1505
 
 1505:                                             ; preds = %1502
   %1506 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4351,8 +4351,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   call void @llvm.assume(i1 %1508)
   %1509 = add i32 %1507, -1
   store i32 %1509, ptr %1506, align 4, !tbaa !67
-  %.not3.i1399 = icmp eq i32 %1509, 0
-  br i1 %.not3.i1399, label %1510, label %.critedge1289
+  %.not3.i1398 = icmp eq i32 %1509, 0
+  br i1 %.not3.i1398, label %1510, label %.critedge1289
 
 1510:                                             ; preds = %1505
   %1511 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4365,8 +4365,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1513:                                             ; preds = %1512
   %1514 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1515 = getelementptr i8, ptr %0, i64 104
-  %.val1541 = load ptr, ptr %1515, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1541, i32 noundef %1497, ptr noundef nonnull %1514)
+  %.val1540 = load ptr, ptr %1515, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1540, i32 noundef %1497, ptr noundef nonnull %1514)
   br label %.critedge1289
 
 1516:                                             ; preds = %871
@@ -4378,7 +4378,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   ]
 
 1519:                                             ; preds = %1516
-  %1520 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1520 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1521 = load i32, ptr %1520, align 4, !tbaa !84
   %1522 = icmp sgt i32 %1521, -1
   br i1 %1522, label %1523, label %.critedge1289
@@ -4386,16 +4386,16 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1523:                                             ; preds = %1519
   %1524 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1525 = getelementptr i8, ptr %0, i64 104
-  %.val1542 = load ptr, ptr %1525, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1542, i32 noundef %1521, ptr noundef nonnull %1524)
+  %.val1541 = load ptr, ptr %1525, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1541, i32 noundef %1521, ptr noundef nonnull %1524)
   br label %.critedge1289
 
 1526:                                             ; preds = %1516
-  %1527 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+  %1527 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %1528 = load i32, ptr %1527, align 4, !tbaa !79
   %1529 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %4, i32 noundef %1528, ptr noundef nonnull %.0.i) #13
   %1530 = icmp eq i32 %1529, 0
-  %1531 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1531 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1532 = load i32, ptr %1531, align 4, !tbaa !84
   %1533 = icmp sgt i32 %1532, -1
   br i1 %1530, label %1534, label %1547
@@ -4405,15 +4405,15 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 
 1535:                                             ; preds = %1534
   %1536 = getelementptr i8, ptr %0, i64 104
-  %.val1543 = load ptr, ptr %1536, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1543, i32 noundef %1532, ptr noundef nonnull %4)
+  %.val1542 = load ptr, ptr %1536, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1542, i32 noundef %1532, ptr noundef nonnull %4)
   br label %1537
 
 1537:                                             ; preds = %1535, %1534
   %1538 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1539 = load i8, ptr %1538, align 1, !tbaa !41
-  %.not.i1401 = icmp eq i8 %1539, 0
-  br i1 %.not.i1401, label %.critedge1289, label %1540
+  %.not.i1400 = icmp eq i8 %1539, 0
+  br i1 %.not.i1400, label %.critedge1289, label %1540
 
 1540:                                             ; preds = %1537
   %1541 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4422,8 +4422,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   call void @llvm.assume(i1 %1543)
   %1544 = add i32 %1542, -1
   store i32 %1544, ptr %1541, align 4, !tbaa !67
-  %.not3.i1402 = icmp eq i32 %1544, 0
-  br i1 %.not3.i1402, label %1545, label %.critedge1289
+  %.not3.i1401 = icmp eq i32 %1544, 0
+  br i1 %.not3.i1401, label %1545, label %.critedge1289
 
 1545:                                             ; preds = %1540
   %1546 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4436,8 +4436,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
 1548:                                             ; preds = %1547
   %1549 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1550 = getelementptr i8, ptr %0, i64 104
-  %.val1544 = load ptr, ptr %1550, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1544, i32 noundef %1532, ptr noundef nonnull %1549)
+  %.val1543 = load ptr, ptr %1550, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1543, i32 noundef %1532, ptr noundef nonnull %1549)
   br label %.critedge1289
 
 1551:                                             ; preds = %871, %871, %871
@@ -4464,18 +4464,18 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   %.sink.i = phi i32 [ %1561, %1559 ], [ 3, %1554 ]
   %1563 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %.sink.i, ptr %1563, align 8, !tbaa !41
-  %1564 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1564 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1565 = load i32, ptr %1564, align 4, !tbaa !84
   %1566 = icmp sgt i32 %1565, -1
   br i1 %1566, label %1567, label %.critedge1289
 
 1567:                                             ; preds = %1562
   %1568 = getelementptr i8, ptr %0, i64 104
-  %.val1545 = load ptr, ptr %1568, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1545, i32 noundef %1565, ptr noundef nonnull %4)
-  %.phi.trans.insert1708 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %.pre1709 = load i8, ptr %.phi.trans.insert1708, align 1, !tbaa !41
-  %1569 = icmp eq i8 %.pre1709, 0
+  %.val1544 = load ptr, ptr %1568, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1544, i32 noundef %1565, ptr noundef nonnull %4)
+  %.phi.trans.insert1707 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %.pre1708 = load i8, ptr %.phi.trans.insert1707, align 1, !tbaa !41
+  %1569 = icmp eq i8 %.pre1708, 0
   br i1 %1569, label %.critedge1289, label %1570
 
 1570:                                             ; preds = %1567
@@ -4485,8 +4485,8 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   tail call void @llvm.assume(i1 %1573)
   %1574 = add i32 %1572, -1
   store i32 %1574, ptr %1571, align 4, !tbaa !67
-  %.not3.i1405 = icmp eq i32 %1574, 0
-  br i1 %.not3.i1405, label %1575, label %.critedge1289
+  %.not3.i1404 = icmp eq i32 %1574, 0
+  br i1 %.not3.i1404, label %1575, label %.critedge1289
 
 1575:                                             ; preds = %1570
   %1576 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4494,7 +4494,7 @@ zval_ptr_dtor_nogc.exit1388:                      ; preds = %1384, %1379, %1376
   br label %.critedge1289
 
 ct_eval_bool_cast.exit:                           ; preds = %1554
-  %1577 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1577 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1578 = load i32, ptr %1577, align 4, !tbaa !84
   %1579 = icmp sgt i32 %1578, -1
   br i1 %1579, label %1580, label %.critedge1289
@@ -4502,8 +4502,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1580:                                             ; preds = %ct_eval_bool_cast.exit
   %1581 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1582 = getelementptr i8, ptr %0, i64 104
-  %.val1546 = load ptr, ptr %1582, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1546, i32 noundef %1578, ptr noundef nonnull %1581)
+  %.val1545 = load ptr, ptr %1582, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1545, i32 noundef %1578, ptr noundef nonnull %1581)
   br label %.critedge1289
 
 1583:                                             ; preds = %871
@@ -4515,7 +4515,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1587:                                             ; preds = %1583
   %1588 = call i32 @zend_optimizer_eval_strlen(ptr noundef nonnull %4, ptr noundef nonnull %.0.i) #13
   %1589 = icmp eq i32 %1588, 0
-  %1590 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1590 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1591 = load i32, ptr %1590, align 4, !tbaa !84
   %1592 = icmp sgt i32 %1591, -1
   br i1 %1589, label %1593, label %1606
@@ -4525,15 +4525,15 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 
 1594:                                             ; preds = %1593
   %1595 = getelementptr i8, ptr %0, i64 104
-  %.val1547 = load ptr, ptr %1595, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1547, i32 noundef %1591, ptr noundef nonnull %4)
+  %.val1546 = load ptr, ptr %1595, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1546, i32 noundef %1591, ptr noundef nonnull %4)
   br label %1596
 
 1596:                                             ; preds = %1594, %1593
   %1597 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1598 = load i8, ptr %1597, align 1, !tbaa !41
-  %.not.i1407 = icmp eq i8 %1598, 0
-  br i1 %.not.i1407, label %.critedge1289, label %1599
+  %.not.i1406 = icmp eq i8 %1598, 0
+  br i1 %.not.i1406, label %.critedge1289, label %1599
 
 1599:                                             ; preds = %1596
   %1600 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4542,8 +4542,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   call void @llvm.assume(i1 %1602)
   %1603 = add i32 %1601, -1
   store i32 %1603, ptr %1600, align 4, !tbaa !67
-  %.not3.i1408 = icmp eq i32 %1603, 0
-  br i1 %.not3.i1408, label %1604, label %.critedge1289
+  %.not3.i1407 = icmp eq i32 %1603, 0
+  br i1 %.not3.i1407, label %1604, label %.critedge1289
 
 1604:                                             ; preds = %1599
   %1605 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4556,8 +4556,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1607:                                             ; preds = %1606
   %1608 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1609 = getelementptr i8, ptr %0, i64 104
-  %.val1548 = load ptr, ptr %1609, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1548, i32 noundef %1591, ptr noundef nonnull %1608)
+  %.val1547 = load ptr, ptr %1609, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1547, i32 noundef %1591, ptr noundef nonnull %1608)
   br label %.critedge1289
 
 1610:                                             ; preds = %871
@@ -4578,19 +4578,19 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1618:                                             ; preds = %1613
   %1619 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 1, ptr %1619, align 8, !tbaa !41
-  %1620 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1620 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1621 = load i32, ptr %1620, align 4, !tbaa !84
   %1622 = icmp sgt i32 %1621, -1
   br i1 %1622, label %1623, label %.critedge1289
 
 1623:                                             ; preds = %1618
   %1624 = getelementptr i8, ptr %0, i64 104
-  %.val1549 = load ptr, ptr %1624, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1549, i32 noundef %1621, ptr noundef nonnull %4)
+  %.val1548 = load ptr, ptr %1624, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1548, i32 noundef %1621, ptr noundef nonnull %4)
   br label %.critedge1289
 
 1625:                                             ; preds = %1610, %1613
-  %1626 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1626 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1627 = load i32, ptr %1626, align 4, !tbaa !84
   %1628 = icmp sgt i32 %1627, -1
   br i1 %1628, label %1629, label %.critedge1289
@@ -4598,8 +4598,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1629:                                             ; preds = %1625
   %1630 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1631 = getelementptr i8, ptr %0, i64 104
-  %.val1550 = load ptr, ptr %1631, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1550, i32 noundef %1627, ptr noundef nonnull %1630)
+  %.val1549 = load ptr, ptr %1631, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1549, i32 noundef %1627, ptr noundef nonnull %1630)
   br label %.critedge1289
 
 1632:                                             ; preds = %871
@@ -4618,18 +4618,18 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   store i64 %1639, ptr %4, align 8, !tbaa !41
   %1640 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 4, ptr %1640, align 8, !tbaa !41
-  %1641 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1641 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1642 = load i32, ptr %1641, align 4, !tbaa !84
   %1643 = icmp sgt i32 %1642, -1
   br i1 %1643, label %1644, label %.critedge1289
 
 1644:                                             ; preds = %1635
   %1645 = getelementptr i8, ptr %0, i64 104
-  %.val1551 = load ptr, ptr %1645, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1551, i32 noundef %1642, ptr noundef nonnull %4)
-  %.phi.trans.insert1706 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %.pre1707 = load i8, ptr %.phi.trans.insert1706, align 1, !tbaa !41
-  %1646 = icmp eq i8 %.pre1707, 0
+  %.val1550 = load ptr, ptr %1645, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1550, i32 noundef %1642, ptr noundef nonnull %4)
+  %.phi.trans.insert1705 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %.pre1706 = load i8, ptr %.phi.trans.insert1705, align 1, !tbaa !41
+  %1646 = icmp eq i8 %.pre1706, 0
   br i1 %1646, label %.critedge1289, label %1647
 
 1647:                                             ; preds = %1644
@@ -4639,8 +4639,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   tail call void @llvm.assume(i1 %1650)
   %1651 = add i32 %1649, -1
   store i32 %1651, ptr %1648, align 4, !tbaa !67
-  %.not3.i1411 = icmp eq i32 %1651, 0
-  br i1 %.not3.i1411, label %1652, label %.critedge1289
+  %.not3.i1410 = icmp eq i32 %1651, 0
+  br i1 %.not3.i1410, label %1652, label %.critedge1289
 
 1652:                                             ; preds = %1647
   %1653 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4648,7 +4648,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   br label %.critedge1289
 
 1654:                                             ; preds = %1632
-  %1655 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1655 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1656 = load i32, ptr %1655, align 4, !tbaa !84
   %1657 = icmp sgt i32 %1656, -1
   br i1 %1657, label %1658, label %.critedge1289
@@ -4656,8 +4656,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1658:                                             ; preds = %1654
   %1659 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1660 = getelementptr i8, ptr %0, i64 104
-  %.val1552 = load ptr, ptr %1660, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1552, i32 noundef %1656, ptr noundef nonnull %1659)
+  %.val1551 = load ptr, ptr %1660, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1551, i32 noundef %1656, ptr noundef nonnull %1659)
   br label %.critedge1289
 
 1661:                                             ; preds = %871
@@ -4667,17 +4667,17 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   br i1 %1664, label %.critedge1289, label %1665
 
 1665:                                             ; preds = %1661
-  %1666 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %1666 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %1667 = load i8, ptr %1666, align 8, !tbaa !41
   %1668 = icmp eq i8 %1667, -1
   br i1 %1668, label %.critedge1289, label %1669
 
 1669:                                             ; preds = %1665
-  %1670 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+  %1670 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %1671 = load i32, ptr %1670, align 4, !tbaa !79
-  %1672 = call fastcc i32 @ct_eval_in_array(ptr noundef %4, i32 noundef %1671, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595)
+  %1672 = call fastcc i32 @ct_eval_in_array(ptr noundef %4, i32 noundef %1671, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1594)
   %1673 = icmp eq i32 %1672, 0
-  %1674 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1674 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1675 = load i32, ptr %1674, align 4, !tbaa !84
   %1676 = icmp sgt i32 %1675, -1
   br i1 %1673, label %1677, label %1690
@@ -4687,15 +4687,15 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 
 1678:                                             ; preds = %1677
   %1679 = getelementptr i8, ptr %0, i64 104
-  %.val1553 = load ptr, ptr %1679, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1553, i32 noundef %1675, ptr noundef nonnull %4)
+  %.val1552 = load ptr, ptr %1679, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1552, i32 noundef %1675, ptr noundef nonnull %4)
   br label %1680
 
 1680:                                             ; preds = %1678, %1677
   %1681 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1682 = load i8, ptr %1681, align 1, !tbaa !41
-  %.not.i1413 = icmp eq i8 %1682, 0
-  br i1 %.not.i1413, label %.critedge1289, label %1683
+  %.not.i1412 = icmp eq i8 %1682, 0
+  br i1 %.not.i1412, label %.critedge1289, label %1683
 
 1683:                                             ; preds = %1680
   %1684 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4704,8 +4704,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   tail call void @llvm.assume(i1 %1686)
   %1687 = add i32 %1685, -1
   store i32 %1687, ptr %1684, align 4, !tbaa !67
-  %.not3.i1414 = icmp eq i32 %1687, 0
-  br i1 %.not3.i1414, label %1688, label %.critedge1289
+  %.not3.i1413 = icmp eq i32 %1687, 0
+  br i1 %.not3.i1413, label %1688, label %.critedge1289
 
 1688:                                             ; preds = %1683
   %1689 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4718,8 +4718,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1691:                                             ; preds = %1690
   %1692 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1693 = getelementptr i8, ptr %0, i64 104
-  %.val1554 = load ptr, ptr %1693, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1554, i32 noundef %1675, ptr noundef nonnull %1692)
+  %.val1553 = load ptr, ptr %1693, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1553, i32 noundef %1675, ptr noundef nonnull %1692)
   br label %.critedge1289
 
 1694:                                             ; preds = %871
@@ -4729,15 +4729,15 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   br i1 %1697, label %.critedge1289, label %1698
 
 1698:                                             ; preds = %1694
-  %1699 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %1699 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %1700 = load i8, ptr %1699, align 8, !tbaa !41
   %1701 = icmp eq i8 %1700, -1
   br i1 %1701, label %.critedge1289, label %1702
 
 1702:                                             ; preds = %1698
-  %1703 = call fastcc i32 @ct_eval_array_key_exists(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595)
+  %1703 = call fastcc i32 @ct_eval_array_key_exists(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1594)
   %1704 = icmp eq i32 %1703, 0
-  %1705 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1705 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1706 = load i32, ptr %1705, align 4, !tbaa !84
   %1707 = icmp sgt i32 %1706, -1
   br i1 %1704, label %1708, label %1721
@@ -4747,15 +4747,15 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 
 1709:                                             ; preds = %1708
   %1710 = getelementptr i8, ptr %0, i64 104
-  %.val1555 = load ptr, ptr %1710, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1555, i32 noundef %1706, ptr noundef nonnull %4)
+  %.val1554 = load ptr, ptr %1710, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1554, i32 noundef %1706, ptr noundef nonnull %4)
   br label %1711
 
 1711:                                             ; preds = %1709, %1708
   %1712 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1713 = load i8, ptr %1712, align 1, !tbaa !41
-  %.not.i1416 = icmp eq i8 %1713, 0
-  br i1 %.not.i1416, label %.critedge1289, label %1714
+  %.not.i1415 = icmp eq i8 %1713, 0
+  br i1 %.not.i1415, label %.critedge1289, label %1714
 
 1714:                                             ; preds = %1711
   %1715 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4764,8 +4764,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   tail call void @llvm.assume(i1 %1717)
   %1718 = add i32 %1716, -1
   store i32 %1718, ptr %1715, align 4, !tbaa !67
-  %.not3.i1417 = icmp eq i32 %1718, 0
-  br i1 %.not3.i1417, label %1719, label %.critedge1289
+  %.not3.i1416 = icmp eq i32 %1718, 0
+  br i1 %.not3.i1416, label %1719, label %.critedge1289
 
 1719:                                             ; preds = %1714
   %1720 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4778,8 +4778,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1722:                                             ; preds = %1721
   %1723 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1724 = getelementptr i8, ptr %0, i64 104
-  %.val1556 = load ptr, ptr %1724, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1556, i32 noundef %1706, ptr noundef nonnull %1723)
+  %.val1555 = load ptr, ptr %1724, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1555, i32 noundef %1706, ptr noundef nonnull %1723)
   br label %.critedge1289
 
 1725:                                             ; preds = %871, %871, %871
@@ -4789,7 +4789,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   br i1 %1728, label %.critedge1289, label %1729
 
 1729:                                             ; preds = %1725
-  %1730 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %1730 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %1731 = load i8, ptr %1730, align 8, !tbaa !41
   %1732 = icmp eq i8 %1731, -1
   br i1 %1732, label %.critedge1289, label %1733
@@ -4797,9 +4797,9 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1733:                                             ; preds = %1729
   %1734 = icmp ne i8 %873, 98
   %1735 = zext i1 %1734 to i32
-  %1736 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595, i32 noundef %1735)
+  %1736 = call fastcc i32 @ct_eval_fetch_dim(ptr noundef %4, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1594, i32 noundef %1735)
   %1737 = icmp eq i32 %1736, 0
-  %1738 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1738 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1739 = load i32, ptr %1738, align 4, !tbaa !84
   %1740 = icmp sgt i32 %1739, -1
   br i1 %1737, label %1741, label %1754
@@ -4809,15 +4809,15 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 
 1742:                                             ; preds = %1741
   %1743 = getelementptr i8, ptr %0, i64 104
-  %.val1557 = load ptr, ptr %1743, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1557, i32 noundef %1739, ptr noundef nonnull %4)
+  %.val1556 = load ptr, ptr %1743, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1556, i32 noundef %1739, ptr noundef nonnull %4)
   br label %1744
 
 1744:                                             ; preds = %1742, %1741
   %1745 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1746 = load i8, ptr %1745, align 1, !tbaa !41
-  %.not.i1419 = icmp eq i8 %1746, 0
-  br i1 %.not.i1419, label %.critedge1289, label %1747
+  %.not.i1418 = icmp eq i8 %1746, 0
+  br i1 %.not.i1418, label %.critedge1289, label %1747
 
 1747:                                             ; preds = %1744
   %1748 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4826,8 +4826,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   tail call void @llvm.assume(i1 %1750)
   %1751 = add i32 %1749, -1
   store i32 %1751, ptr %1748, align 4, !tbaa !67
-  %.not3.i1420 = icmp eq i32 %1751, 0
-  br i1 %.not3.i1420, label %1752, label %.critedge1289
+  %.not3.i1419 = icmp eq i32 %1751, 0
+  br i1 %.not3.i1419, label %1752, label %.critedge1289
 
 1752:                                             ; preds = %1747
   %1753 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4840,8 +4840,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1755:                                             ; preds = %1754
   %1756 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1757 = getelementptr i8, ptr %0, i64 104
-  %.val1558 = load ptr, ptr %1757, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1558, i32 noundef %1739, ptr noundef nonnull %1756)
+  %.val1557 = load ptr, ptr %1757, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1557, i32 noundef %1739, ptr noundef nonnull %1756)
   br label %.critedge1289
 
 1758:                                             ; preds = %871
@@ -4851,17 +4851,17 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   br i1 %1761, label %.critedge1289, label %1762
 
 1762:                                             ; preds = %1758
-  %1763 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %1763 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %1764 = load i8, ptr %1763, align 8, !tbaa !41
   %1765 = icmp eq i8 %1764, -1
   br i1 %1765, label %.critedge1289, label %1766
 
 1766:                                             ; preds = %1762
-  %1767 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+  %1767 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %1768 = load i32, ptr %1767, align 4, !tbaa !79
-  %1769 = call fastcc i32 @ct_eval_isset_dim(ptr noundef %4, i32 noundef %1768, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595)
+  %1769 = call fastcc i32 @ct_eval_isset_dim(ptr noundef %4, i32 noundef %1768, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1594)
   %1770 = icmp eq i32 %1769, 0
-  %1771 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1771 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1772 = load i32, ptr %1771, align 4, !tbaa !84
   %1773 = icmp sgt i32 %1772, -1
   br i1 %1770, label %1774, label %1787
@@ -4871,15 +4871,15 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 
 1775:                                             ; preds = %1774
   %1776 = getelementptr i8, ptr %0, i64 104
-  %.val1559 = load ptr, ptr %1776, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1559, i32 noundef %1772, ptr noundef nonnull %4)
+  %.val1558 = load ptr, ptr %1776, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1558, i32 noundef %1772, ptr noundef nonnull %4)
   br label %1777
 
 1777:                                             ; preds = %1775, %1774
   %1778 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1779 = load i8, ptr %1778, align 1, !tbaa !41
-  %.not.i1422 = icmp eq i8 %1779, 0
-  br i1 %.not.i1422, label %.critedge1289, label %1780
+  %.not.i1421 = icmp eq i8 %1779, 0
+  br i1 %.not.i1421, label %.critedge1289, label %1780
 
 1780:                                             ; preds = %1777
   %1781 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4888,8 +4888,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   tail call void @llvm.assume(i1 %1783)
   %1784 = add i32 %1782, -1
   store i32 %1784, ptr %1781, align 4, !tbaa !67
-  %.not3.i1423 = icmp eq i32 %1784, 0
-  br i1 %.not3.i1423, label %1785, label %.critedge1289
+  %.not3.i1422 = icmp eq i32 %1784, 0
+  br i1 %.not3.i1422, label %1785, label %.critedge1289
 
 1785:                                             ; preds = %1780
   %1786 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4902,8 +4902,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1788:                                             ; preds = %1787
   %1789 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1790 = getelementptr i8, ptr %0, i64 104
-  %.val1560 = load ptr, ptr %1790, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1560, i32 noundef %1772, ptr noundef nonnull %1789)
+  %.val1559 = load ptr, ptr %1790, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1559, i32 noundef %1772, ptr noundef nonnull %1789)
   br label %.critedge1289
 
 1791:                                             ; preds = %871, %871
@@ -4916,33 +4916,33 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   br i1 %1795, label %.critedge1289, label %1796
 
 1796:                                             ; preds = %1792
-  %1797 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %1797 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %1798 = load i8, ptr %1797, align 8, !tbaa !41
   %1799 = icmp eq i8 %1798, -1
   br i1 %1799, label %.critedge1289, label %1800
 
 1800:                                             ; preds = %1796
-  %1801 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %4, ptr noundef %.0.i, ptr noundef nonnull %.0.i1595)
+  %1801 = call fastcc i32 @ct_eval_fetch_obj(ptr noundef %4, ptr noundef %.0.i, ptr noundef nonnull %.0.i1594)
   %1802 = icmp eq i32 %1801, 0
   br i1 %1802, label %1803, label %1819
 
 1803:                                             ; preds = %1800
-  %1804 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1804 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1805 = load i32, ptr %1804, align 4, !tbaa !84
   %1806 = icmp sgt i32 %1805, -1
   br i1 %1806, label %1807, label %1809
 
 1807:                                             ; preds = %1803
   %1808 = getelementptr i8, ptr %0, i64 104
-  %.val1561 = load ptr, ptr %1808, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1561, i32 noundef %1805, ptr noundef nonnull %4)
+  %.val1560 = load ptr, ptr %1808, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1560, i32 noundef %1805, ptr noundef nonnull %4)
   br label %1809
 
 1809:                                             ; preds = %1807, %1803
   %1810 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1811 = load i8, ptr %1810, align 1, !tbaa !41
-  %.not.i1425 = icmp eq i8 %1811, 0
-  br i1 %.not.i1425, label %.critedge1289, label %1812
+  %.not.i1424 = icmp eq i8 %1811, 0
+  br i1 %.not.i1424, label %.critedge1289, label %1812
 
 1812:                                             ; preds = %1809
   %1813 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4951,8 +4951,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   tail call void @llvm.assume(i1 %1815)
   %1816 = add i32 %1814, -1
   store i32 %1816, ptr %1813, align 4, !tbaa !67
-  %.not3.i1426 = icmp eq i32 %1816, 0
-  br i1 %.not3.i1426, label %1817, label %.critedge1289
+  %.not3.i1425 = icmp eq i32 %1816, 0
+  br i1 %.not3.i1425, label %1817, label %.critedge1289
 
 1817:                                             ; preds = %1812
   %1818 = load ptr, ptr %4, align 8, !tbaa !41
@@ -4960,7 +4960,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   br label %.critedge1289
 
 1819:                                             ; preds = %1791, %1800
-  %1820 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1820 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1821 = load i32, ptr %1820, align 4, !tbaa !84
   %1822 = icmp sgt i32 %1821, -1
   br i1 %1822, label %1823, label %.critedge1289
@@ -4968,8 +4968,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1823:                                             ; preds = %1819
   %1824 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1825 = getelementptr i8, ptr %0, i64 104
-  %.val1562 = load ptr, ptr %1825, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1562, i32 noundef %1821, ptr noundef nonnull %1824)
+  %.val1561 = load ptr, ptr %1825, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1561, i32 noundef %1821, ptr noundef nonnull %1824)
   br label %.critedge1289
 
 1826:                                             ; preds = %871
@@ -4982,35 +4982,35 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   br i1 %1830, label %.critedge1289, label %1831
 
 1831:                                             ; preds = %1827
-  %1832 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %1832 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %1833 = load i8, ptr %1832, align 8, !tbaa !41
   %1834 = icmp eq i8 %1833, -1
   br i1 %1834, label %.critedge1289, label %1835
 
 1835:                                             ; preds = %1831
-  %1836 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+  %1836 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %1837 = load i32, ptr %1836, align 4, !tbaa !79
-  %1838 = call fastcc i32 @ct_eval_isset_obj(ptr noundef %4, i32 noundef %1837, ptr noundef %.0.i, ptr noundef nonnull %.0.i1595)
+  %1838 = call fastcc i32 @ct_eval_isset_obj(ptr noundef %4, i32 noundef %1837, ptr noundef %.0.i, ptr noundef nonnull %.0.i1594)
   %1839 = icmp eq i32 %1838, 0
   br i1 %1839, label %1840, label %1856
 
 1840:                                             ; preds = %1835
-  %1841 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1841 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1842 = load i32, ptr %1841, align 4, !tbaa !84
   %1843 = icmp sgt i32 %1842, -1
   br i1 %1843, label %1844, label %1846
 
 1844:                                             ; preds = %1840
   %1845 = getelementptr i8, ptr %0, i64 104
-  %.val1563 = load ptr, ptr %1845, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1563, i32 noundef %1842, ptr noundef nonnull %4)
+  %.val1562 = load ptr, ptr %1845, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1562, i32 noundef %1842, ptr noundef nonnull %4)
   br label %1846
 
 1846:                                             ; preds = %1844, %1840
   %1847 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1848 = load i8, ptr %1847, align 1, !tbaa !41
-  %.not.i1428 = icmp eq i8 %1848, 0
-  br i1 %.not.i1428, label %.critedge1289, label %1849
+  %.not.i1427 = icmp eq i8 %1848, 0
+  br i1 %.not.i1427, label %.critedge1289, label %1849
 
 1849:                                             ; preds = %1846
   %1850 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5019,8 +5019,8 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   tail call void @llvm.assume(i1 %1852)
   %1853 = add i32 %1851, -1
   store i32 %1853, ptr %1850, align 4, !tbaa !67
-  %.not3.i1429 = icmp eq i32 %1853, 0
-  br i1 %.not3.i1429, label %1854, label %.critedge1289
+  %.not3.i1428 = icmp eq i32 %1853, 0
+  br i1 %.not3.i1428, label %1854, label %.critedge1289
 
 1854:                                             ; preds = %1849
   %1855 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5028,7 +5028,7 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
   br label %.critedge1289
 
 1856:                                             ; preds = %1826, %1835
-  %1857 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1857 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1858 = load i32, ptr %1857, align 4, !tbaa !84
   %1859 = icmp sgt i32 %1858, -1
   br i1 %1859, label %1860, label %.critedge1289
@@ -5036,50 +5036,50 @@ ct_eval_bool_cast.exit:                           ; preds = %1554
 1860:                                             ; preds = %1856
   %1861 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1862 = getelementptr i8, ptr %0, i64 104
-  %.val1564 = load ptr, ptr %1862, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1564, i32 noundef %1858, ptr noundef nonnull %1861)
+  %.val1563 = load ptr, ptr %1862, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1563, i32 noundef %1858, ptr noundef nonnull %1861)
   br label %.critedge1289
 
 1863:                                             ; preds = %871, %871, %871, %871
-  %1864 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1864 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1865 = load i32, ptr %1864, align 4, !tbaa !84
   %1866 = icmp sgt i32 %1865, -1
   br i1 %1866, label %1867, label %.critedge1289
 
 1867:                                             ; preds = %1863
   %1868 = getelementptr i8, ptr %0, i64 104
-  %.val1565 = load ptr, ptr %1868, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1565, i32 noundef %1865, ptr noundef %.0.i)
+  %.val1564 = load ptr, ptr %1868, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1564, i32 noundef %1865, ptr noundef %.0.i)
   br label %.critedge1289
 
 switch.lookup:                                    ; preds = %871
-  %1869 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+  %1869 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %1870 = load i32, ptr %1869, align 4, !tbaa !79
   %1871 = and i32 %1870, 3
   %1872 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %switch.offset = add nuw nsw i32 %1871, 1
   store i32 %switch.offset, ptr %1872, align 8, !tbaa !41
-  %1873 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1873 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1874 = load i32, ptr %1873, align 4, !tbaa !84
   %1875 = icmp sgt i32 %1874, -1
   br i1 %1875, label %1876, label %.critedge1289
 
 1876:                                             ; preds = %switch.lookup
   %1877 = getelementptr i8, ptr %0, i64 104
-  %.val1566 = load ptr, ptr %1877, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1566, i32 noundef %1874, ptr noundef nonnull %4)
+  %.val1565 = load ptr, ptr %1877, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1565, i32 noundef %1874, ptr noundef nonnull %4)
   br label %.critedge1289
 
 1878:                                             ; preds = %871
-  %1879 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1879 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1880 = load i32, ptr %1879, align 4, !tbaa !84
   %1881 = icmp sgt i32 %1880, -1
   br i1 %1881, label %1882, label %.critedge1289
 
 1882:                                             ; preds = %1878
   %1883 = getelementptr i8, ptr %0, i64 104
-  %.val1567 = load ptr, ptr %1883, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1567, i32 noundef %1880, ptr noundef %.0.i1595)
+  %.val1566 = load ptr, ptr %1883, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1566, i32 noundef %1880, ptr noundef %.0.i1594)
   br label %.critedge1289
 
 1884:                                             ; preds = %871
@@ -5089,11 +5089,11 @@ switch.lookup:                                    ; preds = %871
   br i1 %1887, label %.critedge1289, label %1888
 
 1888:                                             ; preds = %1884
-  %1889 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+  %1889 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %1890 = load i32, ptr %1889, align 4, !tbaa !79
   %1891 = call fastcc i32 @ct_eval_isset_isempty(ptr noundef %4, i32 noundef %1890, ptr noundef nonnull %.0.i)
   %1892 = icmp eq i32 %1891, 0
-  %1893 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1893 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1894 = load i32, ptr %1893, align 4, !tbaa !84
   %1895 = icmp sgt i32 %1894, -1
   br i1 %1892, label %1896, label %1909
@@ -5103,15 +5103,15 @@ switch.lookup:                                    ; preds = %871
 
 1897:                                             ; preds = %1896
   %1898 = getelementptr i8, ptr %0, i64 104
-  %.val1568 = load ptr, ptr %1898, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1568, i32 noundef %1894, ptr noundef nonnull %4)
+  %.val1567 = load ptr, ptr %1898, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1567, i32 noundef %1894, ptr noundef nonnull %4)
   br label %1899
 
 1899:                                             ; preds = %1897, %1896
   %1900 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1901 = load i8, ptr %1900, align 1, !tbaa !41
-  %.not.i1431 = icmp eq i8 %1901, 0
-  br i1 %.not.i1431, label %.critedge1289, label %1902
+  %.not.i1430 = icmp eq i8 %1901, 0
+  br i1 %.not.i1430, label %.critedge1289, label %1902
 
 1902:                                             ; preds = %1899
   %1903 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5120,8 +5120,8 @@ switch.lookup:                                    ; preds = %871
   tail call void @llvm.assume(i1 %1905)
   %1906 = add i32 %1904, -1
   store i32 %1906, ptr %1903, align 4, !tbaa !67
-  %.not3.i1432 = icmp eq i32 %1906, 0
-  br i1 %.not3.i1432, label %1907, label %.critedge1289
+  %.not3.i1431 = icmp eq i32 %1906, 0
+  br i1 %.not3.i1431, label %1907, label %.critedge1289
 
 1907:                                             ; preds = %1902
   %1908 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5134,8 +5134,8 @@ switch.lookup:                                    ; preds = %871
 1910:                                             ; preds = %1909
   %1911 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1912 = getelementptr i8, ptr %0, i64 104
-  %.val1569 = load ptr, ptr %1912, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1569, i32 noundef %1894, ptr noundef nonnull %1911)
+  %.val1568 = load ptr, ptr %1912, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1568, i32 noundef %1894, ptr noundef nonnull %1911)
   br label %.critedge1289
 
 1913:                                             ; preds = %871
@@ -5145,31 +5145,31 @@ switch.lookup:                                    ; preds = %871
   br i1 %1916, label %.critedge1289, label %1917
 
 1917:                                             ; preds = %1913
-  %1918 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+  %1918 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %1919 = load i32, ptr %1918, align 4, !tbaa !79
   %1920 = icmp eq i8 %1915, -3
   %1921 = icmp eq i8 %1915, -4
   %narrow.i = select i1 %1921, i8 8, i8 %1915
   %narrow1.i = select i1 %1920, i8 7, i8 %narrow.i
-  %.0.i1616 = zext nneg i8 %narrow1.i to i32
-  %1922 = shl nuw i32 1, %.0.i1616
+  %.0.i1615 = zext nneg i8 %narrow1.i to i32
+  %1922 = shl nuw i32 1, %.0.i1615
   %1923 = and i32 %1919, %1922
-  %.not.i1617 = icmp eq i32 %1923, 0
-  %1924 = select i1 %.not.i1617, i32 2, i32 3
+  %.not.i1616 = icmp eq i32 %1923, 0
+  %1924 = select i1 %.not.i1616, i32 2, i32 3
   %1925 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %1924, ptr %1925, align 8, !tbaa !41
-  %1926 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1926 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1927 = load i32, ptr %1926, align 4, !tbaa !84
   %1928 = icmp sgt i32 %1927, -1
   br i1 %1928, label %1929, label %.critedge1289
 
 1929:                                             ; preds = %1917
   %1930 = getelementptr i8, ptr %0, i64 104
-  %.val1570 = load ptr, ptr %1930, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1570, i32 noundef %1927, ptr noundef nonnull %4)
-  %.phi.trans.insert1704 = getelementptr inbounds nuw i8, ptr %4, i64 9
-  %.pre1705 = load i8, ptr %.phi.trans.insert1704, align 1, !tbaa !41
-  %1931 = icmp eq i8 %.pre1705, 0
+  %.val1569 = load ptr, ptr %1930, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1569, i32 noundef %1927, ptr noundef nonnull %4)
+  %.phi.trans.insert1703 = getelementptr inbounds nuw i8, ptr %4, i64 9
+  %.pre1704 = load i8, ptr %.phi.trans.insert1703, align 1, !tbaa !41
+  %1931 = icmp eq i8 %.pre1704, 0
   br i1 %1931, label %.critedge1289, label %1932
 
 1932:                                             ; preds = %1929
@@ -5179,8 +5179,8 @@ switch.lookup:                                    ; preds = %871
   tail call void @llvm.assume(i1 %1935)
   %1936 = add i32 %1934, -1
   store i32 %1936, ptr %1933, align 4, !tbaa !67
-  %.not3.i1435 = icmp eq i32 %1936, 0
-  br i1 %.not3.i1435, label %1937, label %.critedge1289
+  %.not3.i1434 = icmp eq i32 %1936, 0
+  br i1 %.not3.i1434, label %1937, label %.critedge1289
 
 1937:                                             ; preds = %1932
   %1938 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5196,19 +5196,19 @@ switch.lookup:                                    ; preds = %871
 1943:                                             ; preds = %1939
   %1944 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 2, ptr %1944, align 8, !tbaa !41
-  %1945 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1945 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1946 = load i32, ptr %1945, align 4, !tbaa !84
   %1947 = icmp sgt i32 %1946, -1
   br i1 %1947, label %1948, label %.critedge1289
 
 1948:                                             ; preds = %1943
   %1949 = getelementptr i8, ptr %0, i64 104
-  %.val1571 = load ptr, ptr %1949, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1571, i32 noundef %1946, ptr noundef nonnull %4)
+  %.val1570 = load ptr, ptr %1949, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1570, i32 noundef %1946, ptr noundef nonnull %4)
   br label %.critedge1289
 
 1950:                                             ; preds = %871
-  %1951 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %1951 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %1952 = load i8, ptr %1951, align 8, !tbaa !41
   switch i8 %1952, label %1960 [
     i8 -1, label %.critedge1289
@@ -5216,7 +5216,7 @@ switch.lookup:                                    ; preds = %871
   ]
 
 1953:                                             ; preds = %1950
-  %1954 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1954 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1955 = load i32, ptr %1954, align 4, !tbaa !84
   %1956 = icmp sgt i32 %1955, -1
   br i1 %1956, label %1957, label %.critedge1289
@@ -5224,14 +5224,14 @@ switch.lookup:                                    ; preds = %871
 1957:                                             ; preds = %1953
   %1958 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1959 = getelementptr i8, ptr %0, i64 104
-  %.val1572 = load ptr, ptr %1959, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1572, i32 noundef %1955, ptr noundef nonnull %1958)
+  %.val1571 = load ptr, ptr %1959, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1571, i32 noundef %1955, ptr noundef nonnull %1958)
   br label %.critedge1289
 
 1960:                                             ; preds = %1950
-  %1961 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %4, i32 noundef 6, ptr noundef nonnull %.0.i1595) #13
+  %1961 = call i32 @zend_optimizer_eval_cast(ptr noundef nonnull %4, i32 noundef 6, ptr noundef nonnull %.0.i1594) #13
   %1962 = icmp eq i32 %1961, 0
-  %1963 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %1963 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1964 = load i32, ptr %1963, align 4, !tbaa !84
   %1965 = icmp sgt i32 %1964, -1
   br i1 %1962, label %1966, label %1979
@@ -5241,15 +5241,15 @@ switch.lookup:                                    ; preds = %871
 
 1967:                                             ; preds = %1966
   %1968 = getelementptr i8, ptr %0, i64 104
-  %.val1573 = load ptr, ptr %1968, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1573, i32 noundef %1964, ptr noundef nonnull %4)
+  %.val1572 = load ptr, ptr %1968, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1572, i32 noundef %1964, ptr noundef nonnull %4)
   br label %1969
 
 1969:                                             ; preds = %1967, %1966
   %1970 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %1971 = load i8, ptr %1970, align 1, !tbaa !41
-  %.not.i1437 = icmp eq i8 %1971, 0
-  br i1 %.not.i1437, label %.critedge1289, label %1972
+  %.not.i1436 = icmp eq i8 %1971, 0
+  br i1 %.not.i1436, label %.critedge1289, label %1972
 
 1972:                                             ; preds = %1969
   %1973 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5258,8 +5258,8 @@ switch.lookup:                                    ; preds = %871
   call void @llvm.assume(i1 %1975)
   %1976 = add i32 %1974, -1
   store i32 %1976, ptr %1973, align 4, !tbaa !67
-  %.not3.i1438 = icmp eq i32 %1976, 0
-  br i1 %.not3.i1438, label %1977, label %.critedge1289
+  %.not3.i1437 = icmp eq i32 %1976, 0
+  br i1 %.not3.i1437, label %1977, label %.critedge1289
 
 1977:                                             ; preds = %1972
   %1978 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5272,8 +5272,8 @@ switch.lookup:                                    ; preds = %871
 1980:                                             ; preds = %1979
   %1981 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %1982 = getelementptr i8, ptr %0, i64 104
-  %.val1574 = load ptr, ptr %1982, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1574, i32 noundef %1964, ptr noundef nonnull %1981)
+  %.val1573 = load ptr, ptr %1982, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1573, i32 noundef %1964, ptr noundef nonnull %1981)
   br label %.critedge1289
 
 1983:                                             ; preds = %871, %871
@@ -5283,7 +5283,7 @@ switch.lookup:                                    ; preds = %871
   br i1 %1986, label %.critedge1289, label %1987
 
 1987:                                             ; preds = %1983
-  %1988 = getelementptr inbounds nuw i8, ptr %.0.i1595, i64 8
+  %1988 = getelementptr inbounds nuw i8, ptr %.0.i1594, i64 8
   %1989 = load i8, ptr %1988, align 8, !tbaa !41
   %1990 = icmp eq i8 %1989, -1
   br i1 %1990, label %.critedge1289, label %1991
@@ -5291,31 +5291,31 @@ switch.lookup:                                    ; preds = %871
 1991:                                             ; preds = %1987
   %1992 = icmp eq i8 %1985, -3
   %1993 = icmp eq i8 %1989, -3
-  %or.cond1666 = or i1 %1992, %1993
-  br i1 %or.cond1666, label %ct_eval_binary_op.exit1619.thread, label %ct_eval_binary_op.exit1619
+  %or.cond1664 = or i1 %1992, %1993
+  br i1 %or.cond1664, label %ct_eval_binary_op.exit1618.thread, label %ct_eval_binary_op.exit1618
 
-ct_eval_binary_op.exit1619:                       ; preds = %1991
-  %1994 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext 8, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1595) #13
+ct_eval_binary_op.exit1618:                       ; preds = %1991
+  %1994 = call i32 @zend_optimizer_eval_binary_op(ptr noundef nonnull %4, i8 noundef zeroext 8, ptr noundef nonnull %.0.i, ptr noundef nonnull %.0.i1594) #13
   %1995 = icmp eq i32 %1994, 0
-  br i1 %1995, label %1996, label %ct_eval_binary_op.exit1619.thread
+  br i1 %1995, label %1996, label %ct_eval_binary_op.exit1618.thread
 
-1996:                                             ; preds = %ct_eval_binary_op.exit1619
-  %1997 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+1996:                                             ; preds = %ct_eval_binary_op.exit1618
+  %1997 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %1998 = load i32, ptr %1997, align 4, !tbaa !84
   %1999 = icmp sgt i32 %1998, -1
   br i1 %1999, label %2000, label %2002
 
 2000:                                             ; preds = %1996
   %2001 = getelementptr i8, ptr %0, i64 104
-  %.val1575 = load ptr, ptr %2001, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1575, i32 noundef %1998, ptr noundef nonnull %4)
+  %.val1574 = load ptr, ptr %2001, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1574, i32 noundef %1998, ptr noundef nonnull %4)
   br label %2002
 
 2002:                                             ; preds = %2000, %1996
   %2003 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %2004 = load i8, ptr %2003, align 1, !tbaa !41
-  %.not.i1440 = icmp eq i8 %2004, 0
-  br i1 %.not.i1440, label %.critedge1289, label %2005
+  %.not.i1439 = icmp eq i8 %2004, 0
+  br i1 %.not.i1439, label %.critedge1289, label %2005
 
 2005:                                             ; preds = %2002
   %2006 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5324,25 +5324,25 @@ ct_eval_binary_op.exit1619:                       ; preds = %1991
   call void @llvm.assume(i1 %2008)
   %2009 = add i32 %2007, -1
   store i32 %2009, ptr %2006, align 4, !tbaa !67
-  %.not3.i1441 = icmp eq i32 %2009, 0
-  br i1 %.not3.i1441, label %2010, label %.critedge1289
+  %.not3.i1440 = icmp eq i32 %2009, 0
+  br i1 %.not3.i1440, label %2010, label %.critedge1289
 
 2010:                                             ; preds = %2005
   %2011 = load ptr, ptr %4, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %2011) #13
   br label %.critedge1289
 
-ct_eval_binary_op.exit1619.thread:                ; preds = %1991, %ct_eval_binary_op.exit1619
-  %2012 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+ct_eval_binary_op.exit1618.thread:                ; preds = %1991, %ct_eval_binary_op.exit1618
+  %2012 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %2013 = load i32, ptr %2012, align 4, !tbaa !84
   %2014 = icmp sgt i32 %2013, -1
   br i1 %2014, label %2015, label %.critedge1289
 
-2015:                                             ; preds = %ct_eval_binary_op.exit1619.thread
+2015:                                             ; preds = %ct_eval_binary_op.exit1618.thread
   %2016 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %2017 = getelementptr i8, ptr %0, i64 104
-  %.val1576 = load ptr, ptr %2017, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef %0, ptr %.val1576, i32 noundef %2013, ptr noundef nonnull %2016)
+  %.val1575 = load ptr, ptr %2017, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef %0, ptr %.val1575, i32 noundef %2013, ptr noundef nonnull %2016)
   br label %.critedge1289
 
 2018:                                             ; preds = %871
@@ -5354,7 +5354,7 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1991, %ct_eval_bina
   br i1 %.not1282, label %2021, label %2028
 
 2021:                                             ; preds = %2018
-  %2022 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %2022 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %2023 = load i32, ptr %2022, align 4, !tbaa !84
   %2024 = icmp sgt i32 %2023, -1
   br i1 %2024, label %2025, label %.critedge1295
@@ -5362,15 +5362,15 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1991, %ct_eval_bina
 2025:                                             ; preds = %2021
   %2026 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %2027 = getelementptr i8, ptr %0, i64 104
-  %.val1577 = load ptr, ptr %2027, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1577, i32 noundef %2023, ptr noundef nonnull %2026)
+  %.val1576 = load ptr, ptr %2027, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1576, i32 noundef %2023, ptr noundef nonnull %2026)
   br label %.critedge1295
 
 2028:                                             ; preds = %2018
   %2029 = load ptr, ptr %0, align 8, !tbaa !66
   %2030 = getelementptr inbounds nuw i8, ptr %2029, i64 104
   %2031 = load ptr, ptr %2030, align 8, !tbaa !76
-  %2032 = ptrtoint ptr %.010761645 to i64
+  %2032 = ptrtoint ptr %.010761644 to i64
   %2033 = ptrtoint ptr %2031 to i64
   %2034 = sub i64 %2032, %2033
   %2035 = ashr exact i64 %2034, 2
@@ -5384,7 +5384,7 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1991, %ct_eval_bina
   %2043 = load i32, ptr %2042, align 4, !tbaa !41
   %2044 = zext i32 %2043 to i64
   %2045 = getelementptr inbounds nuw %struct._zval_struct, ptr %2039, i64 %2044
-  %2046 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %2046 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %2047 = load i32, ptr %2046, align 4, !tbaa !84
   %2048 = icmp slt i32 %2047, 0
   br i1 %2048, label %.critedge1295, label %2049
@@ -5425,12 +5425,12 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1991, %ct_eval_bina
 
 .preheader:                                       ; preds = %2069
   %2073 = icmp sgt i32 %2059, 0
-  br i1 %2073, label %.lr.ph1673, label %._crit_edge
+  br i1 %2073, label %.lr.ph1672, label %._crit_edge
 
-.lr.ph1673:                                       ; preds = %.preheader
+.lr.ph1672:                                       ; preds = %.preheader
   %2074 = getelementptr inbounds nuw i8, ptr %2037, i64 64
   %2075 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %wide.trip.count1678 = zext nneg i32 %2059 to i64
+  %wide.trip.count1677 = zext nneg i32 %2059 to i64
   br label %2078
 
 2076:                                             ; preds = %2069, %2065, %2061, %2057
@@ -5438,9 +5438,9 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1991, %ct_eval_bina
   tail call fastcc void @set_value(ptr noundef nonnull %0, ptr nonnull %2051, i32 noundef %2047, ptr noundef nonnull %2077)
   br label %.critedge1295
 
-2078:                                             ; preds = %.lr.ph1673, %.critedge1293
-  %indvars.iv1675 = phi i64 [ 0, %.lr.ph1673 ], [ %indvars.iv.next1676, %.critedge1293 ]
-  %2079 = getelementptr inbounds nuw %struct._zend_send_arg_info, ptr %2074, i64 %indvars.iv1675
+2078:                                             ; preds = %.lr.ph1672, %.critedge1293
+  %indvars.iv1674 = phi i64 [ 0, %.lr.ph1672 ], [ %indvars.iv.next1675, %.critedge1293 ]
+  %2079 = getelementptr inbounds nuw %struct._zend_send_arg_info, ptr %2074, i64 %indvars.iv1674
   %2080 = load ptr, ptr %2079, align 8, !tbaa !124
   %2081 = getelementptr inbounds nuw i8, ptr %2080, i64 28
   %2082 = load i8, ptr %2081, align 4, !tbaa !77
@@ -5460,7 +5460,7 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1991, %ct_eval_bina
   %2089 = load i32, ptr %2088, align 8, !tbaa !41
   %2090 = zext i32 %2089 to i64
   %2091 = getelementptr inbounds nuw %struct._zval_struct, ptr %2039, i64 %2090
-  br label %get_op1_value.exit1622
+  br label %get_op1_value.exit1621
 
 2092:                                             ; preds = %2083
   %2093 = load ptr, ptr %2075, align 8, !tbaa !65
@@ -5471,28 +5471,28 @@ ct_eval_binary_op.exit1619.thread:                ; preds = %1991, %ct_eval_bina
   %2098 = ashr exact i64 %2097, 5
   %2099 = getelementptr inbounds %struct._zend_ssa_op, ptr %2095, i64 %2098
   %2100 = load i32, ptr %2099, align 4, !tbaa !72
-  %.not.i1620 = icmp eq i32 %2100, -1
-  br i1 %.not.i1620, label %get_op1_value.exit1622.thread, label %2102
+  %.not.i1619 = icmp eq i32 %2100, -1
+  br i1 %.not.i1619, label %get_op1_value.exit1621.thread, label %2102
 
-get_op1_value.exit1622.thread:                    ; preds = %2092
-  %2101 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv1675
+get_op1_value.exit1621.thread:                    ; preds = %2092
+  %2101 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv1674
   store ptr null, ptr %2101, align 8, !tbaa !126
   br label %.critedge1293
 
 2102:                                             ; preds = %2092
   %2103 = sext i32 %2100 to i64
   %2104 = getelementptr inbounds %struct._zval_struct, ptr %2051, i64 %2103
-  br label %get_op1_value.exit1622
+  br label %get_op1_value.exit1621
 
-get_op1_value.exit1622:                           ; preds = %2087, %2102
-  %.0.i1621 = phi ptr [ %2091, %2087 ], [ %2104, %2102 ]
-  %2105 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv1675
-  store ptr %.0.i1621, ptr %2105, align 8, !tbaa !126
-  %.not1285 = icmp eq ptr %.0.i1621, null
+get_op1_value.exit1621:                           ; preds = %2087, %2102
+  %.0.i1620 = phi ptr [ %2091, %2087 ], [ %2104, %2102 ]
+  %2105 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv1674
+  store ptr %.0.i1620, ptr %2105, align 8, !tbaa !126
+  %.not1285 = icmp eq ptr %.0.i1620, null
   br i1 %.not1285, label %.critedge1293, label %2106
 
-2106:                                             ; preds = %get_op1_value.exit1622
-  %2107 = getelementptr inbounds nuw i8, ptr %.0.i1621, i64 8
+2106:                                             ; preds = %get_op1_value.exit1621
+  %2107 = getelementptr inbounds nuw i8, ptr %.0.i1620, i64 8
   %2108 = load i8, ptr %2107, align 8, !tbaa !41
   switch i8 %2108, label %.critedge1293 [
     i8 -2, label %.loopexit.sink.split
@@ -5500,10 +5500,10 @@ get_op1_value.exit1622:                           ; preds = %2087, %2102
     i8 -1, label %.loopexit
   ]
 
-.critedge1293:                                    ; preds = %2106, %get_op1_value.exit1622.thread, %get_op1_value.exit1622
-  %indvars.iv.next1676 = add nuw nsw i64 %indvars.iv1675, 1
-  %exitcond1679.not = icmp eq i64 %indvars.iv.next1676, %wide.trip.count1678
-  br i1 %exitcond1679.not, label %._crit_edge, label %2078
+.critedge1293:                                    ; preds = %2106, %get_op1_value.exit1621.thread, %get_op1_value.exit1621
+  %indvars.iv.next1675 = add nuw nsw i64 %indvars.iv1674, 1
+  %exitcond1678.not = icmp eq i64 %indvars.iv.next1675, %wide.trip.count1677
+  br i1 %exitcond1678.not, label %._crit_edge, label %2078
 
 ._crit_edge:                                      ; preds = %.critedge1293, %.preheader
   %2109 = icmp eq i8 %2055, -1
@@ -5521,15 +5521,15 @@ get_op1_value.exit1622:                           ; preds = %2087, %2102
   br i1 %2115, label %2117, label %2118
 
 2117:                                             ; preds = %2116
-  %.val1581 = load ptr, ptr %2050, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1581, i32 noundef %2114, ptr noundef nonnull %4)
+  %.val1580 = load ptr, ptr %2050, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1580, i32 noundef %2114, ptr noundef nonnull %4)
   br label %2118
 
 2118:                                             ; preds = %2117, %2116
   %2119 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %2120 = load i8, ptr %2119, align 1, !tbaa !41
-  %.not.i1443 = icmp eq i8 %2120, 0
-  br i1 %.not.i1443, label %.critedge1295, label %2121
+  %.not.i1442 = icmp eq i8 %2120, 0
+  br i1 %.not.i1442, label %.critedge1295, label %2121
 
 2121:                                             ; preds = %2118
   %2122 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5538,8 +5538,8 @@ get_op1_value.exit1622:                           ; preds = %2087, %2102
   call void @llvm.assume(i1 %2124)
   %2125 = add i32 %2123, -1
   store i32 %2125, ptr %2122, align 4, !tbaa !67
-  %.not3.i1444 = icmp eq i32 %2125, 0
-  br i1 %.not3.i1444, label %2126, label %.critedge1295
+  %.not3.i1443 = icmp eq i32 %2125, 0
+  br i1 %.not3.i1443, label %2126, label %.critedge1295
 
 2126:                                             ; preds = %2121
   %2127 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5551,8 +5551,8 @@ get_op1_value.exit1622:                           ; preds = %2087, %2102
 
 2129:                                             ; preds = %2128
   %2130 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.val1582 = load ptr, ptr %2050, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1582, i32 noundef %2114, ptr noundef nonnull %2130)
+  %.val1581 = load ptr, ptr %2050, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1581, i32 noundef %2114, ptr noundef nonnull %2130)
   br label %.critedge1295
 
 .loopexit.sink.split:                             ; preds = %2106, %2106, %2078
@@ -5565,7 +5565,7 @@ get_op1_value.exit1622:                           ; preds = %2087, %2102
   br label %.critedge1289
 
 2132:                                             ; preds = %871, %871, %871, %871
-  %2133 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %2133 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %2134 = load i32, ptr %2133, align 4, !tbaa !84
   %2135 = icmp slt i32 %2134, 0
   br i1 %2135, label %.critedge1289, label %2136
@@ -5584,7 +5584,7 @@ get_op1_value.exit1622:                           ; preds = %2087, %2102
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %2145 = load ptr, ptr @zend_flf_functions, align 8, !tbaa !127
-  %2146 = getelementptr inbounds nuw i8, ptr %.010761645, i64 20
+  %2146 = getelementptr inbounds nuw i8, ptr %.010761644, i64 20
   %2147 = load i32, ptr %2146, align 4, !tbaa !79
   %2148 = zext i32 %2147 to i64
   %2149 = getelementptr inbounds nuw ptr, ptr %2145, i64 %2148
@@ -5593,21 +5593,21 @@ get_op1_value.exit1622:                           ; preds = %2087, %2102
   %2152 = add nsw i32 %2151, -204
   switch i8 %873, label %2241 [
     i8 -49, label %2153
-    i8 -50, label %._crit_edge1700
-    i8 -51, label %._crit_edge1702
+    i8 -50, label %._crit_edge1699
+    i8 -51, label %._crit_edge1701
   ]
 
-._crit_edge1702:                                  ; preds = %2144
-  %.pre1703 = load ptr, ptr %0, align 8, !tbaa !66
+._crit_edge1701:                                  ; preds = %2144
+  %.pre1702 = load ptr, ptr %0, align 8, !tbaa !66
   br label %2213
 
-._crit_edge1700:                                  ; preds = %2144
-  %.pre1701 = load ptr, ptr %0, align 8, !tbaa !66
+._crit_edge1699:                                  ; preds = %2144
+  %.pre1700 = load ptr, ptr %0, align 8, !tbaa !66
   br label %2183
 
 2153:                                             ; preds = %2144
   %2154 = load ptr, ptr %0, align 8, !tbaa !66
-  %2155 = getelementptr inbounds nuw i8, ptr %.010761645, i64 61
+  %2155 = getelementptr inbounds nuw i8, ptr %.010761644, i64 61
   %2156 = load i8, ptr %2155, align 1, !tbaa !89
   %2157 = icmp eq i8 %2156, 1
   br i1 %2157, label %2158, label %2165
@@ -5615,14 +5615,14 @@ get_op1_value.exit1622:                           ; preds = %2087, %2102
 2158:                                             ; preds = %2153
   %2159 = getelementptr inbounds nuw i8, ptr %2154, i64 192
   %2160 = load ptr, ptr %2159, align 8, !tbaa !90
-  %2161 = getelementptr inbounds nuw i8, ptr %.010761645, i64 40
+  %2161 = getelementptr inbounds nuw i8, ptr %.010761644, i64 40
   %2162 = load i32, ptr %2161, align 8, !tbaa !41
   %2163 = zext i32 %2162 to i64
   %2164 = getelementptr inbounds nuw %struct._zval_struct, ptr %2160, i64 %2163
-  br label %get_op1_value.exit1625
+  br label %get_op1_value.exit1624
 
 2165:                                             ; preds = %2153
-  %2166 = getelementptr inbounds nuw i8, ptr %.010761645, i64 32
+  %2166 = getelementptr inbounds nuw i8, ptr %.010761644, i64 32
   %2167 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2168 = load ptr, ptr %2167, align 8, !tbaa !65
   %2169 = getelementptr inbounds nuw i8, ptr %2168, i64 56
@@ -5635,23 +5635,23 @@ get_op1_value.exit1622:                           ; preds = %2087, %2102
   %2176 = ashr exact i64 %2175, 5
   %2177 = getelementptr inbounds %struct._zend_ssa_op, ptr %2170, i64 %2176
   %2178 = load i32, ptr %2177, align 4, !tbaa !72
-  %.not.i1623 = icmp eq i32 %2178, -1
-  br i1 %.not.i1623, label %get_op1_value.exit1625, label %2179
+  %.not.i1622 = icmp eq i32 %2178, -1
+  br i1 %.not.i1622, label %get_op1_value.exit1624, label %2179
 
 2179:                                             ; preds = %2165
   %2180 = sext i32 %2178 to i64
   %2181 = getelementptr inbounds %struct._zval_struct, ptr %2138, i64 %2180
-  br label %get_op1_value.exit1625
+  br label %get_op1_value.exit1624
 
-get_op1_value.exit1625:                           ; preds = %2158, %2165, %2179
-  %.0.i1624 = phi ptr [ %2164, %2158 ], [ %2181, %2179 ], [ null, %2165 ]
+get_op1_value.exit1624:                           ; preds = %2158, %2165, %2179
+  %.0.i1623 = phi ptr [ %2164, %2158 ], [ %2181, %2179 ], [ null, %2165 ]
   %2182 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  store ptr %.0.i1624, ptr %2182, align 16, !tbaa !126
+  store ptr %.0.i1623, ptr %2182, align 16, !tbaa !126
   br label %2183
 
-2183:                                             ; preds = %._crit_edge1700, %get_op1_value.exit1625
-  %2184 = phi ptr [ %.pre1701, %._crit_edge1700 ], [ %2154, %get_op1_value.exit1625 ]
-  %2185 = getelementptr inbounds nuw i8, ptr %.010761645, i64 30
+2183:                                             ; preds = %._crit_edge1699, %get_op1_value.exit1624
+  %2184 = phi ptr [ %.pre1700, %._crit_edge1699 ], [ %2154, %get_op1_value.exit1624 ]
+  %2185 = getelementptr inbounds nuw i8, ptr %.010761644, i64 30
   %2186 = load i8, ptr %2185, align 2, !tbaa !88
   %2187 = icmp eq i8 %2186, 1
   br i1 %2187, label %2188, label %2195
@@ -5659,18 +5659,18 @@ get_op1_value.exit1625:                           ; preds = %2158, %2165, %2179
 2188:                                             ; preds = %2183
   %2189 = getelementptr inbounds nuw i8, ptr %2184, i64 192
   %2190 = load ptr, ptr %2189, align 8, !tbaa !90
-  %2191 = getelementptr inbounds nuw i8, ptr %.010761645, i64 12
+  %2191 = getelementptr inbounds nuw i8, ptr %.010761644, i64 12
   %2192 = load i32, ptr %2191, align 4, !tbaa !41
   %2193 = zext i32 %2192 to i64
   %2194 = getelementptr inbounds nuw %struct._zval_struct, ptr %2190, i64 %2193
-  br label %get_op2_value.exit1628
+  br label %get_op2_value.exit1627
 
 2195:                                             ; preds = %2183
   %2196 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2197 = load ptr, ptr %2196, align 8, !tbaa !65
   %2198 = getelementptr inbounds nuw i8, ptr %2197, i64 56
   %2199 = load ptr, ptr %2198, align 8, !tbaa !71
-  %2200 = ptrtoint ptr %.010761645 to i64
+  %2200 = ptrtoint ptr %.010761644 to i64
   %2201 = getelementptr inbounds nuw i8, ptr %2184, i64 104
   %2202 = load ptr, ptr %2201, align 8, !tbaa !76
   %2203 = ptrtoint ptr %2202 to i64
@@ -5679,23 +5679,23 @@ get_op1_value.exit1625:                           ; preds = %2158, %2165, %2179
   %2206 = getelementptr inbounds %struct._zend_ssa_op, ptr %2199, i64 %2205
   %2207 = getelementptr inbounds nuw i8, ptr %2206, i64 4
   %2208 = load i32, ptr %2207, align 4, !tbaa !74
-  %.not.i1626 = icmp eq i32 %2208, -1
-  br i1 %.not.i1626, label %get_op2_value.exit1628, label %2209
+  %.not.i1625 = icmp eq i32 %2208, -1
+  br i1 %.not.i1625, label %get_op2_value.exit1627, label %2209
 
 2209:                                             ; preds = %2195
   %2210 = sext i32 %2208 to i64
   %2211 = getelementptr inbounds %struct._zval_struct, ptr %2138, i64 %2210
-  br label %get_op2_value.exit1628
+  br label %get_op2_value.exit1627
 
-get_op2_value.exit1628:                           ; preds = %2188, %2195, %2209
-  %.0.i1627 = phi ptr [ %2194, %2188 ], [ %2211, %2209 ], [ null, %2195 ]
+get_op2_value.exit1627:                           ; preds = %2188, %2195, %2209
+  %.0.i1626 = phi ptr [ %2194, %2188 ], [ %2211, %2209 ], [ null, %2195 ]
   %2212 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store ptr %.0.i1627, ptr %2212, align 8, !tbaa !126
+  store ptr %.0.i1626, ptr %2212, align 8, !tbaa !126
   br label %2213
 
-2213:                                             ; preds = %._crit_edge1702, %get_op2_value.exit1628
-  %2214 = phi ptr [ %.pre1703, %._crit_edge1702 ], [ %2184, %get_op2_value.exit1628 ]
-  %2215 = getelementptr inbounds nuw i8, ptr %.010761645, i64 29
+2213:                                             ; preds = %._crit_edge1701, %get_op2_value.exit1627
+  %2214 = phi ptr [ %.pre1702, %._crit_edge1701 ], [ %2184, %get_op2_value.exit1627 ]
+  %2215 = getelementptr inbounds nuw i8, ptr %.010761644, i64 29
   %2216 = load i8, ptr %2215, align 1, !tbaa !89
   %2217 = icmp eq i8 %2216, 1
   br i1 %2217, label %2218, label %2225
@@ -5703,18 +5703,18 @@ get_op2_value.exit1628:                           ; preds = %2188, %2195, %2209
 2218:                                             ; preds = %2213
   %2219 = getelementptr inbounds nuw i8, ptr %2214, i64 192
   %2220 = load ptr, ptr %2219, align 8, !tbaa !90
-  %2221 = getelementptr inbounds nuw i8, ptr %.010761645, i64 8
+  %2221 = getelementptr inbounds nuw i8, ptr %.010761644, i64 8
   %2222 = load i32, ptr %2221, align 8, !tbaa !41
   %2223 = zext i32 %2222 to i64
   %2224 = getelementptr inbounds nuw %struct._zval_struct, ptr %2220, i64 %2223
-  br label %get_op1_value.exit1631
+  br label %get_op1_value.exit1630
 
 2225:                                             ; preds = %2213
   %2226 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %2227 = load ptr, ptr %2226, align 8, !tbaa !65
   %2228 = getelementptr inbounds nuw i8, ptr %2227, i64 56
   %2229 = load ptr, ptr %2228, align 8, !tbaa !71
-  %2230 = ptrtoint ptr %.010761645 to i64
+  %2230 = ptrtoint ptr %.010761644 to i64
   %2231 = getelementptr inbounds nuw i8, ptr %2214, i64 104
   %2232 = load ptr, ptr %2231, align 8, !tbaa !76
   %2233 = ptrtoint ptr %2232 to i64
@@ -5722,22 +5722,22 @@ get_op2_value.exit1628:                           ; preds = %2188, %2195, %2209
   %2235 = ashr exact i64 %2234, 5
   %2236 = getelementptr inbounds %struct._zend_ssa_op, ptr %2229, i64 %2235
   %2237 = load i32, ptr %2236, align 4, !tbaa !72
-  %.not.i1629 = icmp eq i32 %2237, -1
-  br i1 %.not.i1629, label %get_op1_value.exit1631, label %2238
+  %.not.i1628 = icmp eq i32 %2237, -1
+  br i1 %.not.i1628, label %get_op1_value.exit1630, label %2238
 
 2238:                                             ; preds = %2225
   %2239 = sext i32 %2237 to i64
   %2240 = getelementptr inbounds %struct._zval_struct, ptr %2138, i64 %2239
-  br label %get_op1_value.exit1631
+  br label %get_op1_value.exit1630
 
-get_op1_value.exit1631:                           ; preds = %2218, %2225, %2238
-  %.0.i1630 = phi ptr [ %2224, %2218 ], [ %2240, %2238 ], [ null, %2225 ]
-  store ptr %.0.i1630, ptr %10, align 16, !tbaa !126
+get_op1_value.exit1630:                           ; preds = %2218, %2225, %2238
+  %.0.i1629 = phi ptr [ %2224, %2218 ], [ %2240, %2238 ], [ null, %2225 ]
+  store ptr %.0.i1629, ptr %10, align 16, !tbaa !126
   br label %2241
 
-2241:                                             ; preds = %get_op1_value.exit1631, %2144
-  %.not1281.not1670.not = icmp eq i32 %2152, 0
-  br i1 %.not1281.not1670.not, label %.critedge1297, label %.lr.ph.preheader
+2241:                                             ; preds = %get_op1_value.exit1630, %2144
+  %.not1281.not1669.not = icmp eq i32 %2152, 0
+  br i1 %.not1281.not1669.not, label %.critedge1297, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2241
   %wide.trip.count = zext nneg i32 %2152 to i64
@@ -5786,15 +5786,15 @@ get_op1_value.exit1631:                           ; preds = %2218, %2225, %2238
   br i1 %2258, label %2260, label %2261
 
 2260:                                             ; preds = %2259
-  %.val1585 = load ptr, ptr %2137, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1585, i32 noundef %2257, ptr noundef nonnull %4)
+  %.val1584 = load ptr, ptr %2137, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1584, i32 noundef %2257, ptr noundef nonnull %4)
   br label %2261
 
 2261:                                             ; preds = %2260, %2259
   %2262 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %2263 = load i8, ptr %2262, align 1, !tbaa !41
-  %.not.i1446 = icmp eq i8 %2263, 0
-  br i1 %.not.i1446, label %zval_ptr_dtor_nogc.exit1448, label %2264
+  %.not.i1445 = icmp eq i8 %2263, 0
+  br i1 %.not.i1445, label %zval_ptr_dtor_nogc.exit1447, label %2264
 
 2264:                                             ; preds = %2261
   %2265 = load ptr, ptr %4, align 8, !tbaa !41
@@ -5803,29 +5803,29 @@ get_op1_value.exit1631:                           ; preds = %2218, %2225, %2238
   call void @llvm.assume(i1 %2267)
   %2268 = add i32 %2266, -1
   store i32 %2268, ptr %2265, align 4, !tbaa !67
-  %.not3.i1447 = icmp eq i32 %2268, 0
-  br i1 %.not3.i1447, label %2269, label %zval_ptr_dtor_nogc.exit1448
+  %.not3.i1446 = icmp eq i32 %2268, 0
+  br i1 %.not3.i1446, label %2269, label %zval_ptr_dtor_nogc.exit1447
 
 2269:                                             ; preds = %2264
   %2270 = load ptr, ptr %4, align 8, !tbaa !41
   call void @rc_dtor_func(ptr noundef %2270) #13
-  br label %zval_ptr_dtor_nogc.exit1448
+  br label %zval_ptr_dtor_nogc.exit1447
 
 2271:                                             ; preds = %.critedge1297
-  br i1 %2258, label %2272, label %zval_ptr_dtor_nogc.exit1448
+  br i1 %2258, label %2272, label %zval_ptr_dtor_nogc.exit1447
 
 2272:                                             ; preds = %2271
   %2273 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %.val1586 = load ptr, ptr %2137, align 8, !tbaa !40
-  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1586, i32 noundef %2257, ptr noundef nonnull %2273)
-  br label %zval_ptr_dtor_nogc.exit1448
+  %.val1585 = load ptr, ptr %2137, align 8, !tbaa !40
+  call fastcc void @set_value(ptr noundef nonnull %0, ptr %.val1585, i32 noundef %2257, ptr noundef nonnull %2273)
+  br label %zval_ptr_dtor_nogc.exit1447
 
-zval_ptr_dtor_nogc.exit1448:                      ; preds = %2269, %2264, %2261, %2271, %2272
+zval_ptr_dtor_nogc.exit1447:                      ; preds = %2269, %2264, %2261, %2271, %2272
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge1289
 
 2274:                                             ; preds = %871
-  %2275 = getelementptr inbounds nuw i8, ptr %.010771639, i64 20
+  %2275 = getelementptr inbounds nuw i8, ptr %.010771638, i64 20
   %2276 = load i32, ptr %2275, align 4, !tbaa !84
   %2277 = icmp sgt i32 %2276, -1
   br i1 %2277, label %2278, label %2281
@@ -5833,12 +5833,12 @@ zval_ptr_dtor_nogc.exit1448:                      ; preds = %2269, %2264, %2261,
 2278:                                             ; preds = %2274
   %2279 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %2280 = getelementptr i8, ptr %0, i64 104
-  %.val1587 = load ptr, ptr %2280, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1587, i32 noundef %2276, ptr noundef nonnull %2279)
+  %.val1586 = load ptr, ptr %2280, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1586, i32 noundef %2276, ptr noundef nonnull %2279)
   br label %2281
 
 2281:                                             ; preds = %2274, %2278
-  %2282 = getelementptr inbounds nuw i8, ptr %.010771639, i64 12
+  %2282 = getelementptr inbounds nuw i8, ptr %.010771638, i64 12
   %2283 = load i32, ptr %2282, align 4, !tbaa !86
   %2284 = icmp sgt i32 %2283, -1
   br i1 %2284, label %2285, label %2288
@@ -5846,12 +5846,12 @@ zval_ptr_dtor_nogc.exit1448:                      ; preds = %2269, %2264, %2261,
 2285:                                             ; preds = %2281
   %2286 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %2287 = getelementptr i8, ptr %0, i64 104
-  %.val1588 = load ptr, ptr %2287, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1588, i32 noundef %2283, ptr noundef nonnull %2286)
+  %.val1587 = load ptr, ptr %2287, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1587, i32 noundef %2283, ptr noundef nonnull %2286)
   br label %2288
 
 2288:                                             ; preds = %2281, %2285
-  %2289 = getelementptr inbounds nuw i8, ptr %.010771639, i64 16
+  %2289 = getelementptr inbounds nuw i8, ptr %.010771638, i64 16
   %2290 = load i32, ptr %2289, align 4, !tbaa !87
   %2291 = icmp sgt i32 %2290, -1
   br i1 %2291, label %2292, label %.critedge1289
@@ -5859,8 +5859,8 @@ zval_ptr_dtor_nogc.exit1448:                      ; preds = %2269, %2264, %2261,
 2292:                                             ; preds = %2288
   %2293 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %2294 = getelementptr i8, ptr %0, i64 104
-  %.val1589 = load ptr, ptr %2294, align 8, !tbaa !40
-  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1589, i32 noundef %2290, ptr noundef nonnull %2293)
+  %.val1588 = load ptr, ptr %2294, align 8, !tbaa !40
+  tail call fastcc void @set_value(ptr noundef %0, ptr %.val1588, i32 noundef %2290, ptr noundef nonnull %2293)
   br label %.critedge1289
 
 .critedge1295:                                    ; preds = %2126, %2121, %2118, %2128, %2129, %._crit_edge, %2076, %2028, %2049, %2021, %2025
@@ -5868,16 +5868,16 @@ zval_ptr_dtor_nogc.exit1448:                      ; preds = %2269, %2264, %2261,
   br label %.critedge1289
 
 .critedge1299.sink.split:                         ; preds = %2250, %2244
-  %.sink1914 = phi i32 [ %2245, %2244 ], [ %2251, %2250 ]
+  %.sink1913 = phi i32 [ %2245, %2244 ], [ %2251, %2250 ]
   %2295 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call fastcc void @set_value(ptr noundef %0, ptr %2138, i32 noundef %.sink1914, ptr noundef nonnull %2295)
+  tail call fastcc void @set_value(ptr noundef %0, ptr %2138, i32 noundef %.sink1913, ptr noundef nonnull %2295)
   br label %.critedge1299
 
 .critedge1299:                                    ; preds = %2247, %.critedge1299.sink.split, %2244, %2250
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.critedge1289
 
-.critedge1289:                                    ; preds = %1917, %1635, %1562, %179, %.thread, %1950, %1632, %1610, %1551, %1516, %1483, %535, %377, %359, %141, %get_op1_value.exit1598, %2010, %2005, %2002, %1977, %1972, %1969, %1937, %1932, %1929, %1907, %1902, %1899, %1854, %1849, %1846, %1817, %1812, %1809, %1785, %1780, %1777, %1752, %1747, %1744, %1719, %1714, %1711, %1688, %1683, %1680, %1652, %1647, %1644, %1604, %1599, %1596, %1575, %1570, %1567, %1545, %1540, %1537, %1510, %1505, %1502, %1477, %1472, %1469, %1436, %1431, %1428, %zval_ptr_dtor_nogc.exit1388, %zval_ptr_dtor_nogc.exit1364.thread, %zval_ptr_dtor_nogc.exit1343.thread, %953, %948, %945, %901, %896, %893, %777, %804, %.thread1900, %797, %775, %770, %767, %720, %715, %712, %662, %657, %654, %606, %.thread1898, %599, %489, %484, %481, %435, %.thread1896, %428, %399, %.thread1893, %392, %300, %295, %292, %221, %216, %213, %167, %.thread1888, %160, %zval_ptr_dtor_nogc.exit1448, %504, %524, %521, %507, %.thread1891, %352, %.thread1892, %366, %373, %906, %ct_eval_binary_op.exit.thread, %1307, %1303, %1406, %1402, %1446, %1442, %1480, %1479, %1490, %1486, %1513, %1512, %1523, %1519, %1548, %1547, %1580, %ct_eval_bool_cast.exit, %1607, %1606, %1623, %1618, %1629, %1625, %1658, %1654, %1691, %1690, %1722, %1721, %1755, %1754, %1788, %1787, %1823, %1819, %1860, %1856, %1867, %1863, %1876, %switch.lookup, %1882, %1878, %1910, %1909, %1948, %1943, %1957, %1953, %1980, %1979, %2015, %ct_eval_binary_op.exit1619.thread, %2136, %2132, %2292, %2288, %.critedge1295, %.critedge1299, %.loopexit, %1987, %1983, %1939, %1913, %1884, %1831, %1827, %1796, %1792, %1762, %1758, %1729, %1725, %1698, %1694, %1665, %1661, %1583, %1449, %1409, %1315, %1311, %915, %910, %878, %874, %864, %868, %806, %740, %736, %742, %751, %747, %554, %550, %557, %562, %575, %571, %590, %624, %501, %498, %437, %440, %133, %129, %136, %151, %225, %223, %75, %71, %88, %84
+.critedge1289:                                    ; preds = %1917, %1635, %1562, %179, %.thread, %1950, %1632, %1610, %1551, %1516, %1483, %535, %377, %359, %141, %get_op1_value.exit1597, %2010, %2005, %2002, %1977, %1972, %1969, %1937, %1932, %1929, %1907, %1902, %1899, %1854, %1849, %1846, %1817, %1812, %1809, %1785, %1780, %1777, %1752, %1747, %1744, %1719, %1714, %1711, %1688, %1683, %1680, %1652, %1647, %1644, %1604, %1599, %1596, %1575, %1570, %1567, %1545, %1540, %1537, %1510, %1505, %1502, %1477, %1472, %1469, %1436, %1431, %1428, %zval_ptr_dtor_nogc.exit1387, %zval_ptr_dtor_nogc.exit1363.thread, %zval_ptr_dtor_nogc.exit1342.thread, %953, %948, %945, %901, %896, %893, %777, %804, %.thread1899, %797, %775, %770, %767, %720, %715, %712, %662, %657, %654, %606, %.thread1897, %599, %489, %484, %481, %435, %.thread1895, %428, %399, %.thread1892, %392, %300, %295, %292, %221, %216, %213, %167, %.thread1887, %160, %zval_ptr_dtor_nogc.exit1447, %504, %524, %521, %507, %.thread1890, %352, %.thread1891, %366, %373, %906, %ct_eval_binary_op.exit.thread, %1307, %1303, %1406, %1402, %1446, %1442, %1480, %1479, %1490, %1486, %1513, %1512, %1523, %1519, %1548, %1547, %1580, %ct_eval_bool_cast.exit, %1607, %1606, %1623, %1618, %1629, %1625, %1658, %1654, %1691, %1690, %1722, %1721, %1755, %1754, %1788, %1787, %1823, %1819, %1860, %1856, %1867, %1863, %1876, %switch.lookup, %1882, %1878, %1910, %1909, %1948, %1943, %1957, %1953, %1980, %1979, %2015, %ct_eval_binary_op.exit1618.thread, %2136, %2132, %2292, %2288, %.critedge1295, %.critedge1299, %.loopexit, %1987, %1983, %1939, %1913, %1884, %1831, %1827, %1796, %1792, %1762, %1758, %1729, %1725, %1698, %1694, %1665, %1661, %1583, %1449, %1409, %1315, %1311, %915, %910, %878, %874, %864, %868, %806, %740, %736, %742, %751, %747, %554, %550, %557, %562, %575, %571, %590, %624, %501, %498, %437, %440, %133, %129, %136, %151, %225, %223, %75, %71, %88, %84
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }
@@ -7162,11 +7162,11 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_add_array_elem(ptr noundef 
   %16 = load i32, ptr %6, align 4, !tbaa !67
   %17 = add i32 %16, -1
   store i32 %17, ptr %6, align 4, !tbaa !67
-  %.pre124 = load ptr, ptr %0, align 8, !tbaa !41
+  %.pre122 = load ptr, ptr %0, align 8, !tbaa !41
   br label %zend_gc_try_delref.exit
 
 zend_gc_try_delref.exit:                          ; preds = %15, %9, %5
-  %18 = phi ptr [ %.pre124, %15 ], [ %10, %9 ], [ %6, %5 ]
+  %18 = phi ptr [ %.pre122, %15 ], [ %10, %9 ], [ %6, %5 ]
   %19 = tail call ptr @zend_hash_next_index_insert(ptr noundef %18, ptr noundef %1) #13
   %.not97 = icmp eq ptr %19, null
   br i1 %.not97, label %.thread, label %20
@@ -7210,11 +7210,11 @@ zend_gc_try_delref.exit:                          ; preds = %15, %9, %5
   %37 = load i32, ptr %27, align 4, !tbaa !67
   %38 = add i32 %37, -1
   store i32 %38, ptr %27, align 4, !tbaa !67
-  %.pre123 = load ptr, ptr %0, align 8, !tbaa !41
+  %.pre121 = load ptr, ptr %0, align 8, !tbaa !41
   br label %zend_gc_try_delref.exit102
 
 zend_gc_try_delref.exit102:                       ; preds = %36, %30, %26
-  %39 = phi ptr [ %.pre123, %36 ], [ %31, %30 ], [ %27, %26 ]
+  %39 = phi ptr [ %.pre121, %36 ], [ %31, %30 ], [ %27, %26 ]
   %40 = load ptr, ptr @zend_empty_string, align 8, !tbaa !154
   %41 = tail call ptr @zend_hash_update(ptr noundef %39, ptr noundef %40, ptr noundef %1) #13
   br label %150
@@ -7240,11 +7240,11 @@ zend_gc_try_delref.exit102:                       ; preds = %36, %30, %26
   %53 = load i32, ptr %43, align 4, !tbaa !67
   %54 = add i32 %53, -1
   store i32 %54, ptr %43, align 4, !tbaa !67
-  %.pre122 = load ptr, ptr %0, align 8, !tbaa !41
+  %.pre120 = load ptr, ptr %0, align 8, !tbaa !41
   br label %zend_gc_try_delref.exit104
 
 zend_gc_try_delref.exit104:                       ; preds = %52, %46, %42
-  %55 = phi ptr [ %.pre122, %52 ], [ %47, %46 ], [ %43, %42 ]
+  %55 = phi ptr [ %.pre120, %52 ], [ %47, %46 ], [ %43, %42 ]
   %56 = tail call ptr @zend_hash_index_update(ptr noundef %55, i64 noundef 0, ptr noundef %1) #13
   br label %150
 
@@ -7269,11 +7269,11 @@ zend_gc_try_delref.exit104:                       ; preds = %52, %46, %42
   %68 = load i32, ptr %58, align 4, !tbaa !67
   %69 = add i32 %68, -1
   store i32 %69, ptr %58, align 4, !tbaa !67
-  %.pre121 = load ptr, ptr %0, align 8, !tbaa !41
+  %.pre119 = load ptr, ptr %0, align 8, !tbaa !41
   br label %zend_gc_try_delref.exit106
 
 zend_gc_try_delref.exit106:                       ; preds = %67, %61, %57
-  %70 = phi ptr [ %.pre121, %67 ], [ %62, %61 ], [ %58, %57 ]
+  %70 = phi ptr [ %.pre119, %67 ], [ %62, %61 ], [ %58, %57 ]
   %71 = tail call ptr @zend_hash_index_update(ptr noundef %70, i64 noundef 1, ptr noundef %1) #13
   br label %150
 
@@ -7298,11 +7298,11 @@ zend_gc_try_delref.exit106:                       ; preds = %67, %61, %57
   %83 = load i32, ptr %73, align 4, !tbaa !67
   %84 = add i32 %83, -1
   store i32 %84, ptr %73, align 4, !tbaa !67
-  %.pre120 = load ptr, ptr %0, align 8, !tbaa !41
+  %.pre118 = load ptr, ptr %0, align 8, !tbaa !41
   br label %zend_gc_try_delref.exit108
 
 zend_gc_try_delref.exit108:                       ; preds = %82, %76, %72
-  %85 = phi ptr [ %.pre120, %82 ], [ %77, %76 ], [ %73, %72 ]
+  %85 = phi ptr [ %.pre118, %82 ], [ %77, %76 ], [ %73, %72 ]
   %86 = load i64, ptr %2, align 8, !tbaa !41
   %87 = tail call ptr @zend_hash_index_update(ptr noundef %85, i64 noundef %86, ptr noundef %1) #13
   br label %150
@@ -7321,7 +7321,7 @@ zend_gc_try_delref.exit108:                       ; preds = %82, %76, %72
 
 95:                                               ; preds = %92
   %96 = tail call i64 @zend_dval_to_lval_slow(double noundef %89) #13
-  %.pre118 = load double, ptr %2, align 8, !tbaa !41
+  %.pre116 = load double, ptr %2, align 8, !tbaa !41
   br label %zend_dval_to_lval.exit
 
 97:                                               ; preds = %92
@@ -7329,7 +7329,7 @@ zend_gc_try_delref.exit108:                       ; preds = %82, %76, %72
   br label %zend_dval_to_lval.exit
 
 zend_dval_to_lval.exit:                           ; preds = %88, %95, %97
-  %99 = phi double [ %.pre118, %95 ], [ %89, %97 ], [ %89, %88 ]
+  %99 = phi double [ %.pre116, %95 ], [ %89, %97 ], [ %89, %88 ]
   %.0.i = phi i64 [ %96, %95 ], [ %98, %97 ], [ 0, %88 ]
   %100 = sitofp i64 %.0.i to double
   %101 = fcmp oeq double %99, %100
@@ -7356,11 +7356,11 @@ zend_dval_to_lval.exit:                           ; preds = %88, %95, %97
   %113 = load i32, ptr %103, align 4, !tbaa !67
   %114 = add i32 %113, -1
   store i32 %114, ptr %103, align 4, !tbaa !67
-  %.pre119 = load ptr, ptr %0, align 8, !tbaa !41
+  %.pre117 = load ptr, ptr %0, align 8, !tbaa !41
   br label %115
 
 115:                                              ; preds = %102, %106, %112
-  %116 = phi ptr [ %103, %102 ], [ %107, %106 ], [ %.pre119, %112 ]
+  %116 = phi ptr [ %103, %102 ], [ %107, %106 ], [ %.pre117, %112 ]
   %117 = tail call ptr @zend_hash_index_update(ptr noundef %116, i64 noundef %.0.i, ptr noundef %1) #13
   br label %150
 
@@ -7616,19 +7616,19 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_fetch_dim(ptr noundef nonnu
 27:                                               ; preds = %4
   %.not = icmp ne i32 %3, 0
   %28 = icmp eq i8 %8, 6
-  %or.cond43 = and i1 %.not, %28
-  br i1 %or.cond43, label %29, label %61
+  %or.cond40 = and i1 %.not, %28
+  br i1 %or.cond40, label %29, label %61
 
 29:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %31 = load i8, ptr %30, align 8, !tbaa !41
-  switch i8 %31, label %.thread39 [
-    i8 4, label %zval_to_string_offset.exit.thread36
+  switch i8 %31, label %.thread37 [
+    i8 4, label %zval_to_string_offset.exit.thread34
     i8 6, label %33
   ]
 
-zval_to_string_offset.exit.thread36:              ; preds = %29
+zval_to_string_offset.exit.thread34:              ; preds = %29
   %32 = load i64, ptr %2, align 8, !tbaa !41
   store i64 %32, ptr %6, align 8, !tbaa !144
   br label %41
@@ -7638,22 +7638,22 @@ zval_to_string_offset.exit.thread36:              ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load i8, ptr %35, align 1, !tbaa !41
   %37 = icmp sgt i8 %36, 57
-  br i1 %37, label %.thread39, label %zval_to_string_offset.exit
+  br i1 %37, label %.thread37, label %zval_to_string_offset.exit
 
 zval_to_string_offset.exit:                       ; preds = %33
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %39 = load i64, ptr %38, align 8, !tbaa !155
   %40 = call zeroext i8 @_is_numeric_string_ex(ptr noundef nonnull %35, i64 noundef %39, ptr noundef nonnull %6, ptr noundef null, i1 noundef zeroext false, ptr noundef null, ptr noundef null) #13
   %.fr.i = freeze i8 %40
-  %.not44 = icmp eq i8 %.fr.i, 4
-  br i1 %.not44, label %thread-pre-split, label %.thread39
+  %.not41 = icmp eq i8 %.fr.i, 4
+  br i1 %.not41, label %thread-pre-split, label %.thread37
 
 thread-pre-split:                                 ; preds = %zval_to_string_offset.exit
   %.pr = load i64, ptr %6, align 8, !tbaa !144
   br label %41
 
-41:                                               ; preds = %thread-pre-split, %zval_to_string_offset.exit.thread36
-  %42 = phi i64 [ %.pr, %thread-pre-split ], [ %32, %zval_to_string_offset.exit.thread36 ]
+41:                                               ; preds = %thread-pre-split, %zval_to_string_offset.exit.thread34
+  %42 = phi i64 [ %.pr, %thread-pre-split ], [ %32, %zval_to_string_offset.exit.thread34 ]
   %43 = icmp sgt i64 %42, -1
   br i1 %43, label %44, label %60
 
@@ -7683,9 +7683,9 @@ thread-pre-split:                                 ; preds = %zval_to_string_offs
   store ptr %52, ptr %0, align 8, !tbaa !41
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 262, ptr %59, align 8, !tbaa !41
-  br label %.thread39
+  br label %.thread37
 
-.thread39:                                        ; preds = %49, %zval_to_string_offset.exit, %29, %33
+.thread37:                                        ; preds = %49, %zval_to_string_offset.exit, %29, %33
   %.2.ph = phi i32 [ -1, %zval_to_string_offset.exit ], [ 0, %49 ], [ -1, %29 ], [ -1, %33 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
@@ -7694,8 +7694,8 @@ thread-pre-split:                                 ; preds = %zval_to_string_offs
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %61
 
-61:                                               ; preds = %27, %.thread, %60, %.thread39, %26
-  %.1 = phi i32 [ 0, %26 ], [ %.2.ph, %.thread39 ], [ -1, %60 ], [ -1, %.thread ], [ -1, %27 ]
+61:                                               ; preds = %27, %.thread, %60, %.thread37, %26
+  %.1 = phi i32 [ 0, %26 ], [ %.2.ph, %.thread37 ], [ -1, %60 ], [ -1, %.thread ], [ -1, %27 ]
   ret i32 %.1
 }
 
@@ -7755,8 +7755,8 @@ _zend_handle_numeric_str.exit.i.thread.i:         ; preds = %_zend_handle_numeri
 fetch_obj_prop.exit:                              ; preds = %27, %_zend_handle_numeric_str.exit.i.thread.i
   %.0.i.i = phi ptr [ %29, %27 ], [ %30, %_zend_handle_numeric_str.exit.i.thread.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not23 = icmp eq ptr %.0.i.i, null
-  br i1 %.not23, label %.thread, label %31
+  %.not22 = icmp eq ptr %.0.i.i, null
+  br i1 %.not22, label %.thread, label %31
 
 31:                                               ; preds = %fetch_obj_prop.exit
   %32 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
@@ -7853,7 +7853,7 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !41
   %.not = icmp eq i8 %7, 7
-  br i1 %.not, label %8, label %52
+  br i1 %.not, label %8, label %54
 
 8:                                                ; preds = %4
   %9 = load ptr, ptr %3, align 8, !tbaa !41
@@ -7865,9 +7865,9 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
 13:                                               ; preds = %8
   %14 = load ptr, ptr %2, align 8, !tbaa !41
   %15 = tail call ptr @zend_hash_find(ptr noundef %9, ptr noundef %14) #13
-  %.fr53 = freeze ptr %15
-  %.not54 = icmp eq ptr %.fr53, null
-  br i1 %.not54, label %.thread43, label %49
+  %.fr50 = freeze ptr %15
+  %.not51 = icmp eq ptr %.fr50, null
+  br i1 %.not51, label %.thread41, label %51
 
 16:                                               ; preds = %8
   %.not34 = icmp eq i32 %1, 0
@@ -7875,14 +7875,14 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
 
 17:                                               ; preds = %16
   %18 = icmp eq i8 %11, 4
-  br i1 %18, label %19, label %.thread43, !prof !157
+  br i1 %18, label %19, label %.thread41, !prof !157
 
 19:                                               ; preds = %17
   %20 = load i64, ptr %2, align 8, !tbaa !41
   %21 = tail call ptr @zend_hash_index_find(ptr noundef %9, i64 noundef %20) #13
   %.fr = freeze ptr %21
-  %.not49 = icmp eq ptr %.fr, null
-  br i1 %.not49, label %.thread43, label %49
+  %.not47 = icmp eq ptr %.fr, null
+  br i1 %.not47, label %.thread41, label %51
 
 22:                                               ; preds = %16
   %23 = icmp ult i8 %11, 3
@@ -7891,9 +7891,9 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
 24:                                               ; preds = %22
   %25 = load ptr, ptr @zend_empty_string, align 8, !tbaa !154
   %26 = tail call ptr @zend_hash_find(ptr noundef %9, ptr noundef %25) #13
-  %.fr51 = freeze ptr %26
-  %.not52 = icmp eq ptr %.fr51, null
-  br i1 %.not52, label %.thread43, label %49
+  %.fr48 = freeze ptr %26
+  %.not49 = icmp eq ptr %.fr48, null
+  br i1 %.not49, label %.thread41, label %51
 
 27:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7904,26 +7904,22 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   %32 = zext i32 %31 to i64
   %.idx = shl nuw nsw i64 %32, 5
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx
-  %.not3655 = icmp eq i32 %31, 0
-  br i1 %.not3655, label %._crit_edge.thread, label %.lr.ph
-
-._crit_edge.thread:                               ; preds = %27
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread43
+  %.not36.not53 = icmp eq i32 %31, 0
+  br i1 %.not36.not53, label %.thread41.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %35
 
-35:                                               ; preds = %.lr.ph, %.thread
-  %.03356 = phi ptr [ %29, %.lr.ph ], [ %48, %.thread ]
-  %36 = getelementptr inbounds nuw i8, ptr %.03356, i64 8
+35:                                               ; preds = %.lr.ph, %48
+  %.03354 = phi ptr [ %29, %.lr.ph ], [ %49, %48 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.03354, i64 8
   %37 = load i8, ptr %36, align 8, !tbaa !41
   %38 = icmp eq i8 %37, 0
-  br i1 %38, label %.thread, label %39, !prof !37
+  br i1 %38, label %48, label %39, !prof !37
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw i8, ptr %.03356, i64 24
+  %40 = getelementptr inbounds nuw i8, ptr %.03354, i64 24
   %41 = load ptr, ptr %40, align 8, !tbaa !159
   store ptr %41, ptr %5, align 8, !tbaa !41
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
@@ -7934,32 +7930,32 @@ define internal fastcc range(i32 -1, 1) i32 @ct_eval_in_array(ptr noundef nonnul
   store i32 %45, ptr %34, align 8, !tbaa !41
   %46 = call i32 @zend_compare(ptr noundef %2, ptr noundef nonnull %5) #13
   %47 = icmp eq i32 %46, 0
-  br i1 %47, label %.critedge, label %.thread
+  br i1 %47, label %50, label %48
 
-.thread:                                          ; preds = %35, %39
-  %48 = getelementptr inbounds nuw i8, ptr %.03356, i64 32
-  %.not36 = icmp eq ptr %48, %33
-  br i1 %.not36, label %._crit_edge, label %35
+48:                                               ; preds = %35, %39
+  %49 = getelementptr inbounds nuw i8, ptr %.03354, i64 32
+  %.not36.not = icmp eq ptr %49, %33
+  br i1 %.not36.not, label %.thread41.critedge, label %35
 
-._crit_edge:                                      ; preds = %.thread
+50:                                               ; preds = %39
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread43
+  br label %51
 
-.critedge:                                        ; preds = %39
+51:                                               ; preds = %50, %24, %19, %13
+  br label %.thread41
+
+.thread41.critedge:                               ; preds = %48, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %49
+  br label %.thread41
 
-49:                                               ; preds = %.critedge, %24, %19, %13
-  br label %.thread43
+.thread41:                                        ; preds = %.thread41.critedge, %17, %24, %19, %13, %51
+  %52 = phi i32 [ 3, %51 ], [ 2, %13 ], [ 2, %19 ], [ 2, %24 ], [ 2, %17 ], [ 2, %.thread41.critedge ]
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %52, ptr %53, align 8, !tbaa !41
+  br label %54
 
-.thread43:                                        ; preds = %._crit_edge, %._crit_edge.thread, %17, %24, %19, %13, %49
-  %50 = phi i32 [ 3, %49 ], [ 2, %._crit_edge ], [ 2, %13 ], [ 2, %19 ], [ 2, %24 ], [ 2, %17 ], [ 2, %._crit_edge.thread ]
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %50, ptr %51, align 8, !tbaa !41
-  br label %52
-
-52:                                               ; preds = %4, %.thread43
-  %.0 = phi i32 [ 0, %.thread43 ], [ -1, %4 ]
+54:                                               ; preds = %4, %.thread41
+  %.0 = phi i32 [ 0, %.thread41 ], [ -1, %4 ]
   ret i32 %.0
 }
 

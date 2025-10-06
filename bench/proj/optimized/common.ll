@@ -1804,10 +1804,10 @@ define hidden void @_ZNK5osgeo4proj6common13UnitOfMeasure18exportToPROJStringB5c
 9:                                                ; preds = %2
   %10 = tail call noundef ptr @_Z20pj_list_linear_unitsv()
   %11 = load ptr, ptr %10, align 8, !tbaa !49
-  %.not29.not48 = icmp eq ptr %11, null
-  br i1 %.not29.not48, label %.thread, label %.lr.ph50
+  %.not29.not45 = icmp eq ptr %11, null
+  br i1 %.not29.not45, label %.thread, label %.lr.ph47
 
-.lr.ph50:                                         ; preds = %9
+.lr.ph47:                                         ; preds = %9
   %12 = load ptr, ptr %5, align 8, !tbaa !9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load double, ptr %13, align 8, !tbaa !40
@@ -1817,27 +1817,27 @@ define hidden void @_ZNK5osgeo4proj6common13UnitOfMeasure18exportToPROJStringB5c
   %18 = fsub double %17, %14
   %19 = tail call double @llvm.fabs.f64(double %18)
   %20 = fcmp olt double %19, %15
-  br i1 %20, label %._crit_edge74, label %.lr.ph73
+  br i1 %20, label %._crit_edge71, label %.lr.ph70
 
-.lr.ph73:                                         ; preds = %.lr.ph50, %23
-  %indvars.iv5672 = phi i64 [ %indvars.iv.next57, %23 ], [ 0, %.lr.ph50 ]
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv5672, 1
-  %21 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %10, i64 %indvars.iv.next57
+.lr.ph70:                                         ; preds = %.lr.ph47, %23
+  %indvars.iv5369 = phi i64 [ %indvars.iv.next54, %23 ], [ 0, %.lr.ph47 ]
+  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv5369, 1
+  %21 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %10, i64 %indvars.iv.next54
   %22 = load ptr, ptr %21, align 8, !tbaa !49
   %.not29.not = icmp eq ptr %22, null
   br i1 %.not29.not, label %.thread, label %23, !llvm.loop !52
 
-23:                                               ; preds = %.lr.ph73
-  %24 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %10, i64 %indvars.iv.next57
+23:                                               ; preds = %.lr.ph70
+  %24 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %10, i64 %indvars.iv.next54
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load double, ptr %25, align 8, !tbaa !51
   %27 = fsub double %26, %14
   %28 = tail call double @llvm.fabs.f64(double %27)
   %29 = fcmp olt double %28, %15
-  br i1 %29, label %._crit_edge74, label %.lr.ph73, !llvm.loop !52
+  br i1 %29, label %._crit_edge71, label %.lr.ph70, !llvm.loop !52
 
-._crit_edge74:                                    ; preds = %23, %.lr.ph50
-  %.lcssa = phi ptr [ %11, %.lr.ph50 ], [ %22, %23 ]
+._crit_edge71:                                    ; preds = %23, %.lr.ph47
+  %.lcssa = phi ptr [ %11, %.lr.ph47 ], [ %22, %23 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %30, ptr %0, align 8, !tbaa !47
   %31 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.lcssa) #40
@@ -1846,15 +1846,15 @@ define hidden void @_ZNK5osgeo4proj6common13UnitOfMeasure18exportToPROJStringB5c
   %32 = icmp ugt i64 %31, 15
   br i1 %32, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc.i:                                         ; preds = %._crit_edge74
+.noexc.i:                                         ; preds = %._crit_edge71
   %33 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef 0)
   store ptr %33, ptr %0, align 8, !tbaa !16
   %34 = load i64, ptr %4, align 8, !tbaa !48
   store i64 %34, ptr %30, align 8, !tbaa !21
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc.i, %._crit_edge74
-  %35 = phi ptr [ %33, %.noexc.i ], [ %30, %._crit_edge74 ]
+._crit_edge.i.i:                                  ; preds = %.noexc.i, %._crit_edge71
+  %35 = phi ptr [ %33, %.noexc.i ], [ %30, %._crit_edge71 ]
   switch i64 %31, label %38 [
     i64 1, label %36
     i64 0, label %39
@@ -1882,8 +1882,8 @@ define hidden void @_ZNK5osgeo4proj6common13UnitOfMeasure18exportToPROJStringB5c
 44:                                               ; preds = %2
   %45 = tail call noundef ptr @_Z21pj_list_angular_unitsv()
   %46 = load ptr, ptr %45, align 8, !tbaa !49
-  %.not.not46 = icmp eq ptr %46, null
-  br i1 %.not.not46, label %.thread, label %.lr.ph
+  %.not.not43 = icmp eq ptr %46, null
+  br i1 %.not.not43, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %44
   %47 = load ptr, ptr %5, align 8, !tbaa !9
@@ -1895,59 +1895,59 @@ define hidden void @_ZNK5osgeo4proj6common13UnitOfMeasure18exportToPROJStringB5c
   %53 = fsub double %52, %49
   %54 = tail call double @llvm.fabs.f64(double %53)
   %55 = fcmp olt double %54, %50
-  br i1 %55, label %._crit_edge, label %.lr.ph71
+  br i1 %55, label %._crit_edge, label %.lr.ph68
 
-.lr.ph71:                                         ; preds = %.lr.ph, %58
-  %indvars.iv70 = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv70, 1
+.lr.ph68:                                         ; preds = %.lr.ph, %58
+  %indvars.iv67 = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv67, 1
   %56 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %45, i64 %indvars.iv.next
   %57 = load ptr, ptr %56, align 8, !tbaa !49
   %.not.not = icmp eq ptr %57, null
   br i1 %.not.not, label %.thread, label %58, !llvm.loop !54
 
-58:                                               ; preds = %.lr.ph71
+58:                                               ; preds = %.lr.ph68
   %59 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %45, i64 %indvars.iv.next
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load double, ptr %60, align 8, !tbaa !51
   %62 = fsub double %61, %49
   %63 = tail call double @llvm.fabs.f64(double %62)
   %64 = fcmp olt double %63, %50
-  br i1 %64, label %._crit_edge, label %.lr.ph71, !llvm.loop !54
+  br i1 %64, label %._crit_edge, label %.lr.ph68, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %58, %.lr.ph
-  %.lcssa68 = phi ptr [ %46, %.lr.ph ], [ %57, %58 ]
+  %.lcssa65 = phi ptr [ %46, %.lr.ph ], [ %57, %58 ]
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %65, ptr %0, align 8, !tbaa !47
-  %66 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.lcssa68) #40
+  %66 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.lcssa65) #40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %66, ptr %3, align 8, !tbaa !48
   %67 = icmp ugt i64 %66, 15
-  br i1 %67, label %.noexc.i35, label %._crit_edge.i.i34
+  br i1 %67, label %.noexc.i34, label %._crit_edge.i.i33
 
-.noexc.i35:                                       ; preds = %._crit_edge
+.noexc.i34:                                       ; preds = %._crit_edge
   %68 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef 0)
   store ptr %68, ptr %0, align 8, !tbaa !16
   %69 = load i64, ptr %3, align 8, !tbaa !48
   store i64 %69, ptr %65, align 8, !tbaa !21
-  br label %._crit_edge.i.i34
+  br label %._crit_edge.i.i33
 
-._crit_edge.i.i34:                                ; preds = %.noexc.i35, %._crit_edge
-  %70 = phi ptr [ %68, %.noexc.i35 ], [ %65, %._crit_edge ]
+._crit_edge.i.i33:                                ; preds = %.noexc.i34, %._crit_edge
+  %70 = phi ptr [ %68, %.noexc.i34 ], [ %65, %._crit_edge ]
   switch i64 %66, label %73 [
     i64 1, label %71
     i64 0, label %74
   ]
 
-71:                                               ; preds = %._crit_edge.i.i34
-  %72 = load i8, ptr %.lcssa68, align 1, !tbaa !21
+71:                                               ; preds = %._crit_edge.i.i33
+  %72 = load i8, ptr %.lcssa65, align 1, !tbaa !21
   store i8 %72, ptr %70, align 1, !tbaa !21
   br label %74
 
-73:                                               ; preds = %._crit_edge.i.i34
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull align 1 %.lcssa68, i64 %66, i1 false)
+73:                                               ; preds = %._crit_edge.i.i33
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull align 1 %.lcssa65, i64 %66, i1 false)
   br label %74
 
-74:                                               ; preds = %._crit_edge.i.i34, %71, %73
+74:                                               ; preds = %._crit_edge.i.i33, %71, %73
   %75 = load i64, ptr %3, align 8, !tbaa !48
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %75, ptr %76, align 8, !tbaa !22
@@ -1957,7 +1957,7 @@ define hidden void @_ZNK5osgeo4proj6common13UnitOfMeasure18exportToPROJStringB5c
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %81
 
-.thread:                                          ; preds = %.lr.ph71, %.lr.ph73, %44, %9, %2
+.thread:                                          ; preds = %.lr.ph68, %.lr.ph70, %44, %9, %2
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %79, ptr %0, align 8, !tbaa !47
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3368,33 +3368,33 @@ define noundef i32 @_ZNK5osgeo4proj6common16IdentifiedObject11getEPSGCodeEv(ptr 
   %5 = load ptr, ptr %4, align 8, !tbaa !148
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !148
-  %.not14 = icmp eq ptr %5, %7
-  br i1 %.not14, label %.loopexit, label %.lr.ph
+  %.not17 = icmp eq ptr %5, %7
+  br i1 %.not17, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %17
-  %.sroa.09.015 = phi ptr [ %18, %17 ], [ %5, %1 ]
-  %8 = load ptr, ptr %.sroa.09.015, align 8, !tbaa !143
+.lr.ph:                                           ; preds = %1, %12
+  %.sroa.09.018 = phi ptr [ %13, %12 ], [ %5, %1 ]
+  %8 = load ptr, ptr %.sroa.09.018, align 8, !tbaa !143
   %9 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK5osgeo4proj8metadata10Identifier9codeSpaceB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %8) #44
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = tail call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj8metadata10Identifier4EPSGB5cxx11E) #40
-  br i1 %11, label %.thread, label %17
+  br i1 %11, label %14, label %12
 
-.thread:                                          ; preds = %.lr.ph
-  %12 = load ptr, ptr %.sroa.09.015, align 8, !tbaa !143
-  %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata10Identifier4codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #44
-  %14 = load ptr, ptr %13, align 8, !tbaa !16
-  %15 = tail call i64 @strtol(ptr noundef nonnull captures(none) %14, ptr noundef null, i32 noundef 10) #40
-  %16 = trunc i64 %15 to i32
-  br label %.loopexit
-
-17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.09.015, i64 16
-  %.not = icmp eq ptr %18, %7
+12:                                               ; preds = %.lr.ph
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.09.018, i64 16
+  %.not = icmp eq ptr %13, %7
   br i1 %.not, label %.loopexit, label %.lr.ph
 
-.loopexit:                                        ; preds = %17, %1, %.thread
-  %spec.select = phi i32 [ %16, %.thread ], [ 0, %1 ], [ 0, %17 ]
-  ret i32 %spec.select
+14:                                               ; preds = %.lr.ph
+  %15 = load ptr, ptr %.sroa.09.018, align 8, !tbaa !143
+  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5osgeo4proj8metadata10Identifier4codeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #44
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
+  %18 = tail call i64 @strtol(ptr noundef nonnull captures(none) %17, ptr noundef null, i32 noundef 10) #40
+  %19 = trunc i64 %18 to i32
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %12, %1, %14
+  %20 = phi i32 [ %19, %14 ], [ 0, %1 ], [ 0, %12 ]
+  ret i32 %20
 }
 
 ; Function Attrs: nounwind

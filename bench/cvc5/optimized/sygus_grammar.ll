@@ -7305,8 +7305,8 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal12SygusGrammar8hasRulesEv(pt
 3:                                                ; preds = %4, %1
   %.sroa.08.0.in = phi ptr [ %2, %1 ], [ %.sroa.08.0, %4 ]
   %.sroa.08.0 = load ptr, ptr %.sroa.08.0.in, align 8, !tbaa !33
-  %.not11.not.not.not.not.not = icmp ne ptr %.sroa.08.0, null
-  br i1 %.not11.not.not.not.not.not, label %4, label %9
+  %.not12.not.not.not.not.not = icmp ne ptr %.sroa.08.0, null
+  br i1 %.not12.not.not.not.not.not, label %4, label %9
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.0, i64 16
@@ -7317,7 +7317,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal12SygusGrammar8hasRulesEv(pt
   br i1 %.not, label %3, label %9
 
 9:                                                ; preds = %3, %4
-  ret i1 %.not11.not.not.not.not.not
+  ret i1 %.not12.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7890,8 +7890,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i73
   %236 = load i64, ptr %117, align 8, !tbaa !169
   %237 = urem i64 %235, %236
   %238 = load i64, ptr %123, align 8, !tbaa !170
-  %.not32.i = icmp eq i64 %238, 0
-  br i1 %.not32.i, label %.critedge.i, label %239
+  %.not30.i = icmp eq i64 %238, 0
+  br i1 %.not30.i, label %.critedge.i, label %239
 
 239:                                              ; preds = %.noexc109
   %240 = load ptr, ptr %12, align 8, !tbaa !167

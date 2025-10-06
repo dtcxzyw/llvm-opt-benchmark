@@ -2771,16 +2771,16 @@ fill_tds_info_defaults.exit:                      ; preds = %54, %54, %65
   %144 = load i32, ptr %35, align 4
   %145 = tail call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0181, i32 noundef %144)
   %146 = icmp sgt i32 %145, 0
-  br i1 %146, label %.lr.ph99.i, label %dissect_tds_rpc.exit
+  br i1 %146, label %.lr.ph98.i, label %dissect_tds_rpc.exit
 
-.lr.ph99.i:                                       ; preds = %139, %.thread91.i
+.lr.ph98.i:                                       ; preds = %139, %.thread91.i
   %147 = load i32, ptr @tds_protocol_type, align 4
   switch i32 %147, label %162 [
     i32 16384, label %148
     i32 20480, label %148
   ]
 
-148:                                              ; preds = %.lr.ph99.i, %.lr.ph99.i
+148:                                              ; preds = %.lr.ph98.i, %.lr.ph98.i
   %149 = load i32, ptr %35, align 4
   %150 = call zeroext i8 @tvb_get_uint8(ptr noundef nonnull %.0181, i32 noundef %149)
   %151 = zext i8 %150 to i32
@@ -2796,7 +2796,7 @@ fill_tds_info_defaults.exit:                      ; preds = %54, %54, %65
   %161 = add i32 %159, %160
   br label %.sink.split.i
 
-162:                                              ; preds = %.lr.ph99.i
+162:                                              ; preds = %.lr.ph98.i
   %163 = load i32, ptr %35, align 4
   %164 = call zeroext i16 @tvb_get_letohs(ptr noundef nonnull %.0181, i32 noundef %163)
   %165 = load i32, ptr @hf_tds_rpc_name_length, align 4
@@ -3115,7 +3115,7 @@ dissect_tds_type_info.exit.i:                     ; preds = %.sink.split.i.i, %.
   %332 = load i32, ptr %35, align 4
   %333 = call i32 @tvb_reported_length_remaining(ptr noundef nonnull %.0181, i32 noundef %332)
   %334 = icmp sgt i32 %333, 0
-  br i1 %334, label %.lr.ph99.i, label %dissect_tds_rpc.exit, !llvm.loop !8
+  br i1 %334, label %.lr.ph98.i, label %dissect_tds_rpc.exit, !llvm.loop !8
 
 dissect_tds_rpc.exit:                             ; preds = %.thread91.i, %139
   call void @llvm.lifetime.end.p0(ptr nonnull %35)

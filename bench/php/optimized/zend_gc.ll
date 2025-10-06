@@ -3551,24 +3551,24 @@ gc_compact.exit:                                  ; preds = %.thread595, %1301, 
   call void @_efree(ptr noundef %1356) #19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1736), i8 0, i64 24, i1 false)
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1, !tbaa !14
-  %.038.i233 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !56
-  %.not39.i = icmp eq ptr %.038.i233, null
-  br i1 %.not39.i, label %zend_gc_check_root_tmpvars.exit, label %.lr.ph41.i
+  %.037.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !56
+  %.not38.i = icmp eq ptr %.037.i, null
+  br i1 %.not38.i, label %zend_gc_check_root_tmpvars.exit, label %.lr.ph40.i
 
-.lr.ph41.i:                                       ; preds = %.loopexit289, %gc_check_possible_root.exit.i
-  %.040.i = phi ptr [ %.0.i238, %gc_check_possible_root.exit.i ], [ %.038.i233, %.loopexit289 ]
-  %1357 = getelementptr inbounds nuw i8, ptr %.040.i, i64 24
+.lr.ph40.i:                                       ; preds = %.loopexit289, %gc_check_possible_root.exit.i
+  %.039.i233 = phi ptr [ %.0.i238, %gc_check_possible_root.exit.i ], [ %.037.i, %.loopexit289 ]
+  %1357 = getelementptr inbounds nuw i8, ptr %.039.i233, i64 24
   %1358 = load ptr, ptr %1357, align 8, !tbaa !43
   %.not29.i = icmp eq ptr %1358, null
   br i1 %.not29.i, label %gc_check_possible_root.exit.i, label %1359
 
-1359:                                             ; preds = %.lr.ph41.i
+1359:                                             ; preds = %.lr.ph40.i
   %1360 = load i8, ptr %1358, align 8, !tbaa !39
   %.not30.i = icmp eq i8 %1360, 1
   br i1 %.not30.i, label %gc_check_possible_root.exit.i, label %1361
 
 1361:                                             ; preds = %1359
-  %1362 = load ptr, ptr %.040.i, align 8, !tbaa !51
+  %1362 = load ptr, ptr %.039.i233, align 8, !tbaa !51
   %1363 = getelementptr inbounds nuw i8, ptr %1358, i64 104
   %1364 = load ptr, ptr %1363, align 8, !tbaa !39
   %1365 = ptrtoint ptr %1362 to i64
@@ -3579,8 +3579,8 @@ gc_compact.exit:                                  ; preds = %.thread595, %1301, 
   %1370 = getelementptr inbounds nuw i8, ptr %1358, i64 152
   %1371 = getelementptr inbounds nuw i8, ptr %1358, i64 144
   %1372 = load i32, ptr %1371, align 8, !tbaa !39
-  %.not42.i = icmp eq i32 %1372, 0
-  br i1 %.not42.i, label %gc_check_possible_root.exit.i, label %.lr.ph.i234
+  %.not41.i = icmp eq i32 %1372, 0
+  br i1 %.not41.i, label %gc_check_possible_root.exit.i, label %.lr.ph.i234
 
 .lr.ph.i234:                                      ; preds = %1361, %1408
   %1373 = phi i32 [ %1409, %1408 ], [ %1372, %1361 ]
@@ -3607,7 +3607,7 @@ gc_compact.exit:                                  ; preds = %.thread595, %1301, 
 1385:                                             ; preds = %1382
   %1386 = and i32 %1383, -8
   %1387 = sext i32 %1386 to i64
-  %1388 = getelementptr inbounds i8, ptr %.040.i, i64 %1387
+  %1388 = getelementptr inbounds i8, ptr %.039.i233, i64 %1387
   %1389 = getelementptr inbounds nuw i8, ptr %1388, i64 9
   %1390 = load i8, ptr %1389, align 1, !tbaa !39
   %1391 = and i8 %1390, 2
@@ -3644,21 +3644,21 @@ gc_compact.exit:                                  ; preds = %.thread595, %1301, 
 
 1407:                                             ; preds = %1403
   call void @gc_possible_root(ptr noundef nonnull %.06.i.i)
-  %.pre44.i = load i32, ptr %1371, align 8, !tbaa !39
+  %.pre43.i = load i32, ptr %1371, align 8, !tbaa !39
   br label %1408
 
 1408:                                             ; preds = %1407, %1403, %1397, %1385, %1382, %1379
-  %1409 = phi i32 [ %1373, %1379 ], [ %1373, %1385 ], [ %1373, %1382 ], [ %1373, %1397 ], [ %1373, %1403 ], [ %.pre44.i, %1407 ]
+  %1409 = phi i32 [ %1373, %1379 ], [ %1373, %1385 ], [ %1373, %1382 ], [ %1373, %1397 ], [ %1373, %1403 ], [ %.pre43.i, %1407 ]
   %indvars.iv.next.i237 = add nuw nsw i64 %indvars.iv.i235, 1
   %1410 = zext i32 %1409 to i64
   %1411 = icmp samesign ult i64 %indvars.iv.next.i237, %1410
   br i1 %1411, label %.lr.ph.i234, label %gc_check_possible_root.exit.i
 
-gc_check_possible_root.exit.i:                    ; preds = %1408, %.lr.ph.i234, %1361, %1359, %.lr.ph41.i
-  %1412 = getelementptr inbounds nuw i8, ptr %.040.i, i64 48
+gc_check_possible_root.exit.i:                    ; preds = %1408, %.lr.ph.i234, %1361, %1359, %.lr.ph40.i
+  %1412 = getelementptr inbounds nuw i8, ptr %.039.i233, i64 48
   %.0.i238 = load ptr, ptr %1412, align 8, !tbaa !56
   %.not.i239 = icmp eq ptr %.0.i238, null
-  br i1 %.not.i239, label %zend_gc_check_root_tmpvars.exit, label %.lr.ph41.i
+  br i1 %.not.i239, label %zend_gc_check_root_tmpvars.exit, label %.lr.ph40.i
 
 zend_gc_check_root_tmpvars.exit:                  ; preds = %gc_check_possible_root.exit.i, %.loopexit289
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 9), align 1, !tbaa !14
@@ -5183,17 +5183,17 @@ define internal void @zif_gc_destructor_fiber(ptr readnone captures(none) %0, pt
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 88), align 8, !tbaa !20
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 72), align 8, !tbaa !17
   %9 = load i32, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 76), align 4, !tbaa !18
-  %.not.i22 = icmp eq i32 %8, %9
-  br i1 %.not.i22, label %gc_call_destructors.exit, label %.lr.ph.preheader
+  %.not.i19 = icmp eq i32 %8, %9
+  br i1 %.not.i19, label %gc_call_destructors.exit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
-  %.pre25 = load ptr, ptr @gc_globals, align 8, !tbaa !16
+  %.pre22 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge.i
-  %10 = phi ptr [ %50, %.critedge.i ], [ %.pre25, %.lr.ph.preheader ]
-  %.022.i23 = phi i32 [ %51, %.critedge.i ], [ %8, %.lr.ph.preheader ]
-  %11 = zext i32 %.022.i23 to i64
+  %10 = phi ptr [ %50, %.critedge.i ], [ %.pre22, %.lr.ph.preheader ]
+  %.022.i20 = phi i32 [ %51, %.critedge.i ], [ %8, %.lr.ph.preheader ]
+  %11 = zext i32 %.022.i20 to i64
   %12 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !32
   %14 = ptrtoint ptr %13 to i64
@@ -5212,7 +5212,7 @@ define internal void @zif_gc_destructor_fiber(ptr readnone captures(none) %0, pt
   br i1 %.not23.i, label %23, label %.critedge.i
 
 23:                                               ; preds = %17
-  store i32 %.022.i23, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 72), align 8, !tbaa !17
+  store i32 %.022.i20, ptr getelementptr inbounds nuw (i8, ptr @gc_globals, i64 72), align 8, !tbaa !17
   %24 = load i32, ptr %20, align 4, !tbaa !39
   %25 = or i32 %24, 256
   store i32 %25, ptr %20, align 4, !tbaa !39
@@ -5244,25 +5244,25 @@ define internal void @zif_gc_destructor_fiber(ptr readnone captures(none) %0, pt
   %42 = load i8, ptr %41, align 1, !tbaa !39
   %43 = and i8 %42, 2
   %.not.i9 = icmp eq i8 %43, 0
-  br i1 %.not.i9, label %gc_check_possible_root.exit14, label %.thread
+  br i1 %.not.i9, label %gc_check_possible_root.exit13, label %.thread
 
 .thread:                                          ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !39
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %.pre26 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !39
+  %.pre23 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !39
   br label %46
 
 46:                                               ; preds = %.thread, %37
-  %47 = phi i32 [ %38, %37 ], [ %.pre26, %.thread ]
+  %47 = phi i32 [ %38, %37 ], [ %.pre23, %.thread ]
   %.06.i = phi ptr [ %19, %37 ], [ %45, %.thread ]
   %48 = and i32 %47, -1008
   %49 = icmp eq i32 %48, 0
-  br i1 %49, label %gc_check_possible_root.exit14.sink.split, label %gc_check_possible_root.exit14, !prof !37
+  br i1 %49, label %gc_check_possible_root.exit13.sink.split, label %gc_check_possible_root.exit13, !prof !37
 
 .critedge.i:                                      ; preds = %23, %17, %.lr.ph
   %50 = phi ptr [ %.pre, %23 ], [ %10, %17 ], [ %10, %.lr.ph ]
-  %51 = add i32 %.022.i23, 1
+  %51 = add i32 %.022.i20, 1
   %.not.i = icmp eq i32 %51, %9
   br i1 %.not.i, label %gc_call_destructors.exit, label %.lr.ph
 
@@ -5299,28 +5299,28 @@ gc_call_destructors.exit:                         ; preds = %.critedge.i, %7
   %67 = load i8, ptr %66, align 1, !tbaa !39
   %68 = and i8 %67, 2
   %.not.i11 = icmp eq i8 %68, 0
-  br i1 %.not.i11, label %gc_check_possible_root.exit14, label %.thread18
+  br i1 %.not.i11, label %gc_check_possible_root.exit13, label %.thread16
 
-.thread18:                                        ; preds = %65
+.thread16:                                        ; preds = %65
   %69 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !39
-  %.phi.trans.insert27 = getelementptr inbounds nuw i8, ptr %70, i64 4
-  %.pre28 = load i32, ptr %.phi.trans.insert27, align 4, !tbaa !39
+  %.phi.trans.insert24 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  %.pre25 = load i32, ptr %.phi.trans.insert24, align 4, !tbaa !39
   br label %71
 
-71:                                               ; preds = %.thread18, %58
-  %72 = phi i32 [ %63, %58 ], [ %.pre28, %.thread18 ]
-  %.06.i10 = phi ptr [ %3, %58 ], [ %70, %.thread18 ]
+71:                                               ; preds = %.thread16, %58
+  %72 = phi i32 [ %63, %58 ], [ %.pre25, %.thread16 ]
+  %.06.i10 = phi ptr [ %3, %58 ], [ %70, %.thread16 ]
   %73 = and i32 %72, -1008
   %74 = icmp eq i32 %73, 0
-  br i1 %74, label %gc_check_possible_root.exit14.sink.split, label %gc_check_possible_root.exit14, !prof !37
+  br i1 %74, label %gc_check_possible_root.exit13.sink.split, label %gc_check_possible_root.exit13, !prof !37
 
-gc_check_possible_root.exit14.sink.split:         ; preds = %71, %46
+gc_check_possible_root.exit13.sink.split:         ; preds = %71, %46
   %.06.i.sink = phi ptr [ %.06.i, %46 ], [ %.06.i10, %71 ]
   tail call void @gc_possible_root(ptr noundef nonnull %.06.i.sink)
-  br label %gc_check_possible_root.exit14
+  br label %gc_check_possible_root.exit13
 
-gc_check_possible_root.exit14:                    ; preds = %gc_check_possible_root.exit14.sink.split, %46, %40, %71, %65
+gc_check_possible_root.exit13:                    ; preds = %gc_check_possible_root.exit13.sink.split, %46, %40, %71, %65
   ret void
 }
 

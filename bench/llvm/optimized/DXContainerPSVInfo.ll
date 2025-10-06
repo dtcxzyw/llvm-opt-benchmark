@@ -535,19 +535,19 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   br label %68
 
 68:                                               ; preds = %71, %.preheader.i
-  %.0613.i = phi i64 [ 0, %.preheader.i ], [ %72, %71 ]
-  %69 = getelementptr inbounds nuw i32, ptr %61, i64 %.0613.i
+  %.0614.i = phi i64 [ 0, %.preheader.i ], [ %72, %71 ]
+  %69 = getelementptr inbounds nuw i32, ptr %61, i64 %.0614.i
   %bcmp.i = tail call i32 @bcmp(ptr readonly %69, ptr readonly %64, i64 %67)
   %70 = icmp eq i32 %bcmp.i, 0
   br i1 %70, label %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit, label %71
 
 71:                                               ; preds = %68
-  %72 = add i64 %.0613.i, 1
+  %72 = add i64 %.0614.i, 1
   %.not.i = icmp ugt i64 %72, %66
   br i1 %.not.i, label %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread, label %68, !llvm.loop !85
 
 _ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit:     ; preds = %68
-  %73 = icmp eq i64 %.0613.i, -1
+  %73 = icmp eq i64 %.0614.i, -1
   br i1 %73, label %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread, label %77
 
 _ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread: ; preds = %71, %_ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit
@@ -557,7 +557,7 @@ _ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread: ; preds = %71, %_ZN4llvm23S
   br label %77
 
 77:                                               ; preds = %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread
-  %.sroa.02.sroa.4.1.in = phi i64 [ %63, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread ], [ %.0613.i, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit ]
+  %.sroa.02.sroa.4.1.in = phi i64 [ %63, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit.thread ], [ %.0614.i, %_ZL12FindSequenceN4llvm8ArrayRefIjEES1_.exit ]
   %.sroa.02.sroa.4.0.insert.ext = shl i64 %.sroa.02.sroa.4.1.in, 32
   %78 = load i32, ptr %12, align 8, !tbaa !7
   %79 = load i32, ptr %13, align 4, !tbaa !53

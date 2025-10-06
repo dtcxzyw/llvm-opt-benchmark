@@ -238,8 +238,8 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit..thread_crit_edge: ; preds = 
   %.pre = load ptr, ptr %5, align 16, !tbaa !20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   %.sroa.0.0.copyload.i.i.i.i15.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !6
-  %.pre37 = and i64 %.sroa.0.0.copyload.i.i.i.i15.pre, -16
-  %.pre38 = inttoptr i64 %.pre37 to ptr
+  %.pre36 = and i64 %.sroa.0.0.copyload.i.i.i.i15.pre, -16
+  %.pre37 = inttoptr i64 %.pre36 to ptr
   br label %.thread
 
 _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread: ; preds = %24, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit
@@ -266,13 +266,13 @@ _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread: ; preds = %24, %_ZNK5
   br label %87
 
 .thread:                                          ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit..thread_crit_edge, %28
-  %.pre-phi39 = phi ptr [ %.pre38, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit..thread_crit_edge ], [ %31, %28 ]
-  %48 = load ptr, ptr %.pre-phi39, align 8, !tbaa !20
+  %.pre-phi38 = phi ptr [ %.pre37, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit..thread_crit_edge ], [ %31, %28 ]
+  %48 = load ptr, ptr %.pre-phi38, align 8, !tbaa !20
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i8, ptr %49, align 16
   %51 = icmp ne i8 %50, 46
-  %.not1235 = icmp eq ptr %48, null
-  %.not12 = or i1 %.not1235, %51
+  %.not1234 = icmp eq ptr %48, null
+  %.not12 = or i1 %.not1234, %51
   br i1 %.not12, label %_ZNK5clang8EnumDecl14getIntegerTypeEv.exit, label %52
 
 52:                                               ; preds = %.thread
@@ -387,8 +387,8 @@ define dso_local void @_ZNK12PNaClABIInfo20classifyArgumentTypeEN5clang8QualType
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load i8, ptr %19, align 16
   %21 = icmp ne i8 %20, 46
-  %.not46 = icmp eq ptr %18, null
-  %.not = or i1 %.not46, %21
+  %.not43 = icmp eq ptr %18, null
+  %.not = or i1 %.not43, %21
   br i1 %.not, label %40, label %22
 
 22:                                               ; preds = %11
@@ -450,13 +450,13 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %37, %29
   %49 = load ptr, ptr %13, align 16, !tbaa !20
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load i8, ptr %50, align 16
-  %.not.i25 = icmp eq i8 %51, 10
-  br i1 %.not.i25, label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread38, label %52
+  %.not.i24 = icmp eq i8 %51, 10
+  br i1 %.not.i24, label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread36, label %52
 
 52:                                               ; preds = %48
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %.sroa.0.0.copyload.i.i.i.i26 = load i64, ptr %53, align 8, !tbaa !6
-  %54 = and i64 %.sroa.0.0.copyload.i.i.i.i26, -16
+  %.sroa.0.0.copyload.i.i.i.i25 = load i64, ptr %53, align 8, !tbaa !6
+  %54 = and i64 %.sroa.0.0.copyload.i.i.i.i25, -16
   %55 = inttoptr i64 %54 to ptr
   %56 = load ptr, ptr %55, align 16, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -467,21 +467,21 @@ _ZNK5clang8QualType18getUnqualifiedTypeEv.exit.i: ; preds = %37, %29
 _ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit: ; preds = %52
   %60 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %49) #10
   %.not19 = icmp eq ptr %60, null
-  br i1 %.not19, label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread, label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread38
+  br i1 %.not19, label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread, label %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread36
 
-_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread38: ; preds = %48, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit
-  %.1.i41 = phi ptr [ %60, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit ], [ %49, %48 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.1.i41, i64 32
+_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread36: ; preds = %48, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit
+  %.1.i39 = phi ptr [ %60, %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit ], [ %49, %48 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.1.i39, i64 32
   %62 = load i32, ptr %61, align 16
   %63 = and i32 %62, 33554430
   %64 = icmp samesign ugt i32 %63, 128
   br i1 %64, label %65, label %66
 
-65:                                               ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread38
+65:                                               ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread36
   tail call void @_ZNK5clang7CodeGen7ABIInfo23getNaturalAlignIndirectENS_8QualTypeEbbPN4llvm4TypeE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::ABIArgInfo") align 8 %0, ptr noundef nonnull align 8 dereferenceable(20) %1, i64 %2, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef null) #10
   br label %.critedge
 
-66:                                               ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread38
+66:                                               ; preds = %_ZNK5clang4Type5getAsINS_10BitIntTypeEEEPKT_v.exit.thread36
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 25
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %68, align 8, !alias.scope !44

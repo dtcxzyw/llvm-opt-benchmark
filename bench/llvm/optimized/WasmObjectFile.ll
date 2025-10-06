@@ -1065,11 +1065,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit.i: ; preds = %_ZL
   br i1 %73, label %74, label %thread-pre-split.i.i.i.i, !prof !197
 
 74:                                               ; preds = %69
-  %.not44.i.i.i.i = icmp eq i32 %.028.i.i.i.i, 63
+  %.not43.i.i.i.i = icmp eq i32 %.028.i.i.i.i, 63
   %.not.i.i.i.i = icmp samesign ugt i8 %71, 1
   %75 = icmp ne i8 %71, 0
-  %or.cond43.i.i.i.i = select i1 %.not44.i.i.i.i, i1 %.not.i.i.i.i, i1 %75
-  br i1 %or.cond43.i.i.i.i, label %82, label %thread-pre-split.i.i.i.i
+  %or.cond42.i.i.i.i = select i1 %.not43.i.i.i.i, i1 %.not.i.i.i.i, i1 %75
+  br i1 %or.cond42.i.i.i.i, label %82, label %thread-pre-split.i.i.i.i
 
 thread-pre-split.i.i.i.i:                         ; preds = %74, %69
   %76 = zext nneg i32 %.028.i.i.i.i to i64
@@ -1159,11 +1159,11 @@ _ZNSt8optionalIhEaSIlEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remov
   br i1 %114, label %115, label %thread-pre-split.i.i.i37.i, !prof !197
 
 115:                                              ; preds = %110
-  %.not44.i.i.i39.i = icmp eq i32 %.028.i.i.i35.i, 63
+  %.not43.i.i.i39.i = icmp eq i32 %.028.i.i.i35.i, 63
   %.not.i.i.i40.i = icmp samesign ugt i8 %112, 1
   %116 = icmp ne i8 %112, 0
-  %or.cond43.i.i.i41.i = select i1 %.not44.i.i.i39.i, i1 %.not.i.i.i40.i, i1 %116
-  br i1 %or.cond43.i.i.i41.i, label %123, label %thread-pre-split.i.i.i37.i
+  %or.cond42.i.i.i41.i = select i1 %.not43.i.i.i39.i, i1 %.not.i.i.i40.i, i1 %116
+  br i1 %or.cond42.i.i.i41.i, label %123, label %thread-pre-split.i.i.i37.i
 
 thread-pre-split.i.i.i37.i:                       ; preds = %115, %110
   %117 = zext nneg i32 %.028.i.i.i35.i to i64
@@ -1615,11 +1615,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile12parseSectionERNS0_11Wasm
   br i1 %34, label %35, label %thread-pre-split.i.i.i.i, !prof !197
 
 35:                                               ; preds = %30
-  %.not44.i.i.i.i = icmp eq i32 %.028.i.i.i.i, 63
+  %.not43.i.i.i.i = icmp eq i32 %.028.i.i.i.i, 63
   %.not.i.i.i.i = icmp samesign ugt i8 %32, 1
   %36 = icmp ne i8 %32, 0
-  %or.cond43.i.i.i.i = select i1 %.not44.i.i.i.i, i1 %.not.i.i.i.i, i1 %36
-  br i1 %or.cond43.i.i.i.i, label %43, label %thread-pre-split.i.i.i.i
+  %or.cond42.i.i.i.i = select i1 %.not43.i.i.i.i, i1 %.not.i.i.i.i, i1 %36
+  br i1 %or.cond42.i.i.i.i, label %43, label %thread-pre-split.i.i.i.i
 
 thread-pre-split.i.i.i.i:                         ; preds = %35, %30
   %37 = zext nneg i32 %.028.i.i.i.i to i64
@@ -1688,13 +1688,13 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseCustomSectionERNS0_
   %.sroa.023.0.copyload = load ptr, ptr %5, align 8, !tbaa !13
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.224.0.copyload = load i64, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !14
-  switch i64 %.sroa.224.0.copyload, label %_ZN4llvmeqENS_9StringRefES0_.exit83.thread119 [
+  switch i64 %.sroa.224.0.copyload, label %_ZN4llvmeqENS_9StringRefES0_.exit77.thread113 [
     i64 6, label %_ZN4llvmeqENS_9StringRefES0_.exit
-    i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit63
-    i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit68
-    i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit73
-    i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit78
-    i64 15, label %_ZN4llvmeqENS_9StringRefES0_.exit83
+    i64 8, label %_ZN4llvmeqENS_9StringRefES0_.exit57
+    i64 4, label %_ZN4llvmeqENS_9StringRefES0_.exit62
+    i64 7, label %_ZN4llvmeqENS_9StringRefES0_.exit67
+    i64 9, label %_ZN4llvmeqENS_9StringRefES0_.exit72
+    i64 15, label %_ZN4llvmeqENS_9StringRefES0_.exit77
   ]
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %4
@@ -1705,84 +1705,84 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %4
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit
   tail call void @_ZN4llvm6object14WasmObjectFile18parseDylinkSectionERNS1_11ReadContextE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(684) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %7 = load ptr, ptr %0, align 8, !tbaa !37
-  %.not127 = icmp eq ptr %7, null
-  br i1 %.not127, label %_ZN4llvm5ErrorD2Ev.exit88, label %20
+  %.not121 = icmp eq ptr %7, null
+  br i1 %.not121, label %_ZN4llvm5ErrorD2Ev.exit82, label %20
 
-_ZN4llvmeqENS_9StringRefES0_.exit63:              ; preds = %4
-  %bcmp.i62 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.83, i64 %.sroa.224.0.copyload)
-  %8 = icmp eq i32 %bcmp.i62, 0
-  br i1 %8, label %_ZN4llvmeqENS_9StringRefES0_.exit63.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit57:              ; preds = %4
+  %bcmp.i56 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.83, i64 %.sroa.224.0.copyload)
+  %8 = icmp eq i32 %bcmp.i56, 0
+  br i1 %8, label %_ZN4llvmeqENS_9StringRefES0_.exit57.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit63.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit63
+_ZN4llvmeqENS_9StringRefES0_.exit57.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit57
   tail call void @_ZN4llvm6object14WasmObjectFile19parseDylink0SectionERNS1_11ReadContextE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(684) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %9 = load ptr, ptr %0, align 8, !tbaa !37
-  %.not126 = icmp eq ptr %9, null
-  br i1 %.not126, label %_ZN4llvm5ErrorD2Ev.exit88, label %20
+  %.not120 = icmp eq ptr %9, null
+  br i1 %.not120, label %_ZN4llvm5ErrorD2Ev.exit82, label %20
 
-_ZN4llvmeqENS_9StringRefES0_.exit68:              ; preds = %4
-  %bcmp.i67 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.84, i64 %.sroa.224.0.copyload)
-  %10 = icmp eq i32 %bcmp.i67, 0
-  br i1 %10, label %_ZN4llvmeqENS_9StringRefES0_.exit68.thread, label %_ZN4llvm5ErrorD2Ev.exit88
+_ZN4llvmeqENS_9StringRefES0_.exit62:              ; preds = %4
+  %bcmp.i61 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.84, i64 %.sroa.224.0.copyload)
+  %10 = icmp eq i32 %bcmp.i61, 0
+  br i1 %10, label %_ZN4llvmeqENS_9StringRefES0_.exit62.thread, label %_ZN4llvm5ErrorD2Ev.exit82
 
-_ZN4llvmeqENS_9StringRefES0_.exit68.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit68
+_ZN4llvmeqENS_9StringRefES0_.exit62.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit62
   tail call void @_ZN4llvm6object14WasmObjectFile16parseNameSectionERNS1_11ReadContextE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(684) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %11 = load ptr, ptr %0, align 8, !tbaa !37
-  %.not125 = icmp eq ptr %11, null
-  br i1 %.not125, label %_ZN4llvm5ErrorD2Ev.exit88, label %20
+  %.not119 = icmp eq ptr %11, null
+  br i1 %.not119, label %_ZN4llvm5ErrorD2Ev.exit82, label %20
 
-_ZN4llvmeqENS_9StringRefES0_.exit73:              ; preds = %4
-  %bcmp.i72 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.85, i64 %.sroa.224.0.copyload)
-  %12 = icmp eq i32 %bcmp.i72, 0
-  br i1 %12, label %_ZN4llvmeqENS_9StringRefES0_.exit73.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit67:              ; preds = %4
+  %bcmp.i66 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.85, i64 %.sroa.224.0.copyload)
+  %12 = icmp eq i32 %bcmp.i66, 0
+  br i1 %12, label %_ZN4llvmeqENS_9StringRefES0_.exit67.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit73.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit73
+_ZN4llvmeqENS_9StringRefES0_.exit67.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit67
   tail call void @_ZN4llvm6object14WasmObjectFile19parseLinkingSectionERNS1_11ReadContextE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(684) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %13 = load ptr, ptr %0, align 8, !tbaa !37
-  %.not124 = icmp eq ptr %13, null
-  br i1 %.not124, label %_ZN4llvm5ErrorD2Ev.exit88, label %20
+  %.not118 = icmp eq ptr %13, null
+  br i1 %.not118, label %_ZN4llvm5ErrorD2Ev.exit82, label %20
 
-_ZN4llvmeqENS_9StringRefES0_.exit78:              ; preds = %4
-  %bcmp.i77 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.86, i64 %.sroa.224.0.copyload)
-  %14 = icmp eq i32 %bcmp.i77, 0
-  br i1 %14, label %_ZN4llvmeqENS_9StringRefES0_.exit78.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit72:              ; preds = %4
+  %bcmp.i71 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.86, i64 %.sroa.224.0.copyload)
+  %14 = icmp eq i32 %bcmp.i71, 0
+  br i1 %14, label %_ZN4llvmeqENS_9StringRefES0_.exit72.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit78.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit78
+_ZN4llvmeqENS_9StringRefES0_.exit72.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit72
   tail call void @_ZN4llvm6object14WasmObjectFile21parseProducersSectionERNS1_11ReadContextE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(684) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %15 = load ptr, ptr %0, align 8, !tbaa !37
-  %.not123 = icmp eq ptr %15, null
-  br i1 %.not123, label %_ZN4llvm5ErrorD2Ev.exit88, label %20
+  %.not117 = icmp eq ptr %15, null
+  br i1 %.not117, label %_ZN4llvm5ErrorD2Ev.exit82, label %20
 
-_ZN4llvmeqENS_9StringRefES0_.exit83:              ; preds = %4
-  %bcmp.i82 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.87, i64 %.sroa.224.0.copyload)
-  %16 = icmp eq i32 %bcmp.i82, 0
-  br i1 %16, label %_ZN4llvmeqENS_9StringRefES0_.exit83.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit77:              ; preds = %4
+  %bcmp.i76 = tail call i32 @bcmp(ptr %.sroa.023.0.copyload, ptr nonnull @.str.87, i64 %.sroa.224.0.copyload)
+  %16 = icmp eq i32 %bcmp.i76, 0
+  br i1 %16, label %_ZN4llvmeqENS_9StringRefES0_.exit77.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
-_ZN4llvmeqENS_9StringRefES0_.exit83.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit83
+_ZN4llvmeqENS_9StringRefES0_.exit77.thread:       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit77
   tail call void @_ZN4llvm6object14WasmObjectFile26parseTargetFeaturesSectionERNS1_11ReadContextE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(684) %1, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %17 = load ptr, ptr %0, align 8, !tbaa !37
-  %.not122 = icmp eq ptr %17, null
-  br i1 %.not122, label %_ZN4llvm5ErrorD2Ev.exit88, label %20
+  %.not116 = icmp eq ptr %17, null
+  br i1 %.not116, label %_ZN4llvm5ErrorD2Ev.exit82, label %20
 
-_ZN4llvmeqENS_9StringRefES0_.exit83.thread119:    ; preds = %4
-  %.not.i85 = icmp ult i64 %.sroa.224.0.copyload, 6
-  br i1 %.not.i85, label %_ZN4llvm5ErrorD2Ev.exit88, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+_ZN4llvmeqENS_9StringRefES0_.exit77.thread113:    ; preds = %4
+  %.not.i79 = icmp ult i64 %.sroa.224.0.copyload, 6
+  br i1 %.not.i79, label %_ZN4llvm5ErrorD2Ev.exit82, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
-_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit83, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit63, %_ZN4llvmeqENS_9StringRefES0_.exit73, %_ZN4llvmeqENS_9StringRefES0_.exit78, %_ZN4llvmeqENS_9StringRefES0_.exit83.thread119
-  %bcmp.i86 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.023.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.88, i64 6)
-  %18 = icmp eq i32 %bcmp.i86, 0
-  br i1 %18, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit88
+_ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit77, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit57, %_ZN4llvmeqENS_9StringRefES0_.exit67, %_ZN4llvmeqENS_9StringRefES0_.exit72, %_ZN4llvmeqENS_9StringRefES0_.exit77.thread113
+  %bcmp.i80 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.023.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.88, i64 6)
+  %18 = icmp eq i32 %bcmp.i80, 0
+  br i1 %18, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZN4llvm5ErrorD2Ev.exit82
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit
   tail call void @_ZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(684) %1, ptr nonnull poison, i64 poison, ptr noundef nonnull align 8 dereferenceable(24) %3)
   %19 = load ptr, ptr %0, align 8, !tbaa !37
   %.not = icmp eq ptr %19, null
-  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit88, label %20
+  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit82, label %20
 
-_ZN4llvm5ErrorD2Ev.exit88:                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit68, %_ZN4llvmeqENS_9StringRefES0_.exit83.thread119, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread, %_ZN4llvmeqENS_9StringRefES0_.exit68.thread, %_ZN4llvmeqENS_9StringRefES0_.exit73.thread, %_ZN4llvmeqENS_9StringRefES0_.exit78.thread, %_ZN4llvmeqENS_9StringRefES0_.exit83.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
+_ZN4llvm5ErrorD2Ev.exit82:                        ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit62, %_ZN4llvmeqENS_9StringRefES0_.exit77.thread113, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread, %_ZN4llvmeqENS_9StringRefES0_.exit67.thread, %_ZN4llvmeqENS_9StringRefES0_.exit72.thread, %_ZN4llvmeqENS_9StringRefES0_.exit77.thread, %_ZNK4llvm9StringRef11starts_withES0_.exit.thread
   store ptr null, ptr %0, align 8, !tbaa !37
   br label %20
 
-20:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit83.thread, %_ZN4llvmeqENS_9StringRefES0_.exit78.thread, %_ZN4llvmeqENS_9StringRefES0_.exit73.thread, %_ZN4llvmeqENS_9StringRefES0_.exit68.thread, %_ZN4llvmeqENS_9StringRefES0_.exit63.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvm5ErrorD2Ev.exit88
+20:                                               ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, %_ZN4llvmeqENS_9StringRefES0_.exit77.thread, %_ZN4llvmeqENS_9StringRefES0_.exit72.thread, %_ZN4llvmeqENS_9StringRefES0_.exit67.thread, %_ZN4llvmeqENS_9StringRefES0_.exit62.thread, %_ZN4llvmeqENS_9StringRefES0_.exit57.thread, %_ZN4llvmeqENS_9StringRefES0_.exit.thread, %_ZN4llvm5ErrorD2Ev.exit82
   ret void
 }
 
@@ -1814,11 +1814,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile16parseTypeSectionERNS1_11
   br i1 %19, label %20, label %thread-pre-split.i.i.i, !prof !197
 
 20:                                               ; preds = %15
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %17, 1
   %21 = icmp ne i8 %17, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %21
-  br i1 %or.cond43.i.i.i, label %28, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %21
+  br i1 %or.cond42.i.i.i, label %28, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %20, %15
   %22 = zext nneg i32 %.028.i.i.i to i64
@@ -1921,11 +1921,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %56
   br i1 %69, label %70, label %thread-pre-split.i.i.i63, !prof !197
 
 70:                                               ; preds = %65
-  %.not44.i.i.i65 = icmp eq i32 %.028.i.i.i61, 63
+  %.not43.i.i.i65 = icmp eq i32 %.028.i.i.i61, 63
   %.not.i.i.i66 = icmp samesign ugt i8 %67, 1
   %71 = icmp ne i8 %67, 0
-  %or.cond43.i.i.i67 = select i1 %.not44.i.i.i65, i1 %.not.i.i.i66, i1 %71
-  br i1 %or.cond43.i.i.i67, label %78, label %thread-pre-split.i.i.i63
+  %or.cond42.i.i.i67 = select i1 %.not43.i.i.i65, i1 %.not.i.i.i66, i1 %71
+  br i1 %or.cond42.i.i.i67, label %78, label %thread-pre-split.i.i.i63
 
 thread-pre-split.i.i.i63:                         ; preds = %70, %65
   %72 = zext nneg i32 %.028.i.i.i61 to i64
@@ -2135,11 +2135,11 @@ _ZNSt6vectorIN4llvm4wasm13WasmSignatureESaIS2_EE9push_backEOS2_.exit: ; preds = 
   br i1 %144, label %145, label %thread-pre-split.i.i.i73, !prof !197
 
 145:                                              ; preds = %140
-  %.not44.i.i.i75 = icmp eq i32 %.028.i.i.i71, 63
+  %.not43.i.i.i75 = icmp eq i32 %.028.i.i.i71, 63
   %.not.i.i.i76 = icmp samesign ugt i8 %142, 1
   %146 = icmp ne i8 %142, 0
-  %or.cond43.i.i.i77 = select i1 %.not44.i.i.i75, i1 %.not.i.i.i76, i1 %146
-  br i1 %or.cond43.i.i.i77, label %153, label %thread-pre-split.i.i.i73
+  %or.cond42.i.i.i77 = select i1 %.not43.i.i.i75, i1 %.not.i.i.i76, i1 %146
+  br i1 %or.cond42.i.i.i77, label %153, label %thread-pre-split.i.i.i73
 
 thread-pre-split.i.i.i73:                         ; preds = %145, %140
   %147 = zext nneg i32 %.028.i.i.i71 to i64
@@ -2191,11 +2191,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit79: ; preds =
   br i1 %167, label %168, label %thread-pre-split.i.i.i83, !prof !197
 
 168:                                              ; preds = %163
-  %.not44.i.i.i85 = icmp eq i32 %.028.i.i.i81, 63
+  %.not43.i.i.i85 = icmp eq i32 %.028.i.i.i81, 63
   %.not.i.i.i86 = icmp samesign ugt i8 %165, 1
   %169 = icmp ne i8 %165, 0
-  %or.cond43.i.i.i87 = select i1 %.not44.i.i.i85, i1 %.not.i.i.i86, i1 %169
-  br i1 %or.cond43.i.i.i87, label %176, label %thread-pre-split.i.i.i83
+  %or.cond42.i.i.i87 = select i1 %.not43.i.i.i85, i1 %.not.i.i.i86, i1 %169
+  br i1 %or.cond42.i.i.i87, label %176, label %thread-pre-split.i.i.i83
 
 thread-pre-split.i.i.i83:                         ; preds = %168, %163
   %170 = zext nneg i32 %.028.i.i.i81 to i64
@@ -2244,11 +2244,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit89: ; preds =
   br i1 %191, label %192, label %thread-pre-split.i.i.i93, !prof !197
 
 192:                                              ; preds = %187
-  %.not44.i.i.i95 = icmp eq i32 %.028.i.i.i91, 63
+  %.not43.i.i.i95 = icmp eq i32 %.028.i.i.i91, 63
   %.not.i.i.i96 = icmp samesign ugt i8 %189, 1
   %193 = icmp ne i8 %189, 0
-  %or.cond43.i.i.i97 = select i1 %.not44.i.i.i95, i1 %.not.i.i.i96, i1 %193
-  br i1 %or.cond43.i.i.i97, label %200, label %thread-pre-split.i.i.i93
+  %or.cond42.i.i.i97 = select i1 %.not43.i.i.i95, i1 %.not.i.i.i96, i1 %193
+  br i1 %or.cond42.i.i.i97, label %200, label %thread-pre-split.i.i.i93
 
 thread-pre-split.i.i.i93:                         ; preds = %192, %187
   %194 = zext nneg i32 %.028.i.i.i91 to i64
@@ -2317,11 +2317,11 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit.i94: ; preds =
   br i1 %218, label %219, label %thread-pre-split.i.i.i103, !prof !197
 
 219:                                              ; preds = %214
-  %.not44.i.i.i105 = icmp eq i32 %.028.i.i.i101, 63
+  %.not43.i.i.i105 = icmp eq i32 %.028.i.i.i101, 63
   %.not.i.i.i106 = icmp samesign ugt i8 %216, 1
   %220 = icmp ne i8 %216, 0
-  %or.cond43.i.i.i107 = select i1 %.not44.i.i.i105, i1 %.not.i.i.i106, i1 %220
-  br i1 %or.cond43.i.i.i107, label %227, label %thread-pre-split.i.i.i103
+  %or.cond42.i.i.i107 = select i1 %.not43.i.i.i105, i1 %.not.i.i.i106, i1 %220
+  br i1 %or.cond42.i.i.i107, label %227, label %thread-pre-split.i.i.i103
 
 thread-pre-split.i.i.i103:                        ; preds = %219, %214
   %221 = zext nneg i32 %.028.i.i.i101 to i64
@@ -2531,11 +2531,11 @@ _ZNSt6vectorIN4llvm4wasm13WasmSignatureESaIS2_EE9push_backEOS2_.exit115: ; preds
   br i1 %283, label %284, label %thread-pre-split.i.i.i119, !prof !197
 
 284:                                              ; preds = %279
-  %.not44.i.i.i121 = icmp eq i32 %.028.i.i.i117, 63
+  %.not43.i.i.i121 = icmp eq i32 %.028.i.i.i117, 63
   %.not.i.i.i122 = icmp samesign ugt i8 %281, 1
   %285 = icmp ne i8 %281, 0
-  %or.cond43.i.i.i123 = select i1 %.not44.i.i.i121, i1 %.not.i.i.i122, i1 %285
-  br i1 %or.cond43.i.i.i123, label %292, label %thread-pre-split.i.i.i119
+  %or.cond42.i.i.i123 = select i1 %.not43.i.i.i121, i1 %.not.i.i.i122, i1 %285
+  br i1 %or.cond42.i.i.i123, label %292, label %thread-pre-split.i.i.i119
 
 thread-pre-split.i.i.i119:                        ; preds = %284, %279
   %286 = zext nneg i32 %.028.i.i.i117 to i64
@@ -2715,11 +2715,11 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4wasm7ValTypeELb1EE9push_backES2_.exit: ; p
   br i1 %351, label %352, label %thread-pre-split.i.i.i130, !prof !197
 
 352:                                              ; preds = %347
-  %.not44.i.i.i132 = icmp eq i32 %.028.i.i.i128, 63
+  %.not43.i.i.i132 = icmp eq i32 %.028.i.i.i128, 63
   %.not.i.i.i133 = icmp samesign ugt i8 %349, 1
   %353 = icmp ne i8 %349, 0
-  %or.cond43.i.i.i134 = select i1 %.not44.i.i.i132, i1 %.not.i.i.i133, i1 %353
-  br i1 %or.cond43.i.i.i134, label %360, label %thread-pre-split.i.i.i130
+  %or.cond42.i.i.i134 = select i1 %.not43.i.i.i132, i1 %.not.i.i.i133, i1 %353
+  br i1 %or.cond42.i.i.i134, label %360, label %thread-pre-split.i.i.i130
 
 thread-pre-split.i.i.i130:                        ; preds = %352, %347
   %354 = zext nneg i32 %.028.i.i.i128 to i64
@@ -3090,11 +3090,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseImportSectionERNS1_
   br i1 %22, label %23, label %thread-pre-split.i.i.i, !prof !197
 
 23:                                               ; preds = %18
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %20, 1
   %24 = icmp ne i8 %20, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %24
-  br i1 %or.cond43.i.i.i, label %31, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %24
+  br i1 %or.cond42.i.i.i, label %31, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %23, %18
   %25 = zext nneg i32 %.028.i.i.i to i64
@@ -3219,11 +3219,11 @@ _ZNSt6vectorIN4llvm4wasm10WasmImportESaIS2_EE7reserveEm.exit: ; preds = %_ZL13re
   br i1 %84, label %85, label %thread-pre-split.i.i.i49, !prof !197
 
 85:                                               ; preds = %80
-  %.not44.i.i.i51 = icmp eq i32 %.028.i.i.i47, 63
+  %.not43.i.i.i51 = icmp eq i32 %.028.i.i.i47, 63
   %.not.i.i.i52 = icmp samesign ugt i8 %82, 1
   %86 = icmp ne i8 %82, 0
-  %or.cond43.i.i.i53 = select i1 %.not44.i.i.i51, i1 %.not.i.i.i52, i1 %86
-  br i1 %or.cond43.i.i.i53, label %93, label %thread-pre-split.i.i.i49
+  %or.cond42.i.i.i53 = select i1 %.not43.i.i.i51, i1 %.not.i.i.i52, i1 %86
+  br i1 %or.cond42.i.i.i53, label %93, label %thread-pre-split.i.i.i49
 
 thread-pre-split.i.i.i49:                         ; preds = %85, %80
   %87 = zext nneg i32 %.028.i.i.i47 to i64
@@ -3274,11 +3274,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
   br i1 %109, label %110, label %thread-pre-split.i.i.i58, !prof !197
 
 110:                                              ; preds = %105
-  %.not44.i.i.i62 = icmp eq i32 %.028.i.i.i56, 63
+  %.not43.i.i.i62 = icmp eq i32 %.028.i.i.i56, 63
   %.not.i.i.i63 = icmp samesign ugt i8 %107, 1
   %111 = icmp ne i8 %107, 0
-  %or.cond43.i.i.i64 = select i1 %.not44.i.i.i62, i1 %.not.i.i.i63, i1 %111
-  br i1 %or.cond43.i.i.i64, label %118, label %thread-pre-split.i.i.i58
+  %or.cond42.i.i.i64 = select i1 %.not43.i.i.i62, i1 %.not.i.i.i63, i1 %111
+  br i1 %or.cond42.i.i.i64, label %118, label %thread-pre-split.i.i.i58
 
 thread-pre-split.i.i.i58:                         ; preds = %110, %105
   %112 = zext nneg i32 %.028.i.i.i56 to i64
@@ -3352,11 +3352,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL10
   br i1 %141, label %142, label %thread-pre-split.i.i.i70, !prof !197
 
 142:                                              ; preds = %137
-  %.not44.i.i.i72 = icmp eq i32 %.028.i.i.i68, 63
+  %.not43.i.i.i72 = icmp eq i32 %.028.i.i.i68, 63
   %.not.i.i.i73 = icmp samesign ugt i8 %139, 1
   %143 = icmp ne i8 %139, 0
-  %or.cond43.i.i.i74 = select i1 %.not44.i.i.i72, i1 %.not.i.i.i73, i1 %143
-  br i1 %or.cond43.i.i.i74, label %150, label %thread-pre-split.i.i.i70
+  %or.cond42.i.i.i74 = select i1 %.not43.i.i.i72, i1 %.not.i.i.i73, i1 %143
+  br i1 %or.cond42.i.i.i74, label %150, label %thread-pre-split.i.i.i70
 
 thread-pre-split.i.i.i70:                         ; preds = %142, %137
   %144 = zext nneg i32 %.028.i.i.i68 to i64
@@ -3523,11 +3523,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit78: ; preds = %181
   br i1 %197, label %198, label %thread-pre-split.i.i.i82, !prof !197
 
 198:                                              ; preds = %193
-  %.not44.i.i.i84 = icmp eq i32 %.028.i.i.i80, 63
+  %.not43.i.i.i84 = icmp eq i32 %.028.i.i.i80, 63
   %.not.i.i.i85 = icmp samesign ugt i8 %195, 1
   %199 = icmp ne i8 %195, 0
-  %or.cond43.i.i.i86 = select i1 %.not44.i.i.i84, i1 %.not.i.i.i85, i1 %199
-  br i1 %or.cond43.i.i.i86, label %206, label %thread-pre-split.i.i.i82
+  %or.cond42.i.i.i86 = select i1 %.not43.i.i.i84, i1 %.not.i.i.i85, i1 %199
+  br i1 %or.cond42.i.i.i86, label %206, label %thread-pre-split.i.i.i82
 
 thread-pre-split.i.i.i82:                         ; preds = %198, %193
   %200 = zext nneg i32 %.028.i.i.i80 to i64
@@ -3765,11 +3765,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile20parseFunctionSectionERNS
   br i1 %17, label %18, label %thread-pre-split.i.i.i, !prof !197
 
 18:                                               ; preds = %13
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %15, 1
   %19 = icmp ne i8 %15, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %19
-  br i1 %or.cond43.i.i.i, label %26, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %19
+  br i1 %or.cond42.i.i.i, label %26, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %18, %13
   %20 = zext nneg i32 %.028.i.i.i to i64
@@ -3929,11 +3929,11 @@ _ZNSt6vectorIN4llvm4wasm12WasmFunctionESaIS2_EE7reserveEm.exit: ; preds = %_ZL13
   br i1 %105, label %106, label %thread-pre-split.i.i.i17, !prof !197
 
 106:                                              ; preds = %101
-  %.not44.i.i.i19 = icmp eq i32 %.028.i.i.i15, 63
+  %.not43.i.i.i19 = icmp eq i32 %.028.i.i.i15, 63
   %.not.i.i.i20 = icmp samesign ugt i8 %103, 1
   %107 = icmp ne i8 %103, 0
-  %or.cond43.i.i.i21 = select i1 %.not44.i.i.i19, i1 %.not.i.i.i20, i1 %107
-  br i1 %or.cond43.i.i.i21, label %114, label %thread-pre-split.i.i.i17
+  %or.cond42.i.i.i21 = select i1 %.not43.i.i.i19, i1 %.not.i.i.i20, i1 %107
+  br i1 %or.cond42.i.i.i21, label %114, label %thread-pre-split.i.i.i17
 
 thread-pre-split.i.i.i17:                         ; preds = %106, %101
   %108 = zext nneg i32 %.028.i.i.i15 to i64
@@ -4131,11 +4131,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile17parseTableSectionERNS1_1
   br i1 %27, label %28, label %thread-pre-split.i.i.i, !prof !197
 
 28:                                               ; preds = %23
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %25, 1
   %29 = icmp ne i8 %25, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %29
-  br i1 %or.cond43.i.i.i, label %36, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %29
+  br i1 %or.cond42.i.i.i, label %36, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %28, %23
   %30 = zext nneg i32 %.028.i.i.i to i64
@@ -4397,11 +4397,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseMemorySectionERNS1_
   br i1 %16, label %17, label %thread-pre-split.i.i.i, !prof !197
 
 17:                                               ; preds = %12
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %14, 1
   %18 = icmp ne i8 %14, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %18
-  br i1 %or.cond43.i.i.i, label %25, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %18
+  br i1 %or.cond42.i.i.i, label %25, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %17, %12
   %19 = zext nneg i32 %.028.i.i.i to i64
@@ -4624,11 +4624,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile15parseTagSectionERNS1_11R
   br i1 %27, label %28, label %thread-pre-split.i.i.i, !prof !197
 
 28:                                               ; preds = %23
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %25, 1
   %29 = icmp ne i8 %25, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %29
-  br i1 %or.cond43.i.i.i, label %36, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %29
+  br i1 %or.cond42.i.i.i, label %36, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %28, %23
   %30 = zext nneg i32 %.028.i.i.i to i64
@@ -4779,11 +4779,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %83
   br i1 %100, label %101, label %thread-pre-split.i.i.i20, !prof !197
 
 101:                                              ; preds = %96
-  %.not44.i.i.i22 = icmp eq i32 %.028.i.i.i18, 63
+  %.not43.i.i.i22 = icmp eq i32 %.028.i.i.i18, 63
   %.not.i.i.i23 = icmp samesign ugt i8 %98, 1
   %102 = icmp ne i8 %98, 0
-  %or.cond43.i.i.i24 = select i1 %.not44.i.i.i22, i1 %.not.i.i.i23, i1 %102
-  br i1 %or.cond43.i.i.i24, label %109, label %thread-pre-split.i.i.i20
+  %or.cond42.i.i.i24 = select i1 %.not43.i.i.i22, i1 %.not.i.i.i23, i1 %102
+  br i1 %or.cond42.i.i.i24, label %109, label %thread-pre-split.i.i.i20
 
 thread-pre-split.i.i.i20:                         ; preds = %101, %96
   %103 = zext nneg i32 %.028.i.i.i18 to i64
@@ -4976,11 +4976,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseGlobalSectionERNS1_
   br i1 %26, label %27, label %thread-pre-split.i.i.i, !prof !197
 
 27:                                               ; preds = %22
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %24, 1
   %28 = icmp ne i8 %24, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %28
-  br i1 %or.cond43.i.i.i, label %35, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %28
+  br i1 %or.cond42.i.i.i, label %35, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %27, %22
   %29 = zext nneg i32 %.028.i.i.i to i64
@@ -5112,11 +5112,11 @@ _ZNSt6vectorIN4llvm4wasm10WasmGlobalESaIS2_EE7reserveEm.exit: ; preds = %_ZL13re
   br i1 %94, label %95, label %thread-pre-split.i.i.i27, !prof !197
 
 95:                                               ; preds = %90
-  %.not44.i.i.i29 = icmp eq i32 %.028.i.i.i25, 63
+  %.not43.i.i.i29 = icmp eq i32 %.028.i.i.i25, 63
   %.not.i.i.i30 = icmp samesign ugt i8 %92, 1
   %96 = icmp ne i8 %92, 0
-  %or.cond43.i.i.i31 = select i1 %.not44.i.i.i29, i1 %.not.i.i.i30, i1 %96
-  br i1 %or.cond43.i.i.i31, label %103, label %thread-pre-split.i.i.i27
+  %or.cond42.i.i.i31 = select i1 %.not43.i.i.i29, i1 %.not.i.i.i30, i1 %96
+  br i1 %or.cond42.i.i.i31, label %103, label %thread-pre-split.i.i.i27
 
 thread-pre-split.i.i.i27:                         ; preds = %95, %90
   %97 = zext nneg i32 %.028.i.i.i25 to i64
@@ -5367,11 +5367,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseExportSectionERNS1_
   br i1 %19, label %20, label %thread-pre-split.i.i.i, !prof !197
 
 20:                                               ; preds = %15
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %17, 1
   %21 = icmp ne i8 %17, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %21
-  br i1 %or.cond43.i.i.i, label %28, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %21
+  br i1 %or.cond42.i.i.i, label %28, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %20, %15
   %22 = zext nneg i32 %.028.i.i.i to i64
@@ -5539,11 +5539,11 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt
   br i1 %98, label %99, label %thread-pre-split.i.i.i47, !prof !197
 
 99:                                               ; preds = %94
-  %.not44.i.i.i49 = icmp eq i32 %.028.i.i.i45, 63
+  %.not43.i.i.i49 = icmp eq i32 %.028.i.i.i45, 63
   %.not.i.i.i50 = icmp samesign ugt i8 %96, 1
   %100 = icmp ne i8 %96, 0
-  %or.cond43.i.i.i51 = select i1 %.not44.i.i.i49, i1 %.not.i.i.i50, i1 %100
-  br i1 %or.cond43.i.i.i51, label %107, label %thread-pre-split.i.i.i47
+  %or.cond42.i.i.i51 = select i1 %.not43.i.i.i49, i1 %.not.i.i.i50, i1 %100
+  br i1 %or.cond42.i.i.i51, label %107, label %thread-pre-split.i.i.i47
 
 thread-pre-split.i.i.i47:                         ; preds = %99, %94
   %101 = zext nneg i32 %.028.i.i.i45 to i64
@@ -5605,11 +5605,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL10
   br i1 %127, label %128, label %thread-pre-split.i.i.i56, !prof !197
 
 128:                                              ; preds = %123
-  %.not44.i.i.i58 = icmp eq i32 %.028.i.i.i54, 63
+  %.not43.i.i.i58 = icmp eq i32 %.028.i.i.i54, 63
   %.not.i.i.i59 = icmp samesign ugt i8 %125, 1
   %129 = icmp ne i8 %125, 0
-  %or.cond43.i.i.i60 = select i1 %.not44.i.i.i58, i1 %.not.i.i.i59, i1 %129
-  br i1 %or.cond43.i.i.i60, label %136, label %thread-pre-split.i.i.i56
+  %or.cond42.i.i.i60 = select i1 %.not43.i.i.i58, i1 %.not.i.i.i59, i1 %129
+  br i1 %or.cond42.i.i.i60, label %136, label %thread-pre-split.i.i.i56
 
 thread-pre-split.i.i.i56:                         ; preds = %128, %123
   %130 = zext nneg i32 %.028.i.i.i54 to i64
@@ -6051,11 +6051,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile17parseStartSectionERNS1_1
   br i1 %15, label %16, label %thread-pre-split.i.i.i, !prof !197
 
 16:                                               ; preds = %11
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %13, 1
   %17 = icmp ne i8 %13, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %17
-  br i1 %or.cond43.i.i.i, label %24, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %17
+  br i1 %or.cond42.i.i.i, label %24, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %16, %11
   %18 = zext nneg i32 %.028.i.i.i to i64
@@ -6152,11 +6152,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile16parseElemSectionERNS1_11
   br i1 %21, label %22, label %thread-pre-split.i.i.i, !prof !197
 
 22:                                               ; preds = %17
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %19, 1
   %23 = icmp ne i8 %19, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %23
-  br i1 %or.cond43.i.i.i, label %30, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %23
+  br i1 %or.cond42.i.i.i, label %30, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %22, %17
   %24 = zext nneg i32 %.028.i.i.i to i64
@@ -6303,11 +6303,11 @@ _ZNSt6vectorIN4llvm4wasm15WasmElemSegmentESaIS2_EE7reserveEm.exit: ; preds = %_Z
   br i1 %97, label %98, label %thread-pre-split.i.i.i68, !prof !197
 
 98:                                               ; preds = %93
-  %.not44.i.i.i70 = icmp eq i32 %.028.i.i.i66, 63
+  %.not43.i.i.i70 = icmp eq i32 %.028.i.i.i66, 63
   %.not.i.i.i71 = icmp samesign ugt i8 %95, 1
   %99 = icmp ne i8 %95, 0
-  %or.cond43.i.i.i72 = select i1 %.not44.i.i.i70, i1 %.not.i.i.i71, i1 %99
-  br i1 %or.cond43.i.i.i72, label %106, label %thread-pre-split.i.i.i68
+  %or.cond42.i.i.i72 = select i1 %.not43.i.i.i70, i1 %.not.i.i.i71, i1 %99
+  br i1 %or.cond42.i.i.i72, label %106, label %thread-pre-split.i.i.i68
 
 thread-pre-split.i.i.i68:                         ; preds = %98, %93
   %100 = zext nneg i32 %.028.i.i.i66 to i64
@@ -6382,11 +6382,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit74: ; preds =
   br i1 %132, label %133, label %thread-pre-split.i.i.i78, !prof !197
 
 133:                                              ; preds = %128
-  %.not44.i.i.i80 = icmp eq i32 %.028.i.i.i76, 63
+  %.not43.i.i.i80 = icmp eq i32 %.028.i.i.i76, 63
   %.not.i.i.i81 = icmp samesign ugt i8 %130, 1
   %134 = icmp ne i8 %130, 0
-  %or.cond43.i.i.i82 = select i1 %.not44.i.i.i80, i1 %.not.i.i.i81, i1 %134
-  br i1 %or.cond43.i.i.i82, label %141, label %thread-pre-split.i.i.i78
+  %or.cond42.i.i.i82 = select i1 %.not43.i.i.i80, i1 %.not.i.i.i81, i1 %134
+  br i1 %or.cond42.i.i.i82, label %141, label %thread-pre-split.i.i.i78
 
 thread-pre-split.i.i.i78:                         ; preds = %133, %128
   %135 = zext nneg i32 %.028.i.i.i76 to i64
@@ -6490,11 +6490,11 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %169, %168
   br i1 %181, label %182, label %thread-pre-split.i.i.i88, !prof !197
 
 182:                                              ; preds = %177
-  %.not44.i.i.i90 = icmp eq i32 %.028.i.i.i86, 63
+  %.not43.i.i.i90 = icmp eq i32 %.028.i.i.i86, 63
   %.not.i.i.i91 = icmp samesign ugt i8 %179, 1
   %183 = icmp ne i8 %179, 0
-  %or.cond43.i.i.i92 = select i1 %.not44.i.i.i90, i1 %.not.i.i.i91, i1 %183
-  br i1 %or.cond43.i.i.i92, label %190, label %thread-pre-split.i.i.i88
+  %or.cond42.i.i.i92 = select i1 %.not43.i.i.i90, i1 %.not.i.i.i91, i1 %183
+  br i1 %or.cond42.i.i.i92, label %190, label %thread-pre-split.i.i.i88
 
 thread-pre-split.i.i.i88:                         ; preds = %182, %177
   %184 = zext nneg i32 %.028.i.i.i86 to i64
@@ -6668,11 +6668,11 @@ _ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit: ; preds = %
   br i1 %243, label %244, label %thread-pre-split.i.i.i98, !prof !197
 
 244:                                              ; preds = %239
-  %.not44.i.i.i100 = icmp eq i32 %.028.i.i.i96, 63
+  %.not43.i.i.i100 = icmp eq i32 %.028.i.i.i96, 63
   %.not.i.i.i101 = icmp samesign ugt i8 %241, 1
   %245 = icmp ne i8 %241, 0
-  %or.cond43.i.i.i102 = select i1 %.not44.i.i.i100, i1 %.not.i.i.i101, i1 %245
-  br i1 %or.cond43.i.i.i102, label %252, label %thread-pre-split.i.i.i98
+  %or.cond42.i.i.i102 = select i1 %.not43.i.i.i100, i1 %.not.i.i.i101, i1 %245
+  br i1 %or.cond42.i.i.i102, label %252, label %thread-pre-split.i.i.i98
 
 thread-pre-split.i.i.i98:                         ; preds = %244, %239
   %246 = zext nneg i32 %.028.i.i.i96 to i64
@@ -6807,11 +6807,11 @@ _ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit117: ; preds 
   br i1 %295, label %296, label %thread-pre-split.i.i.i121, !prof !197
 
 296:                                              ; preds = %291
-  %.not44.i.i.i123 = icmp eq i32 %.028.i.i.i119, 63
+  %.not43.i.i.i123 = icmp eq i32 %.028.i.i.i119, 63
   %.not.i.i.i124 = icmp samesign ugt i8 %293, 1
   %297 = icmp ne i8 %293, 0
-  %or.cond43.i.i.i125 = select i1 %.not44.i.i.i123, i1 %.not.i.i.i124, i1 %297
-  br i1 %or.cond43.i.i.i125, label %304, label %thread-pre-split.i.i.i121
+  %or.cond42.i.i.i125 = select i1 %.not43.i.i.i123, i1 %.not.i.i.i124, i1 %297
+  br i1 %or.cond42.i.i.i125, label %304, label %thread-pre-split.i.i.i121
 
 thread-pre-split.i.i.i121:                        ; preds = %296, %291
   %298 = zext nneg i32 %.028.i.i.i119 to i64
@@ -6889,11 +6889,11 @@ _ZN4llvm5ErrorD2Ev.exit128:                       ; preds = %.lr.ph176
   br i1 %324, label %325, label %thread-pre-split.i.i.i132, !prof !197
 
 325:                                              ; preds = %320
-  %.not44.i.i.i134 = icmp eq i32 %.028.i.i.i130, 63
+  %.not43.i.i.i134 = icmp eq i32 %.028.i.i.i130, 63
   %.not.i.i.i135 = icmp samesign ugt i8 %322, 1
   %326 = icmp ne i8 %322, 0
-  %or.cond43.i.i.i136 = select i1 %.not44.i.i.i134, i1 %.not.i.i.i135, i1 %326
-  br i1 %or.cond43.i.i.i136, label %333, label %thread-pre-split.i.i.i132
+  %or.cond42.i.i.i136 = select i1 %.not43.i.i.i134, i1 %.not.i.i.i135, i1 %326
+  br i1 %or.cond42.i.i.i136, label %333, label %thread-pre-split.i.i.i132
 
 thread-pre-split.i.i.i132:                        ; preds = %325, %320
   %327 = zext nneg i32 %.028.i.i.i130 to i64
@@ -7155,11 +7155,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile16parseCodeSectionERNS1_11
   br i1 %27, label %28, label %thread-pre-split.i.i.i, !prof !197
 
 28:                                               ; preds = %23
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %25, 1
   %29 = icmp ne i8 %25, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %29
-  br i1 %or.cond43.i.i.i, label %36, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %29
+  br i1 %or.cond42.i.i.i, label %36, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %28, %23
   %30 = zext nneg i32 %.028.i.i.i to i64
@@ -7244,11 +7244,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br i1 %68, label %69, label %thread-pre-split.i.i.i53, !prof !197
 
 69:                                               ; preds = %64
-  %.not44.i.i.i55 = icmp eq i32 %.028.i.i.i51, 63
+  %.not43.i.i.i55 = icmp eq i32 %.028.i.i.i51, 63
   %.not.i.i.i56 = icmp samesign ugt i8 %66, 1
   %70 = icmp ne i8 %66, 0
-  %or.cond43.i.i.i57 = select i1 %.not44.i.i.i55, i1 %.not.i.i.i56, i1 %70
-  br i1 %or.cond43.i.i.i57, label %77, label %thread-pre-split.i.i.i53
+  %or.cond42.i.i.i57 = select i1 %.not43.i.i.i55, i1 %.not.i.i.i56, i1 %70
+  br i1 %or.cond42.i.i.i57, label %77, label %thread-pre-split.i.i.i53
 
 thread-pre-split.i.i.i53:                         ; preds = %69, %64
   %71 = zext nneg i32 %.028.i.i.i51 to i64
@@ -7316,11 +7316,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit59: ; preds =
   br i1 %107, label %108, label %thread-pre-split.i.i.i63, !prof !197
 
 108:                                              ; preds = %103
-  %.not44.i.i.i65 = icmp eq i32 %.028.i.i.i61, 63
+  %.not43.i.i.i65 = icmp eq i32 %.028.i.i.i61, 63
   %.not.i.i.i66 = icmp samesign ugt i8 %105, 1
   %109 = icmp ne i8 %105, 0
-  %or.cond43.i.i.i67 = select i1 %.not44.i.i.i65, i1 %.not.i.i.i66, i1 %109
-  br i1 %or.cond43.i.i.i67, label %116, label %thread-pre-split.i.i.i63
+  %or.cond42.i.i.i67 = select i1 %.not43.i.i.i65, i1 %.not.i.i.i66, i1 %109
+  br i1 %or.cond42.i.i.i67, label %116, label %thread-pre-split.i.i.i63
 
 thread-pre-split.i.i.i63:                         ; preds = %108, %103
   %110 = zext nneg i32 %.028.i.i.i61 to i64
@@ -7422,11 +7422,11 @@ _ZNSt6vectorIN4llvm4wasm13WasmLocalDeclESaIS2_EE7reserveEm.exit: ; preds = %_ZL1
   br i1 %155, label %156, label %thread-pre-split.i.i.i73, !prof !197
 
 156:                                              ; preds = %151
-  %.not44.i.i.i75 = icmp eq i32 %.028.i.i.i71, 63
+  %.not43.i.i.i75 = icmp eq i32 %.028.i.i.i71, 63
   %.not.i.i.i76 = icmp samesign ugt i8 %153, 1
   %157 = icmp ne i8 %153, 0
-  %or.cond43.i.i.i77 = select i1 %.not44.i.i.i75, i1 %.not.i.i.i76, i1 %157
-  br i1 %or.cond43.i.i.i77, label %164, label %thread-pre-split.i.i.i73
+  %or.cond42.i.i.i77 = select i1 %.not43.i.i.i75, i1 %.not.i.i.i76, i1 %157
+  br i1 %or.cond42.i.i.i77, label %164, label %thread-pre-split.i.i.i73
 
 thread-pre-split.i.i.i73:                         ; preds = %156, %151
   %158 = zext nneg i32 %.028.i.i.i71 to i64
@@ -7640,11 +7640,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile16parseDataSectionERNS1_11
   br i1 %28, label %29, label %thread-pre-split.i.i.i, !prof !197
 
 29:                                               ; preds = %24
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %26, 1
   %30 = icmp ne i8 %26, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %30
-  br i1 %or.cond43.i.i.i, label %37, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %30
+  br i1 %or.cond42.i.i.i, label %37, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %29, %24
   %31 = zext nneg i32 %.028.i.i.i to i64
@@ -7789,11 +7789,11 @@ _ZNSt6vectorIN4llvm6object11WasmSegmentESaIS2_EE7reserveEm.exit: ; preds = %55
   br i1 %97, label %98, label %thread-pre-split.i.i.i33, !prof !197
 
 98:                                               ; preds = %93
-  %.not44.i.i.i35 = icmp eq i32 %.028.i.i.i31, 63
+  %.not43.i.i.i35 = icmp eq i32 %.028.i.i.i31, 63
   %.not.i.i.i36 = icmp samesign ugt i8 %95, 1
   %99 = icmp ne i8 %95, 0
-  %or.cond43.i.i.i37 = select i1 %.not44.i.i.i35, i1 %.not.i.i.i36, i1 %99
-  br i1 %or.cond43.i.i.i37, label %106, label %thread-pre-split.i.i.i33
+  %or.cond42.i.i.i37 = select i1 %.not43.i.i.i35, i1 %.not.i.i.i36, i1 %99
+  br i1 %or.cond42.i.i.i37, label %106, label %thread-pre-split.i.i.i33
 
 thread-pre-split.i.i.i33:                         ; preds = %98, %93
   %100 = zext nneg i32 %.028.i.i.i31 to i64
@@ -7845,11 +7845,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit39: ; preds =
   br i1 %121, label %122, label %thread-pre-split.i.i.i43, !prof !197
 
 122:                                              ; preds = %117
-  %.not44.i.i.i45 = icmp eq i32 %.028.i.i.i41, 63
+  %.not43.i.i.i45 = icmp eq i32 %.028.i.i.i41, 63
   %.not.i.i.i46 = icmp samesign ugt i8 %119, 1
   %123 = icmp ne i8 %119, 0
-  %or.cond43.i.i.i47 = select i1 %.not44.i.i.i45, i1 %.not.i.i.i46, i1 %123
-  br i1 %or.cond43.i.i.i47, label %130, label %thread-pre-split.i.i.i43
+  %or.cond42.i.i.i47 = select i1 %.not43.i.i.i45, i1 %.not.i.i.i46, i1 %123
+  br i1 %or.cond42.i.i.i47, label %130, label %thread-pre-split.i.i.i43
 
 thread-pre-split.i.i.i43:                         ; preds = %122, %117
   %124 = zext nneg i32 %.028.i.i.i41 to i64
@@ -7928,11 +7928,11 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %._ZN4llvm5ErrorD2Ev
   br i1 %155, label %156, label %thread-pre-split.i.i.i53, !prof !197
 
 156:                                              ; preds = %151
-  %.not44.i.i.i55 = icmp eq i32 %.028.i.i.i51, 63
+  %.not43.i.i.i55 = icmp eq i32 %.028.i.i.i51, 63
   %.not.i.i.i56 = icmp samesign ugt i8 %153, 1
   %157 = icmp ne i8 %153, 0
-  %or.cond43.i.i.i57 = select i1 %.not44.i.i.i55, i1 %.not.i.i.i56, i1 %157
-  br i1 %or.cond43.i.i.i57, label %164, label %thread-pre-split.i.i.i53
+  %or.cond42.i.i.i57 = select i1 %.not43.i.i.i55, i1 %.not.i.i.i56, i1 %157
+  br i1 %or.cond42.i.i.i57, label %164, label %thread-pre-split.i.i.i53
 
 thread-pre-split.i.i.i53:                         ; preds = %156, %151
   %158 = zext nneg i32 %.028.i.i.i51 to i64
@@ -8123,11 +8123,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile21parseDataCountSectionERN
   br i1 %14, label %15, label %thread-pre-split.i.i.i, !prof !197
 
 15:                                               ; preds = %10
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %12, 1
   %16 = icmp ne i8 %12, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %16
-  br i1 %or.cond43.i.i.i, label %23, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %16
+  br i1 %or.cond42.i.i.i, label %23, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %15, %10
   %17 = zext nneg i32 %.028.i.i.i to i64
@@ -8200,11 +8200,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile18parseDylinkSectionERNS1_
   br i1 %16, label %17, label %thread-pre-split.i.i.i, !prof !197
 
 17:                                               ; preds = %12
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %14, 1
   %18 = icmp ne i8 %14, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %18
-  br i1 %or.cond43.i.i.i, label %25, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %18
+  br i1 %or.cond42.i.i.i, label %25, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %17, %12
   %19 = zext nneg i32 %.028.i.i.i to i64
@@ -8255,11 +8255,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br i1 %41, label %42, label %thread-pre-split.i.i.i13, !prof !197
 
 42:                                               ; preds = %37
-  %.not44.i.i.i15 = icmp eq i32 %.028.i.i.i11, 63
+  %.not43.i.i.i15 = icmp eq i32 %.028.i.i.i11, 63
   %.not.i.i.i16 = icmp samesign ugt i8 %39, 1
   %43 = icmp ne i8 %39, 0
-  %or.cond43.i.i.i17 = select i1 %.not44.i.i.i15, i1 %.not.i.i.i16, i1 %43
-  br i1 %or.cond43.i.i.i17, label %50, label %thread-pre-split.i.i.i13
+  %or.cond42.i.i.i17 = select i1 %.not43.i.i.i15, i1 %.not.i.i.i16, i1 %43
+  br i1 %or.cond42.i.i.i17, label %50, label %thread-pre-split.i.i.i13
 
 thread-pre-split.i.i.i13:                         ; preds = %42, %37
   %44 = zext nneg i32 %.028.i.i.i11 to i64
@@ -8310,11 +8310,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit19: ; preds =
   br i1 %66, label %67, label %thread-pre-split.i.i.i23, !prof !197
 
 67:                                               ; preds = %62
-  %.not44.i.i.i25 = icmp eq i32 %.028.i.i.i21, 63
+  %.not43.i.i.i25 = icmp eq i32 %.028.i.i.i21, 63
   %.not.i.i.i26 = icmp samesign ugt i8 %64, 1
   %68 = icmp ne i8 %64, 0
-  %or.cond43.i.i.i27 = select i1 %.not44.i.i.i25, i1 %.not.i.i.i26, i1 %68
-  br i1 %or.cond43.i.i.i27, label %75, label %thread-pre-split.i.i.i23
+  %or.cond42.i.i.i27 = select i1 %.not43.i.i.i25, i1 %.not.i.i.i26, i1 %68
+  br i1 %or.cond42.i.i.i27, label %75, label %thread-pre-split.i.i.i23
 
 thread-pre-split.i.i.i23:                         ; preds = %67, %62
   %69 = zext nneg i32 %.028.i.i.i21 to i64
@@ -8365,11 +8365,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit29: ; preds =
   br i1 %91, label %92, label %thread-pre-split.i.i.i33, !prof !197
 
 92:                                               ; preds = %87
-  %.not44.i.i.i35 = icmp eq i32 %.028.i.i.i31, 63
+  %.not43.i.i.i35 = icmp eq i32 %.028.i.i.i31, 63
   %.not.i.i.i36 = icmp samesign ugt i8 %89, 1
   %93 = icmp ne i8 %89, 0
-  %or.cond43.i.i.i37 = select i1 %.not44.i.i.i35, i1 %.not.i.i.i36, i1 %93
-  br i1 %or.cond43.i.i.i37, label %100, label %thread-pre-split.i.i.i33
+  %or.cond42.i.i.i37 = select i1 %.not43.i.i.i35, i1 %.not.i.i.i36, i1 %93
+  br i1 %or.cond42.i.i.i37, label %100, label %thread-pre-split.i.i.i33
 
 thread-pre-split.i.i.i33:                         ; preds = %92, %87
   %94 = zext nneg i32 %.028.i.i.i31 to i64
@@ -8420,11 +8420,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit39: ; preds =
   br i1 %116, label %117, label %thread-pre-split.i.i.i43, !prof !197
 
 117:                                              ; preds = %112
-  %.not44.i.i.i45 = icmp eq i32 %.028.i.i.i41, 63
+  %.not43.i.i.i45 = icmp eq i32 %.028.i.i.i41, 63
   %.not.i.i.i46 = icmp samesign ugt i8 %114, 1
   %118 = icmp ne i8 %114, 0
-  %or.cond43.i.i.i47 = select i1 %.not44.i.i.i45, i1 %.not.i.i.i46, i1 %118
-  br i1 %or.cond43.i.i.i47, label %125, label %thread-pre-split.i.i.i43
+  %or.cond42.i.i.i47 = select i1 %.not43.i.i.i45, i1 %.not.i.i.i46, i1 %118
+  br i1 %or.cond42.i.i.i47, label %125, label %thread-pre-split.i.i.i43
 
 thread-pre-split.i.i.i43:                         ; preds = %117, %112
   %119 = zext nneg i32 %.028.i.i.i41 to i64
@@ -8487,11 +8487,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit49: ; preds =
   br i1 %147, label %148, label %thread-pre-split.i.i.i53, !prof !197
 
 148:                                              ; preds = %143
-  %.not44.i.i.i55 = icmp eq i32 %.028.i.i.i51, 63
+  %.not43.i.i.i55 = icmp eq i32 %.028.i.i.i51, 63
   %.not.i.i.i56 = icmp samesign ugt i8 %145, 1
   %149 = icmp ne i8 %145, 0
-  %or.cond43.i.i.i57 = select i1 %.not44.i.i.i55, i1 %.not.i.i.i56, i1 %149
-  br i1 %or.cond43.i.i.i57, label %156, label %thread-pre-split.i.i.i53
+  %or.cond42.i.i.i57 = select i1 %.not43.i.i.i55, i1 %.not.i.i.i56, i1 %149
+  br i1 %or.cond42.i.i.i57, label %156, label %thread-pre-split.i.i.i53
 
 thread-pre-split.i.i.i53:                         ; preds = %148, %143
   %150 = zext nneg i32 %.028.i.i.i51 to i64
@@ -8680,11 +8680,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %3, %.
   br i1 %34, label %35, label %thread-pre-split.i.i.i, !prof !197
 
 35:                                               ; preds = %30
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %32, 1
   %36 = icmp ne i8 %32, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %36
-  br i1 %or.cond43.i.i.i, label %43, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %36
+  br i1 %or.cond42.i.i.i, label %43, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %35, %30
   %37 = zext nneg i32 %.028.i.i.i to i64
@@ -8739,11 +8739,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br i1 %57, label %58, label %thread-pre-split.i.i.i46, !prof !197
 
 58:                                               ; preds = %53
-  %.not44.i.i.i48 = icmp eq i32 %.028.i.i.i44, 63
+  %.not43.i.i.i48 = icmp eq i32 %.028.i.i.i44, 63
   %.not.i.i.i49 = icmp samesign ugt i8 %55, 1
   %59 = icmp ne i8 %55, 0
-  %or.cond43.i.i.i50 = select i1 %.not44.i.i.i48, i1 %.not.i.i.i49, i1 %59
-  br i1 %or.cond43.i.i.i50, label %66, label %thread-pre-split.i.i.i46
+  %or.cond42.i.i.i50 = select i1 %.not43.i.i.i48, i1 %.not.i.i.i49, i1 %59
+  br i1 %or.cond42.i.i.i50, label %66, label %thread-pre-split.i.i.i46
 
 thread-pre-split.i.i.i46:                         ; preds = %58, %53
   %60 = zext nneg i32 %.028.i.i.i44 to i64
@@ -8793,11 +8793,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit52: ; preds =
   br i1 %81, label %82, label %thread-pre-split.i.i.i56, !prof !197
 
 82:                                               ; preds = %77
-  %.not44.i.i.i58 = icmp eq i32 %.028.i.i.i54, 63
+  %.not43.i.i.i58 = icmp eq i32 %.028.i.i.i54, 63
   %.not.i.i.i59 = icmp samesign ugt i8 %79, 1
   %83 = icmp ne i8 %79, 0
-  %or.cond43.i.i.i60 = select i1 %.not44.i.i.i58, i1 %.not.i.i.i59, i1 %83
-  br i1 %or.cond43.i.i.i60, label %90, label %thread-pre-split.i.i.i56
+  %or.cond42.i.i.i60 = select i1 %.not43.i.i.i58, i1 %.not.i.i.i59, i1 %83
+  br i1 %or.cond42.i.i.i60, label %90, label %thread-pre-split.i.i.i56
 
 thread-pre-split.i.i.i56:                         ; preds = %82, %77
   %84 = zext nneg i32 %.028.i.i.i54 to i64
@@ -8847,11 +8847,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit62: ; preds =
   br i1 %105, label %106, label %thread-pre-split.i.i.i66, !prof !197
 
 106:                                              ; preds = %101
-  %.not44.i.i.i68 = icmp eq i32 %.028.i.i.i64, 63
+  %.not43.i.i.i68 = icmp eq i32 %.028.i.i.i64, 63
   %.not.i.i.i69 = icmp samesign ugt i8 %103, 1
   %107 = icmp ne i8 %103, 0
-  %or.cond43.i.i.i70 = select i1 %.not44.i.i.i68, i1 %.not.i.i.i69, i1 %107
-  br i1 %or.cond43.i.i.i70, label %114, label %thread-pre-split.i.i.i66
+  %or.cond42.i.i.i70 = select i1 %.not43.i.i.i68, i1 %.not.i.i.i69, i1 %107
+  br i1 %or.cond42.i.i.i70, label %114, label %thread-pre-split.i.i.i66
 
 thread-pre-split.i.i.i66:                         ; preds = %106, %101
   %108 = zext nneg i32 %.028.i.i.i64 to i64
@@ -8901,11 +8901,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit72: ; preds =
   br i1 %129, label %130, label %thread-pre-split.i.i.i76, !prof !197
 
 130:                                              ; preds = %125
-  %.not44.i.i.i78 = icmp eq i32 %.028.i.i.i74, 63
+  %.not43.i.i.i78 = icmp eq i32 %.028.i.i.i74, 63
   %.not.i.i.i79 = icmp samesign ugt i8 %127, 1
   %131 = icmp ne i8 %127, 0
-  %or.cond43.i.i.i80 = select i1 %.not44.i.i.i78, i1 %.not.i.i.i79, i1 %131
-  br i1 %or.cond43.i.i.i80, label %138, label %thread-pre-split.i.i.i76
+  %or.cond42.i.i.i80 = select i1 %.not43.i.i.i78, i1 %.not.i.i.i79, i1 %131
+  br i1 %or.cond42.i.i.i80, label %138, label %thread-pre-split.i.i.i76
 
 thread-pre-split.i.i.i76:                         ; preds = %130, %125
   %132 = zext nneg i32 %.028.i.i.i74 to i64
@@ -8955,11 +8955,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit82: ; preds =
   br i1 %152, label %153, label %thread-pre-split.i.i.i86, !prof !197
 
 153:                                              ; preds = %148
-  %.not44.i.i.i88 = icmp eq i32 %.028.i.i.i84, 63
+  %.not43.i.i.i88 = icmp eq i32 %.028.i.i.i84, 63
   %.not.i.i.i89 = icmp samesign ugt i8 %150, 1
   %154 = icmp ne i8 %150, 0
-  %or.cond43.i.i.i90 = select i1 %.not44.i.i.i88, i1 %.not.i.i.i89, i1 %154
-  br i1 %or.cond43.i.i.i90, label %161, label %thread-pre-split.i.i.i86
+  %or.cond42.i.i.i90 = select i1 %.not43.i.i.i88, i1 %.not.i.i.i89, i1 %154
+  br i1 %or.cond42.i.i.i90, label %161, label %thread-pre-split.i.i.i86
 
 thread-pre-split.i.i.i86:                         ; preds = %153, %148
   %155 = zext nneg i32 %.028.i.i.i84 to i64
@@ -9019,11 +9019,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit92: ; preds =
   br i1 %179, label %180, label %thread-pre-split.i.i.i96, !prof !197
 
 180:                                              ; preds = %175
-  %.not44.i.i.i98 = icmp eq i32 %.028.i.i.i94, 63
+  %.not43.i.i.i98 = icmp eq i32 %.028.i.i.i94, 63
   %.not.i.i.i99 = icmp samesign ugt i8 %177, 1
   %181 = icmp ne i8 %177, 0
-  %or.cond43.i.i.i100 = select i1 %.not44.i.i.i98, i1 %.not.i.i.i99, i1 %181
-  br i1 %or.cond43.i.i.i100, label %188, label %thread-pre-split.i.i.i96
+  %or.cond42.i.i.i100 = select i1 %.not43.i.i.i98, i1 %.not.i.i.i99, i1 %181
+  br i1 %or.cond42.i.i.i100, label %188, label %thread-pre-split.i.i.i96
 
 thread-pre-split.i.i.i96:                         ; preds = %180, %175
   %182 = zext nneg i32 %.028.i.i.i94 to i64
@@ -9145,11 +9145,11 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit: ; preds = %200, %_ZN
   br i1 %227, label %228, label %thread-pre-split.i.i.i105, !prof !197
 
 228:                                              ; preds = %223
-  %.not44.i.i.i107 = icmp eq i32 %.028.i.i.i103, 63
+  %.not43.i.i.i107 = icmp eq i32 %.028.i.i.i103, 63
   %.not.i.i.i108 = icmp samesign ugt i8 %225, 1
   %229 = icmp ne i8 %225, 0
-  %or.cond43.i.i.i109 = select i1 %.not44.i.i.i107, i1 %.not.i.i.i108, i1 %229
-  br i1 %or.cond43.i.i.i109, label %236, label %thread-pre-split.i.i.i105
+  %or.cond42.i.i.i109 = select i1 %.not43.i.i.i107, i1 %.not.i.i.i108, i1 %229
+  br i1 %or.cond42.i.i.i109, label %236, label %thread-pre-split.i.i.i105
 
 thread-pre-split.i.i.i105:                        ; preds = %228, %223
   %230 = zext nneg i32 %.028.i.i.i103 to i64
@@ -9209,11 +9209,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit111: ; preds 
   br i1 %254, label %255, label %thread-pre-split.i.i.i115, !prof !197
 
 255:                                              ; preds = %250
-  %.not44.i.i.i119 = icmp eq i32 %.028.i.i.i113, 63
+  %.not43.i.i.i119 = icmp eq i32 %.028.i.i.i113, 63
   %.not.i.i.i120 = icmp samesign ugt i8 %252, 1
   %256 = icmp ne i8 %252, 0
-  %or.cond43.i.i.i121 = select i1 %.not44.i.i.i119, i1 %.not.i.i.i120, i1 %256
-  br i1 %or.cond43.i.i.i121, label %263, label %thread-pre-split.i.i.i115
+  %or.cond42.i.i.i121 = select i1 %.not43.i.i.i119, i1 %.not.i.i.i120, i1 %256
+  br i1 %or.cond42.i.i.i121, label %263, label %thread-pre-split.i.i.i115
 
 thread-pre-split.i.i.i115:                        ; preds = %255, %250
   %257 = zext nneg i32 %.028.i.i.i113 to i64
@@ -9264,11 +9264,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit123: ; preds = %
   br i1 %279, label %280, label %thread-pre-split.i.i.i127, !prof !197
 
 280:                                              ; preds = %275
-  %.not44.i.i.i129 = icmp eq i32 %.028.i.i.i125, 63
+  %.not43.i.i.i129 = icmp eq i32 %.028.i.i.i125, 63
   %.not.i.i.i130 = icmp samesign ugt i8 %277, 1
   %281 = icmp ne i8 %277, 0
-  %or.cond43.i.i.i131 = select i1 %.not44.i.i.i129, i1 %.not.i.i.i130, i1 %281
-  br i1 %or.cond43.i.i.i131, label %288, label %thread-pre-split.i.i.i127
+  %or.cond42.i.i.i131 = select i1 %.not43.i.i.i129, i1 %.not.i.i.i130, i1 %281
+  br i1 %or.cond42.i.i.i131, label %288, label %thread-pre-split.i.i.i127
 
 thread-pre-split.i.i.i127:                        ; preds = %280, %275
   %282 = zext nneg i32 %.028.i.i.i125 to i64
@@ -9392,11 +9392,11 @@ _ZNSt6vectorIN4llvm4wasm20WasmDylinkExportInfoESaIS2_EE9push_backEOS2_.exit: ; p
   br i1 %326, label %327, label %thread-pre-split.i.i.i147, !prof !197
 
 327:                                              ; preds = %322
-  %.not44.i.i.i149 = icmp eq i32 %.028.i.i.i145, 63
+  %.not43.i.i.i149 = icmp eq i32 %.028.i.i.i145, 63
   %.not.i.i.i150 = icmp samesign ugt i8 %324, 1
   %328 = icmp ne i8 %324, 0
-  %or.cond43.i.i.i151 = select i1 %.not44.i.i.i149, i1 %.not.i.i.i150, i1 %328
-  br i1 %or.cond43.i.i.i151, label %335, label %thread-pre-split.i.i.i147
+  %or.cond42.i.i.i151 = select i1 %.not43.i.i.i149, i1 %.not.i.i.i150, i1 %328
+  br i1 %or.cond42.i.i.i151, label %335, label %thread-pre-split.i.i.i147
 
 thread-pre-split.i.i.i147:                        ; preds = %327, %322
   %329 = zext nneg i32 %.028.i.i.i145 to i64
@@ -9456,11 +9456,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit153: ; preds 
   br i1 %353, label %354, label %thread-pre-split.i.i.i157, !prof !197
 
 354:                                              ; preds = %349
-  %.not44.i.i.i161 = icmp eq i32 %.028.i.i.i155, 63
+  %.not43.i.i.i161 = icmp eq i32 %.028.i.i.i155, 63
   %.not.i.i.i162 = icmp samesign ugt i8 %351, 1
   %355 = icmp ne i8 %351, 0
-  %or.cond43.i.i.i163 = select i1 %.not44.i.i.i161, i1 %.not.i.i.i162, i1 %355
-  br i1 %or.cond43.i.i.i163, label %362, label %thread-pre-split.i.i.i157
+  %or.cond42.i.i.i163 = select i1 %.not43.i.i.i161, i1 %.not.i.i.i162, i1 %355
+  br i1 %or.cond42.i.i.i163, label %362, label %thread-pre-split.i.i.i157
 
 thread-pre-split.i.i.i157:                        ; preds = %354, %349
   %356 = zext nneg i32 %.028.i.i.i155 to i64
@@ -9511,11 +9511,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit165: ; preds = %
   br i1 %378, label %379, label %thread-pre-split.i.i.i169, !prof !197
 
 379:                                              ; preds = %374
-  %.not44.i.i.i173 = icmp eq i32 %.028.i.i.i167, 63
+  %.not43.i.i.i173 = icmp eq i32 %.028.i.i.i167, 63
   %.not.i.i.i174 = icmp samesign ugt i8 %376, 1
   %380 = icmp ne i8 %376, 0
-  %or.cond43.i.i.i175 = select i1 %.not44.i.i.i173, i1 %.not.i.i.i174, i1 %380
-  br i1 %or.cond43.i.i.i175, label %387, label %thread-pre-split.i.i.i169
+  %or.cond42.i.i.i175 = select i1 %.not43.i.i.i173, i1 %.not.i.i.i174, i1 %380
+  br i1 %or.cond42.i.i.i175, label %387, label %thread-pre-split.i.i.i169
 
 thread-pre-split.i.i.i169:                        ; preds = %379, %374
   %381 = zext nneg i32 %.028.i.i.i167 to i64
@@ -9566,11 +9566,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit177: ; preds = %
   br i1 %403, label %404, label %thread-pre-split.i.i.i181, !prof !197
 
 404:                                              ; preds = %399
-  %.not44.i.i.i183 = icmp eq i32 %.028.i.i.i179, 63
+  %.not43.i.i.i183 = icmp eq i32 %.028.i.i.i179, 63
   %.not.i.i.i184 = icmp samesign ugt i8 %401, 1
   %405 = icmp ne i8 %401, 0
-  %or.cond43.i.i.i185 = select i1 %.not44.i.i.i183, i1 %.not.i.i.i184, i1 %405
-  br i1 %or.cond43.i.i.i185, label %412, label %thread-pre-split.i.i.i181
+  %or.cond42.i.i.i185 = select i1 %.not43.i.i.i183, i1 %.not.i.i.i184, i1 %405
+  br i1 %or.cond42.i.i.i185, label %412, label %thread-pre-split.i.i.i181
 
 thread-pre-split.i.i.i181:                        ; preds = %404, %399
   %406 = zext nneg i32 %.028.i.i.i179 to i64
@@ -9834,11 +9834,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %57
   br i1 %69, label %70, label %thread-pre-split.i.i.i, !prof !197
 
 70:                                               ; preds = %65
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %67, 1
   %71 = icmp ne i8 %67, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %71
-  br i1 %or.cond43.i.i.i, label %78, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %71
+  br i1 %or.cond42.i.i.i, label %78, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %70, %65
   %72 = zext nneg i32 %.028.i.i.i to i64
@@ -9894,11 +9894,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br i1 %93, label %94, label %thread-pre-split.i.i.i61, !prof !197
 
 94:                                               ; preds = %89
-  %.not44.i.i.i63 = icmp eq i32 %.028.i.i.i59, 63
+  %.not43.i.i.i63 = icmp eq i32 %.028.i.i.i59, 63
   %.not.i.i.i64 = icmp samesign ugt i8 %91, 1
   %95 = icmp ne i8 %91, 0
-  %or.cond43.i.i.i65 = select i1 %.not44.i.i.i63, i1 %.not.i.i.i64, i1 %95
-  br i1 %or.cond43.i.i.i65, label %102, label %thread-pre-split.i.i.i61
+  %or.cond42.i.i.i65 = select i1 %.not43.i.i.i63, i1 %.not.i.i.i64, i1 %95
+  br i1 %or.cond42.i.i.i65, label %102, label %thread-pre-split.i.i.i61
 
 thread-pre-split.i.i.i61:                         ; preds = %94, %89
   %96 = zext nneg i32 %.028.i.i.i59 to i64
@@ -9958,11 +9958,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit67: ; preds =
   br i1 %120, label %121, label %thread-pre-split.i.i.i71, !prof !197
 
 121:                                              ; preds = %116
-  %.not44.i.i.i73 = icmp eq i32 %.028.i.i.i69, 63
+  %.not43.i.i.i73 = icmp eq i32 %.028.i.i.i69, 63
   %.not.i.i.i74 = icmp samesign ugt i8 %118, 1
   %122 = icmp ne i8 %118, 0
-  %or.cond43.i.i.i75 = select i1 %.not44.i.i.i73, i1 %.not.i.i.i74, i1 %122
-  br i1 %or.cond43.i.i.i75, label %129, label %thread-pre-split.i.i.i71
+  %or.cond42.i.i.i75 = select i1 %.not43.i.i.i73, i1 %.not.i.i.i74, i1 %122
+  br i1 %or.cond42.i.i.i75, label %129, label %thread-pre-split.i.i.i71
 
 thread-pre-split.i.i.i71:                         ; preds = %121, %116
   %123 = zext nneg i32 %.028.i.i.i69 to i64
@@ -10011,11 +10011,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit77: ; preds =
   br i1 %144, label %145, label %thread-pre-split.i.i.i81, !prof !197
 
 145:                                              ; preds = %140
-  %.not44.i.i.i83 = icmp eq i32 %.028.i.i.i79, 63
+  %.not43.i.i.i83 = icmp eq i32 %.028.i.i.i79, 63
   %.not.i.i.i84 = icmp samesign ugt i8 %142, 1
   %146 = icmp ne i8 %142, 0
-  %or.cond43.i.i.i85 = select i1 %.not44.i.i.i83, i1 %.not.i.i.i84, i1 %146
-  br i1 %or.cond43.i.i.i85, label %153, label %thread-pre-split.i.i.i81
+  %or.cond42.i.i.i85 = select i1 %.not43.i.i.i83, i1 %.not.i.i.i84, i1 %146
+  br i1 %or.cond42.i.i.i85, label %153, label %thread-pre-split.i.i.i81
 
 thread-pre-split.i.i.i81:                         ; preds = %145, %140
   %147 = zext nneg i32 %.028.i.i.i79 to i64
@@ -10707,11 +10707,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile19parseLinkingSectionERNS1
   br i1 %23, label %24, label %thread-pre-split.i.i.i, !prof !197
 
 24:                                               ; preds = %19
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %21, 1
   %25 = icmp ne i8 %21, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %25
-  br i1 %or.cond43.i.i.i, label %32, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %25
+  br i1 %or.cond42.i.i.i, label %32, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %24, %19
   %26 = zext nneg i32 %.028.i.i.i to i64
@@ -10829,11 +10829,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %.crit
   br i1 %73, label %74, label %thread-pre-split.i.i.i117, !prof !197
 
 74:                                               ; preds = %69
-  %.not44.i.i.i119 = icmp eq i32 %.028.i.i.i115, 63
+  %.not43.i.i.i119 = icmp eq i32 %.028.i.i.i115, 63
   %.not.i.i.i120 = icmp samesign ugt i8 %71, 1
   %75 = icmp ne i8 %71, 0
-  %or.cond43.i.i.i121 = select i1 %.not44.i.i.i119, i1 %.not.i.i.i120, i1 %75
-  br i1 %or.cond43.i.i.i121, label %82, label %thread-pre-split.i.i.i117
+  %or.cond42.i.i.i121 = select i1 %.not43.i.i.i119, i1 %.not.i.i.i120, i1 %75
+  br i1 %or.cond42.i.i.i121, label %82, label %thread-pre-split.i.i.i117
 
 thread-pre-split.i.i.i117:                        ; preds = %74, %69
   %76 = zext nneg i32 %.028.i.i.i115 to i64
@@ -10894,11 +10894,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit123: ; preds 
   br i1 %98, label %99, label %thread-pre-split.i.i.i127, !prof !197
 
 99:                                               ; preds = %94
-  %.not44.i.i.i129 = icmp eq i32 %.028.i.i.i125, 63
+  %.not43.i.i.i129 = icmp eq i32 %.028.i.i.i125, 63
   %.not.i.i.i130 = icmp samesign ugt i8 %96, 1
   %100 = icmp ne i8 %96, 0
-  %or.cond43.i.i.i131 = select i1 %.not44.i.i.i129, i1 %.not.i.i.i130, i1 %100
-  br i1 %or.cond43.i.i.i131, label %107, label %thread-pre-split.i.i.i127
+  %or.cond42.i.i.i131 = select i1 %.not43.i.i.i129, i1 %.not.i.i.i130, i1 %100
+  br i1 %or.cond42.i.i.i131, label %107, label %thread-pre-split.i.i.i127
 
 thread-pre-split.i.i.i127:                        ; preds = %99, %94
   %101 = zext nneg i32 %.028.i.i.i125 to i64
@@ -10977,11 +10977,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit133: ; preds 
   br i1 %132, label %133, label %thread-pre-split.i.i.i137, !prof !197
 
 133:                                              ; preds = %128
-  %.not44.i.i.i139 = icmp eq i32 %.028.i.i.i135, 63
+  %.not43.i.i.i139 = icmp eq i32 %.028.i.i.i135, 63
   %.not.i.i.i140 = icmp samesign ugt i8 %130, 1
   %134 = icmp ne i8 %130, 0
-  %or.cond43.i.i.i141 = select i1 %.not44.i.i.i139, i1 %.not.i.i.i140, i1 %134
-  br i1 %or.cond43.i.i.i141, label %141, label %thread-pre-split.i.i.i137
+  %or.cond42.i.i.i141 = select i1 %.not43.i.i.i139, i1 %.not.i.i.i140, i1 %134
+  br i1 %or.cond42.i.i.i141, label %141, label %thread-pre-split.i.i.i137
 
 thread-pre-split.i.i.i137:                        ; preds = %133, %128
   %135 = zext nneg i32 %.028.i.i.i135 to i64
@@ -11039,11 +11039,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
   br i1 %161, label %162, label %thread-pre-split.i.i.i146, !prof !197
 
 162:                                              ; preds = %157
-  %.not44.i.i.i148 = icmp eq i32 %.028.i.i.i144, 63
+  %.not43.i.i.i148 = icmp eq i32 %.028.i.i.i144, 63
   %.not.i.i.i149 = icmp samesign ugt i8 %159, 1
   %163 = icmp ne i8 %159, 0
-  %or.cond43.i.i.i150 = select i1 %.not44.i.i.i148, i1 %.not.i.i.i149, i1 %163
-  br i1 %or.cond43.i.i.i150, label %170, label %thread-pre-split.i.i.i146
+  %or.cond42.i.i.i150 = select i1 %.not43.i.i.i148, i1 %.not.i.i.i149, i1 %163
+  br i1 %or.cond42.i.i.i150, label %170, label %thread-pre-split.i.i.i146
 
 thread-pre-split.i.i.i146:                        ; preds = %162, %157
   %164 = zext nneg i32 %.028.i.i.i144 to i64
@@ -11094,11 +11094,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit152: ; preds 
   br i1 %186, label %187, label %thread-pre-split.i.i.i156, !prof !197
 
 187:                                              ; preds = %182
-  %.not44.i.i.i158 = icmp eq i32 %.028.i.i.i154, 63
+  %.not43.i.i.i158 = icmp eq i32 %.028.i.i.i154, 63
   %.not.i.i.i159 = icmp samesign ugt i8 %184, 1
   %188 = icmp ne i8 %184, 0
-  %or.cond43.i.i.i160 = select i1 %.not44.i.i.i158, i1 %.not.i.i.i159, i1 %188
-  br i1 %or.cond43.i.i.i160, label %195, label %thread-pre-split.i.i.i156
+  %or.cond42.i.i.i160 = select i1 %.not43.i.i.i158, i1 %.not.i.i.i159, i1 %188
+  br i1 %or.cond42.i.i.i160, label %195, label %thread-pre-split.i.i.i156
 
 thread-pre-split.i.i.i156:                        ; preds = %187, %182
   %189 = zext nneg i32 %.028.i.i.i154 to i64
@@ -11151,11 +11151,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit162: ; preds 
   br i1 %210, label %211, label %thread-pre-split.i.i.i166, !prof !197
 
 211:                                              ; preds = %206
-  %.not44.i.i.i168 = icmp eq i32 %.028.i.i.i164, 63
+  %.not43.i.i.i168 = icmp eq i32 %.028.i.i.i164, 63
   %.not.i.i.i169 = icmp samesign ugt i8 %208, 1
   %212 = icmp ne i8 %208, 0
-  %or.cond43.i.i.i170 = select i1 %.not44.i.i.i168, i1 %.not.i.i.i169, i1 %212
-  br i1 %or.cond43.i.i.i170, label %219, label %thread-pre-split.i.i.i166
+  %or.cond42.i.i.i170 = select i1 %.not43.i.i.i168, i1 %.not.i.i.i169, i1 %212
+  br i1 %or.cond42.i.i.i170, label %219, label %thread-pre-split.i.i.i166
 
 thread-pre-split.i.i.i166:                        ; preds = %211, %206
   %213 = zext nneg i32 %.028.i.i.i164 to i64
@@ -11253,11 +11253,11 @@ _ZNSt6vectorIN4llvm4wasm12WasmInitFuncESaIS2_EE7reserveEm.exit: ; preds = %_ZL13
   br i1 %253, label %254, label %thread-pre-split.i.i.i176, !prof !197
 
 254:                                              ; preds = %249
-  %.not44.i.i.i178 = icmp eq i32 %.028.i.i.i174, 63
+  %.not43.i.i.i178 = icmp eq i32 %.028.i.i.i174, 63
   %.not.i.i.i179 = icmp samesign ugt i8 %251, 1
   %255 = icmp ne i8 %251, 0
-  %or.cond43.i.i.i180 = select i1 %.not44.i.i.i178, i1 %.not.i.i.i179, i1 %255
-  br i1 %or.cond43.i.i.i180, label %262, label %thread-pre-split.i.i.i176
+  %or.cond42.i.i.i180 = select i1 %.not43.i.i.i178, i1 %.not.i.i.i179, i1 %255
+  br i1 %or.cond42.i.i.i180, label %262, label %thread-pre-split.i.i.i176
 
 thread-pre-split.i.i.i176:                        ; preds = %254, %249
   %256 = zext nneg i32 %.028.i.i.i174 to i64
@@ -11302,11 +11302,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit182: ; preds 
   br i1 %275, label %276, label %thread-pre-split.i.i.i186, !prof !197
 
 276:                                              ; preds = %271
-  %.not44.i.i.i188 = icmp eq i32 %.028.i.i.i184, 63
+  %.not43.i.i.i188 = icmp eq i32 %.028.i.i.i184, 63
   %.not.i.i.i189 = icmp samesign ugt i8 %273, 1
   %277 = icmp ne i8 %273, 0
-  %or.cond43.i.i.i190 = select i1 %.not44.i.i.i188, i1 %.not.i.i.i189, i1 %277
-  br i1 %or.cond43.i.i.i190, label %284, label %thread-pre-split.i.i.i186
+  %or.cond42.i.i.i190 = select i1 %.not43.i.i.i188, i1 %.not.i.i.i189, i1 %277
+  br i1 %or.cond42.i.i.i190, label %284, label %thread-pre-split.i.i.i186
 
 thread-pre-split.i.i.i186:                        ; preds = %276, %271
   %278 = zext nneg i32 %.028.i.i.i184 to i64
@@ -11548,11 +11548,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile25parseLinkingSectionSymta
   br i1 %41, label %42, label %thread-pre-split.i.i.i, !prof !197
 
 42:                                               ; preds = %37
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %39, 1
   %43 = icmp ne i8 %39, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %43
-  br i1 %or.cond43.i.i.i, label %50, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %43
+  br i1 %or.cond42.i.i.i, label %50, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %42, %37
   %44 = zext nneg i32 %.028.i.i.i to i64
@@ -11990,11 +11990,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %210
   br i1 %224, label %225, label %thread-pre-split.i.i.i185, !prof !197
 
 225:                                              ; preds = %220
-  %.not44.i.i.i187 = icmp eq i32 %.028.i.i.i183, 63
+  %.not43.i.i.i187 = icmp eq i32 %.028.i.i.i183, 63
   %.not.i.i.i188 = icmp samesign ugt i8 %222, 1
   %226 = icmp ne i8 %222, 0
-  %or.cond43.i.i.i189 = select i1 %.not44.i.i.i187, i1 %.not.i.i.i188, i1 %226
-  br i1 %or.cond43.i.i.i189, label %233, label %thread-pre-split.i.i.i185
+  %or.cond42.i.i.i189 = select i1 %.not43.i.i.i187, i1 %.not.i.i.i188, i1 %226
+  br i1 %or.cond42.i.i.i189, label %233, label %thread-pre-split.i.i.i185
 
 thread-pre-split.i.i.i185:                        ; preds = %225, %220
   %227 = zext nneg i32 %.028.i.i.i183 to i64
@@ -12052,11 +12052,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit191: ; preds 
   br i1 %249, label %250, label %thread-pre-split.i.i.i195, !prof !197
 
 250:                                              ; preds = %245
-  %.not44.i.i.i197 = icmp eq i32 %.028.i.i.i193, 63
+  %.not43.i.i.i197 = icmp eq i32 %.028.i.i.i193, 63
   %.not.i.i.i198 = icmp samesign ugt i8 %247, 1
   %251 = icmp ne i8 %247, 0
-  %or.cond43.i.i.i199 = select i1 %.not44.i.i.i197, i1 %.not.i.i.i198, i1 %251
-  br i1 %or.cond43.i.i.i199, label %258, label %thread-pre-split.i.i.i195
+  %or.cond42.i.i.i199 = select i1 %.not43.i.i.i197, i1 %.not.i.i.i198, i1 %251
+  br i1 %or.cond42.i.i.i199, label %258, label %thread-pre-split.i.i.i195
 
 thread-pre-split.i.i.i195:                        ; preds = %250, %245
   %252 = zext nneg i32 %.028.i.i.i193 to i64
@@ -12139,11 +12139,11 @@ _ZNK4llvm6object14WasmObjectFile22isDefinedFunctionIndexEj.exit: ; preds = %_ZL1
   br i1 %288, label %289, label %thread-pre-split.i.i.i206, !prof !197
 
 289:                                              ; preds = %284
-  %.not44.i.i.i208 = icmp eq i32 %.028.i.i.i204, 63
+  %.not43.i.i.i208 = icmp eq i32 %.028.i.i.i204, 63
   %.not.i.i.i209 = icmp samesign ugt i8 %286, 1
   %290 = icmp ne i8 %286, 0
-  %or.cond43.i.i.i210 = select i1 %.not44.i.i.i208, i1 %.not.i.i.i209, i1 %290
-  br i1 %or.cond43.i.i.i210, label %297, label %thread-pre-split.i.i.i206
+  %or.cond42.i.i.i210 = select i1 %.not43.i.i.i208, i1 %.not.i.i.i209, i1 %290
+  br i1 %or.cond42.i.i.i210, label %297, label %thread-pre-split.i.i.i206
 
 thread-pre-split.i.i.i206:                        ; preds = %289, %284
   %291 = zext nneg i32 %.028.i.i.i204 to i64
@@ -12218,11 +12218,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
   br i1 %329, label %330, label %thread-pre-split.i.i.i215, !prof !197
 
 330:                                              ; preds = %325
-  %.not44.i.i.i219 = icmp eq i32 %.028.i.i.i213, 63
+  %.not43.i.i.i219 = icmp eq i32 %.028.i.i.i213, 63
   %.not.i.i.i220 = icmp samesign ugt i8 %327, 1
   %331 = icmp ne i8 %327, 0
-  %or.cond43.i.i.i221 = select i1 %.not44.i.i.i219, i1 %.not.i.i.i220, i1 %331
-  br i1 %or.cond43.i.i.i221, label %338, label %thread-pre-split.i.i.i215
+  %or.cond42.i.i.i221 = select i1 %.not43.i.i.i219, i1 %.not.i.i.i220, i1 %331
+  br i1 %or.cond42.i.i.i221, label %338, label %thread-pre-split.i.i.i215
 
 thread-pre-split.i.i.i215:                        ; preds = %330, %325
   %332 = zext nneg i32 %.028.i.i.i213 to i64
@@ -12294,11 +12294,11 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
   br i1 %361, label %362, label %thread-pre-split.i.i.i228, !prof !197
 
 362:                                              ; preds = %357
-  %.not44.i.i.i230 = icmp eq i32 %.028.i.i.i226, 63
+  %.not43.i.i.i230 = icmp eq i32 %.028.i.i.i226, 63
   %.not.i.i.i231 = icmp samesign ugt i8 %359, 1
   %363 = icmp ne i8 %359, 0
-  %or.cond43.i.i.i232 = select i1 %.not44.i.i.i230, i1 %.not.i.i.i231, i1 %363
-  br i1 %or.cond43.i.i.i232, label %370, label %thread-pre-split.i.i.i228
+  %or.cond42.i.i.i232 = select i1 %.not43.i.i.i230, i1 %.not.i.i.i231, i1 %363
+  br i1 %or.cond42.i.i.i232, label %370, label %thread-pre-split.i.i.i228
 
 thread-pre-split.i.i.i228:                        ; preds = %362, %357
   %364 = zext nneg i32 %.028.i.i.i226 to i64
@@ -12400,11 +12400,11 @@ _ZNK4llvm6object14WasmObjectFile20isDefinedGlobalIndexEj.exit: ; preds = %_ZL13r
   br i1 %407, label %408, label %thread-pre-split.i.i.i239, !prof !197
 
 408:                                              ; preds = %403
-  %.not44.i.i.i243 = icmp eq i32 %.028.i.i.i237, 63
+  %.not43.i.i.i243 = icmp eq i32 %.028.i.i.i237, 63
   %.not.i.i.i244 = icmp samesign ugt i8 %405, 1
   %409 = icmp ne i8 %405, 0
-  %or.cond43.i.i.i245 = select i1 %.not44.i.i.i243, i1 %.not.i.i.i244, i1 %409
-  br i1 %or.cond43.i.i.i245, label %416, label %thread-pre-split.i.i.i239
+  %or.cond42.i.i.i245 = select i1 %.not43.i.i.i243, i1 %.not.i.i.i244, i1 %409
+  br i1 %or.cond42.i.i.i245, label %416, label %thread-pre-split.i.i.i239
 
 thread-pre-split.i.i.i239:                        ; preds = %408, %403
   %410 = zext nneg i32 %.028.i.i.i237 to i64
@@ -12475,11 +12475,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit247: ; preds = %
   br i1 %444, label %445, label %thread-pre-split.i.i.i251, !prof !197
 
 445:                                              ; preds = %440
-  %.not44.i.i.i255 = icmp eq i32 %.028.i.i.i249, 63
+  %.not43.i.i.i255 = icmp eq i32 %.028.i.i.i249, 63
   %.not.i.i.i256 = icmp samesign ugt i8 %442, 1
   %446 = icmp ne i8 %442, 0
-  %or.cond43.i.i.i257 = select i1 %.not44.i.i.i255, i1 %.not.i.i.i256, i1 %446
-  br i1 %or.cond43.i.i.i257, label %453, label %thread-pre-split.i.i.i251
+  %or.cond42.i.i.i257 = select i1 %.not43.i.i.i255, i1 %.not.i.i.i256, i1 %446
+  br i1 %or.cond42.i.i.i257, label %453, label %thread-pre-split.i.i.i251
 
 thread-pre-split.i.i.i251:                        ; preds = %445, %440
   %447 = zext nneg i32 %.028.i.i.i249 to i64
@@ -12547,11 +12547,11 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
   br i1 %472, label %473, label %thread-pre-split.i.i.i265, !prof !197
 
 473:                                              ; preds = %468
-  %.not44.i.i.i267 = icmp eq i32 %.028.i.i.i263, 63
+  %.not43.i.i.i267 = icmp eq i32 %.028.i.i.i263, 63
   %.not.i.i.i268 = icmp samesign ugt i8 %470, 1
   %474 = icmp ne i8 %470, 0
-  %or.cond43.i.i.i269 = select i1 %.not44.i.i.i267, i1 %.not.i.i.i268, i1 %474
-  br i1 %or.cond43.i.i.i269, label %481, label %thread-pre-split.i.i.i265
+  %or.cond42.i.i.i269 = select i1 %.not43.i.i.i267, i1 %.not.i.i.i268, i1 %474
+  br i1 %or.cond42.i.i.i269, label %481, label %thread-pre-split.i.i.i265
 
 thread-pre-split.i.i.i265:                        ; preds = %473, %468
   %475 = zext nneg i32 %.028.i.i.i263 to i64
@@ -12653,11 +12653,11 @@ _ZNK4llvm6object14WasmObjectFile20isDefinedTableNumberEj.exit: ; preds = %_ZL13r
   br i1 %518, label %519, label %thread-pre-split.i.i.i276, !prof !197
 
 519:                                              ; preds = %514
-  %.not44.i.i.i280 = icmp eq i32 %.028.i.i.i274, 63
+  %.not43.i.i.i280 = icmp eq i32 %.028.i.i.i274, 63
   %.not.i.i.i281 = icmp samesign ugt i8 %516, 1
   %520 = icmp ne i8 %516, 0
-  %or.cond43.i.i.i282 = select i1 %.not44.i.i.i280, i1 %.not.i.i.i281, i1 %520
-  br i1 %or.cond43.i.i.i282, label %527, label %thread-pre-split.i.i.i276
+  %or.cond42.i.i.i282 = select i1 %.not43.i.i.i280, i1 %.not.i.i.i281, i1 %520
+  br i1 %or.cond42.i.i.i282, label %527, label %thread-pre-split.i.i.i276
 
 thread-pre-split.i.i.i276:                        ; preds = %519, %514
   %521 = zext nneg i32 %.028.i.i.i274 to i64
@@ -12728,11 +12728,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit284: ; preds = %
   br i1 %555, label %556, label %thread-pre-split.i.i.i288, !prof !197
 
 556:                                              ; preds = %551
-  %.not44.i.i.i292 = icmp eq i32 %.028.i.i.i286, 63
+  %.not43.i.i.i292 = icmp eq i32 %.028.i.i.i286, 63
   %.not.i.i.i293 = icmp samesign ugt i8 %553, 1
   %557 = icmp ne i8 %553, 0
-  %or.cond43.i.i.i294 = select i1 %.not44.i.i.i292, i1 %.not.i.i.i293, i1 %557
-  br i1 %or.cond43.i.i.i294, label %564, label %thread-pre-split.i.i.i288
+  %or.cond42.i.i.i294 = select i1 %.not43.i.i.i292, i1 %.not.i.i.i293, i1 %557
+  br i1 %or.cond42.i.i.i294, label %564, label %thread-pre-split.i.i.i288
 
 thread-pre-split.i.i.i288:                        ; preds = %556, %551
   %558 = zext nneg i32 %.028.i.i.i286 to i64
@@ -12800,11 +12800,11 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
   br i1 %583, label %584, label %thread-pre-split.i.i.i302, !prof !197
 
 584:                                              ; preds = %579
-  %.not44.i.i.i306 = icmp eq i32 %.028.i.i.i300, 63
+  %.not43.i.i.i306 = icmp eq i32 %.028.i.i.i300, 63
   %.not.i.i.i307 = icmp samesign ugt i8 %581, 1
   %585 = icmp ne i8 %581, 0
-  %or.cond43.i.i.i308 = select i1 %.not44.i.i.i306, i1 %.not.i.i.i307, i1 %585
-  br i1 %or.cond43.i.i.i308, label %592, label %thread-pre-split.i.i.i302
+  %or.cond42.i.i.i308 = select i1 %.not43.i.i.i306, i1 %.not.i.i.i307, i1 %585
+  br i1 %or.cond42.i.i.i308, label %592, label %thread-pre-split.i.i.i302
 
 thread-pre-split.i.i.i302:                        ; preds = %584, %579
   %586 = zext nneg i32 %.028.i.i.i300 to i64
@@ -12855,11 +12855,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit310: ; preds = %
   br i1 %607, label %608, label %thread-pre-split.i.i.i314, !prof !197
 
 608:                                              ; preds = %603
-  %.not44.i.i.i316 = icmp eq i32 %.028.i.i.i312, 63
+  %.not43.i.i.i316 = icmp eq i32 %.028.i.i.i312, 63
   %.not.i.i.i317 = icmp samesign ugt i8 %605, 1
   %609 = icmp ne i8 %605, 0
-  %or.cond43.i.i.i318 = select i1 %.not44.i.i.i316, i1 %.not.i.i.i317, i1 %609
-  br i1 %or.cond43.i.i.i318, label %616, label %thread-pre-split.i.i.i314
+  %or.cond42.i.i.i318 = select i1 %.not43.i.i.i316, i1 %.not.i.i.i317, i1 %609
+  br i1 %or.cond42.i.i.i318, label %616, label %thread-pre-split.i.i.i314
 
 thread-pre-split.i.i.i314:                        ; preds = %608, %603
   %610 = zext nneg i32 %.028.i.i.i312 to i64
@@ -12909,11 +12909,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit320: ; preds 
   br i1 %631, label %632, label %thread-pre-split.i.i.i324, !prof !197
 
 632:                                              ; preds = %627
-  %.not44.i.i.i326 = icmp eq i32 %.028.i.i.i322, 63
+  %.not43.i.i.i326 = icmp eq i32 %.028.i.i.i322, 63
   %.not.i.i.i327 = icmp samesign ugt i8 %629, 1
   %633 = icmp ne i8 %629, 0
-  %or.cond43.i.i.i328 = select i1 %.not44.i.i.i326, i1 %.not.i.i.i327, i1 %633
-  br i1 %or.cond43.i.i.i328, label %640, label %thread-pre-split.i.i.i324
+  %or.cond42.i.i.i328 = select i1 %.not43.i.i.i326, i1 %.not.i.i.i327, i1 %633
+  br i1 %or.cond42.i.i.i328, label %640, label %thread-pre-split.i.i.i324
 
 thread-pre-split.i.i.i324:                        ; preds = %632, %627
   %634 = zext nneg i32 %.028.i.i.i322 to i64
@@ -12954,11 +12954,11 @@ _ZL13readVaruint64RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br i1 %652, label %653, label %thread-pre-split.i.i.i333, !prof !197
 
 653:                                              ; preds = %648
-  %.not44.i.i.i335 = icmp eq i32 %.028.i.i.i331, 63
+  %.not43.i.i.i335 = icmp eq i32 %.028.i.i.i331, 63
   %.not.i.i.i336 = icmp samesign ugt i8 %650, 1
   %654 = icmp ne i8 %650, 0
-  %or.cond43.i.i.i337 = select i1 %.not44.i.i.i335, i1 %.not.i.i.i336, i1 %654
-  br i1 %or.cond43.i.i.i337, label %661, label %thread-pre-split.i.i.i333
+  %or.cond42.i.i.i337 = select i1 %.not43.i.i.i335, i1 %.not.i.i.i336, i1 %654
+  br i1 %or.cond42.i.i.i337, label %661, label %thread-pre-split.i.i.i333
 
 thread-pre-split.i.i.i333:                        ; preds = %653, %648
   %655 = zext nneg i32 %.028.i.i.i331 to i64
@@ -13143,11 +13143,11 @@ _ZL13readVaruint64RN4llvm6object14WasmObjectFile11ReadContextE.exit339: ; preds 
   br i1 %713, label %714, label %thread-pre-split.i.i.i343, !prof !197
 
 714:                                              ; preds = %709
-  %.not44.i.i.i345 = icmp eq i32 %.028.i.i.i341, 63
+  %.not43.i.i.i345 = icmp eq i32 %.028.i.i.i341, 63
   %.not.i.i.i346 = icmp samesign ugt i8 %711, 1
   %715 = icmp ne i8 %711, 0
-  %or.cond43.i.i.i347 = select i1 %.not44.i.i.i345, i1 %.not.i.i.i346, i1 %715
-  br i1 %or.cond43.i.i.i347, label %722, label %thread-pre-split.i.i.i343
+  %or.cond42.i.i.i347 = select i1 %.not43.i.i.i345, i1 %.not.i.i.i346, i1 %715
+  br i1 %or.cond42.i.i.i347, label %722, label %thread-pre-split.i.i.i343
 
 thread-pre-split.i.i.i343:                        ; preds = %714, %709
   %716 = zext nneg i32 %.028.i.i.i341 to i64
@@ -13202,11 +13202,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit349: ; preds 
   br i1 %739, label %740, label %thread-pre-split.i.i.i353, !prof !197
 
 740:                                              ; preds = %735
-  %.not44.i.i.i355 = icmp eq i32 %.028.i.i.i351, 63
+  %.not43.i.i.i355 = icmp eq i32 %.028.i.i.i351, 63
   %.not.i.i.i356 = icmp samesign ugt i8 %737, 1
   %741 = icmp ne i8 %737, 0
-  %or.cond43.i.i.i357 = select i1 %.not44.i.i.i355, i1 %.not.i.i.i356, i1 %741
-  br i1 %or.cond43.i.i.i357, label %748, label %thread-pre-split.i.i.i353
+  %or.cond42.i.i.i357 = select i1 %.not43.i.i.i355, i1 %.not.i.i.i356, i1 %741
+  br i1 %or.cond42.i.i.i357, label %748, label %thread-pre-split.i.i.i353
 
 thread-pre-split.i.i.i353:                        ; preds = %740, %735
   %742 = zext nneg i32 %.028.i.i.i351 to i64
@@ -13308,11 +13308,11 @@ _ZNK4llvm6object14WasmObjectFile17isDefinedTagIndexEj.exit: ; preds = %_ZL13read
   br i1 %785, label %786, label %thread-pre-split.i.i.i364, !prof !197
 
 786:                                              ; preds = %781
-  %.not44.i.i.i368 = icmp eq i32 %.028.i.i.i362, 63
+  %.not43.i.i.i368 = icmp eq i32 %.028.i.i.i362, 63
   %.not.i.i.i369 = icmp samesign ugt i8 %783, 1
   %787 = icmp ne i8 %783, 0
-  %or.cond43.i.i.i370 = select i1 %.not44.i.i.i368, i1 %.not.i.i.i369, i1 %787
-  br i1 %or.cond43.i.i.i370, label %794, label %thread-pre-split.i.i.i364
+  %or.cond42.i.i.i370 = select i1 %.not43.i.i.i368, i1 %.not.i.i.i369, i1 %787
+  br i1 %or.cond42.i.i.i370, label %794, label %thread-pre-split.i.i.i364
 
 thread-pre-split.i.i.i364:                        ; preds = %786, %781
   %788 = zext nneg i32 %.028.i.i.i362 to i64
@@ -13387,11 +13387,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit372: ; preds = %
   br i1 %826, label %827, label %thread-pre-split.i.i.i376, !prof !197
 
 827:                                              ; preds = %822
-  %.not44.i.i.i380 = icmp eq i32 %.028.i.i.i374, 63
+  %.not43.i.i.i380 = icmp eq i32 %.028.i.i.i374, 63
   %.not.i.i.i381 = icmp samesign ugt i8 %824, 1
   %828 = icmp ne i8 %824, 0
-  %or.cond43.i.i.i382 = select i1 %.not44.i.i.i380, i1 %.not.i.i.i381, i1 %828
-  br i1 %or.cond43.i.i.i382, label %835, label %thread-pre-split.i.i.i376
+  %or.cond42.i.i.i382 = select i1 %.not43.i.i.i380, i1 %.not.i.i.i381, i1 %828
+  br i1 %or.cond42.i.i.i382, label %835, label %thread-pre-split.i.i.i376
 
 thread-pre-split.i.i.i376:                        ; preds = %827, %822
   %829 = zext nneg i32 %.028.i.i.i374 to i64
@@ -13788,11 +13788,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile25parseLinkingSectionComda
   br i1 %24, label %25, label %thread-pre-split.i.i.i, !prof !197
 
 25:                                               ; preds = %20
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %22, 1
   %26 = icmp ne i8 %22, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %26
-  br i1 %or.cond43.i.i.i, label %33, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %26
+  br i1 %or.cond42.i.i.i, label %33, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %25, %20
   %27 = zext nneg i32 %.028.i.i.i to i64
@@ -13865,11 +13865,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br i1 %62, label %63, label %thread-pre-split.i.i.i52, !prof !197
 
 63:                                               ; preds = %58
-  %.not44.i.i.i54 = icmp eq i32 %.028.i.i.i50, 63
+  %.not43.i.i.i54 = icmp eq i32 %.028.i.i.i50, 63
   %.not.i.i.i55 = icmp samesign ugt i8 %60, 1
   %64 = icmp ne i8 %60, 0
-  %or.cond43.i.i.i56 = select i1 %.not44.i.i.i54, i1 %.not.i.i.i55, i1 %64
-  br i1 %or.cond43.i.i.i56, label %71, label %thread-pre-split.i.i.i52
+  %or.cond42.i.i.i56 = select i1 %.not43.i.i.i54, i1 %.not.i.i.i55, i1 %64
+  br i1 %or.cond42.i.i.i56, label %71, label %thread-pre-split.i.i.i52
 
 thread-pre-split.i.i.i52:                         ; preds = %63, %58
   %65 = zext nneg i32 %.028.i.i.i50 to i64
@@ -14021,11 +14021,11 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit: ; pr
   br i1 %123, label %124, label %thread-pre-split.i.i.i62, !prof !197
 
 124:                                              ; preds = %119
-  %.not44.i.i.i64 = icmp eq i32 %.028.i.i.i60, 63
+  %.not43.i.i.i64 = icmp eq i32 %.028.i.i.i60, 63
   %.not.i.i.i65 = icmp samesign ugt i8 %121, 1
   %125 = icmp ne i8 %121, 0
-  %or.cond43.i.i.i66 = select i1 %.not44.i.i.i64, i1 %.not.i.i.i65, i1 %125
-  br i1 %or.cond43.i.i.i66, label %132, label %thread-pre-split.i.i.i62
+  %or.cond42.i.i.i66 = select i1 %.not43.i.i.i64, i1 %.not.i.i.i65, i1 %125
+  br i1 %or.cond42.i.i.i66, label %132, label %thread-pre-split.i.i.i62
 
 thread-pre-split.i.i.i62:                         ; preds = %124, %119
   %126 = zext nneg i32 %.028.i.i.i60 to i64
@@ -14088,11 +14088,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit68: ; preds =
   br i1 %149, label %150, label %thread-pre-split.i.i.i72, !prof !197
 
 150:                                              ; preds = %145
-  %.not44.i.i.i74 = icmp eq i32 %.028.i.i.i70, 63
+  %.not43.i.i.i74 = icmp eq i32 %.028.i.i.i70, 63
   %.not.i.i.i75 = icmp samesign ugt i8 %147, 1
   %151 = icmp ne i8 %147, 0
-  %or.cond43.i.i.i76 = select i1 %.not44.i.i.i74, i1 %.not.i.i.i75, i1 %151
-  br i1 %or.cond43.i.i.i76, label %158, label %thread-pre-split.i.i.i72
+  %or.cond42.i.i.i76 = select i1 %.not43.i.i.i74, i1 %.not.i.i.i75, i1 %151
+  br i1 %or.cond42.i.i.i76, label %158, label %thread-pre-split.i.i.i72
 
 thread-pre-split.i.i.i72:                         ; preds = %150, %145
   %152 = zext nneg i32 %.028.i.i.i70 to i64
@@ -14172,11 +14172,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit78: ; preds =
   br i1 %197, label %198, label %thread-pre-split.i.i.i82, !prof !197
 
 198:                                              ; preds = %193
-  %.not44.i.i.i84 = icmp eq i32 %.028.i.i.i80, 63
+  %.not43.i.i.i84 = icmp eq i32 %.028.i.i.i80, 63
   %.not.i.i.i85 = icmp samesign ugt i8 %195, 1
   %199 = icmp ne i8 %195, 0
-  %or.cond43.i.i.i86 = select i1 %.not44.i.i.i84, i1 %.not.i.i.i85, i1 %199
-  br i1 %or.cond43.i.i.i86, label %206, label %thread-pre-split.i.i.i82
+  %or.cond42.i.i.i86 = select i1 %.not43.i.i.i84, i1 %.not.i.i.i85, i1 %199
+  br i1 %or.cond42.i.i.i86, label %206, label %thread-pre-split.i.i.i82
 
 thread-pre-split.i.i.i82:                         ; preds = %198, %193
   %200 = zext nneg i32 %.028.i.i.i80 to i64
@@ -14225,11 +14225,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit88: ; preds =
   br i1 %221, label %222, label %thread-pre-split.i.i.i92, !prof !197
 
 222:                                              ; preds = %217
-  %.not44.i.i.i94 = icmp eq i32 %.028.i.i.i90, 63
+  %.not43.i.i.i94 = icmp eq i32 %.028.i.i.i90, 63
   %.not.i.i.i95 = icmp samesign ugt i8 %219, 1
   %223 = icmp ne i8 %219, 0
-  %or.cond43.i.i.i96 = select i1 %.not44.i.i.i94, i1 %.not.i.i.i95, i1 %223
-  br i1 %or.cond43.i.i.i96, label %230, label %thread-pre-split.i.i.i92
+  %or.cond42.i.i.i96 = select i1 %.not43.i.i.i94, i1 %.not.i.i.i95, i1 %223
+  br i1 %or.cond42.i.i.i96, label %230, label %thread-pre-split.i.i.i92
 
 thread-pre-split.i.i.i92:                         ; preds = %222, %217
   %224 = zext nneg i32 %.028.i.i.i90 to i64
@@ -14618,11 +14618,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile21parseProducersSectionERN
   br i1 %35, label %36, label %thread-pre-split.i.i.i, !prof !197
 
 36:                                               ; preds = %31
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %33, 1
   %37 = icmp ne i8 %33, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %37
-  br i1 %or.cond43.i.i.i, label %44, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %37
+  br i1 %or.cond42.i.i.i, label %44, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %36, %31
   %38 = zext nneg i32 %.028.i.i.i to i64
@@ -14700,11 +14700,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit.preheader: ;
   br i1 %80, label %81, label %thread-pre-split.i.i.i37, !prof !197
 
 81:                                               ; preds = %76
-  %.not44.i.i.i39 = icmp eq i32 %.028.i.i.i35, 63
+  %.not43.i.i.i39 = icmp eq i32 %.028.i.i.i35, 63
   %.not.i.i.i40 = icmp samesign ugt i8 %78, 1
   %82 = icmp ne i8 %78, 0
-  %or.cond43.i.i.i41 = select i1 %.not44.i.i.i39, i1 %.not.i.i.i40, i1 %82
-  br i1 %or.cond43.i.i.i41, label %89, label %thread-pre-split.i.i.i37
+  %or.cond42.i.i.i41 = select i1 %.not43.i.i.i39, i1 %.not.i.i.i40, i1 %82
+  br i1 %or.cond42.i.i.i41, label %89, label %thread-pre-split.i.i.i37
 
 thread-pre-split.i.i.i37:                         ; preds = %81, %76
   %83 = zext nneg i32 %.028.i.i.i35 to i64
@@ -14816,11 +14816,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %120, label %121, label %thread-pre-split.i.i.i54, !prof !197
 
 121:                                              ; preds = %116
-  %.not44.i.i.i56 = icmp eq i32 %.028.i.i.i52, 63
+  %.not43.i.i.i56 = icmp eq i32 %.028.i.i.i52, 63
   %.not.i.i.i57 = icmp samesign ugt i8 %118, 1
   %122 = icmp ne i8 %118, 0
-  %or.cond43.i.i.i58 = select i1 %.not44.i.i.i56, i1 %.not.i.i.i57, i1 %122
-  br i1 %or.cond43.i.i.i58, label %129, label %thread-pre-split.i.i.i54
+  %or.cond42.i.i.i58 = select i1 %.not43.i.i.i56, i1 %.not.i.i.i57, i1 %122
+  br i1 %or.cond42.i.i.i58, label %129, label %thread-pre-split.i.i.i54
 
 thread-pre-split.i.i.i54:                         ; preds = %121, %116
   %123 = zext nneg i32 %.028.i.i.i52 to i64
@@ -14890,11 +14890,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit60: ; preds =
   br i1 %148, label %149, label %thread-pre-split.i.i.i64, !prof !197
 
 149:                                              ; preds = %144
-  %.not44.i.i.i68 = icmp eq i32 %.028.i.i.i62, 63
+  %.not43.i.i.i68 = icmp eq i32 %.028.i.i.i62, 63
   %.not.i.i.i69 = icmp samesign ugt i8 %146, 1
   %150 = icmp ne i8 %146, 0
-  %or.cond43.i.i.i70 = select i1 %.not44.i.i.i68, i1 %.not.i.i.i69, i1 %150
-  br i1 %or.cond43.i.i.i70, label %157, label %thread-pre-split.i.i.i64
+  %or.cond42.i.i.i70 = select i1 %.not43.i.i.i68, i1 %.not.i.i.i69, i1 %150
+  br i1 %or.cond42.i.i.i70, label %157, label %thread-pre-split.i.i.i64
 
 thread-pre-split.i.i.i64:                         ; preds = %149, %144
   %151 = zext nneg i32 %.028.i.i.i62 to i64
@@ -14948,11 +14948,11 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit72: ; preds = %_
   br i1 %173, label %174, label %thread-pre-split.i.i.i76, !prof !197
 
 174:                                              ; preds = %169
-  %.not44.i.i.i80 = icmp eq i32 %.028.i.i.i74, 63
+  %.not43.i.i.i80 = icmp eq i32 %.028.i.i.i74, 63
   %.not.i.i.i81 = icmp samesign ugt i8 %171, 1
   %175 = icmp ne i8 %171, 0
-  %or.cond43.i.i.i82 = select i1 %.not44.i.i.i80, i1 %.not.i.i.i81, i1 %175
-  br i1 %or.cond43.i.i.i82, label %182, label %thread-pre-split.i.i.i76
+  %or.cond42.i.i.i82 = select i1 %.not43.i.i.i80, i1 %.not.i.i.i81, i1 %175
+  br i1 %or.cond42.i.i.i82, label %182, label %thread-pre-split.i.i.i76
 
 thread-pre-split.i.i.i76:                         ; preds = %174, %169
   %176 = zext nneg i32 %.028.i.i.i74 to i64
@@ -15125,45 +15125,45 @@ _ZN4llvm8SmallSetINS_9StringRefELj8ESt4lessIS1_EE10insertImplIRKS1_EESt4pairINS_
   %230 = zext i32 %229 to i64
   %.idx.i.i = shl nuw nsw i64 %230, 4
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 %.idx.i.i
-  %.not18.i.i = icmp eq i32 %229, 0
-  br i1 %.not18.i.i, label %.thread.i, label %.lr.ph.i.i
+  %.not16.i.i = icmp eq i32 %229, 0
+  br i1 %.not16.i.i, label %.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %227
   %232 = icmp eq i64 %163, 0
   br i1 %232, label %.lr.ph.i.split.us.i, label %.lr.ph.i.split.i
 
 .lr.ph.i.split.us.i:                              ; preds = %.lr.ph.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i
-  %.01019.i.us.i = phi ptr [ %233, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i ], [ %228, %.lr.ph.i.i ]
-  %.sroa.22.0..sroa_idx.i.us.i = getelementptr inbounds nuw i8, ptr %.01019.i.us.i, i64 8
+  %.01017.i.us.i = phi ptr [ %233, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i ], [ %228, %.lr.ph.i.i ]
+  %.sroa.22.0..sroa_idx.i.us.i = getelementptr inbounds nuw i8, ptr %.01017.i.us.i, i64 8
   %.sroa.22.0.copyload.i.us.i = load i64, ptr %.sroa.22.0..sroa_idx.i.us.i, align 8, !tbaa !14, !noalias !1069
   %.not.i.i.us.i = icmp eq i64 %.sroa.22.0.copyload.i.us.i, 0
   br i1 %.not.i.i.us.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj8ESt4lessIS1_EE5vfindERKS1_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us.i: ; preds = %.lr.ph.i.split.us.i
-  %233 = getelementptr inbounds nuw i8, ptr %.01019.i.us.i, i64 16
+  %233 = getelementptr inbounds nuw i8, ptr %.01017.i.us.i, i64 16
   %.not.i.us.i = icmp eq ptr %233, %231
   br i1 %.not.i.us.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj8ESt4lessIS1_EE5vfindERKS1_.exit.thread.i, label %.lr.ph.i.split.us.i, !llvm.loop !1074
 
 .lr.ph.i.split.i:                                 ; preds = %.lr.ph.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i
-  %.01019.i.i = phi ptr [ %235, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i ], [ %228, %.lr.ph.i.i ]
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.01019.i.i, i64 8
+  %.01017.i.i = phi ptr [ %235, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i ], [ %228, %.lr.ph.i.i ]
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.01017.i.i, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !14, !noalias !1069
   %.not.i.i.i93 = icmp eq i64 %.sroa.22.0.copyload.i.i, %163
   br i1 %.not.i.i.i93, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %.lr.ph.i.split.i
-  %.sroa.01.0.copyload.i.i = load ptr, ptr %.01019.i.i, align 8, !tbaa !13, !noalias !1069
+  %.sroa.01.0.copyload.i.i = load ptr, ptr %.01017.i.i, align 8, !tbaa !13, !noalias !1069
   %bcmp.i.i.i = call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i, ptr %162, i64 %163), !noalias !1069
   %234 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %234, label %_ZNK4llvm8SmallSetINS_9StringRefELj8ESt4lessIS1_EE5vfindERKS1_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %.lr.ph.i.split.i
-  %235 = getelementptr inbounds nuw i8, ptr %.01019.i.i, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %.01017.i.i, i64 16
   %.not.i.i = icmp eq ptr %235, %231
   br i1 %.not.i.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj8ESt4lessIS1_EE5vfindERKS1_.exit.thread.i, label %.lr.ph.i.split.i, !llvm.loop !1074
 
 _ZNK4llvm8SmallSetINS_9StringRefELj8ESt4lessIS1_EE5vfindERKS1_.exit.i: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %.lr.ph.i.split.us.i
-  %.us-phi.i = phi ptr [ %.01019.i.us.i, %.lr.ph.i.split.us.i ], [ %.01019.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
+  %.us-phi.i = phi ptr [ %.01017.i.us.i, %.lr.ph.i.split.us.i ], [ %.01017.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   %.not.i95 = icmp eq ptr %.us-phi.i, %231
   br i1 %.not.i95, label %_ZNK4llvm8SmallSetINS_9StringRefELj8ESt4lessIS1_EE5vfindERKS1_.exit.thread.i, label %_ZN4llvm8SmallSetINS_9StringRefELj8ESt4lessIS1_EE10insertImplIRKS1_EESt4pairINS_16SmallSetIteratorIS1_Lj8ES3_EEbEOT_.exit.thread241
 
@@ -15731,11 +15731,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile26parseTargetFeaturesSecti
   br i1 %33, label %34, label %thread-pre-split.i.i.i, !prof !197
 
 34:                                               ; preds = %29
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %31, 1
   %35 = icmp ne i8 %31, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %35
-  br i1 %or.cond43.i.i.i, label %42, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %35
+  br i1 %or.cond42.i.i.i, label %42, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %34, %29
   %36 = zext nneg i32 %.028.i.i.i to i64
@@ -15839,11 +15839,11 @@ _ZL9readUint8RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %59
   br i1 %77, label %78, label %thread-pre-split.i.i.i18, !prof !197
 
 78:                                               ; preds = %73
-  %.not44.i.i.i20 = icmp eq i32 %.028.i.i.i16, 63
+  %.not43.i.i.i20 = icmp eq i32 %.028.i.i.i16, 63
   %.not.i.i.i21 = icmp samesign ugt i8 %75, 1
   %79 = icmp ne i8 %75, 0
-  %or.cond43.i.i.i22 = select i1 %.not44.i.i.i20, i1 %.not.i.i.i21, i1 %79
-  br i1 %or.cond43.i.i.i22, label %86, label %thread-pre-split.i.i.i18
+  %or.cond42.i.i.i22 = select i1 %.not43.i.i.i20, i1 %.not.i.i.i21, i1 %79
+  br i1 %or.cond42.i.i.i22, label %86, label %thread-pre-split.i.i.i18
 
 thread-pre-split.i.i.i18:                         ; preds = %78, %73
   %80 = zext nneg i32 %.028.i.i.i16 to i64
@@ -16335,11 +16335,11 @@ define dso_local void @_ZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9St
   br i1 %29, label %30, label %thread-pre-split.i.i.i, !prof !197
 
 30:                                               ; preds = %25
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %27, 1
   %31 = icmp ne i8 %27, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %31
-  br i1 %or.cond43.i.i.i, label %38, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %31
+  br i1 %or.cond42.i.i.i, label %38, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %30, %25
   %32 = zext nneg i32 %.028.i.i.i to i64
@@ -16414,11 +16414,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br i1 %66, label %67, label %thread-pre-split.i.i.i99, !prof !197
 
 67:                                               ; preds = %62
-  %.not44.i.i.i101 = icmp eq i32 %.028.i.i.i97, 63
+  %.not43.i.i.i101 = icmp eq i32 %.028.i.i.i97, 63
   %.not.i.i.i102 = icmp samesign ugt i8 %64, 1
   %68 = icmp ne i8 %64, 0
-  %or.cond43.i.i.i103 = select i1 %.not44.i.i.i101, i1 %.not.i.i.i102, i1 %68
-  br i1 %or.cond43.i.i.i103, label %75, label %thread-pre-split.i.i.i99
+  %or.cond42.i.i.i103 = select i1 %.not43.i.i.i101, i1 %.not.i.i.i102, i1 %68
+  br i1 %or.cond42.i.i.i103, label %75, label %thread-pre-split.i.i.i99
 
 thread-pre-split.i.i.i99:                         ; preds = %67, %62
   %69 = zext nneg i32 %.028.i.i.i97 to i64
@@ -16489,11 +16489,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit105: ; preds 
   br i1 %104, label %105, label %thread-pre-split.i.i.i109, !prof !197
 
 105:                                              ; preds = %100
-  %.not44.i.i.i111 = icmp eq i32 %.028.i.i.i107, 63
+  %.not43.i.i.i111 = icmp eq i32 %.028.i.i.i107, 63
   %.not.i.i.i112 = icmp samesign ugt i8 %102, 1
   %106 = icmp ne i8 %102, 0
-  %or.cond43.i.i.i113 = select i1 %.not44.i.i.i111, i1 %.not.i.i.i112, i1 %106
-  br i1 %or.cond43.i.i.i113, label %113, label %thread-pre-split.i.i.i109
+  %or.cond42.i.i.i113 = select i1 %.not43.i.i.i111, i1 %.not.i.i.i112, i1 %106
+  br i1 %or.cond42.i.i.i113, label %113, label %thread-pre-split.i.i.i109
 
 thread-pre-split.i.i.i109:                        ; preds = %105, %100
   %107 = zext nneg i32 %.028.i.i.i107 to i64
@@ -16543,11 +16543,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit115: ; preds 
   br i1 %129, label %130, label %thread-pre-split.i.i.i119, !prof !197
 
 130:                                              ; preds = %125
-  %.not44.i.i.i121 = icmp eq i32 %.028.i.i.i117, 63
+  %.not43.i.i.i121 = icmp eq i32 %.028.i.i.i117, 63
   %.not.i.i.i122 = icmp samesign ugt i8 %127, 1
   %131 = icmp ne i8 %127, 0
-  %or.cond43.i.i.i123 = select i1 %.not44.i.i.i121, i1 %.not.i.i.i122, i1 %131
-  br i1 %or.cond43.i.i.i123, label %138, label %thread-pre-split.i.i.i119
+  %or.cond42.i.i.i123 = select i1 %.not43.i.i.i121, i1 %.not.i.i.i122, i1 %131
+  br i1 %or.cond42.i.i.i123, label %138, label %thread-pre-split.i.i.i119
 
 thread-pre-split.i.i.i119:                        ; preds = %130, %125
   %132 = zext nneg i32 %.028.i.i.i117 to i64
@@ -16611,11 +16611,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit125: ; preds 
   br i1 %156, label %157, label %thread-pre-split.i.i.i129, !prof !197
 
 157:                                              ; preds = %152
-  %.not44.i.i.i131 = icmp eq i32 %.028.i.i.i127, 63
+  %.not43.i.i.i131 = icmp eq i32 %.028.i.i.i127, 63
   %.not.i.i.i132 = icmp samesign ugt i8 %154, 1
   %158 = icmp ne i8 %154, 0
-  %or.cond43.i.i.i133 = select i1 %.not44.i.i.i131, i1 %.not.i.i.i132, i1 %158
-  br i1 %or.cond43.i.i.i133, label %165, label %thread-pre-split.i.i.i129
+  %or.cond42.i.i.i133 = select i1 %.not43.i.i.i131, i1 %.not.i.i.i132, i1 %158
+  br i1 %or.cond42.i.i.i133, label %165, label %thread-pre-split.i.i.i129
 
 thread-pre-split.i.i.i129:                        ; preds = %157, %152
   %159 = zext nneg i32 %.028.i.i.i127 to i64
@@ -17690,11 +17690,11 @@ define internal fastcc void @"_ZZN4llvm6object14WasmObjectFile16parseTypeSection
   br i1 %11, label %12, label %thread-pre-split.i.i.i, !prof !197
 
 12:                                               ; preds = %7
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %9, 1
   %13 = icmp ne i8 %9, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %13
-  br i1 %or.cond43.i.i.i, label %20, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %13
+  br i1 %or.cond42.i.i.i, label %20, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %12, %7
   %14 = zext nneg i32 %.028.i.i.i to i64
@@ -17816,11 +17816,11 @@ _ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit: ; preds = %
   br i1 %59, label %60, label %thread-pre-split.i.i.i4, !prof !197
 
 60:                                               ; preds = %55
-  %.not44.i.i.i6 = icmp eq i32 %.028.i.i.i2, 63
+  %.not43.i.i.i6 = icmp eq i32 %.028.i.i.i2, 63
   %.not.i.i.i7 = icmp samesign ugt i8 %57, 1
   %61 = icmp ne i8 %57, 0
-  %or.cond43.i.i.i8 = select i1 %.not44.i.i.i6, i1 %.not.i.i.i7, i1 %61
-  br i1 %or.cond43.i.i.i8, label %68, label %thread-pre-split.i.i.i4
+  %or.cond42.i.i.i8 = select i1 %.not43.i.i.i6, i1 %.not.i.i.i7, i1 %61
+  br i1 %or.cond42.i.i.i8, label %68, label %thread-pre-split.i.i.i4
 
 thread-pre-split.i.i.i4:                          ; preds = %60, %55
   %62 = zext nneg i32 %.028.i.i.i2 to i64
@@ -17957,11 +17957,11 @@ define internal fastcc void @_ZL10readLimitsRN4llvm6object14WasmObjectFile11Read
   br i1 %13, label %14, label %thread-pre-split.i.i.i, !prof !197
 
 14:                                               ; preds = %9
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %11, 1
   %15 = icmp ne i8 %11, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %15
-  br i1 %or.cond43.i.i.i, label %22, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %15
+  br i1 %or.cond42.i.i.i, label %22, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %14, %9
   %16 = zext nneg i32 %.028.i.i.i to i64
@@ -18011,11 +18011,11 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br i1 %37, label %38, label %thread-pre-split.i.i.i6, !prof !197
 
 38:                                               ; preds = %33
-  %.not44.i.i.i8 = icmp eq i32 %.028.i.i.i4, 63
+  %.not43.i.i.i8 = icmp eq i32 %.028.i.i.i4, 63
   %.not.i.i.i9 = icmp samesign ugt i8 %35, 1
   %39 = icmp ne i8 %35, 0
-  %or.cond43.i.i.i10 = select i1 %.not44.i.i.i8, i1 %.not.i.i.i9, i1 %39
-  br i1 %or.cond43.i.i.i10, label %46, label %thread-pre-split.i.i.i6
+  %or.cond42.i.i.i10 = select i1 %.not43.i.i.i8, i1 %.not.i.i.i9, i1 %39
+  br i1 %or.cond42.i.i.i10, label %46, label %thread-pre-split.i.i.i6
 
 thread-pre-split.i.i.i6:                          ; preds = %38, %33
   %40 = zext nneg i32 %.028.i.i.i4 to i64
@@ -18059,11 +18059,11 @@ _ZL13readVaruint64RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br i1 %59, label %60, label %thread-pre-split.i.i.i15, !prof !197
 
 60:                                               ; preds = %55
-  %.not44.i.i.i17 = icmp eq i32 %.028.i.i.i13, 63
+  %.not43.i.i.i17 = icmp eq i32 %.028.i.i.i13, 63
   %.not.i.i.i18 = icmp samesign ugt i8 %57, 1
   %61 = icmp ne i8 %57, 0
-  %or.cond43.i.i.i19 = select i1 %.not44.i.i.i17, i1 %.not.i.i.i18, i1 %61
-  br i1 %or.cond43.i.i.i19, label %68, label %thread-pre-split.i.i.i15
+  %or.cond42.i.i.i19 = select i1 %.not43.i.i.i17, i1 %.not.i.i.i18, i1 %61
+  br i1 %or.cond42.i.i.i19, label %68, label %thread-pre-split.i.i.i15
 
 thread-pre-split.i.i.i15:                         ; preds = %60, %55
   %62 = zext nneg i32 %.028.i.i.i13 to i64
@@ -18118,11 +18118,11 @@ define internal fastcc void @_ZL13readTableTypeRN4llvm6object14WasmObjectFile11R
   br i1 %14, label %15, label %thread-pre-split.i.i.i, !prof !197
 
 15:                                               ; preds = %10
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %12, 1
   %16 = icmp ne i8 %12, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %16
-  br i1 %or.cond43.i.i.i, label %23, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %16
+  br i1 %or.cond42.i.i.i, label %23, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %15, %10
   %17 = zext nneg i32 %.028.i.i.i to i64
@@ -18403,11 +18403,11 @@ _ZL11readFloat64RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %45
   br i1 %55, label %56, label %thread-pre-split.i.i, !prof !197
 
 56:                                               ; preds = %51
-  %.not44.i.i = icmp eq i32 %.028.i.i, 63
+  %.not43.i.i = icmp eq i32 %.028.i.i, 63
   %.not.i.i = icmp samesign ugt i8 %53, 1
   %57 = icmp ne i8 %53, 0
-  %or.cond43.i.i = select i1 %.not44.i.i, i1 %.not.i.i, i1 %57
-  br i1 %or.cond43.i.i, label %64, label %thread-pre-split.i.i
+  %or.cond42.i.i = select i1 %.not43.i.i, i1 %.not.i.i, i1 %57
+  br i1 %or.cond42.i.i, label %64, label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %56, %51
   %58 = zext nneg i32 %.028.i.i to i64
@@ -18450,11 +18450,11 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %th
   br i1 %77, label %78, label %thread-pre-split.i.i.i, !prof !197
 
 78:                                               ; preds = %73
-  %.not44.i.i.i = icmp eq i32 %.028.i.i.i, 63
+  %.not43.i.i.i = icmp eq i32 %.028.i.i.i, 63
   %.not.i.i.i = icmp samesign ugt i8 %75, 1
   %79 = icmp ne i8 %75, 0
-  %or.cond43.i.i.i = select i1 %.not44.i.i.i, i1 %.not.i.i.i, i1 %79
-  br i1 %or.cond43.i.i.i, label %86, label %thread-pre-split.i.i.i
+  %or.cond42.i.i.i = select i1 %.not43.i.i.i, i1 %.not.i.i.i, i1 %79
+  br i1 %or.cond42.i.i.i, label %86, label %thread-pre-split.i.i.i
 
 thread-pre-split.i.i.i:                           ; preds = %78, %73
   %80 = zext nneg i32 %.028.i.i.i to i64
@@ -18650,11 +18650,11 @@ _ZL10readOpcodeRN4llvm6object14WasmObjectFile11ReadContextE.exit43: ; preds = %.
 
 137:                                              ; preds = %134
   %138 = and i8 %135, 127
-  %.not44.i.i48 = icmp eq i32 %.028.i.i45, 63
+  %.not43.i.i48 = icmp eq i32 %.028.i.i45, 63
   %.not.i.i49 = icmp samesign ugt i8 %138, 1
   %139 = icmp ne i8 %138, 0
-  %or.cond43.i.i50 = select i1 %.not44.i.i48, i1 %.not.i.i49, i1 %139
-  br i1 %or.cond43.i.i50, label %143, label %thread-pre-split.i.i47
+  %or.cond42.i.i50 = select i1 %.not43.i.i48, i1 %.not.i.i49, i1 %139
+  br i1 %or.cond42.i.i50, label %143, label %thread-pre-split.i.i47
 
 thread-pre-split.i.i47:                           ; preds = %137, %134
   %140 = add i32 %.028.i.i45, 7
@@ -18706,11 +18706,11 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit52: ; preds = %
 
 162:                                              ; preds = %159
   %163 = and i8 %160, 127
-  %.not44.i.i61 = icmp eq i32 %.028.i.i58, 63
+  %.not43.i.i61 = icmp eq i32 %.028.i.i58, 63
   %.not.i.i62 = icmp samesign ugt i8 %163, 1
   %164 = icmp ne i8 %163, 0
-  %or.cond43.i.i63 = select i1 %.not44.i.i61, i1 %.not.i.i62, i1 %164
-  br i1 %or.cond43.i.i63, label %168, label %thread-pre-split.i.i60
+  %or.cond42.i.i63 = select i1 %.not43.i.i61, i1 %.not.i.i62, i1 %164
+  br i1 %or.cond42.i.i63, label %168, label %thread-pre-split.i.i60
 
 thread-pre-split.i.i60:                           ; preds = %162, %159
   %165 = add i32 %.028.i.i58, 7
@@ -18744,11 +18744,11 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit65: ; preds = %
 
 178:                                              ; preds = %175
   %179 = and i8 %176, 127
-  %.not44.i.i70 = icmp eq i32 %.028.i.i67, 63
+  %.not43.i.i70 = icmp eq i32 %.028.i.i67, 63
   %.not.i.i71 = icmp samesign ugt i8 %179, 1
   %180 = icmp ne i8 %179, 0
-  %or.cond43.i.i72 = select i1 %.not44.i.i70, i1 %.not.i.i71, i1 %180
-  br i1 %or.cond43.i.i72, label %184, label %thread-pre-split.i.i69
+  %or.cond42.i.i72 = select i1 %.not43.i.i70, i1 %.not.i.i71, i1 %180
+  br i1 %or.cond42.i.i72, label %184, label %thread-pre-split.i.i69
 
 thread-pre-split.i.i69:                           ; preds = %178, %175
   %181 = add i32 %.028.i.i67, 7
@@ -18783,11 +18783,11 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit74: ; preds = %
 
 195:                                              ; preds = %192
   %196 = and i8 %193, 127
-  %.not44.i.i79 = icmp eq i32 %.028.i.i76, 63
+  %.not43.i.i79 = icmp eq i32 %.028.i.i76, 63
   %.not.i.i80 = icmp samesign ugt i8 %196, 1
   %197 = icmp ne i8 %196, 0
-  %or.cond43.i.i81 = select i1 %.not44.i.i79, i1 %.not.i.i80, i1 %197
-  br i1 %or.cond43.i.i81, label %201, label %thread-pre-split.i.i78
+  %or.cond42.i.i81 = select i1 %.not43.i.i79, i1 %.not.i.i80, i1 %197
+  br i1 %or.cond42.i.i81, label %201, label %thread-pre-split.i.i78
 
 thread-pre-split.i.i78:                           ; preds = %195, %192
   %198 = add i32 %.028.i.i76, 7
@@ -21681,49 +21681,49 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetINS_9StringRefELj3ESt4lessIS1_
   %15 = zext i32 %14 to i64
   %.idx.i = shl nuw nsw i64 %15, 4
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
-  %.not18.i = icmp eq i32 %14, 0
+  %.not16.i = icmp eq i32 %14, 0
   %.sroa.05.0.copyload.pre = load ptr, ptr %2, align 8, !tbaa !13
   %.sroa.26.0..sroa_idx.phi.trans.insert = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.sroa.26.0.copyload.pre = load i64, ptr %.sroa.26.0..sroa_idx.phi.trans.insert, align 8, !tbaa !14
   %.sroa.2.0.copyload.i.fr = freeze i64 %.sroa.26.0.copyload.pre
-  br i1 %.not18.i, label %.thread, label %.lr.ph.i
+  br i1 %.not16.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %11
   %17 = icmp eq i64 %.sroa.2.0.copyload.i.fr, 0
   br i1 %17, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us
-  %.01019.i.us = phi ptr [ %18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us ], [ %12, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.01019.i.us, i64 8
+  %.01017.i.us = phi ptr [ %18, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us ], [ %12, %.lr.ph.i ]
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.01017.i.us, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !14
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
   br i1 %.not.i.i.us, label %_ZNK4llvm8SmallSetINS_9StringRefELj3ESt4lessIS1_EE5vfindERKS1_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i.us:  ; preds = %.lr.ph.i.split.us
-  %18 = getelementptr inbounds nuw i8, ptr %.01019.i.us, i64 16
+  %18 = getelementptr inbounds nuw i8, ptr %.01017.i.us, i64 16
   %.not.i.us = icmp eq ptr %18, %16
   br i1 %.not.i.us, label %_ZNK4llvm8SmallSetINS_9StringRefELj3ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %.lr.ph.i.split.us, !llvm.loop !1313
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
-  %.01019.i = phi ptr [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ], [ %12, %.lr.ph.i ]
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.01019.i, i64 8
+  %.01017.i = phi ptr [ %20, %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i ], [ %12, %.lr.ph.i ]
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.01017.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !14
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.sroa.2.0.copyload.i.fr
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.lr.ph.i.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %.01019.i, align 8, !tbaa !13
+  %.sroa.01.0.copyload.i = load ptr, ptr %.01017.i, align 8, !tbaa !13
   %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr %.sroa.05.0.copyload.pre, i64 %.sroa.2.0.copyload.i.fr)
   %19 = icmp eq i32 %bcmp.i.i, 0
   br i1 %19, label %_ZNK4llvm8SmallSetINS_9StringRefELj3ESt4lessIS1_EE5vfindERKS1_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread13.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread13.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split
-  %20 = getelementptr inbounds nuw i8, ptr %.01019.i, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.01017.i, i64 16
   %.not.i = icmp eq ptr %20, %16
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_9StringRefELj3ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %.lr.ph.i.split, !llvm.loop !1313
 
 _ZNK4llvm8SmallSetINS_9StringRefELj3ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.lr.ph.i.split.us
-  %.us-phi = phi ptr [ %.01019.i.us, %.lr.ph.i.split.us ], [ %.01019.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+  %.us-phi = phi ptr [ %.01017.i.us, %.lr.ph.i.split.us ], [ %.01017.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %.not = icmp eq ptr %.us-phi, %16
   br i1 %.not, label %_ZNK4llvm8SmallSetINS_9StringRefELj3ESt4lessIS1_EE5vfindERKS1_.exit.thread, label %41
 
@@ -22553,8 +22553,8 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetINSt7__cxx1112basic_stringIcSt
   %21 = zext i32 %20 to i64
   %.idx.i = shl nuw nsw i64 %21, 5
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i
-  %.not14.i = icmp eq i32 %20, 0
-  br i1 %.not14.i, label %.thread, label %.lr.ph.i
+  %.not12.i = icmp eq i32 %20, 0
+  br i1 %.not12.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -22565,37 +22565,37 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetINSt7__cxx1112basic_stringIcSt
   br i1 %26, label %.lr.ph.i.split.us, label %.lr.ph.i.split
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i.us
-  %.0915.i.us = phi ptr [ %30, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i.us ], [ %18, %.lr.ph.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %.0915.i.us, i64 8
+  %.0913.i.us = phi ptr [ %30, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i.us ], [ %18, %.lr.ph.i ]
+  %27 = getelementptr inbounds nuw i8, ptr %.0913.i.us, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !216
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %_ZNK4llvm8SmallSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ESt4lessIS6_EE5vfindERKS6_.exit, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i.us
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i.us: ; preds = %.lr.ph.i.split.us
-  %30 = getelementptr inbounds nuw i8, ptr %.0915.i.us, i64 32
+  %30 = getelementptr inbounds nuw i8, ptr %.0913.i.us, i64 32
   %.not.i.us = icmp eq ptr %30, %22
   br i1 %.not.i.us, label %_ZNK4llvm8SmallSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ESt4lessIS6_EE5vfindERKS6_.exit.thread, label %.lr.ph.i.split.us, !llvm.loop !1332
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i
-  %.0915.i = phi ptr [ %36, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i ], [ %18, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %.0915.i, i64 8
+  %.0913.i = phi ptr [ %36, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i ], [ %18, %.lr.ph.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !216
   %33 = icmp eq i64 %32, %.fr48
   br i1 %33, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i: ; preds = %.lr.ph.i.split
-  %34 = load ptr, ptr %.0915.i, align 8, !tbaa !229
+  %34 = load ptr, ptr %.0913.i, align 8, !tbaa !229
   %bcmp.i.i = tail call i32 @bcmp(ptr %34, ptr %25, i64 %.fr48)
   %35 = icmp eq i32 %bcmp.i.i, 0
   br i1 %35, label %_ZNK4llvm8SmallSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ESt4lessIS6_EE5vfindERKS6_.exit, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i
 
 _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread10.i: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.split
-  %36 = getelementptr inbounds nuw i8, ptr %.0915.i, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.0913.i, i64 32
   %.not.i = icmp eq ptr %36, %22
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ESt4lessIS6_EE5vfindERKS6_.exit.thread, label %.lr.ph.i.split, !llvm.loop !1332
 
 _ZNK4llvm8SmallSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ESt4lessIS6_EE5vfindERKS6_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i, %.lr.ph.i.split.us
-  %.us-phi = phi ptr [ %.0915.i.us, %.lr.ph.i.split.us ], [ %.0915.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ]
+  %.us-phi = phi ptr [ %.0913.i.us, %.lr.ph.i.split.us ], [ %.0913.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.i ]
   %.not = icmp eq ptr %.us-phi, %22
   br i1 %.not, label %_ZNK4llvm8SmallSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ESt4lessIS6_EE5vfindERKS6_.exit.thread, label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit
 

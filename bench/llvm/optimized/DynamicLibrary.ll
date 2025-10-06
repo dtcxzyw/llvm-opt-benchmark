@@ -874,9 +874,9 @@ _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %_ZNSt10lock_guardIN
   %16 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, i64 8), align 8
   %17 = zext i32 %16 to i64
   %18 = sext i32 %14 to i64
-  %.not3233 = icmp eq i64 %18, %17
-  %.not32 = select i1 %15, i1 true, i1 %.not3233
-  br i1 %.not32, label %24, label %19
+  %.not3132 = icmp eq i64 %18, %17
+  %.not31 = select i1 %15, i1 true, i1 %.not3132
+  br i1 %.not31, label %24, label %19
 
 19:                                               ; preds = %_ZN4llvm9StringRefC2EPKc.exit
   %20 = load ptr, ptr @_ZZN12_GLOBAL__N_110getGlobalsEvE1G, align 8
@@ -944,20 +944,20 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
   %10 = load ptr, ptr %0, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !3
-  %.not4953.i = icmp eq ptr %10, %12
-  br i1 %.not4953.i, label %.loopexit, label %.lr.ph.i
+  %.not4448.i = icmp eq ptr %10, %12
+  br i1 %.not4448.i, label %.loopexit, label %.lr.ph.i
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.037.054.i, i64 8
-  %.not49.i = icmp eq ptr %14, %12
-  br i1 %.not49.i, label %.loopexit, label %.lr.ph.i
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.036.049.i, i64 8
+  %.not44.i = icmp eq ptr %14, %12
+  br i1 %.not44.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %13
-  %.sroa.037.054.i = phi ptr [ %14, %13 ], [ %10, %9 ]
-  %15 = load ptr, ptr %.sroa.037.054.i, align 8, !tbaa !3
+  %.sroa.036.049.i = phi ptr [ %14, %13 ], [ %10, %9 ]
+  %15 = load ptr, ptr %.sroa.036.049.i, align 8, !tbaa !3
   %16 = tail call noundef ptr @dlsym(ptr noundef %15, ptr noundef %1) #15
   %.not31.i = icmp eq ptr %16, null
-  br i1 %.not31.i, label %13, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread
+  br i1 %.not31.i, label %13, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread
 
 17:                                               ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -966,56 +966,56 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
   br label %21
 
 21:                                               ; preds = %22, %17
-  %.sroa.034.0.i = phi ptr [ %19, %17 ], [ %23, %22 ]
-  %.not50.i = icmp eq ptr %.sroa.034.0.i, %20
-  br i1 %.not50.i, label %.loopexit, label %22
+  %.sroa.033.0.i = phi ptr [ %19, %17 ], [ %23, %22 ]
+  %.not45.i = icmp eq ptr %.sroa.033.0.i, %20
+  br i1 %.not45.i, label %.loopexit, label %22
 
 22:                                               ; preds = %21
-  %23 = getelementptr inbounds i8, ptr %.sroa.034.0.i, i64 -8
+  %23 = getelementptr inbounds i8, ptr %.sroa.033.0.i, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %25 = tail call noundef ptr @dlsym(ptr noundef %24, ptr noundef %1) #15
   %.not30.i = icmp eq ptr %25, null
-  br i1 %.not30.i, label %21, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread
+  br i1 %.not30.i, label %21, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread
 
 .loopexit:                                        ; preds = %13, %21, %9
   %.pr = load ptr, ptr %4, align 8, !tbaa !27
   %.not25 = icmp eq ptr %.pr, null
-  br i1 %.not25, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread, label %.thread
+  br i1 %.not25, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread, label %.thread
 
 .thread:                                          ; preds = %3, %.loopexit
   %26 = phi ptr [ %.pr, %.loopexit ], [ %5, %3 ]
   %27 = tail call noundef ptr @dlsym(ptr noundef nonnull %26, ptr noundef %1) #15
   %.not26.not = icmp eq ptr %27, null
-  br i1 %.not26.not, label %28, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread
+  br i1 %.not26.not, label %28, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread
 
 28:                                               ; preds = %.thread
   %29 = and i32 %2, 2
   %.not27 = icmp eq i32 %29, 0
-  br i1 %.not27, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread, label %30
+  br i1 %.not27, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread, label %30
 
 30:                                               ; preds = %28
   %31 = and i32 %2, 4
-  %.not.i33 = icmp eq i32 %31, 0
-  br i1 %.not.i33, label %40, label %32
+  %.not.i31 = icmp eq i32 %31, 0
+  br i1 %.not.i31, label %40, label %32
 
 32:                                               ; preds = %30
   %33 = load ptr, ptr %0, align 8, !tbaa !3
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !3
-  %.not4953.i34 = icmp eq ptr %33, %35
-  br i1 %.not4953.i34, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread, label %.lr.ph.i35
+  %.not4448.i32 = icmp eq ptr %33, %35
+  br i1 %.not4448.i32, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread, label %.lr.ph.i33
 
-36:                                               ; preds = %.lr.ph.i35
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.037.054.i36, i64 8
-  %.not49.i39 = icmp eq ptr %37, %35
-  br i1 %.not49.i39, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread, label %.lr.ph.i35
+36:                                               ; preds = %.lr.ph.i33
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.036.049.i34, i64 8
+  %.not44.i37 = icmp eq ptr %37, %35
+  br i1 %.not44.i37, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread, label %.lr.ph.i33
 
-.lr.ph.i35:                                       ; preds = %32, %36
-  %.sroa.037.054.i36 = phi ptr [ %37, %36 ], [ %33, %32 ]
-  %38 = load ptr, ptr %.sroa.037.054.i36, align 8, !tbaa !3
+.lr.ph.i33:                                       ; preds = %32, %36
+  %.sroa.036.049.i34 = phi ptr [ %37, %36 ], [ %33, %32 ]
+  %38 = load ptr, ptr %.sroa.036.049.i34, align 8, !tbaa !3
   %39 = tail call noundef ptr @dlsym(ptr noundef %38, ptr noundef %1) #15
-  %.not31.i37 = icmp eq ptr %39, null
-  br i1 %.not31.i37, label %36, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread
+  %.not31.i35 = icmp eq ptr %39, null
+  br i1 %.not31.i35, label %36, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1024,19 +1024,19 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm3sys14DynamicLibrary9HandleSet6L
   br label %44
 
 44:                                               ; preds = %45, %40
-  %.sroa.034.0.i40 = phi ptr [ %42, %40 ], [ %46, %45 ]
-  %.not50.i41 = icmp eq ptr %.sroa.034.0.i40, %43
-  br i1 %.not50.i41, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread, label %45
+  %.sroa.033.0.i38 = phi ptr [ %42, %40 ], [ %46, %45 ]
+  %.not45.i39 = icmp eq ptr %.sroa.033.0.i38, %43
+  br i1 %.not45.i39, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread, label %45
 
 45:                                               ; preds = %44
-  %46 = getelementptr inbounds i8, ptr %.sroa.034.0.i40, i64 -8
+  %46 = getelementptr inbounds i8, ptr %.sroa.033.0.i38, i64 -8
   %47 = load ptr, ptr %46, align 8, !tbaa !3
   %48 = tail call noundef ptr @dlsym(ptr noundef %47, ptr noundef %1) #15
-  %.not30.i42 = icmp eq ptr %48, null
-  br i1 %.not30.i42, label %44, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread
+  %.not30.i40 = icmp eq ptr %48, null
+  br i1 %.not30.i40, label %44, label %_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread
 
-_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit43.thread: ; preds = %.lr.ph.i, %22, %.lr.ph.i35, %36, %45, %44, %32, %.loopexit, %28, %.thread
-  %.2 = phi ptr [ %27, %.thread ], [ null, %28 ], [ null, %.loopexit ], [ null, %32 ], [ %48, %45 ], [ null, %44 ], [ %39, %.lr.ph.i35 ], [ null, %36 ], [ %25, %22 ], [ %16, %.lr.ph.i ]
+_ZN4llvm3sys14DynamicLibrary9HandleSet9LibLookupEPKcNS1_14SearchOrderingE.exit41.thread: ; preds = %.lr.ph.i, %22, %.lr.ph.i33, %36, %45, %44, %32, %.loopexit, %28, %.thread
+  %.2 = phi ptr [ %27, %.thread ], [ null, %28 ], [ null, %.loopexit ], [ null, %32 ], [ %48, %45 ], [ null, %44 ], [ %39, %.lr.ph.i33 ], [ null, %36 ], [ %25, %22 ], [ %16, %.lr.ph.i ]
   ret ptr %.2
 }
 

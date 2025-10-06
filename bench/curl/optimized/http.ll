@@ -4268,21 +4268,21 @@ define internal fastcc i32 @http_cookies(ptr noundef %0, ptr noundef readonly ca
 
 49:                                               ; preds = %40
   %50 = call ptr @Curl_llist_head(ptr noundef nonnull %4) #11
-  %.not116157 = icmp eq ptr %50, null
-  br i1 %.not116157, label %.loopexit, label %.lr.ph
+  %.not116156 = icmp eq ptr %50, null
+  br i1 %.not116156, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %49, %87
-  %.080160 = phi i64 [ %.383.ph, %87 ], [ 8, %49 ]
-  %.084159 = phi ptr [ %88, %87 ], [ %50, %49 ]
-  %.194158 = phi i32 [ %.598.ph, %87 ], [ 0, %49 ]
-  %51 = call ptr @Curl_node_elem(ptr noundef nonnull %.084159) #11
+  %.080159 = phi i64 [ %.383.ph, %87 ], [ 8, %49 ]
+  %.084158 = phi ptr [ %88, %87 ], [ %50, %49 ]
+  %.194157 = phi i32 [ %.598.ph, %87 ], [ 0, %49 ]
+  %51 = call ptr @Curl_node_elem(ptr noundef nonnull %.084158) #11
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !198
   %.not117 = icmp eq ptr %53, null
   br i1 %.not117, label %87, label %54
 
 54:                                               ; preds = %.lr.ph
-  %.not118 = icmp eq i32 %.194158, 0
+  %.not118 = icmp eq i32 %.194157, 0
   br i1 %.not118, label %55, label %57
 
 55:                                               ; preds = %54
@@ -4302,7 +4302,7 @@ define internal fastcc i32 @http_cookies(ptr noundef %0, ptr noundef readonly ca
   %62 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #12
   %63 = add i64 %61, 1
   %64 = add i64 %63, %62
-  %65 = add i64 %64, %.080160
+  %65 = add i64 %64, %.080159
   %66 = icmp ugt i64 %65, 8189
   br i1 %66, label %67, label %79
 
@@ -4337,20 +4337,20 @@ define internal fastcc i32 @http_cookies(ptr noundef %0, ptr noundef readonly ca
 
 82:                                               ; preds = %79
   %83 = select i1 %.not118, i64 0, i64 2
-  %84 = add i64 %.080160, %83
+  %84 = add i64 %.080159, %83
   %85 = add i64 %84, %64
-  %86 = add nsw i32 %.194158, 1
+  %86 = add nsw i32 %.194157, 1
   br label %87
 
 87:                                               ; preds = %.lr.ph, %82
-  %.598.ph = phi i32 [ %86, %82 ], [ %.194158, %.lr.ph ]
-  %.383.ph = phi i64 [ %85, %82 ], [ %.080160, %.lr.ph ]
-  %88 = call ptr @Curl_node_next(ptr noundef nonnull %.084159) #11
+  %.598.ph = phi i32 [ %86, %82 ], [ %.194157, %.lr.ph ]
+  %.383.ph = phi i64 [ %85, %82 ], [ %.080159, %.lr.ph ]
+  %88 = call ptr @Curl_node_next(ptr noundef nonnull %.084158) #11
   %.not116 = icmp eq ptr %88, null
   br i1 %.not116, label %.loopexit, label %.lr.ph, !llvm.loop !201
 
 .loopexit:                                        ; preds = %87, %55, %79, %49, %67, %74, %78
-  %.295 = phi i32 [ %.194158, %67 ], [ %.194158, %74 ], [ %.194158, %78 ], [ 0, %49 ], [ %.598.ph, %87 ], [ 0, %55 ], [ %.194158, %79 ]
+  %.295 = phi i32 [ %.194157, %67 ], [ %.194157, %74 ], [ %.194157, %78 ], [ 0, %49 ], [ %.598.ph, %87 ], [ 0, %55 ], [ %.194157, %79 ]
   %.288 = phi i1 [ true, %67 ], [ true, %74 ], [ true, %78 ], [ false, %49 ], [ false, %79 ], [ false, %55 ], [ false, %87 ]
   %.3 = phi i32 [ 0, %67 ], [ 0, %74 ], [ 0, %78 ], [ 0, %49 ], [ 0, %87 ], [ %56, %55 ], [ %81, %79 ]
   call void @Curl_llist_destroy(ptr noundef nonnull %4, ptr noundef null) #11
@@ -4368,38 +4368,38 @@ define internal fastcc i32 @http_cookies(ptr noundef %0, ptr noundef readonly ca
 
 91:                                               ; preds = %.critedge
   %.not124 = icmp eq i32 %.093, 0
-  br i1 %.not124, label %92, label %.thread149
+  br i1 %.not124, label %92, label %.thread148
 
 92:                                               ; preds = %91
   %93 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull @.str.109, i64 noundef 8) #11
   %.not125 = icmp eq i32 %93, 0
-  br i1 %.not125, label %.thread149, label %.thread152
+  br i1 %.not125, label %.thread148, label %.thread151
 
-.thread149:                                       ; preds = %91, %92
+.thread148:                                       ; preds = %91, %92
   %94 = phi ptr [ @.str.112, %91 ], [ @.str.35, %92 ]
   %95 = call i32 (ptr, ptr, ...) @Curl_dyn_addf(ptr noundef nonnull %2, ptr noundef nonnull @.str.113, ptr noundef nonnull %94, ptr noundef nonnull %.085) #11
   %96 = add nsw i32 %.093, 1
   br label %97
 
-97:                                               ; preds = %.thread149, %.critedge
-  %.699 = phi i32 [ %.093, %.critedge ], [ %96, %.thread149 ]
-  %.8 = phi i32 [ %.178, %.critedge ], [ %95, %.thread149 ]
+97:                                               ; preds = %.thread148, %.critedge
+  %.699 = phi i32 [ %.093, %.critedge ], [ %96, %.thread148 ]
+  %.8 = phi i32 [ %.178, %.critedge ], [ %95, %.thread148 ]
   %98 = icmp eq i32 %.699, 0
   %99 = icmp ne i32 %.8, 0
   %or.cond8 = select i1 %98, i1 true, i1 %99
-  br i1 %or.cond8, label %.thread152, label %100
+  br i1 %or.cond8, label %.thread151, label %100
 
 100:                                              ; preds = %97
   %101 = call i32 @Curl_dyn_addn(ptr noundef nonnull %2, ptr noundef nonnull @.str.114, i64 noundef 2) #11
-  br label %.thread152
+  br label %.thread151
 
-.thread152:                                       ; preds = %92, %100, %97
+.thread151:                                       ; preds = %92, %100, %97
   %.10 = phi i32 [ %.8, %97 ], [ %101, %100 ], [ %93, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %102
 
-102:                                              ; preds = %.thread152, %11
-  %.176 = phi i32 [ %.10, %.thread152 ], [ 0, %11 ]
+102:                                              ; preds = %.thread151, %11
+  %.176 = phi i32 [ %.10, %.thread151 ], [ 0, %11 ]
   ret i32 %.176
 }
 

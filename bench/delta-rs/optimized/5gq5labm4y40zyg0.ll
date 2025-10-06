@@ -760,22 +760,22 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6793203773dd59
   %.sroa.01.0.i.i.i.i.i = phi i64 [ 0, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17hd2b7942c5f4b1574E.exit.i.i.i.i" ], [ %.sroa.01.1.i.i.i.i.i, %97 ]
   %.sroa.0.025.i.i.i.i.i = and i64 %.pn.i.i.i.i.i, %.val4.i.i.i.i
   %72 = getelementptr inbounds i8, ptr %.val.i.i.i.i, i64 %.sroa.0.025.i.i.i.i.i
-  %.0.copyload.i33.i.i.i.i.i = load <16 x i8>, ptr %72, align 1, !noalias !101
-  %73 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i.i.i, %.15.vec.insert.i.i.i.i.i.i
+  %.0.copyload.i32.i.i.i.i.i = load <16 x i8>, ptr %72, align 1, !noalias !101
+  %73 = icmp eq <16 x i8> %.0.copyload.i32.i.i.i.i.i, %.15.vec.insert.i.i.i.i.i.i
   %74 = bitcast <16 x i1> %73 to i16
-  %.not.i34.i.i.i.i.i = icmp eq i16 %74, 0
-  br i1 %.not.i34.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit._crit_edge.i.i.i.i.i", label %.lr.ph.i.i.i.i.i
+  %.not.i33.i.i.i.i.i = icmp eq i16 %74, 0
+  br i1 %.not.i33.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit._crit_edge.i.i.i.i.i", label %.lr.ph.i.i.i.i.i
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit._crit_edge.i.i.i.i.i": ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit.backedge.i.i.i.i.i", %71
   %.not.i.i.i.i.i = icmp eq i64 %.sroa.01.0.i.i.i.i.i, 1
   br i1 %.not.i.i.i.i.i, label %94, label %87
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %71, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit.backedge.i.i.i.i.i"
-  %.02635.i.i.i.i.i = phi i16 [ %78, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit.backedge.i.i.i.i.i" ], [ %74, %71 ]
-  %75 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02635.i.i.i.i.i, i1 true)
+  %.02634.i.i.i.i.i = phi i16 [ %78, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit.backedge.i.i.i.i.i" ], [ %74, %71 ]
+  %75 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.02634.i.i.i.i.i, i1 true)
   %76 = zext nneg i16 %75 to i64
-  %77 = add i16 %.02635.i.i.i.i.i, -1
-  %78 = and i16 %77, %.02635.i.i.i.i.i
+  %77 = add i16 %.02634.i.i.i.i.i, -1
+  %78 = and i16 %77, %.02634.i.i.i.i.i
   %79 = add i64 %.sroa.0.025.i.i.i.i.i, %76
   %80 = and i64 %79, %.val4.i.i.i.i
   %81 = sub nsw i64 0, %80
@@ -797,7 +797,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6793203773dd59
   br i1 %.not.i.i.i.i.i.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit._crit_edge.i.i.i.i.i", label %.lr.ph.i.i.i.i.i
 
 87:                                               ; preds = %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit._crit_edge.i.i.i.i.i"
-  %88 = icmp slt <16 x i8> %.0.copyload.i33.i.i.i.i.i, zeroinitializer
+  %88 = icmp slt <16 x i8> %.0.copyload.i32.i.i.i.i.i, zeroinitializer
   %89 = bitcast <16 x i1> %88 to i16
   %.not.i15.i.i.i.i.i = icmp ne i16 %89, 0
   %90 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %89, i1 true)
@@ -812,7 +812,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17h6793203773dd59
 94:                                               ; preds = %87, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit._crit_edge.i.i.i.i.i"
   %.sroa.6.1.i.i.i.i.i = phi i64 [ %.sroa.3.0.i16.i.i.i.i.i, %87 ], [ %.sroa.6.0.i.i.i.i.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit._crit_edge.i.i.i.i.i" ]
   %.sroa.01.1.i.i.i.i.i = phi i64 [ %.sroa.0.0.i17.i.i.i.i.i, %87 ], [ 1, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17hbcae888784d366b2E.exit._crit_edge.i.i.i.i.i" ]
-  %95 = icmp eq <16 x i8> %.0.copyload.i33.i.i.i.i.i, splat (i8 -1)
+  %95 = icmp eq <16 x i8> %.0.copyload.i32.i.i.i.i.i, splat (i8 -1)
   %96 = bitcast <16 x i1> %95 to i16
   %.not11.i.i.i.i.i = icmp eq i16 %96, 0
   br i1 %.not11.i.i.i.i.i, label %97, label %100

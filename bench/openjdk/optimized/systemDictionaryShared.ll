@@ -2254,33 +2254,33 @@ define hidden noundef ptr @_ZN22SystemDictionaryShared25find_or_load_shared_clas
 
 _ZNK6HandleclEv.exit:                             ; preds = %20
   %22 = tail call noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderEP7oopDesc(ptr noundef null) #18
-  br i1 %22, label %_ZNK6HandleclEv.exit30, label %_ZNK6HandleclEv.exit29
+  br i1 %22, label %_ZNK6HandleclEv.exit29, label %_ZNK6HandleclEv.exit28
 
 _ZNK6HandleclEv.exit.thread:                      ; preds = %20
   %23 = load ptr, ptr %1, align 8
   %24 = tail call noundef zeroext i1 @_ZN16SystemDictionary22is_system_class_loaderEP7oopDesc(ptr noundef %23) #18
-  br i1 %24, label %.thread39, label %_ZNK6HandleclEv.exit29.thread
+  br i1 %24, label %.thread38, label %_ZNK6HandleclEv.exit28.thread
 
-_ZNK6HandleclEv.exit29:                           ; preds = %_ZNK6HandleclEv.exit
+_ZNK6HandleclEv.exit28:                           ; preds = %_ZNK6HandleclEv.exit
   %25 = tail call noundef zeroext i1 @_ZN16SystemDictionary24is_platform_class_loaderEP7oopDesc(ptr noundef null) #18
-  br i1 %25, label %_ZNK6HandleclEv.exit30, label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
+  br i1 %25, label %_ZNK6HandleclEv.exit29, label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
 
-_ZNK6HandleclEv.exit29.thread:                    ; preds = %_ZNK6HandleclEv.exit.thread
+_ZNK6HandleclEv.exit28.thread:                    ; preds = %_ZNK6HandleclEv.exit.thread
   %26 = load ptr, ptr %1, align 8
   %27 = tail call noundef zeroext i1 @_ZN16SystemDictionary24is_platform_class_loaderEP7oopDesc(ptr noundef %26) #18
-  br i1 %27, label %.thread39, label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
+  br i1 %27, label %.thread38, label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
 
-.thread39:                                        ; preds = %_ZNK6HandleclEv.exit29.thread, %_ZNK6HandleclEv.exit.thread
+.thread38:                                        ; preds = %_ZNK6HandleclEv.exit28.thread, %_ZNK6HandleclEv.exit.thread
   %28 = load ptr, ptr %1, align 8
-  br label %_ZNK6HandleclEv.exit30
+  br label %_ZNK6HandleclEv.exit29
 
-_ZNK6HandleclEv.exit30:                           ; preds = %_ZNK6HandleclEv.exit, %_ZNK6HandleclEv.exit29, %.thread39
-  %29 = phi ptr [ %28, %.thread39 ], [ null, %_ZNK6HandleclEv.exit29 ], [ null, %_ZNK6HandleclEv.exit ]
+_ZNK6HandleclEv.exit29:                           ; preds = %_ZNK6HandleclEv.exit, %_ZNK6HandleclEv.exit28, %.thread38
+  %29 = phi ptr [ %28, %.thread38 ], [ null, %_ZNK6HandleclEv.exit28 ], [ null, %_ZNK6HandleclEv.exit ]
   %30 = tail call noundef ptr @_ZN21java_lang_ClassLoader27non_reflection_class_loaderEP7oopDesc(ptr noundef %29) #18
   %31 = icmp eq ptr %30, null
   br i1 %31, label %_ZN6HandleC2EP6ThreadP7oopDesc.exit, label %32
 
-32:                                               ; preds = %_ZNK6HandleclEv.exit30
+32:                                               ; preds = %_ZNK6HandleclEv.exit29
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 808
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 40
@@ -2307,8 +2307,8 @@ _ZN10HandleArea15allocate_handleEP7oopDesc.exit.i: ; preds = %44, %42
   store ptr %30, ptr %.0.i.i.i.i, align 8
   br label %_ZN6HandleC2EP6ThreadP7oopDesc.exit
 
-_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZNK6HandleclEv.exit30, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
-  %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK6HandleclEv.exit30 ]
+_ZN6HandleC2EP6ThreadP7oopDesc.exit:              ; preds = %_ZNK6HandleclEv.exit29, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i
+  %storemerge.i = phi ptr [ %.0.i.i.i.i, %_ZN10HandleArea15allocate_handleEP7oopDesc.exit.i ], [ null, %_ZNK6HandleclEv.exit29 ]
   %46 = tail call noundef ptr @_ZN16SystemDictionary15register_loaderE6Handleb(ptr %storemerge.i, i1 noundef zeroext false) #18
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 88
   %48 = load ptr, ptr %47, align 8
@@ -2328,8 +2328,8 @@ _ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit.thread: ; preds
 
 _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit.thread, %51
   %53 = phi ptr [ %50, %_ZN11MutexLockerC2EP6ThreadP5MutexNS2_18SafepointCheckFlagE.exit.thread ], [ %52, %51 ]
-  %.not41.not = icmp eq ptr %53, null
-  br i1 %.not41.not, label %54, label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
+  %.not40.not = icmp eq ptr %53, null
+  br i1 %.not40.not, label %54, label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
 
 54:                                               ; preds = %_ZN11MutexLockerD2Ev.exit
   %55 = tail call noundef ptr @_ZN22SystemDictionaryShared36load_shared_class_for_builtin_loaderEP6Symbol6HandleP10JavaThread(ptr noundef %0, ptr %storemerge.i, ptr noundef %2)
@@ -2357,8 +2357,8 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   store i16 %67, ptr %65, align 2
   br label %_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit
 
-_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit: ; preds = %64, %60, %56, %_ZNK6HandleclEv.exit29.thread, %14, %12, %_ZN11MutexLockerD2Ev.exit, %3, %54, %_ZNK6HandleclEv.exit29
-  %.0 = phi ptr [ %53, %_ZN11MutexLockerD2Ev.exit ], [ null, %54 ], [ null, %_ZNK6HandleclEv.exit29 ], [ null, %3 ], [ null, %12 ], [ null, %14 ], [ null, %_ZNK6HandleclEv.exit29.thread ], [ %57, %56 ], [ null, %60 ], [ null, %64 ]
+_ZN22SystemDictionaryShared27has_platform_or_app_classesEv.exit: ; preds = %64, %60, %56, %_ZNK6HandleclEv.exit28.thread, %14, %12, %_ZN11MutexLockerD2Ev.exit, %3, %54, %_ZNK6HandleclEv.exit28
+  %.0 = phi ptr [ %53, %_ZN11MutexLockerD2Ev.exit ], [ null, %54 ], [ null, %_ZNK6HandleclEv.exit28 ], [ null, %3 ], [ null, %12 ], [ null, %14 ], [ null, %_ZNK6HandleclEv.exit28.thread ], [ %57, %56 ], [ null, %60 ], [ null, %64 ]
   ret ptr %.0
 }
 

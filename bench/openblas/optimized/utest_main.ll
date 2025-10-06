@@ -494,8 +494,8 @@ select.unfold.i:                                  ; preds = %19
   br i1 %.not29.i, label %.preheader.i, label %31
 
 31:                                               ; preds = %28, %.preheader.i
-  %.not3040.i = icmp eq ptr %.022.i, %25
-  br i1 %.not3040.i, label %__ctest_linkTests.exit, label %.lr.ph.i.preheader
+  %.not3038.i = icmp eq ptr %.022.i, %25
+  br i1 %.not3038.i, label %__ctest_linkTests.exit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %31
   %32 = icmp eq ptr %.022.i, %.025.i
@@ -507,8 +507,8 @@ select.unfold.i:                                  ; preds = %19
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader43, %.lr.ph.i
   %33 = phi ptr [ %35, %.lr.ph.i ], [ %.pre, %.lr.ph.i.preheader43 ]
-  %.02141.i32 = phi ptr [ %34, %.lr.ph.i ], [ %.022.i, %.lr.ph.i.preheader43 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.02141.i32, i64 16
+  %.02139.i32 = phi ptr [ %34, %.lr.ph.i ], [ %.022.i, %.lr.ph.i.preheader43 ]
+  %34 = getelementptr inbounds nuw i8, ptr %.02139.i32, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !19
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 56
   store ptr %35, ptr %36, align 8, !tbaa !21
@@ -516,8 +516,8 @@ select.unfold.i:                                  ; preds = %19
   br i1 %37, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i, %.lr.ph.i.preheader
-  %.02141.i.lcssa = phi ptr [ %.022.i, %.lr.ph.i.preheader ], [ %.025.i, %.lr.ph.i ]
-  %38 = load ptr, ptr %.02141.i.lcssa, align 8, !tbaa !19
+  %.02139.i.lcssa = phi ptr [ %.022.i, %.lr.ph.i.preheader ], [ %.025.i, %.lr.ph.i ]
+  %38 = load ptr, ptr %.02139.i.lcssa, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 56
   store ptr null, ptr %39, align 8, !tbaa !21
   br label %__ctest_linkTests.exit

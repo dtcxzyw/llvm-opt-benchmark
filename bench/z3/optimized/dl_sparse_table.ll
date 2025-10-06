@@ -15323,7 +15323,7 @@ _ZNK6vectorImLb0EjE8capacityEv.exit.i:            ; preds = %.preheader
 
 _ZNK6vectorImLb0EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i, %.preheader
   invoke void @_ZN6vectorImLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
-          to label %thread-pre-split.i unwind label %.loopexit122
+          to label %thread-pre-split.i unwind label %.loopexit121
 
 .lr.ph.preheader.i:                               ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.i
   %23 = getelementptr inbounds i8, ptr %18, i64 -4
@@ -15451,10 +15451,10 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit58:                ; preds = %58, %61
   store i8 0, ptr %10, align 8, !tbaa !180
   %72 = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %72, i8 0, i64 16, i1 false)
-  %.not146 = icmp eq i64 %71, 0
-  br i1 %.not146, label %._crit_edge, label %.lr.ph145
+  %.not145 = icmp eq i64 %71, 0
+  br i1 %.not145, label %._crit_edge, label %.lr.ph144
 
-.lr.ph145:                                        ; preds = %65
+.lr.ph144:                                        ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %74 = load i32, ptr %73, align 8, !tbaa !21
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15470,7 +15470,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit58:                ; preds = %58, %61
   %83 = zext i32 %74 to i64
   br label %100
 
-._crit_edge:                                      ; preds = %.loopexit121, %65
+._crit_edge:                                      ; preds = %.loopexit120, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %84 = load ptr, ptr %9, align 8, !tbaa !58
   %.not.i.i = icmp eq ptr %84, null
@@ -15510,7 +15510,7 @@ _ZN6vectorImLb0EjED2Ev.exit60:                    ; preds = %_ZN6vectorImLb0EjED
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 
-.loopexit122:                                     ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.thread.i
+.loopexit121:                                     ; preds = %_ZNK6vectorImLb0EjE8capacityEv.exit.thread.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %275
@@ -15530,14 +15530,14 @@ _ZN6vectorImLb0EjED2Ev.exit60:                    ; preds = %_ZN6vectorImLb0EjED
           cleanup
   br label %275
 
-100:                                              ; preds = %.lr.ph145, %.loopexit121
-  %101 = phi ptr [ null, %.lr.ph145 ], [ %136, %.loopexit121 ]
-  %102 = phi ptr [ null, %.lr.ph145 ], [ %137, %.loopexit121 ]
-  %103 = phi i8 [ 0, %.lr.ph145 ], [ %138, %.loopexit121 ]
-  %storemerge143 = phi i64 [ 0, %.lr.ph145 ], [ %273, %.loopexit121 ]
-  %.sroa.697.0142 = phi ptr [ null, %.lr.ph145 ], [ %.sroa.697.2, %.loopexit121 ]
-  %.sroa.0.0141 = phi i8 [ 0, %.lr.ph145 ], [ %.sroa.0.2, %.loopexit121 ]
-  %.sroa.8.0140 = phi ptr [ null, %.lr.ph145 ], [ %.sroa.8.2, %.loopexit121 ]
+100:                                              ; preds = %.lr.ph144, %.loopexit120
+  %101 = phi ptr [ null, %.lr.ph144 ], [ %136, %.loopexit120 ]
+  %102 = phi ptr [ null, %.lr.ph144 ], [ %137, %.loopexit120 ]
+  %103 = phi i8 [ 0, %.lr.ph144 ], [ %138, %.loopexit120 ]
+  %storemerge142 = phi i64 [ 0, %.lr.ph144 ], [ %273, %.loopexit120 ]
+  %.sroa.697.0141 = phi ptr [ null, %.lr.ph144 ], [ %.sroa.697.2, %.loopexit120 ]
+  %.sroa.0.0140 = phi i8 [ 0, %.lr.ph144 ], [ %.sroa.0.2, %.loopexit120 ]
+  %.sroa.8.0139 = phi ptr [ null, %.lr.ph144 ], [ %.sroa.8.2, %.loopexit120 ]
   %104 = load ptr, ptr %75, align 8, !tbaa !106
   %105 = icmp eq ptr %104, null
   br i1 %105, label %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
@@ -15550,14 +15550,14 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i:                ; preds = %100
 
 .lr.ph.i:                                         ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i
   %108 = load ptr, ptr %77, align 8, !tbaa !22
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %storemerge143
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 %storemerge142
   %110 = load ptr, ptr %76, align 8, !tbaa !46
   %111 = load ptr, ptr %8, align 8, !tbaa !58
   %wide.trip.count.i = zext i32 %107 to i64
   br label %.outer
 
 .outer:                                           ; preds = %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyERmm.exit.i.thread, %.lr.ph.i
-  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i192, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyERmm.exit.i.thread ], [ 0, %.lr.ph.i ]
+  %indvars.iv.i.ph = phi i64 [ %indvars.iv.next.i191, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyERmm.exit.i.thread ], [ 0, %.lr.ph.i ]
   %.016.i.ph = phi i1 [ true, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyERmm.exit.i.thread ], [ false, %.lr.ph.i ]
   br label %112
 
@@ -15591,14 +15591,14 @@ _ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyERmm.exit.i: ; pred
 _ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyERmm.exit.i.thread: ; preds = %112
   %129 = getelementptr inbounds nuw i64, ptr %111, i64 %indvars.iv.i
   store i64 %126, ptr %129, align 8, !tbaa !8
-  %indvars.iv.next.i192 = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i193 = icmp eq i64 %indvars.iv.next.i192, %wide.trip.count.i
-  br i1 %exitcond.not.i193, label %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread194, label %.outer, !llvm.loop !290
+  %indvars.iv.next.i191 = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i192 = icmp eq i64 %indvars.iv.next.i191, %wide.trip.count.i
+  br i1 %exitcond.not.i192, label %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread193, label %.outer, !llvm.loop !290
 
 _ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit: ; preds = %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyERmm.exit.i
-  br i1 %.016.i.ph, label %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread194, label %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread
+  br i1 %.016.i.ph, label %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread193, label %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread
 
-_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread194: ; preds = %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyERmm.exit.i.thread, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit
+_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread193: ; preds = %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyERmm.exit.i.thread, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %130 = load ptr, ptr %57, align 8, !tbaa !37
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
@@ -15606,41 +15606,41 @@ _ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS
   invoke void %132(ptr dead_on_unwind nonnull writable sret(%"struct.datalog::sparse_table::key_indexer::query_result") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %133 unwind label %134
 
-133:                                              ; preds = %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread194
+133:                                              ; preds = %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread193
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !184
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %.pre = load i8, ptr %10, align 8, !tbaa !180, !range !186
-  %.pre154 = load ptr, ptr %72, align 8
-  %.pre155 = load ptr, ptr %78, align 8
+  %.pre153 = load ptr, ptr %72, align 8
+  %.pre154 = load ptr, ptr %78, align 8
   br label %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread
 
-134:                                              ; preds = %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread194
+134:                                              ; preds = %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread193
   %135 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.body
 
 _ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread: ; preds = %100, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %133, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit
-  %136 = phi ptr [ %101, %100 ], [ %101, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.pre155, %133 ], [ %101, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit ]
-  %137 = phi ptr [ %102, %100 ], [ %102, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.pre154, %133 ], [ %102, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit ]
+  %136 = phi ptr [ %101, %100 ], [ %101, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.pre154, %133 ], [ %101, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit ]
+  %137 = phi ptr [ %102, %100 ], [ %102, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.pre153, %133 ], [ %102, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit ]
   %138 = phi i8 [ %103, %100 ], [ %103, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ], [ %.pre, %133 ], [ %103, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit ]
   %139 = trunc nuw i8 %138 to i1
   %140 = select i1 %139, ptr %72, ptr %137
   %141 = select i1 %139, ptr %78, ptr %136
-  %.not133 = icmp eq ptr %140, %141
-  br i1 %.not133, label %.loopexit121, label %.lr.ph
+  %.not132 = icmp eq ptr %140, %141
+  br i1 %.not132, label %.loopexit120, label %.lr.ph
 
 142:                                              ; preds = %211
-  %143 = getelementptr inbounds nuw i8, ptr %.030137, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.030136, i64 8
   %.not = icmp eq ptr %143, %141
-  br i1 %.not, label %.loopexit121, label %.lr.ph, !llvm.loop !291
+  br i1 %.not, label %.loopexit120, label %.lr.ph, !llvm.loop !291
 
 .lr.ph:                                           ; preds = %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread, %142
-  %.030137 = phi ptr [ %143, %142 ], [ %140, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ]
-  %.sroa.697.1136 = phi ptr [ %.sroa.8.3, %142 ], [ %.sroa.697.0142, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ]
-  %.sroa.0.1135 = phi i8 [ 0, %142 ], [ %.sroa.0.0141, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ]
-  %.sroa.8.1134 = phi ptr [ %.sroa.8.3, %142 ], [ %.sroa.8.0140, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ]
-  %144 = load i64, ptr %.030137, align 8, !tbaa !8
+  %.030136 = phi ptr [ %143, %142 ], [ %140, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ]
+  %.sroa.697.1135 = phi ptr [ %.sroa.8.3, %142 ], [ %.sroa.697.0141, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ]
+  %.sroa.0.1134 = phi i8 [ 0, %142 ], [ %.sroa.0.0140, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ]
+  %.sroa.8.1133 = phi ptr [ %.sroa.8.3, %142 ], [ %.sroa.8.0139, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ]
+  %144 = load i64, ptr %.030136, align 8, !tbaa !8
   %145 = load ptr, ptr %79, align 8, !tbaa !106
   %146 = icmp eq ptr %145, null
   br i1 %146, label %_ZNK6vectorIjLb0EjE4sizeEv.exit75, label %_ZNK6vectorIjLb0EjE4sizeEv.exit.i61
@@ -15653,7 +15653,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i61:              ; preds = %.lr.ph
 
 .lr.ph.i63:                                       ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i61
   %149 = load ptr, ptr %77, align 8, !tbaa !22
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %storemerge143
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 %storemerge142
   %151 = load ptr, ptr %76, align 8, !tbaa !46
   %152 = load ptr, ptr %9, align 8, !tbaa !58
   %wide.trip.count.i64 = zext i32 %148 to i64
@@ -15781,13 +15781,13 @@ _ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS
   br label %.body
 
 211:                                              ; preds = %206, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit88
-  %.sroa.8.3 = phi ptr [ %.sroa.8.0.copyload, %206 ], [ %.sroa.8.1134, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit88 ]
-  %.sroa.0.3 = phi i8 [ %.sroa.0.0.copyload, %206 ], [ %.sroa.0.1135, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit88 ]
-  %.sroa.697.3 = phi ptr [ %.sroa.697.0.copyload, %206 ], [ %.sroa.697.1136, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit88 ]
+  %.sroa.8.3 = phi ptr [ %.sroa.8.0.copyload, %206 ], [ %.sroa.8.1133, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit88 ]
+  %.sroa.0.3 = phi i8 [ %.sroa.0.0.copyload, %206 ], [ %.sroa.0.1134, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit88 ]
+  %.sroa.697.3 = phi ptr [ %.sroa.697.0.copyload, %206 ], [ %.sroa.697.1135, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit88 ]
   %212 = trunc nuw i8 %.sroa.0.3 to i1
   %213 = icmp ne ptr %.sroa.697.3, %.sroa.8.3
-  %.not120 = select i1 %212, i1 true, i1 %213
-  br i1 %.not120, label %214, label %142
+  %.not119 = select i1 %212, i1 true, i1 %213
+  br i1 %.not119, label %214, label %142
 
 214:                                              ; preds = %211
   %215 = load ptr, ptr %4, align 8, !tbaa !58
@@ -15926,16 +15926,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %269 = getelementptr inbounds i8, ptr %268, i64 -4
   %270 = zext i32 %267 to i64
   %271 = getelementptr inbounds nuw i64, ptr %268, i64 %270
-  store i64 %storemerge143, ptr %271, align 8, !tbaa !8
+  store i64 %storemerge142, ptr %271, align 8, !tbaa !8
   %272 = add i32 %267, 1
   store i32 %272, ptr %269, align 4, !tbaa !59
-  br label %.loopexit121
+  br label %.loopexit120
 
-.loopexit121:                                     ; preds = %142, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread, %266
-  %.sroa.8.2 = phi ptr [ %.sroa.8.3, %266 ], [ %.sroa.8.0140, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ], [ %.sroa.8.3, %142 ]
-  %.sroa.0.2 = phi i8 [ %.sroa.0.3, %266 ], [ %.sroa.0.0141, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ], [ 0, %142 ]
-  %.sroa.697.2 = phi ptr [ %.sroa.697.3, %266 ], [ %.sroa.697.0142, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ], [ %.sroa.8.3, %142 ]
-  %273 = add i64 %storemerge143, %83
+.loopexit120:                                     ; preds = %142, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread, %266
+  %.sroa.8.2 = phi ptr [ %.sroa.8.3, %266 ], [ %.sroa.8.0139, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ], [ %.sroa.8.3, %142 ]
+  %.sroa.0.2 = phi i8 [ %.sroa.0.3, %266 ], [ %.sroa.0.0140, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ], [ 0, %142 ]
+  %.sroa.697.2 = phi ptr [ %.sroa.697.3, %266 ], [ %.sroa.697.0141, %_ZN7datalog19sparse_table_plugin15negated_join_fn10update_keyER7svectorImjEjRKNS_12sparse_tableEmRKS2_IjjE.exit.thread ], [ %.sroa.8.3, %142 ]
+  %273 = add i64 %storemerge142, %83
   %274 = icmp ult i64 %273, %71
   br i1 %274, label %100, label %._crit_edge, !llvm.loop !292
 
@@ -15944,8 +15944,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %275
 
-275:                                              ; preds = %.loopexit122, %.loopexit.split-lp, %96, %.body, %98
-  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %97, %96 ], [ %.pn.pn.pn, %.body ], [ %99, %98 ], [ %lpad.loopexit, %.loopexit122 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+275:                                              ; preds = %.loopexit121, %.loopexit.split-lp, %96, %.body, %98
+  %.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %97, %96 ], [ %.pn.pn.pn, %.body ], [ %99, %98 ], [ %lpad.loopexit, %.loopexit121 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6vectorImLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #30
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @_ZN6vectorImLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #30

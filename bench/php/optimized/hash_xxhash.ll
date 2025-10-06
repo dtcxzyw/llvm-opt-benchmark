@@ -66,17 +66,17 @@ zend_hash_str_find_deref.exit:                    ; preds = %12
   br label %zend_hash_str_find_deref.exit.thread20
 
 zend_hash_str_find_deref.exit.thread20:           ; preds = %2, %15, %3, %zend_hash_str_find_deref.exit
-  %.sink27 = phi i32 [ %18, %zend_hash_str_find_deref.exit ], [ 606290984, %3 ], [ 606290984, %15 ], [ 606290984, %2 ]
-  %.sink26 = phi i32 [ %19, %zend_hash_str_find_deref.exit ], [ -2048144777, %3 ], [ -2048144777, %15 ], [ -2048144777, %2 ]
-  %.sink25 = phi i32 [ %17, %zend_hash_str_find_deref.exit ], [ 0, %3 ], [ 0, %15 ], [ 0, %2 ]
+  %.sink26 = phi i32 [ %18, %zend_hash_str_find_deref.exit ], [ 606290984, %3 ], [ 606290984, %15 ], [ 606290984, %2 ]
+  %.sink25 = phi i32 [ %19, %zend_hash_str_find_deref.exit ], [ -2048144777, %3 ], [ -2048144777, %15 ], [ -2048144777, %2 ]
+  %.sink24 = phi i32 [ %17, %zend_hash_str_find_deref.exit ], [ 0, %3 ], [ 0, %15 ], [ 0, %2 ]
   %.sink = phi i32 [ %20, %zend_hash_str_find_deref.exit ], [ 1640531535, %3 ], [ 1640531535, %15 ], [ 1640531535, %2 ]
   store i64 0, ptr %0, align 1
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink27, ptr %.sroa.4.0..sroa_idx.i, align 1
+  store i32 %.sink26, ptr %.sroa.4.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 %.sink26, ptr %.sroa.5.0..sroa_idx.i, align 1
+  store i32 %.sink25, ptr %.sroa.5.0..sroa_idx.i, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.sink25, ptr %.sroa.6.0..sroa_idx.i, align 1
+  store i32 %.sink24, ptr %.sroa.6.0..sroa_idx.i, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %.sink, ptr %.sroa.7.0..sroa_idx.i, align 1
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -423,17 +423,17 @@ define dso_local void @PHP_XXH64Init(ptr noundef writeonly captures(none) initia
   br label %20
 
 20:                                               ; preds = %2, %.thread, %15
-  %.sink25 = phi i64 [ %17, %15 ], [ 6983438078262162902, %.thread ], [ 6983438078262162902, %2 ]
-  %.sink24 = phi i64 [ %18, %15 ], [ -4417276706812531889, %.thread ], [ -4417276706812531889, %2 ]
-  %.sink23 = phi i64 [ %16, %15 ], [ 0, %.thread ], [ 0, %2 ]
+  %.sink24 = phi i64 [ %17, %15 ], [ 6983438078262162902, %.thread ], [ 6983438078262162902, %2 ]
+  %.sink23 = phi i64 [ %18, %15 ], [ -4417276706812531889, %.thread ], [ -4417276706812531889, %2 ]
+  %.sink22 = phi i64 [ %16, %15 ], [ 0, %.thread ], [ 0, %2 ]
   %.sink = phi i64 [ %19, %15 ], [ 7046029288634856825, %.thread ], [ 7046029288634856825, %2 ]
   store i64 0, ptr %0, align 1
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink25, ptr %.sroa.4.0..sroa_idx.i, align 1
+  store i64 %.sink24, ptr %.sroa.4.0..sroa_idx.i, align 1
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink24, ptr %.sroa.5.0..sroa_idx.i, align 1
+  store i64 %.sink23, ptr %.sroa.5.0..sroa_idx.i, align 1
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sink23, ptr %.sroa.6.0..sroa_idx.i, align 1
+  store i64 %.sink22, ptr %.sroa.6.0..sroa_idx.i, align 1
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %.sink, ptr %.sroa.7.0..sroa_idx.i, align 1
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -792,8 +792,8 @@ zend_hash_str_find_deref.exit47.i:                ; preds = %9, %5
 
 zend_hash_str_find_deref.exit47.i.thread:         ; preds = %3
   %13 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 6) #16
-  %.not.i.i30 = icmp eq ptr %13, null
-  br i1 %.not.i.i30, label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit14, label %14
+  %.not.i.i29 = icmp eq ptr %13, null
+  br i1 %.not.i.i29, label %XXH_INLINE_XXH3_64bits_reset_withSeed.exit14, label %14
 
 14:                                               ; preds = %zend_hash_str_find_deref.exit47.i.thread, %zend_hash_str_find_deref.exit47.i
   %15 = phi ptr [ %13, %zend_hash_str_find_deref.exit47.i.thread ], [ %12, %zend_hash_str_find_deref.exit47.i ]
@@ -2739,8 +2739,8 @@ zend_hash_str_find_deref.exit47.i:                ; preds = %9, %5
 
 zend_hash_str_find_deref.exit47.i.thread:         ; preds = %3
   %13 = tail call ptr @zend_hash_str_find(ptr noundef nonnull %1, ptr noundef nonnull @.str.8, i64 noundef 6) #16
-  %.not.i.i30 = icmp eq ptr %13, null
-  br i1 %.not.i.i30, label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit14, label %14
+  %.not.i.i29 = icmp eq ptr %13, null
+  br i1 %.not.i.i29, label %XXH_INLINE_XXH3_128bits_reset_withSeed.exit14, label %14
 
 14:                                               ; preds = %zend_hash_str_find_deref.exit47.i.thread, %zend_hash_str_find_deref.exit47.i
   %15 = phi ptr [ %13, %zend_hash_str_find_deref.exit47.i.thread ], [ %12, %zend_hash_str_find_deref.exit47.i ]

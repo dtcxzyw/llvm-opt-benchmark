@@ -108,8 +108,8 @@ define hidden void @pm_constant_id_list_insert(ptr noundef captures(none) %0, i6
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
 define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = load i64, ptr %0, align 8, !tbaa !14
-  %.not9.not = icmp eq i64 %3, 0
-  br i1 %.not9.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %3, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -127,8 +127,8 @@ define hidden noundef zeroext i1 @pm_constant_id_list_includes(ptr noundef reado
   br i1 %or.cond, label %._crit_edge, label %6, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %6, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %9, %6 ]
-  ret i1 %.not.lcssa
+  %.lcssa = phi i1 [ false, %2 ], [ %9, %6 ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable

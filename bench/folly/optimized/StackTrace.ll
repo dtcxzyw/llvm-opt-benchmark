@@ -310,29 +310,29 @@ define noundef i64 @_ZN5folly10symbolizer22getAsyncStackTraceSafeEPmm(ptr nounde
   br i1 %22, label %.lr.ph.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit
 
 .lr.ph.i:                                         ; preds = %18, %28
-  %.01631.i = phi ptr [ %23, %28 ], [ %.02736, %18 ]
-  %.01730.i = phi i64 [ %32, %28 ], [ 0, %18 ]
-  %23 = load ptr, ptr %.01631.i, align 8, !tbaa !23
-  %24 = icmp ule ptr %23, %.01631.i
-  %25 = getelementptr inbounds nuw i8, ptr %.01631.i, i64 1099511627776
+  %.01630.i = phi ptr [ %23, %28 ], [ %.02736, %18 ]
+  %.01729.i = phi i64 [ %32, %28 ], [ 0, %18 ]
+  %23 = load ptr, ptr %.01630.i, align 8, !tbaa !23
+  %24 = icmp ule ptr %23, %.01630.i
+  %25 = getelementptr inbounds nuw i8, ptr %.01630.i, i64 1099511627776
   %26 = icmp uge ptr %23, %25
-  %or.cond.not29.i = select i1 %24, i1 true, i1 %26
+  %or.cond.not28.i = select i1 %24, i1 true, i1 %26
   %27 = icmp eq ptr %23, %.02637
-  %or.cond27.i = or i1 %27, %or.cond.not29.i
-  br i1 %or.cond27.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, label %28
+  %or.cond26.i = or i1 %27, %or.cond.not28.i
+  br i1 %or.cond26.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, label %28
 
 28:                                               ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %.01631.i, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %.01630.i, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !26
   %31 = ptrtoint ptr %30 to i64
-  %32 = add nuw i64 %.01730.i, 1
-  %33 = getelementptr inbounds nuw i64, ptr %19, i64 %.01730.i
+  %32 = add nuw i64 %.01729.i, 1
+  %33 = getelementptr inbounds nuw i64, ptr %19, i64 %.01729.i
   store i64 %31, ptr %33, align 8, !tbaa !7
   %exitcond.not.i = icmp eq i64 %32, %20
   br i1 %exitcond.not.i, label %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, label %.lr.ph.i
 
 _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit: ; preds = %.lr.ph.i, %28, %18
-  %.017.lcssa.i = phi i64 [ 0, %18 ], [ %20, %28 ], [ %.01730.i, %.lr.ph.i ]
+  %.017.lcssa.i = phi i64 [ 0, %18 ], [ %20, %28 ], [ %.01729.i, %.lr.ph.i ]
   %34 = add i64 %.017.lcssa.i, %.135
   %35 = getelementptr inbounds nuw i64, ptr %0, i64 %34
   %36 = sub i64 %1, %34
@@ -342,19 +342,19 @@ _ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.ex
 
 .lr.ph.i32:                                       ; preds = %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit, %.thread.i
   %39 = phi i64 [ %43, %.thread.i ], [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ]
-  %.01527.i = phi ptr [ %45, %.thread.i ], [ %.038, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ]
-  %40 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 8
+  %.01526.i = phi ptr [ %45, %.thread.i ], [ %.038, %_ZN5folly10symbolizer12_GLOBAL__N_115walkNormalStackEPmmPNS1_10StackFrameES4_.exit ]
+  %40 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !27, !noalias !29
   %42 = ptrtoint ptr %41 to i64
   %43 = add nuw i64 %39, 1
   %44 = getelementptr inbounds nuw i64, ptr %35, i64 %39
   store i64 %42, ptr %44, align 8, !tbaa !7, !noalias !29
-  %45 = load ptr, ptr %.01527.i, align 8, !tbaa !32, !noalias !29
+  %45 = load ptr, ptr %.01526.i, align 8, !tbaa !32, !noalias !29
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %.thread.i
 
 47:                                               ; preds = %.lr.ph.i32
-  %48 = getelementptr inbounds nuw i8, ptr %.01527.i, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.01526.i, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !33, !noalias !29
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZN5folly10symbolizer12_GLOBAL__N_114walkAsyncStackEPmmPNS_15AsyncStackFrameE.exit, label %51

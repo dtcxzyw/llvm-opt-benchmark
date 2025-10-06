@@ -86,8 +86,8 @@ define noundef ptr @_ZN6LibRaw21HassyRawFormat_idx2HREj(ptr noundef nonnull read
 
 3:                                                ; preds = %4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 7
-  br i1 %exitcond, label %.loopexit, label %4, !llvm.loop !6
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 7
+  br i1 %exitcond.not, label %.loopexit, label %4, !llvm.loop !6
 
 4:                                                ; preds = %2, %3
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %3 ]
@@ -102,8 +102,8 @@ define noundef ptr @_ZN6LibRaw21HassyRawFormat_idx2HREj(ptr noundef nonnull read
   br label %.loopexit
 
 .loopexit:                                        ; preds = %3, %8
-  %spec.select = phi ptr [ %10, %8 ], [ null, %3 ]
-  ret ptr %spec.select
+  %11 = phi ptr [ %10, %8 ], [ null, %3 ]
+  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn uwtable
@@ -1653,8 +1653,8 @@ sub_2:                                            ; preds = %sub_1
 
 587:                                              ; preds = %588
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 7
-  br i1 %exitcond.i, label %_ZN6LibRaw21HassyRawFormat_idx2HREj.exit, label %588, !llvm.loop !6
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 7
+  br i1 %exitcond.not.i, label %_ZN6LibRaw21HassyRawFormat_idx2HREj.exit, label %588, !llvm.loop !6
 
 588:                                              ; preds = %587, %586
   %indvars.iv.i = phi i64 [ 0, %586 ], [ %indvars.iv.next.i, %587 ]
@@ -1669,140 +1669,140 @@ sub_2:                                            ; preds = %sub_1
   br label %_ZN6LibRaw21HassyRawFormat_idx2HREj.exit
 
 _ZN6LibRaw21HassyRawFormat_idx2HREj.exit:         ; preds = %587, %592
-  %spec.select.i = phi ptr [ %594, %592 ], [ null, %587 ]
-  %595 = add i32 %.4, -1
-  %or.cond7 = icmp ult i32 %595, 2
-  br i1 %or.cond7, label %596, label %599
+  %595 = phi ptr [ %594, %592 ], [ null, %587 ]
+  %596 = add i32 %.4, -1
+  %or.cond7 = icmp ult i32 %596, 2
+  br i1 %or.cond7, label %597, label %600
 
-596:                                              ; preds = %_ZN6LibRaw21HassyRawFormat_idx2HREj.exit
-  %597 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %598 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %597, ptr noundef nonnull dereferenceable(1) %spec.select.i) #13
-  br label %599
+597:                                              ; preds = %_ZN6LibRaw21HassyRawFormat_idx2HREj.exit
+  %598 = getelementptr inbounds nuw i8, ptr %0, i64 460
+  %599 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %598, ptr noundef nonnull dereferenceable(1) %595) #13
+  br label %600
 
-599:                                              ; preds = %_ZN6LibRaw21HassyRawFormat_idx2HREj.exit, %596
-  %600 = load i8, ptr %121, align 8, !tbaa !16
-  %601 = icmp ne i8 %600, 72
-  %602 = getelementptr inbounds nuw i8, ptr %0, i64 2537
-  %603 = load i8, ptr %602, align 1
-  %.not219 = icmp eq i8 %603, 97
-  %or.cond378 = select i1 %601, i1 true, i1 %.not219
-  br i1 %or.cond378, label %604, label %607
+600:                                              ; preds = %_ZN6LibRaw21HassyRawFormat_idx2HREj.exit, %597
+  %601 = load i8, ptr %121, align 8, !tbaa !16
+  %602 = icmp ne i8 %601, 72
+  %603 = getelementptr inbounds nuw i8, ptr %0, i64 2537
+  %604 = load i8, ptr %603, align 1
+  %.not219 = icmp eq i8 %604, 97
+  %or.cond378 = select i1 %602, i1 true, i1 %.not219
+  br i1 %or.cond378, label %605, label %608
 
-604:                                              ; preds = %599
-  switch i8 %600, label %.thread389 [
-    i8 65, label %605
-    i8 88, label %614
+605:                                              ; preds = %600
+  switch i8 %601, label %.thread389 [
+    i8 65, label %606
+    i8 88, label %615
   ]
 
-605:                                              ; preds = %604
-  %606 = sext i8 %603 to i32
-  %isdigittmp = add nsw i32 %606, -48
+606:                                              ; preds = %605
+  %607 = sext i8 %604 to i32
+  %isdigittmp = add nsw i32 %607, -48
   %isdigit = icmp ult i32 %isdigittmp, 10
-  br i1 %isdigit, label %607, label %.thread389
+  br i1 %isdigit, label %608, label %.thread389
 
-607:                                              ; preds = %599, %605
-  %608 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i16 11, ptr %608, align 8, !tbaa !87
-  %609 = getelementptr inbounds nuw i8, ptr %0, i64 1354
-  store i16 14, ptr %609, align 2, !tbaa !88
-  %610 = getelementptr inbounds nuw i8, ptr %0, i64 788
-  %611 = load i8, ptr %610, align 4, !tbaa !16
-  %612 = icmp eq i8 %611, 72
-  br i1 %612, label %613, label %640
+608:                                              ; preds = %600, %606
+  %609 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  store i16 11, ptr %609, align 8, !tbaa !87
+  %610 = getelementptr inbounds nuw i8, ptr %0, i64 1354
+  store i16 14, ptr %610, align 2, !tbaa !88
+  %611 = getelementptr inbounds nuw i8, ptr %0, i64 788
+  %612 = load i8, ptr %611, align 4, !tbaa !16
+  %613 = icmp eq i8 %612, 72
+  br i1 %613, label %614, label %641
 
-613:                                              ; preds = %607
+614:                                              ; preds = %608
   call void @_ZN6LibRaw18process_Hassy_LensEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 14)
-  br label %640
+  br label %641
 
-614:                                              ; preds = %604
-  %615 = sext i8 %603 to i32
-  %isdigittmp220 = add nsw i32 %615, -48
+615:                                              ; preds = %605
+  %616 = sext i8 %604 to i32
+  %isdigittmp220 = add nsw i32 %616, -48
   %isdigit221 = icmp ult i32 %isdigittmp220, 10
-  br i1 %isdigit221, label %616, label %.thread389
+  br i1 %isdigit221, label %617, label %.thread389
 
-.thread389:                                       ; preds = %604, %605, %614
+.thread389:                                       ; preds = %605, %606, %615
   %bcmp222 = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %18, ptr noundef nonnull dereferenceable(3) @.str.74, i64 3)
   %.not223 = icmp eq i32 %bcmp222, 0
-  br i1 %.not223, label %616, label %640
+  br i1 %.not223, label %617, label %641
 
-616:                                              ; preds = %.thread389, %614
-  %617 = getelementptr inbounds nuw i8, ptr %0, i64 1200
-  %618 = getelementptr inbounds nuw i8, ptr %0, i64 1352
-  store i16 9, ptr %618, align 8, !tbaa !87
-  %619 = getelementptr inbounds nuw i8, ptr %0, i64 1354
-  store i16 16, ptr %619, align 2, !tbaa !88
-  %620 = getelementptr inbounds nuw i8, ptr %0, i64 788
-  %621 = load i8, ptr %620, align 4, !tbaa !16
-  switch i8 %621, label %640 [
-    i8 72, label %622
-    i8 88, label %624
-    i8 0, label %625
+617:                                              ; preds = %.thread389, %615
+  %618 = getelementptr inbounds nuw i8, ptr %0, i64 1200
+  %619 = getelementptr inbounds nuw i8, ptr %0, i64 1352
+  store i16 9, ptr %619, align 8, !tbaa !87
+  %620 = getelementptr inbounds nuw i8, ptr %0, i64 1354
+  store i16 16, ptr %620, align 2, !tbaa !88
+  %621 = getelementptr inbounds nuw i8, ptr %0, i64 788
+  %622 = load i8, ptr %621, align 4, !tbaa !16
+  switch i8 %622, label %641 [
+    i8 72, label %623
+    i8 88, label %625
+    i8 0, label %626
   ]
 
-622:                                              ; preds = %616
+623:                                              ; preds = %617
   call void @_ZN6LibRaw18process_Hassy_LensEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 14)
-  %623 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %623, ptr noundef nonnull align 1 dereferenceable(3) @.str.75, i64 3, i1 false) #13
-  br label %640
+  %624 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %624, ptr noundef nonnull align 1 dereferenceable(3) @.str.75, i64 3, i1 false) #13
+  br label %641
 
-624:                                              ; preds = %616
+625:                                              ; preds = %617
   call void @_ZN6LibRaw18process_Hassy_LensEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 16)
-  br label %640
+  br label %641
 
-625:                                              ; preds = %616
-  %626 = getelementptr inbounds nuw i8, ptr %0, i64 192560
-  %627 = load float, ptr %626, align 8, !tbaa !94
-  %628 = fcmp reassoc nsz arcp contract afn ogt float %627, 1.000000e+00
-  br i1 %628, label %629, label %640
+626:                                              ; preds = %617
+  %627 = getelementptr inbounds nuw i8, ptr %0, i64 192560
+  %628 = load float, ptr %627, align 8, !tbaa !94
+  %629 = fcmp reassoc nsz arcp contract afn ogt float %628, 1.000000e+00
+  br i1 %629, label %630, label %641
 
-629:                                              ; preds = %625
-  %630 = getelementptr inbounds nuw i8, ptr %0, i64 192564
-  %631 = load float, ptr %630, align 4, !tbaa !95
-  %632 = fcmp reassoc nsz arcp contract afn ogt float %631, 1.000000e+01
-  br i1 %632, label %633, label %640
+630:                                              ; preds = %626
+  %631 = getelementptr inbounds nuw i8, ptr %0, i64 192564
+  %632 = load float, ptr %631, align 4, !tbaa !95
+  %633 = fcmp reassoc nsz arcp contract afn ogt float %632, 1.000000e+01
+  br i1 %633, label %634, label %641
 
-633:                                              ; preds = %629
-  %634 = fptoui float %631 to i64
-  store i64 %634, ptr %617, align 8, !tbaa !78
-  %635 = icmp eq i64 %634, 35
-  %636 = getelementptr inbounds nuw i8, ptr %0, i64 1420
-  br i1 %635, label %637, label %638
+634:                                              ; preds = %630
+  %635 = fptoui float %632 to i64
+  store i64 %635, ptr %618, align 8, !tbaa !78
+  %636 = icmp eq i64 %635, 35
+  %637 = getelementptr inbounds nuw i8, ptr %0, i64 1420
+  br i1 %636, label %638, label %639
 
-637:                                              ; preds = %633
-  store i16 2, ptr %636, align 4, !tbaa !79
-  store i64 1600350750, ptr %617, align 8, !tbaa !78
-  br label %640
+638:                                              ; preds = %634
+  store i16 2, ptr %637, align 4, !tbaa !79
+  store i64 1600350750, ptr %618, align 8, !tbaa !78
+  br label %641
 
-638:                                              ; preds = %633
-  store i16 1, ptr %636, align 4, !tbaa !79
-  %reass.mul = mul i64 %634, 10010
-  %639 = add i64 %reass.mul, 1600000000
-  store i64 %639, ptr %617, align 8, !tbaa !78
-  br label %640
+639:                                              ; preds = %634
+  store i16 1, ptr %637, align 4, !tbaa !79
+  %reass.mul = mul i64 %635, 10010
+  %640 = add i64 %reass.mul, 1600000000
+  store i64 %640, ptr %618, align 8, !tbaa !78
+  br label %641
 
-640:                                              ; preds = %616, %.thread389, %624, %637, %638, %629, %625, %622, %607, %613
-  %641 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %642 = load i8, ptr %641, align 4, !tbaa !16
-  %.not225 = icmp eq i8 %642, 0
-  br i1 %.not225, label %653, label %643
+641:                                              ; preds = %617, %.thread389, %625, %638, %639, %630, %626, %623, %608, %614
+  %642 = getelementptr inbounds nuw i8, ptr %0, i64 460
+  %643 = load i8, ptr %642, align 4, !tbaa !16
+  %.not225 = icmp eq i8 %643, 0
+  br i1 %.not225, label %654, label %644
 
-643:                                              ; preds = %640
-  %644 = getelementptr inbounds nuw i8, ptr %0, i64 384052
-  %645 = load i32, ptr %644, align 4, !tbaa !96
-  %.not226 = icmp eq i32 %645, 0
-  br i1 %.not226, label %646, label %653
+644:                                              ; preds = %641
+  %645 = getelementptr inbounds nuw i8, ptr %0, i64 384052
+  %646 = load i32, ptr %645, align 4, !tbaa !96
+  %.not226 = icmp eq i32 %646, 0
+  br i1 %.not226, label %647, label %654
 
-646:                                              ; preds = %643
-  %647 = getelementptr inbounds nuw i8, ptr %0, i64 524
-  %648 = load i32, ptr %647, align 4, !tbaa !97
-  %649 = load ptr, ptr %0, align 8, !tbaa !98
-  %650 = getelementptr inbounds nuw i8, ptr %649, i64 72
-  %651 = load ptr, ptr %650, align 8
-  %652 = call noundef i32 %651(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %648, ptr noundef nonnull %641, i32 noundef 0)
-  store i32 %652, ptr %644, align 4, !tbaa !96
-  br label %653
+647:                                              ; preds = %644
+  %648 = getelementptr inbounds nuw i8, ptr %0, i64 524
+  %649 = load i32, ptr %648, align 4, !tbaa !97
+  %650 = load ptr, ptr %0, align 8, !tbaa !98
+  %651 = getelementptr inbounds nuw i8, ptr %650, i64 72
+  %652 = load ptr, ptr %651, align 8
+  %653 = call noundef i32 %652(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %649, ptr noundef nonnull %642, i32 noundef 0)
+  store i32 %653, ptr %645, align 4, !tbaa !96
+  br label %654
 
-653:                                              ; preds = %646, %643, %640
+654:                                              ; preds = %647, %644, %641
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

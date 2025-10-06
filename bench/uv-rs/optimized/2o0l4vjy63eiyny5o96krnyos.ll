@@ -13,12 +13,12 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, ptr } @_ZN4core5error5Error5cause17h7bd5c86dd42cccaeE(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !3, !alias.scope !4, !noundef !7
-  %switch.i = icmp eq i64 %2, 0
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0.i = select i1 %switch.i, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr @anon.1136291f48a1cd662f16d26f318f9102.3, 1
-  ret { ptr, ptr } %5
+  %3 = icmp eq i64 %2, 0
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.0.0.i = select i1 %3, ptr %4, ptr null
+  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr @anon.1136291f48a1cd662f16d26f318f9102.3, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

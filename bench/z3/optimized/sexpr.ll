@@ -1728,22 +1728,22 @@ _ZNK6vectorISt4pairIPK15sexpr_compositejELb1EjE5emptyEv.exit.preheader: ; preds 
   br label %_ZNK6vectorISt4pairIPK15sexpr_compositejELb1EjE5emptyEv.exit
 
 _ZNK6vectorISt4pairIPK15sexpr_compositejELb1EjE5emptyEv.exit: ; preds = %59, %_ZNK6vectorISt4pairIPK15sexpr_compositejELb1EjE5emptyEv.exit.preheader
-  %.sink98 = phi i32 [ 1, %_ZNK6vectorISt4pairIPK15sexpr_compositejELb1EjE5emptyEv.exit.preheader ], [ -1, %59 ]
+  %.sink97 = phi i32 [ 1, %_ZNK6vectorISt4pairIPK15sexpr_compositejELb1EjE5emptyEv.exit.preheader ], [ -1, %59 ]
   %10 = load ptr, ptr %3, align 8, !tbaa !78
   %11 = getelementptr inbounds i8, ptr %10, i64 -4
   %12 = load i32, ptr %11, align 4, !tbaa !57
-  %13 = add i32 %12, %.sink98
+  %13 = add i32 %12, %.sink97
   store i32 %13, ptr %11, align 4, !tbaa !57
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %70, label %thread-pre-split69
+  br i1 %14, label %70, label %thread-pre-split68
 
-thread-pre-split69:                               ; preds = %_ZNK6vectorISt4pairIPK15sexpr_compositejELb1EjE5emptyEv.exit
+thread-pre-split68:                               ; preds = %_ZNK6vectorISt4pairIPK15sexpr_compositejELb1EjE5emptyEv.exit
   %15 = add i32 %13, -1
   br label %16
 
-16:                                               ; preds = %thread-pre-split69, %61
-  %.pre = phi i32 [ %15, %thread-pre-split69 ], [ %68, %61 ]
-  %17 = phi ptr [ %10, %thread-pre-split69 ], [ %66, %61 ]
+16:                                               ; preds = %thread-pre-split68, %61
+  %.pre = phi i32 [ %15, %thread-pre-split68 ], [ %68, %61 ]
+  %17 = phi ptr [ %10, %thread-pre-split68 ], [ %66, %61 ]
   %18 = zext i32 %.pre to i64
   %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !81

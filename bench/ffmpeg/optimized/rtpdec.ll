@@ -437,34 +437,34 @@ define range(i32 -1, 1) i32 @ff_rtp_send_rtcp_feedback(ptr noundef captures(none
 .preheader:                                       ; preds = %24, %37
   %.043 = phi i16 [ %.2, %37 ], [ 0, %24 ]
   %27 = phi i16 [ %43, %37 ], [ 0, %24 ]
-  %.02418.i = phi i32 [ %44, %37 ], [ 1, %24 ]
-  %.02617.i = phi ptr [ %.12716.i, %37 ], [ %.val41, %24 ]
-  %28 = trunc nuw nsw i32 %.02418.i to i16
+  %.02415.i = phi i32 [ %44, %37 ], [ 1, %24 ]
+  %.02614.i = phi ptr [ %.12713.i, %37 ], [ %.val41, %24 ]
+  %28 = trunc nuw nsw i32 %.02415.i to i16
   %29 = add i16 %23, %28
   br label %30
 
 30:                                               ; preds = %34, %.preheader
-  %.12716.i = phi ptr [ %.02617.i, %.preheader ], [ %36, %34 ]
-  %31 = load i16, ptr %.12716.i, align 8, !tbaa !52
+  %.12713.i = phi ptr [ %.02614.i, %.preheader ], [ %36, %34 ]
+  %31 = load i16, ptr %.12713.i, align 8, !tbaa !52
   %32 = sub i16 %31, %29
   %33 = icmp sgt i16 %32, -1
   br i1 %33, label %37, label %34
 
 34:                                               ; preds = %30
-  %35 = getelementptr inbounds nuw i8, ptr %.12716.i, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.12713.i, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !54
   %.not30.i = icmp eq ptr %36, null
   br i1 %.not30.i, label %find_missing_packets.exit.thread, label %30
 
 37:                                               ; preds = %30
   %38 = icmp eq i16 %31, %29
-  %39 = add nsw i32 %.02418.i, -1
+  %39 = add nsw i32 %.02415.i, -1
   %40 = shl nuw nsw i32 1, %39
   %41 = trunc i32 %40 to i16
   %42 = or i16 %27, %41
   %.2 = select i1 %38, i16 %.043, i16 %42
   %43 = select i1 %38, i16 %27, i16 %42
-  %44 = add nuw nsw i32 %.02418.i, 1
+  %44 = add nuw nsw i32 %.02415.i, 1
   %exitcond.not.i = icmp eq i32 %44, 17
   br i1 %exitcond.not.i, label %find_missing_packets.exit.thread, label %.preheader, !llvm.loop !55
 

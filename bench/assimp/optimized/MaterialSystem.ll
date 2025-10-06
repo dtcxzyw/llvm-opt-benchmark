@@ -138,22 +138,22 @@ $_ZTV17DeadlyImportError = comdat any
 define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8
-  %.not60 = icmp eq i32 %7, 0
-  br i1 %.not60, label %._crit_edge, label %.lr.ph
+  %.not58 = icmp eq i32 %7, 0
+  br i1 %.not58, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %8 = load ptr, ptr %0, align 8
   %9 = icmp eq i32 %2, -1
   %10 = icmp eq i32 %3, -1
-  %wide.trip.count84 = zext i32 %7 to i64
+  %wide.trip.count82 = zext i32 %7 to i64
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %10, label %.lr.ph.split.us.split.us, label %.lr.ph.split.us.split
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph.split.us, %18
-  %indvars.iv81 = phi i64 [ %indvars.iv.next82, %18 ], [ 0, %.lr.ph.split.us ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv81
+  %indvars.iv79 = phi i64 [ %indvars.iv.next80, %18 ], [ 0, %.lr.ph.split.us ]
+  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv79
   %12 = load ptr, ptr %11, align 8
   %.not.us.us = icmp eq ptr %12, null
   br i1 %.not.us.us, label %18, label %13
@@ -166,13 +166,13 @@ define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures
   br i1 %17, label %._crit_edge, label %18
 
 18:                                               ; preds = %13, %.lr.ph.split.us.split.us
-  %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %exitcond85.not = icmp eq i64 %indvars.iv.next82, %wide.trip.count84
-  br i1 %exitcond85.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !3
+  %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
+  %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
+  br i1 %exitcond83.not, label %._crit_edge, label %.lr.ph.split.us.split.us, !llvm.loop !3
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %30
-  %indvars.iv76 = phi i64 [ %indvars.iv.next77, %30 ], [ 0, %.lr.ph.split.us ]
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv76
+  %indvars.iv74 = phi i64 [ %indvars.iv.next75, %30 ], [ 0, %.lr.ph.split.us ]
+  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv74
   %20 = load ptr, ptr %19, align 8
   %.not.us = icmp eq ptr %20, null
   br i1 %.not.us, label %30, label %21
@@ -191,19 +191,19 @@ define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures
   br i1 %29, label %._crit_edge, label %30
 
 30:                                               ; preds = %26, %21, %.lr.ph.split.us.split
-  %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
-  %exitcond80.not = icmp eq i64 %indvars.iv.next77, %wide.trip.count84
-  br i1 %exitcond80.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !3
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count82
+  br i1 %exitcond78.not, label %._crit_edge, label %.lr.ph.split.us.split, !llvm.loop !3
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %10, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %42
-  %indvars.iv71 = phi i64 [ %indvars.iv.next72, %42 ], [ 0, %.lr.ph.split ]
-  %31 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv71
+  %indvars.iv69 = phi i64 [ %indvars.iv.next70, %42 ], [ 0, %.lr.ph.split ]
+  %31 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv69
   %32 = load ptr, ptr %31, align 8
-  %.not.us44 = icmp eq ptr %32, null
-  br i1 %.not.us44, label %42, label %33
+  %.not.us42 = icmp eq ptr %32, null
+  br i1 %.not.us42, label %42, label %33
 
 33:                                               ; preds = %.lr.ph.split.split.us
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
@@ -219,9 +219,9 @@ define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures
   br i1 %41, label %._crit_edge, label %42
 
 42:                                               ; preds = %38, %33, %.lr.ph.split.split.us
-  %indvars.iv.next72 = add nuw nsw i64 %indvars.iv71, 1
-  %exitcond75.not = icmp eq i64 %indvars.iv.next72, %wide.trip.count84
-  br i1 %exitcond75.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !3
+  %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
+  %exitcond73.not = icmp eq i64 %indvars.iv.next70, %wide.trip.count82
+  br i1 %exitcond73.not, label %._crit_edge, label %.lr.ph.split.split.us, !llvm.loop !3
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.lr.ph.split ]
@@ -251,7 +251,7 @@ define range(i32 -1, 1) i32 @aiGetMaterialProperty(ptr noundef readonly captures
 
 58:                                               ; preds = %54, %50, %45, %.lr.ph.split.split
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count84
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count82
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split.split, !llvm.loop !3
 
 ._crit_edge:                                      ; preds = %54, %58, %38, %42, %26, %30, %13, %18, %5
@@ -2030,12 +2030,12 @@ define void @_ZNK10aiMaterial7GetNameEv(ptr dead_on_unwind noalias writable writ
   store ptr @.str.12, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
-  %.not60.i = icmp eq i32 %5, 0
-  br i1 %.not60.i, label %_ZNK10aiMaterial3GetEPKcjjR8aiString.exit, label %.lr.ph.i
+  %.not58.i = icmp eq i32 %5, 0
+  br i1 %.not58.i, label %_ZNK10aiMaterial3GetEPKcjjR8aiString.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %6 = load ptr, ptr %1, align 8
-  %wide.trip.count84.i = zext i32 %5 to i64
+  %wide.trip.count82.i = zext i32 %5 to i64
   br label %.lr.ph.split.split.i
 
 .lr.ph.split.split.i:                             ; preds = %21, %.lr.ph.i
@@ -2065,7 +2065,7 @@ define void @_ZNK10aiMaterial7GetNameEv(ptr dead_on_unwind noalias writable writ
 
 21:                                               ; preds = %17, %13, %9, %.lr.ph.split.split.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count84.i
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count82.i
   br i1 %exitcond.not.i, label %_ZNK10aiMaterial3GetEPKcjjR8aiString.exit, label %.lr.ph.split.split.i, !llvm.loop !3
 
 aiGetMaterialProperty.exit:                       ; preds = %17
@@ -2103,8 +2103,8 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #9
 define noundef range(i32 -1, 1) i32 @_ZN10aiMaterial14RemovePropertyEPKcjj(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
-  %.not2532 = icmp eq i32 %6, 0
-  br i1 %.not2532, label %.critedge, label %.lr.ph
+  %.not33 = icmp eq i32 %6, 0
+  br i1 %.not33, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %7 = load ptr, ptr %0, align 8
@@ -2153,29 +2153,29 @@ _ZN18aiMaterialPropertyD2Ev.exit:                 ; preds = %22, %27
   %29 = add i32 %28, -1
   store i32 %29, ptr %5, align 8
   %30 = icmp ugt i32 %29, %23
-  br i1 %30, label %.lr.ph36, label %.critedge
+  br i1 %30, label %.lr.ph32, label %.critedge
 
-.lr.ph36:                                         ; preds = %_ZN18aiMaterialPropertyD2Ev.exit, %.lr.ph36
-  %indvars.iv42 = phi i64 [ %indvars.iv.next43, %.lr.ph36 ], [ %indvars.iv, %_ZN18aiMaterialPropertyD2Ev.exit ]
+.lr.ph32:                                         ; preds = %_ZN18aiMaterialPropertyD2Ev.exit, %.lr.ph32
+  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.lr.ph32 ], [ %indvars.iv, %_ZN18aiMaterialPropertyD2Ev.exit ]
   %31 = load ptr, ptr %0, align 8
-  %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next43
+  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
+  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.next40
   %33 = load ptr, ptr %32, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv42
+  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv39
   store ptr %33, ptr %34, align 8
   %35 = load i32, ptr %5, align 8
   %36 = zext i32 %35 to i64
-  %37 = icmp samesign ult i64 %indvars.iv.next43, %36
-  br i1 %37, label %.lr.ph36, label %.critedge, !llvm.loop !19
+  %37 = icmp samesign ult i64 %indvars.iv.next40, %36
+  br i1 %37, label %.lr.ph32, label %.critedge, !llvm.loop !19
 
 38:                                               ; preds = %18, %14, %11, %8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %8, !llvm.loop !20
 
-.critedge:                                        ; preds = %38, %.lr.ph36, %4, %_ZN18aiMaterialPropertyD2Ev.exit
-  %.not2528 = phi i32 [ 0, %_ZN18aiMaterialPropertyD2Ev.exit ], [ -1, %4 ], [ 0, %.lr.ph36 ], [ -1, %38 ]
-  ret i32 %.not2528
+.critedge:                                        ; preds = %38, %.lr.ph32, %4, %_ZN18aiMaterialPropertyD2Ev.exit
+  %39 = phi i32 [ 0, %_ZN18aiMaterialPropertyD2Ev.exit ], [ -1, %4 ], [ 0, %.lr.ph32 ], [ -1, %38 ]
+  ret i32 %39
 }
 
 ; Function Attrs: mustprogress uwtable

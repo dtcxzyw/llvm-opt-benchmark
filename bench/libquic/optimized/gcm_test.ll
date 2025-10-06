@@ -386,8 +386,8 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
   br i1 %17, label %18, label %.preheader
 
 .preheader:                                       ; preds = %14
-  %.not66 = icmp eq i64 %9, 0
-  br i1 %.not66, label %._crit_edge, label %.lr.ph
+  %.not65 = icmp eq i64 %9, 0
+  br i1 %.not65, label %._crit_edge, label %.lr.ph
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -395,8 +395,8 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
   br label %54
 
 .lr.ph:                                           ; preds = %.preheader, %47
-  %.02965 = phi i64 [ %52, %47 ], [ 0, %.preheader ]
-  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.02965
+  %.02964 = phi i64 [ %52, %47 ], [ 0, %.preheader ]
+  %21 = getelementptr inbounds nuw i8, ptr %2, i64 %.02964
   %22 = load i8, ptr %21, align 1, !tbaa !24
   %23 = add i8 %22, -48
   %or.cond.i = icmp ult i8 %23, 10
@@ -448,17 +448,17 @@ define internal fastcc range(i32 0, 2) i32 @decode_hex(ptr noundef nonnull write
 
 44:                                               ; preds = %28, %40
   %45 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.18, i32 noundef %3, ptr noundef %4, i64 noundef %.02965) #11
+  %46 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %45, ptr noundef nonnull @.str.18, i32 noundef %3, ptr noundef %4, i64 noundef %.02964) #11
   br label %54
 
 47:                                               ; preds = %32, %38, %42
   %.3.ph = phi i8 [ %35, %32 ], [ %39, %38 ], [ %43, %42 ]
   %48 = shl nuw i8 %.147.ph, 4
   %49 = or i8 %.3.ph, %48
-  %50 = lshr exact i64 %.02965, 1
+  %50 = lshr exact i64 %.02964, 1
   %51 = getelementptr inbounds nuw i8, ptr %16, i64 %50
   store i8 %49, ptr %51, align 1, !tbaa !24
-  %52 = add i64 %.02965, 2
+  %52 = add i64 %.02964, 2
   %53 = icmp ult i64 %52, %9
   br i1 %53, label %.lr.ph, label %._crit_edge, !llvm.loop !25
 

@@ -51,8 +51,8 @@ define dso_local noundef i32 @cli_filter_p_setup_defaults(ptr noundef %0, i1 nou
 
 .preheader:                                       ; preds = %12
   %15 = call i32 @feof(ptr noundef nonnull %14) #13
-  %.not2562 = icmp eq i32 %15, 0
-  br i1 %.not2562, label %.lr.ph, label %.critedge
+  %.not2560 = icmp eq i32 %15, 0
+  br i1 %.not2560, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -60,7 +60,7 @@ define dso_local noundef i32 @cli_filter_p_setup_defaults(ptr noundef %0, i1 nou
   br label %18
 
 18:                                               ; preds = %.lr.ph, %257
-  %.02063 = phi i32 [ 0, %.lr.ph ], [ %24, %257 ]
+  %.02061 = phi i32 [ 0, %.lr.ph ], [ %24, %257 ]
   %19 = call i32 @ferror(ptr noundef nonnull %14) #13
   %.not26 = icmp eq i32 %19, 0
   br i1 %.not26, label %20, label %.critedge
@@ -71,7 +71,7 @@ define dso_local noundef i32 @cli_filter_p_setup_defaults(ptr noundef %0, i1 nou
   br i1 %22, label %.critedge, label %23
 
 23:                                               ; preds = %20
-  %24 = add nuw nsw i32 %.02063, 1
+  %24 = add nuw nsw i32 %.02061, 1
   %25 = load ptr, ptr %6, align 8
   %.not.i = icmp eq ptr %25, null
   br i1 %.not.i, label %_trim.exit, label %.preheader.i

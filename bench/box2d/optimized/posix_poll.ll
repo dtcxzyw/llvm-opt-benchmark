@@ -15,7 +15,7 @@ define hidden range(i32 0, 2) i32 @_glfwPollPOSIX(ptr noundef %0, i64 noundef %1
 .split.us:                                        ; preds = %3
   %6 = tail call i32 @poll(ptr noundef %0, i64 noundef %1, i32 noundef -1) #4
   %7 = icmp sgt i32 %6, 0
-  br i1 %7, label %.thread38, label %.lr.ph
+  br i1 %7, label %.thread36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split.us, %13
   %8 = phi i32 [ %14, %13 ], [ %6, %.split.us ]
@@ -25,7 +25,7 @@ define hidden range(i32 0, 2) i32 @_glfwPollPOSIX(ptr noundef %0, i64 noundef %1
 10:                                               ; preds = %.lr.ph
   %11 = tail call ptr @__errno_location() #5
   %12 = load i32, ptr %11, align 4, !tbaa !3
-  switch i32 %12, label %.thread38 [
+  switch i32 %12, label %.thread36 [
     i32 4, label %13
     i32 11, label %13
   ]
@@ -33,7 +33,7 @@ define hidden range(i32 0, 2) i32 @_glfwPollPOSIX(ptr noundef %0, i64 noundef %1
 13:                                               ; preds = %10, %10, %.lr.ph
   %14 = tail call i32 @poll(ptr noundef %0, i64 noundef %1, i32 noundef -1) #4
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %.thread38, label %.lr.ph
+  br i1 %15, label %.thread36, label %.lr.ph
 
 .split:                                           ; preds = %3, %39
   %16 = call i64 @_glfwPlatformGetTimerValue() #4
@@ -79,13 +79,13 @@ switch.early.test:                                ; preds = %35
 .thread:                                          ; preds = %.split, %switch.early.test, %37
   %.1.ph = phi i32 [ 0, %37 ], [ 0, %switch.early.test ], [ 1, %.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread38
+  br label %.thread36
 
 39:                                               ; preds = %37
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.split
 
-.thread38:                                        ; preds = %13, %10, %.split.us, %.thread
+.thread36:                                        ; preds = %13, %10, %.split.us, %.thread
   %.2 = phi i32 [ %.1.ph, %.thread ], [ 1, %.split.us ], [ 0, %10 ], [ 1, %13 ]
   ret i32 %.2
 }

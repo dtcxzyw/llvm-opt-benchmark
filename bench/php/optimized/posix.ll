@@ -2046,14 +2046,14 @@ define hidden range(i32 0, 2) i32 @php_posix_group_to_array(ptr noundef readonly
 17:                                               ; preds = %16, %15
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load ptr, ptr %18, align 8, !tbaa !51
-  %.0.copyload30 = load ptr, ptr %19, align 8
-  %.not2731 = icmp eq ptr %.0.copyload30, null
-  br i1 %.not2731, label %._crit_edge, label %.lr.ph
+  %.0.copyload29 = load ptr, ptr %19, align 8
+  %.not2730 = icmp eq ptr %.0.copyload29, null
+  br i1 %.not2730, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %17, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %17 ]
-  %.0.copyload33 = phi ptr [ %.0.copyload, %.lr.ph ], [ %.0.copyload30, %17 ]
-  %20 = call i32 @add_next_index_string(ptr noundef nonnull %3, ptr noundef nonnull %.0.copyload33) #10
+  %.0.copyload32 = phi ptr [ %.0.copyload, %.lr.ph ], [ %.0.copyload29, %17 ]
+  %20 = call i32 @add_next_index_string(ptr noundef nonnull %3, ptr noundef nonnull %.0.copyload32) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %21 = load ptr, ptr %18, align 8, !tbaa !51
   %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next

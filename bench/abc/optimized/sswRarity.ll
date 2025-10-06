@@ -2673,10 +2673,10 @@ Abc_Clock.exit203:                                ; preds = %Vec_IntStart.exit, 
   br i1 %111, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge, %262
-  %.1150292 = phi i32 [ %.3, %262 ], [ %.0149, %.critedge ]
-  %.1156291 = phi i64 [ %.3158, %262 ], [ %.0155, %.critedge ]
-  %.1161290 = phi i32 [ %263, %262 ], [ 0, %.critedge ]
-  %.not176 = icmp eq i32 %.1161290, 0
+  %.1150291 = phi i32 [ %.3, %262 ], [ %.0149, %.critedge ]
+  %.1156290 = phi i64 [ %.3158, %262 ], [ %.0155, %.critedge ]
+  %.1161289 = phi i32 [ %263, %262 ], [ 0, %.critedge ]
+  %.not176 = icmp eq i32 %.1161289, 0
   br i1 %.not176, label %112, label %114
 
 112:                                              ; preds = %.lr.ph
@@ -2689,7 +2689,7 @@ Abc_Clock.exit203:                                ; preds = %Vec_IntStart.exit, 
   %116 = load ptr, ptr %63, align 8, !tbaa !33
   %117 = load i32, ptr %116, align 8, !tbaa !3
   %118 = mul nsw i32 %117, %.0148
-  %119 = add nsw i32 %118, %.1161290
+  %119 = add nsw i32 %118, %.1161289
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %120 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %9) #19
   %121 = icmp slt i32 %120, 0
@@ -2760,7 +2760,7 @@ Ssw_RarManPrepareRandom.exit211:                  ; preds = %.lr.ph.i208, %136
   %148 = load ptr, ptr %63, align 8, !tbaa !33
   %149 = load i32, ptr %148, align 8, !tbaa !3
   %150 = mul nsw i32 %149, %.0148
-  %151 = add nsw i32 %150, %.1161290
+  %151 = add nsw i32 %150, %.1161289
   %152 = getelementptr inbounds nuw i8, ptr %63, i64 96
   %153 = load i32, ptr %152, align 8, !tbaa !93
   %154 = getelementptr inbounds nuw i8, ptr %63, i64 100
@@ -2822,8 +2822,8 @@ Abc_Clock.exit215:                                ; preds = %176, %179
   br label %185
 
 185:                                              ; preds = %Abc_Clock.exit207, %Abc_Clock.exit215
-  %.3158 = phi i64 [ %.0.i214, %Abc_Clock.exit215 ], [ %.1156291, %Abc_Clock.exit207 ]
-  %.3 = phi i32 [ 0, %Abc_Clock.exit215 ], [ %.1150292, %Abc_Clock.exit207 ]
+  %.3158 = phi i64 [ %.0.i214, %Abc_Clock.exit215 ], [ %.1156290, %Abc_Clock.exit207 ]
+  %.3 = phi i32 [ 0, %Abc_Clock.exit215 ], [ %.1150291, %Abc_Clock.exit207 ]
   %186 = load i32, ptr %23, align 8, !tbaa !123
   %.not181 = icmp eq i32 %186, 0
   br i1 %.not181, label %212, label %187
@@ -2980,7 +2980,7 @@ Vec_PtrCountZero.exit:                            ; preds = %255
   br i1 %261, label %.thread, label %262
 
 262:                                              ; preds = %245, %247, %Vec_PtrCountZero.exit
-  %263 = add nuw nsw i32 %.1161290, 1
+  %263 = add nuw nsw i32 %.1161289, 1
   %264 = load i32, ptr %1, align 8, !tbaa !3
   %265 = icmp slt i32 %263, %264
   br i1 %265, label %.lr.ph, label %._crit_edge, !llvm.loop !135
@@ -3134,8 +3134,8 @@ Abc_Clock.exit229:                                ; preds = %305, %325
   br label %102, !llvm.loop !136
 
 .thread:                                          ; preds = %104, %249, %Vec_PtrCountZero.exit, %147, %Abc_Clock.exit213, %130, %230, %238, %197, %205
-  %.2162 = phi i32 [ %.1161290, %197 ], [ %.1161290, %205 ], [ %.1161290, %230 ], [ %.1161290, %238 ], [ %.1161290, %130 ], [ %.1161290, %Abc_Clock.exit213 ], [ %.1161290, %147 ], [ %.1161290, %Vec_PtrCountZero.exit ], [ %.1161290, %249 ], [ %.0160, %104 ]
-  %.5 = phi i32 [ %.3, %197 ], [ %.3, %205 ], [ %.3, %230 ], [ %.3, %238 ], [ %.1150292, %130 ], [ 0, %Abc_Clock.exit213 ], [ 0, %147 ], [ %.3, %Vec_PtrCountZero.exit ], [ %.3, %249 ], [ %.0149, %104 ]
+  %.2162 = phi i32 [ %.1161289, %197 ], [ %.1161289, %205 ], [ %.1161289, %230 ], [ %.1161289, %238 ], [ %.1161289, %130 ], [ %.1161289, %Abc_Clock.exit213 ], [ %.1161289, %147 ], [ %.1161289, %Vec_PtrCountZero.exit ], [ %.1161289, %249 ], [ %.0160, %104 ]
+  %.5 = phi i32 [ %.3, %197 ], [ %.3, %205 ], [ %.3, %230 ], [ %.3, %238 ], [ %.1150291, %130 ], [ 0, %Abc_Clock.exit213 ], [ 0, %147 ], [ %.3, %Vec_PtrCountZero.exit ], [ %.3, %249 ], [ %.0149, %104 ]
   %337 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %338 = load i32, ptr %337, align 4, !tbaa !137
   %.not190 = icmp eq i32 %338, 0
@@ -3183,11 +3183,11 @@ Abc_Clock.exit229:                                ; preds = %305, %325
 
 357:                                              ; preds = %355
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.7)
-  %.pre339 = load i32, ptr %1, align 8, !tbaa !3
+  %.pre338 = load i32, ptr %1, align 8, !tbaa !3
   br label %358
 
 358:                                              ; preds = %357, %355
-  %359 = phi i32 [ %.pre339, %357 ], [ %.2162, %355 ]
+  %359 = phi i32 [ %.pre338, %357 ], [ %.2162, %355 ]
   %360 = load i32, ptr %91, align 8, !tbaa !127
   %361 = mul nsw i32 %360, %.0153
   %362 = add nsw i32 %361, %.0148

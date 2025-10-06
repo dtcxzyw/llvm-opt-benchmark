@@ -1150,23 +1150,23 @@ collation_cache_distance.exit.i.i:                ; preds = %68, %66
   %.0.i.i.i = sub i32 %.pn.i.i.i, %67
   %72 = icmp ugt i32 %.089.i29.i, %.0.i.i.i
   %73 = add i32 %.077.i30.i, 1
-  br i1 %72, label %.preheader113.i.preheader.i, label %102
+  br i1 %72, label %.preheader112.i.preheader.i, label %102
 
-.preheader113.i.preheader.i:                      ; preds = %collation_cache_distance.exit.i.i
+.preheader112.i.preheader.i:                      ; preds = %collation_cache_distance.exit.i.i
   %74 = and i32 %73, %.val95.i.i
   %75 = zext i32 %74 to i64
   %76 = getelementptr inbounds nuw %struct.collation_cache_entry, ptr %49, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 20
   %78 = load i8, ptr %77, align 4
-  %.not112.i35.i = icmp eq i8 %78, 0
-  br i1 %.not112.i35.i, label %.preheader.i.i, label %.lr.ph37.i
+  %.not111.i35.i = icmp eq i8 %78, 0
+  br i1 %.not111.i35.i, label %.preheader.i.i, label %.lr.ph37.i
 
-.lr.ph37.i:                                       ; preds = %.preheader113.i.preheader.i, %.preheader113.i.i
-  %79 = phi i32 [ %90, %.preheader113.i.i ], [ %74, %.preheader113.i.preheader.i ]
-  %.079.i36.i = phi i32 [ %80, %.preheader113.i.i ], [ 0, %.preheader113.i.preheader.i ]
+.lr.ph37.i:                                       ; preds = %.preheader112.i.preheader.i, %.preheader112.i.i
+  %79 = phi i32 [ %90, %.preheader112.i.i ], [ %74, %.preheader112.i.preheader.i ]
+  %.079.i36.i = phi i32 [ %80, %.preheader112.i.i ], [ 0, %.preheader112.i.preheader.i ]
   %80 = add i32 %.079.i36.i, 1
   %81 = icmp sgt i32 %80, 150
-  br i1 %81, label %82, label %.preheader113.i.i, !prof !10
+  br i1 %81, label %82, label %.preheader112.i.i, !prof !10
 
 82:                                               ; preds = %.lr.ph37.i
   %83 = load i32, ptr %35, align 8
@@ -1175,35 +1175,35 @@ collation_cache_distance.exit.i.i:                ; preds = %68, %66
   %86 = uitofp i64 %85 to double
   %87 = fdiv double %84, %86
   %88 = fcmp ult double %87, 1.000000e-01
-  br i1 %88, label %.preheader113.i.i, label %.loopexit.loopexit.i.i
+  br i1 %88, label %.preheader112.i.i, label %.loopexit.loopexit.i.i
 
-.preheader113.i.i:                                ; preds = %82, %.lr.ph37.i
+.preheader112.i.i:                                ; preds = %82, %.lr.ph37.i
   %89 = add i32 %79, 1
   %90 = and i32 %89, %.val95.i.i
   %91 = zext i32 %90 to i64
   %92 = getelementptr inbounds nuw %struct.collation_cache_entry, ptr %49, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 20
   %94 = load i8, ptr %93, align 4
-  %.not112.i.i = icmp eq i8 %94, 0
-  br i1 %.not112.i.i, label %.preheader.i.i, label %.lr.ph37.i
+  %.not111.i.i = icmp eq i8 %94, 0
+  br i1 %.not111.i.i, label %.preheader.i.i, label %.lr.ph37.i
 
-.preheader.i.i:                                   ; preds = %.preheader113.i.i, %.preheader113.i.preheader.i
-  %.lcssa20.i = phi i32 [ %74, %.preheader113.i.preheader.i ], [ %90, %.preheader113.i.i ]
-  %.lcssa18.i = phi ptr [ %76, %.preheader113.i.preheader.i ], [ %92, %.preheader113.i.i ]
+.preheader.i.i:                                   ; preds = %.preheader112.i.i, %.preheader112.i.preheader.i
+  %.lcssa20.i = phi i32 [ %74, %.preheader112.i.preheader.i ], [ %90, %.preheader112.i.i ]
+  %.lcssa18.i = phi ptr [ %76, %.preheader112.i.preheader.i ], [ %92, %.preheader112.i.i ]
   %95 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %.lcssa6.lcssa.i = getelementptr inbounds nuw i8, ptr %59, i64 20
-  %.not94141.i.i = icmp eq i32 %.lcssa20.i, %.077.i30.i
-  br i1 %.not94141.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not94140.i.i = icmp eq i32 %.lcssa20.i, %.077.i30.i
+  br i1 %.not94140.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
-  %.081143.i.i = phi i32 [ %97, %.lr.ph.i.i ], [ %.lcssa20.i, %.preheader.i.i ]
-  %.285142.i.i = phi ptr [ %99, %.lr.ph.i.i ], [ %.lcssa18.i, %.preheader.i.i ]
+  %.081142.i.i = phi i32 [ %97, %.lr.ph.i.i ], [ %.lcssa20.i, %.preheader.i.i ]
+  %.285141.i.i = phi ptr [ %99, %.lr.ph.i.i ], [ %.lcssa18.i, %.preheader.i.i ]
   %.val99.i.i = load i32, ptr %38, align 4
-  %96 = add i32 %.081143.i.i, -1
+  %96 = add i32 %.081142.i.i, -1
   %97 = and i32 %.val99.i.i, %96
   %98 = zext i32 %97 to i64
   %99 = getelementptr inbounds nuw %struct.collation_cache_entry, ptr %49, i64 %98
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.285142.i.i, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.285141.i.i, ptr noundef nonnull align 8 dereferenceable(24) %99, i64 24, i1 false)
   %.not94.i.i = icmp eq i32 %97, %.077.i30.i
   br i1 %.not94.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !11
 
@@ -2015,46 +2015,46 @@ collation_cache_update_parameters.exit:           ; preds = %collation_cache_com
   %.sink.i = select i1 %32, i32 -85899346, i32 %35
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %.sink.i, ptr %36, align 8
-  %.not72 = icmp eq i64 %3, 0
-  br i1 %.not72, label %._crit_edge, label %.lr.ph
+  %.not71 = icmp eq i64 %3, 0
+  br i1 %.not71, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %collation_cache_update_parameters.exit, %45
   %37 = phi i64 [ %47, %45 ], [ 0, %collation_cache_update_parameters.exit ]
-  %.064 = phi i32 [ %46, %45 ], [ 0, %collation_cache_update_parameters.exit ]
+  %.063 = phi i32 [ %46, %45 ], [ 0, %collation_cache_update_parameters.exit ]
   %38 = getelementptr inbounds nuw %struct.collation_cache_entry, ptr %5, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %40 = load i8, ptr %39, align 4
   %.not = icmp eq i8 %40, 1
-  br i1 %.not, label %41, label %.lr.ph71.preheader
+  br i1 %.not, label %41, label %.lr.ph70.preheader
 
 41:                                               ; preds = %.lr.ph
   %42 = getelementptr i8, ptr %38, i64 16
   %.val56 = load i32, ptr %42, align 8
   %43 = and i32 %.val56, %30
-  %44 = icmp eq i32 %43, %.064
-  br i1 %44, label %.lr.ph71.preheader, label %45
+  %44 = icmp eq i32 %43, %.063
+  br i1 %44, label %.lr.ph70.preheader, label %45
 
 45:                                               ; preds = %41
-  %46 = add i32 %.064, 1
+  %46 = add i32 %.063, 1
   %47 = zext i32 %46 to i64
   %48 = icmp ugt i64 %3, %47
-  br i1 %48, label %.lr.ph, label %.lr.ph71.preheader, !llvm.loop !15
+  br i1 %48, label %.lr.ph, label %.lr.ph70.preheader, !llvm.loop !15
 
-.lr.ph71.preheader:                               ; preds = %45, %.lr.ph, %41
-  %.05169.ph = phi i32 [ %.064, %41 ], [ %.064, %.lr.ph ], [ 0, %45 ]
-  br label %.lr.ph71
+.lr.ph70.preheader:                               ; preds = %45, %.lr.ph, %41
+  %.05168.ph = phi i32 [ %.063, %41 ], [ %.063, %.lr.ph ], [ 0, %45 ]
+  br label %.lr.ph70
 
-.lr.ph71:                                         ; preds = %.lr.ph71.preheader, %64
-  %.170 = phi i32 [ %67, %64 ], [ 0, %.lr.ph71.preheader ]
-  %.05169 = phi i32 [ %spec.store.select, %64 ], [ %.05169.ph, %.lr.ph71.preheader ]
-  %49 = zext i32 %.05169 to i64
+.lr.ph70:                                         ; preds = %.lr.ph70.preheader, %64
+  %.169 = phi i32 [ %67, %64 ], [ 0, %.lr.ph70.preheader ]
+  %.05168 = phi i32 [ %spec.store.select, %64 ], [ %.05168.ph, %.lr.ph70.preheader ]
+  %49 = zext i32 %.05168 to i64
   %50 = getelementptr inbounds nuw %struct.collation_cache_entry, ptr %5, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load i8, ptr %51, align 4
   %53 = icmp eq i8 %52, 1
   br i1 %53, label %54, label %64
 
-54:                                               ; preds = %.lr.ph71
+54:                                               ; preds = %.lr.ph70
   %55 = getelementptr i8, ptr %50, i64 16
   %.val57 = load i32, ptr %55, align 8
   %.val59 = load i32, ptr %31, align 4
@@ -2075,15 +2075,15 @@ collation_cache_update_parameters.exit:           ; preds = %collation_cache_com
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %50, i64 24, i1 false)
   br label %64
 
-64:                                               ; preds = %63, %.lr.ph71
-  %65 = add i32 %.05169, 1
+64:                                               ; preds = %63, %.lr.ph70
+  %65 = add i32 %.05168, 1
   %66 = zext i32 %65 to i64
   %.not55 = icmp ugt i64 %3, %66
   %spec.store.select = select i1 %.not55, i32 %65, i32 0
-  %67 = add i32 %.170, 1
+  %67 = add i32 %.169, 1
   %68 = zext i32 %67 to i64
   %69 = icmp ugt i64 %3, %68
-  br i1 %69, label %.lr.ph71, label %._crit_edge, !llvm.loop !16
+  br i1 %69, label %.lr.ph70, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %64, %collation_cache_update_parameters.exit
   tail call void @pfree(ptr noundef %5) #20

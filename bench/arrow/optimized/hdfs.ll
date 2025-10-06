@@ -2411,9 +2411,9 @@ define linkonce_odr hidden void @_ZN5arrow2io16HdfsOutputStream20HdfsOutputStrea
   %13 = load ptr, ptr %12, align 8, !tbaa !56, !noalias !238
   %14 = tail call noundef i32 @_ZN5arrow2io8internal11LibHdfsShim5FlushEP13hdfs_internalP17hdfsFile_internal(ptr noundef nonnull align 8 dereferenceable(312) %9, ptr noundef %11, ptr noundef %13), !noalias !238
   %15 = icmp eq i32 %14, -1
-  br i1 %15, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6StatusD2Ev.exit8.thread
+  br i1 %15, label %_ZN5arrow6StatusD2Ev.exit, label %_ZN5arrow6StatusD2Ev.exit7.thread
 
-_ZN5arrow6StatusD2Ev.exit8.thread:                ; preds = %7
+_ZN5arrow6StatusD2Ev.exit7.thread:                ; preds = %7
   store ptr null, ptr %0, align 8, !tbaa !58, !alias.scope !241
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %19
@@ -2429,7 +2429,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %7
   %18 = icmp eq ptr %.pr, null
   br i1 %18, label %19, label %28
 
-19:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit8.thread, %_ZN5arrow6StatusD2Ev.exit
+19:                                               ; preds = %_ZN5arrow6StatusD2Ev.exit7.thread, %_ZN5arrow6StatusD2Ev.exit
   %20 = load ptr, ptr %8, align 8, !tbaa !54
   %21 = load ptr, ptr %10, align 8, !tbaa !55
   %22 = load ptr, ptr %12, align 8, !tbaa !56

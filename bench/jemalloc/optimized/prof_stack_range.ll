@@ -144,9 +144,9 @@ malloc_read_fd.exit.i18:                          ; preds = %51, %.preheader.i, 
 
 54:                                               ; preds = %37
   %55 = icmp eq ptr %.049.i, null
-  br i1 %55, label %.preheader99.i, label %71
+  br i1 %55, label %.preheader98.i, label %71
 
-.preheader99.i:                                   ; preds = %54, %62
+.preheader98.i:                                   ; preds = %54, %62
   %.015.i72.i = phi i64 [ %.116.i75.i, %62 ], [ 0, %54 ]
   %.014.i73.i = phi i64 [ %.1.i76.i, %62 ], [ undef, %54 ]
   %56 = getelementptr inbounds nuw i8, ptr %2, i64 %.015.i72.i
@@ -164,15 +164,15 @@ malloc_read_fd.exit.i18:                          ; preds = %51, %.preheader.i, 
     i32 2, label %malloc_read_fd.exit80.i
   ]
 
-62:                                               ; preds = %.preheader99.i
+62:                                               ; preds = %.preheader98.i
   %63 = icmp ult i64 %.116.i75.i, 4096
-  br i1 %63, label %.preheader99.i, label %malloc_read_fd.exit80.i, !llvm.loop !8
+  br i1 %63, label %.preheader98.i, label %malloc_read_fd.exit80.i, !llvm.loop !8
 
-malloc_read_fd.exit80.i.loopexit:                 ; preds = %.preheader99.i
+malloc_read_fd.exit80.i.loopexit:                 ; preds = %.preheader98.i
   br label %malloc_read_fd.exit80.i
 
-malloc_read_fd.exit80.i:                          ; preds = %62, %.preheader99.i, %malloc_read_fd.exit80.i.loopexit
-  %.2.i78.i = phi i64 [ %.1.i76.i, %malloc_read_fd.exit80.i.loopexit ], [ %.116.i75.i, %.preheader99.i ], [ %.116.i75.i, %62 ]
+malloc_read_fd.exit80.i:                          ; preds = %62, %.preheader98.i, %malloc_read_fd.exit80.i.loopexit
+  %.2.i78.i = phi i64 [ %.1.i76.i, %malloc_read_fd.exit80.i.loopexit ], [ %.116.i75.i, %.preheader98.i ], [ %.116.i75.i, %62 ]
   %64 = icmp slt i64 %.2.i78.i, 1
   br i1 %64, label %.loopexit.i, label %65
 
@@ -196,14 +196,14 @@ malloc_read_fd.exit80.i:                          ; preds = %62, %.preheader99.i
   %74 = sub nsw i64 0, %.053.i
   %75 = call i64 (i64, ...) @syscall(i64 noundef 8, i32 noundef range(i32 0, -2147483648) %.044.i.ph, i64 noundef range(i64 -33, 9223372036854775807) %74, i32 noundef 1) #9
   %76 = icmp eq i64 %75, -1
-  br i1 %76, label %77, label %.preheader100.i
+  br i1 %76, label %77, label %.preheader99.i
 
 77:                                               ; preds = %73
   %78 = tail call ptr @__errno_location() #10
   %79 = load i32, ptr %78, align 4, !tbaa !11
   br label %.loopexit.i
 
-.preheader100.i:                                  ; preds = %73, %86
+.preheader99.i:                                   ; preds = %73, %86
   %.015.i81.i = phi i64 [ %.116.i84.i, %86 ], [ 0, %73 ]
   %.014.i82.i = phi i64 [ %.1.i85.i, %86 ], [ undef, %73 ]
   %80 = getelementptr inbounds nuw i8, ptr %2, i64 %.015.i81.i
@@ -221,15 +221,15 @@ malloc_read_fd.exit80.i:                          ; preds = %62, %.preheader99.i
     i32 2, label %malloc_read_fd.exit89.i
   ]
 
-86:                                               ; preds = %.preheader100.i
+86:                                               ; preds = %.preheader99.i
   %87 = icmp ult i64 %.116.i84.i, 4096
-  br i1 %87, label %.preheader100.i, label %malloc_read_fd.exit89.i, !llvm.loop !8
+  br i1 %87, label %.preheader99.i, label %malloc_read_fd.exit89.i, !llvm.loop !8
 
-malloc_read_fd.exit89.i.loopexit:                 ; preds = %.preheader100.i
+malloc_read_fd.exit89.i.loopexit:                 ; preds = %.preheader99.i
   br label %malloc_read_fd.exit89.i
 
-malloc_read_fd.exit89.i:                          ; preds = %86, %.preheader100.i, %malloc_read_fd.exit89.i.loopexit
-  %.2.i87.i = phi i64 [ %.1.i85.i, %malloc_read_fd.exit89.i.loopexit ], [ %.116.i84.i, %.preheader100.i ], [ %.116.i84.i, %86 ]
+malloc_read_fd.exit89.i:                          ; preds = %86, %.preheader99.i, %malloc_read_fd.exit89.i.loopexit
+  %.2.i87.i = phi i64 [ %.1.i85.i, %malloc_read_fd.exit89.i.loopexit ], [ %.116.i84.i, %.preheader99.i ], [ %.116.i84.i, %86 ]
   %88 = icmp slt i64 %.2.i87.i, 1
   br i1 %88, label %.loopexit.i, label %.backedge
 

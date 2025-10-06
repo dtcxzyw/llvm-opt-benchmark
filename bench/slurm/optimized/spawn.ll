@@ -569,7 +569,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %25 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 223, ptr noundef nonnull @__func__.spawn_req_unpack) #10
   %26 = tail call i32 @slurm_unpack32(ptr noundef %25, ptr noundef %1) #10
   %.not144 = icmp eq i32 %26, 0
-  br i1 %.not144, label %27, label %.thread187
+  br i1 %.not144, label %27, label %.thread184
 
 27:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -577,13 +577,13 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %29 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef nonnull %28, ptr noundef nonnull %3, ptr noundef %1) #10
   %.not145 = icmp eq i32 %29, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not145, label %30, label %.thread187
+  br i1 %.not145, label %30, label %.thread184
 
 30:                                               ; preds = %27
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %32 = call i32 @slurm_unpack32(ptr noundef nonnull %31, ptr noundef %1) #10
   %.not146 = icmp eq i32 %32, 0
-  br i1 %.not146, label %33, label %.thread187
+  br i1 %.not146, label %33, label %.thread184
 
 33:                                               ; preds = %30
   %34 = load i32, ptr %31, align 8
@@ -601,18 +601,18 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store ptr %39, ptr %40, align 8
   %.not148 = icmp eq ptr %39, null
-  br i1 %.not148, label %.thread187, label %41
+  br i1 %.not148, label %.thread184, label %41
 
 41:                                               ; preds = %35, %37
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %43 = call i32 @slurm_unpack32(ptr noundef nonnull %42, ptr noundef %1) #10
   %.not149 = icmp eq i32 %43, 0
-  br i1 %.not149, label %44, label %.thread187
+  br i1 %.not149, label %44, label %.thread184
 
 44:                                               ; preds = %41
   %45 = load i32, ptr %42, align 4
   %.not150 = icmp eq i32 %45, 0
-  br i1 %.not150, label %.loopexit196, label %46
+  br i1 %.not150, label %.loopexit191, label %46
 
 46:                                               ; preds = %44
   %47 = zext i32 %45 to i64
@@ -620,7 +620,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %49 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %48, ptr %49, align 8
   %.not151 = icmp eq ptr %48, null
-  br i1 %.not151, label %.thread187, label %50
+  br i1 %.not151, label %.thread184, label %50
 
 50:                                               ; preds = %46
   %51 = load i32, ptr %42, align 4
@@ -630,7 +630,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
 .thread:                                          ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr null, ptr %52, align 8
-  br label %.loopexit196
+  br label %.loopexit191
 
 53:                                               ; preds = %50
   %54 = zext i32 %51 to i64
@@ -638,12 +638,12 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %56 = getelementptr inbounds nuw i8, ptr %25, i64 32
   store ptr %55, ptr %56, align 8
   %.not153 = icmp eq ptr %55, null
-  br i1 %.not153, label %.thread187, label %57
+  br i1 %.not153, label %.thread184, label %57
 
 57:                                               ; preds = %53
   %.pre = load i32, ptr %42, align 4
   %58 = icmp eq i32 %.pre, 0
-  br i1 %58, label %.loopexit196, label %.lr.ph
+  br i1 %58, label %.loopexit191, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -654,7 +654,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %61 = load i32, ptr %42, align 4
   %62 = zext i32 %61 to i64
   %63 = icmp samesign ult i64 %indvars.iv.next, %62
-  br i1 %63, label %64, label %.loopexit196, !llvm.loop !20
+  br i1 %63, label %64, label %.loopexit191, !llvm.loop !20
 
 64:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
@@ -664,7 +664,7 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %67 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %66, ptr noundef nonnull %4, ptr noundef %1) #10
   %.not167 = icmp eq i32 %67, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not167, label %68, label %.thread187
+  br i1 %.not167, label %68, label %.thread184
 
 68:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -673,48 +673,48 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %71 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %70, ptr noundef nonnull %5, ptr noundef %1) #10
   %.not168 = icmp eq i32 %71, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not168, label %60, label %.thread187
+  br i1 %.not168, label %60, label %.thread184
 
-.loopexit196:                                     ; preds = %60, %.thread, %57, %44
+.loopexit191:                                     ; preds = %60, %.thread, %57, %44
   %72 = load i32, ptr %31, align 8
-  %.not206 = icmp eq i32 %72, 0
-  br i1 %.not206, label %._crit_edge, label %.lr.ph204
+  %.not201 = icmp eq i32 %72, 0
+  br i1 %.not201, label %._crit_edge, label %.lr.ph199
 
-.lr.ph204:                                        ; preds = %.loopexit196
+.lr.ph199:                                        ; preds = %.loopexit191
   %73 = getelementptr inbounds nuw i8, ptr %25, i64 40
   br label %74
 
-74:                                               ; preds = %.lr.ph204, %.loopexit
-  %indvars.iv219 = phi i64 [ 0, %.lr.ph204 ], [ %indvars.iv.next220, %.loopexit ]
+74:                                               ; preds = %.lr.ph199, %.loopexit
+  %indvars.iv214 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next215, %.loopexit ]
   %75 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 48, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 74, ptr noundef nonnull @__func__.spawn_subcmd_new) #10
   %76 = load ptr, ptr %73, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv219
+  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv214
   store ptr %75, ptr %77, align 8
   %78 = load ptr, ptr %73, align 8
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv219
+  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv214
   %80 = load ptr, ptr %79, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %81 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %80, ptr noundef nonnull %6, ptr noundef %1) #10
   %.not154 = icmp eq i32 %81, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not154, label %82, label %.thread187
+  br i1 %.not154, label %82, label %.thread184
 
 82:                                               ; preds = %74
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %84 = call i32 @slurm_unpack32(ptr noundef nonnull %83, ptr noundef %1) #10
   %.not155 = icmp eq i32 %84, 0
-  br i1 %.not155, label %85, label %.thread187
+  br i1 %.not155, label %85, label %.thread184
 
 85:                                               ; preds = %82
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %87 = call i32 @slurm_unpack32(ptr noundef nonnull %86, ptr noundef %1) #10
   %.not156 = icmp eq i32 %87, 0
-  br i1 %.not156, label %88, label %.thread187
+  br i1 %.not156, label %88, label %.thread184
 
 88:                                               ; preds = %85
   %89 = load i32, ptr %86, align 4
   %.not157 = icmp eq i32 %89, 0
-  br i1 %.not157, label %.loopexit193, label %90
+  br i1 %.not157, label %.loopexit188, label %90
 
 90:                                               ; preds = %88
   %91 = zext i32 %89 to i64
@@ -722,37 +722,37 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %93 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store ptr %92, ptr %93, align 8
   %.not158 = icmp eq ptr %92, null
-  br i1 %.not158, label %.thread187, label %.preheader
+  br i1 %.not158, label %.thread184, label %.preheader
 
 .preheader:                                       ; preds = %90
   %94 = load i32, ptr %86, align 4
-  %.not207 = icmp eq i32 %94, 0
-  br i1 %.not207, label %.loopexit193, label %.lr.ph200
+  %.not202 = icmp eq i32 %94, 0
+  br i1 %.not202, label %.loopexit188, label %.lr.ph195
 
-95:                                               ; preds = %.lr.ph200
-  %indvars.iv.next214 = add nuw nsw i64 %indvars.iv213, 1
+95:                                               ; preds = %.lr.ph195
+  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
   %96 = load i32, ptr %86, align 4
   %97 = zext i32 %96 to i64
-  %98 = icmp samesign ult i64 %indvars.iv.next214, %97
-  br i1 %98, label %.lr.ph200, label %.loopexit193, !llvm.loop !21
+  %98 = icmp samesign ult i64 %indvars.iv.next209, %97
+  br i1 %98, label %.lr.ph195, label %.loopexit188, !llvm.loop !21
 
-.lr.ph200:                                        ; preds = %.preheader, %95
-  %indvars.iv213 = phi i64 [ %indvars.iv.next214, %95 ], [ 0, %.preheader ]
+.lr.ph195:                                        ; preds = %.preheader, %95
+  %indvars.iv208 = phi i64 [ %indvars.iv.next209, %95 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %99 = load ptr, ptr %93, align 8
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv213
+  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv208
   %101 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %100, ptr noundef nonnull %7, ptr noundef %1) #10
   %.not166 = icmp eq i32 %101, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not166, label %95, label %.thread187
+  br i1 %.not166, label %95, label %.thread184
 
-.loopexit193:                                     ; preds = %95, %.preheader, %88
+.loopexit188:                                     ; preds = %95, %.preheader, %88
   %102 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %103 = call i32 @slurm_unpack32(ptr noundef nonnull %102, ptr noundef %1) #10
   %.not159 = icmp eq i32 %103, 0
-  br i1 %.not159, label %104, label %.thread187
+  br i1 %.not159, label %104, label %.thread184
 
-104:                                              ; preds = %.loopexit193
+104:                                              ; preds = %.loopexit188
   %105 = load i32, ptr %102, align 8
   %.not160 = icmp eq i32 %105, 0
   br i1 %.not160, label %.loopexit, label %106
@@ -763,14 +763,14 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %109 = getelementptr inbounds nuw i8, ptr %80, i64 32
   store ptr %108, ptr %109, align 8
   %.not161 = icmp eq ptr %108, null
-  br i1 %.not161, label %.thread187, label %110
+  br i1 %.not161, label %.thread184, label %110
 
 110:                                              ; preds = %106
   %111 = load i32, ptr %102, align 8
   %.not162 = icmp eq i32 %111, 0
-  br i1 %.not162, label %.thread234, label %113
+  br i1 %.not162, label %.thread229, label %113
 
-.thread234:                                       ; preds = %110
+.thread229:                                       ; preds = %110
   %112 = getelementptr inbounds nuw i8, ptr %80, i64 40
   store ptr null, ptr %112, align 8
   br label %.loopexit
@@ -781,60 +781,60 @@ define dso_local range(i32 -1, 1) i32 @spawn_req_unpack(ptr noundef writeonly ca
   %116 = getelementptr inbounds nuw i8, ptr %80, i64 40
   store ptr %115, ptr %116, align 8
   %.not163 = icmp eq ptr %115, null
-  br i1 %.not163, label %.thread187, label %117
+  br i1 %.not163, label %.thread184, label %117
 
 117:                                              ; preds = %113
-  %.pre224 = load i32, ptr %102, align 8
-  %118 = icmp eq i32 %.pre224, 0
-  br i1 %118, label %.loopexit, label %.lr.ph202
+  %.pre219 = load i32, ptr %102, align 8
+  %118 = icmp eq i32 %.pre219, 0
+  br i1 %118, label %.loopexit, label %.lr.ph197
 
-.lr.ph202:                                        ; preds = %117
+.lr.ph197:                                        ; preds = %117
   %119 = getelementptr inbounds nuw i8, ptr %80, i64 40
   br label %124
 
 120:                                              ; preds = %128
-  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
+  %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %121 = load i32, ptr %102, align 8
   %122 = zext i32 %121 to i64
-  %123 = icmp samesign ult i64 %indvars.iv.next217, %122
+  %123 = icmp samesign ult i64 %indvars.iv.next212, %122
   br i1 %123, label %124, label %.loopexit, !llvm.loop !22
 
-124:                                              ; preds = %.lr.ph202, %120
-  %indvars.iv216 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next217, %120 ]
+124:                                              ; preds = %.lr.ph197, %120
+  %indvars.iv211 = phi i64 [ 0, %.lr.ph197 ], [ %indvars.iv.next212, %120 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %125 = load ptr, ptr %109, align 8
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv216
+  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv211
   %127 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %126, ptr noundef nonnull %8, ptr noundef %1) #10
   %.not164 = icmp eq i32 %127, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not164, label %128, label %.thread187
+  br i1 %.not164, label %128, label %.thread184
 
 128:                                              ; preds = %124
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %129 = load ptr, ptr %119, align 8
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv216
+  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %indvars.iv211
   %131 = call i32 @slurm_unpackstr_xmalloc_chooser(ptr noundef %130, ptr noundef nonnull %9, ptr noundef %1) #10
   %.not165 = icmp eq i32 %131, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.not165, label %120, label %.thread187
+  br i1 %.not165, label %120, label %.thread184
 
-.loopexit:                                        ; preds = %120, %.thread234, %117, %104
-  %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
+.loopexit:                                        ; preds = %120, %.thread229, %117, %104
+  %indvars.iv.next215 = add nuw nsw i64 %indvars.iv214, 1
   %132 = load i32, ptr %31, align 8
   %133 = zext i32 %132 to i64
-  %134 = icmp samesign ult i64 %indvars.iv.next220, %133
+  %134 = icmp samesign ult i64 %indvars.iv.next215, %133
   br i1 %134, label %74, label %._crit_edge, !llvm.loop !23
 
-._crit_edge:                                      ; preds = %.loopexit, %.loopexit196
+._crit_edge:                                      ; preds = %.loopexit, %.loopexit191
   store ptr %25, ptr %0, align 8
   br label %135
 
-.thread187:                                       ; preds = %68, %64, %113, %106, %90, %74, %.loopexit193, %85, %82, %.lr.ph200, %128, %124, %53, %37, %46, %27, %41, %30, %24
+.thread184:                                       ; preds = %68, %64, %113, %106, %90, %74, %.loopexit188, %85, %82, %.lr.ph195, %128, %124, %53, %37, %46, %27, %41, %30, %24
   call void @spawn_req_free(ptr noundef %25)
   br label %135
 
-135:                                              ; preds = %.thread187, %._crit_edge, %22, %17, %12
-  %.0 = phi i32 [ -1, %12 ], [ -1, %17 ], [ -1, %22 ], [ -1, %.thread187 ], [ 0, %._crit_edge ]
+135:                                              ; preds = %.thread184, %._crit_edge, %22, %17, %12
+  %.0 = phi i32 [ -1, %12 ], [ -1, %17 ], [ -1, %22 ], [ -1, %.thread184 ], [ 0, %._crit_edge ]
   ret i32 %.0
 }
 

@@ -19,20 +19,20 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
 
 7:                                                ; preds = %.lr.ph, %88
   %8 = phi i8 [ %4, %.lr.ph ], [ %89, %88 ]
-  %.06291 = phi ptr [ %0, %.lr.ph ], [ %.163, %88 ]
+  %.06289 = phi ptr [ %0, %.lr.ph ], [ %.163, %88 ]
   %9 = and i8 %8, -2
   %or.cond = icmp eq i8 %9, 112
   br i1 %or.cond, label %10, label %20
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds nuw i8, ptr %.06291, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.06289, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !4
   %13 = zext i8 %12 to i64
   %14 = shl nuw nsw i64 %13, 8
-  %15 = getelementptr inbounds nuw i8, ptr %.06291, i64 2
+  %15 = getelementptr inbounds nuw i8, ptr %.06289, i64 2
   %16 = load i8, ptr %15, align 1, !tbaa !4
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw i8, ptr %.06291, i64 %14
+  %18 = getelementptr inbounds nuw i8, ptr %.06289, i64 %14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 %17
   br label %88
 
@@ -41,14 +41,14 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   br i1 %21, label %22, label %32
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw i8, ptr %.06291, i64 5
+  %23 = getelementptr inbounds nuw i8, ptr %.06289, i64 5
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = zext i8 %24 to i64
   %26 = shl nuw nsw i64 %25, 8
-  %27 = getelementptr inbounds nuw i8, ptr %.06291, i64 6
+  %27 = getelementptr inbounds nuw i8, ptr %.06289, i64 6
   %28 = load i8, ptr %27, align 1, !tbaa !4
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw i8, ptr %.06291, i64 %26
+  %30 = getelementptr inbounds nuw i8, ptr %.06289, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 %29
   br label %88
 
@@ -64,7 +64,7 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   %36 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !4
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i8, ptr %.06291, i64 %38
+  %39 = getelementptr inbounds nuw i8, ptr %.06289, i64 %38
   br label %88
 
 40:                                               ; preds = %32
@@ -94,11 +94,11 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   ]
 
 41:                                               ; preds = %40, %40, %40, %40
-  %42 = getelementptr inbounds nuw i8, ptr %.06291, i64 3
+  %42 = getelementptr inbounds nuw i8, ptr %.06289, i64 3
   %43 = load i8, ptr %42, align 1, !tbaa !4
   %44 = zext i8 %43 to i32
   %45 = shl nuw nsw i32 %44, 8
-  %46 = getelementptr inbounds nuw i8, ptr %.06291, i64 4
+  %46 = getelementptr inbounds nuw i8, ptr %.06289, i64 4
   %47 = load i8, ptr %46, align 1, !tbaa !4
   %48 = zext i8 %47 to i32
   %49 = or disjoint i32 %45, %48
@@ -110,39 +110,39 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   %52 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !4
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i8, ptr %.06291, i64 %54
+  %55 = getelementptr inbounds nuw i8, ptr %.06289, i64 %54
   br label %88
 
 56:                                               ; preds = %40, %40, %40, %40, %40, %40, %40, %40, %40
-  %57 = getelementptr inbounds nuw i8, ptr %.06291, i64 1
+  %57 = getelementptr inbounds nuw i8, ptr %.06289, i64 1
   %58 = load i8, ptr %57, align 1, !tbaa !4
-  %.off73 = add i8 %58, -15
-  %switch74 = icmp ult i8 %.off73, 2
-  %spec.select75.idx = select i1 %switch74, i64 2, i64 0
+  %.off72 = add i8 %58, -15
+  %switch73 = icmp ult i8 %.off72, 2
+  %spec.select74.idx = select i1 %switch73, i64 2, i64 0
   br label %.thread
 
 59:                                               ; preds = %40, %40, %40, %40
-  %60 = getelementptr inbounds nuw i8, ptr %.06291, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %.06289, i64 3
   %61 = load i8, ptr %60, align 1, !tbaa !4
-  %.off76 = add i8 %61, -15
-  %switch77 = icmp ult i8 %.off76, 2
-  %spec.select78.idx = select i1 %switch77, i64 2, i64 0
+  %.off75 = add i8 %61, -15
+  %switch76 = icmp ult i8 %.off75, 2
+  %spec.select77.idx = select i1 %switch76, i64 2, i64 0
   br label %.thread
 
 62:                                               ; preds = %40, %40, %40, %40, %40
-  %63 = getelementptr inbounds nuw i8, ptr %.06291, i64 1
+  %63 = getelementptr inbounds nuw i8, ptr %.06289, i64 1
   %64 = load i8, ptr %63, align 1, !tbaa !4
   %65 = zext i8 %64 to i64
   br label %.thread
 
 .thread:                                          ; preds = %59, %56, %62
-  %spec.select78.idx.sink = phi i64 [ %spec.select78.idx, %59 ], [ %spec.select75.idx, %56 ], [ %65, %62 ]
-  %spec.select78 = getelementptr inbounds nuw i8, ptr %.06291, i64 %spec.select78.idx.sink
+  %spec.select77.idx.sink = phi i64 [ %spec.select77.idx, %59 ], [ %spec.select74.idx, %56 ], [ %65, %62 ]
+  %spec.select77 = getelementptr inbounds nuw i8, ptr %.06289, i64 %spec.select77.idx.sink
   %66 = zext i8 %8 to i64
   %67 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !4
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw i8, ptr %spec.select78, i64 %69
+  %70 = getelementptr inbounds nuw i8, ptr %spec.select77, i64 %69
   br label %88
 
 71:                                               ; preds = %40
@@ -150,7 +150,7 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   %73 = getelementptr inbounds nuw i8, ptr @_pcre2_OP_lengths_8, i64 %72
   %74 = load i8, ptr %73, align 1, !tbaa !4
   %75 = zext i8 %74 to i64
-  %76 = getelementptr inbounds nuw i8, ptr %.06291, i64 %75
+  %76 = getelementptr inbounds nuw i8, ptr %.06289, i64 %75
   %.off = add i8 %8, -29
   %switch = icmp ult i8 %.off, 56
   %or.cond71 = and i1 %.not, %switch
@@ -178,7 +178,7 @@ define hidden noundef ptr @_pcre2_find_bracket_8(ptr noundef readonly captures(r
   br i1 %90, label %._crit_edge, label %7
 
 ._crit_edge:                                      ; preds = %41, %33, %88, %3
-  %.1.ph = phi ptr [ null, %3 ], [ null, %88 ], [ %.06291, %33 ], [ %.06291, %41 ]
+  %.1.ph = phi ptr [ null, %3 ], [ null, %88 ], [ %.06289, %33 ], [ %.06289, %41 ]
   ret ptr %.1.ph
 }
 

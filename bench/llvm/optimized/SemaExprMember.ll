@@ -582,17 +582,17 @@ _ZN5clang4Decl14getDeclContextEv.exit.i:          ; preds = %62, %50
   %74 = zext i32 %73 to i64
   %.idx.i.i.i = shl nuw nsw i64 %74, 3
   %75 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i.i
-  %.not36.i.i.i = icmp eq i32 %73, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not34.i.i.i = icmp eq i32 %73, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %71, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %77, %.critedge.i.i.i ], [ %72, %71 ]
-  %76 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !709, !noalias !705
+  %.02935.i.i.i = phi ptr [ %77, %.critedge.i.i.i ], [ %72, %71 ]
+  %76 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !709, !noalias !705
   %.not17.i.i.i = icmp eq ptr %76, %68
   br i1 %.not17.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %77 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i68.i = icmp eq ptr %77, %75
   br i1 %.not.i.i68.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !710
 
@@ -762,17 +762,17 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %154, %149
   %165 = zext i32 %164 to i64
   %.idx.i.i88.i = shl nuw nsw i64 %165, 3
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 %.idx.i.i88.i
-  %.not36.i.i89.i = icmp eq i32 %164, 0
-  br i1 %.not36.i.i89.i, label %._crit_edge.i.i95.i, label %.lr.ph.i.i90.i
+  %.not34.i.i89.i = icmp eq i32 %164, 0
+  br i1 %.not34.i.i89.i, label %._crit_edge.i.i95.i, label %.lr.ph.i.i90.i
 
 .lr.ph.i.i90.i:                                   ; preds = %162, %.critedge.i.i93.i
-  %.02937.i.i91.i = phi ptr [ %168, %.critedge.i.i93.i ], [ %163, %162 ]
-  %167 = load ptr, ptr %.02937.i.i91.i, align 8, !tbaa !709, !noalias !752
+  %.02935.i.i91.i = phi ptr [ %168, %.critedge.i.i93.i ], [ %163, %162 ]
+  %167 = load ptr, ptr %.02935.i.i91.i, align 8, !tbaa !709, !noalias !752
   %.not17.i.i92.i = icmp eq ptr %167, %159
   br i1 %.not17.i.i92.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang13CXXRecordDeclEE6insertES4_.exit100.i, label %.critedge.i.i93.i
 
 .critedge.i.i93.i:                                ; preds = %.lr.ph.i.i90.i
-  %168 = getelementptr inbounds nuw i8, ptr %.02937.i.i91.i, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %.02935.i.i91.i, i64 8
   %.not.i.i94.i = icmp eq ptr %168, %166
   br i1 %.not.i.i94.i, label %._crit_edge.i.i95.i, label %.lr.ph.i.i90.i, !llvm.loop !710
 
@@ -6554,13 +6554,13 @@ _ZN5clang19StreamingDiagnosticD2Ev.exit703:       ; preds = %.critedge14, %925, 
   %951 = getelementptr inbounds nuw i8, ptr %950, i64 16
   %952 = load i8, ptr %951, align 16
   %953 = icmp ne i8 %952, 13
-  %.not.not27.i = icmp eq ptr %950, null
-  %.not.not.i = or i1 %.not.not27.i, %953
+  %.not.not24.i = icmp eq ptr %950, null
+  %.not.not.i = or i1 %.not.not24.i, %953
   br i1 %.not.not.i, label %954, label %_ZNK5clang4Type12isScalarTypeEv.exit
 
 954:                                              ; preds = %943
   %955 = icmp ne i8 %952, 46
-  %.not12.not.i = or i1 %.not.not27.i, %955
+  %.not12.not.i = or i1 %.not.not24.i, %955
   br i1 %.not12.not.i, label %964, label %956
 
 956:                                              ; preds = %954
@@ -9362,17 +9362,17 @@ _ZNK5clang4Sema20isUnevaluatedContextEv.exit:     ; preds = %2
   %61 = zext i32 %60 to i64
   %.idx.i.i = shl nuw nsw i64 %61, 3
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %60, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %60, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %57, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %64, %.critedge.i.i ], [ %58, %57 ]
-  %63 = load ptr, ptr %.02937.i.i, align 8, !tbaa !709, !noalias !1073
+  %.02935.i.i = phi ptr [ %64, %.critedge.i.i ], [ %58, %57 ]
+  %63 = load ptr, ptr %.02935.i.i, align 8, !tbaa !709, !noalias !1073
   %.not17.i.i = icmp eq ptr %63, %1
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4ExprEE6insertES4_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %64 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %64, %62
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !710
 
@@ -11511,8 +11511,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -16407,29 +16407,29 @@ _ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i: ; preds = %_ZNK5clang16
 
 _ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge: ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i
   %.pre = and i64 %.0.copyload.i.i.i.pre.i.i6.i, -8
-  %.pre5 = inttoptr i64 %.pre to ptr
+  %.pre7 = inttoptr i64 %.pre to ptr
   br label %_ZNK5clang16ObjCProtocolDecl9protocolsEv.exit
 
 _ZNK5clang16ObjCProtocolDecl9protocolsEv.exit:    ; preds = %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge
-  %.pre-phi6 = phi ptr [ %.pre5, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %17, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
+  %.pre-phi8 = phi ptr [ %.pre7, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %17, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
   %.0.i913.i = phi ptr [ null, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.i._crit_edge ], [ %19, %_ZNK5clang16ObjCProtocolDecl13hasDefinitionEv.exit.i3.thread.i ]
-  %25 = getelementptr inbounds nuw i8, ptr %.pre-phi6, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.pre-phi8, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !1221
-  %27 = getelementptr inbounds nuw i8, ptr %.pre-phi6, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.pre-phi8, i64 16
   %28 = load i32, ptr %27, align 8, !tbaa !1222
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %29
-  %.not381 = icmp eq ptr %.0.i913.i, %30
-  br i1 %.not381, label %.loopexit, label %.lr.ph
+  %.not383 = icmp eq ptr %.0.i913.i, %30
+  br i1 %.not383, label %.loopexit, label %.lr.ph
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.0322, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.0324, i64 8
   %.not38 = icmp eq ptr %32, %30
   br i1 %.not38, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang16ObjCProtocolDecl9protocolsEv.exit, %31
-  %.0322 = phi ptr [ %32, %31 ], [ %.0.i913.i, %_ZNK5clang16ObjCProtocolDecl9protocolsEv.exit ]
-  %33 = load ptr, ptr %.0322, align 8, !tbaa !1189
+  %.0324 = phi ptr [ %32, %31 ], [ %.0.i913.i, %_ZNK5clang16ObjCProtocolDecl9protocolsEv.exit ]
+  %33 = load ptr, ptr %.0324, align 8, !tbaa !1189
   %34 = tail call fastcc noundef ptr @_ZL40FindGetterSetterNameDeclFromProtocolListPKN5clang16ObjCProtocolDeclEPNS_14IdentifierInfoERKNS_8SelectorERNS_10ASTContextE(ptr noundef %33, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not39 = icmp eq ptr %34, null
   br i1 %.not39, label %31, label %.loopexit
@@ -16521,8 +16521,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

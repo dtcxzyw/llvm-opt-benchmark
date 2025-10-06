@@ -834,8 +834,8 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
 
 64:                                               ; preds = %59
   %65 = tail call fastcc ptr @ddSiftingDown(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2)
-  %magicptr172.i = ptrtoint ptr %65 to i64
-  switch i64 %magicptr172.i, label %.lr.ph.i.i [
+  %magicptr173.i = ptrtoint ptr %65 to i64
+  switch i64 %magicptr173.i, label %.lr.ph.i.i [
     i64 -1, label %ddSiftingBackward.exit.i
     i64 0, label %ddSiftingAux.exit.thread
   ]
@@ -878,43 +878,43 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
 
 83:                                               ; preds = %81
   %84 = tail call fastcc ptr @ddSiftingUp(ptr noundef nonnull %0, i32 noundef %2, i32 noundef %1)
-  %magicptr173.i = ptrtoint ptr %84 to i64
-  switch i64 %magicptr173.i, label %.lr.ph.i126.i [
+  %magicptr174.i = ptrtoint ptr %84 to i64
+  switch i64 %magicptr174.i, label %.lr.ph.i127.i [
     i64 -1, label %ddSiftingBackward.exit.i
     i64 0, label %ddSiftingAux.exit.thread
   ]
 
-.lr.ph.i126.i:                                    ; preds = %83, %.lr.ph.i126.i
-  %.01523.i127.i = phi ptr [ %88, %.lr.ph.i126.i ], [ %84, %83 ]
-  %.01622.i128.i = phi i32 [ %spec.select.i129.i, %.lr.ph.i126.i ], [ %62, %83 ]
-  %85 = getelementptr inbounds nuw i8, ptr %.01523.i127.i, i64 12
+.lr.ph.i127.i:                                    ; preds = %83, %.lr.ph.i127.i
+  %.01523.i128.i = phi ptr [ %88, %.lr.ph.i127.i ], [ %84, %83 ]
+  %.01622.i129.i = phi i32 [ %spec.select.i130.i, %.lr.ph.i127.i ], [ %62, %83 ]
+  %85 = getelementptr inbounds nuw i8, ptr %.01523.i128.i, i64 12
   %86 = load i32, ptr %85, align 4, !tbaa !85
-  %spec.select.i129.i = tail call i32 @llvm.smin.i32(i32 %86, i32 %.01622.i128.i)
-  %87 = getelementptr inbounds nuw i8, ptr %.01523.i127.i, i64 16
+  %spec.select.i130.i = tail call i32 @llvm.smin.i32(i32 %86, i32 %.01622.i129.i)
+  %87 = getelementptr inbounds nuw i8, ptr %.01523.i128.i, i64 16
   %88 = load ptr, ptr %87, align 8, !tbaa !88
-  %.not.i130.i = icmp eq ptr %88, null
-  br i1 %.not.i130.i, label %.lr.ph26.i132.i, label %.lr.ph.i126.i, !llvm.loop !89
+  %.not.i131.i = icmp eq ptr %88, null
+  br i1 %.not.i131.i, label %.lr.ph26.i133.i, label %.lr.ph.i127.i, !llvm.loop !89
 
-.lr.ph26.i132.i:                                  ; preds = %.lr.ph.i126.i, %97
-  %.125.i133.i = phi ptr [ %99, %97 ], [ %84, %.lr.ph.i126.i ]
-  %89 = getelementptr inbounds nuw i8, ptr %.125.i133.i, i64 12
+.lr.ph26.i133.i:                                  ; preds = %.lr.ph.i127.i, %97
+  %.125.i134.i = phi ptr [ %99, %97 ], [ %84, %.lr.ph.i127.i ]
+  %89 = getelementptr inbounds nuw i8, ptr %.125.i134.i, i64 12
   %90 = load i32, ptr %89, align 4, !tbaa !85
-  %91 = icmp eq i32 %90, %spec.select.i129.i
+  %91 = icmp eq i32 %90, %spec.select.i130.i
   br i1 %91, label %.preheader.i, label %92
 
-92:                                               ; preds = %.lr.ph26.i132.i
-  %93 = load i32, ptr %.125.i133.i, align 8, !tbaa !90
-  %94 = getelementptr inbounds nuw i8, ptr %.125.i133.i, i64 4
+92:                                               ; preds = %.lr.ph26.i133.i
+  %93 = load i32, ptr %.125.i134.i, align 8, !tbaa !90
+  %94 = getelementptr inbounds nuw i8, ptr %.125.i134.i, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !91
   %96 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %93, i32 noundef %95)
-  %.not20.i134.i = icmp eq i32 %96, 0
-  br i1 %.not20.i134.i, label %ddSiftingBackward.exit.i, label %97
+  %.not20.i135.i = icmp eq i32 %96, 0
+  br i1 %.not20.i135.i, label %ddSiftingBackward.exit.i, label %97
 
 97:                                               ; preds = %92
-  %98 = getelementptr inbounds nuw i8, ptr %.125.i133.i, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.125.i134.i, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !88
-  %.not19.i135.i = icmp eq ptr %99, null
-  br i1 %.not19.i135.i, label %.preheader.i, label %.lr.ph26.i132.i, !llvm.loop !92
+  %.not19.i136.i = icmp eq ptr %99, null
+  br i1 %.not19.i136.i, label %.preheader.i, label %.lr.ph26.i133.i, !llvm.loop !92
 
 100:                                              ; preds = %81
   %101 = sub nsw i32 %49, %1
@@ -938,43 +938,43 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
 109:                                              ; preds = %106, %104
   %.097.i = phi i32 [ %108, %106 ], [ %49, %104 ]
   %110 = tail call fastcc ptr @ddSiftingUp(ptr noundef nonnull %0, i32 noundef %.097.i, i32 noundef %1)
-  %magicptr174.i = ptrtoint ptr %110 to i64
-  switch i64 %magicptr174.i, label %.lr.ph.i139.i [
+  %magicptr175.i = ptrtoint ptr %110 to i64
+  switch i64 %magicptr175.i, label %.lr.ph.i140.i [
     i64 -1, label %ddSiftingBackward.exit.i
     i64 0, label %ddSiftingBackward.exit.thread.i
   ]
 
-.lr.ph.i139.i:                                    ; preds = %109, %.lr.ph.i139.i
-  %.01523.i140.i = phi ptr [ %114, %.lr.ph.i139.i ], [ %110, %109 ]
-  %.01622.i141.i = phi i32 [ %spec.select.i142.i, %.lr.ph.i139.i ], [ %62, %109 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.01523.i140.i, i64 12
+.lr.ph.i140.i:                                    ; preds = %109, %.lr.ph.i140.i
+  %.01523.i141.i = phi ptr [ %114, %.lr.ph.i140.i ], [ %110, %109 ]
+  %.01622.i142.i = phi i32 [ %spec.select.i143.i, %.lr.ph.i140.i ], [ %62, %109 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.01523.i141.i, i64 12
   %112 = load i32, ptr %111, align 4, !tbaa !85
-  %spec.select.i142.i = tail call i32 @llvm.smin.i32(i32 %112, i32 %.01622.i141.i)
-  %113 = getelementptr inbounds nuw i8, ptr %.01523.i140.i, i64 16
+  %spec.select.i143.i = tail call i32 @llvm.smin.i32(i32 %112, i32 %.01622.i142.i)
+  %113 = getelementptr inbounds nuw i8, ptr %.01523.i141.i, i64 16
   %114 = load ptr, ptr %113, align 8, !tbaa !88
-  %.not.i143.i = icmp eq ptr %114, null
-  br i1 %.not.i143.i, label %.lr.ph26.i145.i, label %.lr.ph.i139.i, !llvm.loop !89
+  %.not.i144.i = icmp eq ptr %114, null
+  br i1 %.not.i144.i, label %.lr.ph26.i146.i, label %.lr.ph.i140.i, !llvm.loop !89
 
-.lr.ph26.i145.i:                                  ; preds = %.lr.ph.i139.i, %123
-  %.125.i146.i = phi ptr [ %125, %123 ], [ %110, %.lr.ph.i139.i ]
-  %115 = getelementptr inbounds nuw i8, ptr %.125.i146.i, i64 12
+.lr.ph26.i146.i:                                  ; preds = %.lr.ph.i140.i, %123
+  %.125.i147.i = phi ptr [ %125, %123 ], [ %110, %.lr.ph.i140.i ]
+  %115 = getelementptr inbounds nuw i8, ptr %.125.i147.i, i64 12
   %116 = load i32, ptr %115, align 4, !tbaa !85
-  %117 = icmp eq i32 %116, %spec.select.i142.i
+  %117 = icmp eq i32 %116, %spec.select.i143.i
   br i1 %117, label %ddSiftingBackward.exit.thread.i, label %118
 
-118:                                              ; preds = %.lr.ph26.i145.i
-  %119 = load i32, ptr %.125.i146.i, align 8, !tbaa !90
-  %120 = getelementptr inbounds nuw i8, ptr %.125.i146.i, i64 4
+118:                                              ; preds = %.lr.ph26.i146.i
+  %119 = load i32, ptr %.125.i147.i, align 8, !tbaa !90
+  %120 = getelementptr inbounds nuw i8, ptr %.125.i147.i, i64 4
   %121 = load i32, ptr %120, align 4, !tbaa !91
   %122 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %119, i32 noundef %121)
-  %.not20.i147.i = icmp eq i32 %122, 0
-  br i1 %.not20.i147.i, label %ddSiftingBackward.exit.i, label %123
+  %.not20.i148.i = icmp eq i32 %122, 0
+  br i1 %.not20.i148.i, label %ddSiftingBackward.exit.i, label %123
 
 123:                                              ; preds = %118
-  %124 = getelementptr inbounds nuw i8, ptr %.125.i146.i, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.125.i147.i, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !88
-  %.not19.i148.i = icmp eq ptr %125, null
-  br i1 %.not19.i148.i, label %ddSiftingBackward.exit.thread.i, label %.lr.ph26.i145.i, !llvm.loop !92
+  %.not19.i149.i = icmp eq ptr %125, null
+  br i1 %.not19.i149.i, label %ddSiftingBackward.exit.thread.i, label %.lr.ph26.i146.i, !llvm.loop !92
 
 126:                                              ; preds = %100
   %127 = tail call fastcc ptr @ddSiftingUp(ptr noundef nonnull %0, i32 noundef %49, i32 noundef %1)
@@ -991,87 +991,87 @@ define range(i32 0, 2) i32 @cuddSifting(ptr noundef %0, i32 noundef %1, i32 noun
 130:                                              ; preds = %128, %126
   %.198.i = phi i32 [ %129, %128 ], [ %49, %126 ]
   %131 = tail call fastcc ptr @ddSiftingDown(ptr noundef nonnull %0, i32 noundef %.198.i, i32 noundef %2)
-  %magicptr175.i = ptrtoint ptr %131 to i64
-  switch i64 %magicptr175.i, label %.lr.ph.i152.i [
+  %magicptr176.i = ptrtoint ptr %131 to i64
+  switch i64 %magicptr176.i, label %.lr.ph.i153.i [
     i64 -1, label %ddSiftingBackward.exit.i
     i64 0, label %.preheader.i
   ]
 
-.lr.ph.i152.i:                                    ; preds = %130, %.lr.ph.i152.i
-  %.01523.i153.i = phi ptr [ %135, %.lr.ph.i152.i ], [ %131, %130 ]
-  %.01622.i154.i = phi i32 [ %spec.select.i155.i, %.lr.ph.i152.i ], [ %62, %130 ]
-  %132 = getelementptr inbounds nuw i8, ptr %.01523.i153.i, i64 12
+.lr.ph.i153.i:                                    ; preds = %130, %.lr.ph.i153.i
+  %.01523.i154.i = phi ptr [ %135, %.lr.ph.i153.i ], [ %131, %130 ]
+  %.01622.i155.i = phi i32 [ %spec.select.i156.i, %.lr.ph.i153.i ], [ %62, %130 ]
+  %132 = getelementptr inbounds nuw i8, ptr %.01523.i154.i, i64 12
   %133 = load i32, ptr %132, align 4, !tbaa !85
-  %spec.select.i155.i = tail call i32 @llvm.smin.i32(i32 %133, i32 %.01622.i154.i)
-  %134 = getelementptr inbounds nuw i8, ptr %.01523.i153.i, i64 16
+  %spec.select.i156.i = tail call i32 @llvm.smin.i32(i32 %133, i32 %.01622.i155.i)
+  %134 = getelementptr inbounds nuw i8, ptr %.01523.i154.i, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !88
-  %.not.i156.i = icmp eq ptr %135, null
-  br i1 %.not.i156.i, label %.lr.ph26.i158.i, label %.lr.ph.i152.i, !llvm.loop !89
+  %.not.i157.i = icmp eq ptr %135, null
+  br i1 %.not.i157.i, label %.lr.ph26.i159.i, label %.lr.ph.i153.i, !llvm.loop !89
 
-.lr.ph26.i158.i:                                  ; preds = %.lr.ph.i152.i, %144
-  %.125.i159.i = phi ptr [ %146, %144 ], [ %131, %.lr.ph.i152.i ]
-  %136 = getelementptr inbounds nuw i8, ptr %.125.i159.i, i64 12
+.lr.ph26.i159.i:                                  ; preds = %.lr.ph.i153.i, %144
+  %.125.i160.i = phi ptr [ %146, %144 ], [ %131, %.lr.ph.i153.i ]
+  %136 = getelementptr inbounds nuw i8, ptr %.125.i160.i, i64 12
   %137 = load i32, ptr %136, align 4, !tbaa !85
-  %138 = icmp eq i32 %137, %spec.select.i155.i
+  %138 = icmp eq i32 %137, %spec.select.i156.i
   br i1 %138, label %ddSiftingBackward.exit.thread.i, label %139
 
-139:                                              ; preds = %.lr.ph26.i158.i
-  %140 = load i32, ptr %.125.i159.i, align 8, !tbaa !90
-  %141 = getelementptr inbounds nuw i8, ptr %.125.i159.i, i64 4
+139:                                              ; preds = %.lr.ph26.i159.i
+  %140 = load i32, ptr %.125.i160.i, align 8, !tbaa !90
+  %141 = getelementptr inbounds nuw i8, ptr %.125.i160.i, i64 4
   %142 = load i32, ptr %141, align 4, !tbaa !91
   %143 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %140, i32 noundef %142)
-  %.not20.i160.i = icmp eq i32 %143, 0
-  br i1 %.not20.i160.i, label %ddSiftingBackward.exit.i, label %144
+  %.not20.i161.i = icmp eq i32 %143, 0
+  br i1 %.not20.i161.i, label %ddSiftingBackward.exit.i, label %144
 
 144:                                              ; preds = %139
-  %145 = getelementptr inbounds nuw i8, ptr %.125.i159.i, i64 16
+  %145 = getelementptr inbounds nuw i8, ptr %.125.i160.i, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !88
-  %.not19.i161.i = icmp eq ptr %146, null
-  br i1 %.not19.i161.i, label %ddSiftingBackward.exit.thread.i, label %.lr.ph26.i158.i, !llvm.loop !92
+  %.not19.i162.i = icmp eq ptr %146, null
+  br i1 %.not19.i162.i, label %ddSiftingBackward.exit.thread.i, label %.lr.ph26.i159.i, !llvm.loop !92
 
-ddSiftingBackward.exit.thread.i:                  ; preds = %144, %.lr.ph26.i158.i, %123, %.lr.ph26.i145.i, %78, %.lr.ph26.i.i, %109
-  %.194.i = phi ptr [ null, %109 ], [ null, %.lr.ph26.i.i ], [ null, %78 ], [ %110, %.lr.ph26.i145.i ], [ %110, %123 ], [ %127, %.lr.ph26.i158.i ], [ %127, %144 ]
-  %.1.i = phi ptr [ %105, %109 ], [ %65, %.lr.ph26.i.i ], [ %65, %78 ], [ %105, %.lr.ph26.i145.i ], [ %105, %123 ], [ %131, %.lr.ph26.i158.i ], [ %131, %144 ]
-  %.not120187.i = icmp eq ptr %.1.i, null
-  br i1 %.not120187.i, label %.preheader.i, label %.lr.ph.i
+ddSiftingBackward.exit.thread.i:                  ; preds = %144, %.lr.ph26.i159.i, %123, %.lr.ph26.i146.i, %78, %.lr.ph26.i.i, %109
+  %.194.i = phi ptr [ null, %109 ], [ null, %.lr.ph26.i.i ], [ null, %78 ], [ %110, %.lr.ph26.i146.i ], [ %110, %123 ], [ %127, %.lr.ph26.i159.i ], [ %127, %144 ]
+  %.1.i = phi ptr [ %105, %109 ], [ %65, %.lr.ph26.i.i ], [ %65, %78 ], [ %105, %.lr.ph26.i146.i ], [ %105, %123 ], [ %131, %.lr.ph26.i159.i ], [ %131, %144 ]
+  %.not120188.i = icmp eq ptr %.1.i, null
+  br i1 %.not120188.i, label %.preheader.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %ddSiftingBackward.exit.thread.i
-  %.promoted189.i = load ptr, ptr %39, align 8, !tbaa !65
+  %.promoted190.i = load ptr, ptr %39, align 8, !tbaa !65
   br label %147
 
 ..preheader_crit_edge.i:                          ; preds = %147
-  store ptr %.2188.i, ptr %39, align 8, !tbaa !65
+  store ptr %.2189.i, ptr %39, align 8, !tbaa !65
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %97, %.lr.ph26.i132.i, %..preheader_crit_edge.i, %ddSiftingBackward.exit.thread.i, %130
-  %.194211.i = phi ptr [ %.194.i, %..preheader_crit_edge.i ], [ %.194.i, %ddSiftingBackward.exit.thread.i ], [ %127, %130 ], [ %84, %.lr.ph26.i132.i ], [ %84, %97 ]
-  %.not121190.i = icmp eq ptr %.194211.i, null
-  br i1 %.not121190.i, label %ddSiftingAux.exit.thread, label %.lr.ph192.i
+.preheader.i:                                     ; preds = %97, %.lr.ph26.i133.i, %..preheader_crit_edge.i, %ddSiftingBackward.exit.thread.i, %130
+  %.194212.i = phi ptr [ %.194.i, %..preheader_crit_edge.i ], [ %.194.i, %ddSiftingBackward.exit.thread.i ], [ %127, %130 ], [ %84, %.lr.ph26.i133.i ], [ %84, %97 ]
+  %.not121191.i = icmp eq ptr %.194212.i, null
+  br i1 %.not121191.i, label %ddSiftingAux.exit.thread, label %.lr.ph193.i
 
-.lr.ph192.i:                                      ; preds = %.preheader.i
-  %.promoted193.i = load ptr, ptr %39, align 8, !tbaa !65
+.lr.ph193.i:                                      ; preds = %.preheader.i
+  %.promoted194.i = load ptr, ptr %39, align 8, !tbaa !65
   br label %153
 
 147:                                              ; preds = %147, %.lr.ph.i
-  %148 = phi ptr [ %.promoted189.i, %.lr.ph.i ], [ %.2188.i, %147 ]
-  %.2188.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %150, %147 ]
-  %149 = getelementptr inbounds nuw i8, ptr %.2188.i, i64 16
+  %148 = phi ptr [ %.promoted190.i, %.lr.ph.i ], [ %.2189.i, %147 ]
+  %.2189.i = phi ptr [ %.1.i, %.lr.ph.i ], [ %150, %147 ]
+  %149 = getelementptr inbounds nuw i8, ptr %.2189.i, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !88
-  %151 = getelementptr inbounds nuw i8, ptr %.2188.i, i64 4
+  %151 = getelementptr inbounds nuw i8, ptr %.2189.i, i64 4
   store i32 0, ptr %151, align 4, !tbaa !36
-  %152 = getelementptr inbounds nuw i8, ptr %.2188.i, i64 8
+  %152 = getelementptr inbounds nuw i8, ptr %.2189.i, i64 8
   store ptr %148, ptr %152, align 8, !tbaa !77
   %.not120.i = icmp eq ptr %150, null
   br i1 %.not120.i, label %..preheader_crit_edge.i, label %147, !llvm.loop !93
 
-153:                                              ; preds = %153, %.lr.ph192.i
-  %154 = phi ptr [ %.promoted193.i, %.lr.ph192.i ], [ %.295191.i, %153 ]
-  %.295191.i = phi ptr [ %.194211.i, %.lr.ph192.i ], [ %156, %153 ]
-  %155 = getelementptr inbounds nuw i8, ptr %.295191.i, i64 16
+153:                                              ; preds = %153, %.lr.ph193.i
+  %154 = phi ptr [ %.promoted194.i, %.lr.ph193.i ], [ %.295192.i, %153 ]
+  %.295192.i = phi ptr [ %.194212.i, %.lr.ph193.i ], [ %156, %153 ]
+  %155 = getelementptr inbounds nuw i8, ptr %.295192.i, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !88
-  %157 = getelementptr inbounds nuw i8, ptr %.295191.i, i64 4
+  %157 = getelementptr inbounds nuw i8, ptr %.295192.i, i64 4
   store i32 0, ptr %157, align 4, !tbaa !36
-  %158 = getelementptr inbounds nuw i8, ptr %.295191.i, i64 8
+  %158 = getelementptr inbounds nuw i8, ptr %.295192.i, i64 8
   store ptr %154, ptr %158, align 8, !tbaa !77
   %.not121.i = icmp eq ptr %156, null
   br i1 %.not121.i, label %..loopexit_crit_edge.i, label %153, !llvm.loop !94
@@ -1080,18 +1080,17 @@ ddSiftingBackward.exit.i:                         ; preds = %130, %126, %109, %1
   %.093.i = phi ptr [ null, %73 ], [ %84, %92 ], [ %110, %118 ], [ %127, %139 ], [ %127, %130 ], [ inttoptr (i64 -1 to ptr), %126 ], [ inttoptr (i64 -1 to ptr), %109 ], [ null, %104 ], [ inttoptr (i64 -1 to ptr), %83 ], [ null, %64 ]
   %.092.i = phi ptr [ %65, %73 ], [ null, %92 ], [ %105, %118 ], [ %131, %139 ], [ inttoptr (i64 -1 to ptr), %130 ], [ null, %126 ], [ %105, %109 ], [ inttoptr (i64 -1 to ptr), %104 ], [ null, %83 ], [ inttoptr (i64 -1 to ptr), %64 ]
   %magicptr123.i = ptrtoint ptr %.092.i to i64
-  switch i64 %magicptr123.i, label %.preheader178.i [
-    i64 -1, label %165
-    i64 0, label %165
-  ]
+  %magicptr123.off.i = add i64 %magicptr123.i, -1
+  %switch.i = icmp ult i64 %magicptr123.off.i, -2
+  br i1 %switch.i, label %.preheader179.i, label %165
 
-.preheader178.i:                                  ; preds = %ddSiftingBackward.exit.i
+.preheader179.i:                                  ; preds = %ddSiftingBackward.exit.i
   %.promoted.i = load ptr, ptr %39, align 8, !tbaa !65
   br label %159
 
-159:                                              ; preds = %159, %.preheader178.i
-  %160 = phi ptr [ %.3.i, %159 ], [ %.promoted.i, %.preheader178.i ]
-  %.3.i = phi ptr [ %162, %159 ], [ %.092.i, %.preheader178.i ]
+159:                                              ; preds = %159, %.preheader179.i
+  %160 = phi ptr [ %.3.i, %159 ], [ %.promoted.i, %.preheader179.i ]
+  %.3.i = phi ptr [ %162, %159 ], [ %.092.i, %.preheader179.i ]
   %161 = getelementptr inbounds nuw i8, ptr %.3.i, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !88
   %163 = getelementptr inbounds nuw i8, ptr %.3.i, i64 4
@@ -1099,26 +1098,25 @@ ddSiftingBackward.exit.i:                         ; preds = %130, %126, %109, %1
   %164 = getelementptr inbounds nuw i8, ptr %.3.i, i64 8
   store ptr %160, ptr %164, align 8, !tbaa !77
   %.old1.not.i = icmp eq ptr %162, null
-  br i1 %.old1.not.i, label %.loopexit179.i, label %159
+  br i1 %.old1.not.i, label %.loopexit180.i, label %159
 
-.loopexit179.i:                                   ; preds = %159
+.loopexit180.i:                                   ; preds = %159
   store ptr %.3.i, ptr %39, align 8, !tbaa !65
   br label %165
 
-165:                                              ; preds = %.loopexit179.i, %ddSiftingBackward.exit.i, %ddSiftingBackward.exit.i
+165:                                              ; preds = %.loopexit180.i, %ddSiftingBackward.exit.i
   %magicptr124.i = ptrtoint ptr %.093.i to i64
-  switch i64 %magicptr124.i, label %.preheader176.i [
-    i64 -1, label %ddSiftingAux.exit
-    i64 0, label %ddSiftingAux.exit
-  ]
+  %magicptr124.off.i = add i64 %magicptr124.i, -1
+  %switch125.i = icmp ult i64 %magicptr124.off.i, -2
+  br i1 %switch125.i, label %.preheader177.i, label %ddSiftingAux.exit
 
-.preheader176.i:                                  ; preds = %165
-  %.promoted186.i = load ptr, ptr %39, align 8, !tbaa !65
+.preheader177.i:                                  ; preds = %165
+  %.promoted187.i = load ptr, ptr %39, align 8, !tbaa !65
   br label %166
 
-166:                                              ; preds = %166, %.preheader176.i
-  %167 = phi ptr [ %.396.i, %166 ], [ %.promoted186.i, %.preheader176.i ]
-  %.396.i = phi ptr [ %169, %166 ], [ %.093.i, %.preheader176.i ]
+166:                                              ; preds = %166, %.preheader177.i
+  %167 = phi ptr [ %.396.i, %166 ], [ %.promoted187.i, %.preheader177.i ]
+  %.396.i = phi ptr [ %169, %166 ], [ %.093.i, %.preheader177.i ]
   %168 = getelementptr inbounds nuw i8, ptr %.396.i, i64 16
   %169 = load ptr, ptr %168, align 8, !tbaa !88
   %170 = getelementptr inbounds nuw i8, ptr %.396.i, i64 4
@@ -1126,13 +1124,13 @@ ddSiftingBackward.exit.i:                         ; preds = %130, %126, %109, %1
   %171 = getelementptr inbounds nuw i8, ptr %.396.i, i64 8
   store ptr %167, ptr %171, align 8, !tbaa !77
   %.old3.not.i = icmp eq ptr %169, null
-  br i1 %.old3.not.i, label %.loopexit177.i, label %166
+  br i1 %.old3.not.i, label %.loopexit178.i, label %166
 
 ..loopexit_crit_edge.i:                           ; preds = %153
-  store ptr %.295191.i, ptr %39, align 8, !tbaa !65
+  store ptr %.295192.i, ptr %39, align 8, !tbaa !65
   br label %ddSiftingAux.exit.thread
 
-.loopexit177.i:                                   ; preds = %166
+.loopexit178.i:                                   ; preds = %166
   store ptr %.396.i, ptr %39, align 8, !tbaa !65
   br label %ddSiftingAux.exit
 
@@ -1155,7 +1153,7 @@ ddSiftingAux.exit.thread:                         ; preds = %64, %83, %.preheade
   store ptr null, ptr @entry, align 8, !tbaa !79
   br label %180
 
-ddSiftingAux.exit:                                ; preds = %.loopexit177.i, %165, %165, %19
+ddSiftingAux.exit:                                ; preds = %.loopexit178.i, %165, %19
   %.pr = load ptr, ptr @entry, align 8, !tbaa !79
   %.not61 = icmp eq ptr %.pr, null
   br i1 %.not61, label %178, label %177

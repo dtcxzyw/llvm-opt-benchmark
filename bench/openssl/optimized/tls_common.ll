@@ -2995,8 +2995,8 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(2376) %5, i8 0, i64 2376, i1 false)
   %32 = load i64, ptr %7, align 8, !tbaa !24
   %33 = sub i64 0, %2
-  %.not148 = icmp eq i64 %32, %33
-  br i1 %.not148, label %._crit_edge, label %.lr.ph
+  %.not147 = icmp eq i64 %32, %33
+  br i1 %.not147, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 4160
@@ -3005,13 +3005,13 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
 
 36:                                               ; preds = %.lr.ph, %92
   %37 = phi i64 [ %32, %.lr.ph ], [ %94, %92 ]
-  %.098138 = phi i64 [ 0, %.lr.ph ], [ %93, %92 ]
+  %.098137 = phi i64 [ 0, %.lr.ph ], [ %93, %92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !27
-  %38 = getelementptr inbounds nuw %struct.wpacket_st, ptr %4, i64 %.098138
-  %39 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %5, i64 %.098138
-  %40 = icmp ult i64 %.098138, %37
-  %41 = sub nuw i64 %.098138, %37
+  %38 = getelementptr inbounds nuw %struct.wpacket_st, ptr %4, i64 %.098137
+  %39 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %5, i64 %.098137
+  %40 = icmp ult i64 %.098137, %37
+  %41 = sub nuw i64 %.098137, %37
   %42 = getelementptr inbounds nuw %struct.ossl_record_template_st, ptr %1, i64 %41
   %43 = select i1 %40, ptr %8, ptr %42
   %44 = load ptr, ptr %20, align 8, !tbaa !56
@@ -3103,14 +3103,14 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
 85:                                               ; preds = %81
   %86 = call i32 %84(ptr noundef nonnull %0, ptr noundef %43, ptr noundef nonnull %38, ptr noundef nonnull %39) #13
   %.not121 = icmp eq i32 %86, 0
-  br i1 %.not121, label %.thread, label %._crit_edge157
+  br i1 %.not121, label %.thread, label %._crit_edge156
 
-._crit_edge157:                                   ; preds = %85
-  %.pre158 = load ptr, ptr %20, align 8, !tbaa !56
+._crit_edge156:                                   ; preds = %85
+  %.pre157 = load ptr, ptr %20, align 8, !tbaa !56
   br label %87
 
-87:                                               ; preds = %._crit_edge157, %81
-  %88 = phi ptr [ %.pre158, %._crit_edge157 ], [ %82, %81 ]
+87:                                               ; preds = %._crit_edge156, %81
+  %88 = phi ptr [ %.pre157, %._crit_edge156 ], [ %82, %81 ]
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 120
   %90 = load ptr, ptr %89, align 8, !tbaa !139
   %91 = call i32 %90(ptr noundef nonnull %0, i64 noundef %35, ptr noundef nonnull %38, ptr noundef nonnull %39) #13
@@ -3118,10 +3118,10 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   br i1 %.not122, label %.thread, label %92
 
 .thread.sink.split:                               ; preds = %77, %72, %67
-  %.sink172 = phi i32 [ 1824, %67 ], [ 1824, %72 ], [ 1829, %77 ]
+  %.sink171 = phi i32 [ 1824, %67 ], [ 1824, %72 ], [ 1829, %77 ]
   %.sink = phi i32 [ 141, %67 ], [ 141, %72 ], [ 786691, %77 ]
   call void @ERR_new() #13
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink172, ptr noundef nonnull @__func__.tls_write_records_default) #13
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink171, ptr noundef nonnull @__func__.tls_write_records_default) #13
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef %.sink, ptr noundef null)
   br label %.thread
 
@@ -3131,7 +3131,7 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
 
 92:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %93 = add nuw i64 %.098138, 1
+  %93 = add nuw i64 %.098137, 1
   %94 = load i64, ptr %7, align 8, !tbaa !24
   %95 = add i64 %94, %2
   %96 = icmp ult i64 %93, %95
@@ -3143,7 +3143,7 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   br i1 %.not111, label %._crit_edge._crit_edge, label %97
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge
-  %.pre161 = zext nneg i32 %.0100 to i64
+  %.pre160 = zext nneg i32 %.0100 to i64
   br label %109
 
 97:                                               ; preds = %._crit_edge
@@ -3153,10 +3153,10 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   %101 = zext nneg i32 %.0100 to i64
   %102 = call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %5, i64 noundef 1, i32 noundef 1, ptr noundef null, i64 noundef %101) #13
   %103 = icmp slt i32 %102, 1
-  br i1 %103, label %104, label %._crit_edge159
+  br i1 %103, label %104, label %._crit_edge158
 
-._crit_edge159:                                   ; preds = %97
-  %.pre160 = load i64, ptr %7, align 8, !tbaa !24
+._crit_edge158:                                   ; preds = %97
+  %.pre159 = load i64, ptr %7, align 8, !tbaa !24
   br label %109
 
 104:                                              ; preds = %97
@@ -3171,9 +3171,9 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null)
   br label %.loopexit
 
-109:                                              ; preds = %._crit_edge._crit_edge, %._crit_edge159
-  %.pre-phi = phi i64 [ %.pre161, %._crit_edge._crit_edge ], [ %101, %._crit_edge159 ]
-  %110 = phi i64 [ 0, %._crit_edge._crit_edge ], [ %.pre160, %._crit_edge159 ]
+109:                                              ; preds = %._crit_edge._crit_edge, %._crit_edge158
+  %.pre-phi = phi i64 [ %.pre160, %._crit_edge._crit_edge ], [ %101, %._crit_edge158 ]
+  %110 = phi i64 [ 0, %._crit_edge._crit_edge ], [ %.pre159, %._crit_edge158 ]
   %111 = load ptr, ptr %20, align 8, !tbaa !56
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %113 = load ptr, ptr %112, align 8, !tbaa !79
@@ -3184,8 +3184,8 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
 
 .preheader:                                       ; preds = %109
   %117 = load i64, ptr %7, align 8, !tbaa !24
-  %.not149 = icmp eq i64 %117, %33
-  br i1 %.not149, label %.loopexit, label %.lr.ph140
+  %.not148 = icmp eq i64 %117, %33
+  br i1 %.not148, label %.loopexit, label %.lr.ph139
 
 118:                                              ; preds = %109
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 4104
@@ -3199,13 +3199,13 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   call void (ptr, i32, i32, ptr, ...) @ossl_rlayer_fatal(ptr noundef nonnull %0, i32 noundef 80, i32 noundef 786691, ptr noundef null)
   br label %.loopexit
 
-.lr.ph140:                                        ; preds = %.preheader, %134
+.lr.ph139:                                        ; preds = %.preheader, %134
   %123 = phi i64 [ %140, %134 ], [ %117, %.preheader ]
-  %.1139 = phi i64 [ %139, %134 ], [ 0, %.preheader ]
-  %124 = getelementptr inbounds nuw %struct.wpacket_st, ptr %4, i64 %.1139
-  %125 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %5, i64 %.1139
-  %126 = icmp ult i64 %.1139, %123
-  %127 = sub nuw i64 %.1139, %123
+  %.1138 = phi i64 [ %139, %134 ], [ 0, %.preheader ]
+  %124 = getelementptr inbounds nuw %struct.wpacket_st, ptr %4, i64 %.1138
+  %125 = getelementptr inbounds nuw %struct.tls_rl_record_st, ptr %5, i64 %.1138
+  %126 = icmp ult i64 %.1138, %123
+  %127 = sub nuw i64 %.1138, %123
   %128 = getelementptr inbounds nuw %struct.ossl_record_template_st, ptr %1, i64 %127
   %129 = select i1 %126, ptr %8, ptr %128
   %130 = load ptr, ptr %20, align 8, !tbaa !56
@@ -3215,34 +3215,34 @@ define range(i32 0, 2) i32 @tls_write_records_default(ptr noundef %0, ptr nounde
   %.not112 = icmp eq i32 %133, 0
   br i1 %.not112, label %.loopexit, label %134
 
-134:                                              ; preds = %.lr.ph140
+134:                                              ; preds = %.lr.ph139
   %135 = getelementptr inbounds nuw i8, ptr %125, i64 8
   %136 = load i64, ptr %135, align 8, !tbaa !65
-  %137 = getelementptr inbounds nuw %struct.tls_buffer_st, ptr %29, i64 %.1139
+  %137 = getelementptr inbounds nuw %struct.tls_buffer_st, ptr %29, i64 %.1138
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
   store i64 %136, ptr %138, align 8, !tbaa !45
-  %139 = add nuw i64 %.1139, 1
+  %139 = add nuw i64 %.1138, 1
   %140 = load i64, ptr %7, align 8, !tbaa !24
   %141 = add i64 %140, %2
   %142 = icmp ult i64 %139, %141
-  br i1 %142, label %.lr.ph140, label %.loopexit, !llvm.loop !142
+  br i1 %142, label %.lr.ph139, label %.loopexit, !llvm.loop !142
 
-.loopexit:                                        ; preds = %.lr.ph140, %134, %.preheader, %.thread, %118, %122, %104, %108, %25, %19, %18
-  %.099 = phi i32 [ 0, %18 ], [ 0, %108 ], [ 0, %104 ], [ 0, %122 ], [ 0, %118 ], [ 0, %25 ], [ 0, %19 ], [ 0, %.thread ], [ 1, %.preheader ], [ 0, %.lr.ph140 ], [ 1, %134 ]
+.loopexit:                                        ; preds = %.lr.ph139, %134, %.preheader, %.thread, %118, %122, %104, %108, %25, %19, %18
+  %.099 = phi i32 [ 0, %18 ], [ 0, %108 ], [ 0, %104 ], [ 0, %122 ], [ 0, %118 ], [ 0, %25 ], [ 0, %19 ], [ 0, %.thread ], [ 1, %.preheader ], [ 0, %.lr.ph139 ], [ 1, %134 ]
   %143 = load i64, ptr %6, align 8, !tbaa !24
-  %.not150 = icmp eq i64 %143, 0
-  br i1 %.not150, label %._crit_edge147, label %.lr.ph146
+  %.not149 = icmp eq i64 %143, 0
+  br i1 %.not149, label %._crit_edge146, label %.lr.ph145
 
-.lr.ph146:                                        ; preds = %.loopexit, %.lr.ph146
-  %.2144 = phi i64 [ %145, %.lr.ph146 ], [ 0, %.loopexit ]
-  %144 = getelementptr inbounds nuw %struct.wpacket_st, ptr %4, i64 %.2144
+.lr.ph145:                                        ; preds = %.loopexit, %.lr.ph145
+  %.2143 = phi i64 [ %145, %.lr.ph145 ], [ 0, %.loopexit ]
+  %144 = getelementptr inbounds nuw %struct.wpacket_st, ptr %4, i64 %.2143
   call void @WPACKET_cleanup(ptr noundef nonnull %144) #13
-  %145 = add nuw i64 %.2144, 1
+  %145 = add nuw i64 %.2143, 1
   %146 = load i64, ptr %6, align 8, !tbaa !24
   %147 = icmp ult i64 %145, %146
-  br i1 %147, label %.lr.ph146, label %._crit_edge147, !llvm.loop !143
+  br i1 %147, label %.lr.ph145, label %._crit_edge146, !llvm.loop !143
 
-._crit_edge147:                                   ; preds = %.lr.ph146, %.loopexit
+._crit_edge146:                                   ; preds = %.lr.ph145, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

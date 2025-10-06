@@ -169,8 +169,8 @@ define dso_local noundef range(i32 0, 3) i32 @_Z12getAMXRegNumPN4llvm19MachineRe
   %14 = load i16, ptr %13, align 8, !tbaa !30
   %switch.selectcmp = icmp eq i16 %14, 134
   %switch.select = select i1 %switch.selectcmp, i32 2, i32 0
-  %switch.selectcmp15 = icmp eq i16 %14, 133
-  %switch.select16 = select i1 %switch.selectcmp15, i32 1, i32 %switch.select
+  %switch.selectcmp14 = icmp eq i16 %14, 133
+  %switch.select15 = select i1 %switch.selectcmp14, i32 1, i32 %switch.select
   br label %.thread
 
 15:                                               ; preds = %2
@@ -189,7 +189,7 @@ define dso_local noundef range(i32 0, 3) i32 @_Z12getAMXRegNumPN4llvm19MachineRe
   br label %.thread
 
 .thread:                                          ; preds = %4, %19, %17, %21
-  %.1 = phi i32 [ 0, %21 ], [ 1, %17 ], [ 2, %19 ], [ %switch.select16, %4 ]
+  %.1 = phi i32 [ 0, %21 ], [ 1, %17 ], [ 2, %19 ], [ %switch.select15, %4 ]
   ret i32 %.1
 }
 
@@ -734,11 +734,11 @@ _ZNK4llvm19MachineRegisterInfo15reg_nodbg_emptyENS_8RegisterE.exit: ; preds = %2
   br i1 %.not.i, label %_ZL20collectVirtRegShapesPN4llvm19MachineRegisterInfoERNS_10VirtRegMapENS_8RegisterERNS_11SmallVectorINS_6ShapeTELj8EEE.exit, label %251
 
 251:                                              ; preds = %248
-  %switch.selectcmp15.i.i = icmp eq i16 %245, 133
+  %switch.selectcmp14.i.i = icmp eq i16 %245, 133
   %switch.selectcmp.i.i = icmp eq i16 %245, 134
   %switch.select.i.i = select i1 %switch.selectcmp.i.i, i32 2, i32 0
-  %switch.select16.i.i = select i1 %switch.selectcmp15.i.i, i32 1, i32 %switch.select.i.i
-  switch i32 %switch.select16.i.i, label %_ZL20collectVirtRegShapesPN4llvm19MachineRegisterInfoERNS_10VirtRegMapENS_8RegisterERNS_11SmallVectorINS_6ShapeTELj8EEE.exit [
+  %switch.select15.i.i = select i1 %switch.selectcmp14.i.i, i32 1, i32 %switch.select.i.i
+  switch i32 %switch.select15.i.i, label %_ZL20collectVirtRegShapesPN4llvm19MachineRegisterInfoERNS_10VirtRegMapENS_8RegisterERNS_11SmallVectorINS_6ShapeTELj8EEE.exit [
     i32 1, label %252
     i32 2, label %302
   ]

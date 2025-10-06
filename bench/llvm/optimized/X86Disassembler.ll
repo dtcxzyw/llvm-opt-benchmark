@@ -2701,7 +2701,7 @@ define internal fastcc noundef zeroext i1 @_ZL20translateInstructionRN4llvm6MCIn
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !83
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35, label %6
+  br i1 %.not, label %.thread, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2738,8 +2738,8 @@ define internal fastcc noundef zeroext i1 @_ZL20translateInstructionRN4llvm6MCIn
   %21 = load i64, ptr %20, align 8, !tbaa !122
   %.idx = shl nuw nsw i64 %21, 1
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
-  %.not2751.not = icmp eq i64 %21, 0
-  br i1 %.not2751.not, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35, label %.lr.ph
+  %.not2751 = icmp eq i64 %21, 0
+  br i1 %.not2751, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -2780,7 +2780,7 @@ define internal fastcc noundef zeroext i1 @_ZL20translateInstructionRN4llvm6MCIn
 tailrecurse.i:                                    ; preds = %305, %48
   %50 = phi i8 [ %.pr, %305 ], [ %47, %48 ]
   %.tr104.i = phi ptr [ %310, %305 ], [ %.02652, %48 ]
-  switch i8 %50, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35 [
+  switch i8 %50, label %.thread [
     i8 1, label %51
     i8 18, label %62
     i8 9, label %72
@@ -2845,7 +2845,7 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i: ; preds =
   %63 = load i32, ptr %44, align 4, !tbaa !106
   %64 = trunc i32 %63 to i8
   %65 = icmp ugt i8 %64, 7
-  br i1 %65, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35, label %66
+  br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %62
   %narrow.i.i = add nuw nsw i8 %64, -49
@@ -2865,7 +2865,7 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i: ; preds =
 72:                                               ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   %73 = getelementptr inbounds nuw i8, ptr %.tr104.i, i64 1
   %.val.i = load i8, ptr %73, align 1, !tbaa !98
-  switch i8 %.val.i, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35 [
+  switch i8 %.val.i, label %.thread [
     i8 2, label %74
     i8 3, label %74
     i8 4, label %74
@@ -2892,14 +2892,14 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i: ; preds =
 74:                                               ; preds = %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72, %72
   %.val.i.i = load i32, ptr %43, align 4, !tbaa !96
   switch i32 %.val.i.i, label %75 [
-    i32 37, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35
-    i32 69, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35
+    i32 37, label %.thread
+    i32 69, label %.thread
   ]
 
 75:                                               ; preds = %74
   %switch.tableidx = add i32 %.val.i.i, -97
   %76 = icmp ult i32 %switch.tableidx, 299
-  br i1 %76, label %switch.lookup, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35
+  br i1 %76, label %switch.lookup, label %.thread
 
 switch.lookup:                                    ; preds = %75
   %77 = zext nneg i32 %switch.tableidx to i64
@@ -2919,7 +2919,7 @@ switch.lookup:                                    ; preds = %75
 
 83:                                               ; preds = %72, %72, %72, %72
   %84 = tail call fastcc noundef zeroext i1 @_ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(208) %1, ptr noundef nonnull %2, i1 noundef zeroext false)
-  br i1 %84, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35, label %.critedge
+  br i1 %84, label %.thread, label %.critedge
 
 85:                                               ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i
   %86 = load i8, ptr %17, align 1, !tbaa !120
@@ -3412,16 +3412,16 @@ _ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit100.i: ; pred
 
 _ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit: ; preds = %72
   %311 = tail call fastcc noundef zeroext i1 @_ZL17translateRMMemoryRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionEPKNS_14MCDisassemblerEb(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull readonly align 8 dereferenceable(208) %1, ptr noundef nonnull %2, i1 noundef zeroext true)
-  br i1 %311, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35, label %.critedge
+  br i1 %311, label %.thread, label %.critedge
 
 .critedge.sink.split:                             ; preds = %282, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i, %276, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.i, %248, %252, %231, %234, %184, %189, %174, %181, %144, %149, %136, %141, %128, %133, %switch.lookup, %80, %66, %69, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit100.i
-  %.sink139 = phi i32 [ %304, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit100.i ], [ %293, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i ], [ %247, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i ], [ %222, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i ], [ %61, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i ], [ %67, %66 ], [ %.pre.i.i.i52.i, %69 ], [ %78, %switch.lookup ], [ %.pre.i.i.i55.i, %80 ], [ %131, %128 ], [ %.pre.i.i.i60.i, %133 ], [ %139, %136 ], [ %.pre.i.i79.i.i, %141 ], [ %147, %144 ], [ %.pre.i.i85.i.i, %149 ], [ %179, %174 ], [ %.pre.i.i96.i.i, %181 ], [ %187, %184 ], [ %.pre.i.i.i, %189 ], [ %232, %231 ], [ %.pre.i.i.i70.i, %234 ], [ %250, %248 ], [ %.pre.i.i81.i, %252 ], [ %274, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.i ], [ %.pre.i.i30, %276 ], [ %280, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i ], [ %.pre.i.i, %282 ]
-  %.sink135 = phi i8 [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit100.i ], [ 1, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i ], [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i ], [ 1, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i ], [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i ], [ 1, %66 ], [ 1, %69 ], [ 1, %switch.lookup ], [ 1, %80 ], [ 1, %128 ], [ 1, %133 ], [ 1, %136 ], [ 1, %141 ], [ 1, %144 ], [ 1, %149 ], [ 1, %174 ], [ 1, %181 ], [ 2, %184 ], [ 2, %189 ], [ 1, %231 ], [ 1, %234 ], [ 2, %248 ], [ 2, %252 ], [ 2, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.i ], [ 2, %276 ], [ 2, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i ], [ 2, %282 ]
+  %.sink138 = phi i32 [ %304, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit100.i ], [ %293, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i ], [ %247, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i ], [ %222, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i ], [ %61, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i ], [ %67, %66 ], [ %.pre.i.i.i52.i, %69 ], [ %78, %switch.lookup ], [ %.pre.i.i.i55.i, %80 ], [ %131, %128 ], [ %.pre.i.i.i60.i, %133 ], [ %139, %136 ], [ %.pre.i.i79.i.i, %141 ], [ %147, %144 ], [ %.pre.i.i85.i.i, %149 ], [ %179, %174 ], [ %.pre.i.i96.i.i, %181 ], [ %187, %184 ], [ %.pre.i.i.i, %189 ], [ %232, %231 ], [ %.pre.i.i.i70.i, %234 ], [ %250, %248 ], [ %.pre.i.i81.i, %252 ], [ %274, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.i ], [ %.pre.i.i30, %276 ], [ %280, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i ], [ %.pre.i.i, %282 ]
+  %.sink134 = phi i8 [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit100.i ], [ 1, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i ], [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i ], [ 1, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i ], [ 1, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i ], [ 1, %66 ], [ 1, %69 ], [ 1, %switch.lookup ], [ 1, %80 ], [ 1, %128 ], [ 1, %133 ], [ 1, %136 ], [ 1, %141 ], [ 1, %144 ], [ 1, %149 ], [ 1, %174 ], [ 1, %181 ], [ 2, %184 ], [ 2, %189 ], [ 1, %231 ], [ 1, %234 ], [ 2, %248 ], [ 2, %252 ], [ 2, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.i ], [ 2, %276 ], [ 2, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i ], [ 2, %282 ]
   %.sroa.3.8.insert.ext.i93.i.i.sink = phi i64 [ %.sroa.3.8.insert.ext.i.i98.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit100.i ], [ %.sroa.3.8.insert.ext.i.i93.i, %_ZL19translateFPRegisterRN4llvm6MCInstEh.exit.i ], [ %.sroa.3.8.insert.ext.i.i76.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit78.i ], [ %.sroa.3.8.insert.ext.i17.i.i, %_ZL17translateSrcIndexRN4llvm6MCInstERNS_15X86Disassembler19InternalInstructionE.exit.i ], [ %.sroa.3.8.insert.ext.i.i.i, %_ZL17translateRegisterRN4llvm6MCInstENS_15X86Disassembler3RegE.exit.i ], [ %.sroa.3.8.insert.ext.i.i50.i, %66 ], [ %.sroa.3.8.insert.ext.i.i50.i, %69 ], [ %switch.load, %switch.lookup ], [ %switch.load, %80 ], [ %.sroa.3.8.insert.ext.i.i58.i, %128 ], [ %.sroa.3.8.insert.ext.i.i58.i, %133 ], [ %.sroa.3.8.insert.ext.i76.i.i, %136 ], [ %.sroa.3.8.insert.ext.i76.i.i, %141 ], [ %.sroa.3.8.insert.ext.i82.i.i, %144 ], [ %.sroa.3.8.insert.ext.i82.i.i, %149 ], [ %.sroa.3.8.insert.ext.i93.i.i, %174 ], [ %.sroa.3.8.insert.ext.i93.i.i, %181 ], [ %186, %184 ], [ %186, %189 ], [ %.0.i68.i, %231 ], [ %.0.i68.i, %234 ], [ %249, %248 ], [ %249, %252 ], [ %273, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread102.i ], [ %273, %276 ], [ %279, %_ZL13isCCMPOrCTESTPN4llvm15X86Disassembler19InternalInstructionE.exit.thread.i ], [ %279, %282 ]
   %312 = load ptr, ptr %24, align 8, !tbaa !126
-  %313 = zext i32 %.sink139 to i64
+  %313 = zext i32 %.sink138 to i64
   %314 = getelementptr inbounds nuw %"class.llvm::MCOperand", ptr %312, i64 %313
-  store i8 %.sink135, ptr %314, align 1
+  store i8 %.sink134, ptr %314, align 1
   %.sroa.22.0..sroa_idx.i.i97.i.i = getelementptr inbounds nuw i8, ptr %314, i64 8
   store i64 %.sroa.3.8.insert.ext.i93.i.i.sink, ptr %.sroa.22.0..sroa_idx.i.i97.i.i, align 1
   %315 = load i32, ptr %7, align 8, !tbaa !118
@@ -3431,11 +3431,11 @@ _ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS
 
 .critedge:                                        ; preds = %.critedge.sink.split, %172, %83, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit, %46
   %317 = getelementptr inbounds nuw i8, ptr %.02652, i64 2
-  %.not27.not = icmp eq ptr %317, %22
-  br i1 %.not27.not, label %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35, label %46
+  %.not27 = icmp eq ptr %317, %22
+  br i1 %.not27, label %.thread, label %46
 
-_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit.thread35: ; preds = %74, %74, %72, %62, %83, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit, %.critedge, %75, %tailrecurse.i, %16, %3
-  %.0 = phi i1 [ true, %3 ], [ false, %16 ], [ true, %tailrecurse.i ], [ true, %75 ], [ true, %74 ], [ true, %74 ], [ true, %72 ], [ true, %62 ], [ true, %83 ], [ true, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit ], [ false, %.critedge ]
+.thread:                                          ; preds = %.critedge, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit, %83, %62, %72, %74, %74, %75, %tailrecurse.i, %16, %3
+  %.0 = phi i1 [ true, %3 ], [ false, %16 ], [ true, %tailrecurse.i ], [ false, %.critedge ], [ true, %_ZL16translateOperandRN4llvm6MCInstERKNS_15X86Disassembler16OperandSpecifierERNS2_19InternalInstructionEPKNS_14MCDisassemblerE.exit ], [ true, %83 ], [ true, %62 ], [ true, %72 ], [ true, %74 ], [ true, %74 ], [ true, %75 ]
   ret i1 %.0
 }
 
@@ -3827,100 +3827,100 @@ _ZL7consumeIaEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread: ; 
 define internal fastcc noundef range(i32 -1, 1) i32 @_ZL7readSIBPN4llvm15X86Disassembler19InternalInstructionE(ptr noundef nonnull captures(none) initializes((168, 172)) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %3 = load i8, ptr %2, align 2, !tbaa !73
-  %switch = icmp eq i8 %3, 8
-  %spec.select = select i1 %switch, i32 65, i32 33
-  %spec.select37 = select i1 %switch, i32 33, i32 1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  store i32 %spec.select, ptr %4, align 8, !tbaa !99
+  %4 = icmp eq i8 %3, 8
+  %spec.select = select i1 %4, i32 65, i32 33
+  %spec.select37 = select i1 %4, i32 33, i32 1
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  store i32 %spec.select, ptr %5, align 8, !tbaa !99
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.4.0.copyload.i = load i64, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !20
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = load i64, ptr %5, align 8, !tbaa !58
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %8 = load i64, ptr %7, align 8, !tbaa !42
-  %9 = sub i64 %6, %8
-  %10 = add i64 %9, 1
-  %11 = icmp ugt i64 %10, %.sroa.4.0.copyload.i
-  br i1 %11, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread, label %12
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %7 = load i64, ptr %6, align 8, !tbaa !58
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %9 = load i64, ptr %8, align 8, !tbaa !42
+  %10 = sub i64 %7, %9
+  %11 = add i64 %10, 1
+  %12 = icmp ugt i64 %11, %.sroa.4.0.copyload.i
+  br i1 %12, label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread, label %13
 
-12:                                               ; preds = %1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 106
+13:                                               ; preds = %1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %.sroa.0.0.copyload.i = load ptr, ptr %0, align 8, !tbaa !41
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %9
-  %.0.copyload.i.i = load i8, ptr %14, align 1
-  store i8 %.0.copyload.i.i, ptr %13, align 2, !tbaa !60
-  %15 = add i64 %6, 1
-  store i64 %15, ptr %5, align 8, !tbaa !58
-  %16 = lshr i8 %.0.copyload.i.i, 3
-  %17 = and i8 %16, 7
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 62
-  %19 = load i8, ptr %18, align 2, !tbaa !68
-  %20 = shl i8 %19, 2
-  %21 = and i8 %20, 8
-  %22 = or disjoint i8 %21, %17
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 61
-  %24 = load i8, ptr %23, align 1, !tbaa !60
-  %25 = lshr i8 %24, 1
-  %26 = and i8 %25, 16
-  %27 = or disjoint i8 %22, %26
-  %28 = icmp eq i8 %27, 4
-  %29 = zext nneg i8 %27 to i32
-  %30 = add nuw nsw i32 %spec.select, %29
-  %.sink35 = select i1 %28, i32 0, i32 %30
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 172
-  store i32 %.sink35, ptr %31, align 4, !tbaa !97
-  %32 = lshr i8 %.0.copyload.i.i, 6
-  %33 = shl nuw nsw i8 1, %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i8 %33, ptr %34, align 8, !tbaa !131
-  %35 = and i8 %.0.copyload.i.i, 7
-  %36 = shl i8 %19, 3
-  %37 = and i8 %36, 8
-  %38 = or disjoint i8 %37, %35
-  %39 = and i8 %24, 16
-  %40 = or disjoint i8 %38, %39
-  %41 = zext nneg i8 %40 to i32
-  switch i8 %40, label %53 [
-    i8 5, label %42
-    i8 13, label %42
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 %10
+  %.0.copyload.i.i = load i8, ptr %15, align 1
+  store i8 %.0.copyload.i.i, ptr %14, align 2, !tbaa !60
+  %16 = add i64 %7, 1
+  store i64 %16, ptr %6, align 8, !tbaa !58
+  %17 = lshr i8 %.0.copyload.i.i, 3
+  %18 = and i8 %17, 7
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 62
+  %20 = load i8, ptr %19, align 2, !tbaa !68
+  %21 = shl i8 %20, 2
+  %22 = and i8 %21, 8
+  %23 = or disjoint i8 %22, %18
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 61
+  %25 = load i8, ptr %24, align 1, !tbaa !60
+  %26 = lshr i8 %25, 1
+  %27 = and i8 %26, 16
+  %28 = or disjoint i8 %23, %27
+  %29 = icmp eq i8 %28, 4
+  %30 = zext nneg i8 %28 to i32
+  %31 = add nuw nsw i32 %spec.select, %30
+  %.sink35 = select i1 %29, i32 0, i32 %31
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 172
+  store i32 %.sink35, ptr %32, align 4, !tbaa !97
+  %33 = lshr i8 %.0.copyload.i.i, 6
+  %34 = shl nuw nsw i8 1, %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i8 %34, ptr %35, align 8, !tbaa !131
+  %36 = and i8 %.0.copyload.i.i, 7
+  %37 = shl i8 %20, 3
+  %38 = and i8 %37, 8
+  %39 = or disjoint i8 %38, %36
+  %40 = and i8 %25, 16
+  %41 = or disjoint i8 %39, %40
+  %42 = zext nneg i8 %41 to i32
+  switch i8 %41, label %54 [
+    i8 5, label %43
+    i8 13, label %43
   ]
 
-42:                                               ; preds = %12, %12
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 105
-  %44 = load i8, ptr %43, align 1, !tbaa !78
-  %45 = lshr i8 %44, 6
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  switch i8 %45, label %52 [
-    i8 0, label %47
-    i8 1, label %48
-    i8 2, label %50
+43:                                               ; preds = %13, %13
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 105
+  %45 = load i8, ptr %44, align 1, !tbaa !78
+  %46 = lshr i8 %45, 6
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  switch i8 %46, label %53 [
+    i8 0, label %48
+    i8 1, label %49
+    i8 2, label %51
   ]
 
-47:                                               ; preds = %42
-  store i32 3, ptr %46, align 8, !tbaa !100
+48:                                               ; preds = %43
+  store i32 3, ptr %47, align 8, !tbaa !100
   br label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.sink.split
 
-48:                                               ; preds = %42
-  store i32 1, ptr %46, align 8, !tbaa !100
-  %49 = add nuw nsw i32 %spec.select37, %41
+49:                                               ; preds = %43
+  store i32 1, ptr %47, align 8, !tbaa !100
+  %50 = add nuw nsw i32 %spec.select37, %42
   br label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.sink.split
 
-50:                                               ; preds = %42
-  store i32 3, ptr %46, align 8, !tbaa !100
-  %51 = add nuw nsw i32 %spec.select37, %41
+51:                                               ; preds = %43
+  store i32 3, ptr %47, align 8, !tbaa !100
+  %52 = add nuw nsw i32 %spec.select37, %42
   br label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.sink.split
 
-52:                                               ; preds = %42
+53:                                               ; preds = %43
   unreachable
 
-53:                                               ; preds = %12
-  %54 = add nuw nsw i32 %spec.select37, %41
+54:                                               ; preds = %13
+  %55 = add nuw nsw i32 %spec.select37, %42
   br label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.sink.split
 
-_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.sink.split: ; preds = %47, %48, %50, %53
-  %.sink = phi i32 [ %54, %53 ], [ %51, %50 ], [ %49, %48 ], [ 0, %47 ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  store i32 %.sink, ptr %55, align 4, !tbaa !132
+_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.sink.split: ; preds = %48, %49, %51, %54
+  %.sink = phi i32 [ %55, %54 ], [ %52, %51 ], [ %50, %49 ], [ 0, %48 ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  store i32 %.sink, ptr %56, align 4, !tbaa !132
   br label %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread
 
 _ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread: ; preds = %_ZL7consumeIhEbPN4llvm15X86Disassembler19InternalInstructionERT_.exit.thread.sink.split, %1

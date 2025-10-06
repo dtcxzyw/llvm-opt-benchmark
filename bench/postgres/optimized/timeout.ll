@@ -433,8 +433,8 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i23, %26
   br i1 %45, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %43, %57
-  %.02032 = phi i32 [ %58, %57 ], [ 0, %43 ]
-  %46 = zext nneg i32 %.02032 to i64
+  %.02031 = phi i32 [ %58, %57 ], [ 0, %43 ]
+  %46 = zext nneg i32 %.02031 to i64
   %47 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %46
   %48 = load volatile ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
@@ -452,13 +452,13 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i23, %26
   br i1 %56, label %.loopexit, label %57
 
 57:                                               ; preds = %54, %52
-  %58 = add nuw nsw i32 %.02032, 1
+  %58 = add nuw nsw i32 %.02031, 1
   %59 = load volatile i32, ptr @num_active_timeouts, align 4
   %60 = icmp slt i32 %58, %59
   br i1 %60, label %.lr.ph, label %.loopexit, !llvm.loop !12
 
 .loopexit:                                        ; preds = %54, %.lr.ph, %57, %43
-  %.020.lcssa = phi i32 [ 0, %43 ], [ %.02032, %54 ], [ %.02032, %.lr.ph ], [ %58, %57 ]
+  %.020.lcssa = phi i32 [ 0, %43 ], [ %.02031, %54 ], [ %.02031, %.lr.ph ], [ %58, %57 ]
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 5
   store volatile i8 0, ptr %61, align 1
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 16

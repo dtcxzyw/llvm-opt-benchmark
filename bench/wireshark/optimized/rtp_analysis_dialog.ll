@@ -10496,9 +10496,9 @@ _ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.i.i.i.i: ; preds
   %25 = phi ptr [ %.pre.i, %.noexc ], [ %22, %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.i.i.i ]
   %26 = load atomic i32, ptr %25 monotonic, align 4
   %27 = icmp sgt i32 %26, 1
-  br i1 %27, label %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread.i.i.i.i, label %.thread60
+  br i1 %27, label %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread.i.i.i.i, label %.thread59
 
-.thread60:                                        ; preds = %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.i.i.i.i
+.thread59:                                        ; preds = %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.i.i.i.i
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
@@ -10516,9 +10516,9 @@ _ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread.i.i.i.i: 
   %.not.i.i.i37 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i37, label %_ZN5QListIP15QTreeWidgetItemED2Ev.exit40, label %_ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i38
 
-_ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i38: ; preds = %.thread60, %31
-  %35 = phi ptr [ %30, %.thread60 ], [ %34, %31 ]
-  %36 = phi ptr [ %25, %.thread60 ], [ %.pre, %31 ]
+_ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i38: ; preds = %.thread59, %31
+  %35 = phi ptr [ %30, %.thread59 ], [ %34, %31 ]
+  %36 = phi ptr [ %25, %.thread59 ], [ %.pre, %31 ]
   %37 = atomicrmw sub ptr %36, i32 1 seq_cst, align 4
   %.not.i.i39 = icmp eq i32 %37, 1
   br i1 %.not.i.i39, label %38, label %_ZN5QListIP15QTreeWidgetItemED2Ev.exit40
@@ -10568,22 +10568,22 @@ _ZN5QListIP15QTreeWidgetItemED2Ev.exit44:         ; preds = %43, %_ZN17QArrayDat
 
 53:                                               ; preds = %51, %49
   %.026 = phi ptr [ %50, %49 ], [ %52, %51 ]
-  %.not3449 = icmp eq ptr %.026, %40
-  br i1 %.not3449, label %.loopexit, label %.lr.ph
+  %.not3448 = icmp eq ptr %.026, %40
+  br i1 %.not3448, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %53, %61
-  %.150 = phi ptr [ %.2, %61 ], [ %.026, %53 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.150, i64 145
+  %.149 = phi ptr [ %.2, %61 ], [ %.026, %53 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.149, i64 145
   %55 = load i8, ptr %54, align 1, !range !65, !noundef !66
   %56 = trunc nuw i8 %55 to i1
   br i1 %56, label %57, label %.thread
 
 .thread:                                          ; preds = %.lr.ph
-  call void @_ZN11QTreeWidget14setCurrentItemEP15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable_or_null(40) %7, ptr noundef %.150)
+  call void @_ZN11QTreeWidget14setCurrentItemEP15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable_or_null(40) %7, ptr noundef %.149)
   br label %.loopexit
 
 57:                                               ; preds = %.lr.ph
-  %58 = call noundef ptr @_ZNK11QTreeWidget9itemBelowEPK15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable_or_null(40) %7, ptr noundef %.150)
+  %58 = call noundef ptr @_ZNK11QTreeWidget9itemBelowEPK15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable_or_null(40) %7, ptr noundef %.149)
   %.not35 = icmp eq ptr %58, null
   br i1 %.not35, label %59, label %61
 
@@ -26347,29 +26347,29 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
   %27 = add i64 %2, 1
   %28 = load i64, ptr %26, align 8
   %29 = icmp eq i64 %27, %28
-  %spec.store.select.i53 = select i1 %29, i64 0, i64 %27
-  %30 = lshr i64 %spec.store.select.i53, 7
-  %31 = and i64 %spec.store.select.i53, 127
+  %spec.store.select.i52 = select i1 %29, i64 0, i64 %27
+  %30 = lshr i64 %spec.store.select.i52, 7
+  %31 = and i64 %spec.store.select.i52, 127
   %32 = load ptr, ptr %6, align 8
   %33 = getelementptr %"struct.QHashPrivate::Span", ptr %32, i64 %30
   %34 = getelementptr i8, ptr %33, i64 %31
   %35 = load i8, ptr %34, align 1
-  %.not54 = icmp eq i8 %35, -1
-  br i1 %.not54, label %._crit_edge, label %.lr.ph57
+  %.not53 = icmp eq i8 %35, -1
+  br i1 %.not53, label %._crit_edge, label %.lr.ph56
 
-.lr.ph57:                                         ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit
+.lr.ph56:                                         ; preds = %_ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %37
 
-37:                                               ; preds = %.lr.ph57, %.loopexit
-  %38 = phi i8 [ %35, %.lr.ph57 ], [ %86, %.loopexit ]
-  %39 = phi ptr [ %33, %.lr.ph57 ], [ %84, %.loopexit ]
-  %40 = phi ptr [ %32, %.lr.ph57 ], [ %83, %.loopexit ]
-  %41 = phi i64 [ %31, %.lr.ph57 ], [ %82, %.loopexit ]
-  %42 = phi i64 [ %30, %.lr.ph57 ], [ %81, %.loopexit ]
-  %spec.store.select.i56 = phi i64 [ %spec.store.select.i53, %.lr.ph57 ], [ %spec.store.select.i, %.loopexit ]
-  %43 = phi i64 [ %28, %.lr.ph57 ], [ %79, %.loopexit ]
-  %.055 = phi i64 [ %2, %.lr.ph57 ], [ %.1, %.loopexit ]
+37:                                               ; preds = %.lr.ph56, %.loopexit
+  %38 = phi i8 [ %35, %.lr.ph56 ], [ %86, %.loopexit ]
+  %39 = phi ptr [ %33, %.lr.ph56 ], [ %84, %.loopexit ]
+  %40 = phi ptr [ %32, %.lr.ph56 ], [ %83, %.loopexit ]
+  %41 = phi i64 [ %31, %.lr.ph56 ], [ %82, %.loopexit ]
+  %42 = phi i64 [ %30, %.lr.ph56 ], [ %81, %.loopexit ]
+  %spec.store.select.i55 = phi i64 [ %spec.store.select.i52, %.lr.ph56 ], [ %spec.store.select.i, %.loopexit ]
+  %43 = phi i64 [ %28, %.lr.ph56 ], [ %79, %.loopexit ]
+  %.054 = phi i64 [ %2, %.lr.ph56 ], [ %.1, %.loopexit ]
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 128
   %45 = load ptr, ptr %44, align 8
   %46 = zext i8 %38 to i64
@@ -26388,17 +26388,17 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
   %59 = xor i64 %58, %57
   %60 = add i64 %43, -1
   %61 = and i64 %59, %60
-  %62 = icmp eq i64 %61, %spec.store.select.i56
+  %62 = icmp eq i64 %61, %spec.store.select.i55
   br i1 %62, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %74
-  %.03852 = phi i64 [ %spec.store.select.i43, %74 ], [ %61, %37 ]
-  %63 = icmp eq i64 %.03852, %.055
+  %.03851 = phi i64 [ %spec.store.select.i43, %74 ], [ %61, %37 ]
+  %63 = icmp eq i64 %.03851, %.054
   br i1 %63, label %64, label %74
 
 64:                                               ; preds = %.lr.ph
-  %65 = lshr i64 %.055, 7
-  %66 = and i64 %.055, 127
+  %65 = lshr i64 %.054, 7
+  %66 = and i64 %.054, 127
   %67 = icmp eq i64 %42, %65
   br i1 %67, label %68, label %72
 
@@ -26416,15 +26416,15 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
           to label %.loopexit unwind label %110
 
 74:                                               ; preds = %.lr.ph
-  %75 = add i64 %.03852, 1
+  %75 = add i64 %.03851, 1
   %76 = icmp eq i64 %75, %43
   %spec.store.select.i43 = select i1 %76, i64 0, i64 %75
-  %77 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i56
+  %77 = icmp eq i64 %spec.store.select.i43, %spec.store.select.i55
   br i1 %77, label %.loopexit, label %.lr.ph, !llvm.loop !130
 
 .loopexit:                                        ; preds = %74, %37, %72, %68
-  %.1 = phi i64 [ %spec.store.select.i56, %72 ], [ %spec.store.select.i56, %68 ], [ %.055, %37 ], [ %.055, %74 ]
-  %78 = add i64 %spec.store.select.i56, 1
+  %.1 = phi i64 [ %spec.store.select.i55, %72 ], [ %spec.store.select.i55, %68 ], [ %.054, %37 ], [ %.054, %74 ]
+  %78 = add i64 %spec.store.select.i55, 1
   %79 = load i64, ptr %26, align 8
   %80 = icmp eq i64 %78, %79
   %spec.store.select.i = select i1 %80, i64 0, i64 %78
@@ -26448,8 +26448,8 @@ _ZN12QHashPrivate4SpanINS_9MultiNodeIjP10tab_info_tEEE5eraseEm.exit: ; preds = %
   %92 = getelementptr %"struct.QHashPrivate::Span", ptr %87, i64 %4
   %93 = getelementptr i8, ptr %92, i64 %5
   %94 = load i8, ptr %93, align 1
-  %.not50 = icmp eq i8 %94, -1
-  br i1 %.not50, label %95, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP10tab_info_tEEEppEv.exit
+  %.not49 = icmp eq i8 %94, -1
+  br i1 %.not49, label %95, label %_ZN12QHashPrivate8iteratorINS_9MultiNodeIjP10tab_info_tEEEppEv.exit
 
 95:                                               ; preds = %91, %._crit_edge
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 16

@@ -373,17 +373,17 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNSt7__cxx1112basic_stringIcSt11char_traitsI
   %153 = zext i32 %152 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %153, 3
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 %.idx.i.i.i.i
-  %.not36.i.i.i.i = icmp eq i32 %152, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not34.i.i.i.i = icmp eq i32 %152, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %150, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %156, %.critedge.i.i.i.i ], [ %151, %150 ]
-  %155 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !71, !noalias !67
+  %.02935.i.i.i.i = phi ptr [ %156, %.critedge.i.i.i.i ], [ %151, %150 ]
+  %155 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !71, !noalias !67
   %.not17.i.i.i.i = icmp eq ptr %155, %146
   br i1 %.not17.i.i.i.i, label %.critedge.i.i, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
-  %156 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %156 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i29.i.i = icmp eq ptr %156, %154
   br i1 %.not.i.i29.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !72
 

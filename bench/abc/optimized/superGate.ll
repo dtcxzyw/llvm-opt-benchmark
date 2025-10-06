@@ -5864,10 +5864,9 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr noundef captu
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %5
-  switch i32 %10, label %.thread [
-    i32 0, label %.loopexit
-    i32 -1, label %.loopexit
-  ]
+  %.off = add i32 %10, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %.thread, label %.loopexit
 
 12:                                               ; preds = %5
   switch i32 %10, label %.thread [
@@ -6053,8 +6052,8 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr noundef captu
   %.not78 = icmp eq ptr %.06589, null
   br i1 %.not78, label %.loopexit, label %40, !llvm.loop !120
 
-.loopexit:                                        ; preds = %100, %87, %30, %.thread, %13, %17, %11, %11
-  %.0 = phi i32 [ 0, %11 ], [ 0, %11 ], [ 0, %17 ], [ 0, %13 ], [ 1, %.thread ], [ 1, %30 ], [ 1, %100 ], [ 0, %87 ]
+.loopexit:                                        ; preds = %100, %87, %30, %11, %.thread, %13, %17
+  %.0 = phi i32 [ 0, %11 ], [ 0, %17 ], [ 0, %13 ], [ 1, %.thread ], [ 1, %30 ], [ 1, %100 ], [ 0, %87 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.0
 }

@@ -118,8 +118,8 @@ lean_inc.exit:                                    ; preds = %20, %19, %17, %10
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = ptrtoint ptr %22 to i64
   %24 = and i64 %23, 1
-  %.not46 = icmp eq i64 %24, 0
-  br i1 %.not46, label %25, label %lean_inc.exit25
+  %.not44 = icmp eq i64 %24, 0
+  br i1 %.not44, label %25, label %lean_inc.exit25
 
 25:                                               ; preds = %lean_inc.exit
   %.val.i36 = load i32, ptr %22, align 4, !tbaa !8
@@ -163,7 +163,7 @@ lean_inc.exit25:                                  ; preds = %30, %29, %27, %lean
 lean_dec.exit24:                                  ; preds = %37, %36, %34, %lean_inc.exit25
   %38 = load ptr, ptr @l_Lean_Compiler_isEagerLambdaLiftingName___closed__1, align 8, !tbaa !4
   %39 = tail call zeroext i8 @l_String_isPrefixOf(ptr noundef %38, ptr noundef %22) #4
-  br i1 %.not46, label %40, label %lean_dec.exit23
+  br i1 %.not44, label %40, label %lean_dec.exit23
 
 40:                                               ; preds = %lean_dec.exit24
   %41 = load i32, ptr %22, align 4, !tbaa !8
@@ -213,8 +213,8 @@ lean_dec.exit23:                                  ; preds = %46, %45, %43, %lean
   %58 = load ptr, ptr %57, align 8, !tbaa !4
   %59 = ptrtoint ptr %58 to i64
   %60 = and i64 %59, 1
-  %.not48 = icmp eq i64 %60, 0
-  br i1 %.not48, label %61, label %lean_inc.exit26
+  %.not46 = icmp eq i64 %60, 0
+  br i1 %.not46, label %61, label %lean_inc.exit26
 
 61:                                               ; preds = %56
   %.val.i39 = load i32, ptr %58, align 4, !tbaa !8

@@ -213,10 +213,10 @@ define internal fastcc range(i32 0, 2) i32 @_dopr(ptr noundef nonnull captures(n
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %56, %54
-  %.sink57.i = phi ptr [ %57, %56 ], [ %55, %54 ]
+  %.sink56.i = phi ptr [ %57, %56 ], [ %55, %54 ]
   %58 = add nuw i64 %30, 1
   store i64 %58, ptr %8, align 8, !tbaa !8
-  %59 = getelementptr inbounds nuw i8, ptr %.sink57.i, i64 %30
+  %59 = getelementptr inbounds nuw i8, ptr %.sink56.i, i64 %30
   store i8 %.0175364527, ptr %59, align 1, !tbaa !10
   br label %doapr_outch.exit
 
@@ -939,10 +939,10 @@ doapr_outch.exit:                                 ; preds = %.sink.split.i, %51,
   br label %.sink.split.i221
 
 .sink.split.i221:                                 ; preds = %423, %420
-  %.sink57.i222 = phi ptr [ %424, %423 ], [ %421, %420 ]
+  %.sink56.i222 = phi ptr [ %424, %423 ], [ %421, %420 ]
   %425 = add nuw i64 %396, 1
   store i64 %425, ptr %8, align 8, !tbaa !8
-  %426 = getelementptr inbounds nuw i8, ptr %.sink57.i222, i64 %396
+  %426 = getelementptr inbounds nuw i8, ptr %.sink56.i222, i64 %396
   store i8 %422, ptr %426, align 1, !tbaa !10
   br label %doapr_outch.exit227
 
@@ -1094,9 +1094,9 @@ doapr_outch.exit:                                 ; preds = %.sink.split.i, %51,
   br label %.sink.split.i310
 
 .sink.split.i310:                                 ; preds = %492, %490
-  %.sink57.i311 = phi ptr [ %493, %492 ], [ %491, %490 ]
+  %.sink56.i311 = phi ptr [ %493, %492 ], [ %491, %490 ]
   %494 = add nuw i64 %462, 1
-  %495 = getelementptr inbounds nuw i8, ptr %.sink57.i311, i64 %462
+  %495 = getelementptr inbounds nuw i8, ptr %.sink56.i311, i64 %462
   store i8 32, ptr %495, align 1, !tbaa !10
   br label %select.unfold.us.i
 
@@ -1186,9 +1186,9 @@ select.unfold.us.i:                               ; preds = %.sink.split.i310, %
   br label %.sink.split.i299
 
 .sink.split.i299:                                 ; preds = %529, %527
-  %.sink57.i300 = phi ptr [ %530, %529 ], [ %528, %527 ]
+  %.sink56.i300 = phi ptr [ %530, %529 ], [ %528, %527 ]
   %531 = add nuw i64 %498, 1
-  %532 = getelementptr inbounds nuw i8, ptr %.sink57.i300, i64 %498
+  %532 = getelementptr inbounds nuw i8, ptr %.sink56.i300, i64 %498
   store i8 32, ptr %532, align 1, !tbaa !10
   br label %select.unfold.i
 
@@ -1304,9 +1304,9 @@ select.unfold.i:                                  ; preds = %.sink.split.i299, %
   br label %.sink.split.i288
 
 .sink.split.i288:                                 ; preds = %569, %567
-  %.sink57.i289 = phi ptr [ %570, %569 ], [ %568, %567 ]
+  %.sink56.i289 = phi ptr [ %570, %569 ], [ %568, %567 ]
   %571 = add nuw i64 %538, 1
-  %572 = getelementptr inbounds nuw i8, ptr %.sink57.i289, i64 %538
+  %572 = getelementptr inbounds nuw i8, ptr %.sink56.i289, i64 %538
   store i8 %539, ptr %572, align 1, !tbaa !10
   br label %doapr_outch.exit294
 
@@ -1400,9 +1400,9 @@ doapr_outch.exit294:                              ; preds = %.sink.split.i288, %
   br label %.sink.split.i277
 
 .sink.split.i277:                                 ; preds = %608, %606
-  %.sink57.i278 = phi ptr [ %609, %608 ], [ %607, %606 ]
+  %.sink56.i278 = phi ptr [ %609, %608 ], [ %607, %606 ]
   %610 = add nuw i64 %576, 1
-  %611 = getelementptr inbounds nuw i8, ptr %.sink57.i278, i64 %576
+  %611 = getelementptr inbounds nuw i8, ptr %.sink56.i278, i64 %576
   store i8 %578, ptr %611, align 1, !tbaa !10
   br label %doapr_outch.exit283
 
@@ -1514,9 +1514,9 @@ doapr_outch.exit283:                              ; preds = %.sink.split.i277, %
   br label %.sink.split.i266
 
 .sink.split.i266:                                 ; preds = %648, %646
-  %.sink57.i267 = phi ptr [ %649, %648 ], [ %647, %646 ]
+  %.sink56.i267 = phi ptr [ %649, %648 ], [ %647, %646 ]
   %650 = add nuw i64 %618, 1
-  %651 = getelementptr inbounds nuw i8, ptr %.sink57.i267, i64 %618
+  %651 = getelementptr inbounds nuw i8, ptr %.sink56.i267, i64 %618
   store i8 32, ptr %651, align 1, !tbaa !10
   br label %doapr_outch.exit272
 
@@ -1607,9 +1607,9 @@ doapr_outch.exit272:                              ; preds = %.sink.split.i266, %
   br label %.sink.split.i255
 
 .sink.split.i255:                                 ; preds = %685, %683
-  %.sink57.i256 = phi ptr [ %686, %685 ], [ %684, %683 ]
+  %.sink56.i256 = phi ptr [ %686, %685 ], [ %684, %683 ]
   %687 = add nuw i64 %654, 1
-  %688 = getelementptr inbounds nuw i8, ptr %.sink57.i256, i64 %654
+  %688 = getelementptr inbounds nuw i8, ptr %.sink56.i256, i64 %654
   store i8 32, ptr %688, align 1, !tbaa !10
   br label %doapr_outch.exit261
 
@@ -1750,10 +1750,10 @@ doapr_outch.exit261:                              ; preds = %.sink.split.i255, %
   br label %.sink.split.i233
 
 .sink.split.i233:                                 ; preds = %756, %754
-  %.sink57.i234 = phi ptr [ %757, %756 ], [ %755, %754 ]
+  %.sink56.i234 = phi ptr [ %757, %756 ], [ %755, %754 ]
   %758 = add nuw i64 %730, 1
   store i64 %758, ptr %8, align 8, !tbaa !8
-  %759 = getelementptr inbounds nuw i8, ptr %.sink57.i234, i64 %730
+  %759 = getelementptr inbounds nuw i8, ptr %.sink56.i234, i64 %730
   store i8 37, ptr %759, align 1, !tbaa !10
   br label %doapr_outch.exit227
 
@@ -1876,9 +1876,9 @@ default.unreachable:                              ; preds = %22
   br label %.sink.split.i244
 
 .sink.split.i244:                                 ; preds = %796, %794
-  %.sink57.i245 = phi ptr [ %797, %796 ], [ %795, %794 ]
+  %.sink56.i245 = phi ptr [ %797, %796 ], [ %795, %794 ]
   %798 = add nuw i64 %771, 1
-  %799 = getelementptr inbounds nuw i8, ptr %.sink57.i245, i64 %771
+  %799 = getelementptr inbounds nuw i8, ptr %.sink56.i245, i64 %771
   store i8 0, ptr %799, align 1, !tbaa !10
   br label %doapr_outch.exit250
 
@@ -2038,10 +2038,10 @@ define internal fastcc range(i32 0, 2) i32 @doapr_outch(ptr noundef nonnull capt
   br label %.sink.split
 
 .sink.split:                                      ; preds = %37, %40
-  %.sink57 = phi ptr [ %41, %40 ], [ %38, %37 ]
+  %.sink56 = phi ptr [ %41, %40 ], [ %38, %37 ]
   %42 = add nuw i64 %34, 1
   store i64 %42, ptr %2, align 8, !tbaa !8
-  %43 = getelementptr inbounds nuw i8, ptr %.sink57, i64 %34
+  %43 = getelementptr inbounds nuw i8, ptr %.sink56, i64 %34
   store i8 %39, ptr %43, align 1, !tbaa !10
   br label %44
 

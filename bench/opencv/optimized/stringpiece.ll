@@ -362,19 +362,19 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   br i1 %12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %14
-  %.0712 = phi i64 [ %15, %14 ], [ %.sroa.speculated, %7 ]
-  %13 = icmp eq i64 %.0712, 0
+  %.0713 = phi i64 [ %15, %14 ], [ %.sroa.speculated, %7 ]
+  %13 = icmp eq i64 %.0713, 0
   br i1 %13, label %.loopexit, label %14
 
 14:                                               ; preds = %.lr.ph
-  %15 = add i64 %.0712, -1
+  %15 = add i64 %.0713, -1
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %15
   %17 = load i8, ptr %16, align 1, !tbaa !16
   %18 = icmp eq i8 %17, %1
   br i1 %18, label %.loopexit, label %.lr.ph, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.lr.ph, %14, %7, %3
-  %.08 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ -1, %.lr.ph ], [ %15, %14 ]
+.loopexit:                                        ; preds = %14, %.lr.ph, %7, %3
+  %.08 = phi i64 [ -1, %3 ], [ %.sroa.speculated, %7 ], [ %15, %14 ], [ -1, %.lr.ph ]
   ret i64 %.08
 }
 
@@ -599,12 +599,12 @@ define hidden noundef i64 @_ZNK6google8protobuf20stringpiece_internal11StringPie
   br i1 %18, label %_ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofEcm.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %20
-  %.0712.i.i = phi i64 [ %21, %20 ], [ %.sroa.speculated.i.i, %12 ]
-  %19 = icmp eq i64 %.0712.i.i, 0
+  %.0713.i.i = phi i64 [ %21, %20 ], [ %.sroa.speculated.i.i, %12 ]
+  %19 = icmp eq i64 %.0713.i.i, 0
   br i1 %19, label %_ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofEcm.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
-  %21 = add i64 %.0712.i.i, -1
+  %21 = add i64 %.0713.i.i, -1
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !16
   %24 = icmp eq i8 %23, %13
@@ -651,7 +651,7 @@ _ZN6google8protobuf20stringpiece_internalL16BuildLookupTableENS1_11StringPieceEP
   br label %_ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofEcm.exit
 
 _ZNK6google8protobuf20stringpiece_internal11StringPiece12find_last_ofEcm.exit: ; preds = %20, %.lr.ph.i.i, %12, %4, %42
-  %.07 = phi i64 [ %spec.select, %42 ], [ -1, %4 ], [ %.sroa.speculated.i.i, %12 ], [ -1, %.lr.ph.i.i ], [ %21, %20 ]
+  %.07 = phi i64 [ %spec.select, %42 ], [ -1, %4 ], [ %.sroa.speculated.i.i, %12 ], [ %21, %20 ], [ -1, %.lr.ph.i.i ]
   ret i64 %.07
 }
 

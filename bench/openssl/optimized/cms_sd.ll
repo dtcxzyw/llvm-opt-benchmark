@@ -303,8 +303,8 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
 
 48:                                               ; preds = %43, %38
   %49 = phi ptr [ %45, %43 ], [ %40, %38 ]
-  %.0115169 = phi i32 [ 1, %43 ], [ 0, %38 ]
-  store i32 %.0115169, ptr %49, align 8, !tbaa !26
+  %.0115167 = phi i32 [ 1, %43 ], [ 0, %38 ]
+  store i32 %.0115167, ptr %49, align 8, !tbaa !26
   %50 = icmp eq ptr %3, null
   br i1 %50, label %51, label %64
 
@@ -319,7 +319,7 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 391, ptr noundef nonnull @__func__.CMS_add1_signer) #7
   %55 = call i32 @EVP_PKEY_get_id(ptr noundef %2) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 128, ptr noundef nonnull @.str.1, i32 noundef %55) #7
-  br label %.thread174
+  br label %.thread172
 
 56:                                               ; preds = %51
   %57 = load i32, ptr %6, align 4, !tbaa !50
@@ -333,9 +333,9 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 397, ptr noundef nonnull @__func__.CMS_add1_signer) #7
   %62 = load i32, ptr %6, align 4, !tbaa !50
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 128, ptr noundef nonnull @.str.2, i32 noundef %62) #7
-  br label %.thread174
+  br label %.thread172
 
-.thread174:                                       ; preds = %54, %61
+.thread172:                                       ; preds = %54, %61
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %ossl_cms_set1_SignerIdentifier.exit.thread
 
@@ -355,11 +355,11 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %70, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %64, %76
-  %.0116186 = phi i32 [ %77, %76 ], [ 0, %64 ]
+  %.0116181 = phi i32 [ %77, %76 ], [ 0, %64 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %71 = load ptr, ptr %67, align 8, !tbaa !52
-  %72 = call ptr @OPENSSL_sk_value(ptr noundef %71, i32 noundef %.0116186) #7
+  %72 = call ptr @OPENSSL_sk_value(ptr noundef %71, i32 noundef %.0116181) #7
   call void @X509_ALGOR_get0(ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef %72) #7
   %73 = load ptr, ptr %7, align 8, !tbaa !53
   %74 = call i32 @OBJ_obj2txt(ptr noundef nonnull %8, i32 noundef 50, ptr noundef %73, i32 noundef 0) #7
@@ -370,14 +370,14 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   br i1 %.not138, label %76, label %._crit_edge
 
 76:                                               ; preds = %.lr.ph
-  %77 = add nuw nsw i32 %.0116186, 1
+  %77 = add nuw nsw i32 %.0116181, 1
   %78 = load ptr, ptr %67, align 8, !tbaa !52
   %79 = call i32 @OPENSSL_sk_num(ptr noundef %78) #7
   %80 = icmp slt i32 %77, %79
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %76, %.lr.ph, %64
-  %.0116.lcssa = phi i32 [ 0, %64 ], [ %.0116186, %.lr.ph ], [ %77, %76 ]
+  %.0116.lcssa = phi i32 [ 0, %64 ], [ %.0116181, %.lr.ph ], [ %77, %76 ]
   %81 = load ptr, ptr %67, align 8, !tbaa !52
   %82 = call i32 @OPENSSL_sk_num(ptr noundef %81) #7
   %83 = icmp eq i32 %.0116.lcssa, %82
@@ -465,9 +465,9 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %112 = call i32 @CMS_add_smimecap(ptr noundef nonnull %17, ptr noundef %110)
   %113 = icmp eq i32 %112, 0
   call void @OPENSSL_sk_pop_free(ptr noundef %110, ptr noundef nonnull @X509_ALGOR_free) #7
-  br i1 %113, label %114, label %.thread178
+  br i1 %113, label %114, label %.thread175
 
-.thread178:                                       ; preds = %111
+.thread175:                                       ; preds = %111
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %115
 
@@ -482,7 +482,7 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ossl_cms_set1_SignerIdentifier.exit.thread
 
-115:                                              ; preds = %.thread178, %106
+115:                                              ; preds = %.thread175, %106
   %116 = and i32 %4, 4194304
   %.not148 = icmp eq i32 %116, 0
   br i1 %.not148, label %118, label %117
@@ -620,34 +620,34 @@ define ptr @CMS_add1_signer(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr 
   %177 = getelementptr inbounds nuw i8, ptr %14, i64 40
   %178 = load ptr, ptr %177, align 8, !tbaa !58
   %179 = icmp eq ptr %178, null
-  br i1 %179, label %180, label %.thread185
+  br i1 %179, label %180, label %.thread180
 
 180:                                              ; preds = %176
   %181 = call ptr @OPENSSL_sk_new_null() #7
   store ptr %181, ptr %177, align 8, !tbaa !58
   %182 = icmp eq ptr %181, null
-  br i1 %182, label %185, label %.thread185
+  br i1 %182, label %185, label %.thread180
 
-.thread185:                                       ; preds = %176, %180
+.thread180:                                       ; preds = %176, %180
   %183 = phi ptr [ %181, %180 ], [ %178, %176 ]
   %184 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %183, ptr noundef nonnull %17) #7
   %.not159 = icmp eq i32 %184, 0
   br i1 %.not159, label %185, label %187
 
-185:                                              ; preds = %.thread185, %180
+185:                                              ; preds = %.thread180, %180
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 535, ptr noundef nonnull @__func__.CMS_add1_signer) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 524303, ptr noundef null) #7
   br label %ossl_cms_set1_SignerIdentifier.exit.thread
 
-ossl_cms_set1_SignerIdentifier.exit.thread:       ; preds = %132, %127, %122, %43, %38, %114, %.thread174, %162, %159, %153, %144, %137, %135, %13, %185, %173, %150, %105, %96, %91, %87, %31, %18
-  %.0118 = phi ptr [ %17, %31 ], [ %17, %87 ], [ %17, %153 ], [ %17, %159 ], [ %17, %162 ], [ %17, %185 ], [ %17, %173 ], [ %17, %150 ], [ %17, %144 ], [ %17, %137 ], [ %17, %135 ], [ %17, %114 ], [ %17, %105 ], [ %17, %96 ], [ %17, %91 ], [ null, %18 ], [ null, %13 ], [ %17, %.thread174 ], [ %17, %38 ], [ %17, %43 ], [ %17, %122 ], [ %17, %127 ], [ %17, %132 ]
+ossl_cms_set1_SignerIdentifier.exit.thread:       ; preds = %132, %127, %122, %43, %38, %114, %.thread172, %162, %159, %153, %144, %137, %135, %13, %185, %173, %150, %105, %96, %91, %87, %31, %18
+  %.0118 = phi ptr [ %17, %31 ], [ %17, %87 ], [ %17, %153 ], [ %17, %159 ], [ %17, %162 ], [ %17, %185 ], [ %17, %173 ], [ %17, %150 ], [ %17, %144 ], [ %17, %137 ], [ %17, %135 ], [ %17, %114 ], [ %17, %105 ], [ %17, %96 ], [ %17, %91 ], [ null, %18 ], [ null, %13 ], [ %17, %.thread172 ], [ %17, %38 ], [ %17, %43 ], [ %17, %122 ], [ %17, %127 ], [ %17, %132 ]
   %186 = call ptr @CMS_SignerInfo_it() #7
   call void @ASN1_item_free(ptr noundef %.0118, ptr noundef %186) #7
   br label %187
 
-187:                                              ; preds = %.thread185, %ossl_cms_set1_SignerIdentifier.exit.thread, %12
-  %.0114 = phi ptr [ null, %ossl_cms_set1_SignerIdentifier.exit.thread ], [ null, %12 ], [ %17, %.thread185 ]
+187:                                              ; preds = %.thread180, %ossl_cms_set1_SignerIdentifier.exit.thread, %12
+  %.0114 = phi ptr [ null, %ossl_cms_set1_SignerIdentifier.exit.thread ], [ null, %12 ], [ %17, %.thread180 ]
   ret ptr %.0114
 }
 
@@ -2046,7 +2046,7 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
 60:                                               ; preds = %59
   %61 = call i32 @EVP_DigestFinal_ex(ptr noundef nonnull %24, ptr noundef nonnull %8, ptr noundef nonnull %5) #7
   %.not62.i = icmp eq i32 %61, 0
-  br i1 %.not62.i, label %.thread77.i, label %62
+  br i1 %.not62.i, label %.thread74.i, label %62
 
 62:                                               ; preds = %60, %59
   %.1.i = phi ptr [ %2, %59 ], [ %8, %60 ]
@@ -2055,12 +2055,12 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   %65 = sext i32 %64 to i64
   store i64 %65, ptr %7, align 8, !tbaa !80
   %66 = icmp eq i32 %64, 0
-  br i1 %66, label %.thread77.i, label %67
+  br i1 %66, label %.thread74.i, label %67
 
 67:                                               ; preds = %62
   %68 = call noalias ptr @CRYPTO_malloc(i64 noundef %65, ptr noundef nonnull @.str, i32 noundef 781) #7
   %69 = icmp eq ptr %68, null
-  br i1 %69, label %.thread77.i, label %70
+  br i1 %69, label %.thread74.i, label %70
 
 70:                                               ; preds = %67
   %71 = load i32, ptr %5, align 4, !tbaa !50
@@ -2071,9 +2071,9 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
 
 75:                                               ; preds = %70
   call void @CRYPTO_free(ptr noundef nonnull %68, ptr noundef nonnull @.str, i32 noundef 784) #7
-  br label %.thread77.i
+  br label %.thread74.i
 
-.thread77.i:                                      ; preds = %67, %62, %60, %75
+.thread74.i:                                      ; preds = %67, %62, %60, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.critedge
@@ -2096,20 +2096,20 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   call void @ERR_new() #7
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 793, ptr noundef nonnull @__func__.cms_SignerInfo_content_sign) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 182, ptr noundef null) #7
-  br label %.thread81.i
+  br label %.thread77.i
 
 83:                                               ; preds = %81
   %84 = load ptr, ptr %28, align 8, !tbaa !43
   %85 = call i32 @EVP_PKEY_get_size(ptr noundef %84) #7
   store i32 %85, ptr %9, align 4, !tbaa !50
   %86 = icmp eq i32 %85, 0
-  br i1 %86, label %.thread81.i, label %87
+  br i1 %86, label %.thread77.i, label %87
 
 87:                                               ; preds = %83
   %88 = zext i32 %85 to i64
   %89 = call noalias ptr @CRYPTO_malloc(i64 noundef %88, ptr noundef nonnull @.str, i32 noundef 797) #7
   %90 = icmp eq ptr %89, null
-  br i1 %90, label %.thread81.i, label %91
+  br i1 %90, label %.thread77.i, label %91
 
 91:                                               ; preds = %87
   %92 = load ptr, ptr %28, align 8, !tbaa !43
@@ -2124,9 +2124,9 @@ cms_SignerInfo_content_sign.exit.thread:          ; preds = %22
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 802, ptr noundef nonnull @__func__.cms_SignerInfo_content_sign) #7
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 46, i32 noundef 139, ptr noundef null) #7
   call void @CRYPTO_free(ptr noundef nonnull %89, ptr noundef nonnull @.str, i32 noundef 803) #7
-  br label %.thread81.i
+  br label %.thread77.i
 
-.thread81.i:                                      ; preds = %87, %83, %96, %82
+.thread77.i:                                      ; preds = %87, %83, %96, %82
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.critedge
 
@@ -2157,8 +2157,8 @@ cms_SignerInfo_content_sign.exit:                 ; preds = %56, %76, %97
   store i32 0, ptr %108, align 8, !tbaa !20
   br label %109
 
-.critedge:                                        ; preds = %32, %39, %.thread81.i, %.thread77.i, %.thread.i, %31
-  %.048.i.ph = phi ptr [ null, %.thread81.i ], [ %58, %.thread77.i ], [ null, %.thread.i ], [ null, %31 ], [ null, %39 ], [ null, %32 ]
+.critedge:                                        ; preds = %32, %39, %.thread77.i, %.thread74.i, %.thread.i, %31
+  %.048.i.ph = phi ptr [ null, %.thread77.i ], [ %58, %.thread74.i ], [ null, %.thread.i ], [ null, %31 ], [ null, %39 ], [ null, %32 ]
   call void @EVP_MD_CTX_free(ptr noundef nonnull %24) #7
   call void @EVP_PKEY_CTX_free(ptr noundef %.048.i.ph) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

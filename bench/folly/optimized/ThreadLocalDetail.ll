@@ -1373,11 +1373,11 @@ _ZNSt11shared_lockIN5folly15SharedMutexImplILb0EvSt6atomicNS0_24SharedMutexPolic
           to label %.noexc45 unwind label %.loopexit81
 
 .noexc45:                                         ; preds = %80
-  %.pre36.i = load i32, ptr %11, align 4, !tbaa !16
+  %.pre35.i = load i32, ptr %11, align 4, !tbaa !16
   br label %82
 
 82:                                               ; preds = %.noexc45, %.critedge.i.i.i.i.i.i
-  %83 = phi i32 [ %.pre36.i, %.noexc45 ], [ %78, %.critedge.i.i.i.i.i.i ]
+  %83 = phi i32 [ %.pre35.i, %.noexc45 ], [ %78, %.critedge.i.i.i.i.i.i ]
   %84 = lshr i32 %83, 1
   %85 = and i32 %84, 256
   %86 = and i32 %83, -673
@@ -3725,11 +3725,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomi
 
 8:                                                ; preds = %5
   %9 = tail call noundef zeroext i1 @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_(ptr noundef nonnull align 4 dereferenceable(4) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %2, i32 noundef 12, ptr noundef nonnull align 1 dereferenceable(1) %3)
-  %.pre36 = load i32, ptr %1, align 4, !tbaa !16
+  %.pre35 = load i32, ptr %1, align 4, !tbaa !16
   br label %10
 
 10:                                               ; preds = %8, %5
-  %11 = phi i32 [ %.pre36, %8 ], [ %6, %5 ]
+  %11 = phi i32 [ %.pre35, %8 ], [ %6, %5 ]
   %12 = lshr i32 %11, 1
   %13 = and i32 %12, 256
   %14 = and i32 %11, -673

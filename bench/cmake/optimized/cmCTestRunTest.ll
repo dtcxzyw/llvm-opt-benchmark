@@ -1802,14 +1802,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZN
   br i1 %435, label %.thread, label %.critedge
 
 436:                                              ; preds = %.critedge
-  %437 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0197, i64 592
-  %.not196 = icmp eq ptr %437, %434
-  br i1 %.not196, label %.thread, label %.critedge
+  %437 = getelementptr inbounds nuw i8, ptr %.sroa.0189.0196, i64 592
+  %.not195 = icmp eq ptr %437, %434
+  br i1 %.not195, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit, %436
-  %.sroa.0189.0197 = phi ptr [ %437, %436 ], [ %432, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ]
+  %.sroa.0189.0196 = phi ptr [ %437, %436 ], [ %432, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit ]
   %438 = load ptr, ptr %416, align 8, !tbaa !171
-  %439 = call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.0189.0197, ptr noundef %438, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.0189.0197, i64 noundef 0, i32 noundef 0)
+  %439 = call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.0189.0196, ptr noundef %438, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.0189.0196, i64 noundef 0, i32 noundef 0)
   br i1 %439, label %440, label %436
 
 440:                                              ; preds = %.critedge

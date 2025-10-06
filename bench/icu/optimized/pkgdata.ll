@@ -1482,8 +1482,8 @@ _ZL22initializePkgDataFlagsP12UPKGOptions_.exit.i: ; preds = %349, %297, %331, %
 
 .preheader.i209.i:                                ; preds = %369
   %371 = call ptr @T_FileStream_readLine(ptr noundef nonnull %370, ptr noundef nonnull %16, i32 noundef 4096)
-  %.not2433.i.i = icmp eq ptr %371, null
-  br i1 %.not2433.i.i, label %._crit_edge.i213.i, label %.lr.ph.i210.i
+  %.not2432.i.i = icmp eq ptr %371, null
+  br i1 %.not2432.i.i, label %._crit_edge.i213.i, label %.lr.ph.i210.i
 
 .lr.ph.i210.i:                                    ; preds = %.preheader.i209.i, %394
   %372 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #25

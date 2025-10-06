@@ -7474,12 +7474,11 @@ define internal fastcc range(i32 1, 9) i32 @compact_zone(ptr noundef initializes
   %442 = add i16 %441, 1
   store i16 %442, ptr %146, align 8
   %443 = load i64, ptr %66, align 8
-  switch i64 %443, label %446 [
-    i64 0, label %444
-    i64 -1, label %444
-  ]
+  %.off = add i64 %443, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %446, label %444
 
-444:                                              ; preds = %440, %440
+444:                                              ; preds = %440
   %445 = load i64, ptr %141, align 8
   br label %.thread176
 

@@ -1612,11 +1612,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFi
   br label %.critedge.thread
 
 .preheader:                                       ; preds = %5, %42
-  %.sroa.01.012 = phi ptr [ %43, %42 ], [ %.0.val, %5 ]
-  %12 = load ptr, ptr %.sroa.01.012, align 8, !tbaa !14
+  %.sroa.01.010 = phi ptr [ %43, %42 ], [ %.0.val, %5 ]
+  %12 = load ptr, ptr %.sroa.01.010, align 8, !tbaa !14
   %13 = tail call i64 @strtol(ptr noundef nonnull captures(none) %12, ptr noundef null, i32 noundef 10) #22
   %14 = trunc i64 %13 to i32
-  %15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.012, i8 noundef signext 46, i64 noundef 0) #22
+  %15 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.01.010, i8 noundef signext 46, i64 noundef 0) #22
   %.not = icmp eq i64 %15, -1
   br i1 %.not, label %21, label %16
 
@@ -1642,8 +1642,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFi
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr null, ptr %25, align 8, !tbaa !71, !alias.scope !105, !noalias !102
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %27 = load ptr, ptr %.sroa.01.012, align 8, !tbaa !14, !noalias !102
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.01.012, i64 8
+  %27 = load ptr, ptr %.sroa.01.010, align 8, !tbaa !14, !noalias !102
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.01.010, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !17, !noalias !102
   store i64 %29, ptr %26, align 8, !tbaa !12, !alias.scope !108, !noalias !102
   %.sroa.4.0..sroa_idx.i14.i = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1685,34 +1685,34 @@ define internal fastcc void @_ZN12_GLOBAL__N_125processObjectKindVersionsER9cmFi
   br label %.critedge.thread
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.01.012, i64 32
-  %.not9 = icmp eq ptr %43, %.8.val
-  br i1 %.not9, label %44, label %.preheader
+  %43 = getelementptr inbounds nuw i8, ptr %.sroa.01.010, i64 32
+  %.not7 = icmp eq ptr %43, %.8.val
+  br i1 %.not7, label %.critedge, label %.preheader
 
-44:                                               ; preds = %42
+.critedge:                                        ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !120
   store i64 22, ptr %6, align 8, !tbaa !12, !alias.scope !123, !noalias !120
   %.sroa.4.0..sroa_idx.i.i25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr @.str.21, ptr %.sroa.4.0..sroa_idx.i.i25, align 8, !tbaa !70, !alias.scope !123, !noalias !120
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr null, ptr %45, align 8, !tbaa !71, !alias.scope !123, !noalias !120
-  %46 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 %3, ptr %46, align 8, !tbaa !12, !alias.scope !126, !noalias !120
+  %44 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr null, ptr %44, align 8, !tbaa !71, !alias.scope !123, !noalias !120
+  %45 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 %3, ptr %45, align 8, !tbaa !12, !alias.scope !126, !noalias !120
   %.sroa.4.0..sroa_idx.i12.i = getelementptr inbounds nuw i8, ptr %6, i64 32
   store ptr %4, ptr %.sroa.4.0..sroa_idx.i12.i, align 8, !tbaa !70, !alias.scope !126, !noalias !120
-  %47 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr null, ptr %47, align 8, !tbaa !71, !alias.scope !126, !noalias !120
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i64 48, ptr %48, align 8, !tbaa !12, !alias.scope !129, !noalias !120
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr null, ptr %46, align 8, !tbaa !71, !alias.scope !126, !noalias !120
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i64 48, ptr %47, align 8, !tbaa !12, !alias.scope !129, !noalias !120
   %.sroa.4.0..sroa_idx.i20.i = getelementptr inbounds nuw i8, ptr %6, i64 56
   store ptr @.str.22, ptr %.sroa.4.0..sroa_idx.i20.i, align 8, !tbaa !70, !alias.scope !129, !noalias !120
-  %49 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr null, ptr %49, align 8, !tbaa !71, !alias.scope !129, !noalias !120
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store ptr null, ptr %48, align 8, !tbaa !71, !alias.scope !129, !noalias !120
   call void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr nonnull %6, i64 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !120
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %24, %39, %44, %9
+.critedge.thread:                                 ; preds = %24, %39, %.critedge, %9
   ret void
 }
 

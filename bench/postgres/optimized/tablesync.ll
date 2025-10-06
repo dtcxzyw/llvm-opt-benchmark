@@ -1456,11 +1456,11 @@ slot_getattr.exit137.i.i.i:                       ; preds = %slot_getsomeattrs.e
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %.3173.i.i.i = phi ptr [ null, %.lr.ph.preheader.i.i.i ], [ %337, %.lr.ph.i.i.i ]
+  %.3172.i.i.i = phi ptr [ null, %.lr.ph.preheader.i.i.i ], [ %337, %.lr.ph.i.i.i ]
   %334 = getelementptr inbounds nuw i16, ptr %332, i64 %indvars.iv.i.i.i
   %335 = load i16, ptr %334, align 2
   %336 = sext i16 %335 to i32
-  %337 = call ptr @bms_add_member(ptr noundef %.3173.i.i.i, i32 noundef %336) #11
+  %337 = call ptr @bms_add_member(ptr noundef %.3172.i.i.i, i32 noundef %336) #11
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
   br i1 %exitcond.not.i.i.i, label %.loopexit.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !13
@@ -1562,18 +1562,18 @@ walrcv_clear_result.exit142.i.i.i:                ; preds = %351, %349
   %383 = getelementptr inbounds nuw i8, ptr %366, i64 16
   %384 = load ptr, ptr %383, align 8
   %385 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %384, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %382) #11
-  br i1 %385, label %.lr.ph176.i.i.i, label %._crit_edge.i.i.i
+  br i1 %385, label %.lr.ph175.i.i.i, label %._crit_edge.i.i.i
 
-.lr.ph176.i.i.i:                                  ; preds = %374
+.lr.ph175.i.i.i:                                  ; preds = %374
   %386 = getelementptr inbounds nuw i8, ptr %382, i64 6
   %387 = getelementptr inbounds nuw i8, ptr %382, i64 24
   %.not131.i.i.i = icmp eq ptr %.0120.i.i.i, null
   %388 = getelementptr inbounds nuw i8, ptr %382, i64 8
   br label %389
 
-389:                                              ; preds = %442, %.lr.ph176.i.i.i
-  %.1.i.i = phi i8 [ 0, %.lr.ph176.i.i.i ], [ %.2.i.i, %442 ]
-  %.1175.i.i.i = phi i32 [ 0, %.lr.ph176.i.i.i ], [ %.2.i.i.i, %442 ]
+389:                                              ; preds = %442, %.lr.ph175.i.i.i
+  %.1.i.i = phi i8 [ 0, %.lr.ph175.i.i.i ], [ %.2.i.i, %442 ]
+  %.1174.i.i.i = phi i32 [ 0, %.lr.ph175.i.i.i ], [ %.2.i.i.i, %442 ]
   %390 = load i16, ptr %386, align 2
   %391 = icmp slt i16 %390, 1
   br i1 %391, label %slot_getsomeattrs.exit.i143.i.i.i, label %slot_getattr.exit144.i.i.i
@@ -1610,7 +1610,7 @@ slot_getattr.exit146.i.i.i:                       ; preds = %slot_getsomeattrs.e
   %404 = inttoptr i64 %403 to ptr
   %405 = call ptr @text_to_cstring(ptr noundef %404) #11
   %406 = load ptr, ptr %376, align 8
-  %407 = sext i32 %.1175.i.i.i to i64
+  %407 = sext i32 %.1174.i.i.i to i64
   %408 = getelementptr inbounds ptr, ptr %406, i64 %407
   store ptr %405, ptr %408, align 8
   %409 = load i16, ptr %386, align 2
@@ -1641,12 +1641,12 @@ slot_getattr.exit150.i.i.i:                       ; preds = %slot_getsomeattrs.e
   %419 = load ptr, ptr %387, align 8
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 24
   %421 = load i64, ptr %420, align 8
-  %.not168.i.i.i = icmp eq i64 %421, 0
-  br i1 %.not168.i.i.i, label %425, label %422
+  %.not167.i.i.i = icmp eq i64 %421, 0
+  br i1 %.not167.i.i.i, label %425, label %422
 
 422:                                              ; preds = %slot_getattr.exit150.i.i.i
   %423 = load ptr, ptr %379, align 8
-  %424 = call ptr @bms_add_member(ptr noundef %423, i32 noundef %.1175.i.i.i) #11
+  %424 = call ptr @bms_add_member(ptr noundef %423, i32 noundef %.1174.i.i.i) #11
   store ptr %424, ptr %379, align 8
   br label %425
 
@@ -1676,7 +1676,7 @@ slot_getattr.exit152.i.i.i:                       ; preds = %slot_getsomeattrs.e
 
 436:                                              ; preds = %slot_getattr.exit152.i.i.i, %426, %425
   %.3.i.i = phi i8 [ 1, %426 ], [ %435, %slot_getattr.exit152.i.i.i ], [ %.1.i.i, %425 ]
-  %437 = add i32 %.1175.i.i.i, 1
+  %437 = add i32 %.1174.i.i.i, 1
   %438 = icmp sgt i32 %437, 1663
   br i1 %438, label %439, label %442
 
@@ -1688,7 +1688,7 @@ slot_getattr.exit152.i.i.i:                       ; preds = %slot_getsomeattrs.e
 
 442:                                              ; preds = %436, %392
   %.2.i.i = phi i8 [ %.3.i.i, %436 ], [ %.1.i.i, %392 ]
-  %.2.i.i.i = phi i32 [ %437, %436 ], [ %.1175.i.i.i, %392 ]
+  %.2.i.i.i = phi i32 [ %437, %436 ], [ %.1174.i.i.i, %392 ]
   %443 = load ptr, ptr %388, align 8
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 24
   %445 = load ptr, ptr %444, align 8
@@ -1768,17 +1768,17 @@ walrcv_clear_result.exit157.i.i.i:                ; preds = %458, %456
   %478 = getelementptr inbounds nuw i8, ptr %467, i64 16
   %479 = load ptr, ptr %478, align 8
   %480 = call zeroext i1 @tuplestore_gettupleslot(ptr noundef %479, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef %477) #11
-  br i1 %480, label %.lr.ph179.i.i.i, label %.thread.i.i.i
+  br i1 %480, label %.lr.ph178.i.i.i, label %.thread.i.i.i
 
-.lr.ph179.i.i.i:                                  ; preds = %474
+.lr.ph178.i.i.i:                                  ; preds = %474
   %481 = getelementptr inbounds nuw i8, ptr %477, i64 6
   %482 = getelementptr inbounds nuw i8, ptr %477, i64 32
   %483 = getelementptr inbounds nuw i8, ptr %477, i64 24
   %484 = getelementptr inbounds nuw i8, ptr %477, i64 8
   br label %485
 
-485:                                              ; preds = %493, %.lr.ph179.i.i.i
-  %.156.i.i = phi ptr [ null, %.lr.ph179.i.i.i ], [ %499, %493 ]
+485:                                              ; preds = %493, %.lr.ph178.i.i.i
+  %.156.i.i = phi ptr [ null, %.lr.ph178.i.i.i ], [ %499, %493 ]
   %486 = load i16, ptr %481, align 2
   %487 = icmp slt i16 %486, 1
   br i1 %487, label %slot_getsomeattrs.exit.i158.i.i.i, label %slot_getattr.exit159.i.i.i

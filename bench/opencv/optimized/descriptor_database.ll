@@ -2381,12 +2381,12 @@ _ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12Enco
           to label %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit unwind label %63
 
 _ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit: ; preds = %36
-  %.pre176 = load ptr, ptr %15, align 8, !tbaa !25
-  %37 = icmp eq ptr %.pre176, %16
+  %.pre163 = load ptr, ptr %15, align 8, !tbaa !25
+  %37 = icmp eq ptr %.pre163, %16
   br i1 %37, label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit
-  call void @_ZdlPv(ptr noundef %.pre176) #27
+  call void @_ZdlPv(ptr noundef %.pre163) #27
   br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit
 
 _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit: ; preds = %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit, %_ZNSt6vectorIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryESaIS4_EE9push_backEOS4_.exit.thread, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -2455,13 +2455,13 @@ _ZN6google8protobuf12_GLOBAL__N_118ValidateSymbolNameENS0_20stringpiece_internal
           cleanup
   %65 = load ptr, ptr %15, align 8, !tbaa !25
   %66 = icmp eq ptr %65, %16
-  br i1 %66, label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i70
+  br i1 %66, label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit69, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i70: ; preds = %63
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67: ; preds = %63
   call void @_ZdlPv(ptr noundef %65) #27
-  br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit72
+  br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit69
 
-_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit72: ; preds = %63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i70
+_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit69: ; preds = %63, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i67
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %327
 
@@ -2620,8 +2620,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thr
   store i64 %118, ptr %119, align 8, !tbaa !54
   %120 = load i64, ptr %92, align 8, !tbaa !56
   store i64 %120, ptr %96, align 8, !tbaa !56
-  %.not.i73 = icmp eq ptr %95, null
-  br i1 %.not.i73, label %122, label %121
+  %.not.i70 = icmp eq ptr %95, null
+  br i1 %.not.i70, label %122, label %121
 
 121:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit24.thread.i
   store ptr %95, ptr %10, align 8, !tbaa !25
@@ -2673,44 +2673,44 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %145 = icmp eq ptr %142, null
   %146 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %146, ptr %136, align 8, !tbaa !53, !alias.scope !118
-  br i1 %145, label %._crit_edge.i.i.i.i.i76, label %148
+  br i1 %145, label %._crit_edge.i.i.i.i.i73, label %148
 
-._crit_edge.i.i.i.i.i76:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+._crit_edge.i.i.i.i.i73:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %147 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %147, align 8, !tbaa !54, !alias.scope !118
   store i8 0, ptr %146, align 8, !tbaa !56, !alias.scope !118
-  br label %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit77
+  br label %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit74
 
 148:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !118
   store i64 %144, ptr %5, align 8, !tbaa !55, !noalias !118
   %149 = icmp ugt i64 %144, 15
-  br i1 %149, label %.noexc.i5.i.i.i75, label %._crit_edge.i.i4.i.i.i74
+  br i1 %149, label %.noexc.i5.i.i.i72, label %._crit_edge.i.i4.i.i.i71
 
-.noexc.i5.i.i.i75:                                ; preds = %148
+.noexc.i5.i.i.i72:                                ; preds = %148
   %150 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %136, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
   store ptr %150, ptr %136, align 8, !tbaa !25, !alias.scope !118
   %151 = load i64, ptr %5, align 8, !tbaa !55, !noalias !118
   store i64 %151, ptr %146, align 8, !tbaa !56, !alias.scope !118
-  br label %._crit_edge.i.i4.i.i.i74
+  br label %._crit_edge.i.i4.i.i.i71
 
-._crit_edge.i.i4.i.i.i74:                         ; preds = %.noexc.i5.i.i.i75, %148
-  %152 = phi ptr [ %150, %.noexc.i5.i.i.i75 ], [ %146, %148 ]
+._crit_edge.i.i4.i.i.i71:                         ; preds = %.noexc.i5.i.i.i72, %148
+  %152 = phi ptr [ %150, %.noexc.i5.i.i.i72 ], [ %146, %148 ]
   switch i64 %144, label %155 [
     i64 1, label %153
     i64 0, label %156
   ]
 
-153:                                              ; preds = %._crit_edge.i.i4.i.i.i74
+153:                                              ; preds = %._crit_edge.i.i4.i.i.i71
   %154 = load i8, ptr %142, align 1, !tbaa !56, !noalias !109
   store i8 %154, ptr %152, align 1, !tbaa !56
   br label %156
 
-155:                                              ; preds = %._crit_edge.i.i4.i.i.i74
+155:                                              ; preds = %._crit_edge.i.i4.i.i.i71
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %152, ptr nonnull align 1 %142, i64 %144, i1 false)
   br label %156
 
-156:                                              ; preds = %155, %153, %._crit_edge.i.i4.i.i.i74
+156:                                              ; preds = %155, %153, %._crit_edge.i.i4.i.i.i71
   %157 = load i64, ptr %5, align 8, !tbaa !55, !noalias !118
   %158 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %157, ptr %158, align 8, !tbaa !54, !alias.scope !118
@@ -2718,13 +2718,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 %157
   store i8 0, ptr %160, align 1, !tbaa !56
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !118
-  br label %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit77
+  br label %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit74
 
-_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit77: ; preds = %._crit_edge.i.i.i.i.i76, %156
+_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit74: ; preds = %._crit_edge.i.i.i.i.i73, %156
   %161 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryES4_St9_IdentityIS4_ENS3_11FileCompareESaIS4_EE16_M_insert_uniqueIRKS4_EESt4pairISt17_Rb_tree_iteratorIS4_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %127, ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %162 unwind label %224
 
-162:                                              ; preds = %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit77
+162:                                              ; preds = %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit74
   %.fca.1.extract.i = extractvalue { ptr, i8 } %161, 1
   %163 = trunc i8 %.fca.1.extract.i to i1
   br i1 %163, label %164, label %.critedge
@@ -2785,8 +2785,8 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN6google8protobuf25EncodedDescriptorDatabase
 
 _ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5__ops14_Iter_comp_valINS5_11FileCompareEEEET_SM_SM_RKT0_T1_.exit.i: ; preds = %194, %164
   %.sroa.012.0.lcssa.i.i = phi ptr [ %166, %164 ], [ %.sroa.012.1.i.i, %194 ]
-  %.not.i79 = icmp eq ptr %.sroa.012.0.lcssa.i.i, %168
-  br i1 %.not.i79, label %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_11FileCompareEEbT_SJ_RKT0_T1_.exit, label %196
+  %.not.i76 = icmp eq ptr %.sroa.012.0.lcssa.i.i, %168
+  br i1 %.not.i76, label %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_11FileCompareEEbT_SJ_RKT0_T1_.exit, label %196
 
 196:                                              ; preds = %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5__ops14_Iter_comp_valINS5_11FileCompareEEEET_SM_SM_RKT0_T1_.exit.i
   %197 = load ptr, ptr %172, align 8, !tbaa !25
@@ -2811,30 +2811,30 @@ _ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDe
   %209 = phi i1 [ false, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5__ops14_Iter_comp_valINS5_11FileCompareEEEET_SM_SM_RKT0_T1_.exit.i ], [ false, %196 ], [ %spec.select9.i.i.not.i, %206 ]
   %210 = load ptr, ptr %136, align 8, !tbaa !25
   %211 = icmp eq ptr %210, %146
-  br i1 %211, label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i80
+  br i1 %211, label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i77
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i80: ; preds = %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_11FileCompareEEbT_SJ_RKT0_T1_.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i77: ; preds = %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_11FileCompareEEbT_SJ_RKT0_T1_.exit
   call void @_ZdlPv(ptr noundef %210) #27
   br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit
 
-_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit: ; preds = %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_11FileCompareEEbT_SJ_RKT0_T1_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i80
+_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit: ; preds = %_ZSt13binary_searchIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryESt6vectorIS6_SaIS6_EEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS5_11FileCompareEEbT_SJ_RKT0_T1_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i77
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br i1 %209, label %214, label %233
 
 .critedge:                                        ; preds = %162
   %212 = load ptr, ptr %136, align 8, !tbaa !25
   %213 = icmp eq ptr %212, %146
-  br i1 %213, label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i82
+  br i1 %213, label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit81, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i79
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i82: ; preds = %.critedge
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i79: ; preds = %.critedge
   call void @_ZdlPv(ptr noundef %212) #27
-  br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84
+  br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit81
 
-_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i82
+_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit81: ; preds = %.critedge, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i79
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %214
 
-214:                                              ; preds = %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit
+214:                                              ; preds = %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit81, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @_ZN6google8protobuf8internal10LogMessageC1ENS0_8LogLevelEPKci(ptr noundef nonnull align 8 dereferenceable(56) %12, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 641)
   %215 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN6google8protobuf8internal10LogMessagelsEPKc(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull @.str.10)
@@ -2859,18 +2859,18 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.critedge62.thread
 
-224:                                              ; preds = %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit77
+224:                                              ; preds = %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodeStringB5cxx11ENS0_20stringpiece_internal11StringPieceE.exit74
   %225 = landingpad { ptr, i32 }
           cleanup
   %226 = load ptr, ptr %136, align 8, !tbaa !25
   %227 = icmp eq ptr %226, %146
-  br i1 %227, label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit87, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i85
+  br i1 %227, label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i82
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i85: ; preds = %224
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i82: ; preds = %224
   call void @_ZdlPv(ptr noundef %226) #27
-  br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit87
+  br label %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84
 
-_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit87: ; preds = %224, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i85
+_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84: ; preds = %224, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i82
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %327
 
@@ -2894,25 +2894,25 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
 233:                                              ; preds = %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit
   %234 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %235 = load ptr, ptr %234, align 8, !tbaa !31
-  %.not.i.i88 = icmp eq ptr %235, null
+  %.not.i.i85 = icmp eq ptr %235, null
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
-  %spec.select.i.i = select i1 %.not.i.i88, ptr null, ptr %236
+  %spec.select.i.i = select i1 %.not.i.i85, ptr null, ptr %236
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %238 = load i32, ptr %237, align 8, !tbaa !36
   %239 = sext i32 %238 to i64
   %.idx = shl nsw i64 %239, 3
   %240 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
-  %.not151 = icmp eq i32 %238, 0
-  br i1 %.not151, label %._crit_edge, label %.lr.ph
+  %.not142 = icmp eq i32 %238, 0
+  br i1 %.not142, label %.critedge62, label %.lr.ph
 
 241:                                              ; preds = %253
-  %242 = getelementptr inbounds nuw i8, ptr %.sroa.0126.0152, i64 8
+  %242 = getelementptr inbounds nuw i8, ptr %.sroa.0123.0143, i64 8
   %.not = icmp eq ptr %242, %240
-  br i1 %.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not, label %.critedge62, label %.lr.ph
 
 .lr.ph:                                           ; preds = %233, %241
-  %.sroa.0126.0152 = phi ptr [ %242, %241 ], [ %spec.select.i.i, %233 ]
-  %243 = load ptr, ptr %.sroa.0126.0152, align 8, !tbaa !37
+  %.sroa.0123.0143 = phi ptr [ %242, %241 ], [ %spec.select.i.i, %233 ]
+  %243 = load ptr, ptr %.sroa.0123.0143, align 8, !tbaa !37
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 216
   %245 = load ptr, ptr %244, align 8, !tbaa !20
   %246 = ptrtoint ptr %245 to i64
@@ -2935,28 +2935,28 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   %261 = call noundef zeroext i1 @_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex19AddNestedExtensionsINS0_15DescriptorProtoEEEbNS0_20stringpiece_internal11StringPieceERKT_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr %258, i64 %260, ptr noundef nonnull align 8 dereferenceable(232) %243)
   br i1 %261, label %241, label %.critedge62.thread
 
-._crit_edge:                                      ; preds = %241, %233
+.critedge62:                                      ; preds = %241, %233
   %262 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %263 = load ptr, ptr %262, align 8, !tbaa !31
-  %.not.i.i91 = icmp eq ptr %263, null
+  %.not.i.i88 = icmp eq ptr %263, null
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 8
-  %spec.select.i.i92 = select i1 %.not.i.i91, ptr null, ptr %264
+  %spec.select.i.i89 = select i1 %.not.i.i88, ptr null, ptr %264
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %266 = load i32, ptr %265, align 8, !tbaa !36
   %267 = sext i32 %266 to i64
-  %.idx170 = shl nsw i64 %267, 3
-  %268 = getelementptr inbounds i8, ptr %spec.select.i.i92, i64 %.idx170
-  %.not145153 = icmp eq i32 %266, 0
-  br i1 %.not145153, label %._crit_edge157, label %.lr.ph156
+  %.idx157 = shl nsw i64 %267, 3
+  %268 = getelementptr inbounds i8, ptr %spec.select.i.i89, i64 %.idx157
+  %.not136144 = icmp eq i32 %266, 0
+  br i1 %.not136144, label %._crit_edge, label %.lr.ph146
 
-269:                                              ; preds = %.lr.ph156
-  %270 = getelementptr inbounds nuw i8, ptr %.sroa.0118.0154, i64 8
-  %.not145 = icmp eq ptr %270, %268
-  br i1 %.not145, label %._crit_edge157, label %.lr.ph156
+269:                                              ; preds = %.lr.ph146
+  %270 = getelementptr inbounds nuw i8, ptr %.sroa.0115.0145, i64 8
+  %.not136 = icmp eq ptr %270, %268
+  br i1 %.not136, label %._crit_edge, label %.lr.ph146
 
-.lr.ph156:                                        ; preds = %._crit_edge, %269
-  %.sroa.0118.0154 = phi ptr [ %270, %269 ], [ %spec.select.i.i92, %._crit_edge ]
-  %271 = load ptr, ptr %.sroa.0118.0154, align 8, !tbaa !37
+.lr.ph146:                                        ; preds = %.critedge62, %269
+  %.sroa.0115.0145 = phi ptr [ %270, %269 ], [ %spec.select.i.i89, %.critedge62 ]
+  %271 = load ptr, ptr %.sroa.0115.0145, align 8, !tbaa !37
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 96
   %273 = load ptr, ptr %272, align 8, !tbaa !20
   %274 = ptrtoint ptr %273 to i64
@@ -2968,28 +2968,28 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   %280 = call noundef zeroext i1 @_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr %277, i64 %279)
   br i1 %280, label %269, label %.critedge62.thread
 
-._crit_edge157:                                   ; preds = %269, %._crit_edge
+._crit_edge:                                      ; preds = %269, %.critedge62
   %281 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %282 = load ptr, ptr %281, align 8, !tbaa !31
-  %.not.i.i95 = icmp eq ptr %282, null
+  %.not.i.i92 = icmp eq ptr %282, null
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
-  %spec.select.i.i96 = select i1 %.not.i.i95, ptr null, ptr %283
+  %spec.select.i.i93 = select i1 %.not.i.i92, ptr null, ptr %283
   %284 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %285 = load i32, ptr %284, align 8, !tbaa !36
   %286 = sext i32 %285 to i64
-  %.idx171 = shl nsw i64 %286, 3
-  %287 = getelementptr inbounds i8, ptr %spec.select.i.i96, i64 %.idx171
-  %.not146158 = icmp eq i32 %285, 0
-  br i1 %.not146158, label %._crit_edge162, label %.lr.ph161
+  %.idx158 = shl nsw i64 %286, 3
+  %287 = getelementptr inbounds i8, ptr %spec.select.i.i93, i64 %.idx158
+  %.not137147 = icmp eq i32 %285, 0
+  br i1 %.not137147, label %.critedge65, label %.lr.ph150
 
 288:                                              ; preds = %300
-  %289 = getelementptr inbounds nuw i8, ptr %.sroa.0112.0159, i64 8
-  %.not146 = icmp eq ptr %289, %287
-  br i1 %.not146, label %._crit_edge162, label %.lr.ph161
+  %289 = getelementptr inbounds nuw i8, ptr %.sroa.0109.0148, i64 8
+  %.not137 = icmp eq ptr %289, %287
+  br i1 %.not137, label %.critedge65, label %.lr.ph150
 
-.lr.ph161:                                        ; preds = %._crit_edge157, %288
-  %.sroa.0112.0159 = phi ptr [ %289, %288 ], [ %spec.select.i.i96, %._crit_edge157 ]
-  %290 = load ptr, ptr %.sroa.0112.0159, align 8, !tbaa !37
+.lr.ph150:                                        ; preds = %._crit_edge, %288
+  %.sroa.0109.0148 = phi ptr [ %289, %288 ], [ %spec.select.i.i93, %._crit_edge ]
+  %290 = load ptr, ptr %.sroa.0109.0148, align 8, !tbaa !37
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 24
   %292 = load ptr, ptr %291, align 8, !tbaa !20
   %293 = ptrtoint ptr %292 to i64
@@ -3001,7 +3001,7 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   %299 = call noundef zeroext i1 @_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr %296, i64 %298)
   br i1 %299, label %300, label %.critedge62.thread
 
-300:                                              ; preds = %.lr.ph161
+300:                                              ; preds = %.lr.ph150
   %301 = load ptr, ptr %137, align 8, !tbaa !20
   %302 = ptrtoint ptr %301 to i64
   %303 = and i64 %302, -2
@@ -3012,23 +3012,23 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   %308 = call noundef zeroext i1 @_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12AddExtensionINS0_20FieldDescriptorProtoEEEbNS0_20stringpiece_internal11StringPieceERKT_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr %305, i64 %307, ptr noundef nonnull align 8 dereferenceable(96) %290)
   br i1 %308, label %288, label %.critedge62.thread
 
-._crit_edge162:                                   ; preds = %288, %._crit_edge157
+.critedge65:                                      ; preds = %288, %._crit_edge
   %309 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %310 = load ptr, ptr %309, align 8, !tbaa !31
-  %.not.i.i99 = icmp eq ptr %310, null
+  %.not.i.i96 = icmp eq ptr %310, null
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
-  %spec.select.i.i100 = select i1 %.not.i.i99, ptr null, ptr %311
+  %spec.select.i.i97 = select i1 %.not.i.i96, ptr null, ptr %311
   %312 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %313 = load i32, ptr %312, align 8, !tbaa !36
   %314 = sext i32 %313 to i64
-  %.idx172 = shl nsw i64 %314, 3
-  %315 = getelementptr inbounds i8, ptr %spec.select.i.i100, i64 %.idx172
-  %.not147163 = icmp eq i32 %313, 0
-  br i1 %.not147163, label %.critedge62.thread, label %.lr.ph167
+  %.idx159 = shl nsw i64 %314, 3
+  %315 = getelementptr inbounds i8, ptr %spec.select.i.i97, i64 %.idx159
+  %.not138151 = icmp eq i32 %313, 0
+  br i1 %.not138151, label %.critedge62.thread, label %.lr.ph154
 
-.lr.ph167:                                        ; preds = %._crit_edge162, %.lr.ph167
-  %.sroa.0104.0164 = phi ptr [ %326, %.lr.ph167 ], [ %spec.select.i.i100, %._crit_edge162 ]
-  %316 = load ptr, ptr %.sroa.0104.0164, align 8, !tbaa !37
+.lr.ph154:                                        ; preds = %.critedge65, %.lr.ph154
+  %.sroa.0101.0152 = phi ptr [ %326, %.lr.ph154 ], [ %spec.select.i.i97, %.critedge65 ]
+  %316 = load ptr, ptr %.sroa.0101.0152, align 8, !tbaa !37
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 48
   %318 = load ptr, ptr %317, align 8, !tbaa !20
   %319 = ptrtoint ptr %318 to i64
@@ -3038,17 +3038,17 @@ _ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.ex
   %323 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %324 = load i64, ptr %323, align 8, !tbaa !54
   %325 = call noundef zeroext i1 @_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9AddSymbolENS0_20stringpiece_internal11StringPieceE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr %322, i64 %324)
-  %326 = getelementptr inbounds nuw i8, ptr %.sroa.0104.0164, i64 8
-  %.not147 = icmp ne ptr %326, %315
-  %or.cond.not = select i1 %325, i1 %.not147, i1 false
-  br i1 %or.cond.not, label %.lr.ph167, label %.critedge62.thread
+  %326 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0152, i64 8
+  %.not138 = icmp ne ptr %326, %315
+  %or.cond.not = select i1 %325, i1 %.not138, i1 false
+  br i1 %or.cond.not, label %.lr.ph154, label %.critedge62.thread
 
-.critedge62.thread:                               ; preds = %.lr.ph, %253, %.lr.ph156, %.lr.ph161, %300, %.lr.ph167, %._crit_edge162, %223, %62
-  %.0 = phi i1 [ false, %62 ], [ false, %223 ], [ true, %._crit_edge162 ], [ %325, %.lr.ph167 ], [ false, %300 ], [ false, %.lr.ph161 ], [ false, %.lr.ph156 ], [ false, %253 ], [ false, %.lr.ph ]
+.critedge62.thread:                               ; preds = %.lr.ph, %253, %.lr.ph146, %.lr.ph150, %300, %.lr.ph154, %.critedge65, %223, %62
+  %.0 = phi i1 [ false, %62 ], [ false, %223 ], [ true, %.critedge65 ], [ %325, %.lr.ph154 ], [ false, %300 ], [ false, %.lr.ph150 ], [ false, %.lr.ph146 ], [ false, %253 ], [ false, %.lr.ph ]
   ret i1 %.0
 
-327:                                              ; preds = %232, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit87, %71, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit72
-  %.pn58.pn = phi { ptr, i32 } [ %.pn58, %71 ], [ %.pn, %232 ], [ %225, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit87 ], [ %64, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit72 ]
+327:                                              ; preds = %232, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84, %71, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit69
+  %.pn58.pn = phi { ptr, i32 } [ %.pn58, %71 ], [ %.pn, %232 ], [ %225, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex9FileEntryD2Ev.exit84 ], [ %64, %_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12EncodedEntryD2Ev.exit69 ]
   resume { ptr, i32 } %.pn58.pn
 }
 
@@ -6485,17 +6485,17 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf24MergedDescriptorDatabase1
   %5 = load ptr, ptr %4, align 8, !tbaa !266
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !266
-  %.not13.not = icmp eq ptr %5, %7
-  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
+  %.not14.not = icmp eq ptr %5, %7
+  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.010.014 = phi ptr [ %13, %.lr.ph ], [ %5, %3 ]
-  %8 = load ptr, ptr %.sroa.010.014, align 8, !tbaa !259
+  %.sroa.010.015 = phi ptr [ %13, %.lr.ph ], [ %5, %3 ]
+  %8 = load ptr, ptr %.sroa.010.015, align 8, !tbaa !259
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2)
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 8
   %.not.not = icmp eq ptr %13, %7
   %or.cond = select i1 %12, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -6512,13 +6512,13 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf24MergedDescriptorDatabase2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !264
   %8 = load ptr, ptr %5, align 8, !tbaa !261
-  %.not2127.not = icmp eq ptr %7, %8
-  br i1 %.not2127.not, label %.loopexit, label %.lr.ph
+  %.not = icmp eq ptr %7, %8
+  br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %34
   %9 = phi ptr [ %37, %34 ], [ %8, %3 ]
-  %.01528 = phi i64 [ %35, %34 ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01528
+  %.01526 = phi i64 [ %35, %34 ], [ 0, %3 ]
+  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.01526
   %11 = load ptr, ptr %10, align 8, !tbaa !259
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
@@ -6529,17 +6529,17 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf24MergedDescriptorDatabase2
 16:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN6google8protobuf19FileDescriptorProtoC2EPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(216) %4, ptr noundef null, i1 noundef zeroext false)
-  %.not30 = icmp eq i64 %.01528, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph33
+  %.not.not27.not = icmp eq i64 %.01526, 0
+  br i1 %.not.not27.not, label %.thread.sink.split, label %.lr.ph29
 
-.lr.ph33:                                         ; preds = %16
+.lr.ph29:                                         ; preds = %16
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 176
   br label %18
 
-18:                                               ; preds = %30, %.lr.ph33
-  %.01631 = phi i64 [ 0, %.lr.ph33 ], [ %31, %30 ]
+18:                                               ; preds = %30, %.lr.ph29
+  %.01628 = phi i64 [ 0, %.lr.ph29 ], [ %31, %30 ]
   %19 = load ptr, ptr %5, align 8, !tbaa !261
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01631
+  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.01628
   %21 = load ptr, ptr %20, align 8, !tbaa !259
   %22 = load ptr, ptr %17, align 8, !tbaa !20
   %23 = ptrtoint ptr %22 to i64
@@ -6552,10 +6552,10 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf24MergedDescriptorDatabase2
           to label %30 unwind label %32
 
 30:                                               ; preds = %18
-  %31 = add nuw i64 %.01631, 1
-  %exitcond.not = icmp eq i64 %31, %.01528
+  %31 = add nuw i64 %.01628, 1
+  %exitcond.not = icmp eq i64 %31, %.01526
   %or.cond = select i1 %29, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge.loopexit, label %18, !llvm.loop !267
+  br i1 %or.cond, label %.thread.sink.split.loopexit, label %18, !llvm.loop !267
 
 32:                                               ; preds = %18
   %33 = landingpad { ptr, i32 }
@@ -6564,32 +6564,30 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf24MergedDescriptorDatabase2
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   resume { ptr, i32 } %33
 
-._crit_edge.loopexit:                             ; preds = %30
-  %.not.lcssa.ph = xor i1 %29, true
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %16
-  %.not.lcssa = phi i1 [ true, %16 ], [ %.not.lcssa.ph, %._crit_edge.loopexit ]
-  call void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #26
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit
-
 34:                                               ; preds = %.lr.ph
-  %35 = add nuw i64 %.01528, 1
+  %35 = add nuw i64 %.01526, 1
   %36 = load ptr, ptr %6, align 8, !tbaa !264
   %37 = load ptr, ptr %5, align 8, !tbaa !261
   %38 = ptrtoint ptr %36 to i64
   %39 = ptrtoint ptr %37 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
-  %.not21 = icmp ult i64 %35, %41
-  br i1 %.not21, label %.lr.ph, label %.loopexit, !llvm.loop !268
+  %42 = icmp ult i64 %35, %41
+  br i1 %42, label %.lr.ph, label %.thread, !llvm.loop !268
 
-.loopexit:                                        ; preds = %34, %3, %._crit_edge
-  %.not2124 = phi i1 [ true, %._crit_edge ], [ false, %3 ], [ false, %34 ]
-  %.0 = phi i1 [ %.not.lcssa, %._crit_edge ], [ undef, %3 ], [ undef, %34 ]
-  %spec.select20 = and i1 %.not2124, %.0
-  ret i1 %spec.select20
+.thread.sink.split.loopexit:                      ; preds = %30
+  %.ph.ph = xor i1 %29, true
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %.thread.sink.split.loopexit, %16
+  %.ph = phi i1 [ true, %16 ], [ %.ph.ph, %.thread.sink.split.loopexit ]
+  call void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %4) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  br label %.thread
+
+.thread:                                          ; preds = %34, %.thread.sink.split, %3
+  %43 = phi i1 [ false, %3 ], [ %.ph, %.thread.sink.split ], [ false, %34 ]
+  ret i1 %43
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6599,13 +6597,13 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf24MergedDescriptorDatabase2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !264
   %9 = load ptr, ptr %6, align 8, !tbaa !261
-  %.not2228.not = icmp eq ptr %8, %9
-  br i1 %.not2228.not, label %.loopexit, label %.lr.ph
+  %.not = icmp eq ptr %8, %9
+  br i1 %.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %35
   %10 = phi ptr [ %38, %35 ], [ %9, %4 ]
-  %.01629 = phi i64 [ %36, %35 ], [ 0, %4 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01629
+  %.01627 = phi i64 [ %36, %35 ], [ 0, %4 ]
+  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.01627
   %12 = load ptr, ptr %11, align 8, !tbaa !259
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
@@ -6616,17 +6614,17 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf24MergedDescriptorDatabase2
 17:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN6google8protobuf19FileDescriptorProtoC2EPNS0_5ArenaEb(ptr noundef nonnull align 8 dereferenceable(216) %5, ptr noundef null, i1 noundef zeroext false)
-  %.not31 = icmp eq i64 %.01629, 0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph34
+  %.not.not28.not = icmp eq i64 %.01627, 0
+  br i1 %.not.not28.not, label %.thread.sink.split, label %.lr.ph30
 
-.lr.ph34:                                         ; preds = %17
+.lr.ph30:                                         ; preds = %17
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 176
   br label %19
 
-19:                                               ; preds = %31, %.lr.ph34
-  %.01732 = phi i64 [ 0, %.lr.ph34 ], [ %32, %31 ]
+19:                                               ; preds = %31, %.lr.ph30
+  %.01729 = phi i64 [ 0, %.lr.ph30 ], [ %32, %31 ]
   %20 = load ptr, ptr %6, align 8, !tbaa !261
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01732
+  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.01729
   %22 = load ptr, ptr %21, align 8, !tbaa !259
   %23 = load ptr, ptr %18, align 8, !tbaa !20
   %24 = ptrtoint ptr %23 to i64
@@ -6639,10 +6637,10 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf24MergedDescriptorDatabase2
           to label %31 unwind label %33
 
 31:                                               ; preds = %19
-  %32 = add nuw i64 %.01732, 1
-  %exitcond.not = icmp eq i64 %32, %.01629
+  %32 = add nuw i64 %.01729, 1
+  %exitcond.not = icmp eq i64 %32, %.01627
   %or.cond = select i1 %30, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %._crit_edge.loopexit, label %19, !llvm.loop !269
+  br i1 %or.cond, label %.thread.sink.split.loopexit, label %19, !llvm.loop !269
 
 33:                                               ; preds = %19
   %34 = landingpad { ptr, i32 }
@@ -6651,32 +6649,30 @@ define hidden noundef zeroext i1 @_ZN6google8protobuf24MergedDescriptorDatabase2
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   resume { ptr, i32 } %34
 
-._crit_edge.loopexit:                             ; preds = %31
-  %.not.lcssa.ph = xor i1 %30, true
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %17
-  %.not.lcssa = phi i1 [ true, %17 ], [ %.not.lcssa.ph, %._crit_edge.loopexit ]
-  call void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #26
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit
-
 35:                                               ; preds = %.lr.ph
-  %36 = add nuw i64 %.01629, 1
+  %36 = add nuw i64 %.01627, 1
   %37 = load ptr, ptr %7, align 8, !tbaa !264
   %38 = load ptr, ptr %6, align 8, !tbaa !261
   %39 = ptrtoint ptr %37 to i64
   %40 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = ashr exact i64 %41, 3
-  %.not22 = icmp ult i64 %36, %42
-  br i1 %.not22, label %.lr.ph, label %.loopexit, !llvm.loop !270
+  %43 = icmp ult i64 %36, %42
+  br i1 %43, label %.lr.ph, label %.thread, !llvm.loop !270
 
-.loopexit:                                        ; preds = %35, %4, %._crit_edge
-  %.not2225 = phi i1 [ true, %._crit_edge ], [ false, %4 ], [ false, %35 ]
-  %.0 = phi i1 [ %.not.lcssa, %._crit_edge ], [ undef, %4 ], [ undef, %35 ]
-  %spec.select21 = and i1 %.not2225, %.0
-  ret i1 %spec.select21
+.thread.sink.split.loopexit:                      ; preds = %31
+  %.ph.ph = xor i1 %30, true
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %.thread.sink.split.loopexit, %17
+  %.ph = phi i1 [ true, %17 ], [ %.ph.ph, %.thread.sink.split.loopexit ]
+  call void @_ZN6google8protobuf19FileDescriptorProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(216) %5) #26
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %.thread
+
+.thread:                                          ; preds = %35, %.thread.sink.split, %4
+  %44 = phi i1 [ false, %4 ], [ %.ph, %.thread.sink.split ], [ false, %35 ]
+  ret i1 %44
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -9000,9 +8996,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24SimpleDescri
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %14 = load i32, ptr %13, align 8, !tbaa !36
   %15 = icmp slt i32 %14, 1
-  br i1 %15, label %.thread, label %.lr.ph29
+  br i1 %15, label %.thread, label %.lr.ph26
 
-.lr.ph29:                                         ; preds = %.preheader
+.lr.ph26:                                         ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 136
   br label %26
 
@@ -9016,17 +9012,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf24SimpleDescri
   br i1 %22, label %9, label %.thread
 
 23:                                               ; preds = %26
-  %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
+  %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %24 = load i32, ptr %13, align 8, !tbaa !36
   %25 = sext i32 %24 to i64
-  %.not = icmp slt i64 %indvars.iv.next35, %25
+  %.not = icmp slt i64 %indvars.iv.next32, %25
   br i1 %.not, label %26, label %.thread, !llvm.loop !294
 
-26:                                               ; preds = %.lr.ph29, %23
-  %indvars.iv34 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next35, %23 ]
+26:                                               ; preds = %.lr.ph26, %23
+  %indvars.iv31 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next32, %23 ]
   %27 = load ptr, ptr %16, align 8, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv34
+  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv31
   %30 = load ptr, ptr %29, align 8, !tbaa !37
   %31 = tail call noundef zeroext i1 @_ZN6google8protobuf24SimpleDescriptorDatabase15DescriptorIndexIPKNS0_19FileDescriptorProtoEE12AddExtensionERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_20FieldDescriptorProtoES5_(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(96) %30, ptr noundef %3)
   br i1 %31, label %23, label %.thread
@@ -10520,45 +10516,45 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf25EncodedDescr
   %10 = sext i32 %9 to i64
   %.idx = shl nsw i64 %10, 3
   %11 = getelementptr inbounds i8, ptr %spec.select.i.i, i64 %.idx
-  %.not42 = icmp eq i32 %9, 0
-  br i1 %.not42, label %._crit_edge, label %.lr.ph
+  %.not39 = icmp eq i32 %9, 0
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.034.043, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.033.040, i64 8
   %.not = icmp eq ptr %13, %11
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %12
-  %.sroa.034.043 = phi ptr [ %13, %12 ], [ %spec.select.i.i, %4 ]
-  %14 = load ptr, ptr %.sroa.034.043, align 8, !tbaa !37
+  %.sroa.033.040 = phi ptr [ %13, %12 ], [ %spec.select.i.i, %4 ]
+  %14 = load ptr, ptr %.sroa.033.040, align 8, !tbaa !37
   %15 = tail call noundef zeroext i1 @_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex19AddNestedExtensionsINS0_15DescriptorProtoEEEbNS0_20stringpiece_internal11StringPieceERKT_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(232) %14)
   br i1 %15, label %12, label %.loopexit
 
 ._crit_edge:                                      ; preds = %12, %4
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 136
   %17 = load ptr, ptr %16, align 8, !tbaa !31
-  %.not.i.i26 = icmp eq ptr %17, null
+  %.not.i.i25 = icmp eq ptr %17, null
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %spec.select.i.i27 = select i1 %.not.i.i26, ptr null, ptr %18
+  %spec.select.i.i26 = select i1 %.not.i.i25, ptr null, ptr %18
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 128
   %20 = load i32, ptr %19, align 8, !tbaa !36
   %21 = sext i32 %20 to i64
-  %.idx51 = shl nsw i64 %21, 3
-  %22 = getelementptr inbounds i8, ptr %spec.select.i.i27, i64 %.idx51
-  %.not4044 = icmp eq i32 %20, 0
-  br i1 %.not4044, label %.loopexit, label %.lr.ph48
+  %.idx48 = shl nsw i64 %21, 3
+  %22 = getelementptr inbounds i8, ptr %spec.select.i.i26, i64 %.idx48
+  %.not3741 = icmp eq i32 %20, 0
+  br i1 %.not3741, label %.loopexit, label %.lr.ph45
 
-.lr.ph48:                                         ; preds = %._crit_edge, %.lr.ph48
-  %.sroa.030.045 = phi ptr [ %25, %.lr.ph48 ], [ %spec.select.i.i27, %._crit_edge ]
-  %23 = load ptr, ptr %.sroa.030.045, align 8, !tbaa !37
+.lr.ph45:                                         ; preds = %._crit_edge, %.lr.ph45
+  %.sroa.029.042 = phi ptr [ %25, %.lr.ph45 ], [ %spec.select.i.i26, %._crit_edge ]
+  %23 = load ptr, ptr %.sroa.029.042, align 8, !tbaa !37
   %24 = tail call noundef zeroext i1 @_ZN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex12AddExtensionINS0_20FieldDescriptorProtoEEEbNS0_20stringpiece_internal11StringPieceERKT_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(96) %23)
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.030.045, i64 8
-  %.not40 = icmp ne ptr %25, %22
-  %or.cond.not = select i1 %24, i1 %.not40, i1 false
-  br i1 %or.cond.not, label %.lr.ph48, label %.loopexit
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.029.042, i64 8
+  %.not37 = icmp ne ptr %25, %22
+  %or.cond.not = select i1 %24, i1 %.not37, i1 false
+  br i1 %or.cond.not, label %.lr.ph45, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph48, %._crit_edge
-  %.3 = phi i1 [ true, %._crit_edge ], [ %24, %.lr.ph48 ], [ false, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph45, %._crit_edge
+  %.3 = phi i1 [ true, %._crit_edge ], [ %24, %.lr.ph45 ], [ false, %.lr.ph ]
   ret i1 %.3
 }
 

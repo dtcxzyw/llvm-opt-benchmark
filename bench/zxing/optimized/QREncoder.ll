@@ -3583,13 +3583,13 @@ define internal fastcc noundef nonnull align 8 dereferenceable(120) ptr @_ZN5ZXi
   br label %8
 
 6:                                                ; preds = %8
-  %7 = add nuw nsw i32 %.01118, 1
+  %7 = add nuw nsw i32 %.01116, 1
   %exitcond.not = icmp eq i32 %7, 41
   br i1 %exitcond.not, label %22, label %8, !llvm.loop !102
 
 8:                                                ; preds = %2, %6
-  %.01118 = phi i32 [ 1, %2 ], [ %7, %6 ]
-  %9 = tail call noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %.01118) #19
+  %.01116 = phi i32 [ 1, %2 ], [ %7, %6 ]
+  %9 = tail call noundef ptr @_ZN5ZXing6QRCode7Version6Model2Ei(i32 noundef %.01116) #19
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 112
   %11 = load i32, ptr %10, align 8, !tbaa !31
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32

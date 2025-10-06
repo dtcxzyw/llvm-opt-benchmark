@@ -567,23 +567,23 @@ _ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i:    ; preds = %68
   %75 = zext i32 %74 to i64
   %76 = shl nuw nsw i64 %75, 3
   %77 = getelementptr inbounds nuw i8, ptr %71, i64 %76
-  %.not26.i = icmp eq i32 %74, 0
-  br i1 %.not26.i, label %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit34.thread.thread, label %.lr.ph.i
+  %.not24.i = icmp eq i32 %74, 0
+  br i1 %.not24.i, label %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit34.thread.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i
   %78 = getelementptr inbounds nuw i32, ptr %63, i64 %69
   br label %79
 
 79:                                               ; preds = %90, %.lr.ph.i
-  %.01627.i = phi ptr [ %71, %.lr.ph.i ], [ %91, %90 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.01627.i, i64 4
+  %.01625.i = phi ptr [ %71, %.lr.ph.i ], [ %91, %90 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !25
   %.not17.i = icmp eq i32 %81, 0
   br i1 %.not17.i, label %90, label %82
 
 82:                                               ; preds = %79
   %83 = load i32, ptr %78, align 4, !tbaa !12
-  %84 = load i32, ptr %.01627.i, align 4, !tbaa !27
+  %84 = load i32, ptr %.01625.i, align 4, !tbaa !27
   %85 = zext i32 %84 to i64
   %86 = getelementptr inbounds nuw i32, ptr %63, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !12
@@ -592,7 +592,7 @@ _ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit.i:    ; preds = %68
   br i1 %89, label %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit34, label %90
 
 90:                                               ; preds = %82, %79
-  %91 = getelementptr inbounds nuw i8, ptr %.01627.i, i64 8
+  %91 = getelementptr inbounds nuw i8, ptr %.01625.i, i64 8
   %.not.i = icmp eq ptr %91, %77
   br i1 %.not.i, label %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit34.thread, label %79
 
@@ -1186,8 +1186,8 @@ _ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit:      ; preds = %2
   %10 = zext i32 %9 to i64
   %11 = shl nuw nsw i64 %10, 3
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
-  %.not26 = icmp eq i32 %9, 0
-  br i1 %.not26, label %._crit_edge.thread, label %.lr.ph
+  %.not24 = icmp eq i32 %9, 0
+  br i1 %.not24, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1196,15 +1196,15 @@ _ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit:      ; preds = %2
   br label %16
 
 16:                                               ; preds = %.lr.ph, %27
-  %.01627 = phi ptr [ %6, %.lr.ph ], [ %28, %27 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.01627, i64 4
+  %.01625 = phi ptr [ %6, %.lr.ph ], [ %28, %27 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.01625, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %.not17 = icmp eq i32 %18, 0
   br i1 %.not17, label %27, label %19
 
 19:                                               ; preds = %16
   %20 = load i32, ptr %15, align 4, !tbaa !12
-  %21 = load i32, ptr %.01627, align 4, !tbaa !27
+  %21 = load i32, ptr %.01625, align 4, !tbaa !27
   %22 = zext i32 %21 to i64
   %23 = getelementptr inbounds nuw i32, ptr %14, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !12
@@ -1213,7 +1213,7 @@ _ZN6vectorIN7min_cut4edgeELb0EjE3endEv.exit:      ; preds = %2
   br i1 %26, label %_ZNK6vectorI7svectorIN7min_cut4edgeEjELb1EjE4sizeEv.exit, label %27
 
 27:                                               ; preds = %19, %16
-  %28 = getelementptr inbounds nuw i8, ptr %.01627, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.01625, i64 8
   %.not = icmp eq ptr %28, %12
   br i1 %.not, label %._crit_edge, label %16
 

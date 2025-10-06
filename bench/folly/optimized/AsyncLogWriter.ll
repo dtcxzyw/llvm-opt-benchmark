@@ -1013,8 +1013,8 @@ define void @_ZN5folly14AsyncLogWriter8ioThreadEv(ptr noundef nonnull align 8 de
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   store ptr %4, ptr %2, align 8, !tbaa !47, !alias.scope !87
   %5 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) %4) #23, !noalias !87
-  %.not.i.i.i.i.i40 = icmp eq i32 %5, 0
-  br i1 %.not.i.i.i.i.i40, label %.lr.ph, label %._crit_edge
+  %.not.i.i.i.i.i39 = icmp eq i32 %5, 0
+  br i1 %.not.i.i.i.i.i39, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -1023,12 +1023,12 @@ define void @_ZN5folly14AsyncLogWriter8ioThreadEv(ptr noundef nonnull align 8 de
   br label %9
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit, %1
-  %.lcssa35 = phi i32 [ %5, %1 ], [ %74, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
-  call void @_ZSt20__throw_system_errori(i32 noundef %.lcssa35) #21, !noalias !90
+  %.lcssa34 = phi i32 [ %5, %1 ], [ %74, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
+  call void @_ZSt20__throw_system_errori(i32 noundef %.lcssa34) #21, !noalias !90
   unreachable
 
 9:                                                ; preds = %.lr.ph, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit
-  %.01041 = phi i64 [ undef, %.lr.ph ], [ %.111, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
+  %.01040 = phi i64 [ undef, %.lr.ph ], [ %.111, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearEv.exit ]
   call void @llvm.experimental.noalias.scope.decl(metadata !90)
   store i8 1, ptr %6, align 8, !tbaa !51, !alias.scope !90
   %10 = load ptr, ptr %2, align 8, !tbaa !47
@@ -1047,7 +1047,7 @@ define void @_ZN5folly14AsyncLogWriter8ioThreadEv(ptr noundef nonnull align 8 de
   %19 = load ptr, ptr %16, align 8, !tbaa !92
   %20 = icmp eq ptr %18, %19
   %.pre = load ptr, ptr %2, align 8, !tbaa !47
-  br i1 %20, label %21, label %._crit_edge42
+  br i1 %20, label %21, label %._crit_edge41
 
 21:                                               ; preds = %17
   %.not.i.i14 = icmp eq ptr %.pre, null
@@ -1057,7 +1057,7 @@ define void @_ZN5folly14AsyncLogWriter8ioThreadEv(ptr noundef nonnull align 8 de
   %24 = load i32, ptr %23, align 8, !tbaa !67
   %25 = and i32 %24, 4
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %26, label %._crit_edge42
+  br i1 %.not, label %26, label %._crit_edge41
 
 26:                                               ; preds = %21
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(9) %2)
@@ -1083,7 +1083,7 @@ _ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6det
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %28
 
-._crit_edge42:                                    ; preds = %21, %17
+._crit_edge41:                                    ; preds = %21, %17
   %.not.i.i16 = icmp eq ptr %.pre, null
   %.neg.i.i17 = select i1 %.not.i.i16, i64 0, i64 -96
   %35 = getelementptr inbounds i8, ptr %.pre, i64 %.neg.i.i17
@@ -1093,7 +1093,7 @@ _ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6det
   %.not12.not = icmp eq i32 %38, 0
   br i1 %.not12.not, label %45, label %39
 
-39:                                               ; preds = %._crit_edge42
+39:                                               ; preds = %._crit_edge41
   %40 = or i32 %37, 8
   store i32 %40, ptr %36, align 8, !tbaa !67
   %41 = load i8, ptr %6, align 8, !tbaa !51, !range !54, !noundef !55
@@ -1110,7 +1110,7 @@ _ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6det
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #23
   br label %52
 
-45:                                               ; preds = %._crit_edge42
+45:                                               ; preds = %._crit_edge41
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %47 = load i64, ptr %46, align 8, !tbaa !39
   %48 = add i64 %47, 1
@@ -1122,7 +1122,7 @@ _ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6det
   br label %52
 
 52:                                               ; preds = %45, %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEE6unlockEv.exit
-  %.111 = phi i64 [ %.01041, %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEE6unlockEv.exit ], [ %50, %45 ]
+  %.111 = phi i64 [ %.01040, %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEE6unlockEv.exit ], [ %50, %45 ]
   %53 = load i8, ptr %6, align 8, !tbaa !51, !range !54, !noundef !55
   %54 = trunc nuw i8 %53 to i1
   br i1 %54, label %55, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_14AsyncLogWriter4DataESt5mutexEENS_6detail22SynchronizedLockPolicyILNS6_22SynchronizedMutexLevelE1ELNS6_23SynchronizedMutexMethodE0EEEED2Ev.exit30

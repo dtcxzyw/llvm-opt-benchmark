@@ -1729,7 +1729,7 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92: ; p
   %158 = getelementptr inbounds nuw i32, ptr %150, i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !71
   %160 = icmp eq i32 %159, %133
-  br i1 %160, label %.thread.loopexit23.i, label %.lr.ph.i95, !llvm.loop !118
+  br i1 %160, label %.thread.loopexit21.i, label %.lr.ph.i95, !llvm.loop !118
 
 .preheader.i:                                     ; preds = %.lr.ph.i95, %.preheader.i
   %.0.in.i98 = phi i32 [ %.0.i99, %.preheader.i ], [ %8, %.lr.ph.i95 ]
@@ -1740,14 +1740,14 @@ _ZN3ozz9animation12_GLOBAL__N_18KeyRatioERKNS_4spanIKfEERKNS2_IKhEEm.exit92: ; p
   %164 = icmp eq i32 %163, %133
   br i1 %164, label %_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit, label %.preheader.i, !llvm.loop !119
 
-.thread.loopexit23.i:                             ; preds = %156
+.thread.loopexit21.i:                             ; preds = %156
   %165 = trunc nuw i64 %157 to i32
   %.pre18 = and i64 %157, 4294967295
   br label %_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit
 
-_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit: ; preds = %.preheader.i, %149, %.thread.loopexit23.i
-  %.pre-phi = phi i64 [ %151, %149 ], [ %.pre18, %.thread.loopexit23.i ], [ %161, %.preheader.i ]
-  %.1.i97 = phi i32 [ %.166, %149 ], [ %165, %.thread.loopexit23.i ], [ %.0.i99, %.preheader.i ]
+_ZN3ozz9animation12_GLOBAL__N_113TrackBackwardENS_4spanIKjEEjjj.exit: ; preds = %.preheader.i, %149, %.thread.loopexit21.i
+  %.pre-phi = phi i64 [ %151, %149 ], [ %.pre18, %.thread.loopexit21.i ], [ %161, %.preheader.i ]
+  %.1.i97 = phi i32 [ %.166, %149 ], [ %165, %.thread.loopexit21.i ], [ %.0.i99, %.preheader.i ]
   %166 = lshr i32 %.1.i97, 2
   %167 = and i32 %166, 7
   %168 = shl nuw nsw i32 1, %167

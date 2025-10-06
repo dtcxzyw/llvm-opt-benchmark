@@ -4682,8 +4682,8 @@ _ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_9NamedDeclEEEDaPT0_.exit.i.i.i: 
 .critedge.i.i.i:                                  ; preds = %47, %45, %39, %37, %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_9NamedDeclEEEDaPT0_.exit.i.i.i
   %52 = load i32, ptr %28, align 4
   %53 = and i32 %52, 127
-  %.not44.i.i.i = icmp eq i32 %53, 41
-  br i1 %.not44.i.i.i, label %_ZSt10__invoke_rIbRZNK12_GLOBAL__N_125RawPtrRefLocalVarsChecker12visitVarDeclEPKN5clang7VarDeclEPKNS2_4ExprEPKNS2_4DeclEEUlS8_bE_JS8_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_9NamedDeclEEEDaPT0_.exit.thread.i.i.i
+  %.not43.i.i.i = icmp eq i32 %53, 41
+  br i1 %.not43.i.i.i, label %_ZSt10__invoke_rIbRZNK12_GLOBAL__N_125RawPtrRefLocalVarsChecker12visitVarDeclEPKN5clang7VarDeclEPKNS2_4ExprEPKNS2_4DeclEEUlS8_bE_JS8_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit, label %_ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_9NamedDeclEEEDaPT0_.exit.thread.i.i.i
 
 _ZN4llvm16dyn_cast_or_nullIN5clang7VarDeclEKNS1_9NamedDeclEEEDaPT0_.exit.thread.i.i.i: ; preds = %.critedge.i.i.i, %27, %18, %15
   br label %_ZSt10__invoke_rIbRZNK12_GLOBAL__N_125RawPtrRefLocalVarsChecker12visitVarDeclEPKN5clang7VarDeclEPKNS2_4ExprEPKNS2_4DeclEEUlS8_bE_JS8_bEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESF_E4typeEOSG_DpOSH_.exit

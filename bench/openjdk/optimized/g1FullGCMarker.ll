@@ -822,39 +822,33 @@ _ZN14G1FullGCMarker13follow_objectEP7oopDesc.exit: ; preds = %30, %.loopexit, %_
   %60 = load volatile i32, ptr %13, align 8
   %61 = sub i32 %59, %60
   %62 = and i32 %61, 131071
-  switch i32 %62, label %.critedge.backedge [
-    i32 131071, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-    i32 0, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  ]
+  %63 = add nsw i32 %62, -131071
+  %switch.i.i = icmp ult i32 %63, -131070
+  %64 = load ptr, ptr %14, align 8
+  %65 = icmp eq ptr %64, null
+  %66 = select i1 %switch.i.i, i1 %65, i1 false
+  br i1 %66, label %67, label %.critedge.backedge
 
-_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i: ; preds = %_ZN14G1FullGCMarker13follow_objectEP7oopDesc.exit, %_ZN14G1FullGCMarker13follow_objectEP7oopDesc.exit
-  %63 = load ptr, ptr %14, align 8
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %65, label %.critedge.backedge
+67:                                               ; preds = %_ZN14G1FullGCMarker13follow_objectEP7oopDesc.exit
+  %68 = load volatile i32, ptr %15, align 8
+  %69 = load volatile i32, ptr %16, align 8
+  %70 = sub i32 %68, %69
+  %71 = and i32 %70, 131071
+  %72 = add nsw i32 %71, -131071
+  %switch.i1.i = icmp ult i32 %72, -131070
+  %73 = load ptr, ptr %17, align 8
+  %74 = icmp eq ptr %73, null
+  %75 = select i1 %switch.i1.i, i1 %74, i1 false
+  br i1 %75, label %76, label %.critedge.backedge
 
-65:                                               ; preds = %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  %66 = load volatile i32, ptr %15, align 8
-  %67 = load volatile i32, ptr %16, align 8
-  %68 = sub i32 %66, %67
-  %69 = and i32 %68, 131071
-  switch i32 %69, label %.critedge.backedge [
-    i32 131071, label %70
-    i32 0, label %70
-  ]
+76:                                               ; preds = %67
+  %77 = call noundef zeroext i1 @_ZN14TaskTerminator17offer_terminationEP20TerminatorTerminator(ptr noundef nonnull align 8 dereferenceable(384) %3, ptr noundef null) #11
+  br i1 %77, label %78, label %.critedge.backedge
 
-.critedge.backedge:                               ; preds = %65, %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i, %_ZN14G1FullGCMarker13follow_objectEP7oopDesc.exit, %73, %70
+.critedge.backedge:                               ; preds = %76, %67, %_ZN14G1FullGCMarker13follow_objectEP7oopDesc.exit
   br label %.critedge, !llvm.loop !11
 
-70:                                               ; preds = %65, %65
-  %71 = load ptr, ptr %17, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %73, label %.critedge.backedge
-
-73:                                               ; preds = %70
-  %74 = call noundef zeroext i1 @_ZN14TaskTerminator17offer_terminationEP20TerminatorTerminator(ptr noundef nonnull align 8 dereferenceable(384) %3, ptr noundef null) #11
-  br i1 %74, label %75, label %.critedge.backedge
-
-75:                                               ; preds = %73
+78:                                               ; preds = %76
   ret void
 }
 
@@ -874,16 +868,16 @@ define linkonce_odr hidden void @_ZN14G1FullGCMarker21follow_marking_stacksEv(pt
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 720
-  br label %.backedge
+  br label %_ZN14G1FullGCMarker8is_emptyEv.exit
 
-.backedge:                                        ; preds = %.backedge.backedge, %1
+_ZN14G1FullGCMarker8is_emptyEv.exit:              ; preds = %_ZN14G1FullGCMarker8is_emptyEv.exit.backedge, %1
   tail call void @_ZN14G1FullGCMarker27publish_and_drain_oop_tasksEv(ptr noundef nonnull align 8 dereferenceable(1608) %0)
   %16 = load ptr, ptr %2, align 8
   %.not7.i = icmp eq ptr %16, null
   br i1 %.not7.i, label %.loopexit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.backedge, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.i
-  %17 = phi ptr [ %53, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.i ], [ %16, %.backedge ]
+.lr.ph.i:                                         ; preds = %_ZN14G1FullGCMarker8is_emptyEv.exit, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.i
+  %17 = phi ptr [ %53, %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.i ], [ %16, %_ZN14G1FullGCMarker8is_emptyEv.exit ]
   %18 = load i64, ptr %4, align 8
   %19 = add i64 %18, -1
   store i64 %19, ptr %4, align 8
@@ -955,7 +949,7 @@ _ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskque
   %.not8.i = icmp eq ptr %53, null
   br i1 %.not8.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !13
 
-.loopexit:                                        ; preds = %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.i, %.backedge
+.loopexit:                                        ; preds = %_ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskqueueES0_.exit.i, %_ZN14G1FullGCMarker8is_emptyEv.exit
   %54 = load volatile i32, ptr %10, align 8
   %55 = load volatile i32, ptr %11, align 8
   %56 = sub i32 %54, %55
@@ -978,12 +972,11 @@ _ZN17OverflowTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE21try_push_to_taskque
   %64 = load volatile i32, ptr %11, align 8
   %65 = sub i32 %59, %64
   %66 = and i32 %65, 131071
-  switch i32 %66, label %_ZN14G1FullGCMarker29publish_or_pop_objarray_tasksER12ObjArrayTask.exit [
-    i32 131071, label %67
-    i32 0, label %67
-  ]
+  %.off.i = add nsw i32 %66, -1
+  %switch.i = icmp ult i32 %.off.i, 131070
+  br i1 %switch.i, label %_ZN14G1FullGCMarker29publish_or_pop_objarray_tasksER12ObjArrayTask.exit, label %67
 
-67:                                               ; preds = %58, %58
+67:                                               ; preds = %58
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %68 = load volatile i64, ptr %11, align 8
   %.sroa.016.0.extract.trunc.i.i = trunc i64 %68 to i32
@@ -1018,35 +1011,29 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.
   %77 = load volatile i32, ptr %14, align 8
   %78 = sub i32 %76, %77
   %79 = and i32 %78, 131071
-  switch i32 %79, label %.backedge.backedge [
-    i32 131071, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-    i32 0, label %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  ]
+  %80 = add nsw i32 %79, -131071
+  %switch.i.i = icmp ult i32 %80, -131070
+  %81 = load ptr, ptr %15, align 8
+  %82 = icmp eq ptr %81, null
+  %83 = select i1 %switch.i.i, i1 %82, i1 false
+  br i1 %83, label %84, label %_ZN14G1FullGCMarker8is_emptyEv.exit.backedge
 
-_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i: ; preds = %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread10, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread10
-  %80 = load ptr, ptr %15, align 8
-  %81 = icmp eq ptr %80, null
-  br i1 %81, label %82, label %.backedge.backedge
+84:                                               ; preds = %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread10
+  %85 = load volatile i32, ptr %10, align 8
+  %86 = load volatile i32, ptr %11, align 8
+  %87 = sub i32 %85, %86
+  %88 = and i32 %87, 131071
+  %89 = add nsw i32 %88, -131071
+  %switch.i1.i = icmp ult i32 %89, -131070
+  %90 = load ptr, ptr %2, align 8
+  %91 = icmp eq ptr %90, null
+  %92 = select i1 %switch.i1.i, i1 %91, i1 false
+  br i1 %92, label %93, label %_ZN14G1FullGCMarker8is_emptyEv.exit.backedge
 
-82:                                               ; preds = %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i
-  %83 = load volatile i32, ptr %10, align 8
-  %84 = load volatile i32, ptr %11, align 8
-  %85 = sub i32 %83, %84
-  %86 = and i32 %85, 131071
-  switch i32 %86, label %.backedge.backedge [
-    i32 131071, label %87
-    i32 0, label %87
-  ]
+_ZN14G1FullGCMarker8is_emptyEv.exit.backedge:     ; preds = %84, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread10
+  br label %_ZN14G1FullGCMarker8is_emptyEv.exit, !llvm.loop !16
 
-.backedge.backedge:                               ; preds = %82, %_ZNK17OverflowTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE8is_emptyEv.exit.i, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE9pop_localERS0_j.exit.thread10, %87
-  br label %.backedge, !llvm.loop !16
-
-87:                                               ; preds = %82, %82
-  %88 = load ptr, ptr %2, align 8
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %90, label %.backedge.backedge
-
-90:                                               ; preds = %87
+93:                                               ; preds = %84
   ret void
 }
 
@@ -1610,12 +1597,11 @@ _ZN14G1FullGCMarker13follow_objectEP7oopDesc.exit: ; preds = %_ZN7oopDesc11oop_i
   %94 = load volatile i32, ptr %16, align 8
   %95 = sub i32 %88, %94
   %96 = and i32 %95, 131071
-  switch i32 %96, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread [
-    i32 131071, label %97
-    i32 0, label %97
-  ]
+  %.off.i = add nsw i32 %96, -1
+  %switch.i = icmp ult i32 %.off.i, 131070
+  br i1 %switch.i, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE9pop_localERS1_j.exit.thread, label %97
 
-97:                                               ; preds = %86, %86
+97:                                               ; preds = %86
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %98 = load volatile i64, ptr %16, align 8
   %.sroa.016.0.extract.trunc.i.i = trunc i64 %98 to i32
@@ -16296,10 +16282,10 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %14 = load i32, ptr %13, align 8
-  %.not60 = icmp eq i32 %14, -1
+  %.not64 = icmp eq i32 %14, -1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 516
   %.pre = load i32, ptr %15, align 4
-  br i1 %.not60, label %.preheader, label %.loopexit
+  br i1 %.not64, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %12, %.preheader
   %16 = phi i32 [ %.0.i.i, %.preheader ], [ %.pre, %12 ]
@@ -16318,13 +16304,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !104
 
 .loopexit:                                        ; preds = %.preheader, %12
-  %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
+  %.pre66 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
   %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 516
   br label %27
 
 27:                                               ; preds = %.loopexit, %27
-  %28 = phi i32 [ %.pre62, %.loopexit ], [ %.0.i.i41, %27 ]
+  %28 = phi i32 [ %.pre66, %.loopexit ], [ %.0.i.i41, %27 ]
   %29 = sdiv i32 %28, 127773
   %30 = srem i32 %28, 127773
   %31 = mul nsw i32 %30, 16807
@@ -16376,10 +16362,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %68 = sub i32 %67, %.sroa.010.0.extract.trunc.i
   %69 = and i32 %68, 131071
-  switch i32 %69, label %70 [
-    i32 131071, label %98
-    i32 0, label %98
-  ]
+  %.off.i = add nsw i32 %69, -1
+  %switch.i = icmp ult i32 %.off.i, 131070
+  br i1 %switch.i, label %70, label %98
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 384
@@ -16411,10 +16396,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %85 = sub i32 %84, %.sroa.010.0.extract.trunc.i42
   %86 = and i32 %85, 131071
-  switch i32 %86, label %87 [
-    i32 131071, label %98
-    i32 0, label %98
-  ]
+  %.off.i43 = add nsw i32 %86, -1
+  %switch.i44 = icmp ult i32 %.off.i43, 131070
+  br i1 %switch.i44, label %87, label %98
 
 87:                                               ; preds = %82
   %88 = getelementptr inbounds nuw i8, ptr %44, i64 384
@@ -16423,30 +16407,30 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %91 = getelementptr inbounds nuw %class.ObjArrayTask, ptr %89, i64 %90
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %91, i64 12, i1 false)
   %92 = add i64 %83, 1
-  %.sroa.09.0.insert.ext.i44 = and i64 %92, 131071
+  %.sroa.09.0.insert.ext.i46 = and i64 %92, 131071
   %93 = and i32 %.sroa.010.0.extract.trunc.i42, 131071
   %94 = icmp eq i32 %93, 131071
   %95 = select i1 %94, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i45 = add i64 %95, %83
-  %.sroa.3.0.insert.ext.i46 = and i64 %.sroa.6.0.extract.shift21.i45, -4294967296
-  %.sroa.09.0.insert.insert.i47 = or disjoint i64 %.sroa.3.0.insert.ext.i46, %.sroa.09.0.insert.ext.i44
-  %96 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i47, i64 %83, ptr nonnull %47) #11, !srcloc !15
+  %.sroa.6.0.extract.shift21.i47 = add i64 %95, %83
+  %.sroa.3.0.insert.ext.i48 = and i64 %.sroa.6.0.extract.shift21.i47, -4294967296
+  %.sroa.09.0.insert.insert.i49 = or disjoint i64 %.sroa.3.0.insert.ext.i48, %.sroa.09.0.insert.ext.i46
+  %96 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i49, i64 %83, ptr nonnull %47) #11, !srcloc !15
   %97 = icmp eq i64 %96, %83
   br i1 %97, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %98
 
 _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit: ; preds = %87, %70
   %.036 = phi i32 [ %36, %70 ], [ %.034, %87 ]
   store i32 %.036, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
-98:                                               ; preds = %81, %70, %65, %65, %87, %82, %82
-  %.035.ph = phi i32 [ 0, %82 ], [ 0, %82 ], [ 1, %87 ], [ 0, %65 ], [ 0, %65 ], [ 1, %70 ], [ 0, %81 ]
+98:                                               ; preds = %81, %70, %65, %87, %82
+  %.035.ph = phi i32 [ 0, %82 ], [ 1, %87 ], [ 0, %65 ], [ 1, %70 ], [ 0, %81 ]
   store i32 -1, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
 99:                                               ; preds = %3
   %100 = icmp eq i32 %10, 2
-  br i1 %100, label %101, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br i1 %100, label %101, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
 101:                                              ; preds = %99
   %102 = and i32 %1, 1
@@ -16456,17 +16440,16 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 256
   %108 = load volatile i64, ptr %107, align 8
-  %.sroa.010.0.extract.trunc.i49 = trunc i64 %108 to i32
+  %.sroa.010.0.extract.trunc.i51 = trunc i64 %108 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 128
   %110 = load volatile i32, ptr %109, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
-  %111 = sub i32 %110, %.sroa.010.0.extract.trunc.i49
+  %111 = sub i32 %110, %.sroa.010.0.extract.trunc.i51
   %112 = and i32 %111, 131071
-  switch i32 %112, label %113 [
-    i32 131071, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
-    i32 0, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
-  ]
+  %.off.i52 = add nsw i32 %112, -1
+  %switch.i53 = icmp ult i32 %.off.i52, 131070
+  br i1 %switch.i53, label %113, label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
 113:                                              ; preds = %101
   %114 = getelementptr inbounds nuw i8, ptr %106, i64 384
@@ -16475,20 +16458,20 @@ _ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit
   %117 = getelementptr inbounds nuw %class.ObjArrayTask, ptr %115, i64 %116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %2, ptr noundef nonnull align 8 dereferenceable(12) %117, i64 12, i1 false)
   %118 = add i64 %108, 1
-  %.sroa.09.0.insert.ext.i51 = and i64 %118, 131071
-  %119 = and i32 %.sroa.010.0.extract.trunc.i49, 131071
+  %.sroa.09.0.insert.ext.i55 = and i64 %118, 131071
+  %119 = and i32 %.sroa.010.0.extract.trunc.i51, 131071
   %120 = icmp eq i32 %119, 131071
   %121 = select i1 %120, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i52 = add i64 %121, %108
-  %.sroa.3.0.insert.ext.i53 = and i64 %.sroa.6.0.extract.shift21.i52, -4294967296
-  %.sroa.09.0.insert.insert.i54 = or disjoint i64 %.sroa.3.0.insert.ext.i53, %.sroa.09.0.insert.ext.i51
-  %122 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i54, i64 %108, ptr nonnull %107) #11, !srcloc !15
+  %.sroa.6.0.extract.shift21.i56 = add i64 %121, %108
+  %.sroa.3.0.insert.ext.i57 = and i64 %.sroa.6.0.extract.shift21.i56, -4294967296
+  %.sroa.09.0.insert.insert.i58 = or disjoint i64 %.sroa.3.0.insert.ext.i57, %.sroa.09.0.insert.ext.i55
+  %122 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i58, i64 %108, ptr nonnull %107) #11, !srcloc !15
   %123 = icmp eq i64 %122, %108
   %124 = select i1 %123, i32 2, i32 1
-  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br label %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
-_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55: ; preds = %113, %101, %101, %99, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, %98
-  %.0 = phi i32 [ %.035.ph, %98 ], [ 2, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit ], [ 0, %99 ], [ %124, %113 ], [ 0, %101 ], [ 0, %101 ]
+_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59: ; preds = %113, %101, %99, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, %98
+  %.0 = phi i32 [ %.035.ph, %98 ], [ 2, %_ZN16GenericTaskQueueI12ObjArrayTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit ], [ 0, %99 ], [ %124, %113 ], [ 0, %101 ]
   ret i32 %.0
 }
 
@@ -16507,10 +16490,10 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %14 = load i32, ptr %13, align 8
-  %.not60 = icmp eq i32 %14, -1
+  %.not64 = icmp eq i32 %14, -1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 516
   %.pre = load i32, ptr %15, align 4
-  br i1 %.not60, label %.preheader, label %.loopexit
+  br i1 %.not64, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %12, %.preheader
   %16 = phi i32 [ %.0.i.i, %.preheader ], [ %.pre, %12 ]
@@ -16529,13 +16512,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !106
 
 .loopexit:                                        ; preds = %.preheader, %12
-  %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
+  %.pre66 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
   %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 516
   br label %27
 
 27:                                               ; preds = %.loopexit, %27
-  %28 = phi i32 [ %.pre62, %.loopexit ], [ %.0.i.i41, %27 ]
+  %28 = phi i32 [ %.pre66, %.loopexit ], [ %.0.i.i41, %27 ]
   %29 = sdiv i32 %28, 127773
   %30 = srem i32 %28, 127773
   %31 = mul nsw i32 %30, 16807
@@ -16587,10 +16570,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %68 = sub i32 %67, %.sroa.010.0.extract.trunc.i
   %69 = and i32 %68, 131071
-  switch i32 %69, label %70 [
-    i32 131071, label %100
-    i32 0, label %100
-  ]
+  %.off.i = add nsw i32 %69, -1
+  %switch.i = icmp ult i32 %.off.i, 131070
+  br i1 %switch.i, label %70, label %100
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 384
@@ -16623,10 +16605,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %86 = sub i32 %85, %.sroa.010.0.extract.trunc.i42
   %87 = and i32 %86, 131071
-  switch i32 %87, label %88 [
-    i32 131071, label %100
-    i32 0, label %100
-  ]
+  %.off.i43 = add nsw i32 %87, -1
+  %switch.i44 = icmp ult i32 %.off.i43, 131070
+  br i1 %switch.i44, label %88, label %100
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %44, i64 384
@@ -16636,30 +16617,30 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI17OverflowTaskQ
   %93 = load ptr, ptr %92, align 8
   store ptr %93, ptr %2, align 8
   %94 = add i64 %84, 1
-  %.sroa.09.0.insert.ext.i44 = and i64 %94, 131071
+  %.sroa.09.0.insert.ext.i46 = and i64 %94, 131071
   %95 = and i32 %.sroa.010.0.extract.trunc.i42, 131071
   %96 = icmp eq i32 %95, 131071
   %97 = select i1 %96, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i45 = add i64 %97, %84
-  %.sroa.3.0.insert.ext.i46 = and i64 %.sroa.6.0.extract.shift21.i45, -4294967296
-  %.sroa.09.0.insert.insert.i47 = or disjoint i64 %.sroa.3.0.insert.ext.i46, %.sroa.09.0.insert.ext.i44
-  %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i47, i64 %84, ptr nonnull %47) #11, !srcloc !15
+  %.sroa.6.0.extract.shift21.i47 = add i64 %97, %84
+  %.sroa.3.0.insert.ext.i48 = and i64 %.sroa.6.0.extract.shift21.i47, -4294967296
+  %.sroa.09.0.insert.insert.i49 = or disjoint i64 %.sroa.3.0.insert.ext.i48, %.sroa.09.0.insert.ext.i46
+  %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i49, i64 %84, ptr nonnull %47) #11, !srcloc !15
   %99 = icmp eq i64 %98, %84
   br i1 %99, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit, label %100
 
 _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit: ; preds = %88, %70
   %.036 = phi i32 [ %36, %70 ], [ %.034, %88 ]
   store i32 %.036, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
+  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
-100:                                              ; preds = %82, %70, %65, %65, %88, %83, %83
-  %.035.ph = phi i32 [ 0, %83 ], [ 0, %83 ], [ 1, %88 ], [ 0, %65 ], [ 0, %65 ], [ 1, %70 ], [ 0, %82 ]
+100:                                              ; preds = %82, %70, %65, %88, %83
+  %.035.ph = phi i32 [ 0, %83 ], [ 1, %88 ], [ 0, %65 ], [ 1, %70 ], [ 0, %82 ]
   store i32 -1, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
+  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
 101:                                              ; preds = %3
   %102 = icmp eq i32 %10, 2
-  br i1 %102, label %103, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
+  br i1 %102, label %103, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
 103:                                              ; preds = %101
   %104 = and i32 %1, 1
@@ -16669,17 +16650,16 @@ _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit: ; p
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 256
   %110 = load volatile i64, ptr %109, align 8
-  %.sroa.010.0.extract.trunc.i49 = trunc i64 %110 to i32
+  %.sroa.010.0.extract.trunc.i51 = trunc i64 %110 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 128
   %112 = load volatile i32, ptr %111, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !12
-  %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i49
+  %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i51
   %114 = and i32 %113, 131071
-  switch i32 %114, label %115 [
-    i32 131071, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
-    i32 0, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
-  ]
+  %.off.i52 = add nsw i32 %114, -1
+  %switch.i53 = icmp ult i32 %.off.i52, 131070
+  br i1 %switch.i53, label %115, label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
 115:                                              ; preds = %103
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 384
@@ -16689,20 +16669,20 @@ _ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit: ; p
   %120 = load ptr, ptr %119, align 8
   store ptr %120, ptr %2, align 8
   %121 = add i64 %110, 1
-  %.sroa.09.0.insert.ext.i51 = and i64 %121, 131071
-  %122 = and i32 %.sroa.010.0.extract.trunc.i49, 131071
+  %.sroa.09.0.insert.ext.i55 = and i64 %121, 131071
+  %122 = and i32 %.sroa.010.0.extract.trunc.i51, 131071
   %123 = icmp eq i32 %122, 131071
   %124 = select i1 %123, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i52 = add i64 %124, %110
-  %.sroa.3.0.insert.ext.i53 = and i64 %.sroa.6.0.extract.shift21.i52, -4294967296
-  %.sroa.09.0.insert.insert.i54 = or disjoint i64 %.sroa.3.0.insert.ext.i53, %.sroa.09.0.insert.ext.i51
-  %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i54, i64 %110, ptr nonnull %109) #11, !srcloc !15
+  %.sroa.6.0.extract.shift21.i56 = add i64 %124, %110
+  %.sroa.3.0.insert.ext.i57 = and i64 %.sroa.6.0.extract.shift21.i56, -4294967296
+  %.sroa.09.0.insert.insert.i58 = or disjoint i64 %.sroa.3.0.insert.ext.i57, %.sroa.09.0.insert.ext.i55
+  %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i58, i64 %110, ptr nonnull %109) #11, !srcloc !15
   %126 = icmp eq i64 %125, %110
   %127 = select i1 %126, i32 2, i32 1
-  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55
+  br label %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59
 
-_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit55: ; preds = %115, %103, %103, %101, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit, %100
-  %.0 = phi i32 [ %.035.ph, %100 ], [ 2, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit ], [ 0, %101 ], [ %127, %115 ], [ 0, %103 ], [ 0, %103 ]
+_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit59: ; preds = %115, %103, %101, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit, %100
+  %.0 = phi i32 [ %.035.ph, %100 ], [ 2, %_ZN16GenericTaskQueueIP7oopDescL8MEMFLAGS5ELj131072EE10pop_globalERS1_.exit ], [ 0, %101 ], [ %127, %115 ], [ 0, %103 ]
   ret i32 %.0
 }
 

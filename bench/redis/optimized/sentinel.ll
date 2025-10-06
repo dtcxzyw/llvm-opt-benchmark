@@ -2241,8 +2241,8 @@ define dso_local ptr @getSentinelRedisInstanceByAddrAndRunID(ptr noundef %0, ptr
   %.024 = phi ptr [ %11, %10 ], [ null, %9 ]
   %13 = tail call ptr @dictGetIterator(ptr noundef %0) #30
   %14 = tail call ptr @dictNext(ptr noundef %13) #30
-  %.not3045 = icmp eq ptr %14, null
-  br i1 %.not3045, label %.thread37, label %.lr.ph
+  %.not3043 = icmp eq ptr %14, null
+  br i1 %.not3043, label %.thread37, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12
   %15 = icmp eq ptr %1, null
@@ -2278,29 +2278,29 @@ sentinelAddrOrHostnameEqual.exit.thread.us.us:    ; preds = %22, %.lr.ph.split.u
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %6, label %.lr.ph.split.split.us, label %.thread
 
-.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %sentinelAddrOrHostnameEqual.exit.thread.us52
-  %27 = phi ptr [ %48, %sentinelAddrOrHostnameEqual.exit.thread.us52 ], [ %14, %.lr.ph.split ]
+.lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %sentinelAddrOrHostnameEqual.exit.thread.us50
+  %27 = phi ptr [ %48, %sentinelAddrOrHostnameEqual.exit.thread.us50 ], [ %14, %.lr.ph.split ]
   %28 = tail call ptr @dictGetVal(ptr noundef nonnull %27) #30
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !21
-  %.not31.us50 = icmp eq ptr %30, null
-  br i1 %.not31.us50, label %sentinelAddrOrHostnameEqual.exit.thread.us52, label %31, !llvm.loop !146
+  %.not31.us48 = icmp eq ptr %30, null
+  br i1 %.not31.us48, label %sentinelAddrOrHostnameEqual.exit.thread.us50, label %31, !llvm.loop !146
 
 31:                                               ; preds = %.lr.ph.split.split.us
   %32 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %3) #34
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %.thread.us51, label %sentinelAddrOrHostnameEqual.exit.thread.us52
+  br i1 %33, label %.thread.us49, label %sentinelAddrOrHostnameEqual.exit.thread.us50
 
-.thread.us51:                                     ; preds = %31
+.thread.us49:                                     ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !29
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8, !tbaa !86
   %38 = load i32, ptr %16, align 8, !tbaa !86
   %39 = icmp eq i32 %37, %38
-  br i1 %39, label %40, label %sentinelAddrOrHostnameEqual.exit.thread.us52
+  br i1 %39, label %40, label %sentinelAddrOrHostnameEqual.exit.thread.us50
 
-40:                                               ; preds = %.thread.us51
+40:                                               ; preds = %.thread.us49
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !32
   %43 = load ptr, ptr %17, align 8, !tbaa !32
@@ -2313,12 +2313,12 @@ sentinelAddrOrHostnameEqual.exit.us:              ; preds = %40
   %46 = load ptr, ptr %.024, align 8, !tbaa !30
   %47 = tail call i32 @strcasecmp(ptr noundef %45, ptr noundef %46) #34
   %.not6.i.not.us = icmp eq i32 %47, 0
-  br i1 %.not6.i.not.us, label %.sink.split, label %sentinelAddrOrHostnameEqual.exit.thread.us52
+  br i1 %.not6.i.not.us, label %.sink.split, label %sentinelAddrOrHostnameEqual.exit.thread.us50
 
-sentinelAddrOrHostnameEqual.exit.thread.us52:     ; preds = %sentinelAddrOrHostnameEqual.exit.us, %.thread.us51, %31, %.lr.ph.split.split.us
+sentinelAddrOrHostnameEqual.exit.thread.us50:     ; preds = %sentinelAddrOrHostnameEqual.exit.us, %.thread.us49, %31, %.lr.ph.split.split.us
   %48 = tail call ptr @dictNext(ptr noundef %13) #30
-  %.not30.us53 = icmp eq ptr %48, null
-  br i1 %.not30.us53, label %.thread37, label %.lr.ph.split.split.us
+  %.not30.us51 = icmp eq ptr %48, null
+  br i1 %.not30.us51, label %.thread37, label %.lr.ph.split.split.us
 
 .thread:                                          ; preds = %.lr.ph.split, %sentinelAddrOrHostnameEqual.exit.thread
   %49 = phi ptr [ %65, %sentinelAddrOrHostnameEqual.exit.thread ], [ %14, %.lr.ph.split ]
@@ -2351,19 +2351,19 @@ sentinelAddrOrHostnameEqual.exit.thread:          ; preds = %sentinelAddrOrHostn
   %.not30 = icmp eq ptr %65, null
   br i1 %.not30, label %.sink.split, label %.thread
 
-.thread37:                                        ; preds = %sentinelAddrOrHostnameEqual.exit.thread.us52, %sentinelAddrOrHostnameEqual.exit.thread.us.us, %22, %.lr.ph.split.us.split, %12
-  %.1 = phi ptr [ null, %12 ], [ %26, %.lr.ph.split.us.split ], [ %19, %22 ], [ null, %sentinelAddrOrHostnameEqual.exit.thread.us.us ], [ null, %sentinelAddrOrHostnameEqual.exit.thread.us52 ]
+.thread37:                                        ; preds = %sentinelAddrOrHostnameEqual.exit.thread.us50, %sentinelAddrOrHostnameEqual.exit.thread.us.us, %22, %.lr.ph.split.us.split, %12
+  %.1 = phi ptr [ null, %12 ], [ %26, %.lr.ph.split.us.split ], [ %19, %22 ], [ null, %sentinelAddrOrHostnameEqual.exit.thread.us.us ], [ null, %sentinelAddrOrHostnameEqual.exit.thread.us50 ]
   tail call void @dictReleaseIterator(ptr noundef %13) #30
   %.not33 = icmp eq ptr %.024, null
   br i1 %.not33, label %70, label %66
 
 .sink.split:                                      ; preds = %57, %sentinelAddrOrHostnameEqual.exit, %sentinelAddrOrHostnameEqual.exit.thread, %sentinelAddrOrHostnameEqual.exit.us, %40
-  %.144.ph = phi ptr [ %28, %40 ], [ %28, %sentinelAddrOrHostnameEqual.exit.us ], [ null, %sentinelAddrOrHostnameEqual.exit.thread ], [ %50, %57 ], [ %50, %sentinelAddrOrHostnameEqual.exit ]
+  %.142.ph = phi ptr [ %28, %40 ], [ %28, %sentinelAddrOrHostnameEqual.exit.us ], [ null, %sentinelAddrOrHostnameEqual.exit.thread ], [ %50, %57 ], [ %50, %sentinelAddrOrHostnameEqual.exit ]
   tail call void @dictReleaseIterator(ptr noundef %13) #30
   br label %66
 
 66:                                               ; preds = %.sink.split, %.thread37
-  %.144 = phi ptr [ %.1, %.thread37 ], [ %.144.ph, %.sink.split ]
+  %.142 = phi ptr [ %.1, %.thread37 ], [ %.142.ph, %.sink.split ]
   %67 = load ptr, ptr %.024, align 8, !tbaa !30
   tail call void @sdsfree(ptr noundef %67) #30
   %68 = getelementptr inbounds nuw i8, ptr %.024, i64 8
@@ -2373,7 +2373,7 @@ sentinelAddrOrHostnameEqual.exit.thread:          ; preds = %sentinelAddrOrHostn
   br label %70
 
 70:                                               ; preds = %.thread37, %66, %10
-  %.0 = phi ptr [ null, %10 ], [ %.144, %66 ], [ %.1, %.thread37 ]
+  %.0 = phi ptr [ null, %10 ], [ %.142, %66 ], [ %.1, %.thread37 ]
   ret ptr %.0
 }
 
@@ -3817,22 +3817,24 @@ declare void @listRelease(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nounwind memory(read) uwtable
 define dso_local range(i32 0, 2) i32 @searchPreMonitorCfgName(ptr noundef readonly captures(none) %0) local_unnamed_addr #20 {
-  br label %2
+  br label %3
 
-2:                                                ; preds = %2, %1
-  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @preMonitorCfgName, i64 %indvars.iv
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
-  %5 = tail call i32 @strcasecmp(ptr noundef %4, ptr noundef %0) #34
-  %.not = icmp eq i32 %5, 0
+2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  %or.cond = select i1 %.not, i1 true, i1 %exitcond.not
-  br i1 %or.cond, label %6, label %2, !llvm.loop !189
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !189
 
-6:                                                ; preds = %2
-  %spec.select = zext i1 %.not to i32
-  ret i32 %spec.select
+3:                                                ; preds = %1, %2
+  %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
+  %4 = getelementptr inbounds nuw ptr, ptr @preMonitorCfgName, i64 %indvars.iv
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
+  %6 = tail call i32 @strcasecmp(ptr noundef %5, ptr noundef %0) #34
+  %.not = icmp eq i32 %6, 0
+  br i1 %.not, label %7, label %2
+
+7:                                                ; preds = %2, %3
+  %8 = phi i32 [ 1, %3 ], [ 0, %2 ]
+  ret i32 %8
 }
 
 declare void @sdsfreesplitres(ptr noundef, i32 noundef) local_unnamed_addr #1
@@ -3908,29 +3910,34 @@ define dso_local void @queueSentinelConfig(ptr noundef readonly captures(none) %
 39:                                               ; preds = %._crit_edge
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  br label %46
+  br label %50
 
-.preheader:                                       ; preds = %._crit_edge, %.preheader
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %._crit_edge ]
-  %42 = getelementptr inbounds nuw ptr, ptr @preMonitorCfgName, i64 %indvars.iv.i
-  %43 = load ptr, ptr %42, align 8, !tbaa !87
-  %44 = tail call i32 @strcasecmp(ptr noundef %43, ptr noundef readonly %37) #34
-  %.not.i = icmp eq i32 %44, 0
+42:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
-  %or.cond.i = select i1 %.not.i, i1 true, i1 %exitcond.not.i
-  br i1 %or.cond.i, label %searchPreMonitorCfgName.exit, label %.preheader, !llvm.loop !189
+  br i1 %exitcond.not.i, label %47, label %.preheader, !llvm.loop !189
+
+.preheader:                                       ; preds = %._crit_edge, %42
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %42 ], [ 0, %._crit_edge ]
+  %43 = getelementptr inbounds nuw ptr, ptr @preMonitorCfgName, i64 %indvars.iv.i
+  %44 = load ptr, ptr %43, align 8, !tbaa !87
+  %45 = tail call i32 @strcasecmp(ptr noundef %44, ptr noundef readonly %37) #34
+  %.not.i = icmp eq i32 %45, 0
+  br i1 %.not.i, label %searchPreMonitorCfgName.exit, label %42
 
 searchPreMonitorCfgName.exit:                     ; preds = %.preheader
-  %45 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
-  %spec.select.idx = select i1 %.not.i, i64 0, i64 16
-  %spec.select = getelementptr inbounds nuw i8, ptr %45, i64 %spec.select.idx
-  br label %46
+  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
+  br label %50
 
-46:                                               ; preds = %searchPreMonitorCfgName.exit, %39
-  %.sink.in = phi ptr [ %41, %39 ], [ %spec.select, %searchPreMonitorCfgName.exit ]
+47:                                               ; preds = %42
+  %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8320), align 8, !tbaa !75
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  br label %50
+
+50:                                               ; preds = %searchPreMonitorCfgName.exit, %47, %39
+  %.sink.in = phi ptr [ %46, %searchPreMonitorCfgName.exit ], [ %49, %47 ], [ %41, %39 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !192
-  %47 = tail call ptr @listAddNodeTail(ptr noundef %.sink, ptr noundef nonnull %24) #30
+  %51 = tail call ptr @listAddNodeTail(ptr noundef %.sink, ptr noundef nonnull %24) #30
   ret void
 }
 
@@ -9939,16 +9946,16 @@ define dso_local void @sentinelCommand(ptr noundef %0) local_unnamed_addr #0 {
   %13 = icmp ne i32 %12, 2
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !258
-  %.phi.trans.insert393 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
-  %.pre394 = load ptr, ptr %.phi.trans.insert393, align 8, !tbaa !259
-  %.phi.trans.insert395 = getelementptr inbounds nuw i8, ptr %.pre394, i64 8
-  %.pre396 = load ptr, ptr %.phi.trans.insert395, align 8, !tbaa !260
+  %.phi.trans.insert376 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
+  %.pre377 = load ptr, ptr %.phi.trans.insert376, align 8, !tbaa !259
+  %.phi.trans.insert378 = getelementptr inbounds nuw i8, ptr %.pre377, i64 8
+  %.pre379 = load ptr, ptr %.phi.trans.insert378, align 8, !tbaa !260
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %1
-  %15 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.302) #34
+  %15 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.302) #34
   %.not = icmp eq i32 %15, 0
-  br i1 %.not, label %16, label %.thread418
+  br i1 %.not, label %16, label %.thread401
 
 16:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -9958,33 +9965,33 @@ define dso_local void @sentinelCommand(ptr noundef %0) local_unnamed_addr #0 {
   br label %.thread
 
 17:                                               ; preds = %1
-  %18 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.349) #34
+  %18 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.349) #34
   %.not241 = icmp eq i32 %18, 0
-  br i1 %.not241, label %.thread423, label %21
+  br i1 %.not241, label %.thread406, label %21
 
-.thread418:                                       ; preds = %14
-  %19 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.349) #34
-  %.not241419 = icmp eq i32 %19, 0
-  br i1 %.not241419, label %.thread420, label %.thread421
+.thread401:                                       ; preds = %14
+  %19 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.349) #34
+  %.not241402 = icmp eq i32 %19, 0
+  br i1 %.not241402, label %.thread403, label %.thread404
 
-.thread420:                                       ; preds = %.thread418
+.thread403:                                       ; preds = %.thread401
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 56), align 8, !tbaa !65
   tail call void @addReplyDictOfRedisInstances(ptr noundef nonnull %0, ptr noundef %20)
   br label %.thread
 
 21:                                               ; preds = %17
-  %22 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.48) #34
+  %22 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.48) #34
   %.not243 = icmp eq i32 %22, 0
   br i1 %.not243, label %24, label %32
 
-.thread421:                                       ; preds = %.thread418
-  %23 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.48) #34
-  %.not243422 = icmp eq i32 %23, 0
-  br i1 %.not243422, label %.thread423, label %32
+.thread404:                                       ; preds = %.thread401
+  %23 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.48) #34
+  %.not243405 = icmp eq i32 %23, 0
+  br i1 %.not243405, label %.thread406, label %32
 
 24:                                               ; preds = %21
   %.not244 = icmp eq i32 %12, 3
-  br i1 %.not244, label %25, label %.thread423
+  br i1 %.not244, label %25, label %.thread406
 
 25:                                               ; preds = %24
   %26 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10004,20 +10011,20 @@ sentinelGetMasterByNameOrReplyError.exit:         ; preds = %25
   tail call void @addReplySentinelRedisInstance(ptr noundef nonnull %0, ptr noundef nonnull %31)
   br label %.thread
 
-32:                                               ; preds = %.thread421, %21
+32:                                               ; preds = %.thread404, %21
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %34 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.350) #34
+  %34 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.350) #34
   %.not245 = icmp eq i32 %34, 0
   br i1 %.not245, label %37, label %35
 
 35:                                               ; preds = %32
-  %36 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.351) #34
+  %36 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.351) #34
   %.not246 = icmp eq i32 %36, 0
   br i1 %.not246, label %37, label %47
 
 37:                                               ; preds = %35, %32
   %.not247 = icmp eq i32 %12, 3
-  br i1 %.not247, label %38, label %.thread423
+  br i1 %.not247, label %38, label %.thread406
 
 38:                                               ; preds = %37
   %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10026,27 +10033,27 @@ sentinelGetMasterByNameOrReplyError.exit:         ; preds = %25
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !260
   %44 = tail call ptr @dictFetchValue(ptr noundef %41, ptr noundef %43) #30
-  %.not.i321 = icmp eq ptr %44, null
-  br i1 %.not.i321, label %sentinelGetMasterByNameOrReplyError.exit322.thread, label %sentinelGetMasterByNameOrReplyError.exit322
+  %.not.i313 = icmp eq ptr %44, null
+  br i1 %.not.i313, label %sentinelGetMasterByNameOrReplyError.exit314.thread, label %sentinelGetMasterByNameOrReplyError.exit314
 
-sentinelGetMasterByNameOrReplyError.exit322.thread: ; preds = %38
+sentinelGetMasterByNameOrReplyError.exit314.thread: ; preds = %38
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.301) #30
   br label %.thread
 
-sentinelGetMasterByNameOrReplyError.exit322:      ; preds = %38
+sentinelGetMasterByNameOrReplyError.exit314:      ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 160
   %46 = load ptr, ptr %45, align 8, !tbaa !18
   tail call void @addReplyDictOfRedisInstances(ptr noundef nonnull %0, ptr noundef %46)
   br label %.thread
 
 47:                                               ; preds = %35
-  %48 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.352) #34
+  %48 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.352) #34
   %.not248 = icmp eq i32 %48, 0
   br i1 %.not248, label %49, label %59
 
 49:                                               ; preds = %47
   %.not249 = icmp eq i32 %12, 3
-  br i1 %.not249, label %50, label %.thread423
+  br i1 %.not249, label %50, label %.thread406
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10055,21 +10062,21 @@ sentinelGetMasterByNameOrReplyError.exit322:      ; preds = %38
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !260
   %56 = tail call ptr @dictFetchValue(ptr noundef %53, ptr noundef %55) #30
-  %.not.i323 = icmp eq ptr %56, null
-  br i1 %.not.i323, label %sentinelGetMasterByNameOrReplyError.exit324.thread, label %sentinelGetMasterByNameOrReplyError.exit324
+  %.not.i315 = icmp eq ptr %56, null
+  br i1 %.not.i315, label %sentinelGetMasterByNameOrReplyError.exit316.thread, label %sentinelGetMasterByNameOrReplyError.exit316
 
-sentinelGetMasterByNameOrReplyError.exit324.thread: ; preds = %50
+sentinelGetMasterByNameOrReplyError.exit316.thread: ; preds = %50
   tail call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.301) #30
   br label %.thread
 
-sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
+sentinelGetMasterByNameOrReplyError.exit316:      ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 152
   %58 = load ptr, ptr %57, align 8, !tbaa !5
   tail call void @addReplyDictOfRedisInstances(ptr noundef nonnull %0, ptr noundef %58)
   br label %.thread
 
 59:                                               ; preds = %47
-  %60 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.6) #34
+  %60 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.6) #34
   %.not250 = icmp ne i32 %60, 0
   %brmerge = or i1 %13, %.not250
   br i1 %brmerge, label %62, label %61
@@ -10079,7 +10086,7 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   br label %.thread
 
 62:                                               ; preds = %59
-  %63 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.353) #34
+  %63 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.353) #34
   %.not251 = icmp eq i32 %63, 0
   br i1 %.not251, label %64, label %112
 
@@ -10096,7 +10103,7 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   %67 = load ptr, ptr %66, align 8, !tbaa !259
   %68 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %67, ptr noundef nonnull %5, ptr noundef null) #30
   %.not253 = icmp eq i32 %68, 0
-  br i1 %.not253, label %69, label %.thread344
+  br i1 %.not253, label %69, label %.thread333
 
 69:                                               ; preds = %65
   %70 = load ptr, ptr %33, align 8, !tbaa !258
@@ -10104,7 +10111,7 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   %72 = load ptr, ptr %71, align 8, !tbaa !259
   %73 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %72, ptr noundef nonnull %3, ptr noundef null) #30
   %.not254 = icmp eq i32 %73, 0
-  br i1 %.not254, label %74, label %.thread344
+  br i1 %.not254, label %74, label %.thread333
 
 74:                                               ; preds = %69
   %75 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 56), align 8, !tbaa !65
@@ -10120,29 +10127,29 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   %85 = icmp eq i32 %84, 0
   %86 = icmp ne ptr %83, null
   %or.cond = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond, label %.thread339, label %89
+  br i1 %or.cond, label %.thread328, label %89
 
-.thread339:                                       ; preds = %74
+.thread328:                                       ; preds = %74
   %87 = load i32, ptr %83, align 8, !tbaa !34
   %.fr = freeze i32 %87
   %88 = and i32 %.fr, 9
-  %or.cond306 = icmp ne i32 %88, 9
+  %or.cond304 = icmp ne i32 %88, 9
   br label %90
 
 89:                                               ; preds = %74
-  br i1 %86, label %._crit_edge397, label %.thread425
+  br i1 %86, label %._crit_edge380, label %.thread408
 
-.thread425:                                       ; preds = %89
+.thread408:                                       ; preds = %89
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 3) #30
   br label %104
 
-._crit_edge397:                                   ; preds = %89
-  %.pre398 = load i32, ptr %83, align 8, !tbaa !34
+._crit_edge380:                                   ; preds = %89
+  %.pre381 = load i32, ptr %83, align 8, !tbaa !34
   br label %90
 
-90:                                               ; preds = %._crit_edge397, %.thread339
-  %91 = phi i32 [ %.fr, %.thread339 ], [ %.pre398, %._crit_edge397 ]
-  %.not259342 = phi i1 [ %or.cond306, %.thread339 ], [ true, %._crit_edge397 ]
+90:                                               ; preds = %._crit_edge380, %.thread328
+  %91 = phi i32 [ %.fr, %.thread328 ], [ %.pre381, %._crit_edge380 ]
+  %.not259331 = phi i1 [ %or.cond304, %.thread328 ], [ true, %._crit_edge380 ]
   %92 = and i32 %91, 1
   %.not257 = icmp eq i32 %92, 0
   br i1 %.not257, label %103, label %93
@@ -10160,36 +10167,36 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
 100:                                              ; preds = %93
   %101 = load i64, ptr %3, align 8, !tbaa !107
   %102 = call ptr @sentinelVoteLeader(ptr noundef nonnull %83, i64 noundef %101, ptr noundef %98, ptr noundef nonnull %4)
-  %.pre399 = load i64, ptr %4, align 8, !tbaa !171
+  %.pre382 = load i64, ptr %4, align 8, !tbaa !171
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 3) #30
-  br i1 %.not259342, label %104, label %106
+  br i1 %.not259331, label %104, label %106
 
 103:                                              ; preds = %93, %90
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 3) #30
-  br i1 %.not259342, label %104, label %106
+  br i1 %.not259331, label %104, label %106
 
-104:                                              ; preds = %100, %.thread425, %103
-  %.0216430 = phi ptr [ null, %.thread425 ], [ null, %103 ], [ %102, %100 ]
-  %105 = phi i64 [ 0, %.thread425 ], [ 0, %103 ], [ %.pre399, %100 ]
+104:                                              ; preds = %100, %.thread408, %103
+  %.0216413 = phi ptr [ null, %.thread408 ], [ null, %103 ], [ %102, %100 ]
+  %105 = phi i64 [ 0, %.thread408 ], [ 0, %103 ], [ %.pre382, %100 ]
   br label %106
 
 106:                                              ; preds = %100, %103, %104
-  %.0216429 = phi ptr [ %.0216430, %104 ], [ null, %103 ], [ %102, %100 ]
-  %107 = phi i64 [ %105, %104 ], [ 0, %103 ], [ %.pre399, %100 ]
+  %.0216412 = phi ptr [ %.0216413, %104 ], [ null, %103 ], [ %102, %100 ]
+  %107 = phi i64 [ %105, %104 ], [ 0, %103 ], [ %.pre382, %100 ]
   %.in = phi ptr [ getelementptr inbounds nuw (i8, ptr @shared, i64 24), %104 ], [ getelementptr inbounds nuw (i8, ptr @shared, i64 32), %103 ], [ getelementptr inbounds nuw (i8, ptr @shared, i64 32), %100 ]
   %108 = load ptr, ptr %.in, align 8
   call void @addReply(ptr noundef nonnull %0, ptr noundef %108) #30
-  %.not260 = icmp eq ptr %.0216429, null
-  %109 = select i1 %.not260, ptr @.str.354, ptr %.0216429
+  %.not260 = icmp eq ptr %.0216412, null
+  %109 = select i1 %.not260, ptr @.str.354, ptr %.0216412
   call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef nonnull %109) #30
   call void @addReplyLongLong(ptr noundef nonnull %0, i64 noundef %107) #30
-  br i1 %.not260, label %.thread344, label %110
+  br i1 %.not260, label %.thread333, label %110
 
 110:                                              ; preds = %106
-  call void @sdsfree(ptr noundef nonnull %.0216429) #30
-  br label %.thread344
+  call void @sdsfree(ptr noundef nonnull %.0216412) #30
+  br label %.thread333
 
-.thread344:                                       ; preds = %69, %65, %110, %106
+.thread333:                                       ; preds = %69, %65, %110, %106
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -10199,16 +10206,16 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread423
+  br label %.thread406
 
 112:                                              ; preds = %62
-  %113 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.355) #34
+  %113 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.355) #34
   %.not261 = icmp eq i32 %113, 0
   br i1 %.not261, label %114, label %122
 
 114:                                              ; preds = %112
   %.not262 = icmp eq i32 %12, 3
-  br i1 %.not262, label %115, label %.thread423
+  br i1 %.not262, label %115, label %.thread406
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10221,13 +10228,13 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
   br label %.thread
 
 122:                                              ; preds = %112
-  %123 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.356) #34
+  %123 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.356) #34
   %.not263 = icmp eq i32 %123, 0
   br i1 %.not263, label %124, label %149
 
 124:                                              ; preds = %122
   %.not264 = icmp eq i32 %12, 3
-  br i1 %.not264, label %125, label %.thread423
+  br i1 %.not264, label %125, label %.thread406
 
 125:                                              ; preds = %124
   %126 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10245,8 +10252,8 @@ sentinelGetMasterByNameOrReplyError.exit324:      ; preds = %50
 133:                                              ; preds = %125
   %134 = load i32, ptr %130, align 8, !tbaa !34
   %135 = and i32 %134, 64
-  %.not.i325 = icmp eq i32 %135, 0
-  br i1 %.not.i325, label %143, label %136
+  %.not.i317 = icmp eq i32 %135, 0
+  br i1 %.not.i317, label %143, label %136
 
 136:                                              ; preds = %133
   %137 = getelementptr inbounds nuw i8, ptr %130, i64 312
@@ -10269,8 +10276,8 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !29
   tail call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef 2) #30
   %144 = load i32, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 148), align 4, !tbaa !88
-  %.not.i326 = icmp eq i32 %144, 0
-  %.in.idx.i = select i1 %.not.i326, i64 8, i64 0
+  %.not.i318 = icmp eq i32 %144, 0
+  %.in.idx.i = select i1 %.not.i318, i64 8, i64 0
   %.in.i = getelementptr inbounds nuw i8, ptr %.0.i, i64 %.in.idx.i
   %145 = load ptr, ptr %.in.i, align 8, !tbaa !87
   tail call void @addReplyBulkCString(ptr noundef nonnull %0, ptr noundef %145) #30
@@ -10281,13 +10288,13 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
   br label %.thread
 
 149:                                              ; preds = %122
-  %150 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.357) #34
+  %150 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.357) #34
   %.not265 = icmp eq i32 %150, 0
   br i1 %.not265, label %151, label %175
 
 151:                                              ; preds = %149
   %.not266 = icmp eq i32 %12, 3
-  br i1 %.not266, label %152, label %.thread423
+  br i1 %.not266, label %152, label %.thread406
 
 152:                                              ; preds = %151
   %153 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10336,19 +10343,19 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
   br label %.thread
 
 175:                                              ; preds = %149
-  %176 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.361) #34
+  %176 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.361) #34
   %.not268 = icmp eq i32 %176, 0
   br i1 %.not268, label %177, label %179
 
 177:                                              ; preds = %175
-  br i1 %13, label %.thread423, label %178
+  br i1 %13, label %.thread406, label %178
 
 178:                                              ; preds = %177
   tail call void @sentinelPendingScriptsCommand(ptr noundef nonnull %0)
   br label %.thread
 
 179:                                              ; preds = %175
-  %180 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.63) #34
+  %180 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.63) #34
   %.not270 = icmp eq i32 %180, 0
   br i1 %.not270, label %181, label %232
 
@@ -10364,7 +10371,7 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
   %184 = load ptr, ptr %183, align 8, !tbaa !259
   %185 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %184, ptr noundef nonnull %6, ptr noundef nonnull @.str.362) #30
   %.not272 = icmp eq i32 %185, 0
-  br i1 %.not272, label %186, label %.thread356
+  br i1 %.not272, label %186, label %.thread342
 
 186:                                              ; preds = %182
   %187 = load ptr, ptr %33, align 8, !tbaa !258
@@ -10372,7 +10379,7 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
   %189 = load ptr, ptr %188, align 8, !tbaa !259
   %190 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %189, ptr noundef nonnull %7, ptr noundef nonnull @.str.363) #30
   %.not273 = icmp eq i32 %190, 0
-  br i1 %.not273, label %191, label %.thread356
+  br i1 %.not273, label %191, label %.thread342
 
 191:                                              ; preds = %186
   %192 = load i64, ptr %6, align 8, !tbaa !171
@@ -10381,7 +10388,7 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
 
 194:                                              ; preds = %191
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.69) #30
-  br label %.thread356
+  br label %.thread342
 
 195:                                              ; preds = %191
   %196 = load ptr, ptr %33, align 8, !tbaa !258
@@ -10398,7 +10405,7 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
 
 205:                                              ; preds = %195
   call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull @.str.364) #30
-  br label %.thread356
+  br label %.thread342
 
 206:                                              ; preds = %195
   %207 = load ptr, ptr %33, align 8, !tbaa !258
@@ -10437,18 +10444,18 @@ sentinelGetCurrentMasterAddress.exit:             ; preds = %139, %143
   br label %sentinelCheckCreateInstanceErrors.exit
 
 sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %227
-  %.0.i327 = phi ptr [ @.str.62, %227 ], [ @.str.61, %226 ], [ @.str.56, %225 ], [ @.str.60, %222 ]
-  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull %.0.i327) #30
-  br label %.thread356
+  %.0.i319 = phi ptr [ @.str.62, %227 ], [ @.str.61, %226 ], [ @.str.56, %225 ], [ @.str.60, %222 ]
+  call void @addReplyError(ptr noundef nonnull %0, ptr noundef nonnull %.0.i319) #30
+  br label %.thread342
 
 228:                                              ; preds = %206
   call fastcc void @sentinelFlushConfigAndReply(ptr noundef nonnull %0)
   %229 = getelementptr inbounds nuw i8, ptr %220, i64 168
   %230 = load i32, ptr %229, align 8, !tbaa !83
   call void (i32, ptr, ptr, ptr, ...) @sentinelEvent(i32 noundef 3, ptr noundef nonnull @.str.18, ptr noundef nonnull %220, ptr noundef nonnull @.str.19, i32 noundef %230)
-  br label %.thread356
+  br label %.thread342
 
-.thread356:                                       ; preds = %194, %205, %182, %186, %228, %sentinelCheckCreateInstanceErrors.exit
+.thread342:                                       ; preds = %194, %205, %182, %186, %228, %sentinelCheckCreateInstanceErrors.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -10458,28 +10465,28 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread423
+  br label %.thread406
 
 232:                                              ; preds = %179
-  %233 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.365) #34
+  %233 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.365) #34
   %.not275 = icmp eq i32 %233, 0
   br i1 %.not275, label %234, label %236
 
 234:                                              ; preds = %232
-  br i1 %13, label %.thread423, label %235
+  br i1 %13, label %.thread406, label %235
 
 235:                                              ; preds = %234
   tail call fastcc void @sentinelFlushConfigAndReply(ptr noundef nonnull %0)
   br label %.thread
 
 236:                                              ; preds = %232
-  %237 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.366) #34
+  %237 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.366) #34
   %.not277 = icmp eq i32 %237, 0
   br i1 %.not277, label %238, label %252
 
 238:                                              ; preds = %236
   %.not278 = icmp eq i32 %12, 3
-  br i1 %.not278, label %239, label %.thread423
+  br i1 %.not278, label %239, label %.thread406
 
 239:                                              ; preds = %238
   %240 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10501,7 +10508,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   br label %.thread
 
 252:                                              ; preds = %236
-  %253 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.368) #34
+  %253 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.368) #34
   %.not279 = icmp eq i32 %253, 0
   br i1 %.not279, label %254, label %277
 
@@ -10515,7 +10522,7 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   %257 = load ptr, ptr %256, align 8, !tbaa !259
   %258 = tail call ptr @sentinelGetMasterByNameOrReplyError(ptr noundef nonnull %0, ptr noundef %257)
   %259 = icmp eq ptr %258, null
-  br i1 %259, label %.thread371, label %260
+  br i1 %259, label %.thread355, label %260
 
 260:                                              ; preds = %255
   %261 = call i32 @sentinelIsQuorumReachable(ptr noundef nonnull %258, ptr noundef nonnull %9)
@@ -10527,20 +10534,20 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
 265:                                              ; preds = %260
   %266 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %263, ptr noundef nonnull @.str.369, i32 noundef %264) #30
   call void @addReplySds(ptr noundef nonnull %0, ptr noundef %266) #30
-  br label %.thread371
+  br label %.thread355
 
 267:                                              ; preds = %260
   %268 = call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %263, ptr noundef nonnull @.str.370, i32 noundef %264) #30
   %269 = and i32 %261, 1
   %.not281 = icmp eq i32 %269, 0
-  br i1 %.not281, label %273, label %.thread363
+  br i1 %.not281, label %273, label %.thread347
 
-.thread363:                                       ; preds = %267
+.thread347:                                       ; preds = %267
   %270 = call ptr @sdscat(ptr noundef %268, ptr noundef nonnull @.str.371) #30
-  %.not282365 = icmp eq i32 %261, 1
-  br i1 %.not282365, label %275, label %271
+  %.not282349 = icmp eq i32 %261, 1
+  br i1 %.not282349, label %275, label %271
 
-271:                                              ; preds = %.thread363
+271:                                              ; preds = %.thread347
   %272 = call ptr @sdscat(ptr noundef %270, ptr noundef nonnull @.str.372) #30
   br label %273
 
@@ -10549,21 +10556,21 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   %274 = call ptr @sdscat(ptr noundef %.2220, ptr noundef nonnull @.str.373) #30
   br label %275
 
-275:                                              ; preds = %.thread363, %273
-  %.1219 = phi ptr [ %274, %273 ], [ %270, %.thread363 ]
+275:                                              ; preds = %.thread347, %273
+  %.1219 = phi ptr [ %274, %273 ], [ %270, %.thread347 ]
   call void @addReplyErrorSds(ptr noundef nonnull %0, ptr noundef %.1219) #30
-  br label %.thread371
+  br label %.thread355
 
-.thread371:                                       ; preds = %255, %275, %265
+.thread355:                                       ; preds = %255, %275, %265
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.thread
 
 276:                                              ; preds = %254
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread423
+  br label %.thread406
 
 277:                                              ; preds = %252
-  %278 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.374) #34
+  %278 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.374) #34
   %.not283 = icmp eq i32 %278, 0
   br i1 %.not283, label %279, label %280
 
@@ -10572,13 +10579,13 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   br label %.thread
 
 280:                                              ; preds = %277
-  %281 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.375) #34
+  %281 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.375) #34
   %.not284 = icmp eq i32 %281, 0
   br i1 %.not284, label %282, label %295
 
 282:                                              ; preds = %280
   %283 = icmp slt i32 %12, 4
-  br i1 %283, label %.thread423, label %284
+  br i1 %283, label %.thread406, label %284
 
 284:                                              ; preds = %282
   %285 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
@@ -10588,8 +10595,8 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   %289 = tail call i32 @strcasecmp(ptr noundef %288, ptr noundef nonnull @.str.374) #34
   %.not285 = icmp ne i32 %289, 0
   %.not286 = icmp eq i32 %12, 4
-  %or.cond319 = or i1 %.not286, %.not285
-  br i1 %or.cond319, label %291, label %290
+  %or.cond311 = or i1 %.not286, %.not285
+  br i1 %or.cond311, label %291, label %290
 
 290:                                              ; preds = %284
   tail call void @sentinelConfigSetCommand(ptr noundef nonnull %0)
@@ -10609,13 +10616,13 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   br label %.thread
 
 295:                                              ; preds = %280
-  %296 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.378) #34
+  %296 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.378) #34
   %.not288 = icmp eq i32 %296, 0
   br i1 %.not288, label %297, label %397
 
 297:                                              ; preds = %295
   %298 = icmp slt i32 %12, 2
-  br i1 %298, label %.thread423, label %299
+  br i1 %298, label %.thread406, label %299
 
 299:                                              ; preds = %297
   %300 = tail call i64 @mstime() #30
@@ -10632,12 +10639,12 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   %306 = call ptr @dictCreate(ptr noundef nonnull %10) #30
   %307 = load i32, ptr %11, align 8, !tbaa !249
   %308 = icmp sgt i32 %307, 2
-  br i1 %308, label %.lr.ph378, label %.loopexit
+  br i1 %308, label %.lr.ph361, label %.loopexit
 
-.lr.ph378:                                        ; preds = %305, %319
-  %indvars.iv389 = phi i64 [ %indvars.iv.next390, %319 ], [ 2, %305 ]
+.lr.ph361:                                        ; preds = %305, %319
+  %indvars.iv372 = phi i64 [ %indvars.iv.next373, %319 ], [ 2, %305 ]
   %309 = load ptr, ptr %33, align 8, !tbaa !258
-  %310 = getelementptr inbounds nuw ptr, ptr %309, i64 %indvars.iv389
+  %310 = getelementptr inbounds nuw ptr, ptr %309, i64 %indvars.iv372
   %311 = load ptr, ptr %310, align 8, !tbaa !259
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
   %313 = load ptr, ptr %312, align 8, !tbaa !260
@@ -10645,18 +10652,18 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   %.not296 = icmp eq ptr %314, null
   br i1 %.not296, label %319, label %315
 
-315:                                              ; preds = %.lr.ph378
+315:                                              ; preds = %.lr.ph361
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 8
   %317 = load ptr, ptr %316, align 8, !tbaa !20
   %318 = call i32 @dictAdd(ptr noundef %306, ptr noundef %317, ptr noundef nonnull %314) #30
   br label %319
 
-319:                                              ; preds = %.lr.ph378, %315
-  %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
+319:                                              ; preds = %.lr.ph361, %315
+  %indvars.iv.next373 = add nuw nsw i64 %indvars.iv372, 1
   %320 = load i32, ptr %11, align 8, !tbaa !249
   %321 = sext i32 %320 to i64
-  %322 = icmp slt i64 %indvars.iv.next390, %321
-  br i1 %322, label %.lr.ph378, label %.loopexit, !llvm.loop !273
+  %322 = icmp slt i64 %indvars.iv.next373, %321
+  br i1 %322, label %.lr.ph361, label %.loopexit, !llvm.loop !273
 
 .loopexit:                                        ; preds = %319, %305, %299
   %.0221 = phi ptr [ %302, %299 ], [ %306, %305 ], [ %306, %319 ]
@@ -10669,11 +10676,11 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   call void @addReplyArrayLen(ptr noundef nonnull %0, i64 noundef %328) #30
   %329 = call ptr @dictGetIterator(ptr noundef %.0221) #30
   %330 = call ptr @dictNext(ptr noundef %329) #30
-  %.not289383 = icmp eq ptr %330, null
-  br i1 %.not289383, label %._crit_edge386, label %.lr.ph385
+  %.not289366 = icmp eq ptr %330, null
+  br i1 %.not289366, label %._crit_edge369, label %.lr.ph368
 
-.lr.ph385:                                        ; preds = %.loopexit, %._crit_edge382
-  %331 = phi ptr [ %393, %._crit_edge382 ], [ %330, %.loopexit ]
+.lr.ph368:                                        ; preds = %.loopexit, %._crit_edge365
+  %331 = phi ptr [ %393, %._crit_edge365 ], [ %330, %.loopexit ]
   %332 = call ptr @dictGetVal(ptr noundef nonnull %331) #30
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load ptr, ptr %333, align 8, !tbaa !20
@@ -10700,12 +10707,12 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   %.not292 = icmp eq ptr %348, null
   br i1 %.not292, label %351, label %349
 
-349:                                              ; preds = %.lr.ph385
+349:                                              ; preds = %.lr.ph368
   %350 = call fastcc i64 @sdslen(ptr noundef nonnull %348)
   call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %348, i64 noundef %350) #30
   br label %352
 
-351:                                              ; preds = %.lr.ph385
+351:                                              ; preds = %.lr.ph368
   call void @addReplyNull(ptr noundef %0) #30
   br label %352
 
@@ -10713,10 +10720,10 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   %353 = load ptr, ptr %336, align 8, !tbaa !18
   %354 = call ptr @dictGetIterator(ptr noundef %353) #30
   %355 = call ptr @dictNext(ptr noundef %354) #30
-  %.not293379 = icmp eq ptr %355, null
-  br i1 %.not293379, label %._crit_edge382, label %.lr.ph381
+  %.not293362 = icmp eq ptr %355, null
+  br i1 %.not293362, label %._crit_edge365, label %.lr.ph364
 
-.lr.ph381:                                        ; preds = %352, %391
+.lr.ph364:                                        ; preds = %352, %391
   %356 = phi ptr [ %392, %391 ], [ %355, %352 ]
   %357 = call ptr @dictGetVal(ptr noundef nonnull %356) #30
   call void @addReplyArrayLen(ptr noundef %0, i64 noundef 2) #30
@@ -10724,14 +10731,14 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   %.not294 = icmp eq i64 %358, 0
   br i1 %.not294, label %363, label %359
 
-359:                                              ; preds = %.lr.ph381
+359:                                              ; preds = %.lr.ph364
   %360 = getelementptr inbounds nuw i8, ptr %357, i64 112
   %361 = load i64, ptr %360, align 8, !tbaa !163
   %362 = sub nsw i64 %300, %361
   br label %363
 
-363:                                              ; preds = %.lr.ph381, %359
-  %364 = phi i64 [ %362, %359 ], [ 0, %.lr.ph381 ]
+363:                                              ; preds = %.lr.ph364, %359
+  %364 = phi i64 [ %362, %359 ], [ 0, %.lr.ph364 ]
   call void @addReplyLongLong(ptr noundef %0, i64 noundef %364) #30
   %365 = getelementptr inbounds nuw i8, ptr %357, i64 336
   %366 = load ptr, ptr %365, align 8, !tbaa !28
@@ -10780,8 +10787,8 @@ sentinelCheckCreateInstanceErrors.exit:           ; preds = %222, %225, %226, %2
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %367, %372, %375, %379, %383, %387
-  %.0.i328 = phi i64 [ %374, %372 ], [ %378, %375 ], [ %382, %379 ], [ %386, %383 ], [ %389, %387 ], [ 0, %367 ]
-  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %366, i64 noundef %.0.i328) #30
+  %.0.i320 = phi i64 [ %374, %372 ], [ %378, %375 ], [ %382, %379 ], [ %386, %383 ], [ %389, %387 ], [ 0, %367 ]
+  call void @addReplyBulkCBuffer(ptr noundef %0, ptr noundef nonnull %366, i64 noundef %.0.i320) #30
   br label %391
 
 390:                                              ; preds = %363
@@ -10791,30 +10798,30 @@ sdslen.exit:                                      ; preds = %367, %372, %375, %3
 391:                                              ; preds = %390, %sdslen.exit
   %392 = call ptr @dictNext(ptr noundef %354) #30
   %.not293 = icmp eq ptr %392, null
-  br i1 %.not293, label %._crit_edge382, label %.lr.ph381, !llvm.loop !274
+  br i1 %.not293, label %._crit_edge365, label %.lr.ph364, !llvm.loop !274
 
-._crit_edge382:                                   ; preds = %391, %352
+._crit_edge365:                                   ; preds = %391, %352
   call void @dictReleaseIterator(ptr noundef %354) #30
   %393 = call ptr @dictNext(ptr noundef %329) #30
   %.not289 = icmp eq ptr %393, null
-  br i1 %.not289, label %._crit_edge386, label %.lr.ph385, !llvm.loop !275
+  br i1 %.not289, label %._crit_edge369, label %.lr.ph368, !llvm.loop !275
 
-._crit_edge386:                                   ; preds = %._crit_edge382, %.loopexit
+._crit_edge369:                                   ; preds = %._crit_edge365, %.loopexit
   call void @dictReleaseIterator(ptr noundef %329) #30
   %394 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sentinel, i64 56), align 8, !tbaa !65
   %.not290 = icmp eq ptr %.0221, %394
   br i1 %.not290, label %396, label %395
 
-395:                                              ; preds = %._crit_edge386
+395:                                              ; preds = %._crit_edge369
   call void @dictRelease(ptr noundef %.0221) #30
   br label %396
 
-396:                                              ; preds = %395, %._crit_edge386
+396:                                              ; preds = %395, %._crit_edge369
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
 397:                                              ; preds = %295
-  %398 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.379) #34
+  %398 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.379) #34
   %.not297 = icmp eq i32 %398, 0
   br i1 %.not297, label %399, label %428
 
@@ -10888,7 +10895,7 @@ sdslen.exit:                                      ; preds = %367, %372, %375, %3
   br label %.thread
 
 428:                                              ; preds = %397
-  %429 = tail call i32 @strcasecmp(ptr noundef %.pre396, ptr noundef nonnull @.str.207) #34
+  %429 = tail call i32 @strcasecmp(ptr noundef %.pre379, ptr noundef nonnull @.str.207) #34
   %.not301 = icmp eq i32 %429, 0
   br i1 %.not301, label %430, label %433
 
@@ -10907,11 +10914,11 @@ sdslen.exit:                                      ; preds = %367, %372, %375, %3
   tail call void @addReplySubcommandSyntaxError(ptr noundef nonnull %0) #30
   br label %.thread
 
-.thread423:                                       ; preds = %.thread421, %17, %276, %238, %231, %151, %124, %111, %49, %37, %24, %297, %282, %234, %177, %114
+.thread406:                                       ; preds = %.thread404, %17, %276, %238, %231, %151, %124, %111, %49, %37, %24, %297, %282, %234, %177, %114
   tail call void @addReplyErrorArity(ptr noundef nonnull %0) #30
   br label %.thread
 
-.thread:                                          ; preds = %239, %244, %152, %171, %164, %160, %132, %sentinelGetCurrentMasterAddress.exit, %sentinelGetMasterByNameOrReplyError.exit324.thread, %sentinelGetMasterByNameOrReplyError.exit324, %sentinelGetMasterByNameOrReplyError.exit322.thread, %sentinelGetMasterByNameOrReplyError.exit322, %sentinelGetMasterByNameOrReplyError.exit.thread, %sentinelGetMasterByNameOrReplyError.exit, %.thread371, %.thread356, %.thread344, %421, %422, %._crit_edge, %16, %178, %293, %294, %290, %431, %432, %433, %396, %279, %115, %61, %.thread420, %.thread423, %235
+.thread:                                          ; preds = %239, %244, %152, %171, %164, %160, %132, %sentinelGetCurrentMasterAddress.exit, %sentinelGetMasterByNameOrReplyError.exit316.thread, %sentinelGetMasterByNameOrReplyError.exit316, %sentinelGetMasterByNameOrReplyError.exit314.thread, %sentinelGetMasterByNameOrReplyError.exit314, %sentinelGetMasterByNameOrReplyError.exit.thread, %sentinelGetMasterByNameOrReplyError.exit, %.thread355, %.thread342, %.thread333, %421, %422, %._crit_edge, %16, %178, %293, %294, %290, %431, %432, %433, %396, %279, %115, %61, %.thread403, %.thread406, %235
   ret void
 }
 

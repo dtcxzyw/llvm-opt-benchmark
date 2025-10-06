@@ -741,7 +741,7 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   unreachable
 
 122:                                              ; preds = %478, %123, %106
-  %.pn201.pn.pn = phi { ptr, i32 } [ %.pn201.pn233, %478 ], [ %.pn201, %123 ], [ %.pn, %106 ]
+  %.pn201.pn.pn = phi { ptr, i32 } [ %.pn201.pn239, %478 ], [ %.pn201, %123 ], [ %.pn, %106 ]
   resume { ptr, i32 } %.pn201.pn.pn
 
 123:                                              ; preds = %.body
@@ -799,13 +799,13 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h20382adc74d7e508E"(ptr nonnull align 8 %80) #12
           to label %123 unwind label %120
 
-.loopexit:                                        ; preds = %147, %153, %163, %169, %173, %179, %247, %180, %186, %191, %200, %.noexc223, %208, %212, %219, %227
+.loopexit:                                        ; preds = %147, %153, %163, %169, %173, %179, %247, %180, %186, %191, %200, %.noexc229, %208, %212, %219, %227
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.loopexit.split-lp:                               ; preds = %.invoke645, %.invoke643, %.invoke, %250, %255, %259, %.critedge, %264, %.critedge206, %280, %282, %.critedge208, %294, %301, %317, %327, %332, %342, %344, %349, %357, %361, %365, %.critedge211, %369, %.critedge213, %385, %387, %.critedge215, %399, %406, %421, %431, %436, %440, %444, %472, %358, %252, %184
-  %.2.ph = phi i1 [ true, %184 ], [ true, %252 ], [ true, %358 ], [ true, %255 ], [ true, %259 ], [ true, %.critedge ], [ true, %.critedge206 ], [ true, %280 ], [ true, %282 ], [ true, %.critedge208 ], [ true, %294 ], [ true, %301 ], [ true, %317 ], [ true, %264 ], [ true, %327 ], [ true, %250 ], [ true, %332 ], [ true, %342 ], [ true, %344 ], [ true, %349 ], [ true, %357 ], [ true, %361 ], [ true, %365 ], [ true, %.critedge211 ], [ true, %.critedge213 ], [ true, %385 ], [ true, %387 ], [ true, %.critedge215 ], [ true, %399 ], [ true, %406 ], [ true, %421 ], [ true, %369 ], [ true, %431 ], [ true, %436 ], [ true, %440 ], [ true, %444 ], [ false, %472 ], [ true, %.invoke ], [ true, %.invoke643 ], [ true, %.invoke645 ]
+.loopexit.split-lp:                               ; preds = %.invoke651, %.invoke649, %.invoke, %250, %255, %259, %.critedge, %264, %.critedge206, %280, %282, %.critedge208, %294, %301, %317, %327, %332, %342, %344, %349, %357, %361, %365, %.critedge211, %369, %.critedge213, %385, %387, %.critedge215, %399, %406, %421, %431, %436, %440, %444, %472, %358, %252, %184
+  %.2.ph = phi i1 [ true, %184 ], [ true, %252 ], [ true, %358 ], [ true, %255 ], [ true, %259 ], [ true, %.critedge ], [ true, %.critedge206 ], [ true, %280 ], [ true, %282 ], [ true, %.critedge208 ], [ true, %294 ], [ true, %301 ], [ true, %317 ], [ true, %264 ], [ true, %327 ], [ true, %250 ], [ true, %332 ], [ true, %342 ], [ true, %344 ], [ true, %349 ], [ true, %357 ], [ true, %361 ], [ true, %365 ], [ true, %.critedge211 ], [ true, %.critedge213 ], [ true, %385 ], [ true, %387 ], [ true, %.critedge215 ], [ true, %399 ], [ true, %406 ], [ true, %421 ], [ true, %369 ], [ true, %431 ], [ true, %436 ], [ true, %440 ], [ true, %444 ], [ false, %472 ], [ true, %.invoke ], [ true, %.invoke649 ], [ true, %.invoke651 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -829,12 +829,12 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   %157 = icmp eq ptr %156, null
   br i1 %157, label %.invoke, label %163
 
-.invoke:                                          ; preds = %.noexc231, %.noexc228, %.noexc225, %.noexc221, %.noexc219, %155
-  %158 = phi ptr [ %.sroa.058.0, %155 ], [ %165, %.noexc219 ], [ %189, %.noexc221 ], [ %193, %.noexc225 ], [ %197, %.noexc228 ], [ %229, %.noexc231 ]
-  %159 = phi i64 [ %.sroa.8.0, %155 ], [ %166, %.noexc219 ], [ %192, %.noexc221 ], [ %194, %.noexc225 ], [ %198, %.noexc228 ], [ %230, %.noexc231 ]
-  %160 = phi i64 [ 0, %155 ], [ 0, %.noexc219 ], [ 1, %.noexc221 ], [ 1, %.noexc225 ], [ 0, %.noexc228 ], [ 1, %.noexc231 ]
-  %161 = phi i64 [ %151, %155 ], [ %188, %.noexc219 ], [ %195, %.noexc221 ], [ %194, %.noexc225 ], [ %204, %.noexc228 ], [ %230, %.noexc231 ]
-  %162 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %155 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %.noexc219 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.14, %.noexc221 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.18, %.noexc225 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %.noexc228 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.20, %.noexc231 ]
+.invoke:                                          ; preds = %.noexc237, %.noexc234, %.noexc231, %.noexc227, %.noexc225, %155
+  %158 = phi ptr [ %.sroa.058.0, %155 ], [ %165, %.noexc225 ], [ %189, %.noexc227 ], [ %193, %.noexc231 ], [ %197, %.noexc234 ], [ %229, %.noexc237 ]
+  %159 = phi i64 [ %.sroa.8.0, %155 ], [ %166, %.noexc225 ], [ %192, %.noexc227 ], [ %194, %.noexc231 ], [ %198, %.noexc234 ], [ %230, %.noexc237 ]
+  %160 = phi i64 [ 0, %155 ], [ 0, %.noexc225 ], [ 1, %.noexc227 ], [ 1, %.noexc231 ], [ 0, %.noexc234 ], [ 1, %.noexc237 ]
+  %161 = phi i64 [ %151, %155 ], [ %188, %.noexc225 ], [ %195, %.noexc227 ], [ %194, %.noexc231 ], [ %204, %.noexc234 ], [ %230, %.noexc237 ]
+  %162 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %155 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %.noexc225 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.14, %.noexc227 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.18, %.noexc231 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.13, %.noexc234 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.20, %.noexc237 ]
   invoke void @_ZN4core3str16slice_error_fail17he2ff12236fb0c056E(ptr nonnull align 1 %158, i64 %159, i64 %160, i64 %161, ptr nonnull align 8 %162) #14
           to label %.cont unwind label %.loopexit.split-lp
 
@@ -916,58 +916,58 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   %185 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h951650e67cf3be81E", ptr %185, align 8, !noalias !13
   invoke void @_ZN4core3fmt9Arguments6new_v117hf1cbd0c07ef8dcccE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %9, ptr nonnull align 8 @anon.3ce6b816cb19b0461f38b33c0e713f57.10, i64 2, ptr nonnull align 8 %8, i64 1)
-          to label %.invoke645 unwind label %.loopexit.split-lp
+          to label %.invoke651 unwind label %.loopexit.split-lp
 
 186:                                              ; preds = %.noexc
   %187 = extractvalue { i64, i64 } %181, 1
   %188 = add i64 %187, 1
   invoke void @"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17habd470676a0bac53E"(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %7, ptr nonnull align 1 %165, i64 %166, i64 %188)
-          to label %.noexc219 unwind label %.loopexit
+          to label %.noexc225 unwind label %.loopexit
 
-.noexc219:                                        ; preds = %186
+.noexc225:                                        ; preds = %186
   %189 = load ptr, ptr %7, align 8, !noalias !13, !noundef !3
   %190 = icmp eq ptr %189, null
   br i1 %190, label %.invoke, label %191
 
-191:                                              ; preds = %.noexc219
+191:                                              ; preds = %.noexc225
   %192 = load i64, ptr %133, align 8, !noalias !13, !noundef !3
   %193 = load ptr, ptr %134, align 8, !noalias !13, !nonnull !3, !align !12, !noundef !3
   %194 = load i64, ptr %135, align 8, !noalias !13, !noundef !3
   %195 = add i64 %192, -1
   %196 = invoke { ptr, i64 } @"_ZN4core3str6traits108_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..Range$LT$usize$GT$$GT$3get17h81e9a7b8fa7defe6E"(i64 1, i64 %195, ptr nonnull align 1 %189, i64 %192)
-          to label %.noexc221 unwind label %.loopexit
+          to label %.noexc227 unwind label %.loopexit
 
-.noexc221:                                        ; preds = %191
+.noexc227:                                        ; preds = %191
   %197 = extractvalue { ptr, i64 } %196, 0
   %198 = extractvalue { ptr, i64 } %196, 1
   %199 = icmp eq ptr %197, null
   br i1 %199, label %.invoke, label %200
 
-200:                                              ; preds = %.noexc221
+200:                                              ; preds = %.noexc227
   %201 = invoke zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h268bfbf7945b77deE"(ptr nonnull align 1 %193, i64 %194, ptr nonnull align 1 @anon.3ce6b816cb19b0461f38b33c0e713f57.15, i64 1)
-          to label %.noexc223 unwind label %.loopexit
+          to label %.noexc229 unwind label %.loopexit
 
-.noexc223:                                        ; preds = %200
+.noexc229:                                        ; preds = %200
   %202 = invoke { i64, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$4find17h99f2f1b0a0caefc9E"(ptr nonnull align 1 %197, i64 %198, i32 58)
-          to label %.noexc224 unwind label %.loopexit
+          to label %.noexc230 unwind label %.loopexit
 
-.noexc224:                                        ; preds = %.noexc223
+.noexc230:                                        ; preds = %.noexc229
   %203 = extractvalue { i64, i64 } %202, 0
   %204 = extractvalue { i64, i64 } %202, 1
   %205 = icmp eq i64 %203, 0
   br i1 %205, label %206, label %207
 
-206:                                              ; preds = %.noexc224
+206:                                              ; preds = %.noexc230
   br i1 %201, label %208, label %212
 
-207:                                              ; preds = %.noexc224
+207:                                              ; preds = %.noexc230
   br i1 %201, label %222, label %219
 
 208:                                              ; preds = %206
   %209 = invoke { ptr, i64 } @"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h44a75055e178b7fcE"(i64 1, ptr nonnull align 1 %193, i64 %194)
-          to label %.noexc225 unwind label %.loopexit
+          to label %.noexc231 unwind label %.loopexit
 
-.noexc225:                                        ; preds = %208
+.noexc231:                                        ; preds = %208
   %210 = extractvalue { ptr, i64 } %209, 0
   %211 = icmp eq ptr %210, null
   br i1 %211, label %.invoke, label %217
@@ -984,9 +984,9 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   store ptr %.sroa.034.0.i, ptr %17, align 8, !noalias !13
   store i64 %.sroa.435.0.i, ptr %140, align 8, !noalias !13
   %213 = invoke { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17hf1d35a488a27ffb4E"(i64 %.sroa.9.0.i, i1 zeroext false)
-          to label %.noexc226 unwind label %.loopexit
+          to label %.noexc232 unwind label %.loopexit
 
-.noexc226:                                        ; preds = %212
+.noexc232:                                        ; preds = %212
   %214 = extractvalue { i64, ptr } %213, 0
   %215 = extractvalue { i64, ptr } %213, 1
   %216 = icmp ne ptr %215, null
@@ -1005,15 +1005,15 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   invoke void @_ZN4core3fmt9Arguments6new_v117hf1cbd0c07ef8dcccE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %13, ptr nonnull align 8 @anon.3ce6b816cb19b0461f38b33c0e713f57.24, i64 3, ptr nonnull align 8 %12, i64 2)
           to label %238 unwind label %236, !noalias !13
 
-217:                                              ; preds = %.noexc225
+217:                                              ; preds = %.noexc231
   %218 = extractvalue { ptr, i64 } %209, 1
   br label %212
 
 219:                                              ; preds = %207
   invoke void @"_ZN4core3str21_$LT$impl$u20$str$GT$16split_at_checked17habd470676a0bac53E"(ptr nonnull sret({ ptr, [3 x i64] }) align 8 %6, ptr nonnull align 1 %197, i64 %198, i64 %204)
-          to label %.noexc228 unwind label %.loopexit
+          to label %.noexc234 unwind label %.loopexit
 
-.noexc228:                                        ; preds = %219
+.noexc234:                                        ; preds = %219
   %220 = load ptr, ptr %6, align 8, !noalias !13, !noundef !3
   %221 = icmp eq ptr %220, null
   br i1 %221, label %.invoke, label %227
@@ -1028,31 +1028,31 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
   store ptr @anon.3ce6b816cb19b0461f38b33c0e713f57.27, ptr %225, align 8, !noalias !13
   %226 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 0, ptr %226, align 8, !noalias !13
-  br label %.invoke645
+  br label %.invoke651
 
-227:                                              ; preds = %.noexc228
+227:                                              ; preds = %.noexc234
   %228 = load i64, ptr %136, align 8, !noalias !13, !noundef !3
   %229 = load ptr, ptr %137, align 8, !noalias !13, !nonnull !3, !align !12, !noundef !3
   %230 = load i64, ptr %138, align 8, !noalias !13, !noundef !3
   %231 = invoke { ptr, i64 } @"_ZN4core3str6traits112_$LT$impl$u20$core..slice..index..SliceIndex$LT$str$GT$$u20$for$u20$core..ops..range..RangeFrom$LT$usize$GT$$GT$3get17h44a75055e178b7fcE"(i64 1, ptr nonnull align 1 %229, i64 %230)
-          to label %.noexc231 unwind label %.loopexit
+          to label %.noexc237 unwind label %.loopexit
 
-.noexc231:                                        ; preds = %227
+.noexc237:                                        ; preds = %227
   %232 = extractvalue { ptr, i64 } %231, 0
   %233 = icmp eq ptr %232, null
   br i1 %233, label %.invoke, label %234
 
-234:                                              ; preds = %.noexc231
+234:                                              ; preds = %.noexc237
   %235 = extractvalue { ptr, i64 } %231, 1
   br label %212
 
-236:                                              ; preds = %238, %.noexc226
+236:                                              ; preds = %238, %.noexc232
   %237 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr59drop_in_place$LT$actix_router..resource..PatternSegment$GT$17h7ba465889dce0bb9E"(ptr nonnull align 8 %15) #12
           to label %.body unwind label %239, !noalias !13
 
-238:                                              ; preds = %.noexc226
+238:                                              ; preds = %.noexc232
   invoke void @_ZN5alloc3fmt6format17hfd2e126d8cd68d66E(ptr nonnull sret({ { { i64, ptr, {} }, i64 } }) align 8 %14, ptr nonnull align 8 %13)
           to label %241 unwind label %236, !noalias !13
 
@@ -1110,13 +1110,13 @@ define void @_ZN12actix_router8resource11ResourceDef5parse17ha9058dfeb74a9c6bE(p
 
 252:                                              ; preds = %154
   %253 = invoke range(i64 0, 6) i64 @_ZN4core4sync6atomic11atomic_load17h3f924b1c8dcdc7f4E(ptr nonnull @_ZN12tracing_core8metadata9MAX_LEVEL17h01006d23ad92a8e5E, i8 0)
-          to label %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216 unwind label %.loopexit.split-lp
+          to label %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit222 unwind label %.loopexit.split-lp
 
-_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; preds = %252
+_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit222: ; preds = %252
   %254 = icmp samesign ult i64 %253, 4
   br i1 %254, label %255, label %.critedge
 
-255:                                              ; preds = %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216
+255:                                              ; preds = %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit222
   %256 = invoke i8 @_ZN12tracing_core8callsite15DefaultCallsite8interest17h92adbeff2db6c127E(ptr nonnull align 8 @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17h0a82d0b112dcb714E)
           to label %257 unwind label %.loopexit.split-lp, !range !16
 
@@ -1132,7 +1132,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; p
 262:                                              ; preds = %259
   br i1 %261, label %264, label %.critedge
 
-.critedge:                                        ; preds = %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216, %257, %262
+.critedge:                                        ; preds = %_ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit222, %257, %262
   store i64 2, ptr %65, align 8
   %263 = invoke i8 @"_ZN76_$LT$log..Level$u20$as$u20$core..cmp..PartialOrd$LT$log..LevelFilter$GT$$GT$11partial_cmp17h20fe3f03bad0919fE"(ptr nonnull align 8 %65, ptr nonnull align 8 @anon.3ce6b816cb19b0461f38b33c0e713f57.34)
           to label %276 unwind label %.loopexit.split-lp, !range !17
@@ -1162,12 +1162,11 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; p
           to label %324 unwind label %.loopexit.split-lp
 
 276:                                              ; preds = %.critedge
-  switch i8 %263, label %250 [
-    i8 0, label %.critedge206
-    i8 -1, label %.critedge206
-  ]
+  %.off = add nsw i8 %263, -1
+  %switch = icmp ult i8 %.off, -2
+  br i1 %switch, label %250, label %.critedge206
 
-.critedge206:                                     ; preds = %276, %276
+.critedge206:                                     ; preds = %276
   %277 = invoke i8 @_ZN4core4sync6atomic11atomic_load17h7c87fcf425c275e2E(ptr nonnull @_ZN12tracing_core10dispatcher6EXISTS17hd85f1dd96f61d43bE, i8 0)
           to label %278 unwind label %.loopexit.split-lp
 
@@ -1186,12 +1185,11 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; p
           to label %284 unwind label %.loopexit.split-lp, !range !17
 
 284:                                              ; preds = %282
-  switch i8 %283, label %250 [
-    i8 0, label %.critedge208
-    i8 -1, label %.critedge208
-  ]
+  %.off216 = add nsw i8 %283, -1
+  %switch217 = icmp ult i8 %.off216, -2
+  br i1 %switch217, label %250, label %.critedge208
 
-.critedge208:                                     ; preds = %284, %284
+.critedge208:                                     ; preds = %284
   %285 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17h0a82d0b112dcb714E, align 8, !nonnull !3, !align !4, !noundef !3
   %286 = load i64, ptr %64, align 8, !range !18, !noundef !3
   %287 = getelementptr inbounds nuw i8, ptr %285, i64 32
@@ -1245,14 +1243,14 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; p
 313:                                              ; preds = %301
   %314 = load ptr, ptr %56, align 8, !noundef !3
   %315 = icmp eq ptr %314, null
-  br i1 %315, label %.invoke643, label %317
+  br i1 %315, label %.invoke649, label %317
 
-.invoke643:                                       ; preds = %428, %418, %324, %313
+.invoke649:                                       ; preds = %428, %418, %324, %313
   %316 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %313 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.36, %324 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %418 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.40, %428 ]
   invoke void @_ZN4core6option13expect_failed17hea24986454718b4fE(ptr nonnull align 1 @anon.3ce6b816cb19b0461f38b33c0e713f57.35, i64 34, ptr nonnull align 8 %316) #14
-          to label %.cont644 unwind label %.loopexit.split-lp
+          to label %.cont650 unwind label %.loopexit.split-lp
 
-.cont644:                                         ; preds = %.invoke643
+.cont650:                                         ; preds = %.invoke649
   unreachable
 
 317:                                              ; preds = %313
@@ -1282,7 +1280,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit216: ; p
 324:                                              ; preds = %264
   %325 = load ptr, ptr %67, align 8, !noundef !3
   %326 = icmp eq ptr %325, null
-  br i1 %326, label %.invoke643, label %327
+  br i1 %326, label %.invoke649, label %327
 
 327:                                              ; preds = %324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %68, ptr noundef nonnull align 8 dereferenceable(40) %67, i64 40, i1 false)
@@ -1423,12 +1421,11 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
           to label %428 unwind label %.loopexit.split-lp
 
 381:                                              ; preds = %.critedge211
-  switch i8 %368, label %339 [
-    i8 0, label %.critedge213
-    i8 -1, label %.critedge213
-  ]
+  %.off218 = add nsw i8 %368, -1
+  %switch219 = icmp ult i8 %.off218, -2
+  br i1 %switch219, label %339, label %.critedge213
 
-.critedge213:                                     ; preds = %381, %381
+.critedge213:                                     ; preds = %381
   %382 = invoke i8 @_ZN4core4sync6atomic11atomic_load17h7c87fcf425c275e2E(ptr nonnull @_ZN12tracing_core10dispatcher6EXISTS17hd85f1dd96f61d43bE, i8 0)
           to label %383 unwind label %.loopexit.split-lp
 
@@ -1447,12 +1444,11 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
           to label %389 unwind label %.loopexit.split-lp, !range !17
 
 389:                                              ; preds = %387
-  switch i8 %388, label %339 [
-    i8 0, label %.critedge215
-    i8 -1, label %.critedge215
-  ]
+  %.off220 = add nsw i8 %388, -1
+  %switch221 = icmp ult i8 %.off220, -2
+  br i1 %switch221, label %339, label %.critedge215
 
-.critedge215:                                     ; preds = %389, %389
+.critedge215:                                     ; preds = %389
   %390 = load ptr, ptr @_ZN12actix_router8resource11ResourceDef5parse10__CALLSITE17hd8341e3515fb854cE, align 8, !nonnull !3, !align !4, !noundef !3
   %391 = load i64, ptr %47, align 8, !range !18, !noundef !3
   %392 = getelementptr inbounds nuw i8, ptr %390, i64 32
@@ -1506,7 +1502,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
 418:                                              ; preds = %406
   %419 = load ptr, ptr %39, align 8, !noundef !3
   %420 = icmp eq ptr %419, null
-  br i1 %420, label %.invoke643, label %421
+  br i1 %420, label %.invoke649, label %421
 
 421:                                              ; preds = %418
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef nonnull align 8 dereferenceable(40) %39, i64 40, i1 false)
@@ -1535,7 +1531,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
 428:                                              ; preds = %369
   %429 = load ptr, ptr %50, align 8, !noundef !3
   %430 = icmp eq ptr %429, null
-  br i1 %430, label %.invoke643, label %431
+  br i1 %430, label %.invoke649, label %431
 
 431:                                              ; preds = %428
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %51, ptr noundef nonnull align 8 dereferenceable(40) %50, i64 40, i1 false)
@@ -1570,7 +1566,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
   %439 = getelementptr inbounds nuw i8, ptr %34, i64 24
   store ptr @"_ZN4core3fmt3num3imp54_$LT$impl$u20$core..fmt..Display$u20$for$u20$usize$GT$3fmt17h0516a742b2dd93cdE", ptr %439, align 8
   invoke void @_ZN4core3fmt9Arguments6new_v117hf1cbd0c07ef8dcccE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %35, ptr nonnull align 8 @anon.3ce6b816cb19b0461f38b33c0e713f57.45, i64 2, ptr nonnull align 8 %34, i64 2)
-          to label %.invoke645 unwind label %.loopexit.split-lp
+          to label %.invoke651 unwind label %.loopexit.split-lp
 
 440:                                              ; preds = %339
   store ptr %80, ptr %30, align 8
@@ -1579,13 +1575,13 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
   invoke void @_ZN4core3fmt9Arguments6new_v117hf1cbd0c07ef8dcccE(ptr nonnull sret({ { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }) align 8 %31, ptr nonnull align 8 @anon.3ce6b816cb19b0461f38b33c0e713f57.49, i64 2, ptr nonnull align 8 %30, i64 1)
           to label %444 unwind label %.loopexit.split-lp
 
-.invoke645:                                       ; preds = %436, %184, %222
+.invoke651:                                       ; preds = %436, %184, %222
   %442 = phi ptr [ %16, %222 ], [ %9, %184 ], [ %35, %436 ]
   %443 = phi ptr [ @anon.3ce6b816cb19b0461f38b33c0e713f57.28, %222 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.11, %184 ], [ @anon.3ce6b816cb19b0461f38b33c0e713f57.47, %436 ]
   invoke void @_ZN4core9panicking9panic_fmt17ha6effc2775a0749cE(ptr nonnull align 8 %442, ptr nonnull align 8 %443) #14
-          to label %.cont646 unwind label %.loopexit.split-lp
+          to label %.cont652 unwind label %.loopexit.split-lp
 
-.cont646:                                         ; preds = %.invoke645
+.cont652:                                         ; preds = %.invoke651
   unreachable
 
 444:                                              ; preds = %440
@@ -1688,7 +1684,7 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
           to label %168 unwind label %475
 
 478:                                              ; preds = %.thread, %123
-  %.pn201.pn233 = phi { ptr, i32 } [ %.pn201, %123 ], [ %lpad.thr_comm, %.thread ]
+  %.pn201.pn239 = phi { ptr, i32 } [ %.pn201, %123 ], [ %lpad.thr_comm, %.thread ]
   invoke void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$actix_router..resource..PatternSegment$GT$$GT$17h278e8b9d4cd94394E"(ptr nonnull align 8 %81) #12
           to label %122 unwind label %120
 }

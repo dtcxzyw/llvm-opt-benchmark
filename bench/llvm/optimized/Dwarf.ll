@@ -9342,9 +9342,9 @@ switch.lookup:
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm5dwarf26GDBIndexEntryLinkageStringENS0_20GDBIndexEntryLinkageE(i32 noundef %0) local_unnamed_addr #0 {
-  %switch = icmp eq i32 %0, 0
-  %. = select i1 %switch, i64 8, i64 6
-  %.str.978..str.979 = select i1 %switch, ptr @.str.978, ptr @.str.979
+  %2 = icmp eq i32 %0, 0
+  %. = select i1 %2, i64 8, i64 6
+  %.str.978..str.979 = select i1 %2, ptr @.str.978, ptr @.str.979
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.str.978..str.979, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %., 1
   ret { ptr, i64 } %.fca.1.insert
@@ -9602,38 +9602,38 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm5dwarf20getFixedFormByteSizeENS0
   %.sroa.5.0.extract.trunc = trunc i48 %.sroa.5.0.extract.shift to i8
   %.sroa.10.0.extract.shift = lshr i48 %1, 24
   %.sroa.10.0.extract.trunc = trunc i48 %.sroa.10.0.extract.shift to i8
-  switch i16 %0, label %23 [
+  switch i16 %0, label %25 [
     i16 1, label %3
-    i16 33, label %22
-    i16 30, label %21
-    i16 25, label %22
-    i16 36, label %20
-    i16 32, label %20
-    i16 20, label %20
-    i16 7, label %20
-    i16 29, label %16
-    i16 23, label %16
-    i16 31, label %16
-    i16 7969, label %16
-    i16 7968, label %16
-    i16 14, label %16
-    i16 44, label %15
-    i16 40, label %15
-    i16 28, label %15
+    i16 33, label %24
+    i16 30, label %23
+    i16 25, label %24
+    i16 36, label %22
+    i16 32, label %22
+    i16 20, label %22
+    i16 7, label %22
+    i16 29, label %17
+    i16 23, label %17
+    i16 31, label %17
+    i16 7969, label %17
+    i16 7968, label %17
+    i16 14, label %17
+    i16 44, label %16
+    i16 40, label %16
+    i16 28, label %16
     i16 16, label %7
-    i16 12, label %12
-    i16 11, label %12
-    i16 17, label %12
-    i16 37, label %12
-    i16 41, label %12
-    i16 5, label %13
-    i16 18, label %13
-    i16 38, label %13
-    i16 42, label %13
-    i16 39, label %14
-    i16 43, label %14
-    i16 6, label %15
-    i16 19, label %15
+    i16 12, label %13
+    i16 11, label %13
+    i16 17, label %13
+    i16 37, label %13
+    i16 41, label %13
+    i16 5, label %14
+    i16 18, label %14
+    i16 38, label %14
+    i16 42, label %14
+    i16 39, label %15
+    i16 43, label %15
+    i16 6, label %16
+    i16 19, label %16
   ]
 
 3:                                                ; preds = %2
@@ -9641,56 +9641,56 @@ define dso_local range(i16 0, 512) i16 @_ZN4llvm5dwarf20getFixedFormByteSizeENS0
   %4 = icmp ne i8 %.sroa.5.0.extract.trunc, 0
   %5 = select i1 %.not.i, i1 %4, i1 false
   %6 = select i1 %5, i16 256, i16 0
-  br label %23
+  br label %25
 
 7:                                                ; preds = %2
   %.not.i1 = icmp ne i16 %.sroa.0.0.extract.trunc, 0
   %8 = icmp ne i8 %.sroa.5.0.extract.trunc, 0
   %9 = select i1 %.not.i1, i1 %8, i1 false
-  br i1 %9, label %10, label %23
+  br i1 %9, label %10, label %25
 
 10:                                               ; preds = %7
   %11 = icmp eq i16 %.sroa.0.0.extract.trunc, 2
-  %switch.i.i.i = icmp eq i8 %.sroa.10.0.extract.trunc, 0
-  %..i.i.i = select i1 %switch.i.i.i, i8 4, i8 8
+  %12 = icmp eq i8 %.sroa.10.0.extract.trunc, 0
+  %..i.i.i = select i1 %12, i8 4, i8 8
   %.0.i = select i1 %11, i8 %.sroa.5.0.extract.trunc, i8 %..i.i.i
-  br label %23
+  br label %25
 
-12:                                               ; preds = %2, %2, %2, %2, %2
-  br label %23
+13:                                               ; preds = %2, %2, %2, %2, %2
+  br label %25
 
-13:                                               ; preds = %2, %2, %2, %2
-  br label %23
+14:                                               ; preds = %2, %2, %2, %2
+  br label %25
 
-14:                                               ; preds = %2, %2
-  br label %23
+15:                                               ; preds = %2, %2
+  br label %25
 
-15:                                               ; preds = %2, %2, %2, %2, %2
-  br label %23
+16:                                               ; preds = %2, %2, %2, %2, %2
+  br label %25
 
-16:                                               ; preds = %2, %2, %2, %2, %2, %2
+17:                                               ; preds = %2, %2, %2, %2, %2, %2
   %.not.i2 = icmp ne i16 %.sroa.0.0.extract.trunc, 0
-  %17 = icmp ne i8 %.sroa.5.0.extract.trunc, 0
-  %18 = select i1 %.not.i2, i1 %17, i1 false
-  br i1 %18, label %19, label %23
+  %18 = icmp ne i8 %.sroa.5.0.extract.trunc, 0
+  %19 = select i1 %.not.i2, i1 %18, i1 false
+  br i1 %19, label %20, label %25
 
-19:                                               ; preds = %16
-  %switch.i.i = icmp eq i8 %.sroa.10.0.extract.trunc, 0
-  %..i.i = select i1 %switch.i.i, i8 4, i8 8
-  br label %23
+20:                                               ; preds = %17
+  %21 = icmp eq i8 %.sroa.10.0.extract.trunc, 0
+  %..i.i = select i1 %21, i8 4, i8 8
+  br label %25
 
-20:                                               ; preds = %2, %2, %2, %2
-  br label %23
+22:                                               ; preds = %2, %2, %2, %2
+  br label %25
 
-21:                                               ; preds = %2
-  br label %23
+23:                                               ; preds = %2
+  br label %25
 
-22:                                               ; preds = %2, %2
-  br label %23
+24:                                               ; preds = %2, %2
+  br label %25
 
-23:                                               ; preds = %3, %2, %16, %7, %22, %21, %20, %19, %15, %14, %13, %12, %10
-  %.sroa.020.0 = phi i8 [ %.0.i, %10 ], [ 1, %12 ], [ 2, %13 ], [ 3, %14 ], [ 4, %15 ], [ %..i.i, %19 ], [ 8, %20 ], [ 16, %21 ], [ 0, %22 ], [ undef, %7 ], [ undef, %16 ], [ undef, %2 ], [ %.sroa.5.0.extract.trunc, %3 ]
-  %.sroa.12.0 = phi i16 [ 256, %10 ], [ 256, %12 ], [ 256, %13 ], [ 256, %14 ], [ 256, %15 ], [ 256, %19 ], [ 256, %20 ], [ 256, %21 ], [ 256, %22 ], [ 0, %7 ], [ 0, %16 ], [ 0, %2 ], [ %6, %3 ]
+25:                                               ; preds = %3, %2, %17, %7, %24, %23, %22, %20, %16, %15, %14, %13, %10
+  %.sroa.020.0 = phi i8 [ %.0.i, %10 ], [ 1, %13 ], [ 2, %14 ], [ 3, %15 ], [ 4, %16 ], [ %..i.i, %20 ], [ 8, %22 ], [ 16, %23 ], [ 0, %24 ], [ undef, %7 ], [ undef, %17 ], [ undef, %2 ], [ %.sroa.5.0.extract.trunc, %3 ]
+  %.sroa.12.0 = phi i16 [ 256, %10 ], [ 256, %13 ], [ 256, %14 ], [ 256, %15 ], [ 256, %16 ], [ 256, %20 ], [ 256, %22 ], [ 256, %23 ], [ 256, %24 ], [ 0, %7 ], [ 0, %17 ], [ 0, %2 ], [ %6, %3 ]
   %.sroa.020.0.insert.ext = zext i8 %.sroa.020.0 to i16
   %.sroa.020.0.insert.insert = or disjoint i16 %.sroa.12.0, %.sroa.020.0.insert.ext
   ret i16 %.sroa.020.0.insert.insert

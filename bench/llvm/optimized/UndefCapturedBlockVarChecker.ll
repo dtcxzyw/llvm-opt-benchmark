@@ -1343,17 +1343,17 @@ define internal fastcc noundef ptr @_ZL20FindBlockDeclRefExprPKN5clang4StmtEPKNS
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.430.24.copyload = load ptr, ptr %12, align 8
+  %.sroa.429.24.copyload = load ptr, ptr %12, align 8
   %.sroa.6.24..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.6.24.copyload = load i64, ptr %.sroa.6.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !231
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %14 = load ptr, ptr %4, align 8, !tbaa !46
-  %15 = icmp eq ptr %14, %.sroa.430.24.copyload
+  %15 = icmp ne ptr %14, %.sroa.429.24.copyload
   %16 = load i64, ptr %13, align 8
-  %17 = icmp eq i64 %16, %.sroa.6.24.copyload
-  %.not3.i.not40 = select i1 %15, i1 %17, i1 false
-  br i1 %.not3.i.not40, label %._crit_edge, label %.lr.ph
+  %17 = icmp ne i64 %16, %.sroa.6.24.copyload
+  %.not3.i39 = select i1 %15, i1 true, i1 %17
+  br i1 %.not3.i39, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %11, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
   %18 = phi i64 [ %38, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %16, %11 ]
@@ -1370,26 +1370,26 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
   %.in.i = phi ptr [ %23, %22 ], [ %19, %.lr.ph ]
   %24 = load ptr, ptr %.in.i, align 8, !tbaa !234
   %.not24 = icmp eq ptr %24, null
-  br i1 %.not24, label %.thread33, label %25
+  br i1 %.not24, label %.thread31, label %25
 
 25:                                               ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   %26 = call fastcc noundef ptr @_ZL20FindBlockDeclRefExprPKN5clang4StmtEPKNS_7VarDeclE(ptr noundef nonnull %24, ptr noundef %1)
   %.not25 = icmp eq ptr %26, null
-  br i1 %.not25, label %.thread33, label %._crit_edge
+  br i1 %.not25, label %.thread31, label %.sink.split
 
-.thread33:                                        ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %25
+.thread31:                                        ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %25
   %27 = load i64, ptr %13, align 8, !tbaa !235
   %28 = and i64 %27, 3
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %33
 
-30:                                               ; preds = %.thread33
+30:                                               ; preds = %.thread31
   %31 = load ptr, ptr %4, align 8, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %32, ptr %4, align 8, !tbaa !46
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
-33:                                               ; preds = %.thread33
+33:                                               ; preds = %.thread31
   %.not.i = icmp ult i64 %27, 4
   br i1 %.not.i, label %35, label %34
 
@@ -1403,19 +1403,19 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 
 _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %30, %34, %35
   %36 = load ptr, ptr %4, align 8, !tbaa !46
-  %37 = icmp eq ptr %36, %.sroa.430.24.copyload
+  %37 = icmp ne ptr %36, %.sroa.429.24.copyload
   %38 = load i64, ptr %13, align 8
-  %39 = icmp eq i64 %38, %.sroa.6.24.copyload
-  %.not3.i.not = select i1 %37, i1 %39, i1 false
-  br i1 %.not3.i.not, label %._crit_edge, label %.lr.ph
+  %39 = icmp ne i64 %38, %.sroa.6.24.copyload
+  %.not3.i = select i1 %37, i1 true, i1 %39
+  br i1 %.not3.i, label %.lr.ph, label %.sink.split
 
-._crit_edge:                                      ; preds = %25, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %11
-  %spec.select = phi ptr [ null, %11 ], [ null, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %26, %25 ]
+.sink.split:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %25, %11
+  %.1.ph = phi ptr [ null, %11 ], [ %26, %25 ], [ null, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %40
 
-40:                                               ; preds = %7, %._crit_edge
-  %.1 = phi ptr [ %spec.select, %._crit_edge ], [ %0, %7 ]
+40:                                               ; preds = %.sink.split, %7
+  %.1 = phi ptr [ %0, %7 ], [ %.1.ph, %.sink.split ]
   ret ptr %.1
 }
 

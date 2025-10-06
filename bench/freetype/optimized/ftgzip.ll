@@ -254,9 +254,9 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   %31 = phi i8 [ %.pre, %._crit_edge ], [ %21, %19 ]
   %32 = and i8 %31, 8
   %.not27 = icmp eq i8 %32, 0
-  br i1 %.not27, label %.loopexit38, label %.preheader37
+  br i1 %.not27, label %.loopexit37, label %.preheader36
 
-.preheader37:                                     ; preds = %29, %.preheader37
+.preheader36:                                     ; preds = %29, %.preheader36
   %33 = call zeroext i8 @FT_Stream_ReadByte(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %34 = load i32, ptr %2, align 4, !tbaa !3
   %.not28 = icmp eq i32 %34, 0
@@ -264,24 +264,24 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   %. = select i1 %35, i32 3, i32 0
   %.1 = select i1 %.not28, i32 %., i32 2
   switch i32 %.1, label %default.unreachable [
-    i32 0, label %.preheader37
-    i32 3, label %.loopexit38.loopexit
+    i32 0, label %.preheader36
+    i32 3, label %.loopexit37.loopexit
     i32 2, label %.loopexit
     i32 1, label %.loopexit
   ]
 
-.loopexit38.loopexit:                             ; preds = %.preheader37
-  %.pre43 = load i8, ptr %17, align 1, !tbaa !29
-  br label %.loopexit38
+.loopexit37.loopexit:                             ; preds = %.preheader36
+  %.pre42 = load i8, ptr %17, align 1, !tbaa !29
+  br label %.loopexit37
 
-.loopexit38:                                      ; preds = %.loopexit38.loopexit, %29
-  %36 = phi i32 [ %34, %.loopexit38.loopexit ], [ %30, %29 ]
-  %37 = phi i8 [ %.pre43, %.loopexit38.loopexit ], [ %31, %29 ]
+.loopexit37:                                      ; preds = %.loopexit37.loopexit, %29
+  %36 = phi i32 [ %34, %.loopexit37.loopexit ], [ %30, %29 ]
+  %37 = phi i8 [ %.pre42, %.loopexit37.loopexit ], [ %31, %29 ]
   %38 = and i8 %37, 16
   %.not29 = icmp eq i8 %38, 0
-  br i1 %.not29, label %.loopexit36, label %.preheader
+  br i1 %.not29, label %.loopexit35, label %.preheader
 
-.preheader:                                       ; preds = %.loopexit38, %.preheader
+.preheader:                                       ; preds = %.loopexit37, %.preheader
   %39 = call zeroext i8 @FT_Stream_ReadByte(ptr noundef nonnull %0, ptr noundef nonnull %2) #6
   %40 = load i32, ptr %2, align 4, !tbaa !3
   %.not30 = icmp eq i32 %40, 0
@@ -290,29 +290,29 @@ define internal fastcc i32 @ft_gzip_check_header(ptr noundef nonnull %0) unnamed
   %.2 = select i1 %.not30, i32 %.33, i32 2
   switch i32 %.2, label %.loopexit [
     i32 0, label %.preheader
-    i32 5, label %.loopexit36.loopexit
+    i32 5, label %.loopexit35.loopexit
   ]
 
-.loopexit36.loopexit:                             ; preds = %.preheader
-  %.pre44 = load i8, ptr %17, align 1, !tbaa !29
-  br label %.loopexit36
+.loopexit35.loopexit:                             ; preds = %.preheader
+  %.pre43 = load i8, ptr %17, align 1, !tbaa !29
+  br label %.loopexit35
 
-.loopexit36:                                      ; preds = %.loopexit36.loopexit, %.loopexit38
-  %42 = phi i32 [ %40, %.loopexit36.loopexit ], [ %36, %.loopexit38 ]
-  %43 = phi i8 [ %.pre44, %.loopexit36.loopexit ], [ %37, %.loopexit38 ]
+.loopexit35:                                      ; preds = %.loopexit35.loopexit, %.loopexit37
+  %42 = phi i32 [ %40, %.loopexit35.loopexit ], [ %36, %.loopexit37 ]
+  %43 = phi i8 [ %.pre43, %.loopexit35.loopexit ], [ %37, %.loopexit37 ]
   %44 = and i8 %43, 2
   %.not31 = icmp eq i8 %44, 0
   br i1 %.not31, label %.loopexit, label %45
 
-45:                                               ; preds = %.loopexit36
+45:                                               ; preds = %.loopexit35
   %46 = call i32 @FT_Stream_Skip(ptr noundef nonnull %0, i64 noundef 2) #6
   br label %.loopexit
 
-default.unreachable:                              ; preds = %.preheader37
+default.unreachable:                              ; preds = %.preheader36
   unreachable
 
-.loopexit:                                        ; preds = %.preheader37, %.preheader37, %.preheader, %7, %16, %5, %1, %.loopexit36, %45, %23, %26
-  %.0 = phi i32 [ %28, %26 ], [ %25, %23 ], [ %46, %45 ], [ %42, %.loopexit36 ], [ %4, %1 ], [ %6, %5 ], [ 3, %16 ], [ 3, %7 ], [ %40, %.preheader ], [ %34, %.preheader37 ], [ %34, %.preheader37 ]
+.loopexit:                                        ; preds = %.preheader36, %.preheader36, %.preheader, %7, %16, %5, %1, %.loopexit35, %45, %23, %26
+  %.0 = phi i32 [ %28, %26 ], [ %25, %23 ], [ %46, %45 ], [ %42, %.loopexit35 ], [ %4, %1 ], [ %6, %5 ], [ 3, %16 ], [ 3, %7 ], [ %40, %.preheader ], [ %34, %.preheader36 ], [ %34, %.preheader36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i32 %.0

@@ -2893,14 +2893,14 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: nounwind uwtable
 define internal noalias noundef ptr @_registration_engine(ptr readnone captures(none) %0) #0 {
   %2 = tail call fastcc i32 @_increment_thd_count(i1 noundef zeroext true)
-  %.b14 = load i1, ptr @_shutdown, align 4
+  %.b13 = load i1, ptr @_shutdown, align 4
   %3 = load i64, ptr @sent_reg_time, align 8
-  %.not15 = icmp ne i64 %3, 0
-  %.not816 = select i1 %.b14, i1 true, i1 %.not15
-  br i1 %.not816, label %.thread, label %.lr.ph
+  %.not14 = icmp ne i64 %3, 0
+  %.not815 = select i1 %.b13, i1 true, i1 %.not14
+  br i1 %.not815, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %14
-  %.0617 = phi i32 [ %spec.store.select, %14 ], [ 1, %1 ]
+  %.0616 = phi i32 [ %spec.store.select, %14 ], [ 1, %1 ]
   %4 = tail call fastcc i32 @_get_tls_certificate()
   %.not9 = icmp eq i32 %4, 0
   br i1 %.not9, label %7, label %5
@@ -2921,12 +2921,12 @@ define internal noalias noundef ptr @_registration_engine(ptr readnone captures(
 
 12:                                               ; preds = %9
   %13 = tail call ptr @slurm_strerror(i32 noundef %8) #18
-  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.82, i32 noundef %.0617, ptr noundef %13) #18
+  tail call void (i32, ptr, ...) @log_var(i32 noundef 5, ptr noundef nonnull @.str.82, i32 noundef %.0616, ptr noundef %13) #18
   br label %14
 
 14:                                               ; preds = %9, %12
-  %15 = tail call i32 @sleep(i32 noundef %.0617) #18
-  %16 = shl nuw nsw i32 %.0617, 1
+  %15 = tail call i32 @sleep(i32 noundef %.0616) #18
+  %16 = shl nuw nsw i32 %.0616, 1
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %16, i32 128)
   %.b = load i1, ptr @_shutdown, align 4
   %17 = load i64, ptr @sent_reg_time, align 8

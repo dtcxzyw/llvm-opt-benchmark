@@ -714,7 +714,7 @@ _ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit: ; preds = %.lr.ph.i165, %319, 
 .lr.ph.i168:                                      ; preds = %.lr.ph224, %345
   %326 = phi i64 [ %349, %345 ], [ 1, %.lr.ph224 ]
   %327 = phi i64 [ %348, %345 ], [ 0, %.lr.ph224 ]
-  %.02835.i = phi i64 [ %.027.i, %345 ], [ 0, %.lr.ph224 ]
+  %.02834.i = phi i64 [ %.027.i, %345 ], [ 0, %.lr.ph224 ]
   %328 = add nuw i64 %327, 2
   %329 = icmp ult i64 %328, %322
   br i1 %329, label %330, label %338
@@ -735,7 +735,7 @@ _ZN7meshoptL8heapPushEPNS_10GroupOrderEmS0_.exit: ; preds = %.lr.ph.i165, %319, 
   %339 = getelementptr inbounds nuw %"struct.meshopt::GroupOrder", ptr %256, i64 %.027.i
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 4
   %341 = load i32, ptr %340, align 4, !tbaa !40
-  %342 = getelementptr inbounds nuw %"struct.meshopt::GroupOrder", ptr %256, i64 %.02835.i
+  %342 = getelementptr inbounds nuw %"struct.meshopt::GroupOrder", ptr %256, i64 %.02834.i
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 4
   %344 = load i32, ptr %343, align 4, !tbaa !40
   %.not.i169 = icmp slt i32 %341, %344

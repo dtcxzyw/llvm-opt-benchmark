@@ -1325,9 +1325,9 @@ define void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnull
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %tailrecurse
-  %.tr3344 = phi i32 [ %45, %tailrecurse ], [ %2, %.lr.ph.preheader ]
-  %.tr43 = phi ptr [ %28, %tailrecurse ], [ %0, %.lr.ph.preheader ]
-  %exitcond = icmp eq i32 %.tr3344, %smax
+  %.tr3243 = phi i32 [ %45, %tailrecurse ], [ %2, %.lr.ph.preheader ]
+  %.tr42 = phi ptr [ %28, %tailrecurse ], [ %0, %.lr.ph.preheader ]
+  %exitcond = icmp eq i32 %.tr3243, %smax
   br i1 %exitcond, label %6, label %7
 
 6:                                                ; preds = %.lr.ph
@@ -1335,7 +1335,7 @@ define void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnull
   br label %.loopexit
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.tr43, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.tr42, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !39
   %.not27 = icmp eq ptr %9, null
   br i1 %.not27, label %26, label %10
@@ -1350,7 +1350,7 @@ define void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnull
   %15 = load ptr, ptr %14, align 8, !tbaa !39
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !39
-  %18 = add nsw i32 %.tr3344, 1
+  %18 = add nsw i32 %.tr3243, 1
   %19 = tail call noundef ptr @_ZN6icu_778RBBINode9cloneTreeER10UErrorCodei(ptr noundef nonnull align 8 dereferenceable(160) %17, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %18)
   store ptr %19, ptr %8, align 8, !tbaa !39
   %20 = load i32, ptr %1, align 4, !tbaa !13
@@ -1359,7 +1359,7 @@ define void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnull
 
 .thread:                                          ; preds = %13
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store ptr %.tr43, ptr %22, align 8, !tbaa !40
+  store ptr %.tr42, ptr %22, align 8, !tbaa !40
   tail call void @_ZN6icu_778RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %9) #12
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %9) #12
   br label %26
@@ -1370,12 +1370,12 @@ define void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnull
   br label %.loopexit
 
 24:                                               ; preds = %10
-  %25 = add nsw i32 %.tr3344, 1
+  %25 = add nsw i32 %.tr3243, 1
   tail call void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnull align 8 dereferenceable(160) %9, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %25)
   br label %26
 
 26:                                               ; preds = %.thread, %24, %7
-  %27 = getelementptr inbounds nuw i8, ptr %.tr43, i64 24
+  %27 = getelementptr inbounds nuw i8, ptr %.tr42, i64 24
   %28 = load ptr, ptr %27, align 8, !tbaa !41
   %.not29 = icmp eq ptr %28, null
   br i1 %.not29, label %.loopexit, label %29
@@ -1386,12 +1386,12 @@ define void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnull
   br i1 %31, label %32, label %tailrecurse
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i8, ptr %.tr43, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.tr42, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !39
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !39
-  %38 = add nsw i32 %.tr3344, 1
+  %38 = add nsw i32 %.tr3243, 1
   %39 = tail call noundef ptr @_ZN6icu_778RBBINode9cloneTreeER10UErrorCodei(ptr noundef nonnull align 8 dereferenceable(160) %37, ptr noundef nonnull align 4 dereferenceable(4) %1, i32 noundef %38)
   store ptr %39, ptr %33, align 8, !tbaa !41
   %40 = load i32, ptr %1, align 4, !tbaa !13
@@ -1405,13 +1405,13 @@ define void @_ZN6icu_778RBBINode11flattenSetsER10UErrorCodei(ptr noundef nonnull
 
 43:                                               ; preds = %32
   %44 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr %.tr43, ptr %44, align 8, !tbaa !40
+  store ptr %.tr42, ptr %44, align 8, !tbaa !40
   tail call void @_ZN6icu_778RBBINodeD1Ev(ptr noundef nonnull align 8 dereferenceable(160) %28) #12
   tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %28) #12
   br label %.loopexit
 
 tailrecurse:                                      ; preds = %29
-  %45 = add i32 %.tr3344, 1
+  %45 = add i32 %.tr3243, 1
   %46 = load i32, ptr %1, align 4, !tbaa !13
   %47 = icmp slt i32 %46, 1
   br i1 %47, label %.lr.ph, label %.loopexit

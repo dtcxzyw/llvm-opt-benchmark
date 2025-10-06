@@ -363,13 +363,13 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
   %.085.ph150.i = phi i32 [ %.085.ph145.i, %.outer142.i ], [ 1, %111 ]
   br label %111
 
-111:                                              ; preds = %.backedge1370, %.outer148.i
-  %.298.i = phi ptr [ %.298.ph149.i, %.outer148.i ], [ %112, %.backedge1370 ]
+111:                                              ; preds = %.backedge1369, %.outer148.i
+  %.298.i = phi ptr [ %.298.ph149.i, %.outer148.i ], [ %112, %.backedge1369 ]
   %112 = getelementptr inbounds nuw i8, ptr %.298.i, i64 1
   %113 = load i8, ptr %.298.i, align 1
   switch i8 %113, label %find_arguments.exit.thread [
-    i8 45, label %.backedge1370
-    i8 43, label %.backedge1370
+    i8 45, label %.backedge1369
+    i8 43, label %.backedge1369
     i8 48, label %114
     i8 49, label %114
     i8 50, label %114
@@ -385,8 +385,8 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
     i8 36, label %120
     i8 108, label %129
     i8 122, label %.outer148.i
-    i8 104, label %.backedge1370
-    i8 39, label %.backedge1370
+    i8 104, label %.backedge1369
+    i8 39, label %.backedge1369
     i8 100, label %130
     i8 105, label %130
     i8 111, label %130
@@ -405,7 +405,7 @@ define internal fastcc void @dopr(ptr noundef nonnull captures(none) %0, ptr nou
     i8 37, label %.loopexit135.i
   ]
 
-.backedge1370:                                    ; preds = %111, %111, %111, %111
+.backedge1369:                                    ; preds = %111, %111, %111, %111
   br label %111
 
 114:                                              ; preds = %111, %111, %111, %111, %111, %111, %111, %111, %111, %111
@@ -2017,9 +2017,9 @@ flushbuffer.exit.i:                               ; preds = %39, %30, %23
   br label %dopr_outch.exit
 
 44:                                               ; preds = %.lr.ph, %77
-  %.pre = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre46, %77 ]
-  %.02743 = phi ptr [ %0, %.lr.ph ], [ %.1, %77 ]
-  %.02842 = phi i32 [ %1, %.lr.ph ], [ %.129, %77 ]
+  %.pre = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre44, %77 ]
+  %.02741 = phi ptr [ %0, %.lr.ph ], [ %.1, %77 ]
+  %.02840 = phi i32 [ %1, %.lr.ph ], [ %.129, %77 ]
   %45 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %.thread, label %46
@@ -2039,7 +2039,7 @@ flushbuffer.exit.i:                               ; preds = %39, %30, %23
 
 .thread35:                                        ; preds = %52
   %55 = load i32, ptr %10, align 8
-  %56 = add i32 %55, %.02842
+  %56 = add i32 %55, %.02840
   store i32 %56, ptr %10, align 8
   br label %dopr_outch.exit
 
@@ -2072,21 +2072,21 @@ flushbuffer.exit:                                 ; preds = %57, %62, %69
   br label %77, !llvm.loop !9
 
 .thread:                                          ; preds = %44, %46
-  %.02634 = phi i32 [ %50, %46 ], [ %.02842, %44 ]
-  %71 = tail call i32 @llvm.umin.i32(i32 %.02634, i32 %.02842)
+  %.02634 = phi i32 [ %50, %46 ], [ %.02840, %44 ]
+  %71 = tail call i32 @llvm.umin.i32(i32 %.02634, i32 %.02840)
   %72 = zext nneg i32 %71 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre, ptr align 1 %.02743, i64 %72, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %.pre, ptr align 1 %.02741, i64 %72, i1 false)
   %73 = load ptr, ptr %2, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 %72
   store ptr %74, ptr %2, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %.02743, i64 %72
-  %76 = sub nsw i32 %.02842, %71
+  %75 = getelementptr inbounds nuw i8, ptr %.02741, i64 %72
+  %76 = sub nsw i32 %.02840, %71
   br label %77
 
 77:                                               ; preds = %.thread, %flushbuffer.exit
-  %.pre46 = phi ptr [ %70, %flushbuffer.exit ], [ %74, %.thread ]
-  %.129 = phi i32 [ %.02842, %flushbuffer.exit ], [ %76, %.thread ]
-  %.1 = phi ptr [ %.02743, %flushbuffer.exit ], [ %75, %.thread ]
+  %.pre44 = phi ptr [ %70, %flushbuffer.exit ], [ %74, %.thread ]
+  %.129 = phi i32 [ %.02840, %flushbuffer.exit ], [ %76, %.thread ]
+  %.1 = phi ptr [ %.02741, %flushbuffer.exit ], [ %75, %.thread ]
   %78 = icmp sgt i32 %.129, 0
   br i1 %78, label %44, label %dopr_outch.exit
 
@@ -2534,8 +2534,8 @@ flushbuffer.exit.i:                               ; preds = %39, %30, %23
   br label %dopr_outch.exit
 
 45:                                               ; preds = %.lr.ph, %77
-  %.pre = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre40, %77 ]
-  %.02537 = phi i32 [ %1, %.lr.ph ], [ %.1, %77 ]
+  %.pre = phi ptr [ %.pre.pre, %.lr.ph ], [ %.pre38, %77 ]
+  %.02535 = phi i32 [ %1, %.lr.ph ], [ %.1, %77 ]
   %46 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %46, null
   br i1 %.not, label %.thread, label %47
@@ -2555,7 +2555,7 @@ flushbuffer.exit.i:                               ; preds = %39, %30, %23
 
 .thread31:                                        ; preds = %53
   %56 = load i32, ptr %10, align 8
-  %57 = add i32 %56, %.02537
+  %57 = add i32 %56, %.02535
   store i32 %57, ptr %10, align 8
   br label %dopr_outch.exit
 
@@ -2588,19 +2588,19 @@ flushbuffer.exit:                                 ; preds = %58, %63, %70
   br label %77, !llvm.loop !13
 
 .thread:                                          ; preds = %45, %47
-  %.02430 = phi i32 [ %51, %47 ], [ %.02537, %45 ]
-  %72 = tail call i32 @llvm.umin.i32(i32 %.02430, i32 %.02537)
+  %.02430 = phi i32 [ %51, %47 ], [ %.02535, %45 ]
+  %72 = tail call i32 @llvm.umin.i32(i32 %.02430, i32 %.02535)
   %73 = zext nneg i32 %72 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.pre, i8 %11, i64 %73, i1 false)
   %74 = load ptr, ptr %2, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %73
   store ptr %75, ptr %2, align 8
-  %76 = sub nsw i32 %.02537, %72
+  %76 = sub nsw i32 %.02535, %72
   br label %77
 
 77:                                               ; preds = %.thread, %flushbuffer.exit
-  %.pre40 = phi ptr [ %71, %flushbuffer.exit ], [ %75, %.thread ]
-  %.1 = phi i32 [ %.02537, %flushbuffer.exit ], [ %76, %.thread ]
+  %.pre38 = phi ptr [ %71, %flushbuffer.exit ], [ %75, %.thread ]
+  %.1 = phi i32 [ %.02535, %flushbuffer.exit ], [ %76, %.thread ]
   %78 = icmp sgt i32 %.1, 0
   br i1 %78, label %45, label %dopr_outch.exit
 

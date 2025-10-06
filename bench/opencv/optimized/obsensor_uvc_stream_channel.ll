@@ -470,57 +470,57 @@ declare i32 @tolower(i32 noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i32 @_ZN2cv8obsensor19frameFourccToFormatEj(i32 noundef %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 24), align 8, !tbaa !13
-  %.not1013 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 8)
-  br i1 %.not1013, label %.split.loop.exit, label %.lr.ph
+  %.not1215 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 8)
+  br i1 %.not1215, label %.split.loop.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %5
-  %.sroa.07.014 = phi ptr [ %6, %5 ], [ %2, %1 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 32
+  %.sroa.07.016 = phi ptr [ %6, %5 ], [ %2, %1 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 32
   %4 = load i32, ptr %3, align 4, !tbaa !31
   %.not = icmp eq i32 %4, %0
-  br i1 %.not, label %.split.loop.exit11, label %5
+  br i1 %.not, label %.split.loop.exit13, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.014) #26
-  %.not10 = icmp eq ptr %6, getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 8)
-  br i1 %.not10, label %.split.loop.exit, label %.lr.ph
+  %6 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.016) #26
+  %.not12 = icmp eq ptr %6, getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 8)
+  br i1 %.not12, label %.split.loop.exit, label %.lr.ph
 
-.split.loop.exit11:                               ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 36
+.split.loop.exit13:                               ; preds = %.lr.ph
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 36
   %8 = load i32, ptr %7, align 4
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %5, %1, %.split.loop.exit11
-  %spec.select = phi i32 [ %8, %.split.loop.exit11 ], [ -1, %1 ], [ -1, %5 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %5, %1, %.split.loop.exit13
+  %9 = phi i32 [ %8, %.split.loop.exit13 ], [ -1, %1 ], [ -1, %5 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define hidden noundef i32 @_ZN2cv8obsensor19frameFormatToFourccENS0_11FrameFormatE(i32 noundef %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 24), align 8, !tbaa !13
-  %.not1013 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 8)
-  br i1 %.not1013, label %.split.loop.exit, label %.lr.ph
+  %.not1215 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 8)
+  br i1 %.not1215, label %.split.loop.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %5
-  %.sroa.07.014 = phi ptr [ %6, %5 ], [ %2, %1 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 36
+  %.sroa.07.016 = phi ptr [ %6, %5 ], [ %2, %1 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 36
   %4 = load i32, ptr %3, align 4, !tbaa !34
   %.not = icmp eq i32 %4, %0
-  br i1 %.not, label %.split.loop.exit11, label %5
+  br i1 %.not, label %.split.loop.exit13, label %5
 
 5:                                                ; preds = %.lr.ph
-  %6 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.014) #26
-  %.not10 = icmp eq ptr %6, getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 8)
-  br i1 %.not10, label %.split.loop.exit, label %.lr.ph
+  %6 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef %.sroa.07.016) #26
+  %.not12 = icmp eq ptr %6, getelementptr inbounds nuw (i8, ptr @_ZN2cv8obsensorL16fourccToOBFormatE, i64 8)
+  br i1 %.not12, label %.split.loop.exit, label %.lr.ph
 
-.split.loop.exit11:                               ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 32
+.split.loop.exit13:                               ; preds = %.lr.ph
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 32
   %8 = load i32, ptr %7, align 4
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %5, %1, %.split.loop.exit11
-  %spec.select = phi i32 [ %8, %.split.loop.exit11 ], [ 0, %1 ], [ 0, %5 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %5, %1, %.split.loop.exit13
+  %9 = phi i32 [ %8, %.split.loop.exit13 ], [ 0, %1 ], [ 0, %5 ]
+  ret i32 %9
 }
 
 ; Function Attrs: mustprogress uwtable

@@ -1940,9 +1940,9 @@ thread-pre-split.i:                               ; preds = %51, %thread-pre-spl
   br i1 %50, label %184, label %51
 
 51:                                               ; preds = %thread-pre-split.i, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i
-  %.val2989.i = phi i32 [ 1, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i ], [ %.val29.pr.i, %thread-pre-split.i ]
+  %.val2987.i = phi i32 [ 1, %_ZN4absl24synchronization_internal12_GLOBAL__N_13VecIiE9push_backERKi.exit.i ], [ %.val29.pr.i, %thread-pre-split.i ]
   %.val30.i = load ptr, ptr %44, align 8, !tbaa !22
-  %52 = add i32 %.val2989.i, -1
+  %52 = add i32 %.val2987.i, -1
   %53 = zext i32 %52 to i64
   %54 = getelementptr inbounds nuw i32, ptr %.val30.i, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !31

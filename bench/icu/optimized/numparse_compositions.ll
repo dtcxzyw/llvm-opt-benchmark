@@ -307,8 +307,8 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl13SeriesMatcher9smokeTestERK
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef ptr %9(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  %.not = icmp ne ptr %6, %10
-  br i1 %.not, label %11, label %17
+  %.not = icmp eq ptr %6, %10
+  br i1 %.not, label %17, label %11
 
 11:                                               ; preds = %2
   %12 = load ptr, ptr %6, align 8, !tbaa !8
@@ -319,9 +319,8 @@ define noundef zeroext i1 @_ZNK6icu_778numparse4impl13SeriesMatcher9smokeTestERK
   br label %17
 
 17:                                               ; preds = %2, %11
-  %.0 = phi i1 [ %16, %11 ], [ undef, %2 ]
-  %spec.select = and i1 %.not, %.0
-  ret i1 %spec.select
+  %18 = phi i1 [ %16, %11 ], [ false, %2 ]
+  ret i1 %18
 }
 
 ; Function Attrs: mustprogress uwtable

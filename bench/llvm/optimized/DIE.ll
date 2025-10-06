@@ -1323,30 +1323,30 @@ define dso_local void @_ZNK4llvm3DIE13findAttributeENS_5dwarf9AttributeE(ptr dea
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !99
   %.not.i.i.i = icmp eq ptr %5, null
-  br i1 %.not.i.i.i, label %select.unfold._crit_edge, label %_ZNK4llvm12DIEValueList6valuesEv.exit
+  br i1 %.not.i.i.i, label %_ZN4llvm8DIEValueC2ERKS0_.exit, label %_ZNK4llvm12DIEValueList6valuesEv.exit
 
 _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %5, align 8
   %6 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %.not1719 = icmp eq i64 %6, 0
-  br i1 %.not1719, label %select.unfold._crit_edge, label %.lr.ph
+  %.not1517 = icmp eq i64 %6, 0
+  br i1 %.not1517, label %_ZN4llvm8DIEValueC2ERKS0_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm12DIEValueList6valuesEv.exit, %.critedge
-  %.sroa.010.020.in = phi i64 [ %59, %.critedge ], [ %6, %_ZNK4llvm12DIEValueList6valuesEv.exit ]
-  %.sroa.010.020 = inttoptr i64 %.sroa.010.020.in to ptr
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 12
+  %.sroa.010.018.in = phi i64 [ %59, %.critedge ], [ %6, %_ZNK4llvm12DIEValueList6valuesEv.exit ]
+  %.sroa.010.018 = inttoptr i64 %.sroa.010.018.in to ptr
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 12
   %8 = load i16, ptr %7, align 4, !tbaa !104
   %.not = icmp eq i16 %8, %2
   br i1 %.not, label %9, label %.critedge
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 8
   %11 = load i32, ptr %10, align 8, !tbaa !113
   store i32 %11, ptr %0, align 8, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %2, ptr %12, align 4, !tbaa !104
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 14
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 14
   %15 = load i16, ptr %14, align 2, !tbaa !100
   store i16 %15, ptr %13, align 2, !tbaa !100
   switch i32 %11, label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread [
@@ -1365,103 +1365,103 @@ _ZNK4llvm12DIEValueList6valuesEv.exit:            ; preds = %3
   ]
 
 16:                                               ; preds = %9
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %.sroa.05.0.copyload.i.i = load i64, ptr %17, align 8, !tbaa !114
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.05.0.copyload.i.i, ptr %18, align 8, !tbaa !114
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %20 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %.sroa.04.0.copyload.i.i = load i64, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.04.0.copyload.i.i, ptr %21, align 8
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 22:                                               ; preds = %9
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %.sroa.03.0.copyload.i.i = load ptr, ptr %23, align 8, !tbaa !115
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.03.0.copyload.i.i, ptr %24, align 8, !tbaa !115
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 25:                                               ; preds = %9
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %.sroa.02.0.copyload.i.i = load ptr, ptr %26, align 8, !tbaa !117
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.02.0.copyload.i.i, ptr %27, align 8, !tbaa !117
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 28:                                               ; preds = %9
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !119
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %30, ptr %31, align 8, !tbaa !119
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 32:                                               ; preds = %9
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !121
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %34, ptr %35, align 8, !tbaa !121
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 36:                                               ; preds = %9
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %.sroa.01.0.copyload.i.i = load ptr, ptr %37, align 8, !tbaa !123
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.01.0.copyload.i.i, ptr %38, align 8, !tbaa !123
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 39:                                               ; preds = %9
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %40 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !125
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %41, ptr %42, align 8, !tbaa !125
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 43:                                               ; preds = %9
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !127
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %45, ptr %46, align 8, !tbaa !127
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 47:                                               ; preds = %9
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %.sroa.0.0.copyload.i.i = load i64, ptr %48, align 8, !tbaa !114
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.0.0.copyload.i.i, ptr %49, align 8, !tbaa !114
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 50:                                               ; preds = %9
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !129
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %52, ptr %53, align 8, !tbaa !129
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 54:                                               ; preds = %9
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.010.020, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.010.018, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !131
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %56, ptr %57, align 8, !tbaa !131
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
 .critedge:                                        ; preds = %.lr.ph
-  %.0.copyload.i.i.i.i.i.i8 = load i64, ptr %.sroa.010.020, align 8
+  %.0.copyload.i.i.i.i.i.i8 = load i64, ptr %.sroa.010.018, align 8
   %58 = and i64 %.0.copyload.i.i.i.i.i.i8, 4
   %.not.i.i.i9 = icmp ne i64 %58, 0
   %59 = and i64 %.0.copyload.i.i.i.i.i.i8, -8
-  %.not1727 = icmp eq i64 %59, 0
-  %.not17 = or i1 %.not.i.i.i9, %.not1727
-  br i1 %.not17, label %select.unfold._crit_edge, label %.lr.ph
+  %.not1525 = icmp eq i64 %59, 0
+  %.not15 = or i1 %.not.i.i.i9, %.not1525
+  br i1 %.not15, label %_ZN4llvm8DIEValueC2ERKS0_.exit, label %.lr.ph
 
-select.unfold._crit_edge:                         ; preds = %.critedge, %3, %_ZNK4llvm12DIEValueList6valuesEv.exit
+_ZN4llvm8DIEValueC2ERKS0_.exit:                   ; preds = %.critedge, %3, %_ZNK4llvm12DIEValueList6valuesEv.exit
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   br label %_ZN4llvm8DIEValueC2ERKS0_.exit.thread
 
-_ZN4llvm8DIEValueC2ERKS0_.exit.thread:            ; preds = %54, %50, %47, %43, %39, %36, %32, %28, %25, %22, %19, %16, %9, %select.unfold._crit_edge
+_ZN4llvm8DIEValueC2ERKS0_.exit.thread:            ; preds = %54, %50, %47, %43, %39, %36, %32, %28, %25, %22, %19, %16, %9, %_ZN4llvm8DIEValueC2ERKS0_.exit
   ret void
 }
 
@@ -2097,19 +2097,19 @@ declare noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef) local_unnamed_addr 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm8DIEValue6sizeOfERKNS_5dwarf10FormParamsE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(5) %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 8, !tbaa !113
-  switch i32 %3, label %152 [
-    i32 12, label %140
+  switch i32 %3, label %158 [
+    i32 12, label %146
     i32 1, label %4
-    i32 2, label %19
-    i32 3, label %24
-    i32 4, label %32
+    i32 2, label %20
+    i32 3, label %25
+    i32 4, label %34
     i32 5, label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
-    i32 6, label %43
-    i32 7, label %51
-    i32 8, label %73
-    i32 9, label %97
-    i32 10, label %121
-    i32 11, label %133
+    i32 6, label %46
+    i32 7, label %55
+    i32 8, label %78
+    i32 9, label %102
+    i32 10, label %126
+    i32 11, label %139
   ]
 
 4:                                                ; preds = %2
@@ -2128,301 +2128,301 @@ define dso_local noundef i32 @_ZNK4llvm8DIEValue6sizeOfERKNS_5dwarf10FormParamsE
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %switch7.i = icmp eq i16 %6, 13
-  %14 = load i64, ptr %13, align 8, !tbaa !105
-  br i1 %switch7.i, label %17, label %15
+  %14 = icmp eq i16 %6, 13
+  %15 = load i64, ptr %13, align 8, !tbaa !105
+  br i1 %14, label %18, label %16
 
-15:                                               ; preds = %12
-  %16 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %14) #21
+16:                                               ; preds = %12
+  %17 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %15) #21
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-17:                                               ; preds = %12
-  %18 = tail call noundef i32 @_ZN4llvm14getSLEB128SizeEl(i64 noundef %14) #21
+18:                                               ; preds = %12
+  %19 = tail call noundef i32 @_ZN4llvm14getSLEB128SizeEl(i64 noundef %15) #21
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-19:                                               ; preds = %2
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %22 = load i16, ptr %21, align 2, !tbaa !100
-  %23 = tail call noundef i32 @_ZNK4llvm9DIEString6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull align 2 dereferenceable(5) %1, i16 noundef zeroext %22)
+20:                                               ; preds = %2
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %23 = load i16, ptr %22, align 2, !tbaa !100
+  %24 = tail call noundef i32 @_ZNK4llvm9DIEString6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 2 dereferenceable(5) %1, i16 noundef zeroext %23)
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %26 = load i16, ptr %25, align 2, !tbaa !100
-  switch i16 %26, label %31 [
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %27 = load i16, ptr %26, align 2, !tbaa !100
+  switch i16 %27, label %33 [
     i16 6, label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
-    i16 7, label %27
-    i16 23, label %28
+    i16 7, label %28
+    i16 23, label %29
   ]
 
-27:                                               ; preds = %24
+28:                                               ; preds = %25
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %30 = load i8, ptr %29, align 1, !tbaa !142
-  %switch.i.i.i = icmp eq i8 %30, 0
-  %..i.i.i = select i1 %switch.i.i.i, i32 4, i32 8
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %31 = load i8, ptr %30, align 1, !tbaa !142
+  %32 = icmp eq i8 %31, 0
+  %..i.i.i = select i1 %32, i32 4, i32 8
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-31:                                               ; preds = %24
+33:                                               ; preds = %25
   unreachable
 
-32:                                               ; preds = %2
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %34 = load i16, ptr %33, align 2, !tbaa !100
-  switch i16 %34, label %42 [
+34:                                               ; preds = %2
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %36 = load i16, ptr %35, align 2, !tbaa !100
+  switch i16 %36, label %45 [
     i16 6, label %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
-    i16 7, label %35
-    i16 23, label %36
-    i16 14, label %36
-    i16 1, label %39
+    i16 7, label %37
+    i16 23, label %38
+    i16 14, label %38
+    i16 1, label %42
   ]
 
-35:                                               ; preds = %32
+37:                                               ; preds = %34
   br label %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-36:                                               ; preds = %32, %32
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %38 = load i8, ptr %37, align 1, !tbaa !142
-  %switch.i.i.i14 = icmp eq i8 %38, 0
-  %..i.i.i15 = select i1 %switch.i.i.i14, i8 4, i8 8
+38:                                               ; preds = %34, %34
+  %39 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %40 = load i8, ptr %39, align 1, !tbaa !142
+  %41 = icmp eq i8 %40, 0
+  %..i.i.i14 = select i1 %41, i8 4, i8 8
   br label %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-39:                                               ; preds = %32
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %41 = load i8, ptr %40, align 2, !tbaa !146
+42:                                               ; preds = %34
+  %43 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %44 = load i8, ptr %43, align 2, !tbaa !146
   br label %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-42:                                               ; preds = %32
+45:                                               ; preds = %34
   unreachable
 
-_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %32, %35, %36, %39
-  %.0.shrunk.i = phi i8 [ 8, %35 ], [ %..i.i.i15, %36 ], [ %41, %39 ], [ 4, %32 ]
+_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %34, %37, %38, %42
+  %.0.shrunk.i = phi i8 [ 8, %37 ], [ %..i.i.i14, %38 ], [ %44, %42 ], [ 4, %34 ]
   %.0.i13 = zext i8 %.0.shrunk.i to i32
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-43:                                               ; preds = %2
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %45 = load i16, ptr %44, align 2, !tbaa !100
-  switch i16 %45, label %50 [
+46:                                               ; preds = %2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %48 = load i16, ptr %47, align 2, !tbaa !100
+  switch i16 %48, label %54 [
     i16 6, label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
-    i16 7, label %46
-    i16 23, label %47
+    i16 7, label %49
+    i16 23, label %50
   ]
 
-46:                                               ; preds = %43
+49:                                               ; preds = %46
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %49 = load i8, ptr %48, align 1, !tbaa !142
-  %switch.i.i.i16 = icmp eq i8 %49, 0
-  %..i.i.i17 = select i1 %switch.i.i.i16, i32 4, i32 8
+50:                                               ; preds = %46
+  %51 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %52 = load i8, ptr %51, align 1, !tbaa !142
+  %53 = icmp eq i8 %52, 0
+  %..i.i.i15 = select i1 %53, i32 4, i32 8
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-50:                                               ; preds = %43
+54:                                               ; preds = %46
   unreachable
 
-51:                                               ; preds = %2
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %53 = load i16, ptr %52, align 2, !tbaa !100
-  switch i16 %53, label %72 [
+55:                                               ; preds = %2
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %57 = load i16, ptr %56, align 2, !tbaa !100
+  switch i16 %57, label %77 [
     i16 17, label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
-    i16 18, label %54
-    i16 19, label %55
-    i16 20, label %56
-    i16 21, label %57
-    i16 16, label %64
+    i16 18, label %58
+    i16 19, label %59
+    i16 20, label %60
+    i16 21, label %61
+    i16 16, label %68
   ]
 
-54:                                               ; preds = %51
+58:                                               ; preds = %55
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-55:                                               ; preds = %51
+59:                                               ; preds = %55
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-56:                                               ; preds = %51
+60:                                               ; preds = %55
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-57:                                               ; preds = %51
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !147
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
-  %61 = load i32, ptr %60, align 8, !tbaa !112
-  %62 = zext i32 %61 to i64
-  %63 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %62) #21
+61:                                               ; preds = %55
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !147
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load i32, ptr %64, align 8, !tbaa !112
+  %66 = zext i32 %65 to i64
+  %67 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %66) #21
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-64:                                               ; preds = %51
-  %65 = load i16, ptr %1, align 2, !tbaa !149
-  %66 = icmp eq i16 %65, 2
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %68 = load i8, ptr %67, align 2
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %70 = load i8, ptr %69, align 1
-  %switch.i.i.i.i = icmp eq i8 %70, 0
-  %..i.i.i.i = select i1 %switch.i.i.i.i, i8 4, i8 8
-  %.0.i.i = select i1 %66, i8 %68, i8 %..i.i.i.i
-  %71 = zext i8 %.0.i.i to i32
+68:                                               ; preds = %55
+  %69 = load i16, ptr %1, align 2, !tbaa !149
+  %70 = icmp eq i16 %69, 2
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %72 = load i8, ptr %71, align 2
+  %73 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %74 = load i8, ptr %73, align 1
+  %75 = icmp eq i8 %74, 0
+  %..i.i.i.i = select i1 %75, i8 4, i8 8
+  %.0.i.i = select i1 %70, i8 %72, i8 %..i.i.i.i
+  %76 = zext i8 %.0.i.i to i32
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-72:                                               ; preds = %51
+77:                                               ; preds = %55
   unreachable
 
-73:                                               ; preds = %2
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %75 = load ptr, ptr %74, align 8, !tbaa !125
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %77 = load i16, ptr %76, align 2, !tbaa !100
-  switch i16 %77, label %96 [
-    i16 10, label %78
-    i16 3, label %82
-    i16 4, label %86
-    i16 24, label %90
-    i16 9, label %90
+78:                                               ; preds = %2
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !125
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %82 = load i16, ptr %81, align 2, !tbaa !100
+  switch i16 %82, label %101 [
+    i16 10, label %83
+    i16 3, label %87
+    i16 4, label %91
+    i16 24, label %95
+    i16 9, label %95
     i16 30, label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
   ]
 
-78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %80 = load i32, ptr %79, align 8, !tbaa !150
-  %81 = add i32 %80, 1
+83:                                               ; preds = %78
+  %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %85 = load i32, ptr %84, align 8, !tbaa !150
+  %86 = add i32 %85, 1
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-82:                                               ; preds = %73
-  %83 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %84 = load i32, ptr %83, align 8, !tbaa !150
-  %85 = add i32 %84, 2
+87:                                               ; preds = %78
+  %88 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %89 = load i32, ptr %88, align 8, !tbaa !150
+  %90 = add i32 %89, 2
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-86:                                               ; preds = %73
-  %87 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %88 = load i32, ptr %87, align 8, !tbaa !150
-  %89 = add i32 %88, 4
+91:                                               ; preds = %78
+  %92 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %93 = load i32, ptr %92, align 8, !tbaa !150
+  %94 = add i32 %93, 4
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-90:                                               ; preds = %73, %73
-  %91 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %92 = load i32, ptr %91, align 8, !tbaa !150
-  %93 = zext i32 %92 to i64
-  %94 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %93) #21
-  %95 = add i32 %94, %92
+95:                                               ; preds = %78, %78
+  %96 = getelementptr inbounds nuw i8, ptr %80, i64 8
+  %97 = load i32, ptr %96, align 8, !tbaa !150
+  %98 = zext i32 %97 to i64
+  %99 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %98) #21
+  %100 = add i32 %99, %97
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-96:                                               ; preds = %73
+101:                                              ; preds = %78
   unreachable
 
-97:                                               ; preds = %2
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %99 = load ptr, ptr %98, align 8, !tbaa !127
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %101 = load i16, ptr %100, align 2, !tbaa !100
-  switch i16 %101, label %120 [
-    i16 10, label %102
-    i16 3, label %106
-    i16 4, label %110
-    i16 9, label %114
-    i16 24, label %114
+102:                                              ; preds = %2
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %104 = load ptr, ptr %103, align 8, !tbaa !127
+  %105 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %106 = load i16, ptr %105, align 2, !tbaa !100
+  switch i16 %106, label %125 [
+    i16 10, label %107
+    i16 3, label %111
+    i16 4, label %115
+    i16 9, label %119
+    i16 24, label %119
   ]
 
-102:                                              ; preds = %97
-  %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %104 = load i32, ptr %103, align 8, !tbaa !152
-  %105 = add i32 %104, 1
+107:                                              ; preds = %102
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %109 = load i32, ptr %108, align 8, !tbaa !152
+  %110 = add i32 %109, 1
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-106:                                              ; preds = %97
-  %107 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %108 = load i32, ptr %107, align 8, !tbaa !152
-  %109 = add i32 %108, 2
+111:                                              ; preds = %102
+  %112 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %113 = load i32, ptr %112, align 8, !tbaa !152
+  %114 = add i32 %113, 2
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-110:                                              ; preds = %97
-  %111 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %112 = load i32, ptr %111, align 8, !tbaa !152
-  %113 = add i32 %112, 4
+115:                                              ; preds = %102
+  %116 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %117 = load i32, ptr %116, align 8, !tbaa !152
+  %118 = add i32 %117, 4
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-114:                                              ; preds = %97, %97
-  %115 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %116 = load i32, ptr %115, align 8, !tbaa !152
-  %117 = zext i32 %116 to i64
-  %118 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %117) #21
-  %119 = add i32 %118, %116
+119:                                              ; preds = %102, %102
+  %120 = getelementptr inbounds nuw i8, ptr %104, i64 8
+  %121 = load i32, ptr %120, align 8, !tbaa !152
+  %122 = zext i32 %121 to i64
+  %123 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %122) #21
+  %124 = add i32 %123, %121
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-120:                                              ; preds = %97
+125:                                              ; preds = %102
   unreachable
 
-121:                                              ; preds = %2
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %123 = load i16, ptr %122, align 2, !tbaa !100
-  switch i16 %123, label %132 [
-    i16 34, label %124
+126:                                              ; preds = %2
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %128 = load i16, ptr %127, align 2, !tbaa !100
+  switch i16 %128, label %138 [
+    i16 34, label %129
     i16 6, label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
-    i16 7, label %128
-    i16 23, label %129
+    i16 7, label %133
+    i16 23, label %134
   ]
 
-124:                                              ; preds = %121
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %126 = load i64, ptr %125, align 8, !tbaa !154
-  %127 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %126) #21
+129:                                              ; preds = %126
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %131 = load i64, ptr %130, align 8, !tbaa !154
+  %132 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %131) #21
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-128:                                              ; preds = %121
+133:                                              ; preds = %126
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-129:                                              ; preds = %121
-  %130 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %131 = load i8, ptr %130, align 1, !tbaa !142
-  %switch.i.i.i22 = icmp eq i8 %131, 0
-  %..i.i.i23 = select i1 %switch.i.i.i22, i32 4, i32 8
+134:                                              ; preds = %126
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %136 = load i8, ptr %135, align 1, !tbaa !142
+  %137 = icmp eq i8 %136, 0
+  %..i.i.i20 = select i1 %137, i32 4, i32 8
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-132:                                              ; preds = %121
+138:                                              ; preds = %126
   unreachable
 
-133:                                              ; preds = %2
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %135 = load ptr, ptr %134, align 8, !tbaa !129
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load i64, ptr %136, align 8, !tbaa !156
-  %138 = trunc i64 %137 to i32
-  %139 = add i32 %138, 1
+139:                                              ; preds = %2
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %141 = load ptr, ptr %140, align 8, !tbaa !129
+  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
+  %143 = load i64, ptr %142, align 8, !tbaa !156
+  %144 = trunc i64 %143 to i32
+  %145 = add i32 %144, 1
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-140:                                              ; preds = %2
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %142 = load ptr, ptr %141, align 8, !tbaa !131
+146:                                              ; preds = %2
+  %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %148 = load ptr, ptr %147, align 8, !tbaa !131
   %.sroa.0.0.copyload.i.i = load i48, ptr %1, align 2
-  %143 = tail call i16 @_ZN4llvm5dwarf20getFixedFormByteSizeENS0_4FormENS0_10FormParamsE(i16 noundef zeroext 27, i48 %.sroa.0.0.copyload.i.i) #21
-  %144 = and i16 %143, 256
-  %.not.i.i = icmp eq i16 %144, 0
-  br i1 %.not.i.i, label %148, label %145
+  %149 = tail call i16 @_ZN4llvm5dwarf20getFixedFormByteSizeENS0_4FormENS0_10FormParamsE(i16 noundef zeroext 27, i48 %.sroa.0.0.copyload.i.i) #21
+  %150 = and i16 %149, 256
+  %.not.i.i = icmp eq i16 %150, 0
+  br i1 %.not.i.i, label %154, label %151
 
-145:                                              ; preds = %140
-  %146 = and i16 %143, 255
-  %147 = zext nneg i16 %146 to i32
+151:                                              ; preds = %146
+  %152 = and i16 %149, 255
+  %153 = zext nneg i16 %152 to i32
   br label %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-148:                                              ; preds = %140
-  %149 = load i64, ptr %142, align 8, !tbaa !105
-  %150 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %149) #21
+154:                                              ; preds = %146
+  %155 = load i64, ptr %148, align 8, !tbaa !105
+  %156 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %155) #21
   br label %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %145, %148
-  %.1.i.i = phi i32 [ %150, %148 ], [ %147, %145 ]
-  %151 = add i32 %.1.i.i, 4
+_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %151, %154
+  %.1.i.i = phi i32 [ %156, %154 ], [ %153, %151 ]
+  %157 = add i32 %.1.i.i, 4
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-152:                                              ; preds = %2
+158:                                              ; preds = %2
   unreachable
 
-_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %2, %129, %128, %124, %121, %114, %110, %106, %102, %90, %86, %82, %78, %73, %64, %57, %56, %55, %54, %51, %47, %46, %43, %28, %27, %24, %17, %15, %9, %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, %133, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, %19
-  %.0 = phi i32 [ %151, %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %23, %19 ], [ %.0.i13, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %139, %133 ], [ %16, %15 ], [ %18, %17 ], [ %11, %9 ], [ 8, %27 ], [ %..i.i.i, %28 ], [ 4, %24 ], [ 8, %46 ], [ %..i.i.i17, %47 ], [ 4, %43 ], [ 2, %54 ], [ 4, %55 ], [ 8, %56 ], [ %63, %57 ], [ %71, %64 ], [ 1, %51 ], [ %81, %78 ], [ %85, %82 ], [ %89, %86 ], [ %95, %90 ], [ 16, %73 ], [ %105, %102 ], [ %109, %106 ], [ %113, %110 ], [ %119, %114 ], [ %127, %124 ], [ 8, %128 ], [ %..i.i.i23, %129 ], [ 4, %121 ], [ 4, %2 ]
+_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %2, %134, %133, %129, %126, %119, %115, %111, %107, %95, %91, %87, %83, %78, %68, %61, %60, %59, %58, %55, %50, %49, %46, %29, %28, %25, %18, %16, %9, %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, %139, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, %20
+  %.0 = phi i32 [ %157, %_ZNK4llvm13DIEAddrOffset6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %24, %20 ], [ %.0.i13, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %145, %139 ], [ %17, %16 ], [ %19, %18 ], [ %11, %9 ], [ 8, %28 ], [ %..i.i.i, %29 ], [ 4, %25 ], [ 8, %49 ], [ %..i.i.i15, %50 ], [ 4, %46 ], [ 2, %58 ], [ 4, %59 ], [ 8, %60 ], [ %67, %61 ], [ %76, %68 ], [ 1, %55 ], [ %86, %83 ], [ %90, %87 ], [ %94, %91 ], [ %100, %95 ], [ 16, %78 ], [ %110, %107 ], [ %114, %111 ], [ %118, %115 ], [ %124, %119 ], [ %132, %129 ], [ 8, %133 ], [ %..i.i.i20, %134 ], [ 4, %126 ], [ 4, %2 ]
   ret i32 %.0
 }
 
@@ -2454,18 +2454,18 @@ define dso_local void @_ZN4llvm7DIEUnitC2ENS_5dwarf3TagE(ptr noundef nonnull ali
 define dso_local void @_ZNK4llvm8DIEValue9emitValueEPKNS_10AsmPrinterE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load i32, ptr %0, align 8, !tbaa !113
   switch i32 %3, label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit [
-    i32 12, label %106
+    i32 12, label %109
     i32 1, label %4
     i32 2, label %8
     i32 3, label %12
-    i32 4, label %24
-    i32 5, label %39
-    i32 6, label %53
-    i32 7, label %65
-    i32 8, label %69
-    i32 9, label %74
-    i32 10, label %79
-    i32 11, label %98
+    i32 4, label %25
+    i32 5, label %41
+    i32 6, label %55
+    i32 7, label %68
+    i32 8, label %72
+    i32 9, label %77
+    i32 10, label %82
+    i32 11, label %101
   ]
 
 4:                                                ; preds = %2
@@ -2488,7 +2488,7 @@ define dso_local void @_ZNK4llvm8DIEValue9emitValueEPKNS_10AsmPrinterE(ptr nound
   %15 = load i16, ptr %14, align 2, !tbaa !100
   %16 = load ptr, ptr %13, align 8, !tbaa !158
   %17 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  switch i16 %15, label %20 [
+  switch i16 %15, label %21 [
     i16 6, label %_ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
     i16 7, label %18
     i16 23, label %19
@@ -2500,194 +2500,194 @@ define dso_local void @_ZNK4llvm8DIEValue9emitValueEPKNS_10AsmPrinterE(ptr nound
 19:                                               ; preds = %12
   %.sroa.0.3.extract.shift3.i = lshr i48 %17, 24
   %.sroa.0.3.extract.trunc.i = trunc i48 %.sroa.0.3.extract.shift3.i to i8
-  %switch.i.i.i.i = icmp eq i8 %.sroa.0.3.extract.trunc.i, 0
-  %..i.i.i.i = select i1 %switch.i.i.i.i, i32 4, i32 8
+  %20 = icmp eq i8 %.sroa.0.3.extract.trunc.i, 0
+  %..i.i.i.i = select i1 %20, i32 4, i32 8
   br label %_ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-20:                                               ; preds = %12
+21:                                               ; preds = %12
   unreachable
 
 _ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %12, %18, %19
   %.0.i.i = phi i32 [ 8, %18 ], [ %..i.i.i.i, %19 ], [ 4, %12 ]
-  %21 = load ptr, ptr %1, align 8, !tbaa !43
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 408
-  %23 = load ptr, ptr %22, align 8
-  tail call void %23(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %16, i32 noundef %.0.i.i) #21
+  %22 = load ptr, ptr %1, align 8, !tbaa !43
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 408
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %16, i32 noundef %.0.i.i) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %27 = load i16, ptr %26, align 2, !tbaa !100
-  %28 = load ptr, ptr %25, align 8, !tbaa !160
-  %29 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  switch i16 %27, label %37 [
+25:                                               ; preds = %2
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %28 = load i16, ptr %27, align 2, !tbaa !100
+  %29 = load ptr, ptr %26, align 8, !tbaa !160
+  %30 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
+  switch i16 %28, label %39 [
     i16 6, label %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
-    i16 7, label %30
-    i16 23, label %31
-    i16 14, label %31
-    i16 1, label %33
+    i16 7, label %31
+    i16 23, label %32
+    i16 14, label %32
+    i16 1, label %35
   ]
 
-30:                                               ; preds = %24
+31:                                               ; preds = %25
   br label %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-31:                                               ; preds = %24, %24
-  %32 = and i48 %29, 4278190080
-  %switch.i.i.i.i13 = icmp eq i48 %32, 0
-  %..i.i.i.i14 = select i1 %switch.i.i.i.i13, i32 4, i32 8
+32:                                               ; preds = %25, %25
+  %33 = and i48 %30, 4278190080
+  %34 = icmp eq i48 %33, 0
+  %..i.i.i.i13 = select i1 %34, i32 4, i32 8
   br label %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-33:                                               ; preds = %24
-  %34 = trunc i48 %29 to i32
-  %35 = lshr i32 %34, 16
-  %36 = and i32 %35, 255
+35:                                               ; preds = %25
+  %36 = trunc i48 %30 to i32
+  %37 = lshr i32 %36, 16
+  %38 = and i32 %37, 255
   br label %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-37:                                               ; preds = %24
+39:                                               ; preds = %25
   unreachable
 
-_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %24, %30, %31, %33
-  %.0.shrunk.i.i = phi i32 [ 8, %30 ], [ %..i.i.i.i14, %31 ], [ %36, %33 ], [ 4, %24 ]
-  %38 = icmp ne i16 %27, 1
-  tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %28, i64 noundef 0, i32 noundef %.0.shrunk.i.i, i1 noundef zeroext %38) #21
+_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %25, %31, %32, %35
+  %.0.shrunk.i.i = phi i32 [ 8, %31 ], [ %..i.i.i.i13, %32 ], [ %38, %35 ], [ 4, %25 ]
+  %40 = icmp ne i16 %28, 1
+  tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %29, i64 noundef 0, i32 noundef %.0.shrunk.i.i, i1 noundef zeroext %40) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-39:                                               ; preds = %2
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !119
-  %42 = load ptr, ptr %41, align 8, !tbaa !162
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 664
-  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %45 = load i64, ptr %44, align 8, !tbaa !165
-  %46 = load ptr, ptr %43, align 8, !tbaa !166
-  %47 = getelementptr inbounds nuw %"struct.llvm::DwarfCompileUnit::BaseTypeRef", ptr %46, i64 %45
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !169
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %51 = load i32, ptr %50, align 8, !tbaa !112
-  %52 = zext i32 %51 to i64
-  tail call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %52, ptr noundef null, i32 noundef 4) #21
+41:                                               ; preds = %2
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %43 = load ptr, ptr %42, align 8, !tbaa !119
+  %44 = load ptr, ptr %43, align 8, !tbaa !162
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 664
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !165
+  %48 = load ptr, ptr %45, align 8, !tbaa !166
+  %49 = getelementptr inbounds nuw %"struct.llvm::DwarfCompileUnit::BaseTypeRef", ptr %48, i64 %47
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8, !tbaa !169
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %53 = load i32, ptr %52, align 8, !tbaa !112
+  %54 = zext i32 %53 to i64
+  tail call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %54, ptr noundef null, i32 noundef 4) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-53:                                               ; preds = %2
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %55 = load ptr, ptr %54, align 8, !tbaa !121
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %57 = load i16, ptr %56, align 2, !tbaa !100
-  %58 = load ptr, ptr %55, align 8, !tbaa !172
-  %59 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !174
-  %61 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  switch i16 %57, label %64 [
+55:                                               ; preds = %2
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !121
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %59 = load i16, ptr %58, align 2, !tbaa !100
+  %60 = load ptr, ptr %57, align 8, !tbaa !172
+  %61 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !174
+  %63 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
+  switch i16 %59, label %67 [
     i16 6, label %_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
-    i16 7, label %62
-    i16 23, label %63
+    i16 7, label %64
+    i16 23, label %65
   ]
 
-62:                                               ; preds = %53
+64:                                               ; preds = %55
   br label %_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-63:                                               ; preds = %53
-  %.sroa.0.3.extract.shift3.i15 = lshr i48 %61, 24
-  %.sroa.0.3.extract.trunc.i16 = trunc i48 %.sroa.0.3.extract.shift3.i15 to i8
-  %switch.i.i.i.i17 = icmp eq i8 %.sroa.0.3.extract.trunc.i16, 0
-  %..i.i.i.i18 = select i1 %switch.i.i.i.i17, i32 4, i32 8
+65:                                               ; preds = %55
+  %.sroa.0.3.extract.shift3.i14 = lshr i48 %63, 24
+  %.sroa.0.3.extract.trunc.i15 = trunc i48 %.sroa.0.3.extract.shift3.i14 to i8
+  %66 = icmp eq i8 %.sroa.0.3.extract.trunc.i15, 0
+  %..i.i.i.i16 = select i1 %66, i32 4, i32 8
   br label %_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-64:                                               ; preds = %53
+67:                                               ; preds = %55
   unreachable
 
-_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %53, %62, %63
-  %.0.i.i19 = phi i32 [ 8, %62 ], [ %..i.i.i.i18, %63 ], [ 4, %53 ]
-  tail call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %58, ptr noundef %60, i32 noundef %.0.i.i19) #21
+_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %55, %64, %65
+  %.0.i.i17 = phi i32 [ 8, %64 ], [ %..i.i.i.i16, %65 ], [ 4, %55 ]
+  tail call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %60, ptr noundef %62, i32 noundef %.0.i.i17) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-65:                                               ; preds = %2
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %68 = load i16, ptr %67, align 2, !tbaa !100
-  tail call void @_ZNK4llvm8DIEEntry9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull align 8 dereferenceable(8) %66, ptr noundef %1, i16 noundef zeroext %68)
+68:                                               ; preds = %2
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %71 = load i16, ptr %70, align 2, !tbaa !100
+  tail call void @_ZNK4llvm8DIEEntry9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull align 8 dereferenceable(8) %69, ptr noundef %1, i16 noundef zeroext %71)
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-69:                                               ; preds = %2
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !125
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %73 = load i16, ptr %72, align 2, !tbaa !100
-  tail call void @_ZNK4llvm8DIEBlock9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull align 8 dereferenceable(12) %71, ptr noundef %1, i16 noundef zeroext %73)
+72:                                               ; preds = %2
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %74 = load ptr, ptr %73, align 8, !tbaa !125
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %76 = load i16, ptr %75, align 2, !tbaa !100
+  tail call void @_ZNK4llvm8DIEBlock9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull align 8 dereferenceable(12) %74, ptr noundef %1, i16 noundef zeroext %76)
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-74:                                               ; preds = %2
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %76 = load ptr, ptr %75, align 8, !tbaa !127
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %78 = load i16, ptr %77, align 2, !tbaa !100
-  tail call void @_ZNK4llvm6DIELoc9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull align 8 dereferenceable(12) %76, ptr noundef %1, i16 noundef zeroext %78)
+77:                                               ; preds = %2
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %79 = load ptr, ptr %78, align 8, !tbaa !127
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %81 = load i16, ptr %80, align 2, !tbaa !100
+  tail call void @_ZNK4llvm6DIELoc9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull align 8 dereferenceable(12) %79, ptr noundef %1, i16 noundef zeroext %81)
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-79:                                               ; preds = %2
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 6
-  %82 = load i16, ptr %81, align 2, !tbaa !100
-  %83 = icmp eq i16 %82, 34
-  br i1 %83, label %84, label %86
+82:                                               ; preds = %2
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 6
+  %85 = load i16, ptr %84, align 2, !tbaa !100
+  %86 = icmp eq i16 %85, 34
+  br i1 %86, label %87, label %89
 
-84:                                               ; preds = %79
-  %85 = load i64, ptr %80, align 8, !tbaa !154
-  tail call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %85, ptr noundef null, i32 noundef 0) #21
+87:                                               ; preds = %82
+  %88 = load i64, ptr %83, align 8, !tbaa !154
+  tail call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %88, ptr noundef null, i32 noundef 0) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-86:                                               ; preds = %79
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %88 = load ptr, ptr %87, align 8, !tbaa !175
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 1216
-  %90 = load i64, ptr %80, align 8, !tbaa !154
-  %91 = load ptr, ptr %89, align 8, !tbaa !16
-  %92 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::List", ptr %91, i64 %90
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %94 = load ptr, ptr %93, align 8, !tbaa !286
-  %95 = getelementptr inbounds nuw i8, ptr %88, i64 3521
-  %96 = load i8, ptr %95, align 1, !tbaa !288, !range !30, !noundef !31
-  %97 = trunc nuw i8 %96 to i1
-  tail call void @_ZNK4llvm10AsmPrinter24emitDwarfSymbolReferenceEPKNS_8MCSymbolEb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %94, i1 noundef zeroext %97) #21
+89:                                               ; preds = %82
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 560
+  %91 = load ptr, ptr %90, align 8, !tbaa !175
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 1216
+  %93 = load i64, ptr %83, align 8, !tbaa !154
+  %94 = load ptr, ptr %92, align 8, !tbaa !16
+  %95 = getelementptr inbounds nuw %"struct.llvm::DebugLocStream::List", ptr %94, i64 %93
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
+  %97 = load ptr, ptr %96, align 8, !tbaa !286
+  %98 = getelementptr inbounds nuw i8, ptr %91, i64 3521
+  %99 = load i8, ptr %98, align 1, !tbaa !288, !range !30, !noundef !31
+  %100 = trunc nuw i8 %99 to i1
+  tail call void @_ZNK4llvm10AsmPrinter24emitDwarfSymbolReferenceEPKNS_8MCSymbolEb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %97, i1 noundef zeroext %100) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-98:                                               ; preds = %2
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %100 = load ptr, ptr %99, align 8, !tbaa !129
-  %101 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %102 = load ptr, ptr %101, align 8, !tbaa !107
-  %.sroa.0.0.copyload.i = load ptr, ptr %100, align 8, !tbaa !488
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %100, i64 8
+101:                                              ; preds = %2
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %103 = load ptr, ptr %102, align 8, !tbaa !129
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %105 = load ptr, ptr %104, align 8, !tbaa !107
+  %.sroa.0.0.copyload.i = load ptr, ptr %103, align 8, !tbaa !488
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %103, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !114
-  %103 = load ptr, ptr %102, align 8, !tbaa !43
-  %104 = getelementptr inbounds nuw i8, ptr %103, i64 520
-  %105 = load ptr, ptr %104, align 8
-  tail call void %105(ptr noundef nonnull align 8 dereferenceable(296) %102, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #21
+  %106 = load ptr, ptr %105, align 8, !tbaa !43
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 520
+  %108 = load ptr, ptr %107, align 8
+  tail call void %108(ptr noundef nonnull align 8 dereferenceable(296) %105, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i) #21
   tail call void @_ZNK4llvm10AsmPrinter8emitInt8Ei(ptr noundef nonnull align 8 dereferenceable(777) %1, i32 noundef 0) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-106:                                              ; preds = %2
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %108 = load ptr, ptr %107, align 8, !tbaa !131
-  %109 = load i64, ptr %108, align 8, !tbaa !105
-  tail call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %109, ptr noundef null, i32 noundef 0) #21
-  %110 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %111 = load ptr, ptr %110, align 8, !tbaa !172
-  %112 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %113 = load ptr, ptr %112, align 8, !tbaa !174
-  %114 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  tail call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %111, ptr noundef %113, i32 noundef 4) #21
+109:                                              ; preds = %2
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %111 = load ptr, ptr %110, align 8, !tbaa !131
+  %112 = load i64, ptr %111, align 8, !tbaa !105
+  tail call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %112, ptr noundef null, i32 noundef 0) #21
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  %114 = load ptr, ptr %113, align 8, !tbaa !172
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 16
+  %116 = load ptr, ptr %115, align 8, !tbaa !174
+  %117 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
+  tail call void @_ZNK4llvm10AsmPrinter19emitLabelDifferenceEPKNS_8MCSymbolES3_j(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %114, ptr noundef %116, i32 noundef 4) #21
   br label %_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit
 
-_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %86, %84, %106, %98, %74, %69, %65, %_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, %39, %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, %_ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, %8, %4, %2
+_ZNK4llvm10DIELocList9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %89, %87, %109, %101, %77, %72, %68, %_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, %41, %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, %_ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, %8, %4, %2
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm10DIEInteger9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  switch i16 %2, label %33 [
+  switch i16 %2, label %34 [
     i16 33, label %4
     i16 25, label %4
     i16 12, label %10
@@ -2718,14 +2718,14 @@ define dso_local void @_ZNK4llvm10DIEInteger9emitValueEPKNS_10AsmPrinterENS_5dwa
     i16 29, label %10
     i16 1, label %10
     i16 16, label %10
-    i16 7938, label %29
-    i16 7937, label %29
-    i16 21, label %29
-    i16 26, label %29
-    i16 27, label %29
-    i16 35, label %29
-    i16 15, label %29
-    i16 13, label %31
+    i16 7938, label %30
+    i16 7937, label %30
+    i16 21, label %30
+    i16 26, label %30
+    i16 27, label %30
+    i16 35, label %30
+    i16 15, label %30
+    i16 13, label %32
   ]
 
 4:                                                ; preds = %3, %3
@@ -2735,7 +2735,7 @@ define dso_local void @_ZNK4llvm10DIEInteger9emitValueEPKNS_10AsmPrinterENS_5dwa
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef nonnull align 8 dereferenceable(296) %6) #21
-  br label %34
+  br label %35
 
 10:                                               ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -2754,40 +2754,40 @@ define dso_local void @_ZNK4llvm10DIEInteger9emitValueEPKNS_10AsmPrinterENS_5dwa
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
 20:                                               ; preds = %10
-  %switch7.i = icmp eq i16 %2, 13
-  %21 = load i64, ptr %0, align 8, !tbaa !105
-  br i1 %switch7.i, label %24, label %22
+  %21 = icmp eq i16 %2, 13
+  %22 = load i64, ptr %0, align 8, !tbaa !105
+  br i1 %21, label %25, label %23
 
-22:                                               ; preds = %20
-  %23 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %21) #21
+23:                                               ; preds = %20
+  %24 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %22) #21
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-24:                                               ; preds = %20
-  %25 = tail call noundef i32 @_ZN4llvm14getSLEB128SizeEl(i64 noundef %21) #21
+25:                                               ; preds = %20
+  %26 = tail call noundef i32 @_ZN4llvm14getSLEB128SizeEl(i64 noundef %22) #21
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %17, %22, %24
-  %.1.i = phi i32 [ %23, %22 ], [ %25, %24 ], [ %19, %17 ]
-  %26 = load ptr, ptr %12, align 8, !tbaa !43
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 544
-  %28 = load ptr, ptr %27, align 8
-  tail call void %28(ptr noundef nonnull align 8 dereferenceable(296) %12, i64 noundef %13, i32 noundef %.1.i) #21
-  br label %34
+_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %17, %23, %25
+  %.1.i = phi i32 [ %24, %23 ], [ %26, %25 ], [ %19, %17 ]
+  %27 = load ptr, ptr %12, align 8, !tbaa !43
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 544
+  %29 = load ptr, ptr %28, align 8
+  tail call void %29(ptr noundef nonnull align 8 dereferenceable(296) %12, i64 noundef %13, i32 noundef %.1.i) #21
+  br label %35
 
-29:                                               ; preds = %3, %3, %3, %3, %3, %3, %3
-  %30 = load i64, ptr %0, align 8, !tbaa !105
-  tail call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %30, ptr noundef null, i32 noundef 0) #21
-  br label %34
+30:                                               ; preds = %3, %3, %3, %3, %3, %3, %3
+  %31 = load i64, ptr %0, align 8, !tbaa !105
+  tail call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %31, ptr noundef null, i32 noundef 0) #21
+  br label %35
 
-31:                                               ; preds = %3
-  %32 = load i64, ptr %0, align 8, !tbaa !105
-  tail call void @_ZNK4llvm10AsmPrinter11emitSLEB128ElPKc(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %32, ptr noundef null) #21
-  br label %34
+32:                                               ; preds = %3
+  %33 = load i64, ptr %0, align 8, !tbaa !105
+  tail call void @_ZNK4llvm10AsmPrinter11emitSLEB128ElPKc(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %33, ptr noundef null) #21
+  br label %35
 
-33:                                               ; preds = %3
+34:                                               ; preds = %3
   unreachable
 
-34:                                               ; preds = %31, %29, %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, %4
+35:                                               ; preds = %32, %30, %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, %4
   ret void
 }
 
@@ -2795,65 +2795,65 @@ _ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = 
 define dso_local void @_ZNK4llvm9DIEString9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::DIEInteger", align 8
   %5 = alloca %"class.llvm::DIEInteger", align 8
-  %switch = icmp eq i16 %2, 14
-  br i1 %switch, label %14, label %6
+  %6 = icmp eq i16 %2, 14
+  br i1 %6, label %15, label %7
 
-6:                                                ; preds = %3
+7:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %7 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %8 = inttoptr i64 %7 to ptr
-  %9 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 1
-  %10 = and i64 %9, 8
-  %.0.idx.i.i = xor i64 %10, 8
-  %.0.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.0.idx.i.i
-  %11 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %12 = load i32, ptr %11, align 8, !tbaa !489
-  %13 = zext i32 %12 to i64
-  store i64 %13, ptr %4, align 8, !tbaa !105
+  %8 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %9 = inttoptr i64 %8 to ptr
+  %10 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 1
+  %11 = and i64 %10, 8
+  %.0.idx.i.i = xor i64 %11, 8
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.0.idx.i.i
+  %12 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %13 = load i32, ptr %12, align 8, !tbaa !489
+  %14 = zext i32 %13 to i64
+  store i64 %14, ptr %4, align 8, !tbaa !105
   call void @_ZNK4llvm10DIEInteger9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %1, i16 noundef zeroext %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %32
+  br label %34
 
-14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  %16 = load i8, ptr %15, align 8, !tbaa !491, !range !30, !noundef !31
-  %17 = trunc nuw i8 %16 to i1
-  br i1 %17, label %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, label %25
+15:                                               ; preds = %3
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 776
+  %17 = load i8, ptr %16, align 8, !tbaa !491, !range !30, !noundef !31
+  %18 = trunc nuw i8 %17 to i1
+  br i1 %18, label %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, label %27
 
-_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %14
+_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %15
   %.0.copyload.i.i.i.i.i.i.i.i.i8 = load i64, ptr %0, align 8
-  %18 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, -8
-  %19 = inttoptr i64 %18 to ptr
-  %20 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, 1
-  %21 = and i64 %20, 8
-  %.0.idx.i.i9 = xor i64 %21, 8
-  %.0.i.i10 = getelementptr inbounds nuw i8, ptr %19, i64 %.0.idx.i.i9
-  %22 = load ptr, ptr %.0.i.i10, align 8, !tbaa !492
-  %23 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  %24 = and i48 %23, 4278190080
-  %switch.i.i.i.i = icmp eq i48 %24, 0
-  %..i.i.i.i = select i1 %switch.i.i.i.i, i32 4, i32 8
-  tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %22, i64 noundef 0, i32 noundef %..i.i.i.i, i1 noundef zeroext true) #21
-  br label %32
+  %19 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, -8
+  %20 = inttoptr i64 %19 to ptr
+  %21 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i8, 1
+  %22 = and i64 %21, 8
+  %.0.idx.i.i9 = xor i64 %22, 8
+  %.0.i.i10 = getelementptr inbounds nuw i8, ptr %20, i64 %.0.idx.i.i9
+  %23 = load ptr, ptr %.0.i.i10, align 8, !tbaa !492
+  %24 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
+  %25 = and i48 %24, 4278190080
+  %26 = icmp eq i48 %25, 0
+  %..i.i.i.i = select i1 %26, i32 4, i32 8
+  tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %23, i64 noundef 0, i32 noundef %..i.i.i.i, i1 noundef zeroext true) #21
+  br label %34
 
-25:                                               ; preds = %14
+27:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %.0.copyload.i.i.i.i.i.i.i.i.i11 = load i64, ptr %0, align 8
-  %26 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i11, -8
-  %27 = inttoptr i64 %26 to ptr
-  %28 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i11, 1
-  %29 = and i64 %28, 8
-  %.0.idx.i.i12 = xor i64 %29, 8
-  %.0.i.i13 = getelementptr inbounds nuw i8, ptr %27, i64 %.0.idx.i.i12
-  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !493
-  store i64 %31, ptr %5, align 8, !tbaa !105
+  %28 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i11, -8
+  %29 = inttoptr i64 %28 to ptr
+  %30 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i11, 1
+  %31 = and i64 %30, 8
+  %.0.idx.i.i12 = xor i64 %31, 8
+  %.0.i.i13 = getelementptr inbounds nuw i8, ptr %29, i64 %.0.idx.i.i12
+  %32 = getelementptr inbounds nuw i8, ptr %.0.i.i13, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !493
+  store i64 %33, ptr %5, align 8, !tbaa !105
   call void @_ZNK4llvm10DIEInteger9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull %1, i16 noundef zeroext 14)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %32
+  br label %34
 
-32:                                               ; preds = %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, %25, %6
+34:                                               ; preds = %_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit, %27, %7
   ret void
 }
 
@@ -2861,7 +2861,7 @@ _ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE.exit: ; preds = %
 define dso_local void @_ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !158
   %5 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  switch i16 %2, label %8 [
+  switch i16 %2, label %9 [
     i16 6, label %_ZNK4llvm7DIEExpr6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
     i16 7, label %6
     i16 23, label %7
@@ -2873,19 +2873,19 @@ define dso_local void @_ZNK4llvm7DIEExpr9emitValueEPKNS_10AsmPrinterENS_5dwarf4F
 7:                                                ; preds = %3
   %.sroa.0.3.extract.shift3 = lshr i48 %5, 24
   %.sroa.0.3.extract.trunc = trunc i48 %.sroa.0.3.extract.shift3 to i8
-  %switch.i.i.i = icmp eq i8 %.sroa.0.3.extract.trunc, 0
-  %..i.i.i = select i1 %switch.i.i.i, i32 4, i32 8
+  %8 = icmp eq i8 %.sroa.0.3.extract.trunc, 0
+  %..i.i.i = select i1 %8, i32 4, i32 8
   br label %_ZNK4llvm7DIEExpr6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-8:                                                ; preds = %3
+9:                                                ; preds = %3
   unreachable
 
 _ZNK4llvm7DIEExpr6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %3, %6, %7
   %.0.i = phi i32 [ 8, %6 ], [ %..i.i.i, %7 ], [ 4, %3 ]
-  %9 = load ptr, ptr %1, align 8, !tbaa !43
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 408
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %4, i32 noundef %.0.i) #21
+  %10 = load ptr, ptr %1, align 8, !tbaa !43
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 408
+  %12 = load ptr, ptr %11, align 8
+  tail call void %12(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %4, i32 noundef %.0.i) #21
   ret void
 }
 
@@ -2893,12 +2893,12 @@ _ZNK4llvm7DIEExpr6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %3, 
 define dso_local void @_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !160
   %5 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  switch i16 %2, label %13 [
+  switch i16 %2, label %14 [
     i16 6, label %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
     i16 7, label %6
     i16 23, label %7
     i16 14, label %7
-    i16 1, label %9
+    i16 1, label %10
   ]
 
 6:                                                ; preds = %3
@@ -2906,23 +2906,23 @@ define dso_local void @_ZNK4llvm8DIELabel9emitValueEPKNS_10AsmPrinterENS_5dwarf4
 
 7:                                                ; preds = %3, %3
   %8 = and i48 %5, 4278190080
-  %switch.i.i.i = icmp eq i48 %8, 0
-  %..i.i.i = select i1 %switch.i.i.i, i32 4, i32 8
+  %9 = icmp eq i48 %8, 0
+  %..i.i.i = select i1 %9, i32 4, i32 8
   br label %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-9:                                                ; preds = %3
-  %10 = trunc i48 %5 to i32
-  %11 = lshr i32 %10, 16
-  %12 = and i32 %11, 255
+10:                                               ; preds = %3
+  %11 = trunc i48 %5 to i32
+  %12 = lshr i32 %11, 16
+  %13 = and i32 %12, 255
   br label %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-13:                                               ; preds = %3
+14:                                               ; preds = %3
   unreachable
 
-_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %3, %6, %7, %9
-  %.0.shrunk.i = phi i32 [ 8, %6 ], [ %..i.i.i, %7 ], [ %12, %9 ], [ 4, %3 ]
-  %14 = icmp ne i16 %2, 1
-  tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %4, i64 noundef 0, i32 noundef %.0.shrunk.i, i1 noundef zeroext %14) #21
+_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %3, %6, %7, %10
+  %.0.shrunk.i = phi i32 [ 8, %6 ], [ %..i.i.i, %7 ], [ %13, %10 ], [ 4, %3 ]
+  %15 = icmp ne i16 %2, 1
+  tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef %4, i64 noundef 0, i32 noundef %.0.shrunk.i, i1 noundef zeroext %15) #21
   ret void
 }
 
@@ -2949,7 +2949,7 @@ define dso_local void @_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !174
   %7 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  switch i16 %2, label %10 [
+  switch i16 %2, label %11 [
     i16 6, label %_ZNK4llvm8DIEDelta6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
     i16 7, label %8
     i16 23, label %9
@@ -2961,11 +2961,11 @@ define dso_local void @_ZNK4llvm8DIEDelta9emitValueEPKNS_10AsmPrinterENS_5dwarf4
 9:                                                ; preds = %3
   %.sroa.0.3.extract.shift3 = lshr i48 %7, 24
   %.sroa.0.3.extract.trunc = trunc i48 %.sroa.0.3.extract.shift3 to i8
-  %switch.i.i.i = icmp eq i8 %.sroa.0.3.extract.trunc, 0
-  %..i.i.i = select i1 %switch.i.i.i, i32 4, i32 8
+  %10 = icmp eq i8 %.sroa.0.3.extract.trunc, 0
+  %..i.i.i = select i1 %10, i32 4, i32 8
   br label %_ZNK4llvm8DIEDelta6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   unreachable
 
 _ZNK4llvm8DIEDelta6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %3, %8, %9
@@ -2976,7 +2976,7 @@ _ZNK4llvm8DIEDelta6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %3,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm8DIEEntry9emitValueEPKNS_10AsmPrinterENS_5dwarf4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  switch i16 %2, label %74 [
+  switch i16 %2, label %76 [
     i16 17, label %switch.lookup
     i16 18, label %switch.lookup
     i16 19, label %switch.lookup
@@ -3001,7 +3001,7 @@ switch.lookup:                                    ; preds = %3, %3, %3, %3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 544
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull align 8 dereferenceable(296) %5, i64 noundef %9, i32 noundef %switch.load) #21
-  br label %75
+  br label %77
 
 16:                                               ; preds = %3
   %17 = load ptr, ptr %0, align 8, !tbaa !147
@@ -3009,7 +3009,7 @@ switch.lookup:                                    ; preds = %3, %3, %3, %3
   %19 = load i32, ptr %18, align 8, !tbaa !112
   %20 = zext i32 %19 to i64
   tail call void @_ZNK4llvm10AsmPrinter11emitULEB128EmPKcj(ptr noundef nonnull align 8 dereferenceable(777) %1, i64 noundef %20, ptr noundef null, i32 noundef 0) #21
-  br label %75
+  br label %77
 
 21:                                               ; preds = %3
   %22 = load ptr, ptr %0, align 8, !tbaa !147
@@ -3078,45 +3078,45 @@ _ZNK4llvm3DIE10getUnitDieEv.exit.i:               ; preds = %40, %40, %40
   %53 = load ptr, ptr %52, align 8
   %54 = tail call noundef ptr %53(ptr noundef nonnull align 8 dereferenceable(72) %50) #21
   %.not = icmp eq ptr %54, null
-  br i1 %.not, label %_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit27, label %_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit22
+  br i1 %.not, label %_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit25, label %_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit21
 
-_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit22: ; preds = %_ZNK4llvm3DIE10getUnitDieEv.exit.i
+_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit21: ; preds = %_ZNK4llvm3DIE10getUnitDieEv.exit.i
   %55 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  %.sroa.028.0.extract.trunc = trunc i48 %55 to i16
-  %56 = icmp eq i16 %.sroa.028.0.extract.trunc, 2
+  %.sroa.026.0.extract.trunc = trunc i48 %55 to i16
+  %56 = icmp eq i16 %.sroa.026.0.extract.trunc, 2
   %57 = trunc i48 %55 to i32
   %58 = lshr i32 %57, 16
   %59 = and i32 %58, 255
   %60 = and i48 %55, 4278190080
-  %switch.i.i.i.i18 = icmp eq i48 %60, 0
-  %..i.i.i.i19 = select i1 %switch.i.i.i.i18, i32 4, i32 8
-  %61 = select i1 %56, i32 %59, i32 %..i.i.i.i19
-  tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef nonnull %54, i64 noundef %39, i32 noundef %61, i1 noundef zeroext true) #21
-  br label %75
+  %61 = icmp eq i48 %60, 0
+  %..i.i.i.i18 = select i1 %61, i32 4, i32 8
+  %62 = select i1 %56, i32 %59, i32 %..i.i.i.i18
+  tail call void @_ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb(ptr noundef nonnull align 8 dereferenceable(777) %1, ptr noundef nonnull %54, i64 noundef %39, i32 noundef %62, i1 noundef zeroext true) #21
+  br label %77
 
-_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit27: ; preds = %_ZNK4llvm3DIE10getUnitDieEv.exit.i
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %63 = load ptr, ptr %62, align 8, !tbaa !107
-  %64 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
-  %.sroa.0.0.extract.trunc = trunc i48 %64 to i16
-  %65 = icmp eq i16 %.sroa.0.0.extract.trunc, 2
-  %66 = trunc i48 %64 to i32
-  %67 = lshr i32 %66, 16
-  %68 = and i32 %67, 255
-  %69 = and i48 %64, 4278190080
-  %switch.i.i.i.i23 = icmp eq i48 %69, 0
-  %..i.i.i.i24 = select i1 %switch.i.i.i.i23, i32 4, i32 8
-  %70 = select i1 %65, i32 %68, i32 %..i.i.i.i24
-  %71 = load ptr, ptr %63, align 8, !tbaa !43
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 544
-  %73 = load ptr, ptr %72, align 8
-  tail call void %73(ptr noundef nonnull align 8 dereferenceable(296) %63, i64 noundef %39, i32 noundef %70) #21
-  br label %75
+_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit25: ; preds = %_ZNK4llvm3DIE10getUnitDieEv.exit.i
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %64 = load ptr, ptr %63, align 8, !tbaa !107
+  %65 = tail call i48 @_ZNK4llvm10AsmPrinter18getDwarfFormParamsEv(ptr noundef nonnull align 8 dereferenceable(777) %1) #21
+  %.sroa.0.0.extract.trunc = trunc i48 %65 to i16
+  %66 = icmp eq i16 %.sroa.0.0.extract.trunc, 2
+  %67 = trunc i48 %65 to i32
+  %68 = lshr i32 %67, 16
+  %69 = and i32 %68, 255
+  %70 = and i48 %65, 4278190080
+  %71 = icmp eq i48 %70, 0
+  %..i.i.i.i22 = select i1 %71, i32 4, i32 8
+  %72 = select i1 %66, i32 %69, i32 %..i.i.i.i22
+  %73 = load ptr, ptr %64, align 8, !tbaa !43
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 544
+  %75 = load ptr, ptr %74, align 8
+  tail call void %75(ptr noundef nonnull align 8 dereferenceable(296) %64, i64 noundef %39, i32 noundef %72) #21
+  br label %77
 
-74:                                               ; preds = %3
+76:                                               ; preds = %3
   unreachable
 
-75:                                               ; preds = %_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit22, %_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit27, %16, %switch.lookup
+77:                                               ; preds = %_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit21, %_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit25, %16, %switch.lookup
   ret void
 }
 
@@ -3322,164 +3322,164 @@ define dso_local noundef i32 @_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormPara
 6:                                                ; preds = %3
   %7 = and i16 %4, 255
   %8 = zext nneg i16 %7 to i32
-  br label %15
+  br label %16
 
 9:                                                ; preds = %3
-  %switch7 = icmp eq i16 %2, 13
-  %10 = load i64, ptr %0, align 8, !tbaa !105
-  br i1 %switch7, label %13, label %11
+  %10 = icmp eq i16 %2, 13
+  %11 = load i64, ptr %0, align 8, !tbaa !105
+  br i1 %10, label %14, label %12
 
-11:                                               ; preds = %9
-  %12 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %10) #21
-  br label %15
+12:                                               ; preds = %9
+  %13 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %11) #21
+  br label %16
 
-13:                                               ; preds = %9
-  %14 = tail call noundef i32 @_ZN4llvm14getSLEB128SizeEl(i64 noundef %10) #21
-  br label %15
+14:                                               ; preds = %9
+  %15 = tail call noundef i32 @_ZN4llvm14getSLEB128SizeEl(i64 noundef %11) #21
+  br label %16
 
-15:                                               ; preds = %6, %13, %11
-  %.1 = phi i32 [ %12, %11 ], [ %14, %13 ], [ %8, %6 ]
+16:                                               ; preds = %6, %14, %12
+  %.1 = phi i32 [ %13, %12 ], [ %15, %14 ], [ %8, %6 ]
   ret i32 %.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm9DIEString6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(5) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  %switch = icmp eq i16 %2, 14
-  br i1 %switch, label %22, label %4
+  %4 = icmp eq i16 %2, 14
+  br i1 %4, label %24, label %5
 
-4:                                                ; preds = %3
+5:                                                ; preds = %3
   %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %5 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
-  %6 = inttoptr i64 %5 to ptr
-  %7 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 1
-  %8 = and i64 %7, 8
-  %.0.idx.i.i = xor i64 %8, 8
-  %.0.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.0.idx.i.i
-  %9 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !489
-  %11 = zext i32 %10 to i64
+  %6 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -8
+  %7 = inttoptr i64 %6 to ptr
+  %8 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i, 1
+  %9 = and i64 %8, 8
+  %.0.idx.i.i = xor i64 %9, 8
+  %.0.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.0.idx.i.i
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 16
+  %11 = load i32, ptr %10, align 8, !tbaa !489
+  %12 = zext i32 %11 to i64
   %.sroa.0.0.copyload.i = load i48, ptr %1, align 2
-  %12 = tail call i16 @_ZN4llvm5dwarf20getFixedFormByteSizeENS0_4FormENS0_10FormParamsE(i16 noundef zeroext %2, i48 %.sroa.0.0.copyload.i) #21
-  %13 = and i16 %12, 256
-  %.not.i = icmp eq i16 %13, 0
-  br i1 %.not.i, label %17, label %14
+  %13 = tail call i16 @_ZN4llvm5dwarf20getFixedFormByteSizeENS0_4FormENS0_10FormParamsE(i16 noundef zeroext %2, i48 %.sroa.0.0.copyload.i) #21
+  %14 = and i16 %13, 256
+  %.not.i = icmp eq i16 %14, 0
+  br i1 %.not.i, label %18, label %15
 
-14:                                               ; preds = %4
-  %15 = and i16 %12, 255
-  %16 = zext nneg i16 %15 to i32
+15:                                               ; preds = %5
+  %16 = and i16 %13, 255
+  %17 = zext nneg i16 %16 to i32
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-17:                                               ; preds = %4
-  %switch7.i = icmp eq i16 %2, 13
-  br i1 %switch7.i, label %20, label %18
+18:                                               ; preds = %5
+  %19 = icmp eq i16 %2, 13
+  br i1 %19, label %22, label %20
 
-18:                                               ; preds = %17
-  %19 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %11) #21
+20:                                               ; preds = %18
+  %21 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %12) #21
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-20:                                               ; preds = %17
-  %21 = tail call noundef i32 @_ZN4llvm14getSLEB128SizeEl(i64 noundef %11) #21
+22:                                               ; preds = %18
+  %23 = tail call noundef i32 @_ZN4llvm14getSLEB128SizeEl(i64 noundef %12) #21
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-22:                                               ; preds = %3
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %24 = load i8, ptr %23, align 2, !tbaa !494, !range !30, !noundef !31
-  %25 = trunc nuw i8 %24 to i1
-  br i1 %25, label %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, label %28
+24:                                               ; preds = %3
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %26 = load i8, ptr %25, align 2, !tbaa !494, !range !30, !noundef !31
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit, label %31
 
-_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %22
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 3
-  %27 = load i8, ptr %26, align 1, !tbaa !142
-  %switch.i.i.i = icmp eq i8 %27, 0
-  %..i.i.i = select i1 %switch.i.i.i, i32 4, i32 8
+_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 3
+  %29 = load i8, ptr %28, align 1, !tbaa !142
+  %30 = icmp eq i8 %29, 0
+  %..i.i.i = select i1 %30, i32 4, i32 8
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-28:                                               ; preds = %22
+31:                                               ; preds = %24
   %.0.copyload.i.i.i.i.i.i.i.i.i12 = load i64, ptr %0, align 8
-  %29 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i12, -8
-  %30 = inttoptr i64 %29 to ptr
-  %31 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i12, 1
-  %32 = and i64 %31, 8
-  %.0.idx.i.i13 = xor i64 %32, 8
-  %.0.i.i14 = getelementptr inbounds nuw i8, ptr %30, i64 %.0.idx.i.i13
-  %33 = getelementptr inbounds nuw i8, ptr %.0.i.i14, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !493
+  %32 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i12, -8
+  %33 = inttoptr i64 %32 to ptr
+  %34 = shl i64 %.0.copyload.i.i.i.i.i.i.i.i.i12, 1
+  %35 = and i64 %34, 8
+  %.0.idx.i.i13 = xor i64 %35, 8
+  %.0.i.i14 = getelementptr inbounds nuw i8, ptr %33, i64 %.0.idx.i.i13
+  %36 = getelementptr inbounds nuw i8, ptr %.0.i.i14, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !493
   %.sroa.0.0.copyload.i15 = load i48, ptr %1, align 2
-  %35 = tail call i16 @_ZN4llvm5dwarf20getFixedFormByteSizeENS0_4FormENS0_10FormParamsE(i16 noundef zeroext 14, i48 %.sroa.0.0.copyload.i15) #21
-  %36 = and i16 %35, 256
-  %.not.i16 = icmp eq i16 %36, 0
-  br i1 %.not.i16, label %40, label %37
+  %38 = tail call i16 @_ZN4llvm5dwarf20getFixedFormByteSizeENS0_4FormENS0_10FormParamsE(i16 noundef zeroext 14, i48 %.sroa.0.0.copyload.i15) #21
+  %39 = and i16 %38, 256
+  %.not.i16 = icmp eq i16 %39, 0
+  br i1 %.not.i16, label %43, label %40
 
-37:                                               ; preds = %28
-  %38 = and i16 %35, 255
-  %39 = zext nneg i16 %38 to i32
+40:                                               ; preds = %31
+  %41 = and i16 %38, 255
+  %42 = zext nneg i16 %41 to i32
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-40:                                               ; preds = %28
-  %41 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %34) #21
+43:                                               ; preds = %31
+  %44 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %37) #21
   br label %_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
 
-_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %40, %37, %20, %18, %14, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
-  %.0 = phi i32 [ %..i.i.i, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %19, %18 ], [ %21, %20 ], [ %16, %14 ], [ %41, %40 ], [ %39, %37 ]
+_ZNK4llvm10DIEInteger6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit: ; preds = %43, %40, %22, %20, %15, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit
+  %.0 = phi i32 [ %..i.i.i, %_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE.exit ], [ %21, %20 ], [ %23, %22 ], [ %17, %15 ], [ %44, %43 ], [ %42, %40 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 4, 9) i32 @_ZNK4llvm7DIEExpr6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(5) %1, i16 noundef zeroext %2) local_unnamed_addr #4 align 2 {
-  switch i16 %2, label %8 [
-    i16 6, label %9
+  switch i16 %2, label %9 [
+    i16 6, label %10
     i16 7, label %4
     i16 23, label %5
   ]
 
 4:                                                ; preds = %3
-  br label %9
+  br label %10
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %7 = load i8, ptr %6, align 1, !tbaa !142
-  %switch.i.i = icmp eq i8 %7, 0
-  %..i.i = select i1 %switch.i.i, i32 4, i32 8
-  br label %9
+  %8 = icmp eq i8 %7, 0
+  %..i.i = select i1 %8, i32 4, i32 8
+  br label %10
 
-8:                                                ; preds = %3
+9:                                                ; preds = %3
   unreachable
 
-9:                                                ; preds = %3, %5, %4
+10:                                               ; preds = %3, %5, %4
   %.0 = phi i32 [ 8, %4 ], [ %..i.i, %5 ], [ 4, %3 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 0, 256) i32 @_ZNK4llvm8DIELabel6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(5) %1, i16 noundef zeroext %2) local_unnamed_addr #4 align 2 {
-  switch i16 %2, label %11 [
-    i16 6, label %12
+  switch i16 %2, label %12 [
+    i16 6, label %13
     i16 7, label %4
     i16 23, label %5
     i16 14, label %5
-    i16 1, label %8
+    i16 1, label %9
   ]
 
 4:                                                ; preds = %3
-  br label %12
+  br label %13
 
 5:                                                ; preds = %3, %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %7 = load i8, ptr %6, align 1, !tbaa !142
-  %switch.i.i = icmp eq i8 %7, 0
-  %..i.i = select i1 %switch.i.i, i8 4, i8 8
-  br label %12
+  %8 = icmp eq i8 %7, 0
+  %..i.i = select i1 %8, i8 4, i8 8
+  br label %13
 
-8:                                                ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
-  %10 = load i8, ptr %9, align 2, !tbaa !146
-  br label %12
+9:                                                ; preds = %3
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 2
+  %11 = load i8, ptr %10, align 2, !tbaa !146
+  br label %13
 
-11:                                               ; preds = %3
+12:                                               ; preds = %3
   unreachable
 
-12:                                               ; preds = %3, %8, %5, %4
-  %.0.shrunk = phi i8 [ 8, %4 ], [ %..i.i, %5 ], [ %10, %8 ], [ 4, %3 ]
+13:                                               ; preds = %3, %9, %5, %4
+  %.0.shrunk = phi i8 [ 8, %4 ], [ %..i.i, %5 ], [ %11, %9 ], [ 4, %3 ]
   %.0 = zext i8 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -3491,34 +3491,34 @@ define dso_local noundef i32 @_ZNK4llvm14DIEBaseTypeRef6sizeOfERKNS_5dwarf10Form
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define dso_local noundef range(i32 4, 9) i32 @_ZNK4llvm8DIEDelta6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(5) %1, i16 noundef zeroext %2) local_unnamed_addr #4 align 2 {
-  switch i16 %2, label %8 [
-    i16 6, label %9
+  switch i16 %2, label %9 [
+    i16 6, label %10
     i16 7, label %4
     i16 23, label %5
   ]
 
 4:                                                ; preds = %3
-  br label %9
+  br label %10
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %7 = load i8, ptr %6, align 1, !tbaa !142
-  %switch.i.i = icmp eq i8 %7, 0
-  %..i.i = select i1 %switch.i.i, i32 4, i32 8
-  br label %9
+  %8 = icmp eq i8 %7, 0
+  %..i.i = select i1 %8, i32 4, i32 8
+  br label %10
 
-8:                                                ; preds = %3
+9:                                                ; preds = %3
   unreachable
 
-9:                                                ; preds = %3, %5, %4
+10:                                               ; preds = %3, %5, %4
   %.0 = phi i32 [ 8, %4 ], [ %..i.i, %5 ], [ 4, %3 ]
   ret i32 %.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(5) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  switch i16 %2, label %21 [
-    i16 17, label %22
+  switch i16 %2, label %22 [
+    i16 17, label %23
     i16 18, label %4
     i16 19, label %5
     i16 20, label %6
@@ -3527,13 +3527,13 @@ define dso_local noundef i32 @_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsE
   ]
 
 4:                                                ; preds = %3
-  br label %22
+  br label %23
 
 5:                                                ; preds = %3
-  br label %22
+  br label %23
 
 6:                                                ; preds = %3
-  br label %22
+  br label %23
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %0, align 8, !tbaa !147
@@ -3541,7 +3541,7 @@ define dso_local noundef i32 @_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsE
   %10 = load i32, ptr %9, align 8, !tbaa !112
   %11 = zext i32 %10 to i64
   %12 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %11) #21
-  br label %22
+  br label %23
 
 13:                                               ; preds = %3
   %14 = load i16, ptr %1, align 2, !tbaa !149
@@ -3550,17 +3550,17 @@ define dso_local noundef i32 @_ZNK4llvm8DIEEntry6sizeOfERKNS_5dwarf10FormParamsE
   %17 = load i8, ptr %16, align 2
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %19 = load i8, ptr %18, align 1
-  %switch.i.i.i = icmp eq i8 %19, 0
-  %..i.i.i = select i1 %switch.i.i.i, i8 4, i8 8
+  %20 = icmp eq i8 %19, 0
+  %..i.i.i = select i1 %20, i8 4, i8 8
   %.0.i = select i1 %15, i8 %17, i8 %..i.i.i
-  %20 = zext i8 %.0.i to i32
-  br label %22
+  %21 = zext i8 %.0.i to i32
+  br label %23
 
-21:                                               ; preds = %3
+22:                                               ; preds = %3
   unreachable
 
-22:                                               ; preds = %3, %13, %7, %6, %5, %4
-  %.0 = phi i32 [ 2, %4 ], [ 4, %5 ], [ 8, %6 ], [ %12, %7 ], [ %20, %13 ], [ 1, %3 ]
+23:                                               ; preds = %3, %13, %7, %6, %5, %4
+  %.0 = phi i32 [ 2, %4 ], [ 4, %5 ], [ 8, %6 ], [ %12, %7 ], [ %21, %13 ], [ 1, %3 ]
   ret i32 %.0
 }
 
@@ -3655,9 +3655,9 @@ define dso_local noundef i32 @_ZNK4llvm6DIELoc6sizeOfERKNS_5dwarf10FormParamsENS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local noundef i32 @_ZNK4llvm10DIELocList6sizeOfERKNS_5dwarf10FormParamsENS1_4FormE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 2 captures(none) dereferenceable(5) %1, i16 noundef zeroext %2) local_unnamed_addr #0 align 2 {
-  switch i16 %2, label %11 [
+  switch i16 %2, label %12 [
     i16 34, label %4
-    i16 6, label %12
+    i16 6, label %13
     i16 7, label %7
     i16 23, label %8
   ]
@@ -3665,22 +3665,22 @@ define dso_local noundef i32 @_ZNK4llvm10DIELocList6sizeOfERKNS_5dwarf10FormPara
 4:                                                ; preds = %3
   %5 = load i64, ptr %0, align 8, !tbaa !154
   %6 = tail call noundef i32 @_ZN4llvm14getULEB128SizeEm(i64 noundef %5) #21
-  br label %12
+  br label %13
 
 7:                                                ; preds = %3
-  br label %12
+  br label %13
 
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %10 = load i8, ptr %9, align 1, !tbaa !142
-  %switch.i.i = icmp eq i8 %10, 0
-  %..i.i = select i1 %switch.i.i, i32 4, i32 8
-  br label %12
+  %11 = icmp eq i8 %10, 0
+  %..i.i = select i1 %11, i32 4, i32 8
+  br label %13
 
-11:                                               ; preds = %3
+12:                                               ; preds = %3
   unreachable
 
-12:                                               ; preds = %3, %8, %7, %4
+13:                                               ; preds = %3, %8, %7, %4
   %.0 = phi i32 [ %6, %4 ], [ 8, %7 ], [ %..i.i, %8 ], [ 4, %3 ]
   ret i32 %.0
 }

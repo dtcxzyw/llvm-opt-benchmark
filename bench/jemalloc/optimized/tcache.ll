@@ -3942,41 +3942,41 @@ sz_size2index_compute.exit19:                     ; preds = %sz_size2index_compu
   br label %65
 
 65:                                               ; preds = %64, %sz_size2index_compute.exit19
-  %.not25 = icmp samesign ugt i32 %.0.i.i, %.0.i.i18
-  br i1 %.not25, label %.loopexit, label %.lr.ph
+  %.not23 = icmp samesign ugt i32 %.0.i.i, %.0.i.i18
+  br i1 %.not23, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65
   br i1 %.not15, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.026.us = phi i32 [ %70, %.lr.ph.split.us ], [ %.0.i.i, %.lr.ph ]
-  %66 = zext nneg i32 %.026.us to i64
+  %.024.us = phi i32 [ %70, %.lr.ph.split.us ], [ %.0.i.i, %.lr.ph ]
+  %66 = zext nneg i32 %.024.us to i64
   %67 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %2, i64 %66
   %68 = load i64, ptr %9, align 8, !tbaa !19
   %69 = trunc i64 %68 to i16
   call void @je_cache_bin_info_init(ptr noundef %67, i16 noundef zeroext %69) #16
-  %70 = add nuw nsw i32 %.026.us, 1
-  %.not.us.not = icmp ult i32 %.026.us, %.0.i.i18
+  %70 = add nuw nsw i32 %.024.us, 1
+  %.not.us.not = icmp ult i32 %.024.us, %.0.i.i18
   br i1 %.not.us.not, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !188
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.026 = phi i32 [ %76, %.lr.ph.split ], [ %.0.i.i, %.lr.ph ]
-  %71 = zext nneg i32 %.026 to i64
+  %.024 = phi i32 [ %76, %.lr.ph.split ], [ %.0.i.i, %.lr.ph ]
+  %71 = zext nneg i32 %.024 to i64
   %72 = getelementptr inbounds nuw %struct.cache_bin_info_s, ptr %2, i64 %71
   %73 = load i64, ptr %9, align 8, !tbaa !19
   %74 = trunc i64 %73 to i16
   call void @je_cache_bin_info_init(ptr noundef %72, i16 noundef zeroext %74) #16
   %75 = getelementptr inbounds nuw i8, ptr %3, i64 %71
   store i8 1, ptr %75, align 1, !tbaa !20
-  %76 = add nuw nsw i32 %.026, 1
-  %.not.not = icmp ult i32 %.026, %.0.i.i18
+  %76 = add nuw nsw i32 %.024, 1
+  %.not.not = icmp ult i32 %.024, %.0.i.i18
   br i1 %.not.not, label %.lr.ph.split, label %.loopexit, !llvm.loop !188
 
 77:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit23
+  br label %.loopexit21
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %65, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -3984,9 +3984,9 @@ sz_size2index_compute.exit19:                     ; preds = %sz_size2index_compu
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %78 = load i64, ptr %6, align 8, !tbaa !19
   %.not16 = icmp eq i64 %78, 0
-  br i1 %.not16, label %.loopexit23, label %10, !llvm.loop !189
+  br i1 %.not16, label %.loopexit21, label %10, !llvm.loop !189
 
-.loopexit23:                                      ; preds = %.loopexit, %77
+.loopexit21:                                      ; preds = %.loopexit, %77
   ret i1 %11
 }
 

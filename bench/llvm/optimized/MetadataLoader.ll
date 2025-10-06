@@ -2732,8 +2732,8 @@ define dso_local void @_ZN4llvm14MetadataLoader18MetadataLoaderImpl27parseGlobal
   %6 = alloca %"class.llvm::Twine", align 8
   %7 = alloca %"class.llvm::Twine", align 8
   %8 = trunc i64 %4 to i32
-  %.not28 = icmp eq i32 %8, 0
-  br i1 %.not28, label %_ZN4llvm5ErrorD2Ev.exit, label %.lr.ph
+  %.not26 = icmp eq i32 %8, 0
+  br i1 %.not26, label %_ZN4llvm5ErrorD2Ev.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1016
@@ -2741,8 +2741,8 @@ define dso_local void @_ZN4llvm14MetadataLoader18MetadataLoaderImpl27parseGlobal
   br label %11
 
 11:                                               ; preds = %.lr.ph, %56
-  %.029 = phi i32 [ 0, %.lr.ph ], [ %59, %56 ]
-  %12 = zext i32 %.029 to i64
+  %.027 = phi i32 [ 0, %.lr.ph ], [ %59, %56 ]
+  %12 = zext i32 %.027 to i64
   %13 = getelementptr inbounds nuw i64, ptr %3, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !55
   %15 = trunc i64 %14 to i32
@@ -2802,7 +2802,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   br label %.thread24
 
 41:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjjEEEEjjS3_S6_E4findERKj.exit
-  %42 = or disjoint i32 %.029, 1
+  %42 = or disjoint i32 %.027, 1
   %43 = zext i32 %42 to i64
   %44 = getelementptr inbounds nuw i64, ptr %3, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !55
@@ -2837,7 +2837,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjjNS_12DenseMapInfoIjvEENS_6detail12DenseMap
   %57 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 4
   %58 = load i32, ptr %57, align 4, !tbaa !492
   tail call void @_ZN4llvm5Value11addMetadataEjRNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %58, ptr noundef nonnull align 8 dereferenceable(16) %47) #26
-  %59 = add i32 %.029, 2
+  %59 = add i32 %.027, 2
   %.not = icmp eq i32 %59, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit, label %11, !llvm.loop !494
 
@@ -5005,7 +5005,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamCursor9SkipBlockEv(ptr dead_
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i8, ptr %12, align 8
   %14 = trunc i8 %13 to i1
-  br i1 %14, label %_ZN4llvm8ExpectedIjED2Ev.exit, label %.critedge35
+  br i1 %14, label %_ZN4llvm8ExpectedIjED2Ev.exit, label %.critedge34
 
 _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %2
   call void @llvm.experimental.noalias.scope.decl(metadata !629)
@@ -5015,14 +5015,14 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN4llvm8ExpectedIjED2Ev.exit17
 
-.critedge35:                                      ; preds = %2
+.critedge34:                                      ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load i32, ptr %17, align 8, !tbaa !131
   %19 = icmp ugt i32 %18, 31
   br i1 %19, label %20, label %_ZN4llvm21SimpleBitstreamCursor22SkipToFourByteBoundaryEv.exit
 
-20:                                               ; preds = %.critedge35
+20:                                               ; preds = %.critedge34
   %21 = add i32 %18, -32
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %23 = load i64, ptr %22, align 8, !tbaa !538
@@ -5031,8 +5031,8 @@ _ZN4llvm8ExpectedIjED2Ev.exit:                    ; preds = %2
   store i64 %25, ptr %22, align 8, !tbaa !538
   br label %_ZN4llvm21SimpleBitstreamCursor22SkipToFourByteBoundaryEv.exit
 
-_ZN4llvm21SimpleBitstreamCursor22SkipToFourByteBoundaryEv.exit: ; preds = %.critedge35, %20
-  %storemerge.i6 = phi i32 [ 32, %20 ], [ 0, %.critedge35 ]
+_ZN4llvm21SimpleBitstreamCursor22SkipToFourByteBoundaryEv.exit: ; preds = %.critedge34, %20
+  %storemerge.i6 = phi i32 [ 32, %20 ], [ 0, %.critedge34 ]
   store i32 %storemerge.i6, ptr %17, align 8, !tbaa !131
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @_ZN4llvm21SimpleBitstreamCursor4ReadEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Expected.220") align 8 %11, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 32)
@@ -5177,9 +5177,9 @@ _ZN4llvm17createStringErrorIJmmEEENS_5ErrorESt10error_codePKcDpRKT_.exit: ; pred
   %82 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %83 = load i8, ptr %82, align 8, !noalias !672
   %84 = trunc i8 %83 to i1
-  br i1 %84, label %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, label %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread31
+  br i1 %84, label %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, label %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread30
 
-_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread31: ; preds = %81
+_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread30: ; preds = %81
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !672
   br label %_ZN4llvm5ErrorD2Ev.exit13
 
@@ -5188,10 +5188,10 @@ _ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit: ; preds = %81
   %86 = inttoptr i64 %85 to ptr
   store ptr %86, ptr %0, align 8, !tbaa !146, !alias.scope !672
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !672
-  %.not33 = icmp eq i64 %85, 0
-  br i1 %.not33, label %_ZN4llvm5ErrorD2Ev.exit13, label %_ZN4llvm8ExpectedIjED2Ev.exit17
+  %.not32 = icmp eq i64 %85, 0
+  br i1 %.not32, label %_ZN4llvm5ErrorD2Ev.exit13, label %_ZN4llvm8ExpectedIjED2Ev.exit17
 
-_ZN4llvm5ErrorD2Ev.exit13:                        ; preds = %77, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread31, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit
+_ZN4llvm5ErrorD2Ev.exit13:                        ; preds = %77, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread30, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit
   store ptr null, ptr %0, align 8, !tbaa !146
   br label %_ZN4llvm8ExpectedIjED2Ev.exit17
 
@@ -13712,17 +13712,17 @@ _ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.thread: ; preds = %.
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %67 = load i8, ptr %66, align 8, !noalias !805
   %68 = trunc i8 %67 to i1
-  br i1 %68, label %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, label %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread36
+  br i1 %68, label %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, label %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread35
 
-_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread36: ; preds = %65
+_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread35: ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !805
   br label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit: ; preds = %65
   %69 = load i64, ptr %6, align 8, !tbaa !141, !noalias !808
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !805
-  %.not54 = icmp eq i64 %69, 0
-  br i1 %.not54, label %_ZN4llvm5ErrorD2Ev.exit, label %70
+  %.not53 = icmp eq i64 %69, 0
+  br i1 %.not53, label %_ZN4llvm5ErrorD2Ev.exit, label %70
 
 70:                                               ; preds = %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit
   %71 = inttoptr i64 %69 to ptr
@@ -13746,7 +13746,7 @@ _ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit: ; preds = %65
   call void @_ZN4llvm18report_fatal_errorERKNS_5TwineEb(ptr noundef nonnull align 8 dereferenceable(34) %10, i1 noundef zeroext true) #28
   unreachable
 
-_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.thread, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread36
+_ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.thread, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit, %_ZN4llvm21SimpleBitstreamCursor9JumpToBitEm.exit.thread35
   %76 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %77
 
@@ -13848,8 +13848,8 @@ _ZN4llvm8ExpectedINS_14BitstreamEntryEED2Ev.exit: ; preds = %_ZN4llvm15Bitstream
   %106 = load i32, ptr %20, align 8, !tbaa !126
   call fastcc void @_ZN4llvm14MetadataLoader18MetadataLoaderImpl16parseOneMetadataERNS_15SmallVectorImplImEEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueENS_9StringRefERj(ptr dead_on_unwind noalias nonnull writable align 8 %21, ptr noundef nonnull align 8 dereferenceable(1073) %0, ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef %106, ptr noundef nonnull align 8 dereferenceable(80) %2, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %9, ptr noundef nonnull align 4 dereferenceable(4) %7)
   %107 = load ptr, ptr %21, align 8, !tbaa !146
-  %.not55 = icmp eq ptr %107, null
-  br i1 %.not55, label %_ZN4llvm5ErrorD2Ev.exit13, label %108
+  %.not54 = icmp eq ptr %107, null
+  br i1 %.not54, label %_ZN4llvm5ErrorD2Ev.exit13, label %108
 
 108:                                              ; preds = %105
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -22368,16 +22368,16 @@ _ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.i: ; preds = %15
   %27 = load i8, ptr %26, align 1, !tbaa !47, !range !48, !noundef !49
   %28 = trunc nuw i8 %27 to i1
   %29 = getelementptr i8, ptr %4, i64 8
-  %.val26 = load i32, ptr %29, align 8, !tbaa !26
-  %30 = icmp ugt i32 %.val26, %1
+  %.val25 = load i32, ptr %29, align 8, !tbaa !26
+  %30 = icmp ugt i32 %.val25, %1
   br i1 %28, label %57, label %31
 
 31:                                               ; preds = %24
   br i1 %30, label %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit, label %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.thread
 
 _ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit: ; preds = %31
-  %.val23 = load ptr, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.llvm::TrackingMDRef", ptr %.val23, i64 %5
+  %.val22 = load ptr, ptr %4, align 8
+  %32 = getelementptr inbounds nuw %"class.llvm::TrackingMDRef", ptr %.val22, i64 %5
   %33 = load ptr, ptr %32, align 8, !tbaa !562
   %.not.not = icmp eq ptr %33, null
   br i1 %.not.not, label %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.thread, label %_ZN4llvm14MetadataLoader18MetadataLoaderImpl19lazyLoadOneMDStringEj.exit
@@ -22403,8 +22403,8 @@ _ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.thread: ; preds = %3
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %50 = load ptr, ptr %49, align 8, !tbaa !1144
   tail call fastcc void @_ZN4llvm14MetadataLoader18MetadataLoaderImpl19lazyLoadOneMetadataEjRN12_GLOBAL__N_112_GLOBAL__N_116PlaceholderQueueE(ptr noundef nonnull align 8 dereferenceable(1073) %4, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(80) %50)
-  %.val22 = load i32, ptr %29, align 8, !tbaa !26
-  %51 = icmp ugt i32 %.val22, %1
+  %.val21 = load i32, ptr %29, align 8, !tbaa !26
+  %51 = icmp ugt i32 %.val21, %1
   br i1 %51, label %52, label %_ZN4llvm14MetadataLoader18MetadataLoaderImpl19lazyLoadOneMDStringEj.exit
 
 52:                                               ; preds = %44
@@ -22418,16 +22418,16 @@ _ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.thread: ; preds = %3
   br label %_ZN4llvm14MetadataLoader18MetadataLoaderImpl19lazyLoadOneMDStringEj.exit
 
 57:                                               ; preds = %24
-  br i1 %30, label %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.i29, label %_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.thread
+  br i1 %30, label %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.i28, label %_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.thread
 
-_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.i29: ; preds = %57
-  %.val25 = load ptr, ptr %4, align 8
-  %58 = getelementptr inbounds nuw %"class.llvm::TrackingMDRef", ptr %.val25, i64 %5
+_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.i28: ; preds = %57
+  %.val24 = load ptr, ptr %4, align 8
+  %58 = getelementptr inbounds nuw %"class.llvm::TrackingMDRef", ptr %.val24, i64 %5
   %59 = load ptr, ptr %58, align 8, !tbaa !562
   %.not.i.i.i = icmp eq ptr %59, null
   br i1 %.not.i.i.i, label %_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.thread, label %60
 
-60:                                               ; preds = %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.i29
+60:                                               ; preds = %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.i28
   %61 = load i8, ptr %59, align 4, !tbaa !271
   %62 = add i8 %61, -5
   %switch.i.i.i.i.i.i.i.i.i.i = icmp ult i8 %62, 31
@@ -22446,7 +22446,7 @@ _ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit: ; pr
   %.not.i.i.not = icmp eq i32 %68, 0
   br i1 %.not.i.i.not, label %_ZN4llvm14MetadataLoader18MetadataLoaderImpl19lazyLoadOneMDStringEj.exit, label %_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.thread
 
-_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit.i, %57, %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.i29, %_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit
+_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.thread: ; preds = %_ZN4llvm16dyn_cast_or_nullINS_6MDNodeENS_8MetadataEEEDaPT0_.exit.i, %57, %_ZNK12_GLOBAL__N_125BitcodeReaderMetadataList6lookupEj.exit.i28, %_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !1144
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -22456,8 +22456,8 @@ _ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.threa
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 64
   %74 = load ptr, ptr %73, align 8, !tbaa !1145
   %75 = getelementptr inbounds i8, ptr %74, i64 -16
-  %.not.i.i30 = icmp eq ptr %72, %75
-  br i1 %.not.i.i30, label %83, label %76
+  %.not.i.i29 = icmp eq ptr %72, %75
+  br i1 %.not.i.i29, label %83, label %76
 
 76:                                               ; preds = %_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.thread
   store i8 3, ptr %72, align 4, !tbaa !271
@@ -22476,11 +22476,11 @@ _ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.threa
 
 83:                                               ; preds = %_ZN12_GLOBAL__N_125BitcodeReaderMetadataList21getMetadataIfResolvedEj.exit.thread
   call void @_ZNSt5dequeIN4llvm28DistinctMDOperandPlaceholderESaIS1_EE16_M_push_back_auxIJRjEEEvDpOT_(ptr noundef nonnull align 8 dereferenceable(80) %70, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  %.pre.i31 = load ptr, ptr %71, align 8, !tbaa !567, !noalias !1147
+  %.pre.i30 = load ptr, ptr %71, align 8, !tbaa !567, !noalias !1147
   br label %_ZNSt5dequeIN4llvm28DistinctMDOperandPlaceholderESaIS1_EE12emplace_backIJRjEEERS1_DpOT_.exit.i
 
 _ZNSt5dequeIN4llvm28DistinctMDOperandPlaceholderESaIS1_EE12emplace_backIJRjEEERS1_DpOT_.exit.i: ; preds = %83, %76
-  %84 = phi ptr [ %.pre.i31, %83 ], [ %82, %76 ]
+  %84 = phi ptr [ %.pre.i30, %83 ], [ %82, %76 ]
   %85 = getelementptr inbounds nuw i8, ptr %70, i64 56
   %86 = load ptr, ptr %85, align 8, !tbaa !520, !noalias !1150
   %87 = icmp eq ptr %84, %86

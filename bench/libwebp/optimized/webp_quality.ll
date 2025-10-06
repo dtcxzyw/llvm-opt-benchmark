@@ -25,8 +25,8 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly cap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %36
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %36 ]
-  %.02443 = phi i32 [ 1, %.lr.ph.preheader ], [ %.3, %36 ]
-  %.02542 = phi i32 [ 0, %.lr.ph.preheader ], [ %.126, %36 ]
+  %.02442 = phi i32 [ 1, %.lr.ph.preheader ], [ %.3, %36 ]
+  %.02541 = phi i32 [ 0, %.lr.ph.preheader ], [ %.126, %36 ]
   %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(7) @.str) #7
@@ -40,14 +40,14 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly cap
 
 sub_0:                                            ; preds = %10
   %12 = load i8, ptr %8, align 1
-  %.not45 = icmp eq i8 %12, 45
-  br i1 %.not45, label %sub_1, label %.tail.thread
+  %.not44 = icmp eq i8 %12, 45
+  br i1 %.not44, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %14 = load i8, ptr %13, align 1
-  %.not46 = icmp eq i8 %14, 104
-  br i1 %.not46, label %.tail, label %.tail.thread
+  %.not45 = icmp eq i8 %14, 104
+  br i1 %.not45, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -72,7 +72,7 @@ sub_1:                                            ; preds = %sub_0
   %21 = load ptr, ptr %3, align 8, !tbaa !4
   %22 = load i64, ptr %4, align 8, !tbaa !9
   %23 = call i32 @VP8EstimateQuality(ptr noundef %21, i64 noundef %22) #8
-  %.not33 = icmp eq i32 %.02542, 0
+  %.not33 = icmp eq i32 %.02541, 0
   br i1 %.not33, label %24, label %.thread
 
 24:                                               ; preds = %20
@@ -111,8 +111,8 @@ sub_1:                                            ; preds = %sub_0
   br label %.loopexit
 
 36:                                               ; preds = %.thread36, %.lr.ph
-  %.126 = phi i32 [ 1, %.lr.ph ], [ %.02542, %.thread36 ]
-  %.3 = phi i32 [ %.02443, %.lr.ph ], [ %.2, %.thread36 ]
+  %.126 = phi i32 [ 1, %.lr.ph ], [ %.02541, %.thread36 ]
+  %.3 = phi i32 [ %.02442, %.lr.ph ], [ %.2, %.thread36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = icmp ne i32 %.3, 0
   %38 = icmp samesign ult i64 %indvars.iv.next, %6

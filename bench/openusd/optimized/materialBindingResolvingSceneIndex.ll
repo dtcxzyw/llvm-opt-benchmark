@@ -2506,23 +2506,23 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_127_Mate
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %18 = load ptr, ptr %17, align 8
-  %.not1113 = icmp eq ptr %16, %18
-  br i1 %.not1113, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.sink.split, label %.lr.ph
+  %.not1012 = icmp eq ptr %16, %18
+  br i1 %.not1012, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.sink.split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %20
 
 20:                                               ; preds = %.lr.ph, %62
-  %.sroa.07.014 = phi ptr [ %16, %.lr.ph ], [ %63, %62 ]
+  %.sroa.07.013 = phi ptr [ %16, %.lr.ph ], [ %63, %62 ]
   %21 = load ptr, ptr %4, align 8
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load ptr, ptr %23, align 8
-  tail call void %24(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.26") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.07.014)
+  tail call void %24(ptr dead_on_unwind writable sret(%"class.std::shared_ptr.26") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.07.013)
   %25 = load ptr, ptr %0, align 8
-  %.not12 = icmp eq ptr %25, null
-  br i1 %.not12, label %26, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit
+  %.not11 = icmp eq ptr %25, null
+  br i1 %.not11, label %26, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit
 
 26:                                               ; preds = %20
   %27 = load ptr, ptr %19, align 8
@@ -2598,9 +2598,9 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
   br label %62
 
 62:                                               ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i, %57, %44, %26
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.07.014, i64 8
-  %.not11 = icmp eq ptr %63, %18
-  br i1 %.not11, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.sink.split, label %20
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.07.013, i64 8
+  %.not10 = icmp eq ptr %63, %18
+  br i1 %.not10, label %_ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.sink.split, label %20
 
 _ZNSt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__16HdDataSourceBaseEED2Ev.exit.sink.split: ; preds = %62, %14, %6, %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)

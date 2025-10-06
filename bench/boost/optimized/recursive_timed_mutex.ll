@@ -74,12 +74,12 @@ define noundef zeroext i1 @_ZN5boost6fibers21recursive_timed_mutex15try_lock_unt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #19
-  %.sroa.0.0.copyload.i.i.i18 = load i64, ptr %1, align 8, !tbaa !3
-  %9 = icmp slt i64 %.sroa.0.0.copyload.i.i.i18, %8
+  %.sroa.0.0.copyload.i.i.i15 = load i64, ptr %1, align 8, !tbaa !3
+  %9 = icmp slt i64 %.sroa.0.0.copyload.i.i.i15, %8
   br i1 %9, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.backedge
-  %.0719 = phi i1 [ %.07.be, %.backedge ], [ undef, %2 ]
+  %.0716 = phi i1 [ %.07.be, %.backedge ], [ undef, %2 ]
   %10 = call noundef ptr @_ZN5boost6fibers7context6activeEv() #19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !7
@@ -105,10 +105,10 @@ define noundef zeroext i1 @_ZN5boost6fibers21recursive_timed_mutex15try_lock_unt
 
 19:                                               ; preds = %16
   %20 = invoke noundef zeroext i1 @_ZN5boost6fibers10wait_queue22suspend_and_wait_untilERSt11unique_lockINS0_6detail13spinlock_ttasEEPNS0_7contextERKNSt6chrono10time_pointINS9_3_V212steady_clockENS9_8durationIlSt5ratioILl1ELl1000000000EEEEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(9) %3, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %1)
-          to label %21 unwind label %27
+          to label %21 unwind label %29
 
 21:                                               ; preds = %19
-  %.07. = select i1 %20, i1 %.0719, i1 false
+  %.07. = select i1 %20, i1 %.0716, i1 false
   %.pre = load i8, ptr %4, align 8, !tbaa !11, !range !26
   %22 = trunc nuw i8 %.pre to i1
   br i1 %22, label %.thread, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit
@@ -119,39 +119,39 @@ define noundef zeroext i1 @_ZN5boost6fibers21recursive_timed_mutex15try_lock_unt
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %21
-  %switch17 = phi i1 [ %20, %21 ], [ false, %.thread.sink.split ]
-  %.215 = phi i1 [ %.07., %21 ], [ true, %.thread.sink.split ]
-  %23 = load ptr, ptr %3, align 8, !tbaa !7
-  %.not.i.i = icmp eq ptr %23, null
-  br i1 %.not.i.i, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, label %24
+  %23 = phi i1 [ %20, %21 ], [ false, %.thread.sink.split ]
+  %.214 = phi i1 [ %.07., %21 ], [ true, %.thread.sink.split ]
+  %24 = load ptr, ptr %3, align 8, !tbaa !7
+  %.not.i.i = icmp eq ptr %24, null
+  br i1 %.not.i.i, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, label %25
 
-24:                                               ; preds = %.thread
-  store atomic i32 1, ptr %23 release, align 4
+25:                                               ; preds = %.thread
+  store atomic i32 1, ptr %24 release, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %switch17, label %.backedge, label %._crit_edge
+  br i1 %23, label %.backedge, label %._crit_edge
 
 _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit: ; preds = %21, %.thread
-  %switch16 = phi i1 [ %20, %21 ], [ %switch17, %.thread ]
-  %.214 = phi i1 [ %.07., %21 ], [ %.215, %.thread ]
+  %26 = phi i1 [ %20, %21 ], [ %23, %.thread ]
+  %.213 = phi i1 [ %.07., %21 ], [ %.214, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %switch16, label %.backedge, label %._crit_edge
+  br i1 %26, label %.backedge, label %._crit_edge
 
-.backedge:                                        ; preds = %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, %24
-  %.07.be = phi i1 [ %.214, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ], [ %.215, %24 ]
-  %25 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #19
+.backedge:                                        ; preds = %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, %25
+  %.07.be = phi i1 [ %.213, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ], [ %.214, %25 ]
+  %27 = call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #19
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %1, align 8, !tbaa !3
-  %26 = icmp slt i64 %.sroa.0.0.copyload.i.i.i, %25
-  br i1 %26, label %._crit_edge, label %.lr.ph
+  %28 = icmp slt i64 %.sroa.0.0.copyload.i.i.i, %27
+  br i1 %28, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.backedge, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, %24, %2
-  %.1 = phi i1 [ false, %2 ], [ false, %.backedge ], [ %.214, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ], [ %.215, %24 ]
+._crit_edge:                                      ; preds = %.backedge, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, %25, %2
+  %.1 = phi i1 [ false, %2 ], [ false, %.backedge ], [ %.213, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit ], [ %.214, %25 ]
   ret i1 %.1
 
-27:                                               ; preds = %19
-  %28 = landingpad { ptr, i32 }
+29:                                               ; preds = %19
+  %30 = landingpad { ptr, i32 }
           catch ptr null
-  %29 = extractvalue { ptr, i32 } %28, 0
-  call void @__clang_call_terminate(ptr %29) #20
+  %31 = extractvalue { ptr, i32 } %30, 0
+  call void @__clang_call_terminate(ptr %31) #20
   unreachable
 }
 
@@ -212,7 +212,7 @@ define void @_ZN5boost6fibers21recursive_timed_mutex4lockEv(ptr noundef nonnull 
 
 16:                                               ; preds = %13
   invoke void @_ZN5boost6fibers10wait_queue16suspend_and_waitERSt11unique_lockINS0_6detail13spinlock_ttasEEPNS0_7contextE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(9) %2, ptr noundef %7)
-          to label %17 unwind label %21
+          to label %17 unwind label %22
 
 17:                                               ; preds = %16
   %.pre = load i8, ptr %3, align 8, !tbaa !11, !range !26
@@ -225,48 +225,48 @@ define void @_ZN5boost6fibers21recursive_timed_mutex4lockEv(ptr noundef nonnull 
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %17
-  %switch16 = phi i1 [ true, %17 ], [ false, %.thread.sink.split ]
-  %19 = load ptr, ptr %2, align 8, !tbaa !7
-  %.not.i.i = icmp eq ptr %19, null
-  br i1 %.not.i.i, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, label %20
+  %19 = phi i1 [ true, %17 ], [ false, %.thread.sink.split ]
+  %20 = load ptr, ptr %2, align 8, !tbaa !7
+  %.not.i.i = icmp eq ptr %20, null
+  br i1 %.not.i.i, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, label %21
 
-20:                                               ; preds = %.thread
-  store atomic i32 1, ptr %19 release, align 4
+21:                                               ; preds = %.thread
+  store atomic i32 1, ptr %20 release, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %switch16, label %.backedge.backedge, label %28
+  br i1 %19, label %.backedge.backedge, label %29
 
 _ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit: ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %switch16, label %.backedge.backedge, label %28
+  br i1 %19, label %.backedge.backedge, label %29
 
 .backedge.critedge:                               ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.backedge.critedge, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, %20
+.backedge.backedge:                               ; preds = %.backedge.critedge, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit, %21
   br label %.backedge
 
-21:                                               ; preds = %16
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %16
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = load i8, ptr %3, align 8, !tbaa !11, !range !26, !noundef !27
-  %24 = trunc nuw i8 %23 to i1
-  br i1 %24, label %25, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit9
+  %24 = load i8, ptr %3, align 8, !tbaa !11, !range !26, !noundef !27
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %26, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit9
 
-25:                                               ; preds = %21
-  %26 = load ptr, ptr %2, align 8, !tbaa !7
-  %.not.i.i8 = icmp eq ptr %26, null
-  br i1 %.not.i.i8, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit9, label %27
+26:                                               ; preds = %22
+  %27 = load ptr, ptr %2, align 8, !tbaa !7
+  %.not.i.i8 = icmp eq ptr %27, null
+  br i1 %.not.i.i8, label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit9, label %28
 
-27:                                               ; preds = %25
-  store atomic i32 1, ptr %26 release, align 4
+28:                                               ; preds = %26
+  store atomic i32 1, ptr %27 release, align 4
   br label %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit9
 
-_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit9: ; preds = %21, %25, %27
+_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit9: ; preds = %22, %26, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  resume { ptr, i32 } %22
+  resume { ptr, i32 } %23
 
-28:                                               ; preds = %20, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit
+29:                                               ; preds = %21, %_ZNSt11unique_lockIN5boost6fibers6detail13spinlock_ttasEED2Ev.exit
   ret void
 }
 
@@ -636,28 +636,28 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
   %17 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5boost6fibers6detail13spinlock_ttas4lockEvE9generator)
   br label %18
 
-18:                                               ; preds = %._crit_edge22, %15
-  %.014 = phi i64 [ 0, %15 ], [ %38, %._crit_edge22 ]
+18:                                               ; preds = %._crit_edge21, %15
+  %.014 = phi i64 [ 0, %15 ], [ %38, %._crit_edge21 ]
   %19 = load atomic i32, ptr %0 monotonic, align 4
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %18, %30
-  %.0919 = phi i64 [ %.1, %30 ], [ 0, %18 ]
-  %21 = icmp ult i64 %.0919, 32
+  %.0918 = phi i64 [ %.1, %30 ], [ 0, %18 ]
+  %21 = icmp ult i64 %.0918, 32
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %.lr.ph
-  %23 = add nuw nsw i64 %.0919, 1
+  %23 = add nuw nsw i64 %.0918, 1
   call void asm sideeffect "pause", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !52
   br label %30
 
 24:                                               ; preds = %.lr.ph
-  %25 = icmp ult i64 %.0919, 64
+  %25 = icmp ult i64 %.0918, 64
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
-  %27 = add nuw nsw i64 %.0919, 1
+  %27 = add nuw nsw i64 %.0918, 1
   br label %30
 
 28:                                               ; preds = %24
@@ -665,7 +665,7 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
   br label %30
 
 30:                                               ; preds = %26, %28, %22
-  %.1 = phi i64 [ %23, %22 ], [ %27, %26 ], [ %.0919, %28 ]
+  %.1 = phi i64 [ %23, %22 ], [ %27, %26 ], [ %.0918, %28 ]
   %31 = load atomic i32, ptr %0 monotonic, align 4
   %32 = icmp eq i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge, !llvm.loop !53
@@ -687,16 +687,16 @@ _ZNSt13random_deviceD2Ev.exit:                    ; preds = %9
 _ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit: ; preds = %35
   %38 = add i64 %.014, 1
   %.not = icmp eq i64 %37, 0
-  br i1 %.not, label %._crit_edge22, label %.lr.ph21
+  br i1 %.not, label %._crit_edge21, label %.lr.ph20
 
-.lr.ph21:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph21
-  %.0820 = phi i64 [ %39, %.lr.ph21 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit ]
+.lr.ph20:                                         ; preds = %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit, %.lr.ph20
+  %.0819 = phi i64 [ %39, %.lr.ph20 ], [ 0, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit ]
   call void asm sideeffect "pause", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !58
-  %39 = add nuw i64 %.0820, 1
+  %39 = add nuw i64 %.0819, 1
   %exitcond.not = icmp eq i64 %39, %37
-  br i1 %exitcond.not, label %._crit_edge22, label %.lr.ph21, !llvm.loop !59
+  br i1 %exitcond.not, label %._crit_edge21, label %.lr.ph20, !llvm.loop !59
 
-._crit_edge22:                                    ; preds = %.lr.ph21, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit
+._crit_edge21:                                    ; preds = %.lr.ph20, %_ZNSt24uniform_int_distributionImEclISt26linear_congruential_engineImLm48271ELm0ELm2147483647EEEEmRT_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %18
 

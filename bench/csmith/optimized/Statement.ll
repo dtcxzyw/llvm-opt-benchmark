@@ -1984,8 +1984,8 @@ define dso_local noundef zeroext i1 @_ZNK9Statement11has_edge_inEbb(ptr noundef 
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %10 = load ptr, ptr %9, align 8, !tbaa !183
   %11 = load ptr, ptr %8, align 8, !tbaa !186
-  %.not21 = icmp eq ptr %10, %11
-  br i1 %.not21, label %.thread, label %.lr.ph
+  %.not20 = icmp eq ptr %10, %11
+  br i1 %.not20, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %12 = ptrtoint ptr %10 to i64
@@ -1997,8 +1997,8 @@ define dso_local noundef zeroext i1 @_ZNK9Statement11has_edge_inEbb(ptr noundef 
   br label %18
 
 18:                                               ; preds = %.lr.ph, %.critedge
-  %.01518 = phi i64 [ 0, %.lr.ph ], [ %32, %.critedge ]
-  %19 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01518
+  %.01517 = phi i64 [ 0, %.lr.ph ], [ %32, %.critedge ]
+  %19 = getelementptr inbounds nuw ptr, ptr %11, i64 %.01517
   %20 = load ptr, ptr %19, align 8, !tbaa !187
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !189
@@ -2018,7 +2018,7 @@ define dso_local noundef zeroext i1 @_ZNK9Statement11has_edge_inEbb(ptr noundef 
   br i1 %31, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %28, %24, %18
-  %32 = add nuw i64 %.01518, 1
+  %32 = add nuw i64 %.01517, 1
   %exitcond.not = icmp eq i64 %32, %15
   br i1 %exitcond.not, label %.thread, label %18, !llvm.loop !193
 
@@ -2181,8 +2181,8 @@ define dso_local void @_ZNK9Statement15find_jump_labelB5cxx11Ev(ptr dead_on_unwi
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 344
   %10 = load ptr, ptr %9, align 8, !tbaa !183
   %11 = load ptr, ptr %8, align 8, !tbaa !186
-  %.not20 = icmp eq ptr %10, %11
-  br i1 %.not20, label %.thread, label %.lr.ph.preheader
+  %.not19 = icmp eq ptr %10, %11
+  br i1 %.not19, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %6
   %12 = ptrtoint ptr %10 to i64
@@ -2192,8 +2192,8 @@ define dso_local void @_ZNK9Statement15find_jump_labelB5cxx11Ev(ptr dead_on_unwi
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
-  %.019 = phi i64 [ %41, %40 ], [ 0, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %.019
+  %.018 = phi i64 [ %41, %40 ], [ 0, %.lr.ph.preheader ]
+  %16 = getelementptr inbounds nuw ptr, ptr %11, i64 %.018
   %17 = load ptr, ptr %16, align 8, !tbaa !187
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !189
@@ -2245,7 +2245,7 @@ define dso_local void @_ZNK9Statement15find_jump_labelB5cxx11Ev(ptr dead_on_unwi
   br label %42
 
 40:                                               ; preds = %21, %.lr.ph
-  %41 = add nuw i64 %.019, 1
+  %41 = add nuw i64 %.018, 1
   %exitcond.not = icmp eq i64 %41, %15
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !198
 
@@ -3663,9 +3663,9 @@ define dso_local noundef zeroext i1 @_ZNK9Statement13contains_stmtEPKS_(ptr noun
   %.pn24 = phi ptr [ %.017, %.preheader ], [ %1, %5 ]
   %.017.in = getelementptr inbounds nuw i8, ptr %.pn24, i64 24
   %.017 = load ptr, ptr %.017.in, align 8, !tbaa !144
-  %.not23 = icmp ne ptr %.017, null
+  %.not23.not = icmp ne ptr %.017, null
   %9 = icmp ne ptr %.017, %0
-  %or.cond.not = and i1 %9, %.not23
+  %or.cond.not = and i1 %9, %.not23.not
   br i1 %or.cond.not, label %.preheader, label %.loopexit, !llvm.loop !244
 
 10:                                               ; preds = %5
@@ -3675,17 +3675,17 @@ define dso_local noundef zeroext i1 @_ZNK9Statement13contains_stmtEPKS_(ptr noun
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   invoke void %13(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %3)
-          to label %.preheader27 unwind label %24
+          to label %.preheader28 unwind label %24
 
-.preheader27:                                     ; preds = %10
+.preheader28:                                     ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !162
   %16 = load ptr, ptr %3, align 8, !tbaa !163
-  %.not29.not = icmp eq ptr %15, %16
-  br i1 %.not29.not, label %.critedge, label %.lr.ph
+  %.not30.not = icmp eq ptr %15, %16
+  br i1 %.not30.not, label %.critedge, label %.lr.ph
 
 17:                                               ; preds = %30
-  %18 = add nuw i64 %.030, 1
+  %18 = add nuw i64 %.031, 1
   %19 = load ptr, ptr %14, align 8, !tbaa !162
   %20 = ptrtoint ptr %19 to i64
   %21 = ptrtoint ptr %.pre.pre to i64
@@ -3699,10 +3699,10 @@ define dso_local noundef zeroext i1 @_ZNK9Statement13contains_stmtEPKS_(ptr noun
           cleanup
   br label %40
 
-.lr.ph:                                           ; preds = %.preheader27, %17
-  %26 = phi ptr [ %.pre.pre, %17 ], [ %16, %.preheader27 ]
-  %.030 = phi i64 [ %18, %17 ], [ 0, %.preheader27 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.030
+.lr.ph:                                           ; preds = %.preheader28, %17
+  %26 = phi ptr [ %.pre.pre, %17 ], [ %16, %.preheader28 ]
+  %.031 = phi i64 [ %18, %17 ], [ 0, %.preheader28 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.031
   %28 = load ptr, ptr %27, align 8, !tbaa !166
   %29 = invoke noundef zeroext i1 @_ZNK9Statement13contains_stmtEPKS_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef %1)
           to label %30 unwind label %31
@@ -3716,9 +3716,9 @@ define dso_local noundef zeroext i1 @_ZNK9Statement13contains_stmtEPKS_(ptr noun
           cleanup
   br label %40
 
-.critedge:                                        ; preds = %30, %17, %.preheader27
-  %33 = phi ptr [ %16, %.preheader27 ], [ %.pre.pre, %17 ], [ %.pre.pre, %30 ]
-  %.not.lcssa = phi i1 [ false, %.preheader27 ], [ %29, %17 ], [ %29, %30 ]
+.critedge:                                        ; preds = %30, %17, %.preheader28
+  %33 = phi ptr [ %16, %.preheader28 ], [ %.pre.pre, %17 ], [ %.pre.pre, %30 ]
+  %.not.lcssa = phi i1 [ false, %.preheader28 ], [ %29, %17 ], [ %29, %30 ]
   %.not.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i, label %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit, label %34
 
@@ -3755,7 +3755,7 @@ _ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit26:         ; preds = %40, %42
   resume { ptr, i32 } %.pn
 
 .loopexit:                                        ; preds = %.preheader, %2, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit
-  %.018 = phi i1 [ %.not.lcssa, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit ], [ true, %2 ], [ %.not23, %.preheader ]
+  %.018 = phi i1 [ %.not.lcssa, %_ZNSt6vectorIPK5BlockSaIS2_EED2Ev.exit ], [ true, %2 ], [ %.not23.not, %.preheader ]
   ret i1 %.018
 }
 
@@ -5137,8 +5137,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %3, %_
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 344
   %36 = load ptr, ptr %35, align 8, !tbaa !183
   %37 = load ptr, ptr %34, align 8, !tbaa !186
-  %.not21.i = icmp eq ptr %36, %37
-  br i1 %.not21.i, label %.loopexit.sink.split, label %.lr.ph.i
+  %.not20.i = icmp eq ptr %36, %37
+  br i1 %.not20.i, label %.loopexit.sink.split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc
   %38 = ptrtoint ptr %36 to i64
@@ -5148,8 +5148,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %3, %_
   br label %42
 
 42:                                               ; preds = %.critedge.i, %.lr.ph.i
-  %.01518.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %.critedge.i ]
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %.01518.i
+  %.01517.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %.critedge.i ]
+  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %.01517.i
   %44 = load ptr, ptr %43, align 8, !tbaa !187
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !189
@@ -5169,7 +5169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %3, %_
   br i1 %54, label %56, label %.critedge.i
 
 .critedge.i:                                      ; preds = %51, %48, %42
-  %55 = add nuw i64 %.01518.i, 1
+  %55 = add nuw i64 %.01517.i, 1
   %exitcond.not.i = icmp eq i64 %55, %41
   br i1 %exitcond.not.i, label %.loopexit.sink.split, label %42, !llvm.loop !193
 
@@ -5365,8 +5365,8 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 344
   %129 = load ptr, ptr %128, align 8, !tbaa !183
   %130 = load ptr, ptr %127, align 8, !tbaa !186
-  %.not21.i41 = icmp eq ptr %129, %130
-  br i1 %.not21.i41, label %_ZNK9Statement11has_edge_inEbb.exit48.thread, label %.lr.ph.i42
+  %.not20.i41 = icmp eq ptr %129, %130
+  br i1 %.not20.i41, label %_ZNK9Statement11has_edge_inEbb.exit48.thread, label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %.noexc47
   %131 = ptrtoint ptr %129 to i64
@@ -5376,8 +5376,8 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   br label %135
 
 135:                                              ; preds = %.critedge.i44, %.lr.ph.i42
-  %.01518.i43 = phi i64 [ 0, %.lr.ph.i42 ], [ %149, %.critedge.i44 ]
-  %136 = getelementptr inbounds nuw ptr, ptr %130, i64 %.01518.i43
+  %.01517.i43 = phi i64 [ 0, %.lr.ph.i42 ], [ %149, %.critedge.i44 ]
+  %136 = getelementptr inbounds nuw ptr, ptr %130, i64 %.01517.i43
   %137 = load ptr, ptr %136, align 8, !tbaa !187
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
   %139 = load ptr, ptr %138, align 8, !tbaa !189
@@ -5397,7 +5397,7 @@ _ZNSt3mapIPK9Statement6EffectSt4lessIS2_ESaISt4pairIKS2_S3_EEE11lower_boundERS7_
   br i1 %148, label %_ZNK9Statement11has_edge_inEbb.exit48, label %.critedge.i44
 
 .critedge.i44:                                    ; preds = %145, %141, %135
-  %149 = add nuw i64 %.01518.i43, 1
+  %149 = add nuw i64 %.01517.i43, 1
   %exitcond.not.i45 = icmp eq i64 %149, %134
   br i1 %exitcond.not.i45, label %_ZNK9Statement11has_edge_inEbb.exit48.thread, label %135, !llvm.loop !193
 

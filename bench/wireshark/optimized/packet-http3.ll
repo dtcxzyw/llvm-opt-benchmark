@@ -292,373 +292,373 @@ define internal i32 @dissect_http3(ptr noundef %0, ptr noundef %1, ptr noundef %
   %6 = alloca i64, align 8
   %7 = alloca i32, align 4
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %187, label %8
+  br i1 %.not, label %188, label %8
 
 8:                                                ; preds = %4
   %9 = load i64, ptr %3, align 8
   %10 = and i64 %9, 3
-  %switch = icmp eq i64 %10, 0
-  br i1 %switch, label %11, label %15
+  %11 = icmp eq i64 %10, 0
+  br i1 %11, label %12, label %16
 
-11:                                               ; preds = %8
-  %12 = tail call fastcc zeroext i1 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef 0)
-  br i1 %12, label %15, label %13
+12:                                               ; preds = %8
+  %13 = tail call fastcc zeroext i1 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef 0)
+  br i1 %13, label %16, label %14
 
-13:                                               ; preds = %11
-  %14 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %187
+14:                                               ; preds = %12
+  %15 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %188
 
-default.unreachable66:                            ; preds = %44
+default.unreachable66:                            ; preds = %45
   unreachable
 
-15:                                               ; preds = %8, %11
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %17 = load ptr, ptr %16, align 8
-  tail call void @col_set_str(ptr noundef %17, i32 noundef 35, ptr noundef nonnull @.str.108)
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %19 = load ptr, ptr %18, align 8
-  %20 = tail call zeroext i1 @proto_is_frame_protocol(ptr noundef %19, ptr noundef nonnull @.str.109)
-  br i1 %20, label %23, label %21
+16:                                               ; preds = %8, %12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %18 = load ptr, ptr %17, align 8
+  tail call void @col_set_str(ptr noundef %18, i32 noundef 35, ptr noundef nonnull @.str.108)
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %20 = load ptr, ptr %19, align 8
+  %21 = tail call zeroext i1 @proto_is_frame_protocol(ptr noundef %20, ptr noundef nonnull @.str.109)
+  br i1 %21, label %24, label %22
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %16, align 8
-  tail call void @col_clear(ptr noundef %22, i32 noundef 25)
-  br label %23
+22:                                               ; preds = %16
+  %23 = load ptr, ptr %17, align 8
+  tail call void @col_clear(ptr noundef %23, i32 noundef 25)
+  br label %24
 
-23:                                               ; preds = %21, %15
-  %24 = load i32, ptr @proto_http3, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %24, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %26 = load i32, ptr @ett_http3, align 4
-  %27 = tail call ptr @proto_item_add_subtree(ptr noundef %25, i32 noundef %26)
-  %28 = tail call ptr @quic_stream_get_proto_data(ptr noundef %1, ptr noundef nonnull %3)
-  %.not52 = icmp eq ptr %28, null
-  br i1 %.not52, label %29, label %33
+24:                                               ; preds = %22, %16
+  %25 = load i32, ptr @proto_http3, align 4
+  %26 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %27 = load i32, ptr @ett_http3, align 4
+  %28 = tail call ptr @proto_item_add_subtree(ptr noundef %26, i32 noundef %27)
+  %29 = tail call ptr @quic_stream_get_proto_data(ptr noundef %1, ptr noundef nonnull %3)
+  %.not52 = icmp eq ptr %29, null
+  br i1 %.not52, label %30, label %34
 
-29:                                               ; preds = %23
-  %30 = tail call ptr @wmem_file_scope()
-  %31 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %30, i64 noundef 32) #14
-  tail call void @quic_stream_add_proto_data(ptr noundef %1, ptr noundef nonnull %3, ptr noundef %31)
-  %32 = load i64, ptr %3, align 8
-  store i64 %32, ptr %31, align 8
-  br label %33
+30:                                               ; preds = %24
+  %31 = tail call ptr @wmem_file_scope()
+  %32 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc0(ptr noundef %31, i64 noundef 32) #14
+  tail call void @quic_stream_add_proto_data(ptr noundef %1, ptr noundef nonnull %3, ptr noundef %32)
+  %33 = load i64, ptr %3, align 8
+  store i64 %33, ptr %32, align 8
+  br label %34
 
-33:                                               ; preds = %29, %23
-  %.0 = phi ptr [ %28, %23 ], [ %31, %29 ]
-  %34 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %35 = load i64, ptr %34, align 8
-  %.not53 = icmp eq i64 %35, 0
-  br i1 %.not53, label %._crit_edge, label %36
+34:                                               ; preds = %30, %24
+  %.0 = phi ptr [ %29, %24 ], [ %32, %30 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %36 = load i64, ptr %35, align 8
+  %.not53 = icmp eq i64 %36, 0
+  br i1 %.not53, label %._crit_edge, label %37
 
-._crit_edge:                                      ; preds = %33
+._crit_edge:                                      ; preds = %34
   %.pre = load i64, ptr %3, align 8
-  br label %44
+  br label %45
 
-36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %38 = load i32, ptr %37, align 8
-  %39 = zext i32 %38 to i64
-  %.not54 = icmp ugt i64 %35, %39
+37:                                               ; preds = %34
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %39 = load i32, ptr %38, align 8
+  %40 = zext i32 %39 to i64
+  %.not54 = icmp ugt i64 %36, %40
   %.pre58 = load i64, ptr %3, align 8
-  br i1 %.not54, label %44, label %40
+  br i1 %.not54, label %45, label %41
 
-40:                                               ; preds = %36
-  %41 = getelementptr i8, ptr %.0, i64 8
-  %.0.val = load i64, ptr %41, align 8
-  %42 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_http3_unknown_stream_type, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.133, i64 noundef %.0.val, i64 noundef %.pre58)
-  %43 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %187
+41:                                               ; preds = %37
+  %42 = getelementptr i8, ptr %.0, i64 8
+  %.0.val = load i64, ptr %42, align 8
+  %43 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %1, ptr noundef nonnull @ei_http3_unknown_stream_type, ptr noundef %0, i32 noundef 0, i32 noundef 0, ptr noundef nonnull @.str.133, i64 noundef %.0.val, i64 noundef %.pre58)
+  %44 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %188
 
-44:                                               ; preds = %._crit_edge, %36
-  %45 = phi i64 [ %.pre, %._crit_edge ], [ %.pre58, %36 ]
-  %46 = and i64 %45, 3
-  switch i64 %46, label %default.unreachable66 [
-    i64 0, label %47
-    i64 1, label %59
-    i64 2, label %61
-    i64 3, label %61
+45:                                               ; preds = %._crit_edge, %37
+  %46 = phi i64 [ %.pre, %._crit_edge ], [ %.pre58, %37 ]
+  %47 = and i64 %46, 3
+  switch i64 %47, label %default.unreachable66 [
+    i64 0, label %48
+    i64 1, label %60
+    i64 2, label %62
+    i64 3, label %62
   ]
 
-47:                                               ; preds = %44
-  %48 = load i32, ptr @hf_http3_stream_bidi, align 4
-  %49 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %48, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %50 = load i32, ptr @ett_http3_stream_bidi, align 4
-  %51 = tail call ptr @proto_item_add_subtree(ptr noundef %49, i32 noundef %50)
-  %52 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
-  %.not2.i = icmp eq i32 %52, 0
+48:                                               ; preds = %45
+  %49 = load i32, ptr @hf_http3_stream_bidi, align 4
+  %50 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %49, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %51 = load i32, ptr @ett_http3_stream_bidi, align 4
+  %52 = tail call ptr @proto_item_add_subtree(ptr noundef %50, i32 noundef %51)
+  %53 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef 0)
+  %.not2.i = icmp eq i32 %53, 0
   br i1 %.not2.i, label %dissect_http3_client_bidi_stream.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %47, %56
-  %.0173.i = phi i32 [ %57, %56 ], [ 0, %47 ]
-  %53 = tail call fastcc zeroext i1 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.0173.i)
-  br i1 %53, label %56, label %54
+.lr.ph.i:                                         ; preds = %48, %57
+  %.0173.i = phi i32 [ %58, %57 ], [ 0, %48 ]
+  %54 = tail call fastcc zeroext i1 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.0173.i)
+  br i1 %54, label %57, label %55
 
-54:                                               ; preds = %.lr.ph.i
-  %55 = tail call i32 @tvb_captured_length(ptr noundef %0)
+55:                                               ; preds = %.lr.ph.i
+  %56 = tail call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_http3_client_bidi_stream.exit
 
-56:                                               ; preds = %.lr.ph.i
-  %57 = tail call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %51, i32 noundef %.0173.i, ptr noundef readonly %.0)
-  %58 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %57)
-  %.not.i = icmp eq i32 %58, 0
+57:                                               ; preds = %.lr.ph.i
+  %58 = tail call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %52, i32 noundef %.0173.i, ptr noundef readonly %.0)
+  %59 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %58)
+  %.not.i = icmp eq i32 %59, 0
   br i1 %.not.i, label %dissect_http3_client_bidi_stream.exit, label %.lr.ph.i, !llvm.loop !6
 
-59:                                               ; preds = %44
-  %60 = tail call i32 @tvb_captured_length(ptr noundef %0)
-  br label %187
+60:                                               ; preds = %45
+  %61 = tail call i32 @tvb_captured_length(ptr noundef %0)
+  br label %188
 
-61:                                               ; preds = %44, %44
+62:                                               ; preds = %45, %45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %62 = load i32, ptr @hf_http3_stream_uni, align 4
-  %63 = tail call ptr @proto_tree_add_item(ptr noundef %27, i32 noundef %62, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  %64 = load i32, ptr @ett_http3_stream_uni, align 4
-  %65 = tail call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %64)
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %67 = load i32, ptr %66, align 8
-  %68 = icmp eq i32 %67, 0
-  br i1 %68, label %69, label %84
+  %63 = load i32, ptr @hf_http3_stream_uni, align 4
+  %64 = tail call ptr @proto_tree_add_item(ptr noundef %28, i32 noundef %63, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  %65 = load i32, ptr @ett_http3_stream_uni, align 4
+  %66 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65)
+  %67 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %68 = load i32, ptr %67, align 8
+  %69 = icmp eq i32 %68, 0
+  br i1 %69, label %70, label %85
 
-69:                                               ; preds = %61
-  %70 = load i32, ptr @hf_http3_stream_uni_type, align 4
-  %71 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %65, i32 noundef %70, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %72 = load i32, ptr %7, align 4
-  %73 = load i64, ptr %6, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  store i64 %73, ptr %74, align 8
-  %75 = add i64 %73, -33
-  %76 = urem i64 %75, 31
-  %77 = icmp eq i64 %76, 0
-  br i1 %77, label %78, label %79
+70:                                               ; preds = %62
+  %71 = load i32, ptr @hf_http3_stream_uni_type, align 4
+  %72 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %66, i32 noundef %71, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 4, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %73 = load i32, ptr %7, align 4
+  %74 = load i64, ptr %6, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  store i64 %74, ptr %75, align 8
+  %76 = add i64 %74, -33
+  %77 = urem i64 %76, 31
+  %78 = icmp eq i64 %77, 0
+  br i1 %78, label %79, label %80
 
-78:                                               ; preds = %69
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %71, ptr noundef nonnull @.str.143, i64 noundef %73)
-  br label %81
+79:                                               ; preds = %70
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %72, ptr noundef nonnull @.str.143, i64 noundef %74)
+  br label %82
 
-79:                                               ; preds = %69
-  %80 = call ptr @val64_to_str(i64 noundef %73, ptr noundef nonnull @http3_stream_types, ptr noundef nonnull @.str.136)
-  br label %81
+80:                                               ; preds = %70
+  %81 = call ptr @val64_to_str(i64 noundef %74, ptr noundef nonnull @http3_stream_types, ptr noundef nonnull @.str.136)
+  br label %82
 
-81:                                               ; preds = %79, %78
-  %.0.i57 = phi ptr [ @.str.135, %78 ], [ %80, %79 ]
-  %82 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %83 = load i64, ptr %82, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %63, ptr noundef nonnull @.str.144, ptr noundef %.0.i57, i64 noundef %83)
+82:                                               ; preds = %80, %79
+  %.0.i57 = phi ptr [ @.str.135, %79 ], [ %81, %80 ]
+  %83 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %84 = load i64, ptr %83, align 8
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %64, ptr noundef nonnull @.str.144, ptr noundef %.0.i57, i64 noundef %84)
   %.pr.i = load i64, ptr %6, align 8
-  br label %87
+  br label %88
 
-84:                                               ; preds = %61
-  %85 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %86 = load i64, ptr %85, align 8
-  store i64 %86, ptr %6, align 8
-  br label %87
+85:                                               ; preds = %62
+  %86 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %87 = load i64, ptr %86, align 8
+  store i64 %87, ptr %6, align 8
+  br label %88
 
-87:                                               ; preds = %84, %81
-  %88 = phi i64 [ %86, %84 ], [ %.pr.i, %81 ]
-  %.053.i = phi i32 [ 0, %84 ], [ %72, %81 ]
-  switch i64 %88, label %167 [
+88:                                               ; preds = %85, %82
+  %89 = phi i64 [ %87, %85 ], [ %.pr.i, %82 ]
+  %.053.i = phi i32 [ 0, %85 ], [ %73, %82 ]
+  switch i64 %89, label %168 [
     i64 0, label %.preheader.i
-    i64 1, label %96
-    i64 2, label %102
-    i64 3, label %163
-    i64 84, label %165
+    i64 1, label %97
+    i64 2, label %103
+    i64 3, label %164
+    i64 84, label %166
   ]
 
-.preheader.i:                                     ; preds = %87
-  %89 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.053.i)
-  %.not57.i = icmp eq i32 %89, 0
+.preheader.i:                                     ; preds = %88
+  %90 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.053.i)
+  %.not57.i = icmp eq i32 %90, 0
   br i1 %.not57.i, label %dissect_http3_uni_stream.exit, label %.lr.ph.i55
 
-.lr.ph.i55:                                       ; preds = %.preheader.i, %93
-  %.158.i = phi i32 [ %94, %93 ], [ %.053.i, %.preheader.i ]
-  %90 = call fastcc zeroext i1 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.158.i)
-  br i1 %90, label %93, label %91
+.lr.ph.i55:                                       ; preds = %.preheader.i, %94
+  %.158.i = phi i32 [ %95, %94 ], [ %.053.i, %.preheader.i ]
+  %91 = call fastcc zeroext i1 @http3_check_frame_size(ptr noundef %0, ptr noundef %1, i32 noundef %.158.i)
+  br i1 %91, label %94, label %92
 
-91:                                               ; preds = %.lr.ph.i55
-  %92 = call i32 @tvb_captured_length(ptr noundef %0)
+92:                                               ; preds = %.lr.ph.i55
+  %93 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_http3_uni_stream.exit
 
-93:                                               ; preds = %.lr.ph.i55
-  %94 = call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %65, i32 noundef %.158.i, ptr noundef %.0)
-  %95 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %94)
-  %.not.i56 = icmp eq i32 %95, 0
+94:                                               ; preds = %.lr.ph.i55
+  %95 = call fastcc i32 @dissect_http3_frame(ptr noundef %0, ptr noundef %1, ptr noundef %66, i32 noundef %.158.i, ptr noundef %.0)
+  %96 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %95)
+  %.not.i56 = icmp eq i32 %96, 0
   br i1 %.not.i56, label %dissect_http3_uni_stream.exit, label %.lr.ph.i55, !llvm.loop !8
 
-96:                                               ; preds = %87
-  %97 = load i32, ptr %66, align 8
-  %98 = icmp eq i32 %97, 0
-  br i1 %98, label %99, label %dissect_http3_uni_stream.exit
+97:                                               ; preds = %88
+  %98 = load i32, ptr %67, align 8
+  %99 = icmp eq i32 %98, 0
+  br i1 %99, label %100, label %dissect_http3_uni_stream.exit
 
-99:                                               ; preds = %96
-  %100 = load i32, ptr @hf_http3_push_id, align 4
-  %101 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %65, i32 noundef %100, ptr noundef %0, i32 noundef %.053.i, i32 noundef -1, i32 noundef 4, ptr noundef null, ptr noundef nonnull %7)
+100:                                              ; preds = %97
+  %101 = load i32, ptr @hf_http3_push_id, align 4
+  %102 = call ptr @proto_tree_add_item_ret_varint(ptr noundef %66, i32 noundef %101, ptr noundef %0, i32 noundef %.053.i, i32 noundef -1, i32 noundef 4, ptr noundef null, ptr noundef nonnull %7)
   br label %dissect_http3_uni_stream.exit
 
-102:                                              ; preds = %87
-  %103 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.053.i)
-  %104 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.053.i)
-  %105 = icmp eq i32 %103, %104
-  br i1 %105, label %107, label %106
+103:                                              ; preds = %88
+  %104 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %.053.i)
+  %105 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.053.i)
+  %106 = icmp eq i32 %104, %105
+  br i1 %106, label %108, label %107
 
-106:                                              ; preds = %102
+107:                                              ; preds = %103
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.132, i32 noundef 1823, ptr noundef nonnull @.str.146) #15
   unreachable
 
-107:                                              ; preds = %102
+108:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
-  %108 = call zeroext i1 @quic_conn_data_get_conn_client_dcid_initial(ptr noundef %1, ptr noundef nonnull %5)
-  br i1 %108, label %109, label %142
+  %109 = call zeroext i1 @quic_conn_data_get_conn_client_dcid_initial(ptr noundef %1, ptr noundef nonnull %5)
+  br i1 %109, label %110, label %143
 
-109:                                              ; preds = %107
-  %110 = load ptr, ptr @g_http3_file_local_ctx, align 8
-  %111 = icmp eq ptr %110, null
-  br i1 %111, label %112, label %http3_get_file_local_ctx.exit.i.i.i
+110:                                              ; preds = %108
+  %111 = load ptr, ptr @g_http3_file_local_ctx, align 8
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %113, label %http3_get_file_local_ctx.exit.i.i.i
 
-112:                                              ; preds = %109
-  %113 = call ptr @wmem_file_scope()
-  %114 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %113, i64 noundef 8) #14
-  store ptr %114, ptr @g_http3_file_local_ctx, align 8
-  %115 = call ptr @wmem_file_scope()
-  %116 = call noalias ptr @wmem_map_new(ptr noundef %115, ptr noundef nonnull @http3_conn_info_hash, ptr noundef nonnull @http3_conn_info_equal)
-  %117 = load ptr, ptr @g_http3_file_local_ctx, align 8
-  store ptr %116, ptr %117, align 8
-  %118 = call ptr @wmem_file_scope()
-  %119 = call i32 @wmem_register_callback(ptr noundef %118, ptr noundef nonnull @http3_file_local_ctx_del_cb, ptr noundef null)
+113:                                              ; preds = %110
+  %114 = call ptr @wmem_file_scope()
+  %115 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %114, i64 noundef 8) #14
+  store ptr %115, ptr @g_http3_file_local_ctx, align 8
+  %116 = call ptr @wmem_file_scope()
+  %117 = call noalias ptr @wmem_map_new(ptr noundef %116, ptr noundef nonnull @http3_conn_info_hash, ptr noundef nonnull @http3_conn_info_equal)
+  %118 = load ptr, ptr @g_http3_file_local_ctx, align 8
+  store ptr %117, ptr %118, align 8
+  %119 = call ptr @wmem_file_scope()
+  %120 = call i32 @wmem_register_callback(ptr noundef %119, ptr noundef nonnull @http3_file_local_ctx_del_cb, ptr noundef null)
   %.pre.i.i.i.i = load ptr, ptr @g_http3_file_local_ctx, align 8
   br label %http3_get_file_local_ctx.exit.i.i.i
 
-http3_get_file_local_ctx.exit.i.i.i:              ; preds = %112, %109
-  %120 = phi ptr [ %.pre.i.i.i.i, %112 ], [ %110, %109 ]
-  %121 = load ptr, ptr %120, align 8
-  %122 = call ptr @wmem_map_lookup(ptr noundef %121, ptr noundef nonnull %5)
-  %123 = icmp eq ptr %122, null
-  br i1 %123, label %124, label %http3_session_lookup_or_create.exit.thread.i.i
+http3_get_file_local_ctx.exit.i.i.i:              ; preds = %113, %110
+  %121 = phi ptr [ %.pre.i.i.i.i, %113 ], [ %111, %110 ]
+  %122 = load ptr, ptr %121, align 8
+  %123 = call ptr @wmem_map_lookup(ptr noundef %122, ptr noundef nonnull %5)
+  %124 = icmp eq ptr %123, null
+  br i1 %124, label %125, label %http3_session_lookup_or_create.exit.thread.i.i
 
-124:                                              ; preds = %http3_get_file_local_ctx.exit.i.i.i
-  %125 = call ptr @wmem_file_scope()
-  %126 = call dereferenceable_or_null(56) ptr @wmem_memdup(ptr noundef %125, ptr noundef nonnull %5, i64 noundef 56) #16
-  %127 = call ptr @wmem_file_scope()
-  %128 = call noalias noundef dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %127, i64 noundef 24) #14
-  %129 = load ptr, ptr @g_http3_file_local_ctx, align 8
-  %130 = icmp eq ptr %129, null
-  br i1 %130, label %131, label %http3_get_file_local_ctx.exit13.i.i.i
+125:                                              ; preds = %http3_get_file_local_ctx.exit.i.i.i
+  %126 = call ptr @wmem_file_scope()
+  %127 = call dereferenceable_or_null(56) ptr @wmem_memdup(ptr noundef %126, ptr noundef nonnull %5, i64 noundef 56) #16
+  %128 = call ptr @wmem_file_scope()
+  %129 = call noalias noundef dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %128, i64 noundef 24) #14
+  %130 = load ptr, ptr @g_http3_file_local_ctx, align 8
+  %131 = icmp eq ptr %130, null
+  br i1 %131, label %132, label %http3_get_file_local_ctx.exit13.i.i.i
 
-131:                                              ; preds = %124
-  %132 = call ptr @wmem_file_scope()
-  %133 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %132, i64 noundef 8) #14
-  store ptr %133, ptr @g_http3_file_local_ctx, align 8
-  %134 = call ptr @wmem_file_scope()
-  %135 = call noalias ptr @wmem_map_new(ptr noundef %134, ptr noundef nonnull @http3_conn_info_hash, ptr noundef nonnull @http3_conn_info_equal)
-  %136 = load ptr, ptr @g_http3_file_local_ctx, align 8
-  store ptr %135, ptr %136, align 8
-  %137 = call ptr @wmem_file_scope()
-  %138 = call i32 @wmem_register_callback(ptr noundef %137, ptr noundef nonnull @http3_file_local_ctx_del_cb, ptr noundef null)
+132:                                              ; preds = %125
+  %133 = call ptr @wmem_file_scope()
+  %134 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %133, i64 noundef 8) #14
+  store ptr %134, ptr @g_http3_file_local_ctx, align 8
+  %135 = call ptr @wmem_file_scope()
+  %136 = call noalias ptr @wmem_map_new(ptr noundef %135, ptr noundef nonnull @http3_conn_info_hash, ptr noundef nonnull @http3_conn_info_equal)
+  %137 = load ptr, ptr @g_http3_file_local_ctx, align 8
+  store ptr %136, ptr %137, align 8
+  %138 = call ptr @wmem_file_scope()
+  %139 = call i32 @wmem_register_callback(ptr noundef %138, ptr noundef nonnull @http3_file_local_ctx_del_cb, ptr noundef null)
   %.pre.i12.i.i.i = load ptr, ptr @g_http3_file_local_ctx, align 8
   br label %http3_get_file_local_ctx.exit13.i.i.i
 
-http3_get_file_local_ctx.exit13.i.i.i:            ; preds = %131, %124
-  %139 = phi ptr [ %.pre.i12.i.i.i, %131 ], [ %129, %124 ]
-  %140 = load ptr, ptr %139, align 8
-  %141 = call ptr @wmem_map_insert(ptr noundef %140, ptr noundef %126, ptr noundef %128)
+http3_get_file_local_ctx.exit13.i.i.i:            ; preds = %132, %125
+  %140 = phi ptr [ %.pre.i12.i.i.i, %132 ], [ %130, %125 ]
+  %141 = load ptr, ptr %140, align 8
+  %142 = call ptr @wmem_map_insert(ptr noundef %141, ptr noundef %127, ptr noundef %129)
   br label %http3_session_lookup_or_create.exit.i.i
 
-142:                                              ; preds = %107
-  %143 = call ptr @find_or_create_conversation(ptr noundef %1)
-  %144 = load i32, ptr @proto_http3, align 4
-  %145 = call ptr @conversation_get_proto_data(ptr noundef %143, i32 noundef %144)
-  %146 = icmp eq ptr %145, null
-  br i1 %146, label %147, label %http3_session_lookup_or_create.exit.thread.i.i
+143:                                              ; preds = %108
+  %144 = call ptr @find_or_create_conversation(ptr noundef %1)
+  %145 = load i32, ptr @proto_http3, align 4
+  %146 = call ptr @conversation_get_proto_data(ptr noundef %144, i32 noundef %145)
+  %147 = icmp eq ptr %146, null
+  br i1 %147, label %148, label %http3_session_lookup_or_create.exit.thread.i.i
 
-147:                                              ; preds = %142
-  %148 = call ptr @wmem_file_scope()
-  %149 = call noalias noundef dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %148, i64 noundef 24) #14
-  %150 = load i32, ptr @proto_http3, align 4
-  call void @conversation_add_proto_data(ptr noundef %143, i32 noundef %150, ptr noundef %149)
+148:                                              ; preds = %143
+  %149 = call ptr @wmem_file_scope()
+  %150 = call noalias noundef dereferenceable_or_null(24) ptr @wmem_alloc0(ptr noundef %149, i64 noundef 24) #14
+  %151 = load i32, ptr @proto_http3, align 4
+  call void @conversation_add_proto_data(ptr noundef %144, i32 noundef %151, ptr noundef %150)
   br label %http3_session_lookup_or_create.exit.i.i
 
-http3_session_lookup_or_create.exit.thread.i.i:   ; preds = %142, %http3_get_file_local_ctx.exit.i.i.i
+http3_session_lookup_or_create.exit.thread.i.i:   ; preds = %143, %http3_get_file_local_ctx.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %152
+  br label %153
 
-http3_session_lookup_or_create.exit.i.i:          ; preds = %147, %http3_get_file_local_ctx.exit13.i.i.i
-  %.0.i.i.i = phi ptr [ %128, %http3_get_file_local_ctx.exit13.i.i.i ], [ %149, %147 ]
+http3_session_lookup_or_create.exit.i.i:          ; preds = %148, %http3_get_file_local_ctx.exit13.i.i.i
+  %.0.i.i.i = phi ptr [ %129, %http3_get_file_local_ctx.exit13.i.i.i ], [ %150, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i, label %151, label %152
+  br i1 %.not.i.i, label %152, label %153
 
-151:                                              ; preds = %http3_session_lookup_or_create.exit.i.i
+152:                                              ; preds = %http3_session_lookup_or_create.exit.i.i
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.145, ptr noundef nonnull @.str.132, i32 noundef 1827, ptr noundef nonnull @.str.147) #15
   unreachable
 
-152:                                              ; preds = %http3_session_lookup_or_create.exit.i.i, %http3_session_lookup_or_create.exit.thread.i.i
-  %153 = load i32, ptr @hf_http3_qpack_encoder, align 4
-  %154 = call ptr @proto_tree_add_item(ptr noundef %65, i32 noundef %153, ptr noundef %0, i32 noundef %.053.i, i32 noundef %103, i32 noundef 0)
-  %155 = load i32, ptr @ett_http3_qpack_update, align 4
-  %156 = call ptr @proto_item_add_subtree(ptr noundef %154, i32 noundef %155)
-  %157 = call fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, ptr noundef %1, ptr noundef %156, i32 noundef %.053.i)
-  %158 = icmp slt i32 %157, %103
-  br i1 %158, label %159, label %dissect_http3_uni_stream.exit
+153:                                              ; preds = %http3_session_lookup_or_create.exit.i.i, %http3_session_lookup_or_create.exit.thread.i.i
+  %154 = load i32, ptr @hf_http3_qpack_encoder, align 4
+  %155 = call ptr @proto_tree_add_item(ptr noundef %66, i32 noundef %154, ptr noundef %0, i32 noundef %.053.i, i32 noundef %104, i32 noundef 0)
+  %156 = load i32, ptr @ett_http3_qpack_update, align 4
+  %157 = call ptr @proto_item_add_subtree(ptr noundef %155, i32 noundef %156)
+  %158 = call fastcc i32 @dissect_http3_qpack_encoder_stream(ptr noundef %0, ptr noundef %1, ptr noundef %157, i32 noundef %.053.i)
+  %159 = icmp slt i32 %158, %104
+  br i1 %159, label %160, label %dissect_http3_uni_stream.exit
 
-159:                                              ; preds = %152
-  %160 = add i32 %157, %.053.i
-  %161 = getelementptr inbounds nuw i8, ptr %1, i64 332
-  store i32 %160, ptr %161, align 4
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  store i32 268435455, ptr %162, align 8
+160:                                              ; preds = %153
+  %161 = add i32 %158, %.053.i
+  %162 = getelementptr inbounds nuw i8, ptr %1, i64 332
+  store i32 %161, ptr %162, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  store i32 268435455, ptr %163, align 8
   br label %dissect_http3_uni_stream.exit
 
-163:                                              ; preds = %87
-  %164 = call i32 @tvb_captured_length(ptr noundef %0)
+164:                                              ; preds = %88
+  %165 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_http3_uni_stream.exit
 
-165:                                              ; preds = %87
-  %166 = call i32 @tvb_captured_length(ptr noundef %0)
+166:                                              ; preds = %88
+  %167 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_http3_uni_stream.exit
 
-167:                                              ; preds = %87
-  %168 = add i64 %88, -33
-  %169 = urem i64 %168, 31
-  %170 = icmp eq i64 %169, 0
-  br i1 %170, label %184, label %171
+168:                                              ; preds = %88
+  %169 = add i64 %89, -33
+  %170 = urem i64 %169, 31
+  %171 = icmp eq i64 %170, 0
+  br i1 %171, label %185, label %172
 
-171:                                              ; preds = %167
-  %172 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %173 = load ptr, ptr %172, align 8
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 57
-  %175 = load i16, ptr %174, align 1
-  %176 = and i16 %175, 8
-  %.not54.i = icmp eq i16 %176, 0
-  br i1 %.not54.i, label %177, label %181
+172:                                              ; preds = %168
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %174 = load ptr, ptr %173, align 8
+  %175 = getelementptr inbounds nuw i8, ptr %174, i64 57
+  %176 = load i16, ptr %175, align 1
+  %177 = and i16 %176, 8
+  %.not54.i = icmp eq i16 %177, 0
+  br i1 %.not54.i, label %178, label %182
 
-177:                                              ; preds = %171
-  %178 = load i32, ptr %66, align 8
-  %179 = add i32 %178, %.053.i
-  %180 = zext i32 %179 to i64
-  store i64 %180, ptr %34, align 8
-  br label %181
+178:                                              ; preds = %172
+  %179 = load i32, ptr %67, align 8
+  %180 = add i32 %179, %.053.i
+  %181 = zext i32 %180 to i64
+  store i64 %181, ptr %35, align 8
+  br label %182
 
-181:                                              ; preds = %177, %171
+182:                                              ; preds = %178, %172
   %.val.i = load i64, ptr %3, align 8
-  %182 = getelementptr i8, ptr %.0, i64 8
-  %.val55.i = load i64, ptr %182, align 8
-  %183 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %65, ptr noundef %1, ptr noundef nonnull @ei_http3_unknown_stream_type, ptr noundef %0, i32 noundef %.053.i, i32 noundef 0, ptr noundef nonnull @.str.133, i64 noundef %.val55.i, i64 noundef %.val.i)
-  br label %184
+  %183 = getelementptr i8, ptr %.0, i64 8
+  %.val55.i = load i64, ptr %183, align 8
+  %184 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %66, ptr noundef %1, ptr noundef nonnull @ei_http3_unknown_stream_type, ptr noundef %0, i32 noundef %.053.i, i32 noundef 0, ptr noundef nonnull @.str.133, i64 noundef %.val55.i, i64 noundef %.val.i)
+  br label %185
 
-184:                                              ; preds = %181, %167
-  %185 = call i32 @tvb_captured_length(ptr noundef %0)
+185:                                              ; preds = %182, %168
+  %186 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %dissect_http3_uni_stream.exit
 
-dissect_http3_uni_stream.exit:                    ; preds = %93, %.preheader.i, %91, %96, %99, %152, %159, %163, %165, %184
+dissect_http3_uni_stream.exit:                    ; preds = %94, %.preheader.i, %92, %97, %100, %153, %160, %164, %166, %185
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %dissect_http3_client_bidi_stream.exit
 
-dissect_http3_client_bidi_stream.exit:            ; preds = %56, %54, %47, %dissect_http3_uni_stream.exit
-  %186 = call i32 @tvb_captured_length(ptr noundef %0)
-  br label %187
+dissect_http3_client_bidi_stream.exit:            ; preds = %57, %55, %48, %dissect_http3_uni_stream.exit
+  %187 = call i32 @tvb_captured_length(ptr noundef %0)
+  br label %188
 
-187:                                              ; preds = %4, %dissect_http3_client_bidi_stream.exit, %59, %40, %13
-  %.048 = phi i32 [ %43, %40 ], [ %186, %dissect_http3_client_bidi_stream.exit ], [ %60, %59 ], [ %14, %13 ], [ 0, %4 ]
+188:                                              ; preds = %4, %dissect_http3_client_bidi_stream.exit, %60, %41, %14
+  %.048 = phi i32 [ %44, %41 ], [ %187, %dissect_http3_client_bidi_stream.exit ], [ %61, %60 ], [ %15, %14 ], [ 0, %4 ]
   ret i32 %.048
 }
 

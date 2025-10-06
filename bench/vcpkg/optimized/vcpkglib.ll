@@ -4357,20 +4357,20 @@ _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62:   ; preds = %.lr.ph.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !15
   switch i8 %23, label %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61 [
-    i8 32, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit119
-    i8 13, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit119
-    i8 9, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit119
-    i8 10, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit119
+    i8 32, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit118
+    i8 13, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit118
+    i8 9, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit118
+    i8 10, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit118
   ]
 
 _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61:   ; preds = %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62
   %24 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   %25 = load i8, ptr %24, align 1, !tbaa !15
   switch i8 %25, label %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit60 [
-    i8 32, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit117
-    i8 13, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit117
-    i8 9, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit117
-    i8 10, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit117
+    i8 32, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit116
+    i8 13, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit116
+    i8 9, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit116
+    i8 10, label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit116
   ]
 
 _ZN5vcpkg10ParserBase13is_whitespaceEDi.exit60:   ; preds = %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61
@@ -4447,16 +4447,16 @@ _ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit: ; preds = %_ZN
   %40 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 3
   br label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit
 
-_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit117: ; preds = %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61
+_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit116: ; preds = %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit61
   %41 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 2
   br label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit
 
-_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit119: ; preds = %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62
+_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit118: ; preds = %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit62
   %42 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i, i64 1
   br label %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit
 
-_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit:          ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit117, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit119, %35, %35, %35, %35, %32, %32, %32, %32, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit.thread, %38, %._crit_edge.i.i.i
-  %.028.i.i.i = phi ptr [ %.2.i.i.i, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit.thread ], [ %14, %38 ], [ %14, %._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %32 ], [ %.029.lcssa.i.i.i, %32 ], [ %.029.lcssa.i.i.i, %32 ], [ %.029.lcssa.i.i.i, %32 ], [ %.1.i.i.i, %35 ], [ %.1.i.i.i, %35 ], [ %.1.i.i.i, %35 ], [ %.1.i.i.i, %35 ], [ %40, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %41, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit117 ], [ %42, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit119 ], [ %.02946.i.i.i, %.lr.ph.i.i.i ], [ %.02946.i.i.i, %.lr.ph.i.i.i ], [ %.02946.i.i.i, %.lr.ph.i.i.i ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
+_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit:          ; preds = %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %.lr.ph.i.i.i, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit116, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit118, %35, %35, %35, %35, %32, %32, %32, %32, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit.thread, %38, %._crit_edge.i.i.i
+  %.028.i.i.i = phi ptr [ %.2.i.i.i, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit.thread ], [ %14, %38 ], [ %14, %._crit_edge.i.i.i ], [ %.029.lcssa.i.i.i, %32 ], [ %.029.lcssa.i.i.i, %32 ], [ %.029.lcssa.i.i.i, %32 ], [ %.029.lcssa.i.i.i, %32 ], [ %.1.i.i.i, %35 ], [ %.1.i.i.i, %35 ], [ %.1.i.i.i, %35 ], [ %.1.i.i.i, %35 ], [ %40, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %41, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit116 ], [ %42, %_ZSt7find_ifIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit118 ], [ %.02946.i.i.i, %.lr.ph.i.i.i ], [ %.02946.i.i.i, %.lr.ph.i.i.i ], [ %.02946.i.i.i, %.lr.ph.i.i.i ], [ %.02946.i.i.i, %.lr.ph.i.i.i ]
   %43 = load i64, ptr %13, align 8, !tbaa !93
   %44 = ptrtoint ptr %.028.i.i.i to i64
   %45 = sub i64 %44, %16
@@ -4515,7 +4515,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 
 .lr.ph.i.i.i36.preheader:                         ; preds = %61
   %71 = and i64 %68, -4
-  %scevgep101 = getelementptr i8, ptr %66, i64 %71
+  %scevgep100 = getelementptr i8, ptr %66, i64 %71
   br label %.lr.ph.i.i.i36
 
 .lr.ph.i.i.i36:                                   ; preds = %.lr.ph.i.i.i36.preheader, %82
@@ -4532,7 +4532,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 73:                                               ; preds = %.lr.ph.i.i.i36, %.lr.ph.i.i.i36, %.lr.ph.i.i.i36, %.lr.ph.i.i.i36
   %74 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i38, i64 1
   %75 = load i8, ptr %74, align 1, !tbaa !15
-  switch i8 %75, label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit127 [
+  switch i8 %75, label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit126 [
     i8 32, label %76
     i8 13, label %76
     i8 9, label %76
@@ -4542,7 +4542,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
 76:                                               ; preds = %73, %73, %73, %73
   %77 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i38, i64 2
   %78 = load i8, ptr %77, align 1, !tbaa !15
-  switch i8 %78, label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit125 [
+  switch i8 %78, label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit124 [
     i8 32, label %79
     i8 13, label %79
     i8 9, label %79
@@ -4566,12 +4566,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; pred
   br i1 %85, label %.lr.ph.i.i.i36, label %._crit_edge.loopexit.i.i.i39, !llvm.loop !210
 
 ._crit_edge.loopexit.i.i.i39:                     ; preds = %82
-  %.pre.i.i.i40 = ptrtoint ptr %scevgep101 to i64
+  %.pre.i.i.i40 = ptrtoint ptr %scevgep100 to i64
   br label %._crit_edge.i.i.i30
 
 ._crit_edge.i.i.i30:                              ; preds = %._crit_edge.loopexit.i.i.i39, %61
   %.pre-phi.i.i.i31 = phi i64 [ %.pre.i.i.i40, %._crit_edge.loopexit.i.i.i39 ], [ %67, %61 ]
-  %.029.lcssa.i.i.i32 = phi ptr [ %scevgep101, %._crit_edge.loopexit.i.i.i39 ], [ %66, %61 ]
+  %.029.lcssa.i.i.i32 = phi ptr [ %scevgep100, %._crit_edge.loopexit.i.i.i39 ], [ %66, %61 ]
   %86 = sub i64 %15, %.pre-phi.i.i.i31
   switch i64 %86, label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.backedge [
     i64 3, label %87
@@ -4623,15 +4623,15 @@ _ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit: ; preds =
   %97 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i38, i64 3
   br label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.backedge
 
-_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.backedge: ; preds = %.lr.ph.i.i.i36, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit125, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit127, %87, %91, %95, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit63.thread, %._crit_edge.i.i.i30
-  %.022.be = phi ptr [ %.029.lcssa.i.i.i32, %87 ], [ %.1.i.i.i35, %91 ], [ %.2.i.i.i33, %95 ], [ %14, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit63.thread ], [ %14, %._crit_edge.i.i.i30 ], [ %97, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %98, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit125 ], [ %99, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit127 ], [ %.02946.i.i.i38, %.lr.ph.i.i.i36 ]
+_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.backedge: ; preds = %.lr.ph.i.i.i36, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit124, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit126, %87, %91, %95, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit63.thread, %._crit_edge.i.i.i30
+  %.022.be = phi ptr [ %.029.lcssa.i.i.i32, %87 ], [ %.1.i.i.i35, %91 ], [ %.2.i.i.i33, %95 ], [ %14, %_ZN5vcpkg10ParserBase13is_whitespaceEDi.exit63.thread ], [ %14, %._crit_edge.i.i.i30 ], [ %97, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit ], [ %98, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit124 ], [ %99, %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit126 ], [ %.02946.i.i.i38, %.lr.ph.i.i.i36 ]
   br label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit
 
-_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit125: ; preds = %76
+_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit124: ; preds = %76
   %98 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i38, i64 2
   br label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.backedge
 
-_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit127: ; preds = %73
+_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.loopexit.split.loop.exit126: ; preds = %73
   %99 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i38, i64 1
   br label %_ZSt11find_if_notIPKcPFbDiEET_S4_S4_T0_.exit.backedge
 

@@ -19788,26 +19788,26 @@ define noundef zeroext i1 @_ZNK5osgeo4proj9operation10Conversion5isUTMERiRb(ptr 
   %10 = load ptr, ptr %9, align 8, !tbaa !36
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !36
-  %.not75 = icmp eq ptr %10, %12
-  br i1 %.not75, label %.thread72, label %.lr.ph.outer
+  %.not74 = icmp eq ptr %10, %12
+  br i1 %.not74, label %.thread72, label %.lr.ph.outer
 
 .lr.ph.outer:                                     ; preds = %8, %.thread.thread
-  %.05180.ph = phi i1 [ true, %.thread.thread ], [ false, %8 ]
-  %.05379.ph = phi i1 [ %.05379, %.thread.thread ], [ false, %8 ]
-  %.05778.ph = phi i1 [ %.05778, %.thread.thread ], [ false, %8 ]
-  %.06177.ph = phi i1 [ %.06177, %.thread.thread ], [ false, %8 ]
-  %.sroa.068.076.ph = phi ptr [ %81, %.thread.thread ], [ %10, %8 ]
+  %.05179.ph = phi i1 [ true, %.thread.thread ], [ false, %8 ]
+  %.05378.ph = phi i1 [ %.05378, %.thread.thread ], [ false, %8 ]
+  %.05777.ph = phi i1 [ %.05777, %.thread.thread ], [ false, %8 ]
+  %.06176.ph = phi i1 [ %.06176, %.thread.thread ], [ false, %8 ]
+  %.sroa.068.075.ph = phi ptr [ %81, %.thread.thread ], [ %10, %8 ]
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.thread
-  br i1 %.05180.ph, label %._crit_edge.thread, label %.thread72
+  br i1 %.05179.ph, label %._crit_edge.thread, label %.thread72
 
 .lr.ph:                                           ; preds = %.lr.ph.outer, %.thread
-  %.05379 = phi i1 [ %.154, %.thread ], [ %.05379.ph, %.lr.ph.outer ]
-  %.05778 = phi i1 [ %.158, %.thread ], [ %.05778.ph, %.lr.ph.outer ]
-  %.06177 = phi i1 [ %.162, %.thread ], [ %.06177.ph, %.lr.ph.outer ]
-  %.sroa.068.076 = phi ptr [ %80, %.thread ], [ %.sroa.068.076.ph, %.lr.ph.outer ]
-  %13 = load ptr, ptr %.sroa.068.076, align 8, !tbaa !38
+  %.05378 = phi i1 [ %.154, %.thread ], [ %.05378.ph, %.lr.ph.outer ]
+  %.05777 = phi i1 [ %.158, %.thread ], [ %.05777.ph, %.lr.ph.outer ]
+  %.06176 = phi i1 [ %.162, %.thread ], [ %.06176.ph, %.lr.ph.outer ]
+  %.sroa.068.075 = phi ptr [ %80, %.thread ], [ %.sroa.068.075.ph, %.lr.ph.outer ]
+  %13 = load ptr, ptr %.sroa.068.075, align 8, !tbaa !38
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread, label %15
 
@@ -19932,27 +19932,27 @@ define noundef zeroext i1 @_ZNK5osgeo4proj9operation10Conversion5isUTMERiRb(ptr 
   br label %.thread
 
 .thread:                                          ; preds = %29, %15, %.lr.ph, %66, %59, %27, %18, %50, %63, %54, %36, %42, %47, %74, %79, %75, %67
-  %.162 = phi i1 [ %.06177, %18 ], [ true, %74 ], [ true, %79 ], [ %.06177, %75 ], [ %.06177, %67 ], [ %.06177, %66 ], [ %.06177, %47 ], [ %.06177, %42 ], [ %.06177, %36 ], [ %.06177, %54 ], [ %.06177, %63 ], [ %.06177, %59 ], [ %.06177, %50 ], [ %.06177, %27 ], [ %.06177, %.lr.ph ], [ %.06177, %15 ], [ %.06177, %29 ]
-  %.158 = phi i1 [ %.05778, %18 ], [ %.05778, %74 ], [ %.05778, %79 ], [ %.05778, %75 ], [ %.05778, %67 ], [ %.05778, %66 ], [ %.05778, %47 ], [ %.05778, %42 ], [ %.05778, %36 ], [ %.05778, %54 ], [ true, %63 ], [ %.05778, %59 ], [ %.05778, %50 ], [ %.05778, %27 ], [ %.05778, %.lr.ph ], [ %.05778, %15 ], [ %.05778, %29 ]
-  %.154 = phi i1 [ %.05379, %18 ], [ %.05379, %74 ], [ %.05379, %79 ], [ %.05379, %75 ], [ %.05379, %67 ], [ %.05379, %66 ], [ %.05379, %47 ], [ %.05379, %42 ], [ %.05379, %36 ], [ true, %54 ], [ %.05379, %63 ], [ %.05379, %59 ], [ %.05379, %50 ], [ %.05379, %27 ], [ %.05379, %.lr.ph ], [ %.05379, %15 ], [ %.05379, %29 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.068.076, i64 16
+  %.162 = phi i1 [ %.06176, %18 ], [ true, %74 ], [ true, %79 ], [ %.06176, %75 ], [ %.06176, %67 ], [ %.06176, %66 ], [ %.06176, %47 ], [ %.06176, %42 ], [ %.06176, %36 ], [ %.06176, %54 ], [ %.06176, %63 ], [ %.06176, %59 ], [ %.06176, %50 ], [ %.06176, %27 ], [ %.06176, %.lr.ph ], [ %.06176, %15 ], [ %.06176, %29 ]
+  %.158 = phi i1 [ %.05777, %18 ], [ %.05777, %74 ], [ %.05777, %79 ], [ %.05777, %75 ], [ %.05777, %67 ], [ %.05777, %66 ], [ %.05777, %47 ], [ %.05777, %42 ], [ %.05777, %36 ], [ %.05777, %54 ], [ true, %63 ], [ %.05777, %59 ], [ %.05777, %50 ], [ %.05777, %27 ], [ %.05777, %.lr.ph ], [ %.05777, %15 ], [ %.05777, %29 ]
+  %.154 = phi i1 [ %.05378, %18 ], [ %.05378, %74 ], [ %.05378, %79 ], [ %.05378, %75 ], [ %.05378, %67 ], [ %.05378, %66 ], [ %.05378, %47 ], [ %.05378, %42 ], [ %.05378, %36 ], [ true, %54 ], [ %.05378, %63 ], [ %.05378, %59 ], [ %.05378, %50 ], [ %.05378, %27 ], [ %.05378, %.lr.ph ], [ %.05378, %15 ], [ %.05378, %29 ]
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.068.075, i64 16
   %.not = icmp eq ptr %80, %12
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .thread.thread:                                   ; preds = %29
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.068.076, i64 16
-  %.not92 = icmp eq ptr %81, %12
-  br i1 %.not92, label %._crit_edge.thread, label %.lr.ph.outer
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.068.075, i64 16
+  %.not91 = icmp eq ptr %81, %12
+  br i1 %.not91, label %._crit_edge.thread, label %.lr.ph.outer
 
 ._crit_edge.thread:                               ; preds = %.thread.thread, %._crit_edge
-  %.16293103 = phi i1 [ %.162, %._crit_edge ], [ %.06177, %.thread.thread ]
-  %.15894102 = phi i1 [ %.158, %._crit_edge ], [ %.05778, %.thread.thread ]
-  %.15495101 = phi i1 [ %.154, %._crit_edge ], [ %.05379, %.thread.thread ]
+  %.16292102 = phi i1 [ %.162, %._crit_edge ], [ %.06176, %.thread.thread ]
+  %.15893101 = phi i1 [ %.158, %._crit_edge ], [ %.05777, %.thread.thread ]
+  %.15494100 = phi i1 [ %.154, %._crit_edge ], [ %.05378, %.thread.thread ]
   %82 = load i32, ptr %1, align 4, !tbaa !22
   %83 = icmp sgt i32 %82, 0
-  %or.cond5 = select i1 %83, i1 %.15495101, i1 false
-  %or.cond7 = select i1 %or.cond5, i1 %.15894102, i1 false
-  %or.cond9 = select i1 %or.cond7, i1 %.16293103, i1 false
+  %or.cond5 = select i1 %83, i1 %.15494100, i1 false
+  %or.cond7 = select i1 %or.cond5, i1 %.15893101, i1 false
+  %or.cond9 = select i1 %or.cond7, i1 %.16292102, i1 false
   br i1 %or.cond9, label %84, label %.thread72
 
 .thread72:                                        ; preds = %8, %._crit_edge, %._crit_edge.thread

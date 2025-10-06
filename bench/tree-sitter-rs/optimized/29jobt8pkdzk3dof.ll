@@ -308,10 +308,10 @@ _ZN4core3ptr7replace17hd13043bdc384bd0bE.exit:    ; preds = %14
   br label %.outer
 
 .lr.ph:                                           ; preds = %25, %43
-  %.sroa.033.054 = phi i64 [ %44, %43 ], [ 1, %25 ]
-  %28 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %11, i64 %.sroa.033.054
+  %.sroa.033.053 = phi i64 [ %44, %43 ], [ 1, %25 ]
+  %28 = getelementptr inbounds { { { i64, [6 x i64] }, { { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, { ptr, i64 }, ptr, {} } }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, { { i64, ptr }, i64 }, ptr, ptr, ptr, i64 }, ptr %11, i64 %.sroa.033.053
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %6, ptr noundef nonnull align 8 dereferenceable(240) %28, i64 240, i1 false)
-  %29 = add i64 %.sroa.033.054, %2
+  %29 = add i64 %.sroa.033.053, %2
   br label %30
 
 30:                                               ; preds = %.backedge, %.lr.ph
@@ -348,7 +348,7 @@ _ZN4core3ptr7replace17hd13043bdc384bd0bE.exit50:  ; preds = %32
 
 40:                                               ; preds = %_ZN4core3ptr7replace17hd13043bdc384bd0bE.exit50
   %41 = sub nuw i64 %.2, %0
-  %42 = icmp eq i64 %41, %.sroa.033.054
+  %42 = icmp eq i64 %41, %.sroa.033.053
   br i1 %42, label %43, label %.backedge
 
 .backedge:                                        ; preds = %40, %38
@@ -356,7 +356,7 @@ _ZN4core3ptr7replace17hd13043bdc384bd0bE.exit50:  ; preds = %32
   br label %30
 
 43:                                               ; preds = %40
-  %44 = add nuw i64 %.sroa.033.054, 1
+  %44 = add nuw i64 %.sroa.033.053, 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %28, ptr noundef nonnull align 8 dereferenceable(240) %6, i64 240, i1 false)
   %exitcond.not = icmp eq i64 %44, %.042.ph
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph

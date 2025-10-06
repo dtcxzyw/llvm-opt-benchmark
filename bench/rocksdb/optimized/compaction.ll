@@ -8279,7 +8279,7 @@ _ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit26.thread
   %102 = load ptr, ptr %101, align 8
   call void %102(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.306") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %98)
   %103 = load ptr, ptr %4, align 8, !tbaa !467
-  %.not26.i = icmp eq ptr %103, null
+  %.not25.i = icmp eq ptr %103, null
   %104 = load ptr, ptr %25, align 8, !tbaa !470
   %.not.i.i.i = icmp eq ptr %104, null
   br i1 %.not.i.i.i, label %.critedge.i, label %105
@@ -8330,7 +8330,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %122, %12
 
 .critedge.i:                                      ; preds = %125, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %110, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not26.i, label %.critedge.thread.i, label %126
+  br i1 %.not25.i, label %.critedge.thread.i, label %126
 
 126:                                              ; preds = %.critedge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -8343,8 +8343,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %122, %12
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 168
   %133 = load i64, ptr %132, align 8, !tbaa !656
   %134 = load ptr, ptr %26, align 8, !tbaa !470
-  %.not.i.i21.i = icmp eq ptr %134, null
-  br i1 %.not.i.i21.i, label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i, label %135
+  %.not.i.i20.i = icmp eq ptr %134, null
+  br i1 %.not.i.i20.i, label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24.i, label %135
 
 135:                                              ; preds = %126
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
@@ -8365,41 +8365,41 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i: ; preds = %122, %12
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8
   call void %147(ptr noundef nonnull align 8 dereferenceable(16) %134) #39
-  br label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i
+  br label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24.i
 
 148:                                              ; preds = %135
   %149 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !28
-  %.not.i.i.i22.i = icmp eq i8 %149, 0
-  br i1 %.not.i.i.i22.i, label %152, label %150
+  %.not.i.i.i21.i = icmp eq i8 %149, 0
+  br i1 %.not.i.i.i21.i, label %152, label %150
 
 150:                                              ; preds = %148
   %151 = add nsw i32 %139, -1
   store i32 %151, ptr %136, align 4, !tbaa !471
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23.i
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22.i
 
 152:                                              ; preds = %148
   %153 = atomicrmw volatile add ptr %136, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23.i
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23.i: ; preds = %152, %150
-  %.0.i.i.i.i24.i = phi i32 [ %139, %150 ], [ %153, %152 ]
-  %154 = icmp eq i32 %.0.i.i.i.i24.i, 1
-  br i1 %154, label %155, label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i, !prof !475
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22.i: ; preds = %152, %150
+  %.0.i.i.i.i23.i = phi i32 [ %139, %150 ], [ %153, %152 ]
+  %154 = icmp eq i32 %.0.i.i.i.i23.i, 1
+  br i1 %154, label %155, label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24.i, !prof !475
 
-155:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23.i
+155:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22.i
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %134) #39
-  br label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i
+  br label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24.i
 
-_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i: ; preds = %155, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23.i, %140, %126
+_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24.i: ; preds = %155, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22.i, %140, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not.not27.i = icmp eq i64 %133, 0
-  br i1 %.not.not27.i, label %.critedge.thread.i, label %_ZN7rocksdb12FileMetaData19TryGetNewestKeyTimeEPS0_.exit
+  %.not.not26.i = icmp eq i64 %133, 0
+  br i1 %.not.not26.i, label %.critedge.thread.i, label %_ZN7rocksdb12FileMetaData19TryGetNewestKeyTimeEPS0_.exit
 
-.critedge.thread.i:                               ; preds = %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i, %.critedge.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit26.thread
+.critedge.thread.i:                               ; preds = %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24.i, %.critedge.i, %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit26.thread
   br label %_ZN7rocksdb12FileMetaData19TryGetNewestKeyTimeEPS0_.exit
 
-_ZN7rocksdb12FileMetaData19TryGetNewestKeyTimeEPS0_.exit: ; preds = %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i, %.critedge.thread.i
-  %.2.i = phi i64 [ 0, %.critedge.thread.i ], [ %133, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25.i ]
+_ZN7rocksdb12FileMetaData19TryGetNewestKeyTimeEPS0_.exit: ; preds = %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24.i, %.critedge.thread.i
+  %.2.i = phi i64 [ 0, %.critedge.thread.i ], [ %133, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24.i ]
   %.sroa.speculated = call i64 @llvm.umax.i64(i64 %.147, i64 %.2.i)
   br label %_ZNK7rocksdb21InternalKeyComparator7CompareERKNS_11InternalKeyES3_.exit.thread
 

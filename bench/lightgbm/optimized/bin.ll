@@ -9923,8 +9923,8 @@ _ZNK8LightGBM9SparseBinIhE9InitIndexEiPiS2_.exit: ; preds = %7, %24
   %.136 = phi i32 [ %42, %36 ], [ %.035, %45 ], [ %71, %65 ]
   %.1 = phi i32 [ %.021, %36 ], [ %46, %45 ], [ %64, %65 ]
   %.phi.trans.insert = sext i32 %.1 to i64
-  %.phi.trans.insert44 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
-  %.pre = load i32, ptr %.phi.trans.insert44, align 4, !tbaa !10
+  %.phi.trans.insert43 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
+  %.pre = load i32, ptr %.phi.trans.insert43, align 4, !tbaa !10
   br label %32, !llvm.loop !269
 
 .thread:                                          ; preds = %65, %47, %45, %36
@@ -10139,8 +10139,8 @@ _ZNK8LightGBM9SparseBinIhE9InitIndexEiPiS2_.exit.i: ; preds = %24, %7
   %.135.i = phi i32 [ %42, %36 ], [ %.034.i, %45 ], [ %64, %58 ]
   %.1.i = phi i32 [ %.020.i, %36 ], [ %46, %45 ], [ %57, %58 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
+  %.phi.trans.insert42.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert42.i, align 4, !tbaa !10
   br label %32, !llvm.loop !272
 
 _ZNK8LightGBM9SparseBinIhE26ConstructIntHistogramInnerILb1EshhLi8EEEvPKiiiPKfPd.exit: ; preds = %36, %45, %47, %58
@@ -10354,8 +10354,8 @@ _ZNK8LightGBM9SparseBinIhE9InitIndexEiPiS2_.exit.i: ; preds = %24, %7
   %.136.i = phi i32 [ %41, %35 ], [ %.035.i, %45 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %35 ], [ %46, %45 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %31, !llvm.loop !275
 
 _ZNK8LightGBM9SparseBinIhE26ConstructIntHistogramInnerILb1EistLi16EEEvPKiiiPKfPd.exit: ; preds = %35, %45, %47, %64
@@ -10575,8 +10575,8 @@ _ZNK8LightGBM9SparseBinIhE9InitIndexEiPiS2_.exit.i: ; preds = %24, %7
   %.136.i = phi i32 [ %42, %36 ], [ %.035.i, %45 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %36 ], [ %46, %45 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %32, !llvm.loop !278
 
 _ZNK8LightGBM9SparseBinIhE26ConstructIntHistogramInnerILb1ElijLi32EEEvPKiiiPKfPd.exit: ; preds = %36, %45, %47, %64
@@ -10796,8 +10796,8 @@ _ZNK8LightGBM9SparseBinIhE9InitIndexEiPiS2_.exit: ; preds = %6, %23
   %.135 = phi i32 [ %42, %36 ], [ %.034, %45 ], [ %69, %63 ]
   %.1 = phi i32 [ %.020, %36 ], [ %46, %45 ], [ %62, %63 ]
   %.phi.trans.insert = sext i32 %.1 to i64
-  %.phi.trans.insert43 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
-  %.pre = load i32, ptr %.phi.trans.insert43, align 4, !tbaa !10
+  %.phi.trans.insert42 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
+  %.pre = load i32, ptr %.phi.trans.insert42, align 4, !tbaa !10
   br label %32, !llvm.loop !281
 
 .thread:                                          ; preds = %63, %47, %45, %36
@@ -11019,8 +11019,8 @@ _ZNK8LightGBM9SparseBinIhE9InitIndexEiPiS2_.exit.i: ; preds = %23, %6
   %.136.i = phi i32 [ %39, %32 ], [ %.035.i, %43 ], [ %70, %63 ]
   %.1.i = phi i32 [ %.021.i, %32 ], [ %44, %43 ], [ %62, %63 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %29, !llvm.loop !284
 
 _ZNK8LightGBM9SparseBinIhE26ConstructIntHistogramInnerILb0EshhLi8EEEvPKiiiPKfPd.exit: ; preds = %32, %43, %45, %63
@@ -11240,8 +11240,8 @@ _ZNK8LightGBM9SparseBinIhE9InitIndexEiPiS2_.exit.i: ; preds = %23, %6
   %.136.i = phi i32 [ %41, %35 ], [ %.035.i, %44 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %35 ], [ %45, %44 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %32, !llvm.loop !287
 
 _ZNK8LightGBM9SparseBinIhE26ConstructIntHistogramInnerILb0EistLi16EEEvPKiiiPKfPd.exit: ; preds = %35, %44, %46, %64
@@ -11463,8 +11463,8 @@ _ZNK8LightGBM9SparseBinIhE9InitIndexEiPiS2_.exit.i: ; preds = %23, %6
   %.136.i = phi i32 [ %40, %34 ], [ %.035.i, %44 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %34 ], [ %45, %44 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %31, !llvm.loop !290
 
 _ZNK8LightGBM9SparseBinIhE26ConstructIntHistogramInnerILb0ElijLi32EEEvPKiiiPKfPd.exit: ; preds = %34, %44, %46, %64
@@ -13456,8 +13456,8 @@ _ZNK8LightGBM9SparseBinItE9InitIndexEiPiS2_.exit: ; preds = %7, %24
   %.136 = phi i32 [ %42, %36 ], [ %.035, %45 ], [ %71, %65 ]
   %.1 = phi i32 [ %.021, %36 ], [ %46, %45 ], [ %64, %65 ]
   %.phi.trans.insert = sext i32 %.1 to i64
-  %.phi.trans.insert44 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
-  %.pre = load i32, ptr %.phi.trans.insert44, align 4, !tbaa !10
+  %.phi.trans.insert43 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
+  %.pre = load i32, ptr %.phi.trans.insert43, align 4, !tbaa !10
   br label %32, !llvm.loop !349
 
 .thread:                                          ; preds = %65, %47, %45, %36
@@ -13672,8 +13672,8 @@ _ZNK8LightGBM9SparseBinItE9InitIndexEiPiS2_.exit.i: ; preds = %24, %7
   %.135.i = phi i32 [ %42, %36 ], [ %.034.i, %45 ], [ %64, %58 ]
   %.1.i = phi i32 [ %.020.i, %36 ], [ %46, %45 ], [ %57, %58 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
+  %.phi.trans.insert42.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert42.i, align 4, !tbaa !10
   br label %32, !llvm.loop !352
 
 _ZNK8LightGBM9SparseBinItE26ConstructIntHistogramInnerILb1EshhLi8EEEvPKiiiPKfPd.exit: ; preds = %36, %45, %47, %58
@@ -13887,8 +13887,8 @@ _ZNK8LightGBM9SparseBinItE9InitIndexEiPiS2_.exit.i: ; preds = %24, %7
   %.136.i = phi i32 [ %41, %35 ], [ %.035.i, %45 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %35 ], [ %46, %45 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %31, !llvm.loop !355
 
 _ZNK8LightGBM9SparseBinItE26ConstructIntHistogramInnerILb1EistLi16EEEvPKiiiPKfPd.exit: ; preds = %35, %45, %47, %64
@@ -14108,8 +14108,8 @@ _ZNK8LightGBM9SparseBinItE9InitIndexEiPiS2_.exit.i: ; preds = %24, %7
   %.136.i = phi i32 [ %42, %36 ], [ %.035.i, %45 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %36 ], [ %46, %45 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %32, !llvm.loop !358
 
 _ZNK8LightGBM9SparseBinItE26ConstructIntHistogramInnerILb1ElijLi32EEEvPKiiiPKfPd.exit: ; preds = %36, %45, %47, %64
@@ -14329,8 +14329,8 @@ _ZNK8LightGBM9SparseBinItE9InitIndexEiPiS2_.exit: ; preds = %6, %23
   %.135 = phi i32 [ %42, %36 ], [ %.034, %45 ], [ %69, %63 ]
   %.1 = phi i32 [ %.020, %36 ], [ %46, %45 ], [ %62, %63 ]
   %.phi.trans.insert = sext i32 %.1 to i64
-  %.phi.trans.insert43 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
-  %.pre = load i32, ptr %.phi.trans.insert43, align 4, !tbaa !10
+  %.phi.trans.insert42 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
+  %.pre = load i32, ptr %.phi.trans.insert42, align 4, !tbaa !10
   br label %32, !llvm.loop !361
 
 .thread:                                          ; preds = %63, %47, %45, %36
@@ -14552,8 +14552,8 @@ _ZNK8LightGBM9SparseBinItE9InitIndexEiPiS2_.exit.i: ; preds = %23, %6
   %.136.i = phi i32 [ %39, %32 ], [ %.035.i, %43 ], [ %70, %63 ]
   %.1.i = phi i32 [ %.021.i, %32 ], [ %44, %43 ], [ %62, %63 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %29, !llvm.loop !364
 
 _ZNK8LightGBM9SparseBinItE26ConstructIntHistogramInnerILb0EshhLi8EEEvPKiiiPKfPd.exit: ; preds = %32, %43, %45, %63
@@ -14773,8 +14773,8 @@ _ZNK8LightGBM9SparseBinItE9InitIndexEiPiS2_.exit.i: ; preds = %23, %6
   %.136.i = phi i32 [ %41, %35 ], [ %.035.i, %44 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %35 ], [ %45, %44 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %32, !llvm.loop !367
 
 _ZNK8LightGBM9SparseBinItE26ConstructIntHistogramInnerILb0EistLi16EEEvPKiiiPKfPd.exit: ; preds = %35, %44, %46, %64
@@ -14996,8 +14996,8 @@ _ZNK8LightGBM9SparseBinItE9InitIndexEiPiS2_.exit.i: ; preds = %23, %6
   %.136.i = phi i32 [ %40, %34 ], [ %.035.i, %44 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %34 ], [ %45, %44 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %31, !llvm.loop !370
 
 _ZNK8LightGBM9SparseBinItE26ConstructIntHistogramInnerILb0ElijLi32EEEvPKiiiPKfPd.exit: ; preds = %34, %44, %46, %64
@@ -16984,8 +16984,8 @@ _ZNK8LightGBM9SparseBinIjE9InitIndexEiPiS2_.exit: ; preds = %7, %24
   %.136 = phi i32 [ %42, %36 ], [ %.035, %45 ], [ %72, %66 ]
   %.1 = phi i32 [ %.021, %36 ], [ %46, %45 ], [ %65, %66 ]
   %.phi.trans.insert = sext i32 %.1 to i64
-  %.phi.trans.insert44 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
-  %.pre = load i32, ptr %.phi.trans.insert44, align 4, !tbaa !10
+  %.phi.trans.insert43 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
+  %.pre = load i32, ptr %.phi.trans.insert43, align 4, !tbaa !10
   br label %32, !llvm.loop !428
 
 .thread:                                          ; preds = %66, %47, %45, %36
@@ -17200,8 +17200,8 @@ _ZNK8LightGBM9SparseBinIjE9InitIndexEiPiS2_.exit.i: ; preds = %24, %7
   %.135.i = phi i32 [ %42, %36 ], [ %.034.i, %45 ], [ %64, %58 ]
   %.1.i = phi i32 [ %.020.i, %36 ], [ %46, %45 ], [ %57, %58 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
+  %.phi.trans.insert42.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert42.i, align 4, !tbaa !10
   br label %32, !llvm.loop !431
 
 _ZNK8LightGBM9SparseBinIjE26ConstructIntHistogramInnerILb1EshhLi8EEEvPKiiiPKfPd.exit: ; preds = %36, %45, %47, %58
@@ -17415,8 +17415,8 @@ _ZNK8LightGBM9SparseBinIjE9InitIndexEiPiS2_.exit.i: ; preds = %24, %7
   %.136.i = phi i32 [ %41, %35 ], [ %.035.i, %45 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %35 ], [ %46, %45 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %31, !llvm.loop !434
 
 _ZNK8LightGBM9SparseBinIjE26ConstructIntHistogramInnerILb1EistLi16EEEvPKiiiPKfPd.exit: ; preds = %35, %45, %47, %64
@@ -17636,8 +17636,8 @@ _ZNK8LightGBM9SparseBinIjE9InitIndexEiPiS2_.exit.i: ; preds = %24, %7
   %.136.i = phi i32 [ %42, %36 ], [ %.035.i, %45 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %36 ], [ %46, %45 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %32, !llvm.loop !437
 
 _ZNK8LightGBM9SparseBinIjE26ConstructIntHistogramInnerILb1ElijLi32EEEvPKiiiPKfPd.exit: ; preds = %36, %45, %47, %64
@@ -17857,8 +17857,8 @@ _ZNK8LightGBM9SparseBinIjE9InitIndexEiPiS2_.exit: ; preds = %6, %23
   %.135 = phi i32 [ %42, %36 ], [ %.034, %45 ], [ %69, %63 ]
   %.1 = phi i32 [ %.020, %36 ], [ %46, %45 ], [ %62, %63 ]
   %.phi.trans.insert = sext i32 %.1 to i64
-  %.phi.trans.insert43 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
-  %.pre = load i32, ptr %.phi.trans.insert43, align 4, !tbaa !10
+  %.phi.trans.insert42 = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert
+  %.pre = load i32, ptr %.phi.trans.insert42, align 4, !tbaa !10
   br label %32, !llvm.loop !440
 
 .thread:                                          ; preds = %63, %47, %45, %36
@@ -18080,8 +18080,8 @@ _ZNK8LightGBM9SparseBinIjE9InitIndexEiPiS2_.exit.i: ; preds = %23, %6
   %.136.i = phi i32 [ %39, %32 ], [ %.035.i, %43 ], [ %70, %63 ]
   %.1.i = phi i32 [ %.021.i, %32 ], [ %44, %43 ], [ %62, %63 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %29, !llvm.loop !443
 
 _ZNK8LightGBM9SparseBinIjE26ConstructIntHistogramInnerILb0EshhLi8EEEvPKiiiPKfPd.exit: ; preds = %32, %43, %45, %63
@@ -18301,8 +18301,8 @@ _ZNK8LightGBM9SparseBinIjE9InitIndexEiPiS2_.exit.i: ; preds = %23, %6
   %.136.i = phi i32 [ %41, %35 ], [ %.035.i, %44 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %35 ], [ %45, %44 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %32, !llvm.loop !446
 
 _ZNK8LightGBM9SparseBinIjE26ConstructIntHistogramInnerILb0EistLi16EEEvPKiiiPKfPd.exit: ; preds = %35, %44, %46, %64
@@ -18524,8 +18524,8 @@ _ZNK8LightGBM9SparseBinIjE9InitIndexEiPiS2_.exit.i: ; preds = %23, %6
   %.136.i = phi i32 [ %40, %34 ], [ %.035.i, %44 ], [ %70, %64 ]
   %.1.i = phi i32 [ %.021.i, %34 ], [ %45, %44 ], [ %63, %64 ]
   %.phi.trans.insert.i = sext i32 %.1.i to i64
-  %.phi.trans.insert44.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
-  %.pre.i = load i32, ptr %.phi.trans.insert44.i, align 4, !tbaa !10
+  %.phi.trans.insert43.i = getelementptr inbounds i32, ptr %1, i64 %.phi.trans.insert.i
+  %.pre.i = load i32, ptr %.phi.trans.insert43.i, align 4, !tbaa !10
   br label %31, !llvm.loop !449
 
 _ZNK8LightGBM9SparseBinIjE26ConstructIntHistogramInnerILb0ElijLi32EEEvPKiiiPKfPd.exit: ; preds = %34, %44, %46, %64
@@ -59320,48 +59320,48 @@ define noundef zeroext i1 @_ZN8LightGBM10NeedFilterERKSt6vectorIiSaIiEEiiNS_7Bin
 
 .preheader:                                       ; preds = %4
   %13 = add nsw i64 %12, -1
-  %.not4054.not = icmp eq i64 %13, 0
-  br i1 %.not4054.not, label %.thread, label %.lr.ph
+  %.not4050.not = icmp eq i64 %13, 0
+  br i1 %.not4050.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.03256 = phi i64 [ %18, %.lr.ph ], [ 0, %.preheader ]
-  %.03355 = phi i32 [ %16, %.lr.ph ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %.03256
+  %.03252 = phi i64 [ %18, %.lr.ph ], [ 0, %.preheader ]
+  %.03351 = phi i32 [ %16, %.lr.ph ], [ 0, %.preheader ]
+  %14 = getelementptr inbounds nuw i32, ptr %8, i64 %.03252
   %15 = load i32, ptr %14, align 4, !tbaa !10
-  %16 = add nsw i32 %15, %.03355
+  %16 = add nsw i32 %15, %.03351
   %.not38 = icmp slt i32 %16, %2
   %17 = sub nsw i32 %1, %16
   %.not39 = icmp slt i32 %17, %2
   %or.cond = select i1 %.not38, i1 true, i1 %.not39
-  %18 = add nuw i64 %.03256, 1
-  %exitcond63.not = icmp ne i64 %18, %13
-  %or.cond72.not = select i1 %or.cond, i1 %exitcond63.not, i1 false
-  br i1 %or.cond72.not, label %.lr.ph, label %.thread, !llvm.loop !994
+  %18 = add nuw i64 %.03252, 1
+  %exitcond59.not = icmp ne i64 %18, %13
+  %or.cond68.not = select i1 %or.cond, i1 %exitcond59.not, i1 false
+  br i1 %or.cond68.not, label %.lr.ph, label %.thread, !llvm.loop !994
 
 19:                                               ; preds = %4
   %20 = icmp ult i64 %12, 3
-  br i1 %20, label %.preheader49, label %.thread
+  br i1 %20, label %.preheader45, label %.thread
 
-.preheader49:                                     ; preds = %19
+.preheader45:                                     ; preds = %19
   %21 = add nsw i64 %12, -1
-  %.not60 = icmp eq i64 %21, 0
-  br i1 %.not60, label %.thread, label %.critedge
+  %.not56 = icmp eq i64 %21, 0
+  br i1 %.not56, label %.thread, label %.critedge
 
-.critedge:                                        ; preds = %.preheader49, %.critedge
-  %.02852 = phi i64 [ %25, %.critedge ], [ 0, %.preheader49 ]
-  %22 = getelementptr inbounds nuw i32, ptr %8, i64 %.02852
+.critedge:                                        ; preds = %.preheader45, %.critedge
+  %.02848 = phi i64 [ %25, %.critedge ], [ 0, %.preheader45 ]
+  %22 = getelementptr inbounds nuw i32, ptr %8, i64 %.02848
   %23 = load i32, ptr %22, align 4, !tbaa !10
   %.not = icmp slt i32 %23, %2
   %24 = sub nsw i32 %1, %23
   %.not37 = icmp slt i32 %24, %2
   %or.cond41 = select i1 %.not, i1 true, i1 %.not37
-  %25 = add nuw i64 %.02852, 1
+  %25 = add nuw i64 %.02848, 1
   %exitcond.not = icmp ne i64 %25, %21
-  %or.cond73.not = select i1 %or.cond41, i1 %exitcond.not, i1 false
-  br i1 %or.cond73.not, label %.critedge, label %.thread, !llvm.loop !995
+  %or.cond69.not = select i1 %or.cond41, i1 %exitcond.not, i1 false
+  br i1 %or.cond69.not, label %.critedge, label %.thread, !llvm.loop !995
 
-.thread:                                          ; preds = %.critedge, %.lr.ph, %.preheader49, %.preheader, %19
-  %.1 = phi i1 [ false, %19 ], [ true, %.preheader ], [ true, %.preheader49 ], [ %or.cond, %.lr.ph ], [ %or.cond41, %.critedge ]
+.thread:                                          ; preds = %.critedge, %.lr.ph, %.preheader45, %.preheader, %19
+  %.1 = phi i1 [ false, %19 ], [ true, %.preheader ], [ true, %.preheader45 ], [ %or.cond, %.lr.ph ], [ %or.cond41, %.critedge ]
   ret i1 %.1
 }
 
@@ -64718,20 +64718,20 @@ _ZNSt6vectorIiSaIiEED2Ev.exit350:                 ; preds = %_ZNSt6vectorIiSaIiE
 
 .preheader.i:                                     ; preds = %775
   %786 = add nsw i64 %785, -1
-  %.not4054.not.i = icmp eq i64 %786, 0
-  br i1 %.not4054.not.i, label %.thread915, label %.lr.ph.i357
+  %.not4050.not.i = icmp eq i64 %786, 0
+  br i1 %.not4050.not.i, label %.thread915, label %.lr.ph.i357
 
 787:                                              ; preds = %.lr.ph.i357
-  %788 = add nuw i64 %.03256.i, 1
-  %exitcond63.not.i = icmp eq i64 %788, %786
-  br i1 %exitcond63.not.i, label %.thread915, label %.lr.ph.i357, !llvm.loop !994
+  %788 = add nuw i64 %.03252.i, 1
+  %exitcond59.not.i = icmp eq i64 %788, %786
+  br i1 %exitcond59.not.i, label %.thread915, label %.lr.ph.i357, !llvm.loop !994
 
 .lr.ph.i357:                                      ; preds = %.preheader.i, %787
-  %.03256.i = phi i64 [ %788, %787 ], [ 0, %.preheader.i ]
-  %.03355.i = phi i32 [ %791, %787 ], [ 0, %.preheader.i ]
-  %789 = getelementptr inbounds nuw i32, ptr %781, i64 %.03256.i
+  %.03252.i = phi i64 [ %788, %787 ], [ 0, %.preheader.i ]
+  %.03351.i = phi i32 [ %791, %787 ], [ 0, %.preheader.i ]
+  %789 = getelementptr inbounds nuw i32, ptr %781, i64 %.03252.i
   %790 = load i32, ptr %789, align 4, !tbaa !10
-  %791 = add nsw i32 %790, %.03355.i
+  %791 = add nsw i32 %790, %.03351.i
   %.not38.i = icmp slt i32 %791, %6
   %792 = sub nsw i32 %776, %791
   %.not39.i = icmp slt i32 %792, %6
@@ -64740,21 +64740,21 @@ _ZNSt6vectorIiSaIiEED2Ev.exit350:                 ; preds = %_ZNSt6vectorIiSaIiE
 
 793:                                              ; preds = %775
   %794 = icmp ult i64 %785, 3
-  br i1 %794, label %.preheader49.i, label %.loopexit921
+  br i1 %794, label %.preheader45.i, label %.loopexit921
 
-.preheader49.i:                                   ; preds = %793
+.preheader45.i:                                   ; preds = %793
   %795 = add nsw i64 %785, -1
-  %.not60.i = icmp eq i64 %795, 0
-  br i1 %.not60.i, label %.thread915, label %.critedge.i
+  %.not56.i = icmp eq i64 %795, 0
+  br i1 %.not56.i, label %.thread915, label %.critedge.i
 
 796:                                              ; preds = %.critedge.i
-  %797 = add nuw i64 %.02852.i, 1
+  %797 = add nuw i64 %.02848.i, 1
   %exitcond.not.i356 = icmp eq i64 %797, %795
   br i1 %exitcond.not.i356, label %.thread915, label %.critedge.i, !llvm.loop !995
 
-.critedge.i:                                      ; preds = %.preheader49.i, %796
-  %.02852.i = phi i64 [ %797, %796 ], [ 0, %.preheader49.i ]
-  %798 = getelementptr inbounds nuw i32, ptr %781, i64 %.02852.i
+.critedge.i:                                      ; preds = %.preheader45.i, %796
+  %.02848.i = phi i64 [ %797, %796 ], [ 0, %.preheader45.i ]
+  %798 = getelementptr inbounds nuw i32, ptr %781, i64 %.02848.i
   %799 = load i32, ptr %798, align 4, !tbaa !10
   %.not.i355 = icmp slt i32 %799, %6
   %800 = sub nsw i32 %776, %799
@@ -64841,7 +64841,7 @@ _ZN8LightGBM9ArrayArgsIiE6ArgMaxERKSt6vectorIiSaIiEE.exit: ; preds = %.lr.ph.i36
   store double %840, ptr %841, align 8, !tbaa !972
   br label %843
 
-.thread915:                                       ; preds = %796, %787, %.preheader49.i, %.preheader.i, %_ZNSt6vectorIiSaIiEED2Ev.exit350
+.thread915:                                       ; preds = %796, %787, %.preheader45.i, %.preheader.i, %_ZNSt6vectorIiSaIiEED2Ev.exit350
   store i8 1, ptr %773, align 8, !tbaa !958
   %842 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store double 1.000000e+00, ptr %842, align 8, !tbaa !972

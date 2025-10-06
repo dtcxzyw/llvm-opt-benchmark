@@ -91,8 +91,8 @@ define ptr @TS_CONF_load_certs(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %10, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %7, %17
-  %.01839 = phi i32 [ %18, %17 ], [ 0, %7 ]
-  %11 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %.01839) #4
+  %.01838 = phi i32 [ %18, %17 ], [ 0, %7 ]
+  %11 = tail call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %.01838) #4
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %17, label %13
@@ -111,7 +111,7 @@ define ptr @TS_CONF_load_certs(ptr noundef %0) local_unnamed_addr #0 {
   br label %21
 
 17:                                               ; preds = %15, %.lr.ph
-  %18 = add nuw nsw i32 %.01839, 1
+  %18 = add nuw nsw i32 %.01838, 1
   %19 = tail call i32 @OPENSSL_sk_num(ptr noundef %8) #4
   %20 = icmp slt i32 %18, %19
   br i1 %20, label %.lr.ph, label %.loopexit, !llvm.loop !15
@@ -124,11 +124,11 @@ define ptr @TS_CONF_load_certs(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit
 
 .loopexit:                                        ; preds = %17, %7, %21
-  %.01937 = phi ptr [ %.019.ph, %21 ], [ %8, %7 ], [ %8, %17 ]
-  %.02035 = phi ptr [ null, %21 ], [ %5, %7 ], [ %5, %17 ]
-  tail call void @OPENSSL_sk_pop_free(ptr noundef %.01937, ptr noundef nonnull @X509_INFO_free) #4
+  %.01936 = phi ptr [ %.019.ph, %21 ], [ %8, %7 ], [ %8, %17 ]
+  %.02034 = phi ptr [ null, %21 ], [ %5, %7 ], [ %5, %17 ]
+  tail call void @OPENSSL_sk_pop_free(ptr noundef %.01936, ptr noundef nonnull @X509_INFO_free) #4
   %22 = tail call i32 @BIO_free(ptr noundef %2) #4
-  ret ptr %.02035
+  ret ptr %.02034
 }
 
 declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
@@ -540,8 +540,8 @@ define range(i32 0, 2) i32 @TS_CONF_set_policies(ptr noundef %0, ptr noundef %1,
   br i1 %10, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %8, %23
-  %.02335 = phi i32 [ %24, %23 ], [ 0, %8 ]
-  %11 = tail call ptr @OPENSSL_sk_value(ptr noundef %.024, i32 noundef %.02335) #4
+  %.02334 = phi i32 [ %24, %23 ], [ 0, %8 ]
+  %11 = tail call ptr @OPENSSL_sk_value(ptr noundef %.024, i32 noundef %.02334) #4
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !17
   %.not30 = icmp eq ptr %13, null
@@ -565,7 +565,7 @@ define range(i32 0, 2) i32 @TS_CONF_set_policies(ptr noundef %0, ptr noundef %1,
 
 23:                                               ; preds = %21
   tail call void @ASN1_OBJECT_free(ptr noundef nonnull %19) #4
-  %24 = add nuw nsw i32 %.02335, 1
+  %24 = add nuw nsw i32 %.02334, 1
   %25 = tail call i32 @OPENSSL_sk_num(ptr noundef %.024) #4
   %26 = icmp slt i32 %24, %25
   br i1 %26, label %.lr.ph, label %.thread, !llvm.loop !20
@@ -627,14 +627,14 @@ define range(i32 0, 2) i32 @TS_CONF_set_digests(ptr noundef %0, ptr noundef %1, 
   br label %.thread.sink.split
 
 17:                                               ; preds = %32
-  %18 = add nuw nsw i32 %.02535, 1
+  %18 = add nuw nsw i32 %.02534, 1
   %19 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %8) #4
   %20 = icmp slt i32 %18, %19
   br i1 %20, label %.lr.ph, label %.thread, !llvm.loop !21
 
 .lr.ph:                                           ; preds = %.preheader, %17
-  %.02535 = phi i32 [ %18, %17 ], [ 0, %.preheader ]
-  %21 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %8, i32 noundef %.02535) #4
+  %.02534 = phi i32 [ %18, %17 ], [ 0, %.preheader ]
+  %21 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %8, i32 noundef %.02534) #4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !17
   %.not = icmp eq ptr %23, null
@@ -700,11 +700,11 @@ define range(i32 0, 2) i32 @TS_CONF_set_accuracy(ptr noundef %0, ptr noundef %1,
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %9, %42
-  %.03064 = phi i32 [ %.2.ph, %42 ], [ 0, %9 ]
-  %.03263 = phi i32 [ %.234.ph, %42 ], [ 0, %9 ]
-  %.03562 = phi i32 [ %.237.ph, %42 ], [ 0, %9 ]
-  %.03861 = phi i32 [ %43, %42 ], [ 0, %9 ]
-  %12 = tail call ptr @OPENSSL_sk_value(ptr noundef %.029, i32 noundef %.03861) #4
+  %.03063 = phi i32 [ %.2.ph, %42 ], [ 0, %9 ]
+  %.03262 = phi i32 [ %.234.ph, %42 ], [ 0, %9 ]
+  %.03561 = phi i32 [ %.237.ph, %42 ], [ 0, %9 ]
+  %.03860 = phi i32 [ %43, %42 ], [ 0, %9 ]
+  %12 = tail call ptr @OPENSSL_sk_value(ptr noundef %.029, i32 noundef %.03860) #4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %14, ptr noundef nonnull dereferenceable(5) @.str.17) #5
@@ -761,10 +761,10 @@ define range(i32 0, 2) i32 @TS_CONF_set_accuracy(ptr noundef %0, ptr noundef %1,
   br label %47
 
 42:                                               ; preds = %29, %26, %35, %38, %17, %20
-  %.237.ph = phi i32 [ %.03562, %35 ], [ %.03562, %38 ], [ %.03562, %26 ], [ %.03562, %29 ], [ %.03562, %17 ], [ %22, %20 ]
-  %.234.ph = phi i32 [ %.03263, %35 ], [ %.03263, %38 ], [ %.03263, %26 ], [ %31, %29 ], [ %.03263, %17 ], [ %.03263, %20 ]
-  %.2.ph = phi i32 [ %.03064, %35 ], [ %40, %38 ], [ %.03064, %26 ], [ %.03064, %29 ], [ %.03064, %17 ], [ %.03064, %20 ]
-  %43 = add nuw nsw i32 %.03861, 1
+  %.237.ph = phi i32 [ %.03561, %35 ], [ %.03561, %38 ], [ %.03561, %26 ], [ %.03561, %29 ], [ %.03561, %17 ], [ %22, %20 ]
+  %.234.ph = phi i32 [ %.03262, %35 ], [ %.03262, %38 ], [ %.03262, %26 ], [ %31, %29 ], [ %.03262, %17 ], [ %.03262, %20 ]
+  %.2.ph = phi i32 [ %.03063, %35 ], [ %40, %38 ], [ %.03063, %26 ], [ %.03063, %29 ], [ %.03063, %17 ], [ %.03063, %20 ]
+  %43 = add nuw nsw i32 %.03860, 1
   %44 = tail call i32 @OPENSSL_sk_num(ptr noundef %.029) #4
   %45 = icmp slt i32 %43, %44
   br i1 %45, label %.lr.ph, label %._crit_edge, !llvm.loop !22

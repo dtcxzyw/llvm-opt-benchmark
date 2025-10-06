@@ -5725,8 +5725,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
   %.sroa.2.0.copyload.i23 = load i64, ptr %.sroa.2.0..sroa_idx.i22, align 8
   %24 = icmp ne ptr %.sroa.0.0.copyload.i, %.sroa.0.0.copyload.i21
   %25 = icmp ne i64 %22, %.sroa.2.0.copyload.i23
-  %.not3.i69 = or i1 %24, %25
-  br i1 %.not3.i69, label %.lr.ph, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit._crit_edge
+  %.not3.i67 = or i1 %24, %25
+  br i1 %.not3.i67, label %.lr.ph, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -5734,9 +5734,9 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
   br label %28
 
 28:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.thread
-  %.sroa.3.070 = phi i64 [ %22, %.lr.ph ], [ %117, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.thread ]
+  %.sroa.3.068 = phi i64 [ %22, %.lr.ph ], [ %118, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.thread ]
   store ptr %.sroa.0.0.copyload.i, ptr %12, align 8
-  store i64 %.sroa.3.070, ptr %26, align 8
+  store i64 %.sroa.3.068, ptr %26, align 8
   %29 = call noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__10PcpNodeRef8HasSpecsEv(ptr noundef nonnull align 8 dereferenceable(16) %12)
   br i1 %29, label %30, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.thread
 
@@ -5791,7 +5791,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
           to label %.noexc28 unwind label %.loopexit
 
 .noexc28:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit.i.i.i.i.i"
-  br i1 %50, label %.loopexit57, label %51
+  br i1 %50, label %.loopexit55, label %51
 
 51:                                               ; preds = %.noexc28
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.043.066.i.i.i.i.i, i64 8
@@ -5806,7 +5806,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
           to label %.noexc30 unwind label %.loopexit
 
 .noexc30:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit24.i.i.i.i.i"
-  br i1 %53, label %.loopexit57.loopexit.split.loop.exit84, label %54
+  br i1 %53, label %.loopexit55.loopexit.split.loop.exit82, label %54
 
 54:                                               ; preds = %.noexc30
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.043.066.i.i.i.i.i, i64 16
@@ -5821,7 +5821,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
           to label %.noexc32 unwind label %.loopexit
 
 .noexc32:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit27.i.i.i.i.i"
-  br i1 %56, label %.loopexit57.loopexit.split.loop.exit82, label %57
+  br i1 %56, label %.loopexit55.loopexit.split.loop.exit80, label %57
 
 57:                                               ; preds = %.noexc32
   %58 = getelementptr inbounds nuw i8, ptr %.sroa.043.066.i.i.i.i.i, i64 24
@@ -5836,7 +5836,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
           to label %.noexc34 unwind label %.loopexit
 
 .noexc34:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit30.i.i.i.i.i"
-  br i1 %59, label %.loopexit57.loopexit.split.loop.exit, label %60
+  br i1 %59, label %.loopexit55.loopexit.split.loop.exit, label %60
 
 60:                                               ; preds = %.noexc34
   %61 = getelementptr inbounds nuw i8, ptr %.sroa.043.066.i.i.i.i.i, i64 32
@@ -5871,7 +5871,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
           to label %.noexc36 unwind label %.loopexit.split-lp.loopexit
 
 .noexc36:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit33.i.i.i.i.i"
-  br i1 %66, label %.loopexit57, label %67
+  br i1 %66, label %.loopexit55, label %67
 
 67:                                               ; preds = %.noexc36
   %68 = getelementptr inbounds nuw i8, ptr %.sroa.043.0.lcssa.i.i.i.i.i, i64 8
@@ -5890,7 +5890,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
           to label %.noexc38 unwind label %.loopexit.split-lp.loopexit
 
 .noexc38:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit36.i.i.i.i.i"
-  br i1 %70, label %.loopexit57, label %71
+  br i1 %70, label %.loopexit55, label %71
 
 71:                                               ; preds = %.noexc38
   %72 = getelementptr inbounds nuw i8, ptr %.sroa.043.1.i.i.i.i.i, i64 8
@@ -5929,26 +5929,26 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditPro
 
 .noexc40:                                         ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit39.i.i.i.i.i"
   %spec.select.i.i.i.i.i = select i1 %79, ptr %.sroa.043.2.i.i.i.i.i, ptr %44
-  br label %.loopexit57
+  br label %.loopexit55
 
-.loopexit57.loopexit.split.loop.exit:             ; preds = %.noexc34
+.loopexit55.loopexit.split.loop.exit:             ; preds = %.noexc34
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.043.066.i.i.i.i.i, i64 24
-  br label %.loopexit57
+  br label %.loopexit55
 
-.loopexit57.loopexit.split.loop.exit82:           ; preds = %.noexc32
+.loopexit55.loopexit.split.loop.exit80:           ; preds = %.noexc32
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.043.066.i.i.i.i.i, i64 16
-  br label %.loopexit57
+  br label %.loopexit55
 
-.loopexit57.loopexit.split.loop.exit84:           ; preds = %.noexc30
+.loopexit55.loopexit.split.loop.exit82:           ; preds = %.noexc30
   %82 = getelementptr inbounds nuw i8, ptr %.sroa.043.066.i.i.i.i.i, i64 8
-  br label %.loopexit57
+  br label %.loopexit55
 
-.loopexit57:                                      ; preds = %.noexc28, %.loopexit57.loopexit.split.loop.exit, %.loopexit57.loopexit.split.loop.exit82, %.loopexit57.loopexit.split.loop.exit84, %.noexc40, %.noexc38, %.noexc36
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i.i, %.noexc36 ], [ %.sroa.043.1.i.i.i.i.i, %.noexc38 ], [ %spec.select.i.i.i.i.i, %.noexc40 ], [ %80, %.loopexit57.loopexit.split.loop.exit ], [ %81, %.loopexit57.loopexit.split.loop.exit82 ], [ %82, %.loopexit57.loopexit.split.loop.exit84 ], [ %.sroa.043.066.i.i.i.i.i, %.noexc28 ]
+.loopexit55:                                      ; preds = %.noexc28, %.loopexit55.loopexit.split.loop.exit, %.loopexit55.loopexit.split.loop.exit80, %.loopexit55.loopexit.split.loop.exit82, %.noexc40, %.noexc38, %.noexc36
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i = phi ptr [ %.sroa.043.0.lcssa.i.i.i.i.i, %.noexc36 ], [ %.sroa.043.1.i.i.i.i.i, %.noexc38 ], [ %spec.select.i.i.i.i.i, %.noexc40 ], [ %80, %.loopexit55.loopexit.split.loop.exit ], [ %81, %.loopexit55.loopexit.split.loop.exit80 ], [ %82, %.loopexit55.loopexit.split.loop.exit82 ], [ %.sroa.043.066.i.i.i.i.i, %.noexc28 ]
   %.not = icmp eq ptr %44, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i
   br i1 %.not, label %.thread, label %83
 
-83:                                               ; preds = %.loopexit57
+83:                                               ; preds = %.loopexit55
   %84 = load ptr, ptr %27, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   %85 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %14)
@@ -5998,12 +5998,12 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit39.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit36.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN32pxrInternal_v0_24__pxrReserved__18UsdNamespaceEditor14_EditProcessor33_ProcessPropEditRequiresRelocatesERKNS2_12PcpPrimIndexEE3$_0EclINS_17__normal_iteratorIPKNS2_8TfRefPtrINS2_8SdfLayerEEESt6vectorISE_SaISE_EEEEEEbT_.exit33.i.i.i.i.i", %39, %35
-  %lpad.loopexit58 = landingpad { ptr, i32 }
+  %lpad.loopexit56 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke
-  %lpad.loopexit.split-lp59 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp57 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -6023,49 +6023,49 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
   br label %.loopexit.split-lp
 
-.thread:                                          ; preds = %._crit_edge.i.i.i.i.i, %.loopexit57, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
-  %switch = phi i1 [ false, %.loopexit57 ], [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ], [ false, %._crit_edge.i.i.i.i.i ]
+.thread:                                          ; preds = %._crit_edge.i.i.i.i.i, %.loopexit55, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit
+  %100 = phi i1 [ false, %.loopexit55 ], [ true, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit ], [ false, %._crit_edge.i.i.i.i.i ]
   %.pr = load i32, ptr %13, align 4
   %.not.i.i44 = icmp eq i32 %.pr, 0
-  br i1 %.not.i.i44, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %100
+  br i1 %.not.i.i44, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, label %101
 
-100:                                              ; preds = %.thread
-  %101 = and i32 %.pr, 255
-  %102 = lshr i32 %.pr, 8
-  %103 = zext nneg i32 %101 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %103
-  %105 = load ptr, ptr %104, align 8
-  %106 = mul nuw nsw i32 %102, 24
-  %107 = zext nneg i32 %106 to i64
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 %107
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
-  %110 = atomicrmw sub ptr %109, i32 1 seq_cst, align 4
-  %111 = and i32 %110, 2147483647
-  %112 = icmp eq i32 %111, 1
-  br i1 %112, label %113, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
+101:                                              ; preds = %.thread
+  %102 = and i32 %.pr, 255
+  %103 = lshr i32 %.pr, 8
+  %104 = zext nneg i32 %102 to i64
+  %105 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %104
+  %106 = load ptr, ptr %105, align 8
+  %107 = mul nuw nsw i32 %103, 24
+  %108 = zext nneg i32 %107 to i64
+  %109 = getelementptr inbounds nuw i8, ptr %106, i64 %108
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 8
+  %111 = atomicrmw sub ptr %110, i32 1 seq_cst, align 4
+  %112 = and i32 %111, 2147483647
+  %113 = icmp eq i32 %112, 1
+  br i1 %113, label %114, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit
 
-113:                                              ; preds = %100
-  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %108)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit unwind label %114
+114:                                              ; preds = %101
+  invoke void @_ZNK32pxrInternal_v0_24__pxrReserved__12Sdf_PathNode8_DestroyEv(ptr noundef nonnull align 8 dereferenceable(16) %109)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit unwind label %115
 
-114:                                              ; preds = %113
-  %115 = landingpad { ptr, i32 }
+115:                                              ; preds = %114
+  %116 = landingpad { ptr, i32 }
           catch ptr null
-  %116 = extractvalue { ptr, i32 } %115, 0
-  call void @__clang_call_terminate(ptr %116) #23
+  %117 = extractvalue { ptr, i32 } %116, 0
+  call void @__clang_call_terminate(ptr %117) #23
   unreachable
 
-_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %.thread, %100, %113
-  br i1 %switch, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit._crit_edge, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.thread
+_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit: ; preds = %.thread, %101, %114
+  br i1 %100, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit._crit_edge, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.thread
 
 _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit.thread: ; preds = %32, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit, %28, %30
-  %117 = add i64 %.sroa.3.070, 1
-  %118 = icmp ne i64 %117, %.sroa.2.0.copyload.i23
-  %.not3.i = or i1 %24, %118
+  %118 = add i64 %.sroa.3.068, 1
+  %119 = icmp ne i64 %118, %.sroa.2.0.copyload.i23
+  %.not3.i = or i1 %24, %119
   br i1 %.not3.i, label %28, label %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit._crit_edge
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.body
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit58, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp59, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit56, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp57, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr noundef nonnull align 4 dereferenceable(8) %13) #13
   resume { ptr, i32 } %.pn.pn
 

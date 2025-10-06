@@ -146,17 +146,16 @@ define internal noalias ptr @val_to_repr(ptr noundef %0, ptr noundef readonly ca
   call void @ip_num_to_str_buf(i32 noundef %7, ptr noundef nonnull %5, i32 noundef 16)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %9 = load i32, ptr %8, align 4
-  switch i32 %9, label %10 [
-    i32 0, label %13
-    i32 -1, label %13
-  ]
+  %.off = add i32 %9, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %10, label %13
 
 10:                                               ; preds = %4
   %11 = call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %9)
   %12 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.5, ptr noundef nonnull %5, i32 noundef %11)
   br label %15
 
-13:                                               ; preds = %4, %4
+13:                                               ; preds = %4
   %14 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef nonnull %5)
   br label %15
 

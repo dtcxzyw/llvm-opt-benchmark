@@ -1196,7 +1196,7 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
   br i1 %34, label %40, label %.thread
 
 .thread:                                          ; preds = %25, %30, %7
-  %.us-phi176 = phi i1 [ %.not.mux, %7 ], [ false, %30 ], [ false, %25 ]
+  %.us-phi175 = phi i1 [ %.not.mux, %7 ], [ false, %30 ], [ false, %25 ]
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %36 = load i8, ptr %35, align 4, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
@@ -1210,9 +1210,9 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
   %42 = load ptr, ptr %26, align 8
   %43 = load i32, ptr %41, align 8
   %44 = icmp eq i32 %43, 6171
-  br i1 %44, label %.split183, label %49
+  br i1 %44, label %.split182, label %49
 
-.split183:                                        ; preds = %40
+.split182:                                        ; preds = %40
   %45 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %46 = tail call i32 @errcode(i32 noundef 1088) #10
   %47 = tail call ptr @get_rolespec_name(ptr noundef %42) #10
@@ -1223,9 +1223,9 @@ define internal fastcc void @AddRoleMems(i32 noundef %0, ptr noundef %1, i32 nou
 49:                                               ; preds = %40
   %50 = tail call zeroext i1 @is_member_of_role_nosuper(i32 noundef %2, i32 noundef %43) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  br i1 %50, label %.split186, label %.split.split, !llvm.loop !8
+  br i1 %50, label %.split185, label %.split.split, !llvm.loop !8
 
-.split186:                                        ; preds = %49
+.split185:                                        ; preds = %49
   %51 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %52 = tail call i32 @errcode(i32 noundef 16910080) #10
   %53 = tail call ptr @get_rolespec_name(ptr noundef %42) #10
@@ -1267,36 +1267,36 @@ initialize_revoke_actions.exit:                   ; preds = %.lr.ph.i, %55, %60
   %71 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %72 = load i32, ptr %17, align 4
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph193, label %.critedge
+  br i1 %73, label %.lr.ph192, label %.critedge
 
-.lr.ph193:                                        ; preds = %.lr.ph, %plan_member_revoke.exit
+.lr.ph192:                                        ; preds = %.lr.ph, %plan_member_revoke.exit
   %74 = phi i32 [ %107, %plan_member_revoke.exit ], [ %72, %.lr.ph ]
   %75 = phi i32 [ %108, %plan_member_revoke.exit ], [ %70, %.lr.ph ]
-  %indvars.iv200 = phi i64 [ %indvars.iv.next201, %plan_member_revoke.exit ], [ 0, %.lr.ph ]
+  %indvars.iv199 = phi i64 [ %indvars.iv.next200, %plan_member_revoke.exit ], [ 0, %.lr.ph ]
   %76 = load ptr, ptr %18, align 8
-  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv200
+  %77 = getelementptr inbounds nuw %union.ListCell, ptr %76, i64 %indvars.iv199
   %78 = load i32, ptr %77, align 8
   %79 = icmp eq i32 %78, 10
-  br i1 %79, label %.split191, label %86
+  br i1 %79, label %.split190, label %86
 
 .critedge:                                        ; preds = %plan_member_revoke.exit, %.lr.ph, %initialize_revoke_actions.exit
   %80 = phi i32 [ %70, %.lr.ph ], [ %70, %initialize_revoke_actions.exit ], [ %108, %plan_member_revoke.exit ]
   %81 = icmp sgt i32 %80, 0
-  br i1 %81, label %.lr.ph195, label %._crit_edge
+  br i1 %81, label %.lr.ph194, label %._crit_edge
 
-.lr.ph195:                                        ; preds = %.critedge
+.lr.ph194:                                        ; preds = %.critedge
   %82 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %wide.trip.count = zext nneg i32 %80 to i64
   br label %111
 
-.split191:                                        ; preds = %.lr.ph193
+.split190:                                        ; preds = %.lr.ph192
   %83 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %84 = tail call i32 @errcode(i32 noundef 16910080) #10
   %85 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.79, ptr noundef nonnull @.str.37) #10
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1788, ptr noundef nonnull @__func__.AddRoleMems) #10
   unreachable
 
-86:                                               ; preds = %.lr.ph193
+86:                                               ; preds = %.lr.ph192
   %87 = icmp sgt i32 %75, 0
   br i1 %87, label %.lr.ph.i158, label %plan_member_revoke.exit
 
@@ -1338,14 +1338,14 @@ plan_member_revoke.exit.loopexit:                 ; preds = %102
 plan_member_revoke.exit:                          ; preds = %plan_member_revoke.exit.loopexit, %86
   %107 = phi i32 [ %.pre, %plan_member_revoke.exit.loopexit ], [ %74, %86 ]
   %108 = phi i32 [ %103, %plan_member_revoke.exit.loopexit ], [ %75, %86 ]
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %109 = sext i32 %107 to i64
-  %110 = icmp slt i64 %indvars.iv.next201, %109
-  br i1 %110, label %.lr.ph193, label %.critedge
+  %110 = icmp slt i64 %indvars.iv.next200, %109
+  br i1 %110, label %.lr.ph192, label %.critedge
 
-111:                                              ; preds = %.lr.ph195, %130
-  %indvars.iv203 = phi i64 [ 0, %.lr.ph195 ], [ %indvars.iv.next204, %130 ]
-  %112 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv203
+111:                                              ; preds = %.lr.ph194, %130
+  %indvars.iv202 = phi i64 [ 0, %.lr.ph194 ], [ %indvars.iv.next203, %130 ]
+  %112 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv202
   %113 = load ptr, ptr %112, align 8
   %114 = getelementptr i8, ptr %113, i64 80
   %.val157 = load ptr, ptr %114, align 8
@@ -1353,7 +1353,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   %116 = load i8, ptr %115, align 2
   %117 = zext i8 %116 to i64
   %118 = getelementptr inbounds nuw i8, ptr %.val157, i64 %117
-  %119 = getelementptr inbounds nuw i32, ptr %.08.i, i64 %indvars.iv203
+  %119 = getelementptr inbounds nuw i32, ptr %.08.i, i64 %indvars.iv202
   %120 = load i32, ptr %119, align 4
   %121 = icmp eq i32 %120, 0
   br i1 %121, label %122, label %130
@@ -1371,8 +1371,8 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   br i1 %129, label %134, label %130
 
 130:                                              ; preds = %111, %122, %126
-  %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next204, %wide.trip.count
+  %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %111, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %130, %.critedge
@@ -1399,43 +1399,43 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %145 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 6
-  br i1 %.not144, label %.thread166, label %.split196
+  br i1 %.not144, label %.thread165, label %.split195
 
-.split196:                                        ; preds = %.thread._crit_edge, %239
-  %indvars.iv206 = phi i64 [ %indvars.iv.next207, %239 ], [ 0, %.thread._crit_edge ]
-  br i1 %.us-phi176, label %154, label %147
+.split195:                                        ; preds = %.thread._crit_edge, %239
+  %indvars.iv205 = phi i64 [ %indvars.iv.next206, %239 ], [ 0, %.thread._crit_edge ]
+  br i1 %.us-phi175, label %154, label %147
 
-147:                                              ; preds = %.split196
+147:                                              ; preds = %.split195
   %148 = load i32, ptr %15, align 4
   %149 = sext i32 %148 to i64
-  %150 = icmp slt i64 %indvars.iv206, %149
+  %150 = icmp slt i64 %indvars.iv205, %149
   br i1 %150, label %151, label %154
 
 151:                                              ; preds = %147
   %152 = load ptr, ptr %16, align 8
-  %153 = getelementptr inbounds nuw %union.ListCell, ptr %152, i64 %indvars.iv206
+  %153 = getelementptr inbounds nuw %union.ListCell, ptr %152, i64 %indvars.iv205
   br label %154
 
-154:                                              ; preds = %.split196, %147, %151
-  %155 = phi ptr [ %153, %151 ], [ null, %147 ], [ null, %.split196 ]
+154:                                              ; preds = %.split195, %147, %151
+  %155 = phi ptr [ %153, %151 ], [ null, %147 ], [ null, %.split195 ]
   %156 = load i32, ptr %17, align 4
   %157 = sext i32 %156 to i64
-  %158 = icmp slt i64 %indvars.iv206, %157
-  br i1 %158, label %159, label %.thread166
+  %158 = icmp slt i64 %indvars.iv205, %157
+  br i1 %158, label %159, label %.thread165
 
 159:                                              ; preds = %154
   %160 = load ptr, ptr %18, align 8
   %161 = icmp ne ptr %155, null
   %162 = icmp ne ptr %160, null
   %163 = select i1 %161, i1 %162, i1 false
-  br i1 %163, label %164, label %.thread166
+  br i1 %163, label %164, label %.thread165
 
-.thread166:                                       ; preds = %159, %154, %.thread._crit_edge
+.thread165:                                       ; preds = %159, %154, %.thread._crit_edge
   call void @table_close(ptr noundef %12, i32 noundef 0) #10
   ret void
 
 164:                                              ; preds = %159
-  %165 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv206
+  %165 = getelementptr inbounds nuw %union.ListCell, ptr %160, i64 %indvars.iv205
   %166 = load ptr, ptr %155, align 8
   %167 = load i32, ptr %165, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1507,16 +1507,16 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   %196 = load i8, ptr %195, align 2, !range !4, !noundef !5
   %197 = load i8, ptr %144, align 2, !range !4, !noundef !5
   %.not155 = icmp eq i8 %196, %197
-  br i1 %.not155, label %199, label %.thread167
+  br i1 %.not155, label %199, label %.thread166
 
-.thread167:                                       ; preds = %194
+.thread166:                                       ; preds = %194
   %198 = zext nneg i8 %197 to i64
   store i64 %198, ptr %145, align 16
   store i8 1, ptr %146, align 1
-  br label %.thread169
+  br label %.thread168
 
 199:                                              ; preds = %194, %192
-  br i1 %.1, label %.thread169, label %200
+  br i1 %.1, label %.thread168, label %200
 
 200:                                              ; preds = %199
   %201 = call zeroext i1 @errstart(i32 noundef 18, ptr noundef null) #10
@@ -1529,7 +1529,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1892, ptr noundef nonnull @__func__.AddRoleMems) #10
   br label %208
 
-.thread169:                                       ; preds = %199, %.thread167
+.thread168:                                       ; preds = %199, %.thread166
   %206 = call ptr @heap_modify_tuple(ptr noundef nonnull %169, ptr noundef %14, ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef nonnull %10) #10
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 4
   call void @CatalogTupleUpdate(ptr noundef %12, ptr noundef nonnull %207, ptr noundef %206) #10
@@ -1594,7 +1594,7 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   call void @updateAclDependencies(i32 noundef 1261, i32 noundef %235, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %210) #10
   br label %238
 
-238:                                              ; preds = %.thread169, %234
+238:                                              ; preds = %.thread168, %234
   call void @CommandCounterIncrement() #10
   br label %239
 
@@ -1602,8 +1602,8 @@ plan_member_revoke.exit:                          ; preds = %plan_member_revoke.
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
-  br label %.split196, !llvm.loop !12
+  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
+  br label %.split195, !llvm.loop !12
 }
 
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
@@ -4079,7 +4079,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   %10 = icmp eq i32 %8, 1
   %or.cond = and i1 %3, %10
   %or.cond48 = or i1 %9, %or.cond
-  br i1 %or.cond48, label %.thread55, label %11
+  br i1 %or.cond48, label %.thread54, label %11
 
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -4098,13 +4098,13 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load i8, ptr %21, align 4, !range !4, !noundef !5
   %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %29, label %.thread55
+  br i1 %23, label %29, label %.thread54
 
 24:                                               ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %26 = load i8, ptr %25, align 4, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %.thread55
+  br i1 %27, label %28, label %.thread54
 
 28:                                               ; preds = %24
   store i32 1, ptr %7, align 4
@@ -4114,7 +4114,7 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load i32, ptr %30, align 8
   %32 = icmp sgt i32 %31, 0
-  br i1 %32, label %.lr.ph, label %.thread55
+  br i1 %32, label %.lr.ph, label %.thread54
 
 .lr.ph:                                           ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -4122,19 +4122,19 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   %wide.trip.count = zext nneg i32 %31 to i64
   br label %55
 
-.lr.ph61:                                         ; preds = %74
+.lr.ph60:                                         ; preds = %74
   %35 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %36 = icmp eq i32 %4, 0
-  br i1 %36, label %.lr.ph61.split.us, label %.lr.ph61.split
+  br i1 %36, label %.lr.ph60.split.us, label %.lr.ph60.split
 
-.lr.ph61.split.us:                                ; preds = %.lr.ph61
+.lr.ph60.split.us:                                ; preds = %.lr.ph60
   %37 = load i32, ptr %35, align 4
   %38 = zext nneg i32 %31 to i64
   br label %39
 
-39:                                               ; preds = %53, %.lr.ph61.split.us
-  %indvars.iv68 = phi i64 [ %indvars.iv.next69, %53 ], [ 0, %.lr.ph61.split.us ]
-  %40 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv68
+39:                                               ; preds = %53, %.lr.ph60.split.us
+  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %53 ], [ 0, %.lr.ph60.split.us ]
+  %40 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv67
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr i8, ptr %41, i64 80
   %.val.us = load ptr, ptr %42, align 8
@@ -4148,15 +4148,15 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %39
-  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv68
+  %51 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv67
   %52 = load i32, ptr %51, align 4
   %.not.us = icmp eq i32 %52, 4
   br i1 %.not.us, label %53, label %.split.us
 
 53:                                               ; preds = %50, %39
-  %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
-  %54 = icmp samesign ult i64 %indvars.iv.next69, %38
-  br i1 %54, label %39, label %.thread55, !llvm.loop !18
+  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %54 = icmp samesign ult i64 %indvars.iv.next68, %38
+  br i1 %54, label %39, label %.thread54, !llvm.loop !18
 
 55:                                               ; preds = %.lr.ph, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %74 ]
@@ -4183,17 +4183,17 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   %71 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4
   %73 = icmp eq i32 %72, 0
-  br i1 %73, label %.thread55, label %74
+  br i1 %73, label %.thread54, label %74
 
 74:                                               ; preds = %55, %66, %70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph61, label %55, !llvm.loop !19
+  br i1 %exitcond.not, label %.lr.ph60, label %55, !llvm.loop !19
 
-.lr.ph61.split:                                   ; preds = %.lr.ph61, %96
-  %75 = phi i32 [ %97, %96 ], [ %31, %.lr.ph61 ]
-  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %96 ], [ 0, %.lr.ph61 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv65
+.lr.ph60.split:                                   ; preds = %.lr.ph60, %96
+  %75 = phi i32 [ %97, %96 ], [ %31, %.lr.ph60 ]
+  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %96 ], [ 0, %.lr.ph60 ]
+  %76 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv64
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr i8, ptr %77, i64 80
   %.val = load ptr, ptr %78, align 8
@@ -4207,14 +4207,14 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   %86 = icmp eq i32 %84, %85
   br i1 %86, label %87, label %96
 
-87:                                               ; preds = %.lr.ph61.split
-  %88 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv65
+87:                                               ; preds = %.lr.ph60.split
+  %88 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv64
   %89 = load i32, ptr %88, align 4
   %.not = icmp eq i32 %89, 4
   br i1 %.not, label %96, label %90
 
 90:                                               ; preds = %87
-  %91 = trunc nuw nsw i64 %indvars.iv65 to i32
+  %91 = trunc nuw nsw i64 %indvars.iv64 to i32
   tail call fastcc void @plan_recursive_revoke(ptr noundef nonnull %0, ptr noundef nonnull %1, i32 noundef %91, i1 noundef zeroext false, i32 noundef %4)
   %.pre = load i32, ptr %30, align 8
   br label %96
@@ -4227,14 +4227,14 @@ define internal fastcc void @plan_recursive_revoke(ptr noundef readonly captures
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 2494, ptr noundef nonnull @__func__.plan_recursive_revoke) #10
   unreachable
 
-96:                                               ; preds = %90, %87, %.lr.ph61.split
-  %97 = phi i32 [ %.pre, %90 ], [ %75, %87 ], [ %75, %.lr.ph61.split ]
-  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+96:                                               ; preds = %90, %87, %.lr.ph60.split
+  %97 = phi i32 [ %.pre, %90 ], [ %75, %87 ], [ %75, %.lr.ph60.split ]
+  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %98 = sext i32 %97 to i64
-  %99 = icmp slt i64 %indvars.iv.next66, %98
-  br i1 %99, label %.lr.ph61.split, label %.thread55, !llvm.loop !18
+  %99 = icmp slt i64 %indvars.iv.next65, %98
+  br i1 %99, label %.lr.ph60.split, label %.thread54, !llvm.loop !18
 
-.thread55:                                        ; preds = %70, %96, %53, %29, %24, %20, %5
+.thread54:                                        ; preds = %70, %96, %53, %29, %24, %20, %5
   ret void
 }
 

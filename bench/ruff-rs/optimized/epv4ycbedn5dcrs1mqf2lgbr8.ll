@@ -2569,10 +2569,10 @@ define noundef zeroext i1 @"_ZN13ruff_notebook4cell83_$LT$impl$u20$core..fmt..Di
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN13ruff_notebook4cell45_$LT$impl$u20$ruff_notebook..schema..Cell$GT$6source17h63051748ef2da716E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !632, !noundef !4
-  %switch = icmp samesign ult i64 %2, 2
-  %. = select i1 %switch, i64 16, i64 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  ret ptr %3
+  %3 = icmp samesign ult i64 %2, 2
+  %. = select i1 %3, i64 16, i64 8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  ret ptr %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -2585,10 +2585,10 @@ define noundef zeroext i1 @"_ZN13ruff_notebook4cell45_$LT$impl$u20$ruff_notebook
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef nonnull align 8 dereferenceable(72) ptr @"_ZN13ruff_notebook4cell45_$LT$impl$u20$ruff_notebook..schema..Cell$GT$8metadata17h73e072b98b17820bE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !632, !noundef !4
-  %switch = icmp samesign ult i64 %2, 2
-  %. = select i1 %switch, i64 96, i64 64
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  ret ptr %3
+  %3 = icmp samesign ult i64 %2, 2
+  %. = select i1 %3, i64 96, i64 64
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  ret ptr %4
 }
 
 ; Function Attrs: nonlazybind uwtable

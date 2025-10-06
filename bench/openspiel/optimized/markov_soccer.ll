@@ -2156,7 +2156,7 @@ _ZNK10open_spiel13markov_soccer17MarkovSoccerState8InBoundsEii.exit.thread: ; pr
   br i1 %or.cond74, label %.thread, label %55
 
 55:                                               ; preds = %49
-  switch i8 %54, label %97 [
+  switch i8 %54, label %98 [
     i8 46, label %56
     i8 79, label %73
   ]
@@ -2228,99 +2228,99 @@ _ZN10open_spiel13markov_soccer17MarkovSoccerState8SetFieldEiic.exit: ; preds = %
   resume { ptr, i32 } %79
 
 80:                                               ; preds = %73
-  %switch = icmp eq i8 %31, 97
+  %81 = icmp eq i8 %31, 97
   store i8 46, ptr %30, align 1
-  %81 = load ptr, ptr %22, align 8
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
-  %83 = load i32, ptr %82, align 4
-  %84 = mul nsw i32 %83, %17
-  %85 = add nsw i32 %84, %20
-  %86 = sext i32 %85 to i64
-  %87 = load ptr, ptr %21, align 8
-  %88 = getelementptr inbounds i8, ptr %87, i64 %86
-  br i1 %switch, label %89, label %92
+  %82 = load ptr, ptr %22, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 4
+  %84 = load i32, ptr %83, align 4
+  %85 = mul nsw i32 %84, %17
+  %86 = add nsw i32 %85, %20
+  %87 = sext i32 %86 to i64
+  %88 = load ptr, ptr %21, align 8
+  %89 = getelementptr inbounds i8, ptr %88, i64 %87
+  br i1 %81, label %90, label %93
 
-89:                                               ; preds = %80
-  store i8 65, ptr %88, align 1
+90:                                               ; preds = %80
+  store i8 65, ptr %89, align 1
   store i32 %17, ptr %6, align 8
   store i32 %20, ptr %11, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %17, ptr %90, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %20, ptr %91, align 4
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %17, ptr %91, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %20, ptr %92, align 4
   br label %.thread
 
-92:                                               ; preds = %80
-  store i8 66, ptr %88, align 1
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %17, ptr %93, align 4
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %20, ptr %94, align 4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %17, ptr %95, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %20, ptr %96, align 4
+93:                                               ; preds = %80
+  store i8 66, ptr %89, align 1
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 %17, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 %20, ptr %95, align 4
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %17, ptr %96, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %20, ptr %97, align 4
   br label %.thread
 
-97:                                               ; preds = %55
-  %98 = icmp eq i8 %31, 65
-  %99 = icmp eq i8 %54, 98
-  %or.cond8 = and i1 %98, %99
-  br i1 %or.cond8, label %100, label %113
+98:                                               ; preds = %55
+  %99 = icmp eq i8 %31, 65
+  %100 = icmp eq i8 %54, 98
+  %or.cond8 = and i1 %99, %100
+  br i1 %or.cond8, label %101, label %114
 
-100:                                              ; preds = %97
+101:                                              ; preds = %98
   store i8 97, ptr %30, align 1
   store i32 %10, ptr %6, align 8
   store i32 %13, ptr %11, align 8
-  %101 = load ptr, ptr %22, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  %103 = load i32, ptr %102, align 4
-  %104 = mul nsw i32 %103, %17
-  %105 = add nsw i32 %104, %20
-  %106 = sext i32 %105 to i64
-  %107 = load ptr, ptr %21, align 8
-  %108 = getelementptr inbounds i8, ptr %107, i64 %106
-  store i8 66, ptr %108, align 1
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %17, ptr %109, align 4
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %20, ptr %110, align 4
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %17, ptr %111, align 8
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %20, ptr %112, align 4
+  %102 = load ptr, ptr %22, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
+  %104 = load i32, ptr %103, align 4
+  %105 = mul nsw i32 %104, %17
+  %106 = add nsw i32 %105, %20
+  %107 = sext i32 %106 to i64
+  %108 = load ptr, ptr %21, align 8
+  %109 = getelementptr inbounds i8, ptr %108, i64 %107
+  store i8 66, ptr %109, align 1
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 %17, ptr %110, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 %20, ptr %111, align 4
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %17, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %20, ptr %113, align 4
   br label %.thread
 
-113:                                              ; preds = %97
-  %114 = icmp eq i8 %31, 66
-  %115 = icmp eq i8 %54, 97
-  %or.cond11 = and i1 %114, %115
-  br i1 %or.cond11, label %116, label %.thread
+114:                                              ; preds = %98
+  %115 = icmp eq i8 %31, 66
+  %116 = icmp eq i8 %54, 97
+  %or.cond11 = and i1 %115, %116
+  br i1 %or.cond11, label %117, label %.thread
 
-116:                                              ; preds = %113
+117:                                              ; preds = %114
   store i8 98, ptr %30, align 1
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 %10, ptr %117, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 100
-  store i32 %13, ptr %118, align 4
-  %119 = load ptr, ptr %22, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %121 = load i32, ptr %120, align 4
-  %122 = mul nsw i32 %121, %17
-  %123 = add nsw i32 %122, %20
-  %124 = sext i32 %123 to i64
-  %125 = load ptr, ptr %21, align 8
-  %126 = getelementptr inbounds i8, ptr %125, i64 %124
-  store i8 65, ptr %126, align 1
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 %10, ptr %118, align 4
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 100
+  store i32 %13, ptr %119, align 4
+  %120 = load ptr, ptr %22, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 4
+  %122 = load i32, ptr %121, align 4
+  %123 = mul nsw i32 %122, %17
+  %124 = add nsw i32 %123, %20
+  %125 = sext i32 %124 to i64
+  %126 = load ptr, ptr %21, align 8
+  %127 = getelementptr inbounds i8, ptr %126, i64 %125
+  store i8 65, ptr %127, align 1
   store i32 %17, ptr %6, align 8
   store i32 %20, ptr %11, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %17, ptr %127, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %20, ptr %128, align 4
+  %128 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %17, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %20, ptr %129, align 4
   br label %.thread
 
-.thread:                                          ; preds = %39, %49, %92, %89, %113, %116, %100, %41, %47, %43, %_ZN10open_spiel13markov_soccer17MarkovSoccerState8SetFieldEiic.exit
+.thread:                                          ; preds = %39, %49, %93, %90, %114, %117, %101, %41, %47, %43, %_ZN10open_spiel13markov_soccer17MarkovSoccerState8SetFieldEiic.exit
   ret void
 }
 

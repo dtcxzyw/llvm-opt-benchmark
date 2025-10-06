@@ -1947,8 +1947,8 @@ define hidden void @"_ZN97_$LT$yara_x_parser..cst..CSTStream$LT$I$GT$$u20$as$u20
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @"_ZN88_$LT$yara_x_parser..parser..Parser$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9059a4c446ade59cE"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull align 8 dereferenceable(400) %1)
   %10 = load i64, ptr %3, align 8, !range !148, !noundef !3
-  %.not48 = icmp eq i64 %10, -9223372036854775805
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not46 = icmp eq i64 %10, -9223372036854775805
+  br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2011,13 +2011,13 @@ define hidden void @"_ZN97_$LT$yara_x_parser..cst..CSTStream$LT$I$GT$$u20$as$u20
   br i1 %27, label %31, label %"_ZN4core3ptr46drop_in_place$LT$yara_x_parser..cst..Event$GT$17h8f7d3995a5665ff3E.exit"
 
 28:                                               ; preds = %19
-  %.sroa.682.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.682.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.7, i64 14, i1 false)
+  %.sroa.680.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.680.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.7, i64 14, i1 false)
   store i64 -9223372036854775806, ptr %0, align 8
-  %.sroa.480.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.0.copyload, ptr %.sroa.480.0..sroa_idx, align 8
-  %.sroa.581.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 80, ptr %.sroa.581.0..sroa_idx, align 8
+  %.sroa.478.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.5.0.copyload, ptr %.sroa.478.0..sroa_idx, align 8
+  %.sroa.579.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 80, ptr %.sroa.579.0..sroa_idx, align 8
   br label %16
 
 "_ZN4core3ptr46drop_in_place$LT$yara_x_parser..cst..Event$GT$17h8f7d3995a5665ff3E.exit": ; preds = %25, %22, %19
@@ -2028,23 +2028,23 @@ define hidden void @"_ZN97_$LT$yara_x_parser..cst..CSTStream$LT$I$GT$$u20$as$u20
   br i1 %.not, label %._crit_edge, label %13
 
 30:                                               ; preds = %22
-  %.sroa.666.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.666.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.7, i64 14, i1 false)
+  %.sroa.664.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.664.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.7, i64 14, i1 false)
   store i64 -9223372036854775806, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.5.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.565.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 81, ptr %.sroa.565.0..sroa_idx, align 8
+  %.sroa.563.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 81, ptr %.sroa.563.0..sroa_idx, align 8
   br label %16
 
 31:                                               ; preds = %25
-  %.sroa.674.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.674.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.7, i64 14, i1 false)
+  %.sroa.672.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 18
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(14) %.sroa.672.0..sroa_idx, ptr noundef nonnull align 2 dereferenceable(14) %.sroa.7, i64 14, i1 false)
   store i64 -9223372036854775806, ptr %0, align 8
-  %.sroa.472.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.5.0.copyload, ptr %.sroa.472.0..sroa_idx, align 8
-  %.sroa.573.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 82, ptr %.sroa.573.0..sroa_idx, align 8
+  %.sroa.470.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.5.0.copyload, ptr %.sroa.470.0..sroa_idx, align 8
+  %.sroa.571.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 82, ptr %.sroa.571.0..sroa_idx, align 8
   br label %16
 }
 

@@ -897,8 +897,8 @@ define hidden void @_ZN13JVMCICompiler9on_upcallEPKcP17JVMCICompileState(ptr nou
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %21 = load ptr, ptr %20, align 8
   %22 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE65ELS1_21ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 72), align 8
-  %.not32 = icmp eq ptr %22, null
-  br i1 %.not32, label %24, label %23
+  %.not31 = icmp eq ptr %22, null
+  br i1 %.not31, label %24, label %23
 
 23:                                               ; preds = %18
   call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE65ELS1_21ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE4EEEvPKcz(ptr noundef nonnull @.str.17, ptr noundef %21)

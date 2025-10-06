@@ -20756,7 +20756,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr noundef readonly cap
 
 5:                                                ; preds = %2
   tail call void @zend_wrong_parameters_none_error() #13
-  br label %.loopexit64
+  br label %.loopexit63
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -20776,11 +20776,11 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr noundef readonly cap
   %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = load ptr, ptr @reflection_exception_ptr, align 8, !tbaa !36
   %18 = icmp eq ptr %16, %17
-  br i1 %18, label %.loopexit64, label %19
+  br i1 %18, label %.loopexit63, label %19
 
 19:                                               ; preds = %14, %12
   tail call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.10) #13
-  br label %.loopexit64
+  br label %.loopexit63
 
 20:                                               ; preds = %6
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 456
@@ -20795,8 +20795,8 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr noundef readonly cap
   store i32 775, ptr %25, align 8, !tbaa !26
   %26 = load ptr, ptr %21, align 8, !tbaa !234
   %27 = load ptr, ptr %26, align 8, !tbaa !235
-  %.not5466 = icmp eq ptr %27, null
-  br i1 %.not5466, label %.loopexit64, label %.lr.ph
+  %.not5465 = icmp eq ptr %27, null
+  br i1 %.not5465, label %.loopexit63, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %10, i64 428
@@ -20807,7 +20807,7 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr noundef readonly cap
   %31 = phi ptr [ %26, %.lr.ph ], [ %97, %96 ]
   %32 = phi ptr [ %27, %.lr.ph ], [ %101, %96 ]
   %33 = phi i64 [ 0, %.lr.ph ], [ %99, %96 ]
-  %.04567 = phi i32 [ 0, %.lr.ph ], [ %98, %96 ]
+  %.04566 = phi i32 [ 0, %.lr.ph ], [ %98, %96 ]
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !237
   %.not55 = icmp eq ptr %35, null
@@ -20823,8 +20823,8 @@ define hidden void @zim_ReflectionClass_getTraitAliases(ptr noundef readonly cap
   %40 = load ptr, ptr %32, align 8, !tbaa !241
   %41 = tail call ptr @zend_string_tolower_ex(ptr noundef %40, i1 noundef zeroext false) #13
   %42 = load i32, ptr %28, align 4, !tbaa !229
-  %.not68 = icmp eq i32 %42, 0
-  br i1 %.not68, label %.loopexit, label %zend_hash_find_ptr.exit
+  %.not67 = icmp eq i32 %42, 0
+  br i1 %.not67, label %.loopexit, label %zend_hash_find_ptr.exit
 
 43:                                               ; preds = %zend_hash_find_ptr.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -20846,8 +20846,8 @@ zend_hash_find_ptr.exit:                          ; preds = %39, %43
   %53 = load ptr, ptr %52, align 8, !tbaa !26, !nonnull !46, !noundef !46
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = tail call ptr @zend_hash_find(ptr noundef nonnull %54, ptr noundef %41) #13
-  %.not63 = icmp eq ptr %55, null
-  br i1 %.not63, label %43, label %56
+  %.not62 = icmp eq ptr %55, null
+  br i1 %.not62, label %43, label %56
 
 56:                                               ; preds = %zend_hash_find_ptr.exit
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -20919,20 +20919,20 @@ zend_string_alloc.exit:                           ; preds = %zend_string_release
 
 96:                                               ; preds = %zend_string_alloc.exit, %30
   %97 = phi ptr [ %.pre, %zend_string_alloc.exit ], [ %31, %30 ]
-  %98 = add i32 %.04567, 1
+  %98 = add i32 %.04566, 1
   %99 = zext i32 %98 to i64
   %100 = getelementptr inbounds nuw ptr, ptr %97, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !235
   %.not54 = icmp eq ptr %101, null
-  br i1 %.not54, label %.loopexit64, label %30
+  br i1 %.not54, label %.loopexit63, label %30
 
 102:                                              ; preds = %20
   store ptr @zend_empty_array, ptr %1, align 8, !tbaa !26
   %103 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 7, ptr %103, align 8, !tbaa !26
-  br label %.loopexit64
+  br label %.loopexit63
 
-.loopexit64:                                      ; preds = %96, %23, %14, %102, %19, %5
+.loopexit63:                                      ; preds = %96, %23, %14, %102, %19, %5
   ret void
 }
 

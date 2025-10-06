@@ -16440,17 +16440,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4lean13specialize_fn23is_speci
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %.val49.pre, i64 %.pre113
-  %.not1.not.i = icmp eq i64 %.val50.pre, 0
-  br i1 %.not1.not.i, label %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit.thread, label %.lr.ph.i
+  %.not2.not.i = icmp eq i64 %.val50.pre, 0
+  br i1 %.not2.not.i, label %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit.thread, label %.lr.ph.i
 
 23:                                               ; preds = %.lr.ph.i
-  %24 = getelementptr inbounds nuw i8, ptr %.0122.i, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %.0123.i, i64 4
   %.not.not.i = icmp eq ptr %24, %22
   br i1 %.not.not.i, label %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %23
-  %.0122.i = phi ptr [ %24, %23 ], [ %.val49.pre, %21 ]
-  %25 = load i32, ptr %.0122.i, align 4, !tbaa !45
+  %.0123.i = phi ptr [ %24, %23 ], [ %.val49.pre, %21 ]
+  %25 = load i32, ptr %.0123.i, align 4, !tbaa !45
   %.not13.i = icmp eq i32 %25, 3
   br i1 %.not13.i, label %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit, label %23
 
@@ -16461,17 +16461,17 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4lean13specialize_fn23is_speci
 
 _ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit: ; preds = %.lr.ph.i, %20
   %28 = getelementptr inbounds nuw i8, ptr %.val49.pre, i64 %.pre113
-  %.not1.not.i52 = icmp eq i64 %.val50.pre, 0
-  br i1 %.not1.not.i52, label %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit.thread, label %.lr.ph.i53
+  %.not2.not.i52 = icmp eq i64 %.val50.pre, 0
+  br i1 %.not2.not.i52, label %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit.thread, label %.lr.ph.i53
 
 29:                                               ; preds = %.lr.ph.i53
-  %30 = getelementptr inbounds nuw i8, ptr %.0122.i54, i64 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0123.i54, i64 4
   %.not.not.i56 = icmp eq ptr %30, %28
   br i1 %.not.not.i56, label %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit.thread, label %.lr.ph.i53
 
 .lr.ph.i53:                                       ; preds = %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit, %29
-  %.0122.i54 = phi ptr [ %30, %29 ], [ %.val49.pre, %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit ]
-  %31 = load i32, ptr %.0122.i54, align 4, !tbaa !45
+  %.0123.i54 = phi ptr [ %30, %29 ], [ %.val49.pre, %_ZN4leanL18has_fixed_inst_argERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit ]
+  %31 = load i32, ptr %.0123.i54, align 4, !tbaa !45
   %.not13.not.i = icmp eq i32 %31, 4
   br i1 %.not13.not.i, label %29, label %_ZN4leanL17has_kind_ne_otherERKNS_6bufferINS_13spec_arg_kindELm16EEE.exit
 
@@ -20146,15 +20146,15 @@ define linkonce_odr hidden void @_ZN4lean13specialize_fn4findERKNS_4exprE(ptr de
   %5 = alloca %"class.lean::optional.76", align 8
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %72, %3
-  %.tr23 = phi ptr [ %2, %3 ], [ %73, %72 ]
+tailrecurse:                                      ; preds = %73, %3
+  %.tr23 = phi ptr [ %2, %3 ], [ %74, %73 ]
   %6 = load ptr, ptr %.tr23, align 8, !tbaa !3
   %7 = getelementptr i8, ptr %6, i64 4
   %.val.i.i.i.i = load i32, ptr %7, align 4
   %.mask.i = and i32 %.val.i.i.i.i, -16777216
   switch i32 %.mask.i, label %.loopexit [
     i32 16777216, label %8
-    i32 167772160, label %72
+    i32 167772160, label %73
   ]
 
 8:                                                ; preds = %tailrecurse
@@ -20271,83 +20271,83 @@ tailrecurse:                                      ; preds = %72, %3
   br label %54
 
 54:                                               ; preds = %.sink.split, %8
-  %switch = phi i1 [ true, %8 ], [ %17, %.sink.split ]
-  %55 = load i8, ptr %4, align 8, !tbaa !371, !range !118, !noundef !119
-  %56 = trunc nuw i8 %55 to i1
-  br i1 %56, label %57, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
+  %55 = phi i1 [ true, %8 ], [ %17, %.sink.split ]
+  %56 = load i8, ptr %4, align 8, !tbaa !371, !range !118, !noundef !119
+  %57 = trunc nuw i8 %56 to i1
+  br i1 %57, label %58, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
 
-57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %59 = load ptr, ptr %58, align 8, !tbaa !3
-  %60 = ptrtoint ptr %59 to i64
-  %61 = and i64 %60, 1
-  %.not.i.i.i15 = icmp eq i64 %61, 0
-  br i1 %.not.i.i.i15, label %62, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
+58:                                               ; preds = %54
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !3
+  %61 = ptrtoint ptr %60 to i64
+  %62 = and i64 %61, 1
+  %.not.i.i.i15 = icmp eq i64 %62, 0
+  br i1 %.not.i.i.i15, label %63, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
 
-62:                                               ; preds = %57
-  %63 = load i32, ptr %59, align 4, !tbaa !8
-  %64 = icmp sgt i32 %63, 1
-  br i1 %64, label %65, label %67, !prof !11
+63:                                               ; preds = %58
+  %64 = load i32, ptr %60, align 4, !tbaa !8
+  %65 = icmp sgt i32 %64, 1
+  br i1 %65, label %66, label %68, !prof !11
 
-65:                                               ; preds = %62
-  %66 = add nsw i32 %63, -1
-  store i32 %66, ptr %59, align 4, !tbaa !8
+66:                                               ; preds = %63
+  %67 = add nsw i32 %64, -1
+  store i32 %67, ptr %60, align 4, !tbaa !8
   br label %_ZN4lean8optionalINS_10local_declEED2Ev.exit
 
-67:                                               ; preds = %62
-  %.not.i.i.i.i16 = icmp eq i32 %63, 0
-  br i1 %.not.i.i.i.i16, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit, label %68
-
-68:                                               ; preds = %67
-  invoke void @lean_dec_ref_cold(ptr noundef nonnull %59)
-          to label %_ZN4lean8optionalINS_10local_declEED2Ev.exit unwind label %69
+68:                                               ; preds = %63
+  %.not.i.i.i.i16 = icmp eq i32 %64, 0
+  br i1 %.not.i.i.i.i16, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit, label %69
 
 69:                                               ; preds = %68
-  %70 = landingpad { ptr, i32 }
+  invoke void @lean_dec_ref_cold(ptr noundef nonnull %60)
+          to label %_ZN4lean8optionalINS_10local_declEED2Ev.exit unwind label %70
+
+70:                                               ; preds = %69
+  %71 = landingpad { ptr, i32 }
           catch ptr null
-  %71 = extractvalue { ptr, i32 } %70, 0
-  call void @__clang_call_terminate(ptr %71) #21
+  %72 = extractvalue { ptr, i32 } %71, 0
+  call void @__clang_call_terminate(ptr %72) #21
   unreachable
 
-_ZN4lean8optionalINS_10local_declEED2Ev.exit:     ; preds = %54, %57, %65, %67, %68
+_ZN4lean8optionalINS_10local_declEED2Ev.exit:     ; preds = %54, %58, %66, %68, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %switch, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge, label %_ZN4lean4exprC2ERKS0_.exit
+  br i1 %55, label %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge, label %_ZN4lean4exprC2ERKS0_.exit
 
 _ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge: ; preds = %_ZN4lean8optionalINS_10local_declEED2Ev.exit
   %.pre = load ptr, ptr %.tr23, align 8, !tbaa !3
   br label %.loopexit
 
-72:                                               ; preds = %tailrecurse
-  %73 = getelementptr inbounds nuw i8, ptr %6, i64 16
+73:                                               ; preds = %tailrecurse
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 16
   br label %tailrecurse
 
 .loopexit:                                        ; preds = %tailrecurse, %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge
-  %74 = phi ptr [ %.pre, %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge ], [ %6, %tailrecurse ]
-  store ptr %74, ptr %0, align 8, !tbaa !3
-  %75 = ptrtoint ptr %74 to i64
-  %76 = and i64 %75, 1
-  %.not.i.i.i19 = icmp eq i64 %76, 0
-  br i1 %.not.i.i.i19, label %77, label %_ZN4lean4exprC2ERKS0_.exit
+  %75 = phi ptr [ %.pre, %_ZN4lean8optionalINS_10local_declEED2Ev.exit..loopexit_crit_edge ], [ %6, %tailrecurse ]
+  store ptr %75, ptr %0, align 8, !tbaa !3
+  %76 = ptrtoint ptr %75 to i64
+  %77 = and i64 %76, 1
+  %.not.i.i.i19 = icmp eq i64 %77, 0
+  br i1 %.not.i.i.i19, label %78, label %_ZN4lean4exprC2ERKS0_.exit
 
-77:                                               ; preds = %.loopexit
-  %.val.i.i.i.i20 = load i32, ptr %74, align 4, !tbaa !8
-  %78 = icmp sgt i32 %.val.i.i.i.i20, 0
-  br i1 %78, label %79, label %81, !prof !11
+78:                                               ; preds = %.loopexit
+  %.val.i.i.i.i20 = load i32, ptr %75, align 4, !tbaa !8
+  %79 = icmp sgt i32 %.val.i.i.i.i20, 0
+  br i1 %79, label %80, label %82, !prof !11
 
-79:                                               ; preds = %77
-  %80 = add nuw nsw i32 %.val.i.i.i.i20, 1
-  store i32 %80, ptr %74, align 4, !tbaa !8
+80:                                               ; preds = %78
+  %81 = add nuw nsw i32 %.val.i.i.i.i20, 1
+  store i32 %81, ptr %75, align 4, !tbaa !8
   br label %_ZN4lean4exprC2ERKS0_.exit
 
-81:                                               ; preds = %77
+82:                                               ; preds = %78
   %.not.i.i.i.i21 = icmp eq i32 %.val.i.i.i.i20, 0
-  br i1 %.not.i.i.i.i21, label %_ZN4lean4exprC2ERKS0_.exit, label %82
+  br i1 %.not.i.i.i.i21, label %_ZN4lean4exprC2ERKS0_.exit, label %83
 
-82:                                               ; preds = %81
-  call void @lean_inc_ref_cold(ptr noundef nonnull %74)
+83:                                               ; preds = %82
+  call void @lean_inc_ref_cold(ptr noundef nonnull %75)
   br label %_ZN4lean4exprC2ERKS0_.exit
 
-_ZN4lean4exprC2ERKS0_.exit:                       ; preds = %82, %81, %79, %.loopexit, %_ZN4lean8optionalINS_10local_declEED2Ev.exit
+_ZN4lean4exprC2ERKS0_.exit:                       ; preds = %83, %82, %80, %.loopexit, %_ZN4lean8optionalINS_10local_declEED2Ev.exit
   ret void
 }
 
@@ -29351,23 +29351,23 @@ _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i: ; preds 
   %39 = load i64, ptr %38, align 8, !tbaa !137
   %.idx = shl nuw nsw i64 %39, 3
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx
-  %.not41 = icmp eq i64 %39, 0
-  br i1 %.not41, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit, label %.lr.ph
+  %.not39 = icmp eq i64 %39, 0
+  br i1 %.not39, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %35, %.critedge
-  %.01942 = phi ptr [ %61, %.critedge ], [ %37, %35 ]
-  %41 = load ptr, ptr %.01942, align 8, !tbaa !3
+  %.01940 = phi ptr [ %61, %.critedge ], [ %37, %35 ]
+  %41 = load ptr, ptr %.01940, align 8, !tbaa !3
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %2, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %42, align 8, !tbaa !3
   %46 = load ptr, ptr %44, align 8, !tbaa !3
   %47 = tail call zeroext i8 @lean_name_eq(ptr noundef %45, ptr noundef %46)
-  %.not38 = icmp eq i8 %47, 0
-  br i1 %.not38, label %.critedge, label %48
+  %.not36 = icmp eq i8 %47, 0
+  br i1 %.not36, label %.critedge, label %48
 
 48:                                               ; preds = %.lr.ph
-  %49 = load ptr, ptr %.01942, align 8, !tbaa !3
+  %49 = load ptr, ptr %.01940, align 8, !tbaa !3
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store i8 1, ptr %0, align 8, !tbaa !223
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29397,7 +29397,7 @@ _ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE3cmpERKS1_S5_.exit.i.i: ; preds 
   br label %_ZN4lean8optionalINS_4exprEEC2ERKS1_.exit.thread
 
 .critedge:                                        ; preds = %.lr.ph
-  %61 = getelementptr inbounds nuw i8, ptr %.01942, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.01940, i64 8
   %.not = icmp eq ptr %61, %40
   br i1 %.not, label %_ZNK4lean7rb_treeINS_4nameENS_14name_quick_cmpEE8containsERKS1_.exit, label %.lr.ph
 
@@ -30523,17 +30523,17 @@ _ZNK4lean13specialize_fn8spec_ctx14in_mutual_declERKNS_4nameE.exit: ; preds = %1
   %225 = load i64, ptr %209, align 8, !tbaa !251
   %.idx.i = shl nuw nsw i64 %225, 4
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 %.idx.i
-  %.not15.not.i = icmp eq i64 %225, 0
-  br i1 %.not15.not.i, label %_ZN4lean13specialize_fn8containsERKNS_6bufferINS_8optionalINS_4exprEEELm16EEERKS3_.exit.thread, label %.lr.ph.i
+  %.not16.not.i = icmp eq i64 %225, 0
+  br i1 %.not16.not.i, label %_ZN4lean13specialize_fn8containsERKNS_6bufferINS_8optionalINS_4exprEEELm16EEERKS3_.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %221, %.critedge.i
-  %.01416.i = phi ptr [ %232, %.critedge.i ], [ %224, %221 ]
-  %227 = load i8, ptr %.01416.i, align 8, !tbaa !223, !range !118, !noundef !119
+  %.01417.i = phi ptr [ %232, %.critedge.i ], [ %224, %221 ]
+  %227 = load i8, ptr %.01417.i, align 8, !tbaa !223, !range !118, !noundef !119
   %228 = trunc nuw i8 %227 to i1
   br i1 %228, label %229, label %.critedge.i
 
 229:                                              ; preds = %.lr.ph.i
-  %230 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
+  %230 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 8
   %231 = invoke noundef zeroext i1 @_ZN4lean8is_equalERKNS_4exprES2_(ptr noundef nonnull align 8 dereferenceable(8) %230, ptr noundef nonnull align 8 dereferenceable(8) %223)
           to label %.noexc160 unwind label %273
 
@@ -30541,7 +30541,7 @@ _ZNK4lean13specialize_fn8spec_ctx14in_mutual_declERKNS_4nameE.exit: ; preds = %1
   br i1 %231, label %_ZN4lean13specialize_fn8containsERKNS_6bufferINS_8optionalINS_4exprEEELm16EEERKS3_.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.noexc160, %.lr.ph.i
-  %232 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 16
+  %232 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 16
   %.not.not.i = icmp eq ptr %232, %226
   br i1 %.not.not.i, label %_ZN4lean13specialize_fn8containsERKNS_6bufferINS_8optionalINS_4exprEEELm16EEERKS3_.exit.thread, label %.lr.ph.i
 
@@ -30828,17 +30828,17 @@ _ZN4lean6mk_appERKNS_4exprERKNS_6bufferIS0_Lm16EEE.exit187: ; preds = %309
   %336 = load i64, ptr %209, align 8, !tbaa !251
   %.idx.i188 = shl nuw nsw i64 %336, 4
   %337 = getelementptr inbounds nuw i8, ptr %335, i64 %.idx.i188
-  %.not15.not.i189 = icmp eq i64 %336, 0
-  br i1 %.not15.not.i189, label %_ZN4lean13specialize_fn8containsERKNS_6bufferINS_8optionalINS_4exprEEELm16EEERKS3_.exit196.thread, label %.lr.ph.i190
+  %.not16.not.i189 = icmp eq i64 %336, 0
+  br i1 %.not16.not.i189, label %_ZN4lean13specialize_fn8containsERKNS_6bufferINS_8optionalINS_4exprEEELm16EEERKS3_.exit196.thread, label %.lr.ph.i190
 
 .lr.ph.i190:                                      ; preds = %333, %.critedge.i192
-  %.01416.i191 = phi ptr [ %343, %.critedge.i192 ], [ %335, %333 ]
-  %338 = load i8, ptr %.01416.i191, align 8, !tbaa !223, !range !118, !noundef !119
+  %.01417.i191 = phi ptr [ %343, %.critedge.i192 ], [ %335, %333 ]
+  %338 = load i8, ptr %.01417.i191, align 8, !tbaa !223, !range !118, !noundef !119
   %339 = trunc nuw i8 %338 to i1
   br i1 %339, label %340, label %.critedge.i192
 
 340:                                              ; preds = %.lr.ph.i190
-  %341 = getelementptr inbounds nuw i8, ptr %.01416.i191, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %.01417.i191, i64 8
   %342 = invoke noundef zeroext i1 @_ZN4lean8is_equalERKNS_4exprES2_(ptr noundef nonnull align 8 dereferenceable(8) %341, ptr noundef nonnull align 8 dereferenceable(8) %334)
           to label %.noexc195 unwind label %358
 
@@ -30846,7 +30846,7 @@ _ZN4lean6mk_appERKNS_4exprERKNS_6bufferIS0_Lm16EEE.exit187: ; preds = %309
   br i1 %342, label %_ZN4lean13specialize_fn8containsERKNS_6bufferINS_8optionalINS_4exprEEELm16EEERKS3_.exit196, label %.critedge.i192
 
 .critedge.i192:                                   ; preds = %.noexc195, %.lr.ph.i190
-  %343 = getelementptr inbounds nuw i8, ptr %.01416.i191, i64 16
+  %343 = getelementptr inbounds nuw i8, ptr %.01417.i191, i64 16
   %.not.not.i193 = icmp eq ptr %343, %337
   br i1 %.not.not.i193, label %_ZN4lean13specialize_fn8containsERKNS_6bufferINS_8optionalINS_4exprEEELm16EEERKS3_.exit196.thread.loopexit, label %.lr.ph.i190
 

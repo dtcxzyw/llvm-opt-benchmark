@@ -110,7 +110,7 @@ define internal i32 @pnm_parse(ptr noundef readonly captures(none) %0, ptr nound
   %56 = load ptr, ptr %9, align 8, !tbaa !22
   %57 = load ptr, ptr %35, align 8, !tbaa !27
   %58 = icmp ult ptr %56, %57
-  br i1 %58, label %59, label %.thread127
+  br i1 %58, label %59, label %.thread126
 
 59:                                               ; preds = %55
   %60 = load i32, ptr %33, align 8, !tbaa !18
@@ -173,14 +173,14 @@ define internal i32 @pnm_parse(ptr noundef readonly captures(none) %0, ptr nound
   br label %91
 
 select.unfold.thread:                             ; preds = %91, %select.unfold
-  %.399155 = phi ptr [ %97, %select.unfold ], [ %92, %91 ]
-  %90 = icmp ult ptr %.399155, %76
+  %.399154 = phi ptr [ %97, %select.unfold ], [ %92, %91 ]
+  %90 = icmp ult ptr %.399154, %76
   br i1 %90, label %91, label %.loopexit.thread
 
 91:                                               ; preds = %.lr.ph, %select.unfold.thread
-  %.197140 = phi ptr [ %.096, %.lr.ph ], [ %.399155, %select.unfold.thread ]
-  %92 = getelementptr inbounds nuw i8, ptr %.197140, i64 1
-  %93 = load i8, ptr %.197140, align 1, !tbaa !30
+  %.197139 = phi ptr [ %.096, %.lr.ph ], [ %.399154, %select.unfold.thread ]
+  %92 = getelementptr inbounds nuw i8, ptr %.197139, i64 1
+  %93 = load i8, ptr %.197139, align 1, !tbaa !30
   switch i8 %93, label %select.unfold.thread [
     i8 35, label %select.unfold
     i8 80, label %.loopexit
@@ -204,21 +204,21 @@ select.unfold:                                    ; preds = %91
   %104 = add i32 %103, %102
   store i32 0, ptr %36, align 4, !tbaa !28
   %105 = icmp eq i32 %104, -100
-  br i1 %105, label %.loopexit.thread, label %.loopexit..thread130_crit_edge
+  br i1 %105, label %.loopexit.thread, label %.loopexit..thread129_crit_edge
 
-.loopexit..thread130_crit_edge:                   ; preds = %.loopexit
-  %.pre146 = load ptr, ptr %34, align 8, !tbaa !26
-  br label %.thread130
+.loopexit..thread129_crit_edge:                   ; preds = %.loopexit
+  %.pre145 = load ptr, ptr %34, align 8, !tbaa !26
+  br label %.thread129
 
 .loopexit.thread:                                 ; preds = %select.unfold.thread, %select.unfold, %87, %.loopexit
-  %.193158 = phi ptr [ %.197140, %.loopexit ], [ %75, %87 ], [ %.197140, %select.unfold ], [ %.197140, %select.unfold.thread ]
-  %106 = ptrtoint ptr %.193158 to i64
+  %.193157 = phi ptr [ %.197139, %.loopexit ], [ %75, %87 ], [ %.197139, %select.unfold ], [ %.197139, %select.unfold.thread ]
+  %106 = ptrtoint ptr %.193157 to i64
   %107 = ptrtoint ptr %75 to i64
   %108 = sub i64 %106, %107
   %109 = trunc i64 %108 to i32
   %110 = add i32 %.094.ph, %109
   store i32 %110, ptr %36, align 4, !tbaa !28
-  br label %.thread127
+  br label %.thread126
 
 111:                                              ; preds = %70
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -257,41 +257,41 @@ select.unfold:                                    ; preds = %91
 138:                                              ; preds = %132, %111
   %.2 = phi i32 [ %125, %111 ], [ %spec.select121, %132 ]
   %.not117 = icmp eq i32 %.2, -100
-  br i1 %.not117, label %.thread127, label %.thread130
+  br i1 %.not117, label %.thread126, label %.thread129
 
-.thread130:                                       ; preds = %.loopexit..thread130_crit_edge, %138
-  %139 = phi ptr [ %120, %138 ], [ %.pre146, %.loopexit..thread130_crit_edge ]
-  %.2133 = phi i32 [ %.2, %138 ], [ %104, %.loopexit..thread130_crit_edge ]
+.thread129:                                       ; preds = %.loopexit..thread129_crit_edge, %138
+  %139 = phi ptr [ %120, %138 ], [ %.pre145, %.loopexit..thread129_crit_edge ]
+  %.2132 = phi i32 [ %.2, %138 ], [ %104, %.loopexit..thread129_crit_edge ]
   %140 = sext i32 %.094.ph to i64
   %141 = getelementptr inbounds i8, ptr %4, i64 %140
   %.not118 = icmp eq ptr %139, %141
-  br i1 %.not118, label %.thread127, label %142
+  br i1 %.not118, label %.thread126, label %142
 
-142:                                              ; preds = %.thread130
+142:                                              ; preds = %.thread129
   %143 = load i32, ptr %33, align 8, !tbaa !18
-  %144 = sub nsw i32 %.2133, %143
-  br label %.thread127
+  %144 = sub nsw i32 %.2132, %143
+  br label %.thread126
 
-.thread127:                                       ; preds = %55, %.loopexit.thread, %142, %.thread130, %138
-  %.7 = phi i32 [ %144, %142 ], [ %.2133, %.thread130 ], [ -100, %138 ], [ -100, %.loopexit.thread ], [ -100, %55 ]
+.thread126:                                       ; preds = %55, %.loopexit.thread, %142, %.thread129, %138
+  %.7 = phi i32 [ %144, %142 ], [ %.2132, %.thread129 ], [ -100, %138 ], [ -100, %.loopexit.thread ], [ -100, %55 ]
   %145 = icmp sgt i32 %.7, %5
   br i1 %145, label %146, label %148
 
-146:                                              ; preds = %.thread127
+146:                                              ; preds = %.thread126
   %147 = sub nsw i32 %.7, %5
   store i32 %147, ptr %31, align 8, !tbaa !20
   br label %148
 
-148:                                              ; preds = %43, %.thread127, %146
-  %.1 = phi i32 [ %.091, %43 ], [ -100, %146 ], [ %.7, %.thread127 ]
+148:                                              ; preds = %43, %.thread126, %146
+  %.1 = phi i32 [ %.091, %43 ], [ -100, %146 ], [ %.7, %.thread126 ]
   %149 = call i32 @ff_combine_frame(ptr noundef nonnull %10, i32 noundef %.1, ptr noundef nonnull %7, ptr noundef nonnull %8) #7
   %150 = icmp slt i32 %149, 0
   %151 = load i32, ptr %8, align 4
   %152 = load ptr, ptr %7, align 8
-  %.sink145 = select i1 %150, ptr null, ptr %152
+  %.sink144 = select i1 %150, ptr null, ptr %152
   %.sink = select i1 %150, i32 0, i32 %151
   %.090 = select i1 %150, i32 %151, i32 %.1
-  store ptr %.sink145, ptr %2, align 8, !tbaa !4
+  store ptr %.sink144, ptr %2, align 8, !tbaa !4
   store i32 %.sink, ptr %3, align 4, !tbaa !9
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.090

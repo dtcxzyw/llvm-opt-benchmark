@@ -808,7 +808,7 @@ define internal void @_mipmap_cache_deallocate_dynamic(ptr noundef %0, ptr nound
   %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.42, ptr noundef nonnull %22, i32 noundef %8) #19
   %41 = call i32 @g_mkdir_with_parents(ptr noundef nonnull %4, i32 noundef 488) #19
   %.not46 = icmp eq i32 %41, 0
-  br i1 %.not46, label %42, label %.thread54
+  br i1 %.not46, label %42, label %.thread53
 
 42:                                               ; preds = %39
   %43 = load i32, ptr %6, align 4, !tbaa !86
@@ -817,12 +817,12 @@ define internal void @_mipmap_cache_deallocate_dynamic(ptr noundef %0, ptr nound
   %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 4096, ptr noundef nonnull @.str.11, ptr noundef nonnull %22, i32 noundef %8, i32 noundef %45) #19
   %47 = call i32 @g_file_test(ptr noundef nonnull %4, i32 noundef 16) #19
   %.not47 = icmp eq i32 %47, 0
-  br i1 %.not47, label %48, label %.thread54
+  br i1 %.not47, label %48, label %.thread53
 
 48:                                               ; preds = %42
   %49 = call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.43)
   %.not48 = icmp eq ptr %49, null
-  br i1 %.not48, label %.thread54, label %50
+  br i1 %.not48, label %.thread53, label %50
 
 50:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -883,13 +883,13 @@ define internal void @_mipmap_cache_deallocate_dynamic(ptr noundef %0, ptr nound
 77:                                               ; preds = %75, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %78 = call i32 @fclose(ptr noundef nonnull %49)
-  br label %.thread54
+  br label %.thread53
 
-.thread54:                                        ; preds = %48, %42, %77, %39
+.thread53:                                        ; preds = %48, %42, %77, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_mipmap_cache_unlink_ondisk_thumbnail.exit
 
-_mipmap_cache_unlink_ondisk_thumbnail.exit:       ; preds = %25, %24, %10, %14, %30, %35, %.thread54, %2
+_mipmap_cache_unlink_ondisk_thumbnail.exit:       ; preds = %25, %24, %10, %14, %30, %35, %.thread53, %2
   %79 = load ptr, ptr %1, align 8, !tbaa !23
   call void @free(ptr noundef %79) #19
   ret void

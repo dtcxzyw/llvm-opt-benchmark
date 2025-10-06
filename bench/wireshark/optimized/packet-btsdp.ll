@@ -1832,18 +1832,18 @@ get_type_length.exit.i:                           ; preds = %111, %108, %105, %1
   %114 = add nsw i32 %.022.i.i, -5
   %115 = add nuw i32 %114, %113
   call void @proto_item_set_len(ptr noundef %93, i32 noundef %115)
-  %.not66.i = icmp eq i32 %113, 0
-  br i1 %.not66.i, label %dissect_sdp_service_search_request.exit, label %.lr.ph.i
+  %.not65.i = icmp eq i32 %113, 0
+  br i1 %.not65.i, label %dissect_sdp_service_search_request.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %get_type_length.exit.i, %147
-  %.04365.i = phi i32 [ %148, %147 ], [ %.022.i.i, %get_type_length.exit.i ]
-  %.05564.i = phi i32 [ %149, %147 ], [ %113, %get_type_length.exit.i ]
+  %.04364.i = phi i32 [ %148, %147 ], [ %.022.i.i, %get_type_length.exit.i ]
+  %.05563.i = phi i32 [ %149, %147 ], [ %113, %get_type_length.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %116 = load ptr, ptr %52, align 8
-  %117 = call fastcc i32 @dissect_sdp_type(ptr noundef %116, ptr noundef %1, ptr noundef %0, i32 noundef %.04365.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef nonnull %54)
-  %118 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.04365.i)
-  %119 = add i32 %.04365.i, 1
+  %117 = call fastcc i32 @dissect_sdp_type(ptr noundef %116, ptr noundef %1, ptr noundef %0, i32 noundef %.04364.i, i32 noundef -1, i16 0, i32 noundef 0, i32 noundef 0, i32 noundef -1, ptr noundef null, ptr noundef nonnull %54)
+  %118 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.04364.i)
+  %119 = add i32 %.04364.i, 1
   %120 = and i8 %118, 7
   switch i8 %120, label %default.unreachable [
     i8 0, label %121
@@ -1873,19 +1873,19 @@ get_type_length.exit.i:                           ; preds = %111, %108, %105, %1
 127:                                              ; preds = %.lr.ph.i
   %128 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %119)
   %129 = zext i8 %128 to i32
-  %130 = add i32 %.04365.i, 2
+  %130 = add i32 %.04364.i, 2
   br label %get_type_length.exit51.i
 
 131:                                              ; preds = %.lr.ph.i
   %132 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %119)
   %133 = zext i16 %132 to i32
-  %134 = add i32 %.04365.i, 3
+  %134 = add i32 %.04364.i, 3
   br label %get_type_length.exit51.i
 
 135:                                              ; preds = %.lr.ph.i
   %136 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %119)
   %.fr.i47.i = freeze i32 %136
-  %137 = add i32 %.04365.i, 5
+  %137 = add i32 %.04364.i, 5
   %spec.select.i48.i = call i32 @llvm.smax.i32(i32 %.fr.i47.i, i32 0)
   br label %get_type_length.exit51.i
 
@@ -1917,18 +1917,18 @@ get_type_length.exit51.i:                         ; preds = %135, %131, %127, %1
   br label %dissect_sdp_service_search_request.exit
 
 147:                                              ; preds = %141
-  %148 = add i32 %117, %.04365.i
-  %149 = sub nsw i32 %.05564.i, %117
+  %148 = add i32 %117, %.04364.i
+  %149 = sub nsw i32 %.05563.i, %117
   call void @llvm.lifetime.end.p0(ptr nonnull %55)
   call void @llvm.lifetime.end.p0(ptr nonnull %54)
   %150 = icmp sgt i32 %149, 0
   br i1 %150, label %.lr.ph.i, label %dissect_sdp_service_search_request.exit
 
 dissect_sdp_service_search_request.exit:          ; preds = %147, %get_type_length.exit.i, %.thread.i
-  %.04363.i = phi i32 [ %.04365.i, %.thread.i ], [ %.022.i.i, %get_type_length.exit.i ], [ %148, %147 ]
+  %.04362.i = phi i32 [ %.04364.i, %.thread.i ], [ %.022.i.i, %get_type_length.exit.i ], [ %148, %147 ]
   %151 = load i32, ptr @hf_maximum_service_record_count, align 4
-  %152 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %151, ptr noundef %0, i32 noundef %.04363.i, i32 noundef 2, i32 noundef 0)
-  %153 = add i32 %.04363.i, 2
+  %152 = call ptr @proto_tree_add_item(ptr noundef %62, i32 noundef %151, ptr noundef %0, i32 noundef %.04362.i, i32 noundef 2, i32 noundef 0)
+  %153 = add i32 %.04362.i, 2
   %154 = zext i16 %76 to i32
   call fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %153, i32 noundef %154, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %53, ptr noundef null, ptr noundef nonnull readonly %3)
   %155 = call fastcc noundef i32 @dissect_continuation_state(ptr noundef %0, ptr noundef %62, ptr noundef %1, i32 noundef %153)

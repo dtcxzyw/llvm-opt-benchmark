@@ -9098,17 +9098,17 @@ select.unfold.i.i59:                              ; preds = %49, %._crit_edge.th
   %67 = load ptr, ptr %66, align 8, !tbaa !234
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !234
-  %.not8892 = icmp eq ptr %67, %69
-  br i1 %.not8892, label %.critedge42, label %.lr.ph
+  %.not8791 = icmp eq ptr %67, %69
+  br i1 %.not8791, label %.critedge42, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 136
   br label %71
 
 71:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.070.093 = phi ptr [ %67, %.lr.ph ], [ %112, %.critedge ]
+  %.sroa.070.092 = phi ptr [ %67, %.lr.ph ], [ %112, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %72 = load i64, ptr %.sroa.070.093, align 8, !tbaa !236
+  %72 = load i64, ptr %.sroa.070.092, align 8, !tbaa !236
   store i64 %72, ptr %8, align 8, !tbaa !173
   %73 = load ptr, ptr %1, align 8, !tbaa !179
   %74 = getelementptr inbounds nuw i64, ptr %73, i64 %72
@@ -9117,7 +9117,7 @@ select.unfold.i.i59:                              ; preds = %49, %._crit_edge.th
   br i1 %76, label %77, label %.critedge
 
 77:                                               ; preds = %71
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.070.093, i64 8
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.070.092, i64 8
   %79 = load i8, ptr %78, align 8, !tbaa !243, !range !211, !noundef !212
   %80 = trunc nuw i8 %79 to i1
   br i1 %80, label %81, label %.critedge
@@ -9128,10 +9128,10 @@ select.unfold.i.i59:                              ; preds = %49, %._crit_edge.th
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !419
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %84 = getelementptr inbounds nuw i8, ptr %.sroa.070.093, i64 9
+  %84 = getelementptr inbounds nuw i8, ptr %.sroa.070.092, i64 9
   %85 = load i8, ptr %84, align 1, !tbaa !259, !range !211, !noundef !212
   store i8 %85, ptr %10, align 1, !tbaa !419
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.070.093, i64 16
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.070.092, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !193
   %89 = getelementptr inbounds nuw i8, ptr %83, i64 16
@@ -9141,7 +9141,7 @@ select.unfold.i.i59:                              ; preds = %49, %._crit_edge.th
 
 91:                                               ; preds = %81
   %92 = load ptr, ptr %86, align 8, !tbaa !260
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.070.093, i64 24
+  %93 = getelementptr inbounds nuw i8, ptr %.sroa.070.092, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !194
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZNSt16allocator_traitsISaI11cmGraphEdgeEE9constructIS0_JRmbbRK19cmListFileBacktraceEEEvRS1_PT_DpOT0_.exit.i, label %95
@@ -9191,9 +9191,9 @@ _ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEE
 
 .critedge:                                        ; preds = %_ZNSt6vectorI11cmGraphEdgeSaIS0_EE12emplace_backIJRmbbRK19cmListFileBacktraceEEERS0_DpOT_.exit, %77, %71
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %112 = getelementptr inbounds nuw i8, ptr %.sroa.070.093, i64 32
-  %.not88 = icmp eq ptr %112, %69
-  br i1 %.not88, label %.critedge42, label %71
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.070.092, i64 32
+  %.not87 = icmp eq ptr %112, %69
+  br i1 %.not87, label %.critedge42, label %71
 
 .critedge42:                                      ; preds = %.critedge, %57
   %113 = load i64, ptr %4, align 8, !tbaa !173

@@ -212,10 +212,10 @@ easysrc_add.exit:                                 ; preds = %2
   %12 = getelementptr inbounds nuw ptr, ptr @srchard, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = tail call ptr @slist_wc_append(ptr noundef nonnull %11, ptr noundef %13) #5
-  %.not.i70 = icmp eq ptr %14, null
-  br i1 %.not.i70, label %easysrc_add.exit72, label %20
+  %.not.i67 = icmp eq ptr %14, null
+  br i1 %.not.i67, label %easysrc_add.exit69, label %20
 
-easysrc_add.exit72:                               ; preds = %10
+easysrc_add.exit69:                               ; preds = %10
   %15 = load ptr, ptr @easysrc_decl, align 8, !tbaa !4
   tail call void @slist_wc_free_all(ptr noundef %15) #5
   store ptr null, ptr @easysrc_decl, align 8, !tbaa !4
@@ -245,19 +245,19 @@ easysrc_add.exit72:                               ; preds = %10
   br i1 %.not56, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %21
-  %.036123 = load ptr, ptr %22, align 8, !tbaa !13
-  %.not57124 = icmp eq ptr %.036123, null
-  br i1 %.not57124, label %.loopexit, label %.lr.ph
+  %.036117 = load ptr, ptr %22, align 8, !tbaa !13
+  %.not57118 = icmp eq ptr %.036117, null
+  br i1 %.not57118, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %31
   %23 = phi ptr [ %25, %31 ], [ %14, %.preheader ]
-  %.036125 = phi ptr [ %.036, %31 ], [ %.036123, %.preheader ]
-  %24 = load ptr, ptr %.036125, align 8, !tbaa !15
+  %.036119 = phi ptr [ %.036, %31 ], [ %.036117, %.preheader ]
+  %24 = load ptr, ptr %.036119, align 8, !tbaa !15
   %25 = tail call ptr @slist_wc_append(ptr noundef nonnull %23, ptr noundef %24) #5
-  %.not.i73 = icmp eq ptr %25, null
-  br i1 %.not.i73, label %easysrc_add.exit75, label %31
+  %.not.i70 = icmp eq ptr %25, null
+  br i1 %.not.i70, label %easysrc_add.exit72, label %31
 
-easysrc_add.exit75:                               ; preds = %.lr.ph
+easysrc_add.exit72:                               ; preds = %.lr.ph
   %26 = load ptr, ptr @easysrc_decl, align 8, !tbaa !4
   tail call void @slist_wc_free_all(ptr noundef %26) #5
   store ptr null, ptr @easysrc_decl, align 8, !tbaa !4
@@ -277,7 +277,7 @@ easysrc_add.exit75:                               ; preds = %.lr.ph
 
 31:                                               ; preds = %.lr.ph
   store ptr %25, ptr @easysrc_code, align 8, !tbaa !4
-  %32 = getelementptr inbounds nuw i8, ptr %.036125, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %.036119, i64 8
   %.036 = load ptr, ptr %32, align 8, !tbaa !13
   %.not57 = icmp eq ptr %.036, null
   br i1 %.not57, label %.loopexit, label %.lr.ph, !llvm.loop !17
@@ -285,10 +285,10 @@ easysrc_add.exit75:                               ; preds = %.lr.ph
 .loopexit:                                        ; preds = %31, %.preheader, %21
   %33 = phi ptr [ %14, %.preheader ], [ %14, %21 ], [ %25, %31 ]
   %34 = tail call ptr @slist_wc_append(ptr noundef nonnull %33, ptr noundef nonnull @.str.1) #5
-  %.not.i76 = icmp eq ptr %34, null
-  br i1 %.not.i76, label %easysrc_add.exit78, label %40
+  %.not.i73 = icmp eq ptr %34, null
+  br i1 %.not.i73, label %easysrc_add.exit75, label %40
 
-easysrc_add.exit78:                               ; preds = %.loopexit
+easysrc_add.exit75:                               ; preds = %.loopexit
   %35 = load ptr, ptr @easysrc_decl, align 8, !tbaa !4
   tail call void @slist_wc_free_all(ptr noundef %35) #5
   store ptr null, ptr @easysrc_decl, align 8, !tbaa !4
@@ -309,10 +309,10 @@ easysrc_add.exit78:                               ; preds = %.loopexit
 40:                                               ; preds = %.loopexit
   store ptr %34, ptr @easysrc_code, align 8, !tbaa !4
   %41 = tail call ptr @slist_wc_append(ptr noundef nonnull %34, ptr noundef nonnull @.str.2) #5
-  %.not.i79 = icmp eq ptr %41, null
-  br i1 %.not.i79, label %easysrc_add.exit81, label %47
+  %.not.i76 = icmp eq ptr %41, null
+  br i1 %.not.i76, label %easysrc_add.exit78, label %47
 
-easysrc_add.exit81:                               ; preds = %40
+easysrc_add.exit78:                               ; preds = %40
   %42 = load ptr, ptr @easysrc_decl, align 8, !tbaa !4
   tail call void @slist_wc_free_all(ptr noundef %42) #5
   store ptr null, ptr @easysrc_decl, align 8, !tbaa !4
@@ -340,10 +340,10 @@ easysrc_add.exit81:                               ; preds = %40
 49:                                               ; preds = %47, %0
   %50 = load ptr, ptr @easysrc_code, align 8, !tbaa !4
   %51 = tail call ptr @slist_wc_append(ptr noundef %50, ptr noundef nonnull @.str.1) #5
-  %.not.i82 = icmp eq ptr %51, null
-  br i1 %.not.i82, label %easysrc_add.exit84, label %57
+  %.not.i79 = icmp eq ptr %51, null
+  br i1 %.not.i79, label %easysrc_add.exit81, label %57
 
-easysrc_add.exit84:                               ; preds = %49
+easysrc_add.exit81:                               ; preds = %49
   %52 = load ptr, ptr @easysrc_decl, align 8, !tbaa !4
   tail call void @slist_wc_free_all(ptr noundef %52) #5
   store ptr null, ptr @easysrc_decl, align 8, !tbaa !4
@@ -364,10 +364,10 @@ easysrc_add.exit84:                               ; preds = %49
 57:                                               ; preds = %49
   store ptr %51, ptr @easysrc_code, align 8, !tbaa !4
   %58 = tail call ptr @slist_wc_append(ptr noundef nonnull %51, ptr noundef nonnull @.str.3) #5
-  %.not.i85 = icmp eq ptr %58, null
-  br i1 %.not.i85, label %easysrc_add.exit87, label %64
+  %.not.i82 = icmp eq ptr %58, null
+  br i1 %.not.i82, label %easysrc_add.exit84, label %64
 
-easysrc_add.exit87:                               ; preds = %57
+easysrc_add.exit84:                               ; preds = %57
   %59 = load ptr, ptr @easysrc_decl, align 8, !tbaa !4
   tail call void @slist_wc_free_all(ptr noundef %59) #5
   store ptr null, ptr @easysrc_decl, align 8, !tbaa !4
@@ -388,8 +388,8 @@ easysrc_add.exit87:                               ; preds = %57
 64:                                               ; preds = %57
   store ptr %58, ptr @easysrc_code, align 8, !tbaa !4
   %65 = tail call ptr @slist_wc_append(ptr noundef nonnull %58, ptr noundef nonnull @.str.1) #5
-  %.not.i88.not = icmp eq ptr %65, null
-  br i1 %.not.i88.not, label %66, label %72
+  %.not.i85.not = icmp eq ptr %65, null
+  br i1 %.not.i85.not, label %66, label %72
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr @easysrc_decl, align 8, !tbaa !4
@@ -413,8 +413,8 @@ easysrc_add.exit87:                               ; preds = %57
   store ptr %65, ptr @easysrc_code, align 8, !tbaa !4
   br label %.thread
 
-.thread:                                          ; preds = %72, %66, %easysrc_add.exit.thread, %easysrc_add.exit78, %easysrc_add.exit81, %easysrc_add.exit75, %easysrc_add.exit72, %easysrc_add.exit87, %easysrc_add.exit84
-  %.9 = phi i32 [ 27, %easysrc_add.exit87 ], [ 27, %easysrc_add.exit84 ], [ 27, %easysrc_add.exit.thread ], [ 27, %easysrc_add.exit78 ], [ 27, %easysrc_add.exit81 ], [ 27, %easysrc_add.exit75 ], [ 27, %easysrc_add.exit72 ], [ 0, %72 ], [ 27, %66 ]
+.thread:                                          ; preds = %72, %66, %easysrc_add.exit.thread, %easysrc_add.exit75, %easysrc_add.exit78, %easysrc_add.exit72, %easysrc_add.exit69, %easysrc_add.exit84, %easysrc_add.exit81
+  %.9 = phi i32 [ 27, %easysrc_add.exit84 ], [ 27, %easysrc_add.exit81 ], [ 27, %easysrc_add.exit.thread ], [ 27, %easysrc_add.exit75 ], [ 27, %easysrc_add.exit78 ], [ 27, %easysrc_add.exit72 ], [ 27, %easysrc_add.exit69 ], [ 0, %72 ], [ 27, %66 ]
   ret i32 %.9
 }
 
@@ -443,13 +443,13 @@ easysrc_add.exit:                                 ; preds = %0
   %7 = load ptr, ptr @easysrc_clean, align 8, !tbaa !4
   tail call void @slist_wc_free_all(ptr noundef %7) #5
   store ptr null, ptr @easysrc_clean, align 8, !tbaa !4
-  br label %easysrc_add.exit14
+  br label %easysrc_add.exit13
 
 8:                                                ; preds = %0
   store ptr %2, ptr @easysrc_code, align 8, !tbaa !4
   %9 = tail call ptr @slist_wc_append(ptr noundef nonnull %2, ptr noundef nonnull @.str.5) #5
-  %.not.i12.not = icmp eq ptr %9, null
-  br i1 %.not.i12.not, label %10, label %16
+  %.not.i11.not = icmp eq ptr %9, null
+  br i1 %.not.i11.not, label %10, label %16
 
 10:                                               ; preds = %8
   %11 = load ptr, ptr @easysrc_decl, align 8, !tbaa !4
@@ -467,13 +467,13 @@ easysrc_add.exit:                                 ; preds = %0
   %15 = load ptr, ptr @easysrc_clean, align 8, !tbaa !4
   tail call void @slist_wc_free_all(ptr noundef %15) #5
   store ptr null, ptr @easysrc_clean, align 8, !tbaa !4
-  br label %easysrc_add.exit14
+  br label %easysrc_add.exit13
 
 16:                                               ; preds = %8
   store ptr %9, ptr @easysrc_code, align 8, !tbaa !4
-  br label %easysrc_add.exit14
+  br label %easysrc_add.exit13
 
-easysrc_add.exit14:                               ; preds = %16, %10, %easysrc_add.exit
+easysrc_add.exit13:                               ; preds = %16, %10, %easysrc_add.exit
   %.1 = phi i32 [ 27, %easysrc_add.exit ], [ 0, %16 ], [ 27, %10 ]
   ret i32 %.1
 }

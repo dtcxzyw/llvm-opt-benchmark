@@ -641,8 +641,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm14DeltaAlgorithm6SearchERKSt3setIjS
   %12 = load ptr, ptr %2, align 8, !tbaa !38
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !38
-  %.not62.not = icmp eq ptr %12, %14
-  br i1 %.not62.not, label %.loopexit, label %.lr.ph
+  %.not63.not = icmp eq ptr %12, %14
+  br i1 %.not63.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -657,8 +657,8 @@ define dso_local noundef zeroext i1 @_ZN4llvm14DeltaAlgorithm6SearchERKSt3setIjS
   br label %24
 
 24:                                               ; preds = %.lr.ph, %136
-  %.sroa.047.063 = phi ptr [ %12, %.lr.ph ], [ %137, %136 ]
-  %25 = call ptr @_ZNKSt8_Rb_treeISt3setIjSt4lessIjESaIjEES4_St9_IdentityIS4_ES1_IS4_ESaIS4_EE4findERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.063)
+  %.sroa.047.064 = phi ptr [ %12, %.lr.ph ], [ %137, %136 ]
+  %25 = call ptr @_ZNKSt8_Rb_treeISt3setIjSt4lessIjESaIjEES4_St9_IdentityIS4_ES1_IS4_ESaIS4_EE4findERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.064)
   %.not6.i = icmp eq ptr %25, %16
   br i1 %.not6.i, label %26, label %68
 
@@ -666,11 +666,11 @@ define dso_local noundef zeroext i1 @_ZN4llvm14DeltaAlgorithm6SearchERKSt3setIjS
   %27 = load ptr, ptr %0, align 8, !tbaa !3
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8
-  %30 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.063) #13
+  %30 = call noundef zeroext i1 %29(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.064) #13
   br i1 %30, label %_ZN4llvm14DeltaAlgorithm13GetTestResultERKSt3setIjSt4lessIjESaIjEE.exit, label %31
 
 31:                                               ; preds = %26
-  %32 = call { ptr, ptr } @_ZNSt8_Rb_treeISt3setIjSt4lessIjESaIjEES4_St9_IdentityIS4_ES1_IS4_ESaIS4_EE24_M_get_insert_unique_posERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.063)
+  %32 = call { ptr, ptr } @_ZNSt8_Rb_treeISt3setIjSt4lessIjESaIjEES4_St9_IdentityIS4_ES1_IS4_ESaIS4_EE24_M_get_insert_unique_posERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.064)
   %33 = extractvalue { ptr, ptr } %32, 1
   %.not.i.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i.i, label %68, label %34
@@ -679,16 +679,16 @@ define dso_local noundef zeroext i1 @_ZN4llvm14DeltaAlgorithm6SearchERKSt3setIjS
   %35 = extractvalue { ptr, ptr } %32, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %15, ptr %6, align 8, !tbaa !14
-  %36 = call ptr @_ZNSt8_Rb_treeISt3setIjSt4lessIjESaIjEES4_St9_IdentityIS4_ES1_IS4_ESaIS4_EE10_M_insert_IRKS4_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSH_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %35, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.063, ptr noundef nonnull align 8 dereferenceable(8) %6)
+  %36 = call ptr @_ZNSt8_Rb_treeISt3setIjSt4lessIjESaIjEES4_St9_IdentityIS4_ES1_IS4_ESaIS4_EE10_M_insert_IRKS4_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS4_EPSt18_Rb_tree_node_baseSH_OT_RT0_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %35, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.064, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
 _ZN4llvm14DeltaAlgorithm13GetTestResultERKSt3setIjSt4lessIjESaIjEE.exit: ; preds = %26
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
-  call void @_ZN4llvm14DeltaAlgorithm5SplitERKSt3setIjSt4lessIjESaIjEERSt6vectorIS5_SaIS5_EE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.063, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call void @_ZN4llvm14DeltaAlgorithm5SplitERKSt3setIjSt4lessIjESaIjEERSt6vectorIS5_SaIS5_EE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.064, ptr noundef nonnull align 8 dereferenceable(24) %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @_ZN4llvm14DeltaAlgorithm5DeltaERKSt3setIjSt4lessIjESaIjEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::set.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.063, ptr noundef nonnull align 8 dereferenceable(24) %7)
+  call void @_ZN4llvm14DeltaAlgorithm5DeltaERKSt3setIjSt4lessIjESaIjEERKSt6vectorIS5_SaIS5_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::set.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.047.064, ptr noundef nonnull align 8 dereferenceable(24) %7)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !6
   call void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %38)
@@ -765,7 +765,7 @@ _ZSt8_DestroyIPSt3setIjSt4lessIjESaIjEES4_EvT_S6_RSaIT0_E.exit.i: ; preds = %_ZS
 
 _ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPSt3setIjSt4lessIjESaIjEES4_EvT_S6_RSaIT0_E.exit.i, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.loopexit
+  br label %.thread
 
 68:                                               ; preds = %24, %31, %34
   %69 = load ptr, ptr %13, align 8, !tbaa !26
@@ -785,9 +785,9 @@ _ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit: ; preds = %_ZSt8_Destroy
   store ptr %17, ptr %20, align 8, !tbaa !18
   store i64 0, ptr %21, align 8, !tbaa !19
   %77 = load ptr, ptr %22, align 8, !tbaa !17
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.047.063, i64 24
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.047.064, i64 24
   %79 = load ptr, ptr %78, align 8, !tbaa !17
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.047.063, i64 8
+  %80 = getelementptr inbounds nuw i8, ptr %.sroa.047.064, i64 8
   %81 = call { ptr, ptr } @_ZSt16__set_differenceISt23_Rb_tree_const_iteratorIjES1_St15insert_iteratorISt3setIjSt4lessIjESaIjEEEN9__gnu_cxx5__ops15_Iter_less_iterEET1_T_SD_T0_SE_SC_T2_(ptr %77, ptr nonnull %23, ptr %79, ptr nonnull %80, ptr nonnull %9, ptr nonnull %17)
   %82 = call ptr @_ZNKSt8_Rb_treeISt3setIjSt4lessIjESaIjEES4_St9_IdentityIS4_ES1_IS4_ESaIS4_EE4findERKS4_(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef nonnull align 8 dereferenceable(48) %9)
   %.not6.i28 = icmp eq ptr %82, %16
@@ -819,10 +819,10 @@ _ZN4llvm14DeltaAlgorithm13GetTestResultERKSt3setIjSt4lessIjESaIjEE.exit31: ; pre
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %10, i8 0, i64 24, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %95 = load ptr, ptr %2, align 8, !tbaa !38
-  call void @_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEvNS9_IPS4_S6_EET_SF_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr null, ptr %95, ptr nonnull %.sroa.047.063)
+  call void @_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EE15_M_range_insertIN9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEEvNS9_IPS4_S6_EET_SF_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr null, ptr %95, ptr nonnull %.sroa.047.064)
   %96 = load ptr, ptr %10, align 8, !tbaa !38
   %97 = load ptr, ptr %94, align 8, !tbaa !38
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.047.063, i64 48
+  %98 = getelementptr inbounds nuw i8, ptr %.sroa.047.064, i64 48
   %99 = load ptr, ptr %13, align 8, !tbaa !38
   %100 = ptrtoint ptr %97 to i64
   %101 = ptrtoint ptr %96 to i64
@@ -909,7 +909,7 @@ _ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit42: ; preds = %_ZSt8_Destr
   %134 = load ptr, ptr %18, align 8, !tbaa !6
   call void @_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %134)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit
+  br label %.thread
 
 .critedge:                                        ; preds = %76, %88, %91
   %135 = load ptr, ptr %18, align 8, !tbaa !6
@@ -918,13 +918,13 @@ _ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit42: ; preds = %_ZSt8_Destr
   br label %136
 
 136:                                              ; preds = %.critedge, %68
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.047.063, i64 48
+  %137 = getelementptr inbounds nuw i8, ptr %.sroa.047.064, i64 48
   %.not.not = icmp eq ptr %137, %14
-  br i1 %.not.not, label %.loopexit, label %24, !llvm.loop !40
+  br i1 %.not.not, label %.thread, label %24, !llvm.loop !40
 
-.loopexit:                                        ; preds = %136, %4, %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit42, %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit
-  %.not59 = phi i1 [ true, %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit42 ], [ true, %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit ], [ false, %4 ], [ false, %136 ]
-  ret i1 %.not59
+.thread:                                          ; preds = %136, %4, %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit42, %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit
+  %.not60 = phi i1 [ true, %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit42 ], [ true, %_ZNSt6vectorISt3setIjSt4lessIjESaIjEESaIS4_EED2Ev.exit ], [ false, %4 ], [ false, %136 ]
+  ret i1 %.not60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

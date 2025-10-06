@@ -1353,197 +1353,197 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse5parseEiPPKc(ptr noundef
   store i32 %1, ptr %0, align 8, !tbaa !51
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %2, ptr %4, align 8, !tbaa !60
-  %.not5576 = icmp sgt i32 %1, 1
-  br i1 %.not5576, label %.lr.ph81, label %.loopexit
+  %5 = icmp sgt i32 %1, 1
+  br i1 %5, label %.lr.ph71, label %.thread54
 
-.lr.ph81:                                         ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  br label %8
+.lr.ph71:                                         ; preds = %3
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  br label %9
 
-8:                                                ; preds = %.lr.ph81, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit
-  %.03777 = phi i32 [ 1, %.lr.ph81 ], [ %87, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit ]
-  %9 = load ptr, ptr %4, align 8, !tbaa !60
-  %10 = sext i32 %.03777 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !49
-  %13 = load i8, ptr %12, align 1, !tbaa !14
-  %14 = icmp eq i8 %13, 45
-  br i1 %14, label %15, label %79
+9:                                                ; preds = %.lr.ph71, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit
+  %.03769 = phi i32 [ 1, %.lr.ph71 ], [ %88, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit ]
+  %10 = load ptr, ptr %4, align 8, !tbaa !60
+  %11 = sext i32 %.03769 to i64
+  %12 = getelementptr inbounds ptr, ptr %10, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !49
+  %14 = load i8, ptr %13, align 1, !tbaa !14
+  %15 = icmp eq i8 %14, 45
+  br i1 %15, label %16, label %80
 
-15:                                               ; preds = %8
-  %16 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %17 = load i8, ptr %16, align 1, !tbaa !14
-  %.fr82 = freeze i8 %17
-  %18 = sext i8 %.fr82 to i32
-  %19 = tail call i32 @isalpha(i32 noundef %18) #26
-  %.not = icmp ne i32 %19, 0
-  %20 = icmp eq i8 %.fr82, 45
-  %or.cond = or i1 %20, %.not
-  br i1 %or.cond, label %21, label %79
+16:                                               ; preds = %9
+  %17 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  %18 = load i8, ptr %17, align 1, !tbaa !14
+  %.fr72 = freeze i8 %18
+  %19 = sext i8 %.fr72 to i32
+  %20 = tail call i32 @isalpha(i32 noundef %19) #26
+  %.not = icmp ne i32 %20, 0
+  %21 = icmp eq i8 %.fr72, 45
+  %or.cond = or i1 %21, %.not
+  br i1 %or.cond, label %22, label %80
 
-21:                                               ; preds = %15
-  %22 = load ptr, ptr %6, align 8, !tbaa !69
+22:                                               ; preds = %16
   %23 = load ptr, ptr %7, align 8, !tbaa !69
-  %.not3536.i = icmp eq ptr %22, %23
-  br i1 %.not3536.i, label %_ZN8ArgParse11find_optionEPKc.exit, label %.lr.ph.i.preheader
+  %24 = load ptr, ptr %8, align 8, !tbaa !69
+  %.not3940.i = icmp eq ptr %23, %24
+  br i1 %.not3940.i, label %_ZN8ArgParse11find_optionEPKc.exit, label %.lr.ph.i.preheader
 
-.lr.ph.i.preheader:                               ; preds = %21
-  br i1 %20, label %.lr.ph.i.us, label %.lr.ph.i
+.lr.ph.i.preheader:                               ; preds = %22
+  br i1 %21, label %.lr.ph.i.us, label %.lr.ph.i
 
 .lr.ph.i.us:                                      ; preds = %.lr.ph.i.preheader, %.thread.i.us
-  %.sroa.024.037.i.us = phi ptr [ %36, %.thread.i.us ], [ %22, %.lr.ph.i.preheader ]
-  %24 = load ptr, ptr %.sroa.024.037.i.us, align 8, !tbaa !65
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !12
-  %27 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %26) #26
-  %.not.i.us = icmp eq i32 %27, 0
-  br i1 %.not.i.us, label %.split.us, label %28
+  %.sroa.024.041.i.us = phi ptr [ %37, %.thread.i.us ], [ %23, %.lr.ph.i.preheader ]
+  %25 = load ptr, ptr %.sroa.024.041.i.us, align 8, !tbaa !65
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %27 = load ptr, ptr %26, align 8, !tbaa !12
+  %28 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %27) #26
+  %.not.i.us = icmp eq i32 %28, 0
+  br i1 %.not.i.us, label %.split.us, label %29
 
-28:                                               ; preds = %.lr.ph.i.us
-  %29 = load i8, ptr %26, align 1, !tbaa !14
-  %30 = icmp eq i8 %29, 45
-  br i1 %30, label %31, label %.thread.i.us
+29:                                               ; preds = %.lr.ph.i.us
+  %30 = load i8, ptr %27, align 1, !tbaa !14
+  %31 = icmp eq i8 %30, 45
+  br i1 %31, label %32, label %.thread.i.us
 
-31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i8, ptr %26, i64 1
-  %33 = load i8, ptr %32, align 1, !tbaa !14
-  %.not19.i.us = icmp eq i8 %33, 45
-  br i1 %.not19.i.us, label %.thread.i.us, label %34
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %34 = load i8, ptr %33, align 1, !tbaa !14
+  %.not19.i.us = icmp eq i8 %34, 45
+  br i1 %.not19.i.us, label %.thread.i.us, label %35
 
-34:                                               ; preds = %31
-  %35 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %26) #26
-  %.not20.i.us = icmp eq i32 %35, 0
+35:                                               ; preds = %32
+  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %17, ptr noundef nonnull dereferenceable(1) %27) #26
+  %.not20.i.us = icmp eq i32 %36, 0
   br i1 %.not20.i.us, label %.split.us, label %.thread.i.us
 
-.thread.i.us:                                     ; preds = %34, %31, %28
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.024.037.i.us, i64 8
-  %.not35.i.us = icmp eq ptr %36, %23
-  br i1 %.not35.i.us, label %_ZN8ArgParse11find_optionEPKc.exit, label %.lr.ph.i.us, !llvm.loop !70
+.thread.i.us:                                     ; preds = %35, %32, %29
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.024.041.i.us, i64 8
+  %.not39.i.us = icmp eq ptr %37, %24
+  br i1 %.not39.i.us, label %_ZN8ArgParse11find_optionEPKc.exit, label %.lr.ph.i.us, !llvm.loop !70
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.thread.i
-  %.sroa.024.037.i = phi ptr [ %50, %.thread.i ], [ %22, %.lr.ph.i.preheader ]
-  %37 = load ptr, ptr %.sroa.024.037.i, align 8, !tbaa !65
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %39 = load ptr, ptr %38, align 8, !tbaa !12
-  %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %39) #26
-  %.not.i = icmp eq i32 %40, 0
-  br i1 %.not.i, label %.split.us, label %41
+  %.sroa.024.041.i = phi ptr [ %51, %.thread.i ], [ %23, %.lr.ph.i.preheader ]
+  %38 = load ptr, ptr %.sroa.024.041.i, align 8, !tbaa !65
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load ptr, ptr %39, align 8, !tbaa !12
+  %41 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %40) #26
+  %.not.i = icmp eq i32 %41, 0
+  br i1 %.not.i, label %.split.us, label %42
 
-41:                                               ; preds = %.lr.ph.i
-  %42 = load i8, ptr %39, align 1, !tbaa !14
-  %43 = icmp eq i8 %42, 45
-  br i1 %43, label %44, label %.thread.i
+42:                                               ; preds = %.lr.ph.i
+  %43 = load i8, ptr %40, align 1, !tbaa !14
+  %44 = icmp eq i8 %43, 45
+  br i1 %44, label %45, label %.thread.i
 
-44:                                               ; preds = %41
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 1
-  %46 = load i8, ptr %45, align 1, !tbaa !14
-  %47 = icmp eq i8 %46, 45
-  br i1 %47, label %48, label %.thread.i
+45:                                               ; preds = %42
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 1
+  %47 = load i8, ptr %46, align 1, !tbaa !14
+  %48 = icmp eq i8 %47, 45
+  br i1 %48, label %49, label %.thread.i
 
-48:                                               ; preds = %44
-  %49 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(1) %45) #26
-  %.not22.i = icmp eq i32 %49, 0
+49:                                               ; preds = %45
+  %50 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %13, ptr noundef nonnull dereferenceable(1) %46) #26
+  %.not22.i = icmp eq i32 %50, 0
   br i1 %.not22.i, label %.split.us, label %.thread.i
 
-.thread.i:                                        ; preds = %48, %44, %41
-  %50 = getelementptr inbounds nuw i8, ptr %.sroa.024.037.i, i64 8
-  %.not35.i = icmp eq ptr %50, %23
-  br i1 %.not35.i, label %_ZN8ArgParse11find_optionEPKc.exit, label %.lr.ph.i, !llvm.loop !70
+.thread.i:                                        ; preds = %49, %45, %42
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.024.041.i, i64 8
+  %.not39.i = icmp eq ptr %51, %24
+  br i1 %.not39.i, label %_ZN8ArgParse11find_optionEPKc.exit, label %.lr.ph.i, !llvm.loop !70
 
-_ZN8ArgParse11find_optionEPKc.exit:               ; preds = %21, %.thread.i, %.thread.i.us
-  tail call void (ptr, ptr, ...) @_ZN8ArgParse5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %12)
-  br label %.loopexit
+_ZN8ArgParse11find_optionEPKc.exit:               ; preds = %22, %.thread.i, %.thread.i.us
+  tail call void (ptr, ptr, ...) @_ZN8ArgParse5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.9, ptr noundef nonnull %13)
+  br label %.thread54
 
-.split.us:                                        ; preds = %.lr.ph.i, %48, %.lr.ph.i.us, %34
-  %.us-phi = phi ptr [ %24, %34 ], [ %24, %.lr.ph.i.us ], [ %37, %48 ], [ %37, %.lr.ph.i ]
-  %51 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 168
-  %52 = load i32, ptr %51, align 8, !tbaa !71
-  %53 = add nsw i32 %52, 1
-  store i32 %53, ptr %51, align 8, !tbaa !71
-  %54 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 128
-  %55 = load i32, ptr %54, align 8, !tbaa !16
-  %56 = icmp eq i32 %55, 2
-  br i1 %56, label %61, label %.preheader
+.split.us:                                        ; preds = %.lr.ph.i, %49, %.lr.ph.i.us, %35
+  %.us-phi = phi ptr [ %25, %35 ], [ %25, %.lr.ph.i.us ], [ %38, %49 ], [ %38, %.lr.ph.i ]
+  %52 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 168
+  %53 = load i32, ptr %52, align 8, !tbaa !71
+  %54 = add nsw i32 %53, 1
+  store i32 %54, ptr %52, align 8, !tbaa !71
+  %55 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 128
+  %56 = load i32, ptr %55, align 8, !tbaa !16
+  %57 = icmp eq i32 %56, 2
+  br i1 %57, label %62, label %.preheader
 
 .preheader:                                       ; preds = %.split.us
-  %57 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 132
-  %58 = load i32, ptr %57, align 4, !tbaa !30
-  %.not4674 = icmp sgt i32 %58, 0
-  br i1 %.not4674, label %.lr.ph, label %._crit_edge
+  %58 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 132
+  %59 = load i32, ptr %58, align 4, !tbaa !30
+  %.not4667 = icmp sgt i32 %59, 0
+  br i1 %.not4667, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %59 = add i32 %.03777, 1
-  %60 = sext i32 %59 to i64
-  br label %62
+  %60 = add i32 %.03769, 1
+  %61 = sext i32 %60 to i64
+  br label %63
 
-61:                                               ; preds = %.split.us
+62:                                               ; preds = %.split.us
   tail call void @_ZN9ArgOption13set_parameterEiPKc(ptr noundef nonnull align 8 dereferenceable(200) %.us-phi, i32 noundef 0, ptr noundef null)
   br label %_ZNK9ArgOption15invoke_callbackEiPPKc.exit
 
-62:                                               ; preds = %.lr.ph, %70
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %63 = add nsw i64 %indvars.iv, %60
-  %64 = load i32, ptr %0, align 8, !tbaa !51
-  %65 = sext i32 %64 to i64
-  %.not45 = icmp slt i64 %63, %65
-  br i1 %.not45, label %70, label %.thread
+63:                                               ; preds = %.lr.ph, %71
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
+  %64 = add nsw i64 %indvars.iv, %61
+  %65 = load i32, ptr %0, align 8, !tbaa !51
+  %66 = sext i32 %65 to i64
+  %.not45 = icmp slt i64 %64, %66
+  br i1 %.not45, label %71, label %.thread
 
-.thread:                                          ; preds = %62
-  %66 = trunc nuw nsw i64 %indvars.iv to i32
-  %67 = add nuw nsw i32 %66, 1
-  %68 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
-  %69 = load ptr, ptr %68, align 8, !tbaa !12
-  tail call void (ptr, ptr, ...) @_ZN8ArgParse5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.10, i32 noundef %67, ptr noundef %69)
-  br label %.loopexit
+.thread:                                          ; preds = %63
+  %67 = trunc nuw nsw i64 %indvars.iv to i32
+  %68 = add nuw nsw i32 %67, 1
+  %69 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
+  %70 = load ptr, ptr %69, align 8, !tbaa !12
+  tail call void (ptr, ptr, ...) @_ZN8ArgParse5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.10, i32 noundef %68, ptr noundef %70)
+  br label %.thread54
 
-70:                                               ; preds = %62
-  %71 = load ptr, ptr %4, align 8, !tbaa !60
-  %72 = getelementptr inbounds ptr, ptr %71, i64 %63
-  %73 = load ptr, ptr %72, align 8, !tbaa !49
-  %74 = trunc nuw nsw i64 %indvars.iv to i32
-  tail call void @_ZN9ArgOption13set_parameterEiPKc(ptr noundef nonnull align 8 dereferenceable(200) %.us-phi, i32 noundef %74, ptr noundef %73)
+71:                                               ; preds = %63
+  %72 = load ptr, ptr %4, align 8, !tbaa !60
+  %73 = getelementptr inbounds ptr, ptr %72, i64 %64
+  %74 = load ptr, ptr %73, align 8, !tbaa !49
+  %75 = trunc nuw nsw i64 %indvars.iv to i32
+  tail call void @_ZN9ArgOption13set_parameterEiPKc(ptr noundef nonnull align 8 dereferenceable(200) %.us-phi, i32 noundef %75, ptr noundef %74)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %75 = load i32, ptr %57, align 4, !tbaa !30
-  %76 = sext i32 %75 to i64
-  %.not46 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %.not46, label %62, label %._crit_edge, !llvm.loop !72
+  %76 = load i32, ptr %58, align 4, !tbaa !30
+  %77 = sext i32 %76 to i64
+  %.not46 = icmp slt i64 %indvars.iv.next, %77
+  br i1 %.not46, label %63, label %._crit_edge, !llvm.loop !72
 
-._crit_edge:                                      ; preds = %70, %.preheader
-  %77 = phi i32 [ %58, %.preheader ], [ %75, %70 ]
-  %78 = add nsw i32 %77, %.03777
+._crit_edge:                                      ; preds = %71, %.preheader
+  %78 = phi i32 [ %59, %.preheader ], [ %76, %71 ]
+  %79 = add nsw i32 %78, %.03769
   br label %_ZNK9ArgOption15invoke_callbackEiPPKc.exit
 
-79:                                               ; preds = %15, %8
-  %80 = load ptr, ptr %5, align 8, !tbaa !61
-  %.not44 = icmp eq ptr %80, null
-  br i1 %.not44, label %86, label %81
+80:                                               ; preds = %16, %9
+  %81 = load ptr, ptr %6, align 8, !tbaa !61
+  %.not44 = icmp eq ptr %81, null
+  br i1 %.not44, label %87, label %82
 
-81:                                               ; preds = %79
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 160
-  %83 = load ptr, ptr %82, align 8, !tbaa !48
-  %.not.i47 = icmp eq ptr %83, null
-  br i1 %.not.i47, label %_ZNK9ArgOption15invoke_callbackEiPPKc.exit, label %84
+82:                                               ; preds = %80
+  %83 = getelementptr inbounds nuw i8, ptr %81, i64 160
+  %84 = load ptr, ptr %83, align 8, !tbaa !48
+  %.not.i47 = icmp eq ptr %84, null
+  br i1 %.not.i47, label %_ZNK9ArgOption15invoke_callbackEiPPKc.exit, label %85
 
-84:                                               ; preds = %81
-  %85 = tail call noundef i32 %83(i32 noundef 1, ptr noundef nonnull %11)
+85:                                               ; preds = %82
+  %86 = tail call noundef i32 %84(i32 noundef 1, ptr noundef nonnull %12)
   br label %_ZNK9ArgOption15invoke_callbackEiPPKc.exit
 
-86:                                               ; preds = %79
-  tail call void (ptr, ptr, ...) @_ZN8ArgParse5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %12)
-  br label %.loopexit
+87:                                               ; preds = %80
+  tail call void (ptr, ptr, ...) @_ZN8ArgParse5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.11, ptr noundef nonnull %13)
+  br label %.thread54
 
-_ZNK9ArgOption15invoke_callbackEiPPKc.exit:       ; preds = %61, %._crit_edge, %84, %81
-  %.340 = phi i32 [ %.03777, %81 ], [ %.03777, %84 ], [ %78, %._crit_edge ], [ %.03777, %61 ]
-  %87 = add nsw i32 %.340, 1
-  %88 = load i32, ptr %0, align 8, !tbaa !51
-  %.not55 = icmp slt i32 %87, %88
-  br i1 %.not55, label %8, label %.loopexit, !llvm.loop !73
+_ZNK9ArgOption15invoke_callbackEiPPKc.exit:       ; preds = %62, %._crit_edge, %85, %82
+  %.340 = phi i32 [ %.03769, %82 ], [ %.03769, %85 ], [ %79, %._crit_edge ], [ %.03769, %62 ]
+  %88 = add nsw i32 %.340, 1
+  %89 = load i32, ptr %0, align 8, !tbaa !51
+  %90 = icmp slt i32 %88, %89
+  br i1 %90, label %9, label %.thread54, !llvm.loop !73
 
-.loopexit:                                        ; preds = %_ZNK9ArgOption15invoke_callbackEiPPKc.exit, %3, %_ZN8ArgParse11find_optionEPKc.exit, %.thread, %86
-  %.not5565 = phi i32 [ -1, %_ZN8ArgParse11find_optionEPKc.exit ], [ -1, %.thread ], [ -1, %86 ], [ 0, %3 ], [ 0, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit ]
-  ret i32 %.not5565
+.thread54:                                        ; preds = %_ZNK9ArgOption15invoke_callbackEiPPKc.exit, %3, %.thread, %_ZN8ArgParse11find_optionEPKc.exit, %87
+  %91 = phi i32 [ -1, %87 ], [ -1, %_ZN8ArgParse11find_optionEPKc.exit ], [ -1, %.thread ], [ 0, %3 ], [ 0, %_ZNK9ArgOption15invoke_callbackEiPPKc.exit ]
+  ret i32 %91
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
@@ -1555,21 +1555,21 @@ define hidden noundef ptr @_ZN8ArgParse11find_optionEPKc(ptr noundef nonnull rea
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !69
-  %.not3536 = icmp eq ptr %4, %6
-  br i1 %.not3536, label %._crit_edge, label %.lr.ph
+  %.not3940 = icmp eq ptr %4, %6
+  br i1 %.not3940, label %.thread36, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %8
 
 8:                                                ; preds = %.lr.ph, %.thread
-  %.sroa.024.037 = phi ptr [ %4, %.lr.ph ], [ %34, %.thread ]
-  %9 = load ptr, ptr %.sroa.024.037, align 8, !tbaa !65
+  %.sroa.024.041 = phi ptr [ %4, %.lr.ph ], [ %34, %.thread ]
+  %9 = load ptr, ptr %.sroa.024.041, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #26
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %13
+  br i1 %.not, label %.thread36, label %13
 
 13:                                               ; preds = %8
   %14 = load i8, ptr %1, align 1, !tbaa !14
@@ -1595,7 +1595,7 @@ define hidden noundef ptr @_ZN8ArgParse11find_optionEPKc(ptr noundef nonnull rea
 25:                                               ; preds = %22
   %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull dereferenceable(1) %11) #26
   %.not20 = icmp eq i32 %26, 0
-  br i1 %.not20, label %._crit_edge, label %.thread
+  br i1 %.not20, label %.thread36, label %.thread
 
 27:                                               ; preds = %16
   br i1 %20, label %28, label %.thread
@@ -1609,16 +1609,16 @@ define hidden noundef ptr @_ZN8ArgParse11find_optionEPKc(ptr noundef nonnull rea
 32:                                               ; preds = %28
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %29) #26
   %.not22 = icmp eq i32 %33, 0
-  br i1 %.not22, label %._crit_edge, label %.thread
+  br i1 %.not22, label %.thread36, label %.thread
 
 .thread:                                          ; preds = %21, %22, %25, %32, %28, %27, %13
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.024.037, i64 8
-  %.not35 = icmp eq ptr %34, %6
-  br i1 %.not35, label %._crit_edge, label %8, !llvm.loop !70
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.024.041, i64 8
+  %.not39 = icmp eq ptr %34, %6
+  br i1 %.not39, label %.thread36, label %8, !llvm.loop !70
 
-._crit_edge:                                      ; preds = %.thread, %25, %8, %32, %2
-  %spec.select = phi ptr [ null, %2 ], [ %9, %32 ], [ %9, %8 ], [ %9, %25 ], [ null, %.thread ]
-  ret ptr %spec.select
+.thread36:                                        ; preds = %.thread, %25, %8, %32, %2
+  %35 = phi ptr [ null, %2 ], [ %9, %32 ], [ %9, %8 ], [ %9, %25 ], [ null, %.thread ]
+  ret ptr %35
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1764,11 +1764,11 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse7optionsEPKcz(ptr nounde
 
 22:                                               ; preds = %18, %12
   %23 = phi ptr [ %16, %12 ], [ %20, %18 ]
-  %.02769 = load ptr, ptr %23, align 8, !tbaa !49
-  %.not70 = icmp eq ptr %.02769, null
-  br i1 %.not70, label %.critedge46, label %.lr.ph72
+  %.02768 = load ptr, ptr %23, align 8, !tbaa !49
+  %.not69 = icmp eq ptr %.02768, null
+  br i1 %.not69, label %.critedge46, label %.lr.ph71
 
-.lr.ph72:                                         ; preds = %22
+.lr.ph71:                                         ; preds = %22
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1778,28 +1778,28 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse7optionsEPKcz(ptr nounde
   %.pre = load ptr, ptr %25, align 8, !tbaa !69
   br label %30
 
-30:                                               ; preds = %.lr.ph72, %180
-  %31 = phi ptr [ %.pre, %.lr.ph72 ], [ %169, %180 ]
-  %.02771 = phi ptr [ %.02769, %.lr.ph72 ], [ %.027, %180 ]
+30:                                               ; preds = %.lr.ph71, %180
+  %31 = phi ptr [ %.pre, %.lr.ph71 ], [ %169, %180 ]
+  %.02770 = phi ptr [ %.02768, %.lr.ph71 ], [ %.027, %180 ]
   %32 = load ptr, ptr %24, align 8, !tbaa !69
-  %.not3536.i = icmp eq ptr %32, %31
-  br i1 %.not3536.i, label %.loopexit, label %.lr.ph.i
+  %.not3940.i = icmp eq ptr %32, %31
+  br i1 %.not3940.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30
-  %33 = getelementptr inbounds nuw i8, ptr %.02771, i64 1
+  %33 = getelementptr inbounds nuw i8, ptr %.02770, i64 1
   br label %34
 
 34:                                               ; preds = %.thread.i, %.lr.ph.i
-  %.sroa.024.037.i = phi ptr [ %32, %.lr.ph.i ], [ %60, %.thread.i ]
-  %35 = load ptr, ptr %.sroa.024.037.i, align 8, !tbaa !65
+  %.sroa.024.041.i = phi ptr [ %32, %.lr.ph.i ], [ %60, %.thread.i ]
+  %35 = load ptr, ptr %.sroa.024.041.i, align 8, !tbaa !65
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = load ptr, ptr %36, align 8, !tbaa !12
-  %38 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.02771, ptr noundef nonnull dereferenceable(1) %37) #26
+  %38 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.02770, ptr noundef nonnull dereferenceable(1) %37) #26
   %.not.i = icmp eq i32 %38, 0
   br i1 %.not.i, label %61, label %39
 
 39:                                               ; preds = %34
-  %40 = load i8, ptr %.02771, align 1, !tbaa !14
+  %40 = load i8, ptr %.02770, align 1, !tbaa !14
   %41 = icmp eq i8 %40, 45
   br i1 %41, label %42, label %.thread.i
 
@@ -1834,29 +1834,29 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse7optionsEPKcz(ptr nounde
   br i1 %57, label %58, label %.thread.i
 
 58:                                               ; preds = %54
-  %59 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.02771, ptr noundef nonnull dereferenceable(1) %55) #26
+  %59 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %.02770, ptr noundef nonnull dereferenceable(1) %55) #26
   %.not22.i = icmp eq i32 %59, 0
   br i1 %.not22.i, label %61, label %.thread.i
 
 .thread.i:                                        ; preds = %58, %54, %53, %51, %48, %47, %39
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.024.037.i, i64 8
-  %.not35.i = icmp eq ptr %60, %31
-  br i1 %.not35.i, label %.loopexit, label %34, !llvm.loop !70
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.024.041.i, i64 8
+  %.not39.i = icmp eq ptr %60, %31
+  br i1 %.not39.i, label %.loopexit, label %34, !llvm.loop !70
 
 61:                                               ; preds = %58, %34, %51
-  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02771, ptr noundef nonnull dereferenceable(12) @.str.3) #26
+  %62 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.02770, ptr noundef nonnull dereferenceable(12) @.str.3) #26
   %.not40 = icmp eq i32 %62, 0
   br i1 %.not40, label %.loopexit, label %63
 
 63:                                               ; preds = %61
-  call void (ptr, ptr, ...) @_ZN8ArgParse5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %.02771)
+  call void (ptr, ptr, ...) @_ZN8ArgParse5errorEPKcz(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull @.str.12, ptr noundef nonnull %.02770)
   br label %184
 
 .loopexit:                                        ; preds = %.thread.i, %61, %30
   %64 = call noalias noundef nonnull dereferenceable(200) ptr @_Znwm(i64 noundef 200) #29
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   store ptr %65, ptr %64, align 8, !tbaa !4
-  %66 = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.02771) #25
+  %66 = call noundef i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %.02770) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %66, ptr %3, align 8, !tbaa !10
   %67 = icmp ugt i64 %66, 15
@@ -1880,12 +1880,12 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse7optionsEPKcz(ptr nounde
   ]
 
 71:                                               ; preds = %._crit_edge.i.i.i
-  %72 = load i8, ptr %.02771, align 1, !tbaa !14
+  %72 = load i8, ptr %.02770, align 1, !tbaa !14
   store i8 %72, ptr %70, align 1, !tbaa !14
   br label %74
 
 73:                                               ; preds = %._crit_edge.i.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull readonly align 1 %.02771, i64 %66, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %70, ptr nonnull readonly align 1 %.02770, i64 %66, i1 false)
   br label %74
 
 74:                                               ; preds = %73, %71, %._crit_edge.i.i.i
@@ -1919,7 +1919,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse7optionsEPKcz(ptr nounde
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %89, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %88, i8 0, i64 44, i1 false)
   %90 = call noundef i32 @_ZN9ArgOption10initializeEv(ptr noundef nonnull align 8 dereferenceable(200) %64)
-  %91 = load i8, ptr %.02771, align 1, !tbaa !14
+  %91 = load i8, ptr %.02770, align 1, !tbaa !14
   switch i8 %91, label %103 [
     i8 0, label %102
     i8 37, label %94
@@ -1933,13 +1933,13 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse7optionsEPKcz(ptr nounde
   resume { ptr, i32 } %93
 
 94:                                               ; preds = %74
-  %95 = getelementptr inbounds nuw i8, ptr %.02771, i64 1
+  %95 = getelementptr inbounds nuw i8, ptr %.02770, i64 1
   %96 = load i8, ptr %95, align 1, !tbaa !14
   %97 = icmp eq i8 %96, 42
   br i1 %97, label %98, label %103
 
 98:                                               ; preds = %94
-  %99 = getelementptr inbounds nuw i8, ptr %.02771, i64 2
+  %99 = getelementptr inbounds nuw i8, ptr %.02770, i64 2
   %100 = load i8, ptr %99, align 1, !tbaa !14
   %101 = icmp eq i8 %100, 0
   br i1 %101, label %102, label %103
@@ -1951,8 +1951,8 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN8ArgParse7optionsEPKcz(ptr nounde
 103:                                              ; preds = %74, %102, %98, %94
   %104 = getelementptr inbounds nuw i8, ptr %64, i64 132
   %105 = load i32, ptr %104, align 4, !tbaa !30
-  %.not42.not66 = icmp sgt i32 %105, 0
-  br i1 %.not42.not66, label %.lr.ph, label %.critedge
+  %.not42.not65 = icmp sgt i32 %105, 0
+  br i1 %.not42.not65, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %64, i64 136
@@ -2147,16 +2147,16 @@ define hidden noundef i32 @_ZN8ArgParse5foundEPKc(ptr noundef nonnull readonly a
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !69
-  %.not3536.i = icmp eq ptr %4, %6
-  br i1 %.not3536.i, label %_ZN8ArgParse11find_optionEPKc.exit, label %.lr.ph.i
+  %.not3940.i = icmp eq ptr %4, %6
+  br i1 %.not3940.i, label %_ZN8ArgParse11find_optionEPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 1
   br label %8
 
 8:                                                ; preds = %.thread.i, %.lr.ph.i
-  %.sroa.024.037.i = phi ptr [ %4, %.lr.ph.i ], [ %34, %.thread.i ]
-  %9 = load ptr, ptr %.sroa.024.037.i, align 8, !tbaa !65
+  %.sroa.024.041.i = phi ptr [ %4, %.lr.ph.i ], [ %34, %.thread.i ]
+  %9 = load ptr, ptr %.sroa.024.041.i, align 8, !tbaa !65
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !12
   %12 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #26
@@ -2204,9 +2204,9 @@ define hidden noundef i32 @_ZN8ArgParse5foundEPKc(ptr noundef nonnull readonly a
   br i1 %.not22.i, label %35, label %.thread.i
 
 .thread.i:                                        ; preds = %32, %28, %27, %25, %22, %21, %13
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.024.037.i, i64 8
-  %.not35.i = icmp eq ptr %34, %6
-  br i1 %.not35.i, label %_ZN8ArgParse11find_optionEPKc.exit, label %8, !llvm.loop !70
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.024.041.i, i64 8
+  %.not39.i = icmp eq ptr %34, %6
+  br i1 %.not39.i, label %_ZN8ArgParse11find_optionEPKc.exit, label %8, !llvm.loop !70
 
 35:                                               ; preds = %32, %8, %25
   %36 = getelementptr inbounds nuw i8, ptr %9, i64 168

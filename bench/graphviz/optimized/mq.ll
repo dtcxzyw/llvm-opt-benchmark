@@ -1214,7 +1214,7 @@ gv_calloc.exit497:                                ; preds = %gv_calloc.exit492
 ._crit_edge.i.i:                                  ; preds = %225
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %228, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !63
-  %.pre46.i.i = load ptr, ptr %228, align 8, !tbaa !64
+  %.pre45.i.i = load ptr, ptr %228, align 8, !tbaa !64
   br label %ints_append.exit
 
 234:                                              ; preds = %225
@@ -1269,7 +1269,7 @@ gv_calloc.exit497:                                ; preds = %gv_calloc.exit492
   unreachable
 
 ints_append.exit:                                 ; preds = %._crit_edge.i.i, %258
-  %264 = phi ptr [ %.pre46.i.i, %._crit_edge.i.i ], [ %240, %258 ]
+  %264 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %240, %258 ]
   %265 = phi i64 [ %232, %._crit_edge.i.i ], [ %spec.select.i.i, %258 ]
   %266 = phi i64 [ %230, %._crit_edge.i.i ], [ %249, %258 ]
   %.pre.i.i505 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %259, %258 ]
@@ -1376,7 +1376,7 @@ ints_append.exit510:                              ; preds = %ints_append.exit, %
 ._crit_edge.i.i511:                               ; preds = %322
   %.phi.trans.insert.i.i512 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %.pre.i.i513 = load i64, ptr %.phi.trans.insert.i.i512, align 8, !tbaa !63
-  %.pre46.i.i514 = load ptr, ptr %325, align 8, !tbaa !64
+  %.pre45.i.i514 = load ptr, ptr %325, align 8, !tbaa !64
   br label %ints_append.exit518
 
 331:                                              ; preds = %322
@@ -1431,7 +1431,7 @@ ints_append.exit510:                              ; preds = %ints_append.exit, %
   unreachable
 
 ints_append.exit518:                              ; preds = %._crit_edge.i.i511, %355
-  %361 = phi ptr [ %.pre46.i.i514, %._crit_edge.i.i511 ], [ %337, %355 ]
+  %361 = phi ptr [ %.pre45.i.i514, %._crit_edge.i.i511 ], [ %337, %355 ]
   %362 = phi i64 [ %329, %._crit_edge.i.i511 ], [ %spec.select.i.i515, %355 ]
   %363 = phi i64 [ %327, %._crit_edge.i.i511 ], [ %346, %355 ]
   %364 = phi i64 [ %.pre.i.i513, %._crit_edge.i.i511 ], [ %356, %355 ]
@@ -1483,7 +1483,7 @@ ints_append.exit518:                              ; preds = %._crit_edge.i.i511,
 ._crit_edge.i.i519:                               ; preds = %384
   %.phi.trans.insert.i.i520 = getelementptr inbounds nuw i8, ptr %389, i64 8
   %.pre.i.i521 = load i64, ptr %.phi.trans.insert.i.i520, align 8, !tbaa !63
-  %.pre46.i.i522 = load ptr, ptr %389, align 8, !tbaa !64
+  %.pre45.i.i522 = load ptr, ptr %389, align 8, !tbaa !64
   br label %ints_append.exit526
 
 395:                                              ; preds = %384
@@ -1538,7 +1538,7 @@ ints_append.exit518:                              ; preds = %._crit_edge.i.i511,
   unreachable
 
 ints_append.exit526:                              ; preds = %._crit_edge.i.i519, %419
-  %425 = phi ptr [ %.pre46.i.i522, %._crit_edge.i.i519 ], [ %401, %419 ]
+  %425 = phi ptr [ %.pre45.i.i522, %._crit_edge.i.i519 ], [ %401, %419 ]
   %426 = phi i64 [ %393, %._crit_edge.i.i519 ], [ %spec.select.i.i523, %419 ]
   %427 = phi i64 [ %391, %._crit_edge.i.i519 ], [ %410, %419 ]
   %428 = phi i64 [ %.pre.i.i521, %._crit_edge.i.i519 ], [ %420, %419 ]

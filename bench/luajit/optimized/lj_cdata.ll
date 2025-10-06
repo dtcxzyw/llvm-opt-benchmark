@@ -335,24 +335,24 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
   %15 = load i32, ptr %14, align 8, !tbaa !51
   %16 = and i32 %15, -260046848
   %17 = icmp eq i32 %16, 545259520
-  br i1 %17, label %18, label %.preheader259
+  br i1 %17, label %18, label %.preheader258
 
 18:                                               ; preds = %5
   %19 = load ptr, ptr %9, align 8, !tbaa !64
   %20 = and i32 %15, 65535
   %21 = zext nneg i32 %20 to i64
   %22 = getelementptr inbounds nuw %struct.CType, ptr %12, i64 %21
-  br label %.preheader259
+  br label %.preheader258
 
-.preheader259:                                    ; preds = %18, %5
+.preheader258:                                    ; preds = %18, %5
   %.1104.ph = phi ptr [ %14, %5 ], [ %22, %18 ]
   %.1101.ph = phi ptr [ %9, %5 ], [ %19, %18 ]
   br label %23
 
-23:                                               ; preds = %.preheader259, %cdata_getptr.exit136
-  %24 = phi ptr [ %172, %cdata_getptr.exit136 ], [ %12, %.preheader259 ]
-  %.1104 = phi ptr [ %193, %cdata_getptr.exit136 ], [ %.1104.ph, %.preheader259 ]
-  %.1101 = phi ptr [ %.0.i135, %cdata_getptr.exit136 ], [ %.1101.ph, %.preheader259 ]
+23:                                               ; preds = %.preheader258, %cdata_getptr.exit136
+  %24 = phi ptr [ %172, %cdata_getptr.exit136 ], [ %12, %.preheader258 ]
+  %.1104 = phi ptr [ %193, %cdata_getptr.exit136 ], [ %.1104.ph, %.preheader258 ]
+  %.1101 = phi ptr [ %.0.i135, %cdata_getptr.exit136 ], [ %.1101.ph, %.preheader258 ]
   %25 = load i32, ptr %.1104, align 8, !tbaa !51
   %26 = lshr i32 %25, 28
   %27 = icmp eq i32 %26, 8
@@ -360,18 +360,18 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .lr.ph:                                           ; preds = %23, %36
   %28 = phi i32 [ %41, %36 ], [ %25, %23 ]
-  %.2105182 = phi ptr [ %40, %36 ], [ %.1104, %23 ]
+  %.2105181 = phi ptr [ %40, %36 ], [ %.1104, %23 ]
   %29 = and i32 %28, 16711680
   %30 = icmp eq i32 %29, 65536
   br i1 %30, label %31, label %36
 
 31:                                               ; preds = %.lr.ph
-  %32 = getelementptr inbounds nuw i8, ptr %.2105182, i64 4
+  %32 = getelementptr inbounds nuw i8, ptr %.2105181, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !55
   %34 = load i32, ptr %4, align 4, !tbaa !65
   %35 = or i32 %34, %33
   store i32 %35, ptr %4, align 4, !tbaa !65
-  %.pre = load i32, ptr %.2105182, align 8, !tbaa !51
+  %.pre = load i32, ptr %.2105181, align 8, !tbaa !51
   br label %36
 
 36:                                               ; preds = %31, %.lr.ph
@@ -386,7 +386,7 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 ._crit_edge:                                      ; preds = %36, %23
   %.2105.lcssa = phi ptr [ %.1104, %23 ], [ %40, %36 ]
-  %.lcssa163 = phi i32 [ %25, %23 ], [ %41, %36 ]
+  %.lcssa162 = phi i32 [ %25, %23 ], [ %41, %36 ]
   %.lcssa = phi i32 [ %26, %23 ], [ %42, %36 ]
   %44 = load i64, ptr %2, align 8
   %45 = ashr i64 %44, 47
@@ -400,7 +400,7 @@ define hidden ptr @lj_cdata_index(ptr noundef %0, ptr noundef %1, ptr noundef re
   br label %50
 
 50:                                               ; preds = %105, %47
-  %51 = phi i32 [ %.pre205, %105 ], [ %.lcssa163, %47 ]
+  %51 = phi i32 [ %.pre204, %105 ], [ %.lcssa162, %47 ]
   %.mask125 = and i32 %51, -536870912
   %52 = icmp eq i32 %.mask125, 536870912
   br i1 %52, label %53, label %.thread
@@ -485,8 +485,8 @@ cdata_getptr.exit:                                ; preds = %71, %67, %73, %80
   br label %94
 
 94:                                               ; preds = %94, %88
-  %.pn161 = phi i64 [ %93, %88 ], [ %98, %94 ]
-  %.0.i132 = getelementptr inbounds nuw %struct.CType, ptr %24, i64 %.pn161
+  %.pn160 = phi i64 [ %93, %88 ], [ %98, %94 ]
+  %.0.i132 = getelementptr inbounds nuw %struct.CType, ptr %24, i64 %.pn160
   %95 = load i32, ptr %.0.i132, align 8, !tbaa !51
   %96 = icmp slt i32 %95, -1879048192
   %97 = and i32 %95, 65535
@@ -513,7 +513,7 @@ ctype_raw.exit133:                                ; preds = %94
   %106 = getelementptr inbounds nuw i8, ptr %24, i64 264
   %107 = getelementptr inbounds nuw i8, ptr %90, i64 16
   call void @lj_cconv_ct_ct(ptr noundef nonnull %0, ptr noundef nonnull %106, ptr noundef nonnull %.0110, ptr noundef nonnull %6, ptr noundef nonnull %107, i32 noundef 0) #4
-  %.pre205 = load i32, ptr %.2105.lcssa, align 8, !tbaa !51
+  %.pre204 = load i32, ptr %.2105.lcssa, align 8, !tbaa !51
   br label %50
 
 108:                                              ; preds = %87
@@ -526,9 +526,9 @@ ctype_raw.exit133:                                ; preds = %94
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %113 = call ptr @lj_ctype_getfieldq(ptr noundef nonnull %0, ptr noundef nonnull %.2105.lcssa, ptr noundef %110, ptr noundef nonnull %7, ptr noundef %4) #4
   %.not123 = icmp eq ptr %113, null
-  br i1 %.not123, label %.thread142, label %114
+  br i1 %.not123, label %.thread141, label %114
 
-.thread142:                                       ; preds = %112
+.thread141:                                       ; preds = %112
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.thread
 
@@ -541,7 +541,7 @@ ctype_raw.exit133:                                ; preds = %94
   br label %197
 
 118:                                              ; preds = %108
-  %119 = and i32 %.lcssa163, -201326592
+  %119 = and i32 %.lcssa162, -201326592
   %120 = icmp eq i32 %119, 872415232
   br i1 %120, label %121, label %145
 
@@ -608,20 +608,20 @@ ctype_raw.exit133:                                ; preds = %94
 ctype_raw.exit:                                   ; preds = %150
   %.mask = and i32 %151, -268435456
   %154 = icmp eq i32 %.mask, 536870912
-  br i1 %154, label %.preheader162, label %ctype_rawchild.exit
+  br i1 %154, label %.preheader161, label %ctype_rawchild.exit
 
-.preheader162:                                    ; preds = %ctype_raw.exit, %.preheader162
-  %155 = phi i32 [ %159, %.preheader162 ], [ %151, %ctype_raw.exit ]
+.preheader161:                                    ; preds = %ctype_raw.exit, %.preheader161
+  %155 = phi i32 [ %159, %.preheader161 ], [ %151, %ctype_raw.exit ]
   %156 = and i32 %155, 65535
   %157 = zext nneg i32 %156 to i64
   %158 = getelementptr inbounds nuw %struct.CType, ptr %24, i64 %157
   %159 = load i32, ptr %158, align 8, !tbaa !51
   %160 = icmp slt i32 %159, -1879048192
-  br i1 %160, label %.preheader162, label %ctype_rawchild.exit, !llvm.loop !69
+  br i1 %160, label %.preheader161, label %ctype_rawchild.exit, !llvm.loop !69
 
-ctype_rawchild.exit:                              ; preds = %.preheader162, %ctype_raw.exit
-  %161 = phi i32 [ %151, %ctype_raw.exit ], [ %159, %.preheader162 ]
-  %.099 = phi ptr [ %.0.i, %ctype_raw.exit ], [ %158, %.preheader162 ]
+ctype_rawchild.exit:                              ; preds = %.preheader161, %ctype_raw.exit
+  %161 = phi i32 [ %151, %ctype_raw.exit ], [ %159, %.preheader161 ]
+  %.099 = phi ptr [ %.0.i, %ctype_raw.exit ], [ %158, %.preheader161 ]
   %.mask121 = and i32 %161, -268435456
   %162 = icmp eq i32 %.mask121, 268435456
   br i1 %162, label %163, label %.thread
@@ -646,8 +646,8 @@ ctype_rawchild.exit:                              ; preds = %.preheader162, %cty
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %197
 
-.thread:                                          ; preds = %125, %168, %ctype_rawchild.exit, %130, %145, %121, %135, %.thread142, %102, %87, %50
-  %.3106 = phi ptr [ %.2105.lcssa, %50 ], [ %.2105.lcssa, %87 ], [ %.2105.lcssa, %102 ], [ %.2105.lcssa, %.thread142 ], [ %.2105.lcssa, %145 ], [ %.2105.lcssa, %121 ], [ %.2105.lcssa, %135 ], [ %.2105.lcssa, %130 ], [ %.099, %ctype_rawchild.exit ], [ %.099, %168 ], [ %.2105.lcssa, %125 ]
+.thread:                                          ; preds = %125, %168, %ctype_rawchild.exit, %130, %145, %121, %135, %.thread141, %102, %87, %50
+  %.3106 = phi ptr [ %.2105.lcssa, %50 ], [ %.2105.lcssa, %87 ], [ %.2105.lcssa, %102 ], [ %.2105.lcssa, %.thread141 ], [ %.2105.lcssa, %145 ], [ %.2105.lcssa, %121 ], [ %.2105.lcssa, %135 ], [ %.2105.lcssa, %130 ], [ %.099, %ctype_rawchild.exit ], [ %.099, %168 ], [ %.2105.lcssa, %125 ]
   %170 = load i32, ptr %.3106, align 8, !tbaa !51
   %.mask126 = and i32 %170, -268435456
   %171 = icmp eq i32 %.mask126, 536870912

@@ -554,18 +554,18 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 73
   %7 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %.thread, label %.lr.ph19
+  br i1 %8, label %.thread, label %.lr.ph18
 
-9:                                                ; preds = %.lr.ph19
+9:                                                ; preds = %.lr.ph18
   %10 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 73
   %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %.thread.loopexit, label %.lr.ph19
+  br i1 %13, label %.thread.loopexit, label %.lr.ph18
 
-.lr.ph19:                                         ; preds = %.lr.ph, %9
+.lr.ph18:                                         ; preds = %.lr.ph, %9
   %14 = phi ptr [ %10, %9 ], [ %5, %.lr.ph ]
-  %indvars.iv18 = phi i64 [ %indvars.iv.next, %9 ], [ %4, %.lr.ph ]
+  %indvars.iv17 = phi i64 [ %indvars.iv.next, %9 ], [ %4, %.lr.ph ]
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load i64, ptr %15, align 8
   store i64 %16, ptr @SPI_processed, align 8
@@ -575,15 +575,15 @@ define dso_local void @AtEOXact_SPI(i1 noundef zeroext %0) local_unnamed_addr #0
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %20 = load i32, ptr %19, align 8
   store i32 %20, ptr @SPI_result, align 4
-  %indvars.iv.next = add nsw i64 %indvars.iv18, -1
+  %indvars.iv.next = add nsw i64 %indvars.iv17, -1
   %21 = trunc nsw i64 %indvars.iv.next to i32
-  %22 = icmp eq i64 %indvars.iv18, 0
+  %22 = icmp eq i64 %indvars.iv17, 0
   %23 = getelementptr inbounds nuw %struct._SPI_connection, ptr %3, i64 %indvars.iv.next
   %storemerge = select i1 %22, ptr null, ptr %23
-  %24 = icmp sgt i64 %indvars.iv18, 0
+  %24 = icmp sgt i64 %indvars.iv17, 0
   br i1 %24, label %9, label %.thread.loopexit
 
-.thread.loopexit:                                 ; preds = %.lr.ph19, %9
+.thread.loopexit:                                 ; preds = %.lr.ph18, %9
   store i32 %21, ptr @_SPI_connected, align 4
   store ptr %storemerge, ptr @_SPI_current, align 8
   br label %.thread
@@ -626,8 +626,8 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %6 = getelementptr inbounds nuw %struct._SPI_connection, ptr %.pre, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %8 = load i32, ptr %7, align 8
-  %.not66 = icmp eq i32 %8, %1
-  br i1 %.not66, label %.lr.ph68, label %.thread
+  %.not65 = icmp eq i32 %8, %1
+  br i1 %.not65, label %.lr.ph67, label %.thread
 
 .lr.ph:                                           ; preds = %25
   %9 = zext nneg i32 %33 to i64
@@ -635,17 +635,17 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %12 = load i32, ptr %11, align 8
   %.not = icmp eq i32 %12, %1
-  br i1 %.not, label %.lr.ph68, label %.thread
+  br i1 %.not, label %.lr.ph67, label %.thread
 
-.lr.ph68:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph67:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %13 = phi ptr [ %10, %.lr.ph ], [ %6, %.lr.ph.preheader ]
-  %.04667 = phi i1 [ true, %.lr.ph ], [ false, %.lr.ph.preheader ]
+  %.04566 = phi i1 [ true, %.lr.ph ], [ false, %.lr.ph.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 73
   %15 = load i8, ptr %14, align 1, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %.thread, label %17
 
-17:                                               ; preds = %.lr.ph68
+17:                                               ; preds = %.lr.ph67
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %19 = load ptr, ptr %18, align 8
   %.not32 = icmp eq ptr %19, null
@@ -689,8 +689,8 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %38 = icmp sgt i32 %33, -1
   br i1 %38, label %.lr.ph, label %.thread
 
-.thread:                                          ; preds = %.lr.ph68, %.lr.ph, %25, %.lr.ph.preheader
-  %.0.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.04667, %.lr.ph68 ], [ true, %.lr.ph ], [ true, %25 ]
+.thread:                                          ; preds = %.lr.ph67, %.lr.ph, %25, %.lr.ph.preheader
+  %.0.lcssa = phi i1 [ false, %.lr.ph.preheader ], [ %.04566, %.lr.ph67 ], [ true, %.lr.ph ], [ true, %25 ]
   %or.cond = and i1 %0, %.0.lcssa
   br i1 %or.cond, label %39, label %.thread.thread
 
@@ -722,28 +722,28 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 40
   %52 = load ptr, ptr %51, align 8
   tail call void @MemoryContextReset(ptr noundef %52) #14
-  %.pre56 = load ptr, ptr @_SPI_current, align 8
+  %.pre55 = load ptr, ptr @_SPI_current, align 8
   br label %53
 
 53:                                               ; preds = %47, %50
-  %54 = phi ptr [ %45, %47 ], [ %.pre56, %50 ]
+  %54 = phi ptr [ %45, %47 ], [ %.pre55, %50 ]
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %.not35 = icmp eq ptr %56, null
-  br i1 %.not35, label %.loopexit, label %.lr.ph55
+  br i1 %.not35, label %.loopexit, label %.lr.ph54
 
-.lr.ph55:                                         ; preds = %53, %74
-  %storemerge3654.sink = phi ptr [ %57, %74 ], [ %56, %53 ]
-  %.sroa.10.052 = phi ptr [ %.sroa.0.1, %74 ], [ %55, %53 ]
-  %57 = load ptr, ptr %storemerge3654.sink, align 8
-  %58 = getelementptr inbounds i8, ptr %storemerge3654.sink, i64 -40
-  %59 = getelementptr inbounds nuw i8, ptr %storemerge3654.sink, i64 8
+.lr.ph54:                                         ; preds = %53, %74
+  %storemerge3653.sink = phi ptr [ %57, %74 ], [ %56, %53 ]
+  %.sroa.10.051 = phi ptr [ %.sroa.0.1, %74 ], [ %55, %53 ]
+  %57 = load ptr, ptr %storemerge3653.sink, align 8
+  %58 = getelementptr inbounds i8, ptr %storemerge3653.sink, i64 -40
+  %59 = getelementptr inbounds nuw i8, ptr %storemerge3653.sink, i64 8
   %60 = load i32, ptr %59, align 8
   %.not38 = icmp ult i32 %60, %1
   br i1 %.not38, label %74, label %61
 
-61:                                               ; preds = %.lr.ph55
-  store ptr %57, ptr %.sroa.10.052, align 8
+61:                                               ; preds = %.lr.ph54
+  store ptr %57, ptr %.sroa.10.051, align 8
   %62 = load ptr, ptr @_SPI_current, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8
@@ -764,15 +764,15 @@ define dso_local void @AtEOSubXact_SPI(i1 noundef zeroext %0, i32 noundef %1) lo
   br label %71
 
 71:                                               ; preds = %70, %67
-  %72 = getelementptr inbounds i8, ptr %storemerge3654.sink, i64 -8
+  %72 = getelementptr inbounds i8, ptr %storemerge3653.sink, i64 -8
   %73 = load ptr, ptr %72, align 8
   tail call void @MemoryContextDelete(ptr noundef %73) #14
   br label %74
 
-74:                                               ; preds = %71, %.lr.ph55
-  %.sroa.0.1 = phi ptr [ %storemerge3654.sink, %.lr.ph55 ], [ %.sroa.10.052, %71 ]
+74:                                               ; preds = %71, %.lr.ph54
+  %.sroa.0.1 = phi ptr [ %storemerge3653.sink, %.lr.ph54 ], [ %.sroa.10.051, %71 ]
   %.not39 = icmp eq ptr %57, null
-  br i1 %.not39, label %.loopexit, label %.lr.ph55, !llvm.loop !6
+  br i1 %.not39, label %.loopexit, label %.lr.ph54, !llvm.loop !6
 
 .loopexit:                                        ; preds = %74, %53, %.thread.thread
   ret void
@@ -3625,31 +3625,31 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 -40
   %10 = icmp eq ptr %9, %0
-  br i1 %10, label %.thread25, label %.lr.ph43
+  br i1 %10, label %.thread24, label %.lr.ph42
 
-.lr.ph:                                           ; preds = %.lr.ph43
+.lr.ph:                                           ; preds = %.lr.ph42
   %11 = load ptr, ptr %18, align 8
   %12 = getelementptr inbounds i8, ptr %18, i64 -40
   %13 = icmp eq ptr %12, %0
-  br i1 %13, label %.thread25, label %.lr.ph43, !llvm.loop !11
+  br i1 %13, label %.thread24, label %.lr.ph42, !llvm.loop !11
 
-.thread25:                                        ; preds = %.lr.ph, %.lr.ph.preheader
-  %.sroa.10.030.lcssa = phi ptr [ %6, %.lr.ph.preheader ], [ %storemerge32.sink42, %.lr.ph ]
+.thread24:                                        ; preds = %.lr.ph, %.lr.ph.preheader
+  %.sroa.10.029.lcssa = phi ptr [ %6, %.lr.ph.preheader ], [ %storemerge31.sink41, %.lr.ph ]
   %.lcssa = phi ptr [ %8, %.lr.ph.preheader ], [ %11, %.lr.ph ]
-  store ptr %.lcssa, ptr %.sroa.10.030.lcssa, align 8
+  store ptr %.lcssa, ptr %.sroa.10.029.lcssa, align 8
   %14 = load ptr, ptr @_SPI_current, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %0, %16
   br i1 %17, label %22, label %23
 
-.lr.ph43:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph42:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %18 = phi ptr [ %11, %.lr.ph ], [ %8, %.lr.ph.preheader ]
-  %storemerge32.sink42 = phi ptr [ %18, %.lr.ph ], [ %7, %.lr.ph.preheader ]
+  %storemerge31.sink41 = phi ptr [ %18, %.lr.ph ], [ %7, %.lr.ph.preheader ]
   %.not15 = icmp eq ptr %18, null
   br i1 %.not15, label %.critedge, label %.lr.ph, !llvm.loop !11
 
-.critedge:                                        ; preds = %.lr.ph43, %5, %3
+.critedge:                                        ; preds = %.lr.ph42, %5, %3
   %19 = tail call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #14
   br i1 %19, label %20, label %30
 
@@ -3658,11 +3658,11 @@ define dso_local void @SPI_freetuptable(ptr noundef %0) local_unnamed_addr #0 {
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1424, ptr noundef nonnull @__func__.SPI_freetuptable) #14
   br label %30
 
-22:                                               ; preds = %.thread25
+22:                                               ; preds = %.thread24
   store ptr null, ptr %15, align 8
   br label %23
 
-23:                                               ; preds = %22, %.thread25
+23:                                               ; preds = %22, %.thread24
   %24 = load ptr, ptr @SPI_tuptable, align 8
   %25 = icmp eq ptr %0, %24
   br i1 %25, label %26, label %27
@@ -5054,41 +5054,41 @@ SPI_register_relation.exit:                       ; preds = %_SPI_find_ENR_by_na
 
 63:                                               ; preds = %42
   %64 = load ptr, ptr @_SPI_current, align 8
-  %.not13.i40 = icmp eq ptr %64, null
-  br i1 %.not13.i40, label %SPI_register_relation.exit.thread, label %65
+  %.not13.i39 = icmp eq ptr %64, null
+  br i1 %.not13.i39, label %SPI_register_relation.exit.thread, label %65
 
 65:                                               ; preds = %63
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 64
   %67 = load ptr, ptr %66, align 8
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %_SPI_find_ENR_by_name.exit.thread.thread.i48, label %_SPI_find_ENR_by_name.exit.i41
+  br i1 %68, label %_SPI_find_ENR_by_name.exit.thread.thread.i47, label %_SPI_find_ENR_by_name.exit.i40
 
-_SPI_find_ENR_by_name.exit.i41:                   ; preds = %65
+_SPI_find_ENR_by_name.exit.i40:                   ; preds = %65
   %69 = tail call ptr @get_ENR(ptr noundef nonnull %67, ptr noundef nonnull %61) #14
-  %.not.i42 = icmp eq ptr %69, null
-  br i1 %.not.i42, label %_SPI_find_ENR_by_name.exit.thread.i44, label %SPI_register_relation.exit.thread
+  %.not.i41 = icmp eq ptr %69, null
+  br i1 %.not.i41, label %_SPI_find_ENR_by_name.exit.thread.i43, label %SPI_register_relation.exit.thread
 
-_SPI_find_ENR_by_name.exit.thread.i44:            ; preds = %_SPI_find_ENR_by_name.exit.i41
-  %.pre.i45 = load ptr, ptr @_SPI_current, align 8
-  %.phi.trans.insert.i46 = getelementptr inbounds nuw i8, ptr %.pre.i45, i64 64
-  %.pre14.i47 = load ptr, ptr %.phi.trans.insert.i46, align 8
-  %70 = icmp eq ptr %.pre14.i47, null
-  br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i48, label %SPI_register_relation.exit49
+_SPI_find_ENR_by_name.exit.thread.i43:            ; preds = %_SPI_find_ENR_by_name.exit.i40
+  %.pre.i44 = load ptr, ptr @_SPI_current, align 8
+  %.phi.trans.insert.i45 = getelementptr inbounds nuw i8, ptr %.pre.i44, i64 64
+  %.pre14.i46 = load ptr, ptr %.phi.trans.insert.i45, align 8
+  %70 = icmp eq ptr %.pre14.i46, null
+  br i1 %70, label %_SPI_find_ENR_by_name.exit.thread.thread.i47, label %SPI_register_relation.exit48
 
-_SPI_find_ENR_by_name.exit.thread.thread.i48:     ; preds = %_SPI_find_ENR_by_name.exit.thread.i44, %65
+_SPI_find_ENR_by_name.exit.thread.thread.i47:     ; preds = %_SPI_find_ENR_by_name.exit.thread.i43, %65
   %71 = tail call ptr @create_queryEnv() #14
   %72 = load ptr, ptr @_SPI_current, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 64
   store ptr %71, ptr %73, align 8
-  br label %SPI_register_relation.exit49
+  br label %SPI_register_relation.exit48
 
-SPI_register_relation.exit49:                     ; preds = %_SPI_find_ENR_by_name.exit.thread.i44, %_SPI_find_ENR_by_name.exit.thread.thread.i48
-  %74 = phi ptr [ %71, %_SPI_find_ENR_by_name.exit.thread.thread.i48 ], [ %.pre14.i47, %_SPI_find_ENR_by_name.exit.thread.i44 ]
+SPI_register_relation.exit48:                     ; preds = %_SPI_find_ENR_by_name.exit.thread.i43, %_SPI_find_ENR_by_name.exit.thread.thread.i47
+  %74 = phi ptr [ %71, %_SPI_find_ENR_by_name.exit.thread.thread.i47 ], [ %.pre14.i46, %_SPI_find_ENR_by_name.exit.thread.i43 ]
   tail call void @register_ENR(ptr noundef %74, ptr noundef nonnull %43) #14
   br label %SPI_register_relation.exit.thread
 
-SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i41, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %39, %SPI_register_relation.exit49, %1
-  %.0 = phi i32 [ -6, %1 ], [ 17, %SPI_register_relation.exit49 ], [ 17, %39 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -4, %27 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i41 ], [ -4, %63 ], [ -6, %42 ]
+SPI_register_relation.exit.thread:                ; preds = %_SPI_find_ENR_by_name.exit.i40, %63, %42, %_SPI_find_ENR_by_name.exit.i, %27, %6, %39, %SPI_register_relation.exit48, %1
+  %.0 = phi i32 [ -6, %1 ], [ 17, %SPI_register_relation.exit48 ], [ 17, %39 ], [ -12, %_SPI_find_ENR_by_name.exit.i ], [ -4, %27 ], [ -6, %6 ], [ -12, %_SPI_find_ENR_by_name.exit.i40 ], [ -4, %63 ], [ -6, %42 ]
   ret i32 %.0
 }
 

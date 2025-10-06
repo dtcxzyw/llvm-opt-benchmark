@@ -1439,40 +1439,40 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   %44 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 4)
   %45 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
   %46 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 8)
-  %.not90.i = icmp eq i32 %31, 0
-  br i1 %.not90.i, label %.thread78.thread.i, label %.lr.ph.i
+  %.not89.i = icmp eq i32 %31, 0
+  br i1 %.not89.i, label %.thread78.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %35, %70
-  %.085.i = phi i32 [ %67, %70 ], [ 0, %35 ]
-  %.04784.i = phi i32 [ %68, %70 ], [ 0, %35 ]
-  %.05182.i = phi i32 [ %72, %70 ], [ 0, %35 ]
-  %.not.i = icmp eq i32 %.085.i, 0
+  %.084.i = phi i32 [ %67, %70 ], [ 0, %35 ]
+  %.04783.i = phi i32 [ %68, %70 ], [ 0, %35 ]
+  %.05181.i = phi i32 [ %72, %70 ], [ 0, %35 ]
+  %.not.i = icmp eq i32 %.084.i, 0
   br i1 %.not.i, label %.thread.i, label %47
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = add nuw i32 %.05182.i, 1
-  %49 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.05182.i)
-  %50 = add i32 %.05182.i, 2
+  %48 = add nuw i32 %.05181.i, 1
+  %49 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.05181.i)
+  %50 = add i32 %.05181.i, 2
   %51 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %48)
   %52 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %50)
-  %53 = add i32 %.05182.i, 4
+  %53 = add i32 %.05181.i, 4
   %54 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %53)
-  %55 = add i32 %.05182.i, 6
+  %55 = add i32 %.05181.i, 6
   %56 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %55)
-  %57 = add i32 %.05182.i, 8
+  %57 = add i32 %.05181.i, 8
   %58 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef %57)
-  %59 = icmp ult i32 %.085.i, 4
+  %59 = icmp ult i32 %.084.i, 4
   br i1 %59, label %.thread.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %47
   %.pre.i = and i16 %56, 2047
-  %.pre92.i = zext nneg i16 %.pre.i to i32
+  %.pre91.i = zext nneg i16 %.pre.i to i32
   br label %66
 
 .thread.i:                                        ; preds = %47, %.lr.ph.i
   %60 = phi i16 [ %56, %47 ], [ %45, %.lr.ph.i ]
   %.05077.sroa.speculated.i = phi i8 [ %49, %47 ], [ %41, %.lr.ph.i ]
-  %61 = zext nneg i32 %.085.i to i64
+  %61 = zext nneg i32 %.084.i to i64
   %62 = getelementptr i8, ptr %6, i64 %61
   store i8 %.05077.sroa.speculated.i, ptr %62, align 1
   %63 = and i16 %60, 2047
@@ -1482,23 +1482,23 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br label %66
 
 66:                                               ; preds = %.thread.i, %._crit_edge.i
-  %.pre-phi93.i = phi i32 [ %.pre92.i, %._crit_edge.i ], [ %64, %.thread.i ]
+  %.pre-phi92.i = phi i32 [ %.pre91.i, %._crit_edge.i ], [ %64, %.thread.i ]
   %.pre-phi.i = phi i16 [ %.pre.i, %._crit_edge.i ], [ %63, %.thread.i ]
   %.050.val.i = phi i16 [ %56, %._crit_edge.i ], [ %60, %.thread.i ]
-  %67 = add i32 %.085.i, 1
-  %68 = add i32 %.pre-phi93.i, %.04784.i
+  %67 = add i32 %.084.i, 1
+  %68 = add i32 %.pre-phi92.i, %.04783.i
   %69 = icmp sgt i16 %.050.val.i, -1
   br i1 %69, label %.thread78.i, label %70
 
 70:                                               ; preds = %66
   %narrow.i.i = add nuw nsw i16 %.pre-phi.i, 12
   %71 = zext nneg i16 %narrow.i.i to i32
-  %72 = add i32 %.05182.i, %71
+  %72 = add i32 %.05181.i, %71
   %73 = icmp ult i32 %72, %31
   br i1 %73, label %.lr.ph.i, label %.thread78.i
 
 .thread78.i:                                      ; preds = %70, %66
-  switch i32 %.085.i, label %.thread78.thread.i [
+  switch i32 %.084.i, label %.thread78.thread.i [
     i32 0, label %74
     i32 1, label %85
     i32 2, label %97
@@ -1579,11 +1579,11 @@ define internal i32 @dissect_ecat_datagram(ptr noundef %0, ptr noundef %1, ptr n
   br label %EcSummaryFormater.exit
 
 .thread78.thread.i:                               ; preds = %.thread78.i, %35
-  %.198.i = phi i32 [ %67, %.thread78.i ], [ 0, %35 ]
-  %.14897.i = phi i32 [ %68, %.thread78.i ], [ 0, %35 ]
+  %.197.i = phi i32 [ %67, %.thread78.i ], [ 0, %35 ]
+  %.14896.i = phi i32 [ %68, %.thread78.i ], [ 0, %35 ]
   %139 = zext i8 %41 to i32
   %140 = tail call ptr @val_to_str(i32 noundef range(i32 0, 256) %139, ptr noundef nonnull @EcCmdShort, ptr noundef nonnull @.str.851)
-  %141 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.850, i32 noundef %.198.i, i32 noundef %.14897.i, ptr noundef %140)
+  %141 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull %8, i64 noundef 199, i32 noundef 2, i64 noundef 200, ptr noundef nonnull @.str.850, i32 noundef %.197.i, i32 noundef %.14896.i, ptr noundef %140)
   br label %EcSummaryFormater.exit
 
 EcSummaryFormater.exit:                           ; preds = %74, %85, %97, %115, %.thread78.thread.i

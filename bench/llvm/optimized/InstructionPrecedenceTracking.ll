@@ -128,19 +128,19 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12D
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5eraseERKS4_.exit.i: ; preds = %.lr.ph.i.i.i2, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E8containsES4_.exit.thread15, %.loopexit.i.i
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.012.019.i = load ptr, ptr %54, align 8, !tbaa !20
-  %.not20.i = icmp eq ptr %.sroa.012.019.i, %55
-  br i1 %.not20.i, label %_ZN4llvm29InstructionPrecedenceTracking4fillEPKNS_10BasicBlockE.exit, label %.critedge.i
+  %.sroa.012.017.i = load ptr, ptr %54, align 8, !tbaa !20
+  %.not18.i = icmp eq ptr %.sroa.012.017.i, %55
+  br i1 %.not18.i, label %_ZN4llvm29InstructionPrecedenceTracking4fillEPKNS_10BasicBlockE.exit, label %.critedge.i
 
 56:                                               ; preds = %.critedge.i
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.012.021.i, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.012.019.i, i64 8
   %.sroa.012.0.i = load ptr, ptr %57, align 8, !tbaa !20
   %.not.i6 = icmp eq ptr %.sroa.012.0.i, %55
   br i1 %.not.i6, label %_ZN4llvm29InstructionPrecedenceTracking4fillEPKNS_10BasicBlockE.exit, label %.critedge.i
 
 .critedge.i:                                      ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5eraseERKS4_.exit.i, %56
-  %.sroa.012.021.i = phi ptr [ %.sroa.012.0.i, %56 ], [ %.sroa.012.019.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5eraseERKS4_.exit.i ]
-  %58 = getelementptr inbounds i8, ptr %.sroa.012.021.i, i64 -24
+  %.sroa.012.019.i = phi ptr [ %.sroa.012.0.i, %56 ], [ %.sroa.012.017.i, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5eraseERKS4_.exit.i ]
+  %58 = getelementptr inbounds i8, ptr %.sroa.012.019.i, i64 -24
   %59 = load ptr, ptr %0, align 8, !tbaa !23
   %60 = load ptr, ptr %59, align 8
   %61 = tail call noundef zeroext i1 %60(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %58) #13
@@ -217,19 +217,19 @@ define dso_local void @_ZN4llvm29InstructionPrecedenceTracking4fillEPKNS_10Basic
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5eraseERKS4_.exit: ; preds = %.lr.ph.i.i, %2, %.loopexit.i
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.012.019 = load ptr, ptr %35, align 8, !tbaa !20
-  %.not20 = icmp eq ptr %.sroa.012.019, %36
-  br i1 %.not20, label %._crit_edge, label %.critedge
+  %.sroa.012.017 = load ptr, ptr %35, align 8, !tbaa !20
+  %.not18 = icmp eq ptr %.sroa.012.017, %36
+  br i1 %.not18, label %._crit_edge, label %.critedge
 
 37:                                               ; preds = %.critedge
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.012.021, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.012.019, i64 8
   %.sroa.012.0 = load ptr, ptr %38, align 8, !tbaa !20
   %.not = icmp eq ptr %.sroa.012.0, %36
   br i1 %.not, label %._crit_edge, label %.critedge
 
 .critedge:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5eraseERKS4_.exit, %37
-  %.sroa.012.021 = phi ptr [ %.sroa.012.0, %37 ], [ %.sroa.012.019, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5eraseERKS4_.exit ]
-  %39 = getelementptr inbounds i8, ptr %.sroa.012.021, i64 -24
+  %.sroa.012.019 = phi ptr [ %.sroa.012.0, %37 ], [ %.sroa.012.017, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEPKNS_11InstructionENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E5eraseERKS4_.exit ]
+  %39 = getelementptr inbounds i8, ptr %.sroa.012.019, i64 -24
   %40 = load ptr, ptr %0, align 8, !tbaa !23
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef zeroext i1 %41(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %39) #13

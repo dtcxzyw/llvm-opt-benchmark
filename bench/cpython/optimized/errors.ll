@@ -1119,8 +1119,8 @@ Py_XDECREF.exit48:                                ; preds = %Py_XDECREF.exit, %1
 38:                                               ; preds = %Py_XDECREF.exit48
   %39 = getelementptr i8, ptr %3, i64 8
   %.val43 = load ptr, ptr %39, align 8, !tbaa !21
-  %.not65 = icmp eq ptr %.val43, @PyTraceBack_Type
-  br i1 %.not65, label %Py_DECREF.exit35, label %40
+  %.not64 = icmp eq ptr %.val43, @PyTraceBack_Type
+  br i1 %.not64, label %Py_DECREF.exit35, label %40
 
 40:                                               ; preds = %38
   %41 = icmp eq ptr %3, @_Py_NoneStruct

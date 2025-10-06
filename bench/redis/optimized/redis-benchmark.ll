@@ -5254,15 +5254,15 @@ define internal void @readHandler(ptr readnone captures(none) %0, i32 %1, ptr no
   %21 = load ptr, ptr %2, align 8, !tbaa !136
   %22 = tail call i32 @redisBufferRead(ptr noundef %21) #20
   %.not = icmp eq i32 %22, 0
-  br i1 %.not, label %.preheader103, label %34
+  br i1 %.not, label %.preheader101, label %34
 
-.preheader103:                                    ; preds = %20
+.preheader101:                                    ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %24 = load i32, ptr %23, align 8, !tbaa !157
-  %.not72142 = icmp eq i32 %24, 0
-  br i1 %.not72142, label %clientDone.exit.thread, label %.lr.ph143
+  %.not72140 = icmp eq i32 %24, 0
+  br i1 %.not72140, label %clientDone.exit.thread, label %.lr.ph141
 
-.lr.ph143:                                        ; preds = %.preheader103
+.lr.ph141:                                        ; preds = %.preheader101
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -5282,7 +5282,7 @@ define internal void @readHandler(ptr readnone captures(none) %0, i32 %1, ptr no
   tail call void @exit(i32 noundef 1) #24
   unreachable
 
-39:                                               ; preds = %.lr.ph143, %clientDone.exit
+39:                                               ; preds = %.lr.ph141, %clientDone.exit
   %40 = load ptr, ptr %2, align 8, !tbaa !136
   %41 = call i32 @redisGetReply(ptr noundef %40, ptr noundef nonnull %6) #20
   %.not73 = icmp eq i32 %41, 0
@@ -5334,14 +5334,14 @@ define internal void @readHandler(ptr readnone captures(none) %0, i32 %1, ptr no
 
 sub_0:                                            ; preds = %59
   %63 = load i8, ptr %61, align 1
-  %.not145 = icmp eq i8 %63, 65
-  br i1 %.not145, label %sub_1, label %.tail.thread
+  %.not143 = icmp eq i8 %63, 65
+  br i1 %.not143, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 1
   %65 = load i8, ptr %64, align 1
-  %.not146 = icmp eq i8 %65, 83
-  br i1 %.not146, label %.tail, label %.tail.thread
+  %.not144 = icmp eq i8 %65, 83
+  br i1 %.not144, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 2
@@ -5643,8 +5643,8 @@ fetchClusterSlotsConfiguration.exit.thread:       ; preds = %updateClusterSlotsC
   %217 = zext nneg i32 %213 to i64
   %218 = call i32 @hi_sdsrange(ptr noundef %216, i64 noundef %217, i64 noundef -1) #20
   %219 = load i64, ptr %31, align 8, !tbaa !158
-  %.not147 = icmp eq i64 %219, 0
-  br i1 %.not147, label %.preheader, label %.lr.ph
+  %.not145 = icmp eq i64 %219, 0
+  br i1 %.not145, label %.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %215
   %220 = load i32, ptr %29, align 8, !tbaa !154
@@ -5655,10 +5655,10 @@ fetchClusterSlotsConfiguration.exit.thread:       ; preds = %updateClusterSlotsC
 
 .preheader:                                       ; preds = %229, %215
   %224 = load i64, ptr %26, align 8, !tbaa !163
-  %.not148 = icmp eq i64 %224, 0
-  br i1 %.not148, label %._crit_edge, label %.lr.ph141
+  %.not146 = icmp eq i64 %224, 0
+  br i1 %.not146, label %._crit_edge, label %.lr.ph139
 
-.lr.ph141:                                        ; preds = %.preheader
+.lr.ph139:                                        ; preds = %.preheader
   %225 = load i32, ptr %29, align 8, !tbaa !154
   %226 = load ptr, ptr %33, align 8, !tbaa !165
   %227 = sext i32 %225 to i64
@@ -5666,24 +5666,24 @@ fetchClusterSlotsConfiguration.exit.thread:       ; preds = %updateClusterSlotsC
   br label %234
 
 229:                                              ; preds = %.lr.ph, %229
-  %.060139 = phi i64 [ 0, %.lr.ph ], [ %233, %229 ]
-  %230 = getelementptr inbounds nuw ptr, ptr %221, i64 %.060139
+  %.060137 = phi i64 [ 0, %.lr.ph ], [ %233, %229 ]
+  %230 = getelementptr inbounds nuw ptr, ptr %221, i64 %.060137
   %231 = load ptr, ptr %230, align 8, !tbaa !5
   %232 = getelementptr inbounds i8, ptr %231, i64 %223
   store ptr %232, ptr %230, align 8, !tbaa !5
-  %233 = add nuw i64 %.060139, 1
+  %233 = add nuw i64 %.060137, 1
   %exitcond.not = icmp eq i64 %233, %219
   br i1 %exitcond.not, label %.preheader, label %229, !llvm.loop !205
 
-234:                                              ; preds = %.lr.ph141, %234
-  %.1140 = phi i64 [ 0, %.lr.ph141 ], [ %238, %234 ]
-  %235 = getelementptr inbounds nuw ptr, ptr %226, i64 %.1140
+234:                                              ; preds = %.lr.ph139, %234
+  %.1138 = phi i64 [ 0, %.lr.ph139 ], [ %238, %234 ]
+  %235 = getelementptr inbounds nuw ptr, ptr %226, i64 %.1138
   %236 = load ptr, ptr %235, align 8, !tbaa !5
   %237 = getelementptr inbounds i8, ptr %236, i64 %228
   store ptr %237, ptr %235, align 8, !tbaa !5
-  %238 = add nuw i64 %.1140, 1
-  %exitcond175.not = icmp eq i64 %238, %224
-  br i1 %exitcond175.not, label %._crit_edge, label %234, !llvm.loop !206
+  %238 = add nuw i64 %.1138, 1
+  %exitcond173.not = icmp eq i64 %238, %224
+  br i1 %exitcond173.not, label %._crit_edge, label %234, !llvm.loop !206
 
 ._crit_edge:                                      ; preds = %234, %.preheader
   store i32 0, ptr %29, align 8, !tbaa !154
@@ -5851,7 +5851,7 @@ clientDone.exit:                                  ; preds = %260, %209, %._crit_
   %.not72 = icmp eq i32 %327, 0
   br i1 %.not72, label %clientDone.exit.thread, label %39
 
-clientDone.exit.thread:                           ; preds = %clientDone.exit, %47, %.preheader103, %326, %resetClient.exit.i, %272, %267
+clientDone.exit.thread:                           ; preds = %clientDone.exit, %47, %.preheader101, %326, %resetClient.exit.i, %272, %267
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 }

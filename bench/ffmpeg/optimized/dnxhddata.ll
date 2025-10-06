@@ -71,8 +71,8 @@ define noundef ptr @ff_dnxhd_get_cid_table(i32 noundef %0) local_unnamed_addr #0
 
 2:                                                ; preds = %3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 20
-  br i1 %exitcond, label %7, label %3, !llvm.loop !4
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 20
+  br i1 %exitcond.not, label %7, label %3, !llvm.loop !4
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
@@ -81,9 +81,9 @@ define noundef ptr @ff_dnxhd_get_cid_table(i32 noundef %0) local_unnamed_addr #0
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
 
-7:                                                ; preds = %3, %2
-  %spec.select = phi ptr [ null, %2 ], [ %4, %3 ]
-  ret ptr %spec.select
+7:                                                ; preds = %2, %3
+  %8 = phi ptr [ %4, %3 ], [ null, %2 ]
+  ret ptr %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
@@ -92,8 +92,8 @@ define i32 @ff_dnxhd_get_frame_size(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.i, label %ff_dnxhd_get_cid_table.exit.thread, label %3, !llvm.loop !4
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
+  br i1 %exitcond.not.i, label %ff_dnxhd_get_cid_table.exit.thread, label %3, !llvm.loop !4
 
 3:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
@@ -118,8 +118,8 @@ define range(i32 -1, 2147479553) i32 @ff_dnxhd_get_hr_frame_size(i32 noundef %0,
 
 4:                                                ; preds = %5
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 20
-  br i1 %exitcond.i, label %ff_dnxhd_get_cid_table.exit.thread, label %5, !llvm.loop !4
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 20
+  br i1 %exitcond.not.i, label %ff_dnxhd_get_cid_table.exit.thread, label %5, !llvm.loop !4
 
 5:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]

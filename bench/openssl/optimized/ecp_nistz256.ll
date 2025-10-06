@@ -378,7 +378,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %20 = load ptr, ptr %19, align 8, !tbaa !26
   %.not156 = icmp eq ptr %20, null
-  br i1 %.not156, label %.thread183, label %21
+  br i1 %.not156, label %.thread180, label %21
 
 21:                                               ; preds = %18
   %22 = tail call ptr @EC_POINT_new(ptr noundef nonnull %0) #7
@@ -419,25 +419,25 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   store i32 1, ptr %41, align 8, !tbaa !28
   %42 = call i32 @EC_POINT_cmp(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef nonnull %22, ptr noundef %6) #7
   %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.thread185
+  br i1 %43, label %44, label %.thread182
 
-.thread185:                                       ; preds = %40
+.thread182:                                       ; preds = %40
   call void @EC_POINT_free(ptr noundef nonnull %22) #7
-  br label %.thread183
+  br label %.thread180
 
 44:                                               ; preds = %40
   %45 = load ptr, ptr %25, align 8, !tbaa !27
   call void @EC_POINT_free(ptr noundef nonnull %22) #7
   %46 = icmp eq ptr %45, null
-  br i1 %46, label %.thread183, label %48
+  br i1 %46, label %.thread180, label %48
 
-.thread183:                                       ; preds = %18, %.thread185, %44
+.thread180:                                       ; preds = %18, %.thread182, %44
   %47 = call fastcc i32 @ecp_nistz256_is_affine_G(ptr noundef %15)
   %.not158 = icmp eq i32 %47, 0
   br i1 %.not158, label %193, label %48
 
-48:                                               ; preds = %44, %.thread183
-  %.3.ph = phi ptr [ @ecp_nistz256_precomputed, %.thread183 ], [ %45, %44 ]
+48:                                               ; preds = %44, %.thread180
+  %.3.ph = phi ptr [ @ecp_nistz256_precomputed, %.thread180 ], [ %45, %44 ]
   %49 = call i32 @BN_num_bits(ptr noundef nonnull %2) #7
   %50 = icmp sgt i32 %49, 256
   br i1 %50, label %53, label %51
@@ -469,18 +469,18 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %.0123 = phi ptr [ %2, %51 ], [ %54, %56 ]
   %62 = call i32 @bn_get_top(ptr noundef nonnull %.0123) #7
   %63 = icmp sgt i32 %62, 0
-  br i1 %63, label %.lr.ph, label %.lr.ph226.preheader
+  br i1 %63, label %.lr.ph, label %.lr.ph221.preheader
 
 .preheader:                                       ; preds = %.lr.ph
   %64 = trunc nuw nsw i64 %indvars.iv.next to i32
   %65 = icmp samesign ult i64 %indvars.iv, 25
-  br i1 %65, label %.lr.ph226.preheader, label %._crit_edge
+  br i1 %65, label %.lr.ph221.preheader, label %._crit_edge
 
-.lr.ph226.preheader:                              ; preds = %61, %.preheader
-  %.0130.lcssa254 = phi i32 [ %64, %.preheader ], [ 0, %61 ]
-  %66 = zext nneg i32 %.0130.lcssa254 to i64
+.lr.ph221.preheader:                              ; preds = %61, %.preheader
+  %.0130.lcssa249 = phi i32 [ %64, %.preheader ], [ 0, %61 ]
+  %66 = zext nneg i32 %.0130.lcssa249 to i64
   %scevgep = getelementptr i8, ptr %8, i64 %66
-  %narrow = sub nuw nsw i32 33, %.0130.lcssa254
+  %narrow = sub nuw nsw i32 33, %.0130.lcssa249
   %67 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %67, i1 false), !tbaa !26
   br label %._crit_edge
@@ -499,7 +499,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %75 = icmp slt i64 %indvars.iv.next, %74
   br i1 %75, label %.lr.ph, label %.preheader, !llvm.loop !36
 
-._crit_edge:                                      ; preds = %.lr.ph226.preheader, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph221.preheader, %.preheader
   %76 = load i8, ptr %8, align 16, !tbaa !26
   %77 = zext i8 %76 to i32
   %78 = shl nuw nsw i32 %77, 1
@@ -585,9 +585,9 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br label %148
 
 148:                                              ; preds = %._crit_edge, %148
-  %indvars.iv234 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next235, %148 ]
-  %.0134227 = phi i32 [ 7, %._crit_edge ], [ %158, %148 ]
-  %149 = add nsw i32 %.0134227, -1
+  %indvars.iv229 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next230, %148 ]
+  %.0134222 = phi i32 [ 7, %._crit_edge ], [ %158, %148 ]
+  %149 = add nsw i32 %.0134222, -1
   %150 = lshr i32 %149, 3
   %151 = zext nneg i32 %150 to i64
   %152 = getelementptr inbounds nuw i8, ptr %8, i64 %151
@@ -596,7 +596,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %155 = and i32 %149, 7
   %156 = lshr i32 %154, %155
   %157 = and i32 %156, 255
-  %158 = add nuw nsw i32 %.0134227, 7
+  %158 = add nuw nsw i32 %.0134222, 7
   %159 = lshr i32 %157, 7
   %160 = sub nsw i32 0, %159
   %161 = xor i32 %157, 255
@@ -607,7 +607,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %166 = lshr i32 %165, 1
   %167 = sub nsw i32 %165, %166
   %168 = and i32 %160, 1
-  %169 = getelementptr inbounds nuw [64 x %struct.P256_POINT_AFFINE], ptr %.3.ph, i64 %indvars.iv234
+  %169 = getelementptr inbounds nuw [64 x %struct.P256_POINT_AFFINE], ptr %.3.ph, i64 %indvars.iv229
   call void @ecp_nistz256_gather_w7(ptr noundef nonnull %9, ptr noundef nonnull %169, i32 noundef %167) #7
   call void @ecp_nistz256_neg(ptr noundef nonnull %140, ptr noundef nonnull %141) #7
   %170 = zext nneg i32 %168 to i64
@@ -638,11 +638,11 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %192 = xor i64 %191, %189
   store i64 %192, ptr %147, align 8, !tbaa !35
   call void @ecp_nistz256_point_add_affine(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %9) #7
-  %indvars.iv.next235 = add nuw nsw i64 %indvars.iv234, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next235, 37
+  %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next230, 37
   br i1 %exitcond.not, label %.loopexit, label %148, !llvm.loop !37
 
-193:                                              ; preds = %.thread183
+193:                                              ; preds = %.thread180
   %194 = shl nuw nsw i64 %11, 3
   %195 = call noalias ptr @CRYPTO_malloc(i64 noundef %194, ptr noundef nonnull @.str, i32 noundef 1112) #7
   %196 = icmp eq ptr %195, null
@@ -651,9 +651,9 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
 197:                                              ; preds = %193
   %198 = call noalias ptr @CRYPTO_malloc(i64 noundef %194, ptr noundef nonnull @.str, i32 noundef 1116) #7
   %199 = icmp eq ptr %198, null
-  br i1 %199, label %.thread, label %.thread255
+  br i1 %199, label %.thread, label %.thread250
 
-.thread255:                                       ; preds = %197
+.thread250:                                       ; preds = %197
   %200 = shl nuw nsw i64 %3, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %195, ptr align 8 %5, i64 %200, i1 false)
   %201 = getelementptr inbounds nuw ptr, ptr %195, i64 %3
@@ -668,35 +668,35 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %.not163, label %395, label %203
 
 203:                                              ; preds = %.loopexit
-  %spec.select269 = select i1 %.not, ptr %9, ptr %10
+  %spec.select264 = select i1 %.not, ptr %9, ptr %10
   br label %204
 
-204:                                              ; preds = %203, %.thread255
-  %.not164203212267 = phi i1 [ false, %.thread255 ], [ %.not, %203 ]
-  %.1138213266 = phi ptr [ %195, %.thread255 ], [ null, %203 ]
-  %.1136215265 = phi ptr [ %198, %.thread255 ], [ null, %203 ]
-  %.0129217264 = phi ptr [ %195, %.thread255 ], [ %5, %203 ]
-  %.0125218263 = phi ptr [ %198, %.thread255 ], [ %4, %203 ]
-  %.0124219262 = phi i64 [ %11, %.thread255 ], [ %3, %203 ]
-  %205 = phi ptr [ %10, %.thread255 ], [ %spec.select269, %203 ]
-  %206 = icmp ugt i64 %.0124219262, 1398100
+204:                                              ; preds = %203, %.thread250
+  %.not164199208262 = phi i1 [ false, %.thread250 ], [ %.not, %203 ]
+  %.1138209261 = phi ptr [ %195, %.thread250 ], [ null, %203 ]
+  %.1136211260 = phi ptr [ %198, %.thread250 ], [ null, %203 ]
+  %.0129213259 = phi ptr [ %195, %.thread250 ], [ %5, %203 ]
+  %.0125214258 = phi ptr [ %198, %.thread250 ], [ %4, %203 ]
+  %.0124215257 = phi i64 [ %11, %.thread250 ], [ %3, %203 ]
+  %205 = phi ptr [ %10, %.thread250 ], [ %spec.select264, %203 ]
+  %206 = icmp ugt i64 %.0124215257, 1398100
   br i1 %206, label %ecp_nistz256_windowed_mul.exit, label %207
 
 207:                                              ; preds = %204
-  %208 = mul nuw nsw i64 %.0124219262, 1536
+  %208 = mul nuw nsw i64 %.0124215257, 1536
   %209 = add nuw nsw i64 %208, 544
   %210 = call noalias ptr @CRYPTO_malloc(i64 noundef %209, ptr noundef nonnull @.str, i32 noundef 627) #7
   %211 = icmp eq ptr %210, null
   br i1 %211, label %ecp_nistz256_windowed_mul.exit, label %212
 
 212:                                              ; preds = %207
-  %213 = mul nuw nsw i64 %.0124219262, 33
+  %213 = mul nuw nsw i64 %.0124215257, 33
   %214 = call noalias ptr @CRYPTO_malloc(i64 noundef %213, ptr noundef nonnull @.str, i32 noundef 629) #7
   %215 = icmp eq ptr %214, null
   br i1 %215, label %ecp_nistz256_windowed_mul.exit, label %216
 
 216:                                              ; preds = %212
-  %217 = shl nuw nsw i64 %.0124219262, 3
+  %217 = shl nuw nsw i64 %.0124215257, 3
   %218 = call noalias ptr @CRYPTO_malloc(i64 noundef %217, ptr noundef nonnull @.str, i32 noundef 630) #7
   %219 = icmp eq ptr %218, null
   br i1 %219, label %ecp_nistz256_windowed_mul.exit, label %220
@@ -707,7 +707,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %223 = and i64 %222, 63
   %224 = sub nsw i64 0, %223
   %225 = getelementptr inbounds i8, ptr %221, i64 %224
-  %226 = getelementptr inbounds nuw [16 x %struct.P256_POINT], ptr %225, i64 %.0124219262
+  %226 = getelementptr inbounds nuw [16 x %struct.P256_POINT], ptr %225, i64 %.0124215257
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 64
@@ -722,7 +722,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %235 = mul i64 %.0225257.i, 33
   %scevgep.i = getelementptr i8, ptr %214, i64 %235
   %236 = getelementptr inbounds nuw [16 x %struct.P256_POINT], ptr %225, i64 %.0225257.i
-  %237 = getelementptr inbounds nuw ptr, ptr %.0129217264, i64 %.0225257.i
+  %237 = getelementptr inbounds nuw ptr, ptr %.0129213259, i64 %.0225257.i
   %238 = load ptr, ptr %237, align 8, !tbaa !38
   %239 = call i32 @BN_num_bits(ptr noundef %238) #7
   %240 = icmp sgt i32 %239, 256
@@ -731,8 +731,8 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
 241:                                              ; preds = %234
   %242 = load ptr, ptr %237, align 8, !tbaa !38
   %243 = call i32 @BN_is_negative(ptr noundef %242) #7
-  %.not.i176 = icmp eq i32 %243, 0
-  br i1 %.not.i176, label %251, label %244
+  %.not.i174 = icmp eq i32 %243, 0
+  br i1 %.not.i174, label %251, label %244
 
 244:                                              ; preds = %241, %234
   %245 = call ptr @BN_CTX_get(ptr noundef %6) #7
@@ -793,7 +793,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %272, label %262, label %.preheader252.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %.lr.ph256.i, %.preheader252.i
-  %273 = getelementptr inbounds nuw ptr, ptr %.0125218263, i64 %.0225257.i
+  %273 = getelementptr inbounds nuw ptr, ptr %.0125214258, i64 %.0225257.i
   %274 = load ptr, ptr %273, align 8, !tbaa !39
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %276 = load ptr, ptr %275, align 8, !tbaa !11
@@ -850,7 +850,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   call void @ecp_nistz256_point_double(ptr noundef nonnull %230, ptr noundef nonnull %230) #7
   call void @ecp_nistz256_scatter_w5(ptr noundef nonnull %236, ptr noundef nonnull %230, i32 noundef 16) #7
   %289 = add nuw i64 %.0225257.i, 1
-  %exitcond.not.i = icmp eq i64 %289, %.0124219262
+  %exitcond.not.i = icmp eq i64 %289, %.0124215257
   br i1 %exitcond.not.i, label %290, label %234, !llvm.loop !41
 
 290:                                              ; preds = %288
@@ -875,7 +875,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %.0233262.i = phi i32 [ 255, %290 ], [ %352, %._crit_edge261.i ]
   %305 = icmp eq i32 %.0233262.i, 255
   %306 = zext i1 %305 to i64
-  %307 = icmp ugt i64 %.0124219262, %306
+  %307 = icmp ugt i64 %.0124215257, %306
   br i1 %307, label %.lr.ph260.i, label %._crit_edge261.i
 
 .lr.ph260.i:                                      ; preds = %304
@@ -935,7 +935,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   store i64 %350, ptr %303, align 8, !tbaa !35
   call void @ecp_nistz256_point_add(ptr noundef nonnull %205, ptr noundef nonnull %205, ptr noundef nonnull %226) #7
   %351 = add i64 %.1258.i, 1
-  %exitcond270.not.i = icmp eq i64 %351, %.0124219262
+  %exitcond270.not.i = icmp eq i64 %351, %.0124215257
   br i1 %exitcond270.not.i, label %._crit_edge261.i, label %312, !llvm.loop !42
 
 ._crit_edge261.i:                                 ; preds = %312, %304
@@ -997,7 +997,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   store i64 %392, ptr %303, align 8, !tbaa !35
   call void @ecp_nistz256_point_add(ptr noundef nonnull %205, ptr noundef nonnull %205, ptr noundef nonnull %226) #7
   %393 = add nuw i64 %.2263.i, 1
-  %exitcond271.not.i = icmp eq i64 %393, %.0124219262
+  %exitcond271.not.i = icmp eq i64 %393, %.0124215257
   br i1 %exitcond271.not.i, label %ecp_nistz256_windowed_mul.exit, label %.preheader.i, !llvm.loop !44
 
 .thread250.sink.split.i:                          ; preds = %283, %278, %._crit_edge.i, %247
@@ -1016,19 +1016,19 @@ ecp_nistz256_windowed_mul.exit:                   ; preds = %244, %.preheader.i,
   call void @CRYPTO_free(ptr noundef %.0231.i, ptr noundef nonnull @.str, i32 noundef 772) #7
   call void @CRYPTO_free(ptr noundef %.0234.i, ptr noundef nonnull @.str, i32 noundef 773) #7
   call void @CRYPTO_free(ptr noundef %.0232.i, ptr noundef nonnull @.str, i32 noundef 774) #7
-  %brmerge.not = and i1 %.not164203212267, %.not165.not
-  br i1 %brmerge.not, label %.thread220, label %394
+  %brmerge.not = and i1 %.not164199208262, %.not165.not
+  br i1 %brmerge.not, label %.thread216, label %394
 
-.thread220:                                       ; preds = %ecp_nistz256_windowed_mul.exit
+.thread216:                                       ; preds = %ecp_nistz256_windowed_mul.exit
   call void @ecp_nistz256_point_add(ptr noundef nonnull %10, ptr noundef nonnull %10, ptr noundef nonnull %205) #7
   br label %395
 
 394:                                              ; preds = %ecp_nistz256_windowed_mul.exit
   br i1 %.not165.not, label %395, label %.thread
 
-395:                                              ; preds = %.thread220, %394, %.loopexit
-  %.1136216 = phi ptr [ %.1136215265, %394 ], [ null, %.loopexit ], [ %.1136215265, %.thread220 ]
-  %.1138214 = phi ptr [ %.1138213266, %394 ], [ null, %.loopexit ], [ %.1138213266, %.thread220 ]
+395:                                              ; preds = %.thread216, %394, %.loopexit
+  %.1136212 = phi ptr [ %.1136211260, %394 ], [ null, %.loopexit ], [ %.1136211260, %.thread216 ]
+  %.1138210 = phi ptr [ %.1138209261, %394 ], [ null, %.loopexit ], [ %.1138209261, %.thread216 ]
   %396 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %397 = load ptr, ptr %396, align 8, !tbaa !11
   %398 = call i32 @bn_set_words(ptr noundef %397, ptr noundef nonnull %10, i32 noundef 4) #7
@@ -1077,14 +1077,14 @@ ecp_nistz256_windowed_mul.exit:                   ; preds = %244, %.preheader.i,
   br label %is_one.exit
 
 is_one.exit:                                      ; preds = %409, %414
-  %.0.i177 = phi i32 [ %429, %414 ], [ 0, %409 ]
+  %.0.i175 = phi i32 [ %429, %414 ], [ 0, %409 ]
   %430 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  store i32 %.0.i177, ptr %430, align 8, !tbaa !28
+  store i32 %.0.i175, ptr %430, align 8, !tbaa !28
   br label %.thread
 
 .thread:                                          ; preds = %53, %60, %21, %39, %394, %395, %399, %404, %197, %193, %is_one.exit, %17
-  %.0137 = phi ptr [ null, %17 ], [ null, %193 ], [ %195, %197 ], [ %.1138214, %is_one.exit ], [ %.1138214, %404 ], [ %.1138214, %399 ], [ %.1138214, %395 ], [ %.1138213266, %394 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
-  %.0135 = phi ptr [ null, %17 ], [ null, %193 ], [ null, %197 ], [ %.1136216, %is_one.exit ], [ %.1136216, %404 ], [ %.1136216, %399 ], [ %.1136216, %395 ], [ %.1136215265, %394 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
+  %.0137 = phi ptr [ null, %17 ], [ null, %193 ], [ %195, %197 ], [ %.1138210, %is_one.exit ], [ %.1138210, %404 ], [ %.1138210, %399 ], [ %.1138210, %395 ], [ %.1138209261, %394 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
+  %.0135 = phi ptr [ null, %17 ], [ null, %193 ], [ null, %197 ], [ %.1136212, %is_one.exit ], [ %.1136212, %404 ], [ %.1136212, %399 ], [ %.1136212, %395 ], [ %.1136211260, %394 ], [ null, %39 ], [ null, %21 ], [ null, %60 ], [ null, %53 ]
   %.0133 = phi i32 [ 0, %17 ], [ 0, %193 ], [ 0, %197 ], [ 1, %is_one.exit ], [ 0, %404 ], [ 0, %399 ], [ 0, %395 ], [ 0, %394 ], [ 0, %39 ], [ 0, %21 ], [ 0, %60 ], [ 0, %53 ]
   call void @BN_CTX_end(ptr noundef %6) #7
   call void @CRYPTO_free(ptr noundef %.0135, ptr noundef nonnull @.str, i32 noundef 1154) #7
@@ -1183,21 +1183,21 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
 41:                                               ; preds = %31
   %42 = tail call i32 @EC_POINT_copy(ptr noundef nonnull %38, ptr noundef nonnull %4) #7
   %.not91 = icmp eq i32 %42, 0
-  br i1 %.not91, label %.loopexit, label %.preheader103
+  br i1 %.not91, label %.loopexit, label %.preheader102
 
-.preheader103:                                    ; preds = %41
+.preheader102:                                    ; preds = %41
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 24
   br label %48
 
 46:                                               ; preds = %70
-  %47 = add nuw nsw i32 %.070106, 1
-  %exitcond110.not = icmp eq i32 %47, 64
-  br i1 %exitcond110.not, label %72, label %48, !llvm.loop !49
+  %47 = add nuw nsw i32 %.070105, 1
+  %exitcond109.not = icmp eq i32 %47, 64
+  br i1 %exitcond109.not, label %72, label %48, !llvm.loop !49
 
-48:                                               ; preds = %.preheader103, %46
-  %.070106 = phi i32 [ 0, %.preheader103 ], [ %47, %46 ]
+48:                                               ; preds = %.preheader102, %46
+  %.070105 = phi i32 [ 0, %.preheader102 ], [ %47, %46 ]
   %49 = call i32 @EC_POINT_copy(ptr noundef %37, ptr noundef nonnull %38) #7
   %.not92 = icmp eq i32 %49, 0
   br i1 %.not92, label %.loopexit, label %.preheader
@@ -1236,16 +1236,16 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
 
 63:                                               ; preds = %59
   %64 = getelementptr inbounds nuw [64 x %struct.P256_POINT_AFFINE], ptr %36, i64 %indvars.iv
-  call void @ecp_nistz256_scatter_w7(ptr noundef nonnull %64, ptr noundef nonnull %3, i32 noundef %.070106) #7
+  call void @ecp_nistz256_scatter_w7(ptr noundef nonnull %64, ptr noundef nonnull %3, i32 noundef %.070105) #7
   br label %67
 
 65:                                               ; preds = %67
-  %66 = add nuw nsw i32 %.072104, 1
+  %66 = add nuw nsw i32 %.072103, 1
   %exitcond.not = icmp eq i32 %66, 7
   br i1 %exitcond.not, label %69, label %67, !llvm.loop !53
 
 67:                                               ; preds = %63, %65
-  %.072104 = phi i32 [ 0, %63 ], [ %66, %65 ]
+  %.072103 = phi i32 [ 0, %63 ], [ %66, %65 ]
   %68 = call i32 @EC_POINT_dbl(ptr noundef nonnull %0, ptr noundef %37, ptr noundef %37, ptr noundef nonnull %.075) #7
   %.not97 = icmp eq i32 %68, 0
   br i1 %.not97, label %.thread, label %65
@@ -1257,8 +1257,8 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
 69:                                               ; preds = %65
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond109.not = icmp eq i64 %indvars.iv.next, 37
-  br i1 %exitcond109.not, label %70, label %.preheader, !llvm.loop !54
+  %exitcond108.not = icmp eq i64 %indvars.iv.next, 37
+  br i1 %exitcond108.not, label %70, label %.preheader, !llvm.loop !54
 
 70:                                               ; preds = %69
   %71 = call i32 @EC_POINT_add(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef nonnull %38, ptr noundef nonnull %4, ptr noundef nonnull %.075) #7

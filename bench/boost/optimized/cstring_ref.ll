@@ -1035,30 +1035,30 @@ define weak_odr hidden noundef i64 @_ZNK5boost7process2v217basic_cstring_refIcSt
   %4 = load ptr, ptr %0, align 8, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 %2
   %6 = load i8, ptr %5, align 1, !tbaa !11
-  %.not10 = icmp eq i8 %6, 0
-  br i1 %.not10, label %.loopexit, label %.lr.ph
+  %.not12 = icmp eq i8 %6, 0
+  br i1 %.not12, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %3, %13
-  %7 = phi i8 [ %15, %13 ], [ %6, %3 ]
-  %.0711 = phi ptr [ %14, %13 ], [ %5, %3 ]
+.lr.ph:                                           ; preds = %3, %9
+  %7 = phi i8 [ %11, %9 ], [ %6, %3 ]
+  %.0713 = phi ptr [ %10, %9 ], [ %5, %3 ]
   %8 = icmp eq i8 %7, %1
-  br i1 %8, label %9, label %13
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %.lr.ph
-  %10 = ptrtoint ptr %.0711 to i64
-  %11 = ptrtoint ptr %4 to i64
-  %12 = sub i64 %10, %11
-  br label %.loopexit
-
-13:                                               ; preds = %.lr.ph
-  %14 = getelementptr inbounds nuw i8, ptr %.0711, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !11
-  %.not = icmp eq i8 %15, 0
+  %10 = getelementptr inbounds nuw i8, ptr %.0713, i64 1
+  %11 = load i8, ptr %10, align 1, !tbaa !11
+  %.not = icmp eq i8 %11, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
-.loopexit:                                        ; preds = %13, %3, %9
-  %spec.select = phi i64 [ %12, %9 ], [ -1, %3 ], [ -1, %13 ]
-  ret i64 %spec.select
+12:                                               ; preds = %.lr.ph
+  %13 = ptrtoint ptr %.0713 to i64
+  %14 = ptrtoint ptr %4 to i64
+  %15 = sub i64 %13, %14
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %9, %3, %12
+  %16 = phi i64 [ %15, %12 ], [ -1, %3 ], [ -1, %9 ]
+  ret i64 %16
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

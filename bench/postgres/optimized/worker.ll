@@ -5511,25 +5511,16 @@ slot_getallattrs.exit:                            ; preds = %69, %57, %53
   %.0149 = phi ptr [ %55, %53 ], [ null, %57 ], [ null, %69 ]
   %.1 = phi ptr [ %56, %53 ], [ %.0146, %57 ], [ %.0146, %69 ]
   store ptr %32, ptr @CurrentMemoryContext, align 8
-  switch i32 %3, label %72 [
-    i32 4, label %70
-    i32 2, label %70
-  ]
+  %70 = icmp eq i32 %3, 3
+  br i1 %70, label %.thread, label %71
 
-70:                                               ; preds = %slot_getallattrs.exit, %slot_getallattrs.exit
-  %71 = tail call ptr @logicalrep_partition_open(ptr noundef %11, ptr noundef nonnull %35, ptr noundef %.0149) #16
-  tail call fastcc void @check_relation_updatable(ptr noundef %71)
-  br label %72
+71:                                               ; preds = %slot_getallattrs.exit
+  %72 = tail call ptr @logicalrep_partition_open(ptr noundef %11, ptr noundef nonnull %35, ptr noundef %.0149) #16
+  tail call fastcc void @check_relation_updatable(ptr noundef %72)
+  %73 = icmp eq i32 %3, 2
+  br i1 %73, label %78, label %75
 
-72:                                               ; preds = %slot_getallattrs.exit, %70
-  %.0148 = phi ptr [ %71, %70 ], [ null, %slot_getallattrs.exit ]
-  switch i32 %3, label %default.unreachable186 [
-    i32 3, label %73
-    i32 4, label %75
-    i32 2, label %78
-  ]
-
-73:                                               ; preds = %72
+.thread:                                          ; preds = %slot_getallattrs.exit
   %.val = load ptr, ptr %0, align 8
   tail call void @ExecOpenIndices(ptr noundef nonnull %33, i1 noundef zeroext true) #16
   tail call void @InitConflictIndexes(ptr noundef nonnull %33) #16
@@ -5539,18 +5530,18 @@ slot_getallattrs.exit:                            ; preds = %69, %57, %53
   tail call void @ExecCloseIndices(ptr noundef nonnull %33) #16
   br label %197
 
-75:                                               ; preds = %72
-  %76 = getelementptr inbounds nuw i8, ptr %.0148, i64 92
+75:                                               ; preds = %71
+  %76 = getelementptr inbounds nuw i8, ptr %72, i64 92
   %77 = load i32, ptr %76, align 4
   tail call fastcc void @apply_handle_delete_internal(ptr noundef nonnull %0, ptr noundef nonnull %33, ptr noundef %.1, i32 noundef %77)
   br label %197
 
-78:                                               ; preds = %72
+78:                                               ; preds = %71
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %79 = getelementptr inbounds nuw i8, ptr %.0148, i64 92
+  %79 = getelementptr inbounds nuw i8, ptr %72, i64 92
   %80 = load i32, ptr %79, align 4
   %.val165 = load ptr, ptr %0, align 8
   tail call fastcc void @TargetPrivilegesCheck(ptr noundef nonnull %35, i64 noundef 2)
@@ -5568,7 +5559,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
   br i1 %85, label %87, label %86
 
 86:                                               ; preds = %83, %FindReplTupleInLocalRel.exit
-  tail call fastcc void @slot_store_data(ptr noundef %82, ptr noundef nonnull %.0148, ptr noundef %2)
+  tail call fastcc void @slot_store_data(ptr noundef %82, ptr noundef nonnull %72, ptr noundef %2)
   tail call void @ReportApplyConflict(ptr noundef nonnull %9, ptr noundef nonnull %33, i32 noundef 15, i32 noundef 3, ptr noundef %.1, ptr noundef null, ptr noundef %82, i32 noundef 0, i32 noundef 0, i16 noundef zeroext 0, i64 noundef 0) #16
   br label %196
 
@@ -5585,7 +5576,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
 92:                                               ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 200
   %94 = call ptr @table_slot_create(ptr noundef nonnull %35, ptr noundef nonnull %93) #16
-  call fastcc void @slot_store_data(ptr noundef %94, ptr noundef nonnull %.0148, ptr noundef %2)
+  call fastcc void @slot_store_data(ptr noundef %94, ptr noundef nonnull %72, ptr noundef %2)
   %95 = load i32, ptr %7, align 4
   %96 = load i16, ptr %6, align 2
   %97 = load i64, ptr %8, align 8
@@ -5607,7 +5598,7 @@ FindReplTupleInLocalRel.exit:                     ; preds = %78
   %105 = load ptr, ptr %104, align 8
   %106 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %105, ptr @CurrentMemoryContext, align 8
-  call fastcc void @slot_modify_data(ptr noundef %.1, ptr noundef %82, ptr noundef nonnull %.0148, ptr noundef %2)
+  call fastcc void @slot_modify_data(ptr noundef %.1, ptr noundef %82, ptr noundef nonnull %72, ptr noundef %2)
   store ptr %106, ptr @CurrentMemoryContext, align 8
   call void @EvalPlanQualInit(ptr noundef nonnull %5, ptr noundef nonnull %9, ptr noundef null, ptr noundef null, i32 noundef -1, ptr noundef null) #16
   %107 = load ptr, ptr %36, align 8
@@ -5778,10 +5769,7 @@ slot_getallattrs.exit167:                         ; preds = %193, %181, %177
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %197
 
-default.unreachable186:                           ; preds = %72
-  unreachable
-
-197:                                              ; preds = %196, %73, %75
+197:                                              ; preds = %196, %.thread, %75
   ret void
 }
 

@@ -218,11 +218,11 @@ check_key_level.exit.thread19:                    ; preds = %1, %check_key_level
   br label %52
 
 52:                                               ; preds = %84, %.lr.ph.i.i
-  %.0307.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %85, %84 ]
-  %.0316.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.132.i.i, %84 ]
-  %.0345.i.i = phi ptr [ %.pre20.i, %.lr.ph.i.i ], [ %.135.i.i, %84 ]
+  %.0306.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %85, %84 ]
+  %.0315.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.132.i.i, %84 ]
+  %.0344.i.i = phi ptr [ %.pre20.i, %.lr.ph.i.i ], [ %.135.i.i, %84 ]
   %53 = load ptr, ptr %44, align 8, !tbaa !61
-  %54 = call ptr @OPENSSL_sk_value(ptr noundef %53, i32 noundef %.0307.i.i) #10
+  %54 = call ptr @OPENSSL_sk_value(ptr noundef %53, i32 noundef %.0306.i.i) #10
   %55 = load i8, ptr %54, align 8, !tbaa !70
   %.not.i.i = icmp eq i8 %55, 3
   br i1 %.not.i.i, label %56, label %84
@@ -237,7 +237,7 @@ check_key_level.exit.thread19:                    ; preds = %1, %check_key_level
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 2
   %61 = load i8, ptr %60, align 2, !tbaa !73
   %62 = zext i8 %61 to i32
-  %.not44.i.i = icmp eq i32 %.0316.i.i, %62
+  %.not44.i.i = icmp eq i32 %.0315.i.i, %62
   br i1 %.not44.i.i, label %.thread.i.i, label %63
 
 63:                                               ; preds = %59
@@ -257,8 +257,8 @@ check_key_level.exit.thread19:                    ; preds = %1, %check_key_level
   br i1 %.not46.i.i, label %.critedge.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %70, %63, %59
-  %.236.i.i = phi ptr [ %.0345.i.i, %59 ], [ %3, %70 ], [ %69, %63 ]
-  %.233.i.i = phi i32 [ %.0316.i.i, %59 ], [ %62, %70 ], [ %62, %63 ]
+  %.236.i.i = phi ptr [ %.0344.i.i, %59 ], [ %3, %70 ], [ %69, %63 ]
+  %.233.i.i = phi i32 [ %.0315.i.i, %59 ], [ %62, %70 ], [ %62, %63 ]
   %72 = load i32, ptr %4, align 4, !tbaa !54
   %73 = zext i32 %72 to i64
   %74 = getelementptr inbounds nuw i8, ptr %54, i64 16
@@ -282,9 +282,9 @@ check_key_level.exit.thread19:                    ; preds = %1, %check_key_level
   br label %dane_match_rpk.exit.i
 
 84:                                               ; preds = %77, %.thread.i.i, %56, %52
-  %.135.i.i = phi ptr [ %.0345.i.i, %52 ], [ %.0345.i.i, %56 ], [ %.236.i.i, %77 ], [ %.236.i.i, %.thread.i.i ]
-  %.132.i.i = phi i32 [ %.0316.i.i, %52 ], [ %.0316.i.i, %56 ], [ %.233.i.i, %77 ], [ %.233.i.i, %.thread.i.i ]
-  %85 = add nuw nsw i32 %.0307.i.i, 1
+  %.135.i.i = phi ptr [ %.0344.i.i, %52 ], [ %.0344.i.i, %56 ], [ %.236.i.i, %77 ], [ %.236.i.i, %.thread.i.i ]
+  %.132.i.i = phi i32 [ %.0315.i.i, %52 ], [ %.0315.i.i, %56 ], [ %.233.i.i, %77 ], [ %.233.i.i, %.thread.i.i ]
+  %85 = add nuw nsw i32 %.0306.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %85, %46
   br i1 %exitcond.not.i.i, label %dane_match_rpk.exit.loopexit.i, label %52, !llvm.loop !83
 
@@ -1733,14 +1733,14 @@ define ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %104
 
 77:                                               ; preds = %.lr.ph
-  %78 = add nuw nsw i32 %.05785, 1
+  %78 = add nuw nsw i32 %.05782, 1
   %79 = tail call i32 @X509_CRL_get_ext_count(ptr noundef nonnull %1) #10
   %80 = icmp slt i32 %78, %79
   br i1 %80, label %.lr.ph, label %._crit_edge, !llvm.loop !115
 
 .lr.ph:                                           ; preds = %.preheader, %77
-  %.05785 = phi i32 [ %78, %77 ], [ 0, %.preheader ]
-  %81 = tail call ptr @X509_CRL_get_ext(ptr noundef nonnull %1, i32 noundef %.05785) #10
+  %.05782 = phi i32 [ %78, %77 ], [ 0, %.preheader ]
+  %81 = tail call ptr @X509_CRL_get_ext(ptr noundef nonnull %1, i32 noundef %.05782) #10
   %82 = tail call i32 @X509_CRL_add_ext(ptr noundef nonnull %53, ptr noundef %81, i32 noundef -1) #10
   %.not75 = icmp eq i32 %82, 0
   br i1 %.not75, label %83, label %77
@@ -1755,17 +1755,17 @@ define ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   %84 = tail call ptr @X509_CRL_get_REVOKED(ptr noundef nonnull %1) #10
   %85 = tail call i32 @OPENSSL_sk_num(ptr noundef %84) #10
   %86 = icmp sgt i32 %85, 0
-  br i1 %86, label %.lr.ph88, label %._crit_edge89
+  br i1 %86, label %.lr.ph85, label %._crit_edge86
 
-.lr.ph88:                                         ; preds = %._crit_edge, %96
-  %.15886 = phi i32 [ %97, %96 ], [ 0, %._crit_edge ]
+.lr.ph85:                                         ; preds = %._crit_edge, %96
+  %.15883 = phi i32 [ %97, %96 ], [ 0, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %87 = call ptr @OPENSSL_sk_value(ptr noundef %84, i32 noundef %.15886) #10
+  %87 = call ptr @OPENSSL_sk_value(ptr noundef %84, i32 noundef %.15883) #10
   %88 = call i32 @X509_CRL_get0_by_serial(ptr noundef nonnull %0, ptr noundef nonnull %6, ptr noundef %87) #10
   %.not73 = icmp eq i32 %88, 0
   br i1 %.not73, label %89, label %96
 
-89:                                               ; preds = %.lr.ph88
+89:                                               ; preds = %.lr.ph85
   %90 = call ptr @X509_REVOKED_dup(ptr noundef %87) #10
   store ptr %90, ptr %6, align 8, !tbaa !116
   %91 = icmp eq ptr %90, null
@@ -1782,27 +1782,27 @@ define ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %89, %94
-  %.sink96 = phi i32 [ 2270, %94 ], [ 2265, %89 ]
+  %.sink93 = phi i32 [ 2270, %94 ], [ 2265, %89 ]
   %.sink = phi i32 [ 524299, %94 ], [ 524301, %89 ]
   call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink96, ptr noundef nonnull @__func__.X509_CRL_diff) #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink93, ptr noundef nonnull @__func__.X509_CRL_diff) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %104
 
-96:                                               ; preds = %92, %.lr.ph88
+96:                                               ; preds = %92, %.lr.ph85
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %97 = add nuw nsw i32 %.15886, 1
+  %97 = add nuw nsw i32 %.15883, 1
   %98 = call i32 @OPENSSL_sk_num(ptr noundef %84) #10
   %99 = icmp slt i32 %97, %98
-  br i1 %99, label %.lr.ph88, label %._crit_edge89, !llvm.loop !118
+  br i1 %99, label %.lr.ph85, label %._crit_edge86, !llvm.loop !118
 
-._crit_edge89:                                    ; preds = %96, %._crit_edge
+._crit_edge86:                                    ; preds = %96, %._crit_edge
   %100 = icmp ne ptr %3, null
   %or.cond = and i1 %40, %100
   br i1 %or.cond, label %101, label %105
 
-101:                                              ; preds = %._crit_edge89
+101:                                              ; preds = %._crit_edge86
   %102 = call i32 @X509_CRL_sign(ptr noundef nonnull %53, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %.not72 = icmp eq i32 %102, 0
   br i1 %.not72, label %103, label %105
@@ -1817,8 +1817,8 @@ define ptr @X509_CRL_diff(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   call void @X509_CRL_free(ptr noundef %53) #10
   br label %105
 
-105:                                              ; preds = %._crit_edge89, %101, %104, %47, %38, %32, %29, %26, %21, %12
-  %.0 = phi ptr [ null, %12 ], [ null, %21 ], [ null, %26 ], [ null, %38 ], [ null, %47 ], [ null, %104 ], [ null, %32 ], [ null, %29 ], [ %53, %101 ], [ %53, %._crit_edge89 ]
+105:                                              ; preds = %._crit_edge86, %101, %104, %47, %38, %32, %29, %26, %21, %12
+  %.0 = phi ptr [ null, %12 ], [ null, %21 ], [ null, %26 ], [ null, %38 ], [ null, %47 ], [ null, %104 ], [ null, %32 ], [ null, %29 ], [ %53, %101 ], [ %53, %._crit_edge86 ]
   ret ptr %.0
 }
 
@@ -5925,16 +5925,16 @@ define internal fastcc range(i32 -1, 2) i32 @dane_match_cert(i32 %.148.val, ptr 
   br label %22
 
 22:                                               ; preds = %.lr.ph, %107
-  %.06638 = phi i32 [ 256, %.lr.ph ], [ %.167, %107 ]
-  %.06937 = phi i32 [ 0, %.lr.ph ], [ %108, %107 ]
-  %.07036 = phi ptr [ null, %.lr.ph ], [ %.171, %107 ]
-  %.07535 = phi ptr [ null, %.lr.ph ], [ %.277, %107 ]
-  %.07934 = phi i32 [ 256, %.lr.ph ], [ %.180, %107 ]
-  %.08433 = phi i32 [ 256, %.lr.ph ], [ %.185, %107 ]
-  %.08832 = phi i32 [ 256, %.lr.ph ], [ %.189, %107 ]
-  %.0231 = phi i32 [ 0, %.lr.ph ], [ %.35, %107 ]
+  %.06637 = phi i32 [ 256, %.lr.ph ], [ %.167, %107 ]
+  %.06936 = phi i32 [ 0, %.lr.ph ], [ %108, %107 ]
+  %.07035 = phi ptr [ null, %.lr.ph ], [ %.171, %107 ]
+  %.07534 = phi ptr [ null, %.lr.ph ], [ %.277, %107 ]
+  %.07933 = phi i32 [ 256, %.lr.ph ], [ %.180, %107 ]
+  %.08432 = phi i32 [ 256, %.lr.ph ], [ %.185, %107 ]
+  %.08831 = phi i32 [ 256, %.lr.ph ], [ %.189, %107 ]
+  %.0230 = phi i32 [ 0, %.lr.ph ], [ %.35, %107 ]
   %23 = load ptr, ptr %21, align 8, !tbaa !61
-  %24 = call ptr @OPENSSL_sk_value(ptr noundef %23, i32 noundef %.06937) #10
+  %24 = call ptr @OPENSSL_sk_value(ptr noundef %23, i32 noundef %.06936) #10
   %25 = load i8, ptr %24, align 8, !tbaa !70
   %26 = zext i8 %25 to i32
   %27 = shl nuw i32 1, %26
@@ -5943,7 +5943,7 @@ define internal fastcc range(i32 -1, 2) i32 @dane_match_cert(i32 %.148.val, ptr 
   br i1 %29, label %107, label %30
 
 30:                                               ; preds = %22
-  %.not98 = icmp eq i32 %.06638, %26
+  %.not98 = icmp eq i32 %.06637, %26
   br i1 %.not98, label %41, label %31
 
 31:                                               ; preds = %30
@@ -5959,17 +5959,17 @@ define internal fastcc range(i32 -1, 2) i32 @dane_match_cert(i32 %.148.val, ptr 
   br label %41
 
 41:                                               ; preds = %31, %30
-  %.286 = phi i32 [ %40, %31 ], [ %.08433, %30 ]
-  %.281 = phi i32 [ 256, %31 ], [ %.07934, %30 ]
-  %.268 = phi i32 [ %26, %31 ], [ %.06638, %30 ]
+  %.286 = phi i32 [ %40, %31 ], [ %.08432, %30 ]
+  %.281 = phi i32 [ 256, %31 ], [ %.07933, %30 ]
+  %.268 = phi i32 [ %26, %31 ], [ %.06637, %30 ]
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %43 = load i8, ptr %42, align 1, !tbaa !72
   %44 = zext i8 %43 to i32
-  %.not99 = icmp eq i32 %.08832, %44
+  %.not99 = icmp eq i32 %.08831, %44
   br i1 %.not99, label %65, label %45
 
 45:                                               ; preds = %41
-  call void @CRYPTO_free(ptr noundef %.07535, ptr noundef nonnull @.str, i32 noundef 2953) #10
+  call void @CRYPTO_free(ptr noundef %.07534, ptr noundef nonnull @.str, i32 noundef 2953) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !69
   switch i8 %43, label %dane_i2d.exit.thread [
@@ -5995,10 +5995,10 @@ define internal fastcc range(i32 -1, 2) i32 @dane_match_cert(i32 %.148.val, ptr 
   br i1 %or.cond.i, label %dane_i2d.exit.thread, label %.thread
 
 dane_i2d.exit.thread:                             ; preds = %51, %45
-  %.sink64 = phi i32 [ 2861, %45 ], [ 2866, %51 ]
+  %.sink63 = phi i32 [ 2861, %45 ], [ 2866, %51 ]
   %.sink = phi i32 [ 133, %45 ], [ 524301, %51 ]
   call void @ERR_new() #10
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink64, ptr noundef nonnull @__func__.dane_i2d) #10
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink63, ptr noundef nonnull @__func__.dane_i2d) #10
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #10
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %109
@@ -6041,17 +6041,17 @@ dane_i2d.exit.thread:                             ; preds = %51, %45
 
 ._crit_edge:                                      ; preds = %77
   %.pre = load ptr, ptr %.240.val, align 8, !tbaa !74
-  %.pre48 = zext i8 %67 to i64
+  %.pre47 = zext i8 %67 to i64
   br label %79
 
 79:                                               ; preds = %._crit_edge, %.thread
-  %.pre-phi = phi i64 [ %.pre48, %._crit_edge ], [ %60, %.thread ]
+  %.pre-phi = phi i64 [ %.pre47, %._crit_edge ], [ %60, %.thread ]
   %80 = phi ptr [ %.pre, %._crit_edge ], [ %55, %.thread ]
   %81 = phi i32 [ %78, %._crit_edge ], [ %64, %.thread ]
-  %.37820 = phi ptr [ %.07535, %._crit_edge ], [ %53, %.thread ]
+  %.37820 = phi ptr [ %.07534, %._crit_edge ], [ %53, %.thread ]
   %.38718 = phi i32 [ %.286, %._crit_edge ], [ %63, %.thread ]
-  %.29016 = phi i32 [ %.08832, %._crit_edge ], [ %44, %.thread ]
-  %.2414 = phi i32 [ %.0231, %._crit_edge ], [ %.0.i, %.thread ]
+  %.29016 = phi i32 [ %.08831, %._crit_edge ], [ %44, %.thread ]
+  %.2414 = phi i32 [ %.0230, %._crit_edge ], [ %.0.i, %.thread ]
   %82 = load ptr, ptr %80, align 8, !tbaa !75
   %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %.pre-phi
   %84 = load ptr, ptr %83, align 8, !tbaa !78
@@ -6066,12 +6066,12 @@ dane_i2d.exit.thread:                             ; preds = %51, %45
   br i1 %.not103, label %.loopexit, label %.thread22
 
 .thread22:                                        ; preds = %85, %79, %77
-  %.37821 = phi ptr [ %.07535, %77 ], [ %.37820, %79 ], [ %.37820, %85 ]
+  %.37821 = phi ptr [ %.07534, %77 ], [ %.37820, %79 ], [ %.37820, %85 ]
   %.38719 = phi i32 [ %.286, %77 ], [ %.38718, %79 ], [ %.38718, %85 ]
-  %.29017 = phi i32 [ %.08832, %77 ], [ %.29016, %79 ], [ %.29016, %85 ]
-  %.2415 = phi i32 [ %.0231, %77 ], [ %.2414, %79 ], [ %.2414, %85 ]
+  %.29017 = phi i32 [ %.08831, %77 ], [ %.29016, %79 ], [ %.29016, %85 ]
+  %.2415 = phi i32 [ %.0230, %77 ], [ %.2414, %79 ], [ %.2414, %85 ]
   %.483 = phi i32 [ %.281, %77 ], [ %81, %79 ], [ %81, %85 ]
-  %.272 = phi ptr [ %.07036, %77 ], [ %.37820, %79 ], [ %4, %85 ]
+  %.272 = phi ptr [ %.07035, %77 ], [ %.37820, %79 ], [ %4, %85 ]
   %88 = load i32, ptr %5, align 4, !tbaa !54
   %89 = zext i32 %88 to i64
   %90 = getelementptr inbounds nuw i8, ptr %24, i64 16
@@ -6109,14 +6109,14 @@ dane_i2d.exit.thread:                             ; preds = %51, %45
   br label %.loopexit
 
 107:                                              ; preds = %.thread22, %93, %68, %22
-  %.35 = phi i32 [ %.0231, %22 ], [ %.2415, %93 ], [ %.2415, %.thread22 ], [ %.0231, %68 ]
-  %.189 = phi i32 [ %.08832, %22 ], [ %.29017, %93 ], [ %.29017, %.thread22 ], [ %.08832, %68 ]
-  %.185 = phi i32 [ %.08433, %22 ], [ %.38719, %93 ], [ %.38719, %.thread22 ], [ %.286, %68 ]
-  %.180 = phi i32 [ %.07934, %22 ], [ %.483, %93 ], [ %.483, %.thread22 ], [ %.281, %68 ]
-  %.277 = phi ptr [ %.07535, %22 ], [ %.37821, %93 ], [ %.37821, %.thread22 ], [ %.07535, %68 ]
-  %.171 = phi ptr [ %.07036, %22 ], [ %.272, %93 ], [ %.272, %.thread22 ], [ %.07036, %68 ]
-  %.167 = phi i32 [ %.06638, %22 ], [ %.268, %93 ], [ %.268, %.thread22 ], [ %.268, %68 ]
-  %108 = add nuw nsw i32 %.06937, 1
+  %.35 = phi i32 [ %.0230, %22 ], [ %.2415, %93 ], [ %.2415, %.thread22 ], [ %.0230, %68 ]
+  %.189 = phi i32 [ %.08831, %22 ], [ %.29017, %93 ], [ %.29017, %.thread22 ], [ %.08831, %68 ]
+  %.185 = phi i32 [ %.08432, %22 ], [ %.38719, %93 ], [ %.38719, %.thread22 ], [ %.286, %68 ]
+  %.180 = phi i32 [ %.07933, %22 ], [ %.483, %93 ], [ %.483, %.thread22 ], [ %.281, %68 ]
+  %.277 = phi ptr [ %.07534, %22 ], [ %.37821, %93 ], [ %.37821, %.thread22 ], [ %.07534, %68 ]
+  %.171 = phi ptr [ %.07035, %22 ], [ %.272, %93 ], [ %.272, %.thread22 ], [ %.07035, %68 ]
+  %.167 = phi i32 [ %.06637, %22 ], [ %.268, %93 ], [ %.268, %.thread22 ], [ %.268, %68 ]
+  %108 = add nuw nsw i32 %.06936, 1
   %exitcond.not = icmp eq i32 %108, %19
   br i1 %exitcond.not, label %.loopexit, label %22, !llvm.loop !197
 
@@ -6390,13 +6390,13 @@ define internal fastcc range(i32 0, 2) i32 @get_crl_sk(ptr noundef %0, ptr nound
   br label %21
 
 21:                                               ; preds = %.lr.ph, %get_crl_score.exit.thread
-  %.04687 = phi ptr [ null, %.lr.ph ], [ %.1, %get_crl_score.exit.thread ]
-  %.04786 = phi ptr [ null, %.lr.ph ], [ %.148, %get_crl_score.exit.thread ]
-  %.05085 = phi i32 [ 0, %.lr.ph ], [ %265, %get_crl_score.exit.thread ]
-  %.05184 = phi i32 [ 0, %.lr.ph ], [ %.152, %get_crl_score.exit.thread ]
-  %.05383 = phi i32 [ %10, %.lr.ph ], [ %.154, %get_crl_score.exit.thread ]
-  %.05982 = phi ptr [ null, %.lr.ph ], [ %.266, %get_crl_score.exit.thread ]
-  %22 = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %.05085) #10
+  %.04686 = phi ptr [ null, %.lr.ph ], [ %.1, %get_crl_score.exit.thread ]
+  %.04785 = phi ptr [ null, %.lr.ph ], [ %.148, %get_crl_score.exit.thread ]
+  %.05084 = phi i32 [ 0, %.lr.ph ], [ %265, %get_crl_score.exit.thread ]
+  %.05183 = phi i32 [ 0, %.lr.ph ], [ %.152, %get_crl_score.exit.thread ]
+  %.05382 = phi i32 [ %10, %.lr.ph ], [ %.154, %get_crl_score.exit.thread ]
+  %.05981 = phi ptr [ null, %.lr.ph ], [ %.266, %get_crl_score.exit.thread ]
+  %22 = call ptr @OPENSSL_sk_value(ptr noundef %6, i32 noundef %.05084) #10
   %23 = load i32, ptr %5, align 4, !tbaa !54
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %25 = load i32, ptr %24, align 8, !tbaa !166
@@ -6558,7 +6558,7 @@ define internal fastcc range(i32 0, 2) i32 @get_crl_sk(ptr noundef %0, ptr nound
   br i1 %117, label %.lr.ph48.i.i, label %crl_akid_check.exit.i, !llvm.loop !208
 
 crl_akid_check.exit.i:                            ; preds = %113, %111, %.preheader.i.i, %._crit_edge.i.i, %89, %75
-  %.160 = phi ptr [ %82, %89 ], [ %.05982, %._crit_edge.i.i ], [ %104, %111 ], [ %.05982, %.preheader.i.i ], [ %69, %75 ], [ %.05982, %113 ]
+  %.160 = phi ptr [ %82, %89 ], [ %.05981, %._crit_edge.i.i ], [ %104, %111 ], [ %.05981, %.preheader.i.i ], [ %69, %75 ], [ %.05981, %113 ]
   %.4.i = phi i32 [ %90, %89 ], [ %.2.i, %._crit_edge.i.i ], [ %112, %111 ], [ %.2.i, %.preheader.i.i ], [ %76, %75 ], [ %.2.i, %113 ]
   %118 = and i32 %.4.i, 4
   %119 = icmp eq i32 %118, 0
@@ -6809,21 +6809,21 @@ crl_crldp_check.exit.i:                           ; preds = %._crit_edge.i31.i
 get_crl_score.exit:                               ; preds = %120, %126, %128, %238, %crl_crldp_check.exit.i, %246
   %.061 = phi i32 [ %23, %crl_crldp_check.exit.i ], [ %247, %246 ], [ %23, %120 ], [ %23, %126 ], [ %23, %128 ], [ %23, %238 ]
   %.023.i = phi i32 [ %.4.i, %crl_crldp_check.exit.i ], [ %248, %246 ], [ %.4.i, %120 ], [ %.4.i, %126 ], [ %.4.i, %128 ], [ %.4.i, %238 ]
-  %249 = icmp slt i32 %.023.i, %.05383
+  %249 = icmp slt i32 %.023.i, %.05382
   %250 = icmp eq i32 %.023.i, 0
   %or.cond = or i1 %249, %250
   br i1 %or.cond, label %get_crl_score.exit.thread, label %251
 
 251:                                              ; preds = %get_crl_score.exit
-  %252 = icmp eq i32 %.023.i, %.05383
-  %253 = icmp ne ptr %.04786, null
+  %252 = icmp eq i32 %.023.i, %.05382
+  %253 = icmp ne ptr %.04785, null
   %or.cond3 = select i1 %252, i1 %253, i1 false
   br i1 %or.cond3, label %254, label %get_crl_score.exit.thread
 
 254:                                              ; preds = %251
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %255 = call ptr @X509_CRL_get0_lastUpdate(ptr noundef nonnull %.04786) #10
+  %255 = call ptr @X509_CRL_get0_lastUpdate(ptr noundef nonnull %.04785) #10
   %256 = call ptr @X509_CRL_get0_lastUpdate(ptr noundef nonnull %22) #10
   %257 = call i32 @ASN1_TIME_diff(ptr noundef nonnull %8, ptr noundef nonnull %9, ptr noundef %255, ptr noundef %256) #10
   %258 = icmp eq i32 %257, 0
@@ -6841,20 +6841,20 @@ get_crl_score.exit:                               ; preds = %120, %126, %128, %2
   br label %get_crl_score.exit.thread.sink.split
 
 get_crl_score.exit.thread.sink.split:             ; preds = %259, %254, %264
-  %.152.ph = phi i32 [ %.061, %264 ], [ %.05184, %254 ], [ %.05184, %259 ]
-  %.148.ph = phi ptr [ %22, %264 ], [ %.04786, %254 ], [ %.04786, %259 ]
-  %.1.ph = phi ptr [ %.160, %264 ], [ %.04687, %254 ], [ %.04687, %259 ]
+  %.152.ph = phi i32 [ %.061, %264 ], [ %.05183, %254 ], [ %.05183, %259 ]
+  %.148.ph = phi ptr [ %22, %264 ], [ %.04785, %254 ], [ %.04785, %259 ]
+  %.1.ph = phi ptr [ %.160, %264 ], [ %.04686, %254 ], [ %.04686, %259 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %get_crl_score.exit.thread
 
 get_crl_score.exit.thread:                        ; preds = %get_crl_score.exit.thread.sink.split, %242, %crl_akid_check.exit.i, %50, %43, %37, %33, %21, %251, %get_crl_score.exit
-  %.266 = phi ptr [ %.160, %get_crl_score.exit ], [ %.160, %251 ], [ %.05982, %21 ], [ %.05982, %37 ], [ %.05982, %43 ], [ %.05982, %33 ], [ %.05982, %50 ], [ %.160, %242 ], [ %.160, %crl_akid_check.exit.i ], [ %.160, %get_crl_score.exit.thread.sink.split ]
-  %.154 = phi i32 [ %.05383, %get_crl_score.exit ], [ %.023.i, %251 ], [ %.05383, %21 ], [ %.05383, %37 ], [ %.05383, %43 ], [ %.05383, %33 ], [ %.05383, %50 ], [ %.05383, %242 ], [ %.05383, %crl_akid_check.exit.i ], [ %.05383, %get_crl_score.exit.thread.sink.split ]
-  %.152 = phi i32 [ %.05184, %get_crl_score.exit ], [ %.061, %251 ], [ %.05184, %21 ], [ %.05184, %37 ], [ %.05184, %43 ], [ %.05184, %33 ], [ %.05184, %50 ], [ %.05184, %242 ], [ %.05184, %crl_akid_check.exit.i ], [ %.152.ph, %get_crl_score.exit.thread.sink.split ]
-  %.148 = phi ptr [ %.04786, %get_crl_score.exit ], [ %22, %251 ], [ %.04786, %21 ], [ %.04786, %37 ], [ %.04786, %43 ], [ %.04786, %33 ], [ %.04786, %50 ], [ %.04786, %242 ], [ %.04786, %crl_akid_check.exit.i ], [ %.148.ph, %get_crl_score.exit.thread.sink.split ]
-  %.1 = phi ptr [ %.04687, %get_crl_score.exit ], [ %.160, %251 ], [ %.04687, %21 ], [ %.04687, %37 ], [ %.04687, %43 ], [ %.04687, %33 ], [ %.04687, %50 ], [ %.04687, %242 ], [ %.04687, %crl_akid_check.exit.i ], [ %.1.ph, %get_crl_score.exit.thread.sink.split ]
-  %265 = add nuw nsw i32 %.05085, 1
+  %.266 = phi ptr [ %.160, %get_crl_score.exit ], [ %.160, %251 ], [ %.05981, %21 ], [ %.05981, %37 ], [ %.05981, %43 ], [ %.05981, %33 ], [ %.05981, %50 ], [ %.160, %242 ], [ %.160, %crl_akid_check.exit.i ], [ %.160, %get_crl_score.exit.thread.sink.split ]
+  %.154 = phi i32 [ %.05382, %get_crl_score.exit ], [ %.023.i, %251 ], [ %.05382, %21 ], [ %.05382, %37 ], [ %.05382, %43 ], [ %.05382, %33 ], [ %.05382, %50 ], [ %.05382, %242 ], [ %.05382, %crl_akid_check.exit.i ], [ %.05382, %get_crl_score.exit.thread.sink.split ]
+  %.152 = phi i32 [ %.05183, %get_crl_score.exit ], [ %.061, %251 ], [ %.05183, %21 ], [ %.05183, %37 ], [ %.05183, %43 ], [ %.05183, %33 ], [ %.05183, %50 ], [ %.05183, %242 ], [ %.05183, %crl_akid_check.exit.i ], [ %.152.ph, %get_crl_score.exit.thread.sink.split ]
+  %.148 = phi ptr [ %.04785, %get_crl_score.exit ], [ %22, %251 ], [ %.04785, %21 ], [ %.04785, %37 ], [ %.04785, %43 ], [ %.04785, %33 ], [ %.04785, %50 ], [ %.04785, %242 ], [ %.04785, %crl_akid_check.exit.i ], [ %.148.ph, %get_crl_score.exit.thread.sink.split ]
+  %.1 = phi ptr [ %.04686, %get_crl_score.exit ], [ %.160, %251 ], [ %.04686, %21 ], [ %.04686, %37 ], [ %.04686, %43 ], [ %.04686, %33 ], [ %.04686, %50 ], [ %.04686, %242 ], [ %.04686, %crl_akid_check.exit.i ], [ %.1.ph, %get_crl_score.exit.thread.sink.split ]
+  %265 = add nuw nsw i32 %.05084, 1
   %266 = call i32 @OPENSSL_sk_num(ptr noundef %6) #10
   %267 = icmp slt i32 %265, %266
   br i1 %267, label %21, label %._crit_edge, !llvm.loop !226
@@ -6974,8 +6974,8 @@ check_delta_base.exit.thread.i:                   ; preds = %check_delta_base.ex
   br label %get_delta_sk.exit
 
 get_delta_sk.exit:                                ; preds = %7, %.sink.split.i, %278, %268, %._crit_edge
-  %.053.lcssa124 = phi i32 [ %.154, %.sink.split.i ], [ %.154, %278 ], [ %.154, %268 ], [ %.154, %._crit_edge ], [ %10, %7 ]
-  %326 = icmp sgt i32 %.053.lcssa124, 447
+  %.053.lcssa123 = phi i32 [ %.154, %.sink.split.i ], [ %.154, %278 ], [ %.154, %268 ], [ %.154, %._crit_edge ], [ %10, %7 ]
+  %326 = icmp sgt i32 %.053.lcssa123, 447
   %.56 = zext i1 %326 to i32
   ret i32 %.56
 }

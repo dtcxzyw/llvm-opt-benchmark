@@ -2858,10 +2858,9 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
   %86 = load i8, ptr %85, align 1
   %87 = getelementptr i8, ptr %0, i64 2200
   %88 = load i16, ptr %87, align 8
-  switch i16 %88, label %89 [
-    i16 0, label %131
-    i16 -1, label %131
-  ]
+  %.off = add i16 %88, -1
+  %switch = icmp ult i16 %.off, -2
+  br i1 %switch, label %89, label %131
 
 89:                                               ; preds = %63
   %90 = getelementptr i8, ptr %0, i64 2204
@@ -2917,8 +2916,8 @@ define dso_local void @ata_eh_analyze_ncq_error(ptr noundef %0) #1 align 16 {
   %130 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.15, i32 noundef %129, i32 noundef %112) #12
   br label %.loopexit
 
-131:                                              ; preds = %89, %97, %63, %63
-  %.ph = phi i32 [ 0, %63 ], [ 0, %63 ], [ %110, %97 ], [ 0, %89 ]
+131:                                              ; preds = %89, %97, %63
+  %.ph = phi i32 [ 0, %63 ], [ %110, %97 ], [ 0, %89 ]
   %132 = zext nneg i8 %64 to i32
   %133 = load i32, ptr %9, align 4
   %134 = shl nuw i32 1, %132

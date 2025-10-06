@@ -202,14 +202,14 @@ define hidden noundef zeroext i1 @_ZNK3sat6clause8containsENS_7literalE(ptr noun
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not13.not = icmp eq i32 %5, 0
-  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
+  %.not14.not = icmp eq i32 %5, 0
+  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.01114 = phi ptr [ %10, %.lr.ph ], [ %3, %2 ]
-  %8 = load i32, ptr %.01114, align 4, !tbaa !16
+  %.01115 = phi ptr [ %10, %.lr.ph ], [ %3, %2 ]
+  %8 = load i32, ptr %.01115, align 4, !tbaa !16
   %9 = icmp eq i32 %8, %1
-  %10 = getelementptr inbounds nuw i8, ptr %.01114, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.01115, i64 4
   %.not.not = icmp eq ptr %10, %7
   %or.cond = select i1 %9, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -227,15 +227,15 @@ define hidden noundef zeroext i1 @_ZNK3sat6clause8containsEj(ptr noundef nonnull
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not14.not = icmp eq i32 %5, 0
-  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
+  %.not15.not = icmp eq i32 %5, 0
+  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.01215 = phi ptr [ %10, %.lr.ph ], [ %3, %2 ]
-  %8 = load i32, ptr %.01215, align 4, !tbaa !16
+  %.01216 = phi ptr [ %10, %.lr.ph ], [ %3, %2 ]
+  %8 = load i32, ptr %.01216, align 4, !tbaa !16
   %9 = lshr i32 %8, 1
   %.not13 = icmp eq i32 %9, %1
-  %10 = getelementptr inbounds nuw i8, ptr %.01215, i64 4
+  %10 = getelementptr inbounds nuw i8, ptr %.01216, i64 4
   %.not.not = icmp eq ptr %10, %7
   %or.cond = select i1 %.not13, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -382,38 +382,38 @@ define hidden noundef zeroext i1 @_ZNK3sat6clause12satisfied_byERK7svectorI5lboo
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not17.not = icmp eq i32 %5, 0
-  br i1 %.not17.not, label %._crit_edge, label %.lr.ph
+  %.not18.not = icmp eq i32 %5, 0
+  br i1 %.not18.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = load ptr, ptr %1, align 8
   br label %9
 
 9:                                                ; preds = %.lr.ph, %.critedge
-  %.01318 = phi ptr [ %3, %.lr.ph ], [ %20, %.critedge ]
-  %10 = load i32, ptr %.01318, align 4, !tbaa !16
+  %.01319 = phi ptr [ %3, %.lr.ph ], [ %20, %.critedge ]
+  %10 = load i32, ptr %.01319, align 4, !tbaa !16
   %11 = and i32 %10, 1
-  %.not16 = icmp eq i32 %11, 0
+  %.not17 = icmp eq i32 %11, 0
   %12 = lshr i32 %10, 1
   %13 = zext nneg i32 %12 to i64
   %14 = getelementptr inbounds nuw i32, ptr %8, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !19
-  br i1 %.not16, label %18, label %16
+  br i1 %.not17, label %18, label %16
 
 16:                                               ; preds = %9
   %17 = icmp eq i32 %15, -1
-  br i1 %17, label %._crit_edge, label %.critedge
+  br i1 %17, label %.thread, label %.critedge
 
 18:                                               ; preds = %9
   %19 = icmp eq i32 %15, 1
-  br i1 %19, label %._crit_edge, label %.critedge
+  br i1 %19, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %18, %16
-  %20 = getelementptr inbounds nuw i8, ptr %.01318, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.01319, i64 4
   %.not.not = icmp eq ptr %20, %7
-  br i1 %.not.not, label %._crit_edge, label %9
+  br i1 %.not.not, label %.thread, label %9
 
-._crit_edge:                                      ; preds = %.critedge, %18, %16, %2
+.thread:                                          ; preds = %.critedge, %18, %16, %2
   %.not.lcssa = phi i1 [ false, %2 ], [ true, %16 ], [ true, %18 ], [ false, %.critedge ]
   ret i1 %.not.lcssa
 }

@@ -2385,12 +2385,12 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   br i1 %.not51.i, label %.preheader.i, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit
 
 .preheader.i:                                     ; preds = %30
-  %storemerge64.i = getelementptr inbounds nuw i8, ptr %.1142, i64 1
-  %.not5265.i = icmp eq ptr %storemerge64.i, %14
-  br i1 %.not5265.i, label %._crit_edge.i.thread, label %.lr.ph67.i
+  %storemerge63.i = getelementptr inbounds nuw i8, ptr %.1142, i64 1
+  %.not5264.i = icmp eq ptr %storemerge63.i, %14
+  br i1 %.not5264.i, label %._crit_edge.i.thread, label %.lr.ph66.i
 
-.lr.ph67.i:                                       ; preds = %.preheader.i, %42
-  %.2143 = phi ptr [ %storemerge.i, %42 ], [ %storemerge64.i, %.preheader.i ]
+.lr.ph66.i:                                       ; preds = %.preheader.i, %42
+  %.2143 = phi ptr [ %storemerge.i, %42 ], [ %storemerge63.i, %.preheader.i ]
   %.0135 = phi i64 [ %.1136, %42 ], [ 0, %.preheader.i ]
   %.0134 = phi i64 [ %.1, %42 ], [ 1, %.preheader.i ]
   %32 = load i8, ptr %.2143, align 1, !tbaa !20
@@ -2398,7 +2398,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %or.cond3.i = icmp ult i8 %33, -10
   br i1 %or.cond3.i, label %._crit_edge.i, label %34
 
-34:                                               ; preds = %.lr.ph67.i
+34:                                               ; preds = %.lr.ph66.i
   %35 = icmp slt i64 %.0134, 922337203685477581
   br i1 %35, label %36, label %42
 
@@ -2415,12 +2415,12 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
   %.1 = phi i64 [ %41, %36 ], [ %.0134, %34 ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.2143, i64 1
   %.not52.i = icmp eq ptr %storemerge.i, %14
-  br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph67.i, !llvm.loop !31
+  br i1 %.not52.i, label %._crit_edge.i, label %.lr.ph66.i, !llvm.loop !31
 
-._crit_edge.i:                                    ; preds = %42, %.lr.ph67.i
-  %.3144 = phi ptr [ %.2143, %.lr.ph67.i ], [ %storemerge.i, %42 ]
-  %.2137 = phi i64 [ %.0135, %.lr.ph67.i ], [ %.1136, %42 ]
-  %.2 = phi i64 [ %.0134, %.lr.ph67.i ], [ %.1, %42 ]
+._crit_edge.i:                                    ; preds = %42, %.lr.ph66.i
+  %.3144 = phi ptr [ %.2143, %.lr.ph66.i ], [ %storemerge.i, %42 ]
+  %.2137 = phi i64 [ %.0135, %.lr.ph66.i ], [ %.1136, %42 ]
+  %.2 = phi i64 [ %.0134, %.lr.ph66.i ], [ %.1, %42 ]
   %43 = icmp ne i64 %.2, 1
   %or.cond = select i1 %31, i1 true, i1 %43
   br i1 %or.cond, label %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread, label %.critedge
@@ -2435,7 +2435,7 @@ _ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit.thread: ; pre
   %.3176 = phi i64 [ 1, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.2, %._crit_edge.i ], [ 1, %._crit_edge.i.thread ], [ 1, %27 ]
   %.3138175 = phi i64 [ 0, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.2137, %._crit_edge.i ], [ 0, %._crit_edge.i.thread ], [ 0, %27 ]
   %.1140174 = phi i64 [ %.0139, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.0139, %._crit_edge.i ], [ %.0139, %._crit_edge.i.thread ], [ %28, %27 ]
-  %.4173 = phi ptr [ %.1142, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.3144, %._crit_edge.i ], [ %storemerge64.i, %._crit_edge.i.thread ], [ %29, %27 ]
+  %.4173 = phi ptr [ %.1142, %_ZN4absl12_GLOBAL__N_121ConsumeDurationNumberEPPKcS2_PlS4_S4_.exit ], [ %.3144, %._crit_edge.i ], [ %storemerge63.i, %._crit_edge.i.thread ], [ %29, %27 ]
   %44 = ptrtoint ptr %.4173 to i64
   %45 = sub i64 %15, %44
   switch i64 %45, label %46 [

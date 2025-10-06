@@ -2120,17 +2120,17 @@ define internal fastcc void @_ZL14findUsedValuesPN4llvm14GlobalVariableERNS_15Sm
   %11 = zext i32 %10 to i64
   %.idx.i.i = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %10, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %10, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %14, %.critedge.i.i ], [ %8, %7 ]
-  %13 = load ptr, ptr %.02937.i.i, align 8, !tbaa !59, !noalias !253
+  %.02935.i.i = phi ptr [ %14, %.critedge.i.i ], [ %8, %7 ]
+  %13 = load ptr, ptr %.02935.i.i, align 8, !tbaa !59, !noalias !253
   %.not17.i.i = icmp eq ptr %13, %0
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPKNS_11GlobalValueEE6insertES3_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %14 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %14 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %14, %12
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !256
 
@@ -2190,17 +2190,17 @@ _ZN4llvm15SmallPtrSetImplIPKNS_11GlobalValueEE6insertES3_.exit: ; preds = %.lr.p
   %45 = zext i32 %44 to i64
   %.idx.i.i33 = shl nuw nsw i64 %45, 3
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i33
-  %.not36.i.i34 = icmp eq i32 %44, 0
-  br i1 %.not36.i.i34, label %._crit_edge.i.i40, label %.lr.ph.i.i35
+  %.not34.i.i34 = icmp eq i32 %44, 0
+  br i1 %.not34.i.i34, label %._crit_edge.i.i40, label %.lr.ph.i.i35
 
 .lr.ph.i.i35:                                     ; preds = %42, %.critedge.i.i38
-  %.02937.i.i36 = phi ptr [ %48, %.critedge.i.i38 ], [ %43, %42 ]
-  %47 = load ptr, ptr %.02937.i.i36, align 8, !tbaa !59, !noalias !257
+  %.02935.i.i36 = phi ptr [ %48, %.critedge.i.i38 ], [ %43, %42 ]
+  %47 = load ptr, ptr %.02935.i.i36, align 8, !tbaa !59, !noalias !257
   %.not17.i.i37 = icmp eq ptr %47, %37
   br i1 %.not17.i.i37, label %_ZN4llvm15SmallPtrSetImplIPKNS_11GlobalValueEE6insertES3_.exit45, label %.critedge.i.i38
 
 .critedge.i.i38:                                  ; preds = %.lr.ph.i.i35
-  %48 = getelementptr inbounds nuw i8, ptr %.02937.i.i36, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.02935.i.i36, i64 8
   %.not.i.i39 = icmp eq ptr %48, %46
   br i1 %.not.i.i39, label %._crit_edge.i.i40, label %.lr.ph.i.i35, !llvm.loop !256
 
@@ -2344,17 +2344,17 @@ _ZN4llvm4User8operandsEv.exit:                    ; preds = %11, %14
   %36 = zext i32 %24 to i64
   %.idx.i.i = shl nuw nsw i64 %36, 3
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %24, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %24, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %35, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %39, %.critedge.i.i ], [ %25, %35 ]
-  %38 = load ptr, ptr %.02937.i.i, align 8, !tbaa !59, !noalias !263
+  %.02935.i.i = phi ptr [ %39, %.critedge.i.i ], [ %25, %35 ]
+  %38 = load ptr, ptr %.02935.i.i, align 8, !tbaa !59, !noalias !263
   %.not17.i.i = icmp eq ptr %38, %27
   br i1 %.not17.i.i, label %_ZL10OnlyUsedByPN4llvm5ValueES1_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %39 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %39 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %39, %37
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !256
 

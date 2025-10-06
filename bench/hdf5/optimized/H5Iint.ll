@@ -2043,9 +2043,9 @@ define ptr @H5I__find_id(i64 noundef %0) local_unnamed_addr #0 {
   %tr.sh.diff = trunc nuw i64 %sh.diff to i32
   %45 = and i32 %tr.sh.diff, 16711680
   %46 = add i32 %44, %45
-  %sh.diff281 = lshr i64 %0, 32
-  %tr.sh.diff282 = trunc nuw i64 %sh.diff281 to i32
-  %47 = and i32 %tr.sh.diff282, 65280
+  %sh.diff280 = lshr i64 %0, 32
+  %tr.sh.diff281 = trunc nuw i64 %sh.diff280 to i32
+  %47 = and i32 %tr.sh.diff281, 65280
   %48 = add i32 %46, %47
   %49 = and i32 %15, 255
   %50 = add i32 %48, %49
@@ -2112,27 +2112,27 @@ define ptr @H5I__find_id(i64 noundef %0) local_unnamed_addr #0 {
   br label %107
 
 107:                                              ; preds = %122, %.lr.ph
-  %.2221274 = phi ptr [ %105, %.lr.ph ], [ %125, %122 ]
-  %108 = getelementptr inbounds nuw i8, ptr %.2221274, i64 108
+  %.2221273 = phi ptr [ %105, %.lr.ph ], [ %125, %122 ]
+  %108 = getelementptr inbounds nuw i8, ptr %.2221273, i64 108
   %109 = load i32, ptr %108, align 4, !tbaa !67
   %110 = icmp eq i32 %109, %91
   br i1 %110, label %111, label %119
 
 111:                                              ; preds = %107
-  %112 = getelementptr inbounds nuw i8, ptr %.2221274, i64 104
+  %112 = getelementptr inbounds nuw i8, ptr %.2221273, i64 104
   %113 = load i32, ptr %112, align 8, !tbaa !69
   %114 = icmp eq i32 %113, 8
   br i1 %114, label %115, label %119
 
 115:                                              ; preds = %111
-  %116 = getelementptr inbounds nuw i8, ptr %.2221274, i64 96
+  %116 = getelementptr inbounds nuw i8, ptr %.2221273, i64 96
   %117 = load ptr, ptr %116, align 8, !tbaa !68
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(8) %117, ptr noundef nonnull dereferenceable(8) %2, i64 8)
   %118 = icmp eq i32 %bcmp, 0
   br i1 %118, label %126, label %119
 
 119:                                              ; preds = %115, %111, %107
-  %120 = getelementptr inbounds nuw i8, ptr %.2221274, i64 88
+  %120 = getelementptr inbounds nuw i8, ptr %.2221273, i64 88
   %121 = load ptr, ptr %120, align 8, !tbaa !73
   %.not238 = icmp eq ptr %121, null
   br i1 %.not238, label %.thread246, label %122
@@ -2148,11 +2148,11 @@ define ptr @H5I__find_id(i64 noundef %0) local_unnamed_addr #0 {
   br label %159
 
 126:                                              ; preds = %115
-  store ptr %.2221274, ptr %34, align 8, !tbaa !82
+  store ptr %.2221273, ptr %34, align 8, !tbaa !82
   br label %.thread
 
 .thread:                                          ; preds = %36, %126
-  %.0219244 = phi ptr [ %.2221274, %126 ], [ %35, %36 ]
+  %.0219244 = phi ptr [ %.2221273, %126 ], [ %35, %36 ]
   %127 = getelementptr inbounds nuw i8, ptr %.0219244, i64 24
   %128 = load i8, ptr %127, align 8, !tbaa !42, !range !7, !noundef !8
   %129 = trunc nuw i8 %128 to i1

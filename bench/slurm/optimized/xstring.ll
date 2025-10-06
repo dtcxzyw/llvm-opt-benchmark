@@ -1339,16 +1339,16 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
 2:                                                ; preds = %1
   %3 = load i8, ptr %0, align 1
   %.not30 = icmp eq i8 %3, 0
-  br i1 %.not30, label %34, label %.preheader43
+  br i1 %.not30, label %34, label %.preheader42
 
-.preheader43:                                     ; preds = %2
+.preheader42:                                     ; preds = %2
   %4 = tail call ptr @__ctype_b_loc() #25
   %5 = load ptr, ptr %4, align 8
   br label %6
 
-6:                                                ; preds = %.preheader43, %19
-  %.045 = phi ptr [ %0, %.preheader43 ], [ %20, %19 ]
-  %7 = phi i8 [ %3, %.preheader43 ], [ %.pr, %19 ]
+6:                                                ; preds = %.preheader42, %19
+  %.044 = phi ptr [ %0, %.preheader42 ], [ %20, %19 ]
+  %7 = phi i8 [ %3, %.preheader42 ], [ %.pr, %19 ]
   %8 = sext i8 %7 to i64
   %9 = getelementptr inbounds i16, ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2
@@ -1357,14 +1357,14 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
   br i1 %.not32, label %.critedge.preheader, label %19
 
 .critedge.preheader:                              ; preds = %6
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.045)
-  %scevgep = getelementptr i8, ptr %.045, i64 %strlen
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.044)
+  %scevgep = getelementptr i8, ptr %.044, i64 %strlen
   %12 = getelementptr inbounds i8, ptr %scevgep, i64 -1
   %13 = load i8, ptr %12, align 1
-  %.not3546 = icmp ne i8 %13, 0
-  %.not3647 = icmp ugt ptr %12, %.045
-  %or.cond48 = and i1 %.not3546, %.not3647
-  br i1 %or.cond48, label %.lr.ph.preheader, label %._crit_edge
+  %.not3545 = icmp ne i8 %13, 0
+  %.not3646 = icmp ugt ptr %12, %.044
+  %or.cond47 = and i1 %.not3545, %.not3646
+  br i1 %or.cond47, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.critedge.preheader
   %14 = load ptr, ptr %4, align 8
@@ -1372,11 +1372,11 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
   %16 = getelementptr inbounds i16, ptr %14, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = and i16 %17, 8192
-  %.not3761 = icmp eq i16 %18, 0
-  br i1 %.not3761, label %._crit_edge, label %.lr.ph62
+  %.not3760 = icmp eq i16 %18, 0
+  br i1 %.not3760, label %._crit_edge, label %.lr.ph61
 
 19:                                               ; preds = %6
-  %20 = getelementptr inbounds nuw i8, ptr %.045, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.044, i64 1
   %.pr = load i8, ptr %20, align 1
   %.not31 = icmp eq i8 %.pr, 0
   br i1 %.not31, label %21, label %6, !llvm.loop !17
@@ -1385,36 +1385,36 @@ define dso_local void @xstrtrim(ptr noundef %0) local_unnamed_addr #18 {
   store i8 0, ptr %0, align 1
   br label %34
 
-.lr.ph:                                           ; preds = %.lr.ph62
+.lr.ph:                                           ; preds = %.lr.ph61
   %22 = load ptr, ptr %4, align 8
   %23 = sext i8 %29 to i64
   %24 = getelementptr inbounds i16, ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = and i16 %25, 8192
   %.not37 = icmp eq i16 %26, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph62
+  br i1 %.not37, label %._crit_edge, label %.lr.ph61
 
-.lr.ph62:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+.lr.ph61:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %27 = phi ptr [ %28, %.lr.ph ], [ %12, %.lr.ph.preheader ]
   store i8 0, ptr %27, align 1
   %28 = getelementptr inbounds i8, ptr %27, i64 -1
   %29 = load i8, ptr %28, align 1
   %.not35 = icmp ne i8 %29, 0
-  %.not36 = icmp ugt ptr %28, %.045
+  %.not36 = icmp ugt ptr %28, %.044
   %or.cond = and i1 %.not35, %.not36
   br i1 %or.cond, label %.lr.ph, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph62, %.lr.ph.preheader, %.critedge.preheader
-  %.2.lcssa = phi ptr [ %scevgep, %.critedge.preheader ], [ %scevgep, %.lr.ph.preheader ], [ %27, %.lr.ph62 ], [ %27, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph61, %.lr.ph.preheader, %.critedge.preheader
+  %.2.lcssa = phi ptr [ %scevgep, %.critedge.preheader ], [ %scevgep, %.lr.ph.preheader ], [ %27, %.lr.ph61 ], [ %27, %.lr.ph ]
   %.not38 = icmp eq i64 %strlen, 0
   br i1 %.not38, label %34, label %30
 
 30:                                               ; preds = %._crit_edge
   %31 = ptrtoint ptr %.2.lcssa to i64
-  %32 = ptrtoint ptr %.045 to i64
+  %32 = ptrtoint ptr %.044 to i64
   %reass.sub = sub i64 %31, %32
   %33 = add i64 %reass.sub, 1
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %.045, i64 %33, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %0, ptr nonnull align 1 %.044, i64 %33, i1 false)
   br label %34
 
 34:                                               ; preds = %._crit_edge, %30, %1, %2, %21

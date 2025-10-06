@@ -19594,7 +19594,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
   %32 = load double, ptr %5, align 8, !tbaa !149
   %33 = call double @llvm.fabs.f64(double %32)
   %34 = fcmp ueq double %33, 0x7FF0000000000000
-  br i1 %34, label %.thread15.i, label %35, !prof !62
+  br i1 %34, label %.thread14.i, label %35, !prof !62
 
 35:                                               ; preds = %31
   %36 = fcmp oge double %32, 0x43E0000000000000
@@ -19605,13 +19605,13 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
 38:                                               ; preds = %35
   %39 = fcmp ogt double %32, 0.000000e+00
   %40 = select i1 %39, i64 9223372036854775807, i64 -9223372036854775808
-  br label %.thread15.i
+  br label %.thread14.i
 
 41:                                               ; preds = %35
   %42 = fptosi double %32 to i64
-  br label %.thread15.i
+  br label %.thread14.i
 
-.thread15.i:                                      ; preds = %41, %38, %31
+.thread14.i:                                      ; preds = %41, %38, %31
   %.0.i.i = phi i64 [ %40, %38 ], [ %42, %41 ], [ 0, %31 ]
   store i64 %.0.i.i, ptr %6, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -19650,8 +19650,8 @@ zval_get_long.exit.i:                             ; preds = %46, %44
   call void @php_dom_named_node_map_get_named_item_into_zval(ptr noundef %52, ptr noundef %50, ptr noundef %3) #17
   br label %58
 
-dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge, %zval_get_long.exit.i, %.thread15.i
-  %53 = phi i64 [ %.pre17, %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge ], [ %48, %zval_get_long.exit.i ], [ %.0.i.i, %.thread15.i ]
+dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge, %zval_get_long.exit.i, %.thread14.i
+  %53 = phi i64 [ %.pre17, %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge ], [ %48, %zval_get_long.exit.i ], [ %.0.i.i, %.thread14.i ]
   %spec.select = icmp ugt i64 %53, 2147483647
   br i1 %spec.select, label %54, label %55, !prof !62
 
@@ -19723,7 +19723,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
   %24 = load double, ptr %4, align 8, !tbaa !149
   %25 = call double @llvm.fabs.f64(double %24)
   %26 = fcmp ueq double %25, 0x7FF0000000000000
-  br i1 %26, label %.thread15.i, label %27, !prof !62
+  br i1 %26, label %.thread14.i, label %27, !prof !62
 
 27:                                               ; preds = %23
   %28 = fcmp oge double %24, 0x43E0000000000000
@@ -19734,13 +19734,13 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
 30:                                               ; preds = %27
   %31 = fcmp ogt double %24, 0.000000e+00
   %32 = select i1 %31, i64 9223372036854775807, i64 -9223372036854775808
-  br label %.thread15.i
+  br label %.thread14.i
 
 33:                                               ; preds = %27
   %34 = fptosi double %24 to i64
-  br label %.thread15.i
+  br label %.thread14.i
 
-.thread15.i:                                      ; preds = %33, %30, %23
+.thread14.i:                                      ; preds = %33, %30, %23
   %.0.i.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
   store i64 %.0.i.i, ptr %5, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -19780,8 +19780,8 @@ dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split: ; preds = 
   %.pr = load i64, ptr %5, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
-dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split, %zval_get_long.exit.i, %.thread15.i
-  %47 = phi i64 [ %.pr, %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split ], [ %40, %zval_get_long.exit.i ], [ %.0.i.i, %.thread15.i ]
+dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split, %zval_get_long.exit.i, %.thread14.i
+  %47 = phi i64 [ %.pr, %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split ], [ %40, %zval_get_long.exit.i ], [ %.0.i.i, %.thread14.i ]
   %48 = icmp sgt i64 %47, -1
   br i1 %48, label %49, label %53
 
@@ -19859,7 +19859,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
   %32 = load double, ptr %5, align 8, !tbaa !149
   %33 = call double @llvm.fabs.f64(double %32)
   %34 = fcmp ueq double %33, 0x7FF0000000000000
-  br i1 %34, label %.thread15.i, label %35, !prof !62
+  br i1 %34, label %.thread14.i, label %35, !prof !62
 
 35:                                               ; preds = %31
   %36 = fcmp oge double %32, 0x43E0000000000000
@@ -19870,13 +19870,13 @@ is_numeric_string_ex.exit.i:                      ; preds = %22
 38:                                               ; preds = %35
   %39 = fcmp ogt double %32, 0.000000e+00
   %40 = select i1 %39, i64 9223372036854775807, i64 -9223372036854775808
-  br label %.thread15.i
+  br label %.thread14.i
 
 41:                                               ; preds = %35
   %42 = fptosi double %32 to i64
-  br label %.thread15.i
+  br label %.thread14.i
 
-.thread15.i:                                      ; preds = %41, %38, %31
+.thread14.i:                                      ; preds = %41, %38, %31
   %.0.i.i = phi i64 [ %40, %38 ], [ %42, %41 ], [ 0, %31 ]
   store i64 %.0.i.i, ptr %6, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -19909,8 +19909,8 @@ zval_get_long.exit.i:                             ; preds = %46, %44
   store i32 1, ptr %50, align 8, !tbaa !44
   br label %54
 
-dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge, %zval_get_long.exit.i, %.thread15.i
-  %51 = phi i64 [ %.pre13, %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge ], [ %48, %zval_get_long.exit.i ], [ %.0.i.i, %.thread15.i ]
+dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge, %zval_get_long.exit.i, %.thread14.i
+  %51 = phi i64 [ %.pre13, %.dom_nodemap_or_nodelist_process_offset_as_named.exit_crit_edge ], [ %48, %zval_get_long.exit.i ], [ %.0.i.i, %.thread14.i ]
   %52 = getelementptr inbounds i8, ptr %0, i64 -24
   %53 = load ptr, ptr %52, align 8, !tbaa !48
   call void @php_dom_nodelist_get_item_into_zval(ptr noundef %53, i64 noundef %51, ptr noundef %3) #17
@@ -19973,7 +19973,7 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
   %24 = load double, ptr %4, align 8, !tbaa !149
   %25 = call double @llvm.fabs.f64(double %24)
   %26 = fcmp ueq double %25, 0x7FF0000000000000
-  br i1 %26, label %.thread15.i, label %27, !prof !62
+  br i1 %26, label %.thread14.i, label %27, !prof !62
 
 27:                                               ; preds = %23
   %28 = fcmp oge double %24, 0x43E0000000000000
@@ -19984,13 +19984,13 @@ is_numeric_string_ex.exit.i:                      ; preds = %14
 30:                                               ; preds = %27
   %31 = fcmp ogt double %24, 0.000000e+00
   %32 = select i1 %31, i64 9223372036854775807, i64 -9223372036854775808
-  br label %.thread15.i
+  br label %.thread14.i
 
 33:                                               ; preds = %27
   %34 = fptosi double %24 to i64
-  br label %.thread15.i
+  br label %.thread14.i
 
-.thread15.i:                                      ; preds = %33, %30, %23
+.thread14.i:                                      ; preds = %33, %30, %23
   %.0.i.i = phi i64 [ %32, %30 ], [ %34, %33 ], [ 0, %23 ]
   store i64 %.0.i.i, ptr %5, align 8, !tbaa !151
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -20018,8 +20018,8 @@ dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split: ; preds = 
   %.pr = load i64, ptr %5, align 8, !tbaa !151
   br label %dom_nodemap_or_nodelist_process_offset_as_named.exit
 
-dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split, %zval_get_long.exit.i, %.thread15.i
-  %41 = phi i64 [ %.pr, %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split ], [ %40, %zval_get_long.exit.i ], [ %.0.i.i, %.thread15.i ]
+dom_nodemap_or_nodelist_process_offset_as_named.exit: ; preds = %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split, %zval_get_long.exit.i, %.thread14.i
+  %41 = phi i64 [ %.pr, %dom_nodemap_or_nodelist_process_offset_as_named.exitthread-pre-split ], [ %40, %zval_get_long.exit.i ], [ %.0.i.i, %.thread14.i ]
   %42 = icmp sgt i64 %41, -1
   br i1 %42, label %43, label %dom_nodemap_or_nodelist_process_offset_as_named.exit.thread
 
@@ -22224,12 +22224,12 @@ is_empty_node.exit.thread:                        ; preds = %dom_merge_adjacent_
 define hidden void @php_dom_normalize_modern(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !178
-  %.not18 = icmp eq ptr %3, null
-  br i1 %.not18, label %._crit_edge, label %.lr.ph
+  %.not17 = icmp eq ptr %3, null
+  br i1 %.not17, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.backedge
-  %.01319 = phi ptr [ %.013.be, %.backedge ], [ %3, %1 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.01319, i64 8
+  %.01318 = phi ptr [ %.013.be, %.backedge ], [ %3, %1 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.01318, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !4
   switch i32 %5, label %free_node.exit.thread [
     i32 3, label %6
@@ -22237,7 +22237,7 @@ define hidden void @php_dom_normalize_modern(ptr noundef readonly captures(none)
   ]
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr i8, ptr %.01319, i64 80
+  %7 = getelementptr i8, ptr %.01318, i64 80
   %.013.val = load ptr, ptr %7, align 8, !tbaa !191
   %8 = icmp eq ptr %.013.val, null
   br i1 %8, label %is_empty_node.exit.thread, label %is_empty_node.exit
@@ -22248,19 +22248,19 @@ is_empty_node.exit:                               ; preds = %6
   br i1 %10, label %is_empty_node.exit.thread, label %16
 
 is_empty_node.exit.thread:                        ; preds = %6, %is_empty_node.exit
-  %11 = getelementptr inbounds nuw i8, ptr %.01319, i64 48
+  %11 = getelementptr inbounds nuw i8, ptr %.01318, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !180
-  tail call void @xmlUnlinkNode(ptr noundef nonnull %.01319) #17
-  %13 = load ptr, ptr %.01319, align 8, !tbaa !55
+  tail call void @xmlUnlinkNode(ptr noundef nonnull %.01318) #17
+  %13 = load ptr, ptr %.01318, align 8, !tbaa !55
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %.backedge
 
 15:                                               ; preds = %is_empty_node.exit.thread
-  tail call void @xmlFreeNode(ptr noundef nonnull %.01319) #17
+  tail call void @xmlFreeNode(ptr noundef nonnull %.01318) #17
   br label %.backedge
 
 16:                                               ; preds = %is_empty_node.exit
-  %17 = getelementptr inbounds nuw i8, ptr %.01319, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.01318, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !180
   %.not13.i = icmp eq ptr %18, null
   br i1 %.not13.i, label %free_node.exit.thread, label %.lr.ph.i
@@ -22281,7 +22281,7 @@ is_empty_node.exit.thread:                        ; preds = %6, %is_empty_node.e
   br i1 %.not12.i, label %28, label %27
 
 27:                                               ; preds = %22
-  tail call void @xmlNodeAddContent(ptr noundef nonnull %.01319, ptr noundef nonnull %26) #17
+  tail call void @xmlNodeAddContent(ptr noundef nonnull %.01318, ptr noundef nonnull %26) #17
   br label %28
 
 28:                                               ; preds = %27, %22
@@ -22299,11 +22299,11 @@ free_node.exit.i:                                 ; preds = %31, %28
   br i1 %.not.i, label %free_node.exit.thread, label %.lr.ph.i
 
 32:                                               ; preds = %.lr.ph
-  tail call void @php_dom_normalize_modern(ptr noundef nonnull %.01319)
+  tail call void @php_dom_normalize_modern(ptr noundef nonnull %.01318)
   br label %free_node.exit.thread
 
 free_node.exit.thread:                            ; preds = %free_node.exit.i, %.lr.ph.i, %16, %.lr.ph, %32
-  %33 = getelementptr inbounds nuw i8, ptr %.01319, i64 48
+  %33 = getelementptr inbounds nuw i8, ptr %.01318, i64 48
   %34 = load ptr, ptr %33, align 8, !tbaa !180
   br label %.backedge
 
@@ -23010,9 +23010,9 @@ zend_string_init_fast.exit:                       ; preds = %zend_string_alloc.e
 52:                                               ; preds = %3
   %53 = tail call ptr @xmlNodeGetContent(ptr noundef nonnull %0) #17
   %.not41 = icmp eq ptr %53, null
-  br i1 %.not41, label %65, label %.thread49
+  br i1 %.not41, label %65, label %.thread46
 
-.thread49:                                        ; preds = %52
+.thread46:                                        ; preds = %52
   %54 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %53) #21
   %55 = and i64 %54, -8
   %56 = add i64 %55, 32
@@ -23050,7 +23050,7 @@ zend_string_init_fast.exit:                       ; preds = %zend_string_alloc.e
   store i32 6, ptr %70, align 8, !tbaa !44
   br label %71
 
-71:                                               ; preds = %.thread49, %.thread, %68, %66, %51
+71:                                               ; preds = %.thread46, %.thread, %68, %66, %51
   ret void
 }
 

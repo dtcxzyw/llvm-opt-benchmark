@@ -934,13 +934,13 @@ _ZNK8Variable14is_union_fieldEv.exit.i:           ; preds = %tailrecurse.i
   br i1 %9, label %_ZNK8Variable21is_inside_union_fieldEv.exit.preheader, label %tailrecurse.i
 
 _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable14is_union_fieldEv.exit.i
-  %.not24 = icmp ne ptr %0, null
-  tail call void @llvm.assume(i1 %.not24)
+  %.not23 = icmp ne ptr %0, null
+  tail call void @llvm.assume(i1 %.not23)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8Variable21is_inside_union_fieldEv.exit.preheader, %.lr.ph
-  %.01325 = phi ptr [ %0, %_ZNK8Variable21is_inside_union_fieldEv.exit.preheader ], [ %11, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i8, ptr %.01325, i64 88
+  %.01324 = phi ptr [ %0, %_ZNK8Variable21is_inside_union_fieldEv.exit.preheader ], [ %11, %.lr.ph ]
+  %10 = getelementptr inbounds nuw i8, ptr %.01324, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !113, !nonnull !119, !noundef !119
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !20
@@ -950,9 +950,9 @@ _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable1
 
 .critedge:                                        ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %16 = getelementptr inbounds nuw i8, ptr %.01325, i64 88
+  %16 = getelementptr inbounds nuw i8, ptr %.01324, i64 88
   %17 = load ptr, ptr %16, align 8, !tbaa !113
-  %18 = tail call noundef i32 @_ZNK8Variable12get_field_idEv(ptr noundef nonnull align 8 dereferenceable(200) %.01325)
+  %18 = tail call noundef i32 @_ZNK8Variable12get_field_idEv(ptr noundef nonnull align 8 dereferenceable(200) %.01324)
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(28) %3, i32 noundef 2)
   store ptr getelementptr inbounds nuw inrange(-16, 152) (i8, ptr @_ZTV9FactUnion, i64 16), ptr %3, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16

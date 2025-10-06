@@ -3425,18 +3425,18 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %18, ptr %19, align 8, !tbaa !98
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  br i1 %or.cond3.i.i, label %21, label %.thread135
+  br i1 %or.cond3.i.i, label %21, label %.thread134
 
 21:                                               ; preds = %1
   %22 = call i32 @avpriv_mpeg4audio_get_config2(ptr noundef nonnull %3, ptr noundef nonnull %7, i32 noundef %9, i32 noundef 1, ptr noundef nonnull %5) #16
   %23 = icmp slt i32 %22, 0
-  br i1 %23, label %.thread135, label %24
+  br i1 %23, label %.thread134, label %24
 
 24:                                               ; preds = %21
   %25 = call i32 @llvm.umin.i32(i32 %22, i32 %15)
   %26 = sub nsw i32 %11, %25
   %27 = icmp slt i32 %26, 240
-  br i1 %27, label %.thread135, label %28
+  br i1 %27, label %.thread134, label %28
 
 28:                                               ; preds = %24
   %29 = lshr i32 %25, 3
@@ -3768,7 +3768,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   %313 = call i32 @llvm.umin.i32(i32 %15, i32 %312)
   store i32 %313, ptr %20, align 8, !tbaa !99
   %.not96 = icmp eq i32 %49, 1095521024
-  br i1 %.not96, label %314, label %.thread135
+  br i1 %.not96, label %314, label %.thread134
 
 314:                                              ; preds = %83
   %315 = load i32, ptr %76, align 4, !tbaa !39
@@ -3777,11 +3777,11 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
 
 317:                                              ; preds = %314
   call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %5, ptr noundef nonnull @.str.6) #16
-  br label %.thread135
+  br label %.thread134
 
 318:                                              ; preds = %314
   %319 = icmp eq i32 %315, 0
-  br i1 %319, label %.thread135, label %320
+  br i1 %319, label %.thread134, label %320
 
 320:                                              ; preds = %318
   %321 = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -3829,7 +3829,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   %346 = add nuw nsw i32 %345, 7
   %347 = sub nsw i32 %.val108.pre, %.promoted
   %348 = icmp slt i32 %347, %346
-  br i1 %348, label %.thread135, label %349
+  br i1 %348, label %.thread134, label %349
 
 349:                                              ; preds = %336
   %350 = zext nneg i32 %315 to i64
@@ -3837,7 +3837,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   %352 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %351, ptr %352, align 8, !tbaa !170
   %.not99 = icmp eq ptr %351, null
-  br i1 %.not99, label %.thread135, label %353
+  br i1 %.not99, label %.thread134, label %353
 
 353:                                              ; preds = %349
   %354 = getelementptr inbounds nuw i8, ptr %0, i64 180
@@ -3848,9 +3848,9 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
 
 .preheader:                                       ; preds = %.lr.ph
   %357 = icmp sgt i32 %360, 0
-  br i1 %357, label %.lr.ph142, label %.loopexit
+  br i1 %357, label %.lr.ph141, label %.loopexit
 
-.lr.ph142:                                        ; preds = %.preheader
+.lr.ph141:                                        ; preds = %.preheader
   %358 = sub nsw i32 32, %344
   br label %363
 
@@ -3864,10 +3864,10 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   %362 = icmp slt i64 %indvars.iv.next, %361
   br i1 %362, label %.lr.ph, label %.preheader, !llvm.loop !198
 
-363:                                              ; preds = %.lr.ph142, %381
-  %364 = phi i32 [ %360, %.lr.ph142 ], [ %383, %381 ]
-  %.187141 = phi i32 [ 0, %.lr.ph142 ], [ %382, %381 ]
-  %365 = phi i32 [ %.promoted, %.lr.ph142 ], [ %375, %381 ]
+363:                                              ; preds = %.lr.ph141, %381
+  %364 = phi i32 [ %360, %.lr.ph141 ], [ %383, %381 ]
+  %.187140 = phi i32 [ 0, %.lr.ph141 ], [ %382, %381 ]
+  %365 = phi i32 [ %.promoted, %.lr.ph141 ], [ %375, %381 ]
   %366 = lshr i32 %365, 3
   %367 = zext nneg i32 %366 to i64
   %368 = getelementptr inbounds nuw i8, ptr %7, i64 %367
@@ -3895,8 +3895,8 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   br label %385
 
 381:                                              ; preds = %376
-  store i32 %.187141, ptr %378, align 4, !tbaa !104
-  %382 = add nuw nsw i32 %.187141, 1
+  store i32 %.187140, ptr %378, align 4, !tbaa !104
+  %382 = add nuw nsw i32 %.187140, 1
   %383 = load i32, ptr %76, align 4, !tbaa !39
   %384 = icmp slt i32 %382, %383
   br i1 %384, label %363, label %.loopexit, !llvm.loop !199
@@ -3923,7 +3923,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   %.val107 = phi i32 [ %.val.i, %385 ], [ %390, %388 ], [ %.promoted, %334 ]
   %392 = sub nsw i32 %.val108.pre, %.val107
   %393 = icmp slt i32 %392, 64
-  br i1 %393, label %.thread135, label %394
+  br i1 %393, label %.thread134, label %394
 
 394:                                              ; preds = %391
   %395 = call fastcc i32 @get_bits_long(ptr noundef nonnull %2, i32 noundef 32)
@@ -3941,11 +3941,11 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   %403 = sub nsw i32 %.val110, %.val109
   %404 = sext i32 %403 to i64
   %405 = icmp ugt i64 %402, %404
-  br i1 %405, label %.thread135, label %406
+  br i1 %405, label %.thread134, label %406
 
 406:                                              ; preds = %394
   %407 = icmp samesign ugt i64 %401, 268435455
-  br i1 %407, label %.thread135, label %408
+  br i1 %407, label %.thread134, label %408
 
 408:                                              ; preds = %406
   %409 = trunc nuw nsw i64 %402 to i32
@@ -3959,19 +3959,19 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   store i32 %414, ptr %20, align 8, !tbaa !99
   %415 = load i32, ptr %297, align 8, !tbaa !89
   %.not102 = icmp eq i32 %415, 0
-  br i1 %.not102, label %.thread135, label %416
+  br i1 %.not102, label %.thread134, label %416
 
 416:                                              ; preds = %408
   %417 = sub nsw i32 %.val110, %414
   %418 = icmp slt i32 %417, 32
-  br i1 %418, label %.thread135, label %419
+  br i1 %418, label %.thread134, label %419
 
 419:                                              ; preds = %416
   %420 = getelementptr inbounds nuw i8, ptr %5, i64 528
   %421 = load i32, ptr %420, align 8, !tbaa !90
   %422 = and i32 %421, 65537
   %.not103 = icmp eq i32 %422, 0
-  br i1 %.not103, label %.thread135, label %423
+  br i1 %.not103, label %.thread134, label %423
 
 423:                                              ; preds = %419
   %424 = call ptr @av_crc_get_table(i32 noundef 4) #16
@@ -3983,9 +3983,9 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
   %428 = xor i32 %427, -1
   %429 = getelementptr inbounds nuw i8, ptr %0, i64 160
   store i32 %428, ptr %429, align 8, !tbaa !184
-  br label %.thread135
+  br label %.thread134
 
-.thread135:                                       ; preds = %419, %349, %336, %408, %423, %416, %406, %394, %391, %318, %83, %24, %21, %1, %317
+.thread134:                                       ; preds = %419, %349, %336, %408, %423, %416, %406, %394, %391, %318, %83, %24, %21, %1, %317
   %.0 = phi i32 [ -1163346256, %317 ], [ -1094995529, %1 ], [ -1094995529, %21 ], [ -1094995529, %24 ], [ -1094995529, %83 ], [ -1094995529, %318 ], [ -1094995529, %391 ], [ -1094995529, %394 ], [ -1163346256, %406 ], [ -1094995529, %416 ], [ 0, %423 ], [ 0, %408 ], [ -12, %349 ], [ -1094995529, %336 ], [ 0, %419 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

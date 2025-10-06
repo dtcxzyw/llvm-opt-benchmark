@@ -1248,16 +1248,15 @@ define linkonce_odr void @_ZplRK7QStringPKc(ptr dead_on_unwind noalias writable 
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = load atomic i32, ptr %5 monotonic, align 4
-  switch i32 %6, label %7 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %6, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %7, label %_ZN7QStringC2ERKS_.exit
 
 7:                                                ; preds = %3
   %8 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %3, %7
+_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %9
 
@@ -1399,16 +1398,15 @@ define void @_ZN7meshlab16logDebugFileNameEv(ptr dead_on_unwind noalias writable
   %28 = load ptr, ptr @_ZZN7meshlab16logDebugFileNameEvE8filename, align 8
   store ptr %28, ptr %0, align 8
   %29 = load atomic i32, ptr %28 monotonic, align 4
-  switch i32 %29, label %30 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %29, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %30, label %_ZN7QStringC2ERKS_.exit
 
 30:                                               ; preds = %27
   %31 = atomicrmw add ptr %28, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %27, %27, %30
+_ZN7QStringC2ERKS_.exit:                          ; preds = %27, %30
   ret void
 
 32:                                               ; preds = %15
@@ -1516,16 +1514,15 @@ define linkonce_odr void @_ZplRK7QStringS1_(ptr dead_on_unwind noalias writable 
   %4 = load ptr, ptr %1, align 8
   store ptr %4, ptr %0, align 8
   %5 = load atomic i32, ptr %4 monotonic, align 4
-  switch i32 %5, label %6 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %5, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %6, label %_ZN7QStringC2ERKS_.exit
 
 6:                                                ; preds = %3
   %7 = atomicrmw add ptr %4, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %3, %6
+_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %6
   %8 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QString6appendERKS_(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN7QStringpLERKS_.exit unwind label %9
 

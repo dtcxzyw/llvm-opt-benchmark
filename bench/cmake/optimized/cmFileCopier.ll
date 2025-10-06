@@ -1761,7 +1761,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier5ParseERKSt6vectorINSt7__c
   br i1 %14, label %.lr.ph, label %._crit_edge
 
 15:                                               ; preds = %98
-  %16 = add i32 %.01968, 1
+  %16 = add i32 %.01966, 1
   %17 = zext i32 %16 to i64
   %18 = load ptr, ptr %8, align 8, !tbaa !55
   %19 = load ptr, ptr %1, align 8, !tbaa !54
@@ -1775,7 +1775,7 @@ define dso_local noundef zeroext i1 @_ZN12cmFileCopier5ParseERKSt6vectorINSt7__c
 .lr.ph:                                           ; preds = %2, %15
   %25 = phi ptr [ %19, %15 ], [ %10, %2 ]
   %26 = phi i64 [ %17, %15 ], [ 1, %2 ]
-  %.01968 = phi i32 [ %16, %15 ], [ 1, %2 ]
+  %.01966 = phi i32 [ %16, %15 ], [ 1, %2 ]
   %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %25, i64 %26
   %28 = load ptr, ptr %0, align 8, !tbaa !4
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
@@ -2076,11 +2076,11 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit59: ; preds
   br i1 %165, label %.body49, label %.body49.sink.split
 
 .body49.sink.split:                               ; preds = %162, %135
-  %.sink92 = phi ptr [ %137, %135 ], [ %164, %162 ]
+  %.sink90 = phi ptr [ %137, %135 ], [ %164, %162 ]
   %.pn25.ph = phi { ptr, i32 } [ %136, %135 ], [ %163, %162 ]
   %166 = load i64, ptr %121, align 8, !tbaa !53
   %167 = add i64 %166, 1
-  call void @_ZdlPvm(ptr noundef %.sink92, i64 noundef %167) #22
+  call void @_ZdlPvm(ptr noundef %.sink90, i64 noundef %167) #22
   br label %.body49
 
 .body49:                                          ; preds = %.body49.sink.split, %162, %135

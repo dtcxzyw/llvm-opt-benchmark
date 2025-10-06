@@ -2101,7 +2101,7 @@ mi_segment_check_free.exit.thread.i.i:            ; preds = %159
   %206 = getelementptr inbounds nuw i8, ptr %158, i64 216
   %207 = load i64, ptr %206, align 8, !tbaa !37
   %208 = icmp eq i64 %207, 0
-  br i1 %208, label %209, label %.thread54.i.i
+  br i1 %208, label %209, label %.thread53.i.i
 
 209:                                              ; preds = %mi_segment_check_free.exit.thread.i.i, %mi_segment_check_free.exit.i.i
   %210 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %158, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %3) #10
@@ -2109,24 +2109,24 @@ mi_segment_check_free.exit.thread.i.i:            ; preds = %159
 
 211:                                              ; preds = %mi_segment_check_free.exit.i.i
   %212 = select i1 %.2.i.i.i, i1 %163, i1 false
-  br i1 %212, label %.thread.i.i, label %.thread54.i.i
+  br i1 %212, label %.thread.i.i, label %.thread53.i.i
 
 .thread.i.i:                                      ; preds = %211
   %213 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %158, ptr noundef %0, i64 noundef range(i64 0, 16777217) %2, ptr noundef nonnull %6, ptr noundef %3) #10
   %214 = icmp eq ptr %213, null
   br label %mi_segment_try_reclaim.exit.i
 
-.thread54.i.i:                                    ; preds = %211, %mi_segment_check_free.exit.thread.i.i
+.thread53.i.i:                                    ; preds = %211, %mi_segment_check_free.exit.thread.i.i
   %215 = load i64, ptr %160, align 8, !tbaa !65
   %216 = icmp ugt i64 %215, 3
   %or.cond3.i.i = select i1 %216, i1 %163, i1 false
   br i1 %or.cond3.i.i, label %217, label %219
 
-217:                                              ; preds = %.thread54.i.i
+217:                                              ; preds = %.thread53.i.i
   %218 = call fastcc ptr @mi_segment_reclaim(ptr noundef nonnull %158, ptr noundef %0, i64 noundef 0, ptr noundef null, ptr noundef %3) #10
   br label %.backedge
 
-219:                                              ; preds = %.thread54.i.i
+219:                                              ; preds = %.thread53.i.i
   call fastcc void @mi_segment_try_purge(ptr noundef nonnull %158, i1 noundef zeroext false) #10
   call void @_mi_arena_segment_mark_abandoned(ptr noundef nonnull %158) #11
   br label %.backedge
@@ -2368,14 +2368,14 @@ mi_commit_mask_is_empty.exit:                     ; preds = %12
   br label %20
 
 20:                                               ; preds = %20, %18
-  %.079.i = phi i64 [ 0, %18 ], [ %26, %20 ]
-  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %.079.i
+  %.0710.i = phi i64 [ 0, %18 ], [ %26, %20 ]
+  %21 = getelementptr inbounds nuw i64, ptr %19, i64 %.0710.i
   %22 = load i64, ptr %21, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw i64, ptr %6, i64 %.079.i
+  %23 = getelementptr inbounds nuw i64, ptr %6, i64 %.0710.i
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = and i64 %24, %22
   %.not.not.i = icmp ne i64 %25, 0
-  %26 = add nuw nsw i64 %.079.i, 1
+  %26 = add nuw nsw i64 %.0710.i, 1
   %exitcond.not.i = icmp eq i64 %26, 8
   %or.cond.i = select i1 %.not.not.i, i1 true, i1 %exitcond.not.i
   br i1 %or.cond.i, label %mi_commit_mask_any_set.exit, label %20, !llvm.loop !102
@@ -3631,14 +3631,14 @@ mi_commit_mask_set.exit.i.i:                      ; preds = %.preheader.i.i
   br label %66
 
 66:                                               ; preds = %66, %64
-  %.079.i.i.i = phi i64 [ 0, %64 ], [ %72, %66 ]
-  %67 = getelementptr inbounds nuw i64, ptr %65, i64 %.079.i.i.i
+  %.0710.i.i.i = phi i64 [ 0, %64 ], [ %72, %66 ]
+  %67 = getelementptr inbounds nuw i64, ptr %65, i64 %.0710.i.i.i
   %68 = load i64, ptr %67, align 8, !tbaa !3
-  %69 = getelementptr inbounds nuw i64, ptr %6, i64 %.079.i.i.i
+  %69 = getelementptr inbounds nuw i64, ptr %6, i64 %.0710.i.i.i
   %70 = load i64, ptr %69, align 8, !tbaa !3
   %71 = and i64 %70, %68
   %.not.not.i.i.i = icmp ne i64 %71, 0
-  %72 = add nuw nsw i64 %.079.i.i.i, 1
+  %72 = add nuw nsw i64 %.0710.i.i.i, 1
   %exitcond.not.i18.i.i = icmp eq i64 %72, 8
   %or.cond.i.i.i = select i1 %.not.not.i.i.i, i1 true, i1 %exitcond.not.i18.i.i
   br i1 %or.cond.i.i.i, label %mi_commit_mask_any_set.exit.i.i, label %66, !llvm.loop !102

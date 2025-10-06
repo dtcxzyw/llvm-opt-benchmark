@@ -138,7 +138,7 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i8, ptr %8, align 8
   %10 = trunc i8 %9 to i1
-  br i1 %10, label %11, label %91
+  br i1 %10, label %11, label %92
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -146,19 +146,19 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr 
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 1328
   %15 = load i32, ptr %14, align 8
   %16 = icmp slt i32 %1, %15
-  br i1 %16, label %91, label %17
+  br i1 %16, label %92, label %17
 
 17:                                               ; preds = %11
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 928
   %19 = load volatile ptr, ptr %18, align 8
   %.not42 = icmp eq ptr %19, null
-  br i1 %.not42, label %90, label %20
+  br i1 %.not42, label %91, label %20
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 1336
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %90
+  br i1 %23, label %24, label %91
 
 24:                                               ; preds = %20
   call void @_ZN24KeepStackGCProcessedMarkC1EP10JavaThread(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull %13) #10
@@ -278,37 +278,37 @@ define hidden noundef zeroext i1 @_ZN13EscapeBarrier18deoptimize_objectsEii(ptr 
   br i1 %.not, label %.critedge, label %.lr.ph54, !llvm.loop !13
 
 .critedge:                                        ; preds = %66, %.loopexit, %51, %.preheader
-  %switch = phi i1 [ true, %.preheader ], [ true, %51 ], [ true, %.loopexit ], [ false, %66 ]
+  %85 = phi i1 [ true, %.preheader ], [ true, %51 ], [ true, %.loopexit ], [ false, %66 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #10
-  %85 = load ptr, ptr %29, align 8
-  %.not.i.i.i.i = icmp eq ptr %85, null
-  br i1 %.not.i.i.i.i, label %87, label %86
+  %86 = load ptr, ptr %29, align 8
+  %.not.i.i.i.i = icmp eq ptr %86, null
+  br i1 %.not.i.i.i.i, label %88, label %87
 
-86:                                               ; preds = %.critedge
+87:                                               ; preds = %.critedge
   call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %27, i64 noundef %35) #10
   call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %29) #10
-  br label %87
+  br label %88
 
-87:                                               ; preds = %86, %.critedge
-  %88 = load ptr, ptr %30, align 8
-  %.not8.i.i.i.i = icmp eq ptr %88, %31
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %89
+88:                                               ; preds = %87, %.critedge
+  %89 = load ptr, ptr %30, align 8
+  %.not8.i.i.i.i = icmp eq ptr %89, %31
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %90
 
-89:                                               ; preds = %87
+90:                                               ; preds = %88
   store ptr %29, ptr %28, align 8
   store ptr %31, ptr %30, align 8
   store ptr %33, ptr %32, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %87, %89
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %88, %90
   call void @_ZN24KeepStackGCProcessedMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #10
-  br i1 %switch, label %90, label %91
+  br i1 %85, label %91, label %92
 
-90:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %20, %17
-  br label %91
+91:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %20, %17
+  br label %92
 
-91:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %11, %3, %90
-  %.029 = phi i1 [ true, %90 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %3 ], [ false, %11 ]
+92:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit, %11, %3, %91
+  %.029 = phi i1 [ true, %91 ], [ false, %_ZN12ResourceMarkD2Ev.exit ], [ true, %3 ], [ false, %11 ]
   ret i1 %.029
 }
 

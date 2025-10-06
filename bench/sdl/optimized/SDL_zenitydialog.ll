@@ -71,7 +71,7 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
   %12 = ashr exact i64 %sext.i, 29
   %13 = tail call noalias ptr @SDL_malloc_REAL(i64 noundef %12) #7
   %.not133.i = icmp eq ptr %13, null
-  br i1 %.not133.i, label %.loopexit173.i, label %14
+  br i1 %.not133.i, label %.loopexit165.i, label %14
 
 14:                                               ; preds = %6
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -85,7 +85,7 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 64
   store ptr %18, ptr %19, align 8
   %.not135.i = icmp eq ptr %18, null
-  br i1 %.not135.i, label %.loopexit173.i, label %20
+  br i1 %.not135.i, label %.loopexit165.i, label %20
 
 20:                                               ; preds = %17, %14
   %21 = tail call ptr @SDL_GetStringProperty_REAL(i32 noundef %3, ptr noundef nonnull @.str.9, ptr noundef null) #7
@@ -97,7 +97,7 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 72
   store ptr %23, ptr %24, align 8
   %.not137.i = icmp eq ptr %23, null
-  br i1 %.not137.i, label %.loopexit173.i, label %25
+  br i1 %.not137.i, label %.loopexit165.i, label %25
 
 25:                                               ; preds = %22, %20
   %26 = tail call ptr @SDL_GetStringProperty_REAL(i32 noundef %3, ptr noundef nonnull @.str.10, ptr noundef null) #7
@@ -109,7 +109,7 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store ptr %28, ptr %29, align 8
   %.not139.i = icmp eq ptr %28, null
-  br i1 %.not139.i, label %.loopexit173.i, label %30
+  br i1 %.not139.i, label %.loopexit165.i, label %30
 
 30:                                               ; preds = %27, %25
   %31 = tail call ptr @SDL_GetStringProperty_REAL(i32 noundef %3, ptr noundef nonnull @.str.11, ptr noundef null) #7
@@ -121,7 +121,7 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 88
   store ptr %33, ptr %34, align 8
   %.not141.i = icmp eq ptr %33, null
-  br i1 %.not141.i, label %.loopexit173.i, label %35
+  br i1 %.not141.i, label %.loopexit165.i, label %35
 
 35:                                               ; preds = %32, %30
   store ptr @.str.1, ptr %13, align 8
@@ -180,25 +180,25 @@ define hidden void @SDL_Zenity_ShowFileDialogWithProperties(i32 noundef %0, ptr 
   %.2121.i = phi i32 [ %57, %54 ], [ %.1120.i, %51 ]
   %60 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %61 = tail call ptr @SDL_GetPointerProperty_REAL(i32 noundef %3, ptr noundef nonnull @.str.31, ptr noundef null) #7
-  %.not.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i, label %get_x11_window_handle.exit.thread.i, label %62
+  %.not.i14 = icmp eq ptr %61, null
+  br i1 %.not.i14, label %get_x11_window_handle.exit.thread, label %62
 
 62:                                               ; preds = %59
   %63 = tail call i32 @SDL_GetWindowProperties_REAL(ptr noundef nonnull %61) #7
-  %.not11.i.i = icmp eq i32 %63, 0
-  br i1 %.not11.i.i, label %get_x11_window_handle.exit.thread.i, label %64
+  %.not11.i = icmp eq i32 %63, 0
+  br i1 %.not11.i, label %get_x11_window_handle.exit.thread, label %64
 
 64:                                               ; preds = %62
   %65 = tail call i64 @SDL_GetNumberProperty_REAL(i32 noundef %63, ptr noundef nonnull @.str.32, i64 noundef 0) #7
-  %.not12.i.i = icmp eq i64 %65, 0
-  br i1 %.not12.i.i, label %get_x11_window_handle.exit.thread.i, label %get_x11_window_handle.exit.i
+  %.not12.i = icmp eq i64 %65, 0
+  br i1 %.not12.i, label %get_x11_window_handle.exit.thread, label %get_x11_window_handle.exit
 
-get_x11_window_handle.exit.i:                     ; preds = %64
+get_x11_window_handle.exit:                       ; preds = %64
   %66 = tail call i32 (ptr, i64, ptr, ...) @SDL_snprintf_REAL(ptr noundef nonnull %60, i64 noundef 28, ptr noundef nonnull @.str.33, i64 noundef %65) #7
   %67 = icmp slt i32 %66, 28
-  br i1 %67, label %68, label %get_x11_window_handle.exit.thread.i
+  br i1 %67, label %68, label %get_x11_window_handle.exit.thread
 
-68:                                               ; preds = %get_x11_window_handle.exit.i
+68:                                               ; preds = %get_x11_window_handle.exit
   %69 = zext nneg i32 %.2121.i to i64
   %70 = getelementptr inbounds nuw ptr, ptr %13, i64 %69
   store ptr @.str.20, ptr %70, align 8
@@ -207,16 +207,16 @@ get_x11_window_handle.exit.i:                     ; preds = %64
   %72 = add nuw nsw i32 %.2121.i, 3
   %73 = getelementptr i8, ptr %70, i64 16
   store ptr %60, ptr %73, align 8
-  br label %get_x11_window_handle.exit.thread.i
+  br label %get_x11_window_handle.exit.thread
 
-get_x11_window_handle.exit.thread.i:              ; preds = %68, %get_x11_window_handle.exit.i, %64, %62, %59
-  %.3122.i = phi i32 [ %72, %68 ], [ %.2121.i, %get_x11_window_handle.exit.i ], [ %.2121.i, %59 ], [ %.2121.i, %62 ], [ %.2121.i, %64 ]
+get_x11_window_handle.exit.thread:                ; preds = %64, %62, %59, %68, %get_x11_window_handle.exit
+  %.3122.i = phi i32 [ %72, %68 ], [ %.2121.i, %get_x11_window_handle.exit ], [ %.2121.i, %59 ], [ %.2121.i, %62 ], [ %.2121.i, %64 ]
   %74 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %75 = load ptr, ptr %74, align 8
   %.not143.i = icmp eq ptr %75, null
   br i1 %.not143.i, label %81, label %76
 
-76:                                               ; preds = %get_x11_window_handle.exit.thread.i
+76:                                               ; preds = %get_x11_window_handle.exit.thread
   %77 = zext nneg i32 %.3122.i to i64
   %78 = getelementptr inbounds nuw ptr, ptr %13, i64 %77
   store ptr @.str.22, ptr %78, align 8
@@ -225,8 +225,8 @@ get_x11_window_handle.exit.thread.i:              ; preds = %68, %get_x11_window
   store ptr %75, ptr %80, align 8
   br label %81
 
-81:                                               ; preds = %76, %get_x11_window_handle.exit.thread.i
-  %.4123.i = phi i32 [ %79, %76 ], [ %.3122.i, %get_x11_window_handle.exit.thread.i ]
+81:                                               ; preds = %76, %get_x11_window_handle.exit.thread
+  %.4123.i = phi i32 [ %79, %76 ], [ %.3122.i, %get_x11_window_handle.exit.thread ]
   %82 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %83 = load ptr, ptr %82, align 8
   %.not144.i = icmp eq ptr %83, null
@@ -270,7 +270,7 @@ get_x11_window_handle.exit.thread.i:              ; preds = %68, %get_x11_window
   store ptr %101, ptr %102, align 8
   %103 = load i32, ptr %10, align 4
   %104 = icmp sgt i32 %103, 0
-  br i1 %104, label %.lr.ph, label %.thread171.i
+  br i1 %104, label %.lr.ph, label %.thread163.i
 
 .lr.ph:                                           ; preds = %99, %.loopexit.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit.i ], [ 0, %99 ]
@@ -283,8 +283,8 @@ get_x11_window_handle.exit.thread.i:              ; preds = %68, %get_x11_window
   br i1 %.not147.not.i, label %.preheader.i, label %.loopexit.i
 
 .preheader.i:                                     ; preds = %.lr.ph
-  %.not148174.i = icmp eq i64 %indvars.iv, 0
-  br i1 %.not148174.i, label %.loopexit173.i, label %.lr.ph.i
+  %.not148166.i = icmp eq i64 %indvars.iv, 0
+  br i1 %.not148166.i, label %.loopexit165.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %indvars.iv, %.preheader.i ]
@@ -294,7 +294,7 @@ get_x11_window_handle.exit.thread.i:              ; preds = %68, %get_x11_window
   %112 = load ptr, ptr %111, align 8
   tail call void @SDL_free_REAL(ptr noundef %112) #7
   %.not148.i = icmp eq i64 %indvars.iv.next.i, 0
-  br i1 %.not148.i, label %.loopexit173.i, label %.lr.ph.i, !llvm.loop !3
+  br i1 %.not148.i, label %.loopexit165.i, label %.lr.ph.i, !llvm.loop !3
 
 .loopexit.i:                                      ; preds = %.lr.ph
   %113 = load ptr, ptr %102, align 8
@@ -304,14 +304,14 @@ get_x11_window_handle.exit.thread.i:              ; preds = %68, %get_x11_window
   %115 = load i32, ptr %10, align 4
   %116 = sext i32 %115 to i64
   %117 = icmp slt i64 %indvars.iv.next, %116
-  br i1 %117, label %.lr.ph, label %.thread171.i, !llvm.loop !5
+  br i1 %117, label %.lr.ph, label %.thread163.i, !llvm.loop !5
 
-.thread171.i:                                     ; preds = %.loopexit.i, %99
+.thread163.i:                                     ; preds = %.loopexit.i, %99
   %.lcssa = phi i32 [ %103, %99 ], [ %115, %.loopexit.i ]
   %118 = add nsw i32 %.lcssa, %.6.i
   br label %128
 
-.loopexit173.i:                                   ; preds = %.lr.ph.i, %.preheader.i, %32, %27, %22, %17, %6
+.loopexit165.i:                                   ; preds = %.lr.ph.i, %.preheader.i, %32, %27, %22, %17, %6
   %119 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %120 = load ptr, ptr %119, align 8
   tail call void @SDL_free_REAL(ptr noundef %120) #7
@@ -328,12 +328,12 @@ get_x11_window_handle.exit.thread.i:              ; preds = %68, %get_x11_window
   tail call void @SDL_free_REAL(ptr noundef nonnull %5) #7
   br label %127
 
-127:                                              ; preds = %4, %.loopexit173.i
+127:                                              ; preds = %4, %.loopexit165.i
   tail call void %1(ptr noundef %2, ptr noundef null, i32 noundef -1) #7
   br label %134
 
-128:                                              ; preds = %.thread171.i, %97
-  %.7.i = phi i32 [ %118, %.thread171.i ], [ %.6.i, %97 ]
+128:                                              ; preds = %.thread163.i, %97
+  %.7.i = phi i32 [ %118, %.thread163.i ], [ %.6.i, %97 ]
   %129 = sext i32 %.7.i to i64
   %130 = getelementptr inbounds ptr, ptr %13, i64 %129
   store ptr null, ptr %130, align 8
@@ -406,14 +406,14 @@ define internal noundef i32 @run_zenity_thread(ptr noundef %0) #0 {
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr null, ptr %29, align 8
   %30 = load i64, ptr %3, align 8
-  %.not88.i = icmp eq i64 %30, 0
-  br i1 %.not88.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not86.i = icmp eq i64 %30, 0
+  br i1 %.not86.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %48
   %31 = phi i64 [ %49, %48 ], [ %30, %28 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %48 ], [ 0, %28 ]
-  %.16086.i = phi ptr [ %.4.i, %48 ], [ %27, %28 ]
-  %.06185.i = phi i64 [ %.162.i, %48 ], [ 1, %28 ]
+  %.16084.i = phi ptr [ %.4.i, %48 ], [ %27, %28 ]
+  %.06183.i = phi i64 [ %.162.i, %48 ], [ 1, %28 ]
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 %indvars.iv.i
   %33 = load i8, ptr %32, align 1
   %34 = icmp eq i8 %33, 10
@@ -428,16 +428,16 @@ define internal noundef i32 @run_zenity_thread(ptr noundef %0) #0 {
 
 39:                                               ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 1
-  %41 = getelementptr inbounds nuw ptr, ptr %.16086.i, i64 %.06185.i
+  %41 = getelementptr inbounds nuw ptr, ptr %.16084.i, i64 %.06183.i
   store ptr %40, ptr %41, align 8
-  %42 = shl i64 %.06185.i, 3
+  %42 = shl i64 %.06183.i, 3
   %43 = add i64 %42, 16
-  %44 = call ptr @SDL_realloc_REAL(ptr noundef %.16086.i, i64 noundef %43) #8
+  %44 = call ptr @SDL_realloc_REAL(ptr noundef %.16084.i, i64 noundef %43) #8
   %.not77.not.i = icmp eq ptr %44, null
   br i1 %.not77.not.i, label %.critedge.i, label %45
 
 45:                                               ; preds = %39
-  %46 = add i64 %.06185.i, 1
+  %46 = add i64 %.06183.i, 1
   %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %46
   store ptr null, ptr %47, align 8
   %.pre.i = load i64, ptr %3, align 8
@@ -445,8 +445,8 @@ define internal noundef i32 @run_zenity_thread(ptr noundef %0) #0 {
 
 48:                                               ; preds = %45, %35, %.lr.ph.i
   %49 = phi i64 [ %.pre.i, %45 ], [ %36, %35 ], [ %31, %.lr.ph.i ]
-  %.162.i = phi i64 [ %46, %45 ], [ %.06185.i, %35 ], [ %.06185.i, %.lr.ph.i ]
-  %.4.i = phi ptr [ %44, %45 ], [ %.16086.i, %35 ], [ %.16086.i, %.lr.ph.i ]
+  %.162.i = phi i64 [ %46, %45 ], [ %.06183.i, %35 ], [ %.06183.i, %.lr.ph.i ]
+  %.4.i = phi ptr [ %44, %45 ], [ %.16084.i, %35 ], [ %.16084.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %50 = icmp ugt i64 %49, %indvars.iv.next.i
   br i1 %50, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !6
@@ -472,7 +472,7 @@ define internal noundef i32 @run_zenity_thread(ptr noundef %0) #0 {
 
 .critedge.i:                                      ; preds = %39, %26, %24, %10, %1
   %.063.ph.i = phi ptr [ null, %1 ], [ null, %10 ], [ null, %24 ], [ %25, %26 ], [ %25, %39 ]
-  %.059.ph.i = phi ptr [ null, %1 ], [ null, %10 ], [ null, %24 ], [ null, %26 ], [ %.16086.i, %39 ]
+  %.059.ph.i = phi ptr [ null, %1 ], [ null, %10 ], [ null, %24 ], [ null, %26 ], [ %.16084.i, %39 ]
   %.0.ph.i = phi ptr [ null, %1 ], [ null, %10 ], [ %23, %24 ], [ %23, %26 ], [ %23, %39 ]
   call void @SDL_free_REAL(ptr noundef %.059.ph.i) #7
   call void @SDL_free_REAL(ptr noundef %.063.ph.i) #7

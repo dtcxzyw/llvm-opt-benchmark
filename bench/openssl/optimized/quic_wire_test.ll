@@ -363,14 +363,14 @@ PACKET_buf_init.exit:                             ; preds = %29, %32
   br label %47
 
 47:                                               ; preds = %.lr.ph, %54
-  %.01944 = phi i64 [ 0, %.lr.ph ], [ %55, %54 ]
+  %.01943 = phi i64 [ 0, %.lr.ph ], [ %55, %54 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %48 = icmp slt i64 %.01944, 0
+  %48 = icmp slt i64 %.01943, 0
   br i1 %48, label %PACKET_buf_init.exit35, label %49
 
 49:                                               ; preds = %47
   store ptr %25, ptr %5, align 8, !tbaa !16
-  store i64 %.01944, ptr %46, align 8, !tbaa !18
+  store i64 %.01943, ptr %46, align 8, !tbaa !18
   br label %PACKET_buf_init.exit35
 
 PACKET_buf_init.exit35:                           ; preds = %47, %49
@@ -380,7 +380,7 @@ PACKET_buf_init.exit35:                           ; preds = %47, %49
   br i1 %.not30, label %.thread, label %51
 
 51:                                               ; preds = %PACKET_buf_init.exit35
-  %52 = call i32 %38(ptr noundef nonnull %5, i64 noundef %.01944) #5
+  %52 = call i32 %38(ptr noundef nonnull %5, i64 noundef %.01943) #5
   %53 = call i32 @test_int_eq(ptr noundef nonnull @.str.5, i32 noundef 1274, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.8, i32 noundef %52, i32 noundef 1) #5
   %.not31 = icmp eq i32 %53, 0
   br i1 %.not31, label %.thread, label %54
@@ -391,7 +391,7 @@ PACKET_buf_init.exit35:                           ; preds = %47, %49
 
 54:                                               ; preds = %51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %55 = add nuw i64 %.01944, 1
+  %55 = add nuw i64 %.01943, 1
   %exitcond.not = icmp eq i64 %55, %umax
   br i1 %exitcond.not, label %.loopexit, label %47, !llvm.loop !20
 
@@ -401,12 +401,12 @@ PACKET_buf_init.exit35:                           ; preds = %47, %49
   br label %57
 
 57:                                               ; preds = %1, %10, %.loopexit
-  %.02243 = phi i32 [ %.022.ph, %.loopexit ], [ 0, %10 ], [ 0, %1 ]
+  %.02242 = phi i32 [ %.022.ph, %.loopexit ], [ 0, %10 ], [ 0, %1 ]
   call void @BUF_MEM_free(ptr noundef %8) #5
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.02243
+  ret i32 %.02242
 }
 
 ; Function Attrs: nounwind uwtable

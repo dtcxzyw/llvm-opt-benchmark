@@ -3150,12 +3150,12 @@ _ZNSt6vectorIN3ue211RoseProgramESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3u
 220:                                              ; preds = %215
   %221 = getelementptr i8, ptr %.sroa.0105.0163, i64 8
   %.val30 = load ptr, ptr %221, align 8
-  %.not4.not.i = icmp eq ptr %.pre192, %.val30
-  br i1 %.not4.not.i, label %_ZN3ue2L20reads_work_done_flagERKNS_11RoseProgramE.exit.thread, label %.lr.ph.i
+  %.not5.not.i = icmp eq ptr %.pre192, %.val30
+  br i1 %.not5.not.i, label %_ZN3ue2L20reads_work_done_flagERKNS_11RoseProgramE.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %220, %.critedge.i
-  %.sroa.01.05.i = phi ptr [ %227, %.critedge.i ], [ %.pre192, %220 ]
-  %222 = load ptr, ptr %.sroa.01.05.i, align 8
+  %.sroa.01.06.i = phi ptr [ %227, %.critedge.i ], [ %.pre192, %220 ]
+  %222 = load ptr, ptr %.sroa.01.06.i, align 8
   %223 = icmp eq ptr %222, null
   br i1 %223, label %.critedge.i, label %224
 
@@ -3165,7 +3165,7 @@ _ZNSt6vectorIN3ue211RoseProgramESaIS1_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN3u
   br i1 %226, label %.critedge.i, label %_ZN3ue2L20reads_work_done_flagERKNS_11RoseProgramE.exit
 
 .critedge.i:                                      ; preds = %224, %.lr.ph.i
-  %227 = getelementptr inbounds nuw i8, ptr %.sroa.01.05.i, i64 8
+  %227 = getelementptr inbounds nuw i8, ptr %.sroa.01.06.i, i64 8
   %.not.not.i = icmp eq ptr %227, %.val30
   br i1 %.not.not.i, label %_ZN3ue2L20reads_work_done_flagERKNS_11RoseProgramE.exit.thread, label %.lr.ph.i
 
@@ -20071,19 +20071,19 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L14getShuftiMasksERKSt6vectorI
   br label %64
 
 64:                                               ; preds = %67, %.noexc52
-  %.0710.i.i = phi i64 [ 0, %.noexc52 ], [ %68, %67 ]
-  %65 = getelementptr inbounds nuw i64, ptr %9, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %.noexc52 ], [ %68, %67 ]
+  %65 = getelementptr inbounds nuw i64, ptr %9, i64 %.0712.i.i
   %66 = load i64, ptr %65, align 8
   %.not.i.i65 = icmp eq i64 %66, 0
   br i1 %.not.i.i65, label %67, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 67:                                               ; preds = %64
-  %68 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %68, 4
-  br i1 %exitcond.i.i, label %._crit_edge288, label %64, !llvm.loop !588
+  %68 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %68, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge288, label %64, !llvm.loop !588
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %64
-  %69 = shl nuw nsw i64 %.0710.i.i, 6
+  %69 = shl nuw nsw i64 %.0712.i.i, 6
   %70 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %66, i1 true)
   %71 = or disjoint i64 %70, %69
   %.not.i280 = icmp eq i64 %71, 256

@@ -541,20 +541,20 @@ define dso_local i32 @Curl_client_start(ptr noundef %0) local_unnamed_addr #0 {
   br label %22
 
 22:                                               ; preds = %21, %20, %14, %5
-  %.not29.not34 = icmp eq ptr %7, null
-  br i1 %.not29.not34, label %._crit_edge, label %.lr.ph
+  %.not29.not33 = icmp eq ptr %7, null
+  br i1 %.not29.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %22, %27
-  %.02135 = phi ptr [ %29, %27 ], [ %7, %22 ]
-  %23 = load ptr, ptr %.02135, align 8, !tbaa !99
+  %.02134 = phi ptr [ %29, %27 ], [ %7, %22 ]
+  %23 = load ptr, ptr %.02134, align 8, !tbaa !99
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 56
   %25 = load ptr, ptr %24, align 8, !tbaa !106
-  %26 = tail call i32 %25(ptr noundef %0, ptr noundef nonnull %.02135) #17
+  %26 = tail call i32 %25(ptr noundef %0, ptr noundef nonnull %.02134) #17
   %.not30 = icmp eq i32 %26, 0
   br i1 %.not30, label %27, label %cl_reset_reader.exit
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw i8, ptr %.02135, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02134, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !96
   %.not29.not = icmp eq ptr %29, null
   br i1 %.not29.not, label %._crit_edge, label %.lr.ph, !llvm.loop !107
@@ -583,7 +583,7 @@ define dso_local i32 @Curl_client_start(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not.i, label %cl_reset_reader.exit.thread, label %.lr.ph.i, !llvm.loop !102
 
 cl_reset_reader.exit:                             ; preds = %.lr.ph
-  %38 = load ptr, ptr %.02135, align 8, !tbaa !99
+  %38 = load ptr, ptr %.02134, align 8, !tbaa !99
   %39 = load ptr, ptr %38, align 8, !tbaa !108
   tail call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef %39, i32 noundef %26) #17
   br label %cl_reset_reader.exit.thread

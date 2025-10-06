@@ -67,9 +67,9 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h5ef8ebf00990dfd3E(ptr no
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %7
 
-7:                                                ; preds = %.lr.ph, %38
-  %.sroa.0.068 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.127, %38 ]
-  %.sroa.4.067 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.125, %38 ]
+7:                                                ; preds = %.lr.ph, %39
+  %.sroa.0.068 = phi ptr [ %1, %.lr.ph ], [ %.sroa.0.127, %39 ]
+  %.sroa.4.067 = phi i64 [ %2, %.lr.ph ], [ %.sroa.4.125, %39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %8 = call { i64, ptr } @"_ZN64_$LT$std..sys..stdio..unix..Stderr$u20$as$u20$std..io..Write$GT$5write17hd7f290003fdfd12dE"(ptr noalias noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.068, i64 noundef %.sroa.4.067)
   %9 = extractvalue { i64, ptr } %8, 0
@@ -78,19 +78,19 @@ define hidden noundef ptr @_ZN3std2io5Write9write_all17h5ef8ebf00990dfd3E(ptr no
   store ptr %10, ptr %6, align 8
   %11 = trunc nuw i64 %9 to i1
   %12 = ptrtoint ptr %10 to i64
-  br i1 %11, label %13, label %16
+  br i1 %11, label %13, label %17
 
-.loopexit:                                        ; preds = %38, %3, %.thread58
-  %.sroa.04.0 = phi ptr [ %.sroa.04.1, %.thread58 ], [ null, %3 ], [ null, %38 ]
+.loopexit:                                        ; preds = %39, %3, %.thread58
+  %.sroa.04.0 = phi ptr [ %.sroa.04.1, %.thread58 ], [ null, %3 ], [ null, %39 ]
   ret ptr %.sroa.04.0
 
 13:                                               ; preds = %7
   %14 = and i64 %12, 3
   switch i64 %14, label %default.unreachable [
-    i64 2, label %27
+    i64 2, label %28
     i64 3, label %15
-    i64 0, label %29
-    i64 1, label %34
+    i64 0, label %30
+    i64 1, label %35
   ], !prof !3
 
 default.unreachable:                              ; preds = %13
@@ -98,80 +98,80 @@ default.unreachable:                              ; preds = %13
 
 15:                                               ; preds = %13
   %.mask = and i64 %12, -4294967296
-  %switch = icmp eq i64 %.mask, 150323855360
-  br i1 %switch, label %.thread, label %.thread58
+  %16 = icmp eq i64 %.mask, 150323855360
+  br i1 %16, label %.thread, label %.thread58
 
-16:                                               ; preds = %7
-  %17 = icmp eq ptr %10, null
-  br i1 %17, label %.thread58, label %18
+17:                                               ; preds = %7
+  %18 = icmp eq ptr %10, null
+  br i1 %18, label %.thread58, label %19
 
-18:                                               ; preds = %16
-  %19 = icmp ult i64 %.sroa.4.067, %12
-  br i1 %19, label %20, label %24, !prof !4
+19:                                               ; preds = %17
+  %20 = icmp ult i64 %.sroa.4.067, %12
+  br i1 %20, label %21, label %25, !prof !4
 
-20:                                               ; preds = %18
+21:                                               ; preds = %19
   invoke void @_ZN4core5slice5index26slice_start_index_len_fail17hedf750467f84874aE(i64 noundef range(i64 1, 0) %12, i64 noundef range(i64 1, 0) %.sroa.4.067, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4c4f229ca7a661be9fcc0e9cba359e64.3) #14
-          to label %.noexc unwind label %21
+          to label %.noexc unwind label %22
 
-.noexc:                                           ; preds = %20
+.noexc:                                           ; preds = %21
   unreachable
 
-.thread58:                                        ; preds = %15, %34, %27, %29, %16
-  %.sroa.04.1 = phi ptr [ @anon.4c4f229ca7a661be9fcc0e9cba359e64.1, %16 ], [ %10, %29 ], [ %10, %27 ], [ %10, %34 ], [ %10, %15 ]
+.thread58:                                        ; preds = %15, %35, %28, %30, %17
+  %.sroa.04.1 = phi ptr [ @anon.4c4f229ca7a661be9fcc0e9cba359e64.1, %17 ], [ %10, %30 ], [ %10, %28 ], [ %10, %35 ], [ %10, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-21:                                               ; preds = %20
-  %22 = landingpad { ptr, i32 }
+22:                                               ; preds = %21
+  %23 = landingpad { ptr, i32 }
           cleanup
-  %23 = load i64, ptr %4, align 8, !range !5, !noundef !6
-  %.not = icmp eq i64 %23, 0
-  br i1 %.not, label %41, label %40
+  %24 = load i64, ptr %4, align 8, !range !5, !noundef !6
+  %.not = icmp eq i64 %24, 0
+  br i1 %.not, label %42, label %41
 
-24:                                               ; preds = %18
-  %25 = sub nuw i64 %.sroa.4.067, %12
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.0.068, i64 %12
-  br label %38
+25:                                               ; preds = %19
+  %26 = sub nuw i64 %.sroa.4.067, %12
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.068, i64 %12
+  br label %39
 
-27:                                               ; preds = %13
+28:                                               ; preds = %13
   %.mask60 = and i64 %12, -4294967296
-  %28 = icmp eq i64 %.mask60, 17179869184
-  br i1 %28, label %.thread, label %.thread58
+  %29 = icmp eq i64 %.mask60, 17179869184
+  br i1 %29, label %.thread, label %.thread58
 
-29:                                               ; preds = %13
-  %30 = icmp ne ptr %10, null
-  call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %32 = load i8, ptr %31, align 8, !range !7, !noundef !6
-  %33 = icmp eq i8 %32, 35
-  br i1 %33, label %.thread, label %.thread58
+30:                                               ; preds = %13
+  %31 = icmp ne ptr %10, null
+  call void @llvm.assume(i1 %31)
+  %32 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %33 = load i8, ptr %32, align 8, !range !7, !noundef !6
+  %34 = icmp eq i8 %33, 35
+  br i1 %34, label %.thread, label %.thread58
 
-34:                                               ; preds = %13
-  %35 = getelementptr i8, ptr %10, i64 15
-  %36 = load i8, ptr %35, align 8, !range !7, !noundef !6
-  %37 = icmp eq i8 %36, 35
-  br i1 %37, label %.thread, label %.thread58
+35:                                               ; preds = %13
+  %36 = getelementptr i8, ptr %10, i64 15
+  %37 = load i8, ptr %36, align 8, !range !7, !noundef !6
+  %38 = icmp eq i8 %37, 35
+  br i1 %38, label %.thread, label %.thread58
 
-.thread:                                          ; preds = %15, %34, %27, %29
+.thread:                                          ; preds = %15, %35, %28, %30
   call void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5d197935994b1d20E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
-  br label %38
+  br label %39
 
-38:                                               ; preds = %24, %.thread
-  %.sroa.0.127 = phi ptr [ %.sroa.0.068, %.thread ], [ %26, %24 ]
-  %.sroa.4.125 = phi i64 [ %.sroa.4.067, %.thread ], [ %25, %24 ]
+39:                                               ; preds = %25, %.thread
+  %.sroa.0.127 = phi ptr [ %.sroa.0.068, %.thread ], [ %27, %25 ]
+  %.sroa.4.125 = phi i64 [ %.sroa.4.067, %.thread ], [ %26, %25 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %39 = icmp eq i64 %.sroa.4.125, 0
-  br i1 %39, label %.loopexit, label %7
+  %40 = icmp eq i64 %.sroa.4.125, 0
+  br i1 %40, label %.loopexit, label %7
 
-40:                                               ; preds = %21
+41:                                               ; preds = %22
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h5d197935994b1d20E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #15
-          to label %41 unwind label %42
+          to label %42 unwind label %43
 
-41:                                               ; preds = %40, %21
-  resume { ptr, i32 } %22
+42:                                               ; preds = %41, %22
+  resume { ptr, i32 } %23
 
-42:                                               ; preds = %40
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %41
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #16
   unreachable

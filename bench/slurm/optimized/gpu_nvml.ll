@@ -1189,10 +1189,10 @@ _nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_i
   %362 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef 128, ptr noundef nonnull @.str.93, i32 noundef %339, i32 noundef %357, i32 noundef %356) #12
   br label %363
 
-363:                                              ; preds = %.thread60.i.i.i, %360
-  %.09.i.i = phi i32 [ 0, %360 ], [ %.312.i.i, %.thread60.i.i.i ]
-  %.08.i.i = phi i32 [ 0, %360 ], [ %.2.i.i, %.thread60.i.i.i ]
-  %.035.i.i.i = phi i32 [ 0, %360 ], [ %364, %.thread60.i.i.i ]
+363:                                              ; preds = %.thread59.i.i.i, %360
+  %.09.i.i = phi i32 [ 0, %360 ], [ %.312.i.i, %.thread59.i.i.i ]
+  %.08.i.i = phi i32 [ 0, %360 ], [ %.2.i.i, %.thread59.i.i.i ]
+  %.035.i.i.i = phi i32 [ 0, %360 ], [ %364, %.thread59.i.i.i ]
   %364 = add nuw nsw i32 %.035.i.i.i, 1
   %365 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %358, ptr noundef nonnull @.str.94, ptr noundef nonnull %17, ptr noundef nonnull %18) #12
   switch i32 %365, label %368 [
@@ -1211,7 +1211,7 @@ _nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_i
 370:                                              ; preds = %363
   %371 = call i32 @slurm_xstrcmp(ptr noundef nonnull %17, ptr noundef nonnull %15) #12
   %.not42.not.i.i.i = icmp eq i32 %371, 0
-  br i1 %.not42.not.i.i.i, label %372, label %.thread58.i.i.i
+  br i1 %.not42.not.i.i.i, label %372, label %.thread57.i.i.i
 
 372:                                              ; preds = %370
   %373 = load i32, ptr %18, align 4
@@ -1219,13 +1219,13 @@ _nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_i
   %.not43.i.i.i = icmp eq i32 %374, 0
   br i1 %.not43.i.i.i, label %.thread.i.i.i, label %377
 
-.thread58.i.i.i:                                  ; preds = %370
+.thread57.i.i.i:                                  ; preds = %370
   %375 = call i32 @slurm_xstrcmp(ptr noundef nonnull %17, ptr noundef nonnull %16) #12
-  %.not4359.i.i.i = icmp eq i32 %375, 0
-  br i1 %.not4359.i.i.i, label %.thread.i.i.i, label %.thread60.i.i.i
+  %.not4358.i.i.i = icmp eq i32 %375, 0
+  br i1 %.not4358.i.i.i, label %.thread.i.i.i, label %.thread59.i.i.i
 
-.thread.i.i.i:                                    ; preds = %.thread58.i.i.i, %372
-  %.110.i.i = phi i32 [ %373, %372 ], [ %.09.i.i, %.thread58.i.i.i ]
+.thread.i.i.i:                                    ; preds = %.thread57.i.i.i, %372
+  %.110.i.i = phi i32 [ %373, %372 ], [ %.09.i.i, %.thread57.i.i.i ]
   %376 = load i32, ptr %18, align 4
   br label %377
 
@@ -1234,22 +1234,22 @@ _nvml_get_mig_minor_numbers.exit.thread.i.i:      ; preds = %_nvml_get_compute_i
   %.1.i.i = phi i32 [ %376, %.thread.i.i.i ], [ %.08.i.i, %372 ]
   %378 = call i32 @slurm_get_log_level() #12
   %379 = icmp sgt i32 %378, 6
-  br i1 %379, label %380, label %.thread60.i.i.i
+  br i1 %379, label %380, label %.thread59.i.i.i
 
 380:                                              ; preds = %377
   %381 = load i32, ptr %18, align 4
   call void (i32, ptr, ...) @slurm_log_var(i32 noundef 7, ptr noundef nonnull @.str.97, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._nvml_get_mig_minor_numbers, i32 noundef %364, ptr noundef nonnull %17, i32 noundef %381) #12
-  br label %.thread60.i.i.i
+  br label %.thread59.i.i.i
 
-.thread60.i.i.i:                                  ; preds = %380, %377, %.thread58.i.i.i
-  %.312.i.i = phi i32 [ %.211.i.i, %380 ], [ %.211.i.i, %377 ], [ %.09.i.i, %.thread58.i.i.i ]
-  %.2.i.i = phi i32 [ %.1.i.i, %380 ], [ %.1.i.i, %377 ], [ %.08.i.i, %.thread58.i.i.i ]
+.thread59.i.i.i:                                  ; preds = %380, %377, %.thread57.i.i.i
+  %.312.i.i = phi i32 [ %.211.i.i, %380 ], [ %.211.i.i, %377 ], [ %.09.i.i, %.thread57.i.i.i ]
+  %.2.i.i = phi i32 [ %.1.i.i, %380 ], [ %.1.i.i, %377 ], [ %.08.i.i, %.thread57.i.i.i ]
   %.not45.i.i.i = icmp eq i32 %.312.i.i, 0
   %.not46.i.i.i = icmp eq i32 %.2.i.i, 0
   %or.cond.i.i = select i1 %.not45.i.i.i, i1 true, i1 %.not46.i.i.i
   br i1 %or.cond.i.i, label %363, label %382
 
-382:                                              ; preds = %.thread60.i.i.i
+382:                                              ; preds = %.thread59.i.i.i
   %383 = call i32 @slurm_get_log_level() #12
   %384 = icmp sgt i32 %383, 6
   br i1 %384, label %385, label %387

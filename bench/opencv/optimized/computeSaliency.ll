@@ -2055,9 +2055,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit299: ; preds = %_Z
   br i1 %644, label %.body171, label %.body171.sink.split
 
 .body171.sink.split:                              ; preds = %642, %84
-  %.sink382 = phi ptr [ %86, %84 ], [ %643, %642 ]
+  %.sink381 = phi ptr [ %86, %84 ], [ %643, %642 ]
   %.pn161.pn.pn.pn.ph = phi { ptr, i32 } [ %85, %84 ], [ %.pn161.pn.pn, %642 ]
-  call void @_ZdlPv(ptr noundef %.sink382) #20
+  call void @_ZdlPv(ptr noundef %.sink381) #20
   br label %.body171
 
 .body171:                                         ; preds = %.body171.sink.split, %642, %84
@@ -2068,9 +2068,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit299: ; preds = %_Z
   br i1 %646, label %.body, label %.body.sink.split
 
 .body.sink.split:                                 ; preds = %.body171, %78
-  %.sink383 = phi ptr [ %80, %78 ], [ %645, %.body171 ]
+  %.sink382 = phi ptr [ %80, %78 ], [ %645, %.body171 ]
   %.pn161.pn.pn.pn.pn.ph = phi { ptr, i32 } [ %79, %78 ], [ %.pn161.pn.pn.pn, %.body171 ]
-  call void @_ZdlPv(ptr noundef %.sink383) #20
+  call void @_ZdlPv(ptr noundef %.sink382) #20
   br label %.body
 
 .body:                                            ; preds = %.body.sink.split, %.body171, %78

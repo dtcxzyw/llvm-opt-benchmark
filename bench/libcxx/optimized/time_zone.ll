@@ -4632,8 +4632,8 @@ define linkonce_odr hidden void @_ZNSt3__18__format22__try_constant_foldingB8ne2
   br i1 %cond, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %4, %._crit_edge.i.i.i
-  %.01730.i.i.i = phi ptr [ %10, %._crit_edge.i.i.i ], [ %1, %4 ]
-  %6 = load i8, ptr %.01730.i.i.i, align 1, !tbaa !17
+  %.01728.i.i.i = phi ptr [ %10, %._crit_edge.i.i.i ], [ %1, %4 ]
+  %6 = load i8, ptr %.01728.i.i.i, align 1, !tbaa !17
   br label %8
 
 7:                                                ; preds = %8
@@ -4641,12 +4641,12 @@ define linkonce_odr hidden void @_ZNSt3__18__format22__try_constant_foldingB8ne2
 
 8:                                                ; preds = %7, %.preheader.i.i.i
   %.not18.i.i.i = phi i1 [ false, %.preheader.i.i.i ], [ true, %7 ]
-  %.01528.i.idx.i.sroa.phi.sroa.speculated.i = phi i8 [ 123, %.preheader.i.i.i ], [ 125, %7 ]
-  %9 = icmp eq i8 %6, %.01528.i.idx.i.sroa.phi.sroa.speculated.i
+  %.01526.i.idx.i.sroa.phi.sroa.speculated.i = phi i8 [ 123, %.preheader.i.i.i ], [ 125, %7 ]
+  %9 = icmp eq i8 %6, %.01526.i.idx.i.sroa.phi.sroa.speculated.i
   br i1 %9, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit, label %7
 
 ._crit_edge.i.i.i:                                ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %.01730.i.i.i, i64 1
+  %10 = getelementptr inbounds nuw i8, ptr %.01728.i.i.i, i64 1
   %.not.i.i.i = icmp eq ptr %10, %5
   br i1 %.not.i.i.i, label %_ZNSt3__1eqB8ne210000IcNS_11char_traitsIcEELi1EEEbNS_17basic_string_viewIT_T0_EENS_15__type_identityIS6_E4typeE.exit, label %.preheader.i.i.i, !llvm.loop !292
 
@@ -8466,11 +8466,11 @@ _ZNKSt3__16ranges13__upper_boundclB8ne210000ITkNS0_13forward_rangeERA403_KjjNS_8
 define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__19__unicode33__extended_grapheme_cluster_break10__evaluateB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !410
-  switch i32 %5, label %60 [
+  switch i32 %5, label %62 [
     i32 0, label %6
     i32 1, label %8
-    i32 2, label %41
-    i32 3, label %56
+    i32 2, label %43
+    i32 3, label %58
   ]
 
 6:                                                ; preds = %3
@@ -8526,96 +8526,96 @@ _ZNSt3__122__indic_conjunct_break14__get_propertyB8ne210000EDi.exit.thread.i: ; 
 32:                                               ; preds = %18
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i32, ptr %33, align 4, !tbaa !412
-  %switch.i = icmp eq i32 %34, 0
-  br i1 %switch.i, label %35, label %39
+  %35 = icmp eq i32 %34, 0
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %32
-  switch i8 %29, label %37 [
+36:                                               ; preds = %32
+  switch i8 %29, label %38 [
     i8 1, label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
-    i8 2, label %36
+    i8 2, label %37
   ]
 
-36:                                               ; preds = %35
+37:                                               ; preds = %36
   store i32 1, ptr %33, align 4, !tbaa !412
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-37:                                               ; preds = %35
+38:                                               ; preds = %36
   store i32 0, ptr %4, align 4, !tbaa !410
-  %38 = tail call noundef zeroext i1 @_ZNSt3__19__unicode33__extended_grapheme_cluster_break15__evaluate_noneB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef zeroext %1, i8 noundef zeroext %2)
+  %39 = tail call noundef zeroext i1 @_ZNSt3__19__unicode33__extended_grapheme_cluster_break15__evaluate_noneB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef zeroext %1, i8 noundef zeroext %2)
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-39:                                               ; preds = %32
-  %.not.i = icmp eq i8 %29, 0
-  br i1 %.not.i, label %40, label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
+40:                                               ; preds = %32
+  %41 = icmp eq i8 %29, 0
+  br i1 %41, label %42, label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-40:                                               ; preds = %39
+42:                                               ; preds = %40
   store i32 0, ptr %33, align 4, !tbaa !412
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-41:                                               ; preds = %3
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %43 = load i32, ptr %42, align 4, !tbaa !411
-  switch i32 %43, label %55 [
-    i32 0, label %44
-    i32 1, label %46
-    i32 2, label %50
+43:                                               ; preds = %3
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %45 = load i32, ptr %44, align 4, !tbaa !411
+  switch i32 %45, label %57 [
+    i32 0, label %46
+    i32 1, label %48
+    i32 2, label %52
   ]
 
-44:                                               ; preds = %41
-  switch i8 %2, label %48 [
-    i8 2, label %45
-    i8 13, label %47
+46:                                               ; preds = %43
+  switch i8 %2, label %50 [
+    i8 2, label %47
+    i8 13, label %49
   ]
 
-45:                                               ; preds = %44
-  store i32 1, ptr %42, align 4, !tbaa !411
+47:                                               ; preds = %46
+  store i32 1, ptr %44, align 4, !tbaa !411
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-46:                                               ; preds = %41
-  switch i8 %2, label %48 [
-    i8 13, label %47
+48:                                               ; preds = %43
+  switch i8 %2, label %50 [
+    i8 13, label %49
     i8 2, label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
   ]
 
-47:                                               ; preds = %46, %44
-  store i32 2, ptr %42, align 4, !tbaa !411
+49:                                               ; preds = %48, %46
+  store i32 2, ptr %44, align 4, !tbaa !411
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-48:                                               ; preds = %46, %44
+50:                                               ; preds = %48, %46
   store i32 0, ptr %4, align 4, !tbaa !410
-  %49 = tail call noundef zeroext i1 @_ZNSt3__19__unicode33__extended_grapheme_cluster_break15__evaluate_noneB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef zeroext %1, i8 noundef zeroext %2)
+  %51 = tail call noundef zeroext i1 @_ZNSt3__19__unicode33__extended_grapheme_cluster_break15__evaluate_noneB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef zeroext %1, i8 noundef zeroext %2)
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-50:                                               ; preds = %41
-  %51 = icmp eq i8 %2, 3
-  br i1 %51, label %52, label %53
+52:                                               ; preds = %43
+  %53 = icmp eq i8 %2, 3
+  br i1 %53, label %54, label %55
 
-52:                                               ; preds = %50
-  store i32 0, ptr %42, align 4, !tbaa !411
+54:                                               ; preds = %52
+  store i32 0, ptr %44, align 4, !tbaa !411
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-53:                                               ; preds = %50
+55:                                               ; preds = %52
   store i32 0, ptr %4, align 4, !tbaa !410
-  %54 = tail call noundef zeroext i1 @_ZNSt3__19__unicode33__extended_grapheme_cluster_break15__evaluate_noneB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef zeroext %1, i8 noundef zeroext %2)
+  %56 = tail call noundef zeroext i1 @_ZNSt3__19__unicode33__extended_grapheme_cluster_break15__evaluate_noneB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef zeroext %1, i8 noundef zeroext %2)
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-55:                                               ; preds = %41
+57:                                               ; preds = %43
   unreachable
 
-56:                                               ; preds = %3
+58:                                               ; preds = %3
   store i32 0, ptr %4, align 4, !tbaa !410
-  %57 = icmp eq i8 %2, 9
-  br i1 %57, label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit, label %58
+  %59 = icmp eq i8 %2, 9
+  br i1 %59, label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit, label %60
 
-58:                                               ; preds = %56
-  %59 = tail call noundef zeroext i1 @_ZNSt3__19__unicode33__extended_grapheme_cluster_break15__evaluate_noneB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef zeroext %1, i8 noundef zeroext %2)
+60:                                               ; preds = %58
+  %61 = tail call noundef zeroext i1 @_ZNSt3__19__unicode33__extended_grapheme_cluster_break15__evaluate_noneB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE(ptr noundef nonnull align 4 dereferenceable(20) %0, i32 noundef zeroext %1, i8 noundef zeroext %2)
   br label %_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit
 
-60:                                               ; preds = %3
+62:                                               ; preds = %3
   unreachable
 
-_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit: ; preds = %58, %56, %53, %52, %48, %47, %46, %45, %40, %39, %37, %36, %35, %_ZNSt3__122__indic_conjunct_break14__get_propertyB8ne210000EDi.exit.thread.i, %6
-  %.0 = phi i1 [ %7, %6 ], [ %31, %_ZNSt3__122__indic_conjunct_break14__get_propertyB8ne210000EDi.exit.thread.i ], [ false, %36 ], [ %38, %37 ], [ false, %40 ], [ false, %35 ], [ false, %39 ], [ false, %45 ], [ false, %47 ], [ %49, %48 ], [ false, %52 ], [ %54, %53 ], [ false, %46 ], [ %59, %58 ], [ false, %56 ]
+_ZNSt3__19__unicode33__extended_grapheme_cluster_break36__evaluate_GB9c_indic_conjunct_breakB8ne210000EDiNS_44__extended_grapheme_custer_property_boundary10__propertyE.exit: ; preds = %60, %58, %55, %54, %50, %49, %48, %47, %42, %40, %38, %37, %36, %_ZNSt3__122__indic_conjunct_break14__get_propertyB8ne210000EDi.exit.thread.i, %6
+  %.0 = phi i1 [ %7, %6 ], [ %31, %_ZNSt3__122__indic_conjunct_break14__get_propertyB8ne210000EDi.exit.thread.i ], [ false, %37 ], [ %39, %38 ], [ false, %42 ], [ false, %36 ], [ false, %40 ], [ false, %47 ], [ false, %49 ], [ %51, %50 ], [ false, %54 ], [ %56, %55 ], [ false, %48 ], [ %61, %60 ], [ false, %58 ]
   ret i1 %.0
 }
 
@@ -24013,9 +24013,9 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit111: ; p
   br label %.preheader.i.i.i.i120
 
 .preheader.i.i.i.i120:                            ; preds = %208, %._crit_edge.i.i.i.i124
-  %.01730.i.i.i.i121.idx = phi i64 [ %.01730.i.i.i.i121.add, %._crit_edge.i.i.i.i124 ], [ 0, %208 ]
-  %.01730.i.i.i.i121.ptr = getelementptr inbounds nuw i8, ptr @.str.113, i64 %.01730.i.i.i.i121.idx
-  %212 = load i8, ptr %.01730.i.i.i.i121.ptr, align 1, !tbaa !17, !noalias !719
+  %.01728.i.i.i.i121.idx = phi i64 [ %.01728.i.i.i.i121.add, %._crit_edge.i.i.i.i124 ], [ 0, %208 ]
+  %.01728.i.i.i.i121.ptr = getelementptr inbounds nuw i8, ptr @.str.113, i64 %.01728.i.i.i.i121.idx
+  %212 = load i8, ptr %.01728.i.i.i.i121.ptr, align 1, !tbaa !17, !noalias !719
   br label %214
 
 213:                                              ; preds = %214
@@ -24023,13 +24023,13 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit111: ; p
 
 214:                                              ; preds = %213, %.preheader.i.i.i.i120
   %.not18.i.i.i.i122 = phi i1 [ false, %.preheader.i.i.i.i120 ], [ true, %213 ]
-  %.01528.i.idx.i.sroa.phi.sroa.speculated.i.i123 = phi i8 [ 123, %.preheader.i.i.i.i120 ], [ 125, %213 ]
-  %215 = icmp eq i8 %212, %.01528.i.idx.i.sroa.phi.sroa.speculated.i.i123
+  %.01526.i.idx.i.sroa.phi.sroa.speculated.i.i123 = phi i8 [ 123, %.preheader.i.i.i.i120 ], [ 125, %213 ]
+  %215 = icmp eq i8 %212, %.01526.i.idx.i.sroa.phi.sroa.speculated.i.i123
   br i1 %215, label %_ZZNSt3__18__format22__try_constant_foldingB8ne210000IcEENS_8optionalINS_12basic_stringIT_NS_11char_traitsIS4_EENS_9allocatorIS4_EEEEEENS_17basic_string_viewIS4_S6_EENS_17basic_format_argsINS_20basic_format_contextINS_20back_insert_iteratorINS0_15__output_bufferIS4_EEEES4_EEEEENKUlvE_clB8ne210000Ev.exit.i126, label %213
 
 ._crit_edge.i.i.i.i124:                           ; preds = %213
-  %.01730.i.i.i.i121.add = add nuw nsw i64 %.01730.i.i.i.i121.idx, 1
-  %.not.i.i.i.i125 = icmp eq i64 %.01730.i.i.i.i121.add, 12
+  %.01728.i.i.i.i121.add = add nuw nsw i64 %.01728.i.i.i.i121.idx, 1
+  %.not.i.i.i.i125 = icmp eq i64 %.01728.i.i.i.i121.add, 12
   br i1 %.not.i.i.i.i125, label %_ZZNSt3__18__format22__try_constant_foldingB8ne210000IcEENS_8optionalINS_12basic_stringIT_NS_11char_traitsIS4_EENS_9allocatorIS4_EEEEEENS_17basic_string_viewIS4_S6_EENS_17basic_format_argsINS_20basic_format_contextINS_20back_insert_iteratorINS0_15__output_bufferIS4_EEEES4_EEEEENKUlvE_clB8ne210000Ev.exit.i126, label %.preheader.i.i.i.i120, !llvm.loop !292
 
 _ZZNSt3__18__format22__try_constant_foldingB8ne210000IcEENS_8optionalINS_12basic_stringIT_NS_11char_traitsIS4_EENS_9allocatorIS4_EEEEEENS_17basic_string_viewIS4_S6_EENS_17basic_format_argsINS_20basic_format_contextINS_20back_insert_iteratorINS0_15__output_bufferIS4_EEEES4_EEEEENKUlvE_clB8ne210000Ev.exit.i126: ; preds = %._crit_edge.i.i.i.i124, %214
@@ -25997,8 +25997,8 @@ _ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_6chrono10time_pointI
   br i1 %128, label %_ZNSt3__127__tree_balance_after_insertB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_S5_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_6chrono10time_pointINS3_12system_clockENS3_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS3_4__tz6__ruleEEEEEPvEENS_22__tree_node_destructorINS_9allocatorISJ_EEEEED2B8ne210000Ev.exit.i.i, %235
-  %.073.i = phi ptr [ %138, %235 ], [ %120, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_6chrono10time_pointINS3_12system_clockENS3_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS3_4__tz6__ruleEEEEEPvEENS_22__tree_node_destructorINS_9allocatorISJ_EEEEED2B8ne210000Ev.exit.i.i ]
-  %131 = getelementptr inbounds nuw i8, ptr %.073.i, i64 16
+  %.070.i = phi ptr [ %138, %235 ], [ %120, %_ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_6chrono10time_pointINS3_12system_clockENS3_8durationIxNS_5ratioILl1ELl1EEEEEEENS_11__wrap_iterIPKNS3_4__tz6__ruleEEEEEPvEENS_22__tree_node_destructorINS_9allocatorISJ_EEEEED2B8ne210000Ev.exit.i.i ]
+  %131 = getelementptr inbounds nuw i8, ptr %.070.i, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !789
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %134 = load i8, ptr %133, align 8, !tbaa !791, !range !56, !noundef !57
@@ -26036,7 +26036,7 @@ _ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_6chrono10time_pointI
 151:                                              ; preds = %144, %141
   %152 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %153 = load ptr, ptr %132, align 8, !tbaa !779
-  %154 = icmp eq ptr %.073.i, %153
+  %154 = icmp eq ptr %.070.i, %153
   br i1 %154, label %170, label %155
 
 155:                                              ; preds = %151
@@ -26045,9 +26045,9 @@ _ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_6chrono10time_pointI
   %158 = load ptr, ptr %157, align 8, !tbaa !779
   store ptr %158, ptr %156, align 8, !tbaa !792
   %.not.i.i34 = icmp eq ptr %158, null
-  br i1 %.not.i.i34, label %.thread96.i, label %160
+  br i1 %.not.i.i34, label %.thread93.i, label %160
 
-.thread96.i:                                      ; preds = %155
+.thread93.i:                                      ; preds = %155
   %159 = getelementptr inbounds nuw i8, ptr %157, i64 16
   store ptr %138, ptr %159, align 8, !tbaa !789
   br label %164
@@ -26055,21 +26055,21 @@ _ZNSt3__110unique_ptrINS_11__tree_nodeINS_12__value_typeINS_6chrono10time_pointI
 160:                                              ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %158, i64 16
   store ptr %132, ptr %161, align 8, !tbaa !789
-  %.pre80.i = load ptr, ptr %152, align 8, !tbaa !789
-  %.pre81.i = load ptr, ptr %.pre80.i, align 8, !tbaa !779
-  %162 = icmp eq ptr %132, %.pre81.i
+  %.pre77.i = load ptr, ptr %152, align 8, !tbaa !789
+  %.pre78.i = load ptr, ptr %.pre77.i, align 8, !tbaa !779
+  %162 = icmp eq ptr %132, %.pre78.i
   %163 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  store ptr %.pre80.i, ptr %163, align 8, !tbaa !789
+  store ptr %.pre77.i, ptr %163, align 8, !tbaa !789
   br i1 %162, label %164, label %167
 
-164:                                              ; preds = %160, %.thread96.i
-  %165 = phi ptr [ %159, %.thread96.i ], [ %163, %160 ]
-  %166 = phi ptr [ %138, %.thread96.i ], [ %.pre80.i, %160 ]
+164:                                              ; preds = %160, %.thread93.i
+  %165 = phi ptr [ %159, %.thread93.i ], [ %163, %160 ]
+  %166 = phi ptr [ %138, %.thread93.i ], [ %.pre77.i, %160 ]
   store ptr %157, ptr %166, align 8, !tbaa !779
   br label %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i
 
 167:                                              ; preds = %160
-  %168 = getelementptr inbounds nuw i8, ptr %.pre80.i, i64 8
+  %168 = getelementptr inbounds nuw i8, ptr %.pre77.i, i64 8
   store ptr %157, ptr %168, align 8, !tbaa !792
   br label %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i
 
@@ -26077,13 +26077,13 @@ _ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i:
   %169 = phi ptr [ %165, %164 ], [ %163, %167 ]
   store ptr %132, ptr %157, align 8, !tbaa !779
   store ptr %157, ptr %152, align 8, !tbaa !789
-  %.pre82.i = load ptr, ptr %169, align 8, !tbaa !789
-  %.pre83.i = load ptr, ptr %.pre82.i, align 8, !tbaa !779
+  %.pre79.i = load ptr, ptr %169, align 8, !tbaa !789
+  %.pre80.i = load ptr, ptr %.pre79.i, align 8, !tbaa !779
   br label %170
 
 170:                                              ; preds = %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i, %151
-  %171 = phi ptr [ %139, %151 ], [ %.pre83.i, %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i ]
-  %172 = phi ptr [ %138, %151 ], [ %.pre82.i, %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i ]
+  %171 = phi ptr [ %139, %151 ], [ %.pre80.i, %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i ]
+  %172 = phi ptr [ %138, %151 ], [ %.pre79.i, %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i ]
   %173 = phi ptr [ %132, %151 ], [ %157, %_ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i ]
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 24
   store i8 1, ptr %174, align 8, !tbaa !791
@@ -26092,8 +26092,8 @@ _ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i:
   %176 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %177 = load ptr, ptr %176, align 8, !tbaa !792
   store ptr %177, ptr %172, align 8, !tbaa !779
-  %.not.i53.i = icmp eq ptr %177, null
-  br i1 %.not.i53.i, label %180, label %178
+  %.not.i52.i = icmp eq ptr %177, null
+  br i1 %.not.i52.i, label %180, label %178
 
 178:                                              ; preds = %170
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 16
@@ -26131,9 +26131,9 @@ _ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i:
   %192 = getelementptr inbounds nuw i8, ptr %139, i64 24
   %193 = load i8, ptr %192, align 8, !tbaa !791, !range !56, !noundef !57
   %194 = trunc nuw i8 %193 to i1
-  br i1 %194, label %198, label %.thread61.i
+  br i1 %194, label %198, label %.thread59.i
 
-.thread61.i:                                      ; preds = %191
+.thread59.i:                                      ; preds = %191
   store i8 1, ptr %133, align 8, !tbaa !791
   %195 = icmp eq ptr %138, %127
   %196 = getelementptr inbounds nuw i8, ptr %138, i64 24
@@ -26145,15 +26145,15 @@ _ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i:
 198:                                              ; preds = %191, %190
   %199 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %200 = load ptr, ptr %132, align 8, !tbaa !779
-  %201 = icmp eq ptr %.073.i, %200
+  %201 = icmp eq ptr %.070.i, %200
   br i1 %201, label %202, label %215
 
 202:                                              ; preds = %198
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %204 = load ptr, ptr %203, align 8, !tbaa !792
   store ptr %204, ptr %132, align 8, !tbaa !779
-  %.not.i54.i = icmp eq ptr %204, null
-  br i1 %.not.i54.i, label %207, label %205
+  %.not.i53.i = icmp eq ptr %204, null
+  br i1 %.not.i53.i, label %207, label %205
 
 205:                                              ; preds = %202
   %206 = getelementptr inbounds nuw i8, ptr %204, i64 16
@@ -26171,22 +26171,22 @@ _ZNSt3__118__tree_left_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit.i:
 
 212:                                              ; preds = %207
   store ptr %200, ptr %208, align 8, !tbaa !779
-  br label %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit55.i
+  br label %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit54.i
 
 213:                                              ; preds = %207
   %214 = getelementptr inbounds nuw i8, ptr %208, i64 8
   store ptr %200, ptr %214, align 8, !tbaa !792
-  br label %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit55.i
+  br label %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit54.i
 
-_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit55.i: ; preds = %213, %212
+_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit54.i: ; preds = %213, %212
   store ptr %132, ptr %203, align 8, !tbaa !792
   store ptr %200, ptr %199, align 8, !tbaa !789
-  %.pre79.i = load ptr, ptr %209, align 8, !tbaa !789
+  %.pre76.i = load ptr, ptr %209, align 8, !tbaa !789
   br label %215
 
-215:                                              ; preds = %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit55.i, %198
-  %216 = phi ptr [ %.pre79.i, %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit55.i ], [ %138, %198 ]
-  %217 = phi ptr [ %200, %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit55.i ], [ %132, %198 ]
+215:                                              ; preds = %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit54.i, %198
+  %216 = phi ptr [ %.pre76.i, %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit54.i ], [ %138, %198 ]
+  %217 = phi ptr [ %200, %_ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit54.i ], [ %132, %198 ]
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 24
   store i8 1, ptr %218, align 8, !tbaa !791
   %219 = getelementptr inbounds nuw i8, ptr %216, i64 24
@@ -26195,8 +26195,8 @@ _ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit55
   %221 = load ptr, ptr %220, align 8, !tbaa !792
   %222 = load ptr, ptr %221, align 8, !tbaa !779
   store ptr %222, ptr %220, align 8, !tbaa !792
-  %.not.i56.i = icmp eq ptr %222, null
-  br i1 %.not.i56.i, label %225, label %223
+  %.not.i55.i = icmp eq ptr %222, null
+  br i1 %.not.i55.i, label %225, label %223
 
 223:                                              ; preds = %215
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 16
@@ -26226,7 +26226,7 @@ _ZNSt3__119__tree_right_rotateB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_.exit55
   store ptr %221, ptr %226, align 8, !tbaa !789
   br label %_ZNSt3__127__tree_balance_after_insertB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_S5_.exit
 
-235:                                              ; preds = %.thread61.i, %.thread.i
+235:                                              ; preds = %.thread59.i, %.thread.i
   %.not.i = icmp eq ptr %138, %127
   br i1 %.not.i, label %_ZNSt3__127__tree_balance_after_insertB8ne210000IPNS_16__tree_node_baseIPvEEEEvT_S5_.exit, label %.lr.ph.i, !llvm.loop !793
 
@@ -26520,32 +26520,31 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNS
   br label %_ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit
 
 10:                                               ; preds = %3
-  %11 = add i64 %2, 9
-  %12 = icmp ult i64 %11, 31
-  br i1 %12, label %13, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
+  %11 = icmp ugt i64 %2, -10
+  br i1 %11, label %12, label %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
 
-13:                                               ; preds = %10
+12:                                               ; preds = %10
   tail call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE20__throw_length_errorB8ne210000Ev() #31
   unreachable
 
 _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit: ; preds = %10
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.speculated.i = tail call i64 @llvm.umax.i64(i64 %2, i64 44)
-  %15 = or i64 %.sroa.speculated.i, 7
-  %16 = add nuw i64 %15, 1
-  %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #34
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %1, i64 %2, i1 false)
-  store ptr %17, ptr %14, align 8, !tbaa !17
-  %18 = or disjoint i64 %16, 1
-  store i64 %18, ptr %0, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %2, ptr %19, align 8, !tbaa !17
+  %14 = or i64 %.sroa.speculated.i, 7
+  %15 = add nuw i64 %14, 1
+  %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #34
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %1, i64 %2, i1 false)
+  store ptr %16, ptr %13, align 8, !tbaa !17
+  %17 = or disjoint i64 %15, 1
+  store i64 %17, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %2, ptr %18, align 8, !tbaa !17
   br label %_ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit
 
 _ZNSt3__111char_traitsIcE4copyB8ne210000EPcPKcm.exit: ; preds = %9, %5, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit
-  %.sink21 = phi ptr [ %17, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %6, %5 ], [ %6, %9 ]
-  %20 = getelementptr inbounds nuw i8, ptr %.sink21, i64 %2
-  store i8 0, ptr %20, align 1, !tbaa !17
+  %.sink21 = phi ptr [ %16, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE21__grow_by_and_replaceEmmmmmmPKc.exit ], [ %6, %5 ], [ %6, %9 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sink21, i64 %2
+  store i8 0, ptr %19, align 1, !tbaa !17
   ret ptr %0
 }
 

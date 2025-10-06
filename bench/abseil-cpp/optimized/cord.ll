@@ -9542,17 +9542,17 @@ _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit25: ; preds = %_ZN4absl4Cord7Adv
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %7, ptr noundef nonnull align 8 dereferenceable(152) %13, i64 152, i1 false)
   %117 = load i64, ptr %70, align 8, !tbaa !101
-  %.not13.i = icmp eq i64 %117, 0
-  br i1 %.not13.i, label %.loopexit59, label %.lr.ph.i
+  %.not12.i = icmp eq i64 %117, 0
+  br i1 %.not12.i, label %.loopexit59, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit25
-  %.sroa.0.0.copyload.i.i8.pre16.i = load i64, ptr %7, align 8, !tbaa !123
+  %.sroa.0.0.copyload.i.i8.pre15.i = load i64, ptr %7, align 8, !tbaa !123
   br label %118
 
 118:                                              ; preds = %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i, %.lr.ph.i
   %119 = phi i64 [ %117, %.lr.ph.i ], [ %155, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i ]
-  %120 = phi i64 [ %.sroa.0.0.copyload.i.i8.pre16.i, %.lr.ph.i ], [ %156, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i ]
-  %121 = phi i64 [ %.sroa.0.0.copyload.i.i8.pre16.i, %.lr.ph.i ], [ %157, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i ]
+  %120 = phi i64 [ %.sroa.0.0.copyload.i.i8.pre15.i, %.lr.ph.i ], [ %156, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i ]
+  %121 = phi i64 [ %.sroa.0.0.copyload.i.i8.pre15.i, %.lr.ph.i ], [ %157, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i ]
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %8, align 8, !tbaa !123
   %.sroa.2.0.copyload.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !128
   %122 = icmp ult i64 %121, %.sroa.0.0.copyload.i.i.i
@@ -9609,7 +9609,7 @@ _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.i: ; preds = %_ZNK4absl13cord_i
   br i1 %138, label %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i, label %147, !prof !27
 
 _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i: ; preds = %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.i
-  %.pre19.i = load i64, ptr %70, align 8, !tbaa !101
+  %.pre18.i = load i64, ptr %70, align 8, !tbaa !101
   br label %140
 
 _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i: ; preds = %_ZStneIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread8.i
@@ -9617,7 +9617,7 @@ _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i: ; preds = %_ZStneIcSt
   br i1 %139, label %140, label %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.ithread-pre-split, !prof !27
 
 140:                                              ; preds = %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i
-  %141 = phi i64 [ %119, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i ], [ %.pre19.i, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i ]
+  %141 = phi i64 [ %119, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i ], [ %.pre18.i, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i ]
   %142 = phi i64 [ %121, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i ], [ %137, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i ]
   %143 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i9.i, align 8, !tbaa !121
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 %.sroa.speculated.i
@@ -9723,8 +9723,8 @@ _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit31: ; preds = %161, %173, %_ZNK4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull align 8 dereferenceable(152) %6, i64 152, i1 false)
   %179 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %180 = load i64, ptr %179, align 8, !tbaa !101
-  %.not13.i.i = icmp eq i64 %180, 0
-  br i1 %.not13.i.i, label %.loopexit, label %.lr.ph.i.i
+  %.not12.i.i = icmp eq i64 %180, 0
+  br i1 %.not12.i.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %178
   %.sroa.2.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -9734,13 +9734,13 @@ _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit31: ; preds = %161, %173, %_ZNK4
   %183 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %184 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %.sroa.0.0.copyload.i.i8.pre16.i.i = load i64, ptr %4, align 8, !tbaa !123
+  %.sroa.0.0.copyload.i.i8.pre15.i.i = load i64, ptr %4, align 8, !tbaa !123
   br label %186
 
 186:                                              ; preds = %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i.i, %.lr.ph.i.i
   %187 = phi i64 [ %180, %.lr.ph.i.i ], [ %223, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i.i ]
-  %188 = phi i64 [ %.sroa.0.0.copyload.i.i8.pre16.i.i, %.lr.ph.i.i ], [ %224, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i.i ]
-  %189 = phi i64 [ %.sroa.0.0.copyload.i.i8.pre16.i.i, %.lr.ph.i.i ], [ %225, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i.i ]
+  %188 = phi i64 [ %.sroa.0.0.copyload.i.i8.pre15.i.i, %.lr.ph.i.i ], [ %224, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i.i ]
+  %189 = phi i64 [ %.sroa.0.0.copyload.i.i8.pre15.i.i, %.lr.ph.i.i ], [ %225, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.i.i ]
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %5, align 8, !tbaa !123
   %.sroa.2.0.copyload.i.i.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i.i.i, align 8, !tbaa !128
   %190 = icmp ult i64 %189, %.sroa.0.0.copyload.i.i.i.i
@@ -9797,7 +9797,7 @@ _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.i.i: ; preds = %_ZNK4absl13cord
   br i1 %206, label %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i.i, label %215, !prof !27
 
 _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i.i: ; preds = %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.i.i
-  %.pre19.i.i = load i64, ptr %179, align 8, !tbaa !101
+  %.pre18.i.i = load i64, ptr %179, align 8, !tbaa !101
   br label %208
 
 _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i.i: ; preds = %_ZStneIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ES5_.exit.thread8.i.i
@@ -9805,7 +9805,7 @@ _ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i.i: ; preds = %_ZStneIc
   br i1 %207, label %208, label %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit20.ithread-pre-split.i, !prof !27
 
 208:                                              ; preds = %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i.i, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i.i
-  %209 = phi i64 [ %187, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i.i ], [ %.pre19.i.i, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i.i ]
+  %209 = phi i64 [ %187, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i.i ], [ %.pre18.i.i, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i.i ]
   %210 = phi i64 [ %189, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit.thread.i.i ], [ %205, %_ZN4absl4Cord7AdvanceEPNS0_12CharIteratorEm.exit._crit_edge.i.i ]
   %211 = load ptr, ptr %.sroa.2.0..sroa_idx.i.i9.i.i, align 8, !tbaa !121
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 %.sroa.speculated.i.i

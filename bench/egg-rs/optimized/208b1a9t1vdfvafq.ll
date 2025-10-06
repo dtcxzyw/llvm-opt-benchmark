@@ -439,8 +439,8 @@ common.resume:                                    ; preds = %124, %54
 
 107:                                              ; preds = %15
   %.val10 = load ptr, ptr %0, align 8
-  %.not.i12.i = icmp eq i64 %19, 0
-  br i1 %.not.i12.i, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h539e86137da34e45E.exit.thread89", label %.lr.ph.i
+  %.not.i11.i = icmp eq i64 %19, 0
+  br i1 %.not.i11.i, label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h539e86137da34e45E.exit.thread89", label %.lr.ph.i
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$23prepare_rehash_in_place17h539e86137da34e45E.exit.thread89": ; preds = %107
   %108 = icmp ne ptr %.val10, null
@@ -474,11 +474,11 @@ common.resume:                                    ; preds = %124, %54
   br label %.lr.ph49
 
 117:                                              ; preds = %117, %.lr.ph.i
-  %.sroa.52.014.i = phi i64 [ %.sroa.0.0.i.i.i.i, %.lr.ph.i ], [ %119, %117 ]
-  %.sroa.01.013.i = phi i64 [ 0, %.lr.ph.i ], [ %118, %117 ]
-  %118 = add i64 %.sroa.01.013.i, 16
-  %119 = add i64 %.sroa.52.014.i, -1
-  %120 = getelementptr inbounds i8, ptr %.val10, i64 %.sroa.01.013.i
+  %.sroa.52.013.i = phi i64 [ %.sroa.0.0.i.i.i.i, %.lr.ph.i ], [ %119, %117 ]
+  %.sroa.01.012.i = phi i64 [ 0, %.lr.ph.i ], [ %118, %117 ]
+  %118 = add i64 %.sroa.01.012.i, 16
+  %119 = add i64 %.sroa.52.013.i, -1
+  %120 = getelementptr inbounds i8, ptr %.val10, i64 %.sroa.01.012.i
   %121 = load <16 x i8>, ptr %120, align 16, !noalias !45
   %.lobit.i.i = ashr <16 x i8> %121, splat (i8 7)
   %122 = bitcast <16 x i8> %.lobit.i.i to <2 x i64>
@@ -795,8 +795,8 @@ define internal fastcc void @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22f
   br i1 %22, label %35, label %23
 
 23:                                               ; preds = %.thread, %15
-  %.sroa.4.0.i.ph48 = phi i64 [ %..i, %.thread ], [ %21, %15 ]
-  %24 = shl nuw i64 %.sroa.4.0.i.ph48, 3
+  %.sroa.4.0.i.ph46 = phi i64 [ %..i, %.thread ], [ %21, %15 ]
+  %24 = shl nuw i64 %.sroa.4.0.i.ph46, 3
   %25 = add i64 %1, -1
   %26 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %24, i64 %25)
   %27 = extractvalue { i64, i1 } %26, 1
@@ -806,7 +806,7 @@ define internal fastcc void @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22f
   %29 = extractvalue { i64, i1 } %26, 0
   %30 = sub i64 0, %1
   %31 = and i64 %29, %30
-  %32 = add nuw nsw i64 %.sroa.4.0.i.ph48, 16
+  %32 = add nuw nsw i64 %.sroa.4.0.i.ph46, 16
   %33 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %31, i64 %32)
   %34 = extractvalue { i64, i1 } %33, 1
   br i1 %34, label %35, label %36
@@ -868,9 +868,9 @@ define internal fastcc void @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22f
   ret void
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$17new_uninitialized17ha3c3a20af0a7350fE.exit": ; preds = %36
-  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph48, 9
-  %58 = add nsw i64 %.sroa.4.0.i.ph48, -1
-  %59 = lshr i64 %.sroa.4.0.i.ph48, 3
+  %57 = icmp samesign ult i64 %.sroa.4.0.i.ph46, 9
+  %58 = add nsw i64 %.sroa.4.0.i.ph46, -1
+  %59 = lshr i64 %.sroa.4.0.i.ph46, 3
   %60 = mul nuw nsw i64 %59, 7
   %.sroa.09.0.i = select i1 %57, i64 %58, i64 %60
   %61 = getelementptr inbounds i8, ptr %41, i64 %31
@@ -885,12 +885,12 @@ define internal fastcc void @"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$22f
   br label %56
 
 "_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$17new_uninitialized17ha3c3a20af0a7350fE.exit.thread": ; preds = %48, %35
-  %.sroa.7.053 = phi i64 [ %1, %48 ], [ 0, %35 ]
-  %.sroa.11.052 = phi i64 [ %37, %48 ], [ undef, %35 ]
+  %.sroa.7.051 = phi i64 [ %1, %48 ], [ 0, %35 ]
+  %.sroa.11.050 = phi i64 [ %37, %48 ], [ undef, %35 ]
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7.053, ptr %62, align 8
+  store i64 %.sroa.7.051, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.11.052, ptr %63, align 8
+  store i64 %.sroa.11.050, ptr %63, align 8
   store ptr null, ptr %0, align 8
   br label %56
 }

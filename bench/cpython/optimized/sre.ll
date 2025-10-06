@@ -1480,9 +1480,9 @@ Py_DECREF.exit.thread:                            ; preds = %29, %Py_DECREF.exit
   br label %69
 
 69:                                               ; preds = %82, %.lr.ph.i
-  %.0489.i = phi i64 [ 0, %.lr.ph.i ], [ %83, %82 ]
+  %.0488.i = phi i64 [ 0, %.lr.ph.i ], [ %83, %82 ]
   %70 = load ptr, ptr %67, align 8, !tbaa !37
-  %71 = getelementptr ptr, ptr %70, i64 %.0489.i
+  %71 = getelementptr ptr, ptr %70, i64 %.0488.i
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = call i64 @PyLong_AsUnsignedLong(ptr noundef %72) #14
   %74 = icmp eq i64 %73, -1
@@ -1494,13 +1494,13 @@ Py_DECREF.exit.thread:                            ; preds = %29, %Py_DECREF.exit
   br i1 %.not54.i, label %.thread.i, label %.thread2.i
 
 .thread.i:                                        ; preds = %75
-  %77 = getelementptr i32, ptr %68, i64 %.0489.i
+  %77 = getelementptr i32, ptr %68, i64 %.0488.i
   store i32 -1, ptr %77, align 4, !tbaa !40
   br label %.loopexit.i
 
 78:                                               ; preds = %69
   %79 = trunc i64 %73 to i32
-  %80 = getelementptr i32, ptr %68, i64 %.0489.i
+  %80 = getelementptr i32, ptr %68, i64 %.0488.i
   store i32 %79, ptr %80, align 4, !tbaa !40
   %.not55.i = icmp ult i64 %73, 4294967296
   br i1 %.not55.i, label %82, label %.loopexit.i
@@ -1511,7 +1511,7 @@ Py_DECREF.exit.thread:                            ; preds = %29, %Py_DECREF.exit
   br label %.thread2.i
 
 82:                                               ; preds = %78
-  %83 = add nuw nsw i64 %.0489.i, 1
+  %83 = add nuw nsw i64 %.0488.i, 1
   %exitcond.not.i = icmp eq i64 %83, %.val67.i
   br i1 %exitcond.not.i, label %.thread2.i, label %69, !llvm.loop !41
 
@@ -1596,8 +1596,8 @@ Py_DECREF.exit61.thread.i:                        ; preds = %104, %101, %99
   br i1 %109, label %_Py_NewRef.exit.i, label %_Py_NewRef.exit.sink.split.i
 
 _Py_NewRef.exit.sink.split.i:                     ; preds = %.split51.i, %.split.i
-  %.sink29.i = phi i32 [ %94, %.split.i ], [ %108, %.split51.i ]
-  %110 = add nuw i32 %.sink29.i, 1
+  %.sink28.i = phi i32 [ %94, %.split.i ], [ %108, %.split51.i ]
+  %110 = add nuw i32 %.sink28.i, 1
   store i32 %110, ptr %15, align 8, !tbaa !20
   br label %_Py_NewRef.exit.i
 
@@ -3468,9 +3468,9 @@ define internal ptr @_sre_SRE_Pattern_match(ptr noundef %0, ptr noundef %1, ptr 
   %7 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %11, label %.thread99
+  br i1 %.not, label %11, label %.thread96
 
-.thread99:                                        ; preds = %5
+.thread96:                                        ; preds = %5
   %8 = getelementptr i8, ptr %4, i64 16
   %.val = load i64, ptr %8, align 8, !tbaa !33
   %9 = add i64 %3, -1
@@ -3484,8 +3484,8 @@ define internal ptr @_sre_SRE_Pattern_match(ptr noundef %0, ptr noundef %1, ptr 
   %15 = and i1 %14, %13
   br i1 %15, label %.thread, label %16
 
-16:                                               ; preds = %.thread99, %11
-  %17 = phi i64 [ %10, %.thread99 ], [ %12, %11 ]
+16:                                               ; preds = %.thread96, %11
+  %17 = phi i64 [ %10, %.thread96 ], [ %12, %11 ]
   %18 = call ptr @_PyArg_UnpackKeywords(ptr noundef %2, i64 noundef %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull @_sre_SRE_Pattern_match._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #14
   %.not56 = icmp eq ptr %18, null
   br i1 %.not56, label %68, label %.thread
@@ -3495,7 +3495,7 @@ define internal ptr @_sre_SRE_Pattern_match(ptr noundef %0, ptr noundef %1, ptr 
   %20 = phi ptr [ %18, %16 ], [ %2, %11 ]
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %.not57 = icmp eq i64 %19, 0
-  br i1 %.not57, label %.thread85, label %22
+  br i1 %.not57, label %.thread83, label %22
 
 22:                                               ; preds = %.thread
   %23 = getelementptr i8, ptr %20, i64 8
@@ -3506,37 +3506,37 @@ define internal ptr @_sre_SRE_Pattern_match(ptr noundef %0, ptr noundef %1, ptr 
 25:                                               ; preds = %22
   %26 = call ptr @_PyNumber_Index(ptr noundef nonnull %24) #14
   %.not59 = icmp eq ptr %26, null
-  br i1 %.not59, label %Py_DECREF.exit69.thread, label %27
+  br i1 %.not59, label %Py_DECREF.exit68.thread, label %27
 
 27:                                               ; preds = %25
   %28 = call i64 @PyLong_AsSsize_t(ptr noundef nonnull %26) #14
   %29 = load i32, ptr %26, align 8, !tbaa !20
-  %.not.i68 = icmp sgt i32 %29, -1
-  br i1 %.not.i68, label %30, label %Py_DECREF.exit69
+  %.not.i67 = icmp sgt i32 %29, -1
+  br i1 %.not.i67, label %30, label %Py_DECREF.exit68
 
 30:                                               ; preds = %27
   %31 = add nsw i32 %29, -1
   store i32 %31, ptr %26, align 8, !tbaa !20
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %Py_DECREF.exit69
+  br i1 %32, label %33, label %Py_DECREF.exit68
 
 33:                                               ; preds = %30
   call void @_Py_Dealloc(ptr noundef nonnull %26) #14
-  br label %Py_DECREF.exit69
+  br label %Py_DECREF.exit68
 
-Py_DECREF.exit69:                                 ; preds = %33, %30, %27
+Py_DECREF.exit68:                                 ; preds = %33, %30, %27
   %34 = icmp eq i64 %28, -1
-  br i1 %34, label %Py_DECREF.exit69.thread, label %36
+  br i1 %34, label %Py_DECREF.exit68.thread, label %36
 
-Py_DECREF.exit69.thread:                          ; preds = %25, %Py_DECREF.exit69
+Py_DECREF.exit68.thread:                          ; preds = %25, %Py_DECREF.exit68
   %35 = call ptr @PyErr_Occurred() #14
   %.not60 = icmp eq ptr %35, null
   br i1 %.not60, label %36, label %68
 
-36:                                               ; preds = %Py_DECREF.exit69.thread, %Py_DECREF.exit69
-  %.2.ph = phi i64 [ %28, %Py_DECREF.exit69 ], [ -1, %Py_DECREF.exit69.thread ]
+36:                                               ; preds = %Py_DECREF.exit68.thread, %Py_DECREF.exit68
+  %.2.ph = phi i64 [ %28, %Py_DECREF.exit68 ], [ -1, %Py_DECREF.exit68.thread ]
   %.not61 = icmp eq i64 %19, 1
-  br i1 %.not61, label %.thread85, label %37
+  br i1 %.not61, label %.thread83, label %37
 
 37:                                               ; preds = %36, %22
   %.147 = phi i64 [ %.2.ph, %36 ], [ 0, %22 ]
@@ -3564,14 +3564,14 @@ Py_DECREF.exit69.thread:                          ; preds = %25, %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %47, %44, %41
   %48 = icmp eq i64 %42, -1
-  br i1 %48, label %Py_DECREF.exit.thread, label %.thread85
+  br i1 %48, label %Py_DECREF.exit.thread, label %.thread83
 
 Py_DECREF.exit.thread:                            ; preds = %37, %Py_DECREF.exit
   %49 = call ptr @PyErr_Occurred() #14
   %.not63 = icmp eq ptr %49, null
-  br i1 %.not63, label %.thread85, label %68
+  br i1 %.not63, label %.thread83, label %68
 
-.thread85:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %36, %.thread
+.thread83:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %36, %.thread
   %.046 = phi i64 [ %.2.ph, %36 ], [ 0, %.thread ], [ %.147, %Py_DECREF.exit ], [ %.147, %Py_DECREF.exit.thread ]
   %.044 = phi i64 [ 9223372036854775807, %36 ], [ 9223372036854775807, %.thread ], [ %42, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
   %50 = call ptr @PyType_GetModule(ptr noundef %1) #14
@@ -3579,10 +3579,10 @@ Py_DECREF.exit.thread:                            ; preds = %37, %Py_DECREF.exit
   %.val.i = load ptr, ptr %51, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = call fastcc ptr @state_init(ptr noundef %6, ptr noundef %0, ptr noundef %21, i64 noundef %.046, i64 noundef %.044)
-  %.not.i71 = icmp eq ptr %52, null
-  br i1 %.not.i71, label %_sre_SRE_Pattern_match_impl.exit, label %53
+  %.not.i70 = icmp eq ptr %52, null
+  br i1 %.not.i70, label %_sre_SRE_Pattern_match_impl.exit, label %53
 
-53:                                               ; preds = %.thread85
+53:                                               ; preds = %.thread83
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !78
   store ptr %55, ptr %6, align 8, !tbaa !81
@@ -3621,13 +3621,13 @@ sre_match.exit.i:                                 ; preds = %63, %61, %59
   call fastcc void @state_fini(ptr noundef nonnull %6)
   br label %_sre_SRE_Pattern_match_impl.exit
 
-_sre_SRE_Pattern_match_impl.exit:                 ; preds = %.thread85, %.sink.split.i
-  %.0.i = phi ptr [ null, %.thread85 ], [ %.0.ph.i, %.sink.split.i ]
+_sre_SRE_Pattern_match_impl.exit:                 ; preds = %.thread83, %.sink.split.i
+  %.0.i = phi ptr [ null, %.thread83 ], [ %.0.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %68
 
-68:                                               ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit69.thread, %_sre_SRE_Pattern_match_impl.exit, %16
-  %.048 = phi ptr [ %.0.i, %_sre_SRE_Pattern_match_impl.exit ], [ null, %16 ], [ null, %Py_DECREF.exit69.thread ], [ null, %Py_DECREF.exit.thread ]
+68:                                               ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit68.thread, %_sre_SRE_Pattern_match_impl.exit, %16
+  %.048 = phi ptr [ %.0.i, %_sre_SRE_Pattern_match_impl.exit ], [ null, %16 ], [ null, %Py_DECREF.exit68.thread ], [ null, %Py_DECREF.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.048
 }
@@ -3638,9 +3638,9 @@ define internal ptr @_sre_SRE_Pattern_fullmatch(ptr noundef %0, ptr noundef %1, 
   %7 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %11, label %.thread99
+  br i1 %.not, label %11, label %.thread96
 
-.thread99:                                        ; preds = %5
+.thread96:                                        ; preds = %5
   %8 = getelementptr i8, ptr %4, i64 16
   %.val = load i64, ptr %8, align 8, !tbaa !33
   %9 = add i64 %3, -1
@@ -3654,8 +3654,8 @@ define internal ptr @_sre_SRE_Pattern_fullmatch(ptr noundef %0, ptr noundef %1, 
   %15 = and i1 %14, %13
   br i1 %15, label %.thread, label %16
 
-16:                                               ; preds = %.thread99, %11
-  %17 = phi i64 [ %10, %.thread99 ], [ %12, %11 ]
+16:                                               ; preds = %.thread96, %11
+  %17 = phi i64 [ %10, %.thread96 ], [ %12, %11 ]
   %18 = call ptr @_PyArg_UnpackKeywords(ptr noundef %2, i64 noundef %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull @_sre_SRE_Pattern_fullmatch._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #14
   %.not56 = icmp eq ptr %18, null
   br i1 %.not56, label %69, label %.thread
@@ -3665,7 +3665,7 @@ define internal ptr @_sre_SRE_Pattern_fullmatch(ptr noundef %0, ptr noundef %1, 
   %20 = phi ptr [ %18, %16 ], [ %2, %11 ]
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %.not57 = icmp eq i64 %19, 0
-  br i1 %.not57, label %.thread85, label %22
+  br i1 %.not57, label %.thread83, label %22
 
 22:                                               ; preds = %.thread
   %23 = getelementptr i8, ptr %20, i64 8
@@ -3676,37 +3676,37 @@ define internal ptr @_sre_SRE_Pattern_fullmatch(ptr noundef %0, ptr noundef %1, 
 25:                                               ; preds = %22
   %26 = call ptr @_PyNumber_Index(ptr noundef nonnull %24) #14
   %.not59 = icmp eq ptr %26, null
-  br i1 %.not59, label %Py_DECREF.exit69.thread, label %27
+  br i1 %.not59, label %Py_DECREF.exit68.thread, label %27
 
 27:                                               ; preds = %25
   %28 = call i64 @PyLong_AsSsize_t(ptr noundef nonnull %26) #14
   %29 = load i32, ptr %26, align 8, !tbaa !20
-  %.not.i68 = icmp sgt i32 %29, -1
-  br i1 %.not.i68, label %30, label %Py_DECREF.exit69
+  %.not.i67 = icmp sgt i32 %29, -1
+  br i1 %.not.i67, label %30, label %Py_DECREF.exit68
 
 30:                                               ; preds = %27
   %31 = add nsw i32 %29, -1
   store i32 %31, ptr %26, align 8, !tbaa !20
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %Py_DECREF.exit69
+  br i1 %32, label %33, label %Py_DECREF.exit68
 
 33:                                               ; preds = %30
   call void @_Py_Dealloc(ptr noundef nonnull %26) #14
-  br label %Py_DECREF.exit69
+  br label %Py_DECREF.exit68
 
-Py_DECREF.exit69:                                 ; preds = %33, %30, %27
+Py_DECREF.exit68:                                 ; preds = %33, %30, %27
   %34 = icmp eq i64 %28, -1
-  br i1 %34, label %Py_DECREF.exit69.thread, label %36
+  br i1 %34, label %Py_DECREF.exit68.thread, label %36
 
-Py_DECREF.exit69.thread:                          ; preds = %25, %Py_DECREF.exit69
+Py_DECREF.exit68.thread:                          ; preds = %25, %Py_DECREF.exit68
   %35 = call ptr @PyErr_Occurred() #14
   %.not60 = icmp eq ptr %35, null
   br i1 %.not60, label %36, label %69
 
-36:                                               ; preds = %Py_DECREF.exit69.thread, %Py_DECREF.exit69
-  %.2.ph = phi i64 [ %28, %Py_DECREF.exit69 ], [ -1, %Py_DECREF.exit69.thread ]
+36:                                               ; preds = %Py_DECREF.exit68.thread, %Py_DECREF.exit68
+  %.2.ph = phi i64 [ %28, %Py_DECREF.exit68 ], [ -1, %Py_DECREF.exit68.thread ]
   %.not61 = icmp eq i64 %19, 1
-  br i1 %.not61, label %.thread85, label %37
+  br i1 %.not61, label %.thread83, label %37
 
 37:                                               ; preds = %36, %22
   %.147 = phi i64 [ %.2.ph, %36 ], [ 0, %22 ]
@@ -3734,14 +3734,14 @@ Py_DECREF.exit69.thread:                          ; preds = %25, %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %47, %44, %41
   %48 = icmp eq i64 %42, -1
-  br i1 %48, label %Py_DECREF.exit.thread, label %.thread85
+  br i1 %48, label %Py_DECREF.exit.thread, label %.thread83
 
 Py_DECREF.exit.thread:                            ; preds = %37, %Py_DECREF.exit
   %49 = call ptr @PyErr_Occurred() #14
   %.not63 = icmp eq ptr %49, null
-  br i1 %.not63, label %.thread85, label %69
+  br i1 %.not63, label %.thread83, label %69
 
-.thread85:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %36, %.thread
+.thread83:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %36, %.thread
   %.046 = phi i64 [ %.2.ph, %36 ], [ 0, %.thread ], [ %.147, %Py_DECREF.exit ], [ %.147, %Py_DECREF.exit.thread ]
   %.044 = phi i64 [ 9223372036854775807, %36 ], [ 9223372036854775807, %.thread ], [ %42, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
   %50 = call ptr @PyType_GetModule(ptr noundef %1) #14
@@ -3749,10 +3749,10 @@ Py_DECREF.exit.thread:                            ; preds = %37, %Py_DECREF.exit
   %.val.i = load ptr, ptr %51, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = call fastcc ptr @state_init(ptr noundef %6, ptr noundef %0, ptr noundef %21, i64 noundef %.046, i64 noundef %.044)
-  %.not.i71 = icmp eq ptr %52, null
-  br i1 %.not.i71, label %_sre_SRE_Pattern_fullmatch_impl.exit, label %53
+  %.not.i70 = icmp eq ptr %52, null
+  br i1 %.not.i70, label %_sre_SRE_Pattern_fullmatch_impl.exit, label %53
 
-53:                                               ; preds = %.thread85
+53:                                               ; preds = %.thread83
   %54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !78
   store ptr %55, ptr %6, align 8, !tbaa !81
@@ -3793,13 +3793,13 @@ sre_match.exit.i:                                 ; preds = %64, %62, %60
   call fastcc void @state_fini(ptr noundef nonnull %6)
   br label %_sre_SRE_Pattern_fullmatch_impl.exit
 
-_sre_SRE_Pattern_fullmatch_impl.exit:             ; preds = %.thread85, %.sink.split.i
-  %.0.i = phi ptr [ null, %.thread85 ], [ %.0.ph.i, %.sink.split.i ]
+_sre_SRE_Pattern_fullmatch_impl.exit:             ; preds = %.thread83, %.sink.split.i
+  %.0.i = phi ptr [ null, %.thread83 ], [ %.0.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %69
 
-69:                                               ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit69.thread, %_sre_SRE_Pattern_fullmatch_impl.exit, %16
-  %.048 = phi ptr [ %.0.i, %_sre_SRE_Pattern_fullmatch_impl.exit ], [ null, %16 ], [ null, %Py_DECREF.exit69.thread ], [ null, %Py_DECREF.exit.thread ]
+69:                                               ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit68.thread, %_sre_SRE_Pattern_fullmatch_impl.exit, %16
+  %.048 = phi ptr [ %.0.i, %_sre_SRE_Pattern_fullmatch_impl.exit ], [ null, %16 ], [ null, %Py_DECREF.exit68.thread ], [ null, %Py_DECREF.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.048
 }
@@ -3810,9 +3810,9 @@ define internal ptr @_sre_SRE_Pattern_search(ptr noundef %0, ptr noundef %1, ptr
   %7 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %11, label %.thread99
+  br i1 %.not, label %11, label %.thread96
 
-.thread99:                                        ; preds = %5
+.thread96:                                        ; preds = %5
   %8 = getelementptr i8, ptr %4, i64 16
   %.val = load i64, ptr %8, align 8, !tbaa !33
   %9 = add i64 %3, -1
@@ -3826,8 +3826,8 @@ define internal ptr @_sre_SRE_Pattern_search(ptr noundef %0, ptr noundef %1, ptr
   %15 = and i1 %14, %13
   br i1 %15, label %.thread, label %16
 
-16:                                               ; preds = %.thread99, %11
-  %17 = phi i64 [ %10, %.thread99 ], [ %12, %11 ]
+16:                                               ; preds = %.thread96, %11
+  %17 = phi i64 [ %10, %.thread96 ], [ %12, %11 ]
   %18 = call ptr @_PyArg_UnpackKeywords(ptr noundef %2, i64 noundef %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull @_sre_SRE_Pattern_search._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #14
   %.not56 = icmp eq ptr %18, null
   br i1 %.not56, label %59, label %.thread
@@ -3837,7 +3837,7 @@ define internal ptr @_sre_SRE_Pattern_search(ptr noundef %0, ptr noundef %1, ptr
   %20 = phi ptr [ %18, %16 ], [ %2, %11 ]
   %21 = load ptr, ptr %20, align 8, !tbaa !21
   %.not57 = icmp eq i64 %19, 0
-  br i1 %.not57, label %.thread85, label %22
+  br i1 %.not57, label %.thread83, label %22
 
 22:                                               ; preds = %.thread
   %23 = getelementptr i8, ptr %20, i64 8
@@ -3848,37 +3848,37 @@ define internal ptr @_sre_SRE_Pattern_search(ptr noundef %0, ptr noundef %1, ptr
 25:                                               ; preds = %22
   %26 = call ptr @_PyNumber_Index(ptr noundef nonnull %24) #14
   %.not59 = icmp eq ptr %26, null
-  br i1 %.not59, label %Py_DECREF.exit69.thread, label %27
+  br i1 %.not59, label %Py_DECREF.exit68.thread, label %27
 
 27:                                               ; preds = %25
   %28 = call i64 @PyLong_AsSsize_t(ptr noundef nonnull %26) #14
   %29 = load i32, ptr %26, align 8, !tbaa !20
-  %.not.i68 = icmp sgt i32 %29, -1
-  br i1 %.not.i68, label %30, label %Py_DECREF.exit69
+  %.not.i67 = icmp sgt i32 %29, -1
+  br i1 %.not.i67, label %30, label %Py_DECREF.exit68
 
 30:                                               ; preds = %27
   %31 = add nsw i32 %29, -1
   store i32 %31, ptr %26, align 8, !tbaa !20
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %Py_DECREF.exit69
+  br i1 %32, label %33, label %Py_DECREF.exit68
 
 33:                                               ; preds = %30
   call void @_Py_Dealloc(ptr noundef nonnull %26) #14
-  br label %Py_DECREF.exit69
+  br label %Py_DECREF.exit68
 
-Py_DECREF.exit69:                                 ; preds = %33, %30, %27
+Py_DECREF.exit68:                                 ; preds = %33, %30, %27
   %34 = icmp eq i64 %28, -1
-  br i1 %34, label %Py_DECREF.exit69.thread, label %36
+  br i1 %34, label %Py_DECREF.exit68.thread, label %36
 
-Py_DECREF.exit69.thread:                          ; preds = %25, %Py_DECREF.exit69
+Py_DECREF.exit68.thread:                          ; preds = %25, %Py_DECREF.exit68
   %35 = call ptr @PyErr_Occurred() #14
   %.not60 = icmp eq ptr %35, null
   br i1 %.not60, label %36, label %59
 
-36:                                               ; preds = %Py_DECREF.exit69.thread, %Py_DECREF.exit69
-  %.2.ph = phi i64 [ %28, %Py_DECREF.exit69 ], [ -1, %Py_DECREF.exit69.thread ]
+36:                                               ; preds = %Py_DECREF.exit68.thread, %Py_DECREF.exit68
+  %.2.ph = phi i64 [ %28, %Py_DECREF.exit68 ], [ -1, %Py_DECREF.exit68.thread ]
   %.not61 = icmp eq i64 %19, 1
-  br i1 %.not61, label %.thread85, label %37
+  br i1 %.not61, label %.thread83, label %37
 
 37:                                               ; preds = %36, %22
   %.147 = phi i64 [ %.2.ph, %36 ], [ 0, %22 ]
@@ -3906,14 +3906,14 @@ Py_DECREF.exit69.thread:                          ; preds = %25, %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %47, %44, %41
   %48 = icmp eq i64 %42, -1
-  br i1 %48, label %Py_DECREF.exit.thread, label %.thread85
+  br i1 %48, label %Py_DECREF.exit.thread, label %.thread83
 
 Py_DECREF.exit.thread:                            ; preds = %37, %Py_DECREF.exit
   %49 = call ptr @PyErr_Occurred() #14
   %.not63 = icmp eq ptr %49, null
-  br i1 %.not63, label %.thread85, label %59
+  br i1 %.not63, label %.thread83, label %59
 
-.thread85:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %36, %.thread
+.thread83:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %36, %.thread
   %.046 = phi i64 [ %.2.ph, %36 ], [ 0, %.thread ], [ %.147, %Py_DECREF.exit ], [ %.147, %Py_DECREF.exit.thread ]
   %.044 = phi i64 [ 9223372036854775807, %36 ], [ 9223372036854775807, %.thread ], [ %42, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
   %50 = call ptr @PyType_GetModule(ptr noundef %1) #14
@@ -3921,10 +3921,10 @@ Py_DECREF.exit.thread:                            ; preds = %37, %Py_DECREF.exit
   %.val.i = load ptr, ptr %51, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %52 = call fastcc ptr @state_init(ptr noundef %6, ptr noundef %0, ptr noundef %21, i64 noundef %.046, i64 noundef %.044)
-  %.not.i71 = icmp eq ptr %52, null
-  br i1 %.not.i71, label %_sre_SRE_Pattern_search_impl.exit, label %53
+  %.not.i70 = icmp eq ptr %52, null
+  br i1 %.not.i70, label %_sre_SRE_Pattern_search_impl.exit, label %53
 
-53:                                               ; preds = %.thread85
+53:                                               ; preds = %.thread83
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %55 = call fastcc i64 @sre_search(ptr noundef nonnull %6, ptr noundef nonnull %54)
   %56 = call ptr @PyErr_Occurred() #14
@@ -3940,13 +3940,13 @@ Py_DECREF.exit.thread:                            ; preds = %37, %Py_DECREF.exit
   call fastcc void @state_fini(ptr noundef nonnull %6)
   br label %_sre_SRE_Pattern_search_impl.exit
 
-_sre_SRE_Pattern_search_impl.exit:                ; preds = %.thread85, %.sink.split.i
-  %.0.i = phi ptr [ null, %.thread85 ], [ %.0.ph.i, %.sink.split.i ]
+_sre_SRE_Pattern_search_impl.exit:                ; preds = %.thread83, %.sink.split.i
+  %.0.i = phi ptr [ null, %.thread83 ], [ %.0.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %59
 
-59:                                               ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit69.thread, %_sre_SRE_Pattern_search_impl.exit, %16
-  %.048 = phi ptr [ %.0.i, %_sre_SRE_Pattern_search_impl.exit ], [ null, %16 ], [ null, %Py_DECREF.exit69.thread ], [ null, %Py_DECREF.exit.thread ]
+59:                                               ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit68.thread, %_sre_SRE_Pattern_search_impl.exit, %16
+  %.048 = phi ptr [ %.0.i, %_sre_SRE_Pattern_search_impl.exit ], [ null, %16 ], [ null, %Py_DECREF.exit68.thread ], [ null, %Py_DECREF.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.048
 }
@@ -4119,9 +4119,9 @@ define internal ptr @_sre_SRE_Pattern_findall(ptr noundef %0, ptr noundef %1, i6
   %6 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %10, label %.thread119
+  br i1 %.not, label %10, label %.thread116
 
-.thread119:                                       ; preds = %4
+.thread116:                                       ; preds = %4
   %7 = getelementptr i8, ptr %3, i64 16
   %.val = load i64, ptr %7, align 8, !tbaa !33
   %8 = add i64 %2, -1
@@ -4135,8 +4135,8 @@ define internal ptr @_sre_SRE_Pattern_findall(ptr noundef %0, ptr noundef %1, i6
   %14 = and i1 %13, %12
   br i1 %14, label %.thread, label %15
 
-15:                                               ; preds = %.thread119, %10
-  %16 = phi i64 [ %9, %.thread119 ], [ %11, %10 ]
+15:                                               ; preds = %.thread116, %10
+  %16 = phi i64 [ %9, %.thread116 ], [ %11, %10 ]
   %17 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @_sre_SRE_Pattern_findall._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #14
   %.not55 = icmp eq ptr %17, null
   br i1 %.not55, label %153, label %.thread
@@ -4146,7 +4146,7 @@ define internal ptr @_sre_SRE_Pattern_findall(ptr noundef %0, ptr noundef %1, i6
   %19 = phi ptr [ %17, %15 ], [ %1, %10 ]
   %20 = load ptr, ptr %19, align 8, !tbaa !21
   %.not56 = icmp eq i64 %18, 0
-  br i1 %.not56, label %.thread84, label %21
+  br i1 %.not56, label %.thread82, label %21
 
 21:                                               ; preds = %.thread
   %22 = getelementptr i8, ptr %19, i64 8
@@ -4157,37 +4157,37 @@ define internal ptr @_sre_SRE_Pattern_findall(ptr noundef %0, ptr noundef %1, i6
 24:                                               ; preds = %21
   %25 = call ptr @_PyNumber_Index(ptr noundef nonnull %23) #14
   %.not58 = icmp eq ptr %25, null
-  br i1 %.not58, label %Py_DECREF.exit68.thread, label %26
+  br i1 %.not58, label %Py_DECREF.exit67.thread, label %26
 
 26:                                               ; preds = %24
   %27 = call i64 @PyLong_AsSsize_t(ptr noundef nonnull %25) #14
   %28 = load i32, ptr %25, align 8, !tbaa !20
-  %.not.i67 = icmp sgt i32 %28, -1
-  br i1 %.not.i67, label %29, label %Py_DECREF.exit68
+  %.not.i66 = icmp sgt i32 %28, -1
+  br i1 %.not.i66, label %29, label %Py_DECREF.exit67
 
 29:                                               ; preds = %26
   %30 = add nsw i32 %28, -1
   store i32 %30, ptr %25, align 8, !tbaa !20
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %Py_DECREF.exit68
+  br i1 %31, label %32, label %Py_DECREF.exit67
 
 32:                                               ; preds = %29
   call void @_Py_Dealloc(ptr noundef nonnull %25) #14
-  br label %Py_DECREF.exit68
+  br label %Py_DECREF.exit67
 
-Py_DECREF.exit68:                                 ; preds = %32, %29, %26
+Py_DECREF.exit67:                                 ; preds = %32, %29, %26
   %33 = icmp eq i64 %27, -1
-  br i1 %33, label %Py_DECREF.exit68.thread, label %35
+  br i1 %33, label %Py_DECREF.exit67.thread, label %35
 
-Py_DECREF.exit68.thread:                          ; preds = %24, %Py_DECREF.exit68
+Py_DECREF.exit67.thread:                          ; preds = %24, %Py_DECREF.exit67
   %34 = call ptr @PyErr_Occurred() #14
   %.not59 = icmp eq ptr %34, null
   br i1 %.not59, label %35, label %153
 
-35:                                               ; preds = %Py_DECREF.exit68.thread, %Py_DECREF.exit68
-  %.2.ph = phi i64 [ %27, %Py_DECREF.exit68 ], [ -1, %Py_DECREF.exit68.thread ]
+35:                                               ; preds = %Py_DECREF.exit67.thread, %Py_DECREF.exit67
+  %.2.ph = phi i64 [ %27, %Py_DECREF.exit67 ], [ -1, %Py_DECREF.exit67.thread ]
   %.not60 = icmp eq i64 %18, 1
-  br i1 %.not60, label %.thread84, label %36
+  br i1 %.not60, label %.thread82, label %36
 
 36:                                               ; preds = %35, %21
   %.146 = phi i64 [ %.2.ph, %35 ], [ 0, %21 ]
@@ -4215,22 +4215,22 @@ Py_DECREF.exit68.thread:                          ; preds = %24, %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %46, %43, %40
   %47 = icmp eq i64 %41, -1
-  br i1 %47, label %Py_DECREF.exit.thread, label %.thread84
+  br i1 %47, label %Py_DECREF.exit.thread, label %.thread82
 
 Py_DECREF.exit.thread:                            ; preds = %36, %Py_DECREF.exit
   %48 = call ptr @PyErr_Occurred() #14
   %.not62 = icmp eq ptr %48, null
-  br i1 %.not62, label %.thread84, label %153
+  br i1 %.not62, label %.thread82, label %153
 
-.thread84:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %35, %.thread
+.thread82:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %35, %.thread
   %.045 = phi i64 [ %.2.ph, %35 ], [ 0, %.thread ], [ %.146, %Py_DECREF.exit ], [ %.146, %Py_DECREF.exit.thread ]
   %.043 = phi i64 [ 9223372036854775807, %35 ], [ 9223372036854775807, %.thread ], [ %41, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %49 = call fastcc ptr @state_init(ptr noundef %5, ptr noundef %0, ptr noundef %20, i64 noundef %.045, i64 noundef %.043)
-  %.not.i70 = icmp eq ptr %49, null
-  br i1 %.not.i70, label %_sre_SRE_Pattern_findall_impl.exit, label %50
+  %.not.i69 = icmp eq ptr %49, null
+  br i1 %.not.i69, label %_sre_SRE_Pattern_findall_impl.exit, label %50
 
-50:                                               ; preds = %.thread84
+50:                                               ; preds = %.thread82
   %51 = call ptr @PyList_New(i64 noundef 0) #14
   %.not44.i = icmp eq ptr %51, null
   br i1 %.not44.i, label %.sink.split.i, label %.preheader64.i
@@ -4470,13 +4470,13 @@ Py_DECREF.exit54.thread.i:                        ; preds = %Py_DECREF.exit52.i,
   call fastcc void @state_fini(ptr noundef nonnull %5)
   br label %_sre_SRE_Pattern_findall_impl.exit
 
-_sre_SRE_Pattern_findall_impl.exit:               ; preds = %.thread84, %.sink.split.i
-  %.0.i = phi ptr [ null, %.thread84 ], [ %.0.ph.i, %.sink.split.i ]
+_sre_SRE_Pattern_findall_impl.exit:               ; preds = %.thread82, %.sink.split.i
+  %.0.i = phi ptr [ null, %.thread82 ], [ %.0.ph.i, %.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %153
 
-153:                                              ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit68.thread, %_sre_SRE_Pattern_findall_impl.exit, %15
-  %.047 = phi ptr [ %.0.i, %_sre_SRE_Pattern_findall_impl.exit ], [ null, %15 ], [ null, %Py_DECREF.exit68.thread ], [ null, %Py_DECREF.exit.thread ]
+153:                                              ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit67.thread, %_sre_SRE_Pattern_findall_impl.exit, %15
+  %.047 = phi ptr [ %.0.i, %_sre_SRE_Pattern_findall_impl.exit ], [ null, %15 ], [ null, %Py_DECREF.exit67.thread ], [ null, %Py_DECREF.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.047
 }
@@ -4962,9 +4962,9 @@ define internal ptr @_sre_SRE_Pattern_finditer(ptr noundef %0, ptr noundef %1, p
   %6 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %10, label %.thread104
+  br i1 %.not, label %10, label %.thread101
 
-.thread104:                                       ; preds = %5
+.thread101:                                       ; preds = %5
   %7 = getelementptr i8, ptr %4, i64 16
   %.val = load i64, ptr %7, align 8, !tbaa !33
   %8 = add i64 %3, -1
@@ -4978,8 +4978,8 @@ define internal ptr @_sre_SRE_Pattern_finditer(ptr noundef %0, ptr noundef %1, p
   %14 = and i1 %13, %12
   br i1 %14, label %.thread, label %15
 
-15:                                               ; preds = %.thread104, %10
-  %16 = phi i64 [ %9, %.thread104 ], [ %11, %10 ]
+15:                                               ; preds = %.thread101, %10
+  %16 = phi i64 [ %9, %.thread101 ], [ %11, %10 ]
   %17 = call ptr @_PyArg_UnpackKeywords(ptr noundef %2, i64 noundef %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull @_sre_SRE_Pattern_finditer._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #14
   %.not56 = icmp eq ptr %17, null
   br i1 %.not56, label %_sre_SRE_Pattern_finditer_impl.exit, label %.thread
@@ -4989,7 +4989,7 @@ define internal ptr @_sre_SRE_Pattern_finditer(ptr noundef %0, ptr noundef %1, p
   %19 = phi ptr [ %17, %15 ], [ %2, %10 ]
   %20 = load ptr, ptr %19, align 8, !tbaa !21
   %.not57 = icmp eq i64 %18, 0
-  br i1 %.not57, label %.thread84, label %21
+  br i1 %.not57, label %.thread82, label %21
 
 21:                                               ; preds = %.thread
   %22 = getelementptr i8, ptr %19, i64 8
@@ -5000,37 +5000,37 @@ define internal ptr @_sre_SRE_Pattern_finditer(ptr noundef %0, ptr noundef %1, p
 24:                                               ; preds = %21
   %25 = call ptr @_PyNumber_Index(ptr noundef nonnull %23) #14
   %.not59 = icmp eq ptr %25, null
-  br i1 %.not59, label %Py_DECREF.exit69.thread, label %26
+  br i1 %.not59, label %Py_DECREF.exit68.thread, label %26
 
 26:                                               ; preds = %24
   %27 = call i64 @PyLong_AsSsize_t(ptr noundef nonnull %25) #14
   %28 = load i32, ptr %25, align 8, !tbaa !20
-  %.not.i68 = icmp sgt i32 %28, -1
-  br i1 %.not.i68, label %29, label %Py_DECREF.exit69
+  %.not.i67 = icmp sgt i32 %28, -1
+  br i1 %.not.i67, label %29, label %Py_DECREF.exit68
 
 29:                                               ; preds = %26
   %30 = add nsw i32 %28, -1
   store i32 %30, ptr %25, align 8, !tbaa !20
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %Py_DECREF.exit69
+  br i1 %31, label %32, label %Py_DECREF.exit68
 
 32:                                               ; preds = %29
   call void @_Py_Dealloc(ptr noundef nonnull %25) #14
-  br label %Py_DECREF.exit69
+  br label %Py_DECREF.exit68
 
-Py_DECREF.exit69:                                 ; preds = %32, %29, %26
+Py_DECREF.exit68:                                 ; preds = %32, %29, %26
   %33 = icmp eq i64 %27, -1
-  br i1 %33, label %Py_DECREF.exit69.thread, label %35
+  br i1 %33, label %Py_DECREF.exit68.thread, label %35
 
-Py_DECREF.exit69.thread:                          ; preds = %24, %Py_DECREF.exit69
+Py_DECREF.exit68.thread:                          ; preds = %24, %Py_DECREF.exit68
   %34 = call ptr @PyErr_Occurred() #14
   %.not60 = icmp eq ptr %34, null
   br i1 %.not60, label %35, label %_sre_SRE_Pattern_finditer_impl.exit
 
-35:                                               ; preds = %Py_DECREF.exit69.thread, %Py_DECREF.exit69
-  %.2.ph = phi i64 [ %27, %Py_DECREF.exit69 ], [ -1, %Py_DECREF.exit69.thread ]
+35:                                               ; preds = %Py_DECREF.exit68.thread, %Py_DECREF.exit68
+  %.2.ph = phi i64 [ %27, %Py_DECREF.exit68 ], [ -1, %Py_DECREF.exit68.thread ]
   %.not61 = icmp eq i64 %18, 1
-  br i1 %.not61, label %.thread84, label %36
+  br i1 %.not61, label %.thread82, label %36
 
 36:                                               ; preds = %35, %21
   %.147 = phi i64 [ %.2.ph, %35 ], [ 0, %21 ]
@@ -5058,14 +5058,14 @@ Py_DECREF.exit69.thread:                          ; preds = %24, %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %46, %43, %40
   %47 = icmp eq i64 %41, -1
-  br i1 %47, label %Py_DECREF.exit.thread, label %.thread84
+  br i1 %47, label %Py_DECREF.exit.thread, label %.thread82
 
 Py_DECREF.exit.thread:                            ; preds = %36, %Py_DECREF.exit
   %48 = call ptr @PyErr_Occurred() #14
   %.not63 = icmp eq ptr %48, null
-  br i1 %.not63, label %.thread84, label %_sre_SRE_Pattern_finditer_impl.exit
+  br i1 %.not63, label %.thread82, label %_sre_SRE_Pattern_finditer_impl.exit
 
-.thread84:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %35, %.thread
+.thread82:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %35, %.thread
   %.046 = phi i64 [ %.2.ph, %35 ], [ 0, %.thread ], [ %.147, %Py_DECREF.exit ], [ %.147, %Py_DECREF.exit.thread ]
   %.044 = phi i64 [ 9223372036854775807, %35 ], [ 9223372036854775807, %.thread ], [ %41, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
   %49 = call ptr @PyType_GetModule(ptr noundef %1) #14
@@ -5077,7 +5077,7 @@ Py_DECREF.exit.thread:                            ; preds = %36, %Py_DECREF.exit
   %.not.i20.i = icmp eq ptr %52, null
   br i1 %.not.i20.i, label %_sre_SRE_Pattern_finditer_impl.exit, label %53
 
-53:                                               ; preds = %.thread84
+53:                                               ; preds = %.thread82
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr null, ptr %54, align 8, !tbaa !98
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 256
@@ -5148,8 +5148,8 @@ Py_DECREF.exit.sink.split.i:                      ; preds = %78, %60
   call void @_Py_Dealloc(ptr noundef nonnull %.sink.i) #14
   br label %_sre_SRE_Pattern_finditer_impl.exit
 
-_sre_SRE_Pattern_finditer_impl.exit:              ; preds = %Py_DECREF.exit.sink.split.i, %78, %75, %Py_DECREF.exit17.i, %60, %58, %.thread84, %Py_DECREF.exit.thread, %Py_DECREF.exit69.thread, %15
-  %.048 = phi ptr [ null, %15 ], [ null, %Py_DECREF.exit69.thread ], [ null, %Py_DECREF.exit.thread ], [ null, %Py_DECREF.exit17.i ], [ %76, %75 ], [ %76, %78 ], [ null, %.thread84 ], [ null, %58 ], [ null, %60 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ]
+_sre_SRE_Pattern_finditer_impl.exit:              ; preds = %Py_DECREF.exit.sink.split.i, %78, %75, %Py_DECREF.exit17.i, %60, %58, %.thread82, %Py_DECREF.exit.thread, %Py_DECREF.exit68.thread, %15
+  %.048 = phi ptr [ null, %15 ], [ null, %Py_DECREF.exit68.thread ], [ null, %Py_DECREF.exit.thread ], [ null, %Py_DECREF.exit17.i ], [ %76, %75 ], [ %76, %78 ], [ null, %.thread82 ], [ null, %58 ], [ null, %60 ], [ %.0.ph.i, %Py_DECREF.exit.sink.split.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.048
 }
@@ -5159,9 +5159,9 @@ define internal ptr @_sre_SRE_Pattern_scanner(ptr noundef %0, ptr noundef %1, pt
   %6 = alloca [3 x ptr], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %10, label %.thread101
+  br i1 %.not, label %10, label %.thread98
 
-.thread101:                                       ; preds = %5
+.thread98:                                        ; preds = %5
   %7 = getelementptr i8, ptr %4, i64 16
   %.val = load i64, ptr %7, align 8, !tbaa !33
   %8 = add i64 %3, -1
@@ -5175,8 +5175,8 @@ define internal ptr @_sre_SRE_Pattern_scanner(ptr noundef %0, ptr noundef %1, pt
   %14 = and i1 %13, %12
   br i1 %14, label %.thread, label %15
 
-15:                                               ; preds = %.thread101, %10
-  %16 = phi i64 [ %9, %.thread101 ], [ %11, %10 ]
+15:                                               ; preds = %.thread98, %10
+  %16 = phi i64 [ %9, %.thread98 ], [ %11, %10 ]
   %17 = call ptr @_PyArg_UnpackKeywords(ptr noundef %2, i64 noundef %3, ptr noundef null, ptr noundef %4, ptr noundef nonnull @_sre_SRE_Pattern_scanner._parser, i32 noundef 1, i32 noundef 3, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %6) #14
   %.not56 = icmp eq ptr %17, null
   br i1 %.not56, label %_sre_SRE_Pattern_scanner_impl.exit, label %.thread
@@ -5186,7 +5186,7 @@ define internal ptr @_sre_SRE_Pattern_scanner(ptr noundef %0, ptr noundef %1, pt
   %19 = phi ptr [ %17, %15 ], [ %2, %10 ]
   %20 = load ptr, ptr %19, align 8, !tbaa !21
   %.not57 = icmp eq i64 %18, 0
-  br i1 %.not57, label %.thread84, label %21
+  br i1 %.not57, label %.thread82, label %21
 
 21:                                               ; preds = %.thread
   %22 = getelementptr i8, ptr %19, i64 8
@@ -5197,37 +5197,37 @@ define internal ptr @_sre_SRE_Pattern_scanner(ptr noundef %0, ptr noundef %1, pt
 24:                                               ; preds = %21
   %25 = call ptr @_PyNumber_Index(ptr noundef nonnull %23) #14
   %.not59 = icmp eq ptr %25, null
-  br i1 %.not59, label %Py_DECREF.exit69.thread, label %26
+  br i1 %.not59, label %Py_DECREF.exit68.thread, label %26
 
 26:                                               ; preds = %24
   %27 = call i64 @PyLong_AsSsize_t(ptr noundef nonnull %25) #14
   %28 = load i32, ptr %25, align 8, !tbaa !20
-  %.not.i68 = icmp sgt i32 %28, -1
-  br i1 %.not.i68, label %29, label %Py_DECREF.exit69
+  %.not.i67 = icmp sgt i32 %28, -1
+  br i1 %.not.i67, label %29, label %Py_DECREF.exit68
 
 29:                                               ; preds = %26
   %30 = add nsw i32 %28, -1
   store i32 %30, ptr %25, align 8, !tbaa !20
   %31 = icmp eq i32 %30, 0
-  br i1 %31, label %32, label %Py_DECREF.exit69
+  br i1 %31, label %32, label %Py_DECREF.exit68
 
 32:                                               ; preds = %29
   call void @_Py_Dealloc(ptr noundef nonnull %25) #14
-  br label %Py_DECREF.exit69
+  br label %Py_DECREF.exit68
 
-Py_DECREF.exit69:                                 ; preds = %32, %29, %26
+Py_DECREF.exit68:                                 ; preds = %32, %29, %26
   %33 = icmp eq i64 %27, -1
-  br i1 %33, label %Py_DECREF.exit69.thread, label %35
+  br i1 %33, label %Py_DECREF.exit68.thread, label %35
 
-Py_DECREF.exit69.thread:                          ; preds = %24, %Py_DECREF.exit69
+Py_DECREF.exit68.thread:                          ; preds = %24, %Py_DECREF.exit68
   %34 = call ptr @PyErr_Occurred() #14
   %.not60 = icmp eq ptr %34, null
   br i1 %.not60, label %35, label %_sre_SRE_Pattern_scanner_impl.exit
 
-35:                                               ; preds = %Py_DECREF.exit69.thread, %Py_DECREF.exit69
-  %.2.ph = phi i64 [ %27, %Py_DECREF.exit69 ], [ -1, %Py_DECREF.exit69.thread ]
+35:                                               ; preds = %Py_DECREF.exit68.thread, %Py_DECREF.exit68
+  %.2.ph = phi i64 [ %27, %Py_DECREF.exit68 ], [ -1, %Py_DECREF.exit68.thread ]
   %.not61 = icmp eq i64 %18, 1
-  br i1 %.not61, label %.thread84, label %36
+  br i1 %.not61, label %.thread82, label %36
 
 36:                                               ; preds = %35, %21
   %.147 = phi i64 [ %.2.ph, %35 ], [ 0, %21 ]
@@ -5255,14 +5255,14 @@ Py_DECREF.exit69.thread:                          ; preds = %24, %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %46, %43, %40
   %47 = icmp eq i64 %41, -1
-  br i1 %47, label %Py_DECREF.exit.thread, label %.thread84
+  br i1 %47, label %Py_DECREF.exit.thread, label %.thread82
 
 Py_DECREF.exit.thread:                            ; preds = %36, %Py_DECREF.exit
   %48 = call ptr @PyErr_Occurred() #14
   %.not63 = icmp eq ptr %48, null
-  br i1 %.not63, label %.thread84, label %_sre_SRE_Pattern_scanner_impl.exit
+  br i1 %.not63, label %.thread82, label %_sre_SRE_Pattern_scanner_impl.exit
 
-.thread84:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %35, %.thread
+.thread82:                                        ; preds = %Py_DECREF.exit.thread, %Py_DECREF.exit, %35, %.thread
   %.046 = phi i64 [ %.2.ph, %35 ], [ 0, %.thread ], [ %.147, %Py_DECREF.exit ], [ %.147, %Py_DECREF.exit.thread ]
   %.044 = phi i64 [ 9223372036854775807, %35 ], [ 9223372036854775807, %.thread ], [ %41, %Py_DECREF.exit ], [ -1, %Py_DECREF.exit.thread ]
   %49 = call ptr @PyType_GetModule(ptr noundef %1) #14
@@ -5274,7 +5274,7 @@ Py_DECREF.exit.thread:                            ; preds = %36, %Py_DECREF.exit
   %.not.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i, label %_sre_SRE_Pattern_scanner_impl.exit, label %53
 
-53:                                               ; preds = %.thread84
+53:                                               ; preds = %.thread82
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 16
   store ptr null, ptr %54, align 8, !tbaa !98
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 256
@@ -5314,8 +5314,8 @@ Py_INCREF.exit.i.i:                               ; preds = %67, %64
   call void @PyObject_GC_Track(ptr noundef nonnull %52) #14
   br label %_sre_SRE_Pattern_scanner_impl.exit
 
-_sre_SRE_Pattern_scanner_impl.exit:               ; preds = %Py_INCREF.exit.i.i, %63, %60, %58, %.thread84, %Py_DECREF.exit.thread, %Py_DECREF.exit69.thread, %15
-  %.048 = phi ptr [ null, %15 ], [ null, %Py_DECREF.exit69.thread ], [ null, %Py_DECREF.exit.thread ], [ %52, %Py_INCREF.exit.i.i ], [ null, %.thread84 ], [ null, %58 ], [ null, %60 ], [ null, %63 ]
+_sre_SRE_Pattern_scanner_impl.exit:               ; preds = %Py_INCREF.exit.i.i, %63, %60, %58, %.thread82, %Py_DECREF.exit.thread, %Py_DECREF.exit68.thread, %15
+  %.048 = phi ptr [ null, %15 ], [ null, %Py_DECREF.exit68.thread ], [ null, %Py_DECREF.exit.thread ], [ %52, %Py_INCREF.exit.i.i ], [ null, %.thread82 ], [ null, %58 ], [ null, %60 ], [ null, %63 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret ptr %.048
 }

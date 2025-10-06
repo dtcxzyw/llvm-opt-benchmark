@@ -1051,14 +1051,14 @@ define internal fastcc range(i32 0, 2) i32 @json_pre_item(ptr noundef captures(n
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i8, ptr %3, align 4, !tbaa !23
   %.not = icmp eq i8 %4, 0
-  br i1 %.not, label %5, label %65
+  br i1 %.not, label %5, label %66
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6
   %7 = load i8, ptr %6, align 2, !tbaa !17
-  switch i8 %7, label %64 [
+  switch i8 %7, label %65 [
     i8 2, label %8
-    i8 1, label %65
+    i8 1, label %66
   ]
 
 8:                                                ; preds = %5
@@ -1071,7 +1071,7 @@ define internal fastcc range(i32 0, 2) i32 @json_pre_item(ptr noundef captures(n
 
 14:                                               ; preds = %8
   %15 = icmp eq i64 %10, 0
-  br i1 %15, label %61, label %16
+  br i1 %15, label %62, label %16
 
 16:                                               ; preds = %14
   %17 = add i64 %10, -1
@@ -1092,110 +1092,110 @@ json_peek.exit:                                   ; preds = %16, %18
   %25 = zext i8 %24 to i32
   %26 = shl nuw i32 1, %.0.i
   %27 = and i32 %26, %25
-  %switch.not.not = icmp eq i32 %27, 0
-  br i1 %switch.not.not, label %28, label %29
-
-28:                                               ; preds = %json_peek.exit
-  store i8 1, ptr %3, align 4, !tbaa !23
-  br label %65
+  %28 = icmp eq i32 %27, 0
+  br i1 %28, label %29, label %30
 
 29:                                               ; preds = %json_peek.exit
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %31 = load i8, ptr %30, align 8, !tbaa !27
-  %.not.i.i = icmp eq i8 %31, 0
-  br i1 %.not.i.i, label %json_undefer.exit.i, label %32
+  store i8 1, ptr %3, align 4, !tbaa !23
+  br label %66
 
-32:                                               ; preds = %29
+30:                                               ; preds = %json_peek.exit
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load i8, ptr %31, align 8, !tbaa !27
+  %.not.i.i = icmp eq i8 %32, 0
+  br i1 %.not.i.i, label %json_undefer.exit.i, label %33
+
+33:                                               ; preds = %30
   tail call fastcc void @json_indent(ptr noundef nonnull %0) #11
   br label %json_undefer.exit.i
 
-json_undefer.exit.i:                              ; preds = %32, %29
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %34 = getelementptr i8, ptr %0, i64 56
-  %.val.i.i = load i64, ptr %34, align 8, !tbaa !15
-  %35 = getelementptr i8, ptr %0, i64 64
-  %.val5.i.i = load i64, ptr %35, align 8, !tbaa !14
-  %36 = icmp eq i64 %.val.i.i, %.val5.i.i
-  br i1 %36, label %37, label %json_write_char.exit
+json_undefer.exit.i:                              ; preds = %33, %30
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %35 = getelementptr i8, ptr %0, i64 56
+  %.val.i.i = load i64, ptr %35, align 8, !tbaa !15
+  %36 = getelementptr i8, ptr %0, i64 64
+  %.val5.i.i = load i64, ptr %36, align 8, !tbaa !14
+  %37 = icmp eq i64 %.val.i.i, %.val5.i.i
+  br i1 %37, label %38, label %json_write_char.exit
 
-37:                                               ; preds = %json_undefer.exit.i
+38:                                               ; preds = %json_undefer.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %2, align 8, !tbaa !19
   %.not24.i.i.i = icmp eq i64 %.val.i.i, 0
   br i1 %.not24.i.i.i, label %wbuf_flush.exit.i.i, label %.lr.ph.i.i.i
 
-.lr.ph.i.i.i:                                     ; preds = %37
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br label %39
+.lr.ph.i.i.i:                                     ; preds = %38
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br label %40
 
-39:                                               ; preds = %47, %.lr.ph.i.i.i
-  %40 = phi i64 [ %.val.i.i, %.lr.ph.i.i.i ], [ %46, %47 ]
-  %.023.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %49, %47 ]
-  %41 = load ptr, ptr %33, align 8, !tbaa !16
-  %42 = load ptr, ptr %38, align 8, !tbaa !13
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.023.i.i.i
-  %44 = sub nuw i64 %40, %.023.i.i.i
-  %45 = call i32 @BIO_write_ex(ptr noundef %41, ptr noundef %43, i64 noundef %44, ptr noundef nonnull %2) #10
-  %.not19.i.i.i = icmp eq i32 %45, 0
-  %46 = load i64, ptr %35, align 8, !tbaa !14
-  br i1 %.not19.i.i.i, label %json_write_char.exit.thread, label %47
+40:                                               ; preds = %48, %.lr.ph.i.i.i
+  %41 = phi i64 [ %.val.i.i, %.lr.ph.i.i.i ], [ %47, %48 ]
+  %.023.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %50, %48 ]
+  %42 = load ptr, ptr %34, align 8, !tbaa !16
+  %43 = load ptr, ptr %39, align 8, !tbaa !13
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 %.023.i.i.i
+  %45 = sub nuw i64 %41, %.023.i.i.i
+  %46 = call i32 @BIO_write_ex(ptr noundef %42, ptr noundef %44, i64 noundef %45, ptr noundef nonnull %2) #10
+  %.not19.i.i.i = icmp eq i32 %46, 0
+  %47 = load i64, ptr %36, align 8, !tbaa !14
+  br i1 %.not19.i.i.i, label %json_write_char.exit.thread, label %48
 
-47:                                               ; preds = %39
-  %48 = load i64, ptr %2, align 8, !tbaa !19
-  %49 = add i64 %48, %.023.i.i.i
-  %50 = icmp ult i64 %49, %46
-  br i1 %50, label %39, label %wbuf_flush.exit.i.i, !llvm.loop !20
+48:                                               ; preds = %40
+  %49 = load i64, ptr %2, align 8, !tbaa !19
+  %50 = add i64 %49, %.023.i.i.i
+  %51 = icmp ult i64 %50, %47
+  br i1 %51, label %40, label %wbuf_flush.exit.i.i, !llvm.loop !20
 
-wbuf_flush.exit.i.i:                              ; preds = %47, %37
+wbuf_flush.exit.i.i:                              ; preds = %48, %38
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %json_write_char.exit
 
-json_write_char.exit.thread:                      ; preds = %39
-  %51 = load ptr, ptr %38, align 8, !tbaa !13
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.023.i.i.i
-  %53 = sub i64 %46, %.023.i.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %51, ptr align 1 %52, i64 %53, i1 false)
-  store i64 0, ptr %35, align 8, !tbaa !14
+json_write_char.exit.thread:                      ; preds = %40
+  %52 = load ptr, ptr %39, align 8, !tbaa !13
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 %.023.i.i.i
+  %54 = sub i64 %47, %.023.i.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %52, ptr align 1 %53, i64 %54, i1 false)
+  store i64 0, ptr %36, align 8, !tbaa !14
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   store i8 1, ptr %3, align 4, !tbaa !23
-  br label %65
+  br label %66
 
 json_write_char.exit:                             ; preds = %json_undefer.exit.i, %wbuf_flush.exit.i.i
-  %54 = phi i64 [ 0, %wbuf_flush.exit.i.i ], [ %.val5.i.i, %json_undefer.exit.i ]
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %56 = load ptr, ptr %55, align 8, !tbaa !13
-  %57 = add i64 %54, 1
-  store i64 %57, ptr %35, align 8, !tbaa !14
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 %54
-  store i8 44, ptr %58, align 1, !tbaa !26
+  %55 = phi i64 [ 0, %wbuf_flush.exit.i.i ], [ %.val5.i.i, %json_undefer.exit.i ]
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %57 = load ptr, ptr %56, align 8, !tbaa !13
+  %58 = add i64 %55, 1
+  store i64 %58, ptr %36, align 8, !tbaa !14
+  %59 = getelementptr inbounds nuw i8, ptr %57, i64 %55
+  store i8 44, ptr %59, align 1, !tbaa !26
   %.pre = load i8, ptr %3, align 4, !tbaa !23
-  %59 = icmp eq i8 %.pre, 0
-  br i1 %59, label %60, label %65
+  %60 = icmp eq i8 %.pre, 0
+  br i1 %60, label %61, label %66
 
-60:                                               ; preds = %json_write_char.exit
+61:                                               ; preds = %json_write_char.exit
   call fastcc void @json_indent(ptr noundef nonnull %0)
   br label %.thread
 
-61:                                               ; preds = %14
+62:                                               ; preds = %14
   %.val = load i32, ptr %0, align 8, !tbaa !3
-  %62 = and i32 %.val, 1
-  %.not16 = icmp eq i32 %62, 0
-  br i1 %.not16, label %.thread, label %63
+  %63 = and i32 %.val, 1
+  %.not16 = icmp eq i32 %63, 0
+  br i1 %.not16, label %.thread, label %64
 
-63:                                               ; preds = %61
+64:                                               ; preds = %62
   tail call fastcc void @json_write_char(ptr noundef nonnull %0, i8 noundef signext 30)
   br label %.thread
 
-.thread:                                          ; preds = %60, %63, %61
+.thread:                                          ; preds = %61, %64, %62
   store i8 1, ptr %6, align 2, !tbaa !17
-  br label %65
+  br label %66
 
-64:                                               ; preds = %5
+65:                                               ; preds = %5
   store i8 1, ptr %3, align 4, !tbaa !23
-  br label %65
+  br label %66
 
-65:                                               ; preds = %json_write_char.exit.thread, %5, %.thread, %json_write_char.exit, %1, %64, %28
-  %.0 = phi i32 [ 0, %64 ], [ 0, %28 ], [ 0, %1 ], [ 0, %json_write_char.exit ], [ 1, %.thread ], [ 1, %5 ], [ 0, %json_write_char.exit.thread ]
+66:                                               ; preds = %json_write_char.exit.thread, %5, %.thread, %json_write_char.exit, %1, %65, %29
+  %.0 = phi i32 [ 0, %65 ], [ 0, %29 ], [ 0, %1 ], [ 0, %json_write_char.exit ], [ 1, %.thread ], [ 1, %5 ], [ 0, %json_write_char.exit.thread ]
   ret i32 %.0
 }
 

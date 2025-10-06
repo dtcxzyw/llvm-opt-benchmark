@@ -1446,15 +1446,15 @@ _RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7flattenINtB5_7FlatMapINtNtB7_9en
 
 _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit.i.i: ; preds = %48, %_RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7flattenINtB5_7FlatMapINtNtB7_9enumerate9EnumerateINtNtNtBb_5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtCseG2FYMysgNb_3wax5token5TokenuEEEEINtNtB7_3map3MapIB1x_B2t_ENCNCNvXsR_B2w_INtB2w_4WalkuENtNtNtB9_6traits8iterator8Iterator4next00ENCB3B_0EB3Z_4nextB2y_.exit
   %.sroa.7.0.i.i = phi i64 [ %52, %48 ], [ 0, %_RNvXs1_NtNtNtCs1LoaDTb72WA_4core4iter8adapters7flattenINtB5_7FlatMapINtNtB7_9enumerate9EnumerateINtNtNtBb_5slice4iter4IterINtNtCs68wO5nsWeTG_5alloc3vec3VecINtNtCseG2FYMysgNb_3wax5token5TokenuEEEEINtNtB7_3map3MapIB1x_B2t_ENCNCNvXsR_B2w_INtB2w_4WalkuENtNtNtB9_6traits8iterator8Iterator4next00ENCB3B_0EB3Z_4nextB2y_.exit ]
-  br i1 %13, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit52.i.i, label %53
+  br i1 %13, label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit50.i.i, label %53
 
 53:                                               ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit.i.i
   %54 = ptrtoint ptr %46 to i64
   %55 = sub nuw i64 %18, %54
   %56 = udiv exact i64 %55, 48
-  br label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit52.i.i
+  br label %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit50.i.i
 
-_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit52.i.i: ; preds = %53, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit.i.i
+_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit50.i.i: ; preds = %53, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit.i.i
   %.sroa.8.0.i.i = phi i64 [ %56, %53 ], [ 0, %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit.i.i ]
   %57 = add nuw nsw i64 %.sroa.8.0.i.i, %.sroa.7.0.i.i
   %58 = add nuw nsw i64 %57, 1
@@ -1464,13 +1464,13 @@ _RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3M
   %61 = extractvalue { i64, i1 } %60, 1
   br i1 %61, label %66, label %62
 
-62:                                               ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit52.i.i
+62:                                               ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit50.i.i
   %63 = add nuw i64 %59, %58
   %64 = load i64, ptr %0, align 8, !alias.scope !264, !noundef !4
   %65 = icmp ugt i64 %63, %64
   br i1 %65, label %67, label %_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeTNtNtCseG2FYMysgNb_3wax5token8PositionRINtB18_5TokenuEEE7reserveB1a_.exit
 
-66:                                               ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit52.i.i
+66:                                               ; preds = %_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRINtNtNtNtB5_4iter8adapters3map3MapINtNtNtB5_5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5TokenuEENCNCNvXsR_B1K_INtB1K_4WalkuENtNtNtBQ_6traits8iterator8Iterator4next00EE6map_orTjIBw_jEENvYBJ_B2L_9size_hintEB1M_.exit50.i.i
   tail call void @_ZN4core6option13expect_failed17h7fb1d7cfd789f585E(ptr noalias noundef nonnull readonly align 1 @anon.0e79314673efe63acf1941008ad64698.5.llvm.967386030157129537, i64 noundef 17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0e79314673efe63acf1941008ad64698.6.llvm.967386030157129537) #18, !noalias !264
   unreachable
 

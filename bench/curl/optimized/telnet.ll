@@ -2517,12 +2517,11 @@ define internal fastcc i32 @send_telnet_data(ptr noundef %0, ptr noundef %1, i64
   store i32 %33, ptr %5, align 4, !tbaa !105
   store i16 4, ptr %31, align 4, !tbaa !107
   %34 = call i32 @Curl_poll(ptr noundef nonnull %5, i32 noundef 1, i64 noundef -1) #9
-  switch i32 %34, label %35 [
-    i32 -1, label %.thread51
-    i32 0, label %.thread51
-  ]
+  %.off = add i32 %34, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %35, label %.thread51
 
-.thread51:                                        ; preds = %32, %32
+.thread51:                                        ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %._crit_edge
 

@@ -1091,32 +1091,32 @@ define noundef zeroext i1 @_ZN3g2o33HyperGraphElementActionCollection16unregiste
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %.not11.not = icmp eq ptr %5, %6
-  br i1 %.not11.not, label %.loopexit, label %.lr.ph
+  %.not12.not = icmp eq ptr %5, %6
+  br i1 %.not12.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = load ptr, ptr %1, align 8, !tbaa !37
   br label %8
 
-8:                                                ; preds = %.lr.ph, %13
-  %.sroa.05.012 = phi ptr [ %5, %.lr.ph ], [ %14, %13 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.012, i64 64
+8:                                                ; preds = %.lr.ph, %12
+  %.sroa.05.013 = phi ptr [ %5, %.lr.ph ], [ %13, %12 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.05.013, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !37
   %11 = icmp eq ptr %10, %7
-  br i1 %11, label %12, label %13
+  br i1 %11, label %14, label %12
 
 12:                                               ; preds = %8
-  tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr nonnull %.sroa.05.012)
-  br label %.loopexit
-
-13:                                               ; preds = %8
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.012) #29
-  %.not.not = icmp eq ptr %14, %6
+  %13 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.013) #29
+  %.not.not = icmp eq ptr %13, %6
   br i1 %.not.not, label %.loopexit, label %8, !llvm.loop !51
 
-.loopexit:                                        ; preds = %13, %2, %12
-  %.not9 = phi i1 [ true, %12 ], [ false, %2 ], [ false, %13 ]
-  ret i1 %.not9
+14:                                               ; preds = %8
+  tail call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr nonnull %.sroa.05.013)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %12, %2, %14
+  %.not10 = phi i1 [ true, %14 ], [ false, %2 ], [ false, %12 ]
+  ret i1 %.not10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -1718,30 +1718,30 @@ define noundef zeroext i1 @_ZN3g2o23HyperGraphActionLibrary16unregisterActionERK
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  %.not11.not.i = icmp eq ptr %20, %21
-  br i1 %.not11.not.i, label %_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit, label %.lr.ph.i
+  %.not12.not.i = icmp eq ptr %20, %21
+  br i1 %.not12.not.i, label %_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17
   %22 = load ptr, ptr %1, align 8, !tbaa !37
   br label %23
 
-23:                                               ; preds = %28, %.lr.ph.i
-  %.sroa.05.012.i = phi ptr [ %20, %.lr.ph.i ], [ %29, %28 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.012.i, i64 64
+23:                                               ; preds = %27, %.lr.ph.i
+  %.sroa.05.013.i = phi ptr [ %20, %.lr.ph.i ], [ %28, %27 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.05.013.i, i64 64
   %25 = load ptr, ptr %24, align 8, !tbaa !37
   %26 = icmp eq ptr %25, %22
-  br i1 %26, label %27, label %28
+  br i1 %26, label %29, label %27
 
 27:                                               ; preds = %23
-  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr nonnull %.sroa.05.012.i)
-  br label %_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit
-
-28:                                               ; preds = %23
-  %29 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.012.i) #29
-  %.not.not.i = icmp eq ptr %29, %21
+  %28 = call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.05.013.i) #29
+  %.not.not.i = icmp eq ptr %28, %21
   br i1 %.not.not.i, label %_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit, label %23, !llvm.loop !51
 
-_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit: ; preds = %28, %27, %17
+29:                                               ; preds = %23
+  call void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN3g2o23HyperGraphElementActionEEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE12_M_erase_auxESt23_Rb_tree_const_iteratorISC_E(ptr noundef nonnull align 8 dereferenceable(48) %18, ptr nonnull %.sroa.05.013.i)
+  br label %_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit
+
+_ZN3g2o33HyperGraphElementActionCollection16unregisterActionERKSt10shared_ptrINS_23HyperGraphElementActionEE.exit: ; preds = %27, %29, %17
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 112
   %31 = load i64, ptr %30, align 8, !tbaa !31
   %32 = icmp eq i64 %31, 0

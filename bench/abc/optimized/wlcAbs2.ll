@@ -36,15 +36,15 @@ define i32 @Wlc_NtkAbsCore2(ptr noundef %0, ptr noundef readonly captures(none) 
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %4, align 8, !tbaa !3
-  %.neg106 = mul i64 %9, -1000000
+  %.neg105 = mul i64 %9, -1000000
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !8
   %.neg = sdiv i64 %11, -1000
-  %.neg107 = add i64 %.neg, %.neg106
+  %.neg106 = add i64 %.neg, %.neg105
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %2, %8
-  %.0.i.neg = phi i64 [ %.neg107, %8 ], [ 1, %2 ]
+  %.0.i.neg = phi i64 [ %.neg106, %8 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %12 = getelementptr i8, ptr %0, i64 648
   %.val = load i32, ptr %12, align 8, !tbaa !9
@@ -105,13 +105,13 @@ Vec_BitStart.exit:                                ; preds = %Abc_Clock.exit, %20
   br label %47
 
 47:                                               ; preds = %.lr.ph, %375
-  %.060127 = phi i32 [ 1, %.lr.ph ], [ %376, %375 ]
+  %.060126 = phi i32 [ 1, %.lr.ph ], [ %376, %375 ]
   %48 = load i32, ptr %36, align 8, !tbaa !34
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %52, label %49
 
 49:                                               ; preds = %47
-  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.060127)
+  %50 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, i32 noundef %.060126)
   %.pr = load i32, ptr %36, align 8, !tbaa !34
   %51 = icmp eq i32 %.pr, 0
   br label %52
@@ -899,13 +899,13 @@ Wlc_NtkRemoveFromAbstraction.exit:                ; preds = %Wlc_NtkMarkMffc.exi
 375:                                              ; preds = %371, %374
   call void @free(ptr noundef nonnull %.055.i) #17
   call void @Abc_CexFree(ptr noundef nonnull %196) #17
-  %376 = add nuw nsw i32 %.060127, 1
+  %376 = add nuw nsw i32 %.060126, 1
   %377 = load i32, ptr %33, align 8, !tbaa !33
   %378 = icmp slt i32 %376, %377
   br i1 %378, label %47, label %.thread, !llvm.loop !75
 
 .thread:                                          ; preds = %375, %Vec_BitStart.exit, %325, %Vec_IntFree.exit
-  %.060115 = phi i32 [ %.060127, %Vec_IntFree.exit ], [ %.060127, %325 ], [ 1, %Vec_BitStart.exit ], [ %376, %375 ]
+  %.060114 = phi i32 [ %.060126, %Vec_IntFree.exit ], [ %.060126, %325 ], [ 1, %Vec_BitStart.exit ], [ %376, %375 ]
   %.163 = phi i32 [ %194, %Vec_IntFree.exit ], [ %194, %325 ], [ -1, %Vec_BitStart.exit ], [ %194, %375 ]
   %379 = load ptr, ptr %26, align 8, !tbaa !24
   %.not.i97 = icmp eq ptr %379, null
@@ -930,10 +930,10 @@ Vec_BitFree.exit:                                 ; preds = %.thread, %380
   %385 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4)
   %switch.selectcmp = icmp eq i32 %.163, 1
   %switch.select = select i1 %switch.selectcmp, ptr @.str.6, ptr @.str.7
-  %switch.selectcmp201 = icmp eq i32 %.163, 0
-  %switch.select202 = select i1 %switch.selectcmp201, ptr @.str.5, ptr %switch.select
-  %386 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select202)
-  %387 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.060115)
+  %switch.selectcmp200 = icmp eq i32 %.163, 0
+  %switch.select201 = select i1 %switch.selectcmp200, ptr @.str.5, ptr %switch.select
+  %386 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) %switch.select201)
+  %387 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %.060114)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %388 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #17
   %389 = icmp slt i32 %388, 0

@@ -240,9 +240,9 @@ common.resume:                                    ; preds = %_ZN11OpenImageIO6v3
 _ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit: ; preds = %1, %9, %12
   %15 = load ptr, ptr %0, align 8, !tbaa !23
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %.thread223, label %17
+  br i1 %.not, label %.thread222, label %17
 
-.thread223:                                       ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit
+.thread222:                                       ; preds = %_ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit
   store ptr @.str, ptr %0, align 8, !tbaa !26
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !27
@@ -260,15 +260,15 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_113ustring_tableEv.exit: ; preds = %1, %9, %
 
 19:                                               ; preds = %17
   %20 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashxo6Hash64EPKcm(ptr noundef nonnull %15, i64 noundef %.pre)
-  %.pre199 = load ptr, ptr %0, align 8, !tbaa !23
-  %.pre200 = load i64, ptr %18, align 8, !tbaa !20
+  %.pre198 = load ptr, ptr %0, align 8, !tbaa !23
+  %.pre199 = load i64, ptr %18, align 8, !tbaa !20
   br label %_ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit
 
-_ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit: ; preds = %.thread223, %17, %19
-  %21 = phi ptr [ %18, %19 ], [ %18, %17 ], [ %16, %.thread223 ]
-  %22 = phi i64 [ %.pre200, %19 ], [ 0, %17 ], [ 0, %.thread223 ]
-  %23 = phi ptr [ %.pre199, %19 ], [ %15, %17 ], [ @.str, %.thread223 ]
-  %24 = phi i64 [ %20, %19 ], [ 0, %17 ], [ 0, %.thread223 ]
+_ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit: ; preds = %.thread222, %17, %19
+  %21 = phi ptr [ %18, %19 ], [ %18, %17 ], [ %16, %.thread222 ]
+  %22 = phi i64 [ %.pre199, %19 ], [ 0, %17 ], [ 0, %.thread222 ]
+  %23 = phi ptr [ %.pre198, %19 ], [ %15, %17 ], [ @.str, %.thread222 ]
+  %24 = phi i64 [ %20, %19 ], [ 0, %17 ], [ 0, %.thread222 ]
   store i64 %24, ptr %5, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -308,13 +308,13 @@ _ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_trai
   %40 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   %41 = load i8, ptr %40, align 1, !tbaa !19
   %42 = icmp eq i8 %41, 0
-  br i1 %42, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit270, label %43
+  br i1 %42, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit269, label %43
 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   %45 = load i8, ptr %44, align 1, !tbaa !19
   %46 = icmp eq i8 %45, 0
-  br i1 %46, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit268, label %47
+  br i1 %46, label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit267, label %47
 
 47:                                               ; preds = %43
   %48 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
@@ -367,16 +367,16 @@ _ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9tr
   %69 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 3
   br label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i
 
-_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit268: ; preds = %43
+_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit267: ; preds = %43
   %70 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   br label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i
 
-_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit270: ; preds = %39
+_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit269: ; preds = %39
   %71 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 1
   br label %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i
 
-_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit268, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit270, %66, %61, %56
-  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %56 ], [ %.1.i.i.i.i, %61 ], [ %.2.i.i.i.i, %66 ], [ %69, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit ], [ %70, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit268 ], [ %71, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit270 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i ]
+_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i: ; preds = %.lr.ph.i.i.i.i, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit267, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit269, %66, %61, %56
+  %.028.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i, %56 ], [ %.1.i.i.i.i, %61 ], [ %.2.i.i.i.i, %66 ], [ %69, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit ], [ %70, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit267 ], [ %71, %_ZSt7find_ifIPKcN11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE9traits_eqEET_S9_S9_T0_.exit.i.loopexit.split.loop.exit269 ], [ %.02946.i.i.i.i, %.lr.ph.i.i.i.i ]
   %72 = icmp eq ptr %.028.i.i.i.i, %32
   br i1 %72, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.thread, label %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE4findEcm.exit
 
@@ -407,13 +407,13 @@ _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit:
 _ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread111: ; preds = %77, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit
   %.sroa.5.0115 = phi i64 [ %75, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ %30, %77 ]
   %79 = call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashxo6Hash64EPKcm(ptr noundef %31, i64 noundef %.sroa.5.0115)
-  %.pre201 = load ptr, ptr %0, align 8, !tbaa !23
-  %.pre202 = load i64, ptr %21, align 8, !tbaa !20
+  %.pre200 = load ptr, ptr %0, align 8, !tbaa !23
+  %.pre201 = load i64, ptr %21, align 8, !tbaa !20
   br label %_ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit42
 
 _ZN11OpenImageIO6v3_1_07Strutil9strhash64ENS0_17basic_string_viewIcSt11char_traitsIcEEE.exit42: ; preds = %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread111
-  %80 = phi i64 [ %.pre202, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread111 ], [ 0, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread ]
-  %81 = phi ptr [ %.pre201, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread111 ], [ %31, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ null, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread ]
+  %80 = phi i64 [ %.pre201, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread111 ], [ 0, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread ]
+  %81 = phi ptr [ %.pre200, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread111 ], [ %31, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ null, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread ]
   %82 = phi i64 [ %79, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread111 ], [ 0, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit ], [ 0, %_ZNK11OpenImageIO6v3_1_017basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit.thread ]
   store i64 %82, ptr %5, align 8, !tbaa !27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

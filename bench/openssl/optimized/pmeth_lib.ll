@@ -1435,7 +1435,7 @@ declare i32 @EVP_KEYMGMT_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 define i32 @EVP_PKEY_CTX_set_params(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !15
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %88, label %5
+  br i1 %4, label %evp_pkey_ctx_state.exit, label %5
 
 5:                                                ; preds = %2
   %6 = and i32 %3, 2048
@@ -1484,13 +1484,13 @@ define i32 @EVP_PKEY_CTX_set_params(ptr noundef %0, ptr noundef %1) local_unname
 25:                                               ; preds = %22, %20
   %26 = and i32 %3, 12288
   %.not19.i = icmp eq i32 %26, 0
-  br i1 %.not19.i, label %88, label %27
+  br i1 %.not19.i, label %evp_pkey_ctx_state.exit, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr %28, align 8, !tbaa !26
   %.not20.i = icmp eq ptr %29, null
-  br i1 %.not20.i, label %88, label %30
+  br i1 %.not20.i, label %evp_pkey_ctx_state.exit, label %30
 
 30:                                               ; preds = %27, %22, %17, %12
   br i1 %.not.i, label %40, label %.thread
@@ -1511,7 +1511,7 @@ define i32 @EVP_PKEY_CTX_set_params(ptr noundef %0, ptr noundef %1) local_unname
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %39 = tail call i32 %35(ptr noundef %38, ptr noundef %1) #10
-  br label %90
+  br label %89
 
 40:                                               ; preds = %33, %.thread, %30
   %41 = and i32 %3, 49648
@@ -1534,7 +1534,7 @@ define i32 @EVP_PKEY_CTX_set_params(ptr noundef %0, ptr noundef %1) local_unname
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load ptr, ptr %49, align 8, !tbaa !26
   %51 = tail call i32 %47(ptr noundef %50, ptr noundef %1) #10
-  br label %90
+  br label %89
 
 52:                                               ; preds = %45, %42, %40
   %53 = and i32 %3, 1536
@@ -1557,7 +1557,7 @@ define i32 @EVP_PKEY_CTX_set_params(ptr noundef %0, ptr noundef %1) local_unname
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = load ptr, ptr %61, align 8, !tbaa !26
   %63 = tail call i32 %59(ptr noundef %62, ptr noundef %1) #10
-  br label %90
+  br label %89
 
 64:                                               ; preds = %57, %54, %52
   %65 = and i32 %3, 6
@@ -1580,37 +1580,37 @@ define i32 @EVP_PKEY_CTX_set_params(ptr noundef %0, ptr noundef %1) local_unname
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %74 = load ptr, ptr %73, align 8, !tbaa !26
   %75 = tail call i32 @evp_keymgmt_gen_set_params(ptr noundef nonnull %68, ptr noundef %74, ptr noundef %1) #10
-  br label %90
+  br label %89
 
 76:                                               ; preds = %69, %66, %64
   %77 = and i32 %3, 12288
   %.not53 = icmp eq i32 %77, 0
-  br i1 %.not53, label %90, label %78
+  br i1 %.not53, label %89, label %78
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %80 = load ptr, ptr %79, align 8, !tbaa !26
   %.not54 = icmp eq ptr %80, null
-  br i1 %.not54, label %90, label %81
+  br i1 %.not54, label %89, label %81
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 112
   %83 = load ptr, ptr %82, align 8, !tbaa !77
   %.not55 = icmp eq ptr %83, null
-  br i1 %.not55, label %90, label %84
+  br i1 %.not55, label %89, label %84
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %86 = load ptr, ptr %85, align 8, !tbaa !26
   %87 = tail call i32 %83(ptr noundef %86, ptr noundef %1) #10
-  br label %90
+  br label %89
 
-88:                                               ; preds = %25, %27, %2
-  %89 = tail call i32 @evp_pkey_ctx_set_params_to_ctrl(ptr noundef nonnull %0, ptr noundef %1) #10
-  br label %90
+evp_pkey_ctx_state.exit:                          ; preds = %25, %27, %2
+  %88 = tail call i32 @evp_pkey_ctx_set_params_to_ctrl(ptr noundef nonnull %0, ptr noundef %1) #10
+  br label %89
 
-90:                                               ; preds = %81, %78, %76, %88, %84, %72, %60, %48, %36
-  %.0 = phi i32 [ %39, %36 ], [ %51, %48 ], [ %63, %60 ], [ %75, %72 ], [ %87, %84 ], [ %89, %88 ], [ 0, %76 ], [ 0, %78 ], [ 0, %81 ]
+89:                                               ; preds = %81, %78, %76, %evp_pkey_ctx_state.exit, %84, %72, %60, %48, %36
+  %.0 = phi i32 [ %39, %36 ], [ %51, %48 ], [ %63, %60 ], [ %75, %72 ], [ %87, %84 ], [ %88, %evp_pkey_ctx_state.exit ], [ 0, %76 ], [ 0, %78 ], [ 0, %81 ]
   ret i32 %.0
 }
 
@@ -1622,7 +1622,7 @@ declare i32 @evp_pkey_ctx_set_params_to_ctrl(ptr noundef, ptr noundef) local_unn
 define i32 @EVP_PKEY_CTX_get_params(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !15
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %88, label %5
+  br i1 %4, label %evp_pkey_ctx_state.exit, label %5
 
 5:                                                ; preds = %2
   %6 = and i32 %3, 2048
@@ -1671,13 +1671,13 @@ define i32 @EVP_PKEY_CTX_get_params(ptr noundef %0, ptr noundef %1) local_unname
 25:                                               ; preds = %22, %20
   %26 = and i32 %3, 12288
   %.not19.i = icmp eq i32 %26, 0
-  br i1 %.not19.i, label %88, label %27
+  br i1 %.not19.i, label %evp_pkey_ctx_state.exit, label %27
 
 27:                                               ; preds = %25
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %29 = load ptr, ptr %28, align 8, !tbaa !26
   %.not20.i = icmp eq ptr %29, null
-  br i1 %.not20.i, label %88, label %30
+  br i1 %.not20.i, label %evp_pkey_ctx_state.exit, label %30
 
 30:                                               ; preds = %27, %22, %17, %12
   br i1 %.not.i, label %40, label %.thread
@@ -1698,7 +1698,7 @@ define i32 @EVP_PKEY_CTX_get_params(ptr noundef %0, ptr noundef %1) local_unname
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %39 = tail call i32 %35(ptr noundef %38, ptr noundef %1) #10
-  br label %90
+  br label %89
 
 40:                                               ; preds = %33, %.thread, %30
   %41 = and i32 %3, 49648
@@ -1721,7 +1721,7 @@ define i32 @EVP_PKEY_CTX_get_params(ptr noundef %0, ptr noundef %1) local_unname
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %50 = load ptr, ptr %49, align 8, !tbaa !26
   %51 = tail call i32 %47(ptr noundef %50, ptr noundef %1) #10
-  br label %90
+  br label %89
 
 52:                                               ; preds = %45, %42, %40
   %53 = and i32 %3, 1536
@@ -1744,7 +1744,7 @@ define i32 @EVP_PKEY_CTX_get_params(ptr noundef %0, ptr noundef %1) local_unname
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %62 = load ptr, ptr %61, align 8, !tbaa !26
   %63 = tail call i32 %59(ptr noundef %62, ptr noundef %1) #10
-  br label %90
+  br label %89
 
 64:                                               ; preds = %57, %54, %52
   %65 = and i32 %3, 12288
@@ -1767,37 +1767,37 @@ define i32 @EVP_PKEY_CTX_get_params(ptr noundef %0, ptr noundef %1) local_unname
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %74 = load ptr, ptr %73, align 8, !tbaa !26
   %75 = tail call i32 %71(ptr noundef %74, ptr noundef %1) #10
-  br label %90
+  br label %89
 
 76:                                               ; preds = %69, %66, %64
   %77 = and i32 %3, 6
   %.not53 = icmp eq i32 %77, 0
-  br i1 %.not53, label %90, label %78
+  br i1 %.not53, label %89, label %78
 
 78:                                               ; preds = %76
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %80 = load ptr, ptr %79, align 8, !tbaa !43
   %.not54 = icmp eq ptr %80, null
-  br i1 %.not54, label %90, label %81
+  br i1 %.not54, label %89, label %81
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 112
   %83 = load ptr, ptr %82, align 8, !tbaa !82
   %.not55 = icmp eq ptr %83, null
-  br i1 %.not55, label %90, label %84
+  br i1 %.not55, label %89, label %84
 
 84:                                               ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %86 = load ptr, ptr %85, align 8, !tbaa !26
   %87 = tail call i32 @evp_keymgmt_gen_get_params(ptr noundef nonnull %80, ptr noundef %86, ptr noundef %1) #10
-  br label %90
+  br label %89
 
-88:                                               ; preds = %25, %27, %2
-  %89 = tail call i32 @evp_pkey_ctx_get_params_to_ctrl(ptr noundef nonnull %0, ptr noundef %1) #10
-  br label %90
+evp_pkey_ctx_state.exit:                          ; preds = %25, %27, %2
+  %88 = tail call i32 @evp_pkey_ctx_get_params_to_ctrl(ptr noundef nonnull %0, ptr noundef %1) #10
+  br label %89
 
-90:                                               ; preds = %81, %78, %76, %88, %84, %72, %60, %48, %36
-  %.0 = phi i32 [ %39, %36 ], [ %51, %48 ], [ %63, %60 ], [ %75, %72 ], [ %87, %84 ], [ %89, %88 ], [ 0, %76 ], [ 0, %78 ], [ 0, %81 ]
+89:                                               ; preds = %81, %78, %76, %evp_pkey_ctx_state.exit, %84, %72, %60, %48, %36
+  %.0 = phi i32 [ %39, %36 ], [ %51, %48 ], [ %63, %60 ], [ %75, %72 ], [ %87, %84 ], [ %88, %evp_pkey_ctx_state.exit ], [ 0, %76 ], [ 0, %78 ], [ 0, %81 ]
   ret i32 %.0
 }
 
@@ -2127,18 +2127,18 @@ define i32 @evp_pkey_ctx_set_params_strict(ptr noundef %0, ptr noundef %1) local
 9:                                                ; preds = %5
   %10 = tail call ptr @EVP_PKEY_CTX_settable_params(ptr noundef nonnull %0)
   %11 = load ptr, ptr %1, align 8, !tbaa !93
-  %.not.not19 = icmp eq ptr %11, null
-  br i1 %.not.not19, label %.thread, label %.lr.ph
+  %.not.not18 = icmp eq ptr %11, null
+  br i1 %.not.not18, label %.thread, label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.01319, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !93
   %.not.not = icmp eq ptr %14, null
   br i1 %.not.not, label %.thread, label %.lr.ph, !llvm.loop !95
 
 .lr.ph:                                           ; preds = %9, %12
   %15 = phi ptr [ %14, %12 ], [ %11, %9 ]
-  %.01320 = phi ptr [ %13, %12 ], [ %1, %9 ]
+  %.01319 = phi ptr [ %13, %12 ], [ %1, %9 ]
   %16 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %10, ptr noundef nonnull %15) #10
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %12
@@ -2170,18 +2170,18 @@ define i32 @evp_pkey_ctx_get_params_strict(ptr noundef %0, ptr noundef %1) local
 9:                                                ; preds = %5
   %10 = tail call ptr @EVP_PKEY_CTX_gettable_params(ptr noundef nonnull %0)
   %11 = load ptr, ptr %1, align 8, !tbaa !93
-  %.not.not19 = icmp eq ptr %11, null
-  br i1 %.not.not19, label %.thread, label %.lr.ph
+  %.not.not18 = icmp eq ptr %11, null
+  br i1 %.not.not18, label %.thread, label %.lr.ph
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds nuw i8, ptr %.01320, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.01319, i64 40
   %14 = load ptr, ptr %13, align 8, !tbaa !93
   %.not.not = icmp eq ptr %14, null
   br i1 %.not.not, label %.thread, label %.lr.ph, !llvm.loop !97
 
 .lr.ph:                                           ; preds = %9, %12
   %15 = phi ptr [ %14, %12 ], [ %11, %9 ]
-  %.01320 = phi ptr [ %13, %12 ], [ %1, %9 ]
+  %.01319 = phi ptr [ %13, %12 ], [ %1, %9 ]
   %16 = tail call ptr @OSSL_PARAM_locate_const(ptr noundef %10, ptr noundef nonnull %15) #10
   %17 = icmp eq ptr %16, null
   br i1 %17, label %.loopexit, label %12
@@ -2934,16 +2934,16 @@ decode_cmd.exit.thread:                           ; preds = %7, %8, %12
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1455, ptr noundef nonnull @__func__.evp_pkey_ctx_store_cached_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #10
-  br label %85
+  br label %84
 
 decode_cmd.exit.thread46:                         ; preds = %7, %12, %9
   %.not = icmp eq i32 %1, -1
-  br i1 %.not, label %62, label %15
+  br i1 %.not, label %61, label %15
 
 15:                                               ; preds = %decode_cmd.exit.thread46
   %16 = load i32, ptr %0, align 8, !tbaa !15
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %52, label %18
+  br i1 %17, label %evp_pkey_ctx_state.exit, label %18
 
 18:                                               ; preds = %15
   %19 = and i32 %16, 2048
@@ -2992,13 +2992,13 @@ decode_cmd.exit.thread46:                         ; preds = %7, %12, %9
 38:                                               ; preds = %35, %33
   %39 = and i32 %16, 12288
   %.not19.i = icmp eq i32 %39, 0
-  br i1 %.not19.i, label %52, label %40
+  br i1 %.not19.i, label %evp_pkey_ctx_state.exit, label %40
 
 40:                                               ; preds = %38
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %.not20.i = icmp eq ptr %42, null
-  br i1 %.not20.i, label %52, label %43
+  br i1 %.not20.i, label %evp_pkey_ctx_state.exit, label %43
 
 43:                                               ; preds = %40, %35, %30, %25, %20
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3010,99 +3010,99 @@ decode_cmd.exit.thread46:                         ; preds = %7, %12, %9
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1463, ptr noundef nonnull @__func__.evp_pkey_ctx_store_cached_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #10
-  br label %85
+  br label %84
 
 48:                                               ; preds = %43
   %49 = tail call ptr @evp_pkey_type2name(i32 noundef %1) #10
   %50 = tail call i32 @EVP_KEYMGMT_is_a(ptr noundef nonnull %45, ptr noundef %49) #10
   %.not38 = icmp eq i32 %50, 0
-  br i1 %.not38, label %51, label %62
+  br i1 %.not38, label %51, label %61
 
 51:                                               ; preds = %48
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1468, ptr noundef nonnull @__func__.evp_pkey_ctx_store_cached_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 148, ptr noundef null) #10
-  br label %85
+  br label %84
 
-52:                                               ; preds = %38, %40, %15
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %54 = load ptr, ptr %53, align 8, !tbaa !46
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %57
+evp_pkey_ctx_state.exit:                          ; preds = %38, %40, %15
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %53 = load ptr, ptr %52, align 8, !tbaa !46
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %56
 
-56:                                               ; preds = %52
+55:                                               ; preds = %evp_pkey_ctx_state.exit
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1475, ptr noundef nonnull @__func__.evp_pkey_ctx_store_cached_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #10
-  br label %85
+  br label %84
 
-57:                                               ; preds = %52
-  %58 = load i32, ptr %54, align 8, !tbaa !8
-  %59 = tail call i32 @EVP_PKEY_type(i32 noundef %58) #10
-  %60 = tail call i32 @EVP_PKEY_type(i32 noundef %1) #10
-  %.not37 = icmp eq i32 %59, %60
-  br i1 %.not37, label %62, label %61
+56:                                               ; preds = %evp_pkey_ctx_state.exit
+  %57 = load i32, ptr %53, align 8, !tbaa !8
+  %58 = tail call i32 @EVP_PKEY_type(i32 noundef %57) #10
+  %59 = tail call i32 @EVP_PKEY_type(i32 noundef %1) #10
+  %.not37 = icmp eq i32 %58, %59
+  br i1 %.not37, label %61, label %60
 
-61:                                               ; preds = %57
+60:                                               ; preds = %56
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1479, ptr noundef nonnull @__func__.evp_pkey_ctx_store_cached_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 148, ptr noundef null) #10
-  br label %85
+  br label %84
 
-62:                                               ; preds = %48, %57, %decode_cmd.exit.thread46
+61:                                               ; preds = %48, %56, %decode_cmd.exit.thread46
   %.not39 = icmp eq i32 %2, -1
-  br i1 %.not39, label %68, label %63
+  br i1 %.not39, label %67, label %62
 
-63:                                               ; preds = %62
-  %64 = load i32, ptr %0, align 8, !tbaa !15
-  %65 = and i32 %64, %2
-  %66 = icmp eq i32 %65, 0
-  br i1 %66, label %67, label %68
+62:                                               ; preds = %61
+  %63 = load i32, ptr %0, align 8, !tbaa !15
+  %64 = and i32 %63, %2
+  %65 = icmp eq i32 %64, 0
+  br i1 %65, label %66, label %67
 
-67:                                               ; preds = %63
+66:                                               ; preds = %62
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1486, ptr noundef nonnull @__func__.evp_pkey_ctx_store_cached_data) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 148, ptr noundef null) #10
-  br label %85
+  br label %84
 
-68:                                               ; preds = %62, %63
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %71 = load ptr, ptr %70, align 8, !tbaa !59
-  tail call void @CRYPTO_free(ptr noundef %71, ptr noundef nonnull @.str, i32 noundef 1516) #10
-  %72 = load ptr, ptr %69, align 8, !tbaa !60
-  tail call void @CRYPTO_free(ptr noundef %72, ptr noundef nonnull @.str, i32 noundef 1517) #10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, i8 0, i64 16, i1 false)
+67:                                               ; preds = %61, %62
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %70 = load ptr, ptr %69, align 8, !tbaa !59
+  tail call void @CRYPTO_free(ptr noundef %70, ptr noundef nonnull @.str, i32 noundef 1516) #10
+  %71 = load ptr, ptr %68, align 8, !tbaa !60
+  tail call void @CRYPTO_free(ptr noundef %71, ptr noundef nonnull @.str, i32 noundef 1517) #10
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %68, i8 0, i64 16, i1 false)
   %.not40 = icmp eq ptr %4, null
-  br i1 %.not40, label %76, label %73
+  br i1 %.not40, label %75, label %72
 
-73:                                               ; preds = %68
-  %74 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 1494) #10
-  store ptr %74, ptr %69, align 8, !tbaa !60
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %85, label %76
+72:                                               ; preds = %67
+  %73 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %4, ptr noundef nonnull @.str, i32 noundef 1494) #10
+  store ptr %73, ptr %68, align 8, !tbaa !60
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %84, label %75
 
-76:                                               ; preds = %73, %68
+75:                                               ; preds = %72, %67
   %.not41 = icmp eq i64 %6, 0
-  br i1 %.not41, label %80, label %77
+  br i1 %.not41, label %79, label %76
 
-77:                                               ; preds = %76
-  %78 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %5, i64 noundef %6, ptr noundef nonnull @.str, i32 noundef 1499) #10
-  store ptr %78, ptr %70, align 8, !tbaa !59
-  %79 = icmp eq ptr %78, null
-  br i1 %79, label %85, label %80
+76:                                               ; preds = %75
+  %77 = tail call noalias ptr @CRYPTO_memdup(ptr noundef %5, i64 noundef %6, ptr noundef nonnull @.str, i32 noundef 1499) #10
+  store ptr %77, ptr %69, align 8, !tbaa !59
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %84, label %79
 
-80:                                               ; preds = %77, %76
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %82 = load i8, ptr %81, align 8
-  %83 = or i8 %82, 1
-  store i8 %83, ptr %81, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i64 %6, ptr %84, align 8, !tbaa !104
-  br label %85
+79:                                               ; preds = %76, %75
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %81 = load i8, ptr %80, align 8
+  %82 = or i8 %81, 1
+  store i8 %82, ptr %80, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i64 %6, ptr %83, align 8, !tbaa !104
+  br label %84
 
-85:                                               ; preds = %77, %73, %80, %67, %61, %56, %51, %47, %decode_cmd.exit.thread
-  %.0 = phi i32 [ -1, %67 ], [ 1, %80 ], [ -2, %47 ], [ -1, %51 ], [ -2, %56 ], [ -1, %61 ], [ -2, %decode_cmd.exit.thread ], [ 0, %73 ], [ 0, %77 ]
+84:                                               ; preds = %76, %72, %79, %66, %60, %55, %51, %47, %decode_cmd.exit.thread
+  %.0 = phi i32 [ -1, %66 ], [ 1, %79 ], [ -2, %47 ], [ -1, %51 ], [ -2, %55 ], [ -1, %60 ], [ -2, %decode_cmd.exit.thread ], [ 0, %72 ], [ 0, %76 ]
   ret i32 %.0
 }
 
@@ -3132,7 +3132,7 @@ define internal fastcc i32 @evp_pkey_ctx_ctrl_int(ptr noundef %0, i32 noundef %1
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1303, ptr noundef nonnull @__func__.evp_pkey_ctx_ctrl_int) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 149, ptr noundef null) #10
-  br label %62
+  br label %61
 
 18:                                               ; preds = %14
   %19 = and i32 %15, %2
@@ -3143,12 +3143,12 @@ define internal fastcc i32 @evp_pkey_ctx_ctrl_int(ptr noundef %0, i32 noundef %1
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1308, ptr noundef nonnull @__func__.evp_pkey_ctx_ctrl_int) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 148, ptr noundef null) #10
-  br label %62
+  br label %61
 
 21:                                               ; preds = %10
   %.pre = load i32, ptr %0, align 8, !tbaa !15
   %22 = icmp eq i32 %.pre, 0
-  br i1 %22, label %.thread43, label %.thread
+  br i1 %22, label %evp_pkey_ctx_state.exit.thread, label %.thread
 
 .thread:                                          ; preds = %18, %21
   %23 = phi i32 [ %.pre, %21 ], [ %15, %18 ]
@@ -3198,55 +3198,55 @@ define internal fastcc i32 @evp_pkey_ctx_ctrl_int(ptr noundef %0, i32 noundef %1
 43:                                               ; preds = %40, %38
   %44 = and i32 %23, 12288
   %.not19.i = icmp eq i32 %44, 0
-  br i1 %.not19.i, label %50, label %45
+  br i1 %.not19.i, label %evp_pkey_ctx_state.exit, label %45
 
 45:                                               ; preds = %43
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = load ptr, ptr %46, align 8, !tbaa !26
   %.not20.i = icmp eq ptr %47, null
-  br i1 %.not20.i, label %50, label %48
+  br i1 %.not20.i, label %evp_pkey_ctx_state.exit, label %48
 
 48:                                               ; preds = %45, %40, %35, %30, %25
   %49 = tail call i32 @evp_pkey_ctx_ctrl_to_param(ptr noundef nonnull %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) #10
-  br label %62
+  br label %61
 
-50:                                               ; preds = %43, %45
-  br i1 %9, label %54, label %.thread43
+evp_pkey_ctx_state.exit:                          ; preds = %43, %45
+  br i1 %9, label %53, label %evp_pkey_ctx_state.exit.thread
 
-.thread43:                                        ; preds = %21, %50
-  %51 = getelementptr inbounds nuw i8, ptr %8, i64 192
-  %52 = load ptr, ptr %51, align 8, !tbaa !106
-  %53 = icmp eq ptr %52, null
-  br i1 %53, label %54, label %55
+evp_pkey_ctx_state.exit.thread:                   ; preds = %21, %evp_pkey_ctx_state.exit
+  %50 = getelementptr inbounds nuw i8, ptr %8, i64 192
+  %51 = load ptr, ptr %50, align 8, !tbaa !106
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %54
 
-54:                                               ; preds = %.thread43, %50
+53:                                               ; preds = %evp_pkey_ctx_state.exit.thread, %evp_pkey_ctx_state.exit
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1319, ptr noundef nonnull @__func__.evp_pkey_ctx_ctrl_int) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #10
-  br label %62
+  br label %61
 
-55:                                               ; preds = %.thread43
+54:                                               ; preds = %evp_pkey_ctx_state.exit.thread
   %.not33 = icmp eq i32 %1, -1
-  br i1 %.not33, label %58, label %56
+  br i1 %.not33, label %57, label %55
 
-56:                                               ; preds = %55
-  %57 = load i32, ptr %8, align 8, !tbaa !8
-  %.not34 = icmp eq i32 %57, %1
-  br i1 %.not34, label %58, label %62
+55:                                               ; preds = %54
+  %56 = load i32, ptr %8, align 8, !tbaa !8
+  %.not34 = icmp eq i32 %56, %1
+  br i1 %.not34, label %57, label %61
 
-58:                                               ; preds = %56, %55
-  %59 = tail call i32 %52(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %4, ptr noundef %5) #10
-  %60 = icmp eq i32 %59, -2
-  br i1 %60, label %61, label %62
+57:                                               ; preds = %55, %54
+  %58 = tail call i32 %51(ptr noundef nonnull %0, i32 noundef %3, i32 noundef %4, ptr noundef %5) #10
+  %59 = icmp eq i32 %58, -2
+  br i1 %59, label %60, label %61
 
-61:                                               ; preds = %58
+60:                                               ; preds = %57
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1328, ptr noundef nonnull @__func__.evp_pkey_ctx_ctrl_int) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #10
-  br label %62
+  br label %61
 
-62:                                               ; preds = %61, %58, %56, %54, %48, %20, %17
-  %.025 = phi i32 [ -1, %17 ], [ %49, %48 ], [ -2, %54 ], [ -1, %20 ], [ -1, %56 ], [ -2, %61 ], [ %59, %58 ]
+61:                                               ; preds = %60, %57, %55, %53, %48, %20, %17
+  %.025 = phi i32 [ -1, %17 ], [ %49, %48 ], [ -2, %53 ], [ -1, %20 ], [ -1, %55 ], [ -2, %60 ], [ %58, %57 ]
   ret i32 %.025
 }
 
@@ -3307,7 +3307,7 @@ define internal fastcc i32 @evp_pkey_ctx_ctrl_str_int(ptr noundef %0, ptr nounde
 6:                                                ; preds = %3
   %7 = load i32, ptr %0, align 8, !tbaa !15
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %36, label %9
+  br i1 %8, label %evp_pkey_ctx_state.exit, label %9
 
 9:                                                ; preds = %6
   %10 = and i32 %7, 2048
@@ -3356,66 +3356,66 @@ define internal fastcc i32 @evp_pkey_ctx_ctrl_str_int(ptr noundef %0, ptr nounde
 29:                                               ; preds = %26, %24
   %30 = and i32 %7, 12288
   %.not19.i = icmp eq i32 %30, 0
-  br i1 %.not19.i, label %36, label %31
+  br i1 %.not19.i, label %evp_pkey_ctx_state.exit, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !26
   %.not20.i = icmp eq ptr %33, null
-  br i1 %.not20.i, label %36, label %34
+  br i1 %.not20.i, label %evp_pkey_ctx_state.exit, label %34
 
 34:                                               ; preds = %31, %26, %21, %16, %11
   %35 = tail call i32 @evp_pkey_ctx_ctrl_str_to_param(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2) #10
   br label %EVP_PKEY_CTX_md.exit
 
-36:                                               ; preds = %29, %31, %6
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %38 = load ptr, ptr %37, align 8, !tbaa !46
-  %39 = icmp eq ptr %38, null
-  br i1 %39, label %44, label %40
+evp_pkey_ctx_state.exit:                          ; preds = %29, %31, %6
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %37 = load ptr, ptr %36, align 8, !tbaa !46
+  %38 = icmp eq ptr %37, null
+  br i1 %38, label %43, label %39
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %38, i64 200
-  %42 = load ptr, ptr %41, align 8, !tbaa !107
-  %43 = icmp eq ptr %42, null
-  br i1 %43, label %44, label %45
+39:                                               ; preds = %evp_pkey_ctx_state.exit
+  %40 = getelementptr inbounds nuw i8, ptr %37, i64 200
+  %41 = load ptr, ptr %40, align 8, !tbaa !107
+  %42 = icmp eq ptr %41, null
+  br i1 %42, label %43, label %44
 
-44:                                               ; preds = %40, %36
+43:                                               ; preds = %39, %evp_pkey_ctx_state.exit
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1385, ptr noundef nonnull @__func__.evp_pkey_ctx_ctrl_str_int) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 147, ptr noundef null) #10
   br label %EVP_PKEY_CTX_md.exit
 
-45:                                               ; preds = %40
-  %46 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.1) #11
-  %47 = icmp eq i32 %46, 0
-  br i1 %47, label %48, label %56
+44:                                               ; preds = %39
+  %45 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.1) #11
+  %46 = icmp eq i32 %45, 0
+  br i1 %46, label %47, label %55
 
-48:                                               ; preds = %45
-  %49 = icmp eq ptr %2, null
-  br i1 %49, label %53, label %50
+47:                                               ; preds = %44
+  %48 = icmp eq ptr %2, null
+  br i1 %48, label %52, label %49
 
-50:                                               ; preds = %48
-  %51 = tail call ptr @EVP_get_digestbyname(ptr noundef nonnull %2) #10
-  %52 = icmp eq ptr %51, null
-  br i1 %52, label %53, label %54
+49:                                               ; preds = %47
+  %50 = tail call ptr @EVP_get_digestbyname(ptr noundef nonnull %2) #10
+  %51 = icmp eq ptr %50, null
+  br i1 %51, label %52, label %53
 
-53:                                               ; preds = %50, %48
+52:                                               ; preds = %49, %47
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1614, ptr noundef nonnull @__func__.EVP_PKEY_CTX_md) #10
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 152, ptr noundef null) #10
   br label %EVP_PKEY_CTX_md.exit
 
-54:                                               ; preds = %50
-  %55 = tail call i32 @EVP_PKEY_CTX_ctrl(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 51184, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %51)
+53:                                               ; preds = %49
+  %54 = tail call i32 @EVP_PKEY_CTX_ctrl(ptr noundef nonnull %0, i32 noundef -1, i32 noundef 51184, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %50)
   br label %EVP_PKEY_CTX_md.exit
 
-56:                                               ; preds = %45
-  %57 = tail call i32 %42(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #10
+55:                                               ; preds = %44
+  %56 = tail call i32 %41(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2) #10
   br label %EVP_PKEY_CTX_md.exit
 
-EVP_PKEY_CTX_md.exit:                             ; preds = %54, %53, %56, %44, %34, %5
-  %.016 = phi i32 [ -2, %5 ], [ %35, %34 ], [ -2, %44 ], [ %57, %56 ], [ 0, %53 ], [ %55, %54 ]
+EVP_PKEY_CTX_md.exit:                             ; preds = %53, %52, %55, %43, %34, %5
+  %.016 = phi i32 [ -2, %5 ], [ %35, %34 ], [ -2, %43 ], [ %56, %55 ], [ 0, %52 ], [ %54, %53 ]
   ret i32 %.016
 }
 

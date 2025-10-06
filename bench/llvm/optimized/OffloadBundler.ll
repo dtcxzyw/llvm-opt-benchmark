@@ -14005,9 +14005,9 @@ _ZN12_GLOBAL__N_117ObjectFileHandler16IsOffloadSectionEN4llvm6object10SectionRef
   br i1 %29, label %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread, label %47
 
 47:                                               ; preds = %_ZN12_GLOBAL__N_117ObjectFileHandler16IsOffloadSectionEN4llvm6object10SectionRefE.exit
-  br i1 %.sroa.10.1, label %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread35, label %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit
+  br i1 %.sroa.10.1, label %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread33, label %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit
 
-_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread35: ; preds = %47
+_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread33: ; preds = %47
   %48 = and i8 %.promoted, -2
   br label %.loopexit
 
@@ -14021,13 +14021,13 @@ _ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread: ; preds = %_ZN12
   store i8 %51, ptr %10, align 8
   br label %54
 
-.loopexit:                                        ; preds = %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread35, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread
-  %52 = phi i8 [ %.promoted16, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread ], [ 1, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread35 ]
-  %.sroa.9.1142934 = phi i64 [ %.sroa.9.0..sroa_idx.promoted, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread ], [ %.sroa.9.1, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread35 ]
-  %53 = phi i8 [ %49, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread ], [ %48, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread35 ]
+.loopexit:                                        ; preds = %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread33, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread
+  %52 = phi i8 [ %.promoted16, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread ], [ 1, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread33 ]
+  %.sroa.9.1142932 = phi i64 [ %.sroa.9.0..sroa_idx.promoted, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread ], [ %.sroa.9.1, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread33 ]
+  %53 = phi i8 [ %49, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread ], [ %48, %_ZN4llvm8ExpectedISt8optionalINS_9StringRefEEED2Ev.exit.thread33 ]
   store i64 %.sroa.03.2, ptr %0, align 8, !tbaa !257
   store i8 %53, ptr %10, align 8
-  store i64 %.sroa.9.1142934, ptr %.sroa.9.0..sroa_idx, align 8
+  store i64 %.sroa.9.1142932, ptr %.sroa.9.0..sroa_idx, align 8
   br label %54
 
 54:                                               ; preds = %.loopexit, %50

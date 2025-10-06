@@ -1338,24 +1338,24 @@ common.resume:                                    ; preds = %27, %_ZNSt10_Hashta
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %36, ptr noundef nonnull align 8 dereferenceable(16) %.021, i64 16, i1 false)
   %37 = load i64, ptr %16, align 8, !tbaa !80
   %.not.not.i.i.i = icmp eq i64 %37, 0
-  %.pre44.i.i.i = load i64, ptr %36, align 8, !tbaa !11
+  %.pre39.i.i.i = load i64, ptr %36, align 8, !tbaa !11
   br i1 %.not.not.i.i.i, label %.preheader, label %.loopexit.i.i
 
 .preheader:                                       ; preds = %34, %38
   %.sroa.0.0.in.i.i.i = phi ptr [ %.sroa.0.0.i.i.i, %38 ], [ %33, %34 ]
   %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !tbaa !65
-  %.not33.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i, null
-  br i1 %.not33.i.i.i, label %.loopexit.i.i, label %38
+  %.not28.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i, null
+  br i1 %.not28.i.i.i, label %.loopexit.i.i, label %38
 
 38:                                               ; preds = %.preheader
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i, i64 8
   %40 = load i64, ptr %39, align 8, !tbaa !11
-  %41 = icmp eq i64 %.pre44.i.i.i, %40
+  %41 = icmp eq i64 %.pre39.i.i.i, %40
   br i1 %41, label %.loopexit.i.i, label %.preheader, !llvm.loop !106
 
 .loopexit.i.i:                                    ; preds = %38, %.preheader, %34
-  %.sroa.021.2.i.i.i = phi ptr [ null, %34 ], [ null, %.preheader ], [ %.sroa.0.0.i.i.i, %38 ]
-  %42 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS4_10_Hash_nodeIS2_Lb0EEEmSI_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.sroa.021.2.i.i.i, i64 noundef %.pre44.i.i.i, ptr noundef nonnull %35)
+  %.sroa.020.2.i.i.i = phi ptr [ null, %34 ], [ null, %.preheader ], [ %.sroa.0.0.i.i.i, %38 ]
+  %42 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS4_10_Hash_nodeIS2_Lb0EEEmSI_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %.sroa.020.2.i.i.i, i64 noundef %.pre39.i.i.i, ptr noundef nonnull %35)
           to label %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE9_M_insertIRKS2_NS4_10_AllocNodeISaINS4_10_Hash_nodeIS2_Lb0EEEEEEEENS4_14_Node_iteratorIS2_Lb0ELb0EEEOT_RKT0_St17integral_constantIbLb0EE.exit unwind label %_ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit11.i.i
 
 _ZNSt10_HashtableImSt4pairIKmmESaIS2_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit11.i.i: ; preds = %.loopexit.i.i

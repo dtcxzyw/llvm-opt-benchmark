@@ -1659,17 +1659,17 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %17 = shl i64 %1, 3
   %calloc = tail call ptr @calloc(i64 1, i64 %17)
   %18 = icmp eq ptr %calloc, null
-  br i1 %18, label %.thread, label %.preheader208
+  br i1 %18, label %.thread, label %.preheader207
 
-19:                                               ; preds = %.preheader208
-  %20 = add nuw i64 %.0130170, 1
+19:                                               ; preds = %.preheader207
+  %20 = add nuw i64 %.0130169, 1
   %exitcond.not = icmp eq i64 %20, %1
-  br i1 %exitcond.not, label %24, label %.preheader208, !llvm.loop !23
+  br i1 %exitcond.not, label %24, label %.preheader207, !llvm.loop !23
 
-.preheader208:                                    ; preds = %16, %19
-  %.0130170 = phi i64 [ %20, %19 ], [ 0, %16 ]
+.preheader207:                                    ; preds = %16, %19
+  %.0130169 = phi i64 [ %20, %19 ], [ 0, %16 ]
   %21 = tail call ptr @BN_new() #4
-  %22 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.0130170
+  %22 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.0130169
   store ptr %21, ptr %22, align 8, !tbaa !25
   %23 = icmp eq ptr %21, null
   br i1 %23, label %.thread, label %19
@@ -1696,12 +1696,12 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   br i1 %36, label %.thread, label %37
 
 37:                                               ; preds = %33, %29
-  %.not179 = icmp eq i64 %1, 1
-  br i1 %.not179, label %._crit_edge, label %.lr.ph
+  %.not178 = icmp eq i64 %1, 1
+  br i1 %.not178, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %59
-  %.1171 = phi i64 [ %60, %59 ], [ 1, %37 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1171
+  %.1170 = phi i64 [ %60, %59 ], [ 1, %37 ]
+  %38 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1170
   %39 = load ptr, ptr %38, align 8, !tbaa !27
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 56
   %41 = tail call i32 @BN_is_zero(ptr noundef nonnull %40) #4
@@ -1712,7 +1712,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %43 = load ptr, ptr %0, align 8, !tbaa !17
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 56
   %45 = load ptr, ptr %44, align 8, !tbaa !21
-  %46 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.1171
+  %46 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.1170
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = getelementptr i8, ptr %46, i64 -8
   %49 = load ptr, ptr %48, align 8, !tbaa !25
@@ -1723,7 +1723,7 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   br i1 %.not161, label %.thread, label %59
 
 53:                                               ; preds = %.lr.ph
-  %54 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.1171
+  %54 = getelementptr inbounds nuw ptr, ptr %calloc, i64 %.1170
   %55 = load ptr, ptr %54, align 8, !tbaa !25
   %56 = getelementptr i8, ptr %54, i64 -8
   %57 = load ptr, ptr %56, align 8, !tbaa !25
@@ -1732,9 +1732,9 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   br i1 %.not162, label %.thread, label %59
 
 59:                                               ; preds = %42, %53
-  %60 = add nuw i64 %.1171, 1
-  %exitcond184.not = icmp eq i64 %60, %1
-  br i1 %exitcond184.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
+  %60 = add nuw i64 %.1170, 1
+  %exitcond183.not = icmp eq i64 %60, %1
+  br i1 %exitcond183.not, label %._crit_edge, label %.lr.ph, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %59, %37
   %61 = add i64 %1, -1
@@ -1770,23 +1770,23 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   br i1 %.not147, label %.thread, label %78
 
 78:                                               ; preds = %73, %67
-  %.not148172 = icmp eq i64 %61, 0
-  br i1 %.not148172, label %._crit_edge176, label %.lr.ph175
+  %.not148171 = icmp eq i64 %61, 0
+  br i1 %.not148171, label %._crit_edge175, label %.lr.ph174
 
-.lr.ph175:                                        ; preds = %78, %102
-  %.2173 = phi i64 [ %103, %102 ], [ %61, %78 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2173
+.lr.ph174:                                        ; preds = %78, %102
+  %.2172 = phi i64 [ %103, %102 ], [ %61, %78 ]
+  %79 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2172
   %80 = load ptr, ptr %79, align 8, !tbaa !27
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 56
   %82 = tail call i32 @BN_is_zero(ptr noundef nonnull %81) #4
   %.not156 = icmp eq i32 %82, 0
   br i1 %.not156, label %83, label %102
 
-83:                                               ; preds = %.lr.ph175
+83:                                               ; preds = %.lr.ph174
   %84 = load ptr, ptr %0, align 8, !tbaa !17
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 56
   %86 = load ptr, ptr %85, align 8, !tbaa !21
-  %87 = getelementptr ptr, ptr %calloc, i64 %.2173
+  %87 = getelementptr ptr, ptr %calloc, i64 %.2172
   %88 = getelementptr i8, ptr %87, i64 -8
   %89 = load ptr, ptr %88, align 8, !tbaa !25
   %90 = tail call i32 %86(ptr noundef nonnull %0, ptr noundef %13, ptr noundef %89, ptr noundef %12, ptr noundef nonnull %.0132) #4
@@ -1810,32 +1810,32 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   %.not159 = icmp eq ptr %101, null
   br i1 %.not159, label %.thread, label %102
 
-102:                                              ; preds = %98, %.lr.ph175
-  %103 = add i64 %.2173, -1
+102:                                              ; preds = %98, %.lr.ph174
+  %103 = add i64 %.2172, -1
   %.not148 = icmp eq i64 %103, 0
-  br i1 %.not148, label %._crit_edge176, label %.lr.ph175, !llvm.loop !29
+  br i1 %.not148, label %._crit_edge175, label %.lr.ph174, !llvm.loop !29
 
-._crit_edge176:                                   ; preds = %102, %78
+._crit_edge175:                                   ; preds = %102, %78
   %104 = load ptr, ptr %2, align 8, !tbaa !27
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 56
   %106 = tail call i32 @BN_is_zero(ptr noundef nonnull %105) #4
   %.not149 = icmp eq i32 %106, 0
   br i1 %.not149, label %107, label %111
 
-107:                                              ; preds = %._crit_edge176
+107:                                              ; preds = %._crit_edge175
   %108 = load ptr, ptr %2, align 8, !tbaa !27
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 56
   %110 = tail call ptr @BN_copy(ptr noundef nonnull %109, ptr noundef %12) #4
   %.not150 = icmp eq ptr %110, null
   br i1 %.not150, label %.thread, label %111
 
-111:                                              ; preds = %107, %._crit_edge176
+111:                                              ; preds = %107, %._crit_edge175
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 168
   br label %113
 
 113:                                              ; preds = %111, %143
-  %.3177 = phi i64 [ 0, %111 ], [ %144, %143 ]
-  %114 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3177
+  %.3176 = phi i64 [ 0, %111 ], [ %144, %143 ]
+  %114 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3176
   %115 = load ptr, ptr %114, align 8, !tbaa !27
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 56
   %117 = tail call i32 @BN_is_zero(ptr noundef nonnull %116) #4
@@ -1882,30 +1882,30 @@ define hidden range(i32 0, 2) i32 @ec_GFp_simple_points_make_affine(ptr noundef 
   br i1 %142, label %.thread, label %143
 
 143:                                              ; preds = %140, %113
-  %144 = add nuw i64 %.3177, 1
-  %exitcond186.not = icmp eq i64 %144, %1
-  br i1 %exitcond186.not, label %.thread, label %113, !llvm.loop !30
+  %144 = add nuw i64 %.3176, 1
+  %exitcond185.not = icmp eq i64 %144, %1
+  br i1 %exitcond185.not, label %.thread, label %113, !llvm.loop !30
 
-.thread:                                          ; preds = %.preheader208, %53, %42, %83, %91, %98, %140, %118, %123, %129, %134, %143, %107, %71, %73, %33, %29, %16, %11, %66
-  %.0131 = phi ptr [ null, %11 ], [ null, %16 ], [ %calloc, %33 ], [ %calloc, %107 ], [ %calloc, %73 ], [ %calloc, %71 ], [ %calloc, %66 ], [ %calloc, %29 ], [ %calloc, %143 ], [ %calloc, %134 ], [ %calloc, %129 ], [ %calloc, %123 ], [ %calloc, %118 ], [ %calloc, %140 ], [ %calloc, %98 ], [ %calloc, %91 ], [ %calloc, %83 ], [ %calloc, %42 ], [ %calloc, %53 ], [ %calloc, %.preheader208 ]
-  %.0129 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %33 ], [ 0, %107 ], [ 0, %73 ], [ 0, %71 ], [ 0, %66 ], [ 0, %29 ], [ 0, %140 ], [ 0, %118 ], [ 0, %123 ], [ 0, %129 ], [ 0, %134 ], [ 1, %143 ], [ 0, %98 ], [ 0, %91 ], [ 0, %83 ], [ 0, %42 ], [ 0, %53 ], [ 0, %.preheader208 ]
+.thread:                                          ; preds = %.preheader207, %53, %42, %83, %91, %98, %140, %118, %123, %129, %134, %143, %107, %71, %73, %33, %29, %16, %11, %66
+  %.0131 = phi ptr [ null, %11 ], [ null, %16 ], [ %calloc, %33 ], [ %calloc, %107 ], [ %calloc, %73 ], [ %calloc, %71 ], [ %calloc, %66 ], [ %calloc, %29 ], [ %calloc, %143 ], [ %calloc, %134 ], [ %calloc, %129 ], [ %calloc, %123 ], [ %calloc, %118 ], [ %calloc, %140 ], [ %calloc, %98 ], [ %calloc, %91 ], [ %calloc, %83 ], [ %calloc, %42 ], [ %calloc, %53 ], [ %calloc, %.preheader207 ]
+  %.0129 = phi i32 [ 0, %11 ], [ 0, %16 ], [ 0, %33 ], [ 0, %107 ], [ 0, %73 ], [ 0, %71 ], [ 0, %66 ], [ 0, %29 ], [ 0, %140 ], [ 0, %118 ], [ 0, %123 ], [ 0, %129 ], [ 0, %134 ], [ 1, %143 ], [ 0, %98 ], [ 0, %91 ], [ 0, %83 ], [ 0, %42 ], [ 0, %53 ], [ 0, %.preheader207 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.0132) #4
   tail call void @BN_CTX_free(ptr noundef %.0133) #4
   %.not163 = icmp eq ptr %.0131, null
   br i1 %.not163, label %151, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %148
-  %.4178 = phi i64 [ %149, %148 ], [ 0, %.thread ]
-  %145 = getelementptr inbounds nuw ptr, ptr %.0131, i64 %.4178
+  %.4177 = phi i64 [ %149, %148 ], [ 0, %.thread ]
+  %145 = getelementptr inbounds nuw ptr, ptr %.0131, i64 %.4177
   %146 = load ptr, ptr %145, align 8, !tbaa !25
   %147 = icmp eq ptr %146, null
   br i1 %147, label %150, label %148
 
 148:                                              ; preds = %.preheader
   tail call void @BN_clear_free(ptr noundef nonnull %146) #4
-  %149 = add nuw i64 %.4178, 1
-  %exitcond188.not = icmp eq i64 %149, %1
-  br i1 %exitcond188.not, label %150, label %.preheader, !llvm.loop !31
+  %149 = add nuw i64 %.4177, 1
+  %exitcond187.not = icmp eq i64 %149, %1
+  br i1 %exitcond187.not, label %150, label %.preheader, !llvm.loop !31
 
 150:                                              ; preds = %.preheader, %148
   tail call void @free(ptr noundef %.0131) #4

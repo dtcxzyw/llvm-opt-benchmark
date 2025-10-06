@@ -20735,7 +20735,7 @@ define internal void @_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl4SendEm(ptr 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i8, ptr %5, align 8, !tbaa !398, !range !98, !noundef !99
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %23
+  br i1 %7, label %8, label %24
 
 8:                                                ; preds = %2
   %9 = tail call ptr @__errno_location() #42
@@ -20745,71 +20745,75 @@ define internal void @_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl4SendEm(ptr 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load atomic i32, ptr %11 seq_cst, align 8
   %13 = icmp eq i32 %12, -1
-  br i1 %13, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit, label %.preheader
+  br i1 %13, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit, label %.preheader.i
 
-.preheader:                                       ; preds = %8, %.preheader.outer.i
-  %.012.ph.i18 = phi i64 [ %19, %.preheader.outer.i ], [ 8, %8 ]
-  %.013.ph.i17 = phi ptr [ %18, %.preheader.outer.i ], [ %4, %8 ]
-  br label %14
+.preheader.i:                                     ; preds = %8, %select.unfold.i
+  %.01220.i = phi i64 [ %.2.i, %select.unfold.i ], [ 8, %8 ]
+  %.01319.i = phi ptr [ %.114.i, %select.unfold.i ], [ %4, %8 ]
+  %14 = load atomic i32, ptr %11 seq_cst, align 8
+  %15 = call i64 @write(i32 noundef %14, ptr noundef %.01319.i, i64 noundef %.01220.i)
+  %16 = icmp slt i64 %15, 0
+  br i1 %16, label %17, label %20
 
-14:                                               ; preds = %.preheader, %21
-  %15 = load atomic i32, ptr %11 seq_cst, align 8
-  %16 = call i64 @write(i32 noundef %15, ptr noundef %.013.ph.i17, i64 noundef %.012.ph.i18)
-  %17 = icmp slt i64 %16, 0
-  br i1 %17, label %21, label %.preheader.outer.i
+17:                                               ; preds = %.preheader.i
+  %18 = load i32, ptr %9, align 4, !tbaa !38
+  %19 = icmp eq i32 %18, 4
+  br i1 %19, label %select.unfold.i, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit, !llvm.loop !989
 
-.preheader.outer.i:                               ; preds = %14
-  %18 = getelementptr inbounds nuw i8, ptr %.013.ph.i17, i64 %16
-  %19 = sub nsw i64 %.012.ph.i18, %16
-  %20 = icmp sgt i64 %19, 0
-  br i1 %20, label %.preheader, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit
+20:                                               ; preds = %.preheader.i
+  %21 = getelementptr inbounds nuw i8, ptr %.01319.i, i64 %15
+  %22 = sub nsw i64 %.01220.i, %15
+  br label %select.unfold.i
 
-21:                                               ; preds = %14
-  %22 = load i32, ptr %9, align 4, !tbaa !38
-  %.not.i = icmp eq i32 %22, 4
-  br i1 %.not.i, label %14, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit
+select.unfold.i:                                  ; preds = %20, %17
+  %.114.i = phi ptr [ %21, %20 ], [ %.01319.i, %17 ]
+  %.2.i = phi i64 [ %22, %20 ], [ %.01220.i, %17 ]
+  %23 = icmp sgt i64 %.2.i, 0
+  br i1 %23, label %.preheader.i, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit
 
-_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit: ; preds = %.preheader.outer.i, %21, %8
+_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit: ; preds = %17, %select.unfold.i, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   store i32 %10, ptr %9, align 4, !tbaa !38
-  br label %37
+  br label %39
 
-23:                                               ; preds = %2
+24:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 %1, ptr %3, align 8, !tbaa !9
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load atomic i32, ptr %24 seq_cst, align 8
-  %26 = icmp eq i32 %25, -1
-  br i1 %26, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit8, label %.preheader10
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %26 = load atomic i32, ptr %25 seq_cst, align 8
+  %27 = icmp eq i32 %26, -1
+  br i1 %27, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit12, label %.preheader.i3
 
-.preheader10:                                     ; preds = %23, %.preheader.outer.i3
-  %.012.ph.i516 = phi i64 [ %32, %.preheader.outer.i3 ], [ 8, %23 ]
-  %.013.ph.i415 = phi ptr [ %31, %.preheader.outer.i3 ], [ %3, %23 ]
-  br label %27
-
-27:                                               ; preds = %.preheader10, %34
-  %28 = load atomic i32, ptr %24 seq_cst, align 8
-  %29 = call i64 @write(i32 noundef %28, ptr noundef %.013.ph.i415, i64 noundef %.012.ph.i516)
+.preheader.i3:                                    ; preds = %24, %select.unfold.i6
+  %.01220.i4 = phi i64 [ %.2.i8, %select.unfold.i6 ], [ 8, %24 ]
+  %.01319.i5 = phi ptr [ %.114.i7, %select.unfold.i6 ], [ %3, %24 ]
+  %28 = load atomic i32, ptr %25 seq_cst, align 8
+  %29 = call i64 @write(i32 noundef %28, ptr noundef %.01319.i5, i64 noundef %.01220.i4)
   %30 = icmp slt i64 %29, 0
-  br i1 %30, label %34, label %.preheader.outer.i3
+  br i1 %30, label %31, label %35
 
-.preheader.outer.i3:                              ; preds = %27
-  %31 = getelementptr inbounds nuw i8, ptr %.013.ph.i415, i64 %29
-  %32 = sub nsw i64 %.012.ph.i516, %29
-  %33 = icmp sgt i64 %32, 0
-  br i1 %33, label %.preheader10, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit8
+31:                                               ; preds = %.preheader.i3
+  %32 = tail call ptr @__errno_location() #42
+  %33 = load i32, ptr %32, align 4, !tbaa !38
+  %34 = icmp eq i32 %33, 4
+  br i1 %34, label %select.unfold.i6, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit12, !llvm.loop !989
 
-34:                                               ; preds = %27
-  %35 = tail call ptr @__errno_location() #42
-  %36 = load i32, ptr %35, align 4, !tbaa !38
-  %.not.i7 = icmp eq i32 %36, 4
-  br i1 %.not.i7, label %27, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit8
+35:                                               ; preds = %.preheader.i3
+  %36 = getelementptr inbounds nuw i8, ptr %.01319.i5, i64 %29
+  %37 = sub nsw i64 %.01220.i4, %29
+  br label %select.unfold.i6
 
-_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit8: ; preds = %.preheader.outer.i3, %34, %23
+select.unfold.i6:                                 ; preds = %35, %31
+  %.114.i7 = phi ptr [ %36, %35 ], [ %.01319.i5, %31 ]
+  %.2.i8 = phi i64 [ %37, %35 ], [ %.01220.i4, %31 ]
+  %38 = icmp sgt i64 %.2.i8, 0
+  br i1 %38, label %.preheader.i3, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit12
+
+_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit12: ; preds = %31, %select.unfold.i6, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %37
+  br label %39
 
-37:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit8, %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit
+39:                                               ; preds = %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit12, %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit
   ret void
 }
 
@@ -20825,90 +20829,92 @@ define internal void @_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl8ShutdownEv(
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load atomic i32, ptr %6 seq_cst, align 8
   %8 = icmp eq i32 %7, -1
-  br i1 %8, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread, label %.preheader
+  br i1 %8, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread, label %.preheader.i
 
 _ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread: ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %thread-pre-split
 
-.preheader:                                       ; preds = %2, %.preheader.outer.i
-  %.012.ph.i8 = phi i64 [ %14, %.preheader.outer.i ], [ 8, %2 ]
-  %.013.ph.i7 = phi ptr [ %13, %.preheader.outer.i ], [ %3, %2 ]
-  br label %9
+.preheader.i:                                     ; preds = %2, %select.unfold.i
+  %.01220.i = phi i64 [ %.2.i, %select.unfold.i ], [ 8, %2 ]
+  %.01319.i = phi ptr [ %.114.i, %select.unfold.i ], [ %3, %2 ]
+  %9 = load atomic i32, ptr %6 seq_cst, align 8
+  %10 = call i64 @write(i32 noundef %9, ptr noundef %.01319.i, i64 noundef %.01220.i)
+  %11 = icmp slt i64 %10, 0
+  br i1 %11, label %12, label %15
 
-9:                                                ; preds = %.preheader, %16
-  %10 = load atomic i32, ptr %6 seq_cst, align 8
-  %11 = call i64 @write(i32 noundef %10, ptr noundef %.013.ph.i7, i64 noundef %.012.ph.i8)
-  %12 = icmp slt i64 %11, 0
-  br i1 %12, label %16, label %.preheader.outer.i
+12:                                               ; preds = %.preheader.i
+  %13 = load i32, ptr %5, align 4, !tbaa !38
+  %14 = icmp eq i32 %13, 4
+  br i1 %14, label %select.unfold.i, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread2, !llvm.loop !989
 
-.preheader.outer.i:                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %.013.ph.i7, i64 %11
-  %14 = sub nsw i64 %.012.ph.i8, %11
-  %15 = icmp sgt i64 %14, 0
-  br i1 %15, label %.preheader, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit
-
-16:                                               ; preds = %9
-  %17 = load i32, ptr %5, align 4, !tbaa !38
-  %.not.i = icmp eq i32 %17, 4
-  br i1 %.not.i, label %9, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread15
-
-_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread15: ; preds = %16
+_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread2: ; preds = %12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %19
+  br label %20
 
-_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit: ; preds = %.preheader.outer.i
-  %18 = icmp eq i64 %14, 0
+15:                                               ; preds = %.preheader.i
+  %16 = getelementptr inbounds nuw i8, ptr %.01319.i, i64 %10
+  %17 = sub nsw i64 %.01220.i, %10
+  br label %select.unfold.i
+
+select.unfold.i:                                  ; preds = %15, %12
+  %.114.i = phi ptr [ %16, %15 ], [ %.01319.i, %12 ]
+  %.2.i = phi i64 [ %17, %15 ], [ %.01220.i, %12 ]
+  %18 = icmp sgt i64 %.2.i, 0
+  br i1 %18, label %.preheader.i, label %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit
+
+_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit: ; preds = %select.unfold.i
+  %19 = icmp eq i64 %.2.i, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %18, label %26, label %thread-pre-split
+  br i1 %19, label %27, label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit, %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread
   %.pr = load i32, ptr %5, align 4, !tbaa !38
-  br label %19
+  br label %20
 
-19:                                               ; preds = %thread-pre-split, %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread15
-  %20 = phi i32 [ %.pr, %thread-pre-split ], [ %17, %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread15 ]
-  %.not = icmp eq i32 %20, 0
-  br i1 %.not, label %22, label %21
+20:                                               ; preds = %thread-pre-split, %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread2
+  %21 = phi i32 [ %.pr, %thread-pre-split ], [ %13, %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit.thread2 ]
+  %.not = icmp eq i32 %21, 0
+  br i1 %.not, label %23, label %22
 
-21:                                               ; preds = %19
-  tail call void @_ZN5arrow8internal15StatusFromErrnoIJRA29_KcEEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i32 noundef %20, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(29) @.str.85)
+22:                                               ; preds = %20
+  tail call void @_ZN5arrow8internal15StatusFromErrnoIJRA29_KcEEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i32 noundef %21, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(29) @.str.85)
   br label %_ZN5arrow8internal14FileDescriptor5CloseEv.exit
 
-22:                                               ; preds = %19
-  %23 = load atomic i32, ptr %6 seq_cst, align 8
-  %24 = icmp eq i32 %23, -1
-  br i1 %24, label %26, label %25
+23:                                               ; preds = %20
+  %24 = load atomic i32, ptr %6 seq_cst, align 8
+  %25 = icmp eq i32 %24, -1
+  br i1 %25, label %27, label %26
 
-25:                                               ; preds = %22
+26:                                               ; preds = %23
   tail call void @_ZN5arrow6Status8FromArgsIJRA29_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i8 noundef signext 9, ptr noundef nonnull align 1 dereferenceable(29) @.str.85)
   br label %_ZN5arrow8internal14FileDescriptor5CloseEv.exit
 
-26:                                               ; preds = %22, %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !989)
-  %27 = atomicrmw xchg ptr %6, i32 -1 seq_cst, align 4, !noalias !989
-  %.not.i1 = icmp eq i32 %27, -1
-  br i1 %.not.i1, label %33, label %28
+27:                                               ; preds = %23, %_ZN5arrow8internal12_GLOBAL__N_112SelfPipeImpl6DoSendEm.exit
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !990)
+  %28 = atomicrmw xchg ptr %6, i32 -1 seq_cst, align 4, !noalias !990
+  %.not.i = icmp eq i32 %28, -1
+  br i1 %.not.i, label %34, label %29
 
-28:                                               ; preds = %26
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !992)
-  %29 = tail call i32 @close(i32 noundef %27), !noalias !995
-  %30 = icmp eq i32 %29, -1
-  br i1 %30, label %31, label %32
+29:                                               ; preds = %27
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !993)
+  %30 = tail call i32 @close(i32 noundef %28), !noalias !996
+  %31 = icmp eq i32 %30, -1
+  br i1 %31, label %32, label %33
 
-31:                                               ; preds = %28
+32:                                               ; preds = %29
   tail call void @_ZN5arrow6Status8FromArgsIJRA19_KcEEES0_NS_10StatusCodeEDpOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, i8 noundef signext 5, ptr noundef nonnull align 1 dereferenceable(19) @.str.15)
   br label %_ZN5arrow8internal14FileDescriptor5CloseEv.exit
 
-32:                                               ; preds = %28
-  store ptr null, ptr %0, align 8, !tbaa !89, !alias.scope !996
+33:                                               ; preds = %29
+  store ptr null, ptr %0, align 8, !tbaa !89, !alias.scope !997
   br label %_ZN5arrow8internal14FileDescriptor5CloseEv.exit
 
-33:                                               ; preds = %26
-  store ptr null, ptr %0, align 8, !tbaa !89, !alias.scope !999
+34:                                               ; preds = %27
+  store ptr null, ptr %0, align 8, !tbaa !89, !alias.scope !1000
   br label %_ZN5arrow8internal14FileDescriptor5CloseEv.exit
 
-_ZN5arrow8internal14FileDescriptor5CloseEv.exit:  ; preds = %33, %32, %31, %25, %21
+_ZN5arrow8internal14FileDescriptor5CloseEv.exit:  ; preds = %34, %33, %32, %26, %22
   ret void
 }
 
@@ -21006,13 +21012,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA17_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1002
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1002
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1003
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1003
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1002
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(17) %2) #38, !noalias !1002
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1003
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(17) %2) #38, !noalias !1003
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(17) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA17_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1002
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA17_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1003
 
 _ZN5arrow4util22StringBuilderRecursiveIRA17_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -21026,12 +21032,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1002
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1003
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA17_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA17_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1002
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1003
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -21073,28 +21079,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %18, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow8internal15StatusFromErrnoIJRA29_KcEEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, i32 noundef %1, i8 noundef signext %2, ptr noundef nonnull align 1 dereferenceable(29) %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1005)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1006)
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %6, label %_ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 6:                                                ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !1005
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !1006
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %4
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40, !noalias !1008
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40, !noalias !1009
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 1, ptr %8, align 8, !tbaa !18, !noalias !1008
+  store i32 1, ptr %8, align 8, !tbaa !18, !noalias !1009
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 1, ptr %9, align 4, !tbaa !21, !noalias !1008
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_111ErrnoDetailESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !22, !noalias !1008
+  store i32 1, ptr %9, align 4, !tbaa !21, !noalias !1009
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_111ErrnoDetailESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !22, !noalias !1009
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5arrow8internal12_GLOBAL__N_111ErrnoDetailE, i64 16), ptr %10, align 8, !tbaa !22, !noalias !1008
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5arrow8internal12_GLOBAL__N_111ErrnoDetailE, i64 16), ptr %10, align 8, !tbaa !22, !noalias !1009
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %1, ptr %11, align 8, !tbaa !24, !noalias !1008
-  store ptr %10, ptr %5, align 8, !tbaa !27, !alias.scope !1005
+  store i32 %1, ptr %11, align 8, !tbaa !24, !noalias !1009
+  store ptr %10, ptr %5, align 8, !tbaa !27, !alias.scope !1006
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %7, ptr %12, align 8, !tbaa !32, !alias.scope !1005
+  store ptr %7, ptr %12, align 8, !tbaa !32, !alias.scope !1006
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZN5arrow8internal21StatusDetailFromErrnoEi.exit: ; preds = %6, %_ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
@@ -21166,13 +21172,13 @@ define linkonce_odr void @_ZN5arrow6Status17FromDetailAndArgsIJRA29_KcEEES0_NS_1
   %5 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::shared_ptr", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1011
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5), !noalias !1011
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1012
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5), !noalias !1012
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !609, !noalias !1011
-  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(29) %3) #38, !noalias !1011
+  %9 = load ptr, ptr %8, align 8, !tbaa !609, !noalias !1012
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(29) %3) #38, !noalias !1012
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(29) %3, i64 noundef %10)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA29_KcEEvRSoOT_.exit.i unwind label %12, !noalias !1011
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA29_KcEEvRSoOT_.exit.i unwind label %12, !noalias !1012
 
 _ZN5arrow4util22StringBuilderRecursiveIRA29_KcEEvRSoOT_.exit.i: ; preds = %4
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -21186,12 +21192,12 @@ common.resume:                                    ; preds = %46, %_ZNKSt7__cxx11
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1011
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1012
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA29_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1011
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1012
   %14 = load ptr, ptr %2, align 8, !tbaa !27
   store ptr %14, ptr %7, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -21288,13 +21294,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA29_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1014
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1014
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1015
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1015
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1014
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(29) %2) #38, !noalias !1014
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1015
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(29) %2) #38, !noalias !1015
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(29) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA29_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1014
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA29_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1015
 
 _ZN5arrow4util22StringBuilderRecursiveIRA29_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -21308,12 +21314,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1014
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1015
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA29_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1014
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1015
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -21355,28 +21361,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %18, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow8internal15StatusFromErrnoIJRA21_KcEEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, i32 noundef %1, i8 noundef signext %2, ptr noundef nonnull align 1 dereferenceable(21) %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1017)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1018)
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %6, label %_ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 6:                                                ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !1017
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !1018
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %4
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40, !noalias !1020
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40, !noalias !1021
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 1, ptr %8, align 8, !tbaa !18, !noalias !1020
+  store i32 1, ptr %8, align 8, !tbaa !18, !noalias !1021
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 1, ptr %9, align 4, !tbaa !21, !noalias !1020
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_111ErrnoDetailESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !22, !noalias !1020
+  store i32 1, ptr %9, align 4, !tbaa !21, !noalias !1021
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_111ErrnoDetailESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !22, !noalias !1021
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5arrow8internal12_GLOBAL__N_111ErrnoDetailE, i64 16), ptr %10, align 8, !tbaa !22, !noalias !1020
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5arrow8internal12_GLOBAL__N_111ErrnoDetailE, i64 16), ptr %10, align 8, !tbaa !22, !noalias !1021
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %1, ptr %11, align 8, !tbaa !24, !noalias !1020
-  store ptr %10, ptr %5, align 8, !tbaa !27, !alias.scope !1017
+  store i32 %1, ptr %11, align 8, !tbaa !24, !noalias !1021
+  store ptr %10, ptr %5, align 8, !tbaa !27, !alias.scope !1018
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %7, ptr %12, align 8, !tbaa !32, !alias.scope !1017
+  store ptr %7, ptr %12, align 8, !tbaa !32, !alias.scope !1018
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZN5arrow8internal21StatusDetailFromErrnoEi.exit: ; preds = %6, %_ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
@@ -21448,13 +21454,13 @@ define linkonce_odr void @_ZN5arrow6Status17FromDetailAndArgsIJRA21_KcEEES0_NS_1
   %5 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::shared_ptr", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1023
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5), !noalias !1023
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1024
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5), !noalias !1024
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !609, !noalias !1023
-  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(21) %3) #38, !noalias !1023
+  %9 = load ptr, ptr %8, align 8, !tbaa !609, !noalias !1024
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(21) %3) #38, !noalias !1024
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(21) %3, i64 noundef %10)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA21_KcEEvRSoOT_.exit.i unwind label %12, !noalias !1023
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA21_KcEEvRSoOT_.exit.i unwind label %12, !noalias !1024
 
 _ZN5arrow4util22StringBuilderRecursiveIRA21_KcEEvRSoOT_.exit.i: ; preds = %4
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -21468,12 +21474,12 @@ common.resume:                                    ; preds = %46, %_ZNKSt7__cxx11
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1023
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1024
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA21_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1023
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1024
   %14 = load ptr, ptr %2, align 8, !tbaa !27
   store ptr %14, ptr %7, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -21570,13 +21576,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA19_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1026
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1026
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1027
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1027
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1026
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(19) %2) #38, !noalias !1026
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1027
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(19) %2) #38, !noalias !1027
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(19) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA19_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1026
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA19_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1027
 
 _ZN5arrow4util22StringBuilderRecursiveIRA19_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -21590,12 +21596,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1026
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1027
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA19_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA19_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1026
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1027
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -21639,13 +21645,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA21_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1029
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1029
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1030
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1030
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1029
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(21) %2) #38, !noalias !1029
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1030
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(21) %2) #38, !noalias !1030
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(21) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA21_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1029
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA21_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1030
 
 _ZN5arrow4util22StringBuilderRecursiveIRA21_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -21659,12 +21665,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1029
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1030
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA21_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1029
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1030
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -21708,13 +21714,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA24_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1032
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1032
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1033
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1033
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1032
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(24) %2) #38, !noalias !1032
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1033
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(24) %2) #38, !noalias !1033
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(24) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA24_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1032
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA24_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1033
 
 _ZN5arrow4util22StringBuilderRecursiveIRA24_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -21728,12 +21734,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1032
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1033
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA24_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA24_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1032
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1033
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -21777,13 +21783,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA31_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1035
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1035
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1036
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1036
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1035
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(31) %2) #38, !noalias !1035
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1036
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(31) %2) #38, !noalias !1036
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(31) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA31_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1035
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA31_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1036
 
 _ZN5arrow4util22StringBuilderRecursiveIRA31_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -21797,12 +21803,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1035
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1036
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA31_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA31_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1035
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1036
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -21846,13 +21852,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA36_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1038
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1038
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1039
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1039
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1038
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(36) %2) #38, !noalias !1038
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1039
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(36) %2) #38, !noalias !1039
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(36) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA36_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1038
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA36_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1039
 
 _ZN5arrow4util22StringBuilderRecursiveIRA36_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -21866,12 +21872,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1038
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1039
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA36_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA36_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1038
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1039
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -21915,13 +21921,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA37_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1041
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1041
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1042
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1042
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1041
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(37) %2) #38, !noalias !1041
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1042
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(37) %2) #38, !noalias !1042
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(37) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA37_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1041
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA37_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1042
 
 _ZN5arrow4util22StringBuilderRecursiveIRA37_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -21935,12 +21941,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1041
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1042
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA37_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA37_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1041
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1042
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -21984,13 +21990,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA82_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1044
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1044
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1045
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1045
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1044
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(82) %2) #38, !noalias !1044
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1045
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(82) %2) #38, !noalias !1045
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(82) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA82_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1044
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA82_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1045
 
 _ZN5arrow4util22StringBuilderRecursiveIRA82_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -22004,12 +22010,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1044
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1045
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA82_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA82_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1044
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1045
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -22053,13 +22059,13 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA22_KcEEES0_NS_10StatusCod
   %4 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1047
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1047
+  call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1048
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4), !noalias !1048
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1047
-  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(22) %2) #38, !noalias !1047
+  %7 = load ptr, ptr %6, align 8, !tbaa !609, !noalias !1048
+  %8 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(22) %2) #38, !noalias !1048
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 1 dereferenceable(22) %2, i64 noundef %8)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA22_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1047
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA22_KcEEvRSoOT_.exit.i unwind label %10, !noalias !1048
 
 _ZN5arrow4util22StringBuilderRecursiveIRA22_KcEEvRSoOT_.exit.i: ; preds = %3
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %4)
@@ -22073,12 +22079,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %11 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1047
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1048
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA22_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA22_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1047
+  call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !1048
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %5)
           to label %12 unwind label %18
 
@@ -22122,18 +22128,18 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA23_KcRiEEES0_NS_10StatusC
   %5 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1050
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5), !noalias !1050
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1051
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5), !noalias !1051
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !609, !noalias !1050
-  %9 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(23) %2) #38, !noalias !1050
+  %8 = load ptr, ptr %7, align 8, !tbaa !609, !noalias !1051
+  %9 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(23) %2) #38, !noalias !1051
   %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 1 dereferenceable(23) %2, i64 noundef %9)
-          to label %.noexc.i unwind label %13, !noalias !1050
+          to label %.noexc.i unwind label %13, !noalias !1051
 
 .noexc.i:                                         ; preds = %4
-  %11 = load i32, ptr %3, align 4, !tbaa !38, !noalias !1050
+  %11 = load i32, ptr %3, align 4, !tbaa !38, !noalias !1051
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef %11)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA23_KcJRiEEEvRSoOT_DpOT0_.exit.i unwind label %13, !noalias !1050
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA23_KcJRiEEEvRSoOT_DpOT0_.exit.i unwind label %13, !noalias !1051
 
 _ZN5arrow4util22StringBuilderRecursiveIRA23_KcJRiEEEvRSoOT_DpOT0_.exit.i: ; preds = %.noexc.i
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -22147,12 +22153,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1050
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1051
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA23_KcRiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA23_KcJRiEEEvRSoOT_DpOT0_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1050
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1051
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %15 unwind label %21
 
@@ -22194,28 +22200,28 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %21, 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow8internal15StatusFromErrnoIJRA23_KcEEENS_6StatusEiNS_10StatusCodeEDpOT_(ptr dead_on_unwind noalias writable sret(%"class.arrow::Status") align 8 %0, i32 noundef %1, i8 noundef signext %2, ptr noundef nonnull align 1 dereferenceable(23) %3) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::shared_ptr", align 8
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !1053)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !1054)
   %.not.i = icmp eq i32 %1, 0
   br i1 %.not.i, label %6, label %_ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
 
 6:                                                ; preds = %4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !1053
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !alias.scope !1054
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i: ; preds = %4
-  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40, !noalias !1056
+  %7 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40, !noalias !1057
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 1, ptr %8, align 8, !tbaa !18, !noalias !1056
+  store i32 1, ptr %8, align 8, !tbaa !18, !noalias !1057
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 12
-  store i32 1, ptr %9, align 4, !tbaa !21, !noalias !1056
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_111ErrnoDetailESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !22, !noalias !1056
+  store i32 1, ptr %9, align 4, !tbaa !21, !noalias !1057
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow8internal12_GLOBAL__N_111ErrnoDetailESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %7, align 8, !tbaa !22, !noalias !1057
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5arrow8internal12_GLOBAL__N_111ErrnoDetailE, i64 16), ptr %10, align 8, !tbaa !22, !noalias !1056
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5arrow8internal12_GLOBAL__N_111ErrnoDetailE, i64 16), ptr %10, align 8, !tbaa !22, !noalias !1057
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i32 %1, ptr %11, align 8, !tbaa !24, !noalias !1056
-  store ptr %10, ptr %5, align 8, !tbaa !27, !alias.scope !1053
+  store i32 %1, ptr %11, align 8, !tbaa !24, !noalias !1057
+  store ptr %10, ptr %5, align 8, !tbaa !27, !alias.scope !1054
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store ptr %7, ptr %12, align 8, !tbaa !32, !alias.scope !1053
+  store ptr %7, ptr %12, align 8, !tbaa !32, !alias.scope !1054
   br label %_ZN5arrow8internal21StatusDetailFromErrnoEi.exit
 
 _ZN5arrow8internal21StatusDetailFromErrnoEi.exit: ; preds = %6, %_ZNSt12__shared_ptrIN5arrow8internal12_GLOBAL__N_111ErrnoDetailELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
@@ -22287,13 +22293,13 @@ define linkonce_odr void @_ZN5arrow6Status17FromDetailAndArgsIJRA23_KcEEES0_NS_1
   %5 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::shared_ptr", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1059
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5), !noalias !1059
+  call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1060
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5), !noalias !1060
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !609, !noalias !1059
-  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(23) %3) #38, !noalias !1059
+  %9 = load ptr, ptr %8, align 8, !tbaa !609, !noalias !1060
+  %10 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(23) %3) #38, !noalias !1060
   %11 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(23) %3, i64 noundef %10)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA23_KcEEvRSoOT_.exit.i unwind label %12, !noalias !1059
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA23_KcEEvRSoOT_.exit.i unwind label %12, !noalias !1060
 
 _ZN5arrow4util22StringBuilderRecursiveIRA23_KcEEvRSoOT_.exit.i: ; preds = %4
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(16) %5)
@@ -22307,12 +22313,12 @@ common.resume:                                    ; preds = %46, %_ZNKSt7__cxx11
   %13 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1059
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1060
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA23_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA23_KcEEvRSoOT_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1059
+  call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1060
   %14 = load ptr, ptr %2, align 8, !tbaa !27
   store ptr %14, ptr %7, align 8, !tbaa !27
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -22420,17 +22426,17 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA8_KcRPS2_RA11_S2_S5_EEES0
   %7 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1062
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7), !noalias !1062
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1063
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7), !noalias !1063
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !609, !noalias !1062
-  %11 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %2) #38, !noalias !1062
+  %10 = load ptr, ptr %9, align 8, !tbaa !609, !noalias !1063
+  %11 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(8) %2) #38, !noalias !1063
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(8) %2, i64 noundef %11)
-          to label %.noexc.i unwind label %13, !noalias !1062
+          to label %.noexc.i unwind label %13, !noalias !1063
 
 .noexc.i:                                         ; preds = %6
   invoke void @_ZN5arrow4util22StringBuilderRecursiveIRPKcJRA11_S2_S3_EEEvRSoOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(11) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA8_KcJRPS2_RA11_S2_S5_EEEvRSoOT_DpOT0_.exit.i unwind label %13, !noalias !1062
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA8_KcJRPS2_RA11_S2_S5_EEEvRSoOT_DpOT0_.exit.i unwind label %13, !noalias !1063
 
 _ZN5arrow4util22StringBuilderRecursiveIRA8_KcJRPS2_RA11_S2_S5_EEEvRSoOT_DpOT0_.exit.i: ; preds = %.noexc.i
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %7)
@@ -22444,12 +22450,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1062
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1063
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA8_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA8_KcJRPS2_RA11_S2_S5_EEEvRSoOT_DpOT0_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1062
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1063
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %15 unwind label %21
 
@@ -22542,12 +22548,12 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA32_KcRPS2_RA27_S2_EEES0_N
   %6 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1065
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6), !noalias !1065
+  call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1066
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6), !noalias !1066
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8, !tbaa !609, !noalias !1065
+  %9 = load ptr, ptr %8, align 8, !tbaa !609, !noalias !1066
   invoke void @_ZN5arrow4util22StringBuilderRecursiveIRA32_KcJRPS2_RA27_S2_EEEvRSoOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 1 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(27) %4)
-          to label %10 unwind label %11, !noalias !1065
+          to label %10 unwind label %11, !noalias !1066
 
 10:                                               ; preds = %5
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -22561,12 +22567,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1065
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1066
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA32_KcRPS2_RA27_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %10
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1065
+  call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1066
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %7)
           to label %13 unwind label %19
 
@@ -22640,17 +22646,17 @@ define linkonce_odr void @_ZN5arrow6Status8FromArgsIJRA7_KcRPS2_RA11_S2_S5_EEES0
   %7 = alloca %"class.arrow::util::detail::StringStreamWrapper", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1068
-  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7), !noalias !1068
+  call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1069
+  call void @_ZN5arrow4util6detail19StringStreamWrapperC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7), !noalias !1069
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !609, !noalias !1068
-  %11 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %2) #38, !noalias !1068
+  %10 = load ptr, ptr %9, align 8, !tbaa !609, !noalias !1069
+  %11 = call noundef i64 @strlen(ptr noundef nonnull align 1 dereferenceable(7) %2) #38, !noalias !1069
   %12 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 1 dereferenceable(7) %2, i64 noundef %11)
-          to label %.noexc.i unwind label %13, !noalias !1068
+          to label %.noexc.i unwind label %13, !noalias !1069
 
 .noexc.i:                                         ; preds = %6
   invoke void @_ZN5arrow4util22StringBuilderRecursiveIRPKcJRA11_S2_S3_EEEvRSoOT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 1 dereferenceable(11) %4, ptr noundef nonnull align 8 dereferenceable(8) %5)
-          to label %_ZN5arrow4util22StringBuilderRecursiveIRA7_KcJRPS2_RA11_S2_S5_EEEvRSoOT_DpOT0_.exit.i unwind label %13, !noalias !1068
+          to label %_ZN5arrow4util22StringBuilderRecursiveIRA7_KcJRPS2_RA11_S2_S5_EEEvRSoOT_DpOT0_.exit.i unwind label %13, !noalias !1069
 
 _ZN5arrow4util22StringBuilderRecursiveIRA7_KcJRPS2_RA11_S2_S5_EEEvRSoOT_DpOT0_.exit.i: ; preds = %.noexc.i
   invoke void @_ZN5arrow4util6detail19StringStreamWrapper3strB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %7)
@@ -22664,12 +22670,12 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
   %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1068
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1069
   br label %common.resume
 
 _ZN5arrow4util13StringBuilderIJRA7_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_.exit: ; preds = %_ZN5arrow4util22StringBuilderRecursiveIRA7_KcJRPS2_RA11_S2_S5_EEEvRSoOT_DpOT0_.exit.i
   call void @_ZN5arrow4util6detail19StringStreamWrapperD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #38
-  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1068
+  call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1069
   invoke void @_ZN5arrow6StatusC1ENS_10StatusCodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(32) %8)
           to label %15 unwind label %21
 
@@ -23775,85 +23781,86 @@ attributes #43 = { noreturn nounwind }
 !986 = distinct !{!986, !987, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE: argument 0"}
 !987 = distinct !{!987, !"_ZN5arrow8internal15GenericToStatusEONS_6StatusE"}
 !988 = !{!"branch_weights", !"expected", i32 2142904641, i32 4579007}
-!989 = !{!990}
-!990 = distinct !{!990, !991, !"_ZN5arrow8internal14FileDescriptor5CloseEv: argument 0"}
-!991 = distinct !{!991, !"_ZN5arrow8internal14FileDescriptor5CloseEv"}
-!992 = !{!993}
-!993 = distinct !{!993, !994, !"_ZN5arrow8internal9FileCloseEi: argument 0"}
-!994 = distinct !{!994, !"_ZN5arrow8internal9FileCloseEi"}
-!995 = !{!993, !990}
-!996 = !{!997, !993, !990}
-!997 = distinct !{!997, !998, !"_ZN5arrow6Status2OKEv: argument 0"}
-!998 = distinct !{!998, !"_ZN5arrow6Status2OKEv"}
-!999 = !{!1000, !990}
-!1000 = distinct !{!1000, !1001, !"_ZN5arrow6Status2OKEv: argument 0"}
-!1001 = distinct !{!1001, !"_ZN5arrow6Status2OKEv"}
-!1002 = !{!1003}
-!1003 = distinct !{!1003, !1004, !"_ZN5arrow4util13StringBuilderIJRA17_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1004 = distinct !{!1004, !"_ZN5arrow4util13StringBuilderIJRA17_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1005 = !{!1006}
-!1006 = distinct !{!1006, !1007, !"_ZN5arrow8internal21StatusDetailFromErrnoEi: argument 0"}
-!1007 = distinct !{!1007, !"_ZN5arrow8internal21StatusDetailFromErrnoEi"}
-!1008 = !{!1009, !1006}
-!1009 = distinct !{!1009, !1010, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
-!1010 = distinct !{!1010, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!1011 = !{!1012}
-!1012 = distinct !{!1012, !1013, !"_ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1013 = distinct !{!1013, !"_ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1014 = !{!1015}
-!1015 = distinct !{!1015, !1016, !"_ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1016 = distinct !{!1016, !"_ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1017 = !{!1018}
-!1018 = distinct !{!1018, !1019, !"_ZN5arrow8internal21StatusDetailFromErrnoEi: argument 0"}
-!1019 = distinct !{!1019, !"_ZN5arrow8internal21StatusDetailFromErrnoEi"}
-!1020 = !{!1021, !1018}
-!1021 = distinct !{!1021, !1022, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
-!1022 = distinct !{!1022, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!1023 = !{!1024}
-!1024 = distinct !{!1024, !1025, !"_ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1025 = distinct !{!1025, !"_ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1026 = !{!1027}
-!1027 = distinct !{!1027, !1028, !"_ZN5arrow4util13StringBuilderIJRA19_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1028 = distinct !{!1028, !"_ZN5arrow4util13StringBuilderIJRA19_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1029 = !{!1030}
-!1030 = distinct !{!1030, !1031, !"_ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1031 = distinct !{!1031, !"_ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1032 = !{!1033}
-!1033 = distinct !{!1033, !1034, !"_ZN5arrow4util13StringBuilderIJRA24_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1034 = distinct !{!1034, !"_ZN5arrow4util13StringBuilderIJRA24_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1035 = !{!1036}
-!1036 = distinct !{!1036, !1037, !"_ZN5arrow4util13StringBuilderIJRA31_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1037 = distinct !{!1037, !"_ZN5arrow4util13StringBuilderIJRA31_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1038 = !{!1039}
-!1039 = distinct !{!1039, !1040, !"_ZN5arrow4util13StringBuilderIJRA36_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1040 = distinct !{!1040, !"_ZN5arrow4util13StringBuilderIJRA36_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1041 = !{!1042}
-!1042 = distinct !{!1042, !1043, !"_ZN5arrow4util13StringBuilderIJRA37_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1043 = distinct !{!1043, !"_ZN5arrow4util13StringBuilderIJRA37_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1044 = !{!1045}
-!1045 = distinct !{!1045, !1046, !"_ZN5arrow4util13StringBuilderIJRA82_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1046 = distinct !{!1046, !"_ZN5arrow4util13StringBuilderIJRA82_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1047 = !{!1048}
-!1048 = distinct !{!1048, !1049, !"_ZN5arrow4util13StringBuilderIJRA22_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1049 = distinct !{!1049, !"_ZN5arrow4util13StringBuilderIJRA22_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1050 = !{!1051}
-!1051 = distinct !{!1051, !1052, !"_ZN5arrow4util13StringBuilderIJRA23_KcRiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1052 = distinct !{!1052, !"_ZN5arrow4util13StringBuilderIJRA23_KcRiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1053 = !{!1054}
-!1054 = distinct !{!1054, !1055, !"_ZN5arrow8internal21StatusDetailFromErrnoEi: argument 0"}
-!1055 = distinct !{!1055, !"_ZN5arrow8internal21StatusDetailFromErrnoEi"}
-!1056 = !{!1057, !1054}
-!1057 = distinct !{!1057, !1058, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
-!1058 = distinct !{!1058, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
-!1059 = !{!1060}
-!1060 = distinct !{!1060, !1061, !"_ZN5arrow4util13StringBuilderIJRA23_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1061 = distinct !{!1061, !"_ZN5arrow4util13StringBuilderIJRA23_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1062 = !{!1063}
-!1063 = distinct !{!1063, !1064, !"_ZN5arrow4util13StringBuilderIJRA8_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1064 = distinct !{!1064, !"_ZN5arrow4util13StringBuilderIJRA8_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1065 = !{!1066}
-!1066 = distinct !{!1066, !1067, !"_ZN5arrow4util13StringBuilderIJRA32_KcRPS2_RA27_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1067 = distinct !{!1067, !"_ZN5arrow4util13StringBuilderIJRA32_KcRPS2_RA27_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
-!1068 = !{!1069}
-!1069 = distinct !{!1069, !1070, !"_ZN5arrow4util13StringBuilderIJRA7_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
-!1070 = distinct !{!1070, !"_ZN5arrow4util13StringBuilderIJRA7_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!989 = distinct !{!989, !218}
+!990 = !{!991}
+!991 = distinct !{!991, !992, !"_ZN5arrow8internal14FileDescriptor5CloseEv: argument 0"}
+!992 = distinct !{!992, !"_ZN5arrow8internal14FileDescriptor5CloseEv"}
+!993 = !{!994}
+!994 = distinct !{!994, !995, !"_ZN5arrow8internal9FileCloseEi: argument 0"}
+!995 = distinct !{!995, !"_ZN5arrow8internal9FileCloseEi"}
+!996 = !{!994, !991}
+!997 = !{!998, !994, !991}
+!998 = distinct !{!998, !999, !"_ZN5arrow6Status2OKEv: argument 0"}
+!999 = distinct !{!999, !"_ZN5arrow6Status2OKEv"}
+!1000 = !{!1001, !991}
+!1001 = distinct !{!1001, !1002, !"_ZN5arrow6Status2OKEv: argument 0"}
+!1002 = distinct !{!1002, !"_ZN5arrow6Status2OKEv"}
+!1003 = !{!1004}
+!1004 = distinct !{!1004, !1005, !"_ZN5arrow4util13StringBuilderIJRA17_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1005 = distinct !{!1005, !"_ZN5arrow4util13StringBuilderIJRA17_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1006 = !{!1007}
+!1007 = distinct !{!1007, !1008, !"_ZN5arrow8internal21StatusDetailFromErrnoEi: argument 0"}
+!1008 = distinct !{!1008, !"_ZN5arrow8internal21StatusDetailFromErrnoEi"}
+!1009 = !{!1010, !1007}
+!1010 = distinct !{!1010, !1011, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
+!1011 = distinct !{!1011, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
+!1012 = !{!1013}
+!1013 = distinct !{!1013, !1014, !"_ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1014 = distinct !{!1014, !"_ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1015 = !{!1016}
+!1016 = distinct !{!1016, !1017, !"_ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1017 = distinct !{!1017, !"_ZN5arrow4util13StringBuilderIJRA29_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1018 = !{!1019}
+!1019 = distinct !{!1019, !1020, !"_ZN5arrow8internal21StatusDetailFromErrnoEi: argument 0"}
+!1020 = distinct !{!1020, !"_ZN5arrow8internal21StatusDetailFromErrnoEi"}
+!1021 = !{!1022, !1019}
+!1022 = distinct !{!1022, !1023, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
+!1023 = distinct !{!1023, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
+!1024 = !{!1025}
+!1025 = distinct !{!1025, !1026, !"_ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1026 = distinct !{!1026, !"_ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1027 = !{!1028}
+!1028 = distinct !{!1028, !1029, !"_ZN5arrow4util13StringBuilderIJRA19_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1029 = distinct !{!1029, !"_ZN5arrow4util13StringBuilderIJRA19_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1030 = !{!1031}
+!1031 = distinct !{!1031, !1032, !"_ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1032 = distinct !{!1032, !"_ZN5arrow4util13StringBuilderIJRA21_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1033 = !{!1034}
+!1034 = distinct !{!1034, !1035, !"_ZN5arrow4util13StringBuilderIJRA24_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1035 = distinct !{!1035, !"_ZN5arrow4util13StringBuilderIJRA24_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1036 = !{!1037}
+!1037 = distinct !{!1037, !1038, !"_ZN5arrow4util13StringBuilderIJRA31_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1038 = distinct !{!1038, !"_ZN5arrow4util13StringBuilderIJRA31_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1039 = !{!1040}
+!1040 = distinct !{!1040, !1041, !"_ZN5arrow4util13StringBuilderIJRA36_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1041 = distinct !{!1041, !"_ZN5arrow4util13StringBuilderIJRA36_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1042 = !{!1043}
+!1043 = distinct !{!1043, !1044, !"_ZN5arrow4util13StringBuilderIJRA37_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1044 = distinct !{!1044, !"_ZN5arrow4util13StringBuilderIJRA37_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1045 = !{!1046}
+!1046 = distinct !{!1046, !1047, !"_ZN5arrow4util13StringBuilderIJRA82_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1047 = distinct !{!1047, !"_ZN5arrow4util13StringBuilderIJRA82_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1048 = !{!1049}
+!1049 = distinct !{!1049, !1050, !"_ZN5arrow4util13StringBuilderIJRA22_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1050 = distinct !{!1050, !"_ZN5arrow4util13StringBuilderIJRA22_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1051 = !{!1052}
+!1052 = distinct !{!1052, !1053, !"_ZN5arrow4util13StringBuilderIJRA23_KcRiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1053 = distinct !{!1053, !"_ZN5arrow4util13StringBuilderIJRA23_KcRiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1054 = !{!1055}
+!1055 = distinct !{!1055, !1056, !"_ZN5arrow8internal21StatusDetailFromErrnoEi: argument 0"}
+!1056 = distinct !{!1056, !"_ZN5arrow8internal21StatusDetailFromErrnoEi"}
+!1057 = !{!1058, !1055}
+!1058 = distinct !{!1058, !1059, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_: argument 0"}
+!1059 = distinct !{!1059, !"_ZSt11make_sharedIN5arrow8internal12_GLOBAL__N_111ErrnoDetailEJRiEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES7_E4typeEEDpOT0_"}
+!1060 = !{!1061}
+!1061 = distinct !{!1061, !1062, !"_ZN5arrow4util13StringBuilderIJRA23_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1062 = distinct !{!1062, !"_ZN5arrow4util13StringBuilderIJRA23_KcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1063 = !{!1064}
+!1064 = distinct !{!1064, !1065, !"_ZN5arrow4util13StringBuilderIJRA8_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1065 = distinct !{!1065, !"_ZN5arrow4util13StringBuilderIJRA8_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1066 = !{!1067}
+!1067 = distinct !{!1067, !1068, !"_ZN5arrow4util13StringBuilderIJRA32_KcRPS2_RA27_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1068 = distinct !{!1068, !"_ZN5arrow4util13StringBuilderIJRA32_KcRPS2_RA27_S2_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}
+!1069 = !{!1070}
+!1070 = distinct !{!1070, !1071, !"_ZN5arrow4util13StringBuilderIJRA7_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_: argument 0"}
+!1071 = distinct !{!1071, !"_ZN5arrow4util13StringBuilderIJRA7_KcRPS2_RA11_S2_S5_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_"}

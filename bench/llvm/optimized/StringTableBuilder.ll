@@ -710,24 +710,24 @@ define dso_local void @_ZN4llvm18StringTableBuilder15finalizeInOrderEv(ptr nound
 ; Function Attrs: mustprogress nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZL12multikeySortN4llvm15MutableArrayRefIPSt4pairINS_19CachedHashStringRefEmEEEi(ptr %0, i64 %1, i32 noundef %2) unnamed_addr #5 {
   %4 = icmp ult i64 %1, 2
-  br i1 %4, label %.thread, label %.lr.ph69.preheader
+  br i1 %4, label %.thread, label %.lr.ph68.preheader
 
-.lr.ph69.preheader:                               ; preds = %3
+.lr.ph68.preheader:                               ; preds = %3
   %5 = sext i32 %2 to i64
-  br label %.lr.ph69
+  br label %.lr.ph68
 
-.lr.ph69:                                         ; preds = %.lr.ph69.preheader, %43
-  %indvars.iv = phi i64 [ %5, %.lr.ph69.preheader ], [ %indvars.iv.next, %43 ]
-  %.sroa.0.066 = phi ptr [ %0, %.lr.ph69.preheader ], [ %45, %43 ]
-  %.sroa.11.065 = phi i64 [ %1, %.lr.ph69.preheader ], [ %44, %43 ]
-  %6 = load ptr, ptr %.sroa.0.066, align 8, !tbaa !34
+.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %43
+  %indvars.iv = phi i64 [ %5, %.lr.ph68.preheader ], [ %indvars.iv.next, %43 ]
+  %.sroa.0.065 = phi ptr [ %0, %.lr.ph68.preheader ], [ %45, %43 ]
+  %.sroa.11.064 = phi i64 [ %1, %.lr.ph68.preheader ], [ %44, %43 ]
+  %6 = load ptr, ptr %.sroa.0.065, align 8, !tbaa !34
   %7 = getelementptr i8, ptr %6, i64 8
   %.val36 = load i32, ptr %7, align 8, !tbaa !30
   %8 = zext i32 %.val36 to i64
   %.not.i = icmp ult i64 %indvars.iv, %8
   br i1 %.not.i, label %9, label %.lr.ph
 
-9:                                                ; preds = %.lr.ph69
+9:                                                ; preds = %.lr.ph68
   %.val = load ptr, ptr %6, align 8, !tbaa !27
   %10 = xor i64 %indvars.iv, -1
   %11 = getelementptr i8, ptr %.val, i64 %8
@@ -736,25 +736,25 @@ define internal fastcc void @_ZL12multikeySortN4llvm15MutableArrayRefIPSt4pairIN
   %14 = zext i8 %13 to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %9, %.lr.ph69
-  %.0.i = phi i32 [ %14, %9 ], [ -1, %.lr.ph69 ]
+.lr.ph:                                           ; preds = %9, %.lr.ph68
+  %.0.i = phi i32 [ %14, %9 ], [ -1, %.lr.ph68 ]
   %15 = xor i64 %indvars.iv, -1
   br label %19
 
 ._crit_edge:                                      ; preds = %41
   %16 = trunc nsw i64 %indvars.iv to i32
-  tail call fastcc void @_ZL12multikeySortN4llvm15MutableArrayRefIPSt4pairINS_19CachedHashStringRefEmEEEi(ptr nonnull %.sroa.0.066, i64 %.129, i32 noundef %16)
-  %17 = sub i64 %.sroa.11.065, %.131
-  %18 = getelementptr inbounds nuw ptr, ptr %.sroa.0.066, i64 %.131
+  tail call fastcc void @_ZL12multikeySortN4llvm15MutableArrayRefIPSt4pairINS_19CachedHashStringRefEmEEEi(ptr nonnull %.sroa.0.065, i64 %.129, i32 noundef %16)
+  %17 = sub i64 %.sroa.11.064, %.131
+  %18 = getelementptr inbounds nuw ptr, ptr %.sroa.0.065, i64 %.131
   tail call fastcc void @_ZL12multikeySortN4llvm15MutableArrayRefIPSt4pairINS_19CachedHashStringRefEmEEEi(ptr nonnull %18, i64 %17, i32 noundef %16)
   %.not = icmp eq i32 %.0.i, -1
   br i1 %.not, label %.thread, label %43
 
 19:                                               ; preds = %.lr.ph, %41
-  %.02863 = phi i64 [ 0, %.lr.ph ], [ %.129, %41 ]
-  %.03062 = phi i64 [ %.sroa.11.065, %.lr.ph ], [ %.131, %41 ]
-  %.03261 = phi i64 [ 1, %.lr.ph ], [ %.133, %41 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %.sroa.0.066, i64 %.03261
+  %.02862 = phi i64 [ 0, %.lr.ph ], [ %.129, %41 ]
+  %.03061 = phi i64 [ %.sroa.11.064, %.lr.ph ], [ %.131, %41 ]
+  %.03260 = phi i64 [ 1, %.lr.ph ], [ %.133, %41 ]
+  %20 = getelementptr inbounds nuw ptr, ptr %.sroa.0.065, i64 %.03260
   %21 = load ptr, ptr %20, align 8, !tbaa !34
   %22 = getelementptr i8, ptr %21, i64 8
   %.val38 = load i32, ptr %22, align 8, !tbaa !30
@@ -772,9 +772,9 @@ _ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit41: ; preds = %19
   br i1 %28, label %29, label %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit41.thread
 
 29:                                               ; preds = %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit41
-  %30 = add i64 %.02863, 1
-  %31 = getelementptr inbounds nuw ptr, ptr %.sroa.0.066, i64 %.02863
-  %32 = add nuw i64 %.03261, 1
+  %30 = add i64 %.02862, 1
+  %31 = getelementptr inbounds nuw ptr, ptr %.sroa.0.065, i64 %.02862
+  %32 = add nuw i64 %.03260, 1
   %33 = load ptr, ptr %31, align 8, !tbaa !34
   store ptr %21, ptr %31, align 8, !tbaa !34
   store ptr %33, ptr %20, align 8, !tbaa !34
@@ -786,30 +786,30 @@ _ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit41.thread: ; preds =
   br i1 %34, label %35, label %39
 
 35:                                               ; preds = %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit41.thread
-  %36 = add i64 %.03062, -1
-  %37 = getelementptr inbounds nuw ptr, ptr %.sroa.0.066, i64 %36
+  %36 = add i64 %.03061, -1
+  %37 = getelementptr inbounds nuw ptr, ptr %.sroa.0.065, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !34
   store ptr %21, ptr %37, align 8, !tbaa !34
   store ptr %38, ptr %20, align 8, !tbaa !34
   br label %41
 
 39:                                               ; preds = %_ZL10charTailAtPSt4pairIN4llvm19CachedHashStringRefEmEm.exit41.thread
-  %40 = add nuw i64 %.03261, 1
+  %40 = add nuw i64 %.03260, 1
   br label %41
 
 41:                                               ; preds = %35, %39, %29
-  %.133 = phi i64 [ %32, %29 ], [ %.03261, %35 ], [ %40, %39 ]
-  %.131 = phi i64 [ %.03062, %29 ], [ %36, %35 ], [ %.03062, %39 ]
-  %.129 = phi i64 [ %30, %29 ], [ %.02863, %35 ], [ %.02863, %39 ]
+  %.133 = phi i64 [ %32, %29 ], [ %.03260, %35 ], [ %40, %39 ]
+  %.131 = phi i64 [ %.03061, %29 ], [ %36, %35 ], [ %.03061, %39 ]
+  %.129 = phi i64 [ %30, %29 ], [ %.02862, %35 ], [ %.02862, %39 ]
   %42 = icmp ult i64 %.133, %.131
   br i1 %42, label %19, label %._crit_edge, !llvm.loop !37
 
 43:                                               ; preds = %._crit_edge
   %44 = sub i64 %.131, %.129
-  %45 = getelementptr inbounds nuw ptr, ptr %.sroa.0.066, i64 %.129
+  %45 = getelementptr inbounds nuw ptr, ptr %.sroa.0.065, i64 %.129
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %46 = icmp ult i64 %44, 2
-  br i1 %46, label %.thread, label %.lr.ph69
+  br i1 %46, label %.thread, label %.lr.ph68
 
 .thread:                                          ; preds = %43, %._crit_edge, %3
   ret void
@@ -1039,8 +1039,8 @@ _ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread.
 _ZNK4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E6doFindIS2_EEPKS7_RKT_.exit: ; preds = %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.thread.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %0, align 8, !tbaa !3
-  %.pre20 = load i32, ptr %5, align 8, !tbaa !10
-  %40 = zext i32 %.pre20 to i64
+  %.pre19 = load i32, ptr %5, align 8, !tbaa !10
+  %40 = zext i32 %.pre19 to i64
   br label %_ZNK4llvm12DenseMapBaseINS_8DenseMapINS_19CachedHashStringRefEmNS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_mEEEES2_mS4_S7_E6doFindIS2_EEPKS7_RKT_.exit.thread
 
 41:                                               ; preds = %33, %_ZN4llvm12DenseMapInfoINS_19CachedHashStringRefEvE7isEqualERKS1_S4_.exit.i.i, %26, %28

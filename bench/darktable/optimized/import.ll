@@ -1238,12 +1238,12 @@ _set_default_preferences.exit.i:                  ; preds = %27
   tail call void @dt_conf_set_bool(ptr noundef nonnull @.str.137, i32 noundef 1) #16
   tail call void @dt_conf_set_string(ptr noundef nonnull @.str.138, ptr noundef nonnull @.str.57) #16
   %29 = tail call ptr @dt_util_str_to_glist(ptr noundef nonnull @.str.105, ptr noundef nonnull %1) #16
-  %.not6584.i = icmp eq ptr %29, null
-  br i1 %.not6584.i, label %.loopexit.i, label %.lr.ph.i
+  %.not6585.i = icmp eq ptr %29, null
+  br i1 %.not6585.i, label %.loopexit.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_set_default_preferences.exit.i, %.thread.i
-  %.085.i = phi ptr [ %90, %.thread.i ], [ %29, %_set_default_preferences.exit.i ]
-  %30 = load ptr, ptr %.085.i, align 8, !tbaa !42
+  %.086.i = phi ptr [ %90, %.thread.i ], [ %29, %_set_default_preferences.exit.i ]
+  %30 = load ptr, ptr %.086.i, align 8, !tbaa !42
   %31 = tail call ptr @g_strstr_len(ptr noundef %30, i64 noundef -1, ptr noundef nonnull @.str.140) #16
   %.not66.i = icmp eq ptr %31, null
   br i1 %.not66.i, label %.thread.i, label %32
@@ -1251,7 +1251,7 @@ _set_default_preferences.exit.i:                  ; preds = %27
 32:                                               ; preds = %.lr.ph.i
   store i8 0, ptr %31, align 1, !tbaa !51
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 1
-  %34 = load ptr, ptr %.085.i, align 8, !tbaa !42
+  %34 = load ptr, ptr %.086.i, align 8, !tbaa !42
   %.not.i72.i = icmp eq ptr %34, null
   br i1 %.not.i72.i, label %_get_key_index.exit.thread.i, label %35
 
@@ -1271,8 +1271,8 @@ _set_default_preferences.exit.i:                  ; preds = %27
 
 41:                                               ; preds = %.preheader.i73.i
   %indvars.iv.next.i75.i = add nuw nsw i64 %indvars.iv.i74.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i75.i, 9
-  br i1 %exitcond.i.i, label %_get_key_index.exit.thread.i, label %.preheader.i73.i
+  %exitcond.not.i76.i = icmp eq i64 %indvars.iv.next.i75.i, 9
+  br i1 %exitcond.not.i76.i, label %_get_key_index.exit.thread.i, label %.preheader.i73.i
 
 _get_key_index.exit.i:                            ; preds = %.preheader.i73.i
   %sext.i = shl i64 %indvars.iv.i74.i, 32
@@ -1358,27 +1358,27 @@ _get_key_index.exit.thread.i:                     ; preds = %41, %35, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %83 = tail call noalias ptr @g_strdup(ptr noundef nonnull %.059.i) #16
   store ptr %83, ptr %4, align 8, !tbaa !137
-  %.057.in86.i = getelementptr inbounds nuw i8, ptr %.085.i, i64 8
-  %.05787.i = load ptr, ptr %.057.in86.i, align 8, !tbaa !91
-  %.not6988.i = icmp eq ptr %.05787.i, null
-  br i1 %.not6988.i, label %._crit_edge.i, label %.lr.ph90.i
+  %.057.in87.i = getelementptr inbounds nuw i8, ptr %.086.i, i64 8
+  %.05788.i = load ptr, ptr %.057.in87.i, align 8, !tbaa !91
+  %.not6989.i = icmp eq ptr %.05788.i, null
+  br i1 %.not6989.i, label %._crit_edge.i, label %.lr.ph91.i
 
-.lr.ph90.i:                                       ; preds = %82, %86
-  %.05789.i = phi ptr [ %.057.i, %86 ], [ %.05787.i, %82 ]
-  %84 = load ptr, ptr %.05789.i, align 8, !tbaa !42
+.lr.ph91.i:                                       ; preds = %82, %86
+  %.05790.i = phi ptr [ %.057.i, %86 ], [ %.05788.i, %82 ]
+  %84 = load ptr, ptr %.05790.i, align 8, !tbaa !42
   %char0.i = load i8, ptr %84, align 1
   %.not70.i = icmp eq i8 %char0.i, 0
   br i1 %.not70.i, label %86, label %85
 
-85:                                               ; preds = %.lr.ph90.i
+85:                                               ; preds = %.lr.ph91.i
   call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %4, ptr noundef nonnull @.str.141, ptr noundef nonnull %84) #16
   br label %86
 
-86:                                               ; preds = %85, %.lr.ph90.i
-  %.057.in.i = getelementptr inbounds nuw i8, ptr %.05789.i, i64 8
+86:                                               ; preds = %85, %.lr.ph91.i
+  %.057.in.i = getelementptr inbounds nuw i8, ptr %.05790.i, i64 8
   %.057.i = load ptr, ptr %.057.in.i, align 8, !tbaa !91
   %.not69.i = icmp eq ptr %.057.i, null
-  br i1 %.not69.i, label %._crit_edge.loopexit.i, label %.lr.ph90.i
+  br i1 %.not69.i, label %._crit_edge.loopexit.i, label %.lr.ph91.i
 
 ._crit_edge.loopexit.i:                           ; preds = %86
   %.pre.i = load ptr, ptr %4, align 8, !tbaa !137
@@ -1393,7 +1393,7 @@ _get_key_index.exit.thread.i:                     ; preds = %41, %35, %32
   br label %.loopexit.i
 
 .thread.i:                                        ; preds = %64, %62, %59, %56, %52, %45, %.lr.ph.i
-  %89 = getelementptr inbounds nuw i8, ptr %.085.i, i64 8
+  %89 = getelementptr inbounds nuw i8, ptr %.086.i, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !91
   %.not65.i = icmp eq ptr %90, null
   br i1 %.not65.i, label %.loopexit.i, label %.lr.ph.i
@@ -2232,9 +2232,9 @@ define internal fastcc void @_import_from_dialog_run(ptr noundef readonly captur
   %12 = tail call ptr @g_type_check_instance_cast(ptr noundef %11, i64 noundef %10) #16
   %13 = tail call i32 @gtk_dialog_run(ptr noundef %12) #16
   %14 = icmp eq i32 %13, -3
-  br i1 %14, label %.lr.ph63, label %.loopexit
+  br i1 %14, label %.lr.ph62, label %.loopexit
 
-.lr.ph63:                                         ; preds = %1
+.lr.ph62:                                         ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 184
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 152
@@ -2242,7 +2242,7 @@ define internal fastcc void @_import_from_dialog_run(ptr noundef readonly captur
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 88
   br label %20
 
-20:                                               ; preds = %.lr.ph63, %94
+20:                                               ; preds = %.lr.ph62, %94
   %21 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 80), align 8, !tbaa !158
   call void @dt_view_filtering_reset(ptr noundef %21, i32 noundef 1) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -2269,8 +2269,8 @@ define internal fastcc void @_import_from_dialog_run(ptr noundef readonly captur
 34:                                               ; preds = %32, %30
   %35 = phi ptr [ %31, %30 ], [ %33, %32 ]
   store ptr %35, ptr %3, align 8, !tbaa !137
-  %.not59 = icmp eq ptr %27, null
-  br i1 %.not59, label %._crit_edge.thread, label %.lr.ph
+  %.not58 = icmp eq ptr %27, null
+  br i1 %.not58, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %34
   call void @g_list_free_full(ptr noundef %27, ptr noundef nonnull @gtk_tree_path_free) #16
@@ -2282,20 +2282,20 @@ define internal fastcc void @_import_from_dialog_run(ptr noundef readonly captur
   br i1 %.not42, label %87, label %44
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
-  %.061 = phi ptr [ %41, %.lr.ph ], [ null, %34 ]
-  %.03960 = phi ptr [ %43, %.lr.ph ], [ %27, %34 ]
+  %.060 = phi ptr [ %41, %.lr.ph ], [ null, %34 ]
+  %.03959 = phi ptr [ %43, %.lr.ph ], [ %27, %34 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %36 = load ptr, ptr %2, align 8, !tbaa !159
-  %37 = load ptr, ptr %.03960, align 8, !tbaa !42
+  %37 = load ptr, ptr %.03959, align 8, !tbaa !42
   %38 = call i32 @gtk_tree_model_get_iter(ptr noundef %36, ptr noundef nonnull %4, ptr noundef %37) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %39 = load ptr, ptr %2, align 8, !tbaa !159
   call void (ptr, ptr, ...) @gtk_tree_model_get(ptr noundef %39, ptr noundef nonnull %4, i32 noundef 3, ptr noundef nonnull %5, i32 noundef -1) #16
   %40 = load ptr, ptr %5, align 8, !tbaa !137
-  %41 = call ptr @g_list_prepend(ptr noundef %.061, ptr noundef %40) #16
+  %41 = call ptr @g_list_prepend(ptr noundef %.060, ptr noundef %40) #16
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %42 = getelementptr inbounds nuw i8, ptr %.03960, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.03959, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !91
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -4522,12 +4522,12 @@ define internal fastcc void @_get_folders_list(ptr noundef %0, ptr noundef reado
 
 .preheader:                                       ; preds = %19
   %20 = call ptr @g_file_enumerator_next_file(ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %5) #16
-  %.not7194 = icmp eq ptr %20, null
-  br i1 %.not7194, label %.loopexit, label %.lr.ph
+  %.not7192 = icmp eq ptr %20, null
+  br i1 %.not7192, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %54
   %21 = phi ptr [ %55, %54 ], [ %20, %.preheader ]
-  %.195 = phi i32 [ %.3, %54 ], [ 0, %.preheader ]
+  %.193 = phi i32 [ %.3, %54 ], [ 0, %.preheader ]
   %22 = call ptr @g_file_info_get_name(ptr noundef nonnull %21) #16
   %.not72 = icmp eq ptr %22, null
   br i1 %.not72, label %54, label %23
@@ -4554,7 +4554,7 @@ define internal fastcc void @_get_folders_list(ptr noundef %0, ptr noundef reado
   %34 = call ptr @g_file_info_get_display_name(ptr noundef nonnull %21) #16
   %35 = call noalias ptr (ptr, ...) @g_build_filename(ptr noundef nonnull %2, ptr noundef %34, ptr noundef null) #16
   %36 = call noalias ptr @g_path_get_basename(ptr noundef %35) #16
-  %.not77 = icmp eq i32 %.195, 0
+  %.not77 = icmp eq i32 %.193, 0
   br i1 %.not77, label %37, label %41
 
 37:                                               ; preds = %33
@@ -4600,7 +4600,7 @@ define internal fastcc void @_get_folders_list(ptr noundef %0, ptr noundef reado
 
 .thread:                                          ; preds = %47, %49, %51
   call void @g_free(ptr noundef %31) #16
-  %52 = add nsw i32 %.195, 1
+  %52 = add nsw i32 %.193, 1
   br label %53
 
 .thread85:                                        ; preds = %43
@@ -4609,22 +4609,22 @@ define internal fastcc void @_get_folders_list(ptr noundef %0, ptr noundef reado
   br label %.loopexit
 
 53:                                               ; preds = %.thread, %23
-  %.4 = phi i32 [ %.195, %23 ], [ %52, %.thread ]
+  %.4 = phi i32 [ %.193, %23 ], [ %52, %.thread ]
   call void (ptr, ptr, ...) @gtk_tree_store_set(ptr noundef %0, ptr noundef nonnull %8, i32 noundef 2, i32 noundef 1, i32 noundef -1) #16
   call void @g_object_unref(ptr noundef nonnull %21) #16
   br label %54
 
 54:                                               ; preds = %53, %.lr.ph
-  %.3 = phi i32 [ %.195, %.lr.ph ], [ %.4, %53 ]
+  %.3 = phi i32 [ %.193, %.lr.ph ], [ %.4, %53 ]
   %55 = call ptr @g_file_enumerator_next_file(ptr noundef nonnull %13, ptr noundef null, ptr noundef nonnull %5) #16
   %.not71 = icmp eq ptr %55, null
   br i1 %.not71, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %54, %.preheader, %.thread85
-  %.192 = phi i32 [ %.195, %.thread85 ], [ 0, %.preheader ], [ %.3, %54 ]
+  %.190 = phi i32 [ %.193, %.thread85 ], [ 0, %.preheader ], [ %.3, %54 ]
   %56 = call i32 @g_file_enumerator_close(ptr noundef nonnull %13, ptr noundef null, ptr noundef null) #16
   call void @g_object_unref(ptr noundef nonnull %13) #16
-  %57 = icmp eq i32 %.192, 0
+  %57 = icmp eq i32 %.190, 0
   br i1 %57, label %.critedge, label %62
 
 .critedge:                                        ; preds = %19, %.loopexit

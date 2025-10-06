@@ -2720,15 +2720,15 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEP
   br label %79
 
 79:                                               ; preds = %.thread, %78
-  %.1.ph82 = phi i1 [ true, %.thread ], [ false, %78 ]
-  %.1.i60.ph80 = phi i64 [ %.1.i61, %.thread ], [ %56, %78 ]
+  %.1.ph81 = phi i1 [ true, %.thread ], [ false, %78 ]
+  %.1.i60.ph79 = phi i64 [ %.1.i61, %.thread ], [ %56, %78 ]
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %85, label %80
 
 80:                                               ; preds = %79
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %82 = load i64, ptr %81, align 8
-  %83 = icmp ugt i64 %.1.i60.ph80, %82
+  %83 = icmp ugt i64 %.1.i60.ph79, %82
   %84 = zext i1 %83 to i8
   store i8 %84, ptr %5, align 1
   br label %85
@@ -2742,7 +2742,7 @@ _ZN19ConcurrentHashTableI20FinalizerTableConfigL8MEMFLAGS23EE6Bucket9cas_firstEP
   br label %87
 
 87:                                               ; preds = %86, %85
-  ret i1 %.1.ph82
+  ret i1 %.1.ph81
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

@@ -1271,27 +1271,27 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !320
   %.fca.0.extract = extractvalue { i64, ptr } %26, 0
   %.fca.1.extract = extractvalue { i64, ptr } %26, 1
-  %switch17 = icmp eq i64 %.fca.0.extract, 0
-  br i1 %switch17, label %41, label %43
+  %cond = icmp eq i64 %.fca.0.extract, 0
+  br i1 %cond, label %43, label %41
 
 41:                                               ; preds = %"_ZN18tree_sitter_loader6Loader15language_for_id28_$u7b$$u7b$closure$u7d$$u7d$17hb8728e6eb644fdc9E.exit"
-  call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %42 = load i64, ptr %0, align 8, !range !203, !noalias !339, !noundef !4
-  %trunc.i.i = trunc nuw i64 %42 to i1
-  br i1 %trunc.i.i, label %45, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit"
-
-43:                                               ; preds = %"_ZN18tree_sitter_loader6Loader15language_for_id28_$u7b$$u7b$closure$u7d$$u7d$17hb8728e6eb644fdc9E.exit"
-  %44 = icmp ne ptr %.fca.1.extract, null
-  call void @llvm.assume(i1 %44)
+  %42 = icmp ne ptr %.fca.1.extract, null
+  call void @llvm.assume(i1 %42)
   br label %50
 
-"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit": ; preds = %41
+43:                                               ; preds = %"_ZN18tree_sitter_loader6Loader15language_for_id28_$u7b$$u7b$closure$u7d$$u7d$17hb8728e6eb644fdc9E.exit"
+  call void @llvm.lifetime.start.p0(ptr nonnull %7)
+  %44 = load i64, ptr %0, align 8, !range !203, !noalias !339, !noundef !4
+  %trunc.i.i = trunc nuw i64 %44 to i1
+  br i1 %trunc.i.i, label %45, label %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit"
+
+"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit": ; preds = %43
   store i64 1, ptr %0, align 8, !noalias !339
   store ptr %.fca.1.extract, ptr %9, align 8, !noalias !339
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %50
 
-45:                                               ; preds = %41
+45:                                               ; preds = %43
   store i64 1, ptr %7, align 8
   %.fca.1.gep = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.fca.1.extract, ptr %.fca.1.gep, align 8
@@ -1310,9 +1310,9 @@ define hidden { i64, ptr } @"_ZN9once_cell6unsync17OnceCell$LT$T$GT$15get_or_try
   call void @_ZN4core9panicking9panic_fmt17h784f20a50eaab275E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.5797861c9b37489455df470e033f6d21.36) #23
   unreachable
 
-50:                                               ; preds = %2, %43, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit"
-  %.sroa.4.0 = phi ptr [ %9, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ %.fca.1.extract, %43 ], [ %9, %2 ]
-  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ 1, %43 ], [ 0, %2 ]
+50:                                               ; preds = %2, %41, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit"
+  %.sroa.4.0 = phi ptr [ %9, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ %.fca.1.extract, %41 ], [ %9, %2 ]
+  %.sroa.0.0 = phi i64 [ 0, %"_ZN4core3ptr81drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$tree_sitter..Language$GT$$GT$17hf9ec18240b0bb68cE.exit" ], [ 1, %41 ], [ 0, %2 ]
   %51 = insertvalue { i64, ptr } poison, i64 %.sroa.0.0, 0
   %52 = insertvalue { i64, ptr } %51, ptr %.sroa.4.0, 1
   ret { i64, ptr } %52

@@ -3519,86 +3519,77 @@ define internal fastcc range(i32 0, 2) i32 @png_cache_unknown_chunk(ptr noalias 
 7:                                                ; preds = %6, %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 960
   %9 = load i64, ptr %8, align 8
-  switch i64 %9, label %11 [
-    i64 0, label %.thread
-    i64 -1, label %.thread
-  ]
-
-.thread:                                          ; preds = %7, %7
+  %.off = add i64 %9, -1
+  %switch = icmp ult i64 %.off, -2
   %10 = zext i32 %1 to i64
-  br label %13
+  %.not4648 = icmp ult i64 %9, %10
+  %.not46 = and i1 %.not4648, %switch
+  br i1 %.not46, label %33, label %11
 
 11:                                               ; preds = %7
-  %12 = zext i32 %1 to i64
-  %.not46 = icmp ult i64 %9, %12
-  br i1 %.not46, label %36, label %13
-
-13:                                               ; preds = %.thread, %11
-  %14 = phi i64 [ %10, %.thread ], [ %12, %11 ]
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %16 = load i32, ptr %15, align 8
-  %17 = lshr i32 %16, 24
-  %18 = trunc nuw i32 %17 to i8
-  store i8 %18, ptr %3, align 8
-  %19 = lshr i32 %16, 16
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %13 = load i32, ptr %12, align 8
+  %14 = lshr i32 %13, 24
+  %15 = trunc nuw i32 %14 to i8
+  store i8 %15, ptr %3, align 8
+  %16 = lshr i32 %13, 16
+  %17 = trunc i32 %16 to i8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 969
+  store i8 %17, ptr %18, align 1
+  %19 = lshr i32 %13, 8
   %20 = trunc i32 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 969
-  store i8 %20, ptr %21, align 1
-  %22 = lshr i32 %16, 8
-  %23 = trunc i32 %22 to i8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 970
-  store i8 %23, ptr %24, align 2
-  %25 = trunc i32 %16 to i8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 971
-  store i8 %25, ptr %26, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 972
-  store i8 0, ptr %27, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  store i64 %14, ptr %28, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 292
-  %30 = load i32, ptr %29, align 4
-  %31 = trunc i32 %30 to i8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 992
-  store i8 %31, ptr %32, align 8
-  %33 = icmp eq i32 %1, 0
-  br i1 %33, label %.thread49, label %34
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 970
+  store i8 %20, ptr %21, align 2
+  %22 = trunc i32 %13 to i8
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 971
+  store i8 %22, ptr %23, align 1
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 972
+  store i8 0, ptr %24, align 4
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 984
+  store i64 %10, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 292
+  %27 = load i32, ptr %26, align 4
+  %28 = trunc i32 %27 to i8
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 992
+  store i8 %28, ptr %29, align 8
+  %30 = icmp eq i32 %1, 0
+  br i1 %30, label %.thread, label %31
 
-.thread49:                                        ; preds = %13
+.thread:                                          ; preds = %11
   store ptr null, ptr %4, align 8
-  br label %44
+  br label %40
 
-34:                                               ; preds = %13
-  %35 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %14) #12
-  store ptr %35, ptr %4, align 8
-  br label %36
+31:                                               ; preds = %11
+  %32 = tail call noalias ptr @png_malloc_warn(ptr noundef nonnull %0, i64 noundef %10) #12
+  store ptr %32, ptr %4, align 8
+  br label %33
 
-36:                                               ; preds = %34, %11
-  %37 = phi ptr [ %35, %34 ], [ null, %11 ]
-  %38 = phi i64 [ %14, %34 ], [ %12, %11 ]
-  %39 = icmp eq ptr %37, null
-  %40 = icmp ne i32 %1, 0
-  %or.cond = and i1 %40, %39
-  br i1 %or.cond, label %41, label %43
+33:                                               ; preds = %31, %7
+  %34 = phi ptr [ %32, %31 ], [ null, %7 ]
+  %35 = icmp eq ptr %34, null
+  %36 = icmp ne i32 %1, 0
+  %or.cond = and i1 %36, %35
+  br i1 %or.cond, label %37, label %39
 
-41:                                               ; preds = %36
-  %42 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %1)
+37:                                               ; preds = %33
+  %38 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef %1)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.51) #12
-  br label %46
+  br label %42
 
-43:                                               ; preds = %36
-  br i1 %40, label %png_crc_read.exit, label %44
+39:                                               ; preds = %33
+  br i1 %36, label %png_crc_read.exit, label %40
 
-png_crc_read.exit:                                ; preds = %43
-  tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef %37, i64 noundef %38) #12
-  tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef %37, i64 noundef %38) #12
-  br label %44
+png_crc_read.exit:                                ; preds = %39
+  tail call void @png_read_data(ptr noundef nonnull %0, ptr noundef %34, i64 noundef %10) #12
+  tail call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef %34, i64 noundef %10) #12
+  br label %40
 
-44:                                               ; preds = %.thread49, %png_crc_read.exit, %43
-  %45 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef 0)
-  br label %46
+40:                                               ; preds = %.thread, %png_crc_read.exit, %39
+  %41 = tail call i32 @png_crc_finish(ptr noundef nonnull %0, i32 noundef 0)
+  br label %42
 
-46:                                               ; preds = %44, %41
-  %.039 = phi i32 [ 0, %41 ], [ 1, %44 ]
+42:                                               ; preds = %40, %37
+  %.039 = phi i32 [ 0, %37 ], [ 1, %40 ]
   ret i32 %.039
 }
 

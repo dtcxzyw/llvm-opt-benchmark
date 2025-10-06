@@ -709,7 +709,7 @@ define void @_ZN8grep_cli7pattern19patterns_from_stdin17h722a3dc9acb7d9dbE(ptr n
   %21 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h77a83bea1473771dE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6) #11
-          to label %31 unwind label %29, !noalias !130
+          to label %32 unwind label %30, !noalias !130
 
 22:                                               ; preds = %16
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !131
@@ -725,29 +725,29 @@ define void @_ZN8grep_cli7pattern19patterns_from_stdin17h722a3dc9acb7d9dbE(ptr n
   %25 = load ptr, ptr %6, align 8, !alias.scope !153, !noalias !130, !nonnull !4, !noundef !4
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17hee637f9e7da05d74E.llvm.1231196827938639477(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %2, ptr noundef nonnull %25), !noalias !152
   %26 = load i8, ptr %2, align 8, !range !154, !alias.scope !155, !noalias !152, !noundef !4
-  %switch.not.i.i.i.i.i.i = icmp eq i8 %26, 3
-  br i1 %switch.not.i.i.i.i.i.i, label %27, label %"_ZN8grep_cli7pattern19patterns_from_stdin28_$u7b$$u7b$closure$u7d$$u7d$17h28225c2314766c79E.exit.i"
+  %27 = icmp eq i8 %26, 3
+  br i1 %27, label %28, label %"_ZN8grep_cli7pattern19patterns_from_stdin28_$u7b$$u7b$closure$u7d$$u7d$17h28225c2314766c79E.exit.i"
 
-27:                                               ; preds = %24
-  %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h09d58dbbd9d54a99E.llvm.1231196827938639477"(ptr noalias noundef nonnull align 8 dereferenceable(8) %28), !noalias !152
+28:                                               ; preds = %24
+  %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17h09d58dbbd9d54a99E.llvm.1231196827938639477"(ptr noalias noundef nonnull align 8 dereferenceable(8) %29), !noalias !152
   br label %"_ZN8grep_cli7pattern19patterns_from_stdin28_$u7b$$u7b$closure$u7d$$u7d$17h28225c2314766c79E.exit.i"
 
-29:                                               ; preds = %20
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %20
+  %31 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #13, !noalias !130
   unreachable
 
-31:                                               ; preds = %20
+32:                                               ; preds = %20
   resume { ptr, i32 } %21
 
-"_ZN8grep_cli7pattern19patterns_from_stdin28_$u7b$$u7b$closure$u7d$$u7d$17h28225c2314766c79E.exit.i": ; preds = %27, %24
+"_ZN8grep_cli7pattern19patterns_from_stdin28_$u7b$$u7b$closure$u7d$$u7d$17h28225c2314766c79E.exit.i": ; preds = %28, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !152
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !130
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !130
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %23, ptr %32, align 8, !alias.scope !125, !noalias !128
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %23, ptr %33, align 8, !alias.scope !125, !noalias !128
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !125, !noalias !128
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h9046ad1e82369a6bE.exit"
 

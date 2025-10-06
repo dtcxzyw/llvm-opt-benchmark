@@ -85,8 +85,8 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
   call void @llvm.va_start.p0(ptr nonnull %3)
   %7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   %8 = add i64 %7, -1
-  %.not110 = icmp eq i64 %8, 0
-  br i1 %.not110, label %._crit_edge, label %.lr.ph
+  %.not109 = icmp eq i64 %8, 0
+  br i1 %.not109, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.promoted = load i32, ptr %3, align 16
@@ -94,23 +94,23 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 16
-  %.promoted102 = load ptr, ptr %9, align 8
-  %.promoted103 = load i32, ptr %10, align 4
+  %.promoted101 = load ptr, ptr %9, align 8
+  %.promoted102 = load i32, ptr %10, align 4
   br label %13
 
 13:                                               ; preds = %.lr.ph, %70
-  %14 = phi i32 [ %.promoted103, %.lr.ph ], [ %71, %70 ]
-  %15 = phi ptr [ %.promoted102, %.lr.ph ], [ %72, %70 ]
-  %.059101 = phi i64 [ 0, %.lr.ph ], [ %74, %70 ]
-  %.060100 = phi i64 [ 1, %.lr.ph ], [ %.161, %70 ]
+  %14 = phi i32 [ %.promoted102, %.lr.ph ], [ %71, %70 ]
+  %15 = phi ptr [ %.promoted101, %.lr.ph ], [ %72, %70 ]
+  %.059100 = phi i64 [ 0, %.lr.ph ], [ %74, %70 ]
+  %.06099 = phi i64 [ 1, %.lr.ph ], [ %.161, %70 ]
   %16 = phi i32 [ %.promoted, %.lr.ph ], [ %73, %70 ]
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.059101
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %.059100
   %18 = load i8, ptr %17, align 1, !tbaa !3
   %19 = icmp eq i8 %18, 37
   br i1 %19, label %20, label %70
 
 20:                                               ; preds = %13
-  %21 = add nuw i64 %.059101, 1
+  %21 = add nuw i64 %.059100, 1
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %21
   %23 = load i8, ptr %22, align 1, !tbaa !3
   switch i8 %23, label %60 [
@@ -145,7 +145,7 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
 
 37:                                               ; preds = %32
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #16
-  %39 = add i64 %38, %.060100
+  %39 = add i64 %38, %.06099
   br label %70
 
 40:                                               ; preds = %20
@@ -165,7 +165,7 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
 46:                                               ; preds = %44, %42
   %47 = phi i32 [ %14, %44 ], [ %43, %42 ]
   %48 = phi ptr [ %45, %44 ], [ %15, %42 ]
-  %49 = add i64 %.060100, 25
+  %49 = add i64 %.06099, 25
   br label %70
 
 50:                                               ; preds = %20
@@ -185,7 +185,7 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
 56:                                               ; preds = %54, %52
   %57 = phi ptr [ %55, %54 ], [ %15, %52 ]
   %58 = phi i32 [ %16, %54 ], [ %53, %52 ]
-  %59 = add i64 %.060100, 20
+  %59 = add i64 %.06099, 20
   br label %70
 
 60:                                               ; preds = %20
@@ -205,15 +205,15 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
 66:                                               ; preds = %64, %62
   %67 = phi ptr [ %65, %64 ], [ %15, %62 ]
   %68 = phi i32 [ %16, %64 ], [ %63, %62 ]
-  %69 = add i64 %.060100, 10
+  %69 = add i64 %.06099, 10
   br label %70
 
 70:                                               ; preds = %13, %32, %37, %66, %56, %46
   %71 = phi i32 [ %14, %66 ], [ %14, %37 ], [ %14, %32 ], [ %47, %46 ], [ %14, %56 ], [ %14, %13 ]
   %72 = phi ptr [ %67, %66 ], [ %33, %37 ], [ %33, %32 ], [ %48, %46 ], [ %57, %56 ], [ %15, %13 ]
   %73 = phi i32 [ %68, %66 ], [ %34, %37 ], [ %34, %32 ], [ %16, %46 ], [ %58, %56 ], [ %16, %13 ]
-  %.161 = phi i64 [ %69, %66 ], [ %39, %37 ], [ %.060100, %32 ], [ %49, %46 ], [ %59, %56 ], [ %.060100, %13 ]
-  %.1 = phi i64 [ %21, %66 ], [ %21, %37 ], [ %21, %32 ], [ %21, %46 ], [ %21, %56 ], [ %.059101, %13 ]
+  %.161 = phi i64 [ %69, %66 ], [ %39, %37 ], [ %.06099, %32 ], [ %49, %46 ], [ %59, %56 ], [ %.06099, %13 ]
+  %.1 = phi i64 [ %21, %66 ], [ %21, %37 ], [ %21, %32 ], [ %21, %46 ], [ %21, %56 ], [ %.059100, %13 ]
   %74 = add i64 %.1, 1
   %75 = icmp ult i64 %74, %8
   br i1 %75, label %13, label %._crit_edge
@@ -256,9 +256,9 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
   %spec.select = select i1 %.not85, i32 %81, i32 %89
   %90 = call i32 @pthread_mutex_lock(ptr noundef nonnull @mdprintf_mutex) #18
   %91 = icmp sgt i32 %spec.select, 0
-  br i1 %91, label %.lr.ph108, label %.loopexit
+  br i1 %91, label %.lr.ph107, label %.loopexit
 
-.lr.ph108:                                        ; preds = %87
+.lr.ph107:                                        ; preds = %87
   %92 = zext nneg i32 %spec.select to i64
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %94 = srem i32 %0, 64
@@ -270,10 +270,10 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
   %100 = add nsw i32 %0, 1
   br label %101
 
-101:                                              ; preds = %.lr.ph108, %130
-  %.065106 = phi i32 [ %spec.select, %.lr.ph108 ], [ %.166, %130 ]
-  %.169105 = phi ptr [ %.068, %.lr.ph108 ], [ %.270, %130 ]
-  %102 = call i64 @send(i32 noundef %0, ptr noundef %.169105, i64 noundef %92, i32 noundef 0) #18
+101:                                              ; preds = %.lr.ph107, %130
+  %.065105 = phi i32 [ %spec.select, %.lr.ph107 ], [ %.166, %130 ]
+  %.169104 = phi ptr [ %.068, %.lr.ph107 ], [ %.270, %130 ]
+  %102 = call i64 @send(i32 noundef %0, ptr noundef %.169104, i64 noundef %92, i32 noundef 0) #18
   %103 = trunc i64 %102 to i32
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %105, label %126
@@ -330,14 +330,14 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
   br label %130
 
 126:                                              ; preds = %101
-  %127 = sub nsw i32 %.065106, %103
+  %127 = sub nsw i32 %.065105, %103
   %128 = and i64 %102, 2147483647
-  %129 = getelementptr inbounds nuw i8, ptr %.169105, i64 %128
+  %129 = getelementptr inbounds nuw i8, ptr %.169104, i64 %128
   br label %130
 
 130:                                              ; preds = %123, %126
-  %.270 = phi ptr [ %.169105, %123 ], [ %129, %126 ]
-  %.166 = phi i32 [ %.065106, %123 ], [ %127, %126 ]
+  %.270 = phi ptr [ %.169104, %123 ], [ %129, %126 ]
+  %.166 = phi i32 [ %.065105, %123 ], [ %127, %126 ]
   %.3 = phi i32 [ %125, %123 ], [ %spec.select, %126 ]
   %131 = icmp sgt i32 %.166, 0
   br i1 %131, label %101, label %.loopexit

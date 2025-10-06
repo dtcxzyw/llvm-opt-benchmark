@@ -298,12 +298,12 @@ declare i32 @reftable_record_encode(ptr noundef, ptr, i64, i32 noundef) local_un
 define dso_local i32 @block_writer_finish(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8, !tbaa !23
-  %.not72 = icmp eq i32 %3, 0
-  br i1 %.not72, label %.._crit_edge_crit_edge, label %.lr.ph
+  %.not71 = icmp eq i32 %3, 0
+  br i1 %.not71, label %.._crit_edge_crit_edge, label %.lr.ph
 
 .._crit_edge_crit_edge:                           ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.pre75 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !20
+  %.pre74 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !20
   br label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
@@ -318,7 +318,7 @@ define dso_local i32 @block_writer_finish(ptr noundef captures(none) %0) local_u
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.._crit_edge_crit_edge, %._crit_edge.loopexit
-  %8 = phi i32 [ %.pre75, %.._crit_edge_crit_edge ], [ %37, %._crit_edge.loopexit ]
+  %8 = phi i32 [ %.pre74, %.._crit_edge_crit_edge ], [ %37, %._crit_edge.loopexit ]
   %.lcssa = phi i16 [ 0, %.._crit_edge_crit_edge ], [ %7, %._crit_edge.loopexit ]
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !4
@@ -342,7 +342,7 @@ define dso_local i32 @block_writer_finish(ptr noundef captures(none) %0) local_u
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 %24
   %26 = load i8, ptr %25, align 1, !tbaa !19
   %27 = icmp eq i8 %26, 103
-  %.pre79 = load i32, ptr %11, align 8, !tbaa !20
+  %.pre78 = load i32, ptr %11, align 8, !tbaa !20
   br i1 %27, label %41, label %.thread
 
 28:                                               ; preds = %.lr.ph, %28
@@ -366,7 +366,7 @@ define dso_local i32 @block_writer_finish(ptr noundef captures(none) %0) local_u
 
 41:                                               ; preds = %._crit_edge
   %42 = add i32 %23, 4
-  %43 = sub i32 %.pre79, %42
+  %43 = sub i32 %.pre78, %42
   %44 = load ptr, ptr %0, align 8, !tbaa !25
   %45 = tail call i32 @deflateReset(ptr noundef %44) #11
   %.not = icmp eq i32 %45, 0
@@ -389,14 +389,14 @@ define dso_local i32 @block_writer_finish(ptr noundef captures(none) %0) local_u
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %57, i64 %49)
   %58 = tail call ptr @reftable_realloc(ptr noundef %54, i64 noundef %spec.select.i) #11
   %.not.i = icmp eq ptr %58, null
-  br i1 %.not.i, label %.thread84, label %.thread87
+  br i1 %.not.i, label %.thread83, label %.thread86
 
-.thread87:                                        ; preds = %55
+.thread86:                                        ; preds = %55
   store ptr %58, ptr %53, align 8, !tbaa !38
   store i64 %spec.select.i, ptr %50, align 8, !tbaa !37
   br label %60
 
-.thread84:                                        ; preds = %55
+.thread83:                                        ; preds = %55
   store ptr %54, ptr %53, align 8, !tbaa !38
   tail call void @reftable_free(ptr noundef %54) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
@@ -406,8 +406,8 @@ define dso_local i32 @block_writer_finish(ptr noundef captures(none) %0) local_u
   %.not60 = icmp eq ptr %54, null
   br i1 %.not60, label %.thread, label %60
 
-60:                                               ; preds = %.thread87, %59
-  %61 = phi ptr [ %58, %.thread87 ], [ %54, %59 ]
+60:                                               ; preds = %.thread86, %59
+  %61 = phi ptr [ %58, %.thread86 ], [ %54, %59 ]
   %62 = load ptr, ptr %0, align 8, !tbaa !25
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   store ptr %61, ptr %63, align 8, !tbaa !39
@@ -441,8 +441,8 @@ define dso_local i32 @block_writer_finish(ptr noundef captures(none) %0) local_u
   store i32 %83, ptr %11, align 8, !tbaa !20
   br label %.thread
 
-.thread:                                          ; preds = %._crit_edge, %71, %.thread84, %60, %59, %41
-  %.1 = phi i32 [ -7, %60 ], [ -13, %59 ], [ -7, %41 ], [ -13, %.thread84 ], [ %83, %71 ], [ %.pre79, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %71, %.thread83, %60, %59, %41
+  %.1 = phi i32 [ -7, %60 ], [ -13, %59 ], [ -7, %41 ], [ -13, %.thread83 ], [ %83, %71 ], [ %.pre78, %._crit_edge ]
   ret i32 %.1
 }
 
@@ -510,14 +510,14 @@ reftable_block_done.exit:                         ; preds = %5, %14
   %spec.select.i = tail call i64 @llvm.umax.i64(i64 %34, i64 %28)
   %35 = tail call ptr @reftable_realloc(ptr noundef %31, i64 noundef %spec.select.i) #11
   %.not.i110 = icmp eq ptr %35, null
-  br i1 %.not.i110, label %.thread136, label %.thread139
+  br i1 %.not.i110, label %.thread135, label %.thread138
 
-.thread139:                                       ; preds = %32
+.thread138:                                       ; preds = %32
   store ptr %35, ptr %30, align 8, !tbaa !57
   store i64 %spec.select.i, ptr %26, align 8, !tbaa !55
   br label %37
 
-.thread136:                                       ; preds = %32
+.thread135:                                       ; preds = %32
   store ptr %31, ptr %30, align 8, !tbaa !57
   tail call void @reftable_free(ptr noundef %31) #11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
@@ -527,8 +527,8 @@ reftable_block_done.exit:                         ; preds = %5, %14
   %.not102 = icmp eq ptr %31, null
   br i1 %.not102, label %.thread, label %37
 
-37:                                               ; preds = %.thread139, %36
-  %38 = phi ptr [ %35, %.thread139 ], [ %31, %36 ]
+37:                                               ; preds = %.thread138, %36
+  %38 = phi ptr [ %35, %.thread138 ], [ %31, %36 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %40 = load ptr, ptr %1, align 8, !tbaa !46
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 1 %40, i64 %25, i1 false)
@@ -665,8 +665,8 @@ reftable_block_done.exit:                         ; preds = %5, %14
   store ptr %105, ptr %110, align 8, !tbaa !65
   br label %.thread
 
-.thread:                                          ; preds = %.thread136, %62, %50, %49, %43, %36, %91, %reftable_block_done.exit
-  %.091 = phi i32 [ 0, %91 ], [ -3, %reftable_block_done.exit ], [ -3, %62 ], [ -7, %50 ], [ -7, %49 ], [ -13, %43 ], [ -13, %36 ], [ -13, %.thread136 ]
+.thread:                                          ; preds = %.thread135, %62, %50, %49, %43, %36, %91, %reftable_block_done.exit
+  %.091 = phi i32 [ 0, %91 ], [ -3, %reftable_block_done.exit ], [ -3, %62 ], [ -7, %50 ], [ -7, %49 ], [ -13, %43 ], [ -13, %36 ], [ -13, %.thread135 ]
   ret i32 %.091
 }
 

@@ -150,14 +150,14 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   %11 = load i8, ptr %10, align 8, !tbaa !94, !range !96, !noundef !97
   %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %13, label %.thread34
+  br i1 %12, label %13, label %.thread32
 
 13:                                               ; preds = %9
   %14 = tail call ptr @__errno_location() #12
   store i32 156384763, ptr %14, align 4, !tbaa !98
   br label %85
 
-.thread34:                                        ; preds = %9
+.thread32:                                        ; preds = %9
   store i8 0, ptr %6, align 1, !tbaa !6
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1930
   store i8 1, ptr %15, align 2, !tbaa !90
@@ -171,8 +171,8 @@ define noundef i32 @_ZN3zmq5req_t5xsendEPNS_5msg_tE(ptr noundef nonnull align 8 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1930
   br i1 %18, label %20, label %78
 
-20:                                               ; preds = %.thread34, %17
-  %21 = phi ptr [ %16, %.thread34 ], [ %19, %17 ]
+20:                                               ; preds = %.thread32, %17
+  %21 = phi ptr [ %16, %.thread32 ], [ %19, %17 ]
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   store ptr null, ptr %22, align 8, !tbaa !91
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1944
@@ -350,15 +350,15 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1929
   %9 = load i8, ptr %8, align 1, !tbaa !6, !range !96, !noundef !97
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %.preheader79, label %17
+  br i1 %10, label %.preheader77, label %17
 
-.preheader79:                                     ; preds = %2
+.preheader77:                                     ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1930
   %12 = load i8, ptr %11, align 2, !tbaa !90, !range !96, !noundef !97
   %13 = trunc nuw i8 %12 to i1
   br i1 %13, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader79
+.lr.ph:                                           ; preds = %.preheader77
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1944
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1948
@@ -372,28 +372,28 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
 19:                                               ; preds = %.lr.ph, %.backedge
   %20 = load i8, ptr %14, align 8, !tbaa !92, !range !96, !noundef !97
   %21 = trunc nuw i8 %20 to i1
-  br i1 %21, label %.preheader90, label %.thread.preheader
+  br i1 %21, label %.preheader88, label %.thread.preheader
 
 .thread.preheader:                                ; preds = %32, %19
   br label %.thread
 
-.preheader90:                                     ; preds = %19, %23
+.preheader88:                                     ; preds = %19, %23
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %7, align 8, !tbaa !105
   %22 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef %1, ptr noundef nonnull %7)
   %.not.i = icmp eq i32 %22, 0
   br i1 %.not.i, label %23, label %.thread67
 
-23:                                               ; preds = %.preheader90
+23:                                               ; preds = %.preheader88
   %24 = load ptr, ptr %15, align 8, !tbaa !91
   %.not8.i = icmp ne ptr %24, null
   %25 = load ptr, ptr %7, align 8
   %26 = icmp ne ptr %25, %24
   %or.cond.not.i = select i1 %.not8.i, i1 %26, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %or.cond.not.i, label %.preheader90, label %27
+  br i1 %or.cond.not.i, label %.preheader88, label %27
 
-.thread67:                                        ; preds = %.preheader90
+.thread67:                                        ; preds = %.preheader88
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %94
 
@@ -401,27 +401,27 @@ define noundef i32 @_ZN3zmq5req_t5xrecvEPNS_5msg_tE(ptr noundef nonnull align 8 
   %28 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %29 = and i8 %28, 1
   %.not35 = icmp eq i8 %29, 0
-  br i1 %.not35, label %.preheader77, label %30, !prof !102
+  br i1 %.not35, label %.preheader75, label %30, !prof !102
 
 30:                                               ; preds = %27
   %31 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %.not36 = icmp eq i64 %31, 4
-  br i1 %.not36, label %32, label %.preheader77, !prof !99
+  br i1 %.not36, label %32, label %.preheader75, !prof !99
 
 32:                                               ; preds = %30
   %33 = call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %34 = load i32, ptr %33, align 4, !tbaa !98
   %35 = load i32, ptr %16, align 4, !tbaa !93
   %.not = icmp eq i32 %34, %35
-  br i1 %.not, label %.thread.preheader, label %.preheader77, !prof !99
+  br i1 %.not, label %.thread.preheader, label %.preheader75, !prof !99
 
-.preheader77:                                     ; preds = %30, %27, %32
+.preheader75:                                     ; preds = %30, %27, %32
   %36 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %37 = and i8 %36, 1
-  %.not3789 = icmp eq i8 %37, 0
-  br i1 %.not3789, label %.backedge, label %.preheader.lr.ph, !llvm.loop !106
+  %.not3787 = icmp eq i8 %37, 0
+  br i1 %.not3787, label %.backedge, label %.preheader.lr.ph, !llvm.loop !106
 
-.preheader.lr.ph:                                 ; preds = %.preheader77
+.preheader.lr.ph:                                 ; preds = %.preheader75
   br label %.preheader, !llvm.loop !106
 
 .preheader:                                       ; preds = %.preheader.backedge, %.preheader.lr.ph
@@ -489,38 +489,38 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread: ; preds = %39, %43
 
 61:                                               ; preds = %58
   %62 = call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
-  %.not75 = icmp eq i64 %62, 0
-  br i1 %.not75, label %80, label %.critedge44.preheader, !prof !99
+  %.not73 = icmp eq i64 %62, 0
+  br i1 %.not73, label %80, label %.critedge44.preheader, !prof !99
 
 .critedge44.preheader:                            ; preds = %61, %58
   %63 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %64 = and i8 %63, 1
-  %.not4188 = icmp eq i8 %64, 0
-  br i1 %.not4188, label %.backedge, label %.preheader76.lr.ph, !llvm.loop !106
+  %.not4186 = icmp eq i8 %64, 0
+  br i1 %.not4186, label %.backedge, label %.preheader74.lr.ph, !llvm.loop !106
 
-.preheader76.lr.ph:                               ; preds = %.critedge44.preheader
-  br label %.preheader76, !llvm.loop !106
+.preheader74.lr.ph:                               ; preds = %.critedge44.preheader
+  br label %.preheader74, !llvm.loop !106
 
-.preheader76:                                     ; preds = %.preheader76.backedge, %.preheader76.lr.ph
+.preheader74:                                     ; preds = %.preheader74.backedge, %.preheader74.lr.ph
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr null, ptr %4, align 8, !tbaa !105
   %65 = call noundef i32 @_ZN3zmq8dealer_t8recvpipeEPNS_5msg_tEPPNS_6pipe_tE(ptr noundef nonnull align 8 dereferenceable(1960) %0, ptr noundef nonnull %1, ptr noundef nonnull %4)
   %.not.i55 = icmp eq i32 %65, 0
   br i1 %.not.i55, label %66, label %70
 
-66:                                               ; preds = %.preheader76
+66:                                               ; preds = %.preheader74
   %67 = load ptr, ptr %15, align 8, !tbaa !91
   %.not8.i57 = icmp ne ptr %67, null
   %68 = load ptr, ptr %4, align 8
   %69 = icmp ne ptr %68, %67
   %or.cond.not.i58 = select i1 %.not8.i57, i1 %69, i1 false
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %or.cond.not.i58, label %.preheader76.backedge, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread
+  br i1 %or.cond.not.i58, label %.preheader74.backedge, label %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread
 
-.preheader76.backedge:                            ; preds = %66, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread
-  br label %.preheader76, !llvm.loop !108
+.preheader74.backedge:                            ; preds = %66, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread
+  br label %.preheader74, !llvm.loop !108
 
-70:                                               ; preds = %.preheader76
+70:                                               ; preds = %.preheader74
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %71 = tail call ptr @__errno_location() #12
   %72 = load i32, ptr %71, align 4, !tbaa !98
@@ -536,18 +536,18 @@ _ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread: ; preds = %66, %70
   %78 = call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %1)
   %79 = and i8 %78, 1
   %.not41 = icmp eq i8 %79, 0
-  br i1 %.not41, label %.backedge, label %.preheader76.backedge, !llvm.loop !106
+  br i1 %.not41, label %.backedge, label %.preheader74.backedge, !llvm.loop !106
 
 80:                                               ; preds = %61
   store i8 0, ptr %11, align 2, !tbaa !90
   br label %.backedge
 
-.backedge:                                        ; preds = %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread, %80, %.critedge44.preheader, %.preheader77
+.backedge:                                        ; preds = %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit59.thread, %_ZN3zmq5req_t15recv_reply_pipeEPNS_5msg_tE.exit49.thread, %80, %.critedge44.preheader, %.preheader75
   %81 = load i8, ptr %11, align 2, !tbaa !90, !range !96, !noundef !97
   %82 = trunc nuw i8 %81 to i1
   br i1 %82, label %19, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.backedge, %.preheader79
+._crit_edge:                                      ; preds = %.backedge, %.preheader77
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1936
   br label %84
 

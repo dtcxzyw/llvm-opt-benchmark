@@ -42,8 +42,8 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %or.cond.i = or i1 %25, %26
   %27 = sub nuw i32 %.013.lcssa, %.014.lcssa
   %28 = icmp samesign ugt i32 %27, 15
-  %or.cond200.i = select i1 %or.cond.i, i1 true, i1 %28
-  br i1 %or.cond200.i, label %_ZL34CreatePreparedDictionaryWithParamsPN13duckdb_brotli13MemoryManagerEPKhmjjjt.exit, label %29
+  %or.cond199.i = select i1 %or.cond.i, i1 true, i1 %28
+  br i1 %or.cond199.i, label %_ZL34CreatePreparedDictionaryWithParamsPN13duckdb_brotli13MemoryManagerEPKhmjjjt.exit, label %29
 
 29:                                               ; preds = %._crit_edge
   %.not.i = icmp eq i64 %24, 0
@@ -64,15 +64,15 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %40 = shl nuw nsw i64 %37, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %36, i8 0, i64 %40, i1 false)
   %41 = icmp ugt i64 %2, 7
-  br i1 %41, label %.lr.ph.i, label %.preheader217.i.preheader
+  br i1 %41, label %.lr.ph.i, label %.preheader214.i.preheader
 
 .lr.ph.i:                                         ; preds = %32
   %42 = zext nneg i32 %13 to i64
   br label %43
 
 43:                                               ; preds = %56, %.lr.ph.i
-  %.0179219.i = phi i32 [ 0, %.lr.ph.i ], [ %61, %56 ]
-  %44 = zext i32 %.0179219.i to i64
+  %.0179216.i = phi i32 [ 0, %.lr.ph.i ], [ %61, %56 ]
+  %44 = zext i32 %.0179216.i to i64
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 %44
   %.0.copyload.i.i = load i64, ptr %45, align 1
   %46 = and i64 %.0.copyload.i.i, 1099511627775
@@ -94,60 +94,60 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %58 = getelementptr inbounds nuw i32, ptr %39, i64 %44
   store i32 %57, ptr %58, align 4, !tbaa !9
   %59 = getelementptr inbounds nuw i32, ptr %38, i64 %49
-  store i32 %.0179219.i, ptr %59, align 4, !tbaa !9
+  store i32 %.0179216.i, ptr %59, align 4, !tbaa !9
   %60 = add i16 %51, 1
   %spec.select.i = tail call i16 @llvm.umin.i16(i16 %60, i16 32)
   store i16 %spec.select.i, ptr %50, align 2, !tbaa !5
-  %61 = add i32 %.0179219.i, 1
-  %62 = add i32 %.0179219.i, 8
+  %61 = add i32 %.0179216.i, 1
+  %62 = add i32 %.0179216.i, 8
   %63 = zext i32 %62 to i64
   %64 = icmp ugt i64 %2, %63
-  br i1 %64, label %43, label %.preheader217.i.preheader, !llvm.loop !11
+  br i1 %64, label %43, label %.preheader214.i.preheader, !llvm.loop !11
 
-.preheader217.i.preheader:                        ; preds = %56, %32
-  br label %.preheader217.i
+.preheader214.i.preheader:                        ; preds = %56, %32
+  br label %.preheader214.i
 
-.preheader217.i:                                  ; preds = %.preheader217.i.preheader, %._crit_edge.i
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %.preheader217.i.preheader ]
-  %.0176231.i = phi i32 [ %79, %._crit_edge.i ], [ 0, %.preheader217.i.preheader ]
+.preheader214.i:                                  ; preds = %.preheader214.i.preheader, %._crit_edge.i
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %._crit_edge.i ], [ 0, %.preheader214.i.preheader ]
+  %.0176228.i = phi i32 [ %79, %._crit_edge.i ], [ 0, %.preheader214.i.preheader ]
   %65 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i
   %66 = icmp samesign ult i64 %indvars.iv.i, %37
-  br i1 %66, label %.lr.ph222.us.i, label %._crit_edge.i
+  br i1 %66, label %.lr.ph219.us.i, label %._crit_edge.i
 
-.lr.ph222.us.i:                                   ; preds = %.preheader217.i, %76
-  %storemerge226.us.i = phi i32 [ %77, %76 ], [ 32, %.preheader217.i ]
+.lr.ph219.us.i:                                   ; preds = %.preheader214.i, %76
+  %storemerge223.us.i = phi i32 [ %77, %76 ], [ 32, %.preheader214.i ]
   br label %67
 
-67:                                               ; preds = %69, %.lr.ph222.us.i
-  %.0168221.us.i = phi i32 [ 0, %.lr.ph222.us.i ], [ %73, %69 ]
-  %.0169220.us.i = phi i64 [ %indvars.iv.i, %.lr.ph222.us.i ], [ %74, %69 ]
-  %68 = icmp samesign ugt i32 %.0168221.us.i, 65534
+67:                                               ; preds = %69, %.lr.ph219.us.i
+  %.0168218.us.i = phi i32 [ 0, %.lr.ph219.us.i ], [ %73, %69 ]
+  %.0169217.us.i = phi i64 [ %indvars.iv.i, %.lr.ph219.us.i ], [ %74, %69 ]
+  %68 = icmp samesign ugt i32 %.0168218.us.i, 65534
   br i1 %68, label %76, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i16, ptr %36, i64 %.0169220.us.i
+  %70 = getelementptr inbounds nuw i16, ptr %36, i64 %.0169217.us.i
   %71 = load i16, ptr %70, align 2, !tbaa !5
   %72 = zext i16 %71 to i32
-  %spec.select195.us.i = tail call i32 @llvm.umin.i32(i32 %storemerge226.us.i, i32 %72)
-  %73 = add nuw nsw i32 %spec.select195.us.i, %.0168221.us.i
-  %74 = add nuw nsw i64 %.0169220.us.i, %34
+  %spec.select195.us.i = tail call i32 @llvm.umin.i32(i32 %storemerge223.us.i, i32 %72)
+  %73 = add nuw nsw i32 %spec.select195.us.i, %.0168218.us.i
+  %74 = add nuw nsw i64 %.0169217.us.i, %34
   %75 = icmp samesign ult i64 %74, %37
   br i1 %75, label %67, label %._crit_edge.i, !llvm.loop !12
 
 76:                                               ; preds = %67
-  %77 = add i32 %storemerge226.us.i, -1
-  br label %.lr.ph222.us.i
+  %77 = add i32 %storemerge223.us.i, -1
+  br label %.lr.ph219.us.i
 
-._crit_edge.i:                                    ; preds = %69, %.preheader217.i
-  %storemerge.i = phi i32 [ 32, %.preheader217.i ], [ %storemerge226.us.i, %69 ]
-  %.0168.lcssa.i = phi i32 [ 0, %.preheader217.i ], [ %73, %69 ]
+._crit_edge.i:                                    ; preds = %69, %.preheader214.i
+  %storemerge.i = phi i32 [ 32, %.preheader214.i ], [ %storemerge223.us.i, %69 ]
+  %.0168.lcssa.i = phi i32 [ 0, %.preheader214.i ], [ %73, %69 ]
   store i32 %storemerge.i, ptr %65, align 4, !tbaa !9
   %78 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv.i
   store i32 %.0168.lcssa.i, ptr %78, align 4, !tbaa !9
-  %79 = add i32 %.0168.lcssa.i, %.0176231.i
+  %79 = add i32 %.0168.lcssa.i, %.0176228.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %34
-  br i1 %exitcond.not.i, label %80, label %.preheader217.i, !llvm.loop !13
+  br i1 %exitcond.not.i, label %80, label %.preheader214.i, !llvm.loop !13
 
 80:                                               ; preds = %._crit_edge.i
   %81 = zext i32 %79 to i64
@@ -178,34 +178,34 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   br label %97
 
 97:                                               ; preds = %97, %80
-  %indvars.iv241.i = phi i64 [ 0, %80 ], [ %indvars.iv.next242.i, %97 ]
-  %.3233.i = phi i32 [ 0, %80 ], [ %101, %97 ]
-  %98 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv241.i
-  store i32 %.3233.i, ptr %98, align 4, !tbaa !9
-  %99 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv241.i
+  %indvars.iv238.i = phi i64 [ 0, %80 ], [ %indvars.iv.next239.i, %97 ]
+  %.3230.i = phi i32 [ 0, %80 ], [ %101, %97 ]
+  %98 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv238.i
+  store i32 %.3230.i, ptr %98, align 4, !tbaa !9
+  %99 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv238.i
   %100 = load i32, ptr %99, align 4, !tbaa !9
-  %101 = add i32 %100, %.3233.i
+  %101 = add i32 %100, %.3230.i
   store i32 0, ptr %99, align 4, !tbaa !9
-  %indvars.iv.next242.i = add nuw nsw i64 %indvars.iv241.i, 1
-  %exitcond245.not.i = icmp eq i64 %indvars.iv.next242.i, %34
-  br i1 %exitcond245.not.i, label %.preheader.i, label %97, !llvm.loop !21
+  %indvars.iv.next239.i = add nuw nsw i64 %indvars.iv238.i, 1
+  %exitcond242.not.i = icmp eq i64 %indvars.iv.next239.i, %34
+  br i1 %exitcond242.not.i, label %.preheader.i, label %97, !llvm.loop !21
 
 .preheader.i:                                     ; preds = %97, %136
-  %indvars.iv247.i = phi i64 [ %indvars.iv.next248.i, %136 ], [ 0, %97 ]
-  %102 = trunc nuw i64 %indvars.iv247.i to i32
+  %indvars.iv244.i = phi i64 [ %indvars.iv.next245.i, %136 ], [ 0, %97 ]
+  %102 = trunc nuw i64 %indvars.iv244.i to i32
   %103 = and i32 %14, %102
-  %104 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv247.i
+  %104 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv244.i
   %105 = load i16, ptr %104, align 2, !tbaa !5
   %106 = zext i16 %105 to i32
   %107 = zext nneg i32 %103 to i64
   %108 = getelementptr inbounds nuw i32, ptr %35, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !9
-  %spec.select198.i = tail call i32 @llvm.umin.i32(i32 %109, i32 %106)
-  %110 = icmp eq i32 %spec.select198.i, 0
+  %spec.select197.i = tail call i32 @llvm.umin.i32(i32 %109, i32 %106)
+  %110 = icmp eq i32 %spec.select197.i, 0
   br i1 %110, label %111, label %113
 
 111:                                              ; preds = %.preheader.i
-  %112 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv247.i
+  %112 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv244.i
   store i16 -1, ptr %112, align 2, !tbaa !5
   br label %136
 
@@ -214,31 +214,31 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   %115 = load i32, ptr %114, align 4, !tbaa !9
   %116 = zext i32 %115 to i64
   %117 = trunc i32 %115 to i16
-  %118 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv247.i
+  %118 = getelementptr inbounds nuw i16, ptr %88, i64 %indvars.iv244.i
   store i16 %117, ptr %118, align 2, !tbaa !5
   %119 = getelementptr inbounds nuw i32, ptr %87, i64 %107
   %120 = load i32, ptr %119, align 4, !tbaa !9
   %121 = zext i32 %120 to i64
   %122 = add nuw nsw i64 %121, %116
-  %123 = add i32 %115, %spec.select198.i
+  %123 = add i32 %115, %spec.select197.i
   store i32 %123, ptr %114, align 4, !tbaa !9
-  %124 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv247.i
-  %125 = zext nneg i32 %spec.select198.i to i64
+  %124 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv244.i
+  %125 = zext nneg i32 %spec.select197.i to i64
   br label %126
 
 126:                                              ; preds = %126, %113
-  %.0236.i = phi i64 [ %122, %113 ], [ %127, %126 ]
-  %.0163235.i = phi i64 [ 0, %113 ], [ %131, %126 ]
-  %.0164.in234.i = phi ptr [ %124, %113 ], [ %130, %126 ]
-  %.0164.i = load i32, ptr %.0164.in234.i, align 4, !tbaa !9
-  %127 = add nuw nsw i64 %.0236.i, 1
-  %128 = getelementptr inbounds nuw i32, ptr %89, i64 %.0236.i
+  %.0233.i = phi i64 [ %122, %113 ], [ %127, %126 ]
+  %.0163232.i = phi i64 [ 0, %113 ], [ %131, %126 ]
+  %.0164.in231.i = phi ptr [ %124, %113 ], [ %130, %126 ]
+  %.0164.i = load i32, ptr %.0164.in231.i, align 4, !tbaa !9
+  %127 = add nuw nsw i64 %.0233.i, 1
+  %128 = getelementptr inbounds nuw i32, ptr %89, i64 %.0233.i
   store i32 %.0164.i, ptr %128, align 4, !tbaa !9
   %129 = zext i32 %.0164.i to i64
   %130 = getelementptr inbounds nuw i32, ptr %39, i64 %129
-  %131 = add nuw nsw i64 %.0163235.i, 1
-  %exitcond246.not.i = icmp eq i64 %131, %125
-  br i1 %exitcond246.not.i, label %132, label %126, !llvm.loop !22
+  %131 = add nuw nsw i64 %.0163232.i, 1
+  %exitcond243.not.i = icmp eq i64 %131, %125
+  br i1 %exitcond243.not.i, label %132, label %126, !llvm.loop !22
 
 132:                                              ; preds = %126
   %133 = getelementptr i32, ptr %89, i64 %127
@@ -248,9 +248,9 @@ define noundef ptr @_ZN13duckdb_brotli24CreatePreparedDictionaryEPNS_13MemoryMan
   br label %136
 
 136:                                              ; preds = %132, %111
-  %indvars.iv.next248.i = add nuw nsw i64 %indvars.iv247.i, 1
-  %exitcond252.not.i = icmp eq i64 %indvars.iv.next248.i, %37
-  br i1 %exitcond252.not.i, label %137, label %.preheader.i, !llvm.loop !23
+  %indvars.iv.next245.i = add nuw nsw i64 %indvars.iv244.i, 1
+  %exitcond249.not.i = icmp eq i64 %indvars.iv.next245.i, %37
+  br i1 %exitcond249.not.i, label %137, label %.preheader.i, !llvm.loop !23
 
 137:                                              ; preds = %136
   tail call void @_ZN13duckdb_brotli10BrotliFreeEPNS_13MemoryManagerEPv(ptr noundef %0, ptr noundef nonnull %33)

@@ -1170,8 +1170,8 @@ define internal noundef i64 @hash_foreach_call(i64 noundef %0) #0 {
 10:                                               ; preds = %7
   %11 = lshr i32 %8, 20
   %12 = and i32 %11, 15
-  %.not22.i = icmp eq i32 %12, 0
-  br i1 %.not22.i, label %ar_foreach_check.exit.thread, label %.lr.ph.i
+  %.not19.i = icmp eq i32 %12, 0
+  br i1 %.not19.i, label %ar_foreach_check.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
   %13 = add i64 %3, 24
@@ -1189,8 +1189,8 @@ define internal noundef i64 @hash_foreach_call(i64 noundef %0) #0 {
   %21 = icmp eq i8 %20, -1
   %22 = getelementptr %struct.ar_table_pair_struct, ptr %15, i64 %indvars.iv.i
   %23 = load i64, ptr %22, align 8, !tbaa !45
-  %.not13.i = icmp eq i64 %23, 36
-  %or.cond.i = select i1 %21, i1 %.not13.i, i1 false
+  %.not10.i = icmp eq i64 %23, 36
+  %or.cond.i = select i1 %21, i1 %.not10.i, i1 false
   br i1 %or.cond.i, label %65, label %ar_cleared_entry.exit.thread.i
 
 ar_cleared_entry.exit.thread.i:                   ; preds = %18
@@ -1266,8 +1266,8 @@ ar_find_entry_hint.exit.i:                        ; preds = %43
 
 ar_cleared_entry.exit42.i:                        ; preds = %49
   %52 = load i64, ptr %22, align 8, !tbaa !45
-  %.not14.i = icmp eq i64 %52, 36
-  br i1 %.not14.i, label %65, label %ar_cleared_entry.exit42.thread.i
+  %.not11.i = icmp eq i64 %52, 36
+  br i1 %.not11.i, label %65, label %ar_cleared_entry.exit42.thread.i
 
 ar_cleared_entry.exit42.thread.i:                 ; preds = %ar_cleared_entry.exit42.i, %49
   store i64 36, ptr %22, align 8, !tbaa !45
@@ -1579,23 +1579,23 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
   %13 = and i32 %12, 15
   %14 = lshr i64 %6, 16
   %15 = and i64 %14, 15
-  %.not2426.not.i = icmp eq i32 %13, 0
-  br i1 %.not2426.not.i, label %._crit_edge, label %.lr.ph.i
+  %.not.i = icmp eq i32 %13, 0
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %wide.trip.count58.i = zext nneg i32 %13 to i64
+  %wide.trip.count49.i = zext nneg i32 %13 to i64
   br label %.lr.ph.split.us.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i, %.lr.ph.i
-  %indvars.iv55.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next56.i, %.lr.ph.split.us.i ]
-  %17 = getelementptr %struct.ar_table_pair_struct, ptr %16, i64 %indvars.iv55.i
+  %indvars.iv46.i = phi i64 [ %indvars.iv.next47.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
+  %17 = getelementptr %struct.ar_table_pair_struct, ptr %16, i64 %indvars.iv46.i
   %18 = load i64, ptr %17, align 8, !tbaa !45
-  %19 = getelementptr i64, ptr %3, i64 %indvars.iv55.i
+  %19 = getelementptr i64, ptr %3, i64 %indvars.iv46.i
   store i64 %18, ptr %19, align 8, !tbaa !7
-  %indvars.iv.next56.i = add nuw nsw i64 %indvars.iv55.i, 1
-  %exitcond59.not.i = icmp eq i64 %indvars.iv.next56.i, %wide.trip.count58.i
-  br i1 %exitcond59.not.i, label %.lr.ph.preheader, label %.lr.ph.split.us.i, !llvm.loop !58
+  %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
+  %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, %wide.trip.count49.i
+  br i1 %exitcond50.not.i, label %.lr.ph.preheader, label %.lr.ph.split.us.i, !llvm.loop !58
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph.split.us.i
   %wide.trip.count = zext nneg i32 %13 to i64
@@ -1608,9 +1608,9 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
 ._crit_edge:                                      ; preds = %10, %._crit_edge.loopexit
   %20 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %6, %10 ]
   %21 = and i64 %20, 32768
-  %.not.i = icmp eq i64 %21, 0
+  %.not.i33 = icmp eq i64 %21, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not.i, label %30, label %ar_each_key.exit35, !prof !59
+  br i1 %.not.i33, label %30, label %ar_each_key.exit37, !prof !59
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
@@ -1634,21 +1634,21 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
 30:                                               ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %31 = call ptr @rb_st_init_existing_table_with_size(ptr noundef nonnull %4, ptr noundef nonnull @objhash, i64 noundef %15) #28
-  br i1 %.not2426.not.i, label %ar_each_key.exit39, label %.lr.ph.i37
+  br i1 %.not.i, label %ar_each_key.exit41, label %.lr.ph.i39
 
-.lr.ph.i37:                                       ; preds = %30
+.lr.ph.i39:                                       ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %wide.trip.count.i = zext nneg i32 %13 to i64
-  br label %.lr.ph.split.us38.i
+  %wide.trip.count49.i40 = zext nneg i32 %13 to i64
+  br label %.lr.ph.split.us34.i
 
-.lr.ph.split.us38.i:                              ; preds = %41, %.lr.ph.i37
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i37 ], [ %indvars.iv.next.i, %41 ]
+.lr.ph.split.us34.i:                              ; preds = %41, %.lr.ph.i39
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %.lr.ph.i39 ]
   %33 = getelementptr %struct.ar_table_pair_struct, ptr %32, i64 %indvars.iv.i
   %34 = load i64, ptr %33, align 8, !tbaa !45
   %35 = icmp eq i64 %34, 36
   br i1 %35, label %41, label %36
 
-36:                                               ; preds = %.lr.ph.split.us38.i
+36:                                               ; preds = %.lr.ph.split.us34.i
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %38 = load i64, ptr %37, align 8, !tbaa !47
   %39 = getelementptr i64, ptr %2, i64 %indvars.iv.i
@@ -1656,12 +1656,12 @@ define internal fastcc noundef ptr @ar_force_convert_table(i64 noundef %0) unnam
   call void @rb_st_add_direct_with_hash(ptr noundef nonnull %4, i64 noundef %34, i64 noundef %38, i64 noundef %40) #28
   br label %41
 
-41:                                               ; preds = %36, %.lr.ph.split.us38.i
+41:                                               ; preds = %36, %.lr.ph.split.us34.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %ar_each_key.exit39, label %.lr.ph.split.us38.i, !llvm.loop !58
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count49.i40
+  br i1 %exitcond.not.i, label %ar_each_key.exit41, label %.lr.ph.split.us34.i, !llvm.loop !58
 
-ar_each_key.exit39:                               ; preds = %41, %30
+ar_each_key.exit41:                               ; preds = %41, %30
   %42 = load i64, ptr %5, align 8, !tbaa !11
   %43 = and i64 %42, -16711681
   store i64 %43, ptr %5, align 8, !tbaa !11
@@ -1671,13 +1671,13 @@ ar_each_key.exit39:                               ; preds = %41, %30
   store i64 %45, ptr %5, align 8, !tbaa !11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull readonly align 8 dereferenceable(56) %4, i64 56, i1 false), !tbaa.struct !28
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %ar_each_key.exit35
+  br label %ar_each_key.exit37
 
-ar_each_key.exit35:                               ; preds = %._crit_edge, %ar_each_key.exit39
+ar_each_key.exit37:                               ; preds = %._crit_edge, %ar_each_key.exit41
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %46
 
-46:                                               ; preds = %1, %ar_each_key.exit35
+46:                                               ; preds = %1, %ar_each_key.exit37
   ret ptr %9
 }
 
@@ -6665,8 +6665,8 @@ rb_hash_modify_check.exit:                        ; preds = %rbimpl_RB_TYPE_P_fa
 27:                                               ; preds = %23
   %28 = lshr i32 %25, 20
   %29 = and i32 %28, 15
-  %.not34.i = icmp eq i32 %29, 0
-  br i1 %.not34.i, label %.thread, label %.lr.ph.i
+  %.not33.i = icmp eq i32 %29, 0
+  br i1 %.not33.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %27
   %30 = add i64 %0, 24
@@ -6690,8 +6690,8 @@ rb_hash_modify_check.exit:                        ; preds = %rbimpl_RB_TYPE_P_fa
 ar_cleared_entry.exit.i:                          ; preds = %34
   %38 = getelementptr %struct.ar_table_pair_struct, ptr %32, i64 %indvars.iv.i
   %39 = load i64, ptr %38, align 8, !tbaa !45
-  %.not28.i = icmp eq i64 %39, 36
-  br i1 %.not28.i, label %33, label %ar_cleared_entry.exit.thread.i
+  %.not27.i = icmp eq i64 %39, 36
+  br i1 %.not27.i, label %33, label %ar_cleared_entry.exit.thread.i
 
 ar_cleared_entry.exit.thread.i:                   ; preds = %ar_cleared_entry.exit.i, %34
   %40 = getelementptr i8, ptr %31, i64 %indvars.iv.i
@@ -9797,8 +9797,8 @@ define internal noundef i64 @env_key(i64 %0, i64 noundef %1) #0 {
 rb_vm_lock_enter.exit:                            ; preds = %2, %7
   %8 = load ptr, ptr @environ, align 8, !tbaa !89
   %9 = load ptr, ptr %8, align 8, !tbaa !91
-  %.not32 = icmp eq ptr %9, null
-  br i1 %.not32, label %.loopexit, label %.lr.ph
+  %.not31 = icmp eq ptr %9, null
+  br i1 %.not31, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %rb_vm_lock_enter.exit
   %10 = load i64, ptr %3, align 8
@@ -9809,7 +9809,7 @@ rb_vm_lock_enter.exit:                            ; preds = %2, %7
 
 14:                                               ; preds = %.lr.ph, %.thread
   %15 = phi ptr [ %9, %.lr.ph ], [ %36, %.thread ]
-  %.01533 = phi ptr [ %8, %.lr.ph ], [ %35, %.thread ]
+  %.01532 = phi ptr [ %8, %.lr.ph ], [ %35, %.thread ]
   %16 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 61) #29
   %17 = getelementptr i8, ptr %16, i64 1
   %.not19 = icmp eq ptr %16, null
@@ -9848,7 +9848,7 @@ RSTRING_PTR.exit:                                 ; preds = %22, %25
   br label %.loopexit
 
 .thread:                                          ; preds = %18, %RSTRING_PTR.exit, %14
-  %35 = getelementptr i8, ptr %.01533, i64 8
+  %35 = getelementptr i8, ptr %.01532, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !91
   %.not = icmp eq ptr %36, null
   br i1 %.not, label %.loopexit, label %14
@@ -10040,8 +10040,8 @@ define internal range(i64 0, 21) i64 @env_has_value(i64 %0, i64 noundef %1) #0 {
 rb_vm_lock_enter.exit:                            ; preds = %6, %8
   %9 = load ptr, ptr @environ, align 8, !tbaa !89
   %10 = load ptr, ptr %9, align 8, !tbaa !91
-  %.not33 = icmp eq ptr %10, null
-  br i1 %.not33, label %.thread28, label %.lr.ph
+  %.not32 = icmp eq ptr %10, null
+  br i1 %.not32, label %.thread28, label %.lr.ph
 
 .lr.ph:                                           ; preds = %rb_vm_lock_enter.exit
   %11 = inttoptr i64 %4 to ptr
@@ -10051,7 +10051,7 @@ rb_vm_lock_enter.exit:                            ; preds = %6, %8
 
 14:                                               ; preds = %.lr.ph, %.thread
   %15 = phi ptr [ %10, %.lr.ph ], [ %29, %.thread ]
-  %.01634 = phi ptr [ %9, %.lr.ph ], [ %28, %.thread ]
+  %.01633 = phi ptr [ %9, %.lr.ph ], [ %28, %.thread ]
   %16 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 61) #29
   %17 = getelementptr i8, ptr %16, i64 1
   %.not22 = icmp eq ptr %16, null
@@ -10080,7 +10080,7 @@ RSTRING_PTR.exit:                                 ; preds = %22, %25
   br i1 %27, label %.thread28, label %.thread
 
 .thread:                                          ; preds = %RSTRING_PTR.exit, %18, %14
-  %28 = getelementptr i8, ptr %.01634, i64 8
+  %28 = getelementptr i8, ptr %.01633, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !91
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %.thread28, label %14
@@ -10208,8 +10208,8 @@ define internal i64 @env_rassoc(i64 %0, i64 noundef %1) #0 {
 rb_vm_lock_enter.exit:                            ; preds = %6, %8
   %9 = load ptr, ptr @environ, align 8, !tbaa !89
   %10 = load ptr, ptr %9, align 8, !tbaa !91
-  %.not40 = icmp eq ptr %10, null
-  br i1 %.not40, label %.loopexit, label %.lr.ph
+  %.not39 = icmp eq ptr %10, null
+  br i1 %.not39, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %rb_vm_lock_enter.exit
   %11 = inttoptr i64 %4 to ptr
@@ -10219,7 +10219,7 @@ rb_vm_lock_enter.exit:                            ; preds = %6, %8
 
 14:                                               ; preds = %.lr.ph, %.thread
   %15 = phi ptr [ %10, %.lr.ph ], [ %35, %.thread ]
-  %.02141 = phi ptr [ %9, %.lr.ph ], [ %34, %.thread ]
+  %.02140 = phi ptr [ %9, %.lr.ph ], [ %34, %.thread ]
   %16 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 61) #29
   %17 = getelementptr i8, ptr %16, i64 1
   %.not27 = icmp eq ptr %16, null
@@ -10257,7 +10257,7 @@ RSTRING_PTR.exit:                                 ; preds = %22, %25
   br label %.loopexit
 
 .thread:                                          ; preds = %18, %RSTRING_PTR.exit, %14
-  %34 = getelementptr i8, ptr %.02141, i64 8
+  %34 = getelementptr i8, ptr %.02140, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !91
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %.loopexit, label %14

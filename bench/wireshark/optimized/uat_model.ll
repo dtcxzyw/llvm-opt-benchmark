@@ -2795,7 +2795,7 @@ define void @_ZN8UatModel23findRowForColumnContentE8QVariantii(ptr dead_on_unwin
   br label %58
 
 29:                                               ; preds = %.lr.ph, %47
-  %.01320 = phi i32 [ 0, %.lr.ph ], [ %48, %47 ]
+  %.01318 = phi i32 [ 0, %.lr.ph ], [ %48, %47 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2805,7 +2805,7 @@ define void @_ZN8UatModel23findRowForColumnContentE8QVariantii(ptr dead_on_unwin
   %30 = load ptr, ptr %1, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 96
   %32 = load ptr, ptr %31, align 8
-  call void %32(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %9, ptr noundef align 8 dereferenceable_or_null(16) %1, i32 noundef %.01320, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %10)
+  call void %32(ptr dead_on_unwind nonnull writable sret(%class.QModelIndex) align 8 %9, ptr noundef align 8 dereferenceable_or_null(16) %1, i32 noundef %.01318, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %10)
   %33 = load ptr, ptr %1, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 144
   %35 = load ptr, ptr %34, align 8
@@ -2828,7 +2828,7 @@ _ZeqRK8QVariantS1_.exit:                          ; preds = %29
   %40 = load ptr, ptr %1, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %42 = load ptr, ptr %41, align 8
-  invoke void %42(ptr dead_on_unwind writable sret(%class.QModelIndex) align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, i32 noundef %.01320, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %11)
+  invoke void %42(ptr dead_on_unwind writable sret(%class.QModelIndex) align 8 %0, ptr noundef align 8 dereferenceable_or_null(16) %1, i32 noundef %.01318, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %11)
           to label %55 unwind label %45
 
 43:                                               ; preds = %29
@@ -2845,7 +2845,7 @@ _ZeqRK8QVariantS1_.exit:                          ; preds = %29
 47:                                               ; preds = %_ZeqRK8QVariantS1_.exit
   call void @_ZN8QVariantD1Ev(ptr noundef nonnull align 8 dereferenceable_or_null(32) %8) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %48 = add nuw nsw i32 %.01320, 1
+  %48 = add nuw nsw i32 %.01318, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 -1, ptr %7, align 8
   store i32 -1, ptr %17, align 4
@@ -5542,54 +5542,54 @@ define noundef zeroext i1 @_ZNK8UatModel9hasErrorsEv(ptr noundef align 8 derefer
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 120
   %7 = load ptr, ptr %6, align 8
   %8 = call noundef i32 %7(ptr noundef align 8 dereferenceable_or_null(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %.not8 = icmp sgt i32 %8, 0
+  %9 = icmp sgt i32 %8, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not8, label %.lr.ph, label %_ZNK4QMapIi7QStringE7isEmptyEv.exit._crit_edge
+  br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  br label %11
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  br label %12
 
-11:                                               ; preds = %.lr.ph, %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread
+12:                                               ; preds = %.lr.ph, %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread ]
-  %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr i8, ptr %12, i64 %indvars.iv
-  %14 = load i8, ptr %13, align 1, !range !14, !noundef !15
-  %15 = trunc nuw i8 %14 to i1
-  br i1 %15, label %16, label %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread
+  %13 = load ptr, ptr %10, align 8
+  %14 = getelementptr i8, ptr %13, i64 %indvars.iv
+  %15 = load i8, ptr %14, align 1, !range !14, !noundef !15
+  %16 = trunc nuw i8 %15 to i1
+  br i1 %16, label %17, label %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread
 
-16:                                               ; preds = %11
-  %17 = load ptr, ptr %10, align 8
-  %18 = getelementptr %class.QMap, ptr %17, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8
-  %.not.i = icmp eq ptr %19, null
+17:                                               ; preds = %12
+  %18 = load ptr, ptr %11, align 8
+  %19 = getelementptr %class.QMap, ptr %18, i64 %indvars.iv
+  %20 = load ptr, ptr %19, align 8
+  %.not.i = icmp eq ptr %20, null
   br i1 %.not.i, label %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread, label %_ZNK4QMapIi7QStringE7isEmptyEv.exit
 
-_ZNK4QMapIi7QStringE7isEmptyEv.exit:              ; preds = %16
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %21 = load i64, ptr %20, align 8
-  %22 = icmp eq i64 %21, 0
-  br i1 %22, label %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread, label %_ZNK4QMapIi7QStringE7isEmptyEv.exit._crit_edge
+_ZNK4QMapIi7QStringE7isEmptyEv.exit:              ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  %22 = load i64, ptr %21, align 8
+  %23 = icmp eq i64 %22, 0
+  br i1 %23, label %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread, label %._crit_edge
 
-_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread:       ; preds = %16, %11, %_ZNK4QMapIi7QStringE7isEmptyEv.exit
+_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread:       ; preds = %17, %12, %_ZNK4QMapIi7QStringE7isEmptyEv.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 8
   store i32 -1, ptr %3, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
-  %23 = load ptr, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
-  %25 = load ptr, ptr %24, align 8
-  %26 = call noundef i32 %25(ptr noundef align 8 dereferenceable_or_null(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
-  %27 = sext i32 %26 to i64
-  %.not = icmp slt i64 %indvars.iv.next, %27
+  %24 = load ptr, ptr %0, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 120
+  %26 = load ptr, ptr %25, align 8
+  %27 = call noundef i32 %26(ptr noundef align 8 dereferenceable_or_null(80) %0, ptr noundef nonnull align 8 dereferenceable(24) %2)
+  %28 = sext i32 %27 to i64
+  %29 = icmp slt i64 %indvars.iv.next, %28
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br i1 %.not, label %11, label %_ZNK4QMapIi7QStringE7isEmptyEv.exit._crit_edge, !llvm.loop !34
+  br i1 %29, label %12, label %._crit_edge, !llvm.loop !34
 
-_ZNK4QMapIi7QStringE7isEmptyEv.exit._crit_edge:   ; preds = %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread, %_ZNK4QMapIi7QStringE7isEmptyEv.exit, %1
-  %.not.lcssa = phi i1 [ false, %1 ], [ true, %_ZNK4QMapIi7QStringE7isEmptyEv.exit ], [ false, %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %_ZNK4QMapIi7QStringE7isEmptyEv.exit, %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread, %1
+  %.lcssa = phi i1 [ false, %1 ], [ false, %_ZNK4QMapIi7QStringE7isEmptyEv.exit.thread ], [ true, %_ZNK4QMapIi7QStringE7isEmptyEv.exit ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable

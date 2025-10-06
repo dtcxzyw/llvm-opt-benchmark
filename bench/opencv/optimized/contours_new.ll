@@ -1694,227 +1694,227 @@ define hidden noundef zeroext i1 @_ZN15ContourScanner_11contourScanEiRiRN2cv6Poi
   %or.cond = icmp ult i32 %14, -1073741823
   %15 = load i32, ptr %2, align 4
   %16 = icmp ult i32 %15, 1073741824
-  %or.cond67 = select i1 %or.cond, i1 %16, i1 false
-  br i1 %or.cond67, label %.thread90, label %17
+  %or.cond66 = select i1 %or.cond, i1 %16, i1 false
+  br i1 %or.cond66, label %.thread89, label %17
 
 17:                                               ; preds = %13
   %18 = icmp ult i32 %1, 1073741824
-  %or.cond68 = select i1 %18, i1 %16, i1 false
-  br i1 %or.cond68, label %.thread92, label %133
+  %or.cond67 = select i1 %18, i1 %16, i1 false
+  br i1 %or.cond67, label %.thread91, label %134
 
 19:                                               ; preds = %6
   %20 = icmp ne i32 %1, 0
   %21 = load i32, ptr %2, align 4
   %22 = icmp ne i32 %21, 1
-  %or.cond70.not = select i1 %20, i1 true, i1 %22
-  br i1 %or.cond70.not, label %23, label %.thread73
+  %or.cond69.not = select i1 %20, i1 true, i1 %22
+  br i1 %or.cond69.not, label %23, label %.thread72
 
 23:                                               ; preds = %19
   %24 = icmp ne i32 %21, 0
   %25 = icmp slt i32 %1, 1
   %or.cond3 = or i1 %25, %24
-  br i1 %or.cond3, label %133, label %26
+  br i1 %or.cond3, label %134, label %26
 
 26:                                               ; preds = %23
-  %.not = icmp eq i32 %1, 1
-  br i1 %.not, label %29, label %27
+  %27 = icmp samesign ugt i32 %1, 1
+  br i1 %27, label %28, label %30
 
-27:                                               ; preds = %26
-  %28 = add nsw i32 %4, -1
-  store i32 %28, ptr %3, align 4, !tbaa !70
-  br label %29
+28:                                               ; preds = %26
+  %29 = add nsw i32 %4, -1
+  store i32 %29, ptr %3, align 4, !tbaa !70
+  br label %30
 
-29:                                               ; preds = %26, %27
-  switch i32 %11, label %43 [
-    i32 0, label %133
-    i32 1, label %.thread90
+30:                                               ; preds = %26, %28
+  switch i32 %11, label %44 [
+    i32 0, label %134
+    i32 1, label %.thread89
   ]
 
-.thread73:                                        ; preds = %19
-  switch i32 %11, label %43 [
-    i32 0, label %30
-    i32 1, label %.thread90
-    i32 2, label %.thread90
-    i32 4, label %.thread90
+.thread72:                                        ; preds = %19
+  switch i32 %11, label %44 [
+    i32 0, label %31
+    i32 1, label %.thread89
+    i32 2, label %.thread89
+    i32 4, label %.thread89
   ]
 
-30:                                               ; preds = %.thread73
+31:                                               ; preds = %.thread72
   %.sroa.0.0.copyload = load i64, ptr %3, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8, !tbaa !73
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %34 = load ptr, ptr %33, align 8, !tbaa !74
-  %35 = load i64, ptr %34, align 8, !tbaa !75
-  %36 = ashr i64 %.sroa.0.0.copyload, 32
-  %37 = mul i64 %35, %36
-  %38 = getelementptr inbounds nuw i8, ptr %32, i64 %37
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %33 = load ptr, ptr %32, align 8, !tbaa !73
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %35 = load ptr, ptr %34, align 8, !tbaa !74
+  %36 = load i64, ptr %35, align 8, !tbaa !75
+  %37 = ashr i64 %.sroa.0.0.copyload, 32
+  %38 = mul i64 %36, %37
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %38
   %sext.i = shl i64 %.sroa.0.0.copyload, 32
-  %39 = ashr exact i64 %sext.i, 32
-  %40 = getelementptr inbounds i8, ptr %38, i64 %39
-  %41 = load i8, ptr %40, align 1, !tbaa !68
-  %42 = icmp sgt i8 %41, 0
-  br i1 %42, label %133, label %.thread90
+  %40 = ashr exact i64 %sext.i, 32
+  %41 = getelementptr inbounds i8, ptr %39, i64 %40
+  %42 = load i8, ptr %41, align 1, !tbaa !68
+  %43 = icmp sgt i8 %42, 0
+  br i1 %43, label %134, label %.thread89
 
-43:                                               ; preds = %.thread73, %29
-  %44 = load i32, ptr %3, align 4, !tbaa !70
-  %45 = icmp slt i32 %44, 1
-  br i1 %45, label %.thread90, label %62
+44:                                               ; preds = %.thread72, %30
+  %45 = load i32, ptr %3, align 4, !tbaa !70
+  %46 = icmp slt i32 %45, 1
+  br i1 %46, label %.thread89, label %63
 
-.thread92:                                        ; preds = %17
-  %46 = load i32, ptr %3, align 4, !tbaa !70
-  %47 = icmp slt i32 %46, 1
-  br i1 %47, label %.thread90, label %.thread95
+.thread91:                                        ; preds = %17
+  %47 = load i32, ptr %3, align 4, !tbaa !70
+  %48 = icmp slt i32 %47, 1
+  br i1 %48, label %.thread89, label %.thread94
 
-.thread95:                                        ; preds = %.thread92
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %49 = load i32, ptr %48, align 4, !tbaa !71
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %51 = load ptr, ptr %50, align 8, !tbaa !73
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %53 = load ptr, ptr %52, align 8, !tbaa !74
-  %54 = load i64, ptr %53, align 8, !tbaa !75
-  %55 = sext i32 %49 to i64
-  %56 = mul i64 %54, %55
-  %57 = getelementptr inbounds nuw i8, ptr %51, i64 %56
-  %58 = zext nneg i32 %46 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
-  %60 = load i32, ptr %59, align 4, !tbaa !17
-  %61 = and i32 %60, 127
-  br label %78
+.thread94:                                        ; preds = %.thread91
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %50 = load i32, ptr %49, align 4, !tbaa !71
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %52 = load ptr, ptr %51, align 8, !tbaa !73
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %54 = load ptr, ptr %53, align 8, !tbaa !74
+  %55 = load i64, ptr %54, align 8, !tbaa !75
+  %56 = sext i32 %50 to i64
+  %57 = mul i64 %55, %56
+  %58 = getelementptr inbounds nuw i8, ptr %52, i64 %57
+  %59 = zext nneg i32 %47 to i64
+  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %61 = load i32, ptr %60, align 4, !tbaa !17
+  %62 = and i32 %61, 127
+  br label %79
 
-62:                                               ; preds = %43
-  %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %64 = load i32, ptr %63, align 4, !tbaa !71
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !73
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %68 = load ptr, ptr %67, align 8, !tbaa !74
-  %69 = load i64, ptr %68, align 8, !tbaa !75
-  %70 = sext i32 %64 to i64
-  %71 = mul i64 %69, %70
-  %72 = getelementptr inbounds nuw i8, ptr %66, i64 %71
-  %73 = zext nneg i32 %44 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !68
-  %76 = and i8 %75, 127
-  %77 = zext nneg i8 %76 to i32
-  br label %78
+63:                                               ; preds = %44
+  %64 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %65 = load i32, ptr %64, align 4, !tbaa !71
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %67 = load ptr, ptr %66, align 8, !tbaa !73
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %69 = load ptr, ptr %68, align 8, !tbaa !74
+  %70 = load i64, ptr %69, align 8, !tbaa !75
+  %71 = sext i32 %65 to i64
+  %72 = mul i64 %70, %71
+  %73 = getelementptr inbounds nuw i8, ptr %67, i64 %72
+  %74 = zext nneg i32 %45 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 %74
+  %76 = load i8, ptr %75, align 1, !tbaa !68
+  %77 = and i8 %76, 127
+  %78 = zext nneg i8 %77 to i32
+  br label %79
 
-78:                                               ; preds = %62, %.thread95
-  %.0567287899497 = phi i1 [ true, %.thread95 ], [ %or.cond70.not, %62 ]
-  %.057 = phi i32 [ %61, %.thread95 ], [ %77, %62 ]
-  %79 = tail call noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv6Point_IiEEiii(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef %5, i32 noundef %.057, i32 noundef -1)
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %81 = sext i32 %79 to i64
-  %82 = load ptr, ptr %80, align 8, !tbaa !64
-  %83 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %82, i64 %81
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 96
-  %85 = load i8, ptr %84, align 8, !tbaa !60, !range !77, !noundef !78
-  %86 = zext i1 %.0567287899497 to i8
-  %87 = icmp eq i8 %85, %86
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 4
-  %89 = load i32, ptr %88, align 4
-  %.not63 = icmp eq i32 %89, -1
-  %. = select i1 %.not63, i32 0, i32 %89
-  %.1 = select i1 %87, i32 %., i32 %79
-  %90 = sext i32 %.1 to i64
-  %91 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %82, i64 %90
-  %92 = getelementptr inbounds nuw i8, ptr %91, i64 96
-  %93 = load i8, ptr %92, align 8, !tbaa !60, !range !77, !noundef !78
-  %.not64 = icmp eq i8 %93, %86
-  br i1 %.not64, label %94, label %.thread90
+79:                                               ; preds = %63, %.thread94
+  %.0567186889396 = phi i1 [ true, %.thread94 ], [ %or.cond69.not, %63 ]
+  %.057 = phi i32 [ %62, %.thread94 ], [ %78, %63 ]
+  %80 = tail call noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv6Point_IiEEiii(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull align 4 dereferenceable(8) %3, i32 noundef %5, i32 noundef %.057, i32 noundef -1)
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %82 = sext i32 %80 to i64
+  %83 = load ptr, ptr %81, align 8, !tbaa !64
+  %84 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %83, i64 %82
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 96
+  %86 = load i8, ptr %85, align 8, !tbaa !60, !range !77, !noundef !78
+  %87 = zext i1 %.0567186889396 to i8
+  %88 = icmp eq i8 %86, %87
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 4
+  %90 = load i32, ptr %89, align 4
+  %.not62 = icmp eq i32 %90, -1
+  %. = select i1 %.not62, i32 0, i32 %90
+  %.1 = select i1 %88, i32 %., i32 %80
+  %91 = sext i32 %.1 to i64
+  %92 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %83, i64 %91
+  %93 = getelementptr inbounds nuw i8, ptr %92, i64 96
+  %94 = load i8, ptr %93, align 8, !tbaa !60, !range !77, !noundef !78
+  %.not63 = icmp eq i8 %94, %87
+  br i1 %.not63, label %95, label %.thread89
 
-94:                                               ; preds = %78
+95:                                               ; preds = %79
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %8)
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN15ContourScanner_11contourScanEiRiRN2cv6Point_IiEEii, ptr noundef nonnull @.str.2, i32 noundef 490) #21
-          to label %95 unwind label %96
+          to label %96 unwind label %97
 
-95:                                               ; preds = %94
+96:                                               ; preds = %95
   unreachable
 
-96:                                               ; preds = %94
-  %97 = landingpad { ptr, i32 }
+97:                                               ; preds = %95
+  %98 = landingpad { ptr, i32 }
           cleanup
-  %98 = load ptr, ptr %7, align 8, !tbaa !18
-  %99 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %100 = icmp eq ptr %98, %99
-  br i1 %100, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %99 = load ptr, ptr %7, align 8, !tbaa !18
+  %100 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %101 = icmp eq ptr %99, %100
+  br i1 %101, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %96
-  call void @_ZdlPv(ptr noundef %98) #22
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %97
+  call void @_ZdlPv(ptr noundef %99) #22
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %96, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %97, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  resume { ptr, i32 } %97
+  resume { ptr, i32 } %98
 
-.thread90:                                        ; preds = %.thread73, %.thread73, %.thread73, %29, %30, %13, %.thread92, %78, %43
-  %.0567283 = phi i1 [ %or.cond70.not, %43 ], [ %.0567287899497, %78 ], [ true, %.thread92 ], [ false, %13 ], [ false, %30 ], [ true, %29 ], [ false, %.thread73 ], [ false, %.thread73 ], [ false, %.thread73 ]
-  %.058 = phi i32 [ 0, %43 ], [ %.1, %78 ], [ 0, %.thread92 ], [ 0, %13 ], [ 0, %30 ], [ 0, %29 ], [ 0, %.thread73 ], [ 0, %.thread73 ], [ 0, %.thread73 ]
-  %.neg105 = sext i1 %.0567283 to i32
-  %101 = add i32 %4, %.neg105
-  store i32 %101, ptr %3, align 4, !tbaa !70
+.thread89:                                        ; preds = %.thread72, %.thread72, %.thread72, %30, %31, %13, %.thread91, %79, %44
+  %.0567182 = phi i1 [ %or.cond69.not, %44 ], [ %.0567186889396, %79 ], [ true, %.thread91 ], [ false, %13 ], [ false, %31 ], [ true, %30 ], [ false, %.thread72 ], [ false, %.thread72 ], [ false, %.thread72 ]
+  %.058 = phi i32 [ 0, %44 ], [ %.1, %79 ], [ 0, %.thread91 ], [ 0, %13 ], [ 0, %31 ], [ 0, %30 ], [ 0, %.thread72 ], [ 0, %.thread72 ], [ 0, %.thread72 ]
+  %.neg103 = sext i1 %.0567182 to i32
+  %102 = add i32 %4, %.neg103
+  store i32 %102, ptr %3, align 4, !tbaa !70
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %103 = load i8, ptr %102, align 8, !tbaa !45
-  store i8 %103, ptr %9, align 1, !tbaa !68
-  %104 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScanner_11makeContourERabii(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull align 1 dereferenceable(1) %9, i1 noundef zeroext %.0567283, i32 noundef %4, i32 noundef %5)
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
-  %106 = load i32, ptr %105, align 4, !tbaa !116
-  %107 = icmp eq i32 %106, -1
-  br i1 %107, label %108, label %125
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %104 = load i8, ptr %103, align 8, !tbaa !45
+  store i8 %104, ptr %9, align 1, !tbaa !68
+  %105 = call noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScanner_11makeContourERabii(ptr noundef nonnull align 8 dereferenceable(672) %0, ptr noundef nonnull align 1 dereferenceable(1) %9, i1 noundef zeroext %.0567182, i32 noundef %4, i32 noundef %5)
+  %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
+  %107 = load i32, ptr %106, align 4, !tbaa !116
+  %108 = icmp eq i32 %107, -1
+  br i1 %108, label %109, label %126
 
-108:                                              ; preds = %.thread90
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %110 = load i32, ptr %104, align 8, !tbaa !46
-  %111 = sext i32 %.058 to i64
-  %112 = load ptr, ptr %109, align 8, !tbaa !64
-  %113 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %112, i64 %111
-  %114 = sext i32 %110 to i64
-  %115 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %112, i64 %114
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 8
-  %117 = load i32, ptr %116, align 8, !tbaa !117
-  %.not.i = icmp eq i32 %117, -1
-  br i1 %.not.i, label %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit, label %118
+109:                                              ; preds = %.thread89
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %111 = load i32, ptr %105, align 8, !tbaa !46
+  %112 = sext i32 %.058 to i64
+  %113 = load ptr, ptr %110, align 8, !tbaa !64
+  %114 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %113, i64 %112
+  %115 = sext i32 %111 to i64
+  %116 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %113, i64 %115
+  %117 = getelementptr inbounds nuw i8, ptr %114, i64 8
+  %118 = load i32, ptr %117, align 8, !tbaa !117
+  %.not.i = icmp eq i32 %118, -1
+  br i1 %.not.i, label %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit, label %119
 
-118:                                              ; preds = %108
-  %119 = sext i32 %117 to i64
-  %120 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %112, i64 %119
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 12
-  store i32 %110, ptr %121, align 4, !tbaa !118
-  %122 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  store i32 %117, ptr %122, align 8, !tbaa !119
+119:                                              ; preds = %109
+  %120 = sext i32 %118 to i64
+  %121 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %113, i64 %120
+  %122 = getelementptr inbounds nuw i8, ptr %121, i64 12
+  store i32 %111, ptr %122, align 4, !tbaa !118
+  %123 = getelementptr inbounds nuw i8, ptr %116, i64 16
+  store i32 %118, ptr %123, align 8, !tbaa !119
   br label %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit
 
-_ZN2cv4TreeINS_7ContourEE8addChildEii.exit:       ; preds = %108, %118
-  store i32 %110, ptr %116, align 8, !tbaa !117
-  %123 = getelementptr inbounds nuw i8, ptr %115, i64 4
-  store i32 %.058, ptr %123, align 4, !tbaa !116
-  %124 = getelementptr inbounds nuw i8, ptr %115, i64 12
-  store i32 -1, ptr %124, align 4, !tbaa !118
-  br label %125
+_ZN2cv4TreeINS_7ContourEE8addChildEii.exit:       ; preds = %109, %119
+  store i32 %111, ptr %117, align 8, !tbaa !117
+  %124 = getelementptr inbounds nuw i8, ptr %116, i64 4
+  store i32 %.058, ptr %124, align 4, !tbaa !116
+  %125 = getelementptr inbounds nuw i8, ptr %116, i64 12
+  store i32 -1, ptr %125, align 4, !tbaa !118
+  br label %126
 
-125:                                              ; preds = %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit, %.thread90
-  %126 = load i32, ptr %10, align 4, !tbaa !35
-  %127 = icmp eq i32 %126, 4
-  %128 = add nsw i32 %4, 1
-  %narrow = and i1 %127, %.0567283
-  %.neg104 = sext i1 %narrow to i32
-  %129 = add nsw i32 %128, %.neg104
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %129, ptr %130, align 8, !tbaa !120
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  store i32 %5, ptr %131, align 4, !tbaa !121
-  %132 = load i8, ptr %9, align 1, !tbaa !68
-  store i8 %132, ptr %102, align 8, !tbaa !45
+126:                                              ; preds = %_ZN2cv4TreeINS_7ContourEE8addChildEii.exit, %.thread89
+  %127 = load i32, ptr %10, align 4, !tbaa !35
+  %128 = icmp eq i32 %127, 4
+  %129 = add nsw i32 %4, 1
+  %narrow = and i1 %128, %.0567182
+  %.neg102 = sext i1 %narrow to i32
+  %130 = add nsw i32 %129, %.neg102
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store i32 %130, ptr %131, align 8, !tbaa !120
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  store i32 %5, ptr %132, align 4, !tbaa !121
+  %133 = load i8, ptr %9, align 1, !tbaa !68
+  store i8 %133, ptr %103, align 8, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %133
+  br label %134
 
-133:                                              ; preds = %29, %30, %23, %17, %125
-  %.0 = phi i1 [ true, %125 ], [ false, %17 ], [ false, %23 ], [ false, %30 ], [ false, %29 ]
+134:                                              ; preds = %30, %31, %23, %17, %126
+  %.0 = phi i1 [ true, %126 ], [ false, %17 ], [ false, %23 ], [ false, %31 ], [ false, %30 ]
   ret i1 %.0
 }
 
@@ -1923,9 +1923,9 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %7 = sext i32 %3 to i64
   %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
-  %.02596 = load i32, ptr %8, align 4, !tbaa !17
-  %.not97 = icmp eq i32 %.02596, -1
-  br i1 %.not97, label %.thread66, label %.lr.ph
+  %.02595 = load i32, ptr %8, align 4, !tbaa !17
+  %.not96 = icmp eq i32 %.02595, -1
+  br i1 %.not96, label %.thread66, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %9 = load i32, ptr %1, align 4, !tbaa !70
@@ -1939,9 +1939,9 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59
-  %.02599 = phi i32 [ %.02596, %.lr.ph ], [ %.025, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59 ]
-  %.02398 = phi i32 [ %4, %.lr.ph ], [ %.2, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59 ]
-  %18 = sext i32 %.02599 to i64
+  %.02598 = phi i32 [ %.02595, %.lr.ph ], [ %.025, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59 ]
+  %.02397 = phi i32 [ %4, %.lr.ph ], [ %.2, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59 ]
+  %18 = sext i32 %.02598 to i64
   %19 = load ptr, ptr %10, align 8, !tbaa !64
   %20 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %19, i64 %18
   %21 = load i32, ptr %1, align 4, !tbaa !70
@@ -1964,11 +1964,11 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   br i1 %35, label %36, label %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59
 
 36:                                               ; preds = %28
-  %.not27 = icmp eq i32 %.02398, -1
+  %.not27 = icmp eq i32 %.02397, -1
   br i1 %.not27, label %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59, label %37
 
 37:                                               ; preds = %36
-  %38 = sext i32 %.02398 to i64
+  %38 = sext i32 %.02397 to i64
   %39 = getelementptr inbounds nuw %"class.cv::TreeNode", ptr %19, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 40
   %41 = load i64, ptr %40, align 8
@@ -1988,8 +1988,8 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %55 = load i64, ptr %54, align 8, !tbaa !75
   %56 = mul i64 %55, %53
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %56
-  %sext72 = shl i64 %41, 32
-  %58 = ashr exact i64 %sext72, 32
+  %sext71 = shl i64 %41, 32
+  %58 = ashr exact i64 %sext71, 32
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !75
   %61 = mul i64 %60, %58
@@ -2213,15 +2213,15 @@ _ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   br i1 %174, label %.thread66, label %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59
 
 _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59: ; preds = %.critedge.i44, %.critedge.i, %17, %28, %36, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit
-  %.2 = phi i32 [ %.02398, %28 ], [ %.02398, %17 ], [ %.02599, %36 ], [ %.02599, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ], [ %.02599, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ], [ %.02599, %.critedge.i ], [ %.02599, %.critedge.i44 ]
+  %.2 = phi i32 [ %.02397, %28 ], [ %.02397, %17 ], [ %.02598, %36 ], [ %.02598, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ], [ %.02598, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ], [ %.02598, %.critedge.i ], [ %.02598, %.critedge.i44 ]
   %175 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %.025 = load i32, ptr %175, align 4, !tbaa !17
   %.not = icmp eq i32 %.025, -1
   br i1 %.not, label %.thread66, label %17
 
 .thread66:                                        ; preds = %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, %155, %104, %166, %116, %5
-  %.02391 = phi i32 [ %4, %5 ], [ %.02398, %116 ], [ %.02398, %166 ], [ %.02398, %104 ], [ %.02398, %155 ], [ %.2, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59 ], [ %.02398, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ], [ %.02398, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ]
-  ret i32 %.02391
+  %.02390 = phi i32 [ %4, %5 ], [ %.02397, %116 ], [ %.02397, %166 ], [ %.02397, %104 ], [ %.02397, %155 ], [ %.2, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59 ], [ %.02397, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ], [ %.02397, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit ]
+  ret i32 %.02390
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable

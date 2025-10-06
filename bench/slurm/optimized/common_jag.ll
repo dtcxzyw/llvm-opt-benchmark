@@ -129,9 +129,9 @@ define dso_local void @_set_smaps_file(ptr noundef %0, i32 noundef %1) local_unn
   %5 = load ptr, ptr %0, align 8
   %6 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str.1)
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %.thread14, label %7
+  br i1 %.not, label %.thread13, label %7
 
-.thread14:                                        ; preds = %4
+.thread13:                                        ; preds = %4
   store i32 0, ptr @_set_smaps_file.use_smaps_rollup, align 4
   br label %10
 
@@ -144,7 +144,7 @@ define dso_local void @_set_smaps_file(ptr noundef %0, i32 noundef %1) local_unn
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %1) #17
   br label %11
 
-10:                                               ; preds = %2, %.thread14
+10:                                               ; preds = %2, %.thread13
   tail call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %1) #17
   br label %11
 
@@ -2159,9 +2159,9 @@ _remove_share_data.exit.i:                        ; preds = %214
   %238 = load ptr, ptr %59, align 8
   %239 = call noalias ptr @fopen(ptr noundef %238, ptr noundef nonnull @.str.1)
   %.not.i34.i = icmp eq ptr %239, null
-  br i1 %.not.i34.i, label %.thread14.i.i, label %240
+  br i1 %.not.i34.i, label %.thread13.i.i, label %240
 
-.thread14.i.i:                                    ; preds = %237
+.thread13.i.i:                                    ; preds = %237
   store i32 0, ptr @_set_smaps_file.use_smaps_rollup, align 4
   br label %243
 
@@ -2174,7 +2174,7 @@ _remove_share_data.exit.i:                        ; preds = %214
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %59, ptr noundef nonnull @.str, i32 noundef %74) #17
   br label %_set_smaps_file.exit.i
 
-243:                                              ; preds = %.thread14.i.i, %235
+243:                                              ; preds = %.thread13.i.i, %235
   call void (ptr, ptr, ...) @slurm_xstrfmtcat(ptr noundef nonnull %59, ptr noundef nonnull @.str.2, i32 noundef %74) #17
   br label %_set_smaps_file.exit.i
 

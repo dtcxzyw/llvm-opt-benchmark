@@ -2183,8 +2183,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN8nanobind6objectES1_S
   %18 = load i64, ptr %17, align 8, !tbaa !35
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !91
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = tail call noundef ptr @_ZNKSt10_HashtableIN8nanobind6objectES1_SaIS1_ENSt8__detail9_IdentityEN13callback_data5py_eqENS5_7py_hashENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_find_before_node_trIS1_EEPNS3_15_Hash_node_baseEmRKT_m(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %19, ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %16) #17

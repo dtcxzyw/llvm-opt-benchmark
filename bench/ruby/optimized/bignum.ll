@@ -10587,99 +10587,96 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc void @validate_integer_pack_format(i64 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef range(i32 1267, 2036) %4) unnamed_addr #0 {
-  %6 = and i32 %3, 3
-  %7 = xor i32 %4, -1
-  %8 = and i32 %3, %7
-  %.not = icmp eq i32 %8, 0
-  br i1 %.not, label %11, label %9
+  %6 = xor i32 %4, -1
+  %7 = and i32 %3, %6
+  %.not = icmp eq i32 %7, 0
+  br i1 %.not, label %10, label %8
 
-9:                                                ; preds = %5
-  %10 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %10, ptr noundef nonnull @.str.22) #28
+8:                                                ; preds = %5
+  %9 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %9, ptr noundef nonnull @.str.22) #28
   unreachable
 
-11:                                               ; preds = %5
-  %12 = icmp eq i32 %6, 0
-  br i1 %12, label %13, label %17
-
-13:                                               ; preds = %11
-  %14 = icmp ugt i64 %0, 1
-  br i1 %14, label %15, label %21
-
-15:                                               ; preds = %13
-  %16 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %16, ptr noundef nonnull @.str.23) #28
-  unreachable
-
-17:                                               ; preds = %11
-  %18 = add nsw i32 %6, -3
-  %or.cond = icmp ult i32 %18, -2
-  br i1 %or.cond, label %19, label %21
-
-19:                                               ; preds = %17
-  %20 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %20, ptr noundef nonnull @.str.24) #28
-  unreachable
-
-21:                                               ; preds = %17, %13
-  %22 = lshr i32 %3, 4
-  %23 = and i32 %22, 7
-  switch i32 %23, label %26 [
-    i32 0, label %24
-    i32 4, label %28
-    i32 2, label %28
-    i32 1, label %28
+10:                                               ; preds = %5
+  %11 = and i32 %3, 3
+  switch i32 %11, label %18 [
+    i32 0, label %12
+    i32 3, label %16
   ]
 
-24:                                               ; preds = %21
-  %25 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %25, ptr noundef nonnull @.str.25) #28
+12:                                               ; preds = %10
+  %13 = icmp ugt i64 %0, 1
+  br i1 %13, label %14, label %18
+
+14:                                               ; preds = %12
+  %15 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %15, ptr noundef nonnull @.str.23) #28
   unreachable
 
-26:                                               ; preds = %21
-  %27 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %27, ptr noundef nonnull @.str.26) #28
+16:                                               ; preds = %10
+  %17 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %17, ptr noundef nonnull @.str.24) #28
   unreachable
 
-28:                                               ; preds = %21, %21, %21
-  %29 = icmp eq i64 %1, 0
-  br i1 %29, label %30, label %32
+18:                                               ; preds = %10, %12
+  %19 = lshr i32 %3, 4
+  %20 = and i32 %19, 7
+  switch i32 %20, label %23 [
+    i32 0, label %21
+    i32 4, label %25
+    i32 2, label %25
+    i32 1, label %25
+  ]
 
-30:                                               ; preds = %28
-  %31 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %31, ptr noundef nonnull @.str.27, i64 noundef 0) #28
+21:                                               ; preds = %18
+  %22 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %22, ptr noundef nonnull @.str.25) #28
   unreachable
 
-32:                                               ; preds = %28
-  %33 = icmp slt i64 %1, 0
-  br i1 %33, label %34, label %36
-
-34:                                               ; preds = %32
-  %35 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %35, ptr noundef nonnull @.str.28, i64 noundef %1) #28
+23:                                               ; preds = %18
+  %24 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %24, ptr noundef nonnull @.str.26) #28
   unreachable
 
-36:                                               ; preds = %32
-  %37 = lshr i64 %2, 3
-  %.not31 = icmp samesign ugt i64 %1, %37
-  br i1 %.not31, label %40, label %38
+25:                                               ; preds = %18, %18, %18
+  %26 = icmp eq i64 %1, 0
+  br i1 %26, label %27, label %29
 
-38:                                               ; preds = %36
-  %39 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.29, i64 noundef %2) #28
+27:                                               ; preds = %25
+  %28 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %28, ptr noundef nonnull @.str.27, i64 noundef 0) #28
   unreachable
 
-40:                                               ; preds = %36
+29:                                               ; preds = %25
+  %30 = icmp slt i64 %1, 0
+  br i1 %30, label %31, label %33
+
+31:                                               ; preds = %29
+  %32 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %32, ptr noundef nonnull @.str.28, i64 noundef %1) #28
+  unreachable
+
+33:                                               ; preds = %29
+  %34 = lshr i64 %2, 3
+  %.not31 = icmp samesign ugt i64 %1, %34
+  br i1 %.not31, label %37, label %35
+
+35:                                               ; preds = %33
+  %36 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %36, ptr noundef nonnull @.str.29, i64 noundef %2) #28
+  unreachable
+
+37:                                               ; preds = %33
   %mul = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %1, i64 %0)
   %mul.ov = extractvalue { i64, i1 } %mul, 1
-  br i1 %mul.ov, label %41, label %43
+  br i1 %mul.ov, label %38, label %40
 
-41:                                               ; preds = %40
-  %42 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
-  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %42, ptr noundef nonnull @.str.30, i64 noundef %0, i64 noundef %1) #28
+38:                                               ; preds = %37
+  %39 = load i64, ptr @rb_eArgError, align 8, !tbaa !7
+  tail call void (i64, ptr, ...) @rb_raise(i64 noundef %39, ptr noundef nonnull @.str.30, i64 noundef %0, i64 noundef %1) #28
   unreachable
 
-43:                                               ; preds = %40
+40:                                               ; preds = %37
   ret void
 }
 
@@ -11462,7 +11459,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   ]
 
 43:                                               ; preds = %40, %40
-  %44 = icmp samesign ult i64 %.0255, 3
+  %44 = icmp eq i64 %.0255, 2
   br i1 %44, label %str2big_scan_digits.exit.thread, label %45
 
 45:                                               ; preds = %43
@@ -11471,7 +11468,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   br label %.thread
 
 48:                                               ; preds = %40, %40
-  %49 = icmp samesign ult i64 %.0255, 3
+  %49 = icmp eq i64 %.0255, 2
   br i1 %49, label %str2big_scan_digits.exit.thread, label %50
 
 50:                                               ; preds = %48
@@ -11480,7 +11477,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   br label %.thread
 
 53:                                               ; preds = %40, %40
-  %54 = icmp samesign ult i64 %.0255, 3
+  %54 = icmp eq i64 %.0255, 2
   br i1 %54, label %str2big_scan_digits.exit.thread, label %55
 
 55:                                               ; preds = %53
@@ -11489,7 +11486,7 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   br label %.thread
 
 58:                                               ; preds = %40, %40
-  %59 = icmp samesign ult i64 %.0255, 3
+  %59 = icmp eq i64 %.0255, 2
   br i1 %59, label %str2big_scan_digits.exit.thread, label %60
 
 60:                                               ; preds = %58
@@ -11534,9 +11531,8 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   ]
 
 78:                                               ; preds = %75, %75
-  %79 = add i64 %.0255, -1
-  %or.cond17 = icmp ult i64 %79, 2
-  br i1 %or.cond17, label %str2big_scan_digits.exit.thread, label %80
+  %79 = icmp eq i64 %.0255, 2
+  br i1 %79, label %str2big_scan_digits.exit.thread, label %80
 
 80:                                               ; preds = %78
   %81 = getelementptr i8, ptr %.1164, i64 2
@@ -11557,9 +11553,8 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   ]
 
 89:                                               ; preds = %86, %86
-  %90 = add i64 %.0255, -1
-  %or.cond19 = icmp ult i64 %90, 2
-  br i1 %or.cond19, label %str2big_scan_digits.exit.thread, label %91
+  %90 = icmp eq i64 %.0255, 2
+  br i1 %90, label %str2big_scan_digits.exit.thread, label %91
 
 91:                                               ; preds = %89
   %92 = getelementptr i8, ptr %.1164, i64 2
@@ -11580,9 +11575,8 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   ]
 
 100:                                              ; preds = %97, %97
-  %101 = add i64 %.0255, -1
-  %or.cond21 = icmp ult i64 %101, 2
-  br i1 %or.cond21, label %str2big_scan_digits.exit.thread, label %102
+  %101 = icmp eq i64 %.0255, 2
+  br i1 %101, label %str2big_scan_digits.exit.thread, label %102
 
 102:                                              ; preds = %100
   %103 = getelementptr i8, ptr %.1164, i64 2
@@ -11603,9 +11597,8 @@ define dso_local i64 @rb_int_parse_cstr(ptr noundef %0, i64 noundef %1, ptr noun
   ]
 
 111:                                              ; preds = %108, %108
-  %112 = add i64 %.0255, -1
-  %or.cond23 = icmp ult i64 %112, 2
-  br i1 %or.cond23, label %str2big_scan_digits.exit.thread, label %113
+  %112 = icmp eq i64 %.0255, 2
+  br i1 %112, label %str2big_scan_digits.exit.thread, label %113
 
 113:                                              ; preds = %111
   %114 = getelementptr i8, ptr %.1164, i64 2

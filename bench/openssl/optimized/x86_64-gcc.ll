@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define i64 @bn_mul_add_words(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp slt i32 %2, 1
-  br i1 %5, label %72, label %.preheader
+  br i1 %5, label %73, label %.preheader
 
 .preheader:                                       ; preds = %4
   %.not83 = icmp samesign ult i32 %2, 4
@@ -59,57 +59,58 @@ define i64 @bn_mul_add_words(ptr noundef %0, ptr noundef %1, i32 noundef %2, i64
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not82 = icmp eq i32 %42, 0
-  br i1 %.not82, label %72, label %._crit_edge.thread
+  br i1 %.not82, label %73, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.076.lcssa104 = phi ptr [ %41, %._crit_edge ], [ %0, %.preheader ]
-  %.077.lcssa103 = phi ptr [ %40, %._crit_edge ], [ %1, %.preheader ]
-  %.078.lcssa102 = phi i32 [ %42, %._crit_edge ], [ %2, %.preheader ]
-  %.079.lcssa101 = phi i64 [ %39, %._crit_edge ], [ 0, %.preheader ]
-  %43 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr elementtype(i64) %.077.lcssa103) #4, !srcloc !17
+  %.076.lcssa105 = phi ptr [ %41, %._crit_edge ], [ %0, %.preheader ]
+  %.077.lcssa104 = phi ptr [ %40, %._crit_edge ], [ %1, %.preheader ]
+  %.078.lcssa103 = phi i32 [ %42, %._crit_edge ], [ %2, %.preheader ]
+  %.079.lcssa102 = phi i64 [ %39, %._crit_edge ], [ 0, %.preheader ]
+  %43 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr elementtype(i64) %.077.lcssa104) #4, !srcloc !17
   %44 = extractvalue { i64, i64 } %43, 0
   %45 = extractvalue { i64, i64 } %43, 1
-  %46 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %44, i32 0, i64 %.079.lcssa101, i64 %45) #4, !srcloc !18
+  %46 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %44, i32 0, i64 %.079.lcssa102, i64 %45) #4, !srcloc !18
   %47 = extractvalue { i64, i64 } %46, 0
   %48 = extractvalue { i64, i64 } %46, 1
-  %49 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %.076.lcssa104, i64 %47, i32 0, ptr elementtype(i64) %.076.lcssa104, i64 %48) #5, !srcloc !19
-  %50 = icmp eq i32 %.078.lcssa102, 1
-  br i1 %50, label %72, label %51
+  %49 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %.076.lcssa105, i64 %47, i32 0, ptr elementtype(i64) %.076.lcssa105, i64 %48) #5, !srcloc !19
+  %50 = add nsw i32 %.078.lcssa103, -1
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %73, label %52
 
-51:                                               ; preds = %._crit_edge.thread
-  %52 = getelementptr inbounds nuw i8, ptr %.077.lcssa103, i64 8
-  %53 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %52) #4, !srcloc !20
-  %54 = extractvalue { i64, i64 } %53, 0
-  %55 = extractvalue { i64, i64 } %53, 1
-  %56 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %54, i32 0, i64 %49, i64 %55) #4, !srcloc !21
-  %57 = extractvalue { i64, i64 } %56, 0
-  %58 = extractvalue { i64, i64 } %56, 1
-  %59 = getelementptr inbounds nuw i8, ptr %.076.lcssa104, i64 8
-  %60 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %59, i64 %57, i32 0, ptr nonnull elementtype(i64) %59, i64 %58) #5, !srcloc !22
-  %61 = icmp eq i32 %.078.lcssa102, 2
-  br i1 %61, label %72, label %62
+52:                                               ; preds = %._crit_edge.thread
+  %53 = getelementptr inbounds nuw i8, ptr %.077.lcssa104, i64 8
+  %54 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %53) #4, !srcloc !20
+  %55 = extractvalue { i64, i64 } %54, 0
+  %56 = extractvalue { i64, i64 } %54, 1
+  %57 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %55, i32 0, i64 %49, i64 %56) #4, !srcloc !21
+  %58 = extractvalue { i64, i64 } %57, 0
+  %59 = extractvalue { i64, i64 } %57, 1
+  %60 = getelementptr inbounds nuw i8, ptr %.076.lcssa105, i64 8
+  %61 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %60, i64 %58, i32 0, ptr nonnull elementtype(i64) %60, i64 %59) #5, !srcloc !22
+  %62 = icmp eq i32 %50, 1
+  br i1 %62, label %73, label %63
 
-62:                                               ; preds = %51
-  %63 = getelementptr inbounds nuw i8, ptr %.077.lcssa103, i64 16
-  %64 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %63) #4, !srcloc !23
-  %65 = extractvalue { i64, i64 } %64, 0
-  %66 = extractvalue { i64, i64 } %64, 1
-  %67 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %65, i32 0, i64 %60, i64 %66) #4, !srcloc !24
-  %68 = extractvalue { i64, i64 } %67, 0
-  %69 = extractvalue { i64, i64 } %67, 1
-  %70 = getelementptr inbounds nuw i8, ptr %.076.lcssa104, i64 16
-  %71 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %70, i64 %68, i32 0, ptr nonnull elementtype(i64) %70, i64 %69) #5, !srcloc !25
-  br label %72
+63:                                               ; preds = %52
+  %64 = getelementptr inbounds nuw i8, ptr %.077.lcssa104, i64 16
+  %65 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},*m,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, ptr nonnull elementtype(i64) %64) #4, !srcloc !23
+  %66 = extractvalue { i64, i64 } %65, 0
+  %67 = extractvalue { i64, i64 } %65, 1
+  %68 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %66, i32 0, i64 %61, i64 %67) #4, !srcloc !24
+  %69 = extractvalue { i64, i64 } %68, 0
+  %70 = extractvalue { i64, i64 } %68, 1
+  %71 = getelementptr inbounds nuw i8, ptr %.076.lcssa105, i64 16
+  %72 = tail call i64 asm "addq $2,$0; adcq $3,$1", "=*m,={dx},r,imr,*m,1,~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %71, i64 %69, i32 0, ptr nonnull elementtype(i64) %71, i64 %70) #5, !srcloc !25
+  br label %73
 
-72:                                               ; preds = %._crit_edge, %51, %._crit_edge.thread, %4, %62
-  %.0 = phi i64 [ %71, %62 ], [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %60, %51 ], [ %39, %._crit_edge ]
+73:                                               ; preds = %._crit_edge, %52, %._crit_edge.thread, %4, %63
+  %.0 = phi i64 [ %72, %63 ], [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %61, %52 ], [ %39, %._crit_edge ]
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind memory(read, argmem: readwrite) uwtable
 define i64 @bn_mul_words(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = icmp slt i32 %2, 1
-  br i1 %5, label %72, label %.preheader
+  br i1 %5, label %73, label %.preheader
 
 .preheader:                                       ; preds = %4
   %.not75 = icmp samesign ult i32 %2, 4
@@ -166,60 +167,61 @@ define i64 @bn_mul_words(ptr noundef writeonly captures(none) %0, ptr noundef re
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not74 = icmp eq i32 %42, 0
-  br i1 %.not74, label %72, label %._crit_edge.thread
+  br i1 %.not74, label %73, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.068.lcssa96 = phi ptr [ %41, %._crit_edge ], [ %0, %.preheader ]
-  %.069.lcssa95 = phi ptr [ %40, %._crit_edge ], [ %1, %.preheader ]
-  %.070.lcssa94 = phi i32 [ %42, %._crit_edge ], [ %2, %.preheader ]
-  %.071.lcssa93 = phi i64 [ %38, %._crit_edge ], [ 0, %.preheader ]
-  %43 = load i64, ptr %.069.lcssa95, align 8, !tbaa !26
+  %.068.lcssa97 = phi ptr [ %41, %._crit_edge ], [ %0, %.preheader ]
+  %.069.lcssa96 = phi ptr [ %40, %._crit_edge ], [ %1, %.preheader ]
+  %.070.lcssa95 = phi i32 [ %42, %._crit_edge ], [ %2, %.preheader ]
+  %.071.lcssa94 = phi i64 [ %38, %._crit_edge ], [ 0, %.preheader ]
+  %43 = load i64, ptr %.069.lcssa96, align 8, !tbaa !26
   %44 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %43) #4, !srcloc !39
   %45 = extractvalue { i64, i64 } %44, 0
   %46 = extractvalue { i64, i64 } %44, 1
-  %47 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, i32 0, i64 %.071.lcssa93, i64 %46) #4, !srcloc !40
+  %47 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45, i32 0, i64 %.071.lcssa94, i64 %46) #4, !srcloc !40
   %48 = extractvalue { i64, i64 } %47, 0
   %49 = extractvalue { i64, i64 } %47, 1
-  store i64 %48, ptr %.068.lcssa96, align 8, !tbaa !26
-  %50 = icmp eq i32 %.070.lcssa94, 1
-  br i1 %50, label %72, label %51
+  store i64 %48, ptr %.068.lcssa97, align 8, !tbaa !26
+  %50 = add nsw i32 %.070.lcssa95, -1
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %73, label %52
 
-51:                                               ; preds = %._crit_edge.thread
-  %52 = getelementptr inbounds nuw i8, ptr %.069.lcssa95, i64 8
-  %53 = load i64, ptr %52, align 8, !tbaa !26
-  %54 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %53) #4, !srcloc !41
-  %55 = extractvalue { i64, i64 } %54, 0
-  %56 = extractvalue { i64, i64 } %54, 1
-  %57 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %55, i32 0, i64 %49, i64 %56) #4, !srcloc !42
-  %58 = extractvalue { i64, i64 } %57, 0
-  %59 = extractvalue { i64, i64 } %57, 1
-  %60 = getelementptr inbounds nuw i8, ptr %.068.lcssa96, i64 8
-  store i64 %58, ptr %60, align 8, !tbaa !26
-  %61 = icmp eq i32 %.070.lcssa94, 2
-  br i1 %61, label %72, label %62
+52:                                               ; preds = %._crit_edge.thread
+  %53 = getelementptr inbounds nuw i8, ptr %.069.lcssa96, i64 8
+  %54 = load i64, ptr %53, align 8, !tbaa !26
+  %55 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %54) #4, !srcloc !41
+  %56 = extractvalue { i64, i64 } %55, 0
+  %57 = extractvalue { i64, i64 } %55, 1
+  %58 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %56, i32 0, i64 %49, i64 %57) #4, !srcloc !42
+  %59 = extractvalue { i64, i64 } %58, 0
+  %60 = extractvalue { i64, i64 } %58, 1
+  %61 = getelementptr inbounds nuw i8, ptr %.068.lcssa97, i64 8
+  store i64 %59, ptr %61, align 8, !tbaa !26
+  %62 = icmp eq i32 %50, 1
+  br i1 %62, label %73, label %63
 
-62:                                               ; preds = %51
-  %63 = getelementptr inbounds nuw i8, ptr %.069.lcssa95, i64 16
-  %64 = load i64, ptr %63, align 8, !tbaa !26
-  %65 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %64) #4, !srcloc !43
-  %66 = extractvalue { i64, i64 } %65, 0
-  %67 = extractvalue { i64, i64 } %65, 1
-  %68 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %66, i32 0, i64 %59, i64 %67) #4, !srcloc !44
-  %69 = extractvalue { i64, i64 } %68, 0
-  %70 = extractvalue { i64, i64 } %68, 1
-  %71 = getelementptr inbounds nuw i8, ptr %.068.lcssa96, i64 16
-  store i64 %69, ptr %71, align 8, !tbaa !26
-  br label %72
+63:                                               ; preds = %52
+  %64 = getelementptr inbounds nuw i8, ptr %.069.lcssa96, i64 16
+  %65 = load i64, ptr %64, align 8, !tbaa !26
+  %66 = tail call { i64, i64 } asm "mulq $3", "={ax},={dx},{ax},imr,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %65) #4, !srcloc !43
+  %67 = extractvalue { i64, i64 } %66, 0
+  %68 = extractvalue { i64, i64 } %66, 1
+  %69 = tail call { i64, i64 } asm "addq $2,$0; adcq $3,$1", "=r,={dx},{ax},imr,0,1,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %67, i32 0, i64 %60, i64 %68) #4, !srcloc !44
+  %70 = extractvalue { i64, i64 } %69, 0
+  %71 = extractvalue { i64, i64 } %69, 1
+  %72 = getelementptr inbounds nuw i8, ptr %.068.lcssa97, i64 16
+  store i64 %70, ptr %72, align 8, !tbaa !26
+  br label %73
 
-72:                                               ; preds = %._crit_edge, %62, %51, %._crit_edge.thread, %4
-  %.0 = phi i64 [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %59, %51 ], [ %70, %62 ], [ %38, %._crit_edge ]
+73:                                               ; preds = %._crit_edge, %63, %52, %._crit_edge.thread, %4
+  %.0 = phi i64 [ 0, %4 ], [ %49, %._crit_edge.thread ], [ %60, %52 ], [ %71, %63 ], [ %38, %._crit_edge ]
   ret i64 %.0
 }
 
 ; Function Attrs: nounwind memory(argmem: readwrite) uwtable
 define void @bn_sqr_words(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp slt i32 %2, 1
-  br i1 %4, label %57, label %.preheader
+  br i1 %4, label %58, label %.preheader
 
 .preheader:                                       ; preds = %3
   %.not33 = icmp samesign ult i32 %2, 4
@@ -271,48 +273,49 @@ define void @bn_sqr_words(ptr noundef writeonly captures(none) %0, ptr noundef r
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not32 = icmp eq i32 %33, 0
-  br i1 %.not32, label %57, label %._crit_edge.thread
+  br i1 %.not32, label %58, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.0.lcssa48 = phi i32 [ %33, %._crit_edge ], [ %2, %.preheader ]
-  %.028.lcssa47 = phi ptr [ %31, %._crit_edge ], [ %1, %.preheader ]
-  %.029.lcssa46 = phi ptr [ %32, %._crit_edge ], [ %0, %.preheader ]
-  %34 = getelementptr inbounds nuw i8, ptr %.029.lcssa46, i64 8
-  %35 = load i64, ptr %.028.lcssa47, align 8, !tbaa !26
+  %.0.lcssa49 = phi i32 [ %33, %._crit_edge ], [ %2, %.preheader ]
+  %.028.lcssa48 = phi ptr [ %31, %._crit_edge ], [ %1, %.preheader ]
+  %.029.lcssa47 = phi ptr [ %32, %._crit_edge ], [ %0, %.preheader ]
+  %34 = getelementptr inbounds nuw i8, ptr %.029.lcssa47, i64 8
+  %35 = load i64, ptr %.028.lcssa48, align 8, !tbaa !26
   %36 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %35) #6, !srcloc !50
   %37 = extractvalue { i64, i64 } %36, 0
   %38 = extractvalue { i64, i64 } %36, 1
-  store i64 %37, ptr %.029.lcssa46, align 8, !tbaa !26
+  store i64 %37, ptr %.029.lcssa47, align 8, !tbaa !26
   store i64 %38, ptr %34, align 8, !tbaa !26
-  %39 = icmp eq i32 %.0.lcssa48, 1
-  br i1 %39, label %57, label %40
+  %39 = add nsw i32 %.0.lcssa49, -1
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %58, label %41
 
-40:                                               ; preds = %._crit_edge.thread
-  %41 = getelementptr inbounds nuw i8, ptr %.029.lcssa46, i64 16
-  %42 = getelementptr inbounds nuw i8, ptr %.029.lcssa46, i64 24
-  %43 = getelementptr inbounds nuw i8, ptr %.028.lcssa47, i64 8
-  %44 = load i64, ptr %43, align 8, !tbaa !26
-  %45 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %44) #6, !srcloc !51
-  %46 = extractvalue { i64, i64 } %45, 0
-  %47 = extractvalue { i64, i64 } %45, 1
-  store i64 %46, ptr %41, align 8, !tbaa !26
+41:                                               ; preds = %._crit_edge.thread
+  %42 = getelementptr inbounds nuw i8, ptr %.029.lcssa47, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %.029.lcssa47, i64 24
+  %44 = getelementptr inbounds nuw i8, ptr %.028.lcssa48, i64 8
+  %45 = load i64, ptr %44, align 8, !tbaa !26
+  %46 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %45) #6, !srcloc !51
+  %47 = extractvalue { i64, i64 } %46, 0
+  %48 = extractvalue { i64, i64 } %46, 1
   store i64 %47, ptr %42, align 8, !tbaa !26
-  %48 = icmp eq i32 %.0.lcssa48, 2
-  br i1 %48, label %57, label %49
+  store i64 %48, ptr %43, align 8, !tbaa !26
+  %49 = icmp eq i32 %39, 1
+  br i1 %49, label %58, label %50
 
-49:                                               ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %.029.lcssa46, i64 32
-  %51 = getelementptr inbounds nuw i8, ptr %.029.lcssa46, i64 40
-  %52 = getelementptr inbounds nuw i8, ptr %.028.lcssa47, i64 16
-  %53 = load i64, ptr %52, align 8, !tbaa !26
-  %54 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %53) #6, !srcloc !52
-  %55 = extractvalue { i64, i64 } %54, 0
-  %56 = extractvalue { i64, i64 } %54, 1
-  store i64 %55, ptr %50, align 8, !tbaa !26
+50:                                               ; preds = %41
+  %51 = getelementptr inbounds nuw i8, ptr %.029.lcssa47, i64 32
+  %52 = getelementptr inbounds nuw i8, ptr %.029.lcssa47, i64 40
+  %53 = getelementptr inbounds nuw i8, ptr %.028.lcssa48, i64 16
+  %54 = load i64, ptr %53, align 8, !tbaa !26
+  %55 = tail call { i64, i64 } asm "mulq $2", "={ax},={dx},{ax},~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %54) #6, !srcloc !52
+  %56 = extractvalue { i64, i64 } %55, 0
+  %57 = extractvalue { i64, i64 } %55, 1
   store i64 %56, ptr %51, align 8, !tbaa !26
-  br label %57
+  store i64 %57, ptr %52, align 8, !tbaa !26
+  br label %58
 
-57:                                               ; preds = %40, %._crit_edge.thread, %3, %49, %._crit_edge
+58:                                               ; preds = %41, %._crit_edge.thread, %3, %50, %._crit_edge
   ret void
 }
 

@@ -96,8 +96,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   %39 = load i32, ptr %38, align 8, !alias.scope !20, !noalias !25, !noundef !7
   %40 = getelementptr inbounds nuw i8, ptr %.023.i, i64 24
   %41 = load i32, ptr %40, align 8, !alias.scope !23, !noalias !30, !noundef !7
-  %switch.selectcmp.i.not.i.not.i = icmp ugt i32 %39, %41
-  br i1 %switch.selectcmp.i.not.i.not.i, label %42, label %.critedge.i
+  %switch.i.not.i.not.i = icmp ugt i32 %39, %41
+  br i1 %switch.i.not.i.not.i, label %42, label %.critedge.i
 
 42:                                               ; preds = %37
   store ptr %.022.i, ptr %12, align 8, !alias.scope !31, !noalias !34
@@ -231,8 +231,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   %91 = load i32, ptr %90, align 8, !alias.scope !57, !noalias !62, !noundef !7
   %92 = getelementptr inbounds nuw i8, ptr %.03193, i64 24
   %93 = load i32, ptr %92, align 8, !alias.scope !60, !noalias !67, !noundef !7
-  %switch.selectcmp.i.not.i.not = icmp ugt i32 %91, %93
-  br i1 %switch.selectcmp.i.not.i.not, label %94, label %.critedge
+  %switch.i.not.i.not = icmp ugt i32 %91, %93
+  br i1 %switch.i.not.i.not, label %94, label %.critedge
 
 94:                                               ; preds = %87
   store ptr %.030, ptr %4, align 8, !alias.scope !68, !noalias !71
@@ -318,8 +318,8 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @"_ZN106_$LT$itert
   %30 = load i32, ptr %29, align 8, !alias.scope !90, !noalias !95, !noundef !7
   %31 = getelementptr inbounds nuw i8, ptr %.023, i64 24
   %32 = load i32, ptr %31, align 8, !alias.scope !93, !noalias !100, !noundef !7
-  %switch.selectcmp.i.not.i.not = icmp ugt i32 %30, %32
-  br i1 %switch.selectcmp.i.not.i.not, label %33, label %.critedge
+  %switch.i.not.i.not = icmp ugt i32 %30, %32
+  br i1 %switch.i.not.i.not, label %33, label %.critedge
 
 33:                                               ; preds = %28
   store ptr %.022, ptr %2, align 8, !alias.scope !101, !noalias !104

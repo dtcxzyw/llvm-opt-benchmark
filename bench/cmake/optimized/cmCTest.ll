@@ -19909,8 +19909,8 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   br label %98
 
 98:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.i, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
-  %.020.idx13.i = phi i64 [ 0, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.020.add.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.i ]
-  %.020.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.020.idx13.i
+  %.020.idx11.i = phi i64 [ 0, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ], [ %.020.add.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.i ]
+  %.020.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.020.idx11.i
   %99 = load ptr, ptr %.020.ptr.i, align 8, !tbaa !176, !noalias !525
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !528
   %100 = load ptr, ptr %1, align 8, !tbaa !15, !noalias !528
@@ -20134,7 +20134,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33.i: ; preds = %168, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i31.i
-  %.020.add.i = add nuw nsw i64 %.020.idx13.i, 8
+  %.020.add.i = add nuw nsw i64 %.020.idx11.i, 8
   %.not.i = icmp eq i64 %.020.add.i, 16
   br i1 %.not.i, label %"_ZZN7cmCTest31ReadCustomConfigurationFileTreeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP10cmMakefileENK3$_0clB5cxx11Ev.exit.thread", label %98
 

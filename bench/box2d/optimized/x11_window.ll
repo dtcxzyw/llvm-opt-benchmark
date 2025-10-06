@@ -185,8 +185,8 @@ define hidden void @_glfwPushSelectionToManagerX11() local_unnamed_addr #0 {
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141384), align 8, !tbaa !105
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
   %15 = call i32 %13(ptr noundef %14, ptr noundef nonnull %2, ptr noundef nonnull @isSelectionEvent, ptr noundef null) #17
-  %.not.not2 = icmp eq i32 %15, 0
-  br i1 %.not.not2, label %._crit_edge, label %.lr.ph
+  %.not.not1 = icmp eq i32 %15, 0
+  br i1 %.not.not1, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %12, %22
   %16 = load i32, ptr %2, align 8, !tbaa !106
@@ -3006,7 +3006,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141056), align 8
   %15 = icmp ne i64 %14, 0
   %or.cond3 = select i1 %or.cond, i1 %15, i1 false
-  %.028.sroa.gep38 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %.027.sroa.gep37 = getelementptr inbounds nuw i8, ptr %9, i64 8
   br i1 %or.cond3, label %16, label %76
 
 16:                                               ; preds = %1
@@ -3074,59 +3074,59 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   %47 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %48 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141056), align 8, !tbaa !348
   store i64 %48, ptr %47, align 8, !tbaa !94
-  %.not33 = icmp eq i64 %45, 0
-  %.pre35 = load ptr, ptr %8, align 8, !tbaa !128
-  br i1 %.not33, label %._crit_edge31, label %.preheader
+  %.not32 = icmp eq i64 %45, 0
+  %.pre34 = load ptr, ptr %8, align 8, !tbaa !128
+  br i1 %.not32, label %._crit_edge30, label %.preheader
 
 .preheader:                                       ; preds = %39, %._crit_edge
-  %.02130 = phi i64 [ %50, %._crit_edge ], [ 0, %39 ]
-  %.02229 = phi i64 [ %.1.lcssa, %._crit_edge ], [ 2, %39 ]
-  %.not34 = icmp eq i64 %.02229, 0
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.02129 = phi i64 [ %50, %._crit_edge ], [ 0, %39 ]
+  %.02228 = phi i64 [ %.1.lcssa, %._crit_edge ], [ 2, %39 ]
+  %.not33 = icmp eq i64 %.02228, 0
+  br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %49 = getelementptr inbounds nuw i64, ptr %.pre35, i64 %.02130
+  %49 = getelementptr inbounds nuw i64, ptr %.pre34, i64 %.02129
   %.pre = load i64, ptr %49, align 8, !tbaa !94
   br label %51
 
-._crit_edge31:                                    ; preds = %._crit_edge, %39
+._crit_edge30:                                    ; preds = %._crit_edge, %39
   %.022.lcssa = phi i64 [ 2, %39 ], [ %.1.lcssa, %._crit_edge ]
-  %.not24 = icmp eq ptr %.pre35, null
+  %.not24 = icmp eq ptr %.pre34, null
   br i1 %.not24, label %64, label %61
 
 ._crit_edge:                                      ; preds = %59, %.preheader
   %.1.lcssa = phi i64 [ 0, %.preheader ], [ %.2, %59 ]
-  %50 = add nuw i64 %.02130, 1
+  %50 = add nuw i64 %.02129, 1
   %exitcond.not = icmp eq i64 %50, %45
-  br i1 %exitcond.not, label %._crit_edge31, label %.preheader
+  br i1 %exitcond.not, label %._crit_edge30, label %.preheader
 
 51:                                               ; preds = %.lr.ph, %59
-  %.028.sroa.phi = phi ptr [ %9, %.lr.ph ], [ %.028.sroa.gep38, %59 ]
-  %.028 = phi i64 [ 1, %.lr.ph ], [ 2, %59 ]
-  %.127 = phi i64 [ %.02229, %.lr.ph ], [ 2, %59 ]
-  %52 = load i64, ptr %.028.sroa.phi, align 8, !tbaa !94
+  %.027.sroa.phi = phi ptr [ %9, %.lr.ph ], [ %.027.sroa.gep37, %59 ]
+  %.027 = phi i64 [ 1, %.lr.ph ], [ 2, %59 ]
+  %.126 = phi i64 [ %.02228, %.lr.ph ], [ 2, %59 ]
+  %52 = load i64, ptr %.027.sroa.phi, align 8, !tbaa !94
   %53 = icmp eq i64 %.pre, %52
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %51
-  %55 = getelementptr i64, ptr %9, i64 %.127
+  %55 = getelementptr i64, ptr %9, i64 %.126
   %56 = getelementptr i8, ptr %55, i64 -8
   %57 = load i64, ptr %56, align 8, !tbaa !94
-  store i64 %57, ptr %.028.sroa.phi, align 8, !tbaa !94
-  %58 = add nsw i64 %.127, -1
+  store i64 %57, ptr %.027.sroa.phi, align 8, !tbaa !94
+  %58 = add nsw i64 %.126, -1
   br label %59
 
 59:                                               ; preds = %51, %54
-  %.2 = phi i64 [ %58, %54 ], [ %.127, %51 ]
-  %60 = icmp ult i64 %.028, %.2
+  %.2 = phi i64 [ %58, %54 ], [ %.126, %51 ]
+  %60 = icmp ult i64 %.027, %.2
   br i1 %60, label %51, label %._crit_edge
 
-61:                                               ; preds = %._crit_edge31
+61:                                               ; preds = %._crit_edge30
   %62 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141552), align 8, !tbaa !130
-  %63 = call i32 %62(ptr noundef nonnull %.pre35) #17
+  %63 = call i32 %62(ptr noundef nonnull %.pre34) #17
   br label %64
 
-64:                                               ; preds = %61, %._crit_edge31
+64:                                               ; preds = %61, %._crit_edge30
   %.not25 = icmp eq i64 %.022.lcssa, 0
   br i1 %.not25, label %71, label %.thread
 
@@ -5817,9 +5817,8 @@ define hidden void @_glfwSetCursorModeX11(ptr noundef %0, i32 noundef %1) local_
   br label %55
 
 55:                                               ; preds = %42, %48, %45
-  %56 = add i32 %1, -212995
-  %or.cond = icmp ult i32 %56, 2
-  br i1 %or.cond, label %.thread, label %.thread20
+  %56 = icmp eq i32 %1, 212996
+  br i1 %56, label %.thread, label %.thread20
 
 .thread20:                                        ; preds = %55
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141968), align 8, !tbaa !306
@@ -6034,35 +6033,35 @@ switch.lookup:                                    ; preds = %8
   br i1 %.not22, label %26, label %.thread
 
 26:                                               ; preds = %23
-  %switch.tableidx27 = add i32 %1, -221185
-  %27 = icmp ult i32 %switch.tableidx27, 9
-  %switch.maskindex = trunc i32 %switch.tableidx27 to i16
+  %switch.tableidx26 = add i32 %1, -221185
+  %27 = icmp ult i32 %switch.tableidx26, 9
+  %switch.maskindex = trunc i32 %switch.tableidx26 to i16
   %switch.shifted = lshr i16 319, %switch.maskindex
   %switch.lobit = trunc i16 %switch.shifted to i1
   %or.cond = select i1 %27, i1 %switch.lobit, i1 false
-  br i1 %or.cond, label %switch.lookup29, label %28
+  br i1 %or.cond, label %switch.lookup28, label %28
 
 28:                                               ; preds = %26
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65547, ptr noundef nonnull @.str.18) #17
   br label %.thread
 
-switch.lookup29:                                  ; preds = %26
-  %29 = zext nneg i32 %switch.tableidx27 to i64
-  %switch.gep30 = getelementptr inbounds nuw i32, ptr @switch.table._glfwCreateStandardCursorX11.6, i64 %29
-  %switch.load31 = load i32, ptr %switch.gep30, align 4
+switch.lookup28:                                  ; preds = %26
+  %29 = zext nneg i32 %switch.tableidx26 to i64
+  %switch.gep29 = getelementptr inbounds nuw i32, ptr @switch.table._glfwCreateStandardCursorX11.6, i64 %29
+  %switch.load30 = load i32, ptr %switch.gep29, align 4
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141432), align 8, !tbaa !424
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
-  %32 = tail call i64 %30(ptr noundef %31, i32 noundef %switch.load31) #17
+  %32 = tail call i64 %30(ptr noundef %31, i32 noundef %switch.load30) #17
   store i64 %32, ptr %24, align 8, !tbaa !315
   %.not23 = icmp eq i64 %32, 0
   br i1 %.not23, label %33, label %.thread
 
-33:                                               ; preds = %switch.lookup29
+33:                                               ; preds = %switch.lookup28
   tail call void (i32, ptr, ...) @_glfwInputError(i32 noundef 65544, ptr noundef nonnull @.str.19) #17
   br label %.thread
 
-.thread:                                          ; preds = %33, %28, %23, %switch.lookup29
-  %.1 = phi i32 [ 1, %switch.lookup29 ], [ 1, %23 ], [ 0, %28 ], [ 0, %33 ]
+.thread:                                          ; preds = %33, %28, %23, %switch.lookup28
+  %.1 = phi i32 [ 1, %switch.lookup28 ], [ 1, %23 ], [ 0, %28 ], [ 0, %33 ]
   ret i32 %.1
 }
 

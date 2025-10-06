@@ -334,8 +334,8 @@ define weak_odr hidden noundef zeroext i1 @_ZNK2lp19lp_core_solver_baseI8rationa
 _ZNK6vectorIjLb1EjE4sizeEv.exit.lr.ph.i:          ; preds = %.loopexit
   %48 = getelementptr inbounds i8, ptr %46, i64 -4
   %49 = load i32, ptr %48, align 4, !tbaa !50
-  %.not110.i = icmp eq i32 %49, 0
-  br i1 %.not110.i, label %_ZNK2lp19lp_core_solver_baseI8rationalS1_E41basis_is_correctly_represented_in_headingEv.exit, label %.lr.ph.i2
+  %.not109.i = icmp eq i32 %49, 0
+  br i1 %.not109.i, label %_ZNK2lp19lp_core_solver_baseI8rationalS1_E41basis_is_correctly_represented_in_headingEv.exit, label %.lr.ph.i2
 
 .lr.ph.i2:                                        ; preds = %_ZNK6vectorIjLb1EjE4sizeEv.exit.lr.ph.i
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 112

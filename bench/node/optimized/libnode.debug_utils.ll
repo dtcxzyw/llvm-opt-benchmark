@@ -593,8 +593,8 @@ entry:
   %ref.tmp814 = alloca %"class.std::allocator", align 1
   %ref.tmp823 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %debug_categories, ptr noundef nonnull align 8 dereferenceable(32) %cats) #17
-  %call78 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %debug_categories) #17
-  br i1 %call78, label %while.end, label %while.body.lr.ph
+  %call77 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %debug_categories) #17
+  br i1 %call77, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %arrayidx.i = getelementptr inbounds nuw i8, ptr %this, i64 1

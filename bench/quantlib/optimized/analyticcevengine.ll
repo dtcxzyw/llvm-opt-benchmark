@@ -6809,8 +6809,8 @@ cleanup:                                          ; preds = %if.end8.i, %if.then
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef x86_fp80 @_ZN5boost4math6detail24non_central_chi_square_qIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_SB_RKT0_SB_(x86_fp80 noundef %x, x86_fp80 noundef %f, x86_fp80 noundef %theta, ptr noundef nonnull align 1 dereferenceable(1) %pol, x86_fp80 noundef %init_sum) local_unnamed_addr #7 comdat {
 entry:
-  %ref.tmp.i53 = alloca %"struct.boost::math::policies::policy", align 1
-  %ref.tmp.i49 = alloca %"struct.boost::math::policies::policy", align 1
+  %ref.tmp.i52 = alloca %"struct.boost::math::policies::policy", align 1
+  %ref.tmp.i48 = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp.i = alloca %"struct.boost::math::policies::policy", align 1
   %ref.tmp.i.i.i = alloca x86_fp80, align 16
   %lambda = alloca x86_fp80, align 16
@@ -6896,56 +6896,56 @@ _ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb
   %6 = load x86_fp80, ptr %lambda, align 16, !tbaa !159
   %div7 = fdiv x86_fp80 %mul, %6
   %add9 = fadd x86_fp80 %div1, %conv6
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i49)
-  %call.i50 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %add9, x86_fp80 noundef %div2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i49, ptr noundef null)
-  %7 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call.i50)
-  %cmp.i.i51 = fcmp ogt x86_fp80 %7, 0xK7FFEFFFFFFFFFFFFFFFF
-  br i1 %cmp.i.i51, label %if.then.i.i52, label %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i48)
+  %call.i49 = call noundef x86_fp80 @_ZN5boost4math6detail20gamma_incomplete_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_bbRKT0_PSB_(x86_fp80 noundef %add9, x86_fp80 noundef %div2, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i48, ptr noundef null)
+  %7 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call.i49)
+  %cmp.i.i50 = fcmp ogt x86_fp80 %7, 0xK7FFEFFFFFFFFFFFFFFFF
+  br i1 %cmp.i.i50, label %if.then.i.i51, label %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
 
-if.then.i.i52:                                    ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
+if.then.i.i51:                                    ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
   call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef nonnull @.str.87, ptr noundef nonnull @.str.53)
   br label %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
 
-_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit: ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit, %if.then.i.i52
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i49)
+_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit: ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit, %if.then.i.i51
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i48)
   %add11 = fadd x86_fp80 %div1, 0xK3FFF8000000000000000
   %add13 = fadd x86_fp80 %add11, %conv6
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i53)
-  %call.i54 = call noundef x86_fp80 @_ZN5boost4math6detail22gamma_p_derivative_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_(x86_fp80 noundef %add13, x86_fp80 noundef %div2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i53)
-  %8 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call.i54)
-  %cmp.i.i55 = fcmp ogt x86_fp80 %8, 0xK7FFEFFFFFFFFFFFFFFFF
-  br i1 %cmp.i.i55, label %if.then.i.i56, label %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i52)
+  %call.i53 = call noundef x86_fp80 @_ZN5boost4math6detail22gamma_p_derivative_impIeNS0_8policies6policyINS3_13promote_floatILb0EEENS3_14promote_doubleILb0EEENS3_14default_policyES9_S9_S9_S9_S9_S9_S9_S9_S9_S9_EEEET_SB_SB_RKT0_(x86_fp80 noundef %add13, x86_fp80 noundef %div2, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i52)
+  %8 = call noundef x86_fp80 @llvm.fabs.f80(x86_fp80 %call.i53)
+  %cmp.i.i54 = fcmp ogt x86_fp80 %8, 0xK7FFEFFFFFFFFFFFFFFFF
+  br i1 %cmp.i.i54, label %if.then.i.i55, label %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56
 
-if.then.i.i56:                                    ; preds = %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
+if.then.i.i55:                                    ; preds = %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit
   call void @_ZN5boost4math8policies6detail11raise_errorISt14overflow_erroreEEvPKcS6_(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.53)
-  br label %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57
+  br label %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56
 
-_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57: ; preds = %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit, %if.then.i.i56
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i53)
-  %mul17 = fmul x86_fp80 %add9, %call.i54
+_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56: ; preds = %_ZN5boost4math7gamma_qIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit, %if.then.i.i55
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i52)
+  %mul17 = fmul x86_fp80 %add9, %call.i53
   %div18 = fdiv x86_fp80 %mul17, %div2
-  %sub = fsub x86_fp80 %call.i50, %div18
+  %sub = fsub x86_fp80 %call.i49, %div18
   %9 = load x86_fp80, ptr %lambda, align 16, !tbaa !159
   br label %for.body
 
-for.body:                                         ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57, %cleanup
-  %poisf.067 = phi x86_fp80 [ %call.i, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %mul26, %cleanup ]
-  %gamf.066 = phi x86_fp80 [ %call.i50, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %add27, %cleanup ]
-  %i.065 = phi i64 [ %spec.select.i, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %add23, %cleanup ]
-  %xtermf.064 = phi x86_fp80 [ %call.i54, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %mul32, %cleanup ]
-  %add226263 = phi x86_fp80 [ %init_sum, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit57 ], [ %add22, %cleanup ]
-  %mul21 = fmul x86_fp80 %gamf.066, %poisf.067
-  %add22 = fadd x86_fp80 %mul21, %add226263
-  %add23 = add nsw i64 %i.065, 1
+for.body:                                         ; preds = %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56, %cleanup
+  %poisf.064 = phi x86_fp80 [ %call.i, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %mul26, %cleanup ]
+  %gamf.063 = phi x86_fp80 [ %call.i49, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %add27, %cleanup ]
+  %i.062 = phi i64 [ %spec.select.i, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %add23, %cleanup ]
+  %xtermf.061 = phi x86_fp80 [ %call.i53, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %mul32, %cleanup ]
+  %add225960 = phi x86_fp80 [ %init_sum, %_ZN5boost4math18gamma_p_derivativeIeeNS0_8policies6policyINS2_13promote_floatILb0EEENS2_14promote_doubleILb0EEENS2_14default_policyES8_S8_S8_S8_S8_S8_S8_S8_S8_S8_EEEENS0_5tools12promote_argsIT_T0_ffffE4typeESC_SD_RKT1_.exit56 ], [ %add22, %cleanup ]
+  %mul21 = fmul x86_fp80 %gamf.063, %poisf.064
+  %add22 = fadd x86_fp80 %mul21, %add225960
+  %add23 = add nsw i64 %i.062, 1
   %conv24 = sitofp i64 %add23 to x86_fp80
   %div25 = fdiv x86_fp80 %9, %conv24
-  %mul26 = fmul x86_fp80 %poisf.067, %div25
-  %add27 = fadd x86_fp80 %xtermf.064, %gamf.066
-  %conv28 = sitofp i64 %i.065 to x86_fp80
+  %mul26 = fmul x86_fp80 %poisf.064, %div25
+  %add27 = fadd x86_fp80 %xtermf.061, %gamf.063
+  %conv28 = sitofp i64 %i.062 to x86_fp80
   %add29 = fadd x86_fp80 %div1, %conv28
   %add30 = fadd x86_fp80 %add29, 0xK3FFF8000000000000000
   %div31 = fdiv x86_fp80 %div2, %add30
-  %mul32 = fmul x86_fp80 %xtermf.064, %div31
+  %mul32 = fmul x86_fp80 %xtermf.061, %div31
   %cmp33 = fcmp oeq x86_fp80 %add22, 0xK00000000000000000000
   br i1 %cmp33, label %land.lhs.true, label %lor.lhs.false
 
@@ -6977,7 +6977,7 @@ if.then43:                                        ; preds = %cleanup
   br label %cleanup73
 
 for.cond47:                                       ; preds = %for.cond47.preheader, %lor.lhs.false62
-  %add5269 = phi x86_fp80 [ %add52, %lor.lhs.false62 ], [ %add22, %for.cond47.preheader ]
+  %add5266 = phi x86_fp80 [ %add52, %lor.lhs.false62 ], [ %add22, %for.cond47.preheader ]
   %xtermb.0 = phi x86_fp80 [ %mul59, %lor.lhs.false62 ], [ %div18, %for.cond47.preheader ]
   %gamb.0 = phi x86_fp80 [ %sub60, %lor.lhs.false62 ], [ %sub, %for.cond47.preheader ]
   %i.1.in = phi i64 [ %i.1, %lor.lhs.false62 ], [ %spec.select.i, %for.cond47.preheader ]
@@ -6988,7 +6988,7 @@ for.cond47:                                       ; preds = %for.cond47.preheade
 
 for.body49:                                       ; preds = %for.cond47
   %mul51 = fmul x86_fp80 %gamb.0, %poisb.0
-  %add52 = fadd x86_fp80 %mul51, %add5269
+  %add52 = fadd x86_fp80 %mul51, %add5266
   %cmp61 = fcmp oeq x86_fp80 %add52, 0xK00000000000000000000
   br i1 %cmp61, label %cleanup73, label %lor.lhs.false62
 
@@ -7006,7 +7006,7 @@ lor.lhs.false62:                                  ; preds = %for.body49
   br i1 %cmp65, label %cleanup73, label %for.cond47, !llvm.loop !162
 
 cleanup73:                                        ; preds = %for.cond47, %lor.lhs.false62, %for.body49, %if.then43
-  %retval.1 = phi x86_fp80 [ 0xK00000000000000000000, %if.then43 ], [ %add52, %for.body49 ], [ %add52, %lor.lhs.false62 ], [ %add5269, %for.cond47 ]
+  %retval.1 = phi x86_fp80 [ 0xK00000000000000000000, %if.then43 ], [ %add52, %for.body49 ], [ %add52, %lor.lhs.false62 ], [ %add5266, %for.cond47 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %sum)
   call void @llvm.lifetime.end.p0(ptr nonnull %lambda)
   br label %return

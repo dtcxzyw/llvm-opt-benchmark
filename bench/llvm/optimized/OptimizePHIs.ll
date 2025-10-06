@@ -192,17 +192,17 @@ _ZNK4llvm17PreservedAnalyses15areAllPreservedEv.exit.thread.i.i: ; preds = %34, 
   %46 = zext i32 %45 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %46, 3
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i.i
-  %.not36.i.i.i.i = icmp eq i32 %45, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
+  %.not34.i.i.i.i = icmp eq i32 %45, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %42, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %49, %.critedge.i.i.i.i ], [ %43, %42 ]
-  %48 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !3, !noalias !37
+  %.02935.i.i.i.i = phi ptr [ %49, %.critedge.i.i.i.i ], [ %43, %42 ]
+  %48 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !3, !noalias !37
   %.not17.i.i.i.i = icmp eq ptr %48, @_ZN4llvm11CFGAnalyses6SetKeyE
   br i1 %.not17.i.i.i.i, label %_ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %49, %47
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !40
 
@@ -697,17 +697,17 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs21IsSi
   %16 = zext i32 %15 to i64
   %.idx.i.i = shl nuw nsw i64 %16, 3
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %15, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %15, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %12, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %19, %.critedge.i.i ], [ %13, %12 ]
-  %18 = load ptr, ptr %.02937.i.i, align 8, !tbaa !3, !noalias !199
+  %.02935.i.i = phi ptr [ %19, %.critedge.i.i ], [ %13, %12 ]
+  %18 = load ptr, ptr %.02935.i.i, align 8, !tbaa !3, !noalias !199
   %.not17.i.i = icmp eq ptr %18, %1
   br i1 %.not17.i.i, label %.thread, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %19 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %19, %17
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !40
 
@@ -866,17 +866,17 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_112OptimizePHIs14IsDe
   %15 = zext i32 %14 to i64
   %.idx.i.i = shl nuw nsw i64 %15, 3
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %14, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %14, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %11, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %18, %.critedge.i.i ], [ %12, %11 ]
-  %17 = load ptr, ptr %.02937.i.i, align 8, !tbaa !3, !noalias !203
+  %.02935.i.i = phi ptr [ %18, %.critedge.i.i ], [ %12, %11 ]
+  %17 = load ptr, ptr %.02935.i.i, align 8, !tbaa !3, !noalias !203
   %.not17.i.i = icmp eq ptr %17, %1
   br i1 %.not17.i.i, label %.loopexit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %18 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %18 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %18, %16
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !40
 

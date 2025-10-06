@@ -7771,8 +7771,8 @@ _ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %46
   br label %51
 
 51:                                               ; preds = %20, %21, %_ZNSt11unique_lockISt5mutexED2Ev.exit
-  %.lcssa75.sink = phi ptr [ %47, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %13, %21 ], [ %13, %20 ]
-  %52 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.lcssa75.sink) #27
+  %.lcssa74.sink = phi ptr [ %47, %_ZNSt11unique_lockISt5mutexED2Ev.exit ], [ %13, %21 ], [ %13, %20 ]
+  %52 = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %.lcssa74.sink) #27
   ret void
 }
 

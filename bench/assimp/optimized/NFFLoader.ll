@@ -6617,39 +6617,39 @@ _ZNSt6vectorIN6Assimp11NFFImporter8MeshInfoESaIS2_EE12emplace_backIJNS1_9PatchTy
   br label %.lr.ph.i1357.preheader
 
 .lr.ph.i1357.preheader:                           ; preds = %1395, %1387
-  %.154.i.ph = phi ptr [ %1392, %1387 ], [ %1396, %1395 ]
-  %.13351.i.ph = phi i32 [ 1, %1387 ], [ 2, %1395 ]
-  %.13850.i.ph = phi i32 [ %.06703948, %1387 ], [ %1397, %1395 ]
+  %.153.i.ph = phi ptr [ %1392, %1387 ], [ %1396, %1395 ]
+  %.13350.i.ph = phi i32 [ 1, %1387 ], [ 2, %1395 ]
+  %.13849.i.ph = phi i32 [ %.06703948, %1387 ], [ %1397, %1395 ]
   br label %.lr.ph.i1357
 
 .lr.ph.i1357:                                     ; preds = %.lr.ph.i1357.preheader, %1408
-  %.154.i = phi ptr [ %.3.i, %1408 ], [ %.154.i.ph, %.lr.ph.i1357.preheader ]
-  %.02753.i = phi i1 [ %or.cond3.i, %1408 ], [ false, %.lr.ph.i1357.preheader ]
-  %.03052.i = phi i32 [ %1409, %1408 ], [ 1000000000, %.lr.ph.i1357.preheader ]
-  %.13351.i = phi i32 [ %.335.i, %1408 ], [ %.13351.i.ph, %.lr.ph.i1357.preheader ]
-  %.13850.i = phi i32 [ %.239.i, %1408 ], [ %.13850.i.ph, %.lr.ph.i1357.preheader ]
-  %1398 = sdiv i32 %.13850.i, %.03052.i
-  %.recomposed = srem i32 %.13850.i, %.03052.i
+  %.153.i = phi ptr [ %.3.i, %1408 ], [ %.153.i.ph, %.lr.ph.i1357.preheader ]
+  %.02752.i = phi i1 [ %or.cond3.i, %1408 ], [ false, %.lr.ph.i1357.preheader ]
+  %.03051.i = phi i32 [ %1409, %1408 ], [ 1000000000, %.lr.ph.i1357.preheader ]
+  %.13350.i = phi i32 [ %.335.i, %1408 ], [ %.13350.i.ph, %.lr.ph.i1357.preheader ]
+  %.13849.i = phi i32 [ %.239.i, %1408 ], [ %.13849.i.ph, %.lr.ph.i1357.preheader ]
+  %1398 = sdiv i32 %.13849.i, %.03051.i
+  %.recomposed = srem i32 %.13849.i, %.03051.i
   %1399 = icmp ne i32 %1398, 0
-  %1400 = icmp eq i32 %.03052.i, 1
+  %1400 = icmp eq i32 %.03051.i, 1
   %1401 = or i1 %1400, %1399
-  %or.cond3.i = select i1 %.02753.i, i1 true, i1 %1401
+  %or.cond3.i = select i1 %.02752.i, i1 true, i1 %1401
   br i1 %or.cond3.i, label %1402, label %1408
 
 1402:                                             ; preds = %.lr.ph.i1357
   %1403 = trunc i32 %1398 to i8
   %1404 = add i8 %1403, 48
-  %1405 = getelementptr inbounds nuw i8, ptr %.154.i, i64 1
-  store i8 %1404, ptr %.154.i, align 1
-  %1406 = add nuw nsw i32 %.13351.i, 1
-  %1407 = mul i32 %1398, %.03052.i
+  %1405 = getelementptr inbounds nuw i8, ptr %.153.i, i64 1
+  store i8 %1404, ptr %.153.i, align 1
+  %1406 = add nuw nsw i32 %.13350.i, 1
+  %1407 = mul i32 %1398, %.03051.i
   br i1 %1400, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit, label %1408
 
 1408:                                             ; preds = %1402, %.lr.ph.i1357
-  %.239.i = phi i32 [ %.recomposed, %1402 ], [ %.13850.i, %.lr.ph.i1357 ]
-  %.335.i = phi i32 [ %1406, %1402 ], [ %.13351.i, %.lr.ph.i1357 ]
-  %.3.i = phi ptr [ %1405, %1402 ], [ %.154.i, %.lr.ph.i1357 ]
-  %1409 = sdiv i32 %.03052.i, 10
+  %.239.i = phi i32 [ %.recomposed, %1402 ], [ %.13849.i, %.lr.ph.i1357 ]
+  %.335.i = phi i32 [ %1406, %1402 ], [ %.13350.i, %.lr.ph.i1357 ]
+  %.3.i = phi ptr [ %1405, %1402 ], [ %.153.i, %.lr.ph.i1357 ]
+  %1409 = sdiv i32 %.03051.i, 10
   %1410 = icmp ult i32 %.335.i, 30
   br i1 %1410, label %.lr.ph.i1357, label %_ZN6Assimp13ASSIMP_itoa10EPcji.exit
 

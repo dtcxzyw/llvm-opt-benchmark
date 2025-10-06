@@ -516,7 +516,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %1
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i, !prof !52
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %9
-  %.039.i.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.037.i.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %6 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
@@ -528,7 +528,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i:   ; preds = %.preheader.i.i
 
 9:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %10 = add nuw nsw i32 %.039.i.i, 1
+  %10 = add nuw nsw i32 %.037.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %10, 50000
   br i1 %exitcond.not.i.i, label %11, label %.preheader.i.i, !llvm.loop !55
 
@@ -732,7 +732,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i:      ; preds = %2
   br i1 %.not.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %.preheader.i, !prof !52
 
 .preheader.i:                                     ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %9
-  %.039.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
+  %.037.i = phi i32 [ %10, %9 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
   %6 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %7 = trunc nuw i8 %6 to i1
   br i1 %7, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
@@ -744,7 +744,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i:     ; preds = %.preheader.i
 
 9:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %10 = add nuw nsw i32 %.039.i, 1
+  %10 = add nuw nsw i32 %.037.i, 1
   %exitcond.not.i = icmp eq i32 %10, 50000
   br i1 %exitcond.not.i, label %11, label %.preheader.i, !llvm.loop !55
 
@@ -865,7 +865,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %13
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i, !prof !52
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %21
-  %.039.i.i = phi i32 [ %22, %21 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.037.i.i = phi i32 [ %22, %21 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %18 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
@@ -877,7 +877,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i:   ; preds = %.preheader.i.i
 
 21:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %22 = add nuw nsw i32 %.039.i.i, 1
+  %22 = add nuw nsw i32 %.037.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %22, 50000
   br i1 %exitcond.not.i.i, label %23, label %.preheader.i.i, !llvm.loop !55
 
@@ -1012,7 +1012,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %13
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i, !prof !52
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %20
-  %.039.i.i = phi i32 [ %21, %20 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.037.i.i = phi i32 [ %21, %20 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %17 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %18 = trunc nuw i8 %17 to i1
   br i1 %18, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
@@ -1024,7 +1024,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i:   ; preds = %.preheader.i.i
 
 20:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %21 = add nuw nsw i32 %.039.i.i, 1
+  %21 = add nuw nsw i32 %.037.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %21, 50000
   br i1 %exitcond.not.i.i, label %22, label %.preheader.i.i, !llvm.loop !55
 
@@ -1294,8 +1294,8 @@ _ZNKSt8functionIFvvEEclEv.exit:                   ; preds = %121
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %124, %126
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %switch = icmp eq i32 %.1, 1
-  br i1 %switch, label %137, label %13
+  %131 = icmp eq i32 %.1, 1
+  br i1 %131, label %138, label %13
 
 .loopexit22:                                      ; preds = %121
   %lpad.loopexit24 = landingpad { ptr, i32 }
@@ -1309,26 +1309,26 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %124, %126
 
 _ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit: ; preds = %.loopexit22, %.loopexit.split-lp23, %40, %42, %45
   %.pn9 = phi { ptr, i32 } [ %41, %40 ], [ %lpad.phi, %42 ], [ %lpad.phi, %45 ], [ %lpad.loopexit24, %.loopexit22 ], [ %lpad.loopexit.split-lp25, %.loopexit.split-lp23 ]
-  %131 = load ptr, ptr %10, align 8, !tbaa !64
-  %.not.i18 = icmp eq ptr %131, null
-  br i1 %.not.i18, label %_ZNSt14_Function_baseD2Ev.exit19, label %132
+  %132 = load ptr, ptr %10, align 8, !tbaa !64
+  %.not.i18 = icmp eq ptr %132, null
+  br i1 %.not.i18, label %_ZNSt14_Function_baseD2Ev.exit19, label %133
 
-132:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
-  %133 = invoke noundef zeroext i1 %131(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit19 unwind label %134
+133:                                              ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit
+  %134 = invoke noundef zeroext i1 %132(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit19 unwind label %135
 
-134:                                              ; preds = %132
-  %135 = landingpad { ptr, i32 }
+135:                                              ; preds = %133
+  %136 = landingpad { ptr, i32 }
           catch ptr null
-  %136 = extractvalue { ptr, i32 } %135, 0
-  call void @__clang_call_terminate(ptr %136) #31
+  %137 = extractvalue { ptr, i32 } %136, 0
+  call void @__clang_call_terminate(ptr %137) #31
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit19:                 ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, %132
+_ZNSt14_Function_baseD2Ev.exit19:                 ; preds = %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEED2Ev.exit, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn9
 
-137:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
+138:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit
   ret void
 }
 
@@ -3427,7 +3427,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit:        ; preds = %1
   br i1 %.not.i.i, label %.thread, label %.preheader, !prof !52
 
 .preheader:                                       ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit, %8
-  %.039 = phi i32 [ %9, %8 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit ]
+  %.037 = phi i32 [ %9, %8 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit ]
   %5 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %6 = trunc nuw i8 %5 to i1
   br i1 %6, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5, label %.thread
@@ -3439,7 +3439,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5:       ; preds = %.preheader
 
 8:                                                ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %9 = add nuw nsw i32 %.039, 1
+  %9 = add nuw nsw i32 %.037, 1
   %exitcond.not = icmp eq i32 %9, 50000
   br i1 %exitcond.not, label %10, label %.preheader, !llvm.loop !55
 
@@ -3942,7 +3942,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i:      ; preds = %6
   br i1 %.not.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %.preheader.i, !prof !52
 
 .preheader.i:                                     ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i, %11
-  %.039.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
+  %.037.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i ]
   %8 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
@@ -3954,7 +3954,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i:     ; preds = %.preheader.i
 
 11:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %12 = add nuw nsw i32 %.039.i, 1
+  %12 = add nuw nsw i32 %.037.i, 1
   %exitcond.not.i = icmp eq i32 %12, 50000
   br i1 %exitcond.not.i, label %13, label %.preheader.i, !llvm.loop !55
 
@@ -3999,7 +3999,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i5:     ; preds = %26
   br i1 %.not.i.i.i6, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit, label %.preheader.i7, !prof !52
 
 .preheader.i7:                                    ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i5, %31
-  %.039.i8 = phi i32 [ %32, %31 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i5 ]
+  %.037.i8 = phi i32 [ %32, %31 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i5 ]
   %28 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i9, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit
@@ -4011,7 +4011,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i9:    ; preds = %.preheader.i7
 
 31:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i9
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %32 = add nuw nsw i32 %.039.i8, 1
+  %32 = add nuw nsw i32 %.037.i8, 1
   %exitcond.not.i11 = icmp eq i32 %32, 50000
   br i1 %exitcond.not.i11, label %33, label %.preheader.i7, !llvm.loop !55
 
@@ -4133,7 +4133,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i:    ; preds = %_ZNSt11this_thread9
   br i1 %.not.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit, label %.preheader.i.i, !prof !52
 
 .preheader.i.i:                                   ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i, %26
-  %.039.i.i = phi i32 [ %27, %26 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
+  %.037.i.i = phi i32 [ %27, %26 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i ]
   %23 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit
@@ -4145,7 +4145,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i:   ; preds = %.preheader.i.i
 
 26:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %27 = add nuw nsw i32 %.039.i.i, 1
+  %27 = add nuw nsw i32 %.037.i.i, 1
   %exitcond.not.i.i = icmp eq i32 %27, 50000
   br i1 %exitcond.not.i.i, label %28, label %.preheader.i.i, !llvm.loop !55
 
@@ -4278,7 +4278,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i: ; preds = %1
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i, !prof !52
 
 .preheader.i.i.i.i.i.i.i.i:                       ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i, %11
-  %.039.i.i.i.i.i.i.i.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i ]
+  %.037.i.i.i.i.i.i.i.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i ]
   %8 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i, label %_ZN10V3MutexImpISt5mutexE4lockEv.exit.i.i.i.i.i.i.i
@@ -4290,7 +4290,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i: ; preds = %.preheade
 
 11:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %12 = add nuw nsw i32 %.039.i.i.i.i.i.i.i.i, 1
+  %12 = add nuw nsw i32 %.037.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i32 %12, 50000
   br i1 %exitcond.not.i.i.i.i.i.i.i.i, label %13, label %.preheader.i.i.i.i.i.i.i.i, !llvm.loop !55
 
@@ -4317,7 +4317,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %_ZN10V3M
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i, !prof !52
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i, %22
-  %.039.i.i.i.i.i.i.i.i.i = phi i32 [ %23, %22 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i ]
+  %.037.i.i.i.i.i.i.i.i.i = phi i32 [ %23, %22 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i ]
   %19 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %20 = trunc nuw i8 %19 to i1
   br i1 %20, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i.i
@@ -4329,7 +4329,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i: ; preds = %.prehea
 
 22:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %23 = add nuw nsw i32 %.039.i.i.i.i.i.i.i.i.i, 1
+  %23 = add nuw nsw i32 %.037.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %23, 50000
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %24, label %.preheader.i.i.i.i.i.i.i.i.i, !llvm.loop !55
 
@@ -4458,7 +4458,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i: ; preds = %1
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i.i, label %.preheader.i.i.i.i.i.i.i.i.i, !prof !52
 
 .preheader.i.i.i.i.i.i.i.i.i:                     ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i, %11
-  %.039.i.i.i.i.i.i.i.i.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i ]
+  %.037.i.i.i.i.i.i.i.i.i = phi i32 [ %12, %11 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i.i.i.i.i.i.i.i ]
   %8 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %9 = trunc nuw i8 %8 to i1
   br i1 %9, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit.i.i.i.i.i.i.i
@@ -4470,7 +4470,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i: ; preds = %.prehea
 
 11:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i.i.i.i.i.i.i.i
   tail call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %12 = add nuw nsw i32 %.039.i.i.i.i.i.i.i.i.i, 1
+  %12 = add nuw nsw i32 %.037.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %12, 50000
   br i1 %exitcond.not.i.i.i.i.i.i.i.i.i, label %13, label %.preheader.i.i.i.i.i.i.i.i.i, !llvm.loop !55
 
@@ -4537,7 +4537,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i2.i.i.i.i.i.i.i: ; preds = %_ZN14V3
   br i1 %.not.i.i.i.i3.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit9.i.i.i.i.i.i.i, label %.preheader.i.i4.i.i.i.i.i.i.i, !prof !52
 
 .preheader.i.i4.i.i.i.i.i.i.i:                    ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i2.i.i.i.i.i.i.i, %41
-  %.039.i.i5.i.i.i.i.i.i.i = phi i32 [ %42, %41 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i2.i.i.i.i.i.i.i ]
+  %.037.i.i5.i.i.i.i.i.i.i = phi i32 [ %42, %41 ], [ 0, %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit.i.i2.i.i.i.i.i.i.i ]
   %38 = load i8, ptr @_ZZN13V3MutexConfig1sEvE1s, align 1, !tbaa !48, !range !50, !noundef !51
   %39 = trunc nuw i8 %38 to i1
   br i1 %39, label %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i6.i.i.i.i.i.i.i, label %_ZN14V3LockGuardImpI10V3MutexImpISt5mutexEEC2ERS2_.exit9.i.i.i.i.i.i.i
@@ -4549,7 +4549,7 @@ _ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i6.i.i.i.i.i.i.i: ; preds = %.prehe
 
 41:                                               ; preds = %_ZN10V3MutexImpISt5mutexE8try_lockEv.exit5.i.i6.i.i.i.i.i.i.i
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #29, !srcloc !54
-  %42 = add nuw nsw i32 %.039.i.i5.i.i.i.i.i.i.i, 1
+  %42 = add nuw nsw i32 %.037.i.i5.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i8.i.i.i.i.i.i.i = icmp eq i32 %42, 50000
   br i1 %exitcond.not.i.i8.i.i.i.i.i.i.i, label %43, label %.preheader.i.i4.i.i.i.i.i.i.i, !llvm.loop !55
 

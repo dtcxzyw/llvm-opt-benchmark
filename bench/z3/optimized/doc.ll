@@ -3363,10 +3363,10 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %14 = load i32, ptr %13, align 8, !tbaa !44
   %15 = lshr i32 %14, 1
-  %.not93130.not = icmp ult i32 %14, 2
-  br i1 %.not93130.not, label %.thread, label %.lr.ph135
+  %.not93128.not = icmp ult i32 %14, 2
+  br i1 %.not93128.not, label %.thread, label %.lr.ph133
 
-.lr.ph135:                                        ; preds = %.preheader
+.lr.ph133:                                        ; preds = %.preheader
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !55
   %18 = load ptr, ptr %2, align 8
@@ -3382,24 +3382,24 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   %23 = tail call noundef zeroext i1 @_ZNK11tbv_manager6equalsERK3tbvS2_(ptr noundef nonnull align 8 dereferenceable(552) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef nonnull align 4 dereferenceable(4) %22)
   br i1 %23, label %.thread, label %9
 
-24:                                               ; preds = %.lr.ph135, %.thread104
-  %.075134 = phi i32 [ 0, %.lr.ph135 ], [ %87, %.thread104 ]
-  %.076133 = phi i32 [ -1, %.lr.ph135 ], [ %.278, %.thread104 ]
-  %.081132 = phi i32 [ -1, %.lr.ph135 ], [ %.182, %.thread104 ]
-  %.085131 = phi i32 [ -1, %.lr.ph135 ], [ %.186, %.thread104 ]
-  %25 = lshr i32 %.075134, 5
+24:                                               ; preds = %.lr.ph133, %.thread102
+  %.075132 = phi i32 [ 0, %.lr.ph133 ], [ %87, %.thread102 ]
+  %.076131 = phi i32 [ -1, %.lr.ph133 ], [ %.278, %.thread102 ]
+  %.081130 = phi i32 [ -1, %.lr.ph133 ], [ %.182, %.thread102 ]
+  %.085129 = phi i32 [ -1, %.lr.ph133 ], [ %.186, %.thread102 ]
+  %25 = lshr i32 %.075132, 5
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i32, ptr %17, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !45
-  %29 = and i32 %.075134, 31
+  %29 = and i32 %.075132, 31
   %30 = shl nuw i32 1, %29
   %31 = and i32 %28, %30
-  %.not114 = icmp eq i32 %31, 0
-  br i1 %.not114, label %.thread104, label %32
+  %.not112 = icmp eq i32 %31, 0
+  br i1 %.not112, label %.thread102, label %32
 
 32:                                               ; preds = %24
-  %33 = shl nuw i32 %.075134, 1
-  %34 = lshr i32 %.075134, 4
+  %33 = shl nuw i32 %.075132, 1
+  %34 = lshr i32 %.075132, 4
   %35 = zext nneg i32 %34 to i64
   %36 = getelementptr inbounds nuw i32, ptr %1, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !45
@@ -3414,7 +3414,7 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   %45 = zext i1 %44 to i32
   %46 = or disjoint i32 %41, %45
   %.not = icmp eq i32 %46, 3
-  br i1 %.not, label %47, label %.thread104
+  br i1 %.not, label %47, label %.thread102
 
 47:                                               ; preds = %32
   %48 = load ptr, ptr %18, align 8, !tbaa !27
@@ -3431,22 +3431,22 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   %spec.select = zext i1 %57 to i32
   %58 = icmp eq i32 %56, 2
   %.072 = zext i1 %58 to i32
-  br i1 %19, label %.lr.ph127, label %._crit_edge
+  br i1 %19, label %.lr.ph125, label %._crit_edge
 
-._crit_edge:                                      ; preds = %.lr.ph127, %47
-  %.173.lcssa = phi i32 [ %.072, %47 ], [ %.274, %.lr.ph127 ]
-  %.170.lcssa = phi i32 [ %spec.select, %47 ], [ %.271, %.lr.ph127 ]
-  %.066.lcssa = phi i1 [ true, %47 ], [ %spec.select96, %.lr.ph127 ]
+._crit_edge:                                      ; preds = %.lr.ph125, %47
+  %.173.lcssa = phi i32 [ %.072, %47 ], [ %.274, %.lr.ph125 ]
+  %.170.lcssa = phi i32 [ %spec.select, %47 ], [ %.271, %.lr.ph125 ]
+  %.066.lcssa = phi i1 [ true, %47 ], [ %spec.select96, %.lr.ph125 ]
   %59 = icmp ne i32 %56, 3
   %or.cond = and i1 %59, %.066.lcssa
   br i1 %or.cond, label %.thread.sink.split, label %74
 
-.lr.ph127:                                        ; preds = %47, %.lr.ph127
-  %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.lr.ph127 ], [ 1, %47 ]
-  %.066125 = phi i1 [ %spec.select96, %.lr.ph127 ], [ true, %47 ]
-  %.170124 = phi i32 [ %.271, %.lr.ph127 ], [ %spec.select, %47 ]
-  %.173123 = phi i32 [ %.274, %.lr.ph127 ], [ %.072, %47 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv142
+.lr.ph125:                                        ; preds = %47, %.lr.ph125
+  %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.lr.ph125 ], [ 1, %47 ]
+  %.066123 = phi i1 [ %spec.select96, %.lr.ph125 ], [ true, %47 ]
+  %.170122 = phi i32 [ %.271, %.lr.ph125 ], [ %spec.select, %47 ]
+  %.173121 = phi i32 [ %.274, %.lr.ph125 ], [ %.072, %47 ]
+  %60 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv140
   %61 = load ptr, ptr %60, align 8, !tbaa !27
   %62 = getelementptr inbounds nuw i32, ptr %61, i64 %35
   %63 = load i32, ptr %62, align 4, !tbaa !45
@@ -3458,21 +3458,21 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   %68 = zext i1 %67 to i32
   %69 = or disjoint i32 %65, %68
   %.not95 = icmp eq i32 %56, %69
-  %spec.select96 = select i1 %.not95, i1 %.066125, i1 false
+  %spec.select96 = select i1 %.not95, i1 %.066123, i1 false
   %70 = icmp eq i32 %69, 1
   %71 = zext i1 %70 to i32
-  %.271 = add i32 %.170124, %71
+  %.271 = add i32 %.170122, %71
   %72 = icmp eq i32 %69, 2
   %73 = zext i1 %72 to i32
-  %.274 = add i32 %.173123, %73
-  %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next143, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph127, !llvm.loop !71
+  %.274 = add i32 %.173121, %73
+  %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next141, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph125, !llvm.loop !71
 
 74:                                               ; preds = %._crit_edge
   %75 = icmp eq i32 %56, 3
   %or.cond3 = and i1 %75, %.066.lcssa
-  br i1 %or.cond3, label %.thread104, label %76
+  br i1 %or.cond3, label %.thread102, label %76
 
 76:                                               ; preds = %74
   %77 = icmp eq i32 %.173.lcssa, 0
@@ -3483,46 +3483,46 @@ define hidden noundef range(i32 0, 6) i32 @_ZN11doc_manager14pick_resolventERK3t
   br i1 %79, label %.thread.sink.split, label %80
 
 80:                                               ; preds = %78
-  %.not92 = icmp ult i32 %.085131, %.173.lcssa
+  %.not92 = icmp ult i32 %.085129, %.173.lcssa
   br i1 %.not92, label %85, label %81
 
 81:                                               ; preds = %80
-  %82 = icmp uge i32 %.081132, %.170.lcssa
+  %82 = icmp uge i32 %.081130, %.170.lcssa
   %83 = icmp eq i32 %.170.lcssa, 1
   %or.cond5 = or i1 %82, %83
   %84 = icmp eq i32 %.173.lcssa, 1
   %or.cond97 = select i1 %or.cond5, i1 true, i1 %84
-  br i1 %or.cond97, label %86, label %.thread104
+  br i1 %or.cond97, label %86, label %.thread102
 
 85:                                               ; preds = %80
   %.old4 = icmp eq i32 %.170.lcssa, 1
   %.old = icmp eq i32 %.173.lcssa, 1
   %or.cond98 = select i1 %.old4, i1 true, i1 %.old
-  br i1 %or.cond98, label %86, label %.thread104
+  br i1 %or.cond98, label %86, label %.thread102
 
 86:                                               ; preds = %85, %81
-  br label %.thread104
+  br label %.thread102
 
-.thread104:                                       ; preds = %86, %81, %85, %74, %32, %24
-  %.186 = phi i32 [ %.085131, %32 ], [ %.085131, %24 ], [ %.085131, %85 ], [ %.085131, %81 ], [ %.173.lcssa, %86 ], [ %.085131, %74 ]
-  %.182 = phi i32 [ %.081132, %32 ], [ %.081132, %24 ], [ %.081132, %85 ], [ %.081132, %81 ], [ %.170.lcssa, %86 ], [ %.081132, %74 ]
-  %.278 = phi i32 [ %.076133, %32 ], [ %.076133, %24 ], [ %.076133, %85 ], [ %.076133, %81 ], [ %.075134, %86 ], [ %.076133, %74 ]
-  %87 = add nuw nsw i32 %.075134, 1
-  %exitcond144.not = icmp eq i32 %87, %15
-  br i1 %exitcond144.not, label %.thread110, label %24, !llvm.loop !72
+.thread102:                                       ; preds = %86, %81, %85, %74, %32, %24
+  %.186 = phi i32 [ %.085129, %32 ], [ %.085129, %24 ], [ %.085129, %85 ], [ %.085129, %81 ], [ %.173.lcssa, %86 ], [ %.085129, %74 ]
+  %.182 = phi i32 [ %.081130, %32 ], [ %.081130, %24 ], [ %.081130, %85 ], [ %.081130, %81 ], [ %.170.lcssa, %86 ], [ %.081130, %74 ]
+  %.278 = phi i32 [ %.076131, %32 ], [ %.076131, %24 ], [ %.076131, %85 ], [ %.076131, %81 ], [ %.075132, %86 ], [ %.076131, %74 ]
+  %87 = add nuw nsw i32 %.075132, 1
+  %exitcond142.not = icmp eq i32 %87, %15
+  br i1 %exitcond142.not, label %.thread108, label %24, !llvm.loop !72
 
-.thread110:                                       ; preds = %.thread104
+.thread108:                                       ; preds = %.thread102
   %.not94 = icmp eq i32 %.278, -1
   br i1 %.not94, label %.thread, label %.thread.sink.split
 
-.thread.sink.split:                               ; preds = %78, %76, %._crit_edge, %.thread110
-  %.075134.lcssa151.sink = phi i32 [ %.278, %.thread110 ], [ %.075134, %._crit_edge ], [ %.075134, %76 ], [ %.075134, %78 ]
-  %.0.ph = phi i32 [ 5, %.thread110 ], [ 4, %78 ], [ 3, %76 ], [ 2, %._crit_edge ]
-  store i32 %.075134.lcssa151.sink, ptr %4, align 4, !tbaa !45
+.thread.sink.split:                               ; preds = %78, %76, %._crit_edge, %.thread108
+  %.075132.lcssa149.sink = phi i32 [ %.278, %.thread108 ], [ %.075132, %._crit_edge ], [ %.075132, %76 ], [ %.075132, %78 ]
+  %.0.ph = phi i32 [ 5, %.thread108 ], [ 4, %78 ], [ 3, %76 ], [ 2, %._crit_edge ]
+  store i32 %.075132.lcssa149.sink, ptr %4, align 4, !tbaa !45
   br label %.thread
 
-.thread:                                          ; preds = %.lr.ph, %.thread.sink.split, %.preheader, %.thread110, %5
-  %.0 = phi i32 [ 1, %5 ], [ 1, %.thread110 ], [ 1, %.preheader ], [ %.0.ph, %.thread.sink.split ], [ 0, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.thread.sink.split, %.preheader, %.thread108, %5
+  %.0 = phi i32 [ 1, %5 ], [ 1, %.thread108 ], [ 1, %.preheader ], [ %.0.ph, %.thread.sink.split ], [ 0, %.lr.ph ]
   ret i32 %.0
 }
 

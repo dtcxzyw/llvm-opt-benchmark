@@ -2005,8 +2005,8 @@ _ZN4Luau7VariantIJNS_9Unifiable5BoundIPKNS_11TypePackVarEEENS1_5ErrorIS5_EENS_12
   br i1 %110, label %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread.sink.split, label %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread
 
 _ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread.sink.split: ; preds = %108, %94
-  %.sink77 = phi ptr [ %93, %94 ], [ %107, %108 ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sink77, i64 24
+  %.sink76 = phi ptr [ %93, %94 ], [ %107, %108 ]
+  %111 = getelementptr inbounds nuw i8, ptr %.sink76, i64 24
   store ptr null, ptr %111, align 8, !tbaa !69
   br label %_ZN4Luau10getMutableINS_12FreeTypePackEEEPT_PKNS_11TypePackVarE.exit.thread
 
@@ -10642,9 +10642,9 @@ _ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePack
 
 _ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit: ; preds = %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i
   %.sink = phi i32 [ 0, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ 1, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ %57, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split ]
-  %.sroa.07.012.i34.i.sink = phi ptr [ %60, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ %100, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ %139, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split ]
+  %.sroa.07.011.i34.i.sink = phi ptr [ %60, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_4TypeE.exit.i ], [ %100, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findEPKNS_11TypePackVarE.exit.i ], [ %139, %_ZNK4Luau12_GLOBAL__N_110TypeCloner4findENS_7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEE.exit.sink.split ]
   store i32 %.sink, ptr %5, align 8, !tbaa !40, !alias.scope !329
-  store ptr %.sroa.07.012.i34.i.sink, ptr %19, align 8, !tbaa !42, !alias.scope !329
+  store ptr %.sroa.07.011.i34.i.sink, ptr %19, align 8, !tbaa !42, !alias.scope !329
   store i8 0, ptr %17, align 8, !tbaa !332
   %140 = sext i32 %.sink to i64
   %141 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 %140

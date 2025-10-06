@@ -506,16 +506,15 @@ define internal fastcc noundef zeroext i1 @communityid_calc(i8 noundef zeroext %
   br label %89
 
 17:                                               ; preds = %7
-  switch i8 %1, label %18 [
-    i8 16, label %19
-    i8 4, label %19
-  ], !prof !11
+  %.off = add nsw i8 %1, -5
+  %switch = icmp ult i8 %.off, 11
+  br i1 %switch, label %18, label %19, !prof !11
 
 18:                                               ; preds = %17
   tail call void @g_return_if_fail_warning(ptr noundef null, ptr noundef nonnull @__func__.communityid_calc, ptr noundef nonnull @.str.18)
   br label %89
 
-19:                                               ; preds = %17, %17
+19:                                               ; preds = %17
   %20 = icmp eq ptr %2, null
   %21 = icmp eq ptr %3, null
   %or.cond4.not = or i1 %20, %21
@@ -794,7 +793,7 @@ attributes #12 = { nounwind }
 !8 = distinct !{!8, !9}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!11 = !{!"branch_weights", i32 1, i32 1000, i32 1000}
+!11 = !{!"branch_weights", i32 1, i32 2000}
 !12 = !{!13, !15}
 !13 = distinct !{!13, !14, !"memcpy.inline: argument 0"}
 !14 = distinct !{!14, !"memcpy.inline"}

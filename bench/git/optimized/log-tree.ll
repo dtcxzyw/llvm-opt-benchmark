@@ -387,11 +387,11 @@ define internal noundef i32 @add_ref_decoration(ptr noundef %0, ptr readnone cap
 .lr.ph:                                           ; preds = %17, %match_ref_pattern.exit.thread.i
   %19 = phi i64 [ %33, %match_ref_pattern.exit.thread.i ], [ %16, %17 ]
   %20 = phi ptr [ %34, %match_ref_pattern.exit.thread.i ], [ %18, %17 ]
-  %.03792.i77 = phi ptr [ %35, %match_ref_pattern.exit.thread.i ], [ %18, %17 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.03792.i77, i64 8
+  %.03792.i75 = phi ptr [ %35, %match_ref_pattern.exit.thread.i ], [ %18, %17 ]
+  %21 = getelementptr inbounds nuw i8, ptr %.03792.i75, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !31
   %.not.i.i = icmp eq ptr %22, null
-  %23 = load ptr, ptr %.03792.i77, align 8, !tbaa !25
+  %23 = load ptr, ptr %.03792.i75, align 8, !tbaa !25
   br i1 %.not.i.i, label %24, label %.preheader86.i
 
 24:                                               ; preds = %.lr.ph
@@ -401,7 +401,7 @@ define internal noundef i32 @add_ref_decoration(ptr noundef %0, ptr readnone cap
 
 .match_ref_pattern.exit.thread.i_crit_edge:       ; preds = %24
   %.pre = load ptr, ptr %10, align 8, !tbaa !20
-  %.pre98 = load i64, ptr %15, align 8, !tbaa !24
+  %.pre96 = load i64, ptr %15, align 8, !tbaa !24
   br label %match_ref_pattern.exit.thread.i
 
 .preheader86.i:                                   ; preds = %.lr.ph, %27
@@ -426,9 +426,9 @@ match_ref_pattern.exit.i:                         ; preds = %.preheader86.i
   ]
 
 match_ref_pattern.exit.thread.i:                  ; preds = %27, %.match_ref_pattern.exit.thread.i_crit_edge, %match_ref_pattern.exit.i
-  %33 = phi i64 [ %.pre98, %.match_ref_pattern.exit.thread.i_crit_edge ], [ %19, %match_ref_pattern.exit.i ], [ %19, %27 ]
+  %33 = phi i64 [ %.pre96, %.match_ref_pattern.exit.thread.i_crit_edge ], [ %19, %match_ref_pattern.exit.i ], [ %19, %27 ]
   %34 = phi ptr [ %.pre, %.match_ref_pattern.exit.thread.i_crit_edge ], [ %20, %match_ref_pattern.exit.i ], [ %20, %27 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.03792.i77, i64 16
+  %35 = getelementptr inbounds nuw i8, ptr %.03792.i75, i64 16
   %36 = getelementptr inbounds nuw %struct.string_list_item, ptr %34, i64 %33
   %37 = icmp ult ptr %35, %36
   br i1 %37, label %.lr.ph, label %.critedge.i
@@ -446,31 +446,31 @@ match_ref_pattern.exit.thread.i:                  ; preds = %27, %.match_ref_pat
 41:                                               ; preds = %38
   %42 = load ptr, ptr %11, align 8, !tbaa !20
   %.not4994.i = icmp eq ptr %42, null
-  br i1 %.not4994.i, label %ref_filter_match.exit.thread, label %.lr.ph79
+  br i1 %.not4994.i, label %ref_filter_match.exit.thread, label %.lr.ph77
 
-.lr.ph79:                                         ; preds = %41, %match_ref_pattern.exit62.thread.i
+.lr.ph77:                                         ; preds = %41, %match_ref_pattern.exit62.thread.i
   %43 = phi i64 [ %57, %match_ref_pattern.exit62.thread.i ], [ %40, %41 ]
   %44 = phi ptr [ %58, %match_ref_pattern.exit62.thread.i ], [ %42, %41 ]
-  %.195.i78 = phi ptr [ %59, %match_ref_pattern.exit62.thread.i ], [ %42, %41 ]
-  %45 = getelementptr inbounds nuw i8, ptr %.195.i78, i64 8
+  %.195.i76 = phi ptr [ %59, %match_ref_pattern.exit62.thread.i ], [ %42, %41 ]
+  %45 = getelementptr inbounds nuw i8, ptr %.195.i76, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !31
   %.not.i52.i = icmp eq ptr %46, null
-  %47 = load ptr, ptr %.195.i78, align 8, !tbaa !25
+  %47 = load ptr, ptr %.195.i76, align 8, !tbaa !25
   br i1 %.not.i52.i, label %48, label %.preheader83.i
 
-48:                                               ; preds = %.lr.ph79
+48:                                               ; preds = %.lr.ph77
   %49 = tail call i32 @wildmatch(ptr noundef %47, ptr noundef %0, i32 noundef 0) #15
   %.not6.i61.i = icmp eq i32 %49, 0
   br i1 %.not6.i61.i, label %ref_filter_match.exit, label %.match_ref_pattern.exit62.thread.i_crit_edge
 
 .match_ref_pattern.exit62.thread.i_crit_edge:     ; preds = %48
-  %.pre99 = load ptr, ptr %11, align 8, !tbaa !20
-  %.pre100 = load i64, ptr %39, align 8, !tbaa !24
+  %.pre97 = load ptr, ptr %11, align 8, !tbaa !20
+  %.pre98 = load i64, ptr %39, align 8, !tbaa !24
   br label %match_ref_pattern.exit62.thread.i
 
-.preheader83.i:                                   ; preds = %.lr.ph79, %51
-  %.07.i.i53.i = phi ptr [ %52, %51 ], [ %0, %.lr.ph79 ]
-  %.06.i.i54.i = phi ptr [ %54, %51 ], [ %47, %.lr.ph79 ]
+.preheader83.i:                                   ; preds = %.lr.ph77, %51
+  %.07.i.i53.i = phi ptr [ %52, %51 ], [ %0, %.lr.ph77 ]
+  %.06.i.i54.i = phi ptr [ %54, %51 ], [ %47, %.lr.ph77 ]
   %50 = load i8, ptr %.06.i.i54.i, align 1, !tbaa !32
   %.not.i.i55.i = icmp eq i8 %50, 0
   br i1 %.not.i.i55.i, label %match_ref_pattern.exit62.i, label %51
@@ -490,12 +490,12 @@ match_ref_pattern.exit62.i:                       ; preds = %.preheader83.i
   ]
 
 match_ref_pattern.exit62.thread.i:                ; preds = %51, %.match_ref_pattern.exit62.thread.i_crit_edge, %match_ref_pattern.exit62.i
-  %57 = phi i64 [ %.pre100, %.match_ref_pattern.exit62.thread.i_crit_edge ], [ %43, %match_ref_pattern.exit62.i ], [ %43, %51 ]
-  %58 = phi ptr [ %.pre99, %.match_ref_pattern.exit62.thread.i_crit_edge ], [ %44, %match_ref_pattern.exit62.i ], [ %44, %51 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.195.i78, i64 16
+  %57 = phi i64 [ %.pre98, %.match_ref_pattern.exit62.thread.i_crit_edge ], [ %43, %match_ref_pattern.exit62.i ], [ %43, %51 ]
+  %58 = phi ptr [ %.pre97, %.match_ref_pattern.exit62.thread.i_crit_edge ], [ %44, %match_ref_pattern.exit62.i ], [ %44, %51 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.195.i76, i64 16
   %60 = getelementptr inbounds nuw %struct.string_list_item, ptr %58, i64 %57
   %61 = icmp ult ptr %59, %60
-  br i1 %61, label %.lr.ph79, label %ref_filter_match.exit.thread
+  br i1 %61, label %.lr.ph77, label %ref_filter_match.exit.thread
 
 62:                                               ; preds = %38, %.critedge.i
   %.not45.i = icmp eq ptr %13, null
@@ -510,31 +510,31 @@ match_ref_pattern.exit62.thread.i:                ; preds = %51, %.match_ref_pat
 66:                                               ; preds = %63
   %67 = load ptr, ptr %13, align 8, !tbaa !20
   %.not47100.i = icmp eq ptr %67, null
-  br i1 %.not47100.i, label %ref_filter_match.exit, label %.lr.ph81
+  br i1 %.not47100.i, label %ref_filter_match.exit, label %.lr.ph79
 
-.lr.ph81:                                         ; preds = %66, %match_ref_pattern.exit73.thread.i
+.lr.ph79:                                         ; preds = %66, %match_ref_pattern.exit73.thread.i
   %68 = phi i64 [ %82, %match_ref_pattern.exit73.thread.i ], [ %65, %66 ]
   %69 = phi ptr [ %83, %match_ref_pattern.exit73.thread.i ], [ %67, %66 ]
-  %.2101.i80 = phi ptr [ %84, %match_ref_pattern.exit73.thread.i ], [ %67, %66 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.2101.i80, i64 8
+  %.2101.i78 = phi ptr [ %84, %match_ref_pattern.exit73.thread.i ], [ %67, %66 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.2101.i78, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !31
   %.not.i63.i = icmp eq ptr %71, null
-  %72 = load ptr, ptr %.2101.i80, align 8, !tbaa !25
+  %72 = load ptr, ptr %.2101.i78, align 8, !tbaa !25
   br i1 %.not.i63.i, label %73, label %.preheader.i
 
-73:                                               ; preds = %.lr.ph81
+73:                                               ; preds = %.lr.ph79
   %74 = tail call i32 @wildmatch(ptr noundef %72, ptr noundef %0, i32 noundef 0) #15
   %.not6.i72.i = icmp eq i32 %74, 0
   br i1 %.not6.i72.i, label %ref_filter_match.exit.thread, label %.match_ref_pattern.exit73.thread.i_crit_edge
 
 .match_ref_pattern.exit73.thread.i_crit_edge:     ; preds = %73
-  %.pre101 = load ptr, ptr %13, align 8, !tbaa !20
-  %.pre102 = load i64, ptr %64, align 8, !tbaa !24
+  %.pre99 = load ptr, ptr %13, align 8, !tbaa !20
+  %.pre100 = load i64, ptr %64, align 8, !tbaa !24
   br label %match_ref_pattern.exit73.thread.i
 
-.preheader.i:                                     ; preds = %.lr.ph81, %76
-  %.07.i.i64.i = phi ptr [ %77, %76 ], [ %0, %.lr.ph81 ]
-  %.06.i.i65.i = phi ptr [ %79, %76 ], [ %72, %.lr.ph81 ]
+.preheader.i:                                     ; preds = %.lr.ph79, %76
+  %.07.i.i64.i = phi ptr [ %77, %76 ], [ %0, %.lr.ph79 ]
+  %.06.i.i65.i = phi ptr [ %79, %76 ], [ %72, %.lr.ph79 ]
   %75 = load i8, ptr %.06.i.i65.i, align 1, !tbaa !32
   %.not.i.i66.i = icmp eq i8 %75, 0
   br i1 %.not.i.i66.i, label %match_ref_pattern.exit73.i, label %76
@@ -554,12 +554,12 @@ match_ref_pattern.exit73.i:                       ; preds = %.preheader.i
   ]
 
 match_ref_pattern.exit73.thread.i:                ; preds = %76, %.match_ref_pattern.exit73.thread.i_crit_edge, %match_ref_pattern.exit73.i
-  %82 = phi i64 [ %.pre102, %.match_ref_pattern.exit73.thread.i_crit_edge ], [ %68, %match_ref_pattern.exit73.i ], [ %68, %76 ]
-  %83 = phi ptr [ %.pre101, %.match_ref_pattern.exit73.thread.i_crit_edge ], [ %69, %match_ref_pattern.exit73.i ], [ %69, %76 ]
-  %84 = getelementptr inbounds nuw i8, ptr %.2101.i80, i64 16
+  %82 = phi i64 [ %.pre100, %.match_ref_pattern.exit73.thread.i_crit_edge ], [ %68, %match_ref_pattern.exit73.i ], [ %68, %76 ]
+  %83 = phi ptr [ %.pre99, %.match_ref_pattern.exit73.thread.i_crit_edge ], [ %69, %match_ref_pattern.exit73.i ], [ %69, %76 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.2101.i78, i64 16
   %85 = getelementptr inbounds nuw %struct.string_list_item, ptr %83, i64 %82
   %86 = icmp ult ptr %84, %85
-  br i1 %86, label %.lr.ph81, label %ref_filter_match.exit
+  br i1 %86, label %.lr.ph79, label %ref_filter_match.exit
 
 ref_filter_match.exit:                            ; preds = %match_ref_pattern.exit62.i, %match_ref_pattern.exit62.i, %48, %match_ref_pattern.exit73.thread.i, %66, %63, %62, %5
   %87 = tail call i32 @starts_with(ptr noundef %0, ptr noundef %7) #15
@@ -681,23 +681,23 @@ add_name_decoration.exit59:                       ; preds = %st_add.exit.i58
   %138 = load i32, ptr %110, align 4
   %139 = and i32 %138, 14
   %140 = icmp eq i32 %139, 8
-  br i1 %140, label %.lr.ph85, label %ref_filter_match.exit.thread
+  br i1 %140, label %.lr.ph83, label %ref_filter_match.exit.thread
 
-.lr.ph85:                                         ; preds = %add_name_decoration.exit59, %add_name_decoration.exit61
+.lr.ph83:                                         ; preds = %add_name_decoration.exit59, %add_name_decoration.exit61
   %141 = phi i32 [ %161, %add_name_decoration.exit61 ], [ %138, %add_name_decoration.exit59 ]
-  %.03984 = phi ptr [ %149, %add_name_decoration.exit61 ], [ %110, %add_name_decoration.exit59 ]
+  %.03982 = phi ptr [ %149, %add_name_decoration.exit61 ], [ %110, %add_name_decoration.exit59 ]
   %142 = and i32 %141, 1
   %.not53 = icmp eq i32 %142, 0
   br i1 %.not53, label %143, label %147
 
-143:                                              ; preds = %.lr.ph85
+143:                                              ; preds = %.lr.ph83
   %144 = load ptr, ptr @the_repository, align 8, !tbaa !15
-  %145 = getelementptr inbounds nuw i8, ptr %.03984, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.03982, i64 4
   %146 = tail call ptr @parse_object(ptr noundef %144, ptr noundef nonnull %145) #15
   br label %147
 
-147:                                              ; preds = %143, %.lr.ph85
-  %148 = getelementptr inbounds nuw i8, ptr %.03984, i64 40
+147:                                              ; preds = %143, %.lr.ph83
+  %148 = getelementptr inbounds nuw i8, ptr %.03982, i64 40
   %149 = load ptr, ptr %148, align 8, !tbaa !36
   %.not54 = icmp eq ptr %149, null
   br i1 %.not54, label %ref_filter_match.exit.thread, label %150
@@ -731,7 +731,7 @@ add_name_decoration.exit61:                       ; preds = %st_add.exit.i60
   %161 = load i32, ptr %149, align 4
   %162 = and i32 %161, 14
   %163 = icmp eq i32 %162, 8
-  br i1 %163, label %.lr.ph85, label %ref_filter_match.exit.thread, !llvm.loop !41
+  br i1 %163, label %.lr.ph83, label %ref_filter_match.exit.thread, !llvm.loop !41
 
 ref_filter_match.exit.thread:                     ; preds = %24, %match_ref_pattern.exit.i, %match_ref_pattern.exit.i, %match_ref_pattern.exit62.thread.i, %match_ref_pattern.exit73.i, %match_ref_pattern.exit73.i, %73, %147, %add_name_decoration.exit61, %add_name_decoration.exit59, %41, %104, %103
   ret i32 0
@@ -2295,8 +2295,8 @@ define dso_local i32 @log_tree_commit(ptr noundef initializes((336, 344)) %0, pt
 39:                                               ; preds = %36
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1620
   %41 = load i32, ptr %40, align 4, !tbaa !184
-  %.not84.i = icmp eq i32 %41, 0
-  br i1 %.not84.i, label %42, label %.thread.i
+  %.not83.i = icmp eq i32 %41, 0
+  br i1 %.not83.i, label %42, label %.thread.i
 
 42:                                               ; preds = %39
   %43 = and i64 %37, 4503599627370496
@@ -2593,15 +2593,15 @@ do_remerge_diff.exit.i:                           ; preds = %cleanup_additional_
 161:                                              ; preds = %159
   %162 = and i64 %61, 288230376151711744
   %.not68.i = icmp eq i64 %162, 0
-  %.pre.pre85.i = load ptr, ptr %46, align 8, !tbaa !142
+  %.pre.pre84.i = load ptr, ptr %46, align 8, !tbaa !142
   br i1 %.not68.i, label %163, label %.preheader
 
 163:                                              ; preds = %161
-  store ptr %.pre.pre85.i, ptr %18, align 8, !tbaa !119
+  store ptr %.pre.pre84.i, ptr %18, align 8, !tbaa !119
   br label %.preheader
 
 .preheader:                                       ; preds = %163, %161, %._crit_edge.i
-  %.ph = phi ptr [ %.pre.pre85.i, %163 ], [ %.pre.pre85.i, %161 ], [ %.pre.pre.i, %._crit_edge.i ]
+  %.ph = phi ptr [ %.pre.pre84.i, %163 ], [ %.pre.pre84.i, %161 ], [ %.pre.pre.i, %._crit_edge.i ]
   br label %164
 
 164:                                              ; preds = %.preheader, %176

@@ -390,7 +390,7 @@ define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZN2cm6String3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %.not.i = icmp eq ptr %3, null
-  br i1 %.not.i, label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread8, label %4
+  br i1 %.not.i, label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread7, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %0, align 8, !tbaa !12
@@ -408,14 +408,14 @@ _ZNK2cm6String13str_if_stableB5cxx11Ev.exit:      ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !35
   %.not = icmp eq i64 %10, %12
-  br i1 %.not, label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread8, label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread
+  br i1 %.not, label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread7, label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread
 
 _ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread: ; preds = %4, %6, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit
   tail call void @_ZN2cm6String34internally_mutate_to_stable_stringEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   %13 = load ptr, ptr %0, align 8, !tbaa !12
-  br label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread8
+  br label %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread7
 
-_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread8: ; preds = %1, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread
+_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread7: ; preds = %1, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread
   %.1 = phi ptr [ %13, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit.thread ], [ %5, %_ZNK2cm6String13str_if_stableB5cxx11Ev.exit ], [ @_ZN2cmL13empty_string_B5cxx11E, %1 ]
   ret ptr %.1
 }

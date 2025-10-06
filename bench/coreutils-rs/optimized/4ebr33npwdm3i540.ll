@@ -33,33 +33,33 @@ define hidden void @_ZN3nix3sys4stat4stat17h98b5e8c84361ed59E(ptr noalias nounde
   %5 = call { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$13with_nix_path17haf53a1dbdba29f37E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(144) %4)
   %6 = extractvalue { i32, i32 } %5, 0
   %7 = extractvalue { i32, i32 } %5, 1
-  %switch = icmp eq i32 %6, 0
-  br i1 %switch, label %8, label %15
+  %8 = icmp eq i32 %6, 0
+  br i1 %8, label %9, label %16
 
-8:                                                ; preds = %3
-  %9 = icmp eq i32 %7, -1
-  br i1 %9, label %12, label %10
+9:                                                ; preds = %3
+  %10 = icmp eq i32 %7, -1
+  br i1 %10, label %13, label %11
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  br label %14
-
-12:                                               ; preds = %8
-  %13 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !4
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
   br label %15
 
-14:                                               ; preds = %15, %10
-  %.sink = phi i32 [ 1, %15 ], [ 0, %10 ]
+13:                                               ; preds = %9
+  %14 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !4
+  br label %16
+
+15:                                               ; preds = %16, %11
+  %.sink = phi i32 [ 1, %16 ], [ 0, %11 ]
   store i32 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %3, %12
-  %.sink18 = phi i32 [ %13, %12 ], [ %7, %3 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink18, ptr %16, align 4
-  br label %14
+16:                                               ; preds = %3, %13
+  %.sink16 = phi i32 [ %14, %13 ], [ %7, %3 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink16, ptr %17, align 4
+  br label %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -69,33 +69,33 @@ define hidden void @_ZN3nix3sys4stat5lstat17h4736c182fba00a7dE(ptr noalias nound
   %5 = call { i32, i32 } @"_ZN45_$LT$$u5b$u8$u5d$$u20$as$u20$nix..NixPath$GT$13with_nix_path17h47f14a4c64b3b83aE"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(144) %4)
   %6 = extractvalue { i32, i32 } %5, 0
   %7 = extractvalue { i32, i32 } %5, 1
-  %switch = icmp eq i32 %6, 0
-  br i1 %switch, label %8, label %15
+  %8 = icmp eq i32 %6, 0
+  br i1 %8, label %9, label %16
 
-8:                                                ; preds = %3
-  %9 = icmp eq i32 %7, -1
-  br i1 %9, label %12, label %10
+9:                                                ; preds = %3
+  %10 = icmp eq i32 %7, -1
+  br i1 %10, label %13, label %11
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %11, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
-  br label %14
-
-12:                                               ; preds = %8
-  %13 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !4
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %12, ptr noundef nonnull align 8 dereferenceable(144) %4, i64 144, i1 false)
   br label %15
 
-14:                                               ; preds = %15, %10
-  %.sink = phi i32 [ 1, %15 ], [ 0, %10 ]
+13:                                               ; preds = %9
+  %14 = call noundef i32 @"_ZN3nix5errno43_$LT$impl$u20$nix..errno..consts..Errno$GT$4last17h4b5419bd96ecf1ecE"(), !range !4
+  br label %16
+
+15:                                               ; preds = %16, %11
+  %.sink = phi i32 [ 1, %16 ], [ 0, %11 ]
   store i32 %.sink, ptr %0, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 
-15:                                               ; preds = %3, %12
-  %.sink18 = phi i32 [ %13, %12 ], [ %7, %3 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %.sink18, ptr %16, align 4
-  br label %14
+16:                                               ; preds = %3, %13
+  %.sink16 = phi i32 [ %14, %13 ], [ %7, %3 ]
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %.sink16, ptr %17, align 4
+  br label %15
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

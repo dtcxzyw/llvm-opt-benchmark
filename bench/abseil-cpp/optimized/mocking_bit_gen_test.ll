@@ -17505,12 +17505,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !446
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !449
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -17546,13 +17546,13 @@ _ZNK7testing8internal16TypedExpectationIFiiiEE21ShouldHandleArgumentsERKSt5tuple
 _ZNK7testing8internal16TypedExpectationIFiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !449
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !477
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !477
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -17569,7 +17569,7 @@ _ZNK7testing8internal16TypedExpectationIFiiiEE21ShouldHandleArgumentsERKSt5tuple
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFiiiEE29FindMatchingExpectationLockedERKSt5tupleIJiiEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFiiiEE29FindMatchingExpectationLockedERKSt5tupleIJiiEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -26230,12 +26230,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !727
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !730
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFdddEE21ShouldHandleArgumentsERKSt5tupleIJddEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFdddEE21ShouldHandleArgumentsERKSt5tupleIJddEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFdddEE21ShouldHandleArgumentsERKSt5tupleIJddEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -26271,13 +26271,13 @@ _ZNK7testing8internal16TypedExpectationIFdddEE21ShouldHandleArgumentsERKSt5tuple
 _ZNK7testing8internal16TypedExpectationIFdddEE21ShouldHandleArgumentsERKSt5tupleIJddEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !730
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !733
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !733
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFdddEE21ShouldHandleArgumentsERKSt5tupleIJddEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFdddEE21ShouldHandleArgumentsERKSt5tupleIJddEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -26294,7 +26294,7 @@ _ZNK7testing8internal16TypedExpectationIFdddEE21ShouldHandleArgumentsERKSt5tuple
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFdddEE29FindMatchingExpectationLockedERKSt5tupleIJddEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFdddEE29FindMatchingExpectationLockedERKSt5tupleIJddEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -33175,12 +33175,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !856
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !859
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFddEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFddEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFddEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -33216,13 +33216,13 @@ _ZNK7testing8internal16TypedExpectationIFddEE21ShouldHandleArgumentsERKSt5tupleI
 _ZNK7testing8internal16TypedExpectationIFddEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !859
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !862
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !862
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFddEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFddEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -33239,7 +33239,7 @@ _ZNK7testing8internal16TypedExpectationIFddEE21ShouldHandleArgumentsERKSt5tupleI
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFddEE29FindMatchingExpectationLockedERKSt5tupleIJdEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFddEE29FindMatchingExpectationLockedERKSt5tupleIJdEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -38784,12 +38784,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !971
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !974
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFidEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFidEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFidEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -38825,13 +38825,13 @@ _ZNK7testing8internal16TypedExpectationIFidEE21ShouldHandleArgumentsERKSt5tupleI
 _ZNK7testing8internal16TypedExpectationIFidEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !974
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !977
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !977
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFidEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFidEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -38848,7 +38848,7 @@ _ZNK7testing8internal16TypedExpectationIFidEE21ShouldHandleArgumentsERKSt5tupleI
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFidEE29FindMatchingExpectationLockedERKSt5tupleIJdEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFidEE29FindMatchingExpectationLockedERKSt5tupleIJdEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -44115,12 +44115,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !1063
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1066
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFbdEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFbdEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFbdEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -44156,13 +44156,13 @@ _ZNK7testing8internal16TypedExpectationIFbdEE21ShouldHandleArgumentsERKSt5tupleI
 _ZNK7testing8internal16TypedExpectationIFbdEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1066
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !1069
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !1069
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFbdEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFbdEE21ShouldHandleArgumentsERKSt5tupleIJdEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -44179,7 +44179,7 @@ _ZNK7testing8internal16TypedExpectationIFbdEE21ShouldHandleArgumentsERKSt5tupleI
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFbdEE29FindMatchingExpectationLockedERKSt5tupleIJdEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFbdEE29FindMatchingExpectationLockedERKSt5tupleIJdEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -48765,14 +48765,14 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclINS_1
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i.i.pre = load i64, ptr %8, align 8, !tbaa !362
-  br label %.critedge
+  br label %select.unfold
 
-.critedge:                                        ; preds = %.critedge.backedge, %3
-  %18 = phi i64 [ %.pre.i.i.pre, %3 ], [ %27, %.critedge.backedge ]
+select.unfold:                                    ; preds = %select.unfold.backedge, %3
+  %18 = phi i64 [ %.pre.i.i.pre, %3 ], [ %27, %select.unfold.backedge ]
   %19 = icmp ugt i64 %18, 31
   br i1 %19, label %20, label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
 
-20:                                               ; preds = %.critedge
+20:                                               ; preds = %select.unfold
   store i64 2, ptr %8, align 8, !tbaa !362
   %21 = load i8, ptr %10, align 8, !tbaa !367, !range !42, !noundef !43
   %22 = trunc nuw i8 %21 to i1
@@ -48787,7 +48787,7 @@ define linkonce_odr dso_local noundef i32 @_ZN4absl17zipf_distributionIiEclINS_1
   tail call void @_ZN4absl15random_internal10RandenSlow8GenerateEPKvPv(ptr noundef %23, ptr noundef nonnull %7)
   br label %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i
 
-_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i: ; preds = %25, %24, %.critedge
+_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i: ; preds = %25, %24, %select.unfold
   %26 = load i64, ptr %8, align 8, !tbaa !362
   %27 = add i64 %26, 1
   store i64 %27, ptr %8, align 8, !tbaa !362
@@ -48807,16 +48807,16 @@ _ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EE
   %37 = bitcast i64 %36 to double
   %38 = fadd double %37, 0.000000e+00
   %39 = fcmp uge double %37, 1.000000e+00
-  br i1 %39, label %.critedge.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit
+  br i1 %39, label %select.unfold.backedge, label %_ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit
 
-.critedge.backedge:                               ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit, %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
-  br label %.critedge, !llvm.loop !1167
+select.unfold.backedge:                           ; preds = %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i, %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit, %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
+  br label %select.unfold, !llvm.loop !1167
 
 _ZN4absl25uniform_real_distributionIdEclINS_13MockingBitGenEEEdRT_.exit: ; preds = %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i
-  %.0.i.i.i32 = phi double [ %38, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
+  %.0.i.i.i30 = phi double [ %38, %_ZN4absl15random_internal20GenerateRealFromBitsIdNS0_19GeneratePositiveTagELb1EEET_mi.exit.i.i ], [ 0.000000e+00, %_ZN4absl15random_internal15FastUniformBitsImEclINS_13MockingBitGenEEEmRT_.exit.i.i ]
   %40 = load double, ptr %11, align 8, !tbaa !1164
   %41 = load double, ptr %12, align 8, !tbaa !1165
-  %42 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i32, double %41, double %40)
+  %42 = tail call double @llvm.fmuladd.f64(double %.0.i.i.i30, double %41, double %40)
   %43 = load double, ptr %13, align 8, !tbaa !1161
   %44 = load double, ptr %14, align 8, !tbaa !1162
   %45 = fcmp oeq double %44, -1.000000e+00
@@ -48841,13 +48841,13 @@ _ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit: ; preds = %46, %48
   %57 = load i32, ptr %2, align 8, !tbaa !1158
   %58 = sitofp i32 %57 to double
   %59 = fcmp ogt double %56, %58
-  br i1 %59, label %.critedge.backedge, label %60
+  br i1 %59, label %select.unfold.backedge, label %60
 
 60:                                               ; preds = %_ZNK4absl17zipf_distributionIiE10param_type4hinvEd.exit
   %61 = fsub double %56, %55
   %62 = load double, ptr %16, align 8, !tbaa !1166
   %63 = fcmp ugt double %61, %62
-  br i1 %63, label %64, label %.thread
+  br i1 %63, label %64, label %90
 
 64:                                               ; preds = %60
   %65 = fadd double %56, 5.000000e-01
@@ -48889,11 +48889,11 @@ _ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit: ; preds = %7
   %87 = phi double [ %81, %79 ], [ %86, %82 ]
   %88 = fsub double %75, %87
   %89 = fcmp ult double %42, %88
-  br i1 %89, label %.critedge.backedge, label %.thread
+  br i1 %89, label %select.unfold.backedge, label %90
 
-.thread:                                          ; preds = %60, %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit
-  %90 = fptosi double %56 to i32
-  ret i32 %90
+90:                                               ; preds = %_ZNK4absl17zipf_distributionIiE10param_type14pow_negative_qEd.exit, %60
+  %91 = fptosi double %56 to i32
+  ret i32 %91
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -49306,12 +49306,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !1174
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1177
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFiiddEE21ShouldHandleArgumentsERKSt5tupleIJiddEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFiiddEE21ShouldHandleArgumentsERKSt5tupleIJiddEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFiiddEE21ShouldHandleArgumentsERKSt5tupleIJiddEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -49347,13 +49347,13 @@ _ZNK7testing8internal16TypedExpectationIFiiddEE21ShouldHandleArgumentsERKSt5tupl
 _ZNK7testing8internal16TypedExpectationIFiiddEE21ShouldHandleArgumentsERKSt5tupleIJiddEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1177
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !1180
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !1180
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFiiddEE21ShouldHandleArgumentsERKSt5tupleIJiddEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFiiddEE21ShouldHandleArgumentsERKSt5tupleIJiddEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -49370,7 +49370,7 @@ _ZNK7testing8internal16TypedExpectationIFiiddEE21ShouldHandleArgumentsERKSt5tupl
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFiiddEE29FindMatchingExpectationLockedERKSt5tupleIJiddEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFiiddEE29FindMatchingExpectationLockedERKSt5tupleIJiddEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -56210,12 +56210,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !1323
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1326
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFiiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiiEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFiiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiiEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFiiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiiEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -56251,13 +56251,13 @@ _ZNK7testing8internal16TypedExpectationIFiiiiEE21ShouldHandleArgumentsERKSt5tupl
 _ZNK7testing8internal16TypedExpectationIFiiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiiEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1326
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !1329
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !1329
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFiiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiiEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFiiiiEE21ShouldHandleArgumentsERKSt5tupleIJiiiEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -56274,7 +56274,7 @@ _ZNK7testing8internal16TypedExpectationIFiiiiEE21ShouldHandleArgumentsERKSt5tupl
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFiiiiEE29FindMatchingExpectationLockedERKSt5tupleIJiiiEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFiiiiEE29FindMatchingExpectationLockedERKSt5tupleIJiiiEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -83125,12 +83125,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !1642
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1645
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFjvEE21ShouldHandleArgumentsERKSt5tupleIJEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFjvEE21ShouldHandleArgumentsERKSt5tupleIJEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFjvEE21ShouldHandleArgumentsERKSt5tupleIJEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -83166,13 +83166,13 @@ _ZNK7testing8internal16TypedExpectationIFjvEE21ShouldHandleArgumentsERKSt5tupleI
 _ZNK7testing8internal16TypedExpectationIFjvEE21ShouldHandleArgumentsERKSt5tupleIJEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1645
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !1648
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !1648
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFjvEE21ShouldHandleArgumentsERKSt5tupleIJEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFjvEE21ShouldHandleArgumentsERKSt5tupleIJEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -83189,7 +83189,7 @@ _ZNK7testing8internal16TypedExpectationIFjvEE21ShouldHandleArgumentsERKSt5tupleI
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFjvEE29FindMatchingExpectationLockedERKSt5tupleIJEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFjvEE29FindMatchingExpectationLockedERKSt5tupleIJEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -83547,8 +83547,8 @@ _ZNK7testing8internal10OnCallSpecIFjvEE7MatchesERKSt5tupleIJEE.exit: ; preds = %
   br i1 %23, label %24, label %9, !llvm.loop !1657
 
 24:                                               ; preds = %9, %_ZNK7testing8internal10OnCallSpecIFjvEE7MatchesERKSt5tupleIJEE.exit
-  %spec.select = phi ptr [ %13, %_ZNK7testing8internal10OnCallSpecIFjvEE7MatchesERKSt5tupleIJEE.exit ], [ null, %9 ]
-  ret ptr %spec.select
+  %25 = phi ptr [ %13, %_ZNK7testing8internal10OnCallSpecIFjvEE7MatchesERKSt5tupleIJEE.exit ], [ null, %9 ]
+  ret ptr %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -90290,12 +90290,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !1801
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1804
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE21ShouldHandleArgumentsERKSt5tupleIJS3_iiEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE21ShouldHandleArgumentsERKSt5tupleIJS3_iiEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE21ShouldHandleArgumentsERKSt5tupleIJS3_iiEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -90331,13 +90331,13 @@ _ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE21
 _ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE21ShouldHandleArgumentsERKSt5tupleIJS3_iiEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !1804
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !1807
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !1807
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE21ShouldHandleArgumentsERKSt5tupleIJS3_iiEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE21ShouldHandleArgumentsERKSt5tupleIJS3_iiEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -90354,7 +90354,7 @@ _ZNK7testing8internal16TypedExpectationIFiN4absl23IntervalClosedClosedTagEiiEE21
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFiN4absl23IntervalClosedClosedTagEiiEE29FindMatchingExpectationLockedERKSt5tupleIJS3_iiEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFiN4absl23IntervalClosedClosedTagEiiEE29FindMatchingExpectationLockedERKSt5tupleIJS3_iiEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41
@@ -109698,12 +109698,12 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal14FunctionMockerI
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !444, !noalias !2048
   %10 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !2051
-  %.not9.i = icmp eq ptr %9, %10
-  br i1 %.not9.i, label %.loopexit40, label %.lr.ph.i
+  %.not12.i = icmp eq ptr %9, %10
+  br i1 %.not12.i, label %.loopexit39, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc, %_ZNK7testing8internal16TypedExpectationIFmmmEE21ShouldHandleArgumentsERKSt5tupleIJmmEE.exit.thread.i
-  %.sroa.08.010.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFmmmEE21ShouldHandleArgumentsERKSt5tupleIJmmEE.exit.thread.i ], [ %9, %.noexc ]
-  %11 = getelementptr inbounds i8, ptr %.sroa.08.010.i, i64 -16
+  %.sroa.08.013.i = phi ptr [ %11, %_ZNK7testing8internal16TypedExpectationIFmmmEE21ShouldHandleArgumentsERKSt5tupleIJmmEE.exit.thread.i ], [ %9, %.noexc ]
+  %11 = getelementptr inbounds i8, ptr %.sroa.08.013.i, i64 -16
   %12 = load ptr, ptr %11, align 8, !tbaa !452
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc26 unwind label %.loopexit
@@ -109739,13 +109739,13 @@ _ZNK7testing8internal16TypedExpectationIFmmmEE21ShouldHandleArgumentsERKSt5tuple
 _ZNK7testing8internal16TypedExpectationIFmmmEE21ShouldHandleArgumentsERKSt5tupleIJmmEE.exit.thread.i: ; preds = %.noexc30, %.noexc29, %.noexc28
   %19 = load ptr, ptr %7, align 8, !tbaa !444, !noalias !2051
   %.not.i = icmp eq ptr %11, %19
-  br i1 %.not.i, label %.loopexit40, label %.lr.ph.i, !llvm.loop !2054
+  br i1 %.not.i, label %.loopexit39, label %.lr.ph.i, !llvm.loop !2054
 
-.loopexit40:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFmmmEE21ShouldHandleArgumentsERKSt5tupleIJmmEE.exit.thread.i, %.noexc
+.loopexit39:                                      ; preds = %_ZNK7testing8internal16TypedExpectationIFmmmEE21ShouldHandleArgumentsERKSt5tupleIJmmEE.exit.thread.i, %.noexc
   invoke void @_ZNK7testing8internal9MutexBase10AssertHeldEv(ptr noundef nonnull align 8 dereferenceable(56) @_ZN7testing8internal13g_gmock_mutexE)
           to label %.noexc31 unwind label %.loopexit.split-lp
 
-.noexc31:                                         ; preds = %.loopexit40
+.noexc31:                                         ; preds = %.loopexit39
   %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.112, i64 noundef 33)
           to label %.noexc32 unwind label %.loopexit.split-lp
 
@@ -109762,7 +109762,7 @@ _ZNK7testing8internal16TypedExpectationIFmmmEE21ShouldHandleArgumentsERKSt5tuple
           cleanup
   br label %41
 
-.loopexit.split-lp:                               ; preds = %6, %.loopexit40, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFmmmEE29FindMatchingExpectationLockedERKSt5tupleIJmmEE.exit, %.noexc35
+.loopexit.split-lp:                               ; preds = %6, %.loopexit39, %.noexc31, %.noexc32, %.noexc33, %_ZNK7testing8internal14FunctionMockerIFmmmEE29FindMatchingExpectationLockedERKSt5tupleIJmmEE.exit, %.noexc35
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %41

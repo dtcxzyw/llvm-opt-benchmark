@@ -239,33 +239,33 @@ _ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit: ; preds = %_ZN4absl15random_
 85:                                               ; preds = %80
   %86 = tail call double @llvm.log.f64(double %42), !tbaa !4
   %87 = fcmp ugt double %84, %83
-  br i1 %87, label %.thread, label %.lr.ph91.preheader
+  br i1 %87, label %.thread, label %.lr.ph90.preheader
 
-.lr.ph91.preheader:                               ; preds = %85
+.lr.ph90.preheader:                               ; preds = %85
   %88 = select i1 %.not, double 0.000000e+00, double 0x3FE250D048E7A1BD
-  br label %.lr.ph91
+  br label %.lr.ph90
 
-.lr.ph91:                                         ; preds = %.lr.ph91.preheader, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78"
-  %.05589 = phi double [ %90, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ], [ %88, %.lr.ph91.preheader ]
-  %.05688 = phi double [ %98, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ], [ %84, %.lr.ph91.preheader ]
-  %.05887 = phi double [ %97, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ], [ %78, %.lr.ph91.preheader ]
-  %89 = tail call double @log(double noundef %.05688) #6, !tbaa !4
-  %90 = fadd double %.05589, %89
-  %91 = tail call double @llvm.fmuladd.f64(double %86, double %.05688, double %44)
+.lr.ph90:                                         ; preds = %.lr.ph90.preheader, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78"
+  %.05588 = phi double [ %90, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ], [ %88, %.lr.ph90.preheader ]
+  %.05687 = phi double [ %98, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ], [ %84, %.lr.ph90.preheader ]
+  %.05886 = phi double [ %97, %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78" ], [ %78, %.lr.ph90.preheader ]
+  %89 = tail call double @log(double noundef %.05687) #6, !tbaa !4
+  %90 = fadd double %.05588, %89
+  %91 = tail call double @llvm.fmuladd.f64(double %86, double %.05687, double %44)
   %92 = fsub double %91, %90
   %93 = fcmp olt double %92, -2.000000e+01
   br i1 %93, label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78", label %94
 
-94:                                               ; preds = %.lr.ph91
+94:                                               ; preds = %.lr.ph90
   %95 = tail call double @exp(double noundef %92) #6, !tbaa !4
   br label %"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78"
 
-"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78": ; preds = %.lr.ph91, %94
-  %96 = phi double [ %95, %94 ], [ 0.000000e+00, %.lr.ph91 ]
-  %97 = fadd double %.05887, %96
-  %98 = fadd double %.05688, 1.000000e+00
+"_ZZN4absl15random_internal15ChiSquarePValueEdiENK3$_0clEd.exit78": ; preds = %.lr.ph90, %94
+  %96 = phi double [ %95, %94 ], [ 0.000000e+00, %.lr.ph90 ]
+  %97 = fadd double %.05886, %96
+  %98 = fadd double %.05687, 1.000000e+00
   %99 = fcmp ugt double %98, %83
-  br i1 %99, label %.thread, label %.lr.ph91, !llvm.loop !15
+  br i1 %99, label %.thread, label %.lr.ph90, !llvm.loop !15
 
 100:                                              ; preds = %80
   br i1 %.not, label %104, label %101
@@ -281,13 +281,13 @@ _ZN4absl15random_internal12_GLOBAL__N_13POZEd.exit: ; preds = %_ZN4absl15random_
   br i1 %106, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %104, %.lr.ph
-  %.086 = phi double [ %109, %.lr.ph ], [ 0.000000e+00, %104 ]
-  %.05385 = phi double [ %108, %.lr.ph ], [ %105, %104 ]
-  %.15784 = phi double [ %110, %.lr.ph ], [ %84, %104 ]
-  %107 = fdiv double %42, %.15784
-  %108 = fmul double %.05385, %107
-  %109 = fadd double %.086, %108
-  %110 = fadd double %.15784, 1.000000e+00
+  %.085 = phi double [ %109, %.lr.ph ], [ 0.000000e+00, %104 ]
+  %.05384 = phi double [ %108, %.lr.ph ], [ %105, %104 ]
+  %.15783 = phi double [ %110, %.lr.ph ], [ %84, %104 ]
+  %107 = fdiv double %42, %.15783
+  %108 = fmul double %.05384, %107
+  %109 = fadd double %.085, %108
+  %110 = fadd double %.15783, 1.000000e+00
   %111 = fcmp ugt double %110, %83
   br i1 %111, label %._crit_edge, label %.lr.ph, !llvm.loop !16
 

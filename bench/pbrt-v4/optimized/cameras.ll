@@ -11955,9 +11955,9 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %19, %58
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %107 = load i64, ptr %106, align 8, !tbaa !334
   %108 = trunc i64 %107 to i32
-  %.0118186 = add i32 %108, -1
-  %109 = icmp sgt i32 %.0118186, -1
-  br i1 %109, label %.lr.ph, label %.thread
+  %.0118178 = add i32 %108, -1
+  %109 = icmp sgt i32 %.0118178, -1
+  br i1 %109, label %.lr.ph, label %._crit_edge
 
 110:                                              ; preds = %16
   %111 = landingpad { ptr, i32 }
@@ -11971,21 +11971,21 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %19, %58
   %114 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %115 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %116 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %117 = zext nneg i32 %.0118186 to i64
+  %117 = zext nneg i32 %.0118178 to i64
   %118 = and i64 %107, 4294967295
   br label %119
 
 119:                                              ; preds = %.lr.ph, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit
   %120 = phi float [ %51, %.lr.ph ], [ %234, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit ]
   %121 = phi float [ %94, %.lr.ph ], [ %174, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit ]
-  %indvars.iv193 = phi i64 [ %118, %.lr.ph ], [ %indvars.iv.next194, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit ]
+  %indvars.iv185 = phi i64 [ %118, %.lr.ph ], [ %indvars.iv.next186, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit ]
   %indvars.iv = phi i64 [ %117, %.lr.ph ], [ %indvars.iv.next, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit ]
-  %.0188 = phi float [ 0.000000e+00, %.lr.ph ], [ %126, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit ]
+  %.0180 = phi float [ 0.000000e+00, %.lr.ph ], [ %126, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit ]
   %122 = load ptr, ptr %112, align 8, !tbaa !336
   %123 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %122, i64 %indvars.iv
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load float, ptr %124, align 4, !tbaa !340
-  %126 = fsub float %.0188, %125
+  %126 = fsub float %.0180, %125
   %127 = load float, ptr %123, align 4, !tbaa !375
   %128 = fcmp oeq float %127, 0.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -12005,7 +12005,7 @@ _ZNK4pbrt9TransformclERKNS_3RayEPf.exit:          ; preds = %19, %58
 133:                                              ; preds = %119
   %134 = fadd float %126, %127
   %135 = call noundef zeroext i1 @_ZN4pbrt15RealisticCamera25IntersectSphericalElementEffRKNS_3RayEPfPNS_7Normal3IfEE(float noundef %127, float noundef %134, ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull %8, ptr noundef nonnull %9)
-  br i1 %135, label %thread-pre-split, label %.critedge
+  br i1 %135, label %thread-pre-split, label %.thread.critedge
 
 thread-pre-split:                                 ; preds = %133
   %.pr = load float, ptr %8, align 4, !tbaa !6
@@ -12056,7 +12056,7 @@ thread-pre-split:                                 ; preds = %133
   %167 = load float, ptr %166, align 4, !tbaa !376
   %168 = fmul float %167, %167
   %169 = fcmp ogt float %165, %168
-  br i1 %169, label %.thread178, label %170
+  br i1 %169, label %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread169, label %170
 
 170:                                              ; preds = %140
   %.sroa.0.0.vec.insert.i14.i127 = insertelement <2 x float> poison, float %160, i64 0
@@ -12076,7 +12076,7 @@ thread-pre-split:                                 ; preds = %133
   br i1 %.not122, label %187, label %178
 
 178:                                              ; preds = %175
-  %179 = add i64 %indvars.iv193, 4294967294
+  %179 = add i64 %indvars.iv185, 4294967294
   %180 = and i64 %179, 4294967295
   %181 = load ptr, ptr %112, align 8, !tbaa !336
   %182 = getelementptr inbounds nuw %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %181, i64 %180
@@ -12137,7 +12137,7 @@ thread-pre-split:                                 ; preds = %133
   %218 = fmul float %.060.i, %.060.i
   %219 = fdiv float %.sroa.speculated.i, %218
   %220 = fcmp ult float %219, 1.000000e+00
-  br i1 %220, label %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread166, label %.thread178
+  br i1 %220, label %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread166, label %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread169
 
 _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread166: ; preds = %214
   %221 = fsub float 1.000000e+00, %219
@@ -12161,10 +12161,10 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread166: ; preds =
   store float %233, ptr %.sroa.23.0..sroa_idx.i.i, align 4
   br label %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit
 
-.thread178:                                       ; preds = %214, %140
+_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread169: ; preds = %140, %214
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %285
+  br label %.thread
 
 _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread166
   %234 = phi float [ %171, %170 ], [ %233, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread166 ]
@@ -12172,28 +12172,23 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %235 = icmp sgt i64 %indvars.iv, 0
-  %indvars.iv.next194 = add nsw i64 %indvars.iv193, -1
-  br i1 %235, label %119, label %.thread.loopexit, !llvm.loop !412
+  %indvars.iv.next186 = add nsw i64 %indvars.iv185, -1
+  br i1 %235, label %119, label %._crit_edge.loopexit, !llvm.loop !412
 
-.critedge:                                        ; preds = %133
-  call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %285
-
-.thread.loopexit:                                 ; preds = %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit
+._crit_edge.loopexit:                             ; preds = %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit
   %.sroa.037.0.copyload.pre = load <2 x float>, ptr %99, align 4
-  %.pre203 = fmul float %234, %234
+  %.pre195 = fmul float %234, %234
   %236 = fmul float %126, 2.500000e-01
   %237 = call float @llvm.fabs.f32(float %236)
-  br label %.thread
+  br label %._crit_edge
 
-.thread:                                          ; preds = %.thread.loopexit, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
-  %.pre-phi = phi float [ %.pre203, %.thread.loopexit ], [ %55, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
-  %238 = phi float [ %160, %.thread.loopexit ], [ %90, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
-  %239 = phi float [ %174, %.thread.loopexit ], [ %94, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
-  %.sroa.238.0.copyload = phi float [ %234, %.thread.loopexit ], [ %51, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
-  %.sroa.037.0.copyload = phi <2 x float> [ %.sroa.037.0.copyload.pre, %.thread.loopexit ], [ %.sroa.046.4.vec.insert.i.i, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
-  %.0.lcssa = phi float [ %237, %.thread.loopexit ], [ 0.000000e+00, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit
+  %.pre-phi = phi float [ %.pre195, %._crit_edge.loopexit ], [ %55, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
+  %238 = phi float [ %160, %._crit_edge.loopexit ], [ %90, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
+  %239 = phi float [ %174, %._crit_edge.loopexit ], [ %94, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
+  %.sroa.238.0.copyload = phi float [ %234, %._crit_edge.loopexit ], [ %51, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
+  %.sroa.037.0.copyload = phi <2 x float> [ %.sroa.037.0.copyload.pre, %._crit_edge.loopexit ], [ %.sroa.046.4.vec.insert.i.i, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
+  %.0.lcssa = phi float [ %237, %._crit_edge.loopexit ], [ 0.000000e+00, %_ZNK4pbrt9TransformclERKNS_3RayEPf.exit ]
   %.sroa.01.0.vec.extract.i.i.i134 = extractelement <2 x float> %.sroa.037.0.copyload, i64 0
   %foldExtExtBinop = fmul <2 x float> %.sroa.037.0.copyload, %.sroa.037.0.copyload
   %240 = extractelement <2 x float> %foldExtExtBinop, i64 0
@@ -12209,9 +12204,9 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
   %.sroa.0.4.vec.insert.i.i138 = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i137, float %245, i64 1
   store <2 x float> %.sroa.0.4.vec.insert.i.i138, ptr %99, align 4
   store float %246, ptr %.sroa.23.0..sroa_idx.i.i, align 4
-  br i1 %3, label %247, label %.critedge217
+  br i1 %3, label %247, label %.thread.critedge208
 
-247:                                              ; preds = %.thread
+247:                                              ; preds = %._crit_edge
   %248 = fneg float %238
   %249 = fdiv float %248, %244
   %250 = fmul float %244, %249
@@ -12222,15 +12217,15 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
   %255 = fpext float %252 to double
   %256 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.62, double noundef %254, double noundef %255)
   %.pre = load float, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !tbaa !149
-  %.pre200 = load float, ptr %7, align 8, !tbaa !146
-  %.pre201 = load float, ptr %99, align 4, !tbaa !42
-  %.pre202 = load float, ptr %.sroa.23.0..sroa_idx.i.i, align 4, !tbaa !45
+  %.pre192 = load float, ptr %7, align 8, !tbaa !146
+  %.pre193 = load float, ptr %99, align 4, !tbaa !42
+  %.pre194 = load float, ptr %.sroa.23.0..sroa_idx.i.i, align 4, !tbaa !45
   %257 = select i1 %2, ptr @.str.64, ptr @.str.65
   %258 = fpext float %.pre to double
-  %259 = fpext float %.pre200 to double
-  %260 = fmul float %249, %.pre201
-  %261 = fmul float %249, %.pre202
-  %262 = fadd float %.pre200, %260
+  %259 = fpext float %.pre192 to double
+  %260 = fmul float %249, %.pre193
+  %261 = fmul float %249, %.pre194
+  %262 = fadd float %.pre192, %260
   %263 = fadd float %.pre, %261
   %264 = fpext float %263 to double
   %265 = fpext float %262 to double
@@ -12243,9 +12238,14 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
   %272 = fmul float %271, 0x3FF0CCCCC0000000
   %273 = fpext float %272 to double
   %274 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.66, double noundef %268, double noundef %273)
-  br label %285
+  br label %.thread
 
-.critedge217:                                     ; preds = %.thread
+.thread.critedge:                                 ; preds = %133
+  call void @llvm.lifetime.end.p0(ptr nonnull %9)
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  br label %.thread
+
+.thread.critedge208:                              ; preds = %._crit_edge
   %275 = select i1 %2, ptr @.str.64, ptr @.str.65
   %276 = fpext float %239 to double
   %277 = fpext float %238 to double
@@ -12256,9 +12256,9 @@ _ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit: ; preds = %170, %_Z
   %282 = fpext float %281 to double
   %283 = fpext float %280 to double
   %284 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.63, ptr noundef nonnull %275, double noundef %276, double noundef %277, double noundef %282, double noundef %283)
-  br label %285
+  br label %.thread
 
-285:                                              ; preds = %.critedge217, %.critedge, %.thread178, %247
+.thread:                                          ; preds = %.thread.critedge208, %.thread.critedge, %_ZN4pbrt7RefractENS_7Vector3IfEENS_7Normal3IfEEfPfPS1_.exit.thread169, %247
   %putchar = call i32 @putchar(i32 125)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void

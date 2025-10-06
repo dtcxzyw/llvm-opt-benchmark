@@ -73,8 +73,8 @@ sub_1:                                            ; preds = %sub_0
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #9
   %35 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %0, ptr noundef nonnull %8) #10
-  %.not235 = icmp eq i32 %35, 1
-  br i1 %.not235, label %42, label %36
+  %.not234 = icmp eq i32 %35, 1
+  br i1 %.not234, label %42, label %36
 
 36:                                               ; preds = %33
   %37 = getelementptr i8, ptr %0, i64 %34
@@ -93,15 +93,15 @@ sub_1:                                            ; preds = %sub_0
   br i1 %.not129182, label %.critedge138, label %.preheader178.lr.ph
 
 .preheader178.lr.ph:                              ; preds = %42
-  br i1 %.not235, label %.preheader178.preheader, label %.preheader178.us
+  br i1 %.not234, label %.preheader178.preheader, label %.preheader178.us
 
 .preheader178.preheader:                          ; preds = %.preheader178.lr.ph.thread, %.preheader178.lr.ph
   %43 = phi i8 [ %14, %.preheader178.lr.ph.thread ], [ %.pre, %.preheader178.lr.ph ]
-  %.199220225 = phi ptr [ %7, %.preheader178.lr.ph.thread ], [ %0, %.preheader178.lr.ph ]
+  %.199220224 = phi ptr [ %7, %.preheader178.lr.ph.thread ], [ %0, %.preheader178.lr.ph ]
   br label %.preheader178
 
 .preheader178.us:                                 ; preds = %.preheader178.lr.ph, %.preheader178.us.backedge
-  %44 = phi i8 [ %.be253, %.preheader178.us.backedge ], [ %.pre, %.preheader178.lr.ph ]
+  %44 = phi i8 [ %.be252, %.preheader178.us.backedge ], [ %.pre, %.preheader178.lr.ph ]
   %.1107.us = phi ptr [ %.1107.us.be, %.preheader178.us.backedge ], [ %1, %.preheader178.lr.ph ]
   switch i8 %44, label %.critedge.us [
     i8 9, label %.critedge3.us
@@ -114,7 +114,7 @@ sub_1:                                            ; preds = %sub_0
   br label %.preheader178.us.backedge
 
 .preheader178.us.backedge:                        ; preds = %.preheader.us, %.critedge3.us
-  %.be253 = phi i8 [ %.pr.us, %.critedge3.us ], [ %.pr150.us, %.preheader.us ]
+  %.be252 = phi i8 [ %.pr.us, %.critedge3.us ], [ %.pr150.us, %.preheader.us ]
   %.1107.us.be = phi ptr [ %45, %.critedge3.us ], [ %73, %.preheader.us ]
   br label %.preheader178.us, !llvm.loop !6
 
@@ -309,7 +309,7 @@ sub_1:                                            ; preds = %sub_0
   %102 = phi i32 [ %92, %96 ], [ 128, %.thread163 ], [ 128, %93 ]
   %103 = phi i32 [ %98, %96 ], [ 16, %.thread163 ], [ 16, %93 ]
   %104 = phi i32 [ %97, %96 ], [ 0, %.thread163 ], [ 0, %93 ]
-  %105 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.199220225, ptr noundef nonnull %5) #10
+  %105 = call i32 @inet_pton(i32 noundef 10, ptr noundef nonnull %.199220224, ptr noundef nonnull %5) #10
   %.not17.i = icmp eq i32 %105, 1
   br i1 %.not17.i, label %106, label %Curl_cidr6_match.exit.thread
 
@@ -366,7 +366,7 @@ Curl_cidr6_match.exit:                            ; preds = %111, %112
 
 125:                                              ; preds = %.thread147, %123
   %.0146149 = phi i32 [ 0, %.thread147 ], [ %92, %123 ]
-  %126 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.199220225, ptr noundef nonnull %3) #10
+  %126 = call i32 @inet_pton(i32 noundef 2, ptr noundef nonnull %.199220224, ptr noundef nonnull %3) #10
   %.not.i142 = icmp eq i32 %126, 1
   br i1 %.not.i142, label %127, label %.thread173
 

@@ -824,7 +824,7 @@ define internal fastcc noundef range(i32 -1, 65536) i32 @_ZL26findTaggedAliasLis
   %13 = getelementptr inbounds nuw i16, ptr %8, i64 %12
   %14 = tail call i32 @uprv_stricmp_77(ptr noundef %13, ptr noundef %1)
   %.not8.i = icmp eq i32 %14, 0
-  br i1 %.not8.i, label %.thread.loopexit.split.loop.exit15.i, label %15
+  br i1 %.not8.i, label %.thread.loopexit.split.loop.exit14.i, label %15
 
 15:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -833,12 +833,12 @@ define internal fastcc noundef range(i32 -1, 65536) i32 @_ZL26findTaggedAliasLis
   %18 = icmp samesign ult i64 %indvars.iv.next.i, %17
   br i1 %18, label %.lr.ph.i, label %_ZL12getTagNumberPKc.exit, !llvm.loop !55
 
-.thread.loopexit.split.loop.exit15.i:             ; preds = %.lr.ph.i
+.thread.loopexit.split.loop.exit14.i:             ; preds = %.lr.ph.i
   %19 = trunc nuw i64 %indvars.iv.i to i32
   br label %_ZL12getTagNumberPKc.exit
 
-_ZL12getTagNumberPKc.exit:                        ; preds = %15, %3, %.thread.loopexit.split.loop.exit15.i
-  %.1.i = phi i32 [ -1, %3 ], [ %19, %.thread.loopexit.split.loop.exit15.i ], [ -1, %15 ]
+_ZL12getTagNumberPKc.exit:                        ; preds = %15, %3, %.thread.loopexit.split.loop.exit14.i
+  %.1.i = phi i32 [ -1, %3 ], [ %19, %.thread.loopexit.split.loop.exit14.i ], [ -1, %15 ]
   %20 = call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef %0, ptr noundef null, ptr noundef nonnull %4)
   %21 = load i32, ptr %4, align 4, !tbaa !13
   %.not = icmp eq i32 %21, 0
@@ -1021,8 +1021,8 @@ _ZL7isAliasPKcP10UErrorCode.exit.thread:          ; preds = %5
 
 _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %5
   %7 = load i8, ptr %0, align 1, !tbaa !3
-  %.not26 = icmp eq i8 %7, 0
-  br i1 %.not26, label %21, label %8
+  %.not25 = icmp eq i8 %7, 0
+  br i1 %.not25, label %21, label %8
 
 8:                                                ; preds = %_ZL7isAliasPKcP10UErrorCode.exit
   %9 = tail call fastcc noundef i32 @_ZL26findTaggedAliasListsOffsetPKcS0_P10UErrorCode(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2)
@@ -1068,8 +1068,8 @@ _ZL7isAliasPKcP10UErrorCode.exit.thread.i:        ; preds = %4
 
 _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %4
   %6 = load i8, ptr %0, align 1, !tbaa !3
-  %.not25.i = icmp eq i8 %6, 0
-  br i1 %.not25.i, label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit, label %7
+  %.not24.i = icmp eq i8 %6, 0
+  br i1 %.not24.i, label %_ZL20ucnv_io_countAliasesPKcP10UErrorCode.exit, label %7
 
 7:                                                ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.i
   %8 = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %0, ptr noundef null, ptr noundef %1)
@@ -1117,8 +1117,8 @@ _ZL7isAliasPKcP10UErrorCode.exit.thread.i:        ; preds = %5
 
 _ZL7isAliasPKcP10UErrorCode.exit.i:               ; preds = %5
   %7 = load i8, ptr %0, align 1, !tbaa !3
-  %.not42.i = icmp eq i8 %7, 0
-  br i1 %.not42.i, label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit, label %8
+  %.not41.i = icmp eq i8 %7, 0
+  br i1 %.not41.i, label %_ZL16ucnv_io_getAliasPKctP10UErrorCode.exit, label %8
 
 8:                                                ; preds = %_ZL7isAliasPKcP10UErrorCode.exit.i
   %9 = tail call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %0, ptr noundef null, ptr noundef %2)
@@ -1264,8 +1264,8 @@ _ZL7isAliasPKcP10UErrorCode.exit.thread:          ; preds = %6
 
 _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %6
   %8 = load i8, ptr %0, align 1, !tbaa !3
-  %.not18 = icmp eq i8 %8, 0
-  br i1 %.not18, label %.thread, label %9
+  %.not17 = icmp eq i8 %8, 0
+  br i1 %.not17, label %.thread, label %9
 
 9:                                                ; preds = %_ZL7isAliasPKcP10UErrorCode.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1287,7 +1287,7 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %6
   %18 = getelementptr inbounds nuw i16, ptr %13, i64 %17
   %19 = tail call i32 @uprv_stricmp_77(ptr noundef %18, ptr noundef %1)
   %.not8.i.i = icmp eq i32 %19, 0
-  br i1 %.not8.i.i, label %.thread.loopexit.split.loop.exit15.i.i, label %20
+  br i1 %.not8.i.i, label %.thread.loopexit.split.loop.exit14.i.i, label %20
 
 20:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1296,12 +1296,12 @@ _ZL7isAliasPKcP10UErrorCode.exit:                 ; preds = %6
   %23 = icmp samesign ult i64 %indvars.iv.next.i.i, %22
   br i1 %23, label %.lr.ph.i.i, label %_ZL12getTagNumberPKc.exit.i, !llvm.loop !55
 
-.thread.loopexit.split.loop.exit15.i.i:           ; preds = %.lr.ph.i.i
+.thread.loopexit.split.loop.exit14.i.i:           ; preds = %.lr.ph.i.i
   %24 = trunc nuw i64 %indvars.iv.i.i to i32
   br label %_ZL12getTagNumberPKc.exit.i
 
-_ZL12getTagNumberPKc.exit.i:                      ; preds = %20, %.thread.loopexit.split.loop.exit15.i.i, %9
-  %.1.i.i = phi i32 [ -1, %9 ], [ %24, %.thread.loopexit.split.loop.exit15.i.i ], [ -1, %20 ]
+_ZL12getTagNumberPKc.exit.i:                      ; preds = %20, %.thread.loopexit.split.loop.exit14.i.i, %9
+  %.1.i.i = phi i32 [ -1, %9 ], [ %24, %.thread.loopexit.split.loop.exit14.i.i ], [ -1, %20 ]
   %25 = call fastcc noundef i32 @_ZL13findConverterPKcPaP10UErrorCode(ptr noundef nonnull readonly %0, ptr noundef null, ptr noundef nonnull %4)
   %26 = load i32, ptr %4, align 4, !tbaa !13
   %.not.i = icmp eq i32 %26, 0

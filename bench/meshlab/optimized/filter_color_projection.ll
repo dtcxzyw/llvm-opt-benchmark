@@ -5281,16 +5281,15 @@ define linkonce_odr void @_ZplRK7QStringPKc(ptr dead_on_unwind noalias writable 
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %0, align 8
   %6 = load atomic i32, ptr %5 monotonic, align 4
-  switch i32 %6, label %7 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %6, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %7, label %_ZN7QStringC2ERKS_.exit
 
 7:                                                ; preds = %3
   %8 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %3, %7
+_ZN7QStringC2ERKS_.exit:                          ; preds = %3, %7
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %9
 
@@ -9182,16 +9181,15 @@ _ZN9QtPrivate8RefCount5derefEv.exit._ZN9QtPrivate8RefCount5derefEv.exit.thread2_
   %569 = load ptr, ptr %568, align 8, !noalias !89
   store ptr %569, ptr %7, align 8, !alias.scope !86, !noalias !92
   %570 = load atomic i32, ptr %569 monotonic, align 4, !noalias !89
-  switch i32 %570, label %571 [
-    i32 -1, label %_ZNK9MeshModel8fullNameEv.exit.i
-    i32 0, label %_ZNK9MeshModel8fullNameEv.exit.i
-  ]
+  %.off.i.i.i.i = add i32 %570, -1
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, -2
+  br i1 %switch.i.i.i.i, label %571, label %_ZNK9MeshModel8fullNameEv.exit.i
 
 571:                                              ; preds = %567
   %572 = atomicrmw add ptr %569, i32 1 seq_cst, align 4, !noalias !89
   br label %_ZNK9MeshModel8fullNameEv.exit.i
 
-_ZNK9MeshModel8fullNameEv.exit.i:                 ; preds = %571, %567, %567
+_ZNK9MeshModel8fullNameEv.exit.i:                 ; preds = %571, %567
   invoke void @_ZN9QFileInfoC1ERK7QString(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %573 unwind label %578, !noalias !92
 
@@ -13733,16 +13731,15 @@ _ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit937: ; preds = %_ZN3vcg4Box3If
   %1211 = load ptr, ptr %1210, align 8, !noalias !98
   store ptr %1211, ptr %45, align 8, !alias.scope !98
   %1212 = load atomic i32, ptr %1211 monotonic, align 4, !noalias !98
-  switch i32 %1212, label %1213 [
-    i32 -1, label %_ZNK9MeshModel8fullNameEv.exit
-    i32 0, label %_ZNK9MeshModel8fullNameEv.exit
-  ]
+  %.off.i.i.i = add i32 %1212, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %1213, label %_ZNK9MeshModel8fullNameEv.exit
 
 1213:                                             ; preds = %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit937
   %1214 = atomicrmw add ptr %1211, i32 1 seq_cst, align 4, !noalias !98
   br label %_ZNK9MeshModel8fullNameEv.exit
 
-_ZNK9MeshModel8fullNameEv.exit:                   ; preds = %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit937, %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit937, %1213
+_ZNK9MeshModel8fullNameEv.exit:                   ; preds = %_ZN3vcg3tri14UpdateBoundingI6CMeshOE3BoxERS2_.exit937, %1213
   %1215 = invoke noundef i32 @_ZNK7QString11lastIndexOfE5QChariN2Qt15CaseSensitivityE(ptr noundef nonnull align 8 dereferenceable(8) %45, i16 92, i32 noundef -1, i32 noundef 1)
           to label %1216 unwind label %1256
 
@@ -15806,18 +15803,17 @@ define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull alig
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
   %6 = load atomic i32, ptr %5 monotonic, align 4
-  switch i32 %6, label %7 [
-    i32 -1, label %_ZN7QStringC2ERKS_.exit
-    i32 0, label %_ZN7QStringC2ERKS_.exit
-  ]
+  %.off.i.i = add i32 %6, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, -2
+  br i1 %switch.i.i, label %7, label %_ZN7QStringC2ERKS_.exit
 
 7:                                                ; preds = %2
   %8 = atomicrmw add ptr %5, i32 1 seq_cst, align 4
   %.pre = load ptr, ptr %4, align 8, !noalias !109
   br label %_ZN7QStringC2ERKS_.exit
 
-_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %2, %7
-  %9 = phi ptr [ %5, %2 ], [ %5, %2 ], [ %.pre, %7 ]
+_ZN7QStringC2ERKS_.exit:                          ; preds = %2, %7
+  %9 = phi ptr [ %5, %2 ], [ %.pre, %7 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr @_ZN10QArrayData11shared_nullE, ptr %10, align 8
   %11 = icmp eq ptr %9, @_ZN10QArrayData11shared_nullE

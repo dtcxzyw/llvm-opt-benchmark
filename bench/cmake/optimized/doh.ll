@@ -1417,8 +1417,8 @@ de_init.exit:                                     ; preds = %doh_resp_decode.exi
 
 351:                                              ; preds = %377, %.lr.ph.i96
   %indvars.iv.i97 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i98, %377 ]
-  %.05784.i = phi ptr [ null, %.lr.ph.i96 ], [ %357, %377 ]
-  %.05983.i = phi ptr [ null, %.lr.ph.i96 ], [ %spec.select.i, %377 ]
+  %.05783.i = phi ptr [ null, %.lr.ph.i96 ], [ %357, %377 ]
+  %.05982.i = phi ptr [ null, %.lr.ph.i96 ], [ %spec.select.i, %377 ]
   %352 = getelementptr inbounds nuw %struct.dohaddr, ptr %348, i64 %indvars.iv.i97
   %353 = load i32, ptr %352, align 4, !tbaa !131
   %354 = icmp eq i32 %353, 28
@@ -1437,13 +1437,13 @@ de_init.exit:                                     ; preds = %doh_resp_decode.exi
   %362 = getelementptr inbounds nuw i8, ptr %357, i64 24
   store ptr %361, ptr %362, align 8, !tbaa !137
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %361, ptr nonnull readonly align 1 %341, i64 %345, i1 false)
-  %.not64.i = icmp eq ptr %.05983.i, null
-  %spec.select.i = select i1 %.not64.i, ptr %357, ptr %.05983.i
-  %.not65.i = icmp eq ptr %.05784.i, null
+  %.not64.i = icmp eq ptr %.05982.i, null
+  %spec.select.i = select i1 %.not64.i, ptr %357, ptr %.05982.i
+  %.not65.i = icmp eq ptr %.05783.i, null
   br i1 %.not65.i, label %365, label %363
 
 363:                                              ; preds = %358
-  %364 = getelementptr inbounds nuw i8, ptr %.05784.i, i64 40
+  %364 = getelementptr inbounds nuw i8, ptr %.05783.i, i64 40
   store ptr %357, ptr %364, align 8, !tbaa !138
   br label %365
 
@@ -1482,7 +1482,7 @@ de_init.exit:                                     ; preds = %doh_resp_decode.exi
   br i1 %381, label %351, label %.loopexit, !llvm.loop !143
 
 382:                                              ; preds = %351
-  call void @Curl_freeaddrinfo(ptr noundef %.05983.i) #8
+  call void @Curl_freeaddrinfo(ptr noundef %.05982.i) #8
   br label %doh2ai.exit
 
 doh2ai.exit:                                      ; preds = %340, %382

@@ -4037,27 +4037,27 @@ doemit.exit105:                                   ; preds = %45, %enlarge.exit.i
   %93 = shl nsw i64 %88, 4
   %94 = tail call ptr @cli_max_realloc(ptr noundef %92, i64 noundef %93) #11
   %95 = icmp eq ptr %94, null
-  %.pre64.i = load ptr, ptr %76, align 8, !tbaa !16
+  %.pre63.i = load ptr, ptr %76, align 8, !tbaa !16
   br i1 %95, label %.thread.i, label %96
 
 96:                                               ; preds = %86
-  %97 = getelementptr inbounds nuw i8, ptr %.pre64.i, i64 8
+  %97 = getelementptr inbounds nuw i8, ptr %.pre63.i, i64 8
   store ptr %94, ptr %97, align 8, !tbaa !48
-  %98 = getelementptr inbounds nuw i8, ptr %.pre64.i, i64 16
+  %98 = getelementptr inbounds nuw i8, ptr %.pre63.i, i64 16
   %99 = load ptr, ptr %98, align 8, !tbaa !49
   %100 = tail call ptr @cli_max_realloc(ptr noundef %99, i64 noundef %90) #11
   %101 = icmp eq ptr %100, null
-  %.pre63.i = load ptr, ptr %76, align 8, !tbaa !16
+  %.pre62.i = load ptr, ptr %76, align 8, !tbaa !16
   br i1 %101, label %.thread.i, label %102
 
 102:                                              ; preds = %96
-  %103 = getelementptr inbounds nuw i8, ptr %.pre63.i, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %.pre62.i, i64 16
   store ptr %100, ptr %103, align 8, !tbaa !49
   %104 = icmp sgt i32 %79, 0
   br i1 %104, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %102
-  %105 = getelementptr inbounds nuw i8, ptr %.pre63.i, i64 8
+  %105 = getelementptr inbounds nuw i8, ptr %.pre62.i, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !48
   %wide.trip.count.i = zext nneg i32 %79 to i64
   br label %107
@@ -4095,7 +4095,7 @@ doemit.exit105:                                   ; preds = %45, %enlarge.exit.i
   br i1 %123, label %.thread.i, label %allocset.exit
 
 .thread.i:                                        ; preds = %120, %115, %96, %86
-  %124 = phi ptr [ %.pre63.i, %96 ], [ %.pre64.i, %86 ], [ %116, %115 ], [ %116, %120 ]
+  %124 = phi ptr [ %.pre62.i, %96 ], [ %.pre63.i, %86 ], [ %116, %115 ], [ %116, %120 ]
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   %126 = load ptr, ptr %125, align 8, !tbaa !48
   tail call void @free(ptr noundef %126) #11

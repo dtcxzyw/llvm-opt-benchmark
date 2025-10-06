@@ -34238,7 +34238,7 @@ define internal fastcc void @"_ZN90_$LT$rmp_serde..decode..VariantAccess$LT$R$C$
   call void @_ZN3rmp6decode8read_nil17h09c5f0da563e909aE(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %4 = load i8, ptr %3, align 8, !range !6526, !noundef !4
   %.not = icmp eq i8 %4, 3
-  br i1 %.not, label %7, label %5
+  br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
   %.sroa.515.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -34248,12 +34248,12 @@ define internal fastcc void @"_ZN90_$LT$rmp_serde..decode..VariantAccess$LT$R$C$
   %.sroa.818.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.818.0.copyload = load ptr, ptr %.sroa.818.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %switch = icmp samesign ult i8 %4, 2
-  br i1 %switch, label %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit.sink.split", label %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit"
+  %6 = icmp eq i8 %4, 2
+  br i1 %6, label %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit", label %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit.sink.split"
 
 "_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit.sink.split": ; preds = %5
-  %6 = icmp ne ptr %.sroa.818.0.copyload, null
-  tail call void @llvm.assume(i1 %6)
+  %7 = icmp ne ptr %.sroa.818.0.copyload, null
+  tail call void @llvm.assume(i1 %7)
   br label %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit"
 
 "_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit": ; preds = %5, %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit.sink.split"
@@ -34267,14 +34267,14 @@ define internal fastcc void @"_ZN90_$LT$rmp_serde..decode..VariantAccess$LT$R$C$
   store i8 %.sroa.521.0, ptr %.sroa.521.0..sroa_idx, align 2
   %.sroa.623.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.623.0, ptr %.sroa.623.0..sroa_idx, align 8
-  br label %8
+  br label %9
 
-7:                                                ; preds = %2
+8:                                                ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   store i8 9, ptr %0, align 8
-  br label %8
+  br label %9
 
-8:                                                ; preds = %7, %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit"
+9:                                                ; preds = %8, %"_ZN99_$LT$rmp_serde..decode..Error$u20$as$u20$core..convert..From$LT$rmp..decode..ValueReadError$GT$$GT$4from17h7fba0dbd140430e8E.exit"
   ret void
 }
 

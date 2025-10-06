@@ -136,16 +136,16 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %21, ptr %19, align 8, !tbaa !19
   %22 = load ptr, ptr %20, align 8, !tbaa !20
-  %.not153 = icmp eq ptr %22, null
-  br i1 %.not153, label %._crit_edge155, label %.lr.ph154
+  %.not152 = icmp eq ptr %22, null
+  br i1 %.not152, label %._crit_edge154, label %.lr.ph153
 
-.lr.ph154:                                        ; preds = %.thread
+.lr.ph153:                                        ; preds = %.thread
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 1
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 2
   br label %25
 
-25:                                               ; preds = %.lr.ph154, %117
-  %26 = phi ptr [ %22, %.lr.ph154 ], [ %120, %117 ]
+25:                                               ; preds = %.lr.ph153, %117
+  %26 = phi ptr [ %22, %.lr.ph153 ], [ %120, %117 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %27 = load i8, ptr %26, align 1, !tbaa !21
   %28 = icmp eq i8 %27, 45
@@ -180,10 +180,10 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   store i32 0, ptr @modstate, align 4, !tbaa !18
   store i32 0, ptr @regfunc, align 4, !tbaa !18
   %44 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef %.098)
-  %.not116151 = icmp eq ptr %44, null
-  br i1 %.not116151, label %._crit_edge, label %.lr.ph152
+  %.not116150 = icmp eq ptr %44, null
+  br i1 %.not116150, label %._crit_edge, label %.lr.ph151
 
-.lr.ph152:                                        ; preds = %43, %.loopexit
+.lr.ph151:                                        ; preds = %43, %.loopexit
   %45 = load i8, ptr %2, align 16, !tbaa !21
   %46 = icmp eq i8 %45, 35
   %47 = load i8, ptr %23, align 1
@@ -194,7 +194,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   %or.cond7 = select i1 %or.cond, i1 %50, i1 false
   br i1 %or.cond7, label %51, label %.critedge132
 
-51:                                               ; preds = %.lr.ph152
+51:                                               ; preds = %.lr.ph151
   %52 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #18
   %53 = getelementptr i8, ptr %2, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -1
@@ -220,11 +220,11 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
 
 .critedge.preheader:                              ; preds = %62
   %63 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef %.098)
-  %.not125148 = icmp eq ptr %63, null
-  br i1 %.not125148, label %.loopexit, label %.lr.ph150
+  %.not125147 = icmp eq ptr %63, null
+  br i1 %.not125147, label %.loopexit, label %.lr.ph149
 
-.lr.ph150:                                        ; preds = %.critedge.preheader, %.critedge
-  %.0103149 = phi i32 [ %.1104, %.critedge ], [ 1, %.critedge.preheader ]
+.lr.ph149:                                        ; preds = %.critedge.preheader, %.critedge
+  %.0103148 = phi i32 [ %.1104, %.critedge ], [ 1, %.critedge.preheader ]
   %64 = load i8, ptr %2, align 16, !tbaa !21
   %65 = icmp eq i8 %64, 35
   %66 = load i8, ptr %23, align 1
@@ -235,30 +235,30 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   %or.cond15 = select i1 %or.cond11, i1 %69, i1 false
   br i1 %or.cond15, label %70, label %73
 
-70:                                               ; preds = %.lr.ph150
-  %71 = add nsw i32 %.0103149, -1
+70:                                               ; preds = %.lr.ph149
+  %71 = add nsw i32 %.0103148, -1
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %.loopexit, label %.critedge
 
-73:                                               ; preds = %.lr.ph150
+73:                                               ; preds = %.lr.ph149
   %74 = icmp eq i8 %66, 105
   %or.cond19 = select i1 %65, i1 %74, i1 false
   %75 = icmp eq i8 %68, 102
   %or.cond23 = select i1 %or.cond19, i1 %75, i1 false
   %76 = zext i1 %or.cond23 to i32
-  %spec.select = add nsw i32 %.0103149, %76
+  %spec.select = add nsw i32 %.0103148, %76
   br label %.critedge
 
 .critedge:                                        ; preds = %73, %70
   %.1104 = phi i32 [ %71, %70 ], [ %spec.select, %73 ]
   %77 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef %.098)
   %.not125 = icmp eq ptr %77, null
-  br i1 %.not125, label %.loopexit, label %.lr.ph150, !llvm.loop !23
+  br i1 %.not125, label %.loopexit, label %.lr.ph149, !llvm.loop !23
 
-.critedge132:                                     ; preds = %62, %.lr.ph152
+.critedge132:                                     ; preds = %62, %.lr.ph151
   %78 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9) #18
-  %.not126147 = icmp eq ptr %78, null
-  br i1 %.not126147, label %.loopexit, label %.lr.ph
+  %.not126146 = icmp eq ptr %78, null
+  br i1 %.not126146, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge132, %104
   %79 = phi ptr [ %105, %104 ], [ %78, %.critedge132 ]
@@ -267,7 +267,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
 
 81:                                               ; preds = %.lr.ph, %101
   %82 = phi ptr [ @.str.21, %.lr.ph ], [ %103, %101 ]
-  %.0100146 = phi ptr [ @libdef_handlers, %.lr.ph ], [ %102, %101 ]
+  %.0100145 = phi ptr [ @libdef_handlers, %.lr.ph ], [ %102, %101 ]
   %83 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #18
   %84 = call i32 @strncmp(ptr noundef nonnull %80, ptr noundef nonnull %82, i64 noundef %83) #18
   %.not128 = icmp eq i32 %84, 0
@@ -275,7 +275,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
 
 85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %80, i64 %83
-  %87 = getelementptr inbounds nuw i8, ptr %.0100146, i64 8
+  %87 = getelementptr inbounds nuw i8, ptr %.0100145, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !25
   %.not129 = icmp eq ptr %88, null
   br i1 %.not129, label %91, label %89
@@ -293,16 +293,16 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
 
 95:                                               ; preds = %91
   store i8 0, ptr %93, align 1, !tbaa !21
-  %96 = getelementptr inbounds nuw i8, ptr %.0100146, i64 16
+  %96 = getelementptr inbounds nuw i8, ptr %.0100145, i64 16
   %97 = load ptr, ptr %96, align 8, !tbaa !27
-  %98 = getelementptr inbounds nuw i8, ptr %.0100146, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.0100145, i64 24
   %99 = load i32, ptr %98, align 8, !tbaa !28
   call void %97(ptr noundef %0, ptr noundef nonnull %86, i32 noundef %99) #15
   %100 = getelementptr i8, ptr %93, i64 1
   br label %104
 
 101:                                              ; preds = %81
-  %102 = getelementptr inbounds nuw i8, ptr %.0100146, i64 32
+  %102 = getelementptr inbounds nuw i8, ptr %.0100145, i64 32
   %103 = load ptr, ptr %102, align 8, !tbaa !29
   %.not127 = icmp eq ptr %103, null
   br i1 %.not127, label %106, label %81, !llvm.loop !30
@@ -326,7 +326,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
 .loopexit:                                        ; preds = %104, %.critedge, %70, %.critedge132, %.critedge.preheader
   %112 = call ptr @fgets(ptr noundef nonnull %2, i32 noundef 256, ptr noundef %.098)
   %.not116 = icmp eq ptr %112, null
-  br i1 %.not116, label %._crit_edge, label %.lr.ph152
+  br i1 %.not116, label %._crit_edge, label %.lr.ph151
 
 ._crit_edge:                                      ; preds = %.loopexit, %43
   %113 = call i32 @fclose(ptr noundef %.098)
@@ -345,9 +345,9 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   store ptr %119, ptr %19, align 8, !tbaa !19
   %120 = load ptr, ptr %118, align 8, !tbaa !20
   %.not = icmp eq ptr %120, null
-  br i1 %.not, label %._crit_edge155, label %25, !llvm.loop !32
+  br i1 %.not, label %._crit_edge154, label %25, !llvm.loop !32
 
-._crit_edge155:                                   ; preds = %117, %.thread
+._crit_edge154:                                   ; preds = %117, %.thread
   %121 = load i32, ptr %3, align 8, !tbaa !4
   switch i32 %121, label %163 [
     i32 6, label %122
@@ -356,7 +356,7 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
     i32 8, label %148
   ]
 
-122:                                              ; preds = %._crit_edge155
+122:                                              ; preds = %._crit_edge154
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !17
   %125 = call i64 @fwrite(ptr nonnull @.str.11, i64 15, i64 1, ptr %124)
@@ -365,13 +365,13 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   %128 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %126, ptr noundef nonnull @.str.12, i32 noundef %127) #15
   br label %163
 
-129:                                              ; preds = %._crit_edge155
+129:                                              ; preds = %._crit_edge154
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !17
   %132 = call i64 @fwrite(ptr nonnull @.str.13, i64 4, i64 1, ptr %131)
   br label %163
 
-133:                                              ; preds = %._crit_edge155
+133:                                              ; preds = %._crit_edge154
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !17
   %136 = call i64 @fwrite(ptr nonnull @.str.14, i64 5, i64 1, ptr %135)
@@ -381,48 +381,48 @@ define dso_local void @emit_lib(ptr noundef %0) local_unnamed_addr #0 {
   %140 = call i64 @fwrite(ptr nonnull @.str.16, i64 14, i64 1, ptr %139)
   %141 = load i32, ptr @ffasmfunc, align 4, !tbaa !18
   %142 = icmp sgt i32 %141, 1
-  br i1 %142, label %.lr.ph163, label %._crit_edge164
+  br i1 %142, label %.lr.ph162, label %._crit_edge163
 
-.lr.ph163:                                        ; preds = %133, %.lr.ph163
-  %.097.in161 = phi i32 [ %.097, %.lr.ph163 ], [ %141, %133 ]
-  %.097 = add nsw i32 %.097.in161, -1
+.lr.ph162:                                        ; preds = %133, %.lr.ph162
+  %.097.in160 = phi i32 [ %.097, %.lr.ph162 ], [ %141, %133 ]
+  %.097 = add nsw i32 %.097.in160, -1
   %143 = load ptr, ptr %134, align 8, !tbaa !17
   %144 = call i64 @fwrite(ptr nonnull @.str.17, i64 11, i64 1, ptr %143)
-  %145 = icmp samesign ugt i32 %.097.in161, 2
-  br i1 %145, label %.lr.ph163, label %._crit_edge164, !llvm.loop !33
+  %145 = icmp samesign ugt i32 %.097.in160, 2
+  br i1 %145, label %.lr.ph162, label %._crit_edge163, !llvm.loop !33
 
-._crit_edge164:                                   ; preds = %.lr.ph163, %133
+._crit_edge163:                                   ; preds = %.lr.ph162, %133
   %146 = load ptr, ptr %134, align 8, !tbaa !17
   %147 = call i64 @fwrite(ptr nonnull @.str.18, i64 14, i64 1, ptr %146)
   br label %163
 
-148:                                              ; preds = %._crit_edge155
+148:                                              ; preds = %._crit_edge154
   %149 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !17
   %151 = call i64 @fwrite(ptr nonnull @.str.14, i64 5, i64 1, ptr %150)
   %152 = load ptr, ptr %149, align 8, !tbaa !17
   %153 = call i64 @fwrite(ptr nonnull @.str.19, i64 59, i64 1, ptr %152)
   %154 = load i8, ptr @obuf, align 16, !tbaa !21
-  %.not114156 = icmp eq i8 %154, 0
-  br i1 %.not114156, label %._crit_edge160, label %.lr.ph159
+  %.not114155 = icmp eq i8 %154, 0
+  br i1 %.not114155, label %._crit_edge159, label %.lr.ph158
 
-.lr.ph159:                                        ; preds = %148, %.lr.ph159
-  %.0157 = phi ptr [ %159, %.lr.ph159 ], [ @obuf, %148 ]
+.lr.ph158:                                        ; preds = %148, %.lr.ph158
+  %.0156 = phi ptr [ %159, %.lr.ph158 ], [ @obuf, %148 ]
   %155 = load ptr, ptr %149, align 8, !tbaa !17
-  %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.20, ptr noundef nonnull %.0157) #15
-  %157 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0157) #18
-  %158 = getelementptr i8, ptr %.0157, i64 %157
+  %156 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %155, ptr noundef nonnull @.str.20, ptr noundef nonnull %.0156) #15
+  %157 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0156) #18
+  %158 = getelementptr i8, ptr %.0156, i64 %157
   %159 = getelementptr i8, ptr %158, i64 1
   %160 = load i8, ptr %159, align 1, !tbaa !21
   %.not114 = icmp eq i8 %160, 0
-  br i1 %.not114, label %._crit_edge160, label %.lr.ph159, !llvm.loop !34
+  br i1 %.not114, label %._crit_edge159, label %.lr.ph158, !llvm.loop !34
 
-._crit_edge160:                                   ; preds = %.lr.ph159, %148
+._crit_edge159:                                   ; preds = %.lr.ph158, %148
   %161 = load ptr, ptr %149, align 8, !tbaa !17
   %162 = call i64 @fwrite(ptr nonnull @.str.14, i64 5, i64 1, ptr %161)
   br label %163
 
-163:                                              ; preds = %._crit_edge155, %129, %._crit_edge160, %._crit_edge164, %122
+163:                                              ; preds = %._crit_edge154, %129, %._crit_edge159, %._crit_edge163, %122
   ret void
 }
 

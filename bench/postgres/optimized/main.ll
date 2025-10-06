@@ -338,8 +338,8 @@ sub_143:                                          ; preds = %88
 
 118:                                              ; preds = %113, %111
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.i, label %parse_dispatch_option.exit.thread, label %111, !llvm.loop !4
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
+  br i1 %exitcond.not.i, label %parse_dispatch_option.exit.thread, label %111, !llvm.loop !4
 
 parse_dispatch_option.exit:                       ; preds = %113
   %119 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -448,7 +448,7 @@ define internal fastcc void @help(ptr noundef %0) unnamed_addr #5 {
 declare void @exit(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree norecurse nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @parse_dispatch_option(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
+define dso_local range(i32 0, 6) i32 @parse_dispatch_option(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
   br label %2
 
 2:                                                ; preds = %1, %9
@@ -461,20 +461,20 @@ define dso_local i32 @parse_dispatch_option(ptr noundef readonly captures(none) 
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %6, ptr noundef nonnull dereferenceable(1) %0) #17
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %.split.loop.exit, label %9
+  br i1 %8, label %.split.loop.exit13, label %9
 
 9:                                                ; preds = %4, %2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond = icmp eq i64 %indvars.iv.next, 5
-  br i1 %exitcond, label %.split.loop.exit12, label %2, !llvm.loop !4
+  %exitcond.not = icmp eq i64 %indvars.iv.next, 5
+  br i1 %exitcond.not, label %.split.loop.exit, label %2, !llvm.loop !4
 
-.split.loop.exit:                                 ; preds = %4
+.split.loop.exit13:                               ; preds = %4
   %10 = trunc nuw nsw i64 %indvars.iv to i32
-  br label %.split.loop.exit12
+  br label %.split.loop.exit
 
-.split.loop.exit12:                               ; preds = %9, %.split.loop.exit
-  %spec.select = phi i32 [ %10, %.split.loop.exit ], [ 5, %9 ]
-  ret i32 %spec.select
+.split.loop.exit:                                 ; preds = %9, %.split.loop.exit13
+  %11 = phi i32 [ %10, %.split.loop.exit13 ], [ 5, %9 ]
+  ret i32 %11
 }
 
 ; Function Attrs: noreturn

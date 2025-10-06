@@ -811,8 +811,8 @@ _ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE
   %177 = load i32, ptr %20, align 8
   %178 = and i32 %177, 65535
   %179 = add nsw i32 %178, -1
-  %.not6093.i = icmp eq i32 %179, 0
-  br i1 %.not6093.i, label %._crit_edge.i, label %.lr.ph.preheader.i
+  %.not6092.i = icmp eq i32 %179, 0
+  br i1 %.not6092.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %176
   %180 = zext i32 %179 to i64
@@ -2304,21 +2304,21 @@ _ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKN
   %81 = load i32, ptr %13, align 8
   %82 = and i32 %81, 65535
   %83 = add nsw i32 %82, -1
-  %.not6087 = icmp eq i32 %83, 0
-  br i1 %.not6087, label %.critedge, label %.lr.ph89
+  %.not6086 = icmp eq i32 %83, 0
+  br i1 %.not6086, label %.critedge, label %.lr.ph88
 
-.lr.ph89:                                         ; preds = %80
+.lr.ph88:                                         ; preds = %80
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %87 = zext i32 %83 to i64
-  %.pre95 = load i32, ptr %84, align 8, !tbaa !384
+  %.pre94 = load i32, ptr %84, align 8, !tbaa !384
   br label %88
 
-88:                                               ; preds = %.lr.ph89, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit
-  %89 = phi i32 [ %.pre95, %.lr.ph89 ], [ %102, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit ]
-  %indvars.iv92 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next93, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit ]
-  %90 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv92
+88:                                               ; preds = %.lr.ph88, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit
+  %89 = phi i32 [ %.pre94, %.lr.ph88 ], [ %102, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit ]
+  %indvars.iv91 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next92, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit ]
+  %90 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv91
   %91 = load ptr, ptr %90, align 8, !tbaa !375
   %92 = load i32, ptr %85, align 4, !tbaa !385
   %.not.i.i.not.i = icmp ult i32 %89, %92
@@ -2341,15 +2341,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit: ; pre
   %101 = load i32, ptr %84, align 8, !tbaa !384
   %102 = add i32 %101, 1
   store i32 %102, ptr %84, align 8, !tbaa !384
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %.not60 = icmp eq i64 %indvars.iv.next93, %87
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %.not60 = icmp eq i64 %indvars.iv.next92, %87
   br i1 %.not60, label %.critedge, label %88, !llvm.loop !430
 
 103:                                              ; preds = %6
   %104 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %105 = load i32, ptr %104, align 8, !tbaa !431
-  %.not5885 = icmp eq i32 %105, 0
-  br i1 %.not5885, label %.critedge, label %.lr.ph
+  %.not5884 = icmp eq i32 %105, 0
+  br i1 %.not5884, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %5, i64 40

@@ -253,7 +253,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
 
 .split.us:                                        ; preds = %4, %.split.us.backedge
   %.sroa.0.0.us = phi i32 [ %.sroa.0.0.us.be, %.split.us.backedge ], [ %59, %4 ]
-  switch i32 %.sroa.0.0.us, label %.split17.us [
+  switch i32 %.sroa.0.0.us, label %.split15.us [
     i32 1, label %65
     i32 0, label %65
     i32 4, label %.loopexit
@@ -263,9 +263,9 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
 
 60:                                               ; preds = %.split.us
   %61 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i12.us = extractvalue { i32, i1 } %61, 1
-  %.sroa.08.0.i15.us = extractvalue { i32, i1 } %61, 0
-  br i1 %.sroa.18.0.in.i12.us, label %62, label %.split.us.backedge
+  %.sroa.18.0.in.i10.us = extractvalue { i32, i1 } %61, 1
+  %.sroa.08.0.i13.us = extractvalue { i32, i1 } %61, 0
+  br i1 %.sroa.18.0.in.i10.us, label %62, label %.split.us.backedge
 
 62:                                               ; preds = %60, %.split.us
   %63 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17hca07680b6706f605E(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
@@ -276,15 +276,15 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   %66 = cmpxchg weak ptr %0, i32 %.sroa.0.0.us, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i.us = extractvalue { i32, i1 } %66, 1
   %.sroa.08.0.i.us = extractvalue { i32, i1 } %66, 0
-  br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
+  br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %65, %62, %60
-  %.sroa.0.0.us.be = phi i32 [ %64, %62 ], [ %.sroa.08.0.i.us, %65 ], [ %.sroa.08.0.i15.us, %60 ]
+  %.sroa.0.0.us.be = phi i32 [ %64, %62 ], [ %.sroa.08.0.i.us, %65 ], [ %.sroa.08.0.i13.us, %60 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.be, %.split.backedge ], [ %59, %4 ]
-  switch i32 %.sroa.0.0, label %.split17.us [
+  switch i32 %.sroa.0.0, label %.split15.us [
     i32 1, label %73
     i32 0, label %71
     i32 4, label %.loopexit
@@ -292,7 +292,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
     i32 3, label %921
   ]
 
-.split17.us:                                      ; preds = %.split, %.split.us
+.split15.us:                                      ; preds = %.split, %.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   store ptr @anon.ccba1b1278c73a89e5fa5ae71ac7334d.5, ptr %56, align 8
   %67 = getelementptr inbounds nuw i8, ptr %56, i64 8
@@ -310,7 +310,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   %72 = cmpxchg weak ptr %0, i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %72, 1
   %.sroa.08.0.i = extractvalue { i32, i1 } %72, 0
-  br i1 %.sroa.18.0.in.i, label %.split19.us, label %.split.backedge
+  br i1 %.sroa.18.0.in.i, label %.split17.us, label %.split.backedge
 
 .loopexit:                                        ; preds = %.split, %.split.us, %915
   ret void
@@ -329,7 +329,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %58, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #12
   unreachable
 
-.split19.us:                                      ; preds = %71, %65
+.split17.us:                                      ; preds = %71, %65
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   store ptr %0, ptr %57, align 8
   %78 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -340,14 +340,14 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   %80 = icmp eq ptr %79, null
   br i1 %80, label %81, label %82
 
-81:                                               ; preds = %.split19.us
+81:                                               ; preds = %.split17.us
   invoke void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ccba1b1278c73a89e5fa5ae71ac7334d.20) #12
           to label %.noexc unwind label %913
 
 .noexc:                                           ; preds = %81
   unreachable
 
-82:                                               ; preds = %.split19.us
+82:                                               ; preds = %.split17.us
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !6
   %83 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !6
@@ -357,9 +357,9 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
 
 86:                                               ; preds = %82
   invoke void @_ZN5alloc5alloc18handle_alloc_error17haae8a1acffa1c90cE(i64 noundef 8, i64 noundef 16) #12
-          to label %.noexc10 unwind label %913
+          to label %.noexc8 unwind label %913
 
-.noexc10:                                         ; preds = %86
+.noexc8:                                          ; preds = %86
   unreachable
 
 87:                                               ; preds = %105, %88
@@ -3045,9 +3045,9 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sy
 
 919:                                              ; preds = %.split
   %920 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %920, 1
-  %.sroa.08.0.i15 = extractvalue { i32, i1 } %920, 0
-  br i1 %.sroa.18.0.in.i12, label %921, label %.split.backedge
+  %.sroa.18.0.in.i10 = extractvalue { i32, i1 } %920, 1
+  %.sroa.08.0.i13 = extractvalue { i32, i1 } %920, 0
+  br i1 %.sroa.18.0.in.i10, label %921, label %.split.backedge
 
 921:                                              ; preds = %919, %.split
   %922 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17hca07680b6706f605E(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
@@ -3055,7 +3055,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sy
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %921, %71, %919
-  %.sroa.0.0.be = phi i32 [ %923, %921 ], [ %.sroa.08.0.i, %71 ], [ %.sroa.08.0.i15, %919 ]
+  %.sroa.0.0.be = phi i32 [ %923, %921 ], [ %.sroa.08.0.i, %71 ], [ %.sroa.08.0.i13, %919 ]
   br label %.split
 }
 
@@ -3070,7 +3070,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
 
 .split.us:                                        ; preds = %4, %.split.us.backedge
   %.sroa.0.0.us = phi i32 [ %.sroa.0.0.us.be, %.split.us.backedge ], [ %9, %4 ]
-  switch i32 %.sroa.0.0.us, label %.split17.us [
+  switch i32 %.sroa.0.0.us, label %.split15.us [
     i32 1, label %15
     i32 0, label %15
     i32 4, label %.loopexit
@@ -3080,9 +3080,9 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
 
 10:                                               ; preds = %.split.us
   %11 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i12.us = extractvalue { i32, i1 } %11, 1
-  %.sroa.08.0.i15.us = extractvalue { i32, i1 } %11, 0
-  br i1 %.sroa.18.0.in.i12.us, label %12, label %.split.us.backedge
+  %.sroa.18.0.in.i10.us = extractvalue { i32, i1 } %11, 1
+  %.sroa.08.0.i13.us = extractvalue { i32, i1 } %11, 0
+  br i1 %.sroa.18.0.in.i10.us, label %12, label %.split.us.backedge
 
 12:                                               ; preds = %10, %.split.us
   %13 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17hca07680b6706f605E(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
@@ -3093,15 +3093,15 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   %16 = cmpxchg weak ptr %0, i32 %.sroa.0.0.us, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i.us = extractvalue { i32, i1 } %16, 1
   %.sroa.08.0.i.us = extractvalue { i32, i1 } %16, 0
-  br i1 %.sroa.18.0.in.i.us, label %.split19.us, label %.split.us.backedge
+  br i1 %.sroa.18.0.in.i.us, label %.split17.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %15, %12, %10
-  %.sroa.0.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ], [ %.sroa.08.0.i15.us, %10 ]
+  %.sroa.0.0.us.be = phi i32 [ %14, %12 ], [ %.sroa.08.0.i.us, %15 ], [ %.sroa.08.0.i13.us, %10 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.be, %.split.backedge ], [ %9, %4 ]
-  switch i32 %.sroa.0.0, label %.split17.us [
+  switch i32 %.sroa.0.0, label %.split15.us [
     i32 1, label %23
     i32 0, label %21
     i32 4, label %.loopexit
@@ -3109,7 +3109,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
     i32 3, label %41
   ]
 
-.split17.us:                                      ; preds = %.split, %.split.us
+.split15.us:                                      ; preds = %.split, %.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.ccba1b1278c73a89e5fa5ae71ac7334d.5, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -3127,7 +3127,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   %22 = cmpxchg weak ptr %0, i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %22, 1
   %.sroa.08.0.i = extractvalue { i32, i1 } %22, 0
-  br i1 %.sroa.18.0.in.i, label %.split19.us, label %.split.backedge
+  br i1 %.sroa.18.0.in.i, label %.split17.us, label %.split.backedge
 
 .loopexit:                                        ; preds = %.split, %.split.us, %36
   ret void
@@ -3146,7 +3146,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %8, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #12
   unreachable
 
-.split19.us:                                      ; preds = %21, %15
+.split17.us:                                      ; preds = %21, %15
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %0, ptr %7, align 8
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3157,14 +3157,14 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %32
 
-31:                                               ; preds = %.split19.us
+31:                                               ; preds = %.split17.us
   invoke void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ccba1b1278c73a89e5fa5ae71ac7334d.20) #12
           to label %.noexc unwind label %34
 
 .noexc:                                           ; preds = %31
   unreachable
 
-32:                                               ; preds = %.split19.us
+32:                                               ; preds = %.split17.us
   %33 = invoke noundef align 8 dereferenceable_or_null(208) ptr @_RNvMCsjIaN6dkKMFO_12turborepo_ciNtNtB2_7vendors6Vendor11infer_inner()
           to label %36 unwind label %34
 
@@ -3192,9 +3192,9 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sy
 
 39:                                               ; preds = %.split
   %40 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %40, 1
-  %.sroa.08.0.i15 = extractvalue { i32, i1 } %40, 0
-  br i1 %.sroa.18.0.in.i12, label %41, label %.split.backedge
+  %.sroa.18.0.in.i10 = extractvalue { i32, i1 } %40, 1
+  %.sroa.08.0.i13 = extractvalue { i32, i1 } %40, 0
+  br i1 %.sroa.18.0.in.i10, label %41, label %.split.backedge
 
 41:                                               ; preds = %39, %.split
   %42 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17hca07680b6706f605E(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
@@ -3202,7 +3202,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sy
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %41, %21, %39
-  %.sroa.0.0.be = phi i32 [ %43, %41 ], [ %.sroa.08.0.i, %21 ], [ %.sroa.08.0.i15, %39 ]
+  %.sroa.0.0.be = phi i32 [ %43, %41 ], [ %.sroa.08.0.i, %21 ], [ %.sroa.08.0.i13, %39 ]
   br label %.split
 }
 
@@ -3219,19 +3219,19 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
 
 .split.us:                                        ; preds = %4, %.split.us.backedge
   %.sroa.0.0.us = phi i32 [ %.sroa.0.0.us.be, %.split.us.backedge ], [ %11, %4 ]
-  switch i32 %.sroa.0.0.us, label %.split23.us [
+  switch i32 %.sroa.0.0.us, label %.split21.us [
     i32 1, label %17
     i32 0, label %17
-    i32 4, label %.loopexit18
+    i32 4, label %.loopexit16
     i32 2, label %12
     i32 3, label %14
   ]
 
 12:                                               ; preds = %.split.us
   %13 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i14.us = extractvalue { i32, i1 } %13, 1
-  %.sroa.08.0.i17.us = extractvalue { i32, i1 } %13, 0
-  br i1 %.sroa.18.0.in.i14.us, label %14, label %.split.us.backedge
+  %.sroa.18.0.in.i12.us = extractvalue { i32, i1 } %13, 1
+  %.sroa.08.0.i15.us = extractvalue { i32, i1 } %13, 0
+  br i1 %.sroa.18.0.in.i12.us, label %14, label %.split.us.backedge
 
 14:                                               ; preds = %12, %.split.us
   %15 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17hca07680b6706f605E(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
@@ -3242,23 +3242,23 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   %18 = cmpxchg weak ptr %0, i32 %.sroa.0.0.us, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i.us = extractvalue { i32, i1 } %18, 1
   %.sroa.08.0.i.us = extractvalue { i32, i1 } %18, 0
-  br i1 %.sroa.18.0.in.i.us, label %.split25.us, label %.split.us.backedge
+  br i1 %.sroa.18.0.in.i.us, label %.split23.us, label %.split.us.backedge
 
 .split.us.backedge:                               ; preds = %17, %14, %12
-  %.sroa.0.0.us.be = phi i32 [ %16, %14 ], [ %.sroa.08.0.i.us, %17 ], [ %.sroa.08.0.i17.us, %12 ]
+  %.sroa.0.0.us.be = phi i32 [ %16, %14 ], [ %.sroa.08.0.i.us, %17 ], [ %.sroa.08.0.i15.us, %12 ]
   br label %.split.us
 
 .split:                                           ; preds = %4, %.split.backedge
   %.sroa.0.0 = phi i32 [ %.sroa.0.0.be, %.split.backedge ], [ %11, %4 ]
-  switch i32 %.sroa.0.0, label %.split23.us [
+  switch i32 %.sroa.0.0, label %.split21.us [
     i32 1, label %25
     i32 0, label %23
-    i32 4, label %.loopexit18
+    i32 4, label %.loopexit16
     i32 2, label %58
     i32 3, label %60
   ]
 
-.split23.us:                                      ; preds = %.split, %.split.us
+.split21.us:                                      ; preds = %.split, %.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store ptr @anon.ccba1b1278c73a89e5fa5ae71ac7334d.5, ptr %8, align 8
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3276,9 +3276,9 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   %24 = cmpxchg weak ptr %0, i32 0, i32 2 acquire acquire, align 4
   %.sroa.18.0.in.i = extractvalue { i32, i1 } %24, 1
   %.sroa.08.0.i = extractvalue { i32, i1 } %24, 0
-  br i1 %.sroa.18.0.in.i, label %.split25.us, label %.split.backedge
+  br i1 %.sroa.18.0.in.i, label %.split23.us, label %.split.backedge
 
-.loopexit18:                                      ; preds = %.split, %.split.us, %54
+.loopexit16:                                      ; preds = %.split, %.split.us, %54
   ret void
 
 25:                                               ; preds = %.split
@@ -3295,7 +3295,7 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   call void @_ZN4core9panicking9panic_fmt17hb0937d4ccfd82515E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %3) #12
   unreachable
 
-.split25.us:                                      ; preds = %23, %17
+.split23.us:                                      ; preds = %23, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr %0, ptr %9, align 8
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -3306,21 +3306,21 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %34
 
-33:                                               ; preds = %.split25.us
+33:                                               ; preds = %.split23.us
   invoke void @_ZN4core6option13unwrap_failed17h977210acadcd397cE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.ccba1b1278c73a89e5fa5ae71ac7334d.20) #12
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %33
   unreachable
 
-34:                                               ; preds = %.split25.us
+34:                                               ; preds = %.split23.us
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.phi.trans.insert.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %36
 
-36:                                               ; preds = %.noexc12, %34
-  %.idx.i.i.i.i = phi i64 [ %.add.i.i.i.i, %.noexc12 ], [ 0, %34 ]
+36:                                               ; preds = %.noexc10, %34
+  %.idx.i.i.i.i = phi i64 [ %.add.i.i.i.i, %.noexc10 ], [ 0, %34 ]
   %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not = icmp ne i64 %.idx.i.i.i.i, 160
   br i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not, label %37, label %54
 
@@ -3333,22 +3333,22 @@ define void @_RINvMs0_NtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futexNtB6_4Once4c
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !55
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !55
   invoke void @_ZN3std3env4_var17he3acdd8672f87c77E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 1 %.val.i.i.i.i.i, i64 noundef %.val4.i.i.i.i.i)
-          to label %.noexc10 unwind label %.loopexit
+          to label %.noexc8 unwind label %.loopexit
 
-.noexc10:                                         ; preds = %37
+.noexc8:                                          ; preds = %37
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %39 = load i64, ptr %6, align 8, !range !12, !alias.scope !59, !noalias !61, !noundef !4
   %trunc.i.i.i.i.i.i.i = trunc nuw i64 %39 to i1
   br i1 %trunc.i.i.i.i.i.i.i, label %41, label %.thread.i.i.i.i.i.i.i
 
-.thread.i.i.i.i.i.i.i:                            ; preds = %.noexc10
+.thread.i.i.i.i.i.i.i:                            ; preds = %.noexc8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !alias.scope !62, !noalias !55
   %.pre.i.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !noalias !55
   %40 = icmp ne i64 %.pre.i.i.i.i.i.i, 0
   br label %_RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultNtNtCs68wO5nsWeTG_5alloc6string6StringNtNtCsapf13pIxsjn_3std3env8VarErrorE17unwrap_or_defaultCsjIaN6dkKMFO_12turborepo_ci.exit.i.i.i.i.i.i
 
-41:                                               ; preds = %.noexc10
+41:                                               ; preds = %.noexc8
   store i64 0, ptr %7, align 8, !alias.scope !63, !noalias !66
   store ptr inttoptr (i64 1 to ptr), ptr %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !alias.scope !63, !noalias !66
   store i64 0, ptr %.phi.trans.insert.i.i.i.i.i.i, align 8, !alias.scope !63, !noalias !66
@@ -3396,9 +3396,9 @@ _RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultNtNtCs68wO5nsWeTG_5alloc6string6St
 
 _RNCNCNvCsjIaN6dkKMFO_12turborepo_ci5is_ci00B5_.exit.i.i.i.i.i: ; preds = %_RNvMNtCs1LoaDTb72WA_4core6resultINtB2_6ResultNtNtCs68wO5nsWeTG_5alloc6string6StringNtNtCsapf13pIxsjn_3std3env8VarErrorE17unwrap_or_defaultCsjIaN6dkKMFO_12turborepo_ci.exit.i.i.i.i.i.i
   invoke void @_RNvXs2_NtCs68wO5nsWeTG_5alloc7raw_vecINtB5_6RawVechENtNtNtCs1LoaDTb72WA_4core3ops4drop4Drop4dropCs60PZzCmVZCp_14iana_time_zone(ptr noalias noundef nonnull align 8 dereferenceable(24) %7)
-          to label %.noexc12 unwind label %.loopexit
+          to label %.noexc10 unwind label %.loopexit
 
-.noexc12:                                         ; preds = %_RNCNCNvCsjIaN6dkKMFO_12turborepo_ci5is_ci00B5_.exit.i.i.i.i.i
+.noexc10:                                         ; preds = %_RNCNCNvCsjIaN6dkKMFO_12turborepo_ci5is_ci00B5_.exit.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !55
   br i1 %49, label %54, label %36
 
@@ -3417,13 +3417,13 @@ _RNCNCNvCsjIaN6dkKMFO_12turborepo_ci5is_ci00B5_.exit.i.i.i.i.i: ; preds = %_RNvM
   invoke void @"_ZN86_$LT$std..sys..sync..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd8005e3f3d22955cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
           to label %_RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sync4once5futex15CompletionGuardECsjIaN6dkKMFO_12turborepo_ci.exit unwind label %56
 
-54:                                               ; preds = %.noexc12, %36
+54:                                               ; preds = %.noexc10, %36
   %55 = zext i1 %.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.i.not.not.not.not.not to i8
   store i8 %55, ptr %31, align 1
   store i32 4, ptr %30, align 8
   call void @"_ZN86_$LT$std..sys..sync..once..futex..CompletionGuard$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd8005e3f3d22955cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit18
+  br label %.loopexit16
 
 56:                                               ; preds = %.body
   %57 = landingpad { ptr, i32 }
@@ -3436,9 +3436,9 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sy
 
 58:                                               ; preds = %.split
   %59 = cmpxchg weak ptr %0, i32 2, i32 3 monotonic acquire, align 4
-  %.sroa.18.0.in.i14 = extractvalue { i32, i1 } %59, 1
-  %.sroa.08.0.i17 = extractvalue { i32, i1 } %59, 0
-  br i1 %.sroa.18.0.in.i14, label %60, label %.split.backedge
+  %.sroa.18.0.in.i12 = extractvalue { i32, i1 } %59, 1
+  %.sroa.08.0.i15 = extractvalue { i32, i1 } %59, 0
+  br i1 %.sroa.18.0.in.i12, label %60, label %.split.backedge
 
 60:                                               ; preds = %58, %.split
   %61 = tail call noundef zeroext i1 @_ZN3std3sys3pal4unix5futex10futex_wait17hca07680b6706f605E(ptr noundef nonnull align 4 %0, i32 noundef 3, i64 undef, i32 noundef 1000000000)
@@ -3446,7 +3446,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtNtNtNtCsapf13pIxsjn_3std3sys4sy
   br label %.split.backedge
 
 .split.backedge:                                  ; preds = %60, %23, %58
-  %.sroa.0.0.be = phi i32 [ %62, %60 ], [ %.sroa.08.0.i, %23 ], [ %.sroa.08.0.i17, %58 ]
+  %.sroa.0.0.be = phi i32 [ %62, %60 ], [ %.sroa.08.0.i, %23 ], [ %.sroa.08.0.i15, %58 ]
   br label %.split
 }
 

@@ -421,28 +421,28 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE0EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !12
-  %.not9.i.i.i = icmp sgt i64 %4, 0
-  br i1 %.not9.i.i.i, label %.lr.ph.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit
+  %5 = icmp sgt i64 %4, 0
+  br i1 %5, label %.lr.ph.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !16
-  br label %7
+  %6 = load ptr, ptr %1, align 8, !tbaa !16
+  br label %8
 
-6:                                                ; preds = %7
+7:                                                ; preds = %8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %4
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %7, !llvm.loop !17
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %8, !llvm.loop !17
 
-7:                                                ; preds = %6, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %6 ]
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i
-  %9 = load i32, ptr %8, align 4, !tbaa !19
-  %10 = icmp sgt i32 %9, 0
-  br i1 %10, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %6
+8:                                                ; preds = %7, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %7 ]
+  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i
+  %10 = load i32, ptr %9, align 4, !tbaa !19
+  %11 = icmp sgt i32 %10, 0
+  br i1 %11, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %7
 
-_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %6, %7, %2
-  %.not.lcssa.i.i.i = phi i32 [ 0, %2 ], [ 0, %6 ], [ 1, %7 ]
-  ret i32 %.not.lcssa.i.i.i
+_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE0EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %7, %8, %2
+  %12 = phi i32 [ 0, %2 ], [ 1, %8 ], [ 0, %7 ]
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -519,28 +519,28 @@ _ZNSt14_Function_base13_Base_managerIN3igl8copyleft4cgal19WindingNumberFilterILN
 define linkonce_odr dso_local noundef i32 @_ZNSt17_Function_handlerIFiN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS4_15MeshBooleanTypeE1EEEE9_M_invokeERKSt9_Any_dataOS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !12
-  %.not9.i.i.i = icmp slt i64 %4, 1
-  br i1 %.not9.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %.lr.ph.i.i.i
+  %5 = icmp sgt i64 %4, 0
+  br i1 %5, label %.lr.ph.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit
 
 .lr.ph.i.i.i:                                     ; preds = %2
-  %5 = load ptr, ptr %1, align 8, !tbaa !16
-  br label %7
+  %6 = load ptr, ptr %1, align 8, !tbaa !16
+  br label %8
 
-6:                                                ; preds = %7
+7:                                                ; preds = %8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %4
-  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %7, !llvm.loop !21
+  br i1 %exitcond.not.i.i.i, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %8, !llvm.loop !21
 
-7:                                                ; preds = %6, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %6 ]
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i.i
-  %9 = load i32, ptr %8, align 4, !tbaa !19
-  %10 = icmp slt i32 %9, 1
-  br i1 %10, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %6
+8:                                                ; preds = %7, %.lr.ph.i.i.i
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %7 ]
+  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i
+  %10 = load i32, ptr %9, align 4, !tbaa !19
+  %11 = icmp slt i32 %10, 1
+  br i1 %11, label %_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit, label %7
 
-_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %6, %7, %2
-  %.not.lcssa.i.i.i = phi i32 [ 1, %2 ], [ 1, %6 ], [ 0, %7 ]
-  ret i32 %.not.lcssa.i.i.i
+_ZSt10__invoke_rIiRN3igl8copyleft4cgal29BinaryWindingNumberOperationsILNS0_15MeshBooleanTypeE1EEEJN5Eigen6MatrixIiLi1ELin1ELi1ELi1ELin1EEEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESB_E4typeEOSC_DpOSD_.exit: ; preds = %7, %8, %2
+  %12 = phi i32 [ 1, %2 ], [ 0, %8 ], [ 1, %7 ]
+  ret i32 %12
 }
 
 ; Function Attrs: mustprogress uwtable

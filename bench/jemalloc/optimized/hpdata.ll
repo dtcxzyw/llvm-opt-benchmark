@@ -1707,8 +1707,8 @@ define hidden ptr @je_hpdata_reserve_alloc(ptr noundef captures(none) %0, i64 no
   br label %5
 
 5:                                                ; preds = %37, %2
-  %.095 = phi i64 [ 0, %2 ], [ %.297, %37 ]
-  %.091 = phi i64 [ 0, %2 ], [ %.293, %37 ]
+  %.094 = phi i64 [ 0, %2 ], [ %.296, %37 ]
+  %.090 = phi i64 [ 0, %2 ], [ %.292, %37 ]
   %.032 = phi i64 [ 0, %2 ], [ %spec.select, %37 ]
   %.0 = phi i64 [ 0, %2 ], [ %38, %37 ]
   %6 = lshr i64 %.0, 6
@@ -1776,24 +1776,24 @@ define hidden ptr @je_hpdata_reserve_alloc(ptr noundef captures(none) %0, i64 no
   br label %fb_find_impl.exit.i
 
 fb_find_impl.exit.i:                              ; preds = %.lr.ph19.i, %._crit_edge20.i
-  %.0.i.i45 = phi i64 [ %35, %._crit_edge20.i ], [ 512, %.lr.ph19.i ]
-  %36 = sub nsw i64 %.0.i.i45, %21
+  %.0.i.i44 = phi i64 [ %35, %._crit_edge20.i ], [ 512, %.lr.ph19.i ]
+  %36 = sub nsw i64 %.0.i.i44, %21
   br label %fb_urange_iter.exit
 
 fb_urange_iter.exit:                              ; preds = %.lr.ph.i, %._crit_edge.i, %fb_find_impl.exit.i
-  %.297 = phi i64 [ %.095, %._crit_edge.i ], [ %21, %fb_find_impl.exit.i ], [ %.095, %.lr.ph.i ]
-  %.293 = phi i64 [ %.091, %._crit_edge.i ], [ %36, %fb_find_impl.exit.i ], [ %.091, %.lr.ph.i ]
-  %.not = icmp ult i64 %.293, %3
+  %.296 = phi i64 [ %.094, %._crit_edge.i ], [ %21, %fb_find_impl.exit.i ], [ %.094, %.lr.ph.i ]
+  %.292 = phi i64 [ %.090, %._crit_edge.i ], [ %36, %fb_find_impl.exit.i ], [ %.090, %.lr.ph.i ]
+  %.not = icmp ult i64 %.292, %3
   br i1 %.not, label %37, label %39
 
 37:                                               ; preds = %fb_urange_iter.exit
-  %spec.select = tail call i64 @llvm.umax.i64(i64 %.293, i64 %.032)
-  %38 = add i64 %.293, %.297
+  %spec.select = tail call i64 @llvm.umax.i64(i64 %.292, i64 %.032)
+  %38 = add i64 %.292, %.296
   br label %5
 
 39:                                               ; preds = %fb_urange_iter.exit
-  %40 = lshr i64 %.297, 6
-  %41 = and i64 %.297, 63
+  %40 = lshr i64 %.296, 6
+  %41 = and i64 %.296, 63
   %42 = add nuw nsw i64 %41, %3
   %43 = icmp samesign ugt i64 %42, 64
   %44 = sub nuw nsw i64 64, %41
@@ -1808,7 +1808,7 @@ fb_urange_iter.exit:                              ; preds = %.lr.ph.i, %._crit_e
   %52 = sub nsw i64 %3, %45
   %.029.i9.i = add nuw nsw i64 %40, 1
   %53 = icmp ugt i64 %52, 64
-  br i1 %53, label %fb_assign_visitor.exit.preheader.i, label %._crit_edge.i46
+  br i1 %53, label %fb_assign_visitor.exit.preheader.i, label %._crit_edge.i45
 
 fb_assign_visitor.exit.preheader.i:               ; preds = %39
   %54 = shl nuw nsw i64 %40, 3
@@ -1822,20 +1822,20 @@ fb_assign_visitor.exit.preheader.i:               ; preds = %39
   %60 = add nuw nsw i64 %59, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 -1, i64 %60, i1 false), !tbaa !32
   %61 = and i64 %57, -64
-  %.neg117 = add nsw i64 %42, -64
+  %.neg114 = add nsw i64 %42, -64
   %62 = add nsw i64 %umin.i, %61
-  %63 = sub nsw i64 %.neg117, %62
+  %63 = sub nsw i64 %.neg114, %62
   %64 = add nuw nsw i64 %40, 2
   %65 = add nuw nsw i64 %64, %58
-  br label %._crit_edge.i46
+  br label %._crit_edge.i45
 
-._crit_edge.i46:                                  ; preds = %fb_assign_visitor.exit.preheader.i, %39
+._crit_edge.i45:                                  ; preds = %fb_assign_visitor.exit.preheader.i, %39
   %.0.i.lcssa.i = phi i64 [ %52, %39 ], [ %63, %fb_assign_visitor.exit.preheader.i ]
   %.029.i.lcssa.i = phi i64 [ %.029.i9.i, %39 ], [ %65, %fb_assign_visitor.exit.preheader.i ]
-  %.not.i.i47 = icmp eq i64 %.0.i.lcssa.i, 0
-  br i1 %.not.i.i47, label %fb_set_range.exit, label %fb_assign_visitor.exit4.i
+  %.not.i.i46 = icmp eq i64 %.0.i.lcssa.i, 0
+  br i1 %.not.i.i46, label %fb_set_range.exit, label %fb_assign_visitor.exit4.i
 
-fb_assign_visitor.exit4.i:                        ; preds = %._crit_edge.i46
+fb_assign_visitor.exit4.i:                        ; preds = %._crit_edge.i45
   %66 = sub nuw nsw i64 64, %.0.i.lcssa.i
   %67 = lshr i64 -1, %66
   %68 = getelementptr inbounds nuw i64, ptr %4, i64 %.029.i.lcssa.i
@@ -1844,7 +1844,7 @@ fb_assign_visitor.exit4.i:                        ; preds = %._crit_edge.i46
   store i64 %70, ptr %68, align 8, !tbaa !32
   br label %fb_set_range.exit
 
-fb_set_range.exit:                                ; preds = %._crit_edge.i46, %fb_assign_visitor.exit4.i
+fb_set_range.exit:                                ; preds = %._crit_edge.i45, %fb_assign_visitor.exit4.i
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %72 = load i64, ptr %71, align 8, !tbaa !34
   %73 = add i64 %72, %3
@@ -1857,15 +1857,15 @@ fb_set_range.exit:                                ; preds = %._crit_edge.i46, %f
   br i1 %53, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %fb_set_range.exit, %.lr.ph
-  %.029.i.i133 = phi i64 [ %.029.i.i, %.lr.ph ], [ %.029.i9.i, %fb_set_range.exit ]
-  %.0.i.i132 = phi i64 [ %83, %.lr.ph ], [ %52, %fb_set_range.exit ]
-  %.099131 = phi i64 [ %82, %.lr.ph ], [ %78, %fb_set_range.exit ]
-  %79 = getelementptr inbounds nuw i64, ptr %74, i64 %.029.i.i133
+  %.029.i.i130 = phi i64 [ %.029.i.i, %.lr.ph ], [ %.029.i9.i, %fb_set_range.exit ]
+  %.0.i.i129 = phi i64 [ %83, %.lr.ph ], [ %52, %fb_set_range.exit ]
+  %.098128 = phi i64 [ %82, %.lr.ph ], [ %78, %fb_set_range.exit ]
+  %79 = getelementptr inbounds nuw i64, ptr %74, i64 %.029.i.i130
   %80 = load i64, ptr %79, align 8, !tbaa !32
   %81 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %80)
-  %82 = add i64 %81, %.099131
-  %83 = add i64 %.0.i.i132, -64
-  %.029.i.i = add nuw nsw i64 %.029.i.i133, 1
+  %82 = add i64 %81, %.098128
+  %83 = add i64 %.0.i.i129, -64
+  %.029.i.i = add nuw nsw i64 %.029.i.i130, 1
   %84 = icmp ugt i64 %83, 64
   br i1 %84, label %.lr.ph, label %fb_scount.exit, !llvm.loop !35
 
@@ -1876,161 +1876,161 @@ fb_set_range.exit:                                ; preds = %._crit_edge.i46, %f
 fb_scount.exit.thread:                            ; preds = %._crit_edge
   %85 = or i64 %76, %48
   store i64 %85, ptr %75, align 8, !tbaa !32
-  br label %._crit_edge.i49
+  br label %._crit_edge.i48
 
 fb_scount.exit:                                   ; preds = %.lr.ph, %._crit_edge
-  %.029.i.i.lcssa177 = phi i64 [ %.029.i9.i, %._crit_edge ], [ %.029.i.i, %.lr.ph ]
-  %.0.i.i.lcssa176 = phi i64 [ %52, %._crit_edge ], [ %83, %.lr.ph ]
-  %.099.lcssa175 = phi i64 [ %78, %._crit_edge ], [ %82, %.lr.ph ]
-  %86 = sub nuw nsw i64 64, %.0.i.i.lcssa176
+  %.029.i.i.lcssa174 = phi i64 [ %.029.i9.i, %._crit_edge ], [ %.029.i.i, %.lr.ph ]
+  %.0.i.i.lcssa173 = phi i64 [ %52, %._crit_edge ], [ %83, %.lr.ph ]
+  %.098.lcssa172 = phi i64 [ %78, %._crit_edge ], [ %82, %.lr.ph ]
+  %86 = sub nuw nsw i64 64, %.0.i.i.lcssa173
   %87 = lshr i64 -1, %86
-  %88 = getelementptr inbounds nuw i64, ptr %74, i64 %.029.i.i.lcssa177
+  %88 = getelementptr inbounds nuw i64, ptr %74, i64 %.029.i.i.lcssa174
   %89 = load i64, ptr %88, align 8, !tbaa !32
   %90 = and i64 %89, %87
   %91 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %90)
-  %92 = add i64 %91, %.099.lcssa175
+  %92 = add i64 %91, %.098.lcssa172
   %93 = or i64 %76, %48
   store i64 %93, ptr %75, align 8, !tbaa !32
-  br i1 %53, label %fb_assign_visitor.exit.preheader.i54, label %._crit_edge.i49
+  br i1 %53, label %fb_assign_visitor.exit.preheader.i53, label %._crit_edge.i48
 
-fb_assign_visitor.exit.preheader.i54:             ; preds = %fb_scount.exit
+fb_assign_visitor.exit.preheader.i53:             ; preds = %fb_scount.exit
   %94 = shl nuw nsw i64 %40, 3
   %95 = getelementptr i8, ptr %74, i64 %94
-  %scevgep.i55 = getelementptr i8, ptr %95, i64 8
+  %scevgep.i54 = getelementptr i8, ptr %95, i64 8
   %96 = add nsw i64 %42, -65
-  %umin.i56 = tail call i64 @llvm.umin.i64(i64 %42, i64 64)
-  %97 = sub nsw i64 %96, %umin.i56
+  %umin.i55 = tail call i64 @llvm.umin.i64(i64 %42, i64 64)
+  %97 = sub nsw i64 %96, %umin.i55
   %98 = lshr i64 %97, 6
   %99 = shl nuw nsw i64 %98, 3
   %100 = add nuw nsw i64 %99, 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i55, i8 -1, i64 %100, i1 false), !tbaa !32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i54, i8 -1, i64 %100, i1 false), !tbaa !32
   %101 = and i64 %97, -64
-  %.neg119 = add nsw i64 %42, -64
-  %102 = add nsw i64 %umin.i56, %101
-  %103 = sub nsw i64 %.neg119, %102
+  %.neg116 = add nsw i64 %42, -64
+  %102 = add nsw i64 %umin.i55, %101
+  %103 = sub nsw i64 %.neg116, %102
   %104 = add nuw nsw i64 %40, 2
   %105 = add nuw nsw i64 %104, %98
-  br label %._crit_edge.i49
+  br label %._crit_edge.i48
 
-._crit_edge.i49:                                  ; preds = %fb_scount.exit.thread, %fb_assign_visitor.exit.preheader.i54, %fb_scount.exit
-  %.pn = phi i64 [ %92, %fb_scount.exit ], [ %92, %fb_assign_visitor.exit.preheader.i54 ], [ %78, %fb_scount.exit.thread ]
-  %.0.i.lcssa.i50 = phi i64 [ %52, %fb_scount.exit ], [ %103, %fb_assign_visitor.exit.preheader.i54 ], [ %52, %fb_scount.exit.thread ]
-  %.029.i.lcssa.i51 = phi i64 [ %.029.i9.i, %fb_scount.exit ], [ %105, %fb_assign_visitor.exit.preheader.i54 ], [ %.029.i9.i, %fb_scount.exit.thread ]
+._crit_edge.i48:                                  ; preds = %fb_scount.exit.thread, %fb_assign_visitor.exit.preheader.i53, %fb_scount.exit
+  %.pn = phi i64 [ %92, %fb_scount.exit ], [ %92, %fb_assign_visitor.exit.preheader.i53 ], [ %78, %fb_scount.exit.thread ]
+  %.0.i.lcssa.i49 = phi i64 [ %52, %fb_scount.exit ], [ %103, %fb_assign_visitor.exit.preheader.i53 ], [ %52, %fb_scount.exit.thread ]
+  %.029.i.lcssa.i50 = phi i64 [ %.029.i9.i, %fb_scount.exit ], [ %105, %fb_assign_visitor.exit.preheader.i53 ], [ %.029.i9.i, %fb_scount.exit.thread ]
   %106 = sub i64 %3, %.pn
-  %.not.i.i52 = icmp eq i64 %.0.i.lcssa.i50, 0
-  br i1 %.not.i.i52, label %fb_set_range.exit57, label %fb_assign_visitor.exit4.i53
+  %.not.i.i51 = icmp eq i64 %.0.i.lcssa.i49, 0
+  br i1 %.not.i.i51, label %fb_set_range.exit56, label %fb_assign_visitor.exit4.i52
 
-fb_assign_visitor.exit4.i53:                      ; preds = %._crit_edge.i49
-  %107 = sub nuw nsw i64 64, %.0.i.lcssa.i50
+fb_assign_visitor.exit4.i52:                      ; preds = %._crit_edge.i48
+  %107 = sub nuw nsw i64 64, %.0.i.lcssa.i49
   %108 = lshr i64 -1, %107
-  %109 = getelementptr inbounds nuw i64, ptr %74, i64 %.029.i.lcssa.i51
+  %109 = getelementptr inbounds nuw i64, ptr %74, i64 %.029.i.lcssa.i50
   %110 = load i64, ptr %109, align 8, !tbaa !32
   %111 = or i64 %110, %108
   store i64 %111, ptr %109, align 8, !tbaa !32
-  br label %fb_set_range.exit57
+  br label %fb_set_range.exit56
 
-fb_set_range.exit57:                              ; preds = %._crit_edge.i49, %fb_assign_visitor.exit4.i53
+fb_set_range.exit56:                              ; preds = %._crit_edge.i48, %fb_assign_visitor.exit4.i52
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %113 = load i64, ptr %112, align 8, !tbaa !36
   %114 = add i64 %106, %113
   store i64 %114, ptr %112, align 8, !tbaa !36
   %115 = getelementptr i8, ptr %0, i64 96
   %.val = load i64, ptr %115, align 8, !tbaa !31
-  %116 = icmp eq i64 %.293, %.val
+  %116 = icmp eq i64 %.292, %.val
   br i1 %116, label %117, label %155
 
-117:                                              ; preds = %fb_set_range.exit57
-  %118 = add i64 %.297, %3
+117:                                              ; preds = %fb_set_range.exit56
+  %118 = add i64 %.296, %3
   %119 = icmp ult i64 %118, 512
-  br i1 %119, label %.lr.ph139, label %.thread110
+  br i1 %119, label %.lr.ph136, label %.thread108
 
-.lr.ph139:                                        ; preds = %117, %153
-  %.2137 = phi i64 [ %148, %153 ], [ %118, %117 ]
-  %.335136 = phi i64 [ %spec.select40, %153 ], [ %.032, %117 ]
-  %120 = lshr i64 %.2137, 6
-  %121 = and i64 %.2137, 63
+.lr.ph136:                                        ; preds = %117, %153
+  %.2134 = phi i64 [ %148, %153 ], [ %118, %117 ]
+  %.335133 = phi i64 [ %spec.select40, %153 ], [ %.032, %117 ]
+  %120 = lshr i64 %.2134, 6
+  %121 = and i64 %.2134, 63
   %122 = getelementptr inbounds nuw i64, ptr %4, i64 %120
   %123 = load i64, ptr %122, align 8, !tbaa !32
   %124 = xor i64 %123, -1
-  %notmask.i4.i58 = shl nsw i64 -1, %121
-  %.040.i5.i59 = and i64 %notmask.i4.i58, %124
-  %125 = icmp eq i64 %.040.i5.i59, 0
-  br i1 %125, label %.lr.ph.i73, label %133
+  %notmask.i4.i57 = shl nsw i64 -1, %121
+  %.040.i5.i58 = and i64 %notmask.i4.i57, %124
+  %125 = icmp eq i64 %.040.i5.i58, 0
+  br i1 %125, label %.lr.ph.i72, label %133
 
-.lr.ph.i73:                                       ; preds = %.lr.ph139, %128
-  %.039.i715.i74 = phi i64 [ %126, %128 ], [ %120, %.lr.ph139 ]
-  %126 = add nuw nsw i64 %.039.i715.i74, 1
+.lr.ph.i72:                                       ; preds = %.lr.ph136, %128
+  %.039.i715.i73 = phi i64 [ %126, %128 ], [ %120, %.lr.ph136 ]
+  %126 = add nuw nsw i64 %.039.i715.i73, 1
   %127 = icmp eq i64 %126, 8
-  br i1 %127, label %.thread110, label %128
+  br i1 %127, label %.thread108, label %128
 
-128:                                              ; preds = %.lr.ph.i73
+128:                                              ; preds = %.lr.ph.i72
   %129 = getelementptr inbounds nuw i64, ptr %4, i64 %126
   %130 = load i64, ptr %129, align 8, !tbaa !32
   %131 = icmp eq i64 %130, -1
-  br i1 %131, label %.lr.ph.i73, label %._crit_edge.loopexit.i75, !llvm.loop !33
+  br i1 %131, label %.lr.ph.i72, label %._crit_edge.loopexit.i74, !llvm.loop !33
 
-._crit_edge.loopexit.i75:                         ; preds = %128
+._crit_edge.loopexit.i74:                         ; preds = %128
   %132 = xor i64 %130, -1
   br label %133
 
-133:                                              ; preds = %.lr.ph139, %._crit_edge.loopexit.i75
-  %.141.i6.lcssa.i61 = phi i64 [ %.040.i5.i59, %.lr.ph139 ], [ %132, %._crit_edge.loopexit.i75 ]
-  %.039.i7.lcssa.i62 = phi i64 [ %120, %.lr.ph139 ], [ %126, %._crit_edge.loopexit.i75 ]
-  %134 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.141.i6.lcssa.i61, i1 true)
-  %135 = shl nuw nsw i64 %.039.i7.lcssa.i62, 6
+133:                                              ; preds = %.lr.ph136, %._crit_edge.loopexit.i74
+  %.141.i6.lcssa.i60 = phi i64 [ %.040.i5.i58, %.lr.ph136 ], [ %132, %._crit_edge.loopexit.i74 ]
+  %.039.i7.lcssa.i61 = phi i64 [ %120, %.lr.ph136 ], [ %126, %._crit_edge.loopexit.i74 ]
+  %134 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.141.i6.lcssa.i60, i1 true)
+  %135 = shl nuw nsw i64 %.039.i7.lcssa.i61, 6
   %136 = or disjoint i64 %135, %134
-  %137 = getelementptr inbounds nuw i64, ptr %4, i64 %.039.i7.lcssa.i62
+  %137 = getelementptr inbounds nuw i64, ptr %4, i64 %.039.i7.lcssa.i61
   %138 = load i64, ptr %137, align 8, !tbaa !32
-  %notmask.i.i64 = shl nsw i64 -1, %134
-  %.040.i.i65 = and i64 %138, %notmask.i.i64
-  %139 = icmp eq i64 %.040.i.i65, 0
-  br i1 %139, label %.lr.ph19.i71, label %.loopexit
+  %notmask.i.i63 = shl nsw i64 -1, %134
+  %.040.i.i64 = and i64 %138, %notmask.i.i63
+  %139 = icmp eq i64 %.040.i.i64, 0
+  br i1 %139, label %.lr.ph19.i70, label %.loopexit
 
-.lr.ph19.i71:                                     ; preds = %133, %142
-  %.039.i17.i72 = phi i64 [ %140, %142 ], [ %.039.i7.lcssa.i62, %133 ]
-  %140 = add nuw nsw i64 %.039.i17.i72, 1
+.lr.ph19.i70:                                     ; preds = %133, %142
+  %.039.i17.i71 = phi i64 [ %140, %142 ], [ %.039.i7.lcssa.i61, %133 ]
+  %140 = add nuw nsw i64 %.039.i17.i71, 1
   %141 = icmp eq i64 %140, 8
   br i1 %141, label %.loopexit.thread, label %142
 
-142:                                              ; preds = %.lr.ph19.i71
+142:                                              ; preds = %.lr.ph19.i70
   %143 = getelementptr inbounds nuw i64, ptr %4, i64 %140
   %144 = load i64, ptr %143, align 8, !tbaa !32
   %145 = icmp eq i64 %144, 0
-  br i1 %145, label %.lr.ph19.i71, label %.loopexit, !llvm.loop !33
+  br i1 %145, label %.lr.ph19.i70, label %.loopexit, !llvm.loop !33
 
 .loopexit:                                        ; preds = %142, %133
-  %.141.i.lcssa.i67 = phi i64 [ %.040.i.i65, %133 ], [ %144, %142 ]
-  %.039.i.lcssa.i68 = phi i64 [ %.039.i7.lcssa.i62, %133 ], [ %140, %142 ]
-  %146 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.141.i.lcssa.i67, i1 true)
-  %147 = shl nuw nsw i64 %.039.i.lcssa.i68, 6
+  %.141.i.lcssa.i66 = phi i64 [ %.040.i.i64, %133 ], [ %144, %142 ]
+  %.039.i.lcssa.i67 = phi i64 [ %.039.i7.lcssa.i61, %133 ], [ %140, %142 ]
+  %146 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.141.i.lcssa.i66, i1 true)
+  %147 = shl nuw nsw i64 %.039.i.lcssa.i67, 6
   %148 = or disjoint i64 %147, %146
   %149 = sub nsw i64 %148, %136
-  %150 = icmp eq i64 %149, %.293
-  br i1 %150, label %.thread110, label %153
+  %150 = icmp eq i64 %149, %.292
+  br i1 %150, label %.thread108, label %153
 
-.loopexit.thread:                                 ; preds = %.lr.ph19.i71
+.loopexit.thread:                                 ; preds = %.lr.ph19.i70
   %151 = sub nsw i64 512, %136
-  %152 = icmp eq i64 %151, %.293
-  br i1 %152, label %.thread110, label %.thread
+  %152 = icmp eq i64 %151, %.292
+  br i1 %152, label %.thread108, label %.thread
 
 .thread:                                          ; preds = %.loopexit.thread
-  %spec.select40182 = tail call i64 @llvm.umax.i64(i64 %151, i64 %.335136)
-  br label %.thread110
+  %spec.select40179 = tail call i64 @llvm.umax.i64(i64 %151, i64 %.335133)
+  br label %.thread108
 
 153:                                              ; preds = %.loopexit
-  %spec.select40 = tail call i64 @llvm.umax.i64(i64 %149, i64 %.335136)
-  %154 = icmp ult i64 %.039.i.lcssa.i68, 8
-  br i1 %154, label %.lr.ph139, label %.thread110
+  %spec.select40 = tail call i64 @llvm.umax.i64(i64 %149, i64 %.335133)
+  %154 = icmp ult i64 %.039.i.lcssa.i67, 8
+  br i1 %154, label %.lr.ph136, label %.thread108
 
-.thread110:                                       ; preds = %153, %.loopexit, %.lr.ph.i73, %.loopexit.thread, %.thread, %117
-  %.4 = phi i64 [ %.032, %117 ], [ %.293, %.loopexit.thread ], [ %spec.select40182, %.thread ], [ %.335136, %.lr.ph.i73 ], [ %spec.select40, %153 ], [ %.293, %.loopexit ]
+.thread108:                                       ; preds = %153, %.loopexit, %.lr.ph.i72, %.loopexit.thread, %.thread, %117
+  %.4 = phi i64 [ %.032, %117 ], [ %.292, %.loopexit.thread ], [ %spec.select40179, %.thread ], [ %.335133, %.lr.ph.i72 ], [ %spec.select40, %153 ], [ %.292, %.loopexit ]
   store i64 %.4, ptr %115, align 8, !tbaa !31
   br label %155
 
-155:                                              ; preds = %.thread110, %fb_set_range.exit57
-  %.val44 = load ptr, ptr %0, align 8, !tbaa !25
-  %156 = shl i64 %.297, 12
-  %157 = getelementptr inbounds nuw i8, ptr %.val44, i64 %156
+155:                                              ; preds = %.thread108, %fb_set_range.exit56
+  %.val43 = load ptr, ptr %0, align 8, !tbaa !25
+  %156 = shl i64 %.296, 12
+  %157 = getelementptr inbounds nuw i8, ptr %.val43, i64 %156
   ret ptr %157
 }
 
@@ -2224,9 +2224,9 @@ fb_bit_and.exit:                                  ; preds = %13
   br label %21
 
 21:                                               ; preds = %fb_bit_and.exit, %100
-  %.054 = phi i64 [ 0, %fb_bit_and.exit ], [ %101, %100 ]
-  %22 = lshr i64 %.054, 6
-  %23 = and i64 %.054, 63
+  %.053 = phi i64 [ 0, %fb_bit_and.exit ], [ %101, %100 ]
+  %22 = lshr i64 %.053, 6
+  %23 = and i64 %.053, 63
   %24 = getelementptr inbounds nuw i64, ptr %3, i64 %22
   %25 = load i64, ptr %24, align 8, !tbaa !32
   %notmask.i.i = shl nsw i64 -1, %23
@@ -2350,9 +2350,9 @@ fb_assign_visitor.exit.preheader.i:               ; preds = %fb_fls.exit
   %89 = add nuw nsw i64 %88, 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %scevgep.i, i8 -1, i64 %89, i1 false), !tbaa !32
   %90 = and i64 %86, -64
-  %.neg47 = add i64 %71, -64
+  %.neg46 = add i64 %71, -64
   %91 = add i64 %umin.i, %90
-  %92 = sub i64 %.neg47, %91
+  %92 = sub i64 %.neg46, %91
   %93 = add nuw nsw i64 %38, 2
   %94 = add nuw nsw i64 %93, %87
   br label %._crit_edge.i42

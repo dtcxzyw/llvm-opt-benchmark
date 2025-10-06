@@ -126,52 +126,52 @@ $_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm5RISCV28hasFastScalarUnalignedAccessENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
-  %.fr11 = freeze i64 %1
-  %3 = icmp eq i64 %.fr11, 0
+  %.fr9 = freeze i64 %1
+  %3 = icmp eq i64 %.fr9, 0
   br i1 %3, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
-  %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %2 ]
-  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.012.idx24.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %2 ]
+  %.012.ptr25.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.us, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !3
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  br i1 %.not.i.i.us, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
+  br i1 %.not.i.i.us, label %.split7.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us:  ; preds = %.split.us
-  %.012.add.i.us = add nuw nsw i64 %.012.idx21.i.us, 64
+  %.012.add.i.us = add nuw nsw i64 %.012.idx24.i.us, 64
   %.not.i.us = icmp eq i64 %.012.add.i.us, 2304
   br i1 %.not.i.us, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split.us
 
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
-  %.012.idx21.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %2 ]
-  %.012.ptr22.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i, i64 8
+  %.012.idx24.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %2 ]
+  %.012.ptr25.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !3
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr11
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr9
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr22.i, align 16, !tbaa !7
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %0, i64 %.fr11)
+  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr25.i, align 16, !tbaa !7
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %0, i64 %.fr9)
   %4 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %4, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
+  br i1 %4, label %.split7.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split
-  %.012.add.i = add nuw nsw i64 %.012.idx21.i, 64
+  %.012.add.i = add nuw nsw i64 %.012.idx24.i, 64
   %.not.i = icmp eq i64 %.012.add.i, 2304
   br i1 %.not.i, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split
 
-.split9.us:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
-  %5 = phi i64 [ %.012.idx21.i.us, %.split.us ], [ %.012.idx21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+.split7.us:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
+  %5 = phi i64 [ %.012.idx24.i.us, %.split.us ], [ %.012.idx24.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load i8, ptr %7, align 8, !tbaa !10, !range !17, !noundef !18
   %9 = trunc nuw i8 %8 to i1
   br label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit
 
-_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us, %.split9.us
-  %10 = phi i1 [ %9, %.split9.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
+_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us, %.split7.us
+  %10 = phi i1 [ %9, %.split7.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
   ret i1 %10
 }
 
@@ -180,95 +180,95 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm5RISCV28hasFastVectorUnalignedAccessENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
-  %.fr11 = freeze i64 %1
-  %3 = icmp eq i64 %.fr11, 0
+  %.fr9 = freeze i64 %1
+  %3 = icmp eq i64 %.fr9, 0
   br i1 %3, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
-  %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %2 ]
-  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.012.idx24.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %2 ]
+  %.012.ptr25.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.us, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !3
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  br i1 %.not.i.i.us, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
+  br i1 %.not.i.i.us, label %.split7.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us:  ; preds = %.split.us
-  %.012.add.i.us = add nuw nsw i64 %.012.idx21.i.us, 64
+  %.012.add.i.us = add nuw nsw i64 %.012.idx24.i.us, 64
   %.not.i.us = icmp eq i64 %.012.add.i.us, 2304
   br i1 %.not.i.us, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split.us
 
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
-  %.012.idx21.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %2 ]
-  %.012.ptr22.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i, i64 8
+  %.012.idx24.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %2 ]
+  %.012.ptr25.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !3
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr11
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr9
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr22.i, align 16, !tbaa !7
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %0, i64 %.fr11)
+  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr25.i, align 16, !tbaa !7
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %0, i64 %.fr9)
   %4 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %4, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
+  br i1 %4, label %.split7.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split
-  %.012.add.i = add nuw nsw i64 %.012.idx21.i, 64
+  %.012.add.i = add nuw nsw i64 %.012.idx24.i, 64
   %.not.i = icmp eq i64 %.012.add.i, 2304
   br i1 %.not.i, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split
 
-.split9.us:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
-  %5 = phi i64 [ %.012.idx21.i.us, %.split.us ], [ %.012.idx21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+.split7.us:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
+  %5 = phi i64 [ %.012.idx24.i.us, %.split.us ], [ %.012.idx24.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 33
   %8 = load i8, ptr %7, align 1, !tbaa !19, !range !17, !noundef !18
   %9 = trunc nuw i8 %8 to i1
   br label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit
 
-_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us, %.split9.us
-  %10 = phi i1 [ %9, %.split9.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
+_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us, %.split7.us
+  %10 = phi i1 [ %9, %.split7.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
   ret i1 %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm5RISCV16hasValidCPUModelENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
-  %.fr11.i = freeze i64 %1
-  %3 = icmp eq i64 %.fr11.i, 0
+  %.fr9.i = freeze i64 %1
+  %3 = icmp eq i64 %.fr9.i, 0
   br i1 %3, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i
-  %.012.idx21.i.us.i = phi i64 [ %.012.add.i.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ], [ 0, %2 ]
-  %.012.ptr22.i.us.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us.i
-  %.sroa.22.0..sroa_idx.i.us.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us.i, i64 8
+  %.012.idx24.i.us.i = phi i64 [ %.012.add.i.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ], [ 0, %2 ]
+  %.012.ptr25.i.us.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.us.i
+  %.sroa.22.0..sroa_idx.i.us.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.us.i, i64 8
   %.sroa.22.0.copyload.i.us.i = load i64, ptr %.sroa.22.0..sroa_idx.i.us.i, align 8, !tbaa !3, !noalias !20
   %.not.i.i.us.i = icmp eq i64 %.sroa.22.0.copyload.i.us.i, 0
   br i1 %.not.i.i.us.i, label %_ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i: ; preds = %.split.us.i
-  %.012.add.i.us.i = add nuw nsw i64 %.012.idx21.i.us.i, 64
+  %.012.add.i.us.i = add nuw nsw i64 %.012.idx24.i.us.i, 64
   %.not.i.us.i = icmp eq i64 %.012.add.i.us.i, 2304
   br i1 %.not.i.us.i, label %_ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit.thread, label %.split.us.i
 
 .split.i:                                         ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
-  %.012.idx21.i.i = phi i64 [ %.012.add.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ], [ 0, %2 ]
-  %.012.ptr22.i.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.i
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.i, i64 8
+  %.012.idx24.i.i = phi i64 [ %.012.add.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ], [ 0, %2 ]
+  %.012.ptr25.i.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.i
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.i, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3, !noalias !20
-  %.not.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i, %.fr11.i
+  %.not.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i, %.fr9.i
   br i1 %.not.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %.split.i
-  %.sroa.01.0.copyload.i.i = load ptr, ptr %.012.ptr22.i.i, align 16, !tbaa !7, !noalias !20
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i, ptr readonly %0, i64 %.fr11.i), !noalias !20
+  %.sroa.01.0.copyload.i.i = load ptr, ptr %.012.ptr25.i.i, align 16, !tbaa !7, !noalias !20
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i, ptr readonly %0, i64 %.fr9.i), !noalias !20
   %4 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %4, label %_ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %.split.i
-  %.012.add.i.i = add nuw nsw i64 %.012.idx21.i.i, 64
+  %.012.add.i.i = add nuw nsw i64 %.012.idx24.i.i, 64
   %.not.i.i = icmp eq i64 %.012.add.i.i, 2304
   br i1 %.not.i.i, label %_ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit.thread, label %.split.i
 
 _ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit:  ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %.split.us.i
-  %5 = phi i64 [ %.012.idx21.i.us.i, %.split.us.i ], [ %.012.idx21.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
+  %5 = phi i64 [ %.012.idx24.i.us.i, %.split.us.i ], [ %.012.idx24.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   %6 = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %.sroa.0.0.copyload = load i32, ptr %7, align 8, !tbaa !23
@@ -292,39 +292,39 @@ _ZN4llvm5RISCV11getCPUModelENS_9StringRefE.exit.thread: ; preds = %_ZN4llvmeqENS
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN4llvm5RISCV11getCPUModelENS_9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.llvm::RISCV::CPUModel") align 8 captures(none) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #2 {
-  %.fr11 = freeze i64 %2
-  %4 = icmp eq i64 %.fr11, 0
+  %.fr9 = freeze i64 %2
+  %4 = icmp eq i64 %.fr9, 0
   br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
-  %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %3 ]
-  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.012.idx24.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %3 ]
+  %.012.ptr25.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.us, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !3
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  br i1 %.not.i.i.us, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
+  br i1 %.not.i.i.us, label %.split7.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us:  ; preds = %.split.us
-  %.012.add.i.us = add nuw nsw i64 %.012.idx21.i.us, 64
+  %.012.add.i.us = add nuw nsw i64 %.012.idx24.i.us, 64
   %.not.i.us = icmp eq i64 %.012.add.i.us, 2304
   br i1 %.not.i.us, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split.us
 
 .split:                                           ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
-  %.012.idx21.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %3 ]
-  %.012.ptr22.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i, i64 8
+  %.012.idx24.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %3 ]
+  %.012.ptr25.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !3
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr11
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr9
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr22.i, align 16, !tbaa !7
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %1, i64 %.fr11)
+  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr25.i, align 16, !tbaa !7
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %1, i64 %.fr9)
   %5 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %5, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
+  br i1 %5, label %.split7.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split
-  %.012.add.i = add nuw nsw i64 %.012.idx21.i, 64
+  %.012.add.i = add nuw nsw i64 %.012.idx24.i, 64
   %.not.i = icmp eq i64 %.012.add.i, 2304
   br i1 %.not.i, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split
 
@@ -332,14 +332,14 @@ _ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   br label %9
 
-.split9.us:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
-  %6 = phi i64 [ %.012.idx21.i.us, %.split.us ], [ %.012.idx21.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+.split7.us:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
+  %6 = phi i64 [ %.012.idx24.i.us, %.split.us ], [ %.012.idx24.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %7 = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false), !tbaa.struct !24
   br label %9
 
-9:                                                ; preds = %.split9.us, %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit
+9:                                                ; preds = %.split7.us, %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit
   ret void
 }
 
@@ -348,58 +348,58 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN4llvm5RISCV8parseCPUENS_9StringRefEb(ptr readonly captures(none) %0, i64 %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
-  %.fr15 = freeze i64 %1
-  %4 = icmp eq i64 %.fr15, 0
+  %.fr13 = freeze i64 %1
+  %4 = icmp eq i64 %.fr13, 0
   br i1 %4, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
-  %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %3 ]
-  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.012.idx24.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %3 ]
+  %.012.ptr25.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.us, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !3
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  br i1 %.not.i.i.us, label %.split13.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
+  br i1 %.not.i.i.us, label %.split11.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us:  ; preds = %.split.us
-  %.012.add.i.us = add nuw nsw i64 %.012.idx21.i.us, 64
+  %.012.add.i.us = add nuw nsw i64 %.012.idx24.i.us, 64
   %.not.i.us = icmp eq i64 %.012.add.i.us, 2304
   br i1 %.not.i.us, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split.us
 
 .split:                                           ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
-  %.012.idx21.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %3 ]
-  %.012.ptr22.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i, i64 8
+  %.012.idx24.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %3 ]
+  %.012.ptr25.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !3
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr15
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr13
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr22.i, align 16, !tbaa !7
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %0, i64 %.fr15)
+  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr25.i, align 16, !tbaa !7
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %0, i64 %.fr13)
   %5 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %5, label %.split13.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
+  br i1 %5, label %.split11.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split
-  %.012.add.i = add nuw nsw i64 %.012.idx21.i, 64
+  %.012.add.i = add nuw nsw i64 %.012.idx24.i, 64
   %.not.i = icmp eq i64 %.012.add.i, 2304
   br i1 %.not.i, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split
 
-.split13.us:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
-  %.us-phi = phi ptr [ %.012.ptr22.i.us, %.split.us ], [ %.012.ptr22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+.split11.us:                                      ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
+  %.us-phi = phi ptr [ %.012.ptr25.i.us, %.split.us ], [ %.012.ptr25.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %6 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !25
   %.not.i.i6 = icmp ult i64 %7, 4
   br i1 %.not.i.i6, label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit, label %8
 
-8:                                                ; preds = %.split13.us
+8:                                                ; preds = %.split11.us
   %9 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !26
   %bcmp.i.i7 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %10, ptr noundef nonnull dereferenceable(4) @.str.11, i64 4)
   %11 = icmp eq i32 %bcmp.i.i7, 0
   br label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit
 
-_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit:           ; preds = %.split13.us, %8
-  %12 = phi i1 [ false, %.split13.us ], [ %11, %8 ]
+_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit:           ; preds = %.split11.us, %8
+  %12 = phi i1 [ false, %.split11.us ], [ %11, %8 ]
   %13 = xor i1 %2, %12
   %14 = xor i1 %13, true
   br label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit
@@ -437,53 +437,53 @@ _ZN4llvmeqENS_9StringRefES0_.exit.i.i17:          ; preds = %3
   br i1 %6, label %_ZN4llvm5RISCV8parseCPUENS_9StringRefEb.exit, label %.split.i.preheader
 
 .split.us.i:                                      ; preds = %3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i
-  %.012.idx21.i.us.i = phi i64 [ %.012.add.i.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ], [ %1, %3 ]
-  %.012.ptr22.i.us.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us.i
-  %.sroa.22.0..sroa_idx.i.us.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us.i, i64 8
+  %.012.idx24.i.us.i = phi i64 [ %.012.add.i.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ], [ %1, %3 ]
+  %.012.ptr25.i.us.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.us.i
+  %.sroa.22.0..sroa_idx.i.us.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.us.i, i64 8
   %.sroa.22.0.copyload.i.us.i = load i64, ptr %.sroa.22.0..sroa_idx.i.us.i, align 8, !tbaa !3
   %.not.i.i.us.i = icmp eq i64 %.sroa.22.0.copyload.i.us.i, 0
-  br i1 %.not.i.i.us.i, label %.split13.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i
+  br i1 %.not.i.i.us.i, label %.split11.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i: ; preds = %.split.us.i
-  %.012.add.i.us.i = add nuw nsw i64 %.012.idx21.i.us.i, 64
+  %.012.add.i.us.i = add nuw nsw i64 %.012.idx24.i.us.i, 64
   %.not.i.us.i = icmp eq i64 %.012.add.i.us.i, 2304
   br i1 %.not.i.us.i, label %_ZN4llvm5RISCV8parseCPUENS_9StringRefEb.exit, label %.split.us.i
 
 .split.i:                                         ; preds = %.split.i.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
-  %.012.idx21.i.i = phi i64 [ %.012.add.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ], [ 0, %.split.i.preheader ]
-  %.012.ptr22.i.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.i
-  %.sroa.22.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.i, i64 8
+  %.012.idx24.i.i = phi i64 [ %.012.add.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ], [ 0, %.split.i.preheader ]
+  %.012.ptr25.i.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.i
+  %.sroa.22.0..sroa_idx.i.i21 = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.i, i64 8
   %.sroa.22.0.copyload.i.i22 = load i64, ptr %.sroa.22.0..sroa_idx.i.i21, align 8, !tbaa !3
   %.not.i.i.i23 = icmp eq i64 %.sroa.22.0.copyload.i.i22, %1
   br i1 %.not.i.i.i23, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i24:          ; preds = %.split.i
-  %.sroa.01.0.copyload.i.i25 = load ptr, ptr %.012.ptr22.i.i, align 16, !tbaa !7
+  %.sroa.01.0.copyload.i.i25 = load ptr, ptr %.012.ptr25.i.i, align 16, !tbaa !7
   %bcmp.i.i.i26 = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i25, ptr readonly %0, i64 %1)
   %7 = icmp eq i32 %bcmp.i.i.i26, 0
-  br i1 %7, label %.split13.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
+  br i1 %7, label %.split11.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24, %.split.i
-  %.012.add.i.i = add nuw nsw i64 %.012.idx21.i.i, 64
+  %.012.add.i.i = add nuw nsw i64 %.012.idx24.i.i, 64
   %.not.i.i = icmp eq i64 %.012.add.i.i, 2304
   br i1 %.not.i.i, label %_ZN4llvm5RISCV8parseCPUENS_9StringRefEb.exit, label %.split.i
 
-.split13.us.i:                                    ; preds = %.split.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24
-  %.us-phi.i = phi ptr [ %.012.ptr22.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ %.012.ptr22.i.us.i, %.split.us.i ]
+.split11.us.i:                                    ; preds = %.split.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24
+  %.us-phi.i = phi ptr [ %.012.ptr25.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i24 ], [ %.012.ptr25.i.us.i, %.split.us.i ]
   %8 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !25
   %.not.i.i6.i = icmp ult i64 %9, 4
   br i1 %.not.i.i6.i, label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i, label %10
 
-10:                                               ; preds = %.split13.us.i
+10:                                               ; preds = %.split11.us.i
   %11 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   %bcmp.i.i7.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %12, ptr noundef nonnull dereferenceable(4) @.str.11, i64 4)
   %13 = icmp eq i32 %bcmp.i.i7.i, 0
   br label %_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i
 
-_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i:         ; preds = %10, %.split13.us.i
-  %14 = phi i1 [ false, %.split13.us.i ], [ %13, %10 ]
+_ZNK4llvm5RISCV7CPUInfo7is64BitEv.exit.i:         ; preds = %10, %.split11.us.i
+  %14 = phi i1 [ false, %.split11.us.i ], [ %13, %10 ]
   %15 = xor i1 %2, %14
   %16 = xor i1 %15, true
   br label %_ZN4llvm5RISCV8parseCPUENS_9StringRefEb.exit
@@ -495,53 +495,53 @@ _ZN4llvm5RISCV8parseCPUENS_9StringRefEb.exit:     ; preds = %_ZN4llvmeqENS_9Stri
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local { ptr, i64 } @_ZN4llvm5RISCV16getMArchFromMcpuENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
-  %.fr11 = freeze i64 %1
-  %3 = icmp eq i64 %.fr11, 0
+  %.fr9 = freeze i64 %1
+  %3 = icmp eq i64 %.fr9, 0
   br i1 %3, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
-  %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %2 ]
-  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.012.idx24.i.us = phi i64 [ %.012.add.i.us, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %2 ]
+  %.012.ptr25.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.us, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !3
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  br i1 %.not.i.i.us, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
+  br i1 %.not.i.i.us, label %.split7.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us:  ; preds = %.split.us
-  %.012.add.i.us = add nuw nsw i64 %.012.idx21.i.us, 64
+  %.012.add.i.us = add nuw nsw i64 %.012.idx24.i.us, 64
   %.not.i.us = icmp eq i64 %.012.add.i.us, 2304
   br i1 %.not.i.us, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split.us
 
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
-  %.012.idx21.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %2 ]
-  %.012.ptr22.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i, i64 8
+  %.012.idx24.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %2 ]
+  %.012.ptr25.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !3
-  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr11
+  %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr9
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr22.i, align 16, !tbaa !7
-  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %0, i64 %.fr11)
+  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr25.i, align 16, !tbaa !7
+  %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %0, i64 %.fr9)
   %4 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %4, label %.split9.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
+  br i1 %4, label %.split7.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split
-  %.012.add.i = add nuw nsw i64 %.012.idx21.i, 64
+  %.012.add.i = add nuw nsw i64 %.012.idx24.i, 64
   %.not.i = icmp eq i64 %.012.add.i, 2304
   br i1 %.not.i, label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit, label %.split
 
-.split9.us:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
-  %.us-phi = phi ptr [ %.012.ptr22.i.us, %.split.us ], [ %.012.ptr22.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
+.split7.us:                                       ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split.us
+  %.us-phi = phi ptr [ %.012.ptr25.i.us, %.split.us ], [ %.012.ptr25.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i ]
   %5 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 16
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !7
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.us-phi, i64 24
   %.sroa.3.0.copyload = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !3
   br label %_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit
 
-_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us, %.split9.us
-  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload, %.split9.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %.split9.us ], [ @.str.3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ @.str.3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
+_ZN4llvm5RISCVL16getCPUInfoByNameENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us, %.split7.us
+  %.sroa.3.0 = phi i64 [ %.sroa.3.0.copyload, %.split7.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %.split7.us ], [ @.str.3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us ], [ @.str.3, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %.sroa.3.0, 1
   ret { ptr, i64 } %.fca.1.insert
@@ -816,44 +816,44 @@ define dso_local void @_ZN4llvm5RISCV17getFeaturesForCPUENS_9StringRefERNS_15Sma
   %9 = alloca %"class.llvm::Expected", align 8
   %10 = alloca %"class.std::vector", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  %.fr11.i = freeze i64 %1
-  %12 = icmp eq i64 %.fr11.i, 0
+  %.fr9.i = freeze i64 %1
+  %12 = icmp eq i64 %.fr9.i, 0
   br i1 %12, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %4, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i
-  %.012.idx21.i.us.i = phi i64 [ %.012.add.i.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ], [ 0, %4 ]
-  %.012.ptr22.i.us.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.us.i
-  %.sroa.22.0..sroa_idx.i.us.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us.i, i64 8
+  %.012.idx24.i.us.i = phi i64 [ %.012.add.i.us.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i ], [ 0, %4 ]
+  %.012.ptr25.i.us.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.us.i
+  %.sroa.22.0..sroa_idx.i.us.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.us.i, i64 8
   %.sroa.22.0.copyload.i.us.i = load i64, ptr %.sroa.22.0..sroa_idx.i.us.i, align 8, !tbaa !3
   %.not.i.i.us.i = icmp eq i64 %.sroa.22.0.copyload.i.us.i, 0
   br i1 %.not.i.i.us.i, label %_ZN4llvm5RISCV16getMArchFromMcpuENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.us.i: ; preds = %.split.us.i
-  %.012.add.i.us.i = add nuw nsw i64 %.012.idx21.i.us.i, 64
+  %.012.add.i.us.i = add nuw nsw i64 %.012.idx24.i.us.i, 64
   %.not.i.us.i = icmp eq i64 %.012.add.i.us.i, 2304
   br i1 %.not.i.us.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.split.us.i
 
 .split.i:                                         ; preds = %4, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
-  %.012.idx21.i.i = phi i64 [ %.012.add.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ], [ 0, %4 ]
-  %.012.ptr22.i.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx21.i.i
-  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.i, i64 8
+  %.012.idx24.i.i = phi i64 [ %.012.add.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i ], [ 0, %4 ]
+  %.012.ptr25.i.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm5RISCVL12RISCVCPUInfoE, i64 %.012.idx24.i.i
+  %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.i, i64 8
   %.sroa.22.0.copyload.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i, align 8, !tbaa !3
-  %.not.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i, %.fr11.i
+  %.not.i.i.i = icmp eq i64 %.sroa.22.0.copyload.i.i, %.fr9.i
   br i1 %.not.i.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i.i:            ; preds = %.split.i
-  %.sroa.01.0.copyload.i.i = load ptr, ptr %.012.ptr22.i.i, align 16, !tbaa !7
-  %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i, ptr readonly %0, i64 %.fr11.i)
+  %.sroa.01.0.copyload.i.i = load ptr, ptr %.012.ptr25.i.i, align 16, !tbaa !7
+  %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i.i, ptr readonly %0, i64 %.fr9.i)
   %13 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %13, label %_ZN4llvm5RISCV16getMArchFromMcpuENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i.i:   ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %.split.i
-  %.012.add.i.i = add nuw nsw i64 %.012.idx21.i.i, 64
+  %.012.add.i.i = add nuw nsw i64 %.012.idx24.i.i, 64
   %.not.i.i = icmp eq i64 %.012.add.i.i, 2304
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.split.i
 
 _ZN4llvm5RISCV16getMArchFromMcpuENS_9StringRefE.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %.split.us.i
-  %.us-phi.i = phi ptr [ %.012.ptr22.i.us.i, %.split.us.i ], [ %.012.ptr22.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
+  %.us-phi.i = phi ptr [ %.012.ptr25.i.us.i, %.split.us.i ], [ %.012.ptr25.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ]
   %14 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
   %.sroa.0.0.copyload.i = load ptr, ptr %14, align 8, !tbaa !7
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 24

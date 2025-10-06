@@ -1272,32 +1272,32 @@ define noundef ptr @_ZNK4YAML6detail9node_data3getERNS0_4nodeERKSt10shared_ptrIN
   %8 = load ptr, ptr %7, align 8, !tbaa !77
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %10 = load ptr, ptr %9, align 8, !tbaa !77
-  %.not1316 = icmp eq ptr %8, %10
-  br i1 %.not1316, label %.loopexit, label %.lr.ph
+  %.not1518 = icmp eq ptr %8, %10
+  br i1 %.not1518, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %11 = load ptr, ptr %1, align 8, !tbaa !57
   br label %12
 
 12:                                               ; preds = %.lr.ph, %16
-  %.sroa.010.017 = phi ptr [ %8, %.lr.ph ], [ %17, %16 ]
-  %13 = load ptr, ptr %.sroa.010.017, align 8, !tbaa !66
+  %.sroa.010.019 = phi ptr [ %8, %.lr.ph ], [ %17, %16 ]
+  %13 = load ptr, ptr %.sroa.010.019, align 8, !tbaa !66
   %14 = load ptr, ptr %13, align 8, !tbaa !57
   %15 = icmp eq ptr %14, %11
-  br i1 %15, label %.loopexit.split.loop.exit14, label %16
+  br i1 %15, label %.loopexit.split.loop.exit16, label %16
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 16
-  %.not13 = icmp eq ptr %17, %10
-  br i1 %.not13, label %.loopexit, label %12
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.010.019, i64 16
+  %.not15 = icmp eq ptr %17, %10
+  br i1 %.not15, label %.loopexit, label %12
 
-.loopexit.split.loop.exit14:                      ; preds = %12
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.017, i64 8
+.loopexit.split.loop.exit16:                      ; preds = %12
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.010.019, i64 8
   %19 = load ptr, ptr %18, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %16, %.loopexit.split.loop.exit14, %6, %3
-  %.0 = phi ptr [ null, %3 ], [ %19, %.loopexit.split.loop.exit14 ], [ null, %6 ], [ null, %16 ]
+.loopexit:                                        ; preds = %16, %.loopexit.split.loop.exit16, %6, %3
+  %.0 = phi ptr [ null, %3 ], [ %19, %.loopexit.split.loop.exit16 ], [ null, %6 ], [ null, %16 ]
   ret ptr %.0
 }
 
@@ -1371,39 +1371,39 @@ _ZN4YAML6detail9node_data14convert_to_mapERKSt10shared_ptrINS0_13memory_holderEE
   %25 = load ptr, ptr %24, align 8, !tbaa !77
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %27 = load ptr, ptr %26, align 8, !tbaa !77
-  %.not26 = icmp eq ptr %25, %27
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %.not24 = icmp eq ptr %25, %27
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4YAML6detail9node_data14convert_to_mapERKSt10shared_ptrINS0_13memory_holderEE.exit
   %28 = load ptr, ptr %1, align 8, !tbaa !57
   br label %29
 
 29:                                               ; preds = %.lr.ph, %33
-  %.sroa.018.027 = phi ptr [ %25, %.lr.ph ], [ %34, %33 ]
-  %30 = load ptr, ptr %.sroa.018.027, align 8, !tbaa !66
+  %.sroa.018.025 = phi ptr [ %25, %.lr.ph ], [ %34, %33 ]
+  %30 = load ptr, ptr %.sroa.018.025, align 8, !tbaa !66
   %31 = load ptr, ptr %30, align 8, !tbaa !57
   %32 = icmp eq ptr %31, %28
-  br i1 %32, label %35, label %33
+  br i1 %32, label %.loopexit, label %33
 
 33:                                               ; preds = %29
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 16
   %.not = icmp eq ptr %34, %27
   br i1 %.not, label %._crit_edge, label %29
 
-35:                                               ; preds = %29
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 8
-  %37 = load ptr, ptr %36, align 8
-  br label %41
-
 ._crit_edge:                                      ; preds = %33, %_ZN4YAML6detail9node_data14convert_to_mapERKSt10shared_ptrINS0_13memory_holderEE.exit
-  %38 = load ptr, ptr %2, align 8, !tbaa !99
-  %39 = load ptr, ptr %38, align 8, !tbaa !102
-  %40 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML6detail6memory11create_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %39)
-  tail call void @_ZN4YAML6detail9node_data15insert_map_pairERNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %40)
-  br label %41
+  %35 = load ptr, ptr %2, align 8, !tbaa !99
+  %36 = load ptr, ptr %35, align 8, !tbaa !102
+  %37 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZN4YAML6detail6memory11create_nodeEv(ptr noundef nonnull align 8 dereferenceable(48) %36)
+  tail call void @_ZN4YAML6detail9node_data15insert_map_pairERNS0_4nodeES3_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(72) %1, ptr noundef nonnull align 8 dereferenceable(72) %37)
+  br label %40
 
-41:                                               ; preds = %35, %._crit_edge
-  %.3 = phi ptr [ %40, %._crit_edge ], [ %37, %35 ]
+.loopexit:                                        ; preds = %29
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.018.025, i64 8
+  %39 = load ptr, ptr %38, align 8
+  br label %40
+
+40:                                               ; preds = %.loopexit, %._crit_edge
+  %.3 = phi ptr [ %37, %._crit_edge ], [ %39, %.loopexit ]
   ret ptr %.3
 }
 

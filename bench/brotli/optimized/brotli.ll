@@ -1578,8 +1578,8 @@ ParseParams.exit.thread.thread101:                ; preds = %396, %121
   br i1 %629, label %630, label %632
 
 630:                                              ; preds = %.loopexit.i34
-  %spec.select87.i = call i64 @llvm.umin.i64(i64 %628, i64 1073741824)
-  %spec.select.i = trunc nuw nsw i64 %spec.select87.i to i32
+  %spec.select86.i = call i64 @llvm.umin.i64(i64 %628, i64 1073741824)
+  %spec.select.i = trunc nuw nsw i64 %spec.select86.i to i32
   %631 = call i32 @BrotliEncoderSetParameter(ptr noundef nonnull %606, i32 noundef 5, i32 noundef %spec.select.i) #25
   br label %632
 
@@ -1743,7 +1743,7 @@ ProvideInput.exit.i.i:                            ; preds = %656
   br i1 %.not12.i.i, label %.ProvideOutput.exit.i_crit_edge.i, label %WriteOutput.exit.i
 
 .ProvideOutput.exit.i_crit_edge.i:                ; preds = %701
-  %.pre90.i = load ptr, ptr %589, align 8, !tbaa !50
+  %.pre89.i = load ptr, ptr %589, align 8, !tbaa !50
   br label %ProvideOutput.exit.i.i
 
 WriteOutput.exit.i:                               ; preds = %701
@@ -1758,7 +1758,7 @@ WriteOutput.exit.i:                               ; preds = %701
   br label %CompressFile.exit.thread.i
 
 ProvideOutput.exit.i.i:                           ; preds = %.ProvideOutput.exit.i_crit_edge.i, %691
-  %713 = phi ptr [ %.pre90.i, %.ProvideOutput.exit.i_crit_edge.i ], [ %693, %691 ]
+  %713 = phi ptr [ %.pre89.i, %.ProvideOutput.exit.i_crit_edge.i ], [ %693, %691 ]
   store i64 524288, ptr %595, align 8, !tbaa !54
   store ptr %713, ptr %596, align 8, !tbaa !55
   br label %714
@@ -2328,9 +2328,9 @@ DecompressFile.exit.i:                            ; preds = %WriteOutput.exit66,
 998:                                              ; preds = %997, %DecompressFile.exit.i
   store ptr null, ptr %27, align 8, !tbaa !65
   %999 = zext i1 %.not33.i to i32
-  br i1 %.not33.i, label %.thread62.i, label %1001
+  br i1 %.not33.i, label %.thread61.i, label %1001
 
-.thread62.i:                                      ; preds = %998
+.thread61.i:                                      ; preds = %998
   %1000 = call fastcc i32 @CloseFiles(ptr noundef nonnull %5, i32 noundef 0, i32 noundef %999)
   br label %CompressFiles.exit
 
@@ -2370,8 +2370,8 @@ ParseParams.exit.thread.thread:                   ; preds = %325, %96, %ParsePar
   %1025 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 304, i64 1, ptr %1014)
   br label %CompressFiles.exit
 
-CompressFiles.exit:                               ; preds = %768, %603, %1001, %781, %555, %574, %561, %549, %FileSize.exit.thread.i, %527, %584, %.thread62.i, %.thread.i55, %.thread.i39, %ParseParams.exit.thread.thread, %ParseParams.exit.thread.thread101
-  %.3 = phi i1 [ %1006, %ParseParams.exit.thread.thread ], [ false, %ParseParams.exit.thread.thread101 ], [ true, %.thread.i39 ], [ true, %.thread.i55 ], [ true, %.thread62.i ], [ true, %584 ], [ true, %527 ], [ true, %FileSize.exit.thread.i ], [ true, %549 ], [ true, %561 ], [ true, %574 ], [ true, %555 ], [ %.not.i40.not.not, %781 ], [ %.not.i40.not.not, %1001 ], [ %.not.i33.not.not, %603 ], [ %.not.i33.not.not, %768 ]
+CompressFiles.exit:                               ; preds = %768, %603, %1001, %781, %555, %574, %561, %549, %FileSize.exit.thread.i, %527, %584, %.thread61.i, %.thread.i55, %.thread.i39, %ParseParams.exit.thread.thread, %ParseParams.exit.thread.thread101
+  %.3 = phi i1 [ %1006, %ParseParams.exit.thread.thread ], [ false, %ParseParams.exit.thread.thread101 ], [ true, %.thread.i39 ], [ true, %.thread.i55 ], [ true, %.thread61.i ], [ true, %584 ], [ true, %527 ], [ true, %FileSize.exit.thread.i ], [ true, %549 ], [ true, %561 ], [ true, %574 ], [ true, %555 ], [ %.not.i40.not.not, %781 ], [ %.not.i40.not.not, %1001 ], [ %.not.i33.not.not, %603 ], [ %.not.i33.not.not, %768 ]
   %1026 = load i32, ptr %30, align 8, !tbaa !67
   %.not27 = icmp ne i32 %1026, 0
   %1027 = load ptr, ptr %28, align 8, !tbaa !47

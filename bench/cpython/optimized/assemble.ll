@@ -439,19 +439,19 @@ assemble_init.exit.i:                             ; preds = %.lr.ph.preheader.i.
   %222 = load i32, ptr %23, align 4, !tbaa !4
   %223 = sext i32 %222 to i64
   %224 = icmp slt i64 %indvars.iv.next.i23, %223
-  br i1 %224, label %163, label %assemble_init.exit._crit_edge.i, !llvm.loop !42
+  br i1 %224, label %163, label %assemble_emit_instr.exit.i, !llvm.loop !42
 
-assemble_init.exit._crit_edge.i:                  ; preds = %assemble_init.exit.i
+assemble_emit_instr.exit.i:                       ; preds = %assemble_init.exit.i
   %.not60.i.i = icmp sgt i32 %222, 0
   br i1 %.not60.i.i, label %.lr.ph.i.i, label %assemble_exception_table.exit.i
 
-.lr.ph.i.i:                                       ; preds = %assemble_init.exit._crit_edge.i, %assemble_emit_location.exit.thread40.i.i
-  %.pre73.i.i = phi i32 [ %.pre74.i.i, %assemble_emit_location.exit.thread40.i.i ], [ %222, %assemble_init.exit._crit_edge.i ]
-  %225 = phi i32 [ %242, %assemble_emit_location.exit.thread40.i.i ], [ %222, %assemble_init.exit._crit_edge.i ]
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %assemble_emit_location.exit.thread40.i.i ], [ 0, %assemble_init.exit._crit_edge.i ]
-  %.02763.i.i = phi i32 [ %257, %assemble_emit_location.exit.thread40.i.i ], [ 0, %assemble_init.exit._crit_edge.i ]
-  %.sroa.0.062.i.i = phi i64 [ %.sroa.0.2.i.i, %assemble_emit_location.exit.thread40.i.i ], [ -1, %assemble_init.exit._crit_edge.i ]
-  %.sroa.7.061.i.i = phi i64 [ %.sroa.7.2.i.i, %assemble_emit_location.exit.thread40.i.i ], [ -1, %assemble_init.exit._crit_edge.i ]
+.lr.ph.i.i:                                       ; preds = %assemble_emit_instr.exit.i, %assemble_emit_location.exit.thread40.i.i
+  %.pre73.i.i = phi i32 [ %.pre74.i.i, %assemble_emit_location.exit.thread40.i.i ], [ %222, %assemble_emit_instr.exit.i ]
+  %225 = phi i32 [ %242, %assemble_emit_location.exit.thread40.i.i ], [ %222, %assemble_emit_instr.exit.i ]
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %assemble_emit_location.exit.thread40.i.i ], [ 0, %assemble_emit_instr.exit.i ]
+  %.02763.i.i = phi i32 [ %257, %assemble_emit_location.exit.thread40.i.i ], [ 0, %assemble_emit_instr.exit.i ]
+  %.sroa.0.062.i.i = phi i64 [ %.sroa.0.2.i.i, %assemble_emit_location.exit.thread40.i.i ], [ -1, %assemble_emit_instr.exit.i ]
+  %.sroa.7.061.i.i = phi i64 [ %.sroa.7.2.i.i, %assemble_emit_location.exit.thread40.i.i ], [ -1, %assemble_emit_instr.exit.i ]
   %226 = load ptr, ptr %141, align 8, !tbaa !14
   %227 = getelementptr %struct._PyInstruction, ptr %226, i64 %indvars.iv.i.i
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
@@ -643,7 +643,7 @@ assemble_location_info.exit.i:                    ; preds = %assemble_emit_locat
   %309 = icmp sgt i32 %308, -1
   br i1 %309, label %assemble_exception_table.exit.i, label %assemble_emit.exit.thread
 
-assemble_exception_table.exit.i:                  ; preds = %302, %._crit_edge.i41.i, %assemble_location_info.exit.i, %assemble_init.exit._crit_edge.i, %assemble_init.exit.preheader.i
+assemble_exception_table.exit.i:                  ; preds = %302, %._crit_edge.i41.i, %assemble_location_info.exit.i, %assemble_emit_instr.exit.i, %assemble_init.exit.preheader.i
   %310 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %311 = load i32, ptr %310, align 8, !tbaa !48
   %312 = sext i32 %311 to i64

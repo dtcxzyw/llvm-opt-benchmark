@@ -137,8 +137,8 @@ define internal range(i32 -12, 1) i32 @lrc_read_header(ptr noundef %0) #1 {
   %22 = call i64 @avio_seek(ptr noundef %21, i64 noundef 0, i32 noundef 1) #8
   call void @av_bprint_clear(ptr noundef nonnull %5) #8
   %23 = call i32 @avio_feof(ptr noundef %21) #8
-  %.not13.i = icmp eq i32 %23, 0
-  br i1 %.not13.i, label %.lr.ph.i, label %read_line.exit
+  %.not12.i = icmp eq i32 %23, 0
+  br i1 %.not12.i, label %.lr.ph.i, label %read_line.exit
 
 .lr.ph.i:                                         ; preds = %20, %28
   %24 = call i32 @avio_r8(ptr noundef %21) #8

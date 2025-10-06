@@ -7316,7 +7316,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %10 = load i32, ptr %9, align 4
-  switch i32 %10, label %.thread210 [
+  switch i32 %10, label %.thread203 [
     i32 0, label %11
     i32 1, label %21
     i32 2, label %58
@@ -7341,10 +7341,10 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
 
 19:                                               ; preds = %11
   %20 = tail call fastcc zeroext i1 @call_bool_check_hook(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef %2, i32 noundef %3)
-  br i1 %20, label %.thread210, label %.thread
+  br i1 %20, label %.thread203, label %.thread
 
 .thread:                                          ; preds = %13, %15, %19
-  br label %.thread210
+  br label %.thread203
 
 21:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -7355,7 +7355,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
 
 25:                                               ; preds = %21
   %26 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #28
-  br i1 %26, label %27, label %.thread201
+  br i1 %26, label %27, label %.thread196
 
 27:                                               ; preds = %25
   %28 = call i32 @errcode(i32 noundef 50856066) #28
@@ -7363,11 +7363,11 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
   %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.79, ptr noundef %29, ptr noundef nonnull %1) #28
   %31 = load ptr, ptr %7, align 8
   %.not182 = icmp eq ptr %31, null
-  br i1 %.not182, label %.thread201.sink.split.sink.split, label %32
+  br i1 %.not182, label %.thread196.sink.split.sink.split, label %32
 
 32:                                               ; preds = %27
   %33 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.81, ptr noundef nonnull %31) #28
-  br label %.thread201.sink.split.sink.split
+  br label %.thread196.sink.split.sink.split
 
 34:                                               ; preds = %21
   %35 = load i32, ptr %4, align 8
@@ -7386,7 +7386,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
   %44 = load i32, ptr %22, align 8
   %45 = call ptr @get_config_unit_name(i32 noundef %44)
   %46 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #28
-  br i1 %46, label %47, label %.thread201
+  br i1 %46, label %47, label %.thread196
 
 47:                                               ; preds = %43
   %.not183 = icmp eq ptr %45, null
@@ -7399,24 +7399,24 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %53 = load i32, ptr %52, align 8
   %54 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.122, i32 noundef %49, ptr noundef nonnull %.str.8..str.121, ptr noundef nonnull %.str.8., ptr noundef %50, i32 noundef %51, ptr noundef nonnull %.str.8..str.121, ptr noundef nonnull %.str.8., i32 noundef %53, ptr noundef nonnull %.str.8..str.121, ptr noundef nonnull %.str.8.) #28
-  br label %.thread201.sink.split.sink.split
+  br label %.thread196.sink.split.sink.split
 
 55:                                               ; preds = %39
   %56 = call fastcc zeroext i1 @call_int_check_hook(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef %2, i32 noundef %3)
-  br i1 %56, label %57, label %.thread201
+  br i1 %56, label %57, label %.thread196
 
-.thread201.sink.split.sink.split:                 ; preds = %32, %27, %47
+.thread196.sink.split.sink.split:                 ; preds = %32, %27, %47
   %.sink = phi i32 [ 3186, %47 ], [ 3166, %27 ], [ 3166, %32 ]
   call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink, ptr noundef nonnull @__func__.parse_and_validate_value) #28
-  br label %.thread201
+  br label %.thread196
 
-.thread201:                                       ; preds = %25, %43, %.thread201.sink.split.sink.split, %55
+.thread196:                                       ; preds = %25, %43, %.thread196.sink.split.sink.split, %55
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread210
+  br label %.thread203
 
 57:                                               ; preds = %55
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread210
+  br label %.thread203
 
 58:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -7427,7 +7427,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
 
 62:                                               ; preds = %58
   %63 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #28
-  br i1 %63, label %64, label %.thread206
+  br i1 %63, label %64, label %.thread200
 
 64:                                               ; preds = %62
   %65 = call i32 @errcode(i32 noundef 50856066) #28
@@ -7435,11 +7435,11 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
   %67 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.79, ptr noundef %66, ptr noundef nonnull %1) #28
   %68 = load ptr, ptr %8, align 8
   %.not180 = icmp eq ptr %68, null
-  br i1 %.not180, label %.thread206.sink.split.sink.split, label %69
+  br i1 %.not180, label %.thread200.sink.split.sink.split, label %69
 
 69:                                               ; preds = %64
   %70 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.81, ptr noundef nonnull %68) #28
-  br label %.thread206.sink.split.sink.split
+  br label %.thread200.sink.split.sink.split
 
 71:                                               ; preds = %58
   %72 = load double, ptr %4, align 8
@@ -7458,37 +7458,37 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
   %81 = load i32, ptr %59, align 8
   %82 = call ptr @get_config_unit_name(i32 noundef %81)
   %83 = call zeroext i1 @errstart(i32 noundef %3, ptr noundef null) #28
-  br i1 %83, label %84, label %.thread206
+  br i1 %83, label %84, label %.thread200
 
 84:                                               ; preds = %80
   %.not181 = icmp eq ptr %82, null
-  %.str.8..str.121188 = select i1 %.not181, ptr @.str.8, ptr @.str.121
-  %.str.8.187 = select i1 %.not181, ptr @.str.8, ptr %82
+  %.str.8..str.121187 = select i1 %.not181, ptr @.str.8, ptr @.str.121
+  %.str.8.186 = select i1 %.not181, ptr @.str.8, ptr %82
   %85 = call i32 @errcode(i32 noundef 50856066) #28
   %86 = load double, ptr %4, align 8
   %87 = load ptr, ptr %0, align 8
   %88 = load double, ptr %73, align 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %90 = load double, ptr %89, align 8
-  %91 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.123, double noundef %86, ptr noundef nonnull %.str.8..str.121188, ptr noundef nonnull %.str.8.187, ptr noundef %87, double noundef %88, ptr noundef nonnull %.str.8..str.121188, ptr noundef nonnull %.str.8.187, double noundef %90, ptr noundef nonnull %.str.8..str.121188, ptr noundef nonnull %.str.8.187) #28
-  br label %.thread206.sink.split.sink.split
+  %91 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.123, double noundef %86, ptr noundef nonnull %.str.8..str.121187, ptr noundef nonnull %.str.8.186, ptr noundef %87, double noundef %88, ptr noundef nonnull %.str.8..str.121187, ptr noundef nonnull %.str.8.186, double noundef %90, ptr noundef nonnull %.str.8..str.121187, ptr noundef nonnull %.str.8.186) #28
+  br label %.thread200.sink.split.sink.split
 
 92:                                               ; preds = %76
   %93 = call fastcc zeroext i1 @call_real_check_hook(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef %2, i32 noundef %3)
-  br i1 %93, label %94, label %.thread206
+  br i1 %93, label %94, label %.thread200
 
-.thread206.sink.split.sink.split:                 ; preds = %69, %64, %84
-  %.sink238 = phi i32 [ 3227, %84 ], [ 3207, %64 ], [ 3207, %69 ]
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink238, ptr noundef nonnull @__func__.parse_and_validate_value) #28
-  br label %.thread206
+.thread200.sink.split.sink.split:                 ; preds = %69, %64, %84
+  %.sink229 = phi i32 [ 3227, %84 ], [ 3207, %64 ], [ 3207, %69 ]
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef %.sink229, ptr noundef nonnull @__func__.parse_and_validate_value) #28
+  br label %.thread200
 
-.thread206:                                       ; preds = %62, %80, %.thread206.sink.split.sink.split, %92
+.thread200:                                       ; preds = %62, %80, %.thread200.sink.split.sink.split, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread210
+  br label %.thread203
 
 94:                                               ; preds = %92
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread210
+  br label %.thread203
 
 95:                                               ; preds = %6
   %96 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %1) #29
@@ -7510,7 +7510,7 @@ define internal fastcc noundef zeroext i1 @parse_and_validate_value(ptr noundef 
 
 guc_strdup.exit.thread:                           ; preds = %101, %103
   store ptr null, ptr %4, align 8
-  br label %.thread210
+  br label %.thread203
 
 106:                                              ; preds = %95
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %99, ptr nonnull readonly align 1 %1, i64 %97, i1 false)
@@ -7529,7 +7529,7 @@ guc_strdup.exit.thread:                           ; preds = %101, %103
 
 113:                                              ; preds = %110, %106
   %114 = tail call fastcc zeroext i1 @call_string_check_hook(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef %2, i32 noundef %3)
-  br i1 %114, label %.thread210, label %115
+  br i1 %114, label %.thread203, label %115
 
 115:                                              ; preds = %113
   %116 = load ptr, ptr %4, align 8
@@ -7542,7 +7542,7 @@ guc_strdup.exit.thread:                           ; preds = %101, %103
 
 guc_free.exit:                                    ; preds = %115, %117
   store ptr null, ptr %4, align 8
-  br label %.thread210
+  br label %.thread203
 
 118:                                              ; preds = %6
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -7552,18 +7552,18 @@ guc_free.exit:                                    ; preds = %115, %117
 
 .lr.ph.i.preheader:                               ; preds = %118
   %121 = load ptr, ptr %120, align 8
-  %.not12.i221 = icmp eq ptr %121, null
-  br i1 %.not12.i221, label %.loopexit, label %.lr.ph
+  %.not12.i212 = icmp eq ptr %121, null
+  br i1 %.not12.i212, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %122 = phi ptr [ %126, %.lr.ph.i ], [ %121, %.lr.ph.i.preheader ]
-  %.015.i222 = phi ptr [ %125, %.lr.ph.i ], [ %120, %.lr.ph.i.preheader ]
+  %.015.i213 = phi ptr [ %125, %.lr.ph.i ], [ %120, %.lr.ph.i.preheader ]
   %123 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull %122) #28
   %124 = icmp eq i32 %123, 0
   br i1 %124, label %138, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph
-  %125 = getelementptr inbounds nuw i8, ptr %.015.i222, i64 16
+  %125 = getelementptr inbounds nuw i8, ptr %.015.i213, i64 16
   %126 = load ptr, ptr %125, align 8
   %.not12.i = icmp eq ptr %126, null
   br i1 %.not12.i, label %.loopexit, label %.lr.ph
@@ -7591,24 +7591,24 @@ guc_free.exit:                                    ; preds = %115, %117
 
 136:                                              ; preds = %135, %.loopexit
   %.not178 = icmp eq ptr %127, null
-  br i1 %.not178, label %.thread217, label %137
+  br i1 %.not178, label %.thread209, label %137
 
 137:                                              ; preds = %136
   tail call void @pfree(ptr noundef nonnull %127) #28
-  br label %.thread217
+  br label %.thread209
 
 138:                                              ; preds = %.lr.ph
-  %139 = getelementptr inbounds nuw i8, ptr %.015.i222, i64 8
+  %139 = getelementptr inbounds nuw i8, ptr %.015.i213, i64 8
   %140 = load i32, ptr %139, align 8
   store i32 %140, ptr %4, align 4
   %141 = tail call fastcc zeroext i1 @call_enum_check_hook(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %5, i32 noundef %2, i32 noundef %3)
-  br i1 %141, label %.thread210, label %.thread217
+  br i1 %141, label %.thread203, label %.thread209
 
-.thread217:                                       ; preds = %137, %136, %138
-  br label %.thread210
+.thread209:                                       ; preds = %137, %136, %138
+  br label %.thread203
 
-.thread210:                                       ; preds = %guc_strdup.exit.thread, %guc_free.exit, %6, %19, %57, %94, %113, %138, %.thread217, %.thread206, %.thread201, %.thread
-  %.1 = phi i1 [ false, %.thread ], [ false, %.thread201 ], [ false, %.thread206 ], [ false, %.thread217 ], [ true, %138 ], [ true, %113 ], [ true, %94 ], [ true, %57 ], [ true, %19 ], [ true, %6 ], [ false, %guc_free.exit ], [ false, %guc_strdup.exit.thread ]
+.thread203:                                       ; preds = %guc_strdup.exit.thread, %guc_free.exit, %6, %19, %57, %94, %113, %138, %.thread209, %.thread200, %.thread196, %.thread
+  %.1 = phi i1 [ false, %.thread ], [ false, %.thread196 ], [ false, %.thread200 ], [ false, %.thread209 ], [ true, %138 ], [ true, %113 ], [ true, %94 ], [ true, %57 ], [ true, %19 ], [ true, %6 ], [ false, %guc_free.exit ], [ false, %guc_strdup.exit.thread ]
   ret i1 %.1
 }
 
@@ -10961,8 +10961,8 @@ define dso_local ptr @GUCArrayAdd(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %19 = add i32 %18, 1
   store i32 %19, ptr %5, align 4
   store i32 1, ptr %7, align 4
-  %.not2327 = icmp slt i32 %18, 1
-  br i1 %.not2327, label %.loopexit, label %.lr.ph
+  %.not2325 = icmp slt i32 %18, 1
+  br i1 %.not2325, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %16, %32
   %20 = call i64 @array_ref(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull %7, i32 noundef -1, i32 noundef -1, i1 noundef zeroext false, i8 noundef signext 105, ptr noundef nonnull %6) #28

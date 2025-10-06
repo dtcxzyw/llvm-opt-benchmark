@@ -6414,8 +6414,8 @@ _ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyVectorITpTnRiJENS_6OffsetIN10re
   %95 = zext i32 %94 to i64
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !103
-  %.not17.i = icmp eq i32 %97, 0
-  br i1 %.not17.i, label %_ZNK10reflection6Schema7objectsEv.exit28.thread, label %.lr.ph.i
+  %.not15.i = icmp eq i32 %97, 0
+  br i1 %.not15.i, label %_ZNK10reflection6Schema7objectsEv.exit28.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 4
@@ -6828,8 +6828,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers16VerifierTemp
 
 .preheader:                                       ; preds = %2
   %3 = load i32, ptr %1, align 4, !tbaa !91
-  %.not17 = icmp eq i32 %3, 0
-  br i1 %.not17, label %.thread, label %.lr.ph
+  %.not15 = icmp eq i32 %3, 0
+  br i1 %.not15, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -6853,8 +6853,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers16VerifierTemp
   %16 = tail call noundef zeroext i1 @_ZNK10reflection4Enum6VerifyERN11flatbuffers16VerifierTemplateILb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(72) %0)
   br i1 %16, label %5, label %.thread
 
-.thread:                                          ; preds = %5, %9, %.preheader, %2
-  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ %16, %9 ], [ %16, %5 ]
+.thread:                                          ; preds = %9, %5, %.preheader, %2
+  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ %16, %5 ], [ %16, %9 ]
   ret i1 %.1
 }
 
@@ -7032,8 +7032,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers16VerifierTemp
 
 .preheader:                                       ; preds = %2
   %3 = load i32, ptr %1, align 4, !tbaa !207
-  %.not17 = icmp eq i32 %3, 0
-  br i1 %.not17, label %.thread, label %.lr.ph
+  %.not15 = icmp eq i32 %3, 0
+  br i1 %.not15, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7057,8 +7057,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers16VerifierTemp
   %16 = tail call noundef zeroext i1 @_ZNK10reflection7Service6VerifyERN11flatbuffers16VerifierTemplateILb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(72) %0)
   br i1 %16, label %5, label %.thread
 
-.thread:                                          ; preds = %5, %9, %.preheader, %2
-  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ %16, %9 ], [ %16, %5 ]
+.thread:                                          ; preds = %9, %5, %.preheader, %2
+  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ %16, %5 ], [ %16, %9 ]
   ret i1 %.1
 }
 
@@ -7166,8 +7166,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers16VerifierTemp
 
 .preheader:                                       ; preds = %2
   %3 = load i32, ptr %1, align 4, !tbaa !210
-  %.not17 = icmp eq i32 %3, 0
-  br i1 %.not17, label %.thread, label %.lr.ph
+  %.not15 = icmp eq i32 %3, 0
+  br i1 %.not15, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7191,8 +7191,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers16VerifierTemp
   %16 = tail call noundef zeroext i1 @_ZNK10reflection10SchemaFile6VerifyERN11flatbuffers16VerifierTemplateILb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(72) %0)
   br i1 %16, label %5, label %.thread
 
-.thread:                                          ; preds = %5, %9, %.preheader, %2
-  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ %16, %9 ], [ %16, %5 ]
+.thread:                                          ; preds = %9, %5, %.preheader, %2
+  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ %16, %5 ], [ %16, %9 ]
   ret i1 %.1
 }
 
@@ -7412,8 +7412,8 @@ _ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyVectorITpTnRiJENS_6OffsetIN10re
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !213
-  %.not17.i = icmp eq i32 %132, 0
-  br i1 %.not17.i, label %_ZNK10reflection6Object6fieldsEv.exit38.thread, label %.lr.ph.i
+  %.not15.i = icmp eq i32 %132, 0
+  br i1 %.not15.i, label %_ZNK10reflection6Object6fieldsEv.exit38.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 4
@@ -7744,8 +7744,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers16VerifierTemp
 
 .preheader:                                       ; preds = %2
   %3 = load i32, ptr %1, align 4, !tbaa !216
-  %.not17 = icmp eq i32 %3, 0
-  br i1 %.not17, label %.thread, label %.lr.ph
+  %.not15 = icmp eq i32 %3, 0
+  br i1 %.not15, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7769,8 +7769,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers16VerifierTemp
   %16 = tail call noundef zeroext i1 @_ZNK10reflection8KeyValue6VerifyERN11flatbuffers16VerifierTemplateILb0EEE(ptr noundef nonnull align 1 dereferenceable(1) %15, ptr noundef nonnull align 8 dereferenceable(72) %0)
   br i1 %16, label %5, label %.thread
 
-.thread:                                          ; preds = %5, %9, %.preheader, %2
-  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ %16, %9 ], [ %16, %5 ]
+.thread:                                          ; preds = %9, %5, %.preheader, %2
+  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ %16, %5 ], [ %16, %9 ]
   ret i1 %.1
 }
 
@@ -7831,8 +7831,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK11flatbuffers16VerifierTem
 
 .preheader:                                       ; preds = %2
   %3 = load i32, ptr %1, align 4, !tbaa !219
-  %.not33 = icmp eq i32 %3, 0
-  br i1 %.not33, label %.thread, label %.lr.ph
+  %.not31 = icmp eq i32 %3, 0
+  br i1 %.not31, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -7840,12 +7840,12 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK11flatbuffers16VerifierTem
   %6 = ptrtoint ptr %5 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8
-  %.fr34 = freeze i64 %8
-  %9 = icmp ugt i64 %.fr34, 4
-  %10 = add i64 %.fr34, -4
+  %.fr32 = freeze i64 %8
+  %9 = icmp ugt i64 %.fr32, 4
+  %10 = add i64 %.fr32, -4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load i64, ptr %11, align 8
-  %13 = add i64 %.fr34, -1
+  %13 = add i64 %.fr32, -1
   br i1 %9, label %.lr.ph.split, label %.thread
 
 .lr.ph.split:                                     ; preds = %.lr.ph
@@ -7853,10 +7853,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK11flatbuffers16VerifierTem
   %15 = load i8, ptr %14, align 8, !range !200
   %.fr = freeze i8 %15
   %16 = trunc i8 %.fr to i1
-  %wide.trip.count42 = zext i32 %3 to i64
-  br i1 %16, label %.lr.ph.split.split, label %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us25
+  %wide.trip.count40 = zext i32 %3 to i64
+  br i1 %16, label %.lr.ph.split.split, label %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us23
 
-_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us25: ; preds = %.lr.ph.split, %25
+_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us23: ; preds = %.lr.ph.split, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.lr.ph.split ]
   %17 = shl i64 %indvars.iv, 2
   %18 = and i64 %17, 4294967292
@@ -7866,15 +7866,15 @@ _ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us25: ; preds = 
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 %21
   %23 = ptrtoint ptr %22 to i64
   %24 = sub i64 %23, %6
-  %.not35 = icmp ugt i64 %24, %10
-  br i1 %.not35, label %.thread, label %26
+  %.not33 = icmp ugt i64 %24, %10
+  br i1 %.not33, label %.thread, label %26
 
 25:                                               ; preds = %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count42
-  br i1 %exitcond.not, label %.thread, label %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us25, !llvm.loop !221
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count40
+  br i1 %exitcond.not, label %.thread, label %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us23, !llvm.loop !221
 
-26:                                               ; preds = %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us25
+26:                                               ; preds = %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us23
   %27 = load i32, ptr %22, align 4, !tbaa !81
   %28 = zext i32 %27 to i64
   %29 = icmp ugt i64 %12, %28
@@ -7883,8 +7883,8 @@ _ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us25: ; preds = 
 _ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us: ; preds = %26
   %30 = add nuw nsw i64 %28, 4
   %31 = add i64 %30, %24
-  %32 = icmp uge i64 %30, %.fr34
-  %33 = sub nuw i64 %.fr34, %30
+  %32 = icmp uge i64 %30, %.fr32
+  %33 = sub nuw i64 %.fr32, %30
   %34 = icmp ugt i64 %24, %33
   %.not14.i.us = select i1 %32, i1 true, i1 %34
   %.not10.i.us = icmp ugt i64 %31, %13
@@ -7898,13 +7898,13 @@ _ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit.us: ;
   br i1 %37, label %25, label %.thread
 
 38:                                               ; preds = %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit
-  %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %exitcond43.not = icmp eq i64 %indvars.iv.next40, %wide.trip.count42
-  br i1 %exitcond43.not, label %.thread, label %.lr.ph.split.split, !llvm.loop !221
+  %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
+  %exitcond41.not = icmp eq i64 %indvars.iv.next38, %wide.trip.count40
+  br i1 %exitcond41.not, label %.thread, label %.lr.ph.split.split, !llvm.loop !221
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %38
-  %indvars.iv39 = phi i64 [ %indvars.iv.next40, %38 ], [ 0, %.lr.ph.split ]
-  %39 = shl i64 %indvars.iv39, 2
+  %indvars.iv37 = phi i64 [ %indvars.iv.next38, %38 ], [ 0, %.lr.ph.split ]
+  %39 = shl i64 %indvars.iv37, 2
   %40 = and i64 %39, 4294967292
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !81
@@ -7927,8 +7927,8 @@ _ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit.us: ;
 _ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i: ; preds = %50
   %54 = add nuw nsw i64 %52, 4
   %55 = add i64 %54, %46
-  %56 = icmp uge i64 %54, %.fr34
-  %57 = sub nuw i64 %.fr34, %54
+  %56 = icmp uge i64 %54, %.fr32
+  %57 = sub nuw i64 %.fr32, %54
   %58 = icmp ugt i64 %46, %57
   %.not14.i = select i1 %56, i1 true, i1 %58
   %.not10.i = icmp ugt i64 %55, %13
@@ -7941,8 +7941,8 @@ _ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit: ; pr
   %61 = icmp eq i8 %60, 0
   br i1 %61, label %38, label %.thread
 
-.thread:                                          ; preds = %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit.us, %_ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us, %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us25, %26, %25, %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit, %_ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %50, %.lr.ph.split.split, %38, %.lr.ph, %.preheader, %2
-  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ false, %.lr.ph ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %50 ], [ false, %.lr.ph.split.split ], [ true, %38 ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit.us ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us25 ], [ false, %26 ], [ true, %25 ]
+.thread:                                          ; preds = %25, %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit.us, %_ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us, %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us23, %26, %38, %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit, %_ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i, %50, %.lr.ph.split.split, %.lr.ph, %.preheader, %2
+  %.1 = phi i1 [ true, %2 ], [ true, %.preheader ], [ false, %.lr.ph ], [ true, %38 ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i ], [ false, %50 ], [ false, %.lr.ph.split.split ], [ true, %25 ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyStringEPKNS_6StringE.exit.us ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE20VerifyVectorOrStringIjEEbPKhmPm.exit.i.us ], [ false, %_ZNK11flatbuffers16VerifierTemplateILb0EE6VerifyIjEEbm.exit.i.i.us23 ], [ false, %26 ]
   ret i1 %.1
 }
 
@@ -9265,8 +9265,8 @@ _ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyVectorITpTnRiJENS_6OffsetIN10re
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds nuw i8, ptr %128, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !222
-  %.not17.i = icmp eq i32 %132, 0
-  br i1 %.not17.i, label %_ZNK10reflection4Enum6valuesEv.exit38.thread, label %.lr.ph.i
+  %.not15.i = icmp eq i32 %132, 0
+  br i1 %.not15.i, label %_ZNK10reflection4Enum6valuesEv.exit38.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %133 = getelementptr inbounds nuw i8, ptr %131, i64 4
@@ -10078,8 +10078,8 @@ _ZNK11flatbuffers16VerifierTemplateILb0EE12VerifyVectorITpTnRiJENS_6OffsetIN10re
   %132 = zext i32 %131 to i64
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !225
-  %.not17.i = icmp eq i32 %134, 0
-  br i1 %.not17.i, label %_ZNK10reflection7Service5callsEv.exit34.thread, label %.lr.ph.i
+  %.not15.i = icmp eq i32 %134, 0
+  br i1 %.not15.i, label %_ZNK10reflection7Service5callsEv.exit34.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 4

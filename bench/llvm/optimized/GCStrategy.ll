@@ -198,16 +198,16 @@ define dso_local void @_ZN4llvm13getGCStrategyENS_9StringRefE(ptr dead_on_unwind
   call void @_ZN4llvm8RegistryINS_10GCStrategyEE8iteratorC1EPKNS2_4nodeE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null) #11
   %23 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not21 = icmp eq ptr %22, %23
-  br i1 %.not21, label %._crit_edge, label %.lr.ph
+  %.not19 = icmp eq ptr %22, %23
+  br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %24 = icmp eq i64 %2, 0
   br label %25
 
 25:                                               ; preds = %.lr.ph, %.critedge
-  %.sroa.011.022 = phi ptr [ %22, %.lr.ph ], [ %30, %.critedge ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.011.022, i64 8
+  %.sroa.011.020 = phi ptr [ %22, %.lr.ph ], [ %30, %.critedge ]
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.011.020, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !13
   %.sroa.0.0.copyload.i8 = load ptr, ptr %27, align 8, !tbaa !24
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -224,7 +224,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %28
   br i1 %29, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
 
 .critedge:                                        ; preds = %25, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %30 = load ptr, ptr %.sroa.011.022, align 8, !tbaa !3
+  %30 = load ptr, ptr %.sroa.011.020, align 8, !tbaa !3
   %.not = icmp eq ptr %30, %23
   br i1 %.not, label %._crit_edge, label %25
 

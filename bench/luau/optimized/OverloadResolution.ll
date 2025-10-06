@@ -7106,24 +7106,24 @@ define dso_local noundef zeroext i1 @_ZN4Luau16OverloadResolver9isLiteralEPNS_7A
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !266
   %6 = icmp ne i32 %5, %2
-  %.not3033 = icmp eq ptr %0, null
+  %.not2932 = icmp eq ptr %0, null
   %7 = icmp ne i32 %5, %3
   %8 = select i1 %6, i1 %7, i1 false
-  %or.cond3234 = or i1 %.not3033, %8
-  br i1 %or.cond3234, label %tailrecurse._crit_edge, label %tailrecurse.backedge
+  %or.cond3133 = or i1 %.not2932, %8
+  br i1 %or.cond3133, label %tailrecurse._crit_edge, label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %1, %tailrecurse.backedge
-  %.tr35 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
-  %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr35, i64 32
+  %.tr34 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %1 ]
+  %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr34, i64 32
   %.tr.be = load ptr, ptr %.tr.be.in, align 8, !tbaa !194
   %9 = getelementptr inbounds nuw i8, ptr %.tr.be, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !266
   %11 = icmp ne i32 %10, %2
-  %.not30 = icmp eq ptr %.tr.be, null
+  %.not29 = icmp eq ptr %.tr.be, null
   %12 = icmp ne i32 %10, %3
   %13 = select i1 %11, i1 %12, i1 false
-  %or.cond32 = or i1 %.not30, %13
-  br i1 %or.cond32, label %tailrecurse._crit_edge, label %tailrecurse.backedge
+  %or.cond31 = or i1 %.not29, %13
+  br i1 %or.cond31, label %tailrecurse._crit_edge, label %tailrecurse.backedge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedge, %1
   %.lcssa = phi i32 [ %5, %1 ], [ %10, %tailrecurse.backedge ]
@@ -7134,14 +7134,14 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %or.cond = select i1 %15, i1 true, i1 %17
   %18 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantNumberEE5valueE, align 4
   %19 = icmp eq i32 %.lcssa, %18
-  %or.cond25 = select i1 %or.cond, i1 true, i1 %19
+  %or.cond24 = select i1 %or.cond, i1 true, i1 %19
   %20 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantStringEE5valueE, align 4
   %21 = icmp eq i32 %.lcssa, %20
-  %or.cond27 = select i1 %or.cond25, i1 true, i1 %21
+  %or.cond26 = select i1 %or.cond24, i1 true, i1 %21
   %22 = load i32, ptr @_ZN4Luau7AstRttiINS_15AstExprFunctionEE5valueE, align 4
   %23 = icmp eq i32 %.lcssa, %22
-  %or.cond29 = select i1 %or.cond27, i1 true, i1 %23
-  br i1 %or.cond29, label %.thread, label %24
+  %or.cond28 = select i1 %or.cond26, i1 true, i1 %23
+  br i1 %or.cond28, label %.thread, label %24
 
 24:                                               ; preds = %tailrecurse._crit_edge
   %25 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprTableEE5valueE, align 4, !tbaa !4

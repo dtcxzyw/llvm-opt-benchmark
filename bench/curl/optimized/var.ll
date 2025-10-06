@@ -254,12 +254,12 @@ varcontent.exit.thread:                           ; preds = %62, %.critedge.thre
   br label %.preheader.i, !llvm.loop !28
 
 .critedge.i:                                      ; preds = %79, %.preheader.i
-  %.not115161.i = icmp eq i64 %.192.i, 0
-  br i1 %.not115161.i, label %.critedge4.i, label %.lr.ph.i171
+  %.not115158.i = icmp eq i64 %.192.i, 0
+  br i1 %.not115158.i, label %.critedge4.i, label %.lr.ph.i171
 
 .lr.ph.i171:                                      ; preds = %.critedge.i, %.critedge6.i
-  %.293162.i = phi i64 [ %88, %.critedge6.i ], [ %.192.i, %.critedge.i ]
-  %83 = getelementptr i8, ptr %.3.i, i64 %.293162.i
+  %.293159.i = phi i64 [ %88, %.critedge6.i ], [ %.192.i, %.critedge.i ]
+  %83 = getelementptr i8, ptr %.3.i, i64 %.293159.i
   %84 = getelementptr i8, ptr %83, i64 -1
   %85 = load i8, ptr %84, align 1, !tbaa !23
   switch i8 %85, label %86 [
@@ -273,12 +273,12 @@ varcontent.exit.thread:                           ; preds = %62, %.critedge.thre
   br i1 %or.cond134.i, label %.critedge6.i, label %.critedge4.i
 
 .critedge6.i:                                     ; preds = %86, %.lr.ph.i171, %.lr.ph.i171
-  %88 = add i64 %.293162.i, -1
+  %88 = add i64 %.293159.i, -1
   %.not115.i = icmp eq i64 %88, 0
   br i1 %.not115.i, label %.critedge4.i, label %.lr.ph.i171, !llvm.loop !29
 
 .critedge4.i:                                     ; preds = %.critedge6.i, %86, %.critedge.i, %77
-  %.091.i = phi i64 [ 0, %77 ], [ 0, %.critedge.i ], [ %.293162.i, %86 ], [ 0, %.critedge6.i ]
+  %.091.i = phi i64 [ 0, %77 ], [ 0, %.critedge.i ], [ %.293159.i, %86 ], [ 0, %.critedge6.i ]
   %.2.i = phi ptr [ %.0.i170, %77 ], [ %.3.i, %.critedge.i ], [ %.3.i, %86 ], [ %.3.i, %.critedge6.i ]
   call void @curlx_dyn_reset(ptr noundef nonnull %8) #12
   %89 = call i32 @curlx_dyn_addn(ptr noundef nonnull %8, ptr noundef %.2.i, i64 noundef %.091.i) #12
@@ -310,27 +310,27 @@ varcontent.exit.thread:                           ; preds = %62, %.critedge.thre
 
 sub_0.i:                                          ; preds = %92, %90
   %98 = load i8, ptr %72, align 1
-  switch i8 %98, label %.tail151.thread.i [
+  switch i8 %98, label %.tail148.thread.i [
     i8 117, label %sub_1.i
-    i8 98, label %sub_1153.i
+    i8 98, label %sub_1150.i
   ]
 
 sub_1.i:                                          ; preds = %sub_0.i
   %99 = getelementptr inbounds nuw i8, ptr %.094.i, i64 2
   %100 = load i8, ptr %99, align 1
-  %.not189.i = icmp eq i8 %100, 114
-  br i1 %.not189.i, label %.tail.i, label %.tail151.thread.i
+  %.not186.i = icmp eq i8 %100, 114
+  br i1 %.not186.i, label %.tail.i, label %.tail148.thread.i
 
 .tail.i:                                          ; preds = %sub_1.i
   %101 = getelementptr inbounds nuw i8, ptr %.094.i, i64 3
   %102 = load i8, ptr %101, align 1
   %103 = icmp eq i8 %102, 108
-  br i1 %103, label %104, label %.tail151.thread.i
+  br i1 %103, label %104, label %.tail148.thread.i
 
 104:                                              ; preds = %.tail.i
   %105 = getelementptr inbounds nuw i8, ptr %.094.i, i64 4
   %106 = load i8, ptr %105, align 1, !tbaa !23
-  switch i8 %106, label %.tail151.thread.i [
+  switch i8 %106, label %.tail148.thread.i [
     i8 125, label %107
     i8 58, label %107
   ]
@@ -352,22 +352,22 @@ sub_1.i:                                          ; preds = %sub_0.i
   call void @curl_free(ptr noundef nonnull %110) #12
   br i1 %.not123.i, label %131, label %.thread.i
 
-sub_1153.i:                                       ; preds = %sub_0.i
+sub_1150.i:                                       ; preds = %sub_0.i
   %113 = getelementptr inbounds nuw i8, ptr %.094.i, i64 2
   %114 = load i8, ptr %113, align 1
-  %.not191.i = icmp eq i8 %114, 54
-  br i1 %.not191.i, label %.tail151.i, label %.tail151.thread.i
+  %.not188.i = icmp eq i8 %114, 54
+  br i1 %.not188.i, label %.tail148.i, label %.tail148.thread.i
 
-.tail151.i:                                       ; preds = %sub_1153.i
+.tail148.i:                                       ; preds = %sub_1150.i
   %115 = getelementptr inbounds nuw i8, ptr %.094.i, i64 3
   %116 = load i8, ptr %115, align 1
   %117 = icmp eq i8 %116, 52
-  br i1 %117, label %118, label %.tail151.thread.i
+  br i1 %117, label %118, label %.tail148.thread.i
 
-118:                                              ; preds = %.tail151.i
+118:                                              ; preds = %.tail148.i
   %119 = getelementptr inbounds nuw i8, ptr %.094.i, i64 4
   %120 = load i8, ptr %119, align 1, !tbaa !23
-  switch i8 %120, label %.tail151.thread.i [
+  switch i8 %120, label %.tail148.thread.i [
     i8 125, label %121
     i8 58, label %121
   ]
@@ -382,7 +382,7 @@ sub_1153.i:                                       ; preds = %sub_0.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %123 = call i32 @curlx_base64_encode(ptr noundef %.0.i170, i64 noundef %.087.i, ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %.not127.i = icmp eq i32 %123, 0
-  br i1 %.not127.i, label %124, label %.thread147.i
+  br i1 %.not127.i, label %124, label %.thread145.i
 
 124:                                              ; preds = %122
   %125 = load ptr, ptr %5, align 8, !tbaa !30
@@ -391,9 +391,9 @@ sub_1153.i:                                       ; preds = %sub_0.i
   %.not128.i = icmp eq i32 %127, 0
   %128 = load ptr, ptr %5, align 8, !tbaa !30
   call void @curl_free(ptr noundef %128) #12
-  br i1 %.not128.i, label %129, label %.thread147.i
+  br i1 %.not128.i, label %129, label %.thread145.i
 
-.thread147.i:                                     ; preds = %124, %122
+.thread145.i:                                     ; preds = %124, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread.i
@@ -403,7 +403,7 @@ sub_1153.i:                                       ; preds = %sub_0.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %131
 
-.tail151.thread.i:                                ; preds = %118, %.tail151.i, %sub_1153.i, %104, %.tail.i, %sub_1.i, %sub_0.i
+.tail148.thread.i:                                ; preds = %118, %.tail148.i, %sub_1150.i, %104, %.tail.i, %sub_1.i, %sub_0.i
   %130 = trunc i64 %68 to i32
   call void (ptr, ptr, ...) @errorf(ptr noundef %0, ptr noundef nonnull @.str.16, i32 noundef %130, ptr noundef nonnull %32) #12
   br label %.thread.i
@@ -438,10 +438,10 @@ Memdup.exit.i:                                    ; preds = %139, %138
   store i8 0, ptr %140, align 1, !tbaa !23
   br label %69, !llvm.loop !32
 
-.thread.i:                                        ; preds = %133, %111, %108, %96, %.critedge4.i, %69, %69, %.tail151.thread.i, %.thread147.i
-  %.not131.i = phi i1 [ false, %.tail151.thread.i ], [ false, %.thread147.i ], [ false, %111 ], [ true, %69 ], [ true, %69 ], [ false, %133 ], [ false, %108 ], [ false, %.critedge4.i ], [ false, %96 ]
-  %.197.i = phi i32 [ 22, %.tail151.thread.i ], [ 15, %.thread147.i ], [ 15, %111 ], [ 0, %69 ], [ 0, %69 ], [ 15, %133 ], [ 15, %108 ], [ 15, %.critedge4.i ], [ 15, %96 ]
-  %.1.i = phi ptr [ %.0.i170, %.tail151.thread.i ], [ %.0.i170, %.thread147.i ], [ %.0.i170, %111 ], [ %.0.i170, %69 ], [ %.0.i170, %69 ], [ null, %133 ], [ %.0.i170, %108 ], [ %.2.i, %.critedge4.i ], [ %.0.i170, %96 ]
+.thread.i:                                        ; preds = %133, %111, %108, %96, %.critedge4.i, %69, %69, %.tail148.thread.i, %.thread145.i
+  %.not131.i = phi i1 [ false, %.tail148.thread.i ], [ false, %.thread145.i ], [ false, %111 ], [ true, %69 ], [ true, %69 ], [ false, %133 ], [ false, %108 ], [ false, %.critedge4.i ], [ false, %96 ]
+  %.197.i = phi i32 [ 22, %.tail148.thread.i ], [ 15, %.thread145.i ], [ 15, %111 ], [ 0, %69 ], [ 0, %69 ], [ 15, %133 ], [ 15, %108 ], [ 15, %.critedge4.i ], [ 15, %96 ]
+  %.1.i = phi ptr [ %.0.i170, %.tail148.thread.i ], [ %.0.i170, %.thread145.i ], [ %.0.i170, %111 ], [ %.0.i170, %69 ], [ %.0.i170, %69 ], [ null, %133 ], [ %.0.i170, %108 ], [ %.2.i, %.critedge4.i ], [ %.0.i170, %96 ]
   br i1 %.0101.i, label %141, label %142
 
 141:                                              ; preds = %.thread.i

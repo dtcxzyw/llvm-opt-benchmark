@@ -8205,7 +8205,7 @@ _ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_del
   %22 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull align 8 dereferenceable(9) %13, i64 noundef 16) #29
-  br label %252
+  br label %253
 
 23:                                               ; preds = %10
   %24 = tail call noundef zeroext i1 @_ZNK4Json5Value6isNullEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
@@ -8228,7 +8228,7 @@ _ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i130: 
 
 31:                                               ; preds = %23
   %32 = tail call noundef zeroext i1 @_ZNK4Json5Value8isObjectEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
-  br i1 %32, label %33, label %251
+  br i1 %32, label %33, label %252
 
 33:                                               ; preds = %31
   %34 = tail call noundef zeroext i1 @_ZNK4Json5Value8isMemberEPKc(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull @.str.7)
@@ -8707,49 +8707,49 @@ _ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal12NotConditionEEclEPS1_.exi
   br label %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit140
 
 _ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit140: ; preds = %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i202, %233, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i194, %210, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal16MatchesConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit184, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal15InListConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit165, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal15EqualsConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i136, %55, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal12NotConditionEEclEPS1_.exit.i205, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEEclEPS1_.exit.i196, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal16MatchesConditionEEclEPS1_.exit.i, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15InListConditionEEclEPS1_.exit.i, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15EqualsConditionEEclEPS1_.exit.i, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal14ConstConditionEEclEPS1_.exit.i139, %218
-  %switch = phi i1 [ true, %218 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal14ConstConditionEEclEPS1_.exit.i139 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15EqualsConditionEEclEPS1_.exit.i ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15InListConditionEEclEPS1_.exit.i ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal16MatchesConditionEEclEPS1_.exit.i ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEEclEPS1_.exit.i196 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal12NotConditionEEclEPS1_.exit.i205 ], [ false, %55 ], [ false, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i136 ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal15EqualsConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit165 ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal15InListConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit184 ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal16MatchesConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit ], [ false, %210 ], [ false, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i194 ], [ false, %233 ], [ false, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i202 ]
+  %241 = phi i1 [ true, %218 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal14ConstConditionEEclEPS1_.exit.i139 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15EqualsConditionEEclEPS1_.exit.i ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15InListConditionEEclEPS1_.exit.i ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal16MatchesConditionEEclEPS1_.exit.i ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEEclEPS1_.exit.i196 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal12NotConditionEEclEPS1_.exit.i205 ], [ false, %55 ], [ false, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i136 ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal15EqualsConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit165 ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal15InListConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit184 ], [ false, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal16MatchesConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit ], [ false, %210 ], [ false, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i194 ], [ false, %233 ], [ false, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i202 ]
   %.3 = phi i1 [ undef, %218 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal14ConstConditionEEclEPS1_.exit.i139 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15EqualsConditionEEclEPS1_.exit.i ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15InListConditionEEclEPS1_.exit.i ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal16MatchesConditionEEclEPS1_.exit.i ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal17AnyAllOfConditionEEclEPS1_.exit.i196 ], [ false, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal12NotConditionEEclEPS1_.exit.i205 ], [ true, %55 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i136 ], [ true, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit ], [ true, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal15EqualsConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit ], [ true, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit165 ], [ true, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal15InListConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit ], [ true, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev.exit184 ], [ true, %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EEaSIN27cmCMakePresetsGraphInternal16MatchesConditionES2_IS7_EEENSt9enable_ifIXsr6__and_ISt6__and_IJSt14is_convertibleINS_IT_T0_E7pointerEPS1_ESt6__not_ISt8is_arrayISC_EEEESt13is_assignableIRS3_OSD_EEE5valueERS4_E4typeEOSE_.exit ], [ true, %210 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i194 ], [ true, %233 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i202 ]
-  %241 = load ptr, ptr %4, align 8, !tbaa !14
-  %242 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %243 = icmp eq ptr %241, %242
-  br i1 %243, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %242 = load ptr, ptr %4, align 8, !tbaa !14
+  %243 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %244 = icmp eq ptr %242, %243
+  br i1 %244, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit140
-  %244 = load i64, ptr %242, align 8, !tbaa !19
-  %245 = add i64 %244, 1
-  call void @_ZdlPvm(ptr noundef %241, i64 noundef %245) #29
+  %245 = load i64, ptr %243, align 8, !tbaa !19
+  %246 = add i64 %245, 1
+  call void @_ZdlPvm(ptr noundef %242, i64 noundef %246) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit140, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %switch, label %251, label %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EE5resetEPS1_.exit
+  br i1 %241, label %252, label %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EE5resetEPS1_.exit
 
 _ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal15EqualsConditionESt14default_deleteIS1_EED2Ev.exit153: ; preds = %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i186, %176, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i167, %134, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i148, %93, %226, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal12NotConditionESt14default_deleteIS1_EED2Ev.exit200, %203, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal17AnyAllOfConditionESt14default_deleteIS1_EED2Ev.exit, %161, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal16MatchesConditionEEclEPS1_.exit.i190, %119, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15InListConditionEEclEPS1_.exit.i171, %78, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15EqualsConditionEEclEPS1_.exit.i152, %48, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit134
   %.pn120.pn = phi { ptr, i32 } [ %50, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit134 ], [ %49, %48 ], [ %79, %78 ], [ %101, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15EqualsConditionEEclEPS1_.exit.i152 ], [ %120, %119 ], [ %142, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal15InListConditionEEclEPS1_.exit.i171 ], [ %162, %161 ], [ %184, %_ZNKSt14default_deleteIN27cmCMakePresetsGraphInternal16MatchesConditionEEclEPS1_.exit.i190 ], [ %205, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal17AnyAllOfConditionESt14default_deleteIS1_EED2Ev.exit ], [ %204, %203 ], [ %228, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal12NotConditionESt14default_deleteIS1_EED2Ev.exit200 ], [ %227, %226 ], [ %94, %93 ], [ %94, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i148 ], [ %135, %134 ], [ %135, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i167 ], [ %177, %176 ], [ %177, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i186 ]
-  %246 = load ptr, ptr %4, align 8, !tbaa !14
-  %247 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %248 = icmp eq ptr %246, %247
-  br i1 %248, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i207
+  %247 = load ptr, ptr %4, align 8, !tbaa !14
+  %248 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %249 = icmp eq ptr %247, %248
+  br i1 %249, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i207
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i207: ; preds = %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal15EqualsConditionESt14default_deleteIS1_EED2Ev.exit153
-  %249 = load i64, ptr %247, align 8, !tbaa !19
-  %250 = add i64 %249, 1
-  call void @_ZdlPvm(ptr noundef %246, i64 noundef %250) #29
+  %250 = load i64, ptr %248, align 8, !tbaa !19
+  %251 = add i64 %250, 1
+  call void @_ZdlPvm(ptr noundef %247, i64 noundef %251) #29
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209: ; preds = %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal15EqualsConditionESt14default_deleteIS1_EED2Ev.exit153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i207
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %252
+  br label %253
 
-251:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %31
+252:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %31
   call void @_ZN20cmCMakePresetsErrors17INVALID_CONDITIONEPKN4Json5ValueEP11cmJSONState(ptr noundef nonnull %1, ptr noundef %2)
   br label %_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EE5resetEPS1_.exit
 
-_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %25, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i130, %15, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i, %5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %251, %39, %35
-  %.0 = phi i1 [ false, %251 ], [ %.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %39 ], [ false, %35 ], [ true, %5 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i ], [ true, %15 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i130 ], [ true, %25 ]
+_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %25, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i130, %15, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i, %5, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %252, %39, %35
+  %.0 = phi i1 [ false, %252 ], [ %.3, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ false, %39 ], [ false, %35 ], [ true, %5 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i ], [ true, %15 ], [ true, %_ZNKSt14default_deleteIN19cmCMakePresetsGraph9ConditionEEclEPS1_.exit.i.i.i130 ], [ true, %25 ]
   ret i1 %.0
 
-252:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit128
+253:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit128
   %.pn124 = phi { ptr, i32 } [ %22, %_ZNSt10unique_ptrIN27cmCMakePresetsGraphInternal14ConstConditionESt14default_deleteIS1_EED2Ev.exit128 ], [ %.pn120.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit209 ]
   resume { ptr, i32 } %.pn124
 }
@@ -29117,9 +29117,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPN19cmCMakePresetsG
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !709
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !312
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -29155,7 +29155,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPN19cmCMakePresetsG
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !531
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !312
@@ -29183,10 +29183,10 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIPN19cmCMakePresetsG
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !712
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   store ptr null, ptr %44, align 8, !tbaa !531
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

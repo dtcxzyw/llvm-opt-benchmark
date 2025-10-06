@@ -1167,12 +1167,12 @@ define hidden noundef zeroext i1 @je_background_thread_boot1(ptr noundef %0, ptr
 
 .preheader:                                       ; preds = %9
   %14 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
-  %.not24 = icmp eq i64 %14, 0
-  br i1 %.not24, label %atomic_store_b.exit, label %.lr.ph
+  %.not22 = icmp eq i64 %14, 0
+  br i1 %.not22, label %atomic_store_b.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %malloc_mutex_lock.exit
   %15 = phi i64 [ %45, %malloc_mutex_lock.exit ], [ 0, %.preheader ]
-  %.01823 = phi i32 [ %44, %malloc_mutex_lock.exit ], [ 0, %.preheader ]
+  %.01821 = phi i32 [ %44, %malloc_mutex_lock.exit ], [ 0, %.preheader ]
   %16 = load ptr, ptr @je_background_thread_info, align 8, !tbaa !18
   %17 = getelementptr inbounds nuw %struct.background_thread_info_s, ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
@@ -1232,7 +1232,7 @@ malloc_mutex_lock.exit:                           ; preds = %27, %33
   %42 = getelementptr inbounds nuw i8, ptr %17, i64 120
   store atomic i8 0, ptr %42 monotonic, align 8
   %43 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %23) #12
-  %44 = add i32 %.01823, 1
+  %44 = add i32 %.01821, 1
   %45 = zext i32 %44 to i64
   %46 = load i64, ptr @je_max_background_threads, align 8, !tbaa !17
   %47 = icmp ugt i64 %46, %45

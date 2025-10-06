@@ -612,16 +612,16 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit: ; preds = %2, %4
 
 _ZN11VtableStubs6lookupEbi.exit:                  ; preds = %.lr.ph.i, %74, %71, %33
   %.2 = phi ptr [ null, %33 ], [ %.1, %74 ], [ %.1, %71 ], [ %.09.i, %.lr.ph.i ]
-  %switch = phi i1 [ false, %33 ], [ true, %74 ], [ true, %71 ], [ true, %.lr.ph.i ]
-  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %84
+  %84 = phi i1 [ false, %33 ], [ true, %74 ], [ true, %71 ], [ true, %.lr.ph.i ]
+  br i1 %.not.i.i, label %_ZN11MutexLockerD2Ev.exit, label %85
 
-84:                                               ; preds = %_ZN11VtableStubs6lookupEbi.exit
+85:                                               ; preds = %_ZN11VtableStubs6lookupEbi.exit
   tail call void @_ZN5Mutex6unlockEv(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
   br label %_ZN11MutexLockerD2Ev.exit
 
-_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11VtableStubs6lookupEbi.exit, %84
-  %85 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  %spec.select = select i1 %switch, ptr %85, ptr null
+_ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11VtableStubs6lookupEbi.exit, %85
+  %86 = getelementptr inbounds nuw i8, ptr %.2, i64 16
+  %spec.select = select i1 %84, ptr %86, ptr null
   ret ptr %spec.select
 }
 

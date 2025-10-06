@@ -6939,7 +6939,7 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17h8e27d5936b4d40c8E.exit22.i: ; pred
   br i1 %exitcond.not.i26.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i24.i
 
 60:                                               ; preds = %53
-  %61 = icmp samesign ugt i64 %22, 29
+  %61 = icmp eq i64 %22, 30
   br i1 %61, label %62, label %81
 
 62:                                               ; preds = %60

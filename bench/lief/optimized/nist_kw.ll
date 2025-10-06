@@ -181,11 +181,11 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noun
   br label %49
 
 49:                                               ; preds = %.lr.ph, %calc_a_xor_t.exit
-  %.067104 = phi ptr [ %43, %.lr.ph ], [ %spec.select90, %calc_a_xor_t.exit ]
-  %.069103 = phi i64 [ 1, %.lr.ph ], [ %66, %calc_a_xor_t.exit ]
+  %.067103 = phi ptr [ %43, %.lr.ph ], [ %spec.select90, %calc_a_xor_t.exit ]
+  %.069102 = phi i64 [ 1, %.lr.ph ], [ %66, %calc_a_xor_t.exit ]
   %50 = load i64, ptr %4, align 1
   store i64 %50, ptr %10, align 16
-  %51 = load i64, ptr %.067104, align 1
+  %51 = load i64, ptr %.067103, align 1
   store i64 %51, ptr %45, align 8
   %52 = call i32 @mbedtls_cipher_update(ptr noundef %0, ptr noundef nonnull %10, i64 noundef 16, ptr noundef nonnull %9, ptr noundef nonnull %8) #11
   %.not85 = icmp eq i32 %52, 0
@@ -200,7 +200,7 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noun
   %.05.i = phi i64 [ 0, %53 ], [ %63, %55 ]
   %56 = shl nuw nsw i64 %.05.i, 3
   %57 = sub nuw nsw i64 56, %56
-  %58 = lshr i64 %.069103, %57
+  %58 = lshr i64 %.069102, %57
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 %.05.i
   %60 = load i8, ptr %59, align 1, !tbaa !7
   %61 = trunc i64 %58 to i8
@@ -212,12 +212,12 @@ define hidden i32 @mbedtls_nist_kw_wrap(ptr noundef %0, i32 noundef %1, ptr noun
 
 calc_a_xor_t.exit:                                ; preds = %55
   %64 = load i64, ptr %46, align 8
-  store i64 %64, ptr %.067104, align 1
-  %65 = getelementptr inbounds nuw i8, ptr %.067104, i64 8
+  store i64 %64, ptr %.067103, align 1
+  %65 = getelementptr inbounds nuw i8, ptr %.067103, i64 8
   %.not86 = icmp ult ptr %65, %48
   %spec.select90 = select i1 %.not86, ptr %65, ptr %43
-  %66 = add nuw i64 %.069103, 1
-  %exitcond.not = icmp eq i64 %.069103, %umax
+  %66 = add nuw i64 %.069102, 1
+  %exitcond.not = icmp eq i64 %.069102, %umax
   br i1 %exitcond.not, label %.loopexit, label %49, !llvm.loop !10
 
 .loopexit:                                        ; preds = %calc_a_xor_t.exit, %40
@@ -232,13 +232,13 @@ calc_a_xor_t.exit:                                ; preds = %55
   br label %69
 
 69:                                               ; preds = %.loopexit, %.thread
-  %.072101 = phi i32 [ %.072.ph, %.thread ], [ 0, %.loopexit ]
+  %.072100 = phi i32 [ %.072.ph, %.thread ], [ 0, %.loopexit ]
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %10, i64 noundef 16) #11
   call void @mbedtls_platform_zeroize(ptr noundef nonnull %9, i64 noundef 16) #11
   br label %70
 
 70:                                               ; preds = %20, %15, %12, %69
-  %.0 = phi i32 [ %.072101, %69 ], [ -24832, %12 ], [ -24832, %15 ], [ -24832, %20 ]
+  %.0 = phi i32 [ %.072100, %69 ], [ -24832, %12 ], [ -24832, %15 ], [ -24832, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

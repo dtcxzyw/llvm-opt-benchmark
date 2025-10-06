@@ -707,8 +707,8 @@ define dso_local { i64, i64 } @_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQ
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
-  %.028 = phi ptr [ %26, %.critedge ], [ %6, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds nuw i8, ptr %.028, i64 16
+  %.026 = phi ptr [ %26, %.critedge ], [ %6, %.lr.ph.preheader ]
+  %9 = getelementptr inbounds nuw i8, ptr %.026, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !43
   %.not.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i, label %11, label %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit
@@ -718,20 +718,20 @@ define dso_local { i64, i64 } @_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQ
   unreachable
 
 _ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit: ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.028, i64 24
+  %12 = getelementptr inbounds nuw i8, ptr %.026, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !65
-  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(72) %.028, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %14 = tail call noundef zeroext i1 %13(ptr noundef nonnull align 8 dereferenceable(72) %.026, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
   br i1 %14, label %15, label %.critedge
 
 15:                                               ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit
-  %16 = getelementptr inbounds nuw i8, ptr %.028, i64 56
+  %16 = getelementptr inbounds nuw i8, ptr %.026, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %.not.i.i.not.i = icmp eq ptr %17, null
   br i1 %.not.i.i.not.i, label %27, label %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i
 
 _ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i: ; preds = %15
-  %18 = getelementptr inbounds nuw i8, ptr %.028, i64 40
-  %19 = getelementptr inbounds nuw i8, ptr %.028, i64 64
+  %18 = getelementptr inbounds nuw i8, ptr %.026, i64 40
+  %19 = getelementptr inbounds nuw i8, ptr %.026, i64 64
   %20 = load ptr, ptr %19, align 8, !tbaa !67
   %21 = tail call { i32, i64 } %20(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
   %22 = extractvalue { i32, i64 } %21, 0
@@ -741,14 +741,14 @@ _ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i: ; p
   br label %27
 
 .critedge:                                        ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit
-  %26 = getelementptr inbounds nuw i8, ptr %.028, i64 72
+  %26 = getelementptr inbounds nuw i8, ptr %.026, i64 72
   %.not = icmp eq ptr %26, %8
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 27:                                               ; preds = %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i, %15
   %.sroa.05.0.i = phi i64 [ %25, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i ], [ 0, %15 ]
   %.sroa.3.0.i = phi i64 [ %23, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i ], [ 0, %15 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.028, i64 32
+  %28 = getelementptr inbounds nuw i8, ptr %.026, i64 32
   %29 = load i8, ptr %28, align 8, !tbaa !69
   %30 = zext i8 %29 to i64
   br label %.loopexit
@@ -902,8 +902,8 @@ define dso_local { i64, i64 } @_ZNK4llvm13LegalizerInfo9getActionERKNS_13Legalit
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
-  %.028.i = phi ptr [ %35, %.critedge.i ], [ %15, %.lr.ph.preheader.i ]
-  %18 = getelementptr inbounds nuw i8, ptr %.028.i, i64 16
+  %.026.i = phi ptr [ %35, %.critedge.i ], [ %15, %.lr.ph.preheader.i ]
+  %18 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !43
   %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %20, label %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i
@@ -913,20 +913,20 @@ define dso_local { i64, i64 } @_ZNK4llvm13LegalizerInfo9getActionERKNS_13Legalit
   unreachable
 
 _ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i: ; preds = %.lr.ph.i
-  %21 = getelementptr inbounds nuw i8, ptr %.028.i, i64 24
+  %21 = getelementptr inbounds nuw i8, ptr %.026.i, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !65
-  %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(72) %.028.i, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
+  %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(72) %.026.i, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
   br i1 %23, label %24, label %.critedge.i
 
 24:                                               ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i
-  %25 = getelementptr inbounds nuw i8, ptr %.028.i, i64 56
+  %25 = getelementptr inbounds nuw i8, ptr %.026.i, i64 56
   %26 = load ptr, ptr %25, align 8, !tbaa !43
   %.not.i.i.not.i.i = icmp eq ptr %26, null
   br i1 %.not.i.i.not.i.i, label %36, label %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i
 
 _ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i: ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %.028.i, i64 40
-  %28 = getelementptr inbounds nuw i8, ptr %.028.i, i64 64
+  %27 = getelementptr inbounds nuw i8, ptr %.026.i, i64 40
+  %28 = getelementptr inbounds nuw i8, ptr %.026.i, i64 64
   %29 = load ptr, ptr %28, align 8, !tbaa !67
   %30 = tail call { i32, i64 } %29(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(40) %1) #16
   %31 = extractvalue { i32, i64 } %30, 0
@@ -936,14 +936,14 @@ _ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i: ;
   br label %36
 
 .critedge.i:                                      ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i
-  %35 = getelementptr inbounds nuw i8, ptr %.028.i, i64 72
+  %35 = getelementptr inbounds nuw i8, ptr %.026.i, i64 72
   %.not.i = icmp eq ptr %35, %17
   br i1 %.not.i, label %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit, label %.lr.ph.i
 
 36:                                               ; preds = %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i, %24
   %.sroa.05.0.i.i = phi i64 [ %34, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i ], [ 0, %24 ]
   %.sroa.3.0.i.i = phi i64 [ %32, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i ], [ 0, %24 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.028.i, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.026.i, i64 32
   %38 = load i8, ptr %37, align 8, !tbaa !69
   %39 = zext i8 %38 to i64
   br label %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit
@@ -1247,8 +1247,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3LLTELb1EE9push_backES1_.exit: ; preds = %_
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge.i.i, %.lr.ph.preheader.i.i
-  %.028.i.i = phi ptr [ %168, %.critedge.i.i ], [ %148, %.lr.ph.preheader.i.i ]
-  %151 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 16
+  %.026.i.i = phi ptr [ %168, %.critedge.i.i ], [ %148, %.lr.ph.preheader.i.i ]
+  %151 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 16
   %152 = load ptr, ptr %151, align 8, !tbaa !43
   %.not.i.i.i.i.i = icmp eq ptr %152, null
   br i1 %.not.i.i.i.i.i, label %153, label %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i.i
@@ -1258,20 +1258,20 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3LLTELb1EE9push_backES1_.exit: ; preds = %_
   unreachable
 
 _ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i.i: ; preds = %.lr.ph.i.i
-  %154 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 24
+  %154 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 24
   %155 = load ptr, ptr %154, align 8, !tbaa !65
-  %156 = call noundef zeroext i1 %155(ptr noundef nonnull align 8 dereferenceable(72) %.028.i.i, ptr noundef nonnull align 8 dereferenceable(40) %7) #16
+  %156 = call noundef zeroext i1 %155(ptr noundef nonnull align 8 dereferenceable(72) %.026.i.i, ptr noundef nonnull align 8 dereferenceable(40) %7) #16
   br i1 %156, label %157, label %.critedge.i.i
 
 157:                                              ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i.i
-  %158 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 56
+  %158 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 56
   %159 = load ptr, ptr %158, align 8, !tbaa !43
   %.not.i.i.not.i.i.i = icmp eq ptr %159, null
   br i1 %.not.i.i.not.i.i.i, label %169, label %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i.i
 
 _ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i.i: ; preds = %157
-  %160 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 40
-  %161 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 64
+  %160 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 40
+  %161 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 64
   %162 = load ptr, ptr %161, align 8, !tbaa !67
   %163 = call { i32, i64 } %162(ptr noundef nonnull align 8 dereferenceable(32) %160, ptr noundef nonnull align 8 dereferenceable(40) %7) #16
   %164 = extractvalue { i32, i64 } %163, 0
@@ -1281,14 +1281,14 @@ _ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i.i:
   br label %169
 
 .critedge.i.i:                                    ; preds = %_ZNK4llvm12LegalizeRule5matchERKNS_13LegalityQueryE.exit.i.i
-  %168 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 72
+  %168 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 72
   %.not.i.i31 = icmp eq ptr %168, %150
   br i1 %.not.i.i31, label %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit.i, label %.lr.ph.i.i
 
 169:                                              ; preds = %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i.i, %157
   %.sroa.05.0.i.i.i = phi i64 [ %167, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i.i ], [ 0, %157 ]
   %.sroa.3.0.i.i.i = phi i64 [ %165, %_ZNKSt8functionIFSt4pairIjN4llvm3LLTEERKNS1_13LegalityQueryEEEclES6_.exit.i.i.i ], [ 0, %157 ]
-  %170 = getelementptr inbounds nuw i8, ptr %.028.i.i, i64 32
+  %170 = getelementptr inbounds nuw i8, ptr %.026.i.i, i64 32
   %171 = load i8, ptr %170, align 8, !tbaa !69
   %172 = zext i8 %171 to i64
   br label %_ZNK4llvm15LegalizeRuleSet5applyERKNS_13LegalityQueryE.exit.i

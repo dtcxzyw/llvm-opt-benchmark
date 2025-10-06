@@ -1759,8 +1759,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjSt4pairImSt10unique_ptrIA_cSt14default_dele
   %rev.i.i.i.i.i.i.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i.i)
   call void @_ZN4llvm6object6Record17getContinuousDataEPKhtiRNS_11SmallStringILj256EEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %6, ptr noundef readonly %50, i16 noundef zeroext %rev.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 72, ptr noundef nonnull align 8 dereferenceable(280) %5)
   %52 = load ptr, ptr %6, align 8, !tbaa !3
-  %.not25 = icmp eq ptr %52, null
-  br i1 %.not25, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not24 = icmp eq ptr %52, null
+  br i1 %.not24, label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %42
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3232,8 +3232,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIhLj40EEENS_12DenseMapInfoI
   %.sroa.0.1.i = phi ptr [ %31, %.loopexit.i ], [ %18, %14 ], [ %27, %23 ]
   %32 = zext i32 %11 to i64
   %33 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.56", ptr %9, i64 %32
-  %.not50 = icmp eq ptr %.sroa.0.1.i, %33
-  br i1 %.not50, label %42, label %34
+  %.not49 = icmp eq ptr %.sroa.0.1.i, %33
+  br i1 %.not49, label %42, label %34
 
 34:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_11SmallVectorIhLj40EEENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E4findERKj.exit
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
@@ -3336,8 +3336,8 @@ _ZN4llvm11SmallVectorIhLj40EEC2EmRKh.exit:        ; preds = %_ZSt6fill_nIPhmhET_
   %78 = zext i32 %77 to i64
   %.idx = shl nuw nsw i64 %78, 3
   %79 = getelementptr inbounds nuw i8, ptr %75, i64 %.idx
-  %.not55 = icmp eq i32 %77, 0
-  br i1 %.not55, label %.critedge26, label %.lr.ph
+  %.not54 = icmp eq i32 %77, 0
+  br i1 %.not54, label %.critedge26, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm11SmallVectorIhLj40EEC2EmRKh.exit
   %.promoted = load ptr, ptr %0, align 8
@@ -3345,18 +3345,18 @@ _ZN4llvm11SmallVectorIhLj40EEC2EmRKh.exit:        ; preds = %_ZSt6fill_nIPhmhET_
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.promoted57 = load i8, ptr %83, align 8
+  %.promoted56 = load i8, ptr %83, align 8
   br label %84
 
-84:                                               ; preds = %.lr.ph, %.thread48
-  %85 = phi i8 [ %.promoted57, %.lr.ph ], [ %113, %.thread48 ]
-  %.02356 = phi ptr [ %75, %.lr.ph ], [ %115, %.thread48 ]
-  %86 = phi ptr [ %.promoted, %.lr.ph ], [ %114, %.thread48 ]
-  %87 = load ptr, ptr %.02356, align 8, !tbaa !57
+84:                                               ; preds = %.lr.ph, %.thread47
+  %85 = phi i8 [ %.promoted56, %.lr.ph ], [ %113, %.thread47 ]
+  %.02355 = phi ptr [ %75, %.lr.ph ], [ %115, %.thread47 ]
+  %86 = phi ptr [ %.promoted, %.lr.ph ], [ %114, %.thread47 ]
+  %87 = load ptr, ptr %.02355, align 8, !tbaa !57
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %.0.copyload.i.i.i.i.i.i29 = load i32, ptr %88, align 1
   %.not24 = icmp eq i32 %.0.copyload.i.i.i.i.i.i29, %.0.copyload.i.i.i.i.i.i8.i
-  br i1 %.not24, label %89, label %.thread48
+  br i1 %.not24, label %89, label %.thread47
 
 89:                                               ; preds = %84
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 12
@@ -3383,8 +3383,8 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit:      ; preds = %89, %95
   %rev.i.i.i.i.i.i.i.i.i.i.i = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i.i.i.i.i32)
   call void @_ZN4llvm6object6Record17getContinuousDataEPKhtiRNS_11SmallStringILj256EEE(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull readonly %87, i16 noundef zeroext %rev.i.i.i.i.i.i.i.i.i.i.i, i32 noundef 24, ptr noundef nonnull align 8 dereferenceable(280) %6)
   %96 = load ptr, ptr %7, align 8, !tbaa !3
-  %.not51 = icmp eq ptr %96, null
-  br i1 %.not51, label %_ZN4llvm5ErrorD2Ev.exit33, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not50 = icmp eq ptr %96, null
+  br i1 %.not50, label %_ZN4llvm5ErrorD2Ev.exit33, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
   %97 = or i8 %85, 1
@@ -3393,8 +3393,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm15SmallVect
 
 _ZN4llvm5ErrorD2Ev.exit33:                        ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not52 = icmp eq i16 %.0.copyload.i.i.i.i.i.i31, 0
-  br i1 %.not52, label %_ZSt4copyIPcPhET0_T_S3_S2_.exit, label %.lr.ph.i.i.i.i.i.preheader
+  %.not51 = icmp eq i16 %.0.copyload.i.i.i.i.i.i31, 0
+  br i1 %.not51, label %_ZSt4copyIPcPhET0_T_S3_S2_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit33
   %98 = load ptr, ptr %5, align 8, !tbaa !121
@@ -3428,16 +3428,16 @@ _ZSt4copyIPcPhET0_T_S3_S2_.exit:                  ; preds = %.lr.ph.i.i.i.i.i, %
 
 112:                                              ; preds = %111, %_ZSt4copyIPcPhET0_T_S3_S2_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not51, label %.thread48, label %.loopexit
+  br i1 %.not50, label %.thread47, label %.loopexit
 
-.thread48:                                        ; preds = %112, %84
+.thread47:                                        ; preds = %112, %84
   %113 = phi i8 [ %107, %112 ], [ %85, %84 ]
   %114 = phi ptr [ %108, %112 ], [ %86, %84 ]
-  %115 = getelementptr inbounds nuw i8, ptr %.02356, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.02355, i64 8
   %.not = icmp eq ptr %115, %79
   br i1 %.not, label %..critedge26_crit_edge, label %84
 
-..critedge26_crit_edge:                           ; preds = %.thread48
+..critedge26_crit_edge:                           ; preds = %.thread47
   store i8 %113, ptr %83, align 8
   br label %.critedge26
 
@@ -3803,14 +3803,14 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile14moveSymbolNextERNS0_11D
   %3 = load i32, ptr %1, align 8, !tbaa !34
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8, !tbaa !18
-  %.020 = add i32 %3, 1
-  %6 = icmp ult i32 %.020, %5
+  %.018 = add i32 %3, 1
+  %6 = icmp ult i32 %.018, %5
   br i1 %6, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !15
-  %9 = zext i32 %.020 to i64
+  %9 = zext i32 %.018 to i64
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.critedge
@@ -3824,7 +3824,7 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile14moveSymbolNextERNS0_11D
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 3
   %.0.copyload.i.i.i.i.i.i = load i8, ptr %14, align 1
   %or.cond = icmp ult i8 %.0.copyload.i.i.i.i.i.i, 2
-  br i1 %or.cond, label %.critedge, label %._crit_edge.loopexit.split.loop.exit26
+  br i1 %or.cond, label %.critedge, label %._crit_edge.loopexit.split.loop.exit24
 
 .critedge:                                        ; preds = %13, %10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3832,12 +3832,12 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile14moveSymbolNextERNS0_11D
   %exitcond.not = icmp eq i32 %5, %lftr.wideiv
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !227
 
-._crit_edge.loopexit.split.loop.exit26:           ; preds = %13
+._crit_edge.loopexit.split.loop.exit24:           ; preds = %13
   %15 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %.critedge, %._crit_edge.loopexit.split.loop.exit26, %2
-  %storemerge = phi i32 [ 0, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit26 ], [ 0, %.critedge ]
+._crit_edge:                                      ; preds = %.critedge, %._crit_edge.loopexit.split.loop.exit24, %2
+  %storemerge = phi i32 [ 0, %2 ], [ %15, %._crit_edge.loopexit.split.loop.exit24 ], [ 0, %.critedge ]
   store i32 %storemerge, ptr %1, align 8, !tbaa !34
   ret void
 }

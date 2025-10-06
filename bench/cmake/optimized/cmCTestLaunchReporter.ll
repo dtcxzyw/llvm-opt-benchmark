@@ -3970,18 +3970,18 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %40
 _ZNK21cmCTestLaunchReporter19MatchesFilterPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %40, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %37
   %49 = load ptr, ptr %21, align 8, !tbaa !197
   %50 = load ptr, ptr %22, align 8, !tbaa !197
-  %.not12.not.i = icmp eq ptr %49, %50
-  br i1 %.not12.not.i, label %.loopexit51, label %.lr.ph.i
+  %.not13.not.i = icmp eq ptr %49, %50
+  br i1 %.not13.not.i, label %.loopexit51, label %.lr.ph.i
 
 51:                                               ; preds = %.noexc
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i, i64 560
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i, i64 560
   %.not.not.i = icmp eq ptr %52, %50
   br i1 %.not.not.i, label %.loopexit51, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZNK21cmCTestLaunchReporter19MatchesFilterPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, %51
-  %.sroa.09.013.i = phi ptr [ %52, %51 ], [ %49, %_ZNK21cmCTestLaunchReporter19MatchesFilterPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
+  %.sroa.09.014.i = phi ptr [ %52, %51 ], [ %49, %_ZNK21cmCTestLaunchReporter19MatchesFilterPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread ]
   %53 = load ptr, ptr %12, align 8, !tbaa !49
-  %54 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.013.i, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.013.i, i64 noundef 0, i32 noundef 0)
+  %54 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.014.i, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.014.i, i64 noundef 0, i32 noundef 0)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
@@ -4096,18 +4096,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 .loopexit51:                                      ; preds = %51, %_ZNK21cmCTestLaunchReporter19MatchesFilterPrefixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread
   %85 = load ptr, ptr %28, align 8, !tbaa !197
   %86 = load ptr, ptr %29, align 8, !tbaa !197
-  %.not12.not.i10 = icmp eq ptr %85, %86
-  br i1 %.not12.not.i10, label %_ZN21cmCTestLaunchReporter5MatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIN5cmsys17RegularExpressionESaISA_EE.exit16.thread, label %.lr.ph.i11
+  %.not13.not.i10 = icmp eq ptr %85, %86
+  br i1 %.not13.not.i10, label %_ZN21cmCTestLaunchReporter5MatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIN5cmsys17RegularExpressionESaISA_EE.exit16.thread, label %.lr.ph.i11
 
 87:                                               ; preds = %.noexc15
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.09.013.i12, i64 560
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.09.014.i12, i64 560
   %.not.not.i13 = icmp eq ptr %88, %86
   br i1 %.not.not.i13, label %_ZN21cmCTestLaunchReporter5MatchERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIN5cmsys17RegularExpressionESaISA_EE.exit16.thread, label %.lr.ph.i11
 
 .lr.ph.i11:                                       ; preds = %.loopexit51, %87
-  %.sroa.09.013.i12 = phi ptr [ %88, %87 ], [ %85, %.loopexit51 ]
+  %.sroa.09.014.i12 = phi ptr [ %88, %87 ], [ %85, %.loopexit51 ]
   %89 = load ptr, ptr %12, align 8, !tbaa !49
-  %90 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.013.i12, ptr noundef %89, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.013.i12, i64 noundef 0, i32 noundef 0)
+  %90 = invoke noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.014.i12, ptr noundef %89, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.014.i12, i64 noundef 0, i32 noundef 0)
           to label %.noexc15 unwind label %.loopexit
 
 .noexc15:                                         ; preds = %.lr.ph.i11
@@ -4369,14 +4369,14 @@ define dso_local noundef zeroext i1 @_ZN21cmCTestLaunchReporter5MatchERKNSt7__cx
   %4 = load ptr, ptr %2, align 8, !tbaa !197
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !197
-  %.not12.not = icmp eq ptr %4, %6
-  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
+  %.not13.not = icmp eq ptr %4, %6
+  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.09.013 = phi ptr [ %9, %.lr.ph ], [ %4, %3 ]
+  %.sroa.09.014 = phi ptr [ %9, %.lr.ph ], [ %4, %3 ]
   %7 = load ptr, ptr %1, align 8, !tbaa !49
-  %8 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.013, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.013, i64 noundef 0, i32 noundef 0)
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 560
+  %8 = tail call noundef zeroext i1 @_ZNK5cmsys17RegularExpression4findEPKcRNS_22RegularExpressionMatchEmj(ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.014, ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(560) %.sroa.09.014, i64 noundef 0, i32 noundef 0)
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 560
   %.not.not = icmp eq ptr %9, %6
   %or.cond = select i1 %8, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph

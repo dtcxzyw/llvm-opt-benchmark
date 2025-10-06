@@ -100,10 +100,10 @@ define hidden void @_ZN7memmap211MmapOptions3map17h6eebbf1552d8e396E(ptr noalias
   tail call void @llvm.experimental.noalias.scope.decl(metadata !28)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %30 = load i64, ptr %5, align 8, !range !7, !alias.scope !31, !noalias !28, !noundef !8
-  %trunc.i7 = trunc nuw i64 %30 to i1
+  %trunc.i6 = trunc nuw i64 %30 to i1
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !31, !noalias !28, !noundef !8
-  br i1 %trunc.i7, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit", label %33
+  br i1 %trunc.i6, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h98e7f1d05645f318E.llvm.14751623873358387643.exit", label %33
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16

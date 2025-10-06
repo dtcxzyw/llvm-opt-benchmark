@@ -1775,17 +1775,17 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_poin
 
 11:                                               ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %11 ]
-  %.02025 = phi i32 [ %6, %.preheader ], [ %18, %11 ]
+  %.02024 = phi i32 [ %6, %.preheader ], [ %18, %11 ]
   %12 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !76
-  %14 = zext i32 %.02025 to i64
+  %14 = zext i32 %.02024 to i64
   %15 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %10, i64 %14
   store i64 %13, ptr %15, align 8, !tbaa !44
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i64 0, ptr %16, align 8, !tbaa !46
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store i32 0, ptr %17, align 8, !tbaa !47
-  %18 = add i32 %.02025, 1
+  %18 = add i32 %.02024, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread, label %11, !llvm.loop !82
@@ -1814,9 +1814,9 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
   %12 = zext i32 %1 to i64
   %13 = udiv i64 -1, %12
   %14 = icmp ult i64 %2, %13
-  br i1 %14, label %.preheader, label %.preheader45
+  br i1 %14, label %.preheader, label %.preheader44
 
-.preheader45:                                     ; preds = %11
+.preheader44:                                     ; preds = %11
   %15 = udiv i64 %2, %12
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !42
@@ -1828,34 +1828,34 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
   br label %20
 
 20:                                               ; preds = %.preheader, %20
-  %indvars.iv53 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next54, %20 ]
-  %.03849 = phi i32 [ %8, %.preheader ], [ %27, %20 ]
-  %21 = mul i64 %2, %indvars.iv53
+  %indvars.iv52 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next53, %20 ]
+  %.03848 = phi i32 [ %8, %.preheader ], [ %27, %20 ]
+  %21 = mul i64 %2, %indvars.iv52
   %22 = udiv i64 %21, %12
-  %23 = zext i32 %.03849 to i64
+  %23 = zext i32 %.03848 to i64
   %24 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %19, i64 %23
   store i64 %22, ptr %24, align 8, !tbaa !44
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %25, align 8, !tbaa !46
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store i32 0, ptr %26, align 8, !tbaa !47
-  %27 = add i32 %.03849, 1
-  %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
-  %exitcond57.not = icmp eq i64 %indvars.iv.next54, %12
-  br i1 %exitcond57.not, label %.thread, label %20, !llvm.loop !83
+  %27 = add i32 %.03848, 1
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond56.not = icmp eq i64 %indvars.iv.next53, %12
+  br i1 %exitcond56.not, label %.thread, label %20, !llvm.loop !83
 
-28:                                               ; preds = %.preheader45, %28
-  %indvars.iv = phi i64 [ 0, %.preheader45 ], [ %indvars.iv.next, %28 ]
-  %.13947 = phi i32 [ %8, %.preheader45 ], [ %34, %28 ]
+28:                                               ; preds = %.preheader44, %28
+  %indvars.iv = phi i64 [ 0, %.preheader44 ], [ %indvars.iv.next, %28 ]
+  %.13946 = phi i32 [ %8, %.preheader44 ], [ %34, %28 ]
   %29 = mul i64 %15, %indvars.iv
-  %30 = zext i32 %.13947 to i64
+  %30 = zext i32 %.13946 to i64
   %31 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %17, i64 %30
   store i64 %29, ptr %31, align 8, !tbaa !44
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 0, ptr %32, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store i32 0, ptr %33, align 8, !tbaa !47
-  %34 = add i32 %.13947, 1
+  %34 = add i32 %.13946, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %12
   br i1 %exitcond.not, label %.thread, label %28, !llvm.loop !84
@@ -1893,8 +1893,8 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
   br i1 %.not, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %6
-  %.not43 = icmp eq i64 %spec.select, 0
-  br i1 %.not43, label %.thread, label %.lr.ph
+  %.not42 = icmp eq i64 %spec.select, 0
+  br i1 %.not42, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1904,18 +1904,18 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_seektable_template_append_spac
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.03042 = phi i64 [ 0, %.lr.ph ], [ %29, %23 ]
-  %.03340 = phi i32 [ %16, %.lr.ph ], [ %28, %23 ]
-  %24 = zext i32 %.03340 to i64
+  %.03041 = phi i64 [ 0, %.lr.ph ], [ %29, %23 ]
+  %.03339 = phi i32 [ %16, %.lr.ph ], [ %28, %23 ]
+  %24 = zext i32 %.03339 to i64
   %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_SeekPoint, ptr %21, i64 %24
-  store i64 %.03042, ptr %25, align 8, !tbaa !44
+  store i64 %.03041, ptr %25, align 8, !tbaa !44
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store i64 0, ptr %26, align 8, !tbaa !46
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   store i32 0, ptr %27, align 8, !tbaa !47
-  %28 = add i32 %.03340, 1
+  %28 = add i32 %.03339, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = add nuw nsw i64 %.03042, %22
+  %29 = add nuw nsw i64 %.03041, %22
   %30 = icmp samesign ugt i64 %.1, %indvars.iv.next
   br i1 %30, label %23, label %.thread, !llvm.loop !85
 
@@ -2073,20 +2073,20 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
   br i1 %11, label %vorbiscomment_calculate_length_.exit, label %.preheader
 
 .preheader:                                       ; preds = %8, %23
-  %indvars.iv93 = phi i64 [ %indvars.iv.next94, %23 ], [ 0, %8 ]
+  %indvars.iv90 = phi i64 [ %indvars.iv.next91, %23 ], [ 0, %8 ]
   %12 = load ptr, ptr %3, align 8, !tbaa !13
-  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %12, i64 %indvars.iv93
+  %13 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %12, i64 %indvars.iv90
   store i32 0, ptr %13, align 8, !tbaa !15
   %14 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #30
   %15 = load ptr, ptr %3, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %15, i64 %indvars.iv93
+  %16 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %15, i64 %indvars.iv90
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %14, ptr %17, align 8, !tbaa !17
   %18 = icmp eq ptr %14, null
   br i1 %18, label %19, label %23
 
 19:                                               ; preds = %.preheader
-  %20 = trunc nuw i64 %indvars.iv93 to i32
+  %20 = trunc nuw i64 %indvars.iv90 to i32
   %21 = add nuw i32 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i32 %21, ptr %22, align 8, !tbaa !13
@@ -2094,13 +2094,13 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
 
 23:                                               ; preds = %.preheader
   %24 = load ptr, ptr %3, align 8, !tbaa !13
-  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %24, i64 %indvars.iv93
+  %25 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %24, i64 %indvars.iv90
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !17
   store i8 0, ptr %27, align 1, !tbaa !13
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %9
-  br i1 %exitcond97.not, label %.critedge, label %.preheader, !llvm.loop !88
+  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
+  %exitcond94.not = icmp eq i64 %indvars.iv.next91, %9
+  br i1 %exitcond94.not, label %.critedge, label %.preheader, !llvm.loop !88
 
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2158,41 +2158,41 @@ define range(i32 0, 2) i32 @FLAC__metadata_object_vorbiscomment_resize_comments(
 
 53:                                               ; preds = %51
   %54 = load i32, ptr %29, align 8, !tbaa !13
-  %.not6882 = icmp ult i32 %54, %1
-  br i1 %.not6882, label %.lr.ph84.preheader, label %.critedge
+  %.not6879 = icmp ult i32 %54, %1
+  br i1 %.not6879, label %.lr.ph81.preheader, label %.critedge
 
-.lr.ph84.preheader:                               ; preds = %53
+.lr.ph81.preheader:                               ; preds = %53
   %55 = zext nneg i32 %54 to i64
-  br label %.lr.ph84
+  br label %.lr.ph81
 
-.lr.ph84:                                         ; preds = %.lr.ph84.preheader, %66
-  %indvars.iv90 = phi i64 [ %55, %.lr.ph84.preheader ], [ %indvars.iv.next91, %66 ]
+.lr.ph81:                                         ; preds = %.lr.ph81.preheader, %66
+  %indvars.iv87 = phi i64 [ %55, %.lr.ph81.preheader ], [ %indvars.iv.next88, %66 ]
   %56 = load ptr, ptr %3, align 8, !tbaa !13
-  %57 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %56, i64 %indvars.iv90
+  %57 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %56, i64 %indvars.iv87
   store i32 0, ptr %57, align 8, !tbaa !15
   %58 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #30
   %59 = load ptr, ptr %3, align 8, !tbaa !13
-  %60 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %59, i64 %indvars.iv90
+  %60 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %59, i64 %indvars.iv87
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store ptr %58, ptr %61, align 8, !tbaa !17
   %62 = icmp eq ptr %58, null
   br i1 %62, label %63, label %66
 
-63:                                               ; preds = %.lr.ph84
-  %64 = trunc nuw i64 %indvars.iv90 to i32
+63:                                               ; preds = %.lr.ph81
+  %64 = trunc nuw i64 %indvars.iv87 to i32
   %65 = add nuw i32 %64, 1
   store i32 %65, ptr %29, align 8, !tbaa !13
   br label %vorbiscomment_calculate_length_.exit
 
-66:                                               ; preds = %.lr.ph84
+66:                                               ; preds = %.lr.ph81
   %67 = load ptr, ptr %3, align 8, !tbaa !13
-  %68 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %67, i64 %indvars.iv90
+  %68 = getelementptr inbounds nuw %struct.FLAC__StreamMetadata_VorbisComment_Entry, ptr %67, i64 %indvars.iv87
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8, !tbaa !17
   store i8 0, ptr %70, align 1, !tbaa !13
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next91, %31
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph84, !llvm.loop !90
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next88, %31
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph81, !llvm.loop !90
 
 .critedge:                                        ; preds = %66, %23, %53, %51
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 32

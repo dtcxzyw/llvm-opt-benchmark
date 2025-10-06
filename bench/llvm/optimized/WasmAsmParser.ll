@@ -930,8 +930,8 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113WasmAsmParser10par
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %75
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8, !tbaa !190
   %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(6) %.sroa.0.0.copyload, ptr noundef nonnull dereferenceable(6) @.str.33, i64 6)
-  %.not12 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %.not12, label %.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
+  %.not11 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %.not11, label %.thread, label %_ZN4llvmneENS_9StringRefES0_.exit.thread
 
 _ZN4llvmneENS_9StringRefES0_.exit.thread:         ; preds = %75, %_ZN4llvmneENS_9StringRefES0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)

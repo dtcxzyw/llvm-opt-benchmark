@@ -468,7 +468,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %27
 57:                                               ; preds = %.critedge2
   %58 = landingpad { ptr, i32 }
           cleanup
-  br label %158
+  br label %159
 
 59:                                               ; preds = %32
   %60 = load i32, ptr %7, align 4, !tbaa !44
@@ -528,7 +528,7 @@ _ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit:   ; preds = %72
 85:                                               ; preds = %69
   %86 = landingpad { ptr, i32 }
           cleanup
-  br label %158
+  br label %159
 
 87:                                               ; preds = %._crit_edge58, %64
   %88 = phi ptr [ %.pre59, %._crit_edge58 ], [ %66, %64 ]
@@ -638,7 +638,7 @@ _ZNSt11unique_lockISt5mutexE6unlockEv.exit:       ; preds = %126, %124
 
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %130, %132
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %158
+  br label %159
 
 137:                                              ; preds = %129, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
   %.217 = phi i32 [ %.015, %_ZNSt11unique_lockISt5mutexE6unlockEv.exit ], [ %120, %129 ]
@@ -687,46 +687,46 @@ _ZNSt14_Function_baseD2Ev.exit28:                 ; preds = %_ZNKSt8functionIFvv
   br label %151
 
 151:                                              ; preds = %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit, %84, %59, %64, %_ZNSt14_Function_baseD2Ev.exit28
-  %switch = phi i1 [ true, %_ZNSt14_Function_baseD2Ev.exit28 ], [ false, %64 ], [ false, %59 ], [ false, %84 ], [ false, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
+  %152 = phi i1 [ true, %_ZNSt14_Function_baseD2Ev.exit28 ], [ false, %64 ], [ false, %59 ], [ false, %84 ], [ false, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
   %.116 = phi i32 [ %.217, %_ZNSt14_Function_baseD2Ev.exit28 ], [ %.015, %64 ], [ %.015, %59 ], [ %.015, %84 ], [ %.015, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
   %.1 = phi i8 [ %.2, %_ZNSt14_Function_baseD2Ev.exit28 ], [ %.0, %64 ], [ %.0, %59 ], [ %.0, %84 ], [ %.0, %_ZNSt6vectorISt6threadSaIS0_EE8pop_backEv.exit ]
-  %152 = load i8, ptr %6, align 8, !tbaa !54, !range !55, !noundef !56
-  %153 = trunc nuw i8 %152 to i1
-  br i1 %153, label %154, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
+  %153 = load i8, ptr %6, align 8, !tbaa !54, !range !55, !noundef !56
+  %154 = trunc nuw i8 %153 to i1
+  br i1 %154, label %155, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-154:                                              ; preds = %151
-  %155 = load ptr, ptr %3, align 8, !tbaa !51
-  %.not.i.i29 = icmp eq ptr %155, null
-  br i1 %.not.i.i29, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %156
+155:                                              ; preds = %151
+  %156 = load ptr, ptr %3, align 8, !tbaa !51
+  %.not.i.i29 = icmp eq ptr %156, null
+  br i1 %.not.i.i29, label %_ZNSt11unique_lockISt5mutexED2Ev.exit, label %157
 
-156:                                              ; preds = %154
-  %157 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %155) #27
+157:                                              ; preds = %155
+  %158 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %156) #27
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %151, %154, %156
+_ZNSt11unique_lockISt5mutexED2Ev.exit:            ; preds = %151, %155, %157
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %switch, label %27, label %165
+  br i1 %152, label %27, label %166
 
-158:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit, %85, %57
+159:                                              ; preds = %_ZNSt14_Function_baseD2Ev.exit, %85, %57
   %.pn = phi { ptr, i32 } [ %lpad.phi, %_ZNSt14_Function_baseD2Ev.exit ], [ %86, %85 ], [ %58, %57 ]
-  %159 = load i8, ptr %6, align 8, !tbaa !54, !range !55, !noundef !56
-  %160 = trunc nuw i8 %159 to i1
-  br i1 %160, label %161, label %_ZNSt11unique_lockISt5mutexED2Ev.exit31
+  %160 = load i8, ptr %6, align 8, !tbaa !54, !range !55, !noundef !56
+  %161 = trunc nuw i8 %160 to i1
+  br i1 %161, label %162, label %_ZNSt11unique_lockISt5mutexED2Ev.exit31
 
-161:                                              ; preds = %158
-  %162 = load ptr, ptr %3, align 8, !tbaa !51
-  %.not.i.i30 = icmp eq ptr %162, null
-  br i1 %.not.i.i30, label %_ZNSt11unique_lockISt5mutexED2Ev.exit31, label %163
+162:                                              ; preds = %159
+  %163 = load ptr, ptr %3, align 8, !tbaa !51
+  %.not.i.i30 = icmp eq ptr %163, null
+  br i1 %.not.i.i30, label %_ZNSt11unique_lockISt5mutexED2Ev.exit31, label %164
 
-163:                                              ; preds = %161
-  %164 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %162) #27
+164:                                              ; preds = %162
+  %165 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %163) #27
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit31
 
-_ZNSt11unique_lockISt5mutexED2Ev.exit31:          ; preds = %158, %161, %163
+_ZNSt11unique_lockISt5mutexED2Ev.exit31:          ; preds = %159, %162, %164
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn
 
-165:                                              ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit
+166:                                              ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit
   ret void
 }
 

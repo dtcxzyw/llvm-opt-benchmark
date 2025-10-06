@@ -3239,27 +3239,27 @@ define dso_local noundef zeroext i1 @_ZNK13ArrayVariable10is_variantEPK8Variable
   br i1 %28, label %.preheader, label %.thread
 
 .preheader:                                       ; preds = %13
-  %.not3132.not = icmp eq ptr %23, %24
-  br i1 %.not3132.not, label %.thread, label %.lr.ph
+  %.not3031.not = icmp eq ptr %23, %24
+  br i1 %.not3031.not, label %.thread, label %.lr.ph
 
 29:                                               ; preds = %.critedge
-  %30 = add nuw i64 %.02033, 1
+  %30 = add nuw i64 %.02032, 1
   %31 = load ptr, ptr %22, align 8, !tbaa !73
   %32 = load ptr, ptr %21, align 8, !tbaa !76
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 3
-  %.not31 = icmp ult i64 %30, %36
-  br i1 %.not31, label %.lr.ph, label %.thread, !llvm.loop !127
+  %.not30 = icmp ult i64 %30, %36
+  br i1 %.not30, label %.lr.ph, label %.thread, !llvm.loop !127
 
 .lr.ph:                                           ; preds = %.preheader, %29
   %37 = phi ptr [ %32, %29 ], [ %24, %.preheader ]
-  %.02033 = phi i64 [ %30, %29 ], [ 0, %.preheader ]
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.02033
+  %.02032 = phi i64 [ %30, %29 ], [ 0, %.preheader ]
+  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.02032
   %39 = load ptr, ptr %38, align 8, !tbaa !75
   %40 = load ptr, ptr %14, align 8, !tbaa !76
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02033
+  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02032
   %42 = load ptr, ptr %41, align 8, !tbaa !75
   %43 = tail call fastcc noundef i32 @_ZL18count_expr_key_varPK10Expression(ptr noundef %39)
   %.not23 = icmp eq i32 %43, 1
@@ -3373,7 +3373,7 @@ tailrecurse:                                      ; preds = %24, %1
   %.tr = phi ptr [ %0, %1 ], [ %25, %24 ]
   %2 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !128
-  switch i32 %3, label %.thread34 [
+  switch i32 %3, label %.thread33 [
     i32 1, label %4
     i32 2, label %7
   ]
@@ -3381,7 +3381,7 @@ tailrecurse:                                      ; preds = %24, %1
 4:                                                ; preds = %tailrecurse
   %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !105
-  br label %.thread34
+  br label %.thread33
 
 7:                                                ; preds = %tailrecurse
   %8 = tail call ptr @__dynamic_cast(ptr nonnull %.tr, ptr nonnull @_ZTI10Expression, ptr nonnull @_ZTI17ExpressionFuncall, i64 0) #23
@@ -3391,8 +3391,8 @@ tailrecurse:                                      ; preds = %24, %1
   %12 = tail call noundef ptr %11(ptr noundef nonnull align 8 dereferenceable(32) %8)
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !129
-  %switch30 = icmp ult i32 %14, 2
-  br i1 %switch30, label %15, label %.thread34
+  %switch = icmp ult i32 %14, 2
+  br i1 %switch, label %15, label %.thread33
 
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -3420,14 +3420,14 @@ tailrecurse:                                      ; preds = %24, %1
   %34 = icmp eq ptr %29, null
   %35 = icmp ne ptr %33, null
   %or.cond = and i1 %34, %35
-  br i1 %or.cond, label %.thread34, label %36
+  br i1 %or.cond, label %.thread33, label %36
 
 36:                                               ; preds = %26
   %.not = icmp eq ptr %33, null
   %spec.select = select i1 %.not, ptr %29, ptr null
-  br label %.thread34
+  br label %.thread33
 
-.thread34:                                        ; preds = %tailrecurse, %7, %36, %26, %4
+.thread33:                                        ; preds = %tailrecurse, %7, %36, %26, %4
   %.0 = phi ptr [ %6, %4 ], [ %33, %26 ], [ %spec.select, %36 ], [ null, %7 ], [ null, %tailrecurse ]
   ret ptr %.0
 }

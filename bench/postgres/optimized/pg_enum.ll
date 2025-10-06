@@ -410,29 +410,29 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   br i1 %37, label %.split.us, label %.split.preheader
 
 .split.preheader:                                 ; preds = %35
-  br i1 %44, label %.lr.ph, label %.preheader146._crit_edge.loopexit184
+  br i1 %44, label %.lr.ph, label %.preheader140._crit_edge.loopexit178
 
 .split.us:                                        ; preds = %35
   br i1 %44, label %.lr.ph.us, label %._crit_edge.us
 
 ._crit_edge.us:                                   ; preds = %.split.us
   tail call void @pg_qsort(ptr noundef %43, i64 noundef %41, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #9
-  br label %.thread129
+  br label %.thread127
 
 45:                                               ; preds = %.lr.ph.us, %45
-  %indvars.iv210 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next211, %45 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv210
+  %indvars.iv204 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next205, %45 ]
+  %46 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv204
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
-  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv210
+  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv204
   store ptr %48, ptr %49, align 8
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %exitcond214.not = icmp eq i64 %indvars.iv.next211, %wide.trip.count213
-  br i1 %exitcond214.not, label %61, label %45, !llvm.loop !10
+  %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
+  %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
+  br i1 %exitcond208.not, label %61, label %45, !llvm.loop !10
 
 .lr.ph.us:                                        ; preds = %.split.us
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 80
-  %wide.trip.count213 = zext nneg i32 %40 to i64
+  %wide.trip.count207 = zext nneg i32 %40 to i64
   br label %45
 
 .lr.ph:                                           ; preds = %.split.preheader, %.split
@@ -453,12 +453,12 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   store ptr %59, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.lr.ph172.preheader, label %56, !llvm.loop !10
+  br i1 %exitcond.not, label %.lr.ph166.preheader, label %56, !llvm.loop !10
 
-.lr.ph172.preheader:                              ; preds = %56
+.lr.ph166.preheader:                              ; preds = %56
   tail call void @pg_qsort(ptr noundef nonnull %51, i64 noundef %52, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #9
-  %wide.trip.count208 = zext nneg i32 %53 to i64
-  br label %.lr.ph172
+  %wide.trip.count202 = zext nneg i32 %53 to i64
+  br label %.lr.ph166
 
 61:                                               ; preds = %45
   tail call void @pg_qsort(ptr noundef nonnull %43, i64 noundef %41, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #9
@@ -475,53 +475,53 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load float, ptr %71, align 4
   %73 = fadd float %72, 1.000000e+00
-  br label %.thread129
+  br label %.thread127
 
-.lr.ph172:                                        ; preds = %.lr.ph172.preheader, %84
-  %indvars.iv205 = phi i64 [ 0, %.lr.ph172.preheader ], [ %indvars.iv.next206, %84 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv205
+.lr.ph166:                                        ; preds = %.lr.ph166.preheader, %84
+  %indvars.iv199 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next200, %84 ]
+  %74 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv199
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 16
-  %.val119 = load ptr, ptr %76, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.val119, i64 22
+  %.val117 = load ptr, ptr %76, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %.val117, i64 22
   %78 = load i8, ptr %77, align 2
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw i8, ptr %.val119, i64 %79
+  %80 = getelementptr inbounds nuw i8, ptr %.val117, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %82 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %81, ptr noundef nonnull dereferenceable(1) %2) #10
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %88, label %84
 
-84:                                               ; preds = %.lr.ph172
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
-  br i1 %exitcond209.not, label %.preheader146._crit_edge, label %.lr.ph172, !llvm.loop !11
+84:                                               ; preds = %.lr.ph166
+  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
+  %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
+  br i1 %exitcond203.not, label %.preheader140._crit_edge, label %.lr.ph166, !llvm.loop !11
 
-.preheader146._crit_edge.loopexit184:             ; preds = %.split, %.split.preheader
-  %.lcssa261 = phi i64 [ %41, %.split.preheader ], [ %150, %.split ]
-  %.lcssa256 = phi ptr [ %43, %.split.preheader ], [ %152, %.split ]
-  tail call void @pg_qsort(ptr noundef %.lcssa256, i64 noundef %.lcssa261, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #9
-  br label %.preheader146._crit_edge
+.preheader140._crit_edge.loopexit178:             ; preds = %.split, %.split.preheader
+  %.lcssa255 = phi i64 [ %41, %.split.preheader ], [ %150, %.split ]
+  %.lcssa250 = phi ptr [ %43, %.split.preheader ], [ %152, %.split ]
+  tail call void @pg_qsort(ptr noundef %.lcssa250, i64 noundef %.lcssa255, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #9
+  br label %.preheader140._crit_edge
 
-.preheader146._crit_edge:                         ; preds = %84, %.preheader146._crit_edge.loopexit184
+.preheader140._crit_edge:                         ; preds = %84, %.preheader140._crit_edge.loopexit178
   %85 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #11
   %86 = tail call i32 @errcode(i32 noundef 50856066) #9
   %87 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.5, ptr noundef nonnull %2) #9
   tail call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 406, ptr noundef nonnull @__func__.AddEnumLabel) #9
   unreachable
 
-88:                                               ; preds = %.lr.ph172
-  %89 = trunc nuw nsw i64 %indvars.iv205 to i32
-  %sext = shl i64 %indvars.iv205, 32
+88:                                               ; preds = %.lr.ph166
+  %89 = trunc nuw nsw i64 %indvars.iv199 to i32
+  %sext = shl i64 %indvars.iv199, 32
   %90 = ashr exact i64 %sext, 29
   %91 = getelementptr inbounds i8, ptr %51, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr i8, ptr %92, i64 16
-  %.val120 = load ptr, ptr %93, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %.val120, i64 22
+  %.val118 = load ptr, ptr %93, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %.val118, i64 22
   %95 = load i8, ptr %94, align 2
   %96 = zext i8 %95 to i64
-  %97 = getelementptr inbounds nuw i8, ptr %.val120, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %.val118, i64 %96
   %.0102 = add i32 %.0102.v, %89
   %98 = icmp slt i32 %.0102, 0
   br i1 %98, label %99, label %103
@@ -530,7 +530,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %100 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %101 = load float, ptr %100, align 4
   %102 = fadd float %101, -1.000000e+00
-  br label %.thread129
+  br label %.thread127
 
 103:                                              ; preds = %88
   %.not108 = icmp slt i32 %.0102, %53
@@ -540,7 +540,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %106 = load float, ptr %105, align 4
   %107 = fadd float %106, 1.000000e+00
-  br label %.thread129
+  br label %.thread127
 
 108:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -548,11 +548,11 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %110 = getelementptr inbounds nuw ptr, ptr %51, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr i8, ptr %111, i64 16
-  %.val121 = load ptr, ptr %112, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %.val121, i64 22
+  %.val119 = load ptr, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %.val119, i64 22
   %114 = load i8, ptr %113, align 2
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw i8, ptr %.val121, i64 %115
+  %116 = getelementptr inbounds nuw i8, ptr %.val119, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %118 = load float, ptr %117, align 4
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -563,19 +563,19 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %.0..0..0..0.6 = load volatile float, ptr %13, align 4
   %123 = load float, ptr %117, align 4
   %124 = fcmp oeq float %.0..0..0..0.6, %123
-  br i1 %124, label %.preheader281, label %125
+  br i1 %124, label %.preheader275, label %125
 
 125:                                              ; preds = %108
   %.0..0..0..0.7 = load volatile float, ptr %13, align 4
   %126 = load float, ptr %119, align 4
   %127 = fcmp oeq float %.0..0..0..0.7, %126
-  br i1 %127, label %.preheader281, label %146
+  br i1 %127, label %.preheader275, label %146
 
-.preheader281:                                    ; preds = %125, %108
+.preheader275:                                    ; preds = %125, %108
   br label %128
 
-128:                                              ; preds = %.preheader281, %144
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %144 ], [ %wide.trip.count208, %.preheader281 ]
+128:                                              ; preds = %.preheader275, %144
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %144 ], [ %wide.trip.count202, %.preheader275 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %129 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.next.i
   %130 = load ptr, ptr %129, align 8
@@ -607,7 +607,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 146:                                              ; preds = %125
   %.0..0..0..0.8 = load volatile float, ptr %13, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %.thread129
+  br label %.thread127
 
 .split:                                           ; preds = %144
   tail call void @CommandCounterIncrement() #9
@@ -621,41 +621,41 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %151 = shl nsw i64 %150, 3
   %152 = tail call ptr @palloc(i64 noundef %151) #9
   %153 = icmp sgt i32 %149, 0
-  br i1 %153, label %.lr.ph, label %.preheader146._crit_edge.loopexit184
+  br i1 %153, label %.lr.ph, label %.preheader140._crit_edge.loopexit178
 
-.thread129:                                       ; preds = %._crit_edge.us, %146, %99, %104, %61
+.thread127:                                       ; preds = %._crit_edge.us, %146, %99, %104, %61
   %154 = phi ptr [ %38, %61 ], [ %38, %._crit_edge.us ], [ %54, %146 ], [ %54, %104 ], [ %54, %99 ]
   %155 = phi i32 [ %40, %61 ], [ %40, %._crit_edge.us ], [ %53, %146 ], [ %53, %104 ], [ %53, %99 ]
   %156 = phi ptr [ %43, %61 ], [ %43, %._crit_edge.us ], [ %51, %146 ], [ %51, %104 ], [ %51, %99 ]
   %.1 = phi float [ %73, %61 ], [ 1.000000e+00, %._crit_edge.us ], [ %.0..0..0..0.8, %146 ], [ %107, %104 ], [ %102, %99 ]
-  %.fr183 = freeze i32 %155
+  %.fr177 = freeze i32 %155
   %157 = load i8, ptr @IsBinaryUpgrade, align 1, !range !13, !noundef !14
   %158 = trunc nuw i8 %157 to i1
   br i1 %158, label %181, label %.preheader
 
-.preheader:                                       ; preds = %.thread129
-  %159 = icmp sgt i32 %.fr183, 0
-  br i1 %159, label %.lr.ph181.us.preheader, label %.preheader.split
+.preheader:                                       ; preds = %.thread127
+  %159 = icmp sgt i32 %.fr177, 0
+  br i1 %159, label %.lr.ph175.us.preheader, label %.preheader.split
 
-.lr.ph181.us.preheader:                           ; preds = %.preheader
-  %wide.trip.count218 = zext nneg i32 %.fr183 to i64
-  br label %.lr.ph181.us
+.lr.ph175.us.preheader:                           ; preds = %.preheader
+  %wide.trip.count212 = zext nneg i32 %.fr177 to i64
+  br label %.lr.ph175.us
 
-.lr.ph181.us:                                     ; preds = %.lr.ph181.us.backedge, %.lr.ph181.us.preheader
+.lr.ph175.us:                                     ; preds = %.lr.ph175.us.backedge, %.lr.ph175.us.preheader
   %160 = tail call i32 @GetNewOidWithIndex(ptr noundef %36, i32 noundef 3502, i16 noundef signext 1) #9
   store i32 %160, ptr %9, align 4
   br label %161
 
-161:                                              ; preds = %.lr.ph181.us, %178
-  %indvars.iv215 = phi i64 [ 0, %.lr.ph181.us ], [ %indvars.iv.next216, %178 ]
-  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv215
+161:                                              ; preds = %.lr.ph175.us, %178
+  %indvars.iv209 = phi i64 [ 0, %.lr.ph175.us ], [ %indvars.iv.next210, %178 ]
+  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv209
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr i8, ptr %163, i64 16
-  %.val122.us = load ptr, ptr %164, align 8
-  %165 = getelementptr inbounds nuw i8, ptr %.val122.us, i64 22
+  %.val120.us = load ptr, ptr %164, align 8
+  %165 = getelementptr inbounds nuw i8, ptr %.val120.us, i64 22
   %166 = load i8, ptr %165, align 2
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw i8, ptr %.val122.us, i64 %167
+  %168 = getelementptr inbounds nuw i8, ptr %.val120.us, i64 %167
   %169 = load i32, ptr %168, align 4
   %170 = and i32 %169, 1
   %.not109.us = icmp eq i32 %170, 0
@@ -669,31 +669,31 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 175:                                              ; preds = %171
   %.not110.us = icmp ugt i32 %169, %160
-  br i1 %.not110.us, label %178, label %.thread139.us
+  br i1 %.not110.us, label %178, label %.thread134.us
 
 176:                                              ; preds = %171
   %.not111.us = icmp ult i32 %169, %160
-  br i1 %.not111.us, label %178, label %.thread139.us
+  br i1 %.not111.us, label %178, label %.thread134.us
 
-.thread139.us:                                    ; preds = %176, %175
+.thread134.us:                                    ; preds = %176, %175
   %177 = and i32 %160, 1
   %.not112.us = icmp eq i32 %177, 0
-  br i1 %.not112.us, label %.lr.ph181.us.backedge, label %.thread142
+  br i1 %.not112.us, label %.lr.ph175.us.backedge, label %.thread137
 
-.lr.ph181.us.backedge:                            ; preds = %.thread139.us, %._crit_edge182.us
-  br label %.lr.ph181.us
+.lr.ph175.us.backedge:                            ; preds = %.thread134.us, %._crit_edge176.us
+  br label %.lr.ph175.us
 
 178:                                              ; preds = %176, %175, %161
-  %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
-  %exitcond219.not = icmp eq i64 %indvars.iv.next216, %wide.trip.count218
-  br i1 %exitcond219.not, label %._crit_edge182.us, label %161, !llvm.loop !15
+  %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
+  %exitcond213.not = icmp eq i64 %indvars.iv.next210, %wide.trip.count212
+  br i1 %exitcond213.not, label %._crit_edge176.us, label %161, !llvm.loop !15
 
-._crit_edge182.us:                                ; preds = %178
+._crit_edge176.us:                                ; preds = %178
   %179 = and i32 %160, 1
   %180 = icmp eq i32 %179, 0
-  br i1 %180, label %.thread142, label %.lr.ph181.us.backedge
+  br i1 %180, label %.thread137, label %.lr.ph175.us.backedge
 
-181:                                              ; preds = %.thread129
+181:                                              ; preds = %.thread127
   %182 = load i32, ptr @binary_upgrade_next_pg_enum_oid, align 4
   %.not113 = icmp eq i32 %182, 0
   br i1 %.not113, label %183, label %187
@@ -718,20 +718,20 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 192:                                              ; preds = %187
   store i32 %182, ptr %9, align 4
   store i32 0, ptr @binary_upgrade_next_pg_enum_oid, align 4
-  br label %.thread142
+  br label %.thread137
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %193 = tail call i32 @GetNewOidWithIndex(ptr noundef %36, i32 noundef 3502, i16 noundef signext 1) #9
   %194 = and i32 %193, 1
   %195 = icmp eq i32 %194, 0
-  br i1 %195, label %.thread142.loopexit.split, label %.preheader.split
+  br i1 %195, label %.thread137.loopexit.split, label %.preheader.split
 
-.thread142.loopexit.split:                        ; preds = %.preheader.split
+.thread137.loopexit.split:                        ; preds = %.preheader.split
   store i32 %193, ptr %9, align 4
-  br label %.thread142
+  br label %.thread137
 
-.thread142:                                       ; preds = %.thread139.us, %._crit_edge182.us, %.thread142.loopexit.split, %192
-  %196 = phi i32 [ %193, %.thread142.loopexit.split ], [ %182, %192 ], [ %160, %._crit_edge182.us ], [ %160, %.thread139.us ]
+.thread137:                                       ; preds = %.thread134.us, %._crit_edge176.us, %.thread137.loopexit.split, %192
+  %196 = phi i32 [ %193, %.thread137.loopexit.split ], [ %182, %192 ], [ %160, %._crit_edge176.us ], [ %160, %.thread134.us ]
   tail call void @pfree(ptr noundef %156) #9
   tail call void @ReleaseCatCacheList(ptr noundef %154) #9
   store i32 0, ptr %11, align 4
@@ -757,7 +757,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
   %208 = icmp eq i32 %207, 1
   br i1 %208, label %209, label %215
 
-209:                                              ; preds = %.thread142
+209:                                              ; preds = %.thread137
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 %0, ptr %7, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -778,7 +778,7 @@ EnumTypeUncommitted.exit:                         ; preds = %209
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br i1 %214, label %227, label %215
 
-215:                                              ; preds = %EnumTypeUncommitted.exit.thread, %EnumTypeUncommitted.exit, %.thread142
+215:                                              ; preds = %EnumTypeUncommitted.exit.thread, %EnumTypeUncommitted.exit, %.thread137
   %216 = load ptr, ptr @uncommitted_enum_values, align 8
   %217 = icmp eq ptr %216, null
   br i1 %217, label %218, label %224

@@ -303,41 +303,41 @@ define ptr @PGTYPEStimestamp_to_asc(i64 noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = add i64 %0, -9223372036854775807
   %or.cond = icmp ult i64 %5, 2
-  br i1 %or.cond, label %6, label %9
+  br i1 %or.cond, label %6, label %10
 
 6:                                                ; preds = %1
-  %switch = icmp eq i64 %0, -9223372036854775808
-  br i1 %switch, label %7, label %8
+  %7 = icmp eq i64 %0, -9223372036854775808
+  br i1 %7, label %8, label %9
 
-7:                                                ; preds = %6
+8:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.1, i64 10, i1 false) #10
   br label %EncodeSpecialTimestamp.exit
 
-8:                                                ; preds = %6
+9:                                                ; preds = %6
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.2, i64 9, i1 false) #10
   br label %EncodeSpecialTimestamp.exit
 
-9:                                                ; preds = %1
-  %10 = call fastcc i32 @timestamp2tm(i64 noundef %0, ptr noundef %2, ptr noundef %4)
-  %11 = icmp eq i32 %10, 0
-  br i1 %11, label %12, label %14
+10:                                               ; preds = %1
+  %11 = call fastcc i32 @timestamp2tm(i64 noundef %0, ptr noundef %2, ptr noundef %4)
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %9
-  %13 = load i32, ptr %4, align 4
-  call void @EncodeDateTime(ptr noundef nonnull %2, i32 noundef %13, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false) #10
+13:                                               ; preds = %10
+  %14 = load i32, ptr %4, align 4
+  call void @EncodeDateTime(ptr noundef nonnull %2, i32 noundef %14, i1 noundef zeroext false, i32 noundef 0, ptr noundef null, i32 noundef 1, ptr noundef nonnull %3, i1 noundef zeroext false) #10
   br label %EncodeSpecialTimestamp.exit
 
-14:                                               ; preds = %9
-  %15 = tail call ptr @__errno_location() #12
-  store i32 320, ptr %15, align 4
-  br label %17
+15:                                               ; preds = %10
+  %16 = tail call ptr @__errno_location() #12
+  store i32 320, ptr %16, align 4
+  br label %18
 
-EncodeSpecialTimestamp.exit:                      ; preds = %8, %7, %12
-  %16 = call ptr @pgtypes_strdup(ptr noundef nonnull %3) #10
-  br label %17
+EncodeSpecialTimestamp.exit:                      ; preds = %9, %8, %13
+  %17 = call ptr @pgtypes_strdup(ptr noundef nonnull %3) #10
+  br label %18
 
-17:                                               ; preds = %EncodeSpecialTimestamp.exit, %14
-  %.0 = phi ptr [ %16, %EncodeSpecialTimestamp.exit ], [ null, %14 ]
+18:                                               ; preds = %EncodeSpecialTimestamp.exit, %15
+  %.0 = phi ptr [ %17, %EncodeSpecialTimestamp.exit ], [ null, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -1353,8 +1353,8 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %5 = alloca i32, align 4
   %6 = load i64, ptr %0, align 8
   %.off = add i64 %6, -9223372036854775807
-  %switch44 = icmp ult i64 %.off, 2
-  br i1 %switch44, label %117, label %7
+  %switch = icmp ult i64 %.off, 2
+  br i1 %switch, label %117, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1367,7 +1367,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %11 = call fastcc i32 @timestamp2tm(i64 noundef %6, ptr noundef %4, ptr noundef %5)
   %.not40 = icmp eq i32 %11, 0
-  br i1 %.not40, label %12, label %.thread49
+  br i1 %.not40, label %12, label %.thread48
 
 12:                                               ; preds = %10
   %13 = load i64, ptr %8, align 8
@@ -1425,7 +1425,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
 44:                                               ; preds = %37
   %45 = srem i32 %39, 100
   %.not41 = icmp eq i32 %45, 0
-  br i1 %.not41, label %46, label %.thread66
+  br i1 %.not41, label %46, label %.thread64
 
 46:                                               ; preds = %44
   %47 = srem i32 %39, 400
@@ -1439,13 +1439,13 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %55 = icmp sgt i32 %41, %54
   br i1 %55, label %66, label %75
 
-.thread66:                                        ; preds = %44
+.thread64:                                        ; preds = %44
   %56 = add nsw i32 %38, -1
   %57 = zext nneg i32 %56 to i64
   %58 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @day_tab, i64 52), i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = icmp sgt i32 %41, %59
-  br i1 %60, label %.thread45, label %75
+  br i1 %60, label %.thread44, label %75
 
 .thread:                                          ; preds = %37
   %61 = add nsw i32 %38, -1
@@ -1453,25 +1453,25 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %63 = getelementptr inbounds nuw i32, ptr @day_tab, i64 %62
   %64 = load i32, ptr %63, align 4
   %65 = icmp sgt i32 %41, %64
-  br i1 %65, label %.thread45, label %75
+  br i1 %65, label %.thread44, label %75
 
 66:                                               ; preds = %46
   %67 = srem i32 %39, 400
   %68 = icmp eq i32 %67, 0
   %69 = zext i1 %68 to i64
-  br label %.thread45
+  br label %.thread44
 
-.thread45:                                        ; preds = %.thread66, %.thread, %66
-  %70 = phi i64 [ %52, %66 ], [ %62, %.thread ], [ %57, %.thread66 ]
-  %71 = phi i64 [ %69, %66 ], [ 0, %.thread ], [ 1, %.thread66 ]
+.thread44:                                        ; preds = %.thread64, %.thread, %66
+  %70 = phi i64 [ %52, %66 ], [ %62, %.thread ], [ %57, %.thread64 ]
+  %71 = phi i64 [ %69, %66 ], [ 0, %.thread ], [ 1, %.thread64 ]
   %72 = getelementptr inbounds nuw [13 x i32], ptr @day_tab, i64 %71
   %73 = getelementptr inbounds nuw i32, ptr %72, i64 %70
   %74 = load i32, ptr %73, align 4
   store i32 %74, ptr %40, align 4
   br label %75
 
-75:                                               ; preds = %.thread66, %.thread, %.thread45, %46
-  %76 = phi i32 [ %41, %.thread ], [ %74, %.thread45 ], [ %41, %46 ], [ %41, %.thread66 ]
+75:                                               ; preds = %.thread64, %.thread, %.thread44, %46
+  %76 = phi i32 [ %41, %.thread ], [ %74, %.thread44 ], [ %41, %46 ], [ %41, %.thread64 ]
   %77 = load i32, ptr %5, align 4
   %78 = icmp sgt i32 %39, -4713
   br i1 %78, label %82, label %79
@@ -1480,7 +1480,7 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %80 = icmp eq i32 %39, -4713
   %81 = icmp samesign ugt i32 %38, 10
   %or.cond = and i1 %80, %81
-  br i1 %or.cond, label %.thread.i, label %.thread49
+  br i1 %or.cond, label %.thread.i, label %.thread48
 
 82:                                               ; preds = %75
   %83 = icmp slt i32 %39, 5874898
@@ -1489,15 +1489,15 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
 84:                                               ; preds = %82
   %85 = icmp eq i32 %39, 5874898
   %86 = icmp samesign ult i32 %38, 6
-  %or.cond54 = and i1 %85, %86
-  br i1 %or.cond54, label %.thread.i, label %.thread49
+  %or.cond52 = and i1 %85, %86
+  br i1 %or.cond52, label %.thread.i, label %.thread48
 
 .thread.i:                                        ; preds = %84, %79, %82
   %87 = call i32 @date2j(i32 noundef %39, i32 noundef %38, i32 noundef %76) #10
   %88 = call i32 @date2j(i32 noundef 2000, i32 noundef 1, i32 noundef 1) #10
   %.fr = freeze i32 %87
-  %.fr55 = freeze i32 %88
-  %89 = sub i32 %.fr, %.fr55
+  %.fr53 = freeze i32 %88
+  %89 = sub i32 %.fr, %.fr53
   %90 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %91 = load i32, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -1508,20 +1508,20 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   %97 = extractvalue { i64, i1 } %96, 1
   %98 = extractvalue { i64, i1 } %96, 0
   store i64 %98, ptr %0, align 8
-  br i1 %97, label %.thread49, label %99
+  br i1 %97, label %.thread48, label %99
 
 99:                                               ; preds = %.thread.i
-  %.fr56 = freeze i32 %91
-  %100 = mul i32 %.fr56, 60
-  %.fr57 = freeze i32 %93
-  %101 = add i32 %100, %.fr57
+  %.fr54 = freeze i32 %91
+  %100 = mul i32 %.fr54, 60
+  %.fr55 = freeze i32 %93
+  %101 = add i32 %100, %.fr55
   %102 = mul i32 %101, 60
-  %.fr58 = freeze i32 %94
-  %103 = add i32 %102, %.fr58
+  %.fr56 = freeze i32 %94
+  %103 = add i32 %102, %.fr56
   %104 = sext i32 %103 to i64
   %105 = mul nsw i64 %104, 1000000
-  %.fr59 = freeze i32 %77
-  %106 = sext i32 %.fr59 to i64
+  %.fr57 = freeze i32 %77
+  %106 = sext i32 %.fr57 to i64
   %107 = add nsw i64 %105, %106
   %108 = call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %98, i64 range(i64 -2147485795483648, 2147485794483648) %107)
   %109 = extractvalue { i64, i1 } %108, 1
@@ -1529,10 +1529,10 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   store i64 %110, ptr %0, align 8
   %111 = add i64 %110, -9223371331200000000
   %or.cond.i = icmp ult i64 %111, 9011559254509551616
-  %or.cond61.not = or i1 %or.cond.i, %109
-  br i1 %or.cond61.not, label %.thread49, label %112, !prof !16
+  %or.cond59.not = or i1 %or.cond.i, %109
+  br i1 %or.cond59.not, label %.thread48, label %112, !prof !16
 
-.thread49:                                        ; preds = %10, %84, %79, %99, %.thread.i
+.thread48:                                        ; preds = %10, %84, %79, %99, %.thread.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %118
@@ -1554,8 +1554,8 @@ define range(i32 -1, 1) i32 @PGTYPEStimestamp_add_interval(ptr noundef captures(
   store i64 %storemerge, ptr %2, align 8
   br label %118
 
-118:                                              ; preds = %.thread49, %117
-  %.1 = phi i32 [ 0, %117 ], [ -1, %.thread49 ]
+118:                                              ; preds = %.thread48, %117
+  %.1 = phi i32 [ 0, %117 ], [ -1, %.thread48 ]
   ret i32 %.1
 }
 

@@ -212,17 +212,17 @@ define noundef ptr @_ZNK6casadi7Options4findERKNSt7__cxx1112basic_stringIcSt11ch
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !3
-  %.not2628 = icmp eq ptr %3, %5
-  br i1 %.not2628, label %._crit_edge, label %.lr.ph
+  %.not2426 = icmp eq ptr %3, %5
+  br i1 %.not2426, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.018.029, i64 8
-  %.not26 = icmp eq ptr %7, %5
-  br i1 %.not26, label %._crit_edge, label %.lr.ph
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.018.027, i64 8
+  %.not24 = icmp eq ptr %7, %5
+  br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %6
-  %.sroa.018.029 = phi ptr [ %7, %6 ], [ %3, %2 ]
-  %8 = load ptr, ptr %.sroa.018.029, align 8, !tbaa !8
+  %.sroa.018.027 = phi ptr [ %7, %6 ], [ %3, %2 ]
+  %8 = load ptr, ptr %.sroa.018.027, align 8, !tbaa !8
   %9 = tail call noundef ptr @_ZNK6casadi7Options4findERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(72) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %6, label %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi7Options5EntryESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.thread
@@ -1294,29 +1294,29 @@ define noundef zeroext i1 @_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basi
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not1314.not = icmp eq ptr %3, %4
-  br i1 %.not1314.not, label %._crit_edge, label %.lr.ph
+  %.not1415.not = icmp eq ptr %3, %4
+  br i1 %.not1415.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.critedge
-  %.sroa.010.015 = phi ptr [ %9, %.critedge ], [ %3, %1 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 32
+  %.sroa.010.016 = phi ptr [ %9, %.critedge ], [ %3, %1 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 32
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext 46, i64 noundef 0) #24
   %.not = icmp eq i64 %6, -1
-  br i1 %.not, label %7, label %._crit_edge
+  br i1 %.not, label %7, label %.thread
 
 7:                                                ; preds = %.lr.ph
   %8 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull @.str.6, i64 noundef 0, i64 noundef 2) #24
   %.not9 = icmp eq i64 %8, -1
-  br i1 %.not9, label %.critedge, label %._crit_edge
+  br i1 %.not9, label %.critedge, label %.thread
 
 .critedge:                                        ; preds = %7
-  %9 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.015) #27
-  %.not13.not = icmp eq ptr %9, %4
-  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
+  %9 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.016) #27
+  %.not14.not = icmp eq ptr %9, %4
+  br i1 %.not14.not, label %.thread, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.critedge, %.lr.ph, %7, %1
-  %.not13.lcssa = phi i1 [ false, %1 ], [ true, %7 ], [ true, %.lr.ph ], [ false, %.critedge ]
-  ret i1 %.not13.lcssa
+.thread:                                          ; preds = %.critedge, %.lr.ph, %7, %1
+  %.not14.lcssa = phi i1 [ false, %1 ], [ true, %7 ], [ true, %.lr.ph ], [ false, %.critedge ]
+  ret i1 %.not14.lcssa
 }
 
 ; Function Attrs: nounwind
@@ -1327,17 +1327,17 @@ define noundef zeroext i1 @_ZN6casadi7Options8has_nullERKSt3mapINSt7__cxx1112bas
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not11.not = icmp eq ptr %3, %4
-  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %4
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
-  %.sroa.08.012 = phi ptr [ %8, %7 ], [ %3, %1 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 64
+  %.sroa.08.013 = phi ptr [ %8, %7 ], [ %3, %1 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 64
   %6 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %5)
   br i1 %6, label %._crit_edge, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.012) #27
+  %8 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.013) #27
   %.not.not = icmp eq ptr %8, %4
   br i1 %.not.not, label %._crit_edge, label %.lr.ph
 
@@ -1353,12 +1353,12 @@ define noundef zeroext i1 @_ZN6casadi7Options7is_saneERKSt3mapINSt7__cxx1112basi
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.not1314.not.i = icmp eq ptr %3, %4
-  br i1 %.not1314.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit, label %.lr.ph.i
+  %.not1415.not.i = icmp eq ptr %3, %4
+  br i1 %.not1415.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %.critedge.i
-  %.sroa.010.015.i = phi ptr [ %9, %.critedge.i ], [ %3, %1 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 32
+  %.sroa.010.016.i = phi ptr [ %9, %.critedge.i ], [ %3, %1 ]
+  %5 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 32
   %6 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 noundef signext 46, i64 noundef 0) #24
   %.not.i = icmp eq i64 %6, -1
   br i1 %.not.i, label %7, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.thread
@@ -1369,9 +1369,9 @@ define noundef zeroext i1 @_ZN6casadi7Options7is_saneERKSt3mapINSt7__cxx1112basi
   br i1 %.not9.i, label %.critedge.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.thread
 
 .critedge.i:                                      ; preds = %7
-  %9 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.015.i) #27
-  %.not13.not.i = icmp eq ptr %9, %4
-  br i1 %.not13.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.loopexit, label %.lr.ph.i
+  %9 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.016.i) #27
+  %.not14.not.i = icmp eq ptr %9, %4
+  br i1 %.not14.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.loopexit, label %.lr.ph.i
 
 _ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.loopexit: ; preds = %.critedge.i
   %.pre = load ptr, ptr %2, align 8, !tbaa !53
@@ -1379,17 +1379,17 @@ _ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 _ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit: ; preds = %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.loopexit, %1
   %10 = phi ptr [ %.pre, %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.loopexit ], [ %3, %1 ]
-  %.not11.not.i = icmp eq ptr %10, %4
-  br i1 %.not11.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.thread, label %.lr.ph.i2
+  %.not12.not.i = icmp eq ptr %10, %4
+  br i1 %.not12.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.thread, label %.lr.ph.i2
 
 .lr.ph.i2:                                        ; preds = %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit, %13
-  %.sroa.08.012.i = phi ptr [ %14, %13 ], [ %10, %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit ]
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i, i64 64
+  %.sroa.08.013.i = phi ptr [ %14, %13 ], [ %10, %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit ]
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 64
   %12 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %11)
   br i1 %12, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.thread.loopexit, label %13
 
 13:                                               ; preds = %.lr.ph.i2
-  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.012.i) #27
+  %14 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.013.i) #27
   %.not.not.i = icmp eq ptr %14, %4
   br i1 %.not.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit.thread.loopexit, label %.lr.ph.i2
 
@@ -1416,17 +1416,17 @@ define void @_ZN6casadi7Options8sanitizeERKSt3mapINSt7__cxx1112basic_stringIcSt1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !53
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.not11.not.i = icmp eq ptr %13, %14
-  br i1 %.not11.not.i, label %.loopexit97, label %.lr.ph.i
+  %.not12.not.i = icmp eq ptr %13, %14
+  br i1 %.not12.not.i, label %.loopexit97, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %2, %17
-  %.sroa.08.012.i = phi ptr [ %18, %17 ], [ %13, %2 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i, i64 64
+  %.sroa.08.013.i = phi ptr [ %18, %17 ], [ %13, %2 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 64
   %16 = tail call noundef zeroext i1 @_ZNK6casadi13GenericSharedINS_12SharedObjectENS_20SharedObjectInternalEE7is_nullEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
   br i1 %16, label %_ZN6casadi7Options8has_nullERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit, label %17
 
 17:                                               ; preds = %.lr.ph.i
-  %18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.012.i) #27
+  %18 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.08.013.i) #27
   %.not.not.i = icmp eq ptr %18, %14
   br i1 %.not.not.i, label %.loopexit97.loopexit, label %.lr.ph.i
 
@@ -1480,12 +1480,12 @@ _ZN6casadi11GenericTypeaSERKS0_.exit:             ; preds = %31, %28
 
 .loopexit97:                                      ; preds = %.loopexit97.loopexit, %2
   %36 = phi ptr [ %.pre, %.loopexit97.loopexit ], [ %13, %2 ]
-  %.not1314.not.i = icmp eq ptr %36, %14
-  br i1 %.not1314.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit, label %.lr.ph.i56
+  %.not1415.not.i = icmp eq ptr %36, %14
+  br i1 %.not1415.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit, label %.lr.ph.i56
 
 .lr.ph.i56:                                       ; preds = %.loopexit97, %.critedge.i
-  %.sroa.010.015.i = phi ptr [ %41, %.critedge.i ], [ %36, %.loopexit97 ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.010.015.i, i64 32
+  %.sroa.010.016.i = phi ptr [ %41, %.critedge.i ], [ %36, %.loopexit97 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.010.016.i, i64 32
   %38 = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm(ptr noundef nonnull align 8 dereferenceable(32) %37, i8 noundef signext 46, i64 noundef 0) #24
   %.not.i = icmp eq i64 %38, -1
   br i1 %.not.i, label %39, label %42
@@ -1496,9 +1496,9 @@ _ZN6casadi11GenericTypeaSERKS0_.exit:             ; preds = %31, %28
   br i1 %.not9.i, label %.critedge.i, label %42
 
 .critedge.i:                                      ; preds = %39
-  %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.015.i) #27
-  %.not13.not.i = icmp eq ptr %41, %14
-  br i1 %.not13.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit, label %.lr.ph.i56
+  %41 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.010.016.i) #27
+  %.not14.not.i = icmp eq ptr %41, %14
+  br i1 %.not14.not.i, label %_ZN6casadi7Options7has_dotERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GenericTypeESt4lessIS7_ESaISt4pairIKS7_S8_EEE.exit, label %.lr.ph.i56
 
 42:                                               ; preds = %39, %.lr.ph.i56
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8

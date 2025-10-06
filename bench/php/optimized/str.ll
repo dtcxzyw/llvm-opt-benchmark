@@ -936,22 +936,22 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_end(ptr noundef reado
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #8 {
-  %.not16.not = icmp ugt i64 %3, %1
-  br i1 %.not16.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph
+  %.not17.not = icmp ugt i64 %3, %1
+  br i1 %.not17.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = icmp eq i64 %3, 0
-  br i1 %5, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i.preheader
+  br i1 %5, label %.loopexit, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph, %lexbor_str_data_ncasecmp.exit
-  %.0917 = phi i64 [ %19, %lexbor_str_data_ncasecmp.exit ], [ 0, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.0917
+  %.0918 = phi i64 [ %19, %lexbor_str_data_ncasecmp.exit ], [ 0, %.lr.ph ]
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.0918
   br label %.lr.ph.i
 
 7:                                                ; preds = %.lr.ph.i
   %8 = add nuw i64 %.0810.i, 1
   %exitcond.not.i = icmp eq i64 %8, %3
-  br i1 %exitcond.not.i, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %7
   %.0810.i = phi i64 [ %8, %7 ], [ 0, %.lr.ph.i.preheader ]
@@ -969,14 +969,14 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncasecmp_contain(ptr noundef r
   br i1 %.not.i, label %7, label %lexbor_str_data_ncasecmp.exit
 
 lexbor_str_data_ncasecmp.exit:                    ; preds = %.lr.ph.i
-  %19 = add i64 %.0917, 1
+  %19 = add i64 %.0918, 1
   %20 = sub i64 %1, %19
   %.not.not = icmp ugt i64 %3, %20
-  br i1 %.not.not, label %lexbor_str_data_ncasecmp.exit.thread, label %.lr.ph.i.preheader
+  br i1 %.not.not, label %.loopexit, label %.lr.ph.i.preheader
 
-lexbor_str_data_ncasecmp.exit.thread:             ; preds = %lexbor_str_data_ncasecmp.exit, %7, %.lr.ph, %4
-  %.not15 = phi i1 [ false, %4 ], [ true, %.lr.ph ], [ true, %7 ], [ false, %lexbor_str_data_ncasecmp.exit ]
-  ret i1 %.not15
+.loopexit:                                        ; preds = %lexbor_str_data_ncasecmp.exit, %7, %.lr.ph, %4
+  %.not16 = phi i1 [ false, %4 ], [ true, %.lr.ph ], [ true, %7 ], [ false, %lexbor_str_data_ncasecmp.exit ]
+  ret i1 %.not16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
@@ -1119,24 +1119,24 @@ define hidden noundef zeroext i1 @lexbor_str_data_ncmp_end(ptr noundef readonly 
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @lexbor_str_data_ncmp_contain(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #9 {
-  %.not12.not = icmp ugt i64 %3, %1
-  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
+  %.not13.not = icmp ugt i64 %3, %1
+  br i1 %.not13.not, label %._crit_edge, label %.lr.ph
 
 5:                                                ; preds = %.lr.ph
-  %6 = add i64 %.0913, 1
+  %6 = add i64 %.0914, 1
   %7 = sub i64 %1, %6
   %.not.not = icmp ugt i64 %3, %7
   br i1 %.not.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %5
-  %.0913 = phi i64 [ %6, %5 ], [ 0, %4 ]
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.0913
+  %.0914 = phi i64 [ %6, %5 ], [ 0, %4 ]
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.0914
   %bcmp = tail call i32 @bcmp(ptr %8, ptr %2, i64 %3)
   %9 = icmp eq i32 %bcmp, 0
   br i1 %9, label %._crit_edge, label %5
 
-._crit_edge:                                      ; preds = %5, %.lr.ph, %4
-  %.not.lcssa = phi i1 [ false, %4 ], [ %9, %.lr.ph ], [ %9, %5 ]
+._crit_edge:                                      ; preds = %.lr.ph, %5, %4
+  %.not.lcssa = phi i1 [ false, %4 ], [ %9, %5 ], [ %9, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 

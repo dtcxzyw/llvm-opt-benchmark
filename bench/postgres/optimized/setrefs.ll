@@ -5660,8 +5660,8 @@ define internal ptr @fix_scan_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   br label %5
 
 5:                                                ; preds = %.lr.ph, %tailrecurse.backedge
-  %.tr64 = phi ptr [ %0, %.lr.ph ], [ %.tr.be, %tailrecurse.backedge ]
-  %6 = load i32, ptr %.tr64, align 4
+  %.tr63 = phi ptr [ %0, %.lr.ph ], [ %.tr.be, %tailrecurse.backedge ]
+  %6 = load i32, ptr %.tr63, align 4
   switch i32 %6, label %67 [
     i32 6, label %7
     i32 8, label %23
@@ -5670,7 +5670,7 @@ define internal ptr @fix_scan_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
 
 7:                                                ; preds = %5
   %8 = tail call noundef ptr @palloc(i64 noundef 56) #7
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %.tr64, i64 56, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull readonly align 8 dereferenceable(56) %.tr63, i64 56, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp slt i32 %10, 0
@@ -5698,7 +5698,7 @@ define internal ptr @fix_scan_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
 
 23:                                               ; preds = %5
   %24 = load ptr, ptr %1, align 8
-  %25 = tail call fastcc ptr @fix_param_node(ptr noundef %24, ptr noundef %.tr64)
+  %25 = tail call fastcc ptr @fix_param_node(ptr noundef %24, ptr noundef %.tr63)
   br label %.loopexit
 
 26:                                               ; preds = %5
@@ -5709,7 +5709,7 @@ define internal ptr @fix_scan_expr_mutator(ptr noundef %0, ptr noundef %1) #0 {
   br i1 %.not.i, label %.thread, label %30
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %.tr64, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %.tr63, i64 40
   %32 = load ptr, ptr %31, align 8
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %.thread, label %list_length.exit.i
@@ -5731,7 +5731,7 @@ list_length.exit.i:                               ; preds = %30
   %.val.i = load ptr, ptr %40, align 8
   %41 = load ptr, ptr %.val.i, align 8
   %42 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %43 = getelementptr inbounds nuw i8, ptr %.tr64, i64 4
+  %43 = getelementptr inbounds nuw i8, ptr %.tr63, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
   br label %45
 
@@ -5772,7 +5772,7 @@ find_minmax_agg_replacement_param.exit:           ; preds = %54
   br i1 %.not.not, label %.thread, label %65
 
 .thread:                                          ; preds = %59, %find_minmax_agg_replacement_param.exit, %list_length.exit.i, %26, %30, %36
-  %.pr = load i32, ptr %.tr64, align 4
+  %.pr = load i32, ptr %.tr63, align 4
   br label %67
 
 65:                                               ; preds = %find_minmax_agg_replacement_param.exit
@@ -5788,7 +5788,7 @@ find_minmax_agg_replacement_param.exit:           ; preds = %54
   ]
 
 69:                                               ; preds = %67
-  %70 = tail call ptr @copyObjectImpl(ptr noundef nonnull %.tr64) #7
+  %70 = tail call ptr @copyObjectImpl(ptr noundef nonnull %.tr63) #7
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %72 = load i32, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -5798,7 +5798,7 @@ find_minmax_agg_replacement_param.exit:           ; preds = %54
   br label %.loopexit
 
 76:                                               ; preds = %67
-  %77 = getelementptr inbounds nuw i8, ptr %.tr64, i64 8
+  %77 = getelementptr inbounds nuw i8, ptr %.tr63, i64 8
   %78 = load ptr, ptr %77, align 8
   br label %tailrecurse.backedge
 
@@ -5810,7 +5810,7 @@ tailrecurse.backedge:                             ; preds = %76, %fix_alternativ
 .lr.ph.i47:                                       ; preds = %67
   %80 = load ptr, ptr %1, align 8
   %81 = load double, ptr %4, align 8
-  %82 = getelementptr i8, ptr %.tr64, i64 8
+  %82 = getelementptr i8, ptr %.tr63, i64 8
   %.val = load ptr, ptr %82, align 8, !nonnull !5, !noundef !5
   %83 = getelementptr inbounds nuw i8, ptr %.val, i64 4
   %84 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -5860,8 +5860,8 @@ fix_alternative_subplan.exit:                     ; preds = %.lr.ph10.i
 
 112:                                              ; preds = %67
   %113 = load ptr, ptr %1, align 8
-  tail call fastcc void @fix_expr_common(ptr noundef %113, ptr noundef %.tr64)
-  %114 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr64, ptr noundef nonnull @fix_scan_expr_mutator, ptr noundef nonnull %1) #7
+  tail call fastcc void @fix_expr_common(ptr noundef %113, ptr noundef %.tr63)
+  %114 = tail call ptr @expression_tree_mutator_impl(ptr noundef nonnull %.tr63, ptr noundef nonnull @fix_scan_expr_mutator, ptr noundef nonnull %1) #7
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.backedge, %2, %65, %16, %19, %112, %69, %23

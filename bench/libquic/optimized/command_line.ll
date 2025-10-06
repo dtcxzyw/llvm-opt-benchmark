@@ -2612,10 +2612,10 @@ define internal fastcc noundef i64 @_ZN4base12_GLOBAL__N_121GetSwitchPrefixLengt
   br label %6
 
 6:                                                ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17, %1
-  %.not22.not = phi i1 [ false, %1 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17 ]
-  %.01021 = phi i64 [ 0, %1 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17 ]
+  %.not24 = phi i1 [ false, %1 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17 ]
+  %.01022 = phi i64 [ 0, %1 ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN4base12_GLOBAL__N_115kSwitchPrefixesE, i64 %.01021
+  %7 = getelementptr inbounds nuw ptr, ptr @_ZN4base12_GLOBAL__N_115kSwitchPrefixesE, i64 %.01022
   %8 = load ptr, ptr %7, align 8, !tbaa !45
   store ptr %4, ptr %3, align 8, !tbaa !10
   %9 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #21
@@ -2687,7 +2687,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %brmerge = or i1 %.not, %.not22.not
+  %brmerge = or i1 %.not, %.not24
   br i1 %brmerge, label %32, label %6
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i

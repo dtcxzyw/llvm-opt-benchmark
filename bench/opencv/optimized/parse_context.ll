@@ -324,7 +324,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread.i: ; preds = %.lr.ph.i
 
 .critedge.i.i.i:                                  ; preds = %34, %43
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %43 ], [ 2, %34 ]
-  %.01321.i.i.i = phi i32 [ %50, %43 ], [ %40, %34 ]
+  %.01319.i.i.i = phi i32 [ %50, %43 ], [ %40, %34 ]
   %.039.add.i = add nsw i64 %indvars.iv.i.i.i, %.039.idx96.i
   %.ptr83.i = getelementptr inbounds i8, ptr %9, i64 %.039.add.i
   %44 = load i8, ptr %.ptr83.i, align 1, !tbaa !25
@@ -333,7 +333,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread.i: ; preds = %.lr.ph.i
   %47 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %48 = mul nuw nsw i32 %47, 7
   %49 = shl i32 %46, %48
-  %50 = add i32 %49, %.01321.i.i.i
+  %50 = add i32 %49, %.01319.i.i.i
   %51 = icmp slt i8 %44, 0
   br i1 %51, label %43, label %52, !prof !27
 
@@ -422,7 +422,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
 
 .critedge.i.i29.i:                                ; preds = %70, %75
   %indvars.iv.i.i30.i = phi i64 [ %indvars.iv.next.i.i32.i, %75 ], [ 1, %70 ]
-  %.02234.i.i.i = phi i32 [ %82, %75 ], [ %72, %70 ]
+  %.02232.i.i.i = phi i32 [ %82, %75 ], [ %72, %70 ]
   %.0.i.add66.i = add nsw i64 %indvars.iv.i.i30.i, %.0.i.idx126.i
   %.ptr80.i = getelementptr inbounds i8, ptr %9, i64 %.0.i.add66.i
   %76 = load i8, ptr %.ptr80.i, align 1, !tbaa !25
@@ -431,7 +431,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.i: ; preds = %52, %42
   %79 = trunc nuw nsw i64 %indvars.iv.i.i30.i to i32
   %80 = mul nuw nsw i32 %79, 7
   %81 = shl nsw i32 %78, %80
-  %82 = add i32 %81, %.02234.i.i.i
+  %82 = add i32 %81, %.02232.i.i.i
   %83 = icmp slt i8 %76, 0
   br i1 %83, label %75, label %84, !prof !27
 
@@ -1018,7 +1018,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ParseContext28ReadSizeA
 
 .critedge.i.i:                                    ; preds = %3, %9
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 1, %3 ]
-  %.02234.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
+  %.02232.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
@@ -1026,7 +1026,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ParseContext28ReadSizeA
   %14 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
-  %17 = add i32 %16, %.02234.i.i
+  %17 = add i32 %16, %.02232.i.i
   %18 = icmp slt i8 %11, 0
   br i1 %18, label %9, label %19, !prof !27
 
@@ -1104,7 +1104,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMess
 
 .critedge.i.i.i:                                  ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
-  %.02234.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
+  %.02232.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
@@ -1112,7 +1112,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal12ParseContext12ParseMess
   %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
-  %17 = add i32 %16, %.02234.i.i.i
+  %17 = add i32 %16, %.02232.i.i.i
   %18 = icmp slt i8 %11, 0
   br i1 %18, label %9, label %19, !prof !27
 
@@ -1545,7 +1545,7 @@ define hidden { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj
 
 .critedge:                                        ; preds = %2, %3
   %indvars.iv = phi i64 [ 2, %2 ], [ %indvars.iv.next, %3 ]
-  %.03047 = phi i32 [ %1, %2 ], [ %11, %3 ]
+  %.02942 = phi i32 [ %1, %2 ], [ %11, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1, !tbaa !25
   %6 = zext i8 %5 to i32
@@ -1553,7 +1553,7 @@ define hidden { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj
   %8 = trunc i64 %indvars.iv to i32
   %9 = mul i32 %8, 7
   %10 = shl i32 %7, %9
-  %11 = add i32 %10, %.03047
+  %11 = add i32 %10, %.02942
   %12 = icmp slt i8 %5, 0
   br i1 %12, label %3, label %.thread, !prof !27
 
@@ -1563,19 +1563,19 @@ define hidden { ptr, i32 } @_ZN6google8protobuf8internal17VarintParseSlow32EPKcj
   br label %.loopexit
 
 15:                                               ; preds = %.critedge23
-  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next58, 10
-  br i1 %exitcond60.not, label %.loopexit, label %.critedge23, !llvm.loop !50
+  %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
+  %exitcond55.not = icmp eq i64 %indvars.iv.next53, 10
+  br i1 %exitcond55.not, label %.loopexit, label %.critedge23, !llvm.loop !50
 
 .critedge23:                                      ; preds = %3, %15
-  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %15 ], [ 5, %3 ]
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv57
+  %indvars.iv52 = phi i64 [ %indvars.iv.next53, %15 ], [ 5, %3 ]
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv52
   %17 = load i8, ptr %16, align 1, !tbaa !25
   %18 = icmp slt i8 %17, 0
   br i1 %18, label %15, label %19, !prof !27
 
 19:                                               ; preds = %.critedge23
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv57
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv52
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   br label %.loopexit
 
@@ -1634,7 +1634,7 @@ define hidden { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(p
 
 .critedge:                                        ; preds = %2, %3
   %indvars.iv = phi i64 [ 2, %2 ], [ %indvars.iv.next, %3 ]
-  %.01321 = phi i32 [ %1, %2 ], [ %11, %3 ]
+  %.01319 = phi i32 [ %1, %2 ], [ %11, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1, !tbaa !25
   %6 = zext i8 %5 to i32
@@ -1642,7 +1642,7 @@ define hidden { ptr, i32 } @_ZN6google8protobuf8internal15ReadTagFallbackEPKcj(p
   %8 = trunc i64 %indvars.iv to i32
   %9 = mul i32 %8, 7
   %10 = shl i32 %7, %9
-  %11 = add i32 %10, %.01321
+  %11 = add i32 %10, %.01319
   %12 = icmp slt i8 %5, 0
   br i1 %12, label %3, label %13, !prof !27
 
@@ -1670,7 +1670,7 @@ define hidden { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(
 
 .critedge:                                        ; preds = %2, %3
   %indvars.iv = phi i64 [ 1, %2 ], [ %indvars.iv.next, %3 ]
-  %.02234 = phi i32 [ %1, %2 ], [ %11, %3 ]
+  %.02232 = phi i32 [ %1, %2 ], [ %11, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1, !tbaa !25
   %6 = zext i8 %5 to i32
@@ -1678,7 +1678,7 @@ define hidden { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(
   %8 = trunc i64 %indvars.iv to i32
   %9 = mul i32 %8, 7
   %10 = shl nsw i32 %7, %9
-  %11 = add i32 %10, %.02234
+  %11 = add i32 %10, %.02232
   %12 = icmp slt i8 %5, 0
   br i1 %12, label %3, label %13, !prof !27
 
@@ -1701,12 +1701,12 @@ define hidden { ptr, i32 } @_ZN6google8protobuf8internal16ReadSizeFallbackEPKcj(
   %25 = icmp ugt i32 %24, 2147483631
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %spec.select = select i1 %25, ptr null, ptr %26, !prof !27
-  %spec.select30 = select i1 %25, i32 0, i32 %24, !prof !27
+  %spec.select28 = select i1 %25, i32 0, i32 %24, !prof !27
   br label %27
 
 27:                                               ; preds = %20, %16, %13
   %.sroa.0.1 = phi ptr [ %15, %13 ], [ null, %16 ], [ %spec.select, %20 ]
-  %.sroa.5.1 = phi i32 [ %11, %13 ], [ 0, %16 ], [ %spec.select30, %20 ]
+  %.sroa.5.1 = phi i32 [ %11, %13 ], [ 0, %16 ], [ %spec.select28, %20 ]
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %.sroa.0.1, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %.sroa.5.1, 1
   ret { ptr, i32 } %.fca.1.insert
@@ -1766,7 +1766,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParse
 
 .critedge.i.i:                                    ; preds = %3, %9
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 1, %3 ]
-  %.02234.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
+  %.02232.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
@@ -1774,7 +1774,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal24InlineGreedyStringParse
   %14 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
-  %17 = add i32 %16, %.02234.i.i
+  %17 = add i32 %16, %.02232.i.i
   %18 = icmp slt i8 %11, 0
   br i1 %18, label %9, label %19, !prof !27
 
@@ -1893,7 +1893,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal19PackedFixed32ParserEPvP
 
 .critedge.i.i.i:                                  ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
-  %.02234.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
+  %.02232.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
@@ -1901,7 +1901,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal19PackedFixed32ParserEPvP
   %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
-  %17 = add i32 %16, %.02234.i.i.i
+  %17 = add i32 %16, %.02232.i.i.i
   %18 = icmp slt i8 %11, 0
   br i1 %18, label %9, label %19, !prof !27
 
@@ -1924,12 +1924,12 @@ define hidden noundef ptr @_ZN6google8protobuf8internal19PackedFixed32ParserEPvP
   %31 = icmp ugt i32 %30, 2147483631
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %spec.select.i.i.i = select i1 %31, ptr null, ptr %32, !prof !27
-  %spec.select30.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
+  %spec.select28.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
   br label %_ZN6google8protobuf8internal11FixedParserIjEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIjEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %7, %19, %22, %26
   %storemerge.i.i = phi ptr [ %8, %7 ], [ %21, %19 ], [ null, %22 ], [ %spec.select.i.i.i, %26 ]
-  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select30.i.i.i, %26 ]
+  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select28.i.i.i, %26 ]
   %33 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIjEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %storemerge.i.i, i32 noundef %.0.i.i, ptr noundef %0)
   ret ptr %33
 }
@@ -1952,7 +1952,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20PackedSFixed32ParserEPv
 
 .critedge.i.i.i:                                  ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
-  %.02234.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
+  %.02232.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
@@ -1960,7 +1960,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20PackedSFixed32ParserEPv
   %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
-  %17 = add i32 %16, %.02234.i.i.i
+  %17 = add i32 %16, %.02232.i.i.i
   %18 = icmp slt i8 %11, 0
   br i1 %18, label %9, label %19, !prof !27
 
@@ -1983,12 +1983,12 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20PackedSFixed32ParserEPv
   %31 = icmp ugt i32 %30, 2147483631
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %spec.select.i.i.i = select i1 %31, ptr null, ptr %32, !prof !27
-  %spec.select30.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
+  %spec.select28.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
   br label %_ZN6google8protobuf8internal11FixedParserIiEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIiEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %7, %19, %22, %26
   %storemerge.i.i = phi ptr [ %8, %7 ], [ %21, %19 ], [ null, %22 ], [ %spec.select.i.i.i, %26 ]
-  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select30.i.i.i, %26 ]
+  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select28.i.i.i, %26 ]
   %33 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIiEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %storemerge.i.i, i32 noundef %.0.i.i, ptr noundef %0)
   ret ptr %33
 }
@@ -2011,7 +2011,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal19PackedFixed64ParserEPvP
 
 .critedge.i.i.i:                                  ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
-  %.02234.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
+  %.02232.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
@@ -2019,7 +2019,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal19PackedFixed64ParserEPvP
   %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
-  %17 = add i32 %16, %.02234.i.i.i
+  %17 = add i32 %16, %.02232.i.i.i
   %18 = icmp slt i8 %11, 0
   br i1 %18, label %9, label %19, !prof !27
 
@@ -2042,12 +2042,12 @@ define hidden noundef ptr @_ZN6google8protobuf8internal19PackedFixed64ParserEPvP
   %31 = icmp ugt i32 %30, 2147483631
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %spec.select.i.i.i = select i1 %31, ptr null, ptr %32, !prof !27
-  %spec.select30.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
+  %spec.select28.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
   br label %_ZN6google8protobuf8internal11FixedParserImEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserImEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %7, %19, %22, %26
   %storemerge.i.i = phi ptr [ %8, %7 ], [ %21, %19 ], [ null, %22 ], [ %spec.select.i.i.i, %26 ]
-  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select30.i.i.i, %26 ]
+  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select28.i.i.i, %26 ]
   %33 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedImEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %storemerge.i.i, i32 noundef %.0.i.i, ptr noundef %0)
   ret ptr %33
 }
@@ -2070,7 +2070,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20PackedSFixed64ParserEPv
 
 .critedge.i.i.i:                                  ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
-  %.02234.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
+  %.02232.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
@@ -2078,7 +2078,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20PackedSFixed64ParserEPv
   %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
-  %17 = add i32 %16, %.02234.i.i.i
+  %17 = add i32 %16, %.02232.i.i.i
   %18 = icmp slt i8 %11, 0
   br i1 %18, label %9, label %19, !prof !27
 
@@ -2101,12 +2101,12 @@ define hidden noundef ptr @_ZN6google8protobuf8internal20PackedSFixed64ParserEPv
   %31 = icmp ugt i32 %30, 2147483631
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %spec.select.i.i.i = select i1 %31, ptr null, ptr %32, !prof !27
-  %spec.select30.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
+  %spec.select28.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
   br label %_ZN6google8protobuf8internal11FixedParserIlEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIlEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %7, %19, %22, %26
   %storemerge.i.i = phi ptr [ %8, %7 ], [ %21, %19 ], [ null, %22 ], [ %spec.select.i.i.i, %26 ]
-  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select30.i.i.i, %26 ]
+  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select28.i.i.i, %26 ]
   %33 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIlEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %storemerge.i.i, i32 noundef %.0.i.i, ptr noundef %0)
   ret ptr %33
 }
@@ -2129,7 +2129,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKc
 
 .critedge.i.i.i:                                  ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
-  %.02234.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
+  %.02232.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
@@ -2137,7 +2137,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKc
   %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
-  %17 = add i32 %16, %.02234.i.i.i
+  %17 = add i32 %16, %.02232.i.i.i
   %18 = icmp slt i8 %11, 0
   br i1 %18, label %9, label %19, !prof !27
 
@@ -2160,12 +2160,12 @@ define hidden noundef ptr @_ZN6google8protobuf8internal17PackedFloatParserEPvPKc
   %31 = icmp ugt i32 %30, 2147483631
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %spec.select.i.i.i = select i1 %31, ptr null, ptr %32, !prof !27
-  %spec.select30.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
+  %spec.select28.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
   br label %_ZN6google8protobuf8internal11FixedParserIfEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIfEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %7, %19, %22, %26
   %storemerge.i.i = phi ptr [ %8, %7 ], [ %21, %19 ], [ null, %22 ], [ %spec.select.i.i.i, %26 ]
-  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select30.i.i.i, %26 ]
+  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select28.i.i.i, %26 ]
   %33 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIfEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %storemerge.i.i, i32 noundef %.0.i.i, ptr noundef %0)
   ret ptr %33
 }
@@ -2188,7 +2188,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal18PackedDoubleParserEPvPK
 
 .critedge.i.i.i:                                  ; preds = %3, %9
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %9 ], [ 1, %3 ]
-  %.02234.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
+  %.02232.i.i.i = phi i32 [ %17, %9 ], [ %5, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i.i
   %11 = load i8, ptr %10, align 1, !tbaa !25
   %12 = zext i8 %11 to i32
@@ -2196,7 +2196,7 @@ define hidden noundef ptr @_ZN6google8protobuf8internal18PackedDoubleParserEPvPK
   %14 = trunc nuw nsw i64 %indvars.iv.i.i.i to i32
   %15 = mul nuw nsw i32 %14, 7
   %16 = shl nsw i32 %13, %15
-  %17 = add i32 %16, %.02234.i.i.i
+  %17 = add i32 %16, %.02232.i.i.i
   %18 = icmp slt i8 %11, 0
   br i1 %18, label %9, label %19, !prof !27
 
@@ -2219,12 +2219,12 @@ define hidden noundef ptr @_ZN6google8protobuf8internal18PackedDoubleParserEPvPK
   %31 = icmp ugt i32 %30, 2147483631
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %spec.select.i.i.i = select i1 %31, ptr null, ptr %32, !prof !27
-  %spec.select30.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
+  %spec.select28.i.i.i = select i1 %31, i32 0, i32 %30, !prof !27
   br label %_ZN6google8protobuf8internal11FixedParserIdEEPKcPvS4_PNS1_12ParseContextE.exit
 
 _ZN6google8protobuf8internal11FixedParserIdEEPKcPvS4_PNS1_12ParseContextE.exit: ; preds = %7, %19, %22, %26
   %storemerge.i.i = phi ptr [ %8, %7 ], [ %21, %19 ], [ null, %22 ], [ %spec.select.i.i.i, %26 ]
-  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select30.i.i.i, %26 ]
+  %.0.i.i = phi i32 [ %5, %7 ], [ %17, %19 ], [ 0, %22 ], [ %spec.select28.i.i.i, %26 ]
   %33 = tail call noundef ptr @_ZN6google8protobuf8internal18EpsCopyInputStream15ReadPackedFixedIdEEPKcS5_iPNS0_13RepeatedFieldIT_EE(ptr noundef nonnull align 8 dereferenceable(88) %2, ptr noundef %storemerge.i.i, i32 noundef %.0.i.i, ptr noundef %0)
   ret ptr %33
 }
@@ -2307,7 +2307,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread21: ; preds = %7
 
 .critedge.i.i:                                    ; preds = %30, %39
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %39 ], [ 2, %30 ]
-  %.01321.i.i = phi i32 [ %47, %39 ], [ %35, %30 ]
+  %.01319.i.i = phi i32 [ %47, %39 ], [ %35, %30 ]
   %40 = getelementptr inbounds nuw i8, ptr %.21724, i64 %indvars.iv.i.i
   %41 = load i8, ptr %40, align 1, !tbaa !25
   %42 = zext i8 %41 to i32
@@ -2315,7 +2315,7 @@ _ZN6google8protobuf8internal12ParseContext4DoneEPPKc.exit.thread21: ; preds = %7
   %44 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %45 = mul nuw nsw i32 %44, 7
   %46 = shl i32 %43, %45
-  %47 = add i32 %46, %.01321.i.i
+  %47 = add i32 %46, %.01319.i.i
   %48 = icmp slt i8 %41, 0
   br i1 %48, label %39, label %49, !prof !27
 
@@ -2533,7 +2533,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 
 .critedge.i.i:                                    ; preds = %3, %10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 1, %3 ]
-  %.02234.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
+  %.02232.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
@@ -2541,7 +2541,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
-  %18 = add i32 %17, %.02234.i.i
+  %18 = add i32 %17, %.02232.i.i
   %19 = icmp slt i8 %12, 0
   br i1 %19, label %10, label %20, !prof !27
 
@@ -2592,18 +2592,18 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %46, label %.lr.ph.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit.thread94
 
 .lr.ph.i:                                         ; preds = %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
-  %.0721.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
-  %47 = load i8, ptr %.0721.i, align 1, !tbaa !25
+  %.0720.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
+  %47 = load i8, ptr %.0720.i, align 1, !tbaa !25
   %.not.i.i = icmp sgt i8 %47, -1
   br i1 %.not.i.i, label %48, label %51
 
 48:                                               ; preds = %.lr.ph.i
   %49 = zext nneg i8 %47 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   br label %72
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !25
   %54 = zext i8 %53 to i64
   %55 = shl nuw nsw i64 %54, 7
@@ -2614,7 +2614,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %.not16.i.i, label %58, label %.critedge.i.i.i.i
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 2
   br label %72
 
 60:                                               ; preds = %.critedge.i.i.i.i
@@ -2625,7 +2625,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 .critedge.i.i.i.i:                                ; preds = %51, %60
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %60 ], [ 2, %51 ]
   %.01720.i.i.i.i = phi i64 [ %67, %60 ], [ %57, %51 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !25
   %63 = zext i8 %62 to i64
   %64 = add nsw i64 %63, -1
@@ -2636,7 +2636,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %68, label %60, label %69, !prof !27
 
 69:                                               ; preds = %.critedge.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   br label %72
 
@@ -2699,18 +2699,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br i1 %98, label %.lr.ph.i50, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 .lr.ph.i50:                                       ; preds = %93, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61
-  %.0721.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %97, %93 ]
-  %99 = load i8, ptr %.0721.i51, align 1, !tbaa !25
+  %.0720.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %97, %93 ]
+  %99 = load i8, ptr %.0720.i51, align 1, !tbaa !25
   %.not.i.i52 = icmp sgt i8 %99, -1
   br i1 %.not.i.i52, label %100, label %103
 
 100:                                              ; preds = %.lr.ph.i50
   %101 = zext nneg i8 %99 to i64
-  %102 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   br label %124
 
 103:                                              ; preds = %.lr.ph.i50
-  %104 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   %105 = load i8, ptr %104, align 1, !tbaa !25
   %106 = zext i8 %105 to i64
   %107 = shl nuw nsw i64 %106, 7
@@ -2721,7 +2721,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br i1 %.not16.i.i53, label %110, label %.critedge.i.i.i.i55
 
 110:                                              ; preds = %103
-  %111 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 2
   br label %124
 
 112:                                              ; preds = %.critedge.i.i.i.i55
@@ -2732,7 +2732,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
 .critedge.i.i.i.i55:                              ; preds = %103, %112
   %indvars.iv.i.i.i.i56 = phi i64 [ %indvars.iv.next.i.i.i.i63, %112 ], [ 2, %103 ]
   %.01720.i.i.i.i57 = phi i64 [ %119, %112 ], [ %109, %103 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %113 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %114 = load i8, ptr %113, align 1, !tbaa !25
   %115 = zext i8 %114 to i64
   %116 = add nsw i64 %115, -1
@@ -2743,7 +2743,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br i1 %120, label %112, label %121, !prof !27
 
 121:                                              ; preds = %.critedge.i.i.i.i55
-  %122 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %122 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   br label %124
 
@@ -2830,18 +2830,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br label %166
 
 166:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78, %.lr.ph.i67
-  %.0721.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
-  %167 = load i8, ptr %.0721.i68, align 1, !tbaa !25
+  %.0720.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
+  %167 = load i8, ptr %.0720.i68, align 1, !tbaa !25
   %.not.i.i69 = icmp sgt i8 %167, -1
   br i1 %.not.i.i69, label %168, label %171
 
 168:                                              ; preds = %166
   %169 = zext nneg i8 %167 to i64
-  %170 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   br label %192
 
 171:                                              ; preds = %166
-  %172 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   %173 = load i8, ptr %172, align 1, !tbaa !25
   %174 = zext i8 %173 to i64
   %175 = shl nuw nsw i64 %174, 7
@@ -2852,7 +2852,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br i1 %.not16.i.i70, label %178, label %.critedge.i.i.i.i72
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 2
+  %179 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 2
   br label %192
 
 180:                                              ; preds = %.critedge.i.i.i.i72
@@ -2863,7 +2863,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
 .critedge.i.i.i.i72:                              ; preds = %171, %180
   %indvars.iv.i.i.i.i73 = phi i64 [ %indvars.iv.next.i.i.i.i80, %180 ], [ 2, %171 ]
   %.01720.i.i.i.i74 = phi i64 [ %187, %180 ], [ %177, %171 ]
-  %181 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %181 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %182 = load i8, ptr %181, align 1, !tbaa !25
   %183 = zext i8 %182 to i64
   %184 = add nsw i64 %183, -1
@@ -2874,7 +2874,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb0EEEP
   br i1 %188, label %180, label %189, !prof !27
 
 189:                                              ; preds = %.critedge.i.i.i.i72
-  %190 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %190 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 1
   br label %192
 
@@ -2945,7 +2945,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 
 .critedge.i.i:                                    ; preds = %3, %10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 1, %3 ]
-  %.02234.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
+  %.02232.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
@@ -2953,7 +2953,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
-  %18 = add i32 %17, %.02234.i.i
+  %18 = add i32 %17, %.02232.i.i
   %19 = icmp slt i8 %12, 0
   br i1 %19, label %10, label %20, !prof !27
 
@@ -3004,18 +3004,18 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %46, label %.lr.ph.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit.thread94
 
 .lr.ph.i:                                         ; preds = %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
-  %.0721.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
-  %47 = load i8, ptr %.0721.i, align 1, !tbaa !25
+  %.0720.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
+  %47 = load i8, ptr %.0720.i, align 1, !tbaa !25
   %.not.i.i = icmp sgt i8 %47, -1
   br i1 %.not.i.i, label %48, label %51
 
 48:                                               ; preds = %.lr.ph.i
   %49 = zext nneg i8 %47 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   br label %72
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !25
   %54 = zext i8 %53 to i64
   %55 = shl nuw nsw i64 %54, 7
@@ -3026,7 +3026,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %.not16.i.i, label %58, label %.critedge.i.i.i.i
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 2
   br label %72
 
 60:                                               ; preds = %.critedge.i.i.i.i
@@ -3037,7 +3037,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 .critedge.i.i.i.i:                                ; preds = %51, %60
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %60 ], [ 2, %51 ]
   %.01720.i.i.i.i = phi i64 [ %67, %60 ], [ %57, %51 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !25
   %63 = zext i8 %62 to i64
   %64 = add nsw i64 %63, -1
@@ -3048,7 +3048,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %68, label %60, label %69, !prof !27
 
 69:                                               ; preds = %.critedge.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   br label %72
 
@@ -3111,18 +3111,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br i1 %98, label %.lr.ph.i50, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 .lr.ph.i50:                                       ; preds = %93, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61
-  %.0721.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %97, %93 ]
-  %99 = load i8, ptr %.0721.i51, align 1, !tbaa !25
+  %.0720.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %97, %93 ]
+  %99 = load i8, ptr %.0720.i51, align 1, !tbaa !25
   %.not.i.i52 = icmp sgt i8 %99, -1
   br i1 %.not.i.i52, label %100, label %103
 
 100:                                              ; preds = %.lr.ph.i50
   %101 = zext nneg i8 %99 to i64
-  %102 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   br label %124
 
 103:                                              ; preds = %.lr.ph.i50
-  %104 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %104 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   %105 = load i8, ptr %104, align 1, !tbaa !25
   %106 = zext i8 %105 to i64
   %107 = shl nuw nsw i64 %106, 7
@@ -3133,7 +3133,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br i1 %.not16.i.i53, label %110, label %.critedge.i.i.i.i55
 
 110:                                              ; preds = %103
-  %111 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 2
+  %111 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 2
   br label %124
 
 112:                                              ; preds = %.critedge.i.i.i.i55
@@ -3144,7 +3144,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
 .critedge.i.i.i.i55:                              ; preds = %103, %112
   %indvars.iv.i.i.i.i56 = phi i64 [ %indvars.iv.next.i.i.i.i63, %112 ], [ 2, %103 ]
   %.01720.i.i.i.i57 = phi i64 [ %119, %112 ], [ %109, %103 ]
-  %113 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %113 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %114 = load i8, ptr %113, align 1, !tbaa !25
   %115 = zext i8 %114 to i64
   %116 = add nsw i64 %115, -1
@@ -3155,7 +3155,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br i1 %120, label %112, label %121, !prof !27
 
 121:                                              ; preds = %.critedge.i.i.i.i55
-  %122 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %122 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 1
   br label %124
 
@@ -3242,18 +3242,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br label %166
 
 166:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78, %.lr.ph.i67
-  %.0721.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
-  %167 = load i8, ptr %.0721.i68, align 1, !tbaa !25
+  %.0720.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
+  %167 = load i8, ptr %.0720.i68, align 1, !tbaa !25
   %.not.i.i69 = icmp sgt i8 %167, -1
   br i1 %.not.i.i69, label %168, label %171
 
 168:                                              ; preds = %166
   %169 = zext nneg i8 %167 to i64
-  %170 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   br label %192
 
 171:                                              ; preds = %166
-  %172 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   %173 = load i8, ptr %172, align 1, !tbaa !25
   %174 = zext i8 %173 to i64
   %175 = shl nuw nsw i64 %174, 7
@@ -3264,7 +3264,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br i1 %.not16.i.i70, label %178, label %.critedge.i.i.i.i72
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 2
+  %179 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 2
   br label %192
 
 180:                                              ; preds = %.critedge.i.i.i.i72
@@ -3275,7 +3275,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
 .critedge.i.i.i.i72:                              ; preds = %171, %180
   %indvars.iv.i.i.i.i73 = phi i64 [ %indvars.iv.next.i.i.i.i80, %180 ], [ 2, %171 ]
   %.01720.i.i.i.i74 = phi i64 [ %187, %180 ], [ %177, %171 ]
-  %181 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %181 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %182 = load i8, ptr %181, align 1, !tbaa !25
   %183 = zext i8 %182 to i64
   %184 = add nsw i64 %183, -1
@@ -3286,7 +3286,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIjLb0EEEP
   br i1 %188, label %180, label %189, !prof !27
 
 189:                                              ; preds = %.critedge.i.i.i.i72
-  %190 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %190 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 1
   br label %192
 
@@ -3354,7 +3354,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 
 .critedge.i.i:                                    ; preds = %3, %10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 1, %3 ]
-  %.02234.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
+  %.02232.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
@@ -3362,7 +3362,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
-  %18 = add i32 %17, %.02234.i.i
+  %18 = add i32 %17, %.02232.i.i
   %19 = icmp slt i8 %12, 0
   br i1 %19, label %10, label %20, !prof !27
 
@@ -3413,18 +3413,18 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %46, label %.lr.ph.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit.thread94
 
 .lr.ph.i:                                         ; preds = %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
-  %.0721.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
-  %47 = load i8, ptr %.0721.i, align 1, !tbaa !25
+  %.0720.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
+  %47 = load i8, ptr %.0720.i, align 1, !tbaa !25
   %.not.i.i = icmp sgt i8 %47, -1
   br i1 %.not.i.i, label %48, label %51
 
 48:                                               ; preds = %.lr.ph.i
   %49 = zext nneg i8 %47 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   br label %72
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !25
   %54 = zext i8 %53 to i64
   %55 = shl nuw nsw i64 %54, 7
@@ -3435,7 +3435,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %.not16.i.i, label %58, label %.critedge.i.i.i.i
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 2
   br label %72
 
 60:                                               ; preds = %.critedge.i.i.i.i
@@ -3446,7 +3446,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 .critedge.i.i.i.i:                                ; preds = %51, %60
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %60 ], [ 2, %51 ]
   %.01720.i.i.i.i = phi i64 [ %67, %60 ], [ %57, %51 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !25
   %63 = zext i8 %62 to i64
   %64 = add nsw i64 %63, -1
@@ -3457,7 +3457,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %68, label %60, label %69, !prof !27
 
 69:                                               ; preds = %.critedge.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   br label %72
 
@@ -3519,18 +3519,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br i1 %97, label %.lr.ph.i50, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 .lr.ph.i50:                                       ; preds = %92, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61
-  %.0721.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %96, %92 ]
-  %98 = load i8, ptr %.0721.i51, align 1, !tbaa !25
+  %.0720.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %96, %92 ]
+  %98 = load i8, ptr %.0720.i51, align 1, !tbaa !25
   %.not.i.i52 = icmp sgt i8 %98, -1
   br i1 %.not.i.i52, label %99, label %102
 
 99:                                               ; preds = %.lr.ph.i50
   %100 = zext nneg i8 %98 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   br label %123
 
 102:                                              ; preds = %.lr.ph.i50
-  %103 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   %104 = load i8, ptr %103, align 1, !tbaa !25
   %105 = zext i8 %104 to i64
   %106 = shl nuw nsw i64 %105, 7
@@ -3541,7 +3541,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br i1 %.not16.i.i53, label %109, label %.critedge.i.i.i.i55
 
 109:                                              ; preds = %102
-  %110 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 2
   br label %123
 
 111:                                              ; preds = %.critedge.i.i.i.i55
@@ -3552,7 +3552,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
 .critedge.i.i.i.i55:                              ; preds = %102, %111
   %indvars.iv.i.i.i.i56 = phi i64 [ %indvars.iv.next.i.i.i.i63, %111 ], [ 2, %102 ]
   %.01720.i.i.i.i57 = phi i64 [ %118, %111 ], [ %108, %102 ]
-  %112 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %112 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %113 = load i8, ptr %112, align 1, !tbaa !25
   %114 = zext i8 %113 to i64
   %115 = add nsw i64 %114, -1
@@ -3563,7 +3563,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br i1 %119, label %111, label %120, !prof !27
 
 120:                                              ; preds = %.critedge.i.i.i.i55
-  %121 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %121 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
   br label %123
 
@@ -3649,18 +3649,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br label %164
 
 164:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78, %.lr.ph.i67
-  %.0721.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
-  %165 = load i8, ptr %.0721.i68, align 1, !tbaa !25
+  %.0720.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
+  %165 = load i8, ptr %.0720.i68, align 1, !tbaa !25
   %.not.i.i69 = icmp sgt i8 %165, -1
   br i1 %.not.i.i69, label %166, label %169
 
 166:                                              ; preds = %164
   %167 = zext nneg i8 %165 to i64
-  %168 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %168 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   br label %190
 
 169:                                              ; preds = %164
-  %170 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   %171 = load i8, ptr %170, align 1, !tbaa !25
   %172 = zext i8 %171 to i64
   %173 = shl nuw nsw i64 %172, 7
@@ -3671,7 +3671,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br i1 %.not16.i.i70, label %176, label %.critedge.i.i.i.i72
 
 176:                                              ; preds = %169
-  %177 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 2
+  %177 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 2
   br label %190
 
 178:                                              ; preds = %.critedge.i.i.i.i72
@@ -3682,7 +3682,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
 .critedge.i.i.i.i72:                              ; preds = %169, %178
   %indvars.iv.i.i.i.i73 = phi i64 [ %indvars.iv.next.i.i.i.i80, %178 ], [ 2, %169 ]
   %.01720.i.i.i.i74 = phi i64 [ %185, %178 ], [ %175, %169 ]
-  %179 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %179 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %180 = load i8, ptr %179, align 1, !tbaa !25
   %181 = zext i8 %180 to i64
   %182 = add nsw i64 %181, -1
@@ -3693,7 +3693,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb0EEEP
   br i1 %186, label %178, label %187, !prof !27
 
 187:                                              ; preds = %.critedge.i.i.i.i72
-  %188 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %188 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 1
   br label %190
 
@@ -3760,7 +3760,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 
 .critedge.i.i:                                    ; preds = %3, %10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 1, %3 ]
-  %.02234.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
+  %.02232.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
@@ -3768,7 +3768,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
-  %18 = add i32 %17, %.02234.i.i
+  %18 = add i32 %17, %.02232.i.i
   %19 = icmp slt i8 %12, 0
   br i1 %19, label %10, label %20, !prof !27
 
@@ -3819,18 +3819,18 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %46, label %.lr.ph.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit.thread94
 
 .lr.ph.i:                                         ; preds = %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
-  %.0721.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
-  %47 = load i8, ptr %.0721.i, align 1, !tbaa !25
+  %.0720.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
+  %47 = load i8, ptr %.0720.i, align 1, !tbaa !25
   %.not.i.i = icmp sgt i8 %47, -1
   br i1 %.not.i.i, label %48, label %51
 
 48:                                               ; preds = %.lr.ph.i
   %49 = zext nneg i8 %47 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   br label %72
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !25
   %54 = zext i8 %53 to i64
   %55 = shl nuw nsw i64 %54, 7
@@ -3841,7 +3841,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %.not16.i.i, label %58, label %.critedge.i.i.i.i
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 2
   br label %72
 
 60:                                               ; preds = %.critedge.i.i.i.i
@@ -3852,7 +3852,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 .critedge.i.i.i.i:                                ; preds = %51, %60
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %60 ], [ 2, %51 ]
   %.01720.i.i.i.i = phi i64 [ %67, %60 ], [ %57, %51 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !25
   %63 = zext i8 %62 to i64
   %64 = add nsw i64 %63, -1
@@ -3863,7 +3863,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %68, label %60, label %69, !prof !27
 
 69:                                               ; preds = %.critedge.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   br label %72
 
@@ -3925,18 +3925,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br i1 %97, label %.lr.ph.i50, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 .lr.ph.i50:                                       ; preds = %92, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61
-  %.0721.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %96, %92 ]
-  %98 = load i8, ptr %.0721.i51, align 1, !tbaa !25
+  %.0720.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %96, %92 ]
+  %98 = load i8, ptr %.0720.i51, align 1, !tbaa !25
   %.not.i.i52 = icmp sgt i8 %98, -1
   br i1 %.not.i.i52, label %99, label %102
 
 99:                                               ; preds = %.lr.ph.i50
   %100 = zext nneg i8 %98 to i64
-  %101 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   br label %123
 
 102:                                              ; preds = %.lr.ph.i50
-  %103 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   %104 = load i8, ptr %103, align 1, !tbaa !25
   %105 = zext i8 %104 to i64
   %106 = shl nuw nsw i64 %105, 7
@@ -3947,7 +3947,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br i1 %.not16.i.i53, label %109, label %.critedge.i.i.i.i55
 
 109:                                              ; preds = %102
-  %110 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 2
+  %110 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 2
   br label %123
 
 111:                                              ; preds = %.critedge.i.i.i.i55
@@ -3958,7 +3958,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
 .critedge.i.i.i.i55:                              ; preds = %102, %111
   %indvars.iv.i.i.i.i56 = phi i64 [ %indvars.iv.next.i.i.i.i63, %111 ], [ 2, %102 ]
   %.01720.i.i.i.i57 = phi i64 [ %118, %111 ], [ %108, %102 ]
-  %112 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %112 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %113 = load i8, ptr %112, align 1, !tbaa !25
   %114 = zext i8 %113 to i64
   %115 = add nsw i64 %114, -1
@@ -3969,7 +3969,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br i1 %119, label %111, label %120, !prof !27
 
 120:                                              ; preds = %.critedge.i.i.i.i55
-  %121 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %121 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 1
   br label %123
 
@@ -4055,18 +4055,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br label %164
 
 164:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78, %.lr.ph.i67
-  %.0721.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
-  %165 = load i8, ptr %.0721.i68, align 1, !tbaa !25
+  %.0720.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
+  %165 = load i8, ptr %.0720.i68, align 1, !tbaa !25
   %.not.i.i69 = icmp sgt i8 %165, -1
   br i1 %.not.i.i69, label %166, label %169
 
 166:                                              ; preds = %164
   %167 = zext nneg i8 %165 to i64
-  %168 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %168 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   br label %190
 
 169:                                              ; preds = %164
-  %170 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %170 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   %171 = load i8, ptr %170, align 1, !tbaa !25
   %172 = zext i8 %171 to i64
   %173 = shl nuw nsw i64 %172, 7
@@ -4077,7 +4077,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br i1 %.not16.i.i70, label %176, label %.critedge.i.i.i.i72
 
 176:                                              ; preds = %169
-  %177 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 2
+  %177 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 2
   br label %190
 
 178:                                              ; preds = %.critedge.i.i.i.i72
@@ -4088,7 +4088,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
 .critedge.i.i.i.i72:                              ; preds = %169, %178
   %indvars.iv.i.i.i.i73 = phi i64 [ %indvars.iv.next.i.i.i.i80, %178 ], [ 2, %169 ]
   %.01720.i.i.i.i74 = phi i64 [ %185, %178 ], [ %175, %169 ]
-  %179 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %179 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %180 = load i8, ptr %179, align 1, !tbaa !25
   %181 = zext i8 %180 to i64
   %182 = add nsw i64 %181, -1
@@ -4099,7 +4099,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserImLb0EEEP
   br i1 %186, label %178, label %187, !prof !27
 
 187:                                              ; preds = %.critedge.i.i.i.i72
-  %188 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %188 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 1
   br label %190
 
@@ -4166,7 +4166,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 
 .critedge.i.i:                                    ; preds = %3, %10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 1, %3 ]
-  %.02234.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
+  %.02232.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
@@ -4174,7 +4174,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
-  %18 = add i32 %17, %.02234.i.i
+  %18 = add i32 %17, %.02232.i.i
   %19 = icmp slt i8 %12, 0
   br i1 %19, label %10, label %20, !prof !27
 
@@ -4225,18 +4225,18 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %46, label %.lr.ph.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit.thread94
 
 .lr.ph.i:                                         ; preds = %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
-  %.0721.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
-  %47 = load i8, ptr %.0721.i, align 1, !tbaa !25
+  %.0720.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
+  %47 = load i8, ptr %.0720.i, align 1, !tbaa !25
   %.not.i.i = icmp sgt i8 %47, -1
   br i1 %.not.i.i, label %48, label %51
 
 48:                                               ; preds = %.lr.ph.i
   %49 = zext nneg i8 %47 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   br label %72
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !25
   %54 = zext i8 %53 to i64
   %55 = shl nuw nsw i64 %54, 7
@@ -4247,7 +4247,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %.not16.i.i, label %58, label %.critedge.i.i.i.i
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 2
   br label %72
 
 60:                                               ; preds = %.critedge.i.i.i.i
@@ -4258,7 +4258,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 .critedge.i.i.i.i:                                ; preds = %51, %60
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %60 ], [ 2, %51 ]
   %.01720.i.i.i.i = phi i64 [ %67, %60 ], [ %57, %51 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !25
   %63 = zext i8 %62 to i64
   %64 = add nsw i64 %63, -1
@@ -4269,7 +4269,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %68, label %60, label %69, !prof !27
 
 69:                                               ; preds = %.critedge.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   br label %72
 
@@ -4336,18 +4336,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br i1 %102, label %.lr.ph.i50, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 .lr.ph.i50:                                       ; preds = %97, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61
-  %.0721.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %101, %97 ]
-  %103 = load i8, ptr %.0721.i51, align 1, !tbaa !25
+  %.0720.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %101, %97 ]
+  %103 = load i8, ptr %.0720.i51, align 1, !tbaa !25
   %.not.i.i52 = icmp sgt i8 %103, -1
   br i1 %.not.i.i52, label %104, label %107
 
 104:                                              ; preds = %.lr.ph.i50
   %105 = zext nneg i8 %103 to i64
-  %106 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %106 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   br label %128
 
 107:                                              ; preds = %.lr.ph.i50
-  %108 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %108 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   %109 = load i8, ptr %108, align 1, !tbaa !25
   %110 = zext i8 %109 to i64
   %111 = shl nuw nsw i64 %110, 7
@@ -4358,7 +4358,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br i1 %.not16.i.i53, label %114, label %.critedge.i.i.i.i55
 
 114:                                              ; preds = %107
-  %115 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 2
+  %115 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 2
   br label %128
 
 116:                                              ; preds = %.critedge.i.i.i.i55
@@ -4369,7 +4369,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
 .critedge.i.i.i.i55:                              ; preds = %107, %116
   %indvars.iv.i.i.i.i56 = phi i64 [ %indvars.iv.next.i.i.i.i63, %116 ], [ 2, %107 ]
   %.01720.i.i.i.i57 = phi i64 [ %123, %116 ], [ %113, %107 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %117 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %118 = load i8, ptr %117, align 1, !tbaa !25
   %119 = zext i8 %118 to i64
   %120 = add nsw i64 %119, -1
@@ -4380,7 +4380,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br i1 %124, label %116, label %125, !prof !27
 
 125:                                              ; preds = %.critedge.i.i.i.i55
-  %126 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %126 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 1
   br label %128
 
@@ -4471,18 +4471,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br label %174
 
 174:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78, %.lr.ph.i67
-  %.0721.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
-  %175 = load i8, ptr %.0721.i68, align 1, !tbaa !25
+  %.0720.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
+  %175 = load i8, ptr %.0720.i68, align 1, !tbaa !25
   %.not.i.i69 = icmp sgt i8 %175, -1
   br i1 %.not.i.i69, label %176, label %179
 
 176:                                              ; preds = %174
   %177 = zext nneg i8 %175 to i64
-  %178 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   br label %200
 
 179:                                              ; preds = %174
-  %180 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %180 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   %181 = load i8, ptr %180, align 1, !tbaa !25
   %182 = zext i8 %181 to i64
   %183 = shl nuw nsw i64 %182, 7
@@ -4493,7 +4493,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br i1 %.not16.i.i70, label %186, label %.critedge.i.i.i.i72
 
 186:                                              ; preds = %179
-  %187 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 2
+  %187 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 2
   br label %200
 
 188:                                              ; preds = %.critedge.i.i.i.i72
@@ -4504,7 +4504,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
 .critedge.i.i.i.i72:                              ; preds = %179, %188
   %indvars.iv.i.i.i.i73 = phi i64 [ %indvars.iv.next.i.i.i.i80, %188 ], [ 2, %179 ]
   %.01720.i.i.i.i74 = phi i64 [ %195, %188 ], [ %185, %179 ]
-  %189 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %189 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %190 = load i8, ptr %189, align 1, !tbaa !25
   %191 = zext i8 %190 to i64
   %192 = add nsw i64 %191, -1
@@ -4515,7 +4515,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIiLb1EEEP
   br i1 %196, label %188, label %197, !prof !27
 
 197:                                              ; preds = %.critedge.i.i.i.i72
-  %198 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %198 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 1
   br label %200
 
@@ -4585,7 +4585,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 
 .critedge.i.i:                                    ; preds = %3, %10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 1, %3 ]
-  %.02234.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
+  %.02232.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
@@ -4593,7 +4593,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
-  %18 = add i32 %17, %.02234.i.i
+  %18 = add i32 %17, %.02232.i.i
   %19 = icmp slt i8 %12, 0
   br i1 %19, label %10, label %20, !prof !27
 
@@ -4644,18 +4644,18 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %46, label %.lr.ph.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit.thread94
 
 .lr.ph.i:                                         ; preds = %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
-  %.0721.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
-  %47 = load i8, ptr %.0721.i, align 1, !tbaa !25
+  %.0720.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
+  %47 = load i8, ptr %.0720.i, align 1, !tbaa !25
   %.not.i.i = icmp sgt i8 %47, -1
   br i1 %.not.i.i, label %48, label %51
 
 48:                                               ; preds = %.lr.ph.i
   %49 = zext nneg i8 %47 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   br label %72
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !25
   %54 = zext i8 %53 to i64
   %55 = shl nuw nsw i64 %54, 7
@@ -4666,7 +4666,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %.not16.i.i, label %58, label %.critedge.i.i.i.i
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 2
   br label %72
 
 60:                                               ; preds = %.critedge.i.i.i.i
@@ -4677,7 +4677,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 .critedge.i.i.i.i:                                ; preds = %51, %60
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %60 ], [ 2, %51 ]
   %.01720.i.i.i.i = phi i64 [ %67, %60 ], [ %57, %51 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !25
   %63 = zext i8 %62 to i64
   %64 = add nsw i64 %63, -1
@@ -4688,7 +4688,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %68, label %60, label %69, !prof !27
 
 69:                                               ; preds = %.critedge.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   br label %72
 
@@ -4754,18 +4754,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br i1 %101, label %.lr.ph.i50, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 .lr.ph.i50:                                       ; preds = %96, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61
-  %.0721.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %100, %96 ]
-  %102 = load i8, ptr %.0721.i51, align 1, !tbaa !25
+  %.0720.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %100, %96 ]
+  %102 = load i8, ptr %.0720.i51, align 1, !tbaa !25
   %.not.i.i52 = icmp sgt i8 %102, -1
   br i1 %.not.i.i52, label %103, label %106
 
 103:                                              ; preds = %.lr.ph.i50
   %104 = zext nneg i8 %102 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   br label %127
 
 106:                                              ; preds = %.lr.ph.i50
-  %107 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %107 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   %108 = load i8, ptr %107, align 1, !tbaa !25
   %109 = zext i8 %108 to i64
   %110 = shl nuw nsw i64 %109, 7
@@ -4776,7 +4776,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br i1 %.not16.i.i53, label %113, label %.critedge.i.i.i.i55
 
 113:                                              ; preds = %106
-  %114 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 2
+  %114 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 2
   br label %127
 
 115:                                              ; preds = %.critedge.i.i.i.i55
@@ -4787,7 +4787,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
 .critedge.i.i.i.i55:                              ; preds = %106, %115
   %indvars.iv.i.i.i.i56 = phi i64 [ %indvars.iv.next.i.i.i.i63, %115 ], [ 2, %106 ]
   %.01720.i.i.i.i57 = phi i64 [ %122, %115 ], [ %112, %106 ]
-  %116 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %116 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %117 = load i8, ptr %116, align 1, !tbaa !25
   %118 = zext i8 %117 to i64
   %119 = add nsw i64 %118, -1
@@ -4798,7 +4798,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br i1 %123, label %115, label %124, !prof !27
 
 124:                                              ; preds = %.critedge.i.i.i.i55
-  %125 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %125 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 1
   br label %127
 
@@ -4888,18 +4888,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br label %172
 
 172:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78, %.lr.ph.i67
-  %.0721.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
-  %173 = load i8, ptr %.0721.i68, align 1, !tbaa !25
+  %.0720.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
+  %173 = load i8, ptr %.0720.i68, align 1, !tbaa !25
   %.not.i.i69 = icmp sgt i8 %173, -1
   br i1 %.not.i.i69, label %174, label %177
 
 174:                                              ; preds = %172
   %175 = zext nneg i8 %173 to i64
-  %176 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %176 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   br label %198
 
 177:                                              ; preds = %172
-  %178 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   %179 = load i8, ptr %178, align 1, !tbaa !25
   %180 = zext i8 %179 to i64
   %181 = shl nuw nsw i64 %180, 7
@@ -4910,7 +4910,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br i1 %.not16.i.i70, label %184, label %.critedge.i.i.i.i72
 
 184:                                              ; preds = %177
-  %185 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 2
+  %185 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 2
   br label %198
 
 186:                                              ; preds = %.critedge.i.i.i.i72
@@ -4921,7 +4921,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
 .critedge.i.i.i.i72:                              ; preds = %177, %186
   %indvars.iv.i.i.i.i73 = phi i64 [ %indvars.iv.next.i.i.i.i80, %186 ], [ 2, %177 ]
   %.01720.i.i.i.i74 = phi i64 [ %193, %186 ], [ %183, %177 ]
-  %187 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %187 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %188 = load i8, ptr %187, align 1, !tbaa !25
   %189 = zext i8 %188 to i64
   %190 = add nsw i64 %189, -1
@@ -4932,7 +4932,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIlLb1EEEP
   br i1 %194, label %186, label %195, !prof !27
 
 195:                                              ; preds = %.critedge.i.i.i.i72
-  %196 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %196 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 1
   br label %198
 
@@ -5001,7 +5001,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 
 .critedge.i.i:                                    ; preds = %3, %10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 1, %3 ]
-  %.02234.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
+  %.02232.i.i = phi i32 [ %18, %10 ], [ %6, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
@@ -5009,7 +5009,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
-  %18 = add i32 %17, %.02234.i.i
+  %18 = add i32 %17, %.02232.i.i
   %19 = icmp slt i8 %12, 0
   br i1 %19, label %10, label %20, !prof !27
 
@@ -5060,18 +5060,18 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %46, label %.lr.ph.i, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit.thread94
 
 .lr.ph.i:                                         ; preds = %44, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i
-  %.0721.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
-  %47 = load i8, ptr %.0721.i, align 1, !tbaa !25
+  %.0720.i = phi ptr [ %.0.i.ph.i, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i ], [ %.086134, %44 ]
+  %47 = load i8, ptr %.0720.i, align 1, !tbaa !25
   %.not.i.i = icmp sgt i8 %47, -1
   br i1 %.not.i.i, label %48, label %51
 
 48:                                               ; preds = %.lr.ph.i
   %49 = zext nneg i8 %47 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %50 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   br label %72
 
 51:                                               ; preds = %.lr.ph.i
-  %52 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 1
+  %52 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 1
   %53 = load i8, ptr %52, align 1, !tbaa !25
   %54 = zext i8 %53 to i64
   %55 = shl nuw nsw i64 %54, 7
@@ -5082,7 +5082,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %.not16.i.i, label %58, label %.critedge.i.i.i.i
 
 58:                                               ; preds = %51
-  %59 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 2
+  %59 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 2
   br label %72
 
 60:                                               ; preds = %.critedge.i.i.i.i
@@ -5093,7 +5093,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
 .critedge.i.i.i.i:                                ; preds = %51, %60
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %60 ], [ 2, %51 ]
   %.01720.i.i.i.i = phi i64 [ %67, %60 ], [ %57, %51 ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !25
   %63 = zext i8 %62 to i64
   %64 = add nsw i64 %63, -1
@@ -5104,7 +5104,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal18EpsCopyInp
   br i1 %68, label %60, label %69, !prof !27
 
 69:                                               ; preds = %.critedge.i.i.i.i
-  %70 = getelementptr inbounds nuw i8, ptr %.0721.i, i64 %indvars.iv.i.i.i.i
+  %70 = getelementptr inbounds nuw i8, ptr %.0720.i, i64 %indvars.iv.i.i.i.i
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1
   br label %72
 
@@ -5168,18 +5168,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br i1 %99, label %.lr.ph.i50, label %_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEPKcPvS5_PNS1_12ParseContextEEUlmE_EES5_S5_S5_T_.exit65
 
 .lr.ph.i50:                                       ; preds = %94, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61
-  %.0721.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %98, %94 ]
-  %100 = load i8, ptr %.0721.i51, align 1, !tbaa !25
+  %.0720.i51 = phi ptr [ %.0.i.ph.i59, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i61 ], [ %98, %94 ]
+  %100 = load i8, ptr %.0720.i51, align 1, !tbaa !25
   %.not.i.i52 = icmp sgt i8 %100, -1
   br i1 %.not.i.i52, label %101, label %104
 
 101:                                              ; preds = %.lr.ph.i50
   %102 = zext nneg i8 %100 to i64
-  %103 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   br label %125
 
 104:                                              ; preds = %.lr.ph.i50
-  %105 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 1
+  %105 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 1
   %106 = load i8, ptr %105, align 1, !tbaa !25
   %107 = zext i8 %106 to i64
   %108 = shl nuw nsw i64 %107, 7
@@ -5190,7 +5190,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br i1 %.not16.i.i53, label %111, label %.critedge.i.i.i.i55
 
 111:                                              ; preds = %104
-  %112 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 2
+  %112 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 2
   br label %125
 
 113:                                              ; preds = %.critedge.i.i.i.i55
@@ -5201,7 +5201,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
 .critedge.i.i.i.i55:                              ; preds = %104, %113
   %indvars.iv.i.i.i.i56 = phi i64 [ %indvars.iv.next.i.i.i.i63, %113 ], [ 2, %104 ]
   %.01720.i.i.i.i57 = phi i64 [ %120, %113 ], [ %110, %104 ]
-  %114 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %114 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %115 = load i8, ptr %114, align 1, !tbaa !25
   %116 = zext i8 %115 to i64
   %117 = add nsw i64 %116, -1
@@ -5212,7 +5212,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br i1 %121, label %113, label %122, !prof !27
 
 122:                                              ; preds = %.critedge.i.i.i.i55
-  %123 = getelementptr inbounds nuw i8, ptr %.0721.i51, i64 %indvars.iv.i.i.i.i56
+  %123 = getelementptr inbounds nuw i8, ptr %.0720.i51, i64 %indvars.iv.i.i.i.i56
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 1
   br label %125
 
@@ -5300,18 +5300,18 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br label %168
 
 168:                                              ; preds = %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78, %.lr.ph.i67
-  %.0721.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
-  %169 = load i8, ptr %.0721.i68, align 1, !tbaa !25
+  %.0720.i68 = phi ptr [ %.086.lcssa, %.lr.ph.i67 ], [ %.0.i.ph.i76, %_ZN6google8protobuf8internal11VarintParseImEEPKcS4_PT_.exit.i78 ]
+  %169 = load i8, ptr %.0720.i68, align 1, !tbaa !25
   %.not.i.i69 = icmp sgt i8 %169, -1
   br i1 %.not.i.i69, label %170, label %173
 
 170:                                              ; preds = %168
   %171 = zext nneg i8 %169 to i64
-  %172 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %172 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   br label %194
 
 173:                                              ; preds = %168
-  %174 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 1
+  %174 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 1
   %175 = load i8, ptr %174, align 1, !tbaa !25
   %176 = zext i8 %175 to i64
   %177 = shl nuw nsw i64 %176, 7
@@ -5322,7 +5322,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br i1 %.not16.i.i70, label %180, label %.critedge.i.i.i.i72
 
 180:                                              ; preds = %173
-  %181 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 2
+  %181 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 2
   br label %194
 
 182:                                              ; preds = %.critedge.i.i.i.i72
@@ -5333,7 +5333,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
 .critedge.i.i.i.i72:                              ; preds = %173, %182
   %indvars.iv.i.i.i.i73 = phi i64 [ %indvars.iv.next.i.i.i.i80, %182 ], [ 2, %173 ]
   %.01720.i.i.i.i74 = phi i64 [ %189, %182 ], [ %179, %173 ]
-  %183 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %183 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %184 = load i8, ptr %183, align 1, !tbaa !25
   %185 = zext i8 %184 to i64
   %186 = add nsw i64 %185, -1
@@ -5344,7 +5344,7 @@ _ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_12VarintParserIbLb0EEEP
   br i1 %190, label %182, label %191, !prof !27
 
 191:                                              ; preds = %.critedge.i.i.i.i72
-  %192 = getelementptr inbounds nuw i8, ptr %.0721.i68, i64 %indvars.iv.i.i.i.i73
+  %192 = getelementptr inbounds nuw i8, ptr %.0720.i68, i64 %indvars.iv.i.i.i.i73
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 1
   br label %194
 
@@ -6242,7 +6242,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal28UnknownFie
 
 .critedge.i.i:                                    ; preds = %4, %10
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %10 ], [ 1, %4 ]
-  %.02234.i.i = phi i32 [ %18, %10 ], [ %6, %4 ]
+  %.02232.i.i = phi i32 [ %18, %10 ], [ %6, %4 ]
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv.i.i
   %12 = load i8, ptr %11, align 1, !tbaa !25
   %13 = zext i8 %12 to i32
@@ -6250,7 +6250,7 @@ define linkonce_odr hidden noundef ptr @_ZN6google8protobuf8internal28UnknownFie
   %15 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %16 = mul nuw nsw i32 %15, 7
   %17 = shl nsw i32 %14, %16
-  %18 = add i32 %17, %.02234.i.i
+  %18 = add i32 %17, %.02232.i.i
   %19 = icmp slt i8 %12, 0
   br i1 %19, label %10, label %20, !prof !27
 

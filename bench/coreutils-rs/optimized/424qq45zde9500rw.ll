@@ -48,8 +48,8 @@ define hidden void @"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$
 
 14:                                               ; preds = %4
   %15 = add i64 %.0.sroa.speculated.i, %7
-  %.0.sroa.speculated.i16 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %9)
-  store i64 %.0.sroa.speculated.i16, ptr %6, align 8
+  %.0.sroa.speculated.i15 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %9)
+  store i64 %.0.sroa.speculated.i15, ptr %6, align 8
   %16 = inttoptr i64 %.0.sroa.speculated.i to ptr
   br label %17
 
@@ -78,8 +78,8 @@ define hidden void @"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$
 
 14:                                               ; preds = %4
   %15 = add i64 %.0.sroa.speculated.i, %7
-  %.0.sroa.speculated.i16 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %9)
-  store i64 %.0.sroa.speculated.i16, ptr %6, align 8
+  %.0.sroa.speculated.i15 = tail call noundef i64 @llvm.umin.i64(i64 %15, i64 %9)
+  store i64 %.0.sroa.speculated.i15, ptr %6, align 8
   %16 = inttoptr i64 %.0.sroa.speculated.i to ptr
   br label %17
 
@@ -281,8 +281,8 @@ define hidden void @"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..ker
 
 15:                                               ; preds = %4
   %16 = add i64 %.0.sroa.speculated.i.i, %8
-  %.0.sroa.speculated.i16.i = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 %10)
-  store i64 %.0.sroa.speculated.i16.i, ptr %7, align 8, !alias.scope !33, !noalias !35
+  %.0.sroa.speculated.i15.i = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 %10)
+  store i64 %.0.sroa.speculated.i15.i, ptr %7, align 8, !alias.scope !33, !noalias !35
   %17 = inttoptr i64 %.0.sroa.speculated.i.i to ptr
   br label %"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17hefc0ac02564a4309E.llvm.678384216342861276.exit"
 
@@ -314,8 +314,8 @@ define hidden void @"_ZN76_$LT$$RF$mut$u20$T$u20$as$u20$std..sys..pal..unix..ker
 
 15:                                               ; preds = %4
   %16 = add i64 %.0.sroa.speculated.i.i, %8
-  %.0.sroa.speculated.i16.i = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 %10)
-  store i64 %.0.sroa.speculated.i16.i, ptr %7, align 8, !alias.scope !42, !noalias !44
+  %.0.sroa.speculated.i15.i = tail call noundef i64 @llvm.umin.i64(i64 %16, i64 %10)
+  store i64 %.0.sroa.speculated.i15.i, ptr %7, align 8, !alias.scope !42, !noalias !44
   %17 = inttoptr i64 %.0.sroa.speculated.i.i to ptr
   br label %"_ZN111_$LT$std..io..buffered..bufreader..BufReader$LT$T$GT$$u20$as$u20$std..sys..pal..unix..kernel_copy..CopyRead$GT$8drain_to17h1a6437ca4e260831E.llvm.678384216342861276.exit"
 

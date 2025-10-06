@@ -1111,20 +1111,20 @@ define noundef zeroext i1 @_ZN6open3d7utility22ProgramOptionExistsAnyEiPPcRKSt6v
   %6 = load ptr, ptr %5, align 8, !tbaa !39
   %7 = sext i32 %0 to i64
   %8 = getelementptr inbounds ptr, ptr %1, i64 %7
-  %.not14.not = icmp eq ptr %4, %6
-  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
+  %.not15.not = icmp eq ptr %4, %6
+  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.010.015 = phi ptr [ %10, %.lr.ph ], [ %4, %3 ]
-  %9 = tail call noundef ptr @_ZSt9__find_ifIPPcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_T0_St26random_access_iterator_tag(ptr noundef %1, ptr noundef %8, ptr nonnull align 8 dereferenceable(32) %.sroa.010.015)
-  %.not13.not = icmp ne ptr %9, %8
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.015, i64 32
+  %.sroa.010.016 = phi ptr [ %10, %.lr.ph ], [ %4, %3 ]
+  %9 = tail call noundef ptr @_ZSt9__find_ifIPPcN9__gnu_cxx5__ops16_Iter_equals_valIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEET_SD_SD_T0_St26random_access_iterator_tag(ptr noundef %1, ptr noundef %8, ptr nonnull align 8 dereferenceable(32) %.sroa.010.016)
+  %.not14.not = icmp ne ptr %9, %8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.010.016, i64 32
   %.not.not = icmp eq ptr %10, %6
-  %or.cond = select i1 %.not13.not, i1 true, i1 %.not.not
+  %or.cond = select i1 %.not14.not, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %.not.lcssa = phi i1 [ false, %3 ], [ %.not13.not, %.lr.ph ]
+  %.not.lcssa = phi i1 [ false, %3 ], [ %.not14.not, %.lr.ph ]
   ret i1 %.not.lcssa
 }
 

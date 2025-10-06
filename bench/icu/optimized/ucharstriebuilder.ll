@@ -359,9 +359,9 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7717UCharsTrieB
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %16 = load i32, ptr %15, align 8, !tbaa !35
   %17 = icmp eq i32 %14, %16
-  br i1 %17, label %21, label %.thread34
+  br i1 %17, label %21, label %.thread33
 
-.thread34:                                        ; preds = %12
+.thread33:                                        ; preds = %12
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !22
   %18 = add nsw i32 %14, 1
@@ -408,17 +408,17 @@ define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7717UCharsTrieB
 43:                                               ; preds = %42, %38
   store ptr %28, ptr %39, align 8, !tbaa !22
   store i32 %.016, ptr %15, align 8, !tbaa !35
-  %.pre25 = load i32, ptr %13, align 4, !tbaa !34
-  %.pre26 = load i32, ptr %3, align 4, !tbaa !3
-  %44 = add nsw i32 %.pre25, 1
+  %.pre24 = load i32, ptr %13, align 4, !tbaa !34
+  %.pre25 = load i32, ptr %3, align 4, !tbaa !3
+  %44 = add nsw i32 %.pre24, 1
   store i32 %44, ptr %13, align 4, !tbaa !34
-  %45 = sext i32 %.pre25 to i64
+  %45 = sext i32 %.pre24 to i64
   %46 = getelementptr inbounds %"class.icu_77::UCharsTrieElement", ptr %28, i64 %45
-  %47 = icmp slt i32 %.pre26, 1
+  %47 = icmp slt i32 %.pre25, 1
   br i1 %47, label %48, label %_ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit.thread
 
-48:                                               ; preds = %.thread34, %43
-  %49 = phi ptr [ %20, %.thread34 ], [ %46, %43 ]
+48:                                               ; preds = %.thread33, %43
+  %49 = phi ptr [ %20, %.thread33 ], [ %46, %43 ]
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %51 = load i16, ptr %50, align 8, !tbaa !7
   %52 = icmp slt i16 %51, 0
@@ -455,8 +455,8 @@ _ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit
   %75 = load i32, ptr %55, align 4
   %76 = select i1 %72, i32 %75, i32 %74
   %77 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %59, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0, i32 noundef %76)
-  %.pre27 = load i32, ptr %3, align 4, !tbaa !3
-  %78 = icmp sgt i32 %.pre27, 0
+  %.pre26 = load i32, ptr %3, align 4, !tbaa !3
+  %78 = icmp sgt i32 %.pre26, 0
   br i1 %78, label %_ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit.thread, label %79
 
 79:                                               ; preds = %_ZN6icu_7717UCharsTrieElement5setToERKNS_13UnicodeStringEiRS1_R10UErrorCode.exit
@@ -580,8 +580,8 @@ define void @_ZN6icu_7717UCharsTrieBuilder11buildUCharsE22UStringTrieBuildOption
   %33 = load ptr, ptr %28, align 8, !tbaa !22
   call void @_ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE(ptr dead_on_unwind nonnull writable sret(%"class.icu_77::UnicodeString") align 8 %4, ptr noundef nonnull align 4 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(64) %22)
   %34 = load i32, ptr %17, align 4, !tbaa !34
-  %.not3142 = icmp sgt i32 %34, 1
-  br i1 %.not3142, label %.lr.ph, label %.thread39
+  %.not3141 = icmp sgt i32 %34, 1
+  br i1 %.not3141, label %.lr.ph, label %.thread39
 
 .lr.ph:                                           ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -671,8 +671,8 @@ _ZNK6icu_7717UCharsTrieElement9getStringERKNS_13UnicodeStringE.exit: ; preds = %
           to label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit unwind label %90
 
 _ZNK6icu_7713UnicodeStringeqERKS0_.exit:          ; preds = %83
-  %.not41 = icmp eq i8 %87, 0
-  br i1 %.not41, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %97
+  %.not40 = icmp eq i8 %87, 0
+  br i1 %.not40, label %_ZNK6icu_7713UnicodeStringeqERKS0_.exit.thread, label %97
 
 88:                                               ; preds = %_ZNK6icu_7713UnicodeStringixEi.exit.i
   %89 = landingpad { ptr, i32 }

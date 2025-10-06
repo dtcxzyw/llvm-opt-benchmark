@@ -876,11 +876,11 @@ define dso_local i64 @pg_size_pretty(ptr noundef readonly captures(none) %0) loc
 5:                                                ; preds = %1, %22
   %6 = phi ptr [ @.str.23, %1 ], [ %38, %22 ]
   %7 = phi ptr [ getelementptr inbounds nuw (i8, ptr @size_pretty_units, i64 16), %1 ], [ %37, %22 ]
-  %.0213036 = phi ptr [ @size_pretty_units, %1 ], [ %7, %22 ]
-  %.0203135 = phi i64 [ %4, %1 ], [ %36, %22 ]
+  %.0212935 = phi ptr [ @size_pretty_units, %1 ], [ %7, %22 ]
+  %.0203034 = phi i64 [ %4, %1 ], [ %36, %22 ]
   %8 = phi ptr [ @.str.22, %1 ], [ %6, %22 ]
-  %9 = tail call i64 @llvm.abs.i64(i64 %.0203135, i1 false)
-  %10 = getelementptr inbounds nuw i8, ptr %.0213036, i64 8
+  %9 = tail call i64 @llvm.abs.i64(i64 %.0203034, i1 false)
+  %10 = getelementptr inbounds nuw i8, ptr %.0212935, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
   %13 = icmp ult i64 %9, %12
@@ -888,42 +888,42 @@ define dso_local i64 @pg_size_pretty(ptr noundef readonly captures(none) %0) loc
 
 14:                                               ; preds = %5, %22
   %.lcssa = phi ptr [ %8, %5 ], [ %6, %22 ]
-  %.02031.lcssa = phi i64 [ %.0203135, %5 ], [ %36, %22 ]
-  %.02130.lcssa = phi ptr [ %.0213036, %5 ], [ getelementptr inbounds nuw (i8, ptr @size_pretty_units, i64 80), %22 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.02130.lcssa, i64 12
+  %.02030.lcssa = phi i64 [ %.0203034, %5 ], [ %36, %22 ]
+  %.02129.lcssa = phi ptr [ %.0212935, %5 ], [ getelementptr inbounds nuw (i8, ptr @size_pretty_units, i64 80), %22 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.02129.lcssa, i64 12
   %16 = load i8, ptr %15, align 4, !range !11, !noundef !12
   %17 = trunc nuw i8 %16 to i1
   br i1 %17, label %18, label %.loopexit
 
 18:                                               ; preds = %14
-  %.inv = icmp sgt i64 %.02031.lcssa, -1
+  %.inv = icmp sgt i64 %.02030.lcssa, -1
   %19 = select i1 %.inv, i64 1, i64 -1
-  %20 = add i64 %19, %.02031.lcssa
+  %20 = add i64 %19, %.02030.lcssa
   %21 = sdiv i64 %20, 2
   br label %.loopexit
 
 22:                                               ; preds = %5
-  %23 = getelementptr inbounds nuw i8, ptr %.0213036, i64 29
+  %23 = getelementptr inbounds nuw i8, ptr %.0212935, i64 29
   %24 = load i8, ptr %23, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %.0213036, i64 13
+  %25 = getelementptr inbounds nuw i8, ptr %.0212935, i64 13
   %26 = load i8, ptr %25, align 1
-  %27 = getelementptr inbounds nuw i8, ptr %.0213036, i64 28
+  %27 = getelementptr inbounds nuw i8, ptr %.0212935, i64 28
   %28 = load i8, ptr %27, align 4, !range !11, !noundef !12
-  %29 = getelementptr inbounds nuw i8, ptr %.0213036, i64 12
+  %29 = getelementptr inbounds nuw i8, ptr %.0212935, i64 12
   %30 = load i8, ptr %29, align 4, !range !11, !noundef !12
   %31 = add i8 %26, %28
   %32 = sub i8 %24, %31
   %33 = add i8 %32, %30
   %34 = zext nneg i8 %33 to i64
   %35 = shl nuw i64 1, %34
-  %36 = sdiv i64 %.0203135, %35
+  %36 = sdiv i64 %.0203034, %35
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %14, label %5
 
 .loopexit:                                        ; preds = %18, %14
-  %.1 = phi i64 [ %21, %18 ], [ %.02031.lcssa, %14 ]
+  %.1 = phi i64 [ %21, %18 ], [ %.02030.lcssa, %14 ]
   %40 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %2, i64 noundef 64, ptr noundef nonnull @.str.3, i64 noundef %.1, ptr noundef nonnull %.lcssa) #8
   %41 = call ptr @cstring_to_text(ptr noundef nonnull %2) #8
   %42 = ptrtoint ptr %41 to i64
@@ -947,27 +947,27 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
   %7 = phi ptr [ @.str.23, %1 ], [ %63, %39 ]
   %8 = phi ptr [ getelementptr inbounds nuw (i8, ptr @size_pretty_units, i64 16), %1 ], [ %62, %39 ]
   %9 = phi ptr [ %5, %1 ], [ %61, %39 ]
-  %.0183239 = phi ptr [ @size_pretty_units, %1 ], [ %8, %39 ]
+  %.0183138 = phi ptr [ @size_pretty_units, %1 ], [ %8, %39 ]
   %10 = phi ptr [ @.str.22, %1 ], [ %7, %39 ]
   %11 = ptrtoint ptr %9 to i64
   %12 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_abs, i32 noundef 0, i64 noundef %11) #8
   %13 = inttoptr i64 %12 to ptr
   %14 = tail call ptr @pg_detoast_datum(ptr noundef %13) #8
-  %15 = getelementptr inbounds nuw i8, ptr %.0183239, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.0183138, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = tail call ptr @int64_to_numeric(i64 noundef %17) #8
   %19 = ptrtoint ptr %14 to i64
   %20 = ptrtoint ptr %18 to i64
   %21 = tail call i64 @DirectFunctionCall2Coll(ptr noundef nonnull @numeric_lt, i32 noundef 0, i64 noundef %19, i64 noundef %20) #8
-  %.not26 = icmp eq i64 %21, 0
-  br i1 %.not26, label %39, label %22
+  %.not25 = icmp eq i64 %21, 0
+  br i1 %.not25, label %39, label %22
 
 22:                                               ; preds = %6, %39
-  %.lcssa38 = phi ptr [ %10, %6 ], [ %7, %39 ]
-  %.01832.lcssa = phi ptr [ %.0183239, %6 ], [ %8, %39 ]
+  %.lcssa37 = phi ptr [ %10, %6 ], [ %7, %39 ]
+  %.01831.lcssa = phi ptr [ %.0183138, %6 ], [ %8, %39 ]
   %.lcssa = phi ptr [ %9, %6 ], [ %61, %39 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.01832.lcssa, i64 12
+  %23 = getelementptr inbounds nuw i8, ptr %.01831.lcssa, i64 12
   %24 = load i8, ptr %23, align 4, !range !11, !noundef !12
   %25 = trunc nuw i8 %24 to i1
   br i1 %25, label %26, label %.loopexit
@@ -990,16 +990,16 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
   br label %.loopexit
 
 39:                                               ; preds = %6
-  %40 = getelementptr inbounds nuw i8, ptr %.0183239, i64 29
+  %40 = getelementptr inbounds nuw i8, ptr %.0183138, i64 29
   %41 = load i8, ptr %40, align 1
   %42 = zext i8 %41 to i64
-  %43 = getelementptr inbounds nuw i8, ptr %.0183239, i64 13
+  %43 = getelementptr inbounds nuw i8, ptr %.0183138, i64 13
   %44 = load i8, ptr %43, align 1
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i8, ptr %.0183239, i64 28
+  %46 = getelementptr inbounds nuw i8, ptr %.0183138, i64 28
   %47 = load i8, ptr %46, align 4, !range !11, !noundef !12
   %48 = zext nneg i8 %47 to i64
-  %49 = getelementptr inbounds nuw i8, ptr %.0183239, i64 12
+  %49 = getelementptr inbounds nuw i8, ptr %.0183138, i64 12
   %50 = load i8, ptr %49, align 4, !range !11, !noundef !12
   %51 = zext nneg i8 %50 to i64
   %52 = add nuw nsw i64 %45, %48
@@ -1022,7 +1022,7 @@ define dso_local i64 @pg_size_pretty_numeric(ptr noundef readonly captures(none)
   %65 = ptrtoint ptr %.1 to i64
   %66 = tail call i64 @DirectFunctionCall1Coll(ptr noundef nonnull @numeric_out, i32 noundef 0, i64 noundef %65) #8
   %67 = inttoptr i64 %66 to ptr
-  %68 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.4, ptr noundef %67, ptr noundef nonnull %.lcssa38) #8
+  %68 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.4, ptr noundef %67, ptr noundef nonnull %.lcssa37) #8
   %69 = tail call ptr @cstring_to_text(ptr noundef %68) #8
   %70 = ptrtoint ptr %69 to i64
   ret i64 %70

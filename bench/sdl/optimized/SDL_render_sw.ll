@@ -2818,18 +2818,18 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull ca
 
 .split:                                           ; preds = %7, %.split
   %11 = tail call i32 @SDL_ReportAssertion_REAL(ptr noundef nonnull @SetDrawState.sdl_assert_data, ptr noundef nonnull @__func__.SetDrawState, ptr noundef nonnull @.str.7, i32 noundef 647) #8
-  switch i32 %11, label %.thread26 [
+  switch i32 %11, label %.thread24 [
     i32 0, label %.split
     i32 1, label %12
   ]
 
 12:                                               ; preds = %.split
   tail call void @llvm.debugtrap()
-  br label %.thread26
+  br label %.thread24
 
 13:                                               ; preds = %7
-  %.not28 = icmp eq ptr %10, null
-  br i1 %.not28, label %.thread26, label %14
+  %.not26 = icmp eq ptr %10, null
+  br i1 %.not26, label %.thread24, label %14
 
 14:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2857,12 +2857,12 @@ define internal fastcc void @SetDrawState(ptr noundef %0, ptr noundef nonnull ca
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %34
 
-.thread26:                                        ; preds = %.split, %12, %13
+.thread24:                                        ; preds = %.split, %12, %13
   %32 = load ptr, ptr %1, align 8
   %33 = tail call zeroext i1 @SDL_SetSurfaceClipRect_REAL(ptr noundef %0, ptr noundef %32) #8
   br label %34
 
-34:                                               ; preds = %.thread26, %14
+34:                                               ; preds = %.thread24, %14
   store i8 0, ptr %4, align 8
   br label %35
 

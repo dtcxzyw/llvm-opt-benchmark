@@ -5844,17 +5844,17 @@ Vec_IntFill.exit56:                               ; preds = %Vec_IntGrow.exit.i5
   br label %55
 
 55:                                               ; preds = %53, %90
-  %.062 = phi i32 [ 0, %53 ], [ %86, %90 ]
-  %.04261 = phi i32 [ 0, %53 ], [ %.3, %90 ]
+  %.061 = phi i32 [ 0, %53 ], [ %86, %90 ]
+  %.04260 = phi i32 [ 0, %53 ], [ %.3, %90 ]
   %56 = load ptr, ptr %54, align 8, !tbaa !127
   %57 = getelementptr i8, ptr %56, i64 4
   %.val45 = load i32, ptr %57, align 4, !tbaa !103
   %58 = icmp eq i32 %.val45, 0
-  %.pre63 = load i32, ptr %47, align 4, !tbaa !141
+  %.pre62 = load i32, ptr %47, align 4, !tbaa !141
   br i1 %58, label %split, label %59
 
 59:                                               ; preds = %55
-  %60 = sitofp i32 %.pre63 to float
+  %60 = sitofp i32 %.pre62 to float
   %61 = tail call i32 @rand() #25
   %62 = load ptr, ptr %54, align 8, !tbaa !127
   %63 = getelementptr i8, ptr %62, i64 4
@@ -5887,14 +5887,14 @@ Vec_IntFill.exit56:                               ; preds = %Vec_IntGrow.exit.i5
   %83 = load i32, ptr %47, align 4, !tbaa !141
   %84 = sitofp i32 %83 to float
   %85 = fcmp ogt float %60, %84
-  %86 = add nuw nsw i32 %.062, 1
-  %.3 = select i1 %85, i32 %86, i32 %.04261
+  %86 = add nuw nsw i32 %.061, 1
+  %.3 = select i1 %85, i32 %86, i32 %.04260
   %87 = load i32, ptr %48, align 8, !tbaa !118
   %.not44 = icmp eq i32 %87, 0
   br i1 %.not44, label %90, label %88
 
 88:                                               ; preds = %59
-  %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %.062, i32 noundef %83, i32 noundef %72, i32 noundef %70)
+  %89 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.17, i32 noundef %.061, i32 noundef %83, i32 noundef %72, i32 noundef %70)
   br label %90
 
 90:                                               ; preds = %88, %59
@@ -5906,8 +5906,8 @@ Vec_IntFill.exit56:                               ; preds = %Vec_IntGrow.exit.i5
   br label %split, !llvm.loop !158
 
 split:                                            ; preds = %55, %._crit_edge
-  %91 = phi i32 [ %.pre, %._crit_edge ], [ %.pre63, %55 ]
-  %.042.lcssa = phi i32 [ %.3, %._crit_edge ], [ %.04261, %55 ]
+  %91 = phi i32 [ %.pre, %._crit_edge ], [ %.pre62, %55 ]
+  %.042.lcssa = phi i32 [ %.3, %._crit_edge ], [ %.04260, %55 ]
   %92 = load ptr, ptr %2, align 8, !tbaa !128
   %93 = shl nsw i32 %.042.lcssa, 1
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 4

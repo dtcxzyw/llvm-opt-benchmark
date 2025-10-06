@@ -158,8 +158,8 @@ define noundef i64 @_ZN6common3cpu12get_num_cpus17h977909401643c6caE() unnamed_a
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %20 = load i64, ptr %19, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.not10 = icmp eq i64 %20, 0
-  %.not = select i1 %trunc5, i1 true, i1 %.not10
+  %.not9 = icmp eq i64 %20, 0
+  %.not = select i1 %trunc5, i1 true, i1 %.not9
   br i1 %.not, label %21, label %23
 
 21:                                               ; preds = %17

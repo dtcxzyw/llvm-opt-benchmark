@@ -1074,11 +1074,11 @@ define dso_local void @_ZN4llvm10TypeFinder16incorporateValueEPKNS_5ValueE(ptr n
   %5 = alloca ptr, align 8
   %6 = load i8, ptr %1, align 8, !tbaa !84
   %7 = icmp eq i8 %6, 24
-  br i1 %7, label %.lr.ph, label %.thread58
+  br i1 %7, label %.lr.ph, label %.thread57
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr6572 = phi ptr [ %15, %tailrecurse ], [ %1, %2 ]
-  %8 = getelementptr inbounds nuw i8, ptr %.tr6572, i64 24
+  %.tr6370 = phi ptr [ %15, %tailrecurse ], [ %1, %2 ]
+  %8 = getelementptr inbounds nuw i8, ptr %.tr6370, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !184
   %10 = load i8, ptr %9, align 4, !tbaa !186
   %11 = add i8 %10, -36
@@ -1099,7 +1099,7 @@ tailrecurse:                                      ; preds = %.critedge
   %15 = load ptr, ptr %14, align 8, !tbaa !144
   %16 = load i8, ptr %15, align 8, !tbaa !84
   %17 = icmp eq i8 %16, 24
-  br i1 %17, label %.lr.ph, label %.thread58
+  br i1 %17, label %.lr.ph, label %.thread57
 
 .critedge47:                                      ; preds = %.critedge
   %.not = icmp eq i8 %10, 4
@@ -1111,30 +1111,30 @@ tailrecurse:                                      ; preds = %.critedge
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 136
   %22 = load i32, ptr %21, align 8, !tbaa !50
   %23 = zext i32 %22 to i64
-  %.idx79 = shl nuw nsw i64 %23, 3
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx79
-  %.not4376 = icmp eq i32 %22, 0
-  br i1 %.not4376, label %.thread, label %.lr.ph78
+  %.idx77 = shl nuw nsw i64 %23, 3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx77
+  %.not4374 = icmp eq i32 %22, 0
+  br i1 %.not4374, label %.thread, label %.lr.ph76
 
-.lr.ph78:                                         ; preds = %18, %.lr.ph78
-  %.03377 = phi ptr [ %28, %.lr.ph78 ], [ %20, %18 ]
-  %25 = load ptr, ptr %.03377, align 8, !tbaa !142
+.lr.ph76:                                         ; preds = %18, %.lr.ph76
+  %.03375 = phi ptr [ %28, %.lr.ph76 ], [ %20, %18 ]
+  %25 = load ptr, ptr %.03375, align 8, !tbaa !142
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 128
   %27 = load ptr, ptr %26, align 8, !tbaa !144
   tail call void @_ZN4llvm10TypeFinder16incorporateValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %27)
-  %28 = getelementptr inbounds nuw i8, ptr %.03377, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.03375, i64 8
   %.not43 = icmp eq ptr %28, %24
-  br i1 %.not43, label %.thread, label %.lr.ph78
+  br i1 %.not43, label %.thread, label %.lr.ph76
 
-.thread58:                                        ; preds = %tailrecurse, %2
+.thread57:                                        ; preds = %tailrecurse, %2
   %29 = phi i8 [ %6, %2 ], [ %16, %tailrecurse ]
-  %.tr65.lcssa = phi ptr [ %1, %2 ], [ %15, %tailrecurse ]
-  store ptr %.tr65.lcssa, ptr %5, align 8, !tbaa !187
+  %.tr63.lcssa = phi ptr [ %1, %2 ], [ %15, %tailrecurse ]
+  store ptr %.tr63.lcssa, ptr %5, align 8, !tbaa !187
   %30 = add i8 %29, -22
   %or.cond = icmp ult i8 %30, -18
   br i1 %or.cond, label %.thread, label %31
 
-31:                                               ; preds = %.thread58
+31:                                               ; preds = %.thread57
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !188
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !188
   call void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS4_vEENS5_12DenseSetPairIS4_EEEES4_S6_S8_SA_E11try_emplaceIJRS6_EEESt4pairINS_16DenseMapIteratorIS4_S6_S8_SA_Lb0EEEbERKS4_DpOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.196") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 1 dereferenceable(1) %3), !noalias !188
@@ -1198,18 +1198,18 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %53, %56
   %.pre-phi2.i.i = phi i64 [ %.pre1.i.i, %53 ], [ %58, %56 ]
   %.idx = shl nuw nsw i64 %.pre-phi2.i.i, 5
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx
-  %.not4573 = icmp eq i64 %.pre-phi2.i.i, 0
-  br i1 %.not4573, label %.thread, label %.lr.ph75
+  %.not4571 = icmp eq i64 %.pre-phi2.i.i, 0
+  br i1 %.not4571, label %.thread, label %.lr.ph73
 
-.lr.ph75:                                         ; preds = %_ZNK4llvm4User8operandsEv.exit, %.lr.ph75
-  %.03474 = phi ptr [ %64, %.lr.ph75 ], [ %61, %_ZNK4llvm4User8operandsEv.exit ]
-  %63 = load ptr, ptr %.03474, align 8, !tbaa !43
+.lr.ph73:                                         ; preds = %_ZNK4llvm4User8operandsEv.exit, %.lr.ph73
+  %.03472 = phi ptr [ %64, %.lr.ph73 ], [ %61, %_ZNK4llvm4User8operandsEv.exit ]
+  %63 = load ptr, ptr %.03472, align 8, !tbaa !43
   call void @_ZN4llvm10TypeFinder16incorporateValueEPKNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(121) %0, ptr noundef %63)
-  %64 = getelementptr inbounds nuw i8, ptr %.03474, i64 32
+  %64 = getelementptr inbounds nuw i8, ptr %.03472, i64 32
   %.not45 = icmp eq ptr %64, %62
-  br i1 %.not45, label %.thread, label %.lr.ph75
+  br i1 %.not45, label %.thread, label %.lr.ph73
 
-.thread:                                          ; preds = %.lr.ph75, %.lr.ph78, %_ZNK4llvm4User8operandsEv.exit, %18, %.critedge47, %12, %35, %31, %.thread58
+.thread:                                          ; preds = %.lr.ph73, %.lr.ph76, %_ZNK4llvm4User8operandsEv.exit, %18, %.critedge47, %12, %35, %31, %.thread57
   ret void
 }
 

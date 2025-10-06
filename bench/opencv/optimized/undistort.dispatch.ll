@@ -7201,7 +7201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %260
 336:                                              ; preds = %.critedge, %330
   %.sroa.053.i.0 = phi double [ %335, %330 ], [ %419, %.critedge ]
   %.sroa.655.i.0 = phi double [ %329, %330 ], [ %420, %.critedge ]
-  %.070.i.us = phi i32 [ 0, %330 ], [ %421, %.critedge ]
+  %.069.i.us = phi i32 [ 0, %330 ], [ %421, %.critedge ]
   %337 = fptrunc double %.sroa.053.i.0 to float
   %338 = fptrunc double %.sroa.655.i.0 to float
   %339 = fpext float %337 to double
@@ -7313,7 +7313,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %260
   %418 = call double @llvm.fmuladd.f64(double %409, double %412, double %417)
   %419 = fsub double %.sroa.053.i.0, %416
   %420 = fsub double %.sroa.655.i.0, %418
-  %421 = add nuw nsw i32 %.070.i.us, 1
+  %421 = add nuw nsw i32 %.069.i.us, 1
   %exitcond.not.i.us = icmp eq i32 %421, 5
   br i1 %exitcond.not.i.us, label %.loopexit.us, label %336, !llvm.loop !345
 

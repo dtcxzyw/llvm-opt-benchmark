@@ -83,8 +83,8 @@ define hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4LIEF14Checksu
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i32, ptr %6, align 8, !tbaa !19
   %8 = and i32 %7, 1073741824
-  %.not47 = icmp eq i32 %8, 0
-  br i1 %.not47, label %36, label %9
+  %.not46 = icmp eq i32 %8, 0
+  br i1 %.not46, label %36, label %9
 
 9:                                                ; preds = %2
   %10 = and i32 %7, 255
@@ -162,7 +162,7 @@ _ZNK4LIEF12BinaryStream4readIhEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   br label %53
 
 53:                                               ; preds = %.lr.ph, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit
-  %.01650 = phi i64 [ %45, %.lr.ph ], [ %68, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit ]
+  %.01649 = phi i64 [ %45, %.lr.ph ], [ %68, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit ]
   %54 = load i64, ptr %41, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i16 0, ptr %4, align 2, !tbaa !26
@@ -196,7 +196,7 @@ _ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   %66 = add i64 %64, 2
   store i64 %66, ptr %41, align 8, !tbaa !3
   %67 = zext i16 %65 to i32
-  %68 = add i64 %.01650, -1
+  %68 = add i64 %.01649, -1
   %69 = load i32, ptr %52, align 4, !tbaa !25
   %70 = add i32 %69, %67
   %71 = lshr i32 %70, 16
@@ -211,8 +211,8 @@ _ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit: ; preds =
   br i1 %78, label %53, label %.thread40
 
 .thread40:                                        ; preds = %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit, %36, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit.thread
-  %.01649 = phi i64 [ %.01650, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit.thread ], [ %45, %36 ], [ %68, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit ]
-  %.not = icmp eq i64 %.01649, 0
+  %.01648 = phi i64 [ %.01649, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit.thread ], [ %45, %36 ], [ %68, %_ZNK4LIEF12BinaryStream4readItEEN2tl8expectedIT_11lief_errorsEEv.exit ]
+  %.not = icmp eq i64 %.01648, 0
   br i1 %.not, label %96, label %79
 
 79:                                               ; preds = %.thread40
@@ -488,8 +488,8 @@ define linkonce_odr hidden i64 @_ZNK4LIEF12BinaryStream7peek_inEPvmmm(ptr nounde
   %11 = icmp eq ptr %1, null
   %or.cond = or i1 %11, %.not
   %12 = icmp eq ptr %.fca.0.extract, null
-  %or.cond19 = select i1 %or.cond, i1 true, i1 %12
-  br i1 %or.cond19, label %.thread, label %13
+  %or.cond18 = select i1 %or.cond, i1 true, i1 %12
+  br i1 %or.cond18, label %.thread, label %13
 
 13:                                               ; preds = %5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr nonnull align 1 %.fca.0.extract, i64 %3, i1 false)

@@ -4142,8 +4142,8 @@ define hidden void @_ZNK4llvh6Triple17getWatchOSVersionERjS1_S1_(ptr noundef non
 entry:
   %OS.i = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %OS.i, align 4
-  %switch = icmp eq i32 %0, 28
-  br i1 %switch, label %sw.bb2, label %sw.bb
+  %1 = icmp eq i32 %0, 28
+  br i1 %1, label %sw.bb2, label %sw.bb
 
 sw.bb:                                            ; preds = %entry
   store i32 2, ptr %Major, align 4
@@ -4153,8 +4153,8 @@ sw.bb:                                            ; preds = %entry
 
 sw.bb2:                                           ; preds = %entry
   tail call void @_ZNK4llvh6Triple12getOSVersionERjS1_S1_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %Major, ptr noundef nonnull align 4 dereferenceable(4) %Minor, ptr noundef nonnull align 4 dereferenceable(4) %Micro)
-  %1 = load i32, ptr %Major, align 4
-  %cmp = icmp eq i32 %1, 0
+  %2 = load i32, ptr %Major, align 4
+  %cmp = icmp eq i32 %2, 0
   br i1 %cmp, label %if.then, label %sw.epilog
 
 if.then:                                          ; preds = %sw.bb2

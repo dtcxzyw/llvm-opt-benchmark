@@ -5336,17 +5336,17 @@ define internal fastcc void @_ZL24visitRegisterBankClassesRKN4llvm14CodeGenRegBa
   %34 = zext i32 %33 to i64
   %.idx.i.i = shl nuw nsw i64 %34, 3
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %33, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %33, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %30, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %37, %.critedge.i.i ], [ %31, %30 ]
-  %36 = load ptr, ptr %.02937.i.i, align 8, !tbaa !295, !noalias !292
+  %.02935.i.i = phi ptr [ %37, %.critedge.i.i ], [ %31, %30 ]
+  %36 = load ptr, ptr %.02935.i.i, align 8, !tbaa !295, !noalias !292
   %.not17.i.i = icmp eq ptr %36, %1
   br i1 %.not17.i.i, label %.loopexit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %37 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %37, %35
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !296
 

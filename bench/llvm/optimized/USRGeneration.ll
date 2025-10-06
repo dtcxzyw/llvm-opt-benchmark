@@ -27872,11 +27872,11 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %9, %11
   %20 = shl i32 %19, 3
   %.idx = zext i32 %20 to i64
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
-  %.not2047 = icmp eq i32 %20, 0
-  br i1 %.not2047, label %.loopexit, label %.lr.ph
+  %.not2046 = icmp eq i32 %20, 0
+  br i1 %.not2046, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm11raw_ostreamlsEc.exit, %_ZN4llvm11raw_ostreamlsEc.exit30
-  %.048 = phi ptr [ %85, %_ZN4llvm11raw_ostreamlsEc.exit30 ], [ %18, %_ZN4llvm11raw_ostreamlsEc.exit ]
+  %.047 = phi ptr [ %85, %_ZN4llvm11raw_ostreamlsEc.exit30 ], [ %18, %_ZN4llvm11raw_ostreamlsEc.exit ]
   %22 = load ptr, ptr %5, align 8, !tbaa !15
   %23 = load ptr, ptr %7, align 8, !tbaa !10
   %.not.i22 = icmp ult ptr %22, %23
@@ -27893,7 +27893,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %9, %11
   br label %_ZN4llvm11raw_ostreamlsEc.exit24
 
 _ZN4llvm11raw_ostreamlsEc.exit24:                 ; preds = %24, %26
-  %28 = load ptr, ptr %.048, align 8, !tbaa !739
+  %28 = load ptr, ptr %.047, align 8, !tbaa !739
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %30 = load i32, ptr %29, align 4
   %31 = and i32 %30, 127
@@ -27937,10 +27937,10 @@ _ZN4llvm11raw_ostreamlsEc.exit27:                 ; preds = %40, %38, %33
   br label %_ZN4llvm11raw_ostreamlsEc.exit30
 
 48:                                               ; preds = %_ZN4llvm11raw_ostreamlsEc.exit24
-  %.not60 = icmp eq i32 %31, 45
+  %.not59 = icmp eq i32 %31, 45
   %49 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %50 = load i8, ptr %49, align 8
-  br i1 %.not60, label %51, label %68
+  br i1 %.not59, label %51, label %68
 
 51:                                               ; preds = %48
   %52 = trunc nuw i8 %50 to i1
@@ -27986,8 +27986,8 @@ _ZN4llvm11raw_ostreamlsEc.exit33:                 ; preds = %58, %56, %51
 
 68:                                               ; preds = %48
   %69 = and i8 %50, 2
-  %.not46 = icmp eq i8 %69, 0
-  br i1 %.not46, label %_ZN4llvm11raw_ostreamlsEc.exit39, label %70
+  %.not45 = icmp eq i8 %69, 0
+  br i1 %.not45, label %_ZN4llvm11raw_ostreamlsEc.exit39, label %70
 
 70:                                               ; preds = %68
   %71 = load ptr, ptr %5, align 8, !tbaa !15
@@ -28028,7 +28028,7 @@ _ZN4llvm11raw_ostreamlsEc.exit42:                 ; preds = %79, %81
   br label %_ZN4llvm11raw_ostreamlsEc.exit30
 
 _ZN4llvm11raw_ostreamlsEc.exit30:                 ; preds = %66, %46, %44, %_ZN4llvm11raw_ostreamlsEc.exit42
-  %85 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+  %85 = getelementptr inbounds nuw i8, ptr %.047, i64 8
   %.not20 = icmp eq ptr %85, %21
   br i1 %.not20, label %.loopexit, label %.lr.ph, !llvm.loop !740
 
@@ -28611,9 +28611,9 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i16, ptr %23, align 8
   %25 = and i16 %24, 127
-  %.not8.i = icmp eq i16 %25, 21
+  %.not7.i = icmp eq i16 %25, 21
   %26 = getelementptr inbounds i8, ptr %22, i64 -48
-  br i1 %.not8.i, label %37, label %_ZNK5clang4Decl14getDeclContextEv.exit14.i
+  br i1 %.not7.i, label %37, label %_ZNK5clang4Decl14getDeclContextEv.exit13.i
 
 _ZNK5clang4Decl14getDeclContextEv.exit.thread.i:  ; preds = %18
   %27 = load ptr, ptr %22, align 8, !tbaa !673
@@ -28622,22 +28622,22 @@ _ZNK5clang4Decl14getDeclContextEv.exit.thread.i:  ; preds = %18
   %30 = and i16 %29, 127
   %.not.i = icmp eq i16 %30, 21
   %31 = getelementptr inbounds i8, ptr %27, i64 -48
-  br i1 %.not.i, label %37, label %_ZNK5clang4Decl14getDeclContextEv.exit14.i
+  br i1 %.not.i, label %37, label %_ZNK5clang4Decl14getDeclContextEv.exit13.i
 
-_ZNK5clang4Decl14getDeclContextEv.exit14.i:       ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
+_ZNK5clang4Decl14getDeclContextEv.exit13.i:       ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
   %32 = phi i16 [ %24, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %29, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
-  %.0.i.i13.i = phi ptr [ %22, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %27, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
+  %.0.i.i12.i = phi ptr [ %22, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %27, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
   %33 = and i16 %32, 127
-  %.not9.i = icmp eq i16 %33, 20
-  br i1 %.not9.i, label %34, label %37
+  %.not8.i = icmp eq i16 %33, 20
+  br i1 %.not8.i, label %34, label %37
 
-34:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit14.i
-  %35 = getelementptr inbounds i8, ptr %.0.i.i13.i, i64 -48
+34:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit13.i
+  %35 = getelementptr inbounds i8, ptr %.0.i.i12.i, i64 -48
   %36 = tail call noundef ptr @_ZNK5clang20ObjCCategoryImplDecl15getCategoryDeclEv(ptr noundef nonnull align 8 dereferenceable(100) %35) #15
   br label %37
 
-37:                                               ; preds = %34, %_ZNK5clang4Decl14getDeclContextEv.exit14.i, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
-  %.1.i = phi ptr [ %26, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %31, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ], [ %36, %34 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit14.i ]
+37:                                               ; preds = %34, %_ZNK5clang4Decl14getDeclContextEv.exit13.i, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
+  %.1.i = phi ptr [ %26, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %31, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ], [ %36, %34 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit13.i ]
   tail call fastcc void @_ZN12_GLOBAL__N_112USRGenerator22VisitObjCContainerDeclEPKN5clang17ObjCContainerDeclEPKNS1_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %16, ptr noundef %.1.i)
   br label %.critedge
 
@@ -31386,9 +31386,9 @@ _ZNK5clang4Decl14getDeclContextEv.exit.i:         ; preds = %11
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i16, ptr %12, align 8
   %14 = and i16 %13, 127
-  %.not8.i = icmp eq i16 %14, 21
+  %.not7.i = icmp eq i16 %14, 21
   %15 = getelementptr inbounds i8, ptr %10, i64 -48
-  br i1 %.not8.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit14.i
+  br i1 %.not7.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit13.i
 
 _ZNK5clang4Decl14getDeclContextEv.exit.thread.i:  ; preds = %11
   %16 = load ptr, ptr %10, align 8, !tbaa !673
@@ -31397,22 +31397,22 @@ _ZNK5clang4Decl14getDeclContextEv.exit.thread.i:  ; preds = %11
   %19 = and i16 %18, 127
   %.not.i = icmp eq i16 %19, 21
   %20 = getelementptr inbounds i8, ptr %16, i64 -48
-  br i1 %.not.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit14.i
+  br i1 %.not.i, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit, label %_ZNK5clang4Decl14getDeclContextEv.exit13.i
 
-_ZNK5clang4Decl14getDeclContextEv.exit14.i:       ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
+_ZNK5clang4Decl14getDeclContextEv.exit13.i:       ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit.i
   %21 = phi i16 [ %13, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %18, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
-  %.0.i.i13.i = phi ptr [ %10, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %16, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
+  %.0.i.i12.i = phi ptr [ %10, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %16, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ]
   %22 = and i16 %21, 127
-  %.not9.i = icmp eq i16 %22, 20
-  br i1 %.not9.i, label %23, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit
+  %.not8.i = icmp eq i16 %22, 20
+  br i1 %.not8.i, label %23, label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit
 
-23:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit14.i
-  %24 = getelementptr inbounds i8, ptr %.0.i.i13.i, i64 -48
+23:                                               ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit13.i
+  %24 = getelementptr inbounds i8, ptr %.0.i.i12.i, i64 -48
   %25 = tail call noundef ptr @_ZNK5clang20ObjCCategoryImplDecl15getCategoryDeclEv(ptr noundef nonnull align 8 dereferenceable(100) %24) #15
   br label %_ZL18getCategoryContextPKN5clang9NamedDeclE.exit
 
-_ZL18getCategoryContextPKN5clang9NamedDeclE.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit14.i, %23
-  %.1.i = phi ptr [ %15, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %20, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ], [ %25, %23 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit14.i ]
+_ZL18getCategoryContextPKN5clang9NamedDeclE.exit: ; preds = %_ZNK5clang4Decl14getDeclContextEv.exit.i, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i, %_ZNK5clang4Decl14getDeclContextEv.exit13.i, %23
+  %.1.i = phi ptr [ %15, %_ZNK5clang4Decl14getDeclContextEv.exit.i ], [ %20, %_ZNK5clang4Decl14getDeclContextEv.exit.thread.i ], [ %25, %23 ], [ null, %_ZNK5clang4Decl14getDeclContextEv.exit13.i ]
   tail call fastcc void @_ZN12_GLOBAL__N_112USRGenerator22VisitObjCContainerDeclEPKN5clang17ObjCContainerDeclEPKNS1_16ObjCCategoryDeclE(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef nonnull %5, ptr noundef %.1.i)
   br label %30
 

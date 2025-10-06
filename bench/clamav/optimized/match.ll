@@ -168,9 +168,9 @@ declare void @_Z11GetFilePathPKwPwm(ptr noundef, ptr noundef, i64 noundef) local
 define internal fastcc noundef zeroext i1 @_ZL5matchPKwS0_b(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   br label %tailrecurse.outer
 
-tailrecurse.outer:                                ; preds = %3, %.loopexit148
-  %.044.ph = phi ptr [ %1, %3 ], [ %54, %.loopexit148 ]
-  %.043.ph = phi ptr [ %0, %3 ], [ %5, %.loopexit148 ]
+tailrecurse.outer:                                ; preds = %3, %.loopexit147
+  %.044.ph = phi ptr [ %1, %3 ], [ %54, %.loopexit147 ]
+  %.043.ph = phi ptr [ %0, %3 ], [ %5, %.loopexit147 ]
   %4 = load i32, ptr %.044.ph, align 4, !tbaa !3
   br label %tailrecurse
 
@@ -190,7 +190,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 9:                                                ; preds = %tailrecurse
   %10 = icmp eq i32 %4, 0
-  br i1 %10, label %.loopexit, label %.loopexit148
+  br i1 %10, label %.loopexit, label %.loopexit147
 
 11:                                               ; preds = %tailrecurse
   %12 = load i32, ptr %5, align 4, !tbaa !3
@@ -279,7 +279,7 @@ _ZL10mwcsicompcPKwS0_b.exit:                      ; preds = %41, %43
 
 50:                                               ; preds = %tailrecurse
   %.not53 = icmp eq i32 %6, %4
-  br i1 %.not53, label %.loopexit148, label %51
+  br i1 %.not53, label %.loopexit147, label %51
 
 51:                                               ; preds = %50
   %52 = icmp eq i32 %6, 46
@@ -295,7 +295,7 @@ _ZL10mwcsicompcPKwS0_b.exit:                      ; preds = %41, %43
 tailrecurse.backedge:                             ; preds = %53, %53, %53
   br label %tailrecurse
 
-.loopexit148:                                     ; preds = %50, %9
+.loopexit147:                                     ; preds = %50, %9
   %54 = getelementptr inbounds nuw i8, ptr %.044.ph, i64 4
   br label %tailrecurse.outer, !llvm.loop !9
 

@@ -6628,27 +6628,28 @@ define internal i32 @dissect_ansi_map_CallingFeaturesIndicator(i1 noundef zeroex
   %47 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %46, ptr noundef nonnull %9, i32 noundef 3, i32 noundef 1, i32 noundef 0)
   %48 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_pcwfa, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %48, ptr noundef nonnull %9, i32 noundef 3, i32 noundef 1, i32 noundef 0)
-  %50 = icmp eq i32 %11, 4
-  br i1 %50, label %dissect_ansi_map_callingfeaturesindicator.exit, label %51
+  %50 = add i32 %11, -4
+  %51 = icmp eq i32 %50, 0
+  br i1 %51, label %dissect_ansi_map_callingfeaturesindicator.exit, label %52
 
-51:                                               ; preds = %41
-  %52 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_uscfmsfa, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %52, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, i32 noundef 0)
-  %54 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_uscfnrfa, align 4
-  %55 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %54, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, i32 noundef 0)
-  %56 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_cpdsfa, align 4
-  %57 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %56, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, i32 noundef 0)
-  %58 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_ccsfa, align 4
-  %59 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %58, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, i32 noundef 0)
-  %60 = icmp eq i32 %11, 5
-  br i1 %60, label %dissect_ansi_map_callingfeaturesindicator.exit, label %61
+52:                                               ; preds = %41
+  %53 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_uscfmsfa, align 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %53, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %55 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_uscfnrfa, align 4
+  %56 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %55, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %57 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_cpdsfa, align 4
+  %58 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %57, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %59 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_ccsfa, align 4
+  %60 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %59, ptr noundef nonnull %9, i32 noundef 4, i32 noundef 1, i32 noundef 0)
+  %61 = icmp eq i32 %50, 1
+  br i1 %61, label %dissect_ansi_map_callingfeaturesindicator.exit, label %62
 
-61:                                               ; preds = %51
-  %62 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_epefa, align 4
-  %63 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %62, ptr noundef nonnull %9, i32 noundef 5, i32 noundef 1, i32 noundef 0)
+62:                                               ; preds = %52
+  %63 = load i32, ptr @hf_ansi_map_callingfeaturesindicator_epefa, align 4
+  %64 = call ptr @proto_tree_add_item(ptr noundef %15, i32 noundef %63, ptr noundef nonnull %9, i32 noundef 5, i32 noundef 1, i32 noundef 0)
   br label %dissect_ansi_map_callingfeaturesindicator.exit
 
-dissect_ansi_map_callingfeaturesindicator.exit:   ; preds = %61, %51, %41, %10, %6
+dissect_ansi_map_callingfeaturesindicator.exit:   ; preds = %62, %52, %41, %10, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %8
 }

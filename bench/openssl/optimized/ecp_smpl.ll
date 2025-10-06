@@ -1905,17 +1905,17 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %18 = shl i64 %1, 3
   %19 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %18, ptr noundef nonnull @.str, i32 noundef 1230) #3
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %.thread, label %.preheader183
+  br i1 %20, label %.thread, label %.preheader182
 
-21:                                               ; preds = %.preheader183
-  %22 = add nuw i64 %.0137185, 1
+21:                                               ; preds = %.preheader182
+  %22 = add nuw i64 %.0137184, 1
   %exitcond.not = icmp eq i64 %22, %1
-  br i1 %exitcond.not, label %26, label %.preheader183, !llvm.loop !33
+  br i1 %exitcond.not, label %26, label %.preheader182, !llvm.loop !33
 
-.preheader183:                                    ; preds = %17, %21
-  %.0137185 = phi i64 [ %22, %21 ], [ 0, %17 ]
+.preheader182:                                    ; preds = %17, %21
+  %.0137184 = phi i64 [ %22, %21 ], [ 0, %17 ]
   %23 = tail call ptr @BN_new() #3
-  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %.0137185
+  %24 = getelementptr inbounds nuw ptr, ptr %19, i64 %.0137184
   store ptr %23, ptr %24, align 8, !tbaa !35
   %25 = icmp eq ptr %23, null
   br i1 %25, label %.thread, label %21
@@ -1956,12 +1956,12 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   br i1 %.not153, label %.thread, label %46
 
 46:                                               ; preds = %42, %44, %31
-  %.not194 = icmp eq i64 %1, 1
-  br i1 %.not194, label %._crit_edge, label %.lr.ph
+  %.not193 = icmp eq i64 %1, 1
+  br i1 %.not193, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %46, %70
-  %.1186 = phi i64 [ %71, %70 ], [ 1, %46 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1186
+  %.1185 = phi i64 [ %71, %70 ], [ 1, %46 ]
+  %47 = getelementptr inbounds nuw ptr, ptr %2, i64 %.1185
   %48 = load ptr, ptr %47, align 8, !tbaa !36
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !27
@@ -1973,7 +1973,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %53 = load ptr, ptr %0, align 8, !tbaa !20
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 248
   %55 = load ptr, ptr %54, align 8, !tbaa !32
-  %56 = getelementptr inbounds nuw ptr, ptr %19, i64 %.1186
+  %56 = getelementptr inbounds nuw ptr, ptr %19, i64 %.1185
   %57 = load ptr, ptr %56, align 8, !tbaa !35
   %58 = getelementptr i8, ptr %56, i64 -8
   %59 = load ptr, ptr %58, align 8, !tbaa !35
@@ -1985,7 +1985,7 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   br i1 %.not175, label %.thread, label %70
 
 64:                                               ; preds = %.lr.ph
-  %65 = getelementptr inbounds nuw ptr, ptr %19, i64 %.1186
+  %65 = getelementptr inbounds nuw ptr, ptr %19, i64 %.1185
   %66 = load ptr, ptr %65, align 8, !tbaa !35
   %67 = getelementptr i8, ptr %65, i64 -8
   %68 = load ptr, ptr %67, align 8, !tbaa !35
@@ -1994,9 +1994,9 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   br i1 %.not176, label %.thread, label %70
 
 70:                                               ; preds = %52, %64
-  %71 = add nuw i64 %.1186, 1
-  %exitcond199.not = icmp eq i64 %71, %1
-  br i1 %exitcond199.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
+  %71 = add nuw i64 %.1185, 1
+  %exitcond198.not = icmp eq i64 %71, %1
+  br i1 %exitcond198.not, label %._crit_edge, label %.lr.ph, !llvm.loop !38
 
 ._crit_edge:                                      ; preds = %70, %46
   %72 = load ptr, ptr %0, align 8, !tbaa !20
@@ -2036,12 +2036,12 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   br i1 %.not158, label %.thread, label %91
 
 91:                                               ; preds = %86, %80
-  %.not159187 = icmp eq i64 %75, 0
-  br i1 %.not159187, label %._crit_edge191, label %.lr.ph190
+  %.not159186 = icmp eq i64 %75, 0
+  br i1 %.not159186, label %._crit_edge190, label %.lr.ph189
 
-.lr.ph190:                                        ; preds = %91, %118
-  %.2188 = phi i64 [ %119, %118 ], [ %75, %91 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2188
+.lr.ph189:                                        ; preds = %91, %118
+  %.2187 = phi i64 [ %119, %118 ], [ %75, %91 ]
+  %92 = getelementptr inbounds nuw ptr, ptr %2, i64 %.2187
   %93 = load ptr, ptr %92, align 8, !tbaa !36
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !27
@@ -2049,11 +2049,11 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %.not170 = icmp eq i32 %96, 0
   br i1 %.not170, label %97, label %118
 
-97:                                               ; preds = %.lr.ph190
+97:                                               ; preds = %.lr.ph189
   %98 = load ptr, ptr %0, align 8, !tbaa !20
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 248
   %100 = load ptr, ptr %99, align 8, !tbaa !32
-  %101 = getelementptr ptr, ptr %19, i64 %.2188
+  %101 = getelementptr ptr, ptr %19, i64 %.2187
   %102 = getelementptr i8, ptr %101, i64 -8
   %103 = load ptr, ptr %102, align 8, !tbaa !35
   %104 = tail call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %15, ptr noundef %103, ptr noundef %14, ptr noundef nonnull %.0139) #3
@@ -2079,33 +2079,33 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   %.not173 = icmp eq ptr %117, null
   br i1 %.not173, label %.thread, label %118
 
-118:                                              ; preds = %.lr.ph190, %113
-  %119 = add i64 %.2188, -1
+118:                                              ; preds = %.lr.ph189, %113
+  %119 = add i64 %.2187, -1
   %.not159 = icmp eq i64 %119, 0
-  br i1 %.not159, label %._crit_edge191, label %.lr.ph190, !llvm.loop !39
+  br i1 %.not159, label %._crit_edge190, label %.lr.ph189, !llvm.loop !39
 
-._crit_edge191:                                   ; preds = %118, %91
+._crit_edge190:                                   ; preds = %118, %91
   %120 = load ptr, ptr %2, align 8, !tbaa !36
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 32
   %122 = load ptr, ptr %121, align 8, !tbaa !27
   %123 = tail call i32 @BN_is_zero(ptr noundef %122) #3
   %.not160 = icmp eq i32 %123, 0
-  br i1 %.not160, label %124, label %.preheader225
+  br i1 %.not160, label %124, label %.preheader224
 
-124:                                              ; preds = %._crit_edge191
+124:                                              ; preds = %._crit_edge190
   %125 = load ptr, ptr %2, align 8, !tbaa !36
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 32
   %127 = load ptr, ptr %126, align 8, !tbaa !27
   %128 = tail call ptr @BN_copy(ptr noundef %127, ptr noundef %14) #3
   %.not161 = icmp eq ptr %128, null
-  br i1 %.not161, label %.thread, label %.preheader225
+  br i1 %.not161, label %.thread, label %.preheader224
 
-.preheader225:                                    ; preds = %124, %._crit_edge191
+.preheader224:                                    ; preds = %124, %._crit_edge190
   br label %129
 
-129:                                              ; preds = %.preheader225, %172
-  %.3192 = phi i64 [ %173, %172 ], [ 0, %.preheader225 ]
-  %130 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3192
+129:                                              ; preds = %.preheader224, %172
+  %.3191 = phi i64 [ %173, %172 ], [ 0, %.preheader224 ]
+  %130 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3191
   %131 = load ptr, ptr %130, align 8, !tbaa !36
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 32
   %133 = load ptr, ptr %132, align 8, !tbaa !27
@@ -2175,30 +2175,30 @@ define range(i32 0, 2) i32 @ossl_ec_GFp_simple_points_make_affine(ptr noundef %0
   br label %172
 
 172:                                              ; preds = %170, %129
-  %173 = add nuw i64 %.3192, 1
-  %exitcond201.not = icmp eq i64 %173, %1
-  br i1 %exitcond201.not, label %.thread, label %129, !llvm.loop !40
+  %173 = add nuw i64 %.3191, 1
+  %exitcond200.not = icmp eq i64 %173, %1
+  br i1 %exitcond200.not, label %.thread, label %129, !llvm.loop !40
 
-.thread:                                          ; preds = %.preheader183, %64, %52, %113, %105, %97, %168, %166, %154, %148, %141, %135, %172, %124, %86, %84, %44, %42, %31, %17, %13, %79
-  %.0138 = phi ptr [ null, %13 ], [ null, %17 ], [ %19, %124 ], [ %19, %86 ], [ %19, %84 ], [ %19, %79 ], [ %19, %42 ], [ %19, %44 ], [ %19, %31 ], [ %19, %172 ], [ %19, %135 ], [ %19, %141 ], [ %19, %148 ], [ %19, %154 ], [ %19, %166 ], [ %19, %168 ], [ %19, %97 ], [ %19, %105 ], [ %19, %113 ], [ %19, %52 ], [ %19, %64 ], [ %19, %.preheader183 ]
-  %.0136 = phi i32 [ 0, %13 ], [ 0, %17 ], [ 0, %124 ], [ 0, %86 ], [ 0, %84 ], [ 0, %79 ], [ 0, %42 ], [ 0, %44 ], [ 0, %31 ], [ 0, %168 ], [ 0, %166 ], [ 0, %154 ], [ 0, %148 ], [ 0, %141 ], [ 0, %135 ], [ 1, %172 ], [ 0, %97 ], [ 0, %105 ], [ 0, %113 ], [ 0, %52 ], [ 0, %64 ], [ 0, %.preheader183 ]
+.thread:                                          ; preds = %.preheader182, %64, %52, %113, %105, %97, %168, %166, %154, %148, %141, %135, %172, %124, %86, %84, %44, %42, %31, %17, %13, %79
+  %.0138 = phi ptr [ null, %13 ], [ null, %17 ], [ %19, %124 ], [ %19, %86 ], [ %19, %84 ], [ %19, %79 ], [ %19, %42 ], [ %19, %44 ], [ %19, %31 ], [ %19, %172 ], [ %19, %135 ], [ %19, %141 ], [ %19, %148 ], [ %19, %154 ], [ %19, %166 ], [ %19, %168 ], [ %19, %97 ], [ %19, %105 ], [ %19, %113 ], [ %19, %52 ], [ %19, %64 ], [ %19, %.preheader182 ]
+  %.0136 = phi i32 [ 0, %13 ], [ 0, %17 ], [ 0, %124 ], [ 0, %86 ], [ 0, %84 ], [ 0, %79 ], [ 0, %42 ], [ 0, %44 ], [ 0, %31 ], [ 0, %168 ], [ 0, %166 ], [ 0, %154 ], [ 0, %148 ], [ 0, %141 ], [ 0, %135 ], [ 1, %172 ], [ 0, %97 ], [ 0, %105 ], [ 0, %113 ], [ 0, %52 ], [ 0, %64 ], [ 0, %.preheader182 ]
   tail call void @BN_CTX_end(ptr noundef nonnull %.0139) #3
   tail call void @BN_CTX_free(ptr noundef %.0140) #3
   %.not177 = icmp eq ptr %.0138, null
   br i1 %.not177, label %180, label %.preheader
 
 .preheader:                                       ; preds = %.thread, %177
-  %.4193 = phi i64 [ %178, %177 ], [ 0, %.thread ]
-  %174 = getelementptr inbounds nuw ptr, ptr %.0138, i64 %.4193
+  %.4192 = phi i64 [ %178, %177 ], [ 0, %.thread ]
+  %174 = getelementptr inbounds nuw ptr, ptr %.0138, i64 %.4192
   %175 = load ptr, ptr %174, align 8, !tbaa !35
   %176 = icmp eq ptr %175, null
   br i1 %176, label %179, label %177
 
 177:                                              ; preds = %.preheader
   tail call void @BN_clear_free(ptr noundef nonnull %175) #3
-  %178 = add nuw i64 %.4193, 1
-  %exitcond203.not = icmp eq i64 %178, %1
-  br i1 %exitcond203.not, label %179, label %.preheader, !llvm.loop !41
+  %178 = add nuw i64 %.4192, 1
+  %exitcond202.not = icmp eq i64 %178, %1
+  br i1 %exitcond202.not, label %179, label %.preheader, !llvm.loop !41
 
 179:                                              ; preds = %.preheader, %177
   tail call void @CRYPTO_free(ptr noundef nonnull %.0138, ptr noundef nonnull @.str, i32 noundef 1360) #3

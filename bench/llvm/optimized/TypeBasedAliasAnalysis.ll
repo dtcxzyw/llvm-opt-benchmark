@@ -660,21 +660,21 @@ _ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit: ; pre
   %.in.i.i.i = select i1 %45, ptr %42, ptr %46
   %47 = load i64, ptr %.in.i.i.i, align 8, !tbaa !77
   %48 = and i64 %47, 1
-  %.not55 = icmp eq i64 %48, 0
-  br i1 %.not55, label %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread, label %.critedge2
+  %.not54 = icmp eq i64 %48, 0
+  br i1 %.not54, label %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread, label %.critedge2
 
 _ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i13, %37, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit
   br i1 %.not.i.i.i, label %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge, label %_ZNK4llvm6MDNode10getOperandEj.exit.thread.i18
 
 _ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread
-  %.pre62 = lshr i64 %16, 2
-  %.pre64 = and i64 %.pre62, 15
-  %.pre66 = sub nsw i64 0, %.pre64
+  %.pre61 = lshr i64 %16, 2
+  %.pre63 = and i64 %.pre61, 15
+  %.pre65 = sub nsw i64 0, %.pre63
   br label %_ZNK4llvm6MDNode10getOperandEj.exit.i23
 
 _ZNK4llvm6MDNode10getOperandEj.exit.i23:          ; preds = %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i16
-  %.pre-phi67 = phi i64 [ %.pre66, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge ], [ %20, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i16 ]
-  %49 = getelementptr inbounds %"class.llvm::MDOperand", ptr %15, i64 %.pre-phi67
+  %.pre-phi66 = phi i64 [ %.pre65, %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread._ZNK4llvm6MDNode10getOperandEj.exit.i23_crit_edge ], [ %20, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i16 ]
+  %49 = getelementptr inbounds %"class.llvm::MDOperand", ptr %15, i64 %.pre-phi66
   %50 = load ptr, ptr %49, align 8, !tbaa !60
   %51 = load i8, ptr %50, align 4, !tbaa !63
   %52 = add i8 %51, -5
@@ -682,12 +682,12 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i23:          ; preds = %_ZNK12_GLOBAL__N_11
   br i1 %switch.i.i.i.i.i.i.i.i.i24, label %53, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread
 
 _ZNK4llvm6MDNode10getOperandEj.exit.thread.i18:   ; preds = %_ZNK12_GLOBAL__N_112TBAANodeImplIKN4llvm6MDNodeEE15isTypeImmutableEv.exit.thread
-  %.phi.trans.insert57 = getelementptr inbounds i8, ptr %13, i64 -32
-  %.pre58 = load ptr, ptr %.phi.trans.insert57, align 8, !tbaa !25
-  %.pre59 = load ptr, ptr %.pre58, align 8, !tbaa !60
-  %.pre60 = load i8, ptr %.pre59, align 4, !tbaa !63
-  %.pre61 = add i8 %.pre60, -5
-  %switch.i.i.i.i.i.i.i.i4.i19 = icmp ult i8 %.pre61, 31
+  %.phi.trans.insert56 = getelementptr inbounds i8, ptr %13, i64 -32
+  %.pre57 = load ptr, ptr %.phi.trans.insert56, align 8, !tbaa !25
+  %.pre58 = load ptr, ptr %.pre57, align 8, !tbaa !60
+  %.pre59 = load i8, ptr %.pre58, align 4, !tbaa !63
+  %.pre60 = add i8 %.pre59, -5
+  %switch.i.i.i.i.i.i.i.i4.i19 = icmp ult i8 %.pre60, 31
   br i1 %switch.i.i.i.i.i.i.i.i4.i19, label %.thread.i20, label %_ZNK4llvm11Instruction11getMetadataEj.exit.thread
 
 53:                                               ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i23
@@ -827,7 +827,7 @@ _ZNK4llvm6MDNode10getOperandEj.exit.i:            ; preds = %1
   %11 = add i8 %10, -5
   %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %11, 31
   %12 = and i64 %3, 960
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZL16isStructPathTBAAPKN4llvm6MDNodeE.exit, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread44
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %_ZL16isStructPathTBAAPKN4llvm6MDNodeE.exit, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread43
 
 _ZNK4llvm6MDNode10getOperandEj.exit.thread.i:     ; preds = %1
   %13 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -846,7 +846,7 @@ _ZL16isStructPathTBAAPKN4llvm6MDNodeE.exit:       ; preds = %_ZNK4llvm6MDNode10g
   %21 = icmp samesign ugt i64 %12, 128
   br i1 %21, label %_ZNK4llvm6MDNode10getOperandEj.exit.i17, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32
 
-_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread44: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i
+_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread43: ; preds = %_ZNK4llvm6MDNode10getOperandEj.exit.i
   %22 = icmp eq i64 %12, 0
   br i1 %22, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32, label %_ZNK4llvm6MDNode10getOperandEj.exit
 
@@ -854,9 +854,9 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread:   ; preds = %_ZNK4llvm6MDNode10g
   %23 = icmp eq i32 %19, 0
   br i1 %23, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32, label %_ZNK4llvm6MDNode10getOperandEj.exit
 
-_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread44, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread
-  %24 = phi i8 [ %16, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ %10, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread44 ]
-  %25 = phi ptr [ %15, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ %9, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread44 ]
+_ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread43, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread
+  %24 = phi i8 [ %16, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ %10, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread43 ]
+  %25 = phi ptr [ %15, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ %9, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread43 ]
   %.not = icmp eq i8 %24, 0
   br i1 %.not, label %26, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32
 
@@ -897,21 +897,21 @@ _ZNK12_GLOBAL__N_121TBAAStructTagNodeImplIKN4llvm6MDNodeEE13getAccessTypeEv.exit
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i:    ; preds = %_ZNK12_GLOBAL__N_121TBAAStructTagNodeImplIKN4llvm6MDNodeEE13getAccessTypeEv.exit
   %39 = and i64 %37, 960
   %40 = icmp samesign ult i64 %39, 192
-  %.pre51 = lshr i64 %37, 2
-  %.pre52 = and i64 %.pre51, 15
-  %.pre54 = sub nsw i64 0, %.pre52
+  %.pre50 = lshr i64 %37, 2
+  %.pre51 = and i64 %.pre50, 15
+  %.pre53 = sub nsw i64 0, %.pre51
   br i1 %40, label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.thread.i, label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.i
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i: ; preds = %_ZNK12_GLOBAL__N_121TBAAStructTagNodeImplIKN4llvm6MDNodeEE13getAccessTypeEv.exit
   %41 = getelementptr inbounds i8, ptr %.0.i.i.i18, i64 -24
   %42 = load i32, ptr %41, align 8, !tbaa !26
   %43 = icmp ult i32 %42, 3
-  %.phi.trans.insert49 = getelementptr inbounds i8, ptr %.0.i.i.i18, i64 -32
-  %.pre50 = load ptr, ptr %.phi.trans.insert49, align 8, !tbaa !25
+  %.phi.trans.insert48 = getelementptr inbounds i8, ptr %.0.i.i.i18, i64 -32
+  %.pre49 = load ptr, ptr %.phi.trans.insert48, align 8, !tbaa !25
   br i1 %43, label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode5getIdEv.exit, label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.i
 
 _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.i: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i
-  %44 = getelementptr inbounds %"class.llvm::MDOperand", ptr %36, i64 %.pre54
+  %44 = getelementptr inbounds %"class.llvm::MDOperand", ptr %36, i64 %.pre53
   %45 = load ptr, ptr %44, align 8, !tbaa !60
   %46 = load i8, ptr %45, align 4, !tbaa !63
   %.fr5.i = freeze i8 %46
@@ -921,7 +921,7 @@ _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.i: ; preds = %
   br label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.thread.i
 
 _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.i: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i
-  %48 = load ptr, ptr %.pre50, align 8, !tbaa !60
+  %48 = load ptr, ptr %.pre49, align 8, !tbaa !60
   %49 = load i8, ptr %48, align 4, !tbaa !63
   %.fr.i = freeze i8 %49
   %50 = add i8 %.fr.i, -5
@@ -931,35 +931,35 @@ _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.i: ; preds = %_ZNK4ll
 
 _ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.thread.i: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.i
   %51 = phi i64 [ %spec.select7.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ]
-  %52 = getelementptr inbounds %"class.llvm::MDOperand", ptr %36, i64 %.pre54
+  %52 = getelementptr inbounds %"class.llvm::MDOperand", ptr %36, i64 %.pre53
   br label %_ZNK12_GLOBAL__N_118TBAAStructTypeNode5getIdEv.exit
 
 _ZNK12_GLOBAL__N_118TBAAStructTypeNode5getIdEv.exit: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.thread.i
   %53 = phi i64 [ %51, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.thread.i ], [ %spec.select.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.i ], [ 0, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ]
-  %.sroa.0.0.i.i.i21 = phi ptr [ %52, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.thread.i ], [ %.pre50, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.i ], [ %.pre50, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ]
+  %.sroa.0.0.i.i.i21 = phi ptr [ %52, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.thread.thread.i ], [ %.pre49, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit.i ], [ %.pre49, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ]
   %54 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %.sroa.0.0.i.i.i21, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !60
   %56 = load i8, ptr %55, align 4, !tbaa !63
-  %.not48 = icmp eq i8 %56, 0
-  br i1 %.not48, label %57, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread41
+  %.not47 = icmp eq i8 %56, 0
+  br i1 %.not47, label %57, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread40
 
 57:                                               ; preds = %_ZNK12_GLOBAL__N_118TBAAStructTypeNode5getIdEv.exit
   %58 = tail call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %55) #24
   %59 = extractvalue { ptr, i64 } %58, 1
   %.not.i22 = icmp eq i64 %59, 14
-  br i1 %.not.i22, label %_ZN4llvmeqENS_9StringRefES0_.exit25, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread41
+  br i1 %.not.i22, label %_ZN4llvmeqENS_9StringRefES0_.exit25, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread40
 
 _ZN4llvmeqENS_9StringRefES0_.exit25:              ; preds = %57
   %60 = extractvalue { ptr, i64 } %58, 0
   %bcmp.i24 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(14) %60, ptr noundef nonnull dereferenceable(14) @.str.1, i64 14)
   %61 = icmp eq i32 %bcmp.i24, 0
-  br i1 %61, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread41
+  br i1 %61, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32, label %_ZN4llvmeqENS_9StringRefES0_.exit25.thread40
 
-_ZN4llvmeqENS_9StringRefES0_.exit25.thread41:     ; preds = %57, %_ZN4llvmeqENS_9StringRefES0_.exit25, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode5getIdEv.exit
+_ZN4llvmeqENS_9StringRefES0_.exit25.thread40:     ; preds = %57, %_ZN4llvmeqENS_9StringRefES0_.exit25, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode5getIdEv.exit
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread32
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread32:       ; preds = %_ZL16isStructPathTBAAPKN4llvm6MDNodeE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit25.thread41, %_ZN4llvmeqENS_9StringRefES0_.exit25, %26, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread44, %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread
-  %.0 = phi i1 [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread44 ], [ false, %26 ], [ %30, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit25.thread41 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit25 ], [ false, %_ZL16isStructPathTBAAPKN4llvm6MDNodeE.exit ]
+_ZN4llvmeqENS_9StringRefES0_.exit.thread32:       ; preds = %_ZL16isStructPathTBAAPKN4llvm6MDNodeE.exit, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit25.thread40, %_ZN4llvmeqENS_9StringRefES0_.exit25, %26, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread43, %_ZNK4llvm6MDNode10getOperandEj.exit, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread
+  %.0 = phi i1 [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread ], [ false, %_ZNK4llvm6MDNode10getOperandEj.exit ], [ false, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread43 ], [ false, %26 ], [ %30, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit25.thread40 ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit25 ], [ false, %_ZL16isStructPathTBAAPKN4llvm6MDNodeE.exit ]
   ret i1 %.0
 }
 
@@ -3936,8 +3936,8 @@ _ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit: ; preds = %_ZNK4llv
   %24 = phi i32 [ %spec.select.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12._ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.thread7_crit_edge.i ], [ -1, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i ]
   %25 = add i32 %9, %24
   %26 = udiv i32 %25, %23
-  %.not25.not = icmp ugt i32 %23, %25
-  br i1 %.not25.not, label %.critedge._crit_edge, label %.lr.ph.split
+  %.not26.not = icmp ugt i32 %23, %25
+  br i1 %.not26.not, label %.thread, label %.lr.ph.split
 
 _ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.i
   %27 = phi i32 [ %spec.select824.i, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode11isNewFormatEv.exit12.thread.i ], [ 2, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i ]
@@ -3946,8 +3946,8 @@ _ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread: ; preds = %_
   %30 = lshr i32 %29, 6
   %31 = and i32 %30, 15
   %32 = add nsw i32 %31, %28
-  %.not25.not76 = icmp ugt i32 %27, %32
-  br i1 %.not25.not76, label %.critedge._crit_edge, label %.lr.ph.thread
+  %.not26.not77 = icmp ugt i32 %27, %32
+  br i1 %.not26.not77, label %.thread, label %.lr.ph.thread
 
 .lr.ph.thread:                                    ; preds = %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread
   %33 = udiv i32 %32, %27
@@ -3960,24 +3960,24 @@ _ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread: ; preds = %_
   br i1 %39, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us, label %.lr.ph.split.us.split
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us: ; preds = %.lr.ph.thread, %46
-  %indvars.iv64 = phi i64 [ %indvars.iv.next65, %46 ], [ 0, %.lr.ph.thread ]
-  %40 = shl nuw i64 %indvars.iv64, 1
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %46 ], [ 0, %.lr.ph.thread ]
+  %40 = shl nuw i64 %indvars.iv65, 1
   %41 = and i64 %40, 4294967294
   %42 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %37, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !60
   %45 = icmp eq ptr %44, %1
-  br i1 %45, label %.critedge._crit_edge, label %.critedge.us.us
+  br i1 %45, label %.thread, label %.critedge.us.us
 
 46:                                               ; preds = %.critedge.us.us
-  %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
-  %lftr.wideiv67 = trunc i64 %indvars.iv.next65 to i32
-  %exitcond68 = icmp eq i32 %33, %lftr.wideiv67
-  br i1 %exitcond68, label %.critedge._crit_edge, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us, !llvm.loop !155
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
+  %lftr.wideiv68 = trunc i64 %indvars.iv.next66 to i32
+  %exitcond69 = icmp eq i32 %33, %lftr.wideiv68
+  br i1 %exitcond69, label %.thread, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us, !llvm.loop !155
 
 .critedge.us.us:                                  ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us
   %47 = tail call fastcc noundef zeroext i1 @_ZL8hasFieldN12_GLOBAL__N_118TBAAStructTypeNodeES0_(ptr %44, ptr %1)
-  br i1 %47, label %.critedge._crit_edge, label %46
+  br i1 %47, label %.thread, label %46
 
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.thread
   %48 = load ptr, ptr %37, align 8, !tbaa !60
@@ -3990,24 +3990,24 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us: ; preds = %.lr.ph.thread,
   br label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us: ; preds = %57, %.lr.ph.split.us.split
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %57 ], [ 0, %.lr.ph.split.us.split ]
-  %51 = mul i64 %spec.select8.i21.us, %indvars.iv59
+  %indvars.iv60 = phi i64 [ %indvars.iv.next61, %57 ], [ 0, %.lr.ph.split.us.split ]
+  %51 = mul i64 %spec.select8.i21.us, %indvars.iv60
   %52 = add i64 %51, %spec.select15.i.us
   %53 = and i64 %52, 4294967295
   %54 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %37, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !60
   %56 = icmp eq ptr %55, %1
-  br i1 %56, label %.critedge._crit_edge, label %.critedge.us
+  br i1 %56, label %.thread, label %.critedge.us
 
 57:                                               ; preds = %.critedge.us
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %lftr.wideiv62 = trunc i64 %indvars.iv.next60 to i32
-  %exitcond63 = icmp eq i32 %33, %lftr.wideiv62
-  br i1 %exitcond63, label %.critedge._crit_edge, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us, !llvm.loop !155
+  %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
+  %lftr.wideiv63 = trunc i64 %indvars.iv.next61 to i32
+  %exitcond64 = icmp eq i32 %33, %lftr.wideiv63
+  br i1 %exitcond64, label %.thread, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us, !llvm.loop !155
 
 .critedge.us:                                     ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us
   %58 = tail call fastcc noundef zeroext i1 @_ZL8hasFieldN12_GLOBAL__N_118TBAAStructTypeNodeES0_(ptr %55, ptr %1)
-  br i1 %58, label %.critedge._crit_edge, label %57
+  br i1 %58, label %.thread, label %57
 
 .lr.ph.split:                                     ; preds = %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit
   %59 = getelementptr inbounds i8, ptr %0, i64 -32
@@ -4018,24 +4018,24 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us: ; preds = %57, %.lr.ph.split
   br i1 %62, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us, label %.lr.ph.split.split
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us: ; preds = %.lr.ph.split, %70
-  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %70 ], [ 0, %.lr.ph.split ]
-  %64 = shl nuw i64 %indvars.iv54, 1
+  %indvars.iv55 = phi i64 [ %indvars.iv.next56, %70 ], [ 0, %.lr.ph.split ]
+  %64 = shl nuw i64 %indvars.iv55, 1
   %65 = and i64 %64, 4294967294
   %66 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %63, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !60
   %69 = icmp eq ptr %68, %1
-  br i1 %69, label %.critedge._crit_edge, label %.critedge.us37
+  br i1 %69, label %.thread, label %.critedge.us38
 
-70:                                               ; preds = %.critedge.us37
-  %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
-  %lftr.wideiv57 = trunc i64 %indvars.iv.next55 to i32
-  %exitcond58 = icmp eq i32 %26, %lftr.wideiv57
-  br i1 %exitcond58, label %.critedge._crit_edge, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us, !llvm.loop !155
+70:                                               ; preds = %.critedge.us38
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %lftr.wideiv58 = trunc i64 %indvars.iv.next56 to i32
+  %exitcond59 = icmp eq i32 %26, %lftr.wideiv58
+  br i1 %exitcond59, label %.thread, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us, !llvm.loop !155
 
-.critedge.us37:                                   ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us
+.critedge.us38:                                   ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us
   %71 = tail call fastcc noundef zeroext i1 @_ZL8hasFieldN12_GLOBAL__N_118TBAAStructTypeNodeES0_(ptr %68, ptr %1)
-  br i1 %71, label %.critedge._crit_edge, label %70
+  br i1 %71, label %.thread, label %70
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %72 = load ptr, ptr %63, align 8, !tbaa !60
@@ -4051,7 +4051,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us: ; preds = %.lr.ph.spl
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
   %exitcond = icmp eq i32 %26, %lftr.wideiv
-  br i1 %exitcond, label %.critedge._crit_edge, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14, !llvm.loop !155
+  br i1 %exitcond, label %.thread, label %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14, !llvm.loop !155
 
 _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14: ; preds = %.lr.ph.split.split, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.split ], [ %indvars.iv.next, %75 ]
@@ -4061,14 +4061,14 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14: ; preds = %.lr.ph.split.
   %79 = getelementptr inbounds nuw %"class.llvm::MDOperand", ptr %63, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !60
   %81 = icmp eq ptr %80, %1
-  br i1 %81, label %.critedge._crit_edge, label %.critedge
+  br i1 %81, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14
   %82 = tail call fastcc noundef zeroext i1 @_ZL8hasFieldN12_GLOBAL__N_118TBAAStructTypeNodeES0_(ptr %80, ptr %1)
-  br i1 %82, label %.critedge._crit_edge, label %75
+  br i1 %82, label %.thread, label %75
 
-.critedge._crit_edge:                             ; preds = %75, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14, %.critedge, %70, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us, %.critedge.us37, %57, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us, %.critedge.us, %46, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us, %.critedge.us.us, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit
-  %.not.lcssa = phi i1 [ false, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit ], [ false, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread ], [ true, %.critedge.us.us ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us ], [ false, %46 ], [ true, %.critedge.us ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us ], [ false, %57 ], [ true, %.critedge.us37 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us ], [ false, %70 ], [ true, %.critedge ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14 ], [ false, %75 ]
+.thread:                                          ; preds = %75, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14, %.critedge, %70, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us, %.critedge.us38, %57, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us, %.critedge.us, %46, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us, %.critedge.us.us, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit
+  %.not.lcssa = phi i1 [ false, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit ], [ false, %_ZNK12_GLOBAL__N_118TBAAStructTypeNode12getNumFieldsEv.exit.thread ], [ true, %.critedge.us.us ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us.us ], [ false, %46 ], [ true, %.critedge.us ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i.i22.us ], [ false, %57 ], [ true, %.critedge.us38 ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14.us ], [ false, %70 ], [ true, %.critedge ], [ true, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i.i14 ], [ false, %75 ]
   ret i1 %.not.lcssa
 }
 

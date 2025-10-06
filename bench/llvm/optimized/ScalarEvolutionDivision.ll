@@ -1499,17 +1499,17 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_110sizeOfSCEVEPKN4llvm4SCEVE
   %35 = zext i32 %34 to i64
   %.idx.i.i.i18.i = shl nuw nsw i64 %35, 3
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i.i.i18.i
-  %.not36.i.i.i19.i = icmp eq i32 %34, 0
-  br i1 %.not36.i.i.i19.i, label %._crit_edge.i.i.i25.i, label %.lr.ph.i.i.i20.i
+  %.not34.i.i.i19.i = icmp eq i32 %34, 0
+  br i1 %.not34.i.i.i19.i, label %._crit_edge.i.i.i25.i, label %.lr.ph.i.i.i20.i
 
 .lr.ph.i.i.i20.i:                                 ; preds = %32, %.critedge.i.i.i23.i
-  %.02937.i.i.i21.i = phi ptr [ %38, %.critedge.i.i.i23.i ], [ %33, %32 ]
-  %37 = load ptr, ptr %.02937.i.i.i21.i, align 8, !tbaa !88, !noalias !93
+  %.02935.i.i.i21.i = phi ptr [ %38, %.critedge.i.i.i23.i ], [ %33, %32 ]
+  %37 = load ptr, ptr %.02935.i.i.i21.i, align 8, !tbaa !88, !noalias !93
   %.not17.i.i.i22.i = icmp eq ptr %37, %29
   br i1 %.not17.i.i.i22.i, label %_ZN4llvm13SCEVTraversalIZN12_GLOBAL__N_110sizeOfSCEVEPKNS_4SCEVEE12FindSCEVSizeE4pushES4_.exit26.i, label %.critedge.i.i.i23.i
 
 .critedge.i.i.i23.i:                              ; preds = %.lr.ph.i.i.i20.i
-  %38 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i21.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i21.i, i64 8
   %.not.i.i.i24.i = icmp eq ptr %38, %36
   br i1 %.not.i.i.i24.i, label %._crit_edge.i.i.i25.i, label %.lr.ph.i.i.i20.i, !llvm.loop !97
 

@@ -1936,8 +1936,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK5clang13CXXRecordDecl6vbasesEv(ptr 
   %16 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %16, 0
   %17 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i, -8
-  %.not.not15.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
-  %.not.not.i.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not15.i.i.i.i.i.i.i.i.i.i
+  %.not.not14.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
+  %.not.not.i.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not14.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl4dataEv.exit.i, label %18
 
 18:                                               ; preds = %15
@@ -2132,8 +2132,8 @@ define linkonce_odr hidden { ptr, ptr } @_ZNK5clang13CXXRecordDecl5basesEv(ptr n
   %16 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %16, 0
   %17 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i, -8
-  %.not.not15.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
-  %.not.not.i.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not15.i.i.i.i.i.i.i.i.i.i
+  %.not.not14.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
+  %.not.not.i.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not14.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl4dataEv.exit.i, label %18
 
 18:                                               ; preds = %15
@@ -2616,8 +2616,8 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang13CXXRecordDecl10vbases_endEv(
   %16 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %16, 0
   %17 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i, -8
-  %.not.not15.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
-  %.not.not.i.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not15.i.i.i.i.i.i.i.i.i.i
+  %.not.not14.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
+  %.not.not.i.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not14.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl4dataEv.exit.i, label %18
 
 18:                                               ; preds = %15
@@ -2685,8 +2685,8 @@ _ZNK5clang13CXXRecordDecl12vbases_beginEv.exit:   ; preds = %_ZNK5clang13LazyOff
   %49 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %49, 0
   %50 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i, -8
-  %.not.not15.i.i.i.i.i.i.i.i.i = icmp eq i64 %50, 0
-  %.not.not.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not15.i.i.i.i.i.i.i.i.i
+  %.not.not14.i.i.i.i.i.i.i.i.i = icmp eq i64 %50, 0
+  %.not.not.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not14.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl4dataEv.exit, label %51
 
 51:                                               ; preds = %48
@@ -2753,8 +2753,8 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang13CXXRecordDecl9bases_endEv(pt
   %16 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %16, 0
   %17 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i.i, -8
-  %.not.not15.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
-  %.not.not.i.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not15.i.i.i.i.i.i.i.i.i.i
+  %.not.not14.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %17, 0
+  %.not.not.i.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not14.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl4dataEv.exit.i, label %18
 
 18:                                               ; preds = %15
@@ -2822,8 +2822,8 @@ _ZNK5clang13CXXRecordDecl11bases_beginEv.exit:    ; preds = %_ZNK5clang13LazyOff
   %49 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i, 4
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i64 %49, 0
   %50 = and i64 %.0.copyload.i.i.i.i.i.i10.i.i.i.i.i.i.i.i, -8
-  %.not.not15.i.i.i.i.i.i.i.i.i = icmp eq i64 %50, 0
-  %.not.not.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not15.i.i.i.i.i.i.i.i.i
+  %.not.not14.i.i.i.i.i.i.i.i.i = icmp eq i64 %50, 0
+  %.not.not.i.i.i.i.i.i.i.i.i = or i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i, %.not.not14.i.i.i.i.i.i.i.i.i
   br i1 %.not.not.i.i.i.i.i.i.i.i.i, label %_ZNK5clang13CXXRecordDecl4dataEv.exit, label %51
 
 51:                                               ; preds = %48

@@ -18,8 +18,8 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %.promoted.i = load ptr, ptr %0, align 8, !alias.scope !13, !noalias !16
   store ptr null, ptr %0, align 8, !alias.scope !13, !noalias !16
-  %.not11.not.i = icmp eq ptr %.promoted.i, null
-  br i1 %.not11.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit, label %.lr.ph.split.i
+  %.not10.not.i = icmp eq ptr %.promoted.i, null
+  br i1 %.not10.not.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit, label %.lr.ph.split.i
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i": ; preds = %7
   store ptr null, ptr %0, align 8, !alias.scope !13, !noalias !16
@@ -49,8 +49,8 @@ define hidden noundef zeroext i1 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$
   br i1 %11, label %7, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit
 
 _ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113.exit: ; preds = %9, %3, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i"
-  %.not10.i = phi i1 [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i" ], [ false, %3 ], [ true, %9 ]
-  ret i1 %.not10.i
+  %.not9.i = phi i1 [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit.i" ], [ false, %3 ], [ true, %9 ]
+  ret i1 %.not9.i
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -151,8 +151,8 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator4fold17hf6e395938f6549
 define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h6b4e2f8a06e50b6eE.llvm.3336102713667318113(ptr noalias noundef align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %.promoted = load ptr, ptr %0, align 8, !alias.scope !54
   store ptr null, ptr %0, align 8, !alias.scope !54
-  %.not11.not = icmp eq ptr %.promoted, null
-  br i1 %.not11.not, label %.loopexit, label %.lr.ph.split
+  %.not10.not = icmp eq ptr %.promoted, null
+  br i1 %.not10.not, label %.loopexit, label %.lr.ph.split
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit": ; preds = %7
   store ptr null, ptr %0, align 8, !alias.scope !54
@@ -185,8 +185,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br i1 %11, label %7, label %.loopexit
 
 .loopexit:                                        ; preds = %9, %2, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit"
-  %.not10 = phi i1 [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit" ], [ false, %2 ], [ true, %9 ]
-  ret i1 %.not10
+  %.not9 = phi i1 [ false, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17he42f600bca1a4da1E.exit.loopexit" ], [ false, %2 ], [ true, %9 ]
+  ret i1 %.not9
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

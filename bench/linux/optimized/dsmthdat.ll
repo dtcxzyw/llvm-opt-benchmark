@@ -230,7 +230,7 @@ define dso_local noundef range(i32 0, 12313) i32 @acpi_ds_method_data_get_value(
   %19 = getelementptr %struct.acpi_namespace_node, ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %31
+  br i1 %21, label %22, label %32
 
 22:                                               ; preds = %16
   %23 = load i8, ptr @acpi_gbl_enable_interpreter_slack, align 1
@@ -244,25 +244,25 @@ define dso_local noundef range(i32 0, 12313) i32 @acpi_ds_method_data_get_value(
 
 28:                                               ; preds = %25
   store ptr %26, ptr %19, align 8
-  br label %31
+  br label %32
 
 29:                                               ; preds = %22
-  %switch = icmp eq i8 %0, 1
-  br i1 %switch, label %30, label %.thread
+  %30 = icmp eq i8 %0, 1
+  br i1 %30, label %31, label %.thread
 
-30:                                               ; preds = %29
+31:                                               ; preds = %29
   tail call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 390, ptr noundef nonnull @.str.6, i32 noundef %1, ptr noundef %19) #5
   br label %.thread
 
-31:                                               ; preds = %28, %16
-  %32 = phi ptr [ %20, %16 ], [ %26, %28 ]
-  store ptr %32, ptr %3, align 8
-  tail call void @acpi_ut_add_reference(ptr noundef nonnull %32) #5
+32:                                               ; preds = %28, %16
+  %33 = phi ptr [ %20, %16 ], [ %26, %28 ]
+  store ptr %33, ptr %3, align 8
+  tail call void @acpi_ut_add_reference(ptr noundef nonnull %33) #5
   br label %.thread
 
-.thread:                                          ; preds = %29, %10, %13, %14, %31, %30, %25, %6
-  %33 = phi i32 [ 0, %31 ], [ 12294, %30 ], [ 4097, %6 ], [ 4, %25 ], [ 12293, %29 ], [ 12312, %10 ], [ 12312, %13 ], [ 8, %14 ]
-  ret i32 %33
+.thread:                                          ; preds = %29, %10, %13, %14, %32, %31, %25, %6
+  %34 = phi i32 [ 0, %32 ], [ 12294, %31 ], [ 4097, %6 ], [ 4, %25 ], [ 12293, %29 ], [ 12312, %10 ], [ 12312, %13 ], [ 8, %14 ]
+  ret i32 %34
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -306,8 +306,8 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
   br label %.thread
 
 16:                                               ; preds = %11, %8
-  %.sink22 = phi i64 [ 488, %8 ], [ 152, %11 ]
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink22
+  %.sink21 = phi i64 [ 488, %8 ], [ 152, %11 ]
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink21
   %18 = zext nneg i32 %1 to i64
   %19 = getelementptr %struct.acpi_namespace_node, ptr %17, i64 %18
   %20 = tail call ptr @acpi_ns_get_attached_object(ptr noundef %19) #5
@@ -331,102 +331,102 @@ define dso_local i32 @acpi_ds_store_object_to_local(i8 noundef zeroext %0, i32 n
   br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %29
-  %switch = icmp eq i8 %0, 1
-  br i1 %switch, label %32, label %53
+  %32 = icmp eq i8 %0, 1
+  br i1 %32, label %33, label %54
 
-32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %34 = load i8, ptr %33, align 8
-  %35 = icmp eq i8 %34, 14
-  br i1 %35, label %36, label %51
+33:                                               ; preds = %31
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %35 = load i8, ptr %34, align 8
+  %36 = icmp eq i8 %35, 14
+  br i1 %36, label %37, label %52
 
-36:                                               ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %20, i64 9
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp eq i8 %38, 20
-  br i1 %39, label %40, label %51
+37:                                               ; preds = %33
+  %38 = getelementptr inbounds nuw i8, ptr %20, i64 9
+  %39 = load i8, ptr %38, align 1
+  %40 = icmp eq i8 %39, 20
+  br i1 %40, label %41, label %52
 
-40:                                               ; preds = %36
-  %41 = getelementptr inbounds nuw i8, ptr %20, i64 13
-  %42 = load i8, ptr %41, align 1
-  %43 = icmp eq i8 %42, 2
-  br i1 %43, label %44, label %51
+41:                                               ; preds = %37
+  %42 = getelementptr inbounds nuw i8, ptr %20, i64 13
+  %43 = load i8, ptr %42, align 1
+  %44 = icmp eq i8 %43, 2
+  br i1 %44, label %45, label %52
 
-44:                                               ; preds = %40
-  %45 = load ptr, ptr %5, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = call i32 @acpi_ex_store_object_to_node(ptr noundef %45, ptr noundef %47, ptr noundef %3, i8 noundef zeroext 0) #5
-  %49 = load ptr, ptr %5, align 8
-  %50 = icmp eq ptr %49, %2
-  br i1 %50, label %.thread, label %76
+45:                                               ; preds = %41
+  %46 = load ptr, ptr %5, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %48 = load ptr, ptr %47, align 8
+  %49 = call i32 @acpi_ex_store_object_to_node(ptr noundef %46, ptr noundef %48, ptr noundef %3, i8 noundef zeroext 0) #5
+  %50 = load ptr, ptr %5, align 8
+  %51 = icmp eq ptr %50, %2
+  br i1 %51, label %.thread, label %78
 
-51:                                               ; preds = %32, %36, %40
-  %52 = icmp samesign ugt i32 %1, 6
-  br i1 %52, label %.thread8, label %53
+52:                                               ; preds = %33, %37, %41
+  %53 = icmp samesign ugt i32 %1, 6
+  br i1 %53, label %.thread8, label %54
 
-.thread8:                                         ; preds = %51
+.thread8:                                         ; preds = %52
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 241, ptr noundef nonnull @.str.3, i32 noundef %1, i32 noundef 6) #5
-  br label %67
+  br label %69
 
-53:                                               ; preds = %51, %31
-  %.sink24 = phi i64 [ 488, %31 ], [ 152, %51 ]
-  %54 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink24
-  %55 = zext nneg i32 %1 to i64
-  %56 = getelementptr %struct.acpi_namespace_node, ptr %54, i64 %55
-  %57 = call ptr @acpi_ns_get_attached_object(ptr noundef %56) #5
-  store ptr null, ptr %56, align 8
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %.critedge, label %59
+54:                                               ; preds = %52, %31
+  %.sink23 = phi i64 [ 488, %31 ], [ 152, %52 ]
+  %55 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink23
+  %56 = zext nneg i32 %1 to i64
+  %57 = getelementptr %struct.acpi_namespace_node, ptr %55, i64 %56
+  %58 = call ptr @acpi_ns_get_attached_object(ptr noundef %57) #5
+  store ptr null, ptr %57, align 8
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %.critedge, label %60
 
-59:                                               ; preds = %53
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 8
-  %61 = load i8, ptr %60, align 8
-  %62 = icmp eq i8 %61, 14
-  br i1 %62, label %63, label %.critedge
+60:                                               ; preds = %54
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  %62 = load i8, ptr %61, align 8
+  %63 = icmp eq i8 %62, 14
+  br i1 %63, label %64, label %.critedge
 
-63:                                               ; preds = %59
-  call void @acpi_ut_remove_reference(ptr noundef nonnull %57) #5
+64:                                               ; preds = %60
+  call void @acpi_ut_remove_reference(ptr noundef nonnull %58) #5
   br label %.critedge
 
-.critedge:                                        ; preds = %63, %59, %53, %29
-  %64 = load ptr, ptr %5, align 8
-  %switch14 = icmp eq i8 %0, 0
-  br i1 %switch14, label %68, label %65
+.critedge:                                        ; preds = %64, %60, %54, %29
+  %65 = load ptr, ptr %5, align 8
+  %66 = icmp eq i8 %0, 0
+  br i1 %66, label %70, label %67
 
-65:                                               ; preds = %.critedge
-  %66 = icmp samesign ugt i32 %1, 6
-  br i1 %66, label %67, label %68
+67:                                               ; preds = %.critedge
+  %68 = icmp samesign ugt i32 %1, 6
+  br i1 %68, label %69, label %70
 
-67:                                               ; preds = %.thread8, %65
+69:                                               ; preds = %.thread8, %67
   call void (ptr, i32, ptr, ...) @acpi_error(ptr noundef nonnull @_acpi_module_name, i32 noundef 241, ptr noundef nonnull @.str.3, i32 noundef %1, i32 noundef 6) #5
-  br label %72
+  br label %74
 
-68:                                               ; preds = %65, %.critedge
-  %.sink26 = phi i64 [ 488, %.critedge ], [ 152, %65 ]
-  %69 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink26
-  %70 = zext nneg i32 %1 to i64
-  %71 = getelementptr %struct.acpi_namespace_node, ptr %69, i64 %70
-  call void @acpi_ut_add_reference(ptr noundef %64) #5
-  store ptr %64, ptr %71, align 8
-  br label %72
+70:                                               ; preds = %67, %.critedge
+  %.sink25 = phi i64 [ 488, %.critedge ], [ 152, %67 ]
+  %71 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink25
+  %72 = zext nneg i32 %1 to i64
+  %73 = getelementptr %struct.acpi_namespace_node, ptr %71, i64 %72
+  call void @acpi_ut_add_reference(ptr noundef %65) #5
+  store ptr %65, ptr %73, align 8
+  br label %74
 
-72:                                               ; preds = %67, %68
-  %73 = phi i32 [ 0, %68 ], [ 12312, %67 ]
-  %74 = load ptr, ptr %5, align 8
-  %75 = icmp eq ptr %74, %2
-  br i1 %75, label %.thread, label %76
+74:                                               ; preds = %69, %70
+  %75 = phi i32 [ 0, %70 ], [ 12312, %69 ]
+  %76 = load ptr, ptr %5, align 8
+  %77 = icmp eq ptr %76, %2
+  br i1 %77, label %.thread, label %78
 
-76:                                               ; preds = %72, %44
-  %77 = phi ptr [ %49, %44 ], [ %74, %72 ]
-  %78 = phi i32 [ %48, %44 ], [ %73, %72 ]
-  call void @acpi_ut_remove_reference(ptr noundef %77) #5
+78:                                               ; preds = %74, %45
+  %79 = phi ptr [ %50, %45 ], [ %76, %74 ]
+  %80 = phi i32 [ %49, %45 ], [ %75, %74 ]
+  call void @acpi_ut_remove_reference(ptr noundef %79) #5
   br label %.thread
 
-.thread:                                          ; preds = %10, %13, %14, %76, %72, %44, %26, %16, %4
-  %79 = phi i32 [ 4097, %4 ], [ 0, %16 ], [ %27, %26 ], [ %48, %44 ], [ %73, %72 ], [ %78, %76 ], [ 12312, %10 ], [ 12312, %13 ], [ 8, %14 ]
+.thread:                                          ; preds = %10, %13, %14, %78, %74, %45, %26, %16, %4
+  %81 = phi i32 [ 4097, %4 ], [ 0, %16 ], [ %27, %26 ], [ %49, %45 ], [ %75, %74 ], [ %80, %78 ], [ 12312, %10 ], [ 12312, %13 ], [ 8, %14 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %79
+  ret i32 %81
 }
 
 ; Function Attrs: null_pointer_is_valid

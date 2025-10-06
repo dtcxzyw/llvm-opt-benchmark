@@ -1088,8 +1088,8 @@ define internal fastcc i32 @validate_tile_data(ptr noundef %0, ptr noundef reado
 51:                                               ; preds = %44
   %52 = icmp sgt i32 %9, 0
   %53 = icmp samesign ult i32 %9, %.pre
-  %or.cond93 = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond93, label %54, label %58
+  %or.cond92 = select i1 %52, i1 %53, i1 false
+  br i1 %or.cond92, label %54, label %58
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1113,8 +1113,8 @@ define internal fastcc i32 @validate_tile_data(ptr noundef %0, ptr noundef reado
 
 .preheader:                                       ; preds = %64
   %66 = load i32, ptr %13, align 8, !tbaa !48
-  %.not8798 = icmp sgt i32 %66, 0
-  br i1 %.not8798, label %.lr.ph, label %.thread
+  %.not8797 = icmp sgt i32 %66, 0
+  br i1 %.not8797, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader
   %67 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -1173,8 +1173,8 @@ define internal fastcc i32 @validate_deep_data(ptr noundef %0, ptr noundef reado
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !59
   %5 = and i32 %4, -2
-  %switch41 = icmp eq i32 %5, 2
-  br i1 %switch41, label %6, label %.thread
+  %switch = icmp eq i32 %5, 2
+  br i1 %switch, label %6, label %.thread
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -1183,13 +1183,13 @@ define internal fastcc i32 @validate_deep_data(ptr noundef %0, ptr noundef reado
   %10 = load ptr, ptr %9, align 8, !tbaa !27
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %12 = load i32, ptr %11, align 8, !tbaa !28
-  %switch42 = icmp ult i32 %12, 3
-  br i1 %switch42, label %.preheader, label %16
+  %switch41 = icmp ult i32 %12, 3
+  br i1 %switch41, label %.preheader, label %16
 
 .preheader:                                       ; preds = %6
   %13 = load i32, ptr %10, align 8, !tbaa !48
-  %.not4050 = icmp sgt i32 %13, 0
-  br i1 %.not4050, label %.lr.ph, label %.thread
+  %.not4048 = icmp sgt i32 %13, 0
+  br i1 %.not4048, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 8

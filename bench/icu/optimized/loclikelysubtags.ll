@@ -5027,8 +5027,8 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit: ; preds = %26
   call void @uprv_free_77(ptr noundef %.pre.i)
   store ptr %29, ptr %4, align 8, !tbaa !74
   %30 = load i32, ptr %5, align 4, !tbaa !12
-  %.not4046 = icmp sgt i32 %30, 0
-  br i1 %.not4046, label %.lr.ph, label %.sink.split
+  %.not4045 = icmp sgt i32 %30, 0
+  br i1 %.not4045, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %_ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5162,8 +5162,8 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit: ; preds = %30
   tail call void @uprv_free_77(ptr noundef %.pre.i)
   store ptr %34, ptr %5, align 8, !tbaa !74
   %35 = load i32, ptr %6, align 4, !tbaa !12
-  %.not5358 = icmp sgt i32 %35, 0
-  br i1 %.not5358, label %.lr.ph, label %._crit_edge
+  %.not5357 = icmp sgt i32 %35, 0
+  br i1 %.not5357, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8

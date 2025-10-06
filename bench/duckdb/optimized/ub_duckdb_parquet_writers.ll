@@ -9688,17 +9688,17 @@ define noundef zeroext i1 @_ZN6duckdb18StructColumnWriter10HasAnalyzeEv(ptr noun
   %3 = load ptr, ptr %2, align 8, !tbaa !528
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !528
-  %.not11.not = icmp eq ptr %3, %5
-  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %5
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.08.012 = phi ptr [ %11, %.lr.ph ], [ %3, %1 ]
-  %6 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_12ColumnWriterESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.08.012)
+  %.sroa.08.013 = phi ptr [ %11, %.lr.ph ], [ %3, %1 ]
+  %6 = tail call noundef ptr @_ZNK6duckdb10unique_ptrINS_12ColumnWriterESt14default_deleteIS1_ELb1EEptEv(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.08.013)
   %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef zeroext i1 %9(ptr noundef nonnull align 8 dereferenceable(65) %6)
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
   %.not.not = icmp eq ptr %11, %5
   %or.cond = select i1 %10, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph

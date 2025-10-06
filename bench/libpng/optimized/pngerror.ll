@@ -687,31 +687,31 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %.not40.not, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %3, %.thread.us
-  %.03056.us = phi ptr [ %6, %.thread.us ], [ %2, %3 ]
-  %.03355.us = phi i64 [ %7, %.thread.us ], [ 0, %3 ]
-  %5 = load i8, ptr %.03056.us, align 1, !tbaa !24
+  %.03055.us = phi ptr [ %6, %.thread.us ], [ %2, %3 ]
+  %.03354.us = phi i64 [ %7, %.thread.us ], [ 0, %3 ]
+  %5 = load i8, ptr %.03055.us, align 1, !tbaa !24
   %.not.us = icmp eq i8 %5, 0
   br i1 %.not.us, label %.critedge, label %.thread.us
 
 .thread.us:                                       ; preds = %.split.us
-  %6 = getelementptr inbounds nuw i8, ptr %.03056.us, i64 1
-  %7 = add nuw nsw i64 %.03355.us, 1
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.03355.us
+  %6 = getelementptr inbounds nuw i8, ptr %.03055.us, i64 1
+  %7 = add nuw nsw i64 %.03354.us, 1
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.03354.us
   store i8 %5, ptr %8, align 1, !tbaa !24
-  %exitcond60.not = icmp eq i64 %7, 191
-  br i1 %exitcond60.not, label %.critedge, label %.split.us, !llvm.loop !30
+  %exitcond59.not = icmp eq i64 %7, 191
+  br i1 %exitcond59.not, label %.critedge, label %.split.us, !llvm.loop !30
 
 .split:                                           ; preds = %3, %.backedge
-  %.03056 = phi ptr [ %.030.be, %.backedge ], [ %2, %3 ]
-  %.03355 = phi i64 [ %.033.be, %.backedge ], [ 0, %3 ]
-  %9 = load i8, ptr %.03056, align 1, !tbaa !24
+  %.03055 = phi ptr [ %.030.be, %.backedge ], [ %2, %3 ]
+  %.03354 = phi i64 [ %.033.be, %.backedge ], [ 0, %3 ]
+  %9 = load i8, ptr %.03055, align 1, !tbaa !24
   switch i8 %9, label %.thread [
     i8 0, label %.critedge
     i8 64, label %10
   ]
 
 10:                                               ; preds = %.split
-  %11 = getelementptr inbounds nuw i8, ptr %.03056, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.03055, i64 1
   %12 = load i8, ptr %11, align 1, !tbaa !24
   %.not41 = icmp eq i8 %12, 0
   br i1 %.not41, label %.thread, label %.preheader
@@ -732,38 +732,38 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
 
 .lr.ph.preheader:                                 ; preds = %.critedge2
   %16 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
-  %17 = sub nuw nsw i64 191, %.03355
+  %17 = sub nuw nsw i64 191, %.03354
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
-  %.031.idx52 = phi i64 [ %.031.add, %20 ], [ 0, %.lr.ph.preheader ]
-  %.23551 = phi i64 [ %21, %20 ], [ %.03355, %.lr.ph.preheader ]
-  %.031.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.031.idx52
+  %.031.idx51 = phi i64 [ %.031.add, %20 ], [ 0, %.lr.ph.preheader ]
+  %.23550 = phi i64 [ %21, %20 ], [ %.03354, %.lr.ph.preheader ]
+  %.031.ptr = getelementptr inbounds nuw i8, ptr %16, i64 %.031.idx51
   %18 = load i8, ptr %.031.ptr, align 1, !tbaa !24
   %.not44 = icmp ne i8 %18, 0
-  %19 = icmp samesign ult i64 %.031.idx52, 32
+  %19 = icmp samesign ult i64 %.031.idx51, 32
   %or.cond46 = select i1 %.not44, i1 %19, i1 false
   br i1 %or.cond46, label %20, label %._crit_edge
 
 20:                                               ; preds = %.lr.ph
-  %.031.add = add nuw nsw i64 %.031.idx52, 1
-  %21 = add nuw nsw i64 %.23551, 1
-  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %.23551
+  %.031.add = add nuw nsw i64 %.031.idx51, 1
+  %21 = add nuw nsw i64 %.23550, 1
+  %22 = getelementptr inbounds nuw i8, ptr %4, i64 %.23550
   store i8 %18, ptr %22, align 1, !tbaa !24
   %exitcond.not = icmp eq i64 %.031.add, %17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
 
 ._crit_edge:                                      ; preds = %.lr.ph, %20
-  %.235.lcssa.ph = phi i64 [ %.23551, %.lr.ph ], [ 191, %20 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.03056, i64 2
+  %.235.lcssa.ph = phi i64 [ %.23550, %.lr.ph ], [ 191, %20 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.03055, i64 2
   br label %.backedge
 
 .thread:                                          ; preds = %.critedge2, %.split, %10
   %24 = phi i8 [ 64, %10 ], [ %9, %.split ], [ %12, %.critedge2 ]
-  %.1 = phi ptr [ %.03056, %10 ], [ %.03056, %.split ], [ %11, %.critedge2 ]
+  %.1 = phi ptr [ %.03055, %10 ], [ %.03055, %.split ], [ %11, %.critedge2 ]
   %25 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %26 = add nuw nsw i64 %.03355, 1
-  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %.03355
+  %26 = add nuw nsw i64 %.03354, 1
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 %.03354
   store i8 %24, ptr %27, align 1, !tbaa !24
   br label %.backedge
 
@@ -774,7 +774,7 @@ define void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly 
   br i1 %28, label %.split, label %.critedge, !llvm.loop !30
 
 .critedge:                                        ; preds = %.backedge, %.split, %.split.us, %.thread.us
-  %.us-phi = phi i64 [ 191, %.thread.us ], [ %.03355.us, %.split.us ], [ %.033.be, %.backedge ], [ %.03355, %.split ]
+  %.us-phi = phi i64 [ 191, %.thread.us ], [ %.03354.us, %.split.us ], [ %.033.be, %.backedge ], [ %.03354, %.split ]
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 %.us-phi
   store i8 0, ptr %29, align 1, !tbaa !24
   tail call void @llvm.experimental.noalias.scope.decl(metadata !33)

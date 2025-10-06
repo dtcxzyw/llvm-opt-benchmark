@@ -754,10 +754,10 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 23
   %7 = add i32 %1, -1
   %8 = getelementptr i8, ptr %5, i64 20
-  %.val154.val = load i16, ptr %8, align 4
-  %9 = and i16 %.val154.val, 1
+  %.val153.val = load i16, ptr %8, align 4
+  %9 = and i16 %.val153.val, 1
   %.not.i = icmp eq i16 %9, 0
-  br i1 %.not.i, label %.loopexit188, label %10
+  br i1 %.not.i, label %.loopexit184, label %10
 
 10:                                               ; preds = %3
   %11 = ashr i32 %7, 3
@@ -769,20 +769,20 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %notmask = shl nsw i32 -1, %12
   %.demorgan = or i32 %notmask, %16
   %.not = icmp eq i32 %.demorgan, -1
-  br i1 %.not, label %.preheader187, label %.thread
+  br i1 %.not, label %.preheader183, label %.thread
 
-.preheader187:                                    ; preds = %10
+.preheader183:                                    ; preds = %10
   %17 = icmp sgt i32 %11, 0
-  br i1 %17, label %.lr.ph.preheader, label %.loopexit188
+  br i1 %17, label %.lr.ph.preheader, label %.loopexit184
 
-.lr.ph.preheader:                                 ; preds = %.preheader187
+.lr.ph.preheader:                                 ; preds = %.preheader183
   %wide.trip.count = zext nneg i32 %11 to i64
   br label %.lr.ph
 
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit188, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit184, label %.lr.ph, !llvm.loop !9
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
@@ -798,7 +798,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 %23
   br label %.preheader
 
-.loopexit188:                                     ; preds = %18, %.preheader187, %3
+.loopexit184:                                     ; preds = %18, %.preheader183, %3
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 22
   %26 = load i8, ptr %25, align 2
   %27 = zext i8 %26 to i64
@@ -810,7 +810,7 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %33 = icmp slt i32 %32, 0
   br i1 %33, label %60, label %34
 
-34:                                               ; preds = %.loopexit188
+34:                                               ; preds = %.loopexit184
   %35 = zext nneg i32 %32 to i64
   %36 = getelementptr inbounds nuw i8, ptr %28, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %31, i64 6
@@ -831,21 +831,21 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 43:                                               ; preds = %42
   %44 = load i8, ptr %36, align 1
   %45 = sext i8 %44 to i64
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
 46:                                               ; preds = %42
   %47 = load i16, ptr %36, align 2
   %48 = sext i16 %47 to i64
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
 49:                                               ; preds = %42
   %50 = load i32, ptr %36, align 4
   %51 = sext i32 %50 to i64
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
 52:                                               ; preds = %42
   %53 = load i64, ptr %36, align 8
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
 54:                                               ; preds = %42
   %55 = sext i16 %41 to i32
@@ -856,67 +856,67 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 
 58:                                               ; preds = %34
   %59 = ptrtoint ptr %36 to i64
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
-60:                                               ; preds = %.loopexit188
-  %61 = and i16 %.val154.val, 2
-  %.not184 = icmp ne i16 %61, 0
-  %.not148190 = icmp sgt i32 %7, -1
-  %or.cond232 = and i1 %.not184, %.not148190
-  br i1 %or.cond232, label %.lr.ph192, label %.thread165
+60:                                               ; preds = %.loopexit184
+  %61 = and i16 %.val153.val, 2
+  %.not180 = icmp ne i16 %61, 0
+  %.not148186 = icmp sgt i32 %7, -1
+  %or.cond228 = and i1 %.not180, %.not148186
+  br i1 %or.cond228, label %.lr.ph188, label %.thread164
 
-62:                                               ; preds = %.lr.ph192
-  %63 = add i32 %.0130191, 1
+62:                                               ; preds = %.lr.ph188
+  %63 = add i32 %.0130187, 1
   %.not148.not = icmp sgt i32 %63, %7
-  br i1 %.not148.not, label %.thread165, label %.lr.ph192, !llvm.loop !10
+  br i1 %.not148.not, label %.thread164, label %.lr.ph188, !llvm.loop !10
 
-.lr.ph192:                                        ; preds = %60, %62
-  %.0130191 = phi i32 [ %63, %62 ], [ 0, %60 ]
-  %64 = sext i32 %.0130191 to i64
+.lr.ph188:                                        ; preds = %60, %62
+  %.0130187 = phi i32 [ %63, %62 ], [ 0, %60 ]
+  %64 = sext i32 %.0130187 to i64
   %65 = getelementptr inbounds %struct.CompactAttribute, ptr %29, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i16, ptr %66, align 4
   %68 = icmp slt i16 %67, 1
   br i1 %68, label %.preheader, label %62
 
-.preheader:                                       ; preds = %.lr.ph192, %.thread
-  %.ph = phi ptr [ %24, %.thread ], [ %28, %.lr.ph192 ]
+.preheader:                                       ; preds = %.lr.ph188, %.thread
+  %.ph = phi ptr [ %24, %.thread ], [ %28, %.lr.ph188 ]
   %69 = getelementptr inbounds nuw i8, ptr %2, i64 24
   br label %106
 
-.thread165:                                       ; preds = %62, %60
+.thread164:                                       ; preds = %62, %60
   %70 = load i32, ptr %2, align 8
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 24
   store i32 0, ptr %71, align 8
   %72 = icmp sgt i32 %70, 1
-  br i1 %72, label %.lr.ph196.preheader, label %.critedge
+  br i1 %72, label %.lr.ph192.preheader, label %.critedge
 
-.lr.ph196.preheader:                              ; preds = %.thread165
-  %wide.trip.count208 = zext nneg i32 %70 to i64
-  br label %.lr.ph196
+.lr.ph192.preheader:                              ; preds = %.thread164
+  %wide.trip.count204 = zext nneg i32 %70 to i64
+  br label %.lr.ph192
 
-.lr.ph196:                                        ; preds = %.lr.ph196.preheader, %76
-  %indvars.iv205 = phi i64 [ 1, %.lr.ph196.preheader ], [ %indvars.iv.next206, %76 ]
-  %73 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %71, i64 %indvars.iv205
+.lr.ph192:                                        ; preds = %.lr.ph192.preheader, %76
+  %indvars.iv201 = phi i64 [ 1, %.lr.ph192.preheader ], [ %indvars.iv.next202, %76 ]
+  %73 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %71, i64 %indvars.iv201
   %74 = load i32, ptr %73, align 4
   %75 = icmp sgt i32 %74, 0
   br i1 %75, label %76, label %.critedge.loopexit
 
-76:                                               ; preds = %.lr.ph196
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
-  br i1 %exitcond209.not, label %._crit_edge, label %.lr.ph196, !llvm.loop !11
+76:                                               ; preds = %.lr.ph192
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+  %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
+  br i1 %exitcond205.not, label %._crit_edge, label %.lr.ph192, !llvm.loop !11
 
-.critedge.loopexit:                               ; preds = %.lr.ph196
-  %77 = trunc nuw nsw i64 %indvars.iv205 to i32
+.critedge.loopexit:                               ; preds = %.lr.ph192
+  %77 = trunc nuw nsw i64 %indvars.iv201 to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.loopexit, %.thread165
-  %.0124.lcssa = phi i32 [ 1, %.thread165 ], [ %77, %.critedge.loopexit ]
+.critedge:                                        ; preds = %.critedge.loopexit, %.thread164
+  %.0124.lcssa = phi i32 [ 1, %.thread164 ], [ %77, %.critedge.loopexit ]
   %78 = icmp slt i32 %.0124.lcssa, %70
-  br i1 %78, label %.lr.ph202.preheader, label %._crit_edge
+  br i1 %78, label %.lr.ph198.preheader, label %._crit_edge
 
-.lr.ph202.preheader:                              ; preds = %.critedge
+.lr.ph198.preheader:                              ; preds = %.critedge
   %79 = zext i32 %.0124.lcssa to i64
   %80 = getelementptr %struct.CompactAttribute, ptr %71, i64 %79
   %81 = getelementptr i8, ptr %80, i64 -16
@@ -925,49 +925,49 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %84 = load i16, ptr %83, align 4
   %85 = sext i16 %84 to i32
   %86 = add i32 %82, %85
-  br label %.lr.ph202
+  br label %.lr.ph198
 
-.lr.ph202:                                        ; preds = %.lr.ph202.preheader, %91
-  %indvars.iv210 = phi i64 [ %79, %.lr.ph202.preheader ], [ %indvars.iv.next211, %91 ]
-  %.0134200 = phi i32 [ %86, %.lr.ph202.preheader ], [ %100, %91 ]
-  %87 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %71, i64 %indvars.iv210
+.lr.ph198:                                        ; preds = %.lr.ph198.preheader, %91
+  %indvars.iv206 = phi i64 [ %79, %.lr.ph198.preheader ], [ %indvars.iv.next207, %91 ]
+  %.0134196 = phi i32 [ %86, %.lr.ph198.preheader ], [ %100, %91 ]
+  %87 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %71, i64 %indvars.iv206
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load i16, ptr %88, align 4
   %90 = icmp slt i16 %89, 1
   br i1 %90, label %._crit_edge, label %91
 
-91:                                               ; preds = %.lr.ph202
+91:                                               ; preds = %.lr.ph198
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 12
   %93 = load i8, ptr %92, align 4
   %94 = zext i8 %93 to i32
-  %95 = add i32 %.0134200, -1
+  %95 = add i32 %.0134196, -1
   %96 = add i32 %95, %94
   %97 = sub nsw i32 0, %94
   %98 = and i32 %96, %97
   store i32 %98, ptr %87, align 4
   %99 = zext nneg i16 %89 to i32
   %100 = add i32 %98, %99
-  %indvars.iv.next211 = add nuw nsw i64 %indvars.iv210, 1
-  %101 = trunc nuw i64 %indvars.iv.next211 to i32
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %101 = trunc nuw i64 %indvars.iv.next207 to i32
   %102 = icmp sgt i32 %70, %101
-  br i1 %102, label %.lr.ph202, label %._crit_edge, !llvm.loop !12
+  br i1 %102, label %.lr.ph198, label %._crit_edge, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %76, %91, %.lr.ph202, %.critedge
+._crit_edge:                                      ; preds = %76, %91, %.lr.ph198, %.critedge
   %103 = sext i32 %7 to i64
   %104 = getelementptr inbounds %struct.CompactAttribute, ptr %71, i64 %103
   %105 = load i32, ptr %104, align 4
   br label %.loopexit
 
 106:                                              ; preds = %.preheader, %212
-  %.val.val = phi i16 [ %.val.val.pre, %212 ], [ %.val154.val, %.preheader ]
+  %.val.val = phi i16 [ %.val.val.pre, %212 ], [ %.val153.val, %.preheader ]
   %.3137 = phi i32 [ %.4138.ph, %212 ], [ 0, %.preheader ]
   %.0122 = phi i1 [ %.1123.ph, %212 ], [ true, %.preheader ]
   %.0121 = phi i32 [ %213, %212 ], [ 0, %.preheader ]
   %107 = sext i32 %.0121 to i64
   %108 = getelementptr inbounds %struct.CompactAttribute, ptr %69, i64 %107
   %109 = and i16 %.val.val, 1
-  %.not185 = icmp eq i16 %109, 0
-  br i1 %.not185, label %119, label %110
+  %.not181 = icmp eq i16 %109, 0
+  br i1 %.not181, label %119, label %110
 
 110:                                              ; preds = %106
   %111 = ashr i32 %.0121, 3
@@ -978,11 +978,11 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %116 = and i32 %.0121, 7
   %117 = shl nuw nsw i32 1, %116
   %118 = and i32 %117, %115
-  %.not.i156 = icmp eq i32 %118, 0
-  br i1 %.not.i156, label %212, label %119
+  %.not.i155 = icmp eq i32 %118, 0
+  br i1 %.not.i155, label %212, label %119
 
 119:                                              ; preds = %110, %106
-  br i1 %.0122, label %120, label %.thread172
+  br i1 %.0122, label %120, label %.thread170
 
 120:                                              ; preds = %119
   %121 = load i32, ptr %108, align 4
@@ -995,17 +995,17 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %126 = icmp eq i16 %125, -1
   br i1 %126, label %137, label %158
 
-.thread172:                                       ; preds = %119
+.thread170:                                       ; preds = %119
   %127 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %128 = load i16, ptr %127, align 4
   %129 = icmp eq i16 %128, -1
-  br i1 %129, label %.thread172..thread173_crit_edge, label %.thread174
+  br i1 %129, label %.thread170..thread171_crit_edge, label %.thread172
 
-.thread172..thread173_crit_edge:                  ; preds = %.thread172
-  %.pre215 = sext i32 %.3137 to i64
-  br label %.thread173
+.thread170..thread171_crit_edge:                  ; preds = %.thread170
+  %.pre211 = sext i32 %.3137 to i64
+  br label %.thread171
 
-.thread174:                                       ; preds = %.thread172
+.thread172:                                       ; preds = %.thread170
   %130 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %131 = load i8, ptr %130, align 4
   %132 = zext i8 %131 to i32
@@ -1025,20 +1025,20 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   %144 = sub nsw i64 0, %141
   %145 = and i64 %143, %144
   %146 = icmp eq i64 %145, %138
-  br i1 %146, label %147, label %.thread173
+  br i1 %146, label %147, label %.thread171
 
 147:                                              ; preds = %137
   store i32 %.3137, ptr %108, align 4
   br label %166
 
-.thread173:                                       ; preds = %.thread172..thread173_crit_edge, %137
-  %.pre-phi216 = phi i64 [ %.pre215, %.thread172..thread173_crit_edge ], [ %138, %137 ]
-  %148 = getelementptr inbounds i8, ptr %.ph, i64 %.pre-phi216
+.thread171:                                       ; preds = %.thread170..thread171_crit_edge, %137
+  %.pre-phi212 = phi i64 [ %.pre211, %.thread170..thread171_crit_edge ], [ %138, %137 ]
+  %148 = getelementptr inbounds i8, ptr %.ph, i64 %.pre-phi212
   %149 = load i8, ptr %148, align 1
   %.not149 = icmp eq i8 %149, 0
   br i1 %.not149, label %150, label %166
 
-150:                                              ; preds = %.thread173
+150:                                              ; preds = %.thread171
   %151 = getelementptr inbounds nuw i8, ptr %108, i64 12
   %152 = load i8, ptr %151, align 4
   %153 = zext i8 %152 to i32
@@ -1059,9 +1059,9 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
   store i32 %165, ptr %108, align 4
   br label %166
 
-166:                                              ; preds = %.thread174, %150, %.thread173, %120, %147, %158
-  %.5139 = phi i32 [ %.3137, %147 ], [ %165, %158 ], [ %121, %120 ], [ %157, %150 ], [ %.3137, %.thread173 ], [ %136, %.thread174 ]
-  %.2 = phi i1 [ true, %147 ], [ true, %158 ], [ true, %120 ], [ false, %150 ], [ false, %.thread173 ], [ false, %.thread174 ]
+166:                                              ; preds = %.thread172, %150, %.thread171, %120, %147, %158
+  %.5139 = phi i32 [ %.3137, %147 ], [ %165, %158 ], [ %121, %120 ], [ %157, %150 ], [ %.3137, %.thread171 ], [ %136, %.thread172 ]
+  %.2 = phi i1 [ true, %147 ], [ true, %158 ], [ true, %120 ], [ false, %150 ], [ false, %.thread171 ], [ false, %.thread172 ]
   %167 = icmp eq i32 %.0121, %7
   br i1 %167, label %.loopexit.loopexit, label %168
 
@@ -1175,21 +1175,21 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 225:                                              ; preds = %224
   %226 = load i8, ptr %216, align 1
   %227 = sext i8 %226 to i64
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
 228:                                              ; preds = %224
   %229 = load i16, ptr %216, align 2
   %230 = sext i16 %229 to i64
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
 231:                                              ; preds = %224
   %232 = load i32, ptr %216, align 4
   %233 = sext i32 %232 to i64
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
 234:                                              ; preds = %224
   %235 = load i64, ptr %216, align 8
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
 236:                                              ; preds = %224
   %237 = sext i16 %223 to i32
@@ -1200,9 +1200,9 @@ define dso_local i64 @nocachegetattr(ptr noundef readonly captures(none) %0, i32
 
 240:                                              ; preds = %.loopexit
   %241 = ptrtoint ptr %216 to i64
-  br label %fetch_att.exit158
+  br label %fetch_att.exit157
 
-fetch_att.exit158:                                ; preds = %43, %46, %49, %52, %58, %240, %234, %231, %228, %225
+fetch_att.exit157:                                ; preds = %43, %46, %49, %52, %58, %240, %234, %231, %228, %225
   %.1 = phi i64 [ %227, %225 ], [ %230, %228 ], [ %233, %231 ], [ %235, %234 ], [ %241, %240 ], [ %59, %58 ], [ %53, %52 ], [ %51, %49 ], [ %48, %46 ], [ %45, %43 ]
   ret i64 %.1
 }

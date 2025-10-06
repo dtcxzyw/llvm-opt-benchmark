@@ -2024,13 +2024,13 @@ define internal fastcc void @write_buf_to_worktree(ptr noundef %0, ptr noundef n
 
 8:                                                ; preds = %3
   %9 = tail call i32 (ptr, i32, ...) @xopen(ptr noundef %5, i32 noundef 193, i32 noundef 438) #17
-  %.not1924 = icmp eq i64 %2, 0
-  br i1 %.not1924, label %.thread, label %.lr.ph
+  %.not1923 = icmp eq i64 %2, 0
+  br i1 %.not1923, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %8, %17
-  %.01526 = phi ptr [ %19, %17 ], [ %1, %8 ]
-  %.01625 = phi i64 [ %18, %17 ], [ %2, %8 ]
-  %10 = tail call i64 @write_in_full(i32 noundef %9, ptr noundef %.01526, i64 noundef %.01625) #17
+  %.01525 = phi ptr [ %19, %17 ], [ %1, %8 ]
+  %.01624 = phi i64 [ %18, %17 ], [ %2, %8 ]
+  %10 = tail call i64 @write_in_full(i32 noundef %9, ptr noundef %.01525, i64 noundef %.01624) #17
   %11 = icmp slt i64 %10, 0
   br i1 %11, label %12, label %17
 
@@ -2045,8 +2045,8 @@ define internal fastcc void @write_buf_to_worktree(ptr noundef %0, ptr noundef n
   unreachable
 
 17:                                               ; preds = %.lr.ph
-  %18 = sub i64 %.01625, %10
-  %19 = getelementptr inbounds nuw i8, ptr %.01526, i64 %10
+  %18 = sub i64 %.01624, %10
+  %19 = getelementptr inbounds nuw i8, ptr %.01525, i64 %10
   %.not19 = icmp eq i64 %18, 0
   br i1 %.not19, label %.thread, label %.lr.ph
 

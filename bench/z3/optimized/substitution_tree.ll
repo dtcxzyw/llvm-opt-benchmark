@@ -126,13 +126,13 @@ define hidden noundef i32 @_ZN17substitution_tree8next_regEv(ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !3
   %.promoted = load i32, ptr %3, align 8, !tbaa !10
-  %.promoted16 = load i32, ptr %4, align 8, !tbaa !32
+  %.promoted15 = load i32, ptr %4, align 8, !tbaa !32
   %7 = load ptr, ptr %2, align 8
   %umax = tail call i32 @llvm.umax.i32(i32 %.promoted, i32 %6)
   br label %8
 
 8:                                                ; preds = %16, %1
-  %9 = phi i32 [ %14, %16 ], [ %.promoted16, %1 ]
+  %9 = phi i32 [ %14, %16 ], [ %.promoted15, %1 ]
   %10 = phi i32 [ %15, %16 ], [ %.promoted, %1 ]
   %11 = icmp ugt i32 %10, %9
   br i1 %11, label %12, label %13
@@ -156,8 +156,8 @@ define hidden noundef i32 @_ZN17substitution_tree8next_regEv(ptr noundef nonnull
   %21 = and i32 %10, 31
   %22 = shl nuw i32 1, %21
   %23 = and i32 %20, %22
-  %.not15 = icmp eq i32 %23, 0
-  br i1 %.not15, label %24, label %8
+  %.not14 = icmp eq i32 %23, 0
+  br i1 %.not14, label %24, label %8
 
 24:                                               ; preds = %13, %16
   %.lcssa = phi i32 [ %umax, %13 ], [ %10, %16 ]
@@ -342,13 +342,13 @@ _ZN6vectorISt4pairIP3varP4exprELb0EjE9push_backERKS5_.exit.i: ; preds = %.noexc,
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %255 ]
   %88 = load i32, ptr %18, align 8, !tbaa !3
   %.promoted.i = load i32, ptr %16, align 8, !tbaa !10
-  %.promoted16.i = load i32, ptr %17, align 8, !tbaa !32
+  %.promoted15.i = load i32, ptr %17, align 8, !tbaa !32
   %89 = load ptr, ptr %15, align 8
   %umax.i = call i32 @llvm.umax.i32(i32 %.promoted.i, i32 %88)
   br label %90
 
 90:                                               ; preds = %98, %87
-  %91 = phi i32 [ %96, %98 ], [ %.promoted16.i, %87 ]
+  %91 = phi i32 [ %96, %98 ], [ %.promoted15.i, %87 ]
   %92 = phi i32 [ %97, %98 ], [ %.promoted.i, %87 ]
   %93 = icmp ugt i32 %92, %91
   br i1 %93, label %94, label %95
@@ -372,8 +372,8 @@ _ZN6vectorISt4pairIP3varP4exprELb0EjE9push_backERKS5_.exit.i: ; preds = %.noexc,
   %103 = and i32 %92, 31
   %104 = shl nuw i32 1, %103
   %105 = and i32 %102, %104
-  %.not15.i = icmp eq i32 %105, 0
-  br i1 %.not15.i, label %_ZN17substitution_tree8next_regEv.exit, label %90
+  %.not14.i = icmp eq i32 %105, 0
+  br i1 %.not14.i, label %_ZN17substitution_tree8next_regEv.exit, label %90
 
 _ZN17substitution_tree8next_regEv.exit:           ; preds = %98, %95
   %.lcssa.i = phi i32 [ %umax.i, %95 ], [ %92, %98 ]

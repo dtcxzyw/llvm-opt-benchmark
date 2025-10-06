@@ -2395,7 +2395,7 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
 13:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %14 = phi i32 [ %8, %.lr.ph ], [ %20, %22 ]
-  %.02738 = phi i16 [ %4, %.lr.ph ], [ %23, %22 ]
+  %.02737 = phi i16 [ %4, %.lr.ph ], [ %23, %22 ]
   %15 = icmp samesign ult i64 %indvars.iv, 15
   %16 = getelementptr i32, ptr @ett_zbee_zcl_array_elements, i64 %indvars.iv
   %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds nuw (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
@@ -2413,7 +2413,7 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
   br label %.loopexit
 
 22:                                               ; preds = %13
-  %23 = add i16 %.02738, -1
+  %23 = add i16 %.02737, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = icmp ult i32 %20, %7
   %25 = icmp ne i16 %23, 0
@@ -2440,7 +2440,7 @@ define internal fastcc void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1
 13:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %14 = phi i32 [ %8, %.lr.ph ], [ %19, %21 ]
-  %.02536 = phi i16 [ %4, %.lr.ph ], [ %22, %21 ]
+  %.02535 = phi i16 [ %4, %.lr.ph ], [ %22, %21 ]
   %15 = icmp samesign ult i64 %indvars.iv, 15
   %16 = getelementptr i32, ptr @ett_zbee_zcl_array_elements, i64 %indvars.iv
   %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds nuw (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
@@ -2457,7 +2457,7 @@ define internal fastcc void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1
   br label %.loopexit
 
 21:                                               ; preds = %13
-  %22 = add i16 %.02536, -1
+  %22 = add i16 %.02535, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = icmp ult i32 %19, %7
   %24 = icmp ne i16 %22, 0

@@ -307,54 +307,53 @@ define noalias noundef ptr @_ZN4pkpy23_default_import_handlerEPKcPi(ptr noundef 
   store ptr %0, ptr %3, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef zeroext 2)
   %5 = invoke i64 @_ZNSt10filesystem6statusERKNS_7__cxx114pathE(ptr noundef nonnull align 8 dereferenceable(40) %4)
-          to label %6 unwind label %10
+          to label %6 unwind label %11
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %8 = load ptr, ptr %7, align 8
-  %.not.i.i.i = icmp eq ptr %8, null
-  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %9
+  %7 = and i64 %5, 255
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %9 = load ptr, ptr %8, align 8
+  %.not.i.i.i = icmp eq ptr %9, null
+  br i1 %.not.i.i.i, label %_ZNSt10filesystem7__cxx114pathD2Ev.exit, label %10
 
-9:                                                ; preds = %6
-  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull %8) #26
+10:                                               ; preds = %6
+  call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull %9) #26
   br label %_ZNSt10filesystem7__cxx114pathD2Ev.exit
 
-_ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %6, %9
-  store ptr null, ptr %7, align 8
+_ZNSt10filesystem7__cxx114pathD2Ev.exit:          ; preds = %6, %10
+  store ptr null, ptr %8, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
-  %trunc = trunc i64 %5 to i8
-  switch i8 %trunc, label %12 [
-    i8 -1, label %24
-    i8 0, label %24
-  ]
+  %.off = add nsw i64 %7, -1
+  %switch = icmp ult i64 %.off, 254
+  br i1 %switch, label %13, label %25
 
-10:                                               ; preds = %2
-  %11 = landingpad { ptr, i32 }
+11:                                               ; preds = %2
+  %12 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10filesystem7__cxx114pathD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #26
-  resume { ptr, i32 } %11
+  resume { ptr, i32 } %12
 
-12:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
-  %13 = load ptr, ptr %3, align 8
-  %14 = call noalias noundef ptr @fopen(ptr noundef readonly %13, ptr noundef nonnull @.str)
-  %.not = icmp eq ptr %14, null
-  br i1 %.not, label %24, label %15
+13:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit
+  %14 = load ptr, ptr %3, align 8
+  %15 = call noalias noundef ptr @fopen(ptr noundef readonly %14, ptr noundef nonnull @.str)
+  %.not = icmp eq ptr %15, null
+  br i1 %.not, label %25, label %16
 
-15:                                               ; preds = %12
-  %16 = call i32 @fseek(ptr noundef nonnull %14, i64 noundef 0, i32 noundef 2)
-  %17 = call i64 @ftell(ptr noundef nonnull %14)
-  %18 = trunc i64 %17 to i32
-  %sext = shl i64 %17, 32
-  %19 = ashr exact i64 %sext, 32
-  %20 = call noalias noundef nonnull ptr @_Znam(i64 noundef %19) #27
-  %21 = call i32 @fseek(ptr noundef nonnull %14, i64 noundef 0, i32 noundef 0)
-  %22 = call noundef i64 @fread(ptr noundef nonnull %20, i64 noundef 1, i64 noundef %19, ptr noundef nonnull %14)
-  %23 = call i32 @fclose(ptr noundef nonnull %14)
-  store i32 %18, ptr %1, align 4
-  br label %24
+16:                                               ; preds = %13
+  %17 = call i32 @fseek(ptr noundef nonnull %15, i64 noundef 0, i32 noundef 2)
+  %18 = call i64 @ftell(ptr noundef nonnull %15)
+  %19 = trunc i64 %18 to i32
+  %sext = shl i64 %18, 32
+  %20 = ashr exact i64 %sext, 32
+  %21 = call noalias noundef nonnull ptr @_Znam(i64 noundef %20) #27
+  %22 = call i32 @fseek(ptr noundef nonnull %15, i64 noundef 0, i32 noundef 0)
+  %23 = call noundef i64 @fread(ptr noundef nonnull %21, i64 noundef 1, i64 noundef %20, ptr noundef nonnull %15)
+  %24 = call i32 @fclose(ptr noundef nonnull %15)
+  store i32 %19, ptr %1, align 4
+  br label %25
 
-24:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %12, %15
-  %.0 = phi ptr [ %20, %15 ], [ null, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ], [ null, %12 ], [ null, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
+25:                                               ; preds = %_ZNSt10filesystem7__cxx114pathD2Ev.exit, %13, %16
+  %.0 = phi ptr [ %21, %16 ], [ null, %13 ], [ null, %_ZNSt10filesystem7__cxx114pathD2Ev.exit ]
   ret ptr %.0
 }
 

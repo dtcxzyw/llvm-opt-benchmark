@@ -267,8 +267,8 @@ define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unna
   br i1 %.not.i14.i, label %get_capability.exit.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %21, %skip_prefix.exit.i.i
-  %.01429.i.i = phi i64 [ %33, %skip_prefix.exit.i.i ], [ 0, %21 ]
-  %22 = getelementptr inbounds nuw %struct.protocol_capability, ptr @capabilities, i64 %.01429.i.i
+  %.01431.i.i = phi i64 [ %33, %skip_prefix.exit.i.i ], [ 0, %21 ]
+  %22 = getelementptr inbounds nuw %struct.protocol_capability, ptr @capabilities, i64 %.01431.i.i
   %23 = load ptr, ptr %22, align 16, !tbaa !10
   br label %24
 
@@ -294,9 +294,9 @@ define internal fastcc range(i32 0, 2) i32 @process_request(ptr noundef %0) unna
   ]
 
 skip_prefix.exit.i.i:                             ; preds = %26, %31
-  %33 = add nuw nsw i64 %.01429.i.i, 1
-  %exitcond.i.i = icmp eq i64 %33, 8
-  br i1 %exitcond.i.i, label %get_capability.exit.i, label %.preheader.i.i, !llvm.loop !26
+  %33 = add nuw nsw i64 %.01431.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %33, 8
+  br i1 %exitcond.not.i.i, label %get_capability.exit.i, label %.preheader.i.i, !llvm.loop !26
 
 get_capability.exit.i.loopexit:                   ; preds = %31
   br label %get_capability.exit.i
@@ -339,8 +339,8 @@ get_capability.exit.i:                            ; preds = %skip_prefix.exit.i.
   br i1 %.not.i.i, label %.loopexit, label %.preheader.i.i15
 
 .preheader.i.i15:                                 ; preds = %46, %skip_prefix.exit.i.i20
-  %.01429.i.i16 = phi i64 [ %60, %skip_prefix.exit.i.i20 ], [ 0, %46 ]
-  %47 = getelementptr inbounds nuw %struct.protocol_capability, ptr @capabilities, i64 %.01429.i.i16
+  %.01431.i.i16 = phi i64 [ %60, %skip_prefix.exit.i.i20 ], [ 0, %46 ]
+  %47 = getelementptr inbounds nuw %struct.protocol_capability, ptr @capabilities, i64 %.01431.i.i16
   %48 = load ptr, ptr %47, align 16, !tbaa !10
   br label %49
 
@@ -370,13 +370,13 @@ get_capability.exit.i:                            ; preds = %skip_prefix.exit.i.
   br label %get_capability.exit.i23
 
 skip_prefix.exit.i.i20:                           ; preds = %51, %56
-  %60 = add nuw nsw i64 %.01429.i.i16, 1
-  %exitcond.i.i21 = icmp eq i64 %60, 8
-  br i1 %exitcond.i.i21, label %.loopexit, label %.preheader.i.i15, !llvm.loop !26
+  %60 = add nuw nsw i64 %.01431.i.i16, 1
+  %exitcond.not.i.i21 = icmp eq i64 %60, 8
+  br i1 %exitcond.not.i.i21, label %.loopexit, label %.preheader.i.i15, !llvm.loop !26
 
 get_capability.exit.i23:                          ; preds = %56, %58
   %.013.i = phi ptr [ %59, %58 ], [ null, %56 ]
-  %61 = shl nuw i64 1, %.01429.i.i16
+  %61 = shl nuw i64 1, %.01431.i.i16
   %62 = and i64 %61, 57
   %.not10.i.not = icmp eq i64 %62, 0
   br i1 %.not10.i.not, label %.loopexit, label %63
@@ -393,7 +393,7 @@ get_capability.exit.i23:                          ; preds = %56, %58
   br label %.loopexit
 
 67:                                               ; preds = %63
-  %68 = add nsw i64 %.01429.i.i16, -6
+  %68 = add nsw i64 %.01431.i.i16, -6
   %.not12.i24 = icmp ult i64 %68, -2
   br i1 %.not12.i24, label %parse_command.exit, label %69
 

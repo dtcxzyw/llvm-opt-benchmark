@@ -2134,7 +2134,7 @@ hwaccel_serial.exit.thread:                       ; preds = %hwaccel_serial.exit
 
 ._crit_edge.i:                                    ; preds = %hwaccel_serial.exit.thread
   %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %56
-  %.pre24.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
+  %.pre23.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !93
   br label %70
 
 59:                                               ; preds = %hwaccel_serial.exit.thread
@@ -2160,7 +2160,7 @@ hwaccel_serial.exit.thread:                       ; preds = %hwaccel_serial.exit
   br label %70
 
 70:                                               ; preds = %67, %._crit_edge.i
-  %71 = phi ptr [ %63, %67 ], [ %.pre24.i, %._crit_edge.i ]
+  %71 = phi ptr [ %63, %67 ], [ %.pre23.i, %._crit_edge.i ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 184
   %73 = load ptr, ptr %72, align 8, !tbaa !179
   %.not21.i = icmp eq ptr %73, null

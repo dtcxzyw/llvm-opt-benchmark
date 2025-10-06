@@ -1220,10 +1220,10 @@ define hidden { i64, i64 } @"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$
   %12 = extractvalue { i64, i64 } %9, 1
   %spec.select6.i = select i1 %11, i64 0, i64 %10
   %13 = insertvalue { i64, i64 } poison, i64 %spec.select6.i, 0
-  %switch = icmp eq i64 %spec.select6.i, 0
-  %.sroa.3.0 = select i1 %switch, i64 undef, i64 %12
-  %14 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %14
+  %14 = icmp eq i64 %spec.select6.i, 0
+  %.sroa.3.0 = select i1 %14, i64 undef, i64 %12
+  %15 = insertvalue { i64, i64 } %13, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %15
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -4326,13 +4326,13 @@ select.unfold:                                    ; preds = %"_ZN4core3str4iter2
   br label %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf242b5c35a9c4190E.exit"
 
 "_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf242b5c35a9c4190E.exit": ; preds = %select.unfold, %82
-  %.sroa.61.08.i.i = phi i64 [ undef, %82 ], [ %.sroa.51.0.copyload.i, %select.unfold ]
+  %.sroa.61.07.i.i = phi i64 [ undef, %82 ], [ %.sroa.51.0.copyload.i, %select.unfold ]
   %.sroa.0.1.i.i = phi i64 [ 0, %82 ], [ 1, %select.unfold ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1544
   br label %84
 
 84:                                               ; preds = %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd7ff12415b85250fE.exit.i.i", %2, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf242b5c35a9c4190E.exit"
-  %.sroa.3.0 = phi i64 [ %.sroa.61.08.i.i, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf242b5c35a9c4190E.exit" ], [ undef, %2 ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd7ff12415b85250fE.exit.i.i" ]
+  %.sroa.3.0 = phi i64 [ %.sroa.61.07.i.i, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf242b5c35a9c4190E.exit" ], [ undef, %2 ], [ undef, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd7ff12415b85250fE.exit.i.i" ]
   %.sroa.0.0 = phi i64 [ %.sroa.0.1.i.i, %"_ZN4core4iter8adapters3map12map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf242b5c35a9c4190E.exit" ], [ 2, %2 ], [ 2, %"_ZN4core3str4iter22SplitInternal$LT$P$GT$7get_end17hd7ff12415b85250fE.exit.i.i" ]
   %85 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %86 = insertvalue { i64, i64 } %85, i64 %.sroa.3.0, 1

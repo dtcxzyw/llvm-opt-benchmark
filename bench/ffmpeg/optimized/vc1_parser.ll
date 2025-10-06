@@ -63,51 +63,51 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
 26:                                               ; preds = %22, %6
   %.0113 = phi i32 [ 0, %22 ], [ -100, %6 ]
   %27 = icmp sgt i32 %5, %19
-  br i1 %27, label %.preheader169.lr.ph, label %.thread160
+  br i1 %27, label %.preheader168.lr.ph, label %.thread160
 
-.preheader169.lr.ph:                              ; preds = %26
+.preheader168.lr.ph:                              ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 10704
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 6416
   %31 = sext i32 %5 to i64
-  br label %.preheader169
+  br label %.preheader168
 
-.preheader169:                                    ; preds = %.preheader169.lr.ph, %100
-  %.0105207 = phi i8 [ undef, %.preheader169.lr.ph ], [ %.3, %100 ]
-  %.0106206 = phi i32 [ %19, %.preheader169.lr.ph ], [ %.3109, %100 ]
-  %.0120205 = phi i32 [ %16, %.preheader169.lr.ph ], [ %.5125, %100 ]
-  %.0127204 = phi i64 [ %14, %.preheader169.lr.ph ], [ %.6133, %100 ]
-  %.0136203 = phi i32 [ %11, %.preheader169.lr.ph ], [ %.2138, %100 ]
-  %32 = icmp slt i32 %.0106206, %5
-  %33 = icmp ult i64 %.0127204, 37
+.preheader168:                                    ; preds = %.preheader168.lr.ph, %100
+  %.0105206 = phi i8 [ undef, %.preheader168.lr.ph ], [ %.3, %100 ]
+  %.0106205 = phi i32 [ %19, %.preheader168.lr.ph ], [ %.3109, %100 ]
+  %.0120204 = phi i32 [ %16, %.preheader168.lr.ph ], [ %.5125, %100 ]
+  %.0127203 = phi i64 [ %14, %.preheader168.lr.ph ], [ %.6133, %100 ]
+  %.0136202 = phi i32 [ %11, %.preheader168.lr.ph ], [ %.2138, %100 ]
+  %32 = icmp slt i32 %.0106205, %5
+  %33 = icmp ult i64 %.0127203, 37
   %34 = select i1 %32, i1 %33, i1 false
   br i1 %34, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.preheader169
-  %35 = sext i32 %.0106206 to i64
+.lr.ph.preheader:                                 ; preds = %.preheader168
+  %35 = sext i32 %.0106205 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %49
   %indvars.iv = phi i64 [ %35, %.lr.ph.preheader ], [ %indvars.iv.next, %49 ]
-  %.2122184 = phi i32 [ %.0120205, %.lr.ph.preheader ], [ %.4124, %49 ]
-  %.2129183 = phi i64 [ %.0127204, %.lr.ph.preheader ], [ %.4131, %49 ]
+  %.2122183 = phi i32 [ %.0120204, %.lr.ph.preheader ], [ %.4124, %49 ]
+  %.2129182 = phi i64 [ %.0127203, %.lr.ph.preheader ], [ %.4131, %49 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %36 = getelementptr inbounds i8, ptr %4, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !57
-  %38 = add nuw nsw i64 %.2129183, 1
-  %39 = getelementptr inbounds nuw i8, ptr %12, i64 %.2129183
+  %38 = add nuw nsw i64 %.2129182, 1
+  %39 = getelementptr inbounds nuw i8, ptr %12, i64 %.2129182
   store i8 %37, ptr %39, align 1, !tbaa !57
-  %40 = icmp ult i32 %.2122184, 2
+  %40 = icmp ult i32 %.2122183, 2
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %.lr.ph
   %.not149 = icmp eq i8 %37, 0
-  %42 = add nuw nsw i32 %.2122184, 1
+  %42 = add nuw nsw i32 %.2122183, 1
   %43 = select i1 %.not149, i32 %42, i32 0
   br label %49
 
 44:                                               ; preds = %.lr.ph
-  %45 = icmp eq i32 %.2122184, 2
+  %45 = icmp eq i32 %.2122183, 2
   br i1 %45, label %46, label %._crit_edge.loopexit
 
 46:                                               ; preds = %44
@@ -127,7 +127,7 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   br label %49
 
 49:                                               ; preds = %47, %46, %.fold.split, %48, %41
-  %.4131 = phi i64 [ %38, %41 ], [ %38, %46 ], [ %38, %.fold.split ], [ %.2129183, %47 ], [ %38, %48 ]
+  %.4131 = phi i64 [ %38, %41 ], [ %38, %46 ], [ %38, %.fold.split ], [ %.2129182, %47 ], [ %38, %48 ]
   %.4124 = phi i32 [ %43, %41 ], [ 3, %46 ], [ 2, %.fold.split ], [ 0, %47 ], [ 0, %48 ]
   %50 = icmp slt i64 %indvars.iv.next, %31
   %51 = icmp ult i64 %.4131, 37
@@ -141,12 +141,12 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   %53 = trunc nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader169
-  %.lcssa = phi i1 [ false, %.preheader169 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
-  %.3130 = phi i64 [ %.0127204, %.preheader169 ], [ %.3130.ph, %._crit_edge.loopexit ]
-  %.3123 = phi i32 [ %.0120205, %.preheader169 ], [ %.3123.ph, %._crit_edge.loopexit ]
-  %.2108 = phi i32 [ %.0106206, %.preheader169 ], [ %53, %._crit_edge.loopexit ]
-  %.2 = phi i8 [ %.0105207, %.preheader169 ], [ %37, %._crit_edge.loopexit ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader168
+  %.lcssa = phi i1 [ false, %.preheader168 ], [ %.lcssa.ph, %._crit_edge.loopexit ]
+  %.3130 = phi i64 [ %.0127203, %.preheader168 ], [ %.3130.ph, %._crit_edge.loopexit ]
+  %.3123 = phi i32 [ %.0120204, %.preheader168 ], [ %.3123.ph, %._crit_edge.loopexit ]
+  %.2108 = phi i32 [ %.0106205, %.preheader168 ], [ %53, %._crit_edge.loopexit ]
+  %.2 = phi i8 [ %.0105206, %.preheader168 ], [ %37, %._crit_edge.loopexit ]
   %54 = load i32, ptr %28, align 8, !tbaa !60
   %55 = and i32 %54, 1
   %56 = icmp ne i32 %55, 0
@@ -168,32 +168,32 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   %64 = icmp ult i64 %.3130, 37
   %or.cond5 = or i1 %.lcssa, %64
   %65 = icmp sge i32 %.2108, %5
-  %or.cond236.not = select i1 %or.cond5, i1 true, i1 %65
-  br i1 %or.cond236.not, label %.loopexit, label %.lr.ph199
+  %or.cond235.not = select i1 %or.cond5, i1 true, i1 %65
+  br i1 %or.cond235.not, label %.loopexit, label %.lr.ph198
 
-.lr.ph199:                                        ; preds = %63, %85
-  %.5198 = phi i8 [ %.6, %85 ], [ %.2, %63 ]
-  %.5111197 = phi i32 [ %.6112, %85 ], [ %.2108, %63 ]
-  %.7196 = phi i32 [ %.9, %85 ], [ %.3123, %63 ]
-  %66 = icmp eq i32 %.7196, 0
-  %67 = sext i32 %.5111197 to i64
+.lr.ph198:                                        ; preds = %63, %85
+  %.5197 = phi i8 [ %.6, %85 ], [ %.2, %63 ]
+  %.5111196 = phi i32 [ %.6112, %85 ], [ %.2108, %63 ]
+  %.7195 = phi i32 [ %.9, %85 ], [ %.3123, %63 ]
+  %66 = icmp eq i32 %.7195, 0
+  %67 = sext i32 %.5111196 to i64
   %68 = getelementptr inbounds i8, ptr %4, i64 %67
   br i1 %66, label %69, label %76
 
-69:                                               ; preds = %.lr.ph199
+69:                                               ; preds = %.lr.ph198
   %70 = load ptr, ptr %30, align 8, !tbaa !61
-  %71 = sub nsw i32 %5, %.5111197
+  %71 = sub nsw i32 %5, %.5111196
   %72 = tail call i32 %70(ptr noundef %68, i32 noundef %71) #5
-  %73 = add nsw i32 %72, %.5111197
+  %73 = add nsw i32 %72, %.5111196
   %74 = icmp slt i32 %73, %5
   %spec.select = zext i1 %74 to i32
   %75 = add nsw i32 %73, 1
   br label %85
 
-76:                                               ; preds = %.lr.ph199
-  %77 = add nsw i32 %.5111197, 1
+76:                                               ; preds = %.lr.ph198
+  %77 = add nsw i32 %.5111196, 1
   %78 = load i8, ptr %68, align 1, !tbaa !57
-  switch i32 %.7196, label %.thread [
+  switch i32 %.7195, label %.thread [
     i32 1, label %79
     i32 2, label %81
   ]
@@ -215,9 +215,9 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
 85:                                               ; preds = %79, %81, %82, %69
   %.9 = phi i32 [ %spec.select, %69 ], [ %80, %79 ], [ %84, %82 ], [ 2, %81 ]
   %.6112 = phi i32 [ %75, %69 ], [ %77, %79 ], [ %77, %82 ], [ %77, %81 ]
-  %.6 = phi i8 [ %.5198, %69 ], [ %78, %79 ], [ %78, %82 ], [ 0, %81 ]
+  %.6 = phi i8 [ %.5197, %69 ], [ %78, %79 ], [ %78, %82 ], [ 0, %81 ]
   %86 = icmp slt i32 %.6112, %5
-  br i1 %86, label %.lr.ph199, label %.loopexit, !llvm.loop !62
+  br i1 %86, label %.lr.ph198, label %.loopexit, !llvm.loop !62
 
 .loopexit:                                        ; preds = %85, %63
   %.6126 = phi i32 [ %.3123, %63 ], [ %.9, %85 ]
@@ -238,7 +238,7 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   br i1 %.not146, label %90, label %100
 
 90:                                               ; preds = %.thread
-  %91 = icmp ne i32 %.0136203, 0
+  %91 = icmp ne i32 %.0136202, 0
   %92 = and i8 %.4159, -2
   %or.cond8 = icmp ne i8 %92, 12
   %or.cond151.not = select i1 %91, i1 true, i1 %or.cond8
@@ -257,16 +257,16 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   br label %.thread160
 
 100:                                              ; preds = %.loopexit, %93, %.thread, %90
-  %.2138 = phi i32 [ %.0136203, %.thread ], [ %.0136203, %93 ], [ %.0136203, %.loopexit ], [ 1, %90 ]
+  %.2138 = phi i32 [ %.0136202, %.thread ], [ %.0136202, %93 ], [ %.0136202, %.loopexit ], [ 1, %90 ]
   %.6133 = phi i64 [ 0, %.thread ], [ 0, %93 ], [ %.3130, %.loopexit ], [ 0, %90 ]
   %.5125 = phi i32 [ %.6126157, %.thread ], [ %.6126157, %93 ], [ %.6126, %.loopexit ], [ %.6126157, %90 ]
   %.3109 = phi i32 [ %.4110158, %.thread ], [ %.4110158, %93 ], [ %.4110, %.loopexit ], [ %.4110158, %90 ]
   %.3 = phi i8 [ %.4159, %.thread ], [ %.4159, %93 ], [ %.4, %.loopexit ], [ %.4159, %90 ]
   %101 = icmp slt i32 %.3109, %5
-  br i1 %101, label %.preheader169, label %.thread160
+  br i1 %101, label %.preheader168, label %.thread160
 
 .thread160:                                       ; preds = %100, %26, %96, %61
-  %.1137 = phi i32 [ %99, %96 ], [ %.0136203, %61 ], [ %11, %26 ], [ %.2138, %100 ]
+  %.1137 = phi i32 [ %99, %96 ], [ %.0136202, %61 ], [ %11, %26 ], [ %.2138, %100 ]
   %.1128 = phi i64 [ 0, %96 ], [ %.3130, %61 ], [ %14, %26 ], [ %.6133, %100 ]
   %.1121 = phi i32 [ %.6126157, %96 ], [ %.3123, %61 ], [ %16, %26 ], [ %.5125, %100 ]
   %.2115 = phi i32 [ %97, %96 ], [ %.0113, %61 ], [ %.0113, %26 ], [ %.0113, %100 ]
@@ -282,11 +282,11 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
 105:                                              ; preds = %.thread160
   %106 = call i32 @ff_combine_frame(ptr noundef nonnull %9, i32 noundef %.2115, ptr noundef nonnull %7, ptr noundef nonnull %8) #5
   %107 = icmp slt i32 %106, 0
-  br i1 %107, label %108, label %._crit_edge222
+  br i1 %107, label %108, label %._crit_edge221
 
-._crit_edge222:                                   ; preds = %105
+._crit_edge221:                                   ; preds = %105
   %.pre = load ptr, ptr %7, align 8, !tbaa !54
-  %.pre223 = load i32, ptr %8, align 4, !tbaa !55
+  %.pre222 = load i32, ptr %8, align 4, !tbaa !55
   br label %110
 
 108:                                              ; preds = %105
@@ -296,10 +296,10 @@ define internal i32 @vc1_parse(ptr noundef captures(none) %0, ptr noundef %1, pt
   %109 = load i32, ptr %8, align 4, !tbaa !55
   br label %116
 
-110:                                              ; preds = %.thread160, %._crit_edge222
-  %111 = phi i32 [ %.pre223, %._crit_edge222 ], [ %5, %.thread160 ]
-  %112 = phi ptr [ %.pre, %._crit_edge222 ], [ %4, %.thread160 ]
-  %.4117 = phi i32 [ %.2115, %._crit_edge222 ], [ %5, %.thread160 ]
+110:                                              ; preds = %.thread160, %._crit_edge221
+  %111 = phi i32 [ %.pre222, %._crit_edge221 ], [ %5, %.thread160 ]
+  %112 = phi ptr [ %.pre, %._crit_edge221 ], [ %4, %.thread160 ]
+  %.4117 = phi i32 [ %.2115, %._crit_edge221 ], [ %5, %.thread160 ]
   %113 = icmp slt i32 %.4117, 0
   %114 = icmp ne i32 %.4117, -100
   %or.cond16 = and i1 %113, %114

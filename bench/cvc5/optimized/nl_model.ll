@@ -4906,8 +4906,8 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %110, %115
   %159 = load i64, ptr %63, align 8, !tbaa !102
   %160 = urem i64 %158, %159
   %161 = load i64, ptr %83, align 8, !tbaa !109
-  %.not38.i = icmp eq i64 %161, 0
-  br i1 %.not38.i, label %.thread..critedge_crit_edge.i, label %162
+  %.not36.i = icmp eq i64 %161, 0
+  br i1 %.not36.i, label %.thread..critedge_crit_edge.i, label %162
 
 .thread..critedge_crit_edge.i:                    ; preds = %.noexc461
   %.pre.i = load ptr, ptr %9, align 8, !tbaa !64
@@ -4918,7 +4918,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %110, %115
   %164 = getelementptr inbounds nuw ptr, ptr %163, i64 %160
   %165 = load ptr, ptr %164, align 8, !tbaa !111
   %.not.i.i.i459 = icmp eq ptr %165, null
-  %.pre47.i = load ptr, ptr %9, align 8, !tbaa !64
+  %.pre45.i = load ptr, ptr %9, align 8, !tbaa !64
   br i1 %.not.i.i.i459, label %.critedge.i, label %166
 
 166:                                              ; preds = %162
@@ -4928,7 +4928,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %110, %115
   %170 = load i64, ptr %169, align 8, !tbaa !112
   %171 = icmp eq i64 %158, %170
   %172 = load ptr, ptr %168, align 8
-  %173 = icmp eq ptr %.pre47.i, %172
+  %173 = icmp eq ptr %.pre45.i, %172
   %174 = select i1 %171, i1 %173, i1 false
   br i1 %174, label %.loopexit696, label %.lr.ph.i.i.i
 
@@ -4936,7 +4936,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %110, %115
   %176 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %177 = icmp eq i64 %158, %184
   %178 = load ptr, ptr %176, align 8
-  %179 = icmp eq ptr %.pre47.i, %178
+  %179 = icmp eq ptr %.pre45.i, %178
   %180 = select i1 %177, i1 %179, i1 false
   br i1 %180, label %.loopexit696, label %.lr.ph.i.i.i, !llvm.loop !116
 
@@ -4957,7 +4957,7 @@ _ZN4cvc58internal12NodeTemplateILb0EEaSERKS2_.exit: ; preds = %110, %115
   br label %.critedge.i, !llvm.loop !116
 
 .critedge.i:                                      ; preds = %.lr.ph.i.i.i, %..loopexit_crit_edge21.i.i.i, %162, %.thread..critedge_crit_edge.i
-  %186 = phi ptr [ %.pre.i, %.thread..critedge_crit_edge.i ], [ %.pre47.i, %..loopexit_crit_edge21.i.i.i ], [ %.pre47.i, %162 ], [ %.pre47.i, %.lr.ph.i.i.i ]
+  %186 = phi ptr [ %.pre.i, %.thread..critedge_crit_edge.i ], [ %.pre45.i, %..loopexit_crit_edge21.i.i.i ], [ %.pre45.i, %162 ], [ %.pre45.i, %.lr.ph.i.i.i ]
   %187 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #26
           to label %.noexc462 unwind label %255
 
@@ -6625,8 +6625,8 @@ _ZNK4cvc58internal4expr9NodeValue8iteratorINS0_12NodeTemplateILb1EEEEdeEv.exit: 
   %436 = load i64, ptr %281, align 8, !tbaa !134
   %437 = urem i64 %435, %436
   %438 = load i64, ptr %287, align 8, !tbaa !138
-  %.not32.i = icmp eq i64 %438, 0
-  br i1 %.not32.i, label %.critedge.i, label %439
+  %.not30.i = icmp eq i64 %438, 0
+  br i1 %.not30.i, label %.critedge.i, label %439
 
 439:                                              ; preds = %.noexc878
   %440 = load ptr, ptr %21, align 8, !tbaa !132
@@ -23740,8 +23740,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %18 = load i64, ptr %17, align 8, !tbaa !134
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !138
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !132
@@ -24306,8 +24306,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %18 = load i64, ptr %17, align 8, !tbaa !134
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !138
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !132

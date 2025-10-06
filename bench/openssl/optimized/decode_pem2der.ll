@@ -137,15 +137,15 @@ read_pem.exit:                                    ; preds = %7
   br label %39
 
 39:                                               ; preds = %37, %44
-  %.02642 = phi i64 [ 0, %37 ], [ %45, %44 ]
-  %40 = getelementptr inbounds nuw %struct.pem_name_map_st, ptr @pem2der_decode.pem_name_map, i64 %.02642
+  %.02641 = phi i64 [ 0, %37 ], [ %45, %44 ]
+  %40 = getelementptr inbounds nuw %struct.pem_name_map_st, ptr @pem2der_decode.pem_name_map, i64 %.02641
   %41 = load ptr, ptr %40, align 16, !tbaa !18
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) %41) #6
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %46, label %44
 
 44:                                               ; preds = %39
-  %45 = add nuw nsw i64 %.02642, 1
+  %45 = add nuw nsw i64 %.02641, 1
   %exitcond.not = icmp eq i64 %45, 17
   br i1 %exitcond.not, label %.critedge, label %39, !llvm.loop !20
 
@@ -158,7 +158,7 @@ read_pem.exit:                                    ; preds = %7
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %52 = load i32, ptr %51, align 8, !tbaa !24
   store i32 %52, ptr %12, align 4, !tbaa !13
-  %53 = add nsw i64 %.02642, -13
+  %53 = add nsw i64 %.02641, -13
   %.not34 = icmp ult i64 %53, -10
   br i1 %.not34, label %56, label %54
 

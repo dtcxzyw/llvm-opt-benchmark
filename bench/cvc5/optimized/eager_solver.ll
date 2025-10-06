@@ -2865,7 +2865,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit112: ; preds = %.critedge, %167, %
   %178 = load i64, ptr %61, align 8
   %179 = and i64 %178, 1152920405095219200
   %.not.i.i113 = icmp eq i64 %179, 1152920405095219200
-  br i1 %.not.i.i113, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114, label %180, !prof !21
+  br i1 %.not.i.i113, label %190, label %180, !prof !21
 
 180:                                              ; preds = %177
   %181 = add i64 %178, 1152920405095219200
@@ -2874,11 +2874,11 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit112: ; preds = %.critedge, %167, %
   %184 = or disjoint i64 %182, %183
   store i64 %184, ptr %61, align 8
   %185 = icmp eq i64 %182, 0
-  br i1 %185, label %186, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114, !prof !21
+  br i1 %185, label %186, label %190, !prof !21
 
 186:                                              ; preds = %180
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %61)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114 unwind label %187
+          to label %190 unwind label %187
 
 187:                                              ; preds = %186
   %188 = landingpad { ptr, i32 }
@@ -2887,19 +2887,19 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit112: ; preds = %.critedge, %167, %
   call void @__clang_call_terminate(ptr %189) #18
   unreachable
 
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114: ; preds = %177, %180, %186
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit
-
 .body:                                            ; preds = %39, %124, %125, %131, %162
   %.pn37.pn.pn = phi { ptr, i32 } [ %.pn37, %131 ], [ %126, %125 ], [ %163, %162 ], [ %.pn, %124 ], [ %40, %39 ]
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   resume { ptr, i32 } %.pn37.pn.pn
 
-.loopexit:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit112, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114
-  %190 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit114 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit112 ]
-  ret i1 %190
+190:                                              ; preds = %186, %180, %177
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit112, %190
+  %191 = phi i1 [ true, %190 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit112 ]
+  ret i1 %191
 }
 
 declare void @_ZN4cvc58internal6theory7strings5utils20getConstantComponentENS0_12NodeTemplateILb1EEE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef) local_unnamed_addr #0

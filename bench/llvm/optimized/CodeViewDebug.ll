@@ -1110,11 +1110,11 @@ _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %41, %38
   %51 = extractvalue { ptr, i64 } %49, 1
   %.pre = load ptr, ptr %7, align 8, !tbaa !179
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre, i64 -16
-  %.pre141 = load i64, ptr %.phi.trans.insert, align 8
+  %.pre140 = load i64, ptr %.phi.trans.insert, align 8
   br label %_ZNK4llvm6DIFile12getDirectoryEv.exit
 
 _ZNK4llvm6DIFile12getDirectoryEv.exit:            ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i, %48
-  %52 = phi i64 [ %.pre141, %48 ], [ %36, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
+  %52 = phi i64 [ %.pre140, %48 ], [ %36, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
   %53 = phi ptr [ %.pre, %48 ], [ %34, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
   %.sroa.0.1.i.i = phi ptr [ %50, %48 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
   %.sroa.4.1.i.i = phi i64 [ %51, %48 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
@@ -1159,12 +1159,12 @@ _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %_ZNK4llvm6DIFile11g
   br i1 %69, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread110
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread110: ; preds = %_ZNK4llvm6DIFile11getFilenameEv.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit
-  %cond118 = icmp eq i64 %.sroa.4.1.i.i46, 0
-  br i1 %cond118, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit51
+  %cond117 = icmp eq i64 %.sroa.4.1.i.i46, 0
+  br i1 %cond117, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %_ZNK4llvm9StringRef11starts_withES0_.exit51
 
 _ZNK4llvm9StringRef11starts_withES0_.exit51:      ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread110
-  %lhsc116 = load i8, ptr %.sroa.0.1.i.i45, align 1
-  %70 = icmp eq i8 %lhsc116, 47
+  %lhsc115 = load i8, ptr %.sroa.0.1.i.i45, align 1
+  %70 = icmp eq i8 %lhsc115, 47
   br i1 %70, label %_ZNK4llvm9StringRef11starts_withES0_.exit.thread, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
 
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit51, %_ZNK4llvm9StringRef11starts_withES0_.exit
@@ -1379,8 +1379,8 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i:     ; preds = %_ZNK4llvm9StringRef
   %148 = ptrtoint ptr %.sroa.0.1.i.i45 to i64
   %149 = sub i64 %147, %148
   %150 = icmp eq i64 %149, 1
-  %or.cond115 = select i1 %.not.i.i, i1 %150, i1 false
-  br i1 %or.cond115, label %151, label %_ZN4llvmplERKNS_5TwineES2_.exit
+  %or.cond114 = select i1 %.not.i.i, i1 %150, i1 false
+  br i1 %or.cond114, label %151, label %_ZN4llvmplERKNS_5TwineES2_.exit
 
 151:                                              ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -1653,14 +1653,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %_ZN
 
 _ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit: ; preds = %238, %231
   %240 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.2, i64 noundef 0, i64 noundef 3) #25
-  %.not125 = icmp eq i64 %240, -1
-  br i1 %.not125, label %.preheader, label %.lr.ph
+  %.not124 = icmp eq i64 %240, -1
+  br i1 %.not124, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit
   %241 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.3, i64 noundef 0, i64 noundef 4) #25
   %242 = add i64 %241, 1
-  %or.cond126 = icmp ult i64 %242, 2
-  br i1 %or.cond126, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread, label %.lr.ph127
+  %or.cond125 = icmp ult i64 %242, 2
+  br i1 %or.cond125, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread, label %.lr.ph126
 
 .lr.ph:                                           ; preds = %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit
   %243 = phi i64 [ %248, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit ], [ %240, %_ZSt7replaceIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEcEvT_SA_RKT0_SD_.exit ]
@@ -1680,14 +1680,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
   %.not = icmp eq i64 %248, -1
   br i1 %.not, label %.preheader, label %.lr.ph, !llvm.loop !211
 
-.lr.ph127:                                        ; preds = %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83
+.lr.ph126:                                        ; preds = %.preheader, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83
   %249 = phi i64 [ %264, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83 ], [ %241, %.preheader ]
   %250 = add i64 %249, -1
   %251 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %27, i8 noundef signext 92, i64 noundef %250) #25
   %252 = icmp eq i64 %251, -1
   br i1 %252, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread, label %253
 
-253:                                              ; preds = %.lr.ph127
+253:                                              ; preds = %.lr.ph126
   %254 = add i64 %249, 3
   %255 = sub i64 %254, %251
   %256 = load i64, ptr %28, align 8, !tbaa !190
@@ -1721,30 +1721,30 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83: ; preds =
   %264 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.3, i64 noundef %251, i64 noundef 4) #25
   %265 = add i64 %264, 1
   %or.cond = icmp ult i64 %265, 2
-  br i1 %or.cond, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread, label %.lr.ph127
+  br i1 %or.cond, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread, label %.lr.ph126
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83, %.lr.ph127, %.preheader
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83, %.lr.ph126, %.preheader
   %266 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.4, i64 noundef 0, i64 noundef 2) #25
-  %.not39129 = icmp eq i64 %266, -1
-  br i1 %.not39129, label %._crit_edge, label %.lr.ph130
+  %.not39128 = icmp eq i64 %266, -1
+  br i1 %.not39128, label %._crit_edge, label %.lr.ph129
 
-.lr.ph130:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit86
+.lr.ph129:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit86
   %267 = phi i64 [ %272, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit86 ], [ %266, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread ]
   %268 = load i64, ptr %28, align 8, !tbaa !190
   %269 = icmp ugt i64 %267, %268
   br i1 %269, label %270, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit86
 
-270:                                              ; preds = %.lr.ph130
+270:                                              ; preds = %.lr.ph129
   call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.115, ptr noundef nonnull @.str.114, i64 noundef %267, i64 noundef %268) #26
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit86: ; preds = %.lr.ph130
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit86: ; preds = %.lr.ph129
   %271 = icmp ne i64 %268, %267
   %spec.select.i.i85 = zext i1 %271 to i64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8_M_eraseEmm(ptr noundef nonnull align 8 dereferenceable(32) %27, i64 noundef %267, i64 noundef %spec.select.i.i85) #25
   %272 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull @.str.4, i64 noundef %267, i64 noundef 2) #25
   %.not39 = icmp eq i64 %272, -1
-  br i1 %.not39, label %._crit_edge, label %.lr.ph130, !llvm.loop !212
+  br i1 %.not39, label %._crit_edge, label %.lr.ph129, !llvm.loop !212
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit83.thread
   %273 = load ptr, ptr %27, align 8, !tbaa !191
@@ -10627,24 +10627,24 @@ define hidden noundef ptr @_ZN4llvm13CodeViewDebug17beginSymbolRecordENS_8codevi
   %42 = extractvalue { ptr, i64 } %40, 1
   %.idx.i = mul nuw nsw i64 %42, 40
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i
-  %.not20.i = icmp eq i64 %42, 0
-  br i1 %.not20.i, label %_ZL13getSymbolNameN4llvm8codeview10SymbolKindE.exit, label %.lr.ph.i
+  %.not18.i = icmp eq i64 %42, 0
+  br i1 %.not18.i, label %_ZL13getSymbolNameN4llvm8codeview10SymbolKindE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %38, %.critedge.i
-  %.021.i = phi ptr [ %46, %.critedge.i ], [ %41, %38 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.021.i, i64 32
+  %.019.i = phi ptr [ %46, %.critedge.i ], [ %41, %38 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.019.i, i64 32
   %45 = load i16, ptr %44, align 8, !tbaa !982
   %.not11.i = icmp eq i16 %45, %1
   br i1 %.not11.i, label %47, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds nuw i8, ptr %.021.i, i64 40
+  %46 = getelementptr inbounds nuw i8, ptr %.019.i, i64 40
   %.not.i7 = icmp eq ptr %46, %43
   br i1 %.not.i7, label %_ZL13getSymbolNameN4llvm8codeview10SymbolKindE.exit, label %.lr.ph.i
 
 47:                                               ; preds = %.lr.ph.i
-  %.sroa.013.0.copyload.i = load ptr, ptr %.021.i, align 8, !tbaa !214
-  %.sroa.3.0..0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
+  %.sroa.013.0.copyload.i = load ptr, ptr %.019.i, align 8, !tbaa !214
+  %.sroa.3.0..0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..0.sroa_idx.i, align 8, !tbaa !200
   br label %_ZL13getSymbolNameN4llvm8codeview10SymbolKindE.exit
 
@@ -11601,24 +11601,24 @@ define hidden void @_ZN4llvm13CodeViewDebug19emitEndSymbolRecordENS_8codeview10S
   %25 = extractvalue { ptr, i64 } %23, 1
   %.idx.i = mul nuw nsw i64 %25, 40
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx.i
-  %.not20.i = icmp eq i64 %25, 0
-  br i1 %.not20.i, label %_ZL13getSymbolNameN4llvm8codeview10SymbolKindE.exit, label %.lr.ph.i
+  %.not18.i = icmp eq i64 %25, 0
+  br i1 %.not18.i, label %_ZL13getSymbolNameN4llvm8codeview10SymbolKindE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21, %.critedge.i
-  %.021.i = phi ptr [ %29, %.critedge.i ], [ %24, %21 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.021.i, i64 32
+  %.019.i = phi ptr [ %29, %.critedge.i ], [ %24, %21 ]
+  %27 = getelementptr inbounds nuw i8, ptr %.019.i, i64 32
   %28 = load i16, ptr %27, align 8, !tbaa !982
   %.not11.i = icmp eq i16 %28, %1
   br i1 %.not11.i, label %30, label %.critedge.i
 
 .critedge.i:                                      ; preds = %.lr.ph.i
-  %29 = getelementptr inbounds nuw i8, ptr %.021.i, i64 40
+  %29 = getelementptr inbounds nuw i8, ptr %.019.i, i64 40
   %.not.i = icmp eq ptr %29, %26
   br i1 %.not.i, label %_ZL13getSymbolNameN4llvm8codeview10SymbolKindE.exit, label %.lr.ph.i
 
 30:                                               ; preds = %.lr.ph.i
-  %.sroa.013.0.copyload.i = load ptr, ptr %.021.i, align 8, !tbaa !214
-  %.sroa.3.0..0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.021.i, i64 8
+  %.sroa.013.0.copyload.i = load ptr, ptr %.019.i, align 8, !tbaa !214
+  %.sroa.3.0..0.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..0.sroa_idx.i, align 8, !tbaa !200
   br label %_ZL13getSymbolNameN4llvm8codeview10SymbolKindE.exit
 
@@ -12159,7 +12159,7 @@ define hidden i32 @_ZN4llvm13CodeViewDebug20getCompleteTypeIndexEPKNS_6DITypeE(p
   %5 = alloca %"struct.std::pair.1139", align 8
   %6 = alloca %"struct.std::pair.1103", align 8
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %114, label %7
+  br i1 %.not, label %115, label %7
 
 7:                                                ; preds = %2
   %8 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25
@@ -12214,7 +12214,7 @@ _ZNK4llvm13DIDerivedType11getBaseTypeEv.exit:     ; preds = %18, %21
 
 32:                                               ; preds = %._crit_edge
   %33 = tail call i32 @_ZN4llvm13CodeViewDebug12getTypeIndexEPKNS_6DITypeES3_(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull %30, ptr noundef null)
-  br label %114
+  br label %115
 
 34:                                               ; preds = %._crit_edge, %._crit_edge, %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -12295,7 +12295,7 @@ _ZNK4llvm15DICompositeType13getIdentifierEv.exit: ; preds = %_ZNK4llvm6DINode12g
   %71 = load i32, ptr %70, align 4, !tbaa !393
   %72 = and i32 %71, 4
   %.not35 = icmp eq i32 %72, 0
-  br i1 %.not35, label %_ZNK4llvm15DICompositeType13getIdentifierEv.exit.thread, label %91
+  br i1 %.not35, label %_ZNK4llvm15DICompositeType13getIdentifierEv.exit.thread, label %92
 
 _ZNK4llvm15DICompositeType13getIdentifierEv.exit.thread: ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i13, %.critedge, %_ZNK4llvm15DICompositeType13getIdentifierEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -12315,101 +12315,101 @@ _ZNK4llvm15DICompositeType13getIdentifierEv.exit.thread: ; preds = %_ZNK4llvm6DI
   %79 = load ptr, ptr %5, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %81 = load i32, ptr %80, align 8, !tbaa !198
-  br label %90
+  br label %91
 
 82:                                               ; preds = %_ZNK4llvm15DICompositeType13getIdentifierEv.exit.thread
   %83 = call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #25
-  %switch = icmp eq i16 %83, 23
-  br i1 %switch, label %86, label %84
+  %84 = icmp eq i16 %83, 23
+  br i1 %84, label %87, label %85
 
-84:                                               ; preds = %82
-  %85 = call i32 @_ZN4llvm13CodeViewDebug22lowerCompleteTypeClassEPKNS_15DICompositeTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %30)
-  br label %88
+85:                                               ; preds = %82
+  %86 = call i32 @_ZN4llvm13CodeViewDebug22lowerCompleteTypeClassEPKNS_15DICompositeTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %30)
+  br label %89
 
-86:                                               ; preds = %82
-  %87 = call i32 @_ZN4llvm13CodeViewDebug22lowerCompleteTypeUnionEPKNS_15DICompositeTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull %30)
-  br label %88
+87:                                               ; preds = %82
+  %88 = call i32 @_ZN4llvm13CodeViewDebug22lowerCompleteTypeUnionEPKNS_15DICompositeTypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull %30)
+  br label %89
 
-88:                                               ; preds = %86, %84
-  %storemerge = phi i32 [ %87, %86 ], [ %85, %84 ]
-  %89 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DICompositeTypeENS_8codeview9TypeIndexENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 8 dereferenceable(8) %4)
-  store i32 %storemerge, ptr %89, align 1, !tbaa !198
-  br label %90
-
-90:                                               ; preds = %88, %78
-  %.sroa.025.2 = phi i32 [ %storemerge, %88 ], [ %81, %78 ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+89:                                               ; preds = %87, %85
+  %storemerge = phi i32 [ %88, %87 ], [ %86, %85 ]
+  %90 = call noundef nonnull align 1 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DICompositeTypeENS_8codeview9TypeIndexENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %73, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i32 %storemerge, ptr %90, align 1, !tbaa !198
   br label %91
 
-91:                                               ; preds = %.critedge, %90
-  %.sroa.025.1 = phi i32 [ %.sroa.025.2, %90 ], [ %69, %.critedge ]
-  %92 = load i32, ptr %35, align 8, !tbaa !371
-  %93 = icmp eq i32 %92, 1
-  br i1 %93, label %94, label %_ZN4llvm13CodeViewDebug17TypeLoweringScopeD2Ev.exit
+91:                                               ; preds = %89, %78
+  %.sroa.025.2 = phi i32 [ %storemerge, %89 ], [ %81, %78 ]
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %92
 
-94:                                               ; preds = %91
+92:                                               ; preds = %.critedge, %91
+  %.sroa.025.1 = phi i32 [ %.sroa.025.2, %91 ], [ %69, %.critedge ]
+  %93 = load i32, ptr %35, align 8, !tbaa !371
+  %94 = icmp eq i32 %93, 1
+  br i1 %94, label %95, label %_ZN4llvm13CodeViewDebug17TypeLoweringScopeD2Ev.exit
+
+95:                                               ; preds = %92
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %95 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %95, ptr %3, align 8, !tbaa !63
-  %96 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 0, ptr %96, align 8, !tbaa !64
-  %97 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i32 4, ptr %97, align 4, !tbaa !65
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  %99 = load i32, ptr %98, align 8, !tbaa !64
-  %.not.i.i42 = icmp eq i32 %99, 0
+  %96 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %96, ptr %3, align 8, !tbaa !63
+  %97 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 0, ptr %97, align 8, !tbaa !64
+  %98 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i32 4, ptr %98, align 4, !tbaa !65
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %100 = load i32, ptr %99, align 8, !tbaa !64
+  %.not.i.i42 = icmp eq i32 %100, 0
   br i1 %.not.i.i42, label %_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit, label %.lr.ph44
 
-.lr.ph44:                                         ; preds = %94
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  br label %101
+.lr.ph44:                                         ; preds = %95
+  %101 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  br label %102
 
-101:                                              ; preds = %.lr.ph44, %._crit_edge41
-  call void @_ZN4llvm15SmallVectorImplIPKNS_15DICompositeTypeEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(48) %100, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  %102 = load ptr, ptr %3, align 8, !tbaa !63
-  %103 = load i32, ptr %96, align 8, !tbaa !64
-  %104 = zext i32 %103 to i64
-  %.idx = shl nuw nsw i64 %104, 3
-  %105 = getelementptr inbounds nuw i8, ptr %102, i64 %.idx
-  %.not.i37 = icmp eq i32 %103, 0
+102:                                              ; preds = %.lr.ph44, %._crit_edge41
+  call void @_ZN4llvm15SmallVectorImplIPKNS_15DICompositeTypeEE4swapERS4_(ptr noundef nonnull align 8 dereferenceable(48) %101, ptr noundef nonnull align 8 dereferenceable(48) %3)
+  %103 = load ptr, ptr %3, align 8, !tbaa !63
+  %104 = load i32, ptr %97, align 8, !tbaa !64
+  %105 = zext i32 %104 to i64
+  %.idx = shl nuw nsw i64 %105, 3
+  %106 = getelementptr inbounds nuw i8, ptr %103, i64 %.idx
+  %.not.i37 = icmp eq i32 %104, 0
   br i1 %.not.i37, label %._crit_edge41, label %.lr.ph40
 
-._crit_edge41:                                    ; preds = %.lr.ph40, %101
-  store i32 0, ptr %96, align 8, !tbaa !64
-  %106 = load i32, ptr %98, align 8, !tbaa !64
-  %.not.i.i = icmp eq i32 %106, 0
-  br i1 %.not.i.i, label %._crit_edge45, label %101, !llvm.loop !372
+._crit_edge41:                                    ; preds = %.lr.ph40, %102
+  store i32 0, ptr %97, align 8, !tbaa !64
+  %107 = load i32, ptr %99, align 8, !tbaa !64
+  %.not.i.i = icmp eq i32 %107, 0
+  br i1 %.not.i.i, label %._crit_edge45, label %102, !llvm.loop !372
 
-.lr.ph40:                                         ; preds = %101, %.lr.ph40
-  %.0.i38 = phi ptr [ %109, %.lr.ph40 ], [ %102, %101 ]
-  %107 = load ptr, ptr %.0.i38, align 8, !tbaa !373
-  %108 = call i32 @_ZN4llvm13CodeViewDebug20getCompleteTypeIndexEPKNS_6DITypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %107)
-  %109 = getelementptr inbounds nuw i8, ptr %.0.i38, i64 8
-  %.not.i = icmp eq ptr %109, %105
+.lr.ph40:                                         ; preds = %102, %.lr.ph40
+  %.0.i38 = phi ptr [ %110, %.lr.ph40 ], [ %103, %102 ]
+  %108 = load ptr, ptr %.0.i38, align 8, !tbaa !373
+  %109 = call i32 @_ZN4llvm13CodeViewDebug20getCompleteTypeIndexEPKNS_6DITypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %108)
+  %110 = getelementptr inbounds nuw i8, ptr %.0.i38, i64 8
+  %.not.i = icmp eq ptr %110, %106
   br i1 %.not.i, label %._crit_edge41, label %.lr.ph40
 
 ._crit_edge45:                                    ; preds = %._crit_edge41
   %.pre46 = load ptr, ptr %3, align 8, !tbaa !63
-  %110 = icmp eq ptr %.pre46, %95
-  br i1 %110, label %_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit, label %111
+  %111 = icmp eq ptr %.pre46, %96
+  br i1 %111, label %_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit, label %112
 
-111:                                              ; preds = %._crit_edge45
+112:                                              ; preds = %._crit_edge45
   call void @free(ptr noundef %.pre46) #25
   br label %_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit
 
-_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit: ; preds = %94, %._crit_edge45, %111
+_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit: ; preds = %95, %._crit_edge45, %112
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre47 = load i32, ptr %35, align 8, !tbaa !371
   br label %_ZN4llvm13CodeViewDebug17TypeLoweringScopeD2Ev.exit
 
-_ZN4llvm13CodeViewDebug17TypeLoweringScopeD2Ev.exit: ; preds = %91, %_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit
-  %112 = phi i32 [ %92, %91 ], [ %.pre47, %_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit ]
-  %113 = add i32 %112, -1
-  store i32 %113, ptr %35, align 8, !tbaa !371
+_ZN4llvm13CodeViewDebug17TypeLoweringScopeD2Ev.exit: ; preds = %92, %_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit
+  %113 = phi i32 [ %93, %92 ], [ %.pre47, %_ZN4llvm13CodeViewDebug25emitDeferredCompleteTypesEv.exit ]
+  %114 = add i32 %113, -1
+  store i32 %114, ptr %35, align 8, !tbaa !371
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %114
+  br label %115
 
-114:                                              ; preds = %2, %_ZN4llvm13CodeViewDebug17TypeLoweringScopeD2Ev.exit, %32
+115:                                              ; preds = %2, %_ZN4llvm13CodeViewDebug17TypeLoweringScopeD2Ev.exit, %32
   %.sroa.025.0 = phi i32 [ %33, %32 ], [ %.sroa.025.1, %_ZN4llvm13CodeViewDebug17TypeLoweringScopeD2Ev.exit ], [ 3, %2 ]
   ret i32 %.sroa.025.0
 }
@@ -15461,27 +15461,27 @@ _ZNK4llvm6DIType8getScopeEv.exit.i:               ; preds = %31, %28
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.i.preheader, %57
-  %.01435.i = phi ptr [ %59, %57 ], [ %1, %.thread.i.preheader ]
-  %40 = getelementptr inbounds nuw i8, ptr %.01435.i, i64 20
+  %.01432.i = phi ptr [ %59, %57 ], [ %1, %.thread.i.preheader ]
+  %40 = getelementptr inbounds nuw i8, ptr %.01432.i, i64 20
   %41 = load i32, ptr %40, align 4, !tbaa !393
   %42 = and i32 %41, 4
-  %.not32.i = icmp eq i32 %42, 0
-  br i1 %.not32.i, label %43, label %_ZNK4llvm6DIType7getNameEv.exit.thread
+  %.not29.i = icmp eq i32 %42, 0
+  br i1 %.not29.i, label %43, label %_ZNK4llvm6DIType7getNameEv.exit.thread
 
 43:                                               ; preds = %.thread.i
-  %44 = load i8, ptr %.01435.i, align 4, !tbaa !343
-  %.not34.i = icmp eq i8 %44, 13
-  br i1 %.not34.i, label %45, label %_ZL13shouldEmitUdtPKN4llvm6DITypeE.exit
+  %44 = load i8, ptr %.01432.i, align 4, !tbaa !343
+  %.not31.i = icmp eq i8 %44, 13
+  br i1 %.not31.i, label %45, label %_ZL13shouldEmitUdtPKN4llvm6DITypeE.exit
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds i8, ptr %.01435.i, i64 -16
+  %46 = getelementptr inbounds i8, ptr %.01432.i, i64 -16
   %47 = load i64, ptr %46, align 8
   %48 = and i64 %47, 2
-  %.not.i.i.i.i24.i = icmp eq i64 %48, 0
-  br i1 %.not.i.i.i.i24.i, label %52, label %49
+  %.not.i.i.i.i23.i = icmp eq i64 %48, 0
+  br i1 %.not.i.i.i.i23.i, label %52, label %49
 
 49:                                               ; preds = %45
-  %50 = getelementptr inbounds i8, ptr %.01435.i, i64 -32
+  %50 = getelementptr inbounds i8, ptr %.01432.i, i64 -32
   %51 = load ptr, ptr %50, align 8, !tbaa !63
   br label %57
 
@@ -15493,8 +15493,8 @@ _ZNK4llvm6DIType8getScopeEv.exit.i:               ; preds = %31, %28
   br label %57
 
 57:                                               ; preds = %52, %49
-  %.sroa.0.0.i.i.i.i25.i = phi ptr [ %56, %52 ], [ %51, %49 ]
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i25.i, i64 24
+  %.sroa.0.0.i.i.i.i24.i = phi ptr [ %56, %52 ], [ %51, %49 ]
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i24.i, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !192
   %.not20.i = icmp eq ptr %59, null
   br i1 %.not20.i, label %_ZNK4llvm6DIType7getNameEv.exit.thread, label %.thread.i
@@ -17924,156 +17924,156 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DICompositeTypeENS_8codeview9TypeInde
 
 .critedge:                                        ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_15DICompositeTypeENS_8codeview9TypeIndexENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E4findES4_.exit, %69
   %73 = tail call i32 @_ZN4llvm13CodeViewDebug20getCompleteTypeIndexEPKNS_6DITypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %1)
-  br label %143
+  br label %144
 
 _ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread: ; preds = %_ZNK4llvm6DIType7getNameEv.exit.i, %_ZNK4llvm15DICompositeType13getIdentifierEv.exit.i, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit
   %74 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25
-  %switch.i = icmp eq i16 %74, 2
-  %..i = select i1 %switch.i, i16 5380, i16 5381
-  %75 = tail call fastcc noundef zeroext i16 @_ZL21getCommonClassOptionsPKN4llvm15DICompositeTypeE(ptr noundef nonnull %1)
-  %76 = or i16 %75, 128
+  %75 = icmp eq i16 %74, 2
+  %..i = select i1 %75, i16 5380, i16 5381
+  %76 = tail call fastcc noundef zeroext i16 @_ZL21getCommonClassOptionsPKN4llvm15DICompositeTypeE(ptr noundef nonnull %1)
+  %77 = or i16 %76, 128
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %77 = tail call noundef ptr @_ZNK4llvm7DIScope8getScopeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1455
-  %78 = tail call { ptr, i64 } @_ZNK4llvm7DIScope7getNameEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1455
-  %79 = extractvalue { ptr, i64 } %78, 0
-  %80 = extractvalue { ptr, i64 } %78, 1
-  %81 = icmp eq i64 %80, 0
-  br i1 %81, label %82, label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
+  %78 = tail call noundef ptr @_ZNK4llvm7DIScope8getScopeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1455
+  %79 = tail call { ptr, i64 } @_ZNK4llvm7DIScope7getNameEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1455
+  %80 = extractvalue { ptr, i64 } %79, 0
+  %81 = extractvalue { ptr, i64 } %79, 1
+  %82 = icmp eq i64 %81, 0
+  br i1 %82, label %83, label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
-82:                                               ; preds = %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread
-  %83 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1455
-  switch i16 %83, label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit [
-    i16 4, label %84
-    i16 2, label %84
-    i16 19, label %84
-    i16 23, label %84
-    i16 57, label %85
+83:                                               ; preds = %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread
+  %84 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1455
+  switch i16 %84, label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit [
+    i16 4, label %85
+    i16 2, label %85
+    i16 19, label %85
+    i16 23, label %85
+    i16 57, label %86
   ]
 
-84:                                               ; preds = %82, %82, %82, %82
+85:                                               ; preds = %83, %83, %83, %83
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
-85:                                               ; preds = %82
+86:                                               ; preds = %83
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
-_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread, %82, %84, %85
-  %.sroa.6.0.i = phi i64 [ 13, %84 ], [ 21, %85 ], [ %80, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ 0, %82 ]
-  %.sroa.02.0.i = phi ptr [ @.str.93, %84 ], [ @.str.94, %85 ], [ %79, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ null, %82 ]
-  call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %77, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
+_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread, %83, %85, %86
+  %.sroa.6.0.i = phi i64 [ 13, %85 ], [ 21, %86 ], [ %81, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ 0, %83 ]
+  %.sroa.02.0.i = phi ptr [ @.str.93, %85 ], [ @.str.94, %86 ], [ %80, %_ZL33shouldAlwaysEmitCompleteClassTypePKN4llvm15DICompositeTypeE.exit.thread ], [ null, %83 ]
+  call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %78, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %86 = load ptr, ptr %3, align 8, !tbaa !191
-  %87 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %88 = load i64, ptr %87, align 8, !tbaa !190
-  %89 = load i64, ptr %5, align 8
-  %90 = and i64 %89, 2
-  %.not.i.i.i.i.i = icmp eq i64 %90, 0
-  br i1 %.not.i.i.i.i.i, label %94, label %91
+  %87 = load ptr, ptr %3, align 8, !tbaa !191
+  %88 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %89 = load i64, ptr %88, align 8, !tbaa !190
+  %90 = load i64, ptr %5, align 8
+  %91 = and i64 %90, 2
+  %.not.i.i.i.i.i = icmp eq i64 %91, 0
+  br i1 %.not.i.i.i.i.i, label %95, label %92
 
-91:                                               ; preds = %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
-  %92 = getelementptr inbounds i8, ptr %1, i64 -32
-  %93 = load ptr, ptr %92, align 8, !tbaa !63
+92:                                               ; preds = %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
+  %93 = getelementptr inbounds i8, ptr %1, i64 -32
+  %94 = load ptr, ptr %93, align 8, !tbaa !63
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
-94:                                               ; preds = %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
-  %95 = lshr i64 %89, 2
-  %96 = and i64 %95, 15
-  %97 = sub nsw i64 0, %96
-  %98 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %97
+95:                                               ; preds = %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
+  %96 = lshr i64 %90, 2
+  %97 = and i64 %96, 15
+  %98 = sub nsw i64 0, %97
+  %99 = getelementptr inbounds %"class.llvm::MDOperand", ptr %5, i64 %98
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %94, %91
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %98, %94 ], [ %93, %91 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 56
-  %100 = load ptr, ptr %99, align 8, !tbaa !192
-  %.not.not.i.i = icmp eq ptr %100, null
-  br i1 %.not.not.i.i, label %_ZNK4llvm15DICompositeType13getIdentifierEv.exit, label %101
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %95, %92
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %99, %95 ], [ %94, %92 ]
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 56
+  %101 = load ptr, ptr %100, align 8, !tbaa !192
+  %.not.not.i.i = icmp eq ptr %101, null
+  br i1 %.not.not.i.i, label %_ZNK4llvm15DICompositeType13getIdentifierEv.exit, label %102
 
-101:                                              ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
-  %102 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %100) #25
-  %103 = extractvalue { ptr, i64 } %102, 0
-  %104 = extractvalue { ptr, i64 } %102, 1
+102:                                              ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
+  %103 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %101) #25
+  %104 = extractvalue { ptr, i64 } %103, 0
+  %105 = extractvalue { ptr, i64 } %103, 1
   br label %_ZNK4llvm15DICompositeType13getIdentifierEv.exit
 
-_ZNK4llvm15DICompositeType13getIdentifierEv.exit: ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i, %101
-  %.sroa.0.1.i.i = phi ptr [ %103, %101 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
-  %.sroa.4.1.i.i = phi i64 [ %104, %101 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
+_ZNK4llvm15DICompositeType13getIdentifierEv.exit: ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i, %102
+  %.sroa.0.1.i.i = phi ptr [ %104, %102 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
+  %.sroa.4.1.i.i = phi i64 [ %105, %102 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
   store i16 %..i, ptr %4, align 8, !tbaa !367
-  %105 = getelementptr inbounds nuw i8, ptr %4, i64 2
-  store i16 0, ptr %105, align 2, !tbaa !1450
-  %106 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store i16 %76, ptr %106, align 4, !tbaa !1453
-  %107 = getelementptr inbounds nuw i8, ptr %4, i64 6
-  store i32 0, ptr %107, align 2, !tbaa !198
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %86, ptr %108, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %4, i64 2
+  store i16 0, ptr %106, align 2, !tbaa !1450
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store i16 %77, ptr %107, align 4, !tbaa !1453
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 6
+  store i32 0, ptr %108, align 2, !tbaa !198
+  %109 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %87, ptr %109, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 %88, ptr %.sroa.4.0..sroa_idx, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr %.sroa.0.1.i.i, ptr %109, align 8
+  store i64 %89, ptr %.sroa.4.0..sroa_idx, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr %.sroa.0.1.i.i, ptr %110, align 8
   %.sroa.428.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
   store i64 %.sroa.4.1.i.i, ptr %.sroa.428.0..sroa_idx, align 8
-  %110 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
-  %113 = call { ptr, i64 } @_ZN4llvm8codeview20SimpleTypeSerializer9serializeINS0_11ClassRecordEEENS_8ArrayRefIhEERT_(ptr noundef nonnull align 8 dereferenceable(24) %112, ptr noundef nonnull align 8 dereferenceable(64) %4) #25
-  %114 = extractvalue { ptr, i64 } %113, 0
-  %115 = extractvalue { ptr, i64 } %113, 1
-  %116 = call i32 @_ZN4llvm8codeview22GlobalTypeTableBuilder17insertRecordBytesENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(144) %111, ptr %114, i64 %115) #25
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %118 = load i32, ptr %117, align 4, !tbaa !393
-  %119 = and i32 %118, 4
-  %.not = icmp eq i32 %119, 0
-  br i1 %.not, label %120, label %137
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %111, i8 0, i64 16, i1 false)
+  %114 = call { ptr, i64 } @_ZN4llvm8codeview20SimpleTypeSerializer9serializeINS0_11ClassRecordEEENS_8ArrayRefIhEERT_(ptr noundef nonnull align 8 dereferenceable(24) %113, ptr noundef nonnull align 8 dereferenceable(64) %4) #25
+  %115 = extractvalue { ptr, i64 } %114, 0
+  %116 = extractvalue { ptr, i64 } %114, 1
+  %117 = call i32 @_ZN4llvm8codeview22GlobalTypeTableBuilder17insertRecordBytesENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(144) %112, ptr %115, i64 %116) #25
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %119 = load i32, ptr %118, align 4, !tbaa !393
+  %120 = and i32 %119, 4
+  %.not = icmp eq i32 %120, 0
+  br i1 %.not, label %121, label %138
 
-120:                                              ; preds = %_ZNK4llvm15DICompositeType13getIdentifierEv.exit
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 1152
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 1160
-  %123 = load i32, ptr %122, align 8, !tbaa !64
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1164
-  %125 = load i32, ptr %124, align 4, !tbaa !65
-  %.not.i.i.not.i = icmp ult i32 %123, %125
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DICompositeTypeELb1EE9push_backES3_.exit, label %126, !prof !283
+121:                                              ; preds = %_ZNK4llvm15DICompositeType13getIdentifierEv.exit
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 1152
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 1160
+  %124 = load i32, ptr %123, align 8, !tbaa !64
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 1164
+  %126 = load i32, ptr %125, align 4, !tbaa !65
+  %.not.i.i.not.i = icmp ult i32 %124, %126
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DICompositeTypeELb1EE9push_backES3_.exit, label %127, !prof !283
 
-126:                                              ; preds = %120
-  %127 = zext i32 %123 to i64
-  %128 = add nuw nsw i64 %127, 1
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 1168
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %121, ptr noundef nonnull %129, i64 noundef %128, i64 noundef 8) #25
-  %.pre.i13 = load i32, ptr %122, align 8, !tbaa !64
+127:                                              ; preds = %121
+  %128 = zext i32 %124 to i64
+  %129 = add nuw nsw i64 %128, 1
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 1168
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %122, ptr noundef nonnull %130, i64 noundef %129, i64 noundef 8) #25
+  %.pre.i13 = load i32, ptr %123, align 8, !tbaa !64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DICompositeTypeELb1EE9push_backES3_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DICompositeTypeELb1EE9push_backES3_.exit: ; preds = %120, %126
-  %130 = phi i32 [ %123, %120 ], [ %.pre.i13, %126 ]
-  %131 = load ptr, ptr %121, align 8, !tbaa !63
-  %132 = zext i32 %130 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %131, i64 %132
-  %134 = ptrtoint ptr %1 to i64
-  store i64 %134, ptr %133, align 1
-  %135 = load i32, ptr %122, align 8, !tbaa !64
-  %136 = add i32 %135, 1
-  store i32 %136, ptr %122, align 8, !tbaa !64
-  br label %137
+_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DICompositeTypeELb1EE9push_backES3_.exit: ; preds = %121, %127
+  %131 = phi i32 [ %124, %121 ], [ %.pre.i13, %127 ]
+  %132 = load ptr, ptr %122, align 8, !tbaa !63
+  %133 = zext i32 %131 to i64
+  %134 = getelementptr inbounds nuw ptr, ptr %132, i64 %133
+  %135 = ptrtoint ptr %1 to i64
+  store i64 %135, ptr %134, align 1
+  %136 = load i32, ptr %123, align 8, !tbaa !64
+  %137 = add i32 %136, 1
+  store i32 %137, ptr %123, align 8, !tbaa !64
+  br label %138
 
-137:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DICompositeTypeELb1EE9push_backES3_.exit, %_ZNK4llvm15DICompositeType13getIdentifierEv.exit
+138:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKNS_15DICompositeTypeELb1EE9push_backES3_.exit, %_ZNK4llvm15DICompositeType13getIdentifierEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %138 = load ptr, ptr %3, align 8, !tbaa !191
-  %139 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %140 = icmp eq ptr %138, %139
-  br i1 %140, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %139 = load ptr, ptr %3, align 8, !tbaa !191
+  %140 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %141 = icmp eq ptr %139, %140
+  br i1 %141, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %137
-  %141 = load i64, ptr %139, align 8, !tbaa !198
-  %142 = add i64 %141, 1
-  call void @_ZdlPvm(ptr noundef %138, i64 noundef %142) #27
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %138
+  %142 = load i64, ptr %140, align 8, !tbaa !198
+  %143 = add i64 %142, 1
+  call void @_ZdlPvm(ptr noundef %139, i64 noundef %143) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %137, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %138, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %143
+  br label %144
 
-143:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.critedge
-  %.sroa.0.0 = phi i32 [ %73, %.critedge ], [ %116, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+144:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.critedge
+  %.sroa.0.0 = phi i32 [ %73, %.critedge ], [ %117, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   ret i32 %.sroa.0.0
 }
 
@@ -19812,142 +19812,142 @@ define hidden i32 @_ZN4llvm13CodeViewDebug22lowerCompleteTypeClassEPKNS_15DIComp
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.llvm::codeview::ClassRecord", align 8
   %6 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25
-  %switch.i = icmp eq i16 %6, 2
-  %..i = select i1 %switch.i, i16 5380, i16 5381
-  %7 = tail call fastcc noundef zeroext i16 @_ZL21getCommonClassOptionsPKN4llvm15DICompositeTypeE(ptr noundef nonnull %1)
+  %7 = icmp eq i16 %6, 2
+  %..i = select i1 %7, i16 5380, i16 5381
+  %8 = tail call fastcc noundef zeroext i16 @_ZL21getCommonClassOptionsPKN4llvm15DICompositeTypeE(ptr noundef nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZN4llvm13CodeViewDebug20lowerRecordFieldListEPKNS_15DICompositeTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::tuple.1107") align 4 %3, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull %1)
-  %8 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %9 = load i32, ptr %8, align 4, !tbaa !198
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %11 = load i32, ptr %10, align 4, !tbaa !198
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %13 = load i32, ptr %12, align 4, !tbaa !582
-  %14 = load i8, ptr %3, align 4, !tbaa !356, !range !224, !noundef !225
+  %9 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %10 = load i32, ptr %9, align 4, !tbaa !198
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %12 = load i32, ptr %11, align 4, !tbaa !198
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %14 = load i32, ptr %13, align 4, !tbaa !582
+  %15 = load i8, ptr %3, align 4, !tbaa !356, !range !224, !noundef !225
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %15 = shl nuw nsw i8 %14, 4
-  %16 = zext nneg i8 %15 to i16
-  %spec.select = or i16 %7, %16
-  %17 = getelementptr i8, ptr %1, i64 20
-  %.val = load i32, ptr %17, align 4, !tbaa !393
-  %18 = lshr i32 %.val, 25
-  %19 = trunc nuw nsw i32 %18 to i16
-  %20 = and i16 %19, 2
-  %.1 = or i16 %spec.select, %20
+  %16 = shl nuw nsw i8 %15, 4
+  %17 = zext nneg i8 %16 to i16
+  %spec.select = or i16 %8, %17
+  %18 = getelementptr i8, ptr %1, i64 20
+  %.val = load i32, ptr %18, align 4, !tbaa !393
+  %19 = lshr i32 %.val, 25
+  %20 = trunc nuw nsw i32 %19 to i16
+  %21 = and i16 %20, 2
+  %.1 = or i16 %spec.select, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %21 = tail call noundef ptr @_ZNK4llvm7DIScope8getScopeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1514
-  %22 = tail call { ptr, i64 } @_ZNK4llvm7DIScope7getNameEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1514
-  %23 = extractvalue { ptr, i64 } %22, 0
-  %24 = extractvalue { ptr, i64 } %22, 1
-  %25 = icmp eq i64 %24, 0
-  br i1 %25, label %26, label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
+  %22 = tail call noundef ptr @_ZNK4llvm7DIScope8getScopeEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1514
+  %23 = tail call { ptr, i64 } @_ZNK4llvm7DIScope7getNameEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1514
+  %24 = extractvalue { ptr, i64 } %23, 0
+  %25 = extractvalue { ptr, i64 } %23, 1
+  %26 = icmp eq i64 %25, 0
+  br i1 %26, label %27, label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
-26:                                               ; preds = %2
-  %27 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1514
-  switch i16 %27, label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit [
-    i16 4, label %28
-    i16 2, label %28
-    i16 19, label %28
-    i16 23, label %28
-    i16 57, label %29
+27:                                               ; preds = %2
+  %28 = tail call noundef zeroext i16 @_ZNK4llvm6DINode6getTagEv(ptr noundef nonnull align 8 dereferenceable(16) %1) #25, !noalias !1514
+  switch i16 %28, label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit [
+    i16 4, label %29
+    i16 2, label %29
+    i16 19, label %29
+    i16 23, label %29
+    i16 57, label %30
   ]
 
-28:                                               ; preds = %26, %26, %26, %26
+29:                                               ; preds = %27, %27, %27, %27
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
-29:                                               ; preds = %26
+30:                                               ; preds = %27
   br label %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
 
-_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %2, %26, %28, %29
-  %.sroa.6.0.i = phi i64 [ 13, %28 ], [ 21, %29 ], [ %24, %2 ], [ 0, %26 ]
-  %.sroa.02.0.i = phi ptr [ @.str.93, %28 ], [ @.str.94, %29 ], [ %23, %2 ], [ null, %26 ]
-  call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %21, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %31 = load i64, ptr %30, align 8, !tbaa !1405
-  %32 = lshr i64 %31, 3
+_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit:    ; preds = %2, %27, %29, %30
+  %.sroa.6.0.i = phi i64 [ 13, %29 ], [ 21, %30 ], [ %25, %2 ], [ 0, %27 ]
+  %.sroa.02.0.i = phi ptr [ @.str.93, %29 ], [ @.str.94, %30 ], [ %24, %2 ], [ null, %27 ]
+  call void @_ZN4llvm13CodeViewDebug21getFullyQualifiedNameB5cxx11EPKNS_7DIScopeENS_9StringRefE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef %22, ptr %.sroa.02.0.i, i64 %.sroa.6.0.i)
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %32 = load i64, ptr %31, align 8, !tbaa !1405
+  %33 = lshr i64 %32, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = trunc i32 %13 to i16
-  %34 = load ptr, ptr %4, align 8, !tbaa !191
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %36 = load i64, ptr %35, align 8, !tbaa !190
-  %37 = getelementptr inbounds i8, ptr %1, i64 -16
-  %38 = load i64, ptr %37, align 8
-  %39 = and i64 %38, 2
-  %.not.i.i.i.i.i = icmp eq i64 %39, 0
-  br i1 %.not.i.i.i.i.i, label %43, label %40
+  %34 = trunc i32 %14 to i16
+  %35 = load ptr, ptr %4, align 8, !tbaa !191
+  %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %37 = load i64, ptr %36, align 8, !tbaa !190
+  %38 = getelementptr inbounds i8, ptr %1, i64 -16
+  %39 = load i64, ptr %38, align 8
+  %40 = and i64 %39, 2
+  %.not.i.i.i.i.i = icmp eq i64 %40, 0
+  br i1 %.not.i.i.i.i.i, label %44, label %41
 
-40:                                               ; preds = %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
-  %41 = getelementptr inbounds i8, ptr %1, i64 -32
-  %42 = load ptr, ptr %41, align 8, !tbaa !63
+41:                                               ; preds = %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
+  %42 = getelementptr inbounds i8, ptr %1, i64 -32
+  %43 = load ptr, ptr %42, align 8, !tbaa !63
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
-43:                                               ; preds = %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
-  %44 = lshr i64 %38, 2
-  %45 = and i64 %44, 15
-  %46 = sub nsw i64 0, %45
-  %47 = getelementptr inbounds %"class.llvm::MDOperand", ptr %37, i64 %46
+44:                                               ; preds = %_ZL18getPrettyScopeNamePKN4llvm7DIScopeE.exit
+  %45 = lshr i64 %39, 2
+  %46 = and i64 %45, 15
+  %47 = sub nsw i64 0, %46
+  %48 = getelementptr inbounds %"class.llvm::MDOperand", ptr %38, i64 %47
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
-_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %43, %40
-  %.sroa.0.0.i.i.i.i.i = phi ptr [ %47, %43 ], [ %42, %40 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 56
-  %49 = load ptr, ptr %48, align 8, !tbaa !192
-  %.not.not.i.i = icmp eq ptr %49, null
-  br i1 %.not.not.i.i, label %_ZNK4llvm15DICompositeType13getIdentifierEv.exit, label %50
+_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %44, %41
+  %.sroa.0.0.i.i.i.i.i = phi ptr [ %48, %44 ], [ %43, %41 ]
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 56
+  %50 = load ptr, ptr %49, align 8, !tbaa !192
+  %.not.not.i.i = icmp eq ptr %50, null
+  br i1 %.not.not.i.i, label %_ZNK4llvm15DICompositeType13getIdentifierEv.exit, label %51
 
-50:                                               ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
-  %51 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #25
-  %52 = extractvalue { ptr, i64 } %51, 0
-  %53 = extractvalue { ptr, i64 } %51, 1
+51:                                               ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
+  %52 = call { ptr, i64 } @_ZNK4llvm8MDString9getStringEv(ptr noundef nonnull align 8 dereferenceable(16) %50) #25
+  %53 = extractvalue { ptr, i64 } %52, 0
+  %54 = extractvalue { ptr, i64 } %52, 1
   br label %_ZNK4llvm15DICompositeType13getIdentifierEv.exit
 
-_ZNK4llvm15DICompositeType13getIdentifierEv.exit: ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i, %50
-  %.sroa.0.1.i.i = phi ptr [ %52, %50 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
-  %.sroa.4.1.i.i = phi i64 [ %53, %50 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
+_ZNK4llvm15DICompositeType13getIdentifierEv.exit: ; preds = %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i, %51
+  %.sroa.0.1.i.i = phi ptr [ %53, %51 ], [ null, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
+  %.sroa.4.1.i.i = phi i64 [ %54, %51 ], [ 0, %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i ]
   store i16 %..i, ptr %5, align 8, !tbaa !367
-  %54 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  store i16 %33, ptr %54, align 2, !tbaa !1450
-  %55 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i16 %.1, ptr %55, align 4, !tbaa !1453
-  %56 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  store i32 %9, ptr %56, align 2, !tbaa !198
-  %57 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %34, ptr %57, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  store i16 %34, ptr %55, align 2, !tbaa !1450
+  %56 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i16 %.1, ptr %56, align 4, !tbaa !1453
+  %57 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  store i32 %10, ptr %57, align 2, !tbaa !198
+  %58 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %35, ptr %58, align 8
   %.sroa.422.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %36, ptr %.sroa.422.0..sroa_idx, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store ptr %.sroa.0.1.i.i, ptr %58, align 8
+  store i64 %37, ptr %.sroa.422.0..sroa_idx, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store ptr %.sroa.0.1.i.i, ptr %59, align 8
   %.sroa.424.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 40
   store i64 %.sroa.4.1.i.i, ptr %.sroa.424.0..sroa_idx, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 0, ptr %59, align 8, !tbaa !198
-  %60 = getelementptr inbounds nuw i8, ptr %5, i64 52
-  store i32 %11, ptr %60, align 4, !tbaa !198
-  %61 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  store i64 %32, ptr %61, align 8, !tbaa !1517
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  %64 = call { ptr, i64 } @_ZN4llvm8codeview20SimpleTypeSerializer9serializeINS0_11ClassRecordEEENS_8ArrayRefIhEERT_(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(64) %5) #25
-  %65 = extractvalue { ptr, i64 } %64, 0
-  %66 = extractvalue { ptr, i64 } %64, 1
-  %67 = call i32 @_ZN4llvm8codeview22GlobalTypeTableBuilder17insertRecordBytesENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(144) %62, ptr %65, i64 %66) #25
-  call void @_ZN4llvm13CodeViewDebug13addUDTSrcLineEPKNS_6DITypeENS_8codeview9TypeIndexE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull %1, i32 %67)
+  %60 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store i32 0, ptr %60, align 8, !tbaa !198
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 52
+  store i32 %12, ptr %61, align 4, !tbaa !198
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  store i64 %33, ptr %62, align 8, !tbaa !1517
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 584
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 600
+  %65 = call { ptr, i64 } @_ZN4llvm8codeview20SimpleTypeSerializer9serializeINS0_11ClassRecordEEENS_8ArrayRefIhEERT_(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(64) %5) #25
+  %66 = extractvalue { ptr, i64 } %65, 0
+  %67 = extractvalue { ptr, i64 } %65, 1
+  %68 = call i32 @_ZN4llvm8codeview22GlobalTypeTableBuilder17insertRecordBytesENS_8ArrayRefIhEE(ptr noundef nonnull align 8 dereferenceable(144) %63, ptr %66, i64 %67) #25
+  call void @_ZN4llvm13CodeViewDebug13addUDTSrcLineEPKNS_6DITypeENS_8codeview9TypeIndexE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull %1, i32 %68)
   call void @_ZN4llvm13CodeViewDebug9addToUDTsEPKNS_6DITypeE(ptr noundef nonnull align 8 dereferenceable(1312) %0, ptr noundef nonnull %1)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %68 = load ptr, ptr %4, align 8, !tbaa !191
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %70 = icmp eq ptr %68, %69
-  br i1 %70, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %69 = load ptr, ptr %4, align 8, !tbaa !191
+  %70 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %71 = icmp eq ptr %69, %70
+  br i1 %71, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNK4llvm15DICompositeType13getIdentifierEv.exit
-  %71 = load i64, ptr %69, align 8, !tbaa !198
-  %72 = add i64 %71, 1
-  call void @_ZdlPvm(ptr noundef %68, i64 noundef %72) #27
+  %72 = load i64, ptr %70, align 8, !tbaa !198
+  %73 = add i64 %72, 1
+  call void @_ZdlPvm(ptr noundef %69, i64 noundef %73) #27
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNK4llvm15DICompositeType13getIdentifierEv.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i32 %67
+  ret i32 %68
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -26197,24 +26197,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %5 = load ptr, ptr %4, align 8, !tbaa !1634
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !1634
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 8:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.019, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8
-  %.sroa.013.021 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !912
+  %.sroa.013.019 = phi ptr [ %9, %8 ], [ %5, %3 ]
+  %10 = load ptr, ptr %.sroa.013.019, align 8, !tbaa !912
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   %14 = load ptr, ptr %0, align 8, !tbaa !919
-  %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %8, label %.critedge
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %8, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %8, %3
   store ptr null, ptr %0, align 8, !tbaa !919
@@ -26230,24 +26230,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %5 = load ptr, ptr %4, align 8, !tbaa !1634
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !1634
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 8:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.019, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8
-  %.sroa.013.021 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !912
+  %.sroa.013.019 = phi ptr [ %9, %8 ], [ %5, %3 ]
+  %10 = load ptr, ptr %.sroa.013.019, align 8, !tbaa !912
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   %14 = load ptr, ptr %0, align 8, !tbaa !919
-  %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %8, label %.critedge
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %8, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %8, %3
   store ptr null, ptr %0, align 8, !tbaa !919
@@ -26263,24 +26263,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634
-  %.not21 = icmp eq ptr %6, %8
-  br i1 %.not21, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not19 = icmp eq ptr %6, %8
+  br i1 %.not19, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020, i64 8
   %.not = icmp eq ptr %10, %8
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit11, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %4, %9
-  %.sroa.014.022 = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022, align 8, !tbaa !912
+  %.sroa.014.020 = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, i32 %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919
-  %.not20 = icmp eq ptr %15, null
-  br i1 %.not20, label %9, label %.critedge
+  %.not18 = icmp eq ptr %15, null
+  br i1 %.not18, label %9, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit11:                        ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919
@@ -26296,24 +26296,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %5 = load ptr, ptr %4, align 8, !tbaa !1634
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !1634
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 8:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.019, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8
-  %.sroa.013.021 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !912
+  %.sroa.013.019 = phi ptr [ %9, %8 ], [ %5, %3 ]
+  %10 = load ptr, ptr %.sroa.013.019, align 8, !tbaa !912
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   %14 = load ptr, ptr %0, align 8, !tbaa !919
-  %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %8, label %.critedge
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %8, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %8, %3
   store ptr null, ptr %0, align 8, !tbaa !919
@@ -26329,24 +26329,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %5 = load ptr, ptr %4, align 8, !tbaa !1634
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !1634
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 8:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.019, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8
-  %.sroa.013.021 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !912
+  %.sroa.013.019 = phi ptr [ %9, %8 ], [ %5, %3 ]
+  %10 = load ptr, ptr %.sroa.013.019, align 8, !tbaa !912
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) %2) #25
   %14 = load ptr, ptr %0, align 8, !tbaa !919
-  %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %8, label %.critedge
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %8, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %8, %3
   store ptr null, ptr %0, align 8, !tbaa !919
@@ -26362,24 +26362,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %5 = load ptr, ptr %4, align 8, !tbaa !1634
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !1634
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 8:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.019, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8
-  %.sroa.013.021 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !912
+  %.sroa.013.019 = phi ptr [ %9, %8 ], [ %5, %3 ]
+  %10 = load ptr, ptr %.sroa.013.019, align 8, !tbaa !912
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) %2) #25
   %14 = load ptr, ptr %0, align 8, !tbaa !919
-  %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %8, label %.critedge
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %8, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %8, %3
   store ptr null, ptr %0, align 8, !tbaa !919
@@ -26395,24 +26395,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %5 = load ptr, ptr %4, align 8, !tbaa !1634
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !1634
-  %.not20 = icmp eq ptr %5, %7
-  br i1 %.not20, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
+  %.not18 = icmp eq ptr %5, %7
+  br i1 %.not18, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 8:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.021, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.013.019, i64 8
   %.not = icmp eq ptr %9, %7
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit10, label %_ZN4llvm5ErrorD2Ev.exit
 
 _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %3, %8
-  %.sroa.013.021 = phi ptr [ %9, %8 ], [ %5, %3 ]
-  %10 = load ptr, ptr %.sroa.013.021, align 8, !tbaa !912
+  %.sroa.013.019 = phi ptr [ %9, %8 ], [ %5, %3 ]
+  %10 = load ptr, ptr %.sroa.013.019, align 8, !tbaa !912
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = load ptr, ptr %12, align 8
   tail call void %13(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(24) %2) #25
   %14 = load ptr, ptr %0, align 8, !tbaa !919
-  %.not19 = icmp eq ptr %14, null
-  br i1 %.not19, label %8, label %.critedge
+  %.not17 = icmp eq ptr %14, null
+  br i1 %.not17, label %8, label %.critedge
 
 _ZN4llvm5ErrorD2Ev.exit10:                        ; preds = %8, %3
   store ptr null, ptr %0, align 8, !tbaa !919
@@ -26429,24 +26429,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1635
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1635
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(20) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1635
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_13PointerRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_13PointerRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1635
@@ -26463,24 +26463,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1638
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1638
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 2 dereferenceable(8) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1638
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_14ModifierRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_14ModifierRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1638
@@ -26497,24 +26497,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1641
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1641
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 88
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 2 dereferenceable(14) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1641
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_15ProcedureRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_15ProcedureRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1641
@@ -26531,24 +26531,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1644
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1644
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(28) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1644
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_20MemberFunctionRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_20MemberFunctionRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1644
@@ -26565,24 +26565,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1647
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1647
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 2 dereferenceable(4) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1647
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_11LabelRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_11LabelRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1647
@@ -26599,24 +26599,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1650
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1650
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 112
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1650
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_13ArgListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_13ArgListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1650
@@ -26633,24 +26633,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1653
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1653
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 120
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1653
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_15FieldListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_15FieldListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1653
@@ -26667,24 +26667,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1656
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1656
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 128
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1656
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_11ArrayRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_11ArrayRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1656
@@ -26701,24 +26701,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1659
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1659
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 136
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(64) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1659
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_11ClassRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_11ClassRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1659
@@ -26735,24 +26735,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1662
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1662
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 144
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(56) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1662
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_11UnionRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_11UnionRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1662
@@ -26769,24 +26769,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1665
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1665
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(52) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1665
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_10EnumRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_10EnumRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1665
@@ -26803,24 +26803,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1668
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1668
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 160
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1668
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_17TypeServer2RecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_17TypeServer2RecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1668
@@ -26837,24 +26837,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1671
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1671
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 168
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1671
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_13VFTableRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_13VFTableRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1671
@@ -26871,24 +26871,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1674
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1674
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 176
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1674
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_18VFTableShapeRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_18VFTableShapeRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1674
@@ -26905,24 +26905,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1677
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1677
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 184
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 2 dereferenceable(8) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1677
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_14BitFieldRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_14BitFieldRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1677
@@ -26939,24 +26939,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1680
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1680
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 192
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(16) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1680
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_15BaseClassRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_15BaseClassRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1680
@@ -26973,24 +26973,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1683
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1683
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 200
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1683
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_22VirtualBaseClassRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_22VirtualBaseClassRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1683
@@ -27007,24 +27007,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1686
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1686
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 208
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 2 dereferenceable(6) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1686
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_11VFPtrRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_11VFPtrRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1686
@@ -27041,24 +27041,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1689
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1689
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 216
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1689
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_22StaticDataMemberRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_22StaticDataMemberRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1689
@@ -27075,24 +27075,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1692
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1692
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 224
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1692
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_22OverloadedMethodRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_22OverloadedMethodRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1692
@@ -27109,24 +27109,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1695
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1695
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 232
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1695
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_16DataMemberRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_16DataMemberRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1695
@@ -27143,24 +27143,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1698
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1698
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 240
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1698
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_16NestedTypeRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_16NestedTypeRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1698
@@ -27177,24 +27177,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1701
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1701
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 248
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1701
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_15OneMethodRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_15OneMethodRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1701
@@ -27211,24 +27211,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1704
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1704
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 256
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1704
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_16EnumeratorRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_16EnumeratorRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1704
@@ -27245,24 +27245,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1707
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1707
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 264
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 2 dereferenceable(6) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1707
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_22ListContinuationRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownMemberImplINS0_22ListContinuationRecordEEENS_5ErrorERNS0_14CVMemberRecordERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1707
@@ -27279,24 +27279,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1710
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1710
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 272
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1710
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_12FuncIdRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_12FuncIdRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1710
@@ -27313,24 +27313,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1713
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1713
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 280
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1713
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_18MemberFuncIdRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_18MemberFuncIdRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1713
@@ -27347,24 +27347,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1716
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1716
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 288
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1716
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_15BuildInfoRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_15BuildInfoRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1716
@@ -27381,24 +27381,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1719
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1719
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 296
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1719
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_16StringListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_16StringListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1719
@@ -27415,24 +27415,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1722
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1722
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 304
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1722
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_14StringIdRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_14StringIdRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1722
@@ -27449,24 +27449,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1725
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1725
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 312
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1725
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_19UdtSourceLineRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_19UdtSourceLineRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1725
@@ -27483,24 +27483,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1728
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1728
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 320
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(18) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1728
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_22UdtModSourceLineRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_22UdtModSourceLineRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1728
@@ -27517,24 +27517,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1731
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1731
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 328
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1731
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_24MethodOverloadListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_24MethodOverloadListRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1731
@@ -27551,24 +27551,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1734
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1734
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 336
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1734
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_13PrecompRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_13PrecompRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1734
@@ -27585,24 +27585,24 @@ define linkonce_odr hidden void @_ZN4llvm8codeview27TypeVisitorCallbackPipeline1
   %6 = load ptr, ptr %5, align 8, !tbaa !1634, !noalias !1737
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !1634, !noalias !1737
-  %.not21.i = icmp eq ptr %6, %8
-  br i1 %.not21.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
+  %.not19.i = icmp eq ptr %6, %8
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 9:                                                ; preds = %_ZN4llvm5ErrorD2Ev.exit.i
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.022.i, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.014.020.i, i64 8
   %.not.i = icmp eq ptr %10, %8
   br i1 %.not.i, label %_ZN4llvm5ErrorD2Ev.exit11.i, label %_ZN4llvm5ErrorD2Ev.exit.i
 
 _ZN4llvm5ErrorD2Ev.exit.i:                        ; preds = %4, %9
-  %.sroa.014.022.i = phi ptr [ %10, %9 ], [ %6, %4 ]
-  %11 = load ptr, ptr %.sroa.014.022.i, align 8, !tbaa !912
+  %.sroa.014.020.i = phi ptr [ %10, %9 ], [ %6, %4 ]
+  %11 = load ptr, ptr %.sroa.014.020.i, align 8, !tbaa !912
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 344
   %14 = load ptr, ptr %13, align 8
   tail call void %14(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(8) %3) #25
   %15 = load ptr, ptr %0, align 8, !tbaa !919, !alias.scope !1737
-  %.not20.i = icmp eq ptr %15, null
-  br i1 %.not20.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_16EndPrecompRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
+  %.not18.i = icmp eq ptr %15, null
+  br i1 %.not18.i, label %9, label %_ZN4llvm8codeview27TypeVisitorCallbackPipeline20visitKnownRecordImplINS0_16EndPrecompRecordEEENS_5ErrorERNS0_8CVRecordINS0_12TypeLeafKindEEERT_.exit
 
 _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %9, %4
   store ptr null, ptr %0, align 8, !tbaa !919, !alias.scope !1737
@@ -30425,23 +30425,23 @@ _ZNSt8_Rb_treeIN4llvm8codeview9TypeIndexES2_St9_IdentityIS2_ESt4lessIS2_ESaIS2_E
   %32 = zext i32 %31 to i64
   %.idx.i = shl nuw nsw i64 %32, 2
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i
-  %.not13.i = icmp eq i32 %31, 0
+  %.not11.i = icmp eq i32 %31, 0
   %.sroa.05.0.copyload = load i32, ptr %2, align 1
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %35
-  %.0914.i = phi ptr [ %36, %35 ], [ %29, %28 ]
-  %.0.copyload.i.i.i.i.i.i = load i32, ptr %.0914.i, align 1
+  %.0912.i = phi ptr [ %36, %35 ], [ %29, %28 ]
+  %.0.copyload.i.i.i.i.i.i = load i32, ptr %.0912.i, align 1
   %34 = icmp eq i32 %.0.copyload.i.i.i.i.i.i, %.sroa.05.0.copyload
   br i1 %34, label %_ZNK4llvm8SmallSetINS_8codeview9TypeIndexELj1ESt4lessIS2_EE5vfindERKS2_.exit, label %35
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %36 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %36, %33
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_8codeview9TypeIndexELj1ESt4lessIS2_EE5vfindERKS2_.exit, label %.lr.ph.i, !llvm.loop !1775
 
 _ZNK4llvm8SmallSetINS_8codeview9TypeIndexELj1ESt4lessIS2_EE5vfindERKS2_.exit: ; preds = %.lr.ph.i, %35
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %33, %35 ]
+  %.1.i = phi ptr [ %33, %35 ], [ %.0912.i, %.lr.ph.i ]
   %37 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %29, i64 %32
   %.not = icmp eq ptr %.1.i, %37
   br i1 %.not, label %52, label %_ZNSt3setIN4llvm8codeview9TypeIndexESt4lessIS2_ESaIS2_EE6insertERKS2_.exit

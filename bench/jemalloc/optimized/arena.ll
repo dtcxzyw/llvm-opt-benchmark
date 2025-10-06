@@ -2347,7 +2347,7 @@ je_arena_bin_choose.exit:                         ; preds = %6, %26, %30
   br label %73
 
 73:                                               ; preds = %arena_bin_flush_batch_after_unlock.exit, %je_arena_bin_choose.exit
-  %.077 = phi i16 [ 0, %je_arena_bin_choose.exit ], [ %.178173, %arena_bin_flush_batch_after_unlock.exit ]
+  %.077 = phi i16 [ 0, %je_arena_bin_choose.exit ], [ %.178171, %arena_bin_flush_batch_after_unlock.exit ]
   %.074 = phi ptr [ null, %je_arena_bin_choose.exit ], [ %508, %arena_bin_flush_batch_after_unlock.exit ]
   %.073 = phi i1 [ true, %je_arena_bin_choose.exit ], [ false, %arena_bin_flush_batch_after_unlock.exit ]
   %74 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %44) #17
@@ -2397,23 +2397,23 @@ malloc_mutex_lock.exit:                           ; preds = %76, %80
 89:                                               ; preds = %84
   %90 = call i64 @je_batcher_pop_get_pushes(ptr noundef %0, ptr noundef nonnull %56) #17
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %.not196 = icmp eq i64 %87, 0
-  br i1 %.not196, label %._crit_edge.thread, label %.lr.ph170.preheader
+  %.not194 = icmp eq i64 %87, 0
+  br i1 %.not194, label %._crit_edge.thread, label %.lr.ph168.preheader
 
 ._crit_edge.thread:                               ; preds = %89
   call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %56) #17
-  br label %._crit_edge171
+  br label %._crit_edge169
 
-.lr.ph170.preheader:                              ; preds = %89
+.lr.ph168.preheader:                              ; preds = %89
   %91 = shl nuw i64 %87, 4
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %12, ptr align 8 %57, i64 %91, i1 false)
   call void @je_batcher_pop_end(ptr noundef %0, ptr noundef nonnull %56) #17
-  br label %.lr.ph170
+  br label %.lr.ph168
 
-._crit_edge171:                                   ; preds = %arena_dalloc_bin_locked_step.exit, %._crit_edge.thread
-  %.lcssa167 = phi i32 [ 0, %._crit_edge.thread ], [ %223, %arena_dalloc_bin_locked_step.exit ]
+._crit_edge169:                                   ; preds = %arena_dalloc_bin_locked_step.exit, %._crit_edge.thread
+  %.lcssa165 = phi i32 [ 0, %._crit_edge.thread ], [ %223, %arena_dalloc_bin_locked_step.exit ]
   store i64 %87, ptr %52, align 8
-  store i32 %.lcssa167, ptr %53, align 8
+  store i32 %.lcssa165, ptr %53, align 8
   %92 = load i64, ptr %64, align 8, !tbaa !190
   %93 = add i64 %92, 1
   store i64 %93, ptr %64, align 8, !tbaa !190
@@ -2426,10 +2426,10 @@ malloc_mutex_lock.exit:                           ; preds = %76, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %arena_bin_flush_batch_after_lock.exit
 
-.lr.ph170:                                        ; preds = %.lr.ph170.preheader, %arena_dalloc_bin_locked_step.exit
-  %.0.i96168 = phi i64 [ %224, %arena_dalloc_bin_locked_step.exit ], [ 0, %.lr.ph170.preheader ]
-  %98 = phi i32 [ %223, %arena_dalloc_bin_locked_step.exit ], [ 0, %.lr.ph170.preheader ]
-  %99 = getelementptr inbounds nuw %struct.bin_remote_free_data_s, ptr %12, i64 %.0.i96168
+.lr.ph168:                                        ; preds = %.lr.ph168.preheader, %arena_dalloc_bin_locked_step.exit
+  %.0.i96166 = phi i64 [ %224, %arena_dalloc_bin_locked_step.exit ], [ 0, %.lr.ph168.preheader ]
+  %98 = phi i32 [ %223, %arena_dalloc_bin_locked_step.exit ], [ 0, %.lr.ph168.preheader ]
+  %99 = getelementptr inbounds nuw %struct.bin_remote_free_data_s, ptr %12, i64 %.0.i96166
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !191
   %102 = load ptr, ptr %99, align 16, !tbaa !193
@@ -2460,7 +2460,7 @@ malloc_mutex_lock.exit:                           ; preds = %76, %80
   %123 = icmp eq i32 %121, %122
   br i1 %123, label %124, label %190
 
-124:                                              ; preds = %.lr.ph170
+124:                                              ; preds = %.lr.ph168
   %125 = load ptr, ptr %58, align 8, !tbaa !170
   %126 = icmp eq ptr %101, %125
   br i1 %126, label %127, label %128
@@ -2579,7 +2579,7 @@ edata_list_active_append.exit:                    ; preds = %174, %179
   store ptr %189, ptr %54, align 8, !tbaa !159
   br label %arena_dalloc_bin_locked_step.exit
 
-190:                                              ; preds = %.lr.ph170
+190:                                              ; preds = %.lr.ph168
   %191 = icmp eq i32 %121, 1
   br i1 %191, label %192, label %arena_dalloc_bin_locked_step.exit
 
@@ -2642,24 +2642,24 @@ je_arena_dalloc_bin_locked_handle_newly_nonempty.exit: ; preds = %194, %.thread.
 
 arena_dalloc_bin_locked_step.exit:                ; preds = %170, %edata_list_active_append.exit, %190, %192, %je_arena_dalloc_bin_locked_handle_newly_nonempty.exit
   %223 = phi i32 [ %173, %170 ], [ %98, %edata_list_active_append.exit ], [ %98, %190 ], [ %98, %192 ], [ %98, %je_arena_dalloc_bin_locked_handle_newly_nonempty.exit ]
-  %224 = add nuw i64 %.0.i96168, 1
+  %224 = add nuw i64 %.0.i96166, 1
   %exitcond.not = icmp eq i64 %224, %87
-  br i1 %exitcond.not, label %._crit_edge171, label %.lr.ph170, !llvm.loop !196
+  br i1 %exitcond.not, label %._crit_edge169, label %.lr.ph168, !llvm.loop !196
 
-arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge171, %84, %malloc_mutex_lock.exit
+arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge169, %84, %malloc_mutex_lock.exit
   %225 = icmp ult i16 %.077, %4
-  br i1 %225, label %.lr.ph176, label %.thread145.thread
+  br i1 %225, label %.lr.ph174, label %.thread145.thread
 
-.lr.ph176:                                        ; preds = %arena_bin_flush_batch_after_lock.exit, %311
-  %.1175 = phi i1 [ %.2, %311 ], [ %.073, %arena_bin_flush_batch_after_lock.exit ]
-  %.175174 = phi ptr [ %.3, %311 ], [ %.074, %arena_bin_flush_batch_after_lock.exit ]
-  %.178173 = phi i16 [ %.380, %311 ], [ %.077, %arena_bin_flush_batch_after_lock.exit ]
-  %226 = zext i16 %.178173 to i32
+.lr.ph174:                                        ; preds = %arena_bin_flush_batch_after_lock.exit, %311
+  %.1173 = phi i1 [ %.2, %311 ], [ %.073, %arena_bin_flush_batch_after_lock.exit ]
+  %.175172 = phi ptr [ %.3, %311 ], [ %.074, %arena_bin_flush_batch_after_lock.exit ]
+  %.178171 = phi i16 [ %.380, %311 ], [ %.077, %arena_bin_flush_batch_after_lock.exit ]
+  %226 = zext i16 %.178171 to i32
   %227 = load ptr, ptr %58, align 8, !tbaa !170
   %.not = icmp eq ptr %227, null
   br i1 %.not, label %arena_bin_slabs_full_insert.exit.i, label %228
 
-228:                                              ; preds = %.lr.ph176
+228:                                              ; preds = %.lr.ph174
   %.val104 = load i64, ptr %227, align 8, !tbaa !153
   %229 = lshr i64 %.val104, 28
   %230 = trunc i64 %229 to i32
@@ -2672,7 +2672,7 @@ arena_bin_flush_batch_after_lock.exit:            ; preds = %._crit_edge171, %84
   %234 = icmp samesign ugt i32 %233, %68
   %235 = sub nsw i32 %67, %226
   %spec.select = select i1 %234, i32 %235, i32 %231
-  %236 = zext i16 %.178173 to i64
+  %236 = zext i16 %.178171 to i64
   %237 = getelementptr inbounds nuw ptr, ptr %24, i64 %236
   %238 = getelementptr inbounds nuw i8, ptr %227, i64 64
   %.not54.i = icmp eq i32 %spec.select, 0
@@ -2758,7 +2758,7 @@ arena_slab_reg_alloc_batch.exit:                  ; preds = %._crit_edge47.i, %2
   %273 = sub i64 %.val104, %272
   store i64 %273, ptr %227, align 8, !tbaa !153
   %274 = trunc i32 %spec.select to i16
-  %275 = add i16 %.178173, %274
+  %275 = add i16 %.178171, %274
   br label %311
 
 276:                                              ; preds = %228
@@ -2803,7 +2803,7 @@ edata_list_active_append.exit.i.i:                ; preds = %284, %279
   store ptr %298, ptr %60, align 8, !tbaa !159
   br label %arena_bin_slabs_full_insert.exit.i
 
-arena_bin_slabs_full_insert.exit.i:               ; preds = %.lr.ph176, %edata_list_active_append.exit.i.i, %276
+arena_bin_slabs_full_insert.exit.i:               ; preds = %.lr.ph174, %edata_list_active_append.exit.i.i, %276
   %299 = call ptr @je_edata_heap_remove_first(ptr noundef nonnull %61) #17
   %300 = icmp eq ptr %299, null
   br i1 %300, label %305, label %arena_bin_refill_slabcur_no_fresh_slab.exit
@@ -2820,7 +2820,7 @@ arena_bin_refill_slabcur_no_fresh_slab.exit:      ; preds = %arena_bin_slabs_ful
 
 305:                                              ; preds = %arena_bin_slabs_full_insert.exit.i
   store ptr null, ptr %58, align 8, !tbaa !170
-  %.not89 = icmp eq ptr %.175174, null
+  %.not89 = icmp eq ptr %.175172, null
   br i1 %.not89, label %.thread145, label %306
 
 306:                                              ; preds = %305
@@ -2830,23 +2830,23 @@ arena_bin_refill_slabcur_no_fresh_slab.exit:      ; preds = %arena_bin_slabs_ful
   %309 = load i64, ptr %63, align 8, !tbaa !132
   %310 = add i64 %309, 1
   store i64 %310, ptr %63, align 8, !tbaa !132
-  store ptr %.175174, ptr %58, align 8, !tbaa !170
+  store ptr %.175172, ptr %58, align 8, !tbaa !170
   br label %311, !llvm.loop !201
 
 311:                                              ; preds = %arena_bin_refill_slabcur_no_fresh_slab.exit, %306, %arena_slab_reg_alloc_batch.exit
-  %.380 = phi i16 [ %275, %arena_slab_reg_alloc_batch.exit ], [ %.178173, %306 ], [ %.178173, %arena_bin_refill_slabcur_no_fresh_slab.exit ]
-  %.3 = phi ptr [ %.175174, %arena_slab_reg_alloc_batch.exit ], [ null, %306 ], [ %.175174, %arena_bin_refill_slabcur_no_fresh_slab.exit ]
-  %.2 = phi i1 [ true, %arena_slab_reg_alloc_batch.exit ], [ %.1175, %306 ], [ %.1175, %arena_bin_refill_slabcur_no_fresh_slab.exit ]
+  %.380 = phi i16 [ %275, %arena_slab_reg_alloc_batch.exit ], [ %.178171, %306 ], [ %.178171, %arena_bin_refill_slabcur_no_fresh_slab.exit ]
+  %.3 = phi ptr [ %.175172, %arena_slab_reg_alloc_batch.exit ], [ null, %306 ], [ %.175172, %arena_bin_refill_slabcur_no_fresh_slab.exit ]
+  %.2 = phi i1 [ true, %arena_slab_reg_alloc_batch.exit ], [ %.1173, %306 ], [ %.1173, %arena_bin_refill_slabcur_no_fresh_slab.exit ]
   %312 = icmp ult i16 %.380, %4
-  br i1 %312, label %.lr.ph176, label %.thread145.thread
+  br i1 %312, label %.lr.ph174, label %.thread145.thread
 
 .thread145:                                       ; preds = %305
-  br i1 %.1175, label %.critedge, label %.thread145.thread
+  br i1 %.1173, label %.critedge, label %.thread145.thread
 
 .thread145.thread:                                ; preds = %arena_bin_flush_batch_after_lock.exit, %.thread145, %311
-  %.276239 = phi ptr [ %.3, %311 ], [ %.074, %arena_bin_flush_batch_after_lock.exit ], [ null, %.thread145 ]
-  %.178.lcssa238 = phi i16 [ %.380, %311 ], [ %.077, %arena_bin_flush_batch_after_lock.exit ], [ %.178173, %.thread145 ]
-  %313 = zext i16 %.178.lcssa238 to i64
+  %.276237 = phi ptr [ %.3, %311 ], [ %.074, %arena_bin_flush_batch_after_lock.exit ], [ null, %.thread145 ]
+  %.178.lcssa236 = phi i16 [ %.380, %311 ], [ %.077, %arena_bin_flush_batch_after_lock.exit ], [ %.178171, %.thread145 ]
+  %313 = zext i16 %.178.lcssa236 to i64
   %314 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 112
   %315 = load i64, ptr %314, align 8, !tbaa !114
   %316 = add i64 %315, %313
@@ -2887,21 +2887,21 @@ arena_bin_flush_batch_before_unlock.exit93:       ; preds = %.thread145.thread, 
 
 336:                                              ; preds = %arena_bin_flush_batch_before_unlock.exit93
   %337 = load i32, ptr %53, align 8, !tbaa !188
-  %.not198 = icmp eq i32 %337, 0
-  br i1 %.not198, label %.preheader, label %.lr.ph192
+  %.not196 = icmp eq i32 %337, 0
+  br i1 %.not196, label %.preheader, label %.lr.ph190
 
-.lr.ph192:                                        ; preds = %336
+.lr.ph190:                                        ; preds = %336
   %wide.trip.count = zext i32 %337 to i64
   br label %339
 
 .preheader:                                       ; preds = %je_arena_slab_dalloc.exit, %336
-  %.val106193 = load ptr, ptr %54, align 8, !tbaa !159
-  %338 = icmp eq ptr %.val106193, null
-  br i1 %338, label %arena_bin_flush_batch_after_unlock.exit95, label %.lr.ph195
+  %.val106191 = load ptr, ptr %54, align 8, !tbaa !159
+  %338 = icmp eq ptr %.val106191, null
+  br i1 %338, label %arena_bin_flush_batch_after_unlock.exit95, label %.lr.ph193
 
-339:                                              ; preds = %.lr.ph192, %je_arena_slab_dalloc.exit
-  %indvars.iv208 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next209, %je_arena_slab_dalloc.exit ]
-  %340 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv208
+339:                                              ; preds = %.lr.ph190, %je_arena_slab_dalloc.exit
+  %indvars.iv206 = phi i64 [ 0, %.lr.ph190 ], [ %indvars.iv.next207, %je_arena_slab_dalloc.exit ]
+  %340 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv206
   %341 = load ptr, ptr %340, align 8, !tbaa !195
   %.val.i118 = load i64, ptr %341, align 8, !tbaa !153
   %342 = and i64 %.val.i118, 4095
@@ -2922,22 +2922,22 @@ arena_bin_flush_batch_before_unlock.exit93:       ; preds = %.thread145.thread, 
 
 je_arena_slab_dalloc.exit:                        ; preds = %339, %348
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %indvars.iv.next209 = add nuw nsw i64 %indvars.iv208, 1
-  %exitcond211.not = icmp eq i64 %indvars.iv.next209, %wide.trip.count
-  br i1 %exitcond211.not, label %.preheader, label %339, !llvm.loop !203
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %exitcond209.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count
+  br i1 %exitcond209.not, label %.preheader, label %339, !llvm.loop !203
 
-.lr.ph195:                                        ; preds = %.preheader, %je_arena_slab_dalloc.exit122
-  %.val106194 = phi ptr [ %.val106, %je_arena_slab_dalloc.exit122 ], [ %.val106193, %.preheader ]
-  %349 = getelementptr inbounds nuw i8, ptr %.val106194, i64 40
+.lr.ph193:                                        ; preds = %.preheader, %je_arena_slab_dalloc.exit122
+  %.val106192 = phi ptr [ %.val106, %je_arena_slab_dalloc.exit122 ], [ %.val106191, %.preheader ]
+  %349 = getelementptr inbounds nuw i8, ptr %.val106192, i64 40
   %350 = load ptr, ptr %349, align 8, !tbaa !149
   store ptr %350, ptr %54, align 8, !tbaa !159
-  %351 = icmp eq ptr %350, %.val106194
+  %351 = icmp eq ptr %350, %.val106192
   br i1 %351, label %368, label %.thread.i
 
-.thread.i:                                        ; preds = %.lr.ph195
+.thread.i:                                        ; preds = %.lr.ph193
   %352 = getelementptr inbounds nuw i8, ptr %350, i64 48
   %353 = load ptr, ptr %352, align 8, !tbaa !149
-  %354 = getelementptr inbounds nuw i8, ptr %.val106194, i64 48
+  %354 = getelementptr inbounds nuw i8, ptr %.val106192, i64 48
   %355 = load ptr, ptr %354, align 8, !tbaa !149
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 40
   store ptr %353, ptr %356, align 8, !tbaa !149
@@ -2955,16 +2955,16 @@ je_arena_slab_dalloc.exit:                        ; preds = %339, %348
   store ptr %362, ptr %365, align 8, !tbaa !149
   %366 = load ptr, ptr %354, align 8, !tbaa !149
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 40
-  store ptr %.val106194, ptr %367, align 8, !tbaa !149
+  store ptr %.val106192, ptr %367, align 8, !tbaa !149
   br label %edata_list_active_remove.exit
 
-368:                                              ; preds = %.lr.ph195
+368:                                              ; preds = %.lr.ph193
   store ptr null, ptr %54, align 8, !tbaa !159
   br label %edata_list_active_remove.exit
 
 edata_list_active_remove.exit:                    ; preds = %.thread.i, %368
   %.val106 = phi ptr [ %350, %.thread.i ], [ null, %368 ]
-  %.val.i120 = load i64, ptr %.val106194, align 8, !tbaa !153
+  %.val.i120 = load i64, ptr %.val106192, align 8, !tbaa !153
   %369 = and i64 %.val.i120, 4095
   %370 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %369
   %371 = load atomic i64, ptr %370 monotonic, align 8
@@ -2972,7 +2972,7 @@ edata_list_active_remove.exit:                    ; preds = %.thread.i, %368
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 0, ptr %10, align 1, !tbaa !147
   %372 = getelementptr inbounds nuw i8, ptr %.0.i.i121, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %372, ptr noundef nonnull %.val106194, ptr noundef nonnull %10) #17
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %372, ptr noundef nonnull %.val106192, ptr noundef nonnull %10) #17
   %373 = load i8, ptr %10, align 1, !tbaa !147, !range !154, !noundef !155
   %374 = trunc nuw i8 %373 to i1
   br i1 %374, label %375, label %je_arena_slab_dalloc.exit122
@@ -2984,10 +2984,10 @@ edata_list_active_remove.exit:                    ; preds = %.thread.i, %368
 je_arena_slab_dalloc.exit122:                     ; preds = %edata_list_active_remove.exit, %375
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %376 = icmp eq ptr %.val106, null
-  br i1 %376, label %arena_bin_flush_batch_after_unlock.exit95, label %.lr.ph195, !llvm.loop !204
+  br i1 %376, label %arena_bin_flush_batch_after_unlock.exit95, label %.lr.ph193, !llvm.loop !204
 
 arena_bin_flush_batch_after_unlock.exit95:        ; preds = %je_arena_slab_dalloc.exit122, %.preheader, %arena_bin_flush_batch_before_unlock.exit93
-  %.not90 = icmp eq ptr %.276239, null
+  %.not90 = icmp eq ptr %.276237, null
   br i1 %.not90, label %514, label %509
 
 .critedge:                                        ; preds = %.thread145
@@ -3014,15 +3014,15 @@ arena_bin_flush_batch_before_unlock.exit:         ; preds = %.critedge, %378
 
 387:                                              ; preds = %arena_bin_flush_batch_before_unlock.exit
   %388 = load i32, ptr %53, align 8, !tbaa !188
-  %.not199 = icmp eq i32 %388, 0
-  br i1 %.not199, label %.preheader157, label %.lr.ph186
+  %.not197 = icmp eq i32 %388, 0
+  br i1 %.not197, label %.preheader155, label %.lr.ph184
 
-.preheader157:                                    ; preds = %je_arena_slab_dalloc.exit125, %387
-  %.val108187 = load ptr, ptr %54, align 8, !tbaa !159
-  %389 = icmp eq ptr %.val108187, null
-  br i1 %389, label %arena_bin_flush_batch_after_unlock.exit, label %.lr.ph189
+.preheader155:                                    ; preds = %je_arena_slab_dalloc.exit125, %387
+  %.val108185 = load ptr, ptr %54, align 8, !tbaa !159
+  %389 = icmp eq ptr %.val108185, null
+  br i1 %389, label %arena_bin_flush_batch_after_unlock.exit, label %.lr.ph187
 
-.lr.ph186:                                        ; preds = %387, %je_arena_slab_dalloc.exit125
+.lr.ph184:                                        ; preds = %387, %je_arena_slab_dalloc.exit125
   %indvars.iv = phi i64 [ %indvars.iv.next, %je_arena_slab_dalloc.exit125 ], [ 0, %387 ]
   %390 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
   %391 = load ptr, ptr %390, align 8, !tbaa !195
@@ -3039,7 +3039,7 @@ arena_bin_flush_batch_before_unlock.exit:         ; preds = %.critedge, %378
   %397 = trunc nuw i8 %396 to i1
   br i1 %397, label %398, label %je_arena_slab_dalloc.exit125
 
-398:                                              ; preds = %.lr.ph186
+398:                                              ; preds = %.lr.ph184
   %399 = getelementptr inbounds nuw i8, ptr %.0.i.i124, i64 69336
   %400 = getelementptr inbounds nuw i8, ptr %.0.i.i124, i64 69456
   %401 = load atomic i64, ptr %400 monotonic, align 8
@@ -3113,26 +3113,26 @@ arena_decay_impl.exit.i:                          ; preds = %417, %411
   call fastcc void @arena_maybe_do_deferred_work(ptr noundef %0, i32 %.val6.i.i, ptr noundef nonnull %399, i64 noundef 0)
   br label %je_arena_slab_dalloc.exit125
 
-je_arena_slab_dalloc.exit125:                     ; preds = %437, %427, %424, %.lr.ph186
+je_arena_slab_dalloc.exit125:                     ; preds = %437, %427, %424, %.lr.ph184
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %438 = load i32, ptr %53, align 8, !tbaa !188
   %439 = zext i32 %438 to i64
   %440 = icmp samesign ult i64 %indvars.iv.next, %439
-  br i1 %440, label %.lr.ph186, label %.preheader157, !llvm.loop !203
+  br i1 %440, label %.lr.ph184, label %.preheader155, !llvm.loop !203
 
-.lr.ph189:                                        ; preds = %.preheader157, %je_arena_slab_dalloc.exit130
-  %.val108188 = phi ptr [ %.val108, %je_arena_slab_dalloc.exit130 ], [ %.val108187, %.preheader157 ]
-  %441 = getelementptr inbounds nuw i8, ptr %.val108188, i64 40
+.lr.ph187:                                        ; preds = %.preheader155, %je_arena_slab_dalloc.exit130
+  %.val108186 = phi ptr [ %.val108, %je_arena_slab_dalloc.exit130 ], [ %.val108185, %.preheader155 ]
+  %441 = getelementptr inbounds nuw i8, ptr %.val108186, i64 40
   %442 = load ptr, ptr %441, align 8, !tbaa !149
   store ptr %442, ptr %54, align 8, !tbaa !159
-  %443 = icmp eq ptr %442, %.val108188
+  %443 = icmp eq ptr %442, %.val108186
   br i1 %443, label %460, label %.thread.i126
 
-.thread.i126:                                     ; preds = %.lr.ph189
+.thread.i126:                                     ; preds = %.lr.ph187
   %444 = getelementptr inbounds nuw i8, ptr %442, i64 48
   %445 = load ptr, ptr %444, align 8, !tbaa !149
-  %446 = getelementptr inbounds nuw i8, ptr %.val108188, i64 48
+  %446 = getelementptr inbounds nuw i8, ptr %.val108186, i64 48
   %447 = load ptr, ptr %446, align 8, !tbaa !149
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 40
   store ptr %445, ptr %448, align 8, !tbaa !149
@@ -3150,15 +3150,15 @@ je_arena_slab_dalloc.exit125:                     ; preds = %437, %427, %424, %.
   store ptr %454, ptr %457, align 8, !tbaa !149
   %458 = load ptr, ptr %446, align 8, !tbaa !149
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 40
-  store ptr %.val108188, ptr %459, align 8, !tbaa !149
+  store ptr %.val108186, ptr %459, align 8, !tbaa !149
   br label %edata_list_active_remove.exit127
 
-460:                                              ; preds = %.lr.ph189
+460:                                              ; preds = %.lr.ph187
   store ptr null, ptr %54, align 8, !tbaa !159
   br label %edata_list_active_remove.exit127
 
 edata_list_active_remove.exit127:                 ; preds = %.thread.i126, %460
-  %.val.i128 = load i64, ptr %.val108188, align 8, !tbaa !153
+  %.val.i128 = load i64, ptr %.val108186, align 8, !tbaa !153
   %461 = and i64 %.val.i128, 4095
   %462 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %461
   %463 = load atomic i64, ptr %462 monotonic, align 8
@@ -3166,7 +3166,7 @@ edata_list_active_remove.exit127:                 ; preds = %.thread.i126, %460
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !147
   %464 = getelementptr inbounds nuw i8, ptr %.0.i.i129, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %464, ptr noundef nonnull %.val108188, ptr noundef nonnull %8) #17
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %464, ptr noundef nonnull %.val108186, ptr noundef nonnull %8) #17
   %465 = load i8, ptr %8, align 1, !tbaa !147, !range !154, !noundef !155
   %466 = trunc nuw i8 %465 to i1
   br i1 %466, label %467, label %je_arena_slab_dalloc.exit130
@@ -3249,9 +3249,9 @@ je_arena_slab_dalloc.exit130:                     ; preds = %506, %496, %493, %e
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %.val108 = load ptr, ptr %54, align 8, !tbaa !159
   %507 = icmp eq ptr %.val108, null
-  br i1 %507, label %arena_bin_flush_batch_after_unlock.exit, label %.lr.ph189, !llvm.loop !204
+  br i1 %507, label %arena_bin_flush_batch_after_unlock.exit, label %.lr.ph187, !llvm.loop !204
 
-arena_bin_flush_batch_after_unlock.exit:          ; preds = %je_arena_slab_dalloc.exit130, %.preheader157, %arena_bin_flush_batch_before_unlock.exit
+arena_bin_flush_batch_after_unlock.exit:          ; preds = %je_arena_slab_dalloc.exit130, %.preheader155, %arena_bin_flush_batch_before_unlock.exit
   %508 = call fastcc ptr @arena_slab_alloc(ptr noundef %0, ptr noundef %1, i32 noundef %3, i32 noundef %.0.i111, ptr noundef nonnull %15)
   br label %73
 
@@ -3259,7 +3259,7 @@ arena_bin_flush_batch_after_unlock.exit:          ; preds = %je_arena_slab_dallo
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !147
   %510 = getelementptr inbounds nuw i8, ptr %1, i64 10664
-  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %510, ptr noundef nonnull %.276239, ptr noundef nonnull %7) #17
+  call void @je_pa_dalloc(ptr noundef %0, ptr noundef nonnull %510, ptr noundef nonnull %.276237, ptr noundef nonnull %7) #17
   %511 = load i8, ptr %7, align 1, !tbaa !147, !range !154, !noundef !155
   %512 = trunc nuw i8 %511 to i1
   br i1 %512, label %513, label %je_arena_slab_dalloc.exit131
@@ -3280,7 +3280,7 @@ je_arena_slab_dalloc.exit131:                     ; preds = %509, %513
   %517 = sub i16 %.val12.i, %516
   %518 = zext i16 %517 to i64
   %519 = getelementptr inbounds nuw i8, ptr %.val.i132, i64 %518
-  %520 = icmp ult i16 %.178.lcssa238, %5
+  %520 = icmp ult i16 %.178.lcssa236, %5
   %521 = sub nsw i64 0, %313
   br i1 %520, label %522, label %cache_bin_finish_fill.exit
 

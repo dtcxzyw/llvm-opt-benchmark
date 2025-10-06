@@ -1113,8 +1113,8 @@ php_libxml_invalidate_node_list_cache.exit:       ; preds = %16, %19
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @dom_sanity_check_node_list_types(ptr noundef %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 {
-  %.not42.not = icmp eq i32 %1, 0
-  br i1 %.not42.not, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq i32 %1, 0
+  br i1 %.not, label %.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %wide.trip.count = zext i32 %1 to i64
@@ -1149,7 +1149,7 @@ instanceof_function.exit:                         ; preds = %7
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
   %19 = tail call ptr @zend_zval_type_name(ptr noundef nonnull %4) #6
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %15, ptr noundef nonnull @.str.6, ptr noundef nonnull %18, ptr noundef %19) #6
-  br label %.loopexit
+  br label %.thread
 
 20:                                               ; preds = %.lr.ph
   %21 = load ptr, ptr %4, align 8, !tbaa !18
@@ -1162,7 +1162,7 @@ instanceof_function.exit:                         ; preds = %7
   %26 = trunc nuw i64 %indvars.iv to i32
   %27 = add nuw i32 %26, 1
   tail call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef %27, ptr noundef nonnull @.str.7, i32 noundef 2147483647) #6
-  br label %.loopexit
+  br label %.thread
 
 28:                                               ; preds = %.lr.ph
   %29 = trunc nuw i64 %indvars.iv to i32
@@ -1172,16 +1172,16 @@ instanceof_function.exit:                         ; preds = %7
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = tail call ptr @zend_zval_type_name(ptr noundef nonnull %4) #6
   tail call void (i32, ptr, ...) @zend_argument_type_error(i32 noundef %30, ptr noundef nonnull @.str.6, ptr noundef nonnull %33, ptr noundef %34) #6
-  br label %.loopexit
+  br label %.thread
 
 .critedge:                                        ; preds = %7, %instanceof_function.exit, %20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph
+  br i1 %exitcond.not, label %.thread, label %.lr.ph
 
-.loopexit:                                        ; preds = %.critedge, %3, %13, %25, %28
-  %.not36 = phi i32 [ -1, %13 ], [ -1, %25 ], [ -1, %28 ], [ 0, %3 ], [ 0, %.critedge ]
-  ret i32 %.not36
+.thread:                                          ; preds = %.critedge, %3, %25, %28, %13
+  %35 = phi i32 [ -1, %13 ], [ -1, %28 ], [ -1, %25 ], [ 0, %3 ], [ 0, %.critedge ]
+  ret i32 %35
 }
 
 ; Function Attrs: nounwind uwtable
@@ -1329,25 +1329,25 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %3
   br i1 %20, label %39, label %dom_is_node_in_list.exit.preheader, !prof !4
 
 dom_is_node_in_list.exit.preheader:               ; preds = %16
-  %.not11.not.i = icmp eq i32 %2, 0
-  %.0.in28 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %.029 = load ptr, ptr %.0.in28, align 8, !tbaa !20
-  %.not2130 = icmp eq ptr %.029, null
-  %or.cond31 = or i1 %.not11.not.i, %.not2130
-  br i1 %or.cond31, label %.critedge, label %.lr.ph.preheader.i.lr.ph
+  %.not.i23 = icmp eq i32 %2, 0
+  %.0.in29 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %.030 = load ptr, ptr %.0.in29, align 8, !tbaa !20
+  %.not2131 = icmp eq ptr %.030, null
+  %or.cond32 = or i1 %.not.i23, %.not2131
+  br i1 %or.cond32, label %.critedge, label %.lr.ph.preheader.i.lr.ph
 
 .lr.ph.preheader.i.lr.ph:                         ; preds = %dom_is_node_in_list.exit.preheader
   %wide.trip.count.i = zext i32 %2 to i64
   br label %.lr.ph.preheader.i
 
 dom_is_node_in_list.exit.loopexit:                ; preds = %25
-  %.0.in = getelementptr inbounds nuw i8, ptr %.032, i64 48
+  %.0.in = getelementptr inbounds nuw i8, ptr %.033, i64 48
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !20
   %.not21 = icmp eq ptr %.0, null
   br i1 %.not21, label %.critedge, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.lr.ph, %dom_is_node_in_list.exit.loopexit
-  %.032 = phi ptr [ %.029, %.lr.ph.preheader.i.lr.ph ], [ %.0, %dom_is_node_in_list.exit.loopexit ]
+  %.033 = phi ptr [ %.030, %.lr.ph.preheader.i.lr.ph ], [ %.0, %dom_is_node_in_list.exit.loopexit ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
@@ -1362,7 +1362,7 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
   %26 = load ptr, ptr %21, align 8, !tbaa !18
   %27 = getelementptr inbounds i8, ptr %26, i64 -24
   %28 = tail call ptr @dom_object_get_node(ptr noundef nonnull %27) #6
-  %29 = icmp eq ptr %28, %.032
+  %29 = icmp eq ptr %28, %.033
   br i1 %29, label %dom_is_node_in_list.exit.loopexit, label %30
 
 30:                                               ; preds = %25, %.lr.ph.i
@@ -1371,7 +1371,7 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
   br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i
 
 .critedge:                                        ; preds = %dom_is_node_in_list.exit.loopexit, %30, %dom_is_node_in_list.exit.preheader
-  %.027 = phi ptr [ %.029, %dom_is_node_in_list.exit.preheader ], [ %.032, %30 ], [ null, %dom_is_node_in_list.exit.loopexit ]
+  %.028 = phi ptr [ %.030, %dom_is_node_in_list.exit.preheader ], [ %.033, %30 ], [ null, %dom_is_node_in_list.exit.loopexit ]
   %31 = load ptr, ptr %4, align 8, !tbaa !27
   %.not.i22 = icmp eq ptr %31, null
   br i1 %.not.i22, label %php_libxml_invalidate_node_list_cache.exit, label %32
@@ -1386,7 +1386,7 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
 php_libxml_invalidate_node_list_cache.exit:       ; preds = %.critedge, %32
   %36 = tail call ptr @dom_zvals_to_single_node(ptr noundef %31, ptr noundef nonnull %19, ptr noundef %1, i32 noundef %2)
   %37 = load ptr, ptr %4, align 8, !tbaa !27
-  %38 = tail call zeroext i1 @php_dom_pre_insert(ptr noundef %37, ptr noundef %36, ptr noundef nonnull %19, ptr noundef %.027)
+  %38 = tail call zeroext i1 @php_dom_pre_insert(ptr noundef %37, ptr noundef %36, ptr noundef nonnull %19, ptr noundef %.028)
   br label %39
 
 39:                                               ; preds = %php_libxml_invalidate_node_list_cache.exit, %16, %13
@@ -1429,25 +1429,25 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %3
   br i1 %20, label %41, label %dom_is_node_in_list.exit.preheader, !prof !4
 
 dom_is_node_in_list.exit.preheader:               ; preds = %16
-  %.not11.not.i = icmp eq i32 %2, 0
-  %.0.in33 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %.034 = load ptr, ptr %.0.in33, align 8, !tbaa !35
-  %.not2435 = icmp eq ptr %.034, null
-  %or.cond36 = or i1 %.not11.not.i, %.not2435
-  br i1 %or.cond36, label %.critedge, label %.lr.ph.preheader.i.lr.ph
+  %.not.i26 = icmp eq i32 %2, 0
+  %.0.in34 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %.035 = load ptr, ptr %.0.in34, align 8, !tbaa !35
+  %.not2436 = icmp eq ptr %.035, null
+  %or.cond37 = or i1 %.not.i26, %.not2436
+  br i1 %or.cond37, label %.critedge, label %.lr.ph.preheader.i.lr.ph
 
 .lr.ph.preheader.i.lr.ph:                         ; preds = %dom_is_node_in_list.exit.preheader
   %wide.trip.count.i = zext i32 %2 to i64
   br label %.lr.ph.preheader.i
 
 dom_is_node_in_list.exit.loopexit:                ; preds = %25
-  %.0.in = getelementptr inbounds nuw i8, ptr %.037, i64 56
+  %.0.in = getelementptr inbounds nuw i8, ptr %.038, i64 56
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !35
   %.not24 = icmp eq ptr %.0, null
   br i1 %.not24, label %.critedge, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.lr.ph, %dom_is_node_in_list.exit.loopexit
-  %.037 = phi ptr [ %.034, %.lr.ph.preheader.i.lr.ph ], [ %.0, %dom_is_node_in_list.exit.loopexit ]
+  %.038 = phi ptr [ %.035, %.lr.ph.preheader.i.lr.ph ], [ %.0, %dom_is_node_in_list.exit.loopexit ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
@@ -1462,7 +1462,7 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
   %26 = load ptr, ptr %21, align 8, !tbaa !18
   %27 = getelementptr inbounds i8, ptr %26, i64 -24
   %28 = tail call ptr @dom_object_get_node(ptr noundef nonnull %27) #6
-  %29 = icmp eq ptr %28, %.037
+  %29 = icmp eq ptr %28, %.038
   br i1 %29, label %dom_is_node_in_list.exit.loopexit, label %30
 
 30:                                               ; preds = %25, %.lr.ph.i
@@ -1471,8 +1471,8 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
   br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i
 
 .critedge:                                        ; preds = %dom_is_node_in_list.exit.loopexit, %30, %dom_is_node_in_list.exit.preheader
-  %.032 = phi ptr [ %.034, %dom_is_node_in_list.exit.preheader ], [ %.037, %30 ], [ null, %dom_is_node_in_list.exit.loopexit ]
-  %.not2430 = phi i1 [ %.not2435, %dom_is_node_in_list.exit.preheader ], [ false, %30 ], [ true, %dom_is_node_in_list.exit.loopexit ]
+  %.033 = phi ptr [ %.035, %dom_is_node_in_list.exit.preheader ], [ %.038, %30 ], [ null, %dom_is_node_in_list.exit.loopexit ]
+  %.not2431 = phi i1 [ %.not2436, %dom_is_node_in_list.exit.preheader ], [ false, %30 ], [ true, %dom_is_node_in_list.exit.loopexit ]
   %31 = load ptr, ptr %4, align 8, !tbaa !27
   %.not.i25 = icmp eq ptr %31, null
   br i1 %.not.i25, label %php_libxml_invalidate_node_list_cache.exit, label %32
@@ -1486,9 +1486,9 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
 
 php_libxml_invalidate_node_list_cache.exit:       ; preds = %.critedge, %32
   %36 = tail call ptr @dom_zvals_to_single_node(ptr noundef %31, ptr noundef nonnull %19, ptr noundef %1, i32 noundef %2)
-  %37 = getelementptr inbounds nuw i8, ptr %.032, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %.033, i64 48
   %38 = getelementptr inbounds nuw i8, ptr %19, i64 24
-  %.1.in = select i1 %.not2430, ptr %38, ptr %37
+  %.1.in = select i1 %.not2431, ptr %38, ptr %37
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !5
   %39 = load ptr, ptr %4, align 8, !tbaa !27
   %40 = tail call zeroext i1 @php_dom_pre_insert(ptr noundef %39, ptr noundef %36, ptr noundef nonnull %19, ptr noundef %.1)
@@ -1584,25 +1584,25 @@ php_dom_follow_spec_doc_ref.exit:                 ; preds = %3
   br i1 %20, label %dom_insert_node_list_cleanup.exit, label %dom_is_node_in_list.exit.preheader, !prof !4
 
 dom_is_node_in_list.exit.preheader:               ; preds = %16
-  %.not11.not.i = icmp eq i32 %2, 0
-  %.0.in47 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %.048 = load ptr, ptr %.0.in47, align 8, !tbaa !20
-  %.not3449 = icmp eq ptr %.048, null
-  %or.cond50 = or i1 %.not11.not.i, %.not3449
-  br i1 %or.cond50, label %.critedge, label %.lr.ph.preheader.i.lr.ph
+  %.not.i38 = icmp eq i32 %2, 0
+  %.0.in48 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %.049 = load ptr, ptr %.0.in48, align 8, !tbaa !20
+  %.not3450 = icmp eq ptr %.049, null
+  %or.cond51 = or i1 %.not.i38, %.not3450
+  br i1 %or.cond51, label %.critedge, label %.lr.ph.preheader.i.lr.ph
 
 .lr.ph.preheader.i.lr.ph:                         ; preds = %dom_is_node_in_list.exit.preheader
   %wide.trip.count.i = zext i32 %2 to i64
   br label %.lr.ph.preheader.i
 
 dom_is_node_in_list.exit.loopexit:                ; preds = %25
-  %.0.in = getelementptr inbounds nuw i8, ptr %.051, i64 48
+  %.0.in = getelementptr inbounds nuw i8, ptr %.052, i64 48
   %.0 = load ptr, ptr %.0.in, align 8, !tbaa !20
   %.not34 = icmp eq ptr %.0, null
   br i1 %.not34, label %.critedge, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.lr.ph.preheader.i.lr.ph, %dom_is_node_in_list.exit.loopexit
-  %.051 = phi ptr [ %.048, %.lr.ph.preheader.i.lr.ph ], [ %.0, %dom_is_node_in_list.exit.loopexit ]
+  %.052 = phi ptr [ %.049, %.lr.ph.preheader.i.lr.ph ], [ %.0, %dom_is_node_in_list.exit.loopexit ]
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
@@ -1617,7 +1617,7 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
   %26 = load ptr, ptr %21, align 8, !tbaa !18
   %27 = getelementptr inbounds i8, ptr %26, i64 -24
   %28 = tail call ptr @dom_object_get_node(ptr noundef nonnull %27) #6
-  %29 = icmp eq ptr %28, %.051
+  %29 = icmp eq ptr %28, %.052
   br i1 %29, label %dom_is_node_in_list.exit.loopexit, label %30
 
 30:                                               ; preds = %25, %.lr.ph.i
@@ -1626,14 +1626,14 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
   br i1 %exitcond.not.i, label %.critedge, label %.lr.ph.i
 
 .critedge:                                        ; preds = %dom_is_node_in_list.exit.loopexit, %30, %dom_is_node_in_list.exit.preheader
-  %.046 = phi ptr [ %.048, %dom_is_node_in_list.exit.preheader ], [ %.051, %30 ], [ null, %dom_is_node_in_list.exit.loopexit ]
+  %.047 = phi ptr [ %.049, %dom_is_node_in_list.exit.preheader ], [ %.052, %30 ], [ null, %dom_is_node_in_list.exit.loopexit ]
   %31 = tail call zeroext i1 @dom_node_is_read_only(ptr noundef %17) #6
   br i1 %31, label %dom_child_removal_preconditions.exit, label %32
 
 32:                                               ; preds = %.critedge
   %33 = load ptr, ptr %18, align 8, !tbaa !26
-  %.not.i38 = icmp eq ptr %33, null
-  br i1 %.not.i38, label %dom_child_removal_preconditions.exit, label %34
+  %.not.i39 = icmp eq ptr %33, null
+  br i1 %.not.i39, label %dom_child_removal_preconditions.exit, label %34
 
 34:                                               ; preds = %32
   %35 = tail call zeroext i1 @dom_node_is_read_only(ptr noundef nonnull %33) #6
@@ -1672,7 +1672,7 @@ php_libxml_invalidate_node_list_cache.exit:       ; preds = %39, %41
   %48 = load ptr, ptr %4, align 8, !tbaa !27
   %49 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %50 = load ptr, ptr %49, align 8, !tbaa !21
-  %51 = tail call fastcc zeroext i1 @dom_is_pre_insert_valid_without_step_1(ptr noundef %48, ptr noundef nonnull %19, ptr noundef nonnull %45, ptr noundef %.046, ptr noundef %50)
+  %51 = tail call fastcc zeroext i1 @dom_is_pre_insert_valid_without_step_1(ptr noundef %48, ptr noundef nonnull %19, ptr noundef nonnull %45, ptr noundef %.047, ptr noundef %50)
   br i1 %51, label %52, label %57
 
 52:                                               ; preds = %47
@@ -1686,13 +1686,13 @@ php_libxml_invalidate_node_list_cache.exit:       ; preds = %39, %41
 
 55:                                               ; preds = %54, %52
   %56 = load ptr, ptr %4, align 8, !tbaa !27
-  tail call fastcc void @dom_insert_node_list_unchecked(ptr noundef %56, ptr noundef %45, ptr noundef nonnull %19, ptr noundef %.046)
+  tail call fastcc void @dom_insert_node_list_unchecked(ptr noundef %56, ptr noundef %45, ptr noundef nonnull %19, ptr noundef %.047)
   br label %dom_insert_node_list_cleanup.exit
 
 57:                                               ; preds = %47
   %58 = load ptr, ptr %45, align 8, !tbaa !36
-  %.not.i39 = icmp eq ptr %58, null
-  br i1 %.not.i39, label %59, label %dom_insert_node_list_cleanup.exit
+  %.not.i40 = icmp eq ptr %58, null
+  br i1 %.not.i40, label %59, label %dom_insert_node_list_cleanup.exit
 
 59:                                               ; preds = %57
   %60 = getelementptr inbounds nuw i8, ptr %45, i64 8

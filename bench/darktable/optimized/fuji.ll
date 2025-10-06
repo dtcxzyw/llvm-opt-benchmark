@@ -2951,8 +2951,8 @@ define void @_ZN6LibRaw20parse_fuji_thumbnailEi(ptr noundef nonnull align 8 dere
 .preheader:                                       ; preds = %2
   %20 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %21 = add i16 %20, 29
-  %or.cond22 = icmp ult i16 %21, -2
-  br i1 %or.cond22, label %.thread, label %.lr.ph
+  %or.cond21 = icmp ult i16 %21, -2
+  br i1 %or.cond21, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %55
   %22 = load ptr, ptr %4, align 8, !tbaa !74

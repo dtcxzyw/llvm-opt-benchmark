@@ -499,8 +499,8 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %27
-  %.02230.i = phi i32 [ %.021.i, %27 ], [ %.01226, %.lr.ph.i.preheader ]
-  %10 = shl nuw i32 %.02230.i, 1
+  %.02229.i = phi i32 [ %.021.i, %27 ], [ %.01226, %.lr.ph.i.preheader ]
+  %10 = shl nuw i32 %.02229.i, 1
   %11 = icmp slt i32 %10, %1
   br i1 %11, label %12, label %20
 
@@ -526,7 +526,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   br i1 %26, label %27, label %.thread.loopexit.i
 
 27:                                               ; preds = %20
-  %28 = add nsw i32 %.02230.i, -1
+  %28 = add nsw i32 %.02229.i, -1
   %29 = zext i32 %28 to i64
   %30 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %29
   %31 = load i64, ptr %23, align 4
@@ -535,10 +535,10 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   br i1 %.not.i, label %.thread.loopexit.i, label %.lr.ph.i
 
 .thread.loopexit.i:                               ; preds = %27, %20
-  %.022.lcssa.ph.i = phi i32 [ %.021.i, %27 ], [ %.02230.i, %20 ]
+  %.022.lcssa.ph.i = phi i32 [ %.021.i, %27 ], [ %.02229.i, %20 ]
   %.pre.i = add i32 %.022.lcssa.ph.i, -1
-  %.pre33.i = zext i32 %.pre.i to i64
-  %32 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre33.i
+  %.pre32.i = zext i32 %.pre.i to i64
+  %32 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre32.i
   store i64 %8, ptr %32, align 4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %.lr.ph.preheader, label %.lr.ph.i.preheader, !llvm.loop !35
@@ -556,12 +556,12 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   %37 = load i64, ptr %0, align 4
   %38 = trunc i64 %37 to i32
   %39 = lshr i32 %indvars, 1
-  %.not29.i13 = icmp eq i64 %indvars.iv, 2
-  br i1 %.not29.i13, label %._crit_edge, label %.lr.ph.i14
+  %.not28.i13 = icmp eq i64 %indvars.iv, 2
+  br i1 %.not28.i13, label %._crit_edge, label %.lr.ph.i14
 
 .lr.ph.i14:                                       ; preds = %.lr.ph, %57
-  %.02230.i15 = phi i32 [ %.021.i16, %57 ], [ 1, %.lr.ph ]
-  %40 = shl nuw i32 %.02230.i15, 1
+  %.02229.i15 = phi i32 [ %.021.i16, %57 ], [ 1, %.lr.ph ]
+  %40 = shl nuw i32 %.02229.i15, 1
   %41 = icmp slt i32 %40, %indvars
   br i1 %41, label %42, label %50
 
@@ -587,7 +587,7 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   br i1 %56, label %57, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24
 
 57:                                               ; preds = %50
-  %58 = add nsw i32 %.02230.i15, -1
+  %58 = add nsw i32 %.02229.i15, -1
   %59 = zext i32 %58 to i64
   %60 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %59
   %61 = load i64, ptr %53, align 4
@@ -596,10 +596,10 @@ define linkonce_odr dso_local void @_Z13gim_heap_sortI15GIM_RSORT_TOKEN26GIM_RSO
   br i1 %.not.i22, label %_Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24, label %.lr.ph.i14
 
 _Z13gim_down_heapI15GIM_RSORT_TOKEN26GIM_RSORT_TOKEN_COMPARATOREvPT_jjT0_.exit24: ; preds = %50, %57
-  %.022.lcssa.ph.i18 = phi i32 [ %.021.i16, %57 ], [ %.02230.i15, %50 ]
+  %.022.lcssa.ph.i18 = phi i32 [ %.021.i16, %57 ], [ %.02229.i15, %50 ]
   %.pre.i19 = add i32 %.022.lcssa.ph.i18, -1
-  %.pre33.i20 = zext i32 %.pre.i19 to i64
-  %62 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre33.i20
+  %.pre32.i20 = zext i32 %.pre.i19 to i64
+  %62 = getelementptr inbounds nuw %struct.GIM_RSORT_TOKEN, ptr %0, i64 %.pre32.i20
   store i64 %37, ptr %62, align 4
   %63 = icmp ugt i32 %indvars, 1
   br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !36

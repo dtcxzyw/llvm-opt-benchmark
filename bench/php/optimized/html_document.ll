@@ -364,8 +364,8 @@ dom_should_register_error_handlers.exit:          ; preds = %36
   %39 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 720), align 8, !tbaa !77
   %40 = or i32 %39, %38
   %41 = and i32 %40, 2
-  %.not71 = icmp eq i32 %41, 0
-  br i1 %.not71, label %dom_should_register_error_handlers.exit.thread57, label %dom_should_register_error_handlers.exit.thread
+  %.not70 = icmp eq i32 %41, 0
+  br i1 %.not70, label %dom_should_register_error_handlers.exit.thread57, label %dom_should_register_error_handlers.exit.thread
 
 dom_should_register_error_handlers.exit.thread:   ; preds = %36, %dom_should_register_error_handlers.exit
   call void @lexbor_libxml2_bridge_parse_set_error_callbacks(ptr noundef nonnull %11, ptr noundef nonnull @dom_lexbor_libxml2_bridge_tokenizer_error_reporter, ptr noundef nonnull @dom_lexbor_libxml2_bridge_tree_error_reporter) #10
@@ -477,8 +477,8 @@ lxb_encoding_data_by_name.exit:                   ; preds = %64
   %82 = getelementptr inbounds nuw i8, ptr %77, i64 232
   %83 = load ptr, ptr %82, align 8, !tbaa !101
   %84 = load i64, ptr %7, align 8, !tbaa !13
-  %.not4472 = icmp eq i64 %84, 0
-  br i1 %.not4472, label %._crit_edge, label %.lr.ph
+  %.not4471 = icmp eq i64 %84, 0
+  br i1 %.not4471, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %10, i64 16
@@ -999,7 +999,7 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 124
   %21 = load i32, ptr %20, align 4, !tbaa !145
   %22 = icmp eq i32 %21, 14
-  br i1 %22, label %23, label %._crit_edge92.i
+  br i1 %22, label %23, label %._crit_edge91.i
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1036,45 +1036,45 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %41 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %35, ptr noundef nonnull %12, i64 noundef %40, ptr noundef nonnull %6, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.pre100.i = load ptr, ptr %11, align 8, !tbaa !10
-  br i1 %41, label %._crit_edge92.i, label %.thread63.i
+  %.pre99.i = load ptr, ptr %11, align 8, !tbaa !10
+  br i1 %41, label %._crit_edge91.i, label %.thread62.i
 
-._crit_edge92.i:                                  ; preds = %31, %17
-  %42 = phi ptr [ %19, %17 ], [ %.pre100.i, %31 ]
-  %.not79.i = icmp eq ptr %42, %4
-  br i1 %.not79.i, label %._crit_edge97.i, label %.lr.ph81.i
+._crit_edge91.i:                                  ; preds = %31, %17
+  %42 = phi ptr [ %19, %17 ], [ %.pre99.i, %31 ]
+  %.not78.i = icmp eq ptr %42, %4
+  br i1 %.not78.i, label %._crit_edge96.i, label %.lr.ph80.i
 
-.lr.ph81.i:                                       ; preds = %._crit_edge92.i
+.lr.ph80.i:                                       ; preds = %._crit_edge91.i
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 128
   br label %44
 
-44:                                               ; preds = %select.unfold.i, %.lr.ph81.i
-  %.promoted.i = phi ptr [ %42, %.lr.ph81.i ], [ %78, %select.unfold.i ]
-  %.05380.i = phi ptr [ %42, %.lr.ph81.i ], [ %.255.i, %select.unfold.i ]
+44:                                               ; preds = %select.unfold.i, %.lr.ph80.i
+  %.promoted.i = phi ptr [ %42, %.lr.ph80.i ], [ %78, %select.unfold.i ]
+  %.05379.i = phi ptr [ %42, %.lr.ph80.i ], [ %.255.i, %select.unfold.i ]
   %45 = load i32, ptr %43, align 8, !tbaa !4
   %46 = icmp eq i32 %45, 0
-  br i1 %46, label %.preheader69.i, label %dom_seek_utf8_non_ascii.exit.thread.i
+  br i1 %46, label %.preheader68.i, label %dom_seek_utf8_non_ascii.exit.thread.i
 
-.preheader69.i:                                   ; preds = %44
+.preheader68.i:                                   ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %.promoted.i, i64 8
-  %.not.i75.i = icmp ugt ptr %47, %4
-  br i1 %.not.i75.i, label %.preheader.i, label %.lr.ph.i
+  %.not.i74.i = icmp ugt ptr %47, %4
+  br i1 %.not.i74.i, label %.preheader.i, label %.lr.ph.i
 
-.preheader.i:                                     ; preds = %53, %.preheader69.i
-  %.promoted76.i = phi ptr [ %.promoted.i, %.preheader69.i ], [ %50, %53 ]
-  %48 = icmp ult ptr %.promoted76.i, %4
-  br i1 %48, label %.lr.ph77.preheader.i, label %dom_seek_utf8_non_ascii.exit.i
+.preheader.i:                                     ; preds = %53, %.preheader68.i
+  %.promoted75.i = phi ptr [ %.promoted.i, %.preheader68.i ], [ %50, %53 ]
+  %48 = icmp ult ptr %.promoted75.i, %4
+  br i1 %48, label %.lr.ph76.preheader.i, label %dom_seek_utf8_non_ascii.exit.i
 
-.lr.ph77.preheader.i:                             ; preds = %.preheader.i
-  %.promoted7690.i = ptrtoint ptr %.promoted76.i to i64
-  %scevgep.i = getelementptr i8, ptr %.promoted76.i, i64 %18
-  %49 = sub i64 0, %.promoted7690.i
-  %scevgep91.i = getelementptr i8, ptr %scevgep.i, i64 %49
-  br label %.lr.ph77.i
+.lr.ph76.preheader.i:                             ; preds = %.preheader.i
+  %.promoted7589.i = ptrtoint ptr %.promoted75.i to i64
+  %scevgep.i = getelementptr i8, ptr %.promoted75.i, i64 %18
+  %49 = sub i64 0, %.promoted7589.i
+  %scevgep90.i = getelementptr i8, ptr %scevgep.i, i64 %49
+  br label %.lr.ph76.i
 
-.lr.ph.i:                                         ; preds = %.preheader69.i, %53
-  %50 = phi ptr [ %54, %53 ], [ %47, %.preheader69.i ]
-  %51 = phi ptr [ %50, %53 ], [ %.promoted.i, %.preheader69.i ]
+.lr.ph.i:                                         ; preds = %.preheader68.i, %53
+  %50 = phi ptr [ %54, %53 ], [ %47, %.preheader68.i ]
+  %51 = phi ptr [ %50, %53 ], [ %.promoted.i, %.preheader68.i ]
   %.0.copyload.i.i = load i64, ptr %51, align 1
   %52 = and i64 %.0.copyload.i.i, -9187201950435737472
   %.not14.i.not.i = icmp eq i64 %52, 0
@@ -1086,49 +1086,49 @@ define internal fastcc noundef zeroext i1 @dom_parse_decode_encode_step(ptr noun
   %.not.i.i = icmp ugt ptr %54, %4
   br i1 %.not.i.i, label %.preheader.i, label %.lr.ph.i
 
-.lr.ph77.i:                                       ; preds = %57, %.lr.ph77.preheader.i
-  %55 = phi ptr [ %58, %57 ], [ %.promoted76.i, %.lr.ph77.preheader.i ]
+.lr.ph76.i:                                       ; preds = %57, %.lr.ph76.preheader.i
+  %55 = phi ptr [ %58, %57 ], [ %.promoted75.i, %.lr.ph76.preheader.i ]
   %56 = load i8, ptr %55, align 1, !tbaa !4
   %.not13.i.i = icmp sgt i8 %56, -1
   br i1 %.not13.i.i, label %57, label %dom_seek_utf8_non_ascii.exit.thread.i
 
-57:                                               ; preds = %.lr.ph77.i
+57:                                               ; preds = %.lr.ph76.i
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 1
   store ptr %58, ptr %11, align 8, !tbaa !10
-  %exitcond.not.i = icmp eq ptr %58, %scevgep91.i
-  br i1 %exitcond.not.i, label %dom_seek_utf8_non_ascii.exit.i, label %.lr.ph77.i
+  %exitcond.not.i = icmp eq ptr %58, %scevgep90.i
+  br i1 %exitcond.not.i, label %dom_seek_utf8_non_ascii.exit.i, label %.lr.ph76.i
 
 dom_seek_utf8_non_ascii.exit.i:                   ; preds = %.preheader.i, %57
-  %59 = phi ptr [ %58, %57 ], [ %.promoted76.i, %.preheader.i ]
+  %59 = phi ptr [ %58, %57 ], [ %.promoted75.i, %.preheader.i ]
   %60 = icmp eq ptr %59, %4
   call void @llvm.assume(i1 %60)
   br label %.loopexit.i
 
-dom_seek_utf8_non_ascii.exit.thread.i:            ; preds = %.lr.ph.i, %.lr.ph77.i, %44
-  %61 = phi ptr [ %.promoted.i, %44 ], [ %55, %.lr.ph77.i ], [ %51, %.lr.ph.i ]
+dom_seek_utf8_non_ascii.exit.thread.i:            ; preds = %.lr.ph.i, %.lr.ph76.i, %44
+  %61 = phi ptr [ %.promoted.i, %44 ], [ %55, %.lr.ph76.i ], [ %51, %.lr.ph.i ]
   %62 = call i32 @lxb_encoding_decode_utf_8_single(ptr noundef nonnull %16, ptr noundef nonnull %11, ptr noundef %4) #10
   %63 = icmp ugt i32 %62, 1114111
-  %.pre96.i = load ptr, ptr %11, align 8, !tbaa !10
+  %.pre95.i = load ptr, ptr %11, align 8, !tbaa !10
   br i1 %63, label %64, label %select.unfold.i, !prof !17
 
 64:                                               ; preds = %dom_seek_utf8_non_ascii.exit.thread.i
   %65 = ptrtoint ptr %61 to i64
-  %66 = ptrtoint ptr %.05380.i to i64
+  %66 = ptrtoint ptr %.05379.i to i64
   %67 = sub i64 %65, %66
-  %68 = ptrtoint ptr %.pre96.i to i64
+  %68 = ptrtoint ptr %.pre95.i to i64
   %69 = sub i64 %68, %66
-  %70 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %67, ptr noundef %.05380.i, i64 noundef %69, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  br i1 %70, label %71, label %..thread63.loopexit_crit_edge.i
+  %70 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %67, ptr noundef %.05379.i, i64 noundef %69, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  br i1 %70, label %71, label %..thread62.loopexit_crit_edge.i
 
-..thread63.loopexit_crit_edge.i:                  ; preds = %64
-  %.pre99.pre.i = load ptr, ptr %11, align 8, !tbaa !10
-  br label %.thread63.i
+..thread62.loopexit_crit_edge.i:                  ; preds = %64
+  %.pre98.pre.i = load ptr, ptr %11, align 8, !tbaa !10
+  br label %.thread62.i
 
 71:                                               ; preds = %64
   %72 = icmp eq i32 %62, 3145727
-  br i1 %72, label %.thread66.i, label %75
+  br i1 %72, label %.thread65.i, label %75
 
-.thread66.i:                                      ; preds = %71
+.thread65.i:                                      ; preds = %71
   %73 = load ptr, ptr %11, align 8, !tbaa !10
   %74 = icmp eq ptr %73, %4
   call void @llvm.assume(i1 %74)
@@ -1139,40 +1139,40 @@ dom_seek_utf8_non_ascii.exit.thread.i:            ; preds = %.lr.ph.i, %.lr.ph77
 75:                                               ; preds = %71
   %76 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef 3, ptr noundef nonnull @.str.112, i64 noundef 0, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %77 = load ptr, ptr %11, align 8
-  br i1 %76, label %select.unfold.i, label %.thread63.i
+  br i1 %76, label %select.unfold.i, label %.thread62.i
 
 select.unfold.i:                                  ; preds = %75, %dom_seek_utf8_non_ascii.exit.thread.i
-  %78 = phi ptr [ %.pre96.i, %dom_seek_utf8_non_ascii.exit.thread.i ], [ %77, %75 ]
-  %.255.i = phi ptr [ %.05380.i, %dom_seek_utf8_non_ascii.exit.thread.i ], [ %77, %75 ]
+  %78 = phi ptr [ %.pre95.i, %dom_seek_utf8_non_ascii.exit.thread.i ], [ %77, %75 ]
+  %.255.i = phi ptr [ %.05379.i, %dom_seek_utf8_non_ascii.exit.thread.i ], [ %77, %75 ]
   %.not.i = icmp eq ptr %78, %4
   br i1 %.not.i, label %.loopexit.i, label %44
 
 .loopexit.i:                                      ; preds = %select.unfold.i, %dom_seek_utf8_non_ascii.exit.i
   %79 = phi ptr [ %59, %dom_seek_utf8_non_ascii.exit.i ], [ %78, %select.unfold.i ]
-  %.05374.i = phi ptr [ %.05380.i, %dom_seek_utf8_non_ascii.exit.i ], [ %.255.i, %select.unfold.i ]
-  %.not59.i = icmp eq ptr %79, %.05374.i
-  br i1 %.not59.i, label %._crit_edge97.i, label %80
+  %.05373.i = phi ptr [ %.05379.i, %dom_seek_utf8_non_ascii.exit.i ], [ %.255.i, %select.unfold.i ]
+  %.not59.i = icmp eq ptr %79, %.05373.i
+  br i1 %.not59.i, label %._crit_edge96.i, label %80
 
 80:                                               ; preds = %.loopexit.i
   %81 = ptrtoint ptr %79 to i64
-  %82 = ptrtoint ptr %.05374.i to i64
+  %82 = ptrtoint ptr %.05373.i to i64
   %83 = sub i64 %81, %82
-  %84 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %83, ptr noundef %.05374.i, i64 noundef %83, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  %.pre101.i = load ptr, ptr %11, align 8, !tbaa !10
-  br i1 %84, label %._crit_edge97.i, label %.thread63.i
+  %84 = call fastcc zeroext i1 @dom_process_parse_chunk(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef %2, i64 noundef %83, ptr noundef %.05373.i, i64 noundef %83, ptr noundef nonnull %6, ptr noundef nonnull %7)
+  %.pre100.i = load ptr, ptr %11, align 8, !tbaa !10
+  br i1 %84, label %._crit_edge96.i, label %.thread62.i
 
-._crit_edge97.i:                                  ; preds = %80, %.loopexit.i, %._crit_edge92.i
-  %85 = phi ptr [ %79, %.loopexit.i ], [ %.pre101.i, %80 ], [ %42, %._crit_edge92.i ]
+._crit_edge96.i:                                  ; preds = %80, %.loopexit.i, %._crit_edge91.i
+  %85 = phi ptr [ %79, %.loopexit.i ], [ %.pre100.i, %80 ], [ %42, %._crit_edge91.i ]
   store ptr %85, ptr %3, align 8, !tbaa !10
   br label %dom_decode_encode_fast_path.exit
 
-.thread63.i:                                      ; preds = %75, %80, %..thread63.loopexit_crit_edge.i, %31
-  %86 = phi ptr [ %.pre100.i, %31 ], [ %.pre101.i, %80 ], [ %.pre99.pre.i, %..thread63.loopexit_crit_edge.i ], [ %77, %75 ]
+.thread62.i:                                      ; preds = %75, %80, %..thread62.loopexit_crit_edge.i, %31
+  %86 = phi ptr [ %.pre99.i, %31 ], [ %.pre100.i, %80 ], [ %.pre98.pre.i, %..thread62.loopexit_crit_edge.i ], [ %77, %75 ]
   store ptr %86, ptr %3, align 8, !tbaa !10
   br label %dom_decode_encode_fast_path.exit
 
-dom_decode_encode_fast_path.exit:                 ; preds = %.thread66.i, %._crit_edge97.i, %.thread63.i
-  %.0.i = phi i1 [ true, %._crit_edge97.i ], [ false, %.thread63.i ], [ true, %.thread66.i ]
+dom_decode_encode_fast_path.exit:                 ; preds = %.thread65.i, %._crit_edge96.i, %.thread62.i
+  %.0.i = phi i1 [ true, %._crit_edge96.i ], [ false, %.thread62.i ], [ true, %.thread65.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %153
 

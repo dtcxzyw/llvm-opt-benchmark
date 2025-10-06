@@ -51,8 +51,8 @@ define hidden void @luaZ_init(ptr noundef %0, ptr noundef writeonly captures(non
 ; Function Attrs: nounwind uwtable
 define hidden i64 @luaZ_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
-  %.not38 = icmp eq i64 %2, 0
-  br i1 %.not38, label %.loopexit, label %.lr.ph
+  %.not37 = icmp eq i64 %2, 0
+  br i1 %.not37, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -64,13 +64,13 @@ define hidden i64 @luaZ_read(ptr noundef captures(none) %0, ptr noundef writeonl
 
 9:                                                ; preds = %.lr.ph, %20
   %10 = phi i64 [ %.pre, %.lr.ph ], [ %24, %20 ]
-  %.02040 = phi i64 [ %2, %.lr.ph ], [ %28, %20 ]
-  %.02239 = phi ptr [ %1, %.lr.ph ], [ %27, %20 ]
+  %.02039 = phi i64 [ %2, %.lr.ph ], [ %28, %20 ]
+  %.02238 = phi ptr [ %1, %.lr.ph ], [ %27, %20 ]
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %9
-  %.pre42 = load ptr, ptr %8, align 8, !tbaa !15
+  %.pre41 = load ptr, ptr %8, align 8, !tbaa !15
   br label %20
 
 12:                                               ; preds = %9
@@ -92,24 +92,24 @@ luaZ_fill.exit.i:                                 ; preds = %12
   br label %20
 
 20:                                               ; preds = %._crit_edge, %luaZ_fill.exit.i
-  %21 = phi ptr [ %.pre42, %._crit_edge ], [ %16, %luaZ_fill.exit.i ]
+  %21 = phi ptr [ %.pre41, %._crit_edge ], [ %16, %luaZ_fill.exit.i ]
   %22 = phi i64 [ %10, %._crit_edge ], [ %18, %luaZ_fill.exit.i ]
-  %..020 = call i64 @llvm.umin.i64(i64 %.02040, i64 %22)
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02239, ptr align 1 %21, i64 %..020, i1 false)
+  %..020 = call i64 @llvm.umin.i64(i64 %.02039, i64 %22)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.02238, ptr align 1 %21, i64 %..020, i1 false)
   %23 = load i64, ptr %0, align 8, !tbaa !14
   %24 = sub i64 %23, %..020
   store i64 %24, ptr %0, align 8, !tbaa !14
   %25 = load ptr, ptr %8, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %..020
   store ptr %26, ptr %8, align 8, !tbaa !15
-  %27 = getelementptr inbounds nuw i8, ptr %.02239, i64 %..020
-  %28 = sub i64 %.02040, %..020
+  %27 = getelementptr inbounds nuw i8, ptr %.02238, i64 %..020
+  %28 = sub i64 %.02039, %..020
   %.not = icmp eq i64 %28, 0
   br i1 %.not, label %.loopexit, label %9
 
 .loopexit:                                        ; preds = %20, %12, %3
-  %.02037 = phi i64 [ 0, %3 ], [ 0, %20 ], [ %.02040, %12 ]
-  ret i64 %.02037
+  %.02036 = phi i64 [ 0, %3 ], [ 0, %20 ], [ %.02039, %12 ]
+  ret i64 %.02036
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

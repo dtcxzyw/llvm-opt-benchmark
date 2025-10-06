@@ -844,7 +844,7 @@ define ptr @evp_pkey_export_to_provider(ptr noundef %0, ptr noundef %1, ptr noun
   %25 = load ptr, ptr %2, align 8, !tbaa !34
   store ptr null, ptr %2, align 8, !tbaa !34
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %.thread, label %.thread128
+  br i1 %26, label %.thread, label %.thread127
 
 .thread:                                          ; preds = %.critedge.thread, %24
   %27 = tail call ptr @EVP_PKEY_CTX_new_from_pkey(ptr noundef %1, ptr noundef nonnull %0, ptr noundef %3) #12
@@ -857,16 +857,16 @@ define ptr @evp_pkey_export_to_provider(ptr noundef %0, ptr noundef %1, ptr noun
   store ptr null, ptr %30, align 8, !tbaa !49
   tail call void @EVP_PKEY_CTX_free(ptr noundef nonnull %27) #12
   %32 = icmp eq ptr %31, null
-  br i1 %32, label %115, label %.thread128
+  br i1 %32, label %115, label %.thread127
 
-.thread128:                                       ; preds = %24, %29
-  %.092132 = phi ptr [ %31, %29 ], [ null, %24 ]
-  %.198131 = phi ptr [ %31, %29 ], [ %25, %24 ]
+.thread127:                                       ; preds = %24, %29
+  %.092131 = phi ptr [ %31, %29 ], [ null, %24 ]
+  %.198130 = phi ptr [ %31, %29 ], [ %25, %24 ]
   %33 = load ptr, ptr %7, align 8, !tbaa !39
   %.not109 = icmp eq ptr %33, null
   br i1 %.not109, label %113, label %34
 
-34:                                               ; preds = %.thread128
+34:                                               ; preds = %.thread127
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 280
@@ -885,7 +885,7 @@ define ptr @evp_pkey_export_to_provider(ptr noundef %0, ptr noundef %1, ptr noun
   br i1 %.not110, label %115, label %47
 
 47:                                               ; preds = %43
-  %48 = tail call ptr @evp_keymgmt_util_find_operation_cache(ptr noundef nonnull %0, ptr noundef nonnull %.198131, i32 noundef 135) #12
+  %48 = tail call ptr @evp_keymgmt_util_find_operation_cache(ptr noundef nonnull %0, ptr noundef nonnull %.198130, i32 noundef 135) #12
   %.not111 = icmp eq ptr %48, null
   br i1 %.not111, label %56, label %49
 
@@ -909,12 +909,12 @@ define ptr @evp_pkey_export_to_provider(ptr noundef %0, ptr noundef %1, ptr noun
 59:                                               ; preds = %56, %34
   %60 = load i32, ptr %0, align 8, !tbaa !26
   %61 = tail call ptr @OBJ_nid2sn(i32 noundef %60) #12
-  %62 = tail call i32 @EVP_KEYMGMT_is_a(ptr noundef nonnull %.198131, ptr noundef %61) #12
+  %62 = tail call i32 @EVP_KEYMGMT_is_a(ptr noundef nonnull %.198130, ptr noundef %61) #12
   %.not113 = icmp eq i32 %62, 0
   br i1 %.not113, label %115, label %63
 
 63:                                               ; preds = %59
-  %64 = tail call ptr @evp_keymgmt_newdata(ptr noundef nonnull %.198131) #12
+  %64 = tail call ptr @evp_keymgmt_newdata(ptr noundef nonnull %.198130) #12
   %65 = icmp eq ptr %64, null
   br i1 %65, label %115, label %66
 
@@ -922,23 +922,23 @@ define ptr @evp_pkey_export_to_provider(ptr noundef %0, ptr noundef %1, ptr noun
   %67 = load ptr, ptr %35, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 288
   %69 = load ptr, ptr %68, align 8, !tbaa !48
-  %70 = getelementptr inbounds nuw i8, ptr %.198131, i64 200
+  %70 = getelementptr inbounds nuw i8, ptr %.198130, i64 200
   %71 = load ptr, ptr %70, align 8, !tbaa !58
   %72 = tail call i32 %69(ptr noundef nonnull %0, ptr noundef nonnull %64, ptr noundef %71, ptr noundef %1, ptr noundef %3) #12
   %.not114 = icmp eq i32 %72, 0
   br i1 %.not114, label %73, label %74
 
 73:                                               ; preds = %66
-  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198131, ptr noundef nonnull %64) #12
+  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198130, ptr noundef nonnull %64) #12
   br label %115
 
 74:                                               ; preds = %66
-  %75 = tail call i32 @EVP_KEYMGMT_up_ref(ptr noundef nonnull %.198131) #12
+  %75 = tail call i32 @EVP_KEYMGMT_up_ref(ptr noundef nonnull %.198130) #12
   %.not115 = icmp eq i32 %75, 0
   br i1 %.not115, label %76, label %77
 
 76:                                               ; preds = %74
-  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198131, ptr noundef nonnull %64) #12
+  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198130, ptr noundef nonnull %64) #12
   br label %115
 
 77:                                               ; preds = %74
@@ -965,13 +965,13 @@ define ptr @evp_pkey_export_to_provider(ptr noundef %0, ptr noundef %1, ptr noun
 89:                                               ; preds = %87
   %90 = load ptr, ptr %78, align 8, !tbaa !36
   %91 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %90) #12
-  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198131, ptr noundef nonnull %64) #12
-  tail call void @EVP_KEYMGMT_free(ptr noundef nonnull %.198131) #12
+  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198130, ptr noundef nonnull %64) #12
+  tail call void @EVP_KEYMGMT_free(ptr noundef nonnull %.198130) #12
   br label %115
 
 92:                                               ; preds = %87, %81
-  tail call void @EVP_KEYMGMT_free(ptr noundef nonnull %.198131) #12
-  %93 = tail call ptr @evp_keymgmt_util_find_operation_cache(ptr noundef nonnull %0, ptr noundef nonnull %.198131, i32 noundef 135) #12
+  tail call void @EVP_KEYMGMT_free(ptr noundef nonnull %.198130) #12
+  %93 = tail call ptr @evp_keymgmt_util_find_operation_cache(ptr noundef nonnull %0, ptr noundef nonnull %.198130, i32 noundef 135) #12
   %.not119 = icmp eq ptr %93, null
   br i1 %.not119, label %101, label %94
 
@@ -985,18 +985,18 @@ define ptr @evp_pkey_export_to_provider(ptr noundef %0, ptr noundef %1, ptr noun
   %98 = load ptr, ptr %97, align 8, !tbaa !57
   %99 = load ptr, ptr %78, align 8, !tbaa !36
   %100 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %99) #12
-  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198131, ptr noundef nonnull %64) #12
+  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198130, ptr noundef nonnull %64) #12
   br label %115
 
 101:                                              ; preds = %94, %92
-  %102 = tail call i32 @evp_keymgmt_util_cache_keydata(ptr noundef nonnull %0, ptr noundef nonnull %.198131, ptr noundef nonnull %64, i32 noundef 135) #12
+  %102 = tail call i32 @evp_keymgmt_util_cache_keydata(ptr noundef nonnull %0, ptr noundef nonnull %.198130, ptr noundef nonnull %64, i32 noundef 135) #12
   %.not121 = icmp eq i32 %102, 0
   br i1 %.not121, label %103, label %106
 
 103:                                              ; preds = %101
   %104 = load ptr, ptr %78, align 8, !tbaa !36
   %105 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %104) #12
-  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198131, ptr noundef nonnull %64) #12
+  tail call void @evp_keymgmt_freedata(ptr noundef nonnull %.198130, ptr noundef nonnull %64) #12
   br label %115
 
 106:                                              ; preds = %101
@@ -1009,14 +1009,14 @@ define ptr @evp_pkey_export_to_provider(ptr noundef %0, ptr noundef %1, ptr noun
   %112 = tail call i32 @CRYPTO_THREAD_unlock(ptr noundef %111) #12
   br label %115
 
-113:                                              ; preds = %.thread128
-  %114 = tail call ptr @evp_keymgmt_util_export_to_provider(ptr noundef nonnull %0, ptr noundef nonnull %.198131, i32 noundef 135) #12
+113:                                              ; preds = %.thread127
+  %114 = tail call ptr @evp_keymgmt_util_export_to_provider(ptr noundef nonnull %0, ptr noundef nonnull %.198130, i32 noundef 135) #12
   br label %115
 
 115:                                              ; preds = %.thread, %51, %73, %76, %89, %96, %103, %106, %43, %59, %63, %77, %29, %113
-  %.3100 = phi ptr [ null, %29 ], [ %.198131, %113 ], [ %.198131, %77 ], [ %.198131, %63 ], [ %.198131, %59 ], [ %.198131, %43 ], [ %.198131, %106 ], [ %.198131, %103 ], [ %.198131, %96 ], [ %.198131, %89 ], [ %.198131, %76 ], [ %.198131, %73 ], [ %.198131, %51 ], [ null, %.thread ]
+  %.3100 = phi ptr [ null, %29 ], [ %.198130, %113 ], [ %.198130, %77 ], [ %.198130, %63 ], [ %.198130, %59 ], [ %.198130, %43 ], [ %.198130, %106 ], [ %.198130, %103 ], [ %.198130, %96 ], [ %.198130, %89 ], [ %.198130, %76 ], [ %.198130, %73 ], [ %.198130, %51 ], [ null, %.thread ]
   %.095 = phi ptr [ null, %29 ], [ %114, %113 ], [ %64, %77 ], [ null, %63 ], [ null, %59 ], [ null, %43 ], [ %64, %106 ], [ null, %103 ], [ %98, %96 ], [ null, %89 ], [ null, %76 ], [ null, %73 ], [ %53, %51 ], [ null, %.thread ]
-  %.2 = phi ptr [ null, %29 ], [ %.092132, %113 ], [ %.092132, %77 ], [ %.092132, %63 ], [ %.092132, %59 ], [ %.092132, %43 ], [ %.092132, %106 ], [ %.092132, %103 ], [ %.092132, %96 ], [ %.092132, %89 ], [ %.092132, %76 ], [ %.092132, %73 ], [ %.092132, %51 ], [ null, %.thread ]
+  %.2 = phi ptr [ null, %29 ], [ %.092131, %113 ], [ %.092131, %77 ], [ %.092131, %63 ], [ %.092131, %59 ], [ %.092131, %43 ], [ %.092131, %106 ], [ %.092131, %103 ], [ %.092131, %96 ], [ %.092131, %89 ], [ %.092131, %76 ], [ %.092131, %73 ], [ %.092131, %51 ], [ null, %.thread ]
   %116 = icmp eq ptr %.095, null
   %spec.select = select i1 %116, ptr null, ptr %.3100
   %117 = icmp ne ptr %spec.select, null
@@ -3822,7 +3822,7 @@ define ptr @EVP_PKEY_dup(ptr noundef %0) local_unnamed_addr #0 {
 14:                                               ; preds = %13, %.thread
   %15 = tail call i32 @evp_keymgmt_util_copy(ptr noundef nonnull %5, ptr noundef nonnull %0, i32 noundef 135) #12
   %.not35 = icmp eq i32 %15, 0
-  br i1 %.not35, label %42, label %.thread40
+  br i1 %.not35, label %select.unfold, label %.thread40
 
 16:                                               ; preds = %.thread
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3834,61 +3834,61 @@ define ptr @EVP_PKEY_dup(ptr noundef %0) local_unnamed_addr #0 {
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 304
   %22 = load ptr, ptr %21, align 8, !tbaa !99
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %24, label %30
+  br i1 %23, label %24, label %31
 
 24:                                               ; preds = %20, %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %.thread44
+  br i1 %27, label %28, label %30
 
 28:                                               ; preds = %24
   %29 = tail call fastcc range(i32 0, 2) i32 @pkey_set_type(ptr noundef nonnull %5, ptr noundef null, i32 noundef %8, ptr noundef null, i32 noundef -1, ptr noundef null)
   %.not34 = icmp eq i32 %29, 0
-  br i1 %.not34, label %.thread44, label %.thread40
+  br i1 %.not34, label %30, label %.thread40
 
-.thread44:                                        ; preds = %24, %28
+30:                                               ; preds = %28, %24
   tail call void @ERR_new() #12
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1750, ptr noundef nonnull @__func__.EVP_PKEY_dup) #12
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 6, i32 noundef 224, ptr noundef null) #12
-  br label %42
+  br label %select.unfold
 
-30:                                               ; preds = %20
-  %31 = tail call i32 %22(ptr noundef nonnull %5, ptr noundef nonnull %0) #12
-  %.not33 = icmp eq i32 %31, 0
-  br i1 %.not33, label %42, label %.thread40
+31:                                               ; preds = %20
+  %32 = tail call i32 %22(ptr noundef nonnull %5, ptr noundef nonnull %0) #12
+  %.not33 = icmp eq i32 %32, 0
+  br i1 %.not33, label %select.unfold, label %.thread40
 
-.thread40:                                        ; preds = %28, %30, %14, %13
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %34 = tail call i32 @CRYPTO_dup_ex_data(i32 noundef 17, ptr noundef nonnull %32, ptr noundef nonnull %33) #12
-  %.not36 = icmp eq i32 %34, 0
-  br i1 %.not36, label %42, label %35
+.thread40:                                        ; preds = %31, %28, %14, %13
+  %33 = getelementptr inbounds nuw i8, ptr %5, i64 80
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %35 = tail call i32 @CRYPTO_dup_ex_data(i32 noundef 17, ptr noundef nonnull %33, ptr noundef nonnull %34) #12
+  %.not36 = icmp eq i32 %35, 0
+  br i1 %.not36, label %select.unfold, label %36
 
-35:                                               ; preds = %.thread40
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %37 = load ptr, ptr %36, align 8, !tbaa !37
-  %.not37 = icmp eq ptr %37, null
-  br i1 %.not37, label %EVP_PKEY_free.exit, label %38
+36:                                               ; preds = %.thread40
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %38 = load ptr, ptr %37, align 8, !tbaa !37
+  %.not37 = icmp eq ptr %38, null
+  br i1 %.not37, label %EVP_PKEY_free.exit, label %39
 
-38:                                               ; preds = %35
-  %39 = tail call ptr @ossl_x509at_dup(ptr noundef nonnull %37) #12
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  store ptr %39, ptr %40, align 8, !tbaa !37
-  %41 = icmp eq ptr %39, null
-  br i1 %41, label %42, label %EVP_PKEY_free.exit
+39:                                               ; preds = %36
+  %40 = tail call ptr @ossl_x509at_dup(ptr noundef nonnull %38) #12
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  store ptr %40, ptr %41, align 8, !tbaa !37
+  %42 = icmp eq ptr %40, null
+  br i1 %42, label %select.unfold, label %EVP_PKEY_free.exit
 
-42:                                               ; preds = %14, %.thread40, %38, %30, %.thread44
+select.unfold:                                    ; preds = %31, %14, %.thread40, %39, %30
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %44 = atomicrmw sub ptr %43, i32 1 release, align 4
   %45 = icmp eq i32 %44, 1
   br i1 %45, label %CRYPTO_DOWN_REF.exit.thread.i, label %CRYPTO_DOWN_REF.exit.i
 
-CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %42
+CRYPTO_DOWN_REF.exit.thread.i:                    ; preds = %select.unfold
   fence acquire
   br label %47
 
-CRYPTO_DOWN_REF.exit.i:                           ; preds = %42
+CRYPTO_DOWN_REF.exit.i:                           ; preds = %select.unfold
   %46 = icmp sgt i32 %44, 1
   br i1 %46, label %EVP_PKEY_free.exit, label %47
 
@@ -3905,8 +3905,8 @@ CRYPTO_DOWN_REF.exit.i:                           ; preds = %42
   tail call void @CRYPTO_free(ptr noundef nonnull %5, ptr noundef nonnull @.str, i32 noundef 1853) #12
   br label %EVP_PKEY_free.exit
 
-EVP_PKEY_free.exit:                               ; preds = %47, %CRYPTO_DOWN_REF.exit.i, %35, %38, %4, %3
-  %.0 = phi ptr [ null, %3 ], [ null, %4 ], [ %5, %38 ], [ %5, %35 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %47 ]
+EVP_PKEY_free.exit:                               ; preds = %47, %CRYPTO_DOWN_REF.exit.i, %36, %39, %4, %3
+  %.0 = phi ptr [ null, %3 ], [ null, %4 ], [ %5, %39 ], [ %5, %36 ], [ null, %CRYPTO_DOWN_REF.exit.i ], [ null, %47 ]
   ret ptr %.0
 }
 

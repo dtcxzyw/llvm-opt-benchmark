@@ -107,27 +107,27 @@ define i32 @pmix_environ_merge_inplace(ptr noundef nonnull %0, ptr noundef reado
   %.01634 = phi i64 [ %40, %39 ], [ 0, %2 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !3
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %pmix_getenv.exit.thread, label %.preheader39.i
+  br i1 %6, label %pmix_getenv.exit.thread, label %.preheader43.i
 
-.preheader39.i:                                   ; preds = %.lr.ph
+.preheader43.i:                                   ; preds = %.lr.ph
   %7 = load ptr, ptr %5, align 8, !tbaa !8
-  %.not48.i = icmp eq ptr %7, null
-  br i1 %.not48.i, label %pmix_getenv.exit.thread, label %.preheader.lr.ph.i
+  %.not51.i = icmp eq ptr %7, null
+  br i1 %.not51.i, label %pmix_getenv.exit.thread, label %.preheader.lr.ph.i
 
-.preheader.lr.ph.i:                               ; preds = %.preheader39.i
+.preheader.lr.ph.i:                               ; preds = %.preheader43.i
   %8 = load i8, ptr %4, align 1, !tbaa !10
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.preheader.us.i, label %.preheader.i
 
 .preheader.us.i:                                  ; preds = %.preheader.lr.ph.i, %13
   %10 = phi ptr [ %16, %13 ], [ %7, %.preheader.lr.ph.i ]
-  %.02949.us.i = phi i64 [ %14, %13 ], [ 0, %.preheader.lr.ph.i ]
+  %.02952.us.i = phi i64 [ %14, %13 ], [ 0, %.preheader.lr.ph.i ]
   %11 = load i8, ptr %10, align 1, !tbaa !10
   %12 = icmp eq i8 %11, 61
   br i1 %12, label %.split.us.i, label %13
 
 13:                                               ; preds = %.preheader.us.i
-  %14 = add i64 %.02949.us.i, 1
+  %14 = add i64 %.02952.us.i, 1
   %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %.not.us.i = icmp eq ptr %16, null
@@ -135,7 +135,7 @@ define i32 @pmix_environ_merge_inplace(ptr noundef nonnull %0, ptr noundef reado
 
 .preheader.i:                                     ; preds = %.preheader.lr.ph.i, %.loopexit.i
   %17 = phi ptr [ %35, %.loopexit.i ], [ %7, %.preheader.lr.ph.i ]
-  %.02949.i = phi i64 [ %33, %.loopexit.i ], [ 0, %.preheader.lr.ph.i ]
+  %.02952.i = phi i64 [ %33, %.loopexit.i ], [ 0, %.preheader.lr.ph.i ]
   br label %22
 
 ._crit_edge.i:                                    ; preds = %28
@@ -146,14 +146,14 @@ define i32 @pmix_environ_merge_inplace(ptr noundef nonnull %0, ptr noundef reado
 
 .split.us.i:                                      ; preds = %._crit_edge.i, %.preheader.us.i
   %.us-phi.i = phi i64 [ 0, %.preheader.us.i ], [ %29, %._crit_edge.i ]
-  %.us-phi50.i = phi ptr [ %10, %.preheader.us.i ], [ %17, %._crit_edge.i ]
-  %21 = getelementptr inbounds nuw i8, ptr %.us-phi50.i, i64 %.us-phi.i
+  %.us-phi53.i = phi ptr [ %10, %.preheader.us.i ], [ %17, %._crit_edge.i ]
+  %21 = getelementptr inbounds nuw i8, ptr %.us-phi53.i, i64 %.us-phi.i
   br label %pmix_getenv.exit
 
 22:                                               ; preds = %28, %.preheader.i
   %23 = phi i8 [ %8, %.preheader.i ], [ %31, %28 ]
-  %.046.i = phi i64 [ 0, %.preheader.i ], [ %29, %28 ]
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.046.i
+  %.049.i = phi i64 [ 0, %.preheader.i ], [ %29, %28 ]
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.049.i
   %25 = load i8, ptr %24, align 1, !tbaa !10
   %.not35.i = icmp eq i8 %23, %25
   br i1 %.not35.i, label %26, label %.loopexit.i
@@ -163,21 +163,21 @@ define i32 @pmix_environ_merge_inplace(ptr noundef nonnull %0, ptr noundef reado
   br i1 %27, label %pmix_getenv.exit.loopexit, label %28
 
 28:                                               ; preds = %26
-  %29 = add i64 %.046.i, 1
+  %29 = add i64 %.049.i, 1
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 %29
   %31 = load i8, ptr %30, align 1, !tbaa !10
   %32 = icmp eq i8 %31, 0
   br i1 %32, label %._crit_edge.i, label %22
 
 .loopexit.i:                                      ; preds = %22, %._crit_edge.i
-  %33 = add i64 %.02949.i, 1
+  %33 = add i64 %.02952.i, 1
   %34 = getelementptr inbounds nuw ptr, ptr %5, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %pmix_getenv.exit.thread, label %.preheader.i, !llvm.loop !13
 
 pmix_getenv.exit.loopexit:                        ; preds = %26
-  %36 = getelementptr inbounds nuw i8, ptr %17, i64 %.046.i
+  %36 = getelementptr inbounds nuw i8, ptr %17, i64 %.049.i
   br label %pmix_getenv.exit
 
 pmix_getenv.exit:                                 ; preds = %pmix_getenv.exit.loopexit, %.split.us.i
@@ -186,7 +186,7 @@ pmix_getenv.exit:                                 ; preds = %pmix_getenv.exit.lo
   %37 = icmp eq ptr %.030.i, null
   br i1 %37, label %pmix_getenv.exit.thread, label %39
 
-pmix_getenv.exit.thread:                          ; preds = %.loopexit.i, %13, %.preheader39.i, %.lr.ph, %pmix_getenv.exit
+pmix_getenv.exit.thread:                          ; preds = %.loopexit.i, %13, %.preheader43.i, %.lr.ph, %pmix_getenv.exit
   %38 = tail call i32 @PMIx_Argv_append_nosize(ptr noundef nonnull %0, ptr noundef nonnull %4) #15
   %.not19 = icmp eq i32 %38, 0
   br i1 %.not19, label %39, label %pmix_getenv.exit.thread._crit_edge
@@ -206,35 +206,35 @@ pmix_getenv.exit.thread._crit_edge:               ; preds = %39, %pmix_getenv.ex
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define ptr @pmix_getenv(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %.loopexit40, label %.preheader39
+  br i1 %3, label %.thread40, label %.preheader43
 
-.preheader39:                                     ; preds = %2
+.preheader43:                                     ; preds = %2
   %4 = load ptr, ptr %1, align 8, !tbaa !8
-  %.not48 = icmp eq ptr %4, null
-  br i1 %.not48, label %.loopexit40, label %.preheader.lr.ph
+  %.not51 = icmp eq ptr %4, null
+  br i1 %.not51, label %.thread40, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %.preheader39
+.preheader.lr.ph:                                 ; preds = %.preheader43
   %5 = load i8, ptr %0, align 1, !tbaa !10
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %10
   %7 = phi ptr [ %13, %10 ], [ %4, %.preheader.lr.ph ]
-  %.02949.us = phi i64 [ %11, %10 ], [ 0, %.preheader.lr.ph ]
+  %.02952.us = phi i64 [ %11, %10 ], [ 0, %.preheader.lr.ph ]
   %8 = load i8, ptr %7, align 1, !tbaa !10
   %9 = icmp eq i8 %8, 61
   br i1 %9, label %.split.us, label %10
 
 10:                                               ; preds = %.preheader.us
-  %11 = add i64 %.02949.us, 1
+  %11 = add i64 %.02952.us, 1
   %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !8
   %.not.us = icmp eq ptr %13, null
-  br i1 %.not.us, label %.loopexit40, label %.preheader.us, !llvm.loop !13
+  br i1 %.not.us, label %.thread40, label %.preheader.us, !llvm.loop !13
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %14 = phi ptr [ %36, %.loopexit ], [ %4, %.preheader.lr.ph ]
-  %.02949 = phi i64 [ %34, %.loopexit ], [ 0, %.preheader.lr.ph ]
+  %.02952 = phi i64 [ %34, %.loopexit ], [ 0, %.preheader.lr.ph ]
   br label %20
 
 ._crit_edge:                                      ; preds = %29
@@ -245,15 +245,15 @@ define ptr @pmix_getenv(ptr noundef nonnull readonly captures(none) %0, ptr noun
 
 .split.us:                                        ; preds = %._crit_edge, %.preheader.us
   %.us-phi = phi i64 [ 0, %.preheader.us ], [ %30, %._crit_edge ]
-  %.us-phi50 = phi ptr [ %7, %.preheader.us ], [ %14, %._crit_edge ]
-  %18 = getelementptr inbounds nuw i8, ptr %.us-phi50, i64 %.us-phi
+  %.us-phi53 = phi ptr [ %7, %.preheader.us ], [ %14, %._crit_edge ]
+  %18 = getelementptr inbounds nuw i8, ptr %.us-phi53, i64 %.us-phi
   %19 = getelementptr i8, ptr %18, i64 1
-  br label %.loopexit40
+  br label %.thread40
 
 20:                                               ; preds = %.preheader, %29
   %21 = phi i8 [ %5, %.preheader ], [ %32, %29 ]
-  %.046 = phi i64 [ 0, %.preheader ], [ %30, %29 ]
-  %22 = getelementptr inbounds nuw i8, ptr %14, i64 %.046
+  %.049 = phi i64 [ 0, %.preheader ], [ %30, %29 ]
+  %22 = getelementptr inbounds nuw i8, ptr %14, i64 %.049
   %23 = load i8, ptr %22, align 1, !tbaa !10
   %.not35 = icmp eq i8 %21, %23
   br i1 %.not35, label %24, label %.loopexit
@@ -263,26 +263,26 @@ define ptr @pmix_getenv(ptr noundef nonnull readonly captures(none) %0, ptr noun
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %14, i64 %.046
+  %27 = getelementptr inbounds nuw i8, ptr %14, i64 %.049
   %28 = getelementptr i8, ptr %27, i64 1
-  br label %.loopexit40
+  br label %.thread40
 
 29:                                               ; preds = %24
-  %30 = add i64 %.046, 1
+  %30 = add i64 %.049, 1
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !10
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %._crit_edge, label %20
 
 .loopexit:                                        ; preds = %20, %._crit_edge
-  %34 = add i64 %.02949, 1
+  %34 = add i64 %.02952, 1
   %35 = getelementptr inbounds nuw ptr, ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !8
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.loopexit40, label %.preheader, !llvm.loop !13
+  br i1 %.not, label %.thread40, label %.preheader, !llvm.loop !13
 
-.loopexit40:                                      ; preds = %.loopexit, %10, %.preheader39, %26, %.split.us, %2
-  %.030 = phi ptr [ null, %2 ], [ %19, %.split.us ], [ %28, %26 ], [ null, %.preheader39 ], [ null, %10 ], [ null, %.loopexit ]
+.thread40:                                        ; preds = %.loopexit, %10, %.preheader43, %.split.us, %26, %2
+  %.030 = phi ptr [ null, %2 ], [ %28, %26 ], [ %19, %.split.us ], [ null, %.preheader43 ], [ null, %10 ], [ null, %.loopexit ]
   ret ptr %.030
 }
 

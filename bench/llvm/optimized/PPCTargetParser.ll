@@ -336,32 +336,32 @@ define dso_local noundef zeroext i1 @_ZN4llvm3PPC10isValidCPUENS_9StringRefE(ptr
   br i1 %3, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %2, %.split.us
-  %.012.idx21.i.us = phi i64 [ %.012.add.i.us, %.split.us ], [ 0, %2 ]
-  %.012.ptr22.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm3PPCL10PPCCPUInfoE, i64 %.012.idx21.i.us
-  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr22.i.us, i64 8
+  %.012.idx24.i.us = phi i64 [ %.012.add.i.us, %.split.us ], [ 0, %2 ]
+  %.012.ptr25.i.us = getelementptr inbounds nuw i8, ptr @_ZN4llvm3PPCL10PPCCPUInfoE, i64 %.012.idx24.i.us
+  %.sroa.22.0..sroa_idx.i.us = getelementptr inbounds nuw i8, ptr %.012.ptr25.i.us, i64 8
   %.sroa.22.0.copyload.i.us = load i64, ptr %.sroa.22.0..sroa_idx.i.us, align 8, !tbaa !15
   %.not.i.i.us = icmp eq i64 %.sroa.22.0.copyload.i.us, 0
-  %.012.add.i.us = add nuw nsw i64 %.012.idx21.i.us, 16
+  %.012.add.i.us = add nuw nsw i64 %.012.idx24.i.us, 16
   %.not.i.us = icmp eq i64 %.012.add.i.us, 1040
   %or.cond = select i1 %.not.i.i.us, i1 true, i1 %.not.i.us
   br i1 %or.cond, label %_ZN4llvm3PPCL16getCPUInfoByNameENS_9StringRefE.exit, label %.split.us
 
 .split:                                           ; preds = %2, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
-  %.012.idx21.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %2 ]
-  %.012.ptr22.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm3PPCL10PPCCPUInfoE, i64 %.012.idx21.i
-  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr22.i, i64 8
+  %.012.idx24.i = phi i64 [ %.012.add.i, %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i ], [ 0, %2 ]
+  %.012.ptr25.i = getelementptr inbounds nuw i8, ptr @_ZN4llvm3PPCL10PPCCPUInfoE, i64 %.012.idx24.i
+  %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.012.ptr25.i, i64 8
   %.sroa.22.0.copyload.i = load i64, ptr %.sroa.22.0..sroa_idx.i, align 8, !tbaa !15
   %.not.i.i = icmp eq i64 %.sroa.22.0.copyload.i, %.fr4
   br i1 %.not.i.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.i, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.i:              ; preds = %.split
-  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr22.i, align 16, !tbaa !13
+  %.sroa.01.0.copyload.i = load ptr, ptr %.012.ptr25.i, align 16, !tbaa !13
   %bcmp.i.i = tail call i32 @bcmp(ptr %.sroa.01.0.copyload.i, ptr readonly %0, i64 %.fr4)
   %4 = icmp eq i32 %bcmp.i.i, 0
   br i1 %4, label %_ZN4llvm3PPCL16getCPUInfoByNameENS_9StringRefE.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread18.i
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread18.i:     ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.i, %.split
-  %.012.add.i = add nuw nsw i64 %.012.idx21.i, 16
+  %.012.add.i = add nuw nsw i64 %.012.idx24.i, 16
   %.not.i = icmp eq i64 %.012.add.i, 1040
   br i1 %.not.i, label %_ZN4llvm3PPCL16getCPUInfoByNameENS_9StringRefE.exit, label %.split
 

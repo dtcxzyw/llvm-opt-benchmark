@@ -41,26 +41,26 @@ define dso_local noundef ptr @_ZN4absl18debugging_internal21FailureSignalToStrin
   br label %3
 
 2:                                                ; preds = %3
-  %.011.add = add nuw nsw i64 %.011.idx15, 168
+  %.011.add = add nuw nsw i64 %.011.idx18, 168
   %.not = icmp eq i64 %.011.add, 1176
   br i1 %.not, label %.loopexit, label %3
 
 3:                                                ; preds = %1, %2
-  %.011.idx15 = phi i64 [ 0, %1 ], [ %.011.add, %2 ]
-  %.011.ptr16 = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15
-  %4 = load i32, ptr %.011.ptr16, align 8, !tbaa !4
+  %.011.idx18 = phi i64 [ 0, %1 ], [ %.011.add, %2 ]
+  %.011.ptr19 = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx18
+  %4 = load i32, ptr %.011.ptr19, align 8, !tbaa !4
   %.not12 = icmp eq i32 %4, %0
-  br i1 %.not12, label %.thread, label %2
+  br i1 %.not12, label %5, label %2
 
-.thread:                                          ; preds = %3
-  %.011.ptr16.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15
-  %5 = getelementptr inbounds nuw i8, ptr %.011.ptr16.le, i64 8
-  %6 = load ptr, ptr %5, align 8, !tbaa !13
+5:                                                ; preds = %3
+  %.011.ptr19.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx18
+  %6 = getelementptr inbounds nuw i8, ptr %.011.ptr19.le, i64 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !13
   br label %.loopexit
 
-.loopexit:                                        ; preds = %2, %.thread
-  %spec.select = phi ptr [ %6, %.thread ], [ @.str, %2 ]
-  ret ptr %spec.select
+.loopexit:                                        ; preds = %2, %5
+  %8 = phi ptr [ %7, %5 ], [ @.str, %2 ]
+  ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -205,158 +205,158 @@ _ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit.thr
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %8, i8 0, i64 32, i1 false)
   %.not.i.i = icmp eq i32 %26, -1
-  br i1 %.not.i.i, label %.preheader48, label %35
+  br i1 %.not.i.i, label %.preheader47, label %35
 
 35:                                               ; preds = %34
   %36 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %26) #15
-  br label %.preheader48
+  br label %.preheader47
 
-.preheader48:                                     ; preds = %35, %34
+.preheader47:                                     ; preds = %35, %34
   br label %38
 
 37:                                               ; preds = %38
-  %.011.add.i.i.i = add nuw nsw i64 %.011.idx15.i.i.i, 168
+  %.011.add.i.i.i = add nuw nsw i64 %.011.idx18.i.i.i, 168
   %.not.i.i.i = icmp eq i64 %.011.add.i.i.i, 1176
   br i1 %.not.i.i.i, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i, label %38
 
-38:                                               ; preds = %.preheader48, %37
-  %.011.idx15.i.i.i = phi i64 [ %.011.add.i.i.i, %37 ], [ 0, %.preheader48 ]
-  %.011.ptr16.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15.i.i.i
-  %39 = load i32, ptr %.011.ptr16.i.i.i, align 8, !tbaa !4
+38:                                               ; preds = %.preheader47, %37
+  %.011.idx18.i.i.i = phi i64 [ %.011.add.i.i.i, %37 ], [ 0, %.preheader47 ]
+  %.011.ptr19.i.i.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx18.i.i.i
+  %39 = load i32, ptr %.011.ptr19.i.i.i, align 8, !tbaa !4
   %.not12.i.i.i = icmp eq i32 %39, %0
   br i1 %.not12.i.i.i, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i, label %37
 
 _ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i: ; preds = %38
-  %.011.ptr16.i.i.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15.i.i.i
-  %40 = getelementptr inbounds nuw i8, ptr %.011.ptr16.i.i.i.le, i64 8
+  %.011.ptr19.i.i.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx18.i.i.i
+  %40 = getelementptr inbounds nuw i8, ptr %.011.ptr19.i.i.i.le, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !13
   %.not8.i.i = icmp eq ptr %41, null
-  br i1 %.not8.i.i, label %46, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i
+  br i1 %.not8.i.i, label %47, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i
 
 _ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i: ; preds = %37, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i
-  %spec.select.i12.i.i = phi ptr [ %41, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i ], [ @.str, %37 ]
-  %42 = load i8, ptr %spec.select.i12.i.i, align 1, !tbaa !25
-  %.not9.i.i = icmp eq i8 %42, 0
-  br i1 %.not9.i.i, label %46, label %43
+  %42 = phi ptr [ %41, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i ], [ @.str, %37 ]
+  %43 = load i8, ptr %42, align 1, !tbaa !25
+  %.not9.i.i = icmp eq i8 %43, 0
+  br i1 %.not9.i.i, label %47, label %44
 
-43:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i
-  %44 = tail call i64 @time(ptr noundef null) #15
-  %45 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.select.i12.i.i, i64 noundef %44, ptr noundef nonnull %8) #15
+44:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i
+  %45 = tail call i64 @time(ptr noundef null) #15
+  %46 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.17, ptr noundef nonnull %42, i64 noundef %45, ptr noundef nonnull %8) #15
   br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
 
-46:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i
-  %47 = tail call i64 @time(ptr noundef null) #15
-  %48 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.18, i32 noundef %0, i64 noundef %47, ptr noundef nonnull %8) #15
+47:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i
+  %48 = tail call i64 @time(ptr noundef null) #15
+  %49 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 96, ptr noundef nonnull @.str.18, i32 noundef %0, i64 noundef %48, ptr noundef nonnull %8) #15
   br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
 
-_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit:     ; preds = %43, %46
-  %49 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
-  call void @_ZN4absl16raw_log_internal25AsyncSignalSafeWriteErrorEPKcm(ptr noundef nonnull %7, i64 noundef %49)
+_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit:     ; preds = %44, %47
+  %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %7) #17
+  call void @_ZN4absl16raw_log_internal25AsyncSignalSafeWriteErrorEPKcm(ptr noundef nonnull %7, i64 noundef %50)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %50 = load i8, ptr @_ZN4abslL11fsh_optionsE, align 8, !tbaa !36, !range !22, !noundef !23
-  %51 = trunc nuw i8 %50 to i1
-  call fastcc void @_ZN4abslL15WriteStackTraceEPvbPFvPKcS0_ES0_(ptr noundef %2, i1 noundef zeroext %51, ptr noundef %9)
+  %51 = load i8, ptr @_ZN4abslL11fsh_optionsE, align 8, !tbaa !36, !range !22, !noundef !23
+  %52 = trunc nuw i8 %51 to i1
+  call fastcc void @_ZN4abslL15WriteStackTraceEPvbPFvPKcS0_ES0_(ptr noundef %2, i1 noundef zeroext %52, ptr noundef %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %52 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8, !tbaa !37
-  %.not12 = icmp eq ptr %52, null
-  br i1 %.not12, label %71, label %53
+  %53 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8, !tbaa !37
+  %.not12 = icmp eq ptr %53, null
+  br i1 %.not12, label %73, label %54
 
-53:                                               ; preds = %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
+54:                                               ; preds = %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  store ptr %52, ptr %6, align 8, !tbaa !34
+  store ptr %53, ptr %6, align 8, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %5, i8 0, i64 32, i1 false)
-  br i1 %.not.i.i, label %.preheader, label %54
+  br i1 %.not.i.i, label %.preheader, label %55
 
-54:                                               ; preds = %53
-  %55 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %26) #15
+55:                                               ; preds = %54
+  %56 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 32, ptr noundef nonnull @.str.16, i32 noundef %26) #15
   br label %.preheader
 
-.preheader:                                       ; preds = %54, %53
-  br label %57
+.preheader:                                       ; preds = %55, %54
+  br label %58
 
-56:                                               ; preds = %57
-  %.011.add.i.i.i17 = add nuw nsw i64 %.011.idx15.i.i.i14, 168
+57:                                               ; preds = %58
+  %.011.add.i.i.i17 = add nuw nsw i64 %.011.idx18.i.i.i14, 168
   %.not.i.i.i18 = icmp eq i64 %.011.add.i.i.i17, 1176
-  br i1 %.not.i.i.i18, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19, label %57
+  br i1 %.not.i.i.i18, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19, label %58
 
-57:                                               ; preds = %.preheader, %56
-  %.011.idx15.i.i.i14 = phi i64 [ %.011.add.i.i.i17, %56 ], [ 0, %.preheader ]
-  %.011.ptr16.i.i.i15 = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15.i.i.i14
-  %58 = load i32, ptr %.011.ptr16.i.i.i15, align 8, !tbaa !4
-  %.not12.i.i.i16 = icmp eq i32 %58, %0
-  br i1 %.not12.i.i.i16, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22, label %56
+58:                                               ; preds = %.preheader, %57
+  %.011.idx18.i.i.i14 = phi i64 [ %.011.add.i.i.i17, %57 ], [ 0, %.preheader ]
+  %.011.ptr19.i.i.i15 = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx18.i.i.i14
+  %59 = load i32, ptr %.011.ptr19.i.i.i15, align 8, !tbaa !4
+  %.not12.i.i.i16 = icmp eq i32 %59, %0
+  br i1 %.not12.i.i.i16, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i21, label %57
 
-_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22: ; preds = %57
-  %.011.ptr16.i.i.i15.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx15.i.i.i14
-  %59 = getelementptr inbounds nuw i8, ptr %.011.ptr16.i.i.i15.le, i64 8
-  %60 = load ptr, ptr %59, align 8, !tbaa !13
-  %.not8.i.i24 = icmp eq ptr %60, null
-  br i1 %.not8.i.i24, label %65, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19
+_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i21: ; preds = %58
+  %.011.ptr19.i.i.i15.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.011.idx18.i.i.i14
+  %60 = getelementptr inbounds nuw i8, ptr %.011.ptr19.i.i.i15.le, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !13
+  %.not8.i.i23 = icmp eq ptr %61, null
+  br i1 %.not8.i.i23, label %67, label %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19
 
-_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19: ; preds = %56, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22
-  %spec.select.i12.i.i20 = phi ptr [ %60, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22 ], [ @.str, %56 ]
-  %61 = load i8, ptr %spec.select.i12.i.i20, align 1, !tbaa !25
-  %.not9.i.i21 = icmp eq i8 %61, 0
-  br i1 %.not9.i.i21, label %65, label %62
+_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19: ; preds = %57, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i21
+  %62 = phi ptr [ %61, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i21 ], [ @.str, %57 ]
+  %63 = load i8, ptr %62, align 1, !tbaa !25
+  %.not9.i.i20 = icmp eq i8 %63, 0
+  br i1 %.not9.i.i20, label %67, label %64
 
-62:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19
-  %63 = call i64 @time(ptr noundef null) #15
-  %64 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 96, ptr noundef nonnull @.str.17, ptr noundef nonnull %spec.select.i12.i.i20, i64 noundef %63, ptr noundef nonnull %5) #15
-  br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit25
+64:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19
+  %65 = call i64 @time(ptr noundef null) #15
+  %66 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 96, ptr noundef nonnull @.str.17, ptr noundef nonnull %62, i64 noundef %65, ptr noundef nonnull %5) #15
+  br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit24
 
-65:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i22
-  %66 = call i64 @time(ptr noundef null) #15
-  %67 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 96, ptr noundef nonnull @.str.18, i32 noundef %0, i64 noundef %66, ptr noundef nonnull %5) #15
-  br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit25
+67:                                               ; preds = %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.thread.i.i19, %_ZN4absl18debugging_internal21FailureSignalToStringEi.exit.i.i21
+  %68 = call i64 @time(ptr noundef null) #15
+  %69 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 96, ptr noundef nonnull @.str.18, i32 noundef %0, i64 noundef %68, ptr noundef nonnull %5) #15
+  br label %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit24
 
-_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit25:   ; preds = %62, %65
-  call void %52(ptr noundef nonnull %4)
+_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit24:   ; preds = %64, %67
+  call void %53(ptr noundef nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %68 = load i8, ptr @_ZN4abslL11fsh_optionsE, align 8, !tbaa !36, !range !22, !noundef !23
-  %69 = trunc nuw i8 %68 to i1
-  call fastcc void @_ZN4abslL15WriteStackTraceEPvbPFvPKcS0_ES0_(ptr noundef %2, i1 noundef zeroext %69, ptr noundef %6)
+  %70 = load i8, ptr @_ZN4abslL11fsh_optionsE, align 8, !tbaa !36, !range !22, !noundef !23
+  %71 = trunc nuw i8 %70 to i1
+  call fastcc void @_ZN4abslL15WriteStackTraceEPvbPFvPKcS0_ES0_(ptr noundef %2, i1 noundef zeroext %71, ptr noundef %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8, !tbaa !37
-  call void %70(ptr noundef null)
-  br label %71
+  %72 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 16), align 8, !tbaa !37
+  call void %72(ptr noundef null)
+  br label %73
 
-71:                                               ; preds = %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit25, %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
-  %72 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 8), align 8, !tbaa !38, !range !22, !noundef !23
-  %73 = trunc nuw i8 %72 to i1
-  br i1 %73, label %.critedge.i, label %81
-
-74:                                               ; preds = %.critedge.i
-  %.0.add.i = add nuw nsw i64 %.0.idx18.i, 168
-  %.not.i26 = icmp eq i64 %.0.add.i, 1176
-  br i1 %.not.i26, label %79, label %.critedge.i
-
-.critedge.i:                                      ; preds = %71, %74
-  %.0.idx18.i = phi i64 [ %.0.add.i, %74 ], [ 0, %71 ]
-  %.0.ptr19.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.0.idx18.i
-  %75 = load i32, ptr %.0.ptr19.i, align 8, !tbaa !4
-  %.not13.i = icmp eq i32 %75, %0
-  br i1 %.not13.i, label %76, label %74
+73:                                               ; preds = %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit24, %_ZN4abslL16WriteFailureInfoEiPviPFvPKcE.exit
+  %74 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN4abslL11fsh_optionsE, i64 8), align 8, !tbaa !38, !range !22, !noundef !23
+  %75 = trunc nuw i8 %74 to i1
+  br i1 %75, label %.critedge.i, label %83
 
 76:                                               ; preds = %.critedge.i
-  %.0.ptr19.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.0.idx18.i
-  %77 = getelementptr inbounds nuw i8, ptr %.0.ptr19.i.le, i64 16
-  %78 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %77, ptr noundef null) #15
+  %.0.add.i = add nuw nsw i64 %.0.idx16.i, 168
+  %.not.i25 = icmp eq i64 %.0.add.i, 1176
+  br i1 %.not.i25, label %81, label %.critedge.i
+
+.critedge.i:                                      ; preds = %73, %76
+  %.0.idx16.i = phi i64 [ %.0.add.i, %76 ], [ 0, %73 ]
+  %.0.ptr17.i = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.0.idx16.i
+  %77 = load i32, ptr %.0.ptr17.i, align 8, !tbaa !4
+  %.not13.i = icmp eq i32 %77, %0
+  br i1 %.not13.i, label %78, label %76
+
+78:                                               ; preds = %.critedge.i
+  %.0.ptr17.i.le = getelementptr inbounds nuw i8, ptr @_ZN4abslL19failure_signal_dataE, i64 %.0.idx16.i
+  %79 = getelementptr inbounds nuw i8, ptr %.0.ptr17.i.le, i64 16
+  %80 = call i32 @sigaction(i32 noundef %0, ptr noundef nonnull %79, ptr noundef null) #15
   br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
 
-79:                                               ; preds = %74
-  %80 = call ptr @signal(i32 noundef %0, ptr noundef null) #15
-  br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
-
-81:                                               ; preds = %71
+81:                                               ; preds = %76
   %82 = call ptr @signal(i32 noundef %0, ptr noundef null) #15
   br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
 
-_ZN4abslL22RaiseToPreviousHandlerEi.exit:         ; preds = %79, %76, %81, %_ZN4abslL23PortableSleepForSecondsEi.exit
-  %83 = call i32 @raise(i32 noundef %0) #15
+83:                                               ; preds = %73
+  %84 = call ptr @signal(i32 noundef %0, ptr noundef null) #15
+  br label %_ZN4abslL22RaiseToPreviousHandlerEi.exit
+
+_ZN4abslL22RaiseToPreviousHandlerEi.exit:         ; preds = %81, %78, %83, %_ZN4abslL23PortableSleepForSecondsEi.exit
+  %85 = call i32 @raise(i32 noundef %0) #15
   ret void
 }
 

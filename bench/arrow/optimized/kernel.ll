@@ -965,20 +965,20 @@ define void @_ZN5arrow7compute6Kernel7InitAllEPNS0_13KernelContextERKNS0_14Kerne
   %7 = load ptr, ptr %3, align 8, !tbaa !66
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !66
-  %.not28 = icmp eq ptr %7, %9
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq ptr %7, %9
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %13
 
 11:                                               ; preds = %_ZN5arrow6ResultISt10unique_ptrINS_7compute11KernelStateESt14default_deleteIS3_EEED2Ev.exit
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.022.029, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.022.027, i64 8
   %.not = icmp eq ptr %12, %9
   br i1 %.not, label %._crit_edge, label %13
 
 13:                                               ; preds = %.lr.ph, %11
-  %.sroa.022.029 = phi ptr [ %7, %.lr.ph ], [ %12, %11 ]
+  %.sroa.022.027 = phi ptr [ %7, %.lr.ph ], [ %12, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = load ptr, ptr %2, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1018,8 +1018,8 @@ define void @_ZN5arrow7compute6Kernel7InitAllEPNS0_13KernelContextERKNS0_14Kerne
   %28 = load i64, ptr %10, align 8, !tbaa !81, !noalias !82
   %29 = inttoptr i64 %28 to ptr
   store ptr null, ptr %10, align 8, !tbaa !81, !noalias !82
-  %30 = load ptr, ptr %.sroa.022.029, align 8, !tbaa !81
-  store ptr %29, ptr %.sroa.022.029, align 8, !tbaa !81
+  %30 = load ptr, ptr %.sroa.022.027, align 8, !tbaa !81
+  store ptr %29, ptr %.sroa.022.027, align 8, !tbaa !81
   %.not.i.i.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i.i.i, label %_ZN5arrow6StatusC2ERKS0_.exit, label %_ZNKSt14default_deleteIN5arrow7compute11KernelStateEEclEPS2_.exit.i.i.i.i
 
@@ -2627,16 +2627,16 @@ define noundef zeroext i1 @_ZNK5arrow7compute15KernelSignature13MatchesInputsERK
   br i1 %5, label %.preheader, label %41
 
 .preheader:                                       ; preds = %2
-  %.not55 = icmp eq ptr %7, %8
-  br i1 %.not55, label %.thread, label %.lr.ph47
+  %.not50 = icmp eq ptr %7, %8
+  br i1 %.not50, label %.thread, label %.lr.ph42
 
-.lr.ph47:                                         ; preds = %.preheader
+.lr.ph42:                                         ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %10
 
-10:                                               ; preds = %.lr.ph47, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread
-  %11 = phi ptr [ %8, %.lr.ph47 ], [ %35, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread ]
-  %storemerge46 = phi i64 [ 0, %.lr.ph47 ], [ %33, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread ]
+10:                                               ; preds = %.lr.ph42, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread
+  %11 = phi ptr [ %8, %.lr.ph42 ], [ %35, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread ]
+  %storemerge41 = phi i64 [ 0, %.lr.ph42 ], [ %33, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread ]
   %12 = load ptr, ptr %9, align 8, !tbaa !229
   %13 = load ptr, ptr %0, align 8, !tbaa !226
   %14 = ptrtoint ptr %12 to i64
@@ -2644,9 +2644,9 @@ define noundef zeroext i1 @_ZNK5arrow7compute15KernelSignature13MatchesInputsERK
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 40
   %18 = add nsw i64 %17, -1
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %18, i64 %storemerge46)
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %18, i64 %storemerge41)
   %19 = getelementptr inbounds nuw %"class.arrow::compute::InputType", ptr %13, i64 %.sroa.speculated
-  %20 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %11, i64 %storemerge46
+  %20 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %11, i64 %storemerge41
   %21 = load ptr, ptr %20, align 8, !tbaa !219
   %22 = load i32, ptr %19, align 8, !tbaa !189
   switch i32 %22, label %.thread [
@@ -2671,7 +2671,7 @@ _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit: ; preds = %10
   br i1 %32, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread, label %.thread
 
 _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread: ; preds = %10, %23, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit
-  %33 = add nuw i64 %storemerge46, 1
+  %33 = add nuw i64 %storemerge41, 1
   %34 = load ptr, ptr %6, align 8, !tbaa !248
   %35 = load ptr, ptr %1, align 8, !tbaa !251
   %36 = ptrtoint ptr %34 to i64
@@ -2694,43 +2694,43 @@ _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread: ; preds = %10,
   %51 = sub i64 %49, %50
   %52 = sdiv exact i64 %51, 40
   %.not = icmp eq i64 %45, %52
-  br i1 %.not, label %.preheader37, label %.thread
+  br i1 %.not, label %.preheader32, label %.thread
 
-.preheader37:                                     ; preds = %41
-  %.not54 = icmp eq ptr %47, %48
-  br i1 %.not54, label %.thread, label %.lr.ph
+.preheader32:                                     ; preds = %41
+  %.not49 = icmp eq ptr %47, %48
+  br i1 %.not49, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader37, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread
-  %53 = phi ptr [ %71, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread ], [ %48, %.preheader37 ]
-  %.040 = phi i64 [ %69, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread ], [ 0, %.preheader37 ]
-  %54 = getelementptr inbounds nuw %"class.arrow::compute::InputType", ptr %53, i64 %.040
+.lr.ph:                                           ; preds = %.preheader32, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread
+  %53 = phi ptr [ %71, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread ], [ %48, %.preheader32 ]
+  %.035 = phi i64 [ %69, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread ], [ 0, %.preheader32 ]
+  %54 = getelementptr inbounds nuw %"class.arrow::compute::InputType", ptr %53, i64 %.035
   %55 = load ptr, ptr %1, align 8, !tbaa !251
-  %56 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %55, i64 %.040
+  %56 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %55, i64 %.035
   %57 = load ptr, ptr %56, align 8, !tbaa !219
   %58 = load i32, ptr %54, align 8, !tbaa !189
   switch i32 %58, label %.thread [
     i32 1, label %59
-    i32 2, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17
-    i32 0, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread
+    i32 2, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16
+    i32 0, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread
   ]
 
 59:                                               ; preds = %.lr.ph
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !196
   %62 = tail call noundef zeroext i1 @_ZNK5arrow8DataType6EqualsERKS0_b(ptr noundef nonnull align 8 dereferenceable(72) %61, ptr noundef nonnull align 8 dereferenceable(72) %57, i1 noundef zeroext false)
-  br i1 %62, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread, label %.thread
+  br i1 %62, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread, label %.thread
 
-_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17: ; preds = %.lr.ph
+_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16: ; preds = %.lr.ph
   %63 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %64 = load ptr, ptr %63, align 8, !tbaa !116
   %65 = load ptr, ptr %64, align 8, !tbaa !27
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef zeroext i1 %67(ptr noundef nonnull align 8 dereferenceable(8) %64, ptr noundef nonnull align 8 dereferenceable(72) %57)
-  br i1 %68, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread, label %.thread
+  br i1 %68, label %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread, label %.thread
 
-_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread: ; preds = %.lr.ph, %59, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17
-  %69 = add nuw i64 %.040, 1
+_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread: ; preds = %.lr.ph, %59, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16
+  %69 = add nuw i64 %.035, 1
   %70 = load ptr, ptr %46, align 8, !tbaa !229
   %71 = load ptr, ptr %0, align 8, !tbaa !226
   %72 = ptrtoint ptr %70 to i64
@@ -2740,8 +2740,8 @@ _ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread: ; preds = %.
   %76 = icmp ult i64 %69, %75
   br i1 %76, label %.lr.ph, label %.thread, !llvm.loop !253
 
-.thread:                                          ; preds = %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17, %59, %.lr.ph, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit, %23, %10, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread, %.preheader37, %.preheader, %41
-  %.113 = phi i1 [ false, %41 ], [ true, %.preheader ], [ true, %.preheader37 ], [ false, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit ], [ false, %23 ], [ false, %10 ], [ true, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread ], [ false, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17 ], [ false, %59 ], [ false, %.lr.ph ], [ true, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit17.thread ]
+.thread:                                          ; preds = %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16, %59, %.lr.ph, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit, %23, %10, %.preheader32, %.preheader, %41
+  %.113 = phi i1 [ false, %41 ], [ true, %.preheader ], [ true, %.preheader32 ], [ true, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit.thread ], [ false, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit ], [ false, %23 ], [ false, %10 ], [ true, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16.thread ], [ false, %_ZNK5arrow7compute9InputType7MatchesERKNS_8DataTypeE.exit16 ], [ false, %59 ], [ false, %.lr.ph ]
   ret i1 %.113
 }
 

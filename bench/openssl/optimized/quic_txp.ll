@@ -1453,7 +1453,7 @@ tx_helper_get_space_left.exit.i:                  ; preds = %329, %325
 334:                                              ; preds = %tx_helper_get_space_left.exit.i
   %335 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %93)
   %336 = icmp eq ptr %335, null
-  br i1 %336, label %tx_helper_rollback.exit.thread302.i, label %337
+  br i1 %336, label %tx_helper_rollback.exit.thread293.i, label %337
 
 337:                                              ; preds = %334
   %338 = call i32 @ossl_quic_wire_encode_frame_handshake_done(ptr noundef nonnull %335) #10
@@ -1467,7 +1467,7 @@ tx_helper_get_space_left.exit.i:                  ; preds = %329, %325
   store i8 %342, ptr %340, align 1
   %343 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %93)
   %.not141.i = icmp eq i32 %343, 0
-  br i1 %.not141.i, label %tx_helper_rollback.exit.thread302.i, label %344
+  br i1 %.not141.i, label %tx_helper_rollback.exit.thread293.i, label %344
 
 344:                                              ; preds = %339
   %345 = load i8, ptr %283, align 4
@@ -1478,8 +1478,8 @@ tx_helper_get_space_left.exit.i:                  ; preds = %329, %325
 347:                                              ; preds = %337
   %348 = load i8, ptr %287, align 8
   %349 = and i8 %348, 1
-  %.not.i194.i = icmp eq i8 %349, 0
-  br i1 %.not.i194.i, label %tx_helper_rollback.exit.thread.i, label %350
+  %.not.i190.i = icmp eq i8 %349, 0
+  br i1 %.not.i190.i, label %tx_helper_rollback.exit.thread.i, label %350
 
 350:                                              ; preds = %347
   %351 = getelementptr inbounds nuw i8, ptr %93, i64 64
@@ -1491,10 +1491,10 @@ tx_helper_get_space_left.exit.i:                  ; preds = %329, %325
   br label %tx_helper_rollback.exit.thread.i
 
 tx_helper_rollback.exit.thread.i:                 ; preds = %350, %347, %344, %tx_helper_get_space_left.exit.i, %322, %320
-  %.0243.i = phi i32 [ 0, %320 ], [ 0, %322 ], [ 0, %tx_helper_get_space_left.exit.i ], [ 0, %350 ], [ 0, %347 ], [ 1, %344 ]
+  %.0239.i = phi i32 [ 0, %320 ], [ 0, %322 ], [ 0, %tx_helper_get_space_left.exit.i ], [ 0, %350 ], [ 0, %347 ], [ 1, %344 ]
   %354 = and i32 %304, 512
   %.not142.i = icmp eq i32 %354, 0
-  br i1 %.not142.i, label %tx_helper_rollback.exit206.thread.i, label %355
+  br i1 %.not142.i, label %tx_helper_rollback.exit202.thread.i, label %355
 
 355:                                              ; preds = %tx_helper_rollback.exit.thread.i
   %356 = load i16, ptr %57, align 8
@@ -1506,33 +1506,33 @@ tx_helper_rollback.exit.thread.i:                 ; preds = %350, %347, %344, %t
   %359 = load ptr, ptr %58, align 8, !tbaa !105
   %360 = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %359, i32 noundef 0) #10
   %.not144.i = icmp eq i32 %360, 0
-  br i1 %.not144.i, label %tx_helper_rollback.exit198.thread.i, label %361
+  br i1 %.not144.i, label %tx_helper_rollback.exit194.thread.i, label %361
 
 361:                                              ; preds = %358, %355
   %362 = load i64, ptr %279, align 8, !tbaa !121
   %363 = load i8, ptr %283, align 4
   %364 = and i8 %363, 1
-  %.not.i195.i = icmp eq i8 %364, 0
-  br i1 %.not.i195.i, label %365, label %tx_helper_get_space_left.exit196.i
+  %.not.i191.i = icmp eq i8 %364, 0
+  br i1 %.not.i191.i, label %365, label %tx_helper_get_space_left.exit192.i
 
 365:                                              ; preds = %361
   %366 = load i64, ptr %280, align 16, !tbaa !122
-  br label %tx_helper_get_space_left.exit196.i
+  br label %tx_helper_get_space_left.exit192.i
 
-tx_helper_get_space_left.exit196.i:               ; preds = %365, %361
+tx_helper_get_space_left.exit192.i:               ; preds = %365, %361
   %367 = phi i64 [ %366, %365 ], [ 0, %361 ]
   %368 = load i64, ptr %282, align 16, !tbaa !129
   %369 = add i64 %367, %368
   %370 = sub i64 %362, %369
   %371 = icmp ugt i64 %370, 1
-  br i1 %371, label %372, label %tx_helper_rollback.exit198.thread.i
+  br i1 %371, label %372, label %tx_helper_rollback.exit194.thread.i
 
-372:                                              ; preds = %tx_helper_get_space_left.exit196.i
+372:                                              ; preds = %tx_helper_get_space_left.exit192.i
   %373 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %93)
   %374 = load ptr, ptr %58, align 8, !tbaa !105
   %375 = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef %374) #10
   %376 = icmp eq ptr %373, null
-  br i1 %376, label %tx_helper_rollback.exit.thread302.i, label %377
+  br i1 %376, label %tx_helper_rollback.exit.thread293.i, label %377
 
 377:                                              ; preds = %372
   %378 = call i32 @ossl_quic_wire_encode_frame_max_data(ptr noundef nonnull %373, i64 noundef %375) #10
@@ -1546,19 +1546,19 @@ tx_helper_get_space_left.exit196.i:               ; preds = %365, %361
   store i8 %382, ptr %380, align 1
   %383 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %93)
   %.not146.i = icmp eq i32 %383, 0
-  br i1 %.not146.i, label %tx_helper_rollback.exit.thread302.i, label %384
+  br i1 %.not146.i, label %tx_helper_rollback.exit.thread293.i, label %384
 
 384:                                              ; preds = %379
   %385 = load i8, ptr %283, align 4
   %386 = or i8 %385, 1
   store i8 %386, ptr %283, align 4
-  br label %tx_helper_rollback.exit198.thread.i
+  br label %tx_helper_rollback.exit194.thread.i
 
 387:                                              ; preds = %377
   %388 = load i8, ptr %287, align 8
   %389 = and i8 %388, 1
-  %.not.i197.i = icmp eq i8 %389, 0
-  br i1 %.not.i197.i, label %tx_helper_rollback.exit198.thread.i, label %390
+  %.not.i193.i = icmp eq i8 %389, 0
+  br i1 %.not.i193.i, label %tx_helper_rollback.exit194.thread.i, label %390
 
 390:                                              ; preds = %387
   %391 = getelementptr inbounds nuw i8, ptr %93, i64 64
@@ -1567,46 +1567,46 @@ tx_helper_get_space_left.exit196.i:               ; preds = %365, %361
   %393 = and i8 %392, -2
   store i8 %393, ptr %287, align 8
   store ptr null, ptr %286, align 8, !tbaa !124
-  br label %tx_helper_rollback.exit198.thread.i
+  br label %tx_helper_rollback.exit194.thread.i
 
-tx_helper_rollback.exit198.thread.i:              ; preds = %390, %387, %384, %tx_helper_get_space_left.exit196.i, %358
-  %.2245.ph.i = phi i32 [ %.0243.i, %tx_helper_get_space_left.exit196.i ], [ %.0243.i, %358 ], [ %.0243.i, %390 ], [ %.0243.i, %387 ], [ 1, %384 ]
+tx_helper_rollback.exit194.thread.i:              ; preds = %390, %387, %384, %tx_helper_get_space_left.exit192.i, %358
+  %.2241.ph.i = phi i32 [ %.0239.i, %tx_helper_get_space_left.exit192.i ], [ %.0239.i, %358 ], [ %.0239.i, %390 ], [ %.0239.i, %387 ], [ 1, %384 ]
   %394 = load i16, ptr %57, align 8
   %395 = and i16 %394, 4
   %.not148.i = icmp eq i16 %395, 0
   br i1 %.not148.i, label %396, label %399
 
-396:                                              ; preds = %tx_helper_rollback.exit198.thread.i
+396:                                              ; preds = %tx_helper_rollback.exit194.thread.i
   %397 = load ptr, ptr %59, align 8, !tbaa !106
   %398 = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %397, i32 noundef 0) #10
   %.not149.i = icmp eq i32 %398, 0
-  br i1 %.not149.i, label %tx_helper_rollback.exit202.thread.i, label %399
+  br i1 %.not149.i, label %tx_helper_rollback.exit198.thread.i, label %399
 
-399:                                              ; preds = %396, %tx_helper_rollback.exit198.thread.i
+399:                                              ; preds = %396, %tx_helper_rollback.exit194.thread.i
   %400 = load i64, ptr %279, align 8, !tbaa !121
   %401 = load i8, ptr %283, align 4
   %402 = and i8 %401, 1
-  %.not.i199.i = icmp eq i8 %402, 0
-  br i1 %.not.i199.i, label %403, label %tx_helper_get_space_left.exit200.i
+  %.not.i195.i = icmp eq i8 %402, 0
+  br i1 %.not.i195.i, label %403, label %tx_helper_get_space_left.exit196.i
 
 403:                                              ; preds = %399
   %404 = load i64, ptr %280, align 16, !tbaa !122
-  br label %tx_helper_get_space_left.exit200.i
+  br label %tx_helper_get_space_left.exit196.i
 
-tx_helper_get_space_left.exit200.i:               ; preds = %403, %399
+tx_helper_get_space_left.exit196.i:               ; preds = %403, %399
   %405 = phi i64 [ %404, %403 ], [ 0, %399 ]
   %406 = load i64, ptr %282, align 16, !tbaa !129
   %407 = add i64 %405, %406
   %408 = sub i64 %400, %407
   %409 = icmp ugt i64 %408, 1
-  br i1 %409, label %410, label %tx_helper_rollback.exit202.thread.i
+  br i1 %409, label %410, label %tx_helper_rollback.exit198.thread.i
 
-410:                                              ; preds = %tx_helper_get_space_left.exit200.i
+410:                                              ; preds = %tx_helper_get_space_left.exit196.i
   %411 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %93)
   %412 = load ptr, ptr %59, align 8, !tbaa !106
   %413 = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef %412) #10
   %414 = icmp eq ptr %411, null
-  br i1 %414, label %tx_helper_rollback.exit.thread302.i, label %415
+  br i1 %414, label %tx_helper_rollback.exit.thread293.i, label %415
 
 415:                                              ; preds = %410
   %416 = call i32 @ossl_quic_wire_encode_frame_max_streams(ptr noundef nonnull %411, i8 noundef signext 0, i64 noundef %413) #10
@@ -1620,19 +1620,19 @@ tx_helper_get_space_left.exit200.i:               ; preds = %403, %399
   store i8 %420, ptr %418, align 1
   %421 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %93)
   %.not151.i = icmp eq i32 %421, 0
-  br i1 %.not151.i, label %tx_helper_rollback.exit.thread302.i, label %422
+  br i1 %.not151.i, label %tx_helper_rollback.exit.thread293.i, label %422
 
 422:                                              ; preds = %417
   %423 = load i8, ptr %283, align 4
   %424 = or i8 %423, 1
   store i8 %424, ptr %283, align 4
-  br label %tx_helper_rollback.exit202.thread.i
+  br label %tx_helper_rollback.exit198.thread.i
 
 425:                                              ; preds = %415
   %426 = load i8, ptr %287, align 8
   %427 = and i8 %426, 1
-  %.not.i201.i = icmp eq i8 %427, 0
-  br i1 %.not.i201.i, label %tx_helper_rollback.exit202.thread.i, label %428
+  %.not.i197.i = icmp eq i8 %427, 0
+  br i1 %.not.i197.i, label %tx_helper_rollback.exit198.thread.i, label %428
 
 428:                                              ; preds = %425
   %429 = getelementptr inbounds nuw i8, ptr %93, i64 64
@@ -1641,46 +1641,46 @@ tx_helper_get_space_left.exit200.i:               ; preds = %403, %399
   %431 = and i8 %430, -2
   store i8 %431, ptr %287, align 8
   store ptr null, ptr %286, align 8, !tbaa !124
-  br label %tx_helper_rollback.exit202.thread.i
+  br label %tx_helper_rollback.exit198.thread.i
 
-tx_helper_rollback.exit202.thread.i:              ; preds = %428, %425, %422, %tx_helper_get_space_left.exit200.i, %396
-  %.4247.ph.i = phi i32 [ %.2245.ph.i, %tx_helper_get_space_left.exit200.i ], [ %.2245.ph.i, %396 ], [ %.2245.ph.i, %428 ], [ %.2245.ph.i, %425 ], [ 1, %422 ]
+tx_helper_rollback.exit198.thread.i:              ; preds = %428, %425, %422, %tx_helper_get_space_left.exit196.i, %396
+  %.4243.ph.i = phi i32 [ %.2241.ph.i, %tx_helper_get_space_left.exit196.i ], [ %.2241.ph.i, %396 ], [ %.2241.ph.i, %428 ], [ %.2241.ph.i, %425 ], [ 1, %422 ]
   %432 = load i16, ptr %57, align 8
   %433 = and i16 %432, 8
   %.not153.i = icmp eq i16 %433, 0
   br i1 %.not153.i, label %434, label %437
 
-434:                                              ; preds = %tx_helper_rollback.exit202.thread.i
+434:                                              ; preds = %tx_helper_rollback.exit198.thread.i
   %435 = load ptr, ptr %60, align 8, !tbaa !107
   %436 = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef %435, i32 noundef 0) #10
   %.not154.i = icmp eq i32 %436, 0
-  br i1 %.not154.i, label %tx_helper_rollback.exit206.thread.i, label %437
+  br i1 %.not154.i, label %tx_helper_rollback.exit202.thread.i, label %437
 
-437:                                              ; preds = %434, %tx_helper_rollback.exit202.thread.i
+437:                                              ; preds = %434, %tx_helper_rollback.exit198.thread.i
   %438 = load i64, ptr %279, align 8, !tbaa !121
   %439 = load i8, ptr %283, align 4
   %440 = and i8 %439, 1
-  %.not.i203.i = icmp eq i8 %440, 0
-  br i1 %.not.i203.i, label %441, label %tx_helper_get_space_left.exit204.i
+  %.not.i199.i = icmp eq i8 %440, 0
+  br i1 %.not.i199.i, label %441, label %tx_helper_get_space_left.exit200.i
 
 441:                                              ; preds = %437
   %442 = load i64, ptr %280, align 16, !tbaa !122
-  br label %tx_helper_get_space_left.exit204.i
+  br label %tx_helper_get_space_left.exit200.i
 
-tx_helper_get_space_left.exit204.i:               ; preds = %441, %437
+tx_helper_get_space_left.exit200.i:               ; preds = %441, %437
   %443 = phi i64 [ %442, %441 ], [ 0, %437 ]
   %444 = load i64, ptr %282, align 16, !tbaa !129
   %445 = add i64 %443, %444
   %446 = sub i64 %438, %445
   %447 = icmp ugt i64 %446, 1
-  br i1 %447, label %448, label %tx_helper_rollback.exit206.thread.i
+  br i1 %447, label %448, label %tx_helper_rollback.exit202.thread.i
 
-448:                                              ; preds = %tx_helper_get_space_left.exit204.i
+448:                                              ; preds = %tx_helper_get_space_left.exit200.i
   %449 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %93)
   %450 = load ptr, ptr %60, align 8, !tbaa !107
   %451 = call i64 @ossl_quic_rxfc_get_cwm(ptr noundef %450) #10
   %452 = icmp eq ptr %449, null
-  br i1 %452, label %tx_helper_rollback.exit.thread302.i, label %453
+  br i1 %452, label %tx_helper_rollback.exit.thread293.i, label %453
 
 453:                                              ; preds = %448
   %454 = call i32 @ossl_quic_wire_encode_frame_max_streams(ptr noundef nonnull %449, i8 noundef signext 1, i64 noundef %451) #10
@@ -1694,19 +1694,19 @@ tx_helper_get_space_left.exit204.i:               ; preds = %441, %437
   store i8 %458, ptr %456, align 1
   %459 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %93)
   %.not156.i = icmp eq i32 %459, 0
-  br i1 %.not156.i, label %tx_helper_rollback.exit.thread302.i, label %460
+  br i1 %.not156.i, label %tx_helper_rollback.exit.thread293.i, label %460
 
 460:                                              ; preds = %455
   %461 = load i8, ptr %283, align 4
   %462 = or i8 %461, 1
   store i8 %462, ptr %283, align 4
-  br label %tx_helper_rollback.exit206.thread.i
+  br label %tx_helper_rollback.exit202.thread.i
 
 463:                                              ; preds = %453
   %464 = load i8, ptr %287, align 8
   %465 = and i8 %464, 1
-  %.not.i205.i = icmp eq i8 %465, 0
-  br i1 %.not.i205.i, label %tx_helper_rollback.exit206.thread.i, label %466
+  %.not.i201.i = icmp eq i8 %465, 0
+  br i1 %.not.i201.i, label %tx_helper_rollback.exit202.thread.i, label %466
 
 466:                                              ; preds = %463
   %467 = getelementptr inbounds nuw i8, ptr %93, i64 64
@@ -1715,16 +1715,16 @@ tx_helper_get_space_left.exit204.i:               ; preds = %441, %437
   %469 = and i8 %468, -2
   store i8 %469, ptr %287, align 8
   store ptr null, ptr %286, align 8, !tbaa !124
-  br label %tx_helper_rollback.exit206.thread.i
+  br label %tx_helper_rollback.exit202.thread.i
 
-tx_helper_rollback.exit206.thread.i:              ; preds = %466, %463, %460, %tx_helper_get_space_left.exit204.i, %434, %tx_helper_rollback.exit.thread.i
-  %.6.i = phi i32 [ %.4247.ph.i, %434 ], [ %.4247.ph.i, %tx_helper_get_space_left.exit204.i ], [ %.0243.i, %tx_helper_rollback.exit.thread.i ], [ %.4247.ph.i, %466 ], [ %.4247.ph.i, %463 ], [ 1, %460 ]
+tx_helper_rollback.exit202.thread.i:              ; preds = %466, %463, %460, %tx_helper_get_space_left.exit200.i, %434, %tx_helper_rollback.exit.thread.i
+  %.6.i = phi i32 [ %.4243.ph.i, %434 ], [ %.4243.ph.i, %tx_helper_get_space_left.exit200.i ], [ %.0239.i, %tx_helper_rollback.exit.thread.i ], [ %.4243.ph.i, %466 ], [ %.4243.ph.i, %463 ], [ 1, %460 ]
   %470 = load ptr, ptr %61, align 8, !tbaa !50
   %471 = call ptr @ossl_quic_cfq_get_priority_head(ptr noundef %470, i32 noundef %switch.select3.i.i147) #10
-  %.not157397.i = icmp eq ptr %471, null
-  br i1 %.not157397.i, label %.thread278.thread.i, label %.lr.ph.i150
+  %.not157388.i = icmp eq ptr %471, null
+  br i1 %.not157388.i, label %.thread270.thread.i, label %.lr.ph.i150
 
-.lr.ph.i150:                                      ; preds = %tx_helper_rollback.exit206.thread.i
+.lr.ph.i150:                                      ; preds = %tx_helper_rollback.exit202.thread.i
   %472 = and i32 %304, 32
   %.not158.i = icmp eq i32 %472, 0
   %473 = and i32 %304, 4096
@@ -1738,12 +1738,12 @@ tx_helper_rollback.exit206.thread.i:              ; preds = %466, %463, %460, %t
   br label %477
 
 477:                                              ; preds = %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i, %.lr.ph.i150
-  %.0122400.i = phi i32 [ 0, %.lr.ph.i150 ], [ %.2.ph.i, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ]
-  %.0123399.i = phi ptr [ %471, %.lr.ph.i150 ], [ %532, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ]
-  %.8398.i = phi i32 [ %.6.i, %.lr.ph.i150 ], [ %.10.ph.i, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ]
-  %478 = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %.0123399.i) #10
-  %479 = call ptr @ossl_quic_cfq_item_get_encoded(ptr noundef nonnull %.0123399.i) #10
-  %480 = call i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef nonnull %.0123399.i) #10
+  %.0122391.i = phi i32 [ 0, %.lr.ph.i150 ], [ %.2.ph.i, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ]
+  %.0123390.i = phi ptr [ %471, %.lr.ph.i150 ], [ %532, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ]
+  %.8389.i = phi i32 [ %.6.i, %.lr.ph.i150 ], [ %.10.ph.i, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ]
+  %478 = call i64 @ossl_quic_cfq_item_get_frame_type(ptr noundef nonnull %.0123390.i) #10
+  %479 = call ptr @ossl_quic_cfq_item_get_encoded(ptr noundef nonnull %.0123390.i) #10
+  %480 = call i64 @ossl_quic_cfq_item_get_encoded_len(ptr noundef nonnull %.0123390.i) #10
   switch i64 %478, label %489 [
     i64 24, label %481
     i64 25, label %482
@@ -1761,7 +1761,7 @@ tx_helper_rollback.exit206.thread.i:              ; preds = %466, %463, %460, %t
   br i1 %.not159.i, label %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i, label %484
 
 484:                                              ; preds = %483
-  %.not160.i = icmp eq i32 %.0122400.i, 0
+  %.not160.i = icmp eq i32 %.0122391.i, 0
   br i1 %.not160.i, label %485, label %490
 
 485:                                              ; preds = %484
@@ -1779,26 +1779,26 @@ tx_helper_rollback.exit206.thread.i:              ; preds = %466, %463, %460, %t
   br i1 %.not164.i, label %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i, label %490
 
 490:                                              ; preds = %489, %488, %485, %484, %482, %481
-  %.3.i = phi i32 [ %.0122400.i, %489 ], [ %.0122400.i, %481 ], [ %.0122400.i, %482 ], [ 1, %484 ], [ %.0122400.i, %488 ], [ %486, %485 ]
+  %.3.i = phi i32 [ %.0122391.i, %489 ], [ %.0122391.i, %481 ], [ %.0122391.i, %482 ], [ 1, %484 ], [ %.0122391.i, %488 ], [ %486, %485 ]
   %491 = load i64, ptr %279, align 8, !tbaa !121
   %492 = load i8, ptr %283, align 4
   %493 = and i8 %492, 1
-  %.not.i207.i = icmp eq i8 %493, 0
-  br i1 %.not.i207.i, label %494, label %tx_helper_get_space_left.exit208.i
+  %.not.i203.i = icmp eq i8 %493, 0
+  br i1 %.not.i203.i, label %494, label %tx_helper_get_space_left.exit204.i
 
 494:                                              ; preds = %490
   %495 = load i64, ptr %280, align 16, !tbaa !122
-  br label %tx_helper_get_space_left.exit208.i
+  br label %tx_helper_get_space_left.exit204.i
 
-tx_helper_get_space_left.exit208.i:               ; preds = %494, %490
+tx_helper_get_space_left.exit204.i:               ; preds = %494, %490
   %496 = phi i64 [ %495, %494 ], [ 0, %490 ]
   %497 = load i64, ptr %282, align 16, !tbaa !129
   %498 = add i64 %496, %497
   %499 = sub i64 %491, %498
   %500 = icmp ugt i64 %480, %499
-  br i1 %500, label %.thread278.i, label %501
+  br i1 %500, label %.thread270.i, label %501
 
-501:                                              ; preds = %tx_helper_get_space_left.exit208.i
+501:                                              ; preds = %tx_helper_get_space_left.exit204.i
   %502 = load ptr, ptr %93, align 16, !tbaa !119
   %503 = getelementptr inbounds nuw i8, ptr %502, i64 552
   %504 = load i32, ptr %278, align 16, !tbaa !120
@@ -1809,8 +1809,8 @@ tx_helper_get_space_left.exit208.i:               ; preds = %494, %490
 
 508:                                              ; preds = %501
   %509 = and i8 %492, 2
-  %.not.i209.i = icmp eq i8 %509, 0
-  br i1 %.not.i209.i, label %510, label %tx_helper_rollback.exit.thread302.i, !prof !130
+  %.not.i205.i = icmp eq i8 %509, 0
+  br i1 %.not.i205.i, label %510, label %tx_helper_rollback.exit.thread293.i, !prof !130
 
 510:                                              ; preds = %508
   %511 = load i64, ptr %281, align 8, !tbaa !123
@@ -1834,7 +1834,7 @@ tx_helper_get_space_left.exit208.i:               ; preds = %494, %490
   %519 = shl i64 %spec.select.i.i.i, 4
   %520 = call ptr @CRYPTO_realloc(ptr noundef %518, i64 noundef %519, ptr noundef nonnull @.str, i32 noundef 3164) #10
   %521 = icmp eq ptr %520, null
-  br i1 %521, label %tx_helper_rollback.exit.thread302.i, label %522
+  br i1 %521, label %tx_helper_rollback.exit.thread293.i, label %522
 
 522:                                              ; preds = %515
   store ptr %520, ptr %517, align 8, !tbaa !72
@@ -1859,7 +1859,7 @@ tx_helper_get_space_left.exit208.i:               ; preds = %494, %490
   br label %tx_helper_append_iovec.exit.i
 
 tx_helper_append_iovec.exit.i:                    ; preds = %523, %501
-  call void @ossl_quic_txpim_pkt_add_cfq_item(ptr noundef nonnull %318, ptr noundef nonnull %.0123399.i) #10
+  call void @ossl_quic_txpim_pkt_add_cfq_item(ptr noundef nonnull %318, ptr noundef nonnull %.0123390.i) #10
   switch i64 %478, label %ossl_quic_frame_type_is_ack_eliciting.exit.i [
     i64 0, label %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i
     i64 2, label %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i
@@ -1875,25 +1875,25 @@ ossl_quic_frame_type_is_ack_eliciting.exit.i:     ; preds = %tx_helper_append_io
   br label %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i
 
 ossl_quic_frame_type_is_ack_eliciting.exit.thread.i: ; preds = %ossl_quic_frame_type_is_ack_eliciting.exit.i, %tx_helper_append_iovec.exit.i, %tx_helper_append_iovec.exit.i, %tx_helper_append_iovec.exit.i, %tx_helper_append_iovec.exit.i, %tx_helper_append_iovec.exit.i, %489, %487, %483, %482, %481
-  %.10.ph.i = phi i32 [ %.8398.i, %487 ], [ %.8398.i, %483 ], [ %.8398.i, %482 ], [ %.8398.i, %481 ], [ 1, %ossl_quic_frame_type_is_ack_eliciting.exit.i ], [ %.8398.i, %489 ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ], [ %.8398.i, %tx_helper_append_iovec.exit.i ]
-  %.2.ph.i = phi i32 [ %.0122400.i, %487 ], [ %.0122400.i, %483 ], [ %.0122400.i, %482 ], [ %.0122400.i, %481 ], [ %.3.i, %ossl_quic_frame_type_is_ack_eliciting.exit.i ], [ %.0122400.i, %489 ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ]
-  %532 = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %.0123399.i, i32 noundef %switch.select3.i.i147) #10
+  %.10.ph.i = phi i32 [ %.8389.i, %487 ], [ %.8389.i, %483 ], [ %.8389.i, %482 ], [ %.8389.i, %481 ], [ 1, %ossl_quic_frame_type_is_ack_eliciting.exit.i ], [ %.8389.i, %489 ], [ %.8389.i, %tx_helper_append_iovec.exit.i ], [ %.8389.i, %tx_helper_append_iovec.exit.i ], [ %.8389.i, %tx_helper_append_iovec.exit.i ], [ %.8389.i, %tx_helper_append_iovec.exit.i ], [ %.8389.i, %tx_helper_append_iovec.exit.i ]
+  %.2.ph.i = phi i32 [ %.0122391.i, %487 ], [ %.0122391.i, %483 ], [ %.0122391.i, %482 ], [ %.0122391.i, %481 ], [ %.3.i, %ossl_quic_frame_type_is_ack_eliciting.exit.i ], [ %.0122391.i, %489 ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ], [ %.3.i, %tx_helper_append_iovec.exit.i ]
+  %532 = call ptr @ossl_quic_cfq_item_get_priority_next(ptr noundef nonnull %.0123390.i, i32 noundef %switch.select3.i.i147) #10
   %.not157.i = icmp eq ptr %532, null
-  br i1 %.not157.i, label %.thread278.i, label %477, !llvm.loop !135
+  br i1 %.not157.i, label %.thread270.i, label %477, !llvm.loop !135
 
-.thread278.i:                                     ; preds = %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i, %tx_helper_get_space_left.exit208.i
-  %.8.lcssa.ph.i = phi i32 [ %.10.ph.i, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ], [ %.8398.i, %tx_helper_get_space_left.exit208.i ]
-  %.1.ph.i = phi i32 [ %.2.ph.i, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ], [ %.3.i, %tx_helper_get_space_left.exit208.i ]
+.thread270.i:                                     ; preds = %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i, %tx_helper_get_space_left.exit204.i
+  %.8.lcssa.ph.i = phi i32 [ %.10.ph.i, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ], [ %.8389.i, %tx_helper_get_space_left.exit204.i ]
+  %.1.ph.i = phi i32 [ %.2.ph.i, %ossl_quic_frame_type_is_ack_eliciting.exit.thread.i ], [ %.3.i, %tx_helper_get_space_left.exit204.i ]
   %533 = icmp eq i32 %.1.ph.i, 0
-  br i1 %533, label %.thread278.thread.i, label %535
+  br i1 %533, label %.thread270.thread.i, label %535
 
-.thread278.thread.i:                              ; preds = %.thread278.i, %tx_helper_rollback.exit206.thread.i
-  %.8.lcssa519.i = phi i32 [ %.8.lcssa.ph.i, %.thread278.i ], [ %.6.i, %tx_helper_rollback.exit206.thread.i ]
+.thread270.thread.i:                              ; preds = %.thread270.i, %tx_helper_rollback.exit202.thread.i
+  %.8.lcssa510.i = phi i32 [ %.8.lcssa.ph.i, %.thread270.i ], [ %.6.i, %tx_helper_rollback.exit202.thread.i ]
   %534 = call fastcc i32 @txp_generate_pre_token(ptr noundef nonnull %0, ptr noundef nonnull %93, i32 noundef range(i32 0, 2) %311, ptr noundef %21)
   br label %535
 
-535:                                              ; preds = %.thread278.thread.i, %.thread278.i
-  %.8.lcssa518.i = phi i32 [ %.8.lcssa519.i, %.thread278.thread.i ], [ %.8.lcssa.ph.i, %.thread278.i ]
+535:                                              ; preds = %.thread270.thread.i, %.thread270.i
+  %.8.lcssa509.i = phi i32 [ %.8.lcssa510.i, %.thread270.thread.i ], [ %.8.lcssa.ph.i, %.thread270.i ]
   %536 = and i32 %304, 4
   %.not169.i = icmp eq i32 %536, 0
   br i1 %.not169.i, label %642, label %537
@@ -1921,14 +1921,14 @@ ossl_quic_frame_type_is_ack_eliciting.exit.thread.i: ; preds = %ossl_quic_frame_
   %544 = getelementptr inbounds nuw i8, ptr %542, i64 16
   br label %545
 
-545:                                              ; preds = %._crit_edge.i213.i, %537
-  %.15.i = phi i32 [ %.8.lcssa518.i, %537 ], [ 1, %._crit_edge.i213.i ]
-  %.028.i.i = phi i64 [ 0, %537 ], [ %.1.lcssa.i.i, %._crit_edge.i213.i ]
+545:                                              ; preds = %._crit_edge.i209.i, %537
+  %.15.i = phi i32 [ %.8.lcssa509.i, %537 ], [ 1, %._crit_edge.i209.i ]
+  %.028.i.i = phi i64 [ 0, %537 ], [ %.1.lcssa.i.i, %._crit_edge.i209.i ]
   %546 = load i64, ptr %279, align 8, !tbaa !121
   %547 = load i8, ptr %283, align 4
   %548 = and i8 %547, 1
-  %.not.i.i211.i = icmp eq i8 %548, 0
-  br i1 %.not.i.i211.i, label %549, label %tx_helper_get_space_left.exit.i.i
+  %.not.i.i207.i = icmp eq i8 %548, 0
+  br i1 %.not.i.i207.i, label %549, label %tx_helper_get_space_left.exit.i.i
 
 549:                                              ; preds = %545
   %550 = load i64, ptr %280, align 16, !tbaa !122
@@ -1946,8 +1946,8 @@ tx_helper_get_space_left.exit.i.i:                ; preds = %549, %545
   store i64 2, ptr %15, align 8, !tbaa !49
   %557 = load ptr, ptr %540, align 8, !tbaa !55
   %558 = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %557, i64 noundef %.028.i.i, ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull %15) #10
-  %.not.i212.i = icmp eq i32 %558, 0
-  br i1 %.not.i212.i, label %txp_generate_crypto_frames.exit.thread.i, label %559
+  %.not.i208.i = icmp eq i32 %558, 0
+  br i1 %.not.i208.i, label %txp_generate_crypto_frames.exit.thread.i, label %559
 
 559:                                              ; preds = %556
   %560 = load i64, ptr %71, align 8, !tbaa !136
@@ -1980,18 +1980,18 @@ determine_crypto_len.exit.i.i:                    ; preds = %563
   br i1 %.not.i36.i.i, label %574, label %581
 
 574:                                              ; preds = %568
-  %.not13.i.i215.i = icmp eq i64 %573, 0
+  %.not13.i.i211.i = icmp eq i64 %573, 0
   %575 = shl i64 %573, 1
-  %spec.select.i.i216.i = select i1 %.not13.i.i215.i, i64 8, i64 %575
+  %spec.select.i.i212.i = select i1 %.not13.i.i211.i, i64 8, i64 %575
   %576 = load ptr, ptr %544, align 8, !tbaa !72
-  %577 = shl i64 %spec.select.i.i216.i, 4
+  %577 = shl i64 %spec.select.i.i212.i, 4
   %578 = call ptr @CRYPTO_realloc(ptr noundef %576, i64 noundef %577, ptr noundef nonnull @.str, i32 noundef 3164) #10
   %579 = icmp eq ptr %578, null
   br i1 %579, label %txp_generate_crypto_frames.exit.i, label %580
 
 580:                                              ; preds = %574
   store ptr %578, ptr %544, align 8, !tbaa !72
-  store i64 %spec.select.i.i216.i, ptr %543, align 8, !tbaa !131
+  store i64 %spec.select.i.i212.i, ptr %543, align 8, !tbaa !131
   br label %581
 
 581:                                              ; preds = %580, %568
@@ -2027,7 +2027,7 @@ determine_crypto_len.exit.i.i:                    ; preds = %563
 .preheader.i.i:                                   ; preds = %593
   %595 = load i64, ptr %15, align 8, !tbaa !49
   %.not48.i.i = icmp eq i64 %595, 0
-  br i1 %.not48.i.i, label %._crit_edge.i213.i, label %.lr.ph.i.i
+  br i1 %.not48.i.i, label %._crit_edge.i209.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %tx_helper_append_iovec.exit.i.i
   %.147.i.i = phi i64 [ %629, %tx_helper_append_iovec.exit.i.i ], [ 0, %.preheader.i.i ]
@@ -2102,9 +2102,9 @@ tx_helper_append_iovec.exit.i.i:                  ; preds = %622, %614, %606, %.
 
 ._crit_edge.loopexit.i.i:                         ; preds = %tx_helper_append_iovec.exit.i.i
   %632 = add i64 %.147.i.i, 2
-  br label %._crit_edge.i213.i
+  br label %._crit_edge.i209.i
 
-._crit_edge.i213.i:                               ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
+._crit_edge.i209.i:                               ; preds = %._crit_edge.loopexit.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i64 [ 1, %.preheader.i.i ], [ %632, %._crit_edge.loopexit.i.i ]
   %633 = load i8, ptr %283, align 4
   %634 = or i8 %633, 1
@@ -2132,17 +2132,17 @@ txp_generate_crypto_frames.exit.thread.i:         ; preds = %determine_crypto_le
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %642
 
-txp_generate_crypto_frames.exit.i:                ; preds = %._crit_edge.i213.i, %593, %581, %574
+txp_generate_crypto_frames.exit.i:                ; preds = %._crit_edge.i209.i, %593, %581, %574
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %tx_helper_rollback.exit.thread302.i
+  br label %tx_helper_rollback.exit.thread293.i
 
 642:                                              ; preds = %txp_generate_crypto_frames.exit.thread.i, %535
-  %.11.i = phi i32 [ %.8.lcssa518.i, %535 ], [ %.15.i, %txp_generate_crypto_frames.exit.thread.i ]
+  %.11.i = phi i32 [ %.8.lcssa509.i, %535 ], [ %.15.i, %txp_generate_crypto_frames.exit.thread.i ]
   %643 = and i32 %304, 256
   %.not171.i = icmp eq i32 %643, 0
   br i1 %.not171.i, label %1017, label %644
@@ -2160,9 +2160,9 @@ txp_generate_crypto_frames.exit.i:                ; preds = %._crit_edge.i213.i,
   call void @ossl_quic_stream_iter_init(ptr noundef nonnull %12, ptr noundef %649, i32 noundef 1) #10
   %650 = load ptr, ptr %77, align 8, !tbaa !109
   %.not187.i.i = icmp eq ptr %650, null
-  br i1 %.not187.i.i, label %txp_generate_stream_related.exit.i, label %.lr.ph.i217.i
+  br i1 %.not187.i.i, label %txp_generate_stream_related.exit.i, label %.lr.ph.i213.i
 
-.lr.ph.i217.i:                                    ; preds = %647, %.thread148.i.i
+.lr.ph.i213.i:                                    ; preds = %647, %.thread148.i.i
   %.17.i = phi i32 [ %.22.i, %.thread148.i.i ], [ %.11.i, %647 ]
   %651 = phi ptr [ %1016, %.thread148.i.i ], [ %650, %647 ]
   %.077188.i.i = phi i64 [ %.178.i.i, %.thread148.i.i ], [ 0, %647 ]
@@ -2178,7 +2178,7 @@ txp_generate_crypto_frames.exit.i:                ; preds = %._crit_edge.i213.i,
   %.not87.i.i = icmp eq i64 %657, 0
   br i1 %.not87.i.i, label %683, label %658
 
-658:                                              ; preds = %.lr.ph.i217.i
+658:                                              ; preds = %.lr.ph.i213.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %659 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %93)
   %660 = icmp eq ptr %659, null
@@ -2198,8 +2198,8 @@ txp_generate_crypto_frames.exit.i:                ; preds = %._crit_edge.i213.i,
 667:                                              ; preds = %661
   %668 = load i8, ptr %287, align 8
   %669 = and i8 %668, 1
-  %.not.i.i228.i = icmp eq i8 %669, 0
-  br i1 %.not.i.i228.i, label %680, label %670
+  %.not.i.i224.i = icmp eq i8 %669, 0
+  br i1 %.not.i.i224.i, label %680, label %670
 
 670:                                              ; preds = %667
   %671 = getelementptr inbounds nuw i8, ptr %93, i64 64
@@ -2237,9 +2237,9 @@ txp_generate_crypto_frames.exit.i:                ; preds = %._crit_edge.i213.i,
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %txp_generate_stream_related.exit.i
 
-683:                                              ; preds = %.thread117.i.i, %.lr.ph.i217.i
-  %.18.i = phi i32 [ %.17.i, %.lr.ph.i217.i ], [ 1, %.thread117.i.i ]
-  %684 = phi i64 [ %655, %.lr.ph.i217.i ], [ %679, %.thread117.i.i ]
+683:                                              ; preds = %.thread117.i.i, %.lr.ph.i213.i
+  %.18.i = phi i32 [ %.17.i, %.lr.ph.i213.i ], [ 1, %.thread117.i.i ]
+  %684 = phi i64 [ %655, %.lr.ph.i213.i ], [ %679, %.thread117.i.i ]
   %685 = and i64 %684, 34359738368
   %.not90.i.i = icmp eq i64 %685, 0
   br i1 %.not90.i.i, label %729, label %686
@@ -2330,7 +2330,7 @@ ossl_quic_stream_send_get_final_size.exit.i.i:    ; preds = %692
   %725 = sub i64 %723, %724
   store i64 %725, ptr %656, align 8, !tbaa !147
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %.pre.i218.i = load i64, ptr %653, align 8
+  %.pre.i214.i = load i64, ptr %653, align 8
   br label %729
 
 .thread125.i.i:                                   ; preds = %715, %713, %ossl_quic_stream_send_get_final_size.exit.i.i, %692, %689, %686
@@ -2347,7 +2347,7 @@ ossl_quic_stream_send_get_final_size.exit.i.i:    ; preds = %692
 
 729:                                              ; preds = %.thread127.i.i, %683
   %.20.i = phi i32 [ %.18.i, %683 ], [ 1, %.thread127.i.i ]
-  %730 = phi i64 [ %684, %683 ], [ %.pre.i218.i, %.thread127.i.i ]
+  %730 = phi i64 [ %684, %683 ], [ %.pre.i214.i, %.thread127.i.i ]
   %731 = and i64 %730, 16711680
   %732 = icmp eq i64 %731, 65536
   br i1 %732, label %733, label %763
@@ -2361,9 +2361,9 @@ ossl_quic_stream_send_get_final_size.exit.i.i:    ; preds = %692
   %736 = getelementptr inbounds nuw i8, ptr %651, i64 160
   %737 = call i32 @ossl_quic_rxfc_has_cwm_changed(ptr noundef nonnull %736, i32 noundef 0) #10
   %.not96.i.i = icmp eq i32 %737, 0
-  br i1 %.not96.i.i, label %._crit_edge.i227.i, label %738
+  br i1 %.not96.i.i, label %._crit_edge.i223.i, label %738
 
-._crit_edge.i227.i:                               ; preds = %735
+._crit_edge.i223.i:                               ; preds = %735
   %.val.pre.i.i = load i64, ptr %653, align 8
   br label %763
 
@@ -2417,9 +2417,9 @@ tx_helper_rollback.exit108.i.i:                   ; preds = %750, %747
   store i64 %762, ptr %653, align 8
   br label %763
 
-763:                                              ; preds = %758, %._crit_edge.i227.i, %729
-  %.21.i = phi i32 [ %.20.i, %._crit_edge.i227.i ], [ 1, %758 ], [ %.20.i, %729 ]
-  %.val.i.i152 = phi i64 [ %.val.pre.i.i, %._crit_edge.i227.i ], [ %762, %758 ], [ %730, %729 ]
+763:                                              ; preds = %758, %._crit_edge.i223.i, %729
+  %.21.i = phi i32 [ %.20.i, %._crit_edge.i223.i ], [ 1, %758 ], [ %.20.i, %729 ]
+  %.val.i.i152 = phi i64 [ %.val.pre.i.i, %._crit_edge.i223.i ], [ %762, %758 ], [ %730, %729 ]
   %764 = lshr i64 %.val.i.i152, 8
   %trunc.i109.i.i = trunc i64 %764 to i8
   %765 = add i8 %trunc.i109.i.i, -4
@@ -2476,8 +2476,8 @@ tx_helper_rollback.exit108.i.i:                   ; preds = %750, %747
   %790 = call i32 @ossl_quic_sstream_get_stream_frame(ptr noundef %777, i64 noundef %.0104171.i.i.i, ptr noundef nonnull %.0104171.i.sroa.phi.i.i, ptr noundef nonnull %789, ptr noundef nonnull %788) #10
   %791 = getelementptr inbounds nuw i8, ptr %.0104171.i.sroa.phi.i.i, i64 88
   store i32 %790, ptr %791, align 8, !tbaa !165
-  %.not.i.i.i220.i = icmp eq i32 %790, 0
-  br i1 %.not.i.i.i220.i, label %814, label %792
+  %.not.i.i.i216.i = icmp eq i32 %790, 0
+  br i1 %.not.i.i.i216.i, label %814, label %792
 
 792:                                              ; preds = %786
   %793 = getelementptr inbounds nuw i8, ptr %.0104171.i.sroa.phi.i.i, i64 16
@@ -2510,8 +2510,8 @@ tx_helper_rollback.exit108.i.i:                   ; preds = %750, %747
   br i1 %808, label %thread-pre-split.i.i.i.i, label %814
 
 thread-pre-split.i.i.i.i:                         ; preds = %804
-  %spec.select.i.i.i224.i = call i64 @llvm.usub.sat.i64(i64 %802, i64 %806)
-  store i64 %spec.select.i.i.i224.i, ptr %793, align 8, !tbaa !166
+  %spec.select.i.i.i220.i = call i64 @llvm.usub.sat.i64(i64 %802, i64 %806)
+  store i64 %spec.select.i.i.i220.i, ptr %793, align 8, !tbaa !166
   %809 = getelementptr inbounds nuw i8, ptr %.0104171.i.sroa.phi.i.i, i64 32
   %810 = load i8, ptr %809, align 8
   %811 = and i8 %810, -3
@@ -2520,9 +2520,9 @@ thread-pre-split.i.i.i.i:                         ; preds = %804
   br i1 %.not4.i.i.i.i, label %814, label %.thread.i.thread.i.i.i
 
 .thread.i.i.i.i:                                  ; preds = %.critedge.i.i.i.i
-  %.phi.trans.insert.i.i225.i = getelementptr inbounds nuw i8, ptr %.0104171.i.sroa.phi.i.i, i64 32
-  %.pre.i.i226.i = load i8, ptr %.phi.trans.insert.i.i225.i, align 8
-  %812 = and i8 %.pre.i.i226.i, 2
+  %.phi.trans.insert.i.i221.i = getelementptr inbounds nuw i8, ptr %.0104171.i.sroa.phi.i.i, i64 32
+  %.pre.i.i222.i = load i8, ptr %.phi.trans.insert.i.i221.i, align 8
+  %812 = and i8 %.pre.i.i222.i, 2
   %813 = icmp eq i8 %812, 0
   br i1 %813, label %.thread.i.thread.i.i.i, label %814
 
@@ -2774,9 +2774,9 @@ determine_stream_len.exit145.i.i.i:               ; preds = %.critedge.i.i.i
   br i1 %.not.i146.i.i.i, label %926, label %933
 
 926:                                              ; preds = %919
-  %.not13.i.i.i223.i = icmp eq i64 %925, 0
+  %.not13.i.i.i219.i = icmp eq i64 %925, 0
   %927 = shl i64 %925, 1
-  %spec.select.i148.i.i.i = select i1 %.not13.i.i.i223.i, i64 8, i64 %927
+  %spec.select.i148.i.i.i = select i1 %.not13.i.i.i219.i, i64 8, i64 %927
   %928 = load ptr, ptr %785, align 8, !tbaa !72
   %929 = shl i64 %spec.select.i148.i.i.i, 4
   %930 = call ptr @CRYPTO_realloc(ptr noundef %928, i64 noundef %929, ptr noundef nonnull @.str, i32 noundef 3164) #10
@@ -2821,7 +2821,7 @@ determine_stream_len.exit145.i.i.i:               ; preds = %.critedge.i.i.i
 .preheader.i.i.i:                                 ; preds = %945
   %947 = load i64, ptr %921, align 16, !tbaa !164
   %.not173.i.i.i = icmp eq i64 %947, 0
-  br i1 %.not173.i.i.i, label %._crit_edge.i.i221.i, label %.lr.ph.i.i.i
+  br i1 %.not173.i.i.i, label %._crit_edge.i.i217.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %tx_helper_append_iovec.exit.i.i.i
   %.0106172.i.i.i = phi i64 [ %981, %tx_helper_append_iovec.exit.i.i.i ], [ 0, %.preheader.i.i.i ]
@@ -2892,9 +2892,9 @@ tx_helper_append_iovec.exit.i.i.i:                ; preds = %974, %966, %958, %.
   %981 = add nuw i64 %.0106172.i.i.i, 1
   %982 = load i64, ptr %921, align 16, !tbaa !164
   %983 = icmp ult i64 %981, %982
-  br i1 %983, label %.lr.ph.i.i.i, label %._crit_edge.i.i221.i, !llvm.loop !170
+  br i1 %983, label %.lr.ph.i.i.i, label %._crit_edge.i.i217.i, !llvm.loop !170
 
-._crit_edge.i.i221.i:                             ; preds = %tx_helper_append_iovec.exit.i.i.i, %.preheader.i.i.i
+._crit_edge.i.i217.i:                             ; preds = %tx_helper_append_iovec.exit.i.i.i, %.preheader.i.i.i
   %984 = load i8, ptr %283, align 4
   %985 = or i8 %984, 1
   store i8 %985, ptr %283, align 4
@@ -2903,19 +2903,19 @@ tx_helper_append_iovec.exit.i.i.i:                ; preds = %974, %966, %958, %.
   %.not123.i.i.i = icmp eq i8 %987, 0
   br i1 %.not123.i.i.i, label %988, label %._crit_edge182.i.i.i
 
-988:                                              ; preds = %._crit_edge.i.i221.i
+988:                                              ; preds = %._crit_edge.i.i217.i
   %989 = or i8 %984, 3
   store i8 %989, ptr %283, align 4
   br label %._crit_edge182.i.i.i
 
-._crit_edge182.i.i.i:                             ; preds = %988, %._crit_edge.i.i221.i
+._crit_edge182.i.i.i:                             ; preds = %988, %._crit_edge.i.i217.i
   %990 = load i64, ptr %874, align 16, !tbaa !140
   %.not124.i.i.i = icmp eq i64 %990, 0
   %.phi.trans.insert183.i.i.i = getelementptr inbounds nuw i8, ptr %831, i64 8
   %.pre184.i.i.i = load i64, ptr %.phi.trans.insert183.i.i.i, align 8, !tbaa !136
   %991 = add i64 %.pre184.i.i.i, %990
-  %spec.select.i.i222.i = call i64 @llvm.umax.i64(i64 %991, i64 %.1.i.i.i)
-  %.2.i.i.i = select i1 %.not124.i.i.i, i64 %.1.i.i.i, i64 %spec.select.i.i222.i
+  %spec.select.i.i218.i = call i64 @llvm.umax.i64(i64 %991, i64 %.1.i.i.i)
+  %.2.i.i.i = select i1 %.not124.i.i.i, i64 %.1.i.i.i, i64 %spec.select.i.i218.i
   %992 = load i64, ptr %831, align 16, !tbaa !171
   store i64 %992, ptr %7, align 8, !tbaa !143
   store i64 %.pre184.i.i.i, ptr %81, align 8, !tbaa !145
@@ -2997,12 +2997,12 @@ tx_helper_append_iovec.exit.i.i.i:                ; preds = %974, %966, %958, %.
   store ptr %1014, ptr %1015, align 8, !tbaa !154
   store ptr %651, ptr %648, align 16, !tbaa !153
   %1016 = load ptr, ptr %77, align 8, !tbaa !109
-  %.not.i219.i = icmp eq ptr %1016, null
-  br i1 %.not.i219.i, label %txp_generate_stream_related.exit.i, label %.lr.ph.i217.i, !llvm.loop !172
+  %.not.i215.i = icmp eq ptr %1016, null
+  br i1 %.not.i215.i, label %txp_generate_stream_related.exit.i, label %.lr.ph.i213.i, !llvm.loop !172
 
 txp_generate_stream_related.exit.thread.i:        ; preds = %771, %756, %738, %.loopexit.i.i, %.thread125.i.i, %.thread.i.i155
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %tx_helper_rollback.exit.thread302.i
+  br label %tx_helper_rollback.exit.thread293.i
 
 txp_generate_stream_related.exit.i:               ; preds = %.thread148.i.i, %.loopexit155.i.i, %tx_helper_rollback.exit108.i.i, %726, %680, %647
   %.27.i = phi i32 [ %.11.i, %647 ], [ %.26.i, %.loopexit155.i.i ], [ %.20.i, %tx_helper_rollback.exit108.i.i ], [ %.18.i, %726 ], [ %.17.i, %680 ], [ %.22.i, %.thread148.i.i ]
@@ -3019,13 +3019,13 @@ txp_generate_stream_related.exit.i:               ; preds = %.thread148.i.i, %.l
 
 1020:                                             ; preds = %1017
   %1021 = and i32 %304, 2
-  %.not.i229.i = icmp eq i32 %1021, 0
-  br i1 %.not.i229.i, label %1038, label %1022
+  %.not.i225.i = icmp eq i32 %1021, 0
+  br i1 %.not.i225.i, label %1038, label %1022
 
 1022:                                             ; preds = %1020
   %1023 = and i32 %304, 32768
   %.not3.i.i153 = icmp eq i32 %1023, 0
-  br i1 %.not3.i.i153, label %txp_need_ping.exit.i154, label %txp_need_ping.exit.thread289.i
+  br i1 %.not3.i.i153, label %txp_need_ping.exit.i154, label %txp_need_ping.exit.thread281.i
 
 txp_need_ping.exit.i154:                          ; preds = %1022
   %1024 = load i16, ptr %57, align 8
@@ -3035,35 +3035,35 @@ txp_need_ping.exit.i154:                          ; preds = %1022
   %1028 = shl nuw nsw i32 1, %switch.select3.i.i147
   %1029 = and i32 %1028, %1027
   %.not175.i = icmp eq i32 %1029, 0
-  br i1 %.not175.i, label %1038, label %txp_need_ping.exit.thread289.i
+  br i1 %.not175.i, label %1038, label %txp_need_ping.exit.thread281.i
 
-txp_need_ping.exit.thread289.i:                   ; preds = %txp_need_ping.exit.i154, %1022
+txp_need_ping.exit.thread281.i:                   ; preds = %txp_need_ping.exit.i154, %1022
   %1030 = call fastcc ptr @tx_helper_begin(ptr noundef nonnull %93)
   %1031 = icmp eq ptr %1030, null
-  br i1 %1031, label %tx_helper_rollback.exit.thread302.i, label %1032
+  br i1 %1031, label %tx_helper_rollback.exit.thread293.i, label %1032
 
-1032:                                             ; preds = %txp_need_ping.exit.thread289.i
+1032:                                             ; preds = %txp_need_ping.exit.thread281.i
   %1033 = call i32 @ossl_quic_wire_encode_frame_ping(ptr noundef nonnull %1030) #10
   %.not176.i = icmp eq i32 %1033, 0
-  br i1 %.not176.i, label %tx_helper_rollback.exit.thread302.i, label %1034
+  br i1 %.not176.i, label %tx_helper_rollback.exit.thread293.i, label %1034
 
 1034:                                             ; preds = %1032
   %1035 = call fastcc i32 @tx_helper_commit(ptr noundef nonnull %93)
   %.not177.i = icmp eq i32 %1035, 0
-  br i1 %.not177.i, label %tx_helper_rollback.exit.thread302.i, label %1036
+  br i1 %.not177.i, label %tx_helper_rollback.exit.thread293.i, label %1036
 
 1036:                                             ; preds = %1034, %1017
   store i32 0, ptr %21, align 4, !tbaa !38
   br label %1038
 
-tx_helper_rollback.exit.thread302.i:              ; preds = %1034, %1032, %txp_need_ping.exit.thread289.i, %455, %448, %417, %410, %379, %372, %339, %334, %515, %508, %txp_generate_stream_related.exit.thread.i, %txp_generate_crypto_frames.exit.i
+tx_helper_rollback.exit.thread293.i:              ; preds = %1034, %1032, %txp_need_ping.exit.thread281.i, %455, %448, %417, %410, %379, %372, %339, %334, %515, %508, %txp_generate_stream_related.exit.thread.i, %txp_generate_crypto_frames.exit.i
   %1037 = load ptr, ptr %70, align 8, !tbaa !52
   call void @ossl_quic_txpim_pkt_release(ptr noundef %1037, ptr noundef nonnull %318) #10
   store ptr null, ptr %307, align 8, !tbaa !128
   br label %txp_should_try_staging.exit
 
 1038:                                             ; preds = %1036, %txp_need_ping.exit.i154, %1020
-  %.13300.i = phi i8 [ 8, %1036 ], [ 0, %txp_need_ping.exit.i154 ], [ 0, %1020 ]
+  %.13291.i = phi i8 [ 8, %1036 ], [ 0, %txp_need_ping.exit.i154 ], [ 0, %1020 ]
   %1039 = load i64, ptr %282, align 16, !tbaa !129
   %1040 = load i64, ptr %262, align 8, !tbaa !173
   %1041 = add i64 %1040, %1039
@@ -3078,7 +3078,7 @@ tx_helper_rollback.exit.thread302.i:              ; preds = %1034, %1032, %txp_n
   %1048 = load i32, ptr %21, align 4, !tbaa !38
   %.not179.i = icmp eq i32 %1048, 0
   %1049 = select i1 %.not179.i, i8 4, i8 0
-  %1050 = or disjoint i8 %.13300.i, %1045
+  %1050 = or disjoint i8 %.13291.i, %1045
   %1051 = or disjoint i8 %1050, %1047
   %1052 = or disjoint i8 %1051, %1049
   store i8 %1052, ptr %1044, align 8
@@ -3102,7 +3102,7 @@ tx_helper_rollback.exit.thread302.i:              ; preds = %1034, %1032, %txp_n
   store i64 %1064, ptr %94, align 16, !tbaa !104
   br label %1065
 
-txp_should_try_staging.exit:                      ; preds = %316, %303, %tx_helper_rollback.exit.thread302.i
+txp_should_try_staging.exit:                      ; preds = %316, %303, %tx_helper_rollback.exit.thread293.i
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %.thread209
 

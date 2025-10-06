@@ -163,10 +163,9 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %46 = load i64, ptr %45, align 8, !tbaa !46
-  switch i64 %46, label %47 [
-    i64 -1, label %54
-    i64 0, label %54
-  ]
+  %.off = add i64 %46, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %47, label %54
 
 47:                                               ; preds = %44
   %48 = tail call i64 @H5F_get_base_addr(ptr noundef nonnull %0) #6
@@ -180,10 +179,10 @@ define internal fastcc i64 @H5MF__aggr_alloc(ptr noundef %0, ptr noundef capture
   %53 = sub i64 %40, %50
   br label %54
 
-54:                                               ; preds = %42, %39, %44, %44, %51, %47
-  %55 = phi i1 [ true, %51 ], [ true, %47 ], [ true, %44 ], [ true, %44 ], [ false, %39 ], [ false, %42 ]
-  %.0205 = phi i64 [ %52, %51 ], [ -1, %47 ], [ -1, %44 ], [ -1, %44 ], [ -1, %39 ], [ -1, %42 ]
-  %.0204 = phi i64 [ %53, %51 ], [ 0, %47 ], [ 0, %44 ], [ 0, %44 ], [ 0, %39 ], [ 0, %42 ]
+54:                                               ; preds = %42, %39, %44, %51, %47
+  %55 = phi i1 [ true, %51 ], [ true, %47 ], [ true, %44 ], [ false, %39 ], [ false, %42 ]
+  %.0205 = phi i64 [ %52, %51 ], [ -1, %47 ], [ -1, %44 ], [ -1, %39 ], [ -1, %42 ]
+  %.0204 = phi i64 [ %53, %51 ], [ 0, %47 ], [ 0, %44 ], [ 0, %39 ], [ 0, %42 ]
   %56 = load i64, ptr %1, align 8, !tbaa !42
   %57 = icmp eq i64 %56, 1
   %58 = select i1 %57, i32 0, i32 3

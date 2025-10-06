@@ -384,9 +384,9 @@ ossl_method_cache_flush.exit:                     ; preds = %24, %28
   br i1 %70, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %66, %81
-  %.066103 = phi i32 [ %82, %81 ], [ 0, %66 ]
+  %.066102 = phi i32 [ %82, %81 ], [ 0, %66 ]
   %71 = load ptr, ptr %67, align 8, !tbaa !18
-  %72 = tail call ptr @OPENSSL_sk_value(ptr noundef %71, i32 noundef %.066103) #7
+  %72 = tail call ptr @OPENSSL_sk_value(ptr noundef %71, i32 noundef %.066102) #7
   %73 = load ptr, ptr %72, align 8, !tbaa !30
   %74 = load ptr, ptr %14, align 8, !tbaa !30
   %75 = icmp eq ptr %73, %74
@@ -400,14 +400,14 @@ ossl_method_cache_flush.exit:                     ; preds = %24, %28
   br i1 %80, label %._crit_edge, label %81
 
 81:                                               ; preds = %.lr.ph, %76
-  %82 = add nuw nsw i32 %.066103, 1
+  %82 = add nuw nsw i32 %.066102, 1
   %83 = load ptr, ptr %67, align 8, !tbaa !18
   %84 = tail call i32 @OPENSSL_sk_num(ptr noundef %83) #7
   %85 = icmp slt i32 %82, %84
   br i1 %85, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %81, %76, %66
-  %.066.lcssa = phi i32 [ 0, %66 ], [ %.066103, %76 ], [ %82, %81 ]
+  %.066.lcssa = phi i32 [ 0, %66 ], [ %.066102, %76 ], [ %82, %81 ]
   %86 = load ptr, ptr %67, align 8, !tbaa !18
   %87 = tail call i32 @OPENSSL_sk_num(ptr noundef %86) #7
   %88 = icmp eq i32 %.066.lcssa, %87

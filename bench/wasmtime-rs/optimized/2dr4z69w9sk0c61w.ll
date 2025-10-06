@@ -4870,13 +4870,13 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Rights$u20$as$
 22:                                               ; preds = %16
   %23 = load atomic i64, ptr %.sroa.020.0.copyload.i monotonic, align 8, !noalias !58
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = icmp ult i64 %23, 536870912
+  %24 = icmp ugt i64 %23, 536870911
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.26, ptr %25, align 8, !noalias !62
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 6, ptr %26, align 8, !noalias !62
   store i32 0, ptr %3, align 8, !noalias !62
-  br i1 %24, label %28, label %30
+  br i1 %24, label %30, label %28
 
 27:                                               ; preds = %21, %14
   %.sroa.17.0.ph = phi i32 [ %.sroa.835.0.copyload.i, %14 ], [ undef, %21 ]
@@ -8339,13 +8339,13 @@ define void @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Fdflags$u20$as
 22:                                               ; preds = %15
   %23 = load atomic i16, ptr %.sroa.020.0.copyload.i monotonic, align 2, !noalias !213
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = icmp ult i16 %23, 32
+  %24 = icmp ugt i16 %23, 31
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.37, ptr %25, align 8, !noalias !217
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 7, ptr %26, align 8, !noalias !217
   store i32 0, ptr %3, align 8, !noalias !217
-  br i1 %24, label %28, label %30
+  br i1 %24, label %30, label %28
 
 27:                                               ; preds = %20, %14
   %.sroa.6.sroa.7.0.ph.in.in = phi i32 [ %.sroa.431.0.copyload.i, %14 ], [ %.sroa.522.0.copyload.i, %20 ]
@@ -9091,13 +9091,13 @@ define void @"_ZN100_$LT$wasi_common..snapshots..preview_0..types..Fstflags$u20$
 22:                                               ; preds = %15
   %23 = load atomic i16, ptr %.sroa.020.0.copyload.i monotonic, align 2, !noalias !240
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = icmp ult i16 %23, 16
+  %24 = icmp ugt i16 %23, 15
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.39, ptr %25, align 8, !noalias !244
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 8, ptr %26, align 8, !noalias !244
   store i32 0, ptr %3, align 8, !noalias !244
-  br i1 %24, label %28, label %30
+  br i1 %24, label %30, label %28
 
 27:                                               ; preds = %20, %14
   %.sroa.6.sroa.7.0.ph.in.in = phi i32 [ %.sroa.431.0.copyload.i, %14 ], [ %.sroa.522.0.copyload.i, %20 ]
@@ -9334,13 +9334,13 @@ define void @"_ZN103_$LT$wasi_common..snapshots..preview_0..types..Lookupflags$u
 22:                                               ; preds = %15
   %23 = load atomic i32, ptr %.sroa.020.0.copyload.i monotonic, align 4, !noalias !253
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = icmp ult i32 %23, 2
+  %24 = icmp ugt i32 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.41, ptr %25, align 8, !noalias !257
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 11, ptr %26, align 8, !noalias !257
   store i32 0, ptr %3, align 8, !noalias !257
-  br i1 %24, label %28, label %30
+  br i1 %24, label %30, label %28
 
 27:                                               ; preds = %20, %14
   %.sroa.11.0.ph = phi ptr [ %.sroa.532.0.copyload.i, %14 ], [ %21, %20 ]
@@ -9576,13 +9576,13 @@ define void @"_ZN98_$LT$wasi_common..snapshots..preview_0..types..Oflags$u20$as$
 22:                                               ; preds = %15
   %23 = load atomic i16, ptr %.sroa.020.0.copyload.i monotonic, align 2, !noalias !266
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = icmp ult i16 %23, 16
+  %24 = icmp ugt i16 %23, 15
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.43, ptr %25, align 8, !noalias !270
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 6, ptr %26, align 8, !noalias !270
   store i32 0, ptr %3, align 8, !noalias !270
-  br i1 %24, label %28, label %30
+  br i1 %24, label %30, label %28
 
 27:                                               ; preds = %20, %14
   %.sroa.6.sroa.7.0.ph.in.in = phi i32 [ %.sroa.431.0.copyload.i, %14 ], [ %.sroa.522.0.copyload.i, %20 ]
@@ -11226,13 +11226,13 @@ define void @"_ZN104_$LT$wasi_common..snapshots..preview_0..types..Eventrwflags$
 22:                                               ; preds = %15
   %23 = load atomic i16, ptr %.sroa.020.0.copyload.i monotonic, align 2, !noalias !311
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = icmp ult i16 %23, 2
+  %24 = icmp ugt i16 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.46, ptr %25, align 8, !noalias !315
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 12, ptr %26, align 8, !noalias !315
   store i32 0, ptr %3, align 8, !noalias !315
-  br i1 %24, label %28, label %30
+  br i1 %24, label %30, label %28
 
 27:                                               ; preds = %20, %14
   %.sroa.6.sroa.7.0.ph.in.in = phi i32 [ %.sroa.431.0.copyload.i, %14 ], [ %.sroa.522.0.copyload.i, %20 ]
@@ -12377,13 +12377,13 @@ define void @"_ZN105_$LT$wasi_common..snapshots..preview_0..types..Subclockflags
 22:                                               ; preds = %15
   %23 = load atomic i16, ptr %.sroa.020.0.copyload.i monotonic, align 2, !noalias !355
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = icmp ult i16 %23, 2
+  %24 = icmp ugt i16 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.48, ptr %25, align 8, !noalias !359
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 13, ptr %26, align 8, !noalias !359
   store i32 0, ptr %3, align 8, !noalias !359
-  br i1 %24, label %28, label %30
+  br i1 %24, label %30, label %28
 
 27:                                               ; preds = %20, %14
   %.sroa.6.sroa.7.0.ph.in.in = phi i32 [ %.sroa.431.0.copyload.i, %14 ], [ %.sroa.522.0.copyload.i, %20 ]
@@ -17518,13 +17518,13 @@ define void @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Riflags$u20$as
 22:                                               ; preds = %15
   %23 = load atomic i16, ptr %.sroa.020.0.copyload.i monotonic, align 2, !noalias !590
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = icmp ult i16 %23, 4
+  %24 = icmp ugt i16 %23, 3
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.52, ptr %25, align 8, !noalias !594
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 7, ptr %26, align 8, !noalias !594
   store i32 0, ptr %3, align 8, !noalias !594
-  br i1 %24, label %28, label %30
+  br i1 %24, label %30, label %28
 
 27:                                               ; preds = %20, %14
   %.sroa.6.sroa.7.0.ph.in.in = phi i32 [ %.sroa.431.0.copyload.i, %14 ], [ %.sroa.522.0.copyload.i, %20 ]
@@ -17761,13 +17761,13 @@ define void @"_ZN99_$LT$wasi_common..snapshots..preview_0..types..Roflags$u20$as
 22:                                               ; preds = %15
   %23 = load atomic i16, ptr %.sroa.020.0.copyload.i monotonic, align 2, !noalias !603
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %24 = icmp ult i16 %23, 2
+  %24 = icmp ugt i16 %23, 1
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr @anon.7a4003ca7240578a3185bf7ac86c948b.55, ptr %25, align 8, !noalias !607
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 7, ptr %26, align 8, !noalias !607
   store i32 0, ptr %3, align 8, !noalias !607
-  br i1 %24, label %28, label %30
+  br i1 %24, label %30, label %28
 
 27:                                               ; preds = %20, %14
   %.sroa.6.sroa.7.0.ph.in.in = phi i32 [ %.sroa.431.0.copyload.i, %14 ], [ %.sroa.522.0.copyload.i, %20 ]

@@ -516,8 +516,8 @@ define ptr @OSSL_CMP_CTX_setup_CRM(ptr noundef %0, i32 noundef %1, i32 noundef %
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   %13 = tail call ptr @ossl_cmp_ctx_get0_newPubkey(ptr noundef nonnull %0) #7
-  %.not129 = icmp eq ptr %12, null
-  br i1 %.not129, label %18, label %14
+  %.not126 = icmp eq ptr %12, null
+  br i1 %.not126, label %18, label %14
 
 14:                                               ; preds = %.thread, %10
   %15 = phi ptr [ %9, %.thread ], [ %13, %10 ]
@@ -662,7 +662,7 @@ determine_subj.exit:                              ; preds = %25, %28, %33, %35, 
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %87 = load i32, ptr %86, align 8, !tbaa !48
   %.not106 = icmp eq i32 %87, 0
-  br i1 %.not106, label %.thread121, label %88
+  br i1 %.not106, label %.thread120, label %88
 
 88:                                               ; preds = %85
   %89 = tail call i64 @time(ptr noundef null) #7
@@ -677,26 +677,26 @@ determine_subj.exit:                              ; preds = %25, %28, %33, %35, 
 95:                                               ; preds = %88
   %96 = tail call i32 @OSSL_CRMF_MSG_set0_validity(ptr noundef nonnull %74, ptr noundef nonnull %90, ptr noundef nonnull %92) #7
   %.not107 = icmp eq i32 %96, 0
-  br i1 %.not107, label %97, label %.thread121
+  br i1 %.not107, label %97, label %.thread120
 
 97:                                               ; preds = %88, %95
   tail call void @ASN1_TIME_free(ptr noundef %90) #7
   tail call void @ASN1_TIME_free(ptr noundef %92) #7
   br label %add1_extension.exit.thread
 
-.thread121:                                       ; preds = %95, %85
+.thread120:                                       ; preds = %95, %85
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %99 = load ptr, ptr %98, align 8, !tbaa !40
   %.not108 = icmp eq ptr %99, null
   br i1 %.not108, label %103, label %100
 
-100:                                              ; preds = %.thread121
+100:                                              ; preds = %.thread120
   %101 = tail call ptr @X509_REQ_get_extensions(ptr noundef nonnull %99) #7
   store ptr %101, ptr %4, align 8, !tbaa !47
   %102 = icmp eq ptr %101, null
   br i1 %102, label %add1_extension.exit.thread, label %103
 
-103:                                              ; preds = %100, %.thread121
+103:                                              ; preds = %100, %.thread120
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %105 = load i32, ptr %104, align 8, !tbaa !49
   %.not109 = icmp eq i32 %105, 0
@@ -755,9 +755,9 @@ determine_subj.exit:                              ; preds = %25, %28, %33, %35, 
 
 add1_extension.exit:                              ; preds = %133
   %137 = call ptr @X509v3_add_ext(ptr noundef nonnull %4, ptr noundef nonnull %135, i32 noundef 0) #7
-  %.not130 = icmp eq ptr %137, null
+  %.not127 = icmp eq ptr %137, null
   call void @X509_EXTENSION_free(ptr noundef nonnull %135) #7
-  br i1 %.not130, label %add1_extension.exit.thread, label %138
+  br i1 %.not127, label %add1_extension.exit.thread, label %138
 
 138:                                              ; preds = %add1_extension.exit, %128
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 416
@@ -896,7 +896,7 @@ define ptr @ossl_cmp_certreq_new(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br i1 %.not, label %53, label %4, !prof !18
 
 4:                                                ; preds = %3
-  %.not61 = icmp eq i32 %1, 4
+  %.not60 = icmp eq i32 %1, 4
   switch i32 %1, label %5 [
     i32 7, label %6
     i32 4, label %6
@@ -912,7 +912,7 @@ define ptr @ossl_cmp_certreq_new(ptr noundef %0, i32 noundef %1, ptr noundef %2)
 
 6:                                                ; preds = %4, %4, %4, %4
   %7 = icmp ne ptr %2, null
-  %or.cond7 = and i1 %.not61, %7
+  %or.cond7 = and i1 %.not60, %7
   br i1 %or.cond7, label %8, label %9
 
 8:                                                ; preds = %6
@@ -939,7 +939,7 @@ define ptr @ossl_cmp_certreq_new(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br i1 %.not53, label %.thread, label %18
 
 18:                                               ; preds = %15, %12
-  br i1 %.not61, label %50, label %19
+  br i1 %.not60, label %50, label %19
 
 19:                                               ; preds = %18
   %20 = tail call ptr @OSSL_CMP_CTX_get0_newPkey(ptr noundef nonnull %0, i32 noundef 1) #7

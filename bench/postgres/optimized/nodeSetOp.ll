@@ -310,20 +310,20 @@ ExecProcNode.exit.i:                              ; preds = %40, %38
 
 67:                                               ; preds = %86, %.preheader.i
   %68 = load ptr, ptr %65, align 8
-  %.not.i34.i = icmp eq ptr %68, null
-  br i1 %.not.i34.i, label %ExecProcNode.exit35.i, label %69
+  %.not.i33.i = icmp eq ptr %68, null
+  br i1 %.not.i33.i, label %ExecProcNode.exit34.i, label %69
 
 69:                                               ; preds = %67
   call void @ExecReScan(ptr noundef nonnull %33) #5
-  br label %ExecProcNode.exit35.i
+  br label %ExecProcNode.exit34.i
 
-ExecProcNode.exit35.i:                            ; preds = %69, %67
+ExecProcNode.exit34.i:                            ; preds = %69, %67
   %70 = load ptr, ptr %66, align 8
   %71 = call ptr %70(ptr noundef nonnull %33) #5
   %72 = icmp eq ptr %71, null
   br i1 %72, label %setop_fill_hash_table.exit, label %73
 
-73:                                               ; preds = %ExecProcNode.exit35.i
+73:                                               ; preds = %ExecProcNode.exit34.i
   %74 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %75 = load i16, ptr %74, align 4
   %76 = and i16 %75, 2
@@ -350,7 +350,7 @@ ExecProcNode.exit35.i:                            ; preds = %69, %67
   call void @MemoryContextReset(ptr noundef %87) #5
   br label %67
 
-setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit35.i, %73, %64
+setop_fill_hash_table.exit:                       ; preds = %ExecProcNode.exit34.i, %73, %64
   store i8 1, ptr %24, align 8
   %88 = load ptr, ptr %36, align 8
   %89 = load ptr, ptr %88, align 8
@@ -960,95 +960,95 @@ slot_getallattrs.exit:                            ; preds = %3, %11
 slot_getallattrs.exit29:                          ; preds = %slot_getallattrs.exit, %19
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %21 = load i32, ptr %20, align 8
-  %.not3840 = icmp sgt i32 %21, 0
-  br i1 %.not3840, label %.lr.ph, label %ApplySortComparator.exit.thread
+  %22 = icmp sgt i32 %21, 0
+  br i1 %22, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %slot_getallattrs.exit29
-  %22 = getelementptr inbounds nuw i8, ptr %2, i64 224
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %27
+  %23 = getelementptr inbounds nuw i8, ptr %2, i64 224
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  br label %28
 
-27:                                               ; preds = %.lr.ph, %ApplySortComparator.exit.thread33
-  %28 = phi i32 [ %21, %.lr.ph ], [ %69, %ApplySortComparator.exit.thread33 ]
+28:                                               ; preds = %.lr.ph, %ApplySortComparator.exit.thread33
+  %29 = phi i32 [ %21, %.lr.ph ], [ %70, %ApplySortComparator.exit.thread33 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ApplySortComparator.exit.thread33 ]
-  %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds nuw %struct.SortSupportData, ptr %29, i64 %indvars.iv
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 14
-  %32 = load i16, ptr %31, align 2
-  %33 = load ptr, ptr %23, align 8
-  %34 = sext i16 %32 to i64
-  %35 = add nsw i64 %34, -1
-  %36 = getelementptr inbounds i64, ptr %33, i64 %35
-  %37 = load i64, ptr %36, align 8
-  %38 = load ptr, ptr %24, align 8
-  %39 = getelementptr inbounds i64, ptr %38, i64 %35
-  %40 = load i64, ptr %39, align 8
-  %41 = load ptr, ptr %25, align 8
-  %42 = getelementptr inbounds i8, ptr %41, i64 %35
-  %43 = load i8, ptr %42, align 1, !range !4, !noundef !5
-  %44 = trunc nuw i8 %43 to i1
-  %45 = load ptr, ptr %26, align 8
-  %46 = getelementptr inbounds i8, ptr %45, i64 %35
-  %47 = load i8, ptr %46, align 1, !range !4, !noundef !5
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %44, label %49, label %54
+  %30 = load ptr, ptr %23, align 8
+  %31 = getelementptr inbounds nuw %struct.SortSupportData, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 14
+  %33 = load i16, ptr %32, align 2
+  %34 = load ptr, ptr %24, align 8
+  %35 = sext i16 %33 to i64
+  %36 = add nsw i64 %35, -1
+  %37 = getelementptr inbounds i64, ptr %34, i64 %36
+  %38 = load i64, ptr %37, align 8
+  %39 = load ptr, ptr %25, align 8
+  %40 = getelementptr inbounds i64, ptr %39, i64 %36
+  %41 = load i64, ptr %40, align 8
+  %42 = load ptr, ptr %26, align 8
+  %43 = getelementptr inbounds i8, ptr %42, i64 %36
+  %44 = load i8, ptr %43, align 1, !range !4, !noundef !5
+  %45 = trunc nuw i8 %44 to i1
+  %46 = load ptr, ptr %27, align 8
+  %47 = getelementptr inbounds i8, ptr %46, i64 %36
+  %48 = load i8, ptr %47, align 1, !range !4, !noundef !5
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %45, label %50, label %55
 
-49:                                               ; preds = %27
-  br i1 %48, label %ApplySortComparator.exit.thread33, label %50
+50:                                               ; preds = %28
+  br i1 %49, label %ApplySortComparator.exit.thread33, label %51
 
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds nuw i8, ptr %30, i64 13
-  %52 = load i8, ptr %51, align 1, !range !4, !noundef !5
-  %53 = trunc nuw i8 %52 to i1
-  %..i = select i1 %53, i32 -1, i32 1
-  br label %ApplySortComparator.exit.thread
+51:                                               ; preds = %50
+  %52 = getelementptr inbounds nuw i8, ptr %31, i64 13
+  %53 = load i8, ptr %52, align 1, !range !4, !noundef !5
+  %54 = trunc nuw i8 %53 to i1
+  %..i = select i1 %54, i32 -1, i32 1
+  br label %.thread
 
-54:                                               ; preds = %27
-  br i1 %48, label %55, label %59
+55:                                               ; preds = %28
+  br i1 %49, label %56, label %60
 
-55:                                               ; preds = %54
-  %56 = getelementptr inbounds nuw i8, ptr %30, i64 13
-  %57 = load i8, ptr %56, align 1, !range !4, !noundef !5
-  %58 = trunc nuw i8 %57 to i1
-  %.12.i = select i1 %58, i32 1, i32 -1
-  br label %ApplySortComparator.exit.thread
+56:                                               ; preds = %55
+  %57 = getelementptr inbounds nuw i8, ptr %31, i64 13
+  %58 = load i8, ptr %57, align 1, !range !4, !noundef !5
+  %59 = trunc nuw i8 %58 to i1
+  %.12.i = select i1 %59, i32 1, i32 -1
+  br label %.thread
 
-59:                                               ; preds = %54
-  %60 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call i32 %61(i64 noundef %37, i64 noundef %40, ptr noundef nonnull %30) #5
-  %63 = getelementptr inbounds nuw i8, ptr %30, i64 12
-  %64 = load i8, ptr %63, align 4, !range !4, !noundef !5
-  %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %66, label %ApplySortComparator.exit
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds nuw i8, ptr %31, i64 24
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call i32 %62(i64 noundef %38, i64 noundef %41, ptr noundef nonnull %31) #5
+  %64 = getelementptr inbounds nuw i8, ptr %31, i64 12
+  %65 = load i8, ptr %64, align 4, !range !4, !noundef !5
+  %66 = trunc nuw i8 %65 to i1
+  br i1 %66, label %67, label %ApplySortComparator.exit
 
-66:                                               ; preds = %59
-  %67 = icmp slt i32 %62, 0
-  %68 = sub nsw i32 0, %62
-  br i1 %67, label %ApplySortComparator.exit.thread, label %ApplySortComparator.exit
+67:                                               ; preds = %60
+  %68 = icmp slt i32 %63, 0
+  %69 = sub nsw i32 0, %63
+  br i1 %68, label %.thread, label %ApplySortComparator.exit
 
-ApplySortComparator.exit:                         ; preds = %66, %59
-  %.0.i = phi i32 [ %68, %66 ], [ %62, %59 ]
+ApplySortComparator.exit:                         ; preds = %67, %60
+  %.0.i = phi i32 [ %69, %67 ], [ %63, %60 ]
   %.not = icmp eq i32 %.0.i, 0
-  br i1 %.not, label %ApplySortComparator.exit.ApplySortComparator.exit.thread33_crit_edge, label %ApplySortComparator.exit.thread
+  br i1 %.not, label %ApplySortComparator.exit.ApplySortComparator.exit.thread33_crit_edge, label %.thread
 
 ApplySortComparator.exit.ApplySortComparator.exit.thread33_crit_edge: ; preds = %ApplySortComparator.exit
   %.pre = load i32, ptr %20, align 8
   br label %ApplySortComparator.exit.thread33
 
-ApplySortComparator.exit.thread33:                ; preds = %ApplySortComparator.exit.ApplySortComparator.exit.thread33_crit_edge, %49
-  %69 = phi i32 [ %.pre, %ApplySortComparator.exit.ApplySortComparator.exit.thread33_crit_edge ], [ %28, %49 ]
+ApplySortComparator.exit.thread33:                ; preds = %ApplySortComparator.exit.ApplySortComparator.exit.thread33_crit_edge, %50
+  %70 = phi i32 [ %.pre, %ApplySortComparator.exit.ApplySortComparator.exit.thread33_crit_edge ], [ %29, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = sext i32 %69 to i64
-  %.not38 = icmp slt i64 %indvars.iv.next, %70
-  br i1 %.not38, label %27, label %ApplySortComparator.exit.thread, !llvm.loop !11
+  %71 = sext i32 %70 to i64
+  %72 = icmp slt i64 %indvars.iv.next, %71
+  br i1 %72, label %28, label %.thread, !llvm.loop !11
 
-ApplySortComparator.exit.thread:                  ; preds = %ApplySortComparator.exit, %ApplySortComparator.exit.thread33, %66, %slot_getallattrs.exit29, %55, %50
-  %spec.select = phi i32 [ %..i, %50 ], [ %.12.i, %55 ], [ 0, %slot_getallattrs.exit29 ], [ %.0.i, %ApplySortComparator.exit ], [ 0, %ApplySortComparator.exit.thread33 ], [ 1, %66 ]
-  ret i32 %spec.select
+.thread:                                          ; preds = %ApplySortComparator.exit.thread33, %ApplySortComparator.exit, %67, %slot_getallattrs.exit29, %56, %51
+  %73 = phi i32 [ %.12.i, %56 ], [ %..i, %51 ], [ 0, %slot_getallattrs.exit29 ], [ 0, %ApplySortComparator.exit.thread33 ], [ %.0.i, %ApplySortComparator.exit ], [ 1, %67 ]
+  ret i32 %73
 }
 
 declare void @slot_getsomeattrs_int(ptr noundef, i32 noundef) local_unnamed_addr #1

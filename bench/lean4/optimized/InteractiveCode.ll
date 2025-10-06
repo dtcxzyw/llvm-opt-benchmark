@@ -6776,9 +6776,9 @@ define ptr @l_Lean_RBNode_find___at_Lean_Widget_CodeWithInfos_mergePosMap___spec
 lean_obj_tag.exit.us:                             ; preds = %10, %7
   %.0.i26.us = phi i32 [ %9, %7 ], [ %12, %10 ]
   %13 = icmp eq i32 %.0.i26.us, 0
-  br i1 %13, label %.loopexit, label %lean_nat_lt.exit.thread36.us
+  br i1 %13, label %.loopexit, label %lean_nat_lt.exit.thread34.us
 
-lean_nat_lt.exit.thread36.us:                     ; preds = %lean_obj_tag.exit.us
+lean_nat_lt.exit.thread34.us:                     ; preds = %lean_obj_tag.exit.us
   %14 = getelementptr inbounds nuw i8, ptr %.021.us, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = getelementptr inbounds nuw i8, ptr %.021.us, i64 16
@@ -6790,12 +6790,12 @@ lean_nat_lt.exit.thread36.us:                     ; preds = %lean_obj_tag.exit.u
   %22 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %1, ptr noundef %17) #8
   br i1 %22, label %.split.us.backedge, label %.critedge.i.us
 
-.critedge.i.us:                                   ; preds = %lean_nat_lt.exit.thread36.us
+.critedge.i.us:                                   ; preds = %lean_nat_lt.exit.thread34.us
   %23 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %1, ptr noundef %17) #8
-  br i1 %23, label %.split43.us, label %.split.us.backedge
+  br i1 %23, label %.split41.us, label %.split.us.backedge
 
-.split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread36.us
-  %.021.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread36.us ]
+.split.us.backedge:                               ; preds = %.critedge.i.us, %lean_nat_lt.exit.thread34.us
+  %.021.us.be = phi ptr [ %21, %.critedge.i.us ], [ %15, %lean_nat_lt.exit.thread34.us ]
   br label %.split.us
 
 .split:                                           ; preds = %2, %.split.backedge
@@ -6832,20 +6832,20 @@ lean_obj_tag.exit:                                ; preds = %26, %29
   %41 = load ptr, ptr %40, align 8, !tbaa !10
   %42 = ptrtoint ptr %37 to i64
   %43 = and i64 %42, 1
-  %.not38 = icmp eq i64 %43, 0
-  br i1 %.not38, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !17
+  %.not36 = icmp eq i64 %43, 0
+  br i1 %.not36, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !17
 
 lean_nat_lt.exit:                                 ; preds = %33
   %44 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %1, ptr noundef %37) #8
   br i1 %44, label %.split.backedge, label %lean_nat_eq.exit
 
 lean_nat_lt.exit.thread:                          ; preds = %33
-  %.not39 = icmp ult ptr %1, %37
-  br i1 %.not39, label %.split.backedge, label %.thread
+  %.not37 = icmp ult ptr %1, %37
+  br i1 %.not37, label %.split.backedge, label %.thread
 
 .thread:                                          ; preds = %lean_nat_lt.exit.thread
   %45 = icmp eq ptr %1, %37
-  br i1 %45, label %.split43.us, label %.split.backedge
+  br i1 %45, label %.split41.us, label %.split.backedge
 
 .split.backedge:                                  ; preds = %.thread, %lean_nat_lt.exit.thread, %lean_nat_lt.exit, %lean_nat_eq.exit
   %.021.be = phi ptr [ %41, %lean_nat_eq.exit ], [ %35, %lean_nat_lt.exit ], [ %35, %lean_nat_lt.exit.thread ], [ %41, %.thread ]
@@ -6853,16 +6853,16 @@ lean_nat_lt.exit.thread:                          ; preds = %33
 
 lean_nat_eq.exit:                                 ; preds = %lean_nat_lt.exit
   %46 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %1, ptr noundef %37) #8
-  br i1 %46, label %.split43.us, label %.split.backedge
+  br i1 %46, label %.split41.us, label %.split.backedge
 
-.split43.us:                                      ; preds = %lean_nat_eq.exit, %.thread, %.critedge.i.us
+.split41.us:                                      ; preds = %lean_nat_eq.exit, %.thread, %.critedge.i.us
   %.us-phi = phi ptr [ %19, %.critedge.i.us ], [ %39, %.thread ], [ %39, %lean_nat_eq.exit ]
   %47 = ptrtoint ptr %.us-phi to i64
   %48 = and i64 %47, 1
-  %.not41 = icmp eq i64 %48, 0
-  br i1 %.not41, label %49, label %lean_inc.exit
+  %.not39 = icmp eq i64 %48, 0
+  br i1 %.not39, label %49, label %lean_inc.exit
 
-49:                                               ; preds = %.split43.us
+49:                                               ; preds = %.split41.us
   %.val.i27 = load i32, ptr %.us-phi, align 4, !tbaa !4
   %50 = icmp sgt i32 %.val.i27, 0
   br i1 %50, label %51, label %53, !prof !9
@@ -6880,7 +6880,7 @@ lean_nat_eq.exit:                                 ; preds = %lean_nat_lt.exit
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %.us-phi) #8
   br label %lean_inc.exit
 
-lean_inc.exit:                                    ; preds = %54, %53, %51, %.split43.us
+lean_inc.exit:                                    ; preds = %54, %53, %51, %.split41.us
   tail call void @lean_inc_heartbeat() #8
   %55 = tail call noalias ptr @mi_malloc_small(i64 noundef 16) #8
   %56 = icmp eq ptr %55, null

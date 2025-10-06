@@ -9529,18 +9529,18 @@ define dso_local void @_ZN5clang6Parser26checkPotentialAngleBracketERNS_12Action
 30:                                               ; preds = %12
   %31 = load i32, ptr %14, align 8
   %32 = and i32 %31, 4194304
-  %.not.i.i34.i = icmp eq i32 %32, 0
-  br i1 %.not.i.i34.i, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread, label %33
+  %.not.i.i31.i = icmp eq i32 %32, 0
+  br i1 %.not.i.i31.i, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread, label %33
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %35 = lshr i32 %31, 20
-  %.lobit.i.i.i.i.i.i.i35.i = and i32 %35, 1
-  %36 = zext nneg i32 %.lobit.i.i.i.i.i.i.i35.i to i64
+  %.lobit.i.i.i.i.i.i.i32.i = and i32 %35, 1
+  %36 = zext nneg i32 %.lobit.i.i.i.i.i.i.i32.i to i64
   %37 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %34, i64 %36
   %38 = lshr i32 %31, 21
-  %.lobit.i.i.i.i.i.i36.i = and i32 %38, 1
-  %39 = zext nneg i32 %.lobit.i.i.i.i.i.i36.i to i64
+  %.lobit.i.i.i.i.i.i33.i = and i32 %38, 1
+  %39 = zext nneg i32 %.lobit.i.i.i.i.i.i33.i to i64
   %40 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %37, i64 %39
   %41 = load i32, ptr %40, align 8, !tbaa !320
   %42 = icmp eq i32 %41, 0
@@ -9549,8 +9549,8 @@ define dso_local void @_ZN5clang6Parser26checkPotentialAngleBracketERNS_12Action
 43:                                               ; preds = %12
   %44 = load i24, ptr %14, align 8
   %45 = and i24 %44, 524288
-  %.not.i.i39.i = icmp eq i24 %45, 0
-  br i1 %.not.i.i39.i, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread, label %46
+  %.not.i.i36.i = icmp eq i24 %45, 0
+  br i1 %.not.i.i36.i, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread, label %46
 
 46:                                               ; preds = %43
   %47 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -9561,8 +9561,8 @@ define dso_local void @_ZN5clang6Parser26checkPotentialAngleBracketERNS_12Action
 50:                                               ; preds = %12
   %51 = load i32, ptr %14, align 8
   %52 = and i32 %51, 1048576
-  %.not.i.i42.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i42.i, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit
+  %.not.i.i39.i = icmp eq i32 %52, 0
+  br i1 %.not.i.i39.i, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit.thread, label %_ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit
 
 _ZN5clang4Sema31mightBeIntendedToBeTemplateNameENS_12ActionResultIPNS_4ExprELb1EEERb.exit: ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %14, i64 72
@@ -11473,8 +11473,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

@@ -4133,8 +4133,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1295: ; preds = %_ZN4cvc58internal
   %1774 = load i64, ptr %1773, align 8, !tbaa !341
   %1775 = urem i64 %1772, %1774
   %1776 = load i64, ptr %1762, align 8, !tbaa !338
-  %.not32.i = icmp eq i64 %1776, 0
-  br i1 %.not32.i, label %.critedge.i3506, label %1777
+  %.not30.i = icmp eq i64 %1776, 0
+  br i1 %.not30.i, label %.critedge.i3506, label %1777
 
 1777:                                             ; preds = %.noexc3508
   %1778 = load ptr, ptr %1761, align 8, !tbaa !342

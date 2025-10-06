@@ -152,34 +152,34 @@ bytestream2_get_byte.exit81:                      ; preds = %37
   br i1 %51, label %.lr.ph.split.us.split.split.us.i, label %.lr.ph.split.us.split.split.i
 
 .lr.ph.split.us.split.split.us.i:                 ; preds = %.lr.ph.split.us.i, %57
-  %storemerge.us97.us.i = phi ptr [ %storemerge.us.us104.i, %57 ], [ %.0197, %.lr.ph.split.us.i ]
-  %.04158.us.us100.i = phi i32 [ %.2.us.us105.i, %57 ], [ %49, %.lr.ph.split.us.i ]
-  %.04257.us.us101.i = phi i32 [ %58, %57 ], [ %44, %.lr.ph.split.us.i ]
-  %52 = tail call i32 @llvm.smin.i32(i32 %.04257.us.us101.i, i32 %.04158.us.us100.i)
+  %storemerge.us96.us.i = phi ptr [ %storemerge.us.us103.i, %57 ], [ %.0197, %.lr.ph.split.us.i ]
+  %.04157.us.us99.i = phi i32 [ %.2.us.us104.i, %57 ], [ %49, %.lr.ph.split.us.i ]
+  %.04256.us.us100.i = phi i32 [ %58, %57 ], [ %44, %.lr.ph.split.us.i ]
+  %52 = tail call i32 @llvm.smin.i32(i32 %.04256.us.us100.i, i32 %.04157.us.us99.i)
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %storemerge.us97.us.i, i64 %53
-  %55 = sub nsw i32 %.04158.us.us100.i, %52
+  %54 = getelementptr inbounds i8, ptr %storemerge.us96.us.i, i64 %53
+  %55 = sub nsw i32 %.04157.us.us99.i, %52
   %56 = icmp slt i32 %55, 1
-  %narrow.us.us102.i = select i1 %56, i32 %50, i32 0
-  %storemerge.idx.us.us103.i = sext i32 %narrow.us.us102.i to i64
-  %storemerge.us.us104.i = getelementptr inbounds i8, ptr %54, i64 %storemerge.idx.us.us103.i
-  %.not49.us.us106.i = icmp ult ptr %storemerge.us.us104.i, %22
-  br i1 %.not49.us.us106.i, label %57, label %.thread249
+  %narrow.us.us101.i = select i1 %56, i32 %50, i32 0
+  %storemerge.idx.us.us102.i = sext i32 %narrow.us.us101.i to i64
+  %storemerge.us.us103.i = getelementptr inbounds i8, ptr %54, i64 %storemerge.idx.us.us102.i
+  %.not49.us.us105.i = icmp ult ptr %storemerge.us.us103.i, %22
+  br i1 %.not49.us.us105.i, label %57, label %.thread249
 
 57:                                               ; preds = %.lr.ph.split.us.split.split.us.i
-  %.2.us.us105.i = select i1 %56, i32 %45, i32 %55
-  %58 = sub nsw i32 %.04257.us.us101.i, %52
+  %.2.us.us104.i = select i1 %56, i32 %45, i32 %55
+  %58 = sub nsw i32 %.04256.us.us100.i, %52
   %59 = icmp sgt i32 %58, 0
   br i1 %59, label %.lr.ph.split.us.split.split.us.i, label %op.exit
 
 .lr.ph.split.us.split.split.i:                    ; preds = %.lr.ph.split.us.i, %65
-  %storemerge.us97.i = phi ptr [ %storemerge.us.i, %65 ], [ %.0197, %.lr.ph.split.us.i ]
-  %.04158.us.i = phi i32 [ %.2.us.i, %65 ], [ %49, %.lr.ph.split.us.i ]
-  %.04257.us.i = phi i32 [ %66, %65 ], [ %44, %.lr.ph.split.us.i ]
-  %60 = tail call i32 @llvm.smin.i32(i32 %.04257.us.i, i32 %.04158.us.i)
+  %storemerge.us96.i = phi ptr [ %storemerge.us.i, %65 ], [ %.0197, %.lr.ph.split.us.i ]
+  %.04157.us.i = phi i32 [ %.2.us.i, %65 ], [ %49, %.lr.ph.split.us.i ]
+  %.04256.us.i = phi i32 [ %66, %65 ], [ %44, %.lr.ph.split.us.i ]
+  %60 = tail call i32 @llvm.smin.i32(i32 %.04256.us.i, i32 %.04157.us.i)
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i8, ptr %storemerge.us97.i, i64 %61
-  %63 = sub nsw i32 %.04158.us.i, %60
+  %62 = getelementptr inbounds i8, ptr %storemerge.us96.i, i64 %61
+  %63 = sub nsw i32 %.04157.us.i, %60
   %64 = icmp slt i32 %63, 1
   %narrow.us.i = select i1 %64, i32 %50, i32 0
   %storemerge.idx.us.i = sext i32 %narrow.us.i to i64
@@ -189,7 +189,7 @@ bytestream2_get_byte.exit81:                      ; preds = %37
 
 65:                                               ; preds = %.lr.ph.split.us.split.split.i
   %.2.us.i = select i1 %64, i32 %45, i32 %63
-  %66 = sub nsw i32 %.04257.us.i, %60
+  %66 = sub nsw i32 %.04256.us.i, %60
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph.split.us.split.split.i, label %op.exit
 
@@ -198,10 +198,10 @@ bytestream2_get_byte.exit81:                      ; preds = %37
 
 .lr.ph.split.split.us.i.cont:                     ; preds = %.lr.ph.split.i, %80
   %68 = phi ptr [ %81, %80 ], [ %41, %.lr.ph.split.i ]
-  %.5 = phi ptr [ %storemerge.us78.i, %80 ], [ %.0197, %.lr.ph.split.i ]
-  %.04158.us74.i = phi i32 [ %.2.us79.i, %80 ], [ %49, %.lr.ph.split.i ]
-  %.04257.us75.i = phi i32 [ %82, %80 ], [ %44, %.lr.ph.split.i ]
-  %69 = tail call i32 @llvm.smin.i32(i32 %.04257.us75.i, i32 %.04158.us74.i)
+  %.5 = phi ptr [ %storemerge.us77.i, %80 ], [ %.0197, %.lr.ph.split.i ]
+  %.04157.us73.i = phi i32 [ %.2.us78.i, %80 ], [ %49, %.lr.ph.split.i ]
+  %.04256.us74.i = phi i32 [ %82, %80 ], [ %44, %.lr.ph.split.i ]
+  %69 = tail call i32 @llvm.smin.i32(i32 %.04256.us74.i, i32 %.04157.us73.i)
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %27, %70
   %72 = trunc i64 %71 to i32
@@ -213,27 +213,27 @@ bytestream2_get_byte.exit81:                      ; preds = %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.5, ptr align 1 %68, i64 %75, i1 false)
   %76 = sext i32 %69 to i64
   %77 = getelementptr inbounds i8, ptr %.5, i64 %76
-  %78 = sub nsw i32 %.04158.us74.i, %69
+  %78 = sub nsw i32 %.04157.us73.i, %69
   %79 = icmp slt i32 %78, 1
-  %narrow.us76.i = select i1 %79, i32 %50, i32 0
-  %storemerge.idx.us77.i = sext i32 %narrow.us76.i to i64
-  %storemerge.us78.i = getelementptr inbounds i8, ptr %77, i64 %storemerge.idx.us77.i
-  %.not49.us80.i = icmp ult ptr %storemerge.us78.i, %22
-  br i1 %.not49.us80.i, label %80, label %.thread249
+  %narrow.us75.i = select i1 %79, i32 %50, i32 0
+  %storemerge.idx.us76.i = sext i32 %narrow.us75.i to i64
+  %storemerge.us77.i = getelementptr inbounds i8, ptr %77, i64 %storemerge.idx.us76.i
+  %.not49.us79.i = icmp ult ptr %storemerge.us77.i, %22
+  br i1 %.not49.us79.i, label %80, label %.thread249
 
 80:                                               ; preds = %74
   %81 = getelementptr inbounds nuw i8, ptr %68, i64 %75
-  %.2.us79.i = select i1 %79, i32 %45, i32 %78
-  %82 = sub nsw i32 %.04257.us75.i, %69
+  %.2.us78.i = select i1 %79, i32 %45, i32 %78
+  %82 = sub nsw i32 %.04256.us74.i, %69
   %83 = icmp sgt i32 %82, 0
   br i1 %83, label %.lr.ph.split.split.us.i.cont, label %op.exit
 
 .lr.ph.split.split.i.cont:                        ; preds = %.lr.ph.split.i, %96
   %84 = phi ptr [ %97, %96 ], [ %41, %.lr.ph.split.i ]
   %.4 = phi ptr [ %storemerge.i, %96 ], [ %.0197, %.lr.ph.split.i ]
-  %.04158.i = phi i32 [ %.2.i, %96 ], [ %49, %.lr.ph.split.i ]
-  %.04257.i = phi i32 [ %98, %96 ], [ %44, %.lr.ph.split.i ]
-  %85 = tail call i32 @llvm.smin.i32(i32 %.04257.i, i32 %.04158.i)
+  %.04157.i = phi i32 [ %.2.i, %96 ], [ %49, %.lr.ph.split.i ]
+  %.04256.i = phi i32 [ %98, %96 ], [ %44, %.lr.ph.split.i ]
+  %85 = tail call i32 @llvm.smin.i32(i32 %.04256.i, i32 %.04157.i)
   %86 = ptrtoint ptr %84 to i64
   %87 = sub i64 %27, %86
   %88 = trunc i64 %87 to i32
@@ -245,7 +245,7 @@ bytestream2_get_byte.exit81:                      ; preds = %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.4, ptr align 1 %84, i64 %91, i1 false)
   %92 = sext i32 %85 to i64
   %93 = getelementptr inbounds i8, ptr %.4, i64 %92
-  %94 = sub nsw i32 %.04158.i, %85
+  %94 = sub nsw i32 %.04157.i, %85
   %95 = icmp slt i32 %94, 1
   %narrow.i = select i1 %95, i32 %50, i32 0
   %storemerge.idx.i = sext i32 %narrow.i to i64
@@ -256,15 +256,15 @@ bytestream2_get_byte.exit81:                      ; preds = %37
 96:                                               ; preds = %90
   %97 = getelementptr inbounds nuw i8, ptr %84, i64 %91
   %.2.i = select i1 %95, i32 %45, i32 %94
-  %98 = sub nsw i32 %.04257.i, %85
+  %98 = sub nsw i32 %.04256.i, %85
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %.lr.ph.split.split.i.cont, label %op.exit
 
 op.exit:                                          ; preds = %96, %80, %65, %57
   %.lcssa308313 = phi ptr [ %41, %57 ], [ %41, %65 ], [ %81, %80 ], [ %97, %96 ]
-  %.6 = phi ptr [ %storemerge.us.us104.i, %57 ], [ %storemerge.us.i, %65 ], [ %storemerge.us78.i, %80 ], [ %storemerge.i, %96 ]
-  %.041.pn.i = phi i32 [ %.2.us.us105.i, %57 ], [ %.2.us.i, %65 ], [ %.2.us79.i, %80 ], [ %.2.i, %96 ]
-  %storemerge56.i = sub nsw i32 %45, %.041.pn.i
+  %.6 = phi ptr [ %storemerge.us.us103.i, %57 ], [ %storemerge.us.i, %65 ], [ %storemerge.us77.i, %80 ], [ %storemerge.i, %96 ]
+  %.041.pn.i = phi i32 [ %.2.us.us104.i, %57 ], [ %.2.us.i, %65 ], [ %.2.us78.i, %80 ], [ %.2.i, %96 ]
+  %storemerge55.i = sub nsw i32 %45, %.041.pn.i
   br label %.thread240
 
 100:                                              ; preds = %bytestream2_get_byte.exit81
@@ -317,13 +317,13 @@ bytestream2_get_byte.exit85:                      ; preds = %bytestream2_get_byt
 
 .lr.ph.split.us.split.us.split.us.i:              ; preds = %.lr.ph.i92, %124
   %.8 = phi ptr [ %storemerge.us.us.us.i, %124 ], [ %.0197, %.lr.ph.i92 ]
-  %.04158.us.us.us.i = phi i32 [ %.2.us.us.us.i, %124 ], [ %113, %.lr.ph.i92 ]
-  %.04257.us.us.us.i = phi i32 [ %125, %124 ], [ %.0.i82, %.lr.ph.i92 ]
-  %119 = tail call i32 @llvm.smin.i32(i32 %.04257.us.us.us.i, i32 %.04158.us.us.us.i)
+  %.04157.us.us.us.i = phi i32 [ %.2.us.us.us.i, %124 ], [ %113, %.lr.ph.i92 ]
+  %.04256.us.us.us.i = phi i32 [ %125, %124 ], [ %.0.i82, %.lr.ph.i92 ]
+  %119 = tail call i32 @llvm.smin.i32(i32 %.04256.us.us.us.i, i32 %.04157.us.us.us.i)
   %120 = sext i32 %119 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.8, i8 %.0.i84, i64 %120, i1 false)
   %121 = getelementptr inbounds i8, ptr %.8, i64 %120
-  %122 = sub nsw i32 %.04158.us.us.us.i, %119
+  %122 = sub nsw i32 %.04157.us.us.us.i, %119
   %123 = icmp slt i32 %122, 1
   %narrow.us.us.us.i = select i1 %123, i32 %117, i32 0
   %storemerge.idx.us.us.us.i = sext i32 %narrow.us.us.us.i to i64
@@ -333,19 +333,19 @@ bytestream2_get_byte.exit85:                      ; preds = %bytestream2_get_byt
 
 124:                                              ; preds = %.lr.ph.split.us.split.us.split.us.i
   %.2.us.us.us.i = select i1 %123, i32 %112, i32 %122
-  %125 = sub nsw i32 %.04257.us.us.us.i, %119
+  %125 = sub nsw i32 %.04256.us.us.us.i, %119
   %126 = icmp sgt i32 %125, 0
   br i1 %126, label %.lr.ph.split.us.split.us.split.us.i, label %op.exit117.thread
 
 .lr.ph.split.us.split.us.split.i:                 ; preds = %.lr.ph.i92, %132
   %.7 = phi ptr [ %storemerge.us.us.i, %132 ], [ %.0197, %.lr.ph.i92 ]
-  %.04158.us.us.i = phi i32 [ %.2.us.us.i, %132 ], [ %113, %.lr.ph.i92 ]
-  %.04257.us.us.i = phi i32 [ %133, %132 ], [ %.0.i82, %.lr.ph.i92 ]
-  %127 = tail call i32 @llvm.smin.i32(i32 %.04257.us.us.i, i32 %.04158.us.us.i)
+  %.04157.us.us.i = phi i32 [ %.2.us.us.i, %132 ], [ %113, %.lr.ph.i92 ]
+  %.04256.us.us.i = phi i32 [ %133, %132 ], [ %.0.i82, %.lr.ph.i92 ]
+  %127 = tail call i32 @llvm.smin.i32(i32 %.04256.us.us.i, i32 %.04157.us.us.i)
   %128 = sext i32 %127 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.7, i8 %.0.i84, i64 %128, i1 false)
   %129 = getelementptr inbounds i8, ptr %.7, i64 %128
-  %130 = sub nsw i32 %.04158.us.us.i, %127
+  %130 = sub nsw i32 %.04157.us.us.i, %127
   %131 = icmp slt i32 %130, 1
   %narrow.us.us.i = select i1 %131, i32 %117, i32 0
   %storemerge.idx.us.us.i = sext i32 %narrow.us.us.i to i64
@@ -355,14 +355,14 @@ bytestream2_get_byte.exit85:                      ; preds = %bytestream2_get_byt
 
 132:                                              ; preds = %.lr.ph.split.us.split.us.split.i
   %.2.us.us.i = select i1 %131, i32 %112, i32 %130
-  %133 = sub nsw i32 %.04257.us.us.i, %127
+  %133 = sub nsw i32 %.04256.us.us.i, %127
   %134 = icmp sgt i32 %133, 0
   br i1 %134, label %.lr.ph.split.us.split.us.split.i, label %op.exit117.thread
 
 op.exit117.thread:                                ; preds = %132, %124, %bytestream2_get_byte.exit85
   %.9.ph = phi ptr [ %.0197, %bytestream2_get_byte.exit85 ], [ %storemerge.us.us.us.i, %124 ], [ %storemerge.us.us.i, %132 ]
   %.041.pn.i89.ph = phi i32 [ %113, %bytestream2_get_byte.exit85 ], [ %.2.us.us.us.i, %124 ], [ %.2.us.us.i, %132 ]
-  %storemerge56.i91218 = sub nsw i32 %112, %.041.pn.i89.ph
+  %storemerge55.i91218 = sub nsw i32 %112, %.041.pn.i89.ph
   br label %.thread240
 
 135:                                              ; preds = %100
@@ -432,13 +432,13 @@ bytestream2_get_byte.exit87:                      ; preds = %149, %153, %147
 
 .lr.ph.split.us.split.us.split.us.i172:           ; preds = %.lr.ph.split.us.split.us.i, %173
   %.13 = phi ptr [ %storemerge.us.us.us.i177, %173 ], [ %.0197, %.lr.ph.split.us.split.us.i ]
-  %.04158.us.us.us.i173 = phi i32 [ %.2.us.us.us.i178, %173 ], [ %163, %.lr.ph.split.us.split.us.i ]
-  %.04257.us.us.us.i174 = phi i32 [ %174, %173 ], [ %spec.select, %.lr.ph.split.us.split.us.i ]
-  %168 = tail call i32 @llvm.smin.i32(i32 %.04257.us.us.us.i174, i32 %.04158.us.us.us.i173)
+  %.04157.us.us.us.i173 = phi i32 [ %.2.us.us.us.i178, %173 ], [ %163, %.lr.ph.split.us.split.us.i ]
+  %.04256.us.us.us.i174 = phi i32 [ %174, %173 ], [ %spec.select, %.lr.ph.split.us.split.us.i ]
+  %168 = tail call i32 @llvm.smin.i32(i32 %.04256.us.us.us.i174, i32 %.04157.us.us.us.i173)
   %169 = sext i32 %168 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.13, i8 %164, i64 %169, i1 false)
   %170 = getelementptr inbounds i8, ptr %.13, i64 %169
-  %171 = sub nsw i32 %.04158.us.us.us.i173, %168
+  %171 = sub nsw i32 %.04157.us.us.us.i173, %168
   %172 = icmp slt i32 %171, 1
   %narrow.us.us.us.i175 = select i1 %172, i32 %165, i32 0
   %storemerge.idx.us.us.us.i176 = sext i32 %narrow.us.us.us.i175 to i64
@@ -448,19 +448,19 @@ bytestream2_get_byte.exit87:                      ; preds = %149, %153, %147
 
 173:                                              ; preds = %.lr.ph.split.us.split.us.split.us.i172
   %.2.us.us.us.i178 = select i1 %172, i32 %159, i32 %171
-  %174 = sub nsw i32 %.04257.us.us.us.i174, %168
+  %174 = sub nsw i32 %.04256.us.us.us.i174, %168
   %175 = icmp sgt i32 %174, 0
   br i1 %175, label %.lr.ph.split.us.split.us.split.us.i172, label %.loopexit
 
 .lr.ph.split.us.split.us.split.i164:              ; preds = %.lr.ph.split.us.split.us.i, %181
   %.12 = phi ptr [ %storemerge.us.us.i169, %181 ], [ %.0197, %.lr.ph.split.us.split.us.i ]
-  %.04158.us.us.i165 = phi i32 [ %.2.us.us.i170, %181 ], [ %163, %.lr.ph.split.us.split.us.i ]
-  %.04257.us.us.i166 = phi i32 [ %182, %181 ], [ %spec.select, %.lr.ph.split.us.split.us.i ]
-  %176 = tail call i32 @llvm.smin.i32(i32 %.04257.us.us.i166, i32 %.04158.us.us.i165)
+  %.04157.us.us.i165 = phi i32 [ %.2.us.us.i170, %181 ], [ %163, %.lr.ph.split.us.split.us.i ]
+  %.04256.us.us.i166 = phi i32 [ %182, %181 ], [ %spec.select, %.lr.ph.split.us.split.us.i ]
+  %176 = tail call i32 @llvm.smin.i32(i32 %.04256.us.us.i166, i32 %.04157.us.us.i165)
   %177 = sext i32 %176 to i64
   tail call void @llvm.memset.p0.i64(ptr align 1 %.12, i8 %164, i64 %177, i1 false)
   %178 = getelementptr inbounds i8, ptr %.12, i64 %177
-  %179 = sub nsw i32 %.04158.us.us.i165, %176
+  %179 = sub nsw i32 %.04157.us.us.i165, %176
   %180 = icmp slt i32 %179, 1
   %narrow.us.us.i167 = select i1 %180, i32 %165, i32 0
   %storemerge.idx.us.us.i168 = sext i32 %narrow.us.us.i167 to i64
@@ -470,7 +470,7 @@ bytestream2_get_byte.exit87:                      ; preds = %149, %153, %147
 
 181:                                              ; preds = %.lr.ph.split.us.split.us.split.i164
   %.2.us.us.i170 = select i1 %180, i32 %159, i32 %179
-  %182 = sub nsw i32 %.04257.us.us.i166, %176
+  %182 = sub nsw i32 %.04256.us.us.i166, %176
   %183 = icmp sgt i32 %182, 0
   br i1 %183, label %.lr.ph.split.us.split.us.split.i164, label %.loopexit
 
@@ -478,34 +478,34 @@ bytestream2_get_byte.exit87:                      ; preds = %149, %153, %147
   br i1 %166, label %.lr.ph.split.us.split.split.us.i155, label %.lr.ph.split.us.split.split.i142
 
 .lr.ph.split.us.split.split.us.i155:              ; preds = %.lr.ph.split.us.split.i, %189
-  %storemerge.us97.us.i156 = phi ptr [ %storemerge.us.us104.i161, %189 ], [ %.0197, %.lr.ph.split.us.split.i ]
-  %.04158.us.us100.i157 = phi i32 [ %.2.us.us105.i162, %189 ], [ %163, %.lr.ph.split.us.split.i ]
-  %.04257.us.us101.i158 = phi i32 [ %190, %189 ], [ %spec.select, %.lr.ph.split.us.split.i ]
-  %184 = tail call i32 @llvm.smin.i32(i32 %.04257.us.us101.i158, i32 %.04158.us.us100.i157)
+  %storemerge.us96.us.i156 = phi ptr [ %storemerge.us.us103.i161, %189 ], [ %.0197, %.lr.ph.split.us.split.i ]
+  %.04157.us.us99.i157 = phi i32 [ %.2.us.us104.i162, %189 ], [ %163, %.lr.ph.split.us.split.i ]
+  %.04256.us.us100.i158 = phi i32 [ %190, %189 ], [ %spec.select, %.lr.ph.split.us.split.i ]
+  %184 = tail call i32 @llvm.smin.i32(i32 %.04256.us.us100.i158, i32 %.04157.us.us99.i157)
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds i8, ptr %storemerge.us97.us.i156, i64 %185
-  %187 = sub nsw i32 %.04158.us.us100.i157, %184
+  %186 = getelementptr inbounds i8, ptr %storemerge.us96.us.i156, i64 %185
+  %187 = sub nsw i32 %.04157.us.us99.i157, %184
   %188 = icmp slt i32 %187, 1
-  %narrow.us.us102.i159 = select i1 %188, i32 %165, i32 0
-  %storemerge.idx.us.us103.i160 = sext i32 %narrow.us.us102.i159 to i64
-  %storemerge.us.us104.i161 = getelementptr inbounds i8, ptr %186, i64 %storemerge.idx.us.us103.i160
-  %.not49.us.us106.i163 = icmp ult ptr %storemerge.us.us104.i161, %22
-  br i1 %.not49.us.us106.i163, label %189, label %.thread249
+  %narrow.us.us101.i159 = select i1 %188, i32 %165, i32 0
+  %storemerge.idx.us.us102.i160 = sext i32 %narrow.us.us101.i159 to i64
+  %storemerge.us.us103.i161 = getelementptr inbounds i8, ptr %186, i64 %storemerge.idx.us.us102.i160
+  %.not49.us.us105.i163 = icmp ult ptr %storemerge.us.us103.i161, %22
+  br i1 %.not49.us.us105.i163, label %189, label %.thread249
 
 189:                                              ; preds = %.lr.ph.split.us.split.split.us.i155
-  %.2.us.us105.i162 = select i1 %188, i32 %159, i32 %187
-  %190 = sub nsw i32 %.04257.us.us101.i158, %184
+  %.2.us.us104.i162 = select i1 %188, i32 %159, i32 %187
+  %190 = sub nsw i32 %.04256.us.us100.i158, %184
   %191 = icmp sgt i32 %190, 0
   br i1 %191, label %.lr.ph.split.us.split.split.us.i155, label %.loopexit
 
 .lr.ph.split.us.split.split.i142:                 ; preds = %.lr.ph.split.us.split.i, %197
-  %storemerge.us97.i143 = phi ptr [ %storemerge.us.i148, %197 ], [ %.0197, %.lr.ph.split.us.split.i ]
-  %.04158.us.i144 = phi i32 [ %.2.us.i149, %197 ], [ %163, %.lr.ph.split.us.split.i ]
-  %.04257.us.i145 = phi i32 [ %198, %197 ], [ %spec.select, %.lr.ph.split.us.split.i ]
-  %192 = tail call i32 @llvm.smin.i32(i32 %.04257.us.i145, i32 %.04158.us.i144)
+  %storemerge.us96.i143 = phi ptr [ %storemerge.us.i148, %197 ], [ %.0197, %.lr.ph.split.us.split.i ]
+  %.04157.us.i144 = phi i32 [ %.2.us.i149, %197 ], [ %163, %.lr.ph.split.us.split.i ]
+  %.04256.us.i145 = phi i32 [ %198, %197 ], [ %spec.select, %.lr.ph.split.us.split.i ]
+  %192 = tail call i32 @llvm.smin.i32(i32 %.04256.us.i145, i32 %.04157.us.i144)
   %193 = sext i32 %192 to i64
-  %194 = getelementptr inbounds i8, ptr %storemerge.us97.i143, i64 %193
-  %195 = sub nsw i32 %.04158.us.i144, %192
+  %194 = getelementptr inbounds i8, ptr %storemerge.us96.i143, i64 %193
+  %195 = sub nsw i32 %.04157.us.i144, %192
   %196 = icmp slt i32 %195, 1
   %narrow.us.i146 = select i1 %196, i32 %165, i32 0
   %storemerge.idx.us.i147 = sext i32 %narrow.us.i146 to i64
@@ -515,7 +515,7 @@ bytestream2_get_byte.exit87:                      ; preds = %149, %153, %147
 
 197:                                              ; preds = %.lr.ph.split.us.split.split.i142
   %.2.us.i149 = select i1 %196, i32 %159, i32 %195
-  %198 = sub nsw i32 %.04257.us.i145, %192
+  %198 = sub nsw i32 %.04256.us.i145, %192
   %199 = icmp sgt i32 %198, 0
   br i1 %199, label %.lr.ph.split.us.split.split.i142, label %.loopexit
 
@@ -524,10 +524,10 @@ bytestream2_get_byte.exit87:                      ; preds = %149, %153, %147
 
 .lr.ph.split.split.us.i132.cont:                  ; preds = %.lr.ph.split.i123, %212
   %200 = phi ptr [ %213, %212 ], [ %.lcssa308310, %.lr.ph.split.i123 ]
-  %.11 = phi ptr [ %storemerge.us78.i137, %212 ], [ %.0197, %.lr.ph.split.i123 ]
-  %.04158.us74.i133 = phi i32 [ %.2.us79.i138, %212 ], [ %163, %.lr.ph.split.i123 ]
-  %.04257.us75.i134 = phi i32 [ %214, %212 ], [ %spec.select, %.lr.ph.split.i123 ]
-  %201 = tail call i32 @llvm.smin.i32(i32 %.04257.us75.i134, i32 %.04158.us74.i133)
+  %.11 = phi ptr [ %storemerge.us77.i137, %212 ], [ %.0197, %.lr.ph.split.i123 ]
+  %.04157.us73.i133 = phi i32 [ %.2.us78.i138, %212 ], [ %163, %.lr.ph.split.i123 ]
+  %.04256.us74.i134 = phi i32 [ %214, %212 ], [ %spec.select, %.lr.ph.split.i123 ]
+  %201 = tail call i32 @llvm.smin.i32(i32 %.04256.us74.i134, i32 %.04157.us73.i133)
   %202 = ptrtoint ptr %200 to i64
   %203 = sub i64 %27, %202
   %204 = trunc i64 %203 to i32
@@ -539,27 +539,27 @@ bytestream2_get_byte.exit87:                      ; preds = %149, %153, %147
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.11, ptr align 1 %200, i64 %207, i1 false)
   %208 = sext i32 %201 to i64
   %209 = getelementptr inbounds i8, ptr %.11, i64 %208
-  %210 = sub nsw i32 %.04158.us74.i133, %201
+  %210 = sub nsw i32 %.04157.us73.i133, %201
   %211 = icmp slt i32 %210, 1
-  %narrow.us76.i135 = select i1 %211, i32 %165, i32 0
-  %storemerge.idx.us77.i136 = sext i32 %narrow.us76.i135 to i64
-  %storemerge.us78.i137 = getelementptr inbounds i8, ptr %209, i64 %storemerge.idx.us77.i136
-  %.not49.us80.i139 = icmp ult ptr %storemerge.us78.i137, %22
-  br i1 %.not49.us80.i139, label %212, label %.thread249
+  %narrow.us75.i135 = select i1 %211, i32 %165, i32 0
+  %storemerge.idx.us76.i136 = sext i32 %narrow.us75.i135 to i64
+  %storemerge.us77.i137 = getelementptr inbounds i8, ptr %209, i64 %storemerge.idx.us76.i136
+  %.not49.us79.i139 = icmp ult ptr %storemerge.us77.i137, %22
+  br i1 %.not49.us79.i139, label %212, label %.thread249
 
 212:                                              ; preds = %206
   %213 = getelementptr inbounds nuw i8, ptr %200, i64 %207
-  %.2.us79.i138 = select i1 %211, i32 %159, i32 %210
-  %214 = sub nsw i32 %.04257.us75.i134, %201
+  %.2.us78.i138 = select i1 %211, i32 %159, i32 %210
+  %214 = sub nsw i32 %.04256.us74.i134, %201
   %215 = icmp sgt i32 %214, 0
   br i1 %215, label %.lr.ph.split.split.us.i132.cont, label %.loopexit
 
 .lr.ph.split.split.i124.cont:                     ; preds = %.lr.ph.split.i123, %228
   %216 = phi ptr [ %229, %228 ], [ %.lcssa308310, %.lr.ph.split.i123 ]
   %.10 = phi ptr [ %storemerge.i129, %228 ], [ %.0197, %.lr.ph.split.i123 ]
-  %.04158.i125 = phi i32 [ %.2.i130, %228 ], [ %163, %.lr.ph.split.i123 ]
-  %.04257.i126 = phi i32 [ %230, %228 ], [ %spec.select, %.lr.ph.split.i123 ]
-  %217 = tail call i32 @llvm.smin.i32(i32 %.04257.i126, i32 %.04158.i125)
+  %.04157.i125 = phi i32 [ %.2.i130, %228 ], [ %163, %.lr.ph.split.i123 ]
+  %.04256.i126 = phi i32 [ %230, %228 ], [ %spec.select, %.lr.ph.split.i123 ]
+  %217 = tail call i32 @llvm.smin.i32(i32 %.04256.i126, i32 %.04157.i125)
   %218 = ptrtoint ptr %216 to i64
   %219 = sub i64 %27, %218
   %220 = trunc i64 %219 to i32
@@ -571,7 +571,7 @@ bytestream2_get_byte.exit87:                      ; preds = %149, %153, %147
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.10, ptr align 1 %216, i64 %223, i1 false)
   %224 = sext i32 %217 to i64
   %225 = getelementptr inbounds i8, ptr %.10, i64 %224
-  %226 = sub nsw i32 %.04158.i125, %217
+  %226 = sub nsw i32 %.04157.i125, %217
   %227 = icmp slt i32 %226, 1
   %narrow.i127 = select i1 %227, i32 %165, i32 0
   %storemerge.idx.i128 = sext i32 %narrow.i127 to i64
@@ -582,20 +582,20 @@ bytestream2_get_byte.exit87:                      ; preds = %149, %153, %147
 228:                                              ; preds = %222
   %229 = getelementptr inbounds nuw i8, ptr %216, i64 %223
   %.2.i130 = select i1 %227, i32 %159, i32 %226
-  %230 = sub nsw i32 %.04257.i126, %217
+  %230 = sub nsw i32 %.04256.i126, %217
   %231 = icmp sgt i32 %230, 0
   br i1 %231, label %.lr.ph.split.split.i124.cont, label %.loopexit
 
 .loopexit:                                        ; preds = %197, %189, %181, %173, %228, %212
   %.lcssa308312 = phi ptr [ %213, %212 ], [ %229, %228 ], [ %.lcssa308310, %173 ], [ %.lcssa308310, %181 ], [ %.lcssa308310, %189 ], [ %.lcssa308310, %197 ]
-  %.14 = phi ptr [ %storemerge.us78.i137, %212 ], [ %storemerge.i129, %228 ], [ %storemerge.us.us.us.i177, %173 ], [ %storemerge.us.us.i169, %181 ], [ %storemerge.us.us104.i161, %189 ], [ %storemerge.us.i148, %197 ]
-  %.041.pn.i118 = phi i32 [ %.2.us79.i138, %212 ], [ %.2.i130, %228 ], [ %.2.us.us.us.i178, %173 ], [ %.2.us.us.i170, %181 ], [ %.2.us.us105.i162, %189 ], [ %.2.us.i149, %197 ]
-  %storemerge56.i120 = sub nsw i32 %159, %.041.pn.i118
+  %.14 = phi ptr [ %storemerge.us77.i137, %212 ], [ %storemerge.i129, %228 ], [ %storemerge.us.us.us.i177, %173 ], [ %storemerge.us.us.i169, %181 ], [ %storemerge.us.us103.i161, %189 ], [ %storemerge.us.i148, %197 ]
+  %.041.pn.i118 = phi i32 [ %.2.us78.i138, %212 ], [ %.2.i130, %228 ], [ %.2.us.us.us.i178, %173 ], [ %.2.us.us.i170, %181 ], [ %.2.us.us104.i162, %189 ], [ %.2.us.i149, %197 ]
+  %storemerge55.i120 = sub nsw i32 %159, %.041.pn.i118
   br label %.thread240
 
 .thread240:                                       ; preds = %op.exit, %op.exit117.thread, %.loopexit, %145
   %.lcssa308311 = phi ptr [ %138, %145 ], [ %.lcssa308314, %op.exit117.thread ], [ %.lcssa308313, %op.exit ], [ %.lcssa308312, %.loopexit ]
-  %.1245 = phi i32 [ %.0195, %145 ], [ %storemerge56.i91218, %op.exit117.thread ], [ %storemerge56.i, %op.exit ], [ %storemerge56.i120, %.loopexit ]
+  %.1245 = phi i32 [ %.0195, %145 ], [ %storemerge55.i91218, %op.exit117.thread ], [ %storemerge55.i, %op.exit ], [ %storemerge55.i120, %.loopexit ]
   %.1198244 = phi ptr [ %.0197, %145 ], [ %.9.ph, %op.exit117.thread ], [ %.6, %op.exit ], [ %.14, %.loopexit ]
   %232 = ptrtoint ptr %.lcssa308311 to i64
   %233 = sub i64 %27, %232

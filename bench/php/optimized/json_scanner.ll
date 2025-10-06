@@ -35,33 +35,33 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 .lr.ph:                                           ; preds = %1
   %.not = icmp eq i32 %6, 1
-  br i1 %.not, label %.preheader1639, label %.lr.ph.split.preheader
+  br i1 %.not, label %.preheader1638, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
   %8 = load i8, ptr %.promoted, align 1, !tbaa !15
   %9 = icmp ult i8 %8, 94
-  br i1 %9, label %.lr.ph2018, label %.lr.ph.split._crit_edge
+  br i1 %9, label %.lr.ph2017, label %.lr.ph.split._crit_edge
 
-.preheader1639:                                   ; preds = %.lr.ph, %106
-  %.promoted1723 = phi ptr [ %107, %106 ], [ %.promoted, %.lr.ph ]
+.preheader1638:                                   ; preds = %.lr.ph, %106
+  %.promoted1722 = phi ptr [ %107, %106 ], [ %.promoted, %.lr.ph ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br label %.backedge1642
+  br label %.backedge1641
 
 ._crit_edge:                                      ; preds = %1
   %15 = icmp eq i32 %6, 2
-  br i1 %15, label %.preheader, label %.preheader1637
+  br i1 %15, label %.preheader, label %.preheader1636
 
-.lr.ph2018:                                       ; preds = %.lr.ph.split.preheader, %php_json_scanner_copy_string.exit
+.lr.ph2017:                                       ; preds = %.lr.ph.split.preheader, %php_json_scanner_copy_string.exit
   %16 = phi i8 [ %1487, %php_json_scanner_copy_string.exit ], [ %8, %.lr.ph.split.preheader ]
   %17 = phi ptr [ %1486, %php_json_scanner_copy_string.exit ], [ %.promoted, %.lr.ph.split.preheader ]
   %18 = icmp samesign ult i8 %16, 35
   br i1 %18, label %19, label %33
 
-19:                                               ; preds = %.lr.ph2018
+19:                                               ; preds = %.lr.ph2017
   %20 = icmp samesign ult i8 %16, 13
   br i1 %20, label %21, label %28
 
@@ -71,7 +71,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 23:                                               ; preds = %21
   %.not1450 = icmp eq i8 %16, 0
-  br i1 %.not1450, label %76, label %.loopexit1649
+  br i1 %.not1450, label %76, label %.loopexit1648
 
 24:                                               ; preds = %21
   %25 = icmp eq i8 %16, 9
@@ -79,7 +79,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 26:                                               ; preds = %24
   %27 = icmp samesign ult i8 %16, 11
-  br i1 %27, label %95, label %.loopexit1649
+  br i1 %27, label %95, label %.loopexit1648
 
 28:                                               ; preds = %19
   %29 = icmp samesign ult i8 %16, 32
@@ -87,15 +87,15 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 30:                                               ; preds = %28
   %31 = icmp eq i8 %16, 13
-  br i1 %31, label %98, label %.loopexit1649
+  br i1 %31, label %98, label %.loopexit1648
 
 32:                                               ; preds = %28
-  switch i8 %16, label %.loopexit1648 [
+  switch i8 %16, label %.loopexit1647 [
     i8 32, label %85
     i8 34, label %106
   ]
 
-33:                                               ; preds = %.lr.ph2018
+33:                                               ; preds = %.lr.ph2017
   %34 = icmp samesign ult i8 %16, 49
   br i1 %34, label %35, label %39
 
@@ -105,10 +105,10 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 37:                                               ; preds = %35
   %.not1421 = icmp eq i8 %16, 44
-  br i1 %.not1421, label %112, label %.loopexit1648
+  br i1 %.not1421, label %112, label %.loopexit1647
 
 38:                                               ; preds = %35
-  switch i8 %16, label %.loopexit1648 [
+  switch i8 %16, label %.loopexit1647 [
     i8 45, label %114
     i8 48, label %123
   ]
@@ -119,90 +119,90 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 41:                                               ; preds = %39
   %42 = icmp samesign ult i8 %16, 58
-  br i1 %42, label %.preheader1647, label %43
+  br i1 %42, label %.preheader1646, label %43
 
 43:                                               ; preds = %41
   %44 = icmp eq i8 %16, 58
-  br i1 %44, label %177, label %.loopexit1648
+  br i1 %44, label %177, label %.loopexit1647
 
 45:                                               ; preds = %39
-  switch i8 %16, label %.loopexit1648 [
+  switch i8 %16, label %.loopexit1647 [
     i8 91, label %179
     i8 93, label %181
   ]
 
 .lr.ph.split._crit_edge:                          ; preds = %php_json_scanner_copy_string.exit, %.lr.ph.split.preheader
-  %.lcssa2012 = phi ptr [ %.promoted, %.lr.ph.split.preheader ], [ %1486, %php_json_scanner_copy_string.exit ]
-  %.lcssa2006 = phi i8 [ %8, %.lr.ph.split.preheader ], [ %1487, %php_json_scanner_copy_string.exit ]
-  %46 = icmp ult i8 %.lcssa2006, 126
+  %.lcssa2011 = phi ptr [ %.promoted, %.lr.ph.split.preheader ], [ %1486, %php_json_scanner_copy_string.exit ]
+  %.lcssa2005 = phi i8 [ %8, %.lr.ph.split.preheader ], [ %1487, %php_json_scanner_copy_string.exit ]
+  %46 = icmp ult i8 %.lcssa2005, 126
   br i1 %46, label %47, label %59
 
 47:                                               ; preds = %.lr.ph.split._crit_edge
-  %48 = icmp samesign ult i8 %.lcssa2006, 116
+  %48 = icmp samesign ult i8 %.lcssa2005, 116
   br i1 %48, label %49, label %54
 
 49:                                               ; preds = %47
-  %50 = icmp samesign ult i8 %.lcssa2006, 103
+  %50 = icmp samesign ult i8 %.lcssa2005, 103
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %49
-  %.not1416 = icmp eq i8 %.lcssa2006, 102
-  br i1 %.not1416, label %183, label %.loopexit1648
+  %.not1416 = icmp eq i8 %.lcssa2005, 102
+  br i1 %.not1416, label %183, label %.loopexit1647
 
 52:                                               ; preds = %49
-  %53 = icmp eq i8 %.lcssa2006, 110
-  br i1 %53, label %188, label %.loopexit1648
+  %53 = icmp eq i8 %.lcssa2005, 110
+  br i1 %53, label %188, label %.loopexit1647
 
 54:                                               ; preds = %47
-  %55 = icmp samesign ult i8 %.lcssa2006, 123
+  %55 = icmp samesign ult i8 %.lcssa2005, 123
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %54
-  %57 = icmp eq i8 %.lcssa2006, 116
-  br i1 %57, label %193, label %.loopexit1648
+  %57 = icmp eq i8 %.lcssa2005, 116
+  br i1 %57, label %193, label %.loopexit1647
 
 58:                                               ; preds = %54
-  switch i8 %.lcssa2006, label %.loopexit1648 [
+  switch i8 %.lcssa2005, label %.loopexit1647 [
     i8 123, label %198
     i8 125, label %200
   ]
 
 59:                                               ; preds = %.lr.ph.split._crit_edge
-  %60 = icmp ult i8 %.lcssa2006, -19
+  %60 = icmp ult i8 %.lcssa2005, -19
   br i1 %60, label %61, label %69
 
 61:                                               ; preds = %59
-  %62 = icmp ult i8 %.lcssa2006, -62
+  %62 = icmp ult i8 %.lcssa2005, -62
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
-  %64 = icmp sgt i8 %.lcssa2006, -1
-  br i1 %64, label %.loopexit1648, label %202
+  %64 = icmp sgt i8 %.lcssa2005, -1
+  br i1 %64, label %.loopexit1647, label %202
 
 65:                                               ; preds = %61
-  %66 = icmp samesign ult i8 %.lcssa2006, -32
+  %66 = icmp samesign ult i8 %.lcssa2005, -32
   br i1 %66, label %206, label %67
 
 67:                                               ; preds = %65
-  %68 = icmp eq i8 %.lcssa2006, -32
+  %68 = icmp eq i8 %.lcssa2005, -32
   br i1 %68, label %209, label %214
 
 69:                                               ; preds = %59
-  %70 = icmp samesign ult i8 %.lcssa2006, -15
+  %70 = icmp samesign ult i8 %.lcssa2005, -15
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %69
-  switch i8 %.lcssa2006, label %214 [
+  switch i8 %.lcssa2005, label %214 [
     i8 -19, label %218
     i8 -16, label %222
   ]
 
 72:                                               ; preds = %69
-  %73 = icmp samesign ult i8 %.lcssa2006, -12
+  %73 = icmp samesign ult i8 %.lcssa2005, -12
   br i1 %73, label %227, label %74
 
 74:                                               ; preds = %72
-  %75 = icmp eq i8 %.lcssa2006, -12
+  %75 = icmp eq i8 %.lcssa2005, -12
   br i1 %75, label %231, label %202
 
 76:                                               ; preds = %23
@@ -218,7 +218,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   store i32 3, ptr %82, align 4, !tbaa !17
   br label %.thread1609
 
-.loopexit1649:                                    ; preds = %30, %26, %23
+.loopexit1648:                                    ; preds = %30, %26, %23
   %83 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %83, ptr %0, align 8, !tbaa !4
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -255,13 +255,13 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   %101 = icmp eq i8 %100, 10
   br i1 %101, label %95, label %89
 
-.loopexit1648:                                    ; preds = %32, %58, %45, %38, %272, %206, %63, %56, %52, %51, %43, %37
-  %102 = phi ptr [ %.lcssa2012, %58 ], [ %17, %45 ], [ %17, %38 ], [ %275, %272 ], [ %207, %206 ], [ %.lcssa2012, %63 ], [ %.lcssa2012, %56 ], [ %.lcssa2012, %52 ], [ %.lcssa2012, %51 ], [ %17, %43 ], [ %17, %37 ], [ %17, %32 ]
+.loopexit1647:                                    ; preds = %32, %58, %45, %38, %272, %206, %63, %56, %52, %51, %43, %37
+  %102 = phi ptr [ %.lcssa2011, %58 ], [ %17, %45 ], [ %17, %38 ], [ %275, %272 ], [ %207, %206 ], [ %.lcssa2011, %63 ], [ %.lcssa2011, %56 ], [ %.lcssa2011, %52 ], [ %.lcssa2011, %51 ], [ %17, %43 ], [ %17, %37 ], [ %17, %32 ]
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 1
   store ptr %103, ptr %0, align 8, !tbaa !4
   br label %104
 
-104:                                              ; preds = %244, %193, %188, %183, %120, %114, %.loopexit1648
+104:                                              ; preds = %244, %193, %188, %183, %120, %114, %.loopexit1647
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 4, ptr %105, align 4, !tbaa !17
   br label %.thread1609
@@ -278,7 +278,7 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 92
   store i32 0, ptr %111, align 4, !tbaa !21
   store i32 1, ptr %5, align 4, !tbaa !14
-  br label %.preheader1639
+  br label %.preheader1638
 
 112:                                              ; preds = %37
   %113 = getelementptr inbounds nuw i8, ptr %17, i64 1
@@ -298,10 +298,10 @@ define hidden range(i32 44, 267) i32 @php_json_scan(ptr noundef initializes((8, 
 
 120:                                              ; preds = %118
   %121 = icmp ult i8 %116, 58
-  br i1 %121, label %.preheader1647, label %104
+  br i1 %121, label %.preheader1646, label %104
 
-.preheader1647:                                   ; preds = %41, %120
-  %.promoted1716 = phi ptr [ %17, %41 ], [ %115, %120 ]
+.preheader1646:                                   ; preds = %41, %120
+  %.promoted1715 = phi ptr [ %17, %41 ], [ %115, %120 ]
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %166
 
@@ -389,8 +389,8 @@ zend_string_alloc.exit:                           ; preds = %152
   store i32 5, ptr %3, align 8, !tbaa !15
   br label %.thread1609
 
-166:                                              ; preds = %.preheader1647, %166
-  %167 = phi ptr [ %.promoted1716, %.preheader1647 ], [ %168, %166 ]
+166:                                              ; preds = %.preheader1646, %166
+  %167 = phi ptr [ %.promoted1715, %.preheader1646 ], [ %168, %166 ]
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 1
   store ptr %168, ptr %0, align 8, !tbaa !4
   store ptr %168, ptr %122, align 8, !tbaa !22
@@ -428,7 +428,7 @@ zend_string_alloc.exit:                           ; preds = %152
   br label %.thread1609
 
 183:                                              ; preds = %51
-  %184 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %184 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %184, ptr %0, align 8, !tbaa !4
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %184, ptr %185, align 8, !tbaa !22
@@ -437,7 +437,7 @@ zend_string_alloc.exit:                           ; preds = %152
   br i1 %187, label %260, label %104
 
 188:                                              ; preds = %52
-  %189 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %189 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %189, ptr %0, align 8, !tbaa !4
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %189, ptr %190, align 8, !tbaa !22
@@ -446,7 +446,7 @@ zend_string_alloc.exit:                           ; preds = %152
   br i1 %192, label %264, label %104
 
 193:                                              ; preds = %56
-  %194 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %194 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %194, ptr %0, align 8, !tbaa !4
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %194, ptr %195, align 8, !tbaa !22
@@ -455,17 +455,17 @@ zend_string_alloc.exit:                           ; preds = %152
   br i1 %197, label %268, label %104
 
 198:                                              ; preds = %58
-  %199 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %199 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %199, ptr %0, align 8, !tbaa !4
   br label %.thread1609
 
 200:                                              ; preds = %58
-  %201 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %201 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %201, ptr %0, align 8, !tbaa !4
   br label %.thread1609
 
 202:                                              ; preds = %74, %63
-  %203 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %203 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   br label %.sink.split
 
 .sink.split:                                      ; preds = %272, %277, %202
@@ -479,14 +479,14 @@ zend_string_alloc.exit:                           ; preds = %152
   br label %.thread1609
 
 206:                                              ; preds = %65
-  %207 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %207 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %207, ptr %0, align 8, !tbaa !4
   %208 = load i8, ptr %207, align 1, !tbaa !15
   %or.cond10 = icmp slt i8 %208, -64
-  br i1 %or.cond10, label %.loopexit1648, label %204
+  br i1 %or.cond10, label %.loopexit1647, label %204
 
 209:                                              ; preds = %67
-  %210 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %210 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %210, ptr %0, align 8, !tbaa !4
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %210, ptr %211, align 8, !tbaa !22
@@ -496,7 +496,7 @@ zend_string_alloc.exit:                           ; preds = %152
   br i1 %or.cond13, label %272, label %204
 
 214:                                              ; preds = %71, %67
-  %215 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %215 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %215, ptr %0, align 8, !tbaa !4
   %216 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %215, ptr %216, align 8, !tbaa !22
@@ -505,7 +505,7 @@ zend_string_alloc.exit:                           ; preds = %152
   br i1 %or.cond16, label %272, label %204
 
 218:                                              ; preds = %71
-  %219 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %219 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %219, ptr %0, align 8, !tbaa !4
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %219, ptr %220, align 8, !tbaa !22
@@ -514,7 +514,7 @@ zend_string_alloc.exit:                           ; preds = %152
   br i1 %or.cond19, label %272, label %204
 
 222:                                              ; preds = %71
-  %223 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %223 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %223, ptr %0, align 8, !tbaa !4
   %224 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %223, ptr %224, align 8, !tbaa !22
@@ -524,7 +524,7 @@ zend_string_alloc.exit:                           ; preds = %152
   br i1 %or.cond22, label %277, label %204
 
 227:                                              ; preds = %72
-  %228 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %228 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %228, ptr %0, align 8, !tbaa !4
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %228, ptr %229, align 8, !tbaa !22
@@ -533,7 +533,7 @@ zend_string_alloc.exit:                           ; preds = %152
   br i1 %or.cond25, label %277, label %204
 
 231:                                              ; preds = %74
-  %232 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 1
+  %232 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 1
   store ptr %232, ptr %0, align 8, !tbaa !4
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %232, ptr %233, align 8, !tbaa !22
@@ -548,14 +548,14 @@ zend_string_alloc.exit:                           ; preds = %152
   %238 = load i8, ptr %237, align 1, !tbaa !15
   %239 = add i8 %238, -48
   %or.cond31 = icmp ult i8 %239, 10
-  br i1 %or.cond31, label %.preheader1645, label %.thread
+  br i1 %or.cond31, label %.preheader1644, label %.thread
 
-.preheader1645:                                   ; preds = %235
+.preheader1644:                                   ; preds = %235
   %240 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %281
 
 .thread:                                          ; preds = %235, %311, %299, %260, %303, %264, %307, %268
-  %241 = phi ptr [ %.lcssa2012, %268 ], [ %.lcssa2012, %307 ], [ %.lcssa2012, %264 ], [ %.lcssa2012, %303 ], [ %.lcssa2012, %260 ], [ %.lcssa2012, %299 ], [ %.lcssa2012, %311 ], [ %17, %235 ]
+  %241 = phi ptr [ %.lcssa2011, %268 ], [ %.lcssa2011, %307 ], [ %.lcssa2011, %264 ], [ %.lcssa2011, %303 ], [ %.lcssa2011, %260 ], [ %.lcssa2011, %299 ], [ %.lcssa2011, %311 ], [ %17, %235 ]
   %242 = phi ptr [ %194, %268 ], [ %194, %307 ], [ %189, %264 ], [ %189, %303 ], [ %184, %260 ], [ %184, %299 ], [ %184, %311 ], [ %236, %235 ]
   %.41276.ph = phi i32 [ 1, %268 ], [ 1, %307 ], [ 1, %264 ], [ 1, %303 ], [ 1, %260 ], [ 1, %299 ], [ 1, %311 ], [ 0, %235 ]
   store ptr %242, ptr %0, align 8, !tbaa !4
@@ -563,7 +563,7 @@ zend_string_alloc.exit:                           ; preds = %152
 
 243:                                              ; preds = %291, %258, %254
   store ptr %249, ptr %0, align 8, !tbaa !4
-  br i1 %250, label %244, label %.loopexit1644
+  br i1 %250, label %244, label %.loopexit1643
 
 244:                                              ; preds = %.thread, %243
   %245 = phi ptr [ %241, %.thread ], [ %17, %243 ]
@@ -593,24 +593,24 @@ zend_string_alloc.exit:                           ; preds = %152
 258:                                              ; preds = %256
   %259 = add i8 %252, -48
   %or.cond34 = icmp ult i8 %259, 10
-  br i1 %or.cond34, label %.preheader1643.preheader, label %243
+  br i1 %or.cond34, label %.preheader1642.preheader, label %243
 
 260:                                              ; preds = %183
-  %261 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 2
+  %261 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 2
   store ptr %261, ptr %0, align 8, !tbaa !4
   %262 = load i8, ptr %261, align 1, !tbaa !15
   %263 = icmp eq i8 %262, 108
   br i1 %263, label %299, label %.thread
 
 264:                                              ; preds = %188
-  %265 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 2
+  %265 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 2
   store ptr %265, ptr %0, align 8, !tbaa !4
   %266 = load i8, ptr %265, align 1, !tbaa !15
   %267 = icmp eq i8 %266, 108
   br i1 %267, label %303, label %.thread
 
 268:                                              ; preds = %193
-  %269 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 2
+  %269 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 2
   store ptr %269, ptr %0, align 8, !tbaa !4
   %270 = load i8, ptr %269, align 1, !tbaa !15
   %271 = icmp eq i8 %270, 117
@@ -623,18 +623,18 @@ zend_string_alloc.exit:                           ; preds = %152
   store ptr %275, ptr %0, align 8, !tbaa !4
   %276 = load i8, ptr %275, align 1, !tbaa !15
   %or.cond37 = icmp slt i8 %276, -64
-  br i1 %or.cond37, label %.loopexit1648, label %.sink.split
+  br i1 %or.cond37, label %.loopexit1647, label %.sink.split
 
 277:                                              ; preds = %231, %227, %222
   %278 = phi ptr [ %232, %231 ], [ %228, %227 ], [ %223, %222 ]
-  %279 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 2
+  %279 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 2
   store ptr %279, ptr %0, align 8, !tbaa !4
   %280 = load i8, ptr %279, align 1, !tbaa !15
   %or.cond40 = icmp slt i8 %280, -64
   br i1 %or.cond40, label %272, label %.sink.split
 
-281:                                              ; preds = %.preheader1645, %286
-  %282 = phi ptr [ %237, %.preheader1645 ], [ %283, %286 ]
+281:                                              ; preds = %.preheader1644, %286
+  %282 = phi ptr [ %237, %.preheader1644 ], [ %283, %286 ]
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 1
   store ptr %283, ptr %0, align 8, !tbaa !4
   store ptr %283, ptr %240, align 8, !tbaa !22
@@ -645,14 +645,14 @@ zend_string_alloc.exit:                           ; preds = %152
 286:                                              ; preds = %281
   %287 = add nsw i8 %284, -48
   %or.cond43 = icmp ult i8 %287, 10
-  br i1 %or.cond43, label %281, label %.loopexit1644
+  br i1 %or.cond43, label %281, label %.loopexit1643
 
 288:                                              ; preds = %281
   %289 = and i8 %284, -33
   %or.cond46 = icmp eq i8 %289, 69
-  br i1 %or.cond46, label %248, label %.loopexit1644
+  br i1 %or.cond46, label %248, label %.loopexit1643
 
-.loopexit1644:                                    ; preds = %286, %.preheader1643, %243, %288
+.loopexit1643:                                    ; preds = %286, %.preheader1642, %243, %288
   %290 = tail call double @zend_strtod(ptr noundef nonnull %17, ptr noundef null) #9
   store double %290, ptr %2, align 8, !tbaa !15
   store i32 5, ptr %3, align 8, !tbaa !15
@@ -664,74 +664,74 @@ zend_string_alloc.exit:                           ; preds = %152
   %293 = load i8, ptr %292, align 1, !tbaa !15
   %294 = add i8 %293, -58
   %or.cond49 = icmp ult i8 %294, -10
-  br i1 %or.cond49, label %243, label %.preheader1643.preheader
+  br i1 %or.cond49, label %243, label %.preheader1642.preheader
 
-.preheader1643.preheader:                         ; preds = %258, %291
-  %.ph2048 = phi ptr [ %292, %291 ], [ %251, %258 ]
-  br label %.preheader1643
+.preheader1642.preheader:                         ; preds = %258, %291
+  %.ph2047 = phi ptr [ %292, %291 ], [ %251, %258 ]
+  br label %.preheader1642
 
-.preheader1643:                                   ; preds = %.preheader1643.preheader, %.preheader1643
-  %295 = phi ptr [ %296, %.preheader1643 ], [ %.ph2048, %.preheader1643.preheader ]
+.preheader1642:                                   ; preds = %.preheader1642.preheader, %.preheader1642
+  %295 = phi ptr [ %296, %.preheader1642 ], [ %.ph2047, %.preheader1642.preheader ]
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 1
   store ptr %296, ptr %0, align 8, !tbaa !4
   %297 = load i8, ptr %296, align 1, !tbaa !15
   %298 = add i8 %297, -48
   %or.cond52 = icmp ult i8 %298, 10
-  br i1 %or.cond52, label %.preheader1643, label %.loopexit1644
+  br i1 %or.cond52, label %.preheader1642, label %.loopexit1643
 
 299:                                              ; preds = %260
-  %300 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 3
+  %300 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 3
   store ptr %300, ptr %0, align 8, !tbaa !4
   %301 = load i8, ptr %300, align 1, !tbaa !15
   %302 = icmp eq i8 %301, 115
   br i1 %302, label %311, label %.thread
 
 303:                                              ; preds = %264
-  %304 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 3
+  %304 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 3
   store ptr %304, ptr %0, align 8, !tbaa !4
   %305 = load i8, ptr %304, align 1, !tbaa !15
   %306 = icmp eq i8 %305, 108
   br i1 %306, label %315, label %.thread
 
 307:                                              ; preds = %268
-  %308 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 3
+  %308 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 3
   store ptr %308, ptr %0, align 8, !tbaa !4
   %309 = load i8, ptr %308, align 1, !tbaa !15
   %310 = icmp eq i8 %309, 101
   br i1 %310, label %317, label %.thread
 
 311:                                              ; preds = %299
-  %312 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 4
+  %312 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 4
   store ptr %312, ptr %0, align 8, !tbaa !4
   %313 = load i8, ptr %312, align 1, !tbaa !15
   %314 = icmp eq i8 %313, 101
   br i1 %314, label %319, label %.thread
 
 315:                                              ; preds = %303
-  %316 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 4
+  %316 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 4
   store ptr %316, ptr %0, align 8, !tbaa !4
   store i32 1, ptr %3, align 8, !tbaa !15
   br label %.thread1609
 
 317:                                              ; preds = %307
-  %318 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 4
+  %318 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 4
   store ptr %318, ptr %0, align 8, !tbaa !4
   store i32 3, ptr %3, align 8, !tbaa !15
   br label %.thread1609
 
 319:                                              ; preds = %311
-  %320 = getelementptr inbounds nuw i8, ptr %.lcssa2012, i64 5
+  %320 = getelementptr inbounds nuw i8, ptr %.lcssa2011, i64 5
   store ptr %320, ptr %0, align 8, !tbaa !4
   store i32 2, ptr %3, align 8, !tbaa !15
   br label %.thread1609
 
-.backedge1642:                                    ; preds = %.backedge1642.backedge, %.preheader1639
-  %321 = phi ptr [ %.promoted1723, %.preheader1639 ], [ %.be2033, %.backedge1642.backedge ]
+.backedge1641:                                    ; preds = %.backedge1641.backedge, %.preheader1638
+  %321 = phi ptr [ %.promoted1722, %.preheader1638 ], [ %.be2032, %.backedge1641.backedge ]
   %322 = load i8, ptr %321, align 1, !tbaa !15
   %323 = icmp ult i8 %322, -32
   br i1 %323, label %324, label %336
 
-324:                                              ; preds = %.backedge1642
+324:                                              ; preds = %.backedge1641
   %325 = icmp ult i8 %322, 92
   br i1 %325, label %326, label %330
 
@@ -755,7 +755,7 @@ zend_string_alloc.exit:                           ; preds = %152
   %335 = icmp samesign ult i8 %322, -62
   br i1 %335, label %414, label %431
 
-336:                                              ; preds = %.backedge1642
+336:                                              ; preds = %.backedge1641
   %337 = icmp samesign ult i8 %322, -16
   br i1 %337, label %338, label %341
 
@@ -792,11 +792,11 @@ zend_string_alloc.exit:                           ; preds = %152
   %351 = phi ptr [ %476, %473 ], [ %432, %431 ], [ %321, %332 ], [ %321, %328 ]
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 1
   store ptr %352, ptr %0, align 8, !tbaa !4
-  br label %.backedge1642.backedge
+  br label %.backedge1641.backedge
 
-.backedge1642.backedge:                           ; preds = %350, %427, %448, %622, %626, %630, %672
-  %.be2033 = phi ptr [ %352, %350 ], [ %417, %427 ], [ %449, %448 ], [ %623, %622 ], [ %627, %626 ], [ %631, %630 ], [ %673, %672 ]
-  br label %.backedge1642
+.backedge1641.backedge:                           ; preds = %350, %427, %448, %622, %626, %630, %672
+  %.be2032 = phi ptr [ %352, %350 ], [ %417, %427 ], [ %449, %448 ], [ %623, %622 ], [ %627, %626 ], [ %631, %630 ], [ %673, %672 ]
+  br label %.backedge1641
 
 353:                                              ; preds = %328
   %354 = getelementptr inbounds nuw i8, ptr %321, i64 1
@@ -861,7 +861,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   %383 = load ptr, ptr %355, align 8, !tbaa !18
   store ptr %383, ptr %0, align 8, !tbaa !4
   %.not1430 = icmp eq i32 %.pre, 0
-  br i1 %.not1430, label %.preheader1637, label %.preheader
+  br i1 %.not1430, label %.preheader1636, label %.preheader
 
 384:                                              ; preds = %379
   %385 = load ptr, ptr %355, align 8, !tbaa !18
@@ -882,7 +882,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   br i1 %391, label %392, label %393
 
 392:                                              ; preds = %390
-  switch i8 %388, label %.loopexit1640 [
+  switch i8 %388, label %.loopexit1639 [
     i8 47, label %448
     i8 34, label %448
   ]
@@ -893,11 +893,11 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
 
 395:                                              ; preds = %393
   %396 = icmp eq i8 %388, 92
-  br i1 %396, label %448, label %.loopexit1640
+  br i1 %396, label %448, label %.loopexit1639
 
 397:                                              ; preds = %393
   %398 = icmp eq i8 %388, 98
-  br i1 %398, label %448, label %.loopexit1640
+  br i1 %398, label %448, label %.loopexit1639
 
 399:                                              ; preds = %386
   %400 = icmp ult i8 %388, 114
@@ -906,7 +906,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
 401:                                              ; preds = %399
   %402 = and i8 %388, 119
   %or.cond58 = icmp eq i8 %402, 102
-  br i1 %or.cond58, label %448, label %.loopexit1640
+  br i1 %or.cond58, label %448, label %.loopexit1639
 
 403:                                              ; preds = %399
   %404 = icmp ult i8 %388, 116
@@ -914,7 +914,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
 
 405:                                              ; preds = %403
   %406 = icmp eq i8 %388, 114
-  br i1 %406, label %448, label %.loopexit1640
+  br i1 %406, label %448, label %.loopexit1639
 
 407:                                              ; preds = %403
   %408 = icmp eq i8 %388, 116
@@ -922,7 +922,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
 
 409:                                              ; preds = %407
   %410 = icmp ult i8 %388, 118
-  br i1 %410, label %452, label %.loopexit1640
+  br i1 %410, label %452, label %.loopexit1639
 
 .critedge1505.loopexit:                           ; preds = %458, %486, %531, %581, %590, %535, %544, %599, %553, %494, %496, %502, %462, %513, %515, %608, %562, %467, %471, %504, %537, %546, %555, %564, %583, %592, %601, %610
   %411 = getelementptr inbounds nuw i8, ptr %321, i64 1
@@ -931,24 +931,24 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
 .critedge1505:                                    ; preds = %.critedge1505.loopexit, %619, %574, %524, %519, %572, %617
   %412 = phi ptr [ %411, %.critedge1505.loopexit ], [ %568, %619 ], [ %568, %574 ], [ %525, %524 ], [ %520, %519 ], [ %568, %572 ], [ %568, %617 ]
   store ptr %412, ptr %0, align 8, !tbaa !4
-  br label %.loopexit1640
+  br label %.loopexit1639
 
-.loopexit1640:                                    ; preds = %392, %401, %395, %397, %405, %409, %.critedge1505
+.loopexit1639:                                    ; preds = %392, %401, %395, %397, %405, %409, %.critedge1505
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 4, ptr %413, align 4, !tbaa !17
   br label %.thread1609
 
 414:                                              ; preds = %345, %334
   %415 = getelementptr inbounds nuw i8, ptr %321, i64 1
-  br label %.sink.split1965
+  br label %.sink.split1964
 
-.sink.split1965:                                  ; preds = %473, %478, %414
-  %.sink1967 = phi ptr [ %415, %414 ], [ %479, %478 ], [ %474, %473 ]
-  store ptr %.sink1967, ptr %0, align 8, !tbaa !4
+.sink.split1964:                                  ; preds = %473, %478, %414
+  %.sink1966 = phi ptr [ %415, %414 ], [ %479, %478 ], [ %474, %473 ]
+  store ptr %.sink1966, ptr %0, align 8, !tbaa !4
   br label %416
 
-416:                                              ; preds = %.sink.split1965, %445, %442, %438, %437, %436, %434, %431
-  %417 = phi ptr [ %446, %445 ], [ %443, %442 ], [ %439, %438 ], [ %339, %437 ], [ %339, %436 ], [ %339, %434 ], [ %432, %431 ], [ %.sink1967, %.sink.split1965 ]
+416:                                              ; preds = %.sink.split1964, %445, %442, %438, %437, %436, %434, %431
+  %417 = phi ptr [ %446, %445 ], [ %443, %442 ], [ %439, %438 ], [ %339, %437 ], [ %339, %436 ], [ %339, %434 ], [ %432, %431 ], [ %.sink1966, %.sink.split1964 ]
   %418 = load i32, ptr %11, align 8, !tbaa !13
   %419 = and i32 %418, 3145728
   %.not1425 = icmp eq i32 %419, 0
@@ -970,11 +970,11 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   br label %.thread1609
 
 427:                                              ; preds = %420, %423
-  %.sink1968 = phi i32 [ 2, %423 ], [ -1, %420 ]
-  %428 = add nsw i32 %422, %.sink1968
+  %.sink1967 = phi i32 [ 2, %423 ], [ -1, %420 ]
+  %428 = add nsw i32 %422, %.sink1967
   store i32 %428, ptr %12, align 4, !tbaa !21
   store i32 1, ptr %13, align 8, !tbaa !20
-  br label %.backedge1642.backedge
+  br label %.backedge1641.backedge
 
 429:                                              ; preds = %416
   %430 = getelementptr inbounds nuw i8, ptr %0, i64 84
@@ -1032,7 +1032,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   %450 = load i32, ptr %14, align 8, !tbaa !19
   %451 = add nsw i32 %450, 1
   store i32 %451, ptr %14, align 8, !tbaa !19
-  br label %.backedge1642.backedge
+  br label %.backedge1641.backedge
 
 452:                                              ; preds = %409
   %453 = getelementptr inbounds nuw i8, ptr %321, i64 2
@@ -1085,7 +1085,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   store ptr %476, ptr %0, align 8, !tbaa !4
   %477 = load i8, ptr %476, align 1, !tbaa !15
   %or.cond85 = icmp slt i8 %477, -64
-  br i1 %or.cond85, label %350, label %.sink.split1965
+  br i1 %or.cond85, label %350, label %.sink.split1964
 
 478:                                              ; preds = %445, %442, %438
   %479 = phi ptr [ %446, %445 ], [ %443, %442 ], [ %439, %438 ]
@@ -1093,7 +1093,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   store ptr %480, ptr %0, align 8, !tbaa !4
   %481 = load i8, ptr %480, align 1, !tbaa !15
   %or.cond88 = icmp slt i8 %481, -64
-  br i1 %or.cond88, label %473, label %.sink.split1965
+  br i1 %or.cond88, label %473, label %.sink.split1964
 
 482:                                              ; preds = %460
   %483 = getelementptr inbounds nuw i8, ptr %321, i64 3
@@ -1373,14 +1373,14 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
 617:                                              ; preds = %613
   %618 = add nsw i8 %615, -48
   %or.cond154 = icmp ult i8 %618, 10
-  br i1 %or.cond154, label %.loopexit1641.sink.split, label %.critedge1505
+  br i1 %or.cond154, label %.loopexit1640.sink.split, label %.critedge1505
 
 619:                                              ; preds = %613
   %620 = icmp ult i8 %615, 71
   %621 = add i8 %615, -97
   %or.cond157 = icmp ult i8 %621, 6
   %or.cond1464 = or i1 %620, %or.cond157
-  br i1 %or.cond1464, label %.loopexit1641.sink.split, label %.critedge1505
+  br i1 %or.cond1464, label %.loopexit1640.sink.split, label %.critedge1505
 
 622:                                              ; preds = %581, %583
   %623 = getelementptr inbounds nuw i8, ptr %321, i64 6
@@ -1388,7 +1388,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   %624 = load i32, ptr %14, align 8, !tbaa !19
   %625 = add nsw i32 %624, 5
   store i32 %625, ptr %14, align 8, !tbaa !19
-  br label %.backedge1642.backedge
+  br label %.backedge1641.backedge
 
 626:                                              ; preds = %590, %592
   %627 = getelementptr inbounds nuw i8, ptr %321, i64 6
@@ -1396,7 +1396,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   %628 = load i32, ptr %14, align 8, !tbaa !19
   %629 = add nsw i32 %628, 4
   store i32 %629, ptr %14, align 8, !tbaa !19
-  br label %.backedge1642.backedge
+  br label %.backedge1641.backedge
 
 630:                                              ; preds = %599, %601
   %631 = getelementptr inbounds nuw i8, ptr %321, i64 6
@@ -1404,7 +1404,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   %632 = load i32, ptr %14, align 8, !tbaa !19
   %633 = add nsw i32 %632, 3
   store i32 %633, ptr %14, align 8, !tbaa !19
-  br label %.backedge1642.backedge
+  br label %.backedge1641.backedge
 
 634:                                              ; preds = %608, %610
   %635 = getelementptr inbounds nuw i8, ptr %321, i64 6
@@ -1412,14 +1412,14 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   store ptr %635, ptr %10, align 8, !tbaa !22
   %636 = load i8, ptr %635, align 1, !tbaa !15
   %637 = icmp eq i8 %636, 92
-  br i1 %637, label %640, label %.loopexit1641
+  br i1 %637, label %640, label %.loopexit1640
 
-.loopexit1641.sink.split:                         ; preds = %640, %643, %647, %658, %667, %651, %660, %669, %619, %617
+.loopexit1640.sink.split:                         ; preds = %640, %643, %647, %658, %667, %651, %660, %669, %619, %617
   %638 = getelementptr inbounds nuw i8, ptr %321, i64 6
   store ptr %638, ptr %0, align 8, !tbaa !4
-  br label %.loopexit1641
+  br label %.loopexit1640
 
-.loopexit1641:                                    ; preds = %634, %.loopexit1641.sink.split
+.loopexit1640:                                    ; preds = %634, %.loopexit1640.sink.split
   %639 = getelementptr inbounds nuw i8, ptr %0, i64 84
   store i32 10, ptr %639, align 4, !tbaa !17
   br label %.thread1609
@@ -1429,7 +1429,7 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   store ptr %641, ptr %0, align 8, !tbaa !4
   %642 = load i8, ptr %641, align 1, !tbaa !15
   %.not1424 = icmp eq i8 %642, 117
-  br i1 %.not1424, label %643, label %.loopexit1641.sink.split
+  br i1 %.not1424, label %643, label %.loopexit1640.sink.split
 
 643:                                              ; preds = %640
   %644 = getelementptr inbounds nuw i8, ptr %321, i64 8
@@ -1437,21 +1437,21 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   %645 = load i8, ptr %644, align 1, !tbaa !15
   %646 = and i8 %645, -33
   %or.cond160.not = icmp eq i8 %646, 68
-  br i1 %or.cond160.not, label %647, label %.loopexit1641.sink.split
+  br i1 %or.cond160.not, label %647, label %.loopexit1640.sink.split
 
 647:                                              ; preds = %643
   %648 = getelementptr inbounds nuw i8, ptr %321, i64 9
   store ptr %648, ptr %0, align 8, !tbaa !4
   %649 = load i8, ptr %648, align 1, !tbaa !15
   %650 = icmp ult i8 %649, 67
-  br i1 %650, label %.loopexit1641.sink.split, label %651
+  br i1 %650, label %.loopexit1640.sink.split, label %651
 
 651:                                              ; preds = %647
   %652 = icmp ugt i8 %649, 70
   %653 = add i8 %649, -103
   %or.cond163 = icmp ult i8 %653, -4
   %or.cond1465 = and i1 %652, %or.cond163
-  br i1 %or.cond1465, label %.loopexit1641.sink.split, label %654
+  br i1 %or.cond1465, label %.loopexit1640.sink.split, label %654
 
 654:                                              ; preds = %651
   %655 = getelementptr inbounds nuw i8, ptr %321, i64 10
@@ -1463,14 +1463,14 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
 658:                                              ; preds = %654
   %659 = add nsw i8 %656, -58
   %or.cond166 = icmp ult i8 %659, -10
-  br i1 %or.cond166, label %.loopexit1641.sink.split, label %663
+  br i1 %or.cond166, label %.loopexit1640.sink.split, label %663
 
 660:                                              ; preds = %654
   %661 = icmp ugt i8 %656, 70
   %662 = add i8 %656, -103
   %or.cond169 = icmp ult i8 %662, -6
   %or.cond1466 = and i1 %661, %or.cond169
-  br i1 %or.cond1466, label %.loopexit1641.sink.split, label %663
+  br i1 %or.cond1466, label %.loopexit1640.sink.split, label %663
 
 663:                                              ; preds = %658, %660
   %664 = getelementptr inbounds nuw i8, ptr %321, i64 11
@@ -1482,14 +1482,14 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
 667:                                              ; preds = %663
   %668 = add nsw i8 %665, -58
   %or.cond172 = icmp ult i8 %668, -10
-  br i1 %or.cond172, label %.loopexit1641.sink.split, label %672
+  br i1 %or.cond172, label %.loopexit1640.sink.split, label %672
 
 669:                                              ; preds = %663
   %670 = icmp ugt i8 %665, 70
   %671 = add i8 %665, -103
   %or.cond175 = icmp ult i8 %671, -6
   %or.cond1467 = and i1 %670, %or.cond175
-  br i1 %or.cond1467, label %.loopexit1641.sink.split, label %672
+  br i1 %or.cond1467, label %.loopexit1640.sink.split, label %672
 
 672:                                              ; preds = %667, %669
   %673 = getelementptr inbounds nuw i8, ptr %321, i64 12
@@ -1497,10 +1497,10 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   %674 = load i32, ptr %14, align 8, !tbaa !19
   %675 = add nsw i32 %674, 8
   store i32 %675, ptr %14, align 8, !tbaa !19
-  br label %.backedge1642.backedge
+  br label %.backedge1641.backedge
 
 .backedge:                                        ; preds = %.backedge.backedge, %.preheader
-  %676 = phi ptr [ %1158, %.preheader ], [ %.be2026, %.backedge.backedge ]
+  %676 = phi ptr [ %1158, %.preheader ], [ %.be2025, %.backedge.backedge ]
   %677 = load i8, ptr %676, align 1, !tbaa !15
   %678 = icmp ult i8 %677, -32
   br i1 %678, label %679, label %689
@@ -1600,11 +1600,11 @@ select.unfold:                                    ; preds = %zend_string_alloc.e
   %726 = load ptr, ptr %1162, align 8, !tbaa !31
   %727 = getelementptr inbounds nuw i8, ptr %726, i64 %723
   store ptr %727, ptr %1162, align 8, !tbaa !31
-  %.pre1779 = load ptr, ptr %0, align 8, !tbaa !4
+  %.pre1778 = load ptr, ptr %0, align 8, !tbaa !4
   br label %php_json_scanner_copy_string.exit1517
 
 php_json_scanner_copy_string.exit1517:            ; preds = %718, %724
-  %728 = phi ptr [ %715, %718 ], [ %.pre1779, %724 ]
+  %728 = phi ptr [ %715, %718 ], [ %.pre1778, %724 ]
   %729 = load i8, ptr %728, align 1, !tbaa !15
   switch i8 %729, label %.thread1613 [
     i8 98, label %select.unfold1612
@@ -1649,25 +1649,25 @@ select.unfold1612:                                ; preds = %php_json_scanner_co
   store ptr %739, ptr %1161, align 8, !tbaa !18
   %740 = load i32, ptr %1160, align 8, !tbaa !20
   %.not1448 = icmp eq i32 %740, 0
-  br i1 %.not1448, label %.preheader1637, label %.backedge.backedge
+  br i1 %.not1448, label %.preheader1636, label %.backedge.backedge
 
 741:                                              ; preds = %698, %687
   %742 = getelementptr inbounds nuw i8, ptr %676, i64 1
-  br label %.sink.split1970
+  br label %.sink.split1969
 
-.sink.split1970:                                  ; preds = %805, %810, %741
-  %.sink1972 = phi ptr [ %742, %741 ], [ %811, %810 ], [ %806, %805 ]
-  store ptr %.sink1972, ptr %0, align 8, !tbaa !4
+.sink.split1969:                                  ; preds = %805, %810, %741
+  %.sink1971 = phi ptr [ %742, %741 ], [ %811, %810 ], [ %806, %805 ]
+  store ptr %.sink1971, ptr %0, align 8, !tbaa !4
   br label %743
 
-743:                                              ; preds = %.sink.split1970, %781, %778, %774, %773, %772, %770, %767
-  %744 = phi ptr [ %782, %781 ], [ %779, %778 ], [ %775, %774 ], [ %692, %773 ], [ %692, %772 ], [ %692, %770 ], [ %768, %767 ], [ %.sink1972, %.sink.split1970 ]
+743:                                              ; preds = %.sink.split1969, %781, %778, %774, %773, %772, %770, %767
+  %744 = phi ptr [ %782, %781 ], [ %779, %778 ], [ %775, %774 ], [ %692, %773 ], [ %692, %772 ], [ %692, %770 ], [ %768, %767 ], [ %.sink1971, %.sink.split1969 ]
   %745 = load i32, ptr %1160, align 8, !tbaa !20
   %.not1446 = icmp eq i32 %745, 0
   br i1 %.not1446, label %.backedge.backedge, label %746
 
 .backedge.backedge:                               ; preds = %743, %765, %700, %php_json_scanner_copy_string.exit1521, %php_json_scanner_copy_string.exit1535, %php_json_scanner_copy_string.exit1549, %php_json_scanner_copy_string.exit1551, %select.unfold1612
-  %.be2026 = phi ptr [ %744, %743 ], [ %766, %765 ], [ %702, %700 ], [ %955, %php_json_scanner_copy_string.exit1521 ], [ %993, %php_json_scanner_copy_string.exit1535 ], [ %1037, %php_json_scanner_copy_string.exit1549 ], [ %1112, %php_json_scanner_copy_string.exit1551 ], [ %739, %select.unfold1612 ]
+  %.be2025 = phi ptr [ %744, %743 ], [ %766, %765 ], [ %702, %700 ], [ %955, %php_json_scanner_copy_string.exit1521 ], [ %993, %php_json_scanner_copy_string.exit1535 ], [ %1037, %php_json_scanner_copy_string.exit1549 ], [ %1112, %php_json_scanner_copy_string.exit1551 ], [ %739, %select.unfold1612 ]
   br label %.backedge
 
 746:                                              ; preds = %743
@@ -1813,7 +1813,7 @@ php_json_scanner_copy_string.exit1519:            ; preds = %746, %752
   store ptr %808, ptr %0, align 8, !tbaa !4
   %809 = load i8, ptr %808, align 1, !tbaa !15
   %or.cond202 = icmp slt i8 %809, -64
-  br i1 %or.cond202, label %700, label %.sink.split1970
+  br i1 %or.cond202, label %700, label %.sink.split1969
 
 810:                                              ; preds = %781, %778, %774
   %811 = phi ptr [ %782, %781 ], [ %779, %778 ], [ %775, %774 ]
@@ -1821,7 +1821,7 @@ php_json_scanner_copy_string.exit1519:            ; preds = %746, %752
   store ptr %812, ptr %0, align 8, !tbaa !4
   %813 = load i8, ptr %812, align 1, !tbaa !15
   %or.cond205 = icmp slt i8 %813, -64
-  br i1 %or.cond205, label %805, label %.sink.split1970
+  br i1 %or.cond205, label %805, label %.sink.split1969
 
 814:                                              ; preds = %792
   %815 = getelementptr inbounds nuw i8, ptr %676, i64 3
@@ -2106,20 +2106,20 @@ php_json_ucs2_to_int.exit:                        ; preds = %php_json_hex_to_int
   %945 = load ptr, ptr %1161, align 8, !tbaa !18
   %946 = ptrtoint ptr %929 to i64
   %947 = ptrtoint ptr %945 to i64
-  %reass.sub1636 = sub i64 %946, %947
-  %948 = add i64 %reass.sub1636, -6
+  %reass.sub1635 = sub i64 %946, %947
+  %948 = add i64 %reass.sub1635, -6
   %.not.i1520 = icmp eq i64 %948, 0
-  %.pre1778 = load ptr, ptr %1162, align 8, !tbaa !31
+  %.pre1777 = load ptr, ptr %1162, align 8, !tbaa !31
   br i1 %.not.i1520, label %php_json_scanner_copy_string.exit1521, label %949
 
 949:                                              ; preds = %php_json_ucs2_to_int.exit
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1778, ptr align 1 %945, i64 %948, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1777, ptr align 1 %945, i64 %948, i1 false)
   %950 = load ptr, ptr %1162, align 8, !tbaa !31
   %951 = getelementptr inbounds nuw i8, ptr %950, i64 %948
   br label %php_json_scanner_copy_string.exit1521
 
 php_json_scanner_copy_string.exit1521:            ; preds = %php_json_ucs2_to_int.exit, %949
-  %952 = phi ptr [ %.pre1778, %php_json_ucs2_to_int.exit ], [ %951, %949 ]
+  %952 = phi ptr [ %.pre1777, %php_json_ucs2_to_int.exit ], [ %951, %949 ]
   %953 = trunc i32 %944 to i8
   %954 = getelementptr inbounds nuw i8, ptr %952, i64 1
   store ptr %954, ptr %1162, align 8, !tbaa !31
@@ -2128,7 +2128,7 @@ php_json_scanner_copy_string.exit1521:            ; preds = %php_json_ucs2_to_in
   store ptr %955, ptr %1161, align 8, !tbaa !18
   %956 = load i32, ptr %1160, align 8, !tbaa !20
   %.not1445 = icmp eq i32 %956, 0
-  br i1 %.not1445, label %.preheader1637, label %.backedge.backedge
+  br i1 %.not1445, label %.preheader1636, label %.backedge.backedge
 
 957:                                              ; preds = %905, %907
   %958 = getelementptr inbounds nuw i8, ptr %676, i64 6
@@ -2179,20 +2179,20 @@ php_json_ucs2_to_int.exit1533:                    ; preds = %php_json_hex_to_int
   %976 = load ptr, ptr %1161, align 8, !tbaa !18
   %977 = ptrtoint ptr %958 to i64
   %978 = ptrtoint ptr %976 to i64
-  %reass.sub1635 = sub i64 %977, %978
-  %979 = add i64 %reass.sub1635, -6
+  %reass.sub1634 = sub i64 %977, %978
+  %979 = add i64 %reass.sub1634, -6
   %.not.i1534 = icmp eq i64 %979, 0
-  %.pre1777 = load ptr, ptr %1162, align 8, !tbaa !31
+  %.pre1776 = load ptr, ptr %1162, align 8, !tbaa !31
   br i1 %.not.i1534, label %php_json_scanner_copy_string.exit1535, label %980
 
 980:                                              ; preds = %php_json_ucs2_to_int.exit1533
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1777, ptr align 1 %976, i64 %979, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1776, ptr align 1 %976, i64 %979, i1 false)
   %981 = load ptr, ptr %1162, align 8, !tbaa !31
   %982 = getelementptr inbounds nuw i8, ptr %981, i64 %979
   br label %php_json_scanner_copy_string.exit1535
 
 php_json_scanner_copy_string.exit1535:            ; preds = %php_json_ucs2_to_int.exit1533, %980
-  %983 = phi ptr [ %.pre1777, %php_json_ucs2_to_int.exit1533 ], [ %982, %980 ]
+  %983 = phi ptr [ %.pre1776, %php_json_ucs2_to_int.exit1533 ], [ %982, %980 ]
   %984 = lshr i32 %974, 6
   %985 = trunc i32 %984 to i8
   %986 = or i8 %985, -64
@@ -2210,7 +2210,7 @@ php_json_scanner_copy_string.exit1535:            ; preds = %php_json_ucs2_to_in
   store ptr %993, ptr %1161, align 8, !tbaa !18
   %994 = load i32, ptr %1160, align 8, !tbaa !20
   %.not1444 = icmp eq i32 %994, 0
-  br i1 %.not1444, label %.preheader1637, label %.backedge.backedge
+  br i1 %.not1444, label %.preheader1636, label %.backedge.backedge
 
 995:                                              ; preds = %914, %916
   %996 = getelementptr inbounds nuw i8, ptr %676, i64 6
@@ -2261,20 +2261,20 @@ php_json_ucs2_to_int.exit1547:                    ; preds = %php_json_hex_to_int
   %1014 = load ptr, ptr %1161, align 8, !tbaa !18
   %1015 = ptrtoint ptr %996 to i64
   %1016 = ptrtoint ptr %1014 to i64
-  %reass.sub1634 = sub i64 %1015, %1016
-  %1017 = add i64 %reass.sub1634, -6
+  %reass.sub1633 = sub i64 %1015, %1016
+  %1017 = add i64 %reass.sub1633, -6
   %.not.i1548 = icmp eq i64 %1017, 0
-  %.pre1776 = load ptr, ptr %1162, align 8, !tbaa !31
+  %.pre1775 = load ptr, ptr %1162, align 8, !tbaa !31
   br i1 %.not.i1548, label %php_json_scanner_copy_string.exit1549, label %1018
 
 1018:                                             ; preds = %php_json_ucs2_to_int.exit1547
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1776, ptr align 1 %1014, i64 %1017, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1775, ptr align 1 %1014, i64 %1017, i1 false)
   %1019 = load ptr, ptr %1162, align 8, !tbaa !31
   %1020 = getelementptr inbounds nuw i8, ptr %1019, i64 %1017
   br label %php_json_scanner_copy_string.exit1549
 
 php_json_scanner_copy_string.exit1549:            ; preds = %php_json_ucs2_to_int.exit1547, %1018
-  %1021 = phi ptr [ %.pre1776, %php_json_ucs2_to_int.exit1547 ], [ %1020, %1018 ]
+  %1021 = phi ptr [ %.pre1775, %php_json_ucs2_to_int.exit1547 ], [ %1020, %1018 ]
   %1022 = lshr i32 %1012, 12
   %1023 = trunc i32 %1022 to i8
   %1024 = or i8 %1023, -32
@@ -2300,7 +2300,7 @@ php_json_scanner_copy_string.exit1549:            ; preds = %php_json_ucs2_to_in
   store ptr %1037, ptr %1161, align 8, !tbaa !18
   %1038 = load i32, ptr %1160, align 8, !tbaa !20
   %.not1443 = icmp eq i32 %1038, 0
-  br i1 %.not1443, label %.preheader1637, label %.backedge.backedge
+  br i1 %.not1443, label %.preheader1636, label %.backedge.backedge
 
 1039:                                             ; preds = %923, %925
   %1040 = getelementptr inbounds nuw i8, ptr %676, i64 6
@@ -2389,20 +2389,20 @@ php_json_scanner_copy_string.exit1549:            ; preds = %php_json_ucs2_to_in
   %1083 = load ptr, ptr %1161, align 8, !tbaa !18
   %1084 = ptrtoint ptr %1075 to i64
   %1085 = ptrtoint ptr %1083 to i64
-  %reass.sub1633 = sub i64 %1084, %1085
-  %1086 = add i64 %reass.sub1633, -12
+  %reass.sub1632 = sub i64 %1084, %1085
+  %1086 = add i64 %reass.sub1632, -12
   %.not.i1550 = icmp eq i64 %1086, 0
-  %.pre1775 = load ptr, ptr %1162, align 8, !tbaa !31
+  %.pre1774 = load ptr, ptr %1162, align 8, !tbaa !31
   br i1 %.not.i1550, label %php_json_scanner_copy_string.exit1551, label %1087
 
 1087:                                             ; preds = %1074
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1775, ptr align 1 %1083, i64 %1086, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1774, ptr align 1 %1083, i64 %1086, i1 false)
   %1088 = load ptr, ptr %1162, align 8, !tbaa !31
   %1089 = getelementptr inbounds nuw i8, ptr %1088, i64 %1086
   br label %php_json_scanner_copy_string.exit1551
 
 php_json_scanner_copy_string.exit1551:            ; preds = %1074, %1087
-  %1090 = phi ptr [ %.pre1775, %1074 ], [ %1089, %1087 ]
+  %1090 = phi ptr [ %.pre1774, %1074 ], [ %1089, %1087 ]
   %1091 = lshr i32 %1082, 18
   %1092 = trunc nuw nsw i32 %1091 to i8
   %1093 = or disjoint i8 %1092, -16
@@ -2436,31 +2436,31 @@ php_json_scanner_copy_string.exit1551:            ; preds = %1074, %1087
   store ptr %1112, ptr %1161, align 8, !tbaa !18
   %1113 = load i32, ptr %1160, align 8, !tbaa !20
   %.not1442 = icmp eq i32 %1113, 0
-  br i1 %.not1442, label %.preheader1637, label %.backedge.backedge
+  br i1 %.not1442, label %.preheader1636, label %.backedge.backedge
 
-.preheader1637:                                   ; preds = %select.unfold1612, %php_json_scanner_copy_string.exit1551, %php_json_scanner_copy_string.exit1549, %php_json_scanner_copy_string.exit1535, %php_json_scanner_copy_string.exit1521, %._crit_edge, %select.unfold
+.preheader1636:                                   ; preds = %select.unfold1612, %php_json_scanner_copy_string.exit1551, %php_json_scanner_copy_string.exit1549, %php_json_scanner_copy_string.exit1535, %php_json_scanner_copy_string.exit1521, %._crit_edge, %select.unfold
   %1114 = phi ptr [ %.promoted, %._crit_edge ], [ %383, %select.unfold ], [ %955, %php_json_scanner_copy_string.exit1521 ], [ %993, %php_json_scanner_copy_string.exit1535 ], [ %1037, %php_json_scanner_copy_string.exit1549 ], [ %1112, %php_json_scanner_copy_string.exit1551 ], [ %739, %select.unfold1612 ]
   %1115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %1116 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %1117 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %1118 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  br label %.backedge1638
+  br label %.backedge1637
 
-.backedge1638:                                    ; preds = %.backedge1638.backedge, %.preheader1637
-  %1119 = phi ptr [ %1114, %.preheader1637 ], [ %.be, %.backedge1638.backedge ]
+.backedge1637:                                    ; preds = %.backedge1637.backedge, %.preheader1636
+  %1119 = phi ptr [ %1114, %.preheader1636 ], [ %.be, %.backedge1637.backedge ]
   %1120 = load i8, ptr %1119, align 1, !tbaa !15
   %1121 = getelementptr inbounds nuw i8, ptr %1119, i64 1
   store ptr %1121, ptr %0, align 8, !tbaa !4
-  switch i8 %1120, label %.backedge1638.backedge [
+  switch i8 %1120, label %.backedge1637.backedge [
     i8 34, label %1122
     i8 92, label %1132
   ]
 
-.backedge1638.backedge:                           ; preds = %.backedge1638, %php_json_scanner_copy_string.exit1569, %php_json_scanner_copy_string.exit1583, %php_json_scanner_copy_string.exit1597, %php_json_scanner_copy_string.exit1599, %select.unfold1618
-  %.be = phi ptr [ %1327, %php_json_scanner_copy_string.exit1569 ], [ %1365, %php_json_scanner_copy_string.exit1583 ], [ %1409, %php_json_scanner_copy_string.exit1597 ], [ %1484, %php_json_scanner_copy_string.exit1599 ], [ %1156, %select.unfold1618 ], [ %1121, %.backedge1638 ]
-  br label %.backedge1638
+.backedge1637.backedge:                           ; preds = %.backedge1637, %php_json_scanner_copy_string.exit1569, %php_json_scanner_copy_string.exit1583, %php_json_scanner_copy_string.exit1597, %php_json_scanner_copy_string.exit1599, %select.unfold1618
+  %.be = phi ptr [ %1327, %php_json_scanner_copy_string.exit1569 ], [ %1365, %php_json_scanner_copy_string.exit1583 ], [ %1409, %php_json_scanner_copy_string.exit1597 ], [ %1484, %php_json_scanner_copy_string.exit1599 ], [ %1156, %select.unfold1618 ], [ %1121, %.backedge1637 ]
+  br label %.backedge1637
 
-1122:                                             ; preds = %.backedge1638
+1122:                                             ; preds = %.backedge1637
   store i32 0, ptr %5, align 4, !tbaa !14
   %1123 = load ptr, ptr %1116, align 8, !tbaa !18
   %1124 = ptrtoint ptr %1121 to i64
@@ -2478,7 +2478,7 @@ php_json_scanner_copy_string.exit1551:            ; preds = %1074, %1087
   store ptr %1131, ptr %1117, align 8, !tbaa !31
   br label %.thread1609
 
-1132:                                             ; preds = %.backedge1638
+1132:                                             ; preds = %.backedge1637
   store ptr %1121, ptr %1115, align 8, !tbaa !22
   %1133 = load i8, ptr %1121, align 1, !tbaa !15
   %1134 = icmp eq i8 %1133, 117
@@ -2499,11 +2499,11 @@ php_json_scanner_copy_string.exit1551:            ; preds = %1074, %1087
   %1143 = load ptr, ptr %1117, align 8, !tbaa !31
   %1144 = getelementptr inbounds nuw i8, ptr %1143, i64 %1140
   store ptr %1144, ptr %1117, align 8, !tbaa !31
-  %.pre1774 = load ptr, ptr %0, align 8, !tbaa !4
+  %.pre1773 = load ptr, ptr %0, align 8, !tbaa !4
   br label %php_json_scanner_copy_string.exit1555
 
 php_json_scanner_copy_string.exit1555:            ; preds = %1135, %1141
-  %1145 = phi ptr [ %1121, %1135 ], [ %.pre1774, %1141 ]
+  %1145 = phi ptr [ %1121, %1135 ], [ %.pre1773, %1141 ]
   %1146 = load i8, ptr %1145, align 1, !tbaa !15
   switch i8 %1146, label %.thread1619 [
     i8 98, label %select.unfold1618
@@ -2548,7 +2548,7 @@ select.unfold1618:                                ; preds = %php_json_scanner_co
   store ptr %1156, ptr %1116, align 8, !tbaa !18
   %1157 = load i32, ptr %1118, align 8, !tbaa !20
   %.not1438 = icmp eq i32 %1157, 0
-  br i1 %.not1438, label %.backedge1638.backedge, label %.preheader.loopexit
+  br i1 %.not1438, label %.backedge1637.backedge, label %.preheader.loopexit
 
 .preheader.loopexit:                              ; preds = %select.unfold1618, %php_json_scanner_copy_string.exit1599, %php_json_scanner_copy_string.exit1597, %php_json_scanner_copy_string.exit1583, %php_json_scanner_copy_string.exit1569
   %.ph = phi ptr [ %1156, %select.unfold1618 ], [ %1484, %php_json_scanner_copy_string.exit1599 ], [ %1409, %php_json_scanner_copy_string.exit1597 ], [ %1365, %php_json_scanner_copy_string.exit1583 ], [ %1327, %php_json_scanner_copy_string.exit1569 ]
@@ -2894,20 +2894,20 @@ php_json_ucs2_to_int.exit1567:                    ; preds = %php_json_hex_to_int
   %1317 = load ptr, ptr %1116, align 8, !tbaa !18
   %1318 = ptrtoint ptr %1301 to i64
   %1319 = ptrtoint ptr %1317 to i64
-  %reass.sub1632 = sub i64 %1318, %1319
-  %1320 = add i64 %reass.sub1632, -6
+  %reass.sub1631 = sub i64 %1318, %1319
+  %1320 = add i64 %reass.sub1631, -6
   %.not.i1568 = icmp eq i64 %1320, 0
-  %.pre1773 = load ptr, ptr %1117, align 8, !tbaa !31
+  %.pre1772 = load ptr, ptr %1117, align 8, !tbaa !31
   br i1 %.not.i1568, label %php_json_scanner_copy_string.exit1569, label %1321
 
 1321:                                             ; preds = %php_json_ucs2_to_int.exit1567
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1773, ptr align 1 %1317, i64 %1320, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1772, ptr align 1 %1317, i64 %1320, i1 false)
   %1322 = load ptr, ptr %1117, align 8, !tbaa !31
   %1323 = getelementptr inbounds nuw i8, ptr %1322, i64 %1320
   br label %php_json_scanner_copy_string.exit1569
 
 php_json_scanner_copy_string.exit1569:            ; preds = %php_json_ucs2_to_int.exit1567, %1321
-  %1324 = phi ptr [ %.pre1773, %php_json_ucs2_to_int.exit1567 ], [ %1323, %1321 ]
+  %1324 = phi ptr [ %.pre1772, %php_json_ucs2_to_int.exit1567 ], [ %1323, %1321 ]
   %1325 = trunc i32 %1316 to i8
   %1326 = getelementptr inbounds nuw i8, ptr %1324, i64 1
   store ptr %1326, ptr %1117, align 8, !tbaa !31
@@ -2916,7 +2916,7 @@ php_json_scanner_copy_string.exit1569:            ; preds = %php_json_ucs2_to_in
   store ptr %1327, ptr %1116, align 8, !tbaa !18
   %1328 = load i32, ptr %1118, align 8, !tbaa !20
   %.not1437 = icmp eq i32 %1328, 0
-  br i1 %.not1437, label %.backedge1638.backedge, label %.preheader.loopexit
+  br i1 %.not1437, label %.backedge1637.backedge, label %.preheader.loopexit
 
 1329:                                             ; preds = %1277, %1279
   %1330 = getelementptr inbounds nuw i8, ptr %1119, i64 6
@@ -2967,20 +2967,20 @@ php_json_ucs2_to_int.exit1581:                    ; preds = %php_json_hex_to_int
   %1348 = load ptr, ptr %1116, align 8, !tbaa !18
   %1349 = ptrtoint ptr %1330 to i64
   %1350 = ptrtoint ptr %1348 to i64
-  %reass.sub1631 = sub i64 %1349, %1350
-  %1351 = add i64 %reass.sub1631, -6
+  %reass.sub1630 = sub i64 %1349, %1350
+  %1351 = add i64 %reass.sub1630, -6
   %.not.i1582 = icmp eq i64 %1351, 0
-  %.pre1772 = load ptr, ptr %1117, align 8, !tbaa !31
+  %.pre1771 = load ptr, ptr %1117, align 8, !tbaa !31
   br i1 %.not.i1582, label %php_json_scanner_copy_string.exit1583, label %1352
 
 1352:                                             ; preds = %php_json_ucs2_to_int.exit1581
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1772, ptr align 1 %1348, i64 %1351, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1771, ptr align 1 %1348, i64 %1351, i1 false)
   %1353 = load ptr, ptr %1117, align 8, !tbaa !31
   %1354 = getelementptr inbounds nuw i8, ptr %1353, i64 %1351
   br label %php_json_scanner_copy_string.exit1583
 
 php_json_scanner_copy_string.exit1583:            ; preds = %php_json_ucs2_to_int.exit1581, %1352
-  %1355 = phi ptr [ %.pre1772, %php_json_ucs2_to_int.exit1581 ], [ %1354, %1352 ]
+  %1355 = phi ptr [ %.pre1771, %php_json_ucs2_to_int.exit1581 ], [ %1354, %1352 ]
   %1356 = lshr i32 %1346, 6
   %1357 = trunc i32 %1356 to i8
   %1358 = or i8 %1357, -64
@@ -2998,7 +2998,7 @@ php_json_scanner_copy_string.exit1583:            ; preds = %php_json_ucs2_to_in
   store ptr %1365, ptr %1116, align 8, !tbaa !18
   %1366 = load i32, ptr %1118, align 8, !tbaa !20
   %.not1436 = icmp eq i32 %1366, 0
-  br i1 %.not1436, label %.backedge1638.backedge, label %.preheader.loopexit
+  br i1 %.not1436, label %.backedge1637.backedge, label %.preheader.loopexit
 
 1367:                                             ; preds = %1286, %1288
   %1368 = getelementptr inbounds nuw i8, ptr %1119, i64 6
@@ -3049,20 +3049,20 @@ php_json_ucs2_to_int.exit1595:                    ; preds = %php_json_hex_to_int
   %1386 = load ptr, ptr %1116, align 8, !tbaa !18
   %1387 = ptrtoint ptr %1368 to i64
   %1388 = ptrtoint ptr %1386 to i64
-  %reass.sub1630 = sub i64 %1387, %1388
-  %1389 = add i64 %reass.sub1630, -6
+  %reass.sub1629 = sub i64 %1387, %1388
+  %1389 = add i64 %reass.sub1629, -6
   %.not.i1596 = icmp eq i64 %1389, 0
-  %.pre1771 = load ptr, ptr %1117, align 8, !tbaa !31
+  %.pre1770 = load ptr, ptr %1117, align 8, !tbaa !31
   br i1 %.not.i1596, label %php_json_scanner_copy_string.exit1597, label %1390
 
 1390:                                             ; preds = %php_json_ucs2_to_int.exit1595
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1771, ptr align 1 %1386, i64 %1389, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1770, ptr align 1 %1386, i64 %1389, i1 false)
   %1391 = load ptr, ptr %1117, align 8, !tbaa !31
   %1392 = getelementptr inbounds nuw i8, ptr %1391, i64 %1389
   br label %php_json_scanner_copy_string.exit1597
 
 php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_int.exit1595, %1390
-  %1393 = phi ptr [ %.pre1771, %php_json_ucs2_to_int.exit1595 ], [ %1392, %1390 ]
+  %1393 = phi ptr [ %.pre1770, %php_json_ucs2_to_int.exit1595 ], [ %1392, %1390 ]
   %1394 = lshr i32 %1384, 12
   %1395 = trunc i32 %1394 to i8
   %1396 = or i8 %1395, -32
@@ -3088,7 +3088,7 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   store ptr %1409, ptr %1116, align 8, !tbaa !18
   %1410 = load i32, ptr %1118, align 8, !tbaa !20
   %.not1435 = icmp eq i32 %1410, 0
-  br i1 %.not1435, label %.backedge1638.backedge, label %.preheader.loopexit
+  br i1 %.not1435, label %.backedge1637.backedge, label %.preheader.loopexit
 
 1411:                                             ; preds = %1295, %1297
   %1412 = getelementptr inbounds nuw i8, ptr %1119, i64 6
@@ -3180,17 +3180,17 @@ php_json_scanner_copy_string.exit1597:            ; preds = %php_json_ucs2_to_in
   %reass.sub = sub i64 %1456, %1457
   %1458 = add i64 %reass.sub, -12
   %.not.i1598 = icmp eq i64 %1458, 0
-  %.pre1770 = load ptr, ptr %1117, align 8, !tbaa !31
+  %.pre1769 = load ptr, ptr %1117, align 8, !tbaa !31
   br i1 %.not.i1598, label %php_json_scanner_copy_string.exit1599, label %1459
 
 1459:                                             ; preds = %1446
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1770, ptr align 1 %1455, i64 %1458, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.pre1769, ptr align 1 %1455, i64 %1458, i1 false)
   %1460 = load ptr, ptr %1117, align 8, !tbaa !31
   %1461 = getelementptr inbounds nuw i8, ptr %1460, i64 %1458
   br label %php_json_scanner_copy_string.exit1599
 
 php_json_scanner_copy_string.exit1599:            ; preds = %1446, %1459
-  %1462 = phi ptr [ %.pre1770, %1446 ], [ %1461, %1459 ]
+  %1462 = phi ptr [ %.pre1769, %1446 ], [ %1461, %1459 ]
   %1463 = lshr i32 %1454, 18
   %1464 = trunc nuw nsw i32 %1463 to i8
   %1465 = or disjoint i8 %1464, -16
@@ -3224,17 +3224,17 @@ php_json_scanner_copy_string.exit1599:            ; preds = %1446, %1459
   store ptr %1484, ptr %1116, align 8, !tbaa !18
   %1485 = load i32, ptr %1118, align 8, !tbaa !20
   %.not1434 = icmp eq i32 %1485, 0
-  br i1 %.not1434, label %.backedge1638.backedge, label %.preheader.loopexit
+  br i1 %.not1434, label %.backedge1637.backedge, label %.preheader.loopexit
 
 php_json_scanner_copy_string.exit:                ; preds = %95, %89
   %1486 = phi ptr [ %97, %95 ], [ %90, %89 ]
   store ptr %1486, ptr %4, align 8, !tbaa !16
   %1487 = load i8, ptr %1486, align 1, !tbaa !15
   %1488 = icmp ult i8 %1487, 94
-  br i1 %1488, label %.lr.ph2018, label %.lr.ph.split._crit_edge
+  br i1 %1488, label %.lr.ph2017, label %.lr.ph.split._crit_edge
 
-.thread1609:                                      ; preds = %384, %368, %.loopexit1649, %81, %104, %347, %.loopexit1640, %425, %429, %.loopexit1641, %112, %.loopexit1644, %204, %177, %179, %181, %319, %315, %317, %198, %200, %76, %164, %zend_string_alloc.exit, %.critedge, %703, %710, %.thread1613, %1122, %1128, %.thread1619
-  %.4.ph = phi i32 [ 266, %.thread1619 ], [ 263, %1128 ], [ 263, %1122 ], [ 266, %.thread1613 ], [ 263, %710 ], [ 263, %703 ], [ 261, %.critedge ], [ 262, %164 ], [ 263, %zend_string_alloc.exit ], [ 265, %76 ], [ 125, %200 ], [ 123, %198 ], [ 259, %317 ], [ 258, %315 ], [ 260, %319 ], [ 93, %181 ], [ 91, %179 ], [ 58, %177 ], [ 266, %204 ], [ 262, %.loopexit1644 ], [ 44, %112 ], [ 266, %.loopexit1641 ], [ 266, %429 ], [ 266, %425 ], [ 266, %.loopexit1640 ], [ 266, %347 ], [ 266, %104 ], [ 266, %81 ], [ 266, %.loopexit1649 ], [ 263, %384 ], [ 264, %368 ]
+.thread1609:                                      ; preds = %384, %368, %.loopexit1648, %81, %104, %347, %.loopexit1639, %425, %429, %.loopexit1640, %112, %.loopexit1643, %204, %177, %179, %181, %319, %315, %317, %198, %200, %76, %164, %zend_string_alloc.exit, %.critedge, %703, %710, %.thread1613, %1122, %1128, %.thread1619
+  %.4.ph = phi i32 [ 266, %.thread1619 ], [ 263, %1128 ], [ 263, %1122 ], [ 266, %.thread1613 ], [ 263, %710 ], [ 263, %703 ], [ 261, %.critedge ], [ 262, %164 ], [ 263, %zend_string_alloc.exit ], [ 265, %76 ], [ 125, %200 ], [ 123, %198 ], [ 259, %317 ], [ 258, %315 ], [ 260, %319 ], [ 93, %181 ], [ 91, %179 ], [ 58, %177 ], [ 266, %204 ], [ 262, %.loopexit1643 ], [ 44, %112 ], [ 266, %.loopexit1640 ], [ 266, %429 ], [ 266, %425 ], [ 266, %.loopexit1639 ], [ 266, %347 ], [ 266, %104 ], [ 266, %81 ], [ 266, %.loopexit1648 ], [ 263, %384 ], [ 264, %368 ]
   ret i32 %.4.ph
 }
 

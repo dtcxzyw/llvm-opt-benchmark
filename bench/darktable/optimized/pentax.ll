@@ -197,12 +197,11 @@ define void @_ZN6LibRaw14PentaxLensInfoEyj(ptr noundef nonnull align 8 dereferen
 16:                                               ; preds = %15, %15, %15
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %18 = load i8, ptr %17, align 1, !tbaa !84
-  switch i8 %18, label %31 [
-    i8 0, label %19
-    i8 -1, label %19
-  ]
+  %.off = add i8 %18, -1
+  %switch = icmp ult i8 %.off, -2
+  br i1 %switch, label %31, label %19
 
-19:                                               ; preds = %16, %16, %3
+19:                                               ; preds = %16, %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %21 = load i64, ptr %20, align 8, !tbaa !85
   %22 = icmp eq i64 %21, -1

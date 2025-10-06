@@ -7652,13 +7652,13 @@ if.then28:                                        ; preds = %if.end26
 
 if.end.i:                                         ; preds = %if.then28
   call void @_ZN4node27UnconditionalAsyncWrapDebugIJEEEvPNS_9AsyncWrapEPKcDpOT_(ptr noundef nonnull %this, ptr noundef nonnull @.str.58) #30
-  %.pre47 = load ptr, ptr %realm_.i, align 8
-  %env_.i.i26.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre47, i64 176
-  %.pre48 = load ptr, ptr %env_.i.i26.phi.trans.insert, align 8
+  %.pre46 = load ptr, ptr %realm_.i, align 8
+  %env_.i.i26.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre46, i64 176
+  %.pre47 = load ptr, ptr %env_.i.i26.phi.trans.insert, align 8
   br label %_ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit
 
 _ZN4node5DebugIJEEEvPNS_9AsyncWrapEPKcDpOT_.exit: ; preds = %if.then28, %if.end.i
-  %19 = phi ptr [ %17, %if.then28 ], [ %.pre48, %if.end.i ]
+  %19 = phi ptr [ %17, %if.then28 ], [ %.pre47, %if.end.i ]
   %isolate_.i = getelementptr inbounds nuw i8, ptr %19, i64 88
   %20 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %scope, ptr noundef %20) #28
@@ -7740,8 +7740,8 @@ if.end53:                                         ; preds = %if.end52, %if.end26
   %current_session_memory_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 232
   %36 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !100
   %37 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !100
-  %cmp.i.i.i.i3261 = icmp eq ptr %36, %37
-  br i1 %cmp.i.i.i.i3261, label %while.end, label %_ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit.i.i
+  %cmp.i.i.i.i3260 = icmp eq ptr %36, %37
+  br i1 %cmp.i.i.i.i3260, label %while.end, label %_ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit.i.i
 
 _ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit.i.i: ; preds = %if.end53, %_ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit
   %38 = phi ptr [ %64, %_ZN4node17BaseObjectPtrImplINS_5http29Http2PingELb0EED2Ev.exit ], [ %37, %if.end53 ]

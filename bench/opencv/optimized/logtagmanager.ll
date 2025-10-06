@@ -2598,8 +2598,8 @@ _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %17
 .preheader31:                                     ; preds = %_ZNKSt6vectorImSaImEE2atEm.exit, %31
   %.sroa.0.0.in.i.i.i.i.i = phi ptr [ %.sroa.0.0.i.i.i.i.i, %31 ], [ %13, %_ZNKSt6vectorImSaImEE2atEm.exit ]
   %.sroa.0.0.i.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i.i, align 8, !tbaa !91
-  %.not33.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, null
-  br i1 %.not33.i.i.i.i.i, label %.loopexit.i.i.i.i, label %31
+  %.not28.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, null
+  br i1 %.not28.i.i.i.i.i, label %.loopexit.i.i.i.i, label %31
 
 31:                                               ; preds = %.preheader31
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
@@ -2608,8 +2608,8 @@ _ZNKSt6vectorImSaImEE2atEm.exit:                  ; preds = %17
   br i1 %34, label %.loopexit.i.i.i.i, label %.preheader31, !llvm.loop !150
 
 .loopexit.i.i.i.i:                                ; preds = %31, %.preheader31, %_ZNKSt6vectorImSaImEE2atEm.exit
-  %.sroa.021.2.i.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorImSaImEE2atEm.exit ], [ null, %.preheader31 ], [ %.sroa.0.0.i.i.i.i.i, %31 ]
-  %35 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS5_10_Hash_nodeIS3_Lb0EEEmSJ_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.021.2.i.i.i.i.i, i64 noundef %1, ptr noundef nonnull %27)
+  %.sroa.020.2.i.i.i.i.i = phi ptr [ null, %_ZNKSt6vectorImSaImEE2atEm.exit ], [ null, %.preheader31 ], [ %.sroa.0.0.i.i.i.i.i, %31 ]
+  %35 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS5_10_Hash_nodeIS3_Lb0EEEmSJ_(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %.sroa.020.2.i.i.i.i.i, i64 noundef %1, ptr noundef nonnull %27)
           to label %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7emplaceIJRmS1_EEENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEEDpOT_.exit unwind label %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i
 
 common.resume:                                    ; preds = %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i9, %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i
@@ -2639,8 +2639,8 @@ _ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7em
 .preheader:                                       ; preds = %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7emplaceIJRmS1_EEENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEEDpOT_.exit, %41
   %.sroa.0.0.in.i.i.i.i.i10 = phi ptr [ %.sroa.0.0.i.i.i.i.i11, %41 ], [ %16, %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7emplaceIJRmS1_EEENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEEDpOT_.exit ]
   %.sroa.0.0.i.i.i.i.i11 = load ptr, ptr %.sroa.0.0.in.i.i.i.i.i10, align 8, !tbaa !91
-  %.not33.i.i.i.i.i12 = icmp eq ptr %.sroa.0.0.i.i.i.i.i11, null
-  br i1 %.not33.i.i.i.i.i12, label %.loopexit.i.i.i.i7, label %41
+  %.not28.i.i.i.i.i12 = icmp eq ptr %.sroa.0.0.i.i.i.i.i11, null
+  br i1 %.not28.i.i.i.i.i12, label %.loopexit.i.i.i.i7, label %41
 
 41:                                               ; preds = %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i11, i64 8
@@ -2649,8 +2649,8 @@ _ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7em
   br i1 %44, label %.loopexit.i.i.i.i7, label %.preheader, !llvm.loop !150
 
 .loopexit.i.i.i.i7:                               ; preds = %41, %.preheader, %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7emplaceIJRmS1_EEENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEEDpOT_.exit
-  %.sroa.021.2.i.i.i.i.i8 = phi ptr [ null, %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7emplaceIJRmS1_EEENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEEDpOT_.exit ], [ null, %.preheader ], [ %.sroa.0.0.i.i.i.i.i11, %41 ]
-  %45 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS5_10_Hash_nodeIS3_Lb0EEEmSJ_(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %.sroa.021.2.i.i.i.i.i8, i64 noundef %26, ptr noundef nonnull %37)
+  %.sroa.020.2.i.i.i.i.i8 = phi ptr [ null, %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7emplaceIJRmS1_EEENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEEDpOT_.exit ], [ null, %.preheader ], [ %.sroa.0.0.i.i.i.i.i11, %41 ]
+  %45 = invoke ptr @_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS5_10_Hash_nodeIS3_Lb0EEEmSJ_(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef %.sroa.020.2.i.i.i.i.i8, i64 noundef %26, ptr noundef nonnull %37)
           to label %_ZNSt18unordered_multimapImSt4pairImmESt4hashImESt8equal_toImESaIS0_IKmS1_EEE7emplaceIJRS6_S1_EEENSt8__detail14_Node_iteratorIS7_Lb0ELb0EEEDpOT_.exit unwind label %_ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i9
 
 _ZNSt10_HashtableImSt4pairIKmS0_ImmEESaIS3_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i9: ; preds = %.loopexit.i.i.i.i7

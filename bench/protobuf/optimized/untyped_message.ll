@@ -2390,11 +2390,11 @@ if.end48:                                         ; preds = %if.end5.i89
 
 if.end48.if.end.i101_crit_edge:                   ; preds = %if.end48
   %.pre = load ptr, ptr %buffer_end_.i, align 8
-  %.pre341 = load ptr, ptr %stream, align 8
+  %.pre339 = load ptr, ptr %stream, align 8
   br label %if.end.i101
 
 if.end.i101:                                      ; preds = %if.end48.if.end.i101_crit_edge, %if.end48.thread
-  %28 = phi ptr [ %add.ptr.i.i96, %if.end48.thread ], [ %.pre341, %if.end48.if.end.i101_crit_edge ]
+  %28 = phi ptr [ %add.ptr.i.i96, %if.end48.thread ], [ %.pre339, %if.end48.if.end.i101_crit_edge ]
   %29 = phi ptr [ %26, %if.end48.thread ], [ %.pre, %if.end48.if.end.i101_crit_edge ]
   %x43.0258261 = phi i32 [ %conv.i93, %if.end48.thread ], [ %conv6.i, %if.end48.if.end.i101_crit_edge ]
   %sub.ptr.lhs.cast.i.i103 = ptrtoint ptr %29 to i64
@@ -2757,8 +2757,8 @@ sw.epilog:                                        ; preds = %do.body110, %do.bod
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %if.then22, %if.end4.i, %if.then3.i, %if.end48, %invoke.cont37.thread, %invoke.cont30.thread, %invoke.cont23.thread, %if.else.i79, %if.else.i, %if.end.i, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit, %sw.epilog
   %cleanup.dest.slot.0270 = phi i32 [ 2, %if.then3.i ], [ 2, %if.end48 ], [ 2, %if.end4.i ], [ 2, %invoke.cont37.thread ], [ 2, %invoke.cont30.thread ], [ 2, %invoke.cont23.thread ], [ 2, %if.else.i79 ], [ 2, %if.else.i ], [ 2, %if.end.i ], [ %cleanup.dest.slot.6, %_ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit ], [ 0, %sw.epilog ], [ 2, %if.then22 ]
-  %switch = icmp eq i32 %cleanup.dest.slot.0270, 1
-  br i1 %switch, label %return, label %while.body
+  %76 = icmp eq i32 %cleanup.dest.slot.0270, 1
+  br i1 %76, label %return, label %while.body
 
 _ZNSt6vectorIiSaIiEED2Ev.exit233:                 ; preds = %ehcleanup204, %lpad.i55, %lpad.i183, %lpad.i222, %lpad.i152, %lpad.i123, %lpad.i
   %.pn45 = phi { ptr, i32 } [ %.pn.pn, %ehcleanup204 ], [ %8, %lpad.i ], [ %13, %lpad.i55 ], [ %33, %lpad.i123 ], [ %37, %lpad.i152 ], [ %48, %lpad.i183 ], [ %75, %lpad.i222 ]
@@ -2771,7 +2771,7 @@ return:                                           ; preds = %do.body, %do.body74
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6google8protobuf13json_internal14UntypedMessage12DecodeVarintERNS0_2io16CodedInputStreamERKNS1_12ResolverPool5FieldE(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull align 8 dereferenceable(32) %field) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  %ref.tmp.i75 = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
+  %ref.tmp.i70 = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp.i = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %byte = alloca i8, align 1
   %ref.tmp = alloca i8, align 1
@@ -2823,8 +2823,8 @@ cleanup20:                                        ; preds = %if.end
   store i8 0, ptr %ref.tmp12, align 1
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldINS2_4BoolEEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12)
   %4 = load i64, ptr %agg.result, align 8
-  %cmp.i26 = icmp eq i64 %4, 0
-  br i1 %cmp.i26, label %sw.epilog144.sink.split, label %return
+  %cmp.i21 = icmp eq i64 %4, 0
+  br i1 %cmp.i21, label %sw.epilog144.sink.split, label %return
 
 sw.default:                                       ; preds = %if.end
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
@@ -2854,8 +2854,8 @@ sw.bb33:                                          ; preds = %entry, %entry, %ent
   %9 = load ptr, ptr %stream, align 8
   %buffer_end_.i = getelementptr inbounds nuw i8, ptr %stream, i64 8
   %10 = load ptr, ptr %buffer_end_.i, align 8
-  %cmp.i27 = icmp ult ptr %9, %10
-  br i1 %cmp.i27, label %if.then.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
+  %cmp.i22 = icmp ult ptr %9, %10
+  br i1 %cmp.i22, label %if.then.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
 
 if.then.i:                                        ; preds = %sw.bb33
   %11 = load i8, ptr %9, align 1
@@ -2884,8 +2884,8 @@ if.then35:                                        ; preds = %_ZN6google8protobuf
 if.end37:                                         ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit
   %12 = phi i32 [ %conv.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit.thread ], [ %conv6.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint32EPj.exit ]
   %13 = load ptr, ptr %raw_.i, align 8
-  %kind_.i.i31 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %14 = load i32, ptr %kind_.i.i31, align 8
+  %kind_.i.i26 = getelementptr inbounds nuw i8, ptr %13, i64 72
+  %14 = load i32, ptr %kind_.i.i26, align 8
   switch i32 %14, label %cleanup74 [
     i32 13, label %cleanup50
     i32 17, label %if.then61
@@ -2894,8 +2894,8 @@ if.end37:                                         ; preds = %_ZN6google8protobuf
 cleanup50:                                        ; preds = %if.end37
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIRjEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 4 dereferenceable(4) %x)
   %15 = load i64, ptr %agg.result, align 8
-  %cmp.i32 = icmp eq i64 %15, 0
-  br i1 %cmp.i32, label %sw.epilog144, label %return
+  %cmp.i27 = icmp eq i64 %15, 0
+  br i1 %cmp.i27, label %sw.epilog144, label %return
 
 if.then61:                                        ; preds = %if.end37
   %shr.i = lshr i32 %12, 1
@@ -2909,32 +2909,32 @@ cleanup74:                                        ; preds = %if.end37, %if.then6
   store i32 %16, ptr %ref.tmp66, align 4
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIiEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp66)
   %17 = load i64, ptr %agg.result, align 8
-  %cmp.i35 = icmp eq i64 %17, 0
-  br i1 %cmp.i35, label %sw.epilog144, label %return
+  %cmp.i30 = icmp eq i64 %17, 0
+  br i1 %cmp.i30, label %sw.epilog144, label %return
 
 sw.bb81:                                          ; preds = %entry, %entry, %entry
   %18 = load ptr, ptr %stream, align 8
-  %buffer_end_.i41 = getelementptr inbounds nuw i8, ptr %stream, i64 8
-  %19 = load ptr, ptr %buffer_end_.i41, align 8
-  %cmp.i42 = icmp ult ptr %18, %19
-  br i1 %cmp.i42, label %land.lhs.true.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit
+  %buffer_end_.i36 = getelementptr inbounds nuw i8, ptr %stream, i64 8
+  %19 = load ptr, ptr %buffer_end_.i36, align 8
+  %cmp.i37 = icmp ult ptr %18, %19
+  br i1 %cmp.i37, label %land.lhs.true.i, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit
 
 land.lhs.true.i:                                  ; preds = %sw.bb81
   %20 = load i8, ptr %18, align 1
-  %cmp3.i45 = icmp sgt i8 %20, -1
-  br i1 %cmp3.i45, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit
+  %cmp3.i40 = icmp sgt i8 %20, -1
+  br i1 %cmp3.i40, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread, label %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread: ; preds = %land.lhs.true.i
   %conv5.i = zext nneg i8 %20 to i64
   store i64 %conv5.i, ptr %x82, align 8
-  %add.ptr.i.i47 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  store ptr %add.ptr.i.i47, ptr %stream, align 8
+  %add.ptr.i.i42 = getelementptr inbounds nuw i8, ptr %18, i64 1
+  store ptr %add.ptr.i.i42, ptr %stream, align 8
   br label %if.end86
 
 _ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit: ; preds = %sw.bb81, %land.lhs.true.i
-  %call.i43 = tail call { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %stream)
-  %21 = extractvalue { i64, i8 } %call.i43, 0
-  %22 = extractvalue { i64, i8 } %call.i43, 1
+  %call.i38 = tail call { i64, i8 } @_ZN6google8protobuf2io16CodedInputStream20ReadVarint64FallbackEv(ptr noundef nonnull align 8 dereferenceable(80) %stream)
+  %21 = extractvalue { i64, i8 } %call.i38, 0
+  %22 = extractvalue { i64, i8 } %call.i38, 1
   store i64 %21, ptr %x82, align 8
   %tobool.i = trunc i8 %22 to i1
   br i1 %tobool.i, label %if.end86, label %if.then84
@@ -2946,8 +2946,8 @@ if.then84:                                        ; preds = %_ZN6google8protobuf
 if.end86:                                         ; preds = %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit
   %23 = phi i64 [ %conv5.i, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit.thread ], [ %21, %_ZN6google8protobuf2io16CodedInputStream12ReadVarint64EPm.exit ]
   %24 = load ptr, ptr %raw_.i, align 8
-  %kind_.i.i51 = getelementptr inbounds nuw i8, ptr %24, i64 72
-  %25 = load i32, ptr %kind_.i.i51, align 8
+  %kind_.i.i46 = getelementptr inbounds nuw i8, ptr %24, i64 72
+  %25 = load i32, ptr %kind_.i.i46, align 8
   switch i32 %25, label %cleanup124 [
     i32 4, label %cleanup100
     i32 18, label %if.then111
@@ -2956,41 +2956,41 @@ if.end86:                                         ; preds = %_ZN6google8protobuf
 cleanup100:                                       ; preds = %if.end86
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIRmEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 8 dereferenceable(8) %x82)
   %26 = load i64, ptr %agg.result, align 8
-  %cmp.i52 = icmp eq i64 %26, 0
-  br i1 %cmp.i52, label %sw.epilog144, label %return
+  %cmp.i47 = icmp eq i64 %26, 0
+  br i1 %cmp.i47, label %sw.epilog144, label %return
 
 if.then111:                                       ; preds = %if.end86
-  %shr.i60 = lshr i64 %23, 1
-  %and.i61 = and i64 %23, 1
-  %add.i62 = sub nsw i64 0, %and.i61
-  %xor.i63 = xor i64 %shr.i60, %add.i62
+  %shr.i55 = lshr i64 %23, 1
+  %and.i56 = and i64 %23, 1
+  %add.i57 = sub nsw i64 0, %and.i56
+  %xor.i58 = xor i64 %shr.i55, %add.i57
   br label %cleanup124
 
 cleanup124:                                       ; preds = %if.end86, %if.then111
-  %27 = phi i64 [ %23, %if.end86 ], [ %xor.i63, %if.then111 ]
+  %27 = phi i64 [ %23, %if.end86 ], [ %xor.i58, %if.then111 ]
   store i64 %27, ptr %ref.tmp116, align 8
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIlEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp116)
   %28 = load i64, ptr %agg.result, align 8
-  %cmp.i64 = icmp eq i64 %28, 0
-  br i1 %cmp.i64, label %sw.epilog144, label %return
+  %cmp.i59 = icmp eq i64 %28, 0
+  br i1 %cmp.i59, label %sw.epilog144, label %return
 
 sw.default131:                                    ; preds = %entry
   %number_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
   %29 = load i32, ptr %number_.i.i, align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i75)
-  %retval.sroa.0.0.insert.ext.i.i.i.i79 = zext i32 %1 to i64
-  %30 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i79 to ptr
-  store ptr %30, ptr %ref.tmp.i75, align 8, !noalias !99
-  %dispatcher_.i.i.i80 = getelementptr inbounds nuw i8, ptr %ref.tmp.i75, i64 8
-  store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i80, align 8, !noalias !99
-  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i75, i64 16
+  call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i70)
+  %retval.sroa.0.0.insert.ext.i.i.i.i74 = zext i32 %1 to i64
+  %30 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i.i74 to ptr
+  store ptr %30, ptr %ref.tmp.i70, align 8, !noalias !99
+  %dispatcher_.i.i.i75 = getelementptr inbounds nuw i8, ptr %ref.tmp.i70, i64 8
+  store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i.i75, align 8, !noalias !99
+  %arrayinit.element.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i70, i64 16
   %retval.sroa.0.0.insert.ext.i.i.i1.i = zext i32 %29 to i64
   %31 = inttoptr i64 %retval.sroa.0.0.insert.ext.i.i.i1.i to ptr
   store ptr %31, ptr %arrayinit.element.i, align 8, !noalias !99
-  %dispatcher_.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i75, i64 24
+  %dispatcher_.i.i2.i = getelementptr inbounds nuw i8, ptr %ref.tmp.i70, i64 24
   store ptr @_ZN4absl12lts_2023080219str_format_internal13FormatArgImpl8DispatchIiEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %dispatcher_.i.i2.i, align 8, !noalias !99
-  call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp133, ptr nonnull @.str.6, i64 56, ptr nonnull %ref.tmp.i75, i64 2)
-  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i75)
+  call void @_ZN4absl12lts_2023080219str_format_internal10FormatPackB5cxx11ENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp133, ptr nonnull @.str.6, i64 56, ptr nonnull %ref.tmp.i70, i64 2)
+  call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i70)
   %call141 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp133) #25
   %32 = extractvalue { i64, ptr } %call141, 0
   %33 = extractvalue { i64, ptr } %call141, 1
@@ -3073,85 +3073,85 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 cleanup:                                          ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit.thread
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIRmEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 8 dereferenceable(8) %x)
   %5 = load i64, ptr %agg.result, align 8
-  %cmp.i13 = icmp eq i64 %5, 0
-  br i1 %cmp.i13, label %sw.epilog, label %return
+  %cmp.i11 = icmp eq i64 %5, 0
+  br i1 %cmp.i11, label %sw.epilog, label %return
 
 sw.bb7:                                           ; preds = %entry
-  %buffer_end_.i.i14 = getelementptr inbounds nuw i8, ptr %stream, i64 8
-  %6 = load ptr, ptr %buffer_end_.i.i14, align 8
+  %buffer_end_.i.i12 = getelementptr inbounds nuw i8, ptr %stream, i64 8
+  %6 = load ptr, ptr %buffer_end_.i.i12, align 8
   %7 = load ptr, ptr %stream, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
-  %conv.i.i18 = trunc i64 %sub.ptr.sub.i.i17 to i32
-  %cmp.i19 = icmp sgt i32 %conv.i.i18, 7
-  br i1 %cmp.i19, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25.thread, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25
+  %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
+  %conv.i.i16 = trunc i64 %sub.ptr.sub.i.i15 to i32
+  %cmp.i17 = icmp sgt i32 %conv.i.i16, 7
+  br i1 %cmp.i17, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23.thread, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25.thread: ; preds = %sw.bb7
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23.thread: ; preds = %sw.bb7
   %8 = load i64, ptr %7, align 1
   store i64 %8, ptr %x8, align 8
-  %add.ptr.i.i24 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store ptr %add.ptr.i.i24, ptr %stream, align 8
+  %add.ptr.i.i22 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store ptr %add.ptr.i.i22, ptr %stream, align 8
   br label %cleanup21
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25: ; preds = %sw.bb7
-  %call4.i21 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian64FallbackEPm(ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull %x8)
-  br i1 %call4.i21, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25.cleanup21_crit_edge, label %if.then10
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23: ; preds = %sw.bb7
+  %call4.i19 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian64FallbackEPm(ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull %x8)
+  br i1 %call4.i19, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23.cleanup21_crit_edge, label %if.then10
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25.cleanup21_crit_edge: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25
-  %.pre60 = load i64, ptr %x8, align 8
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23.cleanup21_crit_edge: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23
+  %.pre58 = load i64, ptr %x8, align 8
   br label %cleanup21
 
-if.then10:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25
+if.then10:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23
   call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 14, ptr nonnull @.str.4)
   br label %return
 
-cleanup21:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25.cleanup21_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25.thread
-  %9 = phi i64 [ %.pre60, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25.cleanup21_crit_edge ], [ %8, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit25.thread ]
+cleanup21:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23.cleanup21_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23.thread
+  %9 = phi i64 [ %.pre58, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23.cleanup21_crit_edge ], [ %8, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit23.thread ]
   store i64 %9, ptr %ref.tmp, align 8
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIlEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   %10 = load i64, ptr %agg.result, align 8
-  %cmp.i28 = icmp eq i64 %10, 0
-  br i1 %cmp.i28, label %sw.epilog, label %return
+  %cmp.i26 = icmp eq i64 %10, 0
+  br i1 %cmp.i26, label %sw.epilog, label %return
 
 sw.bb28:                                          ; preds = %entry
-  %buffer_end_.i.i34 = getelementptr inbounds nuw i8, ptr %stream, i64 8
-  %11 = load ptr, ptr %buffer_end_.i.i34, align 8
+  %buffer_end_.i.i32 = getelementptr inbounds nuw i8, ptr %stream, i64 8
+  %11 = load ptr, ptr %buffer_end_.i.i32, align 8
   %12 = load ptr, ptr %stream, align 8
-  %sub.ptr.lhs.cast.i.i35 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i36 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i35, %sub.ptr.rhs.cast.i.i36
-  %conv.i.i38 = trunc i64 %sub.ptr.sub.i.i37 to i32
-  %cmp.i39 = icmp sgt i32 %conv.i.i38, 7
-  br i1 %cmp.i39, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45.thread, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45
+  %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i33, %sub.ptr.rhs.cast.i.i34
+  %conv.i.i36 = trunc i64 %sub.ptr.sub.i.i35 to i32
+  %cmp.i37 = icmp sgt i32 %conv.i.i36, 7
+  br i1 %cmp.i37, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43.thread, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45.thread: ; preds = %sw.bb28
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43.thread: ; preds = %sw.bb28
   %13 = load i64, ptr %12, align 1
   store i64 %13, ptr %x29, align 8
-  %add.ptr.i.i44 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %add.ptr.i.i44, ptr %stream, align 8
+  %add.ptr.i.i42 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %add.ptr.i.i42, ptr %stream, align 8
   %14 = bitcast i64 %13 to double
   br label %cleanup44
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45: ; preds = %sw.bb28
-  %call4.i41 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian64FallbackEPm(ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull %x29)
-  br i1 %call4.i41, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45.cleanup44_crit_edge, label %if.then31
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43: ; preds = %sw.bb28
+  %call4.i39 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian64FallbackEPm(ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull %x29)
+  br i1 %call4.i39, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43.cleanup44_crit_edge, label %if.then31
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45.cleanup44_crit_edge: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43.cleanup44_crit_edge: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43
   %.pre = load double, ptr %x29, align 8
   br label %cleanup44
 
-if.then31:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45
+if.then31:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43
   call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 14, ptr nonnull @.str.4)
   br label %return
 
-cleanup44:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45.cleanup44_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45.thread
-  %15 = phi double [ %.pre, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45.cleanup44_crit_edge ], [ %14, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit45.thread ]
+cleanup44:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43.cleanup44_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43.thread
+  %15 = phi double [ %.pre, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43.cleanup44_crit_edge ], [ %14, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian64EPm.exit43.thread ]
   store double %15, ptr %ref.tmp36, align 8
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIdEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp36)
   %16 = load i64, ptr %agg.result, align 8
-  %cmp.i48 = icmp eq i64 %16, 0
-  br i1 %cmp.i48, label %sw.epilog, label %return
+  %cmp.i46 = icmp eq i64 %16, 0
+  br i1 %cmp.i46, label %sw.epilog, label %return
 
 sw.default:                                       ; preds = %entry
   %number_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3243,85 +3243,85 @@ if.then:                                          ; preds = %_ZN6google8protobuf
 cleanup:                                          ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit.thread
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIRjEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 4 dereferenceable(4) %x)
   %5 = load i64, ptr %agg.result, align 8
-  %cmp.i13 = icmp eq i64 %5, 0
-  br i1 %cmp.i13, label %sw.epilog, label %return
+  %cmp.i11 = icmp eq i64 %5, 0
+  br i1 %cmp.i11, label %sw.epilog, label %return
 
 sw.bb7:                                           ; preds = %entry
-  %buffer_end_.i.i14 = getelementptr inbounds nuw i8, ptr %stream, i64 8
-  %6 = load ptr, ptr %buffer_end_.i.i14, align 8
+  %buffer_end_.i.i12 = getelementptr inbounds nuw i8, ptr %stream, i64 8
+  %6 = load ptr, ptr %buffer_end_.i.i12, align 8
   %7 = load ptr, ptr %stream, align 8
-  %sub.ptr.lhs.cast.i.i15 = ptrtoint ptr %6 to i64
-  %sub.ptr.rhs.cast.i.i16 = ptrtoint ptr %7 to i64
-  %sub.ptr.sub.i.i17 = sub i64 %sub.ptr.lhs.cast.i.i15, %sub.ptr.rhs.cast.i.i16
-  %conv.i.i18 = trunc i64 %sub.ptr.sub.i.i17 to i32
-  %cmp.i19 = icmp sgt i32 %conv.i.i18, 3
-  br i1 %cmp.i19, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25.thread, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25
+  %sub.ptr.lhs.cast.i.i13 = ptrtoint ptr %6 to i64
+  %sub.ptr.rhs.cast.i.i14 = ptrtoint ptr %7 to i64
+  %sub.ptr.sub.i.i15 = sub i64 %sub.ptr.lhs.cast.i.i13, %sub.ptr.rhs.cast.i.i14
+  %conv.i.i16 = trunc i64 %sub.ptr.sub.i.i15 to i32
+  %cmp.i17 = icmp sgt i32 %conv.i.i16, 3
+  br i1 %cmp.i17, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23.thread, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25.thread: ; preds = %sw.bb7
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23.thread: ; preds = %sw.bb7
   %8 = load i32, ptr %7, align 1
   store i32 %8, ptr %x8, align 4
-  %add.ptr.i.i24 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store ptr %add.ptr.i.i24, ptr %stream, align 8
+  %add.ptr.i.i22 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  store ptr %add.ptr.i.i22, ptr %stream, align 8
   br label %cleanup21
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25: ; preds = %sw.bb7
-  %call4.i21 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian32FallbackEPj(ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull %x8)
-  br i1 %call4.i21, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25.cleanup21_crit_edge, label %if.then10
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23: ; preds = %sw.bb7
+  %call4.i19 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian32FallbackEPj(ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull %x8)
+  br i1 %call4.i19, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23.cleanup21_crit_edge, label %if.then10
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25.cleanup21_crit_edge: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25
-  %.pre60 = load i32, ptr %x8, align 4
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23.cleanup21_crit_edge: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23
+  %.pre58 = load i32, ptr %x8, align 4
   br label %cleanup21
 
-if.then10:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25
+if.then10:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23
   call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 14, ptr nonnull @.str.4)
   br label %return
 
-cleanup21:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25.cleanup21_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25.thread
-  %9 = phi i32 [ %.pre60, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25.cleanup21_crit_edge ], [ %8, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit25.thread ]
+cleanup21:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23.cleanup21_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23.thread
+  %9 = phi i32 [ %.pre58, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23.cleanup21_crit_edge ], [ %8, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit23.thread ]
   store i32 %9, ptr %ref.tmp, align 4
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIiEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp)
   %10 = load i64, ptr %agg.result, align 8
-  %cmp.i28 = icmp eq i64 %10, 0
-  br i1 %cmp.i28, label %sw.epilog, label %return
+  %cmp.i26 = icmp eq i64 %10, 0
+  br i1 %cmp.i26, label %sw.epilog, label %return
 
 sw.bb28:                                          ; preds = %entry
-  %buffer_end_.i.i34 = getelementptr inbounds nuw i8, ptr %stream, i64 8
-  %11 = load ptr, ptr %buffer_end_.i.i34, align 8
+  %buffer_end_.i.i32 = getelementptr inbounds nuw i8, ptr %stream, i64 8
+  %11 = load ptr, ptr %buffer_end_.i.i32, align 8
   %12 = load ptr, ptr %stream, align 8
-  %sub.ptr.lhs.cast.i.i35 = ptrtoint ptr %11 to i64
-  %sub.ptr.rhs.cast.i.i36 = ptrtoint ptr %12 to i64
-  %sub.ptr.sub.i.i37 = sub i64 %sub.ptr.lhs.cast.i.i35, %sub.ptr.rhs.cast.i.i36
-  %conv.i.i38 = trunc i64 %sub.ptr.sub.i.i37 to i32
-  %cmp.i39 = icmp sgt i32 %conv.i.i38, 3
-  br i1 %cmp.i39, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45.thread, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45
+  %sub.ptr.lhs.cast.i.i33 = ptrtoint ptr %11 to i64
+  %sub.ptr.rhs.cast.i.i34 = ptrtoint ptr %12 to i64
+  %sub.ptr.sub.i.i35 = sub i64 %sub.ptr.lhs.cast.i.i33, %sub.ptr.rhs.cast.i.i34
+  %conv.i.i36 = trunc i64 %sub.ptr.sub.i.i35 to i32
+  %cmp.i37 = icmp sgt i32 %conv.i.i36, 3
+  br i1 %cmp.i37, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43.thread, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45.thread: ; preds = %sw.bb28
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43.thread: ; preds = %sw.bb28
   %13 = load i32, ptr %12, align 1
   store i32 %13, ptr %x29, align 4
-  %add.ptr.i.i44 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store ptr %add.ptr.i.i44, ptr %stream, align 8
+  %add.ptr.i.i42 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store ptr %add.ptr.i.i42, ptr %stream, align 8
   %14 = bitcast i32 %13 to float
   br label %cleanup44
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45: ; preds = %sw.bb28
-  %call4.i41 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian32FallbackEPj(ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull %x29)
-  br i1 %call4.i41, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45.cleanup44_crit_edge, label %if.then31
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43: ; preds = %sw.bb28
+  %call4.i39 = call noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream26ReadLittleEndian32FallbackEPj(ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull %x29)
+  br i1 %call4.i39, label %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43.cleanup44_crit_edge, label %if.then31
 
-_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45.cleanup44_crit_edge: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45
+_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43.cleanup44_crit_edge: ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43
   %.pre = load float, ptr %x29, align 4
   br label %cleanup44
 
-if.then31:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45
+if.then31:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43
   call void @_ZN4absl12lts_2023080220InvalidArgumentErrorESt17basic_string_viewIcSt11char_traitsIcEE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, i64 14, ptr nonnull @.str.4)
   br label %return
 
-cleanup44:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45.cleanup44_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45.thread
-  %15 = phi float [ %.pre, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45.cleanup44_crit_edge ], [ %14, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit45.thread ]
+cleanup44:                                        ; preds = %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43.cleanup44_crit_edge, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43.thread
+  %15 = phi float [ %.pre, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43.cleanup44_crit_edge ], [ %14, %_ZN6google8protobuf2io16CodedInputStream18ReadLittleEndian32EPj.exit43.thread ]
   store float %15, ptr %ref.tmp36, align 4
   call void @_ZN6google8protobuf13json_internal14UntypedMessage11InsertFieldIfEEN4absl12lts_202308026StatusERKNS1_12ResolverPool5FieldEOT_(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(32) %field, ptr noundef nonnull align 4 dereferenceable(4) %ref.tmp36)
   %16 = load i64, ptr %agg.result, align 8
-  %cmp.i48 = icmp eq i64 %16, 0
-  br i1 %cmp.i48, label %sw.epilog, label %return
+  %cmp.i46 = icmp eq i64 %16, 0
+  br i1 %cmp.i46, label %sw.epilog, label %return
 
 sw.default:                                       ; preds = %entry
   %number_.i.i = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -3403,9 +3403,9 @@ if.end4:                                          ; preds = %if.end
   ]
 
 while.cond.preheader:                             ; preds = %if.end4
-  %call110103 = tail call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %stream)
-  %cmp111104 = icmp sgt i32 %call110103, 0
-  br i1 %cmp111104, label %while.body, label %sw.epilog173
+  %call11095 = tail call noundef i32 @_ZNK6google8protobuf2io16CodedInputStream15BytesUntilLimitEv(ptr noundef nonnull align 8 dereferenceable(80) %stream)
+  %cmp11196 = icmp sgt i32 %call11095, 0
+  br i1 %cmp11196, label %while.body, label %sw.epilog173
 
 sw.bb:                                            ; preds = %if.end4, %if.end4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buf) #25
@@ -3427,8 +3427,8 @@ lpad:                                             ; preds = %if.then27.invoke, %
 
 invoke.cont15:                                    ; preds = %invoke.cont8
   %4 = load ptr, ptr %raw_.i, align 8
-  %kind_.i.i45 = getelementptr inbounds nuw i8, ptr %4, i64 72
-  %5 = load i32, ptr %kind_.i.i45, align 8
+  %kind_.i.i41 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %5 = load i32, ptr %kind_.i.i41, align 8
   %cmp17 = icmp eq i32 %5, 9
   br i1 %cmp17, label %invoke.cont21, label %do.body
 
@@ -3461,9 +3461,9 @@ do.body:                                          ; preds = %invoke.cont15, %inv
 
 invoke.cont33:                                    ; preds = %do.body
   %12 = load i64, ptr %agg.result, align 8
-  %cmp.i47 = icmp eq i64 %12, 0
+  %cmp.i43 = icmp eq i64 %12, 0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buf) #25
-  br i1 %cmp.i47, label %sw.epilog173, label %return
+  br i1 %cmp.i43, label %sw.epilog173, label %return
 
 cleanup37.thread:                                 ; preds = %if.then27.invoke
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buf) #25
@@ -3473,40 +3473,40 @@ sw.bb39:                                          ; preds = %if.end4
   call void @_ZNK6google8protobuf13json_internal12ResolverPool5Field11MessageTypeEv(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr") align 8 %inner_desc, ptr noundef nonnull align 8 dereferenceable(32) %field)
   %13 = load i64, ptr %inner_desc, align 8
   store i64 %13, ptr %agg.result, align 8
-  %and.i.i.i48 = and i64 %13, 1
-  %cmp.i.i.i49 = icmp eq i64 %and.i.i.i48, 0
-  br i1 %cmp.i.i.i49, label %cleanup52, label %if.then.i.i50
+  %and.i.i.i44 = and i64 %13, 1
+  %cmp.i.i.i45 = icmp eq i64 %and.i.i.i44, 0
+  br i1 %cmp.i.i.i45, label %cleanup52, label %if.then.i.i46
 
-if.then.i.i50:                                    ; preds = %sw.bb39
+if.then.i.i46:                                    ; preds = %sw.bb39
   %sub.i.i.i = add nsw i64 %13, -1
   %14 = inttoptr i64 %sub.i.i.i to ptr
   %15 = atomicrmw add ptr %14, i32 1 monotonic, align 4
   %.pr = load i64, ptr %agg.result, align 8
   br label %cleanup52
 
-lpad42:                                           ; preds = %if.then.i.i57, %invoke.cont61
+lpad42:                                           ; preds = %if.then.i.i53, %invoke.cont61
   %16 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup109
 
-cleanup52:                                        ; preds = %sw.bb39, %if.then.i.i50
-  %17 = phi i64 [ %13, %sw.bb39 ], [ %.pr, %if.then.i.i50 ]
-  %cmp.i51 = icmp eq i64 %17, 0
-  br i1 %cmp.i51, label %_ZN4absl12lts_202308026StatusD2Ev.exit56, label %cleanup107
+cleanup52:                                        ; preds = %sw.bb39, %if.then.i.i46
+  %17 = phi i64 [ %13, %sw.bb39 ], [ %.pr, %if.then.i.i46 ]
+  %cmp.i47 = icmp eq i64 %17, 0
+  br i1 %cmp.i47, label %_ZN4absl12lts_202308026StatusD2Ev.exit52, label %cleanup107
 
-_ZN4absl12lts_202308026StatusD2Ev.exit56:         ; preds = %cleanup52
+_ZN4absl12lts_202308026StatusD2Ev.exit52:         ; preds = %cleanup52
   %18 = load i64, ptr %inner_desc, align 8
   %cmp.i.i.i.i = icmp eq i64 %18, 0
-  br i1 %cmp.i.i.i.i, label %invoke.cont61, label %if.then.i.i57
+  br i1 %cmp.i.i.i.i, label %invoke.cont61, label %if.then.i.i53
 
-if.then.i.i57:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit56
+if.then.i.i53:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit52
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(16) %inner_desc) #29
           to label %.noexc unwind label %lpad42
 
-.noexc:                                           ; preds = %if.then.i.i57
+.noexc:                                           ; preds = %if.then.i.i53
   unreachable
 
-invoke.cont61:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit56
+invoke.cont61:                                    ; preds = %_ZN4absl12lts_202308026StatusD2Ev.exit52
   %19 = getelementptr inbounds nuw i8, ptr %inner_desc, i64 8
   %20 = load ptr, ptr %19, align 8
   invoke void @_ZN6google8protobuf13json_internal14UntypedMessage15ParseFromStreamEPKNS1_12ResolverPool7MessageERNS0_2io16CodedInputStreamE(ptr nonnull sret(%"class.absl::lts_20230802::StatusOr.125") align 8 %inner, ptr noundef %20, ptr noundef nonnull align 8 dereferenceable(80) %stream)
@@ -3515,39 +3515,39 @@ invoke.cont61:                                    ; preds = %_ZN4absl12lts_20230
 do.body64:                                        ; preds = %invoke.cont61
   %21 = load i64, ptr %inner, align 8
   store i64 %21, ptr %agg.result, align 8
-  %and.i.i.i58 = and i64 %21, 1
-  %cmp.i.i.i59 = icmp eq i64 %and.i.i.i58, 0
-  br i1 %cmp.i.i.i59, label %cleanup76, label %if.then.i.i60
+  %and.i.i.i54 = and i64 %21, 1
+  %cmp.i.i.i55 = icmp eq i64 %and.i.i.i54, 0
+  br i1 %cmp.i.i.i55, label %cleanup76, label %if.then.i.i56
 
-if.then.i.i60:                                    ; preds = %do.body64
-  %sub.i.i.i61 = add nsw i64 %21, -1
-  %22 = inttoptr i64 %sub.i.i.i61 to ptr
+if.then.i.i56:                                    ; preds = %do.body64
+  %sub.i.i.i57 = add nsw i64 %21, -1
+  %22 = inttoptr i64 %sub.i.i.i57 to ptr
   %23 = atomicrmw add ptr %22, i32 1 monotonic, align 4
-  %.pr99 = load i64, ptr %agg.result, align 8
+  %.pr91 = load i64, ptr %agg.result, align 8
   br label %cleanup76
 
-lpad66:                                           ; preds = %if.then.i.i65, %invoke.cont87
+lpad66:                                           ; preds = %if.then.i.i61, %invoke.cont87
   %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN6google8protobuf13json_internal14UntypedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %inner) #25
   br label %ehcleanup109
 
-cleanup76:                                        ; preds = %do.body64, %if.then.i.i60
-  %25 = phi i64 [ %21, %do.body64 ], [ %.pr99, %if.then.i.i60 ]
-  %cmp.i63 = icmp eq i64 %25, 0
-  br i1 %cmp.i63, label %nrvo.unused78, label %cleanup105
+cleanup76:                                        ; preds = %do.body64, %if.then.i.i56
+  %25 = phi i64 [ %21, %do.body64 ], [ %.pr91, %if.then.i.i56 ]
+  %cmp.i59 = icmp eq i64 %25, 0
+  br i1 %cmp.i59, label %nrvo.unused78, label %cleanup105
 
 nrvo.unused78:                                    ; preds = %cleanup76
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #25
   %26 = load i64, ptr %inner, align 8
-  %cmp.i.i.i.i64 = icmp eq i64 %26, 0
-  br i1 %cmp.i.i.i.i64, label %invoke.cont87, label %if.then.i.i65
+  %cmp.i.i.i.i60 = icmp eq i64 %26, 0
+  br i1 %cmp.i.i.i.i60, label %invoke.cont87, label %if.then.i.i61
 
-if.then.i.i65:                                    ; preds = %nrvo.unused78
+if.then.i.i61:                                    ; preds = %nrvo.unused78
   invoke void @_ZN4absl12lts_2023080217internal_statusor6Helper5CrashERKNS0_6StatusE(ptr noundef nonnull align 8 dereferenceable(48) %inner) #29
-          to label %.noexc66 unwind label %lpad66
+          to label %.noexc62 unwind label %lpad66
 
-.noexc66:                                         ; preds = %if.then.i.i65
+.noexc62:                                         ; preds = %if.then.i.i61
   unreachable
 
 invoke.cont87:                                    ; preds = %nrvo.unused78
@@ -3557,8 +3557,8 @@ invoke.cont87:                                    ; preds = %nrvo.unused78
 
 invoke.cont91:                                    ; preds = %invoke.cont87
   %28 = load i64, ptr %agg.result, align 8
-  %cmp.i67 = icmp eq i64 %28, 0
-  br i1 %cmp.i67, label %nrvo.unused98, label %cleanup105
+  %cmp.i63 = icmp eq i64 %28, 0
+  br i1 %cmp.i63, label %nrvo.unused98, label %cleanup105
 
 nrvo.unused98:                                    ; preds = %invoke.cont91
   call void @_ZN4absl12lts_202308026StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.result) #25
@@ -3567,8 +3567,8 @@ nrvo.unused98:                                    ; preds = %invoke.cont91
 cleanup105:                                       ; preds = %cleanup76, %invoke.cont91, %nrvo.unused98
   %cleanup.dest.slot.5 = phi i32 [ 2, %nrvo.unused98 ], [ 1, %invoke.cont91 ], [ 1, %cleanup76 ]
   %29 = load i64, ptr %inner, align 8
-  %cmp.i.i.i91 = icmp eq i64 %29, 0
-  br i1 %cmp.i.i.i91, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
+  %cmp.i.i.i87 = icmp eq i64 %29, 0
+  br i1 %cmp.i.i.i87, label %_ZN4absl12lts_202308026StatusD2Ev.exit.i, label %if.else.i
 
 _ZN4absl12lts_202308026StatusD2Ev.exit.i:         ; preds = %cleanup105
   %fields_.i.i = getelementptr inbounds nuw i8, ptr %inner, i64 16
@@ -3667,8 +3667,8 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN4absl12lts_202308028StatusOrIPKN6google8protobuf13json_internal12ResolverPool7MessageEED2Ev.exit: ; preds = %cleanup107, %if.then.i.i.i.i
-  %switch40 = icmp eq i32 %cleanup.dest.slot.3, 1
-  br i1 %switch40, label %return, label %sw.epilog173
+  %44 = icmp eq i32 %cleanup.dest.slot.3, 1
+  br i1 %44, label %return, label %sw.epilog173
 
 ehcleanup109:                                     ; preds = %lpad66, %lpad42
   %.pn.pn = phi { ptr, i32 } [ %24, %lpad66 ], [ %16, %lpad42 ]
@@ -3676,10 +3676,10 @@ ehcleanup109:                                     ; preds = %lpad66, %lpad42
   br label %eh.resume
 
 while.body:                                       ; preds = %while.cond.preheader, %sw.epilog
-  %44 = load ptr, ptr %raw_.i, align 8
-  %kind_.i.i69 = getelementptr inbounds nuw i8, ptr %44, i64 72
-  %45 = load i32, ptr %kind_.i.i69, align 8
-  switch i32 %45, label %sw.default168 [
+  %45 = load ptr, ptr %raw_.i, align 8
+  %kind_.i.i65 = getelementptr inbounds nuw i8, ptr %45, i64 72
+  %46 = load i32, ptr %kind_.i.i65, align 8
+  switch i32 %46, label %sw.default168 [
     i32 8, label %cleanup123
     i32 5, label %cleanup123
     i32 17, label %cleanup123
@@ -3698,26 +3698,26 @@ while.body:                                       ; preds = %while.cond.preheade
 
 cleanup123:                                       ; preds = %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body, %while.body
   tail call void @_ZN6google8protobuf13json_internal14UntypedMessage12DecodeVarintERNS0_2io16CodedInputStreamERKNS1_12ResolverPool5FieldE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull align 8 dereferenceable(32) %field)
-  %46 = load i64, ptr %agg.result, align 8
-  %cmp.i70 = icmp eq i64 %46, 0
-  br i1 %cmp.i70, label %sw.epilog, label %return
+  %47 = load i64, ptr %agg.result, align 8
+  %cmp.i66 = icmp eq i64 %47, 0
+  br i1 %cmp.i66, label %sw.epilog, label %return
 
 cleanup141:                                       ; preds = %while.body, %while.body, %while.body
   tail call void @_ZN6google8protobuf13json_internal14UntypedMessage11Decode64BitERNS0_2io16CodedInputStreamERKNS1_12ResolverPool5FieldE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull align 8 dereferenceable(32) %field)
-  %47 = load i64, ptr %agg.result, align 8
-  %cmp.i76 = icmp eq i64 %47, 0
-  br i1 %cmp.i76, label %sw.epilog, label %return
+  %48 = load i64, ptr %agg.result, align 8
+  %cmp.i72 = icmp eq i64 %48, 0
+  br i1 %cmp.i72, label %sw.epilog, label %return
 
 cleanup159:                                       ; preds = %while.body, %while.body, %while.body
   tail call void @_ZN6google8protobuf13json_internal14UntypedMessage11Decode32BitERNS0_2io16CodedInputStreamERKNS1_12ResolverPool5FieldE(ptr sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(80) %stream, ptr noundef nonnull align 8 dereferenceable(32) %field)
-  %48 = load i64, ptr %agg.result, align 8
-  %cmp.i82 = icmp eq i64 %48, 0
-  br i1 %cmp.i82, label %sw.epilog, label %return
+  %49 = load i64, ptr %agg.result, align 8
+  %cmp.i78 = icmp eq i64 %49, 0
+  br i1 %cmp.i78, label %sw.epilog, label %return
 
 sw.default168:                                    ; preds = %while.body
-  %number_.i.i = getelementptr inbounds nuw i8, ptr %44, i64 80
-  %49 = load i32, ptr %number_.i.i, align 8
-  tail call fastcc void @_ZN6google8protobuf13json_internalL26MakeInvalidLengthDelimTypeEii(ptr noalias align 8 %agg.result, i32 noundef %45, i32 noundef %49)
+  %number_.i.i = getelementptr inbounds nuw i8, ptr %45, i64 80
+  %50 = load i32, ptr %number_.i.i, align 8
+  tail call fastcc void @_ZN6google8protobuf13json_internalL26MakeInvalidLengthDelimTypeEii(ptr noalias align 8 %agg.result, i32 noundef %46, i32 noundef %50)
   br label %return
 
 sw.epilog:                                        ; preds = %cleanup159, %cleanup141, %cleanup123

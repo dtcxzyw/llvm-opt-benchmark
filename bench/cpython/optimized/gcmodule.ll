@@ -1565,97 +1565,97 @@ define internal ptr @gc_get_referents(ptr readnone captures(none) %0, ptr nounde
 15:                                               ; preds = %8
   tail call void @_PyEval_StopTheWorld(ptr noundef %12) #5
   %16 = getelementptr i8, ptr %4, i64 16
-  %.val26.i.i = load i64, ptr %16, align 8, !tbaa !29
-  %.not27.i.i = icmp sgt i64 %.val26.i.i, 0
-  br i1 %.not27.i.i, label %.lr.ph.i.i, label %append_referrents.exit.thread.i
+  %.val28.i.i = load i64, ptr %16, align 8, !tbaa !29
+  %17 = icmp sgt i64 %.val28.i.i, 0
+  br i1 %17, label %.lr.ph.i.i, label %append_referrents.exit.thread.i
 
 .lr.ph.i.i:                                       ; preds = %15
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  br label %18
+  %18 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  br label %19
 
-18:                                               ; preds = %_PyObject_IS_GC.exit.thread.i.i, %.lr.ph.i.i
-  %.01328.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %33, %_PyObject_IS_GC.exit.thread.i.i ]
-  %19 = getelementptr ptr, ptr %17, i64 %.01328.i.i
-  %20 = load ptr, ptr %19, align 8, !tbaa !35
-  %21 = getelementptr i8, ptr %20, i64 8
-  %.val.i.i.i = load ptr, ptr %21, align 8, !tbaa !44
-  %22 = getelementptr i8, ptr %.val.i.i.i, i64 168
-  %.val5.i.i.i = load i64, ptr %22, align 8, !tbaa !45
-  %23 = and i64 %.val5.i.i.i, 16384
-  %.not.i.i.i = icmp eq i64 %23, 0
-  br i1 %.not.i.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %24
+19:                                               ; preds = %_PyObject_IS_GC.exit.thread.i.i, %.lr.ph.i.i
+  %.01329.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %34, %_PyObject_IS_GC.exit.thread.i.i ]
+  %20 = getelementptr ptr, ptr %18, i64 %.01329.i.i
+  %21 = load ptr, ptr %20, align 8, !tbaa !35
+  %22 = getelementptr i8, ptr %21, i64 8
+  %.val.i.i.i = load ptr, ptr %22, align 8, !tbaa !44
+  %23 = getelementptr i8, ptr %.val.i.i.i, i64 168
+  %.val5.i.i.i = load i64, ptr %23, align 8, !tbaa !45
+  %24 = and i64 %.val5.i.i.i, 16384
+  %.not.i.i.i = icmp eq i64 %24, 0
+  br i1 %.not.i.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %25
 
-24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 328
-  %26 = load ptr, ptr %25, align 8, !tbaa !52
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %_PyObject_IS_GC.exit.thread22.i.i, label %_PyObject_IS_GC.exit.i.i
+25:                                               ; preds = %19
+  %26 = getelementptr inbounds nuw i8, ptr %.val.i.i.i, i64 328
+  %27 = load ptr, ptr %26, align 8, !tbaa !52
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %_PyObject_IS_GC.exit.thread22.i.i, label %_PyObject_IS_GC.exit.i.i
 
-_PyObject_IS_GC.exit.i.i:                         ; preds = %24
-  %28 = tail call i32 %26(ptr noundef nonnull %20) #5
-  %.not25.i.i = icmp eq i32 %28, 0
-  br i1 %.not25.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %_PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i
+_PyObject_IS_GC.exit.i.i:                         ; preds = %25
+  %29 = tail call i32 %27(ptr noundef nonnull %21) #5
+  %.not27.i.i = icmp eq i32 %29, 0
+  br i1 %.not27.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %_PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i
 
 _PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i: ; preds = %_PyObject_IS_GC.exit.i.i
-  %.val20.pre.i.i = load ptr, ptr %21, align 8, !tbaa !44
+  %.val20.pre.i.i = load ptr, ptr %22, align 8, !tbaa !44
   br label %_PyObject_IS_GC.exit.thread22.i.i
 
-_PyObject_IS_GC.exit.thread22.i.i:                ; preds = %_PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i, %24
-  %.val20.i.i = phi ptr [ %.val20.pre.i.i, %_PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i ], [ %.val.i.i.i, %24 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.val20.i.i, i64 184
-  %30 = load ptr, ptr %29, align 8, !tbaa !53
-  %.not18.i.i = icmp eq ptr %30, null
-  br i1 %.not18.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %31
+_PyObject_IS_GC.exit.thread22.i.i:                ; preds = %_PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i, %25
+  %.val20.i.i = phi ptr [ %.val20.pre.i.i, %_PyObject_IS_GC.exit._PyObject_IS_GC.exit.thread22_crit_edge.i.i ], [ %.val.i.i.i, %25 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.val20.i.i, i64 184
+  %31 = load ptr, ptr %30, align 8, !tbaa !53
+  %.not18.i.i = icmp eq ptr %31, null
+  br i1 %.not18.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %32
 
-31:                                               ; preds = %_PyObject_IS_GC.exit.thread22.i.i
-  %32 = tail call i32 %30(ptr noundef nonnull %20, ptr noundef nonnull @referentsvisit, ptr noundef nonnull %13) #5
-  %.not19.i.i = icmp eq i32 %32, 0
-  br i1 %.not19.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %34
+32:                                               ; preds = %_PyObject_IS_GC.exit.thread22.i.i
+  %33 = tail call i32 %31(ptr noundef nonnull %21, ptr noundef nonnull @referentsvisit, ptr noundef nonnull %13) #5
+  %.not19.i.i = icmp eq i32 %33, 0
+  br i1 %.not19.i.i, label %_PyObject_IS_GC.exit.thread.i.i, label %36
 
-_PyObject_IS_GC.exit.thread.i.i:                  ; preds = %31, %_PyObject_IS_GC.exit.thread22.i.i, %_PyObject_IS_GC.exit.i.i, %18
-  %33 = add nuw nsw i64 %.01328.i.i, 1
+_PyObject_IS_GC.exit.thread.i.i:                  ; preds = %32, %_PyObject_IS_GC.exit.thread22.i.i, %_PyObject_IS_GC.exit.i.i, %19
+  %34 = add nuw nsw i64 %.01329.i.i, 1
   %.val.i.i = load i64, ptr %16, align 8, !tbaa !29
-  %.not.i15.i = icmp slt i64 %33, %.val.i.i
-  br i1 %.not.i15.i, label %18, label %append_referrents.exit.thread.i, !llvm.loop !54
+  %35 = icmp slt i64 %34, %.val.i.i
+  br i1 %35, label %19, label %append_referrents.exit.thread.i, !llvm.loop !54
 
 append_referrents.exit.thread.i:                  ; preds = %_PyObject_IS_GC.exit.thread.i.i, %15
   tail call void @_PyEval_StartTheWorld(ptr noundef %12) #5
   br label %gc_get_referents_impl.exit
 
-34:                                               ; preds = %31
+36:                                               ; preds = %32
   tail call void @_PyEval_StartTheWorld(ptr noundef %12) #5
-  %35 = load i32, ptr %13, align 8, !tbaa !43
-  %.not.i.i = icmp sgt i32 %35, -1
-  br i1 %.not.i.i, label %36, label %gc_get_referents_impl.exit
+  %37 = load i32, ptr %13, align 8, !tbaa !43
+  %.not.i.i = icmp sgt i32 %37, -1
+  br i1 %.not.i.i, label %38, label %gc_get_referents_impl.exit
 
-36:                                               ; preds = %34
-  %37 = add nsw i32 %35, -1
-  store i32 %37, ptr %13, align 8, !tbaa !43
-  %38 = icmp eq i32 %37, 0
-  br i1 %38, label %39, label %gc_get_referents_impl.exit
+38:                                               ; preds = %36
+  %39 = add nsw i32 %37, -1
+  store i32 %39, ptr %13, align 8, !tbaa !43
+  %40 = icmp eq i32 %39, 0
+  br i1 %40, label %41, label %gc_get_referents_impl.exit
 
-39:                                               ; preds = %36
+41:                                               ; preds = %38
   tail call void @_Py_Dealloc(ptr noundef nonnull %13) #5
   br label %gc_get_referents_impl.exit
 
-gc_get_referents_impl.exit:                       ; preds = %39, %36, %34, %append_referrents.exit.thread.i, %8, %.split
-  %.0.i = phi ptr [ null, %.split ], [ null, %8 ], [ %13, %append_referrents.exit.thread.i ], [ null, %34 ], [ null, %36 ], [ null, %39 ]
-  %40 = load i32, ptr %4, align 8, !tbaa !43
-  %.not.i.i8 = icmp sgt i32 %40, -1
-  br i1 %.not.i.i8, label %41, label %.split6
+gc_get_referents_impl.exit:                       ; preds = %41, %38, %36, %append_referrents.exit.thread.i, %8, %.split
+  %.0.i = phi ptr [ null, %.split ], [ null, %8 ], [ %13, %append_referrents.exit.thread.i ], [ null, %36 ], [ null, %38 ], [ null, %41 ]
+  %42 = load i32, ptr %4, align 8, !tbaa !43
+  %.not.i.i8 = icmp sgt i32 %42, -1
+  br i1 %.not.i.i8, label %43, label %.split6
 
-41:                                               ; preds = %gc_get_referents_impl.exit
-  %42 = add nsw i32 %40, -1
-  store i32 %42, ptr %4, align 8, !tbaa !43
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %.split6
+43:                                               ; preds = %gc_get_referents_impl.exit
+  %44 = add nsw i32 %42, -1
+  store i32 %44, ptr %4, align 8, !tbaa !43
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %.split6
 
-44:                                               ; preds = %41
+46:                                               ; preds = %43
   tail call void @_Py_Dealloc(ptr noundef nonnull %4) #5
   br label %.split6
 
-.split6:                                          ; preds = %44, %41, %gc_get_referents_impl.exit, %3
-  %.0 = phi ptr [ null, %3 ], [ %.0.i, %gc_get_referents_impl.exit ], [ %.0.i, %41 ], [ %.0.i, %44 ]
+.split6:                                          ; preds = %46, %43, %gc_get_referents_impl.exit, %3
+  %.0 = phi ptr [ null, %3 ], [ %.0.i, %gc_get_referents_impl.exit ], [ %.0.i, %43 ], [ %.0.i, %46 ]
   ret ptr %.0
 }
 

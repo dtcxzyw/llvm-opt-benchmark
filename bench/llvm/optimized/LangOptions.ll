@@ -418,7 +418,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZNK5clang11LangOptions15isNoBuiltinFuncEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(849) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #2 align 2 {
-  %.fr23 = freeze i64 %2
+  %.fr24 = freeze i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %6 = load ptr, ptr %5, align 8, !tbaa !61
@@ -428,11 +428,11 @@ define dso_local noundef zeroext i1 @_ZNK5clang11LangOptions15isNoBuiltinFuncEN4
   %10 = sub i64 %8, %9
   %11 = lshr exact i64 %10, 5
   %12 = and i64 %10, 137438953440
-  %.not13.not = icmp eq i64 %12, 0
-  br i1 %.not13.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph
+  %.not14.not = icmp eq i64 %12, 0
+  br i1 %.not14.not, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
-  %13 = icmp eq i64 %.fr23, 0
+  %13 = icmp eq i64 %.fr24, 0
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
@@ -442,46 +442,46 @@ define dso_local noundef zeroext i1 @_ZNK5clang11LangOptions15isNoBuiltinFuncEN4
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !48
-  %.not.i.us21 = icmp eq i64 %16, 0
-  br i1 %.not.i.us21, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader
+  %.not.i.us22 = icmp eq i64 %16, 0
+  br i1 %.not.i.us22, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader: ; preds = %.lr.ph.split.us
   %17 = and i64 %11, 4294967295
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us
 
 18:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us
-  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv.next28
+  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv.next29
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !48
   %.not.i.us = icmp eq i64 %21, 0
-  br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us, !llvm.loop !65
+  br i1 %.not.i.us, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us, !llvm.loop !65
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us:    ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader, %18
-  %indvars.iv27 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader ], [ %indvars.iv.next28, %18 ]
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %.not.us.not.not.not = icmp ne i64 %indvars.iv.next28, %17
-  br i1 %.not.us.not.not.not, label %18, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, !llvm.loop !65
+  %indvars.iv28 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader ], [ %indvars.iv.next29, %18 ]
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %.not.us.not.not.not = icmp ne i64 %indvars.iv.next29, %17
+  br i1 %.not.us.not.not.not, label %18, label %.thread, !llvm.loop !65
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11 ]
   %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !48
-  %.not.i = icmp eq i64 %.fr23, %24
+  %.not.i = icmp eq i64 %.fr24, %24
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.lr.ph.split
   %25 = load ptr, ptr %22, align 8, !tbaa !62
-  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %25, i64 %.fr23)
+  %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %25, i64 %.fr24)
   %26 = icmp eq i32 %bcmp.i, 0
-  br i1 %26, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
+  br i1 %26, label %.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread11:       ; preds = %.lr.ph.split, %_ZN4llvmeqENS_9StringRefES0_.exit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not.not = icmp eq i64 %indvars.iv.next, %14
-  br i1 %.not.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.lr.ph.split, !llvm.loop !65
+  br i1 %.not.not, label %.thread, label %.lr.ph.split, !llvm.loop !65
 
-_ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us, %18, %.lr.ph.split.us, %3
+.thread:                                          ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11, %_ZN4llvmeqENS_9StringRefES0_.exit, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us, %18, %.lr.ph.split.us, %3
   %.not.lcssa = phi i1 [ false, %3 ], [ true, %.lr.ph.split.us ], [ %.not.us.not.not.not, %18 ], [ %.not.us.not.not.not, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us ], [ true, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11 ]
   ret i1 %.not.lcssa
 }

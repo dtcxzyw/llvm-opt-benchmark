@@ -1840,7 +1840,7 @@ declare zeroext i8 @nghttp2_extpri_to_uint8(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #7 {
   %4 = load i8, ptr %1, align 1, !tbaa !16
-  switch i8 %4, label %125 [
+  switch i8 %4, label %126 [
     i8 45, label %5
     i8 48, label %5
     i8 49, label %5
@@ -1852,10 +1852,10 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
     i8 55, label %5
     i8 56, label %5
     i8 57, label %5
-    i8 34, label %55
-    i8 42, label %81
-    i8 58, label %96
-    i8 63, label %116
+    i8 34, label %56
+    i8 42, label %82
+    i8 58, label %97
+    i8 63, label %117
   ]
 
 5:                                                ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
@@ -1866,37 +1866,37 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %10 = icmp eq ptr %9, %2
-  br i1 %10, label %sf_parse_integer_or_decimal.exit, label %._crit_edge112.i
+  br i1 %10, label %sf_parse_integer_or_decimal.exit, label %._crit_edge110.i
 
-._crit_edge112.i:                                 ; preds = %8
+._crit_edge110.i:                                 ; preds = %8
   %.pre.i = load i8, ptr %9, align 1, !tbaa !16
   br label %11
 
-11:                                               ; preds = %._crit_edge112.i, %5
-  %12 = phi i8 [ %4, %5 ], [ %.pre.i, %._crit_edge112.i ]
-  %.052.i = phi ptr [ %1, %5 ], [ %9, %._crit_edge112.i ]
-  %.051.i = phi i32 [ 1, %5 ], [ -1, %._crit_edge112.i ]
-  %.052111.i = ptrtoint ptr %.052.i to i64
+11:                                               ; preds = %._crit_edge110.i, %5
+  %12 = phi i8 [ %4, %5 ], [ %.pre.i, %._crit_edge110.i ]
+  %.052.i = phi ptr [ %1, %5 ], [ %9, %._crit_edge110.i ]
+  %.051.i = phi i32 [ 1, %5 ], [ -1, %._crit_edge110.i ]
+  %.052109.i = ptrtoint ptr %.052.i to i64
   %13 = add i8 %12, -58
   %or.cond.i = icmp ult i8 %13, -10
   br i1 %or.cond.i, label %sf_parse_integer_or_decimal.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %11
-  %.not82.i = icmp eq ptr %.052.i, %2
-  br i1 %.not82.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
+  %.not80.i = icmp eq ptr %.052.i, %2
+  br i1 %.not80.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %.preheader.i
-  %14 = sub i64 %6, %.052111.i
+  %14 = sub i64 %6, %.052109.i
   %scevgep.i = getelementptr i8, ptr %.052.i, i64 %14
   br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %26, %.lr.ph.preheader.i
-  %.04487.i = phi i64 [ %.1.i, %26 ], [ 0, %.lr.ph.preheader.i ]
-  %.04586.i = phi i64 [ %.146.i, %26 ], [ 0, %.lr.ph.preheader.i ]
-  %.04785.i = phi i32 [ %.148.i, %26 ], [ 1, %.lr.ph.preheader.i ]
-  %.04984.i = phi i64 [ %.150.i, %26 ], [ 0, %.lr.ph.preheader.i ]
-  %.15383.i = phi ptr [ %27, %26 ], [ %.052.i, %.lr.ph.preheader.i ]
-  %15 = load i8, ptr %.15383.i, align 1, !tbaa !16
+.lr.ph.i:                                         ; preds = %27, %.lr.ph.preheader.i
+  %.04485.i = phi i64 [ %.1.i, %27 ], [ 0, %.lr.ph.preheader.i ]
+  %.04584.i = phi i64 [ %.146.i, %27 ], [ 0, %.lr.ph.preheader.i ]
+  %.04783.i = phi i32 [ %.148.i, %27 ], [ 1, %.lr.ph.preheader.i ]
+  %.04982.i = phi i64 [ %.150.i, %27 ], [ 0, %.lr.ph.preheader.i ]
+  %.15381.i = phi ptr [ %28, %27 ], [ %.052.i, %.lr.ph.preheader.i ]
+  %15 = load i8, ptr %.15381.i, align 1, !tbaa !16
   switch i8 %15, label %._crit_edge.i [
     i8 48, label %16
     i8 49, label %16
@@ -1912,330 +1912,330 @@ define internal fastcc i64 @sf_parse_bare_item(ptr noundef writeonly captures(ad
   ]
 
 16:                                               ; preds = %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i, %.lr.ph.i
-  %17 = mul nsw i64 %.04984.i, 10
+  %17 = mul nsw i64 %.04982.i, 10
   %18 = zext nneg i8 %15 to i64
   %19 = add i64 %17, -48
   %20 = add i64 %19, %18
-  %21 = add nuw nsw i64 %.04586.i, 1
-  %22 = icmp ugt i64 %.04586.i, 14
-  br i1 %22, label %sf_parse_integer_or_decimal.exit, label %26
+  %21 = add nuw nsw i64 %.04584.i, 1
+  %22 = icmp ugt i64 %.04584.i, 14
+  br i1 %22, label %sf_parse_integer_or_decimal.exit, label %27
 
 23:                                               ; preds = %.lr.ph.i
-  %switch66.i = icmp eq i32 %.04785.i, 1
-  br i1 %switch66.i, label %24, label %.loopexit.i
+  %24 = icmp eq i32 %.04783.i, 1
+  br i1 %24, label %25, label %.loopexit.i
 
-24:                                               ; preds = %23
-  %25 = icmp samesign ugt i64 %.04586.i, 12
-  br i1 %25, label %sf_parse_integer_or_decimal.exit, label %26
+25:                                               ; preds = %23
+  %26 = icmp samesign ugt i64 %.04584.i, 12
+  br i1 %26, label %sf_parse_integer_or_decimal.exit, label %27
 
-26:                                               ; preds = %24, %16
-  %.150.i = phi i64 [ %20, %16 ], [ %.04984.i, %24 ]
-  %.148.i = phi i32 [ %.04785.i, %16 ], [ 2, %24 ]
-  %.146.i = phi i64 [ %21, %16 ], [ %.04586.i, %24 ]
-  %.1.i = phi i64 [ %.04487.i, %16 ], [ %.04586.i, %24 ]
-  %27 = getelementptr inbounds nuw i8, ptr %.15383.i, i64 1
-  %.not.i = icmp eq ptr %27, %2
+27:                                               ; preds = %25, %16
+  %.150.i = phi i64 [ %20, %16 ], [ %.04982.i, %25 ]
+  %.148.i = phi i32 [ %.04783.i, %16 ], [ 2, %25 ]
+  %.146.i = phi i64 [ %21, %16 ], [ %.04584.i, %25 ]
+  %.1.i = phi i64 [ %.04485.i, %16 ], [ %.04584.i, %25 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.15381.i, i64 1
+  %.not.i = icmp eq ptr %28, %2
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !72
 
-._crit_edge.i:                                    ; preds = %26, %.lr.ph.i
-  %.153.lcssa.ph.i = phi ptr [ %.15383.i, %.lr.ph.i ], [ %scevgep.i, %26 ]
-  %.049.lcssa.ph.i = phi i64 [ %.04984.i, %.lr.ph.i ], [ %.150.i, %26 ]
-  %.047.lcssa.ph.i = phi i32 [ %.04785.i, %.lr.ph.i ], [ %.148.i, %26 ]
-  %.045.lcssa.ph.i = phi i64 [ %.04586.i, %.lr.ph.i ], [ %.146.i, %26 ]
-  %.044.lcssa.ph.i = phi i64 [ %.04487.i, %.lr.ph.i ], [ %.1.i, %26 ]
-  %28 = icmp eq i32 %.047.lcssa.ph.i, 1
-  br i1 %28, label %._crit_edge.thread.i, label %.loopexit.i
+._crit_edge.i:                                    ; preds = %27, %.lr.ph.i
+  %.153.lcssa.ph.i = phi ptr [ %.15381.i, %.lr.ph.i ], [ %scevgep.i, %27 ]
+  %.049.lcssa.ph.i = phi i64 [ %.04982.i, %.lr.ph.i ], [ %.150.i, %27 ]
+  %.047.lcssa.ph.i = phi i32 [ %.04783.i, %.lr.ph.i ], [ %.148.i, %27 ]
+  %.045.lcssa.ph.i = phi i64 [ %.04584.i, %.lr.ph.i ], [ %.146.i, %27 ]
+  %.044.lcssa.ph.i = phi i64 [ %.04485.i, %.lr.ph.i ], [ %.1.i, %27 ]
+  %29 = icmp eq i32 %.047.lcssa.ph.i, 1
+  br i1 %29, label %._crit_edge.thread.i, label %.loopexit.i
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader.i
-  %.049.lcssa127.i = phi i64 [ %.049.lcssa.ph.i, %._crit_edge.i ], [ 0, %.preheader.i ]
-  %.153.lcssa126.i = phi ptr [ %.153.lcssa.ph.i, %._crit_edge.i ], [ %2, %.preheader.i ]
+  %.049.lcssa125.i = phi i64 [ %.049.lcssa.ph.i, %._crit_edge.i ], [ 0, %.preheader.i ]
+  %.153.lcssa124.i = phi ptr [ %.153.lcssa.ph.i, %._crit_edge.i ], [ %2, %.preheader.i ]
   %.not64.i = icmp eq ptr %0, null
-  br i1 %.not64.i, label %33, label %29
+  br i1 %.not64.i, label %34, label %30
 
-29:                                               ; preds = %._crit_edge.thread.i
+30:                                               ; preds = %._crit_edge.thread.i
   store i8 1, ptr %0, align 8, !tbaa !69
-  %30 = sext i32 %.051.i to i64
-  %31 = mul nsw i64 %.049.lcssa127.i, %30
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %31, ptr %32, align 8, !tbaa !16
-  br label %33
+  %31 = sext i32 %.051.i to i64
+  %32 = mul nsw i64 %.049.lcssa125.i, %31
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %32, ptr %33, align 8, !tbaa !16
+  br label %34
 
-33:                                               ; preds = %29, %._crit_edge.thread.i
-  %34 = ptrtoint ptr %.153.lcssa126.i to i64
-  %35 = ptrtoint ptr %1 to i64
-  %36 = sub i64 %34, %35
+34:                                               ; preds = %30, %._crit_edge.thread.i
+  %35 = ptrtoint ptr %.153.lcssa124.i to i64
+  %36 = ptrtoint ptr %1 to i64
+  %37 = sub i64 %35, %36
   br label %sf_parse_integer_or_decimal.exit
 
 .loopexit.i:                                      ; preds = %23, %._crit_edge.i
-  %.15381.i = phi ptr [ %.153.lcssa.ph.i, %._crit_edge.i ], [ %.15383.i, %23 ]
-  %.04978.i = phi i64 [ %.049.lcssa.ph.i, %._crit_edge.i ], [ %.04984.i, %23 ]
-  %.04573.i = phi i64 [ %.045.lcssa.ph.i, %._crit_edge.i ], [ %.04586.i, %23 ]
-  %.04470.i = phi i64 [ %.044.lcssa.ph.i, %._crit_edge.i ], [ %.04487.i, %23 ]
-  %37 = icmp eq i64 %.04470.i, %.04573.i
-  br i1 %37, label %sf_parse_integer_or_decimal.exit, label %38
+  %.15379.i = phi ptr [ %.153.lcssa.ph.i, %._crit_edge.i ], [ %.15381.i, %23 ]
+  %.04976.i = phi i64 [ %.049.lcssa.ph.i, %._crit_edge.i ], [ %.04982.i, %23 ]
+  %.04571.i = phi i64 [ %.045.lcssa.ph.i, %._crit_edge.i ], [ %.04584.i, %23 ]
+  %.04468.i = phi i64 [ %.044.lcssa.ph.i, %._crit_edge.i ], [ %.04485.i, %23 ]
+  %38 = icmp eq i64 %.04468.i, %.04571.i
+  br i1 %38, label %sf_parse_integer_or_decimal.exit, label %39
 
-38:                                               ; preds = %.loopexit.i
-  %39 = sub i64 %.04573.i, %.04470.i
-  %40 = icmp ugt i64 %39, 3
-  br i1 %40, label %sf_parse_integer_or_decimal.exit, label %41
+39:                                               ; preds = %.loopexit.i
+  %40 = sub i64 %.04571.i, %.04468.i
+  %41 = icmp ugt i64 %40, 3
+  br i1 %41, label %sf_parse_integer_or_decimal.exit, label %42
 
-41:                                               ; preds = %38
+42:                                               ; preds = %39
   %.not62.i = icmp eq ptr %0, null
-  br i1 %.not62.i, label %51, label %.lr.ph101.i
+  br i1 %.not62.i, label %52, label %.lr.ph99.i
 
-.lr.ph101.i:                                      ; preds = %41
+.lr.ph99.i:                                       ; preds = %42
   store i8 2, ptr %0, align 8, !tbaa !69
-  %42 = sitofp i64 %.04978.i to double
-  br label %43
+  %43 = sitofp i64 %.04976.i to double
+  br label %44
 
-43:                                               ; preds = %43, %.lr.ph101.i
-  %44 = phi double [ %42, %.lr.ph101.i ], [ %45, %43 ]
-  %.099.i = phi i64 [ %39, %.lr.ph101.i ], [ %46, %43 ]
-  %45 = fdiv double %44, 1.000000e+01
-  %46 = add nsw i64 %.099.i, -1
-  %.not63.i = icmp eq i64 %46, 0
-  br i1 %.not63.i, label %47, label %43, !llvm.loop !73
+44:                                               ; preds = %44, %.lr.ph99.i
+  %45 = phi double [ %43, %.lr.ph99.i ], [ %46, %44 ]
+  %.097.i = phi i64 [ %40, %.lr.ph99.i ], [ %47, %44 ]
+  %46 = fdiv double %45, 1.000000e+01
+  %47 = add nsw i64 %.097.i, -1
+  %.not63.i = icmp eq i64 %47, 0
+  br i1 %.not63.i, label %48, label %44, !llvm.loop !73
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = sitofp i32 %.051.i to double
-  %50 = fmul double %45, %49
-  store double %50, ptr %48, align 8, !tbaa !16
-  br label %51
+48:                                               ; preds = %44
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %50 = sitofp i32 %.051.i to double
+  %51 = fmul double %46, %50
+  store double %51, ptr %49, align 8, !tbaa !16
+  br label %52
 
-51:                                               ; preds = %47, %41
-  %52 = ptrtoint ptr %.15381.i to i64
-  %53 = ptrtoint ptr %1 to i64
-  %54 = sub i64 %52, %53
+52:                                               ; preds = %48, %42
+  %53 = ptrtoint ptr %.15379.i to i64
+  %54 = ptrtoint ptr %1 to i64
+  %55 = sub i64 %53, %54
   br label %sf_parse_integer_or_decimal.exit
 
-55:                                               ; preds = %3
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %.not2428.i = icmp eq ptr %56, %2
+56:                                               ; preds = %3
+  %57 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.not2428.i = icmp eq ptr %57, %2
   br i1 %.not2428.i, label %sf_parse_integer_or_decimal.exit, label %.lr.ph.i28
 
-.lr.ph.i28:                                       ; preds = %55, %79
-  %.029.i = phi ptr [ %80, %79 ], [ %56, %55 ]
-  %57 = load i8, ptr %.029.i, align 1, !tbaa !16
-  switch i8 %57, label %75 [
-    i8 92, label %58
-    i8 34, label %63
+.lr.ph.i28:                                       ; preds = %56, %80
+  %.029.i = phi ptr [ %81, %80 ], [ %57, %56 ]
+  %58 = load i8, ptr %.029.i, align 1, !tbaa !16
+  switch i8 %58, label %76 [
+    i8 92, label %59
+    i8 34, label %64
   ]
 
-58:                                               ; preds = %.lr.ph.i28
-  %59 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
-  %60 = icmp eq ptr %59, %2
-  br i1 %60, label %sf_parse_integer_or_decimal.exit, label %61
+59:                                               ; preds = %.lr.ph.i28
+  %60 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
+  %61 = icmp eq ptr %60, %2
+  br i1 %61, label %sf_parse_integer_or_decimal.exit, label %62
 
-61:                                               ; preds = %58
-  %62 = load i8, ptr %59, align 1, !tbaa !16
-  switch i8 %62, label %sf_parse_integer_or_decimal.exit [
-    i8 34, label %79
-    i8 92, label %79
+62:                                               ; preds = %59
+  %63 = load i8, ptr %60, align 1, !tbaa !16
+  switch i8 %63, label %sf_parse_integer_or_decimal.exit [
+    i8 34, label %80
+    i8 92, label %80
   ]
 
-63:                                               ; preds = %.lr.ph.i28
+64:                                               ; preds = %.lr.ph.i28
   %.not25.i = icmp eq ptr %0, null
-  br i1 %.not25.i, label %70, label %64
+  br i1 %.not25.i, label %71, label %65
 
-64:                                               ; preds = %63
+65:                                               ; preds = %64
   store i8 3, ptr %0, align 8, !tbaa !69
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %56, ptr %65, align 8, !tbaa !16
-  %66 = ptrtoint ptr %.029.i to i64
-  %67 = ptrtoint ptr %56 to i64
-  %68 = sub i64 %66, %67
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %68, ptr %69, align 8, !tbaa !16
-  br label %70
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %57, ptr %66, align 8, !tbaa !16
+  %67 = ptrtoint ptr %.029.i to i64
+  %68 = ptrtoint ptr %57 to i64
+  %69 = sub i64 %67, %68
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %69, ptr %70, align 8, !tbaa !16
+  br label %71
 
-70:                                               ; preds = %64, %63
-  %71 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
-  %72 = ptrtoint ptr %71 to i64
-  %73 = ptrtoint ptr %1 to i64
-  %74 = sub i64 %72, %73
+71:                                               ; preds = %65, %64
+  %72 = getelementptr inbounds nuw i8, ptr %.029.i, i64 1
+  %73 = ptrtoint ptr %72 to i64
+  %74 = ptrtoint ptr %1 to i64
+  %75 = sub i64 %73, %74
   br label %sf_parse_integer_or_decimal.exit
 
-75:                                               ; preds = %.lr.ph.i28
-  %76 = zext i8 %57 to i64
-  %77 = getelementptr inbounds nuw i32, ptr @SF_DQUOTE_CHARS, i64 %76
-  %78 = load i32, ptr %77, align 4, !tbaa !66
-  %.not26.i = icmp eq i32 %78, 0
-  br i1 %.not26.i, label %sf_parse_integer_or_decimal.exit, label %79
+76:                                               ; preds = %.lr.ph.i28
+  %77 = zext i8 %58 to i64
+  %78 = getelementptr inbounds nuw i32, ptr @SF_DQUOTE_CHARS, i64 %77
+  %79 = load i32, ptr %78, align 4, !tbaa !66
+  %.not26.i = icmp eq i32 %79, 0
+  br i1 %.not26.i, label %sf_parse_integer_or_decimal.exit, label %80
 
-79:                                               ; preds = %75, %61, %61
-  %.1.i30 = phi ptr [ %.029.i, %75 ], [ %59, %61 ], [ %59, %61 ]
-  %80 = getelementptr inbounds nuw i8, ptr %.1.i30, i64 1
-  %.not24.i = icmp eq ptr %80, %2
+80:                                               ; preds = %76, %62, %62
+  %.1.i30 = phi ptr [ %.029.i, %76 ], [ %60, %62 ], [ %60, %62 ]
+  %81 = getelementptr inbounds nuw i8, ptr %.1.i30, i64 1
+  %.not24.i = icmp eq ptr %81, %2
   br i1 %.not24.i, label %sf_parse_integer_or_decimal.exit, label %.lr.ph.i28, !llvm.loop !74
 
-81:                                               ; preds = %3
-  %82 = ptrtoint ptr %1 to i64
+82:                                               ; preds = %3
+  %83 = ptrtoint ptr %1 to i64
   %.not2328.i = icmp eq ptr %1, %2
   br i1 %.not2328.i, label %.critedge.i, label %.lr.ph.preheader.i32
 
-.lr.ph.preheader.i32:                             ; preds = %81
-  %83 = ptrtoint ptr %2 to i64
-  %84 = sub i64 %83, %82
-  %scevgep.i33 = getelementptr i8, ptr %1, i64 %84
+.lr.ph.preheader.i32:                             ; preds = %82
+  %84 = ptrtoint ptr %2 to i64
+  %85 = sub i64 %84, %83
+  %scevgep.i33 = getelementptr i8, ptr %1, i64 %85
   br label %.lr.ph.i34
 
-.lr.ph.i34:                                       ; preds = %89, %.lr.ph.preheader.i32
-  %.029.i35 = phi ptr [ %90, %89 ], [ %1, %.lr.ph.preheader.i32 ]
-  %85 = load i8, ptr %.029.i35, align 1, !tbaa !16
-  %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr @SF_TOKEN_CHARS, i64 %86
-  %88 = load i32, ptr %87, align 4, !tbaa !66
-  %.not24.i36 = icmp eq i32 %88, 0
-  br i1 %.not24.i36, label %.critedge.i, label %89
+.lr.ph.i34:                                       ; preds = %90, %.lr.ph.preheader.i32
+  %.029.i35 = phi ptr [ %91, %90 ], [ %1, %.lr.ph.preheader.i32 ]
+  %86 = load i8, ptr %.029.i35, align 1, !tbaa !16
+  %87 = zext i8 %86 to i64
+  %88 = getelementptr inbounds nuw i32, ptr @SF_TOKEN_CHARS, i64 %87
+  %89 = load i32, ptr %88, align 4, !tbaa !66
+  %.not24.i36 = icmp eq i32 %89, 0
+  br i1 %.not24.i36, label %.critedge.i, label %90
 
-89:                                               ; preds = %.lr.ph.i34
-  %90 = getelementptr inbounds nuw i8, ptr %.029.i35, i64 1
-  %.not23.i = icmp eq ptr %90, %2
+90:                                               ; preds = %.lr.ph.i34
+  %91 = getelementptr inbounds nuw i8, ptr %.029.i35, i64 1
+  %.not23.i = icmp eq ptr %91, %2
   br i1 %.not23.i, label %.critedge.i, label %.lr.ph.i34, !llvm.loop !75
 
-.critedge.i:                                      ; preds = %89, %.lr.ph.i34, %81
-  %.0.lcssa.i = phi ptr [ %1, %81 ], [ %.029.i35, %.lr.ph.i34 ], [ %scevgep.i33, %89 ]
+.critedge.i:                                      ; preds = %90, %.lr.ph.i34, %82
+  %.0.lcssa.i = phi ptr [ %1, %82 ], [ %.029.i35, %.lr.ph.i34 ], [ %scevgep.i33, %90 ]
   %.not25.i37 = icmp eq ptr %0, null
-  br i1 %.not25.i37, label %.critedge._crit_edge.i, label %91
+  br i1 %.not25.i37, label %.critedge._crit_edge.i, label %92
 
 .critedge._crit_edge.i:                           ; preds = %.critedge.i
   %.pre.i38 = ptrtoint ptr %.0.lcssa.i to i64
-  %.pre32.i = sub i64 %.pre.i38, %82
+  %.pre32.i = sub i64 %.pre.i38, %83
   br label %sf_parse_integer_or_decimal.exit
 
-91:                                               ; preds = %.critedge.i
+92:                                               ; preds = %.critedge.i
   store i8 4, ptr %0, align 8, !tbaa !69
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %92, align 8, !tbaa !16
-  %93 = ptrtoint ptr %.0.lcssa.i to i64
-  %94 = sub i64 %93, %82
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %94, ptr %95, align 8, !tbaa !16
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %93, align 8, !tbaa !16
+  %94 = ptrtoint ptr %.0.lcssa.i to i64
+  %95 = sub i64 %94, %83
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %95, ptr %96, align 8, !tbaa !16
   br label %sf_parse_integer_or_decimal.exit
 
-96:                                               ; preds = %3
-  %97 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %.not1923.i = icmp eq ptr %97, %2
+97:                                               ; preds = %3
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %.not1923.i = icmp eq ptr %98, %2
   br i1 %.not1923.i, label %sf_parse_integer_or_decimal.exit, label %.lr.ph.i42
 
-.lr.ph.i42:                                       ; preds = %96, %111
-  %.024.i = phi ptr [ %115, %111 ], [ %97, %96 ]
-  %98 = load i8, ptr %.024.i, align 1, !tbaa !16
-  %cond.i = icmp eq i8 %98, 58
-  br i1 %cond.i, label %99, label %111
+.lr.ph.i42:                                       ; preds = %97, %112
+  %.024.i = phi ptr [ %116, %112 ], [ %98, %97 ]
+  %99 = load i8, ptr %.024.i, align 1, !tbaa !16
+  %cond.i = icmp eq i8 %99, 58
+  br i1 %cond.i, label %100, label %112
 
-99:                                               ; preds = %.lr.ph.i42
+100:                                              ; preds = %.lr.ph.i42
   %.not21.i = icmp eq ptr %0, null
-  br i1 %.not21.i, label %106, label %100
+  br i1 %.not21.i, label %107, label %101
 
-100:                                              ; preds = %99
+101:                                              ; preds = %100
   store i8 5, ptr %0, align 8, !tbaa !69
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %97, ptr %101, align 8, !tbaa !16
-  %102 = ptrtoint ptr %.024.i to i64
-  %103 = ptrtoint ptr %97 to i64
-  %104 = sub i64 %102, %103
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %104, ptr %105, align 8, !tbaa !16
-  br label %106
+  %102 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %98, ptr %102, align 8, !tbaa !16
+  %103 = ptrtoint ptr %.024.i to i64
+  %104 = ptrtoint ptr %98 to i64
+  %105 = sub i64 %103, %104
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %105, ptr %106, align 8, !tbaa !16
+  br label %107
 
-106:                                              ; preds = %100, %99
-  %107 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
-  %108 = ptrtoint ptr %107 to i64
-  %109 = ptrtoint ptr %1 to i64
-  %110 = sub i64 %108, %109
+107:                                              ; preds = %101, %100
+  %108 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
+  %109 = ptrtoint ptr %108 to i64
+  %110 = ptrtoint ptr %1 to i64
+  %111 = sub i64 %109, %110
   br label %sf_parse_integer_or_decimal.exit
 
-111:                                              ; preds = %.lr.ph.i42
-  %112 = zext i8 %98 to i64
-  %113 = getelementptr inbounds nuw i32, ptr @SF_BYTESEQ_CHARS, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !66
-  %.not20.i = icmp eq i32 %114, 0
-  %115 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
-  %.not19.i = icmp eq ptr %115, %2
+112:                                              ; preds = %.lr.ph.i42
+  %113 = zext i8 %99 to i64
+  %114 = getelementptr inbounds nuw i32, ptr @SF_BYTESEQ_CHARS, i64 %113
+  %115 = load i32, ptr %114, align 4, !tbaa !66
+  %.not20.i = icmp eq i32 %115, 0
+  %116 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
+  %.not19.i = icmp eq ptr %116, %2
   %or.cond26.i43 = select i1 %.not20.i, i1 true, i1 %.not19.i
   br i1 %or.cond26.i43, label %sf_parse_integer_or_decimal.exit, label %.lr.ph.i42, !llvm.loop !76
 
-116:                                              ; preds = %3
-  %117 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %118 = icmp eq ptr %117, %2
-  br i1 %118, label %sf_parse_integer_or_decimal.exit, label %119
+117:                                              ; preds = %3
+  %118 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %119 = icmp eq ptr %118, %2
+  br i1 %119, label %sf_parse_integer_or_decimal.exit, label %120
 
-119:                                              ; preds = %116
-  %120 = load i8, ptr %117, align 1, !tbaa !16
-  switch i8 %120, label %sf_parse_integer_or_decimal.exit [
-    i8 48, label %122
-    i8 49, label %121
+120:                                              ; preds = %117
+  %121 = load i8, ptr %118, align 1, !tbaa !16
+  switch i8 %121, label %sf_parse_integer_or_decimal.exit [
+    i8 48, label %123
+    i8 49, label %122
   ]
 
-121:                                              ; preds = %119
-  br label %122
+122:                                              ; preds = %120
+  br label %123
 
-122:                                              ; preds = %121, %119
-  %.0.i = phi i32 [ 1, %121 ], [ 0, %119 ]
+123:                                              ; preds = %122, %120
+  %.0.i = phi i32 [ 1, %122 ], [ 0, %120 ]
   %.not14.i = icmp eq ptr %0, null
-  br i1 %.not14.i, label %sf_parse_integer_or_decimal.exit, label %123
+  br i1 %.not14.i, label %sf_parse_integer_or_decimal.exit, label %124
 
-123:                                              ; preds = %122
+124:                                              ; preds = %123
   store i8 0, ptr %0, align 8, !tbaa !69
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.0.i, ptr %124, align 8, !tbaa !16
+  %125 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.0.i, ptr %125, align 8, !tbaa !16
   br label %sf_parse_integer_or_decimal.exit
 
-125:                                              ; preds = %3
-  %126 = and i8 %4, -33
-  %127 = add i8 %126, -65
-  %or.cond67 = icmp ult i8 %127, 26
-  br i1 %or.cond67, label %128, label %sf_parse_integer_or_decimal.exit
+126:                                              ; preds = %3
+  %127 = and i8 %4, -33
+  %128 = add i8 %127, -65
+  %or.cond67 = icmp ult i8 %128, 26
+  br i1 %or.cond67, label %129, label %sf_parse_integer_or_decimal.exit
 
-128:                                              ; preds = %125
-  %129 = ptrtoint ptr %1 to i64
+129:                                              ; preds = %126
+  %130 = ptrtoint ptr %1 to i64
   %.not2328.i48 = icmp eq ptr %1, %2
   br i1 %.not2328.i48, label %.critedge.i55, label %.lr.ph.preheader.i49
 
-.lr.ph.preheader.i49:                             ; preds = %128
-  %130 = ptrtoint ptr %2 to i64
-  %131 = sub i64 %130, %129
-  %scevgep.i50 = getelementptr i8, ptr %1, i64 %131
+.lr.ph.preheader.i49:                             ; preds = %129
+  %131 = ptrtoint ptr %2 to i64
+  %132 = sub i64 %131, %130
+  %scevgep.i50 = getelementptr i8, ptr %1, i64 %132
   br label %.lr.ph.i51
 
-.lr.ph.i51:                                       ; preds = %136, %.lr.ph.preheader.i49
-  %.029.i52 = phi ptr [ %137, %136 ], [ %1, %.lr.ph.preheader.i49 ]
-  %132 = load i8, ptr %.029.i52, align 1, !tbaa !16
-  %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw i32, ptr @SF_TOKEN_CHARS, i64 %133
-  %135 = load i32, ptr %134, align 4, !tbaa !66
-  %.not24.i53 = icmp eq i32 %135, 0
-  br i1 %.not24.i53, label %.critedge.i55, label %136
+.lr.ph.i51:                                       ; preds = %137, %.lr.ph.preheader.i49
+  %.029.i52 = phi ptr [ %138, %137 ], [ %1, %.lr.ph.preheader.i49 ]
+  %133 = load i8, ptr %.029.i52, align 1, !tbaa !16
+  %134 = zext i8 %133 to i64
+  %135 = getelementptr inbounds nuw i32, ptr @SF_TOKEN_CHARS, i64 %134
+  %136 = load i32, ptr %135, align 4, !tbaa !66
+  %.not24.i53 = icmp eq i32 %136, 0
+  br i1 %.not24.i53, label %.critedge.i55, label %137
 
-136:                                              ; preds = %.lr.ph.i51
-  %137 = getelementptr inbounds nuw i8, ptr %.029.i52, i64 1
-  %.not23.i54 = icmp eq ptr %137, %2
+137:                                              ; preds = %.lr.ph.i51
+  %138 = getelementptr inbounds nuw i8, ptr %.029.i52, i64 1
+  %.not23.i54 = icmp eq ptr %138, %2
   br i1 %.not23.i54, label %.critedge.i55, label %.lr.ph.i51, !llvm.loop !75
 
-.critedge.i55:                                    ; preds = %136, %.lr.ph.i51, %128
-  %.0.lcssa.i56 = phi ptr [ %1, %128 ], [ %.029.i52, %.lr.ph.i51 ], [ %scevgep.i50, %136 ]
+.critedge.i55:                                    ; preds = %137, %.lr.ph.i51, %129
+  %.0.lcssa.i56 = phi ptr [ %1, %129 ], [ %.029.i52, %.lr.ph.i51 ], [ %scevgep.i50, %137 ]
   %.not25.i57 = icmp eq ptr %0, null
-  br i1 %.not25.i57, label %.critedge._crit_edge.i59, label %138
+  br i1 %.not25.i57, label %.critedge._crit_edge.i59, label %139
 
 .critedge._crit_edge.i59:                         ; preds = %.critedge.i55
   %.pre.i60 = ptrtoint ptr %.0.lcssa.i56 to i64
-  %.pre32.i61 = sub i64 %.pre.i60, %129
+  %.pre32.i61 = sub i64 %.pre.i60, %130
   br label %sf_parse_integer_or_decimal.exit
 
-138:                                              ; preds = %.critedge.i55
+139:                                              ; preds = %.critedge.i55
   store i8 4, ptr %0, align 8, !tbaa !69
-  %139 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %139, align 8, !tbaa !16
-  %140 = ptrtoint ptr %.0.lcssa.i56 to i64
-  %141 = sub i64 %140, %129
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %141, ptr %142, align 8, !tbaa !16
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %140, align 8, !tbaa !16
+  %141 = ptrtoint ptr %.0.lcssa.i56 to i64
+  %142 = sub i64 %141, %130
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %142, ptr %143, align 8, !tbaa !16
   br label %sf_parse_integer_or_decimal.exit
 
-sf_parse_integer_or_decimal.exit:                 ; preds = %111, %79, %75, %61, %58, %24, %16, %125, %138, %.critedge._crit_edge.i59, %123, %122, %119, %116, %106, %96, %91, %.critedge._crit_edge.i, %70, %55, %51, %38, %.loopexit.i, %33, %11, %8
-  %.0 = phi i64 [ %36, %33 ], [ %54, %51 ], [ -1, %8 ], [ -1, %11 ], [ -1, %38 ], [ -1, %.loopexit.i ], [ %74, %70 ], [ -1, %55 ], [ %.pre32.i, %.critedge._crit_edge.i ], [ %94, %91 ], [ %110, %106 ], [ -1, %96 ], [ -1, %116 ], [ -1, %119 ], [ 2, %123 ], [ 2, %122 ], [ %.pre32.i61, %.critedge._crit_edge.i59 ], [ %141, %138 ], [ -1, %125 ], [ -1, %16 ], [ -1, %24 ], [ -1, %58 ], [ -1, %61 ], [ -1, %75 ], [ -1, %79 ], [ -1, %111 ]
+sf_parse_integer_or_decimal.exit:                 ; preds = %112, %80, %76, %62, %59, %25, %16, %126, %139, %.critedge._crit_edge.i59, %124, %123, %120, %117, %107, %97, %92, %.critedge._crit_edge.i, %71, %56, %52, %39, %.loopexit.i, %34, %11, %8
+  %.0 = phi i64 [ %37, %34 ], [ %55, %52 ], [ -1, %8 ], [ -1, %11 ], [ -1, %39 ], [ -1, %.loopexit.i ], [ %75, %71 ], [ -1, %56 ], [ %.pre32.i, %.critedge._crit_edge.i ], [ %95, %92 ], [ %111, %107 ], [ -1, %97 ], [ -1, %117 ], [ -1, %120 ], [ 2, %124 ], [ 2, %123 ], [ %.pre32.i61, %.critedge._crit_edge.i59 ], [ %142, %139 ], [ -1, %126 ], [ -1, %16 ], [ -1, %25 ], [ -1, %59 ], [ -1, %62 ], [ -1, %76 ], [ -1, %80 ], [ -1, %112 ]
   ret i64 %.0
 }
 

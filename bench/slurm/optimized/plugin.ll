@@ -124,9 +124,9 @@ define dso_local ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr n
   br label %12
 
 12:                                               ; preds = %16, %10
-  %.pre46 = phi ptr [ %.pre, %16 ], [ %11, %10 ]
+  %.pre44 = phi ptr [ %.pre, %16 ], [ %11, %10 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.pre46, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw i8, ptr %.pre44, i64 %indvars.iv
   %14 = load i8, ptr %13, align 1
   switch i8 %14, label %16 [
     i8 0, label %17
@@ -139,7 +139,7 @@ define dso_local ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr n
   br label %16
 
 16:                                               ; preds = %12, %15
-  %.pre = phi ptr [ %.pre46, %12 ], [ %.pre.pre, %15 ]
+  %.pre = phi ptr [ %.pre44, %12 ], [ %.pre.pre, %15 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   br label %12, !llvm.loop !11
 
@@ -161,9 +161,9 @@ define dso_local ptr @plugin_load_and_link(ptr noundef %0, i32 noundef %1, ptr n
 
 23:                                               ; preds = %.preheader, %81
   %24 = phi ptr [ %19, %.preheader ], [ %82, %81 ]
-  %indvars.iv43 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next44, %81 ]
+  %indvars.iv41 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next42, %81 ]
   %.023 = phi ptr [ %19, %.preheader ], [ %.124, %81 ]
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv43
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv41
   %26 = load i8, ptr %25, align 1
   %27 = icmp eq i8 %26, 58
   br i1 %27, label %28, label %29
@@ -289,14 +289,14 @@ plugin_get_syms.exit.thread:                      ; preds = %54, %plugin_get_sym
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %7, align 8
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv43
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 %indvars.iv41
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 1
   br label %81
 
 81:                                               ; preds = %77, %29
   %82 = phi ptr [ %78, %77 ], [ %24, %29 ]
   %.124 = phi ptr [ %80, %77 ], [ %.023, %29 ]
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
+  %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   br label %23, !llvm.loop !12
 
 .loopexit:                                        ; preds = %76, %73
@@ -793,29 +793,29 @@ define dso_local ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_a
   %13 = tail call ptr (ptr, ...) @xstrdup_printf(ptr noundef nonnull @.str.24, ptr noundef %0) #10
   store ptr %13, ptr %5, align 8
   %14 = call ptr @strtok_r(ptr noundef nonnull %8, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #10
-  %.not2239 = icmp eq ptr %14, null
-  br i1 %.not2239, label %.loopexit, label %.lr.ph43
+  %.not2237 = icmp eq ptr %14, null
+  br i1 %.not2237, label %.loopexit, label %.lr.ph41
 
-.lr.ph43:                                         ; preds = %11, %._crit_edge
-  %.141 = phi ptr [ %.2.lcssa, %._crit_edge ], [ null, %11 ]
-  %.02040 = phi ptr [ %45, %._crit_edge ], [ %14, %11 ]
-  %15 = call ptr @opendir(ptr noundef nonnull %.02040)
+.lr.ph41:                                         ; preds = %11, %._crit_edge
+  %.139 = phi ptr [ %.2.lcssa, %._crit_edge ], [ null, %11 ]
+  %.02038 = phi ptr [ %45, %._crit_edge ], [ %14, %11 ]
+  %15 = call ptr @opendir(ptr noundef nonnull %.02038)
   %.not23 = icmp eq ptr %15, null
   br i1 %.not23, label %17, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph43
+.preheader:                                       ; preds = %.lr.ph41
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %16 = call ptr @readdir(ptr noundef nonnull %15) #10
-  %.not2437 = icmp eq ptr %16, null
-  br i1 %.not2437, label %._crit_edge, label %.lr.ph
+  %.not2435 = icmp eq ptr %16, null
+  br i1 %.not2435, label %._crit_edge, label %.lr.ph
 
-17:                                               ; preds = %.lr.ph43
-  %18 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef nonnull %.02040) #10
+17:                                               ; preds = %.lr.ph41
+  %18 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.26, ptr noundef nonnull %.02038) #10
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %42
   %19 = phi ptr [ %43, %42 ], [ %16, %.preheader ]
-  %.238 = phi ptr [ %.3, %42 ], [ %.141, %.preheader ]
+  %.236 = phi ptr [ %.3, %42 ], [ %.139, %.preheader ]
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 19
   %21 = load ptr, ptr %4, align 8
   %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %21) #13
@@ -840,7 +840,7 @@ define dso_local ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_a
   %33 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %32) #13
   %34 = getelementptr inbounds nuw i8, ptr %20, i64 %33
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %6, i64 noundef %31, ptr noundef nonnull @.str.28, ptr noundef nonnull %32, ptr noundef nonnull %34) #10
-  %.not28 = icmp eq ptr %.238, null
+  %.not28 = icmp eq ptr %.236, null
   br i1 %.not28, label %36, label %38
 
 36:                                               ; preds = %30
@@ -848,7 +848,7 @@ define dso_local ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_a
   br label %38
 
 38:                                               ; preds = %36, %30
-  %.4 = phi ptr [ %.238, %30 ], [ %37, %36 ]
+  %.4 = phi ptr [ %.236, %30 ], [ %37, %36 ]
   %39 = call ptr @list_find_first(ptr noundef %.4, ptr noundef nonnull @slurm_find_char_in_list, ptr noundef nonnull %6) #10
   %.not29 = icmp eq ptr %39, null
   br i1 %.not29, label %40, label %42
@@ -859,7 +859,7 @@ define dso_local ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_a
   br label %42
 
 42:                                               ; preds = %38, %40, %24, %.lr.ph
-  %.3 = phi ptr [ %.238, %.lr.ph ], [ %.238, %24 ], [ %.4, %40 ], [ %.4, %38 ]
+  %.3 = phi ptr [ %.236, %.lr.ph ], [ %.236, %24 ], [ %.4, %40 ], [ %.4, %38 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %43 = call ptr @readdir(ptr noundef nonnull %15) #10
@@ -867,15 +867,15 @@ define dso_local ptr @plugin_get_plugins_of_type(ptr noundef %0) local_unnamed_a
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %42, %.preheader
-  %.2.lcssa = phi ptr [ %.141, %.preheader ], [ %.3, %42 ]
+  %.2.lcssa = phi ptr [ %.139, %.preheader ], [ %.3, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %44 = call i32 @closedir(ptr noundef nonnull %15)
   %45 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.25, ptr noundef nonnull %3) #10
   %.not22 = icmp eq ptr %45, null
-  br i1 %.not22, label %.loopexit, label %.lr.ph43, !llvm.loop !14
+  br i1 %.not22, label %.loopexit, label %.lr.ph41, !llvm.loop !14
 
 .loopexit:                                        ; preds = %._crit_edge, %11, %17, %9
-  %.019 = phi ptr [ %.141, %17 ], [ null, %9 ], [ null, %11 ], [ %.2.lcssa, %._crit_edge ]
+  %.019 = phi ptr [ %.139, %17 ], [ null, %9 ], [ null, %11 ], [ %.2.lcssa, %._crit_edge ]
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   call void @slurm_xfree(ptr noundef nonnull %4) #10
   call void @slurm_xfree(ptr noundef nonnull %5) #10

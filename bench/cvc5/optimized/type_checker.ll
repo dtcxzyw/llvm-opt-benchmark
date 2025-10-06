@@ -25093,14 +25093,14 @@ define linkonce_odr hidden void @_ZN4cvc58internal4expr17SimpleTypeRuleVarINS1_7
   %20 = sext i1 %16 to i64
   %21 = add nsw i64 %19, %20
   %22 = and i64 %21, 4294967295
-  %.not18 = icmp eq i64 %22, 0
-  br i1 %.not18, label %_ZN4cvc58internal8TypeNode4nullEv.exit, label %.lr.ph
+  %.not16 = icmp eq i64 %22, 0
+  br i1 %.not16, label %_ZN4cvc58internal8TypeNode4nullEv.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %56
-  %.017 = phi i64 [ %57, %56 ], [ 0, %7 ]
+  %.015 = phi i64 [ %57, %56 ], [ 0, %7 ]
   %23 = load ptr, ptr %2, align 8, !tbaa !11
   store ptr %23, ptr %6, align 8, !tbaa !11
-  %24 = call noundef zeroext i1 @_ZN4cvc58internal4expr7ARegExp8checkArgENS0_12NodeTemplateILb0EEEm(ptr noundef nonnull %6, i64 noundef %.017)
+  %24 = call noundef zeroext i1 @_ZN4cvc58internal4expr7ARegExp8checkArgENS0_12NodeTemplateILb0EEEm(ptr noundef nonnull %6, i64 noundef %.015)
   br i1 %24, label %56, label %25
 
 25:                                               ; preds = %.lr.ph
@@ -25111,7 +25111,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal4expr17SimpleTypeRuleVarINS1_7
   %27 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.5, i64 noundef 12)
   %28 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.14, i64 noundef 6)
   %29 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.15, i64 noundef 18)
-  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.017)
+  %30 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4, i64 noundef %.015)
   %31 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull @.str.16, i64 noundef 5)
   %32 = load ptr, ptr %2, align 8, !tbaa !11
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -25153,7 +25153,7 @@ define linkonce_odr hidden void @_ZN4cvc58internal4expr17SimpleTypeRuleVarINS1_7
   br label %_ZN4cvc58internal8TypeNode4nullEv.exit.thread
 
 56:                                               ; preds = %.lr.ph
-  %57 = add nuw nsw i64 %.017, 1
+  %57 = add nuw nsw i64 %.015, 1
   %exitcond.not = icmp eq i64 %57, %22
   br i1 %exitcond.not, label %_ZN4cvc58internal8TypeNode4nullEv.exit, label %.lr.ph, !llvm.loop !123
 

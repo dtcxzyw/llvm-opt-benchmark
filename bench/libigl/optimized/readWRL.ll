@@ -398,11 +398,11 @@ _ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i:              ; preds = %125, %123, %122
           to label %._ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit_crit_edge unwind label %139
 
 ._ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit_crit_edge: ; preds = %130
-  %.pre132 = load ptr, ptr %12, align 8, !tbaa !43
+  %.pre131 = load ptr, ptr %12, align 8, !tbaa !43
   br label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit: ; preds = %._ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit_crit_edge, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i
-  %131 = phi ptr [ %.pre132, %._ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit_crit_edge ], [ %116, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i ]
+  %131 = phi ptr [ %.pre131, %._ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit_crit_edge ], [ %116, %_ZNSt6vectorIdSaIdEEC2ERKS1_.exit.i ]
   %.not.i.i.i = icmp eq ptr %131, null
   br i1 %.not.i.i.i, label %146, label %132
 
@@ -420,7 +420,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE9push_backERKS1_.exit: ; preds = %._ZNSt6vectorIS
   br label %289
 
 139:                                              ; preds = %_ZNKSt6vectorIdSaIdEE12_M_check_lenEmPKc.exit.i, %130, %_ZNSt15__new_allocatorIdE8allocateEmPKv.exit.i.i.i.i.i
-  %lpad.loopexit121 = landingpad { ptr, i32 }
+  %lpad.loopexit120 = landingpad { ptr, i32 }
           cleanup
   %.pre = load ptr, ptr %12, align 8, !tbaa !43
   %.not.i.i.i44 = icmp eq ptr %.pre, null
@@ -637,7 +637,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZN
 
 212:                                              ; preds = %210
   %213 = icmp sgt i32 %211, 0
-  br i1 %213, label %214, label %.loopexit115
+  br i1 %213, label %214, label %.loopexit114
 
 214:                                              ; preds = %212
   %215 = load i32, ptr %16, align 4, !tbaa !58
@@ -716,17 +716,17 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %278, %_ZNSt15__new_allocatorIiE8allocateEmPKv.exit.i.i.i.i.i
-  %lpad.loopexit116 = landingpad { ptr, i32 }
+  %lpad.loopexit115 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.noexc.i.i.i83, %228
-  %lpad.loopexit.split-lp117 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp116 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit116, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp117, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit115, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp116, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %242 = load ptr, ptr %15, align 8, !tbaa !62
   %.not.i.i.i80 = icmp eq ptr %242, null
@@ -810,23 +810,23 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit.i:              ; preds = %273, %271, %270
   %276 = load ptr, ptr %162, align 8, !tbaa !63
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 24
   store ptr %277, ptr %162, align 8, !tbaa !63
-  br label %.loopexit115
+  br label %.loopexit114
 
 278:                                              ; preds = %248
   invoke void @_ZNSt6vectorIS_IiSaIiEESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr %249, ptr noundef nonnull align 8 dereferenceable(24) %15)
-          to label %.loopexit115 unwind label %.loopexit.split-lp.loopexit
+          to label %.loopexit114 unwind label %.loopexit.split-lp.loopexit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %220
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %210
 
-.loopexit115:                                     ; preds = %212, %278, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.i
+.loopexit114:                                     ; preds = %212, %278, %_ZNSt6vectorIiSaIiEEC2ERKS1_.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   %279 = load ptr, ptr %15, align 8, !tbaa !62
   %.not.i.i.i87 = icmp eq ptr %279, null
   br i1 %.not.i.i.i87, label %_ZNSt6vectorIiSaIiEED2Ev.exit88, label %280
 
-280:                                              ; preds = %.loopexit115
+280:                                              ; preds = %.loopexit114
   %281 = load ptr, ptr %161, align 8, !tbaa !61
   %282 = ptrtoint ptr %281 to i64
   %283 = ptrtoint ptr %279 to i64
@@ -834,7 +834,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiE
   call void @_ZdlPvm(ptr noundef nonnull %279, i64 noundef %284) #19
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit88
 
-_ZNSt6vectorIiSaIiEED2Ev.exit88:                  ; preds = %.loopexit115, %280
+_ZNSt6vectorIiSaIiEED2Ev.exit88:                  ; preds = %.loopexit114, %280
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br i1 %213, label %209, label %285, !llvm.loop !69
 
@@ -850,7 +850,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit88:                  ; preds = %.loopexit115, %280
   br label %290
 
 289:                                              ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit, %207, %_ZNSt6vectorIdSaIdEED2Ev.exit45, %137
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit121, %_ZNSt6vectorIdSaIdEED2Ev.exit45 ], [ %138, %137 ], [ %208, %207 ], [ %lpad.phi, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit120, %_ZNSt6vectorIdSaIdEED2Ev.exit45 ], [ %138, %137 ], [ %208, %207 ], [ %lpad.phi, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

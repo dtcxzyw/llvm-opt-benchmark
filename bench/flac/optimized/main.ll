@@ -3198,8 +3198,8 @@ define internal fastcc ptr @get_outfilename(ptr noundef %0, ptr noundef %1) unna
 
 sub_0:                                            ; preds = %2
   %5 = load i8, ptr %0, align 1
-  %.not14 = icmp eq i8 %5, 45
-  br i1 %.not14, label %sub_1, label %.tail
+  %.not13 = icmp eq i8 %5, 45
+  br i1 %.not13, label %sub_1, label %.tail
 
 sub_1:                                            ; preds = %sub_0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1

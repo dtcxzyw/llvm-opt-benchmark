@@ -31,58 +31,58 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr42drop_in_place$LT$uu_nl..NumberingStyle$GT$17hd8c2d2a9d41db602E"(i64 %.0.val, ptr %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %switch = icmp ult i64 %.0.val, 3
-  br i1 %switch, label %16, label %1
+  %1 = icmp eq i64 %.0.val, 3
+  br i1 %1, label %2, label %17
 
-1:                                                ; preds = %0
+2:                                                ; preds = %0
   invoke void @"_ZN4core3ptr55drop_in_place$LT$regex_automata..meta..regex..Regex$GT$17he4df1cc7465925b6E.llvm.11599604617220858543"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.8.val)
-          to label %5 unwind label %2
+          to label %6 unwind label %3
 
-2:                                                ; preds = %1
-  %3 = landingpad { ptr, i32 }
+3:                                                ; preds = %2
+  %4 = landingpad { ptr, i32 }
           cleanup
-  %4 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
-  invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17h48072a3d3a521069E.llvm.11599604617220858543"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4) #10
-          to label %15 unwind label %11
+  %5 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+  invoke void @"_ZN4core3ptr48drop_in_place$LT$alloc..sync..Arc$LT$str$GT$$GT$17h48072a3d3a521069E.llvm.11599604617220858543"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5) #10
+          to label %16 unwind label %12
 
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr %.8.val, i64 16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7)
-  %7 = load ptr, ptr %6, align 8, !alias.scope !10, !nonnull !13, !noundef !13
-  %8 = atomicrmw sub ptr %7, i64 1 release, align 8, !noalias !14
-  %9 = icmp eq i64 %8, 1
-  br i1 %9, label %10, label %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit"
+  %8 = load ptr, ptr %7, align 8, !alias.scope !10, !nonnull !13, !noundef !13
+  %9 = atomicrmw sub ptr %8, i64 1 release, align 8, !noalias !14
+  %10 = icmp eq i64 %9, 1
+  br i1 %10, label %11, label %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit"
 
-10:                                               ; preds = %5
+11:                                               ; preds = %6
   invoke void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.11599604617220858543(i8 noundef 2)
-          to label %.noexc.i unwind label %13
+          to label %.noexc.i unwind label %14
 
-.noexc.i:                                         ; preds = %10
-  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he685732cccc11c03E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
-          to label %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit" unwind label %13
+.noexc.i:                                         ; preds = %11
+  invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he685732cccc11c03E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
+          to label %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit" unwind label %14
 
-11:                                               ; preds = %2
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %3
+  %13 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #11
   unreachable
 
-13:                                               ; preds = %.noexc.i, %10
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %.noexc.i, %11
+  %15 = landingpad { ptr, i32 }
           cleanup
-  br label %15
+  br label %16
 
-15:                                               ; preds = %13, %2
-  %eh.lpad-body.i = phi { ptr, i32 } [ %14, %13 ], [ %3, %2 ]
+16:                                               ; preds = %14, %3
+  %eh.lpad-body.i = phi { ptr, i32 } [ %15, %14 ], [ %4, %3 ]
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef 32, i64 noundef 8) #12
   resume { ptr, i32 } %eh.lpad-body.i
 
-"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit": ; preds = %5, %.noexc.i
+"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit": ; preds = %6, %.noexc.i
   tail call void @__rust_dealloc(ptr noundef nonnull %.8.val, i64 noundef 32, i64 noundef 8) #12
-  br label %16
+  br label %17
 
-16:                                               ; preds = %0, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit"
+17:                                               ; preds = %0, %"_ZN4core3ptr73drop_in_place$LT$alloc..boxed..Box$LT$regex..regex..string..Regex$GT$$GT$17h649688b096eaab77E.exit"
   ret void
 }
 

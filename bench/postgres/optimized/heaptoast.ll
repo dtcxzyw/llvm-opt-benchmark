@@ -71,7 +71,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   br label %16
 
 16:                                               ; preds = %4, %15
-  %.sink128 = phi ptr [ %8, %15 ], [ null, %4 ]
+  %.sink121 = phi ptr [ %8, %15 ], [ null, %4 ]
   %.sink = phi ptr [ %6, %15 ], [ null, %4 ]
   store ptr %0, ptr %10, align 8
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -79,7 +79,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %5, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  store ptr %.sink128, ptr %19, align 8
+  store ptr %.sink121, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %.sink, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -117,7 +117,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   %39 = sub nsw i64 %38, %.083
   %40 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   %41 = icmp ugt i64 %40, %39
-  br i1 %41, label %.lr.ph, label %.thread107
+  br i1 %41, label %.lr.ph, label %.thread104
 
 .lr.ph:                                           ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -126,7 +126,7 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
 43:                                               ; preds = %.lr.ph, %73
   %44 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext false) #7
   %45 = icmp slt i32 %44, 0
-  br i1 %45, label %.thread107, label %46
+  br i1 %45, label %.thread104, label %46
 
 46:                                               ; preds = %43
   %47 = load i32, ptr %13, align 8
@@ -174,22 +174,22 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
 73:                                               ; preds = %62, %68, %72
   %74 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   %75 = icmp ugt i64 %74, %39
-  br i1 %75, label %43, label %.thread107
+  br i1 %75, label %43, label %.thread104
 
-.thread107:                                       ; preds = %73, %43, %37
+.thread104:                                       ; preds = %73, %43, %37
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %77 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   %78 = icmp ugt i64 %77, %39
-  br i1 %78, label %.lr.ph120, label %.critedge
+  br i1 %78, label %.lr.ph113, label %.critedge
 
-.lr.ph120:                                        ; preds = %.thread107, %85
+.lr.ph113:                                        ; preds = %.thread104, %85
   %79 = load ptr, ptr %76, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 108
   %81 = load i32, ptr %80, align 4
   %.not95 = icmp eq i32 %81, 0
   br i1 %.not95, label %.critedge, label %82
 
-82:                                               ; preds = %.lr.ph120
+82:                                               ; preds = %.lr.ph113
   %83 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext false) #7
   %84 = icmp slt i32 %83, 0
   br i1 %84, label %.critedge, label %85
@@ -198,38 +198,38 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %83, i32 noundef %11) #7
   %86 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   %87 = icmp ugt i64 %86, %39
-  br i1 %87, label %.lr.ph120, label %.critedge
+  br i1 %87, label %.lr.ph113, label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph120, %85, %82, %.thread107
+.critedge:                                        ; preds = %.lr.ph113, %85, %82, %.thread104
   %88 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   %89 = icmp ugt i64 %88, %39
-  br i1 %89, label %.lr.ph123, label %.thread113
+  br i1 %89, label %.lr.ph116, label %.thread108
 
-.lr.ph123:                                        ; preds = %.critedge, %92
+.lr.ph116:                                        ; preds = %.critedge, %92
   %90 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext true, i1 noundef zeroext true) #7
   %91 = icmp slt i32 %90, 0
-  br i1 %91, label %.thread113, label %92
+  br i1 %91, label %.thread108, label %92
 
-92:                                               ; preds = %.lr.ph123
+92:                                               ; preds = %.lr.ph116
   call void @toast_tuple_try_compression(ptr noundef nonnull %10, i32 noundef %90) #7
   %93 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   %94 = icmp ugt i64 %93, %39
-  br i1 %94, label %.lr.ph123, label %.thread113
+  br i1 %94, label %.lr.ph116, label %.thread108
 
-.thread113:                                       ; preds = %92, %.lr.ph123, %.critedge
+.thread108:                                       ; preds = %92, %.lr.ph116, %.critedge
   %95 = sub nsw i64 8160, %.083
   %96 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   %97 = icmp ugt i64 %96, %95
-  br i1 %97, label %.lr.ph125, label %.critedge2
+  br i1 %97, label %.lr.ph118, label %.critedge2
 
-.lr.ph125:                                        ; preds = %.thread113, %104
+.lr.ph118:                                        ; preds = %.thread108, %104
   %98 = load ptr, ptr %76, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 108
   %100 = load i32, ptr %99, align 4
   %.not96 = icmp eq i32 %100, 0
   br i1 %.not96, label %.critedge2, label %101
 
-101:                                              ; preds = %.lr.ph125
+101:                                              ; preds = %.lr.ph118
   %102 = call i32 @toast_tuple_find_biggest_attribute(ptr noundef nonnull %10, i1 noundef zeroext false, i1 noundef zeroext true) #7
   %103 = icmp slt i32 %102, 0
   br i1 %103, label %.critedge2, label %104
@@ -238,9 +238,9 @@ define dso_local noundef ptr @heap_toast_insert_or_update(ptr noundef %0, ptr no
   call void @toast_tuple_externalize(ptr noundef nonnull %10, i32 noundef %102, i32 noundef %11) #7
   %105 = call i64 @heap_compute_data_size(ptr noundef nonnull %13, ptr noundef nonnull %7, ptr noundef nonnull %5) #7
   %106 = icmp ugt i64 %105, %95
-  br i1 %106, label %.lr.ph125, label %.critedge2
+  br i1 %106, label %.lr.ph118, label %.critedge2
 
-.critedge2:                                       ; preds = %.lr.ph125, %104, %101, %.thread113
+.critedge2:                                       ; preds = %.lr.ph118, %104, %101, %.thread108
   %107 = load i8, ptr %22, align 8
   %108 = zext i8 %107 to i32
   %109 = and i32 %108, 8

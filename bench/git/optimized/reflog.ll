@@ -1182,8 +1182,8 @@ define internal i32 @reflog_expire_config(ptr noundef %0, ptr noundef %1, ptr no
 
 .thread:                                          ; preds = %20
   %26 = load ptr, ptr %5, align 8, !tbaa !20
-  %.not2436 = icmp eq ptr %26, null
-  br i1 %.not2436, label %29, label %31
+  %.not2427 = icmp eq ptr %26, null
+  br i1 %.not2427, label %29, label %31
 
 27:                                               ; preds = %24
   %28 = load i64, ptr %8, align 8, !tbaa !28
@@ -1249,17 +1249,17 @@ find_cfg_ent.exit:                                ; preds = %st_add.exit.i
   br i1 %.not25, label %54, label %find_cfg_ent.exit.thread
 
 find_cfg_ent.exit.thread:                         ; preds = %37, %find_cfg_ent.exit
-  %.0.i30 = phi ptr [ %46, %find_cfg_ent.exit ], [ %.014.i, %37 ]
+  %.0.i34 = phi ptr [ %46, %find_cfg_ent.exit ], [ %.014.i, %37 ]
   %49 = load i64, ptr %8, align 8, !tbaa !28
   br i1 %.not, label %50, label %52
 
 50:                                               ; preds = %find_cfg_ent.exit.thread
-  %51 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 8
+  %51 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 8
   store i64 %49, ptr %51, align 8, !tbaa !28
   br label %54
 
 52:                                               ; preds = %find_cfg_ent.exit.thread
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i30, i64 16
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i34, i64 16
   store i64 %49, ptr %53, align 8, !tbaa !28
   br label %54
 

@@ -292,7 +292,7 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 ._crit_edge.i.i.i:                                ; preds = %55
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !72
-  %.pre46.i.i.i = load ptr, ptr %4, align 8, !tbaa !39
+  %.pre45.i.i.i = load ptr, ptr %4, align 8, !tbaa !39
   br label %estack_push_back.exit
 
 60:                                               ; preds = %55
@@ -346,7 +346,7 @@ define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   unreachable
 
 estack_push_back.exit:                            ; preds = %._crit_edge.i.i.i, %83
-  %89 = phi ptr [ %.pre46.i.i.i, %._crit_edge.i.i.i ], [ %66, %83 ]
+  %89 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %66, %83 ]
   %90 = phi i64 [ %58, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %83 ]
   %91 = phi i64 [ %57, %._crit_edge.i.i.i ], [ %74, %83 ]
   %92 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %84, %83 ]

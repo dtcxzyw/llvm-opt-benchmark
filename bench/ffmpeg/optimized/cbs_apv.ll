@@ -135,8 +135,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_split_fragment(ptr nounde
 
 20:                                               ; preds = %13
   %21 = add i64 %10, -4
-  %.not6297 = icmp eq i64 %21, 0
-  br i1 %.not6297, label %.loopexit, label %.lr.ph
+  %.not6296 = icmp eq i64 %21, 0
+  br i1 %.not6296, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -148,19 +148,19 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_split_fragment(ptr nounde
   br label %28
 
 28:                                               ; preds = %.lr.ph, %65
-  %.04599 = phi ptr [ %22, %.lr.ph ], [ %66, %65 ]
-  %.04898 = phi i64 [ %21, %.lr.ph ], [ %67, %65 ]
+  %.04598 = phi ptr [ %22, %.lr.ph ], [ %66, %65 ]
+  %.04897 = phi i64 [ %21, %.lr.ph ], [ %67, %65 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %29 = icmp ult i64 %.04898, 8
+  %29 = icmp ult i64 %.04897, 8
   br i1 %29, label %30, label %32
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr %0, align 8, !tbaa !20
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %31, i32 noundef 16, ptr noundef nonnull @.str.5, i64 noundef %.04898) #7
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef %31, i32 noundef 16, ptr noundef nonnull @.str.5, i64 noundef %.04897) #7
   br label %.thread
 
 32:                                               ; preds = %28
-  %33 = load i32, ptr %.04599, align 1, !tbaa !19
+  %33 = load i32, ptr %.04598, align 1, !tbaa !19
   %34 = call i32 @llvm.bswap.i32(i32 %33)
   %35 = icmp ult i32 %34, 8
   br i1 %35, label %36, label %38
@@ -171,8 +171,8 @@ define internal range(i32 -2147483648, 1) i32 @cbs_apv_split_fragment(ptr nounde
   br label %.thread
 
 38:                                               ; preds = %32
-  %39 = getelementptr inbounds nuw i8, ptr %.04599, i64 4
-  %40 = add i64 %.04898, -4
+  %39 = getelementptr inbounds nuw i8, ptr %.04598, i64 4
+  %40 = add i64 %.04897, -4
   %41 = zext i32 %34 to i64
   %42 = icmp ult i64 %40, %41
   br i1 %42, label %43, label %45

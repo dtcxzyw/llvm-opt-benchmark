@@ -4799,11 +4799,11 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
   br i1 %22, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %16, %39
-  %.04057 = phi i32 [ %.3, %39 ], [ 0, %16 ]
-  %.04156 = phi i32 [ %.243, %39 ], [ %20, %16 ]
-  %23 = sub nsw i32 %.04156, %.04057
+  %.04056 = phi i32 [ %.3, %39 ], [ 0, %16 ]
+  %.04155 = phi i32 [ %.243, %39 ], [ %20, %16 ]
+  %23 = sub nsw i32 %.04155, %.04056
   %24 = lshr i32 %23, 1
-  %25 = add nuw nsw i32 %24, %.04057
+  %25 = add nuw nsw i32 %24, %.04056
   %26 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #14
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
@@ -4825,22 +4825,22 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
 39:                                               ; preds = %.lr.ph
   %40 = icmp slt i32 %35, 0
   %41 = add nuw nsw i32 %25, 1
-  %.243 = select i1 %40, i32 %25, i32 %.04156
-  %.3 = select i1 %40, i32 %.04057, i32 %41
+  %.243 = select i1 %40, i32 %25, i32 %.04155
+  %.3 = select i1 %40, i32 %.04056, i32 %41
   %42 = icmp slt i32 %.3, %.243
   br i1 %42, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %39, %16, %.thread
-  %.04055 = phi i32 [ %.04057, %.thread ], [ 0, %16 ], [ %.3, %39 ]
+  %.04054 = phi i32 [ %.04056, %.thread ], [ 0, %16 ], [ %.3, %39 ]
   %.pn = phi { i64, ptr } [ %38, %.thread ], [ %21, %16 ], [ %21, %39 ]
   %.sroa.639.2 = extractvalue { i64, ptr } %.pn, 1
   %.sroa.037.2 = extractvalue { i64, ptr } %.pn, 0
   %43 = tail call i32 @jv_get_kind(i64 %.sroa.037.2, ptr %.sroa.639.2) #14
-  %.not53 = icmp eq i32 %43, 0
-  br i1 %.not53, label %44, label %48
+  %.not52 = icmp eq i32 %43, 0
+  br i1 %.not52, label %44, label %48
 
 44:                                               ; preds = %.loopexit
-  %45 = xor i32 %.04055, -1
+  %45 = xor i32 %.04054, -1
   %46 = sitofp i32 %45 to double
   %47 = tail call { i64, ptr } @jv_number(double noundef %46) #14
   br label %48
@@ -7677,22 +7677,22 @@ define internal fastcc { i64, ptr } @string_trim(i64 %0, ptr %1, i32 noundef ran
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %19 = and i32 %2, 1
   %.not49 = icmp eq i32 %19, 0
-  br i1 %.not49, label %.thread, label %.preheader62
+  br i1 %.not49, label %.thread, label %.preheader60
 
-.preheader62:                                     ; preds = %11, %21
+.preheader60:                                     ; preds = %11, %21
   %.142 = phi ptr [ %20, %21 ], [ %16, %11 ]
   %20 = call ptr @jvp_utf8_next(ptr noundef %.142, ptr noundef %18, ptr noundef nonnull %4) #14
   %.not50 = icmp eq ptr %20, null
   br i1 %.not50, label %.thread, label %21
 
-21:                                               ; preds = %.preheader62
+21:                                               ; preds = %.preheader60
   %22 = load i32, ptr %4, align 4, !tbaa !19
   %23 = call i32 @jvp_codepoint_is_whitespace(i32 noundef %22) #14
   %.not51 = icmp eq i32 %23, 0
-  br i1 %.not51, label %.thread, label %.preheader62
+  br i1 %.not51, label %.thread, label %.preheader60
 
-.thread:                                          ; preds = %21, %.preheader62, %11
-  %.041 = phi ptr [ %16, %11 ], [ %.142, %.preheader62 ], [ %.142, %21 ]
+.thread:                                          ; preds = %21, %.preheader60, %11
+  %.041 = phi ptr [ %16, %11 ], [ %.142, %.preheader60 ], [ %.142, %21 ]
   %.not52 = icmp samesign ugt i32 %2, 1
   %24 = icmp ugt ptr %18, %.041
   %or.cond = select i1 %.not52, i1 %24, i1 false
@@ -7708,8 +7708,8 @@ define internal fastcc { i64, ptr } @string_trim(i64 %0, ptr %1, i32 noundef ran
   %.not53 = icmp ne i32 %29, 0
   %30 = icmp ne ptr %26, %.041
   %.2 = select i1 %.not53, ptr %26, ptr %.140
-  %.not61 = select i1 %.not53, i1 %30, i1 false
-  br i1 %.not61, label %.preheader, label %.loopexit
+  %.not59 = select i1 %.not53, i1 %30, i1 false
+  br i1 %.not59, label %.preheader, label %.loopexit
 
 .loopexit:                                        ; preds = %.preheader, %.thread
   %.039 = phi ptr [ %18, %.thread ], [ %.2, %.preheader ]
@@ -8265,17 +8265,17 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
   br label %4
 
 4:                                                ; preds = %3, %25
-  %.03047 = phi i64 [ 0, %3 ], [ %30, %25 ]
+  %.03043 = phi i64 [ 0, %3 ], [ %30, %25 ]
   %5 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
-  %8 = trunc nuw nsw i64 %.03047 to i32
+  %8 = trunc nuw nsw i64 %.03043 to i32
   %9 = tail call { i64, ptr } @jv_array_get(i64 %6, ptr %7, i32 noundef %8) #14
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
   %12 = tail call i32 @jv_get_kind(i64 %10, ptr %11) #14
-  %.not45 = icmp eq i32 %12, 0
-  br i1 %.not45, label %.thread37, label %13
+  %.not41 = icmp eq i32 %12, 0
+  br i1 %.not41, label %.thread37, label %13
 
 13:                                               ; preds = %4
   %14 = tail call i32 @jv_get_kind(i64 %10, ptr %11) #14
@@ -8289,7 +8289,7 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
 
 17:                                               ; preds = %15
   %18 = tail call double @jv_number_value(i64 %10, ptr %11) #14
-  %19 = icmp eq i64 %.03047, 0
+  %19 = icmp eq i64 %.03043, 0
   %20 = fadd double %18, -1.900000e+03
   %.0 = select i1 %19, double %20, double %18
   %21 = fcmp olt double %.0, 0xC1E0000000000000
@@ -8303,12 +8303,12 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
 
 25:                                               ; preds = %17, %22
   %26 = phi i32 [ %24, %22 ], [ -2147483648, %17 ]
-  %27 = getelementptr inbounds nuw i64, ptr @jv2tm.offsets, i64 %.03047
+  %27 = getelementptr inbounds nuw i64, ptr @jv2tm.offsets, i64 %.03043
   %28 = load i64, ptr %27, align 8, !tbaa !66
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
   store i32 %26, ptr %29, align 4, !tbaa !19
   tail call void @jv_free(i64 %10, ptr %11) #14
-  %30 = add nuw nsw i64 %.03047, 1
+  %30 = add nuw nsw i64 %.03043, 1
   %exitcond.not = icmp eq i64 %30, 8
   br i1 %exitcond.not, label %.thread37, label %4, !llvm.loop !79
 

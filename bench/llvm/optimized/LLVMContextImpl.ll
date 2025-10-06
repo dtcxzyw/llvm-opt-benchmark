@@ -10902,8 +10902,8 @@ _ZNK4llvm9StringMapIhNS_15MallocAllocatorEE5beginEv.exit: ; preds = %.preheader.
   %.sroa.0.1.i = phi ptr [ %5, %3 ], [ %.sroa.0.0.i, %.preheader.i.i.i ]
   %11 = zext i32 %7 to i64
   %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %11
-  %.not16 = icmp eq ptr %.sroa.0.1.i, %12
-  br i1 %.not16, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIhEEKNS_14StringMapEntryIhEEEppEv.exit._crit_edge, label %.lr.ph.preheader
+  %.not14 = icmp eq ptr %.sroa.0.1.i, %12
+  br i1 %.not14, label %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIhEEKNS_14StringMapEntryIhEEEppEv.exit._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm9StringMapIhNS_15MallocAllocatorEE5beginEv.exit
   %.pre = load ptr, ptr %.sroa.0.1.i, align 8, !tbaa !683
@@ -10915,14 +10915,14 @@ _ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIhEEKNS_14StringMapEntryI
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIhEEKNS_14StringMapEntryIhEEEppEv.exit.loopexit
   %13 = phi ptr [ %16, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIhEEKNS_14StringMapEntryIhEEEppEv.exit.loopexit ], [ %.pre, %.lr.ph.preheader ]
-  %.sroa.08.017 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIhEEKNS_14StringMapEntryIhEEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
+  %.sroa.08.015 = phi ptr [ %storemerge.i, %_ZN4llvm17StringMapIterBaseINS_22StringMapConstIteratorIhEEKNS_14StringMapEntryIhEEEppEv.exit.loopexit ], [ %.sroa.0.1.i, %.lr.ph.preheader ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i8, ptr %14, align 8, !tbaa !969
   %.not.not = icmp eq i8 %15, %2
   br i1 %.not.not, label %17, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %.preheader.backedge
-  %.pn.i = phi ptr [ %storemerge.i, %.preheader.backedge ], [ %.sroa.08.017, %.lr.ph ]
+  %.pn.i = phi ptr [ %storemerge.i, %.preheader.backedge ], [ %.sroa.08.015, %.lr.ph ]
   %storemerge.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 8
   %16 = load ptr, ptr %storemerge.i, align 8, !tbaa !683
   %magicptr.i.i = ptrtoint ptr %16 to i64

@@ -228,83 +228,83 @@ get_sqn.exit:                                     ; preds = %18, %21
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %31, i32 48)
   %32 = add nsw i32 %spec.store.select, -8
   %33 = add nsw i32 %spec.store.select, -4
-  %.not223271 = icmp ult i32 %33, 16
-  br i1 %.not223271, label %._crit_edge, label %.lr.ph
+  %.not223268 = icmp ult i32 %33, 16
+  br i1 %.not223268, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %27
-  %.not.i236 = icmp eq ptr %.fr, null
+  %.not.i235 = icmp eq ptr %.fr, null
   %34 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
-  br i1 %.not.i236, label %get_sqn.exit238.us, label %get_sqn.exit238
+  br i1 %.not.i235, label %get_sqn.exit237.us, label %get_sqn.exit237
 
-get_sqn.exit238.us:                               ; preds = %.lr.ph, %48
-  %.0272.us = phi i32 [ %49, %48 ], [ 16, %.lr.ph ]
-  %35 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0272.us)
-  %36 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0272.us)
+get_sqn.exit237.us:                               ; preds = %.lr.ph, %48
+  %.0269.us = phi i32 [ %49, %48 ], [ 16, %.lr.ph ]
+  %35 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0269.us)
+  %36 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0269.us)
   %37 = and i32 %36, 2147483647
   %.not224.us = icmp sgt i32 %35, -1
   br i1 %.not224.us, label %45, label %38
 
-38:                                               ; preds = %get_sqn.exit238.us
-  %39 = icmp ugt i32 %.0272.us, %32
-  br i1 %39, label %._crit_edge, label %get_sqn.exit241.us
+38:                                               ; preds = %get_sqn.exit237.us
+  %39 = icmp ugt i32 %.0269.us, %32
+  br i1 %39, label %._crit_edge, label %get_sqn.exit240.us
 
-get_sqn.exit241.us:                               ; preds = %38
-  %40 = add i32 %.0272.us, 4
+get_sqn.exit240.us:                               ; preds = %38
+  %40 = add i32 %.0269.us, 4
   %41 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %40)
   %42 = and i32 %41, 2147483647
-  %43 = icmp eq i32 %.0272.us, 16
+  %43 = icmp eq i32 %.0269.us, 16
   %44 = select i1 %43, ptr @.str.78, ptr @.str.80
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %30, ptr noundef nonnull @.str.79, ptr noundef nonnull %44, i32 noundef %37, i32 noundef %42)
   br label %48
 
-45:                                               ; preds = %get_sqn.exit238.us
-  %46 = icmp eq i32 %.0272.us, 16
+45:                                               ; preds = %get_sqn.exit237.us
+  %46 = icmp eq i32 %.0269.us, 16
   %47 = select i1 %46, ptr @.str.78, ptr @.str.80
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %30, ptr noundef nonnull @.str.81, ptr noundef nonnull %47, i32 noundef %37)
   br label %48
 
-48:                                               ; preds = %45, %get_sqn.exit241.us
-  %.1.ph.us = phi i32 [ %.0272.us, %45 ], [ %40, %get_sqn.exit241.us ]
+48:                                               ; preds = %45, %get_sqn.exit240.us
+  %.1.ph.us = phi i32 [ %.0269.us, %45 ], [ %40, %get_sqn.exit240.us ]
   %49 = add i32 %.1.ph.us, 4
   %.not223.us = icmp ugt i32 %49, %33
-  br i1 %.not223.us, label %._crit_edge, label %get_sqn.exit238.us, !llvm.loop !6
+  br i1 %.not223.us, label %._crit_edge, label %get_sqn.exit237.us, !llvm.loop !6
 
-get_sqn.exit238:                                  ; preds = %.lr.ph, %67
-  %.0272 = phi i32 [ %68, %67 ], [ 16, %.lr.ph ]
-  %50 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0272)
-  %51 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0272)
+get_sqn.exit237:                                  ; preds = %.lr.ph, %67
+  %.0269 = phi i32 [ %68, %67 ], [ 16, %.lr.ph ]
+  %50 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0269)
+  %51 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0269)
   %52 = and i32 %51, 2147483647
   %53 = load i32, ptr %34, align 4
   %54 = sub i32 %52, %53
   %.not224 = icmp sgt i32 %50, -1
   br i1 %.not224, label %64, label %55
 
-55:                                               ; preds = %get_sqn.exit238
-  %56 = icmp ugt i32 %.0272, %32
-  br i1 %56, label %._crit_edge, label %get_sqn.exit241
+55:                                               ; preds = %get_sqn.exit237
+  %56 = icmp ugt i32 %.0269, %32
+  br i1 %56, label %._crit_edge, label %get_sqn.exit240
 
-get_sqn.exit241:                                  ; preds = %55
-  %57 = add i32 %.0272, 4
+get_sqn.exit240:                                  ; preds = %55
+  %57 = add i32 %.0269, 4
   %58 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %57)
   %59 = and i32 %58, 2147483647
   %60 = load i32, ptr %34, align 4
   %61 = sub i32 %59, %60
-  %62 = icmp eq i32 %.0272, 16
+  %62 = icmp eq i32 %.0269, 16
   %63 = select i1 %62, ptr @.str.78, ptr @.str.80
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %30, ptr noundef nonnull @.str.79, ptr noundef nonnull %63, i32 noundef %54, i32 noundef %61)
   br label %67
 
-64:                                               ; preds = %get_sqn.exit238
-  %65 = icmp eq i32 %.0272, 16
+64:                                               ; preds = %get_sqn.exit237
+  %65 = icmp eq i32 %.0269, 16
   %66 = select i1 %65, ptr @.str.78, ptr @.str.80
   tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %30, ptr noundef nonnull @.str.81, ptr noundef nonnull %66, i32 noundef %54)
   br label %67
 
-67:                                               ; preds = %64, %get_sqn.exit241
-  %.1.ph = phi i32 [ %.0272, %64 ], [ %57, %get_sqn.exit241 ]
+67:                                               ; preds = %64, %get_sqn.exit240
+  %.1.ph = phi i32 [ %.0269, %64 ], [ %57, %get_sqn.exit240 ]
   %68 = add i32 %.1.ph, 4
   %.not223 = icmp ugt i32 %68, %33
-  br i1 %.not223, label %._crit_edge, label %get_sqn.exit238, !llvm.loop !6
+  br i1 %.not223, label %._crit_edge, label %get_sqn.exit237, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %67, %55, %48, %38, %27
   %69 = tail call i32 @tvb_reported_length(ptr noundef %0)
@@ -330,23 +330,23 @@ get_sqn.exit241:                                  ; preds = %55
   %77 = load ptr, ptr %9, align 8
   %78 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
   %79 = and i32 %78, 2147483647
-  %.not.i242 = icmp eq ptr %.fr, null
-  br i1 %.not.i242, label %get_sqn.exit244, label %80
+  %.not.i241 = icmp eq ptr %.fr, null
+  br i1 %.not.i241, label %get_sqn.exit243, label %80
 
 80:                                               ; preds = %76
   %81 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = sub i32 %79, %82
-  br label %get_sqn.exit244
+  br label %get_sqn.exit243
 
-get_sqn.exit244:                                  ; preds = %76, %80
-  %.0.i243 = phi i32 [ %83, %80 ], [ %79, %76 ]
+get_sqn.exit243:                                  ; preds = %76, %80
+  %.0.i242 = phi i32 [ %83, %80 ], [ %79, %76 ]
   %84 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
   %85 = and i32 %84, 536870911
-  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %77, i32 noundef 25, ptr noundef nonnull @.str.85, i32 noundef %.0.i243, i32 noundef %85)
+  tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %77, i32 noundef 25, ptr noundef nonnull @.str.85, i32 noundef %.0.i242, i32 noundef %85)
   br label %86
 
-86:                                               ; preds = %get_sqn.exit, %25, %71, %74, %get_sqn.exit244
+86:                                               ; preds = %get_sqn.exit, %25, %71, %74, %get_sqn.exit243
   %87 = load i32, ptr @proto_udt, align 4
   %88 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %87, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %89 = load i32, ptr @ett_udt, align 4
@@ -385,11 +385,11 @@ get_sqn.exit244:                                  ; preds = %76, %80
 .preheader:                                       ; preds = %104
   %105 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %106 = add i32 %105, -4
-  %.not229274 = icmp ult i32 %106, 16
-  br i1 %.not229274, label %._crit_edge277, label %.lr.ph276
+  %.not229271 = icmp ult i32 %106, 16
+  br i1 %.not229271, label %._crit_edge274, label %.lr.ph273
 
-.lr.ph276:                                        ; preds = %.preheader
-  %.not.i248 = icmp eq ptr %.fr, null
+.lr.ph273:                                        ; preds = %.preheader
+  %.not.i247 = icmp eq ptr %.fr, null
   %107 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   br label %157
 
@@ -424,27 +424,27 @@ get_sqn.exit244:                                  ; preds = %76, %80
 129:                                              ; preds = %128
   %130 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %131 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 16)
-  %.not.i245 = icmp eq ptr %.fr, null
-  br i1 %.not.i245, label %get_sqn.exit247.thread, label %get_sqn.exit247
+  %.not.i244 = icmp eq ptr %.fr, null
+  br i1 %.not.i244, label %get_sqn.exit246.thread, label %get_sqn.exit246
 
-get_sqn.exit247:                                  ; preds = %129
+get_sqn.exit246:                                  ; preds = %129
   %132 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   %133 = load i32, ptr %132, align 4
   %.not233 = icmp eq i32 %133, 0
-  br i1 %.not233, label %get_sqn.exit247.thread, label %134
+  br i1 %.not233, label %get_sqn.exit246.thread, label %134
 
-134:                                              ; preds = %get_sqn.exit247
+134:                                              ; preds = %get_sqn.exit246
   %135 = sub i32 %131, %133
   %136 = load i32, ptr @hf_udt_ack_seqno, align 4
   %137 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %90, i32 noundef %136, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %131, ptr noundef nonnull @.str.86, i32 noundef %135, i32 noundef %131)
   br label %140
 
-get_sqn.exit247.thread:                           ; preds = %129, %get_sqn.exit247
+get_sqn.exit246.thread:                           ; preds = %129, %get_sqn.exit246
   %138 = load i32, ptr @hf_udt_ack_seqno, align 4
   %139 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %90, i32 noundef %138, ptr noundef %0, i32 noundef 16, i32 noundef 4, i32 noundef %131)
   br label %140
 
-140:                                              ; preds = %get_sqn.exit247.thread, %134
+140:                                              ; preds = %get_sqn.exit246.thread, %134
   %141 = icmp slt i32 %130, 32
   br i1 %141, label %142, label %143
 
@@ -474,74 +474,74 @@ get_sqn.exit247.thread:                           ; preds = %129, %get_sqn.exit2
   tail call void @proto_item_set_len(ptr noundef %88, i32 noundef 32)
   br label %219
 
-157:                                              ; preds = %.lr.ph276, %184
-  %.3275 = phi i32 [ 16, %.lr.ph276 ], [ %185, %184 ]
-  %158 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3275)
-  %159 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3275)
+157:                                              ; preds = %.lr.ph273, %184
+  %.3272 = phi i32 [ 16, %.lr.ph273 ], [ %185, %184 ]
+  %158 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3272)
+  %159 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.3272)
   %160 = and i32 %159, 2147483647
-  br i1 %.not.i248, label %get_sqn.exit250, label %161
+  br i1 %.not.i247, label %get_sqn.exit249, label %161
 
 161:                                              ; preds = %157
   %162 = load i32, ptr %107, align 4
   %163 = sub i32 %160, %162
-  br label %get_sqn.exit250
+  br label %get_sqn.exit249
 
-get_sqn.exit250:                                  ; preds = %157, %161
-  %.0.i249 = phi i32 [ %163, %161 ], [ %160, %157 ]
+get_sqn.exit249:                                  ; preds = %157, %161
+  %.0.i248 = phi i32 [ %163, %161 ], [ %160, %157 ]
   %.not230 = icmp sgt i32 %158, -1
   br i1 %.not230, label %179, label %164
 
-164:                                              ; preds = %get_sqn.exit250
+164:                                              ; preds = %get_sqn.exit249
   %165 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %166 = add i32 %165, -8
-  %167 = icmp ugt i32 %.3275, %166
-  br i1 %167, label %._crit_edge277, label %168
+  %167 = icmp ugt i32 %.3272, %166
+  br i1 %167, label %._crit_edge274, label %168
 
 168:                                              ; preds = %164
-  %169 = add i32 %.3275, 4
+  %169 = add i32 %.3272, 4
   %170 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %169)
   %171 = and i32 %170, 2147483647
-  br i1 %.not.i248, label %get_sqn.exit253, label %172
+  br i1 %.not.i247, label %get_sqn.exit252, label %172
 
 172:                                              ; preds = %168
   %173 = load i32, ptr %107, align 4
   %174 = sub i32 %171, %173
-  br label %get_sqn.exit253
+  br label %get_sqn.exit252
 
-get_sqn.exit253:                                  ; preds = %168, %172
-  %.0.i252 = phi i32 [ %174, %172 ], [ %171, %168 ]
-  %.not232 = icmp eq i32 %.0.i249, %160
+get_sqn.exit252:                                  ; preds = %168, %172
+  %.0.i251 = phi i32 [ %174, %172 ], [ %171, %168 ]
+  %.not232 = icmp eq i32 %.0.i248, %160
   br i1 %.not232, label %177, label %175
 
-175:                                              ; preds = %get_sqn.exit253
-  %176 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %1, ptr noundef nonnull @ei_udt_nak_seqno, ptr noundef %0, i32 noundef %.3275, i32 noundef 8, ptr noundef nonnull @.str.87, i32 noundef %.0.i249, i32 noundef %.0.i252, i32 noundef %160, i32 noundef %171)
+175:                                              ; preds = %get_sqn.exit252
+  %176 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %1, ptr noundef nonnull @ei_udt_nak_seqno, ptr noundef %0, i32 noundef %.3272, i32 noundef 8, ptr noundef nonnull @.str.87, i32 noundef %.0.i248, i32 noundef %.0.i251, i32 noundef %160, i32 noundef %171)
   br label %184
 
-177:                                              ; preds = %get_sqn.exit253
-  %178 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %1, ptr noundef nonnull @ei_udt_nak_seqno, ptr noundef %0, i32 noundef %.3275, i32 noundef 8, ptr noundef nonnull @.str.88, i32 noundef %160, i32 noundef %171)
+177:                                              ; preds = %get_sqn.exit252
+  %178 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %1, ptr noundef nonnull @ei_udt_nak_seqno, ptr noundef %0, i32 noundef %.3272, i32 noundef 8, ptr noundef nonnull @.str.88, i32 noundef %160, i32 noundef %171)
   br label %184
 
-179:                                              ; preds = %get_sqn.exit250
-  %.not231 = icmp eq i32 %.0.i249, %160
+179:                                              ; preds = %get_sqn.exit249
+  %.not231 = icmp eq i32 %.0.i248, %160
   br i1 %.not231, label %182, label %180
 
 180:                                              ; preds = %179
-  %181 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %1, ptr noundef nonnull @ei_udt_nak_seqno, ptr noundef %0, i32 noundef %.3275, i32 noundef 4, ptr noundef nonnull @.str.89, i32 noundef %.0.i249, i32 noundef %160)
+  %181 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %1, ptr noundef nonnull @ei_udt_nak_seqno, ptr noundef %0, i32 noundef %.3272, i32 noundef 4, ptr noundef nonnull @.str.89, i32 noundef %.0.i248, i32 noundef %160)
   br label %184
 
 182:                                              ; preds = %179
-  %183 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %1, ptr noundef nonnull @ei_udt_nak_seqno, ptr noundef %0, i32 noundef %.3275, i32 noundef 4, ptr noundef nonnull @.str.90, i32 noundef %160)
+  %183 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %90, ptr noundef %1, ptr noundef nonnull @ei_udt_nak_seqno, ptr noundef %0, i32 noundef %.3272, i32 noundef 4, ptr noundef nonnull @.str.90, i32 noundef %160)
   br label %184
 
 184:                                              ; preds = %175, %177, %180, %182
-  %.4.ph = phi i32 [ %169, %175 ], [ %169, %177 ], [ %.3275, %182 ], [ %.3275, %180 ]
+  %.4.ph = phi i32 [ %169, %175 ], [ %169, %177 ], [ %.3272, %182 ], [ %.3272, %180 ]
   %185 = add i32 %.4.ph, 4
   %186 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %187 = add i32 %186, -4
   %.not229 = icmp ugt i32 %185, %187
-  br i1 %.not229, label %._crit_edge277, label %157, !llvm.loop !8
+  br i1 %.not229, label %._crit_edge274, label %157, !llvm.loop !8
 
-._crit_edge277:                                   ; preds = %184, %164, %.preheader
+._crit_edge274:                                   ; preds = %184, %164, %.preheader
   %188 = tail call i32 @tvb_reported_length(ptr noundef %0)
   tail call void @proto_item_set_len(ptr noundef %88, i32 noundef %188)
   br label %219
@@ -551,27 +551,27 @@ get_sqn.exit253:                                  ; preds = %168, %172
 
 190:                                              ; preds = %189
   %191 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 0)
-  %.not.i254 = icmp eq ptr %.fr, null
-  br i1 %.not.i254, label %get_sqn.exit256.thread, label %get_sqn.exit256
+  %.not.i253 = icmp eq ptr %.fr, null
+  br i1 %.not.i253, label %get_sqn.exit255.thread, label %get_sqn.exit255
 
-get_sqn.exit256:                                  ; preds = %190
+get_sqn.exit255:                                  ; preds = %190
   %192 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   %193 = load i32, ptr %192, align 4
   %.not227 = icmp eq i32 %193, 0
-  br i1 %.not227, label %get_sqn.exit256.thread, label %194
+  br i1 %.not227, label %get_sqn.exit255.thread, label %194
 
-194:                                              ; preds = %get_sqn.exit256
+194:                                              ; preds = %get_sqn.exit255
   %195 = sub i32 %191, %193
   %196 = load i32, ptr @hf_udt_seqno, align 4
   %197 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %90, i32 noundef %196, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %191, ptr noundef nonnull @.str.91, i32 noundef %195, i32 noundef %191)
   br label %200
 
-get_sqn.exit256.thread:                           ; preds = %190, %get_sqn.exit256
+get_sqn.exit255.thread:                           ; preds = %190, %get_sqn.exit255
   %198 = load i32, ptr @hf_udt_seqno, align 4
   %199 = tail call ptr @proto_tree_add_uint(ptr noundef nonnull %90, i32 noundef %198, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef %191)
   br label %200
 
-200:                                              ; preds = %get_sqn.exit256.thread, %194
+200:                                              ; preds = %get_sqn.exit255.thread, %194
   %201 = load i32, ptr @hf_udt_msgno_first, align 4
   %202 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %90, i32 noundef %201, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef 0)
   %203 = load i32, ptr @hf_udt_msgno_last, align 4
@@ -596,7 +596,7 @@ get_sqn.exit256.thread:                           ; preds = %190, %get_sqn.exit2
   %218 = call i32 @call_data_dissector(ptr noundef %214, ptr noundef %1, ptr noundef %2)
   br label %219
 
-219:                                              ; preds = %213, %217, %142, %156, %151, %104, %._crit_edge277, %109, %108, %128
+219:                                              ; preds = %213, %217, %142, %156, %151, %104, %._crit_edge274, %109, %108, %128
   %220 = call i32 @tvb_reported_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %220

@@ -794,8 +794,8 @@ define range(i32 -1094995529, 1) i32 @ff_h264_parse_ref_count(ptr noundef writeo
   br i1 %.not45, label %._crit_edge, label %32
 
 ._crit_edge:                                      ; preds = %13
-  %.pre61.pre = load i32, ptr %12, align 4, !tbaa !25
-  %31 = add nsw i32 %.pre61.pre, -1
+  %.pre60.pre = load i32, ptr %12, align 4, !tbaa !25
+  %31 = add nsw i32 %.pre60.pre, -1
   br label %108
 
 32:                                               ; preds = %13
@@ -922,23 +922,23 @@ get_ue_golomb.exit57:                             ; preds = %80, %90
   br label %108
 
 108:                                              ; preds = %._crit_edge, %get_ue_golomb.exit57, %107
-  %.pre61 = phi i32 [ %31, %._crit_edge ], [ %.0.i55, %get_ue_golomb.exit57 ], [ 0, %107 ]
+  %.pre60 = phi i32 [ %31, %._crit_edge ], [ %.0.i55, %get_ue_golomb.exit57 ], [ 0, %107 ]
   %109 = icmp eq i32 %4, 3
   %. = select i1 %109, i32 2, i32 1
   %110 = load i32, ptr %1, align 4, !tbaa !25
   %111 = add nsw i32 %110, -1
   %112 = icmp ugt i32 %111, %15
-  %113 = icmp ugt i32 %.pre61, %15
+  %113 = icmp ugt i32 %.pre60, %15
   %or.cond = select i1 %109, i1 %113, i1 false
-  %or.cond74 = select i1 %112, i1 true, i1 %or.cond
-  br i1 %or.cond74, label %._crit_edge64, label %._crit_edge63
+  %or.cond73 = select i1 %112, i1 true, i1 %or.cond
+  br i1 %or.cond73, label %._crit_edge63, label %._crit_edge62
 
-._crit_edge63:                                    ; preds = %108
-  %114 = icmp ugt i32 %.pre61, %15
+._crit_edge62:                                    ; preds = %108
+  %114 = icmp ugt i32 %.pre60, %15
   br i1 %114, label %115, label %.thread
 
-115:                                              ; preds = %._crit_edge63
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 48, ptr noundef nonnull @.str.9, i32 noundef %.pre61, i32 noundef %15) #8
+115:                                              ; preds = %._crit_edge62
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 48, ptr noundef nonnull @.str.9, i32 noundef %.pre60, i32 noundef %15) #8
   store i32 0, ptr %12, align 4, !tbaa !25
   br label %.thread
 
@@ -947,20 +947,20 @@ get_ue_golomb.exit57:                             ; preds = %80, %90
   store i32 0, ptr %1, align 4, !tbaa !25
   br label %.thread
 
-.thread:                                          ; preds = %115, %._crit_edge63, %116
-  %.1 = phi i32 [ 0, %116 ], [ %., %._crit_edge63 ], [ %., %115 ]
+.thread:                                          ; preds = %115, %._crit_edge62, %116
+  %.1 = phi i32 [ 0, %116 ], [ %., %._crit_edge62 ], [ %., %115 ]
   store i32 %.1, ptr %0, align 4, !tbaa !25
   br label %117
 
-._crit_edge64:                                    ; preds = %108
-  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %111, i32 noundef %15, i32 noundef %.pre61, i32 noundef %15) #8
+._crit_edge63:                                    ; preds = %108
+  tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %111, i32 noundef %15, i32 noundef %.pre60, i32 noundef %15) #8
   store i32 0, ptr %0, align 4, !tbaa !25
   store i32 0, ptr %1, align 4, !tbaa !25
   store i32 0, ptr %12, align 4, !tbaa !25
   br label %117
 
-117:                                              ; preds = %._crit_edge64, %.thread
-  %.040 = phi i32 [ 0, %.thread ], [ -1094995529, %._crit_edge64 ]
+117:                                              ; preds = %._crit_edge63, %.thread
+  %.040 = phi i32 [ 0, %.thread ], [ -1094995529, %._crit_edge63 ]
   ret i32 %.040
 }
 

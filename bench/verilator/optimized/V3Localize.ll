@@ -2280,8 +2280,8 @@ _ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVa
 96:                                               ; preds = %97, %94
   %.sroa.0.0.in.i.i.i.i.i = phi ptr [ %95, %94 ], [ %.sroa.0.0.i.i.i.i.i, %97 ]
   %.sroa.0.0.i.i.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i.i.i, align 8, !tbaa !171
-  %.not33.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, null
-  br i1 %.not33.i.i.i.i.i, label %.loopexit.i.i.i.i, label %97
+  %.not28.i.i.i.i.i = icmp eq ptr %.sroa.0.0.i.i.i.i.i, null
+  br i1 %.not28.i.i.i.i.i, label %.loopexit.i.i.i.i, label %97
 
 97:                                               ; preds = %96
   %98 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i.i.i, i64 8
@@ -2290,9 +2290,9 @@ _ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVa
   br i1 %100, label %.loopexit.i.i.i.i, label %96, !llvm.loop !178
 
 .loopexit.i.i.i.i:                                ; preds = %97, %96, %_ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEELi4EEclIJEEERSF_PS0_DpOT_.exit
-  %.sroa.021.2.i.i.i.i.i = phi ptr [ null, %_ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEELi4EEclIJEEERSF_PS0_DpOT_.exit ], [ null, %96 ], [ %.sroa.0.0.i.i.i.i.i, %97 ]
+  %.sroa.020.2.i.i.i.i.i = phi ptr [ null, %_ZN20AstUserAllocatorBaseI8AstCFuncSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_S6_EEELi4EEclIJEEERSF_PS0_DpOT_.exit ], [ null, %96 ], [ %.sroa.0.0.i.i.i.i.i, %97 ]
   %.sroa.4.2.i.i.i.i.i = ptrtoint ptr %12 to i64
-  %101 = invoke ptr @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS9_10_Hash_nodeIS7_Lb0EEEmSN_(ptr noundef nonnull align 8 dereferenceable(56) %.0.i7, ptr noundef %.sroa.021.2.i.i.i.i.i, i64 noundef %.sroa.4.2.i.i.i.i.i, ptr noundef nonnull %89)
+  %101 = invoke ptr @_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb0EEEE20_M_insert_multi_nodeEPNS9_10_Hash_nodeIS7_Lb0EEEmSN_(ptr noundef nonnull align 8 dereferenceable(56) %.0.i7, ptr noundef %.sroa.020.2.i.i.i.i.i, i64 noundef %.sroa.4.2.i.i.i.i.i, ptr noundef nonnull %89)
           to label %_ZNSt18unordered_multimapIPK11AstVarScopeP9AstVarRefSt4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S4_EEE7emplaceIJRKPS0_RS4_EEENSt8__detail14_Node_iteratorISB_Lb0ELb0EEEDpOT_.exit unwind label %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i
 
 common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13, %_ZNSt10_HashtableIPK11AstVarScopeSt4pairIKS2_P9AstVarRefESaIS7_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb0EEEE12_Scoped_nodeD2Ev.exit10.i.i.i.i
@@ -4510,8 +4510,8 @@ _ZN20AstUserAllocatorBaseI11AstVarScopeSt13unordered_setIP8AstCFuncSt4hashIS3_ES
 78:                                               ; preds = %79, %75
   %.sroa.08.0.in.i = phi ptr [ %76, %75 ], [ %.sroa.08.0.i, %79 ]
   %.sroa.08.0.i = load ptr, ptr %.sroa.08.0.in.i, align 8, !tbaa !171
-  %.not11.not.not.not.i.not = icmp eq ptr %.sroa.08.0.i, null
-  br i1 %.not11.not.not.not.i.not, label %_ZN15LocalizeVisitor13existsNonLeafERKSt13unordered_setIP8AstCFuncSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE.exit, label %79
+  %.not12.not.not.not.i.not = icmp eq ptr %.sroa.08.0.i, null
+  br i1 %.not12.not.not.not.i.not, label %_ZN15LocalizeVisitor13existsNonLeafERKSt13unordered_setIP8AstCFuncSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE.exit, label %79
 
 79:                                               ; preds = %78
   %80 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i, i64 8
@@ -4522,8 +4522,8 @@ _ZN20AstUserAllocatorBaseI11AstVarScopeSt13unordered_setIP8AstCFuncSt4hashIS3_ES
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 104
   %86 = load i64, ptr %85, align 8
   %87 = and i64 %86, 4294967295
-  %.not12.i = icmp eq i64 %87, 0
-  %.not.i63 = select i1 %84, i1 true, i1 %.not12.i
+  %.not13.i = icmp eq i64 %87, 0
+  %.not.i63 = select i1 %84, i1 true, i1 %.not13.i
   br i1 %.not.i63, label %78, label %_ZN15LocalizeVisitor13existsNonLeafERKSt13unordered_setIP8AstCFuncSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE.exit.thread
 
 _ZN15LocalizeVisitor13existsNonLeafERKSt13unordered_setIP8AstCFuncSt4hashIS2_ESt8equal_toIS2_ESaIS2_EE.exit: ; preds = %78, %_ZN20AstUserAllocatorBaseI11AstVarScopeSt13unordered_setIP8AstCFuncSt4hashIS3_ESt8equal_toIS3_ESaIS3_EELi3EEclIJEEERS9_PS0_DpOT_.exit

@@ -2550,29 +2550,29 @@ define ptr @ff_get_coded_side_data(ptr noundef readonly captures(none) %0, i32 n
   %4 = load ptr, ptr %3, align 8, !tbaa !186
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %6 = load i32, ptr %5, align 8, !tbaa !187
-  %.not11.i = icmp sgt i32 %6, 0
-  br i1 %.not11.i, label %.lr.ph.preheader.i, label %packet_side_data_get.exit
+  %7 = icmp sgt i32 %6, 0
+  br i1 %7, label %.lr.ph.preheader.i, label %packet_side_data_get.exit
 
 .lr.ph.preheader.i:                               ; preds = %2
   %wide.trip.count.i = zext nneg i32 %6 to i64
   br label %.lr.ph.i
 
-7:                                                ; preds = %.lr.ph.i
+8:                                                ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %packet_side_data_get.exit, label %.lr.ph.i, !llvm.loop !188
 
-.lr.ph.i:                                         ; preds = %7, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %4, i64 %indvars.iv.i
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %10 = load i32, ptr %9, align 8, !tbaa !189
-  %11 = icmp eq i32 %10, %1
-  br i1 %11, label %packet_side_data_get.exit, label %7
+.lr.ph.i:                                         ; preds = %8, %.lr.ph.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %8 ]
+  %9 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %4, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %11 = load i32, ptr %10, align 8, !tbaa !189
+  %12 = icmp eq i32 %11, %1
+  br i1 %12, label %packet_side_data_get.exit, label %8
 
-packet_side_data_get.exit:                        ; preds = %7, %.lr.ph.i, %2
-  %spec.select.i = phi ptr [ null, %2 ], [ null, %7 ], [ %8, %.lr.ph.i ]
-  ret ptr %spec.select.i
+packet_side_data_get.exit:                        ; preds = %8, %.lr.ph.i, %2
+  %13 = phi ptr [ null, %2 ], [ %9, %.lr.ph.i ], [ null, %8 ]
+  ret ptr %13
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2651,151 +2651,151 @@ define range(i32 -2147483648, 1) i32 @ff_decode_frame_props_from_pkt(ptr noundef
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -2147483648, 1) i32 @side_data_map(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4, !tbaa !196
-  %6 = icmp ugt i32 %5, 37
-  br i1 %6, label %side_data_stereo3d_merge.exit, label %.lr.ph
+  %6 = icmp ult i32 %5, 38
+  br i1 %6, label %.lr.ph, label %.thread46
 
 .lr.ph:                                           ; preds = %4
-  %.not11.i = icmp sgt i32 %2, 0
+  %7 = icmp sgt i32 %2, 0
   %wide.trip.count.i = zext nneg i32 %2 to i64
-  br i1 %.not11.i, label %.lr.ph.preheader.i.us, label %side_data_stereo3d_merge.exit
+  br i1 %7, label %.lr.ph.preheader.i.us, label %.thread46
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph, %packet_side_data_get.exit.thread.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %packet_side_data_get.exit.thread.us ], [ 0, %.lr.ph ]
-  %7 = phi i32 [ %75, %packet_side_data_get.exit.thread.us ], [ %5, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %struct.SideDataMap, ptr %3, i64 %indvars.iv
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !198
+  %8 = phi i32 [ %76, %packet_side_data_get.exit.thread.us ], [ %5, %.lr.ph ]
+  %9 = getelementptr inbounds nuw %struct.SideDataMap, ptr %3, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
+  %11 = load i32, ptr %10, align 4, !tbaa !198
   br label %.lr.ph.i.us
 
-.lr.ph.i.us:                                      ; preds = %15, %.lr.ph.preheader.i.us
-  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %15 ]
-  %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %1, i64 %indvars.iv.i.us
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = load i32, ptr %12, align 8, !tbaa !189
-  %14 = icmp eq i32 %13, %7
-  br i1 %14, label %packet_side_data_get.exit.us, label %15
+.lr.ph.i.us:                                      ; preds = %16, %.lr.ph.preheader.i.us
+  %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.preheader.i.us ], [ %indvars.iv.next.i.us, %16 ]
+  %12 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %1, i64 %indvars.iv.i.us
+  %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
+  %14 = load i32, ptr %13, align 8, !tbaa !189
+  %15 = icmp eq i32 %14, %8
+  br i1 %15, label %packet_side_data_get.exit.us, label %16
 
-15:                                               ; preds = %.lr.ph.i.us
+16:                                               ; preds = %.lr.ph.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %wide.trip.count.i
   br i1 %exitcond.not.i.us, label %packet_side_data_get.exit.thread.us, label %.lr.ph.i.us, !llvm.loop !188
 
 packet_side_data_get.exit.us:                     ; preds = %.lr.ph.i.us
-  %16 = tail call ptr @av_frame_get_side_data(ptr noundef %0, i32 noundef %10) #10
-  %.not38.us = icmp eq ptr %16, null
-  br i1 %.not38.us, label %65, label %17
+  %17 = tail call ptr @av_frame_get_side_data(ptr noundef %0, i32 noundef %11) #10
+  %.not38.us = icmp eq ptr %17, null
+  br i1 %.not38.us, label %66, label %18
 
-17:                                               ; preds = %packet_side_data_get.exit.us
-  %18 = icmp eq i32 %10, 2
-  br i1 %18, label %19, label %packet_side_data_get.exit.thread.us
+18:                                               ; preds = %packet_side_data_get.exit.us
+  %19 = icmp eq i32 %11, 2
+  br i1 %19, label %20, label %packet_side_data_get.exit.thread.us
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %21 = tail call i32 @av_buffer_make_writable(ptr noundef nonnull %20) #10
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %side_data_stereo3d_merge.exit, label %23
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %22 = tail call i32 @av_buffer_make_writable(ptr noundef nonnull %21) #10
+  %23 = icmp slt i32 %22, 0
+  br i1 %23, label %.thread46, label %24
 
-23:                                               ; preds = %19
-  %24 = load ptr, ptr %20, align 8, !tbaa !199
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !140
-  %27 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %26, ptr %27, align 8, !tbaa !81
-  %28 = load ptr, ptr %11, align 8, !tbaa !200
-  %29 = load i32, ptr %26, align 4, !tbaa !201
-  %30 = icmp eq i32 %29, 8
-  br i1 %30, label %31, label %33
+24:                                               ; preds = %20
+  %25 = load ptr, ptr %21, align 8, !tbaa !199
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !140
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr %27, ptr %28, align 8, !tbaa !81
+  %29 = load ptr, ptr %12, align 8, !tbaa !200
+  %30 = load i32, ptr %27, align 4, !tbaa !201
+  %31 = icmp eq i32 %30, 8
+  br i1 %31, label %32, label %34
 
-31:                                               ; preds = %23
-  %32 = load i32, ptr %28, align 4, !tbaa !201
-  store i32 %32, ptr %26, align 4, !tbaa !201
-  br label %33
+32:                                               ; preds = %24
+  %33 = load i32, ptr %29, align 4, !tbaa !201
+  store i32 %33, ptr %27, align 4, !tbaa !201
+  br label %34
 
-33:                                               ; preds = %31, %23
-  %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %35 = load i32, ptr %34, align 4, !tbaa !203
-  %36 = icmp eq i32 %35, 3
-  br i1 %36, label %37, label %40
+34:                                               ; preds = %32, %24
+  %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %36 = load i32, ptr %35, align 4, !tbaa !203
+  %37 = icmp eq i32 %36, 3
+  br i1 %37, label %38, label %41
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %39 = load i32, ptr %38, align 4, !tbaa !203
-  store i32 %39, ptr %34, align 4, !tbaa !203
-  br label %40
+38:                                               ; preds = %34
+  %39 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %40 = load i32, ptr %39, align 4, !tbaa !203
+  store i32 %40, ptr %35, align 4, !tbaa !203
+  br label %41
 
-40:                                               ; preds = %37, %33
-  %41 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  %42 = load i32, ptr %41, align 4, !tbaa !204
-  %43 = icmp eq i32 %42, 0
-  br i1 %43, label %44, label %47
+41:                                               ; preds = %38, %34
+  %42 = getelementptr inbounds nuw i8, ptr %27, i64 12
+  %43 = load i32, ptr %42, align 4, !tbaa !204
+  %44 = icmp eq i32 %43, 0
+  br i1 %44, label %45, label %48
 
-44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw i8, ptr %28, i64 12
-  %46 = load i32, ptr %45, align 4, !tbaa !204
-  store i32 %46, ptr %41, align 4, !tbaa !204
-  br label %47
+45:                                               ; preds = %41
+  %46 = getelementptr inbounds nuw i8, ptr %29, i64 12
+  %47 = load i32, ptr %46, align 4, !tbaa !204
+  store i32 %47, ptr %42, align 4, !tbaa !204
+  br label %48
 
-47:                                               ; preds = %44, %40
-  %48 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %49 = load i32, ptr %48, align 4, !tbaa !205
-  %.not.i.us = icmp eq i32 %49, 0
-  br i1 %.not.i.us, label %50, label %53
+48:                                               ; preds = %45, %41
+  %49 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %50 = load i32, ptr %49, align 4, !tbaa !205
+  %.not.i.us = icmp eq i32 %50, 0
+  br i1 %.not.i.us, label %51, label %54
 
-50:                                               ; preds = %47
-  %51 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %52 = load i32, ptr %51, align 4, !tbaa !205
-  store i32 %52, ptr %48, align 4, !tbaa !205
-  br label %53
+51:                                               ; preds = %48
+  %52 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %53 = load i32, ptr %52, align 4, !tbaa !205
+  store i32 %53, ptr %49, align 4, !tbaa !205
+  br label %54
 
-53:                                               ; preds = %50, %47
-  %54 = getelementptr inbounds nuw i8, ptr %26, i64 20
-  %55 = load i32, ptr %54, align 4, !tbaa !206
-  %.not26.i.us = icmp eq i32 %55, 0
-  br i1 %.not26.i.us, label %56, label %59
+54:                                               ; preds = %51, %48
+  %55 = getelementptr inbounds nuw i8, ptr %27, i64 20
+  %56 = load i32, ptr %55, align 4, !tbaa !206
+  %.not26.i.us = icmp eq i32 %56, 0
+  br i1 %.not26.i.us, label %57, label %60
 
-56:                                               ; preds = %53
-  %57 = getelementptr inbounds nuw i8, ptr %28, i64 20
-  %58 = load i64, ptr %57, align 4
-  store i64 %58, ptr %54, align 4
-  br label %59
+57:                                               ; preds = %54
+  %58 = getelementptr inbounds nuw i8, ptr %29, i64 20
+  %59 = load i64, ptr %58, align 4
+  store i64 %59, ptr %55, align 4
+  br label %60
 
-59:                                               ; preds = %56, %53
-  %60 = getelementptr inbounds nuw i8, ptr %26, i64 28
-  %61 = load i32, ptr %60, align 4, !tbaa !207
-  %.not27.i.us = icmp eq i32 %61, 0
-  br i1 %.not27.i.us, label %62, label %packet_side_data_get.exit.thread.us
+60:                                               ; preds = %57, %54
+  %61 = getelementptr inbounds nuw i8, ptr %27, i64 28
+  %62 = load i32, ptr %61, align 4, !tbaa !207
+  %.not27.i.us = icmp eq i32 %62, 0
+  br i1 %.not27.i.us, label %63, label %packet_side_data_get.exit.thread.us
 
-62:                                               ; preds = %59
-  %63 = getelementptr inbounds nuw i8, ptr %28, i64 28
-  %64 = load i64, ptr %63, align 4
-  store i64 %64, ptr %60, align 4
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %29, i64 28
+  %65 = load i64, ptr %64, align 4
+  store i64 %65, ptr %61, align 4
   br label %packet_side_data_get.exit.thread.us
 
-65:                                               ; preds = %packet_side_data_get.exit.us
-  %66 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %67 = load i64, ptr %66, align 8, !tbaa !208
-  %68 = tail call ptr @av_frame_new_side_data(ptr noundef %0, i32 noundef %10, i64 noundef %67) #10
-  %.not39.us = icmp eq ptr %68, null
-  br i1 %.not39.us, label %side_data_stereo3d_merge.exit, label %69
+66:                                               ; preds = %packet_side_data_get.exit.us
+  %67 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  %68 = load i64, ptr %67, align 8, !tbaa !208
+  %69 = tail call ptr @av_frame_new_side_data(ptr noundef %0, i32 noundef %11, i64 noundef %68) #10
+  %.not39.us = icmp eq ptr %69, null
+  br i1 %.not39.us, label %.thread46, label %70
 
-69:                                               ; preds = %65
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %71 = load ptr, ptr %70, align 8, !tbaa !81
-  %72 = load ptr, ptr %11, align 8, !tbaa !200
-  %73 = load i64, ptr %66, align 8, !tbaa !208
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 1 %72, i64 %73, i1 false)
+70:                                               ; preds = %66
+  %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !81
+  %73 = load ptr, ptr %12, align 8, !tbaa !200
+  %74 = load i64, ptr %67, align 8, !tbaa !208
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %73, i64 %74, i1 false)
   br label %packet_side_data_get.exit.thread.us
 
-packet_side_data_get.exit.thread.us:              ; preds = %15, %69, %62, %59, %17
+packet_side_data_get.exit.thread.us:              ; preds = %16, %70, %63, %60, %18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = getelementptr inbounds nuw %struct.SideDataMap, ptr %3, i64 %indvars.iv.next
-  %75 = load i32, ptr %74, align 4, !tbaa !196
-  %76 = icmp ugt i32 %75, 37
-  br i1 %76, label %side_data_stereo3d_merge.exit, label %.lr.ph.preheader.i.us, !llvm.loop !209
+  %75 = getelementptr inbounds nuw %struct.SideDataMap, ptr %3, i64 %indvars.iv.next
+  %76 = load i32, ptr %75, align 4, !tbaa !196
+  %77 = icmp ult i32 %76, 38
+  br i1 %77, label %.lr.ph.preheader.i.us, label %.thread46, !llvm.loop !209
 
-side_data_stereo3d_merge.exit:                    ; preds = %packet_side_data_get.exit.thread.us, %65, %19, %.lr.ph, %4
-  %spec.select = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %21, %19 ], [ -12, %65 ], [ 0, %packet_side_data_get.exit.thread.us ]
-  ret i32 %spec.select
+.thread46:                                        ; preds = %packet_side_data_get.exit.thread.us, %66, %20, %.lr.ph, %4
+  %78 = phi i32 [ 0, %4 ], [ 0, %.lr.ph ], [ %22, %20 ], [ -12, %66 ], [ 0, %packet_side_data_get.exit.thread.us ]
+  ret i32 %78
 }
 
 declare i32 @av_buffer_replace(ptr noundef, ptr noundef) local_unnamed_addr #1

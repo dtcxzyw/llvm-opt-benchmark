@@ -629,30 +629,30 @@ _ZL21canComputePointerDiffRN4llvm15ScalarEvolutionEPKNS_4SCEVES4_.exit.thread: ;
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.backedge, %_ZL21canComputePointerDiffRN4llvm15ScalarEvolutionEPKNS_4SCEVES4_.exit.thread
-  %.tr40.i = phi ptr [ %.0, %_ZL21canComputePointerDiffRN4llvm15ScalarEvolutionEPKNS_4SCEVES4_.exit.thread ], [ %.tr40.i.be, %tailrecurse.i.backedge ]
-  %248 = getelementptr inbounds nuw i8, ptr %.tr40.i, i64 24
+  %.tr39.i = phi ptr [ %.0, %_ZL21canComputePointerDiffRN4llvm15ScalarEvolutionEPKNS_4SCEVES4_.exit.thread ], [ %.tr39.i.be, %tailrecurse.i.backedge ]
+  %248 = getelementptr inbounds nuw i8, ptr %.tr39.i, i64 24
   %249 = load i16, ptr %248, align 8, !tbaa !24
   %250 = icmp ne i16 %249, 8
-  %.not37.i = icmp eq ptr %.tr40.i, null
-  %.not.i155 = or i1 %.not37.i, %250
+  %.not36.i = icmp eq ptr %.tr39.i, null
+  %.not.i155 = or i1 %.not36.i, %250
   br i1 %.not.i155, label %255, label %251
 
 251:                                              ; preds = %tailrecurse.i
-  %252 = getelementptr inbounds nuw i8, ptr %.tr40.i, i64 32
+  %252 = getelementptr inbounds nuw i8, ptr %.tr39.i, i64 32
   %253 = load ptr, ptr %252, align 8, !tbaa !31
   %254 = load ptr, ptr %253, align 8, !tbaa !34
   br label %tailrecurse.i.backedge
 
 255:                                              ; preds = %tailrecurse.i
   %256 = icmp ne i16 %249, 5
-  %.not26.i = or i1 %.not37.i, %256
+  %.not26.i = or i1 %.not36.i, %256
   br i1 %.not26.i, label %271, label %257
 
 257:                                              ; preds = %255
-  %258 = getelementptr inbounds nuw i8, ptr %.tr40.i, i64 40
+  %258 = getelementptr inbounds nuw i8, ptr %.tr39.i, i64 40
   %259 = load i64, ptr %258, align 8, !tbaa !36
   %260 = add i64 %259, 4294967295
-  %261 = getelementptr inbounds nuw i8, ptr %.tr40.i, i64 32
+  %261 = getelementptr inbounds nuw i8, ptr %.tr39.i, i64 32
   %262 = load ptr, ptr %261, align 8, !tbaa !31
   %263 = and i64 %260, 4294967295
   %264 = getelementptr inbounds nuw ptr, ptr %262, i64 %263
@@ -665,15 +665,15 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.backe
   br i1 %270, label %tailrecurse.i.backedge, label %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit
 
 tailrecurse.i.backedge:                           ; preds = %257, %251
-  %.tr40.i.be = phi ptr [ %254, %251 ], [ %265, %257 ]
+  %.tr39.i.be = phi ptr [ %254, %251 ], [ %265, %257 ]
   br label %tailrecurse.i
 
 271:                                              ; preds = %255
-  %.not39.i = icmp eq i16 %249, 15
-  br i1 %.not39.i, label %272, label %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit
+  %.not38.i = icmp eq i16 %249, 15
+  br i1 %.not38.i, label %272, label %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit
 
 272:                                              ; preds = %271
-  %273 = getelementptr inbounds i8, ptr %.tr40.i, i64 -8
+  %273 = getelementptr inbounds i8, ptr %.tr39.i, i64 -8
   %274 = load ptr, ptr %273, align 8, !tbaa !37
   br label %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit
 
@@ -682,30 +682,30 @@ _ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit: ; preds = %257, %271, %27
   br label %tailrecurse.i156
 
 tailrecurse.i156:                                 ; preds = %tailrecurse.i156.backedge, %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit
-  %.tr40.i157 = phi ptr [ %.075, %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit ], [ %.tr40.i157.be, %tailrecurse.i156.backedge ]
-  %276 = getelementptr inbounds nuw i8, ptr %.tr40.i157, i64 24
+  %.tr39.i157 = phi ptr [ %.075, %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit ], [ %.tr39.i157.be, %tailrecurse.i156.backedge ]
+  %276 = getelementptr inbounds nuw i8, ptr %.tr39.i157, i64 24
   %277 = load i16, ptr %276, align 8, !tbaa !24
   %278 = icmp ne i16 %277, 8
-  %.not37.i158 = icmp eq ptr %.tr40.i157, null
-  %.not.i159 = or i1 %.not37.i158, %278
+  %.not36.i158 = icmp eq ptr %.tr39.i157, null
+  %.not.i159 = or i1 %.not36.i158, %278
   br i1 %.not.i159, label %283, label %279
 
 279:                                              ; preds = %tailrecurse.i156
-  %280 = getelementptr inbounds nuw i8, ptr %.tr40.i157, i64 32
+  %280 = getelementptr inbounds nuw i8, ptr %.tr39.i157, i64 32
   %281 = load ptr, ptr %280, align 8, !tbaa !31
   %282 = load ptr, ptr %281, align 8, !tbaa !34
   br label %tailrecurse.i156.backedge
 
 283:                                              ; preds = %tailrecurse.i156
   %284 = icmp ne i16 %277, 5
-  %.not26.i162 = or i1 %.not37.i158, %284
+  %.not26.i162 = or i1 %.not36.i158, %284
   br i1 %.not26.i162, label %299, label %285
 
 285:                                              ; preds = %283
-  %286 = getelementptr inbounds nuw i8, ptr %.tr40.i157, i64 40
+  %286 = getelementptr inbounds nuw i8, ptr %.tr39.i157, i64 40
   %287 = load i64, ptr %286, align 8, !tbaa !36
   %288 = add i64 %287, 4294967295
-  %289 = getelementptr inbounds nuw i8, ptr %.tr40.i157, i64 32
+  %289 = getelementptr inbounds nuw i8, ptr %.tr39.i157, i64 32
   %290 = load ptr, ptr %289, align 8, !tbaa !31
   %291 = and i64 %288, 4294967295
   %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
@@ -718,15 +718,15 @@ tailrecurse.i156:                                 ; preds = %tailrecurse.i156.ba
   br i1 %298, label %tailrecurse.i156.backedge, label %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit164
 
 tailrecurse.i156.backedge:                        ; preds = %285, %279
-  %.tr40.i157.be = phi ptr [ %282, %279 ], [ %293, %285 ]
+  %.tr39.i157.be = phi ptr [ %282, %279 ], [ %293, %285 ]
   br label %tailrecurse.i156
 
 299:                                              ; preds = %283
-  %.not39.i163 = icmp eq i16 %277, 15
-  br i1 %.not39.i163, label %300, label %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit164
+  %.not38.i163 = icmp eq i16 %277, 15
+  br i1 %.not38.i163, label %300, label %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit164
 
 300:                                              ; preds = %299
-  %301 = getelementptr inbounds i8, ptr %.tr40.i157, i64 -8
+  %301 = getelementptr inbounds i8, ptr %.tr39.i157, i64 -8
   %302 = load ptr, ptr %301, align 8, !tbaa !37
   br label %_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE.exit164
 
@@ -951,34 +951,34 @@ define dso_local noundef ptr @_ZN4llvm12SCEVAAResult12GetBaseValueEPKNS_4SCEVE(p
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
-  %.tr40 = phi ptr [ %1, %2 ], [ %.tr40.be, %tailrecurse.backedge ]
-  %3 = getelementptr inbounds nuw i8, ptr %.tr40, i64 24
+  %.tr39 = phi ptr [ %1, %2 ], [ %.tr39.be, %tailrecurse.backedge ]
+  %3 = getelementptr inbounds nuw i8, ptr %.tr39, i64 24
   %4 = load i16, ptr %3, align 8, !tbaa !24
   %5 = icmp ne i16 %4, 8
-  %.not37 = icmp eq ptr %.tr40, null
-  %.not = or i1 %.not37, %5
+  %.not36 = icmp eq ptr %.tr39, null
+  %.not = or i1 %.not36, %5
   br i1 %.not, label %10, label %6
 
 6:                                                ; preds = %tailrecurse
-  %7 = getelementptr inbounds nuw i8, ptr %.tr40, i64 32
+  %7 = getelementptr inbounds nuw i8, ptr %.tr39, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !31
   %9 = load ptr, ptr %8, align 8, !tbaa !34
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %6, %12
-  %.tr40.be = phi ptr [ %9, %6 ], [ %20, %12 ]
+  %.tr39.be = phi ptr [ %9, %6 ], [ %20, %12 ]
   br label %tailrecurse
 
 10:                                               ; preds = %tailrecurse
   %11 = icmp ne i16 %4, 5
-  %.not26 = or i1 %.not37, %11
+  %.not26 = or i1 %.not36, %11
   br i1 %.not26, label %26, label %12
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %.tr40, i64 40
+  %13 = getelementptr inbounds nuw i8, ptr %.tr39, i64 40
   %14 = load i64, ptr %13, align 8, !tbaa !36
   %15 = add i64 %14, 4294967295
-  %16 = getelementptr inbounds nuw i8, ptr %.tr40, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.tr39, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !31
   %18 = and i64 %15, 4294967295
   %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
@@ -991,11 +991,11 @@ tailrecurse.backedge:                             ; preds = %6, %12
   br i1 %25, label %tailrecurse.backedge, label %.thread31
 
 26:                                               ; preds = %10
-  %.not39 = icmp eq i16 %4, 15
-  br i1 %.not39, label %27, label %.thread31
+  %.not38 = icmp eq i16 %4, 15
+  br i1 %.not38, label %27, label %.thread31
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds i8, ptr %.tr40, i64 -8
+  %28 = getelementptr inbounds i8, ptr %.tr39, i64 -8
   %29 = load ptr, ptr %28, align 8, !tbaa !37
   br label %.thread31
 

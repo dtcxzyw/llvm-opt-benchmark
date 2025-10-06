@@ -81,8 +81,8 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 176
   store ptr %8, ptr %9, align 8
   %10 = tail call i32 @pq_getmsgbyte(ptr noundef %0) #9
-  %sext91 = shl i32 %10, 24
-  %11 = icmp eq i32 %sext91, 0
+  %sext90 = shl i32 %10, 24
+  %11 = icmp eq i32 %sext90, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.loopexit
@@ -105,7 +105,7 @@ define dso_local void @pq_parse_errornotice(ptr noundef %0, ptr noundef %1) loca
   br label %28
 
 28:                                               ; preds = %.lr.ph, %137
-  %.in = phi i32 [ %sext91, %.lr.ph ], [ %sext, %137 ]
+  %.in = phi i32 [ %sext90, %.lr.ph ], [ %sext, %137 ]
   %29 = ashr exact i32 %.in, 24
   %30 = tail call ptr @pq_getmsgrawstring(ptr noundef %0) #9
   switch i32 %29, label %134 [

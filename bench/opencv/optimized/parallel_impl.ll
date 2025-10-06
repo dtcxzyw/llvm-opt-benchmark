@@ -693,10 +693,10 @@ define linkonce_odr hidden noundef i32 @_ZN2cv11ParallelJob7executeEb(ptr nounde
   %23 = load atomic i32, ptr %22 seq_cst, align 4
   %24 = sub nsw i32 %12, %23
   %25 = sdiv i32 %24, %21
-  %.sroa.speculated5277 = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
-  %26 = atomicrmw add ptr %22, i32 %.sroa.speculated5277 seq_cst, align 4
-  %.not78 = icmp slt i32 %26, %12
-  br i1 %.not78, label %.lr.ph, label %._crit_edge
+  %.sroa.speculated5276 = tail call i32 @llvm.smax.i32(i32 %25, i32 1)
+  %26 = atomicrmw add ptr %22, i32 %.sroa.speculated5276 seq_cst, align 4
+  %.not77 = icmp slt i32 %26, %12
+  br i1 %.not77, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %2
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -727,10 +727,10 @@ define linkonce_odr hidden noundef i32 @_ZN2cv11ParallelJob7executeEb(ptr nounde
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %110
   %51 = phi i32 [ %114, %110 ], [ %26, %.lr.ph ]
-  %.sroa.speculated5280.us = phi i32 [ %.sroa.speculated52.us, %110 ], [ %.sroa.speculated5277, %.lr.ph ]
-  %.02779.us = phi i32 [ %52, %110 ], [ 0, %.lr.ph ]
-  %52 = add i32 %.sroa.speculated5280.us, %.02779.us
-  %53 = add nsw i32 %51, %.sroa.speculated5280.us
+  %.sroa.speculated5279.us = phi i32 [ %.sroa.speculated52.us, %110 ], [ %.sroa.speculated5276, %.lr.ph ]
+  %.02778.us = phi i32 [ %52, %110 ], [ 0, %.lr.ph ]
+  %52 = add i32 %.sroa.speculated5279.us, %.02778.us
+  %53 = add nsw i32 %51, %.sroa.speculated5279.us
   %.sroa.speculated.us = call i32 @llvm.smin.i32(i32 %53, i32 %12)
   %54 = load ptr, ptr %27, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -825,16 +825,16 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit43.us: ; preds = %78
   %93 = ptrtoint ptr %91 to i64
   %94 = sub i64 %92, %93
   %95 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 0, i64 noundef 0, ptr noundef %91, i64 noundef %94)
-          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.us unwind label %.split82.us
+          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.us unwind label %.split81.us
 
 96:                                               ; preds = %85
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %38)
-          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.us unwind label %.split82.us
+          to label %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.us unwind label %.split81.us
 
 _ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.us: ; preds = %96, %90
   %97 = load ptr, ptr %5, align 8, !tbaa !75
   invoke void @_ZN2cv5utils7logging8internal17writeLogMessageExENS1_8LogLevelEPKcS5_iS5_S5_(i32 noundef 2, ptr noundef %86, ptr noundef nonnull @.str.9, i32 noundef 336, ptr noundef nonnull @__func__._ZN2cv11ParallelJob7executeEb, ptr noundef %97)
-          to label %98 unwind label %.split87.us
+          to label %98 unwind label %.split86.us
 
 98:                                               ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.us
   %99 = load ptr, ptr %5, align 8, !tbaa !75
@@ -876,7 +876,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.us: ; preds
 107:                                              ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.us, %65
   %108 = load atomic i8, ptr %29 seq_cst, align 8
   %109 = trunc i8 %108 to i1
-  br i1 %109, label %.split92.us, label %110
+  br i1 %109, label %.split91.us, label %110
 
 110:                                              ; preds = %107, %.lr.ph.split.us
   %111 = load atomic i32, ptr %22 seq_cst, align 4
@@ -892,14 +892,14 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.us: ; preds
           cleanup
   br label %136
 
-.split82.us:                                      ; preds = %96, %90
+.split81.us:                                      ; preds = %96, %90
   %116 = landingpad { ptr, i32 }
           cleanup
   %117 = load ptr, ptr %5, align 8, !tbaa !75, !alias.scope !67
   %118 = icmp eq ptr %117, %33
   br i1 %118, label %.body, label %.body.sink.split
 
-.split87.us:                                      ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.us
+.split86.us:                                      ; preds = %_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv.exit.us
   %119 = landingpad { ptr, i32 }
           cleanup
   %120 = load ptr, ptr %5, align 8, !tbaa !75
@@ -908,10 +908,10 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.us: ; preds
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %122 = phi i32 [ %135, %.lr.ph.split ], [ %26, %.lr.ph ]
-  %.sroa.speculated5280 = phi i32 [ %.sroa.speculated52, %.lr.ph.split ], [ %.sroa.speculated5277, %.lr.ph ]
-  %.02779 = phi i32 [ %123, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %123 = add i32 %.sroa.speculated5280, %.02779
-  %124 = add nsw i32 %122, %.sroa.speculated5280
+  %.sroa.speculated5279 = phi i32 [ %.sroa.speculated52, %.lr.ph.split ], [ %.sroa.speculated5276, %.lr.ph ]
+  %.02778 = phi i32 [ %123, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %123 = add i32 %.sroa.speculated5279, %.02778
+  %124 = add nsw i32 %122, %.sroa.speculated5279
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %124, i32 %12)
   %125 = load ptr, ptr %27, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -933,14 +933,14 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.us: ; preds
   %.not = icmp slt i32 %135, %12
   br i1 %.not, label %.lr.ph.split, label %._crit_edge
 
-.body.sink.split:                                 ; preds = %.split87.us, %.split82.us
-  %.sink = phi ptr [ %117, %.split82.us ], [ %120, %.split87.us ]
-  %.pn.ph = phi { ptr, i32 } [ %116, %.split82.us ], [ %119, %.split87.us ]
+.body.sink.split:                                 ; preds = %.split86.us, %.split81.us
+  %.sink = phi ptr [ %117, %.split81.us ], [ %120, %.split86.us ]
+  %.pn.ph = phi { ptr, i32 } [ %116, %.split81.us ], [ %119, %.split86.us ]
   call void @_ZdlPv(ptr noundef %.sink) #21
   br label %.body
 
-.body:                                            ; preds = %.body.sink.split, %.split87.us, %.split82.us
-  %.pn = phi { ptr, i32 } [ %116, %.split82.us ], [ %119, %.split87.us ], [ %.pn.ph, %.body.sink.split ]
+.body:                                            ; preds = %.body.sink.split, %.split86.us, %.split81.us
+  %.pn = phi { ptr, i32 } [ %116, %.split81.us ], [ %119, %.split86.us ], [ %.pn.ph, %.body.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %136
 
@@ -950,20 +950,20 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.us: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %146
 
-.split92.us:                                      ; preds = %107
+.split91.us:                                      ; preds = %107
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %137 unwind label %139
 
-137:                                              ; preds = %.split92.us
+137:                                              ; preds = %.split91.us
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull @__func__._ZN2cv11ParallelJob7executeEb, ptr noundef nonnull @.str.9, i32 noundef 337) #22
           to label %138 unwind label %141
 
 138:                                              ; preds = %137
   unreachable
 
-139:                                              ; preds = %.split92.us
+139:                                              ; preds = %.split91.us
   %140 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49
@@ -3347,10 +3347,10 @@ _ZN2cv3PtrINS_11ParallelJobEEaSERKS2_.exit78:     ; preds = %193, %_ZNSt16_Sp_co
   %249 = load atomic i32, ptr %248 seq_cst, align 4
   %250 = sub nsw i32 %238, %249
   %251 = sdiv i32 %250, %247
-  %.sroa.speculated5277.i = tail call i32 @llvm.smax.i32(i32 %251, i32 1)
-  %252 = atomicrmw add ptr %248, i32 %.sroa.speculated5277.i seq_cst, align 4
-  %.not78.i = icmp slt i32 %252, %238
-  br i1 %.not78.i, label %.lr.ph.i, label %_ZN2cv11ParallelJob7executeEb.exit
+  %.sroa.speculated5276.i = tail call i32 @llvm.smax.i32(i32 %251, i32 1)
+  %252 = atomicrmw add ptr %248, i32 %.sroa.speculated5276.i seq_cst, align 4
+  %.not77.i = icmp slt i32 %252, %238
+  br i1 %.not77.i, label %.lr.ph.i, label %_ZN2cv11ParallelJob7executeEb.exit
 
 .lr.ph.i:                                         ; preds = %._crit_edge
   %253 = getelementptr inbounds nuw i8, ptr %233, i64 8
@@ -3359,8 +3359,8 @@ _ZN2cv3PtrINS_11ParallelJobEEaSERKS2_.exit78:     ; preds = %193, %_ZNSt16_Sp_co
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.i
   %255 = phi i32 [ %267, %.lr.ph.split.i ], [ %252, %.lr.ph.i ]
-  %.sroa.speculated5280.i = phi i32 [ %.sroa.speculated52.i, %.lr.ph.split.i ], [ %.sroa.speculated5277.i, %.lr.ph.i ]
-  %256 = add nsw i32 %.sroa.speculated5280.i, %255
+  %.sroa.speculated5279.i = phi i32 [ %.sroa.speculated52.i, %.lr.ph.split.i ], [ %.sroa.speculated5276.i, %.lr.ph.i ]
+  %256 = add nsw i32 %.sroa.speculated5279.i, %255
   %.sroa.speculated.i = call i32 @llvm.smin.i32(i32 %256, i32 %238)
   %257 = load ptr, ptr %253, align 8, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

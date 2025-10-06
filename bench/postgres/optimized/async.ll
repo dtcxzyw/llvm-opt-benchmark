@@ -2667,10 +2667,10 @@ IsListeningOn.exit.thread.i:                      ; preds = %79, %IsListeningOn.
   br label %.backedge, !llvm.loop !24
 
 91:                                               ; preds = %.loopexit.i.thread, %.loopexit.i
-  %.139.i44 = phi i1 [ false, %.loopexit.i.thread ], [ %or.cond.not.i, %.loopexit.i ]
+  %.138.i44 = phi i1 [ false, %.loopexit.i.thread ], [ %or.cond.not.i, %.loopexit.i ]
   %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.8.30 = load volatile i32, ptr %.sroa.11, align 8
   %92 = icmp eq i32 %.sroa.11.0..sroa.11.0..sroa.11.0..sroa.11.8.30, %.sroa.6.0.copyload
-  %spec.select.i = or i1 %.139.i44, %92
+  %spec.select.i = or i1 %.138.i44, %92
   br i1 %spec.select.i, label %.loopexit, label %.backedge.backedge
 
 asyncQueueProcessPageEntries.exit:                ; preds = %.loopexit.i

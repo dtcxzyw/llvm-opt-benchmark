@@ -203,7 +203,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17: ; preds = %_ZStl
   %11 = landingpad { ptr, i32 }
           cleanup
   invoke void @_ZN4dmlc15LogMessageFatalD2Ev(ptr noundef nonnull align 1 dereferenceable(1) %4)
-          to label %12 unwind label %17
+          to label %12 unwind label %18
 
 12:                                               ; preds = %10
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -222,15 +222,15 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit17: ; preds = %_ZStl
     i8 13, label %16
   ], !llvm.loop !10
 
-16:                                               ; preds = %14, %14, %13
-  %spec.select = phi ptr [ %1, %13 ], [ %.pn, %14 ], [ %.pn, %14 ]
-  ret ptr %spec.select
+16:                                               ; preds = %13, %14, %14
+  %17 = phi ptr [ %.pn, %14 ], [ %.pn, %14 ], [ %1, %13 ]
+  ret ptr %17
 
-17:                                               ; preds = %10
-  %18 = landingpad { ptr, i32 }
+18:                                               ; preds = %10
+  %19 = landingpad { ptr, i32 }
           catch ptr null
-  %19 = extractvalue { ptr, i32 } %18, 0
-  call void @__clang_call_terminate(ptr %19) #27
+  %20 = extractvalue { ptr, i32 } %19, 0
+  call void @__clang_call_terminate(ptr %20) #27
   unreachable
 }
 

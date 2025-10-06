@@ -835,8 +835,8 @@ define internal fastcc void @_ZL23indexPreprocessorMacrosRN5clang12PreprocessorE
   %.not.i.i.i = icmp eq i64 %9, 0
   %10 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %11 = inttoptr i64 %10 to ptr
-  %.not.not8.i = icmp eq i64 %10, 0
-  %.not.not.i = or i1 %.not.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %10, 0
+  %.not.not.i = or i1 %.not.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit, label %12
 
 12:                                               ; preds = %.lr.ph30
@@ -1206,8 +1206,8 @@ _ZN5clang5index15IndexingOptionsD2Ev.exit:        ; preds = %_ZN5clang5index15In
   %.not.i.i.i.i = icmp eq i64 %57, 0
   %58 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
   %59 = inttoptr i64 %58 to ptr
-  %.not.not8.i.i = icmp eq i64 %58, 0
-  %.not.not.i.i = or i1 %.not.i.i.i.i, %.not.not8.i.i
+  %.not.not7.i.i = icmp eq i64 %58, 0
+  %.not.not.i.i = or i1 %.not.i.i.i.i, %.not.not7.i.i
   br i1 %.not.not.i.i, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit.i, label %60
 
 60:                                               ; preds = %55

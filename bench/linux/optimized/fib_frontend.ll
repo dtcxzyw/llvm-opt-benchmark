@@ -373,10 +373,9 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type_table(ptr noundef readonl
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 %1, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  switch i32 %1, label %7 [
-    i32 0, label %59
-    i32 -1, label %59
-  ]
+  %.off = add i32 %1, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %7, label %59
 
 7:                                                ; preds = %3
   %8 = and i32 %1, 240
@@ -463,8 +462,8 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type_table(ptr noundef readonl
   call void @__rcu_read_unlock() #13
   br label %59
 
-59:                                               ; preds = %.thread, %7, %3, %3
-  %60 = phi i32 [ %58, %.thread ], [ 3, %3 ], [ 5, %7 ], [ 3, %3 ]
+59:                                               ; preds = %3, %.thread, %7
+  %60 = phi i32 [ %58, %.thread ], [ 5, %7 ], [ 3, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %60
@@ -479,10 +478,9 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type(ptr noundef readonly capt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
   store i32 %1, ptr %5, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  switch i32 %1, label %6 [
-    i32 0, label %54
-    i32 -1, label %54
-  ]
+  %.off = add i32 %1, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %6, label %54
 
 6:                                                ; preds = %2
   %7 = and i32 %1, 240
@@ -565,8 +563,8 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type(ptr noundef readonly capt
   call void @__rcu_read_unlock() #13
   br label %54
 
-54:                                               ; preds = %.thread, %6, %2, %2
-  %55 = phi i32 [ %53, %.thread ], [ 3, %2 ], [ 5, %6 ], [ 3, %2 ]
+54:                                               ; preds = %2, %.thread, %6
+  %55 = phi i32 [ %53, %.thread ], [ 5, %6 ], [ 3, %2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %55
@@ -581,10 +579,9 @@ define dso_local range(i32 0, 256) i32 @inet_dev_addr_type(ptr noundef readonly 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 %2, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  switch i32 %2, label %7 [
-    i32 0, label %64
-    i32 -1, label %64
-  ]
+  %.off = add i32 %2, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %7, label %64
 
 7:                                                ; preds = %3
   %8 = and i32 %2, 240
@@ -682,8 +679,8 @@ define dso_local range(i32 0, 256) i32 @inet_dev_addr_type(ptr noundef readonly 
   call void @__rcu_read_unlock() #13
   br label %64
 
-64:                                               ; preds = %.thread, %7, %3, %3
-  %65 = phi i32 [ %63, %.thread ], [ 3, %3 ], [ 5, %7 ], [ 3, %3 ]
+64:                                               ; preds = %3, %.thread, %7
+  %65 = phi i32 [ %63, %.thread ], [ 5, %7 ], [ 3, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %65
@@ -698,10 +695,9 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type_dev_table(ptr noundef rea
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
   store i32 %2, ptr %6, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  switch i32 %2, label %7 [
-    i32 0, label %55
-    i32 -1, label %55
-  ]
+  %.off = add i32 %2, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %7, label %55
 
 7:                                                ; preds = %3
   %8 = and i32 %2, 240
@@ -784,8 +780,8 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type_dev_table(ptr noundef rea
   call void @__rcu_read_unlock() #13
   br label %55
 
-55:                                               ; preds = %.thread, %7, %3, %3
-  %56 = phi i32 [ %54, %.thread ], [ 3, %3 ], [ 5, %7 ], [ 3, %3 ]
+55:                                               ; preds = %3, %.thread, %7
+  %56 = phi i32 [ %54, %.thread ], [ 5, %7 ], [ 3, %3 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %56
@@ -2324,10 +2320,9 @@ define dso_local void @fib_add_ifaddr(ptr noundef readonly captures(none) %0) lo
 55:                                               ; preds = %50
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %57 = load i32, ptr %56, align 8
-  switch i32 %57, label %58 [
-    i32 0, label %84
-    i32 -1, label %84
-  ]
+  %.off = add i32 %57, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %58, label %84
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %29, align 8
@@ -2374,7 +2369,7 @@ define dso_local void @fib_add_ifaddr(ptr noundef readonly captures(none) %0) lo
   %83 = call i32 @arp_invalidate(ptr noundef %8, i32 noundef %82, i1 noundef zeroext false) #13
   br label %84
 
-84:                                               ; preds = %81, %55, %55
+84:                                               ; preds = %55, %81
   %85 = icmp eq i32 %15, 0
   br i1 %85, label %165, label %86
 

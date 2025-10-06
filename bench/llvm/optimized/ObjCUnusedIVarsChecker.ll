@@ -1721,8 +1721,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -2066,12 +2066,12 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12Dense
 define internal fastcc void @_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::iterator_range.639", align 8
   %4 = alloca %"struct.clang::ConstStmtIterator", align 8
-  %.not72 = icmp eq ptr %1, null
-  br i1 %.not72, label %.loopexit69, label %.lr.ph
+  %.not69 = icmp eq ptr %1, null
+  br i1 %.not69, label %.loopexit66, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr6873 = phi ptr [ %40, %tailrecurse ], [ %1, %2 ]
-  %5 = load i16, ptr %.tr6873, align 8
+  %.tr6570 = phi ptr [ %40, %tailrecurse ], [ %1, %2 ]
+  %5 = load i16, ptr %.tr6570, align 8
   %6 = and i16 %5, 511
   switch i16 %6, label %.loopexit [
     i16 36, label %7
@@ -2080,7 +2080,7 @@ define internal fastcc void @_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9I
   ]
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.tr6873, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %.tr6570, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !204
   %10 = load ptr, ptr %0, align 8, !tbaa !99
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2128,84 +2128,84 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12Dense
   %.sroa.0.1.i = phi ptr [ %35, %.loopexit.i ], [ %22, %14 ], [ %31, %27 ]
   %36 = zext i32 %12 to i64
   %37 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.252", ptr %10, i64 %36
-  %.not63 = icmp eq ptr %.sroa.0.1.i, %37
-  br i1 %.not63, label %.loopexit69, label %38
+  %.not60 = icmp eq ptr %.sroa.0.1.i, %37
+  br i1 %.not60, label %.loopexit66, label %38
 
 38:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E4findES5_.exit
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 8
   store i32 1, ptr %39, align 8, !tbaa !175
-  br label %.loopexit69
+  br label %.loopexit66
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %40 = tail call noundef ptr @_ZNK5clang9BlockExpr7getBodyEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr6873) #17
+  %40 = tail call noundef ptr @_ZNK5clang9BlockExpr7getBodyEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr6570) #17
   %.not = icmp eq ptr %40, null
-  br i1 %.not, label %.loopexit69, label %.lr.ph
+  br i1 %.not, label %.loopexit66, label %.lr.ph
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %.tr6873, i64 24
-  %43 = load i64, ptr %.tr6873, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %.tr6570, i64 24
+  %43 = load i64, ptr %.tr6570, align 8
   %44 = lshr i64 %43, 29
   %.idx.i = and i64 %44, 524280
   %45 = add nsw i64 %.idx.i, -8
   %46 = getelementptr i8, ptr %42, i64 %45
-  %.not4174 = icmp eq i64 %45, 0
-  br i1 %.not4174, label %.loopexit, label %.lr.ph76
+  %.not4171 = icmp eq i64 %45, 0
+  br i1 %.not4171, label %.loopexit, label %.lr.ph73
 
-.lr.ph76:                                         ; preds = %41, %53
-  %.03175 = phi ptr [ %54, %53 ], [ %42, %41 ]
-  %47 = load ptr, ptr %.03175, align 8, !tbaa !212
+.lr.ph73:                                         ; preds = %41, %53
+  %.03172 = phi ptr [ %54, %53 ], [ %42, %41 ]
+  %47 = load ptr, ptr %.03172, align 8, !tbaa !212
   %48 = load i16, ptr %47, align 8
   %49 = and i16 %48, 511
-  %.not67 = icmp eq i16 %49, 28
-  br i1 %.not67, label %50, label %53
+  %.not64 = icmp eq i16 %49, 28
+  br i1 %.not64, label %50, label %53
 
-50:                                               ; preds = %.lr.ph76
+50:                                               ; preds = %.lr.ph73
   %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %52 = load ptr, ptr %51, align 8, !tbaa !213
   br label %53
 
-53:                                               ; preds = %50, %.lr.ph76
-  %.032 = phi ptr [ %52, %50 ], [ %47, %.lr.ph76 ]
+53:                                               ; preds = %50, %.lr.ph73
+  %.032 = phi ptr [ %52, %50 ], [ %47, %.lr.ph73 ]
   tail call fastcc void @_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %.032)
-  %54 = getelementptr inbounds nuw i8, ptr %.03175, i64 8
+  %54 = getelementptr inbounds nuw i8, ptr %.03172, i64 8
   %.not41 = icmp eq ptr %54, %46
-  br i1 %.not41, label %.loopexit, label %.lr.ph76
+  br i1 %.not41, label %.loopexit, label %.lr.ph73
 
 .loopexit:                                        ; preds = %.lr.ph, %53, %41
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !215
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.639") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.tr6873) #17, !noalias !215
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.639") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %.tr6570) #17, !noalias !215
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %.sroa.451.24.copyload = load ptr, ptr %55, align 8
+  %.sroa.450.24.copyload = load ptr, ptr %55, align 8
   %.sroa.6.24..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.6.24.copyload = load i64, ptr %.sroa.6.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !215
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %57 = load ptr, ptr %4, align 8, !tbaa !128
-  %58 = icmp ne ptr %57, %.sroa.451.24.copyload
+  %58 = icmp ne ptr %57, %.sroa.450.24.copyload
   %59 = load i64, ptr %56, align 8
   %60 = icmp ne i64 %59, %.sroa.6.24.copyload
-  %.not3.i77 = select i1 %58, i1 true, i1 %60
-  br i1 %.not3.i77, label %.lr.ph78, label %._crit_edge
+  %.not3.i74 = select i1 %58, i1 true, i1 %60
+  br i1 %.not3.i74, label %.lr.ph75, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit69
+  br label %.loopexit66
 
-.lr.ph78:                                         ; preds = %.loopexit, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
+.lr.ph75:                                         ; preds = %.loopexit, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
   %61 = phi i64 [ %79, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %59, %.loopexit ]
   %62 = phi ptr [ %77, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %57, %.loopexit ]
   %63 = and i64 %61, 3
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %65
 
-65:                                               ; preds = %.lr.ph78
+65:                                               ; preds = %.lr.ph75
   %66 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   br label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph78, %65
-  %.in.i = phi ptr [ %66, %65 ], [ %62, %.lr.ph78 ]
+_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph75, %65
+  %.in.i = phi ptr [ %66, %65 ], [ %62, %.lr.ph75 ]
   %67 = load ptr, ptr %.in.i, align 8, !tbaa !218
   call fastcc void @_ZL4ScanRN4llvm8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEEPKNS1_4StmtE(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef %67)
   %68 = load i64, ptr %56, align 8, !tbaa !219
@@ -2233,13 +2233,13 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 
 _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %71, %75, %76
   %77 = load ptr, ptr %4, align 8, !tbaa !128
-  %78 = icmp ne ptr %77, %.sroa.451.24.copyload
+  %78 = icmp ne ptr %77, %.sroa.450.24.copyload
   %79 = load i64, ptr %56, align 8
   %80 = icmp ne i64 %79, %.sroa.6.24.copyload
   %.not3.i = select i1 %78, i1 true, i1 %80
-  br i1 %.not3.i, label %.lr.ph78, label %._crit_edge
+  br i1 %.not3.i, label %.lr.ph75, label %._crit_edge
 
-.loopexit69:                                      ; preds = %tailrecurse, %2, %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E4findES5_.exit, %._crit_edge
+.loopexit66:                                      ; preds = %tailrecurse, %2, %38, %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang12ObjCIvarDeclE9IVarStateNS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S6_EEEES5_S6_S8_SB_E4findES5_.exit, %._crit_edge
   ret void
 }
 

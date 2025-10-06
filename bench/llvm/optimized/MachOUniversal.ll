@@ -1722,8 +1722,8 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %_ZN4llvm6TripleD2Ev
   %37 = icmp ne ptr %36, %.sroa.09.0.copyload
   %38 = load i32, ptr %35, align 8
   %39 = icmp ne i32 %38, %.sroa.4.0.copyload
-  %.not3.i23 = select i1 %37, i1 true, i1 %39
-  br i1 %.not3.i23, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit6
+  %.not3.i21 = select i1 %37, i1 true, i1 %39
+  br i1 %.not3.i21, label %.lr.ph, label %_ZN4llvm5ErrorD2Ev.exit6
 
 .lr.ph:                                           ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %12, i64 8

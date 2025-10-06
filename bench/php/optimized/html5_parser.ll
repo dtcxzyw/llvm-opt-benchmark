@@ -73,35 +73,35 @@ define internal fastcc range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert(ptr no
   %9 = tail call ptr @php_dom_libxml_ns_mapper_ensure_html_ns(ptr noundef %8) #11
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %10 = call i32 @lexbor_array_obj_init(ptr noundef nonnull %7, i64 noundef 128, i64 noundef 32) #11
-  %.not291 = icmp eq ptr %0, null
-  br i1 %.not291, label %.preheader, label %.lr.ph
+  %.not290 = icmp eq ptr %0, null
+  br i1 %.not290, label %.preheader, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph, %6
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %12 = call ptr @lexbor_array_obj_pop(ptr noundef nonnull %7) #11
-  %.not217340 = icmp eq ptr %12, null
-  br i1 %.not217340, label %.thread281, label %.lr.ph344
+  %.not217339 = icmp eq ptr %12, null
+  br i1 %.not217339, label %.thread281, label %.lr.ph343
 
 .lr.ph:                                           ; preds = %6, %.lr.ph
-  %.0181292 = phi ptr [ %18, %.lr.ph ], [ %0, %6 ]
+  %.0181291 = phi ptr [ %18, %.lr.ph ], [ %0, %6 ]
   %13 = call ptr @lexbor_array_obj_push_wo_cls(ptr noundef nonnull %7) #11
-  store ptr %.0181292, ptr %13, align 8, !tbaa !22
+  store ptr %.0181291, ptr %13, align 8, !tbaa !22
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %14, align 8, !tbaa !26
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %2, ptr %15, align 8, !tbaa !27
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 24
   store ptr null, ptr %16, align 8, !tbaa !28
-  %17 = getelementptr inbounds nuw i8, ptr %.0181292, i64 48
+  %17 = getelementptr inbounds nuw i8, ptr %.0181291, i64 48
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %.preheader, label %.lr.ph
 
-.lr.ph344:                                        ; preds = %.preheader, %.backedge
+.lr.ph343:                                        ; preds = %.preheader, %.backedge
   %19 = phi ptr [ %243, %.backedge ], [ %12, %.preheader ]
-  %.0343 = phi i32 [ %.0.be, %.backedge ], [ 0, %.preheader ]
-  %.0156342 = phi ptr [ %.0156.be, %.backedge ], [ null, %.preheader ]
-  %.0168341 = phi ptr [ %.0168.be, %.backedge ], [ null, %.preheader ]
+  %.0342 = phi i32 [ %.0.be, %.backedge ], [ 0, %.preheader ]
+  %.0156341 = phi ptr [ %.0156.be, %.backedge ], [ null, %.preheader ]
+  %.0168340 = phi ptr [ %.0168.be, %.backedge ], [ null, %.preheader ]
   %20 = load ptr, ptr %19, align 8, !tbaa !22
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !27
@@ -114,7 +114,7 @@ define internal fastcc range(i32 0, 5) i32 @lexbor_libxml2_bridge_convert(ptr no
     i32 8, label %244
   ]
 
-25:                                               ; preds = %.lr.ph344
+25:                                               ; preds = %.lr.ph343
   %26 = call ptr @lxb_dom_element_local_name(ptr noundef nonnull %20, ptr noundef null) #11
   %27 = call ptr @xmlNewDocNode(ptr noundef %1, ptr noundef null, ptr noundef %26, ptr noundef null) #11
   %28 = icmp eq ptr %27, null
@@ -246,42 +246,42 @@ lxb_html_tree_node_is.exit:                       ; preds = %64
 lxb_html_tree_node_is.exit.thread:                ; preds = %64, %79, %82, %lxb_html_tree_node_is.exit
   %.0195 = phi ptr [ %67, %lxb_html_tree_node_is.exit ], [ %84, %82 ], [ %67, %79 ], [ %67, %64 ]
   %.0193 = phi ptr [ %27, %lxb_html_tree_node_is.exit ], [ %.1194, %82 ], [ %.1194, %79 ], [ %27, %64 ]
-  %.not225293 = icmp eq ptr %.0195, null
-  br i1 %.not225293, label %._crit_edge, label %.lr.ph295
+  %.not225292 = icmp eq ptr %.0195, null
+  br i1 %.not225292, label %._crit_edge, label %.lr.ph294
 
-.lr.ph295:                                        ; preds = %lxb_html_tree_node_is.exit.thread, %.lr.ph295
-  %.2197294 = phi ptr [ %90, %.lr.ph295 ], [ %.0195, %lxb_html_tree_node_is.exit.thread ]
+.lr.ph294:                                        ; preds = %lxb_html_tree_node_is.exit.thread, %.lr.ph294
+  %.2197293 = phi ptr [ %90, %.lr.ph294 ], [ %.0195, %lxb_html_tree_node_is.exit.thread ]
   %85 = call ptr @lexbor_array_obj_push_wo_cls(ptr noundef nonnull %7) #11
-  store ptr %.2197294, ptr %85, align 8, !tbaa !22
+  store ptr %.2197293, ptr %85, align 8, !tbaa !22
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store i64 %35, ptr %86, align 8, !tbaa !26
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
   store ptr %.0193, ptr %87, align 8, !tbaa !27
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 24
   store ptr %.0192, ptr %88, align 8, !tbaa !28
-  %89 = getelementptr inbounds nuw i8, ptr %.2197294, i64 48
+  %89 = getelementptr inbounds nuw i8, ptr %.2197293, i64 48
   %90 = load ptr, ptr %89, align 8, !tbaa !29
   %.not225 = icmp eq ptr %90, null
-  br i1 %.not225, label %._crit_edge, label %.lr.ph295
+  br i1 %.not225, label %._crit_edge, label %.lr.ph294
 
-._crit_edge:                                      ; preds = %.lr.ph295, %lxb_html_tree_node_is.exit.thread
+._crit_edge:                                      ; preds = %.lr.ph294, %lxb_html_tree_node_is.exit.thread
   %91 = getelementptr inbounds nuw i8, ptr %20, i64 128
-  %.0202296 = load ptr, ptr %91, align 8, !tbaa !68
-  %.not226297 = icmp eq ptr %.0202296, null
-  br i1 %.not226297, label %.backedge, label %.lr.ph303
+  %.0202295 = load ptr, ptr %91, align 8, !tbaa !68
+  %.not226296 = icmp eq ptr %.0202295, null
+  br i1 %.not226296, label %.backedge, label %.lr.ph302
 
-.lr.ph303:                                        ; preds = %._crit_edge
+.lr.ph302:                                        ; preds = %._crit_edge
   %92 = getelementptr inbounds nuw i8, ptr %27, i64 88
   br label %93
 
-93:                                               ; preds = %.lr.ph303, %183
-  %.0202301 = phi ptr [ %.0202296, %.lr.ph303 ], [ %.0202, %183 ]
-  %.3159300 = phi ptr [ %.0156342, %.lr.ph303 ], [ %.8164, %183 ]
-  %.3171299 = phi ptr [ %.0168341, %.lr.ph303 ], [ %.10178, %183 ]
-  %.0198298 = phi ptr [ null, %.lr.ph303 ], [ %114, %183 ]
-  %94 = getelementptr i8, ptr %.0202301, i64 8
+93:                                               ; preds = %.lr.ph302, %183
+  %.0202300 = phi ptr [ %.0202295, %.lr.ph302 ], [ %.0202, %183 ]
+  %.3159299 = phi ptr [ %.0156341, %.lr.ph302 ], [ %.8164, %183 ]
+  %.3171298 = phi ptr [ %.0168340, %.lr.ph302 ], [ %.10178, %183 ]
+  %.0198297 = phi ptr [ null, %.lr.ph302 ], [ %114, %183 ]
+  %94 = getelementptr i8, ptr %.0202300, i64 8
   %.0202.val = load i64, ptr %94, align 8, !tbaa !69
-  %95 = getelementptr i8, ptr %.0202301, i64 32
+  %95 = getelementptr i8, ptr %.0202300, i64 32
   %.0202.val232 = load ptr, ptr %95, align 8, !tbaa !71
   %96 = getelementptr i8, ptr %.0202.val232, i64 208
   %.0202.val232.val = load ptr, ptr %96, align 8, !tbaa !72
@@ -297,7 +297,7 @@ lxb_html_tree_node_is.exit.thread:                ; preds = %64, %79, %82, %lxb_
 
 lxb_dom_attr_local_name.exit:                     ; preds = %93, %101
   %.0.i.i = phi ptr [ %102, %101 ], [ %97, %93 ]
-  %103 = getelementptr i8, ptr %.0202301, i64 120
+  %103 = getelementptr i8, ptr %.0202300, i64 120
   %.0202.val233 = load ptr, ptr %103, align 8, !tbaa !80
   %104 = icmp eq ptr %.0202.val233, null
   br i1 %104, label %lxb_dom_attr_value.exit, label %105
@@ -365,8 +365,8 @@ lxb_dom_attr_value.exit:                          ; preds = %lxb_dom_attr_local_
 lexbor_libxml2_bridge_new_text_node_fast.exit:    ; preds = %116
   %136 = trunc nuw nsw i64 %.sink.i237 to i32
   %137 = call ptr @xmlNewDocTextLen(ptr noundef nonnull %1, ptr noundef %.0.i238, i32 noundef %136) #11
-  %.not288 = icmp eq ptr %137, null
-  br i1 %.not288, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread, !prof !98
+  %.not287 = icmp eq ptr %137, null
+  br i1 %.not287, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, label %lexbor_libxml2_bridge_new_text_node_fast.exit.thread, !prof !98
 
 lexbor_libxml2_bridge_new_text_node_fast.exit.thread250: ; preds = %125, %lexbor_libxml2_bridge_new_text_node_fast.exit
   call void @xmlFreeProp(ptr noundef nonnull %114) #11
@@ -380,7 +380,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   store ptr %.1.i249, ptr %139, align 8, !tbaa !100
   %140 = getelementptr inbounds nuw i8, ptr %.1.i249, i64 40
   store ptr %114, ptr %140, align 8, !tbaa !58
-  %141 = getelementptr inbounds nuw i8, ptr %.0202301, i64 24
+  %141 = getelementptr inbounds nuw i8, ptr %.0202300, i64 24
   %142 = load i64, ptr %141, align 8, !tbaa !101
   switch i64 %142, label %163 [
     i64 7, label %143
@@ -393,7 +393,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   br i1 %.not227, label %149, label %145
 
 145:                                              ; preds = %143
-  %146 = icmp eq ptr %.3171299, null
+  %146 = icmp eq ptr %.3171298, null
   br i1 %146, label %147, label %151
 
 147:                                              ; preds = %145
@@ -405,8 +405,8 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   br label %151
 
 151:                                              ; preds = %145, %147, %149
-  %.sink = phi ptr [ %150, %149 ], [ %148, %147 ], [ %.3171299, %145 ]
-  %.9177 = phi ptr [ %.3171299, %149 ], [ %148, %147 ], [ %.3171299, %145 ]
+  %.sink = phi ptr [ %150, %149 ], [ %148, %147 ], [ %.3171298, %145 ]
+  %.9177 = phi ptr [ %.3171298, %149 ], [ %148, %147 ], [ %.3171298, %145 ]
   %152 = getelementptr inbounds nuw i8, ptr %114, i64 72
   store ptr %.sink, ptr %152, align 8, !tbaa !102
   %153 = load ptr, ptr @php_dom_ns_is_xmlns_magic_token, align 8, !tbaa !41
@@ -415,7 +415,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   br label %163
 
 155:                                              ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit.thread
-  %156 = icmp eq ptr %.3159300, null
+  %156 = icmp eq ptr %.3159299, null
   br i1 %156, label %157, label %161
 
 157:                                              ; preds = %155
@@ -426,15 +426,15 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   br label %161
 
 161:                                              ; preds = %157, %155
-  %.9165 = phi ptr [ %158, %157 ], [ %.3159300, %155 ]
+  %.9165 = phi ptr [ %158, %157 ], [ %.3159299, %155 ]
   %162 = getelementptr inbounds nuw i8, ptr %114, i64 72
   store ptr %.9165, ptr %162, align 8, !tbaa !102
   br label %163
 
 163:                                              ; preds = %lexbor_libxml2_bridge_new_text_node_fast.exit.thread, %161, %151
-  %.10178 = phi ptr [ %.9177, %151 ], [ %.3171299, %161 ], [ %.3171299, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread ]
-  %.8164 = phi ptr [ %.3159300, %151 ], [ %.9165, %161 ], [ %.3159300, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread ]
-  %164 = icmp eq ptr %.0198298, null
+  %.10178 = phi ptr [ %.9177, %151 ], [ %.3171298, %161 ], [ %.3171298, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread ]
+  %.8164 = phi ptr [ %.3159299, %151 ], [ %.9165, %161 ], [ %.3159299, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread ]
+  %164 = icmp eq ptr %.0198297, null
   br i1 %164, label %165, label %166
 
 165:                                              ; preds = %163
@@ -442,10 +442,10 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   br label %169
 
 166:                                              ; preds = %163
-  %167 = getelementptr inbounds nuw i8, ptr %.0198298, i64 48
+  %167 = getelementptr inbounds nuw i8, ptr %.0198297, i64 48
   store ptr %114, ptr %167, align 8, !tbaa !104
   %168 = getelementptr inbounds nuw i8, ptr %114, i64 56
-  store ptr %.0198298, ptr %168, align 8, !tbaa !105
+  store ptr %.0198297, ptr %168, align 8, !tbaa !105
   br label %169
 
 169:                                              ; preds = %166, %165
@@ -473,12 +473,12 @@ lexbor_libxml2_bridge_new_text_node_fast.exit.thread: ; preds = %129, %135, %lex
   br label %183
 
 183:                                              ; preds = %169, %171, %174, %178, %181
-  %184 = getelementptr inbounds nuw i8, ptr %.0202301, i64 136
+  %184 = getelementptr inbounds nuw i8, ptr %.0202300, i64 136
   %.0202 = load ptr, ptr %184, align 8, !tbaa !68
   %.not226 = icmp eq ptr %.0202, null
   br i1 %.not226, label %.backedge, label %93
 
-185:                                              ; preds = %.lr.ph344
+185:                                              ; preds = %.lr.ph343
   %186 = getelementptr inbounds nuw i8, ptr %20, i64 112
   %187 = load i64, ptr %186, align 8, !tbaa !106
   %188 = icmp ugt i64 %187, 2147483646
@@ -543,7 +543,7 @@ lexbor_libxml2_bridge_new_text_node_fast.exit231.thread: ; preds = %197, %203, %
   store i16 %216, ptr %217, align 8, !tbaa !32
   br label %.backedge
 
-218:                                              ; preds = %.lr.ph344
+218:                                              ; preds = %.lr.ph343
   %219 = getelementptr inbounds nuw i8, ptr %20, i64 32
   %220 = load ptr, ptr %219, align 8, !tbaa !112
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 208
@@ -587,15 +587,15 @@ lxb_dom_document_type_name.exit:                  ; preds = %218, %227, %230, %2
   %.not221.not = icmp eq ptr %242, null
   br i1 %.not221.not, label %.thread281, label %.backedge
 
-.backedge:                                        ; preds = %lxb_dom_attr_value.exit, %112, %183, %.lr.ph344, %._crit_edge, %lxb_dom_document_type_name.exit, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, %211, %215, %248
-  %.0168.be = phi ptr [ %.0168341, %248 ], [ %.0168341, %211 ], [ %.0168341, %215 ], [ %.3171299, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0168341, %lxb_dom_document_type_name.exit ], [ %.0168341, %.lr.ph344 ], [ %.0168341, %._crit_edge ], [ %.3171299, %lxb_dom_attr_value.exit ], [ %.3171299, %112 ], [ %.10178, %183 ]
-  %.0156.be = phi ptr [ %.0156342, %248 ], [ %.0156342, %211 ], [ %.0156342, %215 ], [ %.3159300, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0156342, %lxb_dom_document_type_name.exit ], [ %.0156342, %.lr.ph344 ], [ %.0156342, %._crit_edge ], [ %.3159300, %lxb_dom_attr_value.exit ], [ %.3159300, %112 ], [ %.8164, %183 ]
-  %.0.be = phi i32 [ %.0343, %248 ], [ %.0343, %211 ], [ %.0343, %215 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0343, %lxb_dom_document_type_name.exit ], [ %.0343, %.lr.ph344 ], [ %.0343, %._crit_edge ], [ 3, %lxb_dom_attr_value.exit ], [ 4, %112 ], [ %.0343, %183 ]
+.backedge:                                        ; preds = %lxb_dom_attr_value.exit, %112, %183, %.lr.ph343, %._crit_edge, %lxb_dom_document_type_name.exit, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250, %211, %215, %248
+  %.0168.be = phi ptr [ %.0168340, %248 ], [ %.0168340, %211 ], [ %.0168340, %215 ], [ %.3171298, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0168340, %lxb_dom_document_type_name.exit ], [ %.0168340, %.lr.ph343 ], [ %.0168340, %._crit_edge ], [ %.3171298, %lxb_dom_attr_value.exit ], [ %.3171298, %112 ], [ %.10178, %183 ]
+  %.0156.be = phi ptr [ %.0156341, %248 ], [ %.0156341, %211 ], [ %.0156341, %215 ], [ %.3159299, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0156341, %lxb_dom_document_type_name.exit ], [ %.0156341, %.lr.ph343 ], [ %.0156341, %._crit_edge ], [ %.3159299, %lxb_dom_attr_value.exit ], [ %.3159299, %112 ], [ %.8164, %183 ]
+  %.0.be = phi i32 [ %.0342, %248 ], [ %.0342, %211 ], [ %.0342, %215 ], [ 4, %lexbor_libxml2_bridge_new_text_node_fast.exit.thread250 ], [ %.0342, %lxb_dom_document_type_name.exit ], [ %.0342, %.lr.ph343 ], [ %.0342, %._crit_edge ], [ 3, %lxb_dom_attr_value.exit ], [ 4, %112 ], [ %.0342, %183 ]
   %243 = call ptr @lexbor_array_obj_pop(ptr noundef nonnull %7) #11
   %.not217 = icmp eq ptr %243, null
-  br i1 %.not217, label %.thread281, label %.lr.ph344
+  br i1 %.not217, label %.thread281, label %.lr.ph343
 
-244:                                              ; preds = %.lr.ph344
+244:                                              ; preds = %.lr.ph343
   %245 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %246 = load ptr, ptr %245, align 8, !tbaa !120
   %247 = call ptr @xmlNewDocComment(ptr noundef %1, ptr noundef %246) #11

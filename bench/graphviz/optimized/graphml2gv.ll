@@ -1211,7 +1211,7 @@ define internal fastcc void @push_subg(ptr noundef %0) unnamed_addr #11 {
 
 ._crit_edge.i.i.i:                                ; preds = %5
   %.pre.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @Gstack, i64 8), align 8, !tbaa !51
-  %.pre4.i.i.i = load ptr, ptr @Gstack, align 8, !tbaa !34
+  %.pre3.i.i.i = load ptr, ptr @Gstack, align 8, !tbaa !34
   br label %graph_stack_push_back.exit
 
 8:                                                ; preds = %5
@@ -1264,7 +1264,7 @@ define internal fastcc void @push_subg(ptr noundef %0) unnamed_addr #11 {
   unreachable
 
 graph_stack_push_back.exit:                       ; preds = %._crit_edge.i.i.i, %30
-  %36 = phi ptr [ %.pre4.i.i.i, %._crit_edge.i.i.i ], [ %13, %30 ]
+  %36 = phi ptr [ %.pre3.i.i.i, %._crit_edge.i.i.i ], [ %13, %30 ]
   %37 = phi i64 [ %6, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %30 ]
   %38 = phi i64 [ %2, %._crit_edge.i.i.i ], [ %21, %30 ]
   %39 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %31, %30 ]
@@ -1308,7 +1308,7 @@ gv_strdup.exit:                                   ; preds = %2
 ._crit_edge.i.i.i:                                ; preds = %gv_strdup.exit
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !55
-  %.pre46.i.i.i = load ptr, ptr %0, align 8, !tbaa !54
+  %.pre45.i.i.i = load ptr, ptr %0, align 8, !tbaa !54
   br label %strs_push_back.exit
 
 15:                                               ; preds = %gv_strdup.exit
@@ -1363,7 +1363,7 @@ gv_strdup.exit:                                   ; preds = %2
   unreachable
 
 strs_push_back.exit:                              ; preds = %._crit_edge.i.i.i, %39
-  %45 = phi ptr [ %.pre46.i.i.i, %._crit_edge.i.i.i ], [ %21, %39 ]
+  %45 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %21, %39 ]
   %46 = phi i64 [ %13, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %39 ]
   %47 = phi i64 [ %11, %._crit_edge.i.i.i ], [ %30, %39 ]
   %48 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %40, %39 ]

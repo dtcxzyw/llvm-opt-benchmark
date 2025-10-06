@@ -1519,7 +1519,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   br label %53
 
-.preheader151:                                    ; preds = %53
+.preheader150:                                    ; preds = %53
   %49 = add i64 %28, -3
   %50 = uitofp i64 %49 to float
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1544,9 +1544,9 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   store i64 %63, ptr %64, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
-  br i1 %exitcond.not, label %.preheader151, label %53, !llvm.loop !113
+  br i1 %exitcond.not, label %.preheader150, label %53, !llvm.loop !113
 
-._crit_edge:                                      ; preds = %.lr.ph, %.preheader151
+._crit_edge:                                      ; preds = %.lr.ph, %.preheader150
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
@@ -1554,21 +1554,21 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %23, i8 0, i64 128, i1 false), !tbaa !110
   br label %84
 
-.lr.ph:                                           ; preds = %.preheader151, %.lr.ph
-  %.0106157 = phi i64 [ %68, %.lr.ph ], [ 0, %.preheader151 ]
-  %65 = getelementptr inbounds nuw i64, ptr %17, i64 %.0106157
+.lr.ph:                                           ; preds = %.preheader150, %.lr.ph
+  %.0106156 = phi i64 [ %68, %.lr.ph ], [ 0, %.preheader150 ]
+  %65 = getelementptr inbounds nuw i64, ptr %17, i64 %.0106156
   %66 = load i64, ptr %65, align 8, !tbaa !110
   %67 = mul i64 %66, %.val
   store i64 %67, ptr %65, align 8, !tbaa !110
-  %68 = add nuw i64 %.0106157, 1
-  %exitcond175.not = icmp eq i64 %68, %.val
-  br i1 %exitcond175.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
+  %68 = add nuw i64 %.0106156, 1
+  %exitcond174.not = icmp eq i64 %68, %.val
+  br i1 %exitcond174.not, label %._crit_edge, label %.lr.ph, !llvm.loop !114
 
-.preheader150:                                    ; preds = %84
+.preheader149:                                    ; preds = %84
   %69 = icmp sgt i64 %3, 0
-  br i1 %69, label %.lr.ph168, label %._crit_edge169
+  br i1 %69, label %.lr.ph167, label %._crit_edge168
 
-.lr.ph168:                                        ; preds = %.preheader150
+.lr.ph167:                                        ; preds = %.preheader149
   %70 = add i64 %.val120, -1
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -1582,23 +1582,23 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %.val121.pre = load ptr, ptr %51, align 8, !tbaa !106
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val121.pre, i64 72
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !115
-  %.phi.trans.insert178 = getelementptr inbounds nuw i8, ptr %.val121.pre, i64 64
-  %.pre179 = load ptr, ptr %.phi.trans.insert178, align 8, !tbaa !104
+  %.phi.trans.insert177 = getelementptr inbounds nuw i8, ptr %.val121.pre, i64 64
+  %.pre178 = load ptr, ptr %.phi.trans.insert177, align 8, !tbaa !104
   %80 = ptrtoint ptr %.pre to i64
-  %81 = ptrtoint ptr %.pre179 to i64
+  %81 = ptrtoint ptr %.pre178 to i64
   %82 = sub i64 %80, %81
   %83 = ashr exact i64 %82, 3
   br label %87
 
 84:                                               ; preds = %._crit_edge, %84
-  %.0108158 = phi i64 [ 0, %._crit_edge ], [ %86, %84 ]
-  %85 = getelementptr inbounds nuw i64, ptr %22, i64 %.0108158
+  %.0108157 = phi i64 [ 0, %._crit_edge ], [ %86, %84 ]
+  %85 = getelementptr inbounds nuw i64, ptr %22, i64 %.0108157
   store i64 1, ptr %85, align 8, !tbaa !110
-  %86 = add nuw nsw i64 %.0108158, 1
-  %exitcond176.not = icmp eq i64 %86, 16
-  br i1 %exitcond176.not, label %.preheader150, label %84, !llvm.loop !116
+  %86 = add nuw nsw i64 %.0108157, 1
+  %exitcond175.not = icmp eq i64 %86, 16
+  br i1 %exitcond175.not, label %.preheader149, label %84, !llvm.loop !116
 
-._crit_edge169:                                   ; preds = %425, %.preheader150
+._crit_edge168:                                   ; preds = %425, %.preheader149
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -1608,22 +1608,22 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   ret void
 
-87:                                               ; preds = %.lr.ph168, %425
-  %.0109167 = phi ptr [ %1, %.lr.ph168 ], [ %426, %425 ]
-  %.0111166 = phi ptr [ %2, %.lr.ph168 ], [ %427, %425 ]
-  %.0112165 = phi i64 [ 0, %.lr.ph168 ], [ %428, %425 ]
-  %88 = load float, ptr %.0109167, align 4, !tbaa !99
+87:                                               ; preds = %.lr.ph167, %425
+  %.0109166 = phi ptr [ %1, %.lr.ph167 ], [ %426, %425 ]
+  %.0111165 = phi ptr [ %2, %.lr.ph167 ], [ %427, %425 ]
+  %.0112164 = phi i64 [ 0, %.lr.ph167 ], [ %428, %425 ]
+  %88 = load float, ptr %.0109166, align 4, !tbaa !99
   %89 = fcmp ogt float %88, 0.000000e+00
   %.sroa.speculated2.i = select i1 %89, float %88, float 0.000000e+00
   %90 = fcmp ogt float %.sroa.speculated2.i, 1.000000e+00
   %.sroa.speculated.i = select i1 %90, float 1.000000e+00, float %.sroa.speculated2.i
-  %91 = getelementptr inbounds nuw i8, ptr %.0109167, i64 4
+  %91 = getelementptr inbounds nuw i8, ptr %.0109166, i64 4
   %92 = load float, ptr %91, align 4, !tbaa !99
   %93 = fcmp ogt float %92, 0.000000e+00
   %.sroa.speculated2.i131 = select i1 %93, float %92, float 0.000000e+00
   %94 = fcmp ogt float %.sroa.speculated2.i131, 1.000000e+00
   %.sroa.speculated.i132 = select i1 %94, float 1.000000e+00, float %.sroa.speculated2.i131
-  %95 = getelementptr inbounds nuw i8, ptr %.0109167, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.0109166, i64 8
   %96 = load float, ptr %95, align 4, !tbaa !99
   %97 = fcmp ogt float %96, 0.000000e+00
   %.sroa.speculated2.i133 = select i1 %97, float %96, float 0.000000e+00
@@ -1636,36 +1636,36 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   store i64 0, ptr %23, align 16, !tbaa !110
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %25, i8 0, i64 12, i1 false)
-  %99 = getelementptr inbounds nuw i8, ptr %.0111166, i64 4
-  %100 = getelementptr inbounds nuw i8, ptr %.0111166, i64 8
-  %101 = getelementptr inbounds nuw i8, ptr %.0109167, i64 12
-  %102 = getelementptr inbounds nuw i8, ptr %.0111166, i64 12
-  br label %.preheader148
+  %99 = getelementptr inbounds nuw i8, ptr %.0111165, i64 4
+  %100 = getelementptr inbounds nuw i8, ptr %.0111165, i64 8
+  %101 = getelementptr inbounds nuw i8, ptr %.0109166, i64 12
+  %102 = getelementptr inbounds nuw i8, ptr %.0111165, i64 12
+  br label %.preheader147
 
-.preheader148:                                    ; preds = %87, %.loopexit
+.preheader147:                                    ; preds = %87, %.loopexit
   %103 = phi float [ 0.000000e+00, %87 ], [ %404, %.loopexit ]
   %104 = phi float [ 0.000000e+00, %87 ], [ %405, %.loopexit ]
   %105 = phi float [ 0.000000e+00, %87 ], [ %406, %.loopexit ]
-  %.0110164 = phi i64 [ 0, %87 ], [ %407, %.loopexit ]
-  %106 = getelementptr inbounds nuw i64, ptr %21, i64 %.0110164
+  %.0110163 = phi i64 [ 0, %87 ], [ %407, %.loopexit ]
+  %106 = getelementptr inbounds nuw i64, ptr %21, i64 %.0110163
   %107 = load i64, ptr %106, align 8, !tbaa !110
-  %108 = getelementptr inbounds nuw i64, ptr %22, i64 %.0110164
+  %108 = getelementptr inbounds nuw i64, ptr %22, i64 %.0110163
   %109 = load i64, ptr %108, align 8, !tbaa !110
   %110 = icmp ult i64 %107, %109
-  br i1 %110, label %.lr.ph163, label %.loopexit
+  br i1 %110, label %.lr.ph162, label %.loopexit
 
-.lr.ph163:                                        ; preds = %.preheader148
+.lr.ph162:                                        ; preds = %.preheader147
   %.val130 = load ptr, ptr %52, align 8
   %111 = load ptr, ptr %76, align 8
   br label %112
 
-112:                                              ; preds = %.lr.ph163, %398
-  %113 = phi i64 [ %107, %.lr.ph163 ], [ %400, %398 ]
-  %114 = phi ptr [ %106, %.lr.ph163 ], [ %399, %398 ]
-  %.1162 = phi i64 [ %.0110164, %.lr.ph163 ], [ %.5, %398 ]
-  %115 = getelementptr inbounds i64, ptr %23, i64 %.1162
+112:                                              ; preds = %.lr.ph162, %398
+  %113 = phi i64 [ %107, %.lr.ph162 ], [ %400, %398 ]
+  %114 = phi ptr [ %106, %.lr.ph162 ], [ %399, %398 ]
+  %.1161 = phi i64 [ %.0110163, %.lr.ph162 ], [ %.5, %398 ]
+  %115 = getelementptr inbounds i64, ptr %23, i64 %.1161
   %116 = load i64, ptr %115, align 8, !tbaa !110
-  %117 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val121.pre, i64 %.1162
+  %117 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::treeLevel", ptr %.val121.pre, i64 %.1161
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = mul i64 %116, %.val
   %120 = load ptr, ptr %118, align 8, !tbaa !86
@@ -1713,18 +1713,18 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   br i1 %147, label %398, label %150
 
 150:                                              ; preds = %144
-  %151 = icmp eq i64 %.1162, %70
+  %151 = icmp eq i64 %.1161, %70
   br i1 %151, label %.preheader, label %382
 
 .preheader:                                       ; preds = %150
-  br i1 %.not, label %._crit_edge161, label %.lr.ph160
+  br i1 %.not, label %._crit_edge160, label %.lr.ph159
 
-.lr.ph160:                                        ; preds = %.preheader
+.lr.ph159:                                        ; preds = %.preheader
   %152 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::(anonymous namespace)::InvLut3DRenderer::baseInd", ptr %.val130, i64 %116
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %24, ptr align 8 %152, i64 %79, i1 false), !tbaa !110
-  br label %._crit_edge161
+  br label %._crit_edge160
 
-._crit_edge161:                                   ; preds = %.lr.ph160, %.preheader
+._crit_edge160:                                   ; preds = %.lr.ph159, %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store float %.sroa.speculated.i, ptr %26, align 4, !tbaa !99
   store float %.sroa.speculated.i132, ptr %74, align 4, !tbaa !99
@@ -1747,9 +1747,9 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %153 = getelementptr float, ptr %111, i64 %160
   br label %162
 
-154:                                              ; preds = %154, %._crit_edge161
-  %.0265372.i = phi i64 [ 0, %._crit_edge161 ], [ %160, %154 ]
-  %.0266371.i = phi i64 [ 0, %._crit_edge161 ], [ %161, %154 ]
+154:                                              ; preds = %154, %._crit_edge160
+  %.0265372.i = phi i64 [ 0, %._crit_edge160 ], [ %160, %154 ]
+  %.0266371.i = phi i64 [ 0, %._crit_edge160 ], [ %161, %154 ]
   %155 = getelementptr inbounds nuw i64, ptr %24, i64 %.0266371.i
   %156 = load i64, ptr %155, align 8, !tbaa !110
   %157 = getelementptr inbounds nuw i64, ptr %17, i64 %.0266371.i
@@ -2229,9 +2229,9 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  %.pre180 = load float, ptr %25, align 4, !tbaa !99
-  %.pre181 = load float, ptr %72, align 4, !tbaa !99
-  %.pre182 = load float, ptr %73, align 4, !tbaa !99
+  %.pre179 = load float, ptr %25, align 4, !tbaa !99
+  %.pre180 = load float, ptr %72, align 4, !tbaa !99
+  %.pre181 = load float, ptr %73, align 4, !tbaa !99
   br label %.loopexit
 
 382:                                              ; preds = %150
@@ -2239,7 +2239,7 @@ define internal void @_ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_116InvLut3DRenderer5
   %384 = load ptr, ptr %383, align 8, !tbaa !104
   %385 = getelementptr inbounds nuw i64, ptr %384, i64 %116
   %386 = load i64, ptr %385, align 8, !tbaa !110
-  %387 = shl i64 %.1162, 32
+  %387 = shl i64 %.1161, 32
   %sext = add i64 %387, 4294967296
   %388 = ashr exact i64 %sext, 32
   %389 = getelementptr inbounds i64, ptr %22, i64 %388
@@ -2278,7 +2278,7 @@ select.unfold:                                    ; preds = %.thread347.i
   br label %398
 
 398:                                              ; preds = %select.unfold, %144, %382, %.critedge
-  %.5 = phi i64 [ %388, %382 ], [ %.1162, %144 ], [ %.1162, %.critedge ], [ %70, %select.unfold ]
+  %.5 = phi i64 [ %388, %382 ], [ %.1161, %144 ], [ %.1161, %.critedge ], [ %70, %select.unfold ]
   %399 = getelementptr inbounds i64, ptr %21, i64 %.5
   %400 = load i64, ptr %399, align 8, !tbaa !110
   %401 = getelementptr inbounds i64, ptr %22, i64 %.5
@@ -2286,11 +2286,11 @@ select.unfold:                                    ; preds = %.thread347.i
   %403 = icmp ult i64 %400, %402
   br i1 %403, label %112, label %.loopexit
 
-.loopexit:                                        ; preds = %398, %.preheader148, %.thread
-  %404 = phi float [ %.pre182, %.thread ], [ %103, %.preheader148 ], [ %103, %398 ]
-  %405 = phi float [ %.pre181, %.thread ], [ %104, %.preheader148 ], [ %104, %398 ]
-  %406 = phi float [ %.pre180, %.thread ], [ %105, %.preheader148 ], [ %105, %398 ]
-  %.2 = phi i64 [ 0, %.thread ], [ %.0110164, %.preheader148 ], [ %.5, %398 ]
+.loopexit:                                        ; preds = %398, %.preheader147, %.thread
+  %404 = phi float [ %.pre181, %.thread ], [ %103, %.preheader147 ], [ %103, %398 ]
+  %405 = phi float [ %.pre180, %.thread ], [ %104, %.preheader147 ], [ %104, %398 ]
+  %406 = phi float [ %.pre179, %.thread ], [ %105, %.preheader147 ], [ %105, %398 ]
+  %.2 = phi i64 [ 0, %.thread ], [ %.0110163, %.preheader147 ], [ %.5, %398 ]
   %407 = add nsw i64 %.2, -1
   %408 = fadd float %406, -1.000000e+00
   %409 = fcmp ogt float %408, 0.000000e+00
@@ -2299,7 +2299,7 @@ select.unfold:                                    ; preds = %.thread347.i
   %.sroa.speculated.i136 = select i1 %410, float %50, float %.sroa.speculated2.i135
   %411 = load float, ptr %71, align 8, !tbaa !67
   %412 = fmul float %411, %.sroa.speculated.i136
-  store float %412, ptr %.0111166, align 4, !tbaa !99
+  store float %412, ptr %.0111165, align 4, !tbaa !99
   %413 = fadd float %405, -1.000000e+00
   %414 = fcmp ogt float %413, 0.000000e+00
   %.sroa.speculated2.i137 = select i1 %414, float %413, float 0.000000e+00
@@ -2319,16 +2319,16 @@ select.unfold:                                    ; preds = %.thread347.i
   %423 = load float, ptr %101, align 4, !tbaa !99
   store float %423, ptr %102, align 4, !tbaa !99
   %424 = icmp sgt i64 %.2, 0
-  br i1 %424, label %.preheader148, label %425, !llvm.loop !139
+  br i1 %424, label %.preheader147, label %425, !llvm.loop !139
 
 425:                                              ; preds = %.loopexit
-  %426 = getelementptr inbounds nuw i8, ptr %.0109167, i64 16
-  %427 = getelementptr inbounds nuw i8, ptr %.0111166, i64 16
+  %426 = getelementptr inbounds nuw i8, ptr %.0109166, i64 16
+  %427 = getelementptr inbounds nuw i8, ptr %.0111165, i64 16
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %428 = add nuw nsw i64 %.0112165, 1
-  %exitcond177.not = icmp eq i64 %428, %3
-  br i1 %exitcond177.not, label %._crit_edge169, label %87, !llvm.loop !140
+  %428 = add nuw nsw i64 %.0112164, 1
+  %exitcond176.not = icmp eq i64 %428, %3
+  br i1 %exitcond176.not, label %._crit_edge168, label %87, !llvm.loop !140
 }
 
 ; Function Attrs: mustprogress uwtable

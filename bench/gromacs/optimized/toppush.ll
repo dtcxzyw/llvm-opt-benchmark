@@ -16212,56 +16212,56 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   br i1 %.not.i.i.i.i.i.i, label %94, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i"
 
 94:                                               ; preds = %89
-  br i1 %4, label %.preheader.i.i.i.i.i.i, label %.preheader29.i.i.i.i.i.i
+  br i1 %4, label %.preheader.i.i.i.i.i.i, label %.preheader28.i.i.i.i.i.i
 
-.preheader29.i.i.i.i.i.i:                         ; preds = %94
+.preheader28.i.i.i.i.i.i:                         ; preds = %94
   br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph.i.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader29.i.i.i.i.i.i
+.lr.ph.i.i.i.i.i.i:                               ; preds = %.preheader28.i.i.i.i.i.i
   %95 = load ptr, ptr %87, align 8, !tbaa !258
   br label %111
 
 .preheader.i.i.i.i.i.i:                           ; preds = %94
-  br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph36.i.i.i.i.i.i
+  br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph35.i.i.i.i.i.i
 
-.lr.ph36.i.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i.i
+.lr.ph35.i.i.i.i.i.i:                             ; preds = %.preheader.i.i.i.i.i.i
   %96 = load ptr, ptr %87, align 8, !tbaa !258
   br label %99
 
 97:                                               ; preds = %99
-  %98 = add nuw nsw i64 %.01435.i.i.i.i.i.i, 1
-  %exitcond44.not.i.i.i.i.i.i = icmp eq i64 %98, %85
-  br i1 %exitcond44.not.i.i.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %99, !llvm.loop !319
+  %98 = add nuw nsw i64 %.01434.i.i.i.i.i.i, 1
+  %exitcond43.not.i.i.i.i.i.i = icmp eq i64 %98, %85
+  br i1 %exitcond43.not.i.i.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %99, !llvm.loop !319
 
-99:                                               ; preds = %97, %.lr.ph36.i.i.i.i.i.i
-  %.01435.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph36.i.i.i.i.i.i ], [ %98, %97 ]
-  %100 = getelementptr inbounds nuw i32, ptr %76, i64 %.01435.i.i.i.i.i.i
+99:                                               ; preds = %97, %.lr.ph35.i.i.i.i.i.i
+  %.01434.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph35.i.i.i.i.i.i ], [ %98, %97 ]
+  %100 = getelementptr inbounds nuw i32, ptr %76, i64 %.01434.i.i.i.i.i.i
   %101 = load i32, ptr %100, align 4, !tbaa !41
   %102 = sext i32 %101 to i64
   %103 = getelementptr inbounds %struct.t_atom, ptr %96, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 18
   %105 = load i16, ptr %104, align 2, !tbaa !271
   %106 = zext i16 %105 to i32
-  %107 = getelementptr inbounds nuw i32, ptr %.val.i.i.i.i, i64 %.01435.i.i.i.i.i.i
+  %107 = getelementptr inbounds nuw i32, ptr %.val.i.i.i.i, i64 %.01434.i.i.i.i.i.i
   %108 = load i32, ptr %107, align 4, !tbaa !41
   %.not18.i.i.i.i.i.i = icmp eq i32 %108, %106
   br i1 %.not18.i.i.i.i.i.i, label %97, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i"
 
 109:                                              ; preds = %111
-  %110 = add nuw nsw i64 %.032.i.i.i.i.i.i, 1
+  %110 = add nuw nsw i64 %.031.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %110, %85
   br i1 %exitcond.not.i.i.i.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %111, !llvm.loop !320
 
 111:                                              ; preds = %109, %.lr.ph.i.i.i.i.i.i
-  %.032.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %110, %109 ]
-  %112 = getelementptr inbounds nuw i32, ptr %76, i64 %.032.i.i.i.i.i.i
+  %.031.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %110, %109 ]
+  %112 = getelementptr inbounds nuw i32, ptr %76, i64 %.031.i.i.i.i.i.i
   %113 = load i32, ptr %112, align 4, !tbaa !41
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds %struct.t_atom, ptr %95, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %117 = load i16, ptr %116, align 4, !tbaa !270
   %118 = zext i16 %117 to i32
-  %119 = getelementptr inbounds nuw i32, ptr %.val.i.i.i.i, i64 %.032.i.i.i.i.i.i
+  %119 = getelementptr inbounds nuw i32, ptr %.val.i.i.i.i, i64 %.031.i.i.i.i.i.i
   %120 = load i32, ptr %119, align 4, !tbaa !41
   %.not17.i.i.i.i.i.i = icmp eq i32 %120, %118
   br i1 %.not17.i.i.i.i.i.i, label %109, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i"
@@ -16278,56 +16278,56 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   br i1 %.not.i.i.i18.i.i.i, label %126, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit30.i.i.i"
 
 126:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit.i.i.i"
-  br i1 %4, label %.preheader.i.i.i25.i.i.i, label %.preheader29.i.i.i20.i.i.i
+  br i1 %4, label %.preheader.i.i.i25.i.i.i, label %.preheader28.i.i.i20.i.i.i
 
-.preheader29.i.i.i20.i.i.i:                       ; preds = %126
+.preheader28.i.i.i20.i.i.i:                       ; preds = %126
   br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit311", label %.lr.ph.i.i.i21.i.i.i
 
-.lr.ph.i.i.i21.i.i.i:                             ; preds = %.preheader29.i.i.i20.i.i.i
+.lr.ph.i.i.i21.i.i.i:                             ; preds = %.preheader28.i.i.i20.i.i.i
   %127 = load ptr, ptr %87, align 8, !tbaa !258
   br label %143
 
 .preheader.i.i.i25.i.i.i:                         ; preds = %126
-  br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit", label %.lr.ph36.i.i.i26.i.i.i
+  br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit", label %.lr.ph35.i.i.i26.i.i.i
 
-.lr.ph36.i.i.i26.i.i.i:                           ; preds = %.preheader.i.i.i25.i.i.i
+.lr.ph35.i.i.i26.i.i.i:                           ; preds = %.preheader.i.i.i25.i.i.i
   %128 = load ptr, ptr %87, align 8, !tbaa !258
   br label %131
 
 129:                                              ; preds = %131
-  %130 = add nuw nsw i64 %.01435.i.i.i27.i.i.i, 1
-  %exitcond44.not.i.i.i29.i.i.i = icmp eq i64 %130, %85
-  br i1 %exitcond44.not.i.i.i29.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit281", label %131, !llvm.loop !319
+  %130 = add nuw nsw i64 %.01434.i.i.i27.i.i.i, 1
+  %exitcond43.not.i.i.i29.i.i.i = icmp eq i64 %130, %85
+  br i1 %exitcond43.not.i.i.i29.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit281", label %131, !llvm.loop !319
 
-131:                                              ; preds = %129, %.lr.ph36.i.i.i26.i.i.i
-  %.01435.i.i.i27.i.i.i = phi i64 [ 0, %.lr.ph36.i.i.i26.i.i.i ], [ %130, %129 ]
-  %132 = getelementptr inbounds nuw i32, ptr %76, i64 %.01435.i.i.i27.i.i.i
+131:                                              ; preds = %129, %.lr.ph35.i.i.i26.i.i.i
+  %.01434.i.i.i27.i.i.i = phi i64 [ 0, %.lr.ph35.i.i.i26.i.i.i ], [ %130, %129 ]
+  %132 = getelementptr inbounds nuw i32, ptr %76, i64 %.01434.i.i.i27.i.i.i
   %133 = load i32, ptr %132, align 4, !tbaa !41
   %134 = sext i32 %133 to i64
   %135 = getelementptr inbounds %struct.t_atom, ptr %128, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 18
   %137 = load i16, ptr %136, align 2, !tbaa !271
   %138 = zext i16 %137 to i32
-  %139 = getelementptr inbounds nuw i32, ptr %.val.i16.i.i.i, i64 %.01435.i.i.i27.i.i.i
+  %139 = getelementptr inbounds nuw i32, ptr %.val.i16.i.i.i, i64 %.01434.i.i.i27.i.i.i
   %140 = load i32, ptr %139, align 4, !tbaa !41
   %.not18.i.i.i28.i.i.i = icmp eq i32 %140, %138
   br i1 %.not18.i.i.i28.i.i.i, label %129, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit30.i.i.i"
 
 141:                                              ; preds = %143
-  %142 = add nuw nsw i64 %.032.i.i.i22.i.i.i, 1
+  %142 = add nuw nsw i64 %.031.i.i.i22.i.i.i, 1
   %exitcond.not.i.i.i24.i.i.i = icmp eq i64 %142, %85
   br i1 %exitcond.not.i.i.i24.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit283", label %143, !llvm.loop !320
 
 143:                                              ; preds = %141, %.lr.ph.i.i.i21.i.i.i
-  %.032.i.i.i22.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i21.i.i.i ], [ %142, %141 ]
-  %144 = getelementptr inbounds nuw i32, ptr %76, i64 %.032.i.i.i22.i.i.i
+  %.031.i.i.i22.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i21.i.i.i ], [ %142, %141 ]
+  %144 = getelementptr inbounds nuw i32, ptr %76, i64 %.031.i.i.i22.i.i.i
   %145 = load i32, ptr %144, align 4, !tbaa !41
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds %struct.t_atom, ptr %127, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %149 = load i16, ptr %148, align 4, !tbaa !270
   %150 = zext i16 %149 to i32
-  %151 = getelementptr inbounds nuw i32, ptr %.val.i16.i.i.i, i64 %.032.i.i.i22.i.i.i
+  %151 = getelementptr inbounds nuw i32, ptr %.val.i16.i.i.i, i64 %.031.i.i.i22.i.i.i
   %152 = load i32, ptr %151, align 4, !tbaa !41
   %.not17.i.i.i23.i.i.i = icmp eq i32 %152, %150
   br i1 %.not17.i.i.i23.i.i.i, label %141, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit30.i.i.i"
@@ -16344,56 +16344,56 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   br i1 %.not.i.i.i33.i.i.i, label %158, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit45.i.i.i"
 
 158:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit30.i.i.i"
-  br i1 %4, label %.preheader.i.i.i40.i.i.i, label %.preheader29.i.i.i35.i.i.i
+  br i1 %4, label %.preheader.i.i.i40.i.i.i, label %.preheader28.i.i.i35.i.i.i
 
-.preheader29.i.i.i35.i.i.i:                       ; preds = %158
+.preheader28.i.i.i35.i.i.i:                       ; preds = %158
   br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit315", label %.lr.ph.i.i.i36.i.i.i
 
-.lr.ph.i.i.i36.i.i.i:                             ; preds = %.preheader29.i.i.i35.i.i.i
+.lr.ph.i.i.i36.i.i.i:                             ; preds = %.preheader28.i.i.i35.i.i.i
   %159 = load ptr, ptr %87, align 8, !tbaa !258
   br label %175
 
 .preheader.i.i.i40.i.i.i:                         ; preds = %158
-  br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit313", label %.lr.ph36.i.i.i41.i.i.i
+  br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit313", label %.lr.ph35.i.i.i41.i.i.i
 
-.lr.ph36.i.i.i41.i.i.i:                           ; preds = %.preheader.i.i.i40.i.i.i
+.lr.ph35.i.i.i41.i.i.i:                           ; preds = %.preheader.i.i.i40.i.i.i
   %160 = load ptr, ptr %87, align 8, !tbaa !258
   br label %163
 
 161:                                              ; preds = %163
-  %162 = add nuw nsw i64 %.01435.i.i.i42.i.i.i, 1
-  %exitcond44.not.i.i.i44.i.i.i = icmp eq i64 %162, %85
-  br i1 %exitcond44.not.i.i.i44.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit278", label %163, !llvm.loop !319
+  %162 = add nuw nsw i64 %.01434.i.i.i42.i.i.i, 1
+  %exitcond43.not.i.i.i44.i.i.i = icmp eq i64 %162, %85
+  br i1 %exitcond43.not.i.i.i44.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit278", label %163, !llvm.loop !319
 
-163:                                              ; preds = %161, %.lr.ph36.i.i.i41.i.i.i
-  %.01435.i.i.i42.i.i.i = phi i64 [ 0, %.lr.ph36.i.i.i41.i.i.i ], [ %162, %161 ]
-  %164 = getelementptr inbounds nuw i32, ptr %76, i64 %.01435.i.i.i42.i.i.i
+163:                                              ; preds = %161, %.lr.ph35.i.i.i41.i.i.i
+  %.01434.i.i.i42.i.i.i = phi i64 [ 0, %.lr.ph35.i.i.i41.i.i.i ], [ %162, %161 ]
+  %164 = getelementptr inbounds nuw i32, ptr %76, i64 %.01434.i.i.i42.i.i.i
   %165 = load i32, ptr %164, align 4, !tbaa !41
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds %struct.t_atom, ptr %160, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 18
   %169 = load i16, ptr %168, align 2, !tbaa !271
   %170 = zext i16 %169 to i32
-  %171 = getelementptr inbounds nuw i32, ptr %.val.i31.i.i.i, i64 %.01435.i.i.i42.i.i.i
+  %171 = getelementptr inbounds nuw i32, ptr %.val.i31.i.i.i, i64 %.01434.i.i.i42.i.i.i
   %172 = load i32, ptr %171, align 4, !tbaa !41
   %.not18.i.i.i43.i.i.i = icmp eq i32 %172, %170
   br i1 %.not18.i.i.i43.i.i.i, label %161, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit45.i.i.i"
 
 173:                                              ; preds = %175
-  %174 = add nuw nsw i64 %.032.i.i.i37.i.i.i, 1
+  %174 = add nuw nsw i64 %.031.i.i.i37.i.i.i, 1
   %exitcond.not.i.i.i39.i.i.i = icmp eq i64 %174, %85
   br i1 %exitcond.not.i.i.i39.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit280", label %175, !llvm.loop !320
 
 175:                                              ; preds = %173, %.lr.ph.i.i.i36.i.i.i
-  %.032.i.i.i37.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i36.i.i.i ], [ %174, %173 ]
-  %176 = getelementptr inbounds nuw i32, ptr %76, i64 %.032.i.i.i37.i.i.i
+  %.031.i.i.i37.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i36.i.i.i ], [ %174, %173 ]
+  %176 = getelementptr inbounds nuw i32, ptr %76, i64 %.031.i.i.i37.i.i.i
   %177 = load i32, ptr %176, align 4, !tbaa !41
   %178 = sext i32 %177 to i64
   %179 = getelementptr inbounds %struct.t_atom, ptr %159, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load i16, ptr %180, align 4, !tbaa !270
   %182 = zext i16 %181 to i32
-  %183 = getelementptr inbounds nuw i32, ptr %.val.i31.i.i.i, i64 %.032.i.i.i37.i.i.i
+  %183 = getelementptr inbounds nuw i32, ptr %.val.i31.i.i.i, i64 %.031.i.i.i37.i.i.i
   %184 = load i32, ptr %183, align 4, !tbaa !41
   %.not17.i.i.i38.i.i.i = icmp eq i32 %184, %182
   br i1 %.not17.i.i.i38.i.i.i, label %173, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit45.i.i.i"
@@ -16410,56 +16410,56 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   br i1 %.not.i.i.i48.i.i.i, label %190, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit60.i.i.i"
 
 190:                                              ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit45.i.i.i"
-  br i1 %4, label %.preheader.i.i.i55.i.i.i, label %.preheader29.i.i.i50.i.i.i
+  br i1 %4, label %.preheader.i.i.i55.i.i.i, label %.preheader28.i.i.i50.i.i.i
 
-.preheader29.i.i.i50.i.i.i:                       ; preds = %190
+.preheader28.i.i.i50.i.i.i:                       ; preds = %190
   br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit319", label %.lr.ph.i.i.i51.i.i.i
 
-.lr.ph.i.i.i51.i.i.i:                             ; preds = %.preheader29.i.i.i50.i.i.i
+.lr.ph.i.i.i51.i.i.i:                             ; preds = %.preheader28.i.i.i50.i.i.i
   %191 = load ptr, ptr %87, align 8, !tbaa !258
   br label %207
 
 .preheader.i.i.i55.i.i.i:                         ; preds = %190
-  br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit317", label %.lr.ph36.i.i.i56.i.i.i
+  br i1 %86, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit317", label %.lr.ph35.i.i.i56.i.i.i
 
-.lr.ph36.i.i.i56.i.i.i:                           ; preds = %.preheader.i.i.i55.i.i.i
+.lr.ph35.i.i.i56.i.i.i:                           ; preds = %.preheader.i.i.i55.i.i.i
   %192 = load ptr, ptr %87, align 8, !tbaa !258
   br label %195
 
 193:                                              ; preds = %195
-  %194 = add nuw nsw i64 %.01435.i.i.i57.i.i.i, 1
-  %exitcond44.not.i.i.i59.i.i.i = icmp eq i64 %194, %85
-  br i1 %exitcond44.not.i.i.i59.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit275", label %195, !llvm.loop !319
+  %194 = add nuw nsw i64 %.01434.i.i.i57.i.i.i, 1
+  %exitcond43.not.i.i.i59.i.i.i = icmp eq i64 %194, %85
+  br i1 %exitcond43.not.i.i.i59.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit275", label %195, !llvm.loop !319
 
-195:                                              ; preds = %193, %.lr.ph36.i.i.i56.i.i.i
-  %.01435.i.i.i57.i.i.i = phi i64 [ 0, %.lr.ph36.i.i.i56.i.i.i ], [ %194, %193 ]
-  %196 = getelementptr inbounds nuw i32, ptr %76, i64 %.01435.i.i.i57.i.i.i
+195:                                              ; preds = %193, %.lr.ph35.i.i.i56.i.i.i
+  %.01434.i.i.i57.i.i.i = phi i64 [ 0, %.lr.ph35.i.i.i56.i.i.i ], [ %194, %193 ]
+  %196 = getelementptr inbounds nuw i32, ptr %76, i64 %.01434.i.i.i57.i.i.i
   %197 = load i32, ptr %196, align 4, !tbaa !41
   %198 = sext i32 %197 to i64
   %199 = getelementptr inbounds %struct.t_atom, ptr %192, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 18
   %201 = load i16, ptr %200, align 2, !tbaa !271
   %202 = zext i16 %201 to i32
-  %203 = getelementptr inbounds nuw i32, ptr %.val.i46.i.i.i, i64 %.01435.i.i.i57.i.i.i
+  %203 = getelementptr inbounds nuw i32, ptr %.val.i46.i.i.i, i64 %.01434.i.i.i57.i.i.i
   %204 = load i32, ptr %203, align 4, !tbaa !41
   %.not18.i.i.i58.i.i.i = icmp eq i32 %204, %202
   br i1 %.not18.i.i.i58.i.i.i, label %193, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit60.i.i.i"
 
 205:                                              ; preds = %207
-  %206 = add nuw nsw i64 %.032.i.i.i52.i.i.i, 1
+  %206 = add nuw nsw i64 %.031.i.i.i52.i.i.i, 1
   %exitcond.not.i.i.i54.i.i.i = icmp eq i64 %206, %85
   br i1 %exitcond.not.i.i.i54.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit277", label %207, !llvm.loop !320
 
 207:                                              ; preds = %205, %.lr.ph.i.i.i51.i.i.i
-  %.032.i.i.i52.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i51.i.i.i ], [ %206, %205 ]
-  %208 = getelementptr inbounds nuw i32, ptr %76, i64 %.032.i.i.i52.i.i.i
+  %.031.i.i.i52.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i51.i.i.i ], [ %206, %205 ]
+  %208 = getelementptr inbounds nuw i32, ptr %76, i64 %.031.i.i.i52.i.i.i
   %209 = load i32, ptr %208, align 4, !tbaa !41
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds %struct.t_atom, ptr %191, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 16
   %213 = load i16, ptr %212, align 4, !tbaa !270
   %214 = zext i16 %213 to i32
-  %215 = getelementptr inbounds nuw i32, ptr %.val.i46.i.i.i, i64 %.032.i.i.i52.i.i.i
+  %215 = getelementptr inbounds nuw i32, ptr %.val.i46.i.i.i, i64 %.031.i.i.i52.i.i.i
   %216 = load i32, ptr %215, align 4, !tbaa !41
   %.not17.i.i.i53.i.i.i = icmp eq i32 %216, %214
   br i1 %.not17.i.i.i53.i.i.i, label %205, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit60.i.i.i"
@@ -16506,58 +16506,58 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
 
 227:                                              ; preds = %221
   %228 = icmp slt i64 %226, 1
-  br i1 %4, label %.preheader.i.i.i70.i.i.i, label %.preheader29.i.i.i65.i.i.i
+  br i1 %4, label %.preheader.i.i.i70.i.i.i, label %.preheader28.i.i.i65.i.i.i
 
-.preheader29.i.i.i65.i.i.i:                       ; preds = %227
+.preheader28.i.i.i65.i.i.i:                       ; preds = %227
   br i1 %228, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph.i.i.i66.i.i.i
 
-.lr.ph.i.i.i66.i.i.i:                             ; preds = %.preheader29.i.i.i65.i.i.i
+.lr.ph.i.i.i66.i.i.i:                             ; preds = %.preheader28.i.i.i65.i.i.i
   %229 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %230 = load ptr, ptr %229, align 8, !tbaa !258
   br label %247
 
 .preheader.i.i.i70.i.i.i:                         ; preds = %227
-  br i1 %228, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph36.i.i.i71.i.i.i
+  br i1 %228, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph35.i.i.i71.i.i.i
 
-.lr.ph36.i.i.i71.i.i.i:                           ; preds = %.preheader.i.i.i70.i.i.i
+.lr.ph35.i.i.i71.i.i.i:                           ; preds = %.preheader.i.i.i70.i.i.i
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %232 = load ptr, ptr %231, align 8, !tbaa !258
   br label %235
 
 233:                                              ; preds = %235
-  %234 = add nuw nsw i64 %.01435.i.i.i72.i.i.i, 1
-  %exitcond44.not.i.i.i74.i.i.i = icmp eq i64 %234, %226
-  br i1 %exitcond44.not.i.i.i74.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %235, !llvm.loop !319
+  %234 = add nuw nsw i64 %.01434.i.i.i72.i.i.i, 1
+  %exitcond43.not.i.i.i74.i.i.i = icmp eq i64 %234, %226
+  br i1 %exitcond43.not.i.i.i74.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %235, !llvm.loop !319
 
-235:                                              ; preds = %233, %.lr.ph36.i.i.i71.i.i.i
-  %.01435.i.i.i72.i.i.i = phi i64 [ 0, %.lr.ph36.i.i.i71.i.i.i ], [ %234, %233 ]
-  %236 = getelementptr inbounds nuw i32, ptr %76, i64 %.01435.i.i.i72.i.i.i
+235:                                              ; preds = %233, %.lr.ph35.i.i.i71.i.i.i
+  %.01434.i.i.i72.i.i.i = phi i64 [ 0, %.lr.ph35.i.i.i71.i.i.i ], [ %234, %233 ]
+  %236 = getelementptr inbounds nuw i32, ptr %76, i64 %.01434.i.i.i72.i.i.i
   %237 = load i32, ptr %236, align 4, !tbaa !41
   %238 = sext i32 %237 to i64
   %239 = getelementptr inbounds %struct.t_atom, ptr %232, i64 %238
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 18
   %241 = load i16, ptr %240, align 2, !tbaa !271
   %242 = zext i16 %241 to i32
-  %243 = getelementptr inbounds nuw i32, ptr %.val.i61.i.i.i, i64 %.01435.i.i.i72.i.i.i
+  %243 = getelementptr inbounds nuw i32, ptr %.val.i61.i.i.i, i64 %.01434.i.i.i72.i.i.i
   %244 = load i32, ptr %243, align 4, !tbaa !41
   %.not18.i.i.i73.i.i.i = icmp eq i32 %244, %242
   br i1 %.not18.i.i.i73.i.i.i, label %233, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit75.i.i.i"
 
 245:                                              ; preds = %247
-  %246 = add nuw nsw i64 %.032.i.i.i67.i.i.i, 1
+  %246 = add nuw nsw i64 %.031.i.i.i67.i.i.i, 1
   %exitcond.not.i.i.i69.i.i.i = icmp eq i64 %246, %226
   br i1 %exitcond.not.i.i.i69.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %247, !llvm.loop !320
 
 247:                                              ; preds = %245, %.lr.ph.i.i.i66.i.i.i
-  %.032.i.i.i67.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i66.i.i.i ], [ %246, %245 ]
-  %248 = getelementptr inbounds nuw i32, ptr %76, i64 %.032.i.i.i67.i.i.i
+  %.031.i.i.i67.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i66.i.i.i ], [ %246, %245 ]
+  %248 = getelementptr inbounds nuw i32, ptr %76, i64 %.031.i.i.i67.i.i.i
   %249 = load i32, ptr %248, align 4, !tbaa !41
   %250 = sext i32 %249 to i64
   %251 = getelementptr inbounds %struct.t_atom, ptr %230, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 16
   %253 = load i16, ptr %252, align 4, !tbaa !270
   %254 = zext i16 %253 to i32
-  %255 = getelementptr inbounds nuw i32, ptr %.val.i61.i.i.i, i64 %.032.i.i.i67.i.i.i
+  %255 = getelementptr inbounds nuw i32, ptr %.val.i61.i.i.i, i64 %.031.i.i.i67.i.i.i
   %256 = load i32, ptr %255, align 4, !tbaa !41
   %.not17.i.i.i68.i.i.i = icmp eq i32 %256, %254
   br i1 %.not17.i.i.i68.i.i.i, label %245, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit75.i.i.i"
@@ -16580,58 +16580,58 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
 
 263:                                              ; preds = %258
   %264 = icmp slt i64 %.pre-phi247.i.i.i, 1
-  br i1 %4, label %.preheader.i.i.i85.i.i.i, label %.preheader29.i.i.i80.i.i.i
+  br i1 %4, label %.preheader.i.i.i85.i.i.i, label %.preheader28.i.i.i80.i.i.i
 
-.preheader29.i.i.i80.i.i.i:                       ; preds = %263
+.preheader28.i.i.i80.i.i.i:                       ; preds = %263
   br i1 %264, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph.i.i.i81.i.i.i
 
-.lr.ph.i.i.i81.i.i.i:                             ; preds = %.preheader29.i.i.i80.i.i.i
+.lr.ph.i.i.i81.i.i.i:                             ; preds = %.preheader28.i.i.i80.i.i.i
   %265 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %266 = load ptr, ptr %265, align 8, !tbaa !258
   br label %283
 
 .preheader.i.i.i85.i.i.i:                         ; preds = %263
-  br i1 %264, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph36.i.i.i86.i.i.i
+  br i1 %264, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph35.i.i.i86.i.i.i
 
-.lr.ph36.i.i.i86.i.i.i:                           ; preds = %.preheader.i.i.i85.i.i.i
+.lr.ph35.i.i.i86.i.i.i:                           ; preds = %.preheader.i.i.i85.i.i.i
   %267 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %268 = load ptr, ptr %267, align 8, !tbaa !258
   br label %271
 
 269:                                              ; preds = %271
-  %270 = add nuw nsw i64 %.01435.i.i.i87.i.i.i, 1
-  %exitcond44.not.i.i.i89.i.i.i = icmp eq i64 %270, %.pre-phi247.i.i.i
-  br i1 %exitcond44.not.i.i.i89.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %271, !llvm.loop !319
+  %270 = add nuw nsw i64 %.01434.i.i.i87.i.i.i, 1
+  %exitcond43.not.i.i.i89.i.i.i = icmp eq i64 %270, %.pre-phi247.i.i.i
+  br i1 %exitcond43.not.i.i.i89.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %271, !llvm.loop !319
 
-271:                                              ; preds = %269, %.lr.ph36.i.i.i86.i.i.i
-  %.01435.i.i.i87.i.i.i = phi i64 [ 0, %.lr.ph36.i.i.i86.i.i.i ], [ %270, %269 ]
-  %272 = getelementptr inbounds nuw i32, ptr %76, i64 %.01435.i.i.i87.i.i.i
+271:                                              ; preds = %269, %.lr.ph35.i.i.i86.i.i.i
+  %.01434.i.i.i87.i.i.i = phi i64 [ 0, %.lr.ph35.i.i.i86.i.i.i ], [ %270, %269 ]
+  %272 = getelementptr inbounds nuw i32, ptr %76, i64 %.01434.i.i.i87.i.i.i
   %273 = load i32, ptr %272, align 4, !tbaa !41
   %274 = sext i32 %273 to i64
   %275 = getelementptr inbounds %struct.t_atom, ptr %268, i64 %274
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 18
   %277 = load i16, ptr %276, align 2, !tbaa !271
   %278 = zext i16 %277 to i32
-  %279 = getelementptr inbounds nuw i32, ptr %.val.i76.i.i.i, i64 %.01435.i.i.i87.i.i.i
+  %279 = getelementptr inbounds nuw i32, ptr %.val.i76.i.i.i, i64 %.01434.i.i.i87.i.i.i
   %280 = load i32, ptr %279, align 4, !tbaa !41
   %.not18.i.i.i88.i.i.i = icmp eq i32 %280, %278
   br i1 %.not18.i.i.i88.i.i.i, label %269, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit90.i.i.i"
 
 281:                                              ; preds = %283
-  %282 = add nuw nsw i64 %.032.i.i.i82.i.i.i, 1
+  %282 = add nuw nsw i64 %.031.i.i.i82.i.i.i, 1
   %exitcond.not.i.i.i84.i.i.i = icmp eq i64 %282, %.pre-phi247.i.i.i
   br i1 %exitcond.not.i.i.i84.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %283, !llvm.loop !320
 
 283:                                              ; preds = %281, %.lr.ph.i.i.i81.i.i.i
-  %.032.i.i.i82.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i81.i.i.i ], [ %282, %281 ]
-  %284 = getelementptr inbounds nuw i32, ptr %76, i64 %.032.i.i.i82.i.i.i
+  %.031.i.i.i82.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i81.i.i.i ], [ %282, %281 ]
+  %284 = getelementptr inbounds nuw i32, ptr %76, i64 %.031.i.i.i82.i.i.i
   %285 = load i32, ptr %284, align 4, !tbaa !41
   %286 = sext i32 %285 to i64
   %287 = getelementptr inbounds %struct.t_atom, ptr %266, i64 %286
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 16
   %289 = load i16, ptr %288, align 4, !tbaa !270
   %290 = zext i16 %289 to i32
-  %291 = getelementptr inbounds nuw i32, ptr %.val.i76.i.i.i, i64 %.032.i.i.i82.i.i.i
+  %291 = getelementptr inbounds nuw i32, ptr %.val.i76.i.i.i, i64 %.031.i.i.i82.i.i.i
   %292 = load i32, ptr %291, align 4, !tbaa !41
   %.not17.i.i.i83.i.i.i = icmp eq i32 %292, %290
   br i1 %.not17.i.i.i83.i.i.i, label %281, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP17InteractionOfTypeibbE3$_0EclINS_17__normal_iteratorIS9_St6vectorIS8_SaIS8_EEEEEEbT_.exit90.i.i.i"
@@ -16654,58 +16654,58 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
 
 299:                                              ; preds = %294
   %300 = icmp slt i64 %.pre-phi255.i.i.i, 1
-  br i1 %4, label %.preheader.i.i.i100.i.i.i, label %.preheader29.i.i.i95.i.i.i
+  br i1 %4, label %.preheader.i.i.i100.i.i.i, label %.preheader28.i.i.i95.i.i.i
 
-.preheader29.i.i.i95.i.i.i:                       ; preds = %299
+.preheader28.i.i.i95.i.i.i:                       ; preds = %299
   br i1 %300, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph.i.i.i96.i.i.i
 
-.lr.ph.i.i.i96.i.i.i:                             ; preds = %.preheader29.i.i.i95.i.i.i
+.lr.ph.i.i.i96.i.i.i:                             ; preds = %.preheader28.i.i.i95.i.i.i
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %302 = load ptr, ptr %301, align 8, !tbaa !258
   br label %319
 
 .preheader.i.i.i100.i.i.i:                        ; preds = %299
-  br i1 %300, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph36.i.i.i101.i.i.i
+  br i1 %300, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %.lr.ph35.i.i.i101.i.i.i
 
-.lr.ph36.i.i.i101.i.i.i:                          ; preds = %.preheader.i.i.i100.i.i.i
+.lr.ph35.i.i.i101.i.i.i:                          ; preds = %.preheader.i.i.i100.i.i.i
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %304 = load ptr, ptr %303, align 8, !tbaa !258
   br label %307
 
 305:                                              ; preds = %307
-  %306 = add nuw nsw i64 %.01435.i.i.i102.i.i.i, 1
-  %exitcond44.not.i.i.i104.i.i.i = icmp eq i64 %306, %.pre-phi255.i.i.i
-  br i1 %exitcond44.not.i.i.i104.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %307, !llvm.loop !319
+  %306 = add nuw nsw i64 %.01434.i.i.i102.i.i.i, 1
+  %exitcond43.not.i.i.i104.i.i.i = icmp eq i64 %306, %.pre-phi255.i.i.i
+  br i1 %exitcond43.not.i.i.i104.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %307, !llvm.loop !319
 
-307:                                              ; preds = %305, %.lr.ph36.i.i.i101.i.i.i
-  %.01435.i.i.i102.i.i.i = phi i64 [ 0, %.lr.ph36.i.i.i101.i.i.i ], [ %306, %305 ]
-  %308 = getelementptr inbounds nuw i32, ptr %76, i64 %.01435.i.i.i102.i.i.i
+307:                                              ; preds = %305, %.lr.ph35.i.i.i101.i.i.i
+  %.01434.i.i.i102.i.i.i = phi i64 [ 0, %.lr.ph35.i.i.i101.i.i.i ], [ %306, %305 ]
+  %308 = getelementptr inbounds nuw i32, ptr %76, i64 %.01434.i.i.i102.i.i.i
   %309 = load i32, ptr %308, align 4, !tbaa !41
   %310 = sext i32 %309 to i64
   %311 = getelementptr inbounds %struct.t_atom, ptr %304, i64 %310
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 18
   %313 = load i16, ptr %312, align 2, !tbaa !271
   %314 = zext i16 %313 to i32
-  %315 = getelementptr inbounds nuw i32, ptr %.val.i91.i.i.i, i64 %.01435.i.i.i102.i.i.i
+  %315 = getelementptr inbounds nuw i32, ptr %.val.i91.i.i.i, i64 %.01434.i.i.i102.i.i.i
   %316 = load i32, ptr %315, align 4, !tbaa !41
   %.not18.i.i.i103.i.i.i = icmp eq i32 %316, %314
   br i1 %.not18.i.i.i103.i.i.i, label %305, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.thread"
 
 317:                                              ; preds = %319
-  %318 = add nuw nsw i64 %.032.i.i.i97.i.i.i, 1
+  %318 = add nuw nsw i64 %.031.i.i.i97.i.i.i, 1
   %exitcond.not.i.i.i99.i.i.i = icmp eq i64 %318, %.pre-phi255.i.i.i
   br i1 %exitcond.not.i.i.i99.i.i.i, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit", label %319, !llvm.loop !320
 
 319:                                              ; preds = %317, %.lr.ph.i.i.i96.i.i.i
-  %.032.i.i.i97.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i96.i.i.i ], [ %318, %317 ]
-  %320 = getelementptr inbounds nuw i32, ptr %76, i64 %.032.i.i.i97.i.i.i
+  %.031.i.i.i97.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i96.i.i.i ], [ %318, %317 ]
+  %320 = getelementptr inbounds nuw i32, ptr %76, i64 %.031.i.i.i97.i.i.i
   %321 = load i32, ptr %320, align 4, !tbaa !41
   %322 = sext i32 %321 to i64
   %323 = getelementptr inbounds %struct.t_atom, ptr %302, i64 %322
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 16
   %325 = load i16, ptr %324, align 4, !tbaa !270
   %326 = zext i16 %325 to i32
-  %327 = getelementptr inbounds nuw i32, ptr %.val.i91.i.i.i, i64 %.032.i.i.i97.i.i.i
+  %327 = getelementptr inbounds nuw i32, ptr %.val.i91.i.i.i, i64 %.031.i.i.i97.i.i.i
   %328 = load i32, ptr %327, align 4, !tbaa !41
   %.not17.i.i.i98.i.i.i = icmp eq i32 %328, %326
   br i1 %.not17.i.i.i98.i.i.i, label %317, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.thread"
@@ -16738,7 +16738,7 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %335 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0192.i.i.i, i64 112
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit311": ; preds = %.preheader29.i.i.i20.i.i.i
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit311": ; preds = %.preheader28.i.i.i20.i.i.i
   %336 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0192.i.i.i, i64 112
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit"
 
@@ -16746,7 +16746,7 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %337 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0192.i.i.i, i64 224
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit315": ; preds = %.preheader29.i.i.i35.i.i.i
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit315": ; preds = %.preheader28.i.i.i35.i.i.i
   %338 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0192.i.i.i, i64 224
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit"
 
@@ -16754,12 +16754,12 @@ define internal fastcc noundef zeroext i1 @_ZL17default_nb_paramsiN3gmx8ArrayRef
   %339 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0192.i.i.i, i64 336
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit319": ; preds = %.preheader29.i.i.i50.i.i.i
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit319": ; preds = %.preheader28.i.i.i50.i.i.i
   %340 = getelementptr inbounds nuw i8, ptr %.sroa.0108.0192.i.i.i, i64 336
   br label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit"
 
-"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit": ; preds = %.preheader29.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i, %109, %97, %245, %233, %281, %269, %317, %305, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit311", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit313", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit315", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit317", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit319", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit283", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit281", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit280", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit278", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit277", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit275", %.preheader29.i.i.i65.i.i.i, %.preheader.i.i.i70.i.i.i, %.preheader29.i.i.i80.i.i.i, %.preheader.i.i.i85.i.i.i, %.preheader29.i.i.i95.i.i.i, %.preheader.i.i.i100.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.0108.0.lcssa.i.i.i, %.preheader.i.i.i70.i.i.i ], [ %.sroa.0108.0.lcssa.i.i.i, %.preheader29.i.i.i65.i.i.i ], [ %.sroa.0108.1.i.i.i, %.preheader.i.i.i85.i.i.i ], [ %.sroa.0108.1.i.i.i, %.preheader29.i.i.i80.i.i.i ], [ %.sroa.0108.2.i.i.i, %.preheader.i.i.i100.i.i.i ], [ %.sroa.0108.2.i.i.i, %.preheader29.i.i.i95.i.i.i ], [ %329, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit275" ], [ %330, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit277" ], [ %331, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit278" ], [ %332, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit280" ], [ %333, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit281" ], [ %334, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit283" ], [ %335, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit" ], [ %336, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit311" ], [ %337, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit313" ], [ %338, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit315" ], [ %339, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit317" ], [ %340, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit319" ], [ %.sroa.0108.2.i.i.i, %305 ], [ %.sroa.0108.2.i.i.i, %317 ], [ %.sroa.0108.1.i.i.i, %269 ], [ %.sroa.0108.1.i.i.i, %281 ], [ %.sroa.0108.0.lcssa.i.i.i, %233 ], [ %.sroa.0108.0.lcssa.i.i.i, %245 ], [ %.sroa.0108.0192.i.i.i, %97 ], [ %.sroa.0108.0192.i.i.i, %109 ], [ %.sroa.0108.0192.i.i.i, %.preheader.i.i.i.i.i.i ], [ %.sroa.0108.0192.i.i.i, %.preheader29.i.i.i.i.i.i ]
+"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit": ; preds = %.preheader28.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i, %109, %97, %245, %233, %281, %269, %317, %305, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit311", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit313", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit315", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit317", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit319", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit283", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit281", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit280", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit278", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit277", %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit275", %.preheader28.i.i.i65.i.i.i, %.preheader.i.i.i70.i.i.i, %.preheader28.i.i.i80.i.i.i, %.preheader.i.i.i85.i.i.i, %.preheader28.i.i.i95.i.i.i, %.preheader.i.i.i100.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i = phi ptr [ %.sroa.0108.0.lcssa.i.i.i, %.preheader.i.i.i70.i.i.i ], [ %.sroa.0108.0.lcssa.i.i.i, %.preheader28.i.i.i65.i.i.i ], [ %.sroa.0108.1.i.i.i, %.preheader.i.i.i85.i.i.i ], [ %.sroa.0108.1.i.i.i, %.preheader28.i.i.i80.i.i.i ], [ %.sroa.0108.2.i.i.i, %.preheader.i.i.i100.i.i.i ], [ %.sroa.0108.2.i.i.i, %.preheader28.i.i.i95.i.i.i ], [ %329, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit275" ], [ %330, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit277" ], [ %331, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit278" ], [ %332, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit280" ], [ %333, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit281" ], [ %334, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit283" ], [ %335, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit" ], [ %336, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit311" ], [ %337, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit313" ], [ %338, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit315" ], [ %339, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit317" ], [ %340, %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.loopexit287.split.loop.exit319" ], [ %.sroa.0108.2.i.i.i, %305 ], [ %.sroa.0108.2.i.i.i, %317 ], [ %.sroa.0108.1.i.i.i, %269 ], [ %.sroa.0108.1.i.i.i, %281 ], [ %.sroa.0108.0.lcssa.i.i.i, %233 ], [ %.sroa.0108.0.lcssa.i.i.i, %245 ], [ %.sroa.0108.0192.i.i.i, %97 ], [ %.sroa.0108.0192.i.i.i, %109 ], [ %.sroa.0108.0192.i.i.i, %.preheader.i.i.i.i.i.i ], [ %.sroa.0108.0192.i.i.i, %.preheader28.i.i.i.i.i.i ]
   %.not = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i, %78
   br i1 %.not, label %"_ZSt7find_ifIN9__gnu_cxx17__normal_iteratorIP17InteractionOfTypeSt6vectorIS2_SaIS2_EEEEZL17default_nb_paramsiN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsS3_ibbE3$_0ET_SF_SF_T0_.exit.thread", label %.thread120
 
@@ -17277,10 +17277,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %161 = ptrtoint ptr %159 to i64
   %162 = sub i64 %160, %161
   %163 = ashr exact i64 %162, 2
-  %.not78.not.i = icmp eq ptr %158, %159
-  br i1 %.not78.not.i, label %_ZL19default_cmap_paramsN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP22PreprocessingAtomTypesP17InteractionOfTypebPiS9_P14WarningHandler.exit.thread, label %.lr.ph80.i
+  %.not77.not.i = icmp eq ptr %158, %159
+  br i1 %.not77.not.i, label %_ZL19default_cmap_paramsN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP22PreprocessingAtomTypesP17InteractionOfTypebPiS9_P14WarningHandler.exit.thread, label %.lr.ph79.i
 
-.lr.ph80.i:                                       ; preds = %.preheader.i
+.lr.ph79.i:                                       ; preds = %.preheader.i
   %164 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interaction_function, i64 880), align 16, !tbaa !294
   %165 = sext i32 %164 to i64
   %invariant.gep.i = getelementptr i32, ptr %159, i64 %165
@@ -17289,15 +17289,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %168 = sext i32 %167 to i64
   br label %169
 
-169:                                              ; preds = %172, %.lr.ph80.i
-  %.04579.i = phi i64 [ 0, %.lr.ph80.i ], [ %173, %172 ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %.04579.i
+169:                                              ; preds = %172, %.lr.ph79.i
+  %.04578.i = phi i64 [ 0, %.lr.ph79.i ], [ %173, %172 ]
+  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %.04578.i
   %170 = load i32, ptr %gep.i, align 4, !tbaa !41
   %171 = icmp eq i32 %170, %166
   br i1 %171, label %_ZL19default_cmap_paramsN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP22PreprocessingAtomTypesP17InteractionOfTypebPiS9_P14WarningHandler.exit, label %172
 
 172:                                              ; preds = %169
-  %173 = add i64 %.04579.i, %168
+  %173 = add i64 %.04578.i, %168
   %.not.i96 = icmp ult i64 %173, %163
   br i1 %.not.i96, label %169, label %_ZL19default_cmap_paramsN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP22PreprocessingAtomTypesP17InteractionOfTypebPiS9_P14WarningHandler.exit.thread, !llvm.loop !328
 
@@ -17318,16 +17318,16 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 2872
   %184 = load ptr, ptr %183, align 8, !tbaa !58
   %185 = load ptr, ptr %182, align 8, !tbaa !24
-  %.not4976.not.i = icmp eq ptr %184, %185
-  br i1 %.not4976.not.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not4975.not.i = icmp eq ptr %184, %185
+  br i1 %.not4975.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %174, %.critedge3.i
-  %.04377.i = phi i64 [ %208, %.critedge3.i ], [ 0, %174 ]
+  %.04376.i = phi i64 [ %208, %.critedge3.i ], [ 0, %174 ]
   %186 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK17InteractionOfType2aiEv(ptr noundef nonnull align 8 dereferenceable(105) %21)
           to label %.noexc97 unwind label %.loopexit
 
 .noexc97:                                         ; preds = %.lr.ph.i
-  %187 = trunc i64 %.04377.i to i32
+  %187 = trunc i64 %.04376.i to i32
   %188 = invoke fastcc noundef zeroext i1 @"_ZZL19default_cmap_paramsN3gmx8ArrayRefI18InteractionsOfTypeEEP7t_atomsP22PreprocessingAtomTypesP17InteractionOfTypebPiS9_P14WarningHandlerENK3$_1clERKiSE_"(ptr noundef nonnull align 8 dereferenceable(33) %10, ptr noundef nonnull align 4 dereferenceable(4) %186, i32 %187)
           to label %.noexc98 unwind label %.loopexit
 
@@ -17386,7 +17386,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %205 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interaction_function, i64 880), align 16, !tbaa !294
   %206 = add nsw i32 %205, 1
   %207 = sext i32 %206 to i64
-  %208 = add i64 %.04377.i, %207
+  %208 = add i64 %.04376.i, %207
   %209 = load ptr, ptr %183, align 8, !tbaa !58
   %210 = load ptr, ptr %182, align 8, !tbaa !24
   %211 = ptrtoint ptr %209 to i64
@@ -17400,7 +17400,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %216 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interaction_function, i64 880), align 16, !tbaa !294
   %217 = sext i32 %216 to i64
   %218 = load ptr, ptr %182, align 8, !tbaa !24
-  %219 = getelementptr i32, ptr %218, i64 %.04377.i
+  %219 = getelementptr i32, ptr %218, i64 %.04376.i
   %220 = getelementptr i32, ptr %219, i64 %217
   %221 = load i32, ptr %220, align 4, !tbaa !41
   call void @llvm.lifetime.end.p0(ptr nonnull %10)

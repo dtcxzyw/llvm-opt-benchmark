@@ -18405,36 +18405,36 @@ ary_make_shared_copy.exit:                        ; preds = %74, %77
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %70, i8 noundef 0, i64 noundef %.0.i, i1 noundef false) #24
   %83 = ptrtoint ptr %70 to i64
   %84 = add nsw i64 %.037, -1
-  %.not73.i = icmp eq i64 %.0.i, 0
+  %.not71.i = icmp eq i64 %.0.i, 0
   %85 = shl nuw nsw i64 %.037, 3
   %86 = add nuw i64 %85, 16
   %87 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %90 = shl i64 %.037, 15
-  br i1 %.not73.i, label %.split.i.outer, label %.split.us59.i
+  br i1 %.not71.i, label %.split.i.outer, label %.split.us57.i
 
-.split.us59.i:                                    ; preds = %ary_make_shared_copy.exit
+.split.us57.i:                                    ; preds = %ary_make_shared_copy.exit
   %91 = icmp samesign ugt i64 %.037, 1152921504606846975
-  br i1 %91, label %.split.us59.split.us.i.outer, label %.split.us59.split.i.outer
+  br i1 %91, label %.split.us57.split.us.i.outer, label %.split.us57.split.i.outer
 
-.split.us59.split.us.i.outer:                     ; preds = %.split.us59.i, %.split.us59.split.us.i.outer.backedge
-  %.041.us.us.i.ph = phi i64 [ %.041.us.us.i.ph.be, %.split.us59.split.us.i.outer.backedge ], [ 0, %.split.us59.i ]
-  %.040.us.us.i.ph = phi i64 [ %.040.us.us.i.ph.be, %.split.us59.split.us.i.outer.backedge ], [ 0, %.split.us59.i ]
+.split.us57.split.us.i.outer:                     ; preds = %.split.us57.i, %.split.us57.split.us.i.outer.backedge
+  %.041.us.us.i.ph = phi i64 [ %.041.us.us.i.ph.be, %.split.us57.split.us.i.outer.backedge ], [ 0, %.split.us57.i ]
+  %.040.us.us.i.ph = phi i64 [ %.040.us.us.i.ph.be, %.split.us57.split.us.i.outer.backedge ], [ 0, %.split.us57.i ]
   %92 = getelementptr i64, ptr %69, i64 %.041.us.us.i.ph
   %93 = add i64 %.041.us.us.i.ph, 1
   %94 = icmp slt i64 %93, %84
-  br label %.split.us59.split.us.i
+  br label %.split.us57.split.us.i
 
-.split.us59.split.us.i:                           ; preds = %.split.us59.split.us.i.outer, %._crit_edge.split.us.us.us.i
-  %.040.us.us.i = phi i64 [ %117, %._crit_edge.split.us.us.us.i ], [ %.040.us.us.i.ph, %.split.us59.split.us.i.outer ]
+.split.us57.split.us.i:                           ; preds = %.split.us57.split.us.i.outer, %._crit_edge.split.us.us.us.i
+  %.040.us.us.i = phi i64 [ %117, %._crit_edge.split.us.us.us.i ], [ %.040.us.us.i.ph, %.split.us57.split.us.i.outer ]
   %95 = getelementptr i8, ptr %70, i64 %.040.us.us.i
   %96 = sub i64 %.0.i, %.040.us.us.i
   %97 = call ptr @memchr(ptr noundef %95, i32 noundef 0, i64 noundef %96) #28
   %.not.us.us.i = icmp eq ptr %97, null
   br i1 %.not.us.us.i, label %104, label %98
 
-98:                                               ; preds = %.split.us59.split.us.i
+98:                                               ; preds = %.split.us57.split.us.i
   %99 = ptrtoint ptr %97 to i64
   %100 = sub i64 %99, %83
   store i64 %100, ptr %92, align 8, !tbaa !13
@@ -18445,14 +18445,14 @@ ary_make_shared_copy.exit:                        ; preds = %74, %77
 102:                                              ; preds = %98
   %103 = getelementptr i64, ptr %69, i64 %93
   store i64 0, ptr %103, align 8, !tbaa !13
-  br label %.split.us59.split.us.i.outer.backedge
+  br label %.split.us57.split.us.i.outer.backedge
 
-.split.us59.split.us.i.outer.backedge:            ; preds = %102, %105
+.split.us57.split.us.i.outer.backedge:            ; preds = %102, %105
   %.041.us.us.i.ph.be = phi i64 [ %106, %105 ], [ %93, %102 ]
   %.040.us.us.i.ph.be = phi i64 [ %109, %105 ], [ 0, %102 ]
-  br label %.split.us59.split.us.i.outer
+  br label %.split.us57.split.us.i.outer
 
-104:                                              ; preds = %.split.us59.split.us.i
+104:                                              ; preds = %.split.us57.split.us.i
   %.not47.us.us.i = icmp eq i64 %.041.us.us.i.ph, 0
   br i1 %.not47.us.us.i, label %permute0.exit, label %105
 
@@ -18463,19 +18463,19 @@ ary_make_shared_copy.exit:                        ; preds = %74, %77
   %109 = add i64 %108, 1
   %110 = getelementptr i8, ptr %70, i64 %108
   store i8 0, ptr %110, align 1, !tbaa !12
-  br label %.split.us59.split.us.i.outer.backedge
+  br label %.split.us57.split.us.i.outer.backedge
 
 .preheader.us.us.i:                               ; preds = %98, %113
-  %.356.us.us.us.i = phi i64 [ %114, %113 ], [ 0, %98 ]
-  %111 = getelementptr i8, ptr %70, i64 %.356.us.us.us.i
+  %.354.us.us.us.i = phi i64 [ %114, %113 ], [ 0, %98 ]
+  %111 = getelementptr i8, ptr %70, i64 %.354.us.us.us.i
   %112 = load i8, ptr %111, align 1, !tbaa !12
   %.not48.us.us.us.i = icmp eq i8 %112, 0
-  br i1 %.not48.us.us.us.i, label %.split69.us.split.us.i, label %113
+  br i1 %.not48.us.us.us.i, label %.split67.us.split.us.i, label %113
 
 113:                                              ; preds = %.preheader.us.us.i
-  %114 = add nuw nsw i64 %.356.us.us.us.i, 1
-  %exitcond77.not.i = icmp eq i64 %114, %.0.i
-  br i1 %exitcond77.not.i, label %._crit_edge.split.us.us.us.i, label %.preheader.us.us.i, !llvm.loop !137
+  %114 = add nuw nsw i64 %.354.us.us.us.i, 1
+  %exitcond75.not.i = icmp eq i64 %114, %.0.i
+  br i1 %exitcond75.not.i, label %._crit_edge.split.us.us.us.i, label %.preheader.us.us.i, !llvm.loop !137
 
 ._crit_edge.split.us.us.us.i:                     ; preds = %113
   %115 = load i64, ptr %92, align 8, !tbaa !13
@@ -18483,24 +18483,24 @@ ary_make_shared_copy.exit:                        ; preds = %74, %77
   store i8 0, ptr %116, align 1, !tbaa !12
   %117 = add i64 %115, 1
   store i64 %117, ptr %92, align 8, !tbaa !13
-  br label %.split.us59.split.us.i
+  br label %.split.us57.split.us.i
 
-.split69.us.split.us.i:                           ; preds = %.preheader.us.us.i
+.split67.us.split.us.i:                           ; preds = %.preheader.us.us.i
   %118 = getelementptr i64, ptr %69, i64 %93
-  store i64 %.356.us.us.us.i, ptr %118, align 8, !tbaa !13
+  store i64 %.354.us.us.us.i, ptr %118, align 8, !tbaa !13
   %119 = load i64, ptr @rb_eArgError, align 8, !tbaa !13
   call void (i64, ptr, ...) @rb_raise(i64 noundef %119, ptr noundef nonnull @.str.134) #23
   unreachable
 
-.split.us59.split.i:                              ; preds = %.split.us59.split.i.outer, %._crit_edge.split.us62.i
-  %.040.us.i = phi i64 [ %194, %._crit_edge.split.us62.i ], [ %.040.us.i.ph, %.split.us59.split.i.outer ]
+.split.us57.split.i:                              ; preds = %.split.us57.split.i.outer, %._crit_edge.split.us60.i
+  %.040.us.i = phi i64 [ %194, %._crit_edge.split.us60.i ], [ %.040.us.i.ph, %.split.us57.split.i.outer ]
   %120 = getelementptr i8, ptr %70, i64 %.040.us.i
   %121 = sub i64 %.0.i, %.040.us.i
   %122 = call ptr @memchr(ptr noundef %120, i32 noundef 0, i64 noundef %121) #28
   %.not.us.i = icmp eq ptr %122, null
   br i1 %.not.us.i, label %185, label %123
 
-123:                                              ; preds = %.split.us59.split.i
+123:                                              ; preds = %.split.us57.split.i
   %124 = ptrtoint ptr %122 to i64
   %125 = sub i64 %124, %83
   store i64 %125, ptr %181, align 8, !tbaa !13
@@ -18509,14 +18509,14 @@ ary_make_shared_copy.exit:                        ; preds = %74, %77
   br i1 %183, label %180, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %123, %178
-  %.356.us60.i = phi i64 [ %179, %178 ], [ 0, %123 ]
-  %127 = getelementptr i8, ptr %70, i64 %.356.us60.i
+  %.354.us58.i = phi i64 [ %179, %178 ], [ 0, %123 ]
+  %127 = getelementptr i8, ptr %70, i64 %.354.us58.i
   %128 = load i8, ptr %127, align 1, !tbaa !12
-  %.not48.us61.i = icmp eq i8 %128, 0
-  br i1 %.not48.us61.i, label %129, label %178
+  %.not48.us59.i = icmp eq i8 %128, 0
+  br i1 %.not48.us59.i, label %129, label %178
 
 129:                                              ; preds = %.preheader.us.i
-  store i64 %.356.us60.i, ptr %184, align 8, !tbaa !13
+  store i64 %.354.us58.i, ptr %184, align 8, !tbaa !13
   %130 = load i64, ptr @rb_cArray, align 8, !tbaa !13
   %131 = load i16, ptr @ruby_array__create_semaphore, align 2, !tbaa !20
   %.not.i50.us.i = icmp eq i16 %131, 0
@@ -18628,32 +18628,32 @@ yield_indexed_values.exit.us.i:                   ; preds = %175, %172
   %176 = call i64 @rb_yield(i64 noundef %.0.i.us.i) #24
   %177 = load i64, ptr %82, align 8, !tbaa !52
   %.not.i.not.us.i = icmp eq i64 %177, 0
-  br i1 %.not.i.not.us.i, label %178, label %.split65.us.i
+  br i1 %.not.i.not.us.i, label %178, label %.split63.us.i
 
 178:                                              ; preds = %yield_indexed_values.exit.us.i, %.preheader.us.i
-  %179 = add nuw nsw i64 %.356.us60.i, 1
+  %179 = add nuw nsw i64 %.354.us58.i, 1
   %exitcond.not.i = icmp eq i64 %179, %.0.i
-  br i1 %exitcond.not.i, label %._crit_edge.split.us62.i, label %.preheader.us.i, !llvm.loop !137
+  br i1 %exitcond.not.i, label %._crit_edge.split.us60.i, label %.preheader.us.i, !llvm.loop !137
 
 180:                                              ; preds = %123
   store i64 0, ptr %184, align 8, !tbaa !13
-  br label %.split.us59.split.i.outer.backedge
+  br label %.split.us57.split.i.outer.backedge
 
-.split.us59.split.i.outer.backedge:               ; preds = %180, %186
+.split.us57.split.i.outer.backedge:               ; preds = %180, %186
   %.041.us.i.ph.be = phi i64 [ %187, %186 ], [ %182, %180 ]
   %.040.us.i.ph.be = phi i64 [ %190, %186 ], [ 0, %180 ]
-  br label %.split.us59.split.i.outer
+  br label %.split.us57.split.i.outer
 
-.split.us59.split.i.outer:                        ; preds = %.split.us59.i, %.split.us59.split.i.outer.backedge
-  %.041.us.i.ph = phi i64 [ %.041.us.i.ph.be, %.split.us59.split.i.outer.backedge ], [ 0, %.split.us59.i ]
-  %.040.us.i.ph = phi i64 [ %.040.us.i.ph.be, %.split.us59.split.i.outer.backedge ], [ 0, %.split.us59.i ]
+.split.us57.split.i.outer:                        ; preds = %.split.us57.i, %.split.us57.split.i.outer.backedge
+  %.041.us.i.ph = phi i64 [ %.041.us.i.ph.be, %.split.us57.split.i.outer.backedge ], [ 0, %.split.us57.i ]
+  %.040.us.i.ph = phi i64 [ %.040.us.i.ph.be, %.split.us57.split.i.outer.backedge ], [ 0, %.split.us57.i ]
   %181 = getelementptr i64, ptr %69, i64 %.041.us.i.ph
   %182 = add i64 %.041.us.i.ph, 1
   %183 = icmp slt i64 %182, %84
   %184 = getelementptr i64, ptr %69, i64 %182
-  br label %.split.us59.split.i
+  br label %.split.us57.split.i
 
-185:                                              ; preds = %.split.us59.split.i
+185:                                              ; preds = %.split.us57.split.i
   %.not47.us.i = icmp eq i64 %.041.us.i.ph, 0
   br i1 %.not47.us.i, label %permute0.exit, label %186
 
@@ -18664,15 +18664,15 @@ yield_indexed_values.exit.us.i:                   ; preds = %175, %172
   %190 = add i64 %189, 1
   %191 = getelementptr i8, ptr %70, i64 %189
   store i8 0, ptr %191, align 1, !tbaa !12
-  br label %.split.us59.split.i.outer.backedge
+  br label %.split.us57.split.i.outer.backedge
 
-._crit_edge.split.us62.i:                         ; preds = %178
+._crit_edge.split.us60.i:                         ; preds = %178
   %192 = load i64, ptr %181, align 8, !tbaa !13
   %193 = getelementptr i8, ptr %70, i64 %192
   store i8 0, ptr %193, align 1, !tbaa !12
   %194 = add i64 %192, 1
   store i64 %194, ptr %181, align 8, !tbaa !13
-  br label %.split.us59.split.i
+  br label %.split.us57.split.i
 
 .split.i:                                         ; preds = %.split.i.outer, %.preheader.i
   %.040.i = phi i64 [ %214, %.preheader.i ], [ %.040.i.ph, %.split.i.outer ]
@@ -18729,7 +18729,7 @@ yield_indexed_values.exit.us.i:                   ; preds = %175, %172
   %.040.i.ph.be = phi i64 [ %203, %199 ], [ 0, %215 ]
   br label %.split.i.outer
 
-.split65.us.i:                                    ; preds = %yield_indexed_values.exit.us.i
+.split63.us.i:                                    ; preds = %yield_indexed_values.exit.us.i
   %217 = load i64, ptr @rb_eRuntimeError, align 8, !tbaa !13
   call void (i64, ptr, ...) @rb_raise(i64 noundef %217, ptr noundef nonnull @.str.164) #23
   unreachable

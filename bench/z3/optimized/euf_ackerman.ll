@@ -713,17 +713,17 @@ define hidden noundef zeroext i1 @_ZN3euf8ackerman9enable_ccEP3appS2_(ptr nounde
   %13 = zext i32 %12 to i64
   %.idx = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
-  %.not37 = icmp eq i32 %12, 0
-  br i1 %.not37, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq i32 %12, 0
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr inbounds nuw i8, ptr %.02438, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.02435, i64 8
   %.not = icmp eq ptr %16, %14
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %15
-  %.02438 = phi ptr [ %16, %15 ], [ %10, %9 ]
-  %17 = load ptr, ptr %.02438, align 8, !tbaa !56
+  %.02435 = phi ptr [ %16, %15 ], [ %10, %9 ]
+  %17 = load ptr, ptr %.02435, align 8, !tbaa !56
   %18 = load ptr, ptr %0, align 8, !tbaa !50
   %19 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %18, ptr noundef %17)
   br i1 %19, label %15, label %.loopexit
@@ -733,23 +733,23 @@ define hidden noundef zeroext i1 @_ZN3euf8ackerman9enable_ccEP3appS2_(ptr nounde
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %22 = load i32, ptr %21, align 8, !tbaa !51
   %23 = zext i32 %22 to i64
-  %.idx46 = shl nuw nsw i64 %23, 3
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx46
-  %.not3039 = icmp eq i32 %22, 0
-  br i1 %.not3039, label %.loopexit, label %.lr.ph43
+  %.idx43 = shl nuw nsw i64 %23, 3
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 %.idx43
+  %.not3036 = icmp eq i32 %22, 0
+  br i1 %.not3036, label %.loopexit, label %.lr.ph40
 
-.lr.ph43:                                         ; preds = %._crit_edge, %.lr.ph43
-  %.02540 = phi ptr [ %28, %.lr.ph43 ], [ %20, %._crit_edge ]
-  %25 = load ptr, ptr %.02540, align 8, !tbaa !56
+.lr.ph40:                                         ; preds = %._crit_edge, %.lr.ph40
+  %.02537 = phi ptr [ %28, %.lr.ph40 ], [ %20, %._crit_edge ]
+  %25 = load ptr, ptr %.02537, align 8, !tbaa !56
   %26 = load ptr, ptr %0, align 8, !tbaa !50
   %27 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %26, ptr noundef %25)
-  %28 = getelementptr inbounds nuw i8, ptr %.02540, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.02537, i64 8
   %.not30 = icmp ne ptr %28, %24
   %or.cond.not = select i1 %27, i1 %.not30, i1 false
-  br i1 %or.cond.not, label %.lr.ph43, label %.loopexit
+  br i1 %or.cond.not, label %.lr.ph40, label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph43, %._crit_edge, %6, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %._crit_edge ], [ %27, %.lr.ph43 ], [ false, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph40, %._crit_edge, %6, %3
+  %.0 = phi i1 [ false, %3 ], [ false, %6 ], [ true, %._crit_edge ], [ %27, %.lr.ph40 ], [ false, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -828,17 +828,17 @@ define hidden void @_ZN3euf8ackerman14cg_conflict_ehEP4exprS2_(ptr noundef nonnu
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 3
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %.idx.i
-  %.not37.i = icmp eq i32 %34, 0
-  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not34.i = icmp eq i32 %34, 0
+  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds nuw i8, ptr %.02438.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.02435.i, i64 8
   %.not.i = icmp eq ptr %38, %36
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32, %37
-  %.02438.i = phi ptr [ %38, %37 ], [ %33, %32 ]
-  %39 = load ptr, ptr %.02438.i, align 8, !tbaa !56
+  %.02435.i = phi ptr [ %38, %37 ], [ %33, %32 ]
+  %39 = load ptr, ptr %.02435.i, align 8, !tbaa !56
   %40 = load ptr, ptr %0, align 8, !tbaa !50
   %41 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %40, ptr noundef %39)
   br i1 %41, label %37, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
@@ -847,19 +847,19 @@ define hidden void @_ZN3euf8ackerman14cg_conflict_ehEP4exprS2_(ptr noundef nonnu
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %43 = load i32, ptr %24, align 8, !tbaa !51
   %44 = zext i32 %43 to i64
-  %.idx46.i = shl nuw nsw i64 %44, 3
-  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx46.i
-  %.not3039.i = icmp eq i32 %43, 0
-  br i1 %.not3039.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.i
+  %.idx43.i = shl nuw nsw i64 %44, 3
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx43.i
+  %.not3036.i = icmp eq i32 %43, 0
+  br i1 %.not3036.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph40.i
 
-46:                                               ; preds = %.lr.ph43.i
-  %47 = getelementptr inbounds nuw i8, ptr %.02540.i, i64 8
+46:                                               ; preds = %.lr.ph40.i
+  %47 = getelementptr inbounds nuw i8, ptr %.02537.i, i64 8
   %.not30.i = icmp eq ptr %47, %45
-  br i1 %.not30.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.i
+  br i1 %.not30.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph40.i
 
-.lr.ph43.i:                                       ; preds = %._crit_edge.i, %46
-  %.02540.i = phi ptr [ %47, %46 ], [ %42, %._crit_edge.i ]
-  %48 = load ptr, ptr %.02540.i, align 8, !tbaa !56
+.lr.ph40.i:                                       ; preds = %._crit_edge.i, %46
+  %.02537.i = phi ptr [ %47, %46 ], [ %42, %._crit_edge.i ]
+  %48 = load ptr, ptr %.02537.i, align 8, !tbaa !56
   %49 = load ptr, ptr %0, align 8, !tbaa !50
   %50 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %49, ptr noundef %48)
   br i1 %50, label %46, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
@@ -869,7 +869,7 @@ _ZN3euf8ackerman9enable_ccEP3appS2_.exit:         ; preds = %46, %._crit_edge.i
   tail call void @_ZN3euf8ackerman2gcEv(ptr noundef nonnull align 8 dereferenceable(68) %0)
   br label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread
 
-_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread:  ; preds = %.lr.ph.i, %.lr.ph43.i, %29, %26, %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, %21, %16, %13, %3, %8
+_ZN3euf8ackerman9enable_ccEP3appS2_.exit.thread:  ; preds = %.lr.ph.i, %.lr.ph40.i, %29, %26, %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, %21, %16, %13, %3, %8
   ret void
 }
 
@@ -1038,17 +1038,17 @@ define hidden void @_ZN3euf8ackerman10used_cc_ehEP3appS2_(ptr noundef nonnull al
   %17 = zext i32 %16 to i64
   %.idx.i = shl nuw nsw i64 %17, 3
   %18 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx.i
-  %.not37.i = icmp eq i32 %16, 0
-  br i1 %.not37.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not34.i = icmp eq i32 %16, 0
+  br i1 %.not34.i, label %._crit_edge.i, label %.lr.ph.i
 
 19:                                               ; preds = %.lr.ph.i
-  %20 = getelementptr inbounds nuw i8, ptr %.02438.i, i64 8
+  %20 = getelementptr inbounds nuw i8, ptr %.02435.i, i64 8
   %.not.i = icmp eq ptr %20, %18
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %19
-  %.02438.i = phi ptr [ %20, %19 ], [ %14, %13 ]
-  %21 = load ptr, ptr %.02438.i, align 8, !tbaa !56
+  %.02435.i = phi ptr [ %20, %19 ], [ %14, %13 ]
+  %21 = load ptr, ptr %.02435.i, align 8, !tbaa !56
   %22 = load ptr, ptr %0, align 8, !tbaa !50
   %23 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %22, ptr noundef %21)
   br i1 %23, label %19, label %_ZN3euf8ackerman2gcEv.exit
@@ -1058,19 +1058,19 @@ define hidden void @_ZN3euf8ackerman10used_cc_ehEP3appS2_(ptr noundef nonnull al
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i32, ptr %25, align 8, !tbaa !51
   %27 = zext i32 %26 to i64
-  %.idx46.i = shl nuw nsw i64 %27, 3
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx46.i
-  %.not3039.i = icmp eq i32 %26, 0
-  br i1 %.not3039.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.i
+  %.idx43.i = shl nuw nsw i64 %27, 3
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 %.idx43.i
+  %.not3036.i = icmp eq i32 %26, 0
+  br i1 %.not3036.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph40.i
 
-29:                                               ; preds = %.lr.ph43.i
-  %30 = getelementptr inbounds nuw i8, ptr %.02540.i, i64 8
+29:                                               ; preds = %.lr.ph40.i
+  %30 = getelementptr inbounds nuw i8, ptr %.02537.i, i64 8
   %.not30.i = icmp eq ptr %30, %28
-  br i1 %.not30.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph43.i
+  br i1 %.not30.i, label %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, label %.lr.ph40.i
 
-.lr.ph43.i:                                       ; preds = %._crit_edge.i, %29
-  %.02540.i = phi ptr [ %30, %29 ], [ %24, %._crit_edge.i ]
-  %31 = load ptr, ptr %.02540.i, align 8, !tbaa !56
+.lr.ph40.i:                                       ; preds = %._crit_edge.i, %29
+  %.02537.i = phi ptr [ %30, %29 ], [ %24, %._crit_edge.i ]
+  %31 = load ptr, ptr %.02537.i, align 8, !tbaa !56
   %32 = load ptr, ptr %0, align 8, !tbaa !50
   %33 = tail call noundef zeroext i1 @_ZNK3euf6solver22enable_ackerman_axiomsEP4expr(ptr noundef nonnull align 8 dereferenceable(8456) %32, ptr noundef %31)
   br i1 %33, label %29, label %_ZN3euf8ackerman2gcEv.exit
@@ -1135,7 +1135,7 @@ _ZN3euf8ackerman9enable_ccEP3appS2_.exit:         ; preds = %29, %._crit_edge.i
   store i32 %66, ptr %52, align 8, !tbaa !24
   br label %_ZN3euf8ackerman2gcEv.exit
 
-_ZN3euf8ackerman2gcEv.exit:                       ; preds = %.lr.ph.i, %.lr.ph43.i, %10, %8, %._crit_edge.i6, %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, %3
+_ZN3euf8ackerman2gcEv.exit:                       ; preds = %.lr.ph.i, %.lr.ph40.i, %10, %8, %._crit_edge.i6, %_ZN3euf8ackerman9enable_ccEP3appS2_.exit, %3
   ret void
 }
 

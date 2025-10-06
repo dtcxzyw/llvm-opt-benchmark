@@ -5949,10 +5949,8 @@ define internal fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..option..Opti
 
 3:                                                ; preds = %0
   %.val.i = load i64, ptr %.0.val, align 8, !range !333, !noundef !3
-  switch i64 %.val.i, label %4 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit"
-    i64 0, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit"
-  ]
+  %switch.i = icmp sgt i64 %.val.i, 0
+  br i1 %switch.i, label %4, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit"
 
 4:                                                ; preds = %3
   %5 = getelementptr i8, ptr %.0.val, i64 8
@@ -5960,7 +5958,7 @@ define internal fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..option..Opti
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val1.i, i64 noundef %.val.i, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !951
   br label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit"
 
-"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit": ; preds = %3, %3, %4
+"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit": ; preds = %3, %4
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.0.val, i64 noundef 40, i64 noundef 8) #55
   br label %2
 }
@@ -6633,10 +6631,8 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$schemars..schema..S
 
 60:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..NumberValidation$GT$$GT$$GT$17hf3b54a20402bb16aE.exit"
   %.val.i.i6 = load i64, ptr %.val34.i, align 8, !range !333, !noundef !3
-  switch i64 %.val.i.i6, label %61 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit.i"
-    i64 0, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit.i"
-  ]
+  %switch.i.i = icmp sgt i64 %.val.i.i6, 0
+  br i1 %switch.i.i, label %61, label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit.i"
 
 61:                                               ; preds = %60
   %62 = getelementptr i8, ptr %.val34.i, i64 8
@@ -6644,7 +6640,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$schemars..schema..S
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val1.i.i7, i64 noundef %.val.i.i6, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !1065
   br label %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit.i"
 
-"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit.i": ; preds = %61, %60, %60
+"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$17h88b4782a607b00caE.exit.i": ; preds = %61, %60
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val34.i, i64 noundef 40, i64 noundef 8) #55
   br label %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..StringValidation$GT$$GT$$GT$17h08703d4e452283c1E.exit"
 
@@ -6700,10 +6696,8 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$schemars..schema..S
   %.pn16.i = phi { ptr, i32 } [ %.pn14.i, %.body4 ], [ %75, %74 ]
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val23.i = load i64, ptr %76, align 8, !range !333, !alias.scope !1037, !noundef !3
-  switch i64 %.val23.i, label %77 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit1"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit1"
-  ]
+  %switch = icmp sgt i64 %.val23.i, 0
+  br i1 %switch, label %77, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit1"
 
 77:                                               ; preds = %.body
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6714,10 +6708,8 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$schemars..schema..S
 "_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$$GT$17h39b2311cba20457eE.exit": ; preds = %"_ZN4core3ptr80drop_in_place$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$17hd1d0bc324a186db9E.exit.i", %"_ZN4core3ptr107drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ArrayValidation$GT$$GT$$GT$17heca4967ae27799e2E.exit"
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val25.i = load i64, ptr %79, align 8, !range !333, !alias.scope !1037, !noundef !3
-  switch i64 %.val25.i, label %80 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h721bba7780cb58cbE.exit"
-    i64 0, label %"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h721bba7780cb58cbE.exit"
-  ]
+  %switch25 = icmp sgt i64 %.val25.i, 0
+  br i1 %switch25, label %80, label %"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h721bba7780cb58cbE.exit"
 
 80:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$$GT$17h39b2311cba20457eE.exit"
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6725,7 +6717,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$schemars..schema..S
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val26.i, i64 noundef %.val25.i, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !1083
   br label %"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h721bba7780cb58cbE.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit1": ; preds = %77, %.body, %.body
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit1": ; preds = %.body, %77
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 176
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$alloc..collections..btree..map..BTreeMap$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h26a7ede9198624b9E"(ptr noalias noundef align 8 dereferenceable(24) %82) #57
           to label %85 unwind label %83
@@ -6739,7 +6731,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$schemars..schema..S
 85:                                               ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit1"
   resume { ptr, i32 } %.pn16.i
 
-"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h721bba7780cb58cbE.exit": ; preds = %80, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$$GT$17h39b2311cba20457eE.exit", %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$$GT$17h39b2311cba20457eE.exit"
+"_ZN4core3ptr51drop_in_place$LT$schemars..schema..SchemaObject$GT$17h721bba7780cb58cbE.exit": ; preds = %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$schemars..schema..ObjectValidation$GT$$GT$$GT$17h39b2311cba20457eE.exit", %80
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 176
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !1089
@@ -6915,10 +6907,8 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..
 define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$schemars..schema..Metadata$GT$17h438b1608af99ceceE"(ptr noalias noundef nonnull readonly align 8 captures(none) dereferenceable(136) %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val = load i64, ptr %2, align 8, !range !333, !noundef !3
-  switch i64 %.val, label %3 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %3, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit"
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -6926,13 +6916,11 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$schemars..schema..M
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val6, i64 noundef %.val, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !1117
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit": ; preds = %3, %1, %1
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit": ; preds = %1, %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.val9 = load i64, ptr %5, align 8, !range !333, !noundef !3
-  switch i64 %.val9, label %6 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16"
-  ]
+  %switch21 = icmp sgt i64 %.val9, 0
+  br i1 %switch21, label %6, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16"
 
 6:                                                ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit"
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6940,13 +6928,11 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$schemars..schema..M
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val10, i64 noundef %.val9, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !1120
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16": ; preds = %6, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit", %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.val13 = load i64, ptr %8, align 8, !range !333, !noundef !3
-  switch i64 %.val13, label %9 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit18"
-    i64 0, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit18"
-  ]
+  %switch22 = icmp sgt i64 %.val13, 0
+  br i1 %switch22, label %9, label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit18"
 
 9:                                                ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16"
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6954,7 +6940,7 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$schemars..schema..M
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val14, i64 noundef %.val13, i64 noundef range(i64 1, -9223372036854775807) 1) #55, !noalias !1123
   br label %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit18"
 
-"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit18": ; preds = %9, %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16", %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16"
+"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit18": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h4111429054bb2c26E.exit16", %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load i8, ptr %11, align 8, !range !1052, !alias.scope !1126, !noundef !3
   %13 = icmp eq i8 %12, 6
@@ -9975,10 +9961,8 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$aho_corasick..util.
 
 "_ZN4core3ptr69drop_in_place$LT$aho_corasick..util..prefilter..StartBytesBuilder$GT$17h92028c4281bab84fE.exit": ; preds = %4, %1
   %.val5 = load i64, ptr %0, align 16, !range !333, !noundef !3
-  switch i64 %.val5, label %6 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr65drop_in_place$LT$aho_corasick..util..prefilter..MemmemBuilder$GT$17h72b605a04cfc9fd2E.exit7"
-    i64 0, label %"_ZN4core3ptr65drop_in_place$LT$aho_corasick..util..prefilter..MemmemBuilder$GT$17h72b605a04cfc9fd2E.exit7"
-  ]
+  %switch = icmp sgt i64 %.val5, 0
+  br i1 %switch, label %6, label %"_ZN4core3ptr65drop_in_place$LT$aho_corasick..util..prefilter..MemmemBuilder$GT$17h72b605a04cfc9fd2E.exit7"
 
 6:                                                ; preds = %"_ZN4core3ptr69drop_in_place$LT$aho_corasick..util..prefilter..StartBytesBuilder$GT$17h92028c4281bab84fE.exit"
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9986,7 +9970,7 @@ define internal fastcc void @"_ZN4core3ptr59drop_in_place$LT$aho_corasick..util.
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %.val6, i64 noundef %.val5, i64 noundef range(i64 1, -9223372036854775807) 1) #55
   br label %"_ZN4core3ptr65drop_in_place$LT$aho_corasick..util..prefilter..MemmemBuilder$GT$17h72b605a04cfc9fd2E.exit7"
 
-"_ZN4core3ptr65drop_in_place$LT$aho_corasick..util..prefilter..MemmemBuilder$GT$17h72b605a04cfc9fd2E.exit7": ; preds = %6, %"_ZN4core3ptr69drop_in_place$LT$aho_corasick..util..prefilter..StartBytesBuilder$GT$17h92028c4281bab84fE.exit", %"_ZN4core3ptr69drop_in_place$LT$aho_corasick..util..prefilter..StartBytesBuilder$GT$17h92028c4281bab84fE.exit"
+"_ZN4core3ptr65drop_in_place$LT$aho_corasick..util..prefilter..MemmemBuilder$GT$17h72b605a04cfc9fd2E.exit7": ; preds = %"_ZN4core3ptr69drop_in_place$LT$aho_corasick..util..prefilter..StartBytesBuilder$GT$17h92028c4281bab84fE.exit", %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 336
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1721)
   %9 = load i64, ptr %8, align 16, !range !333, !alias.scope !1721, !noundef !3
@@ -10309,7 +10293,7 @@ define internal fastcc void @"_ZN4core3ptr64drop_in_place$LT$ruff_python_ast..co
     i64 31, label %280
   ]
 
-"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..comparable..ComparableDictItem$GT$$GT$17h0a6a444c856db17cE.exit": ; preds = %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit.i133", %"_ZN4core3ptr59drop_in_place$LT$ruff_python_ast..comparable..ExprSlice$GT$17hadefee175896c3ebE.exit", %253, %251, %251, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc1812c7a4d5bf288E.exit.i", %"_ZN4core3ptr67drop_in_place$LT$ruff_python_ast..comparable..ComparableFString$GT$17hf1dda89b4116ceb8E.exit", %238, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf670584bfb364ba8E.exit.i", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit.i", %186, %179, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54be262b2473eb86E.exit.i81", %160, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54be262b2473eb86E.exit.i64", %135, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54be262b2473eb86E.exit.i52", %116, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54be262b2473eb86E.exit.i", %95, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5689bb694a30b3efE.exit.i", %278, %276, %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit131", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit123", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit120", %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..comparable..ExprCall$GT$17h82a6a689ad84243aE.exit", %"_ZN4core3ptr61drop_in_place$LT$ruff_python_ast..comparable..ExprCompare$GT$17hd13f02f8fa05adffE.exit", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit95", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit92", %97, %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit25", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit22", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit19", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit11", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit", %6, %1
+"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..comparable..ComparableDictItem$GT$$GT$17h0a6a444c856db17cE.exit": ; preds = %251, %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit.i133", %"_ZN4core3ptr59drop_in_place$LT$ruff_python_ast..comparable..ExprSlice$GT$17hadefee175896c3ebE.exit", %253, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hc1812c7a4d5bf288E.exit.i", %"_ZN4core3ptr67drop_in_place$LT$ruff_python_ast..comparable..ComparableFString$GT$17hf1dda89b4116ceb8E.exit", %238, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf670584bfb364ba8E.exit.i", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit.i", %186, %179, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54be262b2473eb86E.exit.i81", %160, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54be262b2473eb86E.exit.i64", %135, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54be262b2473eb86E.exit.i52", %116, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h54be262b2473eb86E.exit.i", %95, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5689bb694a30b3efE.exit.i", %278, %276, %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit131", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit123", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit120", %"_ZN4core3ptr58drop_in_place$LT$ruff_python_ast..comparable..ExprCall$GT$17h82a6a689ad84243aE.exit", %"_ZN4core3ptr61drop_in_place$LT$ruff_python_ast..comparable..ExprCompare$GT$17hd13f02f8fa05adffE.exit", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit95", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit92", %97, %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit25", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit22", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit19", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit11", %"_ZN4core3ptr89drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..comparable..ComparableExpr$GT$$GT$17h0458860cdd8dc6cfE.exit", %6, %1
   ret void
 
 6:                                                ; preds = %1
@@ -11055,10 +11039,8 @@ common.resume:                                    ; preds = %.body139, %.body126
 251:                                              ; preds = %1
   %252 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i64, ptr %252, align 8, !range !333, !noundef !3
-  switch i64 %.val, label %253 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..comparable..ComparableDictItem$GT$$GT$17h0a6a444c856db17cE.exit"
-    i64 0, label %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..comparable..ComparableDictItem$GT$$GT$17h0a6a444c856db17cE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %253, label %"_ZN4core3ptr91drop_in_place$LT$alloc..vec..Vec$LT$ruff_python_ast..comparable..ComparableDictItem$GT$$GT$17h0a6a444c856db17cE.exit"
 
 253:                                              ; preds = %251
   %254 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13657,10 +13639,8 @@ define internal fastcc void @"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..co
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.val = load i64, ptr %5, align 8, !range !333, !noundef !3
-  switch i64 %.val, label %6 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1b3c3faa070195dbE.exit"
-    i64 0, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1b3c3faa070195dbE.exit"
-  ]
+  %switch = icmp sgt i64 %.val, 0
+  br i1 %switch, label %6, label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1b3c3faa070195dbE.exit"
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -13723,7 +13703,7 @@ common.resume:                                    ; preds = %21, %24, %10
   tail call void @_RNvCscSpY9Juk0HT_7___rustc14___rust_dealloc(ptr noundef nonnull %17, i64 noundef %27, i64 noundef range(i64 1, -9223372036854775807) 8) #55, !noalias !2252
   br label %"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1b3c3faa070195dbE.exit"
 
-"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1b3c3faa070195dbE.exit": ; preds = %"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..FStringExpressionElement$GT$17hea9c2c2920254e02E.exit", %26, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf670584bfb364ba8E.exit.i.i", %6, %4, %4
+"_ZN4core3ptr50drop_in_place$LT$alloc..borrow..Cow$LT$str$GT$$GT$17h1b3c3faa070195dbE.exit": ; preds = %4, %"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..FStringExpressionElement$GT$17hea9c2c2920254e02E.exit", %26, %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf670584bfb364ba8E.exit.i.i", %6
   ret void
 }
 
@@ -14745,10 +14725,8 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$$u5b$ruff_python_as
 8:                                                ; preds = %.lr.ph
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.val.i = load i64, ptr %9, align 8, !range !333, !alias.scope !2379, !noundef !3
-  switch i64 %.val.i, label %10 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit"
-    i64 0, label %"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit"
-  ]
+  %switch = icmp sgt i64 %.val.i, 0
+  br i1 %switch, label %10, label %"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit"
 
 10:                                               ; preds = %8
   %11 = getelementptr i8, ptr %4, i64 16
@@ -14787,7 +14765,7 @@ define internal fastcc void @"_ZN4core3ptr84drop_in_place$LT$$u5b$ruff_python_as
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #58
   unreachable
 
-"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit": ; preds = %22, %19, %10, %8, %8
+"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit": ; preds = %8, %22, %19, %10
   %25 = icmp eq i64 %5, %1
   br i1 %25, label %._crit_edge, label %.lr.ph
 
@@ -16170,10 +16148,8 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$
 11:                                               ; preds = %.lr.ph
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %.val.i.i = load i64, ptr %12, align 8, !range !333, !alias.scope !2491, !noundef !3
-  switch i64 %.val.i.i, label %13 [
-    i64 -9223372036854775808, label %"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit.i"
-    i64 0, label %"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit.i"
-  ]
+  %switch = icmp sgt i64 %.val.i.i, 0
+  br i1 %switch, label %13, label %"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit.i"
 
 13:                                               ; preds = %11
   %14 = getelementptr i8, ptr %7, i64 16
@@ -16212,7 +16188,7 @@ define internal fastcc void @"_ZN4core3ptr97drop_in_place$LT$alloc..vec..Vec$LT$
   tail call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #58
   unreachable
 
-"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit.i": ; preds = %25, %22, %13, %11, %11
+"_ZN4core3ptr74drop_in_place$LT$ruff_python_ast..comparable..ComparableFStringElement$GT$17h6072e64e5ab6bb5eE.exit.i": ; preds = %11, %25, %22, %13
   %28 = icmp eq i64 %8, %5
   br i1 %28, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hf670584bfb364ba8E.exit", label %.lr.ph
 
@@ -32273,75 +32249,75 @@ _ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.
   %switch.select15.i.i.i.i.sink.i.ph = phi i8 [ 4, %13 ], [ %narrow.i.i.i.i.i, %"_ZN98_$LT$ruff_python_ast..nodes..StringLiteralFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$6prefix17ha000d27e06e7332dE.exit.i.i.i" ]
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %.pn5.i22 = load i32, ptr %28, align 8, !noalias !5080, !noundef !3
-  br label %35
+  %.pn5.i20 = load i32, ptr %28, align 8, !noalias !5080, !noundef !3
+  br label %36
 
 _ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit: ; preds = %14, %16, %22
   %.sink5.i = phi i8 [ %25, %22 ], [ %19, %16 ], [ %6, %14 ]
   %switch.select15.i.i.i.i.sink.i = phi i8 [ %switch.select15.i.i.i.i.i, %22 ], [ %switch.select11.i.i.i.i.i, %16 ], [ %..i.i2.i.i.i, %14 ]
-  %switch.i = icmp samesign ult i64 %0, 2
-  %..i = select i1 %switch.i, i64 16, i64 24
-  %.8.i = select i1 %switch.i, i64 20, i64 28
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 %..i
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %.8.i
-  %.pn5.i = load i32, ptr %30, align 8, !noalias !5080, !noundef !3
-  %32 = and i8 %switch.select15.i.i.i.i.sink.i, 16
-  %.not.i.i = icmp eq i8 %32, 0
-  br i1 %.not.i.i, label %35, label %33
+  %30 = icmp eq i64 %0, 2
+  %..i = select i1 %30, i64 24, i64 16
+  %.8.i = select i1 %30, i64 28, i64 20
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 %..i
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 %.8.i
+  %.pn5.i = load i32, ptr %31, align 8, !noalias !5080, !noundef !3
+  %33 = and i8 %switch.select15.i.i.i.i.sink.i, 16
+  %.not.i.i = icmp eq i8 %33, 0
+  br i1 %.not.i.i, label %36, label %34
 
-33:                                               ; preds = %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
-  %34 = and i8 %switch.select15.i.i.i.i.sink.i, 96
-  %or.cond.i = icmp eq i8 %34, 0
+34:                                               ; preds = %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
+  %35 = and i8 %switch.select15.i.i.i.i.sink.i, 96
+  %or.cond.i = icmp eq i8 %35, 0
   %spec.select.i = select i1 %or.cond.i, i32 1, i32 2
   br label %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
 
-35:                                               ; preds = %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
-  %.pn5.i28 = phi i32 [ %.pn5.i22, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %.pn5.i, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
-  %36 = phi ptr [ %29, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %31, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
-  %switch.select15.i.i.i.i.sink.i26 = phi i8 [ %switch.select15.i.i.i.i.sink.i.ph, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %switch.select15.i.i.i.i.sink.i, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
-  %.sink5.i25 = phi i8 [ %6, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %.sink5.i, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
-  %37 = and i8 %switch.select15.i.i.i.i.sink.i26, 8
-  %.not1.i.i = icmp eq i8 %37, 0
-  br i1 %.not1.i.i, label %40, label %38
+36:                                               ; preds = %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit
+  %.pn5.i26 = phi i32 [ %.pn5.i20, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %.pn5.i, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
+  %37 = phi ptr [ %29, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %32, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
+  %switch.select15.i.i.i.i.sink.i24 = phi i8 [ %switch.select15.i.i.i.i.sink.i.ph, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %switch.select15.i.i.i.i.sink.i, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
+  %.sink5.i23 = phi i8 [ %6, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit.thread ], [ %.sink5.i, %_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE.exit ]
+  %38 = and i8 %switch.select15.i.i.i.i.sink.i24, 8
+  %.not1.i.i = icmp eq i8 %38, 0
+  br i1 %.not1.i.i, label %41, label %39
 
-38:                                               ; preds = %35
-  %39 = and i8 %switch.select15.i.i.i.i.sink.i26, 96
-  %or.cond19.i = icmp eq i8 %39, 0
+39:                                               ; preds = %36
+  %40 = and i8 %switch.select15.i.i.i.i.sink.i24, 96
+  %or.cond19.i = icmp eq i8 %40, 0
   %spec.select20.i = select i1 %or.cond19.i, i32 1, i32 2
   br label %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
 
-40:                                               ; preds = %35
-  %41 = and i8 %switch.select15.i.i.i.i.sink.i26, 100
-  %42 = icmp ne i8 %41, 0
-  %.sroa.11.0.i.ph.i = zext i1 %42 to i32
+41:                                               ; preds = %36
+  %42 = and i8 %switch.select15.i.i.i.i.sink.i24, 100
+  %43 = icmp ne i8 %42, 0
+  %.sroa.11.0.i.ph.i = zext i1 %43 to i32
   br label %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
 
-_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit: ; preds = %33, %38, %40
-  %.pn5.i27 = phi i32 [ %.pn5.i28, %40 ], [ %.pn5.i28, %38 ], [ %.pn5.i, %33 ]
-  %43 = phi ptr [ %36, %40 ], [ %36, %38 ], [ %31, %33 ]
-  %.sink5.i24 = phi i8 [ %.sink5.i25, %40 ], [ %.sink5.i25, %38 ], [ %.sink5.i, %33 ]
-  %..i6.sink.i.i = phi i32 [ %.sroa.11.0.i.ph.i, %40 ], [ %spec.select20.i, %38 ], [ %spec.select.i, %33 ]
-  %44 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i6.sink.i.i)
-  %45 = and i8 %.sink5.i24, 2
-  %.not.i.i.not.i.i = icmp eq i8 %45, 0
+_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit: ; preds = %34, %39, %41
+  %.pn5.i25 = phi i32 [ %.pn5.i26, %41 ], [ %.pn5.i26, %39 ], [ %.pn5.i, %34 ]
+  %44 = phi ptr [ %37, %41 ], [ %37, %39 ], [ %32, %34 ]
+  %.sink5.i22 = phi i8 [ %.sink5.i23, %41 ], [ %.sink5.i23, %39 ], [ %.sink5.i, %34 ]
+  %..i6.sink.i.i = phi i32 [ %.sroa.11.0.i.ph.i, %41 ], [ %spec.select20.i, %39 ], [ %spec.select.i, %34 ]
+  %45 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i6.sink.i.i)
+  %46 = and i8 %.sink5.i22, 2
+  %.not.i.i.not.i.i = icmp eq i8 %46, 0
   %..i1.i = select i1 %.not.i.i.not.i.i, i32 1, i32 3
-  %46 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i1.i)
-  %47 = add i32 %44, %.pn5.i27
-  %48 = add i32 %47, %46
-  %.pn3.i5 = load i32, ptr %43, align 4, !noalias !5083, !noundef !3
-  %49 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i1.i)
-  %50 = sub i32 %.pn3.i5, %49
-  %.not = icmp ugt i32 %48, %50
-  br i1 %.not, label %51, label %52, !prof !143
+  %47 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i1.i)
+  %48 = add i32 %45, %.pn5.i25
+  %49 = add i32 %48, %47
+  %.pn3.i4 = load i32, ptr %44, align 4, !noalias !5083, !noundef !3
+  %50 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i1.i)
+  %51 = sub i32 %.pn3.i4, %50
+  %.not = icmp ugt i32 %49, %51
+  br i1 %.not, label %52, label %53, !prof !143
 
-51:                                               ; preds = %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
+52:                                               ; preds = %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
   tail call void @_ZN4core9panicking5panic17h48a7e1f3665210c6E(ptr noalias noundef nonnull readonly align 1 @anon.18ff8fbd04110e1d2a6adbb6cd15703a.321, i64 noundef 38, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.18ff8fbd04110e1d2a6adbb6cd15703a.323) #56
   unreachable
 
-52:                                               ; preds = %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
-  %53 = insertvalue { i32, i32 } poison, i32 %48, 0
-  %54 = insertvalue { i32, i32 } %53, i32 %50, 1
-  ret { i32, i32 } %54
+53:                                               ; preds = %_ZN15ruff_python_ast5nodes11StringFlags10opener_len17h6ebc78cb2de8a4b0E.exit
+  %54 = insertvalue { i32, i32 } poison, i32 %49, 0
+  %55 = insertvalue { i32, i32 } %54, i32 %51, 1
+  ret { i32, i32 } %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -32411,13 +32387,13 @@ define { i32, i32 } @"_ZN94_$LT$ruff_python_ast..expression..StringLikePart$u20$
   %2 = load i64, ptr %0, align 8, !range !398, !noundef !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !align !135, !noundef !3
-  %switch = icmp samesign ult i64 %2, 2
-  %. = select i1 %switch, i64 16, i64 24
-  %.8 = select i1 %switch, i64 20, i64 28
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.8
-  %.pn3 = load i32, ptr %6, align 4, !noundef !3
-  %.pn5 = load i32, ptr %5, align 8, !noundef !3
+  %5 = icmp eq i64 %2, 2
+  %. = select i1 %5, i64 24, i64 16
+  %.8 = select i1 %5, i64 28, i64 20
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.8
+  %.pn3 = load i32, ptr %7, align 4, !noundef !3
+  %.pn5 = load i32, ptr %6, align 8, !noundef !3
   %.pn2 = insertvalue { i32, i32 } poison, i32 %.pn5, 0
   %.pn = insertvalue { i32, i32 } %.pn2, i32 %.pn3, 1
   ret { i32, i32 } %.pn
@@ -56783,20 +56759,20 @@ tailrecurse:                                      ; preds = %4, %1
 define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN15ruff_python_ast5nodes55_$LT$impl$u20$ruff_python_ast..generated..TypeParam$GT$4name17h60534484983bc5faE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(56) %0) unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %3 = load i8, ptr %2, align 1, !range !3413, !noundef !3
-  %switch = icmp ult i8 %3, -38
-  %. = select i1 %switch, i64 24, i64 16
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  ret ptr %4
+  %4 = icmp ult i8 %3, -38
+  %. = select i1 %4, i64 24, i64 16
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef align 8 ptr @"_ZN15ruff_python_ast5nodes55_$LT$impl$u20$ruff_python_ast..generated..TypeParam$GT$7default17hd37e270450464a51E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #20 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 55
   %3 = load i8, ptr %2, align 1, !range !3413, !noundef !3
-  %switch = icmp ult i8 %3, -38
-  %. = select i1 %switch, i64 16, i64 8
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.
-  %.sroa.0.0 = load ptr, ptr %4, align 8, !align !135, !noundef !3
+  %4 = icmp ult i8 %3, -38
+  %. = select i1 %4, i64 16, i64 8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %.sroa.0.0 = load ptr, ptr %5, align 8, !align !135, !noundef !3
   ret ptr %.sroa.0.0
 }
 
@@ -58296,34 +58272,34 @@ define noundef range(i8 0, 21) i8 @_ZN15ruff_python_ast19operator_precedence18Op
     i64 1, label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
     i64 2, label %switch.lookup
     i64 3, label %13
-    i64 4, label %18
-    i64 5, label %19
-    i64 6, label %20
-    i64 7, label %20
-    i64 8, label %20
-    i64 9, label %20
-    i64 10, label %20
-    i64 11, label %20
-    i64 12, label %21
-    i64 13, label %22
-    i64 14, label %22
-    i64 15, label %23
-    i64 16, label %24
-    i64 17, label %20
-    i64 18, label %20
-    i64 19, label %20
-    i64 20, label %20
-    i64 21, label %20
-    i64 22, label %20
-    i64 23, label %20
-    i64 24, label %24
-    i64 25, label %24
-    i64 26, label %25
-    i64 27, label %20
-    i64 28, label %20
-    i64 29, label %20
-    i64 30, label %24
-    i64 31, label %26
+    i64 4, label %19
+    i64 5, label %20
+    i64 6, label %21
+    i64 7, label %21
+    i64 8, label %21
+    i64 9, label %21
+    i64 10, label %21
+    i64 11, label %21
+    i64 12, label %22
+    i64 13, label %23
+    i64 14, label %23
+    i64 15, label %24
+    i64 16, label %25
+    i64 17, label %21
+    i64 18, label %21
+    i64 19, label %21
+    i64 20, label %21
+    i64 21, label %21
+    i64 22, label %21
+    i64 23, label %21
+    i64 24, label %25
+    i64 25, label %25
+    i64 26, label %26
+    i64 27, label %21
+    i64 28, label %21
+    i64 29, label %21
+    i64 30, label %25
+    i64 31, label %27
   ]
 
 default.unreachable1:                             ; preds = %1
@@ -58352,39 +58328,39 @@ switch.lookup:                                    ; preds = %1
   %15 = load ptr, ptr %14, align 8, !nonnull !3, !align !135, !noundef !3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i8, ptr %16, align 8, !range !569, !noundef !3
-  %switch = icmp eq i8 %17, 1
-  %. = select i1 %switch, i8 8, i8 16
-  br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
-
-18:                                               ; preds = %1
+  %18 = icmp eq i8 %17, 1
+  %. = select i1 %18, i8 8, i8 16
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
 19:                                               ; preds = %1
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
-20:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
+20:                                               ; preds = %1
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
-21:                                               ; preds = %1
+21:                                               ; preds = %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1, %1
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
-22:                                               ; preds = %1, %1
+22:                                               ; preds = %1
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
-23:                                               ; preds = %1
+23:                                               ; preds = %1, %1
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
-24:                                               ; preds = %1, %1, %1, %1
+24:                                               ; preds = %1
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
-25:                                               ; preds = %1
+25:                                               ; preds = %1, %1, %1, %1
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
 26:                                               ; preds = %1
   br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
 
-"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit": ; preds = %switch.lookup, %13, %1, %26, %25, %24, %23, %22, %21, %20, %19, %18, %3
-  %.sroa.0.0 = phi i8 [ %..i, %3 ], [ 4, %18 ], [ 5, %19 ], [ 18, %21 ], [ 1, %22 ], [ 9, %23 ], [ 3, %25 ], [ 20, %20 ], [ 19, %24 ], [ 0, %26 ], [ 2, %1 ], [ %., %13 ], [ %switch.load, %switch.lookup ]
+27:                                               ; preds = %1
+  br label %"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit"
+
+"_ZN136_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..Operator$GT$$GT$4from17hcfca98f361dbdc02E.exit": ; preds = %switch.lookup, %13, %1, %27, %26, %25, %24, %23, %22, %21, %20, %19, %3
+  %.sroa.0.0 = phi i8 [ %..i, %3 ], [ 4, %19 ], [ 5, %20 ], [ 18, %22 ], [ 1, %23 ], [ 9, %24 ], [ 3, %26 ], [ 20, %21 ], [ 19, %25 ], [ 0, %27 ], [ 2, %1 ], [ %., %13 ], [ %switch.load, %switch.lookup ]
   ret i8 %.sroa.0.0
 }
 
@@ -58455,8 +58431,8 @@ define noundef range(i8 6, 8) i8 @"_ZN134_$LT$ruff_python_ast..operator_preceden
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 8, 17) i8 @"_ZN135_$LT$ruff_python_ast..operator_precedence..OperatorPrecedence$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..UnaryOp$GT$$GT$4from17heee5d85070bfaf70E"(i8 noundef range(i8 0, 4) %0) unnamed_addr #18 {
-  %switch = icmp eq i8 %0, 1
-  %. = select i1 %switch, i8 8, i8 16
+  %2 = icmp eq i8 %0, 1
+  %. = select i1 %2, i8 8, i8 16
   ret i8 %.
 }
 
@@ -62058,10 +62034,10 @@ default.unreachable:                              ; preds = %1
 
 ; Function Attrs: nonlazybind uwtable
 define noundef i32 @_ZN15ruff_python_ast10str_prefix19StringLiteralPrefix8text_len17ha55be7011aa9b8faE(i8 noundef range(i8 0, 4) %0) unnamed_addr #1 {
-  %switch = icmp ne i8 %0, 2
-  %. = zext i1 %switch to i32
-  %2 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %.)
-  ret i32 %2
+  %2 = icmp ne i8 %0, 2
+  %. = zext i1 %2 to i32
+  %3 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %.)
+  ret i32 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -62279,29 +62255,29 @@ default.unreachable7:                             ; preds = %2
 3:                                                ; preds = %2
   %.not.i = icmp eq i8 %1, 2
   %..i = select i1 %.not.i, i32 1, i32 2
-  br label %6
+  br label %7
 
 4:                                                ; preds = %2
   %.not.i4 = icmp eq i8 %1, 2
   %..i5 = select i1 %.not.i4, i32 1, i32 2
-  br label %6
+  br label %7
 
 5:                                                ; preds = %2
-  %switch.i = icmp ne i8 %1, 2
-  %..i6 = zext i1 %switch.i to i32
-  br label %6
+  %6 = icmp ne i8 %1, 2
+  %..i6 = zext i1 %6 to i32
+  br label %7
 
-6:                                                ; preds = %5, %4, %3
+7:                                                ; preds = %5, %4, %3
   %..i6.sink = phi i32 [ %..i6, %5 ], [ %..i5, %4 ], [ %..i, %3 ]
-  %7 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i6.sink)
-  ret i32 %7
+  %8 = tail call noundef i32 @_ZN14ruff_text_size4size8TextSize3new17h074aa630890fc876E(i32 noundef %..i6.sink)
+  ret i32 %8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast10str_prefix15AnyStringPrefix6is_raw17h1cc41802b330a704E(i8 noundef range(i8 0, 3) %0, i8 noundef %1) unnamed_addr #18 {
-  %switch = icmp samesign ult i8 %0, 2
-  %3 = and i8 %1, -2
-  %.sroa.03.0.in.in = select i1 %switch, i8 %1, i8 %3
+  %3 = icmp eq i8 %0, 2
+  %4 = and i8 %1, -2
+  %.sroa.03.0.in.in = select i1 %3, i8 %4, i8 %1
   %.sroa.03.0.in = icmp ne i8 %.sroa.03.0.in.in, 2
   ret i1 %.sroa.03.0.in
 }
@@ -64222,8 +64198,8 @@ define noundef zeroext i1 @_ZN15ruff_python_ast12PySourceType7is_stub17h167126a0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef zeroext i1 @_ZN15ruff_python_ast12PySourceType18is_py_file_or_stub17h0ef41c790ff23edbE(i8 noundef range(i8 0, 3) %0) unnamed_addr #18 {
-  %switch = icmp samesign ult i8 %0, 2
-  ret i1 %switch
+  %2 = icmp ne i8 %0, 2
+  ret i1 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

@@ -33030,8 +33030,8 @@ thread-pre-split.i.i.i:                           ; preds = %8556
   br i1 %8566, label %gladLoadGLLoader.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %8564
-  %.not17.i.i.i = icmp eq i32 %8558, 0
-  br i1 %.not17.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not16.i.i.i = icmp eq i32 %8558, 0
+  br i1 %.not16.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.preheader.i.i.i, %8574
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %8574 ], [ 0, %.preheader.i.i.i ]
@@ -35550,8 +35550,8 @@ thread-pre-split.i.i:                             ; preds = %1154
   br i1 %1164, label %find_extensionsGL.exit, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %1162
-  %.not17.i.i = icmp eq i32 %1156, 0
-  br i1 %.not17.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not16.i.i = icmp eq i32 %1156, 0
+  br i1 %.not16.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %1172
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %1172 ], [ 0, %.preheader.i.i ]

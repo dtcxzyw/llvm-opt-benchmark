@@ -2324,8 +2324,8 @@ define internal fastcc void @writeDict(ptr noundef %0, ptr noundef %1, ptr nound
   %5 = tail call ptr @dtview(ptr noundef %2, ptr noundef null) #21
   %6 = load ptr, ptr %2, align 8, !tbaa !25
   %7 = tail call ptr %6(ptr noundef nonnull %2, ptr noundef null, i32 noundef 128) #21
-  %.not143 = icmp eq ptr %7, null
-  br i1 %.not143, label %._crit_edge, label %.lr.ph
+  %.not140 = icmp eq ptr %7, null
+  br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %8 = icmp eq ptr %5, null
@@ -2336,15 +2336,15 @@ define internal fastcc void @writeDict(ptr noundef %0, ptr noundef %1, ptr nound
   ret void
 
 10:                                               ; preds = %.lr.ph, %.thread
-  %.0144 = phi ptr [ %7, %.lr.ph ], [ %125, %.thread ]
-  %11 = getelementptr inbounds nuw i8, ptr %.0144, i64 16
+  %.0141 = phi ptr [ %7, %.lr.ph ], [ %125, %.thread ]
+  %11 = getelementptr inbounds nuw i8, ptr %.0141, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !71
   %13 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(6) @.str.43, i64 noundef 5) #25
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %82, label %15
 
 15:                                               ; preds = %10
-  %16 = getelementptr inbounds nuw i8, ptr %.0144, i64 24
+  %16 = getelementptr inbounds nuw i8, ptr %.0141, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !73
   %18 = icmp eq ptr %17, null
   br i1 %18, label %22, label %19
@@ -2359,7 +2359,7 @@ define internal fastcc void @writeDict(ptr noundef %0, ptr noundef %1, ptr nound
 
 23:                                               ; preds = %22
   %24 = load ptr, ptr %5, align 8, !tbaa !25
-  %25 = tail call ptr %24(ptr noundef nonnull %5, ptr noundef nonnull %.0144, i32 noundef 4) #21
+  %25 = tail call ptr %24(ptr noundef nonnull %5, ptr noundef nonnull %.0141, i32 noundef 4) #21
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !73
   %28 = icmp eq ptr %27, null
@@ -2368,14 +2368,14 @@ define internal fastcc void @writeDict(ptr noundef %0, ptr noundef %1, ptr nound
 29:                                               ; preds = %23
   %30 = load i8, ptr %27, align 1, !tbaa !24
   %31 = icmp eq i8 %30, 0
-  br i1 %31, label %.thread, label %._crit_edge145
+  br i1 %31, label %.thread, label %._crit_edge142
 
-._crit_edge145:                                   ; preds = %29
+._crit_edge142:                                   ; preds = %29
   %.pre = load ptr, ptr %16, align 8, !tbaa !73
   br label %32
 
-32:                                               ; preds = %._crit_edge145, %19
-  %33 = phi ptr [ %.pre, %._crit_edge145 ], [ %17, %19 ]
+32:                                               ; preds = %._crit_edge142, %19
+  %33 = phi ptr [ %.pre, %._crit_edge142 ], [ %17, %19 ]
   %34 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %33, ptr noundef nonnull dereferenceable(14) @.str.44, i64 noundef 13) #25
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %54
@@ -2399,55 +2399,55 @@ tabover.exit:                                     ; preds = %.lr.ph.i, %36
   %43 = tail call i32 @xml_escape(ptr noundef %42, i32 6, ptr noundef nonnull @put, ptr noundef %0) #21
   %44 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 3, i64 1, ptr %0)
   %45 = load i32, ptr @Level, align 4, !tbaa !20
-  %.not1.i96 = icmp eq i32 %45, 0
-  br i1 %.not1.i96, label %tabover.exit100, label %.lr.ph.i97
+  %.not1.i95 = icmp eq i32 %45, 0
+  br i1 %.not1.i95, label %tabover.exit99, label %.lr.ph.i96
 
-.lr.ph.i97:                                       ; preds = %tabover.exit, %.lr.ph.i97
-  %.02.i98 = phi i32 [ %46, %.lr.ph.i97 ], [ %45, %tabover.exit ]
-  %46 = add nsw i32 %.02.i98, -1
+.lr.ph.i96:                                       ; preds = %tabover.exit, %.lr.ph.i96
+  %.02.i97 = phi i32 [ %46, %.lr.ph.i96 ], [ %45, %tabover.exit ]
+  %46 = add nsw i32 %.02.i97, -1
   %47 = tail call i32 @putc(i32 noundef 9, ptr noundef %0)
-  %.not.i99 = icmp eq i32 %46, 0
-  br i1 %.not.i99, label %tabover.exit100, label %.lr.ph.i97, !llvm.loop !22
+  %.not.i98 = icmp eq i32 %46, 0
+  br i1 %.not.i98, label %tabover.exit99, label %.lr.ph.i96, !llvm.loop !22
 
-tabover.exit100:                                  ; preds = %.lr.ph.i97, %tabover.exit
+tabover.exit99:                                   ; preds = %.lr.ph.i96, %tabover.exit
   %48 = tail call i64 @fwrite(ptr nonnull @.str.34, i64 23, i64 1, ptr %0)
   %49 = tail call i32 @xml_escape(ptr noundef nonnull %37, i32 0, ptr noundef nonnull @put, ptr noundef %0) #21
   %50 = tail call i64 @fwrite(ptr nonnull @.str.35, i64 4, i64 1, ptr %0)
   %51 = load i32, ptr @Level, align 4, !tbaa !20
-  %.not1.i101 = icmp eq i32 %51, 0
-  br i1 %.not1.i101, label %.thread.sink.split, label %.lr.ph.i102
+  %.not1.i100 = icmp eq i32 %51, 0
+  br i1 %.not1.i100, label %.thread.sink.split, label %.lr.ph.i101
 
-.lr.ph.i102:                                      ; preds = %tabover.exit100, %.lr.ph.i102
-  %.02.i103 = phi i32 [ %52, %.lr.ph.i102 ], [ %51, %tabover.exit100 ]
-  %52 = add nsw i32 %.02.i103, -1
+.lr.ph.i101:                                      ; preds = %tabover.exit99, %.lr.ph.i101
+  %.02.i102 = phi i32 [ %52, %.lr.ph.i101 ], [ %51, %tabover.exit99 ]
+  %52 = add nsw i32 %.02.i102, -1
   %53 = tail call i32 @putc(i32 noundef 9, ptr noundef %0)
-  %.not.i104 = icmp eq i32 %52, 0
-  br i1 %.not.i104, label %.thread.sink.split, label %.lr.ph.i102, !llvm.loop !22
+  %.not.i103 = icmp eq i32 %52, 0
+  br i1 %.not.i103, label %.thread.sink.split, label %.lr.ph.i101, !llvm.loop !22
 
 54:                                               ; preds = %32
   %55 = load i32, ptr @Level, align 4, !tbaa !20
-  %.not1.i106 = icmp eq i32 %55, 0
-  br i1 %.not1.i106, label %tabover.exit110, label %.lr.ph.i107
+  %.not1.i105 = icmp eq i32 %55, 0
+  br i1 %.not1.i105, label %tabover.exit109, label %.lr.ph.i106
 
-.lr.ph.i107:                                      ; preds = %54, %.lr.ph.i107
-  %.02.i108 = phi i32 [ %56, %.lr.ph.i107 ], [ %55, %54 ]
-  %56 = add nsw i32 %.02.i108, -1
+.lr.ph.i106:                                      ; preds = %54, %.lr.ph.i106
+  %.02.i107 = phi i32 [ %56, %.lr.ph.i106 ], [ %55, %54 ]
+  %56 = add nsw i32 %.02.i107, -1
   %57 = tail call i32 @putc(i32 noundef 9, ptr noundef %0)
-  %.not.i109 = icmp eq i32 %56, 0
-  br i1 %.not.i109, label %tabover.exit110, label %.lr.ph.i107, !llvm.loop !22
+  %.not.i108 = icmp eq i32 %56, 0
+  br i1 %.not.i108, label %tabover.exit109, label %.lr.ph.i106, !llvm.loop !22
 
-tabover.exit110:                                  ; preds = %.lr.ph.i107, %54
+tabover.exit109:                                  ; preds = %.lr.ph.i106, %54
   %58 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 13, i64 1, ptr %0)
   br i1 %3, label %59, label %64
 
-59:                                               ; preds = %tabover.exit110
+59:                                               ; preds = %tabover.exit109
   %60 = load ptr, ptr %11, align 8, !tbaa !71
   %61 = tail call i32 @xml_escape(ptr noundef %60, i32 6, ptr noundef nonnull @put, ptr noundef %0) #21
   %62 = tail call i64 @fwrite(ptr nonnull @.str.36, i64 2, i64 1, ptr %0)
   %63 = tail call i64 @fwrite(ptr nonnull @.str.37, i64 6, i64 1, ptr %0)
   br label %69
 
-64:                                               ; preds = %tabover.exit110
+64:                                               ; preds = %tabover.exit109
   %65 = tail call i32 @xml_escape(ptr noundef %1, i32 6, ptr noundef nonnull @put, ptr noundef %0) #21
   %fputc = tail call i32 @fputc(i32 58, ptr %0)
   %66 = load ptr, ptr %11, align 8, !tbaa !71
@@ -2459,31 +2459,31 @@ tabover.exit110:                                  ; preds = %.lr.ph.i107, %54
   %70 = tail call i32 @xml_escape(ptr noundef %1, i32 6, ptr noundef nonnull @put, ptr noundef %0) #21
   %71 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 3, i64 1, ptr %0)
   %72 = load i32, ptr @Level, align 4, !tbaa !20
-  %.not1.i111 = icmp eq i32 %72, 0
-  br i1 %.not1.i111, label %tabover.exit115, label %.lr.ph.i112
+  %.not1.i110 = icmp eq i32 %72, 0
+  br i1 %.not1.i110, label %tabover.exit114, label %.lr.ph.i111
 
-.lr.ph.i112:                                      ; preds = %69, %.lr.ph.i112
-  %.02.i113 = phi i32 [ %73, %.lr.ph.i112 ], [ %72, %69 ]
-  %73 = add nsw i32 %.02.i113, -1
+.lr.ph.i111:                                      ; preds = %69, %.lr.ph.i111
+  %.02.i112 = phi i32 [ %73, %.lr.ph.i111 ], [ %72, %69 ]
+  %73 = add nsw i32 %.02.i112, -1
   %74 = tail call i32 @putc(i32 noundef 9, ptr noundef %0)
-  %.not.i114 = icmp eq i32 %73, 0
-  br i1 %.not.i114, label %tabover.exit115, label %.lr.ph.i112, !llvm.loop !22
+  %.not.i113 = icmp eq i32 %73, 0
+  br i1 %.not.i113, label %tabover.exit114, label %.lr.ph.i111, !llvm.loop !22
 
-tabover.exit115:                                  ; preds = %.lr.ph.i112, %69
+tabover.exit114:                                  ; preds = %.lr.ph.i111, %69
   %75 = tail call i64 @fwrite(ptr nonnull @.str.20, i64 10, i64 1, ptr %0)
   %76 = load ptr, ptr %16, align 8, !tbaa !73
   %77 = tail call i32 @xml_escape(ptr noundef %76, i32 6, ptr noundef nonnull @put, ptr noundef %0) #21
   %78 = tail call i64 @fwrite(ptr nonnull @.str.21, i64 10, i64 1, ptr %0)
   %79 = load i32, ptr @Level, align 4, !tbaa !20
-  %.not1.i116 = icmp eq i32 %79, 0
-  br i1 %.not1.i116, label %.thread.sink.split, label %.lr.ph.i117
+  %.not1.i115 = icmp eq i32 %79, 0
+  br i1 %.not1.i115, label %.thread.sink.split, label %.lr.ph.i116
 
-.lr.ph.i117:                                      ; preds = %tabover.exit115, %.lr.ph.i117
-  %.02.i118 = phi i32 [ %80, %.lr.ph.i117 ], [ %79, %tabover.exit115 ]
-  %80 = add nsw i32 %.02.i118, -1
+.lr.ph.i116:                                      ; preds = %tabover.exit114, %.lr.ph.i116
+  %.02.i117 = phi i32 [ %80, %.lr.ph.i116 ], [ %79, %tabover.exit114 ]
+  %80 = add nsw i32 %.02.i117, -1
   %81 = tail call i32 @putc(i32 noundef 9, ptr noundef %0)
-  %.not.i119 = icmp eq i32 %80, 0
-  br i1 %.not.i119, label %.thread.sink.split, label %.lr.ph.i117, !llvm.loop !22
+  %.not.i118 = icmp eq i32 %80, 0
+  br i1 %.not.i118, label %.thread.sink.split, label %.lr.ph.i116, !llvm.loop !22
 
 82:                                               ; preds = %10
   %83 = tail call i32 @strncmp(ptr noundef nonnull readonly dereferenceable(1) %12, ptr noundef nonnull dereferenceable(16) @.str.40, i64 noundef 15) #25
@@ -2491,7 +2491,7 @@ tabover.exit115:                                  ; preds = %.lr.ph.i112, %69
   br i1 %84, label %85, label %.thread
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i8, ptr %.0144, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.0141, i64 24
   %87 = load ptr, ptr %86, align 8, !tbaa !73
   %88 = icmp eq ptr %87, null
   br i1 %88, label %92, label %89
@@ -2506,7 +2506,7 @@ tabover.exit115:                                  ; preds = %.lr.ph.i112, %69
 
 93:                                               ; preds = %92
   %94 = load ptr, ptr %5, align 8, !tbaa !25
-  %95 = tail call ptr %94(ptr noundef nonnull %5, ptr noundef nonnull %.0144, i32 noundef 4) #21
+  %95 = tail call ptr %94(ptr noundef nonnull %5, ptr noundef nonnull %.0141, i32 noundef 4) #21
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 24
   %97 = load ptr, ptr %96, align 8, !tbaa !73
   %98 = icmp eq ptr %97, null
@@ -2519,17 +2519,17 @@ tabover.exit115:                                  ; preds = %.lr.ph.i112, %69
 
 102:                                              ; preds = %99, %89
   %103 = load i32, ptr @Level, align 4, !tbaa !20
-  %.not1.i121 = icmp eq i32 %103, 0
-  br i1 %.not1.i121, label %tabover.exit125, label %.lr.ph.i122
+  %.not1.i120 = icmp eq i32 %103, 0
+  br i1 %.not1.i120, label %tabover.exit124, label %.lr.ph.i121
 
-.lr.ph.i122:                                      ; preds = %102, %.lr.ph.i122
-  %.02.i123 = phi i32 [ %104, %.lr.ph.i122 ], [ %103, %102 ]
-  %104 = add nsw i32 %.02.i123, -1
+.lr.ph.i121:                                      ; preds = %102, %.lr.ph.i121
+  %.02.i122 = phi i32 [ %104, %.lr.ph.i121 ], [ %103, %102 ]
+  %104 = add nsw i32 %.02.i122, -1
   %105 = tail call i32 @putc(i32 noundef 9, ptr noundef %0)
-  %.not.i124 = icmp eq i32 %104, 0
-  br i1 %.not.i124, label %tabover.exit125, label %.lr.ph.i122, !llvm.loop !22
+  %.not.i123 = icmp eq i32 %104, 0
+  br i1 %.not.i123, label %tabover.exit124, label %.lr.ph.i121, !llvm.loop !22
 
-tabover.exit125:                                  ; preds = %.lr.ph.i122, %102
+tabover.exit124:                                  ; preds = %.lr.ph.i121, %102
   %106 = tail call i64 @fwrite(ptr nonnull @.str.32, i64 13, i64 1, ptr %0)
   %107 = load ptr, ptr %11, align 8, !tbaa !71
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 15
@@ -2539,39 +2539,39 @@ tabover.exit125:                                  ; preds = %.lr.ph.i122, %102
   %112 = tail call i32 @xml_escape(ptr noundef %1, i32 6, ptr noundef nonnull @put, ptr noundef %0) #21
   %113 = tail call i64 @fwrite(ptr nonnull @.str.33, i64 3, i64 1, ptr %0)
   %114 = load i32, ptr @Level, align 4, !tbaa !20
-  %.not1.i126 = icmp eq i32 %114, 0
-  br i1 %.not1.i126, label %tabover.exit130, label %.lr.ph.i127
+  %.not1.i125 = icmp eq i32 %114, 0
+  br i1 %.not1.i125, label %tabover.exit129, label %.lr.ph.i126
 
-.lr.ph.i127:                                      ; preds = %tabover.exit125, %.lr.ph.i127
-  %.02.i128 = phi i32 [ %115, %.lr.ph.i127 ], [ %114, %tabover.exit125 ]
-  %115 = add nsw i32 %.02.i128, -1
+.lr.ph.i126:                                      ; preds = %tabover.exit124, %.lr.ph.i126
+  %.02.i127 = phi i32 [ %115, %.lr.ph.i126 ], [ %114, %tabover.exit124 ]
+  %115 = add nsw i32 %.02.i127, -1
   %116 = tail call i32 @putc(i32 noundef 9, ptr noundef %0)
-  %.not.i129 = icmp eq i32 %115, 0
-  br i1 %.not.i129, label %tabover.exit130, label %.lr.ph.i127, !llvm.loop !22
+  %.not.i128 = icmp eq i32 %115, 0
+  br i1 %.not.i128, label %tabover.exit129, label %.lr.ph.i126, !llvm.loop !22
 
-tabover.exit130:                                  ; preds = %.lr.ph.i127, %tabover.exit125
+tabover.exit129:                                  ; preds = %.lr.ph.i126, %tabover.exit124
   %117 = tail call i64 @fwrite(ptr nonnull @.str.41, i64 2, i64 1, ptr %0)
   %118 = load ptr, ptr %86, align 8, !tbaa !73
   %119 = tail call i32 @xml_escape(ptr noundef %118, i32 6, ptr noundef nonnull @put, ptr noundef %0) #21
   %fputc92 = tail call i32 @fputc(i32 10, ptr %0)
   %120 = load i32, ptr @Level, align 4, !tbaa !20
-  %.not1.i131 = icmp eq i32 %120, 0
-  br i1 %.not1.i131, label %.thread.sink.split, label %.lr.ph.i132
+  %.not1.i130 = icmp eq i32 %120, 0
+  br i1 %.not1.i130, label %.thread.sink.split, label %.lr.ph.i131
 
-.lr.ph.i132:                                      ; preds = %tabover.exit130, %.lr.ph.i132
-  %.02.i133 = phi i32 [ %121, %.lr.ph.i132 ], [ %120, %tabover.exit130 ]
-  %121 = add nsw i32 %.02.i133, -1
+.lr.ph.i131:                                      ; preds = %tabover.exit129, %.lr.ph.i131
+  %.02.i132 = phi i32 [ %121, %.lr.ph.i131 ], [ %120, %tabover.exit129 ]
+  %121 = add nsw i32 %.02.i132, -1
   %122 = tail call i32 @putc(i32 noundef 9, ptr noundef %0)
-  %.not.i134 = icmp eq i32 %121, 0
-  br i1 %.not.i134, label %.thread.sink.split, label %.lr.ph.i132, !llvm.loop !22
+  %.not.i133 = icmp eq i32 %121, 0
+  br i1 %.not.i133, label %.thread.sink.split, label %.lr.ph.i131, !llvm.loop !22
 
-.thread.sink.split:                               ; preds = %.lr.ph.i117, %.lr.ph.i102, %.lr.ph.i132, %tabover.exit130, %tabover.exit115, %tabover.exit100
+.thread.sink.split:                               ; preds = %.lr.ph.i116, %.lr.ph.i101, %.lr.ph.i131, %tabover.exit129, %tabover.exit114, %tabover.exit99
   %123 = tail call i64 @fwrite(ptr nonnull @.str.22, i64 9, i64 1, ptr %0)
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %99, %93, %29, %23, %82, %92, %22
   %124 = load ptr, ptr %2, align 8, !tbaa !25
-  %125 = tail call ptr %124(ptr noundef nonnull %2, ptr noundef nonnull %.0144, i32 noundef 8) #21
+  %125 = tail call ptr %124(ptr noundef nonnull %2, ptr noundef nonnull %.0141, i32 noundef 8) #21
   %.not = icmp eq ptr %125, null
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !74
 }

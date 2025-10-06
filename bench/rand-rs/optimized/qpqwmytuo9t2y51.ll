@@ -5858,15 +5858,15 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87", label %.lr.ph
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit": ; preds = %.lr.ph
-  %.sroa.0485.0.copyload1862.pre = load <4 x i32>, ptr %0, align 16
-  %.sroa.0494.0.copyload1863.pre = load <4 x i32>, ptr %73, align 16
+  %.sroa.0485.0.copyload1861.pre = load <4 x i32>, ptr %0, align 16
+  %.sroa.0494.0.copyload1862.pre = load <4 x i32>, ptr %73, align 16
   %.sroa.0514.0.copyload.pre = load <2 x i64>, ptr %74, align 16
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit", %3
   %.sroa.0514.0.copyload = phi <2 x i64> [ %.sroa.0109.0.copyload, %3 ], [ %.sroa.0514.0.copyload.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
-  %.sroa.0494.0.copyload1863 = phi <4 x i32> [ %86, %3 ], [ %.sroa.0494.0.copyload1863.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
-  %.sroa.0485.0.copyload1862 = phi <4 x i32> [ %85, %3 ], [ %.sroa.0485.0.copyload1862.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
+  %.sroa.0494.0.copyload1862 = phi <4 x i32> [ %86, %3 ], [ %.sroa.0494.0.copyload1862.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
+  %.sroa.0485.0.copyload1861 = phi <4 x i32> [ %85, %3 ], [ %.sroa.0485.0.copyload1861.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
   %.sroa.65.0.lcssa = phi <2 x i64> [ %82, %3 ], [ %268, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
   %.sroa.64.0.lcssa = phi <2 x i64> [ %81, %3 ], [ %266, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
   %.sroa.63.0.lcssa = phi <2 x i64> [ %80, %3 ], [ %264, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit87.loopexit" ]
@@ -5919,14 +5919,14 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   %96 = add <4 x i32> %.sroa.6228.0.lcssa, %72
   %97 = add <4 x i32> %.sroa.11.0.lcssa, %72
   %98 = add <4 x i32> %.sroa.16231.0.lcssa, %72
-  %99 = add <4 x i32> %.sroa.0485.0.copyload1862, %.sroa.21.0.lcssa
-  %100 = add <4 x i32> %.sroa.0485.0.copyload1862, %.sroa.29.0.lcssa
-  %101 = add <4 x i32> %.sroa.0485.0.copyload1862, %.sroa.30.0.lcssa
-  %102 = add <4 x i32> %.sroa.0485.0.copyload1862, %.sroa.31.0.lcssa
-  %103 = add <4 x i32> %.sroa.0494.0.copyload1863, %.sroa.32.0.lcssa
-  %104 = add <4 x i32> %.sroa.0494.0.copyload1863, %.sroa.40.0.lcssa
-  %105 = add <4 x i32> %.sroa.0494.0.copyload1863, %.sroa.45.0.lcssa
-  %106 = add <4 x i32> %.sroa.0494.0.copyload1863, %.sroa.50.0.lcssa
+  %99 = add <4 x i32> %.sroa.0485.0.copyload1861, %.sroa.21.0.lcssa
+  %100 = add <4 x i32> %.sroa.0485.0.copyload1861, %.sroa.29.0.lcssa
+  %101 = add <4 x i32> %.sroa.0485.0.copyload1861, %.sroa.30.0.lcssa
+  %102 = add <4 x i32> %.sroa.0485.0.copyload1861, %.sroa.31.0.lcssa
+  %103 = add <4 x i32> %.sroa.0494.0.copyload1862, %.sroa.32.0.lcssa
+  %104 = add <4 x i32> %.sroa.0494.0.copyload1862, %.sroa.40.0.lcssa
+  %105 = add <4 x i32> %.sroa.0494.0.copyload1862, %.sroa.45.0.lcssa
+  %106 = add <4 x i32> %.sroa.0494.0.copyload1862, %.sroa.50.0.lcssa
   %107 = bitcast <2 x i64> %.sroa.55.0.lcssa to <4 x i32>
   %108 = bitcast <2 x i64> %91 to <4 x i32>
   %109 = add <4 x i32> %108, %107
@@ -5948,28 +5948,28 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   store <4 x i32> %109, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !1167, !noalias !1171
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store <4 x i32> %96, ptr %119, align 4, !alias.scope !1173, !noalias !1177
-  %.sroa.41912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %100, ptr %.sroa.41912.0..sroa_idx, align 4, !alias.scope !1173, !noalias !1177
-  %.sroa.51913.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %104, ptr %.sroa.51913.0..sroa_idx, align 4, !alias.scope !1173, !noalias !1177
-  %.sroa.61914.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %112, ptr %.sroa.61914.0..sroa_idx, align 4, !alias.scope !1173, !noalias !1177
+  %.sroa.41911.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %100, ptr %.sroa.41911.0..sroa_idx, align 4, !alias.scope !1173, !noalias !1177
+  %.sroa.51912.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %104, ptr %.sroa.51912.0..sroa_idx, align 4, !alias.scope !1173, !noalias !1177
+  %.sroa.61913.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %112, ptr %.sroa.61913.0..sroa_idx, align 4, !alias.scope !1173, !noalias !1177
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store <4 x i32> %97, ptr %120, align 4, !alias.scope !1179, !noalias !1183
-  %.sroa.41916.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %101, ptr %.sroa.41916.0..sroa_idx, align 4, !alias.scope !1179, !noalias !1183
-  %.sroa.51917.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %105, ptr %.sroa.51917.0..sroa_idx, align 4, !alias.scope !1179, !noalias !1183
-  %.sroa.61918.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %115, ptr %.sroa.61918.0..sroa_idx, align 4, !alias.scope !1179, !noalias !1183
+  %.sroa.41915.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %101, ptr %.sroa.41915.0..sroa_idx, align 4, !alias.scope !1179, !noalias !1183
+  %.sroa.51916.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %105, ptr %.sroa.51916.0..sroa_idx, align 4, !alias.scope !1179, !noalias !1183
+  %.sroa.61917.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %115, ptr %.sroa.61917.0..sroa_idx, align 4, !alias.scope !1179, !noalias !1183
   %121 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store <4 x i32> %98, ptr %121, align 4, !alias.scope !1185, !noalias !1189
-  %.sroa.41920.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %102, ptr %.sroa.41920.0..sroa_idx, align 4, !alias.scope !1185, !noalias !1189
-  %.sroa.51921.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %106, ptr %.sroa.51921.0..sroa_idx, align 4, !alias.scope !1185, !noalias !1189
-  %.sroa.61922.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %118, ptr %.sroa.61922.0..sroa_idx, align 4, !alias.scope !1185, !noalias !1189
+  %.sroa.41919.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %102, ptr %.sroa.41919.0..sroa_idx, align 4, !alias.scope !1185, !noalias !1189
+  %.sroa.51920.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %106, ptr %.sroa.51920.0..sroa_idx, align 4, !alias.scope !1185, !noalias !1189
+  %.sroa.61921.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %118, ptr %.sroa.61921.0..sroa_idx, align 4, !alias.scope !1185, !noalias !1189
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !1191
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !1191
   store <2 x i64> <i64 4, i64 0>, ptr %20, align 16, !noalias !1195
@@ -5982,36 +5982,36 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.01880 = phi i32 [ %124, %.lr.ph ], [ 0, %3 ]
-  %.sroa.0226.01879 = phi <4 x i32> [ %225, %.lr.ph ], [ %72, %3 ]
-  %.sroa.6228.01878 = phi <4 x i32> [ %227, %.lr.ph ], [ %72, %3 ]
-  %.sroa.11.01877 = phi <4 x i32> [ %229, %.lr.ph ], [ %72, %3 ]
-  %.sroa.16231.01876 = phi <4 x i32> [ %231, %.lr.ph ], [ %72, %3 ]
-  %.sroa.21.01875 = phi <4 x i32> [ %253, %.lr.ph ], [ %84, %3 ]
-  %.sroa.29.01874 = phi <4 x i32> [ %254, %.lr.ph ], [ %84, %3 ]
-  %.sroa.30.01873 = phi <4 x i32> [ %255, %.lr.ph ], [ %84, %3 ]
-  %.sroa.31.01872 = phi <4 x i32> [ %256, %.lr.ph ], [ %84, %3 ]
-  %.sroa.32.01871 = phi <4 x i32> [ %257, %.lr.ph ], [ %83, %3 ]
-  %.sroa.40.01870 = phi <4 x i32> [ %258, %.lr.ph ], [ %83, %3 ]
-  %.sroa.45.01869 = phi <4 x i32> [ %259, %.lr.ph ], [ %83, %3 ]
-  %.sroa.50.01868 = phi <4 x i32> [ %260, %.lr.ph ], [ %83, %3 ]
-  %.sroa.55.01867 = phi <2 x i64> [ %262, %.lr.ph ], [ %79, %3 ]
-  %.sroa.63.01866 = phi <2 x i64> [ %264, %.lr.ph ], [ %80, %3 ]
-  %.sroa.64.01865 = phi <2 x i64> [ %266, %.lr.ph ], [ %81, %3 ]
-  %.sroa.65.01864 = phi <2 x i64> [ %268, %.lr.ph ], [ %82, %3 ]
-  %124 = add nuw i32 %.sroa.01.01880, 1
-  %125 = add <4 x i32> %.sroa.0226.01879, %.sroa.21.01875
+  %.sroa.01.01879 = phi i32 [ %124, %.lr.ph ], [ 0, %3 ]
+  %.sroa.0226.01878 = phi <4 x i32> [ %225, %.lr.ph ], [ %72, %3 ]
+  %.sroa.6228.01877 = phi <4 x i32> [ %227, %.lr.ph ], [ %72, %3 ]
+  %.sroa.11.01876 = phi <4 x i32> [ %229, %.lr.ph ], [ %72, %3 ]
+  %.sroa.16231.01875 = phi <4 x i32> [ %231, %.lr.ph ], [ %72, %3 ]
+  %.sroa.21.01874 = phi <4 x i32> [ %253, %.lr.ph ], [ %84, %3 ]
+  %.sroa.29.01873 = phi <4 x i32> [ %254, %.lr.ph ], [ %84, %3 ]
+  %.sroa.30.01872 = phi <4 x i32> [ %255, %.lr.ph ], [ %84, %3 ]
+  %.sroa.31.01871 = phi <4 x i32> [ %256, %.lr.ph ], [ %84, %3 ]
+  %.sroa.32.01870 = phi <4 x i32> [ %257, %.lr.ph ], [ %83, %3 ]
+  %.sroa.40.01869 = phi <4 x i32> [ %258, %.lr.ph ], [ %83, %3 ]
+  %.sroa.45.01868 = phi <4 x i32> [ %259, %.lr.ph ], [ %83, %3 ]
+  %.sroa.50.01867 = phi <4 x i32> [ %260, %.lr.ph ], [ %83, %3 ]
+  %.sroa.55.01866 = phi <2 x i64> [ %262, %.lr.ph ], [ %79, %3 ]
+  %.sroa.63.01865 = phi <2 x i64> [ %264, %.lr.ph ], [ %80, %3 ]
+  %.sroa.64.01864 = phi <2 x i64> [ %266, %.lr.ph ], [ %81, %3 ]
+  %.sroa.65.01863 = phi <2 x i64> [ %268, %.lr.ph ], [ %82, %3 ]
+  %124 = add nuw i32 %.sroa.01.01879, 1
+  %125 = add <4 x i32> %.sroa.0226.01878, %.sroa.21.01874
   %126 = bitcast <4 x i32> %125 to <2 x i64>
-  %127 = add <4 x i32> %.sroa.6228.01878, %.sroa.29.01874
+  %127 = add <4 x i32> %.sroa.6228.01877, %.sroa.29.01873
   %128 = bitcast <4 x i32> %127 to <2 x i64>
-  %129 = add <4 x i32> %.sroa.11.01877, %.sroa.30.01873
+  %129 = add <4 x i32> %.sroa.11.01876, %.sroa.30.01872
   %130 = bitcast <4 x i32> %129 to <2 x i64>
-  %131 = add <4 x i32> %.sroa.16231.01876, %.sroa.31.01872
+  %131 = add <4 x i32> %.sroa.16231.01875, %.sroa.31.01871
   %132 = bitcast <4 x i32> %131 to <2 x i64>
-  %133 = xor <2 x i64> %.sroa.55.01867, %126
-  %134 = xor <2 x i64> %.sroa.63.01866, %128
-  %135 = xor <2 x i64> %.sroa.64.01865, %130
-  %136 = xor <2 x i64> %.sroa.65.01864, %132
+  %133 = xor <2 x i64> %.sroa.55.01866, %126
+  %134 = xor <2 x i64> %.sroa.63.01865, %128
+  %135 = xor <2 x i64> %.sroa.64.01864, %130
+  %136 = xor <2 x i64> %.sroa.65.01863, %132
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !1199
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !1199
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !1206
@@ -6053,20 +6053,20 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !1199
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !1199
   %141 = bitcast <2 x i64> %137 to <4 x i32>
-  %142 = add <4 x i32> %.sroa.32.01871, %141
+  %142 = add <4 x i32> %.sroa.32.01870, %141
   %143 = bitcast <2 x i64> %138 to <4 x i32>
-  %144 = add <4 x i32> %.sroa.40.01870, %143
+  %144 = add <4 x i32> %.sroa.40.01869, %143
   %145 = bitcast <2 x i64> %139 to <4 x i32>
-  %146 = add <4 x i32> %.sroa.45.01869, %145
+  %146 = add <4 x i32> %.sroa.45.01868, %145
   %147 = bitcast <2 x i64> %140 to <4 x i32>
-  %148 = add <4 x i32> %.sroa.50.01868, %147
-  %149 = xor <4 x i32> %142, %.sroa.21.01875
+  %148 = add <4 x i32> %.sroa.50.01867, %147
+  %149 = xor <4 x i32> %142, %.sroa.21.01874
   %150 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %149, <4 x i32> %149, <4 x i32> splat (i32 12))
-  %151 = xor <4 x i32> %144, %.sroa.29.01874
+  %151 = xor <4 x i32> %144, %.sroa.29.01873
   %152 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %151, <4 x i32> %151, <4 x i32> splat (i32 12))
-  %153 = xor <4 x i32> %146, %.sroa.30.01873
+  %153 = xor <4 x i32> %146, %.sroa.30.01872
   %154 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %153, <4 x i32> %153, <4 x i32> splat (i32 12))
-  %155 = xor <4 x i32> %148, %.sroa.31.01872
+  %155 = xor <4 x i32> %148, %.sroa.31.01871
   %156 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %155, <4 x i32> %155, <4 x i32> splat (i32 12))
   %157 = add <4 x i32> %150, %125
   %158 = bitcast <4 x i32> %157 to <2 x i64>
@@ -6294,9 +6294,9 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h12517c68709262f6E.
 
 ; Function Attrs: alwaysinline nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h49392d07486e9485E.llvm.17720110283109806325(ptr noalias noundef align 16 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noalias noundef writeonly align 4 captures(none) dereferenceable(256) %2) unnamed_addr #20 personality ptr @rust_eh_personality {
-  %.sroa.099.0.copyload2147 = load <4 x i32>, ptr %0, align 16
+  %.sroa.099.0.copyload2146 = load <4 x i32>, ptr %0, align 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.0100.0.copyload2148 = load <4 x i32>, ptr %4, align 16
+  %.sroa.0100.0.copyload2147 = load <4 x i32>, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.0119.0.copyload = load <2 x i64>, ptr %5, align 16
   %6 = add <2 x i64> %.sroa.0119.0.copyload, <i64 1, i64 0>
@@ -6317,26 +6317,26 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h49392d07486e9485E.
   %.sroa.64.0.lcssa = phi <2 x i64> [ %7, %3 ], [ %183, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
   %.sroa.63.0.lcssa = phi <2 x i64> [ %6, %3 ], [ %181, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
   %.sroa.55.0.lcssa = phi <2 x i64> [ %.sroa.0119.0.copyload, %3 ], [ %179, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.sroa.50.0.lcssa = phi <4 x i32> [ %.sroa.0100.0.copyload2148, %3 ], [ %177, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.sroa.45.0.lcssa = phi <4 x i32> [ %.sroa.0100.0.copyload2148, %3 ], [ %176, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.sroa.40.0.lcssa = phi <4 x i32> [ %.sroa.0100.0.copyload2148, %3 ], [ %175, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.0100.0.copyload2148, %3 ], [ %174, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.099.0.copyload2147, %3 ], [ %173, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.sroa.30.0.lcssa = phi <4 x i32> [ %.sroa.099.0.copyload2147, %3 ], [ %172, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.sroa.29.0.lcssa = phi <4 x i32> [ %.sroa.099.0.copyload2147, %3 ], [ %171, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.sroa.21.0.lcssa = phi <4 x i32> [ %.sroa.099.0.copyload2147, %3 ], [ %170, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.lcssa2090 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %12, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.lcssa2089 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %11, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %.lcssa2088 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.sroa.50.0.lcssa = phi <4 x i32> [ %.sroa.0100.0.copyload2147, %3 ], [ %177, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.sroa.45.0.lcssa = phi <4 x i32> [ %.sroa.0100.0.copyload2147, %3 ], [ %176, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.sroa.40.0.lcssa = phi <4 x i32> [ %.sroa.0100.0.copyload2147, %3 ], [ %175, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.0100.0.copyload2147, %3 ], [ %174, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.099.0.copyload2146, %3 ], [ %173, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.sroa.30.0.lcssa = phi <4 x i32> [ %.sroa.099.0.copyload2146, %3 ], [ %172, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.sroa.29.0.lcssa = phi <4 x i32> [ %.sroa.099.0.copyload2146, %3 ], [ %171, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.sroa.21.0.lcssa = phi <4 x i32> [ %.sroa.099.0.copyload2146, %3 ], [ %170, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.lcssa2089 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %12, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.lcssa2088 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %11, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
+  %.lcssa2087 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
   %.lcssa = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %9, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ]
-  %13 = add <4 x i32> %.sroa.21.0.lcssa, %.sroa.099.0.copyload2147
-  %14 = add <4 x i32> %.sroa.29.0.lcssa, %.sroa.099.0.copyload2147
-  %15 = add <4 x i32> %.sroa.30.0.lcssa, %.sroa.099.0.copyload2147
-  %16 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.099.0.copyload2147
-  %17 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.0100.0.copyload2148
-  %18 = add <4 x i32> %.sroa.40.0.lcssa, %.sroa.0100.0.copyload2148
-  %19 = add <4 x i32> %.sroa.45.0.lcssa, %.sroa.0100.0.copyload2148
-  %20 = add <4 x i32> %.sroa.50.0.lcssa, %.sroa.0100.0.copyload2148
+  %13 = add <4 x i32> %.sroa.21.0.lcssa, %.sroa.099.0.copyload2146
+  %14 = add <4 x i32> %.sroa.29.0.lcssa, %.sroa.099.0.copyload2146
+  %15 = add <4 x i32> %.sroa.30.0.lcssa, %.sroa.099.0.copyload2146
+  %16 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.099.0.copyload2146
+  %17 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.0100.0.copyload2147
+  %18 = add <4 x i32> %.sroa.40.0.lcssa, %.sroa.0100.0.copyload2147
+  %19 = add <4 x i32> %.sroa.45.0.lcssa, %.sroa.0100.0.copyload2147
+  %20 = add <4 x i32> %.sroa.50.0.lcssa, %.sroa.0100.0.copyload2147
   %21 = bitcast <2 x i64> %.sroa.55.0.lcssa to <4 x i32>
   %22 = bitcast <2 x i64> %.sroa.0119.0.copyload to <4 x i32>
   %23 = add <4 x i32> %21, %22
@@ -6357,64 +6357,64 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h49392d07486e9485E.
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   store <4 x i32> %23, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !1285, !noalias !1289
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store <4 x i32> %.lcssa2088, ptr %33, align 4, !alias.scope !1291, !noalias !1295
-  %.sroa.42136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %14, ptr %.sroa.42136.0..sroa_idx, align 4, !alias.scope !1291, !noalias !1295
-  %.sroa.52137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %18, ptr %.sroa.52137.0..sroa_idx, align 4, !alias.scope !1291, !noalias !1295
-  %.sroa.62138.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %26, ptr %.sroa.62138.0..sroa_idx, align 4, !alias.scope !1291, !noalias !1295
+  store <4 x i32> %.lcssa2087, ptr %33, align 4, !alias.scope !1291, !noalias !1295
+  %.sroa.42135.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %14, ptr %.sroa.42135.0..sroa_idx, align 4, !alias.scope !1291, !noalias !1295
+  %.sroa.52136.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %18, ptr %.sroa.52136.0..sroa_idx, align 4, !alias.scope !1291, !noalias !1295
+  %.sroa.62137.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %26, ptr %.sroa.62137.0..sroa_idx, align 4, !alias.scope !1291, !noalias !1295
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store <4 x i32> %.lcssa2089, ptr %34, align 4, !alias.scope !1297, !noalias !1301
-  %.sroa.42140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %15, ptr %.sroa.42140.0..sroa_idx, align 4, !alias.scope !1297, !noalias !1301
-  %.sroa.52141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %19, ptr %.sroa.52141.0..sroa_idx, align 4, !alias.scope !1297, !noalias !1301
-  %.sroa.62142.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %29, ptr %.sroa.62142.0..sroa_idx, align 4, !alias.scope !1297, !noalias !1301
+  store <4 x i32> %.lcssa2088, ptr %34, align 4, !alias.scope !1297, !noalias !1301
+  %.sroa.42139.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %15, ptr %.sroa.42139.0..sroa_idx, align 4, !alias.scope !1297, !noalias !1301
+  %.sroa.52140.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %19, ptr %.sroa.52140.0..sroa_idx, align 4, !alias.scope !1297, !noalias !1301
+  %.sroa.62141.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %29, ptr %.sroa.62141.0..sroa_idx, align 4, !alias.scope !1297, !noalias !1301
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store <4 x i32> %.lcssa2090, ptr %35, align 4, !alias.scope !1303, !noalias !1307
-  %.sroa.42144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %16, ptr %.sroa.42144.0..sroa_idx, align 4, !alias.scope !1303, !noalias !1307
-  %.sroa.52145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %20, ptr %.sroa.52145.0..sroa_idx, align 4, !alias.scope !1303, !noalias !1307
-  %.sroa.62146.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %32, ptr %.sroa.62146.0..sroa_idx, align 4, !alias.scope !1303, !noalias !1307
+  store <4 x i32> %.lcssa2089, ptr %35, align 4, !alias.scope !1303, !noalias !1307
+  %.sroa.42143.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %16, ptr %.sroa.42143.0..sroa_idx, align 4, !alias.scope !1303, !noalias !1307
+  %.sroa.52144.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %20, ptr %.sroa.52144.0..sroa_idx, align 4, !alias.scope !1303, !noalias !1307
+  %.sroa.62145.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %32, ptr %.sroa.62145.0..sroa_idx, align 4, !alias.scope !1303, !noalias !1307
   %36 = add <2 x i64> %.sroa.0119.0.copyload, <i64 4, i64 0>
   store <2 x i64> %36, ptr %5, align 16
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.02103 = phi i32 [ %41, %.lr.ph ], [ 0, %3 ]
+  %.sroa.01.02102 = phi i32 [ %41, %.lr.ph ], [ 0, %3 ]
   %37 = phi <4 x i32> [ %146, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %38 = phi <4 x i32> [ %147, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %39 = phi <4 x i32> [ %148, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %40 = phi <4 x i32> [ %149, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
-  %.sroa.21.02102 = phi <4 x i32> [ %170, %.lr.ph ], [ %.sroa.099.0.copyload2147, %3 ]
-  %.sroa.29.02101 = phi <4 x i32> [ %171, %.lr.ph ], [ %.sroa.099.0.copyload2147, %3 ]
-  %.sroa.30.02100 = phi <4 x i32> [ %172, %.lr.ph ], [ %.sroa.099.0.copyload2147, %3 ]
-  %.sroa.31.02099 = phi <4 x i32> [ %173, %.lr.ph ], [ %.sroa.099.0.copyload2147, %3 ]
-  %.sroa.32.02098 = phi <4 x i32> [ %174, %.lr.ph ], [ %.sroa.0100.0.copyload2148, %3 ]
-  %.sroa.40.02097 = phi <4 x i32> [ %175, %.lr.ph ], [ %.sroa.0100.0.copyload2148, %3 ]
-  %.sroa.45.02096 = phi <4 x i32> [ %176, %.lr.ph ], [ %.sroa.0100.0.copyload2148, %3 ]
-  %.sroa.50.02095 = phi <4 x i32> [ %177, %.lr.ph ], [ %.sroa.0100.0.copyload2148, %3 ]
-  %.sroa.55.02094 = phi <2 x i64> [ %179, %.lr.ph ], [ %.sroa.0119.0.copyload, %3 ]
-  %.sroa.63.02093 = phi <2 x i64> [ %181, %.lr.ph ], [ %6, %3 ]
-  %.sroa.64.02092 = phi <2 x i64> [ %183, %.lr.ph ], [ %7, %3 ]
-  %.sroa.65.02091 = phi <2 x i64> [ %185, %.lr.ph ], [ %8, %3 ]
-  %41 = add nuw i32 %.sroa.01.02103, 1
-  %42 = add <4 x i32> %37, %.sroa.21.02102
+  %.sroa.21.02101 = phi <4 x i32> [ %170, %.lr.ph ], [ %.sroa.099.0.copyload2146, %3 ]
+  %.sroa.29.02100 = phi <4 x i32> [ %171, %.lr.ph ], [ %.sroa.099.0.copyload2146, %3 ]
+  %.sroa.30.02099 = phi <4 x i32> [ %172, %.lr.ph ], [ %.sroa.099.0.copyload2146, %3 ]
+  %.sroa.31.02098 = phi <4 x i32> [ %173, %.lr.ph ], [ %.sroa.099.0.copyload2146, %3 ]
+  %.sroa.32.02097 = phi <4 x i32> [ %174, %.lr.ph ], [ %.sroa.0100.0.copyload2147, %3 ]
+  %.sroa.40.02096 = phi <4 x i32> [ %175, %.lr.ph ], [ %.sroa.0100.0.copyload2147, %3 ]
+  %.sroa.45.02095 = phi <4 x i32> [ %176, %.lr.ph ], [ %.sroa.0100.0.copyload2147, %3 ]
+  %.sroa.50.02094 = phi <4 x i32> [ %177, %.lr.ph ], [ %.sroa.0100.0.copyload2147, %3 ]
+  %.sroa.55.02093 = phi <2 x i64> [ %179, %.lr.ph ], [ %.sroa.0119.0.copyload, %3 ]
+  %.sroa.63.02092 = phi <2 x i64> [ %181, %.lr.ph ], [ %6, %3 ]
+  %.sroa.64.02091 = phi <2 x i64> [ %183, %.lr.ph ], [ %7, %3 ]
+  %.sroa.65.02090 = phi <2 x i64> [ %185, %.lr.ph ], [ %8, %3 ]
+  %41 = add nuw i32 %.sroa.01.02102, 1
+  %42 = add <4 x i32> %37, %.sroa.21.02101
   %43 = bitcast <4 x i32> %42 to <2 x i64>
-  %44 = add <4 x i32> %38, %.sroa.29.02101
+  %44 = add <4 x i32> %38, %.sroa.29.02100
   %45 = bitcast <4 x i32> %44 to <2 x i64>
-  %46 = add <4 x i32> %39, %.sroa.30.02100
+  %46 = add <4 x i32> %39, %.sroa.30.02099
   %47 = bitcast <4 x i32> %46 to <2 x i64>
-  %48 = add <4 x i32> %40, %.sroa.31.02099
+  %48 = add <4 x i32> %40, %.sroa.31.02098
   %49 = bitcast <4 x i32> %48 to <2 x i64>
-  %50 = xor <2 x i64> %.sroa.55.02094, %43
-  %51 = xor <2 x i64> %.sroa.63.02093, %45
-  %52 = xor <2 x i64> %.sroa.64.02092, %47
-  %53 = xor <2 x i64> %.sroa.65.02091, %49
+  %50 = xor <2 x i64> %.sroa.55.02093, %43
+  %51 = xor <2 x i64> %.sroa.63.02092, %45
+  %52 = xor <2 x i64> %.sroa.64.02091, %47
+  %53 = xor <2 x i64> %.sroa.65.02090, %49
   %54 = bitcast <2 x i64> %50 to <8 x i16>
   %55 = shufflevector <8 x i16> %54, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
   %56 = bitcast <2 x i64> %51 to <8 x i16>
@@ -6424,20 +6424,20 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h49392d07486e9485E.
   %60 = bitcast <2 x i64> %53 to <8 x i16>
   %61 = shufflevector <8 x i16> %60, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
   %62 = bitcast <8 x i16> %55 to <4 x i32>
-  %63 = add <4 x i32> %.sroa.32.02098, %62
+  %63 = add <4 x i32> %.sroa.32.02097, %62
   %64 = bitcast <8 x i16> %57 to <4 x i32>
-  %65 = add <4 x i32> %.sroa.40.02097, %64
+  %65 = add <4 x i32> %.sroa.40.02096, %64
   %66 = bitcast <8 x i16> %59 to <4 x i32>
-  %67 = add <4 x i32> %.sroa.45.02096, %66
+  %67 = add <4 x i32> %.sroa.45.02095, %66
   %68 = bitcast <8 x i16> %61 to <4 x i32>
-  %69 = add <4 x i32> %.sroa.50.02095, %68
-  %70 = xor <4 x i32> %63, %.sroa.21.02102
+  %69 = add <4 x i32> %.sroa.50.02094, %68
+  %70 = xor <4 x i32> %63, %.sroa.21.02101
   %71 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %70, <4 x i32> %70, <4 x i32> splat (i32 12))
-  %72 = xor <4 x i32> %65, %.sroa.29.02101
+  %72 = xor <4 x i32> %65, %.sroa.29.02100
   %73 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %72, <4 x i32> %72, <4 x i32> splat (i32 12))
-  %74 = xor <4 x i32> %67, %.sroa.30.02100
+  %74 = xor <4 x i32> %67, %.sroa.30.02099
   %75 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %74, <4 x i32> %74, <4 x i32> splat (i32 12))
-  %76 = xor <4 x i32> %69, %.sroa.31.02099
+  %76 = xor <4 x i32> %69, %.sroa.31.02098
   %77 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %76, <4 x i32> %76, <4 x i32> splat (i32 12))
   %78 = add <4 x i32> %71, %42
   %79 = add <4 x i32> %73, %44
@@ -7181,16 +7181,16 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   store <4 x i64> %309, ptr %.sroa.4.0..sroa_idx, align 4, !alias.scope !1440, !noalias !1444
   %313 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store <4 x i64> %306, ptr %313, align 4, !alias.scope !1446, !noalias !1450
-  %.sroa.4733.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i64> %310, ptr %.sroa.4733.0..sroa_idx, align 4, !alias.scope !1446, !noalias !1450
+  %.sroa.4732.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i64> %310, ptr %.sroa.4732.0..sroa_idx, align 4, !alias.scope !1446, !noalias !1450
   %314 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store <4 x i64> %307, ptr %314, align 4, !alias.scope !1452, !noalias !1456
-  %.sroa.4735.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i64> %311, ptr %.sroa.4735.0..sroa_idx, align 4, !alias.scope !1452, !noalias !1456
+  %.sroa.4734.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i64> %311, ptr %.sroa.4734.0..sroa_idx, align 4, !alias.scope !1452, !noalias !1456
   %315 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store <4 x i64> %308, ptr %315, align 4, !alias.scope !1458, !noalias !1462
-  %.sroa.4737.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i64> %312, ptr %.sroa.4737.0..sroa_idx, align 4, !alias.scope !1458, !noalias !1462
+  %.sroa.4736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i64> %312, ptr %.sroa.4736.0..sroa_idx, align 4, !alias.scope !1458, !noalias !1462
   call void @llvm.lifetime.start.p0(ptr nonnull %216)
   call void @llvm.lifetime.start.p0(ptr nonnull %217), !noalias !1464
   store <4 x i64> %.sroa.0601.16.vecblend, ptr %216, align 32, !noalias !1464
@@ -7210,21 +7210,21 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0717 = phi i32 [ %319, %.lr.ph ], [ 0, %3 ]
-  %.sroa.41.0716 = phi <4 x i64> [ %363, %.lr.ph ], [ %.sroa.5664.48.vecblend, %3 ]
-  %.sroa.33.0715 = phi <4 x i64> [ %362, %.lr.ph ], [ %.sroa.0662.16.vecblend, %3 ]
-  %.sroa.28.0714 = phi <4 x i64> [ %361, %.lr.ph ], [ %279, %3 ]
-  %.sroa.20154.0713 = phi <4 x i64> [ %360, %.lr.ph ], [ %278, %3 ]
-  %.sroa.19.0712 = phi <4 x i64> [ %359, %.lr.ph ], [ %277, %3 ]
-  %.sroa.11138.0711 = phi <4 x i64> [ %358, %.lr.ph ], [ %276, %3 ]
-  %.sroa.6136.0710 = phi <4 x i64> [ %351, %.lr.ph ], [ %275, %3 ]
-  %.sroa.0134.0709 = phi <4 x i64> [ %350, %.lr.ph ], [ %274, %3 ]
-  %319 = add nuw i32 %.sroa.01.0717, 1
+  %.sroa.01.0716 = phi i32 [ %319, %.lr.ph ], [ 0, %3 ]
+  %.sroa.41.0715 = phi <4 x i64> [ %363, %.lr.ph ], [ %.sroa.5664.48.vecblend, %3 ]
+  %.sroa.33.0714 = phi <4 x i64> [ %362, %.lr.ph ], [ %.sroa.0662.16.vecblend, %3 ]
+  %.sroa.28.0713 = phi <4 x i64> [ %361, %.lr.ph ], [ %279, %3 ]
+  %.sroa.20154.0712 = phi <4 x i64> [ %360, %.lr.ph ], [ %278, %3 ]
+  %.sroa.19.0711 = phi <4 x i64> [ %359, %.lr.ph ], [ %277, %3 ]
+  %.sroa.11138.0710 = phi <4 x i64> [ %358, %.lr.ph ], [ %276, %3 ]
+  %.sroa.6136.0709 = phi <4 x i64> [ %351, %.lr.ph ], [ %275, %3 ]
+  %.sroa.0134.0708 = phi <4 x i64> [ %350, %.lr.ph ], [ %274, %3 ]
+  %319 = add nuw i32 %.sroa.01.0716, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %92), !noalias !1476
   call void @llvm.lifetime.start.p0(ptr nonnull %93), !noalias !1476
   call void @llvm.lifetime.start.p0(ptr nonnull %94), !noalias !1483
-  store <4 x i64> %.sroa.0134.0709, ptr %93, align 32, !noalias !1483
-  store <4 x i64> %.sroa.11138.0711, ptr %92, align 32, !noalias !1483
+  store <4 x i64> %.sroa.0134.0708, ptr %93, align 32, !noalias !1483
+  store <4 x i64> %.sroa.11138.0710, ptr %92, align 32, !noalias !1483
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %94, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %93, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %92), !noalias !1483
   %320 = load <4 x i64>, ptr %94, align 32, !noalias !1483
   call void @llvm.lifetime.end.p0(ptr nonnull %94), !noalias !1483
@@ -7233,8 +7233,8 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   call void @llvm.lifetime.start.p0(ptr nonnull %95), !noalias !1476
   call void @llvm.lifetime.start.p0(ptr nonnull %96), !noalias !1476
   call void @llvm.lifetime.start.p0(ptr nonnull %97), !noalias !1487
-  store <4 x i64> %.sroa.6136.0710, ptr %96, align 32, !noalias !1487
-  store <4 x i64> %.sroa.19.0712, ptr %95, align 32, !noalias !1487
+  store <4 x i64> %.sroa.6136.0709, ptr %96, align 32, !noalias !1487
+  store <4 x i64> %.sroa.19.0711, ptr %95, align 32, !noalias !1487
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %97, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %96, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %95), !noalias !1487
   %321 = load <4 x i64>, ptr %97, align 32, !noalias !1487
   call void @llvm.lifetime.end.p0(ptr nonnull %97), !noalias !1487
@@ -7242,7 +7242,7 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !1476
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !1491
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !1491
-  store <4 x i64> %.sroa.33.0715, ptr %59, align 32, !noalias !1492
+  store <4 x i64> %.sroa.33.0714, ptr %59, align 32, !noalias !1492
   store <4 x i64> %320, ptr %58, align 32, !noalias !1492
   call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !1501
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %87, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %59, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %58), !noalias !1491
@@ -7250,7 +7250,7 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !1491
   call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !1491
   call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !1491
-  store <4 x i64> %.sroa.41.0716, ptr %61, align 32, !noalias !1505
+  store <4 x i64> %.sroa.41.0715, ptr %61, align 32, !noalias !1505
   store <4 x i64> %321, ptr %60, align 32, !noalias !1505
   call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !1501
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %90, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %61, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %60), !noalias !1491
@@ -7275,7 +7275,7 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   call void @llvm.lifetime.start.p0(ptr nonnull %98), !noalias !1518
   call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !1518
   call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !1522
-  store <4 x i64> %.sroa.20154.0713, ptr %99, align 32, !noalias !1522
+  store <4 x i64> %.sroa.20154.0712, ptr %99, align 32, !noalias !1522
   store <4 x i64> %322, ptr %98, align 32, !noalias !1522
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %100, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %99, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %98), !noalias !1522
   %324 = load <4 x i64>, ptr %100, align 32, !noalias !1522
@@ -7285,7 +7285,7 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !1518
   call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !1518
   call void @llvm.lifetime.start.p0(ptr nonnull %103), !noalias !1526
-  store <4 x i64> %.sroa.28.0714, ptr %102, align 32, !noalias !1526
+  store <4 x i64> %.sroa.28.0713, ptr %102, align 32, !noalias !1526
   store <4 x i64> %323, ptr %101, align 32, !noalias !1526
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %103, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %102, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %101), !noalias !1526
   %325 = load <4 x i64>, ptr %103, align 32, !noalias !1526
@@ -7295,7 +7295,7 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !1491
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !1491
   call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !1530
-  store <4 x i64> %.sroa.11138.0711, ptr %53, align 32, !noalias !1530
+  store <4 x i64> %.sroa.11138.0710, ptr %53, align 32, !noalias !1530
   store <4 x i64> %324, ptr %52, align 32, !noalias !1530
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %54, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %53, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %52), !noalias !1530
   %326 = load <4 x i64>, ptr %54, align 32, !noalias !1530
@@ -7305,7 +7305,7 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17h4d83210321d6bbf5E.
   call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !1491
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !1491
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !1539
-  store <4 x i64> %.sroa.19.0712, ptr %56, align 32, !noalias !1539
+  store <4 x i64> %.sroa.19.0711, ptr %56, align 32, !noalias !1539
   store <4 x i64> %325, ptr %55, align 32, !noalias !1539
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %57, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %56, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %55), !noalias !1539
   %327 = load <4 x i64>, ptr %57, align 32, !noalias !1539
@@ -7838,12 +7838,12 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96", label %.lr.ph
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit": ; preds = %.lr.ph
-  %.sroa.0495.0.copyload1952.pre = load <4 x i32>, ptr %0, align 16
-  %.sroa.0504.0.copyload1953.pre = load <4 x i32>, ptr %52, align 16
+  %.sroa.0495.0.copyload1951.pre = load <4 x i32>, ptr %0, align 16
+  %.sroa.0504.0.copyload1952.pre = load <4 x i32>, ptr %52, align 16
   %.sroa.0524.0.copyload.pre = load <2 x i64>, ptr %53, align 16
   %.pre = add <2 x i64> %.sroa.0524.0.copyload.pre, <i64 1, i64 0>
-  %.pre2016 = add <2 x i64> %.sroa.0524.0.copyload.pre, <i64 2, i64 0>
-  %.pre2018 = add <2 x i64> %.sroa.0524.0.copyload.pre, <i64 3, i64 0>
+  %.pre2015 = add <2 x i64> %.sroa.0524.0.copyload.pre, <i64 2, i64 0>
+  %.pre2017 = add <2 x i64> %.sroa.0524.0.copyload.pre, <i64 3, i64 0>
   %61 = add <4 x i32> %194, <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>
   %62 = add <4 x i32> %196, <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>
   %63 = add <4 x i32> %198, <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>
@@ -7851,12 +7851,12 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit", %3
-  %.pre-phi2019 = phi <2 x i64> [ %.pre2018, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %56, %3 ]
-  %.pre-phi2017 = phi <2 x i64> [ %.pre2016, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %55, %3 ]
+  %.pre-phi2018 = phi <2 x i64> [ %.pre2017, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %56, %3 ]
+  %.pre-phi2016 = phi <2 x i64> [ %.pre2015, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %55, %3 ]
   %.pre-phi = phi <2 x i64> [ %.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %54, %3 ]
   %.sroa.0524.0.copyload = phi <2 x i64> [ %.sroa.0524.0.copyload.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %.sroa.0119.0.copyload, %3 ]
-  %.sroa.0504.0.copyload1953 = phi <4 x i32> [ %.sroa.0504.0.copyload1953.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %60, %3 ]
-  %.sroa.0495.0.copyload1952 = phi <4 x i32> [ %.sroa.0495.0.copyload1952.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %59, %3 ]
+  %.sroa.0504.0.copyload1952 = phi <4 x i32> [ %.sroa.0504.0.copyload1952.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %60, %3 ]
+  %.sroa.0495.0.copyload1951 = phi <4 x i32> [ %.sroa.0495.0.copyload1951.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %59, %3 ]
   %.sroa.65.0.lcssa = phi <2 x i64> [ %237, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %56, %3 ]
   %.sroa.64.0.lcssa = phi <2 x i64> [ %235, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %55, %3 ]
   %.sroa.63.0.lcssa = phi <2 x i64> [ %233, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %54, %3 ]
@@ -7869,18 +7869,18 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %.sroa.30.0.lcssa = phi <4 x i32> [ %224, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %58, %3 ]
   %.sroa.29.0.lcssa = phi <4 x i32> [ %223, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %58, %3 ]
   %.sroa.21.0.lcssa = phi <4 x i32> [ %222, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ %58, %3 ]
-  %.lcssa1956 = phi <4 x i32> [ %64, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
-  %.lcssa1955 = phi <4 x i32> [ %63, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
-  %.lcssa1954 = phi <4 x i32> [ %62, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
+  %.lcssa1955 = phi <4 x i32> [ %64, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
+  %.lcssa1954 = phi <4 x i32> [ %63, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
+  %.lcssa1953 = phi <4 x i32> [ %62, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
   %.lcssa = phi <4 x i32> [ %61, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit96.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
-  %65 = add <4 x i32> %.sroa.0495.0.copyload1952, %.sroa.21.0.lcssa
-  %66 = add <4 x i32> %.sroa.0495.0.copyload1952, %.sroa.29.0.lcssa
-  %67 = add <4 x i32> %.sroa.0495.0.copyload1952, %.sroa.30.0.lcssa
-  %68 = add <4 x i32> %.sroa.0495.0.copyload1952, %.sroa.31.0.lcssa
-  %69 = add <4 x i32> %.sroa.0504.0.copyload1953, %.sroa.32.0.lcssa
-  %70 = add <4 x i32> %.sroa.0504.0.copyload1953, %.sroa.40.0.lcssa
-  %71 = add <4 x i32> %.sroa.0504.0.copyload1953, %.sroa.45.0.lcssa
-  %72 = add <4 x i32> %.sroa.0504.0.copyload1953, %.sroa.50.0.lcssa
+  %65 = add <4 x i32> %.sroa.0495.0.copyload1951, %.sroa.21.0.lcssa
+  %66 = add <4 x i32> %.sroa.0495.0.copyload1951, %.sroa.29.0.lcssa
+  %67 = add <4 x i32> %.sroa.0495.0.copyload1951, %.sroa.30.0.lcssa
+  %68 = add <4 x i32> %.sroa.0495.0.copyload1951, %.sroa.31.0.lcssa
+  %69 = add <4 x i32> %.sroa.0504.0.copyload1952, %.sroa.32.0.lcssa
+  %70 = add <4 x i32> %.sroa.0504.0.copyload1952, %.sroa.40.0.lcssa
+  %71 = add <4 x i32> %.sroa.0504.0.copyload1952, %.sroa.45.0.lcssa
+  %72 = add <4 x i32> %.sroa.0504.0.copyload1952, %.sroa.50.0.lcssa
   %73 = bitcast <2 x i64> %.sroa.55.0.lcssa to <4 x i32>
   %74 = bitcast <2 x i64> %.sroa.0524.0.copyload to <4 x i32>
   %75 = add <4 x i32> %74, %73
@@ -7888,10 +7888,10 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %77 = bitcast <2 x i64> %.pre-phi to <4 x i32>
   %78 = add <4 x i32> %77, %76
   %79 = bitcast <2 x i64> %.sroa.64.0.lcssa to <4 x i32>
-  %80 = bitcast <2 x i64> %.pre-phi2017 to <4 x i32>
+  %80 = bitcast <2 x i64> %.pre-phi2016 to <4 x i32>
   %81 = add <4 x i32> %80, %79
   %82 = bitcast <2 x i64> %.sroa.65.0.lcssa to <4 x i32>
-  %83 = bitcast <2 x i64> %.pre-phi2019 to <4 x i32>
+  %83 = bitcast <2 x i64> %.pre-phi2018 to <4 x i32>
   %84 = add <4 x i32> %83, %82
   store <4 x i32> %.lcssa, ptr %2, align 4, !alias.scope !1866, !noalias !1870
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -7901,64 +7901,64 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   store <4 x i32> %75, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !1866, !noalias !1870
   %85 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store <4 x i32> %.lcssa1954, ptr %85, align 4, !alias.scope !1872, !noalias !1876
-  %.sroa.42002.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %66, ptr %.sroa.42002.0..sroa_idx, align 4, !alias.scope !1872, !noalias !1876
-  %.sroa.52003.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %70, ptr %.sroa.52003.0..sroa_idx, align 4, !alias.scope !1872, !noalias !1876
-  %.sroa.62004.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %78, ptr %.sroa.62004.0..sroa_idx, align 4, !alias.scope !1872, !noalias !1876
+  store <4 x i32> %.lcssa1953, ptr %85, align 4, !alias.scope !1872, !noalias !1876
+  %.sroa.42001.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %66, ptr %.sroa.42001.0..sroa_idx, align 4, !alias.scope !1872, !noalias !1876
+  %.sroa.52002.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %70, ptr %.sroa.52002.0..sroa_idx, align 4, !alias.scope !1872, !noalias !1876
+  %.sroa.62003.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %78, ptr %.sroa.62003.0..sroa_idx, align 4, !alias.scope !1872, !noalias !1876
   %86 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store <4 x i32> %.lcssa1955, ptr %86, align 4, !alias.scope !1878, !noalias !1882
-  %.sroa.42006.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %67, ptr %.sroa.42006.0..sroa_idx, align 4, !alias.scope !1878, !noalias !1882
-  %.sroa.52007.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %71, ptr %.sroa.52007.0..sroa_idx, align 4, !alias.scope !1878, !noalias !1882
-  %.sroa.62008.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %81, ptr %.sroa.62008.0..sroa_idx, align 4, !alias.scope !1878, !noalias !1882
+  store <4 x i32> %.lcssa1954, ptr %86, align 4, !alias.scope !1878, !noalias !1882
+  %.sroa.42005.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %67, ptr %.sroa.42005.0..sroa_idx, align 4, !alias.scope !1878, !noalias !1882
+  %.sroa.52006.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %71, ptr %.sroa.52006.0..sroa_idx, align 4, !alias.scope !1878, !noalias !1882
+  %.sroa.62007.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %81, ptr %.sroa.62007.0..sroa_idx, align 4, !alias.scope !1878, !noalias !1882
   %87 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store <4 x i32> %.lcssa1956, ptr %87, align 4, !alias.scope !1884, !noalias !1888
-  %.sroa.42010.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %68, ptr %.sroa.42010.0..sroa_idx, align 4, !alias.scope !1884, !noalias !1888
-  %.sroa.52011.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %72, ptr %.sroa.52011.0..sroa_idx, align 4, !alias.scope !1884, !noalias !1888
-  %.sroa.62012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %84, ptr %.sroa.62012.0..sroa_idx, align 4, !alias.scope !1884, !noalias !1888
+  store <4 x i32> %.lcssa1955, ptr %87, align 4, !alias.scope !1884, !noalias !1888
+  %.sroa.42009.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %68, ptr %.sroa.42009.0..sroa_idx, align 4, !alias.scope !1884, !noalias !1888
+  %.sroa.52010.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %72, ptr %.sroa.52010.0..sroa_idx, align 4, !alias.scope !1884, !noalias !1888
+  %.sroa.62011.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %84, ptr %.sroa.62011.0..sroa_idx, align 4, !alias.scope !1884, !noalias !1888
   %88 = add <2 x i64> %.sroa.0524.0.copyload, <i64 4, i64 0>
   store <2 x i64> %88, ptr %53, align 16
   ret void
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.01969 = phi i32 [ %93, %.lr.ph ], [ 0, %3 ]
+  %.sroa.01.01968 = phi i32 [ %93, %.lr.ph ], [ 0, %3 ]
   %89 = phi <4 x i32> [ %194, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %90 = phi <4 x i32> [ %196, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %91 = phi <4 x i32> [ %198, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %92 = phi <4 x i32> [ %200, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
-  %.sroa.21.01968 = phi <4 x i32> [ %222, %.lr.ph ], [ %58, %3 ]
-  %.sroa.29.01967 = phi <4 x i32> [ %223, %.lr.ph ], [ %58, %3 ]
-  %.sroa.30.01966 = phi <4 x i32> [ %224, %.lr.ph ], [ %58, %3 ]
-  %.sroa.31.01965 = phi <4 x i32> [ %225, %.lr.ph ], [ %58, %3 ]
-  %.sroa.32.01964 = phi <4 x i32> [ %226, %.lr.ph ], [ %57, %3 ]
-  %.sroa.40.01963 = phi <4 x i32> [ %227, %.lr.ph ], [ %57, %3 ]
-  %.sroa.45.01962 = phi <4 x i32> [ %228, %.lr.ph ], [ %57, %3 ]
-  %.sroa.50.01961 = phi <4 x i32> [ %229, %.lr.ph ], [ %57, %3 ]
-  %.sroa.55.01960 = phi <2 x i64> [ %231, %.lr.ph ], [ %.sroa.0119.0.copyload, %3 ]
-  %.sroa.63.01959 = phi <2 x i64> [ %233, %.lr.ph ], [ %54, %3 ]
-  %.sroa.64.01958 = phi <2 x i64> [ %235, %.lr.ph ], [ %55, %3 ]
-  %.sroa.65.01957 = phi <2 x i64> [ %237, %.lr.ph ], [ %56, %3 ]
-  %93 = add nuw i32 %.sroa.01.01969, 1
-  %94 = add <4 x i32> %89, %.sroa.21.01968
+  %.sroa.21.01967 = phi <4 x i32> [ %222, %.lr.ph ], [ %58, %3 ]
+  %.sroa.29.01966 = phi <4 x i32> [ %223, %.lr.ph ], [ %58, %3 ]
+  %.sroa.30.01965 = phi <4 x i32> [ %224, %.lr.ph ], [ %58, %3 ]
+  %.sroa.31.01964 = phi <4 x i32> [ %225, %.lr.ph ], [ %58, %3 ]
+  %.sroa.32.01963 = phi <4 x i32> [ %226, %.lr.ph ], [ %57, %3 ]
+  %.sroa.40.01962 = phi <4 x i32> [ %227, %.lr.ph ], [ %57, %3 ]
+  %.sroa.45.01961 = phi <4 x i32> [ %228, %.lr.ph ], [ %57, %3 ]
+  %.sroa.50.01960 = phi <4 x i32> [ %229, %.lr.ph ], [ %57, %3 ]
+  %.sroa.55.01959 = phi <2 x i64> [ %231, %.lr.ph ], [ %.sroa.0119.0.copyload, %3 ]
+  %.sroa.63.01958 = phi <2 x i64> [ %233, %.lr.ph ], [ %54, %3 ]
+  %.sroa.64.01957 = phi <2 x i64> [ %235, %.lr.ph ], [ %55, %3 ]
+  %.sroa.65.01956 = phi <2 x i64> [ %237, %.lr.ph ], [ %56, %3 ]
+  %93 = add nuw i32 %.sroa.01.01968, 1
+  %94 = add <4 x i32> %89, %.sroa.21.01967
   %95 = bitcast <4 x i32> %94 to <2 x i64>
-  %96 = add <4 x i32> %90, %.sroa.29.01967
+  %96 = add <4 x i32> %90, %.sroa.29.01966
   %97 = bitcast <4 x i32> %96 to <2 x i64>
-  %98 = add <4 x i32> %91, %.sroa.30.01966
+  %98 = add <4 x i32> %91, %.sroa.30.01965
   %99 = bitcast <4 x i32> %98 to <2 x i64>
-  %100 = add <4 x i32> %92, %.sroa.31.01965
+  %100 = add <4 x i32> %92, %.sroa.31.01964
   %101 = bitcast <4 x i32> %100 to <2 x i64>
-  %102 = xor <2 x i64> %.sroa.55.01960, %95
-  %103 = xor <2 x i64> %.sroa.63.01959, %97
-  %104 = xor <2 x i64> %.sroa.64.01958, %99
-  %105 = xor <2 x i64> %.sroa.65.01957, %101
+  %102 = xor <2 x i64> %.sroa.55.01959, %95
+  %103 = xor <2 x i64> %.sroa.63.01958, %97
+  %104 = xor <2 x i64> %.sroa.64.01957, %99
+  %105 = xor <2 x i64> %.sroa.65.01956, %101
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1890
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1890
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1897
@@ -8000,20 +8000,20 @@ define hidden void @_ZN11rand_chacha4guts16refill_wide_impl17hcc43bf192f7ff3daE.
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1890
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1890
   %110 = bitcast <2 x i64> %106 to <4 x i32>
-  %111 = add <4 x i32> %.sroa.32.01964, %110
+  %111 = add <4 x i32> %.sroa.32.01963, %110
   %112 = bitcast <2 x i64> %107 to <4 x i32>
-  %113 = add <4 x i32> %.sroa.40.01963, %112
+  %113 = add <4 x i32> %.sroa.40.01962, %112
   %114 = bitcast <2 x i64> %108 to <4 x i32>
-  %115 = add <4 x i32> %.sroa.45.01962, %114
+  %115 = add <4 x i32> %.sroa.45.01961, %114
   %116 = bitcast <2 x i64> %109 to <4 x i32>
-  %117 = add <4 x i32> %.sroa.50.01961, %116
-  %118 = xor <4 x i32> %111, %.sroa.21.01968
+  %117 = add <4 x i32> %.sroa.50.01960, %116
+  %118 = xor <4 x i32> %111, %.sroa.21.01967
   %119 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 12))
-  %120 = xor <4 x i32> %113, %.sroa.29.01967
+  %120 = xor <4 x i32> %113, %.sroa.29.01966
   %121 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %120, <4 x i32> %120, <4 x i32> splat (i32 12))
-  %122 = xor <4 x i32> %115, %.sroa.30.01966
+  %122 = xor <4 x i32> %115, %.sroa.30.01965
   %123 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %122, <4 x i32> %122, <4 x i32> splat (i32 12))
-  %124 = xor <4 x i32> %117, %.sroa.31.01965
+  %124 = xor <4 x i32> %117, %.sroa.31.01964
   %125 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %124, <4 x i32> %124, <4 x i32> splat (i32 12))
   %126 = add <4 x i32> %119, %94
   %127 = bitcast <4 x i32> %126 to <2 x i64>
@@ -8411,36 +8411,36 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0.i1902 = phi i32 [ %65, %.lr.ph ], [ 0, %3 ]
+  %.sroa.01.0.i1901 = phi i32 [ %65, %.lr.ph ], [ 0, %3 ]
   %61 = phi <4 x i32> [ %166, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %62 = phi <4 x i32> [ %168, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %63 = phi <4 x i32> [ %170, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %64 = phi <4 x i32> [ %172, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
-  %.sroa.23.01901 = phi <4 x i32> [ %194, %.lr.ph ], [ %58, %3 ]
-  %.sroa.31.01900 = phi <4 x i32> [ %195, %.lr.ph ], [ %58, %3 ]
-  %.sroa.32.01899 = phi <4 x i32> [ %196, %.lr.ph ], [ %58, %3 ]
-  %.sroa.33.01898 = phi <4 x i32> [ %197, %.lr.ph ], [ %58, %3 ]
-  %.sroa.34207.01897 = phi <4 x i32> [ %198, %.lr.ph ], [ %57, %3 ]
-  %.sroa.42211.01896 = phi <4 x i32> [ %199, %.lr.ph ], [ %57, %3 ]
-  %.sroa.47.01895 = phi <4 x i32> [ %200, %.lr.ph ], [ %57, %3 ]
-  %.sroa.52.01894 = phi <4 x i32> [ %201, %.lr.ph ], [ %57, %3 ]
-  %.sroa.57.01893 = phi <2 x i64> [ %203, %.lr.ph ], [ %.sroa.049.0.copyload, %3 ]
-  %.sroa.65.01892 = phi <2 x i64> [ %205, %.lr.ph ], [ %54, %3 ]
-  %.sroa.66.01891 = phi <2 x i64> [ %207, %.lr.ph ], [ %55, %3 ]
-  %.sroa.67.01890 = phi <2 x i64> [ %209, %.lr.ph ], [ %56, %3 ]
-  %65 = add nuw i32 %.sroa.01.0.i1902, 1
-  %66 = add <4 x i32> %61, %.sroa.23.01901
+  %.sroa.23.01900 = phi <4 x i32> [ %194, %.lr.ph ], [ %58, %3 ]
+  %.sroa.31.01899 = phi <4 x i32> [ %195, %.lr.ph ], [ %58, %3 ]
+  %.sroa.32.01898 = phi <4 x i32> [ %196, %.lr.ph ], [ %58, %3 ]
+  %.sroa.33.01897 = phi <4 x i32> [ %197, %.lr.ph ], [ %58, %3 ]
+  %.sroa.34207.01896 = phi <4 x i32> [ %198, %.lr.ph ], [ %57, %3 ]
+  %.sroa.42211.01895 = phi <4 x i32> [ %199, %.lr.ph ], [ %57, %3 ]
+  %.sroa.47.01894 = phi <4 x i32> [ %200, %.lr.ph ], [ %57, %3 ]
+  %.sroa.52.01893 = phi <4 x i32> [ %201, %.lr.ph ], [ %57, %3 ]
+  %.sroa.57.01892 = phi <2 x i64> [ %203, %.lr.ph ], [ %.sroa.049.0.copyload, %3 ]
+  %.sroa.65.01891 = phi <2 x i64> [ %205, %.lr.ph ], [ %54, %3 ]
+  %.sroa.66.01890 = phi <2 x i64> [ %207, %.lr.ph ], [ %55, %3 ]
+  %.sroa.67.01889 = phi <2 x i64> [ %209, %.lr.ph ], [ %56, %3 ]
+  %65 = add nuw i32 %.sroa.01.0.i1901, 1
+  %66 = add <4 x i32> %61, %.sroa.23.01900
   %67 = bitcast <4 x i32> %66 to <2 x i64>
-  %68 = add <4 x i32> %62, %.sroa.31.01900
+  %68 = add <4 x i32> %62, %.sroa.31.01899
   %69 = bitcast <4 x i32> %68 to <2 x i64>
-  %70 = add <4 x i32> %63, %.sroa.32.01899
+  %70 = add <4 x i32> %63, %.sroa.32.01898
   %71 = bitcast <4 x i32> %70 to <2 x i64>
-  %72 = add <4 x i32> %64, %.sroa.33.01898
+  %72 = add <4 x i32> %64, %.sroa.33.01897
   %73 = bitcast <4 x i32> %72 to <2 x i64>
-  %74 = xor <2 x i64> %.sroa.57.01893, %67
-  %75 = xor <2 x i64> %.sroa.65.01892, %69
-  %76 = xor <2 x i64> %.sroa.66.01891, %71
-  %77 = xor <2 x i64> %.sroa.67.01890, %73
+  %74 = xor <2 x i64> %.sroa.57.01892, %67
+  %75 = xor <2 x i64> %.sroa.65.01891, %69
+  %76 = xor <2 x i64> %.sroa.66.01890, %71
+  %77 = xor <2 x i64> %.sroa.67.01889, %73
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !1979
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !1979
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !1987
@@ -8482,20 +8482,20 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !1979
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !1979
   %82 = bitcast <2 x i64> %78 to <4 x i32>
-  %83 = add <4 x i32> %.sroa.34207.01897, %82
+  %83 = add <4 x i32> %.sroa.34207.01896, %82
   %84 = bitcast <2 x i64> %79 to <4 x i32>
-  %85 = add <4 x i32> %.sroa.42211.01896, %84
+  %85 = add <4 x i32> %.sroa.42211.01895, %84
   %86 = bitcast <2 x i64> %80 to <4 x i32>
-  %87 = add <4 x i32> %.sroa.47.01895, %86
+  %87 = add <4 x i32> %.sroa.47.01894, %86
   %88 = bitcast <2 x i64> %81 to <4 x i32>
-  %89 = add <4 x i32> %.sroa.52.01894, %88
-  %90 = xor <4 x i32> %83, %.sroa.23.01901
+  %89 = add <4 x i32> %.sroa.52.01893, %88
+  %90 = xor <4 x i32> %83, %.sroa.23.01900
   %91 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %90, <4 x i32> %90, <4 x i32> splat (i32 12))
-  %92 = xor <4 x i32> %85, %.sroa.31.01900
+  %92 = xor <4 x i32> %85, %.sroa.31.01899
   %93 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %92, <4 x i32> %92, <4 x i32> splat (i32 12))
-  %94 = xor <4 x i32> %87, %.sroa.32.01899
+  %94 = xor <4 x i32> %87, %.sroa.32.01898
   %95 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %94, <4 x i32> %94, <4 x i32> splat (i32 12))
-  %96 = xor <4 x i32> %89, %.sroa.33.01898
+  %96 = xor <4 x i32> %89, %.sroa.33.01897
   %97 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %96, <4 x i32> %96, <4 x i32> splat (i32 12))
   %98 = add <4 x i32> %91, %66
   %99 = bitcast <4 x i32> %98 to <2 x i64>
@@ -8721,12 +8721,12 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   br i1 %exitcond.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit", label %.lr.ph
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit": ; preds = %.lr.ph
-  %.sroa.0430.0.copyload1885.pre = load <4 x i32>, ptr %0, align 16, !noalias !1976
-  %.sroa.0439.0.copyload1886.pre = load <4 x i32>, ptr %52, align 16, !noalias !1976
+  %.sroa.0430.0.copyload1884.pre = load <4 x i32>, ptr %0, align 16, !noalias !1976
+  %.sroa.0439.0.copyload1885.pre = load <4 x i32>, ptr %52, align 16, !noalias !1976
   %.sroa.0458.0.copyload.pre = load <2 x i64>, ptr %53, align 16, !noalias !1976
   %.pre = add <2 x i64> %.sroa.0458.0.copyload.pre, <i64 1, i64 0>
-  %.pre1949 = add <2 x i64> %.sroa.0458.0.copyload.pre, <i64 2, i64 0>
-  %.pre1951 = add <2 x i64> %.sroa.0458.0.copyload.pre, <i64 3, i64 0>
+  %.pre1948 = add <2 x i64> %.sroa.0458.0.copyload.pre, <i64 2, i64 0>
+  %.pre1950 = add <2 x i64> %.sroa.0458.0.copyload.pre, <i64 3, i64 0>
   %210 = add <4 x i32> %166, <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>
   %211 = add <4 x i32> %168, <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>
   %212 = add <4 x i32> %170, <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>
@@ -8734,12 +8734,12 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit", %3
-  %.pre-phi1952 = phi <2 x i64> [ %.pre1951, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %56, %3 ]
-  %.pre-phi1950 = phi <2 x i64> [ %.pre1949, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %55, %3 ]
+  %.pre-phi1951 = phi <2 x i64> [ %.pre1950, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %56, %3 ]
+  %.pre-phi1949 = phi <2 x i64> [ %.pre1948, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %55, %3 ]
   %.pre-phi = phi <2 x i64> [ %.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %54, %3 ]
   %.sroa.0458.0.copyload = phi <2 x i64> [ %.sroa.0458.0.copyload.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %.sroa.049.0.copyload, %3 ]
-  %.sroa.0439.0.copyload1886 = phi <4 x i32> [ %.sroa.0439.0.copyload1886.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %60, %3 ]
-  %.sroa.0430.0.copyload1885 = phi <4 x i32> [ %.sroa.0430.0.copyload1885.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %59, %3 ]
+  %.sroa.0439.0.copyload1885 = phi <4 x i32> [ %.sroa.0439.0.copyload1885.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %60, %3 ]
+  %.sroa.0430.0.copyload1884 = phi <4 x i32> [ %.sroa.0430.0.copyload1884.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %59, %3 ]
   %.sroa.67.0.lcssa = phi <2 x i64> [ %209, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %56, %3 ]
   %.sroa.66.0.lcssa = phi <2 x i64> [ %207, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %55, %3 ]
   %.sroa.65.0.lcssa = phi <2 x i64> [ %205, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %54, %3 ]
@@ -8752,18 +8752,18 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %.sroa.32.0.lcssa = phi <4 x i32> [ %196, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %58, %3 ]
   %.sroa.31.0.lcssa = phi <4 x i32> [ %195, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %58, %3 ]
   %.sroa.23.0.lcssa = phi <4 x i32> [ %194, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ %58, %3 ]
-  %.lcssa1889 = phi <4 x i32> [ %213, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
-  %.lcssa1888 = phi <4 x i32> [ %212, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
-  %.lcssa1887 = phi <4 x i32> [ %211, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
+  %.lcssa1888 = phi <4 x i32> [ %213, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
+  %.lcssa1887 = phi <4 x i32> [ %212, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
+  %.lcssa1886 = phi <4 x i32> [ %211, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
   %.lcssa = phi <4 x i32> [ %210, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ], [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ]
-  %214 = add <4 x i32> %.sroa.0430.0.copyload1885, %.sroa.23.0.lcssa
-  %215 = add <4 x i32> %.sroa.0430.0.copyload1885, %.sroa.31.0.lcssa
-  %216 = add <4 x i32> %.sroa.0430.0.copyload1885, %.sroa.32.0.lcssa
-  %217 = add <4 x i32> %.sroa.0430.0.copyload1885, %.sroa.33.0.lcssa
-  %218 = add <4 x i32> %.sroa.0439.0.copyload1886, %.sroa.34207.0.lcssa
-  %219 = add <4 x i32> %.sroa.0439.0.copyload1886, %.sroa.42211.0.lcssa
-  %220 = add <4 x i32> %.sroa.0439.0.copyload1886, %.sroa.47.0.lcssa
-  %221 = add <4 x i32> %.sroa.0439.0.copyload1886, %.sroa.52.0.lcssa
+  %214 = add <4 x i32> %.sroa.0430.0.copyload1884, %.sroa.23.0.lcssa
+  %215 = add <4 x i32> %.sroa.0430.0.copyload1884, %.sroa.31.0.lcssa
+  %216 = add <4 x i32> %.sroa.0430.0.copyload1884, %.sroa.32.0.lcssa
+  %217 = add <4 x i32> %.sroa.0430.0.copyload1884, %.sroa.33.0.lcssa
+  %218 = add <4 x i32> %.sroa.0439.0.copyload1885, %.sroa.34207.0.lcssa
+  %219 = add <4 x i32> %.sroa.0439.0.copyload1885, %.sroa.42211.0.lcssa
+  %220 = add <4 x i32> %.sroa.0439.0.copyload1885, %.sroa.47.0.lcssa
+  %221 = add <4 x i32> %.sroa.0439.0.copyload1885, %.sroa.52.0.lcssa
   %222 = bitcast <2 x i64> %.sroa.57.0.lcssa to <4 x i32>
   %223 = bitcast <2 x i64> %.sroa.0458.0.copyload to <4 x i32>
   %224 = add <4 x i32> %223, %222
@@ -8771,10 +8771,10 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %226 = bitcast <2 x i64> %.pre-phi to <4 x i32>
   %227 = add <4 x i32> %226, %225
   %228 = bitcast <2 x i64> %.sroa.66.0.lcssa to <4 x i32>
-  %229 = bitcast <2 x i64> %.pre-phi1950 to <4 x i32>
+  %229 = bitcast <2 x i64> %.pre-phi1949 to <4 x i32>
   %230 = add <4 x i32> %229, %228
   %231 = bitcast <2 x i64> %.sroa.67.0.lcssa to <4 x i32>
-  %232 = bitcast <2 x i64> %.pre-phi1952 to <4 x i32>
+  %232 = bitcast <2 x i64> %.pre-phi1951 to <4 x i32>
   %233 = add <4 x i32> %232, %231
   store <4 x i32> %.lcssa, ptr %2, align 4, !alias.scope !2066, !noalias !2070
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8784,29 +8784,29 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h1a0ad6b7aac2711
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   store <4 x i32> %224, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !2066, !noalias !2070
   %234 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store <4 x i32> %.lcssa1887, ptr %234, align 4, !alias.scope !2072, !noalias !2076
-  %.sroa.41935.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %215, ptr %.sroa.41935.0..sroa_idx, align 4, !alias.scope !2072, !noalias !2076
-  %.sroa.51936.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %219, ptr %.sroa.51936.0..sroa_idx, align 4, !alias.scope !2072, !noalias !2076
-  %.sroa.61937.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %227, ptr %.sroa.61937.0..sroa_idx, align 4, !alias.scope !2072, !noalias !2076
+  store <4 x i32> %.lcssa1886, ptr %234, align 4, !alias.scope !2072, !noalias !2076
+  %.sroa.41934.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %215, ptr %.sroa.41934.0..sroa_idx, align 4, !alias.scope !2072, !noalias !2076
+  %.sroa.51935.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %219, ptr %.sroa.51935.0..sroa_idx, align 4, !alias.scope !2072, !noalias !2076
+  %.sroa.61936.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %227, ptr %.sroa.61936.0..sroa_idx, align 4, !alias.scope !2072, !noalias !2076
   %235 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store <4 x i32> %.lcssa1888, ptr %235, align 4, !alias.scope !2078, !noalias !2082
-  %.sroa.41939.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %216, ptr %.sroa.41939.0..sroa_idx, align 4, !alias.scope !2078, !noalias !2082
-  %.sroa.51940.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %220, ptr %.sroa.51940.0..sroa_idx, align 4, !alias.scope !2078, !noalias !2082
-  %.sroa.61941.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %230, ptr %.sroa.61941.0..sroa_idx, align 4, !alias.scope !2078, !noalias !2082
+  store <4 x i32> %.lcssa1887, ptr %235, align 4, !alias.scope !2078, !noalias !2082
+  %.sroa.41938.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %216, ptr %.sroa.41938.0..sroa_idx, align 4, !alias.scope !2078, !noalias !2082
+  %.sroa.51939.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %220, ptr %.sroa.51939.0..sroa_idx, align 4, !alias.scope !2078, !noalias !2082
+  %.sroa.61940.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %230, ptr %.sroa.61940.0..sroa_idx, align 4, !alias.scope !2078, !noalias !2082
   %236 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store <4 x i32> %.lcssa1889, ptr %236, align 4, !alias.scope !2084, !noalias !2088
-  %.sroa.41943.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %217, ptr %.sroa.41943.0..sroa_idx, align 4, !alias.scope !2084, !noalias !2088
-  %.sroa.51944.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %221, ptr %.sroa.51944.0..sroa_idx, align 4, !alias.scope !2084, !noalias !2088
-  %.sroa.61945.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %233, ptr %.sroa.61945.0..sroa_idx, align 4, !alias.scope !2084, !noalias !2088
+  store <4 x i32> %.lcssa1888, ptr %236, align 4, !alias.scope !2084, !noalias !2088
+  %.sroa.41942.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %217, ptr %.sroa.41942.0..sroa_idx, align 4, !alias.scope !2084, !noalias !2088
+  %.sroa.51943.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %221, ptr %.sroa.51943.0..sroa_idx, align 4, !alias.scope !2084, !noalias !2088
+  %.sroa.61944.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %233, ptr %.sroa.61944.0..sroa_idx, align 4, !alias.scope !2084, !noalias !2088
   %237 = add <2 x i64> %.sroa.0458.0.copyload, <i64 4, i64 0>
   store <2 x i64> %237, ptr %53, align 16, !noalias !1976
   ret void
@@ -9192,21 +9192,21 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0.i684 = phi i32 [ %289, %.lr.ph ], [ 0, %3 ]
-  %.sroa.43.0683 = phi <4 x i64> [ %333, %.lr.ph ], [ %.sroa.5631.48.vecblend, %3 ]
-  %.sroa.35.0682 = phi <4 x i64> [ %332, %.lr.ph ], [ %.sroa.0629.16.vecblend, %3 ]
-  %.sroa.30121.0681 = phi <4 x i64> [ %331, %.lr.ph ], [ %279, %3 ]
-  %.sroa.22.0680 = phi <4 x i64> [ %330, %.lr.ph ], [ %278, %3 ]
-  %.sroa.21.0679 = phi <4 x i64> [ %329, %.lr.ph ], [ %277, %3 ]
-  %.sroa.13.0678 = phi <4 x i64> [ %328, %.lr.ph ], [ %276, %3 ]
-  %.sroa.8101.0677 = phi <4 x i64> [ %321, %.lr.ph ], [ %275, %3 ]
-  %.sroa.099.0676 = phi <4 x i64> [ %320, %.lr.ph ], [ %274, %3 ]
-  %289 = add nuw i32 %.sroa.01.0.i684, 1
+  %.sroa.01.0.i683 = phi i32 [ %289, %.lr.ph ], [ 0, %3 ]
+  %.sroa.43.0682 = phi <4 x i64> [ %333, %.lr.ph ], [ %.sroa.5631.48.vecblend, %3 ]
+  %.sroa.35.0681 = phi <4 x i64> [ %332, %.lr.ph ], [ %.sroa.0629.16.vecblend, %3 ]
+  %.sroa.30121.0680 = phi <4 x i64> [ %331, %.lr.ph ], [ %279, %3 ]
+  %.sroa.22.0679 = phi <4 x i64> [ %330, %.lr.ph ], [ %278, %3 ]
+  %.sroa.21.0678 = phi <4 x i64> [ %329, %.lr.ph ], [ %277, %3 ]
+  %.sroa.13.0677 = phi <4 x i64> [ %328, %.lr.ph ], [ %276, %3 ]
+  %.sroa.8101.0676 = phi <4 x i64> [ %321, %.lr.ph ], [ %275, %3 ]
+  %.sroa.099.0675 = phi <4 x i64> [ %320, %.lr.ph ], [ %274, %3 ]
+  %289 = add nuw i32 %.sroa.01.0.i683, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %92), !noalias !2131
   call void @llvm.lifetime.start.p0(ptr nonnull %93), !noalias !2131
   call void @llvm.lifetime.start.p0(ptr nonnull %94), !noalias !2138
-  store <4 x i64> %.sroa.099.0676, ptr %93, align 32, !noalias !2138
-  store <4 x i64> %.sroa.13.0678, ptr %92, align 32, !noalias !2138
+  store <4 x i64> %.sroa.099.0675, ptr %93, align 32, !noalias !2138
+  store <4 x i64> %.sroa.13.0677, ptr %92, align 32, !noalias !2138
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %94, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %93, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %92), !noalias !2138
   %290 = load <4 x i64>, ptr %94, align 32, !noalias !2138
   call void @llvm.lifetime.end.p0(ptr nonnull %94), !noalias !2138
@@ -9215,8 +9215,8 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   call void @llvm.lifetime.start.p0(ptr nonnull %95), !noalias !2131
   call void @llvm.lifetime.start.p0(ptr nonnull %96), !noalias !2131
   call void @llvm.lifetime.start.p0(ptr nonnull %97), !noalias !2142
-  store <4 x i64> %.sroa.8101.0677, ptr %96, align 32, !noalias !2142
-  store <4 x i64> %.sroa.21.0679, ptr %95, align 32, !noalias !2142
+  store <4 x i64> %.sroa.8101.0676, ptr %96, align 32, !noalias !2142
+  store <4 x i64> %.sroa.21.0678, ptr %95, align 32, !noalias !2142
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %97, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %96, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %95), !noalias !2142
   %291 = load <4 x i64>, ptr %97, align 32, !noalias !2142
   call void @llvm.lifetime.end.p0(ptr nonnull %97), !noalias !2142
@@ -9224,7 +9224,7 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   call void @llvm.lifetime.end.p0(ptr nonnull %96), !noalias !2131
   call void @llvm.lifetime.start.p0(ptr nonnull %58), !noalias !2146
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !2146
-  store <4 x i64> %.sroa.35.0682, ptr %59, align 32, !noalias !2147
+  store <4 x i64> %.sroa.35.0681, ptr %59, align 32, !noalias !2147
   store <4 x i64> %290, ptr %58, align 32, !noalias !2147
   call void @llvm.lifetime.start.p0(ptr nonnull %87), !noalias !2156
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %87, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %59, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %58), !noalias !2146
@@ -9232,7 +9232,7 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   call void @llvm.lifetime.end.p0(ptr nonnull %59), !noalias !2146
   call void @llvm.lifetime.start.p0(ptr nonnull %60), !noalias !2146
   call void @llvm.lifetime.start.p0(ptr nonnull %61), !noalias !2146
-  store <4 x i64> %.sroa.43.0683, ptr %61, align 32, !noalias !2160
+  store <4 x i64> %.sroa.43.0682, ptr %61, align 32, !noalias !2160
   store <4 x i64> %291, ptr %60, align 32, !noalias !2160
   call void @llvm.lifetime.start.p0(ptr nonnull %90), !noalias !2156
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %90, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %61, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %60), !noalias !2146
@@ -9257,7 +9257,7 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   call void @llvm.lifetime.start.p0(ptr nonnull %98), !noalias !2173
   call void @llvm.lifetime.start.p0(ptr nonnull %99), !noalias !2173
   call void @llvm.lifetime.start.p0(ptr nonnull %100), !noalias !2177
-  store <4 x i64> %.sroa.22.0680, ptr %99, align 32, !noalias !2177
+  store <4 x i64> %.sroa.22.0679, ptr %99, align 32, !noalias !2177
   store <4 x i64> %292, ptr %98, align 32, !noalias !2177
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %100, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %99, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %98), !noalias !2177
   %294 = load <4 x i64>, ptr %100, align 32, !noalias !2177
@@ -9267,7 +9267,7 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   call void @llvm.lifetime.start.p0(ptr nonnull %101), !noalias !2173
   call void @llvm.lifetime.start.p0(ptr nonnull %102), !noalias !2173
   call void @llvm.lifetime.start.p0(ptr nonnull %103), !noalias !2181
-  store <4 x i64> %.sroa.30121.0681, ptr %102, align 32, !noalias !2181
+  store <4 x i64> %.sroa.30121.0680, ptr %102, align 32, !noalias !2181
   store <4 x i64> %293, ptr %101, align 32, !noalias !2181
   call void @_ZN4core9core_arch3x864avx216_mm256_add_epi3217h9a75197ba7d9b2e8E.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %103, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %102, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %101), !noalias !2181
   %295 = load <4 x i64>, ptr %103, align 32, !noalias !2181
@@ -9277,7 +9277,7 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !2146
   call void @llvm.lifetime.start.p0(ptr nonnull %53), !noalias !2146
   call void @llvm.lifetime.start.p0(ptr nonnull %54), !noalias !2185
-  store <4 x i64> %.sroa.13.0678, ptr %53, align 32, !noalias !2185
+  store <4 x i64> %.sroa.13.0677, ptr %53, align 32, !noalias !2185
   store <4 x i64> %294, ptr %52, align 32, !noalias !2185
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %54, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %53, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %52), !noalias !2185
   %296 = load <4 x i64>, ptr %54, align 32, !noalias !2185
@@ -9287,7 +9287,7 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   call void @llvm.lifetime.start.p0(ptr nonnull %55), !noalias !2146
   call void @llvm.lifetime.start.p0(ptr nonnull %56), !noalias !2146
   call void @llvm.lifetime.start.p0(ptr nonnull %57), !noalias !2194
-  store <4 x i64> %.sroa.21.0679, ptr %56, align 32, !noalias !2194
+  store <4 x i64> %.sroa.21.0678, ptr %56, align 32, !noalias !2194
   store <4 x i64> %295, ptr %55, align 32, !noalias !2194
   call void @_ZN4core9core_arch3x864avx216_mm256_xor_si25617hd705309c09889f7eE.llvm.17720110283109806325(ptr noalias noundef nonnull sret(<4 x i64>) align 32 captures(none) dereferenceable(32) %57, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %56, ptr noalias noundef nonnull align 32 captures(none) dereferenceable(32) %55), !noalias !2194
   %297 = load <4 x i64>, ptr %57, align 32, !noalias !2194
@@ -10004,16 +10004,16 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
   store <4 x i64> %354, ptr %.sroa.4.0..sroa_idx, align 4, !alias.scope !2616, !noalias !2620
   %358 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store <4 x i64> %351, ptr %358, align 4, !alias.scope !2622, !noalias !2626
-  %.sroa.4700.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i64> %355, ptr %.sroa.4700.0..sroa_idx, align 4, !alias.scope !2622, !noalias !2626
+  %.sroa.4699.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i64> %355, ptr %.sroa.4699.0..sroa_idx, align 4, !alias.scope !2622, !noalias !2626
   %359 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store <4 x i64> %352, ptr %359, align 4, !alias.scope !2628, !noalias !2632
-  %.sroa.4702.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i64> %356, ptr %.sroa.4702.0..sroa_idx, align 4, !alias.scope !2628, !noalias !2632
+  %.sroa.4701.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i64> %356, ptr %.sroa.4701.0..sroa_idx, align 4, !alias.scope !2628, !noalias !2632
   %360 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store <4 x i64> %353, ptr %360, align 4, !alias.scope !2634, !noalias !2638
-  %.sroa.4704.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i64> %357, ptr %.sroa.4704.0..sroa_idx, align 4, !alias.scope !2634, !noalias !2638
+  %.sroa.4703.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i64> %357, ptr %.sroa.4703.0..sroa_idx, align 4, !alias.scope !2634, !noalias !2638
   call void @llvm.lifetime.start.p0(ptr nonnull %216), !noalias !2090
   call void @llvm.lifetime.start.p0(ptr nonnull %217), !noalias !2640
   store <4 x i64> %.sroa.0568.16.vecblend, ptr %216, align 32, !noalias !2640
@@ -10035,9 +10035,9 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h6c1084766a1790c
 
 ; Function Attrs: alwaysinline nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h717089af01bcbac5E.llvm.17720110283109806325(ptr noalias noundef align 16 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noalias noundef writeonly align 4 captures(none) dereferenceable(256) %2) unnamed_addr #20 personality ptr @rust_eh_personality {
-  %.sroa.029.0.copyload2080 = load <4 x i32>, ptr %0, align 16, !noalias !2654
+  %.sroa.029.0.copyload2079 = load <4 x i32>, ptr %0, align 16, !noalias !2654
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.030.0.copyload2081 = load <4 x i32>, ptr %4, align 16, !noalias !2654
+  %.sroa.030.0.copyload2080 = load <4 x i32>, ptr %4, align 16, !noalias !2654
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.049.0.copyload = load <2 x i64>, ptr %5, align 16, !noalias !2654
   %6 = add <2 x i64> %.sroa.049.0.copyload, <i64 1, i64 0>
@@ -10047,36 +10047,36 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h717089af01bcbac
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0.i2036 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
+  %.sroa.01.0.i2035 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
   %9 = phi <4 x i32> [ %118, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %10 = phi <4 x i32> [ %119, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %11 = phi <4 x i32> [ %120, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %12 = phi <4 x i32> [ %121, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
-  %.sroa.23.02035 = phi <4 x i32> [ %142, %.lr.ph ], [ %.sroa.029.0.copyload2080, %3 ]
-  %.sroa.31.02034 = phi <4 x i32> [ %143, %.lr.ph ], [ %.sroa.029.0.copyload2080, %3 ]
-  %.sroa.32.02033 = phi <4 x i32> [ %144, %.lr.ph ], [ %.sroa.029.0.copyload2080, %3 ]
-  %.sroa.33.02032 = phi <4 x i32> [ %145, %.lr.ph ], [ %.sroa.029.0.copyload2080, %3 ]
-  %.sroa.34207.02031 = phi <4 x i32> [ %146, %.lr.ph ], [ %.sroa.030.0.copyload2081, %3 ]
-  %.sroa.42211.02030 = phi <4 x i32> [ %147, %.lr.ph ], [ %.sroa.030.0.copyload2081, %3 ]
-  %.sroa.47.02029 = phi <4 x i32> [ %148, %.lr.ph ], [ %.sroa.030.0.copyload2081, %3 ]
-  %.sroa.52.02028 = phi <4 x i32> [ %149, %.lr.ph ], [ %.sroa.030.0.copyload2081, %3 ]
-  %.sroa.57.02027 = phi <2 x i64> [ %151, %.lr.ph ], [ %.sroa.049.0.copyload, %3 ]
-  %.sroa.65.02026 = phi <2 x i64> [ %153, %.lr.ph ], [ %6, %3 ]
-  %.sroa.66.02025 = phi <2 x i64> [ %155, %.lr.ph ], [ %7, %3 ]
-  %.sroa.67.02024 = phi <2 x i64> [ %157, %.lr.ph ], [ %8, %3 ]
-  %13 = add nuw i32 %.sroa.01.0.i2036, 1
-  %14 = add <4 x i32> %9, %.sroa.23.02035
+  %.sroa.23.02034 = phi <4 x i32> [ %142, %.lr.ph ], [ %.sroa.029.0.copyload2079, %3 ]
+  %.sroa.31.02033 = phi <4 x i32> [ %143, %.lr.ph ], [ %.sroa.029.0.copyload2079, %3 ]
+  %.sroa.32.02032 = phi <4 x i32> [ %144, %.lr.ph ], [ %.sroa.029.0.copyload2079, %3 ]
+  %.sroa.33.02031 = phi <4 x i32> [ %145, %.lr.ph ], [ %.sroa.029.0.copyload2079, %3 ]
+  %.sroa.34207.02030 = phi <4 x i32> [ %146, %.lr.ph ], [ %.sroa.030.0.copyload2080, %3 ]
+  %.sroa.42211.02029 = phi <4 x i32> [ %147, %.lr.ph ], [ %.sroa.030.0.copyload2080, %3 ]
+  %.sroa.47.02028 = phi <4 x i32> [ %148, %.lr.ph ], [ %.sroa.030.0.copyload2080, %3 ]
+  %.sroa.52.02027 = phi <4 x i32> [ %149, %.lr.ph ], [ %.sroa.030.0.copyload2080, %3 ]
+  %.sroa.57.02026 = phi <2 x i64> [ %151, %.lr.ph ], [ %.sroa.049.0.copyload, %3 ]
+  %.sroa.65.02025 = phi <2 x i64> [ %153, %.lr.ph ], [ %6, %3 ]
+  %.sroa.66.02024 = phi <2 x i64> [ %155, %.lr.ph ], [ %7, %3 ]
+  %.sroa.67.02023 = phi <2 x i64> [ %157, %.lr.ph ], [ %8, %3 ]
+  %13 = add nuw i32 %.sroa.01.0.i2035, 1
+  %14 = add <4 x i32> %9, %.sroa.23.02034
   %15 = bitcast <4 x i32> %14 to <2 x i64>
-  %16 = add <4 x i32> %10, %.sroa.31.02034
+  %16 = add <4 x i32> %10, %.sroa.31.02033
   %17 = bitcast <4 x i32> %16 to <2 x i64>
-  %18 = add <4 x i32> %11, %.sroa.32.02033
+  %18 = add <4 x i32> %11, %.sroa.32.02032
   %19 = bitcast <4 x i32> %18 to <2 x i64>
-  %20 = add <4 x i32> %12, %.sroa.33.02032
+  %20 = add <4 x i32> %12, %.sroa.33.02031
   %21 = bitcast <4 x i32> %20 to <2 x i64>
-  %22 = xor <2 x i64> %.sroa.57.02027, %15
-  %23 = xor <2 x i64> %.sroa.65.02026, %17
-  %24 = xor <2 x i64> %.sroa.66.02025, %19
-  %25 = xor <2 x i64> %.sroa.67.02024, %21
+  %22 = xor <2 x i64> %.sroa.57.02026, %15
+  %23 = xor <2 x i64> %.sroa.65.02025, %17
+  %24 = xor <2 x i64> %.sroa.66.02024, %19
+  %25 = xor <2 x i64> %.sroa.67.02023, %21
   %26 = bitcast <2 x i64> %22 to <8 x i16>
   %27 = shufflevector <8 x i16> %26, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
   %28 = bitcast <2 x i64> %23 to <8 x i16>
@@ -10086,20 +10086,20 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h717089af01bcbac
   %32 = bitcast <2 x i64> %25 to <8 x i16>
   %33 = shufflevector <8 x i16> %32, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
   %34 = bitcast <8 x i16> %27 to <4 x i32>
-  %35 = add <4 x i32> %.sroa.34207.02031, %34
+  %35 = add <4 x i32> %.sroa.34207.02030, %34
   %36 = bitcast <8 x i16> %29 to <4 x i32>
-  %37 = add <4 x i32> %.sroa.42211.02030, %36
+  %37 = add <4 x i32> %.sroa.42211.02029, %36
   %38 = bitcast <8 x i16> %31 to <4 x i32>
-  %39 = add <4 x i32> %.sroa.47.02029, %38
+  %39 = add <4 x i32> %.sroa.47.02028, %38
   %40 = bitcast <8 x i16> %33 to <4 x i32>
-  %41 = add <4 x i32> %.sroa.52.02028, %40
-  %42 = xor <4 x i32> %35, %.sroa.23.02035
+  %41 = add <4 x i32> %.sroa.52.02027, %40
+  %42 = xor <4 x i32> %35, %.sroa.23.02034
   %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> splat (i32 12))
-  %44 = xor <4 x i32> %37, %.sroa.31.02034
+  %44 = xor <4 x i32> %37, %.sroa.31.02033
   %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> splat (i32 12))
-  %46 = xor <4 x i32> %39, %.sroa.32.02033
+  %46 = xor <4 x i32> %39, %.sroa.32.02032
   %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
-  %48 = xor <4 x i32> %41, %.sroa.33.02032
+  %48 = xor <4 x i32> %41, %.sroa.33.02031
   %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = add <4 x i32> %43, %14
   %51 = add <4 x i32> %45, %16
@@ -10224,26 +10224,26 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h717089af01bcbac
   %.sroa.66.0.lcssa = phi <2 x i64> [ %7, %3 ], [ %155, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
   %.sroa.65.0.lcssa = phi <2 x i64> [ %6, %3 ], [ %153, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
   %.sroa.57.0.lcssa = phi <2 x i64> [ %.sroa.049.0.copyload, %3 ], [ %151, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2081, %3 ], [ %149, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2081, %3 ], [ %148, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.42211.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2081, %3 ], [ %147, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.34207.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2081, %3 ], [ %146, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2080, %3 ], [ %145, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2080, %3 ], [ %144, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2080, %3 ], [ %143, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2080, %3 ], [ %142, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.lcssa2023 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.lcssa2022 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.lcssa2021 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2080, %3 ], [ %149, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2080, %3 ], [ %148, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.42211.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2080, %3 ], [ %147, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.34207.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2080, %3 ], [ %146, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2079, %3 ], [ %145, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2079, %3 ], [ %144, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2079, %3 ], [ %143, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2079, %3 ], [ %142, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.lcssa2022 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.lcssa2021 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.lcssa2020 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
   %.lcssa = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %158, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %162 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.029.0.copyload2080
-  %163 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.029.0.copyload2080
-  %164 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.029.0.copyload2080
-  %165 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.029.0.copyload2080
-  %166 = add <4 x i32> %.sroa.34207.0.lcssa, %.sroa.030.0.copyload2081
-  %167 = add <4 x i32> %.sroa.42211.0.lcssa, %.sroa.030.0.copyload2081
-  %168 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.030.0.copyload2081
-  %169 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.030.0.copyload2081
+  %162 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.029.0.copyload2079
+  %163 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.029.0.copyload2079
+  %164 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.029.0.copyload2079
+  %165 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.029.0.copyload2079
+  %166 = add <4 x i32> %.sroa.34207.0.lcssa, %.sroa.030.0.copyload2080
+  %167 = add <4 x i32> %.sroa.42211.0.lcssa, %.sroa.030.0.copyload2080
+  %168 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.030.0.copyload2080
+  %169 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.030.0.copyload2080
   %170 = bitcast <2 x i64> %.sroa.57.0.lcssa to <4 x i32>
   %171 = bitcast <2 x i64> %.sroa.049.0.copyload to <4 x i32>
   %172 = add <4 x i32> %170, %171
@@ -10264,29 +10264,29 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17h717089af01bcbac
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   store <4 x i32> %172, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !2657, !noalias !2661
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store <4 x i32> %.lcssa2021, ptr %182, align 4, !alias.scope !2664, !noalias !2668
-  %.sroa.42069.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %163, ptr %.sroa.42069.0..sroa_idx, align 4, !alias.scope !2664, !noalias !2668
-  %.sroa.52070.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %167, ptr %.sroa.52070.0..sroa_idx, align 4, !alias.scope !2664, !noalias !2668
-  %.sroa.62071.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %175, ptr %.sroa.62071.0..sroa_idx, align 4, !alias.scope !2664, !noalias !2668
+  store <4 x i32> %.lcssa2020, ptr %182, align 4, !alias.scope !2664, !noalias !2668
+  %.sroa.42068.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %163, ptr %.sroa.42068.0..sroa_idx, align 4, !alias.scope !2664, !noalias !2668
+  %.sroa.52069.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %167, ptr %.sroa.52069.0..sroa_idx, align 4, !alias.scope !2664, !noalias !2668
+  %.sroa.62070.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %175, ptr %.sroa.62070.0..sroa_idx, align 4, !alias.scope !2664, !noalias !2668
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store <4 x i32> %.lcssa2022, ptr %183, align 4, !alias.scope !2670, !noalias !2674
-  %.sroa.42073.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %164, ptr %.sroa.42073.0..sroa_idx, align 4, !alias.scope !2670, !noalias !2674
-  %.sroa.52074.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %168, ptr %.sroa.52074.0..sroa_idx, align 4, !alias.scope !2670, !noalias !2674
-  %.sroa.62075.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %178, ptr %.sroa.62075.0..sroa_idx, align 4, !alias.scope !2670, !noalias !2674
+  store <4 x i32> %.lcssa2021, ptr %183, align 4, !alias.scope !2670, !noalias !2674
+  %.sroa.42072.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %164, ptr %.sroa.42072.0..sroa_idx, align 4, !alias.scope !2670, !noalias !2674
+  %.sroa.52073.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %168, ptr %.sroa.52073.0..sroa_idx, align 4, !alias.scope !2670, !noalias !2674
+  %.sroa.62074.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %178, ptr %.sroa.62074.0..sroa_idx, align 4, !alias.scope !2670, !noalias !2674
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store <4 x i32> %.lcssa2023, ptr %184, align 4, !alias.scope !2676, !noalias !2680
-  %.sroa.42077.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %165, ptr %.sroa.42077.0..sroa_idx, align 4, !alias.scope !2676, !noalias !2680
-  %.sroa.52078.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %169, ptr %.sroa.52078.0..sroa_idx, align 4, !alias.scope !2676, !noalias !2680
-  %.sroa.62079.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %181, ptr %.sroa.62079.0..sroa_idx, align 4, !alias.scope !2676, !noalias !2680
+  store <4 x i32> %.lcssa2022, ptr %184, align 4, !alias.scope !2676, !noalias !2680
+  %.sroa.42076.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %165, ptr %.sroa.42076.0..sroa_idx, align 4, !alias.scope !2676, !noalias !2680
+  %.sroa.52077.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %169, ptr %.sroa.52077.0..sroa_idx, align 4, !alias.scope !2676, !noalias !2680
+  %.sroa.62078.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %181, ptr %.sroa.62078.0..sroa_idx, align 4, !alias.scope !2676, !noalias !2680
   %185 = add <2 x i64> %.sroa.049.0.copyload, <i64 4, i64 0>
   store <2 x i64> %185, ptr %5, align 16, !noalias !2654
   ret void
@@ -10414,36 +10414,36 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0.i1813 = phi i32 [ %87, %.lr.ph ], [ 0, %3 ]
-  %.sroa.0156.01812 = phi <4 x i32> [ %188, %.lr.ph ], [ %72, %3 ]
-  %.sroa.8158.01811 = phi <4 x i32> [ %190, %.lr.ph ], [ %72, %3 ]
-  %.sroa.13160.01810 = phi <4 x i32> [ %192, %.lr.ph ], [ %72, %3 ]
-  %.sroa.18162.01809 = phi <4 x i32> [ %194, %.lr.ph ], [ %72, %3 ]
-  %.sroa.23.01808 = phi <4 x i32> [ %216, %.lr.ph ], [ %84, %3 ]
-  %.sroa.31.01807 = phi <4 x i32> [ %217, %.lr.ph ], [ %84, %3 ]
-  %.sroa.32.01806 = phi <4 x i32> [ %218, %.lr.ph ], [ %84, %3 ]
-  %.sroa.33.01805 = phi <4 x i32> [ %219, %.lr.ph ], [ %84, %3 ]
-  %.sroa.34197.01804 = phi <4 x i32> [ %220, %.lr.ph ], [ %83, %3 ]
-  %.sroa.42201.01803 = phi <4 x i32> [ %221, %.lr.ph ], [ %83, %3 ]
-  %.sroa.47.01802 = phi <4 x i32> [ %222, %.lr.ph ], [ %83, %3 ]
-  %.sroa.52.01801 = phi <4 x i32> [ %223, %.lr.ph ], [ %83, %3 ]
-  %.sroa.57.01800 = phi <2 x i64> [ %225, %.lr.ph ], [ %79, %3 ]
-  %.sroa.65.01799 = phi <2 x i64> [ %227, %.lr.ph ], [ %80, %3 ]
-  %.sroa.66.01798 = phi <2 x i64> [ %229, %.lr.ph ], [ %81, %3 ]
-  %.sroa.67.01797 = phi <2 x i64> [ %231, %.lr.ph ], [ %82, %3 ]
-  %87 = add nuw i32 %.sroa.01.0.i1813, 1
-  %88 = add <4 x i32> %.sroa.0156.01812, %.sroa.23.01808
+  %.sroa.01.0.i1812 = phi i32 [ %87, %.lr.ph ], [ 0, %3 ]
+  %.sroa.0156.01811 = phi <4 x i32> [ %188, %.lr.ph ], [ %72, %3 ]
+  %.sroa.8158.01810 = phi <4 x i32> [ %190, %.lr.ph ], [ %72, %3 ]
+  %.sroa.13160.01809 = phi <4 x i32> [ %192, %.lr.ph ], [ %72, %3 ]
+  %.sroa.18162.01808 = phi <4 x i32> [ %194, %.lr.ph ], [ %72, %3 ]
+  %.sroa.23.01807 = phi <4 x i32> [ %216, %.lr.ph ], [ %84, %3 ]
+  %.sroa.31.01806 = phi <4 x i32> [ %217, %.lr.ph ], [ %84, %3 ]
+  %.sroa.32.01805 = phi <4 x i32> [ %218, %.lr.ph ], [ %84, %3 ]
+  %.sroa.33.01804 = phi <4 x i32> [ %219, %.lr.ph ], [ %84, %3 ]
+  %.sroa.34197.01803 = phi <4 x i32> [ %220, %.lr.ph ], [ %83, %3 ]
+  %.sroa.42201.01802 = phi <4 x i32> [ %221, %.lr.ph ], [ %83, %3 ]
+  %.sroa.47.01801 = phi <4 x i32> [ %222, %.lr.ph ], [ %83, %3 ]
+  %.sroa.52.01800 = phi <4 x i32> [ %223, %.lr.ph ], [ %83, %3 ]
+  %.sroa.57.01799 = phi <2 x i64> [ %225, %.lr.ph ], [ %79, %3 ]
+  %.sroa.65.01798 = phi <2 x i64> [ %227, %.lr.ph ], [ %80, %3 ]
+  %.sroa.66.01797 = phi <2 x i64> [ %229, %.lr.ph ], [ %81, %3 ]
+  %.sroa.67.01796 = phi <2 x i64> [ %231, %.lr.ph ], [ %82, %3 ]
+  %87 = add nuw i32 %.sroa.01.0.i1812, 1
+  %88 = add <4 x i32> %.sroa.0156.01811, %.sroa.23.01807
   %89 = bitcast <4 x i32> %88 to <2 x i64>
-  %90 = add <4 x i32> %.sroa.8158.01811, %.sroa.31.01807
+  %90 = add <4 x i32> %.sroa.8158.01810, %.sroa.31.01806
   %91 = bitcast <4 x i32> %90 to <2 x i64>
-  %92 = add <4 x i32> %.sroa.13160.01810, %.sroa.32.01806
+  %92 = add <4 x i32> %.sroa.13160.01809, %.sroa.32.01805
   %93 = bitcast <4 x i32> %92 to <2 x i64>
-  %94 = add <4 x i32> %.sroa.18162.01809, %.sroa.33.01805
+  %94 = add <4 x i32> %.sroa.18162.01808, %.sroa.33.01804
   %95 = bitcast <4 x i32> %94 to <2 x i64>
-  %96 = xor <2 x i64> %.sroa.57.01800, %89
-  %97 = xor <2 x i64> %.sroa.65.01799, %91
-  %98 = xor <2 x i64> %.sroa.66.01798, %93
-  %99 = xor <2 x i64> %.sroa.67.01797, %95
+  %96 = xor <2 x i64> %.sroa.57.01799, %89
+  %97 = xor <2 x i64> %.sroa.65.01798, %91
+  %98 = xor <2 x i64> %.sroa.66.01797, %93
+  %99 = xor <2 x i64> %.sroa.67.01796, %95
   call void @llvm.lifetime.start.p0(ptr nonnull %34), !noalias !2711
   call void @llvm.lifetime.start.p0(ptr nonnull %35), !noalias !2711
   call void @llvm.lifetime.start.p0(ptr nonnull %36), !noalias !2718
@@ -10485,20 +10485,20 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   call void @llvm.lifetime.end.p0(ptr nonnull %43), !noalias !2711
   call void @llvm.lifetime.end.p0(ptr nonnull %44), !noalias !2711
   %104 = bitcast <2 x i64> %100 to <4 x i32>
-  %105 = add <4 x i32> %.sroa.34197.01804, %104
+  %105 = add <4 x i32> %.sroa.34197.01803, %104
   %106 = bitcast <2 x i64> %101 to <4 x i32>
-  %107 = add <4 x i32> %.sroa.42201.01803, %106
+  %107 = add <4 x i32> %.sroa.42201.01802, %106
   %108 = bitcast <2 x i64> %102 to <4 x i32>
-  %109 = add <4 x i32> %.sroa.47.01802, %108
+  %109 = add <4 x i32> %.sroa.47.01801, %108
   %110 = bitcast <2 x i64> %103 to <4 x i32>
-  %111 = add <4 x i32> %.sroa.52.01801, %110
-  %112 = xor <4 x i32> %105, %.sroa.23.01808
+  %111 = add <4 x i32> %.sroa.52.01800, %110
+  %112 = xor <4 x i32> %105, %.sroa.23.01807
   %113 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %112, <4 x i32> %112, <4 x i32> splat (i32 12))
-  %114 = xor <4 x i32> %107, %.sroa.31.01807
+  %114 = xor <4 x i32> %107, %.sroa.31.01806
   %115 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %114, <4 x i32> %114, <4 x i32> splat (i32 12))
-  %116 = xor <4 x i32> %109, %.sroa.32.01806
+  %116 = xor <4 x i32> %109, %.sroa.32.01805
   %117 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %116, <4 x i32> %116, <4 x i32> splat (i32 12))
-  %118 = xor <4 x i32> %111, %.sroa.33.01805
+  %118 = xor <4 x i32> %111, %.sroa.33.01804
   %119 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %118, <4 x i32> %118, <4 x i32> splat (i32 12))
   %120 = add <4 x i32> %113, %88
   %121 = bitcast <4 x i32> %120 to <2 x i64>
@@ -10724,15 +10724,15 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   br i1 %exitcond.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit", label %.lr.ph
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit": ; preds = %.lr.ph
-  %.sroa.0420.0.copyload1795.pre = load <4 x i32>, ptr %0, align 16, !noalias !2690
-  %.sroa.0429.0.copyload1796.pre = load <4 x i32>, ptr %73, align 16, !noalias !2690
+  %.sroa.0420.0.copyload1794.pre = load <4 x i32>, ptr %0, align 16, !noalias !2690
+  %.sroa.0429.0.copyload1795.pre = load <4 x i32>, ptr %73, align 16, !noalias !2690
   %.sroa.0448.0.copyload.pre = load <2 x i64>, ptr %74, align 16, !noalias !2690
   br label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17"
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17": ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit", %3
   %.sroa.0448.0.copyload = phi <2 x i64> [ %.sroa.039.0.copyload, %3 ], [ %.sroa.0448.0.copyload.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.0429.0.copyload1796 = phi <4 x i32> [ %86, %3 ], [ %.sroa.0429.0.copyload1796.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.0420.0.copyload1795 = phi <4 x i32> [ %85, %3 ], [ %.sroa.0420.0.copyload1795.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.0429.0.copyload1795 = phi <4 x i32> [ %86, %3 ], [ %.sroa.0429.0.copyload1795.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.0420.0.copyload1794 = phi <4 x i32> [ %85, %3 ], [ %.sroa.0420.0.copyload1794.pre, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.67.0.lcssa = phi <2 x i64> [ %82, %3 ], [ %231, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.66.0.lcssa = phi <2 x i64> [ %81, %3 ], [ %229, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.65.0.lcssa = phi <2 x i64> [ %80, %3 ], [ %227, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
@@ -10785,14 +10785,14 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   %241 = add <4 x i32> %.sroa.8158.0.lcssa, %72
   %242 = add <4 x i32> %.sroa.13160.0.lcssa, %72
   %243 = add <4 x i32> %.sroa.18162.0.lcssa, %72
-  %244 = add <4 x i32> %.sroa.0420.0.copyload1795, %.sroa.23.0.lcssa
-  %245 = add <4 x i32> %.sroa.0420.0.copyload1795, %.sroa.31.0.lcssa
-  %246 = add <4 x i32> %.sroa.0420.0.copyload1795, %.sroa.32.0.lcssa
-  %247 = add <4 x i32> %.sroa.0420.0.copyload1795, %.sroa.33.0.lcssa
-  %248 = add <4 x i32> %.sroa.0429.0.copyload1796, %.sroa.34197.0.lcssa
-  %249 = add <4 x i32> %.sroa.0429.0.copyload1796, %.sroa.42201.0.lcssa
-  %250 = add <4 x i32> %.sroa.0429.0.copyload1796, %.sroa.47.0.lcssa
-  %251 = add <4 x i32> %.sroa.0429.0.copyload1796, %.sroa.52.0.lcssa
+  %244 = add <4 x i32> %.sroa.0420.0.copyload1794, %.sroa.23.0.lcssa
+  %245 = add <4 x i32> %.sroa.0420.0.copyload1794, %.sroa.31.0.lcssa
+  %246 = add <4 x i32> %.sroa.0420.0.copyload1794, %.sroa.32.0.lcssa
+  %247 = add <4 x i32> %.sroa.0420.0.copyload1794, %.sroa.33.0.lcssa
+  %248 = add <4 x i32> %.sroa.0429.0.copyload1795, %.sroa.34197.0.lcssa
+  %249 = add <4 x i32> %.sroa.0429.0.copyload1795, %.sroa.42201.0.lcssa
+  %250 = add <4 x i32> %.sroa.0429.0.copyload1795, %.sroa.47.0.lcssa
+  %251 = add <4 x i32> %.sroa.0429.0.copyload1795, %.sroa.52.0.lcssa
   %252 = bitcast <2 x i64> %.sroa.57.0.lcssa to <4 x i32>
   %253 = bitcast <2 x i64> %236 to <4 x i32>
   %254 = add <4 x i32> %253, %252
@@ -10814,28 +10814,28 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
   store <4 x i32> %254, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !2817, !noalias !2821
   %264 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store <4 x i32> %241, ptr %264, align 4, !alias.scope !2823, !noalias !2827
-  %.sroa.41845.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %245, ptr %.sroa.41845.0..sroa_idx, align 4, !alias.scope !2823, !noalias !2827
-  %.sroa.51846.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %249, ptr %.sroa.51846.0..sroa_idx, align 4, !alias.scope !2823, !noalias !2827
-  %.sroa.61847.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %257, ptr %.sroa.61847.0..sroa_idx, align 4, !alias.scope !2823, !noalias !2827
+  %.sroa.41844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %245, ptr %.sroa.41844.0..sroa_idx, align 4, !alias.scope !2823, !noalias !2827
+  %.sroa.51845.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %249, ptr %.sroa.51845.0..sroa_idx, align 4, !alias.scope !2823, !noalias !2827
+  %.sroa.61846.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %257, ptr %.sroa.61846.0..sroa_idx, align 4, !alias.scope !2823, !noalias !2827
   %265 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store <4 x i32> %242, ptr %265, align 4, !alias.scope !2829, !noalias !2833
-  %.sroa.41849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %246, ptr %.sroa.41849.0..sroa_idx, align 4, !alias.scope !2829, !noalias !2833
-  %.sroa.51850.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %250, ptr %.sroa.51850.0..sroa_idx, align 4, !alias.scope !2829, !noalias !2833
-  %.sroa.61851.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %260, ptr %.sroa.61851.0..sroa_idx, align 4, !alias.scope !2829, !noalias !2833
+  %.sroa.41848.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %246, ptr %.sroa.41848.0..sroa_idx, align 4, !alias.scope !2829, !noalias !2833
+  %.sroa.51849.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %250, ptr %.sroa.51849.0..sroa_idx, align 4, !alias.scope !2829, !noalias !2833
+  %.sroa.61850.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %260, ptr %.sroa.61850.0..sroa_idx, align 4, !alias.scope !2829, !noalias !2833
   %266 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store <4 x i32> %243, ptr %266, align 4, !alias.scope !2835, !noalias !2839
-  %.sroa.41853.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %247, ptr %.sroa.41853.0..sroa_idx, align 4, !alias.scope !2835, !noalias !2839
-  %.sroa.51854.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %251, ptr %.sroa.51854.0..sroa_idx, align 4, !alias.scope !2835, !noalias !2839
-  %.sroa.61855.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %263, ptr %.sroa.61855.0..sroa_idx, align 4, !alias.scope !2835, !noalias !2839
+  %.sroa.41852.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %247, ptr %.sroa.41852.0..sroa_idx, align 4, !alias.scope !2835, !noalias !2839
+  %.sroa.51853.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %251, ptr %.sroa.51853.0..sroa_idx, align 4, !alias.scope !2835, !noalias !2839
+  %.sroa.61854.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %263, ptr %.sroa.61854.0..sroa_idx, align 4, !alias.scope !2835, !noalias !2839
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !2841
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !2841
   store <2 x i64> <i64 4, i64 0>, ptr %20, align 16, !noalias !2845
@@ -10850,48 +10850,48 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide7fn_impl17ha82f07a7bcc635a
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b86eaE.llvm.17720110283109806325(ptr noalias noundef align 16 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noalias noundef writeonly align 4 captures(none) dereferenceable(256) %2) unnamed_addr #22 personality ptr @rust_eh_personality {
-  %.sroa.019.0.copyload11451192 = load <4 x i32>, ptr %0, align 16, !noalias !2850
+  %.sroa.019.0.copyload11441191 = load <4 x i32>, ptr %0, align 16, !noalias !2850
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.020.0.copyload11461193 = load <4 x i32>, ptr %4, align 16, !noalias !2850
+  %.sroa.020.0.copyload11451192 = load <4 x i32>, ptr %4, align 16, !noalias !2850
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.041.0.copyload = load <2 x i64>, ptr %5, align 16, !noalias !2850
   %6 = add <2 x i64> %.sroa.041.0.copyload, <i64 1, i64 0>
   %.sroa.01027.16.vecblend = shufflevector <2 x i64> %.sroa.041.0.copyload, <2 x i64> %6, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
   %7 = shufflevector <2 x i64> %.sroa.041.0.copyload, <2 x i64> poison, <4 x i32> <i32 0, i32 1, i32 0, i32 1>
   %.sroa.51029.48.vecblend = add <4 x i64> %7, <i64 2, i64 0, i64 3, i64 0>
-  %8 = shufflevector <4 x i32> %.sroa.020.0.copyload11461193, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
-  %9 = shufflevector <4 x i32> %.sroa.019.0.copyload11451192, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %8 = shufflevector <4 x i32> %.sroa.020.0.copyload11451192, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
+  %9 = shufflevector <4 x i32> %.sroa.019.0.copyload11441191, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0.i.i1154 = phi i32 [ %12, %.lr.ph ], [ 0, %3 ]
+  %.sroa.01.0.i.i1153 = phi i32 [ %12, %.lr.ph ], [ 0, %3 ]
   %10 = phi <8 x i32> [ %69, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236, i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %11 = phi <8 x i32> [ %70, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236, i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
-  %.sroa.13.01153 = phi <8 x i32> [ %85, %.lr.ph ], [ %9, %3 ]
-  %.sroa.21.01152 = phi <8 x i32> [ %86, %.lr.ph ], [ %9, %3 ]
-  %.sroa.22.01151 = phi <8 x i32> [ %87, %.lr.ph ], [ %8, %3 ]
-  %.sroa.30121.01150 = phi <8 x i32> [ %88, %.lr.ph ], [ %8, %3 ]
-  %.sroa.35.01149 = phi <4 x i64> [ %90, %.lr.ph ], [ %.sroa.01027.16.vecblend, %3 ]
-  %.sroa.43.01148 = phi <4 x i64> [ %92, %.lr.ph ], [ %.sroa.51029.48.vecblend, %3 ]
-  %12 = add nuw i32 %.sroa.01.0.i.i1154, 1
-  %13 = add <8 x i32> %10, %.sroa.13.01153
+  %.sroa.13.01152 = phi <8 x i32> [ %85, %.lr.ph ], [ %9, %3 ]
+  %.sroa.21.01151 = phi <8 x i32> [ %86, %.lr.ph ], [ %9, %3 ]
+  %.sroa.22.01150 = phi <8 x i32> [ %87, %.lr.ph ], [ %8, %3 ]
+  %.sroa.30121.01149 = phi <8 x i32> [ %88, %.lr.ph ], [ %8, %3 ]
+  %.sroa.35.01148 = phi <4 x i64> [ %90, %.lr.ph ], [ %.sroa.01027.16.vecblend, %3 ]
+  %.sroa.43.01147 = phi <4 x i64> [ %92, %.lr.ph ], [ %.sroa.51029.48.vecblend, %3 ]
+  %12 = add nuw i32 %.sroa.01.0.i.i1153, 1
+  %13 = add <8 x i32> %10, %.sroa.13.01152
   %14 = bitcast <8 x i32> %13 to <4 x i64>
-  %15 = add <8 x i32> %11, %.sroa.21.01152
+  %15 = add <8 x i32> %11, %.sroa.21.01151
   %16 = bitcast <8 x i32> %15 to <4 x i64>
-  %17 = xor <4 x i64> %.sroa.35.01149, %14
-  %18 = xor <4 x i64> %.sroa.43.01148, %16
+  %17 = xor <4 x i64> %.sroa.35.01148, %14
+  %18 = xor <4 x i64> %.sroa.43.01147, %16
   %19 = bitcast <4 x i64> %17 to <32 x i8>
   %20 = shufflevector <32 x i8> %19, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13, i32 18, i32 19, i32 16, i32 17, i32 22, i32 23, i32 20, i32 21, i32 26, i32 27, i32 24, i32 25, i32 30, i32 31, i32 28, i32 29>
   %21 = bitcast <4 x i64> %18 to <32 x i8>
   %22 = shufflevector <32 x i8> %21, <32 x i8> poison, <32 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13, i32 18, i32 19, i32 16, i32 17, i32 22, i32 23, i32 20, i32 21, i32 26, i32 27, i32 24, i32 25, i32 30, i32 31, i32 28, i32 29>
   %23 = bitcast <32 x i8> %20 to <8 x i32>
-  %24 = add <8 x i32> %.sroa.22.01151, %23
+  %24 = add <8 x i32> %.sroa.22.01150, %23
   %25 = bitcast <32 x i8> %22 to <8 x i32>
-  %26 = add <8 x i32> %.sroa.30121.01150, %25
-  %27 = xor <8 x i32> %24, %.sroa.13.01153
+  %26 = add <8 x i32> %.sroa.30121.01149, %25
+  %27 = xor <8 x i32> %24, %.sroa.13.01152
   %28 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %27, <8 x i32> %27, <8 x i32> splat (i32 12))
-  %29 = xor <8 x i32> %26, %.sroa.21.01152
+  %29 = xor <8 x i32> %26, %.sroa.21.01151
   %30 = tail call <8 x i32> @llvm.fshl.v8i32(<8 x i32> %29, <8 x i32> %29, <8 x i32> splat (i32 12))
   %31 = add <8 x i32> %28, %13
   %32 = add <8 x i32> %30, %15
@@ -10972,7 +10972,7 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
   %.sroa.22.0.lcssa = phi <8 x i32> [ %8, %3 ], [ %87, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.21.0.lcssa = phi <8 x i32> [ %9, %3 ], [ %86, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.13.0.lcssa = phi <8 x i32> [ %9, %3 ], [ %85, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.lcssa1147 = phi <4 x i64> [ <i64 7368109840866013386, i64 -3008181449229313436, i64 7368109840866013386, i64 -3008181449229313436>, %3 ], [ %96, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.lcssa1146 = phi <4 x i64> [ <i64 7368109840866013386, i64 -3008181449229313436, i64 7368109840866013386, i64 -3008181449229313436>, %3 ], [ %96, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.lcssa = phi <4 x i64> [ <i64 7368109840866013386, i64 -3008181449229313436, i64 7368109840866013386, i64 -3008181449229313436>, %3 ], [ %94, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %97 = add <8 x i32> %.sroa.13.0.lcssa, %9
   %98 = bitcast <8 x i32> %97 to <4 x i64>
@@ -10988,8 +10988,8 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
   %108 = add <8 x i32> %106, %107
   %109 = shufflevector <4 x i64> %.lcssa, <4 x i64> %98, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
   %110 = shufflevector <4 x i64> %.lcssa, <4 x i64> %98, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
-  %111 = shufflevector <4 x i64> %.lcssa1147, <4 x i64> %100, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
-  %112 = shufflevector <4 x i64> %.lcssa1147, <4 x i64> %100, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
+  %111 = shufflevector <4 x i64> %.lcssa1146, <4 x i64> %100, <4 x i32> <i32 0, i32 1, i32 4, i32 5>
+  %112 = shufflevector <4 x i64> %.lcssa1146, <4 x i64> %100, <4 x i32> <i32 2, i32 3, i32 6, i32 7>
   %113 = shufflevector <8 x i32> %101, <8 x i32> %105, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   %114 = shufflevector <8 x i32> %101, <8 x i32> %105, <8 x i32> <i32 4, i32 5, i32 6, i32 7, i32 12, i32 13, i32 14, i32 15>
   %115 = shufflevector <8 x i32> %102, <8 x i32> %108, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
@@ -10999,16 +10999,16 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
   store <8 x i32> %113, ptr %.sroa.4.0..sroa_idx, align 4, !alias.scope !2855, !noalias !2859
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store <4 x i64> %110, ptr %117, align 4, !alias.scope !2863, !noalias !2867
-  %.sroa.41171.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <8 x i32> %114, ptr %.sroa.41171.0..sroa_idx, align 4, !alias.scope !2863, !noalias !2867
+  %.sroa.41170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <8 x i32> %114, ptr %.sroa.41170.0..sroa_idx, align 4, !alias.scope !2863, !noalias !2867
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 128
   store <4 x i64> %111, ptr %118, align 4, !alias.scope !2869, !noalias !2873
-  %.sroa.41173.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <8 x i32> %115, ptr %.sroa.41173.0..sroa_idx, align 4, !alias.scope !2869, !noalias !2873
+  %.sroa.41172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <8 x i32> %115, ptr %.sroa.41172.0..sroa_idx, align 4, !alias.scope !2869, !noalias !2873
   %119 = getelementptr inbounds nuw i8, ptr %2, i64 192
   store <4 x i64> %112, ptr %119, align 4, !alias.scope !2875, !noalias !2879
-  %.sroa.41175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <8 x i32> %116, ptr %.sroa.41175.0..sroa_idx, align 4, !alias.scope !2875, !noalias !2879
+  %.sroa.41174.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <8 x i32> %116, ptr %.sroa.41174.0..sroa_idx, align 4, !alias.scope !2875, !noalias !2879
   %120 = add <2 x i64> %.sroa.041.0.copyload, <i64 4, i64 0>
   store <2 x i64> %120, ptr %5, align 16, !noalias !2850
   tail call void @llvm.x86.avx.vzeroupper() #34
@@ -11017,9 +11017,9 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_avx217h8171f6971b5b8
 
 ; Function Attrs: nounwind nonlazybind uwtable
 define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc051eE.llvm.17720110283109806325(ptr noalias noundef align 16 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noalias noundef writeonly align 4 captures(none) dereferenceable(256) %2) unnamed_addr #23 personality ptr @rust_eh_personality {
-  %.sroa.019.0.copyload1964 = load <4 x i32>, ptr %0, align 16, !noalias !2881
+  %.sroa.019.0.copyload1963 = load <4 x i32>, ptr %0, align 16, !noalias !2881
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.020.0.copyload1965 = load <4 x i32>, ptr %4, align 16, !noalias !2881
+  %.sroa.020.0.copyload1964 = load <4 x i32>, ptr %4, align 16, !noalias !2881
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.039.0.copyload = load <2 x i64>, ptr %5, align 16, !noalias !2881
   %6 = add <2 x i64> %.sroa.039.0.copyload, <i64 1, i64 0>
@@ -11029,36 +11029,36 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc05
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0.i.i1920 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
+  %.sroa.01.0.i.i1919 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
   %9 = phi <4 x i32> [ %126, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %10 = phi <4 x i32> [ %127, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %11 = phi <4 x i32> [ %128, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %12 = phi <4 x i32> [ %129, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
-  %.sroa.23.01919 = phi <4 x i32> [ %158, %.lr.ph ], [ %.sroa.019.0.copyload1964, %3 ]
-  %.sroa.31.01918 = phi <4 x i32> [ %159, %.lr.ph ], [ %.sroa.019.0.copyload1964, %3 ]
-  %.sroa.32.01917 = phi <4 x i32> [ %160, %.lr.ph ], [ %.sroa.019.0.copyload1964, %3 ]
-  %.sroa.33.01916 = phi <4 x i32> [ %161, %.lr.ph ], [ %.sroa.019.0.copyload1964, %3 ]
-  %.sroa.34197.01915 = phi <4 x i32> [ %162, %.lr.ph ], [ %.sroa.020.0.copyload1965, %3 ]
-  %.sroa.42201.01914 = phi <4 x i32> [ %163, %.lr.ph ], [ %.sroa.020.0.copyload1965, %3 ]
-  %.sroa.47.01913 = phi <4 x i32> [ %164, %.lr.ph ], [ %.sroa.020.0.copyload1965, %3 ]
-  %.sroa.52.01912 = phi <4 x i32> [ %165, %.lr.ph ], [ %.sroa.020.0.copyload1965, %3 ]
-  %.sroa.57.01911 = phi <2 x i64> [ %167, %.lr.ph ], [ %.sroa.039.0.copyload, %3 ]
-  %.sroa.65.01910 = phi <2 x i64> [ %169, %.lr.ph ], [ %6, %3 ]
-  %.sroa.66.01909 = phi <2 x i64> [ %171, %.lr.ph ], [ %7, %3 ]
-  %.sroa.67.01908 = phi <2 x i64> [ %173, %.lr.ph ], [ %8, %3 ]
-  %13 = add nuw i32 %.sroa.01.0.i.i1920, 1
-  %14 = add <4 x i32> %9, %.sroa.23.01919
+  %.sroa.23.01918 = phi <4 x i32> [ %158, %.lr.ph ], [ %.sroa.019.0.copyload1963, %3 ]
+  %.sroa.31.01917 = phi <4 x i32> [ %159, %.lr.ph ], [ %.sroa.019.0.copyload1963, %3 ]
+  %.sroa.32.01916 = phi <4 x i32> [ %160, %.lr.ph ], [ %.sroa.019.0.copyload1963, %3 ]
+  %.sroa.33.01915 = phi <4 x i32> [ %161, %.lr.ph ], [ %.sroa.019.0.copyload1963, %3 ]
+  %.sroa.34197.01914 = phi <4 x i32> [ %162, %.lr.ph ], [ %.sroa.020.0.copyload1964, %3 ]
+  %.sroa.42201.01913 = phi <4 x i32> [ %163, %.lr.ph ], [ %.sroa.020.0.copyload1964, %3 ]
+  %.sroa.47.01912 = phi <4 x i32> [ %164, %.lr.ph ], [ %.sroa.020.0.copyload1964, %3 ]
+  %.sroa.52.01911 = phi <4 x i32> [ %165, %.lr.ph ], [ %.sroa.020.0.copyload1964, %3 ]
+  %.sroa.57.01910 = phi <2 x i64> [ %167, %.lr.ph ], [ %.sroa.039.0.copyload, %3 ]
+  %.sroa.65.01909 = phi <2 x i64> [ %169, %.lr.ph ], [ %6, %3 ]
+  %.sroa.66.01908 = phi <2 x i64> [ %171, %.lr.ph ], [ %7, %3 ]
+  %.sroa.67.01907 = phi <2 x i64> [ %173, %.lr.ph ], [ %8, %3 ]
+  %13 = add nuw i32 %.sroa.01.0.i.i1919, 1
+  %14 = add <4 x i32> %9, %.sroa.23.01918
   %15 = bitcast <4 x i32> %14 to <2 x i64>
-  %16 = add <4 x i32> %10, %.sroa.31.01918
+  %16 = add <4 x i32> %10, %.sroa.31.01917
   %17 = bitcast <4 x i32> %16 to <2 x i64>
-  %18 = add <4 x i32> %11, %.sroa.32.01917
+  %18 = add <4 x i32> %11, %.sroa.32.01916
   %19 = bitcast <4 x i32> %18 to <2 x i64>
-  %20 = add <4 x i32> %12, %.sroa.33.01916
+  %20 = add <4 x i32> %12, %.sroa.33.01915
   %21 = bitcast <4 x i32> %20 to <2 x i64>
-  %22 = xor <2 x i64> %.sroa.57.01911, %15
-  %23 = xor <2 x i64> %.sroa.65.01910, %17
-  %24 = xor <2 x i64> %.sroa.66.01909, %19
-  %25 = xor <2 x i64> %.sroa.67.01908, %21
+  %22 = xor <2 x i64> %.sroa.57.01910, %15
+  %23 = xor <2 x i64> %.sroa.65.01909, %17
+  %24 = xor <2 x i64> %.sroa.66.01908, %19
+  %25 = xor <2 x i64> %.sroa.67.01907, %21
   %26 = bitcast <2 x i64> %22 to <16 x i8>
   %27 = shufflevector <16 x i8> %26, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13>
   %28 = bitcast <2 x i64> %23 to <16 x i8>
@@ -11068,20 +11068,20 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc05
   %32 = bitcast <2 x i64> %25 to <16 x i8>
   %33 = shufflevector <16 x i8> %32, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13>
   %34 = bitcast <16 x i8> %27 to <4 x i32>
-  %35 = add <4 x i32> %.sroa.34197.01915, %34
+  %35 = add <4 x i32> %.sroa.34197.01914, %34
   %36 = bitcast <16 x i8> %29 to <4 x i32>
-  %37 = add <4 x i32> %.sroa.42201.01914, %36
+  %37 = add <4 x i32> %.sroa.42201.01913, %36
   %38 = bitcast <16 x i8> %31 to <4 x i32>
-  %39 = add <4 x i32> %.sroa.47.01913, %38
+  %39 = add <4 x i32> %.sroa.47.01912, %38
   %40 = bitcast <16 x i8> %33 to <4 x i32>
-  %41 = add <4 x i32> %.sroa.52.01912, %40
-  %42 = xor <4 x i32> %35, %.sroa.23.01919
+  %41 = add <4 x i32> %.sroa.52.01911, %40
+  %42 = xor <4 x i32> %35, %.sroa.23.01918
   %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> splat (i32 12))
-  %44 = xor <4 x i32> %37, %.sroa.31.01918
+  %44 = xor <4 x i32> %37, %.sroa.31.01917
   %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> splat (i32 12))
-  %46 = xor <4 x i32> %39, %.sroa.32.01917
+  %46 = xor <4 x i32> %39, %.sroa.32.01916
   %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
-  %48 = xor <4 x i32> %41, %.sroa.33.01916
+  %48 = xor <4 x i32> %41, %.sroa.33.01915
   %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = add <4 x i32> %43, %14
   %51 = add <4 x i32> %45, %16
@@ -11222,26 +11222,26 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc05
   %.sroa.66.0.lcssa = phi <2 x i64> [ %7, %3 ], [ %171, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.65.0.lcssa = phi <2 x i64> [ %6, %3 ], [ %169, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.57.0.lcssa = phi <2 x i64> [ %.sroa.039.0.copyload, %3 ], [ %167, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1965, %3 ], [ %165, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1965, %3 ], [ %164, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.42201.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1965, %3 ], [ %163, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.34197.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1965, %3 ], [ %162, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1964, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1964, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1964, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1964, %3 ], [ %158, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.lcssa1907 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %177, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.lcssa1906 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %176, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.lcssa1905 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %175, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1964, %3 ], [ %165, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1964, %3 ], [ %164, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.42201.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1964, %3 ], [ %163, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.34197.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1964, %3 ], [ %162, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1963, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1963, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1963, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1963, %3 ], [ %158, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.lcssa1906 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %177, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.lcssa1905 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %176, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.lcssa1904 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %175, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.lcssa = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %174, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %178 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.019.0.copyload1964
-  %179 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.019.0.copyload1964
-  %180 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.019.0.copyload1964
-  %181 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.019.0.copyload1964
-  %182 = add <4 x i32> %.sroa.34197.0.lcssa, %.sroa.020.0.copyload1965
-  %183 = add <4 x i32> %.sroa.42201.0.lcssa, %.sroa.020.0.copyload1965
-  %184 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.020.0.copyload1965
-  %185 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.020.0.copyload1965
+  %178 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.019.0.copyload1963
+  %179 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.019.0.copyload1963
+  %180 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.019.0.copyload1963
+  %181 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.019.0.copyload1963
+  %182 = add <4 x i32> %.sroa.34197.0.lcssa, %.sroa.020.0.copyload1964
+  %183 = add <4 x i32> %.sroa.42201.0.lcssa, %.sroa.020.0.copyload1964
+  %184 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.020.0.copyload1964
+  %185 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.020.0.copyload1964
   %186 = bitcast <2 x i64> %.sroa.57.0.lcssa to <4 x i32>
   %187 = bitcast <2 x i64> %.sroa.039.0.copyload to <4 x i32>
   %188 = add <4 x i32> %186, %187
@@ -11262,29 +11262,29 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc05
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   store <4 x i32> %188, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !2886, !noalias !2890
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store <4 x i32> %.lcssa1905, ptr %198, align 4, !alias.scope !2894, !noalias !2898
-  %.sroa.41953.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %179, ptr %.sroa.41953.0..sroa_idx, align 4, !alias.scope !2894, !noalias !2898
-  %.sroa.51954.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %183, ptr %.sroa.51954.0..sroa_idx, align 4, !alias.scope !2894, !noalias !2898
-  %.sroa.61955.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %191, ptr %.sroa.61955.0..sroa_idx, align 4, !alias.scope !2894, !noalias !2898
+  store <4 x i32> %.lcssa1904, ptr %198, align 4, !alias.scope !2894, !noalias !2898
+  %.sroa.41952.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %179, ptr %.sroa.41952.0..sroa_idx, align 4, !alias.scope !2894, !noalias !2898
+  %.sroa.51953.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %183, ptr %.sroa.51953.0..sroa_idx, align 4, !alias.scope !2894, !noalias !2898
+  %.sroa.61954.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %191, ptr %.sroa.61954.0..sroa_idx, align 4, !alias.scope !2894, !noalias !2898
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store <4 x i32> %.lcssa1906, ptr %199, align 4, !alias.scope !2900, !noalias !2904
-  %.sroa.41957.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %180, ptr %.sroa.41957.0..sroa_idx, align 4, !alias.scope !2900, !noalias !2904
-  %.sroa.51958.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %184, ptr %.sroa.51958.0..sroa_idx, align 4, !alias.scope !2900, !noalias !2904
-  %.sroa.61959.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %194, ptr %.sroa.61959.0..sroa_idx, align 4, !alias.scope !2900, !noalias !2904
+  store <4 x i32> %.lcssa1905, ptr %199, align 4, !alias.scope !2900, !noalias !2904
+  %.sroa.41956.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %180, ptr %.sroa.41956.0..sroa_idx, align 4, !alias.scope !2900, !noalias !2904
+  %.sroa.51957.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %184, ptr %.sroa.51957.0..sroa_idx, align 4, !alias.scope !2900, !noalias !2904
+  %.sroa.61958.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %194, ptr %.sroa.61958.0..sroa_idx, align 4, !alias.scope !2900, !noalias !2904
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store <4 x i32> %.lcssa1907, ptr %200, align 4, !alias.scope !2906, !noalias !2910
-  %.sroa.41961.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %181, ptr %.sroa.41961.0..sroa_idx, align 4, !alias.scope !2906, !noalias !2910
-  %.sroa.51962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %185, ptr %.sroa.51962.0..sroa_idx, align 4, !alias.scope !2906, !noalias !2910
-  %.sroa.61963.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %197, ptr %.sroa.61963.0..sroa_idx, align 4, !alias.scope !2906, !noalias !2910
+  store <4 x i32> %.lcssa1906, ptr %200, align 4, !alias.scope !2906, !noalias !2910
+  %.sroa.41960.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %181, ptr %.sroa.41960.0..sroa_idx, align 4, !alias.scope !2906, !noalias !2910
+  %.sroa.51961.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %185, ptr %.sroa.51961.0..sroa_idx, align 4, !alias.scope !2906, !noalias !2910
+  %.sroa.61962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %197, ptr %.sroa.61962.0..sroa_idx, align 4, !alias.scope !2906, !noalias !2910
   %201 = add <2 x i64> %.sroa.039.0.copyload, <i64 4, i64 0>
   store <2 x i64> %201, ptr %5, align 16, !noalias !2881
   tail call void @llvm.x86.avx.vzeroupper() #34
@@ -11293,9 +11293,9 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide8impl_avx17h57963f140dcc05
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d102bcE.llvm.17720110283109806325(ptr noalias noundef align 16 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noalias noundef writeonly align 4 captures(none) dereferenceable(256) %2) unnamed_addr #24 personality ptr @rust_eh_personality {
-  %.sroa.019.0.copyload1964 = load <4 x i32>, ptr %0, align 16, !noalias !2912
+  %.sroa.019.0.copyload1963 = load <4 x i32>, ptr %0, align 16, !noalias !2912
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.020.0.copyload1965 = load <4 x i32>, ptr %4, align 16, !noalias !2912
+  %.sroa.020.0.copyload1964 = load <4 x i32>, ptr %4, align 16, !noalias !2912
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.039.0.copyload = load <2 x i64>, ptr %5, align 16, !noalias !2912
   %6 = add <2 x i64> %.sroa.039.0.copyload, <i64 1, i64 0>
@@ -11305,36 +11305,36 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0.i.i1920 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
+  %.sroa.01.0.i.i1919 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
   %9 = phi <4 x i32> [ %126, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %10 = phi <4 x i32> [ %127, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %11 = phi <4 x i32> [ %128, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %12 = phi <4 x i32> [ %129, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
-  %.sroa.23.01919 = phi <4 x i32> [ %158, %.lr.ph ], [ %.sroa.019.0.copyload1964, %3 ]
-  %.sroa.31.01918 = phi <4 x i32> [ %159, %.lr.ph ], [ %.sroa.019.0.copyload1964, %3 ]
-  %.sroa.32.01917 = phi <4 x i32> [ %160, %.lr.ph ], [ %.sroa.019.0.copyload1964, %3 ]
-  %.sroa.33.01916 = phi <4 x i32> [ %161, %.lr.ph ], [ %.sroa.019.0.copyload1964, %3 ]
-  %.sroa.34197.01915 = phi <4 x i32> [ %162, %.lr.ph ], [ %.sroa.020.0.copyload1965, %3 ]
-  %.sroa.42201.01914 = phi <4 x i32> [ %163, %.lr.ph ], [ %.sroa.020.0.copyload1965, %3 ]
-  %.sroa.47.01913 = phi <4 x i32> [ %164, %.lr.ph ], [ %.sroa.020.0.copyload1965, %3 ]
-  %.sroa.52.01912 = phi <4 x i32> [ %165, %.lr.ph ], [ %.sroa.020.0.copyload1965, %3 ]
-  %.sroa.57.01911 = phi <2 x i64> [ %167, %.lr.ph ], [ %.sroa.039.0.copyload, %3 ]
-  %.sroa.65.01910 = phi <2 x i64> [ %169, %.lr.ph ], [ %6, %3 ]
-  %.sroa.66.01909 = phi <2 x i64> [ %171, %.lr.ph ], [ %7, %3 ]
-  %.sroa.67.01908 = phi <2 x i64> [ %173, %.lr.ph ], [ %8, %3 ]
-  %13 = add nuw i32 %.sroa.01.0.i.i1920, 1
-  %14 = add <4 x i32> %9, %.sroa.23.01919
+  %.sroa.23.01918 = phi <4 x i32> [ %158, %.lr.ph ], [ %.sroa.019.0.copyload1963, %3 ]
+  %.sroa.31.01917 = phi <4 x i32> [ %159, %.lr.ph ], [ %.sroa.019.0.copyload1963, %3 ]
+  %.sroa.32.01916 = phi <4 x i32> [ %160, %.lr.ph ], [ %.sroa.019.0.copyload1963, %3 ]
+  %.sroa.33.01915 = phi <4 x i32> [ %161, %.lr.ph ], [ %.sroa.019.0.copyload1963, %3 ]
+  %.sroa.34197.01914 = phi <4 x i32> [ %162, %.lr.ph ], [ %.sroa.020.0.copyload1964, %3 ]
+  %.sroa.42201.01913 = phi <4 x i32> [ %163, %.lr.ph ], [ %.sroa.020.0.copyload1964, %3 ]
+  %.sroa.47.01912 = phi <4 x i32> [ %164, %.lr.ph ], [ %.sroa.020.0.copyload1964, %3 ]
+  %.sroa.52.01911 = phi <4 x i32> [ %165, %.lr.ph ], [ %.sroa.020.0.copyload1964, %3 ]
+  %.sroa.57.01910 = phi <2 x i64> [ %167, %.lr.ph ], [ %.sroa.039.0.copyload, %3 ]
+  %.sroa.65.01909 = phi <2 x i64> [ %169, %.lr.ph ], [ %6, %3 ]
+  %.sroa.66.01908 = phi <2 x i64> [ %171, %.lr.ph ], [ %7, %3 ]
+  %.sroa.67.01907 = phi <2 x i64> [ %173, %.lr.ph ], [ %8, %3 ]
+  %13 = add nuw i32 %.sroa.01.0.i.i1919, 1
+  %14 = add <4 x i32> %9, %.sroa.23.01918
   %15 = bitcast <4 x i32> %14 to <2 x i64>
-  %16 = add <4 x i32> %10, %.sroa.31.01918
+  %16 = add <4 x i32> %10, %.sroa.31.01917
   %17 = bitcast <4 x i32> %16 to <2 x i64>
-  %18 = add <4 x i32> %11, %.sroa.32.01917
+  %18 = add <4 x i32> %11, %.sroa.32.01916
   %19 = bitcast <4 x i32> %18 to <2 x i64>
-  %20 = add <4 x i32> %12, %.sroa.33.01916
+  %20 = add <4 x i32> %12, %.sroa.33.01915
   %21 = bitcast <4 x i32> %20 to <2 x i64>
-  %22 = xor <2 x i64> %.sroa.57.01911, %15
-  %23 = xor <2 x i64> %.sroa.65.01910, %17
-  %24 = xor <2 x i64> %.sroa.66.01909, %19
-  %25 = xor <2 x i64> %.sroa.67.01908, %21
+  %22 = xor <2 x i64> %.sroa.57.01910, %15
+  %23 = xor <2 x i64> %.sroa.65.01909, %17
+  %24 = xor <2 x i64> %.sroa.66.01908, %19
+  %25 = xor <2 x i64> %.sroa.67.01907, %21
   %26 = bitcast <2 x i64> %22 to <16 x i8>
   %27 = shufflevector <16 x i8> %26, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13>
   %28 = bitcast <2 x i64> %23 to <16 x i8>
@@ -11344,20 +11344,20 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d
   %32 = bitcast <2 x i64> %25 to <16 x i8>
   %33 = shufflevector <16 x i8> %32, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13>
   %34 = bitcast <16 x i8> %27 to <4 x i32>
-  %35 = add <4 x i32> %.sroa.34197.01915, %34
+  %35 = add <4 x i32> %.sroa.34197.01914, %34
   %36 = bitcast <16 x i8> %29 to <4 x i32>
-  %37 = add <4 x i32> %.sroa.42201.01914, %36
+  %37 = add <4 x i32> %.sroa.42201.01913, %36
   %38 = bitcast <16 x i8> %31 to <4 x i32>
-  %39 = add <4 x i32> %.sroa.47.01913, %38
+  %39 = add <4 x i32> %.sroa.47.01912, %38
   %40 = bitcast <16 x i8> %33 to <4 x i32>
-  %41 = add <4 x i32> %.sroa.52.01912, %40
-  %42 = xor <4 x i32> %35, %.sroa.23.01919
+  %41 = add <4 x i32> %.sroa.52.01911, %40
+  %42 = xor <4 x i32> %35, %.sroa.23.01918
   %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> splat (i32 12))
-  %44 = xor <4 x i32> %37, %.sroa.31.01918
+  %44 = xor <4 x i32> %37, %.sroa.31.01917
   %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> splat (i32 12))
-  %46 = xor <4 x i32> %39, %.sroa.32.01917
+  %46 = xor <4 x i32> %39, %.sroa.32.01916
   %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
-  %48 = xor <4 x i32> %41, %.sroa.33.01916
+  %48 = xor <4 x i32> %41, %.sroa.33.01915
   %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = add <4 x i32> %43, %14
   %51 = add <4 x i32> %45, %16
@@ -11498,26 +11498,26 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d
   %.sroa.66.0.lcssa = phi <2 x i64> [ %7, %3 ], [ %171, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.65.0.lcssa = phi <2 x i64> [ %6, %3 ], [ %169, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.sroa.57.0.lcssa = phi <2 x i64> [ %.sroa.039.0.copyload, %3 ], [ %167, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1965, %3 ], [ %165, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1965, %3 ], [ %164, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.42201.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1965, %3 ], [ %163, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.34197.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1965, %3 ], [ %162, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1964, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1964, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1964, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1964, %3 ], [ %158, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.lcssa1907 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %177, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.lcssa1906 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %176, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %.lcssa1905 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %175, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1964, %3 ], [ %165, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1964, %3 ], [ %164, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.42201.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1964, %3 ], [ %163, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.34197.0.lcssa = phi <4 x i32> [ %.sroa.020.0.copyload1964, %3 ], [ %162, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1963, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1963, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1963, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.019.0.copyload1963, %3 ], [ %158, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.lcssa1906 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %177, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.lcssa1905 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %176, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
+  %.lcssa1904 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %175, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
   %.lcssa = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %174, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit17.loopexit" ]
-  %178 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.019.0.copyload1964
-  %179 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.019.0.copyload1964
-  %180 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.019.0.copyload1964
-  %181 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.019.0.copyload1964
-  %182 = add <4 x i32> %.sroa.34197.0.lcssa, %.sroa.020.0.copyload1965
-  %183 = add <4 x i32> %.sroa.42201.0.lcssa, %.sroa.020.0.copyload1965
-  %184 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.020.0.copyload1965
-  %185 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.020.0.copyload1965
+  %178 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.019.0.copyload1963
+  %179 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.019.0.copyload1963
+  %180 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.019.0.copyload1963
+  %181 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.019.0.copyload1963
+  %182 = add <4 x i32> %.sroa.34197.0.lcssa, %.sroa.020.0.copyload1964
+  %183 = add <4 x i32> %.sroa.42201.0.lcssa, %.sroa.020.0.copyload1964
+  %184 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.020.0.copyload1964
+  %185 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.020.0.copyload1964
   %186 = bitcast <2 x i64> %.sroa.57.0.lcssa to <4 x i32>
   %187 = bitcast <2 x i64> %.sroa.039.0.copyload to <4 x i32>
   %188 = add <4 x i32> %186, %187
@@ -11538,29 +11538,29 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   store <4 x i32> %188, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !2917, !noalias !2921
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store <4 x i32> %.lcssa1905, ptr %198, align 4, !alias.scope !2925, !noalias !2929
-  %.sroa.41953.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %179, ptr %.sroa.41953.0..sroa_idx, align 4, !alias.scope !2925, !noalias !2929
-  %.sroa.51954.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %183, ptr %.sroa.51954.0..sroa_idx, align 4, !alias.scope !2925, !noalias !2929
-  %.sroa.61955.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %191, ptr %.sroa.61955.0..sroa_idx, align 4, !alias.scope !2925, !noalias !2929
+  store <4 x i32> %.lcssa1904, ptr %198, align 4, !alias.scope !2925, !noalias !2929
+  %.sroa.41952.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %179, ptr %.sroa.41952.0..sroa_idx, align 4, !alias.scope !2925, !noalias !2929
+  %.sroa.51953.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %183, ptr %.sroa.51953.0..sroa_idx, align 4, !alias.scope !2925, !noalias !2929
+  %.sroa.61954.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %191, ptr %.sroa.61954.0..sroa_idx, align 4, !alias.scope !2925, !noalias !2929
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store <4 x i32> %.lcssa1906, ptr %199, align 4, !alias.scope !2931, !noalias !2935
-  %.sroa.41957.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %180, ptr %.sroa.41957.0..sroa_idx, align 4, !alias.scope !2931, !noalias !2935
-  %.sroa.51958.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %184, ptr %.sroa.51958.0..sroa_idx, align 4, !alias.scope !2931, !noalias !2935
-  %.sroa.61959.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %194, ptr %.sroa.61959.0..sroa_idx, align 4, !alias.scope !2931, !noalias !2935
+  store <4 x i32> %.lcssa1905, ptr %199, align 4, !alias.scope !2931, !noalias !2935
+  %.sroa.41956.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %180, ptr %.sroa.41956.0..sroa_idx, align 4, !alias.scope !2931, !noalias !2935
+  %.sroa.51957.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %184, ptr %.sroa.51957.0..sroa_idx, align 4, !alias.scope !2931, !noalias !2935
+  %.sroa.61958.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %194, ptr %.sroa.61958.0..sroa_idx, align 4, !alias.scope !2931, !noalias !2935
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store <4 x i32> %.lcssa1907, ptr %200, align 4, !alias.scope !2937, !noalias !2941
-  %.sroa.41961.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %181, ptr %.sroa.41961.0..sroa_idx, align 4, !alias.scope !2937, !noalias !2941
-  %.sroa.51962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %185, ptr %.sroa.51962.0..sroa_idx, align 4, !alias.scope !2937, !noalias !2941
-  %.sroa.61963.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %197, ptr %.sroa.61963.0..sroa_idx, align 4, !alias.scope !2937, !noalias !2941
+  store <4 x i32> %.lcssa1906, ptr %200, align 4, !alias.scope !2937, !noalias !2941
+  %.sroa.41960.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %181, ptr %.sroa.41960.0..sroa_idx, align 4, !alias.scope !2937, !noalias !2941
+  %.sroa.51961.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %185, ptr %.sroa.51961.0..sroa_idx, align 4, !alias.scope !2937, !noalias !2941
+  %.sroa.61962.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %197, ptr %.sroa.61962.0..sroa_idx, align 4, !alias.scope !2937, !noalias !2941
   %201 = add <2 x i64> %.sroa.039.0.copyload, <i64 4, i64 0>
   store <2 x i64> %201, ptr %5, align 16, !noalias !2912
   ret void
@@ -11568,9 +11568,9 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_sse4117h7759431216d
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c36e148E.llvm.17720110283109806325(ptr noalias noundef align 16 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noalias noundef writeonly align 4 captures(none) dereferenceable(256) %2) unnamed_addr #25 personality ptr @rust_eh_personality {
-  %.sroa.029.0.copyload2024 = load <4 x i32>, ptr %0, align 16, !noalias !2943
+  %.sroa.029.0.copyload2023 = load <4 x i32>, ptr %0, align 16, !noalias !2943
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.030.0.copyload2025 = load <4 x i32>, ptr %4, align 16, !noalias !2943
+  %.sroa.030.0.copyload2024 = load <4 x i32>, ptr %4, align 16, !noalias !2943
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.049.0.copyload = load <2 x i64>, ptr %5, align 16, !noalias !2943
   %6 = add <2 x i64> %.sroa.049.0.copyload, <i64 1, i64 0>
@@ -11580,36 +11580,36 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c3
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0.i.i1980 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
+  %.sroa.01.0.i.i1979 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
   %9 = phi <4 x i32> [ %126, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %10 = phi <4 x i32> [ %127, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %11 = phi <4 x i32> [ %128, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %12 = phi <4 x i32> [ %129, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
-  %.sroa.23.01979 = phi <4 x i32> [ %158, %.lr.ph ], [ %.sroa.029.0.copyload2024, %3 ]
-  %.sroa.31.01978 = phi <4 x i32> [ %159, %.lr.ph ], [ %.sroa.029.0.copyload2024, %3 ]
-  %.sroa.32.01977 = phi <4 x i32> [ %160, %.lr.ph ], [ %.sroa.029.0.copyload2024, %3 ]
-  %.sroa.33.01976 = phi <4 x i32> [ %161, %.lr.ph ], [ %.sroa.029.0.copyload2024, %3 ]
-  %.sroa.34207.01975 = phi <4 x i32> [ %162, %.lr.ph ], [ %.sroa.030.0.copyload2025, %3 ]
-  %.sroa.42211.01974 = phi <4 x i32> [ %163, %.lr.ph ], [ %.sroa.030.0.copyload2025, %3 ]
-  %.sroa.47.01973 = phi <4 x i32> [ %164, %.lr.ph ], [ %.sroa.030.0.copyload2025, %3 ]
-  %.sroa.52.01972 = phi <4 x i32> [ %165, %.lr.ph ], [ %.sroa.030.0.copyload2025, %3 ]
-  %.sroa.57.01971 = phi <2 x i64> [ %167, %.lr.ph ], [ %.sroa.049.0.copyload, %3 ]
-  %.sroa.65.01970 = phi <2 x i64> [ %169, %.lr.ph ], [ %6, %3 ]
-  %.sroa.66.01969 = phi <2 x i64> [ %171, %.lr.ph ], [ %7, %3 ]
-  %.sroa.67.01968 = phi <2 x i64> [ %173, %.lr.ph ], [ %8, %3 ]
-  %13 = add nuw i32 %.sroa.01.0.i.i1980, 1
-  %14 = add <4 x i32> %9, %.sroa.23.01979
+  %.sroa.23.01978 = phi <4 x i32> [ %158, %.lr.ph ], [ %.sroa.029.0.copyload2023, %3 ]
+  %.sroa.31.01977 = phi <4 x i32> [ %159, %.lr.ph ], [ %.sroa.029.0.copyload2023, %3 ]
+  %.sroa.32.01976 = phi <4 x i32> [ %160, %.lr.ph ], [ %.sroa.029.0.copyload2023, %3 ]
+  %.sroa.33.01975 = phi <4 x i32> [ %161, %.lr.ph ], [ %.sroa.029.0.copyload2023, %3 ]
+  %.sroa.34207.01974 = phi <4 x i32> [ %162, %.lr.ph ], [ %.sroa.030.0.copyload2024, %3 ]
+  %.sroa.42211.01973 = phi <4 x i32> [ %163, %.lr.ph ], [ %.sroa.030.0.copyload2024, %3 ]
+  %.sroa.47.01972 = phi <4 x i32> [ %164, %.lr.ph ], [ %.sroa.030.0.copyload2024, %3 ]
+  %.sroa.52.01971 = phi <4 x i32> [ %165, %.lr.ph ], [ %.sroa.030.0.copyload2024, %3 ]
+  %.sroa.57.01970 = phi <2 x i64> [ %167, %.lr.ph ], [ %.sroa.049.0.copyload, %3 ]
+  %.sroa.65.01969 = phi <2 x i64> [ %169, %.lr.ph ], [ %6, %3 ]
+  %.sroa.66.01968 = phi <2 x i64> [ %171, %.lr.ph ], [ %7, %3 ]
+  %.sroa.67.01967 = phi <2 x i64> [ %173, %.lr.ph ], [ %8, %3 ]
+  %13 = add nuw i32 %.sroa.01.0.i.i1979, 1
+  %14 = add <4 x i32> %9, %.sroa.23.01978
   %15 = bitcast <4 x i32> %14 to <2 x i64>
-  %16 = add <4 x i32> %10, %.sroa.31.01978
+  %16 = add <4 x i32> %10, %.sroa.31.01977
   %17 = bitcast <4 x i32> %16 to <2 x i64>
-  %18 = add <4 x i32> %11, %.sroa.32.01977
+  %18 = add <4 x i32> %11, %.sroa.32.01976
   %19 = bitcast <4 x i32> %18 to <2 x i64>
-  %20 = add <4 x i32> %12, %.sroa.33.01976
+  %20 = add <4 x i32> %12, %.sroa.33.01975
   %21 = bitcast <4 x i32> %20 to <2 x i64>
-  %22 = xor <2 x i64> %.sroa.57.01971, %15
-  %23 = xor <2 x i64> %.sroa.65.01970, %17
-  %24 = xor <2 x i64> %.sroa.66.01969, %19
-  %25 = xor <2 x i64> %.sroa.67.01968, %21
+  %22 = xor <2 x i64> %.sroa.57.01970, %15
+  %23 = xor <2 x i64> %.sroa.65.01969, %17
+  %24 = xor <2 x i64> %.sroa.66.01968, %19
+  %25 = xor <2 x i64> %.sroa.67.01967, %21
   %26 = bitcast <2 x i64> %22 to <16 x i8>
   %27 = shufflevector <16 x i8> %26, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13>
   %28 = bitcast <2 x i64> %23 to <16 x i8>
@@ -11619,20 +11619,20 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c3
   %32 = bitcast <2 x i64> %25 to <16 x i8>
   %33 = shufflevector <16 x i8> %32, <16 x i8> poison, <16 x i32> <i32 2, i32 3, i32 0, i32 1, i32 6, i32 7, i32 4, i32 5, i32 10, i32 11, i32 8, i32 9, i32 14, i32 15, i32 12, i32 13>
   %34 = bitcast <16 x i8> %27 to <4 x i32>
-  %35 = add <4 x i32> %.sroa.34207.01975, %34
+  %35 = add <4 x i32> %.sroa.34207.01974, %34
   %36 = bitcast <16 x i8> %29 to <4 x i32>
-  %37 = add <4 x i32> %.sroa.42211.01974, %36
+  %37 = add <4 x i32> %.sroa.42211.01973, %36
   %38 = bitcast <16 x i8> %31 to <4 x i32>
-  %39 = add <4 x i32> %.sroa.47.01973, %38
+  %39 = add <4 x i32> %.sroa.47.01972, %38
   %40 = bitcast <16 x i8> %33 to <4 x i32>
-  %41 = add <4 x i32> %.sroa.52.01972, %40
-  %42 = xor <4 x i32> %35, %.sroa.23.01979
+  %41 = add <4 x i32> %.sroa.52.01971, %40
+  %42 = xor <4 x i32> %35, %.sroa.23.01978
   %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> splat (i32 12))
-  %44 = xor <4 x i32> %37, %.sroa.31.01978
+  %44 = xor <4 x i32> %37, %.sroa.31.01977
   %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> splat (i32 12))
-  %46 = xor <4 x i32> %39, %.sroa.32.01977
+  %46 = xor <4 x i32> %39, %.sroa.32.01976
   %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
-  %48 = xor <4 x i32> %41, %.sroa.33.01976
+  %48 = xor <4 x i32> %41, %.sroa.33.01975
   %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = add <4 x i32> %43, %14
   %51 = add <4 x i32> %45, %16
@@ -11773,26 +11773,26 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c3
   %.sroa.66.0.lcssa = phi <2 x i64> [ %7, %3 ], [ %171, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
   %.sroa.65.0.lcssa = phi <2 x i64> [ %6, %3 ], [ %169, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
   %.sroa.57.0.lcssa = phi <2 x i64> [ %.sroa.049.0.copyload, %3 ], [ %167, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2025, %3 ], [ %165, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2025, %3 ], [ %164, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.42211.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2025, %3 ], [ %163, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.34207.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2025, %3 ], [ %162, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2024, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2024, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2024, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2024, %3 ], [ %158, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.lcssa1967 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %177, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.lcssa1966 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %176, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.lcssa1965 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %175, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2024, %3 ], [ %165, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2024, %3 ], [ %164, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.42211.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2024, %3 ], [ %163, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.34207.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2024, %3 ], [ %162, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2023, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2023, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2023, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2023, %3 ], [ %158, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.lcssa1966 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %177, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.lcssa1965 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %176, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.lcssa1964 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %175, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
   %.lcssa = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %174, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %178 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.029.0.copyload2024
-  %179 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.029.0.copyload2024
-  %180 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.029.0.copyload2024
-  %181 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.029.0.copyload2024
-  %182 = add <4 x i32> %.sroa.34207.0.lcssa, %.sroa.030.0.copyload2025
-  %183 = add <4 x i32> %.sroa.42211.0.lcssa, %.sroa.030.0.copyload2025
-  %184 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.030.0.copyload2025
-  %185 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.030.0.copyload2025
+  %178 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.029.0.copyload2023
+  %179 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.029.0.copyload2023
+  %180 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.029.0.copyload2023
+  %181 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.029.0.copyload2023
+  %182 = add <4 x i32> %.sroa.34207.0.lcssa, %.sroa.030.0.copyload2024
+  %183 = add <4 x i32> %.sroa.42211.0.lcssa, %.sroa.030.0.copyload2024
+  %184 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.030.0.copyload2024
+  %185 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.030.0.copyload2024
   %186 = bitcast <2 x i64> %.sroa.57.0.lcssa to <4 x i32>
   %187 = bitcast <2 x i64> %.sroa.049.0.copyload to <4 x i32>
   %188 = add <4 x i32> %186, %187
@@ -11813,29 +11813,29 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c3
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   store <4 x i32> %188, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !2948, !noalias !2952
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store <4 x i32> %.lcssa1965, ptr %198, align 4, !alias.scope !2956, !noalias !2960
-  %.sroa.42013.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %179, ptr %.sroa.42013.0..sroa_idx, align 4, !alias.scope !2956, !noalias !2960
-  %.sroa.52014.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %183, ptr %.sroa.52014.0..sroa_idx, align 4, !alias.scope !2956, !noalias !2960
-  %.sroa.62015.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %191, ptr %.sroa.62015.0..sroa_idx, align 4, !alias.scope !2956, !noalias !2960
+  store <4 x i32> %.lcssa1964, ptr %198, align 4, !alias.scope !2956, !noalias !2960
+  %.sroa.42012.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %179, ptr %.sroa.42012.0..sroa_idx, align 4, !alias.scope !2956, !noalias !2960
+  %.sroa.52013.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %183, ptr %.sroa.52013.0..sroa_idx, align 4, !alias.scope !2956, !noalias !2960
+  %.sroa.62014.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %191, ptr %.sroa.62014.0..sroa_idx, align 4, !alias.scope !2956, !noalias !2960
   %199 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store <4 x i32> %.lcssa1966, ptr %199, align 4, !alias.scope !2962, !noalias !2966
-  %.sroa.42017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %180, ptr %.sroa.42017.0..sroa_idx, align 4, !alias.scope !2962, !noalias !2966
-  %.sroa.52018.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %184, ptr %.sroa.52018.0..sroa_idx, align 4, !alias.scope !2962, !noalias !2966
-  %.sroa.62019.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %194, ptr %.sroa.62019.0..sroa_idx, align 4, !alias.scope !2962, !noalias !2966
+  store <4 x i32> %.lcssa1965, ptr %199, align 4, !alias.scope !2962, !noalias !2966
+  %.sroa.42016.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %180, ptr %.sroa.42016.0..sroa_idx, align 4, !alias.scope !2962, !noalias !2966
+  %.sroa.52017.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %184, ptr %.sroa.52017.0..sroa_idx, align 4, !alias.scope !2962, !noalias !2966
+  %.sroa.62018.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %194, ptr %.sroa.62018.0..sroa_idx, align 4, !alias.scope !2962, !noalias !2966
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store <4 x i32> %.lcssa1967, ptr %200, align 4, !alias.scope !2968, !noalias !2972
-  %.sroa.42021.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %181, ptr %.sroa.42021.0..sroa_idx, align 4, !alias.scope !2968, !noalias !2972
-  %.sroa.52022.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %185, ptr %.sroa.52022.0..sroa_idx, align 4, !alias.scope !2968, !noalias !2972
-  %.sroa.62023.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %197, ptr %.sroa.62023.0..sroa_idx, align 4, !alias.scope !2968, !noalias !2972
+  store <4 x i32> %.lcssa1966, ptr %200, align 4, !alias.scope !2968, !noalias !2972
+  %.sroa.42020.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %181, ptr %.sroa.42020.0..sroa_idx, align 4, !alias.scope !2968, !noalias !2972
+  %.sroa.52021.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %185, ptr %.sroa.52021.0..sroa_idx, align 4, !alias.scope !2968, !noalias !2972
+  %.sroa.62022.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %197, ptr %.sroa.62022.0..sroa_idx, align 4, !alias.scope !2968, !noalias !2972
   %201 = add <2 x i64> %.sroa.049.0.copyload, <i64 4, i64 0>
   store <2 x i64> %201, ptr %5, align 16, !noalias !2943
   ret void
@@ -11843,9 +11843,9 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide10impl_ssse317hc61a1f7a8c3
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
 define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_sse217h26ce6e98f875ea10E.llvm.17720110283109806325(ptr noalias noundef align 16 captures(none) dereferenceable(48) %0, i32 noundef %1, ptr noalias noundef writeonly align 4 captures(none) dereferenceable(256) %2) unnamed_addr #26 personality ptr @rust_eh_personality {
-  %.sroa.029.0.copyload2080 = load <4 x i32>, ptr %0, align 16, !noalias !2974
+  %.sroa.029.0.copyload2079 = load <4 x i32>, ptr %0, align 16, !noalias !2974
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.030.0.copyload2081 = load <4 x i32>, ptr %4, align 16, !noalias !2974
+  %.sroa.030.0.copyload2080 = load <4 x i32>, ptr %4, align 16, !noalias !2974
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.049.0.copyload = load <2 x i64>, ptr %5, align 16, !noalias !2974
   %6 = add <2 x i64> %.sroa.049.0.copyload, <i64 1, i64 0>
@@ -11855,36 +11855,36 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_sse217h26ce6e98f875e
   br i1 %.not, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26", label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.sroa.01.0.i.i2036 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
+  %.sroa.01.0.i.i2035 = phi i32 [ %13, %.lr.ph ], [ 0, %3 ]
   %9 = phi <4 x i32> [ %118, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %10 = phi <4 x i32> [ %119, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %11 = phi <4 x i32> [ %120, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
   %12 = phi <4 x i32> [ %121, %.lr.ph ], [ <i32 1634760805, i32 857760878, i32 2036477234, i32 1797285236>, %3 ]
-  %.sroa.23.02035 = phi <4 x i32> [ %142, %.lr.ph ], [ %.sroa.029.0.copyload2080, %3 ]
-  %.sroa.31.02034 = phi <4 x i32> [ %143, %.lr.ph ], [ %.sroa.029.0.copyload2080, %3 ]
-  %.sroa.32.02033 = phi <4 x i32> [ %144, %.lr.ph ], [ %.sroa.029.0.copyload2080, %3 ]
-  %.sroa.33.02032 = phi <4 x i32> [ %145, %.lr.ph ], [ %.sroa.029.0.copyload2080, %3 ]
-  %.sroa.34207.02031 = phi <4 x i32> [ %146, %.lr.ph ], [ %.sroa.030.0.copyload2081, %3 ]
-  %.sroa.42211.02030 = phi <4 x i32> [ %147, %.lr.ph ], [ %.sroa.030.0.copyload2081, %3 ]
-  %.sroa.47.02029 = phi <4 x i32> [ %148, %.lr.ph ], [ %.sroa.030.0.copyload2081, %3 ]
-  %.sroa.52.02028 = phi <4 x i32> [ %149, %.lr.ph ], [ %.sroa.030.0.copyload2081, %3 ]
-  %.sroa.57.02027 = phi <2 x i64> [ %151, %.lr.ph ], [ %.sroa.049.0.copyload, %3 ]
-  %.sroa.65.02026 = phi <2 x i64> [ %153, %.lr.ph ], [ %6, %3 ]
-  %.sroa.66.02025 = phi <2 x i64> [ %155, %.lr.ph ], [ %7, %3 ]
-  %.sroa.67.02024 = phi <2 x i64> [ %157, %.lr.ph ], [ %8, %3 ]
-  %13 = add nuw i32 %.sroa.01.0.i.i2036, 1
-  %14 = add <4 x i32> %9, %.sroa.23.02035
+  %.sroa.23.02034 = phi <4 x i32> [ %142, %.lr.ph ], [ %.sroa.029.0.copyload2079, %3 ]
+  %.sroa.31.02033 = phi <4 x i32> [ %143, %.lr.ph ], [ %.sroa.029.0.copyload2079, %3 ]
+  %.sroa.32.02032 = phi <4 x i32> [ %144, %.lr.ph ], [ %.sroa.029.0.copyload2079, %3 ]
+  %.sroa.33.02031 = phi <4 x i32> [ %145, %.lr.ph ], [ %.sroa.029.0.copyload2079, %3 ]
+  %.sroa.34207.02030 = phi <4 x i32> [ %146, %.lr.ph ], [ %.sroa.030.0.copyload2080, %3 ]
+  %.sroa.42211.02029 = phi <4 x i32> [ %147, %.lr.ph ], [ %.sroa.030.0.copyload2080, %3 ]
+  %.sroa.47.02028 = phi <4 x i32> [ %148, %.lr.ph ], [ %.sroa.030.0.copyload2080, %3 ]
+  %.sroa.52.02027 = phi <4 x i32> [ %149, %.lr.ph ], [ %.sroa.030.0.copyload2080, %3 ]
+  %.sroa.57.02026 = phi <2 x i64> [ %151, %.lr.ph ], [ %.sroa.049.0.copyload, %3 ]
+  %.sroa.65.02025 = phi <2 x i64> [ %153, %.lr.ph ], [ %6, %3 ]
+  %.sroa.66.02024 = phi <2 x i64> [ %155, %.lr.ph ], [ %7, %3 ]
+  %.sroa.67.02023 = phi <2 x i64> [ %157, %.lr.ph ], [ %8, %3 ]
+  %13 = add nuw i32 %.sroa.01.0.i.i2035, 1
+  %14 = add <4 x i32> %9, %.sroa.23.02034
   %15 = bitcast <4 x i32> %14 to <2 x i64>
-  %16 = add <4 x i32> %10, %.sroa.31.02034
+  %16 = add <4 x i32> %10, %.sroa.31.02033
   %17 = bitcast <4 x i32> %16 to <2 x i64>
-  %18 = add <4 x i32> %11, %.sroa.32.02033
+  %18 = add <4 x i32> %11, %.sroa.32.02032
   %19 = bitcast <4 x i32> %18 to <2 x i64>
-  %20 = add <4 x i32> %12, %.sroa.33.02032
+  %20 = add <4 x i32> %12, %.sroa.33.02031
   %21 = bitcast <4 x i32> %20 to <2 x i64>
-  %22 = xor <2 x i64> %.sroa.57.02027, %15
-  %23 = xor <2 x i64> %.sroa.65.02026, %17
-  %24 = xor <2 x i64> %.sroa.66.02025, %19
-  %25 = xor <2 x i64> %.sroa.67.02024, %21
+  %22 = xor <2 x i64> %.sroa.57.02026, %15
+  %23 = xor <2 x i64> %.sroa.65.02025, %17
+  %24 = xor <2 x i64> %.sroa.66.02024, %19
+  %25 = xor <2 x i64> %.sroa.67.02023, %21
   %26 = bitcast <2 x i64> %22 to <8 x i16>
   %27 = shufflevector <8 x i16> %26, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
   %28 = bitcast <2 x i64> %23 to <8 x i16>
@@ -11894,20 +11894,20 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_sse217h26ce6e98f875e
   %32 = bitcast <2 x i64> %25 to <8 x i16>
   %33 = shufflevector <8 x i16> %32, <8 x i16> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
   %34 = bitcast <8 x i16> %27 to <4 x i32>
-  %35 = add <4 x i32> %.sroa.34207.02031, %34
+  %35 = add <4 x i32> %.sroa.34207.02030, %34
   %36 = bitcast <8 x i16> %29 to <4 x i32>
-  %37 = add <4 x i32> %.sroa.42211.02030, %36
+  %37 = add <4 x i32> %.sroa.42211.02029, %36
   %38 = bitcast <8 x i16> %31 to <4 x i32>
-  %39 = add <4 x i32> %.sroa.47.02029, %38
+  %39 = add <4 x i32> %.sroa.47.02028, %38
   %40 = bitcast <8 x i16> %33 to <4 x i32>
-  %41 = add <4 x i32> %.sroa.52.02028, %40
-  %42 = xor <4 x i32> %35, %.sroa.23.02035
+  %41 = add <4 x i32> %.sroa.52.02027, %40
+  %42 = xor <4 x i32> %35, %.sroa.23.02034
   %43 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %42, <4 x i32> %42, <4 x i32> splat (i32 12))
-  %44 = xor <4 x i32> %37, %.sroa.31.02034
+  %44 = xor <4 x i32> %37, %.sroa.31.02033
   %45 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %44, <4 x i32> %44, <4 x i32> splat (i32 12))
-  %46 = xor <4 x i32> %39, %.sroa.32.02033
+  %46 = xor <4 x i32> %39, %.sroa.32.02032
   %47 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %46, <4 x i32> %46, <4 x i32> splat (i32 12))
-  %48 = xor <4 x i32> %41, %.sroa.33.02032
+  %48 = xor <4 x i32> %41, %.sroa.33.02031
   %49 = tail call <4 x i32> @llvm.fshl.v4i32(<4 x i32> %48, <4 x i32> %48, <4 x i32> splat (i32 12))
   %50 = add <4 x i32> %43, %14
   %51 = add <4 x i32> %45, %16
@@ -12032,26 +12032,26 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_sse217h26ce6e98f875e
   %.sroa.66.0.lcssa = phi <2 x i64> [ %7, %3 ], [ %155, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
   %.sroa.65.0.lcssa = phi <2 x i64> [ %6, %3 ], [ %153, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
   %.sroa.57.0.lcssa = phi <2 x i64> [ %.sroa.049.0.copyload, %3 ], [ %151, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2081, %3 ], [ %149, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2081, %3 ], [ %148, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.42211.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2081, %3 ], [ %147, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.34207.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2081, %3 ], [ %146, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2080, %3 ], [ %145, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2080, %3 ], [ %144, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2080, %3 ], [ %143, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2080, %3 ], [ %142, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.lcssa2023 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.lcssa2022 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %.lcssa2021 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.52.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2080, %3 ], [ %149, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.47.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2080, %3 ], [ %148, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.42211.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2080, %3 ], [ %147, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.34207.0.lcssa = phi <4 x i32> [ %.sroa.030.0.copyload2080, %3 ], [ %146, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.33.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2079, %3 ], [ %145, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.32.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2079, %3 ], [ %144, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.31.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2079, %3 ], [ %143, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.sroa.23.0.lcssa = phi <4 x i32> [ %.sroa.029.0.copyload2079, %3 ], [ %142, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.lcssa2022 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %161, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.lcssa2021 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %160, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
+  %.lcssa2020 = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %159, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
   %.lcssa = phi <4 x i32> [ <i32 -1025445686, i32 1715521756, i32 -222012828, i32 -700396824>, %3 ], [ %158, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17hbb6c67d7f3f53468E.exit26.loopexit" ]
-  %162 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.029.0.copyload2080
-  %163 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.029.0.copyload2080
-  %164 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.029.0.copyload2080
-  %165 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.029.0.copyload2080
-  %166 = add <4 x i32> %.sroa.34207.0.lcssa, %.sroa.030.0.copyload2081
-  %167 = add <4 x i32> %.sroa.42211.0.lcssa, %.sroa.030.0.copyload2081
-  %168 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.030.0.copyload2081
-  %169 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.030.0.copyload2081
+  %162 = add <4 x i32> %.sroa.23.0.lcssa, %.sroa.029.0.copyload2079
+  %163 = add <4 x i32> %.sroa.31.0.lcssa, %.sroa.029.0.copyload2079
+  %164 = add <4 x i32> %.sroa.32.0.lcssa, %.sroa.029.0.copyload2079
+  %165 = add <4 x i32> %.sroa.33.0.lcssa, %.sroa.029.0.copyload2079
+  %166 = add <4 x i32> %.sroa.34207.0.lcssa, %.sroa.030.0.copyload2080
+  %167 = add <4 x i32> %.sroa.42211.0.lcssa, %.sroa.030.0.copyload2080
+  %168 = add <4 x i32> %.sroa.47.0.lcssa, %.sroa.030.0.copyload2080
+  %169 = add <4 x i32> %.sroa.52.0.lcssa, %.sroa.030.0.copyload2080
   %170 = bitcast <2 x i64> %.sroa.57.0.lcssa to <4 x i32>
   %171 = bitcast <2 x i64> %.sroa.049.0.copyload to <4 x i32>
   %172 = add <4 x i32> %170, %171
@@ -12072,29 +12072,29 @@ define hidden void @_ZN11rand_chacha4guts11refill_wide9impl_sse217h26ce6e98f875e
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 48
   store <4 x i32> %172, ptr %.sroa.6.0..sroa_idx, align 4, !alias.scope !2979, !noalias !2983
   %182 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store <4 x i32> %.lcssa2021, ptr %182, align 4, !alias.scope !2987, !noalias !2991
-  %.sroa.42069.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store <4 x i32> %163, ptr %.sroa.42069.0..sroa_idx, align 4, !alias.scope !2987, !noalias !2991
-  %.sroa.52070.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
-  store <4 x i32> %167, ptr %.sroa.52070.0..sroa_idx, align 4, !alias.scope !2987, !noalias !2991
-  %.sroa.62071.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
-  store <4 x i32> %175, ptr %.sroa.62071.0..sroa_idx, align 4, !alias.scope !2987, !noalias !2991
+  store <4 x i32> %.lcssa2020, ptr %182, align 4, !alias.scope !2987, !noalias !2991
+  %.sroa.42068.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store <4 x i32> %163, ptr %.sroa.42068.0..sroa_idx, align 4, !alias.scope !2987, !noalias !2991
+  %.sroa.52069.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 96
+  store <4 x i32> %167, ptr %.sroa.52069.0..sroa_idx, align 4, !alias.scope !2987, !noalias !2991
+  %.sroa.62070.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 112
+  store <4 x i32> %175, ptr %.sroa.62070.0..sroa_idx, align 4, !alias.scope !2987, !noalias !2991
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  store <4 x i32> %.lcssa2022, ptr %183, align 4, !alias.scope !2993, !noalias !2997
-  %.sroa.42073.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
-  store <4 x i32> %164, ptr %.sroa.42073.0..sroa_idx, align 4, !alias.scope !2993, !noalias !2997
-  %.sroa.52074.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
-  store <4 x i32> %168, ptr %.sroa.52074.0..sroa_idx, align 4, !alias.scope !2993, !noalias !2997
-  %.sroa.62075.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
-  store <4 x i32> %178, ptr %.sroa.62075.0..sroa_idx, align 4, !alias.scope !2993, !noalias !2997
+  store <4 x i32> %.lcssa2021, ptr %183, align 4, !alias.scope !2993, !noalias !2997
+  %.sroa.42072.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
+  store <4 x i32> %164, ptr %.sroa.42072.0..sroa_idx, align 4, !alias.scope !2993, !noalias !2997
+  %.sroa.52073.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 160
+  store <4 x i32> %168, ptr %.sroa.52073.0..sroa_idx, align 4, !alias.scope !2993, !noalias !2997
+  %.sroa.62074.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 176
+  store <4 x i32> %178, ptr %.sroa.62074.0..sroa_idx, align 4, !alias.scope !2993, !noalias !2997
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 192
-  store <4 x i32> %.lcssa2023, ptr %184, align 4, !alias.scope !2999, !noalias !3003
-  %.sroa.42077.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
-  store <4 x i32> %165, ptr %.sroa.42077.0..sroa_idx, align 4, !alias.scope !2999, !noalias !3003
-  %.sroa.52078.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
-  store <4 x i32> %169, ptr %.sroa.52078.0..sroa_idx, align 4, !alias.scope !2999, !noalias !3003
-  %.sroa.62079.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
-  store <4 x i32> %181, ptr %.sroa.62079.0..sroa_idx, align 4, !alias.scope !2999, !noalias !3003
+  store <4 x i32> %.lcssa2022, ptr %184, align 4, !alias.scope !2999, !noalias !3003
+  %.sroa.42076.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 208
+  store <4 x i32> %165, ptr %.sroa.42076.0..sroa_idx, align 4, !alias.scope !2999, !noalias !3003
+  %.sroa.52077.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 224
+  store <4 x i32> %169, ptr %.sroa.52077.0..sroa_idx, align 4, !alias.scope !2999, !noalias !3003
+  %.sroa.62078.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 240
+  store <4 x i32> %181, ptr %.sroa.62078.0..sroa_idx, align 4, !alias.scope !2999, !noalias !3003
   %185 = add <2 x i64> %.sroa.049.0.copyload, <i64 4, i64 0>
   store <2 x i64> %185, ptr %5, align 16, !noalias !2974
   ret void

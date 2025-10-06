@@ -702,7 +702,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %13 = tail call i32 @u_parseArgs(i32 noundef %0, ptr noundef %1, i32 noundef 25, ptr noundef nonnull @options)
   %14 = icmp slt i32 %13, 0
   %.sink.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.sink.sroa.gep378 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.sink.sroa.gep377 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br i1 %14, label %15, label %23
 
 15:                                               ; preds = %2
@@ -901,8 +901,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %.fr = freeze i8 %127
   %.not244 = icmp eq i8 %.fr, 0
   %128 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 208), align 16
-  %.fr325 = freeze ptr %128
-  %spec.select291 = select i1 %.not244, ptr null, ptr %.fr325
+  %.fr324 = freeze ptr %128
+  %spec.select291 = select i1 %.not244, ptr null, ptr %.fr324
   %129 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 274), align 2, !tbaa !28
   %.not245 = icmp eq i8 %129, 0
   %130 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @options, i64 248), align 8
@@ -1029,21 +1029,21 @@ _ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorC
   %178 = load i32, ptr %3, align 4, !tbaa !14
   br label %545
 
-.loopexit310.split:                               ; preds = %.lr.ph318.split
+.loopexit309.split:                               ; preds = %.lr.ph317.split
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit310
+  br label %.loopexit309
 
 .loopexit.split-lp:                               ; preds = %166, %173, %436, %444, %542
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit310
+  br label %.loopexit309
 
 179:                                              ; preds = %168
   %180 = landingpad { ptr, i32 }
           cleanup
   call void @_ZdlPvm(ptr noundef nonnull %167, i64 noundef 176) #26
-  br label %.loopexit310
+  br label %.loopexit309
 
 181:                                              ; preds = %_ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread, %_ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit
   %182 = phi ptr [ %167, %_ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread ], [ null, %_ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit ]
@@ -1062,7 +1062,7 @@ _ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorC
 187:                                              ; preds = %181
   %188 = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit310
+  br label %.loopexit309
 
 189:                                              ; preds = %184
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %183, ptr noundef nonnull align 1 dereferenceable(9) @.str.49, i64 9, i1 false) #23
@@ -1110,11 +1110,11 @@ _ZN6icu_7712LocalPointerI7SRBRootE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorC
   br i1 %.not259, label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit, label %205
 
 205:                                              ; preds = %204
-  invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull %.fr325)
+  invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull %.fr324)
           to label %.invoke unwind label %202
 
 .invoke:                                          ; preds = %205, %199
-  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %199 ], [ %.sink.sroa.gep378, %205 ]
+  %.sink.sroa.phi = phi ptr [ %.sink.sroa.gep, %199 ], [ %.sink.sroa.gep377, %205 ]
   %.sink = phi ptr [ %6, %199 ], [ %7, %205 ]
   %206 = load ptr, ptr %.sink, align 8
   %207 = load i32, ptr %.sink.sroa.phi, align 8
@@ -1367,23 +1367,23 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
 
 .preheader:                                       ; preds = %336
   %341 = icmp sgt i32 %.0176, 0
-  br i1 %341, label %.lr.ph313.preheader, label %.critedge
+  br i1 %341, label %.lr.ph312.preheader, label %.critedge
 
-.lr.ph313.preheader:                              ; preds = %.preheader
+.lr.ph312.preheader:                              ; preds = %.preheader
   %342 = zext nneg i32 %.0176 to i64
-  br label %.lr.ph313
+  br label %.lr.ph312
 
-.lr.ph313:                                        ; preds = %.lr.ph313.preheader, %345
-  %indvars.iv329 = phi i64 [ 0, %.lr.ph313.preheader ], [ %indvars.iv.next330, %345 ]
-  %343 = getelementptr inbounds nuw i16, ptr %.0179, i64 %indvars.iv329
+.lr.ph312:                                        ; preds = %.lr.ph312.preheader, %345
+  %indvars.iv328 = phi i64 [ 0, %.lr.ph312.preheader ], [ %indvars.iv.next329, %345 ]
+  %343 = getelementptr inbounds nuw i16, ptr %.0179, i64 %indvars.iv328
   %344 = load i16, ptr %343, align 2, !tbaa !61
   %.not264 = icmp eq i16 %344, 0
   br i1 %.not264, label %.critedge.loopexit.split.loop.exit, label %345
 
-345:                                              ; preds = %.lr.ph313
-  %indvars.iv.next330 = add nuw nsw i64 %indvars.iv329, 1
-  %exitcond332.not = icmp eq i64 %indvars.iv.next330, %342
-  br i1 %exitcond332.not, label %.critedge, label %.lr.ph313, !llvm.loop !63
+345:                                              ; preds = %.lr.ph312
+  %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
+  %exitcond331.not = icmp eq i64 %indvars.iv.next329, %342
+  br i1 %exitcond331.not, label %.critedge, label %.lr.ph312, !llvm.loop !63
 
 346:                                              ; preds = %336
   %347 = icmp ult i16 %337, -8209
@@ -1425,8 +1425,8 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
   %371 = or disjoint i32 %367, %370
   br label %.critedge
 
-.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph313
-  %372 = trunc nuw nsw i64 %indvars.iv329 to i32
+.critedge.loopexit.split.loop.exit:               ; preds = %.lr.ph312
+  %372 = trunc nuw nsw i64 %indvars.iv328 to i32
   br label %.critedge
 
 .critedge:                                        ; preds = %345, %.critedge.loopexit.split.loop.exit, %.preheader, %348, %363, %353
@@ -1498,9 +1498,9 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
   %402 = sext i32 %.1173 to i64
   %403 = getelementptr i16, ptr %385, i64 %402
   %404 = getelementptr i8, ptr %403, i64 2
-  %.neg308 = xor i32 %.1173, -1
-  %.neg309 = sub i32 %.0176, %373
-  %405 = add i32 %.neg309, %.neg308
+  %.neg307 = xor i32 %.1173, -1
+  %.neg308 = sub i32 %.0176, %373
+  %405 = add i32 %.neg308, %.neg307
   %406 = icmp sgt i32 %405, 0
   br i1 %406, label %336, label %.thread297, !llvm.loop !71
 
@@ -1567,7 +1567,7 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
 433:                                              ; preds = %432, %200
   %.pn271.pn.pn = phi { ptr, i32 } [ %.pn271.pn, %432 ], [ %201, %200 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.loopexit310
+  br label %.loopexit309
 
 434:                                              ; preds = %431, %192
   %435 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 754), align 2, !tbaa !28
@@ -1604,30 +1604,30 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit: ; preds = %.i
 449:                                              ; preds = %447, %445
   %450 = add nsw i32 %13, -1
   %.not280 = icmp eq i32 %450, 1
-  br i1 %.not280, label %.lr.ph318, label %451
+  br i1 %.not280, label %.lr.ph317, label %451
 
 451:                                              ; preds = %449
   %452 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.65, i32 noundef %450)
   %453 = icmp sgt i32 %13, 1
-  br i1 %453, label %.lr.ph318, label %.loopexit
+  br i1 %453, label %.lr.ph317, label %.loopexit
 
-.lr.ph318:                                        ; preds = %449, %451
+.lr.ph317:                                        ; preds = %449, %451
   %454 = getelementptr inbounds nuw i8, ptr %9, i64 56
   %.not281 = icmp eq ptr %spec.select291, null
   %455 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %456 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %wide.trip.count341 = zext nneg i32 %13 to i64
-  br i1 %.not281, label %.lr.ph318.split.us, label %.lr.ph318.split
+  %wide.trip.count340 = zext nneg i32 %13 to i64
+  br i1 %.not281, label %.lr.ph317.split.us, label %.lr.ph317.split
 
-.lr.ph318.split.us:                               ; preds = %.lr.ph318, %479
-  %indvars.iv338 = phi i64 [ %indvars.iv.next339, %479 ], [ 1, %.lr.ph318 ]
+.lr.ph317.split.us:                               ; preds = %.lr.ph317, %479
+  %indvars.iv337 = phi i64 [ %indvars.iv.next338, %479 ], [ 1, %.lr.ph317 ]
   store i32 0, ptr %3, align 4, !tbaa !14
-  %457 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv338
+  %457 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv337
   %458 = load ptr, ptr %457, align 8, !tbaa !27
   %459 = invoke ptr @getLongPathname(ptr noundef %458)
-          to label %460 unwind label %.loopexit310.split.us
+          to label %460 unwind label %.loopexit309.split.us
 
-460:                                              ; preds = %.lr.ph318.split.us
+460:                                              ; preds = %.lr.ph317.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9)
           to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295.us unwind label %.split.us
@@ -1637,24 +1637,24 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295.us: ; preds
   %461 = load ptr, ptr %9, align 8, !tbaa !4
   store i8 0, ptr %461, align 1, !tbaa !29
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef %459)
-          to label %462 unwind label %.split321.us
+          to label %462 unwind label %.split320.us
 
 462:                                              ; preds = %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295.us
   %463 = load ptr, ptr %11, align 8
   %464 = load i32, ptr %456, align 8
   %465 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString14appendPathPartENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %9, ptr %463, i32 %464, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %466 unwind label %.split321.us
+          to label %466 unwind label %.split320.us
 
 466:                                              ; preds = %462
   %467 = load i32, ptr %3, align 4, !tbaa !14
   %468 = icmp slt i32 %467, 1
-  br i1 %468, label %469, label %.split324.us
+  br i1 %468, label %469, label %.split323.us
 
 469:                                              ; preds = %466
   %470 = load ptr, ptr %9, align 8, !tbaa !4
   store ptr %470, ptr @gCurrentFileName, align 8, !tbaa !27
   %471 = invoke signext i8 @isVerbose()
-          to label %472 unwind label %.split321.us
+          to label %472 unwind label %.split320.us
 
 472:                                              ; preds = %469
   %.not283.us = icmp eq i8 %471, 0
@@ -1669,39 +1669,39 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295.us: ; preds
   %477 = load ptr, ptr %4, align 8, !tbaa !30
   %478 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 634), align 2, !tbaa !28
   invoke void @_Z11processFilePKcS0_S0_S0_S0_S0_P7SRBRootaR10UErrorCode(ptr noundef %459, ptr noundef %.0183, ptr noundef null, ptr noundef %.0171, ptr noundef %.0182, ptr noundef null, ptr noundef %477, i8 noundef signext %478, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %479 unwind label %.split321.us
+          to label %479 unwind label %.split320.us
 
 479:                                              ; preds = %476
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %indvars.iv.next339 = add nuw nsw i64 %indvars.iv338, 1
-  %exitcond342.not = icmp eq i64 %indvars.iv.next339, %wide.trip.count341
-  br i1 %exitcond342.not, label %.loopexit, label %.lr.ph318.split.us, !llvm.loop !72
+  %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
+  %exitcond341.not = icmp eq i64 %indvars.iv.next338, %wide.trip.count340
+  br i1 %exitcond341.not, label %.loopexit, label %.lr.ph317.split.us, !llvm.loop !72
 
-.loopexit310.split.us:                            ; preds = %.lr.ph318.split.us
+.loopexit309.split.us:                            ; preds = %.lr.ph317.split.us
   %lpad.loopexit.us = landingpad { ptr, i32 }
           cleanup
-  br label %.loopexit310
+  br label %.loopexit309
 
 .split.us:                                        ; preds = %460
   %480 = landingpad { ptr, i32 }
           cleanup
   br label %513
 
-.split321.us:                                     ; preds = %476, %469, %462, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295.us
+.split320.us:                                     ; preds = %476, %469, %462, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295.us
   %481 = landingpad { ptr, i32 }
           cleanup
   br label %494
 
-.lr.ph318.split:                                  ; preds = %.lr.ph318, %512
-  %indvars.iv333 = phi i64 [ %indvars.iv.next334, %512 ], [ 1, %.lr.ph318 ]
+.lr.ph317.split:                                  ; preds = %.lr.ph317, %512
+  %indvars.iv332 = phi i64 [ %indvars.iv.next333, %512 ], [ 1, %.lr.ph317 ]
   store i32 0, ptr %3, align 4, !tbaa !14
-  %482 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv333
+  %482 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv332
   %483 = load ptr, ptr %482, align 8, !tbaa !27
   %484 = invoke ptr @getLongPathname(ptr noundef %483)
-          to label %485 unwind label %.loopexit310.split
+          to label %485 unwind label %.loopexit309.split
 
-485:                                              ; preds = %.lr.ph318.split
+485:                                              ; preds = %.lr.ph317.split
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN6icu_7715MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9)
           to label %486 unwind label %.split
@@ -1710,50 +1710,50 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295.us: ; preds
   store i32 0, ptr %454, align 8, !tbaa !41
   %487 = load ptr, ptr %9, align 8, !tbaa !4
   store i8 0, ptr %487, align 1, !tbaa !29
-  invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull %.fr325)
-          to label %488 unwind label %.split321
+  invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %10, ptr noundef nonnull %.fr324)
+          to label %488 unwind label %.split320
 
 488:                                              ; preds = %486
   %489 = load ptr, ptr %10, align 8
   %490 = load i32, ptr %455, align 8
   %491 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString6appendEPKciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %9, ptr noundef %489, i32 noundef %490, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295 unwind label %.split321
+          to label %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295 unwind label %.split320
 
 .split:                                           ; preds = %485
   %492 = landingpad { ptr, i32 }
           cleanup
   br label %513
 
-.split321:                                        ; preds = %488, %509, %502, %495, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295, %486
+.split320:                                        ; preds = %488, %509, %502, %495, %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295, %486
   %493 = landingpad { ptr, i32 }
           cleanup
   br label %494
 
-494:                                              ; preds = %.split321.us, %.split321
-  %.us-phi322 = phi { ptr, i32 } [ %493, %.split321 ], [ %481, %.split321.us ]
+494:                                              ; preds = %.split320.us, %.split320
+  %.us-phi321 = phi { ptr, i32 } [ %493, %.split320 ], [ %481, %.split320.us ]
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #23
   br label %513
 
 _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295: ; preds = %488
   invoke void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %11, ptr noundef %484)
-          to label %495 unwind label %.split321
+          to label %495 unwind label %.split320
 
 495:                                              ; preds = %_ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295
   %496 = load ptr, ptr %11, align 8
   %497 = load i32, ptr %456, align 8
   %498 = invoke noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7710CharString14appendPathPartENS_11StringPieceER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60) %9, ptr %496, i32 %497, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %499 unwind label %.split321
+          to label %499 unwind label %.split320
 
 499:                                              ; preds = %495
   %500 = load i32, ptr %3, align 4, !tbaa !14
   %501 = icmp slt i32 %500, 1
-  br i1 %501, label %502, label %.split324.us
+  br i1 %501, label %502, label %.split323.us
 
 502:                                              ; preds = %499
   %503 = load ptr, ptr %9, align 8, !tbaa !4
   store ptr %503, ptr @gCurrentFileName, align 8, !tbaa !27
   %504 = invoke signext i8 @isVerbose()
-          to label %505 unwind label %.split321
+          to label %505 unwind label %.split320
 
 505:                                              ; preds = %502
   %.not283 = icmp eq i8 %504, 0
@@ -1767,10 +1767,10 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295: ; preds = 
 509:                                              ; preds = %506, %505
   %510 = load ptr, ptr %4, align 8, !tbaa !30
   %511 = load i8, ptr getelementptr inbounds nuw (i8, ptr @options, i64 634), align 2, !tbaa !28
-  invoke void @_Z11processFilePKcS0_S0_S0_S0_S0_P7SRBRootaR10UErrorCode(ptr noundef %484, ptr noundef %.0183, ptr noundef nonnull %.fr325, ptr noundef %.0171, ptr noundef %.0182, ptr noundef null, ptr noundef %510, i8 noundef signext %511, ptr noundef nonnull align 4 dereferenceable(4) %3)
-          to label %512 unwind label %.split321
+  invoke void @_Z11processFilePKcS0_S0_S0_S0_S0_P7SRBRootaR10UErrorCode(ptr noundef %484, ptr noundef %.0183, ptr noundef nonnull %.fr324, ptr noundef %.0171, ptr noundef %.0182, ptr noundef null, ptr noundef %510, i8 noundef signext %511, ptr noundef nonnull align 4 dereferenceable(4) %3)
+          to label %512 unwind label %.split320
 
-.split324.us:                                     ; preds = %499, %466
+.split323.us:                                     ; preds = %499, %466
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
@@ -1778,16 +1778,16 @@ _ZN6icu_7710CharString6appendENS_11StringPieceER10UErrorCode.exit295: ; preds = 
 512:                                              ; preds = %509
   call void @_ZN6icu_7715MaybeStackArrayIcLi40EED1Ev(ptr noundef nonnull align 8 dereferenceable(60) %9) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
-  %exitcond337.not = icmp eq i64 %indvars.iv.next334, %wide.trip.count341
-  br i1 %exitcond337.not, label %.loopexit, label %.lr.ph318.split, !llvm.loop !72
+  %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
+  %exitcond336.not = icmp eq i64 %indvars.iv.next333, %wide.trip.count340
+  br i1 %exitcond336.not, label %.loopexit, label %.lr.ph317.split, !llvm.loop !72
 
 513:                                              ; preds = %.split, %.split.us, %494
-  %.pn284 = phi { ptr, i32 } [ %.us-phi322, %494 ], [ %492, %.split ], [ %480, %.split.us ]
+  %.pn284 = phi { ptr, i32 } [ %.us-phi321, %494 ], [ %492, %.split ], [ %480, %.split.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.loopexit310
+  br label %.loopexit309
 
-.loopexit:                                        ; preds = %512, %479, %451, %.split324.us
+.loopexit:                                        ; preds = %512, %479, %451, %.split323.us
   %514 = load ptr, ptr @_ZL10poolBundle, align 8, !tbaa !16
   %515 = icmp eq ptr %514, null
   br i1 %515, label %517, label %516
@@ -1845,7 +1845,7 @@ _ZN7ResFile5closeEv.exit:                         ; preds = %517, %520
   %540 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %.loopexit310
+  br label %.loopexit309
 
 541:                                              ; preds = %537, %531
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1875,8 +1875,8 @@ _ZN6icu_7712LocalPointerI7SRBRootED2Ev.exit:      ; preds = %545, %548
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %549
 
-.loopexit310:                                     ; preds = %.loopexit.split-lp, %.loopexit310.split.us, %.loopexit310.split, %539, %513, %433, %187, %179
-  %.pn289 = phi { ptr, i32 } [ %540, %539 ], [ %.pn284, %513 ], [ %.pn271.pn.pn, %433 ], [ %188, %187 ], [ %180, %179 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit310.split ], [ %lpad.loopexit.us, %.loopexit310.split.us ]
+.loopexit309:                                     ; preds = %.loopexit.split-lp, %.loopexit309.split.us, %.loopexit309.split, %539, %513, %433, %187, %179
+  %.pn289 = phi { ptr, i32 } [ %540, %539 ], [ %.pn284, %513 ], [ %.pn271.pn.pn, %433 ], [ %188, %187 ], [ %180, %179 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit309.split ], [ %lpad.loopexit.us, %.loopexit309.split.us ]
   call void @_ZN6icu_7712LocalPointerI7SRBRootED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

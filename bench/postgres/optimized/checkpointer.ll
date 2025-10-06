@@ -1250,8 +1250,8 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #2 {
   br i1 %.not25, label %.split, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %43
-  %.046 = phi i32 [ %44, %43 ], [ 0, %.lr.ph ]
-  %exitcond = icmp eq i32 %.046, 600
+  %.043 = phi i32 [ %44, %43 ], [ 0, %.lr.ph ]
+  %exitcond = icmp eq i32 %.043, 600
   br i1 %exitcond, label %.split, label %40
 
 .split:                                           ; preds = %.lr.ph.split, %.lr.ph
@@ -1265,10 +1265,10 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #2 {
   br label %49
 
 ._crit_edge:                                      ; preds = %43, %15
-  %.lcssa44 = phi ptr [ %27, %15 ], [ %45, %43 ]
-  %.lcssa42 = phi i32 [ %29, %15 ], [ %47, %43 ]
-  %36 = load ptr, ptr %.lcssa44, align 8
-  %37 = sext i32 %.lcssa42 to i64
+  %.lcssa41 = phi ptr [ %27, %15 ], [ %45, %43 ]
+  %.lcssa39 = phi i32 [ %29, %15 ], [ %47, %43 ]
+  %36 = load ptr, ptr %.lcssa41, align 8
+  %37 = sext i32 %.lcssa39 to i64
   %38 = getelementptr inbounds %struct.PGPROC, ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 36
   tail call void @SetLatch(ptr noundef nonnull %39) #12
@@ -1285,7 +1285,7 @@ define dso_local void @RequestCheckpoint(i32 noundef %0) local_unnamed_addr #2 {
 
 43:                                               ; preds = %42, %40
   tail call void @pg_usleep(i64 noundef 100000) #12
-  %44 = add nuw nsw i32 %.046, 1
+  %44 = add nuw nsw i32 %.043, 1
   %45 = load ptr, ptr @ProcGlobal, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 116
   %47 = load volatile i32, ptr %46, align 4

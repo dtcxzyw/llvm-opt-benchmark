@@ -5103,24 +5103,24 @@ declare ptr @dt_ui_get_container(ptr noundef, i32 noundef) local_unnamed_addr #1
 define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull writeonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct._GtkTreeIter, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not33 = icmp eq ptr %1, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq ptr %1, null
+  br i1 %.not32, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %43
-  %.036 = phi ptr [ %45, %43 ], [ %1, %4 ]
-  %.02634 = phi i32 [ %.1, %43 ], [ 0, %4 ]
-  %6 = load i32, ptr %.036, align 8, !tbaa !94
+  %.035 = phi ptr [ %45, %43 ], [ %1, %4 ]
+  %.02633 = phi i32 [ %.1, %43 ], [ 0, %4 ]
+  %6 = load i32, ptr %.035, align 8, !tbaa !94
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %.lr.ph
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 400
-  %.not27 = icmp eq ptr %.036, %10
+  %.not27 = icmp eq ptr %.035, %10
   br i1 %.not27, label %.thread.thread, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw i8, ptr %.036, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %.035, i64 104
   %13 = load ptr, ptr %12, align 8, !tbaa !186
   %14 = call i32 %13() #24
   %15 = and i32 %14, 36
@@ -5128,7 +5128,7 @@ define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0,
   br i1 %.not28, label %..thread_crit_edge, label %43
 
 ..thread_crit_edge:                               ; preds = %11
-  %.pr.pre = load i32, ptr %.036, align 8, !tbaa !94
+  %.pr.pre = load i32, ptr %.035, align 8, !tbaa !94
   br label %.thread
 
 .thread:                                          ; preds = %..thread_crit_edge, %.lr.ph
@@ -5137,34 +5137,34 @@ define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0,
   br i1 %17, label %18, label %.thread.thread
 
 18:                                               ; preds = %.thread
-  %19 = getelementptr inbounds nuw i8, ptr %.036, i64 120
+  %19 = getelementptr inbounds nuw i8, ptr %.035, i64 120
   %20 = load ptr, ptr %19, align 8, !tbaa !188
   %.not29 = icmp eq ptr %20, null
   br i1 %.not29, label %21, label %.thread.thread
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %.036, i64 224
+  %22 = getelementptr inbounds nuw i8, ptr %.035, i64 224
   %23 = load ptr, ptr %22, align 8, !tbaa !190
   %.not30 = icmp eq ptr %23, null
   br i1 %.not30, label %24, label %.thread.thread
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw i8, ptr %.036, i64 80
+  %25 = getelementptr inbounds nuw i8, ptr %.035, i64 80
   %26 = load ptr, ptr %25, align 8, !tbaa !191
-  %27 = call i32 %26(ptr noundef nonnull %.036) #24
+  %27 = call i32 %26(ptr noundef nonnull %.035) #24
   %28 = icmp ne i32 %27, 0
   br label %.thread.thread
 
 .thread.thread:                                   ; preds = %8, %18, %21, %24, %.thread
   %.024 = phi i1 [ false, %.thread ], [ true, %21 ], [ true, %18 ], [ %28, %24 ], [ false, %8 ]
   %29 = load ptr, ptr @_actions_store, align 8, !tbaa !168
-  call void (ptr, ptr, ptr, i32, ...) @gtk_tree_store_insert_with_values(ptr noundef %29, ptr noundef nonnull %5, ptr noundef %0, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %.036, i32 noundef -1) #24
-  %30 = load i32, ptr %.036, align 8, !tbaa !94
+  call void (ptr, ptr, ptr, i32, ...) @gtk_tree_store_insert_with_values(ptr noundef %29, ptr noundef nonnull %5, ptr noundef %0, i32 noundef -1, i32 noundef 0, ptr noundef nonnull %.035, i32 noundef -1) #24
+  %30 = load i32, ptr %.035, align 8, !tbaa !94
   %31 = icmp ult i32 %30, 7
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %.thread.thread
-  %33 = getelementptr inbounds nuw i8, ptr %.036, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.035, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !95
   %35 = call fastcc i32 @_add_actions_to_tree(ptr noundef nonnull %5, ptr noundef %34, ptr noundef %2, ptr noundef %3)
   %36 = icmp ne i32 %35, 0
@@ -5177,7 +5177,7 @@ define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0,
   br label %43
 
 40:                                               ; preds = %32, %.thread.thread
-  %41 = icmp eq ptr %.036, %2
+  %41 = icmp eq ptr %.035, %2
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %40
@@ -5185,8 +5185,8 @@ define internal fastcc range(i32 0, 2) i32 @_add_actions_to_tree(ptr noundef %0,
   br label %43
 
 43:                                               ; preds = %11, %37, %42, %40
-  %.1 = phi i32 [ 1, %42 ], [ 1, %40 ], [ %.02634, %37 ], [ %.02634, %11 ]
-  %44 = getelementptr inbounds nuw i8, ptr %.036, i64 40
+  %.1 = phi i32 [ 1, %42 ], [ 1, %40 ], [ %.02633, %37 ], [ %.02633, %11 ]
+  %44 = getelementptr inbounds nuw i8, ptr %.035, i64 40
   %45 = load ptr, ptr %44, align 8, !tbaa !148
   %.not = icmp eq ptr %45, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -6669,11 +6669,11 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   tail call void @gtk_tree_store_clear(ptr noundef nonnull %12) #24
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 560
-  %.pre359 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !81
+  %.pre354 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !81
   br label %14
 
 14:                                               ; preds = %13, %11
-  %15 = phi ptr [ %.pre359, %13 ], [ %10, %11 ]
+  %15 = phi ptr [ %.pre354, %13 ], [ %10, %11 ]
   tail call void @g_sequence_free(ptr noundef %15) #24
   %16 = tail call ptr @g_sequence_new(ptr noundef nonnull @g_free) #24
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
@@ -6690,14 +6690,14 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
 21:                                               ; preds = %14, %20, %7, %4
   %22 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.267)
   %.not177 = icmp eq ptr %22, null
-  br i1 %.not177, label %291, label %.preheader289
+  br i1 %.not177, label %291, label %.preheader284
 
-.preheader289:                                    ; preds = %21
+.preheader284:                                    ; preds = %21
   %23 = tail call i32 @feof(ptr noundef nonnull %22) #24
-  %.not178325 = icmp eq i32 %23, 0
-  br i1 %.not178325, label %.lr.ph326, label %._crit_edge327
+  %.not178320 = icmp eq i32 %23, 0
+  br i1 %.not178320, label %.lr.ph321, label %._crit_edge322
 
-.lr.ph326:                                        ; preds = %.preheader289
+.lr.ph321:                                        ; preds = %.preheader284
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 12
   %26 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -6711,7 +6711,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 52
   br label %35
 
-35:                                               ; preds = %.lr.ph326, %288
+35:                                               ; preds = %.lr.ph321, %288
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %36 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 1024, ptr noundef nonnull %22)
   %.not179 = icmp eq ptr %36, null
@@ -6723,9 +6723,9 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   store i8 0, ptr %39, align 1, !tbaa !6
   %40 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 noundef 61) #26
   %.not180 = icmp eq ptr %40, null
-  br i1 %.not180, label %.critedge249, label %41
+  br i1 %.not180, label %.critedge247, label %41
 
-.critedge249:                                     ; preds = %37
+.critedge247:                                     ; preds = %37
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.269, ptr noundef nonnull %5) #24
   br label %288
 
@@ -6801,21 +6801,21 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   %.0143 = phi i8 [ %62, %64 ], [ 0, %60 ]
   %66 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 600
-  %.0145308 = load ptr, ptr %67, align 8, !tbaa !72
-  %.not187309 = icmp eq ptr %.0145308, null
-  br i1 %.not187309, label %._crit_edge, label %.lr.ph
+  %.0145303 = load ptr, ptr %67, align 8, !tbaa !72
+  %.not187304 = icmp eq ptr %.0145303, null
+  br i1 %.not187304, label %._crit_edge, label %.lr.ph
 
 68:                                               ; preds = %.lr.ph
-  %69 = getelementptr inbounds nuw i8, ptr %.0145311, i64 8
+  %69 = getelementptr inbounds nuw i8, ptr %.0145306, i64 8
   %.0145 = load ptr, ptr %69, align 8, !tbaa !72
   %.not187 = icmp eq ptr %.0145, null
   br i1 %.not187, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %65, %68
-  %.0145311 = phi ptr [ %.0145, %68 ], [ %.0145308, %65 ]
-  %.1144310 = phi i8 [ %70, %68 ], [ %.0143, %65 ]
-  %70 = add i8 %.1144310, 10
-  %71 = load ptr, ptr %.0145311, align 8, !tbaa !73
+  %.0145306 = phi ptr [ %.0145, %68 ], [ %.0145303, %65 ]
+  %.1144305 = phi i8 [ %70, %68 ], [ %.0143, %65 ]
+  %70 = add i8 %.1144305, 10
+  %71 = load ptr, ptr %.0145306, align 8, !tbaa !73
   %72 = load ptr, ptr %71, align 8, !tbaa !200
   %73 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %42, ptr noundef %72) #24
   %.not188 = icmp eq i32 %73, 0
@@ -6826,13 +6826,13 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   %76 = load ptr, ptr %75, align 8, !tbaa !201
   %77 = call i32 %76(ptr noundef nonnull %57, ptr noundef nonnull %25) #24
   %.not189 = icmp eq i32 %77, 0
-  br i1 %.not189, label %78, label %.thread258
+  br i1 %.not189, label %78, label %.thread255
 
 78:                                               ; preds = %74
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.275, ptr noundef nonnull %57) #24
-  br label %.thread258
+  br label %.thread255
 
-.thread258:                                       ; preds = %78, %74
+.thread255:                                       ; preds = %78, %74
   store i8 %70, ptr %26, align 8, !tbaa !85
   br label %.critedge232
 
@@ -6840,32 +6840,32 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.276, ptr noundef nonnull %42) #24
   br label %287
 
-.critedge232:                                     ; preds = %49, %.thread258, %55, %54, %41
+.critedge232:                                     ; preds = %49, %.thread255, %55, %54, %41
   %79 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.270) #24
   %80 = icmp ne ptr %79, null
   %81 = icmp ult ptr %79, %40
   %82 = and i1 %80, %81
-  br i1 %82, label %.lr.ph319, label %._crit_edge320
+  br i1 %82, label %.lr.ph314, label %._crit_edge315
 
-.lr.ph319:                                        ; preds = %.critedge232, %.critedge234
+.lr.ph314:                                        ; preds = %.critedge232, %.critedge234
   %83 = phi ptr [ %183, %.critedge234 ], [ %79, %.critedge232 ]
   %84 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %83, i32 noundef 58) #26
   %.not206 = icmp eq ptr %84, null
-  br i1 %.not206, label %.preheader288, label %160
+  br i1 %.not206, label %.preheader283, label %160
 
-.preheader288:                                    ; preds = %.lr.ph319, %85
-  %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ -1, %.lr.ph319 ]
+.preheader283:                                    ; preds = %.lr.ph314, %85
+  %indvars.iv = phi i64 [ %indvars.iv.next, %85 ], [ -1, %.lr.ph314 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %cond = icmp eq i64 %indvars.iv.next, 5
   br i1 %cond, label %94, label %85
 
-85:                                               ; preds = %.preheader288
+85:                                               ; preds = %.preheader283
   %86 = getelementptr inbounds %struct._modifier_name, ptr @modifier_string, i64 %indvars.iv.next
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !202
   %89 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef %88) #24
   %.not208 = icmp eq i32 %89, 0
-  br i1 %.not208, label %90, label %.preheader288
+  br i1 %.not208, label %90, label %.preheader283
 
 90:                                               ; preds = %85
   %91 = load i32, ptr %86, align 16, !tbaa !204
@@ -6874,7 +6874,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   store i32 %93, ptr %27, align 8, !tbaa !89
   br label %.critedge234
 
-94:                                               ; preds = %.preheader288
+94:                                               ; preds = %.preheader283
   %95 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.257) #24
   %.not210 = icmp eq i32 %95, 0
   br i1 %.not210, label %96, label %99
@@ -6937,9 +6937,9 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
 121:                                              ; preds = %116
   %122 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.174) #24
   %.not219 = icmp eq i32 %122, 0
-  br i1 %.not219, label %123, label %.preheader418
+  br i1 %.not219, label %123, label %.preheader413
 
-.preheader418:                                    ; preds = %135, %121
+.preheader413:                                    ; preds = %135, %121
   br label %140
 
 123:                                              ; preds = %121
@@ -6971,7 +6971,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
 135:                                              ; preds = %130
   %136 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.174) #24
   %.not216 = icmp eq i32 %136, 0
-  br i1 %.not216, label %137, label %.preheader418
+  br i1 %.not216, label %137, label %.preheader413
 
 137:                                              ; preds = %135
   %138 = load i16, ptr %30, align 4
@@ -6979,13 +6979,13 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   store i16 %139, ptr %30, align 4
   br label %.critedge234
 
-140:                                              ; preds = %.preheader418, %143
-  %indvars.iv350 = phi i64 [ %indvars.iv.next351, %143 ], [ 0, %.preheader418 ]
-  %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
-  %141 = getelementptr inbounds nuw ptr, ptr @move_string, i64 %indvars.iv.next351
+140:                                              ; preds = %.preheader413, %143
+  %indvars.iv345 = phi i64 [ %indvars.iv.next346, %143 ], [ 0, %.preheader413 ]
+  %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
+  %141 = getelementptr inbounds nuw ptr, ptr @move_string, i64 %indvars.iv.next346
   %142 = load ptr, ptr %141, align 8, !tbaa !18
   %.not220 = icmp eq ptr %142, null
-  br i1 %.not220, label %.thread263, label %143
+  br i1 %.not220, label %.thread260, label %143
 
 143:                                              ; preds = %140
   %144 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull %142) #24
@@ -6993,28 +6993,28 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   br i1 %.not221, label %145, label %140
 
 145:                                              ; preds = %143
-  %.pr262 = load ptr, ptr %141, align 8, !tbaa !18
-  %.not222 = icmp eq ptr %.pr262, null
-  br i1 %.not222, label %.thread263, label %146
+  %.pr259 = load ptr, ptr %141, align 8, !tbaa !18
+  %.not222 = icmp eq ptr %.pr259, null
+  br i1 %.not222, label %.thread260, label %146
 
 146:                                              ; preds = %145
-  %147 = trunc nuw nsw i64 %indvars.iv.next351 to i32
+  %147 = trunc nuw nsw i64 %indvars.iv.next346 to i32
   store i32 %147, ptr %28, align 8, !tbaa !88
   br label %.critedge234
 
-.thread263:                                       ; preds = %140, %145
+.thread260:                                       ; preds = %140, %145
   %148 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.21) #24
   %.not223 = icmp eq i32 %148, 0
   br i1 %.not223, label %149, label %153
 
-149:                                              ; preds = %.thread263
+149:                                              ; preds = %.thread260
   %150 = load i16, ptr %30, align 4
   %151 = and i16 %150, -1537
   %152 = or disjoint i16 %151, 1024
   store i16 %152, ptr %30, align 4
   br label %.critedge234
 
-153:                                              ; preds = %.thread263
+153:                                              ; preds = %.thread260
   %154 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef nonnull @.str.22) #24
   %.not224 = icmp eq i32 %154, 0
   br i1 %.not224, label %155, label %159
@@ -7030,14 +7030,14 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.277, ptr noundef nonnull %83) #24
   br label %.critedge234
 
-160:                                              ; preds = %.lr.ph319
+160:                                              ; preds = %.lr.ph314
   %161 = getelementptr inbounds nuw i8, ptr %84, i64 1
   %162 = getelementptr inbounds i8, ptr %84, i64 -1
   store i8 0, ptr %84, align 1, !tbaa !6
   %163 = icmp eq ptr %162, %83
-  br i1 %163, label %.critedge238, label %164
+  br i1 %163, label %.critedge237, label %164
 
-.critedge238:                                     ; preds = %160
+.critedge237:                                     ; preds = %160
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.274, ptr noundef nonnull %83) #24
   br label %.critedge234
 
@@ -7055,65 +7055,65 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   %.0151 = phi i8 [ %166, %168 ], [ 0, %164 ]
   %170 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !20
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 600
-  %.0148312 = load ptr, ptr %171, align 8, !tbaa !72
-  %.not225313 = icmp eq ptr %.0148312, null
-  br i1 %.not225313, label %._crit_edge318, label %.lr.ph317
+  %.0148307 = load ptr, ptr %171, align 8, !tbaa !72
+  %.not225308 = icmp eq ptr %.0148307, null
+  br i1 %.not225308, label %._crit_edge313, label %.lr.ph312
 
-172:                                              ; preds = %.lr.ph317
-  %173 = getelementptr inbounds nuw i8, ptr %.0148315, i64 8
+172:                                              ; preds = %.lr.ph312
+  %173 = getelementptr inbounds nuw i8, ptr %.0148310, i64 8
   %.0148 = load ptr, ptr %173, align 8, !tbaa !72
   %.not225 = icmp eq ptr %.0148, null
-  br i1 %.not225, label %._crit_edge318, label %.lr.ph317
+  br i1 %.not225, label %._crit_edge313, label %.lr.ph312
 
-.lr.ph317:                                        ; preds = %169, %172
-  %.0148315 = phi ptr [ %.0148, %172 ], [ %.0148312, %169 ]
-  %.1152314 = phi i8 [ %174, %172 ], [ %.0151, %169 ]
-  %174 = add i8 %.1152314, 10
-  %175 = load ptr, ptr %.0148315, align 8, !tbaa !73
+.lr.ph312:                                        ; preds = %169, %172
+  %.0148310 = phi ptr [ %.0148, %172 ], [ %.0148307, %169 ]
+  %.1152309 = phi i8 [ %174, %172 ], [ %.0151, %169 ]
+  %174 = add i8 %.1152309, 10
+  %175 = load ptr, ptr %.0148310, align 8, !tbaa !73
   %176 = load ptr, ptr %175, align 8, !tbaa !200
   %177 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef %176) #24
   %.not226 = icmp eq i32 %177, 0
   br i1 %.not226, label %178, label %172
 
-178:                                              ; preds = %.lr.ph317
+178:                                              ; preds = %.lr.ph312
   %179 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %180 = load ptr, ptr %179, align 8, !tbaa !205
   %181 = call i32 %180(ptr noundef nonnull %161, ptr noundef nonnull %28) #24
   %.not227 = icmp eq i32 %181, 0
-  br i1 %.not227, label %182, label %.thread269
+  br i1 %.not227, label %182, label %.thread265
 
 182:                                              ; preds = %178
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.278, ptr noundef nonnull %161) #24
-  br label %.thread269
+  br label %.thread265
 
-.thread269:                                       ; preds = %182, %178
+.thread265:                                       ; preds = %182, %178
   store i8 %174, ptr %29, align 2, !tbaa !87
   br label %.critedge234
 
-._crit_edge318:                                   ; preds = %172, %169
+._crit_edge313:                                   ; preds = %172, %169
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.276, ptr noundef nonnull %83) #24
   br label %.critedge234
 
-.critedge234:                                     ; preds = %.thread269, %._crit_edge318, %90, %123, %118, %113, %137, %132, %127, %107, %101, %96, %146, %155, %149, %159, %.critedge238
+.critedge234:                                     ; preds = %.thread265, %._crit_edge313, %90, %123, %118, %113, %137, %132, %127, %107, %101, %96, %146, %155, %149, %159, %.critedge237
   %183 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.270) #24
   %184 = icmp ne ptr %183, null
   %185 = icmp ult ptr %183, %40
   %186 = and i1 %184, %185
-  br i1 %186, label %.lr.ph319, label %._crit_edge320
+  br i1 %186, label %.lr.ph314, label %._crit_edge315
 
-._crit_edge320:                                   ; preds = %.critedge234, %.critedge232
-  %.lcssa299 = phi ptr [ %79, %.critedge232 ], [ %183, %.critedge234 ]
-  %187 = call i32 @g_ascii_strcasecmp(ptr noundef %.lcssa299, ptr noundef nonnull @.str.279) #24
+._crit_edge315:                                   ; preds = %.critedge234, %.critedge232
+  %.lcssa294 = phi ptr [ %79, %.critedge232 ], [ %183, %.critedge234 ]
+  %187 = call i32 @g_ascii_strcasecmp(ptr noundef %.lcssa294, ptr noundef nonnull @.str.279) #24
   %.not191 = icmp eq i32 %187, 0
   %188 = zext i1 %.not191 to i32
   br i1 %.not191, label %189, label %191
 
-189:                                              ; preds = %._crit_edge320
+189:                                              ; preds = %._crit_edge315
   %190 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.280) #24
   br label %191
 
-191:                                              ; preds = %189, %._crit_edge320
-  %.0142 = phi ptr [ %190, %189 ], [ %.lcssa299, %._crit_edge320 ]
+191:                                              ; preds = %189, %._crit_edge315
+  %.0142 = phi ptr [ %190, %189 ], [ %.lcssa294, %._crit_edge315 ]
   %192 = call ptr @g_strsplit(ptr noundef %.0142, ptr noundef nonnull @.str.146, i32 noundef 0) #24
   %193 = call ptr @dt_action_locate(ptr noundef null, ptr noundef %192, i32 noundef 0)
   store ptr %193, ptr %31, align 8, !tbaa !90
@@ -7183,57 +7183,57 @@ _action_find_definition.exit.thread.i:            ; preds = %_action_find_defini
 _action_find_elements.exit:                       ; preds = %214, %_action_find_definition.exit.i, %_action_find_definition.exit.thread.i
   %.0.i = phi ptr [ %222, %_action_find_definition.exit.thread.i ], [ null, %_action_find_definition.exit.i ], [ null, %214 ]
   %223 = load i8, ptr %29, align 2, !tbaa !87
-  %.not.i.i250 = icmp ne i8 %223, 0
+  %.not.i.i248 = icmp ne i8 %223, 0
   %224 = load i32, ptr %28, align 8
   %.not3.i.i = icmp ne i32 %224, 0
-  %or.cond286.not = select i1 %.not.i.i250, i1 true, i1 %.not3.i.i
+  %or.cond281.not = select i1 %.not.i.i248, i1 true, i1 %.not3.i.i
   %225 = load i16, ptr %30, align 4
   %226 = and i16 %225, 1536
   %.not4.i.i = icmp eq i16 %226, 0
-  %narrow = select i1 %or.cond286.not, i1 %.not4.i.i, i1 false
+  %narrow = select i1 %or.cond281.not, i1 %.not4.i.i, i1 false
   %.neg1.i = sext i1 %narrow to i32
   store i32 %.neg1.i, ptr %32, align 4, !tbaa !109
   %227 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.280) #24
-  %.not193322 = icmp eq ptr %227, null
-  br i1 %.not193322, label %._crit_edge324, label %.lr.ph323
+  %.not193317 = icmp eq ptr %227, null
+  br i1 %.not193317, label %._crit_edge319, label %.lr.ph318
 
-.lr.ph323:                                        ; preds = %_action_find_elements.exit
+.lr.ph318:                                        ; preds = %_action_find_elements.exit
   %.not196 = icmp eq ptr %.0.i, null
   br label %228
 
-228:                                              ; preds = %.lr.ph323, %.backedge
-  %229 = phi ptr [ %227, %.lr.ph323 ], [ %270, %.backedge ]
-  br i1 %.not196, label %.thread280, label %.preheader287
+228:                                              ; preds = %.lr.ph318, %.backedge
+  %229 = phi ptr [ %227, %.lr.ph318 ], [ %270, %.backedge ]
+  br i1 %.not196, label %.thread276, label %.preheader282
 
-.preheader287:                                    ; preds = %228, %232
-  %indvars.iv353 = phi i64 [ %indvars.iv.next354, %232 ], [ -1, %228 ]
-  %indvars.iv.next354 = add nsw i64 %indvars.iv353, 1
-  %230 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %indvars.iv.next354
+.preheader282:                                    ; preds = %228, %232
+  %indvars.iv348 = phi i64 [ %indvars.iv.next349, %232 ], [ -1, %228 ]
+  %indvars.iv.next349 = add nsw i64 %indvars.iv348, 1
+  %230 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %indvars.iv.next349
   %231 = load ptr, ptr %230, align 8, !tbaa !106
   %.not197 = icmp eq ptr %231, null
-  br i1 %.not197, label %.thread274, label %232
+  br i1 %.not197, label %.thread270, label %232
 
-232:                                              ; preds = %.preheader287
+232:                                              ; preds = %.preheader282
   %233 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %231, i32 noundef 124) #26
-  %.not.i251 = icmp eq ptr %233, null
+  %.not.i249 = icmp eq ptr %233, null
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 1
-  %235 = select i1 %.not.i251, ptr %231, ptr %234
+  %235 = select i1 %.not.i249, ptr %231, ptr %234
   %236 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %229, ptr noundef nonnull %235) #24
   %.not198 = icmp eq i32 %236, 0
-  br i1 %.not198, label %237, label %.preheader287
+  br i1 %.not198, label %237, label %.preheader282
 
 237:                                              ; preds = %232
-  %.pr273 = load ptr, ptr %230, align 8, !tbaa !106
-  %.not199 = icmp eq ptr %.pr273, null
-  br i1 %.not199, label %.thread274, label %238
+  %.pr269 = load ptr, ptr %230, align 8, !tbaa !106
+  %.not199 = icmp eq ptr %.pr269, null
+  br i1 %.not199, label %.thread270, label %238
 
 238:                                              ; preds = %237
-  %239 = trunc nuw nsw i64 %indvars.iv.next354 to i32
+  %239 = trunc nuw nsw i64 %indvars.iv.next349 to i32
   store i32 %239, ptr %33, align 8, !tbaa !104
   store i32 %.neg1.i, ptr %32, align 4, !tbaa !109
   br label %.backedge
 
-.thread274:                                       ; preds = %.preheader287, %237
+.thread270:                                       ; preds = %.preheader282, %237
   %240 = load i32, ptr %33, align 8, !tbaa !104
   %241 = sext i32 %240 to i64
   %242 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %241
@@ -7244,44 +7244,44 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
   %.not200 = icmp eq i32 %246, 0
   br i1 %.not200, label %.preheader, label %.backedge
 
-.preheader:                                       ; preds = %.thread274, %249
-  %indvars.iv356 = phi i64 [ %indvars.iv.next357, %249 ], [ -1, %.thread274 ]
-  %indvars.iv.next357 = add nsw i64 %indvars.iv356, 1
-  %247 = getelementptr inbounds ptr, ptr %244, i64 %indvars.iv.next357
+.preheader:                                       ; preds = %.thread270, %249
+  %indvars.iv351 = phi i64 [ %indvars.iv.next352, %249 ], [ -1, %.thread270 ]
+  %indvars.iv.next352 = add nsw i64 %indvars.iv351, 1
+  %247 = getelementptr inbounds ptr, ptr %244, i64 %indvars.iv.next352
   %248 = load ptr, ptr %247, align 8, !tbaa !18
   %.not201 = icmp eq ptr %248, null
-  br i1 %.not201, label %.thread280, label %249
+  br i1 %.not201, label %.thread276, label %249
 
 249:                                              ; preds = %.preheader
   %250 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %248, i32 noundef 124) #26
-  %.not.i252 = icmp eq ptr %250, null
+  %.not.i250 = icmp eq ptr %250, null
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
-  %252 = select i1 %.not.i252, ptr %248, ptr %251
+  %252 = select i1 %.not.i250, ptr %248, ptr %251
   %253 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %229, ptr noundef nonnull %252) #24
   %.not202 = icmp eq i32 %253, 0
   br i1 %.not202, label %254, label %.preheader
 
 254:                                              ; preds = %249
-  %255 = getelementptr inbounds ptr, ptr %244, i64 %indvars.iv.next357
-  %.pr277 = load ptr, ptr %255, align 8, !tbaa !18
-  %.not203 = icmp eq ptr %.pr277, null
-  br i1 %.not203, label %.thread280, label %256
+  %255 = getelementptr inbounds ptr, ptr %244, i64 %indvars.iv.next352
+  %.pr273 = load ptr, ptr %255, align 8, !tbaa !18
+  %.not203 = icmp eq ptr %.pr273, null
+  br i1 %.not203, label %.thread276, label %256
 
 256:                                              ; preds = %254
-  %257 = trunc nuw nsw i64 %indvars.iv.next357 to i32
+  %257 = trunc nuw nsw i64 %indvars.iv.next352 to i32
   store i32 %257, ptr %32, align 4, !tbaa !109
   br label %.backedge
 
-.thread280:                                       ; preds = %.preheader, %254, %228
+.thread276:                                       ; preds = %.preheader, %254, %228
   %258 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %229, ptr noundef nonnull @.str.31) #24
   %.not204 = icmp eq i32 %258, 0
   br i1 %.not204, label %259, label %260
 
-259:                                              ; preds = %.thread280
+259:                                              ; preds = %.thread276
   store i32 1, ptr %34, align 4, !tbaa !93
   br label %.backedge
 
-260:                                              ; preds = %.thread280
+260:                                              ; preds = %.thread276
   %261 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %229, ptr noundef nonnull @.str.30) #24
   %.not205 = icmp eq i32 %261, 0
   br i1 %.not205, label %262, label %263
@@ -7310,68 +7310,68 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.277, ptr noundef nonnull %229) #24
   br label %.backedge
 
-.backedge:                                        ; preds = %259, %265, %269, %267, %262, %238, %.thread274, %256
+.backedge:                                        ; preds = %259, %265, %269, %267, %262, %238, %.thread270, %256
   %270 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.280) #24
   %.not193 = icmp eq ptr %270, null
-  br i1 %.not193, label %._crit_edge324, label %228
+  br i1 %.not193, label %._crit_edge319, label %228
 
-._crit_edge324:                                   ; preds = %.backedge, %_action_find_elements.exit
+._crit_edge319:                                   ; preds = %.backedge, %_action_find_elements.exit
   %271 = load i8, ptr %26, align 8, !tbaa !85
   switch i8 %1, label %276 [
     i8 0, label %272
-    i8 -1, label %._crit_edge324._crit_edge
+    i8 -1, label %._crit_edge319._crit_edge
   ]
 
-272:                                              ; preds = %._crit_edge324
+272:                                              ; preds = %._crit_edge319
   %273 = icmp eq i8 %271, 0
   %274 = load i8, ptr %29, align 2
   %275 = icmp eq i8 %274, 0
   %or.cond = select i1 %273, i1 %275, i1 false
-  br i1 %or.cond, label %.thread283, label %287
+  br i1 %or.cond, label %.thread278, label %287
 
-276:                                              ; preds = %._crit_edge324
+276:                                              ; preds = %._crit_edge319
   %277 = icmp eq i8 %271, %1
   %278 = load i8, ptr %29, align 2
   %279 = icmp eq i8 %278, %1
-  %or.cond247 = select i1 %277, i1 true, i1 %279
-  br i1 %or.cond247, label %._crit_edge324._crit_edge, label %287
+  %or.cond245 = select i1 %277, i1 true, i1 %279
+  br i1 %or.cond245, label %._crit_edge319._crit_edge, label %287
 
-._crit_edge324._crit_edge:                        ; preds = %._crit_edge324, %276
+._crit_edge319._crit_edge:                        ; preds = %._crit_edge319, %276
   %280 = icmp eq i8 %271, %1
   br i1 %280, label %281, label %282
 
-281:                                              ; preds = %._crit_edge324._crit_edge
+281:                                              ; preds = %._crit_edge319._crit_edge
   store i8 %2, ptr %26, align 8, !tbaa !85
   br label %282
 
-282:                                              ; preds = %281, %._crit_edge324._crit_edge
+282:                                              ; preds = %281, %._crit_edge319._crit_edge
   %283 = load i8, ptr %29, align 2, !tbaa !87
   %284 = icmp eq i8 %283, %1
-  br i1 %284, label %285, label %.thread283
+  br i1 %284, label %285, label %.thread278
 
 285:                                              ; preds = %282
   store i8 %2, ptr %29, align 2, !tbaa !87
-  br label %.thread283
+  br label %.thread278
 
-.thread283:                                       ; preds = %272, %282, %285
+.thread278:                                       ; preds = %272, %282, %285
   %286 = call fastcc i32 @_insert_shortcut(ptr noundef %6, i32 noundef 0, i32 noundef %188)
   br label %287
 
-287:                                              ; preds = %272, %._crit_edge, %195, %276, %.thread283, %.critedge
+287:                                              ; preds = %272, %._crit_edge, %195, %276, %.thread278, %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %288
 
-288:                                              ; preds = %287, %35, %.critedge249
+288:                                              ; preds = %287, %35, %.critedge247
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %289 = call i32 @feof(ptr noundef nonnull %22) #24
   %.not178 = icmp eq i32 %289, 0
-  br i1 %.not178, label %35, label %._crit_edge327
+  br i1 %.not178, label %35, label %._crit_edge322
 
-._crit_edge327:                                   ; preds = %288, %.preheader289
+._crit_edge322:                                   ; preds = %288, %.preheader284
   %290 = call i32 @fclose(ptr noundef nonnull %22)
   br label %291
 
-291:                                              ; preds = %._crit_edge327, %21
+291:                                              ; preds = %._crit_edge322, %21
   ret void
 }
 
@@ -10667,8 +10667,8 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   %8 = alloca i32, align 4
   %9 = load i32, ptr %1, align 8, !tbaa !6
   %10 = and i32 %9, -4
-  %switch186 = icmp eq i32 %10, 4
-  br i1 %switch186, label %11, label %22
+  %switch = icmp eq i32 %10, 4
+  br i1 %switch, label %11, label %22
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 52
@@ -10702,7 +10702,7 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 32), align 8, !tbaa !90
   store ptr %27, ptr %26, align 8, !tbaa !90
-  switch i32 %9, label %.thread192 [
+  switch i32 %9, label %.thread191 [
     i32 4, label %28
     i32 31, label %32
   ]
@@ -10711,7 +10711,7 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %30 = load i32, ptr %29, align 4, !tbaa !6
   %31 = icmp eq i32 %30, 2
-  br i1 %31, label %32, label %.thread192
+  br i1 %31, label %32, label %.thread191
 
 32:                                               ; preds = %25, %28
   %33 = phi i1 [ true, %28 ], [ false, %25 ]
@@ -10727,7 +10727,7 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   %40 = tail call ptr @g_hash_table_lookup(ptr noundef %39, ptr noundef %37) #24
   store ptr %40, ptr %26, align 8, !tbaa !90
   %.not148 = icmp eq ptr %40, null
-  br i1 %.not148, label %.thread192, label %41
+  br i1 %.not148, label %.thread191, label %41
 
 41:                                               ; preds = %34, %32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -10769,20 +10769,20 @@ define range(i32 0, 2) i32 @dt_shortcut_dispatcher(ptr noundef %0, ptr noundef %
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.critedge179
 
-.thread192:                                       ; preds = %25, %28, %34
+.thread191:                                       ; preds = %25, %28, %34
   %54 = load ptr, ptr @_grab_widget, align 8, !tbaa !243
   %.not149 = icmp ne ptr %54, null
   %.pr = load i32, ptr %1, align 8, !tbaa !6
   %55 = icmp eq i32 %.pr, 4
-  %or.cond226 = select i1 %.not149, i1 %55, i1 false
-  br i1 %or.cond226, label %56, label %thread-pre-split
+  %or.cond224 = select i1 %.not149, i1 %55, i1 false
+  br i1 %or.cond224, label %56, label %thread-pre-split
 
-56:                                               ; preds = %.thread192
+56:                                               ; preds = %.thread191
   tail call fastcc void @_ungrab_grab_widget()
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) @_sc, i8 0, i64 56, i1 false)
   br label %.critedge179
 
-thread-pre-split:                                 ; preds = %.thread192
+thread-pre-split:                                 ; preds = %.thread191
   switch i32 %.pr, label %.critedge179 [
     i32 8, label %57
     i32 9, label %57
@@ -10808,14 +10808,14 @@ thread-pre-split:                                 ; preds = %.thread192
   %65 = tail call i32 @g_type_check_instance_is_a(ptr noundef nonnull %0, i64 noundef %58) #26
   %66 = icmp ne i32 %65, 0
   %67 = and i32 %.pr, -2
-  %switch188 = icmp eq i32 %67, 8
-  %or.cond200 = and i1 %switch188, %66
-  br i1 %or.cond200, label %69, label %.critedge179.thread
+  %switch187 = icmp eq i32 %67, 8
+  %or.cond198 = and i1 %switch187, %66
+  br i1 %or.cond198, label %69, label %.critedge179.thread
 
 .critedge181:                                     ; preds = %61
   %68 = and i32 %.pr, -2
-  %switch188.old = icmp eq i32 %68, 8
-  br i1 %switch188.old, label %69, label %.critedge179.thread
+  %switch187.old = icmp eq i32 %68, 8
+  br i1 %switch187.old, label %69, label %.critedge179.thread
 
 69:                                               ; preds = %64, %.critedge181
   %70 = tail call ptr @g_type_check_instance_cast(ptr noundef nonnull %0, i64 noundef %58) #24
@@ -10887,10 +10887,10 @@ thread-pre-split:                                 ; preds = %.thread192
     i32 12, label %158
     i32 31, label %173
     i32 3, label %200
-    i32 4, label %267
-    i32 5, label %298
-    i32 6, label %301
-    i32 7, label %304
+    i32 4, label %261
+    i32 5, label %292
+    i32 6, label %295
+    i32 7, label %298
   ]
 
 95:                                               ; preds = %93
@@ -11130,183 +11130,177 @@ thread-pre-split:                                 ; preds = %.thread192
 218:                                              ; preds = %216, %212
   %219 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %220 = load i32, ptr %219, align 8, !tbaa !6
-  %221 = tail call ptr @gdk_display_get_default() #24
-  %222 = tail call ptr @gdk_keymap_get_for_display(ptr noundef %221) #24
-  %223 = tail call i32 @gdk_keymap_get_modifier_mask(ptr noundef %222, i32 noundef 0) #24
-  %224 = or i32 %223, 141
-  %225 = and i32 %224, %220
-  %226 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !9
-  %227 = or i32 %225, %226
-  store i32 %227, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 16), align 8, !tbaa !89
-  %228 = fadd reassoc nsz arcp contract afn double %208, 1.000000e-03
-  %229 = fdiv reassoc nsz arcp contract afn double %204, %228
-  %230 = fmul reassoc nsz arcp contract afn double %204, 1.000000e-01
-  %231 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %230)
-  %232 = fmul reassoc nsz arcp contract afn double %208, 1.000000e-01
-  %233 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %232)
-  %234 = fneg reassoc nsz arcp contract afn double %233
-  %235 = fcmp reassoc nsz arcp contract afn une double %231, 0.000000e+00
-  %236 = fcmp reassoc nsz arcp contract afn une double %233, 0.000000e+00
-  %or.cond = select i1 %235, i1 true, i1 %236
-  br i1 %or.cond, label %237, label %g_set_weak_pointer.exit
+  %221 = tail call fastcc i32 @_key_modifiers_clean(i32 noundef %220)
+  store i32 %221, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 16), align 8, !tbaa !89
+  %222 = fadd reassoc nsz arcp contract afn double %208, 1.000000e-03
+  %223 = fdiv reassoc nsz arcp contract afn double %204, %222
+  %224 = fmul reassoc nsz arcp contract afn double %204, 1.000000e-01
+  %225 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %224)
+  %226 = fmul reassoc nsz arcp contract afn double %208, 1.000000e-01
+  %227 = tail call reassoc nsz arcp contract afn double @llvm.trunc.f64(double %226)
+  %228 = fneg reassoc nsz arcp contract afn double %227
+  %229 = fcmp reassoc nsz arcp contract afn une double %225, 0.000000e+00
+  %230 = fcmp reassoc nsz arcp contract afn une double %227, 0.000000e+00
+  %or.cond = select i1 %229, i1 true, i1 %230
+  br i1 %or.cond, label %231, label %g_set_weak_pointer.exit
 
-237:                                              ; preds = %218
-  %238 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %229)
-  %239 = fcmp reassoc nsz arcp contract afn ult double %238, 2.000000e+00
-  br i1 %239, label %245, label %240
+231:                                              ; preds = %218
+  %232 = tail call reassoc nsz arcp contract afn double @llvm.fabs.f64(double %223)
+  %233 = fcmp reassoc nsz arcp contract afn ult double %232, 2.000000e+00
+  br i1 %233, label %239, label %234
 
-240:                                              ; preds = %237
-  %241 = fmul reassoc nsz arcp contract afn double %231, 1.000000e+01
-  %242 = load double, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  %243 = fadd reassoc nsz arcp contract afn double %242, %241
-  store double %243, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  %244 = load double, ptr %205, align 8, !tbaa !6
-  store double %244, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
-  br label %258
+234:                                              ; preds = %231
+  %235 = fmul reassoc nsz arcp contract afn double %225, 1.000000e+01
+  %236 = load double, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  %237 = fadd reassoc nsz arcp contract afn double %236, %235
+  store double %237, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  %238 = load double, ptr %205, align 8, !tbaa !6
+  store double %238, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
+  br label %252
 
-245:                                              ; preds = %237
-  %246 = fmul reassoc nsz arcp contract afn double %233, -1.000000e+01
-  %247 = load double, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
-  %248 = fsub reassoc nsz arcp contract afn double %247, %246
-  store double %248, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
-  %249 = fcmp reassoc nsz arcp contract afn olt double %238, 5.000000e-01
-  br i1 %249, label %250, label %252
+239:                                              ; preds = %231
+  %240 = fmul reassoc nsz arcp contract afn double %227, -1.000000e+01
+  %241 = load double, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
+  %242 = fsub reassoc nsz arcp contract afn double %241, %240
+  store double %242, ptr @dt_shortcut_dispatcher.move_start_y, align 8, !tbaa !263
+  %243 = fcmp reassoc nsz arcp contract afn olt double %232, 5.000000e-01
+  br i1 %243, label %244, label %246
 
-250:                                              ; preds = %245
-  %251 = load double, ptr %201, align 8, !tbaa !6
-  store double %251, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  br label %258
+244:                                              ; preds = %239
+  %245 = load double, ptr %201, align 8, !tbaa !6
+  store double %245, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  br label %252
 
-252:                                              ; preds = %245
-  %253 = fmul reassoc nsz arcp contract afn double %246, %229
-  %254 = load double, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  %255 = fsub reassoc nsz arcp contract afn double %254, %253
-  store double %255, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
-  %256 = fcmp reassoc nsz arcp contract afn olt double %229, 0.000000e+00
-  %257 = select i1 %256, i32 6, i32 5
-  br label %258
+246:                                              ; preds = %239
+  %247 = fmul reassoc nsz arcp contract afn double %240, %223
+  %248 = load double, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  %249 = fsub reassoc nsz arcp contract afn double %248, %247
+  store double %249, ptr @dt_shortcut_dispatcher.move_start_x, align 8, !tbaa !263
+  %250 = fcmp reassoc nsz arcp contract afn olt double %223, 0.000000e+00
+  %251 = select i1 %250, i32 6, i32 5
+  br label %252
 
-258:                                              ; preds = %250, %252, %240
-  %.0125 = phi nsz double [ %231, %240 ], [ %234, %250 ], [ %234, %252 ]
-  %.0 = phi i32 [ 3, %240 ], [ 4, %250 ], [ %257, %252 ]
-  %259 = load i32, ptr @_previous_move, align 4, !tbaa !9
-  %260 = icmp eq i32 %259, %.0
-  %261 = icmp eq i32 %259, 0
-  %or.cond3 = or i1 %260, %261
-  br i1 %or.cond3, label %262, label %266
+252:                                              ; preds = %244, %246, %234
+  %.0125 = phi nsz double [ %225, %234 ], [ %228, %244 ], [ %228, %246 ]
+  %.0 = phi i32 [ 3, %234 ], [ 4, %244 ], [ %251, %246 ]
+  %253 = load i32, ptr @_previous_move, align 4, !tbaa !9
+  %254 = icmp eq i32 %253, %.0
+  %255 = icmp eq i32 %253, 0
+  %or.cond3 = or i1 %254, %255
+  br i1 %or.cond3, label %256, label %260
 
-262:                                              ; preds = %258
-  %263 = load i32, ptr %213, align 4, !tbaa !6
-  %264 = fptrunc reassoc nsz arcp contract afn double %.0125 to float
-  %265 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext 0, i32 noundef %263, i32 noundef %.0, float noundef %264)
+256:                                              ; preds = %252
+  %257 = load i32, ptr %213, align 4, !tbaa !6
+  %258 = fptrunc reassoc nsz arcp contract afn double %.0125 to float
+  %259 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext 0, i32 noundef %257, i32 noundef %.0, float noundef %258)
   br label %g_set_weak_pointer.exit
 
-266:                                              ; preds = %258
+260:                                              ; preds = %252
   store i32 %.0, ptr @_previous_move, align 4, !tbaa !9
   br label %g_set_weak_pointer.exit
 
-267:                                              ; preds = %93
-  %268 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %269 = load i32, ptr %268, align 8, !tbaa !6
-  %270 = tail call ptr @gdk_display_get_default() #24
-  %271 = tail call ptr @gdk_keymap_get_for_display(ptr noundef %270) #24
-  %272 = tail call i32 @gdk_keymap_get_modifier_mask(ptr noundef %271, i32 noundef 0) #24
-  %273 = or i32 %272, 141
-  %274 = and i32 %273, %269
-  %275 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !9
+261:                                              ; preds = %93
+  %262 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %263 = load i32, ptr %262, align 8, !tbaa !6
+  %264 = tail call ptr @gdk_display_get_default() #24
+  %265 = tail call ptr @gdk_keymap_get_for_display(ptr noundef %264) #24
+  %266 = tail call i32 @gdk_keymap_get_modifier_mask(ptr noundef %265, i32 noundef 0) #24
+  %267 = or i32 %266, 141
+  %268 = and i32 %267, %263
+  %269 = load i32, ptr @dt_modifier_shortcuts, align 4, !tbaa !9
+  %270 = or i32 %268, %269
+  store i32 %270, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 16), align 8, !tbaa !89
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %272 = load i32, ptr %271, align 4, !tbaa !6
+  %273 = add i32 %272, -1
+  %274 = shl nuw i32 1, %273
+  %275 = load i32, ptr @_pressed_button, align 4, !tbaa !9
   %276 = or i32 %274, %275
-  store i32 %276, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 16), align 8, !tbaa !89
-  %277 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %278 = load i32, ptr %277, align 4, !tbaa !6
-  %279 = add i32 %278, -1
-  %280 = shl nuw i32 1, %279
-  %281 = load i32, ptr @_pressed_button, align 4, !tbaa !9
-  %282 = or i32 %280, %281
-  store i32 %282, ptr @_pressed_button, align 4, !tbaa !9
-  %283 = load i32, ptr @_timeout_source, align 4, !tbaa !9
-  %.not.i189 = icmp eq i32 %283, 0
-  %.pre202 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  br i1 %.not.i189, label %_interrupt_delayed_release.exit, label %284
+  store i32 %276, ptr @_pressed_button, align 4, !tbaa !9
+  %277 = load i32, ptr @_timeout_source, align 4, !tbaa !9
+  %.not.i188 = icmp eq i32 %277, 0
+  %.pre200 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  br i1 %.not.i188, label %_interrupt_delayed_release.exit, label %278
 
-284:                                              ; preds = %267
-  %285 = lshr i16 %.pre202, 3
-  %286 = and i16 %285, 7
-  %287 = zext nneg i16 %286 to i32
-  %.not201 = icmp eq i32 %282, %287
-  %288 = tail call i32 @g_source_remove(i32 noundef %283) #24
+278:                                              ; preds = %261
+  %279 = lshr i16 %.pre200, 3
+  %280 = and i16 %279, 7
+  %281 = zext nneg i16 %280 to i32
+  %.not199 = icmp eq i32 %276, %281
+  %282 = tail call i32 @g_source_remove(i32 noundef %277) #24
   store i32 0, ptr @_timeout_source, align 4, !tbaa !9
-  br i1 %.not201, label %291, label %289
+  br i1 %.not199, label %285, label %283
 
-289:                                              ; preds = %284
-  %290 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext 0, i32 noundef 0, i32 noundef 0, float noundef 1.000000e+00)
-  br label %291
+283:                                              ; preds = %278
+  %284 = tail call reassoc nsz arcp contract afn float @dt_shortcut_move(i8 noundef zeroext 0, i32 noundef 0, i32 noundef 0, float noundef 1.000000e+00)
+  br label %285
 
-291:                                              ; preds = %289, %284
-  %292 = load i32, ptr @_pressed_button, align 4, !tbaa !9
-  %293 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+285:                                              ; preds = %283, %278
+  %286 = load i32, ptr @_pressed_button, align 4, !tbaa !9
+  %287 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
   br label %_interrupt_delayed_release.exit
 
-_interrupt_delayed_release.exit:                  ; preds = %267, %291
-  %.pre203.sink.in = phi i32 [ %292, %291 ], [ %282, %267 ]
-  %.pre202.sink = phi i16 [ %293, %291 ], [ %.pre202, %267 ]
-  %.pre203.sink = trunc i32 %.pre203.sink.in to i16
-  %.pre204 = shl i16 %.pre203.sink, 3
-  %.pre206 = and i16 %.pre204, 56
-  %294 = and i16 %.pre202.sink, -505
-  %295 = or disjoint i16 %.pre206, %294
-  store i16 %295, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %296 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %297 = load i32, ptr %296, align 4, !tbaa !6
-  store i32 %297, ptr @_last_time, align 4, !tbaa !9
+_interrupt_delayed_release.exit:                  ; preds = %261, %285
+  %.pre201.sink.in = phi i32 [ %286, %285 ], [ %276, %261 ]
+  %.pre200.sink = phi i16 [ %287, %285 ], [ %.pre200, %261 ]
+  %.pre201.sink = trunc i32 %.pre201.sink.in to i16
+  %.pre202 = shl i16 %.pre201.sink, 3
+  %.pre204 = and i16 %.pre202, 56
+  %288 = and i16 %.pre200.sink, -505
+  %289 = or disjoint i16 %.pre204, %288
+  store i16 %289, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %290 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %291 = load i32, ptr %290, align 4, !tbaa !6
+  store i32 %291, ptr @_last_time, align 4, !tbaa !9
+  br label %g_set_weak_pointer.exit
+
+292:                                              ; preds = %93
+  %293 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %294 = or i16 %293, 128
+  store i16 %294, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  br label %g_set_weak_pointer.exit
+
+295:                                              ; preds = %93
+  %296 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %297 = or i16 %296, 256
+  store i16 %297, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
   br label %g_set_weak_pointer.exit
 
 298:                                              ; preds = %93
-  %299 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %300 = or i16 %299, 128
-  store i16 %300, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  br label %g_set_weak_pointer.exit
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %300 = load i32, ptr %299, align 4, !tbaa !6
+  %301 = add i32 %300, -1
+  %302 = shl nuw i32 1, %301
+  %303 = xor i32 %302, -1
+  %304 = load i32, ptr @_pressed_button, align 4, !tbaa !9
+  %305 = and i32 %304, %303
+  store i32 %305, ptr @_pressed_button, align 4, !tbaa !9
+  %306 = load i32, ptr @_timeout_source, align 4, !tbaa !9
+  %.not.i189 = icmp eq i32 %306, 0
+  br i1 %.not.i189, label %_interrupt_delayed_release.exit190, label %307
 
-301:                                              ; preds = %93
-  %302 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %303 = or i16 %302, 256
-  store i16 %303, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  br label %g_set_weak_pointer.exit
-
-304:                                              ; preds = %93
-  %305 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %306 = load i32, ptr %305, align 4, !tbaa !6
-  %307 = add i32 %306, -1
-  %308 = shl nuw i32 1, %307
-  %309 = xor i32 %308, -1
-  %310 = load i32, ptr @_pressed_button, align 4, !tbaa !9
-  %311 = and i32 %310, %309
-  store i32 %311, ptr @_pressed_button, align 4, !tbaa !9
-  %312 = load i32, ptr @_timeout_source, align 4, !tbaa !9
-  %.not.i190 = icmp eq i32 %312, 0
-  br i1 %.not.i190, label %_interrupt_delayed_release.exit191, label %313
-
-313:                                              ; preds = %304
-  %314 = tail call i32 @g_source_remove(i32 noundef %312) #24
+307:                                              ; preds = %298
+  %308 = tail call i32 @g_source_remove(i32 noundef %306) #24
   store i32 0, ptr @_timeout_source, align 4, !tbaa !9
-  %315 = load i32, ptr @_pressed_button, align 4, !tbaa !9
-  %316 = trunc i32 %315 to i16
-  %317 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  %318 = shl i16 %316, 3
-  %319 = and i16 %318, 56
-  %320 = and i16 %317, -505
-  %321 = or disjoint i16 %319, %320
-  store i16 %321, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
-  br label %_interrupt_delayed_release.exit191
+  %309 = load i32, ptr @_pressed_button, align 4, !tbaa !9
+  %310 = trunc i32 %309 to i16
+  %311 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  %312 = shl i16 %310, 3
+  %313 = and i16 %312, 56
+  %314 = and i16 %311, -505
+  %315 = or disjoint i16 %313, %314
+  store i16 %315, ptr getelementptr inbounds nuw (i8, ptr @_sc, i64 20), align 4
+  br label %_interrupt_delayed_release.exit190
 
-_interrupt_delayed_release.exit191:               ; preds = %304, %313
-  %322 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %323 = load i32, ptr %322, align 4, !tbaa !6
-  tail call fastcc void @_delay_for_double_triple(i32 noundef %323, i32 noundef 0)
+_interrupt_delayed_release.exit190:               ; preds = %298, %307
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %317 = load i32, ptr %316, align 4, !tbaa !6
+  tail call fastcc void @_delay_for_double_triple(i32 noundef %317, i32 noundef 0)
   store i32 0, ptr @_last_time, align 4, !tbaa !9
   br label %g_set_weak_pointer.exit
 
-g_set_weak_pointer.exit:                          ; preds = %167, %166, %161, %.critedge179, %115, %137, %211, %_interrupt_delayed_release.exit, %298, %301, %_interrupt_delayed_release.exit191, %192, %194, %173, %216, %218, %266, %262, %93, %168, %149, %153, %141, %144, %127, %129, %132, %111, %95, %99, %99, %99, %99, %20, %21
-  %.0124 = phi i32 [ %.1, %.critedge179 ], [ 1, %21 ], [ 1, %20 ], [ 0, %99 ], [ 0, %99 ], [ 0, %99 ], [ 0, %99 ], [ 0, %95 ], [ 1, %111 ], [ 0, %132 ], [ 0, %129 ], [ 0, %127 ], [ 0, %144 ], [ 0, %141 ], [ 0, %153 ], [ 0, %149 ], [ 0, %168 ], [ 0, %93 ], [ 1, %262 ], [ 1, %266 ], [ 1, %218 ], [ 1, %216 ], [ 1, %173 ], [ 1, %194 ], [ 1, %192 ], [ 1, %_interrupt_delayed_release.exit191 ], [ 1, %301 ], [ 1, %298 ], [ 1, %_interrupt_delayed_release.exit ], [ 1, %211 ], [ 1, %137 ], [ 1, %115 ], [ 0, %161 ], [ 0, %166 ], [ 0, %167 ]
+g_set_weak_pointer.exit:                          ; preds = %167, %166, %161, %.critedge179, %115, %137, %211, %_interrupt_delayed_release.exit, %292, %295, %_interrupt_delayed_release.exit190, %192, %194, %173, %216, %218, %260, %256, %93, %168, %149, %153, %141, %144, %127, %129, %132, %111, %95, %99, %99, %99, %99, %20, %21
+  %.0124 = phi i32 [ %.1, %.critedge179 ], [ 1, %21 ], [ 1, %20 ], [ 0, %99 ], [ 0, %99 ], [ 0, %99 ], [ 0, %99 ], [ 0, %95 ], [ 1, %111 ], [ 0, %132 ], [ 0, %129 ], [ 0, %127 ], [ 0, %144 ], [ 0, %141 ], [ 0, %153 ], [ 0, %149 ], [ 0, %168 ], [ 0, %93 ], [ 1, %256 ], [ 1, %260 ], [ 1, %218 ], [ 1, %216 ], [ 1, %173 ], [ 1, %194 ], [ 1, %192 ], [ 1, %_interrupt_delayed_release.exit190 ], [ 1, %295 ], [ 1, %292 ], [ 1, %_interrupt_delayed_release.exit ], [ 1, %211 ], [ 1, %137 ], [ 1, %115 ], [ 0, %161 ], [ 0, %166 ], [ 0, %167 ]
   ret i32 %.0124
 }
 
@@ -13400,19 +13394,19 @@ _action_find_definition.exit.thread:              ; preds = %_action_find_defini
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.02345 = load ptr, ptr %34, align 8, !tbaa !78
-  %.not2946 = icmp eq ptr %.02345, null
-  br i1 %.not2946, label %.critedge, label %.lr.ph
+  %.02344 = load ptr, ptr %34, align 8, !tbaa !78
+  %.not2945 = icmp eq ptr %.02344, null
+  br i1 %.not2945, label %.critedge, label %.lr.ph
 
 35:                                               ; preds = %.lr.ph
-  %36 = getelementptr inbounds nuw i8, ptr %.02347, i64 40
+  %36 = getelementptr inbounds nuw i8, ptr %.02346, i64 40
   %.023 = load ptr, ptr %36, align 8, !tbaa !78
   %.not29 = icmp eq ptr %.023, null
   br i1 %.not29, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %33, %35
-  %.02347 = phi ptr [ %.023, %35 ], [ %.02345, %33 ]
-  %37 = tail call fastcc i32 @_fallback_type_is_relevant(ptr noundef nonnull %.02347, i32 noundef %1)
+  %.02346 = phi ptr [ %.023, %35 ], [ %.02344, %33 ]
+  %37 = tail call fastcc i32 @_fallback_type_is_relevant(ptr noundef nonnull %.02346, i32 noundef %1)
   %.not30 = icmp eq i32 %37, 0
   br i1 %.not30, label %35, label %.critedge
 
@@ -14131,8 +14125,8 @@ define internal fastcc noundef range(i32 0, 2) i32 @_action_find_and_expand(ptr 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %19, %.loopexit.sink.split
-  %.024 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %19 ]
-  ret i32 %.024
+  %.023 = phi i32 [ 1, %.loopexit.sink.split ], [ 0, %19 ]
+  ret i32 %.023
 }
 
 declare void @gtk_tree_model_filter_refilter(ptr noundef) local_unnamed_addr #1

@@ -1161,7 +1161,7 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 3592
   %28 = load i32, ptr %27, align 8
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %30, label %.loopexit24
+  br i1 %29, label %30, label %.loopexit26
 
 30:                                               ; preds = %20
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -1179,10 +1179,9 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
 39:                                               ; preds = %32
   %40 = getelementptr i8, ptr %23, i64 %35
   %41 = load i8, ptr %40, align 1
-  switch i8 %41, label %42 [
-    i8 0, label %55
-    i8 -1, label %55
-  ]
+  %.off = add i8 %41, -1
+  %switch = icmp ult i8 %.off, -2
+  br i1 %switch, label %42, label %55
 
 42:                                               ; preds = %39
   %43 = getelementptr i8, ptr %26, i64 %35
@@ -1208,30 +1207,30 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %54, ptr %25, align 4
   br label %55
 
-55:                                               ; preds = %52, %48, %39, %39, %32
-  %56 = phi i32 [ %54, %52 ], [ %33, %48 ], [ %33, %39 ], [ %33, %39 ], [ %33, %32 ]
-  %57 = phi i32 [ %49, %52 ], [ %49, %48 ], [ %34, %39 ], [ %34, %39 ], [ %34, %32 ]
+55:                                               ; preds = %39, %52, %48, %32
+  %56 = phi i32 [ %33, %39 ], [ %54, %52 ], [ %33, %48 ], [ %33, %32 ]
+  %57 = phi i32 [ %34, %39 ], [ %49, %52 ], [ %49, %48 ], [ %34, %32 ]
   %58 = add nuw nsw i64 %35, 1
   %59 = load i32, ptr %27, align 8
   %60 = sext i32 %59 to i64
   %61 = icmp slt i64 %58, %60
-  br i1 %61, label %32, label %.loopexit24, !llvm.loop !37
+  br i1 %61, label %32, label %.loopexit26, !llvm.loop !37
 
-.loopexit24:                                      ; preds = %55, %20
+.loopexit26:                                      ; preds = %55, %20
   %62 = load volatile i64, ptr @jiffies, align 64
   %63 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store i64 %62, ptr %63, align 8
   %64 = icmp eq i32 %3, 0
   br i1 %64, label %65, label %69
 
-65:                                               ; preds = %.loopexit24
+65:                                               ; preds = %.loopexit26
   %66 = getelementptr inbounds nuw i8, ptr %18, i64 20
   %67 = load i32, ptr %66, align 4
   %68 = or i32 %67, 1
   store i32 %68, ptr %66, align 4
   br label %69
 
-69:                                               ; preds = %65, %.loopexit24
+69:                                               ; preds = %65, %.loopexit26
   call void @_raw_spin_unlock(ptr noundef nonnull @mrt_lock) #17
   %70 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %71 = load i32, ptr %70, align 8
@@ -1310,7 +1309,7 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 3592
   %111 = load i32, ptr %110, align 8
   %112 = icmp sgt i32 %111, 0
-  br i1 %112, label %113, label %.loopexit23
+  br i1 %112, label %113, label %.loopexit25
 
 113:                                              ; preds = %94
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 112
@@ -1329,10 +1328,9 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
 123:                                              ; preds = %116
   %124 = getelementptr i8, ptr %107, i64 %119
   %125 = load i8, ptr %124, align 1
-  switch i8 %125, label %126 [
-    i8 0, label %139
-    i8 -1, label %139
-  ]
+  %.off22 = add i8 %125, -1
+  %switch23 = icmp ult i8 %.off22, -2
+  br i1 %switch23, label %126, label %139
 
 126:                                              ; preds = %123
   %127 = getelementptr i8, ptr %109, i64 %119
@@ -1358,28 +1356,28 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   store i32 %138, ptr %108, align 4
   br label %139
 
-139:                                              ; preds = %136, %132, %123, %123, %116
-  %140 = phi i32 [ %138, %136 ], [ %117, %132 ], [ %117, %123 ], [ %117, %123 ], [ %117, %116 ]
-  %141 = phi i32 [ %133, %136 ], [ %133, %132 ], [ %118, %123 ], [ %118, %123 ], [ %118, %116 ]
+139:                                              ; preds = %123, %136, %132, %116
+  %140 = phi i32 [ %117, %123 ], [ %138, %136 ], [ %117, %132 ], [ %117, %116 ]
+  %141 = phi i32 [ %118, %123 ], [ %133, %136 ], [ %133, %132 ], [ %118, %116 ]
   %142 = add nuw nsw i64 %119, 1
   %143 = icmp eq i64 %142, %115
-  br i1 %143, label %.loopexit23, label %116, !llvm.loop !37
+  br i1 %143, label %.loopexit25, label %116, !llvm.loop !37
 
-.loopexit23:                                      ; preds = %139, %94
+.loopexit25:                                      ; preds = %139, %94
   %144 = load volatile i64, ptr @jiffies, align 64
   %145 = getelementptr inbounds nuw i8, ptr %92, i64 64
   store i64 %144, ptr %145, align 8
   %146 = icmp eq i32 %3, 0
   br i1 %146, label %147, label %151
 
-147:                                              ; preds = %.loopexit23
+147:                                              ; preds = %.loopexit25
   %148 = getelementptr inbounds nuw i8, ptr %92, i64 20
   %149 = load i32, ptr %148, align 4
   %150 = or i32 %149, 1
   store i32 %150, ptr %148, align 4
   br label %151
 
-151:                                              ; preds = %147, %.loopexit23
+151:                                              ; preds = %147, %.loopexit25
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 3440
   call void @__rcu_read_lock() #17
   %153 = load volatile ptr, ptr %152, align 8
@@ -1454,7 +1452,7 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %207 = icmp ult i8 %206, 2
   call void @llvm.assume(i1 %207)
   %208 = icmp eq i8 %206, 0
-  br i1 %208, label %.loopexit22, label %.preheader, !prof !43
+  br i1 %208, label %.loopexit24, label %.preheader, !prof !43
 
 .preheader:                                       ; preds = %204, %219
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !44
@@ -1462,18 +1460,18 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %210 = icmp ult i8 %209, 2
   call void @llvm.assume(i1 %210)
   %211 = icmp eq i8 %209, 0
-  br i1 %211, label %.preheader77, label %212, !prof !13
+  br i1 %211, label %.preheader79, label %212, !prof !13
 
 212:                                              ; preds = %.preheader
   %213 = call i64 @llvm.read_register.i64(metadata !0)
   %214 = call i64 asm sideeffect "call __SCT__preempt_schedule", "={rsp},{rsp},~{dirflag},~{fpsr},~{flags}"(i64 %213) #17, !srcloc !46
   call void @llvm.write_register.i64(metadata !0, i64 %214)
-  br label %.preheader77
+  br label %.preheader79
 
-.preheader77:                                     ; preds = %212, %.preheader
+.preheader79:                                     ; preds = %212, %.preheader
   br label %215
 
-215:                                              ; preds = %.preheader77, %215
+215:                                              ; preds = %.preheader79, %215
   call void asm sideeffect "rep; nop", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !47
   %216 = load volatile i64, ptr %202, align 8
   %217 = and i64 %216, 1
@@ -1487,15 +1485,15 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %221 = icmp ult i8 %220, 2
   call void @llvm.assume(i1 %221)
   %222 = icmp eq i8 %220, 0
-  br i1 %222, label %.loopexit22, label %.preheader, !prof !50, !llvm.loop !51
+  br i1 %222, label %.loopexit24, label %.preheader, !prof !50, !llvm.loop !51
 
-.loopexit22:                                      ; preds = %219, %204
+.loopexit24:                                      ; preds = %219, %204
   %223 = getelementptr inbounds nuw i8, ptr %153, i64 48
   %224 = load volatile ptr, ptr %223, align 16
   %225 = icmp eq ptr %224, null
   br i1 %225, label %239, label %226, !prof !13
 
-226:                                              ; preds = %308, %296, %.loopexit22
+226:                                              ; preds = %308, %296, %.loopexit24
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !52
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; andb ${1:b},$0", "=*m,iq,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %202, i32 -2, ptr nonnull elementtype(i8) %202) #17, !srcloc !53
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !54
@@ -1525,7 +1523,7 @@ define internal fastcc i32 @ipmr_mfc_add(ptr noundef %0, ptr noundef %1, ptr nou
   %238 = call ptr @rhashtable_insert_slow(ptr noundef nonnull %152, ptr noundef nonnull %102, ptr noundef %92) #17
   br label %343
 
-239:                                              ; preds = %.loopexit22
+239:                                              ; preds = %.loopexit24
   %240 = load ptr, ptr %202, align 8
   %241 = ptrtoint ptr %240 to i64
   %242 = and i64 %241, -2

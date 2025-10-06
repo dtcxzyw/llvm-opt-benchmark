@@ -95,8 +95,8 @@ define void @_Z7do_viewPK16gmx_output_env_tPKcS3_(ptr noundef %0, ptr noundef %1
 
 26:                                               ; preds = %.preheader
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.i, label %_ZL8can_viewi.exit.thread, label %.preheader, !llvm.loop !11
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
+  br i1 %exitcond.not.i, label %_ZL8can_viewi.exit.thread, label %.preheader, !llvm.loop !11
 
 _ZL8can_viewi.exit:                               ; preds = %.preheader
   %27 = call ptr @getenv(ptr noundef nonnull %5) #12
@@ -339,8 +339,8 @@ define void @_Z8view_allPK16gmx_output_env_tiP8t_filenm(ptr noundef %0, i32 noun
 
 11:                                               ; preds = %7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 5
-  br i1 %exitcond.i, label %_ZL8can_viewi.exit.thread, label %7, !llvm.loop !11
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
+  br i1 %exitcond.not.i, label %_ZL8can_viewi.exit.thread, label %7, !llvm.loop !11
 
 _ZL8can_viewi.exit:                               ; preds = %7
   %12 = tail call noundef zeroext i1 @_Z9is_outputPK8t_filenm(ptr noundef nonnull %5)

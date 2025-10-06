@@ -2606,10 +2606,10 @@ define internal fastcc ptr @flatten_grouping_sets(ptr noundef readonly captures(
   br i1 %4, label %.critedge66, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %tailrecurse
-  %.tr7080 = phi ptr [ null, %tailrecurse ], [ %2, %3 ]
-  %.tr6979 = phi i1 [ false, %tailrecurse ], [ %1, %3 ]
-  %.tr78 = phi ptr [ %14, %tailrecurse ], [ %0, %3 ]
-  %5 = load i32, ptr %.tr78, align 4
+  %.tr6979 = phi ptr [ null, %tailrecurse ], [ %2, %3 ]
+  %.tr6878 = phi i1 [ false, %tailrecurse ], [ %1, %3 ]
+  %.tr77 = phi ptr [ %14, %tailrecurse ], [ %0, %3 ]
+  %5 = load i32, ptr %.tr77, align 4
   switch i32 %5, label %.critedge66 [
     i32 36, label %9
     i32 107, label %16
@@ -2617,112 +2617,112 @@ define internal fastcc ptr @flatten_grouping_sets(ptr noundef readonly captures(
   ]
 
 .preheader:                                       ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.tr78, i64 4
+  %6 = getelementptr inbounds nuw i8, ptr %.tr77, i64 4
   %7 = load i32, ptr %6, align 4
-  %.not84 = icmp sgt i32 %7, 0
-  br i1 %.not84, label %.lr.ph87, label %.critedge66
+  %.not83 = icmp sgt i32 %7, 0
+  br i1 %.not83, label %.lr.ph86, label %.critedge66
 
-.lr.ph87:                                         ; preds = %.preheader
-  %8 = getelementptr inbounds nuw i8, ptr %.tr78, i64 16
+.lr.ph86:                                         ; preds = %.preheader
+  %8 = getelementptr inbounds nuw i8, ptr %.tr77, i64 16
   br label %51
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.tr78, i64 20
+  %10 = getelementptr inbounds nuw i8, ptr %.tr77, i64 20
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 2
   br i1 %12, label %tailrecurse, label %.critedge66
 
 tailrecurse:                                      ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %.tr78, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.tr77, i64 8
   %14 = load ptr, ptr %13, align 8
   tail call void @check_stack_depth() #8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %.critedge66, label %.lr.ph
 
 16:                                               ; preds = %.lr.ph
-  %.not61 = icmp eq ptr %.tr7080, null
+  %.not61 = icmp eq ptr %.tr6979, null
   br i1 %.not61, label %18, label %17
 
 17:                                               ; preds = %16
-  store i8 1, ptr %.tr7080, align 1
+  store i8 1, ptr %.tr6979, align 1
   br label %18
 
 18:                                               ; preds = %17, %16
-  br i1 %.tr6979, label %19, label %23
+  br i1 %.tr6878, label %19, label %23
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i8, ptr %.tr78, i64 4
+  %20 = getelementptr inbounds nuw i8, ptr %.tr77, i64 4
   %21 = load i32, ptr %20, align 4
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %.critedge66, label %23
 
 23:                                               ; preds = %19, %18
-  %24 = getelementptr inbounds nuw i8, ptr %.tr78, i64 8
+  %24 = getelementptr inbounds nuw i8, ptr %.tr77, i64 8
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.not62 = icmp eq ptr %25, null
-  br i1 %.not62, label %.critedge, label %.lr.ph91
+  br i1 %.not62, label %.critedge, label %.lr.ph90
 
-.lr.ph91:                                         ; preds = %23
+.lr.ph90:                                         ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %28 = load i32, ptr %26, align 4
   %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.lr.ph98, label %.critedge
+  br i1 %29, label %.lr.ph97, label %.critedge
 
-.lr.ph98:                                         ; preds = %.lr.ph91, %44
-  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %44 ], [ 0, %.lr.ph91 ]
-  %.0549096 = phi ptr [ %.155, %44 ], [ null, %.lr.ph91 ]
+.lr.ph97:                                         ; preds = %.lr.ph90, %44
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %44 ], [ 0, %.lr.ph90 ]
+  %.0548995 = phi ptr [ %.155, %44 ], [ null, %.lr.ph90 ]
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv108
+  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv107
   %32 = load ptr, ptr %31, align 8
   %33 = tail call fastcc ptr @flatten_grouping_sets(ptr noundef %32, i1 noundef zeroext false, ptr noundef null)
   %34 = load i32, ptr %32, align 4
   %35 = icmp eq i32 %34, 107
   br i1 %35, label %36, label %42
 
-.critedge:                                        ; preds = %44, %.lr.ph91, %23
-  %.054.lcssa = phi ptr [ null, %23 ], [ null, %.lr.ph91 ], [ %.155, %44 ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.tr78, i64 4
+.critedge:                                        ; preds = %44, %.lr.ph90, %23
+  %.054.lcssa = phi ptr [ null, %23 ], [ null, %.lr.ph90 ], [ %.155, %44 ]
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.tr77, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
   %.not64 = icmp ne i32 %.pre, 4
-  %or.cond.not = select i1 %.tr6979, i1 true, i1 %.not64
+  %or.cond.not = select i1 %.tr6878, i1 true, i1 %.not64
   br i1 %or.cond.not, label %.critedge._crit_edge, label %.critedge66
 
-36:                                               ; preds = %.lr.ph98
+36:                                               ; preds = %.lr.ph97
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 4
   br i1 %39, label %40, label %42
 
 40:                                               ; preds = %36
-  %41 = tail call ptr @list_concat(ptr noundef %.0549096, ptr noundef %33) #8
+  %41 = tail call ptr @list_concat(ptr noundef %.0548995, ptr noundef %33) #8
   br label %44
 
-42:                                               ; preds = %36, %.lr.ph98
-  %43 = tail call ptr @lappend(ptr noundef %.0549096, ptr noundef %33) #8
+42:                                               ; preds = %36, %.lr.ph97
+  %43 = tail call ptr @lappend(ptr noundef %.0548995, ptr noundef %33) #8
   br label %44
 
 44:                                               ; preds = %42, %40
   %.155 = phi ptr [ %41, %40 ], [ %43, %42 ]
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %45 = load i32, ptr %26, align 4
   %46 = sext i32 %45 to i64
-  %47 = icmp slt i64 %indvars.iv.next109, %46
-  br i1 %47, label %.lr.ph98, label %.critedge
+  %47 = icmp slt i64 %indvars.iv.next108, %46
+  br i1 %47, label %.lr.ph97, label %.critedge
 
 .critedge._crit_edge:                             ; preds = %.critedge
-  %48 = getelementptr inbounds nuw i8, ptr %.tr78, i64 16
+  %48 = getelementptr inbounds nuw i8, ptr %.tr77, i64 16
   %49 = load i32, ptr %48, align 8
   %50 = tail call ptr @makeGroupingSet(i32 noundef %.pre, ptr noundef %.054.lcssa, i32 noundef %49) #8
   br label %.critedge66
 
-51:                                               ; preds = %.lr.ph87, %63
-  %indvars.iv = phi i64 [ 0, %.lr.ph87 ], [ %indvars.iv.next, %63 ]
-  %.05285 = phi ptr [ null, %.lr.ph87 ], [ %.153, %63 ]
+51:                                               ; preds = %.lr.ph86, %63
+  %indvars.iv = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next, %63 ]
+  %.05284 = phi ptr [ null, %.lr.ph86 ], [ %.153, %63 ]
   %52 = load ptr, ptr %8, align 8
   %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
-  %55 = tail call fastcc ptr @flatten_grouping_sets(ptr noundef %54, i1 noundef zeroext %.tr6979, ptr noundef %.tr7080)
+  %55 = tail call fastcc ptr @flatten_grouping_sets(ptr noundef %54, i1 noundef zeroext %.tr6878, ptr noundef %.tr6979)
   %.not60 = icmp eq ptr %55, null
   br i1 %.not60, label %63, label %56
 
@@ -2732,15 +2732,15 @@ tailrecurse:                                      ; preds = %9
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
-  %60 = tail call ptr @list_concat(ptr noundef %.05285, ptr noundef nonnull %55) #8
+  %60 = tail call ptr @list_concat(ptr noundef %.05284, ptr noundef nonnull %55) #8
   br label %63
 
 61:                                               ; preds = %56
-  %62 = tail call ptr @lappend(ptr noundef %.05285, ptr noundef nonnull %55) #8
+  %62 = tail call ptr @lappend(ptr noundef %.05284, ptr noundef nonnull %55) #8
   br label %63
 
 63:                                               ; preds = %59, %61, %51
-  %.153 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %.05285, %51 ]
+  %.153 = phi ptr [ %60, %59 ], [ %62, %61 ], [ %.05284, %51 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %64 = load i32, ptr %6, align 4
   %65 = sext i32 %64 to i64
@@ -2748,7 +2748,7 @@ tailrecurse:                                      ; preds = %9
   br i1 %.not, label %51, label %.critedge66, !llvm.loop !16
 
 .critedge66:                                      ; preds = %tailrecurse, %.lr.ph, %9, %63, %.critedge, %3, %.preheader, %.critedge._crit_edge, %19
-  %.0 = phi ptr [ %50, %.critedge._crit_edge ], [ null, %19 ], [ null, %.preheader ], [ null, %3 ], [ %.054.lcssa, %.critedge ], [ %.153, %63 ], [ null, %tailrecurse ], [ %.tr78, %.lr.ph ], [ %.tr78, %9 ]
+  %.0 = phi ptr [ %50, %.critedge._crit_edge ], [ null, %19 ], [ null, %.preheader ], [ null, %3 ], [ %.054.lcssa, %.critedge ], [ %.153, %63 ], [ null, %tailrecurse ], [ %.tr77, %.lr.ph ], [ %.tr77, %9 ]
   ret ptr %.0
 }
 

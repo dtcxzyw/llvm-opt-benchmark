@@ -4319,10 +4319,10 @@ define void @Cec_ManLSCorrespondenceBmc(ptr noundef %0, ptr noundef readonly cap
   br label %33
 
 33:                                               ; preds = %3, %110
-  %.05274 = phi i32 [ 0, %3 ], [ %111, %110 ]
+  %.05273 = phi i32 [ 0, %3 ], [ %111, %110 ]
   %34 = load i32, ptr %27, align 4, !tbaa !119
   %.not55 = icmp eq i32 %34, 0
-  %35 = icmp slt i32 %.05274, %34
+  %35 = icmp slt i32 %.05273, %34
   %or.cond = select i1 %.not55, i1 true, i1 %35
   br i1 %or.cond, label %.critedge2, label %.critedge
 
@@ -4334,14 +4334,14 @@ define void @Cec_ManLSCorrespondenceBmc(ptr noundef %0, ptr noundef readonly cap
 
 38:                                               ; preds = %.critedge2
   %39 = load i64, ptr %5, align 8, !tbaa !120
-  %.neg72 = mul i64 %39, -1000000
+  %.neg71 = mul i64 %39, -1000000
   %40 = load i64, ptr %28, align 8, !tbaa !122
   %.neg = sdiv i64 %40, -1000
-  %.neg73 = add i64 %.neg, %.neg72
+  %.neg72 = add i64 %.neg, %.neg71
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %.critedge2, %38
-  %.0.i.neg = phi i64 [ %.neg73, %38 ], [ 1, %.critedge2 ]
+  %.0.i.neg = phi i64 [ %.neg72, %38 ], [ 1, %.critedge2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %41 = load i32, ptr %29, align 8, !tbaa !123
   %42 = load i32, ptr %17, align 8, !tbaa !112
@@ -4503,7 +4503,7 @@ Vec_StrFree.exit:                                 ; preds = %Vec_IntFree.exit64,
 
 110:                                              ; preds = %108, %Vec_StrFree.exit
   call void @free(ptr noundef nonnull %105) #23
-  %111 = add nuw nsw i32 %.05274, 1
+  %111 = add nuw nsw i32 %.05273, 1
   br i1 %.not58, label %.critedge, label %33, !llvm.loop !126
 
 .critedge:                                        ; preds = %33, %110, %109

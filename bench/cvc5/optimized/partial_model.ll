@@ -2257,12 +2257,12 @@ _ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit: ; preds = %
 10:                                               ; preds = %1
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %102
+  br label %103
 
 12:                                               ; preds = %59, %43, %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit
   %13 = landingpad { ptr, i32 }
           cleanup
-  br label %101
+  br label %102
 
 14:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2347,7 +2347,7 @@ _ZNK4cvc58internal6theory5arith6linear8Monomial10isIntegralEv.exit: ; preds = %3
 .body:                                            ; preds = %39, %29, %41
   %.pn = phi { ptr, i32 } [ %42, %41 ], [ %40, %39 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %101
+  br label %102
 
 43:                                               ; preds = %_ZNK4cvc58internal6theory5arith6linear8Monomial10isIntegralEv.exit
   %44 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal4expr16NodeSelfIteratorppEv(ptr noundef nonnull align 8 dereferenceable(16) %3)
@@ -2419,72 +2419,72 @@ _ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit.backedge: ; 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %_ZNK4cvc58internal6theory5arith6linear8Monomial10isIntegralEv.exit.thread
-  %switch = phi i1 [ %74, %.loopexit.loopexit ], [ false, %_ZNK4cvc58internal6theory5arith6linear8Monomial10isIntegralEv.exit.thread ]
-  %75 = load ptr, ptr %4, align 8, !tbaa !99
-  %76 = load i64, ptr %75, align 8
-  %77 = and i64 %76, 1152920405095219200
-  %.not.i.i.i.i18 = icmp eq i64 %77, 1152920405095219200
-  br i1 %.not.i.i.i.i18, label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19, label %78, !prof !102
+  %75 = phi i1 [ %74, %.loopexit.loopexit ], [ false, %_ZNK4cvc58internal6theory5arith6linear8Monomial10isIntegralEv.exit.thread ]
+  %76 = load ptr, ptr %4, align 8, !tbaa !99
+  %77 = load i64, ptr %76, align 8
+  %78 = and i64 %77, 1152920405095219200
+  %.not.i.i.i.i18 = icmp eq i64 %78, 1152920405095219200
+  br i1 %.not.i.i.i.i18, label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19, label %79, !prof !102
 
-78:                                               ; preds = %.loopexit
-  %79 = add i64 %76, 1152920405095219200
-  %80 = and i64 %79, 1152920405095219200
-  %81 = and i64 %76, -1152920405095219201
-  %82 = or disjoint i64 %80, %81
-  store i64 %82, ptr %75, align 8
-  %83 = icmp eq i64 %80, 0
-  br i1 %83, label %84, label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19, !prof !102
+79:                                               ; preds = %.loopexit
+  %80 = add i64 %77, 1152920405095219200
+  %81 = and i64 %80, 1152920405095219200
+  %82 = and i64 %77, -1152920405095219201
+  %83 = or disjoint i64 %81, %82
+  store i64 %83, ptr %76, align 8
+  %84 = icmp eq i64 %81, 0
+  br i1 %84, label %85, label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19, !prof !102
 
-84:                                               ; preds = %78
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %75)
-          to label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19 unwind label %85
+85:                                               ; preds = %79
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %76)
+          to label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19 unwind label %86
 
-85:                                               ; preds = %84
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %85
+  %87 = landingpad { ptr, i32 }
           catch ptr null
-  %87 = extractvalue { ptr, i32 } %86, 0
-  call void @__clang_call_terminate(ptr %87) #31
+  %88 = extractvalue { ptr, i32 } %87, 0
+  call void @__clang_call_terminate(ptr %88) #31
   unreachable
 
-_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19: ; preds = %.loopexit, %78, %84
+_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19: ; preds = %.loopexit, %79, %85
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %88 = load ptr, ptr %3, align 8, !tbaa !99
-  %89 = load i64, ptr %88, align 8
-  %90 = and i64 %89, 1152920405095219200
-  %.not.i.i.i.i20 = icmp eq i64 %90, 1152920405095219200
-  br i1 %.not.i.i.i.i20, label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit21, label %91, !prof !102
+  %89 = load ptr, ptr %3, align 8, !tbaa !99
+  %90 = load i64, ptr %89, align 8
+  %91 = and i64 %90, 1152920405095219200
+  %.not.i.i.i.i20 = icmp eq i64 %91, 1152920405095219200
+  br i1 %.not.i.i.i.i20, label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit21, label %92, !prof !102
 
-91:                                               ; preds = %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19
-  %92 = add i64 %89, 1152920405095219200
-  %93 = and i64 %92, 1152920405095219200
-  %94 = and i64 %89, -1152920405095219201
-  %95 = or disjoint i64 %93, %94
-  store i64 %95, ptr %88, align 8
-  %96 = icmp eq i64 %93, 0
-  br i1 %96, label %97, label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit21, !prof !102
+92:                                               ; preds = %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19
+  %93 = add i64 %90, 1152920405095219200
+  %94 = and i64 %93, 1152920405095219200
+  %95 = and i64 %90, -1152920405095219201
+  %96 = or disjoint i64 %94, %95
+  store i64 %96, ptr %89, align 8
+  %97 = icmp eq i64 %94, 0
+  br i1 %97, label %98, label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit21, !prof !102
 
-97:                                               ; preds = %91
-  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %88)
-          to label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit21 unwind label %98
+98:                                               ; preds = %92
+  invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %89)
+          to label %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit21 unwind label %99
 
-98:                                               ; preds = %97
-  %99 = landingpad { ptr, i32 }
+99:                                               ; preds = %98
+  %100 = landingpad { ptr, i32 }
           catch ptr null
-  %100 = extractvalue { ptr, i32 } %99, 0
-  call void @__clang_call_terminate(ptr %100) #31
+  %101 = extractvalue { ptr, i32 } %100, 0
+  call void @__clang_call_terminate(ptr %101) #31
   unreachable
 
-_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit21: ; preds = %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19, %91, %97
+_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit21: ; preds = %_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev.exit19, %92, %98
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i1 %switch
+  ret i1 %75
 
-101:                                              ; preds = %.body, %12
+102:                                              ; preds = %.body, %12
   %.pn11 = phi { ptr, i32 } [ %13, %12 ], [ %.pn, %.body ]
   call void @_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
-  br label %102
+  br label %103
 
-102:                                              ; preds = %101, %10
-  %.pn11.pn = phi { ptr, i32 } [ %.pn11, %101 ], [ %11, %10 ]
+103:                                              ; preds = %102, %10
+  %.pn11.pn = phi { ptr, i32 } [ %.pn11, %102 ], [ %11, %10 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @_ZN4cvc58internal6theory5arith6linear10Polynomial8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -7753,12 +7753,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4cvc58internal6theory5arith6l
 9:                                                ; preds = %1
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %125
+  br label %126
 
 11:                                               ; preds = %82, %66, %.preheader
   %12 = landingpad { ptr, i32 }
           cleanup
-  br label %124
+  br label %125
 
 13:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -7962,7 +7962,7 @@ _ZN4cvc58internal6theory5arith6linear11NodeWrapperD2Ev.exit: ; preds = %52, %56,
 .body:                                            ; preds = %48, %28, %.body19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body20, %.body19 ], [ %49, %48 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %124
+  br label %125
 
 97:                                               ; preds = %8, %_ZN4cvc58internal6theory5arith6linear11NodeWrapperD2Ev.exit
   %98 = load ptr, ptr %5, align 8, !tbaa !99
@@ -8020,17 +8020,17 @@ _ZN4cvc58internal6theory5arith6linear7VarList8iteratorD2Ev.exit25: ; preds = %97
   unreachable
 
 _ZN4cvc58internal6theory5arith6linear7VarList8iteratorD2Ev.exit27: ; preds = %_ZN4cvc58internal6theory5arith6linear7VarList8iteratorD2Ev.exit25, %114, %120
-  %switch = xor i1 %7, true
+  %124 = xor i1 %7, true
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i1 %switch
+  ret i1 %124
 
-124:                                              ; preds = %.body, %11
+125:                                              ; preds = %.body, %11
   %.pn14 = phi { ptr, i32 } [ %12, %11 ], [ %.pn, %.body ]
   call void @_ZN4cvc58internal6theory5arith6linear7VarList8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #29
-  br label %125
+  br label %126
 
-125:                                              ; preds = %124, %9
-  %.pn14.pn = phi { ptr, i32 } [ %.pn14, %124 ], [ %10, %9 ]
+126:                                              ; preds = %125, %9
+  %.pn14.pn = phi { ptr, i32 } [ %.pn14, %125 ], [ %10, %9 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @_ZN4cvc58internal6theory5arith6linear7VarList8iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #29
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

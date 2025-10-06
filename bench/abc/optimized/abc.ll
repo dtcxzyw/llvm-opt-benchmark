@@ -82265,7 +82265,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   %.0137 = phi ptr [ null, %3 ], [ %.0137.be, %.backedge ]
   %.0135 = phi ptr [ null, %3 ], [ %.0135.be, %.backedge ]
   %22 = call i32 @Extra_UtilGetopt(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.4470) #32
-  switch i32 %22, label %.loopexit209 [
+  switch i32 %22, label %.loopexit208 [
     i32 -1, label %117
     i32 65, label %23
     i32 84, label %33
@@ -82289,7 +82289,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
 23:                                               ; preds = %21
   %24 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %.not177 = icmp slt i32 %24, %1
-  br i1 %.not177, label %25, label %.loopexit209.sink.split
+  br i1 %.not177, label %25, label %.loopexit208.sink.split
 
 25:                                               ; preds = %23
   %26 = sext i32 %24 to i64
@@ -82302,7 +82302,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   %32 = add nsw i32 %31, 1
   store i32 %32, ptr @globalUtilOptind, align 4, !tbaa !43
   %or.cond188 = icmp ugt i32 %30, 4
-  br i1 %or.cond188, label %.loopexit209, label %.backedge
+  br i1 %or.cond188, label %.loopexit208, label %.backedge
 
 .backedge:                                        ; preds = %25, %57, %46, %35, %114, %111, %108, %105, %102, %99, %96, %93, %90, %87, %82, %75, %68
   %.0137.be = phi ptr [ %.0137, %35 ], [ %.0137, %46 ], [ %.0137, %57 ], [ %.0137, %68 ], [ %78, %75 ], [ %.0137, %82 ], [ %.0137, %87 ], [ %.0137, %90 ], [ %.0137, %93 ], [ %.0137, %96 ], [ %.0137, %99 ], [ %.0137, %102 ], [ %.0137, %105 ], [ %.0137, %108 ], [ %.0137, %111 ], [ %.0137, %114 ], [ %.0137, %25 ]
@@ -82312,7 +82312,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
 33:                                               ; preds = %21
   %34 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %.not176 = icmp slt i32 %34, %1
-  br i1 %.not176, label %35, label %.loopexit209.sink.split
+  br i1 %.not176, label %35, label %.loopexit208.sink.split
 
 35:                                               ; preds = %33
   %36 = sext i32 %34 to i64
@@ -82325,12 +82325,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr @globalUtilOptind, align 4, !tbaa !43
   %43 = icmp slt i32 %40, 0
-  br i1 %43, label %.loopexit209, label %.backedge
+  br i1 %43, label %.loopexit208, label %.backedge
 
 44:                                               ; preds = %21
   %45 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %.not175 = icmp slt i32 %45, %1
-  br i1 %.not175, label %46, label %.loopexit209.sink.split
+  br i1 %.not175, label %46, label %.loopexit208.sink.split
 
 46:                                               ; preds = %44
   %47 = sext i32 %45 to i64
@@ -82343,12 +82343,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr @globalUtilOptind, align 4, !tbaa !43
   %54 = icmp slt i32 %51, 0
-  br i1 %54, label %.loopexit209, label %.backedge
+  br i1 %54, label %.loopexit208, label %.backedge
 
 55:                                               ; preds = %21
   %56 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %.not174 = icmp slt i32 %56, %1
-  br i1 %.not174, label %57, label %.loopexit209.sink.split
+  br i1 %.not174, label %57, label %.loopexit208.sink.split
 
 57:                                               ; preds = %55
   %58 = sext i32 %56 to i64
@@ -82361,12 +82361,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr @globalUtilOptind, align 4, !tbaa !43
   %65 = icmp slt i32 %62, 1
-  br i1 %65, label %.loopexit209, label %.backedge
+  br i1 %65, label %.loopexit208, label %.backedge
 
 66:                                               ; preds = %21
   %67 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %.not173 = icmp slt i32 %67, %1
-  br i1 %.not173, label %68, label %.loopexit209.sink.split
+  br i1 %.not173, label %68, label %.loopexit208.sink.split
 
 68:                                               ; preds = %66
   %69 = sext i32 %67 to i64
@@ -82380,7 +82380,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
 73:                                               ; preds = %21
   %74 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %.not172 = icmp slt i32 %74, %1
-  br i1 %.not172, label %75, label %.loopexit209.sink.split
+  br i1 %.not172, label %75, label %.loopexit208.sink.split
 
 75:                                               ; preds = %73
   %76 = sext i32 %74 to i64
@@ -82393,7 +82393,7 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
 80:                                               ; preds = %21
   %81 = load i32, ptr @globalUtilOptind, align 4, !tbaa !43
   %.not171 = icmp slt i32 %81, %1
-  br i1 %.not171, label %82, label %.loopexit209.sink.split
+  br i1 %.not171, label %82, label %.loopexit208.sink.split
 
 82:                                               ; preds = %80
   %83 = sext i32 %81 to i64
@@ -82509,14 +82509,14 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   call void @Abc_NtkDelete(ptr noundef %124) #32
   %136 = load ptr, ptr %16, align 8, !tbaa !1267
   %137 = icmp eq ptr %136, null
-  br i1 %137, label %.loopexit209, label %.loopexit
+  br i1 %137, label %.loopexit208, label %.loopexit
 
 138:                                              ; preds = %118
   %139 = call noalias ptr @fopen(ptr noundef nonnull %.0137, ptr noundef nonnull @.str.1582)
   %.not162 = icmp eq ptr %139, null
-  br i1 %.not162, label %.thread207, label %140
+  br i1 %.not162, label %.thread206, label %140
 
-.thread207:                                       ; preds = %138
+.thread206:                                       ; preds = %138
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4475, ptr noundef nonnull %.0137)
   br label %.critedge
 
@@ -82584,9 +82584,9 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   store ptr %168, ptr %4, align 8, !tbaa !1278
   %169 = call noalias ptr @fopen(ptr noundef %168, ptr noundef nonnull @.str.1582)
   %.not165 = icmp eq ptr %169, null
-  br i1 %.not165, label %.thread208, label %171
+  br i1 %.not165, label %.thread207, label %171
 
-.thread208:                                       ; preds = %165
+.thread207:                                       ; preds = %165
   %170 = load ptr, ptr %4, align 8, !tbaa !1278
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull @.str.4403, ptr noundef %170)
   br label %.critedge
@@ -82708,12 +82708,12 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   call void @free(ptr noundef nonnull %219) #32
   br label %.critedge
 
-.loopexit209.sink.split:                          ; preds = %80, %73, %66, %55, %44, %33, %23
+.loopexit208.sink.split:                          ; preds = %80, %73, %66, %55, %44, %33, %23
   %.str.4472.sink = phi ptr [ @.str.1096, %23 ], [ @.str.834, %33 ], [ @.str.579, %44 ], [ @.str.972, %55 ], [ @.str.4471, %66 ], [ @.str.2638, %73 ], [ @.str.4472, %80 ]
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -1, ptr noundef nonnull %.str.4472.sink)
-  br label %.loopexit209
+  br label %.loopexit208
 
-.loopexit209:                                     ; preds = %21, %57, %46, %35, %25, %.loopexit209.sink.split, %135
+.loopexit208:                                     ; preds = %21, %57, %46, %35, %25, %.loopexit208.sink.split, %135
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4486)
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4487)
   %221 = load i32, ptr %20, align 8, !tbaa !1261
@@ -82795,8 +82795,8 @@ define internal range(i32 0, 2) i32 @Abc_CommandAbc9FFTest(ptr noundef readonly 
   call void (i32, ptr, ...) @Abc_Print(i32 noundef -2, ptr noundef nonnull @.str.4530)
   br label %.critedge
 
-.critedge:                                        ; preds = %.thread208, %.thread207, %188, %193, %204, %212, %215, %218, %220, %.loopexit209, %183, %177, %160, %158
-  %.1 = phi i32 [ 1, %.loopexit209 ], [ 0, %158 ], [ 0, %160 ], [ 0, %177 ], [ 0, %183 ], [ 0, %220 ], [ 0, %218 ], [ 0, %215 ], [ 0, %212 ], [ 0, %204 ], [ 0, %193 ], [ 0, %188 ], [ 0, %.thread207 ], [ 0, %.thread208 ]
+.critedge:                                        ; preds = %.thread207, %.thread206, %188, %193, %204, %212, %215, %218, %220, %.loopexit208, %183, %177, %160, %158
+  %.1 = phi i32 [ 1, %.loopexit208 ], [ 0, %158 ], [ 0, %160 ], [ 0, %177 ], [ 0, %183 ], [ 0, %220 ], [ 0, %218 ], [ 0, %215 ], [ 0, %212 ], [ 0, %204 ], [ 0, %193 ], [ 0, %188 ], [ 0, %.thread206 ], [ 0, %.thread207 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.1

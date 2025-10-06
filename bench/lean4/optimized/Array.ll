@@ -91,8 +91,8 @@ define internal fastcc ptr @lean_array_get(ptr noundef %0, ptr noundef readonly 
 10:                                               ; preds = %6
   %11 = ptrtoint ptr %0 to i64
   %12 = and i64 %11, 1
-  %.not14 = icmp eq i64 %12, 0
-  br i1 %.not14, label %13, label %lean_dec.exit
+  %.not13 = icmp eq i64 %12, 0
+  br i1 %.not13, label %13, label %lean_dec.exit
 
 13:                                               ; preds = %10
   %14 = load i32, ptr %0, align 4, !tbaa !8
@@ -1075,8 +1075,8 @@ lean_array_get.exit.thread326:                    ; preds = %352
 357:                                              ; preds = %352
   %358 = ptrtoint ptr %351 to i64
   %359 = and i64 %358, 1
-  %.not14.i = icmp eq i64 %359, 0
-  br i1 %.not14.i, label %360, label %lean_dec.exit.i
+  %.not13.i = icmp eq i64 %359, 0
+  br i1 %.not13.i, label %360, label %lean_dec.exit.i
 
 360:                                              ; preds = %357
   %361 = load i32, ptr %351, align 4, !tbaa !8

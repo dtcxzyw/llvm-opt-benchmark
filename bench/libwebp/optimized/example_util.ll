@@ -292,12 +292,12 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
 28:                                               ; preds = %17
   %29 = load ptr, ptr %10, align 8, !tbaa !26
   %30 = call ptr @strtok(ptr noundef %29, ptr noundef nonnull @__const.ExUtilInitCommandLineArguments.sep) #8
-  %.not3037 = icmp eq ptr %30, null
-  br i1 %.not3037, label %._crit_edge, label %.lr.ph
+  %.not3036 = icmp eq ptr %30, null
+  br i1 %.not3036, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %28 ]
-  %.02439 = phi ptr [ %38, %35 ], [ %30, %28 ]
+  %.02438 = phi ptr [ %38, %35 ], [ %30, %28 ]
   %31 = icmp eq i64 %indvars.iv, 16384
   br i1 %31, label %32, label %35
 
@@ -311,7 +311,7 @@ ExUtilDeleteCommandLineArguments.exit:            ; preds = %24, %26
   %36 = load ptr, ptr %9, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
-  store ptr %.02439, ptr %37, align 8, !tbaa !4
+  store ptr %.02438, ptr %37, align 8, !tbaa !4
   %38 = call ptr @strtok(ptr noundef null, ptr noundef nonnull @__const.ExUtilInitCommandLineArguments.sep) #8
   %.not30 = icmp eq ptr %38, null
   br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !27

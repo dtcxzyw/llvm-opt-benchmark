@@ -2209,8 +2209,8 @@ define internal ptr @float_richcompare(ptr noundef readonly captures(none) %0, p
 
 PyObject_TypeCheck.exit:                          ; preds = %3
   %9 = tail call i32 @PyType_IsSubtype(ptr noundef %.val134, ptr noundef nonnull @PyFloat_Type) #18
-  %.not149 = icmp eq i32 %9, 0
-  br i1 %.not149, label %11, label %PyObject_TypeCheck.exit.thread
+  %.not148 = icmp eq i32 %9, 0
+  br i1 %.not148, label %11, label %PyObject_TypeCheck.exit.thread
 
 PyObject_TypeCheck.exit.thread:                   ; preds = %3, %PyObject_TypeCheck.exit
   %10 = getelementptr i8, ptr %1, i64 16

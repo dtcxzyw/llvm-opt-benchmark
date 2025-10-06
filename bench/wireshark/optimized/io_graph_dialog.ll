@@ -31354,10 +31354,10 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 .preheader.i:                                     ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
-  %.not219.i = icmp eq i32 %100, 0
-  br i1 %.not219.i, label %_ZL20update_io_graph_itemP16_io_graph_item_tiP12_packet_infoP12epan_dissectiij.exit, label %.lr.ph218.i
+  %.not218.i = icmp eq i32 %100, 0
+  br i1 %.not218.i, label %_ZL20update_io_graph_itemP16_io_graph_item_tiP12_packet_infoP12epan_dissectiij.exit, label %.lr.ph217.i
 
-.lr.ph218.i:                                      ; preds = %.preheader.i
+.lr.ph217.i:                                      ; preds = %.preheader.i
   %cond1.i = icmp eq i32 %77, 10
   %101 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %102 = getelementptr inbounds nuw i8, ptr %85, i64 16
@@ -31372,8 +31372,8 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %or.cond4.i = icmp eq i32 %110, 4
   br label %111
 
-111:                                              ; preds = %315, %.lr.ph218.i
-  %indvars.iv221.i = phi i64 [ 0, %.lr.ph218.i ], [ %indvars.iv.next222.i, %315 ]
+111:                                              ; preds = %315, %.lr.ph217.i
+  %indvars.iv220.i = phi i64 [ 0, %.lr.ph217.i ], [ %indvars.iv.next221.i, %315 ]
   %112 = call i32 @proto_registrar_get_ftype(i32 noundef %83)
   switch i32 %112, label %310 [
     i32 4, label %113
@@ -31399,7 +31399,7 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 
 113:                                              ; preds = %111, %111, %111, %111
   %114 = load ptr, ptr %98, align 8
-  %115 = getelementptr ptr, ptr %114, i64 %indvars.iv221.i
+  %115 = getelementptr ptr, ptr %114, i64 %indvars.iv220.i
   %116 = load ptr, ptr %115, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 48
   %118 = load ptr, ptr %117, align 8
@@ -31407,10 +31407,10 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %120 = zext i32 %119 to i64
   %121 = load i64, ptr %101, align 8
   %122 = icmp ult i64 %121, %120
-  %.pre229.pre.pre.pre.i = load i64, ptr %102, align 8
-  %123 = icmp eq i64 %.pre229.pre.pre.pre.i, 0
-  %or.cond241.i = select i1 %122, i1 true, i1 %123
-  br i1 %or.cond241.i, label %124, label %126
+  %.pre228.pre.pre.pre.i = load i64, ptr %102, align 8
+  %123 = icmp eq i64 %.pre228.pre.pre.pre.i, 0
+  %or.cond240.i = select i1 %122, i1 true, i1 %123
+  br i1 %or.cond240.i, label %124, label %126
 
 124:                                              ; preds = %113
   store i64 %120, ptr %101, align 8
@@ -31421,8 +31421,8 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 126:                                              ; preds = %124, %113
   %127 = load i64, ptr %104, align 8
   %128 = icmp ugt i64 %127, %120
-  %or.cond242.i = select i1 %128, i1 true, i1 %123
-  br i1 %or.cond242.i, label %129, label %131
+  %or.cond241.i = select i1 %128, i1 true, i1 %123
+  br i1 %or.cond241.i, label %129, label %131
 
 129:                                              ; preds = %126
   store i64 %120, ptr %104, align 8
@@ -31435,13 +31435,13 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %133 = load double, ptr %106, align 8
   %134 = fadd double %133, %132
   store double %134, ptr %106, align 8
-  %135 = add i64 %.pre229.pre.pre.pre.i, 1
+  %135 = add i64 %.pre228.pre.pre.pre.i, 1
   store i64 %135, ptr %102, align 8
   br label %315
 
 136:                                              ; preds = %111, %111, %111, %111
   %137 = load ptr, ptr %98, align 8
-  %138 = getelementptr ptr, ptr %137, i64 %indvars.iv221.i
+  %138 = getelementptr ptr, ptr %137, i64 %indvars.iv220.i
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
   %141 = load ptr, ptr %140, align 8
@@ -31449,10 +31449,10 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %143 = sext i32 %142 to i64
   %144 = load i64, ptr %101, align 8
   %145 = icmp slt i64 %144, %143
-  %.pre228.pre.pre.pre.i = load i64, ptr %102, align 8
-  %146 = icmp eq i64 %.pre228.pre.pre.pre.i, 0
-  %or.cond243.i = select i1 %145, i1 true, i1 %146
-  br i1 %or.cond243.i, label %147, label %149
+  %.pre227.pre.pre.pre.i = load i64, ptr %102, align 8
+  %146 = icmp eq i64 %.pre227.pre.pre.pre.i, 0
+  %or.cond242.i = select i1 %145, i1 true, i1 %146
+  br i1 %or.cond242.i, label %147, label %149
 
 147:                                              ; preds = %136
   store i64 %143, ptr %101, align 8
@@ -31463,8 +31463,8 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 149:                                              ; preds = %147, %136
   %150 = load i64, ptr %104, align 8
   %151 = icmp sgt i64 %150, %143
-  %or.cond244.i = select i1 %151, i1 true, i1 %146
-  br i1 %or.cond244.i, label %152, label %154
+  %or.cond243.i = select i1 %151, i1 true, i1 %146
+  br i1 %or.cond243.i, label %152, label %154
 
 152:                                              ; preds = %149
   store i64 %143, ptr %104, align 8
@@ -31477,23 +31477,23 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %156 = load double, ptr %106, align 8
   %157 = fadd double %156, %155
   store double %157, ptr %106, align 8
-  %158 = add i64 %.pre228.pre.pre.pre.i, 1
+  %158 = add i64 %.pre227.pre.pre.pre.i, 1
   store i64 %158, ptr %102, align 8
   br label %315
 
 159:                                              ; preds = %111, %111, %111, %111
   %160 = load ptr, ptr %98, align 8
-  %161 = getelementptr ptr, ptr %160, i64 %indvars.iv221.i
+  %161 = getelementptr ptr, ptr %160, i64 %indvars.iv220.i
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 48
   %164 = load ptr, ptr %163, align 8
   %165 = call i64 @fvalue_get_uinteger64(ptr noundef %164)
   %166 = load i64, ptr %101, align 8
   %167 = icmp ugt i64 %165, %166
-  %.pre227.pre.pre.pre.i = load i64, ptr %102, align 8
-  %168 = icmp eq i64 %.pre227.pre.pre.pre.i, 0
-  %or.cond245.i = select i1 %167, i1 true, i1 %168
-  br i1 %or.cond245.i, label %169, label %171
+  %.pre226.pre.pre.pre.i = load i64, ptr %102, align 8
+  %168 = icmp eq i64 %.pre226.pre.pre.pre.i, 0
+  %or.cond244.i = select i1 %167, i1 true, i1 %168
+  br i1 %or.cond244.i, label %169, label %171
 
 169:                                              ; preds = %159
   store i64 %165, ptr %101, align 8
@@ -31504,8 +31504,8 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 171:                                              ; preds = %169, %159
   %172 = load i64, ptr %104, align 8
   %173 = icmp ult i64 %165, %172
-  %or.cond246.i = select i1 %173, i1 true, i1 %168
-  br i1 %or.cond246.i, label %174, label %176
+  %or.cond245.i = select i1 %173, i1 true, i1 %168
+  br i1 %or.cond245.i, label %174, label %176
 
 174:                                              ; preds = %171
   store i64 %165, ptr %104, align 8
@@ -31518,23 +31518,23 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %178 = load double, ptr %106, align 8
   %179 = fadd double %178, %177
   store double %179, ptr %106, align 8
-  %180 = add i64 %.pre227.pre.pre.pre.i, 1
+  %180 = add i64 %.pre226.pre.pre.pre.i, 1
   store i64 %180, ptr %102, align 8
   br label %315
 
 181:                                              ; preds = %111, %111, %111, %111
   %182 = load ptr, ptr %98, align 8
-  %183 = getelementptr ptr, ptr %182, i64 %indvars.iv221.i
+  %183 = getelementptr ptr, ptr %182, i64 %indvars.iv220.i
   %184 = load ptr, ptr %183, align 8
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 48
   %186 = load ptr, ptr %185, align 8
   %187 = call i64 @fvalue_get_sinteger64(ptr noundef %186)
   %188 = load i64, ptr %101, align 8
   %189 = icmp sgt i64 %187, %188
-  %.pre226.pre.pre.pre.i = load i64, ptr %102, align 8
-  %190 = icmp eq i64 %.pre226.pre.pre.pre.i, 0
-  %or.cond247.i = select i1 %189, i1 true, i1 %190
-  br i1 %or.cond247.i, label %191, label %193
+  %.pre225.pre.pre.pre.i = load i64, ptr %102, align 8
+  %190 = icmp eq i64 %.pre225.pre.pre.pre.i, 0
+  %or.cond246.i = select i1 %189, i1 true, i1 %190
+  br i1 %or.cond246.i, label %191, label %193
 
 191:                                              ; preds = %181
   store i64 %187, ptr %101, align 8
@@ -31545,8 +31545,8 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 193:                                              ; preds = %191, %181
   %194 = load i64, ptr %104, align 8
   %195 = icmp slt i64 %187, %194
-  %or.cond248.i = select i1 %195, i1 true, i1 %190
-  br i1 %or.cond248.i, label %196, label %198
+  %or.cond247.i = select i1 %195, i1 true, i1 %190
+  br i1 %or.cond247.i, label %196, label %198
 
 196:                                              ; preds = %193
   store i64 %187, ptr %104, align 8
@@ -31559,13 +31559,13 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %200 = load double, ptr %106, align 8
   %201 = fadd double %200, %199
   store double %201, ptr %106, align 8
-  %202 = add i64 %.pre226.pre.pre.pre.i, 1
+  %202 = add i64 %.pre225.pre.pre.pre.i, 1
   store i64 %202, ptr %102, align 8
   br label %315
 
 203:                                              ; preds = %111
   %204 = load ptr, ptr %98, align 8
-  %205 = getelementptr ptr, ptr %204, i64 %indvars.iv221.i
+  %205 = getelementptr ptr, ptr %204, i64 %indvars.iv220.i
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 48
   %208 = load ptr, ptr %207, align 8
@@ -31574,10 +31574,10 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %211 = fpext float %210 to double
   %212 = load double, ptr %101, align 8
   %213 = fcmp olt double %212, %211
-  %.pre225.pre.pre.pre.i = load i64, ptr %102, align 8
-  %214 = icmp eq i64 %.pre225.pre.pre.pre.i, 0
-  %or.cond249.i = select i1 %213, i1 true, i1 %214
-  br i1 %or.cond249.i, label %215, label %217
+  %.pre224.pre.pre.pre.i = load i64, ptr %102, align 8
+  %214 = icmp eq i64 %.pre224.pre.pre.pre.i, 0
+  %or.cond248.i = select i1 %213, i1 true, i1 %214
+  br i1 %or.cond248.i, label %215, label %217
 
 215:                                              ; preds = %203
   store double %211, ptr %101, align 8
@@ -31588,8 +31588,8 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 217:                                              ; preds = %215, %203
   %218 = load double, ptr %104, align 8
   %219 = fcmp ogt double %218, %211
-  %or.cond250.i = select i1 %219, i1 true, i1 %214
-  br i1 %or.cond250.i, label %220, label %222
+  %or.cond249.i = select i1 %219, i1 true, i1 %214
+  br i1 %or.cond249.i, label %220, label %222
 
 220:                                              ; preds = %217
   store double %211, ptr %104, align 8
@@ -31601,23 +31601,23 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %223 = load double, ptr %106, align 8
   %224 = fadd double %223, %211
   store double %224, ptr %106, align 8
-  %225 = add i64 %.pre225.pre.pre.pre.i, 1
+  %225 = add i64 %.pre224.pre.pre.pre.i, 1
   store i64 %225, ptr %102, align 8
   br label %315
 
 226:                                              ; preds = %111
   %227 = load ptr, ptr %98, align 8
-  %228 = getelementptr ptr, ptr %227, i64 %indvars.iv221.i
+  %228 = getelementptr ptr, ptr %227, i64 %indvars.iv220.i
   %229 = load ptr, ptr %228, align 8
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 48
   %231 = load ptr, ptr %230, align 8
   %232 = call double @fvalue_get_floating(ptr noundef %231)
   %233 = load double, ptr %101, align 8
   %234 = fcmp ogt double %232, %233
-  %.pre224.pre.pre.pre.i = load i64, ptr %102, align 8
-  %235 = icmp eq i64 %.pre224.pre.pre.pre.i, 0
-  %or.cond251.i = select i1 %234, i1 true, i1 %235
-  br i1 %or.cond251.i, label %236, label %238
+  %.pre223.pre.pre.pre.i = load i64, ptr %102, align 8
+  %235 = icmp eq i64 %.pre223.pre.pre.pre.i, 0
+  %or.cond250.i = select i1 %234, i1 true, i1 %235
+  br i1 %or.cond250.i, label %236, label %238
 
 236:                                              ; preds = %226
   store double %232, ptr %101, align 8
@@ -31628,8 +31628,8 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 238:                                              ; preds = %236, %226
   %239 = load double, ptr %104, align 8
   %240 = fcmp olt double %232, %239
-  %or.cond252.i = select i1 %240, i1 true, i1 %235
-  br i1 %or.cond252.i, label %241, label %243
+  %or.cond251.i = select i1 %240, i1 true, i1 %235
+  br i1 %or.cond251.i, label %241, label %243
 
 241:                                              ; preds = %238
   store double %232, ptr %104, align 8
@@ -31641,13 +31641,13 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %244 = load double, ptr %106, align 8
   %245 = fadd double %232, %244
   store double %245, ptr %106, align 8
-  %246 = add i64 %.pre224.pre.pre.pre.i, 1
+  %246 = add i64 %.pre223.pre.pre.pre.i, 1
   store i64 %246, ptr %102, align 8
   br label %315
 
 247:                                              ; preds = %111
   %248 = load ptr, ptr %98, align 8
-  %249 = getelementptr ptr, ptr %248, i64 %indvars.iv221.i
+  %249 = getelementptr ptr, ptr %248, i64 %indvars.iv220.i
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 48
   %252 = load ptr, ptr %251, align 8
@@ -31669,8 +31669,8 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   %262 = sdiv i32 %261, 1000
   %263 = sext i32 %262 to i64
   %264 = add i64 %259, %263
-  %.not212.i = icmp eq i64 %264, 0
-  br i1 %.not212.i, label %.thread.i, label %.lr.ph.preheader.i
+  %.not211.i = icmp eq i64 %264, 0
+  br i1 %.not211.i, label %.thread.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %257
   %265 = load i64, ptr %107, align 8
@@ -31685,10 +31685,10 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 
 .lr.ph.i:                                         ; preds = %289, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %12, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %289 ]
-  %.1195214.i = phi i64 [ %spec.select.i, %.lr.ph.preheader.i ], [ %..i, %289 ]
-  %.0196213.i = phi i64 [ %264, %.lr.ph.preheader.i ], [ %290, %289 ]
+  %.1195213.i = phi i64 [ %spec.select.i, %.lr.ph.preheader.i ], [ %..i, %289 ]
+  %.0196212.i = phi i64 [ %264, %.lr.ph.preheader.i ], [ %290, %289 ]
   %272 = getelementptr %struct._io_graph_item_t, ptr %80, i64 %indvars.iv.i
-  %273 = trunc nuw i64 %.1195214.i to i32
+  %273 = trunc nuw i64 %.1195213.i to i32
   %274 = mul i32 %273, 1000
   %275 = getelementptr inbounds nuw i8, ptr %272, i64 64
   %276 = load i32, ptr %275, align 8
@@ -31716,7 +31716,7 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
 
 289:                                              ; preds = %284
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %290 = sub i64 %.0196213.i, %.1195214.i
+  %290 = sub i64 %.0196212.i, %.1195213.i
   %..i = call i64 @llvm.umin.i64(i64 %290, i64 %109)
   %.not.i68 = icmp eq i64 %290, 0
   br i1 %.not.i68, label %.thread.i, label %.lr.ph.i
@@ -31778,10 +31778,10 @@ _ZNSt6vectorI16_io_graph_item_tSaIS0_EEixEm.exit: ; preds = %75
   unreachable
 
 315:                                              ; preds = %311, %307, %.thread.i, %243, %222, %198, %176, %154, %131
-  %indvars.iv.next222.i = add nuw nsw i64 %indvars.iv221.i, 1
+  %indvars.iv.next221.i = add nuw nsw i64 %indvars.iv220.i, 1
   %316 = load i32, ptr %99, align 8
   %317 = zext i32 %316 to i64
-  %318 = icmp samesign ult i64 %indvars.iv.next222.i, %317
+  %318 = icmp samesign ult i64 %indvars.iv.next221.i, %317
   br i1 %318, label %111, label %_ZL20update_io_graph_itemP16_io_graph_item_tiP12_packet_infoP12epan_dissectiij.exit, !llvm.loop !240
 
 _ZL20update_io_graph_itemP16_io_graph_item_tiP12_packet_infoP12epan_dissectiij.exit: ; preds = %315, %._crit_edge.i, %.preheader.i

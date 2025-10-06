@@ -2642,7 +2642,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %202 = and i32 %158, 2
   %203 = icmp eq i32 %202, 0
   %204 = or i1 %203, %201
-  br i1 %204, label %205, label %.thread47
+  br i1 %204, label %205, label %.thread48
 
 205:                                              ; preds = %197
   %206 = load i16, ptr %3, align 8
@@ -2652,7 +2652,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %210 = or i1 %209, %207
   br i1 %210, label %285, label %216
 
-.thread47:                                        ; preds = %197
+.thread48:                                        ; preds = %197
   tail call void @intel_gmbus_irq_handler(ptr noundef %0) #8
   %211 = load i16, ptr %3, align 8
   %212 = icmp ult i16 %211, 11
@@ -2661,7 +2661,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   %215 = or i1 %214, %212
   br i1 %215, label %.thread, label %216
 
-216:                                              ; preds = %.thread47, %205
+216:                                              ; preds = %.thread48, %205
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %218 = load ptr, ptr %217, align 8
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 64
@@ -2801,7 +2801,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   tail call void (ptr, ptr, ...) @_dev_err(ptr noundef %306, ptr noundef nonnull @.str.18) #9
   br label %.thread
 
-.thread:                                          ; preds = %.thread47, %276, %274, %250, %305, %297, %295, %287, %285, %151
+.thread:                                          ; preds = %.thread48, %276, %274, %250, %305, %297, %295, %287, %285, %151
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 7368
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 7512
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 7544
@@ -2976,17 +2976,14 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
 412:                                              ; preds = %409
   %413 = getelementptr inbounds nuw i8, ptr %0, i64 8112
   %414 = load i32, ptr %413, align 8
-  switch i32 %414, label %415 [
-    i32 0, label %465
-    i32 -1, label %465
-  ]
-
-415:                                              ; preds = %412
+  %415 = add i32 %414, 1
+  %switch = icmp ult i32 %415, 2
   %416 = and i32 %1, 8388608
   %417 = icmp eq i32 %416, 0
-  br i1 %417, label %465, label %418
+  %or.cond = or i1 %417, %switch
+  br i1 %or.cond, label %465, label %418
 
-418:                                              ; preds = %415
+418:                                              ; preds = %412
   %419 = load ptr, ptr %308, align 8
   %420 = tail call i32 %419(ptr noundef nonnull %307, i32 802824, i1 noundef zeroext true) #8
   %421 = icmp eq i32 %420, 0
@@ -2994,9 +2991,9 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
 
 422:                                              ; preds = %418
   %423 = icmp sgt i32 %420, -1
-  br i1 %423, label %.thread23, label %425
+  br i1 %423, label %.thread24, label %425
 
-.thread23:                                        ; preds = %422
+.thread24:                                        ; preds = %422
   %424 = load ptr, ptr %309, align 8
   tail call void %424(ptr noundef nonnull %307, i32 802824, i32 noundef %420, i1 noundef zeroext true) #8
   br label %453
@@ -3056,7 +3053,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   tail call void @xelpdp_pica_irq_handler(ptr noundef %0, i32 noundef %444) #8
   br label %453
 
-453:                                              ; preds = %.thread23, %452, %450
+453:                                              ; preds = %.thread24, %452, %450
   %454 = load i32, ptr %413, align 8
   %455 = icmp sgt i32 %454, 5
   br i1 %455, label %456, label %457
@@ -3089,7 +3086,7 @@ define dso_local void @gen8_de_irq_handler(ptr noundef %0, i32 noundef %1) local
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %464, i32 noundef 1, ptr noundef nonnull @.str.23) #8
   br label %465
 
-465:                                              ; preds = %463, %460, %459, %456, %415, %412, %412
+465:                                              ; preds = %412, %463, %460, %459, %456
   ret void
 }
 

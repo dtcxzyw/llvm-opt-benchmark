@@ -281,8 +281,8 @@ define noundef ptr @_ZNK5draco10PointCloud27GetNamedAttributeByUniqueIdENS_17Geo
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = load ptr, ptr %6, align 8, !tbaa !11
-  %.not12.not = icmp eq ptr %8, %9
-  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %8, %9
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %10 = ptrtoint ptr %8 to i64
@@ -294,13 +294,13 @@ define noundef ptr @_ZNK5draco10PointCloud27GetNamedAttributeByUniqueIdENS_17Geo
   br label %18
 
 16:                                               ; preds = %18
-  %17 = add nuw i64 %.01013, 1
+  %17 = add nuw i64 %.01014, 1
   %exitcond.not = icmp eq i64 %17, %13
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !19
 
 18:                                               ; preds = %.lr.ph, %16
-  %.01013 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
-  %19 = getelementptr inbounds nuw i32, ptr %9, i64 %.01013
+  %.01014 = phi i64 [ 0, %.lr.ph ], [ %17, %16 ]
+  %19 = getelementptr inbounds nuw i32, ptr %9, i64 %.01014
   %20 = load i32, ptr %19, align 4, !tbaa !12
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %15, i64 %21
@@ -310,9 +310,9 @@ define noundef ptr @_ZNK5draco10PointCloud27GetNamedAttributeByUniqueIdENS_17Geo
   %26 = icmp eq i32 %25, %2
   br i1 %26, label %._crit_edge, label %16
 
-._crit_edge:                                      ; preds = %16, %18, %3
-  %spec.select = phi ptr [ null, %3 ], [ %23, %18 ], [ null, %16 ]
-  ret ptr %spec.select
+._crit_edge:                                      ; preds = %18, %16, %3
+  %27 = phi ptr [ null, %3 ], [ null, %16 ], [ %23, %18 ]
+  ret ptr %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -321,8 +321,8 @@ define noundef ptr @_ZNK5draco10PointCloud22GetAttributeByUniqueIdEj(ptr noundef
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = load ptr, ptr %3, align 8, !tbaa !14
-  %.not10.not.i = icmp eq ptr %5, %6
-  br i1 %.not10.not.i, label %_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit.thread, label %.lr.ph.preheader.i
+  %.not.i = icmp eq ptr %5, %6
+  br i1 %.not.i, label %_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %2
   %7 = ptrtoint ptr %5 to i64
@@ -332,8 +332,8 @@ define noundef ptr @_ZNK5draco10PointCloud22GetAttributeByUniqueIdEj(ptr noundef
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %16, %.lr.ph.preheader.i
-  %.0711.i = phi i64 [ %17, %16 ], [ 0, %.lr.ph.preheader.i ]
-  %11 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %6, i64 %.0711.i
+  %.0712.i = phi i64 [ %17, %16 ], [ 0, %.lr.ph.preheader.i ]
+  %11 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %6, i64 %.0712.i
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 60
   %14 = load i32, ptr %13, align 4, !tbaa !21
@@ -341,17 +341,17 @@ define noundef ptr @_ZNK5draco10PointCloud22GetAttributeByUniqueIdEj(ptr noundef
   br i1 %15, label %_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit, label %16
 
 16:                                               ; preds = %.lr.ph.i
-  %17 = add nuw i64 %.0711.i, 1
+  %17 = add nuw i64 %.0712.i, 1
   %exitcond.not.i = icmp eq i64 %17, %10
   br i1 %exitcond.not.i, label %_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit.thread, label %.lr.ph.i, !llvm.loop !30
 
 _ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit: ; preds = %.lr.ph.i
-  %18 = and i64 %.0711.i, 4294967295
+  %18 = and i64 %.0712.i, 4294967295
   %19 = icmp eq i64 %18, 4294967295
   br i1 %19, label %_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit.thread, label %20
 
 20:                                               ; preds = %_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj.exit
-  %sext = shl i64 %.0711.i, 32
+  %sext = shl i64 %.0712.i, 32
   %21 = ashr exact i64 %sext, 29
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !17
@@ -368,8 +368,8 @@ define noundef i32 @_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !29
   %6 = load ptr, ptr %3, align 8, !tbaa !14
-  %.not10.not = icmp eq ptr %5, %6
-  br i1 %.not10.not, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %7 = ptrtoint ptr %5 to i64
@@ -378,27 +378,27 @@ define noundef i32 @_ZNK5draco10PointCloud24GetAttributeIdByUniqueIdEj(ptr nound
   %10 = ashr exact i64 %9, 3
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %18
-  %.0711 = phi i64 [ %19, %18 ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %6, i64 %.0711
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %16
+  %.0712 = phi i64 [ %17, %16 ], [ 0, %.lr.ph.preheader ]
+  %11 = getelementptr inbounds nuw %"class.std::unique_ptr.7", ptr %6, i64 %.0712
   %12 = load ptr, ptr %11, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 60
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = icmp eq i32 %14, %1
-  br i1 %15, label %16, label %18
+  br i1 %15, label %18, label %16
 
 16:                                               ; preds = %.lr.ph
-  %17 = trunc i64 %.0711 to i32
-  br label %.loopexit
-
-18:                                               ; preds = %.lr.ph
-  %19 = add nuw i64 %.0711, 1
-  %exitcond.not = icmp eq i64 %19, %10
+  %17 = add nuw i64 %.0712, 1
+  %exitcond.not = icmp eq i64 %17, %10
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !30
 
-.loopexit:                                        ; preds = %18, %2, %16
-  %spec.select = phi i32 [ %17, %16 ], [ -1, %2 ], [ -1, %18 ]
-  ret i32 %spec.select
+18:                                               ; preds = %.lr.ph
+  %19 = trunc i64 %.0712 to i32
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %16, %2, %18
+  %20 = phi i32 [ %19, %18 ], [ -1, %2 ], [ -1, %16 ]
+  ret i32 %20
 }
 
 ; Function Attrs: mustprogress uwtable

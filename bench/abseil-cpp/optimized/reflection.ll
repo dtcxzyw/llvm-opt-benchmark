@@ -243,8 +243,8 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i:   ; preds = %45
 
 51:                                               ; preds = %.critedge.thread
   %52 = extractvalue { ptr, ptr } %50, 0
-  %.not26 = icmp eq ptr %52, null
-  br i1 %.not26, label %57, label %53
+  %.not25 = icmp eq ptr %52, null
+  br i1 %.not25, label %57, label %53
 
 53:                                               ; preds = %51
   %54 = extractvalue { ptr, ptr } %50, 1

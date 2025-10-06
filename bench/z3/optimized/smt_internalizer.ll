@@ -8923,18 +8923,18 @@ define hidden noundef zeroext i1 @_ZN3smt7context10has_lambdaEv(ptr noundef nonn
 _ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %9, %1
   %.sroa.0.1.i.i = phi ptr [ %3, %1 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %7, %9 ]
   %11 = getelementptr inbounds nuw %"class.obj_map<smt::enode, quantifier *>::obj_map_entry", ptr %3, i64 %6
-  %.not3440.not = icmp eq ptr %.sroa.0.1.i.i, %11
-  br i1 %.not3440.not, label %.thread, label %.lr.ph43
+  %.not3642.not = icmp eq ptr %.sroa.0.1.i.i, %11
+  br i1 %.not3642.not, label %.loopexit, label %.lr.ph45
 
-.lr.ph43:                                         ; preds = %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
-  %.sroa.029.041 = phi ptr [ %.sroa.029.2, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %.sroa.0.1.i.i, %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit ]
-  %12 = load ptr, ptr %.sroa.029.041, align 8, !tbaa !683
+.lr.ph45:                                         ; preds = %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit
+  %.sroa.029.043 = phi ptr [ %.sroa.029.2, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %.sroa.0.1.i.i, %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit ]
+  %12 = load ptr, ptr %.sroa.029.043, align 8, !tbaa !683
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !749
   %.not.not.not = icmp ne i32 %14, 1
-  br i1 %.not.not.not, label %.thread, label %15
+  br i1 %.not.not.not, label %.loopexit, label %15
 
-15:                                               ; preds = %.lr.ph43
+15:                                               ; preds = %.lr.ph45
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !522
   %18 = icmp eq ptr %17, null
@@ -8946,23 +8946,23 @@ _ZNK3smt5enode7parents3endEv.exit:                ; preds = %15
   %21 = zext i32 %20 to i64
   %22 = shl nuw nsw i64 %21, 3
   %23 = getelementptr inbounds nuw i8, ptr %17, i64 %22
-  %.not2438 = icmp eq i32 %20, 0
-  br i1 %.not2438, label %._crit_edge, label %.lr.ph
+  %.not2440 = icmp eq i32 %20, 0
+  br i1 %.not2440, label %._crit_edge, label %.lr.ph
 
 24:                                               ; preds = %.lr.ph
-  %25 = getelementptr inbounds nuw i8, ptr %.02339, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %.02341, i64 8
   %.not24 = icmp eq ptr %25, %23
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3smt5enode7parents3endEv.exit, %24
-  %.02339 = phi ptr [ %25, %24 ], [ %17, %_ZNK3smt5enode7parents3endEv.exit ]
-  %26 = load ptr, ptr %.02339, align 8, !tbaa !523
-  %27 = load ptr, ptr %.sroa.029.041, align 8, !tbaa !683
+  %.02341 = phi ptr [ %25, %24 ], [ %17, %_ZNK3smt5enode7parents3endEv.exit ]
+  %26 = load ptr, ptr %.02341, align 8, !tbaa !523
+  %27 = load ptr, ptr %.sroa.029.043, align 8, !tbaa !683
   %28 = tail call noundef zeroext i1 @_ZNK3smt7context13is_beta_redexEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(10544) %0, ptr noundef %26, ptr noundef %27)
-  br i1 %28, label %24, label %.thread
+  br i1 %28, label %24, label %.loopexit
 
 ._crit_edge:                                      ; preds = %24, %15, %_ZNK3smt5enode7parents3endEv.exit
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.029.041, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.sroa.029.043, i64 16
   %.not1.i.i = icmp eq ptr %29, %7
   br i1 %.not1.i.i, label %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, label %.lr.ph.i.i
 
@@ -8979,12 +8979,12 @@ _ZNK3smt5enode7parents3endEv.exit:                ; preds = %15
 
 _ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit: ; preds = %.lr.ph.i.i, %31, %._crit_edge
   %.sroa.029.2 = phi ptr [ %29, %._crit_edge ], [ %.sroa.029.1, %.lr.ph.i.i ], [ %32, %31 ]
-  %.not34.not = icmp eq ptr %.sroa.029.2, %11
-  br i1 %.not34.not, label %.thread, label %.lr.ph43
+  %.not36.not = icmp eq ptr %.sroa.029.2, %11
+  br i1 %.not36.not, label %.loopexit, label %.lr.ph45
 
-.thread:                                          ; preds = %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, %.lr.ph43, %.lr.ph, %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit
-  %.not3437 = phi i1 [ false, %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit ], [ true, %.lr.ph ], [ %.not.not.not, %.lr.ph43 ], [ %.not.not.not, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ]
-  ret i1 %.not3437
+.loopexit:                                        ; preds = %.lr.ph45, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit, %.lr.ph, %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit
+  %.not3639 = phi i1 [ false, %_ZNK7obj_mapIN3smt5enodeEP10quantifierE5beginEv.exit ], [ true, %.lr.ph ], [ %.not.not.not, %_ZN14core_hashtableIN7obj_mapIN3smt5enodeEP10quantifierE13obj_map_entryE8obj_hashINS5_8key_dataEE10default_eqIS8_EE8iteratorppEv.exit ], [ %.not.not.not, %.lr.ph45 ]
+  ret i1 %.not3639
 }
 
 declare noundef zeroext i1 @_ZNK3smt7context13is_beta_redexEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(10544), ptr noundef, ptr noundef) local_unnamed_addr #0

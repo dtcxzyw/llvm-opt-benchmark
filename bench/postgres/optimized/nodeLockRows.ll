@@ -183,13 +183,13 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %37 = load i32, ptr %32, align 4
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph214, label %.loopexit
+  br i1 %38, label %.lr.ph212, label %.loopexit
 
-.lr.ph214:                                        ; preds = %.lr.ph, %.thread98
-  %.067133213 = phi i1 [ %.2101, %.thread98 ], [ false, %.lr.ph ]
-  %indvars.iv212 = phi i64 [ %indvars.iv.next, %.thread98 ], [ 0, %.lr.ph ]
+.lr.ph212:                                        ; preds = %.lr.ph, %.thread98
+  %.067131211 = phi i1 [ %.2101, %.thread98 ], [ false, %.lr.ph ]
+  %indvars.iv210 = phi i64 [ %indvars.iv.next, %.thread98 ], [ 0, %.lr.ph ]
   %39 = load ptr, ptr %33, align 8
-  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv212
+  %40 = getelementptr inbounds nuw %union.ListCell, ptr %39, i64 %indvars.iv210
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %41, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -209,7 +209,7 @@ ExecProcNode.exit:                                ; preds = %.backedge, %21
   %.not84 = icmp eq i32 %51, %53
   br i1 %.not84, label %.thread, label %54
 
-54:                                               ; preds = %.lr.ph214
+54:                                               ; preds = %.lr.ph212
   %55 = getelementptr inbounds nuw i8, ptr %41, i64 10
   %56 = load i16, ptr %55, align 2
   %57 = sext i16 %56 to i32
@@ -257,7 +257,7 @@ ExecGetJunkAttribute.exit:                        ; preds = %54, %slot_getsomeat
   store i16 0, ptr %80, align 2
   br label %.thread98
 
-.thread:                                          ; preds = %69, %.lr.ph214
+.thread:                                          ; preds = %69, %.lr.ph212
   %81 = getelementptr inbounds nuw i8, ptr %42, i64 36
   store i8 1, ptr %81, align 4
   %82 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -370,7 +370,7 @@ switch.lookup:                                    ; preds = %123
 142:                                              ; preds = %switch.lookup
   %143 = load i8, ptr %18, align 4, !range !4, !noundef !5
   %144 = trunc nuw i8 %143 to i1
-  %spec.select89 = select i1 %144, i1 true, i1 %.067133213
+  %spec.select89 = select i1 %144, i1 true, i1 %.067131211
   %145 = getelementptr inbounds nuw i8, ptr %42, i64 38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %145, ptr noundef nonnull align 2 dereferenceable(6) %2, i64 6, i1 false)
   br label %.thread98
@@ -419,19 +419,19 @@ switch.lookup:                                    ; preds = %123
 168:                                              ; preds = %119
   %169 = load i8, ptr %4, align 1, !range !4, !noundef !5
   %170 = trunc nuw i8 %169 to i1
-  %spec.select = select i1 %170, i1 true, i1 %.067133213
+  %spec.select = select i1 %170, i1 true, i1 %.067131211
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread98
 
 .thread98:                                        ; preds = %76, %142, %168
-  %.2101 = phi i1 [ %spec.select, %168 ], [ %.067133213, %76 ], [ %spec.select89, %142 ]
+  %.2101 = phi i1 [ %spec.select, %168 ], [ %.067131211, %76 ], [ %spec.select89, %142 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv212, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv210, 1
   %171 = load i32, ptr %32, align 4
   %172 = sext i32 %171 to i64
   %173 = icmp slt i64 %indvars.iv.next, %172
-  br i1 %173, label %.lr.ph214, label %._crit_edge
+  br i1 %173, label %.lr.ph212, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread98
   br i1 %.2101, label %174, label %.loopexit

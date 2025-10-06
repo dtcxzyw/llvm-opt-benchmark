@@ -528,7 +528,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
   br i1 %141, label %142, label %156
 
 142:                                              ; preds = %140
-  %143 = icmp ugt i32 %138, 1048575
+  %143 = icmp slt i32 %138, 0
   br i1 %143, label %144, label %150
 
 144:                                              ; preds = %142
@@ -541,7 +541,7 @@ define internal fastcc noundef range(i32 -2147483645, -2147483648) i32 @_ZN11duc
 
 150:                                              ; preds = %142
   %151 = lshr i64 %135, 16
-  %152 = and i64 %151, 15
+  %152 = and i64 %151, 32767
   %153 = getelementptr inbounds nuw i32, ptr @_ZN11duckdb_zstdL8lg_tableE, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !3
   %155 = add nsw i32 %154, 16

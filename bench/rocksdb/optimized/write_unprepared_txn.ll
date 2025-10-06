@@ -559,27 +559,27 @@ define noundef zeroext i1 @_ZN7rocksdb30WriteUnpreparedTxnReadCallback18IsVisibl
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.not2223 = icmp eq ptr %7, %8
-  br i1 %.not2223, label %._crit_edge, label %.lr.ph
+  %.not2021 = icmp eq ptr %7, %8
+  br i1 %.not2021, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.sroa.016.024 = phi ptr [ %16, %.critedge ], [ %7, %2 ]
-  %9 = getelementptr inbounds nuw i8, ptr %.sroa.016.024, i64 32
+  %.sroa.016.022 = phi ptr [ %16, %.critedge ], [ %7, %2 ]
+  %9 = getelementptr inbounds nuw i8, ptr %.sroa.016.022, i64 32
   %10 = load i64, ptr %9, align 8, !tbaa !29
   %.not = icmp ugt i64 %10, %1
   br i1 %.not, label %.critedge, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.sroa.016.024, i64 40
+  %12 = getelementptr inbounds nuw i8, ptr %.sroa.016.022, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !31
   %14 = add i64 %13, %10
   %15 = icmp ult i64 %1, %14
   br i1 %15, label %.loopexit, label %.critedge
 
 .critedge:                                        ; preds = %11, %.lr.ph
-  %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.024) #27
-  %.not22 = icmp eq ptr %16, %8
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %16 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.016.022) #27
+  %.not20 = icmp eq ptr %16, %8
+  br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.critedge, %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

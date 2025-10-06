@@ -1967,48 +1967,48 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolve
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 680
   %4 = load i8, ptr %3, align 8, !tbaa !70, !range !77, !noundef !78
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit66, label %6
+  br i1 %5, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit67, label %6
 
 6:                                                ; preds = %2
   %7 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver8gcdIsOneEm(ptr noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %1)
-  br i1 %7, label %8, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit66
+  br i1 %7, label %8, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit67
 
 8:                                                ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %11 = load ptr, ptr %10, align 8, !tbaa !93
   %12 = load ptr, ptr %9, align 8, !tbaa !96
-  %.not9.not.i60 = icmp eq ptr %11, %12
-  br i1 %.not9.not.i60, label %.loopexit, label %.lr.ph.preheader.i61
+  %.not.i61 = icmp eq ptr %11, %12
+  br i1 %.not.i61, label %.loopexit, label %.lr.ph.preheader.i62
 
-.lr.ph.preheader.i61:                             ; preds = %8
+.lr.ph.preheader.i62:                             ; preds = %8
   %13 = ptrtoint ptr %11 to i64
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = sdiv exact i64 %15, 24
-  br label %.lr.ph.i62
+  br label %.lr.ph.i63
 
-17:                                               ; preds = %.lr.ph.i62
-  %18 = add nuw i64 %.0810.i63, 1
-  %exitcond.not.i64 = icmp eq i64 %18, %16
-  br i1 %exitcond.not.i64, label %.loopexit, label %.lr.ph.i62, !llvm.loop !127
+17:                                               ; preds = %.lr.ph.i63
+  %18 = add nuw i64 %.0810.i64, 1
+  %exitcond.not.i65 = icmp eq i64 %18, %16
+  br i1 %exitcond.not.i65, label %.loopexit, label %.lr.ph.i63, !llvm.loop !127
 
-.lr.ph.i62:                                       ; preds = %17, %.lr.ph.preheader.i61
-  %.0810.i63 = phi i64 [ %18, %17 ], [ 0, %.lr.ph.preheader.i61 ]
-  %19 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull readonly align 8 dereferenceable(1032) %0, i64 noundef %.0810.i63, i64 noundef %1)
-  br i1 %19, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit66, label %17
+.lr.ph.i63:                                       ; preds = %17, %.lr.ph.preheader.i62
+  %.0810.i64 = phi i64 [ %18, %17 ], [ 0, %.lr.ph.preheader.i62 ]
+  %19 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver24debugSubstitutionAppliesEmm(ptr noundef nonnull readonly align 8 dereferenceable(1032) %0, i64 noundef %.0810.i64, i64 noundef %1)
+  br i1 %19, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit67, label %17
 
 .loopexit:                                        ; preds = %17, %8
   %20 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver12triviallySatEm(ptr noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %1)
-  br i1 %20, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit66, label %21
+  br i1 %20, label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit67, label %21
 
 21:                                               ; preds = %.loopexit
   %22 = tail call noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolver14triviallyUnsatEm(ptr noundef nonnull align 8 dereferenceable(1032) %0, i64 noundef %1)
   %23 = xor i1 %22, true
-  br label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit66
+  br label %_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit67
 
-_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit66: ; preds = %.lr.ph.i62, %21, %.loopexit, %6, %2
-  %24 = phi i1 [ false, %.loopexit ], [ false, %6 ], [ false, %2 ], [ %23, %21 ], [ false, %.lr.ph.i62 ]
+_ZN4cvc58internal6theory5arith6linear9DioSolver25debugAnySubstitionAppliesEm.exit67: ; preds = %.lr.ph.i63, %21, %.loopexit, %6, %2
+  %24 = phi i1 [ false, %.loopexit ], [ false, %6 ], [ false, %2 ], [ %23, %21 ], [ false, %.lr.ph.i63 ]
   ret i1 %24
 }
 
@@ -2101,8 +2101,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolve
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %5 = load ptr, ptr %4, align 8, !tbaa !93
   %6 = load ptr, ptr %3, align 8, !tbaa !96
-  %.not9.not = icmp eq ptr %5, %6
-  br i1 %.not9.not, label %._crit_edge, label %.lr.ph.preheader
+  %.not = icmp eq ptr %5, %6
+  br i1 %.not, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %7 = ptrtoint ptr %5 to i64
@@ -2120,8 +2120,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolve
   br i1 %or.cond, label %._crit_edge, label %.lr.ph, !llvm.loop !127
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %11, %.lr.ph ]
-  ret i1 %.not.lcssa
+  %.lcssa = phi i1 [ false, %2 ], [ %11, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -10875,8 +10875,8 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith6linear9DioSolve
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %.old = load i8, ptr %9, align 8, !tbaa !70, !range !77, !noundef !78
-  %.old88 = trunc nuw i8 %.old to i1
-  br i1 %.old88, label %.critedge, label %.preheader
+  %.old87 = trunc nuw i8 %.old to i1
+  br i1 %.old87, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %.lr.ph, %_ZN4cvc58internal6theory5arith6linear9DioSolver9saveQueueEv.exit
   call void @_ZN4cvc58internal6theory5arith6linear9DioSolver28moveMinimumByAbsToQueueFrontEv(ptr noundef nonnull align 8 dereferenceable(1032) %0)

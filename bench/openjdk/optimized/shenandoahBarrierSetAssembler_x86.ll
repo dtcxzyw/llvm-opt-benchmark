@@ -1717,16 +1717,15 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP
   br label %82
 
 82:                                               ; preds = %81, %62
-  switch i32 %2, label %83 [
-    i32 -1, label %84
-    i32 0, label %84
-  ]
+  %.off = add i32 %2, -1
+  %switch = icmp ult i32 %.off, -2
+  br i1 %switch, label %83, label %84
 
 83:                                               ; preds = %82
   call void @_ZN9Assembler4pushE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2) #6
   br label %84
 
-84:                                               ; preds = %82, %82, %83
+84:                                               ; preds = %82, %83
   %.not108 = icmp eq i32 %3, 0
   br i1 %.not108, label %.thread, label %85
 
@@ -1766,16 +1765,13 @@ define hidden void @_ZN29ShenandoahBarrierSetAssembler22satb_write_barrier_preEP
   br label %93
 
 93:                                               ; preds = %92, %91
-  switch i32 %2, label %94 [
-    i32 -1, label %95
-    i32 0, label %95
-  ]
+  br i1 %switch, label %94, label %95
 
 94:                                               ; preds = %93
   call void @_ZN9Assembler3popE8Register(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 %2) #6
   br label %95
 
-95:                                               ; preds = %93, %93, %94
+95:                                               ; preds = %93, %94
   br i1 %6, label %96, label %97
 
 96:                                               ; preds = %95

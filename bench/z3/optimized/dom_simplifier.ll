@@ -4899,27 +4899,27 @@ _ZN6vectorIP4exprLb0EjED2Ev.exit:                 ; preds = %._crit_edge.thread1
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_128expr_substitution_simplifier5is_gtEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #3 align 2 {
   %4 = icmp eq ptr %1, %2
-  br i1 %4, label %.thread100, label %.lr.ph130
+  br i1 %4, label %.thread100, label %.lr.ph129
 
-.lr.ph130:                                        ; preds = %3
+.lr.ph129:                                        ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = load ptr, ptr %5, align 8, !tbaa !132
   %9 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %8, ptr noundef %2)
-  br i1 %9, label %.thread100, label %.lr.ph238
+  br i1 %9, label %.thread100, label %.lr.ph237
 
 tailrecurse.loopexit.loopexit:                    ; preds = %129
   %10 = load ptr, ptr %5, align 8, !tbaa !132
   %11 = tail call noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976) %10, ptr noundef %133)
-  br i1 %11, label %.thread100, label %.lr.ph238
+  br i1 %11, label %.thread100, label %.lr.ph237
 
-.lr.ph238:                                        ; preds = %.lr.ph130, %tailrecurse.loopexit.loopexit
-  %.tr104127237 = phi ptr [ %131, %tailrecurse.loopexit.loopexit ], [ %1, %.lr.ph130 ]
-  %.tr105128236 = phi ptr [ %133, %tailrecurse.loopexit.loopexit ], [ %2, %.lr.ph130 ]
+.lr.ph237:                                        ; preds = %.lr.ph129, %tailrecurse.loopexit.loopexit
+  %.tr103126236 = phi ptr [ %131, %tailrecurse.loopexit.loopexit ], [ %1, %.lr.ph129 ]
+  %.tr104127235 = phi ptr [ %133, %tailrecurse.loopexit.loopexit ], [ %2, %.lr.ph129 ]
   %.val = load ptr, ptr %6, align 8, !tbaa !50
   %.val41 = load i32, ptr %7, align 8, !tbaa !47
-  %12 = getelementptr inbounds nuw i8, ptr %.tr104127237, i64 12
+  %12 = getelementptr inbounds nuw i8, ptr %.tr103126236, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !46
   %14 = add i32 %.val41, -1
   %15 = and i32 %13, %14
@@ -4931,8 +4931,8 @@ tailrecurse.loopexit.loopexit:                    ; preds = %129
   %.not35.i.i.i.i.i = icmp eq i32 %15, %.val41
   br i1 %.not35.i.i.i.i.i, label %.lr.ph39.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph238, %26
-  %.036.i.i.i.i.i = phi ptr [ %27, %26 ], [ %17, %.lr.ph238 ]
+.lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph237, %26
+  %.036.i.i.i.i.i = phi ptr [ %27, %26 ], [ %17, %.lr.ph237 ]
   %20 = load ptr, ptr %.036.i.i.i.i.i, align 8, !tbaa !51
   %cond.i.i.i = icmp eq ptr %20, inttoptr (i64 1 to ptr)
   br i1 %cond.i.i.i, label %26, label %21
@@ -4941,7 +4941,7 @@ tailrecurse.loopexit.loopexit:                    ; preds = %129
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %23 = load i32, ptr %22, align 4, !tbaa !46
   %24 = icmp eq i32 %23, %13
-  %25 = icmp eq ptr %20, %.tr104127237
+  %25 = icmp eq ptr %20, %.tr103126236
   %or.cond.i.i.i.i.i = and i1 %25, %24
   br i1 %or.cond.i.i.i.i.i, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit, label %26
 
@@ -4950,7 +4950,7 @@ tailrecurse.loopexit.loopexit:                    ; preds = %129
   %.not.i.i.i.i.i = icmp eq ptr %27, %19
   br i1 %.not.i.i.i.i.i, label %.lr.ph39.i.i.i.i.i.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !53
 
-.lr.ph39.i.i.i.i.i.preheader:                     ; preds = %26, %.lr.ph238
+.lr.ph39.i.i.i.i.i.preheader:                     ; preds = %26, %.lr.ph237
   br label %.lr.ph39.i.i.i.i.i
 
 .lr.ph39.i.i.i.i.i:                               ; preds = %.lr.ph39.i.i.i.i.i.preheader, %34
@@ -4963,7 +4963,7 @@ tailrecurse.loopexit.loopexit:                    ; preds = %129
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %31 = load i32, ptr %30, align 4, !tbaa !46
   %32 = icmp eq i32 %31, %13
-  %33 = icmp eq ptr %28, %.tr104127237
+  %33 = icmp eq ptr %28, %.tr103126236
   %or.cond31.i.i.i.i.i = and i1 %33, %32
   br i1 %or.cond31.i.i.i.i.i, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit, label %34
 
@@ -4975,7 +4975,7 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit: ; preds = %21
   %.026.i.i.i.i.i = phi ptr [ %.138.i.i.i.i.i, %29 ], [ %.036.i.i.i.i.i, %21 ]
   %36 = getelementptr inbounds nuw i8, ptr %.026.i.i.i.i.i, i64 8
   %37 = load i32, ptr %36, align 4, !tbaa !16
-  %38 = getelementptr inbounds nuw i8, ptr %.tr105128236, i64 12
+  %38 = getelementptr inbounds nuw i8, ptr %.tr104127235, i64 12
   %39 = load i32, ptr %38, align 4, !tbaa !46
   %40 = and i32 %39, %14
   %41 = zext i32 %40 to i64
@@ -4994,7 +4994,7 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit: ; preds = %21
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %46 = load i32, ptr %45, align 4, !tbaa !46
   %47 = icmp eq i32 %46, %39
-  %48 = icmp eq ptr %43, %.tr105128236
+  %48 = icmp eq ptr %43, %.tr104127235
   %or.cond.i.i.i.i.i53 = and i1 %48, %47
   br i1 %or.cond.i.i.i.i.i53, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit64, label %49
 
@@ -5016,7 +5016,7 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit: ; preds = %21
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %54 = load i32, ptr %53, align 4, !tbaa !46
   %55 = icmp eq i32 %54, %39
-  %56 = icmp eq ptr %51, %.tr105128236
+  %56 = icmp eq ptr %51, %.tr104127235
   %or.cond31.i.i.i.i.i61 = and i1 %56, %55
   br i1 %or.cond31.i.i.i.i.i61, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit64, label %57
 
@@ -5044,7 +5044,7 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit64: ; preds = %
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %66 = load i32, ptr %65, align 4, !tbaa !46
   %67 = icmp eq i32 %66, %13
-  %68 = icmp eq ptr %63, %.tr104127237
+  %68 = icmp eq ptr %63, %.tr103126236
   %or.cond.i.i.i.i.i70 = and i1 %68, %67
   br i1 %or.cond.i.i.i.i.i70, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit81, label %69
 
@@ -5066,7 +5066,7 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit64: ; preds = %
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 12
   %74 = load i32, ptr %73, align 4, !tbaa !46
   %75 = icmp eq i32 %74, %13
-  %76 = icmp eq ptr %71, %.tr104127237
+  %76 = icmp eq ptr %71, %.tr103126236
   %or.cond31.i.i.i.i.i78 = and i1 %76, %75
   br i1 %or.cond31.i.i.i.i.i78, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit81, label %77
 
@@ -5090,7 +5090,7 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit81: ; preds = %
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 12
   %84 = load i32, ptr %83, align 4, !tbaa !46
   %85 = icmp eq i32 %84, %39
-  %86 = icmp eq ptr %81, %.tr105128236
+  %86 = icmp eq ptr %81, %.tr104127235
   %or.cond.i.i.i.i.i87 = and i1 %86, %85
   br i1 %or.cond.i.i.i.i.i87, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98, label %87
 
@@ -5112,7 +5112,7 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit81: ; preds = %
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 12
   %92 = load i32, ptr %91, align 4, !tbaa !46
   %93 = icmp eq i32 %92, %39
-  %94 = icmp eq ptr %89, %.tr105128236
+  %94 = icmp eq ptr %89, %.tr104127235
   %or.cond31.i.i.i.i.i95 = and i1 %94, %93
   br i1 %or.cond31.i.i.i.i.i95, label %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98, label %95
 
@@ -5128,24 +5128,24 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98: ; preds = %
   br i1 %99, label %100, label %.thread100
 
 100:                                              ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98
-  %101 = getelementptr inbounds nuw i8, ptr %.tr104127237, i64 4
+  %101 = getelementptr inbounds nuw i8, ptr %.tr103126236, i64 4
   %102 = load i32, ptr %101, align 4
   %103 = and i32 %102, 65535
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %.thread100
 
 105:                                              ; preds = %100
-  %106 = getelementptr inbounds nuw i8, ptr %.tr105128236, i64 4
+  %106 = getelementptr inbounds nuw i8, ptr %.tr104127235, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = and i32 %107, 65535
   %109 = icmp eq i32 %108, 0
   br i1 %109, label %110, label %.thread100
 
 110:                                              ; preds = %105
-  %111 = getelementptr inbounds nuw i8, ptr %.tr104127237, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %.tr103126236, i64 16
   %112 = load ptr, ptr %111, align 8, !tbaa !122
   %113 = load i32, ptr %112, align 4, !tbaa !97
-  %114 = getelementptr inbounds nuw i8, ptr %.tr105128236, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %.tr104127235, i64 16
   %115 = load ptr, ptr %114, align 8, !tbaa !122
   %116 = load i32, ptr %115, align 4, !tbaa !97
   %.not = icmp eq i32 %113, %116
@@ -5156,20 +5156,20 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98: ; preds = %
   br label %.thread100
 
 119:                                              ; preds = %110
-  %120 = getelementptr inbounds nuw i8, ptr %.tr104127237, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.tr103126236, i64 24
   %121 = load i32, ptr %120, align 8, !tbaa !21
-  %122 = getelementptr inbounds nuw i8, ptr %.tr105128236, i64 24
+  %122 = getelementptr inbounds nuw i8, ptr %.tr104127235, i64 24
   %123 = load i32, ptr %122, align 8, !tbaa !21
   %.not38 = icmp eq i32 %121, %123
   br i1 %.not38, label %.preheader, label %126
 
 .preheader:                                       ; preds = %119
-  %.not40125.not = icmp eq i32 %121, 0
-  br i1 %.not40125.not, label %.preheader._crit_edge, label %.lr.ph
+  %.not40124.not = icmp eq i32 %121, 0
+  br i1 %.not40124.not, label %.preheader._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %124 = getelementptr inbounds nuw i8, ptr %.tr104127237, i64 32
-  %125 = getelementptr inbounds nuw i8, ptr %.tr105128236, i64 32
+  %124 = getelementptr inbounds nuw i8, ptr %.tr103126236, i64 32
+  %125 = getelementptr inbounds nuw i8, ptr %.tr104127235, i64 32
   %wide.trip.count = zext i32 %121 to i64
   br label %129
 
@@ -5196,8 +5196,8 @@ _ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98: ; preds = %
   tail call void @_Z18invoke_exit_actionj(i32 noundef 114)
   br label %.thread100
 
-.thread100:                                       ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98, %100, %105, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit64, %tailrecurse.loopexit.loopexit, %.lr.ph130, %3, %126, %117, %.preheader._crit_edge
-  %.034 = phi i1 [ false, %.preheader._crit_edge ], [ %127, %126 ], [ %118, %117 ], [ false, %3 ], [ true, %.lr.ph130 ], [ true, %tailrecurse.loopexit.loopexit ], [ true, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit64 ], [ false, %105 ], [ false, %100 ], [ false, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98 ]
+.thread100:                                       ; preds = %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98, %100, %105, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit64, %tailrecurse.loopexit.loopexit, %.lr.ph129, %3, %126, %117, %.preheader._crit_edge
+  %.034 = phi i1 [ false, %.preheader._crit_edge ], [ %127, %126 ], [ %118, %117 ], [ false, %3 ], [ true, %.lr.ph129 ], [ true, %tailrecurse.loopexit.loopexit ], [ true, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit64 ], [ false, %105 ], [ false, %100 ], [ false, %_ZN12_GLOBAL__N_128expr_substitution_simplifier5depthEP4expr.exit98 ]
   ret i1 %.034
 }
 

@@ -186,17 +186,17 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_14GlobalVariableELb1EE9push_backES3_.exit
   %59 = zext i32 %58 to i64
   %.idx.i.i3.i.i21 = shl nuw nsw i64 %59, 3
   %60 = getelementptr inbounds nuw i8, ptr %57, i64 %.idx.i.i3.i.i21
-  %.not36.i.i.i.i22 = icmp eq i32 %58, 0
-  br i1 %.not36.i.i.i.i22, label %._crit_edge.i.i.i.i28, label %.lr.ph.i.i4.i.i23
+  %.not34.i.i.i.i22 = icmp eq i32 %58, 0
+  br i1 %.not34.i.i.i.i22, label %._crit_edge.i.i.i.i28, label %.lr.ph.i.i4.i.i23
 
 .lr.ph.i.i4.i.i23:                                ; preds = %.lr.ph.i.i.i.i31.preheader, %.critedge.i.i.i.i26
-  %.02937.i.i.i.i24 = phi ptr [ %62, %.critedge.i.i.i.i26 ], [ %57, %.lr.ph.i.i.i.i31.preheader ]
-  %61 = load ptr, ptr %.02937.i.i.i.i24, align 8, !tbaa !30, !noalias !40
+  %.02935.i.i.i.i24 = phi ptr [ %62, %.critedge.i.i.i.i26 ], [ %57, %.lr.ph.i.i.i.i31.preheader ]
+  %61 = load ptr, ptr %.02935.i.i.i.i24, align 8, !tbaa !30, !noalias !40
   %.not17.i.i.i.i25 = icmp eq ptr %61, @_ZN4llvm26ModuleSummaryIndexAnalysis3KeyE
   br i1 %.not17.i.i.i.i25, label %_ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.thread, label %.critedge.i.i.i.i26
 
 .critedge.i.i.i.i26:                              ; preds = %.lr.ph.i.i4.i.i23
-  %62 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i24, i64 8
+  %62 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i24, i64 8
   %.not.i.i.i.i27 = icmp eq ptr %62, %60
   br i1 %.not.i.i.i.i27, label %._crit_edge.i.i.i.i28, label %.lr.ph.i.i4.i.i23, !llvm.loop !43
 
@@ -223,28 +223,28 @@ _ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.th
   %71 = zext i32 %70 to i64
   %.idx.i.i.i.i45 = shl nuw nsw i64 %71, 3
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i.i45
-  %.not1316.not.i.i.i.i46 = icmp eq i32 %70, 0
-  br i1 %.not1316.not.i.i.i.i46, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35, label %.lr.ph.i.i.i.i47
+  %.not1316.i.i.i.i46 = icmp eq i32 %70, 0
+  br i1 %.not1316.i.i.i.i46, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35, label %.lr.ph.i.i.i.i47
 
-.lr.ph.i.i.i.i47:                                 ; preds = %_ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.thread, %80
-  %.01217.i.i.i.i48 = phi ptr [ %81, %80 ], [ %69, %_ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.thread ]
+.lr.ph.i.i.i.i47:                                 ; preds = %_ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.thread, %75
+  %.01217.i.i.i.i48 = phi ptr [ %76, %75 ], [ %69, %_ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.thread ]
   %73 = load ptr, ptr %.01217.i.i.i.i48, align 8, !tbaa !30
   %74 = icmp eq ptr %73, @_ZN4llvm25StackSafetyGlobalAnalysis3KeyE
-  br i1 %74, label %75, label %80
+  br i1 %74, label %77, label %75
 
 75:                                               ; preds = %.lr.ph.i.i.i.i47
-  %76 = add i32 %70, -1
-  store i32 %76, ptr %48, align 4, !tbaa !26
-  %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr %69, i64 %77
-  %79 = load ptr, ptr %78, align 8, !tbaa !30
-  store ptr %79, ptr %.01217.i.i.i.i48, align 8, !tbaa !30
-  br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35
+  %76 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i48, i64 8
+  %.not13.i.i.i.i49 = icmp eq ptr %76, %72
+  br i1 %.not13.i.i.i.i49, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35, label %.lr.ph.i.i.i.i47, !llvm.loop !46
 
-80:                                               ; preds = %.lr.ph.i.i.i.i47
-  %81 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i48, i64 8
-  %.not13.not.i.i.i.i49 = icmp eq ptr %81, %72
-  br i1 %.not13.not.i.i.i.i49, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35, label %.lr.ph.i.i.i.i47, !llvm.loop !46
+77:                                               ; preds = %.lr.ph.i.i.i.i47
+  %78 = add i32 %70, -1
+  store i32 %78, ptr %48, align 4, !tbaa !26
+  %79 = zext i32 %78 to i64
+  %80 = getelementptr inbounds nuw ptr, ptr %69, i64 %79
+  %81 = load ptr, ptr %80, align 8, !tbaa !30
+  store ptr %81, ptr %.01217.i.i.i.i48, align 8, !tbaa !30
+  br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35
 
 82:                                               ; preds = %_ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit
   %83 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull @_ZN4llvm25StackSafetyGlobalAnalysis3KeyE) #13
@@ -258,7 +258,7 @@ _ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.th
   store i32 %86, ptr %49, align 8, !tbaa !24
   br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35
 
-_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35: ; preds = %80, %84, %82, %75, %_ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.thread
+_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35: ; preds = %75, %84, %82, %77, %_ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.thread
   %87 = load i8, ptr %56, align 4, !tbaa !25, !range !45, !noalias !47, !noundef !50
   %88 = trunc nuw i8 %87 to i1
   br i1 %88, label %89, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i36
@@ -269,17 +269,17 @@ _ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35: ; preds = %80, %84, %82, %75
   %92 = zext i32 %91 to i64
   %.idx.i.i3.i.i37 = shl nuw nsw i64 %92, 3
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i.i3.i.i37
-  %.not36.i.i.i.i38 = icmp eq i32 %91, 0
-  br i1 %.not36.i.i.i.i38, label %._crit_edge.i.i.i.i44, label %.lr.ph.i.i4.i.i39
+  %.not34.i.i.i.i38 = icmp eq i32 %91, 0
+  br i1 %.not34.i.i.i.i38, label %._crit_edge.i.i.i.i44, label %.lr.ph.i.i4.i.i39
 
 .lr.ph.i.i4.i.i39:                                ; preds = %89, %.critedge.i.i.i.i42
-  %.02937.i.i.i.i40 = phi ptr [ %95, %.critedge.i.i.i.i42 ], [ %90, %89 ]
-  %94 = load ptr, ptr %.02937.i.i.i.i40, align 8, !tbaa !30, !noalias !47
+  %.02935.i.i.i.i40 = phi ptr [ %95, %.critedge.i.i.i.i42 ], [ %90, %89 ]
+  %94 = load ptr, ptr %.02935.i.i.i.i40, align 8, !tbaa !30, !noalias !47
   %.not17.i.i.i.i41 = icmp eq ptr %94, @_ZN4llvm25StackSafetyGlobalAnalysis3KeyE
   br i1 %.not17.i.i.i.i41, label %_ZN4llvm17PreservedAnalyses7abandonINS_25StackSafetyGlobalAnalysisEEEvv.exit, label %.critedge.i.i.i.i42
 
 .critedge.i.i.i.i42:                              ; preds = %.lr.ph.i.i4.i.i39
-  %95 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i40, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i40, i64 8
   %.not.i.i.i.i43 = icmp eq ptr %95, %93
   br i1 %.not.i.i.i.i43, label %._crit_edge.i.i.i.i44, label %.lr.ph.i.i4.i.i39, !llvm.loop !43
 

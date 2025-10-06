@@ -7654,14 +7654,14 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   store ptr %20, ptr %21, align 8, !tbaa !75
   %22 = ptrtoint ptr %8 to i64
-  %.promoted239 = load ptr, ptr %2, align 16, !tbaa !75
-  %.promoted243 = load ptr, ptr %3, align 16
+  %.promoted238 = load ptr, ptr %2, align 16, !tbaa !75
+  %.promoted242 = load ptr, ptr %3, align 16
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.promoted248 = load ptr, ptr %23, align 8
-  %.promoted250 = load ptr, ptr %24, align 16
-  %.promoted252 = load ptr, ptr %25, align 8
+  %.promoted247 = load ptr, ptr %23, align 8
+  %.promoted249 = load ptr, ptr %24, align 16
+  %.promoted251 = load ptr, ptr %25, align 8
   br label %26
 
 .loopexit:                                        ; preds = %.preheader
@@ -7676,26 +7676,26 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   br label %26, !llvm.loop !77
 
 26:                                               ; preds = %.loopexit, %1
-  %.lcssa238253 = phi ptr [ %.promoted252, %1 ], [ %226, %.loopexit ]
-  %.lcssa236251 = phi ptr [ %.promoted250, %1 ], [ %211, %.loopexit ]
-  %.lcssa234249 = phi ptr [ %.promoted248, %1 ], [ %196, %.loopexit ]
-  %.lcssa228247 = phi ptr [ %14, %1 ], [ %162, %.loopexit ]
-  %.lcssa226245 = phi ptr [ %12, %1 ], [ %155, %.loopexit ]
-  %.lcssa224244 = phi ptr [ %.promoted243, %1 ], [ %148, %.loopexit ]
-  %.lcssa230242 = phi ptr [ %17, %1 ], [ %221, %.loopexit ]
-  %.lcssa232240 = phi ptr [ %.promoted239, %1 ], [ %181, %.loopexit ]
+  %.lcssa237252 = phi ptr [ %.promoted251, %1 ], [ %226, %.loopexit ]
+  %.lcssa235250 = phi ptr [ %.promoted249, %1 ], [ %211, %.loopexit ]
+  %.lcssa233248 = phi ptr [ %.promoted247, %1 ], [ %196, %.loopexit ]
+  %.lcssa227246 = phi ptr [ %14, %1 ], [ %162, %.loopexit ]
+  %.lcssa225244 = phi ptr [ %12, %1 ], [ %155, %.loopexit ]
+  %.lcssa223243 = phi ptr [ %.promoted242, %1 ], [ %148, %.loopexit ]
+  %.lcssa229241 = phi ptr [ %17, %1 ], [ %221, %.loopexit ]
+  %.lcssa231239 = phi ptr [ %.promoted238, %1 ], [ %181, %.loopexit ]
   %.sroa.0130.0 = phi i64 [ %.sroa.0130.0.copyload, %1 ], [ %184, %.loopexit ]
   %.sroa.23.0 = phi i64 [ %.sroa.23.0.copyload, %1 ], [ %199, %.loopexit ]
   %.sroa.42.0 = phi i64 [ %.sroa.42.0.copyload, %1 ], [ %214, %.loopexit ]
   %.sroa.61.0 = phi i64 [ %.sroa.61.0.copyload, %1 ], [ %229, %.loopexit ]
-  %27 = ptrtoint ptr %.lcssa232240 to i64
+  %27 = ptrtoint ptr %.lcssa231239 to i64
   %28 = sub i64 %27, %22
   %29 = udiv i64 %28, 7
   br label %30
 
 30:                                               ; preds = %26, %30
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %30 ]
-  %.0191221 = phi i64 [ %29, %26 ], [ %39, %30 ]
+  %.0191220 = phi i64 [ %29, %26 ], [ %39, %30 ]
   %31 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !75
   %33 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
@@ -7704,40 +7704,40 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = udiv i64 %37, 10
-  %39 = tail call i64 @llvm.umin.i64(i64 %.0191221, i64 %38)
+  %39 = tail call i64 @llvm.umin.i64(i64 %.0191220, i64 %38)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %40, label %30, !llvm.loop !78
 
 40:                                               ; preds = %30
   %41 = mul nuw nsw i64 %39, 5
-  %42 = getelementptr inbounds nuw i8, ptr %.lcssa230242, i64 %41
+  %42 = getelementptr inbounds nuw i8, ptr %.lcssa229241, i64 %41
   %43 = icmp eq i64 %39, 0
-  br i1 %43, label %.loopexit208, label %.preheader207
+  br i1 %43, label %.loopexit207, label %.preheader206
 
-44:                                               ; preds = %.preheader207
-  %indvars.iv.next277 = add nuw nsw i64 %indvars.iv276, 1
-  %exitcond279.not = icmp eq i64 %indvars.iv.next277, 4
-  br i1 %exitcond279.not, label %.preheader, label %.preheader207, !llvm.loop !79
+44:                                               ; preds = %.preheader206
+  %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
+  %exitcond278.not = icmp eq i64 %indvars.iv.next276, 4
+  br i1 %exitcond278.not, label %.preheader, label %.preheader206, !llvm.loop !79
 
-.preheader207:                                    ; preds = %40, %44
-  %indvars.iv276 = phi i64 [ %indvars.iv.next277, %44 ], [ 1, %40 ]
-  %45 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv276
+.preheader206:                                    ; preds = %40, %44
+  %indvars.iv275 = phi i64 [ %indvars.iv.next276, %44 ], [ 1, %40 ]
+  %45 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv275
   %46 = load ptr, ptr %45, align 8, !tbaa !75
   %47 = getelementptr i8, ptr %45, i64 -8
   %48 = load ptr, ptr %47, align 8, !tbaa !75
   %49 = icmp ult ptr %46, %48
-  br i1 %49, label %.loopexit208, label %44
+  br i1 %49, label %.loopexit207, label %44
 
 .preheader:                                       ; preds = %44, %.preheader
-  %50 = phi ptr [ %226, %.preheader ], [ %.lcssa238253, %44 ]
-  %51 = phi ptr [ %211, %.preheader ], [ %.lcssa236251, %44 ]
-  %52 = phi ptr [ %196, %.preheader ], [ %.lcssa234249, %44 ]
-  %53 = phi ptr [ %181, %.preheader ], [ %.lcssa232240, %44 ]
-  %54 = phi ptr [ %221, %.preheader ], [ %.lcssa230242, %44 ]
-  %55 = phi ptr [ %162, %.preheader ], [ %.lcssa228247, %44 ]
-  %56 = phi ptr [ %155, %.preheader ], [ %.lcssa226245, %44 ]
-  %57 = phi ptr [ %148, %.preheader ], [ %.lcssa224244, %44 ]
+  %50 = phi ptr [ %226, %.preheader ], [ %.lcssa237252, %44 ]
+  %51 = phi ptr [ %211, %.preheader ], [ %.lcssa235250, %44 ]
+  %52 = phi ptr [ %196, %.preheader ], [ %.lcssa233248, %44 ]
+  %53 = phi ptr [ %181, %.preheader ], [ %.lcssa231239, %44 ]
+  %54 = phi ptr [ %221, %.preheader ], [ %.lcssa229241, %44 ]
+  %55 = phi ptr [ %162, %.preheader ], [ %.lcssa227246, %44 ]
+  %56 = phi ptr [ %155, %.preheader ], [ %.lcssa225244, %44 ]
+  %57 = phi ptr [ %148, %.preheader ], [ %.lcssa223243, %44 ]
   %.sroa.0130.2 = phi i64 [ %184, %.preheader ], [ %.sroa.0130.0, %44 ]
   %.sroa.23.2 = phi i64 [ %199, %.preheader ], [ %.sroa.23.0, %44 ]
   %.sroa.42.2 = phi i64 [ %214, %.preheader ], [ %.sroa.42.0, %44 ]
@@ -8037,7 +8037,7 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_in
   %230 = icmp ult ptr %221, %42
   br i1 %230, label %.preheader, label %.loopexit, !llvm.loop !77
 
-.loopexit208:                                     ; preds = %40, %.preheader207
+.loopexit207:                                     ; preds = %40, %.preheader206
   store i64 %.sroa.0130.0, ptr %9, align 8
   store i64 %.sroa.23.0, ptr %.sroa.23.0..sroa_idx, align 8
   store i64 %.sroa.42.0, ptr %.sroa.42.0..sroa_idx, align 8
@@ -10772,9 +10772,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL43HUF_decompress4X2_usingDT
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call fastcc noundef i64 @_ZN11duckdb_zstdL27HUF_DecompressFastArgs_initEPNS_22HUF_DecompressFastArgsEPvmPKvmPKj(ptr noundef %6, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
-  %10 = add nsw i64 %9, -1
-  %or.cond = icmp ult i64 %10, -120
-  br i1 %or.cond, label %11, label %.thread
+  %10 = icmp eq i64 %9, 1
+  br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %5
   call fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X2_usingDTable_internal_fast_c_loopEPNS_22HUF_DecompressFastArgsE(ptr noundef nonnull %6)
@@ -11327,15 +11326,15 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %19 = udiv i64 %18, 7
   %20 = tail call i64 @llvm.umin.i64(i64 %15, i64 %19)
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %.loopexit227, label %.preheader226.lr.ph
+  br i1 %21, label %.loopexit226, label %.preheader225.lr.ph
 
-.preheader226.lr.ph:                              ; preds = %1
+.preheader225.lr.ph:                              ; preds = %1
   %22 = mul nuw i64 %20, 5
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.25.0.copyload, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %.preheader226
+  br label %.preheader225
 
 .loopexit:                                        ; preds = %.preheader
   %27 = getelementptr inbounds i8, ptr %226, i64 %227
@@ -11349,18 +11348,18 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %35 = mul nuw i64 %34, 5
   %36 = getelementptr inbounds nuw i8, ptr %255, i64 %35
   %37 = icmp eq i64 %34, 0
-  br i1 %37, label %.loopexit227, label %.preheader226, !llvm.loop !81
+  br i1 %37, label %.loopexit226, label %.preheader225, !llvm.loop !81
 
-.preheader226:                                    ; preds = %.preheader226.lr.ph, %.loopexit
-  %38 = phi ptr [ %23, %.preheader226.lr.ph ], [ %36, %.loopexit ]
-  %.sroa.61.0260 = phi i64 [ %.sroa.61.0.copyload, %.preheader226.lr.ph ], [ %261, %.loopexit ]
-  %.sroa.42.0259 = phi i64 [ %.sroa.42.0.copyload, %.preheader226.lr.ph ], [ %251, %.loopexit ]
-  %.sroa.23.0258 = phi i64 [ %.sroa.23.0.copyload, %.preheader226.lr.ph ], [ %241, %.loopexit ]
-  %.sroa.0142.0257 = phi i64 [ %.sroa.0142.0.copyload, %.preheader226.lr.ph ], [ %231, %.loopexit ]
-  %.sroa.25.0256 = phi ptr [ %.sroa.25.0.copyload, %.preheader226.lr.ph ], [ %255, %.loopexit ]
-  %.sroa.18.0255 = phi ptr [ %.sroa.18.0.copyload, %.preheader226.lr.ph ], [ %245, %.loopexit ]
-  %.sroa.11.0254 = phi ptr [ %.sroa.11.0.copyload, %.preheader226.lr.ph ], [ %235, %.loopexit ]
-  %.sroa.0.0253 = phi ptr [ %.sroa.0.0.copyload, %.preheader226.lr.ph ], [ %225, %.loopexit ]
+.preheader225:                                    ; preds = %.preheader225.lr.ph, %.loopexit
+  %38 = phi ptr [ %23, %.preheader225.lr.ph ], [ %36, %.loopexit ]
+  %.sroa.61.0259 = phi i64 [ %.sroa.61.0.copyload, %.preheader225.lr.ph ], [ %261, %.loopexit ]
+  %.sroa.42.0258 = phi i64 [ %.sroa.42.0.copyload, %.preheader225.lr.ph ], [ %251, %.loopexit ]
+  %.sroa.23.0257 = phi i64 [ %.sroa.23.0.copyload, %.preheader225.lr.ph ], [ %241, %.loopexit ]
+  %.sroa.0142.0256 = phi i64 [ %.sroa.0142.0.copyload, %.preheader225.lr.ph ], [ %231, %.loopexit ]
+  %.sroa.25.0255 = phi ptr [ %.sroa.25.0.copyload, %.preheader225.lr.ph ], [ %255, %.loopexit ]
+  %.sroa.18.0254 = phi ptr [ %.sroa.18.0.copyload, %.preheader225.lr.ph ], [ %245, %.loopexit ]
+  %.sroa.11.0253 = phi ptr [ %.sroa.11.0.copyload, %.preheader225.lr.ph ], [ %235, %.loopexit ]
+  %.sroa.0.0252 = phi ptr [ %.sroa.0.0.copyload, %.preheader225.lr.ph ], [ %225, %.loopexit ]
   br label %40
 
 39:                                               ; preds = %40
@@ -11368,24 +11367,24 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %.preheader, label %40, !llvm.loop !82
 
-40:                                               ; preds = %.preheader226, %39
-  %indvars.iv = phi i64 [ 1, %.preheader226 ], [ %indvars.iv.next, %39 ]
+40:                                               ; preds = %.preheader225, %39
+  %indvars.iv = phi i64 [ 1, %.preheader225 ], [ %indvars.iv.next, %39 ]
   %41 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !75
   %43 = getelementptr i8, ptr %41, i64 -8
   %44 = load ptr, ptr %43, align 8, !tbaa !75
   %45 = icmp ult ptr %42, %44
-  br i1 %45, label %.loopexit227, label %39
+  br i1 %45, label %.loopexit226, label %39
 
 .preheader:                                       ; preds = %39, %.preheader
-  %.sroa.0.2 = phi ptr [ %225, %.preheader ], [ %.sroa.0.0253, %39 ]
-  %.sroa.11.2 = phi ptr [ %235, %.preheader ], [ %.sroa.11.0254, %39 ]
-  %.sroa.18.2 = phi ptr [ %245, %.preheader ], [ %.sroa.18.0255, %39 ]
-  %.sroa.25.2 = phi ptr [ %255, %.preheader ], [ %.sroa.25.0256, %39 ]
-  %.sroa.0142.2 = phi i64 [ %231, %.preheader ], [ %.sroa.0142.0257, %39 ]
-  %.sroa.23.2 = phi i64 [ %241, %.preheader ], [ %.sroa.23.0258, %39 ]
-  %.sroa.42.2 = phi i64 [ %251, %.preheader ], [ %.sroa.42.0259, %39 ]
-  %.sroa.61.2 = phi i64 [ %261, %.preheader ], [ %.sroa.61.0260, %39 ]
+  %.sroa.0.2 = phi ptr [ %225, %.preheader ], [ %.sroa.0.0252, %39 ]
+  %.sroa.11.2 = phi ptr [ %235, %.preheader ], [ %.sroa.11.0253, %39 ]
+  %.sroa.18.2 = phi ptr [ %245, %.preheader ], [ %.sroa.18.0254, %39 ]
+  %.sroa.25.2 = phi ptr [ %255, %.preheader ], [ %.sroa.25.0255, %39 ]
+  %.sroa.0142.2 = phi i64 [ %231, %.preheader ], [ %.sroa.0142.0256, %39 ]
+  %.sroa.23.2 = phi i64 [ %241, %.preheader ], [ %.sroa.23.0257, %39 ]
+  %.sroa.42.2 = phi i64 [ %251, %.preheader ], [ %.sroa.42.0258, %39 ]
+  %.sroa.61.2 = phi i64 [ %261, %.preheader ], [ %.sroa.61.0259, %39 ]
   %46 = lshr i64 %.sroa.0142.2, 53
   %47 = getelementptr inbounds nuw i16, ptr %4, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !60
@@ -11629,24 +11628,24 @@ define internal fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_in
   %262 = icmp ult ptr %255, %38
   br i1 %262, label %.preheader, label %.loopexit, !llvm.loop !81
 
-.loopexit227:                                     ; preds = %.loopexit, %40, %1
-  %.sroa.0.0251 = phi ptr [ %.sroa.0.0.copyload, %1 ], [ %.sroa.0.0253, %40 ], [ %225, %.loopexit ]
-  %.sroa.11.0249 = phi ptr [ %.sroa.11.0.copyload, %1 ], [ %.sroa.11.0254, %40 ], [ %235, %.loopexit ]
-  %.sroa.18.0247 = phi ptr [ %.sroa.18.0.copyload, %1 ], [ %.sroa.18.0255, %40 ], [ %245, %.loopexit ]
-  %.sroa.25.0245 = phi ptr [ %.sroa.25.0.copyload, %1 ], [ %.sroa.25.0256, %40 ], [ %255, %.loopexit ]
-  %.sroa.0142.0243 = phi i64 [ %.sroa.0142.0.copyload, %1 ], [ %.sroa.0142.0257, %40 ], [ %231, %.loopexit ]
-  %.sroa.23.0241 = phi i64 [ %.sroa.23.0.copyload, %1 ], [ %.sroa.23.0258, %40 ], [ %241, %.loopexit ]
-  %.sroa.42.0239 = phi i64 [ %.sroa.42.0.copyload, %1 ], [ %.sroa.42.0259, %40 ], [ %251, %.loopexit ]
-  %.sroa.61.0237 = phi i64 [ %.sroa.61.0.copyload, %1 ], [ %.sroa.61.0260, %40 ], [ %261, %.loopexit ]
-  store i64 %.sroa.0142.0243, ptr %9, align 8
-  store i64 %.sroa.23.0241, ptr %.sroa.23.0..sroa_idx, align 8
-  store i64 %.sroa.42.0239, ptr %.sroa.42.0..sroa_idx, align 8
-  store i64 %.sroa.61.0237, ptr %.sroa.61.0..sroa_idx, align 8
+.loopexit226:                                     ; preds = %.loopexit, %40, %1
+  %.sroa.0.0250 = phi ptr [ %.sroa.0.0.copyload, %1 ], [ %.sroa.0.0252, %40 ], [ %225, %.loopexit ]
+  %.sroa.11.0248 = phi ptr [ %.sroa.11.0.copyload, %1 ], [ %.sroa.11.0253, %40 ], [ %235, %.loopexit ]
+  %.sroa.18.0246 = phi ptr [ %.sroa.18.0.copyload, %1 ], [ %.sroa.18.0254, %40 ], [ %245, %.loopexit ]
+  %.sroa.25.0244 = phi ptr [ %.sroa.25.0.copyload, %1 ], [ %.sroa.25.0255, %40 ], [ %255, %.loopexit ]
+  %.sroa.0142.0242 = phi i64 [ %.sroa.0142.0.copyload, %1 ], [ %.sroa.0142.0256, %40 ], [ %231, %.loopexit ]
+  %.sroa.23.0240 = phi i64 [ %.sroa.23.0.copyload, %1 ], [ %.sroa.23.0257, %40 ], [ %241, %.loopexit ]
+  %.sroa.42.0238 = phi i64 [ %.sroa.42.0.copyload, %1 ], [ %.sroa.42.0258, %40 ], [ %251, %.loopexit ]
+  %.sroa.61.0236 = phi i64 [ %.sroa.61.0.copyload, %1 ], [ %.sroa.61.0259, %40 ], [ %261, %.loopexit ]
+  store i64 %.sroa.0142.0242, ptr %9, align 8
+  store i64 %.sroa.23.0240, ptr %.sroa.23.0..sroa_idx, align 8
+  store i64 %.sroa.42.0238, ptr %.sroa.42.0..sroa_idx, align 8
+  store i64 %.sroa.61.0236, ptr %.sroa.61.0..sroa_idx, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %0, ptr noundef nonnull align 16 dereferenceable(32) %2, i64 32, i1 false)
-  store ptr %.sroa.0.0251, ptr %10, align 8
-  store ptr %.sroa.11.0249, ptr %.sroa.11.0..sroa_idx, align 8
-  store ptr %.sroa.18.0247, ptr %.sroa.18.0..sroa_idx, align 8
-  store ptr %.sroa.25.0245, ptr %.sroa.25.0..sroa_idx, align 8
+  store ptr %.sroa.0.0250, ptr %10, align 8
+  store ptr %.sroa.11.0248, ptr %.sroa.11.0..sroa_idx, align 8
+  store ptr %.sroa.18.0246, ptr %.sroa.18.0..sroa_idx, align 8
+  store ptr %.sroa.25.0244, ptr %.sroa.25.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }
@@ -13191,9 +13190,8 @@ define internal fastcc noundef i64 @_ZN11duckdb_zstdL43HUF_decompress4X1_usingDT
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %9 = call fastcc noundef i64 @_ZN11duckdb_zstdL27HUF_DecompressFastArgs_initEPNS_22HUF_DecompressFastArgsEPvmPKvmPKj(ptr noundef %6, ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4)
-  %10 = add nsw i64 %9, -1
-  %or.cond = icmp ult i64 %10, -120
-  br i1 %or.cond, label %11, label %.thread
+  %10 = icmp eq i64 %9, 1
+  br i1 %10, label %11, label %.thread
 
 11:                                               ; preds = %5
   call fastcc void @_ZN11duckdb_zstdL50HUF_decompress4X1_usingDTable_internal_fast_c_loopEPNS_22HUF_DecompressFastArgsE(ptr noundef nonnull %6)

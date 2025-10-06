@@ -175,8 +175,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %11 = ptrtoint ptr %9 to i64
   %12 = sub i64 %10, %11
   %13 = and i64 %12, 34359738360
-  %.not31 = icmp eq i64 %13, 0
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i64 %13, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %14 = lshr exact i64 %12, 3
@@ -316,8 +316,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26: ; preds = %_ZN4cvc58internal12
   resume { ptr, i32 } %.pn
 
 ._crit_edge:                                      ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26, %19, %2
-  %.not.lcssa = phi i32 [ 1, %2 ], [ 1, %19 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26 ]
-  ret i32 %.not.lcssa
+  %79 = phi i32 [ 1, %2 ], [ 1, %19 ], [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit26 ]
+  ret i32 %79
 }
 
 declare void @_ZN4cvc58internal3Env16rewriteViaMethodENS0_12NodeTemplateILb0EEENS0_8MethodIdE(ptr dead_on_unwind writable sret(%"class.cvc5::internal::NodeTemplate") align 8, ptr noundef nonnull align 8 dereferenceable(696), ptr noundef, i32 noundef) local_unnamed_addr #0

@@ -637,14 +637,14 @@ fetch_card8.exit.thread.i:                        ; preds = %fetch_card8.exit.i,
   %46 = ptrtoint ptr %45 to i64
   %47 = sub i64 %39, %46
   %48 = icmp slt i64 %47, 4
-  br i1 %48, label %fetch_card32.exit.thread264.i, label %49
+  br i1 %48, label %fetch_card32.exit.thread263.i, label %49
 
 49:                                               ; preds = %fetch_card8.exit.thread.i
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.44.3199.i, i64 7
   %51 = ptrtoint ptr %50 to i64
   %52 = sub i64 %39, %51
   %53 = icmp slt i64 %52, 4
-  br i1 %53, label %fetch_card32.exit.thread264.i, label %fetch_card32.exit95.i
+  br i1 %53, label %fetch_card32.exit.thread263.i, label %fetch_card32.exit95.i
 
 fetch_card32.exit95.i:                            ; preds = %49
   %54 = load i32, ptr %50, align 4
@@ -660,24 +660,24 @@ fetch_card32.exit95.i:                            ; preds = %49
 
 58:                                               ; preds = %fetch_card8.exit97.i, %.lr.ph.i
   %.0 = phi ptr [ null, %.lr.ph.i ], [ %.6, %fetch_card8.exit97.i ]
-  %.047293.i = phi i32 [ 0, %.lr.ph.i ], [ %180, %fetch_card8.exit97.i ]
-  %.sroa.44.0292.i = phi ptr [ %57, %.lr.ph.i ], [ %.sroa.44.2.i, %fetch_card8.exit97.i ]
-  %59 = ptrtoint ptr %.sroa.44.0292.i to i64
+  %.047292.i = phi i32 [ 0, %.lr.ph.i ], [ %180, %fetch_card8.exit97.i ]
+  %.sroa.44.0291.i = phi ptr [ %57, %.lr.ph.i ], [ %.sroa.44.2.i, %fetch_card8.exit97.i ]
+  %59 = ptrtoint ptr %.sroa.44.0291.i to i64
   %60 = sub i64 %39, %59
   %61 = icmp slt i64 %60, 1
-  br i1 %61, label %fetch_card32.exit.thread264.i, label %62
+  br i1 %61, label %fetch_card32.exit.thread263.i, label %62
 
 62:                                               ; preds = %58
-  %63 = load i8, ptr %.sroa.44.0292.i, align 1
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.44.0292.i, i64 2
+  %63 = load i8, ptr %.sroa.44.0291.i, align 1
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.44.0291.i, i64 2
   %65 = ptrtoint ptr %64 to i64
   %66 = sub i64 %39, %65
   %67 = icmp slt i64 %66, 2
-  br i1 %67, label %fetch_card32.exit.thread264.i, label %68
+  br i1 %67, label %fetch_card32.exit.thread263.i, label %68
 
 68:                                               ; preds = %62
   %69 = load i16, ptr %64, align 2
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.44.0292.i, i64 4
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.44.0291.i, i64 4
   %71 = call i16 @llvm.bswap.i16(i16 %69)
   %storemerge.i98.i = select i1 %55, i16 %69, i16 %71
   %72 = zext i16 %storemerge.i98.i to i64
@@ -686,12 +686,12 @@ fetch_card32.exit95.i:                            ; preds = %49
   %75 = ptrtoint ptr %70 to i64
   %76 = sub i64 %39, %75
   %77 = icmp ult i64 %76, %74
-  br i1 %77, label %fetch_card32.exit.thread264.i, label %78
+  br i1 %77, label %fetch_card32.exit.thread263.i, label %78
 
 78:                                               ; preds = %68
   %79 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #14
   %.not76.i = icmp eq ptr %79, null
-  br i1 %.not76.i, label %fetch_card32.exit.thread281.i, label %80
+  br i1 %.not76.i, label %fetch_card32.exit.thread280.i, label %80
 
 80:                                               ; preds = %78
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -700,7 +700,7 @@ fetch_card32.exit95.i:                            ; preds = %49
   %83 = call noalias ptr @malloc(i64 noundef %82) #14
   store ptr %83, ptr %79, align 8
   %.not77.i = icmp eq ptr %83, null
-  br i1 %.not77.i, label %fetch_card32.exit.thread281.i, label %84
+  br i1 %.not77.i, label %fetch_card32.exit.thread280.i, label %84
 
 84:                                               ; preds = %80
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %83, ptr nonnull align 1 %70, i64 %72, i1 false)
@@ -710,7 +710,7 @@ fetch_card32.exit95.i:                            ; preds = %49
   %87 = ptrtoint ptr %86 to i64
   %88 = sub i64 %39, %87
   %89 = icmp slt i64 %88, 4
-  br i1 %89, label %fetch_card32.exit.thread264.i, label %90
+  br i1 %89, label %fetch_card32.exit.thread263.i, label %90
 
 90:                                               ; preds = %84
   %91 = load i32, ptr %86, align 4
@@ -730,7 +730,7 @@ fetch_card32.exit95.i:                            ; preds = %49
   %97 = ptrtoint ptr %92 to i64
   %98 = sub i64 %39, %97
   %99 = icmp slt i64 %98, 4
-  br i1 %99, label %fetch_card32.exit.thread264.i, label %100
+  br i1 %99, label %fetch_card32.exit.thread263.i, label %100
 
 100:                                              ; preds = %96
   %101 = load i32, ptr %92, align 4
@@ -745,7 +745,7 @@ fetch_card32.exit95.i:                            ; preds = %49
   %106 = ptrtoint ptr %92 to i64
   %107 = sub i64 %39, %106
   %108 = icmp slt i64 %107, 4
-  br i1 %108, label %fetch_card32.exit.thread264.i, label %109
+  br i1 %108, label %fetch_card32.exit.thread263.i, label %109
 
 109:                                              ; preds = %105
   %110 = load i32, ptr %92, align 4
@@ -760,8 +760,8 @@ fetch_card32.exit95.i:                            ; preds = %49
   %118 = ptrtoint ptr %111 to i64
   %119 = sub i64 %39, %118
   %120 = icmp ult i64 %119, %115
-  %or.cond289.i = select i1 %117, i1 true, i1 %120
-  br i1 %or.cond289.i, label %fetch_card32.exit.thread264.i, label %121
+  %or.cond288.i = select i1 %117, i1 true, i1 %120
+  br i1 %or.cond288.i, label %fetch_card32.exit.thread263.i, label %121
 
 121:                                              ; preds = %109
   %122 = zext i32 %116 to i64
@@ -769,7 +769,7 @@ fetch_card32.exit95.i:                            ; preds = %49
   %124 = getelementptr inbounds nuw i8, ptr %79, i64 16
   store ptr %123, ptr %124, align 8
   %.not84.i = icmp eq ptr %123, null
-  br i1 %.not84.i, label %fetch_card32.exit.thread281.i, label %125
+  br i1 %.not84.i, label %fetch_card32.exit.thread280.i, label %125
 
 125:                                              ; preds = %121
   %126 = zext i32 %storemerge.i106.i to i64
@@ -783,7 +783,7 @@ fetch_card32.exit95.i:                            ; preds = %49
   %130 = ptrtoint ptr %92 to i64
   %131 = sub i64 %39, %130
   %132 = icmp slt i64 %131, 2
-  br i1 %132, label %fetch_card32.exit.thread264.i, label %133
+  br i1 %132, label %fetch_card32.exit.thread263.i, label %133
 
 133:                                              ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %79, i64 16
@@ -795,7 +795,7 @@ fetch_card32.exit95.i:                            ; preds = %49
   %138 = ptrtoint ptr %136 to i64
   %139 = sub i64 %39, %138
   %140 = icmp slt i64 %139, 2
-  br i1 %140, label %fetch_card32.exit.thread264.i, label %141
+  br i1 %140, label %fetch_card32.exit.thread263.i, label %141
 
 141:                                              ; preds = %133
   %142 = getelementptr inbounds nuw i8, ptr %79, i64 18
@@ -807,7 +807,7 @@ fetch_card32.exit95.i:                            ; preds = %49
   %146 = ptrtoint ptr %144 to i64
   %147 = sub i64 %39, %146
   %148 = icmp slt i64 %147, 2
-  br i1 %148, label %fetch_card32.exit.thread264.i, label %149
+  br i1 %148, label %fetch_card32.exit.thread263.i, label %149
 
 149:                                              ; preds = %141
   %150 = getelementptr inbounds nuw i8, ptr %79, i64 20
@@ -819,7 +819,7 @@ fetch_card32.exit95.i:                            ; preds = %49
   %154 = ptrtoint ptr %152 to i64
   %155 = sub i64 %39, %154
   %156 = icmp slt i64 %155, 2
-  br i1 %156, label %fetch_card32.exit.thread264.i, label %fetch_ushort.exit117.thread.i
+  br i1 %156, label %fetch_card32.exit.thread263.i, label %fetch_ushort.exit117.thread.i
 
 fetch_ushort.exit117.thread.i:                    ; preds = %149
   %157 = getelementptr inbounds nuw i8, ptr %79, i64 22
@@ -836,7 +836,7 @@ fetch_ushort.exit117.thread.i:                    ; preds = %149
   store i32 %162, ptr %81, align 8
   %163 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %.not.i28 = icmp eq ptr %163, null
-  br i1 %.not.i28, label %fetch_card32.exit.thread281.i, label %164
+  br i1 %.not.i28, label %fetch_card32.exit.thread280.i, label %164
 
 164:                                              ; preds = %161
   store ptr %79, ptr %163, align 8
@@ -879,18 +879,18 @@ fetch_card8.exit97.i:                             ; preds = %.lr.ph.i29, %.threa
   %.024.lcssa53.i = phi ptr [ %.024.i, %.thread34.thread55.i ], [ null, %164 ], [ %.0, %.lr.ph.i29 ]
   %179 = getelementptr inbounds nuw i8, ptr %163, i64 8
   store ptr %.024.lcssa53.i, ptr %179, align 8
-  %180 = add nuw i32 %.047293.i, 1
+  %180 = add nuw i32 %.047292.i, 1
   %exitcond.not.i = icmp eq i32 %180, %storemerge.i93.i
   br i1 %exitcond.not.i, label %parse_settings.exit, label %58, !llvm.loop !6
 
-fetch_card32.exit.thread281.i:                    ; preds = %161, %121, %80, %78
+fetch_card32.exit.thread280.i:                    ; preds = %161, %121, %80, %78
   %181 = load ptr, ptr @stderr, align 8
   %182 = call i64 @fwrite(ptr nonnull @.str.6, i64 41, i64 1, ptr %181) #17
   br label %.loopexit.i
 
-fetch_card32.exit.thread264.i:                    ; preds = %149, %141, %133, %129, %109, %105, %96, %84, %68, %62, %58, %49, %fetch_card8.exit.thread.i
+fetch_card32.exit.thread263.i:                    ; preds = %149, %141, %133, %129, %109, %105, %96, %84, %68, %62, %58, %49, %fetch_card8.exit.thread.i
   %.1 = phi ptr [ null, %fetch_card8.exit.thread.i ], [ null, %49 ], [ %.0, %58 ], [ %.0, %62 ], [ %.0, %68 ], [ %.0, %84 ], [ %.0, %96 ], [ %.0, %105 ], [ %.0, %109 ], [ %.0, %129 ], [ %.0, %133 ], [ %.0, %141 ], [ %.0, %149 ]
-  %.046267.i = phi ptr [ null, %fetch_card8.exit.thread.i ], [ null, %49 ], [ %79, %149 ], [ %79, %141 ], [ %79, %133 ], [ %79, %129 ], [ %79, %109 ], [ %79, %105 ], [ %79, %96 ], [ %79, %84 ], [ null, %68 ], [ null, %62 ], [ null, %58 ]
+  %.046266.i = phi ptr [ null, %fetch_card8.exit.thread.i ], [ null, %49 ], [ %79, %149 ], [ %79, %141 ], [ %79, %133 ], [ %79, %129 ], [ %79, %109 ], [ %79, %105 ], [ %79, %96 ], [ %79, %84 ], [ null, %68 ], [ null, %62 ], [ null, %58 ]
   %183 = load ptr, ptr @stderr, align 8
   %184 = call i64 @fwrite(ptr nonnull @.str.7, i64 42, i64 1, ptr %183) #17
   br label %.loopexit.i
@@ -901,28 +901,28 @@ fetch_card32.exit.thread264.i:                    ; preds = %149, %141, %133, %1
   %187 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %186, ptr noundef nonnull @.str.8, ptr noundef nonnull %83) #18
   br label %.loopexit.thread.i
 
-.loopexit.i:                                      ; preds = %fetch_card32.exit.thread264.i, %fetch_card32.exit.thread281.i
-  %.2 = phi ptr [ %.1, %fetch_card32.exit.thread264.i ], [ %.0, %fetch_card32.exit.thread281.i ]
-  %.046268.i = phi ptr [ %.046267.i, %fetch_card32.exit.thread264.i ], [ %79, %fetch_card32.exit.thread281.i ]
-  %.not88.i = icmp eq ptr %.046268.i, null
+.loopexit.i:                                      ; preds = %fetch_card32.exit.thread263.i, %fetch_card32.exit.thread280.i
+  %.2 = phi ptr [ %.1, %fetch_card32.exit.thread263.i ], [ %.0, %fetch_card32.exit.thread280.i ]
+  %.046267.i = phi ptr [ %.046266.i, %fetch_card32.exit.thread263.i ], [ %79, %fetch_card32.exit.thread280.i ]
+  %.not88.i = icmp eq ptr %.046267.i, null
   br i1 %.not88.i, label %197, label %.loopexit.thread.i
 
 .loopexit.thread.i:                               ; preds = %.loopexit.i, %185
   %.3 = phi ptr [ %.2, %.loopexit.i ], [ %.0, %185 ]
-  %.046268310.i = phi ptr [ %.046268.i, %.loopexit.i ], [ %79, %185 ]
-  %188 = getelementptr inbounds nuw i8, ptr %.046268310.i, i64 8
+  %.046267309.i = phi ptr [ %.046267.i, %.loopexit.i ], [ %79, %185 ]
+  %188 = getelementptr inbounds nuw i8, ptr %.046267309.i, i64 8
   %189 = load i32, ptr %188, align 8
   %190 = icmp eq i32 %189, 1
   br i1 %190, label %191, label %194
 
 191:                                              ; preds = %.loopexit.thread.i
-  %192 = getelementptr inbounds nuw i8, ptr %.046268310.i, i64 16
+  %192 = getelementptr inbounds nuw i8, ptr %.046267309.i, i64 16
   %193 = load ptr, ptr %192, align 8
   call void @free(ptr noundef %193) #15
   br label %194
 
 194:                                              ; preds = %191, %.loopexit.thread.i
-  %195 = load ptr, ptr %.046268310.i, align 8
+  %195 = load ptr, ptr %.046267309.i, align 8
   %.not.i.i = icmp eq ptr %195, null
   br i1 %.not.i.i, label %xsettings_setting_free.exit.i, label %196
 
@@ -931,7 +931,7 @@ fetch_card32.exit.thread264.i:                    ; preds = %149, %141, %133, %1
   br label %xsettings_setting_free.exit.i
 
 xsettings_setting_free.exit.i:                    ; preds = %196, %194
-  call void @free(ptr noundef nonnull %.046268310.i) #15
+  call void @free(ptr noundef nonnull %.046267309.i) #15
   br label %197
 
 197:                                              ; preds = %xsettings_setting_free.exit.i, %.loopexit.i
@@ -1197,19 +1197,19 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @xsettings_list_copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
-  %.not39 = icmp eq ptr %0, null
-  br i1 %.not39, label %xsettings_list_free.exit, label %.lr.ph
+  %.not38 = icmp eq ptr %0, null
+  br i1 %.not38, label %xsettings_list_free.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %7
-  %.01842 = phi ptr [ %2, %7 ], [ null, %1 ]
-  %.01941 = phi ptr [ %10, %7 ], [ %0, %1 ]
-  %.02140 = phi ptr [ %..02140, %7 ], [ null, %1 ]
+  %.01841 = phi ptr [ %2, %7 ], [ null, %1 ]
+  %.01940 = phi ptr [ %10, %7 ], [ %0, %1 ]
+  %.02139 = phi ptr [ %..02139, %7 ], [ null, %1 ]
   %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #14
   %.not24 = icmp eq ptr %2, null
   br i1 %.not24, label %.loopexit, label %3
 
 3:                                                ; preds = %.lr.ph
-  %4 = load ptr, ptr %.01941, align 8
+  %4 = load ptr, ptr %.01940, align 8
   %5 = tail call ptr @xsettings_setting_copy(ptr noundef %4)
   store ptr %5, ptr %2, align 8
   %.not25 = icmp eq ptr %5, null
@@ -1220,23 +1220,23 @@ define hidden ptr @xsettings_list_copy(ptr noundef readonly captures(address_is_
   br label %.loopexit
 
 7:                                                ; preds = %3
-  %.not26 = icmp eq ptr %.01842, null
-  %..01842 = select i1 %.not26, ptr %2, ptr %.01842
+  %.not26 = icmp eq ptr %.01841, null
+  %..01841 = select i1 %.not26, ptr %2, ptr %.01841
   %. = select i1 %.not26, ptr null, ptr %2
-  %..02140 = select i1 %.not26, ptr %2, ptr %.02140
-  %8 = getelementptr inbounds nuw i8, ptr %..01842, i64 8
+  %..02139 = select i1 %.not26, ptr %2, ptr %.02139
+  %8 = getelementptr inbounds nuw i8, ptr %..01841, i64 8
   store ptr %., ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %.01941, i64 8
+  %9 = getelementptr inbounds nuw i8, ptr %.01940, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %xsettings_list_free.exit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %6
-  %.not5.i = icmp eq ptr %.02140, null
+  %.not5.i = icmp eq ptr %.02139, null
   br i1 %.not5.i, label %xsettings_list_free.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.loopexit, %xsettings_setting_free.exit.i
-  %.06.i = phi ptr [ %12, %xsettings_setting_free.exit.i ], [ %.02140, %.loopexit ]
+  %.06.i = phi ptr [ %12, %xsettings_setting_free.exit.i ], [ %.02139, %.loopexit ]
   %11 = getelementptr inbounds nuw i8, ptr %.06.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = load ptr, ptr %.06.i, align 8
@@ -1267,7 +1267,7 @@ xsettings_setting_free.exit.i:                    ; preds = %22, %20
   br i1 %.not.i, label %xsettings_list_free.exit, label %.lr.ph.i, !llvm.loop !3
 
 xsettings_list_free.exit:                         ; preds = %7, %xsettings_setting_free.exit.i, %1, %.loopexit
-  %.017 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %xsettings_setting_free.exit.i ], [ %..02140, %7 ]
+  %.017 = phi ptr [ null, %.loopexit ], [ null, %1 ], [ null, %xsettings_setting_free.exit.i ], [ %..02139, %7 ]
   ret ptr %.017
 }
 

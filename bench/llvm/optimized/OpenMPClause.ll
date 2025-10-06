@@ -2024,8 +2024,8 @@ define dso_local void @_ZN5clang14OMPFinalClause13used_childrenEv(ptr dead_on_un
 5:                                                ; preds = %2
   %6 = load i16, ptr %4, align 8
   %7 = and i16 %6, 511
-  %.not23.i = icmp eq i16 %7, 245
-  br i1 %.not23.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
+  %.not22.i = icmp eq i16 %7, 245
+  br i1 %.not22.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2034,8 +2034,8 @@ define dso_local void @_ZN5clang14OMPFinalClause13used_childrenEv(ptr dead_on_un
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 127
   %14 = icmp ne i32 %13, 42
-  %.not1424.i = icmp eq ptr %10, null
-  %.not14.i = or i1 %.not1424.i, %14
+  %.not1423.i = icmp eq ptr %10, null
+  %.not14.i = or i1 %.not1423.i, %14
   br i1 %.not14.i, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit
 
 _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit:   ; preds = %8
@@ -2052,9 +2052,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %19
 
 19:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink20 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink19 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %3, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink20, ptr %0, align 8
+  store ptr %.sink19, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2074,8 +2074,8 @@ define dso_local void @_ZN5clang18OMPGrainsizeClause13used_childrenEv(ptr dead_o
 5:                                                ; preds = %2
   %6 = load i16, ptr %4, align 8
   %7 = and i16 %6, 511
-  %.not23.i = icmp eq i16 %7, 245
-  br i1 %.not23.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
+  %.not22.i = icmp eq i16 %7, 245
+  br i1 %.not22.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2084,8 +2084,8 @@ define dso_local void @_ZN5clang18OMPGrainsizeClause13used_childrenEv(ptr dead_o
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 127
   %14 = icmp ne i32 %13, 42
-  %.not1424.i = icmp eq ptr %10, null
-  %.not14.i = or i1 %.not1424.i, %14
+  %.not1423.i = icmp eq ptr %10, null
+  %.not14.i = or i1 %.not1423.i, %14
   br i1 %.not14.i, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit
 
 _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit:   ; preds = %8
@@ -2103,9 +2103,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %20
 
 20:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink32 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink31 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %19, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink32, ptr %0, align 8
+  store ptr %.sink31, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2125,8 +2125,8 @@ define dso_local void @_ZN5clang11OMPIfClause13used_childrenEv(ptr dead_on_unwin
 5:                                                ; preds = %2
   %6 = load i16, ptr %4, align 8
   %7 = and i16 %6, 511
-  %.not23.i = icmp eq i16 %7, 245
-  br i1 %.not23.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
+  %.not22.i = icmp eq i16 %7, 245
+  br i1 %.not22.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2135,8 +2135,8 @@ define dso_local void @_ZN5clang11OMPIfClause13used_childrenEv(ptr dead_on_unwin
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 127
   %14 = icmp ne i32 %13, 42
-  %.not1424.i = icmp eq ptr %10, null
-  %.not14.i = or i1 %.not1424.i, %14
+  %.not1423.i = icmp eq ptr %10, null
+  %.not14.i = or i1 %.not1423.i, %14
   br i1 %.not14.i, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit
 
 _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit:   ; preds = %8
@@ -2154,9 +2154,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %20
 
 20:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink32 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink31 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %19, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink32, ptr %0, align 8
+  store ptr %.sink31, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2300,8 +2300,8 @@ define dso_local void @_ZN5clang18OMPNocontextClause13used_childrenEv(ptr dead_o
 5:                                                ; preds = %2
   %6 = load i16, ptr %4, align 8
   %7 = and i16 %6, 511
-  %.not23.i = icmp eq i16 %7, 245
-  br i1 %.not23.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
+  %.not22.i = icmp eq i16 %7, 245
+  br i1 %.not22.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2310,8 +2310,8 @@ define dso_local void @_ZN5clang18OMPNocontextClause13used_childrenEv(ptr dead_o
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 127
   %14 = icmp ne i32 %13, 42
-  %.not1424.i = icmp eq ptr %10, null
-  %.not14.i = or i1 %.not1424.i, %14
+  %.not1423.i = icmp eq ptr %10, null
+  %.not14.i = or i1 %.not1423.i, %14
   br i1 %.not14.i, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit
 
 _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit:   ; preds = %8
@@ -2328,9 +2328,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %19
 
 19:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink20 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink19 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %3, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink20, ptr %0, align 8
+  store ptr %.sink19, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2350,8 +2350,8 @@ define dso_local void @_ZN5clang19OMPNovariantsClause13used_childrenEv(ptr dead_
 5:                                                ; preds = %2
   %6 = load i16, ptr %4, align 8
   %7 = and i16 %6, 511
-  %.not23.i = icmp eq i16 %7, 245
-  br i1 %.not23.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
+  %.not22.i = icmp eq i16 %7, 245
+  br i1 %.not22.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2360,8 +2360,8 @@ define dso_local void @_ZN5clang19OMPNovariantsClause13used_childrenEv(ptr dead_
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 127
   %14 = icmp ne i32 %13, 42
-  %.not1424.i = icmp eq ptr %10, null
-  %.not14.i = or i1 %.not1424.i, %14
+  %.not1423.i = icmp eq ptr %10, null
+  %.not14.i = or i1 %.not1423.i, %14
   br i1 %.not14.i, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit
 
 _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit:   ; preds = %8
@@ -2378,9 +2378,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %19
 
 19:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink20 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink19 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %3, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink20, ptr %0, align 8
+  store ptr %.sink19, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2400,8 +2400,8 @@ define dso_local void @_ZN5clang17OMPNumTasksClause13used_childrenEv(ptr dead_on
 5:                                                ; preds = %2
   %6 = load i16, ptr %4, align 8
   %7 = and i16 %6, 511
-  %.not23.i = icmp eq i16 %7, 245
-  br i1 %.not23.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
+  %.not22.i = icmp eq i16 %7, 245
+  br i1 %.not22.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2410,8 +2410,8 @@ define dso_local void @_ZN5clang17OMPNumTasksClause13used_childrenEv(ptr dead_on
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 127
   %14 = icmp ne i32 %13, 42
-  %.not1424.i = icmp eq ptr %10, null
-  %.not14.i = or i1 %.not1424.i, %14
+  %.not1423.i = icmp eq ptr %10, null
+  %.not14.i = or i1 %.not1423.i, %14
   br i1 %.not14.i, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit
 
 _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit:   ; preds = %8
@@ -2429,9 +2429,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %20
 
 20:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink32 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink31 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %19, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink32, ptr %0, align 8
+  store ptr %.sink31, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2451,8 +2451,8 @@ define dso_local void @_ZN5clang17OMPPriorityClause13used_childrenEv(ptr dead_on
 5:                                                ; preds = %2
   %6 = load i16, ptr %4, align 8
   %7 = and i16 %6, 511
-  %.not23.i = icmp eq i16 %7, 245
-  br i1 %.not23.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
+  %.not22.i = icmp eq i16 %7, 245
+  br i1 %.not22.i, label %8, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2461,8 +2461,8 @@ define dso_local void @_ZN5clang17OMPPriorityClause13used_childrenEv(ptr dead_on
   %12 = load i32, ptr %11, align 4
   %13 = and i32 %12, 127
   %14 = icmp ne i32 %13, 42
-  %.not1424.i = icmp eq ptr %10, null
-  %.not14.i = or i1 %.not1424.i, %14
+  %.not1423.i = icmp eq ptr %10, null
+  %.not14.i = or i1 %.not1423.i, %14
   br i1 %.not14.i, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread, label %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit
 
 _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit:   ; preds = %8
@@ -2480,9 +2480,9 @@ _ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread: ; preds = %8, %5, %2, %_Z
   br label %20
 
 20:                                               ; preds = %16, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread
-  %.sink32 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
+  %.sink31 = phi ptr [ %15, %16 ], [ %18, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
   %.sink = phi ptr [ %17, %16 ], [ %19, %_ZL22getAddrOfExprAsWrittenPN5clang4StmtE.exit.thread ]
-  store ptr %.sink32, ptr %0, align 8
+  store ptr %.sink31, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -6692,17 +6692,17 @@ _ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %2, %._crit_edge, %1
   %31 = zext i32 %30 to i64
   %.idx.i.i = shl nuw nsw i64 %31, 3
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %30, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %30, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %34, %.critedge.i.i ], [ %29, %28 ]
-  %33 = load ptr, ptr %.02937.i.i, align 8, !tbaa !363, !noalias !360
+  %.02935.i.i = phi ptr [ %34, %.critedge.i.i ], [ %29, %28 ]
+  %33 = load ptr, ptr %.02935.i.i, align 8, !tbaa !363, !noalias !360
   %.not17.i.i = icmp eq ptr %33, %26
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang9ValueDeclEE6insertES4_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %34, %32
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !364
 

@@ -326,8 +326,8 @@ define range(i32 -22, 1) i32 @swri_dither_init(ptr noundef %0, i32 noundef %1, i
   %70 = trunc i64 %69 to i32
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store i32 %70, ptr %71, align 8, !tbaa !42
-  %.not92 = icmp eq i64 %indvars.iv, 15
-  br i1 %.not92, label %._crit_edge, label %.lr.ph
+  %.not91 = icmp eq i64 %indvars.iv, 15
+  br i1 %.not91, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %55, i64 24
@@ -336,14 +336,14 @@ define range(i32 -22, 1) i32 @swri_dither_init(ptr noundef %0, i32 noundef %1, i
   br label %75
 
 75:                                               ; preds = %.lr.ph, %75
-  %indvars.iv95 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next96, %75 ]
-  %76 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv95
+  %indvars.iv94 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next95, %75 ]
+  %76 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv94
   %77 = load double, ptr %76, align 8, !tbaa !23
   %78 = fptrunc nsz double %77 to float
-  %79 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv95
+  %79 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv94
   store float %78, ptr %79, align 4, !tbaa !29
-  %indvars.iv.next96 = add nuw nsw i64 %indvars.iv95, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next96, %69
+  %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next95, %69
   br i1 %exitcond.not, label %._crit_edge, label %75, !llvm.loop !44
 
 80:                                               ; preds = %62, %54

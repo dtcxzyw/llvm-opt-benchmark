@@ -496,7 +496,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nou
 
 ._crit_edge.i.i.i:                                ; preds = %42
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i65, align 8, !tbaa !59
-  %.pre46.i.i.i = load ptr, ptr %13, align 8, !tbaa !51
+  %.pre45.i.i.i = load ptr, ptr %13, align 8, !tbaa !51
   br label %edge_stack_push_back.exit
 
 46:                                               ; preds = %42
@@ -550,7 +550,7 @@ define internal fastcc void @dfs(ptr noundef nonnull %0, ptr noundef %1, ptr nou
   unreachable
 
 edge_stack_push_back.exit:                        ; preds = %._crit_edge.i.i.i, %69
-  %75 = phi ptr [ %.pre46.i.i.i, %._crit_edge.i.i.i ], [ %52, %69 ]
+  %75 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %52, %69 ]
   %76 = phi i64 [ %44, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %69 ]
   %77 = phi i64 [ %43, %._crit_edge.i.i.i ], [ %60, %69 ]
   %78 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %70, %69 ]
@@ -722,7 +722,7 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
 
 ._crit_edge.i.i.i64:                              ; preds = %159
   %.pre.i.i.i66 = load i64, ptr %.phi.trans.insert.i.i.i65, align 8, !tbaa !59
-  %.pre46.i.i.i67 = load ptr, ptr %13, align 8, !tbaa !51
+  %.pre45.i.i.i67 = load ptr, ptr %13, align 8, !tbaa !51
   br label %edge_stack_push_back.exit71
 
 163:                                              ; preds = %159
@@ -776,7 +776,7 @@ mkBlock.exit:                                     ; preds = %blockName.exit.i, %
   unreachable
 
 edge_stack_push_back.exit71:                      ; preds = %._crit_edge.i.i.i64, %186
-  %192 = phi ptr [ %.pre46.i.i.i67, %._crit_edge.i.i.i64 ], [ %169, %186 ]
+  %192 = phi ptr [ %.pre45.i.i.i67, %._crit_edge.i.i.i64 ], [ %169, %186 ]
   %193 = phi i64 [ %161, %._crit_edge.i.i.i64 ], [ %spec.select.i.i.i68, %186 ]
   %194 = phi i64 [ %160, %._crit_edge.i.i.i64 ], [ %177, %186 ]
   %195 = phi i64 [ %.pre.i.i.i66, %._crit_edge.i.i.i64 ], [ %187, %186 ]

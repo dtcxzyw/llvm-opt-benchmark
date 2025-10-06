@@ -924,23 +924,23 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_S3_(
 .split.us:                                        ; preds = %5
   %10 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 512, ptr noundef nonnull @.str.5, ptr noundef %1, ptr noundef %3, ptr noundef %4) #22
   %11 = icmp slt i32 %10, 512
-  br i1 %11, label %.split36.us, label %.lr.ph37
+  br i1 %11, label %.split35.us, label %.lr.ph36
 
-.lr.ph37:                                         ; preds = %.split.us, %.lr.ph37
-  %12 = phi i32 [ %17, %.lr.ph37 ], [ %10, %.split.us ]
-  %13 = phi ptr [ %16, %.lr.ph37 ], [ %9, %.split.us ]
+.lr.ph36:                                         ; preds = %.split.us, %.lr.ph36
+  %12 = phi i32 [ %17, %.lr.ph36 ], [ %10, %.split.us ]
+  %13 = phi ptr [ %16, %.lr.ph36 ], [ %9, %.split.us ]
   %14 = add nuw nsw i32 %12, 1
   tail call void @_ZdaPv(ptr noundef nonnull %13) #21
   %15 = zext nneg i32 %14 to i64
   %16 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %15) #23
   %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %16, i64 noundef %15, ptr noundef nonnull @.str.5, ptr noundef %1, ptr noundef %3, ptr noundef %4) #22
-  %.not39 = icmp sgt i32 %17, %12
-  br i1 %.not39, label %.lr.ph37, label %.split36.us
+  %.not38 = icmp sgt i32 %17, %12
+  br i1 %.not38, label %.lr.ph36, label %.split35.us
 
 .split:                                           ; preds = %5
   %18 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 512, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %2, ptr noundef %4) #22
   %19 = icmp slt i32 %18, 512
-  br i1 %19, label %.split36.us, label %.lr.ph
+  br i1 %19, label %.split35.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split, %.lr.ph
   %20 = phi i32 [ %25, %.lr.ph ], [ %18, %.split ]
@@ -951,10 +951,10 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_S3_(
   %24 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %23) #23
   %25 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %24, i64 noundef %23, ptr noundef nonnull @.str.6, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %2, ptr noundef %4) #22
   %.not = icmp sgt i32 %25, %20
-  br i1 %.not, label %.lr.ph, label %.split36.us
+  br i1 %.not, label %.lr.ph, label %.split35.us
 
-.split36.us:                                      ; preds = %.lr.ph, %.lr.ph37, %.split, %.split.us
-  %.us-phi = phi ptr [ %9, %.split.us ], [ %9, %.split ], [ %16, %.lr.ph37 ], [ %24, %.lr.ph ]
+.split35.us:                                      ; preds = %.lr.ph, %.lr.ph36, %.split, %.split.us
+  %.us-phi = phi ptr [ %9, %.split.us ], [ %9, %.split ], [ %16, %.lr.ph36 ], [ %24, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %26, ptr %7, align 8, !tbaa !12
@@ -964,15 +964,15 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_S3_(
   %28 = icmp ugt i64 %27, 15
   br i1 %28, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc.i:                                         ; preds = %.split36.us
+.noexc.i:                                         ; preds = %.split35.us
   %29 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 noundef 0)
   store ptr %29, ptr %7, align 8, !tbaa !27
   %30 = load i64, ptr %6, align 8, !tbaa !34
   store i64 %30, ptr %26, align 8, !tbaa !21
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc.i, %.split36.us
-  %31 = phi ptr [ %29, %.noexc.i ], [ %26, %.split36.us ]
+._crit_edge.i.i:                                  ; preds = %.noexc.i, %.split35.us
+  %31 = phi ptr [ %29, %.noexc.i ], [ %26, %.split35.us ]
   switch i64 %27, label %34 [
     i64 1, label %32
     i64 0, label %35
@@ -1047,23 +1047,23 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_(ptr
 .split.us:                                        ; preds = %4
   %9 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %3) #22
   %10 = icmp slt i32 %9, 256
-  br i1 %10, label %.split34.us, label %.lr.ph35
+  br i1 %10, label %.split33.us, label %.lr.ph34
 
-.lr.ph35:                                         ; preds = %.split.us, %.lr.ph35
-  %11 = phi i32 [ %16, %.lr.ph35 ], [ %9, %.split.us ]
-  %12 = phi ptr [ %15, %.lr.ph35 ], [ %8, %.split.us ]
+.lr.ph34:                                         ; preds = %.split.us, %.lr.ph34
+  %11 = phi i32 [ %16, %.lr.ph34 ], [ %9, %.split.us ]
+  %12 = phi ptr [ %15, %.lr.ph34 ], [ %8, %.split.us ]
   %13 = add nuw nsw i32 %11, 1
   tail call void @_ZdaPv(ptr noundef nonnull %12) #21
   %14 = zext nneg i32 %13 to i64
   %15 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %14) #23
   %16 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %15, i64 noundef %14, ptr noundef nonnull @.str.7, ptr noundef %1, ptr noundef %3) #22
-  %.not37 = icmp sgt i32 %16, %11
-  br i1 %.not37, label %.lr.ph35, label %.split34.us
+  %.not36 = icmp sgt i32 %16, %11
+  br i1 %.not36, label %.lr.ph34, label %.split33.us
 
 .split:                                           ; preds = %4
   %17 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 256, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %2) #22
   %18 = icmp slt i32 %17, 256
-  br i1 %18, label %.split34.us, label %.lr.ph
+  br i1 %18, label %.split33.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.split, %.lr.ph
   %19 = phi i32 [ %24, %.lr.ph ], [ %17, %.split ]
@@ -1074,10 +1074,10 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_(ptr
   %23 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %22) #23
   %24 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %23, i64 noundef %22, ptr noundef nonnull @.str.8, ptr noundef %1, ptr noundef %3, ptr noundef nonnull %2) #22
   %.not = icmp sgt i32 %24, %19
-  br i1 %.not, label %.lr.ph, label %.split34.us
+  br i1 %.not, label %.lr.ph, label %.split33.us
 
-.split34.us:                                      ; preds = %.lr.ph, %.lr.ph35, %.split, %.split.us
-  %.us-phi = phi ptr [ %8, %.split.us ], [ %8, %.split ], [ %15, %.lr.ph35 ], [ %23, %.lr.ph ]
+.split33.us:                                      ; preds = %.lr.ph, %.lr.ph34, %.split, %.split.us
+  %.us-phi = phi ptr [ %8, %.split.us ], [ %8, %.split ], [ %15, %.lr.ph34 ], [ %23, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %25, ptr %6, align 8, !tbaa !12
@@ -1087,15 +1087,15 @@ define void @_ZN4cvc58internal24IllegalArgumentException9constructEPKcS3_S3_(ptr
   %27 = icmp ugt i64 %26, 15
   br i1 %27, label %.noexc.i, label %._crit_edge.i.i
 
-.noexc.i:                                         ; preds = %.split34.us
+.noexc.i:                                         ; preds = %.split33.us
   %28 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(8) %5, i64 noundef 0)
   store ptr %28, ptr %6, align 8, !tbaa !27
   %29 = load i64, ptr %5, align 8, !tbaa !34
   store i64 %29, ptr %25, align 8, !tbaa !21
   br label %._crit_edge.i.i
 
-._crit_edge.i.i:                                  ; preds = %.noexc.i, %.split34.us
-  %30 = phi ptr [ %28, %.noexc.i ], [ %25, %.split34.us ]
+._crit_edge.i.i:                                  ; preds = %.noexc.i, %.split33.us
+  %30 = phi ptr [ %28, %.noexc.i ], [ %25, %.split33.us ]
   switch i64 %26, label %33 [
     i64 1, label %31
     i64 0, label %34

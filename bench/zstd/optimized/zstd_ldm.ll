@@ -1324,8 +1324,8 @@ ZSTD_ldm_generateSequences_internal.exit._crit_edge: ; preds = %ZSTD_ldm_generat
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @ZSTD_ldm_skipSequences(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #6 {
-  %.not54 = icmp eq i64 %1, 0
-  br i1 %.not54, label %.critedge, label %.lr.ph
+  %.not53 = icmp eq i64 %1, 0
+  br i1 %.not53, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1336,7 +1336,7 @@ define void @ZSTD_ldm_skipSequences(ptr noundef captures(none) %0, i64 noundef %
 
 7:                                                ; preds = %.lr.ph, %37
   %8 = phi i64 [ %.promoted, %.lr.ph ], [ %39, %37 ]
-  %.02755 = phi i64 [ %1, %.lr.ph ], [ %38, %37 ]
+  %.02754 = phi i64 [ %1, %.lr.ph ], [ %38, %37 ]
   %9 = icmp ult i64 %8, %6
   br i1 %9, label %10, label %.critedge
 
@@ -1346,17 +1346,17 @@ define void @ZSTD_ldm_skipSequences(ptr noundef captures(none) %0, i64 noundef %
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !61
   %15 = zext i32 %14 to i64
-  %.not34 = icmp ugt i64 %.02755, %15
+  %.not34 = icmp ugt i64 %.02754, %15
   br i1 %.not34, label %19, label %16
 
 16:                                               ; preds = %10
-  %17 = trunc nuw i64 %.02755 to i32
+  %17 = trunc nuw i64 %.02754 to i32
   %18 = sub i32 %14, %17
   store i32 %18, ptr %13, align 4, !tbaa !61
   br label %.critedge
 
 19:                                               ; preds = %10
-  %20 = sub nuw i64 %.02755, %15
+  %20 = sub nuw i64 %.02754, %15
   store i32 0, ptr %13, align 4, !tbaa !61
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %22 = load i32, ptr %21, align 4, !tbaa !63
@@ -1405,8 +1405,8 @@ define void @ZSTD_ldm_skipRawSeqStoreBytes(ptr noundef captures(none) %0, i64 no
   %4 = load i64, ptr %3, align 8, !tbaa !69
   %5 = add i64 %4, %1
   %6 = trunc i64 %5 to i32
-  %.not28 = icmp eq i32 %6, 0
-  br i1 %.not28, label %.critedge, label %.lr.ph
+  %.not27 = icmp eq i32 %6, 0
+  br i1 %.not27, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1417,7 +1417,7 @@ define void @ZSTD_ldm_skipRawSeqStoreBytes(ptr noundef captures(none) %0, i64 no
 
 10:                                               ; preds = %.lr.ph, %18
   %11 = phi i64 [ %.promoted, %.lr.ph ], [ %20, %18 ]
-  %.01829 = phi i32 [ %6, %.lr.ph ], [ %19, %18 ]
+  %.01828 = phi i32 [ %6, %.lr.ph ], [ %19, %18 ]
   %12 = icmp ult i64 %11, %9
   br i1 %12, label %13, label %.loopexit
 
@@ -1429,16 +1429,16 @@ define void @ZSTD_ldm_skipRawSeqStoreBytes(ptr noundef captures(none) %0, i64 no
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !25
   %16 = add i32 %.sroa.5.0.copyload, %.sroa.3.0.copyload
-  %.not21 = icmp ult i32 %.01829, %16
+  %.not21 = icmp ult i32 %.01828, %16
   br i1 %.not21, label %.thread, label %18
 
 .thread:                                          ; preds = %13
-  %17 = zext i32 %.01829 to i64
+  %17 = zext i32 %.01828 to i64
   store i64 %17, ptr %3, align 8, !tbaa !69
   br label %.loopexit
 
 18:                                               ; preds = %13
-  %19 = sub nuw i32 %.01829, %16
+  %19 = sub nuw i32 %.01828, %16
   %20 = add nuw i64 %11, 1
   store i64 %20, ptr %7, align 8, !tbaa !68
   %.not = icmp eq i32 %19, 0
@@ -1521,8 +1521,8 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   %46 = load i64, ptr %45, align 8, !tbaa !69
   %47 = add i64 %46, %6
   %48 = trunc i64 %47 to i32
-  %.not28.i = icmp eq i32 %48, 0
-  br i1 %.not28.i, label %.critedge.i, label %.lr.ph.i
+  %.not27.i = icmp eq i32 %48, 0
+  br i1 %.not27.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1533,7 +1533,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
 
 52:                                               ; preds = %60, %.lr.ph.i
   %53 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %62, %60 ]
-  %.01829.i = phi i32 [ %48, %.lr.ph.i ], [ %61, %60 ]
+  %.01828.i = phi i32 [ %48, %.lr.ph.i ], [ %61, %60 ]
   %54 = icmp ult i64 %53, %51
   br i1 %54, label %55, label %.loopexit.i
 
@@ -1545,16 +1545,16 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !25
   %58 = add i32 %.sroa.5.0.copyload.i, %.sroa.3.0.copyload.i
-  %.not21.i = icmp ult i32 %.01829.i, %58
+  %.not21.i = icmp ult i32 %.01828.i, %58
   br i1 %.not21.i, label %.thread.i, label %60
 
 .thread.i:                                        ; preds = %55
-  %59 = zext i32 %.01829.i to i64
+  %59 = zext i32 %.01828.i to i64
   store i64 %59, ptr %45, align 8, !tbaa !69
   br label %.loopexit.i
 
 60:                                               ; preds = %55
-  %61 = sub nuw i32 %.01829.i, %58
+  %61 = sub nuw i32 %.01828.i, %58
   %62 = add nuw i64 %53, 1
   store i64 %62, ptr %49, align 8, !tbaa !68
   %.not.i80 = icmp eq i32 %61, 0
@@ -1571,8 +1571,8 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
 64:                                               ; preds = %.lr.ph, %190
   %65 = phi i64 [ %29, %.lr.ph ], [ %196, %190 ]
   %66 = phi i64 [ %28, %.lr.ph ], [ %195, %190 ]
-  %.074114 = phi ptr [ %5, %.lr.ph ], [ %194, %190 ]
-  %67 = ptrtoint ptr %.074114 to i64
+  %.074113 = phi ptr [ %5, %.lr.ph ], [ %194, %190 ]
+  %67 = ptrtoint ptr %.074113 to i64
   %68 = sub i64 %33, %67
   %69 = trunc i64 %68 to i32
   %70 = load ptr, ptr %0, align 8, !tbaa !60
@@ -1598,8 +1598,8 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   %spec.select.i = select i1 %77, i64 0, i64 %.sroa.010.0.copyload.i
   %.sroa.8.1.i = select i1 %.not22.i, i32 %76, i32 %.sroa.8.0.copyload.i
   %.sroa.010.sroa.0.1.i = select i1 %.not22.i, i64 %spec.select.i, i64 0
-  %.not54.i.i = icmp eq i32 %69, 0
-  br i1 %.not54.i.i, label %maybeSplitSequence.exit, label %.lr.ph.i.i
+  %.not53.i.i = icmp eq i32 %69, 0
+  br i1 %.not53.i.i, label %maybeSplitSequence.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %75
   %78 = and i64 %68, 4294967295
@@ -1607,7 +1607,7 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
 
 79:                                               ; preds = %108, %.lr.ph.i.i
   %80 = phi i64 [ %66, %.lr.ph.i.i ], [ %110, %108 ]
-  %.02755.i.i = phi i64 [ %78, %.lr.ph.i.i ], [ %109, %108 ]
+  %.02754.i.i = phi i64 [ %78, %.lr.ph.i.i ], [ %109, %108 ]
   %81 = icmp ult i64 %80, %65
   br i1 %81, label %82, label %maybeSplitSequence.exit
 
@@ -1616,17 +1616,17 @@ ZSTD_matchState_dictMode.exit:                    ; preds = %7, %14, %17
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 4
   %85 = load i32, ptr %84, align 4, !tbaa !61
   %86 = zext i32 %85 to i64
-  %.not34.i.i = icmp ugt i64 %.02755.i.i, %86
+  %.not34.i.i = icmp ugt i64 %.02754.i.i, %86
   br i1 %.not34.i.i, label %90, label %87
 
 87:                                               ; preds = %82
-  %88 = trunc nuw i64 %.02755.i.i to i32
+  %88 = trunc nuw i64 %.02754.i.i to i32
   %89 = sub i32 %85, %88
   store i32 %89, ptr %84, align 4, !tbaa !61
   br label %maybeSplitSequence.exit
 
 90:                                               ; preds = %82
-  %91 = sub nuw nsw i64 %.02755.i.i, %86
+  %91 = sub nuw nsw i64 %.02754.i.i, %86
   store i32 0, ptr %84, align 4, !tbaa !61
   %92 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %93 = load i32, ptr %92, align 4, !tbaa !63
@@ -1698,18 +1698,18 @@ ZSTD_ldm_limitTableUpdate.exit:                   ; preds = %112, %120
   ]
 
 124:                                              ; preds = %ZSTD_ldm_limitTableUpdate.exit
-  tail call void @ZSTD_fillHashTable(ptr noundef nonnull %1, ptr noundef %.074114, i32 noundef 0, i32 noundef 0) #15
+  tail call void @ZSTD_fillHashTable(ptr noundef nonnull %1, ptr noundef %.074113, i32 noundef 0, i32 noundef 0) #15
   br label %ZSTD_ldm_fillFastTables.exit
 
 125:                                              ; preds = %ZSTD_ldm_limitTableUpdate.exit
-  tail call void @ZSTD_fillDoubleHashTable(ptr noundef nonnull %1, ptr noundef %.074114, i32 noundef 0, i32 noundef 0) #15
+  tail call void @ZSTD_fillDoubleHashTable(ptr noundef nonnull %1, ptr noundef %.074113, i32 noundef 0, i32 noundef 0) #15
   br label %ZSTD_ldm_fillFastTables.exit
 
 ZSTD_ldm_fillFastTables.exit:                     ; preds = %ZSTD_ldm_limitTableUpdate.exit, %124, %125
-  %126 = tail call i64 %22(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %.074114, i64 noundef %.sroa.010.sroa.4.0.extract.shift.i) #15
+  %126 = tail call i64 %22(ptr noundef nonnull %1, ptr noundef %2, ptr noundef %3, ptr noundef %.074113, i64 noundef %.sroa.010.sroa.4.0.extract.shift.i) #15
   %127 = load i64, ptr %3, align 4, !tbaa !25
   store i64 %127, ptr %scevgep, align 4, !tbaa !25
-  %128 = getelementptr inbounds nuw i8, ptr %.074114, i64 %.sroa.010.sroa.4.0.extract.shift.i
+  %128 = getelementptr inbounds nuw i8, ptr %.074113, i64 %.sroa.010.sroa.4.0.extract.shift.i
   store i32 %.sroa.06.0.extract.trunc, ptr %3, align 4, !tbaa !25
   %129 = sub i64 0, %126
   %130 = getelementptr inbounds i8, ptr %128, i64 %129
@@ -1811,13 +1811,13 @@ ZSTD_storeSeq.exit:                               ; preds = %145, %.lr.ph.i85, %
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 %126
   store ptr %168, ptr %37, align 8, !tbaa !81
   %169 = icmp ugt i64 %126, 65535
-  %.pre137 = load ptr, ptr %40, align 8, !tbaa !84
+  %.pre136 = load ptr, ptr %40, align 8, !tbaa !84
   br i1 %169, label %170, label %177, !prof !87
 
 170:                                              ; preds = %ZSTD_storeSeq.exit
   store i32 1, ptr %39, align 8, !tbaa !88
   %171 = load ptr, ptr %2, align 8, !tbaa !89
-  %172 = ptrtoint ptr %.pre137 to i64
+  %172 = ptrtoint ptr %.pre136 to i64
   %173 = ptrtoint ptr %171 to i64
   %174 = sub i64 %172, %173
   %175 = lshr exact i64 %174, 3
@@ -1826,7 +1826,7 @@ ZSTD_storeSeq.exit:                               ; preds = %145, %.lr.ph.i85, %
   br label %177
 
 177:                                              ; preds = %ZSTD_storeSeq.exit.thread, %170, %ZSTD_storeSeq.exit
-  %178 = phi ptr [ %.pre, %ZSTD_storeSeq.exit.thread ], [ %.pre137, %170 ], [ %.pre137, %ZSTD_storeSeq.exit ]
+  %178 = phi ptr [ %.pre, %ZSTD_storeSeq.exit.thread ], [ %.pre136, %170 ], [ %.pre136, %ZSTD_storeSeq.exit ]
   %179 = trunc i64 %126 to i16
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 4
   store i16 %179, ptr %180, align 4, !tbaa !91
@@ -1861,7 +1861,7 @@ ZSTD_storeSeq.exit:                               ; preds = %145, %.lr.ph.i85, %
   br i1 %199, label %64, label %.thread
 
 .thread:                                          ; preds = %190, %maybeSplitSequence.exit, %.preheader
-  %.074.lcssa = phi ptr [ %5, %.preheader ], [ %.074114, %maybeSplitSequence.exit ], [ %194, %190 ]
+  %.074.lcssa = phi ptr [ %5, %.preheader ], [ %.074113, %maybeSplitSequence.exit ], [ %194, %190 ]
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %201 = load ptr, ptr %200, align 8, !tbaa !78
   %202 = ptrtoint ptr %.074.lcssa to i64
@@ -1875,8 +1875,8 @@ ZSTD_storeSeq.exit:                               ; preds = %145, %.lr.ph.i85, %
   br i1 %209, label %210, label %ZSTD_ldm_limitTableUpdate.exit88
 
 210:                                              ; preds = %.thread
-  %reass.sub116 = sub i32 %205, %207
-  %211 = add i32 %reass.sub116, -1024
+  %reass.sub115 = sub i32 %205, %207
+  %211 = add i32 %reass.sub115, -1024
   %spec.select.i87 = tail call i32 @llvm.umin.i32(i32 %211, i32 512)
   %212 = sub i32 %205, %spec.select.i87
   store i32 %212, ptr %206, align 4, !tbaa !79

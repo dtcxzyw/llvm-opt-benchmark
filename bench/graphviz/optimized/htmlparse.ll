@@ -366,7 +366,7 @@ agxbdisown.exit.i:                                ; preds = %125, %agxblen.exit.
 
 ._crit_edge.i.i.i:                                ; preds = %agxbdisown.exit.i
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !31
-  %.pre45.i.i.i = load ptr, ptr %12, align 8, !tbaa !30
+  %.pre44.i.i.i = load ptr, ptr %12, align 8, !tbaa !30
   br label %appendFItemList.exit
 
 138:                                              ; preds = %agxbdisown.exit.i
@@ -420,7 +420,7 @@ agxbdisown.exit.i:                                ; preds = %125, %agxblen.exit.
   unreachable
 
 appendFItemList.exit:                             ; preds = %._crit_edge.i.i.i, %161
-  %167 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %144, %161 ]
+  %167 = phi ptr [ %.pre44.i.i.i, %._crit_edge.i.i.i ], [ %144, %161 ]
   %168 = phi i64 [ %136, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %161 ]
   %169 = phi i64 [ %135, %._crit_edge.i.i.i ], [ %152, %161 ]
   %170 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %162, %161 ]
@@ -742,7 +742,7 @@ gv_alloc.exit.i:                                  ; preds = %294
 ._crit_edge.i.i.i327:                             ; preds = %305
   %.phi.trans.insert.i.i.i328 = getelementptr inbounds nuw i8, ptr %.val, i64 120
   %.pre.i.i.i329 = load i64, ptr %.phi.trans.insert.i.i.i328, align 8, !tbaa !31
-  %.pre46.i.i.i = load ptr, ptr %306, align 8, !tbaa !30
+  %.pre45.i.i.i = load ptr, ptr %306, align 8, !tbaa !30
   br label %addRow.exit
 
 312:                                              ; preds = %305
@@ -797,7 +797,7 @@ gv_alloc.exit.i:                                  ; preds = %294
   unreachable
 
 addRow.exit:                                      ; preds = %._crit_edge.i.i.i327, %336
-  %342 = phi ptr [ %.pre46.i.i.i, %._crit_edge.i.i.i327 ], [ %318, %336 ]
+  %342 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i327 ], [ %318, %336 ]
   %343 = phi i64 [ %310, %._crit_edge.i.i.i327 ], [ %spec.select.i.i.i330, %336 ]
   %344 = phi i64 [ %308, %._crit_edge.i.i.i327 ], [ %327, %336 ]
   %345 = phi i64 [ %.pre.i.i.i329, %._crit_edge.i.i.i327 ], [ %337, %336 ]
@@ -1407,7 +1407,7 @@ textspans_clear.exit:                             ; preds = %54, %.loopexit.thre
 ._crit_edge.i.i:                                  ; preds = %textspans_clear.exit
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !31
-  %.pre45.i.i = load ptr, ptr %65, align 8, !tbaa !30
+  %.pre44.i.i = load ptr, ptr %65, align 8, !tbaa !30
   br label %htextspans_append.exit
 
 71:                                               ; preds = %textspans_clear.exit
@@ -1462,7 +1462,7 @@ textspans_clear.exit:                             ; preds = %54, %.loopexit.thre
   unreachable
 
 htextspans_append.exit:                           ; preds = %._crit_edge.i.i, %95
-  %101 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %77, %95 ]
+  %101 = phi ptr [ %.pre44.i.i, %._crit_edge.i.i ], [ %77, %95 ]
   %102 = phi i64 [ %69, %._crit_edge.i.i ], [ %spec.select.i.i, %95 ]
   %103 = phi i64 [ %67, %._crit_edge.i.i ], [ %86, %95 ]
   %104 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %96, %95 ]
@@ -1578,7 +1578,7 @@ define internal fastcc void @pushFont(ptr noundef captures(none) %0, ptr noundef
 
 ._crit_edge.i.i.i:                                ; preds = %45
   %.pre.i.i.i = load i64, ptr %8, align 8, !tbaa !31
-  %.pre46.i.i.i = load ptr, ptr %4, align 8, !tbaa !30
+  %.pre45.i.i.i = load ptr, ptr %4, align 8, !tbaa !30
   br label %sfont_push_back.exit
 
 55:                                               ; preds = %45
@@ -1632,7 +1632,7 @@ define internal fastcc void @pushFont(ptr noundef captures(none) %0, ptr noundef
   unreachable
 
 sfont_push_back.exit:                             ; preds = %._crit_edge.i.i.i, %78
-  %84 = phi ptr [ %.pre46.i.i.i, %._crit_edge.i.i.i ], [ %61, %78 ]
+  %84 = phi ptr [ %.pre45.i.i.i, %._crit_edge.i.i.i ], [ %61, %78 ]
   %85 = phi i64 [ %53, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %78 ]
   %86 = phi i64 [ %52, %._crit_edge.i.i.i ], [ %69, %78 ]
   %87 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %79, %78 ]
@@ -1676,7 +1676,7 @@ define internal fastcc void @setCell(ptr readonly captures(none) %.8.val, ptr no
 ._crit_edge.i.i:                                  ; preds = %3
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.pre.i.i = load i64, ptr %.phi.trans.insert.i.i, align 8, !tbaa !112
-  %.pre46.i.i = load ptr, ptr %15, align 8, !tbaa !113
+  %.pre45.i.i = load ptr, ptr %15, align 8, !tbaa !113
   br label %cells_append.exit
 
 21:                                               ; preds = %3
@@ -1731,7 +1731,7 @@ define internal fastcc void @setCell(ptr readonly captures(none) %.8.val, ptr no
   unreachable
 
 cells_append.exit:                                ; preds = %._crit_edge.i.i, %45
-  %51 = phi ptr [ %.pre46.i.i, %._crit_edge.i.i ], [ %27, %45 ]
+  %51 = phi ptr [ %.pre45.i.i, %._crit_edge.i.i ], [ %27, %45 ]
   %52 = phi i64 [ %19, %._crit_edge.i.i ], [ %spec.select.i.i, %45 ]
   %53 = phi i64 [ %17, %._crit_edge.i.i ], [ %36, %45 ]
   %54 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %46, %45 ]

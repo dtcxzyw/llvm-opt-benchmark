@@ -1867,29 +1867,29 @@ _ZNK4llvm13MCInstPrinter9formatImmEl.exit:        ; preds = %24, %25
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZN4llvm16RISCVInstPrinter15getRegisterNameENS_10MCRegisterEj(i32 %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
-  %switch = icmp eq i32 %1, 0
-  %3 = add i32 %0, -1
-  %4 = zext i32 %3 to i64
-  br i1 %switch, label %5, label %.sink.split
+  %3 = icmp eq i32 %1, 0
+  %4 = add i32 %0, -1
+  %5 = zext i32 %4 to i64
+  br i1 %3, label %6, label %.sink.split
 
-5:                                                ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm16RISCVInstPrinter15getRegisterNameENS_10MCRegisterEjE25RegAsmOffsetABIRegAltName, i64 %4
-  %7 = load i8, ptr %6, align 1, !tbaa !32
-  %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm16RISCVInstPrinter15getRegisterNameENS_10MCRegisterEjE20AsmStrsABIRegAltName, i64 %8
-  %10 = load i8, ptr %9, align 1, !tbaa !32
-  %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %.sink.split, label %15
+6:                                                ; preds = %2
+  %7 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm16RISCVInstPrinter15getRegisterNameENS_10MCRegisterEjE25RegAsmOffsetABIRegAltName, i64 %5
+  %8 = load i8, ptr %7, align 1, !tbaa !32
+  %9 = zext i8 %8 to i64
+  %10 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm16RISCVInstPrinter15getRegisterNameENS_10MCRegisterEjE20AsmStrsABIRegAltName, i64 %9
+  %11 = load i8, ptr %10, align 1, !tbaa !32
+  %.not = icmp eq i8 %11, 0
+  br i1 %.not, label %.sink.split, label %16
 
-.sink.split:                                      ; preds = %2, %5
-  %11 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm16RISCVInstPrinter15getRegisterNameENS_10MCRegisterEjE24RegAsmOffsetNoRegAltName, i64 %4
-  %12 = load i16, ptr %11, align 2, !tbaa !18
-  %13 = zext i16 %12 to i64
-  %14 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm16RISCVInstPrinter15getRegisterNameENS_10MCRegisterEjE19AsmStrsNoRegAltName, i64 %13
-  br label %15
+.sink.split:                                      ; preds = %2, %6
+  %12 = getelementptr inbounds nuw i16, ptr @_ZZN4llvm16RISCVInstPrinter15getRegisterNameENS_10MCRegisterEjE24RegAsmOffsetNoRegAltName, i64 %5
+  %13 = load i16, ptr %12, align 2, !tbaa !18
+  %14 = zext i16 %13 to i64
+  %15 = getelementptr inbounds nuw i8, ptr @_ZZN4llvm16RISCVInstPrinter15getRegisterNameENS_10MCRegisterEjE19AsmStrsNoRegAltName, i64 %14
+  br label %16
 
-15:                                               ; preds = %.sink.split, %5
-  %.0 = phi ptr [ %9, %5 ], [ %14, %.sink.split ]
+16:                                               ; preds = %.sink.split, %6
+  %.0 = phi ptr [ %10, %6 ], [ %15, %.sink.split ]
   ret ptr %.0
 }
 

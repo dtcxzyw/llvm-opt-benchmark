@@ -799,17 +799,17 @@ define internal fastcc void @object_is_not_callable(ptr noundef %0, ptr noundef 
 Py_DECREF.exit24:                                 ; preds = %16, %23, %26
   %27 = load i32, ptr %6, align 8, !tbaa !24
   %.not.i21 = icmp sgt i32 %27, -1
-  br i1 %.not.i21, label %28, label %.thread33
+  br i1 %.not.i21, label %28, label %.thread31
 
 28:                                               ; preds = %Py_DECREF.exit24
   %29 = add nsw i32 %27, -1
   store i32 %29, ptr %6, align 8, !tbaa !24
   %30 = icmp eq i32 %29, 0
-  br i1 %30, label %31, label %.thread33
+  br i1 %30, label %31, label %.thread31
 
 31:                                               ; preds = %28
   call void @_Py_Dealloc(ptr noundef nonnull %6) #10
-  br label %.thread33
+  br label %.thread31
 
 32:                                               ; preds = %12, %13, %11
   %33 = load ptr, ptr %3, align 8, !tbaa !23
@@ -846,7 +846,7 @@ Py_XDECREF.exit:                                  ; preds = %32, %34, %36, %39
   call void @_Py_Dealloc(ptr noundef nonnull %6) #10
   br label %45
 
-.thread33:                                        ; preds = %Py_DECREF.exit24, %28, %31
+.thread31:                                        ; preds = %Py_DECREF.exit24, %28, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
@@ -862,7 +862,7 @@ Py_XDECREF.exit:                                  ; preds = %32, %34, %36, %39
   %50 = call ptr (ptr, ptr, ptr, ...) @_PyErr_Format(ptr noundef %0, ptr noundef %47, ptr noundef nonnull @.str.12, ptr noundef %49) #10
   br label %51
 
-51:                                               ; preds = %.thread33, %46
+51:                                               ; preds = %.thread31, %46
   ret void
 }
 

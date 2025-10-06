@@ -254,8 +254,8 @@ define internal fastcc noundef range(i64 -9223372036854775808, 38430716820228232
   br label %18
 
 18:                                               ; preds = %.lr.ph, %30
-  %.02844 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
-  %19 = getelementptr inbounds nuw %struct.t_rgb, ptr %9, i64 %.02844
+  %.02842 = phi i64 [ 0, %.lr.ph ], [ %31, %30 ]
+  %19 = getelementptr inbounds nuw %struct.t_rgb, ptr %9, i64 %.02842
   %20 = load double, ptr %19, align 8, !tbaa !36
   %21 = fcmp oeq double %20, %15
   br i1 %21, label %22, label %30
@@ -273,7 +273,7 @@ define internal fastcc noundef range(i64 -9223372036854775808, 38430716820228232
   br i1 %29, label %.loopexit, label %30
 
 30:                                               ; preds = %18, %22, %26
-  %31 = add nuw nsw i64 %.02844, 1
+  %31 = add nuw nsw i64 %.02842, 1
   %exitcond.not = icmp eq i64 %31, %smax
   br i1 %exitcond.not, label %._crit_edge, label %18, !llvm.loop !41
 
@@ -372,7 +372,7 @@ _ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit: ; preds = %46, 
   br label %.loopexit
 
 .loopexit:                                        ; preds = %26, %_ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit
-  %.1 = phi i64 [ %68, %_ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit ], [ %.02844, %26 ]
+  %.1 = phi i64 [ %68, %_ZNSt6vectorI5t_rgbSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit ], [ %.02842, %26 ]
   ret i64 %.1
 }
 

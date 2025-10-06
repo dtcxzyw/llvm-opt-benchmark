@@ -4153,8 +4153,8 @@ define internal fastcc range(i32 0, 5) i32 @httpauth(ptr noundef captures(none) 
 
 .thread:                                          ; preds = %13, %3
   %.024 = phi i64 [ 0, %3 ], [ %11, %13 ]
-  %.39 = select i1 %1, i64 520, i64 512
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.39
+  %.38 = select i1 %1, i64 520, i64 512
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 %.38
   store i64 %.024, ptr %16, align 8, !tbaa !18
   br label %.loopexit
 

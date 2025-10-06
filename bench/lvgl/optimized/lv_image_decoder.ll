@@ -136,29 +136,29 @@ define internal fastcc ptr @image_decoder_get_info(ptr noundef %0, ptr noundef %
   %32 = phi i1 [ true, %28 ], [ false, %27 ], [ false, %.thread ]
   %or.cond8184 = phi i1 [ %or.cond, %28 ], [ false, %27 ], [ false, %.thread ]
   %33 = call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 496)) #6
-  %.not96 = icmp eq ptr %33, null
-  br i1 %.not96, label %.thread86, label %.lr.ph
+  %.not95 = icmp eq ptr %33, null
+  br i1 %.not95, label %.thread86, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %35
 
 35:                                               ; preds = %.lr.ph, %70
-  %.07294 = phi ptr [ %33, %.lr.ph ], [ %71, %70 ]
-  %36 = load ptr, ptr %.07294, align 8, !tbaa !50
+  %.07293 = phi ptr [ %33, %.lr.ph ], [ %71, %70 ]
+  %36 = load ptr, ptr %.07293, align 8, !tbaa !50
   %.not77 = icmp eq ptr %36, null
   br i1 %.not77, label %70, label %37
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i8, ptr %.07294, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.07293, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !52
   %.not78 = icmp eq ptr %39, null
   br i1 %.not78, label %70, label %40
 
 40:                                               ; preds = %37
   %41 = call i32 @lv_fs_seek(ptr noundef nonnull %34, i32 noundef 0, i32 noundef 0) #6
-  %42 = load ptr, ptr %.07294, align 8, !tbaa !50
-  %43 = call i32 %42(ptr noundef nonnull %.07294, ptr noundef %0, ptr noundef %1) #6
+  %42 = load ptr, ptr %.07293, align 8, !tbaa !50
+  %43 = call i32 %42(ptr noundef nonnull %.07293, ptr noundef %0, ptr noundef %1) #6
   %44 = icmp eq i32 %43, 1
   br i1 %44, label %45, label %70
 
@@ -205,12 +205,12 @@ img_width_to_stride.exit:                         ; preds = %55, %57
   br label %.thread86
 
 70:                                               ; preds = %40, %35, %37
-  %71 = call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 496), ptr noundef nonnull %.07294) #6
-  %.not97 = icmp eq ptr %71, null
-  br i1 %.not97, label %.thread86, label %35, !llvm.loop !53
+  %71 = call ptr @lv_ll_get_next(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 496), ptr noundef nonnull %.07293) #6
+  %.not96 = icmp eq ptr %71, null
+  br i1 %.not96, label %.thread86, label %35, !llvm.loop !53
 
 .thread86:                                        ; preds = %70, %31, %45, %img_width_to_stride.exit
-  %.07293 = phi ptr [ %.07294, %45 ], [ %.07294, %img_width_to_stride.exit ], [ null, %31 ], [ null, %70 ]
+  %.07292 = phi ptr [ %.07293, %45 ], [ %.07293, %img_width_to_stride.exit ], [ null, %31 ], [ null, %70 ]
   %72 = phi i1 [ true, %45 ], [ true, %img_width_to_stride.exit ], [ false, %31 ], [ false, %70 ]
   br i1 %32, label %73, label %76
 
@@ -230,15 +230,15 @@ img_width_to_stride.exit:                         ; preds = %55, %57
   %79 = call ptr @lv_strdup(ptr noundef %6) #6
   store ptr %79, ptr %4, align 8, !tbaa !46
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store ptr %.07293, ptr %80, align 8, !tbaa !49
+  store ptr %.07292, ptr %80, align 8, !tbaa !49
   %81 = getelementptr inbounds nuw i8, ptr %4, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %81, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false), !tbaa.struct !47
   %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 528), align 8, !tbaa !30
   %83 = call ptr @lv_cache_add(ptr noundef %82, ptr noundef nonnull %4, ptr noundef null) #6
   %.not79 = icmp eq ptr %83, null
-  br i1 %.not79, label %.thread89, label %85
+  br i1 %.not79, label %.thread88, label %85
 
-.thread89:                                        ; preds = %77
+.thread88:                                        ; preds = %77
   %84 = load ptr, ptr %4, align 8, !tbaa !46
   call void @lv_free(ptr noundef %84) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -250,8 +250,8 @@ img_width_to_stride.exit:                         ; preds = %55, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %87
 
-87:                                               ; preds = %76, %85, %.thread89, %21, %28, %10
-  %.2 = phi ptr [ null, %10 ], [ null, %28 ], [ %25, %21 ], [ null, %.thread89 ], [ %.07293, %85 ], [ %.07293, %76 ]
+87:                                               ; preds = %76, %85, %.thread88, %21, %28, %10
+  %.2 = phi ptr [ null, %10 ], [ null, %28 ], [ %25, %21 ], [ null, %.thread88 ], [ %.07292, %85 ], [ %.07292, %76 ]
   ret ptr %.2
 }
 

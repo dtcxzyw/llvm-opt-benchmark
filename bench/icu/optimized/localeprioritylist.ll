@@ -564,8 +564,8 @@ _ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit: ; preds = %.lr.ph.i, %33, %.ba
   br label %.lr.ph.i59
 
 .lr.ph.i59:                                       ; preds = %45, %.lr.ph.preheader.i57
-  %.01518.i = phi ptr [ %46, %45 ], [ %.0.lcssa.i, %.lr.ph.preheader.i57 ]
-  %44 = load i8, ptr %.01518.i, align 1, !tbaa !26
+  %.01517.i = phi ptr [ %46, %45 ], [ %.0.lcssa.i, %.lr.ph.preheader.i57 ]
+  %44 = load i8, ptr %.01517.i, align 1, !tbaa !26
   switch i8 %44, label %45 [
     i8 59, label %._crit_edge.loopexit.i
     i8 44, label %._crit_edge.loopexit.i
@@ -573,12 +573,12 @@ _ZN6icu_7712_GLOBAL__N_110skipSpacesEPKcS2_.exit: ; preds = %.lr.ph.i, %33, %.ba
   ]
 
 45:                                               ; preds = %.lr.ph.i59
-  %46 = getelementptr inbounds nuw i8, ptr %.01518.i, i64 1
+  %46 = getelementptr inbounds nuw i8, ptr %.01517.i, i64 1
   %exitcond.not.i60 = icmp eq ptr %46, %23
   br i1 %exitcond.not.i60, label %._crit_edge.loopexit.i, label %.lr.ph.i59, !llvm.loop !30
 
 ._crit_edge.loopexit.i:                           ; preds = %45, %.lr.ph.i59, %.lr.ph.i59, %.lr.ph.i59
-  %.015.lcssa.ph.i = phi ptr [ %scevgep.i58, %45 ], [ %.01518.i, %.lr.ph.i59 ], [ %.01518.i, %.lr.ph.i59 ], [ %.01518.i, %.lr.ph.i59 ]
+  %.015.lcssa.ph.i = phi ptr [ %scevgep.i58, %45 ], [ %.01517.i, %.lr.ph.i59 ], [ %.01517.i, %.lr.ph.i59 ], [ %.01517.i, %.lr.ph.i59 ]
   %.pre.i = ptrtoint ptr %.015.lcssa.ph.i to i64
   br label %_ZN6icu_7712_GLOBAL__N_113findTagLengthEPKcS2_.exit
 

@@ -93,12 +93,12 @@ define dso_local ptr @php_get_temporary_directory() local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %28, %.thread.thread, %12, %21
-  %.sink63 = phi ptr [ %27, %21 ], [ %13, %12 ], [ %16, %.thread.thread ], [ %29, %28 ]
-  store ptr %.sink63, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 512), align 8, !tbaa !4
+  %.sink60 = phi ptr [ %27, %21 ], [ %13, %12 ], [ %16, %.thread.thread ], [ %29, %28 ]
+  store ptr %.sink60, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 512), align 8, !tbaa !4
   br label %30
 
 30:                                               ; preds = %.sink.split, %0
-  %.0 = phi ptr [ %1, %0 ], [ %.sink63, %.sink.split ]
+  %.0 = phi ptr [ %1, %0 ], [ %.sink60, %.sink.split ]
   ret ptr %.0
 }
 

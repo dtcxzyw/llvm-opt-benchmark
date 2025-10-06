@@ -1228,14 +1228,14 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
 
 .lr.ph.us:                                        ; preds = %.lr.ph.lr.ph, %.split.us.us
   %7 = phi i32 [ %39, %.split.us.us ], [ %5, %.lr.ph.lr.ph ]
-  %.pre34 = load ptr, ptr @ReplicationSlotCtl, align 8
+  %.pre32 = load ptr, ptr @ReplicationSlotCtl, align 8
   br label %8
 
 8:                                                ; preds = %28, %.lr.ph.us
   %9 = phi i32 [ %29, %28 ], [ %7, %.lr.ph.us ]
-  %10 = phi ptr [ %30, %28 ], [ %.pre34, %.lr.ph.us ]
-  %indvars.iv28 = phi i64 [ %indvars.iv.next29, %28 ], [ 0, %.lr.ph.us ]
-  %11 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %10, i64 %indvars.iv28
+  %10 = phi ptr [ %30, %28 ], [ %.pre32, %.lr.ph.us ]
+  %indvars.iv26 = phi i64 [ %indvars.iv.next27, %28 ], [ 0, %.lr.ph.us ]
+  %11 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %10, i64 %indvars.iv26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
@@ -1266,16 +1266,16 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
 27:                                               ; preds = %24, %19
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !20
   store i8 0, ptr %11, align 8
-  %.pre33 = load ptr, ptr @ReplicationSlotCtl, align 8
-  %.pre35 = load i32, ptr @max_replication_slots, align 4
+  %.pre31 = load ptr, ptr @ReplicationSlotCtl, align 8
+  %.pre33 = load i32, ptr @max_replication_slots, align 4
   br label %28
 
 28:                                               ; preds = %27, %8
-  %29 = phi i32 [ %.pre35, %27 ], [ %9, %8 ]
-  %30 = phi ptr [ %.pre33, %27 ], [ %10, %8 ]
-  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
+  %29 = phi i32 [ %.pre33, %27 ], [ %9, %8 ]
+  %30 = phi ptr [ %.pre31, %27 ], [ %10, %8 ]
+  %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
   %31 = sext i32 %29 to i64
-  %32 = icmp slt i64 %indvars.iv.next29, %31
+  %32 = icmp slt i64 %indvars.iv.next27, %31
   br i1 %32, label %8, label %._crit_edge, !llvm.loop !21
 
 .split.us.us:                                     ; preds = %24
@@ -1296,12 +1296,12 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.split
   %41 = phi i32 [ %64, %.split ], [ %5, %.lr.ph.lr.ph ]
-  %.pre31 = load ptr, ptr @ReplicationSlotCtl, align 8
+  %.pre29 = load ptr, ptr @ReplicationSlotCtl, align 8
   br label %42
 
 42:                                               ; preds = %.lr.ph, %67
   %43 = phi i32 [ %41, %.lr.ph ], [ %68, %67 ]
-  %44 = phi ptr [ %.pre31, %.lr.ph ], [ %69, %67 ]
+  %44 = phi ptr [ %.pre29, %.lr.ph ], [ %69, %67 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
   %45 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
@@ -1343,11 +1343,11 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
 
 66:                                               ; preds = %53
   %.pre = load ptr, ptr @ReplicationSlotCtl, align 8
-  %.pre32 = load i32, ptr @max_replication_slots, align 4
+  %.pre30 = load i32, ptr @max_replication_slots, align 4
   br label %67
 
 67:                                               ; preds = %66, %42
-  %68 = phi i32 [ %.pre32, %66 ], [ %43, %42 ]
+  %68 = phi i32 [ %.pre30, %66 ], [ %43, %42 ]
   %69 = phi ptr [ %.pre, %66 ], [ %44, %42 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = sext i32 %68 to i64
@@ -2454,7 +2454,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %125
   %20 = phi i32 [ %18, %.lr.ph.lr.ph ], [ %129, %125 ]
-  %.01560 = phi i1 [ false, %.lr.ph.lr.ph ], [ %.4.ph, %125 ]
+  %.01558 = phi i1 [ false, %.lr.ph.lr.ph ], [ %.4.ph, %125 ]
   br label %21
 
 21:                                               ; preds = %.lr.ph, %121
@@ -2486,12 +2486,12 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   br label %125
 
 38:                                               ; preds = %115, %.lr.ph.i
-  %.064145.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %115 ]
-  %.065144.i = phi i64 [ 0, %.lr.ph.i ], [ %.3.i, %115 ]
-  %.068143.i = phi i32 [ 0, %.lr.ph.i ], [ %.371.i, %115 ]
-  %.072142.i = phi i32 [ 0, %.lr.ph.i ], [ %.375.i, %115 ]
-  %.076141.i = phi i1 [ false, %.lr.ph.i ], [ %.278.i, %115 ]
-  %.079140.i = phi i1 [ false, %.lr.ph.i ], [ true, %115 ]
+  %.064143.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %115 ]
+  %.065142.i = phi i64 [ 0, %.lr.ph.i ], [ %.3.i, %115 ]
+  %.068141.i = phi i32 [ 0, %.lr.ph.i ], [ %.371.i, %115 ]
+  %.072140.i = phi i32 [ 0, %.lr.ph.i ], [ %.375.i, %115 ]
+  %.076139.i = phi i1 [ false, %.lr.ph.i ], [ %.278.i, %115 ]
+  %.079138.i = phi i1 [ false, %.lr.ph.i ], [ true, %115 ]
   %39 = call i8 asm sideeffect "\09lock\09\09\09\0A\09xchgb\09$0,$1\09\0A", "=q,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i8) %24, i8 1, ptr nonnull elementtype(i8) %24) #16, !srcloc !11
   %.not.i = icmp eq i8 %39, 0
   br i1 %.not.i, label %42, label %40
@@ -2507,7 +2507,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   br i1 %45, label %46, label %.thread.i
 
 46:                                               ; preds = %42
-  br i1 %.076141.i, label %50, label %47
+  br i1 %.076139.i, label %50, label %47
 
 47:                                               ; preds = %46
   %48 = load i32, ptr %31, align 4
@@ -2515,9 +2515,9 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   br label %50
 
 50:                                               ; preds = %47, %46
-  %.375.i = phi i32 [ %.072142.i, %46 ], [ %48, %47 ]
-  %.371.i = phi i32 [ %.068143.i, %46 ], [ %49, %47 ]
-  %.3.i = phi i64 [ %.065144.i, %46 ], [ %43, %47 ]
+  %.375.i = phi i32 [ %.072140.i, %46 ], [ %48, %47 ]
+  %.371.i = phi i32 [ %.068141.i, %46 ], [ %49, %47 ]
+  %.3.i = phi i64 [ %.065142.i, %46 ], [ %43, %47 ]
   switch i32 %0, label %.thread.thread.i [
     i32 1, label %51
     i32 2, label %53
@@ -2532,16 +2532,16 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
 51:                                               ; preds = %50
   %.not94.i = icmp ne i64 %.3.i, 0
   %52 = icmp ult i64 %.3.i, %14
-  %or.cond130.i = and i1 %.not94.i, %52
-  br i1 %or.cond130.i, label %.thread108.i, label %.thread.i
+  %or.cond128.i = and i1 %.not94.i, %52
+  br i1 %or.cond128.i, label %.thread108.i, label %.thread.i
 
 53:                                               ; preds = %50
   %54 = load i32, ptr %33, align 8
   %.not89.i = icmp ne i32 %54, 0
   %.not91.i = icmp eq i32 %2, %54
   %or.cond.i = or i1 %.not90.i, %.not91.i
-  %or.cond146.i = and i1 %.not89.i, %or.cond.i
-  br i1 %or.cond146.i, label %55, label %.thread.i
+  %or.cond144.i = and i1 %.not89.i, %or.cond.i
+  br i1 %or.cond144.i, label %55, label %.thread.i
 
 55:                                               ; preds = %53
   %.not92.i = icmp eq i32 %.375.i, 0
@@ -2567,7 +2567,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
 .thread.i:                                        ; preds = %61, %59, %58, %53, %51, %42
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !40
   store i8 0, ptr %24, align 8
-  br i1 %.079140.i, label %63, label %InvalidatePossiblyObsoleteSlot.exit
+  br i1 %.079138.i, label %63, label %InvalidatePossiblyObsoleteSlot.exit
 
 63:                                               ; preds = %.thread.i
   %64 = load ptr, ptr @MainLWLockArray, align 8
@@ -2600,7 +2600,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   %73 = load ptr, ptr @MainLWLockArray, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4736
   call void @LWLockRelease(ptr noundef nonnull %74) #16
-  %.not96.i = icmp eq i32 %.064145.i, %67
+  %.not96.i = icmp eq i32 %.064143.i, %67
   br i1 %.not96.i, label %115, label %75
 
 75:                                               ; preds = %72
@@ -2706,8 +2706,8 @@ ReplicationSlotMarkDirty.exit.i:                  ; preds = %106, %101
   br label %125
 
 115:                                              ; preds = %99, %97, %72
-  %.278.i = phi i1 [ %.076141.i, %72 ], [ true, %99 ], [ true, %97 ]
-  %.2.i = phi i32 [ %.064145.i, %72 ], [ %67, %99 ], [ %67, %97 ]
+  %.278.i = phi i1 [ %.076139.i, %72 ], [ true, %99 ], [ true, %97 ]
+  %.2.i = phi i32 [ %.064143.i, %72 ], [ %67, %99 ], [ %67, %97 ]
   call void @ConditionVariableSleep(ptr noundef nonnull %35, i32 noundef 134217777) #16
   %116 = load ptr, ptr @MainLWLockArray, align 8
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 4736
@@ -2731,7 +2731,7 @@ InvalidatePossiblyObsoleteSlot.exit:              ; preds = %.thread.thread.i, %
   br i1 %124, label %21, label %._crit_edge, !llvm.loop !42
 
 125:                                              ; preds = %63, %._crit_edge.i, %ReplicationSlotMarkDirty.exit.i
-  %.4.ph = phi i1 [ %.01560, %63 ], [ %.01560, %._crit_edge.i ], [ true, %ReplicationSlotMarkDirty.exit.i ]
+  %.4.ph = phi i1 [ %.01558, %63 ], [ %.01558, %._crit_edge.i ], [ true, %ReplicationSlotMarkDirty.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %126 = load ptr, ptr @MainLWLockArray, align 8
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 4736
@@ -2741,7 +2741,7 @@ InvalidatePossiblyObsoleteSlot.exit:              ; preds = %.thread.thread.i, %
   br i1 %130, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %125, %121
-  %.015.lcssa = phi i1 [ %.01560, %121 ], [ %.4.ph, %125 ]
+  %.015.lcssa = phi i1 [ %.01558, %121 ], [ %.4.ph, %125 ]
   %131 = load ptr, ptr @MainLWLockArray, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4736
   call void @LWLockRelease(ptr noundef nonnull %132) #16
@@ -2924,8 +2924,8 @@ sub_0.lr.ph:                                      ; preds = %8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 112
   br label %sub_0
 
-sub_0:                                            ; preds = %sub_0.lr.ph, %197
-  %20 = phi ptr [ %10, %sub_0.lr.ph ], [ %198, %197 ]
+sub_0:                                            ; preds = %sub_0.lr.ph, %196
+  %20 = phi ptr [ %10, %sub_0.lr.ph ], [ %197, %196 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 19
   %22 = load i8, ptr %21, align 1
@@ -2936,7 +2936,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %197
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %24 = load i8, ptr %23, align 1
   %25 = icmp eq i8 %24, 0
-  br i1 %25, label %197, label %sub_112, !llvm.loop !45
+  br i1 %25, label %196, label %sub_112, !llvm.loop !45
 
 sub_112:                                          ; preds = %.tail
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -2948,12 +2948,12 @@ sub_112:                                          ; preds = %.tail
   %28 = getelementptr inbounds nuw i8, ptr %20, i64 21
   %29 = load i8, ptr %28, align 1
   %30 = icmp eq i8 %29, 0
-  br i1 %30, label %197, label %.tail10.thread, !llvm.loop !45
+  br i1 %30, label %196, label %.tail10.thread, !llvm.loop !45
 
 .tail10.thread:                                   ; preds = %sub_0, %sub_112, %.tail10
   %31 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %4, i64 noundef 1036, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.30, ptr noundef nonnull %21) #16
   %32 = call i32 @get_dirent_type(ptr noundef nonnull %4, ptr noundef nonnull %20, i1 noundef zeroext false, i32 noundef 14) #16
-  switch i32 %32, label %197 [
+  switch i32 %32, label %196 [
     i32 3, label %33
     i32 0, label %33
   ], !llvm.loop !45
@@ -2968,16 +2968,16 @@ sub_112:                                          ; preds = %.tail
 
 37:                                               ; preds = %35
   %38 = call zeroext i1 @errstart(i32 noundef 19, ptr noundef null) #16
-  br i1 %38, label %39, label %197, !llvm.loop !45
+  br i1 %38, label %39, label %196, !llvm.loop !45
 
 39:                                               ; preds = %37
   %40 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.41, ptr noundef nonnull %4) #16
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 1960, ptr noundef nonnull @__func__.StartupReplicationSlots) #16
-  br label %197, !llvm.loop !45
+  br label %196, !llvm.loop !45
 
 41:                                               ; preds = %35
   call void @fsync_fname(ptr noundef nonnull @.str.30, i1 noundef zeroext true) #16
-  br label %197, !llvm.loop !45
+  br label %196, !llvm.loop !45
 
 42:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -3212,12 +3212,12 @@ sub_112:                                          ; preds = %.tail
 .preheader.i:                                     ; preds = %161
   %163 = load i32, ptr @max_replication_slots, align 4
   %164 = icmp sgt i32 %163, 0
-  br i1 %164, label %.lr.ph.i, label %._crit_edge.i
+  br i1 %164, label %ReplicationSlotSetInactiveSince.exit.lr.ph.i, label %._crit_edge.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i
+ReplicationSlotSetInactiveSince.exit.lr.ph.i:     ; preds = %.preheader.i
   %165 = load ptr, ptr @ReplicationSlotCtl, align 8
   %wide.trip.count.i = zext nneg i32 %163 to i64
-  br label %172
+  br label %ReplicationSlotSetInactiveSince.exit.i
 
 166:                                              ; preds = %161
   %167 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #18
@@ -3227,79 +3227,79 @@ sub_112:                                          ; preds = %.tail
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2374, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #16
   unreachable
 
-171:                                              ; preds = %172
+171:                                              ; preds = %ReplicationSlotSetInactiveSince.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %172, !llvm.loop !46
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %ReplicationSlotSetInactiveSince.exit.i, !llvm.loop !46
 
-172:                                              ; preds = %171, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %171 ]
-  %173 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %165, i64 %indvars.iv.i
-  %174 = getelementptr inbounds nuw i8, ptr %173, i64 1
-  %175 = load i8, ptr %174, align 1, !range !4, !noundef !5
-  %176 = trunc nuw i8 %175 to i1
-  br i1 %176, label %171, label %177
+ReplicationSlotSetInactiveSince.exit.i:           ; preds = %171, %ReplicationSlotSetInactiveSince.exit.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %ReplicationSlotSetInactiveSince.exit.lr.ph.i ], [ %indvars.iv.next.i, %171 ]
+  %172 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %165, i64 %indvars.iv.i
+  %173 = getelementptr inbounds nuw i8, ptr %172, i64 1
+  %174 = load i8, ptr %173, align 1, !range !4, !noundef !5
+  %175 = trunc nuw i8 %174 to i1
+  br i1 %175, label %171, label %176
 
-177:                                              ; preds = %172
-  %178 = getelementptr inbounds nuw i8, ptr %173, i64 1
-  %179 = getelementptr inbounds nuw i8, ptr %173, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %179, ptr noundef nonnull align 8 dereferenceable(184) %13, i64 184, i1 false)
-  %180 = load i32, ptr %17, align 8
-  %181 = getelementptr inbounds nuw i8, ptr %173, i64 12
-  store i32 %180, ptr %181, align 4
-  %182 = load i32, ptr %18, align 4
-  %183 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  store i32 %182, ptr %183, align 8
-  %184 = load i64, ptr %19, align 8
-  %185 = getelementptr inbounds nuw i8, ptr %173, i64 264
-  store i64 %184, ptr %185, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %173, i64 236
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %186, i8 0, i64 28, i1 false)
-  store i8 1, ptr %178, align 1
-  %187 = getelementptr inbounds nuw i8, ptr %173, i64 4
-  store i32 0, ptr %187, align 4
-  %188 = call i64 @GetCurrentTimestamp() #16
-  %189 = getelementptr inbounds nuw i8, ptr %173, i64 112
-  %190 = load i32, ptr %189, align 8
-  %191 = icmp eq i32 %190, 0
-  br i1 %191, label %192, label %RestoreSlotFromDisk.exit
+176:                                              ; preds = %ReplicationSlotSetInactiveSince.exit.i
+  %177 = getelementptr inbounds nuw i8, ptr %172, i64 1
+  %178 = getelementptr inbounds nuw i8, ptr %172, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %178, ptr noundef nonnull align 8 dereferenceable(184) %13, i64 184, i1 false)
+  %179 = load i32, ptr %17, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %172, i64 12
+  store i32 %179, ptr %180, align 4
+  %181 = load i32, ptr %18, align 4
+  %182 = getelementptr inbounds nuw i8, ptr %172, i64 16
+  store i32 %181, ptr %182, align 8
+  %183 = load i64, ptr %19, align 8
+  %184 = getelementptr inbounds nuw i8, ptr %172, i64 264
+  store i64 %183, ptr %184, align 8
+  %185 = getelementptr inbounds nuw i8, ptr %172, i64 236
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %185, i8 0, i64 28, i1 false)
+  store i8 1, ptr %177, align 1
+  %186 = getelementptr inbounds nuw i8, ptr %172, i64 4
+  store i32 0, ptr %186, align 4
+  %187 = call i64 @GetCurrentTimestamp() #16
+  %188 = getelementptr inbounds nuw i8, ptr %172, i64 112
+  %189 = load i32, ptr %188, align 8
+  %190 = icmp eq i32 %189, 0
+  br i1 %190, label %191, label %RestoreSlotFromDisk.exit
 
-192:                                              ; preds = %177
-  %193 = getelementptr inbounds nuw i8, ptr %173, i64 272
-  store i64 %188, ptr %193, align 8
+191:                                              ; preds = %176
+  %192 = getelementptr inbounds nuw i8, ptr %172, i64 272
+  store i64 %187, ptr %192, align 8
   br label %RestoreSlotFromDisk.exit
 
 ._crit_edge.i:                                    ; preds = %.preheader.i, %171
-  %194 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #18
-  %195 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85) #16
-  %196 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.86) #16
+  %193 = call zeroext i1 @errstart_cold(i32 noundef 22, ptr noundef null) #18
+  %194 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.85) #16
+  %195 = call i32 (ptr, ...) @errhint(ptr noundef nonnull @.str.86) #16
   call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 2421, ptr noundef nonnull @__func__.RestoreSlotFromDisk) #16
   unreachable
 
-RestoreSlotFromDisk.exit:                         ; preds = %150, %177, %192
+RestoreSlotFromDisk.exit:                         ; preds = %150, %176, %191
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  br label %197
+  br label %196
 
-197:                                              ; preds = %37, %39, %.tail10.thread, %.tail, %.tail10, %RestoreSlotFromDisk.exit, %41
+196:                                              ; preds = %37, %39, %.tail10.thread, %.tail, %.tail10, %RestoreSlotFromDisk.exit, %41
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %198 = call ptr @ReadDir(ptr noundef %9, ptr noundef nonnull @.str.30) #16
-  %.not = icmp eq ptr %198, null
+  %197 = call ptr @ReadDir(ptr noundef %9, ptr noundef nonnull @.str.30) #16
+  %.not = icmp eq ptr %197, null
   br i1 %.not, label %._crit_edge, label %sub_0
 
-._crit_edge:                                      ; preds = %197, %8
-  %199 = call i32 @FreeDir(ptr noundef %9) #16
-  %200 = load i32, ptr @max_replication_slots, align 4
-  %201 = icmp slt i32 %200, 1
-  br i1 %201, label %203, label %202
+._crit_edge:                                      ; preds = %196, %8
+  %198 = call i32 @FreeDir(ptr noundef %9) #16
+  %199 = load i32, ptr @max_replication_slots, align 4
+  %200 = icmp slt i32 %199, 1
+  br i1 %200, label %202, label %201
 
-202:                                              ; preds = %._crit_edge
+201:                                              ; preds = %._crit_edge
   call void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext false)
   call void @ReplicationSlotsComputeRequiredLSN()
-  br label %203
+  br label %202
 
-203:                                              ; preds = %._crit_edge, %202
+202:                                              ; preds = %._crit_edge, %201
   ret void
 }
 

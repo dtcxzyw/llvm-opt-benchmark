@@ -16951,12 +16951,12 @@ define linkonce_odr noundef zeroext i1 @_ZNK8LightGBM7Dataset10CheckAlignERKS0_(
   %64 = load i32, ptr %63, align 8, !tbaa !526
   %65 = icmp eq i32 %64, 0
   %66 = icmp sgt i32 %55, 0
-  br i1 %65, label %.preheader.i, label %.preheader30.i
+  br i1 %65, label %.preheader.i, label %.preheader25.i
 
-.preheader30.i:                                   ; preds = %62
+.preheader25.i:                                   ; preds = %62
   br i1 %66, label %.lr.ph.i, label %.loopexit
 
-.lr.ph.i:                                         ; preds = %.preheader30.i
+.lr.ph.i:                                         ; preds = %.preheader25.i
   %67 = getelementptr inbounds nuw i8, ptr %42, i64 112
   %68 = load ptr, ptr %67, align 8, !tbaa !307
   %69 = getelementptr inbounds nuw i8, ptr %54, i64 112
@@ -16965,26 +16965,26 @@ define linkonce_odr noundef zeroext i1 @_ZNK8LightGBM7Dataset10CheckAlignERKS0_(
   br label %83
 
 .preheader.i:                                     ; preds = %62
-  br i1 %66, label %.lr.ph37.i, label %.loopexit
+  br i1 %66, label %.lr.ph32.i, label %.loopexit
 
-.lr.ph37.i:                                       ; preds = %.preheader.i
+.lr.ph32.i:                                       ; preds = %.preheader.i
   %71 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !312
   %73 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %74 = load ptr, ptr %73, align 8, !tbaa !312
-  %wide.trip.count47.i = zext nneg i32 %55 to i64
+  %wide.trip.count42.i = zext nneg i32 %55 to i64
   br label %76
 
 75:                                               ; preds = %76
-  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
-  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %wide.trip.count47.i
-  br i1 %exitcond48.not.i, label %.loopexit, label %76, !llvm.loop !589
+  %indvars.iv.next40.i = add nuw nsw i64 %indvars.iv39.i, 1
+  %exitcond43.not.i = icmp eq i64 %indvars.iv.next40.i, %wide.trip.count42.i
+  br i1 %exitcond43.not.i, label %.loopexit, label %76, !llvm.loop !589
 
-76:                                               ; preds = %75, %.lr.ph37.i
-  %indvars.iv44.i = phi i64 [ 0, %.lr.ph37.i ], [ %indvars.iv.next45.i, %75 ]
-  %77 = getelementptr inbounds nuw double, ptr %72, i64 %indvars.iv44.i
+76:                                               ; preds = %75, %.lr.ph32.i
+  %indvars.iv39.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next40.i, %75 ]
+  %77 = getelementptr inbounds nuw double, ptr %72, i64 %indvars.iv39.i
   %78 = load double, ptr %77, align 8, !tbaa !314
-  %79 = getelementptr inbounds nuw double, ptr %74, i64 %indvars.iv44.i
+  %79 = getelementptr inbounds nuw double, ptr %74, i64 %indvars.iv39.i
   %80 = load double, ptr %79, align 8, !tbaa !314
   %81 = fcmp oeq double %78, %80
   br i1 %81, label %75, label %_ZNK8LightGBM9BinMapper10CheckAlignERKS0_.exit
@@ -17003,7 +17003,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK8LightGBM7Dataset10CheckAlignERKS0_(
   %.not20.i = icmp eq i32 %85, %87
   br i1 %.not20.i, label %82, label %_ZNK8LightGBM9BinMapper10CheckAlignERKS0_.exit
 
-.loopexit:                                        ; preds = %82, %75, %.preheader.i, %.preheader30.i
+.loopexit:                                        ; preds = %82, %75, %.preheader.i, %.preheader25.i
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %_ZNK8LightGBM9BinMapper10CheckAlignERKS0_.exit, label %30, !llvm.loop !591

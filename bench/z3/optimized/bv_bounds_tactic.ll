@@ -802,8 +802,8 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120bv_bounds_simplifier12may
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit
-  %.02027 = phi ptr [ %39, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit ], [ %1, %.lr.ph.preheader ]
-  %24 = getelementptr inbounds nuw i8, ptr %.02027, i64 16
+  %.02025 = phi ptr [ %39, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit ], [ %1, %.lr.ph.preheader ]
+  %24 = getelementptr inbounds nuw i8, ptr %.02025, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !157
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !162
@@ -820,13 +820,13 @@ _ZNK11ast_manager6is_notEPK4expr.exit.i:          ; preds = %.lr.ph
   br i1 %33, label %34, label %._crit_edge
 
 34:                                               ; preds = %_ZNK11ast_manager6is_notEPK4expr.exit.i
-  %35 = getelementptr inbounds nuw i8, ptr %.02027, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.02025, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !169
   %37 = icmp eq i32 %36, 1
   br i1 %37, label %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit, label %._crit_edge
 
 _ZNK11ast_manager6is_notEPK4exprRPS0_.exit:       ; preds = %34
-  %38 = getelementptr inbounds nuw i8, ptr %.02027, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %.02025, i64 32
   %39 = load ptr, ptr %38, align 8, !tbaa !170
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4
@@ -835,7 +835,7 @@ _ZNK11ast_manager6is_notEPK4exprRPS0_.exit:       ; preds = %34
   br i1 %43, label %.lr.ph, label %._crit_edge, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit, %_ZNK11ast_manager6is_notEPK4expr.exit.i, %34, %2
-  %.020.lcssa = phi ptr [ %1, %2 ], [ %.02027, %34 ], [ %.02027, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %39, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit ], [ %.02027, %.lr.ph ]
+  %.020.lcssa = phi ptr [ %1, %2 ], [ %.02025, %34 ], [ %.02025, %_ZNK11ast_manager6is_notEPK4expr.exit.i ], [ %39, %_ZNK11ast_manager6is_notEPK4exprRPS0_.exit ], [ %.02025, %.lr.ph ]
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %45 = load ptr, ptr %44, align 8, !tbaa !10
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -860,17 +860,17 @@ _ZNK11ast_manager6is_notEPK4exprRPS0_.exit:       ; preds = %34
 _ZNK7obj_mapI4exprN2bv8intervalEE5beginEv.exit:   ; preds = %.lr.ph.i.i.i.i, %51, %._crit_edge
   %.sroa.0.1.i.i = phi ptr [ %45, %._crit_edge ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %49, %51 ]
   %53 = getelementptr inbounds nuw %"class.obj_map<expr, bv::interval>::obj_map_entry", ptr %45, i64 %48
-  %.not33 = icmp eq ptr %.sroa.0.1.i.i, %53
-  br i1 %.not33, label %._crit_edge36, label %.lr.ph35
+  %.not31 = icmp eq ptr %.sroa.0.1.i.i, %53
+  br i1 %.not31, label %._crit_edge34, label %.lr.ph33
 
-.lr.ph35:                                         ; preds = %_ZNK7obj_mapI4exprN2bv8intervalEE5beginEv.exit, %_ZN14core_hashtableIN7obj_mapI4exprN2bv8intervalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit
-  %.sroa.014.034 = phi ptr [ %.sroa.014.2, %_ZN14core_hashtableIN7obj_mapI4exprN2bv8intervalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit ], [ %.sroa.0.1.i.i, %_ZNK7obj_mapI4exprN2bv8intervalEE5beginEv.exit ]
-  %54 = load ptr, ptr %.sroa.014.034, align 8, !tbaa !186
+.lr.ph33:                                         ; preds = %_ZNK7obj_mapI4exprN2bv8intervalEE5beginEv.exit, %_ZN14core_hashtableIN7obj_mapI4exprN2bv8intervalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit
+  %.sroa.014.032 = phi ptr [ %.sroa.014.2, %_ZN14core_hashtableIN7obj_mapI4exprN2bv8intervalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit ], [ %.sroa.0.1.i.i, %_ZNK7obj_mapI4exprN2bv8intervalEE5beginEv.exit ]
+  %54 = load ptr, ptr %.sroa.014.032, align 8, !tbaa !186
   %55 = tail call noundef zeroext i1 @_ZN2bv14bv_bounds_base8containsEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %.020.lcssa, ptr noundef %54)
   br i1 %55, label %.loopexit, label %56
 
-56:                                               ; preds = %.lr.ph35
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.014.034, i64 112
+56:                                               ; preds = %.lr.ph33
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.014.032, i64 112
   %.not1.i.i = icmp eq ptr %57, %49
   br i1 %.not1.i.i, label %_ZN14core_hashtableIN7obj_mapI4exprN2bv8intervalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit, label %.lr.ph.i.i
 
@@ -888,9 +888,9 @@ _ZNK7obj_mapI4exprN2bv8intervalEE5beginEv.exit:   ; preds = %.lr.ph.i.i.i.i, %51
 _ZN14core_hashtableIN7obj_mapI4exprN2bv8intervalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit: ; preds = %.lr.ph.i.i, %59, %56
   %.sroa.014.2 = phi ptr [ %57, %56 ], [ %.sroa.014.1, %.lr.ph.i.i ], [ %60, %59 ]
   %.not = icmp eq ptr %.sroa.014.2, %53
-  br i1 %.not, label %._crit_edge36, label %.lr.ph35
+  br i1 %.not, label %._crit_edge34, label %.lr.ph33
 
-._crit_edge36:                                    ; preds = %_ZN14core_hashtableIN7obj_mapI4exprN2bv8intervalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit, %_ZNK7obj_mapI4exprN2bv8intervalEE5beginEv.exit
+._crit_edge34:                                    ; preds = %_ZN14core_hashtableIN7obj_mapI4exprN2bv8intervalEE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE8iteratorppEv.exit, %_ZNK7obj_mapI4exprN2bv8intervalEE5beginEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 8, !tbaa !187
@@ -903,7 +903,7 @@ _ZN14core_hashtableIN7obj_mapI4exprN2bv8intervalEE13obj_map_entryE8obj_hashINS4_
   %64 = invoke noundef zeroext i1 @_ZNK2bv14bv_bounds_base8is_boundEP4exprRS2_RNS_8intervalE(ptr noundef nonnull align 8 dereferenceable(112) %5, ptr noundef %.020.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(104) %4)
           to label %65 unwind label %86
 
-65:                                               ; preds = %._crit_edge36
+65:                                               ; preds = %._crit_edge34
   br i1 %64, label %66, label %88
 
 66:                                               ; preds = %65
@@ -943,7 +943,7 @@ _ZNK7obj_mapI4exprN2bv8intervalEE8containsEPS0_.exit: ; preds = %_ZNK2bv8interva
   %85 = icmp ne ptr %84, null
   br label %90
 
-86:                                               ; preds = %_ZNK2bv8interval7is_fullEv.exit.thread, %81, %88, %._crit_edge36
+86:                                               ; preds = %_ZNK2bv8interval7is_fullEv.exit.thread, %81, %88, %._crit_edge34
   %87 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2bv8intervalD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #26
@@ -996,8 +996,8 @@ _ZN2bv8intervalD2Ev.exit:                         ; preds = %.noexc.i1.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph35, %17, %_ZN2bv8intervalD2Ev.exit
-  %.0 = phi i1 [ %.4, %_ZN2bv8intervalD2Ev.exit ], [ false, %17 ], [ true, %.lr.ph35 ]
+.loopexit:                                        ; preds = %.lr.ph33, %17, %_ZN2bv8intervalD2Ev.exit
+  %.0 = phi i1 [ %.4, %_ZN2bv8intervalD2Ev.exit ], [ false, %17 ], [ true, %.lr.ph33 ]
   ret i1 %.0
 }
 
@@ -18552,7 +18552,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager17expr_array_
   %5 = phi i32 [ %.pre, %2 ], [ %46, %41 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %41 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable27 [
+  switch i32 %6, label %default.unreachable26 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit
@@ -18633,7 +18633,7 @@ _ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i:
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %35, i64 noundef %37, ptr noundef nonnull %33)
   br label %_ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread
 
-default.unreachable27:                            ; preds = %4
+default.unreachable26:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager17expr_array_configEE17deallocate_valuesEPP4expr.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager17expr_array_configEE7dec_refEjPP4expr.exit, %_ZN14parray_managerIN11ast_manager17expr_array_configEE8capacityEPP4expr.exit.i
@@ -19493,7 +19493,7 @@ define linkonce_odr hidden void @_ZN14parray_managerIN11ast_manager28expr_depend
   %5 = phi i32 [ %.pre, %2 ], [ %54, %49 ]
   %.014 = phi ptr [ %1, %2 ], [ %.013, %49 ]
   %6 = lshr i32 %5, 30
-  switch i32 %6, label %default.unreachable27 [
+  switch i32 %6, label %default.unreachable26 [
     i32 0, label %7
     i32 1, label %7
     i32 2, label %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit
@@ -19582,7 +19582,7 @@ _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN1
   tail call void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520) %43, i64 noundef %45, ptr noundef nonnull %41)
   br label %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread
 
-default.unreachable27:                            ; preds = %4
+default.unreachable26:                            ; preds = %4
   unreachable
 
 _ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE17deallocate_valuesEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.thread: ; preds = %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE7dec_refEjPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit, %_ZN14parray_managerIN11ast_manager28expr_dependency_array_configEE8capacityEPPN18dependency_managerINS0_22expr_dependency_configEE10dependencyE.exit.i

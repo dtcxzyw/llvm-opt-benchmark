@@ -178,7 +178,7 @@ define void @_ZN4YAML10NodeEvents5SetupERKNS_6detail4nodeE(ptr noundef nonnull a
   %12 = add nsw i32 %11, 1
   store i32 %12, ptr %10, align 4, !tbaa !35
   %13 = icmp sgt i32 %11, 0
-  br i1 %13, label %104, label %14
+  br i1 %13, label %106, label %14
 
 14:                                               ; preds = %2
   %15 = load ptr, ptr %1, align 8, !tbaa !3
@@ -188,9 +188,9 @@ define void @_ZN4YAML10NodeEvents5SetupERKNS_6detail4nodeE(ptr noundef nonnull a
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load i32, ptr %19, align 8
   %21 = select i1 %18, i32 %20, i32 0
-  switch i32 %21, label %104 [
+  switch i32 %21, label %106 [
     i32 3, label %22
-    i32 4, label %62
+    i32 4, label %63
   ]
 
 22:                                               ; preds = %14
@@ -205,11 +205,11 @@ define void @_ZN4YAML10NodeEvents5SetupERKNS_6detail4nodeE(ptr noundef nonnull a
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.pre47 = load i32, ptr %4, align 8, !tbaa !86
+  %.pre45 = load i32, ptr %4, align 8, !tbaa !86
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit
 
 _ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit: ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge, %22
-  %30 = phi i32 [ %.pre47, %22 ], [ %42, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge ]
+  %30 = phi i32 [ %.pre45, %22 ], [ %43, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge ]
   %31 = load i32, ptr %5, align 8, !tbaa !86
   %.not.i.i = icmp eq i32 %30, %31
   br i1 %.not.i.i, label %32, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
@@ -235,168 +235,168 @@ _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit: ; pr
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread39: ; preds = %33, %32, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %104
+  br label %106
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread: ; preds = %33, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit
-  %switch = icmp ne i32 %30, 2
-  call void @llvm.assume(i1 %switch)
-  %40 = load ptr, ptr %25, align 8, !tbaa !93, !noalias !94
-  %41 = load ptr, ptr %40, align 8, !tbaa !97, !noalias !94
-  call void @_ZN4YAML10NodeEvents5SetupERKNS_6detail4nodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %41)
-  %42 = load i32, ptr %4, align 8, !tbaa !86
-  switch i32 %42, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge [
-    i32 2, label %46
-    i32 1, label %43
+  %40 = icmp ne i32 %30, 2
+  call void @llvm.assume(i1 %40)
+  %41 = load ptr, ptr %25, align 8, !tbaa !93, !noalias !94
+  %42 = load ptr, ptr %41, align 8, !tbaa !97, !noalias !94
+  call void @_ZN4YAML10NodeEvents5SetupERKNS_6detail4nodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %42)
+  %43 = load i32, ptr %4, align 8, !tbaa !86
+  switch i32 %43, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge [
+    i32 2, label %47
+    i32 1, label %44
   ]
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread, %43, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread, %44, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit
 
-43:                                               ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
-  %44 = load ptr, ptr %25, align 8, !tbaa !93
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %45, ptr %25, align 8, !tbaa !93
+44:                                               ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
+  %45 = load ptr, ptr %25, align 8, !tbaa !93
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %46, ptr %25, align 8, !tbaa !93
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge
 
-46:                                               ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
-  %47 = load ptr, ptr %27, align 8, !tbaa !98
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %29, align 8, !tbaa !92
-  %.not3.i.i = icmp eq ptr %48, %49
+47:                                               ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
+  %48 = load ptr, ptr %27, align 8, !tbaa !98
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load ptr, ptr %29, align 8, !tbaa !92
+  %.not3.i.i = icmp eq ptr %49, %50
   br i1 %.not3.i.i, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %46, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
-  %.sroa.0.04.i.i = phi ptr [ %61, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i ], [ %48, %46 ]
-  %50 = load ptr, ptr %.sroa.0.04.i.i, align 8, !tbaa !99
-  %51 = load ptr, ptr %50, align 8, !tbaa !3
-  %52 = load ptr, ptr %51, align 8, !tbaa !53
-  %53 = load i8, ptr %52, align 8, !tbaa !56, !range !78, !noundef !79
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
+.lr.ph.i.i:                                       ; preds = %47, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
+  %.sroa.0.04.i.i = phi ptr [ %62, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i ], [ %49, %47 ]
+  %51 = load ptr, ptr %.sroa.0.04.i.i, align 8, !tbaa !99
+  %52 = load ptr, ptr %51, align 8, !tbaa !3
+  %53 = load ptr, ptr %52, align 8, !tbaa !53
+  %54 = load i8, ptr %53, align 8, !tbaa !56, !range !78, !noundef !79
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i: ; preds = %.lr.ph.i.i
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 8
-  %56 = load ptr, ptr %55, align 8, !tbaa !101
-  %57 = load ptr, ptr %56, align 8, !tbaa !3
-  %58 = load ptr, ptr %57, align 8, !tbaa !53
-  %59 = load i8, ptr %58, align 8, !tbaa !56, !range !78, !noundef !79
-  %60 = trunc nuw i8 %59 to i1
-  br i1 %60, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 8
+  %57 = load ptr, ptr %56, align 8, !tbaa !101
+  %58 = load ptr, ptr %57, align 8, !tbaa !3
+  %59 = load ptr, ptr %58, align 8, !tbaa !53
+  %60 = load i8, ptr %59, align 8, !tbaa !56, !range !78, !noundef !79
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, %.lr.ph.i.i
-  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 16
-  %.not.i.i12 = icmp eq ptr %61, %49
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 16
+  %.not.i.i12 = icmp eq ptr %62, %50
   br i1 %.not.i.i12, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %.lr.ph.i.i, !llvm.loop !102
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, %46
-  %.sroa.0.0.lcssa.i.i = phi ptr [ %48, %46 ], [ %61, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i ], [ %.sroa.0.04.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i ]
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, %47
+  %.sroa.0.0.lcssa.i.i = phi ptr [ %49, %47 ], [ %62, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i ], [ %.sroa.0.04.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %27, align 8, !tbaa !92
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge
 
-62:                                               ; preds = %14
+63:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_ZNK4YAML6detail9node_data5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.YAML::detail::node_iterator_base") align 8 %6, ptr noundef nonnull align 8 dereferenceable(176) %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %63 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !103
-  %64 = load ptr, ptr %63, align 8, !tbaa !53, !noalias !106
-  call void @_ZNK4YAML6detail9node_data3endEv(ptr dead_on_unwind nonnull writable sret(%"class.YAML::detail::node_iterator_base") align 8 %7, ptr noundef nonnull align 8 dereferenceable(176) %64)
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %68 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %64 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !103
+  %65 = load ptr, ptr %64, align 8, !tbaa !53, !noalias !106
+  call void @_ZNK4YAML6detail9node_data3endEv(ptr dead_on_unwind nonnull writable sret(%"class.YAML::detail::node_iterator_base") align 8 %7, ptr noundef nonnull align 8 dereferenceable(176) %65)
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %69 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %70 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %.pre = load i32, ptr %6, align 8, !tbaa !86
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25: ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge, %62
-  %70 = phi i32 [ %.pre, %62 ], [ %84, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge ]
-  %71 = load i32, ptr %7, align 8, !tbaa !86
-  %.not.i.i13 = icmp eq i32 %70, %71
-  br i1 %.not.i.i13, label %72, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25: ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge, %63
+  %71 = phi i32 [ %.pre, %63 ], [ %86, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge ]
+  %72 = load i32, ptr %7, align 8, !tbaa !86
+  %.not.i.i13 = icmp eq i32 %71, %72
+  br i1 %.not.i.i13, label %73, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
 
-72:                                               ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25
-  switch i32 %70, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42 [
+73:                                               ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25
+  switch i32 %71, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42 [
     i32 2, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15
-    i32 1, label %73
+    i32 1, label %74
   ]
 
-73:                                               ; preds = %72
-  %74 = load ptr, ptr %65, align 8, !tbaa !91
+74:                                               ; preds = %73
   %75 = load ptr, ptr %66, align 8, !tbaa !91
-  %76 = icmp eq ptr %74, %75
-  br i1 %76, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
+  %76 = load ptr, ptr %67, align 8, !tbaa !91
+  %77 = icmp eq ptr %75, %76
+  br i1 %77, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
 
-_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15: ; preds = %72
-  %77 = load ptr, ptr %67, align 8, !tbaa !92
+_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15: ; preds = %73
   %78 = load ptr, ptr %68, align 8, !tbaa !92
-  %79 = icmp eq ptr %77, %78
-  br i1 %79, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
+  %79 = load ptr, ptr %69, align 8, !tbaa !92
+  %80 = icmp eq ptr %78, %79
+  br i1 %80, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
 
-_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42: ; preds = %73, %72, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15
+_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42: ; preds = %74, %73, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %104
+  br label %106
 
-_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread: ; preds = %73, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15
-  %switch46 = icmp eq i32 %70, 2
-  call void @llvm.assume(i1 %switch46)
-  %80 = load ptr, ptr %67, align 8, !tbaa !98, !noalias !109
-  %81 = load ptr, ptr %80, align 8, !tbaa !99, !noalias !109
-  %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %83 = load ptr, ptr %82, align 8, !tbaa !101, !noalias !109
-  call void @_ZN4YAML10NodeEvents5SetupERKNS_6detail4nodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %81)
+_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread: ; preds = %74, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15
+  %81 = icmp eq i32 %71, 2
+  call void @llvm.assume(i1 %81)
+  %82 = load ptr, ptr %68, align 8, !tbaa !98, !noalias !109
+  %83 = load ptr, ptr %82, align 8, !tbaa !99, !noalias !109
+  %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !101, !noalias !109
   call void @_ZN4YAML10NodeEvents5SetupERKNS_6detail4nodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %83)
-  %84 = load i32, ptr %6, align 8, !tbaa !86
-  switch i32 %84, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge [
-    i32 2, label %88
-    i32 1, label %85
+  call void @_ZN4YAML10NodeEvents5SetupERKNS_6detail4nodeE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %85)
+  %86 = load i32, ptr %6, align 8, !tbaa !86
+  switch i32 %86, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge [
+    i32 2, label %90
+    i32 1, label %87
   ]
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread, %85, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i22
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread, %87, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i22
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25
 
-85:                                               ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
-  %86 = load ptr, ptr %65, align 8, !tbaa !93
-  %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  store ptr %87, ptr %65, align 8, !tbaa !93
+87:                                               ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
+  %88 = load ptr, ptr %66, align 8, !tbaa !93
+  %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
+  store ptr %89, ptr %66, align 8, !tbaa !93
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge
 
-88:                                               ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
-  %89 = load ptr, ptr %67, align 8, !tbaa !98
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load ptr, ptr %69, align 8, !tbaa !92
-  %.not3.i.i17 = icmp eq ptr %90, %91
+90:                                               ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread
+  %91 = load ptr, ptr %68, align 8, !tbaa !98
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
+  %93 = load ptr, ptr %70, align 8, !tbaa !92
+  %.not3.i.i17 = icmp eq ptr %92, %93
   br i1 %.not3.i.i17, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i22, label %.lr.ph.i.i18
 
-.lr.ph.i.i18:                                     ; preds = %88, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20
-  %.sroa.0.04.i.i19 = phi ptr [ %103, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20 ], [ %90, %88 ]
-  %92 = load ptr, ptr %.sroa.0.04.i.i19, align 8, !tbaa !99
-  %93 = load ptr, ptr %92, align 8, !tbaa !3
-  %94 = load ptr, ptr %93, align 8, !tbaa !53
-  %95 = load i8, ptr %94, align 8, !tbaa !56, !range !78, !noundef !79
-  %96 = trunc nuw i8 %95 to i1
-  br i1 %96, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i24, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20
+.lr.ph.i.i18:                                     ; preds = %90, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20
+  %.sroa.0.04.i.i19 = phi ptr [ %105, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20 ], [ %92, %90 ]
+  %94 = load ptr, ptr %.sroa.0.04.i.i19, align 8, !tbaa !99
+  %95 = load ptr, ptr %94, align 8, !tbaa !3
+  %96 = load ptr, ptr %95, align 8, !tbaa !53
+  %97 = load i8, ptr %96, align 8, !tbaa !56, !range !78, !noundef !79
+  %98 = trunc nuw i8 %97 to i1
+  br i1 %98, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i24, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i24: ; preds = %.lr.ph.i.i18
-  %97 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i19, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !101
-  %99 = load ptr, ptr %98, align 8, !tbaa !3
-  %100 = load ptr, ptr %99, align 8, !tbaa !53
-  %101 = load i8, ptr %100, align 8, !tbaa !56, !range !78, !noundef !79
-  %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i22, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i19, i64 8
+  %100 = load ptr, ptr %99, align 8, !tbaa !101
+  %101 = load ptr, ptr %100, align 8, !tbaa !3
+  %102 = load ptr, ptr %101, align 8, !tbaa !53
+  %103 = load i8, ptr %102, align 8, !tbaa !56, !range !78, !noundef !79
+  %104 = trunc nuw i8 %103 to i1
+  br i1 %104, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i22, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i24, %.lr.ph.i.i18
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i19, i64 16
-  %.not.i.i21 = icmp eq ptr %103, %91
+  %105 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i19, i64 16
+  %.not.i.i21 = icmp eq ptr %105, %93
   br i1 %.not.i.i21, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i22, label %.lr.ph.i.i18, !llvm.loop !102
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i22: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i24, %88
-  %.sroa.0.0.lcssa.i.i23 = phi ptr [ %90, %88 ], [ %103, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20 ], [ %.sroa.0.04.i.i19, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i24 ]
-  store ptr %.sroa.0.0.lcssa.i.i23, ptr %67, align 8, !tbaa !92
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i22: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i24, %90
+  %.sroa.0.0.lcssa.i.i23 = phi ptr [ %92, %90 ], [ %105, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i20 ], [ %.sroa.0.04.i.i19, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i24 ]
+  store ptr %.sroa.0.0.lcssa.i.i23, ptr %68, align 8, !tbaa !92
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit25.backedge
 
-104:                                              ; preds = %14, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread39, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42, %2
+106:                                              ; preds = %14, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread39, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit15.thread42, %2
   ret void
 }
 
@@ -735,7 +735,7 @@ _ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit: ; pre
   %47 = load ptr, ptr %46, align 8
   call void %47(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %6, i64 noundef %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %194
+  br label %196
 
 _ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit.thread: ; preds = %29, %_ZNKSt8_Rb_treeIPKN4YAML6detail8node_refESt4pairIKS4_mESt10_Select1stIS7_ESt4lessIS4_ESaIS7_EE14_M_lower_boundEPKSt13_Rb_tree_nodeIS7_EPKSt18_Rb_tree_node_baseRS6_.exit.i.i.i, %_ZNKSt3mapIPKN4YAML6detail8node_refEmSt4lessIS4_ESaISt4pairIKS4_mEEE4findERS8_.exit.i, %_ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -790,8 +790,8 @@ _ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61: ; p
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %70 = load i32, ptr %69, align 8
   %71 = select i1 %68, i32 %70, i32 0
-  switch i32 %71, label %194 [
-    i32 4, label %139
+  switch i32 %71, label %196 [
+    i32 4, label %140
     i32 1, label %72
     i32 2, label %78
     i32 3, label %86
@@ -809,7 +809,7 @@ _ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61: ; p
   %77 = load ptr, ptr %76, align 8
   call void %77(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %7, i64 noundef %.0)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %194
+  br label %196
 
 78:                                               ; preds = %_ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -825,7 +825,7 @@ _ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61: ; p
   %85 = load ptr, ptr %84, align 8
   call void %85(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %8, ptr noundef nonnull align 8 dereferenceable(32) %81, i64 noundef %.0, ptr noundef nonnull align 8 dereferenceable(32) %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %194
+  br label %196
 
 86:                                               ; preds = %_ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -859,7 +859,7 @@ _ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61: ; p
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit
 
 _ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit: ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge, %86
-  %104 = phi i32 [ %.pre, %86 ], [ %119, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge ]
+  %104 = phi i32 [ %.pre, %86 ], [ %120, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge ]
   %105 = load i32, ptr %11, align 8, !tbaa !86
   %.not.i.i = icmp eq i32 %104, %105
   br i1 %.not.i.i, label %106, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
@@ -889,188 +889,188 @@ _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.threa
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 64
   %116 = load ptr, ptr %115, align 8
   call void %116(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %194
+  br label %196
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread: ; preds = %107, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit
-  %switch = icmp ne i32 %104, 2
-  call void @llvm.assume(i1 %switch)
-  %117 = load ptr, ptr %99, align 8, !tbaa !93, !noalias !139
-  %118 = load ptr, ptr %117, align 8, !tbaa !97, !noalias !139
-  call void @_ZNK4YAML10NodeEvents4EmitERKNS_6detail4nodeERNS_12EventHandlerERNS0_12AliasManagerE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %118, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  %119 = load i32, ptr %10, align 8, !tbaa !86
-  switch i32 %119, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge [
-    i32 2, label %123
-    i32 1, label %120
+  %117 = icmp ne i32 %104, 2
+  call void @llvm.assume(i1 %117)
+  %118 = load ptr, ptr %99, align 8, !tbaa !93, !noalias !139
+  %119 = load ptr, ptr %118, align 8, !tbaa !97, !noalias !139
+  call void @_ZNK4YAML10NodeEvents4EmitERKNS_6detail4nodeERNS_12EventHandlerERNS0_12AliasManagerE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %119, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  %120 = load i32, ptr %10, align 8, !tbaa !86
+  switch i32 %120, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge [
+    i32 2, label %124
+    i32 1, label %121
   ]
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread, %120, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread, %121, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit
 
-120:                                              ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
-  %121 = load ptr, ptr %99, align 8, !tbaa !93
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  store ptr %122, ptr %99, align 8, !tbaa !93
+121:                                              ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
+  %122 = load ptr, ptr %99, align 8, !tbaa !93
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
+  store ptr %123, ptr %99, align 8, !tbaa !93
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge
 
-123:                                              ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
-  %124 = load ptr, ptr %101, align 8, !tbaa !98
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
-  %126 = load ptr, ptr %103, align 8, !tbaa !92
-  %.not3.i.i = icmp eq ptr %125, %126
+124:                                              ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread
+  %125 = load ptr, ptr %101, align 8, !tbaa !98
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
+  %127 = load ptr, ptr %103, align 8, !tbaa !92
+  %.not3.i.i = icmp eq ptr %126, %127
   br i1 %.not3.i.i, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %123, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
-  %.sroa.0.04.i.i = phi ptr [ %138, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i ], [ %125, %123 ]
-  %127 = load ptr, ptr %.sroa.0.04.i.i, align 8, !tbaa !99
-  %128 = load ptr, ptr %127, align 8, !tbaa !3
-  %129 = load ptr, ptr %128, align 8, !tbaa !53
-  %130 = load i8, ptr %129, align 8, !tbaa !56, !range !78, !noundef !79
-  %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
+.lr.ph.i.i:                                       ; preds = %124, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
+  %.sroa.0.04.i.i = phi ptr [ %139, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i ], [ %126, %124 ]
+  %128 = load ptr, ptr %.sroa.0.04.i.i, align 8, !tbaa !99
+  %129 = load ptr, ptr %128, align 8, !tbaa !3
+  %130 = load ptr, ptr %129, align 8, !tbaa !53
+  %131 = load i8, ptr %130, align 8, !tbaa !56, !range !78, !noundef !79
+  %132 = trunc nuw i8 %131 to i1
+  br i1 %132, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i: ; preds = %.lr.ph.i.i
-  %132 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 8
-  %133 = load ptr, ptr %132, align 8, !tbaa !101
-  %134 = load ptr, ptr %133, align 8, !tbaa !3
-  %135 = load ptr, ptr %134, align 8, !tbaa !53
-  %136 = load i8, ptr %135, align 8, !tbaa !56, !range !78, !noundef !79
-  %137 = trunc nuw i8 %136 to i1
-  br i1 %137, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 8
+  %134 = load ptr, ptr %133, align 8, !tbaa !101
+  %135 = load ptr, ptr %134, align 8, !tbaa !3
+  %136 = load ptr, ptr %135, align 8, !tbaa !53
+  %137 = load i8, ptr %136, align 8, !tbaa !56, !range !78, !noundef !79
+  %138 = trunc nuw i8 %137 to i1
+  br i1 %138, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, %.lr.ph.i.i
-  %138 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 16
-  %.not.i.i62 = icmp eq ptr %138, %126
+  %139 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i, i64 16
+  %.not.i.i62 = icmp eq ptr %139, %127
   br i1 %.not.i.i62, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i, label %.lr.ph.i.i, !llvm.loop !102
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, %123
-  %.sroa.0.0.lcssa.i.i = phi ptr [ %125, %123 ], [ %138, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i ], [ %.sroa.0.04.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i ]
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i, %124
+  %.sroa.0.0.lcssa.i.i = phi ptr [ %126, %124 ], [ %139, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i ], [ %.sroa.0.04.i.i, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i ]
   store ptr %.sroa.0.0.lcssa.i.i, ptr %101, align 8, !tbaa !92
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit.backedge
 
-139:                                              ; preds = %_ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61
+140:                                              ; preds = %_ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !122
-  %140 = getelementptr inbounds nuw i8, ptr %12, i64 4
-  store i32 0, ptr %140, align 4, !tbaa !123
-  %141 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store i32 0, ptr %141, align 4, !tbaa !124
-  %142 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %143 = getelementptr inbounds nuw i8, ptr %66, i64 56
-  %144 = load i32, ptr %143, align 8, !tbaa !126
-  %145 = load ptr, ptr %2, align 8, !tbaa !115
-  %146 = getelementptr inbounds nuw i8, ptr %145, i64 72
-  %147 = load ptr, ptr %146, align 8
-  call void %147(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %142, i64 noundef %.0, i32 noundef %144)
+  %141 = getelementptr inbounds nuw i8, ptr %12, i64 4
+  store i32 0, ptr %141, align 4, !tbaa !123
+  %142 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store i32 0, ptr %142, align 4, !tbaa !124
+  %143 = getelementptr inbounds nuw i8, ptr %66, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %66, i64 56
+  %145 = load i32, ptr %144, align 8, !tbaa !126
+  %146 = load ptr, ptr %2, align 8, !tbaa !115
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 72
+  %148 = load ptr, ptr %147, align 8
+  call void %148(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(32) %143, i64 noundef %.0, i32 noundef %145)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %148 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !142
-  %149 = load ptr, ptr %148, align 8, !tbaa !53, !noalias !145
-  call void @_ZNK4YAML6detail9node_data5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.YAML::detail::node_iterator_base") align 8 %13, ptr noundef nonnull align 8 dereferenceable(176) %149)
+  %149 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !142
+  %150 = load ptr, ptr %149, align 8, !tbaa !53, !noalias !145
+  call void @_ZNK4YAML6detail9node_data5beginEv(ptr dead_on_unwind nonnull writable sret(%"class.YAML::detail::node_iterator_base") align 8 %13, ptr noundef nonnull align 8 dereferenceable(176) %150)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %150 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !148
-  %151 = load ptr, ptr %150, align 8, !tbaa !53, !noalias !151
-  call void @_ZNK4YAML6detail9node_data3endEv(ptr dead_on_unwind nonnull writable sret(%"class.YAML::detail::node_iterator_base") align 8 %14, ptr noundef nonnull align 8 dereferenceable(176) %151)
-  %152 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %153 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %154 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %155 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %156 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %.pre99 = load i32, ptr %13, align 8, !tbaa !86
+  %151 = load ptr, ptr %1, align 8, !tbaa !3, !noalias !148
+  %152 = load ptr, ptr %151, align 8, !tbaa !53, !noalias !151
+  call void @_ZNK4YAML6detail9node_data3endEv(ptr dead_on_unwind nonnull writable sret(%"class.YAML::detail::node_iterator_base") align 8 %14, ptr noundef nonnull align 8 dereferenceable(176) %152)
+  %153 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %155 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  %157 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  %.pre97 = load i32, ptr %13, align 8, !tbaa !86
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75: ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge, %139
-  %157 = phi i32 [ %.pre99, %139 ], [ %174, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge ]
-  %158 = load i32, ptr %14, align 8, !tbaa !86
-  %.not.i.i63 = icmp eq i32 %157, %158
-  br i1 %.not.i.i63, label %159, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75: ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge, %140
+  %158 = phi i32 [ %.pre97, %140 ], [ %176, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge ]
+  %159 = load i32, ptr %14, align 8, !tbaa !86
+  %.not.i.i63 = icmp eq i32 %158, %159
+  br i1 %.not.i.i63, label %160, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
 
-159:                                              ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75
-  switch i32 %157, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94 [
+160:                                              ; preds = %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75
+  switch i32 %158, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94 [
     i32 2, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65
-    i32 1, label %160
+    i32 1, label %161
   ]
 
-160:                                              ; preds = %159
-  %161 = load ptr, ptr %152, align 8, !tbaa !91
+161:                                              ; preds = %160
   %162 = load ptr, ptr %153, align 8, !tbaa !91
-  %163 = icmp eq ptr %161, %162
-  br i1 %163, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
+  %163 = load ptr, ptr %154, align 8, !tbaa !91
+  %164 = icmp eq ptr %162, %163
+  br i1 %164, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
 
-_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65: ; preds = %159
-  %164 = load ptr, ptr %154, align 8, !tbaa !92
+_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65: ; preds = %160
   %165 = load ptr, ptr %155, align 8, !tbaa !92
-  %166 = icmp eq ptr %164, %165
-  br i1 %166, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
+  %166 = load ptr, ptr %156, align 8, !tbaa !92
+  %167 = icmp eq ptr %165, %166
+  br i1 %167, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
 
-_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94: ; preds = %160, %159, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65
+_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94: ; preds = %161, %160, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %167 = load ptr, ptr %2, align 8, !tbaa !115
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 80
-  %169 = load ptr, ptr %168, align 8
-  call void %169(ptr noundef nonnull align 8 dereferenceable(8) %2)
-  br label %194
+  %168 = load ptr, ptr %2, align 8, !tbaa !115
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 80
+  %170 = load ptr, ptr %169, align 8
+  call void %170(ptr noundef nonnull align 8 dereferenceable(8) %2)
+  br label %196
 
-_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread: ; preds = %160, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65
-  %switch98 = icmp eq i32 %157, 2
-  call void @llvm.assume(i1 %switch98)
-  %170 = load ptr, ptr %154, align 8, !tbaa !98, !noalias !154
-  %171 = load ptr, ptr %170, align 8, !tbaa !99, !noalias !154
-  %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %173 = load ptr, ptr %172, align 8, !tbaa !101, !noalias !154
-  call void @_ZNK4YAML10NodeEvents4EmitERKNS_6detail4nodeERNS_12EventHandlerERNS0_12AliasManagerE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %171, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
+_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread: ; preds = %161, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65
+  %171 = icmp eq i32 %158, 2
+  call void @llvm.assume(i1 %171)
+  %172 = load ptr, ptr %155, align 8, !tbaa !98, !noalias !154
+  %173 = load ptr, ptr %172, align 8, !tbaa !99, !noalias !154
+  %174 = getelementptr inbounds nuw i8, ptr %172, i64 8
+  %175 = load ptr, ptr %174, align 8, !tbaa !101, !noalias !154
   call void @_ZNK4YAML10NodeEvents4EmitERKNS_6detail4nodeERNS_12EventHandlerERNS0_12AliasManagerE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %173, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
-  %174 = load i32, ptr %13, align 8, !tbaa !86
-  switch i32 %174, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge [
-    i32 2, label %178
-    i32 1, label %175
+  call void @_ZNK4YAML10NodeEvents4EmitERKNS_6detail4nodeERNS_12EventHandlerERNS0_12AliasManagerE(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %175, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(56) %3)
+  %176 = load i32, ptr %13, align 8, !tbaa !86
+  switch i32 %176, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge [
+    i32 2, label %180
+    i32 1, label %177
   ]
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread, %175, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i72
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread, %177, %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i72
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75
 
-175:                                              ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
-  %176 = load ptr, ptr %152, align 8, !tbaa !93
-  %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  store ptr %177, ptr %152, align 8, !tbaa !93
+177:                                              ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
+  %178 = load ptr, ptr %153, align 8, !tbaa !93
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store ptr %179, ptr %153, align 8, !tbaa !93
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge
 
-178:                                              ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
-  %179 = load ptr, ptr %154, align 8, !tbaa !98
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
-  %181 = load ptr, ptr %156, align 8, !tbaa !92
-  %.not3.i.i67 = icmp eq ptr %180, %181
+180:                                              ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread
+  %181 = load ptr, ptr %155, align 8, !tbaa !98
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 16
+  %183 = load ptr, ptr %157, align 8, !tbaa !92
+  %.not3.i.i67 = icmp eq ptr %182, %183
   br i1 %.not3.i.i67, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i72, label %.lr.ph.i.i68
 
-.lr.ph.i.i68:                                     ; preds = %178, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70
-  %.sroa.0.04.i.i69 = phi ptr [ %193, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70 ], [ %180, %178 ]
-  %182 = load ptr, ptr %.sroa.0.04.i.i69, align 8, !tbaa !99
-  %183 = load ptr, ptr %182, align 8, !tbaa !3
-  %184 = load ptr, ptr %183, align 8, !tbaa !53
-  %185 = load i8, ptr %184, align 8, !tbaa !56, !range !78, !noundef !79
-  %186 = trunc nuw i8 %185 to i1
-  br i1 %186, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i74, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70
+.lr.ph.i.i68:                                     ; preds = %180, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70
+  %.sroa.0.04.i.i69 = phi ptr [ %195, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70 ], [ %182, %180 ]
+  %184 = load ptr, ptr %.sroa.0.04.i.i69, align 8, !tbaa !99
+  %185 = load ptr, ptr %184, align 8, !tbaa !3
+  %186 = load ptr, ptr %185, align 8, !tbaa !53
+  %187 = load i8, ptr %186, align 8, !tbaa !56, !range !78, !noundef !79
+  %188 = trunc nuw i8 %187 to i1
+  br i1 %188, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i74, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i74: ; preds = %.lr.ph.i.i68
-  %187 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i69, i64 8
-  %188 = load ptr, ptr %187, align 8, !tbaa !101
-  %189 = load ptr, ptr %188, align 8, !tbaa !3
-  %190 = load ptr, ptr %189, align 8, !tbaa !53
-  %191 = load i8, ptr %190, align 8, !tbaa !56, !range !78, !noundef !79
-  %192 = trunc nuw i8 %191 to i1
-  br i1 %192, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i72, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70
+  %189 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i69, i64 8
+  %190 = load ptr, ptr %189, align 8, !tbaa !101
+  %191 = load ptr, ptr %190, align 8, !tbaa !3
+  %192 = load ptr, ptr %191, align 8, !tbaa !53
+  %193 = load i8, ptr %192, align 8, !tbaa !56, !range !78, !noundef !79
+  %194 = trunc nuw i8 %193 to i1
+  br i1 %194, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i72, label %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70
 
 _ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i74, %.lr.ph.i.i68
-  %193 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i69, i64 16
-  %.not.i.i71 = icmp eq ptr %193, %181
+  %195 = getelementptr inbounds nuw i8, ptr %.sroa.0.04.i.i69, i64 16
+  %.not.i.i71 = icmp eq ptr %195, %183
   br i1 %.not.i.i71, label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i72, label %.lr.ph.i.i68, !llvm.loop !102
 
-_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i72: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i74, %178
-  %.sroa.0.0.lcssa.i.i73 = phi ptr [ %180, %178 ], [ %193, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70 ], [ %.sroa.0.04.i.i69, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i74 ]
-  store ptr %.sroa.0.0.lcssa.i.i73, ptr %154, align 8, !tbaa !92
+_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEE23increment_until_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i72: ; preds = %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i74, %180
+  %.sroa.0.0.lcssa.i.i73 = phi ptr [ %182, %180 ], [ %195, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.thread.i.i70 ], [ %.sroa.0.04.i.i69, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEE10is_definedEN9__gnu_cxx17__normal_iteratorIPKSt4pairIPS2_S8_ESt6vectorIS9_SaIS9_EEEE.exit.i.i74 ]
+  store ptr %.sroa.0.0.lcssa.i.i73, ptr %155, align 8, !tbaa !92
   br label %_ZN4YAML6detail18node_iterator_baseIKNS0_4nodeEEppEv.exit75.backedge
 
-194:                                              ; preds = %_ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61, %72, %78, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread91, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94, %42
+196:                                              ; preds = %_ZNK4YAML10NodeEvents12AliasManager12LookupAnchorERKNS_6detail4nodeE.exit61, %72, %78, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit.thread91, %_ZNK4YAML6detail18node_iterator_baseIKNS0_4nodeEEneIS3_EEbRKNS1_IT_EE.exit65.thread94, %42
   ret void
 }
 

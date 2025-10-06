@@ -197,8 +197,8 @@ define noundef zeroext i1 @_ZN12grep_printer7summary11SummaryKind13requires_path
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define noundef zeroext i1 @_ZN12grep_printer7summary11SummaryKind14requires_stats17head7c0bcd2192397E(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0) unnamed_addr #1 {
   %2 = load i8, ptr %0, align 1, !range !7, !noundef !8
-  %switch = icmp eq i8 %2, 1
-  ret i1 %switch
+  %3 = icmp eq i8 %2, 1
+  ret i1 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

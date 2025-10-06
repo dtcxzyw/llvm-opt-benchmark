@@ -385,18 +385,18 @@ _ZN4llvm15MIBundleBuilderC2ERNS_17MachineBasicBlockENS_26MachineInstrBundleItera
   %67 = tail call noundef ptr %66(ptr noundef nonnull align 8 dereferenceable(304) %63) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !200)
-  %.not9.i = icmp eq ptr %1, %2
-  br i1 %.not9.i, label %_ZL11getDebugLocN4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEES5_.exit.thread, label %.lr.ph.i74
+  %.not7.i = icmp eq ptr %1, %2
+  br i1 %.not7.i, label %_ZL11getDebugLocN4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEES5_.exit.thread, label %.lr.ph.i74
 
 .lr.ph.i74:                                       ; preds = %_ZN4llvm15MIBundleBuilderC2ERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES5_.exit, %70
-  %.sroa.0.010.i = phi ptr [ %72, %70 ], [ %1, %_ZN4llvm15MIBundleBuilderC2ERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES5_.exit ]
-  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 56
+  %.sroa.0.08.i = phi ptr [ %72, %70 ], [ %1, %_ZN4llvm15MIBundleBuilderC2ERNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES5_.exit ]
+  %68 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !203, !noalias !200
-  %.not8.i = icmp eq ptr %69, null
-  br i1 %.not8.i, label %70, label %_ZL11getDebugLocN4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEES5_.exit
+  %.not6.i = icmp eq ptr %69, null
+  br i1 %.not6.i, label %70, label %_ZL11getDebugLocN4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEES5_.exit
 
 70:                                               ; preds = %.lr.ph.i74
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.08.i, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !34, !noalias !200
   %.not.i75 = icmp eq ptr %72, %2
   br i1 %.not.i75, label %_ZL11getDebugLocN4llvm14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEES5_.exit.thread, label %.lr.ph.i74, !llvm.loop !206
@@ -497,7 +497,7 @@ _ZN4llvm10MIMetadataD2Ev.exit:                    ; preds = %_ZN4llvm7BuildMIERN
 101:                                              ; preds = %100, %_ZN4llvm10MIMetadataD2Ev.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %102 = call ptr @_ZN4llvm17MachineBasicBlock6insertENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12MachineInstrELb1ELb1EvLb0EvEELb0ELb0EEEPS4_(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr nonnull %1, ptr noundef %90) #15
-  br i1 %.not9.i, label %_ZN4llvm15MIBundleBuilder7prependEPNS_12MachineInstrE.exit, label %103
+  br i1 %.not7.i, label %_ZN4llvm15MIBundleBuilder7prependEPNS_12MachineInstrE.exit, label %103
 
 103:                                              ; preds = %101
   call void @_ZN4llvm12MachineInstr14bundleWithSuccEv(ptr noundef nonnull align 8 dereferenceable(70) %90) #15
@@ -627,7 +627,7 @@ _ZN4llvm15MIBundleBuilder7prependEPNS_12MachineInstrE.exit: ; preds = %101, %103
   store i32 0, ptr %159, align 8, !tbaa !217
   %160 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 4, ptr %160, align 4, !tbaa !218
-  br i1 %.not9.i, label %._crit_edge303, label %.lr.ph302
+  br i1 %.not7.i, label %._crit_edge303, label %.lr.ph302
 
 .lr.ph302:                                        ; preds = %_ZN4llvm15MIBundleBuilder7prependEPNS_12MachineInstrE.exit
   %161 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -756,22 +756,22 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14MachineOperandELb1EE9push_backES2_.exit:
   %224 = zext i32 %223 to i64
   %.idx.i.i.i = shl nuw nsw i64 %224, 2
   %225 = getelementptr inbounds nuw i8, ptr %222, i64 %.idx.i.i.i
-  %.not13.i.i.i = icmp eq i32 %223, 0
-  br i1 %.not13.i.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i
+  %.not11.i.i.i = icmp eq i32 %223, 0
+  br i1 %.not11.i.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %221, %228
-  %.0914.i.i.i = phi ptr [ %229, %228 ], [ %222, %221 ]
-  %226 = load i32, ptr %.0914.i.i.i, align 4, !tbaa !238
+  %.0912.i.i.i = phi ptr [ %229, %228 ], [ %222, %221 ]
+  %226 = load i32, ptr %.0912.i.i.i, align 4, !tbaa !238
   %227 = icmp eq i32 %226, %217
   br i1 %227, label %_ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %228
 
 228:                                              ; preds = %.lr.ph.i.i.i
-  %229 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i, i64 4
+  %229 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i, i64 4
   %.not.i.i.i = icmp eq ptr %229, %225
   br i1 %.not.i.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !240
 
 _ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit.i.i: ; preds = %228, %.lr.ph.i.i.i, %221
-  %.1.i.i.i = phi ptr [ %225, %221 ], [ %225, %228 ], [ %.0914.i.i.i, %.lr.ph.i.i.i ]
+  %.1.i.i.i = phi ptr [ %225, %221 ], [ %.0912.i.i.i, %.lr.ph.i.i.i ], [ %225, %228 ]
   %230 = getelementptr inbounds nuw %"class.llvm::Register", ptr %222, i64 %224
   %.not419 = icmp eq ptr %.1.i.i.i, %230
   br i1 %.not419, label %_ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5countERKS1_.exit.thread, label %238
@@ -1049,26 +1049,26 @@ _ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE11equal_r
   %330 = zext i32 %329 to i64
   %.idx.i.i = shl nuw nsw i64 %330, 2
   %331 = getelementptr inbounds nuw i8, ptr %328, i64 %.idx.i.i
-  %.not13.i.i = icmp eq i32 %329, 0
-  br i1 %.not13.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i, label %.lr.ph.i.i
+  %.not11.i.i = icmp eq i32 %329, 0
+  br i1 %.not11.i.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %327
   %332 = load i32, ptr %23, align 4, !tbaa !238
   br label %333
 
 333:                                              ; preds = %336, %.lr.ph.i.i
-  %.0914.i.i = phi ptr [ %328, %.lr.ph.i.i ], [ %337, %336 ]
-  %334 = load i32, ptr %.0914.i.i, align 4, !tbaa !238
+  %.0912.i.i = phi ptr [ %328, %.lr.ph.i.i ], [ %337, %336 ]
+  %334 = load i32, ptr %.0912.i.i, align 4, !tbaa !238
   %335 = icmp eq i32 %334, %332
   br i1 %335, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i, label %336
 
 336:                                              ; preds = %333
-  %337 = getelementptr inbounds nuw i8, ptr %.0914.i.i, i64 4
+  %337 = getelementptr inbounds nuw i8, ptr %.0912.i.i, i64 4
   %.not.i.i86 = icmp eq ptr %337, %331
   br i1 %.not.i.i86, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i, label %333, !llvm.loop !259
 
 _ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i: ; preds = %336, %333, %327
-  %.1.i.i = phi ptr [ %331, %327 ], [ %.0914.i.i, %333 ], [ %331, %336 ]
+  %.1.i.i = phi ptr [ %331, %327 ], [ %331, %336 ], [ %.0912.i.i, %333 ]
   %338 = getelementptr inbounds nuw %"class.llvm::Register", ptr %328, i64 %330
   %.not.not.i = icmp eq ptr %.1.i.i, %338
   br i1 %.not.not.i, label %_ZN4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5eraseERKS1_.exit, label %339
@@ -1113,26 +1113,26 @@ _ZN4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5eraseERKS1_.exit: ; preds = %.
   %358 = zext i32 %357 to i64
   %.idx.i.i88 = shl nuw nsw i64 %358, 2
   %359 = getelementptr inbounds nuw i8, ptr %356, i64 %.idx.i.i88
-  %.not13.i.i89 = icmp eq i32 %357, 0
-  br i1 %.not13.i.i89, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i, label %.lr.ph.i.i90
+  %.not11.i.i89 = icmp eq i32 %357, 0
+  br i1 %.not11.i.i89, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i, label %.lr.ph.i.i90
 
 .lr.ph.i.i90:                                     ; preds = %355
   %360 = load i32, ptr %23, align 4, !tbaa !238
   br label %361
 
 361:                                              ; preds = %364, %.lr.ph.i.i90
-  %.0914.i.i91 = phi ptr [ %356, %.lr.ph.i.i90 ], [ %365, %364 ]
-  %362 = load i32, ptr %.0914.i.i91, align 4, !tbaa !238
+  %.0912.i.i91 = phi ptr [ %356, %.lr.ph.i.i90 ], [ %365, %364 ]
+  %362 = load i32, ptr %.0912.i.i91, align 4, !tbaa !238
   %363 = icmp eq i32 %362, %360
   br i1 %363, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i, label %364
 
 364:                                              ; preds = %361
-  %365 = getelementptr inbounds nuw i8, ptr %.0914.i.i91, i64 4
+  %365 = getelementptr inbounds nuw i8, ptr %.0912.i.i91, i64 4
   %.not.i.i92 = icmp eq ptr %365, %359
   br i1 %.not.i.i92, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i, label %361, !llvm.loop !260
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i: ; preds = %364, %361, %355
-  %.1.i.i93 = phi ptr [ %359, %355 ], [ %.0914.i.i91, %361 ], [ %359, %364 ]
+  %.1.i.i93 = phi ptr [ %359, %355 ], [ %359, %364 ], [ %.0912.i.i91, %361 ]
   %366 = getelementptr inbounds nuw %"class.llvm::Register", ptr %356, i64 %358
   %.not.not.i94 = icmp eq ptr %.1.i.i93, %366
   br i1 %.not.not.i94, label %_ZN4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5eraseERKS1_.exit, label %367
@@ -1282,26 +1282,26 @@ _ZN4llvm16MCSubRegIteratorppEv.exit:              ; preds = %_ZN4llvm23SmallVect
   %433 = zext i32 %432 to i64
   %.idx.i.i.i114 = shl nuw nsw i64 %433, 2
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 %.idx.i.i.i114
-  %.not13.i.i.i115 = icmp eq i32 %432, 0
-  br i1 %.not13.i.i.i115, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i116
+  %.not11.i.i.i115 = icmp eq i32 %432, 0
+  br i1 %.not11.i.i.i115, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i116
 
 .lr.ph.i.i.i116:                                  ; preds = %430
   %435 = load i32, ptr %29, align 4, !tbaa !238
   br label %436
 
 436:                                              ; preds = %439, %.lr.ph.i.i.i116
-  %.0914.i.i.i117 = phi ptr [ %431, %.lr.ph.i.i.i116 ], [ %440, %439 ]
-  %437 = load i32, ptr %.0914.i.i.i117, align 4, !tbaa !238
+  %.0912.i.i.i117 = phi ptr [ %431, %.lr.ph.i.i.i116 ], [ %440, %439 ]
+  %437 = load i32, ptr %.0912.i.i.i117, align 4, !tbaa !238
   %438 = icmp eq i32 %437, %435
   br i1 %438, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %439
 
 439:                                              ; preds = %436
-  %440 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i117, i64 4
+  %440 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i117, i64 4
   %.not.i.i.i118 = icmp eq ptr %440, %434
   br i1 %.not.i.i.i118, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %436, !llvm.loop !260
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i: ; preds = %439, %436, %430
-  %.1.i.i.i119 = phi ptr [ %434, %430 ], [ %434, %439 ], [ %.0914.i.i.i117, %436 ]
+  %.1.i.i.i119 = phi ptr [ %434, %430 ], [ %.0912.i.i.i117, %436 ], [ %434, %439 ]
   %441 = getelementptr inbounds nuw %"class.llvm::Register", ptr %431, i64 %433
   %.not421 = icmp eq ptr %.1.i.i.i119, %441
   br i1 %.not421, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread, label %.thread
@@ -1356,23 +1356,23 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit.thread: ; pre
   %456 = zext i32 %.fr256 to i64
   %.idx.i.i.i131 = shl nuw nsw i64 %456, 2
   %457 = getelementptr inbounds nuw i8, ptr %.fr255, i64 %.idx.i.i.i131
-  %.not13.i.i.i132 = icmp eq i32 %.fr256, 0
+  %.not11.i.i.i132 = icmp eq i32 %.fr256, 0
   %.sroa.09.0.copyload239.pre = load i32, ptr %29, align 4, !tbaa !248
-  br i1 %.not13.i.i.i132, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i133
+  br i1 %.not11.i.i.i132, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i133
 
 .lr.ph.i.i.i133:                                  ; preds = %453, %460
-  %.0914.i.i.i134 = phi ptr [ %461, %460 ], [ %.fr255, %453 ]
-  %458 = load i32, ptr %.0914.i.i.i134, align 4, !tbaa !238
+  %.0912.i.i.i134 = phi ptr [ %461, %460 ], [ %.fr255, %453 ]
+  %458 = load i32, ptr %.0912.i.i.i134, align 4, !tbaa !238
   %459 = icmp eq i32 %458, %.sroa.09.0.copyload239.pre
   br i1 %459, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %460
 
 460:                                              ; preds = %.lr.ph.i.i.i133
-  %461 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i134, i64 4
+  %461 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i134, i64 4
   %.not.i.i.i135 = icmp eq ptr %461, %457
   br i1 %.not.i.i.i135, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i, label %.lr.ph.i.i.i133, !llvm.loop !259
 
 _ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit.i.i: ; preds = %460, %.lr.ph.i.i.i133, %453
-  %.1.i.i.i136 = phi ptr [ %457, %453 ], [ %457, %460 ], [ %.0914.i.i.i134, %.lr.ph.i.i.i133 ]
+  %.1.i.i.i136 = phi ptr [ %457, %453 ], [ %.0912.i.i.i134, %.lr.ph.i.i.i133 ], [ %457, %460 ]
   %462 = getelementptr %"class.llvm::Register", ptr %.fr255, i64 %456
   %.1.i.i.i136.fr = freeze ptr %.1.i.i.i136
   %.not257 = icmp eq ptr %.1.i.i.i136.fr, %462
@@ -1433,7 +1433,7 @@ _ZNKSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_low
   br i1 %.not, label %._crit_edge308, label %423
 
 .preheader:                                       ; preds = %524, %._crit_edge308
-  br i1 %.not9.i, label %._crit_edge316, label %.lr.ph315
+  br i1 %.not7.i, label %._crit_edge316, label %.lr.ph315
 
 .lr.ph315:                                        ; preds = %.preheader
   %475 = getelementptr inbounds nuw i8, ptr %90, i64 44
@@ -1453,22 +1453,22 @@ _ZNKSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_low
   %483 = zext i32 %482 to i64
   %.idx.i.i.i149 = shl nuw nsw i64 %483, 2
   %484 = getelementptr inbounds nuw i8, ptr %481, i64 %.idx.i.i.i149
-  %.not13.i.i.i150 = icmp eq i32 %482, 0
-  br i1 %.not13.i.i.i150, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i154, label %.lr.ph.i.i.i151
+  %.not11.i.i.i150 = icmp eq i32 %482, 0
+  br i1 %.not11.i.i.i150, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i154, label %.lr.ph.i.i.i151
 
 .lr.ph.i.i.i151:                                  ; preds = %480, %487
-  %.0914.i.i.i152 = phi ptr [ %488, %487 ], [ %481, %480 ]
-  %485 = load i32, ptr %.0914.i.i.i152, align 4, !tbaa !238
+  %.0912.i.i.i152 = phi ptr [ %488, %487 ], [ %481, %480 ]
+  %485 = load i32, ptr %.0912.i.i.i152, align 4, !tbaa !238
   %486 = icmp eq i32 %485, %.fr258
   br i1 %486, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i154, label %487
 
 487:                                              ; preds = %.lr.ph.i.i.i151
-  %488 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i152, i64 4
+  %488 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i152, i64 4
   %.not.i.i.i153 = icmp eq ptr %488, %484
   br i1 %.not.i.i.i153, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i154, label %.lr.ph.i.i.i151, !llvm.loop !260
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i154: ; preds = %487, %.lr.ph.i.i.i151, %480
-  %.1.i.i.i155 = phi ptr [ %484, %480 ], [ %484, %487 ], [ %.0914.i.i.i152, %.lr.ph.i.i.i151 ]
+  %.1.i.i.i155 = phi ptr [ %484, %480 ], [ %.0912.i.i.i152, %.lr.ph.i.i.i151 ], [ %484, %487 ]
   %489 = getelementptr inbounds nuw %"class.llvm::Register", ptr %481, i64 %483
   %490 = icmp ne ptr %.1.i.i.i155, %489
   br label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit156
@@ -1516,22 +1516,22 @@ _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5countERKS1_.exit156: ; preds =
   %505 = zext i32 %.fr262 to i64
   %.idx.i.i.i168 = shl nuw nsw i64 %505, 2
   %506 = getelementptr inbounds nuw i8, ptr %.fr261, i64 %.idx.i.i.i168
-  %.not13.i.i.i169 = icmp eq i32 %.fr262, 0
-  br i1 %.not13.i.i.i169, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173, label %.lr.ph.i.i.i170
+  %.not11.i.i.i169 = icmp eq i32 %.fr262, 0
+  br i1 %.not11.i.i.i169, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173, label %.lr.ph.i.i.i170
 
 .lr.ph.i.i.i170:                                  ; preds = %502, %509
-  %.0914.i.i.i171 = phi ptr [ %510, %509 ], [ %.fr261, %502 ]
-  %507 = load i32, ptr %.0914.i.i.i171, align 4, !tbaa !238
+  %.0912.i.i.i171 = phi ptr [ %510, %509 ], [ %.fr261, %502 ]
+  %507 = load i32, ptr %.0912.i.i.i171, align 4, !tbaa !238
   %508 = icmp eq i32 %507, %.fr258
   br i1 %508, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173, label %509
 
 509:                                              ; preds = %.lr.ph.i.i.i170
-  %510 = getelementptr inbounds nuw i8, ptr %.0914.i.i.i171, i64 4
+  %510 = getelementptr inbounds nuw i8, ptr %.0912.i.i.i171, i64 4
   %.not.i.i.i172 = icmp eq ptr %510, %506
   br i1 %.not.i.i.i172, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173, label %.lr.ph.i.i.i170, !llvm.loop !260
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit.i.i173: ; preds = %509, %.lr.ph.i.i.i170, %502
-  %.1.i.i.i174 = phi ptr [ %506, %502 ], [ %506, %509 ], [ %.0914.i.i.i171, %.lr.ph.i.i.i170 ]
+  %.1.i.i.i174 = phi ptr [ %506, %502 ], [ %.0912.i.i.i171, %.lr.ph.i.i.i170 ], [ %506, %509 ]
   %511 = getelementptr %"class.llvm::Register", ptr %.fr261, i64 %505
   %.1.i.i.i174.fr = freeze ptr %.1.i.i.i174
   %.not263 = icmp eq ptr %.1.i.i.i174.fr, %511
@@ -3350,23 +3350,23 @@ _ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_inse
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not13.i = icmp eq i32 %34, 0
+  %.not11.i = icmp eq i32 %34, 0
   %.sroa.05.0.copyload.pre = load i32, ptr %2, align 4, !tbaa !248
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %39
-  %.0914.i = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %37 = load i32, ptr %.0914.i, align 4, !tbaa !238
+  %.0912.i = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %37 = load i32, ptr %.0912.i, align 4, !tbaa !238
   %38 = icmp eq i32 %37, %.sroa.05.0.copyload.pre
   br i1 %38, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %40, %36
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i, !llvm.loop !259
 
 _ZNK4llvm8SmallSetINS_8RegisterELj16ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %.lr.ph.i, %39
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %36, %39 ]
+  %.1.i = phi ptr [ %36, %39 ], [ %.0912.i, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw %"class.llvm::Register", ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIN4llvm8RegisterESt4lessIS1_ESaIS1_EE6insertERKS1_.exit
@@ -3665,23 +3665,23 @@ _ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_inse
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not13.i = icmp eq i32 %34, 0
+  %.not11.i = icmp eq i32 %34, 0
   %.sroa.05.0.copyload.pre = load i32, ptr %2, align 4, !tbaa !248
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %39
-  %.0914.i = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %37 = load i32, ptr %.0914.i, align 4, !tbaa !238
+  %.0912.i = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %37 = load i32, ptr %.0912.i, align 4, !tbaa !238
   %38 = icmp eq i32 %37, %.sroa.05.0.copyload.pre
   br i1 %38, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %40, %36
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i, !llvm.loop !260
 
 _ZNK4llvm8SmallSetINS_8RegisterELj8ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %.lr.ph.i, %39
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %36, %39 ]
+  %.1.i = phi ptr [ %36, %39 ], [ %.0912.i, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw %"class.llvm::Register", ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIN4llvm8RegisterESt4lessIS1_ESaIS1_EE6insertERKS1_.exit
@@ -3877,23 +3877,23 @@ _ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_inse
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not13.i = icmp eq i32 %34, 0
+  %.not11.i = icmp eq i32 %34, 0
   %.sroa.05.0.copyload.pre = load i32, ptr %2, align 4, !tbaa !248
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %39
-  %.0914.i = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %37 = load i32, ptr %.0914.i, align 4, !tbaa !238
+  %.0912.i = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %37 = load i32, ptr %.0912.i, align 4, !tbaa !238
   %38 = icmp eq i32 %37, %.sroa.05.0.copyload.pre
   br i1 %38, label %_ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %40, %36
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i, !llvm.loop !240
 
 _ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %.lr.ph.i, %39
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %36, %39 ]
+  %.1.i = phi ptr [ %36, %39 ], [ %.0912.i, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw %"class.llvm::Register", ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIN4llvm8RegisterESt4lessIS1_ESaIS1_EE6insertERKS1_.exit
@@ -4211,23 +4211,23 @@ _ZNSt8_Rb_treeIN4llvm8RegisterES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_inse
   %35 = zext i32 %34 to i64
   %.idx.i = shl nuw nsw i64 %35, 2
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx.i
-  %.not13.i = icmp eq i32 %34, 0
+  %.not11.i = icmp eq i32 %34, 0
   %.sroa.05.0.copyload.pre = load i32, ptr %2, align 4, !tbaa !248
-  br i1 %.not13.i, label %.thread, label %.lr.ph.i
+  br i1 %.not11.i, label %.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %31, %39
-  %.0914.i = phi ptr [ %40, %39 ], [ %32, %31 ]
-  %37 = load i32, ptr %.0914.i, align 4, !tbaa !238
+  %.0912.i = phi ptr [ %40, %39 ], [ %32, %31 ]
+  %37 = load i32, ptr %.0912.i, align 4, !tbaa !238
   %38 = icmp eq i32 %37, %.sroa.05.0.copyload.pre
   br i1 %38, label %_ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit, label %39
 
 39:                                               ; preds = %.lr.ph.i
-  %40 = getelementptr inbounds nuw i8, ptr %.0914.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.0912.i, i64 4
   %.not.i = icmp eq ptr %40, %36
   br i1 %.not.i, label %_ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit, label %.lr.ph.i, !llvm.loop !240
 
 _ZNK4llvm8SmallSetINS_8RegisterELj32ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %.lr.ph.i, %39
-  %.1.i = phi ptr [ %.0914.i, %.lr.ph.i ], [ %36, %39 ]
+  %.1.i = phi ptr [ %36, %39 ], [ %.0912.i, %.lr.ph.i ]
   %41 = getelementptr inbounds nuw %"class.llvm::Register", ptr %32, i64 %35
   %.not = icmp eq ptr %.1.i, %41
   br i1 %.not, label %42, label %_ZNSt3setIN4llvm8RegisterESt4lessIS1_ESaIS1_EE6insertEOS1_.exit

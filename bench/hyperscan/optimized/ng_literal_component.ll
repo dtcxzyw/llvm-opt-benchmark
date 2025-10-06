@@ -386,312 +386,312 @@ define internal fastcc noundef zeroext i1 @_ZN3ue2L15splitOffLiteralERNS_2NGERNS
   br label %35
 
 35:                                               ; preds = %33, %31
-  %.197.ph = phi i8 [ 1, %31 ], [ 0, %33 ]
-  %.195.ph = phi i1 [ true, %31 ], [ %34, %33 ]
+  %.196.ph = phi i8 [ 1, %31 ], [ 0, %33 ]
+  %.194.ph = phi i1 [ true, %31 ], [ %34, %33 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %36, ptr %7, align 8
   %37 = getelementptr inbounds nuw i8, ptr %7, i64 8
   br label %38
 
-38:                                               ; preds = %46, %35
-  %.0710.i.i.i = phi i64 [ 0, %35 ], [ %47, %46 ]
-  %39 = getelementptr inbounds nuw i64, ptr %14, i64 %.0710.i.i.i
+38:                                               ; preds = %41, %35
+  %.0712.i.i.i = phi i64 [ 0, %35 ], [ %42, %41 ]
+  %39 = getelementptr inbounds nuw i64, ptr %14, i64 %.0712.i.i.i
   %40 = load i64, ptr %39, align 8
   %.not.i.i.i = icmp eq i64 %40, 0
-  br i1 %.not.i.i.i, label %46, label %41
+  br i1 %.not.i.i.i, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = shl nuw nsw i64 %.0710.i.i.i, 6
-  %43 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %40, i1 true)
-  %44 = or disjoint i64 %43, %42
-  %45 = trunc i64 %44 to i8
+  %42 = add nuw nsw i64 %.0712.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i64 %42, 4
+  br i1 %exitcond.not.i.i.i, label %.loopexit, label %38, !llvm.loop !27
+
+43:                                               ; preds = %38
+  %44 = shl nuw nsw i64 %.0712.i.i.i, 6
+  %45 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %40, i1 true)
+  %46 = or disjoint i64 %45, %44
+  %47 = trunc i64 %46 to i8
   br label %.loopexit
 
-46:                                               ; preds = %38
-  %47 = add nuw nsw i64 %.0710.i.i.i, 1
-  %exitcond.i.i.i = icmp eq i64 %47, 4
-  br i1 %exitcond.i.i.i, label %.loopexit, label %38, !llvm.loop !27
-
-.loopexit:                                        ; preds = %46, %41
-  %spec.select.i.i.i = phi i8 [ %45, %41 ], [ 0, %46 ]
-  store i8 %spec.select.i.i.i, ptr %36, align 8
+.loopexit:                                        ; preds = %41, %43
+  %48 = phi i8 [ %47, %43 ], [ 0, %41 ]
+  store i8 %48, ptr %36, align 8
   store i64 1, ptr %37, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %7, i64 17
-  store i8 0, ptr %48, align 1
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 17
+  store i8 0, ptr %49, align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %49 = getelementptr inbounds nuw i8, ptr %2, i64 128
-  %50 = load i64, ptr %49, align 8
-  %.not127 = icmp eq i64 %50, 1
-  br i1 %.not127, label %.lr.ph, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
+  %50 = getelementptr inbounds nuw i8, ptr %2, i64 128
+  %51 = load i64, ptr %50, align 8
+  %.not126 = icmp eq i64 %51, 1
+  br i1 %.not126, label %.lr.ph, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
 
 .lr.ph:                                           ; preds = %.loopexit
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br label %53
+  br label %54
 
-51:                                               ; preds = %120, %97, %95, %90, %88
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %122, %98, %96, %91, %89
+  %53 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %155
 
-53:                                               ; preds = %.lr.ph, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75
-  %.sroa.14.0131 = phi i64 [ %3, %.lr.ph ], [ %59, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75 ]
-  %.sroa.01.0.copyload = phi ptr [ %2, %.lr.ph ], [ %57, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75 ]
-  %.094129 = phi i1 [ %.195.ph, %.lr.ph ], [ %.2108, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75 ]
-  %.096128 = phi i8 [ %.197.ph, %.lr.ph ], [ %.298107, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75 ]
+54:                                               ; preds = %.lr.ph, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74
+  %.sroa.14.0130 = phi i64 [ %3, %.lr.ph ], [ %60, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74 ]
+  %.sroa.01.0.copyload = phi ptr [ %2, %.lr.ph ], [ %58, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74 ]
+  %.093128 = phi i1 [ %.194.ph, %.lr.ph ], [ %.2107, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74 ]
+  %.095127 = phi i8 [ %.196.ph, %.lr.ph ], [ %.297106, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74 ]
   store ptr %.sroa.01.0.copyload, ptr %8, align 8
-  store i64 %.sroa.14.0131, ptr %.sroa.14.0..sroa_idx, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 136
-  %55 = load ptr, ptr %54, align 8, !noalias !28
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 40
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 96
-  %59 = load i64, ptr %58, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %57, i64 80
-  %61 = load i64, ptr %60, align 8
-  %62 = icmp ult i64 %61, 4
-  br i1 %62, label %63, label %69
+  store i64 %.sroa.14.0130, ptr %.sroa.14.0..sroa_idx, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 136
+  %56 = load ptr, ptr %55, align 8, !noalias !28
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 40
+  %58 = load ptr, ptr %57, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 96
+  %60 = load i64, ptr %59, align 8
+  %61 = getelementptr inbounds nuw i8, ptr %58, i64 80
+  %62 = load i64, ptr %61, align 8
+  %63 = icmp ult i64 %62, 4
+  br i1 %63, label %64, label %70
 
-63:                                               ; preds = %53
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %.sroa.012.0.copyload = load ptr, ptr %64, align 8
-  %65 = icmp eq ptr %57, %.sroa.012.0.copyload
-  %66 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %.sroa.010.0.copyload = load ptr, ptr %66, align 8
-  %67 = icmp eq ptr %57, %.sroa.010.0.copyload
-  %or.cond = select i1 %65, i1 true, i1 %67
-  %68 = load i64, ptr %37, align 8
-  %.not117 = icmp ne i64 %68, 1
-  %or.cond167.not = select i1 %or.cond, i1 %.not117, i1 false
-  br i1 %or.cond167.not, label %129, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
+64:                                               ; preds = %54
+  %65 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %.sroa.012.0.copyload = load ptr, ptr %65, align 8
+  %66 = icmp eq ptr %58, %.sroa.012.0.copyload
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %.sroa.010.0.copyload = load ptr, ptr %67, align 8
+  %68 = icmp eq ptr %58, %.sroa.010.0.copyload
+  %or.cond = select i1 %66, i1 true, i1 %68
+  %69 = load i64, ptr %37, align 8
+  %.not116 = icmp ne i64 %69, 1
+  %or.cond166.not = select i1 %or.cond, i1 %.not116, i1 false
+  br i1 %or.cond166.not, label %131, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
 
-69:                                               ; preds = %53
-  %70 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %71 = load i64, ptr %70, align 8
-  %72 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %71)
-  %73 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %74 = load i64, ptr %73, align 8
-  %75 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %74)
-  %76 = add nuw nsw i64 %75, %72
-  %77 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %78 = load i64, ptr %77, align 8
-  %79 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %78)
-  %80 = add nuw nsw i64 %76, %79
-  %81 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %82 = load i64, ptr %81, align 8
-  %83 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %82)
-  %84 = add nuw nsw i64 %80, %83
-  %85 = icmp samesign ugt i64 %84, 2
-  br i1 %85, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit, label %86
+70:                                               ; preds = %54
+  %71 = getelementptr inbounds nuw i8, ptr %58, i64 16
+  %72 = load i64, ptr %71, align 8
+  %73 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %72)
+  %74 = getelementptr inbounds nuw i8, ptr %58, i64 24
+  %75 = load i64, ptr %74, align 8
+  %76 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %75)
+  %77 = add nuw nsw i64 %76, %73
+  %78 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %79 = load i64, ptr %78, align 8
+  %80 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %79)
+  %81 = add nuw nsw i64 %77, %80
+  %82 = getelementptr inbounds nuw i8, ptr %58, i64 40
+  %83 = load i64, ptr %82, align 8
+  %84 = call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %83)
+  %85 = add nuw nsw i64 %81, %84
+  %86 = icmp samesign ugt i64 %85, 2
+  br i1 %86, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit, label %87
 
-86:                                               ; preds = %69
-  br i1 %.094129, label %92, label %87
-
-87:                                               ; preds = %86
-  switch i64 %84, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit [
-    i64 2, label %88
-    i64 1, label %90
-  ]
+87:                                               ; preds = %70
+  br i1 %.093128, label %93, label %88
 
 88:                                               ; preds = %87
-  %89 = invoke noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %70)
-          to label %.noexc62 unwind label %51
-
-.noexc62:                                         ; preds = %88
-  br i1 %89, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
-
-90:                                               ; preds = %87
-  %91 = invoke noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %70)
-          to label %.noexc63 unwind label %51
-
-.noexc63:                                         ; preds = %90
-  %spec.select116 = select i1 %91, i8 0, i8 %.096128
-  br label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread
-
-92:                                               ; preds = %86
-  %93 = trunc nuw i8 %.096128 to i1
-  br i1 %93, label %94, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66
-
-94:                                               ; preds = %92
-  switch i64 %84, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit [
-    i64 2, label %95
-    i64 1, label %97
+  switch i64 %85, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit [
+    i64 2, label %89
+    i64 1, label %91
   ]
 
-95:                                               ; preds = %94
-  %96 = invoke noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %70)
-          to label %.noexc64 unwind label %51
+89:                                               ; preds = %88
+  %90 = invoke noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %71)
+          to label %.noexc62 unwind label %52
 
-.noexc64:                                         ; preds = %95
-  br i1 %96, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
+.noexc62:                                         ; preds = %89
+  br i1 %90, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
 
-97:                                               ; preds = %94
-  %98 = invoke noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %70)
-          to label %.noexc65 unwind label %51
+91:                                               ; preds = %88
+  %92 = invoke noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %71)
+          to label %.noexc63 unwind label %52
 
-.noexc65:                                         ; preds = %97
-  br i1 %98, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread
+.noexc63:                                         ; preds = %91
+  %spec.select115 = select i1 %92, i8 0, i8 %.095127
+  br label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread
 
-_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66: ; preds = %92
-  %99 = icmp eq i64 %84, 1
-  br i1 %99, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
+93:                                               ; preds = %87
+  %94 = trunc nuw i8 %.095127 to i1
+  br i1 %94, label %95, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66
+
+95:                                               ; preds = %93
+  switch i64 %85, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit [
+    i64 2, label %96
+    i64 1, label %98
+  ]
+
+96:                                               ; preds = %95
+  %97 = invoke noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr noundef nonnull align 8 dereferenceable(32) %71)
+          to label %.noexc64 unwind label %52
+
+.noexc64:                                         ; preds = %96
+  br i1 %97, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
+
+98:                                               ; preds = %95
+  %99 = invoke noundef zeroext i1 @_ZNK3ue29CharReach7isAlphaEv(ptr noundef nonnull align 8 dereferenceable(32) %71)
+          to label %.noexc65 unwind label %52
+
+.noexc65:                                         ; preds = %98
+  br i1 %99, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread
+
+_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66: ; preds = %93
+  %100 = icmp eq i64 %85, 1
+  br i1 %100, label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
 
 _ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread: ; preds = %.noexc63, %.noexc62, %.noexc64, %.noexc65, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66
-  %.2108 = phi i1 [ true, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66 ], [ true, %.noexc62 ], [ true, %.noexc65 ], [ true, %.noexc64 ], [ %91, %.noexc63 ]
-  %.298107 = phi i8 [ 0, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66 ], [ 1, %.noexc62 ], [ 1, %.noexc65 ], [ 1, %.noexc64 ], [ %spec.select116, %.noexc63 ]
-  %100 = getelementptr inbounds nuw i8, ptr %57, i64 104
-  %101 = load i64, ptr %100, align 8
-  %.not55 = icmp eq i64 %101, 1
+  %.2107 = phi i1 [ true, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66 ], [ true, %.noexc62 ], [ true, %.noexc65 ], [ true, %.noexc64 ], [ %92, %.noexc63 ]
+  %.297106 = phi i8 [ 0, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66 ], [ 1, %.noexc62 ], [ 1, %.noexc65 ], [ 1, %.noexc64 ], [ %spec.select115, %.noexc63 ]
+  %101 = getelementptr inbounds nuw i8, ptr %58, i64 104
+  %102 = load i64, ptr %101, align 8
+  %.not55 = icmp eq i64 %102, 1
   br i1 %.not55, label %.preheader, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
 
-.preheader:                                       ; preds = %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, %109
-  %.0710.i.i.i67 = phi i64 [ %110, %109 ], [ 0, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread ]
-  %102 = getelementptr inbounds nuw i64, ptr %70, i64 %.0710.i.i.i67
-  %103 = load i64, ptr %102, align 8
-  %.not.i.i.i68 = icmp eq i64 %103, 0
-  br i1 %.not.i.i.i68, label %109, label %104
+.preheader:                                       ; preds = %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, %105
+  %.0712.i.i.i67 = phi i64 [ %106, %105 ], [ 0, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread ]
+  %103 = getelementptr inbounds nuw i64, ptr %71, i64 %.0712.i.i.i67
+  %104 = load i64, ptr %103, align 8
+  %.not.i.i.i68 = icmp eq i64 %104, 0
+  br i1 %.not.i.i.i68, label %105, label %107
 
-104:                                              ; preds = %.preheader
-  %105 = shl nuw nsw i64 %.0710.i.i.i67, 6
-  %106 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %103, i1 true)
-  %107 = or disjoint i64 %106, %105
-  %108 = trunc i64 %107 to i8
+105:                                              ; preds = %.preheader
+  %106 = add nuw nsw i64 %.0712.i.i.i67, 1
+  %exitcond.not.i.i.i72 = icmp eq i64 %106, 4
+  br i1 %exitcond.not.i.i.i72, label %_ZNK3ue29CharReach10find_firstEv.exit.i69, label %.preheader, !llvm.loop !27
+
+107:                                              ; preds = %.preheader
+  %108 = shl nuw nsw i64 %.0712.i.i.i67, 6
+  %109 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %104, i1 true)
+  %110 = or disjoint i64 %109, %108
+  %111 = trunc i64 %110 to i8
   br label %_ZNK3ue29CharReach10find_firstEv.exit.i69
 
-109:                                              ; preds = %.preheader
-  %110 = add nuw nsw i64 %.0710.i.i.i67, 1
-  %exitcond.i.i.i73 = icmp eq i64 %110, 4
-  br i1 %exitcond.i.i.i73, label %_ZNK3ue29CharReach10find_firstEv.exit.i69, label %.preheader, !llvm.loop !27
+_ZNK3ue29CharReach10find_firstEv.exit.i69:        ; preds = %105, %107
+  %112 = phi i8 [ %111, %107 ], [ 0, %105 ]
+  %113 = load i64, ptr %37, align 8
+  %114 = add i64 %113, 1
+  %115 = load ptr, ptr %7, align 8
+  %116 = icmp eq ptr %115, %36
+  br i1 %116, label %117, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i70
 
-_ZNK3ue29CharReach10find_firstEv.exit.i69:        ; preds = %109, %104
-  %spec.select.i.i.i70 = phi i8 [ %108, %104 ], [ 0, %109 ]
-  %111 = load i64, ptr %37, align 8
-  %112 = add i64 %111, 1
-  %113 = load ptr, ptr %7, align 8
-  %114 = icmp eq ptr %113, %36
-  br i1 %114, label %115, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i71
+117:                                              ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.i69
+  %118 = icmp ult i64 %113, 16
+  call void @llvm.assume(i1 %118)
+  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i70
 
-115:                                              ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.i69
-  %116 = icmp ult i64 %111, 16
-  call void @llvm.assume(i1 %116)
-  br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i71
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i70: ; preds = %117, %_ZNK3ue29CharReach10find_firstEv.exit.i69
+  %119 = load i64, ptr %36, align 8
+  %120 = select i1 %116, i64 15, i64 %119
+  %121 = icmp ugt i64 %114, %120
+  br i1 %121, label %122, label %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i71: ; preds = %115, %_ZNK3ue29CharReach10find_firstEv.exit.i69
-  %117 = load i64, ptr %36, align 8
-  %118 = select i1 %114, i64 15, i64 %117
-  %119 = icmp ugt i64 %112, %118
-  br i1 %119, label %120, label %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75
+122:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i70
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %113, i64 noundef 0, ptr noundef null, i64 noundef 1)
+          to label %.noexc73 unwind label %52
 
-120:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i71
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %111, i64 noundef 0, ptr noundef null, i64 noundef 1)
-          to label %.noexc74 unwind label %51
+.noexc73:                                         ; preds = %122
+  %.pre.i.i71 = load ptr, ptr %7, align 8
+  br label %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74
 
-.noexc74:                                         ; preds = %120
-  %.pre.i.i72 = load ptr, ptr %7, align 8
-  br label %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75
+_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i70, %.noexc73
+  %123 = phi ptr [ %.pre.i.i71, %.noexc73 ], [ %115, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i70 ]
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %113
+  store i8 %112, ptr %124, align 1
+  store i64 %114, ptr %37, align 8
+  %125 = load ptr, ptr %7, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %114
+  store i8 0, ptr %126, align 1
+  %127 = getelementptr inbounds nuw i8, ptr %58, i64 128
+  %128 = load i64, ptr %127, align 8
+  %.not = icmp eq i64 %128, 1
+  br i1 %.not, label %54, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
 
-_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i71, %.noexc74
-  %121 = phi ptr [ %.pre.i.i72, %.noexc74 ], [ %113, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i71 ]
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 %111
-  store i8 %spec.select.i.i.i70, ptr %122, align 1
-  store i64 %112, ptr %37, align 8
-  %123 = load ptr, ptr %7, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %112
-  store i8 0, ptr %124, align 1
-  %125 = getelementptr inbounds nuw i8, ptr %57, i64 128
-  %126 = load i64, ptr %125, align 8
-  %.not = icmp eq i64 %126, 1
-  br i1 %.not, label %53, label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
-
-127:                                              ; preds = %_ZN3ue211ue2_literalD2Ev.exit
-  %128 = landingpad { ptr, i32 }
+129:                                              ; preds = %_ZN3ue211ue2_literalD2Ev.exit
+  %130 = landingpad { ptr, i32 }
           cleanup
-  br label %153
+  br label %155
 
-129:                                              ; preds = %63
-  %130 = getelementptr inbounds nuw i8, ptr %0, i64 1096
-  %131 = load ptr, ptr %130, align 8
+131:                                              ; preds = %64
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 1096
+  %133 = load ptr, ptr %132, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %132 = trunc nuw i8 %.096128 to i1
-  invoke void @_ZN3ue211ue2_literalC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext %132)
-          to label %133 unwind label %146
+  %134 = trunc nuw i8 %.095127 to i1
+  invoke void @_ZN3ue211ue2_literalC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(32) %7, i1 noundef zeroext %134)
+          to label %135 unwind label %148
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 48
-  %135 = load ptr, ptr %131, align 8
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 16
-  %137 = load ptr, ptr %136, align 8
-  invoke void %137(ptr noundef nonnull align 8 dereferenceable(8) %131, i1 noundef zeroext %4, i1 noundef zeroext %67, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(32) %134)
-          to label %138 unwind label %148
+135:                                              ; preds = %131
+  %136 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload, i64 48
+  %137 = load ptr, ptr %133, align 8
+  %138 = getelementptr inbounds nuw i8, ptr %137, i64 16
+  %139 = load ptr, ptr %138, align 8
+  invoke void %139(ptr noundef nonnull align 8 dereferenceable(8) %133, i1 noundef zeroext %4, i1 noundef zeroext %68, ptr noundef nonnull align 8 dereferenceable(64) %9, ptr noundef nonnull align 8 dereferenceable(32) %136)
+          to label %140 unwind label %150
 
-138:                                              ; preds = %133
-  %139 = getelementptr inbounds nuw i8, ptr %9, i64 32
-  %140 = load ptr, ptr %139, align 8
-  %.not.i.i.i.i.i = icmp eq ptr %140, null
-  br i1 %.not.i.i.i.i.i, label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i, label %141
+140:                                              ; preds = %135
+  %141 = getelementptr inbounds nuw i8, ptr %9, i64 32
+  %142 = load ptr, ptr %141, align 8
+  %.not.i.i.i.i.i = icmp eq ptr %142, null
+  br i1 %.not.i.i.i.i.i, label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i, label %143
 
-141:                                              ; preds = %138
-  call void @_ZdlPv(ptr noundef nonnull %140) #17
+143:                                              ; preds = %140
+  call void @_ZdlPv(ptr noundef nonnull %142) #17
   br label %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i
 
-_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i:     ; preds = %141, %138
-  %142 = load ptr, ptr %9, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %144 = icmp eq ptr %142, %143
-  br i1 %144, label %_ZN3ue211ue2_literalD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i:     ; preds = %143, %140
+  %144 = load ptr, ptr %9, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %146 = icmp eq ptr %144, %145
+  br i1 %146, label %_ZN3ue211ue2_literalD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i
-  call void @_ZdlPv(ptr noundef %142) #17
+  call void @_ZdlPv(ptr noundef %144) #17
   br label %_ZN3ue211ue2_literalD2Ev.exit
 
 _ZN3ue211ue2_literalD2Ev.exit:                    ; preds = %_ZN5boost14dynamic_bitsetImSaImEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %145 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE16_M_insert_uniqueIRKS8_EESt4pairISt17_Rb_tree_iteratorIS8_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(16) %8)
-          to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit unwind label %127
+  %147 = invoke { ptr, i8 } @_ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEES8_St9_IdentityIS8_ESt4lessIS8_ESaIS8_EE16_M_insert_uniqueIRKS8_EESt4pairISt17_Rb_tree_iteratorIS8_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(16) %8)
+          to label %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit unwind label %129
 
-146:                                              ; preds = %129
-  %147 = landingpad { ptr, i32 }
-          cleanup
-  br label %150
-
-148:                                              ; preds = %133
+148:                                              ; preds = %131
   %149 = landingpad { ptr, i32 }
           cleanup
+  br label %152
+
+150:                                              ; preds = %135
+  %151 = landingpad { ptr, i32 }
+          cleanup
   call void @_ZN3ue211ue2_literalD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #19
-  br label %150
+  br label %152
 
-150:                                              ; preds = %148, %146
-  %.pn = phi { ptr, i32 } [ %149, %148 ], [ %147, %146 ]
+152:                                              ; preds = %150, %148
+  %.pn = phi { ptr, i32 } [ %151, %150 ], [ %149, %148 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %153
+  br label %155
 
-_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit: ; preds = %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, %69, %.noexc65, %.noexc64, %94, %.noexc62, %87, %.loopexit, %63, %_ZN3ue211ue2_literalD2Ev.exit
-  %.1 = phi i1 [ true, %_ZN3ue211ue2_literalD2Ev.exit ], [ false, %63 ], [ false, %.loopexit ], [ false, %87 ], [ false, %.noexc62 ], [ false, %94 ], [ false, %.noexc64 ], [ false, %.noexc65 ], [ false, %69 ], [ false, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread ], [ false, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66 ], [ false, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit75 ]
+_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit: ; preds = %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread, %70, %.noexc65, %.noexc64, %95, %.noexc62, %88, %.loopexit, %64, %_ZN3ue211ue2_literalD2Ev.exit
+  %.1 = phi i1 [ true, %_ZN3ue211ue2_literalD2Ev.exit ], [ false, %64 ], [ false, %.loopexit ], [ false, %88 ], [ false, %.noexc62 ], [ false, %95 ], [ false, %.noexc64 ], [ false, %.noexc65 ], [ false, %70 ], [ false, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66.thread ], [ false, %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit66 ], [ false, %_ZN3ue2L11addToStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS7_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE.exit74 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %151 = load ptr, ptr %7, align 8
-  %152 = icmp eq ptr %151, %36
-  br i1 %152, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+  %153 = load ptr, ptr %7, align 8
+  %154 = icmp eq ptr %153, %36
+  br i1 %154, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit
-  call void @_ZdlPv(ptr noundef %151) #17
+  call void @_ZdlPv(ptr noundef %153) #17
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EE6insertERKS8_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN3ue2L13isLiteralCharERKNS_8NGHolderENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERbSA_.exit
 
-153:                                              ; preds = %51, %150, %127
-  %.pn57.pn = phi { ptr, i32 } [ %52, %51 ], [ %128, %127 ], [ %.pn, %150 ]
+155:                                              ; preds = %52, %152, %129
+  %.pn57.pn = phi { ptr, i32 } [ %53, %52 ], [ %130, %129 ], [ %.pn, %152 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %154 = load ptr, ptr %7, align 8
-  %155 = icmp eq ptr %154, %36
-  br i1 %155, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
+  %156 = load ptr, ptr %7, align 8
+  %157 = icmp eq ptr %156, %36
+  br i1 %157, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77: ; preds = %153
-  call void @_ZdlPv(ptr noundef %154) #17
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76: ; preds = %155
+  call void @_ZdlPv(ptr noundef %156) #17
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit78: ; preds = %155, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %.pn57.pn
 
@@ -989,9 +989,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN3ue212graph_detail17v
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1028,7 +1028,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN3ue212graph_detail17v
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8
   %30 = load ptr, ptr %1, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1064,9 +1064,9 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN3ue212graph_detail17v
 ..loopexit_crit_edge22.i.i:                       ; preds = %43
   br label %.critedge, !llvm.loop !40
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge22.i.i, %.thread36
-  %47 = phi i64 [ %27, %22 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge22.i.i ], [ %11, %.lr.ph.i.i ]
-  %48 = phi i64 [ %24, %22 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge22.i.i ], [ %8, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge22.i.i, %.thread34
+  %47 = phi i64 [ %27, %22 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge22.i.i ], [ %11, %.lr.ph.i.i ]
+  %48 = phi i64 [ %24, %22 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge22.i.i ], [ %8, %.lr.ph.i.i ]
   %49 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #21
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8

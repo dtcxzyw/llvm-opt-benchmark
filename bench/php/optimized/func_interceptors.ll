@@ -1066,14 +1066,14 @@ zend_string_starts_with_cstr_ci.exit:             ; preds = %22
   %65 = load i64, ptr %10, align 8, !tbaa !25
   %66 = add i64 %65, -1
   %67 = call ptr @zend_hash_str_find(ptr noundef nonnull %62, ptr noundef nonnull %64, i64 noundef %66) #12
-  %.not.i157 = icmp eq ptr %67, null
-  br i1 %.not.i157, label %zend_hash_str_find_ptr.exit.thread, label %.sink.split
+  %.not.i156 = icmp eq ptr %67, null
+  br i1 %.not.i156, label %zend_hash_str_find_ptr.exit.thread, label %.sink.split
 
 68:                                               ; preds = %56
   %69 = load i64, ptr %10, align 8, !tbaa !25
   %70 = call ptr @zend_hash_str_find(ptr noundef nonnull %62, ptr noundef nonnull %58, i64 noundef %69) #12
-  %.not.i158 = icmp eq ptr %70, null
-  br i1 %.not.i158, label %71, label %.sink.split
+  %.not.i157 = icmp eq ptr %70, null
+  br i1 %.not.i157, label %71, label %.sink.split
 
 71:                                               ; preds = %68
   %72 = load ptr, ptr %12, align 8, !tbaa !43
@@ -1081,8 +1081,8 @@ zend_string_starts_with_cstr_ci.exit:             ; preds = %22
   %74 = load ptr, ptr %8, align 8, !tbaa !22
   %75 = load i64, ptr %10, align 8, !tbaa !25
   %76 = call ptr @zend_hash_str_find(ptr noundef nonnull %73, ptr noundef %74, i64 noundef %75) #12
-  %.not173 = icmp eq ptr %76, null
-  br i1 %.not173, label %zend_hash_str_find_ptr.exit.thread, label %77
+  %.not170 = icmp eq ptr %76, null
+  br i1 %.not170, label %zend_hash_str_find_ptr.exit.thread, label %77
 
 77:                                               ; preds = %71
   %78 = load ptr, ptr %8, align 8, !tbaa !22
@@ -1090,8 +1090,8 @@ zend_string_starts_with_cstr_ci.exit:             ; preds = %22
   %79 = load ptr, ptr %7, align 8, !tbaa !22
   call void @_efree(ptr noundef %79) #12
   %.off = add i32 %2, -9
-  %switch152 = icmp ult i32 %.off, 7
-  br i1 %switch152, label %80, label %82
+  %switch = icmp ult i32 %.off, 7
+  br i1 %switch, label %80, label %82
 
 80:                                               ; preds = %77
   %81 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1125,8 +1125,8 @@ zend_hash_str_find_ptr.exit.thread:               ; preds = %63, %71
   %95 = load i64, ptr %10, align 8, !tbaa !25
   %96 = add i64 %95, -1
   %97 = call ptr @zend_hash_str_find(ptr noundef nonnull %93, ptr noundef nonnull %94, i64 noundef %96) #12
-  %.not.i161 = icmp eq ptr %97, null
-  br i1 %.not.i161, label %104, label %98
+  %.not.i160 = icmp eq ptr %97, null
+  br i1 %.not.i160, label %104, label %98
 
 98:                                               ; preds = %zend_hash_str_find_ptr.exit.thread
   %99 = load ptr, ptr %97, align 8, !tbaa !21, !nonnull !20, !noundef !20
@@ -1134,9 +1134,9 @@ zend_hash_str_find_ptr.exit.thread:               ; preds = %63, %71
   store i32 %89, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 392), align 8, !tbaa !61
   %100 = load ptr, ptr %8, align 8, !tbaa !22
   call void @_efree(ptr noundef %100) #12
-  %.off153 = add i32 %2, -9
-  %switch154 = icmp ult i32 %.off153, 7
-  br i1 %switch154, label %101, label %132
+  %.off152 = add i32 %2, -9
+  %switch153 = icmp ult i32 %.off152, 7
+  br i1 %switch153, label %101, label %132
 
 101:                                              ; preds = %98
   %102 = load ptr, ptr %7, align 8, !tbaa !22
@@ -1153,19 +1153,19 @@ zend_hash_str_find_ptr.exit.thread:               ; preds = %63, %71
   %109 = load i64, ptr %10, align 8, !tbaa !25
   %110 = add i64 %109, -1
   %111 = call ptr @zend_hash_str_find(ptr noundef nonnull %106, ptr noundef nonnull %108, i64 noundef %110) #12
-  %.not174 = icmp eq ptr %111, null
+  %.not171 = icmp eq ptr %111, null
   store ptr %88, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 384), align 8, !tbaa !60
   store i32 %89, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 392), align 8, !tbaa !61
   %112 = load ptr, ptr %8, align 8, !tbaa !22
   call void @_efree(ptr noundef %112) #12
   %113 = load ptr, ptr %7, align 8, !tbaa !22
   call void @_efree(ptr noundef %113) #12
-  br i1 %.not174, label %122, label %114
+  br i1 %.not171, label %122, label %114
 
 114:                                              ; preds = %104
-  %.off155 = add i32 %2, -9
-  %switch156 = icmp ult i32 %.off155, 7
-  br i1 %switch156, label %115, label %117
+  %.off154 = add i32 %2, -9
+  %switch155 = icmp ult i32 %.off154, 7
+  br i1 %switch155, label %115, label %117
 
 115:                                              ; preds = %114
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1267,11 +1267,11 @@ zend_hash_str_find_ptr.exit.thread:               ; preds = %63, %71
   br label %161
 
 161:                                              ; preds = %138, %158, %117, %82
-  %.sink188.in = phi ptr [ %147, %138 ], [ %160, %158 ], [ %121, %117 ], [ %86, %82 ]
+  %.sink185.in = phi ptr [ %147, %138 ], [ %160, %158 ], [ %121, %117 ], [ %86, %82 ]
   %162 = phi i32 [ %storemerge, %138 ], [ %159, %158 ], [ 16895, %117 ], [ 16895, %82 ]
   %.1 = phi ptr [ %.0, %138 ], [ %.0, %158 ], [ null, %117 ], [ null, %82 ]
-  %.sink188 = load i32, ptr %.sink188.in, align 4, !tbaa !67
-  %163 = zext i32 %.sink188 to i64
+  %.sink185 = load i32, ptr %.sink185.in, align 4, !tbaa !67
+  %163 = zext i32 %.sink185 to i64
   %164 = getelementptr inbounds nuw i8, ptr %11, i64 88
   store i64 %163, ptr %164, align 8, !tbaa !68
   %165 = getelementptr inbounds nuw i8, ptr %11, i64 72

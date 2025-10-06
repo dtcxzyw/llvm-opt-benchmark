@@ -3200,13 +3200,13 @@ define internal range(i32 0, 2) i32 @p_isspecial(ptr noundef readonly captures(n
   br label %29
 
 29:                                               ; preds = %23, %37
-  %.02230 = phi ptr [ getelementptr inbounds nuw (i8, ptr @p_isspecial.strange_letter, i64 912), %23 ], [ %.123, %37 ]
-  %.02429 = phi ptr [ @p_isspecial.strange_letter, %23 ], [ %.125, %37 ]
-  %30 = ptrtoint ptr %.02230 to i64
-  %31 = ptrtoint ptr %.02429 to i64
+  %.02229 = phi ptr [ getelementptr inbounds nuw (i8, ptr @p_isspecial.strange_letter, i64 912), %23 ], [ %.123, %37 ]
+  %.02428 = phi ptr [ @p_isspecial.strange_letter, %23 ], [ %.125, %37 ]
+  %30 = ptrtoint ptr %.02229 to i64
+  %31 = ptrtoint ptr %.02428 to i64
   %32 = sub i64 %30, %31
   %33 = ashr i64 %32, 3
-  %34 = getelementptr inbounds i32, ptr %.02429, i64 %33
+  %34 = getelementptr inbounds i32, ptr %.02428, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, %.020
   br i1 %36, label %.thread, label %37
@@ -3214,8 +3214,8 @@ define internal range(i32 0, 2) i32 @p_isspecial(ptr noundef readonly captures(n
 37:                                               ; preds = %29
   %38 = icmp ult i32 %35, %.020
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 4
-  %.125 = select i1 %38, ptr %39, ptr %.02429
-  %.123 = select i1 %38, ptr %.02230, ptr %34
+  %.125 = select i1 %38, ptr %39, ptr %.02428
+  %.123 = select i1 %38, ptr %.02229, ptr %34
   %40 = icmp ult ptr %.125, %.123
   br i1 %40, label %29, label %.thread, !llvm.loop !33
 

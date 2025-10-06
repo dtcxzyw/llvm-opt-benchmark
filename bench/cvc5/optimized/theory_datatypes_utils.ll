@@ -3245,7 +3245,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal6theory9datatypes5utils10chec
 25:                                               ; preds = %24
   %26 = load ptr, ptr %9, align 8, !tbaa !11
   %27 = load ptr, ptr %10, align 8, !tbaa !11
-  %.not278 = icmp eq ptr %26, %27
+  %.not276 = icmp eq ptr %26, %27
   %28 = load i64, ptr %27, align 8
   %29 = and i64 %28, 1152920405095219200
   %.not.i.i = icmp eq i64 %29, 1152920405095219200
@@ -3301,7 +3301,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %25, %30, %36
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %43, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %.not278, label %55, label %.critedge47
+  br i1 %.not276, label %55, label %.critedge47
 
 53:                                               ; preds = %24
   %54 = landingpad { ptr, i32 }
@@ -3326,15 +3326,15 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72: ; preds = %_ZN4cvc58internal12
   %67 = and i64 %66, 67108863
   %68 = sext i1 %64 to i64
   %69 = add nsw i64 %67, %68
-  %.not285 = icmp eq i64 %69, 0
-  br i1 %.not285, label %.critedge47, label %.lr.ph.preheader
+  %.not283 = icmp eq i64 %69, 0
+  br i1 %.not283, label %.critedge47, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %55
   %70 = trunc nsw i64 %69 to i32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %190
-  %.027284 = phi i32 [ %191, %190 ], [ 0, %.lr.ph.preheader ]
+  %.027282 = phi i32 [ %191, %190 ], [ 0, %.lr.ph.preheader ]
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   %71 = load ptr, ptr %0, align 8, !tbaa !11, !noalias !70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
@@ -3346,7 +3346,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit72: ; preds = %_ZN4cvc58internal12
   %78 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %77), !noalias !70
   %79 = icmp eq i32 %78, 2
   %80 = zext i1 %79 to i32
-  %spec.select.i.i = add nuw nsw i32 %.027284, %80
+  %spec.select.i.i = add nuw nsw i32 %.027282, %80
   %81 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %82 = sext i32 %spec.select.i.i to i64
   %83 = getelementptr inbounds ptr, ptr %81, i64 %82
@@ -3393,7 +3393,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit:  ; preds = %90, %96, %98
 .noexc160:                                        ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
   %108 = icmp eq i32 %107, 2
   %109 = zext i1 %108 to i32
-  %spec.select.i.i159 = add nuw nsw i32 %.027284, %109
+  %spec.select.i.i159 = add nuw nsw i32 %.027282, %109
   %110 = getelementptr inbounds nuw i8, ptr %100, i64 24
   %111 = sext i32 %spec.select.i.i159 to i64
   %112 = getelementptr inbounds ptr, ptr %110, i64 %111
@@ -3487,7 +3487,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166: ; preds = %_ZN4cvc58internal1
   br i1 %129, label %157, label %190
 
 157:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166
-  %158 = zext i32 %.027284 to i64
+  %158 = zext i32 %.027282 to i64
   %159 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %160 = load ptr, ptr %159, align 8, !tbaa !76
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3566,7 +3566,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS
   br label %256
 
 190:                                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit166
-  %191 = add nuw i32 %.027284, 1
+  %191 = add nuw i32 %.027282, 1
   %exitcond.not = icmp eq i32 %191, %70
   br i1 %exitcond.not, label %.critedge47, label %.lr.ph, !llvm.loop !78
 

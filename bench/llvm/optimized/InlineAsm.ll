@@ -435,12 +435,12 @@ _ZN4llvmeqENS_9StringRefES0_.exit13.thread.i.i:   ; preds = %_ZN4llvmeqENS_9Stri
 
 .loopexit.loopexit.i.i:                           ; preds = %.lr.ph.i.i.i
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !53
-  %.pre17.i.i = load i32, ptr %41, align 8, !tbaa !56
-  %109 = zext i32 %.pre17.i.i to i64
+  %.pre16.i.i = load i32, ptr %41, align 8, !tbaa !56
+  %109 = zext i32 %.pre16.i.i to i64
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.loopexit.i.i, %3
-  %110 = phi i32 [ %.pre17.i.i, %.loopexit.loopexit.i.i ], [ 0, %3 ]
+  %110 = phi i32 [ %.pre16.i.i, %.loopexit.loopexit.i.i ], [ 0, %3 ]
   %111 = phi i64 [ %109, %.loopexit.loopexit.i.i ], [ 0, %3 ]
   %112 = phi ptr [ %.pre.i.i, %.loopexit.loopexit.i.i ], [ %40, %3 ]
   %113 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %112, i64 %111
@@ -531,8 +531,8 @@ define dso_local void @_ZN4llvm9InlineAsm15destroyConstantEv(ptr noundef nonnull
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9InlineAsmENS_6detail13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS4_12DenseSetPairIS3_EEEES3_S5_S8_SA_E6doFindIPKS2_EEPSA_RKT_.exit.thread.loopexit.i.i.i: ; preds = %.lr.ph.i.i.i.i
   %.pre.i.i.i = load ptr, ptr %6, align 8, !tbaa !53
-  %.pre14.i.i.i = load i32, ptr %8, align 8, !tbaa !56
-  %28 = zext i32 %.pre14.i.i.i to i64
+  %.pre13.i.i.i = load i32, ptr %8, align 8, !tbaa !56
+  %28 = zext i32 %.pre13.i.i.i to i64
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9InlineAsmENS_6detail13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS4_12DenseSetPairIS3_EEEES3_S5_S8_SA_E6doFindIPKS2_EEPSA_RKT_.exit.thread.i.i.i
 
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9InlineAsmENS_6detail13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS4_12DenseSetPairIS3_EEEES3_S5_S8_SA_E6doFindIPKS2_EEPSA_RKT_.exit.thread.i.i.i: ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_9InlineAsmENS_6detail13DenseSetEmptyENS_17ConstantUniqueMapIS2_E7MapInfoENS4_12DenseSetPairIS3_EEEES3_S5_S8_SA_E6doFindIPKS2_EEPSA_RKT_.exit.thread.loopexit.i.i.i, %1

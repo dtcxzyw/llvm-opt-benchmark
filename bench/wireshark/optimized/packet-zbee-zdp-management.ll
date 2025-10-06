@@ -1128,16 +1128,16 @@ define hidden void @dissect_zbee_zdp_not_mgmt_nwkupdate(ptr noundef %0, ptr noun
 
 23:                                               ; preds = %3, %38
   %24 = phi i32 [ %22, %3 ], [ %39, %38 ]
-  %.02534 = phi i32 [ 0, %3 ], [ %40, %38 ]
-  %.02633 = phi i32 [ 0, %3 ], [ %.1.ph, %38 ]
-  %25 = shl nuw i32 1, %.02534
+  %.02532 = phi i32 [ 0, %3 ], [ %40, %38 ]
+  %.02631 = phi i32 [ 0, %3 ], [ %.1.ph, %38 ]
+  %25 = shl nuw i32 1, %.02532
   %26 = and i32 %25, %9
   %.not = icmp eq i32 %26, 0
   br i1 %.not, label %38, label %27
 
 27:                                               ; preds = %23
   %28 = load i32, ptr %5, align 4
-  %.not27 = icmp ult i32 %.02633, %28
+  %.not27 = icmp ult i32 %.02631, %28
   br i1 %.not27, label %29, label %41
 
 29:                                               ; preds = %27
@@ -1145,17 +1145,17 @@ define hidden void @dissect_zbee_zdp_not_mgmt_nwkupdate(ptr noundef %0, ptr noun
   %31 = load i32, ptr @hf_zbee_zdp_channel_energy, align 4
   %32 = load i32, ptr %4, align 4
   %33 = zext i8 %30 to i32
-  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef %33, ptr noundef nonnull @.str.12, i32 noundef %.02534, i32 noundef %33)
+  %34 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %2, i32 noundef %31, ptr noundef %0, i32 noundef %32, i32 noundef 1, i32 noundef %33, ptr noundef nonnull @.str.12, i32 noundef %.02532, i32 noundef %33)
   %35 = load i32, ptr %4, align 4
   %36 = add i32 %35, 1
   store i32 %36, ptr %4, align 4
-  %37 = add nuw i32 %.02633, 1
+  %37 = add nuw i32 %.02631, 1
   br label %38
 
 38:                                               ; preds = %29, %23
   %39 = phi i32 [ %24, %23 ], [ %36, %29 ]
-  %.1.ph = phi i32 [ %.02633, %23 ], [ %37, %29 ]
-  %40 = add nuw nsw i32 %.02534, 1
+  %.1.ph = phi i32 [ %.02631, %23 ], [ %37, %29 ]
+  %40 = add nuw nsw i32 %.02532, 1
   %exitcond.not = icmp eq i32 %40, 32
   br i1 %exitcond.not, label %41, label %23, !llvm.loop !16
 

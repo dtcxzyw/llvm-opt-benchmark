@@ -431,8 +431,8 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
 
 16:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.val40 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %17 = atomicrmw add ptr %.val40, i64 1 monotonic, align 8
+  %.val39 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %17 = atomicrmw add ptr %.val39, i64 1 monotonic, align 8
   %18 = icmp slt i64 %17, 0
   br i1 %18, label %19, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit"
 
@@ -441,7 +441,7 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
   unreachable
 
 "_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit": ; preds = %16
-  call void @_ZN5tokio4sync9semaphore9Semaphore22try_acquire_many_owned17h2daf610288b8df07E(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull %.val40, i32 noundef %3)
+  call void @_ZN5tokio4sync9semaphore9Semaphore22try_acquire_many_owned17h2daf610288b8df07E(ptr noalias noundef nonnull sret({ ptr, [1 x i64] }) align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull %.val39, i32 noundef %3)
   %20 = load ptr, ptr %10, align 8, !noundef !5
   %21 = icmp eq ptr %20, null
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -477,24 +477,24 @@ define void @_ZN10tokio_util4sync14poll_semaphore13PollSemaphore17poll_acquire_m
 
 35:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.val39 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %36 = atomicrmw add ptr %.val39, i64 1 monotonic, align 8
+  %.val38 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %36 = atomicrmw add ptr %.val38, i64 1 monotonic, align 8
   %37 = icmp slt i64 %36, 0
-  br i1 %37, label %38, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit41"
+  br i1 %37, label %38, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit40"
 
 38:                                               ; preds = %35
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit41": ; preds = %35
-  call void @_ZN5tokio4sync9semaphore9Semaphore18acquire_many_owned17h56e616ee390b996eE(ptr noalias noundef nonnull sret({ ptr, [18 x i32], i32, [4 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(96) %9, ptr noundef nonnull %.val39, i32 noundef %3)
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit40": ; preds = %35
+  call void @_ZN5tokio4sync9semaphore9Semaphore18acquire_many_owned17h56e616ee390b996eE(ptr noalias noundef nonnull sret({ ptr, [18 x i32], i32, [4 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(96) %9, ptr noundef nonnull %.val38, i32 noundef %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %39 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !131
   %40 = tail call noundef align 8 dereferenceable_or_null(96) ptr @__rust_alloc(i64 noundef 96, i64 noundef 8) #16, !noalias !131
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9ee7c894ad0d413E.exit"
 
-42:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit41"
+42:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit40"
   invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 96) #14
           to label %.noexc unwind label %43
 
@@ -517,7 +517,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %52, %51 ], [ %78, %99 ], [ %78, %77 ], [ %eh.lpad-body, %.thread ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9ee7c894ad0d413E.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit41"
+"_ZN5alloc5boxed12Box$LT$T$GT$3new17hd9ee7c894ad0d413E.exit": ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit40"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull align 8 dereferenceable(96) %9, i64 96, i1 false)
   store i32 %3, ptr %8, align 8
   %47 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -561,7 +561,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
 55:                                               ; preds = %95, %76, %32
   ret void
 
-56:                                               ; preds = %23, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit42", %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hd3939ebdd09de68eE.exit"
+56:                                               ; preds = %23, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit41", %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17hd3939ebdd09de68eE.exit"
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %57 = load ptr, ptr %13, align 8, !nonnull !5, !align !149, !noundef !5
@@ -575,17 +575,17 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   br i1 %trunc34, label %76, label %67
 
 63:                                               ; preds = %23
-  %.val38 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
-  %64 = atomicrmw add ptr %.val38, i64 1 monotonic, align 8
+  %.val37 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
+  %64 = atomicrmw add ptr %.val37, i64 1 monotonic, align 8
   %65 = icmp slt i64 %64, 0
-  br i1 %65, label %66, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit42"
+  br i1 %65, label %66, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit41"
 
 66:                                               ; preds = %63
   tail call void @llvm.trap()
   unreachable
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit42": ; preds = %63
-  call void @_ZN5tokio4sync9semaphore9Semaphore18acquire_many_owned17h56e616ee390b996eE(ptr noalias noundef nonnull sret({ ptr, [18 x i32], i32, [4 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(96) %11, ptr noundef nonnull %.val38, i32 noundef %3)
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit41": ; preds = %63
+  call void @_ZN5tokio4sync9semaphore9Semaphore18acquire_many_owned17h56e616ee390b996eE(ptr noalias noundef nonnull sret({ ptr, [18 x i32], i32, [4 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(96) %11, ptr noundef nonnull %.val37, i32 noundef %3)
   call void @"_ZN10tokio_util4sync12reusable_box26ReusableBoxFuture$LT$T$GT$3set17h89f6637ad565a518E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %11)
   store i32 %3, ptr %12, align 8
   br label %56
@@ -602,7 +602,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   %.val = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %73 = atomicrmw add ptr %.val, i64 1 monotonic, align 8
   %74 = icmp slt i64 %73, 0
-  br i1 %74, label %75, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit43"
+  br i1 %74, label %75, label %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit42"
 
 75:                                               ; preds = %67
   call void @llvm.trap()
@@ -614,17 +614,17 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
-77:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit43", %79
+77:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit42", %79
   %78 = landingpad { ptr, i32 }
           cleanup
   %.not = icmp eq ptr %69, null
   br i1 %.not, label %common.resume, label %99
 
-"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit43": ; preds = %67
+"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit42": ; preds = %67
   invoke void @_ZN5tokio4sync9semaphore9Semaphore18acquire_many_owned17h56e616ee390b996eE(ptr noalias noundef nonnull sret({ ptr, [18 x i32], i32, [4 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(96) %5, ptr noundef nonnull %.val, i32 noundef %3)
           to label %79 unwind label %77
 
-79:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit43"
+79:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h42e481a09baee474E.exit42"
   invoke void @"_ZN10tokio_util4sync12reusable_box26ReusableBoxFuture$LT$T$GT$3set17h89f6637ad565a518E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(96) %5)
           to label %80 unwind label %77
 
@@ -653,7 +653,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   %89 = load ptr, ptr %58, align 8, !alias.scope !166, !nonnull !5, !align !129, !noundef !5
   %90 = load ptr, ptr %89, align 8, !invariant.load !5, !noalias !166, !nonnull !5
   invoke void %90(ptr noundef nonnull align 1 %86)
-          to label %"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i44" unwind label %91, !noalias !166
+          to label %"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i43" unwind label %91, !noalias !166
 
 91:                                               ; preds = %88
   %92 = landingpad { ptr, i32 }
@@ -667,7 +667,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #13
   unreachable
 
-"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i44": ; preds = %88
+"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i43": ; preds = %88
   invoke void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h96f89a8d3f24d72fE.llvm.7545075396174394512"(ptr noalias noundef nonnull align 8 dereferenceable(16) %13)
           to label %"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$$GT$17hd5d8d605f40eda00E.exit" unwind label %96
 
@@ -676,7 +676,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
-96:                                               ; preds = %"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i44"
+96:                                               ; preds = %"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i43"
   %97 = landingpad { ptr, i32 }
           cleanup
   br label %.thread
@@ -686,7 +686,7 @@ common.resume:                                    ; preds = %.thread, %77, %99, 
   store ptr null, ptr %13, align 8
   br label %common.resume
 
-"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$$GT$17hd5d8d605f40eda00E.exit": ; preds = %85, %"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i44"
+"_ZN4core3ptr237drop_in_place$LT$core..option..Option$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$$GT$17hd5d8d605f40eda00E.exit": ; preds = %85, %"_ZN4core3ptr209drop_in_place$LT$$LP$u32$C$tokio_util..sync..reusable_box..ReusableBoxFuture$LT$core..result..Result$LT$tokio..sync..semaphore..OwnedSemaphorePermit$C$tokio..sync..batch_semaphore..AcquireError$GT$$GT$$RP$$GT$17hd66d2fd1185fb76fE.exit.i43"
   store ptr null, ptr %13, align 8
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %98, align 8

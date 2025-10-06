@@ -470,10 +470,9 @@ define internal i32 @power_supply_hwmon_read(ptr noundef readonly captures(none)
   br i1 %29, label %30, label %power_supply_hwmon_to_property.exit
 
 30:                                               ; preds = %27
-  %31 = and i32 %1, -2
-  %switch = icmp eq i32 %31, 2
+  %31 = icmp eq i32 %1, 1
   %32 = load i32, ptr %6, align 8
-  br i1 %switch, label %33, label %38
+  br i1 %31, label %38, label %33
 
 33:                                               ; preds = %30
   %34 = icmp sgt i32 %32, 0

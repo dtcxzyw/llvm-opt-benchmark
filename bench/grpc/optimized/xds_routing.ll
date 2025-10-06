@@ -633,7 +633,7 @@ define { i64, i8 } @_ZN9grpc_core10XdsRouting18GetRouteForRequestERKNS0_17RouteL
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %.critedge.thread, label %.lr.ph
+  br i1 %.not, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -644,11 +644,11 @@ define { i64, i8 } @_ZN9grpc_core10XdsRouting18GetRouteForRequestERKNS0_17RouteL
   br label %17
 
 17:                                               ; preds = %.lr.ph, %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit
-  %storemerge19 = phi i64 [ 0, %.lr.ph ], [ %57, %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit ]
+  %storemerge17 = phi i64 [ 0, %.lr.ph ], [ %57, %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit ]
   %18 = load ptr, ptr %0, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
-  %21 = call noundef nonnull align 8 dereferenceable(88) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %storemerge19)
+  %21 = call noundef nonnull align 8 dereferenceable(88) ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %0, i64 noundef %storemerge17)
   %22 = call noundef zeroext i1 @_ZNK9grpc_core13StringMatcher5MatchESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(49) %21, i64 %1, ptr %2)
   br i1 %22, label %23, label %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit
 
@@ -758,7 +758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i: ; preds = %4
   %48 = getelementptr inbounds nuw i8, ptr %21, i64 84
   %49 = load i8, ptr %48, align 4, !tbaa !41, !range !43, !noundef !44
   %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %.critedge.thread
+  br i1 %50, label %51, label %.critedge
 
 51:                                               ; preds = %.loopexit
   %52 = getelementptr inbounds nuw i8, ptr %21, i64 80
@@ -766,20 +766,20 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit16.i: ; preds = %4
   %54 = call i32 @rand() #28
   %55 = srem i32 %54, 1000000
   %56 = icmp ult i32 %55, %53
-  br i1 %56, label %.critedge.thread, label %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit
+  br i1 %56, label %.critedge, label %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit
 
 _ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %51, %17
-  %57 = add nuw i64 %storemerge19, 1
+  %57 = add nuw i64 %storemerge17, 1
   %58 = load ptr, ptr %0, align 8, !tbaa !3
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8
   %61 = call noundef i64 %60(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %62 = icmp ult i64 %57, %61
-  br i1 %62, label %17, label %.critedge.thread, !llvm.loop !47
+  br i1 %62, label %17, label %.critedge, !llvm.loop !47
 
-.critedge.thread:                                 ; preds = %51, %.loopexit, %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit, %4
-  %storemerge.lcssa = phi i64 [ 0, %4 ], [ %57, %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit ], [ %storemerge19, %.loopexit ], [ %storemerge19, %51 ]
-  %.sroa.2.1 = phi i8 [ 0, %4 ], [ 0, %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit ], [ 1, %.loopexit ], [ 1, %51 ]
+.critedge:                                        ; preds = %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit, %51, %.loopexit, %4
+  %storemerge.lcssa = phi i64 [ 0, %4 ], [ %storemerge17, %.loopexit ], [ %storemerge17, %51 ], [ %57, %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit ]
+  %.sroa.2.1 = phi i8 [ 0, %4 ], [ 1, %.loopexit ], [ 1, %51 ], [ 0, %_ZN9grpc_core12_GLOBAL__N_112HeadersMatchERKSt6vectorINS_13HeaderMatcherESaIS2_EEP19grpc_metadata_batch.exit ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %storemerge.lcssa, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { i64, i8 } %.fca.1.insert

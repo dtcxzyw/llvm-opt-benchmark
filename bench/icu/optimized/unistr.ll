@@ -1462,14 +1462,14 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7713UnicodeString18cloneArrayI
   %23 = getelementptr inbounds i8, ptr %22, i64 -4
   %24 = load atomic i32, ptr %23 acquire, align 4
   %25 = icmp sgt i32 %24, 1
-  br i1 %25, label %33, label %._crit_edge78
+  br i1 %25, label %33, label %._crit_edge77
 
-._crit_edge78:                                    ; preds = %20
-  %.pre79 = load i16, ptr %14, align 8, !tbaa !3
+._crit_edge77:                                    ; preds = %20
+  %.pre78 = load i16, ptr %14, align 8, !tbaa !3
   br label %26
 
-26:                                               ; preds = %._crit_edge78, %18
-  %27 = phi i16 [ %.pre79, %._crit_edge78 ], [ %9, %18 ]
+26:                                               ; preds = %._crit_edge77, %18
+  %27 = phi i16 [ %.pre78, %._crit_edge77 ], [ %9, %18 ]
   %28 = and i16 %27, 2
   %.not.i59 = icmp eq i16 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -1625,11 +1625,11 @@ _ZN6icu_7713UnicodeString8allocateEi.exit.thread: ; preds = %78, %_ZL12us_arrayC
   %105 = shl nuw i32 %spec.select, 1
   %106 = zext i32 %105 to i64
   call void @llvm.memmove.p0.p0.i64(ptr align 2 %104, ptr nonnull readonly align 2 %.0436873, i64 %106, i1 false)
-  %.pre80 = load i16, ptr %14, align 8, !tbaa !3
+  %.pre79 = load i16, ptr %14, align 8, !tbaa !3
   br label %_ZL12us_arrayCopyPKDsiPDsii.exit66
 
 _ZL12us_arrayCopyPKDsiPDsii.exit66:               ; preds = %100, %93
-  %107 = phi i16 [ %.pre80, %100 ], [ %.sink, %93 ]
+  %107 = phi i16 [ %.pre79, %100 ], [ %.sink, %93 ]
   %108 = icmp slt i32 %spec.select, 1024
   br i1 %108, label %_ZL12us_arrayCopyPKDsiPDsii.exit66.thread, label %113
 
@@ -5200,8 +5200,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %15 = load i16, ptr %14, align 8, !tbaa !3
-  %.fr74 = freeze i16 %15
-  %16 = and i16 %.fr74, 1
+  %.fr73 = freeze i16 %15
+  %16 = and i16 %.fr73, 1
   %.not16 = icmp eq i16 %16, 0
   br i1 %.not16, label %17, label %.thread
 
@@ -5223,20 +5223,20 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   %spec.select = tail call i32 @llvm.smin.i32(i32 %1, i32 %26)
   %.254 = select i1 %27, i32 0, i32 %spec.select
   %28 = sub nsw i32 %26, %.254
-  %spec.select61 = tail call i32 @llvm.smin.i32(i32 %2, i32 %28)
-  %29 = icmp slt i16 %.fr74, 0
-  %30 = lshr i16 %.fr74, 5
+  %spec.select60 = tail call i32 @llvm.smin.i32(i32 %2, i32 %28)
+  %29 = icmp slt i16 %.fr73, 0
+  %30 = lshr i16 %.fr73, 5
   %31 = zext nneg i16 %30 to i32
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %33 = load i32, ptr %32, align 4
-  %.fr75 = freeze i32 %33
-  %34 = select i1 %29, i32 %.fr75, i32 %31
+  %.fr74 = freeze i32 %33
+  %34 = select i1 %29, i32 %.fr74, i32 %31
   %35 = icmp slt i32 %4, 0
-  %spec.select62 = tail call i32 @llvm.smin.i32(i32 %4, i32 %34)
-  %.050 = select i1 %35, i32 0, i32 %spec.select62
+  %spec.select61 = tail call i32 @llvm.smin.i32(i32 %4, i32 %34)
+  %.050 = select i1 %35, i32 0, i32 %spec.select61
   %36 = icmp slt i32 %5, 0
   %37 = sub i32 %34, %.050
-  %spec.select64 = tail call i32 @llvm.smin.i32(i32 %5, i32 %37)
+  %spec.select63 = tail call i32 @llvm.smin.i32(i32 %5, i32 %37)
   %38 = icmp slt i16 %19, 0
   %39 = ashr i16 %19, 5
   %40 = sext i16 %39 to i32
@@ -5244,21 +5244,21 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   %42 = load i32, ptr %41, align 4
   %43 = select i1 %38, i32 %42, i32 %40
   %44 = icmp slt i32 %7, 0
-  %spec.select65 = tail call i32 @llvm.smin.i32(i32 %7, i32 %43)
-  %.048 = select i1 %44, i32 0, i32 %spec.select65
+  %spec.select64 = tail call i32 @llvm.smin.i32(i32 %7, i32 %43)
+  %.048 = select i1 %44, i32 0, i32 %spec.select64
   %45 = icmp slt i32 %8, 0
   %46 = sub nsw i32 %43, %.048
-  %spec.select67 = tail call i32 @llvm.smin.i32(i32 %8, i32 %46)
-  %.047 = select i1 %45, i32 0, i32 %spec.select67
-  %47 = icmp eq i32 %spec.select64, 0
+  %spec.select66 = tail call i32 @llvm.smin.i32(i32 %8, i32 %46)
+  %.047 = select i1 %45, i32 0, i32 %spec.select66
+  %47 = icmp eq i32 %spec.select63, 0
   %48 = select i1 %36, i1 true, i1 %47
   br i1 %48, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %.sink.split.i
   %49 = icmp slt i32 %2, 0
-  %.2 = select i1 %49, i32 0, i32 %spec.select61
+  %.2 = select i1 %49, i32 0, i32 %spec.select60
   %50 = icmp sgt i32 %.2, 0
-  %51 = icmp sge i32 %.2, %spec.select64
+  %51 = icmp sge i32 %.2, %spec.select63
   %52 = and i1 %50, %51
   br i1 %52, label %.lr.ph, label %.thread
 
@@ -5276,8 +5276,8 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   br i1 %54, label %.thread, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %103
-  %.05171 = phi i32 [ %117, %103 ], [ %spec.select61, %.lr.ph ]
-  %.05270 = phi i32 [ %118, %103 ], [ %.254, %.lr.ph ]
+  %.05170 = phi i32 [ %117, %103 ], [ %spec.select60, %.lr.ph ]
+  %.05269 = phi i32 [ %118, %103 ], [ %.254, %.lr.ph ]
   %63 = load i16, ptr %14, align 8, !tbaa !3
   %64 = and i16 %63, 1
   %.not.i = icmp eq i16 %64, 0
@@ -5292,7 +5292,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.050, i32 %69)
   %.011.i = select i1 %53, i32 0, i32 %spec.select.i
   %70 = sub nsw i32 %69, %.011.i
-  %spec.select14.i = tail call i32 @llvm.smin.i32(i32 %spec.select64, i32 %70)
+  %spec.select14.i = tail call i32 @llvm.smin.i32(i32 %spec.select63, i32 %70)
   %71 = icmp sgt i32 %70, 0
   br i1 %71, label %72, label %.thread
 
@@ -5317,11 +5317,11 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   %84 = sext i16 %83 to i32
   %85 = load i32, ptr %24, align 4
   %86 = select i1 %82, i32 %85, i32 %84
-  %87 = icmp slt i32 %.05270, 0
-  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.05270, i32 %86)
+  %87 = icmp slt i32 %.05269, 0
+  %spec.select.i.i = tail call i32 @llvm.smin.i32(i32 %.05269, i32 %86)
   %.027.i.i = select i1 %87, i32 0, i32 %spec.select.i.i
   %88 = sub nsw i32 %86, %.027.i.i
-  %spec.select29.i.i = tail call i32 @llvm.smin.i32(i32 %.05171, i32 %88)
+  %spec.select29.i.i = tail call i32 @llvm.smin.i32(i32 %.05170, i32 %88)
   %89 = and i16 %76, 2
   %.not.i.i.i = icmp eq i16 %89, 0
   %90 = load ptr, ptr %58, align 8
@@ -5356,13 +5356,13 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStrin
   %.not.i.i.i29 = icmp eq i16 %111, 0
   %112 = load ptr, ptr %62, align 8
   %113 = select i1 %.not.i.i.i29, ptr %112, ptr %61
-  %114 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %101, i32 noundef %spec.select64, ptr noundef %113, i32 noundef %.07.i.i, i32 noundef %.0.i.i)
-  %115 = add i32 %.05270, %.05171
-  %116 = add nuw i32 %spec.select64, %101
+  %114 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString9doReplaceEiiPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %101, i32 noundef %spec.select63, ptr noundef %113, i32 noundef %.07.i.i, i32 noundef %.0.i.i)
+  %115 = add i32 %.05269, %.05170
+  %116 = add nuw i32 %spec.select63, %101
   %117 = sub i32 %115, %116
   %118 = add nsw i32 %.047, %101
   %119 = icmp sgt i32 %117, 0
-  %120 = icmp sge i32 %117, %spec.select64
+  %120 = icmp sge i32 %117, %spec.select63
   %121 = and i1 %119, %120
   br i1 %121, label %.lr.ph.split, label %.thread
 

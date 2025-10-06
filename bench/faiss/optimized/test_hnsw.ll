@@ -9864,9 +9864,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !269
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load i32, ptr %1, align 4, !tbaa !132
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -9902,7 +9902,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !275
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !132
@@ -9930,10 +9930,10 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIiiSaIiENSt8__detail
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !343
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi i32 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi i32 [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   store ptr null, ptr %44, align 8, !tbaa !275
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -14013,20 +14013,20 @@ define dso_local noundef i32 @_Z32reference_search_from_candidatesRKN5faiss4HNSW
   br i1 %.not113, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %46
-  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %46 ], [ 0, %.lr.ph ]
-  %.089133.us = phi float [ %.190.us, %46 ], [ %25, %.lr.ph ]
+  %indvars.iv166 = phi i64 [ %indvars.iv.next167, %46 ], [ 0, %.lr.ph ]
+  %.089132.us = phi float [ %.190.us, %46 ], [ %25, %.lr.ph ]
   %31 = load ptr, ptr %28, align 8, !tbaa !137
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv167
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv166
   %33 = load i32, ptr %32, align 4, !tbaa !132
   %34 = sext i32 %33 to i64
   %35 = load ptr, ptr %29, align 8, !tbaa !176
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv167
+  %36 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv166
   %37 = load float, ptr %36, align 4, !tbaa !133
   %38 = icmp sgt i32 %33, -1
   br i1 %38, label %39, label %.split.us
 
 39:                                               ; preds = %.lr.ph.split.us
-  %.old.us = fcmp olt float %37, %.089133.us
+  %.old.us = fcmp olt float %37, %.089132.us
   br i1 %.old.us, label %40, label %46
 
 40:                                               ; preds = %39
@@ -14040,15 +14040,15 @@ define dso_local noundef i32 @_Z32reference_search_from_candidatesRKN5faiss4HNSW
   br label %46
 
 46:                                               ; preds = %44, %40, %39
-  %.190.us = phi float [ %45, %44 ], [ %.089133.us, %40 ], [ %.089133.us, %39 ]
+  %.190.us = phi float [ %45, %44 ], [ %.089132.us, %40 ], [ %.089132.us, %39 ]
   %47 = load i8, ptr %30, align 8, !tbaa !56
   %48 = load ptr, ptr %4, align 8, !tbaa !50
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 %34
   store i8 %47, ptr %49, align 1, !tbaa !54
-  %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
+  %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %50 = tail call noundef i32 @_ZNK5faiss4HNSW11MinimaxHeap4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   %51 = sext i32 %50 to i64
-  %52 = icmp slt i64 %indvars.iv.next168, %51
+  %52 = icmp slt i64 %indvars.iv.next167, %51
   br i1 %52, label %.lr.ph.split.us, label %.preheader, !llvm.loop !457
 
 .preheader:                                       ; preds = %46, %23
@@ -14061,33 +14061,33 @@ define dso_local noundef i32 @_Z32reference_search_from_candidatesRKN5faiss4HNSW
 .preheader.split.us.preheader:                    ; preds = %.preheader
   %55 = tail call noundef i32 @_ZNK5faiss4HNSW11MinimaxHeap4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   %56 = icmp sgt i32 %55, 0
-  br i1 %56, label %.lr.ph240, label %.loopexit
+  br i1 %56, label %.lr.ph237, label %.loopexit
 
 .preheader.split.preheader:                       ; preds = %.preheader.thread, %.preheader
   %57 = phi ptr [ %132, %.preheader.thread ], [ %54, %.preheader ]
   %58 = phi ptr [ %131, %.preheader.thread ], [ %53, %.preheader ]
-  %.089.lcssa190 = phi float [ %.190, %.preheader.thread ], [ %.089.lcssa, %.preheader ]
+  %.089.lcssa189 = phi float [ %.190, %.preheader.thread ], [ %.089.lcssa, %.preheader ]
   %59 = tail call noundef i32 @_ZNK5faiss4HNSW11MinimaxHeap4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   %60 = icmp sgt i32 %59, 0
-  br i1 %60, label %.lr.ph233, label %.loopexit
+  br i1 %60, label %.lr.ph230, label %.loopexit
 
-.lr.ph240:                                        ; preds = %.preheader.split.us.preheader, %select.unfold.us
-  %.0.us239 = phi i32 [ %.3.lcssa.us, %select.unfold.us ], [ %7, %.preheader.split.us.preheader ]
-  %.078.us238 = phi i32 [ %.381.lcssa.us, %select.unfold.us ], [ 0, %.preheader.split.us.preheader ]
-  %.291.us237 = phi float [ %.493.lcssa.us, %select.unfold.us ], [ %.089.lcssa, %.preheader.split.us.preheader ]
-  %.097.us236 = phi i32 [ %70, %select.unfold.us ], [ 0, %.preheader.split.us.preheader ]
+.lr.ph237:                                        ; preds = %.preheader.split.us.preheader, %select.unfold.us
+  %.0.us236 = phi i32 [ %.3.lcssa.us, %select.unfold.us ], [ %7, %.preheader.split.us.preheader ]
+  %.078.us235 = phi i32 [ %.381.lcssa.us, %select.unfold.us ], [ 0, %.preheader.split.us.preheader ]
+  %.291.us234 = phi float [ %.493.lcssa.us, %select.unfold.us ], [ %.089.lcssa, %.preheader.split.us.preheader ]
+  %.097.us233 = phi i32 [ %70, %select.unfold.us ], [ 0, %.preheader.split.us.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !133
   %61 = call noundef i32 @_ZN5faiss4HNSW11MinimaxHeap7pop_minEPf(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %10)
   br i1 %15, label %62, label %65
 
-62:                                               ; preds = %.lr.ph240
+62:                                               ; preds = %.lr.ph237
   %63 = load float, ptr %10, align 4, !tbaa !133
   %64 = call noundef i32 @_ZN5faiss4HNSW11MinimaxHeap11count_belowEf(ptr noundef nonnull align 8 dereferenceable(64) %3, float noundef %63)
   %.not110.us = icmp slt i32 %64, %18
   br i1 %.not110.us, label %65, label %.loopexit.sink.split
 
-65:                                               ; preds = %62, %.lr.ph240
+65:                                               ; preds = %62, %.lr.ph237
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %66 = sext i32 %61 to i64
@@ -14095,14 +14095,14 @@ define dso_local noundef i32 @_Z32reference_search_from_candidatesRKN5faiss4HNSW
   %67 = load i64, ptr %11, align 8, !tbaa !5
   %68 = load i64, ptr %12, align 8, !tbaa !5
   %69 = icmp ult i64 %67, %68
-  br i1 %69, label %.lr.ph138.us, label %._crit_edge.split.us.us
+  br i1 %69, label %.lr.ph137.us, label %._crit_edge.split.us.us
 
-._crit_edge.split.us.us:                          ; preds = %99, %.lr.ph138.us, %65
-  %.493.lcssa.us = phi float [ %.291.us237, %65 ], [ %.493134.us.us, %.lr.ph138.us ], [ %.695.ph.us.us, %99 ]
-  %.381.lcssa.us = phi i32 [ %.078.us238, %65 ], [ %.381136.us.us, %.lr.ph138.us ], [ %.583.ph.us.us, %99 ]
-  %.3.lcssa.us = phi i32 [ %.0.us239, %65 ], [ %.3137.us.us, %.lr.ph138.us ], [ %.5.ph.us.us, %99 ]
-  %70 = add nuw nsw i32 %.097.us236, 1
-  %.not112.us = icmp slt i32 %.097.us236, %18
+._crit_edge.split.us.us:                          ; preds = %99, %.lr.ph137.us, %65
+  %.493.lcssa.us = phi float [ %.291.us234, %65 ], [ %.493133.us.us, %.lr.ph137.us ], [ %.695.ph.us.us, %99 ]
+  %.381.lcssa.us = phi i32 [ %.078.us235, %65 ], [ %.381135.us.us, %.lr.ph137.us ], [ %.583.ph.us.us, %99 ]
+  %.3.lcssa.us = phi i32 [ %.0.us236, %65 ], [ %.3136.us.us, %.lr.ph137.us ], [ %.5.ph.us.us, %99 ]
+  %70 = add nuw nsw i32 %.097.us233, 1
+  %.not112.us = icmp slt i32 %.097.us233, %18
   %or.cond116.us = select i1 %15, i1 true, i1 %.not112.us
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -14112,21 +14112,21 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %71 = call noundef i32 @_ZNK5faiss4HNSW11MinimaxHeap4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   %72 = icmp sgt i32 %71, 0
-  br i1 %72, label %.lr.ph240, label %.loopexit
+  br i1 %72, label %.lr.ph237, label %.loopexit
 
-.lr.ph138.us:                                     ; preds = %65, %99
+.lr.ph137.us:                                     ; preds = %65, %99
   %73 = phi i64 [ %100, %99 ], [ %68, %65 ]
-  %.3137.us.us = phi i32 [ %.5.ph.us.us, %99 ], [ %.0.us239, %65 ]
-  %.381136.us.us = phi i32 [ %.583.ph.us.us, %99 ], [ %.078.us238, %65 ]
-  %.084135.us.us = phi i64 [ %101, %99 ], [ %67, %65 ]
-  %.493134.us.us = phi float [ %.695.ph.us.us, %99 ], [ %.291.us237, %65 ]
+  %.3136.us.us = phi i32 [ %.5.ph.us.us, %99 ], [ %.0.us236, %65 ]
+  %.381135.us.us = phi i32 [ %.583.ph.us.us, %99 ], [ %.078.us235, %65 ]
+  %.084134.us.us = phi i64 [ %101, %99 ], [ %67, %65 ]
+  %.493133.us.us = phi float [ %.695.ph.us.us, %99 ], [ %.291.us234, %65 ]
   %74 = load ptr, ptr %53, align 8, !tbaa !137
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %.084135.us.us
+  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %.084134.us.us
   %76 = load i32, ptr %75, align 4, !tbaa !132
   %77 = icmp slt i32 %76, 0
   br i1 %77, label %._crit_edge.split.us.us, label %78
 
-78:                                               ; preds = %.lr.ph138.us
+78:                                               ; preds = %.lr.ph137.us
   %79 = zext nneg i32 %76 to i64
   %80 = load ptr, ptr %4, align 8, !tbaa !50
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 %79
@@ -14137,12 +14137,12 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
 
 85:                                               ; preds = %78
   store i8 %83, ptr %81, align 1, !tbaa !54
-  %86 = add nsw i32 %.381136.us.us, 1
+  %86 = add nsw i32 %.381135.us.us, 1
   %87 = load ptr, ptr %1, align 8, !tbaa !44
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = call noundef float %89(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %79)
-  %.old114.us.us = fcmp olt float %90, %.493134.us.us
+  %.old114.us.us = fcmp olt float %90, %.493133.us.us
   br i1 %.old114.us.us, label %91, label %98
 
 91:                                               ; preds = %85
@@ -14153,28 +14153,28 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
 
 95:                                               ; preds = %91
   %96 = load float, ptr %24, align 8, !tbaa !195
-  %97 = add nsw i32 %.3137.us.us, 1
+  %97 = add nsw i32 %.3136.us.us, 1
   br label %98
 
 98:                                               ; preds = %95, %91, %85
-  %.7.us.us = phi float [ %96, %95 ], [ %.493134.us.us, %91 ], [ %.493134.us.us, %85 ]
-  %.6.us.us = phi i32 [ %97, %95 ], [ %.3137.us.us, %91 ], [ %.3137.us.us, %85 ]
+  %.7.us.us = phi float [ %96, %95 ], [ %.493133.us.us, %91 ], [ %.493133.us.us, %85 ]
+  %.6.us.us = phi i32 [ %97, %95 ], [ %.3136.us.us, %91 ], [ %.3136.us.us, %85 ]
   call void @_ZN5faiss4HNSW11MinimaxHeap4pushEif(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %76, float noundef %90)
-  %.pre170 = load i64, ptr %12, align 8, !tbaa !5
+  %.pre169 = load i64, ptr %12, align 8, !tbaa !5
   br label %99
 
 99:                                               ; preds = %98, %78
-  %100 = phi i64 [ %73, %78 ], [ %.pre170, %98 ]
-  %.695.ph.us.us = phi float [ %.493134.us.us, %78 ], [ %.7.us.us, %98 ]
-  %.583.ph.us.us = phi i32 [ %.381136.us.us, %78 ], [ %86, %98 ]
-  %.5.ph.us.us = phi i32 [ %.3137.us.us, %78 ], [ %.6.us.us, %98 ]
-  %101 = add nuw i64 %.084135.us.us, 1
+  %100 = phi i64 [ %73, %78 ], [ %.pre169, %98 ]
+  %.695.ph.us.us = phi float [ %.493133.us.us, %78 ], [ %.7.us.us, %98 ]
+  %.583.ph.us.us = phi i32 [ %.381135.us.us, %78 ], [ %86, %98 ]
+  %.5.ph.us.us = phi i32 [ %.3136.us.us, %78 ], [ %.6.us.us, %98 ]
+  %101 = add nuw i64 %.084134.us.us, 1
   %102 = icmp ult i64 %101, %100
-  br i1 %102, label %.lr.ph138.us, label %._crit_edge.split.us.us, !llvm.loop !458
+  br i1 %102, label %.lr.ph137.us, label %._crit_edge.split.us.us, !llvm.loop !458
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %124
   %indvars.iv = phi i64 [ %indvars.iv.next, %124 ], [ 0, %.lr.ph ]
-  %.089133 = phi float [ %.190, %124 ], [ %25, %.lr.ph ]
+  %.089132 = phi float [ %.190, %124 ], [ %25, %.lr.ph ]
   %103 = load ptr, ptr %28, align 8, !tbaa !137
   %104 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4, !tbaa !132
@@ -14195,7 +14195,7 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
   %114 = load ptr, ptr %.fr, align 8, !tbaa !44
   %115 = load ptr, ptr %114, align 8
   %116 = tail call noundef zeroext i1 %115(ptr noundef nonnull align 8 dereferenceable(8) %.fr, i64 noundef %106)
-  %117 = fcmp olt float %109, %.089133
+  %117 = fcmp olt float %109, %.089132
   %or.cond = select i1 %116, i1 %117, i1 false
   br i1 %or.cond, label %118, label %124
 
@@ -14210,7 +14210,7 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
   br label %124
 
 124:                                              ; preds = %122, %118, %113
-  %.190 = phi float [ %123, %122 ], [ %.089133, %118 ], [ %.089133, %113 ]
+  %.190 = phi float [ %123, %122 ], [ %.089132, %118 ], [ %.089132, %113 ]
   %125 = load i8, ptr %30, align 8, !tbaa !56
   %126 = load ptr, ptr %4, align 8, !tbaa !50
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 %106
@@ -14226,23 +14226,23 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
   %132 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %.preheader.split.preheader
 
-.lr.ph233:                                        ; preds = %.preheader.split.preheader, %select.unfold
-  %.0232 = phi i32 [ %.3.lcssa, %select.unfold ], [ %7, %.preheader.split.preheader ]
-  %.078231 = phi i32 [ %.381.lcssa, %select.unfold ], [ 0, %.preheader.split.preheader ]
-  %.291230 = phi float [ %.493.lcssa, %select.unfold ], [ %.089.lcssa190, %.preheader.split.preheader ]
-  %.097229 = phi i32 [ %176, %select.unfold ], [ 0, %.preheader.split.preheader ]
+.lr.ph230:                                        ; preds = %.preheader.split.preheader, %select.unfold
+  %.0229 = phi i32 [ %.3.lcssa, %select.unfold ], [ %7, %.preheader.split.preheader ]
+  %.078228 = phi i32 [ %.381.lcssa, %select.unfold ], [ 0, %.preheader.split.preheader ]
+  %.291227 = phi float [ %.493.lcssa, %select.unfold ], [ %.089.lcssa189, %.preheader.split.preheader ]
+  %.097226 = phi i32 [ %176, %select.unfold ], [ 0, %.preheader.split.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store float 0.000000e+00, ptr %10, align 4, !tbaa !133
   %133 = call noundef i32 @_ZN5faiss4HNSW11MinimaxHeap7pop_minEPf(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull %10)
   br i1 %15, label %134, label %137
 
-134:                                              ; preds = %.lr.ph233
+134:                                              ; preds = %.lr.ph230
   %135 = load float, ptr %10, align 4, !tbaa !133
   %136 = call noundef i32 @_ZN5faiss4HNSW11MinimaxHeap11count_belowEf(ptr noundef nonnull align 8 dereferenceable(64) %3, float noundef %135)
   %.not110 = icmp slt i32 %136, %18
   br i1 %.not110, label %137, label %.loopexit.sink.split
 
-137:                                              ; preds = %134, %.lr.ph233
+137:                                              ; preds = %134, %.lr.ph230
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %138 = sext i32 %133 to i64
@@ -14250,21 +14250,21 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
   %139 = load i64, ptr %11, align 8, !tbaa !5
   %140 = load i64, ptr %12, align 8, !tbaa !5
   %141 = icmp ult i64 %139, %140
-  br i1 %141, label %.lr.ph138, label %._crit_edge.split
+  br i1 %141, label %.lr.ph137, label %._crit_edge.split
 
-.lr.ph138:                                        ; preds = %137, %172
+.lr.ph137:                                        ; preds = %137, %172
   %142 = phi i64 [ %173, %172 ], [ %140, %137 ]
-  %.3137 = phi i32 [ %.5.ph, %172 ], [ %.0232, %137 ]
-  %.381136 = phi i32 [ %.583.ph, %172 ], [ %.078231, %137 ]
-  %.084135 = phi i64 [ %174, %172 ], [ %139, %137 ]
-  %.493134 = phi float [ %.695.ph, %172 ], [ %.291230, %137 ]
+  %.3136 = phi i32 [ %.5.ph, %172 ], [ %.0229, %137 ]
+  %.381135 = phi i32 [ %.583.ph, %172 ], [ %.078228, %137 ]
+  %.084134 = phi i64 [ %174, %172 ], [ %139, %137 ]
+  %.493133 = phi float [ %.695.ph, %172 ], [ %.291227, %137 ]
   %143 = load ptr, ptr %58, align 8, !tbaa !137
-  %144 = getelementptr inbounds nuw i32, ptr %143, i64 %.084135
+  %144 = getelementptr inbounds nuw i32, ptr %143, i64 %.084134
   %145 = load i32, ptr %144, align 4, !tbaa !132
   %146 = icmp slt i32 %145, 0
   br i1 %146, label %._crit_edge.split, label %147
 
-147:                                              ; preds = %.lr.ph138
+147:                                              ; preds = %.lr.ph137
   %148 = zext nneg i32 %145 to i64
   %149 = load ptr, ptr %4, align 8, !tbaa !50
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 %148
@@ -14275,7 +14275,7 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
 
 154:                                              ; preds = %147
   store i8 %152, ptr %150, align 1, !tbaa !54
-  %155 = add nsw i32 %.381136, 1
+  %155 = add nsw i32 %.381135, 1
   %156 = load ptr, ptr %1, align 8, !tbaa !44
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8
@@ -14283,7 +14283,7 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
   %160 = load ptr, ptr %.fr, align 8, !tbaa !44
   %161 = load ptr, ptr %160, align 8
   %162 = call noundef zeroext i1 %161(ptr noundef nonnull align 8 dereferenceable(8) %.fr, i64 noundef %148)
-  %163 = fcmp olt float %159, %.493134
+  %163 = fcmp olt float %159, %.493133
   %or.cond115 = select i1 %162, i1 %163, i1 false
   br i1 %or.cond115, label %164, label %171
 
@@ -14295,31 +14295,31 @@ select.unfold.us:                                 ; preds = %._crit_edge.split.u
 
 168:                                              ; preds = %164
   %169 = load float, ptr %24, align 8, !tbaa !195
-  %170 = add nsw i32 %.3137, 1
+  %170 = add nsw i32 %.3136, 1
   br label %171
 
 171:                                              ; preds = %168, %164, %154
-  %.7 = phi float [ %169, %168 ], [ %.493134, %164 ], [ %.493134, %154 ]
-  %.6 = phi i32 [ %170, %168 ], [ %.3137, %164 ], [ %.3137, %154 ]
+  %.7 = phi float [ %169, %168 ], [ %.493133, %164 ], [ %.493133, %154 ]
+  %.6 = phi i32 [ %170, %168 ], [ %.3136, %164 ], [ %.3136, %154 ]
   call void @_ZN5faiss4HNSW11MinimaxHeap4pushEif(ptr noundef nonnull align 8 dereferenceable(64) %3, i32 noundef %145, float noundef %159)
   %.pre = load i64, ptr %12, align 8, !tbaa !5
   br label %172
 
 172:                                              ; preds = %171, %147
   %173 = phi i64 [ %142, %147 ], [ %.pre, %171 ]
-  %.695.ph = phi float [ %.493134, %147 ], [ %.7, %171 ]
-  %.583.ph = phi i32 [ %.381136, %147 ], [ %155, %171 ]
-  %.5.ph = phi i32 [ %.3137, %147 ], [ %.6, %171 ]
-  %174 = add nuw i64 %.084135, 1
+  %.695.ph = phi float [ %.493133, %147 ], [ %.7, %171 ]
+  %.583.ph = phi i32 [ %.381135, %147 ], [ %155, %171 ]
+  %.5.ph = phi i32 [ %.3136, %147 ], [ %.6, %171 ]
+  %174 = add nuw i64 %.084134, 1
   %175 = icmp ult i64 %174, %173
-  br i1 %175, label %.lr.ph138, label %._crit_edge.split, !llvm.loop !458
+  br i1 %175, label %.lr.ph137, label %._crit_edge.split, !llvm.loop !458
 
-._crit_edge.split:                                ; preds = %172, %.lr.ph138, %137
-  %.493.lcssa = phi float [ %.291230, %137 ], [ %.493134, %.lr.ph138 ], [ %.695.ph, %172 ]
-  %.381.lcssa = phi i32 [ %.078231, %137 ], [ %.381136, %.lr.ph138 ], [ %.583.ph, %172 ]
-  %.3.lcssa = phi i32 [ %.0232, %137 ], [ %.3137, %.lr.ph138 ], [ %.5.ph, %172 ]
-  %176 = add nuw nsw i32 %.097229, 1
-  %.not112 = icmp slt i32 %.097229, %18
+._crit_edge.split:                                ; preds = %172, %.lr.ph137, %137
+  %.493.lcssa = phi float [ %.291227, %137 ], [ %.493133, %.lr.ph137 ], [ %.695.ph, %172 ]
+  %.381.lcssa = phi i32 [ %.078228, %137 ], [ %.381135, %.lr.ph137 ], [ %.583.ph, %172 ]
+  %.3.lcssa = phi i32 [ %.0229, %137 ], [ %.3136, %.lr.ph137 ], [ %.5.ph, %172 ]
+  %176 = add nuw nsw i32 %.097226, 1
+  %.not112 = icmp slt i32 %.097226, %18
   %or.cond116 = select i1 %15, i1 true, i1 %.not112
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -14329,12 +14329,12 @@ select.unfold:                                    ; preds = %._crit_edge.split
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %177 = call noundef i32 @_ZNK5faiss4HNSW11MinimaxHeap4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
   %178 = icmp sgt i32 %177, 0
-  br i1 %178, label %.lr.ph233, label %.loopexit
+  br i1 %178, label %.lr.ph230, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %._crit_edge.split, %134, %._crit_edge.split.us.us, %62
-  %.198.ph = phi i32 [ %.097.us236, %62 ], [ %70, %._crit_edge.split.us.us ], [ %.097229, %134 ], [ %176, %._crit_edge.split ]
-  %.179.ph = phi i32 [ %.078.us238, %62 ], [ %.381.lcssa.us, %._crit_edge.split.us.us ], [ %.078231, %134 ], [ %.381.lcssa, %._crit_edge.split ]
-  %.1.ph = phi i32 [ %.0.us239, %62 ], [ %.3.lcssa.us, %._crit_edge.split.us.us ], [ %.0232, %134 ], [ %.3.lcssa, %._crit_edge.split ]
+  %.198.ph = phi i32 [ %.097.us233, %62 ], [ %70, %._crit_edge.split.us.us ], [ %.097226, %134 ], [ %176, %._crit_edge.split ]
+  %.179.ph = phi i32 [ %.078.us235, %62 ], [ %.381.lcssa.us, %._crit_edge.split.us.us ], [ %.078228, %134 ], [ %.381.lcssa, %._crit_edge.split ]
+  %.1.ph = phi i32 [ %.0.us236, %62 ], [ %.3.lcssa.us, %._crit_edge.split.us.us ], [ %.0229, %134 ], [ %.3.lcssa, %._crit_edge.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.loopexit
 
@@ -14488,18 +14488,18 @@ define dso_local void @_Z41reference_search_from_candidate_unboundedRKN5faiss4HN
   %23 = load ptr, ptr %8, align 8, !tbaa !466
   %24 = load ptr, ptr %22, align 8, !tbaa !466
   %25 = icmp eq ptr %23, %24
-  br i1 %25, label %.loopexit95, label %.lr.ph68
+  br i1 %25, label %.loopexit94, label %.lr.ph67
 
-.lr.ph68:                                         ; preds = %14
+.lr.ph67:                                         ; preds = %14
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = sext i32 %4 to i64
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 24
   br label %30
 
-30:                                               ; preds = %.lr.ph68, %.loopexit
-  %.pr = phi ptr [ %23, %.lr.ph68 ], [ %102, %.loopexit ]
-  %.03067 = phi i32 [ 0, %.lr.ph68 ], [ %.350, %.loopexit ]
+30:                                               ; preds = %.lr.ph67, %.loopexit
+  %.pr = phi ptr [ %23, %.lr.ph67 ], [ %102, %.loopexit ]
+  %.03066 = phi i32 [ 0, %.lr.ph67 ], [ %.349, %.loopexit ]
   %31 = load float, ptr %.pr, align 4, !tbaa !46
   %32 = getelementptr inbounds nuw i8, ptr %.pr, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !48
@@ -14542,11 +14542,11 @@ define dso_local void @_Z41reference_search_from_candidate_unboundedRKN5faiss4HN
 
 .lr.ph:                                           ; preds = %44, %96
   %50 = phi i64 [ %97, %96 ], [ %46, %44 ]
-  %.066 = phi i64 [ %98, %96 ], [ %45, %44 ]
-  %.365 = phi i32 [ %.5.ph, %96 ], [ %.03067, %44 ]
+  %.065 = phi i64 [ %98, %96 ], [ %45, %44 ]
+  %.364 = phi i32 [ %.5.ph, %96 ], [ %.03066, %44 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %51 = load ptr, ptr %26, align 8, !tbaa !137
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.066
+  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %.065
   %53 = load i32, ptr %52, align 4, !tbaa !132
   store i32 %53, ptr %11, align 4, !tbaa !132
   %54 = icmp slt i32 %53, 0
@@ -14574,7 +14574,7 @@ define dso_local void @_Z41reference_search_from_candidate_unboundedRKN5faiss4HN
 
 69:                                               ; preds = %62
   store float %68, ptr %12, align 4, !tbaa !133
-  %70 = add nsw i32 %.365, 1
+  %70 = add nsw i32 %.364, 1
   %71 = load ptr, ptr %0, align 8, !tbaa !466
   %72 = load float, ptr %71, align 4, !tbaa !46
   %73 = fcmp ogt float %72, %68
@@ -14629,14 +14629,14 @@ define dso_local void @_Z41reference_search_from_candidate_unboundedRKN5faiss4HN
 
 96:                                               ; preds = %94, %55
   %97 = phi i64 [ %50, %55 ], [ %.pre, %94 ]
-  %.5.ph = phi i32 [ %.365, %55 ], [ %70, %94 ]
+  %.5.ph = phi i32 [ %.364, %55 ], [ %70, %94 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  %98 = add nuw i64 %.066, 1
+  %98 = add nuw i64 %.065, 1
   %99 = icmp ult i64 %98, %97
   br i1 %99, label %.lr.ph, label %.loopexit, !llvm.loop !467
 
 .loopexit:                                        ; preds = %96, %44, %95
-  %.350 = phi i32 [ %.365, %95 ], [ %.03067, %44 ], [ %.5.ph, %96 ]
+  %.349 = phi i32 [ %.364, %95 ], [ %.03066, %44 ], [ %.5.ph, %96 ]
   %100 = load i64, ptr %29, align 8, !tbaa !465
   %101 = add i64 %100, 1
   store i64 %101, ptr %29, align 8, !tbaa !465
@@ -14645,7 +14645,7 @@ define dso_local void @_Z41reference_search_from_candidate_unboundedRKN5faiss4HN
   %102 = load ptr, ptr %8, align 8, !tbaa !466
   %103 = load ptr, ptr %22, align 8, !tbaa !466
   %104 = icmp eq ptr %102, %103
-  br i1 %104, label %.loopexit95.loopexit, label %30
+  br i1 %104, label %.loopexit94.loopexit, label %30
 
 105:                                              ; preds = %92, %48
   %.pn = phi { ptr, i32 } [ %93, %92 ], [ %49, %48 ]
@@ -14657,20 +14657,20 @@ define dso_local void @_Z41reference_search_from_candidate_unboundedRKN5faiss4HN
   %106 = load i64, ptr %6, align 8, !tbaa !461
   %107 = add i64 %106, 1
   store i64 %107, ptr %6, align 8, !tbaa !461
-  %108 = sext i32 %.03067 to i64
+  %108 = sext i32 %.03066 to i64
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %110 = load i64, ptr %109, align 8, !tbaa !464
   %111 = add i64 %110, %108
   store i64 %111, ptr %109, align 8, !tbaa !464
   br label %121
 
-.loopexit95.loopexit:                             ; preds = %.loopexit
-  %112 = sext i32 %.350 to i64
-  br label %.loopexit95
+.loopexit94.loopexit:                             ; preds = %.loopexit
+  %112 = sext i32 %.349 to i64
+  br label %.loopexit94
 
-.loopexit95:                                      ; preds = %.loopexit95.loopexit, %14
-  %.03064.ph = phi i64 [ 0, %14 ], [ %112, %.loopexit95.loopexit ]
-  %.ph = phi ptr [ %23, %14 ], [ %102, %.loopexit95.loopexit ]
+.loopexit94:                                      ; preds = %.loopexit94.loopexit, %14
+  %.03063.ph = phi i64 [ 0, %14 ], [ %112, %.loopexit94.loopexit ]
+  %.ph = phi ptr [ %23, %14 ], [ %102, %.loopexit94.loopexit ]
   %113 = load i64, ptr %6, align 8, !tbaa !461
   %114 = add i64 %113, 1
   store i64 %114, ptr %6, align 8, !tbaa !461
@@ -14680,13 +14680,13 @@ define dso_local void @_Z41reference_search_from_candidate_unboundedRKN5faiss4HN
   store i64 %117, ptr %115, align 8, !tbaa !463
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %119 = load i64, ptr %118, align 8, !tbaa !464
-  %120 = add i64 %119, %.03064.ph
+  %120 = add i64 %119, %.03063.ph
   store i64 %120, ptr %118, align 8, !tbaa !464
   %.not.i.i.i.i = icmp eq ptr %.ph, null
   br i1 %.not.i.i.i.i, label %_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt7greaterIS1_EED2Ev.exit, label %121
 
-121:                                              ; preds = %.thread, %.loopexit95
-  %122 = phi ptr [ %.pr, %.thread ], [ %.ph, %.loopexit95 ]
+121:                                              ; preds = %.thread, %.loopexit94
+  %122 = phi ptr [ %.pr, %.thread ], [ %.ph, %.loopexit94 ]
   %123 = ptrtoint ptr %122 to i64
   %124 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !131
@@ -14695,7 +14695,7 @@ define dso_local void @_Z41reference_search_from_candidate_unboundedRKN5faiss4HN
   call void @_ZdlPvm(ptr noundef nonnull %122, i64 noundef %127) #30
   br label %_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt7greaterIS1_EED2Ev.exit
 
-_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt7greaterIS1_EED2Ev.exit: ; preds = %.loopexit95, %121
+_ZNSt14priority_queueISt4pairIfiESt6vectorIS1_SaIS1_EESt7greaterIS1_EED2Ev.exit: ; preds = %.loopexit94, %121
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret void
 

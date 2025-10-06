@@ -777,34 +777,34 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer23emitAtributesSubsectionE
   %11 = zext i32 %10 to i64
   %.idx = mul nuw nsw i64 %11, 3120
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
-  %.not54 = icmp eq i32 %10, 0
-  br i1 %.not54, label %._crit_edge, label %.lr.ph
+  %.not52 = icmp eq i32 %10, 0
+  br i1 %.not52, label %_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5
   %13 = icmp eq i64 %.fr22.i, 0
   br i1 %13, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
-  %.055.us = phi ptr [ %14, %.critedge.us ], [ %8, %.lr.ph ]
-  %.sroa.24.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.055.us, i64 16
+  %.053.us = phi ptr [ %14, %.critedge.us ], [ %8, %.lr.ph ]
+  %.sroa.24.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.053.us, i64 16
   %.sroa.24.0.copyload.us = load i64, ptr %.sroa.24.0..sroa_idx.us, align 8, !tbaa !47
   %.not.i.us = icmp eq i64 %.sroa.24.0.copyload.us, 0
   br i1 %.not.i.us, label %.lr.ph.i, label %.critedge.us
 
 .critedge.us:                                     ; preds = %.lr.ph.split.us
-  %14 = getelementptr inbounds nuw i8, ptr %.055.us, i64 3120
+  %14 = getelementptr inbounds nuw i8, ptr %.053.us, i64 3120
   %.not.us = icmp eq ptr %14, %12
-  br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us
+  br i1 %.not.us, label %_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
-  %.055 = phi ptr [ %22, %.critedge ], [ %8, %.lr.ph ]
-  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.055, i64 16
+  %.053 = phi ptr [ %22, %.critedge ], [ %8, %.lr.ph ]
+  %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.053, i64 16
   %.sroa.24.0.copyload = load i64, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !47
   %.not.i = icmp eq i64 %.fr22.i, %.sroa.24.0.copyload
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.lr.ph.split
-  %15 = getelementptr inbounds nuw i8, ptr %.055, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %.053, i64 8
   %.sroa.03.0.copyload = load ptr, ptr %15, align 8, !tbaa !46
   %bcmp.i = tail call i32 @bcmp(ptr %1, ptr %.sroa.03.0.copyload, i64 %.fr22.i)
   %16 = icmp eq i32 %bcmp.i, 0
@@ -848,11 +848,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread16.i:     ; preds = %_ZN4llvmeqENS_9Stri
   br i1 %.not.i21, label %_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit.thread, label %.lr.ph.split.i
 
 .critedge:                                        ; preds = %.lr.ph.split, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %22 = getelementptr inbounds nuw i8, ptr %.055, i64 3120
+  %22 = getelementptr inbounds nuw i8, ptr %.053, i64 3120
   %.not = icmp eq ptr %22, %12
-  br i1 %.not, label %._crit_edge, label %.lr.ph.split
+  br i1 %.not, label %_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit, label %.lr.ph.split
 
-._crit_edge:                                      ; preds = %.critedge, %.critedge.us, %5
+_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit: ; preds = %.critedge, %.critedge.us, %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -875,7 +875,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread16.i:     ; preds = %_ZN4llvmeqENS_9Stri
   %.not.i.i.not.i = icmp ult i32 %10, %32
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer19AttributeSubSectionELb0EE28reserveForParamAndGetAddressERKS2_m.exit.i, label %33, !prof !33
 
-33:                                               ; preds = %._crit_edge
+33:                                               ; preds = %_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit
   %34 = icmp uge ptr %6, %8
   %35 = icmp ult ptr %6, %12
   %spec.select.i.i.i.i.i = and i1 %34, %35
@@ -895,9 +895,9 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread16.i:     ; preds = %_ZN4llvmeqENS_9Stri
   %.pre.i = load ptr, ptr %7, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer19AttributeSubSectionELb0EE28reserveForParamAndGetAddressERKS2_m.exit.i
 
-_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer19AttributeSubSectionELb0EE28reserveForParamAndGetAddressERKS2_m.exit.i: ; preds = %.critedge.i.i.i, %36, %._crit_edge
-  %42 = phi ptr [ %8, %._crit_edge ], [ %40, %36 ], [ %.pre.i, %.critedge.i.i.i ]
-  %.016.i.i.i = phi ptr [ %6, %._crit_edge ], [ %41, %36 ], [ %6, %.critedge.i.i.i ]
+_ZN4llvm23SmallVectorTemplateBaseINS_13MCELFStreamer19AttributeSubSectionELb0EE28reserveForParamAndGetAddressERKS2_m.exit.i: ; preds = %.critedge.i.i.i, %36, %_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit
+  %42 = phi ptr [ %8, %_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit ], [ %40, %36 ], [ %.pre.i, %.critedge.i.i.i ]
+  %.016.i.i.i = phi ptr [ %6, %_ZN4llvm21AArch64TargetStreamer27activateAtributesSubsectionENS_9StringRefE.exit ], [ %41, %36 ], [ %6, %.critedge.i.i.i ]
   %43 = load i32, ptr %9, align 8, !tbaa !26
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw %"struct.llvm::MCELFStreamer::AttributeSubSection", ptr %42, i64 %44
@@ -1084,18 +1084,18 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer28getActiveAtributesSubsec
   %7 = zext i32 %6 to i64
   %.idx = mul nuw nsw i64 %7, 3120
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not15 = icmp eq i32 %6, 0
-  br i1 %.not15, label %.loopexit, label %.lr.ph
+  %.not13 = icmp eq i32 %6, 0
+  br i1 %.not13, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.016 = phi ptr [ %22, %.critedge ], [ %4, %2 ]
-  %9 = load i8, ptr %.016, align 8, !tbaa !133, !range !52, !noundef !53
+  %.014 = phi ptr [ %22, %.critedge ], [ %4, %2 ]
+  %9 = load i8, ptr %.014, align 8, !tbaa !133, !range !52, !noundef !53
   %10 = trunc nuw i8 %9 to i1
   br i1 %10, label %11, label %.critedge
 
 11:                                               ; preds = %.lr.ph
   %12 = tail call noalias noundef nonnull dereferenceable(3120) ptr @_Znwm(i64 noundef 3120) #17, !noalias !143
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %12, ptr noundef nonnull align 8 dereferenceable(3120) %.016, i64 32, i1 false), !noalias !143
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %12, ptr noundef nonnull align 8 dereferenceable(3120) %.014, i64 32, i1 false), !noalias !143
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 48
   store ptr %14, ptr %13, align 8, !tbaa !25, !noalias !143
@@ -1103,18 +1103,18 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer28getActiveAtributesSubsec
   store i32 0, ptr %15, align 8, !tbaa !26, !noalias !143
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 44
   store i32 64, ptr %16, align 4, !tbaa !27, !noalias !143
-  %17 = getelementptr inbounds nuw i8, ptr %.016, i64 40
+  %17 = getelementptr inbounds nuw i8, ptr %.014, i64 40
   %18 = load i32, ptr %17, align 8, !tbaa !26, !noalias !143
   %.not.i.i.i.i = icmp eq i32 %18, 0
   br i1 %.not.i.i.i.i, label %.loopexit, label %19
 
 19:                                               ; preds = %11
-  %20 = getelementptr inbounds nuw i8, ptr %.016, i64 32
+  %20 = getelementptr inbounds nuw i8, ptr %.014, i64 32
   %21 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15SmallVectorImplINS_13MCELFStreamer13AttributeItemEEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(3088) %13, ptr noundef nonnull align 8 dereferenceable(3088) %20), !noalias !143
   br label %.loopexit
 
 .critedge:                                        ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i8, ptr %.016, i64 3120
+  %22 = getelementptr inbounds nuw i8, ptr %.014, i64 3120
   %.not = icmp eq ptr %22, %8
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -1126,7 +1126,7 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer28getActiveAtributesSubsec
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4llvm21AArch64TargetStreamer28getAtributesSubsectionByNameENS_9StringRefE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.179") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(199720) %1, ptr readonly captures(none) %2, i64 %3) local_unnamed_addr #0 align 2 {
-  %.fr25 = freeze i64 %3
+  %.fr23 = freeze i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1134,41 +1134,41 @@ define dso_local void @_ZN4llvm21AArch64TargetStreamer28getAtributesSubsectionBy
   %9 = zext i32 %8 to i64
   %.idx = mul nuw nsw i64 %9, 3120
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx
-  %.not22 = icmp eq i32 %8, 0
-  br i1 %.not22, label %.loopexit, label %.lr.ph
+  %.not20 = icmp eq i32 %8, 0
+  br i1 %.not20, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
-  %11 = icmp eq i64 %.fr25, 0
+  %11 = icmp eq i64 %.fr23, 0
   br i1 %11, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge.us
-  %.023.us = phi ptr [ %12, %.critedge.us ], [ %6, %.lr.ph ]
-  %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.023.us, i64 16
+  %.021.us = phi ptr [ %12, %.critedge.us ], [ %6, %.lr.ph ]
+  %.sroa.2.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.021.us, i64 16
   %.sroa.2.0.copyload.us = load i64, ptr %.sroa.2.0..sroa_idx.us, align 8, !tbaa !47
   %.not.i.us = icmp eq i64 %.sroa.2.0.copyload.us, 0
   br i1 %.not.i.us, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge.us
 
 .critedge.us:                                     ; preds = %.lr.ph.split.us
-  %12 = getelementptr inbounds nuw i8, ptr %.023.us, i64 3120
+  %12 = getelementptr inbounds nuw i8, ptr %.021.us, i64 3120
   %.not.us = icmp eq ptr %12, %10
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge
-  %.023 = phi ptr [ %25, %.critedge ], [ %6, %.lr.ph ]
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.023, i64 16
+  %.021 = phi ptr [ %25, %.critedge ], [ %6, %.lr.ph ]
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.021, i64 16
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !47
-  %.not.i = icmp eq i64 %.fr25, %.sroa.2.0.copyload
+  %.not.i = icmp eq i64 %.fr23, %.sroa.2.0.copyload
   br i1 %.not.i, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %.lr.ph.split
-  %13 = getelementptr inbounds nuw i8, ptr %.023, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.021, i64 8
   %.sroa.0.0.copyload = load ptr, ptr %13, align 8, !tbaa !46
-  %bcmp.i = tail call i32 @bcmp(ptr %2, ptr %.sroa.0.0.copyload, i64 %.fr25)
+  %bcmp.i = tail call i32 @bcmp(ptr %2, ptr %.sroa.0.0.copyload, i64 %.fr23)
   %14 = icmp eq i32 %bcmp.i, 0
   br i1 %14, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %.critedge
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %.023.us, %.lr.ph.split.us ], [ %.023, %_ZN4llvmeqENS_9StringRefES0_.exit ]
+  %.us-phi = phi ptr [ %.021.us, %.lr.ph.split.us ], [ %.021, %_ZN4llvmeqENS_9StringRefES0_.exit ]
   %15 = tail call noalias noundef nonnull dereferenceable(3120) ptr @_Znwm(i64 noundef 3120) #17, !noalias !148
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3120) %15, ptr noundef nonnull align 8 dereferenceable(3120) %.us-phi, i64 32, i1 false), !noalias !148
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
@@ -1189,7 +1189,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   br label %.loopexit
 
 .critedge:                                        ; preds = %.lr.ph.split, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %25 = getelementptr inbounds nuw i8, ptr %.023, i64 3120
+  %25 = getelementptr inbounds nuw i8, ptr %.021, i64 3120
   %.not = icmp eq ptr %25, %10
   br i1 %.not, label %.loopexit, label %.lr.ph.split
 

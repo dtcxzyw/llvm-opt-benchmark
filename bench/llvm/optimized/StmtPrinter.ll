@@ -1325,8 +1325,8 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %4, 120
-  %.not342 = icmp eq ptr %1, null
-  %.not = or i1 %.not342, %spec.select.i.i.i.i.i.i.i.i
+  %.not341 = icmp eq ptr %1, null
+  %.not = or i1 %.not341, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %43, label %5
 
 5:                                                ; preds = %2
@@ -1505,7 +1505,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 43:                                               ; preds = %2
   %44 = and i16 %3, 511
   %45 = icmp ne i16 %44, 4
-  %.not314 = or i1 %.not342, %45
+  %.not314 = or i1 %.not341, %45
   br i1 %.not314, label %.critedge, label %46
 
 46:                                               ; preds = %43
@@ -8483,8 +8483,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter15VisitMemberExprEPN5
 _ZL14isImplicitThisPKN5clang4ExprE.exit:          ; preds = %7
   %10 = load i32, ptr %.pre, align 8
   %11 = and i32 %10, 524288
-  %.not73 = icmp eq i32 %11, 0
-  br i1 %.not73, label %_ZL14isImplicitThisPKN5clang4ExprE.exit.thread.thread, label %_ZN4llvm11raw_ostreamlsEPKc.exit
+  %.not72 = icmp eq i32 %11, 0
+  br i1 %.not72, label %_ZL14isImplicitThisPKN5clang4ExprE.exit.thread.thread, label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZL14isImplicitThisPKN5clang4ExprE.exit.thread.thread: ; preds = %7, %_ZL14isImplicitThisPKN5clang4ExprE.exit
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -8542,8 +8542,8 @@ _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit: ; preds = %37, %35
   %41 = load ptr, ptr %40, align 8, !tbaa !608
   %42 = load i16, ptr %41, align 8
   %43 = and i16 %42, 511
-  %.not75 = icmp eq i16 %43, 48
-  br i1 %.not75, label %44, label %.thread
+  %.not74 = icmp eq i16 %43, 48
+  br i1 %.not74, label %44, label %.thread
 
 44:                                               ; preds = %_ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit
   %45 = getelementptr inbounds nuw i8, ptr %41, i64 24
@@ -8563,9 +8563,9 @@ _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit: ; preds = %37, %35
   %54 = load ptr, ptr %0, align 8, !tbaa !386
   %55 = load i32, ptr %1, align 8
   %56 = and i32 %55, 524288
-  %.not76 = icmp eq i32 %56, 0
-  %57 = select i1 %.not76, ptr @.str.54, ptr @.str.53
-  %58 = select i1 %.not76, i64 1, i64 2
+  %.not75 = icmp eq i32 %56, 0
+  %57 = select i1 %.not75, ptr @.str.54, ptr @.str.53
+  %58 = select i1 %.not75, i64 1, i64 2
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !389
   %61 = getelementptr inbounds nuw i8, ptr %54, i64 32
@@ -8595,8 +8595,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %69, %67, %52, %_ZL1
   %76 = and i32 %75, 127
   %77 = add nsw i32 %76, -50
   %78 = icmp ult i32 %77, -3
-  %.not3977 = icmp eq ptr %73, null
-  %.not39 = or i1 %.not3977, %78
+  %.not3976 = icmp eq ptr %73, null
+  %.not39 = or i1 %.not3976, %78
   br i1 %.not39, label %81, label %79
 
 79:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
@@ -8618,11 +8618,11 @@ _ZNK5clang10MemberExpr12getQualifierEv.exit:      ; preds = %81
 85:                                               ; preds = %_ZNK5clang10MemberExpr12getQualifierEv.exit
   %86 = load ptr, ptr %0, align 8, !tbaa !386
   tail call void @_ZNK5clang19NestedNameSpecifier5printERN4llvm11raw_ostreamERKNS_14PrintingPolicyEb(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0.copyload.i.i, ptr noundef nonnull align 8 dereferenceable(48) %86, ptr noundef nonnull align 8 dereferenceable(16) %4, i1 noundef zeroext false) #20
-  %.pre83 = load i32, ptr %1, align 8
+  %.pre82 = load i32, ptr %1, align 8
   br label %_ZNK5clang10MemberExpr12getQualifierEv.exit.thread
 
 _ZNK5clang10MemberExpr12getQualifierEv.exit.thread: ; preds = %81, %85, %_ZNK5clang10MemberExpr12getQualifierEv.exit
-  %87 = phi i32 [ %82, %81 ], [ %.pre83, %85 ], [ %82, %_ZNK5clang10MemberExpr12getQualifierEv.exit ]
+  %87 = phi i32 [ %82, %81 ], [ %.pre82, %85 ], [ %82, %_ZNK5clang10MemberExpr12getQualifierEv.exit ]
   %88 = and i32 %87, 4194304
   %.not.i.i47 = icmp eq i32 %88, 0
   br i1 %.not.i.i47, label %_ZN4llvm11raw_ostreamlsEPKc.exit51, label %_ZNK5clang10MemberExpr18hasTemplateKeywordEv.exit
@@ -8638,8 +8638,8 @@ _ZNK5clang10MemberExpr18hasTemplateKeywordEv.exit: ; preds = %_ZNK5clang10Member
   %94 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %91, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 56
   %96 = load i32, ptr %95, align 8, !tbaa !524
-  %.not78 = icmp eq i32 %96, 0
-  br i1 %.not78, label %_ZN4llvm11raw_ostreamlsEPKc.exit51, label %97
+  %.not77 = icmp eq i32 %96, 0
+  br i1 %.not77, label %_ZN4llvm11raw_ostreamlsEPKc.exit51, label %97
 
 97:                                               ; preds = %_ZNK5clang10MemberExpr18hasTemplateKeywordEv.exit
   %98 = load ptr, ptr %0, align 8, !tbaa !386
@@ -8686,15 +8686,15 @@ _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %_ZNK5clang10MemberE
   %123 = and i32 %122, 126
   %124 = add nsw i32 %123, -38
   %125 = icmp ult i32 %124, -6
-  %.not4179 = icmp eq ptr %120, null
-  %.not41 = or i1 %.not4179, %125
+  %.not4178 = icmp eq ptr %120, null
+  %.not41 = or i1 %.not4178, %125
   br i1 %.not41, label %131, label %126
 
 126:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit51
   %127 = load i32, ptr %1, align 8
   %128 = and i32 %127, 8388608
-  %.not80 = icmp eq i32 %128, 0
-  br i1 %.not80, label %129, label %139
+  %.not79 = icmp eq i32 %128, 0
+  br i1 %.not79, label %129, label %139
 
 129:                                              ; preds = %126
   %130 = tail call noundef ptr @_ZNK5clang12FunctionDecl18getPrimaryTemplateEv(ptr noundef nonnull align 8 dereferenceable(168) %120) #20
@@ -8705,7 +8705,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %_ZNK5clang10MemberE
   %132 = and i32 %122, 127
   %133 = add nsw i32 %132, -41
   %134 = icmp ult i32 %133, -2
-  %.not42 = or i1 %.not4179, %134
+  %.not42 = or i1 %.not4178, %134
   br i1 %.not42, label %139, label %135
 
 135:                                              ; preds = %131
@@ -8713,8 +8713,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit51:               ; preds = %_ZNK5clang10MemberE
   br label %.sink.split
 
 .sink.split:                                      ; preds = %129, %135
-  %.sink92 = phi ptr [ %136, %135 ], [ %130, %129 ]
-  %137 = getelementptr inbounds nuw i8, ptr %.sink92, i64 56
+  %.sink91 = phi ptr [ %136, %135 ], [ %130, %129 ]
+  %137 = getelementptr inbounds nuw i8, ptr %.sink91, i64 56
   %138 = load ptr, ptr %137, align 8, !tbaa !615
   br label %139
 
@@ -8736,8 +8736,8 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit: ; preds = %139
   %147 = zext nneg i32 %.lobit.i.i.i.i.i.i57 to i64
   %148 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %145, i64 %147
   %149 = load i32, ptr %148, align 8, !tbaa !524
-  %.not82 = icmp eq i32 %149, 0
-  br i1 %.not82, label %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang10MemberExpr18template_argumentsEv.exit
+  %.not81 = icmp eq i32 %149, 0
+  br i1 %.not81, label %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang10MemberExpr18template_argumentsEv.exit
 
 _ZNK5clang10MemberExpr18template_argumentsEv.exit: ; preds = %_ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit
   %150 = load ptr, ptr %0, align 8, !tbaa !386
@@ -14862,8 +14862,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitUserDefinedLit
 63:                                               ; preds = %59, %48
   %64 = load i32, ptr %54, align 8
   %65 = and i32 %64, 4194304
-  %.not85 = icmp eq i32 %65, 0
-  br i1 %.not85, label %66, label %76
+  %.not83 = icmp eq i32 %65, 0
+  br i1 %.not83, label %66, label %76
 
 66:                                               ; preds = %63
   %67 = load ptr, ptr %55, align 8, !tbaa !573
@@ -14872,8 +14872,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter23VisitUserDefinedLit
   %70 = and i32 %69, 127
   %71 = add nsw i32 %70, -73
   %72 = icmp ult i32 %71, -7
-  %.not4186 = icmp eq ptr %67, null
-  %.not41 = or i1 %.not4186, %72
+  %.not4184 = icmp eq ptr %67, null
+  %.not41 = or i1 %.not4184, %72
   br i1 %.not41, label %76, label %73
 
 73:                                               ; preds = %66
@@ -14975,17 +14975,17 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit46:    ; preds = %105, %107, %108
   %135 = zext i32 %134 to i64
   %.idx = mul nuw nsw i64 %135, 24
   %136 = getelementptr inbounds nuw i8, ptr %132, i64 %.idx
-  %.not4087 = icmp eq i32 %134, 0
-  br i1 %.not4087, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %.lr.ph
+  %.not4085 = icmp eq i32 %134, 0
+  br i1 %.not4085, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %130
   %137 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %138
 
 138:                                              ; preds = %.lr.ph, %_ZN4llvm11raw_ostreamlsEc.exit
-  %.03788 = phi ptr [ %132, %.lr.ph ], [ %164, %_ZN4llvm11raw_ostreamlsEc.exit ]
+  %.03786 = phi ptr [ %132, %.lr.ph ], [ %164, %_ZN4llvm11raw_ostreamlsEc.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %139 = load i64, ptr %.03788, align 8, !noalias !744
+  %139 = load i64, ptr %.03786, align 8, !noalias !744
   %140 = lshr i64 %139, 32
   %141 = trunc nuw i64 %140 to i32
   %142 = and i32 %141, 2147483647
@@ -14993,7 +14993,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit46:    ; preds = %105, %107, %108
   br i1 %143, label %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit.thread, label %_ZNK5clang16TemplateArgument13getAsIntegralEv.exit
 
 _ZNK5clang16TemplateArgument13getAsIntegralEv.exit.thread: ; preds = %138
-  %144 = getelementptr inbounds nuw i8, ptr %.03788, i64 8
+  %144 = getelementptr inbounds nuw i8, ptr %.03786, i64 8
   %.sink3.i77 = load i64, ptr %144, align 8, !noalias !744
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %_ZN4llvm5APIntD2Ev.exit
@@ -15002,7 +15002,7 @@ _ZNK5clang16TemplateArgument13getAsIntegralEv.exit: ; preds = %138
   %145 = and i64 %140, 2147483647
   %146 = add nuw nsw i64 %145, 63
   %147 = lshr i64 %146, 6
-  %148 = getelementptr inbounds nuw i8, ptr %.03788, i64 8
+  %148 = getelementptr inbounds nuw i8, ptr %.03786, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !380, !noalias !744
   call void @_ZN4llvm5APIntC1EjNS_8ArrayRefImEE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %142, ptr %149, i64 %147) #20, !noalias !744
   %150 = load i32, ptr %137, align 8, !tbaa !669, !noalias !744
@@ -15039,7 +15039,7 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK5clang16Templat
   br label %_ZN4llvm11raw_ostreamlsEc.exit
 
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %160, %162
-  %164 = getelementptr inbounds nuw i8, ptr %.03788, i64 24
+  %164 = getelementptr inbounds nuw i8, ptr %.03786, i64 24
   %.not40 = icmp eq ptr %164, %136
   br i1 %.not40, label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit, label %138
 

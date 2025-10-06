@@ -229,63 +229,63 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit: ; preds = %3
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %.0.copyload.i.i.i.i = load i16, ptr %36, align 1
   switch i16 %.0.copyload.i.i.i.i, label %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread [
-    i16 4456, label %_ZN4llvm5ErrorD2Ev.exit411
+    i16 4456, label %_ZN4llvm5ErrorD2Ev.exit353
     i16 6, label %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4430, label %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit415
-    i16 4431, label %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit419
+    i16 4430, label %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit357
+    i16 4431, label %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit361
     i16 4354, label %_ZL16visitKnownRecordIN4llvm8codeview10Thunk32SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
     i16 4396, label %_ZL16visitKnownRecordIN4llvm8codeview13TrampolineSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4406, label %_ZN4llvm5ErrorD2Ev.exit427
+    i16 4406, label %_ZN4llvm5ErrorD2Ev.exit369
     i16 4407, label %_ZL16visitKnownRecordIN4llvm8codeview12CoffGroupSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
     i16 4408, label %_ZL16visitKnownRecordIN4llvm8codeview9ExportSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
     i16 4367, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4368, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit439
-    i16 4422, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit443
-    i16 4423, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit447
-    i16 4437, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit451
-    i16 4438, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit455
+    i16 4368, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit381
+    i16 4422, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit385
+    i16 4423, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit389
+    i16 4437, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit393
+    i16 4438, label %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit397
     i16 4358, label %_ZL16visitKnownRecordIN4llvm8codeview11RegisterSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4366, label %_ZN4llvm5ErrorD2Ev.exit460
-    i16 4389, label %_ZN4llvm5ErrorD2Ev.exit461
-    i16 4391, label %_ZN4llvm5ErrorD2Ev.exit462
-    i16 4413, label %_ZN4llvm5ErrorD2Ev.exit463
-    i16 4429, label %_ZN4llvm5ErrorD2Ev.exit464
+    i16 4366, label %_ZN4llvm5ErrorD2Ev.exit402
+    i16 4389, label %_ZN4llvm5ErrorD2Ev.exit403
+    i16 4391, label %_ZN4llvm5ErrorD2Ev.exit404
+    i16 4413, label %_ZN4llvm5ErrorD2Ev.exit405
+    i16 4429, label %_ZN4llvm5ErrorD2Ev.exit406
     i16 4414, label %_ZL16visitKnownRecordIN4llvm8codeview8LocalSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4415, label %_ZN4llvm5ErrorD2Ev.exit468
-    i16 4416, label %_ZN4llvm5ErrorD2Ev.exit469
-    i16 4417, label %_ZN4llvm5ErrorD2Ev.exit470
-    i16 4418, label %_ZN4llvm5ErrorD2Ev.exit471
-    i16 4419, label %_ZN4llvm5ErrorD2Ev.exit472
+    i16 4415, label %_ZN4llvm5ErrorD2Ev.exit410
+    i16 4416, label %_ZN4llvm5ErrorD2Ev.exit411
+    i16 4417, label %_ZN4llvm5ErrorD2Ev.exit412
+    i16 4418, label %_ZN4llvm5ErrorD2Ev.exit413
+    i16 4419, label %_ZN4llvm5ErrorD2Ev.exit414
     i16 4420, label %_ZL16visitKnownRecordIN4llvm8codeview35DefRangeFramePointerRelFullScopeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4421, label %_ZN4llvm5ErrorD2Ev.exit476
+    i16 4421, label %_ZN4llvm5ErrorD2Ev.exit418
     i16 4355, label %_ZL16visitKnownRecordIN4llvm8codeview8BlockSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4357, label %_ZN4llvm5ErrorD2Ev.exit480
+    i16 4357, label %_ZN4llvm5ErrorD2Ev.exit422
     i16 4353, label %_ZL16visitKnownRecordIN4llvm8codeview10ObjNameSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4374, label %_ZN4llvm5ErrorD2Ev.exit484
+    i16 4374, label %_ZN4llvm5ErrorD2Ev.exit426
     i16 4412, label %_ZL16visitKnownRecordIN4llvm8codeview11Compile3SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
     i16 4114, label %_ZL16visitKnownRecordIN4llvm8codeview12FrameProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4409, label %_ZN4llvm5ErrorD2Ev.exit491
-    i16 4435, label %_ZN4llvm5ErrorD2Ev.exit492
+    i16 4409, label %_ZN4llvm5ErrorD2Ev.exit433
+    i16 4435, label %_ZN4llvm5ErrorD2Ev.exit434
     i16 4446, label %_ZL16visitKnownRecordIN4llvm8codeview21HeapAllocationSiteSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4410, label %_ZN4llvm5ErrorD2Ev.exit496
+    i16 4410, label %_ZN4llvm5ErrorD2Ev.exit438
     i16 4441, label %_ZL16visitKnownRecordIN4llvm8codeview12JumpTableSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4442, label %_ZN4llvm5ErrorD2Ev.exit500
-    i16 4443, label %_ZN4llvm5ErrorD2Ev.exit501
+    i16 4442, label %_ZN4llvm5ErrorD2Ev.exit442
+    i16 4443, label %_ZN4llvm5ErrorD2Ev.exit443
     i16 4360, label %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4361, label %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit507
+    i16 4361, label %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit449
     i16 4428, label %_ZL16visitKnownRecordIN4llvm8codeview12BuildInfoSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
     i16 4363, label %_ZL16visitKnownRecordIN4llvm8codeview13BPRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
     i16 4369, label %_ZL16visitKnownRecordIN4llvm8codeview14RegRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4359, label %_ZN4llvm5ErrorD2Ev.exit518
-    i16 4397, label %_ZN4llvm5ErrorD2Ev.exit519
-    i16 4364, label %_ZN4llvm5ErrorD2Ev.exit520
-    i16 4365, label %_ZN4llvm5ErrorD2Ev.exit521
-    i16 4380, label %_ZN4llvm5ErrorD2Ev.exit522
-    i16 4381, label %_ZN4llvm5ErrorD2Ev.exit523
-    i16 4370, label %_ZN4llvm5ErrorD2Ev.exit524
-    i16 4371, label %_ZN4llvm5ErrorD2Ev.exit525
+    i16 4359, label %_ZN4llvm5ErrorD2Ev.exit460
+    i16 4397, label %_ZN4llvm5ErrorD2Ev.exit461
+    i16 4364, label %_ZN4llvm5ErrorD2Ev.exit462
+    i16 4365, label %_ZN4llvm5ErrorD2Ev.exit463
+    i16 4380, label %_ZN4llvm5ErrorD2Ev.exit464
+    i16 4381, label %_ZN4llvm5ErrorD2Ev.exit465
+    i16 4370, label %_ZN4llvm5ErrorD2Ev.exit466
+    i16 4371, label %_ZN4llvm5ErrorD2Ev.exit467
     i16 4388, label %_ZL16visitKnownRecordIN4llvm8codeview17UsingNamespaceSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit
-    i16 4121, label %_ZN4llvm5ErrorD2Ev.exit529
+    i16 4121, label %_ZN4llvm5ErrorD2Ev.exit471
   ]
 
 _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread: ; preds = %3, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
@@ -294,14 +294,14 @@ _ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread: ; preds = %3,
   %39 = load ptr, ptr %38, align 8
   tail call void %39(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
   %40 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not590 = icmp eq ptr %40, null
-  br i1 %.not590, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not532 = icmp eq ptr %40, null
+  br i1 %.not532, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit411:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit353:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview9CallerSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %41 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not589 = icmp eq ptr %41, null
-  br i1 %.not589, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not531 = icmp eq ptr %41, null
+  br i1 %.not531, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %31), !noalias !20
@@ -314,10 +314,10 @@ _ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS
   call void %45(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %31) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !20
   %46 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not588 = icmp eq ptr %46, null
-  br i1 %.not588, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not530 = icmp eq ptr %46, null
+  br i1 %.not530, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit415: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit357: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %30), !noalias !29
   store i16 4430, ptr %30, align 4, !tbaa !23, !noalias !29
   %47 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -328,10 +328,10 @@ _ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS
   call void %50(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %30) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !29
   %51 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not587 = icmp eq ptr %51, null
-  br i1 %.not587, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not529 = icmp eq ptr %51, null
+  br i1 %.not529, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit419: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit361: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !32
   store i16 4431, ptr %29, align 4, !tbaa !23, !noalias !32
   %52 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -342,8 +342,8 @@ _ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS
   call void %55(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(8) %29) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !32
   %56 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not586 = icmp eq ptr %56, null
-  br i1 %.not586, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not528 = icmp eq ptr %56, null
+  br i1 %.not528, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview10Thunk32SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %28), !noalias !35
@@ -358,8 +358,8 @@ _ZL16visitKnownRecordIN4llvm8codeview10Thunk32SymEENS0_5ErrorERNS1_8CVRecordINS1
   call void %61(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(68) %28) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !35
   %62 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not585 = icmp eq ptr %62, null
-  br i1 %.not585, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not527 = icmp eq ptr %62, null
+  br i1 %.not527, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview13TrampolineSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %27), !noalias !38
@@ -374,14 +374,14 @@ _ZL16visitKnownRecordIN4llvm8codeview13TrampolineSymEENS0_5ErrorERNS1_8CVRecordI
   call void %67(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(24) %27) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !38
   %68 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not584 = icmp eq ptr %68, null
-  br i1 %.not584, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not526 = icmp eq ptr %68, null
+  br i1 %.not526, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit427:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit369:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview10SectionSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %69 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not583 = icmp eq ptr %69, null
-  br i1 %.not583, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not525 = icmp eq ptr %69, null
+  br i1 %.not525, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview12CoffGroupSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %26), !noalias !45
@@ -396,8 +396,8 @@ _ZL16visitKnownRecordIN4llvm8codeview12CoffGroupSymEENS0_5ErrorERNS1_8CVRecordIN
   call void %74(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %26) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %26), !noalias !45
   %75 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not582 = icmp eq ptr %75, null
-  br i1 %.not582, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not524 = icmp eq ptr %75, null
+  br i1 %.not524, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview9ExportSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !48
@@ -414,8 +414,8 @@ _ZL16visitKnownRecordIN4llvm8codeview9ExportSymEENS0_5ErrorERNS1_8CVRecordINS1_1
   call void %81(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(28) %25) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %25), !noalias !48
   %82 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not581 = icmp eq ptr %82, null
-  br i1 %.not581, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not523 = icmp eq ptr %82, null
+  br i1 %.not523, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %24), !noalias !56
@@ -430,10 +430,10 @@ _ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10S
   call void %87(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(60) %24) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %24), !noalias !56
   %88 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not580 = icmp eq ptr %88, null
-  br i1 %.not580, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not522 = icmp eq ptr %88, null
+  br i1 %.not522, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit439: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit381: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !59
   store i16 4368, ptr %23, align 8, !tbaa !23, !noalias !59
   %89 = getelementptr inbounds nuw i8, ptr %23, i64 4
@@ -446,10 +446,10 @@ _ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10S
   call void %93(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(60) %23) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !59
   %94 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not579 = icmp eq ptr %94, null
-  br i1 %.not579, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not521 = icmp eq ptr %94, null
+  br i1 %.not521, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit443: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit385: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !62
   store i16 4422, ptr %22, align 8, !tbaa !23, !noalias !62
   %95 = getelementptr inbounds nuw i8, ptr %22, i64 4
@@ -462,10 +462,10 @@ _ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10S
   call void %99(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(60) %22) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %22), !noalias !62
   %100 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not578 = icmp eq ptr %100, null
-  br i1 %.not578, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not520 = icmp eq ptr %100, null
+  br i1 %.not520, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit447: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit389: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !65
   store i16 4423, ptr %21, align 8, !tbaa !23, !noalias !65
   %101 = getelementptr inbounds nuw i8, ptr %21, i64 4
@@ -478,10 +478,10 @@ _ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10S
   call void %105(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(60) %21) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %21), !noalias !65
   %106 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not577 = icmp eq ptr %106, null
-  br i1 %.not577, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not519 = icmp eq ptr %106, null
+  br i1 %.not519, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit451: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit393: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !68
   store i16 4437, ptr %20, align 8, !tbaa !23, !noalias !68
   %107 = getelementptr inbounds nuw i8, ptr %20, i64 4
@@ -494,10 +494,10 @@ _ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10S
   call void %111(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(60) %20) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !68
   %112 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not576 = icmp eq ptr %112, null
-  br i1 %.not576, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not518 = icmp eq ptr %112, null
+  br i1 %.not518, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit455: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit397: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %19), !noalias !71
   store i16 4438, ptr %19, align 8, !tbaa !23, !noalias !71
   %113 = getelementptr inbounds nuw i8, ptr %19, i64 4
@@ -510,8 +510,8 @@ _ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10S
   call void %117(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(60) %19) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %19), !noalias !71
   %118 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not575 = icmp eq ptr %118, null
-  br i1 %.not575, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not517 = icmp eq ptr %118, null
+  br i1 %.not517, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview11RegisterSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !74
@@ -526,38 +526,38 @@ _ZL16visitKnownRecordIN4llvm8codeview11RegisterSymEENS0_5ErrorERNS1_8CVRecordINS
   call void %123(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(28) %18) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !74
   %124 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not574 = icmp eq ptr %124, null
-  br i1 %.not574, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not516 = icmp eq ptr %124, null
+  br i1 %.not516, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit460:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit402:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview11PublicSym32EENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %125 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not573 = icmp eq ptr %125, null
-  br i1 %.not573, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not515 = icmp eq ptr %125, null
+  br i1 %.not515, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit461:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit403:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview10ProcRefSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %126 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not572 = icmp eq ptr %126, null
-  br i1 %.not572, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not514 = icmp eq ptr %126, null
+  br i1 %.not514, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit462:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit404:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview10ProcRefSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %127 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not571 = icmp eq ptr %127, null
-  br i1 %.not571, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not513 = icmp eq ptr %127, null
+  br i1 %.not513, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit463:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit405:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview11EnvBlockSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %128 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not570 = icmp eq ptr %128, null
-  br i1 %.not570, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not512 = icmp eq ptr %128, null
+  br i1 %.not512, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit464:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit406:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview13InlineSiteSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %129 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not569 = icmp eq ptr %129, null
-  br i1 %.not569, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not511 = icmp eq ptr %129, null
+  br i1 %.not511, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview8LocalSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %17), !noalias !77
@@ -570,38 +570,38 @@ _ZL16visitKnownRecordIN4llvm8codeview8LocalSymEENS0_5ErrorERNS1_8CVRecordINS1_10
   call void %133(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(28) %17) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !77
   %134 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not568 = icmp eq ptr %134, null
-  br i1 %.not568, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not510 = icmp eq ptr %134, null
+  br i1 %.not510, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit468:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit410:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview11DefRangeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %135 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not567 = icmp eq ptr %135, null
-  br i1 %.not567, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not509 = icmp eq ptr %135, null
+  br i1 %.not509, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit469:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit411:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview19DefRangeSubfieldSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %136 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not566 = icmp eq ptr %136, null
-  br i1 %.not566, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not508 = icmp eq ptr %136, null
+  br i1 %.not508, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit470:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit412:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview19DefRangeRegisterSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %137 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not565 = icmp eq ptr %137, null
-  br i1 %.not565, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not507 = icmp eq ptr %137, null
+  br i1 %.not507, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit471:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit413:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview26DefRangeFramePointerRelSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %138 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not564 = icmp eq ptr %138, null
-  br i1 %.not564, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not506 = icmp eq ptr %138, null
+  br i1 %.not506, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit472:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit414:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview27DefRangeSubfieldRegisterSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %139 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not563 = icmp eq ptr %139, null
-  br i1 %.not563, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not505 = icmp eq ptr %139, null
+  br i1 %.not505, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview35DefRangeFramePointerRelFullScopeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !80
@@ -616,14 +616,14 @@ _ZL16visitKnownRecordIN4llvm8codeview35DefRangeFramePointerRelFullScopeSymEENS0_
   call void %144(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(12) %16) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !80
   %145 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not562 = icmp eq ptr %145, null
-  br i1 %.not562, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not504 = icmp eq ptr %145, null
+  br i1 %.not504, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit476:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit418:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview22DefRangeRegisterRelSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %146 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not561 = icmp eq ptr %146, null
-  br i1 %.not561, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not503 = icmp eq ptr %146, null
+  br i1 %.not503, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview8BlockSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !86
@@ -638,14 +638,14 @@ _ZL16visitKnownRecordIN4llvm8codeview8BlockSymEENS0_5ErrorERNS1_8CVRecordINS1_10
   call void %151(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(44) %15) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !86
   %152 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not560 = icmp eq ptr %152, null
-  br i1 %.not560, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not502 = icmp eq ptr %152, null
+  br i1 %.not502, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit480:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit422:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview8LabelSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %153 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not559 = icmp eq ptr %153, null
-  br i1 %.not559, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not501 = icmp eq ptr %153, null
+  br i1 %.not501, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview10ObjNameSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !89
@@ -658,14 +658,14 @@ _ZL16visitKnownRecordIN4llvm8codeview10ObjNameSymEENS0_5ErrorERNS1_8CVRecordINS1
   call void %157(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(28) %14) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !89
   %158 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not558 = icmp eq ptr %158, null
-  br i1 %.not558, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not500 = icmp eq ptr %158, null
+  br i1 %.not500, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit484:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit426:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview11Compile2SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %159 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not557 = icmp eq ptr %159, null
-  br i1 %.not557, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not499 = icmp eq ptr %159, null
+  br i1 %.not499, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview11Compile3SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !92
@@ -682,8 +682,8 @@ _ZL16visitKnownRecordIN4llvm8codeview11Compile3SymEENS0_5ErrorERNS1_8CVRecordINS
   call void %165(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(52) %13) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !92
   %166 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not556 = icmp eq ptr %166, null
-  br i1 %.not556, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not498 = icmp eq ptr %166, null
+  br i1 %.not498, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview12FrameProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !99
@@ -700,20 +700,20 @@ _ZL16visitKnownRecordIN4llvm8codeview12FrameProcSymEENS0_5ErrorERNS1_8CVRecordIN
   call void %172(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(36) %12) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !99
   %173 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not555 = icmp eq ptr %173, null
-  br i1 %.not555, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not497 = icmp eq ptr %173, null
+  br i1 %.not497, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit491:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit433:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview15CallSiteInfoSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %174 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not554 = icmp eq ptr %174, null
-  br i1 %.not554, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not496 = icmp eq ptr %174, null
+  br i1 %.not496, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit492:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit434:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview13FileStaticSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %175 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not553 = icmp eq ptr %175, null
-  br i1 %.not553, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not495 = icmp eq ptr %175, null
+  br i1 %.not495, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview21HeapAllocationSiteSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !106
@@ -726,14 +726,14 @@ _ZL16visitKnownRecordIN4llvm8codeview21HeapAllocationSiteSymEENS0_5ErrorERNS1_8C
   call void %179(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(20) %11) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !106
   %180 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not552 = icmp eq ptr %180, null
-  br i1 %.not552, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not494 = icmp eq ptr %180, null
+  br i1 %.not494, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit496:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit438:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview14FrameCookieSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %181 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not551 = icmp eq ptr %181, null
-  br i1 %.not551, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not493 = icmp eq ptr %181, null
+  br i1 %.not493, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview12JumpTableSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !109
@@ -750,20 +750,20 @@ _ZL16visitKnownRecordIN4llvm8codeview12JumpTableSymEENS0_5ErrorERNS1_8CVRecordIN
   call void %187(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(32) %10) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !109
   %188 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not550 = icmp eq ptr %188, null
-  br i1 %.not550, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not492 = icmp eq ptr %188, null
+  br i1 %.not492, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit500:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit442:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview9CallerSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %189 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not549 = icmp eq ptr %189, null
-  br i1 %.not549, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not491 = icmp eq ptr %189, null
+  br i1 %.not491, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit501:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit443:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview9CallerSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %190 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not548 = icmp eq ptr %190, null
-  br i1 %.not548, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not490 = icmp eq ptr %190, null
+  br i1 %.not490, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !116
@@ -778,10 +778,10 @@ _ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10Sy
   call void %195(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(28) %9) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !116
   %196 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not547 = icmp eq ptr %196, null
-  br i1 %.not547, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not489 = icmp eq ptr %196, null
+  br i1 %.not489, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit507: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit449: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !119
   store i16 4361, ptr %8, align 8, !tbaa !23, !noalias !119
   %197 = getelementptr inbounds nuw i8, ptr %8, i64 2
@@ -794,8 +794,8 @@ _ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10Sy
   call void %201(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(28) %8) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !119
   %202 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not546 = icmp eq ptr %202, null
-  br i1 %.not546, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not488 = icmp eq ptr %202, null
+  br i1 %.not488, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview12BuildInfoSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !122
@@ -810,8 +810,8 @@ _ZL16visitKnownRecordIN4llvm8codeview12BuildInfoSymEENS0_5ErrorERNS1_8CVRecordIN
   call void %207(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 4 dereferenceable(12) %7) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !122
   %208 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not545 = icmp eq ptr %208, null
-  br i1 %.not545, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not487 = icmp eq ptr %208, null
+  br i1 %.not487, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview13BPRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !130
@@ -828,8 +828,8 @@ _ZL16visitKnownRecordIN4llvm8codeview13BPRelativeSymEENS0_5ErrorERNS1_8CVRecordI
   call void %214(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(36) %6) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !130
   %215 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not544 = icmp eq ptr %215, null
-  br i1 %.not544, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not486 = icmp eq ptr %215, null
+  br i1 %.not486, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview14RegRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !135
@@ -846,56 +846,56 @@ _ZL16visitKnownRecordIN4llvm8codeview14RegRelativeSymEENS0_5ErrorERNS1_8CVRecord
   call void %221(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(36) %5) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !135
   %222 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not543 = icmp eq ptr %222, null
-  br i1 %.not543, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not485 = icmp eq ptr %222, null
+  br i1 %.not485, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit518:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit460:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview11ConstantSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %223 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not542 = icmp eq ptr %223, null
-  br i1 %.not542, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not484 = icmp eq ptr %223, null
+  br i1 %.not484, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit519:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit461:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview11ConstantSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %224 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not541 = icmp eq ptr %224, null
-  br i1 %.not541, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not483 = icmp eq ptr %224, null
+  br i1 %.not483, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit520:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit462:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview7DataSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %225 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not540 = icmp eq ptr %225, null
-  br i1 %.not540, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not482 = icmp eq ptr %225, null
+  br i1 %.not482, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit521:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit463:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview7DataSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %226 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not539 = icmp eq ptr %226, null
-  br i1 %.not539, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not481 = icmp eq ptr %226, null
+  br i1 %.not481, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit522:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit464:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview7DataSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %227 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not538 = icmp eq ptr %227, null
-  br i1 %.not538, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not480 = icmp eq ptr %227, null
+  br i1 %.not480, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit523:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit465:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview7DataSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %228 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not537 = icmp eq ptr %228, null
-  br i1 %.not537, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not479 = icmp eq ptr %228, null
+  br i1 %.not479, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit524:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit466:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview18ThreadLocalDataSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %229 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not536 = icmp eq ptr %229, null
-  br i1 %.not536, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not478 = icmp eq ptr %229, null
+  br i1 %.not478, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit525:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit467:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview18ThreadLocalDataSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %230 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not535 = icmp eq ptr %230, null
-  br i1 %.not535, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not477 = icmp eq ptr %230, null
+  br i1 %.not477, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
 _ZL16visitKnownRecordIN4llvm8codeview17UsingNamespaceSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit: ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !141
@@ -908,23 +908,23 @@ _ZL16visitKnownRecordIN4llvm8codeview17UsingNamespaceSymEENS0_5ErrorERNS1_8CVRec
   call void %234(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(28) %4) #15
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !141
   %235 = load ptr, ptr %0, align 8, !tbaa !12
-  %.not534 = icmp eq ptr %235, null
-  br i1 %.not534, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  %.not476 = icmp eq ptr %235, null
+  br i1 %.not476, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit529:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
+_ZN4llvm5ErrorD2Ev.exit471:                       ; preds = %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit
   tail call fastcc void @_ZL16visitKnownRecordIN4llvm8codeview13AnnotationSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %236 = load ptr, ptr %0, align 8, !tbaa !12
   %.not = icmp eq ptr %236, null
-  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit530, label %_ZN4llvm5ErrorD2Ev.exit531
+  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit472, label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit530:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit529, %_ZL16visitKnownRecordIN4llvm8codeview17UsingNamespaceSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit525, %_ZN4llvm5ErrorD2Ev.exit524, %_ZN4llvm5ErrorD2Ev.exit523, %_ZN4llvm5ErrorD2Ev.exit522, %_ZN4llvm5ErrorD2Ev.exit521, %_ZN4llvm5ErrorD2Ev.exit520, %_ZN4llvm5ErrorD2Ev.exit519, %_ZN4llvm5ErrorD2Ev.exit518, %_ZL16visitKnownRecordIN4llvm8codeview14RegRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview13BPRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview12BuildInfoSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit507, %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit501, %_ZN4llvm5ErrorD2Ev.exit500, %_ZL16visitKnownRecordIN4llvm8codeview12JumpTableSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit496, %_ZL16visitKnownRecordIN4llvm8codeview21HeapAllocationSiteSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit492, %_ZN4llvm5ErrorD2Ev.exit491, %_ZL16visitKnownRecordIN4llvm8codeview12FrameProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview11Compile3SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit484, %_ZL16visitKnownRecordIN4llvm8codeview10ObjNameSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit480, %_ZL16visitKnownRecordIN4llvm8codeview8BlockSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit476, %_ZL16visitKnownRecordIN4llvm8codeview35DefRangeFramePointerRelFullScopeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit472, %_ZN4llvm5ErrorD2Ev.exit471, %_ZN4llvm5ErrorD2Ev.exit470, %_ZN4llvm5ErrorD2Ev.exit469, %_ZN4llvm5ErrorD2Ev.exit468, %_ZL16visitKnownRecordIN4llvm8codeview8LocalSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit464, %_ZN4llvm5ErrorD2Ev.exit463, %_ZN4llvm5ErrorD2Ev.exit462, %_ZN4llvm5ErrorD2Ev.exit461, %_ZN4llvm5ErrorD2Ev.exit460, %_ZL16visitKnownRecordIN4llvm8codeview11RegisterSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit455, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit451, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit447, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit443, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit439, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview9ExportSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview12CoffGroupSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit427, %_ZL16visitKnownRecordIN4llvm8codeview13TrampolineSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview10Thunk32SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit419, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit415, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit411, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
+_ZN4llvm5ErrorD2Ev.exit472:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit471, %_ZL16visitKnownRecordIN4llvm8codeview17UsingNamespaceSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit467, %_ZN4llvm5ErrorD2Ev.exit466, %_ZN4llvm5ErrorD2Ev.exit465, %_ZN4llvm5ErrorD2Ev.exit464, %_ZN4llvm5ErrorD2Ev.exit463, %_ZN4llvm5ErrorD2Ev.exit462, %_ZN4llvm5ErrorD2Ev.exit461, %_ZN4llvm5ErrorD2Ev.exit460, %_ZL16visitKnownRecordIN4llvm8codeview14RegRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview13BPRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview12BuildInfoSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit449, %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit443, %_ZN4llvm5ErrorD2Ev.exit442, %_ZL16visitKnownRecordIN4llvm8codeview12JumpTableSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit438, %_ZL16visitKnownRecordIN4llvm8codeview21HeapAllocationSiteSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit434, %_ZN4llvm5ErrorD2Ev.exit433, %_ZL16visitKnownRecordIN4llvm8codeview12FrameProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview11Compile3SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit426, %_ZL16visitKnownRecordIN4llvm8codeview10ObjNameSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit422, %_ZL16visitKnownRecordIN4llvm8codeview8BlockSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit418, %_ZL16visitKnownRecordIN4llvm8codeview35DefRangeFramePointerRelFullScopeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit414, %_ZN4llvm5ErrorD2Ev.exit413, %_ZN4llvm5ErrorD2Ev.exit412, %_ZN4llvm5ErrorD2Ev.exit411, %_ZN4llvm5ErrorD2Ev.exit410, %_ZL16visitKnownRecordIN4llvm8codeview8LocalSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit406, %_ZN4llvm5ErrorD2Ev.exit405, %_ZN4llvm5ErrorD2Ev.exit404, %_ZN4llvm5ErrorD2Ev.exit403, %_ZN4llvm5ErrorD2Ev.exit402, %_ZL16visitKnownRecordIN4llvm8codeview11RegisterSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit397, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit393, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit389, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit385, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit381, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview9ExportSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview12CoffGroupSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit369, %_ZL16visitKnownRecordIN4llvm8codeview13TrampolineSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview10Thunk32SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit361, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit357, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit353, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
   %237 = load ptr, ptr %2, align 8, !tbaa !10
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 40
   %239 = load ptr, ptr %238, align 8
   call void %239(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(16) %1) #15
-  br label %_ZN4llvm5ErrorD2Ev.exit531
+  br label %_ZN4llvm5ErrorD2Ev.exit473
 
-_ZN4llvm5ErrorD2Ev.exit531:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit530, %_ZN4llvm5ErrorD2Ev.exit529, %_ZL16visitKnownRecordIN4llvm8codeview17UsingNamespaceSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit525, %_ZN4llvm5ErrorD2Ev.exit524, %_ZN4llvm5ErrorD2Ev.exit523, %_ZN4llvm5ErrorD2Ev.exit522, %_ZN4llvm5ErrorD2Ev.exit521, %_ZN4llvm5ErrorD2Ev.exit520, %_ZN4llvm5ErrorD2Ev.exit519, %_ZN4llvm5ErrorD2Ev.exit518, %_ZL16visitKnownRecordIN4llvm8codeview14RegRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview13BPRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview12BuildInfoSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit507, %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit501, %_ZN4llvm5ErrorD2Ev.exit500, %_ZL16visitKnownRecordIN4llvm8codeview12JumpTableSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit496, %_ZL16visitKnownRecordIN4llvm8codeview21HeapAllocationSiteSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit492, %_ZN4llvm5ErrorD2Ev.exit491, %_ZL16visitKnownRecordIN4llvm8codeview12FrameProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview11Compile3SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit484, %_ZL16visitKnownRecordIN4llvm8codeview10ObjNameSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit480, %_ZL16visitKnownRecordIN4llvm8codeview8BlockSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit476, %_ZL16visitKnownRecordIN4llvm8codeview35DefRangeFramePointerRelFullScopeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit472, %_ZN4llvm5ErrorD2Ev.exit471, %_ZN4llvm5ErrorD2Ev.exit470, %_ZN4llvm5ErrorD2Ev.exit469, %_ZN4llvm5ErrorD2Ev.exit468, %_ZL16visitKnownRecordIN4llvm8codeview8LocalSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit464, %_ZN4llvm5ErrorD2Ev.exit463, %_ZN4llvm5ErrorD2Ev.exit462, %_ZN4llvm5ErrorD2Ev.exit461, %_ZN4llvm5ErrorD2Ev.exit460, %_ZL16visitKnownRecordIN4llvm8codeview11RegisterSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit455, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit451, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit447, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit443, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit439, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview9ExportSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview12CoffGroupSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit427, %_ZL16visitKnownRecordIN4llvm8codeview13TrampolineSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview10Thunk32SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit419, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit415, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit411, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
+_ZN4llvm5ErrorD2Ev.exit473:                       ; preds = %_ZN4llvm5ErrorD2Ev.exit472, %_ZN4llvm5ErrorD2Ev.exit471, %_ZL16visitKnownRecordIN4llvm8codeview17UsingNamespaceSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit467, %_ZN4llvm5ErrorD2Ev.exit466, %_ZN4llvm5ErrorD2Ev.exit465, %_ZN4llvm5ErrorD2Ev.exit464, %_ZN4llvm5ErrorD2Ev.exit463, %_ZN4llvm5ErrorD2Ev.exit462, %_ZN4llvm5ErrorD2Ev.exit461, %_ZN4llvm5ErrorD2Ev.exit460, %_ZL16visitKnownRecordIN4llvm8codeview14RegRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview13BPRelativeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview12BuildInfoSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit449, %_ZL16visitKnownRecordIN4llvm8codeview6UDTSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit443, %_ZN4llvm5ErrorD2Ev.exit442, %_ZL16visitKnownRecordIN4llvm8codeview12JumpTableSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit438, %_ZL16visitKnownRecordIN4llvm8codeview21HeapAllocationSiteSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit434, %_ZN4llvm5ErrorD2Ev.exit433, %_ZL16visitKnownRecordIN4llvm8codeview12FrameProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview11Compile3SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit426, %_ZL16visitKnownRecordIN4llvm8codeview10ObjNameSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit422, %_ZL16visitKnownRecordIN4llvm8codeview8BlockSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit418, %_ZL16visitKnownRecordIN4llvm8codeview35DefRangeFramePointerRelFullScopeSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit414, %_ZN4llvm5ErrorD2Ev.exit413, %_ZN4llvm5ErrorD2Ev.exit412, %_ZN4llvm5ErrorD2Ev.exit411, %_ZN4llvm5ErrorD2Ev.exit410, %_ZL16visitKnownRecordIN4llvm8codeview8LocalSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit406, %_ZN4llvm5ErrorD2Ev.exit405, %_ZN4llvm5ErrorD2Ev.exit404, %_ZN4llvm5ErrorD2Ev.exit403, %_ZN4llvm5ErrorD2Ev.exit402, %_ZL16visitKnownRecordIN4llvm8codeview11RegisterSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit397, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit393, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit389, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit385, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit381, %_ZL16visitKnownRecordIN4llvm8codeview7ProcSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview9ExportSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview12CoffGroupSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit369, %_ZL16visitKnownRecordIN4llvm8codeview13TrampolineSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview10Thunk32SymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit361, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit357, %_ZL16visitKnownRecordIN4llvm8codeview11ScopeEndSymEENS0_5ErrorERNS1_8CVRecordINS1_10SymbolKindEEERNS1_22SymbolVisitorCallbacksE.exit, %_ZN4llvm5ErrorD2Ev.exit353, %_ZNK4llvm8codeview8CVRecordINS0_10SymbolKindEE4kindEv.exit.thread
   ret void
 }
 

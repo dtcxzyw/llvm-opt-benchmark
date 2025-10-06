@@ -574,53 +574,53 @@ define hidden zeroext i1 @"_ZN14cranelift_isle9serialize13Decomposition17best_co
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 2
   %4 = zext i32 %.sroa.3.0.copyload to i48
   %5 = shl nuw i48 %4, 16
-  %switch = icmp eq i16 %.sroa.0.0.copyload, 1
-  br i1 %switch, label %6, label %7
+  %6 = icmp eq i16 %.sroa.0.0.copyload, 1
+  br i1 %6, label %7, label %8
 
-6:                                                ; preds = %2
+7:                                                ; preds = %2
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr nonnull align 1 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.19, i64 40, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.20) #10
   unreachable
 
-7:                                                ; preds = %2
-  %8 = trunc i32 %.sroa.3.0.copyload to i16
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %10 = load ptr, ptr %9, align 8, !nonnull !3, !align !4, !noundef !3
-  %11 = tail call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %8)
-  %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %13 = load i64, ptr %12, align 8, !noundef !3
-  %14 = icmp ult i64 %11, %13
-  br i1 %14, label %15, label %31, !prof !7
+8:                                                ; preds = %2
+  %9 = trunc i32 %.sroa.3.0.copyload to i16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = load ptr, ptr %10, align 8, !nonnull !3, !align !4, !noundef !3
+  %12 = tail call i64 @_ZN14cranelift_isle10trie_again9BindingId5index17h7cbb3f2975c0bf3bE(i16 %9)
+  %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %14 = load i64, ptr %13, align 8, !noundef !3
+  %15 = icmp ult i64 %12, %14
+  br i1 %15, label %16, label %32, !prof !7
 
-15:                                               ; preds = %7
-  %16 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %17 = load ptr, ptr %16, align 8, !nonnull !3, !noundef !3
-  %18 = getelementptr inbounds i8, ptr %17, i64 %11
-  %19 = load i8, ptr %18, align 1, !range !8, !noundef !3
-  %20 = icmp eq i8 %19, 3
-  br i1 %20, label %_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit, label %21
+16:                                               ; preds = %8
+  %17 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
+  %19 = getelementptr inbounds i8, ptr %18, i64 %12
+  %20 = load i8, ptr %19, align 1, !range !8, !noundef !3
+  %21 = icmp eq i8 %20, 3
+  br i1 %21, label %_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit, label %22
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load i64, ptr %22, align 8, !noundef !3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !nonnull !3, !align !4, !noundef !3
-  %26 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i8 %19, ptr %27, align 8
+22:                                               ; preds = %16
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %24 = load i64, ptr %23, align 8, !noundef !3
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8, !nonnull !3, !align !4, !noundef !3
+  %27 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i8 %20, ptr %28, align 8
   %.sroa.0.0.insert.ext = zext nneg i16 %.sroa.0.0.copyload to i48
   %.sroa.0.0.insert.insert = or disjoint i48 %5, %.sroa.0.0.insert.ext
-  %28 = tail call { i64, i1 } @_ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E(i48 %.sroa.0.0.insert.insert, ptr nonnull align 8 %26, ptr nonnull align 8 %25, i64 %23)
-  %29 = extractvalue { i64, i1 } %28, 0
-  %30 = extractvalue { i64, i1 } %28, 1
-  store i64 %29, ptr %1, align 8
+  %29 = tail call { i64, i1 } @_ZN14cranelift_isle9serialize14HasControlFlow9partition17h81dbf483baf6fda1E(i48 %.sroa.0.0.insert.insert, ptr nonnull align 8 %27, ptr nonnull align 8 %26, i64 %24)
+  %30 = extractvalue { i64, i1 } %29, 0
+  %31 = extractvalue { i64, i1 } %29, 1
+  store i64 %30, ptr %1, align 8
   br label %_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit
 
-_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit: ; preds = %15, %21
-  %.0.i = phi i1 [ %30, %21 ], [ false, %15 ]
+_ZN14cranelift_isle9serialize5Score6update17h0d1baf10ec1c31a6E.exit: ; preds = %16, %22
+  %.0.i = phi i1 [ %31, %22 ], [ false, %16 ]
   ret i1 %.0.i
 
-31:                                               ; preds = %7
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %11, i64 %13, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.21) #10
+32:                                               ; preds = %8
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 %12, i64 %14, ptr nonnull align 8 @anon.fd7e60ab9a15ebc6f18dcc2034e4fa44.21) #10
   unreachable
 }
 

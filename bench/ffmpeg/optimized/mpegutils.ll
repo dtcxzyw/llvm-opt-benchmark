@@ -536,21 +536,21 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 231:                                              ; preds = %.thread, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %314
+  br label %315
 
 232:                                              ; preds = %.critedge, %22, %9
   %233 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %234 = load ptr, ptr %233, align 8, !tbaa !67
   %235 = icmp eq ptr %234, null
   %or.cond4 = and i1 %21, %235
-  br i1 %or.cond4, label %236, label %314
+  br i1 %or.cond4, label %236, label %315
 
 236:                                              ; preds = %232
   %237 = getelementptr inbounds nuw i8, ptr %0, i64 524
   %238 = load i32, ptr %237, align 4, !tbaa !68
   %239 = and i32 %238, 24
   %.not217 = icmp eq i32 %239, 0
-  br i1 %.not217, label %314, label %240
+  br i1 %.not217, label %315, label %240
 
 240:                                              ; preds = %236
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -560,60 +560,59 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
   %244 = sext i8 %243 to i32
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.1, i32 noundef %244) #6
   %245 = shl i32 %5, 4
-  %.0194.off300 = or disjoint i32 %245, 9
-  %.not218301 = icmp ult i32 %.0194.off300, 19
-  br i1 %.not218301, label %._crit_edge, label %.lr.ph
+  %246 = icmp eq i32 %245, 0
+  br i1 %246, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %240, %.lr.ph
-  %.0193303 = phi i32 [ %247, %.lr.ph ], [ 2, %240 ]
-  %.0194302 = phi i32 [ %246, %.lr.ph ], [ %245, %240 ]
-  %246 = sdiv i32 %.0194302, 10
-  %247 = add nuw nsw i32 %.0193303, 1
-  %.0194.off = add nsw i32 %246, 9
+  %.0193303 = phi i32 [ %248, %.lr.ph ], [ 2, %240 ]
+  %.0194302 = phi i32 [ %247, %.lr.ph ], [ %245, %240 ]
+  %247 = sdiv i32 %.0194302, 10
+  %248 = add nuw nsw i32 %.0193303, 1
+  %.0194.off = add nsw i32 %247, 9
   %.not218 = icmp ult i32 %.0194.off, 19
   br i1 %.not218, label %._crit_edge, label %.lr.ph, !llvm.loop !69
 
 ._crit_edge:                                      ; preds = %.lr.ph, %240
-  %.0193.lcssa = phi i32 [ 2, %240 ], [ %247, %.lr.ph ]
+  %.0193.lcssa = phi i32 [ 2, %240 ], [ %248, %.lr.ph ]
   call void @av_bprint_init(ptr noundef nonnull %11, i32 noundef 1, i32 noundef -1) #6
   call void @av_bprint_chars(ptr noundef nonnull %11, i8 noundef signext 32, i32 noundef %.0193.lcssa) #6
-  %248 = icmp sgt i32 %5, 62
-  %249 = select i1 %248, i32 8, i32 4
-  %250 = icmp sgt i32 %5, 0
-  br i1 %250, label %.lr.ph306, label %._crit_edge307
+  %249 = icmp sgt i32 %5, 62
+  %250 = select i1 %249, i32 8, i32 4
+  %251 = icmp sgt i32 %5, 0
+  br i1 %251, label %.lr.ph306, label %._crit_edge307
 
 .lr.ph306:                                        ; preds = %._crit_edge
-  %251 = load i32, ptr %237, align 4, !tbaa !68
-  %252 = and i32 %251, 8
-  %.not220 = icmp eq i32 %252, 0
-  %253 = lshr i32 %251, 3
-  %spec.select230 = and i32 %253, 2
-  %254 = add nuw nsw i32 %spec.select230, 3
-  %.2 = select i1 %.not220, i32 %spec.select230, i32 %254
-  %255 = select i1 %248, i32 3, i32 2
-  %256 = shl nuw nsw i32 %.2, %255
-  br label %257
+  %252 = load i32, ptr %237, align 4, !tbaa !68
+  %253 = and i32 %252, 8
+  %.not220 = icmp eq i32 %253, 0
+  %254 = lshr i32 %252, 3
+  %spec.select230 = and i32 %254, 2
+  %255 = add nuw nsw i32 %spec.select230, 3
+  %.2 = select i1 %.not220, i32 %spec.select230, i32 %255
+  %256 = select i1 %249, i32 3, i32 2
+  %257 = shl nuw nsw i32 %.2, %256
+  br label %258
 
-257:                                              ; preds = %.lr.ph306, %257
-  %.0196304 = phi i32 [ 0, %.lr.ph306 ], [ %259, %257 ]
-  %258 = shl i32 %.0196304, 4
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.2, i32 noundef %256, i32 noundef %258) #6
-  %259 = add nuw nsw i32 %.0196304, %249
-  %260 = icmp slt i32 %259, %5
-  br i1 %260, label %257, label %._crit_edge307, !llvm.loop !70
+258:                                              ; preds = %.lr.ph306, %258
+  %.0196304 = phi i32 [ 0, %.lr.ph306 ], [ %260, %258 ]
+  %259 = shl i32 %.0196304, 4
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.2, i32 noundef %257, i32 noundef %259) #6
+  %260 = add nuw nsw i32 %.0196304, %250
+  %261 = icmp slt i32 %260, %5
+  br i1 %261, label %258, label %._crit_edge307, !llvm.loop !70
 
-._crit_edge307:                                   ; preds = %257, %._crit_edge
-  %261 = load ptr, ptr %11, align 8, !tbaa !71
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, ptr noundef %261) #6
-  %262 = icmp sgt i32 %6, 0
-  br i1 %262, label %.lr.ph314, label %._crit_edge315
+._crit_edge307:                                   ; preds = %258, %._crit_edge
+  %262 = load ptr, ptr %11, align 8, !tbaa !71
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, ptr noundef %262) #6
+  %263 = icmp sgt i32 %6, 0
+  br i1 %263, label %.lr.ph314, label %._crit_edge315
 
 .lr.ph314:                                        ; preds = %._crit_edge307
-  %263 = add nsw i32 %.0193.lcssa, -1
-  br i1 %250, label %.lr.ph310.us.preheader, label %.lr.ph314.split
+  %264 = add nsw i32 %.0193.lcssa, -1
+  br i1 %251, label %.lr.ph310.us.preheader, label %.lr.ph314.split
 
 .lr.ph310.us.preheader:                           ; preds = %.lr.ph314
-  %264 = sext i32 %7 to i64
+  %265 = sext i32 %7 to i64
   %wide.trip.count365 = zext nneg i32 %6 to i64
   %wide.trip.count360 = zext nneg i32 %5 to i64
   br label %.lr.ph310.us
@@ -621,150 +620,150 @@ define void @ff_print_debug_info2(ptr noundef %0, ptr noundef %1, ptr noundef re
 .lr.ph310.us:                                     ; preds = %.lr.ph310.us.preheader, %._crit_edge311.us
   %indvars.iv362 = phi i64 [ 0, %.lr.ph310.us.preheader ], [ %indvars.iv.next363, %._crit_edge311.us ]
   call void @av_bprint_clear(ptr noundef nonnull %11) #6
-  %265 = trunc nuw nsw i64 %indvars.iv362 to i32
-  %266 = shl i32 %265, 4
-  %267 = mul nsw i64 %indvars.iv362, %264
-  %invariant.gep380 = getelementptr i8, ptr %3, i64 %267
-  %invariant.gep382 = getelementptr i32, ptr %2, i64 %267
-  br label %268
+  %266 = trunc nuw nsw i64 %indvars.iv362 to i32
+  %267 = shl i32 %266, 4
+  %268 = mul nsw i64 %indvars.iv362, %265
+  %invariant.gep380 = getelementptr i8, ptr %3, i64 %268
+  %invariant.gep382 = getelementptr i32, ptr %2, i64 %268
+  br label %269
 
-268:                                              ; preds = %.lr.ph310.us, %309
-  %indvars.iv357 = phi i64 [ 0, %.lr.ph310.us ], [ %indvars.iv.next358, %309 ]
-  %269 = icmp eq i64 %indvars.iv357, 0
-  br i1 %269, label %270, label %271
+269:                                              ; preds = %.lr.ph310.us, %310
+  %indvars.iv357 = phi i64 [ 0, %.lr.ph310.us ], [ %indvars.iv.next358, %310 ]
+  %270 = icmp eq i64 %indvars.iv357, 0
+  br i1 %270, label %271, label %272
 
-270:                                              ; preds = %268
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.4, i32 noundef %263, i32 noundef %266) #6
-  br label %271
+271:                                              ; preds = %269
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.4, i32 noundef %264, i32 noundef %267) #6
+  br label %272
 
-271:                                              ; preds = %270, %268
-  %272 = load i32, ptr %237, align 4, !tbaa !68
-  %273 = and i32 %272, 16
-  %.not221.us = icmp eq i32 %273, 0
-  br i1 %.not221.us, label %277, label %274
+272:                                              ; preds = %271, %269
+  %273 = load i32, ptr %237, align 4, !tbaa !68
+  %274 = and i32 %273, 16
+  %.not221.us = icmp eq i32 %274, 0
+  br i1 %.not221.us, label %278, label %275
 
-274:                                              ; preds = %271
+275:                                              ; preds = %272
   %gep381 = getelementptr i8, ptr %invariant.gep380, i64 %indvars.iv357
-  %275 = load i8, ptr %gep381, align 1, !tbaa !73
-  %276 = sext i8 %275 to i32
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.5, i32 noundef %276) #6
+  %276 = load i8, ptr %gep381, align 1, !tbaa !73
+  %277 = sext i8 %276 to i32
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.5, i32 noundef %277) #6
   %.pre = load i32, ptr %237, align 4, !tbaa !68
-  br label %277
+  br label %278
 
-277:                                              ; preds = %274, %271
-  %278 = phi i32 [ %.pre, %274 ], [ %272, %271 ]
-  %279 = and i32 %278, 8
-  %.not222.us = icmp eq i32 %279, 0
-  br i1 %.not222.us, label %309, label %280
+278:                                              ; preds = %275, %272
+  %279 = phi i32 [ %.pre, %275 ], [ %273, %272 ]
+  %280 = and i32 %279, 8
+  %.not222.us = icmp eq i32 %280, 0
+  br i1 %.not222.us, label %310, label %281
 
-280:                                              ; preds = %277
+281:                                              ; preds = %278
   %gep383 = getelementptr i32, ptr %invariant.gep382, i64 %indvars.iv357
-  %281 = load i32, ptr %gep383, align 4, !tbaa !35
-  %282 = and i32 %281, 4
-  %.not.i241.us = icmp eq i32 %282, 0
-  br i1 %.not.i241.us, label %283, label %get_type_mv_char.exit.us
+  %282 = load i32, ptr %gep383, align 4, !tbaa !35
+  %283 = and i32 %282, 4
+  %.not.i241.us = icmp eq i32 %283, 0
+  br i1 %.not.i241.us, label %284, label %get_type_mv_char.exit.us
 
-283:                                              ; preds = %280
-  %284 = and i32 %281, 262144
-  %.not15.i.us = icmp eq i32 %284, 0
-  br i1 %.not15.i.us, label %285, label %get_type_mv_char.exit.us
+284:                                              ; preds = %281
+  %285 = and i32 %282, 262144
+  %.not15.i.us = icmp eq i32 %285, 0
+  br i1 %.not15.i.us, label %286, label %get_type_mv_char.exit.us
 
-285:                                              ; preds = %283
-  %286 = and i32 %281, 1
-  %.not16.i.us = icmp eq i32 %286, 0
-  br i1 %.not16.i.us, label %287, label %get_type_mv_char.exit.us
+286:                                              ; preds = %284
+  %287 = and i32 %282, 1
+  %.not16.i.us = icmp eq i32 %287, 0
+  br i1 %.not16.i.us, label %288, label %get_type_mv_char.exit.us
 
-287:                                              ; preds = %285
-  %288 = and i32 %281, 2
-  %.not17.i.us = icmp eq i32 %288, 0
-  br i1 %.not17.i.us, label %289, label %get_type_mv_char.exit.us
+288:                                              ; preds = %286
+  %289 = and i32 %282, 2
+  %.not17.i.us = icmp eq i32 %289, 0
+  br i1 %.not17.i.us, label %290, label %get_type_mv_char.exit.us
 
-289:                                              ; preds = %287
-  %290 = and i32 %281, 256
-  %.not18.not.i.us = icmp eq i32 %290, 0
-  %291 = and i32 %281, 131328
-  %or.cond.not1.i.us = icmp eq i32 %291, 131328
+290:                                              ; preds = %288
+  %291 = and i32 %282, 256
+  %.not18.not.i.us = icmp eq i32 %291, 0
+  %292 = and i32 %282, 131328
+  %or.cond.not1.i.us = icmp eq i32 %292, 131328
   %.mux.i.us = select i1 %or.cond.not1.i.us, i32 100, i32 68
-  br i1 %.not18.not.i.us, label %292, label %get_type_mv_char.exit.us
+  br i1 %.not18.not.i.us, label %293, label %get_type_mv_char.exit.us
 
-292:                                              ; preds = %289
-  %293 = and i32 %281, 65536
-  %.not20.not.i.us = icmp eq i32 %293, 0
-  %294 = and i32 %281, 196608
-  %or.cond25.not2.i.us = icmp eq i32 %294, 196608
+293:                                              ; preds = %290
+  %294 = and i32 %282, 65536
+  %.not20.not.i.us = icmp eq i32 %294, 0
+  %295 = and i32 %282, 196608
+  %or.cond25.not2.i.us = icmp eq i32 %295, 196608
   %.mux27.i.us = select i1 %or.cond25.not2.i.us, i32 103, i32 71
-  %brmerge.not.i.us = icmp eq i32 %294, 0
+  %brmerge.not.i.us = icmp eq i32 %295, 0
   %.mux27.mux.i.us = select i1 %.not20.not.i.us, i32 83, i32 %.mux27.i.us
-  br i1 %brmerge.not.i.us, label %295, label %get_type_mv_char.exit.us
+  br i1 %brmerge.not.i.us, label %296, label %get_type_mv_char.exit.us
 
-295:                                              ; preds = %292
-  %296 = and i32 %281, %16
-  %.not23.i.us = icmp eq i32 %296, 0
-  br i1 %.not23.i.us, label %get_type_mv_char.exit.us, label %297
+296:                                              ; preds = %293
+  %297 = and i32 %282, %16
+  %.not23.i.us = icmp eq i32 %297, 0
+  br i1 %.not23.i.us, label %get_type_mv_char.exit.us, label %298
 
-297:                                              ; preds = %295
-  %298 = and i32 %281, %15
-  %.not24.i.us = icmp eq i32 %298, 0
+298:                                              ; preds = %296
+  %299 = and i32 %282, %15
+  %.not24.i.us = icmp eq i32 %299, 0
   %..i.us = select i1 %.not24.i.us, i32 60, i32 88
   br label %get_type_mv_char.exit.us
 
-get_type_mv_char.exit.us:                         ; preds = %297, %295, %292, %289, %287, %285, %283, %280
-  %.0.i.us = phi i32 [ 80, %280 ], [ 65, %283 ], [ 105, %285 ], [ 73, %287 ], [ %.mux.i.us, %289 ], [ %.mux27.mux.i.us, %292 ], [ 62, %295 ], [ %..i.us, %297 ]
-  %299 = and i32 %281, 64
-  %.not.i242.us = icmp eq i32 %299, 0
-  br i1 %.not.i242.us, label %300, label %get_segmentation_char.exit.us
+get_type_mv_char.exit.us:                         ; preds = %298, %296, %293, %290, %288, %286, %284, %281
+  %.0.i.us = phi i32 [ 80, %281 ], [ 65, %284 ], [ 105, %286 ], [ 73, %288 ], [ %.mux.i.us, %290 ], [ %.mux27.mux.i.us, %293 ], [ 62, %296 ], [ %..i.us, %298 ]
+  %300 = and i32 %282, 64
+  %.not.i242.us = icmp eq i32 %300, 0
+  br i1 %.not.i242.us, label %301, label %get_segmentation_char.exit.us
 
-300:                                              ; preds = %get_type_mv_char.exit.us
-  %301 = and i32 %281, 16
-  %.not6.i.us = icmp eq i32 %301, 0
-  br i1 %.not6.i.us, label %302, label %get_segmentation_char.exit.us
+301:                                              ; preds = %get_type_mv_char.exit.us
+  %302 = and i32 %282, 16
+  %.not6.i.us = icmp eq i32 %302, 0
+  br i1 %.not6.i.us, label %303, label %get_segmentation_char.exit.us
 
-302:                                              ; preds = %300
-  %303 = and i32 %281, 32
-  %.not7.i.us = icmp eq i32 %303, 0
-  br i1 %.not7.i.us, label %304, label %get_segmentation_char.exit.us
+303:                                              ; preds = %301
+  %304 = and i32 %282, 32
+  %.not7.i.us = icmp eq i32 %304, 0
+  br i1 %.not7.i.us, label %305, label %get_segmentation_char.exit.us
 
-304:                                              ; preds = %302
-  %305 = and i32 %281, 15
-  %or.cond.i.us = icmp eq i32 %305, 0
-  %306 = select i1 %or.cond.i.us, i32 63, i32 32
+305:                                              ; preds = %303
+  %306 = and i32 %282, 15
+  %or.cond.i.us = icmp eq i32 %306, 0
+  %307 = select i1 %or.cond.i.us, i32 63, i32 32
   br label %get_segmentation_char.exit.us
 
-get_segmentation_char.exit.us:                    ; preds = %304, %302, %300, %get_type_mv_char.exit.us
-  %.0.i243.us = phi i32 [ 43, %get_type_mv_char.exit.us ], [ 45, %300 ], [ 124, %302 ], [ %306, %304 ]
-  %307 = and i32 %281, 128
-  %.not.i244.us = icmp eq i32 %307, 0
-  %308 = select i1 %.not.i244.us, i32 32, i32 61
-  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, i32 noundef %.0.i.us, i32 noundef %.0.i243.us, i32 noundef %308) #6
-  br label %309
+get_segmentation_char.exit.us:                    ; preds = %305, %303, %301, %get_type_mv_char.exit.us
+  %.0.i243.us = phi i32 [ 43, %get_type_mv_char.exit.us ], [ 45, %301 ], [ 124, %303 ], [ %307, %305 ]
+  %308 = and i32 %282, 128
+  %.not.i244.us = icmp eq i32 %308, 0
+  %309 = select i1 %.not.i244.us, i32 32, i32 61
+  call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %11, ptr noundef nonnull @.str.6, i32 noundef %.0.i.us, i32 noundef %.0.i243.us, i32 noundef %309) #6
+  br label %310
 
-309:                                              ; preds = %get_segmentation_char.exit.us, %277
+310:                                              ; preds = %get_segmentation_char.exit.us, %278
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
-  br i1 %exitcond361.not, label %._crit_edge311.us, label %268, !llvm.loop !74
+  br i1 %exitcond361.not, label %._crit_edge311.us, label %269, !llvm.loop !74
 
-._crit_edge311.us:                                ; preds = %309
-  %310 = load ptr, ptr %11, align 8, !tbaa !71
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, ptr noundef %310) #6
+._crit_edge311.us:                                ; preds = %310
+  %311 = load ptr, ptr %11, align 8, !tbaa !71
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, ptr noundef %311) #6
   %indvars.iv.next363 = add nuw nsw i64 %indvars.iv362, 1
   %exitcond366.not = icmp eq i64 %indvars.iv.next363, %wide.trip.count365
   br i1 %exitcond366.not, label %._crit_edge315, label %.lr.ph310.us, !llvm.loop !75
 
 .lr.ph314.split:                                  ; preds = %.lr.ph314, %.lr.ph314.split
-  %.0195312 = phi i32 [ %312, %.lr.ph314.split ], [ 0, %.lr.ph314 ]
+  %.0195312 = phi i32 [ %313, %.lr.ph314.split ], [ 0, %.lr.ph314 ]
   call void @av_bprint_clear(ptr noundef nonnull %11) #6
-  %311 = load ptr, ptr %11, align 8, !tbaa !71
-  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, ptr noundef %311) #6
-  %312 = add nuw nsw i32 %.0195312, 1
-  %exitcond356.not = icmp eq i32 %312, %6
+  %312 = load ptr, ptr %11, align 8, !tbaa !71
+  call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 48, ptr noundef nonnull @.str.3, ptr noundef %312) #6
+  %313 = add nuw nsw i32 %.0195312, 1
+  %exitcond356.not = icmp eq i32 %313, %6
   br i1 %exitcond356.not, label %._crit_edge315, label %.lr.ph314.split, !llvm.loop !75
 
 ._crit_edge315:                                   ; preds = %.lr.ph314.split, %._crit_edge311.us, %._crit_edge307
-  %313 = call i32 @av_bprint_finalize(ptr noundef nonnull %11, ptr noundef null) #6
+  %314 = call i32 @av_bprint_finalize(ptr noundef nonnull %11, ptr noundef null) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %314
+  br label %315
 
-314:                                              ; preds = %236, %._crit_edge315, %232, %231
+315:                                              ; preds = %236, %._crit_edge315, %232, %231
   ret void
 }
 

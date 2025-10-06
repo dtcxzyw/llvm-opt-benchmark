@@ -3947,12 +3947,12 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32.thread: ; preds 
 _ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i36: ; preds = %79, %82, %72
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 4392
   store ptr %88, ptr %5, align 8, !tbaa !271
-  %.phi.trans.insert145 = getelementptr inbounds nuw i8, ptr %0, i64 4408
-  %.pre146 = load i16, ptr %.phi.trans.insert145, align 8, !tbaa !262
+  %.phi.trans.insert143 = getelementptr inbounds nuw i8, ptr %0, i64 4408
+  %.pre144 = load i16, ptr %.phi.trans.insert143, align 8, !tbaa !262
   br label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit38
 
 _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit38: ; preds = %82, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i36
-  %89 = phi i16 [ %77, %82 ], [ %.pre146, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i36 ]
+  %89 = phi i16 [ %77, %82 ], [ %.pre144, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i36 ]
   %.promoted = phi ptr [ %.05.i.i.i35, %82 ], [ %88, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i36 ]
   %90 = icmp eq i16 %89, 5
   br i1 %90, label %.lr.ph, label %.loopexit
@@ -3962,13 +3962,13 @@ _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit38: ; preds = %82, %_ZN
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 216
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 4392
-  %.phi.trans.insert147 = getelementptr inbounds nuw i8, ptr %0, i64 4408
-  %.pre148 = load i16, ptr %.phi.trans.insert147, align 8
+  %.phi.trans.insert145 = getelementptr inbounds nuw i8, ptr %0, i64 4408
+  %.pre146 = load i16, ptr %.phi.trans.insert145, align 8
   br label %95
 
 95:                                               ; preds = %.lr.ph, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit50
-  %.05.i.i.i47.lcssa125128 = phi ptr [ %.promoted, %.lr.ph ], [ %.05.i.i.i47.lcssa126, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit50 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47.lcssa125128, i64 216
+  %.05.i.i.i47.lcssa123126 = phi ptr [ %.promoted, %.lr.ph ], [ %.05.i.i.i47.lcssa124, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit50 ]
+  %96 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47.lcssa123126, i64 216
   %97 = load ptr, ptr %96, align 8, !tbaa !277
   %.not4.i.i.i39 = icmp eq ptr %97, null
   br i1 %.not4.i.i.i39, label %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i42, label %.lr.ph.i.i.i40
@@ -3997,15 +3997,15 @@ _ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i42: ; pred
   br label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit44
 
 _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit44: ; preds = %104, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i42
-  %107 = phi i16 [ %99, %104 ], [ %.pre148, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i42 ]
-  %.05.i.i.i47.lcssa127 = phi ptr [ %.05.i.i.i41, %104 ], [ %94, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i42 ]
+  %107 = phi i16 [ %99, %104 ], [ %.pre146, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i42 ]
+  %.05.i.i.i47.lcssa125 = phi ptr [ %.05.i.i.i41, %104 ], [ %94, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i42 ]
   switch i16 %107, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102 [
-    i16 63, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102.loopexit257
+    i16 63, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102.loopexit255
     i16 26, label %108
   ]
 
 108:                                              ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit44
-  %109 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47.lcssa127, i64 216
+  %109 = getelementptr inbounds nuw i8, ptr %.05.i.i.i47.lcssa125, i64 216
   %110 = load ptr, ptr %109, align 8, !tbaa !277
   %.not4.i.i.i45 = icmp eq ptr %110, null
   br i1 %.not4.i.i.i45, label %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i48, label %.lr.ph.i.i.i46
@@ -4034,16 +4034,16 @@ _ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i48: ; pred
   br label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit50
 
 _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit50: ; preds = %117, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i48
-  %120 = phi i16 [ %112, %117 ], [ %.pre148, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i48 ]
-  %.05.i.i.i47.lcssa126 = phi ptr [ %.05.i.i.i47, %117 ], [ %94, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i48 ]
+  %120 = phi i16 [ %112, %117 ], [ %.pre146, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i48 ]
+  %.05.i.i.i47.lcssa124 = phi ptr [ %.05.i.i.i47, %117 ], [ %94, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i48 ]
   %121 = icmp eq i16 %120, 5
   br i1 %121, label %95, label %.loopexit, !llvm.loop !325
 
 .loopexit:                                        ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit50, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit38, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32.thread
   %122 = phi i16 [ %89, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit38 ], [ %.pre, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32.thread ], [ %120, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit50 ]
-  %123 = phi ptr [ %.promoted, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit38 ], [ %63, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32.thread ], [ %.05.i.i.i47.lcssa126, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit50 ]
-  %.not109 = icmp eq i16 %122, 66
-  br i1 %.not109, label %124, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102
+  %123 = phi ptr [ %.promoted, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit38 ], [ %63, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32.thread ], [ %.05.i.i.i47.lcssa124, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit50 ]
+  %.not107 = icmp eq i16 %122, 66
+  br i1 %.not107, label %124, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102
 
 124:                                              ; preds = %.loopexit
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 216
@@ -4082,8 +4082,8 @@ _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit56: ; preds = %_ZN5clan
   %140 = phi ptr [ %139, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i54 ], [ %.05.i.i.i53, %133 ], [ %36, %40 ], [ %36, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit ]
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 16
   %142 = load i16, ptr %141, align 8, !tbaa !262
-  %.not110 = icmp eq i16 %142, 24
-  br i1 %.not110, label %143, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102
+  %.not108 = icmp eq i16 %142, 24
+  br i1 %.not108, label %143, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102
 
 143:                                              ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit56
   %144 = tail call noundef zeroext i1 @_ZN5clang3tok12isAnnotationENS0_9TokenKindE(i16 noundef zeroext 24) #16
@@ -4111,10 +4111,10 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %145, %150
   %156 = load ptr, ptr %5, align 8, !tbaa !271
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   %158 = load i16, ptr %157, align 8, !tbaa !262
-  %.not111129 = icmp eq i16 %158, 25
-  br i1 %.not111129, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62._crit_edge, label %.lr.ph130
+  %.not109127 = icmp eq i16 %158, 25
+  br i1 %.not109127, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62._crit_edge, label %.lr.ph128
 
-.lr.ph130:                                        ; preds = %_ZNK5clang5Token9getEndLocEv.exit
+.lr.ph128:                                        ; preds = %_ZNK5clang5Token9getEndLocEv.exit
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 4384
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 4392
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -4126,12 +4126,12 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %145, %150
   %167 = getelementptr inbounds nuw i8, ptr %2, i64 68
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %169 = ptrtoint ptr %4 to i64
+  %.phi.trans.insert149 = getelementptr inbounds nuw i8, ptr %0, i64 4408
   %.phi.trans.insert151 = getelementptr inbounds nuw i8, ptr %0, i64 4408
-  %.phi.trans.insert153 = getelementptr inbounds nuw i8, ptr %0, i64 4408
   br label %170
 
-170:                                              ; preds = %.lr.ph130, %301
-  %171 = phi ptr [ %156, %.lr.ph130 ], [ %298, %301 ]
+170:                                              ; preds = %.lr.ph128, %301
+  %171 = phi ptr [ %156, %.lr.ph128 ], [ %298, %301 ]
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 216
   %173 = load ptr, ptr %172, align 8, !tbaa !277
   %.not4.i.i.i57 = icmp eq ptr %173, null
@@ -4160,11 +4160,11 @@ _ZNK5clang5Token9getEndLocEv.exit:                ; preds = %145, %150
 
 _ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i60: ; preds = %177, %180, %170
   store ptr %160, ptr %5, align 8, !tbaa !271
-  %.pre152 = load i16, ptr %.phi.trans.insert151, align 8, !tbaa !262
+  %.pre150 = load i16, ptr %.phi.trans.insert149, align 8, !tbaa !262
   br label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62
 
 _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62: ; preds = %180, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i60
-  %185 = phi i16 [ %175, %180 ], [ %.pre152, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i60 ]
+  %185 = phi i16 [ %175, %180 ], [ %.pre150, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i60 ]
   %186 = phi ptr [ %.05.i.i.i59, %180 ], [ %160, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i60 ]
   %187 = icmp eq i16 %185, 25
   br i1 %187, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62._crit_edge, label %188
@@ -4175,11 +4175,11 @@ _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62: ; preds = %180, %_Z
   br i1 %.not.i63, label %_ZZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceEENKUlPKT_E_clINS0_11FormatTokenEEEDaS9_.exit.thread, label %190
 
 190:                                              ; preds = %188
-  %switch.tableidx240 = add i16 %185, -1
-  %191 = icmp ult i16 %switch.tableidx240, 19
-  br i1 %191, label %switch.hole_check242, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit64
+  %switch.tableidx238 = add i16 %185, -1
+  %191 = icmp ult i16 %switch.tableidx238, 19
+  br i1 %191, label %switch.hole_check240, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit64
 
-_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit64: ; preds = %switch.hole_check242, %190
+_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit64: ; preds = %switch.hole_check240, %190
   %192 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %193 = load ptr, ptr %192, align 8, !tbaa !320
   %194 = icmp eq ptr %189, %193
@@ -4360,13 +4360,13 @@ _ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit81: ; preds = %241
 
 _ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i85: ; preds = %253, %256, %247
   store ptr %160, ptr %5, align 8, !tbaa !271
-  %.pre154 = load i16, ptr %.phi.trans.insert153, align 8, !tbaa !262
+  %.pre152 = load i16, ptr %.phi.trans.insert151, align 8, !tbaa !262
   br label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit87
 
 _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit87: ; preds = %256, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i85
-  %261 = phi i16 [ %251, %256 ], [ %.pre154, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i85 ]
+  %261 = phi i16 [ %251, %256 ], [ %.pre152, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i85 ]
   %262 = phi ptr [ %.05.i.i.i84, %256 ], [ %160, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i85 ]
-  switch i16 %261, label %.thread106 [
+  switch i16 %261, label %.thread105 [
     i16 5, label %_ZZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceEENKUlPKT_E_clINS0_11FormatTokenEEEDaS9_.exit89.thread
     i16 144, label %_ZZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceEENKUlPKT_E_clINS0_11FormatTokenEEEDaS9_.exit89.thread
     i16 82, label %_ZZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceEENKUlPKT_E_clINS0_11FormatTokenEEEDaS9_.exit89.thread
@@ -4450,20 +4450,20 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE9push_ba
   %298 = load ptr, ptr %5, align 8, !tbaa !271
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 16
   %300 = load i16, ptr %299, align 8, !tbaa !262
-  switch i16 %300, label %.thread106 [
+  switch i16 %300, label %.thread105 [
     i16 66, label %301
     i16 25, label %301
   ]
 
-.thread106:                                       ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit87, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE9push_backERKS3_.exit
+.thread105:                                       ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit87, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE9push_backERKS3_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102
 
 301:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE9push_backERKS3_.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang6format16JsImportedSymbolELb1EE9push_backERKS3_.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %302 = load i16, ptr %299, align 8, !tbaa !262
-  %.not111 = icmp eq i16 %302, 25
-  br i1 %.not111, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62._crit_edge, label %170
+  %.not109 = icmp eq i16 %302, 25
+  br i1 %.not109, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62._crit_edge, label %170
 
 _ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62._crit_edge: ; preds = %301, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62, %_ZNK5clang5Token9getEndLocEv.exit
   %303 = phi ptr [ %156, %_ZNK5clang5Token9getEndLocEv.exit ], [ %298, %301 ], [ %186, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit62 ]
@@ -4521,17 +4521,17 @@ switch.hole_check:                                ; preds = %66
   %switch.lobit = trunc i32 %switch.shifted to i1
   br i1 %switch.lobit, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32
 
-switch.hole_check242:                             ; preds = %190
-  %switch.maskindex244 = zext nneg i16 %switch.tableidx240 to i32
-  %switch.shifted245 = lshr i32 524225, %switch.maskindex244
-  %switch.lobit246 = trunc i32 %switch.shifted245 to i1
-  br i1 %switch.lobit246, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit64
+switch.hole_check240:                             ; preds = %190
+  %switch.maskindex242 = zext nneg i16 %switch.tableidx238 to i32
+  %switch.shifted243 = lshr i32 524225, %switch.maskindex242
+  %switch.lobit244 = trunc i32 %switch.shifted243 to i1
+  br i1 %switch.lobit244, label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102, label %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit64
 
-_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102.loopexit257: ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit44
+_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102.loopexit255: ; preds = %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit44
   br label %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102
 
-_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102: ; preds = %switch.hole_check242, %_ZZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceEENKUlPKT_E_clINS0_11FormatTokenEEEDaS9_.exit.thread, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit44, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102.loopexit257, %switch.hole_check, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i100, %322, %.thread106, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit56, %.loopexit, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32
-  %.0 = phi i1 [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32 ], [ false, %.loopexit ], [ false, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit56 ], [ false, %.thread106 ], [ true, %322 ], [ true, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i100 ], [ false, %switch.hole_check ], [ true, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102.loopexit257 ], [ false, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit44 ], [ false, %_ZZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceEENKUlPKT_E_clINS0_11FormatTokenEEEDaS9_.exit.thread ], [ false, %switch.hole_check242 ]
+_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102: ; preds = %switch.hole_check240, %_ZZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceEENKUlPKT_E_clINS0_11FormatTokenEEEDaS9_.exit.thread, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit44, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102.loopexit255, %switch.hole_check, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i100, %322, %.thread105, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit56, %.loopexit, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32
+  %.0 = phi i1 [ true, %_ZNK5clang6format11FormatToken2isEPKNS_14IdentifierInfoE.exit32 ], [ false, %.loopexit ], [ false, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit56 ], [ false, %.thread105 ], [ true, %322 ], [ true, %_ZN5clang6format22JavaScriptImportSorter12skipCommentsEv.exit.thread.i100 ], [ false, %switch.hole_check ], [ true, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit102.loopexit255 ], [ false, %_ZN5clang6format22JavaScriptImportSorter9nextTokenEv.exit44 ], [ false, %_ZZN5clang6format22JavaScriptImportSorter18parseNamedBindingsERKNS0_18AdditionalKeywordsERNS0_17JsModuleReferenceEENKUlPKT_E_clINS0_11FormatTokenEEEDaS9_.exit.thread ], [ false, %switch.hole_check240 ]
   ret i1 %.0
 }
 

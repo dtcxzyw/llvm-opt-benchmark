@@ -88,18 +88,18 @@ define dso_local void @_ZN5clang18IdentifierResolverD2Ev(ptr noundef nonnull rea
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !tbaa !252
-  %.not9.i = icmp eq ptr %6, null
-  br i1 %.not9.i, label %_ZN5clang18IdentifierResolver13IdDeclInfoMapD2Ev.exit, label %.lr.ph.i
+  %.not8.i = icmp eq ptr %6, null
+  br i1 %.not8.i, label %_ZN5clang18IdentifierResolver13IdDeclInfoMapD2Ev.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %5, %14
-  %.0510.i = phi ptr [ %7, %14 ], [ %6, %5 ]
-  %7 = load ptr, ptr %.0510.i, align 8, !tbaa !259
+  %.059.i = phi ptr [ %7, %14 ], [ %6, %5 ]
+  %7 = load ptr, ptr %.059.i, align 8, !tbaa !259
   br label %8
 
 8:                                                ; preds = %_ZN5clang18IdentifierResolver10IdDeclInfoD2Ev.exit.i.i, %.lr.ph.i
   %.idx.i.i = phi i64 [ 16392, %.lr.ph.i ], [ %.add.i.i, %_ZN5clang18IdentifierResolver10IdDeclInfoD2Ev.exit.i.i ]
   %.add.i.i = add nsw i64 %.idx.i.i, -32
-  %.ptr1.i.i = getelementptr inbounds i8, ptr %.0510.i, i64 %.add.i.i
+  %.ptr1.i.i = getelementptr inbounds i8, ptr %.059.i, i64 %.add.i.i
   %9 = load ptr, ptr %.ptr1.i.i, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %.ptr1.i.i, i64 16
   %11 = icmp eq ptr %9, %10
@@ -114,7 +114,7 @@ _ZN5clang18IdentifierResolver10IdDeclInfoD2Ev.exit.i.i: ; preds = %12, %8
   br i1 %13, label %14, label %8
 
 14:                                               ; preds = %_ZN5clang18IdentifierResolver10IdDeclInfoD2Ev.exit.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.0510.i, i64 noundef 16392) #10
+  tail call void @_ZdlPvm(ptr noundef nonnull %.059.i, i64 noundef 16392) #10
   %.not.i = icmp eq ptr %7, null
   br i1 %.not.i, label %_ZN5clang18IdentifierResolver13IdDeclInfoMapD2Ev.exit, label %.lr.ph.i
 

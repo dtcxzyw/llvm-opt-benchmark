@@ -42,7 +42,7 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !alias.scope !31, !noalias !44, !nonnull !4, !noundef !4
-  %.promoted13.i.i = load i8, ptr %6, align 8, !alias.scope !47, !noalias !48
+  %.promoted12.i.i = load i8, ptr %6, align 8, !alias.scope !47, !noalias !48
   br label %9
 
 "_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41ef96b5c0b41419E.exit.loopexit.i.i": ; preds = %55
@@ -51,10 +51,10 @@ define hidden void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as
   br i1 %exitcond.not.i.i, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.thread.i, label %9
 
 9:                                                ; preds = %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41ef96b5c0b41419E.exit.loopexit.i.i", %.lr.ph.i.i
-  %10 = phi i8 [ %.promoted13.i.i, %.lr.ph.i.i ], [ 1, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41ef96b5c0b41419E.exit.loopexit.i.i" ]
-  %.sroa.01.012.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %12, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41ef96b5c0b41419E.exit.loopexit.i.i" ]
+  %10 = phi i8 [ %.promoted12.i.i, %.lr.ph.i.i ], [ 1, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41ef96b5c0b41419E.exit.loopexit.i.i" ]
+  %.sroa.01.011.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %12, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41ef96b5c0b41419E.exit.loopexit.i.i" ]
   %11 = phi ptr [ %.promoted.i.i, %.lr.ph.i.i ], [ %51, %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41ef96b5c0b41419E.exit.loopexit.i.i" ]
-  %12 = add nuw i64 %.sroa.01.012.i.i, 1
+  %12 = add nuw i64 %.sroa.01.011.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !50)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
@@ -149,7 +149,7 @@ _ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.sink
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.i: ; preds = %9, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.sink.split.i
   %.promoted10.i.i.i25.i = phi i8 [ %.promoted10.i.i.i25.ph.i, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.sink.split.i ], [ %10, %9 ]
   %.promoted.i.i.i22.i = phi ptr [ %.lcssa.sink.i, %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.sink.split.i ], [ %11, %9 ]
-  %58 = icmp eq i64 %5, %.sroa.01.012.i.i
+  %58 = icmp eq i64 %5, %.sroa.01.011.i.i
   br i1 %58, label %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.thread.i, label %_ZN4core4iter6traits8iterator8Iterator3nth17h6d5802b84a564c7cE.exit.thread
 
 _ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.thread.i: ; preds = %"_ZN115_$LT$core..iter..adapters..skip_while..SkipWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h41ef96b5c0b41419E.exit.loopexit.i.i", %_ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.i, %._ZN4core4iter6traits8iterator8Iterator10advance_by17h5bcc82b39e530da9E.exit.thread_crit_edge.i

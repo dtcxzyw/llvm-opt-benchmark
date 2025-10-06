@@ -3076,10 +3076,10 @@ _ZNSt10shared_ptrIN4llvm12MemoryBufferEEaSERKS2_.exit: ; preds = %2, %_ZNSt16_Sp
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4llvm16LTOCodeGenerator12setDebugInfoE15lto_debug_model(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1728) initializes((32, 33)) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
-  %switch = icmp ne i32 %1, 0
-  %spec.select = zext i1 %switch to i8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 %spec.select, ptr %3, align 8, !tbaa !247
+  %3 = icmp ne i32 %1, 0
+  %spec.select = zext i1 %3 to i8
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 %spec.select, ptr %4, align 8, !tbaa !247
   ret void
 }
 

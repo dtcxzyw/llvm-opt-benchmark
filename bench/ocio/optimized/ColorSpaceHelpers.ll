@@ -9623,8 +9623,8 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl17
   %11 = load ptr, ptr %10, align 8, !tbaa !169
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %13 = load ptr, ptr %12, align 8, !tbaa !169
-  %.not3438 = icmp eq ptr %11, %13
-  br i1 %.not3438, label %.thread29, label %.lr.ph
+  %.not3236 = icmp eq ptr %11, %13
+  br i1 %.not3236, label %.thread29, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -9634,7 +9634,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl17
   br label %18
 
 18:                                               ; preds = %.lr.ph, %59
-  %.sroa.025.039 = phi ptr [ %11, %.lr.ph ], [ %60, %59 ]
+  %.sroa.025.037 = phi ptr [ %11, %.lr.ph ], [ %60, %59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %14, ptr %5, align 8, !tbaa !44
   %19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
@@ -9677,7 +9677,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl17
   store i8 0, ptr %30, align 1, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = load ptr, ptr %.sroa.025.039, align 8, !tbaa !3
+  %31 = load ptr, ptr %.sroa.025.037, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !54
   store ptr %16, ptr %6, align 8, !tbaa !44
@@ -9762,12 +9762,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   br i1 %49, label %61, label %59
 
 59:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.025.039, i64 16
-  %.not34 = icmp eq ptr %60, %13
-  br i1 %.not34, label %.thread29, label %18
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.025.037, i64 16
+  %.not32 = icmp eq ptr %60, %13
+  br i1 %.not32, label %.thread29, label %18
 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %62 = load ptr, ptr %.sroa.025.039, align 8, !tbaa !3
+  %62 = load ptr, ptr %.sroa.025.037, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %64 = load ptr, ptr %63, align 8, !tbaa !54
   br label %.thread29
@@ -9812,8 +9812,8 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl17
   %11 = load ptr, ptr %10, align 8, !tbaa !169
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %13 = load ptr, ptr %12, align 8, !tbaa !169
-  %.not3438 = icmp eq ptr %11, %13
-  br i1 %.not3438, label %.thread29, label %.lr.ph
+  %.not3236 = icmp eq ptr %11, %13
+  br i1 %.not3236, label %.thread29, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -9823,7 +9823,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl17
   br label %18
 
 18:                                               ; preds = %.lr.ph, %59
-  %.sroa.025.039 = phi ptr [ %11, %.lr.ph ], [ %60, %59 ]
+  %.sroa.025.037 = phi ptr [ %11, %.lr.ph ], [ %60, %59 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %14, ptr %5, align 8, !tbaa !44
   %19 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
@@ -9866,7 +9866,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev24ColorSpaceMenuHelperImpl17
   store i8 0, ptr %30, align 1, !tbaa !50
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %31 = load ptr, ptr %.sroa.025.039, align 8, !tbaa !3
+  %31 = load ptr, ptr %.sroa.025.037, align 8, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !54
   store ptr %16, ptr %6, align 8, !tbaa !44
@@ -9951,12 +9951,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22: ; preds = %_ZN
   br i1 %49, label %61, label %59
 
 59:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.025.039, i64 16
-  %.not34 = icmp eq ptr %60, %13
-  br i1 %.not34, label %.thread29, label %18
+  %60 = getelementptr inbounds nuw i8, ptr %.sroa.025.037, i64 16
+  %.not32 = icmp eq ptr %60, %13
+  br i1 %.not32, label %.thread29, label %18
 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit22
-  %62 = load ptr, ptr %.sroa.025.039, align 8, !tbaa !3
+  %62 = load ptr, ptr %.sroa.025.037, align 8, !tbaa !3
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load ptr, ptr %63, align 8, !tbaa !54
   br label %.thread29

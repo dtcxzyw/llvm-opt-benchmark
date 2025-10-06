@@ -373,13 +373,13 @@ compute_column_width.exit.i.i:                    ; preds = %._crit_edge.i.i.spl
 
 162:                                              ; preds = %162, %.lr.ph.i24.i
   %indvars.iv.i25.i = phi i64 [ 0, %.lr.ph.i24.i ], [ %indvars.iv.next.i26.i, %162 ]
-  %.03558.i.i = phi i32 [ %160, %.lr.ph.i24.i ], [ %169, %162 ]
+  %.03557.i.i = phi i32 [ %160, %.lr.ph.i24.i ], [ %169, %162 ]
   %163 = getelementptr inbounds nuw i32, ptr %106, i64 %indvars.iv.i25.i
   %164 = load i32, ptr %163, align 4, !tbaa !23
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds i32, ptr %54, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !23
-  %168 = add i32 %.03558.i.i, %.sroa.5.1
+  %168 = add i32 %.03557.i.i, %.sroa.5.1
   %169 = add i32 %168, %167
   %indvars.iv.next.i26.i = add nuw nsw i64 %indvars.iv.i25.i, 1
   %exitcond.not.i27.i = icmp eq i64 %indvars.iv.next.i26.i, %wide.trip.count.i.i

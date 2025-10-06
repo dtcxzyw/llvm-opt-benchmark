@@ -19647,8 +19647,8 @@ _ZL14computeODRHashPKN5clang4DeclE.exit854:       ; preds = %_ZN4llvm16FoldingSe
   %1511 = load i32, ptr %1510, align 4
   %1512 = and i32 %1511, 127
   %1513 = icmp ne i32 %1512, 65
-  %.not.not7.i = icmp eq ptr %1484, null
-  %.not.not.i855 = or i1 %.not.not7.i, %1513
+  %.not.not5.i = icmp eq ptr %1484, null
+  %.not.not.i855 = or i1 %.not.not5.i, %1513
   br i1 %.not.not.i855, label %1519, label %1514
 
 1514:                                             ; preds = %1509
@@ -19664,25 +19664,25 @@ _ZL14computeODRHashPKN5clang4DeclE.exit854:       ; preds = %_ZN4llvm16FoldingSe
 
 1519:                                             ; preds = %1509
   %1520 = icmp ne i32 %1512, 45
-  %.not17.not.i = or i1 %.not.not7.i, %1520
+  %.not17.not.i = or i1 %.not.not5.i, %1520
   %1521 = getelementptr inbounds nuw i8, ptr %1484, i64 72
-  %.0.copyload.i.i.i.i.i.i24.i = load i64, ptr %1521, align 8
-  %.not.i.i.i25.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i24.i, 7
+  %.0.copyload.i.i.i.i.i.i23.i = load i64, ptr %1521, align 8
+  %.not.i.i.i24.i = icmp ugt i64 %.0.copyload.i.i.i.i.i.i23.i, 7
   br i1 %.not17.not.i, label %1526, label %1522
 
 1522:                                             ; preds = %1519
-  br i1 %.not.i.i.i25.i, label %1523, label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit"
+  br i1 %.not.i.i.i24.i, label %1523, label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit"
 
 1523:                                             ; preds = %1522
-  %1524 = and i64 %.0.copyload.i.i.i.i.i.i24.i, 6
+  %1524 = and i64 %.0.copyload.i.i.i.i.i.i23.i, 6
   %1525 = icmp ne i64 %1524, 2
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit"
 
 1526:                                             ; preds = %1519
-  br i1 %.not.i.i.i25.i, label %1527, label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit"
+  br i1 %.not.i.i.i24.i, label %1527, label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit"
 
 1527:                                             ; preds = %1526
-  %1528 = and i64 %.0.copyload.i.i.i.i.i.i24.i, 6
+  %1528 = and i64 %.0.copyload.i.i.i.i.i.i23.i, 6
   %1529 = icmp ne i64 %1528, 2
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit"
 
@@ -19692,8 +19692,8 @@ _ZL14computeODRHashPKN5clang4DeclE.exit854:       ; preds = %_ZN4llvm16FoldingSe
   %1531 = load i32, ptr %1530, align 4
   %1532 = and i32 %1531, 127
   %1533 = icmp ne i32 %1532, 65
-  %.not.not7.i858 = icmp eq ptr %1485, null
-  %.not.not.i859 = or i1 %.not.not7.i858, %1533
+  %.not.not5.i858 = icmp eq ptr %1485, null
+  %.not.not.i859 = or i1 %.not.not5.i858, %1533
   br i1 %.not.not.i859, label %1539, label %1534
 
 1534:                                             ; preds = %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit"
@@ -19709,25 +19709,25 @@ _ZL14computeODRHashPKN5clang4DeclE.exit854:       ; preds = %_ZN4llvm16FoldingSe
 
 1539:                                             ; preds = %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit"
   %1540 = icmp ne i32 %1532, 45
-  %.not17.not.i863 = or i1 %.not.not7.i858, %1540
+  %.not17.not.i863 = or i1 %.not.not5.i858, %1540
   %1541 = getelementptr inbounds nuw i8, ptr %1485, i64 72
-  %.0.copyload.i.i.i.i.i.i24.i864 = load i64, ptr %1541, align 8
-  %.not.i.i.i25.i865 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i24.i864, 7
+  %.0.copyload.i.i.i.i.i.i23.i864 = load i64, ptr %1541, align 8
+  %.not.i.i.i24.i865 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i23.i864, 7
   br i1 %.not17.not.i863, label %1546, label %1542
 
 1542:                                             ; preds = %1539
-  br i1 %.not.i.i.i25.i865, label %1543, label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit866"
+  br i1 %.not.i.i.i24.i865, label %1543, label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit866"
 
 1543:                                             ; preds = %1542
-  %1544 = and i64 %.0.copyload.i.i.i.i.i.i24.i864, 6
+  %1544 = and i64 %.0.copyload.i.i.i.i.i.i23.i864, 6
   %1545 = icmp ne i64 %1544, 2
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit866"
 
 1546:                                             ; preds = %1539
-  br i1 %.not.i.i.i25.i865, label %1547, label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit866"
+  br i1 %.not.i.i.i24.i865, label %1547, label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit866"
 
 1547:                                             ; preds = %1546
-  %1548 = and i64 %.0.copyload.i.i.i.i.i.i24.i864, 6
+  %1548 = and i64 %.0.copyload.i.i.i.i.i.i23.i864, 6
   %1549 = icmp ne i64 %1548, 2
   br label %"_ZZNK5clang15ODRDiagsEmitter16diagnoseMismatchEPKNS_13CXXRecordDeclES3_PKNS1_14DefinitionDataEENK3$_5clEPKNS_9NamedDeclE.exit866"
 
@@ -26060,8 +26060,8 @@ define linkonce_odr hidden i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr nou
   %.not.i.i.i.i.i = icmp eq i64 %4, 0
   %5 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -8
   %6 = inttoptr i64 %5 to ptr
-  %.not.not89 = icmp eq i64 %5, 0
-  %.not.not = or i1 %.not.i.i.i.i.i, %.not.not89
+  %.not.not86 = icmp eq i64 %5, 0
+  %.not.not = or i1 %.not.i.i.i.i.i, %.not.not86
   br i1 %.not.not, label %26, label %7
 
 7:                                                ; preds = %1
@@ -26085,14 +26085,14 @@ define linkonce_odr hidden i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr nou
   %.sroa.032.0 = load i32, ptr %.sroa.032.0.in, align 8, !tbaa !82
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %19 = load i32, ptr %18, align 4, !tbaa !392
-  %.not96 = icmp eq i32 %19, 0
+  %.not93 = icmp eq i32 %19, 0
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  br i1 %.not96, label %20, label %25
+  br i1 %.not93, label %20, label %25
 
 20:                                               ; preds = %17
-  %.sroa.0.0.copyload.i57 = load i64, ptr %6, align 8, !tbaa !12
+  %.sroa.0.0.copyload.i56 = load i64, ptr %6, align 8, !tbaa !12
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %22 = inttoptr i64 %.sroa.0.0.copyload.i57 to ptr
+  %22 = inttoptr i64 %.sroa.0.0.copyload.i56 to ptr
   store ptr %22, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %21, ptr %23, align 8
@@ -26102,7 +26102,7 @@ define linkonce_odr hidden i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr nou
 25:                                               ; preds = %20, %17
   %.sroa.031.0 = phi i32 [ %24, %20 ], [ %19, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %.thread85
+  br label %.thread83
 
 26:                                               ; preds = %1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 60
@@ -26112,12 +26112,12 @@ define linkonce_odr hidden i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr nou
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.0.0.copyload.i58 = load i32, ptr %30, align 8, !tbaa !82
-  br label %.thread85
+  %.sroa.0.0.copyload.i57 = load i32, ptr %30, align 8, !tbaa !82
+  br label %.thread83
 
 31:                                               ; preds = %26
   %32 = icmp ne i64 %4, 0
-  %.not42.not = or i1 %32, %.not.not89
+  %.not42.not = or i1 %32, %.not.not86
   br i1 %.not42.not, label %69, label %33
 
 33:                                               ; preds = %31
@@ -26133,10 +26133,10 @@ define linkonce_odr hidden i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr nou
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8
   %43 = tail call i64 %42(ptr noundef nonnull align 8 dereferenceable(168) %6) #23
-  %.sroa.070.0.extract.trunc = trunc i64 %43 to i32
+  %.sroa.069.0.extract.trunc = trunc i64 %43 to i32
   %.sroa.9.0.extract.shift = lshr i64 %43, 32
   %.sroa.9.0.extract.trunc = trunc nuw i64 %.sroa.9.0.extract.shift to i32
-  br label %.thread85
+  br label %.thread83
 
 .critedge:                                        ; preds = %33
   %44 = and i32 %35, 127
@@ -26150,20 +26150,20 @@ define linkonce_odr hidden i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr nou
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8
   %49 = tail call i64 %48(ptr noundef nonnull align 8 dereferenceable(64) %6) #23
-  %.sroa.070.0.extract.trunc71 = trunc i64 %49 to i32
-  %.sroa.9.0.extract.shift74 = lshr i64 %49, 32
-  %.sroa.9.0.extract.trunc75 = trunc nuw i64 %.sroa.9.0.extract.shift74 to i32
-  br label %.thread85
+  %.sroa.069.0.extract.trunc70 = trunc i64 %49 to i32
+  %.sroa.9.0.extract.shift73 = lshr i64 %49, 32
+  %.sroa.9.0.extract.trunc74 = trunc nuw i64 %.sroa.9.0.extract.shift73 to i32
+  br label %.thread83
 
 50:                                               ; preds = %.critedge
   %51 = load ptr, ptr %6, align 8, !tbaa !89
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8
   %54 = tail call i64 %53(ptr noundef nonnull align 8 dereferenceable(64) %6) #23
-  %.sroa.070.0.extract.trunc72 = trunc i64 %54 to i32
-  %.sroa.9.0.extract.shift76 = lshr i64 %54, 32
-  %.sroa.9.0.extract.trunc77 = trunc nuw i64 %.sroa.9.0.extract.shift76 to i32
-  br label %.thread85
+  %.sroa.069.0.extract.trunc71 = trunc i64 %54 to i32
+  %.sroa.9.0.extract.shift75 = lshr i64 %54, 32
+  %.sroa.9.0.extract.trunc76 = trunc nuw i64 %.sroa.9.0.extract.shift75 to i32
+  br label %.thread83
 
 .critedge50:                                      ; preds = %.critedge
   %55 = icmp ugt i32 %37, 17
@@ -26172,46 +26172,46 @@ define linkonce_odr hidden i64 @_ZNK5clang10FriendDecl14getSourceRangeEv(ptr nou
 56:                                               ; preds = %.critedge50
   %57 = tail call i32 @_ZNK5clang14DeclaratorDecl16getOuterLocStartEv(ptr noundef nonnull align 8 dereferenceable(68) %6) #20
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  %.sroa.0.0.copyload.i65 = load i32, ptr %58, align 8, !tbaa !82
-  %.not95 = icmp eq i32 %57, %.sroa.0.0.copyload.i65
-  br i1 %.not95, label %63, label %.critedge52
+  %.sroa.0.0.copyload.i64 = load i32, ptr %58, align 8, !tbaa !82
+  %.not92 = icmp eq i32 %57, %.sroa.0.0.copyload.i64
+  br i1 %.not92, label %63, label %.critedge52
 
 .critedge52:                                      ; preds = %56
   %59 = load ptr, ptr %6, align 8, !tbaa !89
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
   %62 = tail call i64 %61(ptr noundef nonnull align 8 dereferenceable(68) %6) #23
-  %.sroa.070.0.extract.trunc73 = trunc i64 %62 to i32
-  %.sroa.9.0.extract.shift78 = lshr i64 %62, 32
-  %.sroa.9.0.extract.trunc79 = trunc nuw i64 %.sroa.9.0.extract.shift78 to i32
-  br label %.thread85
+  %.sroa.069.0.extract.trunc72 = trunc i64 %62 to i32
+  %.sroa.9.0.extract.shift77 = lshr i64 %62, 32
+  %.sroa.9.0.extract.trunc78 = trunc nuw i64 %.sroa.9.0.extract.shift77 to i32
+  br label %.thread83
 
 63:                                               ; preds = %56, %.critedge50
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.0.0.copyload.i66 = load i32, ptr %64, align 8, !tbaa !82
+  %.sroa.0.0.copyload.i65 = load i32, ptr %64, align 8, !tbaa !82
   %65 = load ptr, ptr %6, align 8, !tbaa !89
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8
   %68 = tail call i64 %67(ptr noundef nonnull align 8 dereferenceable(33) %6) #23
   %.sroa.3.0.extract.shift.i = lshr i64 %68, 32
   %.sroa.3.0.extract.trunc.i = trunc nuw i64 %.sroa.3.0.extract.shift.i to i32
-  br label %.thread85
+  br label %.thread83
 
 69:                                               ; preds = %31
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.sroa.0.0.copyload.i67 = load i32, ptr %70, align 8, !tbaa !82
+  %.sroa.0.0.copyload.i66 = load i32, ptr %70, align 8, !tbaa !82
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.0.0.copyload.i68 = load i32, ptr %71, align 8, !tbaa !82
-  br label %.thread85
+  %.sroa.0.0.copyload.i67 = load i32, ptr %71, align 8, !tbaa !82
+  br label %.thread83
 
-.thread85:                                        ; preds = %63, %.critedge52, %39, %45, %50, %25, %69, %29
-  %.sroa.070.1 = phi i32 [ %.sroa.0.0.copyload.i58, %29 ], [ %.sroa.0.0.copyload.i67, %69 ], [ %.sroa.032.0, %25 ], [ %.sroa.070.0.extract.trunc, %39 ], [ %.sroa.070.0.extract.trunc71, %45 ], [ %.sroa.070.0.extract.trunc72, %50 ], [ %.sroa.070.0.extract.trunc73, %.critedge52 ], [ %.sroa.0.0.copyload.i66, %63 ]
-  %.sroa.9.1 = phi i32 [ %28, %29 ], [ %.sroa.0.0.copyload.i68, %69 ], [ %.sroa.031.0, %25 ], [ %.sroa.9.0.extract.trunc, %39 ], [ %.sroa.9.0.extract.trunc75, %45 ], [ %.sroa.9.0.extract.trunc77, %50 ], [ %.sroa.9.0.extract.trunc79, %.critedge52 ], [ %.sroa.3.0.extract.trunc.i, %63 ]
+.thread83:                                        ; preds = %63, %.critedge52, %39, %45, %50, %25, %69, %29
+  %.sroa.069.1 = phi i32 [ %.sroa.0.0.copyload.i57, %29 ], [ %.sroa.0.0.copyload.i66, %69 ], [ %.sroa.032.0, %25 ], [ %.sroa.069.0.extract.trunc, %39 ], [ %.sroa.069.0.extract.trunc70, %45 ], [ %.sroa.069.0.extract.trunc71, %50 ], [ %.sroa.069.0.extract.trunc72, %.critedge52 ], [ %.sroa.0.0.copyload.i65, %63 ]
+  %.sroa.9.1 = phi i32 [ %28, %29 ], [ %.sroa.0.0.copyload.i67, %69 ], [ %.sroa.031.0, %25 ], [ %.sroa.9.0.extract.trunc, %39 ], [ %.sroa.9.0.extract.trunc74, %45 ], [ %.sroa.9.0.extract.trunc76, %50 ], [ %.sroa.9.0.extract.trunc78, %.critedge52 ], [ %.sroa.3.0.extract.trunc.i, %63 ]
   %.sroa.9.0.insert.ext = zext i32 %.sroa.9.1 to i64
   %.sroa.9.0.insert.shift = shl nuw i64 %.sroa.9.0.insert.ext, 32
-  %.sroa.070.0.insert.ext = zext i32 %.sroa.070.1 to i64
-  %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.9.0.insert.shift, %.sroa.070.0.insert.ext
-  ret i64 %.sroa.070.0.insert.insert
+  %.sroa.069.0.insert.ext = zext i32 %.sroa.069.1 to i64
+  %.sroa.069.0.insert.insert = or disjoint i64 %.sroa.9.0.insert.shift, %.sroa.069.0.insert.ext
+  ret i64 %.sroa.069.0.insert.insert
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -39127,8 +39127,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -39373,8 +39373,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

@@ -1785,17 +1785,17 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_111HasCategoryISt10shared_ptrIKNS_10ColorSp
   %52 = load ptr, ptr %6, align 8, !tbaa !81
   %53 = load ptr, ptr %0, align 8, !tbaa !70
   %54 = load ptr, ptr %15, align 8, !tbaa !70
-  %.not1415.i = icmp eq ptr %53, %54
-  br i1 %.not1415.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1213.i = icmp eq ptr %53, %54
+  br i1 %.not1213.i, label %._crit_edge.i, label %.lr.ph.i
 
 55:                                               ; preds = %.lr.ph.i
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i, i64 8
-  %.not14.i = icmp eq ptr %56, %54
-  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 8
+  %.not12.i = icmp eq ptr %56, %54
+  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %51, %55
-  %.sroa.06.016.i = phi ptr [ %56, %55 ], [ %53, %51 ]
-  %57 = load ptr, ptr %.sroa.06.016.i, align 8, !tbaa !76
+  %.sroa.06.014.i = phi ptr [ %56, %55 ], [ %53, %51 ]
+  %57 = load ptr, ptr %.sroa.06.014.i, align 8, !tbaa !76
   %.not.i = icmp eq ptr %57, %52
   br i1 %.not.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddElementIPKNS_10ColorSpaceEEEvRSt6vectorIT_SaIS6_EES6_.exit, label %55
 
@@ -2311,17 +2311,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 159:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   %160 = load ptr, ptr %14, align 8, !tbaa !81, !noalias !92
-  %.not1415.i.i = icmp eq ptr %.sroa.0458.3, %.sroa.10461.2
-  br i1 %.not1415.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not1213.i.i = icmp eq ptr %.sroa.0458.3, %.sroa.10461.2
+  br i1 %.not1213.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 161:                                              ; preds = %.lr.ph.i.i
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i.i, i64 8
-  %.not14.i.i = icmp eq ptr %162, %.sroa.10461.2
-  br i1 %.not14.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i, i64 8
+  %.not12.i.i = icmp eq ptr %162, %.sroa.10461.2
+  br i1 %.not12.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %159, %161
-  %.sroa.06.016.i.i = phi ptr [ %162, %161 ], [ %.sroa.0458.3, %159 ]
-  %163 = load ptr, ptr %.sroa.06.016.i.i, align 8, !tbaa !76, !noalias !92
+  %.sroa.06.014.i.i = phi ptr [ %162, %161 ], [ %.sroa.0458.3, %159 ]
+  %163 = load ptr, ptr %.sroa.06.014.i.i, align 8, !tbaa !76, !noalias !92
   %.not.i.i = icmp eq ptr %163, %160
   br i1 %.not.i.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddElementIPKNS_10ColorSpaceEEEvRSt6vectorIT_SaIS6_EES6_.exit.i, label %161
 
@@ -2753,17 +2753,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 318:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i177
   %319 = load ptr, ptr %11, align 8, !tbaa !103, !noalias !98
-  %.not1415.i.i164 = icmp eq ptr %.sroa.0447.2, %.sroa.10.2
-  br i1 %.not1415.i.i164, label %._crit_edge.i.i169, label %.lr.ph.i.i165
+  %.not1213.i.i164 = icmp eq ptr %.sroa.0447.2, %.sroa.10.2
+  br i1 %.not1213.i.i164, label %._crit_edge.i.i169, label %.lr.ph.i.i165
 
 320:                                              ; preds = %.lr.ph.i.i165
-  %321 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i.i166, i64 8
-  %.not14.i.i168 = icmp eq ptr %321, %.sroa.10.2
-  br i1 %.not14.i.i168, label %._crit_edge.i.i169, label %.lr.ph.i.i165
+  %321 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i.i166, i64 8
+  %.not12.i.i168 = icmp eq ptr %321, %.sroa.10.2
+  br i1 %.not12.i.i168, label %._crit_edge.i.i169, label %.lr.ph.i.i165
 
 .lr.ph.i.i165:                                    ; preds = %318, %320
-  %.sroa.06.016.i.i166 = phi ptr [ %321, %320 ], [ %.sroa.0447.2, %318 ]
-  %322 = load ptr, ptr %.sroa.06.016.i.i166, align 8, !tbaa !106, !noalias !98
+  %.sroa.06.014.i.i166 = phi ptr [ %321, %320 ], [ %.sroa.0447.2, %318 ]
+  %322 = load ptr, ptr %.sroa.06.014.i.i166, align 8, !tbaa !106, !noalias !98
   %.not.i.i167 = icmp eq ptr %322, %319
   br i1 %.not.i.i167, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddElementIPKNS_14NamedTransformEEEvRSt6vectorIT_SaIS6_EES6_.exit.i, label %320
 
@@ -5656,17 +5656,17 @@ _ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev14NamedTransformELN9__gnu_cxx12_Lock_
   %53 = load ptr, ptr %5, align 8, !tbaa !103
   %54 = load ptr, ptr %0, align 8, !tbaa !118
   %55 = load ptr, ptr %14, align 8, !tbaa !118
-  %.not1415.i = icmp eq ptr %54, %55
-  br i1 %.not1415.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1213.i = icmp eq ptr %54, %55
+  br i1 %.not1213.i, label %._crit_edge.i, label %.lr.ph.i
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i, i64 8
-  %.not14.i = icmp eq ptr %57, %55
-  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
+  %57 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 8
+  %.not12.i = icmp eq ptr %57, %55
+  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %52, %56
-  %.sroa.06.016.i = phi ptr [ %57, %56 ], [ %54, %52 ]
-  %58 = load ptr, ptr %.sroa.06.016.i, align 8, !tbaa !106
+  %.sroa.06.014.i = phi ptr [ %57, %56 ], [ %54, %52 ]
+  %58 = load ptr, ptr %.sroa.06.014.i, align 8, !tbaa !106
   %.not.i = icmp eq ptr %58, %53
   br i1 %.not.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddElementIPKNS_14NamedTransformEEEvRSt6vectorIT_SaIS6_EES6_.exit, label %56
 
@@ -5968,17 +5968,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %82 = load ptr, ptr %8, align 8, !tbaa !81
   %83 = load ptr, ptr %0, align 8, !tbaa !70
   %84 = load ptr, ptr %19, align 8, !tbaa !70
-  %.not1415.i = icmp eq ptr %83, %84
-  br i1 %.not1415.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1213.i = icmp eq ptr %83, %84
+  br i1 %.not1213.i, label %._crit_edge.i, label %.lr.ph.i
 
 85:                                               ; preds = %.lr.ph.i
-  %86 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i, i64 8
-  %.not14.i = icmp eq ptr %86, %84
-  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 8
+  %.not12.i = icmp eq ptr %86, %84
+  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %81, %85
-  %.sroa.06.016.i = phi ptr [ %86, %85 ], [ %83, %81 ]
-  %87 = load ptr, ptr %.sroa.06.016.i, align 8, !tbaa !76
+  %.sroa.06.014.i = phi ptr [ %86, %85 ], [ %83, %81 ]
+  %87 = load ptr, ptr %.sroa.06.014.i, align 8, !tbaa !76
   %.not.i = icmp eq ptr %87, %82
   br i1 %.not.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddElementIPKNS_10ColorSpaceEEEvRSt6vectorIT_SaIS6_EES6_.exit, label %85
 
@@ -6284,17 +6284,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %83 = load ptr, ptr %7, align 8, !tbaa !103
   %84 = load ptr, ptr %0, align 8, !tbaa !118
   %85 = load ptr, ptr %18, align 8, !tbaa !118
-  %.not1415.i = icmp eq ptr %84, %85
-  br i1 %.not1415.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1213.i = icmp eq ptr %84, %85
+  br i1 %.not1213.i, label %._crit_edge.i, label %.lr.ph.i
 
 86:                                               ; preds = %.lr.ph.i
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.06.016.i, i64 8
-  %.not14.i = icmp eq ptr %87, %85
-  br i1 %.not14.i, label %._crit_edge.i, label %.lr.ph.i
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.06.014.i, i64 8
+  %.not12.i = icmp eq ptr %87, %85
+  br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %82, %86
-  %.sroa.06.016.i = phi ptr [ %87, %86 ], [ %84, %82 ]
-  %88 = load ptr, ptr %.sroa.06.016.i, align 8, !tbaa !106
+  %.sroa.06.014.i = phi ptr [ %87, %86 ], [ %84, %82 ]
+  %88 = load ptr, ptr %.sroa.06.014.i, align 8, !tbaa !106
   %.not.i = icmp eq ptr %88, %83
   br i1 %.not.i, label %_ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110AddElementIPKNS_14NamedTransformEEEvRSt6vectorIT_SaIS6_EES6_.exit, label %86
 

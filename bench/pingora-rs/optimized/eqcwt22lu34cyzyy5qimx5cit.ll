@@ -508,12 +508,12 @@ define void @_ZN13pingora_proxy11proxy_cache12range_filter19range_header_filter1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !61
   store i32 0, ptr %12, align 8, !noalias !61
-  %.sroa.416.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %122, ptr %.sroa.416.0..sroa_idx.i.i, align 8, !noalias !61
-  %.sroa.517.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 %124, ptr %.sroa.517.0..sroa_idx.i.i, align 8, !noalias !61
-  %.sroa.7.0..sroa_idx18.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
-  store i64 0, ptr %.sroa.7.0..sroa_idx18.i.i, align 8, !noalias !61
+  %.sroa.415.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %122, ptr %.sroa.415.0..sroa_idx.i.i, align 8, !noalias !61
+  %.sroa.516.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 16
+  store i64 %124, ptr %.sroa.516.0..sroa_idx.i.i, align 8, !noalias !61
+  %.sroa.7.0..sroa_idx17.i.i = getelementptr inbounds nuw i8, ptr %12, i64 24
+  store i64 0, ptr %.sroa.7.0..sroa_idx17.i.i, align 8, !noalias !61
   %.sroa.9.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 32
   store i64 %124, ptr %.sroa.9.0..sroa_idx.i.i, align 8, !noalias !61
   %.sroa.11.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -762,16 +762,16 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17ha3f2732eb33f7aebE.exit
 
 .noexc14.i.i.i.i:                                 ; preds = %241
   %245 = invoke noundef zeroext i1 @_ZN3std9panicking11panic_count17is_zero_slow_path17h1c1768a2b70327b8E()
-          to label %.noexc12.i.i unwind label %265, !noalias !64
+          to label %.noexc11.i.i unwind label %265, !noalias !64
 
-.noexc12.i.i:                                     ; preds = %.noexc14.i.i.i.i
+.noexc11.i.i:                                     ; preds = %.noexc14.i.i.i.i
   br i1 %245, label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i, label %246
 
-246:                                              ; preds = %.noexc12.i.i
+246:                                              ; preds = %.noexc11.i.i
   store atomic i8 1, ptr %239 monotonic, align 4, !noalias !64
   br label %_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i
 
-_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i: ; preds = %246, %.noexc12.i.i, %241, %234
+_ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i: ; preds = %246, %.noexc11.i.i, %241, %234
   %247 = atomicrmw xchg ptr %222, i32 0 release, align 4, !noalias !64
   %248 = icmp eq i32 %247, 2
   br i1 %248, label %249, label %267, !prof !24
@@ -835,9 +835,9 @@ _ZN3std4sync6poison4Flag4done17h5bd12da882ef54a3E.exit.i.i.i.i.i.i: ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !83
   store ptr null, ptr %7, align 8, !noalias !83
   invoke void @_ZN4core9panicking13assert_failed17h77d57c61d0ad0ecdE(i8 noundef 1, ptr noalias noundef readonly align 8 dereferenceable(8) @_ZN14regex_automata4util4pool5inner17THREAD_ID_DROPPED17h83a1099d3d0e26f7E, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %8, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a917942bd3acd054fb2ddfbeece15c73.6) #18
-          to label %.noexc14.i.i unwind label %265, !noalias !64
+          to label %.noexc13.i.i unwind label %265, !noalias !64
 
-.noexc14.i.i:                                     ; preds = %.noexc5.i.i.i
+.noexc13.i.i:                                     ; preds = %.noexc5.i.i.i
   unreachable
 
 .noexc6.i.i.i:                                    ; preds = %188

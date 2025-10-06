@@ -897,7 +897,7 @@ define void @_ZN6icu_779SpoofImpl17setAllowedLocalesEPKcR10UErrorCode(ptr nounde
   store ptr %41, ptr %38, align 8, !tbaa !22
   %43 = call noundef ptr @_ZN6icu_777UMemorynwEm(i64 noundef 200) #21
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %.thread83, label %45
+  br i1 %44, label %.thread82, label %45
 
 45:                                               ; preds = %42
   invoke void @_ZN6icu_7710UnicodeSetC1Eii(ptr noundef nonnull align 8 dereferenceable(200) %43, i32 noundef 0, i32 noundef 1114111)
@@ -906,9 +906,9 @@ define void @_ZN6icu_779SpoofImpl17setAllowedLocalesEPKcR10UErrorCode(ptr nounde
 46:                                               ; preds = %45
   %47 = load ptr, ptr %38, align 8, !tbaa !22
   %48 = icmp eq ptr %47, null
-  br i1 %48, label %.thread83, label %53
+  br i1 %48, label %.thread82, label %53
 
-.thread83:                                        ; preds = %42, %46
+.thread82:                                        ; preds = %42, %46
   store i32 7, ptr %2, align 4, !tbaa !19
   br label %104
 
@@ -1040,7 +1040,7 @@ define void @_ZN6icu_779SpoofImpl17setAllowedLocalesEPKcR10UErrorCode(ptr nounde
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %104
 
-104:                                              ; preds = %103, %60, %.thread83
+104:                                              ; preds = %103, %60, %.thread82
   call void @_ZN6icu_7710UnicodeSetD1Ev(ptr noundef nonnull align 8 dereferenceable(200) %4) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void

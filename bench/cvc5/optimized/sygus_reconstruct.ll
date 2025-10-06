@@ -6313,8 +6313,8 @@ _ZNSt10_HashtableIN4cvc58internal8TypeNodeESt4pairIKS2_St13unordered_setINS1_12N
   %1404 = load i64, ptr %1393, align 8, !tbaa !409
   %1405 = urem i64 %1403, %1404
   %1406 = load i64, ptr %1391, align 8, !tbaa !412
-  %.not32.i = icmp eq i64 %1406, 0
-  br i1 %.not32.i, label %.critedge.i, label %1407
+  %.not30.i = icmp eq i64 %1406, 0
+  br i1 %.not30.i, label %.critedge.i, label %1407
 
 1407:                                             ; preds = %.noexc372
   %1408 = load ptr, ptr %.1.i360, align 8, !tbaa !408
@@ -8515,8 +8515,8 @@ _ZNSt10_HashtableIN4cvc58internal8TypeNodeESt4pairIKS2_St13unordered_setINS1_12N
   %855 = load i64, ptr %844, align 8, !tbaa !409
   %856 = urem i64 %854, %855
   %857 = load i64, ptr %842, align 8, !tbaa !412
-  %.not32.i = icmp eq i64 %857, 0
-  br i1 %.not32.i, label %.critedge.i, label %858
+  %.not30.i = icmp eq i64 %857, 0
+  br i1 %.not30.i, label %.critedge.i, label %858
 
 858:                                              ; preds = %.noexc357
   %859 = load ptr, ptr %.1.i345, align 8, !tbaa !408
@@ -10036,8 +10036,8 @@ _ZNSt10_HashtableIN4cvc58internal8TypeNodeESt4pairIKS2_St13unordered_setINS1_12N
   %1513 = load i64, ptr %1502, align 8, !tbaa !409
   %1514 = urem i64 %1512, %1513
   %1515 = load i64, ptr %1500, align 8, !tbaa !412
-  %.not32.i450 = icmp eq i64 %1515, 0
-  br i1 %.not32.i450, label %.critedge.i457, label %1516
+  %.not30.i450 = icmp eq i64 %1515, 0
+  br i1 %.not30.i450, label %.critedge.i457, label %1516
 
 1516:                                             ; preds = %.noexc466
   %1517 = load ptr, ptr %.1.i442, align 8, !tbaa !408
@@ -22296,8 +22296,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %18 = load i64, ptr %17, align 8, !tbaa !71
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !449
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !70

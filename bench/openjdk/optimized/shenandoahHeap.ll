@@ -3143,9 +3143,9 @@ define hidden void @_ZN14ShenandoahHeap11op_uncommitEdm(ptr noundef nonnull alig
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 416
   br label %10
 
-10:                                               ; preds = %.lr.ph, %37
-  %.01217 = phi i64 [ 0, %.lr.ph ], [ %.2, %37 ]
-  %.01316 = phi i64 [ %5, %.lr.ph ], [ %11, %37 ]
+10:                                               ; preds = %.lr.ph, %38
+  %.01217 = phi i64 [ 0, %.lr.ph ], [ %.2, %38 ]
+  %.01316 = phi i64 [ %5, %.lr.ph ], [ %11, %38 ]
   %11 = add i64 %.01316, -1
   %12 = load i64, ptr %4, align 8
   %13 = icmp ult i64 %11, %12
@@ -3162,13 +3162,13 @@ _ZNK14ShenandoahHeap10get_regionEm.exit:          ; preds = %10, %14
   %18 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = icmp eq i32 %19, 1
-  br i1 %20, label %21, label %37
+  br i1 %20, label %21, label %38
 
 21:                                               ; preds = %_ZNK14ShenandoahHeap10get_regionEm.exit
   %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %23 = load double, ptr %22, align 8
   %24 = fcmp olt double %23, %1
-  br i1 %24, label %25, label %37
+  br i1 %24, label %25, label %38
 
 25:                                               ; preds = %21
   %26 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %7) #26, !srcloc !11
@@ -3198,38 +3198,38 @@ _ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit:  ; preds = %25, %27
 
 _ZN16ShenandoahLockerD2Ev.exit:                   ; preds = %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit, %35, %30
   %.4 = phi i64 [ %.01217, %30 ], [ %36, %35 ], [ %.01217, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit ]
-  %switch = phi i1 [ false, %30 ], [ true, %35 ], [ true, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit ]
+  %37 = phi i1 [ false, %30 ], [ true, %35 ], [ true, %_ZN16ShenandoahLockerC2EP14ShenandoahLockb.exit ]
   tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !13
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   store volatile i32 0, ptr %7, align 8
-  br i1 %switch, label %37, label %_ZN16ShenandoahLockerD2Ev.exit._crit_edge
+  br i1 %37, label %38, label %_ZN16ShenandoahLockerD2Ev.exit._crit_edge
 
-37:                                               ; preds = %_ZN16ShenandoahLockerD2Ev.exit, %21, %_ZNK14ShenandoahHeap10get_regionEm.exit
+38:                                               ; preds = %_ZN16ShenandoahLockerD2Ev.exit, %21, %_ZNK14ShenandoahHeap10get_regionEm.exit
   %.2 = phi i64 [ %.4, %_ZN16ShenandoahLockerD2Ev.exit ], [ %.01217, %21 ], [ %.01217, %_ZNK14ShenandoahHeap10get_regionEm.exit ]
-  %38 = tail call i32 @SpinPause() #26
+  %39 = tail call i32 @SpinPause() #26
   %.not = icmp eq i64 %11, 0
   br i1 %.not, label %_ZN16ShenandoahLockerD2Ev.exit._crit_edge, label %10, !llvm.loop !19
 
-_ZN16ShenandoahLockerD2Ev.exit._crit_edge:        ; preds = %37, %_ZN16ShenandoahLockerD2Ev.exit
-  %.1.ph = phi i64 [ %.2, %37 ], [ %.4, %_ZN16ShenandoahLockerD2Ev.exit ]
-  %39 = icmp eq i64 %.1.ph, 0
-  br i1 %39, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, label %40
+_ZN16ShenandoahLockerD2Ev.exit._crit_edge:        ; preds = %38, %_ZN16ShenandoahLockerD2Ev.exit
+  %.1.ph = phi i64 [ %.2, %38 ], [ %.4, %_ZN16ShenandoahLockerD2Ev.exit ]
+  %40 = icmp eq i64 %.1.ph, 0
+  br i1 %40, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, label %41
 
-40:                                               ; preds = %_ZN16ShenandoahLockerD2Ev.exit._crit_edge
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %42 = load ptr, ptr %41, align 8
-  tail call void @_ZN27ShenandoahMonitoringSupport19notify_heap_changedEv(ptr noundef nonnull align 8 dereferenceable(336) %42) #26
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 898
-  %44 = load volatile i8, ptr %43, align 2
+41:                                               ; preds = %_ZN16ShenandoahLockerD2Ev.exit._crit_edge
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 1688
+  %43 = load ptr, ptr %42, align 8
+  tail call void @_ZN27ShenandoahMonitoringSupport19notify_heap_changedEv(ptr noundef nonnull align 8 dereferenceable(336) %43) #26
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 898
+  %45 = load volatile i8, ptr %44, align 2
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  %45 = icmp eq i8 %44, 1
-  br i1 %45, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, label %46
+  %46 = icmp eq i8 %45, 1
+  br i1 %46, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, label %47
 
-46:                                               ; preds = %40
-  %47 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 1, i8 0, ptr nonnull %43) #26, !srcloc !20
+47:                                               ; preds = %41
+  %48 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 1, i8 0, ptr nonnull %44) #26, !srcloc !20
   br label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
 
-_ZN14ShenandoahHeap19notify_heap_changedEv.exit:  ; preds = %3, %46, %40, %_ZN16ShenandoahLockerD2Ev.exit._crit_edge
+_ZN14ShenandoahHeap19notify_heap_changedEv.exit:  ; preds = %3, %47, %41, %_ZN16ShenandoahLockerD2Ev.exit._crit_edge
   ret void
 }
 
@@ -3631,7 +3631,7 @@ _ZN22ShenandoahAllocRequest12is_lab_allocEv.exit: ; preds = %.thread, %.thread
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 1624
   %55 = load ptr, ptr %54, align 8
   call void @_ZN20ShenandoahController20handle_alloc_failureER22ShenandoahAllocRequestb(ptr noundef nonnull align 8 dereferenceable(1728) %55, ptr noundef nonnull align 8 dereferenceable(28) %1, i1 noundef zeroext false) #26
-  br label %170
+  br label %171
 
 _ZN22ShenandoahAllocRequest12is_lab_allocEv.exit.thread: ; preds = %.thread, %.thread, %_ZN22ShenandoahAllocRequest12is_lab_allocEv.exit
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 1632
@@ -3764,119 +3764,119 @@ _ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit
 
 _ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit: ; preds = %2, %2
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %switch = icmp eq i32 %5, 2
-  br i1 %switch, label %120, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47
+  %120 = icmp eq i32 %5, 2
+  br i1 %120, label %121, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47
 
-120:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit
-  %121 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
-  %122 = icmp eq i32 %121, 1
-  br i1 %122, label %125, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47
+121:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit
+  %122 = load volatile i32, ptr @_ZN20SafepointSynchronize6_stateE, align 4
+  %123 = icmp eq i32 %122, 1
+  br i1 %123, label %126, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47
 
-_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47: ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit, %120
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %124 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %123) #26, !srcloc !11
-  %.not.i.i.i49 = icmp eq i32 %124, 0
-  br i1 %.not.i.i.i49, label %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit51, label %125
+_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47: ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit, %121
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %125 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %124) #26, !srcloc !11
+  %.not.i.i.i49 = icmp eq i32 %125, 0
+  br i1 %.not.i.i.i49, label %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit51, label %126
 
-125:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47, %120
-  tail call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %119, i1 noundef zeroext %switch) #26
+126:                                              ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47, %121
+  tail call void @_ZN14ShenandoahLock14contended_lockEb(ptr noundef nonnull align 8 dereferenceable(208) %119, i1 noundef zeroext %120) #26
   br label %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit51
 
-_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit51: ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47, %125
-  %126 = getelementptr inbounds nuw i8, ptr %0, i64 1656
-  %127 = load ptr, ptr %126, align 8
-  %128 = call noundef ptr @_ZN17ShenandoahFreeSet8allocateER22ShenandoahAllocRequestRb(ptr noundef nonnull align 8 dereferenceable(224) %127, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 1 dereferenceable(1) %3) #26
+_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit51: ; preds = %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit.i47, %126
+  %127 = getelementptr inbounds nuw i8, ptr %0, i64 1656
+  %128 = load ptr, ptr %127, align 8
+  %129 = call noundef ptr @_ZN17ShenandoahFreeSet8allocateER22ShenandoahAllocRequestRb(ptr noundef nonnull align 8 dereferenceable(224) %128, ptr noundef nonnull align 8 dereferenceable(28) %1, ptr noundef nonnull align 1 dereferenceable(1) %3) #26
   call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !13
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  %129 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store volatile i32 0, ptr %129, align 8
+  %130 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store volatile i32 0, ptr %130, align 8
   br label %.critedge39
 
 .critedge39:                                      ; preds = %118, %116, %40, %.critedge, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit51
-  %.2 = phi ptr [ %.13471, %.critedge ], [ %128, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit51 ], [ %43, %40 ], [ %.13471, %116 ], [ %.13471, %118 ]
+  %.2 = phi ptr [ %.13471, %.critedge ], [ %129, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit51 ], [ %43, %40 ], [ %.13471, %116 ], [ %.13471, %118 ]
   %.1 = phi i64 [ %.032, %.critedge ], [ 0, %_ZN14ShenandoahHeap26allocate_memory_under_lockER22ShenandoahAllocRequestRb.exit51 ], [ %.032, %40 ], [ %.032, %116 ], [ %.032, %118 ]
-  %130 = load i8, ptr %3, align 1
-  %131 = trunc i8 %130 to i1
-  br i1 %131, label %132, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
+  %131 = load i8, ptr %3, align 1
+  %132 = trunc i8 %131 to i1
+  br i1 %132, label %133, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
 
-132:                                              ; preds = %.critedge39
-  %133 = getelementptr inbounds nuw i8, ptr %0, i64 1688
-  %134 = load ptr, ptr %133, align 8
-  call void @_ZN27ShenandoahMonitoringSupport19notify_heap_changedEv(ptr noundef nonnull align 8 dereferenceable(336) %134) #26
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 898
-  %136 = load volatile i8, ptr %135, align 2
+133:                                              ; preds = %.critedge39
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 1688
+  %135 = load ptr, ptr %134, align 8
+  call void @_ZN27ShenandoahMonitoringSupport19notify_heap_changedEv(ptr noundef nonnull align 8 dereferenceable(336) %135) #26
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 898
+  %137 = load volatile i8, ptr %136, align 2
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  %137 = icmp eq i8 %136, 1
-  br i1 %137, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, label %138
+  %138 = icmp eq i8 %137, 1
+  br i1 %138, label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, label %139
 
-138:                                              ; preds = %132
-  %139 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 1, i8 0, ptr nonnull %135) #26, !srcloc !20
+139:                                              ; preds = %133
+  %140 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 1, i8 0, ptr nonnull %136) #26, !srcloc !20
   br label %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
 
-_ZN14ShenandoahHeap19notify_heap_changedEv.exit:  ; preds = %138, %132, %.critedge39
+_ZN14ShenandoahHeap19notify_heap_changedEv.exit:  ; preds = %139, %133, %.critedge39
   %.not37 = icmp eq ptr %.2, null
-  br i1 %.not37, label %170, label %140
+  br i1 %.not37, label %171, label %141
 
-140:                                              ; preds = %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %142 = load i64, ptr %141, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %144 = load i64, ptr %143, align 8
-  %145 = load i32, ptr %4, align 8
-  switch i32 %145, label %146 [
-    i32 2, label %148
-    i32 0, label %148
+141:                                              ; preds = %_ZN14ShenandoahHeap19notify_heap_changedEv.exit
+  %142 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %143 = load i64, ptr %142, align 8
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %145 = load i64, ptr %144, align 8
+  %146 = load i32, ptr %4, align 8
+  switch i32 %146, label %147 [
+    i32 2, label %149
+    i32 0, label %149
     i32 3, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53
     i32 1, label %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53
   ]
 
-146:                                              ; preds = %140
-  %147 = load ptr, ptr @g_assert_poison, align 8
-  store i8 88, ptr %147, align 1
+147:                                              ; preds = %141
+  %148 = load ptr, ptr @g_assert_poison, align 8
+  store i8 88, ptr %148, align 1
   call void @_Z28report_should_not_reach_herePKci(ptr noundef nonnull @.str.98, i32 noundef 129) #27
   unreachable
 
-148:                                              ; preds = %140, %140
-  %149 = shl i64 %144, 3
-  %150 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %151 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %149, ptr nonnull %150) #26, !srcloc !17
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %153 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %149, ptr nonnull %152) #26, !srcloc !17
-  %154 = load i8, ptr @ShenandoahPacing, align 1
-  %155 = trunc i8 %154 to i1
-  br i1 %155, label %156, label %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
+149:                                              ; preds = %141, %141
+  %150 = shl i64 %145, 3
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %152 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %150, ptr nonnull %151) #26, !srcloc !17
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 424
+  %154 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %150, ptr nonnull %153) #26, !srcloc !17
+  %155 = load i8, ptr @ShenandoahPacing, align 1
+  %156 = trunc i8 %155 to i1
+  br i1 %156, label %157, label %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
 
-156:                                              ; preds = %148
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 1624
-  %158 = load ptr, ptr %157, align 8
-  call void @_ZN20ShenandoahController19pacing_notify_allocEm(ptr noundef nonnull align 8 dereferenceable(1728) %158, i64 noundef %144) #26
+157:                                              ; preds = %149
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 1624
+  %159 = load ptr, ptr %158, align 8
+  call void @_ZN20ShenandoahController19pacing_notify_allocEm(ptr noundef nonnull align 8 dereferenceable(1728) %159, i64 noundef %145) #26
   %.pre = load i8, ptr @ShenandoahPacing, align 1
   br label %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
 
-_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit: ; preds = %148, %156
-  %159 = phi i8 [ %154, %148 ], [ %.pre, %156 ]
-  %160 = trunc i8 %159 to i1
-  %161 = icmp sgt i64 %.1, 0
-  %or.cond = and i1 %161, %160
-  %162 = icmp ugt i64 %142, %144
-  %or.cond40 = and i1 %162, %or.cond
-  br i1 %or.cond40, label %163, label %170
+_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit: ; preds = %149, %157
+  %160 = phi i8 [ %155, %149 ], [ %.pre, %157 ]
+  %161 = trunc i8 %160 to i1
+  %162 = icmp sgt i64 %.1, 0
+  %or.cond = and i1 %162, %161
+  %163 = icmp ugt i64 %143, %145
+  %or.cond40 = and i1 %163, %or.cond
+  br i1 %or.cond40, label %164, label %171
 
-163:                                              ; preds = %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
-  %164 = getelementptr inbounds nuw i8, ptr %0, i64 1664
-  %165 = load ptr, ptr %164, align 8
-  %166 = sub nuw i64 %142, %144
-  call void @_ZN15ShenandoahPacer16unpace_for_allocElm(ptr noundef nonnull align 8 dereferenceable(480) %165, i64 noundef %.1, i64 noundef %166) #26
-  br label %170
+164:                                              ; preds = %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 1664
+  %166 = load ptr, ptr %165, align 8
+  %167 = sub nuw i64 %143, %145
+  call void @_ZN15ShenandoahPacer16unpace_for_allocElm(ptr noundef nonnull align 8 dereferenceable(480) %166, i64 noundef %.1, i64 noundef %167) #26
+  br label %171
 
-_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53: ; preds = %140, %140
-  %167 = shl i64 %144, 3
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %169 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %167, ptr nonnull %168) #26, !srcloc !17
-  br label %170
+_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53: ; preds = %141, %141
+  %168 = shl i64 %145, 3
+  %169 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %170 = call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %168, ptr nonnull %169) #26, !srcloc !17
+  br label %171
 
-170:                                              ; preds = %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit, %163, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53, %53
-  %.0 = phi ptr [ null, %53 ], [ %.2, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53 ], [ %.2, %163 ], [ %.2, %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit ], [ null, %_ZN14ShenandoahHeap19notify_heap_changedEv.exit ]
+171:                                              ; preds = %_ZN14ShenandoahHeap19notify_heap_changedEv.exit, %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit, %164, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53, %53
+  %.0 = phi ptr [ null, %53 ], [ %.2, %_ZN22ShenandoahAllocRequest16is_mutator_allocEv.exit53 ], [ %.2, %164 ], [ %.2, %_ZN14ShenandoahHeap26notify_mutator_alloc_wordsEmb.exit ], [ null, %_ZN14ShenandoahHeap19notify_heap_changedEv.exit ]
   ret ptr %.0
 }
 
@@ -10274,12 +10274,11 @@ define linkonce_odr hidden void @_ZN32ShenandoahParallelObjectIterator23object_i
   %53 = load volatile i32, ptr %25, align 8
   %54 = sub i32 %47, %53
   %55 = and i32 %54, 131071
-  switch i32 %55, label %.critedge [
-    i32 131071, label %56
-    i32 0, label %56
-  ]
+  %.off.i.i = add nsw i32 %55, -1
+  %switch.i.i = icmp ult i32 %.off.i.i, 131070
+  br i1 %switch.i.i, label %.critedge, label %56
 
-56:                                               ; preds = %46, %46
+56:                                               ; preds = %46
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   %57 = load volatile i64, ptr %25, align 8
   %.sroa.016.0.extract.trunc.i.i.i = trunc i64 %57 to i32
@@ -10854,10 +10853,10 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 512
   %14 = load i32, ptr %13, align 8
-  %.not60 = icmp eq i32 %14, -1
+  %.not64 = icmp eq i32 %14, -1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 516
   %.pre = load i32, ptr %15, align 4
-  br i1 %.not60, label %.preheader, label %.loopexit
+  br i1 %.not64, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %12, %.preheader
   %16 = phi i32 [ %.0.i.i, %.preheader ], [ %.pre, %12 ]
@@ -10876,13 +10875,13 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   br i1 %25, label %.preheader, label %.loopexit, !llvm.loop !70
 
 .loopexit:                                        ; preds = %.preheader, %12
-  %.pre62 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
+  %.pre66 = phi i32 [ %.pre, %12 ], [ %.0.i.i, %.preheader ]
   %.034 = phi i32 [ %14, %12 ], [ %24, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %8, i64 516
   br label %27
 
 27:                                               ; preds = %.loopexit, %27
-  %28 = phi i32 [ %.pre62, %.loopexit ], [ %.0.i.i41, %27 ]
+  %28 = phi i32 [ %.pre66, %.loopexit ], [ %.0.i.i41, %27 ]
   %29 = sdiv i32 %28, 127773
   %30 = srem i32 %28, 127773
   %31 = mul nsw i32 %30, 16807
@@ -10934,10 +10933,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   %68 = sub i32 %67, %.sroa.010.0.extract.trunc.i
   %69 = and i32 %68, 131071
-  switch i32 %69, label %70 [
-    i32 131071, label %100
-    i32 0, label %100
-  ]
+  %.off.i = add nsw i32 %69, -1
+  %switch.i = icmp ult i32 %.off.i, 131070
+  br i1 %switch.i, label %70, label %100
 
 70:                                               ; preds = %65
   %71 = getelementptr inbounds nuw i8, ptr %55, i64 384
@@ -10970,10 +10968,9 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   %86 = sub i32 %85, %.sroa.010.0.extract.trunc.i42
   %87 = and i32 %86, 131071
-  switch i32 %87, label %88 [
-    i32 131071, label %100
-    i32 0, label %100
-  ]
+  %.off.i43 = add nsw i32 %87, -1
+  %switch.i44 = icmp ult i32 %.off.i43, 131070
+  br i1 %switch.i44, label %88, label %100
 
 88:                                               ; preds = %83
   %89 = getelementptr inbounds nuw i8, ptr %44, i64 384
@@ -10983,30 +10980,30 @@ define linkonce_odr hidden noundef i32 @_ZN19GenericTaskQueueSetI6PaddedI25Buffe
   %93 = load i64, ptr %92, align 8
   store i64 %93, ptr %2, align 8
   %94 = add i64 %84, 1
-  %.sroa.09.0.insert.ext.i44 = and i64 %94, 131071
+  %.sroa.09.0.insert.ext.i46 = and i64 %94, 131071
   %95 = and i32 %.sroa.010.0.extract.trunc.i42, 131071
   %96 = icmp eq i32 %95, 131071
   %97 = select i1 %96, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i45 = add i64 %97, %84
-  %.sroa.3.0.insert.ext.i46 = and i64 %.sroa.6.0.extract.shift21.i45, -4294967296
-  %.sroa.09.0.insert.insert.i47 = or disjoint i64 %.sroa.3.0.insert.ext.i46, %.sroa.09.0.insert.ext.i44
-  %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i47, i64 %84, ptr nonnull %47) #26, !srcloc !37
+  %.sroa.6.0.extract.shift21.i47 = add i64 %97, %84
+  %.sroa.3.0.insert.ext.i48 = and i64 %.sroa.6.0.extract.shift21.i47, -4294967296
+  %.sroa.09.0.insert.insert.i49 = or disjoint i64 %.sroa.3.0.insert.ext.i48, %.sroa.09.0.insert.ext.i46
+  %98 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i49, i64 %84, ptr nonnull %47) #26, !srcloc !37
   %99 = icmp eq i64 %98, %84
   br i1 %99, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, label %100
 
 _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit: ; preds = %88, %70
   %.036 = phi i32 [ %36, %70 ], [ %.034, %88 ]
   store i32 %.036, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
-100:                                              ; preds = %82, %70, %65, %65, %88, %83, %83
-  %.035.ph = phi i32 [ 0, %83 ], [ 0, %83 ], [ 1, %88 ], [ 0, %65 ], [ 0, %65 ], [ 1, %70 ], [ 0, %82 ]
+100:                                              ; preds = %82, %70, %65, %88, %83
+  %.035.ph = phi i32 [ 0, %83 ], [ 1, %88 ], [ 0, %65 ], [ 1, %70 ], [ 0, %82 ]
   store i32 -1, ptr %13, align 8
-  br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
 101:                                              ; preds = %3
   %102 = icmp eq i32 %10, 2
-  br i1 %102, label %103, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br i1 %102, label %103, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
 103:                                              ; preds = %101
   %104 = and i32 %1, 1
@@ -11016,17 +11013,16 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0
   %108 = load ptr, ptr %107, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 256
   %110 = load volatile i64, ptr %109, align 8
-  %.sroa.010.0.extract.trunc.i49 = trunc i64 %110 to i32
+  %.sroa.010.0.extract.trunc.i51 = trunc i64 %110 to i32
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 128
   %112 = load volatile i32, ptr %111, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #26, !srcloc !14
-  %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i49
+  %113 = sub i32 %112, %.sroa.010.0.extract.trunc.i51
   %114 = and i32 %113, 131071
-  switch i32 %114, label %115 [
-    i32 131071, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
-    i32 0, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
-  ]
+  %.off.i52 = add nsw i32 %114, -1
+  %switch.i53 = icmp ult i32 %.off.i52, 131070
+  br i1 %switch.i53, label %115, label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
 115:                                              ; preds = %103
   %116 = getelementptr inbounds nuw i8, ptr %108, i64 384
@@ -11036,20 +11032,20 @@ _ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0
   %120 = load i64, ptr %119, align 8
   store i64 %120, ptr %2, align 8
   %121 = add i64 %110, 1
-  %.sroa.09.0.insert.ext.i51 = and i64 %121, 131071
-  %122 = and i32 %.sroa.010.0.extract.trunc.i49, 131071
+  %.sroa.09.0.insert.ext.i55 = and i64 %121, 131071
+  %122 = and i32 %.sroa.010.0.extract.trunc.i51, 131071
   %123 = icmp eq i32 %122, 131071
   %124 = select i1 %123, i64 4294967296, i64 0
-  %.sroa.6.0.extract.shift21.i52 = add i64 %124, %110
-  %.sroa.3.0.insert.ext.i53 = and i64 %.sroa.6.0.extract.shift21.i52, -4294967296
-  %.sroa.09.0.insert.insert.i54 = or disjoint i64 %.sroa.3.0.insert.ext.i53, %.sroa.09.0.insert.ext.i51
-  %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i54, i64 %110, ptr nonnull %109) #26, !srcloc !37
+  %.sroa.6.0.extract.shift21.i56 = add i64 %124, %110
+  %.sroa.3.0.insert.ext.i57 = and i64 %.sroa.6.0.extract.shift21.i56, -4294967296
+  %.sroa.09.0.insert.insert.i58 = or disjoint i64 %.sroa.3.0.insert.ext.i57, %.sroa.09.0.insert.ext.i55
+  %125 = tail call noundef i64 asm sideeffect "lock cmpxchgq $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %.sroa.09.0.insert.insert.i58, i64 %110, ptr nonnull %109) #26, !srcloc !37
   %126 = icmp eq i64 %125, %110
   %127 = select i1 %126, i32 2, i32 1
-  br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55
+  br label %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59
 
-_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit55: ; preds = %115, %103, %103, %101, %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, %100
-  %.0 = phi i32 [ %.035.ph, %100 ], [ 2, %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit ], [ 0, %101 ], [ %127, %115 ], [ 0, %103 ], [ 0, %103 ]
+_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit59: ; preds = %115, %103, %101, %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit, %100
+  %.0 = phi i32 [ %.035.ph, %100 ], [ 2, %_ZN16GenericTaskQueueI18ShenandoahMarkTaskL8MEMFLAGS5ELj131072EE10pop_globalERS0_.exit ], [ 0, %101 ], [ %127, %115 ], [ 0, %103 ]
   ret i32 %.0
 }
 

@@ -463,8 +463,8 @@ declare void @av_freep(ptr noundef) local_unnamed_addr #3
 define i32 @ff_find_stream_index(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %4 = load i32, ptr %3, align 4, !tbaa !54
-  %.not10.not = icmp eq i32 %4, 0
-  br i1 %.not10.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -479,20 +479,20 @@ define i32 @ff_find_stream_index(ptr noundef readonly captures(none) %0, i32 nou
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !88
   %12 = icmp eq i32 %11, %1
-  br i1 %12, label %._crit_edge.loopexit.split.loop.exit, label %13
+  br i1 %12, label %._crit_edge.loopexit.split.loop.exit15, label %13
 
 13:                                               ; preds = %7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !89
 
-._crit_edge.loopexit.split.loop.exit:             ; preds = %7
+._crit_edge.loopexit.split.loop.exit15:           ; preds = %7
   %14 = trunc nuw i64 %indvars.iv to i32
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %13, %._crit_edge.loopexit.split.loop.exit, %2
-  %spec.select = phi i32 [ -1, %2 ], [ %14, %._crit_edge.loopexit.split.loop.exit ], [ -1, %13 ]
-  ret i32 %spec.select
+._crit_edge:                                      ; preds = %13, %._crit_edge.loopexit.split.loop.exit15, %2
+  %15 = phi i32 [ -1, %2 ], [ %14, %._crit_edge.loopexit.split.loop.exit15 ], [ -1, %13 ]
+  ret i32 %15
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

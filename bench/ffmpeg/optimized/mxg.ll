@@ -168,11 +168,11 @@ define internal i32 @mxg_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 .preheader.i:                                     ; preds = %86, %64
   %.022.lcssa.i = phi ptr [ %66, %64 ], [ %87, %86 ]
   %70 = icmp ult ptr %.022.lcssa.i, %67
-  br i1 %70, label %.lr.ph42.i, label %mxg_find_startmarker.exit.thread
+  br i1 %70, label %.lr.ph41.i, label %mxg_find_startmarker.exit.thread
 
 .lr.ph.i:                                         ; preds = %64, %86
-  %.02240.i = phi ptr [ %87, %86 ], [ %66, %64 ]
-  %71 = load i32, ptr %.02240.i, align 1
+  %.02239.i = phi ptr [ %87, %86 ], [ %66, %64 ]
+  %71 = load i32, ptr %.02239.i, align 1
   %72 = sub i32 -16843010, %71
   %73 = and i32 %71, -2139062144
   %74 = and i32 %73, %72
@@ -187,75 +187,75 @@ define internal i32 @mxg_read_packet(ptr noundef %0, ptr noundef %1) #0 {
 78:                                               ; preds = %75
   %79 = and i32 %71, 65280
   %80 = icmp eq i32 %79, 65280
-  br i1 %80, label %.thread.loopexit28.split.loop.exit31.i, label %81
+  br i1 %80, label %.thread.loopexit27.split.loop.exit30.i, label %81
 
 81:                                               ; preds = %78
   %82 = and i32 %71, 16711680
   %83 = icmp eq i32 %82, 16711680
-  br i1 %83, label %.thread.loopexit28.split.loop.exit33.i, label %84
+  br i1 %83, label %.thread.loopexit27.split.loop.exit32.i, label %84
 
 84:                                               ; preds = %81
   %85 = icmp ugt i32 %71, -16777217
-  br i1 %85, label %.thread.loopexit28.split.loop.exit35.i, label %86
+  br i1 %85, label %.thread.loopexit27.split.loop.exit34.i, label %86
 
 86:                                               ; preds = %84, %.lr.ph.i
-  %87 = getelementptr inbounds nuw i8, ptr %.02240.i, i64 4
+  %87 = getelementptr inbounds nuw i8, ptr %.02239.i, i64 4
   %88 = icmp ult ptr %87, %68
   br i1 %88, label %.lr.ph.i, label %.preheader.i, !llvm.loop !50
 
-.lr.ph42.i:                                       ; preds = %.preheader.i, %91
-  %.12341.i = phi ptr [ %92, %91 ], [ %.022.lcssa.i, %.preheader.i ]
-  %89 = load i8, ptr %.12341.i, align 1, !tbaa !36
+.lr.ph41.i:                                       ; preds = %.preheader.i, %91
+  %.12340.i = phi ptr [ %92, %91 ], [ %.022.lcssa.i, %.preheader.i ]
+  %89 = load i8, ptr %.12340.i, align 1, !tbaa !36
   %90 = icmp eq i8 %89, -1
   br i1 %90, label %mxg_find_startmarker.exit, label %91
 
-91:                                               ; preds = %.lr.ph42.i
-  %92 = getelementptr inbounds nuw i8, ptr %.12341.i, i64 1
+91:                                               ; preds = %.lr.ph41.i
+  %92 = getelementptr inbounds nuw i8, ptr %.12340.i, i64 1
   %exitcond.not.i = icmp eq ptr %92, %67
-  br i1 %exitcond.not.i, label %mxg_find_startmarker.exit.thread, label %.lr.ph42.i, !llvm.loop !52
+  br i1 %exitcond.not.i, label %mxg_find_startmarker.exit.thread, label %.lr.ph41.i, !llvm.loop !52
 
-.thread.loopexit28.split.loop.exit31.i:           ; preds = %78
-  %93 = getelementptr inbounds nuw i8, ptr %.02240.i, i64 1
+.thread.loopexit27.split.loop.exit30.i:           ; preds = %78
+  %93 = getelementptr inbounds nuw i8, ptr %.02239.i, i64 1
   br label %mxg_find_startmarker.exit
 
-.thread.loopexit28.split.loop.exit33.i:           ; preds = %81
-  %94 = getelementptr inbounds nuw i8, ptr %.02240.i, i64 2
+.thread.loopexit27.split.loop.exit32.i:           ; preds = %81
+  %94 = getelementptr inbounds nuw i8, ptr %.02239.i, i64 2
   br label %mxg_find_startmarker.exit
 
-.thread.loopexit28.split.loop.exit35.i:           ; preds = %84
-  %95 = getelementptr inbounds nuw i8, ptr %.02240.i, i64 3
+.thread.loopexit27.split.loop.exit34.i:           ; preds = %84
+  %95 = getelementptr inbounds nuw i8, ptr %.02239.i, i64 3
   br label %mxg_find_startmarker.exit
 
 .preheader.i138:                                  ; preds = %57
   %.not163 = icmp eq i32 %.pr, 0
-  br i1 %.not163, label %.critedge, label %.lr.ph42.i141
+  br i1 %.not163, label %.critedge, label %.lr.ph41.i141
 
-.lr.ph42.i141:                                    ; preds = %.preheader.i138, %98
-  %.12341.i142 = phi ptr [ %99, %98 ], [ %60, %.preheader.i138 ]
-  %96 = load i8, ptr %.12341.i142, align 1, !tbaa !36
+.lr.ph41.i141:                                    ; preds = %.preheader.i138, %98
+  %.12340.i142 = phi ptr [ %99, %98 ], [ %60, %.preheader.i138 ]
+  %96 = load i8, ptr %.12340.i142, align 1, !tbaa !36
   %97 = icmp eq i8 %96, -1
   br i1 %97, label %mxg_find_startmarker.exit150, label %98
 
-98:                                               ; preds = %.lr.ph42.i141
-  %99 = getelementptr inbounds nuw i8, ptr %.12341.i142, i64 1
+98:                                               ; preds = %.lr.ph41.i141
+  %99 = getelementptr inbounds nuw i8, ptr %.12340.i142, i64 1
   %exitcond.not.i143 = icmp eq ptr %99, %62
-  br i1 %exitcond.not.i143, label %.critedge, label %.lr.ph42.i141, !llvm.loop !52
+  br i1 %exitcond.not.i143, label %.critedge, label %.lr.ph41.i141, !llvm.loop !52
 
-mxg_find_startmarker.exit150:                     ; preds = %.lr.ph42.i141
+mxg_find_startmarker.exit150:                     ; preds = %.lr.ph41.i141
   %100 = getelementptr inbounds i8, ptr %62, i64 -1
-  %.not129 = icmp ult ptr %.12341.i142, %100
+  %.not129 = icmp ult ptr %.12340.i142, %100
   br i1 %.not129, label %101, label %.critedge
 
 101:                                              ; preds = %mxg_find_startmarker.exit150
-  %102 = getelementptr inbounds nuw i8, ptr %.12341.i142, i64 1
+  %102 = getelementptr inbounds nuw i8, ptr %.12340.i142, i64 1
   %103 = load i8, ptr %102, align 1, !tbaa !36
   %.not130 = icmp eq i8 %103, -39
   br i1 %.not130, label %mxg_find_startmarker.exit, label %.critedge
 
-mxg_find_startmarker.exit:                        ; preds = %75, %.lr.ph42.i, %.thread.loopexit28.split.loop.exit35.i, %.thread.loopexit28.split.loop.exit33.i, %.thread.loopexit28.split.loop.exit31.i, %101
-  %104 = phi ptr [ %62, %101 ], [ %65, %.thread.loopexit28.split.loop.exit31.i ], [ %65, %.thread.loopexit28.split.loop.exit33.i ], [ %65, %.thread.loopexit28.split.loop.exit35.i ], [ %65, %.lr.ph42.i ], [ %65, %75 ]
-  %.0116 = phi ptr [ %.12341.i142, %101 ], [ %93, %.thread.loopexit28.split.loop.exit31.i ], [ %94, %.thread.loopexit28.split.loop.exit33.i ], [ %95, %.thread.loopexit28.split.loop.exit35.i ], [ %.12341.i, %.lr.ph42.i ], [ %.02240.i, %75 ]
-  %.0115 = phi ptr [ %62, %101 ], [ %67, %.thread.loopexit28.split.loop.exit31.i ], [ %67, %.thread.loopexit28.split.loop.exit33.i ], [ %67, %.thread.loopexit28.split.loop.exit35.i ], [ %67, %.lr.ph42.i ], [ %67, %75 ]
+mxg_find_startmarker.exit:                        ; preds = %75, %.lr.ph41.i, %.thread.loopexit27.split.loop.exit34.i, %.thread.loopexit27.split.loop.exit32.i, %.thread.loopexit27.split.loop.exit30.i, %101
+  %104 = phi ptr [ %62, %101 ], [ %65, %.thread.loopexit27.split.loop.exit30.i ], [ %65, %.thread.loopexit27.split.loop.exit32.i ], [ %65, %.thread.loopexit27.split.loop.exit34.i ], [ %65, %.lr.ph41.i ], [ %65, %75 ]
+  %.0116 = phi ptr [ %.12340.i142, %101 ], [ %93, %.thread.loopexit27.split.loop.exit30.i ], [ %94, %.thread.loopexit27.split.loop.exit32.i ], [ %95, %.thread.loopexit27.split.loop.exit34.i ], [ %.12340.i, %.lr.ph41.i ], [ %.02239.i, %75 ]
+  %.0115 = phi ptr [ %62, %101 ], [ %67, %.thread.loopexit27.split.loop.exit30.i ], [ %67, %.thread.loopexit27.split.loop.exit32.i ], [ %67, %.thread.loopexit27.split.loop.exit34.i ], [ %67, %.lr.ph41.i ], [ %67, %75 ]
   %.not131 = icmp eq ptr %.0116, %.0115
   br i1 %.not131, label %mxg_find_startmarker.exit.thread, label %105
 

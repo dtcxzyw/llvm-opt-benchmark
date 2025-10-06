@@ -22459,16 +22459,15 @@ _ZNK9MeshModel9shortNameEv.exit.i:                ; preds = %.noexc43
 108:                                              ; preds = %_ZNSt6vectorIN3vcg8Matrix44IdEESaIS2_EE9push_backEOS2_.exit
   store ptr %100, ptr %12, align 8, !alias.scope !565
   %109 = load atomic i32, ptr %100 monotonic, align 4, !noalias !565
-  switch i32 %109, label %110 [
-    i32 -1, label %_ZNK9MeshModel5labelEv.exit
-    i32 0, label %_ZNK9MeshModel5labelEv.exit
-  ]
+  %.off.i.i.i = add i32 %109, -1
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, -2
+  br i1 %switch.i.i.i, label %110, label %_ZNK9MeshModel5labelEv.exit
 
 110:                                              ; preds = %108
   %111 = atomicrmw add ptr %100, i32 1 seq_cst, align 4, !noalias !565
   br label %_ZNK9MeshModel5labelEv.exit
 
-_ZNK9MeshModel5labelEv.exit:                      ; preds = %110, %108, %108, %_ZNK9MeshModel9shortNameEv.exit.i
+_ZNK9MeshModel5labelEv.exit:                      ; preds = %110, %108, %_ZNK9MeshModel9shortNameEv.exit.i
   invoke void @_ZN7QString13toUtf8_helperERKS_(ptr dead_on_unwind nonnull writable sret(%class.QByteArray) align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %112 unwind label %141
 

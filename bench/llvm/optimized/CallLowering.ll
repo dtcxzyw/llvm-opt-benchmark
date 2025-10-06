@@ -1569,8 +1569,8 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i103: ; preds = %406, %_ZNK4llvm
   %412 = ptrtoint ptr %.0.i.i3.i.i104 to i64
   %413 = sub i64 %.0.i.i1.i.i105, %412
   %414 = and i64 %413, 68719476720
-  %.not14.i = icmp eq i64 %414, 0
-  br i1 %.not14.i, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread, label %.critedge.i.preheader
+  %.not12.i = icmp eq i64 %414, 0
+  br i1 %.not12.i, label %_ZNK4llvm8CallBase16getOperandBundleEj.exit.thread, label %.critedge.i.preheader
 
 .critedge.i.preheader:                            ; preds = %_ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i103
   %415 = lshr exact i64 %413, 4

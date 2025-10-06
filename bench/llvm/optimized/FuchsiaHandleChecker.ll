@@ -1529,17 +1529,17 @@ define internal fastcc noundef nonnull align 8 dereferenceable(176) ptr @_ZN4llv
   %.pre8 = load i64, ptr %.phi.trans.insert7, align 8, !tbaa !12
   br label %5
 
-5:                                                ; preds = %49, %1
-  %.val2.pr11 = phi i32 [ %.val2.pr914, %49 ], [ %.pre5, %1 ]
-  %6 = phi i64 [ %53, %49 ], [ %.pre8, %1 ]
-  %7 = phi ptr [ %.val, %49 ], [ %.pre, %1 ]
+5:                                                ; preds = %50, %1
+  %.val2.pr11 = phi i32 [ %.val2.pr914, %50 ], [ %.pre5, %1 ]
+  %6 = phi i64 [ %54, %50 ], [ %.pre8, %1 ]
+  %7 = phi ptr [ %.val, %50 ], [ %.pre, %1 ]
   %8 = zext i32 %.val2.pr11 to i64
   %9 = getelementptr inbounds nuw i64, ptr %7, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 -8
   %11 = and i64 %6, -4
   %12 = inttoptr i64 %11 to ptr
   %13 = and i64 %6, 3
-  switch i64 %13, label %48 [
+  switch i64 %13, label %49 [
     i64 0, label %14
     i64 1, label %27
     i64 3, label %40
@@ -1627,32 +1627,32 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExp
   %44 = getelementptr inbounds i8, ptr %43, i64 -8
   %45 = load i64, ptr %44, align 8, !tbaa !12
   %46 = and i64 %45, 3
-  %switch.i.i = icmp eq i64 %46, 0
-  %..i.i = select i1 %switch.i.i, i64 1, i64 3
-  %47 = or i64 %..i.i, %45
-  store i64 %47, ptr %44, align 8, !tbaa !12
-  br label %49
+  %47 = icmp eq i64 %46, 0
+  %..i.i = select i1 %47, i64 1, i64 3
+  %48 = or i64 %..i.i, %45
+  store i64 %48, ptr %44, align 8, !tbaa !12
+  br label %50
 
-48:                                               ; preds = %5
+49:                                               ; preds = %5
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv.exit: ; preds = %25, %38, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i
   %.val2.pr9 = phi i32 [ %24, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %37, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit14.i ], [ %.val2.pr11, %38 ], [ %.val2.pr11, %25 ]
   %.not.i.i = icmp eq i32 %.val2.pr9, 0
-  br i1 %.not.i.i, label %.critedge, label %49
+  br i1 %.not.i.i, label %.critedge, label %50
 
-49:                                               ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv.exit.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv.exit
+50:                                               ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv.exit.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv.exit
   %.val2.pr914 = phi i32 [ %41, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv.exit.thread ], [ %.val2.pr9, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv.exit ]
   %.val = load ptr, ptr %0, align 8, !tbaa !78
-  %50 = zext i32 %.val2.pr914 to i64
-  %51 = getelementptr inbounds nuw i64, ptr %.val, i64 %50
-  %52 = getelementptr inbounds i8, ptr %51, i64 -8
-  %53 = load i64, ptr %52, align 8, !tbaa !12
-  %54 = and i64 %53, 3
-  %.not = icmp eq i64 %54, 1
+  %51 = zext i32 %.val2.pr914 to i64
+  %52 = getelementptr inbounds nuw i64, ptr %.val, i64 %51
+  %53 = getelementptr inbounds i8, ptr %52, i64 -8
+  %54 = load i64, ptr %53, align 8, !tbaa !12
+  %55 = and i64 %54, 3
+  %.not = icmp eq i64 %55, 1
   br i1 %.not, label %.critedge, label %5, !llvm.loop !87
 
-.critedge:                                        ; preds = %40, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv.exit, %49
+.critedge:                                        ; preds = %40, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento7SymExprEN12_GLOBAL__N_111HandleStateEEEEppEv.exit, %50
   ret ptr %0
 }
 
@@ -3031,13 +3031,13 @@ _ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit184.i: ; pred
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 16
   %321 = load i8, ptr %320, align 16
   %322 = icmp ne i8 %321, 13
-  %.not.not24.i.i = icmp eq ptr %319, null
-  %.not.not.i.i = or i1 %.not.not24.i.i, %322
+  %.not.not21.i.i = icmp eq ptr %319, null
+  %.not.not.i.i = or i1 %.not.not21.i.i, %322
   br i1 %.not.not.i.i, label %323, label %_ZNK5clang4Type13isIntegerTypeEv.exit.i
 
 323:                                              ; preds = %312
   %324 = icmp ne i8 %321, 46
-  %.not13.not.i.i = or i1 %.not.not24.i.i, %324
+  %.not13.not.i.i = or i1 %.not.not21.i.i, %324
   br i1 %.not13.not.i.i, label %338, label %325
 
 325:                                              ; preds = %323
@@ -6608,19 +6608,19 @@ define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11
   %or.cond.i.i.i = select i1 %.not.i.i.i, i1 true, i1 %.not14.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 136
   %.not15.i.i.i = icmp eq ptr %6, %9
-  %or.cond27.i.i.i = select i1 %or.cond.i.i.i, i1 true, i1 %.not15.i.i.i
+  %or.cond25.i.i.i = select i1 %or.cond.i.i.i, i1 true, i1 %.not15.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 344
   %.not16.i.i.i = icmp eq ptr %6, %10
-  %or.cond28.i.i.i = select i1 %or.cond27.i.i.i, i1 true, i1 %.not16.i.i.i
-  br i1 %or.cond28.i.i.i, label %11, label %.critedge.sink.split.i.i.i
+  %or.cond26.i.i.i = select i1 %or.cond25.i.i.i, i1 true, i1 %.not16.i.i.i
+  br i1 %or.cond26.i.i.i, label %11, label %.critedge.sink.split.i.i.i
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !215, !noalias !533
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !215, !noalias !533
-  %.not2930.i.i.i = icmp eq ptr %13, %15
-  br i1 %.not2930.i.i.i, label %.critedge.sink.split.i.i.i, label %.lr.ph.i.i.i
+  %.not2728.i.i.i = icmp eq ptr %13, %15
+  br i1 %.not2728.i.i.i, label %.critedge.sink.split.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6628,8 +6628,8 @@ define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11
   br label %18
 
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %.lr.ph.i.i.i
-  %.sroa.020.031.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.020.031.i.i.i, i64 16
+  %.sroa.020.029.i.i.i = phi ptr [ %13, %.lr.ph.i.i.i ], [ %31, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ]
+  %19 = getelementptr inbounds nuw i8, ptr %.sroa.020.029.i.i.i, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !148, !noalias !553
   %.not.i.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i.i, label %21, label %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento9BugReportEEEclES9_.exit.i.i.i
@@ -6639,9 +6639,9 @@ define internal void @"_ZNSt17_Function_handlerIFNSt7__cxx1112basic_stringIcSt11
   unreachable
 
 _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento9BugReportEEEclES9_.exit.i.i.i: ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.020.031.i.i.i, i64 24
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.020.029.i.i.i, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !145, !noalias !553
-  tail call void %23(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.020.031.i.i.i, ptr noundef nonnull align 8 dereferenceable(1000) %2) #22
+  tail call void %23(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.020.029.i.i.i, ptr noundef nonnull align 8 dereferenceable(1000) %2) #22
   %24 = load i64, ptr %16, align 8, !tbaa !17, !alias.scope !533
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %26, label %"_ZSt10__invoke_rINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERZNK12_GLOBAL__N_120FuchsiaHandleChecker13checkPostCallERKN5clang4ento9CallEventERNS9_14CheckerContextEE3$_5JRNS9_22PathSensitiveBugReportEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESK_E4typeEOSL_DpOSM_.exit"
@@ -6658,9 +6658,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %26
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.020.031.i.i.i, i64 32
-  %.not29.i.i.i = icmp eq ptr %31, %15
-  br i1 %.not29.i.i.i, label %.critedge.sink.split.i.i.i, label %18
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.020.029.i.i.i, i64 32
+  %.not27.i.i.i = icmp eq ptr %31, %15
+  br i1 %.not27.i.i.i, label %.critedge.sink.split.i.i.i, label %18
 
 .critedge.sink.split.i.i.i:                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i, %11, %3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -7109,13 +7109,13 @@ _ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_19HStateMapEEENS0_17ProgramState
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i8, ptr %124, align 16
   %126 = icmp ne i8 %125, 13
-  %.not.not24.i.i = icmp eq ptr %123, null
-  %.not.not.i.i = or i1 %.not.not24.i.i, %126
+  %.not.not21.i.i = icmp eq ptr %123, null
+  %.not.not.i.i = or i1 %.not.not21.i.i, %126
   br i1 %.not.not.i.i, label %127, label %_ZNK5clang4Type13isIntegerTypeEv.exit.i
 
 127:                                              ; preds = %116
   %128 = icmp ne i8 %125, 46
-  %.not13.not.i.i = or i1 %.not.not24.i.i, %128
+  %.not13.not.i.i = or i1 %.not.not21.i.i, %128
   br i1 %.not13.not.i.i, label %142, label %129
 
 129:                                              ; preds = %127

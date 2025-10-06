@@ -1322,7 +1322,7 @@ define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef initializes((0
 23:                                               ; preds = %19, %20
   %24 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %unpack16.exit.thread36, label %.lr.ph
+  br i1 %.not, label %unpack16.exit.thread34, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %.pre = load i32, ptr %6, align 4
@@ -1342,8 +1342,8 @@ define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef initializes((0
   %33 = load ptr, ptr %11, align 8
   %34 = zext i32 %26 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  %.0.copyload.i28 = load i16, ptr %35, align 1
-  %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i28)
+  %.0.copyload.i27 = load i16, ptr %35, align 1
+  %rev.i.i = tail call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i27)
   store i16 %rev.i.i, ptr %32, align 2
   %36 = load i32, ptr %6, align 4
   %37 = add i32 %36, 2
@@ -1352,13 +1352,13 @@ define dso_local range(i32 -1, 1) i32 @unpack16_array(ptr noundef initializes((0
   %38 = load i32, ptr %1, align 4
   %39 = zext i32 %38 to i64
   %40 = icmp samesign ult i64 %indvars.iv.next, %39
-  br i1 %40, label %25, label %unpack16.exit.thread36, !llvm.loop !13
+  br i1 %40, label %25, label %unpack16.exit.thread34, !llvm.loop !13
 
 unpack32.exit:                                    ; preds = %25, %20, %3
   tail call void @slurm_xfree(ptr noundef nonnull %0) #14
-  br label %unpack16.exit.thread36
+  br label %unpack16.exit.thread34
 
-unpack16.exit.thread36:                           ; preds = %30, %23, %unpack32.exit
+unpack16.exit.thread34:                           ; preds = %30, %23, %unpack32.exit
   %.021 = phi i32 [ -1, %unpack32.exit ], [ 0, %23 ], [ 0, %30 ]
   ret i32 %.021
 }
@@ -1531,7 +1531,7 @@ define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef initializes((0
 23:                                               ; preds = %19, %20
   %24 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %unpack32.exit30.thread37, label %.lr.ph
+  br i1 %.not, label %unpack32.exit29.thread35, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %.pre = load i32, ptr %6, align 4
@@ -1551,8 +1551,8 @@ define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef initializes((0
   %33 = load ptr, ptr %11, align 8
   %34 = zext i32 %26 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  %.0.copyload.i28 = load i32, ptr %35, align 1
-  %36 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i28)
+  %.0.copyload.i27 = load i32, ptr %35, align 1
+  %36 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i27)
   store i32 %36, ptr %32, align 4
   %37 = load i32, ptr %6, align 4
   %38 = add i32 %37, 4
@@ -1561,13 +1561,13 @@ define dso_local range(i32 -1, 1) i32 @unpack32_array(ptr noundef initializes((0
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %25, label %unpack32.exit30.thread37, !llvm.loop !15
+  br i1 %41, label %25, label %unpack32.exit29.thread35, !llvm.loop !15
 
 unpack32.exit:                                    ; preds = %25, %20, %3
   tail call void @slurm_xfree(ptr noundef nonnull %0) #14
-  br label %unpack32.exit30.thread37
+  br label %unpack32.exit29.thread35
 
-unpack32.exit30.thread37:                         ; preds = %30, %23, %unpack32.exit
+unpack32.exit29.thread35:                         ; preds = %30, %23, %unpack32.exit
   %.021 = phi i32 [ -1, %unpack32.exit ], [ 0, %23 ], [ 0, %30 ]
   ret i32 %.021
 }
@@ -2262,7 +2262,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((
   store i32 %18, ptr %7, align 4
   %19 = load i32, ptr %1, align 4
   %.not28 = icmp eq i32 %19, 0
-  br i1 %.not28, label %.thread, label %20
+  br i1 %.not28, label %.loopexit, label %20
 
 20:                                               ; preds = %11
   %21 = icmp ugt i32 %19, 1073741824
@@ -2279,7 +2279,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((
 .preheader:                                       ; preds = %22
   %26 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %26, 0
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %.preheader ]
@@ -2296,7 +2296,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((
   %32 = load i32, ptr %7, align 4
   %33 = sub i32 %31, %32
   %34 = icmp ult i32 %33, 4
-  br i1 %34, label %.thread45, label %35
+  br i1 %34, label %unpackstr_xmalloc_chooser.exit.thread38, label %35
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %12, align 8
@@ -2315,12 +2315,12 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((
 
 43:                                               ; preds = %41
   %44 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.15, ptr noundef nonnull @__func__.unpackstr_xmalloc, i32 noundef %39, i32 noundef 1073741824) #14
-  br label %.thread45
+  br label %unpackstr_xmalloc_chooser.exit.thread38
 
 45:                                               ; preds = %41
   %46 = sub i32 %31, %40
   %47 = icmp ult i32 %46, %39
-  br i1 %47, label %.thread45, label %48
+  br i1 %47, label %unpackstr_xmalloc_chooser.exit.thread38, label %48
 
 48:                                               ; preds = %45
   %49 = add i32 %32, 3
@@ -2329,14 +2329,14 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((
   %52 = getelementptr inbounds nuw i8, ptr %36, i64 %51
   %53 = load i8, ptr %52, align 1
   %.not28.i = icmp eq i8 %53, 0
-  br i1 %.not28.i, label %54, label %.thread45
+  br i1 %.not28.i, label %54, label %unpackstr_xmalloc_chooser.exit.thread38
 
 54:                                               ; preds = %48
   %55 = zext nneg i32 %39 to i64
   %56 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef %55, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull @.str.1, i32 noundef 969, ptr noundef nonnull @__func__.unpackstr_xmalloc) #14
   store ptr %56, ptr %28, align 8
   %.not29.i = icmp eq ptr %56, null
-  br i1 %.not29.i, label %.thread45, label %57
+  br i1 %.not29.i, label %unpackstr_xmalloc_chooser.exit.thread38, label %57
 
 57:                                               ; preds = %54
   %58 = load ptr, ptr %12, align 8
@@ -2349,7 +2349,7 @@ define dso_local range(i32 -1, 1) i32 @unpackstr_array(ptr noundef initializes((
   store i32 %63, ptr %7, align 4
   br label %unpackstr_xmalloc_chooser.exit.thread
 
-.thread45:                                        ; preds = %54, %48, %45, %30, %43
+unpackstr_xmalloc_chooser.exit.thread38:          ; preds = %30, %45, %48, %54, %43
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %unpack32.exit
 
@@ -2368,14 +2368,14 @@ unpackstr_xmalloc_chooser.exit:                   ; preds = %.lr.ph
   %66 = load i32, ptr %1, align 4
   %67 = zext i32 %66 to i64
   %68 = icmp samesign ult i64 %indvars.iv.next, %67
-  br i1 %68, label %.lr.ph, label %.thread, !llvm.loop !18
+  br i1 %68, label %.lr.ph, label %.loopexit, !llvm.loop !18
 
-unpack32.exit:                                    ; preds = %unpackstr_xmalloc_chooser.exit, %.thread45, %3, %22, %20
+unpack32.exit:                                    ; preds = %unpackstr_xmalloc_chooser.exit, %unpackstr_xmalloc_chooser.exit.thread38, %3, %22, %20
   store i32 0, ptr %1, align 4
   tail call void @slurm_xfree_array(ptr noundef nonnull %0) #14
-  br label %.thread
+  br label %.loopexit
 
-.thread:                                          ; preds = %65, %.preheader, %11, %unpack32.exit
+.loopexit:                                        ; preds = %65, %.preheader, %11, %unpack32.exit
   %.025 = phi i32 [ -1, %unpack32.exit ], [ 0, %11 ], [ 0, %.preheader ], [ 0, %65 ]
   ret i32 %.025
 }
@@ -2885,7 +2885,7 @@ define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef initializes((0
 23:                                               ; preds = %19, %20
   %24 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %unpack64.exit.thread36, label %.lr.ph
+  br i1 %.not, label %unpack64.exit.thread34, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23
   %.pre = load i32, ptr %6, align 4
@@ -2905,8 +2905,8 @@ define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef initializes((0
   %33 = load ptr, ptr %11, align 8
   %34 = zext i32 %26 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
-  %.0.copyload.i28 = load i64, ptr %35, align 1
-  %36 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i28)
+  %.0.copyload.i27 = load i64, ptr %35, align 1
+  %36 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i27)
   store i64 %36, ptr %32, align 8
   %37 = load i32, ptr %6, align 4
   %38 = add i32 %37, 8
@@ -2915,13 +2915,13 @@ define dso_local range(i32 -1, 1) i32 @unpack64_array(ptr noundef initializes((0
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %25, label %unpack64.exit.thread36, !llvm.loop !20
+  br i1 %41, label %25, label %unpack64.exit.thread34, !llvm.loop !20
 
 unpack32.exit:                                    ; preds = %25, %20, %3
   tail call void @slurm_xfree(ptr noundef nonnull %0) #14
-  br label %unpack64.exit.thread36
+  br label %unpack64.exit.thread34
 
-unpack64.exit.thread36:                           ; preds = %30, %23, %unpack32.exit
+unpack64.exit.thread34:                           ; preds = %30, %23, %unpack32.exit
   %.021 = phi i32 [ -1, %unpack32.exit ], [ 0, %23 ], [ 0, %30 ]
   ret i32 %.021
 }
@@ -3096,7 +3096,7 @@ define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef initialize
 23:                                               ; preds = %19, %20
   %24 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %24, 0
-  br i1 %.not, label %unpackdouble.exit.thread36, label %.lr.ph
+  br i1 %.not, label %unpackdouble.exit.thread34, label %.lr.ph
 
 .lr.ph:                                           ; preds = %23, %29
   %indvars.iv = phi i64 [ %indvars.iv.next, %29 ], [ 0, %23 ]
@@ -3112,10 +3112,10 @@ define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef initialize
   %32 = load ptr, ptr %11, align 8
   %33 = zext i32 %26 to i64
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %33
-  %.0.copyload.i28 = load i64, ptr %34, align 1
+  %.0.copyload.i27 = load i64, ptr %34, align 1
   %35 = add i32 %26, 8
   store i32 %35, ptr %6, align 4
-  %36 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i28)
+  %36 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload.i27)
   %37 = bitcast i64 %36 to double
   %38 = fdiv double %37, 1.000000e+06
   store double %38, ptr %31, align 8
@@ -3123,13 +3123,13 @@ define dso_local range(i32 -1, 1) i32 @unpackdouble_array(ptr noundef initialize
   %39 = load i32, ptr %1, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %indvars.iv.next, %40
-  br i1 %41, label %.lr.ph, label %unpackdouble.exit.thread36, !llvm.loop !22
+  br i1 %41, label %.lr.ph, label %unpackdouble.exit.thread34, !llvm.loop !22
 
 unpack32.exit:                                    ; preds = %.lr.ph, %20, %3
   tail call void @slurm_xfree(ptr noundef nonnull %0) #14
-  br label %unpackdouble.exit.thread36
+  br label %unpackdouble.exit.thread34
 
-unpackdouble.exit.thread36:                       ; preds = %29, %23, %unpack32.exit
+unpackdouble.exit.thread34:                       ; preds = %29, %23, %unpack32.exit
   %.021 = phi i32 [ -1, %unpack32.exit ], [ 0, %23 ], [ 0, %29 ]
   ret i32 %.021
 }
@@ -3259,7 +3259,7 @@ define dso_local range(i32 -1, 1) i32 @unpacklongdouble_array(ptr noundef initia
 24:                                               ; preds = %20, %21
   %25 = load i32, ptr %1, align 4
   %.not = icmp eq i32 %25, 0
-  br i1 %.not, label %.thread35, label %.lr.ph
+  br i1 %.not, label %.thread33, label %.lr.ph
 
 .lr.ph:                                           ; preds = %24, %50
   %indvars.iv = phi i64 [ %indvars.iv.next, %50 ], [ 0, %24 ]
@@ -3319,7 +3319,7 @@ unpackmem_ptr.exit.i:                             ; preds = %45, %32
   %53 = load i32, ptr %1, align 4
   %54 = zext i32 %53 to i64
   %55 = icmp samesign ult i64 %indvars.iv.next, %54
-  br i1 %55, label %.lr.ph, label %.thread35, !llvm.loop !24
+  br i1 %55, label %.lr.ph, label %.thread33, !llvm.loop !24
 
 .loopexit:                                        ; preds = %unpackmem_ptr.exit.i, %42, %.lr.ph, %40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3327,9 +3327,9 @@ unpackmem_ptr.exit.i:                             ; preds = %45, %32
 
 unpack32.exit:                                    ; preds = %21, %.loopexit, %3
   call void @slurm_xfree(ptr noundef nonnull %0) #14
-  br label %.thread35
+  br label %.thread33
 
-.thread35:                                        ; preds = %50, %24, %unpack32.exit
+.thread33:                                        ; preds = %50, %24, %unpack32.exit
   %.021 = phi i32 [ -1, %unpack32.exit ], [ 0, %24 ], [ 0, %50 ]
   ret i32 %.021
 }

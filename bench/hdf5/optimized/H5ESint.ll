@@ -768,19 +768,18 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr noundef 
 10:                                               ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load i64, ptr %11, align 8, !tbaa !47
-  switch i64 %12, label %13 [
-    i64 0, label %15
-    i64 -1, label %15
-  ]
+  %.off = add i64 %12, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %13, label %15
 
 13:                                               ; preds = %10
   %14 = tail call i64 @H5_now_usec() #5
   %.pre = load i64, ptr %11, align 8, !tbaa !47
   br label %15
 
-15:                                               ; preds = %10, %10, %13
-  %16 = phi i64 [ %.pre, %13 ], [ %12, %10 ], [ %12, %10 ]
-  %.027 = phi i64 [ %14, %13 ], [ 0, %10 ], [ 0, %10 ]
+15:                                               ; preds = %10, %13
+  %16 = phi i64 [ %.pre, %13 ], [ %12, %10 ]
+  %.027 = phi i64 [ %14, %13 ], [ 0, %10 ]
   %17 = load ptr, ptr %0, align 8, !tbaa !41
   %18 = call i32 @H5VL_request_wait(ptr noundef %17, i64 noundef %16, ptr noundef nonnull %3) #5
   %19 = icmp slt i32 %18, 0
@@ -794,10 +793,9 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr noundef 
 
 24:                                               ; preds = %15
   %25 = load i64, ptr %11, align 8, !tbaa !47
-  switch i64 %25, label %26 [
-    i64 0, label %30
-    i64 -1, label %30
-  ]
+  %.off39 = add i64 %25, -1
+  %switch40 = icmp ult i64 %.off39, -2
+  br i1 %switch40, label %26, label %30
 
 26:                                               ; preds = %24
   %27 = call i64 @H5_now_usec() #5
@@ -805,8 +803,8 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr noundef 
   %29 = mul i64 %28, 1000
   br label %30
 
-30:                                               ; preds = %24, %24, %26
-  %.026 = phi i64 [ %29, %26 ], [ 0, %24 ], [ 0, %24 ]
+30:                                               ; preds = %24, %26
+  %.026 = phi i64 [ %29, %26 ], [ 0, %24 ]
   %31 = load i32, ptr %3, align 4, !tbaa !20
   switch i32 %31, label %55 [
     i32 2, label %32
@@ -862,10 +860,9 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr noundef 
 60:                                               ; preds = %55, %43, %40
   %.1 = phi i32 [ 1, %40 ], [ 0, %43 ], [ 0, %55 ]
   %61 = load i64, ptr %11, align 8, !tbaa !47
-  switch i64 %61, label %62 [
-    i64 0, label %67
-    i64 -1, label %67
-  ]
+  %.off41 = add i64 %61, -1
+  %switch42 = icmp ult i64 %.off41, -2
+  br i1 %switch42, label %62, label %67
 
 62:                                               ; preds = %60
   %63 = icmp ugt i64 %.026, %61
@@ -880,8 +877,8 @@ define internal range(i32 -1, 2) i32 @H5ES__wait_cb(ptr noundef %0, ptr noundef 
   store i64 %66, ptr %11, align 8, !tbaa !47
   br label %67
 
-67:                                               ; preds = %60, %60, %20, %36, %47, %51, %64, %65, %2
-  %.0 = phi i32 [ -1, %20 ], [ -1, %36 ], [ %.1, %64 ], [ %.1, %65 ], [ %.1, %60 ], [ -1, %47 ], [ -1, %51 ], [ 0, %2 ], [ %.1, %60 ]
+67:                                               ; preds = %60, %20, %36, %47, %51, %64, %65, %2
+  %.0 = phi i32 [ -1, %20 ], [ -1, %36 ], [ %.1, %64 ], [ %.1, %65 ], [ -1, %47 ], [ -1, %51 ], [ 0, %2 ], [ %.1, %60 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

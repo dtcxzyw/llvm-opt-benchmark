@@ -4114,13 +4114,13 @@ define internal void @dissect_r3_cmd_alarmconfigure(ptr noundef %0, i32 noundef 
   %17 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %15, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef -2147483648)
   %18 = load i32, ptr @ett_r3alarmlist, align 4
   %19 = call ptr @proto_tree_add_subtree(ptr noundef nonnull %4, ptr noundef %12, i32 noundef 0, i32 noundef -1, i32 noundef %18, ptr noundef nonnull %6, ptr noundef nonnull @.str.2183)
-  %.not68 = icmp eq i32 %11, 0
-  br i1 %.not68, label %.loopexit.thread, label %.lr.ph
+  %.not67 = icmp eq i32 %11, 0
+  br i1 %.not67, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7, %41
-  %.067 = phi i32 [ %49, %41 ], [ 0, %7 ]
-  %.05066 = phi i32 [ %48, %41 ], [ 0, %7 ]
-  %20 = add nuw i32 %.067, 1
+  %.066 = phi i32 [ %49, %41 ], [ 0, %7 ]
+  %.05065 = phi i32 [ %48, %41 ], [ 0, %7 ]
+  %20 = add nuw i32 %.066, 1
   %21 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %20)
   %22 = zext i8 %21 to i32
   %23 = call ptr @try_val_to_str_ext(i32 noundef %22, ptr noundef nonnull @r3_alarmidnames_ext)
@@ -4128,7 +4128,7 @@ define internal void @dissect_r3_cmd_alarmconfigure(ptr noundef %0, i32 noundef 
   br i1 %.not56, label %31, label %24
 
 24:                                               ; preds = %.lr.ph
-  %25 = add i32 %.067, 2
+  %25 = add i32 %.066, 2
   %26 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %25)
   %.not57 = icmp ult i8 %26, 2
   br i1 %.not57, label %27, label %31
@@ -4143,13 +4143,13 @@ define internal void @dissect_r3_cmd_alarmconfigure(ptr noundef %0, i32 noundef 
 31:                                               ; preds = %27, %24, %.lr.ph
   %.049 = phi ptr [ @.str.2184, %.lr.ph ], [ %23, %24 ], [ %23, %27 ]
   %.048 = phi ptr [ @.str.2185, %.lr.ph ], [ @.str.52, %24 ], [ %30, %27 ]
-  %32 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %.067)
+  %32 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %.066)
   %33 = zext i8 %32 to i32
   %34 = load i32, ptr @ett_r3alarmcfg, align 4
-  %35 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef %12, i32 noundef %.067, i32 noundef %33, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.2186, ptr noundef nonnull %.049, ptr noundef nonnull %.048)
-  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %.067)
+  %35 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %19, ptr noundef %12, i32 noundef %.066, i32 noundef %33, i32 noundef %34, ptr noundef null, ptr noundef nonnull @.str.2186, ptr noundef nonnull %.049, ptr noundef nonnull %.048)
+  %36 = call zeroext i8 @tvb_get_uint8(ptr noundef %12, i32 noundef %.066)
   %37 = load i32, ptr @hf_r3_alarm_length, align 4
-  %38 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %37, ptr noundef %12, i32 noundef %.067, i32 noundef 1, i32 noundef -2147483648)
+  %38 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %37, ptr noundef %12, i32 noundef %.066, i32 noundef 1, i32 noundef -2147483648)
   %39 = icmp eq i8 %36, 0
   br i1 %39, label %.thread, label %41
 
@@ -4162,21 +4162,21 @@ define internal void @dissect_r3_cmd_alarmconfigure(ptr noundef %0, i32 noundef 
   %43 = load i32, ptr @hf_r3_alarm_id, align 4
   %44 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %43, ptr noundef %12, i32 noundef %20, i32 noundef 1, i32 noundef -2147483648)
   %45 = load i32, ptr @hf_r3_alarm_state, align 4
-  %46 = add i32 %.067, 2
+  %46 = add i32 %.066, 2
   %47 = call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %45, ptr noundef %12, i32 noundef %46, i32 noundef 1, i32 noundef -2147483648)
-  %48 = add i32 %.05066, 1
-  %49 = add i32 %.067, %42
+  %48 = add i32 %.05065, 1
+  %49 = add i32 %.066, %42
   %50 = icmp ult i32 %49, %11
   br i1 %50, label %.lr.ph, label %.loopexit
 
 .loopexit:                                        ; preds = %41, %.thread
-  %.05065 = phi i32 [ %.05066, %.thread ], [ %48, %41 ]
-  %.not59 = icmp eq i32 %.05065, 0
+  %.05064 = phi i32 [ %.05065, %.thread ], [ %48, %41 ]
+  %.not59 = icmp eq i32 %.05064, 0
   br i1 %.not59, label %.loopexit.thread, label %51
 
 51:                                               ; preds = %.loopexit
   %52 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %52, ptr noundef nonnull @.str.2188, i32 noundef %.05065)
+  call void (ptr, ptr, ...) @proto_item_set_text(ptr noundef %52, ptr noundef nonnull @.str.2188, i32 noundef %.05064)
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %7, %.loopexit, %51, %5

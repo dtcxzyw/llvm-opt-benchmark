@@ -6096,14 +6096,14 @@ _ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLi
   store ptr %.sroa.4.0.copyload.i.i, ptr %90, align 8, !tbaa !358
   %91 = add i32 %51, 1
   store i32 %91, ptr %7, align 4, !tbaa !166
-  %.val2765 = load i32, ptr %15, align 8, !tbaa !30
-  %.not.i.i66 = icmp eq i32 %.val2765, 0
+  %.val2763 = load i32, ptr %15, align 8, !tbaa !30
+  %.not.i.i64 = icmp eq i32 %.val2763, 0
   %92 = icmp ugt i32 %91, 25000000
-  %or.cond = select i1 %.not.i.i66, i1 true, i1 %92
-  br i1 %or.cond, label %.loopexit, label %.lr.ph179
+  %or.cond = select i1 %.not.i.i64, i1 true, i1 %92
+  br i1 %or.cond, label %.loopexit, label %.lr.ph177
 
-.lr.ph179:                                        ; preds = %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE4pushEOS8_.exit, %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread
-  %.val2767178 = phi i32 [ %.val27, %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread ], [ %.val2765, %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE4pushEOS8_.exit ]
+.lr.ph177:                                        ; preds = %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE4pushEOS8_.exit, %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread
+  %.val2765176 = phi i32 [ %.val27, %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread ], [ %.val2763, %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE4pushEOS8_.exit ]
   %93 = phi i32 [ %.pr, %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread ], [ %91, %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE4pushEOS8_.exit ]
   %.val29 = load ptr, ptr %8, align 8, !tbaa !27
   %94 = load i32, ptr %.val29, align 8, !tbaa !362
@@ -6112,17 +6112,17 @@ _ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLi
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !363
   %.not.not = icmp eq ptr %98, null
-  br i1 %.not.not, label %.thread.thread153, label %99
+  br i1 %.not.not, label %.thread.thread151, label %99
 
-.thread.thread153:                                ; preds = %.lr.ph179
+.thread.thread151:                                ; preds = %.lr.ph177
   br i1 %2, label %.loopexit, label %402
 
-99:                                               ; preds = %.lr.ph179
-  %.not59 = icmp eq i32 %.val2767178, 1
-  br i1 %.not59, label %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE3popEv.exit, label %100
+99:                                               ; preds = %.lr.ph177
+  %.not57 = icmp eq i32 %.val2765176, 1
+  br i1 %.not57, label %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE3popEv.exit, label %100
 
 100:                                              ; preds = %99
-  %101 = zext i32 %.val2767178 to i64
+  %101 = zext i32 %.val2765176 to i64
   %102 = getelementptr inbounds nuw %"struct.std::pair.168", ptr %.val29, i64 %101
   %103 = getelementptr inbounds i8, ptr %102, i64 -16
   %.sroa.02.0.copyload.i.i.i = load i64, ptr %103, align 8
@@ -6589,8 +6589,8 @@ _ZNK5clang6format12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointe
 
 _ZNK4llvm15SmallVectorImplIN5clang6format10ParenStateEEltERKS4_.exit: ; preds = %331, %_ZNK5clang6format12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersclEPNS0_9LineStateES5_.exit16.i.i.i
   %.019.lcssa.i.i.i.i.i.i = phi ptr [ %320, %_ZNK5clang6format12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersclEPNS0_9LineStateES5_.exit16.i.i.i ], [ %333, %331 ]
-  %.not60 = icmp eq ptr %.019.lcssa.i.i.i.i.i.i, %324
-  br i1 %.not60, label %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread, label %_ZNK4llvm15SmallVectorImplIN5clang6format10ParenStateEEltERKS4_.exit.thread
+  %.not58 = icmp eq ptr %.019.lcssa.i.i.i.i.i.i, %324
+  br i1 %.not58, label %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread, label %_ZNK4llvm15SmallVectorImplIN5clang6format10ParenStateEEltERKS4_.exit.thread
 
 _ZNK4llvm15SmallVectorImplIN5clang6format10ParenStateEEltERKS4_.exit.thread: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK4llvm15SmallVectorImplIN5clang6format10ParenStateEEltERKS4_.exit, %304, %297, %290, %283, %276, %271, %._crit_edge.thread.i.i.i
   %.sroa.4.0.i.ph.i.i = phi ptr [ %.031.lcssa71.i.i.i, %_ZNK4llvm15SmallVectorImplIN5clang6format10ParenStateEEltERKS4_.exit ], [ %.031.lcssa71.i.i.i, %271 ], [ %.031.lcssa71.i.i.i, %276 ], [ %.031.lcssa71.i.i.i, %283 ], [ %.031.lcssa71.i.i.i, %290 ], [ %.031.lcssa71.i.i.i, %297 ], [ %.031.lcssa71.i.i.i, %304 ], [ %.031.lcssa72.i.i.i, %._crit_edge.thread.i.i.i ], [ %.031.lcssa71.i.i.i, %.lr.ph.i.i.i.i.i.i ]
@@ -6718,10 +6718,10 @@ _ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter2
   %.not.i.i = icmp eq i32 %.val27, 0
   %.pr = load i32, ptr %7, align 4
   %401 = icmp ugt i32 %.pr, 25000000
-  %or.cond180 = select i1 %.not.i.i, i1 true, i1 %401
-  br i1 %or.cond180, label %.loopexit, label %.lr.ph179
+  %or.cond178 = select i1 %.not.i.i, i1 true, i1 %401
+  br i1 %or.cond178, label %.loopexit, label %.lr.ph177
 
-402:                                              ; preds = %.thread.thread153
+402:                                              ; preds = %.thread.thread151
   %.val31 = load ptr, ptr %8, align 8, !tbaa !27
   %403 = getelementptr inbounds nuw i8, ptr %.val31, i64 8
   %404 = load ptr, ptr %403, align 8, !tbaa !358
@@ -6734,30 +6734,30 @@ _ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter2
   store i32 6, ptr %407, align 4, !tbaa !64
   %408 = getelementptr inbounds nuw i8, ptr %404, i64 136
   %409 = load ptr, ptr %408, align 8, !tbaa !354
-  %.not.i70 = icmp eq ptr %409, null
-  br i1 %.not.i70, label %_ZN4llvm11SmallVectorIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELj6EED2Ev.exit, label %.lr.ph72
+  %.not.i68 = icmp eq ptr %409, null
+  br i1 %.not.i68, label %_ZN4llvm11SmallVectorIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELj6EED2Ev.exit, label %.lr.ph70
 
-.lr.ph72:                                         ; preds = %402, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit
+.lr.ph70:                                         ; preds = %402, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit
   %410 = phi i32 [ %420, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit ], [ 0, %402 ]
   %411 = phi ptr [ %422, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit ], [ %408, %402 ]
-  %.0.i71 = phi ptr [ %421, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit ], [ %404, %402 ]
+  %.0.i69 = phi ptr [ %421, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit ], [ %404, %402 ]
   %412 = load i32, ptr %407, align 4, !tbaa !64
   %.not.not.i.i.i = icmp ult i32 %410, %412
   br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit, label %413, !prof !164
 
-413:                                              ; preds = %.lr.ph72
+413:                                              ; preds = %.lr.ph70
   %414 = zext i32 %410 to i64
   %415 = add nuw nsw i64 %414, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %405, i64 noundef %415, i64 noundef 8) #18
   %.val2.pre.i = load i32, ptr %406, align 8, !tbaa !30
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit: ; preds = %.lr.ph72, %413
-  %.val2.i41 = phi i32 [ %410, %.lr.ph72 ], [ %.val2.pre.i, %413 ]
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit: ; preds = %.lr.ph70, %413
+  %.val2.i41 = phi i32 [ %410, %.lr.ph70 ], [ %.val2.pre.i, %413 ]
   %.val.i42 = load ptr, ptr %4, align 8, !tbaa !27
   %416 = zext i32 %.val2.i41 to i64
   %417 = getelementptr inbounds nuw ptr, ptr %.val.i42, i64 %416
-  %418 = ptrtoint ptr %.0.i71 to i64
+  %418 = ptrtoint ptr %.0.i69 to i64
   store i64 %418, ptr %417, align 1
   %419 = load i32, ptr %406, align 8, !tbaa !30
   %420 = add i32 %419, 1
@@ -6766,23 +6766,23 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineF
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 136
   %423 = load ptr, ptr %422, align 8, !tbaa !354
   %.not.i = icmp eq ptr %423, null
-  br i1 %.not.i, label %._crit_edge, label %.lr.ph72, !llvm.loop !375
+  br i1 %.not.i, label %._crit_edge, label %.lr.ph70, !llvm.loop !375
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELb1EE9push_backES6_.exit
   %.val.i40.pre = load ptr, ptr %4, align 8, !tbaa !27
-  %.not6173 = icmp eq i32 %420, 0
-  br i1 %.not6173, label %_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit, label %.lr.ph76
+  %.not5971 = icmp eq i32 %420, 0
+  br i1 %.not5971, label %_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit, label %.lr.ph74
 
-.lr.ph76:                                         ; preds = %._crit_edge
+.lr.ph74:                                         ; preds = %._crit_edge
   %424 = zext i32 %420 to i64
   %.idx = shl nuw nsw i64 %424, 3
   %425 = getelementptr inbounds nuw i8, ptr %.val.i40.pre, i64 %.idx
   %426 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %427
 
-427:                                              ; preds = %.lr.ph76, %427
-  %.sroa.046.074 = phi ptr [ %425, %.lr.ph76 ], [ %428, %427 ]
-  %428 = getelementptr inbounds i8, ptr %.sroa.046.074, i64 -8
+427:                                              ; preds = %.lr.ph74, %427
+  %.sroa.046.072 = phi ptr [ %425, %.lr.ph74 ], [ %428, %427 ]
+  %428 = getelementptr inbounds i8, ptr %.sroa.046.072, i64 -8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !166
   %429 = load ptr, ptr %428, align 8, !tbaa !360
@@ -6797,15 +6797,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang6format12_GLOBAL__N_123OptimizingLineF
   %438 = trunc nuw i8 %437 to i1
   %439 = call noundef i32 @_ZN5clang6format20ContinuationIndenter15addTokenToStateERNS0_9LineStateEbbj(ptr noundef nonnull align 8 dereferenceable(1120) %434, ptr noundef nonnull align 8 dereferenceable(128) %1, i1 noundef zeroext %438, i1 noundef zeroext false, i32 noundef 0) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not61 = icmp eq ptr %428, %.val.i40.pre
-  br i1 %.not61, label %_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit.loopexit, label %427
+  %.not59 = icmp eq ptr %428, %.val.i40.pre
+  br i1 %.not59, label %_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit.loopexit, label %427
 
 _ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit.loopexit: ; preds = %427
-  %.pre85 = load ptr, ptr %4, align 8, !tbaa !27
+  %.pre83 = load ptr, ptr %4, align 8, !tbaa !27
   br label %_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit
 
 _ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit: ; preds = %_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit.loopexit, %._crit_edge
-  %440 = phi ptr [ %.pre85, %_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit.loopexit ], [ %.val.i40.pre, %._crit_edge ]
+  %440 = phi ptr [ %.pre83, %_ZN5clang6format12_GLOBAL__N_123OptimizingLineFormatter15reconstructPathERNS0_9LineStateEPNS2_9StateNodeE.exit.loopexit ], [ %.val.i40.pre, %._crit_edge ]
   %441 = icmp eq ptr %440, %405
   br i1 %441, label %_ZN4llvm11SmallVectorIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELj6EED2Ev.exit, label %442
 
@@ -6817,8 +6817,8 @@ _ZN4llvm11SmallVectorIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9Sta
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread, %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE4pushEOS8_.exit, %.thread.thread153, %_ZN4llvm11SmallVectorIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELj6EED2Ev.exit
-  %.0 = phi i32 [ %94, %_ZN4llvm11SmallVectorIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELj6EED2Ev.exit ], [ %94, %.thread.thread153 ], [ 0, %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE4pushEOS8_.exit ], [ 0, %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread ]
+.loopexit:                                        ; preds = %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread, %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE4pushEOS8_.exit, %.thread.thread151, %_ZN4llvm11SmallVectorIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELj6EED2Ev.exit
+  %.0 = phi i32 [ %94, %_ZN4llvm11SmallVectorIPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeELj6EED2Ev.exit ], [ %94, %.thread.thread151 ], [ 0, %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EE4pushEOS8_.exit ], [ 0, %_ZNSt3setIPN5clang6format9LineStateENS1_12_GLOBAL__N_123OptimizingLineFormatter24CompareLineStatePointersESaIS3_EE6insertEOS3_.exit.thread ]
   %443 = load ptr, ptr %8, align 8, !tbaa !27
   %444 = icmp eq ptr %443, %14
   br i1 %444, label %_ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEN4llvm11SmallVectorIS8_Lj3EEESt7greaterIS8_EED2Ev.exit, label %445

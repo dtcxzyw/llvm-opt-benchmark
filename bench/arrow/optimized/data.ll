@@ -558,19 +558,19 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %_ZNSt6vectorIN5arro
 define linkonce_odr noundef zeroext i1 @_ZNK5arrow9ArraySpan19MayHaveLogicalNullsEv(ptr noundef nonnull align 8 dereferenceable(128) %0) local_unnamed_addr #0 comdat align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !56
-  %.not16 = icmp eq ptr %3, null
-  br i1 %.not16, label %.lr.ph, label %tailrecurse._crit_edge
+  %.not17 = icmp eq ptr %3, null
+  br i1 %.not17, label %.lr.ph, label %tailrecurse._crit_edge
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   %.tr.lcssa = phi ptr [ %0, %1 ], [ %21, %tailrecurse ]
   %4 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !45
   %6 = icmp ne i64 %5, 0
-  br label %_ZNK5arrow9ArraySpan29DictionaryMayHaveLogicalNullsEv.exit
+  br label %_ZNK5arrow9ArraySpan24UnionMayHaveLogicalNullsEv.exit
 
 .lr.ph:                                           ; preds = %1, %tailrecurse
-  %.tr17 = phi ptr [ %21, %tailrecurse ], [ %0, %1 ]
-  %7 = load ptr, ptr %.tr17, align 8, !tbaa !59
+  %.tr18 = phi ptr [ %21, %tailrecurse ], [ %0, %1 ]
+  %7 = load ptr, ptr %.tr18, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i32, ptr %8, align 8, !tbaa !60
   %10 = add i32 %9, -27
@@ -578,20 +578,20 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   br i1 %or.cond, label %11, label %18
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw i8, ptr %.tr17, i64 104
+  %12 = getelementptr inbounds nuw i8, ptr %.tr18, i64 104
   %13 = load ptr, ptr %12, align 8, !tbaa !76
-  %14 = getelementptr inbounds nuw i8, ptr %.tr17, i64 112
+  %14 = getelementptr inbounds nuw i8, ptr %.tr18, i64 112
   %15 = load ptr, ptr %14, align 8, !tbaa !76
-  %.not1218.not = icmp eq ptr %13, %15
-  br i1 %.not1218.not, label %_ZNK5arrow9ArraySpan29DictionaryMayHaveLogicalNullsEv.exit, label %.lr.ph21
+  %.not1319 = icmp eq ptr %13, %15
+  br i1 %.not1319, label %_ZNK5arrow9ArraySpan24UnionMayHaveLogicalNullsEv.exit, label %.lr.ph21
 
 .lr.ph21:                                         ; preds = %11, %.lr.ph21
-  %.sroa.07.019 = phi ptr [ %17, %.lr.ph21 ], [ %13, %11 ]
-  %16 = tail call noundef zeroext i1 @_ZNK5arrow9ArraySpan19MayHaveLogicalNullsEv(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.07.019)
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.07.019, i64 128
-  %.not12.not = icmp eq ptr %17, %15
-  %or.cond39 = select i1 %16, i1 true, i1 %.not12.not
-  br i1 %or.cond39, label %_ZNK5arrow9ArraySpan29DictionaryMayHaveLogicalNullsEv.exit, label %.lr.ph21
+  %.sroa.07.020 = phi ptr [ %17, %.lr.ph21 ], [ %13, %11 ]
+  %16 = tail call noundef zeroext i1 @_ZNK5arrow9ArraySpan19MayHaveLogicalNullsEv(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.07.020)
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.07.020, i64 128
+  %.not13 = icmp eq ptr %17, %15
+  %or.cond39 = select i1 %16, i1 true, i1 %.not13
+  br i1 %or.cond39, label %_ZNK5arrow9ArraySpan24UnionMayHaveLogicalNullsEv.exit, label %.lr.ph21
 
 18:                                               ; preds = %.lr.ph
   switch i32 %9, label %45 [
@@ -600,7 +600,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
   ]
 
 tailrecurse:                                      ; preds = %18
-  %19 = getelementptr inbounds nuw i8, ptr %.tr17, i64 104
+  %19 = getelementptr inbounds nuw i8, ptr %.tr18, i64 104
   %20 = load ptr, ptr %19, align 8, !tbaa !52
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 160
@@ -609,9 +609,9 @@ tailrecurse:                                      ; preds = %18
   br i1 %.not, label %.lr.ph, label %tailrecurse._crit_edge
 
 24:                                               ; preds = %18
-  %25 = getelementptr inbounds nuw i8, ptr %.tr17, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.tr18, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !45
-  switch i64 %26, label %_ZNK5arrow9ArraySpan29DictionaryMayHaveLogicalNullsEv.exit [
+  switch i64 %26, label %_ZNK5arrow9ArraySpan24UnionMayHaveLogicalNullsEv.exit [
     i64 -1, label %_ZNK5arrow9ArraySpan12GetNullCountEv.exit.i.thread
     i64 0, label %27
   ], !prof !77
@@ -621,7 +621,7 @@ _ZNK5arrow9ArraySpan12GetNullCountEv.exit.i.thread: ; preds = %24
   br label %27
 
 27:                                               ; preds = %24, %_ZNK5arrow9ArraySpan12GetNullCountEv.exit.i.thread
-  %28 = getelementptr inbounds nuw i8, ptr %.tr17, i64 104
+  %28 = getelementptr inbounds nuw i8, ptr %.tr18, i64 104
   %29 = load ptr, ptr %28, align 8, !tbaa !52
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i64, ptr %30, align 8, !tbaa !45
@@ -651,15 +651,15 @@ _ZNK5arrow9ArraySpan12GetNullCountEv.exit.i.thread: ; preds = %24
 _ZNK5arrow9ArraySpan12GetNullCountEv.exit4.i:     ; preds = %43, %27
   %.0.i1.i = phi i64 [ %.1.i3.i, %43 ], [ %31, %27 ]
   %44 = icmp ne i64 %.0.i1.i, 0
-  br label %_ZNK5arrow9ArraySpan29DictionaryMayHaveLogicalNullsEv.exit
+  br label %_ZNK5arrow9ArraySpan24UnionMayHaveLogicalNullsEv.exit
 
 45:                                               ; preds = %18
-  %46 = getelementptr inbounds nuw i8, ptr %.tr17, i64 16
+  %46 = getelementptr inbounds nuw i8, ptr %.tr18, i64 16
   %47 = load i64, ptr %46, align 8, !tbaa !45
   %48 = icmp ne i64 %47, 0
-  br label %_ZNK5arrow9ArraySpan29DictionaryMayHaveLogicalNullsEv.exit
+  br label %_ZNK5arrow9ArraySpan24UnionMayHaveLogicalNullsEv.exit
 
-_ZNK5arrow9ArraySpan29DictionaryMayHaveLogicalNullsEv.exit: ; preds = %.lr.ph21, %11, %24, %_ZNK5arrow9ArraySpan12GetNullCountEv.exit4.i, %45, %tailrecurse._crit_edge
+_ZNK5arrow9ArraySpan24UnionMayHaveLogicalNullsEv.exit: ; preds = %.lr.ph21, %11, %24, %_ZNK5arrow9ArraySpan12GetNullCountEv.exit4.i, %45, %tailrecurse._crit_edge
   %.0 = phi i1 [ %6, %tailrecurse._crit_edge ], [ %48, %45 ], [ %44, %_ZNK5arrow9ArraySpan12GetNullCountEv.exit4.i ], [ true, %24 ], [ false, %11 ], [ %16, %.lr.ph21 ]
   ret i1 %.0
 }
@@ -6180,13 +6180,13 @@ define noundef zeroext i1 @_ZNK5arrow9ArraySpan24UnionMayHaveLogicalNullsEv(ptr 
   %3 = load ptr, ptr %2, align 8, !tbaa !76
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !76
-  %.not11.not = icmp eq ptr %3, %5
-  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %5
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.08.012 = phi ptr [ %7, %.lr.ph ], [ %3, %1 ]
-  %6 = tail call noundef zeroext i1 @_ZNK5arrow9ArraySpan19MayHaveLogicalNullsEv(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.08.012)
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 128
+  %.sroa.08.013 = phi ptr [ %7, %.lr.ph ], [ %3, %1 ]
+  %6 = tail call noundef zeroext i1 @_ZNK5arrow9ArraySpan19MayHaveLogicalNullsEv(ptr noundef nonnull align 8 dereferenceable(128) %.sroa.08.013)
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 128
   %.not.not = icmp eq ptr %7, %5
   %or.cond = select i1 %6, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -7251,14 +7251,14 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ViewDataImpl12MakeDataView
   %49 = ptrtoint ptr %45 to i64
   %50 = sub i64 %48, %49
   %51 = sdiv exact i64 %50, 56
-  %.promoted11.i = load i64, ptr %42, align 8, !tbaa !311
+  %.promoted10.i = load i64, ptr %42, align 8, !tbaa !311
   %.promoted.i = load i64, ptr %44, align 8, !tbaa !312
   br label %.outer578
 
 .outer578:                                        ; preds = %.preheader.i, %62
-  %.promoted1012.i.ph = phi i64 [ %.promoted.i, %.preheader.i ], [ %63, %62 ]
-  %.ph579 = phi i64 [ %.promoted11.i, %.preheader.i ], [ 0, %62 ]
-  %52 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %45, i64 %.promoted1012.i.ph
+  %.promoted911.i.ph = phi i64 [ %.promoted.i, %.preheader.i ], [ %63, %62 ]
+  %.ph579 = phi i64 [ %.promoted10.i, %.preheader.i ], [ 0, %62 ]
+  %52 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %45, i64 %.promoted911.i.ph
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !307
   %55 = load ptr, ptr %52, align 8, !tbaa !304
@@ -7275,7 +7275,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_112ViewDataImpl12MakeDataView
 
 62:                                               ; preds = %60
   store i64 0, ptr %42, align 8, !tbaa !311
-  %63 = add i64 %.promoted1012.i.ph, 1
+  %63 = add i64 %.promoted911.i.ph, 1
   store i64 %63, ptr %44, align 8, !tbaa !312
   %.not3.i = icmp ult i64 %63, %51
   br i1 %.not3.i, label %.outer578, label %64, !llvm.loop !313
@@ -7743,9 +7743,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
   br label %.outer576
 
 .outer576:                                        ; preds = %.preheader.i160, %274
-  %.promoted1012.i164.ph = phi i64 [ %.promoted.i162, %.preheader.i160 ], [ %275, %274 ]
+  %.promoted911.i164.ph = phi i64 [ %.promoted.i162, %.preheader.i160 ], [ %275, %274 ]
   %.ph577 = phi i64 [ %253, %.preheader.i160 ], [ 0, %274 ]
-  %264 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %257, i64 %.promoted1012.i164.ph
+  %264 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %257, i64 %.promoted911.i164.ph
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load ptr, ptr %265, align 8, !tbaa !307
   %267 = load ptr, ptr %264, align 8, !tbaa !304
@@ -7762,7 +7762,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit: ; pre
 
 274:                                              ; preds = %272
   store i64 0, ptr %156, align 8, !tbaa !311
-  %275 = add i64 %.promoted1012.i164.ph, 1
+  %275 = add i64 %.promoted911.i164.ph, 1
   store i64 %275, ptr %169, align 8, !tbaa !312
   %.not3.i166 = icmp ult i64 %275, %263
   br i1 %.not3.i166, label %.outer576, label %276, !llvm.loop !313
@@ -8193,9 +8193,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %42
   br label %.outer
 
 .outer:                                           ; preds = %.preheader.i205, %454
-  %.promoted1012.i209.ph = phi i64 [ %.promoted.i207, %.preheader.i205 ], [ %455, %454 ]
+  %.promoted911.i209.ph = phi i64 [ %.promoted.i207, %.preheader.i205 ], [ %455, %454 ]
   %.ph = phi i64 [ %435, %.preheader.i205 ], [ 0, %454 ]
-  %444 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %438, i64 %.promoted1012.i209.ph
+  %444 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %438, i64 %.promoted911.i209.ph
   %445 = getelementptr inbounds nuw i8, ptr %444, i64 8
   %446 = load ptr, ptr %445, align 8, !tbaa !307
   %447 = load ptr, ptr %444, align 8, !tbaa !304
@@ -8212,7 +8212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit204: ; preds = %42
 
 454:                                              ; preds = %452
   store i64 0, ptr %156, align 8, !tbaa !311
-  %455 = add i64 %.promoted1012.i209.ph, 1
+  %455 = add i64 %.promoted911.i209.ph, 1
   store i64 %455, ptr %319, align 8, !tbaa !312
   %.not3.i211 = icmp ult i64 %455, %443
   br i1 %.not3.i211, label %.outer, label %456, !llvm.loop !313
@@ -8590,7 +8590,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254: ; 
   br i1 %618, label %.lr.ph412, label %.loopexit, !llvm.loop !349
 
 .loopexit:                                        ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254, %.preheader, %_ZStneIN5arrow14DataTypeLayout10BufferSpecES2_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.thread349, %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit235
-  %.promoted11.i256 = phi i64 [ %531, %.preheader ], [ %531, %_ZStneIN5arrow14DataTypeLayout10BufferSpecES2_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.thread349 ], [ %531, %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit235 ], [ %608, %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254 ]
+  %.promoted10.i256 = phi i64 [ %531, %.preheader ], [ %531, %_ZStneIN5arrow14DataTypeLayout10BufferSpecES2_ENSt9enable_ifIXsr14is_convertibleIDTneclsr3stdE7declvalIRKT_EEclsr3stdE7declvalIRKT0_EEEbEE5valueEbE4typeERKSt8optionalIS4_ERKSD_IS7_E.exit.thread349 ], [ %531, %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit235 ], [ %608, %_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254 ]
   %619 = load i8, ptr %39, align 8, !tbaa !294, !range !140, !noundef !141
   %620 = trunc nuw i8 %619 to i1
   br i1 %620, label %.critedge136, label %.preheader.i255
@@ -8606,9 +8606,9 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254: ; 
   br label %.outer572
 
 .outer572:                                        ; preds = %.preheader.i255, %637
-  %.promoted1012.i259.ph = phi i64 [ %.promoted.i257, %.preheader.i255 ], [ %638, %637 ]
-  %.ph573 = phi i64 [ %.promoted11.i256, %.preheader.i255 ], [ 0, %637 ]
-  %627 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %621, i64 %.promoted1012.i259.ph
+  %.promoted911.i259.ph = phi i64 [ %.promoted.i257, %.preheader.i255 ], [ %638, %637 ]
+  %.ph573 = phi i64 [ %.promoted10.i256, %.preheader.i255 ], [ 0, %637 ]
+  %627 = getelementptr inbounds nuw %"struct.arrow::DataTypeLayout", ptr %621, i64 %.promoted911.i259.ph
   %628 = getelementptr inbounds nuw i8, ptr %627, i64 8
   %629 = load ptr, ptr %628, align 8, !tbaa !307
   %630 = load ptr, ptr %627, align 8, !tbaa !304
@@ -8625,7 +8625,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE9push_backERKS3_.exit254: ; 
 
 637:                                              ; preds = %635
   store i64 0, ptr %156, align 8, !tbaa !311
-  %638 = add i64 %.promoted1012.i259.ph, 1
+  %638 = add i64 %.promoted911.i259.ph, 1
   store i64 %638, ptr %319, align 8, !tbaa !312
   %.not3.i261 = icmp ult i64 %638, %626
   br i1 %.not3.i261, label %.outer572, label %639, !llvm.loop !313

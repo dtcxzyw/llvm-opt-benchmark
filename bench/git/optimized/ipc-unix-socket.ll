@@ -476,7 +476,7 @@ setup_listener_socket.exit:                       ; preds = %25, %set_socket_blo
   unreachable
 
 80:                                               ; preds = %.preheader, %89
-  %.05163 = phi i32 [ 0, %.preheader ], [ %92, %89 ]
+  %.05162 = phi i32 [ 0, %.preheader ], [ %92, %89 ]
   %81 = call ptr @xcalloc(i64 noundef 1, i64 noundef 32) #13
   store i32 1, ptr %81, align 8, !tbaa !48
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
@@ -487,7 +487,7 @@ setup_listener_socket.exit:                       ; preds = %25, %set_socket_blo
   br i1 %.not56, label %89, label %85
 
 85:                                               ; preds = %80
-  %86 = icmp eq i32 %.05163, 0
+  %86 = icmp eq i32 %.05162, 0
   br i1 %86, label %87, label %.loopexit
 
 87:                                               ; preds = %85
@@ -500,7 +500,7 @@ setup_listener_socket.exit:                       ; preds = %25, %set_socket_blo
   %91 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %90, ptr %91, align 8, !tbaa !52
   store ptr %81, ptr %77, align 8, !tbaa !51
-  %92 = add nuw nsw i32 %.05163, 1
+  %92 = add nuw nsw i32 %.05162, 1
   %exitcond.not = icmp eq i32 %92, %spec.store.select
   br i1 %exitcond.not, label %.loopexit, label %80, !llvm.loop !53
 

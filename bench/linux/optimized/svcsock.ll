@@ -2317,16 +2317,15 @@ define internal fastcc ptr @svc_create_socket(ptr noundef %0, i32 noundef range(
   %8 = alloca %struct.__kernel_sockaddr_storage, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  switch i32 %1, label %9 [
-    i32 17, label %11
-    i32 6, label %11
-  ]
+  %.off = add nsw i32 %1, -7
+  %switch = icmp ult i32 %.off, 10
+  br i1 %switch, label %9, label %11
 
 9:                                                ; preds = %6
   %10 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1) #18
   br label %71
 
-11:                                               ; preds = %6, %6
+11:                                               ; preds = %6
   store ptr null, ptr %7, align 8, !annotation !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %8, i8 0, i64 128, i1 false), !annotation !10
   %12 = icmp eq i32 %1, 17

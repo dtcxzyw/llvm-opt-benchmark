@@ -1287,7 +1287,7 @@ define linkonce_odr noundef i64 @_ZN7rocksdb12FileMetaData19TryGetNewestKeyTimeE
   %9 = load ptr, ptr %8, align 8
   call void %9(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.178") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %5)
   %10 = load ptr, ptr %3, align 8, !tbaa !242
-  %.not26 = icmp eq ptr %10, null
+  %.not25 = icmp eq ptr %10, null
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !245
   %.not.i.i = icmp eq ptr %12, null
@@ -1339,7 +1339,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %30, %28
 
 .critedge:                                        ; preds = %33, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %18, %6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %.not26, label %.critedge.thread, label %34
+  br i1 %.not25, label %.critedge.thread, label %34
 
 34:                                               ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1353,8 +1353,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %30, %28
   %41 = load i64, ptr %40, align 8, !tbaa !273
   %42 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !245
-  %.not.i.i21 = icmp eq ptr %43, null
-  br i1 %.not.i.i21, label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25, label %44
+  %.not.i.i20 = icmp eq ptr %43, null
+  br i1 %.not.i.i20, label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24, label %44
 
 44:                                               ; preds = %34
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -1375,37 +1375,37 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %30, %28
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   call void %56(ptr noundef nonnull align 8 dereferenceable(16) %43) #26
-  br label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25
+  br label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24
 
 57:                                               ; preds = %44
   %58 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !18
-  %.not.i.i.i22 = icmp eq i8 %58, 0
-  br i1 %.not.i.i.i22, label %61, label %59
+  %.not.i.i.i21 = icmp eq i8 %58, 0
+  br i1 %.not.i.i.i21, label %61, label %59
 
 59:                                               ; preds = %57
   %60 = add nsw i32 %48, -1
   store i32 %60, ptr %45, align 4, !tbaa !249
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22
 
 61:                                               ; preds = %57
   %62 = atomicrmw volatile add ptr %45, i32 -1 acq_rel, align 4
-  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23
+  br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23: ; preds = %61, %59
-  %.0.i.i.i.i24 = phi i32 [ %48, %59 ], [ %62, %61 ]
-  %63 = icmp eq i32 %.0.i.i.i.i24, 1
-  br i1 %63, label %64, label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25, !prof !250
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22: ; preds = %61, %59
+  %.0.i.i.i.i23 = phi i32 [ %48, %59 ], [ %62, %61 ]
+  %63 = icmp eq i32 %.0.i.i.i.i23, 1
+  br i1 %63, label %64, label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24, !prof !250
 
-64:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23
+64:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %43) #26
-  br label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25
+  br label %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24
 
-_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25: ; preds = %34, %49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i23, %64
+_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24: ; preds = %34, %49, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i22, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.not.not27 = icmp eq i64 %41, 0
-  br i1 %.not.not27, label %.critedge.thread, label %68
+  %.not.not26 = icmp eq i64 %41, 0
+  br i1 %.not.not26, label %.critedge.thread, label %68
 
-.critedge.thread:                                 ; preds = %2, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25, %.critedge
+.critedge.thread:                                 ; preds = %2, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24, %.critedge
   %.not17 = icmp eq ptr %1, null
   br i1 %.not17, label %67, label %65
 
@@ -1417,8 +1417,8 @@ _ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2
 67:                                               ; preds = %65, %.critedge.thread
   br label %68
 
-68:                                               ; preds = %65, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25, %67
-  %.2 = phi i64 [ 0, %67 ], [ %66, %65 ], [ %41, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit25 ]
+68:                                               ; preds = %65, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24, %67
+  %.2 = phi i64 [ 0, %67 ], [ %66, %65 ], [ %41, %_ZNSt12__shared_ptrIKN7rocksdb15TablePropertiesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit24 ]
   ret i64 %.2
 }
 

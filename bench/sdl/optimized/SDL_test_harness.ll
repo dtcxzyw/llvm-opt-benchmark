@@ -777,17 +777,16 @@ SDLTest_SetTestTimeout.exit.i:                    ; preds = %241, %238
   br i1 %253, label %257, label %254
 
 254:                                              ; preds = %249
-  switch i32 %252, label %255 [
-    i32 0, label %257
-    i32 -1, label %257
-  ]
+  %.off.i = add i32 %252, -1
+  %switch.i = icmp ult i32 %.off.i, -2
+  br i1 %switch.i, label %255, label %257
 
 255:                                              ; preds = %254
   %256 = call i32 @SDLTest_AssertSummaryToTestResult() #8
   br label %257
 
-257:                                              ; preds = %255, %254, %254, %249
-  %.029.i = phi i32 [ %256, %255 ], [ 3, %249 ], [ 1, %254 ], [ 1, %254 ]
+257:                                              ; preds = %255, %254, %249
+  %.029.i = phi i32 [ %256, %255 ], [ 3, %249 ], [ 1, %254 ]
   %258 = load ptr, ptr %191, align 8
   %.not41.i = icmp eq ptr %258, null
   br i1 %.not41.i, label %261, label %259

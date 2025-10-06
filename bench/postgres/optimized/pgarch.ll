@@ -375,7 +375,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   %13 = load ptr, ptr @MyLatch, align 8
   call void @ResetLatch(ptr noundef %13) #18
   %14 = load volatile i32, ptr @ready_to_stop, align 4
-  %.not13 = icmp eq i32 %14, 0
+  %.not12 = icmp eq i32 %14, 0
   call fastcc void @HandlePgArchInterrupts()
   %15 = load volatile i32, ptr @ShutdownRequestPending, align 4
   %.not = icmp eq i32 %15, 0
@@ -395,7 +395,7 @@ define internal fastcc void @pgarch_MainLoop() unnamed_addr #0 {
   %22 = sub i64 %17, %18
   %23 = trunc i64 %22 to i32
   %24 = icmp ugt i32 %23, 59
-  br i1 %24, label %.thread11, label %.thread
+  br i1 %24, label %.thread10, label %.thread
 
 .thread:                                          ; preds = %21, %20, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -796,16 +796,16 @@ PostmasterIsAlive.exit.thread.i:                  ; preds = %PostmasterIsAlive.e
 
 pgarch_ArchiverCopyLoop.exit:                     ; preds = %pgarch_readyXlog.exit.thread.i, %.thread28.i, %.loopexit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not13, label %195, label %.thread11
+  br i1 %.not12, label %195, label %.thread10
 
 195:                                              ; preds = %pgarch_ArchiverCopyLoop.exit
   %196 = load ptr, ptr @MyLatch, align 8
   %197 = call i32 @WaitLatch(ptr noundef %196, i32 noundef 25, i64 noundef 60000, i32 noundef 83886080) #18
   %198 = and i32 %197, 16
   %.not8.not = icmp eq i32 %198, 0
-  br i1 %.not8.not, label %12, label %.thread11, !llvm.loop !12
+  br i1 %.not8.not, label %12, label %.thread10, !llvm.loop !12
 
-.thread11:                                        ; preds = %pgarch_ArchiverCopyLoop.exit, %21, %195
+.thread10:                                        ; preds = %pgarch_ArchiverCopyLoop.exit, %21, %195
   ret void
 }
 

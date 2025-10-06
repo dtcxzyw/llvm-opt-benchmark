@@ -4313,16 +4313,16 @@ _ZNK6vectorIjLb0EjE5emptyEv.exit.thread:          ; preds = %_ZN2dd6solver13push
 define hidden noundef ptr @_ZN2dd6solver9pick_nextEv(ptr noundef nonnull align 8 captures(none) dereferenceable(208) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 188
   %3 = load i32, ptr %2, align 4, !tbaa !86
-  %.not32 = icmp eq i32 %3, 0
-  br i1 %.not32, label %.loopexit, label %.lr.ph34
+  %.not31 = icmp eq i32 %3, 0
+  br i1 %.not31, label %.loopexit, label %.lr.ph33
 
-.lr.ph34:                                         ; preds = %1
+.lr.ph33:                                         ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %6
 
-6:                                                ; preds = %.lr.ph34, %._crit_edge.thread
-  %7 = phi i32 [ %3, %.lr.ph34 ], [ %71, %._crit_edge.thread ]
+6:                                                ; preds = %.lr.ph33, %._crit_edge.thread
+  %7 = phi i32 [ %3, %.lr.ph33 ], [ %71, %._crit_edge.thread ]
   %8 = add i32 %7, -1
   %9 = load ptr, ptr %4, align 8, !tbaa !21
   %10 = zext i32 %8 to i64
@@ -4338,17 +4338,17 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit: ; preds = %6
   %17 = zext i32 %16 to i64
   %18 = shl nuw nsw i64 %17, 3
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 %18
-  %.not2429 = icmp eq i32 %16, 0
-  br i1 %.not2429, label %._crit_edge.thread, label %.lr.ph
+  %.not2428 = icmp eq i32 %16, 0
+  br i1 %.not2428, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %45
   %.not25.not = icmp eq ptr %.121, null
   br i1 %.not25.not, label %._crit_edge.thread, label %47
 
 .lr.ph:                                           ; preds = %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit, %45
-  %.02031 = phi ptr [ %.121, %45 ], [ null, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
-  %.02230 = phi ptr [ %46, %45 ], [ %13, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
-  %20 = load ptr, ptr %.02230, align 8, !tbaa !42
+  %.02030 = phi ptr [ %.121, %45 ], [ null, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
+  %.02229 = phi ptr [ %46, %45 ], [ %13, %_ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit ]
+  %20 = load ptr, ptr %.02229, align 8, !tbaa !42
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %20, align 8, !tbaa !95
   %23 = icmp eq i32 %22, 2
@@ -4372,12 +4372,12 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit: ; preds = %6
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %24
-  %.not26 = icmp eq ptr %.02031, null
+  %.not26 = icmp eq ptr %.02030, null
   br i1 %.not26, label %44, label %40
 
 40:                                               ; preds = %39
   %41 = load ptr, ptr %0, align 8, !tbaa !84
-  %42 = getelementptr inbounds nuw i8, ptr %.02031, i64 8
+  %42 = getelementptr inbounds nuw i8, ptr %.02030, i64 8
   %43 = tail call noundef zeroext i1 @_ZN2dd11pdd_manager5lm_ltERKNS_3pddES3_(ptr noundef nonnull align 8 dereferenceable(952) %41, ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %42)
   br i1 %43, label %44, label %45
 
@@ -4385,8 +4385,8 @@ _ZN6vectorIPN2dd6solver8equationELb0EjE3endEv.exit: ; preds = %6
   br label %45
 
 45:                                               ; preds = %40, %44, %24, %.lr.ph
-  %.121 = phi ptr [ %20, %44 ], [ %.02031, %40 ], [ %.02031, %24 ], [ %.02031, %.lr.ph ]
-  %46 = getelementptr inbounds nuw i8, ptr %.02230, i64 8
+  %.121 = phi ptr [ %20, %44 ], [ %.02030, %40 ], [ %.02030, %24 ], [ %.02030, %.lr.ph ]
+  %46 = getelementptr inbounds nuw i8, ptr %.02229, i64 8
   %.not24 = icmp eq ptr %46, %19
   br i1 %.not24, label %._crit_edge, label %.lr.ph
 

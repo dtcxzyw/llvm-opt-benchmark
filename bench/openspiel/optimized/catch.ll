@@ -1773,7 +1773,7 @@ define void @_ZNK10open_spiel6catch_10CatchState8ToStringB5cxx11Ev(ptr dead_on_u
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %13 = load i32, ptr %12, align 4
   %14 = icmp sgt i32 %13, 0
-  br i1 %14, label %.preheader.lr.ph, label %._crit_edge26
+  br i1 %14, label %.preheader.lr.ph, label %._crit_edge27
 
 .preheader.lr.ph:                                 ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -1785,18 +1785,18 @@ define void @_ZNK10open_spiel6catch_10CatchState8ToStringB5cxx11Ev(ptr dead_on_u
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %80
-  %.01125 = phi i32 [ 0, %.preheader.lr.ph ], [ %81, %80 ]
+  %.01126 = phi i32 [ 0, %.preheader.lr.ph ], [ %81, %80 ]
   %21 = load i32, ptr %15, align 8
   %22 = icmp sgt i32 %21, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %72
-  %.01024 = phi i32 [ %73, %72 ], [ 0, %.preheader ]
+  %.01025 = phi i32 [ %73, %72 ], [ 0, %.preheader ]
   %23 = load i32, ptr %12, align 4
   %24 = add nsw i32 %23, -1
-  %25 = icmp eq i32 %.01125, %24
+  %25 = icmp eq i32 %.01126, %24
   %26 = load i32, ptr %16, align 8
-  %27 = icmp eq i32 %.01024, %26
+  %27 = icmp eq i32 %.01025, %26
   %or.cond.i = select i1 %25, i1 %27, i1 false
   br i1 %or.cond.i, label %_ZNK10open_spiel6catch_10CatchState7BoardAtEii.exit.thread, label %_ZNK10open_spiel6catch_10CatchState7BoardAtEii.exit
 
@@ -1810,14 +1810,14 @@ _ZNK10open_spiel6catch_10CatchState7BoardAtEii.exit.thread: ; preds = %.lr.ph
 
 _ZNK10open_spiel6catch_10CatchState7BoardAtEii.exit: ; preds = %.lr.ph
   %29 = load i32, ptr %17, align 8
-  %30 = icmp eq i32 %.01125, %29
+  %30 = icmp ne i32 %.01126, %29
   %31 = load i32, ptr %18, align 4
-  %32 = icmp eq i32 %.01024, %31
-  %or.cond9.i = select i1 %30, i1 %32, i1 false
+  %32 = icmp ne i32 %.01025, %31
+  %or.cond9.i.not = select i1 %30, i1 true, i1 %32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  br i1 %or.cond9.i, label %55, label %33
+  br i1 %or.cond9.i.not, label %33, label %55
 
 33:                                               ; preds = %_ZNK10open_spiel6catch_10CatchState7BoardAtEii.exit
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25, !noalias !12
@@ -1987,7 +1987,7 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
 
 72:                                               ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #25
-  %73 = add nuw nsw i32 %.01024, 1
+  %73 = add nuw nsw i32 %.01025, 1
   %74 = load i32, ptr %15, align 8
   %75 = icmp slt i32 %73, %74
   br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !15
@@ -2010,12 +2010,12 @@ _ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %80 unwind label %76
 
 80:                                               ; preds = %._crit_edge
-  %81 = add nuw nsw i32 %.01125, 1
+  %81 = add nuw nsw i32 %.01126, 1
   %82 = load i32, ptr %12, align 4
   %83 = icmp slt i32 %81, %82
-  br i1 %83, label %.preheader, label %._crit_edge26, !llvm.loop !16
+  br i1 %83, label %.preheader, label %._crit_edge27, !llvm.loop !16
 
-._crit_edge26:                                    ; preds = %80, %2
+._crit_edge27:                                    ; preds = %80, %2
   ret void
 
 .body:                                            ; preds = %76, %.body.i, %78

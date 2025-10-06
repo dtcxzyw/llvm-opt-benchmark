@@ -1102,9 +1102,9 @@ define internal fastcc i32 @verify_command(ptr noundef %0, ptr noundef %1, ptr n
   %37 = load i64, ptr %11, align 8, !tbaa !16
   %38 = call i32 @TS_VERIFY_CTX_set0_imprint(ptr noundef nonnull %25, ptr noundef %36, i64 noundef %37) #7
   %.not61.i = icmp eq i32 %38, 0
-  br i1 %.not61.i, label %39, label %.thread73.i
+  br i1 %.not61.i, label %39, label %.thread71.i
 
-.thread73.i:                                      ; preds = %35
+.thread71.i:                                      ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %52
 
@@ -1133,11 +1133,11 @@ define internal fastcc i32 @verify_command(ptr noundef %0, ptr noundef %1, ptr n
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.thread.i, label %52
 
-52:                                               ; preds = %49, %.thread73.i, %34, %31
-  %.146.i = phi ptr [ %25, %34 ], [ %50, %49 ], [ %25, %31 ], [ %25, %.thread73.i ]
-  %.144.i = phi ptr [ null, %34 ], [ %44, %49 ], [ null, %31 ], [ null, %.thread73.i ]
-  %.142.i = phi ptr [ null, %34 ], [ %47, %49 ], [ null, %31 ], [ null, %.thread73.i ]
-  %.039.i = phi i32 [ 67, %34 ], [ 1, %49 ], [ 83, %31 ], [ 75, %.thread73.i ]
+52:                                               ; preds = %49, %.thread71.i, %34, %31
+  %.146.i = phi ptr [ %25, %34 ], [ %50, %49 ], [ %25, %31 ], [ %25, %.thread71.i ]
+  %.144.i = phi ptr [ null, %34 ], [ %44, %49 ], [ null, %31 ], [ null, %.thread71.i ]
+  %.142.i = phi ptr [ null, %34 ], [ %47, %49 ], [ null, %31 ], [ null, %.thread71.i ]
+  %.039.i = phi i32 [ 67, %34 ], [ 1, %49 ], [ 83, %31 ], [ 75, %.thread71.i ]
   %53 = call i32 @TS_VERIFY_CTX_add_flags(ptr noundef nonnull %.146.i, i32 noundef %.039.i) #7
   %54 = call ptr @app_get0_libctx() #7
   %55 = call ptr @app_get0_propq() #7
@@ -1266,11 +1266,11 @@ create_cert_store.exit.i:                         ; preds = %106, %104, %103, %5
   br label %create_verify_ctx.exit
 
 create_verify_ctx.exit:                           ; preds = %108, %112, %.thread.i
-  %.04185.i = phi ptr [ %.041.ph.i, %.thread.i ], [ %.142.i, %108 ], [ %.142.i, %112 ]
-  %.04383.i = phi ptr [ %.043.ph.i, %.thread.i ], [ %.144.i, %108 ], [ %.144.i, %112 ]
+  %.04182.i = phi ptr [ %.041.ph.i, %.thread.i ], [ %.142.i, %108 ], [ %.142.i, %112 ]
+  %.04380.i = phi ptr [ %.043.ph.i, %.thread.i ], [ %.144.i, %108 ], [ %.144.i, %112 ]
   %.2.i = phi ptr [ null, %.thread.i ], [ %.146.i, %108 ], [ %.146.i, %112 ]
-  call void @BIO_free_all(ptr noundef %.04383.i) #7
-  call void @TS_REQ_free(ptr noundef %.04185.i) #7
+  call void @BIO_free_all(ptr noundef %.04380.i) #7
+  call void @TS_REQ_free(ptr noundef %.04182.i) #7
   %114 = icmp eq ptr %.2.i, null
   br i1 %114, label %.thread, label %115
 
@@ -1455,9 +1455,9 @@ define internal fastcc ptr @create_query(ptr noundef %0, ptr noundef %1, ptr nou
   %56 = load i64, ptr %8, align 8
   %.not39.i = icmp eq i64 %56, %55
   %or.cond.i = select i1 %54, i1 %.not39.i, i1 false
-  br i1 %or.cond.i, label %.thread59.i, label %57
+  br i1 %or.cond.i, label %.thread58.i, label %57
 
-.thread59.i:                                      ; preds = %52
+.thread58.i:                                      ; preds = %52
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %63
 
@@ -1475,16 +1475,16 @@ define internal fastcc ptr @create_query(ptr noundef %0, ptr noundef %1, ptr nou
 
 create_digest.exit:                               ; preds = %.thread.i, %57, %60
   %.2 = phi ptr [ %53, %57 ], [ %43, %.thread.i ], [ %43, %60 ]
-  %.02958.i = phi ptr [ null, %57 ], [ %39, %.thread.i ], [ %39, %60 ]
+  %.02957.i = phi ptr [ null, %57 ], [ %39, %.thread.i ], [ %39, %60 ]
   call void @CRYPTO_free(ptr noundef %.2, ptr noundef nonnull @.str.136, i32 noundef 549) #7
-  call void @EVP_MD_CTX_free(ptr noundef %.02958.i) #7
+  call void @EVP_MD_CTX_free(ptr noundef %.02957.i) #7
   br label %.thread87
 
-63:                                               ; preds = %60, %.thread59.i
-  %.170.ph = phi ptr [ %43, %60 ], [ %53, %.thread59.i ]
-  %.02957.i.ph = phi ptr [ %39, %60 ], [ null, %.thread59.i ]
-  %.132.i.ph = phi i32 [ %61, %60 ], [ %35, %.thread59.i ]
-  call void @EVP_MD_CTX_free(ptr noundef %.02957.i.ph) #7
+63:                                               ; preds = %60, %.thread58.i
+  %.170.ph = phi ptr [ %43, %60 ], [ %53, %.thread58.i ]
+  %.02956.i.ph = phi ptr [ %39, %60 ], [ null, %.thread58.i ]
+  %.132.i.ph = phi i32 [ %61, %60 ], [ %35, %.thread58.i ]
+  call void @EVP_MD_CTX_free(ptr noundef %.02956.i.ph) #7
   %64 = call i32 @TS_MSG_IMPRINT_set_msg(ptr noundef nonnull %19, ptr noundef %.170.ph, i32 noundef %.132.i.ph) #7
   %.not56 = icmp eq i32 %64, 0
   br i1 %.not56, label %.thread87, label %65
@@ -1808,11 +1808,11 @@ define internal ptr @serial_cb(ptr noundef %0, ptr noundef %1) #0 {
   br label %next_serial.exit
 
 next_serial.exit:                                 ; preds = %9, %26, %27
-  %.01649.i = phi ptr [ %.016.ph.i, %27 ], [ %19, %26 ], [ null, %9 ]
-  %.02046.i = phi ptr [ %.020.ph.i, %27 ], [ %7, %26 ], [ null, %9 ]
+  %.01648.i = phi ptr [ %.016.ph.i, %27 ], [ %19, %26 ], [ null, %9 ]
+  %.02045.i = phi ptr [ %.020.ph.i, %27 ], [ %7, %26 ], [ null, %9 ]
   %.3.i = phi ptr [ null, %27 ], [ %24, %26 ], [ %4, %9 ]
-  call void @BIO_free_all(ptr noundef %.02046.i) #7
-  call void @BN_free(ptr noundef %.01649.i) #7
+  call void @BIO_free_all(ptr noundef %.02045.i) #7
+  call void @BN_free(ptr noundef %.01648.i) #7
   %28 = icmp eq ptr %.3.i, null
   br i1 %28, label %29, label %32
 

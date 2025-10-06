@@ -1123,14 +1123,14 @@ define hidden range(i32 0, 2) i32 @CBB_add_u16(ptr noundef captures(none) %0, i1
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.not8 = phi i1 [ true, %.lr.ph.i ], [ false, %.lr.ph.preheader.i ]
+  %28 = phi i1 [ false, %.lr.ph.i ], [ true, %.lr.ph.preheader.i ]
   %.019.i = phi i64 [ 0, %.lr.ph.i ], [ 1, %.lr.ph.preheader.i ]
-  %.01118.i = phi i16 [ %30, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
-  %28 = trunc i16 %.01118.i to i8
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 %.019.i
-  store i8 %28, ptr %29, align 1, !tbaa !27
-  %30 = lshr i16 %.01118.i, 8
-  br i1 %.not8, label %cbb_buffer_add_u.exit, label %.lr.ph.i, !llvm.loop !30
+  %.01118.i = phi i16 [ %31, %.lr.ph.i ], [ %1, %.lr.ph.preheader.i ]
+  %29 = trunc i16 %.01118.i to i8
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 %.019.i
+  store i8 %29, ptr %30, align 1, !tbaa !27
+  %31 = lshr i16 %.01118.i, 8
+  br i1 %28, label %.lr.ph.i, label %cbb_buffer_add_u.exit, !llvm.loop !30
 
 cbb_buffer_add_u.exit:                            ; preds = %.lr.ph.i, %19, %16, %7, %4, %2
   %.0 = phi i32 [ 0, %2 ], [ 0, %4 ], [ 0, %7 ], [ 0, %19 ], [ 0, %16 ], [ 1, %.lr.ph.i ]

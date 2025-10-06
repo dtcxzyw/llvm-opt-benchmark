@@ -1795,7 +1795,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5ae82b950fabfc
 
 .thread:                                          ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  br label %.loopexit51.sink.split
+  br label %.loopexit43.sink.split
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
@@ -1826,7 +1826,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5ae82b950fabfc
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 %.sroa.13.0, ptr %6, align 1
   %.not = icmp eq i8 %.sroa.13.0, 0
-  br i1 %.not, label %.loopexit51.sink.split, label %24
+  br i1 %.not, label %.loopexit43.sink.split, label %24
 
 24:                                               ; preds = %.loopexit
   br i1 %.015, label %27, label %25
@@ -1840,7 +1840,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5ae82b950fabfc
   br i1 %28, label %29, label %30
 
 29:                                               ; preds = %30, %27, %25
-  br label %.loopexit51.sink.split
+  br label %.loopexit43.sink.split
 
 30:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1863,24 +1863,24 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5ae82b950fabfc
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !447
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !447
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %36, label %29, label %.loopexit51.sink.split
+  br i1 %36, label %29, label %.loopexit43.sink.split
 
-.loopexit51.sink.split:                           ; preds = %30, %.thread, %.loopexit, %29
+.loopexit43.sink.split:                           ; preds = %30, %.thread, %.loopexit, %29
   %.1.ph = phi i1 [ true, %29 ], [ false, %.loopexit ], [ false, %.thread ], [ false, %30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit51
+  br label %.loopexit43
 
-.loopexit51:                                      ; preds = %39, %37, %.loopexit51.sink.split
-  %.1 = phi i1 [ %.1.ph, %.loopexit51.sink.split ], [ true, %37 ], [ true, %39 ]
+.loopexit43:                                      ; preds = %39, %37, %.loopexit43.sink.split
+  %.1 = phi i1 [ %.1.ph, %.loopexit43.sink.split ], [ true, %37 ], [ true, %39 ]
   ret i1 %.1
 
 37:                                               ; preds = %18
   %38 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 @anon.c29a8bfa518d85917f471cda279c2d29.38, i64 noundef 3), !noalias !460
-  br i1 %38, label %.loopexit51, label %39
+  br i1 %38, label %.loopexit43, label %39
 
 39:                                               ; preds = %37, %18
   %40 = tail call noundef zeroext i1 @"_ZN57_$LT$core..fmt..Formatter$u20$as$u20$core..fmt..Write$GT$9write_str17h5ab377eaffd4c82dE"(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %23, i64 noundef %20), !noalias !463
-  br i1 %40, label %.loopexit51, label %8
+  br i1 %40, label %.loopexit43, label %8
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite, inaccessiblemem: write) uwtable
@@ -2069,8 +2069,8 @@ _ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit: ; preds = %26, %36
   %.pn.i.i.i = phi i64 [ %45, %_ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit ], [ %70, %68 ]
   %.sroa.01.0.i.i.i = and i64 %.pn.i.i.i, %.val5
   %50 = getelementptr inbounds i8, ptr %.val, i64 %.sroa.01.0.i.i.i
-  %.0.copyload.i33.i.i = load <16 x i8>, ptr %50, align 1, !noalias !510
-  %51 = icmp eq <16 x i8> %.0.copyload.i33.i.i, %.15.vec.insert.i.i.i
+  %.0.copyload.i29.i.i = load <16 x i8>, ptr %50, align 1, !noalias !510
+  %51 = icmp eq <16 x i8> %.0.copyload.i29.i.i, %.15.vec.insert.i.i.i
   %52 = bitcast <16 x i1> %51 to i16
   br label %53
 
@@ -2080,7 +2080,7 @@ _ZN4core4hash11BuildHasher8hash_one17h3cd19baf41154f68E.exit: ; preds = %26, %36
   br i1 %.not.i4.i.i, label %54, label %57
 
 54:                                               ; preds = %53
-  %55 = icmp eq <16 x i8> %.0.copyload.i33.i.i, splat (i8 -1)
+  %55 = icmp eq <16 x i8> %.0.copyload.i29.i.i, splat (i8 -1)
   %56 = bitcast <16 x i1> %55 to i16
   %.not.i.i.i = icmp eq i16 %56, 0
   br i1 %.not.i.i.i, label %68, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$3get17hb470d048622776cfE.exit"

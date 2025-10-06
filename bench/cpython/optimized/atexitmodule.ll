@@ -392,45 +392,45 @@ define internal noundef ptr @atexit_unregister(ptr readnone captures(none) %0, p
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = getelementptr i8, ptr %8, i64 16
-  %.val22.i = load i64, ptr %10, align 8, !tbaa !29
-  %.not23.i = icmp sgt i64 %.val22.i, 0
-  br i1 %.not23.i, label %.lr.ph.i, label %atexit_unregister_locked.exit
+  %.val23.i = load i64, ptr %10, align 8, !tbaa !29
+  %11 = icmp sgt i64 %.val23.i, 0
+  br i1 %11, label %.lr.ph.i, label %atexit_unregister_locked.exit
 
-.lr.ph.i:                                         ; preds = %2, %26
-  %.01624.i = phi i64 [ %27, %26 ], [ 0, %2 ]
-  %11 = load ptr, ptr %9, align 8, !tbaa !34
-  %12 = getelementptr ptr, ptr %11, i64 %.01624.i
-  %13 = load ptr, ptr %12, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %15 = load ptr, ptr %14, align 8, !tbaa !24
-  %16 = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef %15, i32 noundef 2) #6
-  %17 = icmp slt i32 %16, 0
-  br i1 %17, label %atexit_unregister_locked.exit, label %18
+.lr.ph.i:                                         ; preds = %2, %27
+  %.01624.i = phi i64 [ %28, %27 ], [ 0, %2 ]
+  %12 = load ptr, ptr %9, align 8, !tbaa !34
+  %13 = getelementptr ptr, ptr %12, i64 %.01624.i
+  %14 = load ptr, ptr %13, align 8, !tbaa !24
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %16 = load ptr, ptr %15, align 8, !tbaa !24
+  %17 = tail call i32 @PyObject_RichCompareBool(ptr noundef %1, ptr noundef %16, i32 noundef 2) #6
+  %18 = icmp slt i32 %17, 0
+  br i1 %18, label %atexit_unregister_locked.exit, label %19
 
-18:                                               ; preds = %.lr.ph.i
-  %19 = icmp eq i32 %16, 1
-  br i1 %19, label %20, label %26
+19:                                               ; preds = %.lr.ph.i
+  %20 = icmp eq i32 %17, 1
+  br i1 %20, label %21, label %27
 
-20:                                               ; preds = %18
-  %21 = add nsw i64 %.01624.i, 1
-  %22 = tail call i32 @PyList_SetSlice(ptr noundef nonnull %8, i64 noundef %.01624.i, i64 noundef %21, ptr noundef null) #6
-  %23 = icmp slt i32 %22, 0
-  br i1 %23, label %atexit_unregister_locked.exit, label %24
+21:                                               ; preds = %19
+  %22 = add nsw i64 %.01624.i, 1
+  %23 = tail call i32 @PyList_SetSlice(ptr noundef nonnull %8, i64 noundef %.01624.i, i64 noundef %22, ptr noundef null) #6
+  %24 = icmp slt i32 %23, 0
+  br i1 %24, label %atexit_unregister_locked.exit, label %25
 
-24:                                               ; preds = %20
-  %25 = add i64 %.01624.i, -1
-  br label %26
+25:                                               ; preds = %21
+  %26 = add i64 %.01624.i, -1
+  br label %27
 
-26:                                               ; preds = %24, %18
-  %.117.i = phi i64 [ %25, %24 ], [ %.01624.i, %18 ]
-  %27 = add i64 %.117.i, 1
+27:                                               ; preds = %25, %19
+  %.117.i = phi i64 [ %26, %25 ], [ %.01624.i, %19 ]
+  %28 = add i64 %.117.i, 1
   %.val.i = load i64, ptr %10, align 8, !tbaa !29
-  %.not.i = icmp slt i64 %27, %.val.i
-  br i1 %.not.i, label %.lr.ph.i, label %atexit_unregister_locked.exit, !llvm.loop !46
+  %29 = icmp slt i64 %28, %.val.i
+  br i1 %29, label %.lr.ph.i, label %atexit_unregister_locked.exit, !llvm.loop !46
 
-atexit_unregister_locked.exit:                    ; preds = %20, %.lr.ph.i, %26, %2
-  %28 = phi ptr [ @_Py_NoneStruct, %2 ], [ null, %20 ], [ null, %.lr.ph.i ], [ @_Py_NoneStruct, %26 ]
-  ret ptr %28
+atexit_unregister_locked.exit:                    ; preds = %21, %.lr.ph.i, %27, %2
+  %30 = phi ptr [ @_Py_NoneStruct, %2 ], [ null, %21 ], [ null, %.lr.ph.i ], [ @_Py_NoneStruct, %27 ]
+  ret ptr %30
 }
 
 ; Function Attrs: nounwind uwtable

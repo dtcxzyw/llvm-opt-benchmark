@@ -1025,8 +1025,8 @@ declare ptr @lxb_html_tokenizer_error_add(ptr noundef, ptr noundef, i32 noundef)
 define internal ptr @lxb_html_tokenizer_state_attribute_name(ptr noundef captures(none) initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %4, align 8, !tbaa !29
-  %.not109 = icmp eq ptr %1, %2
-  br i1 %.not109, label %._crit_edge, label %.lr.ph
+  %.not106 = icmp eq ptr %1, %2
+  br i1 %.not106, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -1037,8 +1037,8 @@ define internal ptr @lxb_html_tokenizer_state_attribute_name(ptr noundef capture
   br label %10
 
 10:                                               ; preds = %.lr.ph, %161
-  %.062110 = phi ptr [ %1, %.lr.ph ], [ %162, %161 ]
-  %11 = load i8, ptr %.062110, align 1, !tbaa !30
+  %.062107 = phi ptr [ %1, %.lr.ph ], [ %162, %161 ]
+  %11 = load i8, ptr %.062107, align 1, !tbaa !30
   switch i8 %11, label %161 [
     i8 9, label %12
     i8 10, label %12
@@ -1056,7 +1056,7 @@ define internal ptr @lxb_html_tokenizer_state_attribute_name(ptr noundef capture
 
 12:                                               ; preds = %10, %10, %10, %10, %10, %10, %10
   %13 = load ptr, ptr %4, align 8, !tbaa !29
-  %14 = ptrtoint ptr %.062110 to i64
+  %14 = ptrtoint ptr %.062107 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = load ptr, ptr %7, align 8, !tbaa !19
@@ -1121,7 +1121,7 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %21
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   store ptr %45, ptr %54, align 8, !tbaa !48
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr %.062110, ptr %55, align 8, !tbaa !49
+  store ptr %.062107, ptr %55, align 8, !tbaa !49
   store ptr @lxb_html_tokenizer_state_after_attribute_name, ptr %0, align 8, !tbaa !28
   br label %192
 
@@ -1144,7 +1144,7 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %21
 
 67:                                               ; preds = %56
   %68 = load ptr, ptr %4, align 8, !tbaa !29
-  %69 = ptrtoint ptr %.062110 to i64
+  %69 = ptrtoint ptr %.062107 to i64
   %70 = ptrtoint ptr %68 to i64
   %71 = sub i64 %69, %70
   %72 = load ptr, ptr %7, align 8, !tbaa !19
@@ -1163,30 +1163,30 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %21
   %83 = tail call ptr @lexbor_realloc(ptr noundef %77, i64 noundef %82) #5
   store ptr %83, ptr %9, align 8, !tbaa !18
   %84 = icmp eq ptr %83, null
-  br i1 %84, label %lxb_html_tokenizer_temp_append_data.exit76, label %lxb_html_tokenizer_temp_realloc.exit.thread.i74
+  br i1 %84, label %lxb_html_tokenizer_temp_append_data.exit75, label %lxb_html_tokenizer_temp_realloc.exit.thread.i73
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i74:  ; preds = %76
+lxb_html_tokenizer_temp_realloc.exit.thread.i73:  ; preds = %76
   %85 = ptrtoint ptr %72 to i64
   %86 = sub i64 %85, %78
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 %86
   store ptr %87, ptr %7, align 8, !tbaa !19
   %88 = getelementptr inbounds nuw i8, ptr %83, i64 %82
   store ptr %88, ptr %8, align 8, !tbaa !31
-  %.pre.i75 = load ptr, ptr %4, align 8, !tbaa !29
+  %.pre.i74 = load ptr, ptr %4, align 8, !tbaa !29
   br label %90
 
-lxb_html_tokenizer_temp_append_data.exit76:       ; preds = %76
+lxb_html_tokenizer_temp_append_data.exit75:       ; preds = %76
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %89, align 8, !tbaa !32
   br label %192
 
-90:                                               ; preds = %67, %lxb_html_tokenizer_temp_realloc.exit.thread.i74
-  %91 = phi ptr [ %.pre.i75, %lxb_html_tokenizer_temp_realloc.exit.thread.i74 ], [ %68, %67 ]
-  %92 = phi ptr [ %87, %lxb_html_tokenizer_temp_realloc.exit.thread.i74 ], [ %72, %67 ]
+90:                                               ; preds = %67, %lxb_html_tokenizer_temp_realloc.exit.thread.i73
+  %91 = phi ptr [ %.pre.i74, %lxb_html_tokenizer_temp_realloc.exit.thread.i73 ], [ %68, %67 ]
+  %92 = phi ptr [ %87, %lxb_html_tokenizer_temp_realloc.exit.thread.i73 ], [ %72, %67 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %92, ptr align 1 %91, i64 %71, i1 false)
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 %71
   store ptr %93, ptr %7, align 8, !tbaa !19
-  %94 = getelementptr inbounds nuw i8, ptr %.062110, i64 1
+  %94 = getelementptr inbounds nuw i8, ptr %.062107, i64 1
   store ptr %94, ptr %4, align 8, !tbaa !29
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 3
   %96 = load ptr, ptr %8, align 8, !tbaa !31
@@ -1202,9 +1202,9 @@ lxb_html_tokenizer_temp_append_data.exit76:       ; preds = %76
   %104 = tail call ptr @lexbor_realloc(ptr noundef %99, i64 noundef %103) #5
   store ptr %104, ptr %9, align 8, !tbaa !18
   %105 = icmp eq ptr %104, null
-  br i1 %105, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i78
+  br i1 %105, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i77
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i78:  ; preds = %98
+lxb_html_tokenizer_temp_realloc.exit.thread.i77:  ; preds = %98
   %106 = ptrtoint ptr %93 to i64
   %107 = sub i64 %106, %100
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 %107
@@ -1217,8 +1217,8 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %98
   store i32 2, ptr %110, align 8, !tbaa !32
   br label %192
 
-111:                                              ; preds = %90, %lxb_html_tokenizer_temp_realloc.exit.thread.i78
-  %112 = phi ptr [ %108, %lxb_html_tokenizer_temp_realloc.exit.thread.i78 ], [ %93, %90 ]
+111:                                              ; preds = %90, %lxb_html_tokenizer_temp_realloc.exit.thread.i77
+  %112 = phi ptr [ %108, %lxb_html_tokenizer_temp_realloc.exit.thread.i77 ], [ %93, %90 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %112, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 3
   store ptr %113, ptr %7, align 8, !tbaa !19
@@ -1226,7 +1226,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %98
 
 114:                                              ; preds = %10
   %115 = load ptr, ptr %4, align 8, !tbaa !29
-  %116 = ptrtoint ptr %.062110 to i64
+  %116 = ptrtoint ptr %.062107 to i64
   %117 = ptrtoint ptr %115 to i64
   %118 = sub i64 %116, %117
   %119 = load ptr, ptr %7, align 8, !tbaa !19
@@ -1245,26 +1245,26 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %98
   %130 = tail call ptr @lexbor_realloc(ptr noundef %124, i64 noundef %129) #5
   store ptr %130, ptr %9, align 8, !tbaa !18
   %131 = icmp eq ptr %130, null
-  br i1 %131, label %lxb_html_tokenizer_temp_append_data.exit82, label %lxb_html_tokenizer_temp_realloc.exit.thread.i80
+  br i1 %131, label %lxb_html_tokenizer_temp_append_data.exit81, label %lxb_html_tokenizer_temp_realloc.exit.thread.i79
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i80:  ; preds = %123
+lxb_html_tokenizer_temp_realloc.exit.thread.i79:  ; preds = %123
   %132 = ptrtoint ptr %119 to i64
   %133 = sub i64 %132, %125
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 %133
   store ptr %134, ptr %7, align 8, !tbaa !19
   %135 = getelementptr inbounds nuw i8, ptr %130, i64 %129
   store ptr %135, ptr %8, align 8, !tbaa !31
-  %.pre.i81 = load ptr, ptr %4, align 8, !tbaa !29
+  %.pre.i80 = load ptr, ptr %4, align 8, !tbaa !29
   br label %137
 
-lxb_html_tokenizer_temp_append_data.exit82:       ; preds = %123
+lxb_html_tokenizer_temp_append_data.exit81:       ; preds = %123
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %136, align 8, !tbaa !32
   br label %192
 
-137:                                              ; preds = %114, %lxb_html_tokenizer_temp_realloc.exit.thread.i80
-  %138 = phi ptr [ %.pre.i81, %lxb_html_tokenizer_temp_realloc.exit.thread.i80 ], [ %115, %114 ]
-  %139 = phi ptr [ %134, %lxb_html_tokenizer_temp_realloc.exit.thread.i80 ], [ %119, %114 ]
+137:                                              ; preds = %114, %lxb_html_tokenizer_temp_realloc.exit.thread.i79
+  %138 = phi ptr [ %.pre.i80, %lxb_html_tokenizer_temp_realloc.exit.thread.i79 ], [ %115, %114 ]
+  %139 = phi ptr [ %134, %lxb_html_tokenizer_temp_realloc.exit.thread.i79 ], [ %119, %114 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %139, ptr align 1 %138, i64 %118, i1 false)
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 %118
   store ptr %140, ptr %7, align 8, !tbaa !19
@@ -1291,19 +1291,19 @@ lxb_html_tokenizer_temp_append_data.exit82:       ; preds = %123
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   store ptr %147, ptr %156, align 8, !tbaa !48
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 8
-  store ptr %.062110, ptr %157, align 8, !tbaa !49
+  store ptr %.062107, ptr %157, align 8, !tbaa !49
   store ptr @lxb_html_tokenizer_state_before_attribute_value, ptr %0, align 8, !tbaa !28
-  %158 = getelementptr inbounds nuw i8, ptr %.062110, i64 1
+  %158 = getelementptr inbounds nuw i8, ptr %.062107, i64 1
   br label %192
 
 .sink.split:                                      ; preds = %10, %10, %10, %111
-  %.sink137 = phi i32 [ 45, %111 ], [ 42, %10 ], [ 42, %10 ], [ 42, %10 ]
+  %.sink134 = phi i32 [ 45, %111 ], [ 42, %10 ], [ 42, %10 ], [ 42, %10 ]
   %159 = load ptr, ptr %5, align 8, !tbaa !42
-  %160 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %159, ptr noundef nonnull %.062110, i32 noundef %.sink137) #5
+  %160 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %159, ptr noundef nonnull %.062107, i32 noundef %.sink134) #5
   br label %161
 
 161:                                              ; preds = %.sink.split, %10
-  %162 = getelementptr inbounds nuw i8, ptr %.062110, i64 1
+  %162 = getelementptr inbounds nuw i8, ptr %.062107, i64 1
   %.not = icmp eq ptr %162, %2
   br i1 %.not, label %._crit_edge.loopexit, label %10
 
@@ -1336,33 +1336,33 @@ lxb_html_tokenizer_temp_append_data.exit82:       ; preds = %123
   %181 = tail call ptr @lexbor_realloc(ptr noundef %175, i64 noundef %180) #5
   store ptr %181, ptr %174, align 8, !tbaa !18
   %182 = icmp eq ptr %181, null
-  br i1 %182, label %lxb_html_tokenizer_temp_append_data.exit86, label %lxb_html_tokenizer_temp_realloc.exit.thread.i84
+  br i1 %182, label %lxb_html_tokenizer_temp_append_data.exit85, label %lxb_html_tokenizer_temp_realloc.exit.thread.i83
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i84:  ; preds = %173
+lxb_html_tokenizer_temp_realloc.exit.thread.i83:  ; preds = %173
   %183 = ptrtoint ptr %168 to i64
   %184 = sub i64 %183, %176
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 %184
   store ptr %185, ptr %167, align 8, !tbaa !19
   %186 = getelementptr inbounds nuw i8, ptr %181, i64 %180
   store ptr %186, ptr %170, align 8, !tbaa !31
-  %.pre.i85 = load ptr, ptr %4, align 8, !tbaa !29
+  %.pre.i84 = load ptr, ptr %4, align 8, !tbaa !29
   br label %188
 
-lxb_html_tokenizer_temp_append_data.exit86:       ; preds = %173
+lxb_html_tokenizer_temp_append_data.exit85:       ; preds = %173
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %187, align 8, !tbaa !32
   br label %192
 
-188:                                              ; preds = %._crit_edge, %lxb_html_tokenizer_temp_realloc.exit.thread.i84
-  %189 = phi ptr [ %.pre.i85, %lxb_html_tokenizer_temp_realloc.exit.thread.i84 ], [ %163, %._crit_edge ]
-  %190 = phi ptr [ %185, %lxb_html_tokenizer_temp_realloc.exit.thread.i84 ], [ %168, %._crit_edge ]
+188:                                              ; preds = %._crit_edge, %lxb_html_tokenizer_temp_realloc.exit.thread.i83
+  %189 = phi ptr [ %.pre.i84, %lxb_html_tokenizer_temp_realloc.exit.thread.i83 ], [ %163, %._crit_edge ]
+  %190 = phi ptr [ %185, %lxb_html_tokenizer_temp_realloc.exit.thread.i83 ], [ %168, %._crit_edge ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %190, ptr align 1 %189, i64 %166, i1 false)
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 %166
   store ptr %191, ptr %167, align 8, !tbaa !19
   br label %192
 
-192:                                              ; preds = %188, %lxb_html_tokenizer_temp_append_data.exit86, %149, %lxb_html_tokenizer_temp_append_data.exit82, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit76, %47, %lxb_html_tokenizer_temp_append_data.exit, %151, %59, %49
-  %.0 = phi ptr [ %.062110, %49 ], [ %2, %47 ], [ %.062110, %59 ], [ %158, %151 ], [ %2, %149 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit76 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit82 ], [ %.062.lcssa, %188 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit86 ]
+192:                                              ; preds = %188, %lxb_html_tokenizer_temp_append_data.exit85, %149, %lxb_html_tokenizer_temp_append_data.exit81, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit75, %47, %lxb_html_tokenizer_temp_append_data.exit, %151, %59, %49
+  %.0 = phi ptr [ %.062107, %49 ], [ %2, %47 ], [ %.062107, %59 ], [ %158, %151 ], [ %2, %149 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit75 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit81 ], [ %.062.lcssa, %188 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit85 ]
   ret ptr %.0
 }
 
@@ -2076,8 +2076,8 @@ declare ptr @lexbor_realloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 define internal ptr @lxb_html_tokenizer_state_tag_name(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %4, align 8, !tbaa !29
-  %.not155 = icmp eq ptr %1, %2
-  br i1 %.not155, label %._crit_edge, label %.lr.ph
+  %.not150 = icmp eq ptr %1, %2
+  br i1 %.not150, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -2088,8 +2088,8 @@ define internal ptr @lxb_html_tokenizer_state_tag_name(ptr noundef initializes((
   br label %10
 
 10:                                               ; preds = %.lr.ph, %223
-  %.090156 = phi ptr [ %1, %.lr.ph ], [ %224, %223 ]
-  %11 = load i8, ptr %.090156, align 1, !tbaa !30
+  %.090151 = phi ptr [ %1, %.lr.ph ], [ %224, %223 ]
+  %11 = load i8, ptr %.090151, align 1, !tbaa !30
   switch i8 %11, label %223 [
     i8 9, label %12
     i8 10, label %12
@@ -2103,7 +2103,7 @@ define internal ptr @lxb_html_tokenizer_state_tag_name(ptr noundef initializes((
 
 12:                                               ; preds = %10, %10, %10, %10, %10
   %13 = load ptr, ptr %4, align 8, !tbaa !29
-  %14 = ptrtoint ptr %.090156 to i64
+  %14 = ptrtoint ptr %.090151 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = load ptr, ptr %6, align 8, !tbaa !19
@@ -2168,14 +2168,14 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %21
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 80
   store i64 %51, ptr %54, align 8, !tbaa !36
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  store ptr %.090156, ptr %55, align 8, !tbaa !33
+  store ptr %.090151, ptr %55, align 8, !tbaa !33
   store ptr @lxb_html_tokenizer_state_before_attribute_name, ptr %0, align 8, !tbaa !28
-  %56 = getelementptr inbounds nuw i8, ptr %.090156, i64 1
+  %56 = getelementptr inbounds nuw i8, ptr %.090151, i64 1
   br label %254
 
 57:                                               ; preds = %10
   %58 = load ptr, ptr %4, align 8, !tbaa !29
-  %59 = ptrtoint ptr %.090156 to i64
+  %59 = ptrtoint ptr %.090151 to i64
   %60 = ptrtoint ptr %58 to i64
   %61 = sub i64 %59, %60
   %62 = load ptr, ptr %6, align 8, !tbaa !19
@@ -2194,26 +2194,26 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %21
   %73 = tail call ptr @lexbor_realloc(ptr noundef %67, i64 noundef %72) #5
   store ptr %73, ptr %8, align 8, !tbaa !18
   %74 = icmp eq ptr %73, null
-  br i1 %74, label %lxb_html_tokenizer_temp_append_data.exit112, label %lxb_html_tokenizer_temp_realloc.exit.thread.i110
+  br i1 %74, label %lxb_html_tokenizer_temp_append_data.exit110, label %lxb_html_tokenizer_temp_realloc.exit.thread.i108
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i110: ; preds = %66
+lxb_html_tokenizer_temp_realloc.exit.thread.i108: ; preds = %66
   %75 = ptrtoint ptr %62 to i64
   %76 = sub i64 %75, %68
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 %76
   store ptr %77, ptr %6, align 8, !tbaa !19
   %78 = getelementptr inbounds nuw i8, ptr %73, i64 %72
   store ptr %78, ptr %7, align 8, !tbaa !31
-  %.pre.i111 = load ptr, ptr %4, align 8, !tbaa !29
+  %.pre.i109 = load ptr, ptr %4, align 8, !tbaa !29
   br label %80
 
-lxb_html_tokenizer_temp_append_data.exit112:      ; preds = %66
+lxb_html_tokenizer_temp_append_data.exit110:      ; preds = %66
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %79, align 8, !tbaa !32
   br label %254
 
-80:                                               ; preds = %57, %lxb_html_tokenizer_temp_realloc.exit.thread.i110
-  %81 = phi ptr [ %.pre.i111, %lxb_html_tokenizer_temp_realloc.exit.thread.i110 ], [ %58, %57 ]
-  %82 = phi ptr [ %77, %lxb_html_tokenizer_temp_realloc.exit.thread.i110 ], [ %62, %57 ]
+80:                                               ; preds = %57, %lxb_html_tokenizer_temp_realloc.exit.thread.i108
+  %81 = phi ptr [ %.pre.i109, %lxb_html_tokenizer_temp_realloc.exit.thread.i108 ], [ %58, %57 ]
+  %82 = phi ptr [ %77, %lxb_html_tokenizer_temp_realloc.exit.thread.i108 ], [ %62, %57 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %82, ptr align 1 %81, i64 %61, i1 false)
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 %61
   store ptr %83, ptr %6, align 8, !tbaa !19
@@ -2240,15 +2240,15 @@ lxb_html_tokenizer_temp_append_data.exit112:      ; preds = %66
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 80
   store i64 %96, ptr %99, align 8, !tbaa !36
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 8
-  store ptr %.090156, ptr %100, align 8, !tbaa !33
+  store ptr %.090151, ptr %100, align 8, !tbaa !33
   store ptr @lxb_html_tokenizer_state_self_closing_start_tag, ptr %0, align 8, !tbaa !28
-  %101 = getelementptr inbounds nuw i8, ptr %.090156, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.090151, i64 1
   br label %254
 
 102:                                              ; preds = %10
   store ptr @lxb_html_tokenizer_state_data_before, ptr %0, align 8, !tbaa !28
   %103 = load ptr, ptr %4, align 8, !tbaa !29
-  %104 = ptrtoint ptr %.090156 to i64
+  %104 = ptrtoint ptr %.090151 to i64
   %105 = ptrtoint ptr %103 to i64
   %106 = sub i64 %104, %105
   %107 = load ptr, ptr %6, align 8, !tbaa !19
@@ -2267,26 +2267,26 @@ lxb_html_tokenizer_temp_append_data.exit112:      ; preds = %66
   %118 = tail call ptr @lexbor_realloc(ptr noundef %112, i64 noundef %117) #5
   store ptr %118, ptr %8, align 8, !tbaa !18
   %119 = icmp eq ptr %118, null
-  br i1 %119, label %lxb_html_tokenizer_temp_append_data.exit116, label %lxb_html_tokenizer_temp_realloc.exit.thread.i114
+  br i1 %119, label %lxb_html_tokenizer_temp_append_data.exit114, label %lxb_html_tokenizer_temp_realloc.exit.thread.i112
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i114: ; preds = %111
+lxb_html_tokenizer_temp_realloc.exit.thread.i112: ; preds = %111
   %120 = ptrtoint ptr %107 to i64
   %121 = sub i64 %120, %113
   %122 = getelementptr inbounds nuw i8, ptr %118, i64 %121
   store ptr %122, ptr %6, align 8, !tbaa !19
   %123 = getelementptr inbounds nuw i8, ptr %118, i64 %117
   store ptr %123, ptr %7, align 8, !tbaa !31
-  %.pre.i115 = load ptr, ptr %4, align 8, !tbaa !29
+  %.pre.i113 = load ptr, ptr %4, align 8, !tbaa !29
   br label %125
 
-lxb_html_tokenizer_temp_append_data.exit116:      ; preds = %111
+lxb_html_tokenizer_temp_append_data.exit114:      ; preds = %111
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %124, align 8, !tbaa !32
   br label %254
 
-125:                                              ; preds = %102, %lxb_html_tokenizer_temp_realloc.exit.thread.i114
-  %126 = phi ptr [ %.pre.i115, %lxb_html_tokenizer_temp_realloc.exit.thread.i114 ], [ %103, %102 ]
-  %127 = phi ptr [ %122, %lxb_html_tokenizer_temp_realloc.exit.thread.i114 ], [ %107, %102 ]
+125:                                              ; preds = %102, %lxb_html_tokenizer_temp_realloc.exit.thread.i112
+  %126 = phi ptr [ %.pre.i113, %lxb_html_tokenizer_temp_realloc.exit.thread.i112 ], [ %103, %102 ]
+  %127 = phi ptr [ %122, %lxb_html_tokenizer_temp_realloc.exit.thread.i112 ], [ %107, %102 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %127, ptr align 1 %126, i64 %106, i1 false)
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 %106
   store ptr %128, ptr %6, align 8, !tbaa !19
@@ -2313,9 +2313,9 @@ lxb_html_tokenizer_temp_append_data.exit116:      ; preds = %111
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 80
   store i64 %141, ptr %144, align 8, !tbaa !36
   %145 = getelementptr inbounds nuw i8, ptr %143, i64 8
-  store ptr %.090156, ptr %145, align 8, !tbaa !33
+  store ptr %.090151, ptr %145, align 8, !tbaa !33
   %146 = load ptr, ptr %143, align 8, !tbaa !21
-  %.not102 = icmp eq ptr %146, %.090156
+  %.not102 = icmp eq ptr %146, %.090151
   br i1 %.not102, label %159, label %147
 
 147:                                              ; preds = %139
@@ -2343,7 +2343,7 @@ lxb_html_tokenizer_temp_append_data.exit116:      ; preds = %111
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %160, i8 0, i64 96, i1 false)
   %161 = load ptr, ptr %8, align 8, !tbaa !18
   store ptr %161, ptr %6, align 8, !tbaa !19
-  %162 = getelementptr inbounds nuw i8, ptr %.090156, i64 1
+  %162 = getelementptr inbounds nuw i8, ptr %.090151, i64 1
   br label %254
 
 163:                                              ; preds = %10
@@ -2364,7 +2364,7 @@ lxb_html_tokenizer_temp_append_data.exit116:      ; preds = %111
 
 174:                                              ; preds = %163
   %175 = load ptr, ptr %4, align 8, !tbaa !29
-  %176 = ptrtoint ptr %.090156 to i64
+  %176 = ptrtoint ptr %.090151 to i64
   %177 = ptrtoint ptr %175 to i64
   %178 = sub i64 %176, %177
   %179 = load ptr, ptr %6, align 8, !tbaa !19
@@ -2383,30 +2383,30 @@ lxb_html_tokenizer_temp_append_data.exit116:      ; preds = %111
   %190 = tail call ptr @lexbor_realloc(ptr noundef %184, i64 noundef %189) #5
   store ptr %190, ptr %8, align 8, !tbaa !18
   %191 = icmp eq ptr %190, null
-  br i1 %191, label %lxb_html_tokenizer_temp_append_data.exit120, label %lxb_html_tokenizer_temp_realloc.exit.thread.i118
+  br i1 %191, label %lxb_html_tokenizer_temp_append_data.exit118, label %lxb_html_tokenizer_temp_realloc.exit.thread.i116
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i118: ; preds = %183
+lxb_html_tokenizer_temp_realloc.exit.thread.i116: ; preds = %183
   %192 = ptrtoint ptr %179 to i64
   %193 = sub i64 %192, %185
   %194 = getelementptr inbounds nuw i8, ptr %190, i64 %193
   store ptr %194, ptr %6, align 8, !tbaa !19
   %195 = getelementptr inbounds nuw i8, ptr %190, i64 %189
   store ptr %195, ptr %7, align 8, !tbaa !31
-  %.pre.i119 = load ptr, ptr %4, align 8, !tbaa !29
+  %.pre.i117 = load ptr, ptr %4, align 8, !tbaa !29
   br label %197
 
-lxb_html_tokenizer_temp_append_data.exit120:      ; preds = %183
+lxb_html_tokenizer_temp_append_data.exit118:      ; preds = %183
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %196, align 8, !tbaa !32
   br label %254
 
-197:                                              ; preds = %174, %lxb_html_tokenizer_temp_realloc.exit.thread.i118
-  %198 = phi ptr [ %.pre.i119, %lxb_html_tokenizer_temp_realloc.exit.thread.i118 ], [ %175, %174 ]
-  %199 = phi ptr [ %194, %lxb_html_tokenizer_temp_realloc.exit.thread.i118 ], [ %179, %174 ]
+197:                                              ; preds = %174, %lxb_html_tokenizer_temp_realloc.exit.thread.i116
+  %198 = phi ptr [ %.pre.i117, %lxb_html_tokenizer_temp_realloc.exit.thread.i116 ], [ %175, %174 ]
+  %199 = phi ptr [ %194, %lxb_html_tokenizer_temp_realloc.exit.thread.i116 ], [ %179, %174 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %199, ptr align 1 %198, i64 %178, i1 false)
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 %178
   store ptr %200, ptr %6, align 8, !tbaa !19
-  %201 = getelementptr inbounds nuw i8, ptr %.090156, i64 1
+  %201 = getelementptr inbounds nuw i8, ptr %.090151, i64 1
   store ptr %201, ptr %4, align 8, !tbaa !29
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 3
   %203 = load ptr, ptr %7, align 8, !tbaa !31
@@ -2422,9 +2422,9 @@ lxb_html_tokenizer_temp_append_data.exit120:      ; preds = %183
   %211 = tail call ptr @lexbor_realloc(ptr noundef %206, i64 noundef %210) #5
   store ptr %211, ptr %8, align 8, !tbaa !18
   %212 = icmp eq ptr %211, null
-  br i1 %212, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i122
+  br i1 %212, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i120
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i122: ; preds = %205
+lxb_html_tokenizer_temp_realloc.exit.thread.i120: ; preds = %205
   %213 = ptrtoint ptr %200 to i64
   %214 = sub i64 %213, %207
   %215 = getelementptr inbounds nuw i8, ptr %211, i64 %214
@@ -2437,17 +2437,17 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %205
   store i32 2, ptr %217, align 8, !tbaa !32
   br label %254
 
-218:                                              ; preds = %197, %lxb_html_tokenizer_temp_realloc.exit.thread.i122
-  %219 = phi ptr [ %215, %lxb_html_tokenizer_temp_realloc.exit.thread.i122 ], [ %200, %197 ]
+218:                                              ; preds = %197, %lxb_html_tokenizer_temp_realloc.exit.thread.i120
+  %219 = phi ptr [ %215, %lxb_html_tokenizer_temp_realloc.exit.thread.i120 ], [ %200, %197 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %219, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 3
   store ptr %220, ptr %6, align 8, !tbaa !19
   %221 = load ptr, ptr %9, align 8, !tbaa !42
-  %222 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %221, ptr noundef nonnull %.090156, i32 noundef 45) #5
+  %222 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %221, ptr noundef nonnull %.090151, i32 noundef 45) #5
   br label %223
 
 223:                                              ; preds = %10, %218
-  %224 = getelementptr inbounds nuw i8, ptr %.090156, i64 1
+  %224 = getelementptr inbounds nuw i8, ptr %.090151, i64 1
   %.not = icmp eq ptr %224, %2
   br i1 %.not, label %._crit_edge.loopexit, label %10
 
@@ -2480,33 +2480,33 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %205
   %243 = tail call ptr @lexbor_realloc(ptr noundef %237, i64 noundef %242) #5
   store ptr %243, ptr %236, align 8, !tbaa !18
   %244 = icmp eq ptr %243, null
-  br i1 %244, label %lxb_html_tokenizer_temp_append_data.exit126, label %lxb_html_tokenizer_temp_realloc.exit.thread.i124
+  br i1 %244, label %lxb_html_tokenizer_temp_append_data.exit124, label %lxb_html_tokenizer_temp_realloc.exit.thread.i122
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i124: ; preds = %235
+lxb_html_tokenizer_temp_realloc.exit.thread.i122: ; preds = %235
   %245 = ptrtoint ptr %230 to i64
   %246 = sub i64 %245, %238
   %247 = getelementptr inbounds nuw i8, ptr %243, i64 %246
   store ptr %247, ptr %229, align 8, !tbaa !19
   %248 = getelementptr inbounds nuw i8, ptr %243, i64 %242
   store ptr %248, ptr %232, align 8, !tbaa !31
-  %.pre.i125 = load ptr, ptr %4, align 8, !tbaa !29
+  %.pre.i123 = load ptr, ptr %4, align 8, !tbaa !29
   br label %250
 
-lxb_html_tokenizer_temp_append_data.exit126:      ; preds = %235
+lxb_html_tokenizer_temp_append_data.exit124:      ; preds = %235
   %249 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %249, align 8, !tbaa !32
   br label %254
 
-250:                                              ; preds = %._crit_edge, %lxb_html_tokenizer_temp_realloc.exit.thread.i124
-  %251 = phi ptr [ %.pre.i125, %lxb_html_tokenizer_temp_realloc.exit.thread.i124 ], [ %225, %._crit_edge ]
-  %252 = phi ptr [ %247, %lxb_html_tokenizer_temp_realloc.exit.thread.i124 ], [ %230, %._crit_edge ]
+250:                                              ; preds = %._crit_edge, %lxb_html_tokenizer_temp_realloc.exit.thread.i122
+  %251 = phi ptr [ %.pre.i123, %lxb_html_tokenizer_temp_realloc.exit.thread.i122 ], [ %225, %._crit_edge ]
+  %252 = phi ptr [ %247, %lxb_html_tokenizer_temp_realloc.exit.thread.i122 ], [ %230, %._crit_edge ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %252, ptr align 1 %251, i64 %228, i1 false)
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 %228
   store ptr %253, ptr %229, align 8, !tbaa !19
   br label %254
 
-254:                                              ; preds = %250, %lxb_html_tokenizer_temp_append_data.exit126, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit120, %137, %lxb_html_tokenizer_temp_append_data.exit116, %92, %lxb_html_tokenizer_temp_append_data.exit112, %47, %lxb_html_tokenizer_temp_append_data.exit, %154, %158, %166, %159, %94, %49
-  %.0 = phi ptr [ %56, %49 ], [ %2, %47 ], [ %101, %94 ], [ %2, %92 ], [ %162, %159 ], [ %2, %137 ], [ %2, %166 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit112 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit116 ], [ %2, %158 ], [ %2, %154 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit120 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.090.lcssa, %250 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit126 ]
+254:                                              ; preds = %250, %lxb_html_tokenizer_temp_append_data.exit124, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit118, %137, %lxb_html_tokenizer_temp_append_data.exit114, %92, %lxb_html_tokenizer_temp_append_data.exit110, %47, %lxb_html_tokenizer_temp_append_data.exit, %154, %158, %166, %159, %94, %49
+  %.0 = phi ptr [ %56, %49 ], [ %2, %47 ], [ %101, %94 ], [ %2, %92 ], [ %162, %159 ], [ %2, %137 ], [ %2, %166 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit110 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit114 ], [ %2, %158 ], [ %2, %154 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit118 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.090.lcssa, %250 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit124 ]
   ret ptr %.0
 }
 
@@ -4270,8 +4270,8 @@ define internal ptr @lxb_html_tokenizer_state_attribute_value_double_quoted(ptr 
 
 lexbor_swar_seek4.exit:                           ; preds = %21, %37
   %.0.i = phi ptr [ %43, %37 ], [ %.1.i, %21 ]
-  %.not151 = icmp eq ptr %.0.i, %2
-  br i1 %.not151, label %._crit_edge, label %.lr.ph
+  %.not150 = icmp eq ptr %.0.i, %2
+  br i1 %.not150, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %lexbor_swar_seek4.exit
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -4282,8 +4282,8 @@ lexbor_swar_seek4.exit:                           ; preds = %21, %37
   br label %49
 
 49:                                               ; preds = %.lr.ph, %249
-  %.082152 = phi ptr [ %.0.i, %.lr.ph ], [ %250, %249 ]
-  %50 = load i8, ptr %.082152, align 1, !tbaa !30
+  %.082151 = phi ptr [ %.0.i, %.lr.ph ], [ %250, %249 ]
+  %50 = load i8, ptr %.082151, align 1, !tbaa !30
   switch i8 %50, label %249 [
     i8 34, label %51
     i8 38, label %102
@@ -4293,7 +4293,7 @@ lexbor_swar_seek4.exit:                           ; preds = %21, %37
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %20, align 8, !tbaa !29
-  %53 = ptrtoint ptr %.082152 to i64
+  %53 = ptrtoint ptr %.082151 to i64
   %54 = ptrtoint ptr %52 to i64
   %55 = sub i64 %53, %54
   %56 = load ptr, ptr %45, align 8, !tbaa !19
@@ -4339,7 +4339,7 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %60
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 56
   %80 = load ptr, ptr %79, align 8, !tbaa !44
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
-  store ptr %.082152, ptr %81, align 8, !tbaa !63
+  store ptr %.082151, ptr %81, align 8, !tbaa !63
   %82 = load ptr, ptr %47, align 8, !tbaa !18
   %83 = ptrtoint ptr %77 to i64
   %84 = ptrtoint ptr %82 to i64
@@ -4369,11 +4369,11 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %60
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 %99
   store i8 0, ptr %100, align 1, !tbaa !30
   store ptr @lxb_html_tokenizer_state_after_attribute_value_quoted, ptr %0, align 8, !tbaa !28
-  %101 = getelementptr inbounds nuw i8, ptr %.082152, i64 1
+  %101 = getelementptr inbounds nuw i8, ptr %.082151, i64 1
   br label %280
 
 102:                                              ; preds = %49
-  %103 = getelementptr inbounds nuw i8, ptr %.082152, i64 1
+  %103 = getelementptr inbounds nuw i8, ptr %.082151, i64 1
   %104 = load ptr, ptr %20, align 8, !tbaa !29
   %105 = ptrtoint ptr %103 to i64
   %106 = ptrtoint ptr %104 to i64
@@ -4423,7 +4423,7 @@ lxb_html_tokenizer_temp_append_data.exit101:      ; preds = %112
   br label %280
 
 131:                                              ; preds = %49
-  %132 = getelementptr inbounds nuw i8, ptr %.082152, i64 1
+  %132 = getelementptr inbounds nuw i8, ptr %.082151, i64 1
   %.not91 = icmp ult ptr %132, %2
   %133 = load ptr, ptr %20, align 8, !tbaa !29
   %134 = ptrtoint ptr %133 to i64
@@ -4432,7 +4432,7 @@ lxb_html_tokenizer_temp_append_data.exit101:      ; preds = %112
   br i1 %.not91, label %161, label %137
 
 137:                                              ; preds = %131
-  %138 = ptrtoint ptr %.082152 to i64
+  %138 = ptrtoint ptr %.082151 to i64
   %139 = sub i64 %138, %134
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 %139
   %141 = icmp ugt ptr %140, %136
@@ -4518,13 +4518,13 @@ lxb_html_tokenizer_temp_append_data.exit109:      ; preds = %166
   store ptr %183, ptr %45, align 8, !tbaa !19
   %184 = getelementptr inbounds i8, ptr %183, i64 -1
   store i8 10, ptr %184, align 1, !tbaa !30
-  %185 = getelementptr inbounds nuw i8, ptr %.082152, i64 2
+  %185 = getelementptr inbounds nuw i8, ptr %.082151, i64 2
   store ptr %185, ptr %20, align 8, !tbaa !29
   %186 = load i8, ptr %132, align 1, !tbaa !30
   %.not93 = icmp eq i8 %186, 10
   %spec.store.select = select i1 %.not93, ptr %185, ptr %132
   store ptr %spec.store.select, ptr %20, align 8
-  %spec.select = select i1 %.not93, ptr %132, ptr %.082152
+  %spec.select = select i1 %.not93, ptr %132, ptr %.082151
   br label %249
 
 187:                                              ; preds = %49
@@ -4541,21 +4541,21 @@ lxb_html_tokenizer_temp_append_data.exit109:      ; preds = %166
   %.not90 = icmp eq ptr %195, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
-  br i1 %.not90, label %._crit_edge164, label %196
+  br i1 %.not90, label %._crit_edge163, label %196
 
 196:                                              ; preds = %190
   %197 = getelementptr inbounds nuw i8, ptr %193, i64 24
   store ptr %.pre, ptr %197, align 8, !tbaa !63
-  br label %._crit_edge164
+  br label %._crit_edge163
 
-._crit_edge164:                                   ; preds = %190, %196
+._crit_edge163:                                   ; preds = %190, %196
   %198 = load ptr, ptr %48, align 8, !tbaa !42
   %199 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %198, ptr noundef %.pre, i32 noundef 16) #5
   br label %280
 
 200:                                              ; preds = %187
   %201 = load ptr, ptr %20, align 8, !tbaa !29
-  %202 = ptrtoint ptr %.082152 to i64
+  %202 = ptrtoint ptr %.082151 to i64
   %203 = ptrtoint ptr %201 to i64
   %204 = sub i64 %202, %203
   %205 = load ptr, ptr %45, align 8, !tbaa !19
@@ -4597,7 +4597,7 @@ lxb_html_tokenizer_temp_append_data.exit113:      ; preds = %209
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %225, ptr align 1 %224, i64 %204, i1 false)
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 %204
   store ptr %226, ptr %45, align 8, !tbaa !19
-  %227 = getelementptr inbounds nuw i8, ptr %.082152, i64 1
+  %227 = getelementptr inbounds nuw i8, ptr %.082151, i64 1
   store ptr %227, ptr %20, align 8, !tbaa !29
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 3
   %229 = load ptr, ptr %46, align 8, !tbaa !31
@@ -4634,21 +4634,21 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %231
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 3
   store ptr %246, ptr %45, align 8, !tbaa !19
   %247 = load ptr, ptr %48, align 8, !tbaa !42
-  %248 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %247, ptr noundef nonnull %.082152, i32 noundef 45) #5
+  %248 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %247, ptr noundef nonnull %.082151, i32 noundef 45) #5
   br label %249
 
 249:                                              ; preds = %180, %49, %244
-  %.183 = phi ptr [ %.082152, %49 ], [ %.082152, %244 ], [ %spec.select, %180 ]
+  %.183 = phi ptr [ %.082151, %49 ], [ %.082151, %244 ], [ %spec.select, %180 ]
   %250 = getelementptr inbounds nuw i8, ptr %.183, i64 1
   %.not = icmp eq ptr %250, %2
   br i1 %.not, label %._crit_edge.loopexit, label %49
 
 ._crit_edge.loopexit:                             ; preds = %249
-  %.pre165 = load ptr, ptr %20, align 8, !tbaa !29
+  %.pre164 = load ptr, ptr %20, align 8, !tbaa !29
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %lexbor_swar_seek4.exit
-  %251 = phi ptr [ %1, %lexbor_swar_seek4.exit ], [ %.pre165, %._crit_edge.loopexit ]
+  %251 = phi ptr [ %1, %lexbor_swar_seek4.exit ], [ %.pre164, %._crit_edge.loopexit ]
   %.082.lcssa = phi ptr [ %.0.i, %lexbor_swar_seek4.exit ], [ %250, %._crit_edge.loopexit ]
   %252 = ptrtoint ptr %.082.lcssa to i64
   %253 = ptrtoint ptr %251 to i64
@@ -4697,8 +4697,8 @@ lxb_html_tokenizer_temp_append_data.exit119:      ; preds = %261
   store ptr %279, ptr %255, align 8, !tbaa !19
   br label %280
 
-280:                                              ; preds = %276, %lxb_html_tokenizer_temp_append_data.exit119, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit113, %lxb_html_tokenizer_temp_append_data.exit109, %lxb_html_tokenizer_temp_append_data.exit105, %lxb_html_tokenizer_temp_append_data.exit101, %93, %lxb_html_tokenizer_temp_append_data.exit, %._crit_edge164, %156, %126, %95
-  %.081 = phi ptr [ %101, %95 ], [ %2, %93 ], [ %103, %126 ], [ %132, %156 ], [ %2, %._crit_edge164 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit101 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit105 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit109 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit113 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.082.lcssa, %276 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit119 ]
+280:                                              ; preds = %276, %lxb_html_tokenizer_temp_append_data.exit119, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit113, %lxb_html_tokenizer_temp_append_data.exit109, %lxb_html_tokenizer_temp_append_data.exit105, %lxb_html_tokenizer_temp_append_data.exit101, %93, %lxb_html_tokenizer_temp_append_data.exit, %._crit_edge163, %156, %126, %95
+  %.081 = phi ptr [ %101, %95 ], [ %2, %93 ], [ %103, %126 ], [ %132, %156 ], [ %2, %._crit_edge163 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit101 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit105 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit109 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit113 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.082.lcssa, %276 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit119 ]
   ret ptr %.081
 }
 
@@ -4730,8 +4730,8 @@ define internal ptr @lxb_html_tokenizer_state_attribute_value_single_quoted(ptr 
 19:                                               ; preds = %15, %11, %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %20, align 8, !tbaa !29
-  %.not146 = icmp eq ptr %1, %2
-  br i1 %.not146, label %._crit_edge, label %.lr.ph
+  %.not145 = icmp eq ptr %1, %2
+  br i1 %.not145, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 236
@@ -4742,8 +4742,8 @@ define internal ptr @lxb_html_tokenizer_state_attribute_value_single_quoted(ptr 
   br label %26
 
 26:                                               ; preds = %.lr.ph, %226
-  %.080147 = phi ptr [ %1, %.lr.ph ], [ %227, %226 ]
-  %27 = load i8, ptr %.080147, align 1, !tbaa !30
+  %.080146 = phi ptr [ %1, %.lr.ph ], [ %227, %226 ]
+  %27 = load i8, ptr %.080146, align 1, !tbaa !30
   switch i8 %27, label %226 [
     i8 39, label %28
     i8 38, label %79
@@ -4753,7 +4753,7 @@ define internal ptr @lxb_html_tokenizer_state_attribute_value_single_quoted(ptr 
 
 28:                                               ; preds = %26
   %29 = load ptr, ptr %20, align 8, !tbaa !29
-  %30 = ptrtoint ptr %.080147 to i64
+  %30 = ptrtoint ptr %.080146 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = load ptr, ptr %22, align 8, !tbaa !19
@@ -4799,7 +4799,7 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %37
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %57 = load ptr, ptr %56, align 8, !tbaa !44
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr %.080147, ptr %58, align 8, !tbaa !63
+  store ptr %.080146, ptr %58, align 8, !tbaa !63
   %59 = load ptr, ptr %24, align 8, !tbaa !18
   %60 = ptrtoint ptr %54 to i64
   %61 = ptrtoint ptr %59 to i64
@@ -4829,11 +4829,11 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %37
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
   store i8 0, ptr %77, align 1, !tbaa !30
   store ptr @lxb_html_tokenizer_state_after_attribute_value_quoted, ptr %0, align 8, !tbaa !28
-  %78 = getelementptr inbounds nuw i8, ptr %.080147, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.080146, i64 1
   br label %257
 
 79:                                               ; preds = %26
-  %80 = getelementptr inbounds nuw i8, ptr %.080147, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.080146, i64 1
   %81 = load ptr, ptr %20, align 8, !tbaa !29
   %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
@@ -4883,7 +4883,7 @@ lxb_html_tokenizer_temp_append_data.exit98:       ; preds = %89
   br label %257
 
 108:                                              ; preds = %26
-  %109 = getelementptr inbounds nuw i8, ptr %.080147, i64 1
+  %109 = getelementptr inbounds nuw i8, ptr %.080146, i64 1
   %.not89 = icmp ult ptr %109, %2
   %110 = load ptr, ptr %20, align 8, !tbaa !29
   %111 = ptrtoint ptr %110 to i64
@@ -4892,7 +4892,7 @@ lxb_html_tokenizer_temp_append_data.exit98:       ; preds = %89
   br i1 %.not89, label %138, label %114
 
 114:                                              ; preds = %108
-  %115 = ptrtoint ptr %.080147 to i64
+  %115 = ptrtoint ptr %.080146 to i64
   %116 = sub i64 %115, %111
   %117 = getelementptr inbounds nuw i8, ptr %112, i64 %116
   %118 = icmp ugt ptr %117, %113
@@ -4978,13 +4978,13 @@ lxb_html_tokenizer_temp_append_data.exit106:      ; preds = %143
   store ptr %160, ptr %22, align 8, !tbaa !19
   %161 = getelementptr inbounds i8, ptr %160, i64 -1
   store i8 10, ptr %161, align 1, !tbaa !30
-  %162 = getelementptr inbounds nuw i8, ptr %.080147, i64 2
+  %162 = getelementptr inbounds nuw i8, ptr %.080146, i64 2
   store ptr %162, ptr %20, align 8, !tbaa !29
   %163 = load i8, ptr %109, align 1, !tbaa !30
   %.not91 = icmp eq i8 %163, 10
   %spec.store.select = select i1 %.not91, ptr %162, ptr %109
   store ptr %spec.store.select, ptr %20, align 8
-  %spec.select = select i1 %.not91, ptr %109, ptr %.080147
+  %spec.select = select i1 %.not91, ptr %109, ptr %.080146
   br label %226
 
 164:                                              ; preds = %26
@@ -5001,21 +5001,21 @@ lxb_html_tokenizer_temp_append_data.exit106:      ; preds = %143
   %.not88 = icmp eq ptr %172, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
-  br i1 %.not88, label %._crit_edge157, label %173
+  br i1 %.not88, label %._crit_edge156, label %173
 
 173:                                              ; preds = %167
   %174 = getelementptr inbounds nuw i8, ptr %170, i64 24
   store ptr %.pre, ptr %174, align 8, !tbaa !63
-  br label %._crit_edge157
+  br label %._crit_edge156
 
-._crit_edge157:                                   ; preds = %167, %173
+._crit_edge156:                                   ; preds = %167, %173
   %175 = load ptr, ptr %25, align 8, !tbaa !42
   %176 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %175, ptr noundef %.pre, i32 noundef 16) #5
   br label %257
 
 177:                                              ; preds = %164
   %178 = load ptr, ptr %20, align 8, !tbaa !29
-  %179 = ptrtoint ptr %.080147 to i64
+  %179 = ptrtoint ptr %.080146 to i64
   %180 = ptrtoint ptr %178 to i64
   %181 = sub i64 %179, %180
   %182 = load ptr, ptr %22, align 8, !tbaa !19
@@ -5057,7 +5057,7 @@ lxb_html_tokenizer_temp_append_data.exit110:      ; preds = %186
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %202, ptr align 1 %201, i64 %181, i1 false)
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 %181
   store ptr %203, ptr %22, align 8, !tbaa !19
-  %204 = getelementptr inbounds nuw i8, ptr %.080147, i64 1
+  %204 = getelementptr inbounds nuw i8, ptr %.080146, i64 1
   store ptr %204, ptr %20, align 8, !tbaa !29
   %205 = getelementptr inbounds nuw i8, ptr %203, i64 3
   %206 = load ptr, ptr %23, align 8, !tbaa !31
@@ -5094,21 +5094,21 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %208
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 3
   store ptr %223, ptr %22, align 8, !tbaa !19
   %224 = load ptr, ptr %25, align 8, !tbaa !42
-  %225 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %224, ptr noundef nonnull %.080147, i32 noundef 45) #5
+  %225 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %224, ptr noundef nonnull %.080146, i32 noundef 45) #5
   br label %226
 
 226:                                              ; preds = %157, %26, %221
-  %.181 = phi ptr [ %.080147, %26 ], [ %.080147, %221 ], [ %spec.select, %157 ]
+  %.181 = phi ptr [ %.080146, %26 ], [ %.080146, %221 ], [ %spec.select, %157 ]
   %227 = getelementptr inbounds nuw i8, ptr %.181, i64 1
   %.not = icmp eq ptr %227, %2
   br i1 %.not, label %._crit_edge.loopexit, label %26
 
 ._crit_edge.loopexit:                             ; preds = %226
-  %.pre158 = load ptr, ptr %20, align 8, !tbaa !29
+  %.pre157 = load ptr, ptr %20, align 8, !tbaa !29
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %228 = phi ptr [ %1, %19 ], [ %.pre158, %._crit_edge.loopexit ]
+  %228 = phi ptr [ %1, %19 ], [ %.pre157, %._crit_edge.loopexit ]
   %.080.lcssa = phi ptr [ %1, %19 ], [ %227, %._crit_edge.loopexit ]
   %229 = ptrtoint ptr %.080.lcssa to i64
   %230 = ptrtoint ptr %228 to i64
@@ -5157,8 +5157,8 @@ lxb_html_tokenizer_temp_append_data.exit116:      ; preds = %238
   store ptr %256, ptr %232, align 8, !tbaa !19
   br label %257
 
-257:                                              ; preds = %253, %lxb_html_tokenizer_temp_append_data.exit116, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit110, %lxb_html_tokenizer_temp_append_data.exit106, %lxb_html_tokenizer_temp_append_data.exit102, %lxb_html_tokenizer_temp_append_data.exit98, %70, %lxb_html_tokenizer_temp_append_data.exit, %._crit_edge157, %133, %103, %72
-  %.079 = phi ptr [ %78, %72 ], [ %2, %70 ], [ %80, %103 ], [ %109, %133 ], [ %2, %._crit_edge157 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit98 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit102 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit106 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit110 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.080.lcssa, %253 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit116 ]
+257:                                              ; preds = %253, %lxb_html_tokenizer_temp_append_data.exit116, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit110, %lxb_html_tokenizer_temp_append_data.exit106, %lxb_html_tokenizer_temp_append_data.exit102, %lxb_html_tokenizer_temp_append_data.exit98, %70, %lxb_html_tokenizer_temp_append_data.exit, %._crit_edge156, %133, %103, %72
+  %.079 = phi ptr [ %78, %72 ], [ %2, %70 ], [ %80, %103 ], [ %109, %133 ], [ %2, %._crit_edge156 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit98 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit102 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit106 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit110 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.080.lcssa, %253 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit116 ]
   ret ptr %.079
 }
 
@@ -5190,8 +5190,8 @@ define internal ptr @lxb_html_tokenizer_state_attribute_value_unquoted(ptr nound
 19:                                               ; preds = %15, %11, %3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %20, align 8, !tbaa !29
-  %.not160 = icmp eq ptr %1, %2
-  br i1 %.not160, label %._crit_edge, label %.lr.ph
+  %.not157 = icmp eq ptr %1, %2
+  br i1 %.not157, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -5202,8 +5202,8 @@ define internal ptr @lxb_html_tokenizer_state_attribute_value_unquoted(ptr nound
   br label %26
 
 26:                                               ; preds = %.lr.ph, %246
-  %.0102161 = phi ptr [ %1, %.lr.ph ], [ %247, %246 ]
-  %27 = load i8, ptr %.0102161, align 1, !tbaa !30
+  %.0102158 = phi ptr [ %1, %.lr.ph ], [ %247, %246 ]
+  %27 = load i8, ptr %.0102158, align 1, !tbaa !30
   switch i8 %27, label %246 [
     i8 9, label %28
     i8 10, label %28
@@ -5222,7 +5222,7 @@ define internal ptr @lxb_html_tokenizer_state_attribute_value_unquoted(ptr nound
 
 28:                                               ; preds = %26, %26, %26, %26, %26
   %29 = load ptr, ptr %20, align 8, !tbaa !29
-  %30 = ptrtoint ptr %.0102161 to i64
+  %30 = ptrtoint ptr %.0102158 to i64
   %31 = ptrtoint ptr %29 to i64
   %32 = sub i64 %30, %31
   %33 = load ptr, ptr %23, align 8, !tbaa !19
@@ -5268,7 +5268,7 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %37
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %57 = load ptr, ptr %56, align 8, !tbaa !44
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  store ptr %.0102161, ptr %58, align 8, !tbaa !63
+  store ptr %.0102158, ptr %58, align 8, !tbaa !63
   %59 = load ptr, ptr %25, align 8, !tbaa !18
   %60 = ptrtoint ptr %54 to i64
   %61 = ptrtoint ptr %59 to i64
@@ -5298,11 +5298,11 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %37
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 %76
   store i8 0, ptr %77, align 1, !tbaa !30
   store ptr @lxb_html_tokenizer_state_before_attribute_name, ptr %0, align 8, !tbaa !28
-  %78 = getelementptr inbounds nuw i8, ptr %.0102161, i64 1
+  %78 = getelementptr inbounds nuw i8, ptr %.0102158, i64 1
   br label %277
 
 79:                                               ; preds = %26
-  %80 = getelementptr inbounds nuw i8, ptr %.0102161, i64 1
+  %80 = getelementptr inbounds nuw i8, ptr %.0102158, i64 1
   %81 = load ptr, ptr %20, align 8, !tbaa !29
   %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
@@ -5323,26 +5323,26 @@ lxb_html_tokenizer_temp_append_data.exit:         ; preds = %37
   %96 = tail call ptr @lexbor_realloc(ptr noundef %90, i64 noundef %95) #5
   store ptr %96, ptr %25, align 8, !tbaa !18
   %97 = icmp eq ptr %96, null
-  br i1 %97, label %lxb_html_tokenizer_temp_append_data.exit119, label %lxb_html_tokenizer_temp_realloc.exit.thread.i117
+  br i1 %97, label %lxb_html_tokenizer_temp_append_data.exit118, label %lxb_html_tokenizer_temp_realloc.exit.thread.i116
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i117: ; preds = %89
+lxb_html_tokenizer_temp_realloc.exit.thread.i116: ; preds = %89
   %98 = ptrtoint ptr %85 to i64
   %99 = sub i64 %98, %91
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 %99
   store ptr %100, ptr %23, align 8, !tbaa !19
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 %95
   store ptr %101, ptr %24, align 8, !tbaa !31
-  %.pre.i118 = load ptr, ptr %20, align 8, !tbaa !29
+  %.pre.i117 = load ptr, ptr %20, align 8, !tbaa !29
   br label %103
 
-lxb_html_tokenizer_temp_append_data.exit119:      ; preds = %89
+lxb_html_tokenizer_temp_append_data.exit118:      ; preds = %89
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %102, align 8, !tbaa !32
   br label %277
 
-103:                                              ; preds = %79, %lxb_html_tokenizer_temp_realloc.exit.thread.i117
-  %104 = phi ptr [ %.pre.i118, %lxb_html_tokenizer_temp_realloc.exit.thread.i117 ], [ %81, %79 ]
-  %105 = phi ptr [ %100, %lxb_html_tokenizer_temp_realloc.exit.thread.i117 ], [ %85, %79 ]
+103:                                              ; preds = %79, %lxb_html_tokenizer_temp_realloc.exit.thread.i116
+  %104 = phi ptr [ %.pre.i117, %lxb_html_tokenizer_temp_realloc.exit.thread.i116 ], [ %81, %79 ]
+  %105 = phi ptr [ %100, %lxb_html_tokenizer_temp_realloc.exit.thread.i116 ], [ %85, %79 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %105, ptr align 1 %104, i64 %84, i1 false)
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 %84
   store ptr %106, ptr %23, align 8, !tbaa !19
@@ -5354,7 +5354,7 @@ lxb_html_tokenizer_temp_append_data.exit119:      ; preds = %89
 108:                                              ; preds = %26
   store ptr @lxb_html_tokenizer_state_data_before, ptr %0, align 8, !tbaa !28
   %109 = load ptr, ptr %20, align 8, !tbaa !29
-  %110 = ptrtoint ptr %.0102161 to i64
+  %110 = ptrtoint ptr %.0102158 to i64
   %111 = ptrtoint ptr %109 to i64
   %112 = sub i64 %110, %111
   %113 = load ptr, ptr %23, align 8, !tbaa !19
@@ -5373,26 +5373,26 @@ lxb_html_tokenizer_temp_append_data.exit119:      ; preds = %89
   %124 = tail call ptr @lexbor_realloc(ptr noundef %118, i64 noundef %123) #5
   store ptr %124, ptr %25, align 8, !tbaa !18
   %125 = icmp eq ptr %124, null
-  br i1 %125, label %lxb_html_tokenizer_temp_append_data.exit123, label %lxb_html_tokenizer_temp_realloc.exit.thread.i121
+  br i1 %125, label %lxb_html_tokenizer_temp_append_data.exit122, label %lxb_html_tokenizer_temp_realloc.exit.thread.i120
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i121: ; preds = %117
+lxb_html_tokenizer_temp_realloc.exit.thread.i120: ; preds = %117
   %126 = ptrtoint ptr %113 to i64
   %127 = sub i64 %126, %119
   %128 = getelementptr inbounds nuw i8, ptr %124, i64 %127
   store ptr %128, ptr %23, align 8, !tbaa !19
   %129 = getelementptr inbounds nuw i8, ptr %124, i64 %123
   store ptr %129, ptr %24, align 8, !tbaa !31
-  %.pre.i122 = load ptr, ptr %20, align 8, !tbaa !29
+  %.pre.i121 = load ptr, ptr %20, align 8, !tbaa !29
   br label %131
 
-lxb_html_tokenizer_temp_append_data.exit123:      ; preds = %117
+lxb_html_tokenizer_temp_append_data.exit122:      ; preds = %117
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %130, align 8, !tbaa !32
   br label %277
 
-131:                                              ; preds = %108, %lxb_html_tokenizer_temp_realloc.exit.thread.i121
-  %132 = phi ptr [ %.pre.i122, %lxb_html_tokenizer_temp_realloc.exit.thread.i121 ], [ %109, %108 ]
-  %133 = phi ptr [ %128, %lxb_html_tokenizer_temp_realloc.exit.thread.i121 ], [ %113, %108 ]
+131:                                              ; preds = %108, %lxb_html_tokenizer_temp_realloc.exit.thread.i120
+  %132 = phi ptr [ %.pre.i121, %lxb_html_tokenizer_temp_realloc.exit.thread.i120 ], [ %109, %108 ]
+  %133 = phi ptr [ %128, %lxb_html_tokenizer_temp_realloc.exit.thread.i120 ], [ %113, %108 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %133, ptr align 1 %132, i64 %112, i1 false)
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 %112
   store ptr %134, ptr %23, align 8, !tbaa !19
@@ -5400,7 +5400,7 @@ lxb_html_tokenizer_temp_append_data.exit123:      ; preds = %117
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 56
   %137 = load ptr, ptr %136, align 8, !tbaa !44
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  store ptr %.0102161, ptr %138, align 8, !tbaa !63
+  store ptr %.0102158, ptr %138, align 8, !tbaa !63
   %139 = load ptr, ptr %25, align 8, !tbaa !18
   %140 = ptrtoint ptr %134 to i64
   %141 = ptrtoint ptr %139 to i64
@@ -5461,7 +5461,7 @@ lxb_html_tokenizer_temp_append_data.exit123:      ; preds = %117
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %175, i8 0, i64 96, i1 false)
   %176 = load ptr, ptr %25, align 8, !tbaa !18
   store ptr %176, ptr %23, align 8, !tbaa !19
-  %177 = getelementptr inbounds nuw i8, ptr %.0102161, i64 1
+  %177 = getelementptr inbounds nuw i8, ptr %.0102158, i64 1
   br label %277
 
 178:                                              ; preds = %26
@@ -5478,21 +5478,21 @@ lxb_html_tokenizer_temp_append_data.exit123:      ; preds = %117
   %.not109 = icmp eq ptr %186, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 160
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !35
-  br i1 %.not109, label %._crit_edge168, label %187
+  br i1 %.not109, label %._crit_edge165, label %187
 
 187:                                              ; preds = %181
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 24
   store ptr %.pre, ptr %188, align 8, !tbaa !63
-  br label %._crit_edge168
+  br label %._crit_edge165
 
-._crit_edge168:                                   ; preds = %181, %187
+._crit_edge165:                                   ; preds = %181, %187
   %189 = load ptr, ptr %21, align 8, !tbaa !42
   %190 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %189, ptr noundef %.pre, i32 noundef 16) #5
   br label %277
 
 191:                                              ; preds = %178
   %192 = load ptr, ptr %20, align 8, !tbaa !29
-  %193 = ptrtoint ptr %.0102161 to i64
+  %193 = ptrtoint ptr %.0102158 to i64
   %194 = ptrtoint ptr %192 to i64
   %195 = sub i64 %193, %194
   %196 = load ptr, ptr %23, align 8, !tbaa !19
@@ -5511,30 +5511,30 @@ lxb_html_tokenizer_temp_append_data.exit123:      ; preds = %117
   %207 = tail call ptr @lexbor_realloc(ptr noundef %201, i64 noundef %206) #5
   store ptr %207, ptr %25, align 8, !tbaa !18
   %208 = icmp eq ptr %207, null
-  br i1 %208, label %lxb_html_tokenizer_temp_append_data.exit127, label %lxb_html_tokenizer_temp_realloc.exit.thread.i125
+  br i1 %208, label %lxb_html_tokenizer_temp_append_data.exit126, label %lxb_html_tokenizer_temp_realloc.exit.thread.i124
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i125: ; preds = %200
+lxb_html_tokenizer_temp_realloc.exit.thread.i124: ; preds = %200
   %209 = ptrtoint ptr %196 to i64
   %210 = sub i64 %209, %202
   %211 = getelementptr inbounds nuw i8, ptr %207, i64 %210
   store ptr %211, ptr %23, align 8, !tbaa !19
   %212 = getelementptr inbounds nuw i8, ptr %207, i64 %206
   store ptr %212, ptr %24, align 8, !tbaa !31
-  %.pre.i126 = load ptr, ptr %20, align 8, !tbaa !29
+  %.pre.i125 = load ptr, ptr %20, align 8, !tbaa !29
   br label %214
 
-lxb_html_tokenizer_temp_append_data.exit127:      ; preds = %200
+lxb_html_tokenizer_temp_append_data.exit126:      ; preds = %200
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %213, align 8, !tbaa !32
   br label %277
 
-214:                                              ; preds = %191, %lxb_html_tokenizer_temp_realloc.exit.thread.i125
-  %215 = phi ptr [ %.pre.i126, %lxb_html_tokenizer_temp_realloc.exit.thread.i125 ], [ %192, %191 ]
-  %216 = phi ptr [ %211, %lxb_html_tokenizer_temp_realloc.exit.thread.i125 ], [ %196, %191 ]
+214:                                              ; preds = %191, %lxb_html_tokenizer_temp_realloc.exit.thread.i124
+  %215 = phi ptr [ %.pre.i125, %lxb_html_tokenizer_temp_realloc.exit.thread.i124 ], [ %192, %191 ]
+  %216 = phi ptr [ %211, %lxb_html_tokenizer_temp_realloc.exit.thread.i124 ], [ %196, %191 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %216, ptr align 1 %215, i64 %195, i1 false)
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 %195
   store ptr %217, ptr %23, align 8, !tbaa !19
-  %218 = getelementptr inbounds nuw i8, ptr %.0102161, i64 1
+  %218 = getelementptr inbounds nuw i8, ptr %.0102158, i64 1
   store ptr %218, ptr %20, align 8, !tbaa !29
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 3
   %220 = load ptr, ptr %24, align 8, !tbaa !31
@@ -5550,9 +5550,9 @@ lxb_html_tokenizer_temp_append_data.exit127:      ; preds = %200
   %228 = tail call ptr @lexbor_realloc(ptr noundef %223, i64 noundef %227) #5
   store ptr %228, ptr %25, align 8, !tbaa !18
   %229 = icmp eq ptr %228, null
-  br i1 %229, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i129
+  br i1 %229, label %lxb_html_tokenizer_temp_append.exit, label %lxb_html_tokenizer_temp_realloc.exit.thread.i128
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i129: ; preds = %222
+lxb_html_tokenizer_temp_realloc.exit.thread.i128: ; preds = %222
   %230 = ptrtoint ptr %217 to i64
   %231 = sub i64 %230, %224
   %232 = getelementptr inbounds nuw i8, ptr %228, i64 %231
@@ -5565,13 +5565,13 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %222
   store i32 2, ptr %234, align 8, !tbaa !32
   br label %277
 
-235:                                              ; preds = %214, %lxb_html_tokenizer_temp_realloc.exit.thread.i129
-  %236 = phi ptr [ %232, %lxb_html_tokenizer_temp_realloc.exit.thread.i129 ], [ %217, %214 ]
+235:                                              ; preds = %214, %lxb_html_tokenizer_temp_realloc.exit.thread.i128
+  %236 = phi ptr [ %232, %lxb_html_tokenizer_temp_realloc.exit.thread.i128 ], [ %217, %214 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %236, ptr noundef nonnull align 1 dereferenceable(3) @lexbor_str_res_ansi_replacement_character, i64 3, i1 false)
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 3
   store ptr %237, ptr %23, align 8, !tbaa !19
   %238 = load ptr, ptr %21, align 8, !tbaa !42
-  %239 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %238, ptr noundef nonnull %.0102161, i32 noundef 45) #5
+  %239 = tail call ptr @lxb_html_tokenizer_error_add(ptr noundef %238, ptr noundef nonnull %.0102158, i32 noundef 45) #5
   br label %246
 
 240:                                              ; preds = %26, %26, %26, %26, %26
@@ -5583,16 +5583,16 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %222
   br label %246
 
 246:                                              ; preds = %26, %240, %235
-  %247 = getelementptr inbounds nuw i8, ptr %.0102161, i64 1
+  %247 = getelementptr inbounds nuw i8, ptr %.0102158, i64 1
   %.not = icmp eq ptr %247, %2
   br i1 %.not, label %._crit_edge.loopexit, label %26
 
 ._crit_edge.loopexit:                             ; preds = %246
-  %.pre169 = load ptr, ptr %20, align 8, !tbaa !29
+  %.pre166 = load ptr, ptr %20, align 8, !tbaa !29
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19
-  %248 = phi ptr [ %1, %19 ], [ %.pre169, %._crit_edge.loopexit ]
+  %248 = phi ptr [ %1, %19 ], [ %.pre166, %._crit_edge.loopexit ]
   %.0102.lcssa = phi ptr [ %1, %19 ], [ %247, %._crit_edge.loopexit ]
   %249 = ptrtoint ptr %.0102.lcssa to i64
   %250 = ptrtoint ptr %248 to i64
@@ -5616,33 +5616,33 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %222
   %266 = tail call ptr @lexbor_realloc(ptr noundef %260, i64 noundef %265) #5
   store ptr %266, ptr %259, align 8, !tbaa !18
   %267 = icmp eq ptr %266, null
-  br i1 %267, label %lxb_html_tokenizer_temp_append_data.exit133, label %lxb_html_tokenizer_temp_realloc.exit.thread.i131
+  br i1 %267, label %lxb_html_tokenizer_temp_append_data.exit132, label %lxb_html_tokenizer_temp_realloc.exit.thread.i130
 
-lxb_html_tokenizer_temp_realloc.exit.thread.i131: ; preds = %258
+lxb_html_tokenizer_temp_realloc.exit.thread.i130: ; preds = %258
   %268 = ptrtoint ptr %253 to i64
   %269 = sub i64 %268, %261
   %270 = getelementptr inbounds nuw i8, ptr %266, i64 %269
   store ptr %270, ptr %252, align 8, !tbaa !19
   %271 = getelementptr inbounds nuw i8, ptr %266, i64 %265
   store ptr %271, ptr %255, align 8, !tbaa !31
-  %.pre.i132 = load ptr, ptr %20, align 8, !tbaa !29
+  %.pre.i131 = load ptr, ptr %20, align 8, !tbaa !29
   br label %273
 
-lxb_html_tokenizer_temp_append_data.exit133:      ; preds = %258
+lxb_html_tokenizer_temp_append_data.exit132:      ; preds = %258
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store i32 2, ptr %272, align 8, !tbaa !32
   br label %277
 
-273:                                              ; preds = %._crit_edge, %lxb_html_tokenizer_temp_realloc.exit.thread.i131
-  %274 = phi ptr [ %.pre.i132, %lxb_html_tokenizer_temp_realloc.exit.thread.i131 ], [ %248, %._crit_edge ]
-  %275 = phi ptr [ %270, %lxb_html_tokenizer_temp_realloc.exit.thread.i131 ], [ %253, %._crit_edge ]
+273:                                              ; preds = %._crit_edge, %lxb_html_tokenizer_temp_realloc.exit.thread.i130
+  %274 = phi ptr [ %.pre.i131, %lxb_html_tokenizer_temp_realloc.exit.thread.i130 ], [ %248, %._crit_edge ]
+  %275 = phi ptr [ %270, %lxb_html_tokenizer_temp_realloc.exit.thread.i130 ], [ %253, %._crit_edge ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %275, ptr align 1 %274, i64 %251, i1 false)
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 %251
   store ptr %276, ptr %252, align 8, !tbaa !19
   br label %277
 
-277:                                              ; preds = %273, %lxb_html_tokenizer_temp_append_data.exit133, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit127, %150, %lxb_html_tokenizer_temp_append_data.exit123, %lxb_html_tokenizer_temp_append_data.exit119, %70, %lxb_html_tokenizer_temp_append_data.exit, %169, %173, %._crit_edge168, %174, %103, %72
-  %.0 = phi ptr [ %78, %72 ], [ %2, %70 ], [ %80, %103 ], [ %177, %174 ], [ %2, %150 ], [ %2, %._crit_edge168 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit119 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit123 ], [ %2, %173 ], [ %2, %169 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit127 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.0102.lcssa, %273 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit133 ]
+277:                                              ; preds = %273, %lxb_html_tokenizer_temp_append_data.exit132, %lxb_html_tokenizer_temp_append.exit, %lxb_html_tokenizer_temp_append_data.exit126, %150, %lxb_html_tokenizer_temp_append_data.exit122, %lxb_html_tokenizer_temp_append_data.exit118, %70, %lxb_html_tokenizer_temp_append_data.exit, %169, %173, %._crit_edge165, %174, %103, %72
+  %.0 = phi ptr [ %78, %72 ], [ %2, %70 ], [ %80, %103 ], [ %177, %174 ], [ %2, %150 ], [ %2, %._crit_edge165 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit ], [ %2, %lxb_html_tokenizer_temp_append_data.exit118 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit122 ], [ %2, %173 ], [ %2, %169 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit126 ], [ %2, %lxb_html_tokenizer_temp_append.exit ], [ %.0102.lcssa, %273 ], [ %2, %lxb_html_tokenizer_temp_append_data.exit132 ]
   ret ptr %.0
 }
 

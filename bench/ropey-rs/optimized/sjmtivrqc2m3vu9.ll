@@ -82,7 +82,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   ]
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h92d9c953f9ea6823E.exit._ZN8smallvec10infallible17hac02ab9634219958E.exit_crit_edge": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h92d9c953f9ea6823E.exit"
-  %.pre59 = load i64, ptr %7, align 8, !alias.scope !12, !noalias !15
+  %.pre55 = load i64, ptr %7, align 8, !alias.scope !12, !noalias !15
   br label %_ZN8smallvec10infallible17hac02ab9634219958E.exit
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h92d9c953f9ea6823E.exit.thread": ; preds = %16, %13, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h92d9c953f9ea6823E.exit"
@@ -95,7 +95,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   unreachable
 
 _ZN8smallvec10infallible17hac02ab9634219958E.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h92d9c953f9ea6823E.exit._ZN8smallvec10infallible17hac02ab9634219958E.exit_crit_edge", %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i"
-  %29 = phi i64 [ %.pre59, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h92d9c953f9ea6823E.exit._ZN8smallvec10infallible17hac02ab9634219958E.exit_crit_edge" ], [ %8, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i" ]
+  %29 = phi i64 [ %.pre55, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h92d9c953f9ea6823E.exit._ZN8smallvec10infallible17hac02ab9634219958E.exit_crit_edge" ], [ %8, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i" ]
   %30 = icmp ugt i64 %29, 984
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !nonnull !11
@@ -112,53 +112,53 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.0.0.lcssa = phi ptr [ %1, %_ZN8smallvec10infallible17hac02ab9634219958E.exit ], [ %56, %55 ]
   %storemerge.lcssa = phi i64 [ %35, %_ZN8smallvec10infallible17hac02ab9634219958E.exit ], [ %.sink.i, %55 ]
   store i64 %storemerge.lcssa, ptr %.sink12.i, align 8
-  %.not53 = icmp eq ptr %.sroa.0.0.lcssa, %2
-  br i1 %.not53, label %.loopexit, label %.lr.ph56
+  %.not49 = icmp eq ptr %.sroa.0.0.lcssa, %2
+  br i1 %.not49, label %.loopexit, label %.lr.ph52
 
-.lr.ph56:                                         ; preds = %._crit_edge
+.lr.ph52:                                         ; preds = %._crit_edge
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %40
 
 .lr.ph:                                           ; preds = %_ZN8smallvec10infallible17hac02ab9634219958E.exit, %55
-  %storemerge51 = phi i64 [ %59, %55 ], [ %35, %_ZN8smallvec10infallible17hac02ab9634219958E.exit ]
-  %.sroa.0.050 = phi ptr [ %56, %55 ], [ %1, %_ZN8smallvec10infallible17hac02ab9634219958E.exit ]
-  %.not47 = icmp eq ptr %.sroa.0.050, %2
-  br i1 %.not47, label %60, label %55
+  %storemerge47 = phi i64 [ %59, %55 ], [ %35, %_ZN8smallvec10infallible17hac02ab9634219958E.exit ]
+  %.sroa.0.046 = phi ptr [ %56, %55 ], [ %1, %_ZN8smallvec10infallible17hac02ab9634219958E.exit ]
+  %.not43 = icmp eq ptr %.sroa.0.046, %2
+  br i1 %.not43, label %60, label %55
 
-40:                                               ; preds = %.lr.ph56, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h759dcdac6bdea756E.exit"
-  %.sroa.031.054 = phi ptr [ %.sroa.0.0.lcssa, %.lr.ph56 ], [ %41, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h759dcdac6bdea756E.exit" ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.031.054, i64 1
-  %42 = load i8, ptr %.sroa.031.054, align 1, !alias.scope !17, !noalias !22, !noundef !11
+40:                                               ; preds = %.lr.ph52, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h759dcdac6bdea756E.exit"
+  %.sroa.030.050 = phi ptr [ %.sroa.0.0.lcssa, %.lr.ph52 ], [ %41, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h759dcdac6bdea756E.exit" ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.030.050, i64 1
+  %42 = load i8, ptr %.sroa.030.050, align 1, !alias.scope !17, !noalias !22, !noundef !11
   %43 = load i64, ptr %7, align 8, !alias.scope !25, !noalias !30, !noundef !11
   %44 = icmp ugt i64 %43, 984
-  br i1 %44, label %45, label %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i15"
+  br i1 %44, label %45, label %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i14"
 
 45:                                               ; preds = %40
   %46 = load ptr, ptr %38, align 8, !alias.scope !25, !noalias !30, !nonnull !11, !noundef !11
-  %.pre61 = load i64, ptr %39, align 8, !alias.scope !32
-  br label %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i15"
+  %.pre57 = load i64, ptr %39, align 8, !alias.scope !32
+  br label %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i14"
 
-"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i15": ; preds = %40, %45
-  %47 = phi i64 [ %.pre61, %45 ], [ %43, %40 ]
+"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i14": ; preds = %40, %45
+  %47 = phi i64 [ %.pre57, %45 ], [ %43, %40 ]
   %.sink13.i.i = phi ptr [ %46, %45 ], [ %37, %40 ]
-  %.sink12.i.i16 = phi ptr [ %39, %45 ], [ %7, %40 ]
-  %.sink.i.i17 = phi i64 [ %43, %45 ], [ 984, %40 ]
-  %48 = icmp eq i64 %47, %.sink.i.i17
+  %.sink12.i.i15 = phi ptr [ %39, %45 ], [ %7, %40 ]
+  %.sink.i.i16 = phi i64 [ %43, %45 ], [ 984, %40 ]
+  %48 = icmp eq i64 %47, %.sink.i.i16
   br i1 %48, label %49, label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h759dcdac6bdea756E.exit"
 
-49:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i15"
+49:                                               ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i14"
   tail call fastcc void @"_ZN8smallvec17SmallVec$LT$A$GT$21reserve_one_unchecked17h0309535697760778E"(ptr noalias noundef nonnull align 8 dereferenceable(1000) %0)
   %50 = load ptr, ptr %38, align 8, !alias.scope !32, !nonnull !11, !noundef !11
   %.pre.i = load i64, ptr %39, align 8, !alias.scope !32
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h759dcdac6bdea756E.exit"
 
-"_ZN8smallvec17SmallVec$LT$A$GT$4push17h759dcdac6bdea756E.exit": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i15", %49
-  %51 = phi i64 [ %.pre.i, %49 ], [ %47, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i15" ]
-  %.sroa.01.0.i = phi ptr [ %39, %49 ], [ %.sink12.i.i16, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i15" ]
-  %.sroa.0.0.i18 = phi ptr [ %50, %49 ], [ %.sink13.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i15" ]
-  %52 = getelementptr inbounds i8, ptr %.sroa.0.0.i18, i64 %51
+"_ZN8smallvec17SmallVec$LT$A$GT$4push17h759dcdac6bdea756E.exit": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i14", %49
+  %51 = phi i64 [ %.pre.i, %49 ], [ %47, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i14" ]
+  %.sroa.01.0.i = phi ptr [ %39, %49 ], [ %.sink12.i.i15, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i14" ]
+  %.sroa.0.0.i17 = phi ptr [ %50, %49 ], [ %.sink13.i.i, %"_ZN8smallvec17SmallVec$LT$A$GT$10triple_mut17h071505bc27cf3d0bE.llvm.16952314824741166450.exit.i14" ]
+  %52 = getelementptr inbounds i8, ptr %.sroa.0.0.i17, i64 %51
   store i8 %42, ptr %52, align 1
   %53 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !32, !noundef !11
   %54 = add i64 %53, 1
@@ -170,16 +170,16 @@ _ZN8smallvec10infallible17hac02ab9634219958E.exit: ; preds = %"_ZN8smallvec17Sma
   ret void
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.050, i64 1
-  %57 = load i8, ptr %.sroa.0.050, align 1, !alias.scope !33, !noalias !38, !noundef !11
-  %58 = getelementptr inbounds i8, ptr %.sink13.i, i64 %storemerge51
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0.046, i64 1
+  %57 = load i8, ptr %.sroa.0.046, align 1, !alias.scope !33, !noalias !38, !noundef !11
+  %58 = getelementptr inbounds i8, ptr %.sink13.i, i64 %storemerge47
   store i8 %57, ptr %58, align 1
-  %59 = add i64 %storemerge51, 1
+  %59 = add i64 %storemerge47, 1
   %exitcond.not = icmp eq i64 %59, %.sink.i
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 60:                                               ; preds = %.lr.ph
-  store i64 %storemerge51, ptr %.sink12.i, align 8
+  store i64 %storemerge47, ptr %.sink12.i, align 8
   br label %.loopexit
 }
 
@@ -916,8 +916,8 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h0a833344
   %.sink13.i = select i1 %6, ptr %8, ptr %10
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %4, i64 4)
   %.val = load i64, ptr %9, align 8
-  %.val102 = load i64, ptr %3, align 8
-  %11 = select i1 %6, i64 %.val, i64 %.val102
+  %.val99 = load i64, ptr %3, align 8
+  %11 = select i1 %6, i64 %.val, i64 %.val99
   %.not = icmp ult i64 %1, %11
   br i1 %.not, label %12, label %13
 
@@ -945,8 +945,8 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h0a833344
   br i1 %5, label %21, label %20
 
 20:                                               ; preds = %18
-  %or.cond.not.i73 = icmp ult i64 %4, 1152921504606846976
-  br i1 %or.cond.not.i73, label %25, label %36
+  %or.cond.not.i72 = icmp ult i64 %4, 1152921504606846976
+  br i1 %or.cond.not.i72, label %25, label %36
 
 21:                                               ; preds = %18
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
@@ -1017,8 +1017,8 @@ define internal fastcc { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17
   %.sink13.i = select i1 %.not, ptr %6, ptr %8
   %.sink.i = tail call i64 @llvm.umax.i64(i64 %4, i64 984)
   %.val = load i64, ptr %7, align 8
-  %.val102 = load i64, ptr %3, align 8
-  %9 = select i1 %.not, i64 %.val, i64 %.val102
+  %.val99 = load i64, ptr %3, align 8
+  %9 = select i1 %.not, i64 %.val, i64 %.val99
   %.not70 = icmp ult i64 %1, %9
   br i1 %.not70, label %10, label %11
 

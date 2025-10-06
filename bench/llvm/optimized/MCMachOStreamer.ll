@@ -843,17 +843,17 @@ define internal void @_ZN12_GLOBAL__N_115MCMachOStreamer13emitThumbFuncEPN4llvm8
   %13 = zext i32 %12 to i64
   %.idx.i.i.i = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
-  %.not36.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not34.i.i.i = icmp eq i32 %12, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %9, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %16, %.critedge.i.i.i ], [ %10, %9 ]
-  %15 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !237, !noalias !232
+  %.02935.i.i.i = phi ptr [ %16, %.critedge.i.i.i ], [ %10, %9 ]
+  %15 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !237, !noalias !232
   %.not17.i.i.i = icmp eq ptr %15, %1
   br i1 %.not17.i.i.i, label %_ZN4llvm11MCAssembler14setIsThumbFuncEPKNS_8MCSymbolE.exit, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i.i = icmp eq ptr %16, %14
   br i1 %.not.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !238
 

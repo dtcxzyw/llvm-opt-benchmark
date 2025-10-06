@@ -110,7 +110,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   switch i32 %16, label %.preheader.backedge [
     i32 0, label %73
     i32 16, label %53
-    i32 -1, label %.loopexit228
+    i32 -1, label %.loopexit227
     i32 1, label %19
     i32 2, label %20
     i32 3, label %23
@@ -142,7 +142,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %.0134.be = phi ptr [ %.0134, %20 ], [ %.0134, %23 ], [ %.0134, %25 ], [ %.0134, %27 ], [ %.0134, %28 ], [ %.0134, %29 ], [ %.0134, %31 ], [ %.0134, %35 ], [ %.0134, %39 ], [ %.0134, %40 ], [ %.0134, %44 ], [ %.0134, %48 ], [ %.0134, %50 ], [ %.0134, %52 ], [ %55, %53 ], [ %.0134, %.preheader ]
   br label %.preheader, !llvm.loop !13
 
-.loopexit228:                                     ; preds = %.preheader, %20, %73
+.loopexit227:                                     ; preds = %.preheader, %20, %73
   %17 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %18 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.38, ptr noundef %10) #4
   br label %.loopexit
@@ -155,7 +155,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %21 = call ptr @opt_arg() #4
   %22 = call i32 @opt_format(ptr noundef %21, i64 noundef 14, ptr noundef nonnull %7) #4
   %.not204 = icmp eq i32 %22, 0
-  br i1 %.not204, label %.loopexit228, label %.preheader.backedge
+  br i1 %.not204, label %.loopexit227, label %.preheader.backedge
 
 23:                                               ; preds = %.preheader
   %24 = call ptr @opt_arg() #4
@@ -232,12 +232,12 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 
 .lr.ph:                                           ; preds = %57, %.lr.ph
   %65 = phi ptr [ %71, %.lr.ph ], [ %63, %57 ]
-  %.0133282 = phi i64 [ %70, %.lr.ph ], [ 0, %57 ]
+  %.0133281 = phi i64 [ %70, %.lr.ph ], [ 0, %57 ]
   %66 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %68 = load ptr, ptr %67, align 8, !tbaa !15
   %69 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %66, ptr noundef nonnull @.str.41, ptr noundef %68) #4
-  %70 = add i64 %.0133282, 1
+  %70 = add i64 %.0133281, 1
   %71 = call ptr @ASN1_ITEM_get(i64 noundef %70) #4
   %72 = icmp eq ptr %71, null
   br i1 %72, label %.loopexit, label %.lr.ph
@@ -245,7 +245,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
 73:                                               ; preds = %.preheader
   %74 = call i32 @opt_check_rest_arg(ptr noundef null) #4
   %.not188 = icmp eq i32 %74, 0
-  br i1 %.not188, label %.loopexit228, label %75
+  br i1 %.not188, label %.loopexit227, label %75
 
 75:                                               ; preds = %73
   %.not189 = icmp eq ptr %.0158, null
@@ -329,7 +329,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %116 = sext i32 %115 to i64
   store i64 %116, ptr %8, align 8, !tbaa !21
   %117 = icmp slt i32 %115, 0
-  br i1 %117, label %118, label %.loopexit226
+  br i1 %117, label %118, label %.loopexit225
 
 118:                                              ; preds = %114
   %119 = load ptr, ptr @bio_err, align 8, !tbaa !11
@@ -356,10 +356,10 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %.3123 = phi ptr [ %84, %120 ], [ %125, %.thread ]
   store i64 0, ptr %8, align 8, !tbaa !21
   %129 = call i64 @BUF_MEM_grow(ptr noundef nonnull %91, i64 noundef 8192) #4
-  %.not192283 = icmp eq i64 %129, 0
-  br i1 %.not192283, label %.loopexit, label %.lr.ph284
+  %.not192282 = icmp eq i64 %129, 0
+  br i1 %.not192282, label %.loopexit, label %.lr.ph283
 
-.lr.ph284:                                        ; preds = %128
+.lr.ph283:                                        ; preds = %128
   %130 = getelementptr inbounds nuw i8, ptr %91, i64 8
   br label %135
 
@@ -371,13 +371,13 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %.not192 = icmp eq i64 %134, 0
   br i1 %.not192, label %.loopexit, label %135
 
-135:                                              ; preds = %.lr.ph284, %131
+135:                                              ; preds = %.lr.ph283, %131
   %136 = load ptr, ptr %130, align 8, !tbaa !19
   %137 = load i64, ptr %8, align 8, !tbaa !21
   %138 = getelementptr inbounds i8, ptr %136, i64 %137
   %139 = call i32 @BIO_read(ptr noundef nonnull %.3123, ptr noundef %138, i32 noundef 8192) #4
   %140 = icmp slt i32 %139, 1
-  br i1 %140, label %.loopexit226, label %141
+  br i1 %140, label %.loopexit225, label %141
 
 141:                                              ; preds = %135
   %142 = zext nneg i32 %139 to i64
@@ -386,7 +386,7 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %145 = icmp samesign ult i64 %144, %142
   br i1 %145, label %.loopexit, label %131
 
-.loopexit226:                                     ; preds = %135, %114
+.loopexit225:                                     ; preds = %135, %114
   %.2126 = phi ptr [ null, %114 ], [ %.3127, %135 ]
   %.2122 = phi ptr [ %84, %114 ], [ %.3123, %135 ]
   %146 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -394,9 +394,9 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   store ptr %147, ptr %3, align 8, !tbaa !4
   br label %148
 
-148:                                              ; preds = %.loopexit226, %104
-  %.1125 = phi ptr [ null, %104 ], [ %.2126, %.loopexit226 ]
-  %.1121 = phi ptr [ %84, %104 ], [ %.2122, %.loopexit226 ]
+148:                                              ; preds = %.loopexit225, %104
+  %.1125 = phi ptr [ null, %104 ], [ %.2126, %.loopexit225 ]
+  %.1121 = phi ptr [ %84, %104 ], [ %.2122, %.loopexit225 ]
   %149 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %11) #4
   %.not194 = icmp eq i32 %149, 0
   br i1 %.not194, label %191, label %150
@@ -406,36 +406,36 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %152 = load i64, ptr %8, align 8, !tbaa !21
   %153 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %11) #4
   %154 = icmp sgt i32 %153, 0
-  br i1 %154, label %.lr.ph290, label %._crit_edge
+  br i1 %154, label %.lr.ph289, label %._crit_edge
 
-.lr.ph290:                                        ; preds = %150, %187
-  %.2289 = phi ptr [ %.3.ph, %187 ], [ null, %150 ]
-  %.0141288 = phi ptr [ %.1142.ph, %187 ], [ %151, %150 ]
-  %.0143287 = phi i64 [ %.1144.ph, %187 ], [ %152, %150 ]
-  %.0146286 = phi i32 [ %188, %187 ], [ 0, %150 ]
-  %155 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %11, i32 noundef %.0146286) #4
+.lr.ph289:                                        ; preds = %150, %187
+  %.2288 = phi ptr [ %.3.ph, %187 ], [ null, %150 ]
+  %.0141287 = phi ptr [ %.1142.ph, %187 ], [ %151, %150 ]
+  %.0143286 = phi i64 [ %.1144.ph, %187 ], [ %152, %150 ]
+  %.0146285 = phi i32 [ %188, %187 ], [ 0, %150 ]
+  %155 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %11, i32 noundef %.0146285) #4
   %156 = call i64 @strtol(ptr noundef captures(none) %155, ptr noundef null, i32 noundef 0) #4
   %157 = trunc i64 %156 to i32
   %158 = icmp slt i32 %157, 1
   br i1 %158, label %161, label %159
 
-159:                                              ; preds = %.lr.ph290
+159:                                              ; preds = %.lr.ph289
   %160 = and i64 %156, 2147483647
-  %.not202 = icmp slt i64 %160, %.0143287
+  %.not202 = icmp slt i64 %160, %.0143286
   br i1 %.not202, label %165, label %161
 
-161:                                              ; preds = %159, %.lr.ph290
+161:                                              ; preds = %159, %.lr.ph289
   %162 = load ptr, ptr @bio_err, align 8, !tbaa !11
-  %163 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %11, i32 noundef %.0146286) #4
+  %163 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %11, i32 noundef %.0146285) #4
   %164 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %162, ptr noundef nonnull @.str.43, ptr noundef %163) #4
   br label %187
 
 165:                                              ; preds = %159
-  %166 = getelementptr inbounds nuw i8, ptr %.0141288, i64 %160
-  %167 = sub nsw i64 %.0143287, %160
+  %166 = getelementptr inbounds nuw i8, ptr %.0141287, i64 %160
+  %167 = sub nsw i64 %.0143286, %160
   store ptr %166, ptr %6, align 8, !tbaa !4
   %168 = call ptr @d2i_ASN1_TYPE(ptr noundef null, ptr noundef nonnull %6, i64 noundef %167) #4
-  call void @ASN1_TYPE_free(ptr noundef %.2289) #4
+  call void @ASN1_TYPE_free(ptr noundef %.2288) #4
   %.not203 = icmp eq ptr %168, null
   br i1 %.not203, label %169, label %173
 
@@ -472,13 +472,13 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   br label %187
 
 187:                                              ; preds = %161, %180
-  %.1144.ph = phi i64 [ %186, %180 ], [ %.0143287, %161 ]
-  %.1142.ph = phi ptr [ %184, %180 ], [ %.0141288, %161 ]
-  %.3.ph = phi ptr [ %168, %180 ], [ %.2289, %161 ]
-  %188 = add nuw nsw i32 %.0146286, 1
+  %.1144.ph = phi i64 [ %186, %180 ], [ %.0143286, %161 ]
+  %.1142.ph = phi ptr [ %184, %180 ], [ %.0141287, %161 ]
+  %.3.ph = phi ptr [ %168, %180 ], [ %.2288, %161 ]
+  %188 = add nuw nsw i32 %.0146285, 1
   %189 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %11) #4
   %190 = icmp slt i32 %188, %189
-  br i1 %190, label %.lr.ph290, label %._crit_edge, !llvm.loop !28
+  br i1 %190, label %.lr.ph289, label %._crit_edge, !llvm.loop !28
 
 ._crit_edge:                                      ; preds = %187, %150
   %.0143.lcssa = phi i64 [ %152, %150 ], [ %.1144.ph, %187 ]
@@ -545,9 +545,9 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %216 = zext i32 %.2140 to i64
   %217 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %9, i64 noundef %216, ptr noundef nonnull %.0134) #4
   %.not201 = icmp eq ptr %217, null
-  br i1 %.not201, label %.thread221, label %222
+  br i1 %.not201, label %.thread220, label %222
 
-.thread221:                                       ; preds = %215
+.thread220:                                       ; preds = %215
   %218 = load ptr, ptr @bio_err, align 8, !tbaa !11
   %219 = getelementptr inbounds nuw i8, ptr %.0134, i64 48
   %220 = load ptr, ptr %219, align 8, !tbaa !15
@@ -558,33 +558,33 @@ define dso_local range(i32 0, 2) i32 @asn1parse_main(i32 noundef %0, ptr noundef
   %223 = load ptr, ptr @bio_out, align 8, !tbaa !11
   %224 = call i32 @ASN1_item_print(ptr noundef %223, ptr noundef nonnull %217, i32 noundef 0, ptr noundef nonnull %.0134, ptr noundef null) #4
   call void @ASN1_item_free(ptr noundef nonnull %217, ptr noundef nonnull %.0134) #4
-  br label %.thread224
+  br label %.thread223
 
 225:                                              ; preds = %212
   %226 = load ptr, ptr @bio_out, align 8, !tbaa !11
   %227 = zext i32 %.2140 to i64
   %228 = call i32 @ASN1_parse_dump(ptr noundef %226, ptr noundef %214, i64 noundef %227, i32 noundef %.0154, i32 noundef %.0150) #4
   %.not200 = icmp eq i32 %228, 0
-  br i1 %.not200, label %229, label %.thread224
+  br i1 %.not200, label %229, label %.thread223
 
-.thread224:                                       ; preds = %222, %225
+.thread223:                                       ; preds = %222, %225
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-229:                                              ; preds = %225, %.thread221
+229:                                              ; preds = %225, %.thread220
   %230 = load ptr, ptr @bio_err, align 8, !tbaa !11
   call void @ERR_print_errors(ptr noundef %230) #4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %44, %.lr.ph, %131, %141, %57, %128, %211, %.thread224, %229, %169, %175, %123, %109, %90, %87, %82, %76, %207, %196, %118, %100, %19, %.loopexit228, %13
-  %.not205 = phi i1 [ false, %13 ], [ false, %.loopexit228 ], [ true, %19 ], [ false, %76 ], [ false, %82 ], [ false, %87 ], [ false, %90 ], [ false, %100 ], [ false, %196 ], [ false, %207 ], [ false, %229 ], [ false, %118 ], [ false, %109 ], [ false, %123 ], [ false, %175 ], [ false, %169 ], [ true, %.thread224 ], [ true, %211 ], [ false, %128 ], [ false, %57 ], [ false, %141 ], [ false, %131 ], [ false, %.lr.ph ], [ false, %44 ]
-  %.0147 = phi i32 [ 1, %13 ], [ 1, %.loopexit228 ], [ 0, %19 ], [ 1, %76 ], [ 1, %82 ], [ 1, %87 ], [ 1, %90 ], [ 1, %100 ], [ 1, %196 ], [ 1, %207 ], [ 1, %229 ], [ 1, %118 ], [ 1, %109 ], [ 1, %123 ], [ 1, %175 ], [ 1, %169 ], [ 0, %.thread224 ], [ 0, %211 ], [ 1, %128 ], [ 1, %57 ], [ 1, %141 ], [ 1, %131 ], [ 1, %.lr.ph ], [ 1, %44 ]
-  %.0145 = phi ptr [ null, %13 ], [ null, %.loopexit228 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ null, %87 ], [ null, %90 ], [ %91, %100 ], [ %91, %196 ], [ %91, %207 ], [ %91, %229 ], [ %91, %118 ], [ %91, %109 ], [ %91, %123 ], [ %91, %175 ], [ %91, %169 ], [ %91, %.thread224 ], [ %91, %211 ], [ %91, %128 ], [ null, %57 ], [ %91, %141 ], [ %91, %131 ], [ null, %.lr.ph ], [ null, %44 ]
-  %.0136 = phi ptr [ null, %13 ], [ null, %.loopexit228 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ null, %87 ], [ %.1137, %90 ], [ %.1137, %100 ], [ %.1137, %196 ], [ %.1137, %207 ], [ %.1137, %229 ], [ %.1137, %118 ], [ %.1137, %109 ], [ %.1137, %123 ], [ %.1137, %175 ], [ %.1137, %169 ], [ %.1137, %.thread224 ], [ %.1137, %211 ], [ %.1137, %128 ], [ null, %57 ], [ %.1137, %141 ], [ %.1137, %131 ], [ null, %.lr.ph ], [ null, %44 ]
-  %.0124 = phi ptr [ null, %13 ], [ null, %.loopexit228 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ null, %87 ], [ null, %90 ], [ null, %100 ], [ %.1125, %196 ], [ %.1125, %207 ], [ %.1125, %229 ], [ null, %118 ], [ null, %109 ], [ null, %123 ], [ %.1125, %175 ], [ %.1125, %169 ], [ %.1125, %.thread224 ], [ %.1125, %211 ], [ %.3127, %128 ], [ null, %57 ], [ %.3127, %141 ], [ %.3127, %131 ], [ null, %.lr.ph ], [ null, %44 ]
-  %.0120 = phi ptr [ null, %13 ], [ null, %.loopexit228 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ %84, %87 ], [ %84, %90 ], [ %84, %100 ], [ %.1121, %196 ], [ %.1121, %207 ], [ %.1121, %229 ], [ %84, %118 ], [ %84, %109 ], [ %84, %123 ], [ %.1121, %175 ], [ %.1121, %169 ], [ %.1121, %.thread224 ], [ %.1121, %211 ], [ %.3123, %128 ], [ null, %57 ], [ %.3123, %141 ], [ %.3123, %131 ], [ null, %.lr.ph ], [ null, %44 ]
-  %.0119 = phi ptr [ null, %13 ], [ null, %.loopexit228 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ null, %87 ], [ null, %90 ], [ null, %100 ], [ %.1, %196 ], [ %.1, %207 ], [ %.1, %229 ], [ null, %118 ], [ null, %109 ], [ null, %123 ], [ %168, %175 ], [ null, %169 ], [ %.1, %.thread224 ], [ %.1, %211 ], [ null, %128 ], [ null, %57 ], [ null, %141 ], [ null, %131 ], [ null, %.lr.ph ], [ null, %44 ]
+.loopexit:                                        ; preds = %44, %.lr.ph, %131, %141, %57, %128, %211, %.thread223, %229, %169, %175, %123, %109, %90, %87, %82, %76, %207, %196, %118, %100, %19, %.loopexit227, %13
+  %.not205 = phi i1 [ false, %13 ], [ false, %.loopexit227 ], [ true, %19 ], [ false, %76 ], [ false, %82 ], [ false, %87 ], [ false, %90 ], [ false, %100 ], [ false, %196 ], [ false, %207 ], [ false, %229 ], [ false, %118 ], [ false, %109 ], [ false, %123 ], [ false, %175 ], [ false, %169 ], [ true, %.thread223 ], [ true, %211 ], [ false, %128 ], [ false, %57 ], [ false, %141 ], [ false, %131 ], [ false, %.lr.ph ], [ false, %44 ]
+  %.0147 = phi i32 [ 1, %13 ], [ 1, %.loopexit227 ], [ 0, %19 ], [ 1, %76 ], [ 1, %82 ], [ 1, %87 ], [ 1, %90 ], [ 1, %100 ], [ 1, %196 ], [ 1, %207 ], [ 1, %229 ], [ 1, %118 ], [ 1, %109 ], [ 1, %123 ], [ 1, %175 ], [ 1, %169 ], [ 0, %.thread223 ], [ 0, %211 ], [ 1, %128 ], [ 1, %57 ], [ 1, %141 ], [ 1, %131 ], [ 1, %.lr.ph ], [ 1, %44 ]
+  %.0145 = phi ptr [ null, %13 ], [ null, %.loopexit227 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ null, %87 ], [ null, %90 ], [ %91, %100 ], [ %91, %196 ], [ %91, %207 ], [ %91, %229 ], [ %91, %118 ], [ %91, %109 ], [ %91, %123 ], [ %91, %175 ], [ %91, %169 ], [ %91, %.thread223 ], [ %91, %211 ], [ %91, %128 ], [ null, %57 ], [ %91, %141 ], [ %91, %131 ], [ null, %.lr.ph ], [ null, %44 ]
+  %.0136 = phi ptr [ null, %13 ], [ null, %.loopexit227 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ null, %87 ], [ %.1137, %90 ], [ %.1137, %100 ], [ %.1137, %196 ], [ %.1137, %207 ], [ %.1137, %229 ], [ %.1137, %118 ], [ %.1137, %109 ], [ %.1137, %123 ], [ %.1137, %175 ], [ %.1137, %169 ], [ %.1137, %.thread223 ], [ %.1137, %211 ], [ %.1137, %128 ], [ null, %57 ], [ %.1137, %141 ], [ %.1137, %131 ], [ null, %.lr.ph ], [ null, %44 ]
+  %.0124 = phi ptr [ null, %13 ], [ null, %.loopexit227 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ null, %87 ], [ null, %90 ], [ null, %100 ], [ %.1125, %196 ], [ %.1125, %207 ], [ %.1125, %229 ], [ null, %118 ], [ null, %109 ], [ null, %123 ], [ %.1125, %175 ], [ %.1125, %169 ], [ %.1125, %.thread223 ], [ %.1125, %211 ], [ %.3127, %128 ], [ null, %57 ], [ %.3127, %141 ], [ %.3127, %131 ], [ null, %.lr.ph ], [ null, %44 ]
+  %.0120 = phi ptr [ null, %13 ], [ null, %.loopexit227 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ %84, %87 ], [ %84, %90 ], [ %84, %100 ], [ %.1121, %196 ], [ %.1121, %207 ], [ %.1121, %229 ], [ %84, %118 ], [ %84, %109 ], [ %84, %123 ], [ %.1121, %175 ], [ %.1121, %169 ], [ %.1121, %.thread223 ], [ %.1121, %211 ], [ %.3123, %128 ], [ null, %57 ], [ %.3123, %141 ], [ %.3123, %131 ], [ null, %.lr.ph ], [ null, %44 ]
+  %.0119 = phi ptr [ null, %13 ], [ null, %.loopexit227 ], [ null, %19 ], [ null, %76 ], [ null, %82 ], [ null, %87 ], [ null, %90 ], [ null, %100 ], [ %.1, %196 ], [ %.1, %207 ], [ %.1, %229 ], [ null, %118 ], [ null, %109 ], [ null, %123 ], [ %168, %175 ], [ null, %169 ], [ %.1, %.thread223 ], [ %.1, %211 ], [ null, %128 ], [ null, %57 ], [ null, %141 ], [ null, %131 ], [ null, %.lr.ph ], [ null, %44 ]
   %231 = call i32 @BIO_free(ptr noundef %.0136) #4
   %232 = call i32 @BIO_free(ptr noundef %.0120) #4
   %233 = call i32 @BIO_free(ptr noundef %.0124) #4

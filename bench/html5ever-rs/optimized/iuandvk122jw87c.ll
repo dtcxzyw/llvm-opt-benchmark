@@ -257,14 +257,14 @@ define void @_ZN9html5ever9tokenizer8char_ref16CharRefTokenizer14unconsume_name1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.sroa.0.0.copyload = load i64, ptr %0, align 8
   store i64 0, ptr %0, align 8
-  %switch = icmp eq i64 %.sroa.0.0.copyload, 0
-  br i1 %switch, label %4, label %5
+  %4 = icmp eq i64 %.sroa.0.0.copyload, 0
+  br i1 %4, label %5, label %6
 
-4:                                                ; preds = %2
+5:                                                ; preds = %2
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.c6c37ec45a5faa45b719745f9ef93ce2.8, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c6c37ec45a5faa45b719745f9ef93ce2.9) #14
   unreachable
 
-5:                                                ; preds = %2
+6:                                                ; preds = %2
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4.0..sroa_idx, i64 16, i1 false)
   call void @_ZN11markup5ever4util12buffer_queue11BufferQueue10push_front17h033ed3972f1f0b0bE(ptr noalias noundef nonnull align 8 dereferenceable(32) %1, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %3)

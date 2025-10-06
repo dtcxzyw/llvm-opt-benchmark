@@ -248,8 +248,8 @@ _ZN5clang10installapiL11isFrameworkEN4llvm9StringRefE.exit: ; preds = %._crit_ed
   br label %.critedge
 
 37:                                               ; preds = %.preheader, %_ZN4llvm11SmallVectorIcLj4096EED2Ev.exit
-  %.031.idx51 = phi i64 [ 0, %.preheader ], [ %.031.add, %_ZN4llvm11SmallVectorIcLj4096EED2Ev.exit ]
-  %.031.ptr = getelementptr inbounds nuw i8, ptr @_ZZN5clang10installapi16DirectoryScanner17scanForFrameworksEN4llvm9StringRefEE14SubDirectories, i64 %.031.idx51
+  %.031.idx49 = phi i64 [ 0, %.preheader ], [ %.031.add, %_ZN4llvm11SmallVectorIcLj4096EED2Ev.exit ]
+  %.031.ptr = getelementptr inbounds nuw i8, ptr @_ZZN5clang10installapi16DirectoryScanner17scanForFrameworksEN4llvm9StringRefEE14SubDirectories, i64 %.031.idx49
   %38 = load ptr, ptr %.031.ptr, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %24, ptr %5, align 8, !tbaa !25
@@ -307,10 +307,10 @@ _ZN4llvm5TwineC2EPKc.exit:                        ; preds = %_ZN4llvm11SmallStri
   %47 = load i64, ptr %25, align 8, !tbaa !27
   call void @_ZNK5clang10installapi16DirectoryScanner22scanMultipleFrameworksEN4llvm9StringRefERSt6vectorINS0_7LibraryESaIS5_EE(ptr dead_on_unwind writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(56) %1, ptr %46, i64 %47, ptr noundef nonnull align 8 dereferenceable(24) %33)
   %48 = load ptr, ptr %0, align 8, !tbaa !33
-  %.not49 = icmp eq ptr %48, null
+  %.not47 = icmp eq ptr %48, null
   %49 = load ptr, ptr %5, align 8, !tbaa !25
   %50 = icmp eq ptr %49, %24
-  br i1 %.not49, label %_ZN4llvm5ErrorD2Ev.exit39, label %.critedge33
+  br i1 %.not47, label %_ZN4llvm5ErrorD2Ev.exit39, label %.critedge33
 
 _ZN4llvm5ErrorD2Ev.exit39:                        ; preds = %_ZN4llvm5TwineC2EPKc.exit
   br i1 %50, label %_ZN4llvm11SmallVectorIcLj4096EED2Ev.exit, label %51
@@ -321,7 +321,7 @@ _ZN4llvm5ErrorD2Ev.exit39:                        ; preds = %_ZN4llvm5TwineC2EPK
 
 _ZN4llvm11SmallVectorIcLj4096EED2Ev.exit:         ; preds = %_ZN4llvm5ErrorD2Ev.exit39, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.031.add = add nuw nsw i64 %.031.idx51, 8
+  %.031.add = add nuw nsw i64 %.031.idx49, 8
   %.not = icmp eq i64 %.031.add, 24
   br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit41, label %37
 

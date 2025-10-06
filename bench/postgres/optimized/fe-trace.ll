@@ -1825,10 +1825,10 @@ define internal fastcc void @pqTraceOutputNR(ptr noundef %0, ptr noundef %1, ptr
   %14 = getelementptr inbounds nuw i16, ptr %11, i64 %13
   %15 = load i16, ptr %14, align 2
   %16 = and i16 %15, 16384
-  %.not.i21 = icmp eq i16 %16, 0
+  %.not.i20 = icmp eq i16 %16, 0
   %17 = sext i8 %12 to i32
-  %.str.34..str.35.i22 = select i1 %.not.i21, ptr @.str.34, ptr @.str.35
-  %18 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull %.str.34..str.35.i22, i32 noundef %17) #10
+  %.str.34..str.35.i21 = select i1 %.not.i20, ptr @.str.34, ptr @.str.35
+  %18 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull %.str.34..str.35.i21, i32 noundef %17) #10
   %19 = load i32, ptr %3, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %3, align 4

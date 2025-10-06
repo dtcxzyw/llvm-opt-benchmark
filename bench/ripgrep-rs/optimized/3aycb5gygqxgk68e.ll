@@ -55,14 +55,14 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
   br label %5
 
 5:                                                ; preds = %2, %20
-  %.sroa.5.012 = phi i8 [ 0, %2 ], [ %7, %20 ]
-  %6 = icmp eq i8 %.sroa.5.012, -1
-  %7 = add nuw i8 %.sroa.5.012, 1
+  %.sroa.5.011 = phi i8 [ 0, %2 ], [ %7, %20 ]
+  %6 = icmp eq i8 %.sroa.5.011, -1
+  %7 = add nuw i8 %.sroa.5.011, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i8 %.sroa.5.012, ptr %3, align 1
-  %8 = lshr i8 %.sroa.5.012, 6
+  store i8 %.sroa.5.011, ptr %3, align 1
+  %8 = lshr i8 %.sroa.5.011, 6
   %9 = zext nneg i8 %8 to i64
-  %10 = and i8 %.sroa.5.012, 63
+  %10 = and i8 %.sroa.5.011, 63
   %11 = getelementptr inbounds nuw i64, ptr %0, i64 %9
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = zext nneg i8 %10 to i64

@@ -1089,9 +1089,8 @@ define internal fastcc void @dissect_afield(i1 noundef zeroext %0, ptr noundef w
   br label %370
 
 53:                                               ; preds = %6
-  %54 = and i8 %11, -64
-  %or.cond5 = icmp eq i8 %54, 64
-  br i1 %or.cond5, label %55, label %65
+  %54 = icmp sgt i8 %11, 63
+  br i1 %54, label %55, label %65
 
 55:                                               ; preds = %53
   %56 = load i32, ptr @hf_dect_cc_TA, align 4

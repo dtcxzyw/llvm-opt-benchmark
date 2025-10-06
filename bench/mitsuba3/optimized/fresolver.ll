@@ -574,16 +574,16 @@ define void @_ZNK7mitsuba12FileResolver7resolveERKNS_10filesystem4pathE(ptr dead
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load ptr, ptr %10, align 8
-  %.not13 = icmp eq ptr %9, %11
-  br i1 %.not13, label %.loopexit, label %.lr.ph
+  %.not12 = icmp eq ptr %9, %11
+  br i1 %.not12, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %13
 
 13:                                               ; preds = %.lr.ph, %21
-  %.sroa.09.014 = phi ptr [ %9, %.lr.ph ], [ %22, %21 ]
-  tail call void @_ZNK7mitsuba10filesystem4pathdvERKS1_(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %.sroa.09.014, ptr noundef nonnull align 8 dereferenceable(25) %2)
+  %.sroa.09.013 = phi ptr [ %9, %.lr.ph ], [ %22, %21 ]
+  tail call void @_ZNK7mitsuba10filesystem4pathdvERKS1_(ptr dead_on_unwind writable sret(%"class.mitsuba::filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(25) %.sroa.09.013, ptr noundef nonnull align 8 dereferenceable(25) %2)
   %14 = tail call noundef zeroext i1 @_ZN7mitsuba10filesystem6existsERKNS0_4pathE(ptr noundef nonnull align 8 dereferenceable(25) %0) #16
   br i1 %14, label %_ZN7mitsuba10filesystem4pathD2Ev.exit, label %15
 
@@ -615,7 +615,7 @@ _ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_I
   br label %21
 
 21:                                               ; preds = %_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEE7__clearB8ne190000Ev.exit.i.i.i, %15
-  %22 = getelementptr inbounds nuw i8, ptr %.sroa.09.014, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.sroa.09.013, i64 32
   %.not = icmp eq ptr %22, %11
   br i1 %.not, label %.loopexit, label %13
 

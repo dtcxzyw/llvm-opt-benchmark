@@ -1998,8 +1998,8 @@ define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind
   br i1 %20, label %.loopexit, label %9, !llvm.loop !29
 
 21:                                               ; preds = %9
-  %.lhs.trunc.i14.i = and i16 %4, -8189
-  %22 = urem i16 %.lhs.trunc.i14.i, 255
+  %.lhs.trunc.i13.i = and i16 %4, -8189
+  %22 = urem i16 %.lhs.trunc.i13.i, 255
   %23 = zext nneg i16 %22 to i64
   %24 = getelementptr inbounds nuw %"class.std::vector", ptr %1, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -2008,12 +2008,12 @@ define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind
   br label %28
 
 28:                                               ; preds = %30, %21
-  %.sroa.06.0.i15.i = phi ptr [ %26, %21 ], [ %31, %30 ]
-  %29 = icmp eq ptr %.sroa.06.0.i15.i, %27
+  %.sroa.06.0.i14.i = phi ptr [ %26, %21 ], [ %31, %30 ]
+  %29 = icmp eq ptr %.sroa.06.0.i14.i, %27
   br i1 %29, label %40, label %30
 
 30:                                               ; preds = %28
-  %31 = getelementptr inbounds i8, ptr %.sroa.06.0.i15.i, i64 -8
+  %31 = getelementptr inbounds i8, ptr %.sroa.06.0.i14.i, i64 -8
   %32 = load ptr, ptr %31, align 8, !tbaa !14
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !16
@@ -2032,12 +2032,12 @@ define void @_ZNK14disassembler_t11disassembleB5cxx11E6insn_t(ptr dead_on_unwind
   br label %45
 
 45:                                               ; preds = %47, %40
-  %.sroa.06.0.i18.i = phi ptr [ %43, %40 ], [ %48, %47 ]
-  %46 = icmp eq ptr %.sroa.06.0.i18.i, %44
+  %.sroa.06.0.i16.i = phi ptr [ %43, %40 ], [ %48, %47 ]
+  %46 = icmp eq ptr %.sroa.06.0.i16.i, %44
   br i1 %46, label %_ZNK14disassembler_t6lookupE6insn_t.exit, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds i8, ptr %.sroa.06.0.i18.i, i64 -8
+  %48 = getelementptr inbounds i8, ptr %.sroa.06.0.i16.i, i64 -8
   %49 = load ptr, ptr %48, align 8, !tbaa !14
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !16
@@ -2092,11 +2092,11 @@ define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr noundef nonnull read
   %17 = load i32, ptr %12, align 8, !tbaa !28
   %18 = zext i32 %17 to i64
   %19 = icmp eq i64 %16, %18
-  br i1 %19, label %_ZNK14disassembler_t10probe_onceE6insn_tm.exit20, label %8, !llvm.loop !29
+  br i1 %19, label %_ZNK14disassembler_t10probe_onceE6insn_tm.exit17, label %8, !llvm.loop !29
 
 20:                                               ; preds = %8
-  %.lhs.trunc.i14 = and i16 %3, -8189
-  %21 = urem i16 %.lhs.trunc.i14, 255
+  %.lhs.trunc.i13 = and i16 %3, -8189
+  %21 = urem i16 %.lhs.trunc.i13, 255
   %22 = zext nneg i16 %21 to i64
   %23 = getelementptr inbounds nuw %"class.std::vector", ptr %0, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -2105,12 +2105,12 @@ define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr noundef nonnull read
   br label %27
 
 27:                                               ; preds = %29, %20
-  %.sroa.06.0.i15 = phi ptr [ %25, %20 ], [ %30, %29 ]
-  %28 = icmp eq ptr %.sroa.06.0.i15, %26
+  %.sroa.06.0.i14 = phi ptr [ %25, %20 ], [ %30, %29 ]
+  %28 = icmp eq ptr %.sroa.06.0.i14, %26
   br i1 %28, label %39, label %29
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds i8, ptr %.sroa.06.0.i15, i64 -8
+  %30 = getelementptr inbounds i8, ptr %.sroa.06.0.i14, i64 -8
   %31 = load ptr, ptr %30, align 8, !tbaa !14
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %33 = load i32, ptr %32, align 4, !tbaa !16
@@ -2119,7 +2119,7 @@ define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr noundef nonnull read
   %36 = load i32, ptr %31, align 8, !tbaa !28
   %37 = zext i32 %36 to i64
   %38 = icmp eq i64 %35, %37
-  br i1 %38, label %_ZNK14disassembler_t10probe_onceE6insn_tm.exit20, label %27, !llvm.loop !29
+  br i1 %38, label %_ZNK14disassembler_t10probe_onceE6insn_tm.exit17, label %27, !llvm.loop !29
 
 39:                                               ; preds = %27
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 6120
@@ -2129,12 +2129,12 @@ define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr noundef nonnull read
   br label %44
 
 44:                                               ; preds = %46, %39
-  %.sroa.06.0.i18 = phi ptr [ %42, %39 ], [ %47, %46 ]
-  %45 = icmp eq ptr %.sroa.06.0.i18, %43
-  br i1 %45, label %_ZNK14disassembler_t10probe_onceE6insn_tm.exit20, label %46
+  %.sroa.06.0.i16 = phi ptr [ %42, %39 ], [ %47, %46 ]
+  %45 = icmp eq ptr %.sroa.06.0.i16, %43
+  br i1 %45, label %_ZNK14disassembler_t10probe_onceE6insn_tm.exit17, label %46
 
 46:                                               ; preds = %44
-  %47 = getelementptr inbounds i8, ptr %.sroa.06.0.i18, i64 -8
+  %47 = getelementptr inbounds i8, ptr %.sroa.06.0.i16, i64 -8
   %48 = load ptr, ptr %47, align 8, !tbaa !14
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !16
@@ -2143,10 +2143,10 @@ define noundef ptr @_ZNK14disassembler_t6lookupE6insn_t(ptr noundef nonnull read
   %53 = load i32, ptr %48, align 8, !tbaa !28
   %54 = zext i32 %53 to i64
   %55 = icmp eq i64 %52, %54
-  br i1 %55, label %_ZNK14disassembler_t10probe_onceE6insn_tm.exit20, label %44, !llvm.loop !29
+  br i1 %55, label %_ZNK14disassembler_t10probe_onceE6insn_tm.exit17, label %44, !llvm.loop !29
 
-_ZNK14disassembler_t10probe_onceE6insn_tm.exit20: ; preds = %10, %29, %46, %44
-  %.1 = phi ptr [ %48, %46 ], [ null, %44 ], [ %31, %29 ], [ %12, %10 ]
+_ZNK14disassembler_t10probe_onceE6insn_tm.exit17: ; preds = %10, %29, %46, %44
+  %.1 = phi ptr [ null, %44 ], [ %48, %46 ], [ %31, %29 ], [ %12, %10 ]
   ret ptr %.1
 }
 
@@ -21161,9 +21161,9 @@ define noundef ptr @_ZNK14disassembler_t10probe_onceE6insn_tm(ptr noundef nonnul
   %19 = icmp eq i64 %16, %18
   br i1 %19, label %20, label %8, !llvm.loop !29
 
-20:                                               ; preds = %10, %8
-  %spec.select = phi ptr [ null, %8 ], [ %12, %10 ]
-  ret ptr %spec.select
+20:                                               ; preds = %8, %10
+  %21 = phi ptr [ %12, %10 ], [ null, %8 ]
+  ret ptr %21
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

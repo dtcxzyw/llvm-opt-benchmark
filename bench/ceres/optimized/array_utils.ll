@@ -22,21 +22,21 @@ $_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPiSt6vectorIiSaIiEEEENS0_5__op
 define hidden noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
   %.not = icmp ne ptr %1, null
   %3 = icmp sgt i64 %0, 0
-  %or.cond18 = and i1 %.not, %3
-  br i1 %or.cond18, label %.lr.ph, label %.thread
+  %or.cond16 = and i1 %.not, %3
+  br i1 %or.cond16, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
-  %.0915 = phi i64 [ %9, %.lr.ph ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw double, ptr %1, i64 %.0915
+  %.0913 = phi i64 [ %9, %.lr.ph ], [ 0, %2 ]
+  %4 = getelementptr inbounds nuw double, ptr %1, i64 %.0913
   %5 = load double, ptr %4, align 8, !tbaa !3
   %6 = tail call double @llvm.fabs.f64(double %5)
   %7 = fcmp one double %6, 0x7FF0000000000000
   %8 = fcmp une double %5, 1.000000e+302
   %or.cond.not = select i1 %7, i1 %8, i1 false
-  %9 = add nuw nsw i64 %.0915, 1
+  %9 = add nuw nsw i64 %.0913, 1
   %exitcond.not = icmp ne i64 %9, %0
-  %or.cond.not23 = select i1 %or.cond.not, i1 %exitcond.not, i1 false
-  br i1 %or.cond.not23, label %.lr.ph, label %.thread, !llvm.loop !7
+  %or.cond.not21 = select i1 %or.cond.not, i1 %exitcond.not, i1 false
+  br i1 %or.cond.not21, label %.lr.ph, label %.thread, !llvm.loop !7
 
 .thread:                                          ; preds = %.lr.ph, %2
   %.1 = phi i1 [ true, %2 ], [ %or.cond.not, %.lr.ph ]
@@ -45,35 +45,28 @@ define hidden noundef zeroext i1 @_ZN5ceres8internal12IsArrayValidElPKd(i64 noun
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN5ceres8internal16FindInvalidValueElPKd(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = icmp eq ptr %1, null
-  br i1 %3, label %11, label %.preheader
+  %3 = icmp ne ptr %1, null
+  %4 = icmp sgt i64 %0, 0
+  %or.cond19 = and i1 %3, %4
+  br i1 %or.cond19, label %.lr.ph, label %.thread
 
-.preheader:                                       ; preds = %2
-  %.not15 = icmp sgt i64 %0, 0
-  br i1 %.not15, label %.lr.ph, label %._crit_edge
+.lr.ph:                                           ; preds = %2, %10
+  %.01216 = phi i64 [ %11, %10 ], [ 0, %2 ]
+  %5 = getelementptr inbounds nuw double, ptr %1, i64 %.01216
+  %6 = load double, ptr %5, align 8, !tbaa !3
+  %7 = tail call double @llvm.fabs.f64(double %6)
+  %8 = fcmp ueq double %7, 0x7FF0000000000000
+  %9 = fcmp oeq double %6, 1.000000e+302
+  %or.cond = select i1 %8, i1 true, i1 %9
+  br i1 %or.cond, label %.thread, label %10
 
-.lr.ph:                                           ; preds = %.preheader, %9
-  %.01216 = phi i64 [ %10, %9 ], [ 0, %.preheader ]
-  %4 = getelementptr inbounds nuw double, ptr %1, i64 %.01216
-  %5 = load double, ptr %4, align 8, !tbaa !3
-  %6 = tail call double @llvm.fabs.f64(double %5)
-  %7 = fcmp ueq double %6, 0x7FF0000000000000
-  %8 = fcmp oeq double %5, 1.000000e+302
-  %or.cond = select i1 %7, i1 true, i1 %8
-  br i1 %or.cond, label %._crit_edge, label %9
+10:                                               ; preds = %.lr.ph
+  %11 = add nuw nsw i64 %.01216, 1
+  %exitcond.not = icmp eq i64 %11, %0
+  br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !9
 
-9:                                                ; preds = %.lr.ph
-  %10 = add nuw nsw i64 %.01216, 1
-  %exitcond.not = icmp eq i64 %10, %0
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
-
-._crit_edge:                                      ; preds = %9, %.lr.ph, %.preheader
-  %.012.lcssa = phi i64 [ 0, %.preheader ], [ %.01216, %.lr.ph ], [ %0, %9 ]
-  %spec.select = tail call i64 @llvm.smin.i64(i64 %.012.lcssa, i64 %0)
-  br label %11
-
-11:                                               ; preds = %._crit_edge, %2
-  %.013 = phi i64 [ %0, %2 ], [ %spec.select, %._crit_edge ]
+.thread:                                          ; preds = %10, %.lr.ph, %2
+  %.013 = phi i64 [ %0, %2 ], [ %0, %10 ], [ %.01216, %.lr.ph ]
   ret i64 %.013
 }
 
@@ -1000,9 +993,6 @@ declare void @llvm.lifetime.end.p0(ptr captures(none)) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #10
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -22595,7 +22595,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %15, %21, %23
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %26, %31, %37
-  br i1 %27, label %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit.thread, label %43
+  br i1 %27, label %.critedge, label %43
 
 41:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit
   %42 = landingpad { ptr, i32 }
@@ -22609,12 +22609,12 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %26, %31, %37
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %46, 1023
   %48 = icmp eq i64 %47, 27
-  br i1 %48, label %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit, label %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit.thread
+  br i1 %48, label %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit, label %.critedge
 
 _ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit: ; preds = %43
   %49 = call noundef nonnull align 8 dereferenceable(88) ptr @_ZNK4cvc58internal6EnvObj9logicInfoEv(ptr noundef nonnull align 8 dereferenceable(648) %0)
   %50 = call noundef zeroext i1 @_ZNK4cvc58internal9LogicInfo13isHigherOrderEv(ptr noundef nonnull align 8 dereferenceable(88) %49)
-  br i1 %50, label %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit.thread, label %.preheader
+  br i1 %50, label %.critedge, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit
   %51 = load ptr, ptr %1, align 8, !tbaa !100
@@ -22632,8 +22632,8 @@ _ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exi
   %63 = sext i1 %59 to i64
   %64 = add nsw i64 %62, %63
   %65 = and i64 %64, 4294967295
-  %.not39 = icmp eq i64 %65, 0
-  br i1 %.not39, label %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit.thread, label %.lr.ph
+  %.not37 = icmp eq i64 %65, 0
+  br i1 %.not37, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -22643,7 +22643,7 @@ _ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exi
   br label %89
 
 70:                                               ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32
-  %71 = add nuw i32 %.01736, 1
+  %71 = add nuw i32 %.01734, 1
   %72 = zext i32 %71 to i64
   %73 = load ptr, ptr %1, align 8, !tbaa !100
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -22661,11 +22661,11 @@ _ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exi
   %86 = add nsw i64 %84, %85
   %87 = and i64 %86, 4294967295
   %88 = icmp samesign ugt i64 %87, %72
-  br i1 %88, label %89, label %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit.thread, !llvm.loop !679
+  br i1 %88, label %89, label %.critedge, !llvm.loop !679
 
 89:                                               ; preds = %.lr.ph, %70
   %90 = phi i64 [ 0, %.lr.ph ], [ %72, %70 ]
-  %.01736 = phi i32 [ 0, %.lr.ph ], [ %71, %70 ]
+  %.01734 = phi i32 [ 0, %.lr.ph ], [ %71, %70 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !680)
   %91 = load ptr, ptr %1, align 8, !tbaa !100, !noalias !680
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -22677,7 +22677,7 @@ _ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exi
   %98 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %97), !noalias !680
   %99 = icmp eq i32 %98, 2
   %100 = zext i1 %99 to i32
-  %spec.select.i.i = add nsw i32 %.01736, %100
+  %spec.select.i.i = add nsw i32 %.01734, %100
   %101 = getelementptr inbounds nuw i8, ptr %91, i64 24
   %102 = sext i32 %spec.select.i.i to i64
   %103 = getelementptr inbounds ptr, ptr %101, i64 %102
@@ -22832,7 +22832,7 @@ _ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIiSaIiEESt4lessIS3_ESaISt
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28: ; preds = %159, %163, %169
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.not = icmp eq i32 %120, %158
-  br i1 %.not, label %177, label %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit.thread
+  br i1 %.not, label %177, label %.critedge
 
 173:                                              ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit
   %174 = landingpad { ptr, i32 }
@@ -22859,7 +22859,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28: ; preds = %159, %163, %169
   %185 = call noundef i32 @_ZN4cvc58internal4kind10metaKindOfENS1_6Kind_tE(i32 noundef %184), !noalias !686
   %186 = icmp eq i32 %185, 2
   %187 = zext i1 %186 to i32
-  %spec.select.i.i29 = add nsw i32 %.01736, %187
+  %spec.select.i.i29 = add nsw i32 %.01734, %187
   %188 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %189 = sext i32 %spec.select.i.i29 to i64
   %190 = getelementptr inbounds ptr, ptr %188, i64 %189
@@ -22923,7 +22923,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit30: ; preds = %197, %203, %205
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32: ; preds = %208, %212, %218
-  br i1 %207, label %70, label %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit.thread
+  br i1 %207, label %70, label %.critedge
 
 222:                                              ; preds = %_ZNK4cvc58internal12NodeTemplateILb1EEixEi.exit30
   %223 = landingpad { ptr, i32 }
@@ -22931,8 +22931,8 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32: ; preds = %208, %212, %218
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #27
   br label %224
 
-_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit.thread: ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28, %70, %.preheader, %43, %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %.0 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit ], [ true, %43 ], [ true, %.preheader ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28 ], [ true, %70 ]
+.critedge:                                        ; preds = %70, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28, %.preheader, %43, %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
+  %.0 = phi i1 [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ], [ true, %_ZNK4cvc58internal6theory13SortInference16isHandledApplyUfENS0_4kind6Kind_tE.exit ], [ true, %43 ], [ true, %.preheader ], [ true, %70 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit32 ], [ false, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28 ]
   ret i1 %.0
 
 224:                                              ; preds = %173, %222, %175, %41

@@ -429,36 +429,36 @@ define hidden void @_ZN6Assimp12X3DGeoHelper20extend_point_to_lineERKNSt7__cxx11
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN6Assimp12X3DGeoHelper22polylineIdx_to_lineIdxERKNSt7__cxx114listIiSaIiEEERS4_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8
-  %.not2533 = icmp eq ptr %3, %0
-  br i1 %.not2533, label %._crit_edge, label %.lr.ph35
+  %.not2432 = icmp eq ptr %3, %0
+  br i1 %.not2432, label %._crit_edge, label %.lr.ph34
 
-.lr.ph35:                                         ; preds = %2
+.lr.ph34:                                         ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br label %5
 
-5:                                                ; preds = %.lr.ph35, %.critedge
-  %.sroa.016.034 = phi ptr [ %3, %.lr.ph35 ], [ %.sroa.016.1.lcssa, %.critedge ]
-  %6 = load ptr, ptr %.sroa.016.034, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.016.034, i64 16
+5:                                                ; preds = %.lr.ph34, %.critedge
+  %.sroa.016.033 = phi ptr [ %3, %.lr.ph34 ], [ %.sroa.016.1.lcssa, %.critedge ]
+  %6 = load ptr, ptr %.sroa.016.033, align 8
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.016.033, i64 16
   %8 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %7, align 8
   store i32 %10, ptr %9, align 4
   tail call void @_ZNSt8__detail15_List_node_base7_M_hookEPS0_(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(24) %1) #27
-  %storemerge.in26 = load i64, ptr %4, align 8
-  %storemerge27 = add i64 %storemerge.in26, 1
-  store i64 %storemerge27, ptr %4, align 8
+  %storemerge.in25 = load i64, ptr %4, align 8
+  %storemerge26 = add i64 %storemerge.in25, 1
+  store i64 %storemerge26, ptr %4, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %12 = load i32, ptr %11, align 4
-  %.not28 = icmp ne i32 %12, -1
+  %.not27 = icmp ne i32 %12, -1
   %13 = icmp ne ptr %6, %0
-  %or.cond29 = and i1 %13, %.not28
-  br i1 %or.cond29, label %.lr.ph, label %.critedge
+  %or.cond28 = and i1 %13, %.not27
+  br i1 %or.cond28, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %5, %.critedge2
   %14 = phi ptr [ %25, %.critedge2 ], [ %11, %5 ]
-  %.sroa.016.130 = phi ptr [ %15, %.critedge2 ], [ %6, %5 ]
-  %15 = load ptr, ptr %.sroa.016.130, align 8
+  %.sroa.016.129 = phi ptr [ %15, %.critedge2 ], [ %6, %5 ]
+  %15 = load ptr, ptr %.sroa.016.129, align 8
   %16 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %14, align 4
@@ -478,8 +478,8 @@ define hidden void @_ZN6Assimp12X3DGeoHelper22polylineIdx_to_lineIdxERKNSt7__cxx
   %26 = load i32, ptr %25, align 4
   %27 = icmp eq i32 %26, -1
   %28 = icmp eq ptr %15, %0
-  %or.cond24 = select i1 %27, i1 true, i1 %28
-  br i1 %or.cond24, label %.critedge, label %.critedge2
+  %or.cond23 = select i1 %27, i1 true, i1 %28
+  br i1 %or.cond23, label %.critedge, label %.critedge2
 
 .critedge2:                                       ; preds = %.lr.ph
   %29 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #29
@@ -495,9 +495,9 @@ define hidden void @_ZN6Assimp12X3DGeoHelper22polylineIdx_to_lineIdxERKNSt7__cxx
   br i1 %.not.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.critedge2, %.lr.ph, %5
-  %.sroa.016.1.lcssa = phi ptr [ %6, %5 ], [ %.sroa.016.130, %.lr.ph ], [ %15, %.critedge2 ]
-  %.not25 = icmp eq ptr %.sroa.016.1.lcssa, %0
-  br i1 %.not25, label %._crit_edge, label %5, !llvm.loop !6
+  %.sroa.016.1.lcssa = phi ptr [ %6, %5 ], [ %.sroa.016.129, %.lr.ph ], [ %15, %.critedge2 ]
+  %.not24 = icmp eq ptr %.sroa.016.1.lcssa, %0
+  br i1 %.not24, label %._crit_edge, label %5, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %.critedge, %2
   ret void

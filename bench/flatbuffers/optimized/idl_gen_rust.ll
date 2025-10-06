@@ -24417,12 +24417,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit674: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %101)
   %675 = load ptr, ptr %443, align 8, !tbaa !504
   %676 = load ptr, ptr %445, align 8, !tbaa !504
-  %.not15.not.i = icmp eq ptr %675, %676
-  br i1 %.not15.not.i, label %_ZNK11flatbuffers4rust13RustGenerator29TableBuilderArgsNeedsLifetimeERKNS_9StructDefE.exit, label %.lr.ph.i679
+  %.not17.not.i = icmp eq ptr %675, %676
+  br i1 %.not17.not.i, label %_ZNK11flatbuffers4rust13RustGenerator29TableBuilderArgsNeedsLifetimeERKNS_9StructDefE.exit, label %.lr.ph.i679
 
 .lr.ph.i679:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit674, %684
-  %.sroa.09.016.i = phi ptr [ %685, %684 ], [ %675, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit674 ]
-  %677 = load ptr, ptr %.sroa.09.016.i, align 8, !tbaa !505
+  %.sroa.09.018.i = phi ptr [ %685, %684 ], [ %675, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit674 ]
+  %677 = load ptr, ptr %.sroa.09.018.i, align 8, !tbaa !505
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 272
   %679 = load i8, ptr %678, align 8, !tbaa !508, !range !134, !noundef !135
   %680 = trunc nuw i8 %679 to i1
@@ -24441,7 +24441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit674: ; preds = %_Z
   ]
 
 684:                                              ; preds = %681, %681, %681, %681, %681, %681, %.lr.ph.i679
-  %685 = getelementptr inbounds nuw i8, ptr %.sroa.09.016.i, i64 8
+  %685 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i, i64 8
   %.not.not.i = icmp eq ptr %685, %676
   br i1 %.not.not.i, label %_ZNK11flatbuffers4rust13RustGenerator29TableBuilderArgsNeedsLifetimeERKNS_9StructDefE.exit, label %.lr.ph.i679, !llvm.loop !512
 
@@ -25977,12 +25977,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1005: ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %139)
   %1241 = load ptr, ptr %443, align 8, !tbaa !504
   %1242 = load ptr, ptr %445, align 8, !tbaa !504
-  %.not15.not.i1010 = icmp eq ptr %1241, %1242
-  br i1 %.not15.not.i1010, label %_ZNK11flatbuffers4rust13RustGenerator29TableBuilderArgsNeedsLifetimeERKNS_9StructDefE.exit1015, label %.lr.ph.i1011
+  %.not17.not.i1010 = icmp eq ptr %1241, %1242
+  br i1 %.not17.not.i1010, label %_ZNK11flatbuffers4rust13RustGenerator29TableBuilderArgsNeedsLifetimeERKNS_9StructDefE.exit1015, label %.lr.ph.i1011
 
 .lr.ph.i1011:                                     ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1005, %1250
-  %.sroa.09.016.i1012 = phi ptr [ %1251, %1250 ], [ %1241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1005 ]
-  %1243 = load ptr, ptr %.sroa.09.016.i1012, align 8, !tbaa !505
+  %.sroa.09.018.i1012 = phi ptr [ %1251, %1250 ], [ %1241, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1005 ]
+  %1243 = load ptr, ptr %.sroa.09.018.i1012, align 8, !tbaa !505
   %1244 = getelementptr inbounds nuw i8, ptr %1243, i64 272
   %1245 = load i8, ptr %1244, align 8, !tbaa !508, !range !134, !noundef !135
   %1246 = trunc nuw i8 %1245 to i1
@@ -26001,7 +26001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1005: ; preds = %1
   ]
 
 1250:                                             ; preds = %1247, %1247, %1247, %1247, %1247, %1247, %.lr.ph.i1011
-  %1251 = getelementptr inbounds nuw i8, ptr %.sroa.09.016.i1012, i64 8
+  %1251 = getelementptr inbounds nuw i8, ptr %.sroa.09.018.i1012, i64 8
   %.not.not.i1013 = icmp eq ptr %1251, %1242
   br i1 %.not.not.i1013, label %_ZNK11flatbuffers4rust13RustGenerator29TableBuilderArgsNeedsLifetimeERKNS_9StructDefE.exit1015, label %.lr.ph.i1011, !llvm.loop !512
 

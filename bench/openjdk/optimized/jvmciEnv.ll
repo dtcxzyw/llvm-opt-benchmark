@@ -772,8 +772,8 @@ define hidden void @_ZN8JVMCIEnv21init_env_mode_runtimeEP10JavaThreadP7JNIEnv_(p
   %79 = load ptr, ptr %32, align 8
   %80 = call noundef i32 @_ZN12JVMCIRuntime19AttachCurrentThreadEP10JavaThreadPPvS2_(ptr noundef nonnull align 8 dereferenceable(93) %79, ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull %6) #14
   store i32 %80, ptr %33, align 4
-  %.not24 = icmp eq i32 %80, 0
-  br i1 %.not24, label %91, label %81
+  %.not23 = icmp eq i32 %80, 0
+  br i1 %.not23, label %91, label %81
 
 81:                                               ; preds = %56
   store ptr null, ptr %0, align 8
@@ -2079,32 +2079,32 @@ define linkonce_odr hidden void @_ZN20ExceptionTranslation4doitEP10JavaThread(pt
   br label %49
 
 49:                                               ; preds = %41, %47, %31, %39, %27
-  %switch = phi i1 [ false, %27 ], [ true, %39 ], [ false, %31 ], [ false, %47 ], [ false, %41 ]
+  %50 = phi i1 [ false, %27 ], [ true, %39 ], [ false, %31 ], [ false, %47 ], [ false, %41 ]
   %.1 = phi i32 [ %.0, %27 ], [ %spec.select, %39 ], [ %.0, %31 ], [ %.0, %47 ], [ %.0, %41 ]
-  %50 = load ptr, ptr %10, align 8
-  %.not.i.i.i.i = icmp eq ptr %50, null
-  br i1 %.not.i.i.i.i, label %52, label %51
+  %51 = load ptr, ptr %10, align 8
+  %.not.i.i.i.i = icmp eq ptr %51, null
+  br i1 %.not.i.i.i.i, label %53, label %52
 
-51:                                               ; preds = %49
+52:                                               ; preds = %49
   tail call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %8, i64 noundef %16) #14
   tail call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %10) #14
-  br label %52
+  br label %53
 
-52:                                               ; preds = %51, %49
-  %53 = load ptr, ptr %11, align 8
-  %.not8.i.i.i.i = icmp eq ptr %53, %12
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %54
+53:                                               ; preds = %52, %49
+  %54 = load ptr, ptr %11, align 8
+  %.not8.i.i.i.i = icmp eq ptr %54, %12
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %55
 
-54:                                               ; preds = %52
+55:                                               ; preds = %53
   store ptr %10, ptr %9, align 8
   store ptr %12, ptr %11, align 8
   store ptr %14, ptr %13, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %52, %54
-  br i1 %switch, label %5, label %55
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %53, %55
+  br i1 %50, label %5, label %56
 
-55:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
+56:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   ret void
 }
 

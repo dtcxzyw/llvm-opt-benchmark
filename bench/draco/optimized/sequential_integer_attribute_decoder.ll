@@ -4018,8 +4018,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco56MeshPredictionSchemeConstrain
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !48
   %13 = add i64 %12, 1
-  %.not50 = icmp slt i64 %10, %13
-  br i1 %.not50, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %14
+  %.not46 = icmp slt i64 %10, %13
+  br i1 %.not46, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %14
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %1, align 8, !tbaa !49
@@ -4111,16 +4111,16 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %52, %56
   br label %.critedge35
 
 .preheader:                                       ; preds = %59, %_ZNSt14_Bit_referenceaSEb.exit
-  %.051 = phi i32 [ %78, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %59 ]
+  %.047 = phi i32 [ %78, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %59 ]
   %63 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
           to label %64 unwind label %79
 
 64:                                               ; preds = %.preheader
   %65 = load ptr, ptr %38, align 8, !tbaa !164
-  %66 = lshr i32 %.051, 6
-  %.zext49 = zext nneg i32 %66 to i64
-  %67 = getelementptr inbounds nuw i64, ptr %65, i64 %.zext49
-  %68 = and i32 %.051, 63
+  %66 = lshr i32 %.047, 6
+  %.zext45 = zext nneg i32 %66 to i64
+  %67 = getelementptr inbounds nuw i64, ptr %65, i64 %.zext45
+  %68 = and i32 %.047, 63
   %69 = zext nneg i32 %68 to i64
   %70 = shl nuw i64 1, %69
   br i1 %63, label %71, label %74
@@ -4139,7 +4139,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %52, %56
 _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %71, %74
   %storemerge = phi i64 [ %77, %74 ], [ %73, %71 ]
   store i64 %storemerge, ptr %67, align 8, !tbaa !209
-  %78 = add nuw i32 %.051, 1
+  %78 = add nuw i32 %.047, 1
   %exitcond.not = icmp eq i32 %78, %23
   br i1 %exitcond.not, label %62, label %.preheader, !llvm.loop !236
 
@@ -4158,8 +4158,8 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %71, %74
 .critedge35:                                      ; preds = %62, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond54.not, label %82, label %20, !llvm.loop !237
+  %exitcond50.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond50.not, label %82, label %20, !llvm.loop !237
 
 .critedge:                                        ; preds = %59
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20
@@ -12573,8 +12573,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco56MeshPredictionSchemeConstrain
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i64, ptr %11, align 8, !tbaa !48
   %13 = add i64 %12, 1
-  %.not50 = icmp slt i64 %10, %13
-  br i1 %.not50, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %14
+  %.not46 = icmp slt i64 %10, %13
+  br i1 %.not46, label %_ZN5draco23PredictionSchemeDecoderIiNS_37PredictionSchemeWrapDecodingTransformIiiEEE20DecodePredictionDataEPNS_13DecoderBufferE.exit, label %14
 
 14:                                               ; preds = %8
   %15 = load ptr, ptr %1, align 8, !tbaa !49
@@ -12664,16 +12664,16 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %50, %54
   br label %.critedge35
 
 .preheader:                                       ; preds = %57, %_ZNSt14_Bit_referenceaSEb.exit
-  %.051 = phi i32 [ %76, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %57 ]
+  %.047 = phi i32 [ %76, %_ZNSt14_Bit_referenceaSEb.exit ], [ 0, %57 ]
   %61 = invoke noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %4)
           to label %62 unwind label %77
 
 62:                                               ; preds = %.preheader
   %63 = load ptr, ptr %36, align 8, !tbaa !164
-  %64 = lshr i32 %.051, 6
-  %.zext49 = zext nneg i32 %64 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %.zext49
-  %66 = and i32 %.051, 63
+  %64 = lshr i32 %.047, 6
+  %.zext45 = zext nneg i32 %64 to i64
+  %65 = getelementptr inbounds nuw i64, ptr %63, i64 %.zext45
+  %66 = and i32 %.047, 63
   %67 = zext nneg i32 %66 to i64
   %68 = shl nuw i64 1, %67
   br i1 %61, label %69, label %72
@@ -12692,7 +12692,7 @@ _ZNSt6vectorIbSaIbEE6resizeEmb.exit:              ; preds = %50, %54
 _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %69, %72
   %storemerge = phi i64 [ %75, %72 ], [ %71, %69 ]
   store i64 %storemerge, ptr %65, align 8, !tbaa !209
-  %76 = add nuw i32 %.051, 1
+  %76 = add nuw i32 %.047, 1
   %exitcond.not = icmp eq i32 %76, %23
   br i1 %exitcond.not, label %60, label %.preheader, !llvm.loop !435
 
@@ -12711,8 +12711,8 @@ _ZNSt14_Bit_referenceaSEb.exit:                   ; preds = %69, %72
 .critedge35:                                      ; preds = %60, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond54.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond54.not, label %80, label %20, !llvm.loop !436
+  %exitcond50.not = icmp eq i64 %indvars.iv.next, 4
+  br i1 %exitcond50.not, label %80, label %20, !llvm.loop !436
 
 .critedge:                                        ; preds = %57
   call void @_ZN5draco14RAnsBitDecoderD1Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #20

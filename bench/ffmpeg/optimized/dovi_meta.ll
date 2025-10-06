@@ -59,38 +59,38 @@ define noalias ptr @av_dovi_metadata_alloc(ptr noundef writeonly captures(addres
 define ptr @av_dovi_find_level(ptr noundef readonly captures(ret: address, provenance) %0, i8 noundef zeroext %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !10
-  %.not1317 = icmp sgt i32 %4, 0
-  br i1 %.not1317, label %.lr.ph, label %.split.loop.exit
+  %5 = icmp sgt i32 %4, 0
+  br i1 %5, label %.lr.ph, label %.split.loop.exit
 
 .lr.ph:                                           ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i64, ptr %5, align 8, !tbaa !12
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %9 = load i64, ptr %8, align 8, !tbaa !13
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load i64, ptr %6, align 8, !tbaa !12
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 %7
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = load i64, ptr %9, align 8, !tbaa !13
   %wide.trip.count = zext nneg i32 %4 to i64
-  br label %11
+  br label %12
 
-10:                                               ; preds = %11
+11:                                               ; preds = %12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.split.loop.exit, label %11, !llvm.loop !14
+  br i1 %exitcond.not, label %.split.loop.exit, label %12, !llvm.loop !14
 
-11:                                               ; preds = %.lr.ph, %10
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = mul i64 %9, %indvars.iv
-  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
-  %14 = load i8, ptr %13, align 4, !tbaa !16
-  %.not = icmp eq i8 %14, %1
-  br i1 %.not, label %.split.loop.exit.loopexit.split.loop.exit, label %10
+12:                                               ; preds = %.lr.ph, %11
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
+  %13 = mul i64 %10, %indvars.iv
+  %14 = getelementptr inbounds nuw i8, ptr %8, i64 %13
+  %15 = load i8, ptr %14, align 4, !tbaa !16
+  %.not = icmp eq i8 %15, %1
+  br i1 %.not, label %.split.loop.exit.loopexit.split.loop.exit, label %11
 
-.split.loop.exit.loopexit.split.loop.exit:        ; preds = %11
-  %15 = getelementptr inbounds nuw i8, ptr %7, i64 %12
+.split.loop.exit.loopexit.split.loop.exit:        ; preds = %12
+  %16 = getelementptr inbounds nuw i8, ptr %8, i64 %13
   br label %.split.loop.exit
 
-.split.loop.exit:                                 ; preds = %10, %.split.loop.exit.loopexit.split.loop.exit, %2
-  %spec.select = phi ptr [ null, %2 ], [ %15, %.split.loop.exit.loopexit.split.loop.exit ], [ null, %10 ]
-  ret ptr %spec.select
+.split.loop.exit:                                 ; preds = %11, %.split.loop.exit.loopexit.split.loop.exit, %2
+  %17 = phi ptr [ null, %2 ], [ %16, %.split.loop.exit.loopexit.split.loop.exit ], [ null, %11 ]
+  ret ptr %17
 }
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

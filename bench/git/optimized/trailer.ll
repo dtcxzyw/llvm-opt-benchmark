@@ -1729,20 +1729,20 @@ trailer_config_init.exit:                         ; preds = %2, %5
   %9 = load i32, ptr %8, align 4, !tbaa !77
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
   %.not.i = icmp eq i32 %9, 0
-  br i1 %.not.i, label %.preheader27.i, label %find_end_of_log_message.exit
+  br i1 %.not.i, label %.preheader26.i, label %find_end_of_log_message.exit
 
-.preheader27.i:                                   ; preds = %trailer_config_init.exit
+.preheader26.i:                                   ; preds = %trailer_config_init.exit
   %11 = load i8, ptr %1, align 1, !tbaa !19
-  %.not1331.i = icmp eq i8 %11, 0
-  br i1 %.not1331.i, label %find_end_of_log_message.exit, label %.preheader.i
+  %.not1330.i = icmp eq i8 %11, 0
+  br i1 %.not1330.i, label %find_end_of_log_message.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader27.i, %.loopexit.i
-  %.01132.i = phi ptr [ %31, %.loopexit.i ], [ %1, %.preheader27.i ]
-  %scevgep.i = getelementptr i8, ptr %.01132.i, i64 3
+.preheader.i:                                     ; preds = %.preheader26.i, %.loopexit.i
+  %.01131.i = phi ptr [ %31, %.loopexit.i ], [ %1, %.preheader26.i ]
+  %scevgep.i = getelementptr i8, ptr %.01131.i, i64 3
   br label %12
 
 12:                                               ; preds = %13, %.preheader.i
-  %.07.i.i = phi ptr [ %15, %13 ], [ %.01132.i, %.preheader.i ]
+  %.07.i.i = phi ptr [ %15, %13 ], [ %.01131.i, %.preheader.i ]
   %.06.i.idx.i = phi i64 [ %.06.i.add.i, %13 ], [ 0, %.preheader.i ]
   %exitcond.i = icmp eq i64 %.06.i.idx.i, 3
   br i1 %exitcond.i, label %18, label %13
@@ -1766,13 +1766,13 @@ trailer_config_init.exit:                         ; preds = %2, %5
   br i1 %.not14.i, label %.loopexit.i, label %skip_prefix.exit.i
 
 skip_prefix.exit.i:                               ; preds = %18
-  %24 = ptrtoint ptr %.01132.i to i64
+  %24 = ptrtoint ptr %.01131.i to i64
   %25 = ptrtoint ptr %1 to i64
   %26 = sub i64 %24, %25
   br label %find_end_of_log_message.exit
 
 .loopexit.i:                                      ; preds = %13, %18
-  %27 = tail call ptr @strchrnul(ptr noundef nonnull readonly %.01132.i, i32 noundef 10) #15
+  %27 = tail call ptr @strchrnul(ptr noundef nonnull readonly %.01131.i, i32 noundef 10) #15
   %28 = load i8, ptr %27, align 1, !tbaa !19
   %29 = icmp ne i8 %28, 0
   %30 = zext i1 %29 to i64
@@ -1781,8 +1781,8 @@ skip_prefix.exit.i:                               ; preds = %18
   %.not13.i = icmp eq i8 %32, 0
   br i1 %.not13.i, label %find_end_of_log_message.exit, label %.preheader.i, !llvm.loop !78
 
-find_end_of_log_message.exit:                     ; preds = %.loopexit.i, %trailer_config_init.exit, %.preheader27.i, %skip_prefix.exit.i
-  %.012.i = phi i64 [ %10, %trailer_config_init.exit ], [ %26, %skip_prefix.exit.i ], [ %10, %.preheader27.i ], [ %10, %.loopexit.i ]
+find_end_of_log_message.exit:                     ; preds = %.loopexit.i, %trailer_config_init.exit, %.preheader26.i, %skip_prefix.exit.i
+  %.012.i = phi i64 [ %10, %trailer_config_init.exit ], [ %26, %skip_prefix.exit.i ], [ %10, %.preheader26.i ], [ %10, %.loopexit.i ]
   %33 = tail call i64 @ignored_log_message_bytes(ptr noundef nonnull %1, i64 noundef %.012.i) #16
   %34 = sub i64 %.012.i, %33
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 %34

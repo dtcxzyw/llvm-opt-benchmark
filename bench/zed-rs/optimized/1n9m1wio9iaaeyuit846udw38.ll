@@ -1779,7 +1779,7 @@ default.unreachable:                              ; preds = %28
 "_ZN99_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..Searcher$GT$11next_reject17hcf24b22ddaa3c608E.llvm.11431389067375718170.exit.i": ; preds = %20, %22
   %.sroa.6.0.i = phi i64 [ %26, %22 ], [ undef, %20 ]
   %.sroa.4.0.i = phi i64 [ %24, %22 ], [ undef, %20 ]
-  %switch.i = phi i1 [ true, %22 ], [ false, %20 ]
+  %storemerge.i.i.i = phi i1 [ true, %22 ], [ false, %20 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !201
   br label %28
 
@@ -1798,22 +1798,22 @@ default.unreachable:                              ; preds = %28
   br label %28
 
 "_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffd12b0175d8b8f8E.llvm.11431389067375718170.exit.i": ; preds = %28
-  %.sroa.0.0.i = select i1 %switch.i, i64 %.sroa.4.0.i, i64 0
-  %.sroa.01.0.i = select i1 %switch.i, i64 %.sroa.6.0.i, i64 0
+  %.sroa.0.0.i = select i1 %storemerge.i.i.i, i64 %.sroa.4.0.i, i64 0
+  %.sroa.01.0.i = select i1 %storemerge.i.i.i, i64 %.sroa.6.0.i, i64 0
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h4376a79db1d018acE.exit"
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %33 = load i64, ptr %32, align 8, !noalias !209, !noundef !4
-  %.sroa.0.011.i = select i1 %switch.i, i64 %.sroa.4.0.i, i64 0
+  %.sroa.0.010.i = select i1 %storemerge.i.i.i, i64 %.sroa.4.0.i, i64 0
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h4376a79db1d018acE.exit"
 
 "_ZN4core3str21_$LT$impl$u20$str$GT$12trim_matches17h4376a79db1d018acE.exit": ; preds = %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffd12b0175d8b8f8E.llvm.11431389067375718170.exit.i", %31
-  %.sroa.0.014.i = phi i64 [ %.sroa.0.011.i, %31 ], [ %.sroa.0.0.i, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffd12b0175d8b8f8E.llvm.11431389067375718170.exit.i" ]
+  %.sroa.0.013.i = phi i64 [ %.sroa.0.010.i, %31 ], [ %.sroa.0.0.i, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffd12b0175d8b8f8E.llvm.11431389067375718170.exit.i" ]
   %34 = phi i64 [ %33, %31 ], [ %.sroa.01.0.i, %"_ZN106_$LT$core..str..pattern..CharPredicateSearcher$LT$F$GT$$u20$as$u20$core..str..pattern..ReverseSearcher$GT$16next_reject_back17hffd12b0175d8b8f8E.llvm.11431389067375718170.exit.i" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !209
-  %35 = sub nuw i64 %34, %.sroa.0.014.i
-  %36 = getelementptr inbounds i8, ptr %2, i64 %.sroa.0.014.i
+  %35 = sub nuw i64 %34, %.sroa.0.013.i
+  %36 = getelementptr inbounds i8, ptr %2, i64 %.sroa.0.013.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !193
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZN3std3sys6os_str5bytes5Slice8to_owned17he7326b2b60fbbdf5E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %19, i64 noundef %18)

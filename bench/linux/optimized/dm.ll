@@ -1401,10 +1401,9 @@ define dso_local ptr @dm_get_md(i32 noundef %0) #0 align 16 {
   %7 = zext nneg i32 %2 to i64
   %8 = tail call ptr @idr_find(ptr noundef nonnull @_minor_idr, i64 noundef %7) #23
   %9 = ptrtoint ptr %8 to i64
-  switch i64 %9, label %10 [
-    i64 -1, label %dm_get.exit
-    i64 0, label %dm_get.exit
-  ]
+  %.off = add i64 %9, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %10, label %dm_get.exit
 
 10:                                               ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 184
@@ -1441,8 +1440,8 @@ define dso_local ptr @dm_get_md(i32 noundef %0) #0 align 16 {
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2453, i32 0, i64 12) #23, !srcloc !59
   unreachable
 
-dm_get.exit:                                      ; preds = %26, %22, %17, %10, %6, %6
-  %32 = phi ptr [ null, %6 ], [ null, %6 ], [ null, %22 ], [ null, %17 ], [ null, %10 ], [ %8, %26 ]
+dm_get.exit:                                      ; preds = %26, %6, %22, %17, %10
+  %32 = phi ptr [ null, %6 ], [ null, %22 ], [ null, %17 ], [ null, %10 ], [ %8, %26 ]
   tail call void @_raw_spin_unlock(ptr noundef nonnull @_minor_lock) #23
   br label %33
 

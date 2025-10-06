@@ -8991,11 +8991,11 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   %16 = alloca %struct.cbb_st, align 8
   br label %17
 
-17:                                               ; preds = %0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132
-  %.046.idx208 = phi i64 [ 0, %0 ], [ %.046.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132 ]
-  %.046.ptr209 = getelementptr inbounds nuw i8, ptr @_ZL10kASN1Tests, i64 %.046.idx208
+17:                                               ; preds = %0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit130
+  %.046.idx200 = phi i64 [ 0, %0 ], [ %.046.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit130 ]
+  %.046.ptr201 = getelementptr inbounds nuw i8, ptr @_ZL10kASN1Tests, i64 %.046.idx200
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %18 = load ptr, ptr %.046.ptr209, align 8, !tbaa !87
+  %18 = load ptr, ptr %.046.ptr201, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !89
   store ptr null, ptr %3, align 8, !tbaa !19, !noalias !89
@@ -9005,8 +9005,8 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   %storemerge.i = select i1 %.not.i, ptr null, ptr %20
   store ptr %storemerge.i, ptr %4, align 8, !tbaa !19, !alias.scope !89
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !89
-  %.not196 = icmp eq ptr %storemerge.i, null
-  br i1 %.not196, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134, label %21
+  %.not188 = icmp eq ptr %storemerge.i, null
+  br i1 %.not188, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132, label %21
 
 21:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -9015,8 +9015,8 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 
 23:                                               ; preds = %21
   store ptr %22, ptr %5, align 8, !tbaa !19
-  %.not197 = icmp eq ptr %22, null
-  br i1 %.not197, label %97, label %26
+  %.not189 = icmp eq ptr %22, null
+  br i1 %.not189, label %97, label %26
 
 24:                                               ; preds = %21
   %25 = landingpad { ptr, i32 }
@@ -9025,9 +9025,9 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 
 26:                                               ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %27 = getelementptr inbounds nuw i8, ptr %.046.ptr209, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.046.ptr201, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !92
-  %29 = getelementptr inbounds nuw i8, ptr %.046.ptr209, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.046.ptr201, i64 16
   %30 = load i64, ptr %29, align 8, !tbaa !93
   invoke void @CBS_init(ptr noundef nonnull %6, ptr noundef %28, i64 noundef %30)
           to label %31 unwind label %40
@@ -9130,7 +9130,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 63:                                               ; preds = %62, %59
   %64 = load ptr, ptr @stderr, align 8, !tbaa !11
   %65 = call i64 @fwrite(ptr nonnull @.str.121, i64 19, i64 1, ptr %64) #17
-  br label %.critedge126
+  br label %.critedge124
 
 66:                                               ; preds = %62
   invoke void @CBS_init(ptr noundef nonnull %6, ptr noundef %28, i64 noundef %30)
@@ -9155,13 +9155,13 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 73:                                               ; preds = %72, %69
   %74 = load ptr, ptr @stderr, align 8, !tbaa !11
   %75 = call i64 @fwrite(ptr nonnull @.str.119, i64 30, i64 1, ptr %74) #17
-  br label %.critedge126
+  br label %.critedge124
 
 76:                                               ; preds = %79, %70, %67, %66
   %77 = landingpad { ptr, i32 }
           cleanup
-  %.not.i127 = icmp eq ptr %60, null
-  br i1 %.not.i127, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %78
+  %.not.i125 = icmp eq ptr %60, null
+  br i1 %.not.i125, label %_ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit, label %78
 
 78:                                               ; preds = %76
   call void @free(ptr noundef nonnull %60) #19
@@ -9178,11 +9178,11 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 82:                                               ; preds = %81
   %83 = load ptr, ptr @stderr, align 8, !tbaa !11
   %84 = call i64 @fwrite(ptr nonnull @.str.120, i64 11, i64 1, ptr %83) #17
-  br label %.critedge126
+  br label %.critedge124
 
 85:                                               ; preds = %81
-  %.not.i128 = icmp eq ptr %60, null
-  br i1 %.not.i128, label %87, label %86
+  %.not.i126 = icmp eq ptr %60, null
+  br i1 %.not.i126, label %87, label %86
 
 86:                                               ; preds = %85
   call void @free(ptr noundef nonnull %60) #19
@@ -9206,7 +9206,7 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
 91:                                               ; preds = %87
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132 unwind label %92
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit130 unwind label %92
 
 92:                                               ; preds = %91
   %93 = landingpad { ptr, i32 }
@@ -9215,11 +9215,11 @@ define internal fastcc noundef zeroext i1 @_ZL9test_asn1v() unnamed_addr #0 pers
   call void @__clang_call_terminate(ptr %94) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132: ; preds = %91
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit130: ; preds = %91
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.046.add = add nuw nsw i64 %.046.idx208, 24
+  %.046.add = add nuw nsw i64 %.046.idx200, 24
   %.not = icmp eq i64 %.046.add, 168
-  br i1 %.not, label %.preheader202, label %17
+  br i1 %.not, label %.preheader194, label %17
 
 _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %.loopexit, %.loopexit.split-lp, %78, %76
   %.pn = phi { ptr, i32 } [ %77, %76 ], [ %77, %78 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -9241,14 +9241,14 @@ _ZNSt10unique_ptrIh11OpenSSLFreeIhEED2Ev.exit:    ; preds = %.loopexit, %.loopex
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %233
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134: ; preds = %17
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132: ; preds = %17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
 97:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138 unwind label %98
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit136 unwind label %98
 
 98:                                               ; preds = %97
   %99 = landingpad { ptr, i32 }
@@ -9257,7 +9257,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134: 
   call void @__clang_call_terminate(ptr %100) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138: ; preds = %97
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit136: ; preds = %97
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
@@ -9276,7 +9276,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138: 
 105:                                              ; preds = %101
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142 unwind label %106
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit140 unwind label %106
 
 106:                                              ; preds = %105
   %107 = landingpad { ptr, i32 }
@@ -9285,7 +9285,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138: 
   call void @__clang_call_terminate(ptr %108) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142: ; preds = %105
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit140: ; preds = %105
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
@@ -9307,7 +9307,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142: 
 113:                                              ; preds = %109
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146 unwind label %114
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit144 unwind label %114
 
 114:                                              ; preds = %113
   %115 = landingpad { ptr, i32 }
@@ -9316,19 +9316,19 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142: 
   call void @__clang_call_terminate(ptr %116) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146: ; preds = %113
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit144: ; preds = %113
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.critedge126:                                     ; preds = %82, %73, %63
-  %.not.i147 = icmp eq ptr %60, null
-  br i1 %.not.i147, label %118, label %117
+.critedge124:                                     ; preds = %82, %73, %63
+  %.not.i145 = icmp eq ptr %60, null
+  br i1 %.not.i145, label %118, label %117
 
-117:                                              ; preds = %.critedge126
+117:                                              ; preds = %.critedge124
   call void @free(ptr noundef nonnull %60) #19
   br label %118
 
-118:                                              ; preds = %117, %.critedge126
+118:                                              ; preds = %117, %.critedge124
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -9346,7 +9346,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146: 
 122:                                              ; preds = %118
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   invoke void @BN_free(ptr noundef nonnull %20)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152 unwind label %123
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit150 unwind label %123
 
 123:                                              ; preds = %122
   %124 = landingpad { ptr, i32 }
@@ -9355,23 +9355,23 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146: 
   call void @__clang_call_terminate(ptr %125) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: ; preds = %122
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit150: ; preds = %122
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %.thread
 
-.preheader202:                                    ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154
-  %.073.idx210 = phi i64 [ %.073.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154 ], [ 0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132 ]
+.preheader194:                                    ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit130, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152
+  %.073.idx202 = phi i64 [ %.073.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152 ], [ 0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit130 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %126 = call ptr @BN_new()
   store ptr %126, ptr %10, align 8, !tbaa !19
-  %.not198 = icmp eq ptr %126, null
-  br i1 %.not198, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156, label %127
+  %.not190 = icmp eq ptr %126, null
+  br i1 %.not190, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154, label %127
 
-127:                                              ; preds = %.preheader202
-  %.073.ptr211 = getelementptr inbounds nuw i8, ptr @_ZL17kASN1InvalidTests, i64 %.073.idx210
+127:                                              ; preds = %.preheader194
+  %.073.ptr203 = getelementptr inbounds nuw i8, ptr @_ZL17kASN1InvalidTests, i64 %.073.idx202
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %128 = load ptr, ptr %.073.ptr211, align 16, !tbaa !94
-  %129 = getelementptr inbounds nuw i8, ptr %.073.ptr211, i64 8
+  %128 = load ptr, ptr %.073.ptr203, align 16, !tbaa !94
+  %129 = getelementptr inbounds nuw i8, ptr %.073.ptr203, i64 8
   %130 = load i64, ptr %129, align 8, !tbaa !96
   invoke void @CBS_init(ptr noundef nonnull %11, ptr noundef %128, i64 noundef %130)
           to label %131 unwind label %134
@@ -9415,7 +9415,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: 
 142:                                              ; preds = %141
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   invoke void @BN_free(ptr noundef nonnull %126)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154 unwind label %143
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152 unwind label %143
 
 143:                                              ; preds = %142
   %144 = landingpad { ptr, i32 }
@@ -9424,13 +9424,13 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: 
   call void @__clang_call_terminate(ptr %145) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154: ; preds = %142
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152: ; preds = %142
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %.073.add = add nuw nsw i64 %.073.idx210, 16
+  %.073.add = add nuw nsw i64 %.073.idx202, 16
   %.not90 = icmp eq i64 %.073.add, 32
-  br i1 %.not90, label %.preheader, label %.preheader202
+  br i1 %.not90, label %.preheader, label %.preheader194
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156: ; preds = %.preheader202
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154: ; preds = %.preheader194
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
@@ -9439,7 +9439,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156: 
   %148 = call i64 @fwrite(ptr nonnull @.str.122, i64 22, i64 1, ptr %147) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   invoke void @BN_free(ptr noundef nonnull %126)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158 unwind label %149
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156 unwind label %149
 
 149:                                              ; preds = %146
   %150 = landingpad { ptr, i32 }
@@ -9448,24 +9448,24 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156: 
   call void @__clang_call_terminate(ptr %151) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: ; preds = %146
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156: ; preds = %146
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread
 
-.preheader:                                       ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164
-  %.047.idx212 = phi i64 [ %.047.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164 ], [ 0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154 ]
-  %.047.ptr213 = getelementptr inbounds nuw i8, ptr @_ZL15kASN1BuggyTests, i64 %.047.idx212
+.preheader:                                       ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162
+  %.047.idx204 = phi i64 [ %.047.add, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162 ], [ 0, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152 ]
+  %.047.ptr205 = getelementptr inbounds nuw i8, ptr @_ZL15kASN1BuggyTests, i64 %.047.idx204
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %152 = call ptr @BN_new()
   store ptr %152, ptr %12, align 8, !tbaa !19
-  %.not199 = icmp eq ptr %152, null
-  br i1 %.not199, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166, label %153
+  %.not191 = icmp eq ptr %152, null
+  br i1 %.not191, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164, label %153
 
 153:                                              ; preds = %.preheader
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %154 = getelementptr inbounds nuw i8, ptr %.047.ptr213, i64 8
+  %154 = getelementptr inbounds nuw i8, ptr %.047.ptr205, i64 8
   %155 = load ptr, ptr %154, align 8, !tbaa !92
-  %156 = getelementptr inbounds nuw i8, ptr %.047.ptr213, i64 16
+  %156 = getelementptr inbounds nuw i8, ptr %.047.ptr205, i64 16
   %157 = load i64, ptr %156, align 8, !tbaa !93
   invoke void @CBS_init(ptr noundef nonnull %13, ptr noundef %155, i64 noundef %157)
           to label %158 unwind label %164
@@ -9477,9 +9477,9 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
 
 161:                                              ; preds = %158
   %.not94 = icmp eq i32 %160, 0
-  br i1 %.not94, label %166, label %.critedge118
+  br i1 %.not94, label %166, label %.critedge116
 
-.critedge118:                                     ; preds = %161
+.critedge116:                                     ; preds = %161
   %162 = load ptr, ptr @stderr, align 8, !tbaa !11
   %163 = call i64 @fwrite(ptr nonnull @.str.122, i64 22, i64 1, ptr %162) #17
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -9498,7 +9498,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
 
 167:                                              ; preds = %166
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %168 = load ptr, ptr %.047.ptr213, align 8, !tbaa !87
+  %168 = load ptr, ptr %.047.ptr205, align 8, !tbaa !87
   call void @llvm.experimental.noalias.scope.decl(metadata !97)
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !97
   store ptr null, ptr %2, align 8, !tbaa !19, !noalias !97
@@ -9506,13 +9506,13 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
           to label %170 unwind label %172
 
 170:                                              ; preds = %167
-  %.not.i159 = icmp eq i32 %169, 0
+  %.not.i157 = icmp eq i32 %169, 0
   %171 = load ptr, ptr %2, align 8, !noalias !97
-  %storemerge.i160 = select i1 %.not.i159, ptr null, ptr %171
-  store ptr %storemerge.i160, ptr %14, align 8, !tbaa !19, !alias.scope !97
+  %storemerge.i158 = select i1 %.not.i157, ptr null, ptr %171
+  store ptr %storemerge.i158, ptr %14, align 8, !tbaa !19, !alias.scope !97
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !97
-  %.not200 = icmp eq ptr %storemerge.i160, null
-  br i1 %.not200, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168, label %174
+  %.not192 = icmp eq ptr %storemerge.i158, null
+  br i1 %.not192, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166, label %174
 
 172:                                              ; preds = %167
   %173 = landingpad { ptr, i32 }
@@ -9543,7 +9543,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
 182:                                              ; preds = %181, %178
   %183 = load ptr, ptr @stderr, align 8, !tbaa !11
   %184 = call i64 @fwrite(ptr nonnull @.str.123, i64 40, i64 1, ptr %183) #17
-  br label %.critedge122
+  br label %.critedge120
 
 185:                                              ; preds = %187, %179, %175, %174
   %186 = landingpad { ptr, i32 }
@@ -9563,11 +9563,11 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
 191:                                              ; preds = %190
   %192 = load ptr, ptr @stderr, align 8, !tbaa !11
   %193 = call i64 @fwrite(ptr nonnull @.str.124, i64 13, i64 1, ptr %192) #17
-  br label %.critedge122
+  br label %.critedge120
 
 194:                                              ; preds = %190
   invoke void @BN_free(ptr noundef nonnull %171)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162 unwind label %195
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit160 unwind label %195
 
 195:                                              ; preds = %194
   %196 = landingpad { ptr, i32 }
@@ -9576,16 +9576,16 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158: 
   call void @__clang_call_terminate(ptr %197) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162: ; preds = %194
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit160: ; preds = %194
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %198 = load ptr, ptr %12, align 8, !tbaa !19
-  %.not.i163 = icmp eq ptr %198, null
-  br i1 %.not.i163, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164, label %199
+  %.not.i161 = icmp eq ptr %198, null
+  br i1 %.not.i161, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162, label %199
 
-199:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162
+199:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit160
   invoke void @BN_free(ptr noundef nonnull %198)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164 unwind label %200
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162 unwind label %200
 
 200:                                              ; preds = %199
   %201 = landingpad { ptr, i32 }
@@ -9594,9 +9594,9 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162: 
   call void @__clang_call_terminate(ptr %202) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162, %199
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit160, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  %.047.add = add nuw nsw i64 %.047.idx212, 24
+  %.047.add = add nuw nsw i64 %.047.idx204, 24
   %.not93 = icmp eq i64 %.047.add, 72
   br i1 %.not93, label %213, label %.preheader
 
@@ -9612,31 +9612,31 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164: 
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %233
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166: ; preds = %.preheader
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164: ; preds = %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
-.critedge122:                                     ; preds = %182, %191
+.critedge120:                                     ; preds = %182, %191
   invoke void @BN_free(ptr noundef nonnull %171)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168 unwind label %205
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166 unwind label %205
 
-205:                                              ; preds = %.critedge122
+205:                                              ; preds = %.critedge120
   %206 = landingpad { ptr, i32 }
           catch ptr null
   %207 = extractvalue { ptr, i32 } %206, 0
   call void @__clang_call_terminate(ptr %207) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168: ; preds = %170, %.critedge122
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166: ; preds = %170, %.critedge120
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %208 = load ptr, ptr %12, align 8, !tbaa !19
-  %.not.i169 = icmp eq ptr %208, null
-  br i1 %.not.i169, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170, label %209
+  %.not.i167 = icmp eq ptr %208, null
+  br i1 %.not.i167, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168, label %209
 
-209:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168
+209:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166
   invoke void @BN_free(ptr noundef nonnull %208)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170 unwind label %210
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168 unwind label %210
 
 210:                                              ; preds = %209
   %211 = landingpad { ptr, i32 }
@@ -9645,23 +9645,23 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168: 
   call void @__clang_call_terminate(ptr %212) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168, %209
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168: ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166, %209
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.thread
 
-213:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164
+213:                                              ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit162
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.experimental.noalias.scope.decl(metadata !100)
   call void @llvm.lifetime.start.p0(ptr nonnull %1), !noalias !100
   store ptr null, ptr %1, align 8, !tbaa !19, !noalias !100
   %214 = call i32 @BN_asc2bn(ptr noundef nonnull %1, ptr noundef nonnull @.str.111), !noalias !100
-  %.not.i171 = icmp eq i32 %214, 0
+  %.not.i169 = icmp eq i32 %214, 0
   %215 = load ptr, ptr %1, align 8, !noalias !100
-  %storemerge.i172 = select i1 %.not.i171, ptr null, ptr %215
-  store ptr %storemerge.i172, ptr %15, align 8, !tbaa !19, !alias.scope !100
+  %storemerge.i170 = select i1 %.not.i169, ptr null, ptr %215
+  store ptr %storemerge.i170, ptr %15, align 8, !tbaa !19, !alias.scope !100
   call void @llvm.lifetime.end.p0(ptr nonnull %1), !noalias !100
-  %.not201 = icmp eq ptr %storemerge.i172, null
-  br i1 %.not201, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174, label %216
+  %.not193 = icmp eq ptr %storemerge.i170, null
+  br i1 %.not193, label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit172, label %216
 
 216:                                              ; preds = %213
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -9706,7 +9706,7 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: 
   %.18 = phi i1 [ false, %223 ], [ true, %228 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   invoke void @BN_free(ptr noundef nonnull %215)
-          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174 unwind label %230
+          to label %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit172 unwind label %230
 
 230:                                              ; preds = %229
   %231 = landingpad { ptr, i32 }
@@ -9715,13 +9715,13 @@ _ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170: 
   call void @__clang_call_terminate(ptr %232) #21
   unreachable
 
-_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174: ; preds = %213, %229
-  %.17195 = phi i1 [ %.18, %229 ], [ false, %213 ]
+_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit172: ; preds = %213, %229
+  %.17187 = phi i1 [ %.18, %229 ], [ false, %213 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %.thread
 
-.thread:                                          ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170, %.critedge118, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174
-  %.7 = phi i1 [ %.17195, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit174 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit134 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit138 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit142 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit146 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit152 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit158 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit166 ], [ false, %.critedge118 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit170 ]
+.thread:                                          ; preds = %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168, %.critedge116, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit150, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit144, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit140, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit136, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit172
+  %.7 = phi i1 [ %.17187, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit172 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit132 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit136 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit140 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit144 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit150 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit154 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit156 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit164 ], [ false, %.critedge116 ], [ false, %_ZNSt10unique_ptrI9bignum_st14OpenSSLDeleterIS0_XadL_Z7BN_freeEEEED2Ev.exit168 ]
   ret i1 %.7
 
 233:                                              ; preds = %226, %204, %134, %96

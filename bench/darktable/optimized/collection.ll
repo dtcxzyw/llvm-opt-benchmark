@@ -6419,17 +6419,17 @@ define internal fastcc ptr @_strsplit_quotes(ptr noundef %0) unnamed_addr #0 {
 
 12:                                               ; preds = %.preheader, %23
   %13 = phi i32 [ 2147483646, %.preheader ], [ %28, %23 ]
-  %.150.in8 = phi i1 [ %.not71, %.preheader ], [ %.not73, %23 ]
-  %.0557 = phi ptr [ %9, %.preheader ], [ %27, %23 ]
-  %.1596 = phi ptr [ %0, %.preheader ], [ %21, %23 ]
-  %14 = ptrtoint ptr %.0557 to i64
-  %15 = ptrtoint ptr %.1596 to i64
+  %.150.in7 = phi i1 [ %.not71, %.preheader ], [ %.not73, %23 ]
+  %.0556 = phi ptr [ %9, %.preheader ], [ %27, %23 ]
+  %.1595 = phi ptr [ %0, %.preheader ], [ %21, %23 ]
+  %14 = ptrtoint ptr %.0556 to i64
+  %15 = ptrtoint ptr %.1595 to i64
   %16 = sub i64 %14, %15
-  %17 = zext i1 %.150.in8 to i64
+  %17 = zext i1 %.150.in7 to i64
   %18 = add nsw i64 %16, %17
-  %19 = tail call noalias ptr @g_strndup(ptr noundef nonnull %.1596, i64 noundef %18) #19
+  %19 = tail call noalias ptr @g_strndup(ptr noundef nonnull %.1595, i64 noundef %18) #19
   tail call void @g_ptr_array_add(ptr noundef %4, ptr noundef %19) #19
-  %20 = getelementptr inbounds nuw i8, ptr %.0557, i64 1
+  %20 = getelementptr inbounds nuw i8, ptr %.0556, i64 1
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %17
   %22 = icmp ugt ptr %21, %11
   br i1 %22, label %.thread, label %23

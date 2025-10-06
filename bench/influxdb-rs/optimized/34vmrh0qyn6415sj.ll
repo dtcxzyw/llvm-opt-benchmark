@@ -812,8 +812,8 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h020
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !10, !noundef !10
   %5 = load ptr, ptr %0, align 8, !nonnull !10, !noundef !10
-  %.not12 = icmp eq ptr %4, %5
-  br i1 %.not12, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$22observed_tail_position17h3d438746c48a5243E.llvm.5441949568091396765.exit.thread", label %.lr.ph
+  %.not11 = icmp eq ptr %4, %5
+  br i1 %.not11, label %"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$22observed_tail_position17h3d438746c48a5243E.llvm.5441949568091396765.exit.thread", label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -958,8 +958,8 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$3pop17h60d9e449074df86
   tail call void @llvm.experimental.noalias.scope.decl(metadata !122)
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !122, !nonnull !10, !noundef !10
-  %.not12.i = icmp eq ptr %20, %18
-  br i1 %.not12.i, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h020cd58a9b9f239dE.llvm.5441949568091396765.exit", label %.lr.ph.i2
+  %.not11.i = icmp eq ptr %20, %18
+  br i1 %.not11.i, label %"_ZN5tokio4sync4mpsc4list11Rx$LT$T$GT$14reclaim_blocks17h020cd58a9b9f239dE.llvm.5441949568091396765.exit", label %.lr.ph.i2
 
 .lr.ph.i2:                                        ; preds = %.loopexit, %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h3a02890907586a9eE.llvm.5441949568091396765.exit.i"
   %21 = phi ptr [ %50, %"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h3a02890907586a9eE.llvm.5441949568091396765.exit.i" ], [ %20, %.loopexit ]
@@ -1212,13 +1212,13 @@ define hidden void @"_ZN5tokio4sync4mpsc4list11Tx$LT$T$GT$13reclaim_block17h3a02
   %14 = cmpxchg ptr %13, i64 0, i64 %5 acq_rel acquire, align 8
   %.sroa.07.0.in.i.i = extractvalue { i64, i1 } %14, 0
   %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %.thread20, label %6
+  br i1 %15, label %.thread19, label %6
 
 16:                                               ; preds = %6
   tail call void @__rust_dealloc(ptr noundef nonnull %1, i64 noundef 6944, i64 noundef 8) #20, !noalias !134
-  br label %.thread20
+  br label %.thread19
 
-.thread20:                                        ; preds = %7, %16
+.thread19:                                        ; preds = %7, %16
   ret void
 }
 

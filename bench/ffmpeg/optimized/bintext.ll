@@ -217,58 +217,58 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !54
   switch i32 %36, label %.preheader [
-    i32 98308, label %.preheader119
-    i32 98309, label %.preheader122
+    i32 98308, label %.preheader118
+    i32 98309, label %.preheader121
   ]
 
-.preheader122:                                    ; preds = %29
+.preheader121:                                    ; preds = %29
   %37 = icmp sgt i32 %10, 2
-  br i1 %37, label %.lr.ph126.preheader, label %.loopexit
+  br i1 %37, label %.lr.ph125.preheader, label %.loopexit
 
-.lr.ph126.preheader:                              ; preds = %.preheader122
+.lr.ph125.preheader:                              ; preds = %.preheader121
   %38 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  br label %.lr.ph126
+  br label %.lr.ph125
 
-.preheader119:                                    ; preds = %29
+.preheader118:                                    ; preds = %29
   %39 = icmp sgt i32 %10, 2
-  br i1 %39, label %.lr.ph142.preheader, label %.loopexit
+  br i1 %39, label %.lr.ph141.preheader, label %.loopexit
 
-.lr.ph142.preheader:                              ; preds = %.preheader119
+.lr.ph141.preheader:                              ; preds = %.preheader118
   %40 = getelementptr inbounds nuw i8, ptr %8, i64 2
-  br label %.lr.ph142
+  br label %.lr.ph141
 
 .preheader:                                       ; preds = %29
   %41 = icmp sgt i32 %10, 1
-  br i1 %41, label %.lr.ph144.preheader, label %.loopexit
+  br i1 %41, label %.lr.ph143.preheader, label %.loopexit
 
-.lr.ph144.preheader:                              ; preds = %.preheader
+.lr.ph143.preheader:                              ; preds = %.preheader
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  br label %.lr.ph144
+  br label %.lr.ph143
 
-.lr.ph142:                                        ; preds = %.lr.ph142.preheader, %.loopexit115
-  %43 = phi ptr [ %226, %.loopexit115 ], [ %40, %.lr.ph142.preheader ]
-  %.090141 = phi ptr [ %.1, %.loopexit115 ], [ %8, %.lr.ph142.preheader ]
-  %44 = load i8, ptr %.090141, align 1, !tbaa !29
+.lr.ph141:                                        ; preds = %.lr.ph141.preheader, %.loopexit114
+  %43 = phi ptr [ %226, %.loopexit114 ], [ %40, %.lr.ph141.preheader ]
+  %.090140 = phi ptr [ %.1, %.loopexit114 ], [ %8, %.lr.ph141.preheader ]
+  %44 = load i8, ptr %.090140, align 1, !tbaa !29
   %45 = zext i8 %44 to i32
   %46 = lshr i32 %45, 6
   %47 = and i32 %45, 63
-  %48 = getelementptr inbounds nuw i8, ptr %.090141, i64 1
-  switch i32 %46, label %default.unreachable178 [
-    i32 0, label %.preheader114
+  %48 = getelementptr inbounds nuw i8, ptr %.090140, i64 1
+  switch i32 %46, label %default.unreachable177 [
+    i32 0, label %.preheader113
     i32 1, label %95
     i32 2, label %139
     i32 3, label %184
   ]
 
-.preheader114:                                    ; preds = %.lr.ph142
-  %49 = getelementptr inbounds nuw i8, ptr %.090141, i64 2
+.preheader113:                                    ; preds = %.lr.ph141
+  %49 = getelementptr inbounds nuw i8, ptr %.090140, i64 2
   %50 = icmp ult ptr %49, %12
-  br i1 %50, label %.lr.ph139, label %.loopexit115
+  br i1 %50, label %.lr.ph138, label %.loopexit114
 
-.lr.ph139:                                        ; preds = %.preheader114, %draw_char.exit
-  %51 = phi ptr [ %92, %draw_char.exit ], [ %49, %.preheader114 ]
-  %.2138 = phi ptr [ %89, %draw_char.exit ], [ %48, %.preheader114 ]
-  %.091137 = phi i32 [ %90, %draw_char.exit ], [ 0, %.preheader114 ]
+.lr.ph138:                                        ; preds = %.preheader113, %draw_char.exit
+  %51 = phi ptr [ %92, %draw_char.exit ], [ %49, %.preheader113 ]
+  %.2137 = phi ptr [ %89, %draw_char.exit ], [ %48, %.preheader113 ]
+  %.091136 = phi i32 [ %90, %draw_char.exit ], [ 0, %.preheader113 ]
   %52 = load ptr, ptr %5, align 8, !tbaa !4
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 92
   %54 = load i32, ptr %53, align 4, !tbaa !46
@@ -279,10 +279,10 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %59 = icmp sgt i32 %54, %58
   br i1 %59, label %draw_char.exit, label %60
 
-60:                                               ; preds = %.lr.ph139
+60:                                               ; preds = %.lr.ph138
   %61 = load i8, ptr %51, align 1, !tbaa !29
   %62 = zext i8 %61 to i32
-  %63 = load i8, ptr %.2138, align 1, !tbaa !29
+  %63 = load i8, ptr %.2137, align 1, !tbaa !29
   %64 = zext i8 %63 to i32
   %65 = load ptr, ptr %52, align 8, !tbaa !45
   %66 = load ptr, ptr %65, align 8, !tbaa !53
@@ -316,25 +316,25 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   store i32 %88, ptr %53, align 4, !tbaa !46
   br label %draw_char.exit
 
-draw_char.exit:                                   ; preds = %.lr.ph139, %60, %85
-  %89 = getelementptr inbounds nuw i8, ptr %.2138, i64 2
-  %90 = add nuw nsw i32 %.091137, 1
-  %91 = icmp samesign ult i32 %.091137, %47
-  %92 = getelementptr inbounds nuw i8, ptr %.2138, i64 3
+draw_char.exit:                                   ; preds = %.lr.ph138, %60, %85
+  %89 = getelementptr inbounds nuw i8, ptr %.2137, i64 2
+  %90 = add nuw nsw i32 %.091136, 1
+  %91 = icmp samesign ult i32 %.091136, %47
+  %92 = getelementptr inbounds nuw i8, ptr %.2137, i64 3
   %93 = icmp ult ptr %92, %12
   %94 = select i1 %91, i1 %93, i1 false
-  br i1 %94, label %.lr.ph139, label %.loopexit115, !llvm.loop !55
+  br i1 %94, label %.lr.ph138, label %.loopexit114, !llvm.loop !55
 
-95:                                               ; preds = %.lr.ph142
+95:                                               ; preds = %.lr.ph141
   %96 = load i8, ptr %48, align 1, !tbaa !29
   %97 = zext i8 %96 to i32
   %98 = icmp ult ptr %43, %12
-  br i1 %98, label %.lr.ph135, label %.loopexit115
+  br i1 %98, label %.lr.ph134, label %.loopexit114
 
-.lr.ph135:                                        ; preds = %95, %draw_char.exit105
-  %.3134 = phi ptr [ %99, %draw_char.exit105 ], [ %43, %95 ]
-  %.192133 = phi i32 [ %135, %draw_char.exit105 ], [ 0, %95 ]
-  %99 = getelementptr inbounds nuw i8, ptr %.3134, i64 1
+.lr.ph134:                                        ; preds = %95, %draw_char.exit105
+  %.3133 = phi ptr [ %99, %draw_char.exit105 ], [ %43, %95 ]
+  %.192132 = phi i32 [ %135, %draw_char.exit105 ], [ 0, %95 ]
+  %99 = getelementptr inbounds nuw i8, ptr %.3133, i64 1
   %100 = load ptr, ptr %5, align 8, !tbaa !4
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 92
   %102 = load i32, ptr %101, align 4, !tbaa !46
@@ -345,8 +345,8 @@ draw_char.exit:                                   ; preds = %.lr.ph139, %60, %85
   %107 = icmp sgt i32 %102, %106
   br i1 %107, label %draw_char.exit105, label %108
 
-108:                                              ; preds = %.lr.ph135
-  %109 = load i8, ptr %.3134, align 1, !tbaa !29
+108:                                              ; preds = %.lr.ph134
+  %109 = load i8, ptr %.3133, align 1, !tbaa !29
   %110 = zext i8 %109 to i32
   %111 = load ptr, ptr %100, align 8, !tbaa !45
   %112 = load ptr, ptr %111, align 8, !tbaa !53
@@ -380,28 +380,28 @@ draw_char.exit:                                   ; preds = %.lr.ph139, %60, %85
   store i32 %134, ptr %101, align 4, !tbaa !46
   br label %draw_char.exit105
 
-draw_char.exit105:                                ; preds = %.lr.ph135, %108, %131
-  %135 = add nuw nsw i32 %.192133, 1
-  %136 = icmp samesign ult i32 %.192133, %47
+draw_char.exit105:                                ; preds = %.lr.ph134, %108, %131
+  %135 = add nuw nsw i32 %.192132, 1
+  %136 = icmp samesign ult i32 %.192132, %47
   %137 = icmp ult ptr %99, %12
   %138 = select i1 %136, i1 %137, i1 false
-  br i1 %138, label %.lr.ph135, label %.loopexit115, !llvm.loop !56
+  br i1 %138, label %.lr.ph134, label %.loopexit114, !llvm.loop !56
 
-139:                                              ; preds = %.lr.ph142
+139:                                              ; preds = %.lr.ph141
   %140 = icmp ult ptr %43, %12
-  br i1 %140, label %.lr.ph132, label %.loopexit115
+  br i1 %140, label %.lr.ph131, label %.loopexit114
 
-.lr.ph132:                                        ; preds = %139
+.lr.ph131:                                        ; preds = %139
   %141 = load i8, ptr %48, align 1, !tbaa !29
   %142 = zext i8 %141 to i32
   %143 = and i32 %142, 15
   %144 = lshr i32 %142, 4
   br label %145
 
-145:                                              ; preds = %.lr.ph132, %draw_char.exit106
-  %.4131 = phi ptr [ %43, %.lr.ph132 ], [ %146, %draw_char.exit106 ]
-  %.293130 = phi i32 [ 0, %.lr.ph132 ], [ %180, %draw_char.exit106 ]
-  %146 = getelementptr inbounds nuw i8, ptr %.4131, i64 1
+145:                                              ; preds = %.lr.ph131, %draw_char.exit106
+  %.4130 = phi ptr [ %43, %.lr.ph131 ], [ %146, %draw_char.exit106 ]
+  %.293129 = phi i32 [ 0, %.lr.ph131 ], [ %180, %draw_char.exit106 ]
+  %146 = getelementptr inbounds nuw i8, ptr %.4130, i64 1
   %147 = load ptr, ptr %5, align 8, !tbaa !4
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 92
   %149 = load i32, ptr %148, align 4, !tbaa !46
@@ -413,7 +413,7 @@ draw_char.exit105:                                ; preds = %.lr.ph135, %108, %1
   br i1 %154, label %draw_char.exit106, label %155
 
 155:                                              ; preds = %145
-  %156 = load i8, ptr %.4131, align 1, !tbaa !29
+  %156 = load i8, ptr %.4130, align 1, !tbaa !29
   %157 = zext i8 %156 to i32
   %158 = load ptr, ptr %147, align 8, !tbaa !45
   %159 = load ptr, ptr %158, align 8, !tbaa !53
@@ -446,28 +446,28 @@ draw_char.exit105:                                ; preds = %.lr.ph135, %108, %1
   br label %draw_char.exit106
 
 draw_char.exit106:                                ; preds = %145, %155, %176
-  %180 = add nuw nsw i32 %.293130, 1
-  %181 = icmp samesign ult i32 %.293130, %47
+  %180 = add nuw nsw i32 %.293129, 1
+  %181 = icmp samesign ult i32 %.293129, %47
   %182 = icmp ult ptr %146, %12
   %183 = select i1 %181, i1 %182, i1 false
-  br i1 %183, label %145, label %.loopexit115, !llvm.loop !57
+  br i1 %183, label %145, label %.loopexit114, !llvm.loop !57
 
-184:                                              ; preds = %.lr.ph142
+184:                                              ; preds = %.lr.ph141
   %185 = load i8, ptr %48, align 1, !tbaa !29
   %186 = zext i8 %185 to i32
-  %187 = getelementptr inbounds nuw i8, ptr %.090141, i64 3
+  %187 = getelementptr inbounds nuw i8, ptr %.090140, i64 3
   %188 = icmp ult ptr %187, %12
-  br i1 %188, label %.lr.ph129, label %.loopexit115
+  br i1 %188, label %.lr.ph128, label %.loopexit114
 
-.lr.ph129:                                        ; preds = %184
+.lr.ph128:                                        ; preds = %184
   %189 = load i8, ptr %43, align 1, !tbaa !29
   %190 = zext i8 %189 to i32
   %191 = and i32 %190, 15
   %192 = lshr i32 %190, 4
   br label %193
 
-193:                                              ; preds = %.lr.ph129, %draw_char.exit107
-  %.394128 = phi i32 [ 0, %.lr.ph129 ], [ %225, %draw_char.exit107 ]
+193:                                              ; preds = %.lr.ph128, %draw_char.exit107
+  %.394127 = phi i32 [ 0, %.lr.ph128 ], [ %225, %draw_char.exit107 ]
   %194 = load ptr, ptr %5, align 8, !tbaa !4
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 92
   %196 = load i32, ptr %195, align 4, !tbaa !46
@@ -510,45 +510,45 @@ draw_char.exit106:                                ; preds = %145, %155, %176
   br label %draw_char.exit107
 
 draw_char.exit107:                                ; preds = %193, %202, %221
-  %225 = add nuw nsw i32 %.394128, 1
-  %exitcond.not = icmp eq i32 %.394128, %47
-  br i1 %exitcond.not, label %.loopexit115, label %193, !llvm.loop !58
+  %225 = add nuw nsw i32 %.394127, 1
+  %exitcond.not = icmp eq i32 %.394127, %47
+  br i1 %exitcond.not, label %.loopexit114, label %193, !llvm.loop !58
 
-default.unreachable178:                           ; preds = %.lr.ph142
+default.unreachable177:                           ; preds = %.lr.ph141
   unreachable
 
-.loopexit115:                                     ; preds = %draw_char.exit107, %draw_char.exit106, %draw_char.exit105, %draw_char.exit, %184, %139, %95, %.preheader114
-  %.1 = phi ptr [ %48, %.preheader114 ], [ %43, %95 ], [ %43, %139 ], [ %187, %184 ], [ %89, %draw_char.exit ], [ %99, %draw_char.exit105 ], [ %146, %draw_char.exit106 ], [ %187, %draw_char.exit107 ]
+.loopexit114:                                     ; preds = %draw_char.exit107, %draw_char.exit106, %draw_char.exit105, %draw_char.exit, %184, %139, %95, %.preheader113
+  %.1 = phi ptr [ %48, %.preheader113 ], [ %43, %95 ], [ %43, %139 ], [ %187, %184 ], [ %89, %draw_char.exit ], [ %99, %draw_char.exit105 ], [ %146, %draw_char.exit106 ], [ %187, %draw_char.exit107 ]
   %226 = getelementptr inbounds nuw i8, ptr %.1, i64 2
   %227 = icmp ult ptr %226, %12
-  br i1 %227, label %.lr.ph142, label %.loopexit, !llvm.loop !59
+  br i1 %227, label %.lr.ph141, label %.loopexit, !llvm.loop !59
 
-.lr.ph126:                                        ; preds = %.lr.ph126.preheader, %draw_char.exit109
-  %228 = phi ptr [ %317, %draw_char.exit109 ], [ %38, %.lr.ph126.preheader ]
-  %.5125 = phi ptr [ %.7, %draw_char.exit109 ], [ %8, %.lr.ph126.preheader ]
-  %229 = load i16, ptr %.5125, align 1
+.lr.ph125:                                        ; preds = %.lr.ph125.preheader, %draw_char.exit109
+  %228 = phi ptr [ %317, %draw_char.exit109 ], [ %38, %.lr.ph125.preheader ]
+  %.5124 = phi ptr [ %.7, %draw_char.exit109 ], [ %8, %.lr.ph125.preheader ]
+  %229 = load i16, ptr %.5124, align 1
   %230 = icmp eq i16 %229, 1
   %231 = lshr i16 %229, 8
   %232 = zext nneg i16 %231 to i32
   br i1 %230, label %233, label %281
 
-233:                                              ; preds = %.lr.ph126
-  %234 = getelementptr inbounds nuw i8, ptr %.5125, i64 6
+233:                                              ; preds = %.lr.ph125
+  %234 = getelementptr inbounds nuw i8, ptr %.5124, i64 6
   %235 = icmp ugt ptr %234, %12
-  br i1 %235, label %.loopexit, label %.preheader121
+  br i1 %235, label %.loopexit, label %.preheader120
 
-.preheader121:                                    ; preds = %233
+.preheader120:                                    ; preds = %233
   %236 = load i8, ptr %228, align 1, !tbaa !29
   %.not = icmp eq i8 %236, 0
   br i1 %.not, label %draw_char.exit109, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader121
-  %237 = getelementptr inbounds nuw i8, ptr %.5125, i64 5
-  %238 = getelementptr inbounds nuw i8, ptr %.5125, i64 4
+.lr.ph:                                           ; preds = %.preheader120
+  %237 = getelementptr inbounds nuw i8, ptr %.5124, i64 5
+  %238 = getelementptr inbounds nuw i8, ptr %.5124, i64 4
   br label %239
 
 239:                                              ; preds = %.lr.ph, %draw_char.exit108
-  %.0124 = phi i32 [ 0, %.lr.ph ], [ %277, %draw_char.exit108 ]
+  %.0123 = phi i32 [ 0, %.lr.ph ], [ %277, %draw_char.exit108 ]
   %240 = load ptr, ptr %5, align 8, !tbaa !4
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 92
   %242 = load i32, ptr %241, align 4, !tbaa !46
@@ -597,13 +597,13 @@ default.unreachable178:                           ; preds = %.lr.ph142
   br label %draw_char.exit108
 
 draw_char.exit108:                                ; preds = %239, %248, %273
-  %277 = add nuw nsw i32 %.0124, 1
+  %277 = add nuw nsw i32 %.0123, 1
   %278 = load i8, ptr %228, align 1, !tbaa !29
   %279 = zext i8 %278 to i32
   %280 = icmp samesign ult i32 %277, %279
   br i1 %280, label %239, label %draw_char.exit109, !llvm.loop !60
 
-281:                                              ; preds = %.lr.ph126
+281:                                              ; preds = %.lr.ph125
   %282 = load ptr, ptr %5, align 8, !tbaa !4
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 92
   %284 = load i32, ptr %283, align 4, !tbaa !46
@@ -649,15 +649,15 @@ draw_char.exit108:                                ; preds = %239, %248, %273
   store i32 %316, ptr %283, align 4, !tbaa !46
   br label %draw_char.exit109
 
-draw_char.exit109:                                ; preds = %draw_char.exit108, %.preheader121, %313, %290, %281
-  %.7 = phi ptr [ %228, %281 ], [ %228, %290 ], [ %228, %313 ], [ %234, %.preheader121 ], [ %234, %draw_char.exit108 ]
+draw_char.exit109:                                ; preds = %draw_char.exit108, %.preheader120, %313, %290, %281
+  %.7 = phi ptr [ %228, %281 ], [ %228, %290 ], [ %228, %313 ], [ %234, %.preheader120 ], [ %234, %draw_char.exit108 ]
   %317 = getelementptr inbounds nuw i8, ptr %.7, i64 2
   %318 = icmp ult ptr %317, %12
-  br i1 %318, label %.lr.ph126, label %.loopexit, !llvm.loop !61
+  br i1 %318, label %.lr.ph125, label %.loopexit, !llvm.loop !61
 
-.lr.ph144:                                        ; preds = %.lr.ph144.preheader, %draw_char.exit110
-  %319 = phi ptr [ %358, %draw_char.exit110 ], [ %42, %.lr.ph144.preheader ]
-  %.8143 = phi ptr [ %357, %draw_char.exit110 ], [ %8, %.lr.ph144.preheader ]
+.lr.ph143:                                        ; preds = %.lr.ph143.preheader, %draw_char.exit110
+  %319 = phi ptr [ %358, %draw_char.exit110 ], [ %42, %.lr.ph143.preheader ]
+  %.8142 = phi ptr [ %357, %draw_char.exit110 ], [ %8, %.lr.ph143.preheader ]
   %320 = load ptr, ptr %5, align 8, !tbaa !4
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 92
   %322 = load i32, ptr %321, align 4, !tbaa !46
@@ -668,10 +668,10 @@ draw_char.exit109:                                ; preds = %draw_char.exit108, 
   %327 = icmp sgt i32 %322, %326
   br i1 %327, label %draw_char.exit110, label %328
 
-328:                                              ; preds = %.lr.ph144
+328:                                              ; preds = %.lr.ph143
   %329 = load i8, ptr %319, align 1, !tbaa !29
   %330 = zext i8 %329 to i32
-  %331 = load i8, ptr %.8143, align 1, !tbaa !29
+  %331 = load i8, ptr %.8142, align 1, !tbaa !29
   %332 = zext i8 %331 to i32
   %333 = load ptr, ptr %320, align 8, !tbaa !45
   %334 = load ptr, ptr %333, align 8, !tbaa !53
@@ -705,13 +705,13 @@ draw_char.exit109:                                ; preds = %draw_char.exit108, 
   store i32 %356, ptr %321, align 4, !tbaa !46
   br label %draw_char.exit110
 
-draw_char.exit110:                                ; preds = %.lr.ph144, %328, %353
-  %357 = getelementptr inbounds nuw i8, ptr %.8143, i64 2
-  %358 = getelementptr inbounds nuw i8, ptr %.8143, i64 3
+draw_char.exit110:                                ; preds = %.lr.ph143, %328, %353
+  %357 = getelementptr inbounds nuw i8, ptr %.8142, i64 2
+  %358 = getelementptr inbounds nuw i8, ptr %.8142, i64 3
   %359 = icmp ult ptr %358, %12
-  br i1 %359, label %.lr.ph144, label %.loopexit, !llvm.loop !62
+  br i1 %359, label %.lr.ph143, label %.loopexit, !llvm.loop !62
 
-.loopexit:                                        ; preds = %draw_char.exit109, %233, %.loopexit115, %draw_char.exit110, %.preheader122, %.preheader119, %.preheader
+.loopexit:                                        ; preds = %draw_char.exit109, %233, %.loopexit114, %draw_char.exit110, %.preheader121, %.preheader118, %.preheader
   store i32 1, ptr %2, align 4, !tbaa !35
   br label %360
 

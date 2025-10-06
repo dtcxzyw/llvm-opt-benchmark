@@ -117,8 +117,8 @@ _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; 
   %34 = and i32 %25, 12582912
   %35 = icmp ne i32 %34, 0
   %36 = and i8 %26, 8
-  %.not217 = icmp eq i8 %36, 0
-  br i1 %.not217, label %40, label %37
+  %.not215 = icmp eq i8 %36, 0
+  br i1 %.not215, label %40, label %37
 
 37:                                               ; preds = %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit
   %38 = phi i1 [ %33, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit.thread ], [ %35, %_ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit ]
@@ -159,30 +159,30 @@ _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; 
   %.sink.i.i = select i1 %or.cond.i.i, i1 %53, i1 %52
   %54 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %55 = load ptr, ptr %7, align 8, !tbaa !12
-  %.not.i296 = icmp ne ptr %55, null
+  %.not.i294 = icmp ne ptr %55, null
   %56 = load i64, ptr %54, align 8
   %57 = icmp ne i64 %56, 0
-  %58 = select i1 %.not.i296, i1 true, i1 %57
+  %58 = select i1 %.not.i294, i1 true, i1 %57
   br i1 %58, label %.lr.ph, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit
 
 .lr.ph:                                           ; preds = %51
   %59 = icmp samesign ult i8 %.0.i174, 2
-  %spec.select215 = zext i1 %59 to i8
+  %spec.select213 = zext i1 %59 to i8
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 16
   br label %61
 
 61:                                               ; preds = %.lr.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit
   %62 = phi i64 [ %56, %.lr.ph ], [ %173, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
   %63 = phi ptr [ %55, %.lr.ph ], [ %172, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.069305 = phi float [ 0.000000e+00, %.lr.ph ], [ %.271.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.073304 = phi float [ 0.000000e+00, %.lr.ph ], [ %.275.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.080303 = phi float [ 0.000000e+00, %.lr.ph ], [ %.282.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.085302 = phi i64 [ 0, %.lr.ph ], [ %.287.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.090301 = phi ptr [ null, %.lr.ph ], [ %.191.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.093300 = phi float [ 0.000000e+00, %.lr.ph ], [ %.194.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.sroa.0157.0299 = phi ptr [ %.sroa.13.3, %.lr.ph ], [ %.sroa.0157.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.sroa.13.0298 = phi ptr [ %.sroa.13.3, %.lr.ph ], [ %.sroa.13.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.sroa.20.0297 = phi ptr [ %.sroa.20.5, %.lr.ph ], [ %.sroa.20.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.069303 = phi float [ 0.000000e+00, %.lr.ph ], [ %.271.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.073302 = phi float [ 0.000000e+00, %.lr.ph ], [ %.275.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.080301 = phi float [ 0.000000e+00, %.lr.ph ], [ %.282.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.085300 = phi i64 [ 0, %.lr.ph ], [ %.287.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.090299 = phi ptr [ null, %.lr.ph ], [ %.191.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.093298 = phi float [ 0.000000e+00, %.lr.ph ], [ %.194.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.sroa.0157.0297 = phi ptr [ %.sroa.13.3, %.lr.ph ], [ %.sroa.0157.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.sroa.13.0296 = phi ptr [ %.sroa.13.3, %.lr.ph ], [ %.sroa.13.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.sroa.20.0295 = phi ptr [ %.sroa.20.5, %.lr.ph ], [ %.sroa.20.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 536
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 544
   %66 = load ptr, ptr %65, align 8, !tbaa !4
@@ -210,8 +210,8 @@ _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; 
   %79 = icmp eq i32 %78, 67108864
   %80 = and i32 %77, 3145728
   %81 = icmp eq i32 %80, 2097152
-  %or.cond220 = or i1 %79, %81
-  br i1 %or.cond220, label %168, label %88
+  %or.cond218 = or i1 %79, %81
+  br i1 %or.cond218, label %168, label %88
 
 82:                                               ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE7reserveEm.exit
   %83 = landingpad { ptr, i32 }
@@ -239,8 +239,8 @@ _ZN8facebook4yoga16resolveDirectionENS0_13FlexDirectionENS0_9DirectionE.exit: ; 
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit139
 
 88:                                               ; preds = %73
-  %89 = icmp eq ptr %.090301, null
-  %spec.select = select i1 %89, ptr %75, ptr %.090301
+  %89 = icmp eq ptr %.090299, null
+  %spec.select = select i1 %89, ptr %75, ptr %.090299
   %90 = getelementptr inbounds nuw i8, ptr %75, i64 52
   switch i8 %.0.i174, label %default.unreachable [
     i8 0, label %93
@@ -290,7 +290,7 @@ _ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i: ; preds = %93
   %.pn.in.in = and i64 %.pn.in.in.in, 1095216660480
   %.pn.in = icmp eq i64 %.pn.in.in, 12884901888
   %.pn = zext i1 %.pn.in to i64
-  %spec.select105178 = add i64 %.085302, %.pn
+  %spec.select105178 = add i64 %.085300, %.pn
   %106 = and i64 %.sroa.0.0.in.i.i116, 1095216660480
   %107 = icmp eq i64 %106, 12884901888
   %108 = zext i1 %107 to i64
@@ -306,11 +306,11 @@ _ZN8facebook4yoga11flexEndEdgeENS0_13FlexDirectionE.exit.i: ; preds = %93
   %114 = select i1 %113, float 0.000000e+00, float %.sroa.0.0.i.i
   %115 = getelementptr inbounds nuw i8, ptr %75, i64 188
   %.sroa.0.0.copyload = load float, ptr %115, align 4, !tbaa !67
-  %116 = invoke float @_ZNK8facebook4yoga5Style20resolvedMinDimensionENS0_9DirectionENS0_9DimensionEff(ptr noundef nonnull align 8 dereferenceable(144) %76, i8 noundef zeroext %22, i8 noundef zeroext %spec.select215, float noundef %4, float noundef %3)
+  %116 = invoke float @_ZNK8facebook4yoga5Style20resolvedMinDimensionENS0_9DirectionENS0_9DimensionEff(ptr noundef nonnull align 8 dereferenceable(144) %76, i8 noundef zeroext %22, i8 noundef zeroext %spec.select213, float noundef %4, float noundef %3)
           to label %.noexc123 unwind label %128
 
 .noexc123:                                        ; preds = %111
-  %117 = invoke float @_ZNK8facebook4yoga5Style20resolvedMaxDimensionENS0_9DirectionENS0_9DimensionEff(ptr noundef nonnull align 8 dereferenceable(144) %76, i8 noundef zeroext %22, i8 noundef zeroext %spec.select215, float noundef %4, float noundef %3)
+  %117 = invoke float @_ZNK8facebook4yoga5Style20resolvedMaxDimensionENS0_9DirectionENS0_9DimensionEff(ptr noundef nonnull align 8 dereferenceable(144) %76, i8 noundef zeroext %22, i8 noundef zeroext %spec.select213, float noundef %4, float noundef %3)
           to label %.noexc124 unwind label %128
 
 .noexc124:                                        ; preds = %.noexc123
@@ -330,14 +330,14 @@ _ZN8facebook4yogageENS0_13FloatOptionalES1_.exit.thread.i: ; preds = %.noexc124
 
 _ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit: ; preds = %120, %_ZN8facebook4yogageENS0_13FloatOptionalES1_.exit.thread.i, %.noexc124
   %.sroa.027.0.i = phi float [ %116, %120 ], [ %117, %.noexc124 ], [ %.sroa.0.0.copyload, %_ZN8facebook4yogageENS0_13FloatOptionalES1_.exit.thread.i ]
-  %121 = fadd float %.093300, %.sroa.027.0.i
+  %121 = fadd float %.093298, %.sroa.027.0.i
   %122 = fadd float %110, %121
   %123 = fadd float %114, %122
   %124 = fcmp ogt float %123, %6
   %or.cond = and i1 %42, %124
-  %125 = icmp ne ptr %.sroa.0157.0299, %.sroa.13.0298
-  %or.cond216.not = select i1 %or.cond, i1 %125, i1 false
-  br i1 %or.cond216.not, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit, label %130
+  %125 = icmp ne ptr %.sroa.0157.0297, %.sroa.13.0296
+  %or.cond214.not = select i1 %or.cond, i1 %125, i1 false
+  br i1 %or.cond214.not, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit, label %130
 
 126:                                              ; preds = %105
   %127 = landingpad { ptr, i32 }
@@ -352,61 +352,61 @@ _ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13Fle
 130:                                              ; preds = %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit
   %131 = fadd float %110, %.sroa.027.0.i
   %132 = fadd float %114, %131
-  %133 = fadd float %.093300, %132
-  %134 = fadd float %.069305, %132
+  %133 = fadd float %.093298, %132
+  %134 = fadd float %.069303, %132
   %135 = invoke noundef zeroext i1 @_ZN8facebook4yoga4Node14isNodeFlexibleEv(ptr noundef nonnull align 8 dereferenceable(584) %75)
-          to label %136 unwind label %.loopexit221
+          to label %136 unwind label %.loopexit219
 
 136:                                              ; preds = %130
   br i1 %135, label %137, label %146
 
 137:                                              ; preds = %136
   %138 = invoke noundef float @_ZNK8facebook4yoga4Node15resolveFlexGrowEv(ptr noundef nonnull align 8 dereferenceable(584) %75)
-          to label %139 unwind label %.loopexit221
+          to label %139 unwind label %.loopexit219
 
 139:                                              ; preds = %137
   %140 = invoke noundef float @_ZNK8facebook4yoga4Node17resolveFlexShrinkEv(ptr noundef nonnull align 8 dereferenceable(584) %75)
-          to label %141 unwind label %.loopexit221
+          to label %141 unwind label %.loopexit219
 
 141:                                              ; preds = %139
-  %142 = fadd float %.073304, %138
+  %142 = fadd float %.073302, %138
   %143 = fneg float %140
   %144 = load float, ptr %115, align 4, !tbaa !68
-  %145 = call float @llvm.fmuladd.f32(float %143, float %144, float %.080303)
+  %145 = call float @llvm.fmuladd.f32(float %143, float %144, float %.080301)
   br label %146
 
-.loopexit221:                                     ; preds = %130, %137, %139, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
-  %.sroa.20.0297.lcssa332 = phi ptr [ %.sroa.20.0297, %130 ], [ %.sroa.20.0297, %137 ], [ %.sroa.20.0297, %139 ], [ %.sroa.13.0298, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
-  %lpad.loopexit223 = landingpad { ptr, i32 }
+.loopexit219:                                     ; preds = %130, %137, %139, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
+  %.sroa.20.0295.lcssa330 = phi ptr [ %.sroa.20.0295, %130 ], [ %.sroa.20.0295, %137 ], [ %.sroa.20.0295, %139 ], [ %.sroa.13.0296, %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i ]
+  %lpad.loopexit221 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit139
 
-.loopexit.split-lp222:                            ; preds = %154
-  %lpad.loopexit.split-lp224 = landingpad { ptr, i32 }
+.loopexit.split-lp220:                            ; preds = %154
+  %lpad.loopexit.split-lp222 = landingpad { ptr, i32 }
           cleanup
   br label %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit139
 
 146:                                              ; preds = %141, %136
-  %.484 = phi float [ %145, %141 ], [ %.080303, %136 ]
-  %.477 = phi float [ %142, %141 ], [ %.073304, %136 ]
-  %.not.i125 = icmp eq ptr %.sroa.13.0298, %.sroa.20.0297
+  %.484 = phi float [ %145, %141 ], [ %.080301, %136 ]
+  %.477 = phi float [ %142, %141 ], [ %.073302, %136 ]
+  %.not.i125 = icmp eq ptr %.sroa.13.0296, %.sroa.20.0295
   br i1 %.not.i125, label %149, label %147
 
 147:                                              ; preds = %146
-  store ptr %75, ptr %.sroa.13.0298, align 8, !tbaa !21
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.13.0298, i64 8
+  store ptr %75, ptr %.sroa.13.0296, align 8, !tbaa !21
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.13.0296, i64 8
   br label %168
 
 149:                                              ; preds = %146
-  %150 = ptrtoint ptr %.sroa.13.0298 to i64
-  %151 = ptrtoint ptr %.sroa.0157.0299 to i64
+  %150 = ptrtoint ptr %.sroa.13.0296 to i64
+  %151 = ptrtoint ptr %.sroa.0157.0297 to i64
   %152 = sub i64 %150, %151
   %153 = icmp eq i64 %152, 9223372036854775800
   br i1 %153, label %154, label %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
 
 154:                                              ; preds = %149
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.4) #10
-          to label %.noexc126 unwind label %.loopexit.split-lp222
+          to label %.noexc126 unwind label %.loopexit.split-lp220
 
 .noexc126:                                        ; preds = %154
   unreachable
@@ -422,7 +422,7 @@ _ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; pred
   call void @llvm.assume(i1 %.not.i.i.i)
   %160 = shl nuw nsw i64 %159, 3
   %161 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %160) #11
-          to label %.noexc127 unwind label %.loopexit221
+          to label %.noexc127 unwind label %.loopexit219
 
 .noexc127:                                        ; preds = %_ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i
   %162 = getelementptr inbounds i8, ptr %161, i64 %152
@@ -431,16 +431,16 @@ _ZNKSt6vectorIPN8facebook4yoga4NodeESaIS3_EE12_M_check_lenEmPKc.exit.i.i: ; pred
   br i1 %163, label %164, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
 164:                                              ; preds = %.noexc127
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %161, ptr align 8 %.sroa.0157.0299, i64 %152, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %161, ptr align 8 %.sroa.0157.0297, i64 %152, i1 false)
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %164, %.noexc127
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
-  %.not.i17.i.i = icmp eq ptr %.sroa.0157.0299, null
+  %.not.i17.i.i = icmp eq ptr %.sroa.0157.0297, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %166
 
 166:                                              ; preds = %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0157.0299, i64 noundef %152) #12
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.0157.0297, i64 noundef %152) #12
   br label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %166, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
@@ -448,15 +448,15 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu
   br label %168
 
 168:                                              ; preds = %73, %147, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
-  %.sroa.20.2.ph = phi ptr [ %.sroa.20.0297, %147 ], [ %167, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.20.0297, %73 ]
-  %.sroa.13.2.ph = phi ptr [ %148, %147 ], [ %165, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.13.0298, %73 ]
-  %.sroa.0157.2.ph = phi ptr [ %.sroa.0157.0299, %147 ], [ %161, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.0157.0299, %73 ]
-  %.194.ph = phi float [ %133, %147 ], [ %133, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.093300, %73 ]
-  %.191.ph = phi ptr [ %spec.select, %147 ], [ %spec.select, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.090301, %73 ]
-  %.287.ph = phi i64 [ %spec.select106, %147 ], [ %spec.select106, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.085302, %73 ]
-  %.282.ph = phi float [ %.484, %147 ], [ %.484, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.080303, %73 ]
-  %.275.ph = phi float [ %.477, %147 ], [ %.477, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.073304, %73 ]
-  %.271.ph = phi float [ %134, %147 ], [ %134, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.069305, %73 ]
+  %.sroa.20.2.ph = phi ptr [ %.sroa.20.0295, %147 ], [ %167, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.20.0295, %73 ]
+  %.sroa.13.2.ph = phi ptr [ %148, %147 ], [ %165, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.13.0296, %73 ]
+  %.sroa.0157.2.ph = phi ptr [ %.sroa.0157.0297, %147 ], [ %161, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.0157.0297, %73 ]
+  %.194.ph = phi float [ %133, %147 ], [ %133, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.093298, %73 ]
+  %.191.ph = phi ptr [ %spec.select, %147 ], [ %spec.select, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.090299, %73 ]
+  %.287.ph = phi i64 [ %spec.select106, %147 ], [ %spec.select106, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.085300, %73 ]
+  %.282.ph = phi float [ %.484, %147 ], [ %.484, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.080301, %73 ]
+  %.275.ph = phi float [ %.477, %147 ], [ %.477, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.073302, %73 ]
+  %.271.ph = phi float [ %134, %147 ], [ %134, %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.069303, %73 ]
   invoke void @_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorppEi(ptr dead_on_unwind nonnull writable sret(%"struct.facebook::yoga::LayoutableChildren<facebook::yoga::Node>::Iterator") align 8 %10, ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 0)
           to label %169 unwind label %86
 
@@ -482,12 +482,12 @@ _ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit: ; preds = %
   br i1 %175, label %61, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit, !llvm.loop !72
 
 _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit, %51
-  %.sroa.20.0.lcssa = phi ptr [ %.sroa.20.5, %51 ], [ %.sroa.20.0297, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.sroa.20.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.sroa.13.0.lcssa = phi ptr [ %.sroa.13.3, %51 ], [ %.sroa.13.0298, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.sroa.13.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.sroa.0157.0.lcssa = phi ptr [ %.sroa.13.3, %51 ], [ %.sroa.0157.0299, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.sroa.0157.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.080.lcssa = phi float [ 0.000000e+00, %51 ], [ %.080303, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.282.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.073.lcssa = phi float [ 0.000000e+00, %51 ], [ %.073304, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.275.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
-  %.069.lcssa = phi float [ 0.000000e+00, %51 ], [ %.069305, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.271.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.sroa.20.0.lcssa = phi ptr [ %.sroa.20.5, %51 ], [ %.sroa.20.0295, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.sroa.20.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.sroa.13.0.lcssa = phi ptr [ %.sroa.13.3, %51 ], [ %.sroa.13.0296, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.sroa.13.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.sroa.0157.0.lcssa = phi ptr [ %.sroa.13.3, %51 ], [ %.sroa.0157.0297, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.sroa.0157.2.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.080.lcssa = phi float [ 0.000000e+00, %51 ], [ %.080301, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.282.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.073.lcssa = phi float [ 0.000000e+00, %51 ], [ %.073302, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.275.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
+  %.069.lcssa = phi float [ 0.000000e+00, %51 ], [ %.069303, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.271.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
   %.186 = phi i64 [ 0, %51 ], [ %spec.select106, %_ZN8facebook4yoga24boundAxisWithinMinAndMaxEPKNS0_4NodeENS0_9DirectionENS0_13FlexDirectionENS0_13FloatOptionalEff.exit ], [ %.287.ph, %_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit ]
   %176 = fcmp ogt float %.073.lcssa, 0.000000e+00
   %177 = fcmp olt float %.073.lcssa, 1.000000e+00
@@ -518,10 +518,10 @@ _ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit: ; preds = %_ZN8facebook4yo
   store float 0.000000e+00, ptr %188, align 8, !tbaa !82
   ret void
 
-_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit139: ; preds = %.loopexit221, %.loopexit.split-lp222, %.loopexit, %.loopexit.split-lp, %128, %126, %86, %82, %84
-  %.sroa.20.3 = phi ptr [ %.sroa.20.5, %84 ], [ %.sroa.20.5, %82 ], [ %.sroa.20.2.ph, %86 ], [ %.sroa.20.0297, %126 ], [ %.sroa.20.0297, %128 ], [ %.sroa.20.0297, %.loopexit ], [ %.sroa.20.0297, %.loopexit.split-lp ], [ %.sroa.20.0297.lcssa332, %.loopexit221 ], [ %.sroa.13.0298, %.loopexit.split-lp222 ]
-  %.sroa.0157.3 = phi ptr [ %.sroa.13.3, %84 ], [ %.sroa.13.3, %82 ], [ %.sroa.0157.2.ph, %86 ], [ %.sroa.0157.0299, %126 ], [ %.sroa.0157.0299, %128 ], [ %.sroa.0157.0299, %.loopexit ], [ %.sroa.0157.0299, %.loopexit.split-lp ], [ %.sroa.0157.0299, %.loopexit221 ], [ %.sroa.0157.0299, %.loopexit.split-lp222 ]
-  %.pn99.pn.pn.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ], [ %87, %86 ], [ %127, %126 ], [ %129, %128 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit223, %.loopexit221 ], [ %lpad.loopexit.split-lp224, %.loopexit.split-lp222 ]
+_ZN8facebook4yoga18LayoutableChildrenINS0_4NodeEE8IteratorD2Ev.exit139: ; preds = %.loopexit219, %.loopexit.split-lp220, %.loopexit, %.loopexit.split-lp, %128, %126, %86, %82, %84
+  %.sroa.20.3 = phi ptr [ %.sroa.20.5, %84 ], [ %.sroa.20.5, %82 ], [ %.sroa.20.2.ph, %86 ], [ %.sroa.20.0295, %126 ], [ %.sroa.20.0295, %128 ], [ %.sroa.20.0295, %.loopexit ], [ %.sroa.20.0295, %.loopexit.split-lp ], [ %.sroa.20.0295.lcssa330, %.loopexit219 ], [ %.sroa.13.0296, %.loopexit.split-lp220 ]
+  %.sroa.0157.3 = phi ptr [ %.sroa.13.3, %84 ], [ %.sroa.13.3, %82 ], [ %.sroa.0157.2.ph, %86 ], [ %.sroa.0157.0297, %126 ], [ %.sroa.0157.0297, %128 ], [ %.sroa.0157.0297, %.loopexit ], [ %.sroa.0157.0297, %.loopexit.split-lp ], [ %.sroa.0157.0297, %.loopexit219 ], [ %.sroa.0157.0297, %.loopexit.split-lp220 ]
+  %.pn99.pn.pn.pn.pn = phi { ptr, i32 } [ %85, %84 ], [ %83, %82 ], [ %87, %86 ], [ %127, %126 ], [ %129, %128 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit221, %.loopexit219 ], [ %lpad.loopexit.split-lp222, %.loopexit.split-lp220 ]
   %.not.i.i.i140 = icmp eq ptr %.sroa.0157.3, null
   br i1 %.not.i.i.i140, label %_ZNSt6vectorIPN8facebook4yoga4NodeESaIS3_EED2Ev.exit141, label %189
 

@@ -311,8 +311,8 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
 23:                                               ; preds = %6
   %24 = tail call ptr @list_iterator_create(ptr noundef nonnull %7) #17
   %25 = tail call ptr @list_next(ptr noundef %24) #17
-  %.not2933.i = icmp eq ptr %25, null
-  br i1 %.not2933.i, label %.thread.i, label %.lr.ph.i
+  %.not2932.i = icmp eq ptr %25, null
+  br i1 %.not2932.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %23
   %26 = icmp sgt i32 %0, -1
@@ -330,8 +330,8 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 144
   %33 = load ptr, ptr %32, align 8
-  %.not36.i = icmp eq ptr %33, null
-  br i1 %.not36.i, label %40, label %34
+  %.not35.i = icmp eq ptr %33, null
+  br i1 %.not35.i, label %40, label %34
 
 34:                                               ; preds = %.lr.ph.split.i
   %35 = tail call i64 @bit_size(ptr noundef nonnull %33) #17
@@ -363,8 +363,8 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
 45:                                               ; preds = %42
   %46 = tail call ptr @list_iterator_create(ptr noundef nonnull %44) #17
   %47 = tail call ptr @list_next(ptr noundef %46) #17
-  %.not2228.i = icmp eq ptr %47, null
-  br i1 %.not2228.i, label %.thread.i10, label %.lr.ph.i8
+  %.not2226.i = icmp eq ptr %47, null
+  br i1 %.not2226.i, label %.thread.i10, label %.lr.ph.i8
 
 .lr.ph.i8:                                        ; preds = %45
   %48 = icmp sgt i32 %0, -1
@@ -378,8 +378,8 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.split.i13:                                 ; preds = %.lr.ph.i8, %65
   %51 = phi ptr [ %66, %65 ], [ %47, %.lr.ph.i8 ]
-  %.01629.i = phi i1 [ %.2.i, %65 ], [ false, %.lr.ph.i8 ]
-  br i1 %.01629.i, label %54, label %52
+  %.01627.i = phi i1 [ %.2.i, %65 ], [ false, %.lr.ph.i8 ]
+  br i1 %.01627.i, label %54, label %52
 
 52:                                               ; preds = %.lr.ph.split.i13
   %53 = icmp eq ptr %43, %51
@@ -390,8 +390,8 @@ define dso_local ptr @get_next_opt(i32 noundef %0) local_unnamed_addr #0 {
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 144
   %58 = load ptr, ptr %57, align 8
-  %.not32.i = icmp eq ptr %58, null
-  br i1 %.not32.i, label %65, label %59
+  %.not30.i14 = icmp eq ptr %58, null
+  br i1 %.not30.i14, label %65, label %59
 
 59:                                               ; preds = %54
   %60 = tail call i64 @bit_size(ptr noundef nonnull %58) #17

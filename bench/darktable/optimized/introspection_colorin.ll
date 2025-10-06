@@ -830,13 +830,13 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   %203 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %204 = tail call i64 @g_strlcpy(ptr noundef nonnull %202, ptr noundef nonnull %203, i64 noundef 512) #17
   %205 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !55
-  %.022.i = load ptr, ptr %205, align 8, !tbaa !91
-  %.not23.i = icmp eq ptr %.022.i, null
-  br i1 %.not23.i, label %._crit_edge.i, label %.lr.ph.i
+  %.020.i = load ptr, ptr %205, align 8, !tbaa !91
+  %.not21.i = icmp eq ptr %.020.i, null
+  br i1 %.not21.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %185, %.critedge.i
-  %.024.i = phi ptr [ %.0.i, %.critedge.i ], [ %.022.i, %185 ]
-  %206 = load ptr, ptr %.024.i, align 8, !tbaa !92
+  %.022.i = phi ptr [ %.0.i, %.critedge.i ], [ %.020.i, %185 ]
+  %206 = load ptr, ptr %.022.i, align 8, !tbaa !92
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 1060
   %208 = load i32, ptr %207, align 4, !tbaa !94
   %209 = icmp sgt i32 %208, -1
@@ -859,7 +859,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not18.i, label %.critedge.i, label %.sink.split
 
 .critedge.i:                                      ; preds = %215, %210, %.lr.ph.i
-  %218 = getelementptr inbounds nuw i8, ptr %.024.i, i64 8
+  %218 = getelementptr inbounds nuw i8, ptr %.022.i, i64 8
   %.0.i = load ptr, ptr %218, align 8, !tbaa !91
   %.not.i = icmp eq ptr %.0.i, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
@@ -878,13 +878,13 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 528
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 532
   %225 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 216), align 8, !tbaa !55
-  %.022.i226 = load ptr, ptr %225, align 8, !tbaa !91
-  %.not23.i227 = icmp eq ptr %.022.i226, null
-  br i1 %.not23.i227, label %._crit_edge.i233, label %.lr.ph.i228
+  %.020.i226 = load ptr, ptr %225, align 8, !tbaa !91
+  %.not21.i227 = icmp eq ptr %.020.i226, null
+  br i1 %.not21.i227, label %._crit_edge.i233, label %.lr.ph.i228
 
 .lr.ph.i228:                                      ; preds = %221, %.critedge.i230
-  %.024.i229 = phi ptr [ %.0.i231, %.critedge.i230 ], [ %.022.i226, %221 ]
-  %226 = load ptr, ptr %.024.i229, align 8, !tbaa !92
+  %.022.i229 = phi ptr [ %.0.i231, %.critedge.i230 ], [ %.020.i226, %221 ]
+  %226 = load ptr, ptr %.022.i229, align 8, !tbaa !92
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 1060
   %228 = load i32, ptr %227, align 4, !tbaa !94
   %229 = icmp sgt i32 %228, -1
@@ -907,7 +907,7 @@ define range(i32 0, 2) i32 @legacy_params(ptr noundef readnone captures(none) %0
   br i1 %.not18.i235, label %.critedge.i230, label %.sink.split
 
 .critedge.i230:                                   ; preds = %235, %230, %.lr.ph.i228
-  %238 = getelementptr inbounds nuw i8, ptr %.024.i229, i64 8
+  %238 = getelementptr inbounds nuw i8, ptr %.022.i229, i64 8
   %.0.i231 = load ptr, ptr %238, align 8, !tbaa !91
   %.not.i232 = icmp eq ptr %.0.i231, null
   br i1 %.not.i232, label %._crit_edge.i233, label %.lr.ph.i228

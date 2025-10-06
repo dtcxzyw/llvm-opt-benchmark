@@ -61,7 +61,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 14:                                               ; preds = %4
   %15 = icmp sgt i32 %13, 0
-  br i1 %15, label %.thread120, label %.thread114
+  br i1 %15, label %.thread119, label %.thread113
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -84,9 +84,9 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %30
 
 30:                                               ; preds = %.preheader, %43
-  %.090133 = phi i32 [ 24, %.preheader ], [ %44, %43 ]
-  %.reass = add i32 %.090133, %invariant.op
-  %31 = srem i32 %.reass, %.090133
+  %.090132 = phi i32 [ 24, %.preheader ], [ %44, %43 ]
+  %.reass = add i32 %.090132, %invariant.op
+  %31 = srem i32 %.reass, %.090132
   %32 = sub nsw i32 %.reass, %31
   %33 = shl nsw i32 %32, 3
   %34 = sdiv i32 %33, 3
@@ -101,14 +101,14 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %.not97, label %40, label %46
 
 40:                                               ; preds = %37
-  %41 = shl nuw nsw i32 %.090133, 3
+  %41 = shl nuw nsw i32 %.090132, 3
   %42 = udiv i32 %41, 3
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 24, ptr noundef nonnull @.str.7, i32 noundef %42) #6
   br label %46
 
 43:                                               ; preds = %30
-  %44 = lshr i32 %.090133, 1
-  %45 = icmp samesign ugt i32 %.090133, 11
+  %44 = lshr i32 %.090132, 1
+  %45 = icmp samesign ugt i32 %.090132, 11
   br i1 %45, label %30, label %47, !llvm.loop !41
 
 46:                                               ; preds = %40, %37
@@ -119,57 +119,57 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %49 = load i32, ptr %48, align 4, !tbaa !43
   %50 = icmp eq i32 %49, 846821474
-  br i1 %50, label %.thread114, label %51
+  br i1 %50, label %.thread113, label %51
 
 51:                                               ; preds = %47, %46, %16
   %.088 = phi i32 [ %23, %16 ], [ %34, %46 ], [ %23, %47 ]
   %52 = icmp eq i32 %.088, 0
-  br i1 %52, label %.thread114, label %65
+  br i1 %52, label %.thread113, label %65
 
-.thread114:                                       ; preds = %47, %14, %51
+.thread113:                                       ; preds = %47, %14, %51
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %54 = load i32, ptr %53, align 8, !tbaa !38
   %55 = and i32 %54, 1
   %.not98 = icmp eq i32 %55, 0
-  br i1 %.not98, label %56, label %.thread114._crit_edge
+  br i1 %.not98, label %56, label %.thread113._crit_edge
 
-.thread114._crit_edge:                            ; preds = %.thread114
+.thread113._crit_edge:                            ; preds = %.thread113
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 116
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !30
   br label %63
 
-56:                                               ; preds = %.thread114
+56:                                               ; preds = %.thread113
   %57 = sext i32 %54 to i64
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %59 = load i32, ptr %58, align 4, !tbaa !30
   %60 = sext i32 %59 to i64
   %61 = mul nsw i64 %60, %57
   %62 = icmp sgt i64 %61, 357913941
-  br i1 %62, label %63, label %.thread126
+  br i1 %62, label %63, label %.thread125
 
-63:                                               ; preds = %.thread114._crit_edge, %56
-  %64 = phi i32 [ %.pre, %.thread114._crit_edge ], [ %59, %56 ]
+63:                                               ; preds = %.thread113._crit_edge, %56
+  %64 = phi i32 [ %.pre, %.thread113._crit_edge ], [ %59, %56 ]
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.8, i32 noundef %54, i32 noundef %64) #6
   br label %161
 
 65:                                               ; preds = %51
   %66 = icmp sgt i32 %.088, 0
-  br i1 %66, label %.thread120, label %.thread130
+  br i1 %66, label %.thread119, label %.thread129
 
-.thread120:                                       ; preds = %14, %65
-  %.088116123 = phi i32 [ %.088, %65 ], [ %13, %14 ]
+.thread119:                                       ; preds = %14, %65
+  %.088115122 = phi i32 [ %.088, %65 ], [ %13, %14 ]
   %67 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %68 = load i32, ptr %67, align 8, !tbaa !39
   %69 = sext i32 %68 to i64
-  %70 = zext nneg i32 %.088116123 to i64
+  %70 = zext nneg i32 %.088115122 to i64
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %72 = load i32, ptr %71, align 4, !tbaa !30
   %73 = sext i32 %72 to i64
   %74 = mul nsw i64 %73, %70
   %75 = icmp sgt i64 %74, %69
-  br i1 %75, label %85, label %.thread130
+  br i1 %75, label %85, label %.thread129
 
-.thread126:                                       ; preds = %56
+.thread125:                                       ; preds = %56
   %76 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %77 = load i32, ptr %76, align 8, !tbaa !39
   %78 = mul nsw i32 %59, %54
@@ -179,21 +179,21 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %82 = shl nsw i32 %81, 3
   %83 = sdiv i32 %82, 3
   %84 = icmp slt i32 %77, %83
-  br i1 %84, label %85, label %.thread130
+  br i1 %84, label %85, label %.thread129
 
-85:                                               ; preds = %.thread126, %.thread120
+85:                                               ; preds = %.thread125, %.thread119
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.9) #6
   br label %161
 
-.thread130:                                       ; preds = %.thread120, %65, %.thread126
-  %86 = phi i1 [ true, %.thread126 ], [ false, %65 ], [ false, %.thread120 ]
-  %.088116122128 = phi i32 [ 0, %.thread126 ], [ %.088, %65 ], [ %.088116123, %.thread120 ]
+.thread129:                                       ; preds = %.thread119, %65, %.thread125
+  %86 = phi i1 [ true, %.thread125 ], [ false, %65 ], [ false, %.thread119 ]
+  %.088115121127 = phi i32 [ 0, %.thread125 ], [ %.088, %65 ], [ %.088115122, %.thread119 ]
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %88 = load i32, ptr %87, align 4, !tbaa !43
   %89 = icmp eq i32 %88, 808530499
   br i1 %89, label %90, label %102
 
-90:                                               ; preds = %.thread130
+90:                                               ; preds = %.thread129
   %91 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %92 = load i32, ptr %91, align 8, !tbaa !39
   %93 = icmp sgt i32 %92, 64
@@ -208,18 +208,18 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %98 = add nsw i32 %92, -64
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %100 = load i32, ptr %99, align 4, !tbaa !30
-  %101 = mul nsw i32 %100, %.088116122128
+  %101 = mul nsw i32 %100, %.088115121127
   %.not99 = icmp slt i32 %98, %101
   %spec.select105.idx = select i1 %.not99, i64 0, i64 64
   %spec.select105 = getelementptr inbounds nuw i8, ptr %11, i64 %spec.select105.idx
   br label %102
 
-102:                                              ; preds = %97, %94, %90, %.thread130
-  %.091 = phi ptr [ %11, %94 ], [ %11, %90 ], [ %11, %.thread130 ], [ %spec.select105, %97 ]
+102:                                              ; preds = %97, %94, %90, %.thread129
+  %.091 = phi ptr [ %11, %94 ], [ %11, %90 ], [ %11, %.thread129 ], [ %spec.select105, %97 ]
   %103 = ptrtoint ptr %.091 to i64
   %104 = and i64 %103, 31
   %.not100 = icmp eq i64 %104, 0
-  %105 = and i32 %.088116122128, 31
+  %105 = and i32 %.088115121127, 31
   %.not101 = icmp eq i32 %105, 0
   %106 = and i1 %.not101, %.not100
   %107 = zext i1 %106 to i32
@@ -244,7 +244,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 
 116:                                              ; preds = %115
   %117 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i32 %.088116122128, ptr %117, align 8, !tbaa !45
+  store i32 %.088115121127, ptr %117, align 8, !tbaa !45
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %.091, ptr %118, align 8, !tbaa !48
   store ptr %1, ptr %5, align 8, !tbaa !49

@@ -203,10 +203,9 @@ declare i32 @uprv_max_77(i32 noundef, i32 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZNK6icu_776number4impl7Grouper15groupAtPositionEiRKNS1_15DecimalQuantityE(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(12) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(66) %2) local_unnamed_addr #3 align 2 {
   %4 = load i16, ptr %0, align 4, !tbaa !45
-  switch i16 %4, label %5 [
-    i16 -1, label %25
-    i16 0, label %25
-  ]
+  %.off = add i16 %4, -1
+  %switch = icmp ult i16 %.off, -2
+  br i1 %switch, label %5, label %25
 
 5:                                                ; preds = %3
   %6 = sext i16 %4 to i32
@@ -234,8 +233,8 @@ define noundef zeroext i1 @_ZNK6icu_776number4impl7Grouper15groupAtPositionEiRKN
   %24 = icmp sge i32 %20, %23
   br label %25
 
-25:                                               ; preds = %5, %9, %15, %3, %3
-  %.0 = phi i1 [ false, %3 ], [ false, %3 ], [ false, %9 ], [ false, %5 ], [ %24, %15 ]
+25:                                               ; preds = %3, %5, %9, %15
+  %.0 = phi i1 [ false, %3 ], [ false, %9 ], [ false, %5 ], [ %24, %15 ]
   ret i1 %.0
 }
 

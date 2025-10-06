@@ -555,7 +555,7 @@ _ZN5boost9intrusive8bstbase2INS0_8bhtraitsINS_3log11v2_mt_posix14attribute_name1
   br i1 %.not, label %232, label %.critedge
 
 .critedge:                                        ; preds = %.thread, %_ZN5boost9intrusive8bstbase2INS0_8bhtraitsINS_3log11v2_mt_posix14attribute_name10repository4nodeENS0_18rbtree_node_traitsIPvLb1EEELNS0_14link_mode_typeE1ENS0_7dft_tagELj3EEEvNS7_13order_by_nameELNS0_10algo_typesE5EvE11lower_boundIPKcSE_EENS0_13tree_iteratorISD_Lb0EEERKT_T0_.exit, %47
-  %.0.lcssa.i.i.i66 = phi ptr [ %.1.i.i.i, %47 ], [ %.1.i.i.i, %_ZN5boost9intrusive8bstbase2INS0_8bhtraitsINS_3log11v2_mt_posix14attribute_name10repository4nodeENS0_18rbtree_node_traitsIPvLb1EEELNS0_14link_mode_typeE1ENS0_7dft_tagELj3EEEvNS7_13order_by_nameELNS0_10algo_typesE5EvE11lower_boundIPKcSE_EENS0_13tree_iteratorISD_Lb0EEERKT_T0_.exit ], [ %15, %.thread ]
+  %.0.lcssa.i.i.i65 = phi ptr [ %.1.i.i.i, %47 ], [ %.1.i.i.i, %_ZN5boost9intrusive8bstbase2INS0_8bhtraitsINS_3log11v2_mt_posix14attribute_name10repository4nodeENS0_18rbtree_node_traitsIPvLb1EEELNS0_14link_mode_typeE1ENS0_7dft_tagELj3EEEvNS7_13order_by_nameELNS0_10algo_typesE5EvE11lower_boundIPKcSE_EENS0_13tree_iteratorISD_Lb0EEERKT_T0_.exit ], [ %15, %.thread ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -868,7 +868,7 @@ _ZNSt5dequeIN5boost3log11v2_mt_posix14attribute_name10repository4nodeESaIS5_EE4b
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr null, ptr %179, align 8, !tbaa !84, !noalias !78
   store ptr %15, ptr %4, align 8, !tbaa !85, !alias.scope !87, !noalias !78
-  %180 = invoke { ptr, i8 } @_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE19insert_unique_checkINS_3log11v2_mt_posix14attribute_name10repository4nodeENS0_6detail16key_nodeptr_compINSB_13order_by_nameENS0_8bhtraitsISB_S4_LNS0_14link_mode_typeE1ENS0_7dft_tagELj3EEENS_11move_detail8identityISB_EEEEEESt4pairIPNS0_19compact_rbtree_nodeIS3_EEbEPKSP_SQ_RKT_T0_RNS0_20insert_commit_data_tISQ_EEPm(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %.0.lcssa.i.i.i66, ptr noundef nonnull align 8 dereferenceable(64) %178, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
+  %180 = invoke { ptr, i8 } @_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE19insert_unique_checkINS_3log11v2_mt_posix14attribute_name10repository4nodeENS0_6detail16key_nodeptr_compINSB_13order_by_nameENS0_8bhtraitsISB_S4_LNS0_14link_mode_typeE1ENS0_7dft_tagELj3EEENS_11move_detail8identityISB_EEEEEESt4pairIPNS0_19compact_rbtree_nodeIS3_EEbEPKSP_SQ_RKT_T0_RNS0_20insert_commit_data_tISQ_EEPm(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef %.0.lcssa.i.i.i65, ptr noundef nonnull align 8 dereferenceable(64) %178, ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
           to label %.noexc35 unwind label %230
 
 .noexc35:                                         ; preds = %_ZNSt5dequeIN5boost3log11v2_mt_posix14attribute_name10repository4nodeESaIS5_EE4backEv.exit
@@ -2209,9 +2209,9 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
 .lr.ph:                                           ; preds = %2, %152
   %8 = phi ptr [ %162, %152 ], [ %6, %2 ]
   %9 = phi i64 [ %161, %152 ], [ %5, %2 ]
-  %.066 = phi ptr [ %11, %152 ], [ %1, %2 ]
-  %.in68 = load ptr, ptr %8, align 8, !tbaa !49
-  %10 = ptrtoint ptr %.in68 to i64
+  %.065 = phi ptr [ %11, %152 ], [ %1, %2 ]
+  %.in67 = load ptr, ptr %8, align 8, !tbaa !49
+  %10 = ptrtoint ptr %.in67 to i64
   %.in = and i64 %10, -2
   %11 = inttoptr i64 %.in to ptr
   %12 = and i64 %10, 1
@@ -2252,14 +2252,14 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
   %34 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !96
-  %37 = icmp eq ptr %36, %.066
+  %37 = icmp eq ptr %36, %.065
   br i1 %22, label %38, label %93
 
 38:                                               ; preds = %33
   br i1 %37, label %57, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr inbounds nuw i8, ptr %.066, i64 8
+  %40 = getelementptr inbounds nuw i8, ptr %.065, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !96
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %41, ptr %42, align 8, !tbaa !95
@@ -2277,21 +2277,21 @@ define linkonce_odr hidden void @_ZN5boost9intrusive17rbtree_algorithmsINS0_18rb
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE25rotate_left_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit: ; preds = %39, %43
   store ptr %8, ptr %40, align 8, !tbaa !96
-  %49 = ptrtoint ptr %.066 to i64
+  %49 = ptrtoint ptr %.065 to i64
   %50 = load ptr, ptr %8, align 8, !tbaa !27
   %51 = ptrtoint ptr %50 to i64
   %52 = and i64 %51, 1
   %53 = or i64 %52, %49
   %54 = inttoptr i64 %53 to ptr
   store ptr %54, ptr %8, align 8, !tbaa !27
-  %.pre79 = load ptr, ptr %11, align 8, !tbaa !49
-  %55 = ptrtoint ptr %.pre79 to i64
+  %.pre78 = load ptr, ptr %11, align 8, !tbaa !49
+  %55 = ptrtoint ptr %.pre78 to i64
   %56 = and i64 %55, -2
   br label %57
 
 57:                                               ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE25rotate_left_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit, %38
   %58 = phi i64 [ %18, %38 ], [ %56, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE25rotate_left_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit ]
-  %.041 = phi ptr [ %8, %38 ], [ %.066, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE25rotate_left_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit ]
+  %.041 = phi ptr [ %8, %38 ], [ %.065, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE25rotate_left_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit ]
   %59 = inttoptr i64 %58 to ptr
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !96
@@ -2354,7 +2354,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotat
   br i1 %37, label %94, label %111
 
 94:                                               ; preds = %93
-  %95 = getelementptr inbounds nuw i8, ptr %.066, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.065, i64 16
   %96 = load ptr, ptr %95, align 8, !tbaa !95
   store ptr %96, ptr %35, align 8, !tbaa !96
   %.not.i51 = icmp eq ptr %96, null
@@ -2371,7 +2371,7 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotat
 
 _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotate_right_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit: ; preds = %94, %97
   store ptr %8, ptr %95, align 8, !tbaa !95
-  %103 = ptrtoint ptr %.066 to i64
+  %103 = ptrtoint ptr %.065 to i64
   %104 = load ptr, ptr %8, align 8, !tbaa !27
   %105 = ptrtoint ptr %104 to i64
   %106 = and i64 %105, 1
@@ -2379,16 +2379,16 @@ _ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotat
   %108 = inttoptr i64 %107 to ptr
   store ptr %108, ptr %8, align 8, !tbaa !27
   %.pre = load ptr, ptr %11, align 8, !tbaa !49
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.066, i64 8
-  %.pre78 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !96
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.065, i64 8
+  %.pre77 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !96
   %109 = ptrtoint ptr %.pre to i64
   %110 = and i64 %109, -2
   br label %111
 
 111:                                              ; preds = %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotate_right_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit, %93
-  %112 = phi ptr [ %.pre78, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotate_right_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit ], [ %36, %93 ]
+  %112 = phi ptr [ %.pre77, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotate_right_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit ], [ %36, %93 ]
   %113 = phi i64 [ %110, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotate_right_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit ], [ %18, %93 ]
-  %.243 = phi ptr [ %.066, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotate_right_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit ], [ %8, %93 ]
+  %.243 = phi ptr [ %.065, %_ZN5boost9intrusive17bstree_algorithmsINS0_18rbtree_node_traitsIPvLb1EEEE26rotate_right_no_parent_fixEPNS0_19compact_rbtree_nodeIS3_EES8_.exit ], [ %8, %93 ]
   %114 = inttoptr i64 %113 to ptr
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !96

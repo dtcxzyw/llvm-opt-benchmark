@@ -857,7 +857,7 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   br label %47
 
 38:                                               ; preds = %.thread, %30
-  %.0105131 = phi ptr [ %29, %.thread ], [ null, %30 ]
+  %.0105130 = phi ptr [ %29, %.thread ], [ null, %30 ]
   tail call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 1) #10
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %40 = load ptr, ptr %39, align 8
@@ -871,7 +871,7 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   br label %47
 
 47:                                               ; preds = %38, %32
-  %.0105130 = phi ptr [ %.0105131, %38 ], [ null, %32 ]
+  %.0105129 = phi ptr [ %.0105130, %38 ], [ null, %32 ]
   %.0101 = phi ptr [ %43, %38 ], [ null, %32 ]
   %.0 = phi ptr [ null, %38 ], [ %37, %32 ]
   %48 = call ptr @table_slot_create(ptr noundef nonnull %0, ptr noundef null) #10
@@ -883,7 +883,7 @@ define internal void @heapam_relation_copy_for_cluster(ptr noundef %0, ptr nound
   %53 = getelementptr inbounds nuw i8, ptr %.0101, i64 68
   %54 = getelementptr inbounds nuw i8, ptr %48, i64 104
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.not112 = icmp eq ptr %.0105130, null
+  %.not112 = icmp eq ptr %.0105129, null
   %56 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %57
 
@@ -940,9 +940,9 @@ table_scan_getnextslot.exit:                      ; preds = %69
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40
   %84 = load ptr, ptr %83, align 8
   %85 = call zeroext i1 %84(ptr noundef nonnull %.0101, i32 noundef 1, ptr noundef nonnull %48) #10
-  br i1 %85, label %88, label %.thread138
+  br i1 %85, label %88, label %.thread135
 
-.thread138:                                       ; preds = %table_scan_getnextslot.exit
+.thread135:                                       ; preds = %table_scan_getnextslot.exit
   %86 = load i32, ptr %52, align 8
   %87 = zext i32 %86 to i64
   call void @pgstat_progress_update_param(i32 noundef 6, i64 noundef %87) #10
@@ -1035,11 +1035,11 @@ HeapTupleHeaderGetXmin.exit:                      ; preds = %107, %113
 
 131:                                              ; preds = %123
   %132 = getelementptr i8, ptr %125, i64 4
-  %.val.i122 = load i32, ptr %132, align 4
+  %.val.i121 = load i32, ptr %132, align 4
   br label %HeapTupleHeaderGetUpdateXid.exit
 
 HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %129, %131
-  %.0.i = phi i32 [ %.val.i122, %131 ], [ %130, %129 ]
+  %.0.i = phi i32 [ %.val.i121, %131 ], [ %130, %129 ]
   %133 = call zeroext i1 @TransactionIdIsCurrentTransactionId(i32 noundef %.0.i) #10
   br i1 %133, label %140, label %134
 
@@ -1091,7 +1091,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %129, %131
   br i1 %.not112, label %160, label %157
 
 157:                                              ; preds = %.critedge
-  call void @tuplesort_putheaptuple(ptr noundef nonnull %.0105130, ptr noundef %100) #10
+  call void @tuplesort_putheaptuple(ptr noundef nonnull %.0105129, ptr noundef %100) #10
   %158 = load double, ptr %7, align 8
   %159 = fptosi double %158 to i64
   call void @pgstat_progress_update_param(i32 noundef 3, i64 noundef %159) #10
@@ -1105,16 +1105,16 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %129, %131
   store i64 17179869187, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %.val = load ptr, ptr %15, align 8
-  %.val119 = load ptr, ptr %17, align 8
+  %.val118 = load ptr, ptr %17, align 8
   call void @heap_deform_tuple(ptr noundef %100, ptr noundef %.val, ptr noundef %23, ptr noundef %24) #10
-  %161 = load i32, ptr %.val119, align 8
+  %161 = load i32, ptr %.val118, align 8
   %162 = icmp sgt i32 %161, 0
   br i1 %162, label %.lr.ph.i, label %reform_and_rewrite_tuple.exit
 
 .lr.ph.i:                                         ; preds = %160, %170
   %163 = phi i32 [ %171, %170 ], [ %161, %160 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %170 ], [ 0, %160 ]
-  %164 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %.val119, i64 %indvars.iv.i
+  %164 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %.val118, i64 %indvars.iv.i
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 33
   %166 = load i8, ptr %165, align 1, !range !4, !noundef !5
   %167 = trunc nuw i8 %166 to i1
@@ -1123,7 +1123,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %129, %131
 168:                                              ; preds = %.lr.ph.i
   %169 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i
   store i8 1, ptr %169, align 1
-  %.pre.i = load i32, ptr %.val119, align 8
+  %.pre.i = load i32, ptr %.val118, align 8
   br label %170
 
 170:                                              ; preds = %168, %.lr.ph.i
@@ -1134,7 +1134,7 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %129, %131
   br i1 %173, label %.lr.ph.i, label %reform_and_rewrite_tuple.exit, !llvm.loop !10
 
 reform_and_rewrite_tuple.exit:                    ; preds = %170, %160
-  %174 = call ptr @heap_form_tuple(ptr noundef nonnull %.val119, ptr noundef %23, ptr noundef %24) #10
+  %174 = call ptr @heap_form_tuple(ptr noundef nonnull %.val118, ptr noundef %23, ptr noundef %24) #10
   call void @rewrite_heap_tuple(ptr noundef %27, ptr noundef %100, ptr noundef %174) #10
   call void @heap_freetuple(ptr noundef %174) #10
   %175 = load double, ptr %7, align 8
@@ -1151,7 +1151,7 @@ reform_and_rewrite_tuple.exit:                    ; preds = %170, %160
   %.not113 = icmp eq ptr %.0101, null
   br i1 %.not113, label %184, label %178
 
-178:                                              ; preds = %.thread138, %177
+178:                                              ; preds = %.thread135, %177
   %179 = load ptr, ptr %.0101, align 8
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 320
   %181 = load ptr, ptr %180, align 8
@@ -1173,7 +1173,7 @@ reform_and_rewrite_tuple.exit:                    ; preds = %170, %160
 
 187:                                              ; preds = %186
   call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 3) #10
-  call void @tuplesort_performsort(ptr noundef nonnull %.0105130) #10
+  call void @tuplesort_performsort(ptr noundef nonnull %.0105129) #10
   call void @pgstat_progress_update_param(i32 noundef 1, i64 noundef 4) #10
   br label %188
 
@@ -1188,43 +1188,43 @@ reform_and_rewrite_tuple.exit:                    ; preds = %170, %160
   br label %191
 
 191:                                              ; preds = %190, %188
-  %192 = call ptr @tuplesort_getheaptuple(ptr noundef nonnull %.0105130, i1 noundef zeroext true) #10
+  %192 = call ptr @tuplesort_getheaptuple(ptr noundef nonnull %.0105129, i1 noundef zeroext true) #10
   %193 = icmp eq ptr %192, null
   br i1 %193, label %211, label %194
 
 194:                                              ; preds = %191
   %195 = fadd double %.097, 1.000000e+00
-  %.val120 = load ptr, ptr %15, align 8
-  %.val121 = load ptr, ptr %17, align 8
-  call void @heap_deform_tuple(ptr noundef nonnull %192, ptr noundef %.val120, ptr noundef %23, ptr noundef %24) #10
-  %196 = load i32, ptr %.val121, align 8
+  %.val119 = load ptr, ptr %15, align 8
+  %.val120 = load ptr, ptr %17, align 8
+  call void @heap_deform_tuple(ptr noundef nonnull %192, ptr noundef %.val119, ptr noundef %23, ptr noundef %24) #10
+  %196 = load i32, ptr %.val120, align 8
   %197 = icmp sgt i32 %196, 0
-  br i1 %197, label %.lr.ph.i123, label %.loopexit
+  br i1 %197, label %.lr.ph.i122, label %.loopexit
 
-.lr.ph.i123:                                      ; preds = %194, %205
+.lr.ph.i122:                                      ; preds = %194, %205
   %198 = phi i32 [ %206, %205 ], [ %196, %194 ]
-  %indvars.iv.i124 = phi i64 [ %indvars.iv.next.i125, %205 ], [ 0, %194 ]
-  %199 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %.val121, i64 %indvars.iv.i124
+  %indvars.iv.i123 = phi i64 [ %indvars.iv.next.i124, %205 ], [ 0, %194 ]
+  %199 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %.val120, i64 %indvars.iv.i123
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 33
   %201 = load i8, ptr %200, align 1, !range !4, !noundef !5
   %202 = trunc nuw i8 %201 to i1
   br i1 %202, label %203, label %205
 
-203:                                              ; preds = %.lr.ph.i123
-  %204 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i124
+203:                                              ; preds = %.lr.ph.i122
+  %204 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i123
   store i8 1, ptr %204, align 1
-  %.pre.i126 = load i32, ptr %.val121, align 8
+  %.pre.i125 = load i32, ptr %.val120, align 8
   br label %205
 
-205:                                              ; preds = %203, %.lr.ph.i123
-  %206 = phi i32 [ %198, %.lr.ph.i123 ], [ %.pre.i126, %203 ]
-  %indvars.iv.next.i125 = add nuw nsw i64 %indvars.iv.i124, 1
+205:                                              ; preds = %203, %.lr.ph.i122
+  %206 = phi i32 [ %198, %.lr.ph.i122 ], [ %.pre.i125, %203 ]
+  %indvars.iv.next.i124 = add nuw nsw i64 %indvars.iv.i123, 1
   %207 = sext i32 %206 to i64
-  %208 = icmp slt i64 %indvars.iv.next.i125, %207
-  br i1 %208, label %.lr.ph.i123, label %.loopexit, !llvm.loop !10
+  %208 = icmp slt i64 %indvars.iv.next.i124, %207
+  br i1 %208, label %.lr.ph.i122, label %.loopexit, !llvm.loop !10
 
 .loopexit:                                        ; preds = %205, %194
-  %209 = call ptr @heap_form_tuple(ptr noundef nonnull %.val121, ptr noundef %23, ptr noundef %24) #10
+  %209 = call ptr @heap_form_tuple(ptr noundef nonnull %.val120, ptr noundef %23, ptr noundef %24) #10
   call void @rewrite_heap_tuple(ptr noundef %27, ptr noundef nonnull %192, ptr noundef %209) #10
   call void @heap_freetuple(ptr noundef %209) #10
   %210 = fptosi double %195 to i64
@@ -1232,7 +1232,7 @@ reform_and_rewrite_tuple.exit:                    ; preds = %170, %160
   br label %188
 
 211:                                              ; preds = %191
-  call void @tuplesort_end(ptr noundef nonnull %.0105130) #10
+  call void @tuplesort_end(ptr noundef nonnull %.0105129) #10
   br label %212
 
 212:                                              ; preds = %211, %186

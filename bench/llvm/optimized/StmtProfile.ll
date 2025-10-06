@@ -75,6 +75,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::APInt.base" = type <{ %union.anon.772, i32 }>
 %"struct.clang::OMPUsesAllocatorsClause::Data" = type { ptr, ptr, %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 
+$_ZN4llvm16FoldingSetNodeID10AddIntegerEj = comdat any
+
+$_ZN4llvm16FoldingSetNodeID10AddBooleanEb = comdat any
+
 $_ZNK5clang14APFloatStorage8getValueERKN4llvm12fltSemanticsE = comdat any
 
 $_ZN4llvm6detail13DoubleAPFloatD2Ev = comdat any
@@ -109,16 +113,16 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %81, %2
-  %.tr321 = phi ptr [ %1, %2 ], [ %83, %81 ]
-  %3 = load i16, ptr %.tr321, align 8
+  %.tr320 = phi ptr [ %1, %2 ], [ %83, %81 ]
+  %3 = load i16, ptr %.tr320, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %4, 120
-  %.not319 = icmp eq ptr %.tr321, null
-  %.not = or i1 %.not319, %spec.select.i.i.i.i.i.i.i.i
+  %.not318 = icmp eq ptr %.tr320, null
+  %.not = or i1 %.not318, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %43, label %5
 
 5:                                                ; preds = %tailrecurse
-  %6 = load i32, ptr %.tr321, align 8
+  %6 = load i32, ptr %.tr320, align 8
   %7 = lshr i32 %6, 19
   %8 = and i32 %7, 63
   %9 = trunc i32 %6 to i16
@@ -159,145 +163,145 @@ tailrecurse:                                      ; preds = %81, %2
   ]
 
 10:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 11:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 12:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 13:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 14:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 15:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 16:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 17:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 18:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 19:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 20:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 21:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 22:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 23:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 24:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 25:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 26:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 27:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 28:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 29:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 30:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 31:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 32:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 33:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 34:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 35:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 36:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 37:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 38:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 39:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 40:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 41:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitCompoundAssignOperatorEPKN5clang22CompoundAssignOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 42:                                               ; preds = %5
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 43:                                               ; preds = %tailrecurse
   %44 = and i16 %3, 511
   %45 = icmp ne i16 %44, 4
-  %.not314 = or i1 %.not319, %45
+  %.not314 = or i1 %.not318, %45
   br i1 %.not314, label %.critedge, label %46
 
 46:                                               ; preds = %43
-  %47 = load i32, ptr %.tr321, align 8
+  %47 = load i32, ptr %.tr320, align 8
   %48 = lshr i32 %47, 19
   %49 = and i32 %48, 31
   %50 = trunc i32 %47 to i16
@@ -319,59 +323,59 @@ tailrecurse:                                      ; preds = %81, %2
   ]
 
 51:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 52:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 53:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 54:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 55:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 56:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 57:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 58:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 59:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 60:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 61:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 62:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 63:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 64:                                               ; preds = %46
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %46, %43, %5
@@ -638,12 +642,12 @@ tailrecurse:                                      ; preds = %81, %2
   unreachable
 
 68:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler14VisitWhileStmtEPKN5clang9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler14VisitWhileStmtEPKN5clang9WhileStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 69:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %70 = getelementptr inbounds nuw i8, ptr %.tr321, i64 8
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %70 = getelementptr inbounds nuw i8, ptr %.tr320, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !16
   %72 = load ptr, ptr %0, align 8, !tbaa !12
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
@@ -652,57 +656,57 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 75:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 76:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 77:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitUnaryExprOrTypeTraitExprEPKN5clang24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitUnaryExprOrTypeTraitExprEPKN5clang24UnaryExprOrTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 78:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 79:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitTypeTraitExprEPKN5clang13TypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitTypeTraitExprEPKN5clang13TypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 80:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler37VisitSubstNonTypeTemplateParmPackExprEPKN5clang32SubstNonTypeTemplateParmPackExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler37VisitSubstNonTypeTemplateParmPackExprEPKN5clang32SubstNonTypeTemplateParmPackExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 81:                                               ; preds = %.critedge
-  %82 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  %82 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !22
   br label %tailrecurse
 
 84:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitStringLiteralEPKN5clang13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitStringLiteralEPKN5clang13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 85:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 86:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 87:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitSizeOfPackExprEPKN5clang14SizeOfPackExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitSizeOfPackExprEPKN5clang14SizeOfPackExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 88:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 89:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %90 = getelementptr inbounds nuw i8, ptr %.tr321, i64 32
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %90 = getelementptr inbounds nuw i8, ptr %.tr320, i64 32
   %91 = load ptr, ptr %90, align 8, !tbaa !31
   %.sroa.0.0.copyload.i.i = load i64, ptr %91, align 8, !tbaa !35
   %92 = load ptr, ptr %0, align 8, !tbaa !12
@@ -712,82 +716,82 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 95:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 96:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitRequiresExprEPKN5clang12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitRequiresExprEPKN5clang12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 97:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 98:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitPseudoObjectExprEPKN5clang16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitPseudoObjectExprEPKN5clang16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 99:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitPredefinedExprEPKN5clang14PredefinedExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitPredefinedExprEPKN5clang14PredefinedExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 100:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 101:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 102:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitPackIndexingExprEPKN5clang16PackIndexingExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitPackIndexingExprEPKN5clang16PackIndexingExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 103:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 104:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitUnresolvedMemberExprEPKN5clang20UnresolvedMemberExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitUnresolvedMemberExprEPKN5clang20UnresolvedMemberExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef %.tr320)
   br label %.critedge.thread
 
 105:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitOverloadExprEPKN5clang12OverloadExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitOverloadExprEPKN5clang12OverloadExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 106:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 107:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 108:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitOffsetOfExprEPKN5clang12OffsetOfExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitOffsetOfExprEPKN5clang12OffsetOfExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 109:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitObjCSubscriptRefExprEPKN5clang20ObjCSubscriptRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitObjCSubscriptRefExprEPKN5clang20ObjCSubscriptRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 110:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 111:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %112 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
-  %.sroa.0.0.copyload.i.i1222 = load i64, ptr %112, align 8, !tbaa !35
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %112 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
+  %.sroa.0.0.copyload.i.i1221 = load i64, ptr %112, align 8, !tbaa !35
   %113 = load ptr, ptr %0, align 8, !tbaa !12
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
   %115 = load ptr, ptr %114, align 8
-  tail call void %115(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i1222, i1 noundef zeroext false) #12
+  tail call void %115(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i1221, i1 noundef zeroext false) #12
   br label %.critedge.thread
 
 116:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %117 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %117 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !36
   %119 = load ptr, ptr %0, align 8, !tbaa !12
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
@@ -796,83 +800,83 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 122:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitObjCPropertyRefExprEPKN5clang19ObjCPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitObjCPropertyRefExprEPKN5clang19ObjCPropertyRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 123:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitObjCMessageExprEPKN5clang15ObjCMessageExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitObjCMessageExprEPKN5clang15ObjCMessageExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 124:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitObjCIvarRefExprEPKN5clang15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitObjCIvarRefExprEPKN5clang15ObjCIvarRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 125:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler16VisitObjCIsaExprEPKN5clang11ObjCIsaExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler16VisitObjCIsaExprEPKN5clang11ObjCIsaExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 126:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler32VisitObjCIndirectCopyRestoreExprEPKN5clang27ObjCIndirectCopyRestoreExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler32VisitObjCIndirectCopyRestoreExprEPKN5clang27ObjCIndirectCopyRestoreExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 127:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %128 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %128 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !39
-  %.sroa.0.0.copyload.i.i.i1223 = load i64, ptr %129, align 8, !tbaa !35
+  %.sroa.0.0.copyload.i.i.i1222 = load i64, ptr %129, align 8, !tbaa !35
   %130 = load ptr, ptr %0, align 8, !tbaa !12
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load ptr, ptr %131, align 8
-  tail call void %132(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1223) #12
+  tail call void %132(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1222) #12
   br label %.critedge.thread
 
 133:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 134:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 135:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitObjCBoolLiteralExprEPKN5clang19ObjCBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitObjCBoolLiteralExprEPKN5clang19ObjCBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 136:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 137:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 138:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitOMPIteratorExprEPKN5clang15OMPIteratorExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitOMPIteratorExprEPKN5clang15OMPIteratorExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 139:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 140:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitMemberExprEPKN5clang10MemberExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitMemberExprEPKN5clang10MemberExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 141:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 142:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 143:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 144:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %145 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %145 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %146 = load ptr, ptr %145, align 8, !tbaa !41
   %147 = load ptr, ptr %0, align 8, !tbaa !12
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
@@ -881,60 +885,60 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 150:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitLambdaExprEPKN5clang10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitLambdaExprEPKN5clang10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 151:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitIntegerLiteralEPKN5clang14IntegerLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitIntegerLiteralEPKN5clang14IntegerLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 152:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitInitListExprEPKN5clang12InitListExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitInitListExprEPKN5clang12InitListExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 153:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 154:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 155:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 156:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitGenericSelectionExprEPKN5clang20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitGenericSelectionExprEPKN5clang20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 157:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 158:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitFunctionParmPackExprEPKN5clang20FunctionParmPackExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitFunctionParmPackExprEPKN5clang20FunctionParmPackExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 159:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 160:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 161:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitFloatingLiteralEPKN5clang15FloatingLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitFloatingLiteralEPKN5clang15FloatingLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 162:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler22VisitFixedPointLiteralEPKN5clang17FixedPointLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler22VisitFixedPointLiteralEPKN5clang17FixedPointLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 163:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %164 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %164 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %165 = load ptr, ptr %164, align 8, !tbaa !47
   %166 = ptrtoint ptr %165 to i64
   %167 = load ptr, ptr %0, align 8, !tbaa !12
@@ -944,123 +948,123 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 170:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitExpressionTraitExprEPKN5clang19ExpressionTraitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitExpressionTraitExprEPKN5clang19ExpressionTraitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 171:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 172:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler23VisitDesignatedInitExprEPKN5clang18DesignatedInitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler23VisitDesignatedInitExprEPKN5clang18DesignatedInitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 173:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler30VisitDependentScopeDeclRefExprEPKN5clang25DependentScopeDeclRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler30VisitDependentScopeDeclRefExprEPKN5clang25DependentScopeDeclRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 174:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 175:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler16VisitDeclRefExprEPKN5clang11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler16VisitDeclRefExprEPKN5clang11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 176:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 177:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 178:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 179:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler30VisitConceptSpecializationExprEPKN5clang25ConceptSpecializationExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler30VisitConceptSpecializationExprEPKN5clang25ConceptSpecializationExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 180:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitCompoundLiteralExprEPKN5clang19CompoundLiteralExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitCompoundLiteralExprEPKN5clang19CompoundLiteralExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 181:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 182:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitCharacterLiteralEPKN5clang16CharacterLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitCharacterLiteralEPKN5clang16CharacterLiteralE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 183:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitImplicitCastExprEPKN5clang16ImplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitImplicitCastExprEPKN5clang16ImplicitCastExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 184:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitObjCBridgedCastExprEPKN5clang19ObjCBridgedCastExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitObjCBridgedCastExprEPKN5clang19ObjCBridgedCastExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 185:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %186 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %186 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %187 = load ptr, ptr %186, align 8, !tbaa !50
-  %.sroa.0.0.copyload.i.i.i1224 = load i64, ptr %187, align 8, !tbaa !35
+  %.sroa.0.0.copyload.i.i.i1223 = load i64, ptr %187, align 8, !tbaa !35
   %188 = load ptr, ptr %0, align 8, !tbaa !12
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 32
   %190 = load ptr, ptr %189, align 8
-  tail call void %190(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1224) #12
+  tail call void %190(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1223) #12
   br label %.critedge.thread
 
 191:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %192 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %192 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %193 = load ptr, ptr %192, align 8, !tbaa !50
-  %.sroa.0.0.copyload.i.i.i1225 = load i64, ptr %193, align 8, !tbaa !35
+  %.sroa.0.0.copyload.i.i.i1224 = load i64, ptr %193, align 8, !tbaa !35
   %194 = load ptr, ptr %0, align 8, !tbaa !12
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %196 = load ptr, ptr %195, align 8
-  tail call void %196(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1225) #12
+  tail call void %196(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1224) #12
   br label %.critedge.thread
 
 197:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %198 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %198 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %199 = load ptr, ptr %198, align 8, !tbaa !50
-  %.sroa.0.0.copyload.i.i.i1226 = load i64, ptr %199, align 8, !tbaa !35
+  %.sroa.0.0.copyload.i.i.i1225 = load i64, ptr %199, align 8, !tbaa !35
   %200 = load ptr, ptr %0, align 8, !tbaa !12
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 32
   %202 = load ptr, ptr %201, align 8
-  tail call void %202(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1226) #12
+  tail call void %202(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1225) #12
   br label %.critedge.thread
 
 203:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %204 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %204 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %205 = load ptr, ptr %204, align 8, !tbaa !50
-  %.sroa.0.0.copyload.i.i.i1227 = load i64, ptr %205, align 8, !tbaa !35
+  %.sroa.0.0.copyload.i.i.i1226 = load i64, ptr %205, align 8, !tbaa !35
   %206 = load ptr, ptr %0, align 8, !tbaa !12
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 32
   %208 = load ptr, ptr %207, align 8
-  tail call void %208(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1227) #12
+  tail call void %208(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1226) #12
   br label %.critedge.thread
 
 209:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %210 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %210 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %211 = load ptr, ptr %210, align 8, !tbaa !50
-  %.sroa.0.0.copyload.i.i.i1228 = load i64, ptr %211, align 8, !tbaa !35
+  %.sroa.0.0.copyload.i.i.i1227 = load i64, ptr %211, align 8, !tbaa !35
   %212 = load ptr, ptr %0, align 8, !tbaa !12
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 32
   %214 = load ptr, ptr %213, align 8
-  tail call void %214(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1228) #12
+  tail call void %214(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i.i1227) #12
   br label %.critedge.thread
 
 215:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %216 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %216 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %217 = load ptr, ptr %216, align 8, !tbaa !50
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %217, align 8, !tbaa !35
   %218 = load ptr, ptr %0, align 8, !tbaa !12
@@ -1070,8 +1074,8 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 221:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %222 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %222 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %223 = load ptr, ptr %222, align 8, !tbaa !50
   %.sroa.0.0.copyload.i.i.i316 = load i64, ptr %223, align 8, !tbaa !35
   %224 = load ptr, ptr %0, align 8, !tbaa !12
@@ -1081,91 +1085,91 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 227:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %228 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %228 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %229 = load ptr, ptr %228, align 8, !tbaa !50
-  %.sroa.0.0.copyload.i.i1229 = load i64, ptr %229, align 8, !tbaa !35
+  %.sroa.0.0.copyload.i.i1228 = load i64, ptr %229, align 8, !tbaa !35
   %230 = load ptr, ptr %0, align 8, !tbaa !12
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 32
   %232 = load ptr, ptr %231, align 8
-  tail call void %232(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i1229) #12
+  tail call void %232(ptr noundef nonnull align 8 dereferenceable(18) %0, i64 %.sroa.0.0.copyload.i.i1228) #12
   br label %.critedge.thread
 
 233:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 234:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 235:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitCXXOperatorCallExprEPKN5clang19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitCXXOperatorCallExprEPKN5clang19CXXOperatorCallExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 236:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 237:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 238:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitCXXUuidofExprEPKN5clang13CXXUuidofExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitCXXUuidofExprEPKN5clang13CXXUuidofExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 239:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler31VisitCXXUnresolvedConstructExprEPKN5clang26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler31VisitCXXUnresolvedConstructExprEPKN5clang26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 240:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitCXXTypeidExprEPKN5clang13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitCXXTypeidExprEPKN5clang13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 241:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 242:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler16VisitCXXThisExprEPKN5clang11CXXThisExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler16VisitCXXThisExprEPKN5clang11CXXThisExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 243:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 244:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 245:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler31VisitCXXRewrittenBinaryOperatorEPKN5clang26CXXRewrittenBinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler31VisitCXXRewrittenBinaryOperatorEPKN5clang26CXXRewrittenBinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 246:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler28VisitCXXPseudoDestructorExprEPKN5clang23CXXPseudoDestructorExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler28VisitCXXPseudoDestructorExprEPKN5clang23CXXPseudoDestructorExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 247:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 248:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 249:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 250:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitCXXNewExprEPKN5clang10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitCXXNewExprEPKN5clang10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 251:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %252 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %252 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %253 = load ptr, ptr %252, align 8, !tbaa !53
   %254 = load ptr, ptr %0, align 8, !tbaa !12
   %255 = getelementptr inbounds nuw i8, ptr %254, i64 24
@@ -1174,20 +1178,20 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 257:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler16VisitCXXFoldExprEPKN5clang11CXXFoldExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler16VisitCXXFoldExprEPKN5clang11CXXFoldExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 258:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler32VisitCXXDependentScopeMemberExprEPKN5clang27CXXDependentScopeMemberExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler32VisitCXXDependentScopeMemberExprEPKN5clang27CXXDependentScopeMemberExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 259:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitCXXDeleteExprEPKN5clang13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler18VisitCXXDeleteExprEPKN5clang13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 260:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %261 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %261 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %262 = load ptr, ptr %261, align 8, !tbaa !56
   %263 = load ptr, ptr %0, align 8, !tbaa !12
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 24
@@ -1196,8 +1200,8 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 266:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %267 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %267 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %268 = load ptr, ptr %267, align 8, !tbaa !60
   %269 = load ptr, ptr %0, align 8, !tbaa !12
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 24
@@ -1206,20 +1210,20 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 272:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitCXXConstructExprEPKN5clang16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitCXXConstructExprEPKN5clang16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 273:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitCXXConstructExprEPKN5clang16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler21VisitCXXConstructExprEPKN5clang16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 274:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler23VisitCXXBoolLiteralExprEPKN5clang18CXXBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler23VisitCXXBoolLiteralExprEPKN5clang18CXXBoolLiteralExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 275:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %276 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %276 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %277 = load ptr, ptr %276, align 8, !tbaa !63
   %278 = load ptr, ptr %277, align 8, !tbaa !66
   %279 = load ptr, ptr %0, align 8, !tbaa !12
@@ -1229,8 +1233,8 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 282:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %283 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %283 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %284 = load ptr, ptr %283, align 8, !tbaa !69
   %285 = load ptr, ptr %0, align 8, !tbaa !12
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 24
@@ -1239,44 +1243,44 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 288:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 289:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 290:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitAtomicExprEPKN5clang10AtomicExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitAtomicExprEPKN5clang10AtomicExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 291:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 292:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler23VisitArrayTypeTraitExprEPKN5clang18ArrayTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler23VisitArrayTypeTraitExprEPKN5clang18ArrayTypeTraitExprE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 293:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 294:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 295:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 296:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 297:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %298 = getelementptr inbounds nuw i8, ptr %.tr321, i64 24
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %298 = getelementptr inbounds nuw i8, ptr %.tr320, i64 24
   %299 = load ptr, ptr %298, align 8, !tbaa !72
   %300 = load ptr, ptr %0, align 8, !tbaa !12
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 24
@@ -1285,456 +1289,456 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 303:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 304:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 305:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 306:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitSwitchStmtEPKN5clang10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitSwitchStmtEPKN5clang10SwitchStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 307:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 308:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 309:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 310:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 311:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 312:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 313:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 314:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 315:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCWaitConstructEPKN5clang20OpenACCWaitConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCWaitConstructEPKN5clang20OpenACCWaitConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 316:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOpenACCUpdateConstructEPKN5clang22OpenACCUpdateConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOpenACCUpdateConstructEPKN5clang22OpenACCUpdateConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 317:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCShutdownConstructEPKN5clang24OpenACCShutdownConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCShutdownConstructEPKN5clang24OpenACCShutdownConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 318:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitOpenACCSetConstructEPKN5clang19OpenACCSetConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler24VisitOpenACCSetConstructEPKN5clang19OpenACCSetConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 319:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCInitConstructEPKN5clang20OpenACCInitConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCInitConstructEPKN5clang20OpenACCInitConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 320:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCExitDataConstructEPKN5clang24OpenACCExitDataConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCExitDataConstructEPKN5clang24OpenACCExitDataConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 321:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler30VisitOpenACCEnterDataConstructEPKN5clang25OpenACCEnterDataConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler30VisitOpenACCEnterDataConstructEPKN5clang25OpenACCEnterDataConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 322:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCLoopConstructEPKN5clang20OpenACCLoopConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCLoopConstructEPKN5clang20OpenACCLoopConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 323:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCHostDataConstructEPKN5clang24OpenACCHostDataConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCHostDataConstructEPKN5clang24OpenACCHostDataConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 324:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCDataConstructEPKN5clang20OpenACCDataConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOpenACCDataConstructEPKN5clang20OpenACCDataConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 325:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler28VisitOpenACCComputeConstructEPKN5clang23OpenACCComputeConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler28VisitOpenACCComputeConstructEPKN5clang23OpenACCComputeConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 326:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCCombinedConstructEPKN5clang24OpenACCCombinedConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler29VisitOpenACCCombinedConstructEPKN5clang24OpenACCCombinedConstructE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 327:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 328:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 329:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 330:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 331:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 332:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 333:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 334:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitObjCAtCatchStmtEPKN5clang15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler20VisitObjCAtCatchStmtEPKN5clang15ObjCAtCatchStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 335:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 336:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 337:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 338:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler26VisitOMPTaskgroupDirectiveEPKN5clang21OMPTaskgroupDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler26VisitOMPTaskgroupDirectiveEPKN5clang21OMPTaskgroupDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 339:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 340:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 341:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 342:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 343:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 344:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 345:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 346:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 347:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 348:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 349:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 350:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 351:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 352:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 353:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 354:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 355:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 356:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 357:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 358:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 359:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 360:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 361:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 362:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 363:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 364:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 365:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 366:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 367:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 368:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 369:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 370:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 371:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 372:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 373:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 374:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 375:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 376:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 377:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 378:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 379:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 380:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 381:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 382:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 383:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 384:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 385:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 386:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 387:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 388:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 389:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 390:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 391:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 392:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 393:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 394:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 395:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 396:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 397:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 398:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 399:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 400:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 401:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 402:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 403:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 404:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOMPCriticalDirectiveEPKN5clang20OMPCriticalDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler25VisitOMPCriticalDirectiveEPKN5clang20OMPCriticalDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 405:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 406:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 407:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 408:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 409:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler27VisitOMPExecutableDirectiveEPKN5clang22OMPExecutableDirectiveE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 410:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 411:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 412:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler26VisitMSDependentExistsStmtEPKN5clang21MSDependentExistsStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler26VisitMSDependentExistsStmtEPKN5clang21MSDependentExistsStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 413:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 414:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler11VisitIfStmtEPKN5clang6IfStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler11VisitIfStmtEPKN5clang6IfStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 415:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
-  %416 = getelementptr inbounds nuw i8, ptr %.tr321, i64 8
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
+  %416 = getelementptr inbounds nuw i8, ptr %.tr320, i64 8
   %417 = load ptr, ptr %416, align 8, !tbaa !74
   %418 = load ptr, ptr %0, align 8, !tbaa !12
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 24
@@ -1743,59 +1747,59 @@ tailrecurse:                                      ; preds = %81, %2
   br label %.critedge.thread
 
 421:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 422:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 423:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler13VisitDeclStmtEPKN5clang8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler13VisitDeclStmtEPKN5clang8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 424:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 425:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 426:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 427:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 428:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 429:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 430:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 431:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitCXXCatchStmtEPKN5clang12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler17VisitCXXCatchStmtEPKN5clang12CXXCatchStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 432:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 433:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler9VisitStmtEPKN5clang4StmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 434:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitGCCAsmStmtEPKN5clang10GCCAsmStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_112StmtProfiler15VisitGCCAsmStmtEPKN5clang10GCCAsmStmtE(ptr noundef nonnull align 8 dereferenceable(18) %0, ptr noundef nonnull %.tr320)
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %51, %52, %53, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %12, %11, %10, %434, %433, %432, %431, %430, %429, %428, %427, %426, %425, %424, %423, %422, %421, %415, %414, %413, %412, %411, %410, %409, %408, %407, %406, %405, %404, %403, %402, %401, %400, %399, %398, %397, %396, %395, %394, %393, %392, %391, %390, %389, %388, %387, %386, %385, %384, %383, %382, %381, %380, %379, %378, %377, %376, %375, %374, %373, %372, %371, %370, %369, %368, %367, %366, %365, %364, %363, %362, %361, %360, %359, %358, %357, %356, %355, %354, %353, %352, %351, %350, %349, %348, %347, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %282, %275, %274, %273, %272, %266, %260, %259, %258, %257, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %227, %221, %215, %209, %203, %197, %191, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %144, %143, %142, %141, %140, %139, %138, %137, %136, %135, %134, %133, %127, %126, %125, %124, %123, %122, %116, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %89, %88, %87, %86, %85, %84, %80, %79, %78, %77, %76, %75, %69, %68
@@ -1905,13 +1909,13 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %10, %16
   %27 = load i8, ptr %26, align 8, !tbaa !8, !range !84, !noundef !85
   %28 = trunc nuw i8 %27 to i1
   %or.cond = and i1 %5, %28
-  br i1 %or.cond, label %29, label %251
+  br i1 %or.cond, label %29, label %208
 
 29:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %31 = load i32, ptr %30, align 4
   %32 = and i32 %31, 127
-  switch i32 %32, label %.thread89 [
+  switch i32 %32, label %.thread73 [
     i32 45, label %33
     i32 41, label %95
     i32 65, label %143
@@ -1927,19 +1931,19 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %10, %16
   %39 = load i32, ptr %38, align 8, !tbaa !79
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %41 = load i32, ptr %40, align 4, !tbaa !81
-  %.not.i.i.not.i.i49 = icmp ult i32 %39, %41
-  br i1 %.not.i.i.not.i.i49, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, label %42, !prof !82
+  %.not.i.i.not.i.i46 = icmp ult i32 %39, %41
+  br i1 %.not.i.i.not.i.i46, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, label %42, !prof !82
 
 42:                                               ; preds = %33
   %43 = zext i32 %39 to i64
   %44 = add nuw nsw i64 %43, 1
   %45 = getelementptr inbounds nuw i8, ptr %34, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %34, ptr noundef nonnull %45, i64 noundef %44, i64 noundef 4) #12
-  %.pre.i.i50 = load i32, ptr %38, align 8, !tbaa !79
+  %.pre.i.i47 = load i32, ptr %38, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
 
 _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %33, %42
-  %46 = phi i32 [ %39, %33 ], [ %.pre.i.i50, %42 ]
+  %46 = phi i32 [ %39, %33 ], [ %.pre.i.i47, %42 ]
   %47 = load ptr, ptr %34, align 8, !tbaa !83
   %48 = zext i32 %46 to i64
   %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
@@ -1954,19 +1958,19 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %33, %42
   %56 = load i32, ptr %55, align 8, !tbaa !79
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 12
   %58 = load i32, ptr %57, align 4, !tbaa !81
-  %.not.i.i.not.i.i51 = icmp ult i32 %56, %58
-  br i1 %.not.i.i.not.i.i51, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53, label %59, !prof !82
+  %.not.i.i.not.i.i48 = icmp ult i32 %56, %58
+  br i1 %.not.i.i.not.i.i48, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit50, label %59, !prof !82
 
 59:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
   %60 = zext i32 %56 to i64
   %61 = add nuw nsw i64 %60, 1
   %62 = getelementptr inbounds nuw i8, ptr %52, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %52, ptr noundef nonnull %62, i64 noundef %61, i64 noundef 4) #12
-  %.pre.i.i52 = load i32, ptr %55, align 8, !tbaa !79
-  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53
+  %.pre.i.i49 = load i32, ptr %55, align 8, !tbaa !79
+  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit50
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, %59
-  %63 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i52, %59 ]
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit50:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, %59
+  %63 = phi i32 [ %56, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit ], [ %.pre.i.i49, %59 ]
   %64 = load ptr, ptr %52, align 8, !tbaa !83
   %65 = zext i32 %63 to i64
   %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
@@ -1985,7 +1989,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53:  ; preds = %_ZN4llvm16FoldingSe
   %.not.i.i.not.i.i.i = icmp ult i32 %74, %76
   br i1 %.not.i.i.not.i.i.i, label %81, label %77, !prof !82
 
-77:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53
+77:                                               ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit50
   %78 = zext i32 %74 to i64
   %79 = add nuw nsw i64 %78, 1
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 16
@@ -1993,8 +1997,8 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53:  ; preds = %_ZN4llvm16FoldingSe
   %.pre.i.i.i = load i32, ptr %73, align 8, !tbaa !79
   br label %81
 
-81:                                               ; preds = %77, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53
-  %82 = phi i32 [ %74, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53 ], [ %.pre.i.i.i, %77 ]
+81:                                               ; preds = %77, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit50
+  %82 = phi i32 [ %74, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit50 ], [ %.pre.i.i.i, %77 ]
   %83 = load ptr, ptr %69, align 8, !tbaa !83
   %84 = zext i32 %82 to i64
   %85 = getelementptr inbounds nuw i32, ptr %83, i64 %84
@@ -2011,15 +2015,15 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53:  ; preds = %_ZN4llvm16FoldingSe
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8
   tail call void %94(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %91) #12
-  br label %291
+  br label %248
 
 95:                                               ; preds = %29
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.sroa.0.0.copyload.i55 = load i64, ptr %96, align 8, !tbaa !35
+  %.sroa.0.0.copyload.i52 = load i64, ptr %96, align 8, !tbaa !35
   %97 = load ptr, ptr %0, align 8, !tbaa !12
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 32
   %99 = load ptr, ptr %98, align 8
-  tail call void %99(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %.sroa.0.0.copyload.i55) #12
+  tail call void %99(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 %.sroa.0.0.copyload.i52) #12
   %100 = load ptr, ptr %3, align 8, !tbaa !78
   %101 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %102 = load i32, ptr %101, align 8
@@ -2032,19 +2036,19 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit53:  ; preds = %_ZN4llvm16FoldingSe
   %107 = load i32, ptr %106, align 8, !tbaa !79
   %108 = getelementptr inbounds nuw i8, ptr %100, i64 12
   %109 = load i32, ptr %108, align 4, !tbaa !81
-  %.not.i.i.not.i.i56 = icmp ult i32 %107, %109
-  br i1 %.not.i.i.not.i.i56, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit58, label %110, !prof !82
+  %.not.i.i.not.i.i53 = icmp ult i32 %107, %109
+  br i1 %.not.i.i.not.i.i53, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit55, label %110, !prof !82
 
 110:                                              ; preds = %95
   %111 = zext i32 %107 to i64
   %112 = add nuw nsw i64 %111, 1
   %113 = getelementptr inbounds nuw i8, ptr %100, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %100, ptr noundef nonnull %113, i64 noundef %112, i64 noundef 4) #12
-  %.pre.i.i57 = load i32, ptr %106, align 8, !tbaa !79
-  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit58
+  %.pre.i.i54 = load i32, ptr %106, align 8, !tbaa !79
+  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit55
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit58:  ; preds = %95, %110
-  %114 = phi i32 [ %107, %95 ], [ %.pre.i.i57, %110 ]
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit55:  ; preds = %95, %110
+  %114 = phi i32 [ %107, %95 ], [ %.pre.i.i54, %110 ]
   %115 = load ptr, ptr %100, align 8, !tbaa !83
   %116 = zext i32 %114 to i64
   %117 = getelementptr inbounds nuw i32, ptr %115, i64 %116
@@ -2059,29 +2063,29 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit58:  ; preds = %95, %110
   %124 = icmp eq i32 %123, 255
   br i1 %124, label %125, label %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit
 
-125:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit58
+125:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit55
   %126 = tail call noundef i32 @_ZNK5clang11ParmVarDecl22getParameterIndexLargeEv(ptr noundef nonnull align 8 dereferenceable(104) %1) #12
   br label %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit
 
-_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit58, %125
-  %127 = phi i32 [ %126, %125 ], [ %123, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit58 ]
+_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit: ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit55, %125
+  %127 = phi i32 [ %126, %125 ], [ %123, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit55 ]
   %128 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !79
   %130 = getelementptr inbounds nuw i8, ptr %120, i64 12
   %131 = load i32, ptr %130, align 4, !tbaa !81
-  %.not.i.i.not.i.i59 = icmp ult i32 %129, %131
-  br i1 %.not.i.i.not.i.i59, label %136, label %132, !prof !82
+  %.not.i.i.not.i.i56 = icmp ult i32 %129, %131
+  br i1 %.not.i.i.not.i.i56, label %136, label %132, !prof !82
 
 132:                                              ; preds = %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit
   %133 = zext i32 %129 to i64
   %134 = add nuw nsw i64 %133, 1
   %135 = getelementptr inbounds nuw i8, ptr %120, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %120, ptr noundef nonnull %135, i64 noundef %134, i64 noundef 4) #12
-  %.pre.i.i60 = load i32, ptr %128, align 8, !tbaa !79
+  %.pre.i.i57 = load i32, ptr %128, align 8, !tbaa !79
   br label %136
 
 136:                                              ; preds = %132, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit
-  %137 = phi i32 [ %129, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit ], [ %.pre.i.i60, %132 ]
+  %137 = phi i32 [ %129, %_ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit ], [ %.pre.i.i57, %132 ]
   %138 = load ptr, ptr %120, align 8, !tbaa !83
   %139 = zext i32 %137 to i64
   %140 = getelementptr inbounds nuw i32, ptr %138, i64 %139
@@ -2089,7 +2093,7 @@ _ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit: ; preds = %_ZN4llvm16Fold
   %141 = load i32, ptr %128, align 8, !tbaa !79
   %142 = add i32 %141, 1
   store i32 %142, ptr %128, align 8, !tbaa !79
-  br label %291
+  br label %248
 
 143:                                              ; preds = %29
   %144 = load ptr, ptr %3, align 8, !tbaa !78
@@ -2098,19 +2102,19 @@ _ZNK5clang11ParmVarDecl21getFunctionScopeIndexEv.exit: ; preds = %_ZN4llvm16Fold
   %147 = load i32, ptr %146, align 8, !tbaa !79
   %148 = getelementptr inbounds nuw i8, ptr %144, i64 12
   %149 = load i32, ptr %148, align 4, !tbaa !81
-  %.not.i.i.not.i.i63 = icmp ult i32 %147, %149
-  br i1 %.not.i.i.not.i.i63, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65, label %150, !prof !82
+  %.not.i.i.not.i.i60 = icmp ult i32 %147, %149
+  br i1 %.not.i.i.not.i.i60, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit62, label %150, !prof !82
 
 150:                                              ; preds = %143
   %151 = zext i32 %147 to i64
   %152 = add nuw nsw i64 %151, 1
   %153 = getelementptr inbounds nuw i8, ptr %144, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %144, ptr noundef nonnull %153, i64 noundef %152, i64 noundef 4) #12
-  %.pre.i.i64 = load i32, ptr %146, align 8, !tbaa !79
-  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65
+  %.pre.i.i61 = load i32, ptr %146, align 8, !tbaa !79
+  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit62
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65:  ; preds = %143, %150
-  %154 = phi i32 [ %147, %143 ], [ %.pre.i.i64, %150 ]
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit62:  ; preds = %143, %150
+  %154 = phi i32 [ %147, %143 ], [ %.pre.i.i61, %150 ]
   %155 = load ptr, ptr %144, align 8, !tbaa !83
   %156 = zext i32 %154 to i64
   %157 = getelementptr inbounds nuw i32, ptr %155, i64 %156
@@ -2124,19 +2128,19 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65:  ; preds = %143, %150
   %163 = load i32, ptr %162, align 8, !tbaa !79
   %164 = getelementptr inbounds nuw i8, ptr %160, i64 12
   %165 = load i32, ptr %164, align 4, !tbaa !81
-  %.not.i.i.not.i.i66 = icmp ult i32 %163, %165
-  br i1 %.not.i.i.not.i.i66, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68, label %166, !prof !82
+  %.not.i.i.not.i.i63 = icmp ult i32 %163, %165
+  br i1 %.not.i.i.not.i.i63, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65, label %166, !prof !82
 
-166:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65
+166:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit62
   %167 = zext i32 %163 to i64
   %168 = add nuw nsw i64 %167, 1
   %169 = getelementptr inbounds nuw i8, ptr %160, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %160, ptr noundef nonnull %169, i64 noundef %168, i64 noundef 4) #12
-  %.pre.i.i67 = load i32, ptr %162, align 8, !tbaa !79
-  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68
+  %.pre.i.i64 = load i32, ptr %162, align 8, !tbaa !79
+  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65, %166
-  %170 = phi i32 [ %163, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65 ], [ %.pre.i.i67, %166 ]
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit62, %166
+  %170 = phi i32 [ %163, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit62 ], [ %.pre.i.i64, %166 ]
   %171 = load ptr, ptr %160, align 8, !tbaa !83
   %172 = zext i32 %170 to i64
   %173 = getelementptr inbounds nuw i32, ptr %171, i64 %172
@@ -2150,19 +2154,19 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68:  ; preds = %_ZN4llvm16FoldingSe
   %179 = load i32, ptr %178, align 8, !tbaa !79
   %180 = getelementptr inbounds nuw i8, ptr %176, i64 12
   %181 = load i32, ptr %180, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i69 = icmp ult i32 %179, %181
-  br i1 %.not.i.i.not.i.i.i69, label %186, label %182, !prof !82
+  %.not.i.i.not.i.i.i66 = icmp ult i32 %179, %181
+  br i1 %.not.i.i.not.i.i.i66, label %186, label %182, !prof !82
 
-182:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68
+182:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65
   %183 = zext i32 %179 to i64
   %184 = add nuw nsw i64 %183, 1
   %185 = getelementptr inbounds nuw i8, ptr %176, i64 16
   tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %176, ptr noundef nonnull %185, i64 noundef %184, i64 noundef 4) #12
-  %.pre.i.i.i70 = load i32, ptr %178, align 8, !tbaa !79
+  %.pre.i.i.i67 = load i32, ptr %178, align 8, !tbaa !79
   br label %186
 
-186:                                              ; preds = %182, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68
-  %187 = phi i32 [ %179, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68 ], [ %.pre.i.i.i70, %182 ]
+186:                                              ; preds = %182, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65
+  %187 = phi i32 [ %179, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit65 ], [ %.pre.i.i.i67, %182 ]
   %188 = zext i1 %177 to i32
   %189 = load ptr, ptr %176, align 8, !tbaa !83
   %190 = zext i32 %187 to i64
@@ -2171,167 +2175,97 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit68:  ; preds = %_ZN4llvm16FoldingSe
   %192 = load i32, ptr %178, align 8, !tbaa !79
   %193 = add i32 %192, 1
   store i32 %193, ptr %178, align 8, !tbaa !79
-  br label %291
+  br label %248
 
-.thread89:                                        ; preds = %29
+.thread73:                                        ; preds = %29
   %194 = load ptr, ptr %3, align 8, !tbaa !78
-  br label %253
+  br label %210
 
 195:                                              ; preds = %29
   %196 = load ptr, ptr %3, align 8, !tbaa !78
   %197 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %198 = load i32, ptr %197, align 4
   %199 = and i32 %198, 1048575
-  %200 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %201 = load i32, ptr %200, align 8, !tbaa !79
-  %202 = getelementptr inbounds nuw i8, ptr %196, i64 12
-  %203 = load i32, ptr %202, align 4, !tbaa !81
-  %.not.i.i.not.i.i73 = icmp ult i32 %201, %203
-  br i1 %.not.i.i.not.i.i73, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit75, label %204, !prof !82
+  tail call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEj(ptr noundef nonnull align 8 dereferenceable(144) %196, i32 noundef %199)
+  %200 = load ptr, ptr %3, align 8, !tbaa !78
+  %201 = load i32, ptr %197, align 4
+  %202 = lshr i32 %201, 20
+  tail call void @_ZN4llvm16FoldingSetNodeID10AddIntegerEj(ptr noundef nonnull align 8 dereferenceable(144) %200, i32 noundef %202)
+  %203 = load ptr, ptr %3, align 8, !tbaa !78
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %205 = load i8, ptr %204, align 8
+  %206 = and i8 %205, 2
+  %207 = icmp ne i8 %206, 0
+  tail call void @_ZN4llvm16FoldingSetNodeID10AddBooleanEb(ptr noundef nonnull align 8 dereferenceable(144) %203, i1 noundef zeroext %207)
+  br label %248
 
-204:                                              ; preds = %195
-  %205 = zext i32 %201 to i64
-  %206 = add nuw nsw i64 %205, 1
-  %207 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %196, ptr noundef nonnull %207, i64 noundef %206, i64 noundef 4) #12
-  %.pre.i.i74 = load i32, ptr %200, align 8, !tbaa !79
-  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit75
+208:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
+  %209 = load ptr, ptr %3, align 8, !tbaa !78
+  br i1 %5, label %210, label %217
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit75:  ; preds = %195, %204
-  %208 = phi i32 [ %201, %195 ], [ %.pre.i.i74, %204 ]
-  %209 = load ptr, ptr %196, align 8, !tbaa !83
-  %210 = zext i32 %208 to i64
-  %211 = getelementptr inbounds nuw i32, ptr %209, i64 %210
-  store i32 %199, ptr %211, align 1
-  %212 = load i32, ptr %200, align 8, !tbaa !79
-  %213 = add i32 %212, 1
-  store i32 %213, ptr %200, align 8, !tbaa !79
-  %214 = load ptr, ptr %3, align 8, !tbaa !78
-  %215 = load i32, ptr %197, align 4
-  %216 = lshr i32 %215, 20
-  %217 = getelementptr inbounds nuw i8, ptr %214, i64 8
-  %218 = load i32, ptr %217, align 8, !tbaa !79
-  %219 = getelementptr inbounds nuw i8, ptr %214, i64 12
-  %220 = load i32, ptr %219, align 4, !tbaa !81
-  %.not.i.i.not.i.i76 = icmp ult i32 %218, %220
-  br i1 %.not.i.i.not.i.i76, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit78, label %221, !prof !82
+210:                                              ; preds = %.thread73, %208
+  %211 = phi ptr [ %194, %.thread73 ], [ %209, %208 ]
+  %212 = load ptr, ptr %1, align 8, !tbaa !12
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 32
+  %214 = load ptr, ptr %213, align 8
+  %215 = tail call noundef ptr %214(ptr noundef nonnull align 8 dereferenceable(33) %1) #12
+  %216 = ptrtoint ptr %215 to i64
+  br label %217
 
-221:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit75
-  %222 = zext i32 %218 to i64
-  %223 = add nuw nsw i64 %222, 1
-  %224 = getelementptr inbounds nuw i8, ptr %214, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %214, ptr noundef nonnull %224, i64 noundef %223, i64 noundef 4) #12
-  %.pre.i.i77 = load i32, ptr %217, align 8, !tbaa !79
-  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit78
+217:                                              ; preds = %208, %210
+  %218 = phi ptr [ %211, %210 ], [ %209, %208 ]
+  %219 = phi i64 [ %216, %210 ], [ 0, %208 ]
+  %220 = trunc i64 %219 to i32
+  %221 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %222 = load i32, ptr %221, align 8, !tbaa !79
+  %223 = getelementptr inbounds nuw i8, ptr %218, i64 12
+  %224 = load i32, ptr %223, align 4, !tbaa !81
+  %.not.i.i.not.i.i.i.i.i = icmp ult i32 %222, %224
+  br i1 %.not.i.i.not.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, label %225, !prof !82
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit78:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit75, %221
-  %225 = phi i32 [ %218, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit75 ], [ %.pre.i.i77, %221 ]
-  %226 = load ptr, ptr %214, align 8, !tbaa !83
-  %227 = zext i32 %225 to i64
-  %228 = getelementptr inbounds nuw i32, ptr %226, i64 %227
-  store i32 %216, ptr %228, align 1
-  %229 = load i32, ptr %217, align 8, !tbaa !79
-  %230 = add i32 %229, 1
-  store i32 %230, ptr %217, align 8, !tbaa !79
-  %231 = load ptr, ptr %3, align 8, !tbaa !78
-  %232 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %233 = load i8, ptr %232, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  %235 = load i32, ptr %234, align 8, !tbaa !79
-  %236 = getelementptr inbounds nuw i8, ptr %231, i64 12
-  %237 = load i32, ptr %236, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i79 = icmp ult i32 %235, %237
-  br i1 %.not.i.i.not.i.i.i79, label %242, label %238, !prof !82
-
-238:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit78
-  %239 = zext i32 %235 to i64
-  %240 = add nuw nsw i64 %239, 1
-  %241 = getelementptr inbounds nuw i8, ptr %231, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %231, ptr noundef nonnull %241, i64 noundef %240, i64 noundef 4) #12
-  %.pre.i.i.i80 = load i32, ptr %234, align 8, !tbaa !79
-  br label %242
-
-242:                                              ; preds = %238, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit78
-  %243 = phi i32 [ %235, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit78 ], [ %.pre.i.i.i80, %238 ]
-  %244 = lshr i8 %233, 1
-  %.lobit = and i8 %244, 1
-  %245 = zext nneg i8 %.lobit to i32
-  %246 = load ptr, ptr %231, align 8, !tbaa !83
-  %247 = zext i32 %243 to i64
-  %248 = getelementptr inbounds nuw i32, ptr %246, i64 %247
-  store i32 %245, ptr %248, align 1
-  %249 = load i32, ptr %234, align 8, !tbaa !79
-  %250 = add i32 %249, 1
-  store i32 %250, ptr %234, align 8, !tbaa !79
-  br label %291
-
-251:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit
-  %252 = load ptr, ptr %3, align 8, !tbaa !78
-  br i1 %5, label %253, label %260
-
-253:                                              ; preds = %.thread89, %251
-  %254 = phi ptr [ %194, %.thread89 ], [ %252, %251 ]
-  %255 = load ptr, ptr %1, align 8, !tbaa !12
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 32
-  %257 = load ptr, ptr %256, align 8
-  %258 = tail call noundef ptr %257(ptr noundef nonnull align 8 dereferenceable(33) %1) #12
-  %259 = ptrtoint ptr %258 to i64
-  br label %260
-
-260:                                              ; preds = %251, %253
-  %261 = phi ptr [ %254, %253 ], [ %252, %251 ]
-  %262 = phi i64 [ %259, %253 ], [ 0, %251 ]
-  %263 = trunc i64 %262 to i32
-  %264 = getelementptr inbounds nuw i8, ptr %261, i64 8
-  %265 = load i32, ptr %264, align 8, !tbaa !79
-  %266 = getelementptr inbounds nuw i8, ptr %261, i64 12
-  %267 = load i32, ptr %266, align 4, !tbaa !81
-  %.not.i.i.not.i.i.i.i.i = icmp ult i32 %265, %267
-  br i1 %.not.i.i.not.i.i.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, label %268, !prof !82
-
-268:                                              ; preds = %260
-  %269 = zext i32 %265 to i64
-  %270 = add nuw nsw i64 %269, 1
-  %271 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %261, ptr noundef nonnull %271, i64 noundef %270, i64 noundef 4) #12
-  %.pre.i.i.i.i.i = load i32, ptr %264, align 8, !tbaa !79
+225:                                              ; preds = %217
+  %226 = zext i32 %222 to i64
+  %227 = add nuw nsw i64 %226, 1
+  %228 = getelementptr inbounds nuw i8, ptr %218, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %218, ptr noundef nonnull %228, i64 noundef %227, i64 noundef 4) #12
+  %.pre.i.i.i.i.i = load i32, ptr %221, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i
 
-_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %268, %260
-  %272 = phi i32 [ %265, %260 ], [ %.pre.i.i.i.i.i, %268 ]
-  %273 = load ptr, ptr %261, align 8, !tbaa !83
-  %274 = zext i32 %272 to i64
-  %275 = getelementptr inbounds nuw i32, ptr %273, i64 %274
-  store i32 %263, ptr %275, align 1
-  %276 = load i32, ptr %264, align 8, !tbaa !79
-  %277 = add i32 %276, 1
-  store i32 %277, ptr %264, align 8, !tbaa !79
-  %278 = load i32, ptr %266, align 4, !tbaa !81
-  %.not.i.i.not.i.i2.i.i.i = icmp ult i32 %277, %278
-  br i1 %.not.i.i.not.i.i2.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit, label %279, !prof !82
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i: ; preds = %225, %217
+  %229 = phi i32 [ %222, %217 ], [ %.pre.i.i.i.i.i, %225 ]
+  %230 = load ptr, ptr %218, align 8, !tbaa !83
+  %231 = zext i32 %229 to i64
+  %232 = getelementptr inbounds nuw i32, ptr %230, i64 %231
+  store i32 %220, ptr %232, align 1
+  %233 = load i32, ptr %221, align 8, !tbaa !79
+  %234 = add i32 %233, 1
+  store i32 %234, ptr %221, align 8, !tbaa !79
+  %235 = load i32, ptr %223, align 4, !tbaa !81
+  %.not.i.i.not.i.i2.i.i.i = icmp ult i32 %234, %235
+  br i1 %.not.i.i.not.i.i2.i.i.i, label %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit, label %236, !prof !82
 
-279:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i
-  %280 = zext i32 %277 to i64
-  %281 = add nuw nsw i64 %280, 1
-  %282 = getelementptr inbounds nuw i8, ptr %261, i64 16
-  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %261, ptr noundef nonnull %282, i64 noundef %281, i64 noundef 4) #12
-  %.pre.i.i3.i.i.i = load i32, ptr %264, align 8, !tbaa !79
+236:                                              ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i
+  %237 = zext i32 %234 to i64
+  %238 = add nuw nsw i64 %237, 1
+  %239 = getelementptr inbounds nuw i8, ptr %218, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %218, ptr noundef nonnull %239, i64 noundef %238, i64 noundef 4) #12
+  %.pre.i.i3.i.i.i = load i32, ptr %221, align 8, !tbaa !79
   br label %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit
 
-_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, %279
-  %283 = phi i32 [ %277, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i ], [ %.pre.i.i3.i.i.i, %279 ]
-  %284 = lshr i64 %262, 32
-  %285 = trunc nuw i64 %284 to i32
-  %286 = load ptr, ptr %261, align 8, !tbaa !83
-  %287 = zext i32 %283 to i64
-  %288 = getelementptr inbounds nuw i32, ptr %286, i64 %287
-  store i32 %285, ptr %288, align 1
-  %289 = load i32, ptr %264, align 8, !tbaa !79
-  %290 = add i32 %289, 1
-  store i32 %290, ptr %264, align 8, !tbaa !79
-  br label %291
+_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit:  ; preds = %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i, %236
+  %240 = phi i32 [ %234, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i ], [ %.pre.i.i3.i.i.i, %236 ]
+  %241 = lshr i64 %219, 32
+  %242 = trunc nuw i64 %241 to i32
+  %243 = load ptr, ptr %218, align 8, !tbaa !83
+  %244 = zext i32 %240 to i64
+  %245 = getelementptr inbounds nuw i32, ptr %243, i64 %244
+  store i32 %242, ptr %245, align 1
+  %246 = load i32, ptr %221, align 8, !tbaa !79
+  %247 = add i32 %246, 1
+  store i32 %247, ptr %221, align 8, !tbaa !79
+  br label %248
 
-291:                                              ; preds = %242, %186, %136, %81, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit
+248:                                              ; preds = %195, %186, %136, %81, %_ZN4llvm16FoldingSetNodeID10AddPointerEPKv.exit
   ret void
 }
 
@@ -2663,6 +2597,65 @@ declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 declare void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm16FoldingSetNodeID10AddIntegerEj(ptr noundef nonnull align 8 dereferenceable(144) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8, !tbaa !79
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = load i32, ptr %5, align 4, !tbaa !81
+  %.not.i.i.not.i = icmp ult i32 %4, %6
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit, label %7, !prof !82
+
+7:                                                ; preds = %2
+  %8 = zext i32 %4 to i64
+  %9 = add nuw nsw i64 %8, 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %10, i64 noundef %9, i64 noundef 4) #12
+  %.pre.i = load i32, ptr %3, align 8, !tbaa !79
+  br label %_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit
+
+_ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %2, %7
+  %11 = phi i32 [ %4, %2 ], [ %.pre.i, %7 ]
+  %12 = load ptr, ptr %0, align 8, !tbaa !83
+  %13 = zext i32 %11 to i64
+  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  store i32 %1, ptr %14, align 1
+  %15 = load i32, ptr %3, align 8, !tbaa !79
+  %16 = add i32 %15, 1
+  store i32 %16, ptr %3, align 8, !tbaa !79
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN4llvm16FoldingSetNodeID10AddBooleanEb(ptr noundef nonnull align 8 dereferenceable(144) %0, i1 noundef zeroext %1) local_unnamed_addr #0 comdat align 2 {
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load i32, ptr %3, align 8, !tbaa !79
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %6 = load i32, ptr %5, align 4, !tbaa !81
+  %.not.i.i.not.i.i = icmp ult i32 %4, %6
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit, label %7, !prof !82
+
+7:                                                ; preds = %2
+  %8 = zext i32 %4 to i64
+  %9 = add nuw nsw i64 %8, 1
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  tail call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef nonnull %10, i64 noundef %9, i64 noundef 4) #12
+  %.pre.i.i = load i32, ptr %3, align 8, !tbaa !79
+  br label %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit
+
+_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit:    ; preds = %2, %7
+  %11 = phi i32 [ %4, %2 ], [ %.pre.i.i, %7 ]
+  %12 = zext i1 %1 to i32
+  %13 = load ptr, ptr %0, align 8, !tbaa !83
+  %14 = zext i32 %11 to i64
+  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  store i32 %12, ptr %15, align 1
+  %16 = load i32, ptr %3, align 8, !tbaa !79
+  %17 = add i32 %16, 1
+  store i32 %17, ptr %3, align 8, !tbaa !79
+  ret void
+}
 
 declare i64 @_ZNK5clang10ASTContext20getUnconstrainedTypeENS_8QualTypeE(ptr noundef nonnull align 8 dereferenceable(23216), i64) local_unnamed_addr #5
 

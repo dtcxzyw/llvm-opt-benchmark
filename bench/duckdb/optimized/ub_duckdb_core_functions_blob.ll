@@ -1326,8 +1326,8 @@ _ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20Base64En
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %.sroa.0.0.copyload.i.i = load i64, ptr %52, align 8, !tbaa !93
   store i64 %.sroa.0.0.copyload.i.i, ptr %8, align 8
-  %.not66 = icmp eq i64 %.sroa.0.0.copyload.i.i, -1
-  br i1 %.not66, label %.thread63, label %53
+  %.not65 = icmp eq i64 %.sroa.0.0.copyload.i.i, -1
+  br i1 %.not65, label %.thread63, label %53
 
 53:                                               ; preds = %49
   %54 = call noundef i64 @_ZNK6duckdb12optional_idx8GetIndexEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -3691,8 +3691,8 @@ _ZN6duckdb19GenericUnaryWrapper9OperationINS_19UnaryStringOperatorINS_20Base64De
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 56
   %.sroa.0.0.copyload.i.i = load i64, ptr %52, align 8, !tbaa !93
   store i64 %.sroa.0.0.copyload.i.i, ptr %8, align 8
-  %.not66 = icmp eq i64 %.sroa.0.0.copyload.i.i, -1
-  br i1 %.not66, label %.thread63, label %53
+  %.not65 = icmp eq i64 %.sroa.0.0.copyload.i.i, -1
+  br i1 %.not65, label %.thread63, label %53
 
 53:                                               ; preds = %49
   %54 = call noundef i64 @_ZNK6duckdb12optional_idx8GetIndexEv(ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -4884,8 +4884,8 @@ _ZN6duckdb14ConstantVector6IsNullERKNS_6VectorE.exit.thread: ; preds = %10, %_ZN
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %.sroa.0.0.copyload.i.i = load i64, ptr %36, align 8, !tbaa !93
   store i64 %.sroa.0.0.copyload.i.i, ptr %7, align 8
-  %.not66 = icmp eq i64 %.sroa.0.0.copyload.i.i, -1
-  br i1 %.not66, label %.thread63, label %37
+  %.not65 = icmp eq i64 %.sroa.0.0.copyload.i.i, -1
+  br i1 %.not65, label %.thread63, label %37
 
 37:                                               ; preds = %33
   %38 = call noundef i64 @_ZNK6duckdb12optional_idx8GetIndexEv(ptr noundef nonnull align 8 dereferenceable(8) %7)

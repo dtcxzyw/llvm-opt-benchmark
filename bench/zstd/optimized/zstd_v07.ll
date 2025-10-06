@@ -7011,8 +7011,8 @@ define range(i64 -30, 1) i64 @ZSTDv07_decompressBegin_usingDict(ptr noundef capt
   br label %ZSTDv07_decompress_insertDictionary.exit.thread
 
 30:                                               ; preds = %24
-  %.val34.i = load i32, ptr %1, align 1
-  %.not.not.i = icmp eq i32 %.val34.i, -332356553
+  %.val33.i = load i32, ptr %1, align 1
+  %.not.not.i = icmp eq i32 %.val33.i, -332356553
   br i1 %.not.not.i, label %35, label %31
 
 31:                                               ; preds = %30
@@ -7323,8 +7323,8 @@ ZSTDv07_loadEntropy.exit.i:                       ; preds = %147
   %161 = load ptr, ptr %160, align 8, !tbaa !83
   %162 = ptrtoint ptr %158 to i64
   %163 = ptrtoint ptr %161 to i64
-  %.neg.i36.i = sub i64 %163, %162
-  %164 = getelementptr inbounds i8, ptr %157, i64 %.neg.i36.i
+  %.neg.i35.i = sub i64 %163, %162
+  %164 = getelementptr inbounds i8, ptr %157, i64 %.neg.i35.i
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 21536
   store ptr %164, ptr %165, align 8, !tbaa !84
   store ptr %157, ptr %160, align 8, !tbaa !83

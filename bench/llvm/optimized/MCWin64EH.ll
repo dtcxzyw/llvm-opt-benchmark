@@ -4475,9 +4475,8 @@ _ZL12parseRegMaskjRbS_RjRi.exit.i:                ; preds = %287, %279, %269, %2
 408:                                              ; preds = %405, %334
   %.6340.i = phi i32 [ %407, %405 ], [ %.4338595.i, %334 ]
   %.2287.i = phi i1 [ true, %405 ], [ %.0285602.i, %334 ]
-  %409 = add nsw i32 %.3249604.i, -11
-  %or.cond80.i = icmp ult i32 %409, -5
-  br i1 %or.cond80.i, label %_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread387, label %.thread672.i
+  %409 = icmp eq i32 %.3249604.i, 11
+  br i1 %409, label %_ZL18tryARMPackedUnwindRN4llvm10MCStreamerEPNS_5WinEH9FrameInfoEj.exit.thread387, label %.thread672.i
 
 410:                                              ; preds = %400, %396, %370, %356, %352, %350, %349, %344
   %411 = phi i32 [ %.ph.i, %370 ], [ %383, %396 ], [ %.ph.i, %344 ], [ %.ph.i, %350 ], [ %.ph.i, %349 ], [ %.ph.i, %356 ], [ %.ph.i, %400 ], [ %.ph.i, %352 ]
@@ -7056,10 +7055,10 @@ _ZN4llvm16DenseMapIteratorIPNS_8MCSymbolEjNS_12DenseMapInfoIS2_vEENS_6detail12De
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc noundef ptr @_ZL18FindMatchingEpilogRKSt6vectorIN4llvm5WinEH11InstructionESaIS2_EERKS_IPNS0_8MCSymbolESaIS8_EEPKNS1_9FrameInfoE(ptr %.0.val, ptr %.8.val, ptr readonly captures(address) %.0.val1, ptr readnone captures(address) %.8.val3, ptr noundef readonly captures(none) %0) unnamed_addr #11 {
-  %.not1219 = icmp eq ptr %.0.val1, %.8.val3
-  br i1 %.not1219, label %.critedge, label %.lr.ph21
+  %.not1522 = icmp eq ptr %.0.val1, %.8.val3
+  br i1 %.not1522, label %.critedge, label %.lr.ph24
 
-.lr.ph21:                                         ; preds = %1
+.lr.ph24:                                         ; preds = %1
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8, !tbaa !137
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -7074,9 +7073,9 @@ define internal fastcc noundef ptr @_ZL18FindMatchingEpilogRKSt6vectorIN4llvm5Wi
   %13 = ptrtoint ptr %.8.val to i64
   %14 = ptrtoint ptr %.0.val to i64
   %15 = sub i64 %13, %14
-  br i1 %6, label %.lr.ph21.split.us, label %.lr.ph21.split
+  br i1 %6, label %.lr.ph24.split.us, label %.lr.ph24.split
 
-.lr.ph21.split.us:                                ; preds = %.lr.ph21
+.lr.ph24.split.us:                                ; preds = %.lr.ph24
   %.sink7.i.us = load i32, ptr %12, align 8, !tbaa !86
   %16 = zext i32 %.sink7.i.us to i64
   %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %11, i64 %16
@@ -7089,25 +7088,25 @@ define internal fastcc noundef ptr @_ZL18FindMatchingEpilogRKSt6vectorIN4llvm5Wi
   %24 = sub i64 %22, %23
   %25 = sdiv exact i64 %24, 24
   %.not.us = icmp eq i64 %24, %15
-  br i1 %.not.us, label %.lr.ph21.split.us.split.us, label %.critedge
+  br i1 %.not.us, label %.lr.ph24.split.us.split.us, label %.critedge
 
-.lr.ph21.split.us.split.us:                       ; preds = %.lr.ph21.split.us
-  %.not2416.us.not = icmp eq ptr %20, %21
-  br i1 %.not2416.us.not, label %.critedge.sink.split, label %.loopexit.i.i.us.us.us
+.lr.ph24.split.us.split.us:                       ; preds = %.lr.ph24.split.us
+  %.not2419.us.not = icmp eq ptr %20, %21
+  br i1 %.not2419.us.not, label %.critedge.sink.split, label %.loopexit.i.i.us.us.us
 
-.loopexit.i.i.us.us.us:                           ; preds = %.lr.ph21.split.us.split.us, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us
-  %.sroa.06.020.us.us.us = phi ptr [ %48, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us ], [ %.0.val1, %.lr.ph21.split.us.split.us ]
+.loopexit.i.i.us.us.us:                           ; preds = %.lr.ph24.split.us.split.us, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us
+  %.sroa.06.023.us.us.us = phi ptr [ %48, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us ], [ %.0.val1, %.lr.ph24.split.us.split.us ]
   br label %29
 
 26:                                               ; preds = %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.us.us.us
-  %27 = add i32 %.017.us.us.us, 1
+  %27 = add i32 %.020.us.us.us, 1
   %28 = zext i32 %27 to i64
   %.not24.us.us.us = icmp ugt i64 %25, %28
   br i1 %.not24.us.us.us, label %29, label %.critedge.sink.split, !llvm.loop !273
 
 29:                                               ; preds = %.loopexit.i.i.us.us.us, %26
   %30 = phi i64 [ 0, %.loopexit.i.i.us.us.us ], [ %28, %26 ]
-  %.017.us.us.us = phi i32 [ 0, %.loopexit.i.i.us.us.us ], [ %27, %26 ]
+  %.020.us.us.us = phi i32 [ 0, %.loopexit.i.i.us.us.us ], [ %27, %26 ]
   %31 = getelementptr inbounds nuw %"struct.llvm::WinEH::Instruction", ptr %21, i64 %30
   %32 = getelementptr inbounds nuw %"struct.llvm::WinEH::Instruction", ptr %.0.val, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -7130,17 +7129,17 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit.us.us.us: ; preds = %38
   %45 = load i32, ptr %44, align 8, !tbaa !78
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %47 = load i32, ptr %46, align 8, !tbaa !78
-  %.not13.us.us.us = icmp eq i32 %45, %47
-  br i1 %.not13.us.us.us, label %26, label %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us
+  %.not16.us.us.us = icmp eq i32 %45, %47
+  br i1 %.not16.us.us.us, label %26, label %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us
 
 _ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us: ; preds = %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.us.us.us, %38, %29
-  %48 = getelementptr inbounds nuw i8, ptr %.sroa.06.020.us.us.us, i64 8
-  %.not12.us.us.us = icmp eq ptr %48, %.8.val3
-  br i1 %.not12.us.us.us, label %.critedge, label %.loopexit.i.i.us.us.us
+  %48 = getelementptr inbounds nuw i8, ptr %.sroa.06.023.us.us.us, i64 8
+  %.not15.us.us.us = icmp eq ptr %48, %.8.val3
+  br i1 %.not15.us.us.us, label %.critedge, label %.loopexit.i.i.us.us.us
 
-.lr.ph21.split:                                   ; preds = %.lr.ph21, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread
-  %.sroa.06.020 = phi ptr [ %101, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread ], [ %.0.val1, %.lr.ph21 ]
-  %49 = load ptr, ptr %.sroa.06.020, align 8, !tbaa !85
+.lr.ph24.split:                                   ; preds = %.lr.ph24, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread
+  %.sroa.06.023 = phi ptr [ %101, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread ], [ %.0.val1, %.lr.ph24 ]
+  %49 = load ptr, ptr %.sroa.06.023, align 8, !tbaa !85
   %50 = ptrtoint ptr %49 to i64
   %51 = trunc i64 %50 to i32
   %52 = lshr i32 %51, 4
@@ -7153,10 +7152,10 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us: ; preds = %_
   %58 = icmp eq ptr %49, %57
   br i1 %58, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i, label %.lr.ph.i.i.i.i, !prof !142
 
-.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph21.split, %61
-  %59 = phi ptr [ %66, %61 ], [ %57, %.lr.ph21.split ]
-  %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %61 ], [ %.01826.i.i.i.i, %.lr.ph21.split ]
-  %.01627.i.i.i.i = phi i32 [ %62, %61 ], [ 1, %.lr.ph21.split ]
+.lr.ph.i.i.i.i:                                   ; preds = %.lr.ph24.split, %61
+  %59 = phi ptr [ %66, %61 ], [ %57, %.lr.ph24.split ]
+  %.01828.i.i.i.i = phi i32 [ %.018.i.i.i.i, %61 ], [ %.01826.i.i.i.i, %.lr.ph24.split ]
+  %.01627.i.i.i.i = phi i32 [ %62, %61 ], [ 1, %.lr.ph24.split ]
   %60 = icmp eq ptr %59, inttoptr (i64 -4096 to ptr)
   br i1 %60, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i, label %61, !prof !135
 
@@ -7170,8 +7169,8 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us: ; preds = %_
   %67 = icmp eq ptr %49, %66
   br i1 %67, label %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i, label %.lr.ph.i.i.i.i, !prof !143, !llvm.loop !166
 
-_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i: ; preds = %61, %.lr.ph.i.i.i.i, %.lr.ph21.split
-  %.sroa.0.1.i.i = phi ptr [ %56, %.lr.ph21.split ], [ %9, %.lr.ph.i.i.i.i ], [ %65, %61 ]
+_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i: ; preds = %61, %.lr.ph.i.i.i.i, %.lr.ph24.split
+  %.sroa.0.1.i.i = phi ptr [ %56, %.lr.ph24.split ], [ %9, %.lr.ph.i.i.i.i ], [ %65, %61 ]
   %68 = icmp eq ptr %.sroa.0.1.i.i, %9
   %69 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i.i, i64 8
   %.sink7.in.i = select i1 %68, ptr %12, ptr %69
@@ -7190,18 +7189,18 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6
   br i1 %.not, label %.preheader, label %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread
 
 .preheader:                                       ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i
-  %.not2416.not = icmp eq ptr %74, %75
-  br i1 %.not2416.not, label %.critedge, label %.lr.ph
+  %.not2419.not = icmp eq ptr %74, %75
+  br i1 %.not2419.not, label %.critedge, label %.lr.ph
 
 80:                                               ; preds = %_ZNK4llvm5WinEH11InstructionneERKS1_.exit
-  %81 = add i32 %.017, 1
+  %81 = add i32 %.020, 1
   %82 = zext i32 %81 to i64
   %.not24 = icmp ugt i64 %79, %82
   br i1 %.not24, label %.lr.ph, label %.critedge, !llvm.loop !273
 
 .lr.ph:                                           ; preds = %.preheader, %80
   %83 = phi i64 [ %82, %80 ], [ 0, %.preheader ]
-  %.017 = phi i32 [ %81, %80 ], [ 0, %.preheader ]
+  %.020 = phi i32 [ %81, %80 ], [ 0, %.preheader ]
   %84 = getelementptr inbounds nuw %"struct.llvm::WinEH::Instruction", ptr %75, i64 %83
   %85 = getelementptr inbounds nuw %"struct.llvm::WinEH::Instruction", ptr %.0.val, i64 %83
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -7224,22 +7223,22 @@ _ZNK4llvm5WinEH11InstructionneERKS1_.exit:        ; preds = %91
   %98 = load i32, ptr %97, align 8, !tbaa !78
   %99 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %100 = load i32, ptr %99, align 8, !tbaa !78
-  %.not13 = icmp eq i32 %98, %100
-  br i1 %.not13, label %80, label %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread
+  %.not16 = icmp eq i32 %98, %100
+  br i1 %.not16, label %80, label %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread
 
 _ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread: ; preds = %.lr.ph, %91, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit, %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPNS_8MCSymbolEjNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_jEEEES3_jS5_S8_E4findEPKS2_.exit.i
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.06.020, i64 8
-  %.not12 = icmp eq ptr %101, %.8.val3
-  br i1 %.not12, label %.critedge, label %.lr.ph21.split
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.06.023, i64 8
+  %.not15 = icmp eq ptr %101, %.8.val3
+  br i1 %.not15, label %.critedge, label %.lr.ph24.split
 
-.critedge.sink.split:                             ; preds = %26, %.lr.ph21.split.us.split.us
-  %.0.val1.sink = phi ptr [ %.0.val1, %.lr.ph21.split.us.split.us ], [ %.sroa.06.020.us.us.us, %26 ]
+.critedge.sink.split:                             ; preds = %26, %.lr.ph24.split.us.split.us
+  %.0.val1.sink = phi ptr [ %.0.val1, %.lr.ph24.split.us.split.us ], [ %.sroa.06.023.us.us.us, %26 ]
   %102 = load ptr, ptr %.0.val1.sink, align 8, !tbaa !85
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread, %.preheader, %80, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us, %.critedge.sink.split, %.lr.ph21.split.us, %1
-  %spec.select = phi ptr [ null, %1 ], [ null, %.lr.ph21.split.us ], [ %102, %.critedge.sink.split ], [ null, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us ], [ %49, %80 ], [ %49, %.preheader ], [ null, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread ]
-  ret ptr %spec.select
+.critedge:                                        ; preds = %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread, %.preheader, %80, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us, %.critedge.sink.split, %.lr.ph24.split.us, %1
+  %103 = phi ptr [ null, %1 ], [ null, %.lr.ph24.split.us ], [ %102, %.critedge.sink.split ], [ null, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread.loopexit.us.us.us ], [ %49, %80 ], [ %49, %.preheader ], [ null, %_ZNK4llvm5WinEH11InstructionneERKS1_.exit.thread ]
+  ret ptr %103
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)

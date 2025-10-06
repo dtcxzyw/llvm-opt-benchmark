@@ -242,10 +242,10 @@ define hidden void @_ZN7memmap211MmapOptions3map17hbdeef46ea633fd2cE(ptr noalias
   tail call void @llvm.experimental.noalias.scope.decl(metadata !44)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %30 = load i64, ptr %5, align 8, !range !23, !alias.scope !47, !noalias !44, !noundef !10
-  %trunc.i7 = trunc nuw i64 %30 to i1
+  %trunc.i6 = trunc nuw i64 %30 to i1
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !47, !noalias !44, !noundef !10
-  br i1 %trunc.i7, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7be3172de1893867E.llvm.18350385425388418910.exit", label %33
+  br i1 %trunc.i6, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7be3172de1893867E.llvm.18350385425388418910.exit", label %33
 
 33:                                               ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -319,10 +319,10 @@ define hidden void @_ZN7memmap211MmapOptions3map17hc6ccfd0311576e46E(ptr noalias
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62)
   %29 = load i64, ptr %5, align 8, !range !23, !alias.scope !62, !noalias !59, !noundef !10
-  %trunc.i7 = trunc nuw i64 %29 to i1
+  %trunc.i6 = trunc nuw i64 %29 to i1
   %30 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !62, !noalias !59, !noundef !10
-  br i1 %trunc.i7, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h365ad126e415addaE.llvm.18350385425388418910.exit", label %32
+  br i1 %trunc.i6, label %"_ZN4core6result19Result$LT$T$C$E$GT$3map17h365ad126e415addaE.llvm.18350385425388418910.exit", label %32
 
 32:                                               ; preds = %24
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 16

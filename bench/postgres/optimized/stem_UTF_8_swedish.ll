@@ -184,14 +184,14 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = icmp slt i32 %64, %67
-  %.pre89.pre = load i32, ptr %31, align 8
+  %.pre84.pre = load i32, ptr %31, align 8
   br i1 %68, label %94, label %69
 
 69:                                               ; preds = %63
   store i32 %67, ptr %31, align 8
   %70 = add i32 %64, -1
-  %.not.i60 = icmp sgt i32 %70, %67
-  br i1 %.not.i60, label %71, label %.thread59.sink.split.i
+  %.not.i58 = icmp sgt i32 %70, %67
+  br i1 %.not.i58, label %71, label %.thread59.sink.split.i
 
 71:                                               ; preds = %69
   %72 = load ptr, ptr %0, align 8
@@ -199,8 +199,8 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %74 = getelementptr inbounds i8, ptr %72, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
-  %.mask.i61 = and i32 %76, 224
-  %.not52.i = icmp eq i32 %.mask.i61, 96
+  %.mask.i59 = and i32 %76, 224
+  %.not52.i = icmp eq i32 %.mask.i59, 96
   br i1 %.not52.i, label %77, label %.thread59.sink.split.i
 
 77:                                               ; preds = %71
@@ -235,13 +235,13 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   br i1 %93, label %.thread59.sink.split.i, label %128
 
 .thread59.sink.split.i:                           ; preds = %90, %83, %81, %77, %71, %69
-  store i32 %.pre89.pre, ptr %31, align 8
+  store i32 %.pre84.pre, ptr %31, align 8
   %.pre = load i32, ptr %4, align 4
-  %.pre87 = load ptr, ptr %6, align 8
+  %.pre82 = load ptr, ptr %6, align 8
   br label %94
 
 94:                                               ; preds = %.thread59.sink.split.i, %63
-  %95 = phi ptr [ %.pre87, %.thread59.sink.split.i ], [ %65, %63 ]
+  %95 = phi ptr [ %.pre82, %.thread59.sink.split.i ], [ %65, %63 ]
   %96 = phi i32 [ %.pre, %.thread59.sink.split.i ], [ %64, %63 ]
   store i32 %96, ptr %2, align 8
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
@@ -254,8 +254,8 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i32 %96, ptr %101, align 8
   %102 = add i32 %96, -1
-  %.not.i62 = icmp sgt i32 %102, %98
-  br i1 %.not.i62, label %103, label %.thread.sink.split.i
+  %.not.i60 = icmp sgt i32 %102, %98
+  br i1 %.not.i60, label %103, label %.thread.sink.split.i
 
 103:                                              ; preds = %100
   %104 = load ptr, ptr %0, align 8
@@ -263,16 +263,16 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   %106 = getelementptr inbounds i8, ptr %104, i64 %105
   %107 = load i8, ptr %106, align 1
   %108 = zext i8 %107 to i32
-  %.mask.i64 = and i32 %108, 224
-  %.not47.i65 = icmp eq i32 %.mask.i64, 96
-  br i1 %.not47.i65, label %109, label %.thread.sink.split.i
+  %.mask.i62 = and i32 %108, 224
+  %.not47.i63 = icmp eq i32 %.mask.i62, 96
+  br i1 %.not47.i63, label %109, label %.thread.sink.split.i
 
 109:                                              ; preds = %103
   %110 = and i32 %108, 31
   %111 = shl nuw i32 1, %110
   %112 = and i32 %111, 1572992
-  %.not48.i66 = icmp eq i32 %112, 0
-  br i1 %.not48.i66, label %.thread.sink.split.i, label %113
+  %.not48.i64 = icmp eq i32 %112, 0
+  br i1 %.not48.i64, label %.thread.sink.split.i, label %113
 
 113:                                              ; preds = %109
   %114 = tail call i32 @find_among_b(ptr noundef nonnull %0, ptr noundef nonnull @a_2, i32 noundef 5) #2
@@ -305,11 +305,11 @@ r_mark_regions.exit:                              ; preds = %1, %13, %17, %20, %
   br i1 %126, label %.thread.sink.split.i, label %128
 
 .thread.sink.split.i:                             ; preds = %124, %121, %118, %115, %113, %109, %103, %100
-  store i32 %.pre89.pre, ptr %31, align 8
+  store i32 %.pre84.pre, ptr %31, align 8
   br label %127
 
 127:                                              ; preds = %94, %.thread.sink.split.i
-  store i32 %.pre89.pre, ptr %2, align 8
+  store i32 %.pre84.pre, ptr %2, align 8
   br label %128
 
 128:                                              ; preds = %90, %55, %60, %118, %121, %124, %127

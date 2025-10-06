@@ -1395,14 +1395,14 @@ define dso_local i64 @GetAttributeByName(ptr noundef %0, ptr noundef %1, ptr nou
   %20 = tail call ptr @lookup_rowtype_tupdesc(i32 noundef %.val, i32 noundef %.val34) #11
   %21 = load i32, ptr %20, align 8
   %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph, label %.thread40
+  br i1 %22, label %.lr.ph, label %.thread39
 
 23:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %20, align 8
   %25 = sext i32 %24 to i64
   %26 = icmp slt i64 %indvars.iv.next, %25
-  br i1 %26, label %.lr.ph, label %.thread40, !llvm.loop !13
+  br i1 %26, label %.lr.ph, label %.thread39, !llvm.loop !13
 
 .lr.ph:                                           ; preds = %17, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %17 ]
@@ -1421,9 +1421,9 @@ define dso_local i64 @GetAttributeByName(ptr noundef %0, ptr noundef %1, ptr nou
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 74
   %38 = load i16, ptr %37, align 2
   %39 = icmp eq i16 %38, 0
-  br i1 %39, label %.thread40, label %42
+  br i1 %39, label %.thread39, label %42
 
-.thread40:                                        ; preds = %23, %17, %36
+.thread39:                                        ; preds = %23, %17, %36
   %40 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #12
   %41 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.7, ptr noundef nonnull %1) #11
   tail call void @errfinish(ptr noundef nonnull @.str.4, i32 noundef 1091, ptr noundef nonnull @__func__.GetAttributeByName) #11

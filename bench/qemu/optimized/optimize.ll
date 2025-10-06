@@ -452,8 +452,8 @@ reset_ts.exit663:                                 ; preds = %186, %._crit_edge.i
 
 192:                                              ; preds = %.loopexit.i
   %193 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #9
-  %.not10.i.i.i = icmp eq ptr %193, null
-  br i1 %.not10.i.i.i, label %remove_mem_copy_all.exit.i, label %.lr.ph.i.i37.i
+  %.not9.i.i.i = icmp eq ptr %193, null
+  br i1 %.not9.i.i.i, label %remove_mem_copy_all.exit.i, label %.lr.ph.i.i37.i
 
 .lr.ph.i.i37.i:                                   ; preds = %192, %217
   %194 = phi ptr [ %220, %217 ], [ %193, %192 ]
@@ -1423,8 +1423,8 @@ arg_is_const_val.exit63.i:                        ; preds = %arg_is_const_val.ex
   store i64 %489, ptr %483, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, i8 0, i64 72, i1 false)
   %564 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #9
-  %.not10.i.i.i.i = icmp eq ptr %564, null
-  br i1 %.not10.i.i.i.i, label %fold_add.exit, label %.lr.ph.i.i.i.i
+  %.not9.i.i.i.i = icmp eq ptr %564, null
+  br i1 %.not9.i.i.i.i, label %fold_add.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %560, %588
   %565 = phi ptr [ %591, %588 ], [ %564, %560 ]
@@ -3056,8 +3056,8 @@ find_mem_copy_for.exit.i262:                      ; preds = %1387, %.lr.ph.i.i.i
   %1395 = add nsw i64 %1394, -1
   %1396 = add i64 %1395, %1359
   %1397 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef %1359, i64 noundef %1396) #9
-  %.not10.i.i = icmp eq ptr %1397, null
-  br i1 %.not10.i.i, label %remove_mem_copy_in.exit.i, label %.lr.ph.i27.i
+  %.not9.i.i = icmp eq ptr %1397, null
+  br i1 %.not9.i.i, label %remove_mem_copy_in.exit.i, label %.lr.ph.i27.i
 
 .lr.ph.i27.i:                                     ; preds = %.critedge.i, %1421
   %1398 = phi ptr [ %1424, %1421 ], [ %1397, %.critedge.i ]
@@ -4941,18 +4941,18 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
   %.val.val.i.i528 = load i8, ptr %.val.i.i.i.i517, align 8, !range !15, !noundef !16
   %2356 = trunc nuw i8 %.val.val.i.i528 to i1
   %2357 = getelementptr i8, ptr %2342, i64 48
-  %.val.i78.i = load ptr, ptr %2357, align 8
-  %.val.val.i79.i = load i8, ptr %.val.i78.i, align 8, !range !15
+  %.val.i76.i = load ptr, ptr %2357, align 8
+  %.val.val.i77.i = load i8, ptr %.val.i76.i, align 8, !range !15
   br i1 %2356, label %2358, label %.loopexit.i527._crit_edge
 
 2358:                                             ; preds = %.loopexit.i527
-  %2359 = trunc nuw i8 %.val.val.i79.i to i1
+  %2359 = trunc nuw i8 %.val.val.i77.i to i1
   %2360 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i517, i64 40
   %2361 = load i64, ptr %2360, align 8
   br i1 %2359, label %2362, label %._crit_edge744
 
 2362:                                             ; preds = %2358
-  %2363 = getelementptr inbounds nuw i8, ptr %.val.i78.i, i64 40
+  %2363 = getelementptr inbounds nuw i8, ptr %.val.i76.i, i64 40
   %2364 = load i64, ptr %2363, align 8
   %2365 = icmp eq i64 %2361, -1
   %2366 = icmp eq i64 %2364, 0
@@ -5022,13 +5022,13 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
   br label %fold_add.exit
 
 .loopexit.i527._crit_edge:                        ; preds = %.loopexit.i527, %._crit_edge744
-  %2394 = trunc nuw i8 %.val.val.i79.i to i1
-  br i1 %2394, label %2395, label %.thread96.i
+  %2394 = trunc nuw i8 %.val.val.i77.i to i1
+  br i1 %2394, label %2395, label %.thread92.i
 
 2395:                                             ; preds = %.loopexit.i527._crit_edge
-  %2396 = getelementptr inbounds nuw i8, ptr %.val.i78.i, i64 40
+  %2396 = getelementptr inbounds nuw i8, ptr %.val.i76.i, i64 40
   %2397 = load i64, ptr %2396, align 8
-  switch i64 %2397, label %.thread96.i [
+  switch i64 %2397, label %.thread92.i [
     i64 0, label %2398
     i64 -1, label %2402
   ]
@@ -5044,8 +5044,8 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
 2402:                                             ; preds = %2395
   %2403 = load i32, ptr @cpuinfo, align 4
   %2404 = and i32 %2403, 6144
-  %or.cond75.not.i = icmp eq i32 %2404, 6144
-  br i1 %or.cond75.not.i, label %2405, label %.thread96.i
+  %or.cond74.not.i = icmp eq i32 %2404, 6144
+  br i1 %or.cond74.not.i, label %2405, label %.thread92.i
 
 2405:                                             ; preds = %2402
   %2406 = load i32, ptr %.076705, align 8
@@ -5059,7 +5059,7 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
   call fastcc void @fold_orc(ptr noundef nonnull %2, ptr noundef nonnull %.076705)
   br label %fold_add.exit
 
-.thread96.i:                                      ; preds = %2402, %2395, %.loopexit.i527._crit_edge
+.thread92.i:                                      ; preds = %2402, %2395, %.loopexit.i527._crit_edge
   %2411 = load i32, ptr %.076705, align 8
   %2412 = and i32 %2411, 255
   %2413 = zext nneg i32 %2412 to i64
@@ -5069,7 +5069,7 @@ args_are_copies.exit.i537:                        ; preds = %.lr.ph.i.i.i521, %2
   %.not.i.i529 = icmp eq i8 %2416, 0
   br i1 %.not.i.i529, label %fold_add.exit, label %.lr.ph.i.i530
 
-.lr.ph.i.i530:                                    ; preds = %.thread96.i
+.lr.ph.i.i530:                                    ; preds = %.thread92.i
   %wide.trip.count.i.i531 = zext i8 %2416 to i64
   br label %2417
 
@@ -5478,8 +5478,8 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
 2620:                                             ; preds = %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit, %copy_propagate.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, i8 0, i64 72, i1 false)
   %2621 = call ptr @interval_tree_iter_first(ptr noundef nonnull %17, i64 noundef 0, i64 noundef -1) #9
-  %.not10.i.i.i598 = icmp eq ptr %2621, null
-  br i1 %.not10.i.i.i598, label %fold_add.exit, label %.lr.ph.i.i.i599
+  %.not9.i.i.i598 = icmp eq ptr %2621, null
+  br i1 %.not9.i.i.i598, label %fold_add.exit, label %.lr.ph.i.i.i599
 
 .lr.ph.i.i.i599:                                  ; preds = %2620, %2645
   %2622 = phi ptr [ %2648, %2645 ], [ %2621, %2620 ]
@@ -5564,7 +5564,7 @@ fold_xi_to_x.exit.i596:                           ; preds = %arg_is_const_val.ex
   %exitcond.not.i612 = icmp eq i64 %indvars.iv.next.i611, %wide.trip.count.i609
   br i1 %exitcond.not.i612, label %fold_add.exit, label %2657, !llvm.loop !17
 
-fold_add.exit:                                    ; preds = %2645, %2614, %2574, %2417, %2331, %2271, %2136, %2025, %1983, %1714, %1639, %1599, %1295, %1146, %964, %917, %892, %588, %444, %410, %2657, %2620, %560, %2649, %2606, %2604, %fold_xi_to_x.exit.i596, %fold_xx_to_i.exit.i597, %2567, %2549, %fold_xi_to_x.exit.i572, %fold_xx_to_i.exit.i, %fold_const2.exit.i575, %2494, %2490, %fold_affected_mask.exit.thread.i547, %sextract64.exit.i, %.thread96.i, %2405, %2398, %2388, %2384, %2381, %2379, %2367, %args_are_copies.exit.i537, %swap_commutative.exit24.i, %args_are_copies.exit.i516, %swap_commutative.exit.i484, %2241, %arg_is_const_val.exit.thread.i470, %2226, %2218, %2160, %2154, %2149, %2130, %2117, %2099, %2080, %2077, %fold_xi_to_x.exit.i463, %fold_ix_to_i.exit.i, %fold_const2.exit.i467, %finish_folding.exit.sink.split.i444, %.loopexit.i437, %1975, %1859, %fold_xi_to_not.exit.i404, %fold_const2_commutative.exit.i408, %1805, %1803, %fold_const1.exit.thread.i386, %1760, %fold_xi_to_not.exit.i375, %fold_const2_commutative.exit.i379, %1707, %1700, %finish_folding.exit.sink.split.i, %swap_commutative.exit.i._crit_edge.i327.thread, %.thread23.i308, %fold_xi_to_x.exit.i317, %fold_xi_to_i.exit.i, %fold_const2.exit.i318, %1550, %1547, %1475, %args_are_copies.exit.i303, %1434, %1427, %remove_mem_copy_in.exit.i, %1389, %1353, %find_mem_copy_for.exit.thread.i, %1336, %1287, %1241, %1239, %fold_affected_mask.exit.thread.i227, %fold_const1.exit.thread.i228, %1187, %1183, %fold_affected_mask.exit.thread.i216, %fold_const1.exit.thread.i217, %1139, %1135, %1085, %1083, %fold_affected_mask.exit.thread.i, %extract64.exit.i, %swap_commutative.exit.i._crit_edge.i183.thread, %fold_xi_to_not.exit.i, %fold_xi_to_x.exit.i189, %fold_const2_commutative.exit.i192, %args_are_copies.exit.thread.i, %934, %911, %904, %.thread.i, %fold_xi_to_x.exit.i153, %fold_const2.exit.i, %844, %841, %deposit64.exit68.i, %778, %deposit64.exit.i, %.split.i, %.split8.i, %fold_const1.exit.thread.i, %681, %676, %670, %640, %636, %599, %arg_is_const_val.exit.thread.i, %558, %546, %537, %436, %fold_xi_to_x.exit.i117, %swap_commutative.exit.i._crit_edge.i.thread, %fold_xi_to_x.exit.i, %fold_const2_commutative.exit.i, %2619, %2618, %2140, %1987, %fold_qemu_ld_1reg.exit424, %fold_qemu_ld_1reg.exit, %1880, %1879, %1878, %1435, %1344, %fold_tcg_ld.exit, %481, %480, %479, %fold_add2.exit, %fold_call.exit
+fold_add.exit:                                    ; preds = %2645, %2614, %2574, %2417, %2331, %2271, %2136, %2025, %1983, %1714, %1639, %1599, %1295, %1146, %964, %917, %892, %588, %444, %410, %2657, %2620, %560, %2649, %2606, %2604, %fold_xi_to_x.exit.i596, %fold_xx_to_i.exit.i597, %2567, %2549, %fold_xi_to_x.exit.i572, %fold_xx_to_i.exit.i, %fold_const2.exit.i575, %2494, %2490, %fold_affected_mask.exit.thread.i547, %sextract64.exit.i, %.thread92.i, %2405, %2398, %2388, %2384, %2381, %2379, %2367, %args_are_copies.exit.i537, %swap_commutative.exit24.i, %args_are_copies.exit.i516, %swap_commutative.exit.i484, %2241, %arg_is_const_val.exit.thread.i470, %2226, %2218, %2160, %2154, %2149, %2130, %2117, %2099, %2080, %2077, %fold_xi_to_x.exit.i463, %fold_ix_to_i.exit.i, %fold_const2.exit.i467, %finish_folding.exit.sink.split.i444, %.loopexit.i437, %1975, %1859, %fold_xi_to_not.exit.i404, %fold_const2_commutative.exit.i408, %1805, %1803, %fold_const1.exit.thread.i386, %1760, %fold_xi_to_not.exit.i375, %fold_const2_commutative.exit.i379, %1707, %1700, %finish_folding.exit.sink.split.i, %swap_commutative.exit.i._crit_edge.i327.thread, %.thread23.i308, %fold_xi_to_x.exit.i317, %fold_xi_to_i.exit.i, %fold_const2.exit.i318, %1550, %1547, %1475, %args_are_copies.exit.i303, %1434, %1427, %remove_mem_copy_in.exit.i, %1389, %1353, %find_mem_copy_for.exit.thread.i, %1336, %1287, %1241, %1239, %fold_affected_mask.exit.thread.i227, %fold_const1.exit.thread.i228, %1187, %1183, %fold_affected_mask.exit.thread.i216, %fold_const1.exit.thread.i217, %1139, %1135, %1085, %1083, %fold_affected_mask.exit.thread.i, %extract64.exit.i, %swap_commutative.exit.i._crit_edge.i183.thread, %fold_xi_to_not.exit.i, %fold_xi_to_x.exit.i189, %fold_const2_commutative.exit.i192, %args_are_copies.exit.thread.i, %934, %911, %904, %.thread.i, %fold_xi_to_x.exit.i153, %fold_const2.exit.i, %844, %841, %deposit64.exit68.i, %778, %deposit64.exit.i, %.split.i, %.split8.i, %fold_const1.exit.thread.i, %681, %676, %670, %640, %636, %599, %arg_is_const_val.exit.thread.i, %558, %546, %537, %436, %fold_xi_to_x.exit.i117, %swap_commutative.exit.i._crit_edge.i.thread, %fold_xi_to_x.exit.i, %fold_const2_commutative.exit.i, %2619, %2618, %2140, %1987, %fold_qemu_ld_1reg.exit424, %fold_qemu_ld_1reg.exit, %1880, %1879, %1878, %1435, %1344, %fold_tcg_ld.exit, %481, %480, %479, %fold_add2.exit, %fold_call.exit
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.critedge, label %18, !llvm.loop !20
 
@@ -6025,8 +6025,8 @@ define internal fastcc void @fold_brcond(ptr noundef nonnull %0, ptr noundef non
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %19, i8 noundef 0, i64 noundef 64, i1 noundef false) #9
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %20, i64 noundef 0, i64 noundef -1) #9
-  %.not10.i.i.i = icmp eq ptr %21, null
-  br i1 %.not10.i.i.i, label %finish_ebb.exit, label %.lr.ph.i.i.i
+  %.not9.i.i.i = icmp eq ptr %21, null
+  br i1 %.not9.i.i.i, label %finish_ebb.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -6117,8 +6117,8 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %15 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %14, i64 noundef 0, i64 noundef -1) #9
-  %.not10.i.i = icmp eq ptr %15, null
-  br i1 %.not10.i.i, label %remove_mem_copy_in.exit, label %.lr.ph.i.i
+  %.not9.i.i = icmp eq ptr %15, null
+  br i1 %.not9.i.i, label %remove_mem_copy_in.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -6225,8 +6225,8 @@ define internal fastcc void @fold_tcg_st(ptr noundef nonnull %0, ptr noundef non
   %60 = add i64 %.0, %4
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %62 = tail call ptr @interval_tree_iter_first(ptr noundef nonnull %61, i64 noundef %4, i64 noundef %60) #9
-  %.not10.i = icmp eq ptr %62, null
-  br i1 %.not10.i, label %remove_mem_copy_in.exit, label %.lr.ph.i
+  %.not9.i = icmp eq ptr %62, null
+  br i1 %.not9.i, label %remove_mem_copy_in.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 104

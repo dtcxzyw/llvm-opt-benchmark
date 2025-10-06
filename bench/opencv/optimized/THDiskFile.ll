@@ -1488,7 +1488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit112: ; preds = %31
 
 .preheader:                                       ; preds = %36
   %39 = icmp sgt i64 %2, 0
-  br i1 %39, label %.lr.ph150, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
+  br i1 %39, label %.lr.ph149, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 40:                                               ; preds = %36
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1569,14 +1569,14 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121: ; preds = %._crit_edge.us.i11
   br i1 %63, label %.lr.ph, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 .lr.ph:                                           ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121, %.lr.ph
-  %.091145 = phi i64 [ %73, %.lr.ph ], [ %59, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121 ]
-  %73 = add nsw i64 %.091145, -1
+  %.091144 = phi i64 [ %73, %.lr.ph ], [ %59, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121 ]
+  %73 = add nsw i64 %.091144, -1
   %74 = getelementptr inbounds nuw i32, ptr %1, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !19
   %76 = sext i32 %75 to i64
   %77 = getelementptr inbounds nuw i64, ptr %1, i64 %73
   store i64 %76, ptr %77, align 8, !tbaa !33
-  %78 = icmp samesign ugt i64 %.091145, 1
+  %78 = icmp samesign ugt i64 %.091144, 1
   br i1 %78, label %.lr.ph, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, !llvm.loop !34
 
 79:                                               ; preds = %40
@@ -1613,21 +1613,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %84
 89:                                               ; preds = %79
   %90 = tail call i64 @fread(ptr noundef nonnull %81, i64 noundef 8, i64 noundef %2, ptr noundef nonnull %12)
   %91 = icmp sgt i64 %90, 0
-  br i1 %91, label %.lr.ph147, label %._crit_edge
+  br i1 %91, label %.lr.ph146, label %._crit_edge
 
-.lr.ph147:                                        ; preds = %89, %.lr.ph147
-  %.087146 = phi i64 [ %92, %.lr.ph147 ], [ %90, %89 ]
-  %92 = add nsw i64 %.087146, -1
+.lr.ph146:                                        ; preds = %89, %.lr.ph146
+  %.087145 = phi i64 [ %92, %.lr.ph146 ], [ %90, %89 ]
+  %92 = add nsw i64 %.087145, -1
   %.idx = shl nuw nsw i64 %92, 3
   %93 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx
   %94 = load i32, ptr %93, align 4, !tbaa !19
   %95 = sext i32 %94 to i64
   %96 = getelementptr inbounds nuw i64, ptr %1, i64 %92
   store i64 %95, ptr %96, align 8, !tbaa !33
-  %97 = icmp samesign ugt i64 %.087146, 1
-  br i1 %97, label %.lr.ph147, label %._crit_edge, !llvm.loop !35
+  %97 = icmp samesign ugt i64 %.087145, 1
+  br i1 %97, label %.lr.ph146, label %._crit_edge, !llvm.loop !35
 
-._crit_edge:                                      ; preds = %.lr.ph147, %89
+._crit_edge:                                      ; preds = %.lr.ph146, %89
   tail call void @free(ptr noundef nonnull %81) #18
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %99 = load i32, ptr %98, align 8, !tbaa !17
@@ -1659,33 +1659,33 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %84
   %exitcond35.not.i132 = icmp eq i64 %109, %90
   br i1 %exitcond35.not.i132, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %.preheader.us.i125, !llvm.loop !28
 
-.lr.ph150:                                        ; preds = %.preheader, %114
-  %.1149 = phi i64 [ %115, %114 ], [ 0, %.preheader ]
+.lr.ph149:                                        ; preds = %.preheader, %114
+  %.1148 = phi i64 [ %115, %114 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %110 = load ptr, ptr %11, align 8, !tbaa !3
   %111 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %110, ptr noundef nonnull @.str.14, ptr noundef nonnull %9)
   %112 = icmp slt i32 %111, 1
   br i1 %112, label %113, label %114
 
-113:                                              ; preds = %.lr.ph150
+113:                                              ; preds = %.lr.ph149
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-114:                                              ; preds = %.lr.ph150
-  %115 = add nuw nsw i64 %.1149, 1
+114:                                              ; preds = %.lr.ph149
+  %115 = add nuw nsw i64 %.1148, 1
   %116 = load i64, ptr %9, align 8, !tbaa !33
-  %117 = getelementptr inbounds nuw i64, ptr %1, i64 %.1149
+  %117 = getelementptr inbounds nuw i64, ptr %1, i64 %.1148
   store i64 %116, ptr %117, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %exitcond.not = icmp eq i64 %115, %2
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph150, !llvm.loop !36
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph149, !llvm.loop !36
 
 .loopexit:                                        ; preds = %114, %113
-  %.1144 = phi i64 [ %.1149, %113 ], [ %2, %114 ]
+  %.1143 = phi i64 [ %.1148, %113 ], [ %2, %114 ]
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %119 = load i32, ptr %118, align 8, !tbaa !26
-  %.not175 = icmp eq i32 %119, 0
-  br i1 %.not175, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %120
+  %.not174 = icmp eq i32 %119, 0
+  br i1 %.not174, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, label %120
 
 120:                                              ; preds = %.loopexit
   %121 = load ptr, ptr %11, align 8, !tbaa !3
@@ -1701,7 +1701,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %84
   br label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit
 
 _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit:   ; preds = %.lr.ph, %._crit_edge.us.i, %._crit_edge.us.i131, %.preheader, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121, %.loopexit, %120, %120, %123, %._crit_edge, %43
-  %.0 = phi i64 [ %44, %43 ], [ %90, %._crit_edge ], [ %.1144, %123 ], [ %.1144, %120 ], [ %.1144, %120 ], [ %.1144, %.loopexit ], [ %59, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121 ], [ 0, %.preheader ], [ %90, %._crit_edge.us.i131 ], [ %44, %._crit_edge.us.i ], [ %59, %.lr.ph ]
+  %.0 = phi i64 [ %44, %43 ], [ %90, %._crit_edge ], [ %.1143, %123 ], [ %.1143, %120 ], [ %.1143, %120 ], [ %.1143, %.loopexit ], [ %59, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121 ], [ 0, %.preheader ], [ %90, %._crit_edge.us.i131 ], [ %44, %._crit_edge.us.i ], [ %59, %.lr.ph ]
   %.not106 = icmp eq i64 %.0, %2
   br i1 %.not106, label %137, label %126
 

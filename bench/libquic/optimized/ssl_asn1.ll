@@ -444,20 +444,20 @@ define internal fastcc range(i32 0, 2) i32 @SSL_SESSION_to_bytes_full(ptr nounde
 .preheader:                                       ; preds = %214
   %216 = load ptr, ptr %209, align 8, !tbaa !41
   %217 = call i64 @sk_num(ptr noundef %216) #7
-  %.not131 = icmp eq i64 %217, 0
-  br i1 %.not131, label %.thread, label %.lr.ph
+  %.not130 = icmp eq i64 %217, 0
+  br i1 %.not130, label %.thread, label %.lr.ph
 
 218:                                              ; preds = %.lr.ph
-  %219 = add nuw i64 %.0130, 1
+  %219 = add nuw i64 %.0129, 1
   %220 = load ptr, ptr %209, align 8, !tbaa !41
   %221 = call i64 @sk_num(ptr noundef %220) #7
   %222 = icmp ult i64 %219, %221
   br i1 %222, label %.lr.ph, label %.thread, !llvm.loop !42
 
 .lr.ph:                                           ; preds = %.preheader, %218
-  %.0130 = phi i64 [ %219, %218 ], [ 0, %.preheader ]
+  %.0129 = phi i64 [ %219, %218 ], [ 0, %.preheader ]
   %223 = load ptr, ptr %209, align 8, !tbaa !41
-  %224 = call ptr @sk_value(ptr noundef %223, i64 noundef %.0130) #7
+  %224 = call ptr @sk_value(ptr noundef %223, i64 noundef %.0129) #7
   %225 = call fastcc i32 @add_X509(ptr noundef %7, ptr noundef %224)
   %.not125 = icmp eq i32 %225, 0
   br i1 %.not125, label %.loopexit, label %218
@@ -593,7 +593,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   %15 = alloca i32, align 4
   %16 = tail call ptr @SSL_SESSION_new() #7
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %.thread91, label %18
+  br i1 %17, label %.thread89, label %18
 
 18:                                               ; preds = %1
   %19 = call i32 @CBS_get_asn1(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef 48) #7
@@ -615,7 +615,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 27:                                               ; preds = %25, %20, %18
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 520) #7
-  br label %.thread91
+  br label %.thread89
 
 28:                                               ; preds = %25
   %29 = load i64, ptr %4, align 8, !tbaa !44
@@ -627,7 +627,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 31:                                               ; preds = %28
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 234, ptr noundef nonnull @.str, i32 noundef 526) #7
-  br label %.thread91
+  br label %.thread89
 
 32:                                               ; preds = %28, %28
   %33 = trunc i64 %29 to i32
@@ -649,7 +649,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 40:                                               ; preds = %38, %36, %32
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 536) #7
-  br label %.thread91
+  br label %.thread89
 
 41:                                               ; preds = %38
   %42 = load i16, ptr %6, align 2, !tbaa !46
@@ -661,7 +661,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 46:                                               ; preds = %41
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 237, ptr noundef nonnull @.str, i32 noundef 541) #7
-  br label %.thread91
+  br label %.thread89
 
 47:                                               ; preds = %41
   %48 = call i32 @CBS_get_asn1(ptr noundef nonnull %2, ptr noundef nonnull %7, i32 noundef 4) #7
@@ -685,7 +685,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 57:                                               ; preds = %54, %52, %49, %47
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 550) #7
-  br label %.thread91
+  br label %.thread89
 
 58:                                               ; preds = %54
   %59 = getelementptr inbounds nuw i8, ptr %16, i64 68
@@ -718,7 +718,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 77:                                               ; preds = %74, %58
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 560) #7
-  br label %.thread91
+  br label %.thread89
 
 78:                                               ; preds = %74
   %79 = call i32 @CBS_get_optional_asn1(ptr noundef nonnull %2, ptr noundef nonnull %9, ptr noundef nonnull %10, i32 noundef 163) #7
@@ -727,7 +727,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 80:                                               ; preds = %78
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 567) #7
-  br label %.thread91
+  br label %.thread89
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %16, i64 144
@@ -742,7 +742,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   %86 = call fastcc ptr @parse_x509(ptr noundef %9)
   store ptr %86, ptr %82, align 8, !tbaa !27
   %87 = icmp eq ptr %86, null
-  br i1 %87, label %.thread91, label %88
+  br i1 %87, label %.thread89, label %88
 
 88:                                               ; preds = %85
   %89 = call i64 @CBS_len(ptr noundef nonnull %9) #7
@@ -751,45 +751,45 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 90:                                               ; preds = %88
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 578) #7
-  br label %.thread91
+  br label %.thread89
 
 91:                                               ; preds = %88, %81
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %93 = getelementptr inbounds nuw i8, ptr %16, i64 100
   %94 = call fastcc i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef %2, ptr noundef %92, ptr noundef %93, i32 noundef 32, i32 noundef 164)
   %.not64 = icmp eq i32 %94, 0
-  br i1 %.not64, label %.thread91, label %95
+  br i1 %.not64, label %.thread89, label %95
 
 95:                                               ; preds = %91
   %96 = getelementptr inbounds nuw i8, ptr %16, i64 160
   %97 = call fastcc i32 @SSL_SESSION_parse_long(ptr noundef %2, ptr noundef %96, i32 noundef 165, i64 noundef 0)
   %.not65 = icmp eq i32 %97, 0
-  br i1 %.not65, label %.thread91, label %98
+  br i1 %.not65, label %.thread89, label %98
 
 98:                                               ; preds = %95
   %99 = getelementptr inbounds nuw i8, ptr %16, i64 216
   %100 = call fastcc i32 @SSL_SESSION_parse_string(ptr noundef %2, ptr noundef %99, i32 noundef 166)
   %.not66 = icmp eq i32 %100, 0
-  br i1 %.not66, label %.thread91, label %101
+  br i1 %.not66, label %.thread89, label %101
 
 101:                                              ; preds = %98
   %102 = getelementptr inbounds nuw i8, ptr %16, i64 136
   %103 = call fastcc i32 @SSL_SESSION_parse_string(ptr noundef %2, ptr noundef %102, i32 noundef 168)
   %.not67 = icmp eq i32 %103, 0
-  br i1 %.not67, label %.thread91, label %104
+  br i1 %.not67, label %.thread89, label %104
 
 104:                                              ; preds = %101
   %105 = getelementptr inbounds nuw i8, ptr %16, i64 372
   %106 = call fastcc i32 @SSL_SESSION_parse_u32(ptr noundef %2, ptr noundef %105, i32 noundef 169)
   %.not68 = icmp eq i32 %106, 0
-  br i1 %.not68, label %.thread91, label %107
+  br i1 %.not68, label %.thread89, label %107
 
 107:                                              ; preds = %104
   %108 = getelementptr inbounds nuw i8, ptr %16, i64 224
   %109 = getelementptr inbounds nuw i8, ptr %16, i64 232
   %110 = call fastcc i32 @SSL_SESSION_parse_octet_string(ptr noundef %2, ptr noundef %108, ptr noundef %109, i32 noundef 170)
   %.not69 = icmp eq i32 %110, 0
-  br i1 %.not69, label %.thread91, label %111
+  br i1 %.not69, label %.thread89, label %111
 
 111:                                              ; preds = %107
   %112 = call i32 @CBS_peek_asn1_tag(ptr noundef nonnull %2, i32 noundef 173) #7
@@ -834,7 +834,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 605) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %.thread91
+  br label %.thread89
 
 127:                                              ; preds = %111
   %128 = getelementptr inbounds nuw i8, ptr %16, i64 376
@@ -848,21 +848,21 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
   %133 = getelementptr inbounds nuw i8, ptr %16, i64 368
   %134 = call fastcc i32 @SSL_SESSION_parse_bounded_octet_string(ptr noundef %2, ptr noundef %132, ptr noundef %133, i32 noundef 64, i32 noundef 174)
   %.not75 = icmp eq i32 %134, 0
-  br i1 %.not75, label %.thread91, label %135
+  br i1 %.not75, label %.thread89, label %135
 
 135:                                              ; preds = %131
   %136 = getelementptr inbounds nuw i8, ptr %16, i64 248
   %137 = getelementptr inbounds nuw i8, ptr %16, i64 240
   %138 = call fastcc i32 @SSL_SESSION_parse_octet_string(ptr noundef %2, ptr noundef %136, ptr noundef %137, i32 noundef 175)
   %.not76 = icmp eq i32 %138, 0
-  br i1 %.not76, label %.thread91, label %139
+  br i1 %.not76, label %.thread89, label %139
 
 139:                                              ; preds = %135
   %140 = getelementptr inbounds nuw i8, ptr %16, i64 264
   %141 = getelementptr inbounds nuw i8, ptr %16, i64 256
   %142 = call fastcc i32 @SSL_SESSION_parse_octet_string(ptr noundef %2, ptr noundef %140, ptr noundef %141, i32 noundef 176)
   %.not77 = icmp eq i32 %142, 0
-  br i1 %.not77, label %.thread91, label %143
+  br i1 %.not77, label %.thread89, label %143
 
 143:                                              ; preds = %139
   %144 = call i32 @CBS_get_optional_asn1_bool(ptr noundef nonnull %2, ptr noundef nonnull %13, i32 noundef 177, i32 noundef 0) #7
@@ -871,7 +871,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 145:                                              ; preds = %143
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 632) #7
-  br label %.thread91
+  br label %.thread89
 
 146:                                              ; preds = %143
   %147 = load i32, ptr %13, align 4, !tbaa !48
@@ -889,7 +889,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 156:                                              ; preds = %146
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 639) #7
-  br label %.thread91
+  br label %.thread89
 
 157:                                              ; preds = %146
   %158 = call i32 @CBS_get_optional_asn1(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 179) #7
@@ -898,7 +898,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 159:                                              ; preds = %157
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 647) #7
-  br label %.thread91
+  br label %.thread89
 
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %16, i64 152
@@ -917,7 +917,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 167:                                              ; preds = %164
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 655) #7
-  br label %.thread91
+  br label %.thread89
 
 .preheader:                                       ; preds = %164, %172
   %168 = call i64 @CBS_len(ptr noundef nonnull %14) #7
@@ -927,7 +927,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 169:                                              ; preds = %.preheader
   %170 = call fastcc ptr @parse_x509(ptr noundef %14)
   %171 = icmp eq ptr %170, null
-  br i1 %171, label %.thread91, label %172
+  br i1 %171, label %.thread89, label %172
 
 172:                                              ; preds = %169
   %173 = load ptr, ptr %161, align 8, !tbaa !41
@@ -938,7 +938,7 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 175:                                              ; preds = %172
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 664) #7
   call void @X509_free(ptr noundef nonnull %170) #7
-  br label %.thread91
+  br label %.thread89
 
 .loopexit:                                        ; preds = %.preheader, %160
   %176 = call i64 @CBS_len(ptr noundef nonnull %2) #7
@@ -947,14 +947,14 @@ define internal fastcc ptr @SSL_SESSION_parse(ptr noundef nonnull %0) unnamed_ad
 
 177:                                              ; preds = %.loopexit
   call void @ERR_put_error(i32 noundef 16, i32 noundef 0, i32 noundef 160, ptr noundef nonnull @.str, i32 noundef 672) #7
-  br label %.thread91
+  br label %.thread89
 
-.thread91:                                        ; preds = %169, %175, %126, %131, %135, %139, %91, %95, %98, %101, %104, %107, %85, %1, %177, %167, %159, %156, %145, %90, %80, %77, %57, %46, %40, %31, %27
+.thread89:                                        ; preds = %169, %175, %126, %131, %135, %139, %91, %95, %98, %101, %104, %107, %85, %1, %177, %167, %159, %156, %145, %90, %80, %77, %57, %46, %40, %31, %27
   call void @SSL_SESSION_free(ptr noundef %16) #7
   br label %178
 
-178:                                              ; preds = %.loopexit, %.thread91
-  %.0 = phi ptr [ null, %.thread91 ], [ %16, %.loopexit ]
+178:                                              ; preds = %.loopexit, %.thread89
+  %.0 = phi ptr [ null, %.thread89 ], [ %16, %.loopexit ]
   ret ptr %.0
 }
 

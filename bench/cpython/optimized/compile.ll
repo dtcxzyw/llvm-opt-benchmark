@@ -3113,48 +3113,48 @@ define hidden range(i32 -1, 1) i32 @_PyCompile_RevertInlinedComprehensionScopes(
   %25 = load ptr, ptr %6, align 8, !tbaa !28
   %26 = call i32 @PyDict_SetItem(ptr noundef %23, ptr noundef %24, ptr noundef %25) #11
   %.not30 = icmp eq i32 %26, 0
-  br i1 %.not30, label %16, label %Py_DECREF.exit39, !llvm.loop !86
+  br i1 %.not30, label %16, label %Py_DECREF.exit38, !llvm.loop !86
 
 27:                                               ; preds = %16
   %28 = load ptr, ptr %13, align 8, !tbaa !28
   %.not29 = icmp eq ptr %28, null
-  br i1 %.not29, label %Py_DECREF.exit39.thread, label %29
+  br i1 %.not29, label %Py_DECREF.exit38.thread, label %29
 
 29:                                               ; preds = %27
   store ptr null, ptr %13, align 8, !tbaa !28
   %30 = load i32, ptr %28, align 8, !tbaa !4
-  %.not.i38 = icmp sgt i32 %30, -1
-  br i1 %.not.i38, label %31, label %Py_DECREF.exit39.thread
+  %.not.i37 = icmp sgt i32 %30, -1
+  br i1 %.not.i37, label %31, label %Py_DECREF.exit38.thread
 
 31:                                               ; preds = %29
   %32 = add nsw i32 %30, -1
   store i32 %32, ptr %28, align 8, !tbaa !4
   %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %Py_DECREF.exit39.thread
+  br i1 %33, label %34, label %Py_DECREF.exit38.thread
 
 34:                                               ; preds = %31
   call void @_Py_Dealloc(ptr noundef nonnull %28) #11
-  br label %Py_DECREF.exit39.thread
+  br label %Py_DECREF.exit38.thread
 
-Py_DECREF.exit39.thread:                          ; preds = %34, %31, %29, %27
+Py_DECREF.exit38.thread:                          ; preds = %34, %31, %29, %27
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %35
 
-Py_DECREF.exit39:                                 ; preds = %19
+Py_DECREF.exit38:                                 ; preds = %19
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %Py_DECREF.exit
 
-35:                                               ; preds = %Py_DECREF.exit39.thread, %4
+35:                                               ; preds = %Py_DECREF.exit38.thread, %4
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !84
   %.not31 = icmp eq ptr %37, null
   br i1 %.not31, label %Py_DECREF.exit, label %.preheader
 
-.preheader:                                       ; preds = %35, %Py_DECREF.exit37
+.preheader:                                       ; preds = %35, %Py_DECREF.exit36
   %38 = load ptr, ptr %36, align 8, !tbaa !84
   %39 = call i64 @PySet_Size(ptr noundef %38) #11
   %40 = icmp sgt i64 %39, 0
@@ -3173,20 +3173,20 @@ Py_DECREF.exit39:                                 ; preds = %19
   %49 = call i32 @PyDict_SetItem(ptr noundef %48, ptr noundef nonnull %43, ptr noundef nonnull @_Py_FalseStruct) #11
   %.not33 = icmp eq i32 %49, 0
   %50 = load i32, ptr %43, align 8, !tbaa !4
-  %.not.i36 = icmp sgt i32 %50, -1
-  br i1 %.not.i36, label %51, label %Py_DECREF.exit37
+  %.not.i35 = icmp sgt i32 %50, -1
+  br i1 %.not.i35, label %51, label %Py_DECREF.exit36
 
 51:                                               ; preds = %45
   %52 = add nsw i32 %50, -1
   store i32 %52, ptr %43, align 8, !tbaa !4
   %53 = icmp eq i32 %52, 0
-  br i1 %53, label %54, label %Py_DECREF.exit37
+  br i1 %53, label %54, label %Py_DECREF.exit36
 
 54:                                               ; preds = %51
   call void @_Py_Dealloc(ptr noundef nonnull %43) #11
-  br label %Py_DECREF.exit37
+  br label %Py_DECREF.exit36
 
-Py_DECREF.exit37:                                 ; preds = %45, %51, %54
+Py_DECREF.exit36:                                 ; preds = %45, %51, %54
   br i1 %.not33, label %.preheader, label %Py_DECREF.exit
 
 55:                                               ; preds = %.preheader
@@ -3209,8 +3209,8 @@ Py_DECREF.exit37:                                 ; preds = %45, %51, %54
   call void @_Py_Dealloc(ptr noundef nonnull %41) #11
   br label %Py_DECREF.exit
 
-Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit37, %42, %61, %58, %56, %Py_DECREF.exit39, %35, %55
-  %.2 = phi i32 [ -1, %Py_DECREF.exit39 ], [ 0, %55 ], [ 0, %35 ], [ 0, %56 ], [ 0, %58 ], [ 0, %61 ], [ -1, %42 ], [ -1, %Py_DECREF.exit37 ]
+Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit36, %42, %61, %58, %56, %Py_DECREF.exit38, %35, %55
+  %.2 = phi i32 [ -1, %Py_DECREF.exit38 ], [ 0, %55 ], [ 0, %35 ], [ 0, %56 ], [ 0, %58 ], [ 0, %61 ], [ -1, %42 ], [ -1, %Py_DECREF.exit36 ]
   ret i32 %.2
 }
 
@@ -4614,24 +4614,24 @@ Py_XDECREF.exit:                                  ; preds = %36, %39, %42
 49:                                               ; preds = %44
   %50 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %24, ptr noundef nonnull @.str.12, ptr noundef nonnull %47) #11
   %51 = load i32, ptr %47, align 8, !tbaa !4
-  %.not.i.i75 = icmp sgt i32 %51, -1
-  br i1 %.not.i.i75, label %52, label %Py_XDECREF.exit76
+  %.not.i.i73 = icmp sgt i32 %51, -1
+  br i1 %.not.i.i73, label %52, label %Py_XDECREF.exit74
 
 52:                                               ; preds = %49
   %53 = add nsw i32 %51, -1
   store i32 %53, ptr %47, align 8, !tbaa !4
   %54 = icmp eq i32 %53, 0
-  br i1 %54, label %55, label %Py_XDECREF.exit76
+  br i1 %54, label %55, label %Py_XDECREF.exit74
 
 55:                                               ; preds = %52
   tail call void @_Py_Dealloc(ptr noundef nonnull %47) #11
-  br label %Py_XDECREF.exit76
+  br label %Py_XDECREF.exit74
 
-Py_XDECREF.exit76:                                ; preds = %49, %52, %55
+Py_XDECREF.exit74:                                ; preds = %49, %52, %55
   %56 = icmp slt i32 %50, 0
   br i1 %56, label %.thread, label %57
 
-57:                                               ; preds = %Py_XDECREF.exit76
+57:                                               ; preds = %Py_XDECREF.exit74
   %58 = getelementptr inbounds nuw i8, ptr %31, i64 976
   %59 = load i64, ptr %58, align 8, !tbaa !115
   %60 = tail call ptr @PyLong_FromLong(i64 noundef %59) #11
@@ -4641,24 +4641,24 @@ Py_XDECREF.exit76:                                ; preds = %49, %52, %55
 62:                                               ; preds = %57
   %63 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %24, ptr noundef nonnull @.str.13, ptr noundef nonnull %60) #11
   %64 = load i32, ptr %60, align 8, !tbaa !4
-  %.not.i.i78 = icmp sgt i32 %64, -1
-  br i1 %.not.i.i78, label %65, label %Py_XDECREF.exit79
+  %.not.i.i76 = icmp sgt i32 %64, -1
+  br i1 %.not.i.i76, label %65, label %Py_XDECREF.exit77
 
 65:                                               ; preds = %62
   %66 = add nsw i32 %64, -1
   store i32 %66, ptr %60, align 8, !tbaa !4
   %67 = icmp eq i32 %66, 0
-  br i1 %67, label %68, label %Py_XDECREF.exit79
+  br i1 %67, label %68, label %Py_XDECREF.exit77
 
 68:                                               ; preds = %65
   tail call void @_Py_Dealloc(ptr noundef nonnull %60) #11
-  br label %Py_XDECREF.exit79
+  br label %Py_XDECREF.exit77
 
-Py_XDECREF.exit79:                                ; preds = %62, %65, %68
+Py_XDECREF.exit77:                                ; preds = %62, %65, %68
   %69 = icmp slt i32 %63, 0
   br i1 %69, label %.thread, label %70
 
-70:                                               ; preds = %Py_XDECREF.exit79
+70:                                               ; preds = %Py_XDECREF.exit77
   %71 = load i32, ptr %13, align 8, !tbaa !97
   %72 = icmp ne i32 %71, 3
   %73 = zext i1 %72 to i32
@@ -4681,30 +4681,30 @@ Py_XDECREF.exit79:                                ; preds = %62, %65, %68
   %86 = tail call ptr (i64, ...) @PyTuple_Pack(i64 noundef 2, ptr noundef %85, ptr noundef nonnull %24) #11
   br label %.thread
 
-.thread:                                          ; preds = %Py_XDECREF.exit79, %57, %Py_XDECREF.exit76, %44, %Py_XDECREF.exit, %29, %82, %26, %70
-  %.052 = phi ptr [ null, %26 ], [ null, %70 ], [ %86, %82 ], [ null, %29 ], [ null, %Py_XDECREF.exit ], [ null, %44 ], [ null, %Py_XDECREF.exit76 ], [ null, %57 ], [ null, %Py_XDECREF.exit79 ]
+.thread:                                          ; preds = %Py_XDECREF.exit77, %57, %Py_XDECREF.exit74, %44, %Py_XDECREF.exit, %29, %82, %26, %70
+  %.052 = phi ptr [ null, %26 ], [ null, %70 ], [ %86, %82 ], [ null, %29 ], [ null, %Py_XDECREF.exit ], [ null, %44 ], [ null, %Py_XDECREF.exit74 ], [ null, %57 ], [ null, %Py_XDECREF.exit77 ]
   %87 = load i32, ptr %24, align 8, !tbaa !4
-  %.not.i.i81 = icmp sgt i32 %87, -1
-  br i1 %.not.i.i81, label %88, label %Py_XDECREF.exit82
+  %.not.i.i79 = icmp sgt i32 %87, -1
+  br i1 %.not.i.i79, label %88, label %Py_XDECREF.exit80
 
 88:                                               ; preds = %.thread
   %89 = add nsw i32 %87, -1
   store i32 %89, ptr %24, align 8, !tbaa !4
   %90 = icmp eq i32 %89, 0
-  br i1 %90, label %91, label %Py_XDECREF.exit82
+  br i1 %90, label %91, label %Py_XDECREF.exit80
 
 91:                                               ; preds = %88
   tail call void @_Py_Dealloc(ptr noundef nonnull %24) #11
-  br label %Py_XDECREF.exit82
+  br label %Py_XDECREF.exit80
 
-Py_XDECREF.exit82:                                ; preds = %.thread, %88, %91
+Py_XDECREF.exit80:                                ; preds = %.thread, %88, %91
   tail call void @_PyCompile_ExitScope(ptr noundef nonnull %19)
   tail call fastcc void @compiler_free(ptr noundef %19)
   tail call void @_PyArena_Free(ptr noundef nonnull %10) #11
   br label %92
 
-92:                                               ; preds = %9, %21, %Py_XDECREF.exit82, %22, %76, %17, %7
-  %.0 = phi ptr [ null, %7 ], [ null, %9 ], [ null, %17 ], [ null, %21 ], [ %.052, %Py_XDECREF.exit82 ], [ null, %22 ], [ null, %76 ]
+92:                                               ; preds = %9, %21, %Py_XDECREF.exit80, %22, %76, %17, %7
+  %.0 = phi ptr [ null, %7 ], [ null, %9 ], [ null, %17 ], [ null, %21 ], [ %.052, %Py_XDECREF.exit80 ], [ null, %22 ], [ null, %76 ]
   ret ptr %.0
 }
 

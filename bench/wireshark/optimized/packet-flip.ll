@@ -194,19 +194,19 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not39.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %66
-  %.1131.us = phi i32 [ %56, %66 ], [ 8, %.lr.ph ]
-  %.0105129.us = phi i32 [ %67, %66 ], [ %46, %.lr.ph ]
-  %53 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %.1131.us)
+  %.1130.us = phi i32 [ %56, %66 ], [ 8, %.lr.ph ]
+  %.0105128.us = phi i32 [ %67, %66 ], [ %46, %.lr.ph ]
+  %53 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %.1130.us)
   %cond.us = icmp eq i8 %53, 1
   br i1 %cond.us, label %._crit_edge.i.us, label %.thread
 
 ._crit_edge.i.us:                                 ; preds = %.lr.ph.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %54 = or disjoint i32 %.1131.us, 2
+  %54 = or disjoint i32 %.1130.us, 2
   store i32 %54, ptr %50, align 8
   %55 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef 0, i32 noundef %54)
   store ptr %55, ptr %5, align 16
-  %56 = add i32 %.1131.us, 4
+  %56 = add i32 %.1130.us, 4
   %57 = sub i32 %14, %56
   store i32 %57, ptr %52, align 8
   %58 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef %56, i32 noundef %57)
@@ -215,7 +215,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %trunc.us = trunc i32 %59 to i16
   %rev.us = call i16 @llvm.bswap.i16(i16 %trunc.us)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %60 = call ptr @tvb_new_subset_length(ptr noundef %19, i32 noundef %.1131.us, i32 noundef 4)
+  %60 = call ptr @tvb_new_subset_length(ptr noundef %19, i32 noundef %.1130.us, i32 noundef 4)
   %61 = call i32 @tvb_get_ntohl(ptr noundef %60, i32 noundef 0)
   %62 = and i32 %61, 65536
   %63 = icmp ne i32 %62, 0
@@ -230,7 +230,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %66
 
 66:                                               ; preds = %64, %._crit_edge.i.us
-  %67 = add nsw i32 %.0105129.us, -4
+  %67 = add nsw i32 %.0105128.us, -4
   %68 = icmp samesign ugt i32 %67, 3
   %69 = select i1 %63, i1 %68, i1 false
   br i1 %69, label %.lr.ph.split.us, label %._crit_edge
@@ -241,19 +241,19 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %117
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %104
-  %.1131 = phi i32 [ %76, %104 ], [ 8, %.lr.ph ]
-  %.0105129 = phi i32 [ %105, %104 ], [ %46, %.lr.ph ]
-  %72 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %.1131)
+  %.1130 = phi i32 [ %76, %104 ], [ 8, %.lr.ph ]
+  %.0105128 = phi i32 [ %105, %104 ], [ %46, %.lr.ph ]
+  %72 = call zeroext i8 @tvb_get_uint8(ptr noundef %19, i32 noundef %.1130)
   %cond = icmp eq i8 %72, 1
   br i1 %cond, label %73, label %.thread
 
 73:                                               ; preds = %.lr.ph.split
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %74 = or disjoint i32 %.1131, 2
+  %74 = or disjoint i32 %.1130, 2
   store i32 %74, ptr %50, align 8
   %75 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef 0, i32 noundef %74)
   store ptr %75, ptr %5, align 16
-  %76 = add i32 %.1131, 4
+  %76 = add i32 %.1130, 4
   %77 = sub i32 %14, %76
   store i32 %77, ptr %52, align 8
   %78 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef %76, i32 noundef %77)
@@ -262,7 +262,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %trunc = trunc i32 %79 to i16
   %rev = call i16 @llvm.bswap.i16(i16 %trunc)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %80 = call ptr @tvb_new_subset_length(ptr noundef %19, i32 noundef %.1131, i32 noundef 4)
+  %80 = call ptr @tvb_new_subset_length(ptr noundef %19, i32 noundef %.1130, i32 noundef 4)
   %81 = call i32 @tvb_get_ntohl(ptr noundef %80, i32 noundef 0)
   %82 = and i32 %81, 65536
   %83 = icmp ne i32 %82, 0
@@ -291,14 +291,14 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 .thread:                                          ; preds = %.lr.ph.split, %.lr.ph.split.us
   %.us-phi = phi i8 [ %53, %.lr.ph.split.us ], [ %72, %.lr.ph.split ]
-  %.us-phi134 = phi i32 [ %.1131.us, %.lr.ph.split.us ], [ %.1131, %.lr.ph.split ]
+  %.us-phi133 = phi i32 [ %.1130.us, %.lr.ph.split.us ], [ %.1130, %.lr.ph.split ]
   %102 = zext i8 %.us-phi to i32
   %103 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %103, i32 noundef 25, ptr noundef nonnull @.str.43, i32 noundef %102)
   br label %117
 
 104:                                              ; preds = %100, %73
-  %105 = add nsw i32 %.0105129, -4
+  %105 = add nsw i32 %.0105128, -4
   %106 = icmp samesign ugt i32 %105, 3
   %107 = select i1 %83, i1 %106, i1 false
   br i1 %107, label %.lr.ph.split, label %._crit_edge
@@ -326,7 +326,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br label %117
 
 117:                                              ; preds = %.thread, %70, %42, %43, %40, %115, %._crit_edge, %4
-  %.098 = phi i32 [ 0, %4 ], [ 8, %40 ], [ 8, %43 ], [ 8, %42 ], [ 8, %70 ], [ %116, %115 ], [ %.0103.lcssa, %._crit_edge ], [ %.us-phi134, %.thread ]
+  %.098 = phi i32 [ 0, %4 ], [ 8, %40 ], [ 8, %43 ], [ 8, %42 ], [ 8, %70 ], [ %116, %115 ], [ %.0103.lcssa, %._crit_edge ], [ %.us-phi133, %.thread ]
   ret i32 %.098
 }
 

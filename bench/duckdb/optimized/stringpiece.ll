@@ -261,12 +261,12 @@ define hidden noundef i64 @_ZNK10duckdb_re211StringPiece5rfindEcm(ptr noundef no
 
 7:                                                ; preds = %3
   %8 = add i64 %2, 1
-  %spec.select10 = tail call i64 @llvm.umin.i64(i64 %5, i64 %8)
+  %spec.select = tail call i64 @llvm.umin.i64(i64 %5, i64 %8)
   %9 = load ptr, ptr %0, align 8
   br label %select.unfold
 
 select.unfold:                                    ; preds = %7, %10
-  %.07 = phi i64 [ %11, %10 ], [ %spec.select10, %7 ]
+  %.07 = phi i64 [ %11, %10 ], [ %spec.select, %7 ]
   %.not = icmp eq i64 %.07, 0
   br i1 %.not, label %.loopexit, label %10
 
@@ -277,8 +277,8 @@ select.unfold:                                    ; preds = %7, %10
   %14 = icmp eq i8 %13, %1
   br i1 %14, label %.loopexit, label %select.unfold, !llvm.loop !16
 
-.loopexit:                                        ; preds = %select.unfold, %10, %3
-  %.08 = phi i64 [ -1, %3 ], [ %11, %10 ], [ -1, %select.unfold ]
+.loopexit:                                        ; preds = %10, %select.unfold, %3
+  %.08 = phi i64 [ -1, %3 ], [ -1, %select.unfold ], [ %11, %10 ]
   ret i64 %.08
 }
 

@@ -2680,33 +2680,33 @@ _ZN2cv8tinyxml27XMLNode6UnlinkEPS1_.exit:         ; preds = %73, %._crit_edge.i,
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.01329 = load ptr, ptr %3, align 8, !tbaa !48
-  %.not30 = icmp eq ptr %.01329, null
-  br i1 %.not30, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %.lr.ph
+  %.01333 = load ptr, ptr %3, align 8, !tbaa !48
+  %.not34 = icmp eq ptr %.01333, null
+  br i1 %.not34, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.not17 = icmp eq ptr %1, null
   br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %7
-  %.01331.us = phi ptr [ %.013.us, %7 ], [ %.01329, %.lr.ph ]
-  %4 = load ptr, ptr %.01331.us, align 8, !tbaa !39
+  %.01335.us = phi ptr [ %.013.us, %7 ], [ %.01333, %.lr.ph ]
+  %4 = load ptr, ptr %.01335.us, align 8, !tbaa !39
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(88) %.01331.us)
+  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(88) %.01335.us)
   %.not16.us = icmp eq ptr %6, null
   br i1 %.not16.us, label %7, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit
 
 7:                                                ; preds = %.lr.ph.split.us
-  %8 = getelementptr inbounds nuw i8, ptr %.01331.us, i64 72
+  %8 = getelementptr inbounds nuw i8, ptr %.01335.us, i64 72
   %.013.us = load ptr, ptr %8, align 8, !tbaa !48
   %.not.us = icmp eq ptr %.013.us, null
   br i1 %.not.us, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %.lr.ph.split.us, !llvm.loop !102
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %30
-  %.01331 = phi ptr [ %.013, %30 ], [ %.01329, %.lr.ph ]
-  %9 = load ptr, ptr %.01331, align 8, !tbaa !39
+  %.01335 = phi ptr [ %.013, %30 ], [ %.01333, %.lr.ph ]
+  %9 = load ptr, ptr %.01335, align 8, !tbaa !39
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(88) %.01331)
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(88) %.01335)
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %30, label %12
 
@@ -2755,46 +2755,46 @@ define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode17FirstChildElementEPKc(ptr n
   br i1 %29, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %30
 
 30:                                               ; preds = %.critedge.i.thread, %.critedge.thread.i, %.lr.ph.split
-  %31 = getelementptr inbounds nuw i8, ptr %.01331, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %.01335, i64 72
   %.013 = load ptr, ptr %31, align 8, !tbaa !48
   %.not = icmp eq ptr %.013, null
   br i1 %.not, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %.lr.ph.split, !llvm.loop !102
 
 _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %30, %12, %.critedge.i.thread, %.critedge.i, %.critedge.thread.i, %7, %.lr.ph.split.us, %2
-  %spec.select = phi ptr [ null, %2 ], [ %6, %.lr.ph.split.us ], [ null, %7 ], [ %11, %.critedge.thread.i ], [ %11, %.critedge.i ], [ %11, %.critedge.i.thread ], [ %11, %12 ], [ null, %30 ]
-  ret ptr %spec.select
+  %32 = phi ptr [ null, %2 ], [ %6, %.lr.ph.split.us ], [ null, %7 ], [ %11, %.critedge.thread.i ], [ %11, %.critedge.i ], [ %11, %.critedge.i.thread ], [ %11, %12 ], [ null, %30 ]
+  ret ptr %32
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode16LastChildElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %.01329 = load ptr, ptr %3, align 8, !tbaa !48
-  %.not30 = icmp eq ptr %.01329, null
-  br i1 %.not30, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %.lr.ph
+  %.01333 = load ptr, ptr %3, align 8, !tbaa !48
+  %.not34 = icmp eq ptr %.01333, null
+  br i1 %.not34, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.not17 = icmp eq ptr %1, null
   br i1 %.not17, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %7
-  %.01331.us = phi ptr [ %.013.us, %7 ], [ %.01329, %.lr.ph ]
-  %4 = load ptr, ptr %.01331.us, align 8, !tbaa !39
+  %.01335.us = phi ptr [ %.013.us, %7 ], [ %.01333, %.lr.ph ]
+  %4 = load ptr, ptr %.01335.us, align 8, !tbaa !39
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(88) %.01331.us)
+  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(88) %.01335.us)
   %.not16.us = icmp eq ptr %6, null
   br i1 %.not16.us, label %7, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit
 
 7:                                                ; preds = %.lr.ph.split.us
-  %8 = getelementptr inbounds nuw i8, ptr %.01331.us, i64 64
+  %8 = getelementptr inbounds nuw i8, ptr %.01335.us, i64 64
   %.013.us = load ptr, ptr %8, align 8, !tbaa !48
   %.not.us = icmp eq ptr %.013.us, null
   br i1 %.not.us, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %.lr.ph.split.us, !llvm.loop !103
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %30
-  %.01331 = phi ptr [ %.013, %30 ], [ %.01329, %.lr.ph ]
-  %9 = load ptr, ptr %.01331, align 8, !tbaa !39
+  %.01335 = phi ptr [ %.013, %30 ], [ %.01333, %.lr.ph ]
+  %9 = load ptr, ptr %.01335, align 8, !tbaa !39
   %10 = load ptr, ptr %9, align 8
-  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(88) %.01331)
+  %11 = tail call noundef ptr %10(ptr noundef nonnull align 8 dereferenceable(88) %.01335)
   %.not16 = icmp eq ptr %11, null
   br i1 %.not16, label %30, label %12
 
@@ -2843,51 +2843,51 @@ define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode16LastChildElementEPKc(ptr no
   br i1 %29, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %30
 
 30:                                               ; preds = %.critedge.i.thread, %.critedge.thread.i, %.lr.ph.split
-  %31 = getelementptr inbounds nuw i8, ptr %.01331, i64 64
+  %31 = getelementptr inbounds nuw i8, ptr %.01335, i64 64
   %.013 = load ptr, ptr %31, align 8, !tbaa !48
   %.not = icmp eq ptr %.013, null
   br i1 %.not, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %.lr.ph.split, !llvm.loop !103
 
 _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %30, %12, %.critedge.i.thread, %.critedge.i, %.critedge.thread.i, %7, %.lr.ph.split.us, %2
-  %spec.select = phi ptr [ null, %2 ], [ %6, %.lr.ph.split.us ], [ null, %7 ], [ %11, %.critedge.thread.i ], [ %11, %.critedge.i ], [ %11, %.critedge.i.thread ], [ %11, %12 ], [ null, %30 ]
-  ret ptr %spec.select
+  %32 = phi ptr [ null, %2 ], [ %6, %.lr.ph.split.us ], [ null, %7 ], [ %11, %.critedge.thread.i ], [ %11, %.critedge.i ], [ %11, %.critedge.i.thread ], [ %11, %12 ], [ null, %30 ]
+  ret ptr %32
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode18NextSiblingElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
-  %.09.in21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %.0922 = load ptr, ptr %.09.in21, align 8, !tbaa !98
-  %.not23 = icmp eq ptr %.0922, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph
+  %.09.in23 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %.0924 = load ptr, ptr %.09.in23, align 8, !tbaa !98
+  %.not25 = icmp eq ptr %.0924, null
+  br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.not13 = icmp eq ptr %1, null
   br i1 %.not13, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us
-  %.0924.us = phi ptr [ %.09.us, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us ], [ %.0922, %.lr.ph ]
-  %3 = load ptr, ptr %.0924.us, align 8, !tbaa !39
+  %.0926.us = phi ptr [ %.09.us, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us ], [ %.0924, %.lr.ph ]
+  %3 = load ptr, ptr %.0926.us, align 8, !tbaa !39
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(88) %.0924.us)
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(88) %.0926.us)
   %.not12.us = icmp eq ptr %5, null
   br i1 %.not12.us, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread
 
 _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us: ; preds = %.lr.ph.split.us
-  %.09.in.us = getelementptr inbounds nuw i8, ptr %.0924.us, i64 72
+  %.09.in.us = getelementptr inbounds nuw i8, ptr %.0926.us, i64 72
   %.09.us = load ptr, ptr %.09.in.us, align 8, !tbaa !98
   %.not.us = icmp eq ptr %.09.us, null
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !104
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit
-  %.0924 = phi ptr [ %.09, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit ], [ %.0922, %.lr.ph ]
-  %6 = load ptr, ptr %.0924, align 8, !tbaa !39
+  %.0926 = phi ptr [ %.09, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit ], [ %.0924, %.lr.ph ]
+  %6 = load ptr, ptr %.0926, align 8, !tbaa !39
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(88) %.0924)
+  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(88) %.0926)
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %9
 
 9:                                                ; preds = %.lr.ph.split
-  %10 = getelementptr inbounds nuw i8, ptr %.0924, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.0926, i64 24
   %11 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
   %12 = icmp eq ptr %1, %11
   br i1 %12, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread, label %.preheader.i
@@ -2930,59 +2930,59 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us: ; preds = %.lr.ph.split.us
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit
 
+_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread, %.critedge.thread.i, %.lr.ph.split
+  %.09.in = getelementptr inbounds nuw i8, ptr %.0926, i64 72
+  %.09 = load ptr, ptr %.09.in, align 8, !tbaa !98
+  %.not = icmp eq ptr %.09, null
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !104
+
 _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread: ; preds = %9, %.critedge.i.thread, %.critedge.i, %.critedge.thread.i, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %.0924.us, %.lr.ph.split.us ], [ %.0924, %.critedge.thread.i ], [ %.0924, %.critedge.i ], [ %.0924, %.critedge.i.thread ], [ %.0924, %9 ]
+  %.us-phi = phi ptr [ %.0926.us, %.lr.ph.split.us ], [ %.0926, %.critedge.thread.i ], [ %.0926, %.critedge.i ], [ %.0926, %.critedge.i.thread ], [ %.0926, %9 ]
   %27 = load ptr, ptr %.us-phi, align 8, !tbaa !39
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(88) %.us-phi)
   br label %.loopexit
 
-_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread, %.critedge.thread.i, %.lr.ph.split
-  %.09.in = getelementptr inbounds nuw i8, ptr %.0924, i64 72
-  %.09 = load ptr, ptr %.09.in, align 8, !tbaa !98
-  %.not = icmp eq ptr %.09, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !104
-
 .loopexit:                                        ; preds = %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us, %2, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread
-  %spec.select = phi ptr [ %29, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread ], [ null, %2 ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit ]
-  ret ptr %spec.select
+  %30 = phi ptr [ %29, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread ], [ null, %2 ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit ]
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef ptr @_ZNK2cv8tinyxml27XMLNode22PreviousSiblingElementEPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 align 2 {
-  %.09.in21 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %.0922 = load ptr, ptr %.09.in21, align 8, !tbaa !100
-  %.not23 = icmp eq ptr %.0922, null
-  br i1 %.not23, label %.loopexit, label %.lr.ph
+  %.09.in23 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %.0924 = load ptr, ptr %.09.in23, align 8, !tbaa !100
+  %.not25 = icmp eq ptr %.0924, null
+  br i1 %.not25, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.not13 = icmp eq ptr %1, null
   br i1 %.not13, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us
-  %.0924.us = phi ptr [ %.09.us, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us ], [ %.0922, %.lr.ph ]
-  %3 = load ptr, ptr %.0924.us, align 8, !tbaa !39
+  %.0926.us = phi ptr [ %.09.us, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us ], [ %.0924, %.lr.ph ]
+  %3 = load ptr, ptr %.0926.us, align 8, !tbaa !39
   %4 = load ptr, ptr %3, align 8
-  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(88) %.0924.us)
+  %5 = tail call noundef ptr %4(ptr noundef nonnull align 8 dereferenceable(88) %.0926.us)
   %.not12.us = icmp eq ptr %5, null
   br i1 %.not12.us, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread
 
 _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us: ; preds = %.lr.ph.split.us
-  %.09.in.us = getelementptr inbounds nuw i8, ptr %.0924.us, i64 64
+  %.09.in.us = getelementptr inbounds nuw i8, ptr %.0926.us, i64 64
   %.09.us = load ptr, ptr %.09.in.us, align 8, !tbaa !100
   %.not.us = icmp eq ptr %.09.us, null
   br i1 %.not.us, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !105
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit
-  %.0924 = phi ptr [ %.09, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit ], [ %.0922, %.lr.ph ]
-  %6 = load ptr, ptr %.0924, align 8, !tbaa !39
+  %.0926 = phi ptr [ %.09, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit ], [ %.0924, %.lr.ph ]
+  %6 = load ptr, ptr %.0926, align 8, !tbaa !39
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(88) %.0924)
+  %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(88) %.0926)
   %.not12 = icmp eq ptr %8, null
   br i1 %.not12, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, label %9
 
 9:                                                ; preds = %.lr.ph.split
-  %10 = getelementptr inbounds nuw i8, ptr %.0924, i64 24
+  %10 = getelementptr inbounds nuw i8, ptr %.0926, i64 24
   %11 = tail call noundef ptr @_ZN2cv8tinyxml27StrPair6GetStrEv(ptr noundef nonnull align 8 dereferenceable(24) %10)
   %12 = icmp eq ptr %1, %11
   br i1 %12, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread, label %.preheader.i
@@ -3025,22 +3025,22 @@ _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us: ; preds = %.lr.ph.split.us
   %26 = icmp eq i8 %25, 0
   br i1 %26, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread, label %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit
 
+_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread, %.critedge.thread.i, %.lr.ph.split
+  %.09.in = getelementptr inbounds nuw i8, ptr %.0926, i64 64
+  %.09 = load ptr, ptr %.09.in, align 8, !tbaa !100
+  %.not = icmp eq ptr %.09, null
+  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !105
+
 _ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread: ; preds = %9, %.critedge.i.thread, %.critedge.i, %.critedge.thread.i, %.lr.ph.split.us
-  %.us-phi = phi ptr [ %.0924.us, %.lr.ph.split.us ], [ %.0924, %.critedge.thread.i ], [ %.0924, %.critedge.i ], [ %.0924, %.critedge.i.thread ], [ %.0924, %9 ]
+  %.us-phi = phi ptr [ %.0926.us, %.lr.ph.split.us ], [ %.0926, %.critedge.thread.i ], [ %.0926, %.critedge.i ], [ %.0926, %.critedge.i.thread ], [ %.0926, %9 ]
   %27 = load ptr, ptr %.us-phi, align 8, !tbaa !39
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef ptr %28(ptr noundef nonnull align 8 dereferenceable(88) %.us-phi)
   br label %.loopexit
 
-_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit: ; preds = %.critedge.i.thread, %.critedge.thread.i, %.lr.ph.split
-  %.09.in = getelementptr inbounds nuw i8, ptr %.0924, i64 64
-  %.09 = load ptr, ptr %.09.in, align 8, !tbaa !100
-  %.not = icmp eq ptr %.09, null
-  br i1 %.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !105
-
 .loopexit:                                        ; preds = %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us, %2, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread
-  %spec.select = phi ptr [ %29, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread ], [ null, %2 ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit ]
-  ret ptr %spec.select
+  %30 = phi ptr [ %29, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.thread ], [ null, %2 ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit.us ], [ null, %_ZN2cv8tinyxml27XMLUtil11StringEqualEPKcS3_i.exit ]
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress uwtable

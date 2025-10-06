@@ -132,8 +132,8 @@ _ZNK4llvm14GlobalVariable24hasDefinitiveInitializerEv.exit: ; preds = %12
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %28 = load i16, ptr %27, align 2, !tbaa !19
   %29 = and i16 %28, 1
-  %.not4.i.i.i.i.i.i.i = icmp eq i16 %29, 0
-  br i1 %.not4.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm39canTrackGlobalVariableInterprocedurallyEPNS2_14GlobalVariableEE3$_0EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZNS_39canTrackGlobalVariableInterprocedurallyEPNS_14GlobalVariableEE3$_0EEbOT_T0_.exit"
+  %.not3.i.i.i.i.i.i.i = icmp eq i16 %29, 0
+  br i1 %.not3.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops12_Iter_negateIZN4llvm39canTrackGlobalVariableInterprocedurallyEPNS2_14GlobalVariableEE3$_0EclINS2_5Value18user_iterator_implINS2_4UserEEEEEbT_.exit.i.i.i.i.i", label %"_ZN4llvm6all_ofINS_14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEEZNS_39canTrackGlobalVariableInterprocedurallyEPNS_14GlobalVariableEE3$_0EEbOT_T0_.exit"
 
 30:                                               ; preds = %.lr.ph.i.i.i.i.i
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 2

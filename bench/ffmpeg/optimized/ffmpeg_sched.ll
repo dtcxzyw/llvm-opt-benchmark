@@ -4998,15 +4998,15 @@ enc_open.exit:                                    ; preds = %33, %8, %3
   %43 = zext nneg i32 %38 to i64
   %44 = getelementptr inbounds nuw %struct.SchSyncQueue, ptr %42, i64 %43
   %.not.i24 = icmp eq ptr %2, null
-  br i1 %.not.i24, label %.preheader80.i, label %.loopexit81.i
+  br i1 %.not.i24, label %.preheader78.i, label %.loopexit79.i
 
-.preheader80.i:                                   ; preds = %40
+.preheader78.i:                                   ; preds = %40
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %46 = load i32, ptr %45, align 8, !tbaa !132
-  %.not89.i = icmp eq i32 %46, 0
-  br i1 %.not89.i, label %.loopexit81.i, label %.lr.ph.i
+  %.not87.i = icmp eq i32 %46, 0
+  br i1 %.not87.i, label %.loopexit79.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader80.i
+.lr.ph.i:                                         ; preds = %.preheader78.i
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -5046,9 +5046,9 @@ enc_open.exit:                                    ; preds = %33, %8, %3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %72 = zext i32 %71 to i64
   %73 = icmp samesign ult i64 %indvars.iv.next.i, %72
-  br i1 %73, label %50, label %.loopexit81.i, !llvm.loop !224
+  br i1 %73, label %50, label %.loopexit79.i, !llvm.loop !224
 
-.loopexit81.i:                                    ; preds = %70, %.preheader80.i, %40
+.loopexit79.i:                                    ; preds = %70, %.preheader78.i, %40
   %74 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %75 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull %74) #9
   %76 = load ptr, ptr %44, align 8, !tbaa !113
@@ -5058,15 +5058,15 @@ enc_open.exit:                                    ; preds = %33, %8, %3
   %80 = icmp slt i32 %79, 0
   br i1 %80, label %send_to_enc_sq.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %.loopexit81.i
+.preheader.i:                                     ; preds = %.loopexit79.i
   %81 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %82 = load ptr, ptr %44, align 8, !tbaa !113
   %83 = load ptr, ptr %81, align 8, !tbaa !116
   %84 = tail call i32 @sq_receive(ptr noundef %82, i32 noundef -1, ptr %83) #9
   %85 = icmp slt i32 %84, 0
-  br i1 %85, label %._crit_edge.i, label %.lr.ph85.i
+  br i1 %85, label %._crit_edge.i, label %.lr.ph83.i
 
-.lr.ph85.i:                                       ; preds = %.preheader.i
+.lr.ph83.i:                                       ; preds = %.preheader.i
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %87 = getelementptr inbounds nuw i8, ptr %44, i64 56
   br label %89
@@ -5076,8 +5076,8 @@ enc_open.exit:                                    ; preds = %33, %8, %3
   %88 = icmp eq i32 %.lcssa.i, -11
   br i1 %88, label %send_to_enc_sq.exit, label %.loopexit.i
 
-89:                                               ; preds = %send_to_enc_thread.exit.i, %.lr.ph85.i
-  %90 = phi i32 [ %84, %.lr.ph85.i ], [ %119, %send_to_enc_thread.exit.i ]
+89:                                               ; preds = %send_to_enc_thread.exit.i, %.lr.ph83.i
+  %90 = phi i32 [ %84, %.lr.ph83.i ], [ %119, %send_to_enc_thread.exit.i ]
   %91 = load ptr, ptr %86, align 8, !tbaa !60
   %92 = load ptr, ptr %87, align 8, !tbaa !118
   %93 = zext nneg i32 %90 to i64
@@ -5137,33 +5137,33 @@ send_to_enc_thread.exit.i:                        ; preds = %112, %105, %99
   %.1.ph.i = phi i32 [ %.lcssa.i, %._crit_edge.i ], [ %108, %110 ]
   %121 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %122 = load i32, ptr %121, align 8, !tbaa !117
-  %.not90.i = icmp eq i32 %122, 0
-  br i1 %.not90.i, label %send_to_enc_sq.exit, label %.lr.ph88.i
+  %.not88.i = icmp eq i32 %122, 0
+  br i1 %.not88.i, label %send_to_enc_sq.exit, label %.lr.ph86.i
 
-.lr.ph88.i:                                       ; preds = %.loopexit.i
+.lr.ph86.i:                                       ; preds = %.loopexit.i
   %123 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %124 = getelementptr inbounds nuw i8, ptr %44, i64 56
   br label %125
 
-125:                                              ; preds = %125, %.lr.ph88.i
-  %indvars.iv94.i = phi i64 [ 0, %.lr.ph88.i ], [ %indvars.iv.next95.i, %125 ]
+125:                                              ; preds = %125, %.lr.ph86.i
+  %indvars.iv92.i = phi i64 [ 0, %.lr.ph86.i ], [ %indvars.iv.next93.i, %125 ]
   %126 = load ptr, ptr %123, align 8, !tbaa !60
   %127 = load ptr, ptr %124, align 8, !tbaa !118
-  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv94.i
+  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %indvars.iv92.i
   %129 = load i32, ptr %128, align 4, !tbaa !68
   %130 = zext i32 %129 to i64
   %131 = getelementptr inbounds nuw %struct.SchEnc, ptr %126, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 128
   %133 = load ptr, ptr %132, align 8, !tbaa !217
   tail call void @tq_send_finish(ptr noundef %133, i32 noundef 0) #9
-  %indvars.iv.next95.i = add nuw nsw i64 %indvars.iv94.i, 1
+  %indvars.iv.next93.i = add nuw nsw i64 %indvars.iv92.i, 1
   %134 = load i32, ptr %121, align 8, !tbaa !117
   %135 = zext i32 %134 to i64
-  %136 = icmp samesign ult i64 %indvars.iv.next95.i, %135
+  %136 = icmp samesign ult i64 %indvars.iv.next93.i, %135
   br i1 %136, label %125, label %send_to_enc_sq.exit, !llvm.loop !226
 
-send_to_enc_sq.exit:                              ; preds = %125, %.loopexit81.i, %._crit_edge.i, %.loopexit.i
-  %.0.i25 = phi i32 [ %79, %.loopexit81.i ], [ 0, %._crit_edge.i ], [ %.1.ph.i, %.loopexit.i ], [ %.1.ph.i, %125 ]
+send_to_enc_sq.exit:                              ; preds = %125, %.loopexit79.i, %._crit_edge.i, %.loopexit.i
+  %.0.i25 = phi i32 [ %79, %.loopexit79.i ], [ 0, %._crit_edge.i ], [ %.1.ph.i, %.loopexit.i ], [ %.1.ph.i, %125 ]
   %137 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %74) #9
   br label %send_to_enc_thread.exit
 

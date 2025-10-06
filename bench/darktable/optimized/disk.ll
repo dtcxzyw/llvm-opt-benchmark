@@ -408,7 +408,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i32 %5, ptr %39, align 4, !tbaa !86
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3424), align 8, !tbaa !87
   %.not.i.not.us = icmp eq ptr %40, null
-  br i1 %.not.i.not.us, label %41, label %.split105.us
+  br i1 %.not.i.not.us, label %41, label %.split104.us
 
 41:                                               ; preds = %33
   %42 = call ptr @dt_variables_expand(ptr noundef nonnull %36, ptr noundef nonnull %17, i32 noundef 1) #13
@@ -442,9 +442,9 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   store i32 %5, ptr %56, align 4, !tbaa !86
   %57 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3424), align 8, !tbaa !87
   %.not.i.not = icmp eq ptr %57, null
-  br i1 %.not.i.not, label %59, label %.split105.us
+  br i1 %.not.i.not, label %59, label %.split104.us
 
-.split105.us:                                     ; preds = %.split, %33
+.split104.us:                                     ; preds = %.split, %33
   %58 = call i64 @g_strlcpy(ptr noundef nonnull %15, ptr noundef nonnull %17, i64 noundef 4096) #13
   br label %.thread
 
@@ -466,7 +466,7 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %68 = icmp ult i32 %67, 4096
   br i1 %68, label %.split, label %.thread
 
-.thread:                                          ; preds = %66, %59, %48, %41, %.split105.us
+.thread:                                          ; preds = %66, %59, %48, %41, %.split104.us
   %69 = call noalias ptr @g_path_get_dirname(ptr noundef nonnull %15) #13
   %70 = call i32 @g_mkdir_with_parents(ptr noundef %69, i32 noundef 493) #13
   %.not89 = icmp eq i32 %70, 0
@@ -493,13 +493,13 @@ define range(i32 0, 2) i32 @store(ptr noundef %0, ptr noundef %1, i32 noundef %2
 
 .preheader:                                       ; preds = %73
   %84 = call i32 @g_file_test(ptr noundef nonnull %15, i32 noundef 16) #13
-  %.not92106 = icmp eq i32 %84, 0
-  br i1 %.not92106, label %thread-pre-split, label %.lr.ph
+  %.not92105 = icmp eq i32 %84, 0
+  br i1 %.not92105, label %thread-pre-split, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.084107 = phi i32 [ %86, %.lr.ph ], [ 1, %.preheader ]
-  %85 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %78, i64 noundef %79, ptr noundef nonnull @.str.23, i32 noundef %.084107, ptr noundef %76) #13
-  %86 = add nuw nsw i32 %.084107, 1
+  %.084106 = phi i32 [ %86, %.lr.ph ], [ 1, %.preheader ]
+  %85 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %78, i64 noundef %79, ptr noundef nonnull @.str.23, i32 noundef %.084106, ptr noundef %76) #13
+  %86 = add nuw nsw i32 %.084106, 1
   %87 = call i32 @g_file_test(ptr noundef nonnull %15, i32 noundef 16) #13
   %.not92 = icmp eq i32 %87, 0
   br i1 %.not92, label %thread-pre-split, label %.lr.ph

@@ -16106,7 +16106,7 @@ _ZNK4Node20find_integer_as_longE9BasicTypel.exit: ; preds = %176
 196:                                              ; preds = %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit
   %..i168 = select i1 %77, i32 186, i32 185
   %197 = icmp eq i32 %76, %..i168
-  br i1 %197, label %198, label %270
+  br i1 %197, label %198, label %271
 
 198:                                              ; preds = %196
   %199 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
@@ -16192,232 +16192,232 @@ _ZNK4Node20find_integer_as_longE9BasicTypel.exit: ; preds = %176
   br i1 %or.cond, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %253
 
 253:                                              ; preds = %246
-  %switch = icmp eq i8 %.0116, 10
-  br i1 %switch, label %254, label %258
+  %254 = icmp eq i8 %.0116, 10
+  br i1 %254, label %255, label %259
 
-254:                                              ; preds = %253
-  %255 = and i32 %248, 31
-  %256 = shl nuw i32 1, %255
-  %257 = sext i32 %256 to i64
-  br label %262
+255:                                              ; preds = %253
+  %256 = and i32 %248, 31
+  %257 = shl nuw i32 1, %256
+  %258 = sext i32 %257 to i64
+  br label %263
 
-258:                                              ; preds = %253
-  %259 = and i32 %248, 63
-  %260 = zext nneg i32 %259 to i64
-  %261 = shl nuw i64 1, %260
-  br label %262
+259:                                              ; preds = %253
+  %260 = and i32 %248, 63
+  %261 = zext nneg i32 %260 to i64
+  %262 = shl nuw i64 1, %261
+  br label %263
 
-262:                                              ; preds = %258, %254
-  %.0115 = phi i64 [ %257, %254 ], [ %261, %258 ]
+263:                                              ; preds = %259, %255
+  %.0115 = phi i64 [ %258, %255 ], [ %262, %259 ]
   %.not142 = icmp eq ptr %4, null
-  br i1 %.not142, label %264, label %263
+  br i1 %.not142, label %265, label %264
 
-263:                                              ; preds = %262
+264:                                              ; preds = %263
   store i64 %.0115, ptr %4, align 8
-  br label %264
+  br label %265
 
-264:                                              ; preds = %263, %262
+265:                                              ; preds = %264, %263
   %.not143 = icmp eq ptr %5, null
-  br i1 %.not143, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %265
+  br i1 %.not143, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %266
 
-265:                                              ; preds = %264
-  %266 = icmp ne i8 %.0116, %3
-  %267 = icmp ne i64 %.0115, 1
-  %268 = and i1 %266, %267
-  %269 = zext i1 %268 to i8
+266:                                              ; preds = %265
+  %267 = icmp ne i8 %.0116, %3
+  %268 = icmp ne i64 %.0115, 1
+  %269 = and i1 %267, %268
+  %270 = zext i1 %269 to i8
   br label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split
 
-270:                                              ; preds = %196
+271:                                              ; preds = %196
   %..i179 = select i1 %77, i32 24, i32 23
-  %271 = icmp eq i32 %76, %..i179
-  br i1 %271, label %272, label %300
+  %272 = icmp eq i32 %76, %..i179
+  br i1 %272, label %273, label %301
 
-272:                                              ; preds = %270
+273:                                              ; preds = %271
   store i64 0, ptr %8, align 8
   store i64 0, ptr %9, align 8
   store i8 0, ptr %10, align 1
   store i8 0, ptr %11, align 1
-  %273 = icmp eq i32 %6, 0
-  br i1 %273, label %274, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+  %274 = icmp eq i32 %6, 0
+  br i1 %274, label %275, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-274:                                              ; preds = %272
-  %275 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
-  %276 = load ptr, ptr %275, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
-  %278 = load ptr, ptr %277, align 8
-  %279 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %278, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef 1)
-  br i1 %279, label %280, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+275:                                              ; preds = %273
+  %276 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
+  %277 = load ptr, ptr %276, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  %279 = load ptr, ptr %278, align 8
+  %280 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %279, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %8, ptr noundef nonnull %10, i32 noundef 1)
+  br i1 %280, label %281, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-280:                                              ; preds = %274
-  %281 = load ptr, ptr %275, align 8
-  %282 = getelementptr inbounds nuw i8, ptr %281, i64 16
-  %283 = load ptr, ptr %282, align 8
-  %284 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %283, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef 1)
-  br i1 %284, label %285, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+281:                                              ; preds = %275
+  %282 = load ptr, ptr %276, align 8
+  %283 = getelementptr inbounds nuw i8, ptr %282, i64 16
+  %284 = load ptr, ptr %283, align 8
+  %285 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %284, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef 1)
+  br i1 %285, label %286, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-285:                                              ; preds = %280
-  %286 = load i64, ptr %8, align 8
-  %287 = load i64, ptr %9, align 8
-  %288 = add i64 %287, %286
-  %289 = icmp slt i64 %288, 2147483648
-  %290 = or i1 %77, %289
+286:                                              ; preds = %281
+  %287 = load i64, ptr %8, align 8
+  %288 = load i64, ptr %9, align 8
+  %289 = add i64 %288, %287
+  %290 = icmp slt i64 %289, 2147483648
+  %291 = or i1 %77, %290
   %..i181 = select i1 %77, i64 -9223372036854775808, i64 -2147483648
-  %.not139 = icmp sgt i64 %288, %..i181
-  %or.cond196 = and i1 %.not139, %290
-  br i1 %or.cond196, label %291, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+  %.not139 = icmp sgt i64 %289, %..i181
+  %or.cond196 = and i1 %.not139, %291
+  br i1 %or.cond196, label %292, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-291:                                              ; preds = %285
+292:                                              ; preds = %286
   %.not140 = icmp eq ptr %4, null
-  br i1 %.not140, label %293, label %292
+  br i1 %.not140, label %294, label %293
 
-292:                                              ; preds = %291
-  store i64 %288, ptr %4, align 8
-  br label %293
+293:                                              ; preds = %292
+  store i64 %289, ptr %4, align 8
+  br label %294
 
-293:                                              ; preds = %292, %291
+294:                                              ; preds = %293, %292
   %.not141 = icmp eq ptr %5, null
-  br i1 %.not141, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %294
+  br i1 %.not141, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %295
 
-294:                                              ; preds = %293
-  %295 = load i8, ptr %10, align 1
-  %296 = trunc i8 %295 to i1
-  %297 = load i8, ptr %11, align 1
-  %298 = and i8 %297, 1
-  %299 = select i1 %296, i8 %298, i8 0
+295:                                              ; preds = %294
+  %296 = load i8, ptr %10, align 1
+  %297 = trunc i8 %296 to i1
+  %298 = load i8, ptr %11, align 1
+  %299 = and i8 %298, 1
+  %300 = select i1 %297, i8 %299, i8 0
   br label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split
 
-300:                                              ; preds = %270
+301:                                              ; preds = %271
   %..i182 = select i1 %77, i32 343, i32 342
-  %301 = icmp eq i32 %76, %..i182
-  br i1 %301, label %302, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+  %302 = icmp eq i32 %76, %..i182
+  br i1 %302, label %303, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-302:                                              ; preds = %300
-  %303 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
-  %304 = load ptr, ptr %303, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %304, i64 8
-  %306 = load ptr, ptr %305, align 8
-  %307 = tail call noundef ptr @_ZNK4Node17find_integer_typeE9BasicType(ptr noundef nonnull align 8 dereferenceable(52) %306, i8 noundef zeroext %.0116) #11
-  %308 = icmp eq ptr %307, null
-  br i1 %308, label %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread, label %309
+303:                                              ; preds = %301
+  %304 = getelementptr inbounds nuw i8, ptr %.0114, i64 8
+  %305 = load ptr, ptr %304, align 8
+  %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
+  %307 = load ptr, ptr %306, align 8
+  %308 = tail call noundef ptr @_ZNK4Node17find_integer_typeE9BasicType(ptr noundef nonnull align 8 dereferenceable(52) %307, i8 noundef zeroext %.0116) #11
+  %309 = icmp eq ptr %308, null
+  br i1 %309, label %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread, label %310
 
-309:                                              ; preds = %302
-  %310 = load ptr, ptr %307, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %310, i64 184
-  %312 = load ptr, ptr %311, align 8
-  %313 = tail call noundef i64 %312(ptr noundef nonnull align 8 dereferenceable(22) %307) #11
-  %314 = load ptr, ptr %307, align 8
-  %315 = getelementptr inbounds nuw i8, ptr %314, i64 176
-  %316 = load ptr, ptr %315, align 8
-  %317 = tail call noundef i64 %316(ptr noundef nonnull align 8 dereferenceable(22) %307) #11
-  %318 = icmp eq i64 %313, %317
-  br i1 %318, label %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184, label %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread
+310:                                              ; preds = %303
+  %311 = load ptr, ptr %308, align 8
+  %312 = getelementptr inbounds nuw i8, ptr %311, i64 184
+  %313 = load ptr, ptr %312, align 8
+  %314 = tail call noundef i64 %313(ptr noundef nonnull align 8 dereferenceable(22) %308) #11
+  %315 = load ptr, ptr %308, align 8
+  %316 = getelementptr inbounds nuw i8, ptr %315, i64 176
+  %317 = load ptr, ptr %316, align 8
+  %318 = tail call noundef i64 %317(ptr noundef nonnull align 8 dereferenceable(22) %308) #11
+  %319 = icmp eq i64 %314, %318
+  br i1 %319, label %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184, label %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread
 
-_ZNK4Node20find_integer_as_longE9BasicTypel.exit184: ; preds = %309
-  %319 = tail call noundef i64 @_ZNK11TypeInteger15get_con_as_longE9BasicType(ptr noundef nonnull align 8 dereferenceable(22) %307, i8 noundef zeroext %.0116) #11
-  %320 = icmp eq i64 %319, 0
-  br i1 %320, label %321, label %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread
+_ZNK4Node20find_integer_as_longE9BasicTypel.exit184: ; preds = %310
+  %320 = tail call noundef i64 @_ZNK11TypeInteger15get_con_as_longE9BasicType(ptr noundef nonnull align 8 dereferenceable(22) %308, i8 noundef zeroext %.0116) #11
+  %321 = icmp eq i64 %320, 0
+  br i1 %321, label %322, label %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread
 
-321:                                              ; preds = %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184
+322:                                              ; preds = %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184
   store i64 0, ptr %12, align 8
-  %322 = icmp eq i32 %6, 0
-  br i1 %322, label %323, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+  %323 = icmp eq i32 %6, 0
+  br i1 %323, label %324, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-323:                                              ; preds = %321
-  %324 = load ptr, ptr %303, align 8
-  %325 = getelementptr inbounds nuw i8, ptr %324, i64 16
-  %326 = load ptr, ptr %325, align 8
-  %327 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %326, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %12, ptr noundef %5, i32 noundef 1)
-  br i1 %327, label %328, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+324:                                              ; preds = %322
+  %325 = load ptr, ptr %304, align 8
+  %326 = getelementptr inbounds nuw i8, ptr %325, i64 16
+  %327 = load ptr, ptr %326, align 8
+  %328 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %327, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %12, ptr noundef %5, i32 noundef 1)
+  br i1 %328, label %329, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-328:                                              ; preds = %323
-  %329 = load i64, ptr %12, align 8
+329:                                              ; preds = %324
+  %330 = load i64, ptr %12, align 8
   %..i185 = select i1 %77, i64 -9223372036854775808, i64 -2147483648
-  %330 = icmp eq i64 %329, %..i185
-  br i1 %330, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %331
+  %331 = icmp eq i64 %330, %..i185
+  br i1 %331, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %332
 
-331:                                              ; preds = %328
+332:                                              ; preds = %329
   %.not137 = icmp eq ptr %4, null
-  br i1 %.not137, label %334, label %332
+  br i1 %.not137, label %335, label %333
 
-332:                                              ; preds = %331
-  %333 = sub i64 0, %329
-  store i64 %333, ptr %4, align 8
-  br label %334
+333:                                              ; preds = %332
+  %334 = sub i64 0, %330
+  store i64 %334, ptr %4, align 8
+  br label %335
 
-334:                                              ; preds = %332, %331
+335:                                              ; preds = %333, %332
   %.not138 = icmp eq ptr %5, null
-  br i1 %.not138, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %335
+  br i1 %.not138, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %336
 
-335:                                              ; preds = %334
-  %336 = load i8, ptr %5, align 1
-  %337 = trunc i8 %336 to i1
-  %338 = icmp ne i8 %.0116, %3
-  %339 = icmp ne i64 %329, -1
-  %340 = and i1 %338, %339
-  %narrow = or i1 %340, %337
-  %341 = zext i1 %narrow to i8
+336:                                              ; preds = %335
+  %337 = load i8, ptr %5, align 1
+  %338 = trunc i8 %337 to i1
+  %339 = icmp ne i8 %.0116, %3
+  %340 = icmp ne i64 %330, -1
+  %341 = and i1 %339, %340
+  %narrow = or i1 %341, %338
+  %342 = zext i1 %narrow to i8
   br label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split
 
-_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread: ; preds = %302, %309, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184
+_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread: ; preds = %303, %310, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184
   store i64 0, ptr %13, align 8
   store i64 0, ptr %14, align 8
   store i8 0, ptr %15, align 1
   store i8 0, ptr %16, align 1
-  %342 = icmp eq i32 %6, 0
-  br i1 %342, label %343, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+  %343 = icmp eq i32 %6, 0
+  br i1 %343, label %344, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-343:                                              ; preds = %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread
-  %344 = load ptr, ptr %303, align 8
-  %345 = getelementptr inbounds nuw i8, ptr %344, i64 8
-  %346 = load ptr, ptr %345, align 8
-  %347 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %346, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %13, ptr noundef nonnull %15, i32 noundef 1)
-  br i1 %347, label %348, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+344:                                              ; preds = %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread
+  %345 = load ptr, ptr %304, align 8
+  %346 = getelementptr inbounds nuw i8, ptr %345, i64 8
+  %347 = load ptr, ptr %346, align 8
+  %348 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %347, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %13, ptr noundef nonnull %15, i32 noundef 1)
+  br i1 %348, label %349, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-348:                                              ; preds = %343
-  %349 = load ptr, ptr %303, align 8
-  %350 = getelementptr inbounds nuw i8, ptr %349, i64 16
-  %351 = load ptr, ptr %350, align 8
-  %352 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %351, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %14, ptr noundef nonnull %16, i32 noundef 1)
-  br i1 %352, label %353, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+349:                                              ; preds = %344
+  %350 = load ptr, ptr %304, align 8
+  %351 = getelementptr inbounds nuw i8, ptr %350, i64 16
+  %352 = load ptr, ptr %351, align 8
+  %353 = call noundef zeroext i1 @_ZN14PhaseIdealLoop12is_scaled_ivEP4NodeS1_9BasicTypePlPbi(ptr noundef nonnull align 8 dereferenceable(237) %0, ptr noundef %352, ptr noundef %2, i8 noundef zeroext %.0116, ptr noundef nonnull %14, ptr noundef nonnull %16, i32 noundef 1)
+  br i1 %353, label %354, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-353:                                              ; preds = %348
-  %354 = load i64, ptr %13, align 8
-  %355 = load i64, ptr %14, align 8
-  %356 = sub i64 %354, %355
-  %357 = icmp slt i64 %356, 2147483648
-  %358 = or i1 %77, %357
+354:                                              ; preds = %349
+  %355 = load i64, ptr %13, align 8
+  %356 = load i64, ptr %14, align 8
+  %357 = sub i64 %355, %356
+  %358 = icmp slt i64 %357, 2147483648
+  %359 = or i1 %77, %358
   %..i187 = select i1 %77, i64 -9223372036854775808, i64 -2147483648
-  %.not134 = icmp sgt i64 %356, %..i187
-  %or.cond197 = and i1 %.not134, %358
-  br i1 %or.cond197, label %359, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
+  %.not134 = icmp sgt i64 %357, %..i187
+  %or.cond197 = and i1 %.not134, %359
+  br i1 %or.cond197, label %360, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-359:                                              ; preds = %353
+360:                                              ; preds = %354
   %.not135 = icmp eq ptr %4, null
-  br i1 %.not135, label %361, label %360
+  br i1 %.not135, label %362, label %361
 
-360:                                              ; preds = %359
-  store i64 %356, ptr %4, align 8
-  br label %361
+361:                                              ; preds = %360
+  store i64 %357, ptr %4, align 8
+  br label %362
 
-361:                                              ; preds = %360, %359
+362:                                              ; preds = %361, %360
   %.not136 = icmp eq ptr %5, null
-  br i1 %.not136, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %362
+  br i1 %.not136, label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166, label %363
 
-362:                                              ; preds = %361
-  %363 = load i8, ptr %15, align 1
-  %364 = trunc i8 %363 to i1
-  %365 = load i8, ptr %16, align 1
-  %366 = and i8 %365, 1
-  %367 = select i1 %364, i8 %366, i8 0
+363:                                              ; preds = %362
+  %364 = load i8, ptr %15, align 1
+  %365 = trunc i8 %364 to i1
+  %366 = load i8, ptr %16, align 1
+  %367 = and i8 %366, 1
+  %368 = select i1 %365, i8 %367, i8 0
   br label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split
 
-_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split: ; preds = %55, %191, %265, %294, %335, %362
-  %.sink = phi i8 [ %367, %362 ], [ %341, %335 ], [ %299, %294 ], [ %269, %265 ], [ %195, %191 ], [ 0, %55 ]
+_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split: ; preds = %55, %191, %266, %295, %336, %363
+  %.sink = phi i8 [ %368, %363 ], [ %342, %336 ], [ %300, %295 ], [ %270, %266 ], [ %195, %191 ], [ 0, %55 ]
   store i8 %.sink, ptr %5, align 1
   br label %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166
 
-_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166: ; preds = %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split, %246, %244, %169, %176, %230, %225, %217, %215, %155, %150, %142, %140, %162, %280, %274, %272, %323, %321, %348, %343, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread, %300, %237, %361, %353, %334, %328, %293, %285, %264, %190, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit, %55
-  %.0 = phi i1 [ true, %55 ], [ false, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit ], [ true, %190 ], [ true, %264 ], [ false, %285 ], [ true, %293 ], [ false, %328 ], [ true, %334 ], [ false, %353 ], [ true, %361 ], [ false, %237 ], [ false, %300 ], [ false, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread ], [ false, %343 ], [ false, %348 ], [ false, %321 ], [ false, %323 ], [ false, %272 ], [ false, %274 ], [ false, %280 ], [ false, %162 ], [ false, %140 ], [ false, %142 ], [ false, %150 ], [ false, %155 ], [ false, %215 ], [ false, %217 ], [ false, %225 ], [ false, %230 ], [ false, %176 ], [ false, %169 ], [ false, %244 ], [ false, %246 ], [ true, %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split ]
+_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166: ; preds = %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split, %246, %244, %169, %176, %230, %225, %217, %215, %155, %150, %142, %140, %162, %281, %275, %273, %324, %322, %349, %344, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread, %301, %237, %362, %354, %335, %329, %294, %286, %265, %190, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit, %55
+  %.0 = phi i1 [ true, %55 ], [ false, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit ], [ true, %190 ], [ true, %265 ], [ false, %286 ], [ true, %294 ], [ false, %329 ], [ true, %335 ], [ false, %354 ], [ true, %362 ], [ false, %237 ], [ false, %301 ], [ false, %_ZNK4Node20find_integer_as_longE9BasicTypel.exit184.thread ], [ false, %344 ], [ false, %349 ], [ false, %322 ], [ false, %324 ], [ false, %273 ], [ false, %275 ], [ false, %281 ], [ false, %162 ], [ false, %140 ], [ false, %142 ], [ false, %150 ], [ false, %155 ], [ false, %215 ], [ false, %217 ], [ false, %225 ], [ false, %230 ], [ false, %176 ], [ false, %169 ], [ false, %244 ], [ false, %246 ], [ true, %_ZN14PhaseIdealLoop5is_ivEP4NodeS1_9BasicType.exit166.sink.split ]
   ret i1 %.0
 }
 
@@ -21438,8 +21438,8 @@ _ZN13IdealLoopTree7is_loopEv.exit:                ; preds = %43, %_ZN14PhaseIdea
   %89 = phi ptr [ %.0.i.i.i.i, %_ZN14PhaseIdealLoop8get_ctrlEPK4Node.exit.i.i ], [ %45, %43 ]
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8
-  %.not21 = icmp eq ptr %91, null
-  br i1 %.not21, label %_ZN13IdealLoopTree7is_loopEv.exit.thread, label %92
+  %.not20 = icmp eq ptr %91, null
+  br i1 %.not20, label %_ZN13IdealLoopTree7is_loopEv.exit.thread, label %92
 
 92:                                               ; preds = %_ZN13IdealLoopTree7is_loopEv.exit
   tail call void @_ZN13IdealLoopTree21adjust_loop_exit_probEP14PhaseIdealLoop(ptr noundef nonnull align 8 dereferenceable(113) %0, ptr noundef %1)

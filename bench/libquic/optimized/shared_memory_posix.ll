@@ -376,17 +376,16 @@ define noundef zeroext i1 @_ZN4base12SharedMemory21CreateAndMapAnonymousEm(ptr n
   %18 = call ptr @mmap(ptr noundef null, i64 noundef %1, i32 noundef %17, i32 noundef 1, i32 noundef %7, i64 noundef 0) #22
   store ptr %18, ptr %11, align 8, !tbaa !23
   %magicptr.i.i = ptrtoint ptr %18 to i64
-  switch i64 %magicptr.i.i, label %19 [
-    i64 -1, label %21
-    i64 0, label %21
-  ]
+  %magicptr.off.i.i = add i64 %magicptr.i.i, -1
+  %switch.i.i = icmp ult i64 %magicptr.off.i.i, -2
+  br i1 %switch.i.i, label %19, label %21
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %1, ptr %20, align 8, !tbaa !24
   br label %_ZN4base12SharedMemory3MapEm.exit
 
-21:                                               ; preds = %13, %13
+21:                                               ; preds = %13
   store ptr null, ptr %11, align 8, !tbaa !23
   br label %_ZN4base12SharedMemory3MapEm.exit
 
@@ -1833,17 +1832,16 @@ define noundef zeroext i1 @_ZN4base12SharedMemory5MapAtElm(ptr noundef nonnull a
   %15 = tail call ptr @mmap(ptr noundef null, i64 noundef %2, i32 noundef %14, i32 noundef 1, i32 noundef %4, i64 noundef %1) #22
   store ptr %15, ptr %8, align 8, !tbaa !23
   %magicptr = ptrtoint ptr %15 to i64
-  switch i64 %magicptr, label %16 [
-    i64 -1, label %18
-    i64 0, label %18
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %16, label %18
 
 16:                                               ; preds = %10
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %17, align 8, !tbaa !24
   br label %19
 
-18:                                               ; preds = %10, %10
+18:                                               ; preds = %10
   store ptr null, ptr %8, align 8, !tbaa !23
   br label %19
 

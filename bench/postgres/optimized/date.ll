@@ -295,36 +295,36 @@ define dso_local i64 @date_out(ptr noundef readonly captures(none) %0) local_unn
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = add i32 %6, -2147483647
   %or.cond = icmp ult i32 %7, 2
-  br i1 %or.cond, label %8, label %11
+  br i1 %or.cond, label %8, label %12
 
 8:                                                ; preds = %1
-  %switch = icmp eq i32 %6, -2147483648
-  br i1 %switch, label %9, label %10
+  %9 = icmp eq i32 %6, -2147483648
+  br i1 %9, label %10, label %11
 
-9:                                                ; preds = %8
+10:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %3, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 10, i1 false) #15
   br label %EncodeSpecialDate.exit
 
-10:                                               ; preds = %8
+11:                                               ; preds = %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(9) %3, ptr noundef nonnull align 1 dereferenceable(9) @.str.11, i64 9, i1 false) #15
   br label %EncodeSpecialDate.exit
 
-11:                                               ; preds = %1
-  %12 = add i32 %6, 2451545
-  %13 = getelementptr inbounds nuw i8, ptr %2, i64 20
-  %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %15 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  call void @j2date(i32 noundef %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #15
-  %16 = load i32, ptr @DateStyle, align 4
-  call void @EncodeDateOnly(ptr noundef nonnull %2, i32 noundef %16, ptr noundef nonnull %3) #15
+12:                                               ; preds = %1
+  %13 = add i32 %6, 2451545
+  %14 = getelementptr inbounds nuw i8, ptr %2, i64 20
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %16 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  call void @j2date(i32 noundef %13, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef nonnull %16) #15
+  %17 = load i32, ptr @DateStyle, align 4
+  call void @EncodeDateOnly(ptr noundef nonnull %2, i32 noundef %17, ptr noundef nonnull %3) #15
   br label %EncodeSpecialDate.exit
 
-EncodeSpecialDate.exit:                           ; preds = %10, %9, %11
-  %17 = call ptr @pstrdup(ptr noundef nonnull %3) #15
-  %18 = ptrtoint ptr %17 to i64
+EncodeSpecialDate.exit:                           ; preds = %11, %10, %12
+  %18 = call ptr @pstrdup(ptr noundef nonnull %3) #15
+  %19 = ptrtoint ptr %18 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i64 %18
+  ret i64 %19
 }
 
 ; Function Attrs: nounwind uwtable

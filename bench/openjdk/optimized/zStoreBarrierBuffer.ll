@@ -1018,20 +1018,20 @@ define hidden noundef zeroext i1 @_ZN19ZStoreBarrierBuffer5is_inEPV8zpointer(ptr
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4
   %.not.i29.not = icmp eq i32 %14, 0
-  br i1 %.not.i29.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
+  br i1 %.not.i29.not, label %.sink.split, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
 
 .loopexit.loopexit31:                             ; preds = %45
   %.pre = load i32, ptr %10, align 8
-  %.pre38 = load ptr, ptr %11, align 8
+  %.pre37 = load ptr, ptr %11, align 8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %.loopexit.loopexit31, %27
-  %15 = phi ptr [ %.pre38, %.loopexit.loopexit31 ], [ %19, %27 ], [ %19, %44 ]
+  %15 = phi ptr [ %.pre37, %.loopexit.loopexit31 ], [ %19, %27 ], [ %19, %44 ]
   %16 = phi i32 [ %.pre, %.loopexit.loopexit31 ], [ %21, %27 ], [ %21, %44 ]
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %18 = load i32, ptr %17, align 4
   %.not.i = icmp ult i32 %16, %18
-  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, !llvm.loop !13
+  br i1 %.not.i, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, label %.sink.split, !llvm.loop !13
 
 _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %.loopexit
   %19 = phi ptr [ %15, %.loopexit ], [ %12, %6 ]
@@ -1044,7 +1044,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %.loopexit
   %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %.not = icmp eq ptr %26, null
-  br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %27
+  br i1 %.not, label %.sink.split, label %27
 
 27:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 96
@@ -1063,21 +1063,21 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %6, %.loopexit
   %38 = load i64, ptr @ZPointerRemapped, align 8
   %.not24 = icmp eq i64 %37, %38
   %39 = getelementptr inbounds nuw i8, ptr %29, i64 568
-  %sext43 = shl i64 %33, 32
-  %40 = ashr exact i64 %sext43, 32
+  %sext42 = shl i64 %33, 32
+  %40 = ashr exact i64 %sext42, 32
   br i1 %.not24, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
-  %indvars.iv34 = phi i64 [ %indvars.iv.next35, %44 ], [ %40, %.lr.ph ]
-  %41 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %29, i64 %indvars.iv34
+  %indvars.iv33 = phi i64 [ %indvars.iv.next34, %44 ], [ %40, %.lr.ph ]
+  %41 = getelementptr inbounds %struct.ZStoreBarrierEntry, ptr %29, i64 %indvars.iv33
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, %0
-  br i1 %43, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %44
+  br i1 %43, label %.sink.split, label %44
 
 44:                                               ; preds = %.lr.ph.split.us
-  %indvars.iv.next35 = add nsw i64 %indvars.iv34, 1
-  %exitcond37.not = icmp eq i64 %indvars.iv.next35, 32
-  br i1 %exitcond37.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !14
+  %indvars.iv.next34 = add nsw i64 %indvars.iv33, 1
+  %exitcond36.not = icmp eq i64 %indvars.iv.next34, 32
+  br i1 %exitcond36.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !14
 
 45:                                               ; preds = %96
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -1176,15 +1176,15 @@ _ZL14make_load_goodPV8zpointer15zaddress_unsafem.exit: ; preds = %51, %54, %_ZN8
 96:                                               ; preds = %.lr.ph.split, %_ZL14make_load_goodPV8zpointer15zaddress_unsafem.exit
   %.020 = phi ptr [ %47, %.lr.ph.split ], [ %95, %_ZL14make_load_goodPV8zpointer15zaddress_unsafem.exit ]
   %97 = icmp eq ptr %.020, %0
-  br i1 %97, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %45
+  br i1 %97, label %.sink.split, label %45
 
-_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, %.loopexit, %96, %.lr.ph.split.us, %6
-  %not.switch = phi i1 [ false, %6 ], [ true, %.lr.ph.split.us ], [ true, %96 ], [ false, %.loopexit ], [ false, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ]
+.sink.split:                                      ; preds = %.loopexit, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit, %96, %.lr.ph.split.us, %6
+  %.0.ph = phi i1 [ false, %6 ], [ true, %.lr.ph.split.us ], [ true, %96 ], [ false, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit ], [ false, %.loopexit ]
   call void @_ZN17ThreadsListHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %7) #13
   br label %98
 
-98:                                               ; preds = %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, %1
-  %.0 = phi i1 [ false, %1 ], [ %not.switch, %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread ]
+98:                                               ; preds = %.sink.split, %1
+  %.0 = phi i1 [ false, %1 ], [ %.0.ph, %.sink.split ]
   ret i1 %.0
 }
 

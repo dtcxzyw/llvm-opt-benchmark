@@ -639,16 +639,16 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = call i32 @ASN1_STRING_to_UTF8(ptr noundef nonnull %3, ptr noundef %16) #9
   %18 = icmp slt i32 %17, 0
-  br i1 %18, label %cn2dnsid.exit, label %.preheader67.i
+  br i1 %18, label %cn2dnsid.exit, label %.preheader66.i
 
-.preheader67.i:                                   ; preds = %13
-  %.not6669.i = icmp eq i32 %17, 0
+.preheader66.i:                                   ; preds = %13
+  %.not6568.i = icmp eq i32 %17, 0
   %.pre.i = load ptr, ptr %3, align 8, !tbaa !60
-  br i1 %.not6669.i, label %.critedge.i, label %.lr.ph.i
+  br i1 %.not6568.i, label %.critedge.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader67.i, %24
-  %.04570.i = phi i32 [ %25, %24 ], [ %17, %.preheader67.i ]
-  %19 = zext nneg i32 %.04570.i to i64
+.lr.ph.i:                                         ; preds = %.preheader66.i, %24
+  %.04569.i = phi i32 [ %25, %24 ], [ %17, %.preheader66.i ]
+  %19 = zext nneg i32 %.04569.i to i64
   %20 = getelementptr i8, ptr %.pre.i, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -1
   %22 = load i8, ptr %21, align 1, !tbaa !11
@@ -656,12 +656,12 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
   br i1 %23, label %24, label %.critedge.i
 
 24:                                               ; preds = %.lr.ph.i
-  %25 = add nsw i32 %.04570.i, -1
-  %.not66.i = icmp eq i32 %25, 0
-  br i1 %.not66.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !61
+  %25 = add nsw i32 %.04569.i, -1
+  %.not65.i = icmp eq i32 %25, 0
+  br i1 %.not65.i, label %.critedge.i, label %.lr.ph.i, !llvm.loop !61
 
-.critedge.i:                                      ; preds = %24, %.lr.ph.i, %.preheader67.i
-  %.045.lcssa.i = phi i32 [ 0, %.preheader67.i ], [ %.04570.i, %.lr.ph.i ], [ 0, %24 ]
+.critedge.i:                                      ; preds = %24, %.lr.ph.i, %.preheader66.i
+  %.045.lcssa.i = phi i32 [ 0, %.preheader66.i ], [ %.04569.i, %.lr.ph.i ], [ 0, %24 ]
   %26 = zext nneg i32 %.045.lcssa.i to i64
   %27 = call ptr @memchr(ptr noundef %.pre.i, i32 noundef 0, i64 noundef %26) #10
   %.not.i = icmp eq ptr %27, null
@@ -669,16 +669,16 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
 
 .preheader.i:                                     ; preds = %.critedge.i
   %28 = icmp sgt i32 %.045.lcssa.i, 0
-  br i1 %28, label %.lr.ph75.i, label %.loopexit
+  br i1 %28, label %.lr.ph74.i, label %.loopexit
 
-.lr.ph75.i:                                       ; preds = %.preheader.i
+.lr.ph74.i:                                       ; preds = %.preheader.i
   %29 = add nsw i32 %.045.lcssa.i, -1
   %30 = zext nneg i32 %29 to i64
   br label %.outer.i
 
-.outer.i:                                         ; preds = %.thread.i, %.lr.ph75.i
-  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next84.i, %.thread.i ], [ 0, %.lr.ph75.i ]
-  %31 = phi i1 [ false, %.thread.i ], [ true, %.lr.ph75.i ]
+.outer.i:                                         ; preds = %.thread.i, %.lr.ph74.i
+  %indvars.iv.ph.i = phi i64 [ %indvars.iv.next83.i, %.thread.i ], [ 0, %.lr.ph74.i ]
+  %31 = phi i1 [ false, %.thread.i ], [ true, %.lr.ph74.i ]
   br label %33
 
 32:                                               ; preds = %.critedge.i
@@ -734,9 +734,9 @@ define range(i32 0, 54) i32 @NAME_CONSTRAINTS_check_CN(ptr noundef %0, ptr nound
   br i1 %exitcond.not.i, label %._crit_edge.i, label %33, !llvm.loop !62
 
 .thread.i:                                        ; preds = %48
-  %indvars.iv.next84.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.not85.i = icmp eq i64 %indvars.iv.next84.i, %26
-  br i1 %exitcond.not85.i, label %.loopexit41, label %.outer.i, !llvm.loop !62
+  %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not84.i = icmp eq i64 %indvars.iv.next83.i, %26
+  br i1 %exitcond.not84.i, label %.loopexit41, label %.outer.i, !llvm.loop !62
 
 ._crit_edge.i:                                    ; preds = %51
   br i1 %31, label %.loopexit, label %.loopexit41

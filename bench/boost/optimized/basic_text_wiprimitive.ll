@@ -538,8 +538,8 @@ define weak_odr void @_ZN5boost7archive21basic_text_iprimitiveISt13basic_istream
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %14 = load i32, ptr %13, align 8, !tbaa !21
   %15 = and i32 %14, 5
-  %.not18 = icmp eq i32 %15, 0
-  br i1 %.not18, label %20, label %16
+  %.not17 = icmp eq i32 %15, 0
+  br i1 %.not17, label %20, label %16
 
 16:                                               ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -575,9 +575,9 @@ define weak_odr void @_ZN5boost7archive21basic_text_iprimitiveISt13basic_istream
 28:                                               ; preds = %_ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_base64INS3_17remove_whitespaceINS3_16istream_iteratorIwEEEEjEELi8ELi6EwEEwNS0_25single_pass_traversal_tagEwlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISF_SG_SI_SH_T3_EEi.exit, %20
   %29 = phi i32 [ 0, %20 ], [ %46, %_ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_base64INS3_17remove_whitespaceINS3_16istream_iteratorIwEEEEjEELi8ELi6EwEEwNS0_25single_pass_traversal_tagEwlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISF_SG_SI_SH_T3_EEi.exit ]
   %30 = phi i32 [ 0, %20 ], [ %49, %_ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_base64INS3_17remove_whitespaceINS3_16istream_iteratorIwEEEEjEELi8ELi6EwEEwNS0_25single_pass_traversal_tagEwlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISF_SG_SI_SH_T3_EEi.exit ]
-  %.0822 = phi i64 [ %2, %20 ], [ %31, %_ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_base64INS3_17remove_whitespaceINS3_16istream_iteratorIwEEEEjEELi8ELi6EwEEwNS0_25single_pass_traversal_tagEwlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISF_SG_SI_SH_T3_EEi.exit ]
-  %.0921 = phi ptr [ %1, %20 ], [ %57, %_ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_base64INS3_17remove_whitespaceINS3_16istream_iteratorIwEEEEjEELi8ELi6EwEEwNS0_25single_pass_traversal_tagEwlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISF_SG_SI_SH_T3_EEi.exit ]
-  %31 = add i64 %.0822, -1
+  %.0821 = phi i64 [ %2, %20 ], [ %31, %_ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_base64INS3_17remove_whitespaceINS3_16istream_iteratorIwEEEEjEELi8ELi6EwEEwNS0_25single_pass_traversal_tagEwlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISF_SG_SI_SH_T3_EEi.exit ]
+  %.0920 = phi ptr [ %1, %20 ], [ %57, %_ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_base64INS3_17remove_whitespaceINS3_16istream_iteratorIwEEEEjEELi8ELi6EwEEwNS0_25single_pass_traversal_tagEwlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISF_SG_SI_SH_T3_EEi.exit ]
+  %31 = add i64 %.0821, -1
   store i32 0, ptr %23, align 4, !tbaa !58, !noalias !59
   br label %32
 
@@ -637,8 +637,8 @@ _ZN5boost9iteratorsppINS0_18transform_iteratorINS_7archive9iterators6detail8to_6
 _ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_base64INS3_17remove_whitespaceINS3_16istream_iteratorIwEEEEjEELi8ELi6EwEEwNS0_25single_pass_traversal_tagEwlEENS0_6detail24postfix_increment_resultIT_T0_T2_T1_E4typeERNS0_15iterator_facadeISF_SG_SI_SH_T3_EEi.exit: ; preds = %._crit_edge.i.i.i.i.i.i
   store i8 0, ptr %22, align 8, !tbaa !50, !noalias !59
   %56 = trunc i32 %54 to i8
-  %57 = getelementptr inbounds nuw i8, ptr %.0921, i64 1
-  store i8 %56, ptr %.0921, align 1, !tbaa !27
+  %57 = getelementptr inbounds nuw i8, ptr %.0920, i64 1
+  store i8 %56, ptr %.0920, align 1, !tbaa !27
   %.not = icmp eq i64 %31, 0
   br i1 %.not, label %.preheader, label %28, !llvm.loop !72
 
@@ -653,13 +653,13 @@ _ZN5boost9iteratorsppINS_7archive9iterators15transform_widthINS3_18binary_from_b
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8, !tbaa !21
   %67 = and i32 %66, 2
-  %.not19 = icmp eq i32 %67, 0
-  br i1 %.not19, label %68, label %select.unfold
+  %.not18 = icmp eq i32 %67, 0
+  br i1 %.not18, label %68, label %select.unfold
 
 68:                                               ; preds = %.preheader
   %69 = call i32 @iswspace(i32 noundef %59) #14
-  %.not20 = icmp eq i32 %69, 0
-  br i1 %.not20, label %.preheader, label %select.unfold
+  %.not19 = icmp eq i32 %69, 0
+  br i1 %.not19, label %.preheader, label %select.unfold
 
 select.unfold:                                    ; preds = %68, %.preheader
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

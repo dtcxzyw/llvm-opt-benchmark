@@ -11392,8 +11392,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %66,
 
 72:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit76
   %73 = load ptr, ptr %2, align 8, !tbaa !99
-  %.not137 = icmp eq ptr %73, null
-  br i1 %.not137, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %74
+  %.not136 = icmp eq ptr %73, null
+  br i1 %.not136, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %74
 
 74:                                               ; preds = %72
   %75 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5osgeo4proj6common16IdentifiedObject11identifiersEv(ptr noundef nonnull align 8 dereferenceable(40) %0) #32
@@ -11699,8 +11699,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %_Z
 192:                                              ; preds = %214, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115
   %.sroa.0128.0.in = phi ptr [ %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115 ], [ %.sroa.0128.0, %214 ]
   %.sroa.0128.0 = load ptr, ptr %.sroa.0128.0.in, align 8, !tbaa !115
-  %.not138 = icmp eq ptr %.sroa.0128.0, %15
-  br i1 %.not138, label %.thread135, label %214
+  %.not137 = icmp eq ptr %.sroa.0128.0, %15
+  br i1 %.not137, label %.thread135, label %214
 
 .thread135:                                       ; preds = %192
   call void @_ZNSt7__cxx1110_List_baseINS_12basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #35

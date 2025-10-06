@@ -2326,15 +2326,15 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   br label %293
 
 293:                                              ; preds = %296, %.thread180.i
-  %.0118203.i = phi i32 [ 10, %.thread180.i ], [ %298, %296 ]
+  %.0118202.i = phi i32 [ 10, %.thread180.i ], [ %298, %296 ]
   %294 = call i32 @extstore_write_request(ptr noundef %0, i32 noundef %.0120187.i, i32 noundef %.0120187.i, ptr noundef nonnull %2) #21
   %295 = icmp eq i32 %294, 0
   br i1 %295, label %300, label %296
 
 296:                                              ; preds = %293
   %297 = call i32 @usleep(i32 noundef 1000) #21
-  %298 = add nsw i32 %.0118203.i, -1
-  %299 = icmp samesign ugt i32 %.0118203.i, 1
+  %298 = add nsw i32 %.0118202.i, -1
+  %299 = icmp samesign ugt i32 %.0118202.i, 1
   br i1 %299, label %293, label %.critedge.i, !llvm.loop !205
 
 300:                                              ; preds = %293
@@ -2363,11 +2363,11 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   %314 = and i32 %313, 256
   %.not165.i = icmp eq i32 %314, 0
   %.pre.i57 = load i8, ptr %257, align 1, !tbaa !4
-  %.pre205.i = zext i8 %.pre.i57 to i64
+  %.pre204.i = zext i8 %.pre.i57 to i64
   br i1 %.not165.i, label %._crit_edge.i58, label %315
 
 315:                                              ; preds = %311
-  %316 = getelementptr inbounds nuw i8, ptr %239, i64 %.pre205.i
+  %316 = getelementptr inbounds nuw i8, ptr %239, i64 %.pre204.i
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 49
   %318 = shl nuw nsw i32 %313, 2
   %319 = and i32 %318, 8
@@ -2384,7 +2384,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   %326 = zext nneg i16 %325 to i64
   %327 = getelementptr inbounds nuw i8, ptr %323, i64 %326
   %328 = load i32, ptr %250, align 4, !tbaa !13
-  %329 = call ptr @do_item_alloc(ptr noundef nonnull %327, i64 noundef %.pre205.i, i32 noundef %.0115.i, i32 noundef %328, i32 noundef 12) #21
+  %329 = call ptr @do_item_alloc(ptr noundef nonnull %327, i64 noundef %.pre204.i, i32 noundef %.0115.i, i32 noundef %328, i32 noundef 12) #21
   %.not168.not.i = icmp eq ptr %329, null
   br i1 %.not168.not.i, label %366, label %330
 

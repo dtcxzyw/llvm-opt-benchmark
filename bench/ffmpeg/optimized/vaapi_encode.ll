@@ -405,14 +405,14 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_encode_init(ptr noundef %0) local
   %131 = getelementptr inbounds nuw i8, ptr %5, i64 1568
   store ptr %130, ptr %131, align 8, !tbaa !85
   %.not145 = icmp eq ptr %130, null
-  br i1 %.not145, label %188, label %._crit_edge159
+  br i1 %.not145, label %188, label %._crit_edge158
 
-._crit_edge159:                                   ; preds = %129
-  %.pre160 = load ptr, ptr %20, align 8, !tbaa !53
+._crit_edge158:                                   ; preds = %129
+  %.pre159 = load ptr, ptr %20, align 8, !tbaa !53
   br label %132
 
-132:                                              ; preds = %._crit_edge159, %117
-  %133 = phi ptr [ %.pre160, %._crit_edge159 ], [ %118, %117 ]
+132:                                              ; preds = %._crit_edge158, %117
+  %133 = phi ptr [ %.pre159, %._crit_edge158 ], [ %118, %117 ]
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 48
   %135 = load i64, ptr %134, align 8, !tbaa !86
   %.not146 = icmp eq i64 %135, 0
@@ -423,14 +423,14 @@ define range(i32 -2147483648, 1) i32 @ff_vaapi_encode_init(ptr noundef %0) local
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 1576
   store ptr %137, ptr %138, align 8, !tbaa !87
   %.not147 = icmp eq ptr %137, null
-  br i1 %.not147, label %188, label %._crit_edge161
+  br i1 %.not147, label %188, label %._crit_edge160
 
-._crit_edge161:                                   ; preds = %136
-  %.pre162 = load ptr, ptr %20, align 8, !tbaa !53
+._crit_edge160:                                   ; preds = %136
+  %.pre161 = load ptr, ptr %20, align 8, !tbaa !53
   br label %139
 
-139:                                              ; preds = %._crit_edge161, %132
-  %140 = phi ptr [ %.pre162, %._crit_edge161 ], [ %133, %132 ]
+139:                                              ; preds = %._crit_edge160, %132
+  %140 = phi ptr [ %.pre161, %._crit_edge160 ], [ %133, %132 ]
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 64
   %142 = load ptr, ptr %141, align 8, !tbaa !88
   %.not148 = icmp eq ptr %142, null

@@ -15710,7 +15710,7 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread9.i: ; preds = %_ZNK5clang4Ty
   %32 = getelementptr inbounds nuw i8, ptr %.0, i64 16
   %33 = load i8, ptr %32, align 16
   %.not.i12 = icmp eq i8 %33, 26
-  br i1 %.not.i12, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread23, label %34
+  br i1 %.not.i12, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread22, label %34
 
 34:                                               ; preds = %31
   %35 = icmp eq i8 %13, 26
@@ -15719,19 +15719,19 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread9.i: ; preds = %_ZNK5clang4Ty
 _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %34
   %36 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %.0) #28
   %.not = icmp eq ptr %36, null
-  br i1 %.not, label %.critedge, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread23
+  br i1 %.not, label %.critedge, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread22
 
-_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread23: ; preds = %31, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit
-  %.1.i26 = phi ptr [ %36, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %.0, %31 ]
+_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread22: ; preds = %31, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit
+  %.1.i25 = phi ptr [ %36, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %.0, %31 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1841)
-  %37 = getelementptr inbounds nuw i8, ptr %.1.i26, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.1.i25, i64 16
   %38 = load i64, ptr %37, align 16, !noalias !1841
   %39 = and i64 %38, 576460752303423488
-  %.not14.i = icmp eq i64 %39, 0
-  br i1 %.not14.i, label %.thread.i, label %40
+  %.not13.i = icmp eq i64 %39, 0
+  br i1 %.not13.i, label %.thread.i, label %40
 
-40:                                               ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread23
-  %41 = getelementptr inbounds nuw i8, ptr %.1.i26, i64 48
+40:                                               ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread22
+  %41 = getelementptr inbounds nuw i8, ptr %.1.i25, i64 48
   %42 = lshr i64 %38, 38
   %43 = and i64 %42, 65535
   %44 = getelementptr inbounds nuw %"class.clang::QualType", ptr %41, i64 %43
@@ -15788,9 +15788,9 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i
   %82 = and i64 %62, 15
-  %switch.gep31 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang18FunctionEffectsRef3getENS_8QualTypeE.27, i64 %82
-  %switch.load32 = load i64, ptr %switch.gep31, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %70, i64 %switch.load32
+  %switch.gep30 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang18FunctionEffectsRef3getENS_8QualTypeE.27, i64 %82
+  %switch.load31 = load i64, ptr %switch.gep30, align 8
+  %83 = getelementptr inbounds nuw ptr, ptr %70, i64 %switch.load31
   %84 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %83, i64 %73
   %85 = ptrtoint ptr %84 to i64
   %86 = add i64 %85, 7
@@ -15816,7 +15816,7 @@ switch.lookup:                                    ; preds = %_ZN4llvm25trailing_
   store i64 %.sroa.3.0.i, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !920, !alias.scope !1841
   br label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit
 
-.thread.i:                                        ; preds = %40, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread23
+.thread.i:                                        ; preds = %40, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false), !alias.scope !1841
   br label %_ZNK5clang17FunctionProtoType18getFunctionEffectsEv.exit
 
@@ -20272,66 +20272,66 @@ _ZNK5clang4Decl7getAttrINS_21OMPDeclareVariantAttrEEEPT_v.exit.i: ; preds = %.lr
   %966 = zext i32 %965 to i64
   %.idx.i.i = mul nuw nsw i64 %966, 136
   %967 = getelementptr inbounds nuw i8, ptr %963, i64 %.idx.i.i
-  %.not65.not.i.i = icmp eq i32 %965, 0
-  br i1 %.not65.not.i.i, label %.loopexit.i, label %.lr.ph68.i.i
+  %.not67.not.i.i = icmp eq i32 %965, 0
+  br i1 %.not67.not.i.i, label %.loopexit.i, label %.lr.ph70.i.i
 
-.lr.ph68.i.i:                                     ; preds = %_ZNK5clang4Decl7getAttrINS_21OMPDeclareVariantAttrEEEPT_v.exit.i, %.loopexit56.i.i
-  %.03466.i.i = phi ptr [ %989, %.loopexit56.i.i ], [ %963, %_ZNK5clang4Decl7getAttrINS_21OMPDeclareVariantAttrEEEPT_v.exit.i ]
-  %968 = load i32, ptr %.03466.i.i, align 8, !tbaa !2087
+.lr.ph70.i.i:                                     ; preds = %_ZNK5clang4Decl7getAttrINS_21OMPDeclareVariantAttrEEEPT_v.exit.i, %.loopexit58.i.i
+  %.03468.i.i = phi ptr [ %989, %.loopexit58.i.i ], [ %963, %_ZNK5clang4Decl7getAttrINS_21OMPDeclareVariantAttrEEEPT_v.exit.i ]
+  %968 = load i32, ptr %.03468.i.i, align 8, !tbaa !2087
   %.not43.i.i241 = icmp eq i32 %968, 3
-  br i1 %.not43.i.i241, label %969, label %.loopexit56.i.i
+  br i1 %.not43.i.i241, label %969, label %.loopexit58.i.i
 
-969:                                              ; preds = %.lr.ph68.i.i
-  %970 = getelementptr inbounds nuw i8, ptr %.03466.i.i, i64 8
+969:                                              ; preds = %.lr.ph70.i.i
+  %970 = getelementptr inbounds nuw i8, ptr %.03468.i.i, i64 8
   %971 = load ptr, ptr %970, align 8, !tbaa !1322
-  %972 = getelementptr inbounds nuw i8, ptr %.03466.i.i, i64 16
+  %972 = getelementptr inbounds nuw i8, ptr %.03468.i.i, i64 16
   %973 = load i32, ptr %972, align 8, !tbaa !1323
   %974 = zext i32 %973 to i64
-  %.idx69.i.i = mul nuw nsw i64 %974, 56
-  %975 = getelementptr inbounds nuw i8, ptr %971, i64 %.idx69.i.i
-  %.not4462.i.i = icmp eq i32 %973, 0
-  br i1 %.not4462.i.i, label %.loopexit56.i.i, label %.lr.ph64.i.i
+  %.idx71.i.i = mul nuw nsw i64 %974, 56
+  %975 = getelementptr inbounds nuw i8, ptr %971, i64 %.idx71.i.i
+  %.not4464.i.i = icmp eq i32 %973, 0
+  br i1 %.not4464.i.i, label %.loopexit58.i.i, label %.lr.ph66.i.i
 
-.lr.ph64.i.i:                                     ; preds = %969, %.loopexit.i.i
-  %.04263.i.i = phi ptr [ %988, %.loopexit.i.i ], [ %971, %969 ]
-  %976 = getelementptr inbounds nuw i8, ptr %.04263.i.i, i64 8
+.lr.ph66.i.i:                                     ; preds = %969, %.loopexit.i.i
+  %.04265.i.i = phi ptr [ %988, %.loopexit.i.i ], [ %971, %969 ]
+  %976 = getelementptr inbounds nuw i8, ptr %.04265.i.i, i64 8
   %977 = load i32, ptr %976, align 8, !tbaa !2095
   %.not45.i.i = icmp eq i32 %977, 9
   br i1 %.not45.i.i, label %978, label %.loopexit.i.i
 
-978:                                              ; preds = %.lr.ph64.i.i
-  %979 = getelementptr inbounds nuw i8, ptr %.04263.i.i, i64 16
+978:                                              ; preds = %.lr.ph66.i.i
+  %979 = getelementptr inbounds nuw i8, ptr %.04265.i.i, i64 16
   %980 = load ptr, ptr %979, align 8, !tbaa !1322
-  %981 = getelementptr inbounds nuw i8, ptr %.04263.i.i, i64 24
+  %981 = getelementptr inbounds nuw i8, ptr %.04265.i.i, i64 24
   %982 = load i32, ptr %981, align 8, !tbaa !1323
   %983 = zext i32 %982 to i64
-  %.idx70.i.i = mul nuw nsw i64 %983, 24
-  %984 = getelementptr inbounds nuw i8, ptr %980, i64 %.idx70.i.i
-  %.not4660.i.i = icmp eq i32 %982, 0
-  br i1 %.not4660.i.i, label %.loopexit.i.i, label %.lr.ph.i.i242
+  %.idx72.i.i = mul nuw nsw i64 %983, 24
+  %984 = getelementptr inbounds nuw i8, ptr %980, i64 %.idx72.i.i
+  %.not4662.i.i = icmp eq i32 %982, 0
+  br i1 %.not4662.i.i, label %.loopexit.i.i, label %.lr.ph.i.i242
 
 985:                                              ; preds = %.lr.ph.i.i242
-  %986 = getelementptr inbounds nuw i8, ptr %.03561.i.i, i64 24
+  %986 = getelementptr inbounds nuw i8, ptr %.03563.i.i, i64 24
   %.not46.i.i = icmp eq ptr %986, %984
   br i1 %.not46.i.i, label %.loopexit.i.i, label %.lr.ph.i.i242
 
 .lr.ph.i.i242:                                    ; preds = %978, %985
-  %.03561.i.i = phi ptr [ %986, %985 ], [ %980, %978 ]
-  %987 = load i32, ptr %.03561.i.i, align 8, !tbaa !2103
+  %.03563.i.i = phi ptr [ %986, %985 ], [ %980, %978 ]
+  %987 = load i32, ptr %.03563.i.i, align 8, !tbaa !2103
   %.not47.i.i = icmp eq i32 %987, 43
   br i1 %.not47.i.i, label %_ZN5clang12OMPTraitInfo17isExtensionActiveEN4llvm3omp13TraitPropertyE.exit.thread180.i, label %985
 
-.loopexit.i.i:                                    ; preds = %985, %978, %.lr.ph64.i.i
-  %988 = getelementptr inbounds nuw i8, ptr %.04263.i.i, i64 56
+.loopexit.i.i:                                    ; preds = %985, %978, %.lr.ph66.i.i
+  %988 = getelementptr inbounds nuw i8, ptr %.04265.i.i, i64 56
   %.not44.i.i = icmp eq ptr %988, %975
-  br i1 %.not44.i.i, label %.loopexit56.i.i, label %.lr.ph64.i.i
+  br i1 %.not44.i.i, label %.loopexit58.i.i, label %.lr.ph66.i.i
 
-.loopexit56.i.i:                                  ; preds = %.loopexit.i.i, %969, %.lr.ph68.i.i
-  %989 = getelementptr inbounds nuw i8, ptr %.03466.i.i, i64 136
+.loopexit58.i.i:                                  ; preds = %.loopexit.i.i, %969, %.lr.ph70.i.i
+  %989 = getelementptr inbounds nuw i8, ptr %.03468.i.i, i64 136
   %.not.not.i.i = icmp eq ptr %989, %967
-  br i1 %.not.not.i.i, label %.loopexit.i, label %.lr.ph68.i.i
+  br i1 %.not.not.i.i, label %.loopexit.i, label %.lr.ph70.i.i
 
-.loopexit.i:                                      ; preds = %.loopexit56.i.i, %_ZNK5clang4Decl7getAttrINS_21OMPDeclareVariantAttrEEEPT_v.exit.i
+.loopexit.i:                                      ; preds = %.loopexit58.i.i, %_ZNK5clang4Decl7getAttrINS_21OMPDeclareVariantAttrEEEPT_v.exit.i
   %990 = load i32, ptr %929, align 4
   %991 = and i32 %990, 512
   %.not184.i = icmp eq i32 %991, 0
@@ -21166,17 +21166,17 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1388 = getelementptr inbounds nuw i8, ptr %1362, i64 952
   %1389 = load i32, ptr %1388, align 8, !tbaa !1323
   %1390 = zext i32 %1389 to i64
-  %.idx16.i = shl nuw nsw i64 %1390, 3
-  %1391 = getelementptr inbounds nuw i8, ptr %1387, i64 %.idx16.i
-  %.not299.not.i = icmp eq i32 %1389, 0
-  br i1 %.not299.not.i, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit", label %.lr.ph13.i
+  %.idx15.i = shl nuw nsw i64 %1390, 3
+  %1391 = getelementptr inbounds nuw i8, ptr %1387, i64 %.idx15.i
+  %.not299.i = icmp eq i32 %1389, 0
+  br i1 %.not299.i, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit", label %.lr.ph12.i
 
-1392:                                             ; preds = %.lr.ph13.i
+1392:                                             ; preds = %.lr.ph12.i
   %1393 = getelementptr inbounds nuw i8, ptr %.02410.i, i64 8
-  %.not29.not.i = icmp eq ptr %1393, %1391
-  br i1 %.not29.not.i, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit", label %.lr.ph13.i
+  %.not29.i = icmp eq ptr %1393, %1391
+  br i1 %.not29.i, label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit", label %.lr.ph12.i
 
-.lr.ph13.i:                                       ; preds = %._crit_edge.i, %1392
+.lr.ph12.i:                                       ; preds = %._crit_edge.i, %1392
   %.02410.i = phi ptr [ %1393, %1392 ], [ %1387, %._crit_edge.i ]
   %1394 = load ptr, ptr %.02410.i, align 8, !tbaa !2110
   %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 904
@@ -21238,17 +21238,17 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1428 = getelementptr inbounds nuw i8, ptr %1407, i64 952
   %1429 = load i32, ptr %1428, align 8, !tbaa !1323
   %1430 = zext i32 %1429 to i64
-  %.idx16.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %1430, 3
-  %1431 = getelementptr inbounds nuw i8, ptr %1427, i64 %.idx16.i.i.i.i.i.i.i.i.i
-  %.not299.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %1429, 0
-  br i1 %.not299.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i", label %.lr.ph13.i.i.i.i.i.i.i.i.i
+  %.idx15.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %1430, 3
+  %1431 = getelementptr inbounds nuw i8, ptr %1427, i64 %.idx15.i.i.i.i.i.i.i.i.i
+  %.not299.i.i.i.i.i.i.i.i.i = icmp eq i32 %1429, 0
+  br i1 %.not299.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i", label %.lr.ph12.i.i.i.i.i.i.i.i.i
 
-1432:                                             ; preds = %.lr.ph13.i.i.i.i.i.i.i.i.i
+1432:                                             ; preds = %.lr.ph12.i.i.i.i.i.i.i.i.i
   %1433 = getelementptr inbounds nuw i8, ptr %.02410.i.i.i.i.i.i.i.i.i, i64 8
-  %.not29.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %1433, %1431
-  br i1 %.not29.not.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i", label %.lr.ph13.i.i.i.i.i.i.i.i.i
+  %.not29.i.i.i.i.i.i.i.i.i = icmp eq ptr %1433, %1431
+  br i1 %.not29.i.i.i.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit.i.i.i.i.i.i", label %.lr.ph12.i.i.i.i.i.i.i.i.i
 
-.lr.ph13.i.i.i.i.i.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %1432
+.lr.ph12.i.i.i.i.i.i.i.i.i:                       ; preds = %._crit_edge.i.i.i.i.i.i.i.i.i, %1432
   %.02410.i.i.i.i.i.i.i.i.i = phi ptr [ %1433, %1432 ], [ %1427, %._crit_edge.i.i.i.i.i.i.i.i.i ]
   %1434 = load ptr, ptr %.02410.i.i.i.i.i.i.i.i.i, align 8, !tbaa !2110
   %1435 = getelementptr inbounds nuw i8, ptr %1434, i64 904
@@ -21297,17 +21297,17 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1460 = getelementptr inbounds nuw i8, ptr %1439, i64 952
   %1461 = load i32, ptr %1460, align 8, !tbaa !1323
   %1462 = zext i32 %1461 to i64
-  %.idx16.i.i.i29.i.i.i.i.i.i = shl nuw nsw i64 %1462, 3
-  %1463 = getelementptr inbounds nuw i8, ptr %1459, i64 %.idx16.i.i.i29.i.i.i.i.i.i
-  %.not299.not.i.i.i30.i.i.i.i.i.i = icmp eq i32 %1461, 0
-  br i1 %.not299.not.i.i.i30.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit34.i.i.i.i.i.i", label %.lr.ph13.i.i.i31.i.i.i.i.i.i
+  %.idx15.i.i.i29.i.i.i.i.i.i = shl nuw nsw i64 %1462, 3
+  %1463 = getelementptr inbounds nuw i8, ptr %1459, i64 %.idx15.i.i.i29.i.i.i.i.i.i
+  %.not299.i.i.i30.i.i.i.i.i.i = icmp eq i32 %1461, 0
+  br i1 %.not299.i.i.i30.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit34.i.i.i.i.i.i", label %.lr.ph12.i.i.i31.i.i.i.i.i.i
 
-1464:                                             ; preds = %.lr.ph13.i.i.i31.i.i.i.i.i.i
+1464:                                             ; preds = %.lr.ph12.i.i.i31.i.i.i.i.i.i
   %1465 = getelementptr inbounds nuw i8, ptr %.02410.i.i.i32.i.i.i.i.i.i, i64 8
-  %.not29.not.i.i.i33.i.i.i.i.i.i = icmp eq ptr %1465, %1463
-  br i1 %.not29.not.i.i.i33.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit34.i.i.i.i.i.i", label %.lr.ph13.i.i.i31.i.i.i.i.i.i
+  %.not29.i.i.i33.i.i.i.i.i.i = icmp eq ptr %1465, %1463
+  br i1 %.not29.i.i.i33.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit34.i.i.i.i.i.i", label %.lr.ph12.i.i.i31.i.i.i.i.i.i
 
-.lr.ph13.i.i.i31.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i28.i.i.i.i.i.i, %1464
+.lr.ph12.i.i.i31.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i28.i.i.i.i.i.i, %1464
   %.02410.i.i.i32.i.i.i.i.i.i = phi ptr [ %1465, %1464 ], [ %1459, %._crit_edge.i.i.i28.i.i.i.i.i.i ]
   %1466 = load ptr, ptr %.02410.i.i.i32.i.i.i.i.i.i, align 8, !tbaa !2110
   %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 904
@@ -21356,17 +21356,17 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1492 = getelementptr inbounds nuw i8, ptr %1471, i64 952
   %1493 = load i32, ptr %1492, align 8, !tbaa !1323
   %1494 = zext i32 %1493 to i64
-  %.idx16.i.i.i42.i.i.i.i.i.i = shl nuw nsw i64 %1494, 3
-  %1495 = getelementptr inbounds nuw i8, ptr %1491, i64 %.idx16.i.i.i42.i.i.i.i.i.i
-  %.not299.not.i.i.i43.i.i.i.i.i.i = icmp eq i32 %1493, 0
-  br i1 %.not299.not.i.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit47.i.i.i.i.i.i", label %.lr.ph13.i.i.i44.i.i.i.i.i.i
+  %.idx15.i.i.i42.i.i.i.i.i.i = shl nuw nsw i64 %1494, 3
+  %1495 = getelementptr inbounds nuw i8, ptr %1491, i64 %.idx15.i.i.i42.i.i.i.i.i.i
+  %.not299.i.i.i43.i.i.i.i.i.i = icmp eq i32 %1493, 0
+  br i1 %.not299.i.i.i43.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit47.i.i.i.i.i.i", label %.lr.ph12.i.i.i44.i.i.i.i.i.i
 
-1496:                                             ; preds = %.lr.ph13.i.i.i44.i.i.i.i.i.i
+1496:                                             ; preds = %.lr.ph12.i.i.i44.i.i.i.i.i.i
   %1497 = getelementptr inbounds nuw i8, ptr %.02410.i.i.i45.i.i.i.i.i.i, i64 8
-  %.not29.not.i.i.i46.i.i.i.i.i.i = icmp eq ptr %1497, %1495
-  br i1 %.not29.not.i.i.i46.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit47.i.i.i.i.i.i", label %.lr.ph13.i.i.i44.i.i.i.i.i.i
+  %.not29.i.i.i46.i.i.i.i.i.i = icmp eq ptr %1497, %1495
+  br i1 %.not29.i.i.i46.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit47.i.i.i.i.i.i", label %.lr.ph12.i.i.i44.i.i.i.i.i.i
 
-.lr.ph13.i.i.i44.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i41.i.i.i.i.i.i, %1496
+.lr.ph12.i.i.i44.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i41.i.i.i.i.i.i, %1496
   %.02410.i.i.i45.i.i.i.i.i.i = phi ptr [ %1497, %1496 ], [ %1491, %._crit_edge.i.i.i41.i.i.i.i.i.i ]
   %1498 = load ptr, ptr %.02410.i.i.i45.i.i.i.i.i.i, align 8, !tbaa !2110
   %1499 = getelementptr inbounds nuw i8, ptr %1498, i64 904
@@ -21415,17 +21415,17 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1524 = getelementptr inbounds nuw i8, ptr %1503, i64 952
   %1525 = load i32, ptr %1524, align 8, !tbaa !1323
   %1526 = zext i32 %1525 to i64
-  %.idx16.i.i.i55.i.i.i.i.i.i = shl nuw nsw i64 %1526, 3
-  %1527 = getelementptr inbounds nuw i8, ptr %1523, i64 %.idx16.i.i.i55.i.i.i.i.i.i
-  %.not299.not.i.i.i56.i.i.i.i.i.i = icmp eq i32 %1525, 0
-  br i1 %.not299.not.i.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit60.i.i.i.i.i.i", label %.lr.ph13.i.i.i57.i.i.i.i.i.i
+  %.idx15.i.i.i55.i.i.i.i.i.i = shl nuw nsw i64 %1526, 3
+  %1527 = getelementptr inbounds nuw i8, ptr %1523, i64 %.idx15.i.i.i55.i.i.i.i.i.i
+  %.not299.i.i.i56.i.i.i.i.i.i = icmp eq i32 %1525, 0
+  br i1 %.not299.i.i.i56.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit60.i.i.i.i.i.i", label %.lr.ph12.i.i.i57.i.i.i.i.i.i
 
-1528:                                             ; preds = %.lr.ph13.i.i.i57.i.i.i.i.i.i
+1528:                                             ; preds = %.lr.ph12.i.i.i57.i.i.i.i.i.i
   %1529 = getelementptr inbounds nuw i8, ptr %.02410.i.i.i58.i.i.i.i.i.i, i64 8
-  %.not29.not.i.i.i59.i.i.i.i.i.i = icmp eq ptr %1529, %1527
-  br i1 %.not29.not.i.i.i59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit60.i.i.i.i.i.i", label %.lr.ph13.i.i.i57.i.i.i.i.i.i
+  %.not29.i.i.i59.i.i.i.i.i.i = icmp eq ptr %1529, %1527
+  br i1 %.not29.i.i.i59.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit60.i.i.i.i.i.i", label %.lr.ph12.i.i.i57.i.i.i.i.i.i
 
-.lr.ph13.i.i.i57.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i54.i.i.i.i.i.i, %1528
+.lr.ph12.i.i.i57.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i54.i.i.i.i.i.i, %1528
   %.02410.i.i.i58.i.i.i.i.i.i = phi ptr [ %1529, %1528 ], [ %1523, %._crit_edge.i.i.i54.i.i.i.i.i.i ]
   %1530 = load ptr, ptr %.02410.i.i.i58.i.i.i.i.i.i, align 8, !tbaa !2110
   %1531 = getelementptr inbounds nuw i8, ptr %1530, i64 904
@@ -21494,17 +21494,17 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1560 = getelementptr inbounds nuw i8, ptr %1539, i64 952
   %1561 = load i32, ptr %1560, align 8, !tbaa !1323
   %1562 = zext i32 %1561 to i64
-  %.idx16.i.i.i68.i.i.i.i.i.i = shl nuw nsw i64 %1562, 3
-  %1563 = getelementptr inbounds nuw i8, ptr %1559, i64 %.idx16.i.i.i68.i.i.i.i.i.i
-  %.not299.not.i.i.i69.i.i.i.i.i.i = icmp eq i32 %1561, 0
-  br i1 %.not299.not.i.i.i69.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit73.i.i.i.i.i.i", label %.lr.ph13.i.i.i70.i.i.i.i.i.i
+  %.idx15.i.i.i68.i.i.i.i.i.i = shl nuw nsw i64 %1562, 3
+  %1563 = getelementptr inbounds nuw i8, ptr %1559, i64 %.idx15.i.i.i68.i.i.i.i.i.i
+  %.not299.i.i.i69.i.i.i.i.i.i = icmp eq i32 %1561, 0
+  br i1 %.not299.i.i.i69.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit73.i.i.i.i.i.i", label %.lr.ph12.i.i.i70.i.i.i.i.i.i
 
-1564:                                             ; preds = %.lr.ph13.i.i.i70.i.i.i.i.i.i
+1564:                                             ; preds = %.lr.ph12.i.i.i70.i.i.i.i.i.i
   %1565 = getelementptr inbounds nuw i8, ptr %.02410.i.i.i71.i.i.i.i.i.i, i64 8
-  %.not29.not.i.i.i72.i.i.i.i.i.i = icmp eq ptr %1565, %1563
-  br i1 %.not29.not.i.i.i72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit73.i.i.i.i.i.i", label %.lr.ph13.i.i.i70.i.i.i.i.i.i
+  %.not29.i.i.i72.i.i.i.i.i.i = icmp eq ptr %1565, %1563
+  br i1 %.not29.i.i.i72.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit73.i.i.i.i.i.i", label %.lr.ph12.i.i.i70.i.i.i.i.i.i
 
-.lr.ph13.i.i.i70.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i67.i.i.i.i.i.i, %1564
+.lr.ph12.i.i.i70.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i67.i.i.i.i.i.i, %1564
   %.02410.i.i.i71.i.i.i.i.i.i = phi ptr [ %1565, %1564 ], [ %1559, %._crit_edge.i.i.i67.i.i.i.i.i.i ]
   %1566 = load ptr, ptr %.02410.i.i.i71.i.i.i.i.i.i, align 8, !tbaa !2110
   %1567 = getelementptr inbounds nuw i8, ptr %1566, i64 904
@@ -21557,17 +21557,17 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1593 = getelementptr inbounds nuw i8, ptr %1572, i64 952
   %1594 = load i32, ptr %1593, align 8, !tbaa !1323
   %1595 = zext i32 %1594 to i64
-  %.idx16.i.i.i81.i.i.i.i.i.i = shl nuw nsw i64 %1595, 3
-  %1596 = getelementptr inbounds nuw i8, ptr %1592, i64 %.idx16.i.i.i81.i.i.i.i.i.i
-  %.not299.not.i.i.i82.i.i.i.i.i.i = icmp eq i32 %1594, 0
-  br i1 %.not299.not.i.i.i82.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit86.i.i.i.i.i.i", label %.lr.ph13.i.i.i83.i.i.i.i.i.i
+  %.idx15.i.i.i81.i.i.i.i.i.i = shl nuw nsw i64 %1595, 3
+  %1596 = getelementptr inbounds nuw i8, ptr %1592, i64 %.idx15.i.i.i81.i.i.i.i.i.i
+  %.not299.i.i.i82.i.i.i.i.i.i = icmp eq i32 %1594, 0
+  br i1 %.not299.i.i.i82.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit86.i.i.i.i.i.i", label %.lr.ph12.i.i.i83.i.i.i.i.i.i
 
-1597:                                             ; preds = %.lr.ph13.i.i.i83.i.i.i.i.i.i
+1597:                                             ; preds = %.lr.ph12.i.i.i83.i.i.i.i.i.i
   %1598 = getelementptr inbounds nuw i8, ptr %.02410.i.i.i84.i.i.i.i.i.i, i64 8
-  %.not29.not.i.i.i85.i.i.i.i.i.i = icmp eq ptr %1598, %1596
-  br i1 %.not29.not.i.i.i85.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit86.i.i.i.i.i.i", label %.lr.ph13.i.i.i83.i.i.i.i.i.i
+  %.not29.i.i.i85.i.i.i.i.i.i = icmp eq ptr %1598, %1596
+  br i1 %.not29.i.i.i85.i.i.i.i.i.i, label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN5clang4Sema25ActOnEndOfTranslationUnitEvE3$_2EclINS_17__normal_iteratorIPPNS2_6ModuleESt6vectorIS9_SaIS9_EEEEEEbT_.exit86.i.i.i.i.i.i", label %.lr.ph12.i.i.i83.i.i.i.i.i.i
 
-.lr.ph13.i.i.i83.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i80.i.i.i.i.i.i, %1597
+.lr.ph12.i.i.i83.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i80.i.i.i.i.i.i, %1597
   %.02410.i.i.i84.i.i.i.i.i.i = phi ptr [ %1598, %1597 ], [ %1592, %._crit_edge.i.i.i80.i.i.i.i.i.i ]
   %1599 = load ptr, ptr %.02410.i.i.i84.i.i.i.i.i.i, align 8, !tbaa !2110
   %1600 = getelementptr inbounds nuw i8, ptr %1599, i64 904
@@ -21620,17 +21620,17 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1626 = getelementptr inbounds nuw i8, ptr %1605, i64 952
   %1627 = load i32, ptr %1626, align 8, !tbaa !1323
   %1628 = zext i32 %1627 to i64
-  %.idx16.i.i.i94.i.i.i.i.i.i = shl nuw nsw i64 %1628, 3
-  %1629 = getelementptr inbounds nuw i8, ptr %1625, i64 %.idx16.i.i.i94.i.i.i.i.i.i
-  %.not299.not.i.i.i95.i.i.i.i.i.i = icmp eq i32 %1627, 0
-  br i1 %.not299.not.i.i.i95.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %.lr.ph13.i.i.i96.i.i.i.i.i.i
+  %.idx15.i.i.i94.i.i.i.i.i.i = shl nuw nsw i64 %1628, 3
+  %1629 = getelementptr inbounds nuw i8, ptr %1625, i64 %.idx15.i.i.i94.i.i.i.i.i.i
+  %.not299.i.i.i95.i.i.i.i.i.i = icmp eq i32 %1627, 0
+  br i1 %.not299.i.i.i95.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %.lr.ph12.i.i.i96.i.i.i.i.i.i
 
-1630:                                             ; preds = %.lr.ph13.i.i.i96.i.i.i.i.i.i
+1630:                                             ; preds = %.lr.ph12.i.i.i96.i.i.i.i.i.i
   %1631 = getelementptr inbounds nuw i8, ptr %.02410.i.i.i97.i.i.i.i.i.i, i64 8
-  %.not29.not.i.i.i98.i.i.i.i.i.i = icmp eq ptr %1631, %1629
-  br i1 %.not29.not.i.i.i98.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %.lr.ph13.i.i.i96.i.i.i.i.i.i
+  %.not29.i.i.i98.i.i.i.i.i.i = icmp eq ptr %1631, %1629
+  br i1 %.not29.i.i.i98.i.i.i.i.i.i, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %.lr.ph12.i.i.i96.i.i.i.i.i.i
 
-.lr.ph13.i.i.i96.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i93.i.i.i.i.i.i, %1630
+.lr.ph12.i.i.i96.i.i.i.i.i.i:                     ; preds = %._crit_edge.i.i.i93.i.i.i.i.i.i, %1630
   %.02410.i.i.i97.i.i.i.i.i.i = phi ptr [ %1631, %1630 ], [ %1625, %._crit_edge.i.i.i93.i.i.i.i.i.i ]
   %1632 = load ptr, ptr %.02410.i.i.i97.i.i.i.i.i.i, align 8, !tbaa !2110
   %1633 = getelementptr inbounds nuw i8, ptr %1632, i64 904
@@ -21638,7 +21638,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1635 = icmp slt i16 %1634, 0
   br i1 %1635, label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit", label %1630
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1322": ; preds = %.lr.ph13.i.i.i57.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1322": ; preds = %.lr.ph12.i.i.i57.i.i.i.i.i.i
   %1636 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0169.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
@@ -21646,7 +21646,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1637 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0169.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1324": ; preds = %.lr.ph13.i.i.i44.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1324": ; preds = %.lr.ph12.i.i.i44.i.i.i.i.i.i
   %1638 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0169.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
@@ -21654,7 +21654,7 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1639 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0169.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1326": ; preds = %.lr.ph13.i.i.i31.i.i.i.i.i.i
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1326": ; preds = %.lr.ph12.i.i.i31.i.i.i.i.i.i
   %1640 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0169.i.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
@@ -21674,14 +21674,14 @@ _ZNK5clang4Sema16getCurrentModuleEv.exit:         ; preds = %1356
   %1644 = getelementptr inbounds nuw i8, ptr %.sroa.0103.0169.i.i.i.i.i.i, i64 24
   br label %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
 
-"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i252, %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph13.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i64.i.i.i.i.i.i, %.lr.ph13.i.i.i70.i.i.i.i.i.i, %.lr.ph.i.i.i77.i.i.i.i.i.i, %.lr.ph13.i.i.i83.i.i.i.i.i.i, %.lr.ph.i.i.i90.i.i.i.i.i.i, %1630, %.lr.ph13.i.i.i96.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit1366", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit1368", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1327", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1326", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1325", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1324", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1323", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1322", %._crit_edge.i.i.i.i.i.i, %1538, %1571, %1604, %._crit_edge.i.i.i93.i.i.i.i.i.i
-  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %1401, %._crit_edge.i.i.i.i.i.i ], [ %1401, %._crit_edge.i.i.i93.i.i.i.i.i.i ], [ %.sroa.0103.0.lcssa.i.i.i.i.i.i, %1538 ], [ %.sroa.0103.1.i.i.i.i.i.i, %1571 ], [ %.sroa.0103.2.i.i.i.i.i.i, %1604 ], [ %1636, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1322" ], [ %1637, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1323" ], [ %1638, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1324" ], [ %1639, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1325" ], [ %1640, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1326" ], [ %1641, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1327" ], [ %1642, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit" ], [ %1643, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit1366" ], [ %1644, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit1368" ], [ %.sroa.0103.2.i.i.i.i.i.i, %.lr.ph13.i.i.i96.i.i.i.i.i.i ], [ %1401, %1630 ], [ %.sroa.0103.2.i.i.i.i.i.i, %.lr.ph.i.i.i90.i.i.i.i.i.i ], [ %.sroa.0103.1.i.i.i.i.i.i, %.lr.ph13.i.i.i83.i.i.i.i.i.i ], [ %.sroa.0103.1.i.i.i.i.i.i, %.lr.ph.i.i.i77.i.i.i.i.i.i ], [ %.sroa.0103.0.lcssa.i.i.i.i.i.i, %.lr.ph13.i.i.i70.i.i.i.i.i.i ], [ %.sroa.0103.0.lcssa.i.i.i.i.i.i, %.lr.ph.i.i.i64.i.i.i.i.i.i ], [ %.sroa.0103.0169.i.i.i.i.i.i, %.lr.ph13.i.i.i.i.i.i.i.i.i ], [ %.sroa.0103.0169.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.sroa.0103.0169.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i252 ]
+"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i.i252, %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph12.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i64.i.i.i.i.i.i, %.lr.ph12.i.i.i70.i.i.i.i.i.i, %.lr.ph.i.i.i77.i.i.i.i.i.i, %.lr.ph12.i.i.i83.i.i.i.i.i.i, %.lr.ph.i.i.i90.i.i.i.i.i.i, %1630, %.lr.ph12.i.i.i96.i.i.i.i.i.i, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit1366", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit1368", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1327", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1326", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1325", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1324", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1323", %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1322", %._crit_edge.i.i.i.i.i.i, %1538, %1571, %1604, %._crit_edge.i.i.i93.i.i.i.i.i.i
+  %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %1401, %._crit_edge.i.i.i.i.i.i ], [ %1401, %._crit_edge.i.i.i93.i.i.i.i.i.i ], [ %.sroa.0103.0.lcssa.i.i.i.i.i.i, %1538 ], [ %.sroa.0103.1.i.i.i.i.i.i, %1571 ], [ %.sroa.0103.2.i.i.i.i.i.i, %1604 ], [ %1636, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1322" ], [ %1637, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1323" ], [ %1638, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1324" ], [ %1639, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1325" ], [ %1640, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1326" ], [ %1641, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1327" ], [ %1642, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit" ], [ %1643, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit1366" ], [ %1644, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit.loopexit1330.split.loop.exit1368" ], [ %.sroa.0103.2.i.i.i.i.i.i, %.lr.ph12.i.i.i96.i.i.i.i.i.i ], [ %1401, %1630 ], [ %.sroa.0103.2.i.i.i.i.i.i, %.lr.ph.i.i.i90.i.i.i.i.i.i ], [ %.sroa.0103.1.i.i.i.i.i.i, %.lr.ph12.i.i.i83.i.i.i.i.i.i ], [ %.sroa.0103.1.i.i.i.i.i.i, %.lr.ph.i.i.i77.i.i.i.i.i.i ], [ %.sroa.0103.0.lcssa.i.i.i.i.i.i, %.lr.ph12.i.i.i70.i.i.i.i.i.i ], [ %.sroa.0103.0.lcssa.i.i.i.i.i.i, %.lr.ph.i.i.i64.i.i.i.i.i.i ], [ %.sroa.0103.0169.i.i.i.i.i.i, %.lr.ph12.i.i.i.i.i.i.i.i.i ], [ %.sroa.0103.0169.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.sroa.0103.0169.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i252 ]
   %.not883 = icmp eq ptr %1401, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   %1645 = select i1 %.not883, i16 0, i16 -32768
   br label %"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit.thread"
 
-"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit.thread": ; preds = %.lr.ph.i248, %.lr.ph13.i, %1366, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
-  %1646 = phi i16 [ %1645, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit" ], [ -32768, %1366 ], [ -32768, %.lr.ph13.i ], [ -32768, %.lr.ph.i248 ]
+"_ZZN5clang4Sema25ActOnEndOfTranslationUnitEvENK3$_1clEPNS_6ModuleE.exit.thread": ; preds = %.lr.ph.i248, %.lr.ph12.i, %1366, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit"
+  %1646 = phi i16 [ %1645, %"_ZN4llvm6any_ofINS_14iterator_rangeIN9__gnu_cxx17__normal_iteratorIPPN5clang6ModuleESt6vectorIS6_SaIS6_EEEEEEZNS4_4Sema25ActOnEndOfTranslationUnitEvE3$_2EEbOT_T0_.exit" ], [ -32768, %1366 ], [ -32768, %.lr.ph12.i ], [ -32768, %.lr.ph.i248 ]
   %1647 = getelementptr inbounds nuw i8, ptr %1362, i64 904
   %1648 = load i16, ptr %1647, align 8
   %1649 = and i16 %1648, 32767
@@ -22205,17 +22205,17 @@ _ZNK5clang10LazyVectorIPNS_7VarDeclENS_18ExternalSemaSourceEXadL_ZNS3_24ReadTent
   %1900 = zext i32 %1899 to i64
   %.idx.i.i277 = shl nuw nsw i64 %1900, 3
   %1901 = getelementptr inbounds nuw i8, ptr %1898, i64 %.idx.i.i277
-  %.not36.i.i = icmp eq i32 %1899, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i278
+  %.not34.i.i = icmp eq i32 %1899, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i278
 
 .lr.ph.i.i278:                                    ; preds = %1897, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %1903, %.critedge.i.i ], [ %1898, %1897 ]
-  %1902 = load ptr, ptr %.02937.i.i, align 8, !tbaa !1802, !noalias !2116
+  %.02935.i.i = phi ptr [ %1903, %.critedge.i.i ], [ %1898, %1897 ]
+  %1902 = load ptr, ptr %.02935.i.i, align 8, !tbaa !1802, !noalias !2116
   %.not17.i.i = icmp eq ptr %1902, %1889
   br i1 %.not17.i.i, label %.critedge, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i278
-  %1903 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %1903 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i279 = icmp eq ptr %1903, %1901
   br i1 %.not.i.i279, label %._crit_edge.i.i, label %.lr.ph.i.i278, !llvm.loop !2119
 
@@ -23876,8 +23876,8 @@ _ZNK5clang10LazyVectorIPKNS_14DeclaratorDeclENS_18ExternalSemaSourceEXadL_ZNS4_2
   %.not.i.i.i.i = icmp eq i64 %2708, 0
   %2709 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %2710 = inttoptr i64 %2709 to ptr
-  %.not.not8.i = icmp eq i64 %2709, 0
-  %.not.not.i352 = or i1 %.not.i.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %2709, 0
+  %.not.not.i352 = or i1 %.not.i.i.i.i, %.not.not7.i
   br i1 %.not.not.i352, label %_ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit, label %2711
 
 2711:                                             ; preds = %2706
@@ -25690,13 +25690,13 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(48) %1) #28
   %8 = tail call noundef zeroext i1 @_ZNK5clang4Decl6isUsedEb(ptr noundef nonnull align 8 dereferenceable(33) %7, i1 noundef zeroext true) #28
-  br i1 %8, label %.thread121, label %9
+  br i1 %8, label %.thread119, label %9
 
 9:                                                ; preds = %2
   %10 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %1) #28
   %.off.i.i = add i8 %10, -4
   %switch.i.i = icmp ult i8 %.off.i.i, 3
-  br i1 %switch.i.i, label %.thread121, label %11
+  br i1 %switch.i.i, label %.thread119, label %11
 
 11:                                               ; preds = %9
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 28
@@ -25722,17 +25722,17 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %25, i64 %28
-  %.not131 = icmp eq ptr %22, %.sroa.0.0.i.i.i
-  br i1 %.not131, label %.critedge78, label %.lr.ph
+  %.not128 = icmp eq ptr %22, %.sroa.0.0.i.i.i
+  br i1 %.not128, label %.critedge78, label %.lr.ph
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.096.0132, i64 8
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.095.0129, i64 8
   %.not = icmp eq ptr %30, %.sroa.0.0.i.i.i
   br i1 %.not, label %.critedge78, label %.lr.ph
 
 .lr.ph:                                           ; preds = %19, %29
-  %.sroa.096.0132 = phi ptr [ %30, %29 ], [ %22, %19 ]
-  %31 = load ptr, ptr %.sroa.096.0132, align 8, !tbaa !2175
+  %.sroa.095.0129 = phi ptr [ %30, %29 ], [ %22, %19 ]
+  %31 = load ptr, ptr %.sroa.095.0129, align 8, !tbaa !2175
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %32, align 8
   %33 = and i64 %.0.copyload.i.i.i.i.i.i, -8
@@ -25742,7 +25742,7 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 104
   %38 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef nonnull %36)
   %39 = tail call fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4SemaEPKNS_14DeclaratorDeclE(ptr noundef %0, ptr noundef %38)
-  br i1 %39, label %.thread121, label %29
+  br i1 %39, label %.thread119, label %29
 
 .critedge78:                                      ; preds = %29, %19, %17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -25767,7 +25767,7 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
   %48 = call noundef zeroext i1 @_ZNK5clang4Sema32ShouldWarnIfUnusedFileScopedDeclEPKNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %.sink) #28
   %.8.ph = xor i1 %48, true
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.thread121
+  br label %.thread119
 
 49:                                               ; preds = %43
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -25779,7 +25779,7 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
   %52 = and i32 %51, 127
   %53 = add nsw i32 %52, -45
   %54 = icmp ult i32 %53, -7
-  br i1 %54, label %.thread121, label %55
+  br i1 %54, label %.thread119, label %55
 
 55:                                               ; preds = %50
   %56 = call noundef zeroext i1 @_ZNK5clang4Decl12isReferencedEv(ptr noundef nonnull align 8 dereferenceable(33) %1) #28
@@ -25789,7 +25789,7 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %59 = load ptr, ptr %58, align 8, !tbaa !953
   %60 = call noundef zeroext i1 @_ZNK5clang7VarDecl34mightBeUsableInConstantExpressionsERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(100) %1, ptr noundef nonnull align 8 dereferenceable(23216) %59) #28
-  br i1 %60, label %.thread121, label %61
+  br i1 %60, label %.thread119, label %61
 
 61:                                               ; preds = %57, %55
   %62 = call noundef ptr @_ZNK5clang7VarDecl23getDescribedVarTemplateEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #28
@@ -25806,24 +25806,24 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
-  %.sroa.0.0.i.i.i86 = getelementptr inbounds nuw ptr, ptr %69, i64 %72
-  %.not129133 = icmp eq ptr %66, %.sroa.0.0.i.i.i86
-  br i1 %.not129133, label %.loopexit, label %.lr.ph135
+  %.sroa.0.0.i.i.i85 = getelementptr inbounds nuw ptr, ptr %69, i64 %72
+  %.not126130 = icmp eq ptr %66, %.sroa.0.0.i.i.i85
+  br i1 %.not126130, label %.loopexit, label %.lr.ph132
 
-73:                                               ; preds = %.lr.ph135
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.091.0134, i64 8
-  %.not129 = icmp eq ptr %74, %.sroa.0.0.i.i.i86
-  br i1 %.not129, label %.loopexit, label %.lr.ph135
+73:                                               ; preds = %.lr.ph132
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.090.0131, i64 8
+  %.not126 = icmp eq ptr %74, %.sroa.0.0.i.i.i85
+  br i1 %.not126, label %.loopexit, label %.lr.ph132
 
-.lr.ph135:                                        ; preds = %63, %73
-  %.sroa.091.0134 = phi ptr [ %74, %73 ], [ %66, %63 ]
-  %75 = load ptr, ptr %.sroa.091.0134, align 8, !tbaa !2177
+.lr.ph132:                                        ; preds = %63, %73
+  %.sroa.090.0131 = phi ptr [ %74, %73 ], [ %66, %63 ]
+  %75 = load ptr, ptr %.sroa.090.0131, align 8, !tbaa !2177
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 80
   %77 = load ptr, ptr %76, align 8, !tbaa !1875
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 72
   %79 = call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %78, ptr noundef nonnull %77)
   %80 = call fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4SemaEPKNS_14DeclaratorDeclE(ptr noundef %0, ptr noundef %79)
-  br i1 %80, label %.thread121, label %73
+  br i1 %80, label %.thread119, label %73
 
 .loopexit:                                        ; preds = %73, %63, %61
   %81 = call noundef nonnull align 8 dereferenceable(23216) ptr @_ZNK5clang4Decl13getASTContextEv(ptr noundef nonnull align 8 dereferenceable(100) %1) #33
@@ -25834,7 +25834,7 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
 83:                                               ; preds = %.loopexit
   %84 = call noundef zeroext i1 @_ZNK5clang4Sema32ShouldWarnIfUnusedFileScopedDeclEPKNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %82) #28
   %85 = xor i1 %84, true
-  br label %.thread121
+  br label %.thread119
 
 86:                                               ; preds = %.loopexit
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -25842,15 +25842,15 @@ define internal fastcc noundef zeroext i1 @_ZL22ShouldRemoveFromUnusedPN5clang4S
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 72
   %90 = call noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull %88)
   %.not76 = icmp eq ptr %90, %1
-  br i1 %.not76, label %.thread121, label %91
+  br i1 %.not76, label %.thread119, label %91
 
 91:                                               ; preds = %86
   %92 = call noundef zeroext i1 @_ZNK5clang4Sema32ShouldWarnIfUnusedFileScopedDeclEPKNS_14DeclaratorDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %90) #28
   %93 = xor i1 %92, true
-  br label %.thread121
+  br label %.thread119
 
-.thread121:                                       ; preds = %.lr.ph, %.lr.ph135, %91, %83, %57, %50, %86, %.thread, %9, %2
-  %.0 = phi i1 [ true, %2 ], [ true, %9 ], [ %.8.ph, %.thread ], [ false, %50 ], [ false, %86 ], [ true, %57 ], [ %93, %91 ], [ %85, %83 ], [ true, %.lr.ph135 ], [ true, %.lr.ph ]
+.thread119:                                       ; preds = %.lr.ph, %.lr.ph132, %91, %83, %57, %50, %86, %.thread, %9, %2
+  %.0 = phi i1 [ true, %2 ], [ true, %9 ], [ %.8.ph, %.thread ], [ false, %50 ], [ false, %86 ], [ true, %57 ], [ %93, %91 ], [ %85, %83 ], [ true, %.lr.ph132 ], [ true, %.lr.ph ]
   ret i1 %.0
 }
 
@@ -33176,13 +33176,13 @@ define dso_local noundef ptr @_ZN5clang4Sema18getScopeForContextEPNS_11DeclConte
 3:                                                ; preds = %2
   %4 = tail call noundef ptr @_ZN5clang11DeclContext17getPrimaryContextEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #28
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  %.01524 = load ptr, ptr %5, align 8, !tbaa !2299
-  %.not1825 = icmp eq ptr %.01524, null
-  br i1 %.not1825, label %.loopexit, label %.lr.ph
+  %.01527 = load ptr, ptr %5, align 8, !tbaa !2299
+  %.not1828 = icmp eq ptr %.01527, null
+  br i1 %.not1828, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.thread
-  %.01526 = phi ptr [ %.015, %.thread ], [ %.01524, %3 ]
-  %6 = getelementptr inbounds nuw i8, ptr %.01526, i64 8
+  %.01529 = phi ptr [ %.015, %.thread ], [ %.01527, %3 ]
+  %6 = getelementptr inbounds nuw i8, ptr %.01529, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !2300
   %8 = and i32 %7, 136
   %.not19 = icmp eq i32 %8, 0
@@ -33191,10 +33191,10 @@ define dso_local noundef ptr @_ZN5clang4Sema18getScopeForContextEPNS_11DeclConte
 9:                                                ; preds = %.lr.ph
   %10 = and i32 %7, 128
   %.not.i = icmp ne i32 %10, 0
-  %11 = getelementptr inbounds nuw i8, ptr %.01526, i64 360
+  %11 = getelementptr inbounds nuw i8, ptr %.01529, i64 360
   %12 = load ptr, ptr %11, align 8
-  %.not2023 = icmp eq ptr %12, null
-  %.not20 = select i1 %.not.i, i1 true, i1 %.not2023
+  %.not2026 = icmp eq ptr %12, null
+  %.not20 = select i1 %.not.i, i1 true, i1 %.not2026
   br i1 %.not20, label %.thread, label %13
 
 13:                                               ; preds = %9
@@ -33203,12 +33203,12 @@ define dso_local noundef ptr @_ZN5clang4Sema18getScopeForContextEPNS_11DeclConte
   br i1 %15, label %.loopexit, label %.thread
 
 .thread:                                          ; preds = %13, %9, %.lr.ph
-  %.015 = load ptr, ptr %.01526, align 8, !tbaa !2299
+  %.015 = load ptr, ptr %.01529, align 8, !tbaa !2299
   %.not18 = icmp eq ptr %.015, null
   br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !2316
 
-.loopexit:                                        ; preds = %13, %.thread, %3, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ %.01526, %13 ], [ null, %.thread ]
+.loopexit:                                        ; preds = %.thread, %13, %3, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %3 ], [ null, %.thread ], [ %.01529, %13 ]
   ret ptr %.0
 }
 
@@ -34528,25 +34528,25 @@ define dso_local noundef ptr @_ZNK5clang4Sema20getEnclosingFunctionEv(ptr nounde
   %6 = zext i32 %3 to i64
   br label %7
 
-7:                                                ; preds = %.preheader, %9
-  %indvars.iv = phi i64 [ %6, %.preheader ], [ %indvars.iv.next, %9 ]
+7:                                                ; preds = %.preheader, %10
+  %indvars.iv = phi i64 [ %6, %.preheader ], [ %indvars.iv.next, %10 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %8 = and i64 %indvars.iv.next, 2147483648
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %.loopexit
+  %9 = icmp eq i64 %8, 0
+  br i1 %9, label %10, label %.loopexit
 
-9:                                                ; preds = %7
-  %10 = and i64 %indvars.iv.next, 2147483647
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %10
-  %12 = load ptr, ptr %11, align 8, !tbaa !1636
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %14 = load i32, ptr %13, align 8
-  %15 = and i32 %14, 7
-  %16 = icmp eq i32 %15, 1
-  br i1 %16, label %7, label %.loopexit, !llvm.loop !2452
+10:                                               ; preds = %7
+  %11 = and i64 %indvars.iv.next, 2147483647
+  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %11
+  %13 = load ptr, ptr %12, align 8, !tbaa !1636
+  %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %15 = load i32, ptr %14, align 8
+  %16 = and i32 %15, 7
+  %17 = icmp eq i32 %16, 1
+  br i1 %17, label %7, label %.loopexit, !llvm.loop !2452
 
-.loopexit:                                        ; preds = %7, %9, %1
-  %.07 = phi ptr [ null, %1 ], [ %12, %9 ], [ null, %7 ]
+.loopexit:                                        ; preds = %10, %7, %1
+  %.07 = phi ptr [ null, %1 ], [ null, %7 ], [ %13, %10 ]
   ret ptr %.07
 }
 
@@ -34562,8 +34562,8 @@ define dso_local noundef ptr @_ZNK5clang4Sema25getEnclosingLambdaOrBlockEv(ptr n
 
 8:                                                ; preds = %9, %1
   %.sroa.024.0 = phi ptr [ %7, %1 ], [ %10, %9 ]
-  %.not29 = icmp eq ptr %.sroa.024.0, %3
-  br i1 %.not29, label %.thread, label %9
+  %.not32 = icmp eq ptr %.sroa.024.0, %3
+  br i1 %.not32, label %.loopexit, label %9
 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %.sroa.024.0, i64 -8
@@ -34573,13 +34573,13 @@ define dso_local noundef ptr @_ZNK5clang4Sema25getEnclosingLambdaOrBlockEv(ptr n
   %14 = and i32 %13, 7
   %15 = add nsw i32 %14, -4
   %switch.i.i.i.i.i.i.i.i = icmp ult i32 %15, -3
-  %.not30 = icmp eq ptr %11, null
-  %.not = or i1 %.not30, %switch.i.i.i.i.i.i.i.i
+  %.not33 = icmp eq ptr %11, null
+  %.not = or i1 %.not33, %switch.i.i.i.i.i.i.i.i
   br i1 %.not, label %8, label %16
 
 16:                                               ; preds = %9
-  %.not32 = icmp eq i32 %14, 2
-  br i1 %.not32, label %17, label %29
+  %.not35 = icmp eq i32 %14, 2
+  br i1 %.not35, label %17, label %29
 
 17:                                               ; preds = %16
   %18 = getelementptr inbounds nuw i8, ptr %11, i64 1584
@@ -34598,14 +34598,14 @@ define dso_local noundef ptr @_ZNK5clang4Sema25getEnclosingLambdaOrBlockEv(ptr n
   %26 = getelementptr inbounds nuw i8, ptr %11, i64 1600
   %27 = load i8, ptr %26, align 8, !tbaa !2404, !range !873, !noundef !874
   %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %.thread, label %29
+  br i1 %28, label %.loopexit, label %29
 
 29:                                               ; preds = %25, %20, %17, %16
-  br label %.thread
+  br label %.loopexit
 
-.thread:                                          ; preds = %8, %25, %29
-  %spec.select = phi ptr [ %11, %29 ], [ null, %25 ], [ null, %8 ]
-  ret ptr %spec.select
+.loopexit:                                        ; preds = %8, %25, %29
+  %30 = phi ptr [ null, %25 ], [ %11, %29 ], [ null, %8 ]
+  ret ptr %30
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -34626,8 +34626,8 @@ define dso_local noundef ptr @_ZN5clang4Sema19getCurGenericLambdaEv(ptr noundef 
   %12 = load i32, ptr %11, align 8
   %13 = and i32 %12, 7
   %14 = icmp ne i32 %13, 2
-  %.not.i23 = icmp eq ptr %10, null
-  %.not.i = or i1 %.not.i23, %14
+  %.not.i22 = icmp eq ptr %10, null
+  %.not.i = or i1 %.not.i22, %14
   br i1 %.not.i, label %_ZN5clang4Sema12getCurLambdaEb.exit, label %15
 
 15:                                               ; preds = %4
@@ -35474,8 +35474,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema20tryToRecoverWithCallERNS_12
   %57 = phi i16 [ %.pre.i, %53 ], [ %51, %42 ]
   %.015.i = phi ptr [ %55, %53 ], [ %50, %42 ]
   %58 = and i16 %57, 511
-  %.not34.i = icmp eq i16 %58, 26
-  br i1 %.not34.i, label %59, label %_ZL36IsCPUDispatchCPUSpecificMultiVersionPKN5clang4ExprE.exit
+  %.not33.i = icmp eq i16 %58, 26
+  br i1 %.not33.i, label %59, label %_ZL36IsCPUDispatchCPUSpecificMultiVersionPKN5clang4ExprE.exit
 
 59:                                               ; preds = %56
   %60 = getelementptr inbounds nuw i8, ptr %.015.i, i64 4
@@ -35494,8 +35494,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema20tryToRecoverWithCallERNS_12
   %68 = and i32 %67, 126
   %69 = add nsw i32 %68, -38
   %70 = icmp ult i32 %69, -6
-  %.not2235.i = icmp eq i64 %64, 0
-  %.not22.i = or i1 %.not2235.i, %70
+  %.not2234.i = icmp eq i64 %64, 0
+  %.not22.i = or i1 %.not2234.i, %70
   br i1 %.not22.i, label %_ZL36IsCPUDispatchCPUSpecificMultiVersionPKN5clang4ExprE.exit, label %71
 
 71:                                               ; preds = %63
@@ -36018,8 +36018,8 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNK5clang8SemaBase
   %320 = phi i16 [ %.pre.i53, %316 ], [ %314, %310 ]
   %.015.i47 = phi ptr [ %318, %316 ], [ %313, %310 ]
   %321 = and i16 %320, 511
-  %.not34.i48 = icmp eq i16 %321, 26
-  br i1 %.not34.i48, label %322, label %_ZL36IsCPUDispatchCPUSpecificMultiVersionPKN5clang4ExprE.exit54
+  %.not33.i48 = icmp eq i16 %321, 26
+  br i1 %.not33.i48, label %322, label %_ZL36IsCPUDispatchCPUSpecificMultiVersionPKN5clang4ExprE.exit54
 
 322:                                              ; preds = %319
   %323 = getelementptr inbounds nuw i8, ptr %.015.i47, i64 4
@@ -36038,8 +36038,8 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNK5clang8SemaBase
   %331 = and i32 %330, 126
   %332 = add nsw i32 %331, -38
   %333 = icmp ult i32 %332, -6
-  %.not2235.i51 = icmp eq i64 %327, 0
-  %.not22.i52 = or i1 %.not2235.i51, %333
+  %.not2234.i51 = icmp eq i64 %327, 0
+  %.not22.i52 = or i1 %.not2234.i51, %333
   br i1 %.not22.i52, label %_ZL36IsCPUDispatchCPUSpecificMultiVersionPKN5clang4ExprE.exit54, label %334
 
 334:                                              ; preds = %326
@@ -38549,8 +38549,8 @@ define linkonce_odr hidden void @_ZN5clang12Preprocessor18getMacroDefinitionEPKN
   %.not.i.i.i = icmp eq i64 %12, 0
   %13 = and i64 %.sroa.0.0.copyload.i.i.i.i, -8
   %14 = inttoptr i64 %13 to ptr
-  %.not.not8.i = icmp eq i64 %13, 0
-  %.not.not.i = or i1 %.not.i.i.i, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %13, 0
+  %.not.not.i = or i1 %.not.i.i.i, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12Preprocessor10MacroState9getLatestEv.exit, label %15
 
 15:                                               ; preds = %8
@@ -39243,8 +39243,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -39958,8 +39958,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -40071,8 +40071,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -40680,8 +40680,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -42643,17 +42643,17 @@ _ZN12_GLOBAL__N_126DeferredDiagnosticsEmitter17emitDeferredDiagsEPN5clang12Funct
   %188 = zext i32 %187 to i64
   %.idx.i.i37 = shl nuw nsw i64 %188, 3
   %189 = getelementptr inbounds nuw i8, ptr %185, i64 %.idx.i.i37
-  %.not36.i.i = icmp eq i32 %187, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i38
+  %.not34.i.i = icmp eq i32 %187, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i38
 
 .lr.ph.i.i38:                                     ; preds = %184, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %191, %.critedge.i.i ], [ %185, %184 ]
-  %190 = load ptr, ptr %.02937.i.i, align 8, !tbaa !1802, !noalias !2770
+  %.02935.i.i = phi ptr [ %191, %.critedge.i.i ], [ %185, %184 ]
+  %190 = load ptr, ptr %.02935.i.i, align 8, !tbaa !1802, !noalias !2770
   %.not17.i.i = icmp eq ptr %190, %180
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i38
-  %191 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %191 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %191, %189
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i38, !llvm.loop !2119
 
@@ -42691,17 +42691,17 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %210 = zext i32 %209 to i64
   %.idx.i.i57 = shl nuw nsw i64 %210, 3
   %211 = getelementptr inbounds nuw i8, ptr %207, i64 %.idx.i.i57
-  %.not36.i.i58 = icmp eq i32 %209, 0
-  br i1 %.not36.i.i58, label %._crit_edge.i.i64, label %.lr.ph.i.i59
+  %.not34.i.i58 = icmp eq i32 %209, 0
+  br i1 %.not34.i.i58, label %._crit_edge.i.i64, label %.lr.ph.i.i59
 
 .lr.ph.i.i59:                                     ; preds = %206, %.critedge.i.i62
-  %.02937.i.i60 = phi ptr [ %213, %.critedge.i.i62 ], [ %207, %206 ]
-  %212 = load ptr, ptr %.02937.i.i60, align 8, !tbaa !1802, !noalias !2773
+  %.02935.i.i60 = phi ptr [ %213, %.critedge.i.i62 ], [ %207, %206 ]
+  %212 = load ptr, ptr %.02935.i.i60, align 8, !tbaa !1802, !noalias !2773
   %.not17.i.i61 = icmp eq ptr %212, %203
   br i1 %.not17.i.i61, label %_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE6insertES4_.exit69, label %.critedge.i.i62
 
 .critedge.i.i62:                                  ; preds = %.lr.ph.i.i59
-  %213 = getelementptr inbounds nuw i8, ptr %.02937.i.i60, i64 8
+  %213 = getelementptr inbounds nuw i8, ptr %.02935.i.i60, i64 8
   %.not.i.i63 = icmp eq ptr %213, %211
   br i1 %.not.i.i63, label %._crit_edge.i.i64, label %.lr.ph.i.i59, !llvm.loop !2119
 
@@ -42780,28 +42780,28 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16CanonicalDeclPtrINS1_12FunctionDeclEE
   %256 = zext i32 %255 to i64
   %.idx.i.i75 = shl nuw nsw i64 %256, 3
   %257 = getelementptr inbounds nuw i8, ptr %253, i64 %.idx.i.i75
-  %.not1316.not.i.i = icmp eq i32 %255, 0
-  br i1 %.not1316.not.i.i, label %_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit, label %.lr.ph.i.i76
+  %.not1316.i.i = icmp eq i32 %255, 0
+  br i1 %.not1316.i.i, label %_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit, label %.lr.ph.i.i76
 
-.lr.ph.i.i76:                                     ; preds = %252, %265
-  %.01217.i.i = phi ptr [ %266, %265 ], [ %253, %252 ]
+.lr.ph.i.i76:                                     ; preds = %252, %260
+  %.01217.i.i = phi ptr [ %261, %260 ], [ %253, %252 ]
   %258 = load ptr, ptr %.01217.i.i, align 8, !tbaa !1802
   %259 = icmp eq ptr %258, %249
-  br i1 %259, label %260, label %265
+  br i1 %259, label %262, label %260
 
 260:                                              ; preds = %.lr.ph.i.i76
-  %261 = add i32 %255, -1
-  store i32 %261, ptr %254, align 4, !tbaa !1463
-  %262 = zext i32 %261 to i64
-  %263 = getelementptr inbounds nuw ptr, ptr %253, i64 %262
-  %264 = load ptr, ptr %263, align 8, !tbaa !1802
-  store ptr %264, ptr %.01217.i.i, align 8, !tbaa !1802
-  br label %_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit
+  %261 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
+  %.not13.i.i = icmp eq ptr %261, %257
+  br i1 %.not13.i.i, label %_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit, label %.lr.ph.i.i76, !llvm.loop !2776
 
-265:                                              ; preds = %.lr.ph.i.i76
-  %266 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
-  %.not13.not.i.i = icmp eq ptr %266, %257
-  br i1 %.not13.not.i.i, label %_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit, label %.lr.ph.i.i76, !llvm.loop !2776
+262:                                              ; preds = %.lr.ph.i.i76
+  %263 = add i32 %255, -1
+  store i32 %263, ptr %254, align 4, !tbaa !1463
+  %264 = zext i32 %263 to i64
+  %265 = getelementptr inbounds nuw ptr, ptr %253, i64 %264
+  %266 = load ptr, ptr %265, align 8, !tbaa !1802
+  store ptr %266, ptr %.01217.i.i, align 8, !tbaa !1802
+  br label %_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit
 
 267:                                              ; preds = %243
   %268 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %36, ptr noundef %249) #28
@@ -42816,7 +42816,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16CanonicalDeclPtrINS1_12FunctionDeclEE
   store i32 %272, ptr %270, align 8, !tbaa !1464
   br label %_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit
 
-_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i38, %265, %269, %267, %260, %252, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %._crit_edge, %_ZNK4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5countES4_.exit, %25
+_ZN4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5eraseES4_.exit: ; preds = %.lr.ph.i.i, %.lr.ph.i.i38, %260, %269, %267, %262, %252, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i, %._crit_edge, %_ZNK4llvm15SmallPtrSetImplIN5clang16CanonicalDeclPtrINS1_4DeclEEEE5countES4_.exit, %25
   ret void
 }
 
@@ -42948,16 +42948,16 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %_ZNK5clang18DesignatedInitExpr7getInitEv.exit, %2
-  %.tr320 = phi ptr [ %1, %2 ], [ %146, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
-  %6 = load i16, ptr %.tr320, align 8
+  %.tr319 = phi ptr [ %1, %2 ], [ %146, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
+  %6 = load i16, ptr %.tr319, align 8
   %7 = and i16 %6, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %7, 120
-  %.not318 = icmp eq ptr %.tr320, null
-  %.not = or i1 %.not318, %spec.select.i.i.i.i.i.i.i.i
+  %.not317 = icmp eq ptr %.tr319, null
+  %.not = or i1 %.not317, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %46, label %8
 
 8:                                                ; preds = %tailrecurse
-  %9 = load i32, ptr %.tr320, align 8
+  %9 = load i32, ptr %.tr319, align 8
   %10 = lshr i32 %9, 19
   %11 = and i32 %10, 63
   %12 = trunc i32 %9 to i16
@@ -42998,145 +42998,145 @@ tailrecurse:                                      ; preds = %_ZNK5clang18Designa
   ]
 
 13:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 14:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 15:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 16:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 17:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 18:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 19:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 20:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 21:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 22:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 23:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 24:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 25:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 26:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 27:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 28:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 29:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 30:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 31:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 32:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 33:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 34:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 35:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 36:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 37:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 38:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 39:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 40:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 41:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 42:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 43:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 44:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 45:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 46:                                               ; preds = %tailrecurse
   %47 = and i16 %6, 511
   %48 = icmp ne i16 %47, 4
-  %.not314 = or i1 %.not318, %48
+  %.not314 = or i1 %.not317, %48
   br i1 %.not314, label %.critedge, label %49
 
 49:                                               ; preds = %46
-  %50 = load i32, ptr %.tr320, align 8
+  %50 = load i32, ptr %.tr319, align 8
   %51 = lshr i32 %50, 19
   %52 = and i32 %51, 31
   %53 = trunc i32 %50 to i16
@@ -43158,59 +43158,59 @@ tailrecurse:                                      ; preds = %_ZNK5clang18Designa
   ]
 
 54:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 55:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 56:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 57:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 58:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 59:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 60:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 61:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 62:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 63:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 64:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 65:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 66:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 67:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 .critedge:                                        ; preds = %49, %46, %8
@@ -43479,273 +43479,273 @@ tailrecurse:                                      ; preds = %_ZNK5clang18Designa
   unreachable
 
 71:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 72:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 73:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 74:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 75:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 76:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 77:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 78:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 79:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 80:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 81:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 82:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 83:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 84:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 85:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 86:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 87:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 88:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 89:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 90:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 91:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 92:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 93:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 94:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 95:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 96:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 97:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 98:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 99:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 100:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 101:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 102:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 103:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 104:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 105:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 106:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 107:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 108:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 109:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 110:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 111:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 112:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 113:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 114:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 115:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 116:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE15VisitMemberExprEPNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE15VisitMemberExprEPNS_10MemberExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 117:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 118:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 119:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 120:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 121:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE15VisitLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE15VisitLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 122:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 123:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE17VisitInitListExprEPNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE17VisitInitListExprEPNS_12InitListExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 124:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 125:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 126:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 127:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE25VisitGenericSelectionExprEPNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE25VisitGenericSelectionExprEPNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 128:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 129:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 130:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 131:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 132:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 133:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 134:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 135:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 136:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 137:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !2781
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.2846") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.tr320) #28, !noalias !2781
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.2846") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.tr319) #28, !noalias !2781
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !2781
   %138 = load i64, ptr %5, align 8, !tbaa !2784
@@ -43768,399 +43768,399 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %141, %143
   br label %tailrecurse
 
 147:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 148:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 149:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE16VisitDeclRefExprEPNS_11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE16VisitDeclRefExprEPNS_11DeclRefExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 150:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 151:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 152:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 153:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 154:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 155:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE15VisitChooseExprEPNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE15VisitChooseExprEPNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 156:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 157:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 158:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 159:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 160:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 161:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 162:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 163:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 164:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 165:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 166:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 167:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 168:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 169:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 170:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 171:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE13VisitCallExprEPNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 172:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 173:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE18VisitCXXTypeidExprEPNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE18VisitCXXTypeidExprEPNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 174:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 175:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 176:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 177:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 178:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 179:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 180:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 181:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 182:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE15VisitCXXNewExprEPNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE15VisitCXXNewExprEPNS_10CXXNewExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 183:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 184:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 185:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 186:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE18VisitCXXDeleteExprEPNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE18VisitCXXDeleteExprEPNS_13CXXDeleteExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 187:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE23VisitCXXDefaultInitExprEPNS_18CXXDefaultInitExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE23VisitCXXDefaultInitExprEPNS_18CXXDefaultInitExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 188:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE22VisitCXXDefaultArgExprEPNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE22VisitCXXDefaultArgExprEPNS_17CXXDefaultArgExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 189:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE21VisitCXXConstructExprEPNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE21VisitCXXConstructExprEPNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 190:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE21VisitCXXConstructExprEPNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE21VisitCXXConstructExprEPNS_16CXXConstructExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 191:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 192:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE25VisitCXXBindTemporaryExprEPNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE25VisitCXXBindTemporaryExprEPNS_20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull %.tr319)
   br label %.critedge.thread
 
 193:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 194:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 195:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 196:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 197:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 198:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 199:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 200:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 201:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 202:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 203:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 204:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 205:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 206:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 207:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 208:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 209:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 210:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 211:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 212:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 213:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 214:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 215:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 216:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 217:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 218:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 219:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 220:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 221:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 222:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 223:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 224:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 225:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 226:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 227:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 228:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 229:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 230:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 231:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 232:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 233:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 234:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 235:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 236:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 237:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 238:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 239:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 240:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 241:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 242:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 243:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 244:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 245:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 246:                                              ; preds = %.critedge
@@ -44168,342 +44168,342 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %141, %143
   %248 = load i32, ptr %247, align 4, !tbaa !1954
   %249 = add i32 %248, 1
   store i32 %249, ptr %247, align 4, !tbaa !1954
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef %.tr319)
   %250 = load i32, ptr %247, align 4, !tbaa !1954
   %251 = add i32 %250, -1
   store i32 %251, ptr %247, align 4, !tbaa !1954
   br label %.critedge.thread
 
 252:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 253:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 254:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 255:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 256:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 257:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 258:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 259:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 260:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 261:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 262:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 263:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 264:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 265:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 266:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 267:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 268:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 269:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 270:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 271:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 272:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 273:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 274:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 275:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 276:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 277:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 278:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 279:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 280:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 281:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 282:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 283:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 284:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 285:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 286:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 287:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 288:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 289:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 290:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 291:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 292:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 293:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 294:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 295:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 296:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 297:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 298:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 299:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 300:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 301:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 302:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 303:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 304:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 305:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 306:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 307:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 308:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 309:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 310:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 311:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 312:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 313:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 314:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 315:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 316:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 317:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 318:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 319:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE11VisitIfStmtEPNS_6IfStmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE11VisitIfStmtEPNS_6IfStmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 320:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 321:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 322:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 323:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 324:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 325:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 326:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 327:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 328:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE17VisitCapturedStmtEPNS_12CapturedStmtE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang15UsedDeclVisitorIN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE17VisitCapturedStmtEPNS_12CapturedStmtE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 329:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 330:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 331:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 332:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 333:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 334:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseISt11add_pointerN12_GLOBAL__N_126DeferredDiagnosticsEmitterEE9VisitStmtEPNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr319)
   br label %.critedge.thread
 
 .critedge.thread:                                 ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %207, %206, %205, %204, %203, %202, %201, %200, %199, %198, %197, %196, %195, %194, %193, %192, %191, %190, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %148, %147, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %118, %117, %116, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71
@@ -45922,440 +45922,440 @@ define internal fastcc void @_ZL13noteOverloadsRN5clang4SemaERKNS_17UnresolvedSe
 
 _ZN5clang17DiagnosticsEngine23overloadCandidatesShownEj.exit: ; preds = %._crit_edge, %15
   %.not = icmp eq i32 %.18, 0
-  br i1 %.not, label %_ZN5clang17DiagnosticsEngine23overloadCandidatesShownEj.exit.thread, label %152
+  br i1 %.not, label %_ZN5clang17DiagnosticsEngine23overloadCandidatesShownEj.exit.thread, label %153
 
 19:                                               ; preds = %.lr.ph30, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread
   %.029 = phi i32 [ 0, %.lr.ph30 ], [ %.1, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread ]
   %.0728 = phi i32 [ 0, %.lr.ph30 ], [ %.18, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread ]
-  %.sroa.01.027 = phi ptr [ %.0.val, %.lr.ph30 ], [ %151, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread ]
+  %.sroa.01.027 = phi ptr [ %.0.val, %.lr.ph30 ], [ %152, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread ]
   %20 = load ptr, ptr %10, align 8, !tbaa !1338
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = load i32, ptr %21, align 4, !tbaa !2833
-  %switch.i = icmp eq i32 %22, 0
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  %24 = load i32, ptr %23, align 8
-  %.0.i = select i1 %switch.i, i32 2147483647, i32 %24
+  %23 = icmp eq i32 %22, 0
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  %25 = load i32, ptr %24, align 8
+  %.0.i = select i1 %23, i32 2147483647, i32 %25
   %.not22 = icmp ult i32 %.029, %.0.i
-  br i1 %.not22, label %27, label %25
+  br i1 %.not22, label %28, label %26
 
-25:                                               ; preds = %19
-  %26 = add i32 %.0728, 1
+26:                                               ; preds = %19
+  %27 = add i32 %.0728, 1
   br label %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread
 
-27:                                               ; preds = %19
+28:                                               ; preds = %19
   call void @llvm.assume(i1 true) [ "align"(ptr %.sroa.01.027, i64 8) ]
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.01.027, align 8
-  %28 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
-  %31 = load i32, ptr %30, align 4
-  %32 = and i32 %31, 127
-  switch i32 %32, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit [
-    i32 51, label %33
-    i32 52, label %33
-    i32 74, label %33
-    i32 75, label %33
+  %29 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %30 = inttoptr i64 %29 to ptr
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 28
+  %32 = load i32, ptr %31, align 4
+  %33 = and i32 %32, 127
+  switch i32 %33, label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit [
+    i32 51, label %34
+    i32 52, label %34
+    i32 74, label %34
+    i32 75, label %34
   ]
 
-33:                                               ; preds = %27, %27, %27, %27
-  %34 = call noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48) %29) #33
+34:                                               ; preds = %28, %28, %28, %28
+  %35 = call noundef ptr @_ZN5clang9NamedDecl21getUnderlyingDeclImplEv(ptr noundef nonnull align 8 dereferenceable(48) %30) #33
   br label %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
 
-_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %27, %33
-  %.0.i24 = phi ptr [ %34, %33 ], [ %29, %27 ]
-  %35 = call noundef ptr @_ZN5clang4Decl13getAsFunctionEv(ptr noundef nonnull align 8 dereferenceable(33) %.0.i24) #33
-  %.not23 = icmp eq ptr %35, null
-  br i1 %.not23, label %.critedge, label %36
+_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit:    ; preds = %28, %34
+  %.0.i24 = phi ptr [ %35, %34 ], [ %30, %28 ]
+  %36 = call noundef ptr @_ZN5clang4Decl13getAsFunctionEv(ptr noundef nonnull align 8 dereferenceable(33) %.0.i24) #33
+  %.not23 = icmp eq ptr %36, null
+  br i1 %.not23, label %.critedge, label %37
 
-36:                                               ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
-  %37 = load ptr, ptr %35, align 8, !tbaa !889
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %39 = load ptr, ptr %38, align 8
-  %40 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(168) %35) #28
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 82
-  %42 = load i32, ptr %41, align 2
-  %43 = and i32 %42, 4194304
-  %.not16 = icmp eq i32 %43, 0
-  br i1 %.not16, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %44
+37:                                               ; preds = %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
+  %38 = load ptr, ptr %36, align 8, !tbaa !889
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %40 = load ptr, ptr %39, align 8
+  %41 = call noundef ptr %40(ptr noundef nonnull align 8 dereferenceable(168) %36) #28
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 82
+  %43 = load i32, ptr %42, align 2
+  %44 = and i32 %43, 4194304
+  %.not16 = icmp eq i32 %44, 0
+  br i1 %.not16, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %45
 
-44:                                               ; preds = %36
-  %45 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %46 = load i32, ptr %45, align 4
-  %47 = and i32 %46, 256
-  %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %48
+45:                                               ; preds = %37
+  %46 = getelementptr inbounds nuw i8, ptr %36, i64 28
+  %47 = load i32, ptr %46, align 4
+  %48 = and i32 %47, 256
+  %.not.i = icmp eq i32 %48, 0
+  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %49
 
-48:                                               ; preds = %44
-  %49 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %35) #28
-  %50 = load ptr, ptr %49, align 8, !tbaa !1322
-  %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %52 = load i32, ptr %51, align 8, !tbaa !1323
-  %53 = zext i32 %52 to i64
-  %.idx.i.i = shl nuw nsw i64 %53, 3
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i
-  %.not.i.i = icmp eq i32 %52, 0
+49:                                               ; preds = %45
+  %50 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %36) #28
+  %51 = load ptr, ptr %50, align 8, !tbaa !1322
+  %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %53 = load i32, ptr %52, align 8, !tbaa !1323
+  %54 = zext i32 %53 to i64
+  %.idx.i.i = shl nuw nsw i64 %54, 3
+  %55 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i
+  %.not.i.i = icmp eq i32 %53, 0
   br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %.lr.ph.i.i.i.i.i
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %48, %59
-  %.sroa.07.1.i.i.i.i = phi ptr [ %60, %59 ], [ %50, %48 ]
-  %55 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !1809
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  %57 = load i16, ptr %56, align 8
-  %58 = icmp eq i16 %57, 367
-  br i1 %58, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit, label %59
+.lr.ph.i.i.i.i.i:                                 ; preds = %49, %60
+  %.sroa.07.1.i.i.i.i = phi ptr [ %61, %60 ], [ %51, %49 ]
+  %56 = load ptr, ptr %.sroa.07.1.i.i.i.i, align 8, !tbaa !1809
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
+  %58 = load i16, ptr %57, align 8
+  %59 = icmp eq i16 %58, 367
+  br i1 %59, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit, label %60
 
-59:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %60, %54
+60:                                               ; preds = %.lr.ph.i.i.i.i.i
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %61, %55
   br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %.lr.ph.i.i.i.i.i, !llvm.loop !2834
 
 _ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not17 = icmp eq ptr %.sroa.07.1.i.i.i.i, %54
-  br i1 %.not17, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %61
+  %.not17 = icmp eq ptr %.sroa.07.1.i.i.i.i, %55
+  br i1 %.not17, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %62
 
-61:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit
-  %62 = load i32, ptr %45, align 4
-  %63 = and i32 %62, 256
-  %.not.i25 = icmp eq i32 %63, 0
-  br i1 %.not.i25, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %64
+62:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit
+  %63 = load i32, ptr %46, align 4
+  %64 = and i32 %63, 256
+  %.not.i25 = icmp eq i32 %64, 0
+  br i1 %.not.i25, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %65
 
-64:                                               ; preds = %61
-  %65 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %35) #28
-  %66 = load ptr, ptr %65, align 8, !tbaa !1322
-  %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %68 = load i32, ptr %67, align 8, !tbaa !1323
-  %69 = zext i32 %68 to i64
-  %.idx.i.i26 = shl nuw nsw i64 %69, 3
-  %70 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx.i.i26
-  %.not.i.i27 = icmp eq i32 %68, 0
+65:                                               ; preds = %62
+  %66 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %36) #28
+  %67 = load ptr, ptr %66, align 8, !tbaa !1322
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 8
+  %69 = load i32, ptr %68, align 8, !tbaa !1323
+  %70 = zext i32 %69 to i64
+  %.idx.i.i26 = shl nuw nsw i64 %70, 3
+  %71 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i26
+  %.not.i.i27 = icmp eq i32 %69, 0
   br i1 %.not.i.i27, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i.i28
 
-.lr.ph.i.i.i.i.i28:                               ; preds = %64, %75
-  %.sroa.07.1.i.i.i.i29 = phi ptr [ %76, %75 ], [ %66, %64 ]
-  %71 = load ptr, ptr %.sroa.07.1.i.i.i.i29, align 8, !tbaa !1809
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
-  %73 = load i16, ptr %72, align 8
-  %74 = icmp eq i16 %73, 367
-  br i1 %74, label %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, label %75
+.lr.ph.i.i.i.i.i28:                               ; preds = %65, %76
+  %.sroa.07.1.i.i.i.i29 = phi ptr [ %77, %76 ], [ %67, %65 ]
+  %72 = load ptr, ptr %.sroa.07.1.i.i.i.i29, align 8, !tbaa !1809
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 32
+  %74 = load i16, ptr %73, align 8
+  %75 = icmp eq i16 %74, 367
+  br i1 %75, label %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, label %76
 
-75:                                               ; preds = %.lr.ph.i.i.i.i.i28
-  %76 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i29, i64 8
-  %.not.i.i.i.i.i30 = icmp eq ptr %76, %70
+76:                                               ; preds = %.lr.ph.i.i.i.i.i28
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i29, i64 8
+  %.not.i.i.i.i.i30 = icmp eq ptr %77, %71
   br i1 %.not.i.i.i.i.i30, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i.i28, !llvm.loop !2834
 
 _ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i28
-  %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i29, %70
-  br i1 %.not5.i.i, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %77
+  %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i29, %71
+  br i1 %.not5.i.i, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %78
 
-77:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
-  %78 = load ptr, ptr %66, align 8, !tbaa !1809
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 32
-  %80 = load i16, ptr %79, align 8
-  %81 = icmp eq i16 %80, 367
-  br i1 %81, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i
+78:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
+  %79 = load ptr, ptr %67, align 8, !tbaa !1809
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
+  %81 = load i16, ptr %80, align 8
+  %82 = icmp eq i16 %81, 367
+  br i1 %82, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %77, %.lr.ph.i.i.i.i
-  %82 = phi ptr [ %83, %.lr.ph.i.i.i.i ], [ %66, %77 ]
-  %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %84 = load ptr, ptr %83, align 8, !tbaa !1809
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
-  %86 = load i16, ptr %85, align 8
-  %87 = icmp eq i16 %86, 367
-  br i1 %87, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !2835
+.lr.ph.i.i.i.i:                                   ; preds = %78, %.lr.ph.i.i.i.i
+  %83 = phi ptr [ %84, %.lr.ph.i.i.i.i ], [ %67, %78 ]
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %85 = load ptr, ptr %84, align 8, !tbaa !1809
+  %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
+  %87 = load i16, ptr %86, align 8
+  %88 = icmp eq i16 %87, 367
+  br i1 %88, label %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !2835
 
-_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit: ; preds = %75, %.lr.ph.i.i.i.i, %61, %64, %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %77
-  %88 = phi ptr [ null, %61 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %78, %77 ], [ null, %64 ], [ %84, %.lr.ph.i.i.i.i ], [ null, %75 ]
-  %89 = getelementptr inbounds nuw i8, ptr %88, i64 36
-  %90 = load i32, ptr %89, align 4, !tbaa !2836
-  %.not.i.i31 = icmp eq i32 %90, 7
+_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit: ; preds = %76, %.lr.ph.i.i.i.i, %62, %65, %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %78
+  %89 = phi ptr [ null, %62 ], [ null, %_ZN5clangneENS_22specific_attr_iteratorINS_10TargetAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i ], [ %79, %78 ], [ null, %65 ], [ %85, %.lr.ph.i.i.i.i ], [ null, %76 ]
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 36
+  %91 = load i32, ptr %90, align 4, !tbaa !2836
+  %.not.i.i31 = icmp eq i32 %91, 7
   br i1 %.not.i.i31, label %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit, label %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread
 
 _ZNK5clang10TargetAttr16isDefaultVersionEv.exit:  ; preds = %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit
-  %91 = getelementptr inbounds nuw i8, ptr %88, i64 40
-  %92 = load ptr, ptr %91, align 8, !tbaa !2838
-  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %92, ptr noundef nonnull dereferenceable(7) @.str.453, i64 7)
-  %93 = icmp eq i32 %bcmp.i.i, 0
-  br i1 %93, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread
+  %92 = getelementptr inbounds nuw i8, ptr %89, i64 40
+  %93 = load ptr, ptr %92, align 8, !tbaa !2838
+  %bcmp.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %93, ptr noundef nonnull dereferenceable(7) @.str.453, i64 7)
+  %94 = icmp eq i32 %bcmp.i.i, 0
+  br i1 %94, label %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, label %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread
 
-_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9: ; preds = %59, %48, %44, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit, %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit, %36
-  %94 = load ptr, ptr %35, align 8, !tbaa !889
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  %96 = load ptr, ptr %95, align 8
-  %97 = call noundef ptr %96(ptr noundef nonnull align 8 dereferenceable(168) %35) #28
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 82
-  %99 = load i32, ptr %98, align 2
-  %100 = and i32 %99, 4194304
-  %.not18 = icmp eq i32 %100, 0
-  br i1 %.not18, label %.critedge, label %101
+_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9: ; preds = %60, %49, %45, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit, %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit, %37
+  %95 = load ptr, ptr %36, align 8, !tbaa !889
+  %96 = getelementptr inbounds nuw i8, ptr %95, i64 32
+  %97 = load ptr, ptr %96, align 8
+  %98 = call noundef ptr %97(ptr noundef nonnull align 8 dereferenceable(168) %36) #28
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 82
+  %100 = load i32, ptr %99, align 2
+  %101 = and i32 %100, 4194304
+  %.not18 = icmp eq i32 %101, 0
+  br i1 %.not18, label %.critedge, label %102
 
-101:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9
-  %102 = getelementptr inbounds nuw i8, ptr %35, i64 28
-  %103 = load i32, ptr %102, align 4
-  %104 = and i32 %103, 256
-  %.not.i32 = icmp eq i32 %104, 0
-  br i1 %.not.i32, label %.critedge, label %105
+102:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9
+  %103 = getelementptr inbounds nuw i8, ptr %36, i64 28
+  %104 = load i32, ptr %103, align 4
+  %105 = and i32 %104, 256
+  %.not.i32 = icmp eq i32 %105, 0
+  br i1 %.not.i32, label %.critedge, label %106
 
-105:                                              ; preds = %101
-  %106 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %35) #28
-  %107 = load ptr, ptr %106, align 8, !tbaa !1322
-  %108 = getelementptr inbounds nuw i8, ptr %106, i64 8
-  %109 = load i32, ptr %108, align 8, !tbaa !1323
-  %110 = zext i32 %109 to i64
-  %.idx.i.i33 = shl nuw nsw i64 %110, 3
-  %111 = getelementptr inbounds nuw i8, ptr %107, i64 %.idx.i.i33
-  %.not.i.i34 = icmp eq i32 %109, 0
+106:                                              ; preds = %102
+  %107 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %36) #28
+  %108 = load ptr, ptr %107, align 8, !tbaa !1322
+  %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
+  %110 = load i32, ptr %109, align 8, !tbaa !1323
+  %111 = zext i32 %110 to i64
+  %.idx.i.i33 = shl nuw nsw i64 %111, 3
+  %112 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx.i.i33
+  %.not.i.i34 = icmp eq i32 %110, 0
   br i1 %.not.i.i34, label %.critedge, label %.lr.ph.i.i.i.i.i35
 
-.lr.ph.i.i.i.i.i35:                               ; preds = %105, %116
-  %.sroa.07.1.i.i.i.i36 = phi ptr [ %117, %116 ], [ %107, %105 ]
-  %112 = load ptr, ptr %.sroa.07.1.i.i.i.i36, align 8, !tbaa !1809
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
-  %114 = load i16, ptr %113, align 8
-  %115 = icmp eq i16 %114, 369
-  br i1 %115, label %_ZNK5clang4Decl7hasAttrINS_17TargetVersionAttrEEEbv.exit, label %116
+.lr.ph.i.i.i.i.i35:                               ; preds = %106, %117
+  %.sroa.07.1.i.i.i.i36 = phi ptr [ %118, %117 ], [ %108, %106 ]
+  %113 = load ptr, ptr %.sroa.07.1.i.i.i.i36, align 8, !tbaa !1809
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  %115 = load i16, ptr %114, align 8
+  %116 = icmp eq i16 %115, 369
+  br i1 %116, label %_ZNK5clang4Decl7hasAttrINS_17TargetVersionAttrEEEbv.exit, label %117
 
-116:                                              ; preds = %.lr.ph.i.i.i.i.i35
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i36, i64 8
-  %.not.i.i.i.i.i37 = icmp eq ptr %117, %111
+117:                                              ; preds = %.lr.ph.i.i.i.i.i35
+  %118 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i36, i64 8
+  %.not.i.i.i.i.i37 = icmp eq ptr %118, %112
   br i1 %.not.i.i.i.i.i37, label %.critedge, label %.lr.ph.i.i.i.i.i35, !llvm.loop !2839
 
 _ZNK5clang4Decl7hasAttrINS_17TargetVersionAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i35
-  %.not19 = icmp eq ptr %.sroa.07.1.i.i.i.i36, %111
-  br i1 %.not19, label %.critedge, label %118
+  %.not19 = icmp eq ptr %.sroa.07.1.i.i.i.i36, %112
+  br i1 %.not19, label %.critedge, label %119
 
-118:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_17TargetVersionAttrEEEbv.exit
-  %119 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %35) #28
-  %120 = load ptr, ptr %119, align 8, !tbaa !1322
-  %121 = load ptr, ptr %120, align 8, !tbaa !1809
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %123 = load i16, ptr %122, align 8
-  %124 = icmp eq i16 %123, 369
-  br i1 %124, label %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i46
+119:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_17TargetVersionAttrEEEbv.exit
+  %120 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %36) #28
+  %121 = load ptr, ptr %120, align 8, !tbaa !1322
+  %122 = load ptr, ptr %121, align 8, !tbaa !1809
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
+  %124 = load i16, ptr %123, align 8
+  %125 = icmp eq i16 %124, 369
+  br i1 %125, label %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i46
 
-.lr.ph.i.i.i.i46:                                 ; preds = %118, %.lr.ph.i.i.i.i46
-  %125 = phi ptr [ %126, %.lr.ph.i.i.i.i46 ], [ %120, %118 ]
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
-  %127 = load ptr, ptr %126, align 8, !tbaa !1809
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 32
-  %129 = load i16, ptr %128, align 8
-  %130 = icmp eq i16 %129, 369
-  br i1 %130, label %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i46, !llvm.loop !2840
+.lr.ph.i.i.i.i46:                                 ; preds = %119, %.lr.ph.i.i.i.i46
+  %126 = phi ptr [ %127, %.lr.ph.i.i.i.i46 ], [ %121, %119 ]
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
+  %128 = load ptr, ptr %127, align 8, !tbaa !1809
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  %130 = load i16, ptr %129, align 8
+  %131 = icmp eq i16 %130, 369
+  br i1 %131, label %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i46, !llvm.loop !2840
 
-_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i.i46, %118
-  %131 = phi ptr [ %121, %118 ], [ %127, %.lr.ph.i.i.i.i46 ]
+_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i.i46, %119
+  %132 = phi ptr [ %122, %119 ], [ %128, %.lr.ph.i.i.i.i46 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %132 = getelementptr inbounds nuw i8, ptr %131, i64 40
-  %133 = load ptr, ptr %132, align 8, !tbaa !2841
-  %134 = getelementptr inbounds nuw i8, ptr %131, i64 36
-  %135 = load i32, ptr %134, align 4, !tbaa !2843
-  %136 = zext i32 %135 to i64
-  store ptr %133, ptr %5, align 8
-  store i64 %136, ptr %11, align 8
+  %133 = getelementptr inbounds nuw i8, ptr %132, i64 40
+  %134 = load ptr, ptr %133, align 8, !tbaa !2841
+  %135 = getelementptr inbounds nuw i8, ptr %132, i64 36
+  %136 = load i32, ptr %135, align 4, !tbaa !2843
+  %137 = zext i32 %136 to i64
+  store ptr %134, ptr %5, align 8
+  store i64 %137, ptr %11, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %137 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.454, i64 6, i64 noundef 0) #28
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %137, i64 %136)
-  %138 = load i64, ptr %11, align 8, !tbaa !2844
-  %.sroa.speculated4.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %138, i64 %.sroa.speculated.i.i.i.i)
-  %139 = load ptr, ptr %5, align 8, !tbaa !2845
-  %140 = getelementptr inbounds nuw i8, ptr %139, i64 %.sroa.speculated4.i.i.i.i.i.i
-  %141 = sub i64 %138, %.sroa.speculated4.i.i.i.i.i.i
-  store ptr %140, ptr %4, align 8
-  store i64 %141, ptr %12, align 8
-  %142 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull @.str.454, i64 6, i64 noundef -1) #28
-  %143 = add i64 %142, 1
-  %144 = call i64 @llvm.usub.sat.i64(i64 %141, i64 %143)
-  %145 = load i64, ptr %12, align 8, !tbaa !2844
-  %146 = sub i64 %145, %144
-  %147 = load ptr, ptr %4, align 8, !tbaa !2845
-  %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %145, i64 %146)
+  %138 = call noundef i64 @_ZNK4llvm9StringRef17find_first_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr nonnull @.str.454, i64 6, i64 noundef 0) #28
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umin.i64(i64 %138, i64 %137)
+  %139 = load i64, ptr %11, align 8, !tbaa !2844
+  %.sroa.speculated4.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %139, i64 %.sroa.speculated.i.i.i.i)
+  %140 = load ptr, ptr %5, align 8, !tbaa !2845
+  %141 = getelementptr inbounds nuw i8, ptr %140, i64 %.sroa.speculated4.i.i.i.i.i.i
+  %142 = sub i64 %139, %.sroa.speculated4.i.i.i.i.i.i
+  store ptr %141, ptr %4, align 8
+  store i64 %142, ptr %12, align 8
+  %143 = call noundef i64 @_ZNK4llvm9StringRef16find_last_not_ofES0_m(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr nonnull @.str.454, i64 6, i64 noundef -1) #28
+  %144 = add i64 %143, 1
+  %145 = call i64 @llvm.usub.sat.i64(i64 %142, i64 %144)
+  %146 = load i64, ptr %12, align 8, !tbaa !2844
+  %147 = sub i64 %146, %145
+  %148 = load ptr, ptr %4, align 8, !tbaa !2845
+  %.sroa.speculated.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %146, i64 %147)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not.i.i47 = icmp eq i64 %.sroa.speculated.i.i.i.i.i.i, 7
   br i1 %.not.i.i47, label %_ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit, label %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread
 
 _ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit: ; preds = %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit
-  %bcmp.i.i49 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %147, ptr noundef nonnull dereferenceable(7) @.str.453, i64 7)
-  %148 = icmp eq i32 %bcmp.i.i49, 0
-  br i1 %148, label %.critedge, label %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread
+  %bcmp.i.i49 = call i32 @bcmp(ptr noundef nonnull dereferenceable(7) %148, ptr noundef nonnull dereferenceable(7) @.str.453, i64 7)
+  %149 = icmp eq i32 %bcmp.i.i49, 0
+  br i1 %149, label %.critedge, label %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread
 
-.critedge:                                        ; preds = %116, %105, %101, %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, %_ZNK5clang4Decl7hasAttrINS_17TargetVersionAttrEEEbv.exit, %_ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
-  %149 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 24
-  %.sroa.0.0.copyload.i = load i32, ptr %149, align 8, !tbaa !893
+.critedge:                                        ; preds = %117, %106, %102, %_ZNK5clang4Decl7hasAttrINS_10TargetAttrEEEbv.exit.thread9, %_ZNK5clang4Decl7hasAttrINS_17TargetVersionAttrEEEbv.exit, %_ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit, %_ZN5clang9NamedDecl17getUnderlyingDeclEv.exit
+  %150 = getelementptr inbounds nuw i8, ptr %.0.i24, i64 24
+  %.sroa.0.0.copyload.i = load i32, ptr %150, align 8, !tbaa !893
   call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %13, i32 %.sroa.0.0.copyload.i, i32 noundef 5957, i1 noundef zeroext false) #28
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %6) #28
-  %150 = add i32 %.029, 1
+  %151 = add i32 %.029, 1
   br label %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread
 
-_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread: ; preds = %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit, %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, %.critedge, %_ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit, %25
-  %.18 = phi i32 [ %.0728, %.critedge ], [ %.0728, %_ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit ], [ %.0728, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit ], [ %26, %25 ], [ %.0728, %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit ], [ %.0728, %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit ]
-  %.1 = phi i32 [ %150, %.critedge ], [ %.029, %_ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit ], [ %.029, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit ], [ %.029, %25 ], [ %.029, %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit ], [ %.029, %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit ]
-  %151 = getelementptr inbounds nuw i8, ptr %.sroa.01.027, i64 8
-  %.not15 = icmp eq ptr %151, %9
+_ZNK5clang10TargetAttr16isDefaultVersionEv.exit.thread: ; preds = %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit, %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit, %.critedge, %_ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit, %26
+  %.18 = phi i32 [ %.0728, %.critedge ], [ %.0728, %_ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit ], [ %.0728, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit ], [ %27, %26 ], [ %.0728, %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit ], [ %.0728, %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit ]
+  %.1 = phi i32 [ %151, %.critedge ], [ %.029, %_ZNK5clang17TargetVersionAttr16isDefaultVersionEv.exit ], [ %.029, %_ZNK5clang10TargetAttr16isDefaultVersionEv.exit ], [ %.029, %26 ], [ %.029, %_ZNK5clang4Decl7getAttrINS_10TargetAttrEEEPT_v.exit ], [ %.029, %_ZNK5clang4Decl7getAttrINS_17TargetVersionAttrEEEPT_v.exit ]
+  %152 = getelementptr inbounds nuw i8, ptr %.sroa.01.027, i64 8
+  %.not15 = icmp eq ptr %152, %9
   br i1 %.not15, label %._crit_edge, label %19, !llvm.loop !2846
 
-152:                                              ; preds = %_ZN5clang17DiagnosticsEngine23overloadCandidatesShownEj.exit
+153:                                              ; preds = %_ZN5clang17DiagnosticsEngine23overloadCandidatesShownEj.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %153, i32 %1, i32 noundef 5944, i1 noundef zeroext false) #28
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %155 = load i8, ptr %154, align 8, !tbaa !875, !range !873, !noundef !874
-  %156 = trunc nuw i8 %155 to i1
-  br i1 %156, label %157, label %212
+  %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %7, ptr noundef nonnull align 8 dereferenceable(8) %154, i32 %1, i32 noundef 5944, i1 noundef zeroext false) #28
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %156 = load i8, ptr %155, align 8, !tbaa !875, !range !873, !noundef !874
+  %157 = trunc nuw i8 %156 to i1
+  br i1 %157, label %158, label %213
 
-157:                                              ; preds = %152
-  %158 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %159 = zext i32 %.18 to i64
-  %160 = load ptr, ptr %158, align 8, !tbaa !1781
-  %.not.i51 = icmp eq ptr %160, null
-  br i1 %.not.i51, label %161, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
+158:                                              ; preds = %153
+  %159 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %160 = zext i32 %.18 to i64
+  %161 = load ptr, ptr %159, align 8, !tbaa !1781
+  %.not.i51 = icmp eq ptr %161, null
+  br i1 %.not.i51, label %162, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
 
-161:                                              ; preds = %157
-  %162 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %163 = load ptr, ptr %162, align 8, !tbaa !1785
-  %164 = getelementptr inbounds nuw i8, ptr %163, i64 14976
-  %165 = load i32, ptr %164, align 8, !tbaa !1813
-  %166 = icmp eq i32 %165, 0
-  br i1 %166, label %167, label %181
+162:                                              ; preds = %158
+  %163 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %164 = load ptr, ptr %163, align 8, !tbaa !1785
+  %165 = getelementptr inbounds nuw i8, ptr %164, i64 14976
+  %166 = load i32, ptr %165, align 8, !tbaa !1813
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %182
 
-167:                                              ; preds = %161
-  %168 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #29
-  store i8 0, ptr %168, align 8, !tbaa !1814
-  br label %169
+168:                                              ; preds = %162
+  %169 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #29
+  store i8 0, ptr %169, align 8, !tbaa !1814
+  br label %170
 
-169:                                              ; preds = %169, %167
-  %.idx.i.i.i.i = phi i64 [ 96, %167 ], [ %.add.i.i.i.i, %169 ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %168, i64 %.idx.i.i.i.i
-  %170 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 16
-  store ptr %170, ptr %.ptr.i.i.i.i, align 8, !tbaa !936
-  %171 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
-  store i64 0, ptr %171, align 8, !tbaa !909
-  store i8 0, ptr %170, align 8, !tbaa !937
+170:                                              ; preds = %170, %168
+  %.idx.i.i.i.i = phi i64 [ 96, %168 ], [ %.add.i.i.i.i, %170 ]
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %169, i64 %.idx.i.i.i.i
+  %171 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 16
+  store ptr %171, ptr %.ptr.i.i.i.i, align 8, !tbaa !936
+  %172 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
+  store i64 0, ptr %172, align 8, !tbaa !909
+  store i8 0, ptr %171, align 8, !tbaa !937
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
-  %172 = icmp eq i64 %.add.i.i.i.i, 416
-  br i1 %172, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %169
+  %173 = icmp eq i64 %.add.i.i.i.i, 416
+  br i1 %173, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %170
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %169
-  %173 = getelementptr inbounds nuw i8, ptr %168, i64 416
-  %174 = getelementptr inbounds nuw i8, ptr %168, i64 432
-  store ptr %174, ptr %173, align 8, !tbaa !1322
-  %175 = getelementptr inbounds nuw i8, ptr %168, i64 424
-  store i32 0, ptr %175, align 8, !tbaa !1323
-  %176 = getelementptr inbounds nuw i8, ptr %168, i64 428
-  store i32 8, ptr %176, align 4, !tbaa !1324
-  %177 = getelementptr inbounds nuw i8, ptr %168, i64 528
-  %178 = getelementptr inbounds nuw i8, ptr %168, i64 544
-  store ptr %178, ptr %177, align 8, !tbaa !1322
-  %179 = getelementptr inbounds nuw i8, ptr %168, i64 536
-  store i32 0, ptr %179, align 8, !tbaa !1323
-  %180 = getelementptr inbounds nuw i8, ptr %168, i64 540
-  store i32 6, ptr %180, align 4, !tbaa !1324
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %170
+  %174 = getelementptr inbounds nuw i8, ptr %169, i64 416
+  %175 = getelementptr inbounds nuw i8, ptr %169, i64 432
+  store ptr %175, ptr %174, align 8, !tbaa !1322
+  %176 = getelementptr inbounds nuw i8, ptr %169, i64 424
+  store i32 0, ptr %176, align 8, !tbaa !1323
+  %177 = getelementptr inbounds nuw i8, ptr %169, i64 428
+  store i32 8, ptr %177, align 4, !tbaa !1324
+  %178 = getelementptr inbounds nuw i8, ptr %169, i64 528
+  %179 = getelementptr inbounds nuw i8, ptr %169, i64 544
+  store ptr %179, ptr %178, align 8, !tbaa !1322
+  %180 = getelementptr inbounds nuw i8, ptr %169, i64 536
+  store i32 0, ptr %180, align 8, !tbaa !1323
+  %181 = getelementptr inbounds nuw i8, ptr %169, i64 540
+  store i32 6, ptr %181, align 4, !tbaa !1324
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
 
-181:                                              ; preds = %161
-  %182 = getelementptr inbounds nuw i8, ptr %163, i64 14848
-  %183 = add i32 %165, -1
-  store i32 %183, ptr %164, align 8, !tbaa !1813
-  %184 = zext i32 %183 to i64
-  %185 = getelementptr inbounds nuw ptr, ptr %182, i64 %184
-  %186 = load ptr, ptr %185, align 8, !tbaa !1826
-  store i8 0, ptr %186, align 8, !tbaa !1814
-  %187 = getelementptr inbounds nuw i8, ptr %186, i64 424
-  store i32 0, ptr %187, align 8, !tbaa !1323
-  %188 = getelementptr inbounds nuw i8, ptr %186, i64 528
-  %189 = load ptr, ptr %188, align 8, !tbaa !1322
-  %190 = getelementptr inbounds nuw i8, ptr %186, i64 536
-  %191 = load i32, ptr %190, align 8, !tbaa !1323
-  %.not4.i.i.i.i.i = icmp eq i32 %191, 0
+182:                                              ; preds = %162
+  %183 = getelementptr inbounds nuw i8, ptr %164, i64 14848
+  %184 = add i32 %166, -1
+  store i32 %184, ptr %165, align 8, !tbaa !1813
+  %185 = zext i32 %184 to i64
+  %186 = getelementptr inbounds nuw ptr, ptr %183, i64 %185
+  %187 = load ptr, ptr %186, align 8, !tbaa !1826
+  store i8 0, ptr %187, align 8, !tbaa !1814
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 424
+  store i32 0, ptr %188, align 8, !tbaa !1323
+  %189 = getelementptr inbounds nuw i8, ptr %187, i64 528
+  %190 = load ptr, ptr %189, align 8, !tbaa !1322
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 536
+  %192 = load i32, ptr %191, align 8, !tbaa !1323
+  %.not4.i.i.i.i.i = icmp eq i32 %192, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
-.lr.ph.i.preheader.i.i.i.i:                       ; preds = %181
-  %192 = zext i32 %191 to i64
-  %.idx.i7.i.i.i = shl nuw nsw i64 %192, 6
-  %193 = getelementptr inbounds nuw i8, ptr %189, i64 %.idx.i7.i.i.i
+.lr.ph.i.preheader.i.i.i.i:                       ; preds = %182
+  %193 = zext i32 %192 to i64
+  %.idx.i7.i.i.i = shl nuw nsw i64 %193, 6
+  %194 = getelementptr inbounds nuw i8, ptr %190, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i52
 
 .lr.ph.i.i.i.i.i52:                               ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %194, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i ], [ %193, %.lr.ph.i.preheader.i.i.i.i ]
-  %194 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -64
-  %195 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -40
-  %196 = load ptr, ptr %195, align 8, !tbaa !908
-  %197 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -24
-  %198 = icmp eq ptr %196, %197
-  br i1 %198, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %195, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i ], [ %194, %.lr.ph.i.preheader.i.i.i.i ]
+  %195 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -64
+  %196 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -40
+  %197 = load ptr, ptr %196, align 8, !tbaa !908
+  %198 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -24
+  %199 = icmp eq ptr %197, %198
+  br i1 %199, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i52
-  %199 = load i64, ptr %197, align 8, !tbaa !937
-  %200 = add i64 %199, 1
-  call void @_ZdlPvm(ptr noundef %196, i64 noundef %200) #30
+  %200 = load i64, ptr %198, align 8, !tbaa !937
+  %201 = add i64 %200, 1
+  call void @_ZdlPvm(ptr noundef %197, i64 noundef %201) #30
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i52, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
-  %.not.i.i.i.i.i53 = icmp eq ptr %189, %194
+  %.not.i.i.i.i.i53 = icmp eq ptr %190, %195
   br i1 %.not.i.i.i.i.i53, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i52, !llvm.loop !1827
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %181
-  store i32 0, ptr %190, align 8, !tbaa !1323
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %182
+  store i32 0, ptr %191, align 8, !tbaa !1323
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i
-  %.0.i.i.i = phi ptr [ %168, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i ], [ %186, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i ]
-  store ptr %.0.i.i.i, ptr %158, align 8, !tbaa !1781
+  %.0.i.i.i = phi ptr [ %169, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i ], [ %187, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i ]
+  store ptr %.0.i.i.i, ptr %159, align 8, !tbaa !1781
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit: ; preds = %157, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
-  %201 = phi ptr [ %.0.i.i.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i ], [ %160, %157 ]
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 1
-  %203 = load i8, ptr %201, align 8, !tbaa !1814
-  %204 = zext i8 %203 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %202, i64 %204
-  store i8 3, ptr %205, align 1, !tbaa !937
-  %206 = load ptr, ptr %158, align 8, !tbaa !1781
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %208 = load i8, ptr %206, align 8, !tbaa !1814
-  %209 = add i8 %208, 1
-  store i8 %209, ptr %206, align 8, !tbaa !1814
-  %210 = zext i8 %208 to i64
-  %211 = getelementptr inbounds nuw i64, ptr %207, i64 %210
-  store i64 %159, ptr %211, align 8, !tbaa !920
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit: ; preds = %158, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
+  %202 = phi ptr [ %.0.i.i.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i ], [ %161, %158 ]
+  %203 = getelementptr inbounds nuw i8, ptr %202, i64 1
+  %204 = load i8, ptr %202, align 8, !tbaa !1814
+  %205 = zext i8 %204 to i64
+  %206 = getelementptr inbounds nuw i8, ptr %203, i64 %205
+  store i8 3, ptr %206, align 1, !tbaa !937
+  %207 = load ptr, ptr %159, align 8, !tbaa !1781
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 16
+  %209 = load i8, ptr %207, align 8, !tbaa !1814
+  %210 = add i8 %209, 1
+  store i8 %210, ptr %207, align 8, !tbaa !1814
+  %211 = zext i8 %209 to i64
+  %212 = getelementptr inbounds nuw i64, ptr %208, i64 %211
+  store i64 %160, ptr %212, align 8, !tbaa !920
   br label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
-212:                                              ; preds = %152
-  %213 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %214 = getelementptr inbounds nuw i8, ptr %7, i64 132
-  %215 = load i8, ptr %214, align 4, !tbaa !877, !range !873, !noundef !874
-  %216 = trunc nuw i8 %215 to i1
-  br i1 %216, label %217, label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
+213:                                              ; preds = %153
+  %214 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %215 = getelementptr inbounds nuw i8, ptr %7, i64 132
+  %216 = load i8, ptr %215, align 4, !tbaa !877, !range !873, !noundef !874
+  %217 = trunc nuw i8 %216 to i1
+  br i1 %217, label %218, label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
-217:                                              ; preds = %212
-  %218 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %7) #28
+218:                                              ; preds = %213
+  %219 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %7) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %219 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %220 = load ptr, ptr %219, align 8, !tbaa !879
-  %.not.i.i50 = icmp eq ptr %220, null
-  br i1 %.not.i.i50, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %221
+  %220 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %221 = load ptr, ptr %220, align 8, !tbaa !879
+  %.not.i.i50 = icmp eq ptr %221, null
+  br i1 %.not.i.i50, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %222
 
-221:                                              ; preds = %217
-  %222 = load ptr, ptr %220, align 8, !tbaa !889
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 32
-  %224 = load ptr, ptr %223, align 8
-  %225 = call noundef ptr %224(ptr noundef nonnull align 8 dereferenceable(168) %220) #28
+222:                                              ; preds = %218
+  %223 = load ptr, ptr %221, align 8, !tbaa !889
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 32
+  %225 = load ptr, ptr %224, align 8
+  %226 = call noundef ptr %225(ptr noundef nonnull align 8 dereferenceable(168) %221) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %221, %217
-  %226 = phi ptr [ %225, %221 ], [ null, %217 ]
-  store ptr %226, ptr %3, align 8, !tbaa !891
-  %227 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %218, ptr noundef nonnull align 8 dereferenceable(8) %3)
-  %228 = load i32, ptr %213, align 8, !tbaa !893
-  %229 = zext i32 %228 to i64
-  %230 = load ptr, ptr %227, align 8, !tbaa !894
-  %231 = getelementptr inbounds nuw %"struct.std::pair.2033", ptr %230, i64 %229
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
-  %233 = zext i32 %.18 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %232, i64 noundef %233, i32 noundef 3)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %222, %218
+  %227 = phi ptr [ %226, %222 ], [ null, %218 ]
+  store ptr %227, ptr %3, align 8, !tbaa !891
+  %228 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %219, ptr noundef nonnull align 8 dereferenceable(8) %3)
+  %229 = load i32, ptr %214, align 8, !tbaa !893
+  %230 = zext i32 %229 to i64
+  %231 = load ptr, ptr %228, align 8, !tbaa !894
+  %232 = getelementptr inbounds nuw %"struct.std::pair.2033", ptr %231, i64 %230
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 8
+  %234 = zext i32 %.18 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %233, i64 noundef %234, i32 noundef 3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit
 
-_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %212, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
+_ZN5clanglsIjEERKNS_8SemaBase21SemaDiagnosticBuilderES4_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %213, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %7) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN5clang17DiagnosticsEngine23overloadCandidatesShownEj.exit.thread

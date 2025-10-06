@@ -120,7 +120,7 @@ _ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit:   ; preds = %27, %28
   %54 = zext nneg i32 %48 to i64
   %55 = shl nuw nsw i64 %54, 24
   %56 = or disjoint i64 %53, %55
-  %storemerge.i.i.i25 = or disjoint i64 %56, 2
+  %storemerge.i.i.i24 = or disjoint i64 %56, 2
   br label %.thread
 
 57:                                               ; preds = %45
@@ -140,11 +140,11 @@ _ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit:   ; preds = %27, %28
 
 _ZNK4llvm4Type17isFloatingPointTyEv.exit.i:       ; preds = %60
   %61 = and i32 %.fr.i, 253
-  %spec.select.i.i26 = icmp eq i32 %61, 4
-  br i1 %spec.select.i.i26, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
+  %spec.select.i.i25 = icmp eq i32 %61, 4
+  br i1 %spec.select.i.i25, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %switch.early.test.i
 
 switch.early.test.i:                              ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i
-  switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread36 [
+  switch i8 %trunc.i.i.i, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread33 [
     i8 14, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 10, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
     i8 15, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
@@ -156,11 +156,11 @@ switch.early.test.i:                              ; preds = %_ZNK4llvm4Type17isF
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit: ; preds = %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i, %switch.early.test.i
   %62 = tail call noundef zeroext i1 @_ZNK4llvm4Type18isSizedDerivedTypeEPNS_15SmallPtrSetImplIPS0_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef null) #6
-  br i1 %62, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread36
+  br i1 %62, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread33
 
 _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %_ZNK4llvm4Type17isFloatingPointTyEv.exit.i, %60, %60, %60, %60, %60, %57, %switch.early.test.i, %switch.early.test.i, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
   %63 = tail call noundef zeroext i1 @_ZNK4llvm4Type21isScalableTargetExtTyEv(ptr noundef nonnull align 8 dereferenceable(24) %0) #6
-  br i1 %63, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread36, label %64
+  br i1 %63, label %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread33, label %64
 
 64:                                               ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -172,20 +172,20 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %_ZNK
   store i8 %.fca.1.extract, ptr %.sroa.2.0..sroa_idx, align 8
   %66 = call noundef i64 @_ZNK4llvm8TypeSizecvmEv(ptr noundef nonnull align 8 dereferenceable(9) %3) #6
   %67 = shl i64 %66, 32
-  %storemerge.i.i.i27 = or disjoint i64 %67, 1
+  %storemerge.i.i.i26 = or disjoint i64 %67, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.thread
 
-_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread36: ; preds = %switch.early.test.i, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
+_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread33: ; preds = %switch.early.test.i, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit
   %68 = load i32, ptr %4, align 8
   %69 = and i32 %68, 255
   %70 = icmp eq i32 %69, 11
   %spec.select = zext i1 %70 to i64
   br label %.thread
 
-.thread:                                          ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread36, %8, %_ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit, %47, %64
-  %.sroa.029.1 = phi i64 [ %storemerge.i.i.i27, %64 ], [ %storemerge.i.i.i25, %47 ], [ %14, %8 ], [ %44, %_ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit ], [ %spec.select, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread36 ]
-  ret i64 %.sroa.029.1
+.thread:                                          ; preds = %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread33, %8, %_ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit, %47, %64
+  %.sroa.028.1 = phi i64 [ %storemerge.i.i.i26, %64 ], [ %storemerge.i.i.i24, %47 ], [ %14, %8 ], [ %44, %_ZN4llvm3LLT6vectorENS_12ElementCountES0_.exit ], [ %spec.select, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread33 ]
+  ret i64 %.sroa.028.1
 }
 
 declare noundef zeroext i1 @_ZNK4llvm4Type21isScalableTargetExtTyEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #1

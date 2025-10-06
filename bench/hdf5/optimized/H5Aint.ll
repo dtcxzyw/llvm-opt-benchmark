@@ -2965,7 +2965,7 @@ define i32 @H5A__attr_iterate_table(ptr noundef readonly captures(none) %0, i64 
   br label %26
 
 26:                                               ; preds = %.lr.ph, %98
-  %.04161 = phi i64 [ %1, %.lr.ph ], [ %99, %98 ]
+  %.04160 = phi i64 [ %1, %.lr.ph ], [ %99, %98 ]
   %27 = load i32, ptr %4, align 8, !tbaa !90
   switch i32 %27, label %90 [
     i32 1, label %28
@@ -2985,7 +2985,7 @@ define i32 @H5A__attr_iterate_table(ptr noundef readonly captures(none) %0, i64 
 
 .sink.split.i:                                    ; preds = %28
   %35 = load ptr, ptr %22, align 8, !tbaa !79
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.04161
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.04160
   %37 = load ptr, ptr %36, align 8, !tbaa !80
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %39 = load ptr, ptr %38, align 8, !tbaa !21
@@ -3013,7 +3013,7 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
 49:                                               ; preds = %H5A__get_info.exit
   %50 = load ptr, ptr %21, align 8, !tbaa !48
   %51 = load ptr, ptr %22, align 8, !tbaa !79
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.04161
+  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.04160
   %53 = load ptr, ptr %52, align 8, !tbaa !80
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 96
   %55 = load ptr, ptr %54, align 8, !tbaa !21
@@ -3048,7 +3048,7 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
 68:                                               ; preds = %65
   %69 = load ptr, ptr %21, align 8, !tbaa !48
   %70 = load ptr, ptr %22, align 8, !tbaa !79
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.04161
+  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %.04160
   %72 = load ptr, ptr %71, align 8, !tbaa !80
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %74 = load ptr, ptr %73, align 8, !tbaa !21
@@ -3060,11 +3060,11 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
   br i1 %79, label %.thread52, label %83
 
 .thread52:                                        ; preds = %68, %65
-  %H5E_CANTSET_g.sink70 = phi ptr [ @H5E_CANTSET_g, %65 ], [ @H5E_CANTRESTORE_g, %68 ]
-  %.sink67 = phi i32 [ 1909, %65 ], [ 1914, %68 ]
+  %H5E_CANTSET_g.sink69 = phi ptr [ @H5E_CANTSET_g, %65 ], [ @H5E_CANTRESTORE_g, %68 ]
+  %.sink66 = phi i32 [ 1909, %65 ], [ 1914, %68 ]
   %80 = load i64, ptr @H5E_LIB_g, align 8, !tbaa !10
-  %81 = load i64, ptr %H5E_CANTSET_g.sink70, align 8, !tbaa !10
-  %82 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5A__attr_iterate_table, i32 noundef %.sink67, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.66) #12
+  %81 = load i64, ptr %H5E_CANTSET_g.sink69, align 8, !tbaa !10
+  %82 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.H5A__attr_iterate_table, i32 noundef %.sink66, i64 noundef %80, i64 noundef %81, ptr noundef nonnull @.str.66) #12
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %._crit_edge.thread
 
@@ -3075,7 +3075,7 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
 84:                                               ; preds = %26
   %85 = load ptr, ptr %21, align 8, !tbaa !48
   %86 = load ptr, ptr %22, align 8, !tbaa !79
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %.04161
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %.04160
   %88 = load ptr, ptr %87, align 8, !tbaa !80
   %89 = call i32 %85(ptr noundef %88, ptr noundef %5) #12
   br label %94
@@ -3097,7 +3097,7 @@ H5A__get_info.exit:                               ; preds = %28, %.sink.split.i
   br label %98
 
 98:                                               ; preds = %94, %95
-  %99 = add nuw i64 %.04161, 1
+  %99 = add nuw i64 %.04160, 1
   %100 = load i64, ptr %0, align 8, !tbaa !76
   %101 = icmp ult i64 %99, %100
   %.not45 = icmp eq i32 %.4, 0

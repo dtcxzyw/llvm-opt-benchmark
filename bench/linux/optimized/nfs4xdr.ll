@@ -14088,11 +14088,11 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef capt
   %104 = tail call i32 @llvm.bswap.i32(i32 %103)
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store i32 0, ptr %105, align 8
-  switch i32 %104, label %169 [
+  switch i32 %104, label %170 [
     i32 0, label %.critedge
     i32 1, label %106
     i32 2, label %106
-    i32 3, label %159
+    i32 3, label %160
   ]
 
 106:                                              ; preds = %102, %102
@@ -14114,100 +14114,100 @@ define internal fastcc noundef i32 @decode_open(ptr noundef %0, ptr noundef capt
   %116 = tail call i32 @llvm.bswap.i32(i32 %115)
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 272
   store i32 %116, ptr %117, align 8
-  %switch = icmp eq i32 %103, 16777216
-  br i1 %switch, label %118, label %119
-
-118:                                              ; preds = %114
-  store i32 1, ptr %105, align 8
-  br label %142
+  %118 = icmp eq i32 %103, 16777216
+  br i1 %118, label %119, label %120
 
 119:                                              ; preds = %114
-  store i32 3, ptr %105, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 264
-  %121 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 12) #12
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %.critedge, label %123, !prof !6
+  store i32 1, ptr %105, align 8
+  br label %143
 
-123:                                              ; preds = %119
-  %124 = getelementptr i8, ptr %121, i64 4
-  %125 = load i32, ptr %121, align 4
-  %126 = tail call i32 @llvm.bswap.i32(i32 %125)
-  switch i32 %126, label %139 [
-    i32 1, label %127
-    i32 2, label %130
+120:                                              ; preds = %114
+  store i32 3, ptr %105, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %1, i64 264
+  %122 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 12) #12
+  %123 = icmp eq ptr %122, null
+  br i1 %123, label %.critedge, label %124, !prof !6
+
+124:                                              ; preds = %120
+  %125 = getelementptr i8, ptr %122, i64 4
+  %126 = load i32, ptr %122, align 4
+  %127 = tail call i32 @llvm.bswap.i32(i32 %126)
+  switch i32 %127, label %140 [
+    i32 1, label %128
+    i32 2, label %131
   ]
 
-127:                                              ; preds = %123
-  %128 = load i64, ptr %124, align 1
-  %129 = tail call i64 @llvm.bswap.i64(i64 %128)
-  br label %139
+128:                                              ; preds = %124
+  %129 = load i64, ptr %125, align 1
+  %130 = tail call i64 @llvm.bswap.i64(i64 %129)
+  br label %140
 
-130:                                              ; preds = %123
-  %131 = getelementptr i8, ptr %121, i64 8
-  %132 = load i32, ptr %124, align 4
-  %133 = tail call i32 @llvm.bswap.i32(i32 %132)
-  %134 = load i32, ptr %131, align 4
-  %135 = tail call i32 @llvm.bswap.i32(i32 %134)
-  %136 = zext i32 %133 to i64
-  %137 = zext i32 %135 to i64
-  %138 = mul nuw i64 %137, %136
-  br label %139
+131:                                              ; preds = %124
+  %132 = getelementptr i8, ptr %122, i64 8
+  %133 = load i32, ptr %125, align 4
+  %134 = tail call i32 @llvm.bswap.i32(i32 %133)
+  %135 = load i32, ptr %132, align 4
+  %136 = tail call i32 @llvm.bswap.i32(i32 %135)
+  %137 = zext i32 %134 to i64
+  %138 = zext i32 %136 to i64
+  %139 = mul nuw i64 %138, %137
+  br label %140
 
-139:                                              ; preds = %130, %127, %123
-  %140 = phi i64 [ 0, %123 ], [ %138, %130 ], [ %129, %127 ]
-  %141 = lshr i64 %140, 12
-  store i64 %141, ptr %120, align 8
-  br label %142
+140:                                              ; preds = %131, %128, %124
+  %141 = phi i64 [ 0, %124 ], [ %139, %131 ], [ %130, %128 ]
+  %142 = lshr i64 %141, 12
+  store i64 %142, ptr %121, align 8
+  br label %143
 
-142:                                              ; preds = %139, %118
-  %143 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 12) #12
-  %144 = icmp eq ptr %143, null
-  br i1 %144, label %.critedge, label %145, !prof !6
+143:                                              ; preds = %140, %119
+  %144 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 12) #12
+  %145 = icmp eq ptr %144, null
+  br i1 %145, label %.critedge, label %146, !prof !6
 
-145:                                              ; preds = %142
-  %146 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
-  %147 = icmp eq ptr %146, null
-  br i1 %147, label %.critedge, label %148, !prof !6
+146:                                              ; preds = %143
+  %147 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
+  %148 = icmp eq ptr %147, null
+  br i1 %148, label %.critedge, label %149, !prof !6
 
-148:                                              ; preds = %145
-  %149 = load i32, ptr %146, align 4
-  %150 = icmp eq i32 %149, 0
-  br i1 %150, label %158, label %151
+149:                                              ; preds = %146
+  %150 = load i32, ptr %147, align 4
+  %151 = icmp eq i32 %150, 0
+  br i1 %151, label %159, label %152
 
-151:                                              ; preds = %148
-  %152 = tail call i32 @llvm.bswap.i32(i32 %149)
-  %153 = zext i32 %152 to i64
-  %154 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef %153) #12
-  %155 = icmp eq ptr %154, null
-  %156 = icmp ugt i32 %152, 1024
-  %157 = or i1 %156, %155
-  br i1 %157, label %.critedge, label %158, !prof !21
+152:                                              ; preds = %149
+  %153 = tail call i32 @llvm.bswap.i32(i32 %150)
+  %154 = zext i32 %153 to i64
+  %155 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef %154) #12
+  %156 = icmp eq ptr %155, null
+  %157 = icmp ugt i32 %153, 1024
+  %158 = or i1 %157, %156
+  br i1 %158, label %.critedge, label %159, !prof !21
 
-158:                                              ; preds = %151, %148
+159:                                              ; preds = %152, %149
   br label %.critedge
 
-159:                                              ; preds = %102
-  %160 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
-  %161 = icmp eq ptr %160, null
-  br i1 %161, label %.critedge, label %162, !prof !6
+160:                                              ; preds = %102
+  %161 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %.critedge, label %163, !prof !6
 
-162:                                              ; preds = %159
-  %163 = load i32, ptr %160, align 4
-  %164 = tail call i32 @llvm.bswap.i32(i32 %163)
-  %165 = add i32 %164, -1
-  %166 = icmp ult i32 %165, 2
-  br i1 %166, label %167, label %.critedge
+163:                                              ; preds = %160
+  %164 = load i32, ptr %161, align 4
+  %165 = tail call i32 @llvm.bswap.i32(i32 %164)
+  %166 = add i32 %165, -1
+  %167 = icmp ult i32 %166, 2
+  br i1 %167, label %168, label %.critedge
 
-167:                                              ; preds = %162
-  %168 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
+168:                                              ; preds = %163
+  %169 = tail call ptr @xdr_inline_decode(ptr noundef %0, i64 noundef 4) #12
   br label %.critedge
 
-169:                                              ; preds = %102
+170:                                              ; preds = %102
   br label %.critedge
 
-.critedge:                                        ; preds = %106, %40, %.thread22, %2, %33, %145, %169, %167, %162, %159, %158, %151, %142, %119, %110, %102, %99, %71, %63, %60, %36
-  %170 = phi i32 [ %.ph, %36 ], [ -5, %60 ], [ -5, %71 ], [ -5, %63 ], [ -5, %169 ], [ -5, %99 ], [ %104, %102 ], [ -5, %110 ], [ -5, %142 ], [ 0, %158 ], [ -5, %151 ], [ -5, %119 ], [ -5, %159 ], [ 0, %162 ], [ 0, %167 ], [ -5, %145 ], [ -121, %33 ], [ -5, %2 ], [ -121, %.thread22 ], [ -5, %40 ], [ -5, %106 ]
-  ret i32 %170
+.critedge:                                        ; preds = %106, %40, %.thread22, %2, %33, %146, %170, %168, %163, %160, %159, %152, %143, %120, %110, %102, %99, %71, %63, %60, %36
+  %171 = phi i32 [ %.ph, %36 ], [ -5, %60 ], [ -5, %71 ], [ -5, %63 ], [ -5, %170 ], [ -5, %99 ], [ %104, %102 ], [ -5, %110 ], [ -5, %143 ], [ 0, %159 ], [ -5, %152 ], [ -5, %120 ], [ -5, %160 ], [ 0, %163 ], [ 0, %168 ], [ -5, %146 ], [ -121, %33 ], [ -5, %2 ], [ -121, %.thread22 ], [ -5, %40 ], [ -5, %106 ]
+  ret i32 %171
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

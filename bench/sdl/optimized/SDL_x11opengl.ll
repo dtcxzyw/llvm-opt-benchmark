@@ -1284,19 +1284,19 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %11 = load ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %.thread178, label %12
+  br i1 %.not, label %.thread176, label %12
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 72
   %14 = load ptr, ptr %13, align 8
   %.not123 = icmp eq ptr %14, null
-  br i1 %.not123, label %.thread162, label %15
+  br i1 %.not123, label %.thread160, label %15
 
 15:                                               ; preds = %12
   %16 = getelementptr inbounds nuw i8, ptr %11, i64 80
   %17 = load ptr, ptr %16, align 8
   %.not124 = icmp eq ptr %17, null
-  br i1 %.not124, label %.thread162, label %18
+  br i1 %.not124, label %.thread160, label %18
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1324,8 +1324,8 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %.0102 = phi ptr [ %30, %26 ], [ %22, %18 ]
   %32 = load i32, ptr %9, align 4
   %33 = icmp sgt i32 %32, 0
-  %or.cond185 = select i1 %3, i1 %33, i1 false
-  br i1 %or.cond185, label %.lr.ph, label %.loopexit
+  %or.cond183 = select i1 %3, i1 %33, i1 false
+  br i1 %or.cond183, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %31, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %31 ]
@@ -1346,35 +1346,35 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %42 = lshr i32 %40, 24
   %43 = and i32 %42, 15
   %.off = add nsw i32 %43, -4
-  %switch142 = icmp ult i32 %.off, 3
-  br i1 %switch142, label %44, label %47
+  %switch = icmp ult i32 %.off, 3
+  br i1 %switch, label %44, label %47
 
 44:                                               ; preds = %41
   %45 = lshr i32 %40, 20
   %46 = and i32 %45, 15
   switch i32 %46, label %.thread [
-    i32 3, label %.thread156
-    i32 4, label %.thread156
-    i32 7, label %.thread156
-    i32 8, label %.thread156
+    i32 3, label %.thread154
+    i32 4, label %.thread154
+    i32 7, label %.thread154
+    i32 8, label %.thread154
   ]
 
 47:                                               ; preds = %41
-  %.off143 = add nsw i32 %43, -7
-  %switch144 = icmp ult i32 %.off143, 5
-  br i1 %switch144, label %48, label %.thread
+  %.off142 = add nsw i32 %43, -7
+  %switch143 = icmp ult i32 %.off142, 5
+  br i1 %switch143, label %48, label %.thread
 
 48:                                               ; preds = %47
   %49 = lshr i32 %40, 20
   %50 = and i32 %49, 15
   switch i32 %50, label %.thread [
-    i32 3, label %.thread156
-    i32 2, label %.thread156
-    i32 6, label %.thread156
-    i32 5, label %.thread156
+    i32 3, label %.thread154
+    i32 2, label %.thread154
+    i32 6, label %.thread154
+    i32 5, label %.thread154
   ]
 
-.thread156:                                       ; preds = %48, %48, %48, %48, %44, %44, %44, %44
+.thread154:                                       ; preds = %48, %48, %48, %48, %44, %44, %44, %44
   %51 = load ptr, ptr @X11_XFree, align 8
   %52 = call i32 %51(ptr noundef nonnull %.0102) #6
   br label %65
@@ -1390,13 +1390,13 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
 
 .loopexit:                                        ; preds = %31
   %.not129 = icmp eq ptr %.0102, null
-  br i1 %.not129, label %.thread165, label %.loopexit.thread
+  br i1 %.not129, label %.thread163, label %.loopexit.thread
 
-.thread165:                                       ; preds = %.loopexit
+.thread163:                                       ; preds = %.loopexit
   %58 = load ptr, ptr @X11_XFree, align 8
   %59 = call i32 %58(ptr noundef null) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread162
+  br label %.thread160
 
 .loopexit.thread:                                 ; preds = %.thread, %.loopexit
   %60 = load ptr, ptr %10, align 8
@@ -1406,16 +1406,16 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %64 = call ptr %62(ptr noundef %1, ptr noundef %63) #6
   br label %65
 
-65:                                               ; preds = %.loopexit.thread, %.thread156
-  %.1103160 = phi ptr [ %.0102, %.loopexit.thread ], [ null, %.thread156 ]
-  %.5 = phi ptr [ %64, %.loopexit.thread ], [ %39, %.thread156 ]
+65:                                               ; preds = %.loopexit.thread, %.thread154
+  %.1103158 = phi ptr [ %.0102, %.loopexit.thread ], [ null, %.thread154 ]
+  %.5 = phi ptr [ %64, %.loopexit.thread ], [ %39, %.thread154 ]
   %66 = load ptr, ptr @X11_XFree, align 8
-  %67 = call i32 %66(ptr noundef %.1103160) #6
+  %67 = call i32 %66(ptr noundef %.1103158) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.not130 = icmp eq ptr %.5, null
-  br i1 %.not130, label %.thread162, label %80
+  br i1 %.not130, label %.thread160, label %80
 
-.thread162:                                       ; preds = %12, %15, %.thread165, %65
+.thread160:                                       ; preds = %12, %15, %.thread163, %65
   call fastcc void @X11_GL_GetAttributes(ptr noundef nonnull %0, ptr noundef %7, i32 noundef 0, ptr noundef %8, i1 noundef zeroext %3)
   %68 = load ptr, ptr %10, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 48
@@ -1427,7 +1427,7 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %or.cond3 = select i1 %72, i1 %74, i1 false
   br i1 %or.cond3, label %75, label %80
 
-75:                                               ; preds = %.thread162
+75:                                               ; preds = %.thread160
   store i32 0, ptr %73, align 4
   %76 = load ptr, ptr %10, align 8
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 48
@@ -1435,8 +1435,8 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %79 = call ptr %78(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %7) #6
   br label %80
 
-80:                                               ; preds = %.thread162, %75, %65
-  %.6 = phi ptr [ %.5, %65 ], [ %79, %75 ], [ %71, %.thread162 ]
+80:                                               ; preds = %.thread160, %75, %65
+  %.6 = phi ptr [ %.5, %65 ], [ %79, %75 ], [ %71, %.thread160 ]
   %81 = icmp ne ptr %.6, null
   %or.cond5 = select i1 %3, i1 %81, i1 false
   br i1 %or.cond5, label %82, label %124
@@ -1447,41 +1447,41 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %.mask133 = and i32 %83, -268435456
   %.not132 = icmp eq i32 %.mask133, 268435456
   %or.cond140 = or i1 %.not131, %.not132
-  br i1 %or.cond140, label %84, label %.thread198
+  br i1 %or.cond140, label %84, label %.thread196
 
 84:                                               ; preds = %82
   %85 = lshr i32 %83, 24
   %86 = and i32 %85, 15
-  %.off145 = add nsw i32 %86, -4
-  %switch146 = icmp ult i32 %.off145, 3
-  br i1 %switch146, label %87, label %90
+  %.off144 = add nsw i32 %86, -4
+  %switch145 = icmp ult i32 %.off144, 3
+  br i1 %switch145, label %87, label %90
 
 87:                                               ; preds = %84
   %88 = lshr i32 %83, 20
   %89 = and i32 %88, 15
-  switch i32 %89, label %.thread198 [
-    i32 3, label %.thread178
-    i32 4, label %.thread178
-    i32 7, label %.thread178
-    i32 8, label %.thread178
+  switch i32 %89, label %.thread196 [
+    i32 3, label %.thread176
+    i32 4, label %.thread176
+    i32 7, label %.thread176
+    i32 8, label %.thread176
   ]
 
 90:                                               ; preds = %84
-  %.off147 = add nsw i32 %86, -7
-  %switch148 = icmp ult i32 %.off147, 5
-  br i1 %switch148, label %91, label %.thread198
+  %.off146 = add nsw i32 %86, -7
+  %switch147 = icmp ult i32 %.off146, 5
+  br i1 %switch147, label %91, label %.thread196
 
 91:                                               ; preds = %90
   %92 = lshr i32 %83, 20
   %93 = and i32 %92, 15
-  switch i32 %93, label %.thread198 [
-    i32 3, label %.thread178
-    i32 2, label %.thread178
-    i32 6, label %.thread178
-    i32 5, label %.thread178
+  switch i32 %93, label %.thread196 [
+    i32 3, label %.thread176
+    i32 2, label %.thread176
+    i32 6, label %.thread176
+    i32 5, label %.thread176
   ]
 
-.thread198:                                       ; preds = %87, %82, %90, %91
+.thread196:                                       ; preds = %87, %82, %90, %91
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 0, ptr %6, align 4
@@ -1490,14 +1490,14 @@ define hidden ptr @X11_GL_GetVisual(ptr noundef readonly captures(none) %0, ptr 
   %95 = load ptr, ptr @X11_XGetVisualInfo, align 8
   %96 = call ptr %95(ptr noundef %1, i64 noundef 2, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
   %.not.i = icmp eq ptr %96, null
-  br i1 %.not.i, label %X11_GL_GetTransparentVisualInfo.exit.thread174, label %.preheader.i
+  br i1 %.not.i, label %X11_GL_GetTransparentVisualInfo.exit.thread172, label %.preheader.i
 
-X11_GL_GetTransparentVisualInfo.exit.thread174:   ; preds = %.thread198
+X11_GL_GetTransparentVisualInfo.exit.thread172:   ; preds = %.thread196
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread178
+  br label %.thread176
 
-.preheader.i:                                     ; preds = %.thread198
+.preheader.i:                                     ; preds = %.thread196
   %97 = load i32, ptr %6, align 4
   %98 = icmp sgt i32 %97, 0
   br i1 %98, label %.lr.ph.i, label %X11_GL_GetTransparentVisualInfo.exit.thread
@@ -1516,8 +1516,8 @@ X11_GL_GetTransparentVisualInfo.exit.thread174:   ; preds = %.thread198
   %102 = lshr i32 %100, 24
   %103 = and i32 %102, 15
   %.off.i = add nsw i32 %103, -4
-  %switch49.i = icmp ult i32 %.off.i, 3
-  br i1 %switch49.i, label %104, label %107
+  %switch.i = icmp ult i32 %.off.i, 3
+  br i1 %switch.i, label %104, label %107
 
 104:                                              ; preds = %101
   %105 = lshr i32 %100, 20
@@ -1530,9 +1530,9 @@ X11_GL_GetTransparentVisualInfo.exit.thread174:   ; preds = %.thread198
   ]
 
 107:                                              ; preds = %101
-  %.off50.i = add nsw i32 %103, -7
-  %switch51.i = icmp ult i32 %.off50.i, 5
-  br i1 %switch51.i, label %108, label %.thread.i
+  %.off49.i = add nsw i32 %103, -7
+  %switch50.i = icmp ult i32 %.off49.i, 5
+  br i1 %switch50.i, label %108, label %.thread.i
 
 108:                                              ; preds = %107
   %109 = lshr i32 %100, 20
@@ -1572,21 +1572,21 @@ X11_GL_GetTransparentVisualInfo.exit:             ; preds = %104, %104, %104, %1
   br i1 %.not136, label %124, label %121
 
 121:                                              ; preds = %X11_GL_GetTransparentVisualInfo.exit.thread, %X11_GL_GetTransparentVisualInfo.exit
-  %.034.i173 = phi ptr [ %96, %X11_GL_GetTransparentVisualInfo.exit.thread ], [ %120, %X11_GL_GetTransparentVisualInfo.exit ]
+  %.034.i171 = phi ptr [ %96, %X11_GL_GetTransparentVisualInfo.exit.thread ], [ %120, %X11_GL_GetTransparentVisualInfo.exit ]
   %122 = load ptr, ptr @X11_XFree, align 8
   %123 = call i32 %122(ptr noundef nonnull %.6) #6
-  br label %.thread178
+  br label %.thread176
 
 124:                                              ; preds = %X11_GL_GetTransparentVisualInfo.exit, %80
   %.not137 = icmp eq ptr %.6, null
-  br i1 %.not137, label %125, label %.thread178
+  br i1 %.not137, label %125, label %.thread176
 
 125:                                              ; preds = %124
   %126 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull @.str.15) #6
-  br label %.thread178
+  br label %.thread176
 
-.thread178:                                       ; preds = %X11_GL_GetTransparentVisualInfo.exit.thread174, %121, %87, %87, %87, %87, %91, %91, %91, %91, %124, %125, %4
-  %.0 = phi ptr [ null, %4 ], [ null, %125 ], [ %.6, %124 ], [ %.6, %X11_GL_GetTransparentVisualInfo.exit.thread174 ], [ %.034.i173, %121 ], [ %.6, %91 ], [ %.6, %91 ], [ %.6, %91 ], [ %.6, %87 ], [ %.6, %87 ], [ %.6, %87 ], [ %.6, %87 ], [ %.6, %91 ]
+.thread176:                                       ; preds = %X11_GL_GetTransparentVisualInfo.exit.thread172, %121, %87, %87, %87, %87, %91, %91, %91, %91, %124, %125, %4
+  %.0 = phi ptr [ null, %4 ], [ null, %125 ], [ %.6, %124 ], [ %.6, %X11_GL_GetTransparentVisualInfo.exit.thread172 ], [ %.034.i171, %121 ], [ %.6, %91 ], [ %.6, %91 ], [ %.6, %91 ], [ %.6, %87 ], [ %.6, %87 ], [ %.6, %87 ], [ %.6, %87 ], [ %.6, %91 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %.0
@@ -1988,8 +1988,8 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %50 = load i32, ptr %49, align 8
   %51 = icmp eq i32 %50, 0
-  %or.cond220 = select i1 %48, i1 %51, i1 false
-  br i1 %or.cond220, label %52, label %._crit_edge
+  %or.cond218 = select i1 %48, i1 %51, i1 false
+  br i1 %or.cond218, label %52, label %._crit_edge
 
 52:                                               ; preds = %45
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 996
@@ -2165,7 +2165,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 .preheader:                                       ; preds = %139
   %141 = load i32, ptr %8, align 4
   %142 = icmp sgt i32 %141, 0
-  br i1 %142, label %.lr.ph, label %.thread192
+  br i1 %142, label %.lr.ph, label %.thread190
 
 .lr.ph:                                           ; preds = %.preheader, %171
   %indvars.iv = phi i64 [ %indvars.iv.next, %171 ], [ 0, %.preheader ]
@@ -2190,32 +2190,32 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %152 = lshr i32 %150, 24
   %153 = and i32 %152, 15
   %.off = add nsw i32 %153, -4
-  %switch167 = icmp ult i32 %.off, 3
-  br i1 %switch167, label %154, label %157
+  %switch = icmp ult i32 %.off, 3
+  br i1 %switch, label %154, label %157
 
 154:                                              ; preds = %151
   %155 = lshr i32 %150, 20
   %156 = and i32 %155, 15
   switch i32 %156, label %.thread [
-    i32 3, label %.thread188
-    i32 4, label %.thread188
-    i32 7, label %.thread188
-    i32 8, label %.thread188
+    i32 3, label %.thread186
+    i32 4, label %.thread186
+    i32 7, label %.thread186
+    i32 8, label %.thread186
   ]
 
 157:                                              ; preds = %151
-  %.off168 = add nsw i32 %153, -7
-  %switch169 = icmp ult i32 %.off168, 5
-  br i1 %switch169, label %158, label %.thread
+  %.off167 = add nsw i32 %153, -7
+  %switch168 = icmp ult i32 %.off167, 5
+  br i1 %switch168, label %158, label %.thread
 
 158:                                              ; preds = %157
   %159 = lshr i32 %150, 20
   %160 = and i32 %159, 15
   switch i32 %160, label %.thread [
-    i32 3, label %.thread188
-    i32 2, label %.thread188
-    i32 6, label %.thread188
-    i32 5, label %.thread188
+    i32 3, label %.thread186
+    i32 2, label %.thread186
+    i32 6, label %.thread186
+    i32 5, label %.thread186
   ]
 
 .thread:                                          ; preds = %154, %158, %157, %149
@@ -2223,7 +2223,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %162 = call i32 %161(ptr noundef nonnull %148) #6
   br label %171
 
-.thread188:                                       ; preds = %154, %154, %154, %154, %158, %158, %158, %158
+.thread186:                                       ; preds = %154, %154, %154, %154, %158, %158, %158, %158
   %163 = getelementptr inbounds nuw ptr, ptr %.0124, i64 %indvars.iv
   %164 = load ptr, ptr %28, align 8
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 64
@@ -2239,13 +2239,13 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %172 = load i32, ptr %8, align 4
   %173 = sext i32 %172 to i64
   %174 = icmp slt i64 %indvars.iv.next, %173
-  br i1 %174, label %.lr.ph, label %.thread192, !llvm.loop !8
+  br i1 %174, label %.lr.ph, label %.thread190, !llvm.loop !8
 
 175:                                              ; preds = %139
   %.not163 = icmp eq ptr %.0124, null
-  br i1 %.not163, label %183, label %.thread192
+  br i1 %.not163, label %183, label %.thread190
 
-.thread192:                                       ; preds = %171, %.preheader, %175
+.thread190:                                       ; preds = %171, %.preheader, %175
   %176 = load ptr, ptr %28, align 8
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 64
   %178 = load ptr, ptr %177, align 8
@@ -2253,9 +2253,9 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %180 = call ptr %178(ptr noundef %14, ptr noundef %179, ptr noundef %.0136, i32 noundef 1, ptr noundef nonnull %6) #6
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread192, %.thread188
-  %.lcssa.sink = phi ptr [ %148, %.thread188 ], [ %.0124, %.thread192 ]
-  %.3.ph = phi ptr [ %168, %.thread188 ], [ %180, %.thread192 ]
+.sink.split:                                      ; preds = %.thread190, %.thread186
+  %.lcssa.sink = phi ptr [ %148, %.thread186 ], [ %.0124, %.thread190 ]
+  %.3.ph = phi ptr [ %168, %.thread186 ], [ %180, %.thread190 ]
   %181 = load ptr, ptr @X11_XFree, align 8
   %182 = call i32 %181(ptr noundef nonnull %.lcssa.sink) #6
   br label %183
@@ -2328,7 +2328,7 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
   %220 = call ptr %218(ptr noundef %219) #6
   %221 = load i32, ptr @errorCode, align 4
   %.not13.i = icmp eq i32 %221, 0
-  br i1 %.not13.i, label %222, label %X11_GL_MakeCurrent.exit.thread198
+  br i1 %.not13.i, label %222, label %X11_GL_MakeCurrent.exit.thread196
 
 222:                                              ; preds = %202
   %.not14.i = icmp eq i32 %217, 0
@@ -2337,14 +2337,14 @@ define hidden ptr @X11_GL_CreateContext(ptr noundef readonly captures(none) %0, 
 X11_GL_MakeCurrent.exit:                          ; preds = %199, %222
   %.str.22.sink.i = phi ptr [ @.str.20, %199 ], [ @.str.22, %222 ]
   %223 = call zeroext i1 (ptr, ...) @SDL_SetError_REAL(ptr noundef nonnull %.str.22.sink.i) #6
-  br i1 %223, label %X11_GL_DestroyContext.exit, label %X11_GL_MakeCurrent.exit.thread198
+  br i1 %223, label %X11_GL_DestroyContext.exit, label %X11_GL_MakeCurrent.exit.thread196
 
-X11_GL_MakeCurrent.exit.thread198:                ; preds = %202, %X11_GL_MakeCurrent.exit
+X11_GL_MakeCurrent.exit.thread196:                ; preds = %202, %X11_GL_MakeCurrent.exit
   %224 = load ptr, ptr %28, align 8
-  %.not.i170 = icmp eq ptr %224, null
-  br i1 %.not.i170, label %X11_GL_DestroyContext.exit, label %225
+  %.not.i169 = icmp eq ptr %224, null
+  br i1 %.not.i169, label %X11_GL_DestroyContext.exit, label %225
 
-225:                                              ; preds = %X11_GL_MakeCurrent.exit.thread198
+225:                                              ; preds = %X11_GL_MakeCurrent.exit.thread196
   %226 = load ptr, ptr %200, align 8
   %227 = load ptr, ptr %226, align 8
   %228 = getelementptr inbounds nuw i8, ptr %224, i64 88
@@ -2354,8 +2354,8 @@ X11_GL_MakeCurrent.exit.thread198:                ; preds = %202, %X11_GL_MakeCu
   %231 = call i32 %230(ptr noundef %227, i32 noundef 0) #6
   br label %X11_GL_DestroyContext.exit
 
-X11_GL_DestroyContext.exit:                       ; preds = %222, %225, %X11_GL_MakeCurrent.exit.thread198, %X11_GL_MakeCurrent.exit, %194, %197
-  %.0120 = phi ptr [ null, %197 ], [ null, %194 ], [ %.0121, %X11_GL_MakeCurrent.exit ], [ null, %X11_GL_MakeCurrent.exit.thread198 ], [ null, %225 ], [ %.0121, %222 ]
+X11_GL_DestroyContext.exit:                       ; preds = %222, %225, %X11_GL_MakeCurrent.exit.thread196, %X11_GL_MakeCurrent.exit, %194, %197
+  %.0120 = phi ptr [ null, %197 ], [ null, %194 ], [ %.0121, %X11_GL_MakeCurrent.exit ], [ null, %X11_GL_MakeCurrent.exit.thread196 ], [ null, %225 ], [ %.0121, %222 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

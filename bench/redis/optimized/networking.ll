@@ -8287,29 +8287,29 @@ define dso_local range(i32 -1, 1) i32 @writeToClient(ptr noundef %0, i32 noundef
   %13 = getelementptr i8, ptr %0, i64 8
   %.val52 = load i64, ptr %13, align 8, !tbaa !86
   %14 = and i64 %.val52, 5
-  %.not67 = icmp eq i64 %14, 1
-  br i1 %.not67, label %.preheader.preheader, label %23, !prof !121
+  %.not66 = icmp eq i64 %14, 1
+  br i1 %.not66, label %.preheader.preheader, label %23, !prof !121
 
 .preheader.preheader:                             ; preds = %7
   %15 = tail call fastcc i32 @_clientHasPendingRepliesSlave(ptr noundef %0)
-  %.not4682 = icmp eq i32 %15, 0
-  br i1 %.not4682, label %._crit_edge, label %.lr.ph
+  %.not4681 = icmp eq i32 %15, 0
+  br i1 %.not4681, label %._crit_edge, label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
-  %16 = add nsw i64 %20, %.03883
+  %16 = add nsw i64 %20, %.03882
   %17 = tail call fastcc i32 @_clientHasPendingRepliesSlave(ptr noundef %0)
   %.not46 = icmp eq i32 %17, 0
   br i1 %.not46, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.preheader, %.preheader
-  %.03883 = phi i64 [ %16, %.preheader ], [ 0, %.preheader.preheader ]
+  %.03882 = phi i64 [ %16, %.preheader ], [ 0, %.preheader.preheader ]
   %18 = call fastcc i32 @_writeToClientSlave(ptr noundef %0, ptr noundef %3)
   %19 = icmp eq i32 %18, -1
   %20 = load i64, ptr %3, align 8
   br i1 %19, label %._crit_edge, label %.preheader
 
 ._crit_edge:                                      ; preds = %.preheader, %.lr.ph, %.preheader.preheader
-  %.038.lcssa = phi i64 [ 0, %.preheader.preheader ], [ %16, %.preheader ], [ %.03883, %.lr.ph ]
+  %.038.lcssa = phi i64 [ 0, %.preheader.preheader ], [ %16, %.preheader ], [ %.03882, %.lr.ph ]
   %21 = phi i64 [ 0, %.preheader.preheader ], [ %20, %.lr.ph ], [ %20, %.preheader ]
   %22 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @server, i64 2872), i64 %.038.lcssa monotonic, align 8
   br label %83
@@ -8326,7 +8326,7 @@ define dso_local range(i32 -1, 1) i32 @writeToClient(ptr noundef %0, i32 noundef
   br label %_writeToClientNonSlave.exit
 
 _writeToClientNonSlave.exit:                      ; preds = %_writeToClientNonSlave.exit.backedge, %23
-  %.pre74 = phi i64 [ 0, %23 ], [ %71, %_writeToClientNonSlave.exit.backedge ]
+  %.pre73 = phi i64 [ 0, %23 ], [ %71, %_writeToClientNonSlave.exit.backedge ]
   %.4 = phi i64 [ 0, %23 ], [ %72, %_writeToClientNonSlave.exit.backedge ]
   %31 = load i32, ptr %25, align 8, !tbaa !76
   %.not.i = icmp eq i32 %31, 0
@@ -8336,8 +8336,8 @@ _clientHasPendingRepliesNonSlave.exit:            ; preds = %_writeToClientNonSl
   %32 = load ptr, ptr %26, align 8, !tbaa !96
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i64, ptr %33, align 8, !tbaa !122
-  %.not68 = icmp eq i64 %34, 0
-  br i1 %.not68, label %_writeToClientNonSlave.exit.thread61, label %.thread
+  %.not67 = icmp eq i64 %34, 0
+  br i1 %.not67, label %_writeToClientNonSlave.exit.thread61, label %.thread
 
 _clientHasPendingRepliesNonSlave.exit.thread:     ; preds = %_writeToClientNonSlave.exit
   store i64 0, ptr %3, align 8, !tbaa !16
@@ -8436,7 +8436,7 @@ _writeToClientNonSlave.exit.backedge:             ; preds = %.thread58, %77, %81
   br i1 %.not44, label %_writeToClientNonSlave.exit.thread61, label %_writeToClientNonSlave.exit.backedge
 
 _writeToClientNonSlave.exit.thread61:             ; preds = %51, %81, %77, %_clientHasPendingRepliesNonSlave.exit, %._writeToClientNonSlave.exit.thread61_crit_edge
-  %.pre = phi i64 [ %.pre.pre, %._writeToClientNonSlave.exit.thread61_crit_edge ], [ %.pre74, %_clientHasPendingRepliesNonSlave.exit ], [ %62, %51 ], [ %71, %81 ], [ %71, %77 ]
+  %.pre = phi i64 [ %.pre.pre, %._writeToClientNonSlave.exit.thread61_crit_edge ], [ %.pre73, %_clientHasPendingRepliesNonSlave.exit ], [ %62, %51 ], [ %71, %81 ], [ %71, %77 ]
   %.5 = phi i64 [ %.4, %._writeToClientNonSlave.exit.thread61_crit_edge ], [ %.4, %_clientHasPendingRepliesNonSlave.exit ], [ %.4, %51 ], [ %72, %81 ], [ %72, %77 ]
   %82 = atomicrmw add ptr getelementptr inbounds nuw (i8, ptr @server, i64 2856), i64 %.5 monotonic, align 8
   br label %83
@@ -8474,11 +8474,11 @@ _writeToClientNonSlave.exit.thread61:             ; preds = %51, %81, %77, %_cli
 
 99:                                               ; preds = %86, %83
   %100 = icmp sgt i64 %.3, 0
-  %.val.i.pre70 = load i64, ptr %13, align 8, !tbaa !86
-  %101 = and i64 %.val.i.pre70, 2
+  %.val.i.pre69 = load i64, ptr %13, align 8, !tbaa !86
+  %101 = and i64 %.val.i.pre69, 2
   %.not48 = icmp eq i64 %101, 0
-  %or.cond79 = select i1 %100, i1 %.not48, i1 false
-  br i1 %or.cond79, label %102, label %105
+  %or.cond78 = select i1 %100, i1 %.not48, i1 false
+  br i1 %or.cond78, label %102, label %105
 
 102:                                              ; preds = %99
   %103 = load atomic i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7784) seq_cst, align 8, !tbaa !79
@@ -8488,7 +8488,7 @@ _writeToClientNonSlave.exit.thread61:             ; preds = %51, %81, %77, %_cli
   br label %105
 
 105:                                              ; preds = %102, %99
-  %.val.i = phi i64 [ %.val.i.pre, %102 ], [ %.val.i.pre70, %99 ]
+  %.val.i = phi i64 [ %.val.i.pre, %102 ], [ %.val.i.pre69, %99 ]
   %106 = and i64 %.val.i, 5
   %.not.i54 = icmp eq i64 %106, 1
   br i1 %.not.i54, label %107, label %110, !prof !121
@@ -8509,8 +8509,8 @@ clientHasPendingReplies.exit:                     ; preds = %110
   %114 = load ptr, ptr %113, align 8, !tbaa !96
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 40
   %116 = load i64, ptr %115, align 8, !tbaa !122
-  %.not69 = icmp eq i64 %116, 0
-  br i1 %.not69, label %117, label %clientHasPendingReplies.exit.thread
+  %.not68 = icmp eq i64 %116, 0
+  br i1 %.not68, label %117, label %clientHasPendingReplies.exit.thread
 
 117:                                              ; preds = %107, %clientHasPendingReplies.exit
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -14818,11 +14818,11 @@ getClientEvictionLimit.exit:                      ; preds = %10, %17
   %19 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2952), align 8, !tbaa !16
   %20 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2968), align 8, !tbaa !16
   %21 = add i64 %20, %19
-  %.not3038 = icmp ult i64 %21, %spec.store.select.i
-  br i1 %.not3038, label %getClientEvictionLimit.exit.thread, label %.lr.ph
+  %.not3037 = icmp ult i64 %21, %spec.store.select.i
+  br i1 %.not3037, label %getClientEvictionLimit.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %getClientEvictionLimit.exit, %63
-  %.039 = phi i32 [ %.2, %63 ], [ 18, %getClientEvictionLimit.exit ]
+  %.038 = phi i32 [ %.2, %63 ], [ 18, %getClientEvictionLimit.exit ]
   %22 = call ptr @listNext(ptr noundef nonnull %1) #26
   %.not31 = icmp eq ptr %22, null
   br i1 %.not31, label %52, label %23
@@ -14849,10 +14849,10 @@ getClientEvictionLimit.exit:                      ; preds = %10, %17
   %35 = getelementptr inbounds nuw i8, ptr %25, i64 712
   %36 = load ptr, ptr %35, align 8, !tbaa !210
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !279
-  %38 = sext i32 %.039 to i64
+  %38 = sext i32 %.038 to i64
   %39 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %37, i64 %38
   %40 = icmp eq ptr %36, %39
-  br i1 %40, label %.thread, label %.thread44
+  br i1 %40, label %.thread, label %.thread43
 
 .thread:                                          ; preds = %23, %34, %29
   %41 = call ptr @sdsempty() #26
@@ -14871,17 +14871,17 @@ getClientEvictionLimit.exit:                      ; preds = %10, %17
   %47 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2536), align 8, !tbaa !280
   %48 = add nsw i64 %47, 1
   store i64 %48, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2536), align 8, !tbaa !280
-  br i1 %.not32, label %63, label %.thread44
+  br i1 %.not32, label %63, label %.thread43
 
-.thread44:                                        ; preds = %34, %46
+.thread43:                                        ; preds = %34, %46
   call void @resumeIOThread(i32 noundef %28) #26
   %49 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !279
-  %50 = sext i32 %.039 to i64
+  %50 = sext i32 %.038 to i64
   %51 = getelementptr inbounds %struct.clientMemUsageBucket, ptr %49, i64 %50
   br label %.sink.split
 
 52:                                               ; preds = %.lr.ph
-  %53 = icmp slt i32 %.039, 1
+  %53 = icmp slt i32 %.038, 1
   br i1 %53, label %54, label %58
 
 54:                                               ; preds = %52
@@ -14894,21 +14894,21 @@ getClientEvictionLimit.exit:                      ; preds = %10, %17
   br label %getClientEvictionLimit.exit.thread
 
 58:                                               ; preds = %52
-  %59 = add nsw i32 %.039, -1
+  %59 = add nsw i32 %.038, -1
   %60 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !279
   %61 = zext nneg i32 %59 to i64
   %62 = getelementptr inbounds nuw %struct.clientMemUsageBucket, ptr %60, i64 %61
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.thread44, %58
-  %.sink.in = phi ptr [ %62, %58 ], [ %51, %.thread44 ]
-  %.2.ph = phi i32 [ %59, %58 ], [ %.039, %.thread44 ]
+.sink.split:                                      ; preds = %.thread43, %58
+  %.sink.in = phi ptr [ %62, %58 ], [ %51, %.thread43 ]
+  %.2.ph = phi i32 [ %59, %58 ], [ %.038, %.thread43 ]
   %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !213
   call void @listRewind(ptr noundef %.sink, ptr noundef nonnull %1) #26
   br label %63
 
 63:                                               ; preds = %.sink.split, %46
-  %.2 = phi i32 [ %.039, %46 ], [ %.2.ph, %.sink.split ]
+  %.2 = phi i32 [ %.038, %46 ], [ %.2.ph, %.sink.split ]
   %64 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2952), align 8, !tbaa !16
   %65 = load i64, ptr getelementptr inbounds nuw (i8, ptr @server, i64 2968), align 8, !tbaa !16
   %66 = add i64 %65, %64

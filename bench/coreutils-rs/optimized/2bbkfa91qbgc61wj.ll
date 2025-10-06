@@ -107,8 +107,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %47, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %49, %.lr.ph.i.i ], [ 0, %47 ]
-  %49 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %49, %.lr.ph.i.i ], [ 0, %47 ]
+  %49 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   call void @llvm.x86.sse2.pause() #9, !noalias !4
   %exitcond.not.i.i = icmp eq i32 %49, %48
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -137,8 +137,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedge
 
 .lr.ph.i18.i:                                     ; preds = %57, %.lr.ph.i18.i
-  %.sroa.01.07.i19.i = phi i32 [ %60, %.lr.ph.i18.i ], [ 0, %57 ]
-  %60 = add nuw nsw i32 %.sroa.01.07.i19.i, 1
+  %.sroa.01.06.i19.i = phi i32 [ %60, %.lr.ph.i18.i ], [ 0, %57 ]
+  %60 = add nuw nsw i32 %.sroa.01.06.i19.i, 1
   call void @llvm.x86.sse2.pause() #9, !noalias !4
   %exitcond.not.i20.i = icmp eq i32 %60, %58
   br i1 %exitcond.not.i20.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i18.i
@@ -174,8 +174,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i.backedg
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i
 
 .lr.ph.i23.i:                                     ; preds = %70, %.lr.ph.i23.i
-  %.sroa.01.07.i24.i = phi i32 [ %73, %.lr.ph.i23.i ], [ 0, %70 ]
-  %73 = add nuw nsw i32 %.sroa.01.07.i24.i, 1
+  %.sroa.01.06.i24.i = phi i32 [ %73, %.lr.ph.i23.i ], [ 0, %70 ]
+  %73 = add nuw nsw i32 %.sroa.01.06.i24.i, 1
   call void @llvm.x86.sse2.pause() #9, !noalias !4
   %exitcond.not.i25.i = icmp eq i32 %73, %71
   br i1 %exitcond.not.i25.i, label %._crit_edge.loopexit.i26.i, label %.lr.ph.i23.i
@@ -603,8 +603,8 @@ define hidden void @"_ZN3std4sync4mpmc5array16Channel$LT$T$GT$4send17h6880a461db
   br i1 %.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %54, %.lr.ph.i.i
-  %.sroa.01.07.i.i = phi i32 [ %56, %.lr.ph.i.i ], [ 0, %54 ]
-  %56 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ %56, %.lr.ph.i.i ], [ 0, %54 ]
+  %56 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   call void @llvm.x86.sse2.pause() #9, !noalias !69
   %exitcond.not.i.i = icmp eq i32 %56, %55
   br i1 %exitcond.not.i.i, label %_ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i, label %.lr.ph.i.i
@@ -632,8 +632,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_heavy17hb4122032bd1aea4cE.exit.i: ; preds 
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i
 
 .lr.ph.i18.i:                                     ; preds = %63, %.lr.ph.i18.i
-  %.sroa.01.07.i19.i = phi i32 [ %66, %.lr.ph.i18.i ], [ 0, %63 ]
-  %66 = add nuw nsw i32 %.sroa.01.07.i19.i, 1
+  %.sroa.01.06.i19.i = phi i32 [ %66, %.lr.ph.i18.i ], [ 0, %63 ]
+  %66 = add nuw nsw i32 %.sroa.01.06.i19.i, 1
   call void @llvm.x86.sse2.pause() #9, !noalias !69
   %exitcond.not.i20.i = icmp eq i32 %66, %64
   br i1 %exitcond.not.i20.i, label %._crit_edge.loopexit.i.i, label %.lr.ph.i18.i
@@ -672,8 +672,8 @@ _ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i: ; pred
   br label %_ZN3std4sync4mpmc5utils7Backoff10spin_light17h56cd9baf47bc31b1E.exit28.i
 
 .lr.ph.i23.i:                                     ; preds = %79, %.lr.ph.i23.i
-  %.sroa.01.07.i24.i = phi i32 [ %82, %.lr.ph.i23.i ], [ 0, %79 ]
-  %82 = add nuw nsw i32 %.sroa.01.07.i24.i, 1
+  %.sroa.01.06.i24.i = phi i32 [ %82, %.lr.ph.i23.i ], [ 0, %79 ]
+  %82 = add nuw nsw i32 %.sroa.01.06.i24.i, 1
   call void @llvm.x86.sse2.pause() #9, !noalias !69
   %exitcond.not.i25.i = icmp eq i32 %82, %80
   br i1 %exitcond.not.i25.i, label %._crit_edge.loopexit.i26.i, label %.lr.ph.i23.i

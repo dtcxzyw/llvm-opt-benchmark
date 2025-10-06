@@ -1017,7 +1017,7 @@ define internal noundef zeroext i1 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr n
   %or.cond = icmp ult i32 %7, -144
   %8 = icmp ult i32 %6, 5
   %or.cond43 = select i1 %or.cond, i1 true, i1 %8
-  br i1 %or.cond43, label %35, label %9
+  br i1 %or.cond43, label %36, label %9
 
 9:                                                ; preds = %4
   %10 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
@@ -1027,69 +1027,69 @@ define internal noundef zeroext i1 @dissect_rf4ce_nwk_heur(ptr noundef %0, ptr n
   %13 = and i8 %10, 32
   %.not.not = icmp eq i8 %13, 0
   %or.cond44 = or i1 %switch, %.not.not
-  br i1 %or.cond44, label %35, label %14
+  br i1 %or.cond44, label %36, label %14
 
 14:                                               ; preds = %9
   %15 = icmp eq i8 %12, 3
-  %switch46 = icmp eq i8 %12, 2
-  %16 = icmp eq i32 %6, 5
-  br i1 %switch46, label %26, label %17
+  %16 = icmp eq i8 %12, 2
+  %17 = icmp eq i32 %6, 5
+  br i1 %16, label %27, label %18
 
-17:                                               ; preds = %14
-  br i1 %16, label %35, label %18
+18:                                               ; preds = %14
+  br i1 %17, label %36, label %19
 
-18:                                               ; preds = %17
-  %19 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
-  %20 = add i8 %19, -4
-  %or.cond7 = icmp ult i8 %20, -68
-  br i1 %or.cond7, label %35, label %21
+19:                                               ; preds = %18
+  %20 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
+  %21 = add i8 %20, -4
+  %or.cond7 = icmp ult i8 %21, -68
+  br i1 %or.cond7, label %36, label %22
 
-21:                                               ; preds = %18
-  br i1 %15, label %22, label %30
+22:                                               ; preds = %19
+  br i1 %15, label %23, label %31
 
-22:                                               ; preds = %21
-  %23 = icmp ult i32 %6, 8
-  br i1 %23, label %35, label %24
+23:                                               ; preds = %22
+  %24 = icmp ult i32 %6, 8
+  br i1 %24, label %36, label %25
 
-24:                                               ; preds = %22
-  %25 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
-  switch i16 %25, label %35 [
-    i16 1, label %30
-    i16 2, label %30
-    i16 3, label %30
-    i16 4, label %30
-    i16 5, label %30
-    i16 6, label %30
-    i16 7, label %30
-    i16 -15, label %30
-    i16 -14, label %30
-    i16 -13, label %30
+25:                                               ; preds = %23
+  %26 = tail call zeroext i16 @tvb_get_letohs(ptr noundef %0, i32 noundef 6)
+  switch i16 %26, label %36 [
+    i16 1, label %31
+    i16 2, label %31
+    i16 3, label %31
+    i16 4, label %31
+    i16 5, label %31
+    i16 6, label %31
+    i16 7, label %31
+    i16 -15, label %31
+    i16 -14, label %31
+    i16 -13, label %31
   ]
 
-26:                                               ; preds = %14
-  br i1 %16, label %35, label %27
-
-27:                                               ; preds = %26
-  %.not = icmp eq i8 %11, 0
-  br i1 %.not, label %28, label %30
+27:                                               ; preds = %14
+  br i1 %17, label %36, label %28
 
 28:                                               ; preds = %27
-  %29 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
-  %.off41 = add i8 %29, -1
+  %.not = icmp eq i8 %11, 0
+  br i1 %.not, label %29, label %31
+
+29:                                               ; preds = %28
+  %30 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 5)
+  %.off41 = add i8 %30, -1
   %switch42 = icmp ult i8 %.off41, 8
-  br i1 %switch42, label %30, label %35
+  br i1 %switch42, label %31, label %36
 
-30:                                               ; preds = %28, %27, %21, %24, %24, %24, %24, %24, %24, %24, %24, %24, %24
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %32 = load ptr, ptr %31, align 8
-  tail call void @col_set_str(ptr noundef %32, i32 noundef 35, ptr noundef nonnull @.str.199)
-  %33 = load ptr, ptr %31, align 8
-  tail call void @col_clear(ptr noundef %33, i32 noundef 25)
-  %34 = tail call i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
-  br label %35
+31:                                               ; preds = %29, %28, %22, %25, %25, %25, %25, %25, %25, %25, %25, %25, %25
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %33 = load ptr, ptr %32, align 8
+  tail call void @col_set_str(ptr noundef %33, i32 noundef 35, ptr noundef nonnull @.str.199)
+  %34 = load ptr, ptr %32, align 8
+  tail call void @col_clear(ptr noundef %34, i32 noundef 25)
+  %35 = tail call i32 @dissect_rf4ce_nwk_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr poison)
+  br label %36
 
-35:                                               ; preds = %4, %28, %26, %24, %22, %18, %17, %9, %30
-  %.0 = phi i1 [ true, %30 ], [ false, %9 ], [ false, %17 ], [ false, %18 ], [ false, %22 ], [ false, %24 ], [ false, %26 ], [ false, %28 ], [ false, %4 ]
+36:                                               ; preds = %4, %29, %27, %25, %23, %19, %18, %9, %31
+  %.0 = phi i1 [ true, %31 ], [ false, %9 ], [ false, %18 ], [ false, %19 ], [ false, %23 ], [ false, %25 ], [ false, %27 ], [ false, %29 ], [ false, %4 ]
   ret i1 %.0
 }
 

@@ -17649,22 +17649,22 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_114RISCVAsmParser22parseCSRSystem
   %12 = tail call { ptr, ptr } @_ZN4llvm11RISCVSysReg22lookupSysRegByEncodingEt(i16 noundef zeroext %11) #25
   %13 = extractvalue { ptr, ptr } %12, 0
   %14 = extractvalue { ptr, ptr } %12, 1
-  %.not2621 = icmp eq ptr %13, %14
-  br i1 %.not2621, label %._crit_edge, label %.lr.ph
+  %.not2620 = icmp eq ptr %13, %14
+  br i1 %.not2620, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %.0.val, i64 336
   br label %16
 
 16:                                               ; preds = %.lr.ph, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread5
-  %.022 = phi ptr [ %13, %.lr.ph ], [ %49, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread5 ]
-  %17 = getelementptr inbounds nuw i8, ptr %.022, i64 81
+  %.021 = phi ptr [ %13, %.lr.ph ], [ %49, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread5 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.021, i64 81
   %18 = load i8, ptr %17, align 1, !tbaa !528, !range !48, !noundef !49
   %19 = trunc nuw i8 %18 to i1
   br i1 %19, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread5, label %20
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds nuw i8, ptr %.022, i64 82
+  %21 = getelementptr inbounds nuw i8, ptr %.021, i64 82
   %22 = load i8, ptr %21, align 2, !tbaa !525, !range !48, !noundef !49
   %23 = trunc nuw i8 %22 to i1
   br i1 %23, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread5, label %24
@@ -17672,7 +17672,7 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_114RISCVAsmParser22parseCSRSystem
 24:                                               ; preds = %20
   %25 = load ptr, ptr %15, align 8, !tbaa !313
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 232
-  %27 = getelementptr inbounds nuw i8, ptr %.022, i64 80
+  %27 = getelementptr inbounds nuw i8, ptr %.021, i64 80
   %28 = load i8, ptr %27, align 8, !tbaa !549, !range !48, !noundef !49
   %29 = trunc nuw i8 %28 to i1
   br i1 %29, label %30, label %33
@@ -17684,22 +17684,22 @@ define internal fastcc void @"_ZZN12_GLOBAL__N_114RISCVAsmParser22parseCSRSystem
   br i1 %.not.i, label %33, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread5
 
 33:                                               ; preds = %30, %24
-  %34 = getelementptr inbounds nuw i8, ptr %.022, i64 40
+  %34 = getelementptr inbounds nuw i8, ptr %.021, i64 40
   %35 = load i64, ptr %34, align 8, !tbaa !53
   %.not32.i.i.i.i.i.i.i.i.i = icmp eq i64 %35, 0
-  %36 = getelementptr inbounds nuw i8, ptr %.022, i64 48
+  %36 = getelementptr inbounds nuw i8, ptr %.021, i64 48
   %37 = load i64, ptr %36, align 8
   %.not33.i.i.i.i.i.i.i.i.i = icmp eq i64 %37, 0
   %or.cond.i.i.i.i = select i1 %.not32.i.i.i.i.i.i.i.i.i, i1 %.not33.i.i.i.i.i.i.i.i.i, i1 false
-  %38 = getelementptr inbounds nuw i8, ptr %.022, i64 56
+  %38 = getelementptr inbounds nuw i8, ptr %.021, i64 56
   %39 = load i64, ptr %38, align 8
   %.not34.i.i.i.i.i.i.i.i.i = icmp eq i64 %39, 0
   %or.cond16.i.i.i.i = select i1 %or.cond.i.i.i.i, i1 %.not34.i.i.i.i.i.i.i.i.i, i1 false
-  %40 = getelementptr inbounds nuw i8, ptr %.022, i64 64
+  %40 = getelementptr inbounds nuw i8, ptr %.021, i64 64
   %41 = load i64, ptr %40, align 8
   %.not35.i.i.i.i.i.i.i.i.i = icmp eq i64 %41, 0
   %or.cond18.i.i.i.i = select i1 %or.cond16.i.i.i.i, i1 %.not35.i.i.i.i.i.i.i.i.i, i1 false
-  %scevgep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.022, i64 72
+  %scevgep.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.021, i64 72
   %42 = load i64, ptr %scevgep.i.i.i.i.i.i.i.i.i, align 8
   %.not31.i.i.i.i.i.i.i.i.i = icmp eq i64 %42, 0
   %or.cond.i = select i1 %or.cond18.i.i.i.i, i1 %.not31.i.i.i.i.i.i.i.i.i, i1 false
@@ -17730,12 +17730,12 @@ _ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit: 
   br i1 %.not9.i.i.i.i.i.i, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread, label %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread5
 
 _ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread5: ; preds = %30, %20, %16, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit
-  %49 = getelementptr inbounds nuw i8, ptr %.022, i64 88
+  %49 = getelementptr inbounds nuw i8, ptr %.021, i64 88
   %.not26 = icmp eq ptr %49, %14
   br i1 %.not26, label %._crit_edge, label %16
 
 _ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.thread: ; preds = %33, %_ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit
-  %50 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.022) #25
+  %50 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %.021) #25
   %51 = trunc nuw nsw i64 %8 to i32
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !740)
@@ -17754,7 +17754,7 @@ _ZNK4llvm11RISCVSysReg6SysReg20haveRequiredFeaturesERKNS_13FeatureBitsetE.exit.t
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 56
   store ptr %52, ptr %0, align 8, !tbaa !457, !alias.scope !743
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 72
-  store ptr %.022, ptr %59, align 8, !tbaa !65, !noalias !737
+  store ptr %.021, ptr %59, align 8, !tbaa !65, !noalias !737
   %60 = trunc i64 %50 to i32
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 80
   store i32 %60, ptr %61, align 8, !tbaa !65, !noalias !737

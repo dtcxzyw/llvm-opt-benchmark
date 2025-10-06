@@ -175,7 +175,7 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h66fb8b33739fe3
   %28 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6) #28
-          to label %49 unwind label %47
+          to label %50 unwind label %48
 
 29:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h74748eeaf40f77a0E.llvm.10805634051311926935.exit.i"
   %30 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -193,37 +193,37 @@ _ZN18tracing_subscriber6filter13layer_filters9FILTERING7__getit17h66fb8b33739fe3
   fence acquire
   %37 = call { i64, i64 } @"_ZN3std6thread5local17LocalKey$LT$T$GT$8try_with17h93558a585e044e59E.llvm.12485624242127034822"(ptr noalias noundef readonly align 8 dereferenceable(8) @anon.d2547d110c6550d8f0debb615aa5bd5e.4.llvm.12485624242127034822), !noalias !49
   %.fca.0.extract.i.i.i = extractvalue { i64, i64 } %37, 0
-  %switch.i.i.i = icmp eq i64 %.fca.0.extract.i.i.i, 0
+  %38 = icmp eq i64 %.fca.0.extract.i.i.i, 0
   %.fca.1.extract.i.i.i = extractvalue { i64, i64 } %37, 1
-  %spec.select.i.i.i = select i1 %switch.i.i.i, i64 %.fca.1.extract.i.i.i, i64 -1
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 32
-  %39 = load i64, ptr %38, align 8, !alias.scope !49, !noundef !4
-  %40 = icmp eq i64 %spec.select.i.i.i, %39
-  br i1 %40, label %43, label %41
+  %spec.select.i.i.i = select i1 %38, i64 %.fca.1.extract.i.i.i, i64 -1
+  %39 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %40 = load i64, ptr %39, align 8, !alias.scope !49, !noundef !4
+  %41 = icmp eq i64 %spec.select.i.i.i, %40
+  br i1 %41, label %44, label %42
 
-41:                                               ; preds = %34
-  %42 = call noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$12clear_remote17h9f7f81db35524278E.llvm.12485624242127034822"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %35, i64 noundef %36)
+42:                                               ; preds = %34
+  %43 = call noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$12clear_remote17h9f7f81db35524278E.llvm.12485624242127034822"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %35, i64 noundef %36)
   br label %"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit"
 
-43:                                               ; preds = %34
-  %44 = call noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11clear_local17ha1fe6fe3506c1da6E.llvm.12485624242127034822"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %35, i64 noundef %36)
+44:                                               ; preds = %34
+  %45 = call noundef zeroext i1 @"_ZN12sharded_slab5shard18Shard$LT$T$C$C$GT$11clear_local17ha1fe6fe3506c1da6E.llvm.12485624242127034822"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %35, i64 noundef %36)
   br label %"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit"
 
-"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit": ; preds = %43, %41, %29, %26
-  %.sroa.3.0 = phi i64 [ undef, %26 ], [ %32, %29 ], [ %32, %41 ], [ %32, %43 ]
-  %.sroa.0.0 = phi i64 [ 0, %26 ], [ 1, %29 ], [ 1, %41 ], [ 1, %43 ]
+"_ZN4core3ptr103drop_in_place$LT$sharded_slab..pool..RefMut$LT$tracing_subscriber..registry..sharded..DataInner$GT$$GT$17h42bd1819366578d6E.exit": ; preds = %44, %42, %29, %26
+  %.sroa.3.0 = phi i64 [ undef, %26 ], [ %32, %29 ], [ %32, %42 ], [ %32, %44 ]
+  %.sroa.0.0 = phi i64 [ 0, %26 ], [ 1, %29 ], [ 1, %42 ], [ 1, %44 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %45 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %46 = insertvalue { i64, i64 } %45, i64 %.sroa.3.0, 1
-  ret { i64, i64 } %46
+  %46 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %47 = insertvalue { i64, i64 } %46, i64 %.sroa.3.0, 1
+  ret { i64, i64 } %47
 
-47:                                               ; preds = %27
-  %48 = landingpad { ptr, i32 }
+48:                                               ; preds = %27
+  %49 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #29
   unreachable
 
-49:                                               ; preds = %27
+50:                                               ; preds = %27
   resume { ptr, i32 } %28
 }
 
@@ -1081,13 +1081,13 @@ define hidden { ptr, ptr } @"_ZN4core5slice4iter87_$LT$impl$u20$core..iter..trai
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef i64 @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h74748eeaf40f77a0E.llvm.10805634051311926935"(i64 noundef %0, i64 returned %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca {}, align 1
-  %switch = icmp eq i64 %0, 0
-  br i1 %switch, label %7, label %8
-
-7:                                                ; preds = %5
-  ret i64 %1
+  %7 = icmp eq i64 %0, 0
+  br i1 %7, label %8, label %9
 
 8:                                                ; preds = %5
+  ret i64 %1
+
+9:                                                ; preds = %5
   call void @_ZN4core6result13unwrap_failed17hed0fccbe07e724fcE(ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noundef nonnull align 1 %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1441b3def44db8b07e7d1387db893427.47.llvm.10805634051311926935, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %4) #27
   unreachable
 }

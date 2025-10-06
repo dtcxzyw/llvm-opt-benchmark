@@ -913,12 +913,12 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento15BlockDataRegionEKNS2_9MemRegionEEEDaPT0
   %72 = zext i32 %71 to i64
   %.idx.i.i.i = shl nuw nsw i64 %72, 4
   %73 = getelementptr inbounds nuw i8, ptr %69, i64 %.idx.i.i.i
-  %.not2025.not.i.i.i = icmp eq i32 %71, 0
-  br i1 %.not2025.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
+  %.not2026.not.i.i.i = icmp eq i32 %71, 0
+  br i1 %.not2026.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %67, %.critedge.i.i.i
-  %.01626.i.i.i = phi ptr [ %92, %.critedge.i.i.i ], [ %69, %67 ]
-  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.01626.i.i.i, align 8
+  %.01627.i.i.i = phi ptr [ %92, %.critedge.i.i.i ], [ %69, %67 ]
+  %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.01627.i.i.i, align 8
   %74 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %75 = inttoptr i64 %74 to ptr
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 48
@@ -945,7 +945,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang4ento15BlockDataRegionEKNS2_9MemRegionEEEDaPT0
   br i1 %91, label %_ZNK12_GLOBAL__N_122StackAddrEscapeChecker31checkAsyncExecutedBlockCapturesERKN5clang4ento15BlockDataRegionERNS2_14CheckerContextE.exit.i, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %81, %.lr.ph.i.i.i
-  %92 = getelementptr inbounds nuw i8, ptr %.01626.i.i.i, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.01627.i.i.i, i64 16
   %.not20.not.i.i.i = icmp eq ptr %92, %73
   br i1 %.not20.not.i.i.i, label %.loopexit.i.i, label %.lr.ph.i.i.i
 
@@ -3339,12 +3339,12 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit.i: ; pr
   %164 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %161) #21
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = load i32, ptr %165, align 8, !tbaa !48
-  %.not17.i.i = icmp eq i32 %166, 10
-  br i1 %.not17.i.i, label %.lr.ph.i.i, label %_ZL19getOriginBaseRegionPKN5clang4ento9MemRegionE.exit.i
+  %.not16.i.i = icmp eq i32 %166, 10
+  br i1 %.not16.i.i, label %.lr.ph.i.i, label %_ZL19getOriginBaseRegionPKN5clang4ento9MemRegionE.exit.i
 
 .lr.ph.i.i:                                       ; preds = %159, %173
-  %.018.i.i = phi ptr [ %174, %173 ], [ %164, %159 ]
-  %167 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 56
+  %.017.i.i = phi ptr [ %174, %173 ], [ %164, %159 ]
+  %167 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 56
   %168 = load ptr, ptr %167, align 8, !tbaa !774
   %169 = load ptr, ptr %168, align 8, !tbaa !7
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 64
@@ -3361,7 +3361,7 @@ _ZNSt10unique_ptrIN5clang4ento7BugTypeESt14default_deleteIS2_EED2Ev.exit.i: ; pr
   br i1 %.not.i42.i, label %.lr.ph.i.i, label %_ZL19getOriginBaseRegionPKN5clang4ento9MemRegionE.exit.i
 
 _ZL19getOriginBaseRegionPKN5clang4ento9MemRegionE.exit.i: ; preds = %173, %.lr.ph.i.i, %159
-  %.0.lcssa.i.i = phi ptr [ %164, %159 ], [ %174, %173 ], [ %.018.i.i, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %164, %159 ], [ %174, %173 ], [ %.017.i.i, %.lr.ph.i.i ]
   %177 = load i8, ptr %69, align 4, !tbaa !767, !range !46, !noundef !47
   %178 = trunc nuw i8 %177 to i1
   br i1 %178, label %179, label %_ZNK4llvm15SmallPtrSetImplIPKN5clang4ento9MemRegionEE8containsES5_.exit.i
@@ -4026,12 +4026,12 @@ _ZL25isInvalidatedSymbolRegionPKN5clang4ento9MemRegionE.exit.i: ; preds = %21
   %29 = tail call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load i32, ptr %30, align 8, !tbaa !48
-  %.not17.i.i = icmp eq i32 %31, 10
-  br i1 %.not17.i.i, label %.lr.ph.i.i, label %_ZL19getOriginBaseRegionPKN5clang4ento9MemRegionE.exit.i
+  %.not16.i.i = icmp eq i32 %31, 10
+  br i1 %.not16.i.i, label %.lr.ph.i.i, label %_ZL19getOriginBaseRegionPKN5clang4ento9MemRegionE.exit.i
 
 .lr.ph.i.i:                                       ; preds = %27, %38
-  %.018.i.i = phi ptr [ %39, %38 ], [ %29, %27 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.018.i.i, i64 56
+  %.017.i.i = phi ptr [ %39, %38 ], [ %29, %27 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 56
   %33 = load ptr, ptr %32, align 8, !tbaa !774
   %34 = load ptr, ptr %33, align 8, !tbaa !7
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 64
@@ -4048,7 +4048,7 @@ _ZL25isInvalidatedSymbolRegionPKN5clang4ento9MemRegionE.exit.i: ; preds = %21
   br i1 %.not.i3.i, label %.lr.ph.i.i, label %_ZL19getOriginBaseRegionPKN5clang4ento9MemRegionE.exit.i
 
 _ZL19getOriginBaseRegionPKN5clang4ento9MemRegionE.exit.i: ; preds = %38, %.lr.ph.i.i, %27
-  %.0.lcssa.i.i = phi ptr [ %29, %27 ], [ %39, %38 ], [ %.018.i.i, %.lr.ph.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %29, %27 ], [ %39, %38 ], [ %.017.i.i, %.lr.ph.i.i ]
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %43 = load i8, ptr %42, align 4, !tbaa !767, !range !46, !noalias !798, !noundef !47
   %44 = trunc nuw i8 %43 to i1
@@ -4061,17 +4061,17 @@ _ZL19getOriginBaseRegionPKN5clang4ento9MemRegionE.exit.i: ; preds = %38, %.lr.ph
   %49 = zext i32 %48 to i64
   %.idx.i.i.i = shl nuw nsw i64 %49, 3
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i
-  %.not36.i.i.i = icmp eq i32 %48, 0
-  br i1 %.not36.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
+  %.not34.i.i.i = icmp eq i32 %48, 0
+  br i1 %.not34.i.i.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %45, %.critedge.i.i.i
-  %.02937.i.i.i = phi ptr [ %52, %.critedge.i.i.i ], [ %46, %45 ]
-  %51 = load ptr, ptr %.02937.i.i.i, align 8, !tbaa !3, !noalias !798
+  %.02935.i.i.i = phi ptr [ %52, %.critedge.i.i.i ], [ %46, %45 ]
+  %51 = load ptr, ptr %.02935.i.i.i, align 8, !tbaa !3, !noalias !798
   %.not17.i.i.i = icmp eq ptr %51, %.0.lcssa.i.i
   br i1 %.not17.i.i.i, label %_ZZNK12_GLOBAL__N_122StackAddrEscapeChecker16checkEndFunctionEPKN5clang10ReturnStmtERNS1_4ento14CheckerContextEEN8CallBack26recordInInvalidatedRegionsEPKNS5_9MemRegionE.exit, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %.lr.ph.i.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i, i64 8
   %.not.i.i4.i = icmp eq ptr %52, %50
   br i1 %.not.i.i4.i, label %._crit_edge.i.i.i, label %.lr.ph.i.i.i, !llvm.loop !801
 
@@ -4123,8 +4123,8 @@ tailrecurse.i.i:                                  ; preds = %68, %60
   %65 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr.i.i) #21
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i32, ptr %66, align 8, !tbaa !48
-  %.not.i36.not.i.i = icmp eq i32 %67, 10
-  br i1 %.not.i36.not.i.i, label %68, label %_ZL27getStackOrGlobalSpaceRegionPKN5clang4ento9MemRegionE.exit.i
+  %.not.i35.not.i.i = icmp eq i32 %67, 10
+  br i1 %.not.i35.not.i.i, label %68, label %_ZL27getStackOrGlobalSpaceRegionPKN5clang4ento9MemRegionE.exit.i
 
 68:                                               ; preds = %64
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 56
@@ -4248,8 +4248,8 @@ tailrecurse.i:                                    ; preds = %134, %126
   %131 = call noundef nonnull ptr @_ZNK5clang4ento9MemRegion13getBaseRegionEv(ptr noundef nonnull align 8 dereferenceable(48) %.tr.i) #21
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load i32, ptr %132, align 8, !tbaa !48
-  %.not.i36.not.i = icmp eq i32 %133, 10
-  br i1 %.not.i36.not.i, label %134, label %_ZN4llvm15SmallVectorImplISt4pairIPKN5clang4ento9MemRegionES6_EE12emplace_backIJRS6_SA_EEERS7_DpOT_.exit
+  %.not.i35.not.i = icmp eq i32 %133, 10
+  br i1 %.not.i35.not.i, label %134, label %_ZN4llvm15SmallVectorImplISt4pairIPKN5clang4ento9MemRegionES6_EE12emplace_backIJRS6_SA_EEERS7_DpOT_.exit
 
 134:                                              ; preds = %130
   %135 = getelementptr inbounds nuw i8, ptr %131, i64 56

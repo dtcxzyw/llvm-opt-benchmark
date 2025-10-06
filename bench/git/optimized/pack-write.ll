@@ -845,8 +845,8 @@ git_bswap32.exit:                                 ; preds = %23
   %33 = call i64 @llvm.smin.i64(i64 %31, i64 8180)
   %34 = select i1 %.not75.not, i64 8180, i64 %33
   %35 = call i64 @xread(i32 noundef %1, ptr noundef %32, i64 noundef %34) #19
-  %.not7688 = icmp eq i64 %35, 0
-  br i1 %.not7688, label %._crit_edge, label %.lr.ph
+  %.not7686 = icmp eq i64 %35, 0
+  br i1 %.not7686, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %git_bswap32.exit
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -855,7 +855,7 @@ git_bswap32.exit:                                 ; preds = %23
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %40
   %38 = phi i64 [ %45, %40 ], [ %35, %.lr.ph ]
-  %.06389.us = phi i32 [ %spec.select.us, %40 ], [ 8180, %.lr.ph ]
+  %.06387.us = phi i32 [ %spec.select.us, %40 ], [ 8180, %.lr.ph ]
   %39 = icmp slt i64 %38, 0
   br i1 %39, label %.split.us, label %40
 
@@ -863,8 +863,8 @@ git_bswap32.exit:                                 ; preds = %23
   %41 = load ptr, ptr %26, align 8, !tbaa !51
   call void %41(ptr noundef nonnull %9, ptr noundef %32, i64 noundef %38) #19
   %42 = trunc i64 %38 to i32
-  %43 = sub i32 %.06389.us, %42
-  %.not77.us = icmp eq i32 %.06389.us, %42
+  %43 = sub i32 %.06387.us, %42
+  %.not77.us = icmp eq i32 %.06387.us, %42
   %spec.select.us = select i1 %.not77.us, i32 8192, i32 %43
   %44 = sext i32 %spec.select.us to i64
   %45 = call i64 @xread(i32 noundef %1, ptr noundef %32, i64 noundef %44) #19
@@ -873,8 +873,8 @@ git_bswap32.exit:                                 ; preds = %23
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %61
   %46 = phi i64 [ %64, %61 ], [ %35, %.lr.ph ]
-  %.06290 = phi i64 [ %.1, %61 ], [ %31, %.lr.ph ]
-  %.06389 = phi i32 [ %spec.select, %61 ], [ 8180, %.lr.ph ]
+  %.06288 = phi i64 [ %.1, %61 ], [ %31, %.lr.ph ]
+  %.06387 = phi i32 [ %spec.select, %61 ], [ 8180, %.lr.ph ]
   %47 = icmp slt i64 %46, 0
   br i1 %47, label %.split.us, label %48
 
@@ -886,12 +886,12 @@ git_bswap32.exit:                                 ; preds = %23
   %49 = load ptr, ptr %26, align 8, !tbaa !51
   call void %49(ptr noundef nonnull %9, ptr noundef %32, i64 noundef %46) #19
   %50 = trunc i64 %46 to i32
-  %51 = sub i32 %.06389, %50
-  %.not77 = icmp eq i32 %.06389, %50
+  %51 = sub i32 %.06387, %50
+  %.not77 = icmp eq i32 %.06387, %50
   %spec.select = select i1 %.not77, i32 8192, i32 %51
   %52 = load ptr, ptr %26, align 8, !tbaa !51
   call void %52(ptr noundef nonnull %8, ptr noundef %32, i64 noundef %46) #19
-  %53 = sub nsw i64 %.06290, %46
+  %53 = sub nsw i64 %.06288, %46
   %54 = icmp eq i64 %53, 0
   br i1 %54, label %55, label %61
 
@@ -922,17 +922,17 @@ git_bswap32.exit:                                 ; preds = %23
   %63 = call i64 @llvm.smin.i64(i64 %.1, i64 %62)
   %64 = call i64 @xread(i32 noundef %1, ptr noundef %32, i64 noundef %63) #19
   %.not76 = icmp eq i64 %64, 0
-  br i1 %.not76, label %.critedge91, label %.lr.ph.split
+  br i1 %.not76, label %.critedge89, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %git_bswap32.exit
   call void @free(ptr noundef %32) #19
   br i1 %.not75.not, label %68, label %65
 
-.critedge91:                                      ; preds = %61
+.critedge89:                                      ; preds = %61
   call void @free(ptr noundef %32) #19
   br label %65
 
-65:                                               ; preds = %.critedge91, %._crit_edge
+65:                                               ; preds = %.critedge89, %._crit_edge
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %67 = load ptr, ptr %66, align 8, !tbaa !52
   call void %67(ptr noundef nonnull %5, ptr noundef nonnull %8) #19

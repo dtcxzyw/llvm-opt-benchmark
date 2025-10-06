@@ -2851,14 +2851,14 @@ define dso_local void @_ZN4llvm3sys16AddSignalHandlerEPFvPvES1_(ptr noundef %0, 
   br label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
 
 3:                                                ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
-  %.0.add.i = add nuw nsw i64 %.0.idx25.i, 24
+  %.0.add.i = add nuw nsw i64 %.0.idx23.i, 24
   %.not.i = icmp eq i64 %.0.add.i, 192
   br i1 %.not.i, label %7, label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
 
 _ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i: ; preds = %3, %2
-  %.0.idx25.i = phi i64 [ 0, %2 ], [ %.0.add.i, %3 ]
-  %.0.ptr26.i = getelementptr inbounds nuw i8, ptr @_ZZL14CallBacksToRunvE9callbacks, i64 %.0.idx25.i
-  %4 = getelementptr inbounds nuw i8, ptr %.0.ptr26.i, i64 16
+  %.0.idx23.i = phi i64 [ 0, %2 ], [ %.0.add.i, %3 ]
+  %.0.ptr24.i = getelementptr inbounds nuw i8, ptr @_ZZL14CallBacksToRunvE9callbacks, i64 %.0.idx23.i
+  %4 = getelementptr inbounds nuw i8, ptr %.0.ptr24.i, i64 16
   %5 = cmpxchg ptr %4, i32 0, i32 1 seq_cst seq_cst, align 4
   %6 = extractvalue { i32, i1 } %5, 1
   br i1 %6, label %_ZL19insertSignalHandlerPFvPvES_.exit, label %3
@@ -2868,8 +2868,8 @@ _ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12m
   unreachable
 
 _ZL19insertSignalHandlerPFvPvES_.exit:            ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i
-  store ptr %0, ptr %.0.ptr26.i, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i8, ptr %.0.ptr26.i, i64 8
+  store ptr %0, ptr %.0.ptr24.i, align 8, !tbaa !3
+  %8 = getelementptr inbounds nuw i8, ptr %.0.ptr24.i, i64 8
   store ptr %1, ptr %8, align 8, !tbaa !10
   store atomic i32 2, ptr %4 seq_cst, align 4
   tail call fastcc void @_ZL16RegisterHandlersv()
@@ -3213,14 +3213,14 @@ define dso_local void @_ZN4llvm3sys28PrintStackTraceOnErrorSignalENS_9StringRefE
   br label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i.i
 
 4:                                                ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i.i
-  %.0.add.i.i = add nuw nsw i64 %.0.idx25.i.i, 24
+  %.0.add.i.i = add nuw nsw i64 %.0.idx23.i.i, 24
   %.not.i.i = icmp eq i64 %.0.add.i.i, 192
   br i1 %.not.i.i, label %8, label %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i.i
 
 _ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i.i: ; preds = %4, %3
-  %.0.idx25.i.i = phi i64 [ 0, %3 ], [ %.0.add.i.i, %4 ]
-  %.0.ptr26.i.i = getelementptr inbounds nuw i8, ptr @_ZZL14CallBacksToRunvE9callbacks, i64 %.0.idx25.i.i
-  %5 = getelementptr inbounds nuw i8, ptr %.0.ptr26.i.i, i64 16
+  %.0.idx23.i.i = phi i64 [ 0, %3 ], [ %.0.add.i.i, %4 ]
+  %.0.ptr24.i.i = getelementptr inbounds nuw i8, ptr @_ZZL14CallBacksToRunvE9callbacks, i64 %.0.idx23.i.i
+  %5 = getelementptr inbounds nuw i8, ptr %.0.ptr24.i.i, i64 16
   %6 = cmpxchg ptr %5, i32 0, i32 1 seq_cst seq_cst, align 4
   %7 = extractvalue { i32, i1 } %6, 1
   br i1 %7, label %_ZN4llvm3sys16AddSignalHandlerEPFvPvES1_.exit, label %4
@@ -3230,8 +3230,8 @@ _ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12m
   unreachable
 
 _ZN4llvm3sys16AddSignalHandlerEPFvPvES1_.exit:    ; preds = %_ZNSt6atomicIN17CallbackAndCookie6StatusEE23compare_exchange_strongERS1_S1_St12memory_orderS4_.exit.i.i
-  store ptr @_ZL28PrintStackTraceSignalHandlerPv, ptr %.0.ptr26.i.i, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i8, ptr %.0.ptr26.i.i, i64 8
+  store ptr @_ZL28PrintStackTraceSignalHandlerPv, ptr %.0.ptr24.i.i, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw i8, ptr %.0.ptr24.i.i, i64 8
   store ptr null, ptr %9, align 8, !tbaa !10
   store atomic i32 2, ptr %5 seq_cst, align 4
   tail call fastcc void @_ZL16RegisterHandlersv()
@@ -3834,17 +3834,17 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   %7 = alloca %"class.llvm::format_object.146", align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i16, ptr %8, align 8, !tbaa !225
-  %.not106.i = icmp eq i16 %9, 0
-  br i1 %.not106.i, label %_ZN16DSOMarkupPrinter11findBuildIDEP12dl_phdr_info.exit.thread, label %.lr.ph105.i
+  %.not104.i = icmp eq i16 %9, 0
+  br i1 %.not104.i, label %_ZN16DSOMarkupPrinter11findBuildIDEP12dl_phdr_info.exit.thread, label %.lr.ph103.i
 
-.lr.ph105.i:                                      ; preds = %2
+.lr.ph103.i:                                      ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !228
   %wide.trip.count.i = zext i16 %9 to i64
   br label %12
 
-12:                                               ; preds = %.thread.i, %.lr.ph105.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph105.i ], [ %indvars.iv.next.i, %.thread.i ]
+12:                                               ; preds = %.thread.i, %.lr.ph103.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph103.i ], [ %indvars.iv.next.i, %.thread.i ]
   %13 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %11, i64 %indvars.iv.i
   %14 = load i32, ptr %13, align 8, !tbaa !229
   %.not.i = icmp eq i32 %14, 4
@@ -3865,13 +3865,13 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %65, %.lr.ph.preheader.i
-  %.sroa.050.0101.i = phi ptr [ %51, %65 ], [ %23, %.lr.ph.preheader.i ]
-  %.sroa.20.0100.i = phi i64 [ %50, %65 ], [ %17, %.lr.ph.preheader.i ]
-  %24 = load i32, ptr %.sroa.050.0101.i, align 4, !tbaa !12
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.050.0101.i, i64 8
+  %.sroa.050.099.i = phi ptr [ %51, %65 ], [ %23, %.lr.ph.preheader.i ]
+  %.sroa.20.098.i = phi i64 [ %50, %65 ], [ %17, %.lr.ph.preheader.i ]
+  %24 = load i32, ptr %.sroa.050.099.i, align 4, !tbaa !12
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.050.099.i, i64 8
   %26 = load i32, ptr %25, align 4, !tbaa !12
-  %27 = add i64 %.sroa.20.0100.i, -12
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.050.0101.i, i64 12
+  %27 = add i64 %.sroa.20.098.i, -12
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.050.099.i, i64 12
   %29 = zext i32 %24 to i64
   %..i.i = tail call i64 @llvm.umin.i64(i64 %29, i64 %27)
   %30 = ptrtoint ptr %28 to i64
@@ -3884,7 +3884,7 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   br i1 %.not35.i, label %36, label %.thread.i
 
 36:                                               ; preds = %.lr.ph.i
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.050.0101.i, i64 4
+  %37 = getelementptr inbounds nuw i8, ptr %.sroa.050.099.i, i64 4
   %38 = load i32, ptr %37, align 4, !tbaa !12
   %39 = sub nuw i64 %27, %35
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 %35
@@ -3912,13 +3912,13 @@ define linkonce_odr hidden void @_ZN16DSOMarkupPrinter14printDSOMarkupEP12dl_phd
   br i1 %56, label %57, label %65
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.050.0101.i, i64 13
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.050.099.i, i64 13
   %59 = load i8, ptr %58, align 1, !tbaa !25
   %60 = icmp eq i8 %59, 78
   br i1 %60, label %61, label %65
 
 61:                                               ; preds = %57
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.050.0101.i, i64 14
+  %62 = getelementptr inbounds nuw i8, ptr %.sroa.050.099.i, i64 14
   %63 = load i8, ptr %62, align 1, !tbaa !25
   %64 = icmp eq i8 %63, 85
   br i1 %64, label %_ZN16DSOMarkupPrinter11findBuildIDEP12dl_phdr_info.exit, label %65

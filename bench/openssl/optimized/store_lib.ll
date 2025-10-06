@@ -895,8 +895,8 @@ define ptr @OSSL_STORE_load(ptr noundef initializes((56, 60)) %0) local_unnamed_
 
 OSSL_STORE_eof.exit:                              ; preds = %16, %.thread.i
   %.1.i = phi i32 [ %27, %.thread.i ], [ %21, %16 ]
-  %.not78 = icmp eq i32 %.1.i, 0
-  br i1 %.not78, label %28, label %.thread74
+  %.not77 = icmp eq i32 %.1.i, 0
+  br i1 %.not77, label %28, label %.thread74
 
 28:                                               ; preds = %OSSL_STORE_eof.exit
   %29 = load ptr, ptr %6, align 8, !tbaa !40
@@ -997,8 +997,8 @@ OSSL_STORE_eof.exit:                              ; preds = %16, %.thread.i
   %66 = load i32, ptr %.44972, align 8, !tbaa !68
   %or.cond3 = icmp ult i32 %66, 2
   %.not62 = icmp eq i32 %64, %66
-  %or.cond77 = or i1 %or.cond3, %.not62
-  br i1 %or.cond77, label %.thread74, label %67
+  %or.cond76 = or i1 %or.cond3, %.not62
+  br i1 %or.cond76, label %.thread74, label %67
 
 67:                                               ; preds = %65
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %.44972)

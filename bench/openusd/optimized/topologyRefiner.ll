@@ -1725,14 +1725,14 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11FeatureMask14ReduceFeaturesERKNS1_15Topolog
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.04378 = phi i1 [ false, %.lr.ph.preheader ], [ %84, %.lr.ph ]
+  %.04377 = phi i1 [ false, %.lr.ph.preheader ], [ %84, %.lr.ph ]
   %78 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 12
   %81 = load i8, ptr %80, align 4
   %82 = trunc i8 %81 to i1
   %83 = xor i1 %82, true
-  %84 = or i1 %.04378, %83
+  %84 = or i1 %.04377, %83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
@@ -1753,23 +1753,23 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11FeatureMask14ReduceFeaturesERKNS1_15Topolog
   %.sroa.053.0.insert.ext = or disjoint i32 %88, 1
   %89 = load i32, ptr %0, align 8
   %90 = tail call noundef i32 @_ZN10OpenSubdiv6v3_6_03Sdc16SchemeTypeTraits23GetTopologicalSplitTypeENS1_10SchemeTypeE(i32 noundef %89)
-  %.not4979 = icmp eq i16 %.in, 0
-  br i1 %.not4979, label %.loopexit, label %.lr.ph82
+  %.not4978 = icmp eq i16 %.in, 0
+  br i1 %.not4978, label %.loopexit, label %.lr.ph81
 
-.lr.ph82:                                         ; preds = %87
+.lr.ph81:                                         ; preds = %87
   %91 = icmp eq i32 %90, 0
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %93 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %95 = zext nneg i32 %.sroa.speculated to i64
   %96 = add nuw nsw i32 %37, 1
-  %wide.trip.count96 = zext nneg i32 %96 to i64
+  %wide.trip.count95 = zext nneg i32 %96 to i64
   br label %97
 
-97:                                               ; preds = %.lr.ph82, %151
-  %indvars.iv93 = phi i64 [ 1, %.lr.ph82 ], [ %indvars.iv.next94, %151 ]
+97:                                               ; preds = %.lr.ph81, %151
+  %indvars.iv92 = phi i64 [ 1, %.lr.ph81 ], [ %indvars.iv.next93, %151 ]
   %98 = load ptr, ptr %8, align 8
-  %99 = getelementptr ptr, ptr %98, i64 %indvars.iv93
+  %99 = getelementptr ptr, ptr %98, i64 %indvars.iv92
   %100 = getelementptr i8, ptr %99, i64 -8
   %101 = load ptr, ptr %100, align 8
   %102 = call noalias noundef nonnull dereferenceable(480) ptr @_Znwm(i64 noundef 480) #15
@@ -1811,9 +1811,9 @@ _ZN10OpenSubdiv6v3_6_03Far8internal11FeatureMask14ReduceFeaturesERKNS1_15Topolog
   %.048 = phi ptr [ %105, %104 ], [ %111, %110 ]
   store ptr %.048, ptr %7, align 8
   store i8 0, ptr %93, align 8
-  %.not50 = icmp samesign ugt i64 %indvars.iv93, %95
+  %.not50 = icmp samesign ugt i64 %indvars.iv92, %95
   %. = select i1 %.not50, ptr %6, ptr %5
-  %115 = icmp samesign ugt i64 %indvars.iv93, 1
+  %115 = icmp samesign ugt i64 %indvars.iv92, 1
   br i1 %115, label %116, label %117
 
 116:                                              ; preds = %114
@@ -1909,9 +1909,9 @@ _ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal
   br label %.loopexit
 
 151:                                              ; preds = %126, %_ZNSt6vectorIPN10OpenSubdiv6v3_6_03Vtr8internal10RefinementESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i
-  %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
-  %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
-  br i1 %exitcond97.not, label %.loopexit, label %97, !llvm.loop !23
+  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
+  %exitcond96.not = icmp eq i64 %indvars.iv.next93, %wide.trip.count95
+  br i1 %exitcond96.not, label %.loopexit, label %97, !llvm.loop !23
 
 .loopexit:                                        ; preds = %151, %87, %_ZN10OpenSubdiv6v3_6_03Far15TopologyRefiner16appendRefinementERNS0_3Vtr8internal10RefinementE.exit
   %152 = load ptr, ptr %17, align 8

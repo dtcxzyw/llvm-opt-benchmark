@@ -1471,7 +1471,7 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr noundef writeonly
 
 18:                                               ; preds = %3
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.23, i32 noundef %2) #19
-  br label %.thread72
+  br label %.thread71
 
 19:                                               ; preds = %14, %10, %6
   %.str.26.sink = phi ptr [ @.str.24, %6 ], [ @.str.25, %10 ], [ @.str.26, %14 ]
@@ -1485,7 +1485,7 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr noundef writeonly
 
 22:                                               ; preds = %19
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.27) #19
-  br label %.thread72
+  br label %.thread71
 
 23:                                               ; preds = %.preheader, %28
   %.052 = phi i64 [ %29, %28 ], [ %5, %.preheader ]
@@ -1505,14 +1505,14 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr noundef writeonly
   %30 = add i64 %.050, %25
   %31 = tail call i32 @cl_update_hash(ptr noundef nonnull %20, ptr noundef nonnull %27, i64 noundef %25) #19
   %.not57 = icmp eq i32 %31, 0
-  br i1 %.not57, label %23, label %.thread83
+  br i1 %.not57, label %23, label %.thread82
 
-.thread83:                                        ; preds = %28
+.thread82:                                        ; preds = %28
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.29) #19
   br label %52
 
 32:                                               ; preds = %23
-  switch i32 %2, label %.thread77 [
+  switch i32 %2, label %.thread76 [
     i32 0, label %33
     i32 1, label %37
     i32 2, label %41
@@ -1539,37 +1539,37 @@ define range(i32 0, 35) i32 @fmap_get_hash(ptr noundef %0, ptr noundef writeonly
   store i8 1, ptr %44, align 2, !tbaa !37
   br label %49
 
-.thread77:                                        ; preds = %32
+.thread76:                                        ; preds = %32
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.23, i32 noundef %2) #19
   br label %52
 
 45:                                               ; preds = %33, %6
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 153
   store ptr %46, ptr %1, align 8, !tbaa !42
-  br label %.thread72
+  br label %.thread71
 
 47:                                               ; preds = %37, %10
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 170
   store ptr %48, ptr %1, align 8, !tbaa !42
-  br label %.thread72
+  br label %.thread71
 
 49:                                               ; preds = %14, %41
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 191
   store ptr %50, ptr %1, align 8, !tbaa !42
-  br label %.thread72
+  br label %.thread71
 
 51:                                               ; preds = %24
   tail call void (ptr, ...) @cli_errmsg(ptr noundef nonnull @.str.28) #19
   br label %52
 
-52:                                               ; preds = %51, %.thread83, %.thread77
-  %.04682 = phi i32 [ 3, %.thread77 ], [ 12, %51 ], [ 12, %.thread83 ]
+52:                                               ; preds = %51, %.thread82, %.thread76
+  %.04681 = phi i32 [ 3, %.thread76 ], [ 12, %51 ], [ 12, %.thread82 ]
   tail call void @cl_hash_destroy(ptr noundef nonnull %20) #19
-  br label %.thread72
+  br label %.thread71
 
-.thread72:                                        ; preds = %45, %47, %49, %22, %18, %52
-  %.04676 = phi i32 [ %.04682, %52 ], [ 0, %45 ], [ 0, %47 ], [ 0, %49 ], [ 34, %22 ], [ 3, %18 ]
-  ret i32 %.04676
+.thread71:                                        ; preds = %45, %47, %49, %22, %18, %52
+  %.04675 = phi i32 [ %.04681, %52 ], [ 0, %45 ], [ 0, %47 ], [ 0, %49 ], [ 34, %22 ], [ 3, %18 ]
+  ret i32 %.04675
 }
 
 declare ptr @cl_hash_init(ptr noundef) local_unnamed_addr #2

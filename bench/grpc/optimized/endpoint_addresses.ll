@@ -462,34 +462,34 @@ define noundef i32 @_ZNK9grpc_core17EndpointAddresses3CmpERKS0_(ptr noundef nonn
   %7 = ptrtoint ptr %5 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv exact i64 %8, 132
-  %.not31 = icmp eq ptr %4, %5
+  %.not29 = icmp eq ptr %4, %5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !9
-  %.pre32 = load ptr, ptr %1, align 8, !tbaa !3
-  %.pre33 = ptrtoint ptr %.pre to i64
-  %.pre34 = ptrtoint ptr %.pre32 to i64
-  %.pre36 = sub i64 %.pre33, %.pre34
-  br i1 %.not31, label %._crit_edge, label %.lr.ph
+  %.pre30 = load ptr, ptr %1, align 8, !tbaa !3
+  %.pre31 = ptrtoint ptr %.pre to i64
+  %.pre32 = ptrtoint ptr %.pre30 to i64
+  %.pre34 = sub i64 %.pre31, %.pre32
+  br i1 %.not29, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
-  %10 = sdiv exact i64 %.pre36, 132
+  %10 = sdiv exact i64 %.pre34, 132
   br label %13
 
 11:                                               ; preds = %25
-  %12 = add nuw i64 %.02330, 1
+  %12 = add nuw i64 %.02328, 1
   %exitcond.not = icmp eq i64 %12, %9
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !17
 
 13:                                               ; preds = %.lr.ph, %11
-  %.02330 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
-  %14 = icmp eq i64 %10, %.02330
+  %.02328 = phi i64 [ 0, %.lr.ph ], [ %12, %11 ]
+  %14 = icmp eq i64 %10, %.02328
   br i1 %14, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %5, i64 %.02330
+  %16 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %5, i64 %.02328
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 128
   %18 = load i32, ptr %17, align 4, !tbaa !19
-  %19 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %.pre32, i64 %.02330
+  %19 = getelementptr inbounds nuw %struct.grpc_resolved_address, ptr %.pre30, i64 %.02328
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 128
   %21 = load i32, ptr %20, align 4, !tbaa !19
   %22 = icmp ugt i32 %18, %21
@@ -506,7 +506,7 @@ define noundef i32 @_ZNK9grpc_core17EndpointAddresses3CmpERKS0_(ptr noundef nonn
   br i1 %.not, label %11, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit
 
 ._crit_edge:                                      ; preds = %11, %2
-  %28 = icmp ugt i64 %.pre36, %8
+  %28 = icmp ugt i64 %.pre34, %8
   br i1 %28, label %_ZN9grpc_core12QsortCompareINS_11ChannelArgsEEEiRKT_S4_.exit, label %29
 
 29:                                               ; preds = %._crit_edge

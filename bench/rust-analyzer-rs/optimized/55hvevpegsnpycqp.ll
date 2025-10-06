@@ -1113,8 +1113,8 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.
   %.0.i.ph.i = phi i64 [ %.07.val.pre.i.i.i, %_ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit17hf640953b2325be6bE.exit._ZN17crossbeam_channel5waker17current_thread_id9THREAD_ID7__getit17hf640953b2325be6bE.exit.thread_crit_edge.i.i.i ], [ %40, %39 ]
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %51 = load ptr, ptr %50, align 8, !alias.scope !146, !noalias !149, !nonnull !4, !noundef !4
-  %.idx26.i = mul nsw i64 %37, 24
-  %52 = getelementptr inbounds i8, ptr %51, i64 %.idx26.i
+  %.idx25.i = mul nsw i64 %37, 24
+  %52 = getelementptr inbounds i8, ptr %51, i64 %.idx25.i
   br label %.lr.ph.i.preheader.i
 
 _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i: ; preds = %.noexc5, %.noexc4
@@ -1131,7 +1131,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i: ; pr
   %57 = phi ptr [ %52, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i ], [ %55, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i ]
   %58 = phi ptr [ %51, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i ], [ %54, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i ]
   %59 = phi ptr [ %50, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i ], [ %53, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i ]
-  %.0.i27.i = phi i64 [ %.0.i.ph.i, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i ], [ %46, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i ]
+  %.0.i26.i = phi i64 [ %.0.i.ph.i, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i ], [ %46, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i ]
   %60 = phi i64 [ %37, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.thread.i ], [ %.pre.i, %_ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i ]
   br label %.lr.ph.i.i
 
@@ -1143,7 +1143,7 @@ _ZN17crossbeam_channel5waker17current_thread_id17he203adea5243dd2eE.exit.i: ; pr
   %63 = load ptr, ptr %61, align 8, !alias.scope !167, !noalias !170, !nonnull !4, !noundef !4
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %65 = load i64, ptr %64, align 8, !range !156, !noalias !174, !noundef !4
-  %.not.i.i.i = icmp eq i64 %65, %.0.i27.i
+  %.not.i.i.i = icmp eq i64 %65, %.0.i26.i
   br i1 %.not.i.i.i, label %"_ZN17crossbeam_channel5waker5Waker10try_select28_$u7b$$u7b$closure$u7d$$u7d$17h47f59f4cb3d35efcE.exit.i.i", label %66
 
 66:                                               ; preds = %.lr.ph.i.i
@@ -1496,8 +1496,8 @@ define internal fastcc i64 @_ZN17crossbeam_channel7context7Context10wait_until17
   br label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit
 
 .preheader.i:                                     ; preds = %10, %.preheader.i
-  %.sroa.01.08.i = phi i32 [ %13, %.preheader.i ], [ 0, %10 ]
-  %13 = add nuw nsw i32 %.sroa.01.08.i, 1
+  %.sroa.01.07.i = phi i32 [ %13, %.preheader.i ], [ 0, %10 ]
+  %13 = add nuw nsw i32 %.sroa.01.07.i, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i = lshr i32 %13, %.0
   %14 = icmp eq i32 %.sroa.01.0.highbits.i, 0
@@ -1871,8 +1871,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21: ; preds = 
   br i1 %31, label %.thread.i.thread, label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit
 
 .preheader.i:                                     ; preds = %29, %.preheader.i
-  %.sroa.01.08.i = phi i32 [ %32, %.preheader.i ], [ 0, %29 ]
-  %32 = add nuw nsw i32 %.sroa.01.08.i, 1
+  %.sroa.01.07.i = phi i32 [ %32, %.preheader.i ], [ 0, %29 ]
+  %32 = add nuw nsw i32 %.sroa.01.07.i, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i = lshr i32 %32, %.027
   %33 = icmp eq i32 %.sroa.01.0.highbits.i, 0
@@ -1908,8 +1908,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit: ; preds = %4
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.backedge
 
 46:                                               ; preds = %46, %42
-  %.sroa.01.07.i = phi i32 [ 0, %42 ], [ %47, %46 ]
-  %47 = add nuw nsw i32 %.sroa.01.07.i, 1
+  %.sroa.01.06.i = phi i32 [ 0, %42 ], [ %47, %46 ]
+  %47 = add nuw nsw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i17 = lshr i32 %47, %.0.sroa.speculated.i.i
   %48 = icmp eq i32 %.sroa.01.0.highbits.i17, 0
@@ -1964,8 +1964,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.backedge: ;
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21
 
 69:                                               ; preds = %69, %65
-  %.sroa.01.07.i19 = phi i32 [ 0, %65 ], [ %70, %69 ]
-  %70 = add nuw nsw i32 %.sroa.01.07.i19, 1
+  %.sroa.01.06.i19 = phi i32 [ 0, %65 ], [ %70, %69 ]
+  %70 = add nuw nsw i32 %.sroa.01.06.i19, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i20 = lshr i32 %70, %.0.sroa.speculated.i.i18
   %71 = icmp eq i32 %.sroa.01.0.highbits.i20, 0
@@ -2022,8 +2022,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21: ; preds = 
   br i1 %31, label %.thread.i.thread, label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit
 
 .preheader.i:                                     ; preds = %29, %.preheader.i
-  %.sroa.01.08.i = phi i32 [ %32, %.preheader.i ], [ 0, %29 ]
-  %32 = add nuw nsw i32 %.sroa.01.08.i, 1
+  %.sroa.01.07.i = phi i32 [ %32, %.preheader.i ], [ 0, %29 ]
+  %32 = add nuw nsw i32 %.sroa.01.07.i, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i = lshr i32 %32, %.027
   %33 = icmp eq i32 %.sroa.01.0.highbits.i, 0
@@ -2059,8 +2059,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit: ; preds = %4
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.backedge
 
 46:                                               ; preds = %46, %42
-  %.sroa.01.07.i = phi i32 [ 0, %42 ], [ %47, %46 ]
-  %47 = add nuw nsw i32 %.sroa.01.07.i, 1
+  %.sroa.01.06.i = phi i32 [ 0, %42 ], [ %47, %46 ]
+  %47 = add nuw nsw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i17 = lshr i32 %47, %.0.sroa.speculated.i.i
   %48 = icmp eq i32 %.sroa.01.0.highbits.i17, 0
@@ -2116,8 +2116,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.backedge: ;
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21
 
 70:                                               ; preds = %70, %66
-  %.sroa.01.07.i19 = phi i32 [ 0, %66 ], [ %71, %70 ]
-  %71 = add nuw nsw i32 %.sroa.01.07.i19, 1
+  %.sroa.01.06.i19 = phi i32 [ 0, %66 ], [ %71, %70 ]
+  %71 = add nuw nsw i32 %.sroa.01.06.i19, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i20 = lshr i32 %71, %.0.sroa.speculated.i.i18
   %72 = icmp eq i32 %.sroa.01.0.highbits.i20, 0
@@ -2174,8 +2174,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21: ; preds = 
   br i1 %31, label %.thread.i.thread, label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit
 
 .preheader.i:                                     ; preds = %29, %.preheader.i
-  %.sroa.01.08.i = phi i32 [ %32, %.preheader.i ], [ 0, %29 ]
-  %32 = add nuw nsw i32 %.sroa.01.08.i, 1
+  %.sroa.01.07.i = phi i32 [ %32, %.preheader.i ], [ 0, %29 ]
+  %32 = add nuw nsw i32 %.sroa.01.07.i, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i = lshr i32 %32, %.027
   %33 = icmp eq i32 %.sroa.01.0.highbits.i, 0
@@ -2211,8 +2211,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit: ; preds = %4
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.backedge
 
 46:                                               ; preds = %46, %42
-  %.sroa.01.07.i = phi i32 [ 0, %42 ], [ %47, %46 ]
-  %47 = add nuw nsw i32 %.sroa.01.07.i, 1
+  %.sroa.01.06.i = phi i32 [ 0, %42 ], [ %47, %46 ]
+  %47 = add nuw nsw i32 %.sroa.01.06.i, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i17 = lshr i32 %47, %.0.sroa.speculated.i.i
   %48 = icmp eq i32 %.sroa.01.0.highbits.i17, 0
@@ -2267,8 +2267,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.backedge: ;
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21
 
 69:                                               ; preds = %69, %65
-  %.sroa.01.07.i19 = phi i32 [ 0, %65 ], [ %70, %69 ]
-  %70 = add nuw nsw i32 %.sroa.01.07.i19, 1
+  %.sroa.01.06.i19 = phi i32 [ 0, %65 ], [ %70, %69 ]
+  %70 = add nuw nsw i32 %.sroa.01.06.i19, 1
   tail call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i20 = lshr i32 %70, %.0.sroa.speculated.i.i18
   %71 = icmp eq i32 %.sroa.01.0.highbits.i20, 0
@@ -2493,8 +2493,8 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
   br i1 %55, label %.thread.i.thread.i, label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit.i
 
 .preheader.i.i:                                   ; preds = %53, %.preheader.i.i
-  %.sroa.01.08.i.i = phi i32 [ %56, %.preheader.i.i ], [ 0, %53 ]
-  %56 = add nuw nsw i32 %.sroa.01.08.i.i, 1
+  %.sroa.01.07.i.i = phi i32 [ %56, %.preheader.i.i ], [ 0, %53 ]
+  %56 = add nuw nsw i32 %.sroa.01.07.i.i, 1
   call void @llvm.x86.sse2.pause() #5, !noalias !232
   %.sroa.01.0.highbits.i.i = lshr i32 %56, %.02733.i
   %57 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
@@ -2529,8 +2529,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
 69:                                               ; preds = %69, %65
-  %.sroa.01.07.i.i = phi i32 [ 0, %65 ], [ %70, %69 ]
-  %70 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ 0, %65 ], [ %70, %69 ]
+  %70 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   call void @llvm.x86.sse2.pause() #5, !noalias !232
   %.sroa.01.0.highbits.i17.i = lshr i32 %70, %.0.sroa.speculated.i.i.i
   %71 = icmp eq i32 %.sroa.01.0.highbits.i17.i, 0
@@ -2571,8 +2571,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
 88:                                               ; preds = %88, %84
-  %.sroa.01.07.i19.i = phi i32 [ 0, %84 ], [ %89, %88 ]
-  %89 = add nuw nsw i32 %.sroa.01.07.i19.i, 1
+  %.sroa.01.06.i19.i = phi i32 [ 0, %84 ], [ %89, %88 ]
+  %89 = add nuw nsw i32 %.sroa.01.06.i19.i, 1
   call void @llvm.x86.sse2.pause() #5, !noalias !232
   %.sroa.01.0.highbits.i20.i = lshr i32 %89, %.0.sroa.speculated.i.i18.i
   %90 = icmp eq i32 %.sroa.01.0.highbits.i20.i, 0
@@ -2621,8 +2621,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
           to label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit unwind label %.body.thread50.loopexit.split-lp.loopexit
 
 .preheader.i:                                     ; preds = %94, %.preheader.i
-  %.sroa.01.08.i = phi i32 [ %97, %.preheader.i ], [ 0, %94 ]
-  %97 = add nuw nsw i32 %.sroa.01.08.i, 1
+  %.sroa.01.07.i = phi i32 [ %97, %.preheader.i ], [ 0, %94 ]
+  %97 = add nuw nsw i32 %.sroa.01.07.i, 1
   call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i = lshr i32 %97, %.079
   %98 = icmp eq i32 %.sroa.01.0.highbits.i, 0
@@ -2933,8 +2933,8 @@ define hidden void @"_ZN17crossbeam_channel7flavors5array16Channel$LT$T$GT$4send
   br i1 %55, label %.thread.i.thread.i, label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit.i
 
 .preheader.i.i:                                   ; preds = %53, %.preheader.i.i
-  %.sroa.01.08.i.i = phi i32 [ %56, %.preheader.i.i ], [ 0, %53 ]
-  %56 = add nuw nsw i32 %.sroa.01.08.i.i, 1
+  %.sroa.01.07.i.i = phi i32 [ %56, %.preheader.i.i ], [ 0, %53 ]
+  %56 = add nuw nsw i32 %.sroa.01.07.i.i, 1
   call void @llvm.x86.sse2.pause() #5, !noalias !285
   %.sroa.01.0.highbits.i.i = lshr i32 %56, %.02733.i
   %57 = icmp eq i32 %.sroa.01.0.highbits.i.i, 0
@@ -2969,8 +2969,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit.i: ; preds = 
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
 69:                                               ; preds = %69, %65
-  %.sroa.01.07.i.i = phi i32 [ 0, %65 ], [ %70, %69 ]
-  %70 = add nuw nsw i32 %.sroa.01.07.i.i, 1
+  %.sroa.01.06.i.i = phi i32 [ 0, %65 ], [ %70, %69 ]
+  %70 = add nuw nsw i32 %.sroa.01.06.i.i, 1
   call void @llvm.x86.sse2.pause() #5, !noalias !285
   %.sroa.01.0.highbits.i17.i = lshr i32 %70, %.0.sroa.speculated.i.i.i
   %71 = icmp eq i32 %.sroa.01.0.highbits.i17.i, 0
@@ -3011,8 +3011,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
   br label %_ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i
 
 88:                                               ; preds = %88, %84
-  %.sroa.01.07.i19.i = phi i32 [ 0, %84 ], [ %89, %88 ]
-  %89 = add nuw nsw i32 %.sroa.01.07.i19.i, 1
+  %.sroa.01.06.i19.i = phi i32 [ 0, %84 ], [ %89, %88 ]
+  %89 = add nuw nsw i32 %.sroa.01.06.i19.i, 1
   call void @llvm.x86.sse2.pause() #5, !noalias !285
   %.sroa.01.0.highbits.i20.i = lshr i32 %89, %.0.sroa.speculated.i.i18.i
   %90 = icmp eq i32 %.sroa.01.0.highbits.i20.i, 0
@@ -3061,8 +3061,8 @@ _ZN15crossbeam_utils7backoff7Backoff4spin17h3cb19cfdc9d1ab6dE.exit21.i: ; preds 
           to label %_ZN15crossbeam_utils7backoff7Backoff6snooze17ha5c48ca567358d17E.exit unwind label %.body.thread50.loopexit.split-lp.loopexit
 
 .preheader.i:                                     ; preds = %94, %.preheader.i
-  %.sroa.01.08.i = phi i32 [ %97, %.preheader.i ], [ 0, %94 ]
-  %97 = add nuw nsw i32 %.sroa.01.08.i, 1
+  %.sroa.01.07.i = phi i32 [ %97, %.preheader.i ], [ 0, %94 ]
+  %97 = add nuw nsw i32 %.sroa.01.07.i, 1
   call void @llvm.x86.sse2.pause() #5
   %.sroa.01.0.highbits.i = lshr i32 %97, %.079
   %98 = icmp eq i32 %.sroa.01.0.highbits.i, 0

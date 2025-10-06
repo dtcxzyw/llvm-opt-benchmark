@@ -1387,9 +1387,9 @@ define dso_local i32 @setTypeNext(ptr noundef captures(none) %0, ptr noundef wri
 57:                                               ; preds = %55, %53
   %.0 = phi ptr [ %54, %53 ], [ %56, %55 ]
   %58 = icmp eq ptr %.0, null
-  br i1 %58, label %65, label %.thread39
+  br i1 %58, label %65, label %.thread37
 
-.thread39:                                        ; preds = %57
+.thread37:                                        ; preds = %57
   store ptr %.0, ptr %50, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %59 = call ptr @lpGetValue(ptr noundef nonnull %.0, ptr noundef nonnull %5, ptr noundef %3) #10
@@ -1405,7 +1405,7 @@ define dso_local i32 @setTypeNext(ptr noundef captures(none) %0, ptr noundef wri
   tail call void @abort() #11
   unreachable
 
-63:                                               ; preds = %.thread39, %.thread, %45
+63:                                               ; preds = %.thread37, %.thread, %45
   %64 = load i32, ptr %6, align 8, !tbaa !45
   br label %65
 
@@ -3940,9 +3940,9 @@ setTypeInitIterator.exit:                         ; preds = %117, %122, %124
 178:                                              ; preds = %176, %174
   %.0.i191 = phi ptr [ %175, %174 ], [ %177, %176 ]
   %179 = icmp eq ptr %.0.i191, null
-  br i1 %179, label %192, label %.thread39.i
+  br i1 %179, label %192, label %.thread37.i
 
-.thread39.i:                                      ; preds = %178
+.thread37.i:                                      ; preds = %178
   store ptr %.0.i191, ptr %127, align 8, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %180 = call ptr @lpGetValue(ptr noundef nonnull %.0.i191, ptr noundef nonnull %6, ptr noundef nonnull %9) #10
@@ -3956,9 +3956,9 @@ setTypeInitIterator.exit:                         ; preds = %117, %122, %124
   call void @abort() #11
   unreachable
 
-setTypeNext.exit:                                 ; preds = %161, %.thread.i, %.thread39.i
-  %.0.i.i263 = phi i64 [ %.0.i.i, %.thread.i ], [ %182, %.thread39.i ], [ %.0.i.i262, %161 ]
-  %184 = phi ptr [ %138, %.thread.i ], [ %180, %.thread39.i ], [ null, %161 ]
+setTypeNext.exit:                                 ; preds = %161, %.thread.i, %.thread37.i
+  %.0.i.i263 = phi i64 [ %.0.i.i, %.thread.i ], [ %182, %.thread37.i ], [ %.0.i.i262, %161 ]
+  %184 = phi ptr [ %138, %.thread.i ], [ %180, %.thread37.i ], [ null, %161 ]
   %185 = load i32, ptr %116, align 8, !tbaa !45
   %.not184 = icmp eq i32 %185, -1
   br i1 %.not184, label %setTypeReleaseIterator.exit, label %186

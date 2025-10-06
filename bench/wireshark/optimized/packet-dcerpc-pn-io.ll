@@ -6449,10 +6449,10 @@ define internal void @pnio_load_gsd_files() #0 {
 83:                                               ; preds = %66
   %84 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %85 = load ptr, ptr %84, align 8
-  %.not98.i.i = icmp eq ptr %85, null
-  br i1 %.not98.i.i, label %.thread111.i.i, label %86
+  %.not97.i.i = icmp eq ptr %85, null
+  br i1 %.not97.i.i, label %.thread110.i.i, label %86
 
-.thread111.i.i:                                   ; preds = %83
+.thread110.i.i:                                   ; preds = %83
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %._crit_edge.i.i
 
@@ -6467,7 +6467,7 @@ define internal void @pnio_load_gsd_files() #0 {
   %wide.trip.count.i.i = zext nneg i32 %87 to i64
   br label %90
 
-._crit_edge.i.i:                                  ; preds = %.thread95.i.i, %86, %.thread111.i.i
+._crit_edge.i.i:                                  ; preds = %.thread95.i.i, %86, %.thread110.i.i
   call void @xmlXPathFreeObject(ptr noundef nonnull %82)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %pnio_load_gsd_device_modules.exit.i
@@ -6662,8 +6662,8 @@ pnio_load_gsd_device_modules.exit.i:              ; preds = %._crit_edge.i.i, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
   %181 = load ptr, ptr %180, align 8
-  %.not75.i.i = icmp eq ptr %181, null
-  br i1 %.not75.i.i, label %._crit_edge.i34.i, label %182
+  %.not74.i.i = icmp eq ptr %181, null
+  br i1 %.not74.i.i, label %._crit_edge.i34.i, label %182
 
 182:                                              ; preds = %179
   %183 = load i32, ptr %181, align 8
@@ -10512,13 +10512,13 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
   br label %91
 
 91:                                               ; preds = %.lr.ph219, %._crit_edge
-  %92 = phi ptr [ %23, %.lr.ph219 ], [ %289, %._crit_edge ]
-  %93 = phi ptr [ %23, %.lr.ph219 ], [ %290, %._crit_edge ]
-  %94 = phi ptr [ %23, %.lr.ph219 ], [ %291, %._crit_edge ]
-  %95 = phi ptr [ %23, %.lr.ph219 ], [ %292, %._crit_edge ]
-  %96 = phi ptr [ %23, %.lr.ph219 ], [ %293, %._crit_edge ]
-  %97 = phi ptr [ %23, %.lr.ph219 ], [ %294, %._crit_edge ]
-  %98 = phi ptr [ %23, %.lr.ph219 ], [ %295, %._crit_edge ]
+  %92 = phi ptr [ %23, %.lr.ph219 ], [ %290, %._crit_edge ]
+  %93 = phi ptr [ %23, %.lr.ph219 ], [ %291, %._crit_edge ]
+  %94 = phi ptr [ %23, %.lr.ph219 ], [ %292, %._crit_edge ]
+  %95 = phi ptr [ %23, %.lr.ph219 ], [ %293, %._crit_edge ]
+  %96 = phi ptr [ %23, %.lr.ph219 ], [ %294, %._crit_edge ]
+  %97 = phi ptr [ %23, %.lr.ph219 ], [ %295, %._crit_edge ]
+  %98 = phi ptr [ %23, %.lr.ph219 ], [ %296, %._crit_edge ]
   %.0190217 = phi i32 [ %34, %.lr.ph219 ], [ %.1.lcssa, %._crit_edge ]
   %99 = load i32, ptr @hf_pn_io_api_tree, align 4
   %100 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %99, ptr noundef %0, i32 noundef %.0190217, i32 noundef 0, i32 noundef 0)
@@ -10552,15 +10552,15 @@ define internal fastcc void @dissect_ExpectedSubmoduleBlockReq_block(ptr noundef
   %.not206214 = icmp eq i16 %123, 0
   br i1 %.not206214, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %91, %280
-  %125 = phi ptr [ %268, %280 ], [ %92, %91 ]
-  %126 = phi ptr [ %269, %280 ], [ %93, %91 ]
-  %127 = phi ptr [ %270, %280 ], [ %94, %91 ]
-  %128 = phi ptr [ %271, %280 ], [ %95, %91 ]
-  %129 = phi ptr [ %272, %280 ], [ %96, %91 ]
-  %130 = phi ptr [ %273, %280 ], [ %97, %91 ]
-  %131 = phi ptr [ %274, %280 ], [ %98, %91 ]
-  %.1215 = phi i32 [ %.2, %280 ], [ %112, %91 ]
+.lr.ph:                                           ; preds = %91, %281
+  %125 = phi ptr [ %268, %281 ], [ %92, %91 ]
+  %126 = phi ptr [ %269, %281 ], [ %93, %91 ]
+  %127 = phi ptr [ %270, %281 ], [ %94, %91 ]
+  %128 = phi ptr [ %271, %281 ], [ %95, %91 ]
+  %129 = phi ptr [ %272, %281 ], [ %96, %91 ]
+  %130 = phi ptr [ %273, %281 ], [ %97, %91 ]
+  %131 = phi ptr [ %274, %281 ], [ %98, %91 ]
+  %.1215 = phi i32 [ %.2, %281 ], [ %112, %91 ]
   %132 = load i32, ptr @hf_pn_io_submodule_tree, align 4
   %133 = call ptr @proto_tree_add_item(ptr noundef %102, i32 noundef %132, ptr noundef %0, i32 noundef %.1215, i32 noundef 0, i32 noundef 0)
   %134 = load i32, ptr @ett_pn_io_submodule, align 4
@@ -10793,44 +10793,44 @@ resolve_pa_profile_submodule_name.exit:           ; preds = %.lr.ph, %230, %224,
   %275 = load i16, ptr %17, align 2
   %276 = and i16 %275, 3
   %277 = call fastcc i32 @dissect_DataDescription(ptr noundef %0, i32 noundef %155, ptr noundef %2, ptr noundef %135, ptr noundef %5, ptr noundef %20)
-  %switch.not = icmp eq i16 %276, 3
-  br i1 %switch.not, label %278, label %280
+  %278 = icmp eq i16 %276, 3
+  br i1 %278, label %279, label %281
 
-278:                                              ; preds = %267
-  %279 = call fastcc i32 @dissect_DataDescription(ptr noundef %0, i32 noundef %277, ptr noundef %2, ptr noundef %135, ptr noundef %5, ptr noundef %20)
-  br label %280
+279:                                              ; preds = %267
+  %280 = call fastcc i32 @dissect_DataDescription(ptr noundef %0, i32 noundef %277, ptr noundef %2, ptr noundef %135, ptr noundef %5, ptr noundef %20)
+  br label %281
 
-280:                                              ; preds = %267, %278
-  %.2 = phi i32 [ %279, %278 ], [ %277, %267 ]
-  %281 = load i16, ptr %15, align 2
-  %282 = zext i16 %281 to i32
-  %283 = load i32, ptr %16, align 4
-  %284 = load i16, ptr %17, align 2
-  %285 = zext i16 %284 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %133, ptr noundef nonnull @.str.1467, i32 noundef %282, i32 noundef %283, i32 noundef %285)
-  %286 = sub i32 %.2, %.1215
-  call void @proto_item_set_len(ptr noundef %133, i32 noundef %286)
-  %287 = load i16, ptr %14, align 2
-  %288 = add i16 %287, -1
-  store i16 %288, ptr %14, align 2
-  %.not206 = icmp eq i16 %287, 0
+281:                                              ; preds = %267, %279
+  %.2 = phi i32 [ %280, %279 ], [ %277, %267 ]
+  %282 = load i16, ptr %15, align 2
+  %283 = zext i16 %282 to i32
+  %284 = load i32, ptr %16, align 4
+  %285 = load i16, ptr %17, align 2
+  %286 = zext i16 %285 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %133, ptr noundef nonnull @.str.1467, i32 noundef %283, i32 noundef %284, i32 noundef %286)
+  %287 = sub i32 %.2, %.1215
+  call void @proto_item_set_len(ptr noundef %133, i32 noundef %287)
+  %288 = load i16, ptr %14, align 2
+  %289 = add i16 %288, -1
+  store i16 %289, ptr %14, align 2
+  %.not206 = icmp eq i16 %288, 0
   br i1 %.not206, label %._crit_edge, label %.lr.ph, !llvm.loop !47
 
-._crit_edge:                                      ; preds = %280, %91
-  %289 = phi ptr [ %92, %91 ], [ %268, %280 ]
-  %290 = phi ptr [ %93, %91 ], [ %269, %280 ]
-  %291 = phi ptr [ %94, %91 ], [ %270, %280 ]
-  %292 = phi ptr [ %95, %91 ], [ %271, %280 ]
-  %293 = phi ptr [ %96, %91 ], [ %272, %280 ]
-  %294 = phi ptr [ %97, %91 ], [ %273, %280 ]
-  %295 = phi ptr [ %98, %91 ], [ %274, %280 ]
-  %.1.lcssa = phi i32 [ %112, %91 ], [ %.2, %280 ]
-  %296 = sub i32 %.1.lcssa, %.0190217
-  call void @proto_item_set_len(ptr noundef %100, i32 noundef %296)
-  %297 = load i16, ptr %9, align 2
-  %298 = add i16 %297, -1
-  store i16 %298, ptr %9, align 2
-  %.not205 = icmp eq i16 %297, 0
+._crit_edge:                                      ; preds = %281, %91
+  %290 = phi ptr [ %92, %91 ], [ %268, %281 ]
+  %291 = phi ptr [ %93, %91 ], [ %269, %281 ]
+  %292 = phi ptr [ %94, %91 ], [ %270, %281 ]
+  %293 = phi ptr [ %95, %91 ], [ %271, %281 ]
+  %294 = phi ptr [ %96, %91 ], [ %272, %281 ]
+  %295 = phi ptr [ %97, %91 ], [ %273, %281 ]
+  %296 = phi ptr [ %98, %91 ], [ %274, %281 ]
+  %.1.lcssa = phi i32 [ %112, %91 ], [ %.2, %281 ]
+  %297 = sub i32 %.1.lcssa, %.0190217
+  call void @proto_item_set_len(ptr noundef %100, i32 noundef %297)
+  %298 = load i16, ptr %9, align 2
+  %299 = add i16 %298, -1
+  store i16 %299, ptr %9, align 2
+  %.not205 = icmp eq i16 %298, 0
   br i1 %.not205, label %.loopexit, label %91, !llvm.loop !48
 
 .loopexit:                                        ; preds = %._crit_edge, %79, %28

@@ -2228,108 +2228,108 @@ define internal noundef zeroext i1 @dissect_rdp_cc_heur(ptr noundef %0, ptr noun
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %19, ptr noundef %0, i32 noundef 0, i32 noundef -1, i32 noundef 0)
   %21 = load i32, ptr @ett_rdp, align 4
   %22 = tail call ptr @proto_item_add_subtree(ptr noundef %20, i32 noundef %21)
-  %switch.i = icmp eq i8 %11, 2
-  br i1 %switch.i, label %23, label %55
+  %23 = icmp eq i8 %11, 2
+  br i1 %23, label %24, label %56
 
-23:                                               ; preds = %15
+24:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %24 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.1011)
-  %25 = load i32, ptr @hf_rdp_neg_type, align 4
-  %26 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %25, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %27 = load i32, ptr @hf_rdp_negRsp_flags, align 4
-  %28 = load i32, ptr @ett_negRsp_flags, align 4
-  %29 = tail call ptr @proto_tree_add_bitmask(ptr noundef %22, ptr noundef %0, i32 noundef 1, i32 noundef %27, i32 noundef %28, ptr noundef nonnull @dissect_rdpNegRsp.flag_bits, i32 noundef -2147483648)
-  %30 = load i32, ptr @hf_rdp_neg_length, align 4
-  %31 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %30, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7)
-  %32 = load i32, ptr %7, align 4
-  %.not.i.i = icmp eq i32 %32, 8
-  br i1 %.not.i.i, label %35, label %33
+  %25 = load ptr, ptr %16, align 8
+  tail call void @col_append_str(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.1011)
+  %26 = load i32, ptr @hf_rdp_neg_type, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %26, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %28 = load i32, ptr @hf_rdp_negRsp_flags, align 4
+  %29 = load i32, ptr @ett_negRsp_flags, align 4
+  %30 = tail call ptr @proto_tree_add_bitmask(ptr noundef %22, ptr noundef %0, i32 noundef 1, i32 noundef %28, i32 noundef %29, ptr noundef nonnull @dissect_rdpNegRsp.flag_bits, i32 noundef -2147483648)
+  %31 = load i32, ptr @hf_rdp_neg_length, align 4
+  %32 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %31, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %7)
+  %33 = load i32, ptr %7, align 4
+  %.not.i.i = icmp eq i32 %33, 8
+  br i1 %.not.i.i, label %36, label %34
 
-33:                                               ; preds = %23
-  %34 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %31, ptr noundef nonnull @ei_rdp_neg_len_invalid, ptr noundef nonnull @.str.1012, i32 noundef %32)
+34:                                               ; preds = %24
+  %35 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %32, ptr noundef nonnull @ei_rdp_neg_len_invalid, ptr noundef nonnull @.str.1012, i32 noundef %33)
   br label %dissect_rdpNegRsp.exit.i
 
-35:                                               ; preds = %23
-  %36 = load i32, ptr @hf_rdp_selectedProtocol, align 4
-  %37 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %36, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8)
-  %38 = load i32, ptr %8, align 4
-  %39 = icmp eq i32 %38, 4
-  br i1 %39, label %40, label %dissect_rdpNegRsp.exit.i
+36:                                               ; preds = %24
+  %37 = load i32, ptr @hf_rdp_selectedProtocol, align 4
+  %38 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %37, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %8)
+  %39 = load i32, ptr %8, align 4
+  %40 = icmp eq i32 %39, 4
+  br i1 %40, label %41, label %dissect_rdpNegRsp.exit.i
 
-40:                                               ; preds = %35
-  %41 = call ptr @find_or_create_conversation(ptr noundef %1)
-  %42 = load i32, ptr @proto_rdp, align 4
-  %43 = call ptr @conversation_get_proto_data(ptr noundef %41, i32 noundef %42)
-  %44 = icmp eq ptr %43, null
-  br i1 %44, label %45, label %rdp_get_conversation_data.exit.i.i
+41:                                               ; preds = %36
+  %42 = call ptr @find_or_create_conversation(ptr noundef %1)
+  %43 = load i32, ptr @proto_rdp, align 4
+  %44 = call ptr @conversation_get_proto_data(ptr noundef %42, i32 noundef %43)
+  %45 = icmp eq ptr %44, null
+  br i1 %45, label %46, label %rdp_get_conversation_data.exit.i.i
 
-45:                                               ; preds = %40
-  %46 = call ptr @wmem_file_scope()
-  %47 = call noalias dereferenceable_or_null(832) ptr @wmem_alloc0(ptr noundef %46, i64 noundef 832) #16
-  store i32 -1, ptr %47, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i32 -1, ptr %48, align 4
-  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i32 0, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 12
-  store i32 0, ptr %50, align 4
-  %51 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i32 0, ptr %51, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %52, i8 0, i64 34, i1 false)
-  %53 = load i32, ptr @proto_rdp, align 4
-  call void @conversation_add_proto_data(ptr noundef %41, i32 noundef %53, ptr noundef %47)
+46:                                               ; preds = %41
+  %47 = call ptr @wmem_file_scope()
+  %48 = call noalias dereferenceable_or_null(832) ptr @wmem_alloc0(ptr noundef %47, i64 noundef 832) #16
+  store i32 -1, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 -1, ptr %49, align 4
+  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 0, ptr %50, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 12
+  store i32 0, ptr %51, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  store i32 0, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %48, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(34) %53, i8 0, i64 34, i1 false)
+  %54 = load i32, ptr @proto_rdp, align 4
+  call void @conversation_add_proto_data(ptr noundef %42, i32 noundef %54, ptr noundef %48)
   br label %rdp_get_conversation_data.exit.i.i
 
-rdp_get_conversation_data.exit.i.i:               ; preds = %45, %40
-  %.0.i.i.i = phi ptr [ %47, %45 ], [ %43, %40 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 57
-  store i8 1, ptr %54, align 1
+rdp_get_conversation_data.exit.i.i:               ; preds = %46, %41
+  %.0.i.i.i = phi ptr [ %48, %46 ], [ %44, %41 ]
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 57
+  store i8 1, ptr %55, align 1
   br label %dissect_rdpNegRsp.exit.i
 
-dissect_rdpNegRsp.exit.i:                         ; preds = %rdp_get_conversation_data.exit.i.i, %35, %33
+dissect_rdpNegRsp.exit.i:                         ; preds = %rdp_get_conversation_data.exit.i.i, %36, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %dissect_rdp_cc.exit
 
-55:                                               ; preds = %15
+56:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %56 = load ptr, ptr %16, align 8
-  tail call void @col_append_str(ptr noundef %56, i32 noundef 25, ptr noundef nonnull @.str.1013)
-  %57 = load i32, ptr @hf_rdp_neg_type, align 4
-  %58 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %57, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
-  %59 = load i32, ptr @hf_rdp_negReq_flags, align 4
-  %60 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %59, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
-  %61 = load i32, ptr @hf_rdp_neg_length, align 4
-  %62 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %61, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5)
-  %63 = load i32, ptr %5, align 4
-  %.not.i33.i = icmp eq i32 %63, 8
-  br i1 %.not.i33.i, label %66, label %64
+  %57 = load ptr, ptr %16, align 8
+  tail call void @col_append_str(ptr noundef %57, i32 noundef 25, ptr noundef nonnull @.str.1013)
+  %58 = load i32, ptr @hf_rdp_neg_type, align 4
+  %59 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %58, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef 0)
+  %60 = load i32, ptr @hf_rdp_negReq_flags, align 4
+  %61 = tail call ptr @proto_tree_add_item(ptr noundef %22, i32 noundef %60, ptr noundef %0, i32 noundef 1, i32 noundef 1, i32 noundef -2147483648)
+  %62 = load i32, ptr @hf_rdp_neg_length, align 4
+  %63 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %62, ptr noundef %0, i32 noundef 2, i32 noundef 1, i32 noundef -2147483648, ptr noundef nonnull %5)
+  %64 = load i32, ptr %5, align 4
+  %.not.i33.i = icmp eq i32 %64, 8
+  br i1 %.not.i33.i, label %67, label %65
 
-64:                                               ; preds = %55
-  %65 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %62, ptr noundef nonnull @ei_rdp_neg_len_invalid, ptr noundef nonnull @.str.1014, i32 noundef %63)
+65:                                               ; preds = %56
+  %66 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %63, ptr noundef nonnull @ei_rdp_neg_len_invalid, ptr noundef nonnull @.str.1014, i32 noundef %64)
   br label %dissect_rdpNegFailure.exit.i
 
-66:                                               ; preds = %55
-  %67 = load i32, ptr @hf_rdp_negFailure_failureCode, align 4
-  %68 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %67, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6)
-  %69 = load ptr, ptr %16, align 8
-  %70 = load i32, ptr %6, align 4
-  %71 = call ptr @val_to_str(i32 noundef %70, ptr noundef nonnull @failure_code_vals, ptr noundef nonnull @.str.1016)
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %69, i32 noundef 25, ptr noundef nonnull @.str.1015, ptr noundef %71)
+67:                                               ; preds = %56
+  %68 = load i32, ptr @hf_rdp_negFailure_failureCode, align 4
+  %69 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %22, i32 noundef %68, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef -2147483648, ptr noundef nonnull %6)
+  %70 = load ptr, ptr %16, align 8
+  %71 = load i32, ptr %6, align 4
+  %72 = call ptr @val_to_str(i32 noundef %71, ptr noundef nonnull @failure_code_vals, ptr noundef nonnull @.str.1016)
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %70, i32 noundef 25, ptr noundef nonnull @.str.1015, ptr noundef %72)
   br label %dissect_rdpNegFailure.exit.i
 
-dissect_rdpNegFailure.exit.i:                     ; preds = %66, %64
+dissect_rdpNegFailure.exit.i:                     ; preds = %67, %65
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dissect_rdp_cc.exit
 
 dissect_rdp_cc.exit:                              ; preds = %4, %10, %dissect_rdpNegRsp.exit.i, %dissect_rdpNegFailure.exit.i
-  %72 = phi i1 [ false, %10 ], [ true, %dissect_rdpNegRsp.exit.i ], [ true, %dissect_rdpNegFailure.exit.i ], [ false, %4 ]
-  ret i1 %72
+  %73 = phi i1 [ false, %10 ], [ true, %dissect_rdpNegRsp.exit.i ], [ true, %dissect_rdpNegFailure.exit.i ], [ false, %4 ]
+  ret i1 %73
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable

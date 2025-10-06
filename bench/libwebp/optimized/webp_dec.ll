@@ -120,8 +120,8 @@ define internal fastcc range(i32 0, 8) i32 @ParseHeadersInternal(ptr noundef %0,
   %36 = zext i32 %33 to i64
   %37 = add i64 %1, -8
   %38 = icmp ult i64 %37, %36
-  %or.cond25.i = and i1 %.not19.i, %38
-  br i1 %or.cond25.i, label %ParseRIFF.exit.thread, label %ParseRIFF.exit
+  %or.cond24.i = and i1 %.not19.i, %38
+  br i1 %or.cond24.i, label %ParseRIFF.exit.thread, label %ParseRIFF.exit
 
 ParseRIFF.exit:                                   ; preds = %35
   store i64 %36, ptr %24, align 8, !tbaa !14

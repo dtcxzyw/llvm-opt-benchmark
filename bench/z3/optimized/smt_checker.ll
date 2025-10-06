@@ -294,14 +294,14 @@ define hidden noundef zeroext i1 @_ZN3smt7checker7any_argEP3appb(ptr noundef non
   %7 = zext i32 %6 to i64
   %.idx = shl nuw nsw i64 %7, 3
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not15.not = icmp eq i32 %6, 0
-  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
+  %.not16.not = icmp eq i32 %6, 0
+  br i1 %.not16.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
-  %.01416 = phi ptr [ %11, %.lr.ph ], [ %4, %3 ]
-  %9 = load ptr, ptr %.01416, align 8, !tbaa !13
+  %.01417 = phi ptr [ %11, %.lr.ph ], [ %4, %3 ]
+  %9 = load ptr, ptr %.01417, align 8, !tbaa !13
   %10 = tail call noundef zeroext i1 @_ZN3smt7checker5checkEP4exprb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %9, i1 noundef zeroext %2)
-  %11 = getelementptr inbounds nuw i8, ptr %.01416, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.01417, i64 8
   %.not.not = icmp eq ptr %11, %8
   %or.cond = select i1 %10, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -416,14 +416,14 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_famil
   %57 = zext i32 %56 to i64
   %.idx.i = shl nuw nsw i64 %57, 3
   %58 = getelementptr inbounds nuw i8, ptr %54, i64 %.idx.i
-  %.not15.not.i = icmp eq i32 %56, 0
-  br i1 %.not15.not.i, label %_ZN3smt7checker7any_argEP3appb.exit, label %.lr.ph.i
+  %.not16.not.i = icmp eq i32 %56, 0
+  br i1 %.not16.not.i, label %_ZN3smt7checker7any_argEP3appb.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %53, %.lr.ph.i
-  %.01416.i = phi ptr [ %61, %.lr.ph.i ], [ %54, %53 ]
-  %59 = load ptr, ptr %.01416.i, align 8, !tbaa !13
+  %.01417.i = phi ptr [ %61, %.lr.ph.i ], [ %54, %53 ]
+  %59 = load ptr, ptr %.01417.i, align 8, !tbaa !13
   %60 = tail call noundef zeroext i1 @_ZN3smt7checker5checkEP4exprb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %59, i1 noundef zeroext true)
-  %61 = getelementptr inbounds nuw i8, ptr %.01416.i, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.01417.i, i64 8
   %.not.not.i = icmp eq ptr %61, %58
   %or.cond119 = select i1 %60, i1 true, i1 %.not.not.i
   br i1 %or.cond119, label %_ZN3smt7checker7any_argEP3appb.exit, label %.lr.ph.i
@@ -446,14 +446,14 @@ _ZNK3app13get_decl_kindEv.exit:                   ; preds = %_ZNK3app13get_famil
   %71 = zext i32 %70 to i64
   %.idx.i91 = shl nuw nsw i64 %71, 3
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx.i91
-  %.not15.not.i92 = icmp eq i32 %70, 0
-  br i1 %.not15.not.i92, label %_ZN3smt7checker7any_argEP3appb.exit, label %.lr.ph.i93
+  %.not16.not.i92 = icmp eq i32 %70, 0
+  br i1 %.not16.not.i92, label %_ZN3smt7checker7any_argEP3appb.exit, label %.lr.ph.i93
 
 .lr.ph.i93:                                       ; preds = %67, %.lr.ph.i93
-  %.01416.i94 = phi ptr [ %75, %.lr.ph.i93 ], [ %68, %67 ]
-  %73 = load ptr, ptr %.01416.i94, align 8, !tbaa !13
+  %.01417.i94 = phi ptr [ %75, %.lr.ph.i93 ], [ %68, %67 ]
+  %73 = load ptr, ptr %.01417.i94, align 8, !tbaa !13
   %74 = tail call noundef zeroext i1 @_ZN3smt7checker5checkEP4exprb(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %73, i1 noundef zeroext false)
-  %75 = getelementptr inbounds nuw i8, ptr %.01416.i94, i64 8
+  %75 = getelementptr inbounds nuw i8, ptr %.01417.i94, i64 8
   %.not.not.i95 = icmp eq ptr %75, %72
   %or.cond120 = select i1 %74, i1 true, i1 %.not.not.i95
   br i1 %or.cond120, label %_ZN3smt7checker7any_argEP3appb.exit, label %.lr.ph.i93

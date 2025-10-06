@@ -1385,12 +1385,12 @@ Py_INCREF.exit:                                   ; preds = %49, %46, %Py_DECREF
 ; Function Attrs: nounwind uwtable
 define internal i32 @iobase_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val22 = load ptr, ptr %4, align 8, !tbaa !10
-  %.not = icmp eq ptr %.val22, null
+  %.val21 = load ptr, ptr %4, align 8, !tbaa !10
+  %.not = icmp eq ptr %.val21, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val22, ptr noundef %2) #6
+  %6 = tail call i32 %1(ptr noundef nonnull %.val21, ptr noundef %2) #6
   %.not17.not = icmp eq i32 %6, 0
   br i1 %.not17.not, label %7, label %13
 
@@ -2929,7 +2929,7 @@ define internal ptr @_io__RawIOBase_read(ptr noundef %0, ptr noundef readonly ca
 
 7:                                                ; preds = %3, %5
   %8 = icmp slt i64 %2, 1
-  br i1 %8, label %.thread30, label %9
+  br i1 %8, label %.thread29, label %9
 
 9:                                                ; preds = %7
   %10 = load ptr, ptr %1, align 8, !tbaa !4
@@ -2960,13 +2960,13 @@ Py_DECREF.exit:                                   ; preds = %18, %15, %12
 Py_DECREF.exit.thread:                            ; preds = %9, %Py_DECREF.exit
   %20 = tail call ptr @PyErr_Occurred() #6
   %.not21 = icmp eq ptr %20, null
-  br i1 %.not21, label %.thread30, label %_io__RawIOBase_read_impl.exit
+  br i1 %.not21, label %.thread29, label %_io__RawIOBase_read_impl.exit
 
 21:                                               ; preds = %Py_DECREF.exit
   %22 = icmp slt i64 %13, 0
-  br i1 %22, label %.thread30, label %24
+  br i1 %22, label %.thread29, label %24
 
-.thread30:                                        ; preds = %Py_DECREF.exit.thread, %7, %21
+.thread29:                                        ; preds = %Py_DECREF.exit.thread, %7, %21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %0, ptr %4, align 8, !tbaa !4
   %23 = call ptr @PyObject_VectorcallMethod(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 67856), ptr noundef nonnull %4, i64 noundef -9223372036854775807, ptr noundef null) #6
@@ -3058,8 +3058,8 @@ Py_DECREF.exit25.i:                               ; preds = %44, %41, %37
   tail call void @_Py_Dealloc(ptr noundef nonnull %25) #6
   br label %_io__RawIOBase_read_impl.exit
 
-_io__RawIOBase_read_impl.exit:                    ; preds = %61, %58, %54, %53, %50, %48, %36, %33, %31, %24, %.thread30, %Py_DECREF.exit.thread, %5
-  %.018 = phi ptr [ null, %5 ], [ null, %Py_DECREF.exit.thread ], [ %23, %.thread30 ], [ null, %24 ], [ %28, %31 ], [ %28, %33 ], [ %28, %36 ], [ null, %48 ], [ null, %50 ], [ null, %53 ], [ %56, %54 ], [ %56, %58 ], [ %56, %61 ]
+_io__RawIOBase_read_impl.exit:                    ; preds = %61, %58, %54, %53, %50, %48, %36, %33, %31, %24, %.thread29, %Py_DECREF.exit.thread, %5
+  %.018 = phi ptr [ null, %5 ], [ null, %Py_DECREF.exit.thread ], [ %23, %.thread29 ], [ null, %24 ], [ %28, %31 ], [ %28, %33 ], [ %28, %36 ], [ null, %48 ], [ null, %50 ], [ null, %53 ], [ %56, %54 ], [ %56, %58 ], [ %56, %61 ]
   ret ptr %.018
 }
 

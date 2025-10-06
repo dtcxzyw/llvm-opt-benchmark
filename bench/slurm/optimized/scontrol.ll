@@ -3486,13 +3486,13 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
   store i32 1, ptr @exit_code, align 4
   %6 = load i32, ptr @quiet_flag, align 4
   %.not41 = icmp eq i32 %6, 1
-  br i1 %.not41, label %66, label %7
+  br i1 %.not41, label %67, label %7
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr @stderr, align 8
   %9 = load ptr, ptr %1, align 8
   %10 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %8, ptr noundef nonnull @.str.52, ptr noundef %9) #22
-  br label %66
+  br label %67
 
 11:                                               ; preds = %2
   %12 = icmp samesign ult i32 %0, 2
@@ -3506,13 +3506,13 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
   store i32 1, ptr @exit_code, align 4
   %15 = load i32, ptr @quiet_flag, align 4
   %.not40 = icmp eq i32 %15, 1
-  br i1 %.not40, label %66, label %16
+  br i1 %.not40, label %67, label %16
 
 16:                                               ; preds = %14
   %17 = load ptr, ptr @stderr, align 8
   %18 = load ptr, ptr %1, align 8
   %19 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.60, ptr noundef %18) #22
-  br label %66
+  br label %67
 
 20:                                               ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %25 ]
@@ -3543,13 +3543,13 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
   store i32 1, ptr @exit_code, align 4
   %35 = load i32, ptr @quiet_flag, align 4
   %.not39 = icmp eq i32 %35, 1
-  br i1 %.not39, label %66, label %36
+  br i1 %.not39, label %67, label %36
 
 36:                                               ; preds = %34
   %37 = load ptr, ptr @stderr, align 8
   %38 = load ptr, ptr %13, align 8
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %37, ptr noundef nonnull @.str.176, ptr noundef %38) #22
-  br label %66
+  br label %67
 
 .loopexit.loopexit:                               ; preds = %20
   %40 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3557,65 +3557,65 @@ define internal fastcc void @_setdebug(i32 noundef range(i32 1, -2147483648) %0,
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %26
   %.1 = phi i32 [ %29, %26 ], [ %40, %.loopexit.loopexit ]
-  %switch = icmp eq i32 %0, 2
-  br i1 %switch, label %41, label %46
+  %41 = icmp eq i32 %0, 2
+  br i1 %41, label %42, label %47
 
-41:                                               ; preds = %.loopexit
-  %42 = tail call i32 @slurm_set_debug_level(i32 noundef %.1) #18
-  %.not37 = icmp eq i32 %42, 0
-  br i1 %.not37, label %66, label %43
+42:                                               ; preds = %.loopexit
+  %43 = tail call i32 @slurm_set_debug_level(i32 noundef %.1) #18
+  %.not37 = icmp eq i32 %43, 0
+  br i1 %.not37, label %67, label %44
 
-43:                                               ; preds = %41
+44:                                               ; preds = %42
   store i32 1, ptr @exit_code, align 4
-  %44 = load i32, ptr @quiet_flag, align 4
-  %.not38 = icmp eq i32 %44, 1
-  br i1 %.not38, label %66, label %45
+  %45 = load i32, ptr @quiet_flag, align 4
+  %.not38 = icmp eq i32 %45, 1
+  br i1 %.not38, label %67, label %46
 
-45:                                               ; preds = %43
+46:                                               ; preds = %44
   tail call void @slurm_perror(ptr noundef nonnull @.str.177) #18
-  br label %66
+  br label %67
 
-46:                                               ; preds = %.loopexit
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %48 = load ptr, ptr %47, align 8
-  %49 = tail call i32 @xstrncasecmp(ptr noundef %48, ptr noundef nonnull @.str.178, i64 noundef 6) #18
-  %.not32 = icmp eq i32 %49, 0
-  br i1 %.not32, label %56, label %50
+47:                                               ; preds = %.loopexit
+  %48 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %49 = load ptr, ptr %48, align 8
+  %50 = tail call i32 @xstrncasecmp(ptr noundef %49, ptr noundef nonnull @.str.178, i64 noundef 6) #18
+  %.not32 = icmp eq i32 %50, 0
+  br i1 %.not32, label %57, label %51
 
-50:                                               ; preds = %46
+51:                                               ; preds = %47
   store i32 1, ptr @exit_code, align 4
-  %51 = load i32, ptr @quiet_flag, align 4
-  %.not36 = icmp eq i32 %51, 1
-  br i1 %.not36, label %66, label %52
+  %52 = load i32, ptr @quiet_flag, align 4
+  %.not36 = icmp eq i32 %52, 1
+  br i1 %.not36, label %67, label %53
 
-52:                                               ; preds = %50
-  %53 = load ptr, ptr @stderr, align 8
-  %54 = load ptr, ptr %13, align 8
-  %55 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %53, ptr noundef nonnull @.str.179, ptr noundef %54) #22
-  br label %66
+53:                                               ; preds = %51
+  %54 = load ptr, ptr @stderr, align 8
+  %55 = load ptr, ptr %13, align 8
+  %56 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.179, ptr noundef %55) #22
+  br label %67
 
-56:                                               ; preds = %46
-  %57 = load ptr, ptr %47, align 8
-  %58 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %57, i32 noundef 61) #23
-  %.not33 = icmp eq ptr %58, null
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
-  %spec.select = select i1 %.not33, ptr null, ptr %59
-  %60 = tail call i32 @slurm_set_slurmd_debug_level(ptr noundef %spec.select, i32 noundef %.1) #18
-  %.not34 = icmp eq i32 %60, 0
-  br i1 %.not34, label %66, label %61
+57:                                               ; preds = %47
+  %58 = load ptr, ptr %48, align 8
+  %59 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %58, i32 noundef 61) #23
+  %.not33 = icmp eq ptr %59, null
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
+  %spec.select = select i1 %.not33, ptr null, ptr %60
+  %61 = tail call i32 @slurm_set_slurmd_debug_level(ptr noundef %spec.select, i32 noundef %.1) #18
+  %.not34 = icmp eq i32 %61, 0
+  br i1 %.not34, label %67, label %62
 
-61:                                               ; preds = %56
+62:                                               ; preds = %57
   store i32 1, ptr @exit_code, align 4
-  %62 = load i32, ptr @quiet_flag, align 4
-  %.not35 = icmp eq i32 %62, 1
-  br i1 %.not35, label %66, label %63
+  %63 = load i32, ptr @quiet_flag, align 4
+  %.not35 = icmp eq i32 %63, 1
+  br i1 %.not35, label %67, label %64
 
-63:                                               ; preds = %61
-  %64 = load ptr, ptr @stderr, align 8
-  %65 = tail call i64 @fwrite(ptr nonnull @.str.180, i64 51, i64 1, ptr %64) #19
-  br label %66
+64:                                               ; preds = %62
+  %65 = load ptr, ptr @stderr, align 8
+  %66 = tail call i64 @fwrite(ptr nonnull @.str.180, i64 51, i64 1, ptr %65) #19
+  br label %67
 
-66:                                               ; preds = %52, %50, %61, %63, %56, %43, %45, %41, %34, %36, %14, %16, %5, %7
+67:                                               ; preds = %53, %51, %62, %64, %57, %44, %46, %42, %34, %36, %14, %16, %5, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

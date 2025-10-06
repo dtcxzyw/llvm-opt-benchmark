@@ -199,18 +199,18 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %3, i64 1024)
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 32872
   %28 = load i64, ptr %27, align 8, !tbaa !25
-  %.not75.i = icmp eq i64 %28, 0
+  %.not72.i = icmp eq i64 %28, 0
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %10, i64 32864
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !26
-  br i1 %.not75.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not72.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %10, i64 32880
   br label %30
 
 30:                                               ; preds = %36, %.lr.ph.i
-  %.04964.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %36 ]
-  %31 = add i64 %.04964.i, %.pre.i
+  %.04961.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %36 ]
+  %31 = add i64 %.04961.i, %.pre.i
   %32 = and i64 %31, 1023
   %33 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %22, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
@@ -223,31 +223,31 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %38 = load i64, ptr %29, align 8, !tbaa !30
   %39 = sub i64 %38, %37
   store i64 %39, ptr %29, align 8, !tbaa !30
-  %40 = add nuw i64 %.04964.i, 1
+  %40 = add nuw i64 %.04961.i, 1
   %exitcond.not.i = icmp eq i64 %40, %28
   br i1 %exitcond.not.i, label %._crit_edge.i, label %30, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %36, %30, %26
-  %.049.lcssa.i = phi i64 [ 0, %26 ], [ %28, %36 ], [ %.04964.i, %30 ]
+  %.049.lcssa.i = phi i64 [ 0, %26 ], [ %28, %36 ], [ %.04961.i, %30 ]
   %41 = add i64 %.049.lcssa.i, %.pre.i
   %42 = and i64 %41, 1023
   store i64 %42, ptr %.phi.trans.insert.i, align 8, !tbaa !26
   %43 = sub i64 %28, %.049.lcssa.i
   store i64 %43, ptr %27, align 8, !tbaa !25
-  %.not76.i = icmp eq i64 %3, 0
-  br i1 %.not76.i, label %bandwidth_limit.exit, label %.lr.ph71.i
+  %.not73.i = icmp eq i64 %3, 0
+  br i1 %.not73.i, label %bandwidth_limit.exit, label %.lr.ph68.i
 
-.lr.ph71.i:                                       ; preds = %._crit_edge.i
+.lr.ph68.i:                                       ; preds = %._crit_edge.i
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 32880
   %.promoted.i = load i64, ptr %44, align 8, !tbaa !30
   br label %45
 
-45:                                               ; preds = %64, %.lr.ph71.i
-  %46 = phi i64 [ %43, %.lr.ph71.i ], [ %65, %64 ]
-  %47 = phi i64 [ %42, %.lr.ph71.i ], [ %66, %64 ]
-  %48 = phi i64 [ %.promoted.i, %.lr.ph71.i ], [ %.pre-phi.i, %64 ]
-  %.15069.i = phi i64 [ 0, %.lr.ph71.i ], [ %71, %64 ]
-  %49 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.15069.i
+45:                                               ; preds = %64, %.lr.ph68.i
+  %46 = phi i64 [ %43, %.lr.ph68.i ], [ %65, %64 ]
+  %47 = phi i64 [ %42, %.lr.ph68.i ], [ %66, %64 ]
+  %48 = phi i64 [ %.promoted.i, %.lr.ph68.i ], [ %.pre-phi.i, %64 ]
+  %.15066.i = phi i64 [ 0, %.lr.ph68.i ], [ %71, %64 ]
+  %49 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.15066.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !33
   %52 = add i64 %51, %48
@@ -265,7 +265,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %60 = add nuw nsw i64 %47, 1
   %61 = and i64 %60, 1023
   store i64 %61, ptr %.phi.trans.insert.i, align 8, !tbaa !26
-  %.pre78.i = sub i64 %52, %59
+  %.pre75.i = sub i64 %52, %59
   br label %64
 
 62:                                               ; preds = %55
@@ -274,7 +274,7 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   br label %64
 
 64:                                               ; preds = %62, %57
-  %.pre-phi.i = phi i64 [ %.pre78.i, %57 ], [ %52, %62 ]
+  %.pre-phi.i = phi i64 [ %.pre75.i, %57 ], [ %52, %62 ]
   %65 = phi i64 [ %46, %57 ], [ %63, %62 ]
   %66 = phi i64 [ %61, %57 ], [ %47, %62 ]
   %67 = add i64 %66, %65
@@ -284,12 +284,12 @@ define internal i32 @noisy_dgram_sendmmsg(ptr noundef %0, ptr noundef %1, i64 no
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i64 %.sroa.02.0, ptr %70, align 8, !tbaa !34
   store i64 %.pre-phi.i, ptr %44, align 8, !tbaa !30
-  %71 = add nuw nsw i64 %.15069.i, 1
-  %exitcond77.not.i = icmp eq i64 %71, %spec.store.select.i
-  br i1 %exitcond77.not.i, label %bandwidth_limit.exit.thread, label %45, !llvm.loop !35
+  %71 = add nuw nsw i64 %.15066.i, 1
+  %exitcond74.not.i = icmp eq i64 %71, %spec.store.select.i
+  br i1 %exitcond74.not.i, label %bandwidth_limit.exit.thread, label %45, !llvm.loop !35
 
 bandwidth_limit.exit:                             ; preds = %45, %21, %._crit_edge.i
-  %.0.i = phi i64 [ %3, %21 ], [ %spec.store.select.i, %._crit_edge.i ], [ %.15069.i, %45 ]
+  %.0.i = phi i64 [ %3, %21 ], [ %spec.store.select.i, %._crit_edge.i ], [ %.15066.i, %45 ]
   %72 = icmp eq i64 %.0.i, 0
   br i1 %72, label %73, label %bandwidth_limit.exit.thread
 
@@ -394,18 +394,18 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %36, i64 1024)
   %42 = getelementptr inbounds nuw i8, ptr %10, i64 16456
   %43 = load i64, ptr %42, align 8, !tbaa !25
-  %.not75.i = icmp eq i64 %43, 0
+  %.not72.i = icmp eq i64 %43, 0
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %10, i64 16448
   %.pre.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !26
-  br i1 %.not75.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not72.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %10, i64 16464
   br label %45
 
 45:                                               ; preds = %51, %.lr.ph.i
-  %.04964.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %51 ]
-  %46 = add i64 %.04964.i, %.pre.i
+  %.04961.i = phi i64 [ 0, %.lr.ph.i ], [ %55, %51 ]
+  %46 = add i64 %.04961.i, %.pre.i
   %47 = and i64 %46, 1023
   %48 = getelementptr inbounds nuw %struct.pkt_info_st, ptr %37, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
@@ -418,31 +418,31 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %53 = load i64, ptr %44, align 8, !tbaa !30
   %54 = sub i64 %53, %52
   store i64 %54, ptr %44, align 8, !tbaa !30
-  %55 = add nuw i64 %.04964.i, 1
+  %55 = add nuw i64 %.04961.i, 1
   %exitcond.not.i = icmp eq i64 %55, %43
   br i1 %exitcond.not.i, label %._crit_edge.i, label %45, !llvm.loop !31
 
 ._crit_edge.i:                                    ; preds = %51, %45, %41
-  %.049.lcssa.i = phi i64 [ 0, %41 ], [ %43, %51 ], [ %.04964.i, %45 ]
+  %.049.lcssa.i = phi i64 [ 0, %41 ], [ %43, %51 ], [ %.04961.i, %45 ]
   %56 = add i64 %.049.lcssa.i, %.pre.i
   %57 = and i64 %56, 1023
   store i64 %57, ptr %.phi.trans.insert.i, align 8, !tbaa !26
   %58 = sub i64 %43, %.049.lcssa.i
   store i64 %58, ptr %42, align 8, !tbaa !25
-  %.not76.i = icmp eq i64 %36, 0
-  br i1 %.not76.i, label %bandwidth_limit.exit, label %.lr.ph71.i
+  %.not73.i = icmp eq i64 %36, 0
+  br i1 %.not73.i, label %bandwidth_limit.exit, label %.lr.ph68.i
 
-.lr.ph71.i:                                       ; preds = %._crit_edge.i
+.lr.ph68.i:                                       ; preds = %._crit_edge.i
   %59 = getelementptr inbounds nuw i8, ptr %10, i64 16464
   %.promoted.i = load i64, ptr %59, align 8, !tbaa !30
   br label %60
 
-60:                                               ; preds = %79, %.lr.ph71.i
-  %61 = phi i64 [ %58, %.lr.ph71.i ], [ %80, %79 ]
-  %62 = phi i64 [ %57, %.lr.ph71.i ], [ %81, %79 ]
-  %63 = phi i64 [ %.promoted.i, %.lr.ph71.i ], [ %.pre-phi.i, %79 ]
-  %.15069.i = phi i64 [ 0, %.lr.ph71.i ], [ %86, %79 ]
-  %64 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.15069.i
+60:                                               ; preds = %79, %.lr.ph68.i
+  %61 = phi i64 [ %58, %.lr.ph68.i ], [ %80, %79 ]
+  %62 = phi i64 [ %57, %.lr.ph68.i ], [ %81, %79 ]
+  %63 = phi i64 [ %.promoted.i, %.lr.ph68.i ], [ %.pre-phi.i, %79 ]
+  %.15066.i = phi i64 [ 0, %.lr.ph68.i ], [ %86, %79 ]
+  %64 = getelementptr inbounds nuw %struct.bio_msg_st, ptr %1, i64 %.15066.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !33
   %67 = add i64 %66, %63
@@ -460,7 +460,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %75 = add nuw nsw i64 %62, 1
   %76 = and i64 %75, 1023
   store i64 %76, ptr %.phi.trans.insert.i, align 8, !tbaa !26
-  %.pre78.i = sub i64 %67, %74
+  %.pre75.i = sub i64 %67, %74
   br label %79
 
 77:                                               ; preds = %70
@@ -469,7 +469,7 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   br label %79
 
 79:                                               ; preds = %77, %72
-  %.pre-phi.i = phi i64 [ %.pre78.i, %72 ], [ %67, %77 ]
+  %.pre-phi.i = phi i64 [ %.pre75.i, %72 ], [ %67, %77 ]
   %80 = phi i64 [ %61, %72 ], [ %78, %77 ]
   %81 = phi i64 [ %76, %72 ], [ %62, %77 ]
   %82 = add i64 %81, %80
@@ -479,12 +479,12 @@ define internal range(i32 0, 2) i32 @noisy_dgram_recvmmsg(ptr noundef %0, ptr no
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 %.sroa.02.0, ptr %85, align 8, !tbaa !34
   store i64 %.pre-phi.i, ptr %59, align 8, !tbaa !30
-  %86 = add nuw nsw i64 %.15069.i, 1
-  %exitcond77.not.i = icmp eq i64 %86, %spec.store.select.i
-  br i1 %exitcond77.not.i, label %bandwidth_limit.exit.thread, label %60, !llvm.loop !35
+  %86 = add nuw nsw i64 %.15066.i, 1
+  %exitcond74.not.i = icmp eq i64 %86, %spec.store.select.i
+  br i1 %exitcond74.not.i, label %bandwidth_limit.exit.thread, label %60, !llvm.loop !35
 
 bandwidth_limit.exit:                             ; preds = %60, %35, %._crit_edge.i
-  %.0.i = phi i64 [ %36, %35 ], [ %spec.store.select.i, %._crit_edge.i ], [ %.15069.i, %60 ]
+  %.0.i = phi i64 [ %36, %35 ], [ %spec.store.select.i, %._crit_edge.i ], [ %.15066.i, %60 ]
   %87 = icmp eq i64 %.0.i, 0
   br i1 %87, label %.thread130, label %bandwidth_limit.exit.thread
 

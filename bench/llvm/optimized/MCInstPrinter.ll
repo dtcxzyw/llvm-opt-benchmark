@@ -585,116 +585,116 @@ define dso_local void @_ZNK4llvm13MCInstPrinter9formatDecEl(ptr dead_on_unwind n
 define dso_local void @_ZNK4llvm13MCInstPrinter9formatHexEl(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::format_object") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !89
-  %switch = icmp eq i32 %5, 0
-  %6 = icmp slt i64 %2, 0
-  br i1 %switch, label %7, label %20
+  %6 = icmp eq i32 %5, 0
+  %7 = icmp slt i64 %2, 0
+  br i1 %6, label %8, label %21
 
-7:                                                ; preds = %3
-  br i1 %6, label %8, label %17
+8:                                                ; preds = %3
+  br i1 %7, label %9, label %18
 
-8:                                                ; preds = %7
-  %9 = icmp eq i64 %2, -9223372036854775808
-  br i1 %9, label %10, label %13
+9:                                                ; preds = %8
+  %10 = icmp eq i64 %2, -9223372036854775808
+  br i1 %10, label %11, label %14
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.2, ptr %11, align 8, !tbaa !82, !alias.scope !90
+11:                                               ; preds = %9
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.2, ptr %12, align 8, !tbaa !82, !alias.scope !90
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !tbaa !14, !alias.scope !90
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -9223372036854775808, ptr %12, align 8, !tbaa !87, !alias.scope !90
-  br label %43
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -9223372036854775808, ptr %13, align 8, !tbaa !87, !alias.scope !90
+  br label %44
 
-13:                                               ; preds = %8
-  %14 = sub nsw i64 0, %2
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.3, ptr %15, align 8, !tbaa !82, !alias.scope !93
+14:                                               ; preds = %9
+  %15 = sub nsw i64 0, %2
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.3, ptr %16, align 8, !tbaa !82, !alias.scope !93
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !tbaa !14, !alias.scope !93
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %14, ptr %16, align 8, !tbaa !87, !alias.scope !93
-  br label %43
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %15, ptr %17, align 8, !tbaa !87, !alias.scope !93
+  br label %44
 
-17:                                               ; preds = %7
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.4, ptr %18, align 8, !tbaa !82, !alias.scope !96
+18:                                               ; preds = %8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.4, ptr %19, align 8, !tbaa !82, !alias.scope !96
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !tbaa !14, !alias.scope !96
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %19, align 8, !tbaa !87, !alias.scope !96
-  br label %43
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %20, align 8, !tbaa !87, !alias.scope !96
+  br label %44
 
-20:                                               ; preds = %3
-  br i1 %6, label %21, label %.preheader
+21:                                               ; preds = %3
+  br i1 %7, label %22, label %.preheader
 
-21:                                               ; preds = %20
-  %22 = icmp eq i64 %2, -9223372036854775808
-  br i1 %22, label %23, label %26
+22:                                               ; preds = %21
+  %23 = icmp eq i64 %2, -9223372036854775808
+  br i1 %23, label %24, label %27
 
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.5, ptr %24, align 8, !tbaa !82, !alias.scope !99
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.5, ptr %25, align 8, !tbaa !82, !alias.scope !99
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !tbaa !14, !alias.scope !99
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -9223372036854775808, ptr %25, align 8, !tbaa !87, !alias.scope !99
-  br label %43
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -9223372036854775808, ptr %26, align 8, !tbaa !87, !alias.scope !99
+  br label %44
 
-26:                                               ; preds = %21
-  %27 = sub nsw i64 0, %2
-  br label %28
+27:                                               ; preds = %22
+  %28 = sub nsw i64 0, %2
+  br label %29
 
-28:                                               ; preds = %26, %28
-  %.07.i = phi i64 [ %27, %26 ], [ %29, %28 ]
+29:                                               ; preds = %27, %29
+  %.07.i = phi i64 [ %28, %27 ], [ %30, %29 ]
   %.not10.i = icmp ult i64 %.07.i, 1152921504606846976
-  %29 = shl nuw i64 %.07.i, 4
-  br i1 %.not10.i, label %28, label %_ZL16needsLeadingZerom.exit
+  %30 = shl nuw i64 %.07.i, 4
+  br i1 %.not10.i, label %29, label %_ZL16needsLeadingZerom.exit
 
-_ZL16needsLeadingZerom.exit:                      ; preds = %28
-  %30 = icmp ugt i64 %.07.i, -6917529027641081857
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %30, label %33, label %34
-
-33:                                               ; preds = %_ZL16needsLeadingZerom.exit
-  store ptr @.str.6, ptr %31, align 8, !tbaa !82, !alias.scope !102
-  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !tbaa !14, !alias.scope !102
-  store i64 %27, ptr %32, align 8, !tbaa !87, !alias.scope !102
-  br label %43
+_ZL16needsLeadingZerom.exit:                      ; preds = %29
+  %31 = icmp ugt i64 %.07.i, -6917529027641081857
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br i1 %31, label %34, label %35
 
 34:                                               ; preds = %_ZL16needsLeadingZerom.exit
-  store ptr @.str.7, ptr %31, align 8, !tbaa !82, !alias.scope !105
+  store ptr @.str.6, ptr %32, align 8, !tbaa !82, !alias.scope !102
+  store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !tbaa !14, !alias.scope !102
+  store i64 %28, ptr %33, align 8, !tbaa !87, !alias.scope !102
+  br label %44
+
+35:                                               ; preds = %_ZL16needsLeadingZerom.exit
+  store ptr @.str.7, ptr %32, align 8, !tbaa !82, !alias.scope !105
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !tbaa !14, !alias.scope !105
-  store i64 %27, ptr %32, align 8, !tbaa !87, !alias.scope !105
-  br label %43
+  store i64 %28, ptr %33, align 8, !tbaa !87, !alias.scope !105
+  br label %44
 
-.preheader:                                       ; preds = %20, %35
-  %.07.i1 = phi i64 [ %36, %35 ], [ %2, %20 ]
+.preheader:                                       ; preds = %21, %36
+  %.07.i1 = phi i64 [ %37, %36 ], [ %2, %21 ]
   %.not.i2 = icmp eq i64 %.07.i1, 0
-  br i1 %.not.i2, label %_ZL16needsLeadingZerom.exit6.thread, label %35
+  br i1 %.not.i2, label %_ZL16needsLeadingZerom.exit6.thread, label %36
 
-35:                                               ; preds = %.preheader
+36:                                               ; preds = %.preheader
   %.not10.i3 = icmp ult i64 %.07.i1, 1152921504606846976
-  %36 = shl nuw i64 %.07.i1, 4
+  %37 = shl nuw i64 %.07.i1, 4
   br i1 %.not10.i3, label %.preheader, label %_ZL16needsLeadingZerom.exit6
 
-_ZL16needsLeadingZerom.exit6:                     ; preds = %35
-  %37 = icmp ugt i64 %.07.i1, -6917529027641081857
-  br i1 %37, label %38, label %_ZL16needsLeadingZerom.exit6.thread
+_ZL16needsLeadingZerom.exit6:                     ; preds = %36
+  %38 = icmp ugt i64 %.07.i1, -6917529027641081857
+  br i1 %38, label %39, label %_ZL16needsLeadingZerom.exit6.thread
 
-38:                                               ; preds = %_ZL16needsLeadingZerom.exit6
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.8, ptr %39, align 8, !tbaa !82, !alias.scope !108
+39:                                               ; preds = %_ZL16needsLeadingZerom.exit6
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.8, ptr %40, align 8, !tbaa !82, !alias.scope !108
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !tbaa !14, !alias.scope !108
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %40, align 8, !tbaa !87, !alias.scope !108
-  br label %43
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %41, align 8, !tbaa !87, !alias.scope !108
+  br label %44
 
 _ZL16needsLeadingZerom.exit6.thread:              ; preds = %.preheader, %_ZL16needsLeadingZerom.exit6
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr @.str.9, ptr %41, align 8, !tbaa !82, !alias.scope !111
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr @.str.9, ptr %42, align 8, !tbaa !82, !alias.scope !111
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJlEEE, i64 16), ptr %0, align 8, !tbaa !14, !alias.scope !111
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %42, align 8, !tbaa !87, !alias.scope !111
-  br label %43
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %43, align 8, !tbaa !87, !alias.scope !111
+  br label %44
 
-43:                                               ; preds = %_ZL16needsLeadingZerom.exit6.thread, %38, %34, %33, %23, %17, %13, %10
+44:                                               ; preds = %_ZL16needsLeadingZerom.exit6.thread, %39, %35, %34, %24, %18, %14, %11
   ret void
 }
 
@@ -702,33 +702,33 @@ _ZL16needsLeadingZerom.exit6.thread:              ; preds = %.preheader, %_ZL16n
 define dso_local void @_ZNK4llvm13MCInstPrinter9formatHexEm(ptr dead_on_unwind noalias writable writeonly sret(%"class.llvm::format_object.9") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %1, i64 noundef %2) local_unnamed_addr #8 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 52
   %5 = load i32, ptr %4, align 4, !tbaa !89
-  %switch = icmp eq i32 %5, 0
-  br i1 %switch, label %9, label %.preheader
+  %6 = icmp eq i32 %5, 0
+  br i1 %6, label %10, label %.preheader
 
-.preheader:                                       ; preds = %3, %6
-  %.07.i = phi i64 [ %7, %6 ], [ %2, %3 ]
+.preheader:                                       ; preds = %3, %7
+  %.07.i = phi i64 [ %8, %7 ], [ %2, %3 ]
   %.not.i = icmp eq i64 %.07.i, 0
-  br i1 %.not.i, label %_ZL16needsLeadingZerom.exit.thread, label %6
+  br i1 %.not.i, label %_ZL16needsLeadingZerom.exit.thread, label %7
 
-6:                                                ; preds = %.preheader
+7:                                                ; preds = %.preheader
   %.not10.i = icmp ult i64 %.07.i, 1152921504606846976
-  %7 = shl nuw i64 %.07.i, 4
+  %8 = shl nuw i64 %.07.i, 4
   br i1 %.not10.i, label %.preheader, label %_ZL16needsLeadingZerom.exit
 
-_ZL16needsLeadingZerom.exit:                      ; preds = %6
-  %8 = icmp ugt i64 %.07.i, -6917529027641081857
-  br i1 %8, label %9, label %_ZL16needsLeadingZerom.exit.thread
+_ZL16needsLeadingZerom.exit:                      ; preds = %7
+  %9 = icmp ugt i64 %.07.i, -6917529027641081857
+  br i1 %9, label %10, label %_ZL16needsLeadingZerom.exit.thread
 
 _ZL16needsLeadingZerom.exit.thread:               ; preds = %.preheader, %_ZL16needsLeadingZerom.exit
-  br label %9
+  br label %10
 
-9:                                                ; preds = %_ZL16needsLeadingZerom.exit, %3, %_ZL16needsLeadingZerom.exit.thread
+10:                                               ; preds = %_ZL16needsLeadingZerom.exit, %3, %_ZL16needsLeadingZerom.exit.thread
   %.str.9.sink = phi ptr [ @.str.9, %_ZL16needsLeadingZerom.exit.thread ], [ @.str.4, %3 ], [ @.str.8, %_ZL16needsLeadingZerom.exit ]
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.str.9.sink, ptr %10, align 8, !tbaa !82
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.str.9.sink, ptr %11, align 8, !tbaa !82
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4llvm13format_objectIJmEEE, i64 16), ptr %0, align 8, !tbaa !14
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %2, ptr %11, align 8, !tbaa !114
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %2, ptr %12, align 8, !tbaa !114
   ret void
 }
 

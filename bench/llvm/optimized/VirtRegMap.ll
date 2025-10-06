@@ -4337,12 +4337,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit.i.
   %.idx.i.i.i = shl nuw nsw i64 %..i.i.i, 3
   %1300 = getelementptr inbounds nuw i8, ptr %1293, i64 %.idx.i.i.i
   %1301 = getelementptr inbounds nuw i8, ptr %1295, i64 32
-  %.not5.not.i.i.i = icmp eq i64 %..i.i.i, 0
-  br i1 %.not5.not.i.i.i, label %"_ZZNK12_GLOBAL__N_115VirtRegRewriter16expandCopyBundleERN4llvm12MachineInstrEENK3$_0clEPKS2_NS1_8ArrayRefIPS2_EEPKNS1_18TargetRegisterInfoE.exit.i.i", label %.lr.ph.i.i.i36
+  %.not6.not.i.i.i = icmp eq i64 %..i.i.i, 0
+  br i1 %.not6.not.i.i.i, label %"_ZZNK12_GLOBAL__N_115VirtRegRewriter16expandCopyBundleERN4llvm12MachineInstrEENK3$_0clEPKS2_NS1_8ArrayRefIPS2_EEPKNS1_18TargetRegisterInfoE.exit.i.i", label %.lr.ph.i.i.i36
 
 .lr.ph.i.i.i36:                                   ; preds = %1292, %.critedge.i.i.i
-  %.0146.i.i.i = phi ptr [ %1318, %.critedge.i.i.i ], [ %1293, %1292 ]
-  %1302 = load ptr, ptr %.0146.i.i.i, align 8, !tbaa !502
+  %.0147.i.i.i = phi ptr [ %1318, %.critedge.i.i.i ], [ %1293, %1292 ]
+  %1302 = load ptr, ptr %.0147.i.i.i, align 8, !tbaa !502
   %.not19.i.i.i = icmp eq ptr %1302, %1295
   br i1 %.not19.i.i.i, label %.critedge.i.i.i, label %1303
 
@@ -4370,7 +4370,7 @@ _ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i: ; preds 
   br i1 %1317, label %"_ZZNK12_GLOBAL__N_115VirtRegRewriter16expandCopyBundleERN4llvm12MachineInstrEENK3$_0clEPKS2_NS1_8ArrayRefIPS2_EEPKNS1_18TargetRegisterInfoE.exit.thread.i.i", label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %_ZNK4llvm18TargetRegisterInfo11regsOverlapENS_8RegisterES1_.exit.i.i.i, %1312, %.lr.ph.i.i.i36
-  %1318 = getelementptr inbounds nuw i8, ptr %.0146.i.i.i, i64 8
+  %1318 = getelementptr inbounds nuw i8, ptr %.0147.i.i.i, i64 8
   %.not.not.i.i.i = icmp eq ptr %1318, %1300
   br i1 %.not.not.i.i.i, label %"_ZZNK12_GLOBAL__N_115VirtRegRewriter16expandCopyBundleERN4llvm12MachineInstrEENK3$_0clEPKS2_NS1_8ArrayRefIPS2_EEPKNS1_18TargetRegisterInfoE.exit.i.i", label %.lr.ph.i.i.i36
 

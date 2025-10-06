@@ -185,11 +185,11 @@ define internal zeroext i1 @find_window_functions_walker(ptr noundef %0, ptr nou
 ; Function Attrs: nounwind uwtable
 define dso_local double @expression_returns_set_rows(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
-  br i1 %3, label %.thread23, label %4
+  br i1 %3, label %.thread21, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %1, align 4
-  switch i32 %5, label %.thread23 [
+  switch i32 %5, label %.thread21 [
     i32 15, label %6
     i32 17, label %10
   ]
@@ -198,28 +198,28 @@ define dso_local double @expression_returns_set_rows(ptr noundef %0, ptr noundef
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %8 = load i8, ptr %7, align 4, !range !4, !noundef !5
   %9 = trunc nuw i8 %8 to i1
-  br i1 %9, label %.thread23.sink.split, label %.thread23
+  br i1 %9, label %.thread21.sink.split, label %.thread21
 
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %12 = load i8, ptr %11, align 8, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %14, label %.thread23
+  br i1 %13, label %14, label %.thread21
 
 14:                                               ; preds = %10
   tail call void @set_opfuncid(ptr noundef nonnull %1) #8
-  br label %.thread23.sink.split
+  br label %.thread21.sink.split
 
-.thread23.sink.split:                             ; preds = %6, %14
+.thread21.sink.split:                             ; preds = %6, %14
   %.sink = phi i64 [ 8, %14 ], [ 4, %6 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink
-  %.sink27 = load i32, ptr %15, align 4
-  %16 = tail call double @get_function_rows(ptr noundef %0, i32 noundef %.sink27, ptr noundef nonnull %1) #8
+  %.sink24 = load i32, ptr %15, align 4
+  %16 = tail call double @get_function_rows(ptr noundef %0, i32 noundef %.sink24, ptr noundef nonnull %1) #8
   %17 = tail call double @clamp_row_est(double noundef %16) #8
-  br label %.thread23
+  br label %.thread21
 
-.thread23:                                        ; preds = %.thread23.sink.split, %4, %6, %10, %2
-  %.0 = phi double [ 1.000000e+00, %2 ], [ 1.000000e+00, %10 ], [ 1.000000e+00, %6 ], [ 1.000000e+00, %4 ], [ %17, %.thread23.sink.split ]
+.thread21:                                        ; preds = %.thread21.sink.split, %4, %6, %10, %2
+  %.0 = phi double [ 1.000000e+00, %2 ], [ 1.000000e+00, %10 ], [ 1.000000e+00, %6 ], [ 1.000000e+00, %4 ], [ %17, %.thread21.sink.split ]
   ret double %.0
 }
 
@@ -278,11 +278,11 @@ define dso_local zeroext i1 @contain_mutable_functions(ptr noundef %0) local_unn
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %.thread49, label %4
+  br i1 %3, label %.thread48, label %4
 
 4:                                                ; preds = %2
   %5 = tail call zeroext i1 @check_functions_in_node(ptr noundef nonnull %0, ptr noundef nonnull @contain_mutable_functions_checker, ptr noundef %1) #8
-  br i1 %5, label %.thread49, label %6
+  br i1 %5, label %.thread48, label %6
 
 6:                                                ; preds = %4
   %7 = load i32, ptr %0, align 4
@@ -302,8 +302,8 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
-  %.fr63 = freeze i32 %17
-  %18 = icmp eq i32 %.fr63, 2
+  %.fr61 = freeze i32 %17
+  %18 = icmp eq i32 %.fr61, 2
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %20 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %21 = load i32, ptr %19, align 4
@@ -314,20 +314,20 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
   br i1 %22, label %.critedge.us, label %._crit_edge
 
 23:                                               ; preds = %.critedge.us
-  %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
+  %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %24 = load i32, ptr %19, align 4
   %25 = sext i32 %24 to i64
-  %26 = icmp slt i64 %indvars.iv.next68, %25
+  %26 = icmp slt i64 %indvars.iv.next66, %25
   br i1 %26, label %.critedge.us, label %._crit_edge
 
 .critedge.us:                                     ; preds = %.lr.ph.split.us.split, %23
-  %indvars.iv67 = phi i64 [ %indvars.iv.next68, %23 ], [ 0, %.lr.ph.split.us.split ]
+  %indvars.iv65 = phi i64 [ %indvars.iv.next66, %23 ], [ 0, %.lr.ph.split.us.split ]
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv67
+  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv65
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @exprType(ptr noundef %29) #8
   %31 = tail call zeroext i1 @to_jsonb_is_immutable(i32 noundef %30) #8
-  br i1 %31, label %23, label %.thread49
+  br i1 %31, label %23, label %.thread48
 
 .lr.ph.split.split:                               ; preds = %.lr.ph
   br i1 %22, label %.critedge, label %._crit_edge
@@ -346,7 +346,7 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
   %38 = load ptr, ptr %37, align 8
   %39 = tail call i32 @exprType(ptr noundef %38) #8
   %40 = tail call zeroext i1 @to_json_is_immutable(i32 noundef %39) #8
-  br i1 %40, label %32, label %.thread49
+  br i1 %40, label %32, label %.thread48
 
 ._crit_edge:                                      ; preds = %32, %23, %.lr.ph.split.us.split, %.lr.ph.split.split, %9
   %.pr = load i32, ptr %0, align 4
@@ -362,13 +362,13 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq i32 %47, 7
-  br i1 %48, label %49, label %.thread49
+  br i1 %48, label %49, label %.thread48
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 32
   %51 = load i8, ptr %50, align 8, !range !4, !noundef !5
   %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %.thread49, label %53
+  br i1 %52, label %.thread48, label %53
 
 53:                                               ; preds = %49
   %54 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -380,29 +380,29 @@ define internal zeroext i1 @contain_mutable_functions_walker(ptr noundef %0, ptr
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %61 = load ptr, ptr %60, align 8
   %62 = tail call zeroext i1 @jspIsMutable(ptr noundef %57, ptr noundef %59, ptr noundef %61) #8
-  br i1 %62, label %.thread49, label %._crit_edge71
+  br i1 %62, label %.thread48, label %._crit_edge69
 
-._crit_edge71:                                    ; preds = %53
+._crit_edge69:                                    ; preds = %53
   %.pre = load i32, ptr %0, align 4
   br label %63
 
-63:                                               ; preds = %._crit_edge71, %41
-  %64 = phi i32 [ %.pre, %._crit_edge71 ], [ %42, %41 ]
+63:                                               ; preds = %._crit_edge69, %41
+  %64 = phi i32 [ %.pre, %._crit_edge69 ], [ %42, %41 ]
   switch i32 %64, label %67 [
-    i32 40, label %.thread49
-    i32 59, label %.thread49
+    i32 40, label %.thread48
+    i32 59, label %.thread48
     i32 67, label %65
   ]
 
 65:                                               ; preds = %63
   %66 = tail call zeroext i1 @query_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_mutable_functions_walker, ptr noundef %1, i32 noundef 0) #8
-  br label %.thread49
+  br label %.thread48
 
 67:                                               ; preds = %63
   %68 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_mutable_functions_walker, ptr noundef %1) #8
-  br label %.thread49
+  br label %.thread48
 
-.thread49:                                        ; preds = %.critedge, %.critedge.us, %49, %44, %63, %63, %53, %4, %2, %67, %65
+.thread48:                                        ; preds = %.critedge, %.critedge.us, %49, %44, %63, %63, %53, %4, %2, %67, %65
   %.0 = phi i1 [ %66, %65 ], [ %68, %67 ], [ true, %53 ], [ false, %2 ], [ true, %4 ], [ true, %63 ], [ true, %63 ], [ false, %49 ], [ true, %44 ], [ true, %.critedge.us ], [ true, %.critedge ]
   ret i1 %.0
 }
@@ -788,8 +788,8 @@ define internal zeroext i1 @contain_nonstrict_functions_walker(ptr noundef %0, p
   br i1 %3, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse.backedge
-  %.tr56 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %2 ]
-  %4 = load i32, ptr %.tr56, align 4
+  %.tr54 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %2 ]
+  %4 = load i32, ptr %.tr54, align 4
   switch i32 %4, label %16 [
     i32 9, label %.thread
     i32 10, label %.thread
@@ -798,13 +798,13 @@ define internal zeroext i1 @contain_nonstrict_functions_walker(ptr noundef %0, p
   ]
 
 5:                                                ; preds = %.lr.ph
-  %6 = getelementptr inbounds nuw i8, ptr %.tr56, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %.tr54, i64 48
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %.thread
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %.tr56, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.tr54, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = tail call ptr @getSubscriptingRoutines(i32 noundef %10, ptr noundef null) #8
   %.not47 = icmp eq ptr %11, null
@@ -817,12 +817,12 @@ define internal zeroext i1 @contain_nonstrict_functions_walker(ptr noundef %0, p
   br i1 %15, label %thread-pre-split, label %.thread
 
 thread-pre-split:                                 ; preds = %12
-  %.pr = load i32, ptr %.tr56, align 4
+  %.pr = load i32, ptr %.tr54, align 4
   br label %16
 
 16:                                               ; preds = %thread-pre-split, %.lr.ph
   %17 = phi i32 [ %.pr, %thread-pre-split ], [ %4, %.lr.ph ]
-  switch i32 %17, label %.thread51 [
+  switch i32 %17, label %.thread49 [
     i32 18, label %.thread
     i32 19, label %.thread
     i32 21, label %18
@@ -844,27 +844,27 @@ thread-pre-split:                                 ; preds = %12
   ]
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i8, ptr %.tr56, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.tr54, i64 4
   %20 = load i32, ptr %19, align 4
-  %switch48 = icmp ult i32 %20, 2
-  br i1 %switch48, label %.thread, label %.thread51
+  %switch = icmp ult i32 %20, 2
+  br i1 %switch, label %.thread, label %.thread49
 
 tailrecurse.backedge:                             ; preds = %16, %16
-  %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr56, i64 8
+  %.tr.be.in = getelementptr inbounds nuw i8, ptr %.tr54, i64 8
   %.tr.be = load ptr, ptr %.tr.be.in, align 8
   %21 = icmp eq ptr %.tr.be, null
   br i1 %21, label %.thread, label %.lr.ph
 
-.thread51:                                        ; preds = %16, %18
-  %22 = tail call zeroext i1 @check_functions_in_node(ptr noundef nonnull %.tr56, ptr noundef nonnull @contain_nonstrict_functions_checker, ptr noundef %1) #8
+.thread49:                                        ; preds = %16, %18
+  %22 = tail call zeroext i1 @check_functions_in_node(ptr noundef nonnull %.tr54, ptr noundef nonnull @contain_nonstrict_functions_checker, ptr noundef %1) #8
   br i1 %22, label %.thread, label %23
 
-23:                                               ; preds = %.thread51
-  %24 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %.tr56, ptr noundef nonnull @contain_nonstrict_functions_walker, ptr noundef %1) #8
+23:                                               ; preds = %.thread49
+  %24 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %.tr54, ptr noundef nonnull @contain_nonstrict_functions_walker, ptr noundef %1) #8
   br label %.thread
 
-.thread:                                          ; preds = %tailrecurse.backedge, %.lr.ph, %.lr.ph, %.lr.ph, %5, %8, %12, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %2, %18, %.thread51, %23
-  %.0 = phi i1 [ %24, %23 ], [ true, %18 ], [ true, %.thread51 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %5 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ]
+.thread:                                          ; preds = %tailrecurse.backedge, %.lr.ph, %.lr.ph, %.lr.ph, %5, %8, %12, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %16, %2, %18, %.thread49, %23
+  %.0 = phi i1 [ %24, %23 ], [ true, %18 ], [ true, %.thread49 ], [ false, %2 ], [ false, %tailrecurse.backedge ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %.lr.ph ], [ true, %5 ], [ true, %8 ], [ true, %12 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ], [ true, %16 ]
   ret i1 %.0
 }
 
@@ -1030,8 +1030,8 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %brmerge = select i1 %.not68, i1 true, i1 %.not66
-  %brmerge109 = select i1 %brmerge, i1 true, i1 %.not67
-  br i1 %brmerge109, label %.thread, label %.split.split.split
+  %brmerge104 = select i1 %brmerge, i1 true, i1 %.not67
+  br i1 %brmerge104, label %.thread, label %.split.split.split
 
 .split.split.split:                               ; preds = %27, %.critedge80
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge80 ], [ 0, %27 ]
@@ -1101,13 +1101,13 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 60
   %80 = load i32, ptr %79, align 4
   %.not = icmp eq i32 %80, 0
-  br i1 %.not, label %.critedge83, label %81
+  br i1 %.not, label %.critedge82, label %81
 
 81:                                               ; preds = %75
   %82 = tail call zeroext i1 @get_func_leakproof(i32 noundef %80) #8
-  br i1 %82, label %.thread, label %.critedge83
+  br i1 %82, label %.thread, label %.critedge82
 
-.critedge83:                                      ; preds = %75, %81
+.critedge82:                                      ; preds = %75, %81
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %84 = load ptr, ptr %83, align 8
   %85 = tail call zeroext i1 @contain_var_clause(ptr noundef %84) #8
@@ -1116,12 +1116,12 @@ define internal zeroext i1 @contain_leaked_vars_walker(ptr noundef %0, ptr nound
 86:                                               ; preds = %4
   br label %.critedge
 
-.thread:                                          ; preds = %59, %54, %27, %.critedge83, %81, %25, %21, %17, %6, %8, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
+.thread:                                          ; preds = %59, %54, %27, %.critedge82, %81, %25, %21, %17, %6, %8, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4
   %87 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_leaked_vars_walker, ptr noundef %1) #8
   br label %.critedge
 
-.critedge:                                        ; preds = %69, %72, %.critedge83, %25, %4, %8, %2, %.thread, %86
-  %.052 = phi i1 [ true, %86 ], [ %87, %.thread ], [ false, %2 ], [ true, %8 ], [ false, %4 ], [ true, %25 ], [ true, %.critedge83 ], [ true, %72 ], [ true, %69 ]
+.critedge:                                        ; preds = %69, %72, %.critedge82, %25, %4, %8, %2, %.thread, %86
+  %.052 = phi i1 [ true, %86 ], [ %87, %.thread ], [ false, %2 ], [ true, %8 ], [ false, %4 ], [ true, %25 ], [ true, %.critedge82 ], [ true, %72 ], [ true, %69 ]
   ret i1 %.052
 }
 
@@ -1822,30 +1822,30 @@ define dso_local ptr @find_forced_null_var(ptr noundef readonly captures(address
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = icmp eq i32 %25, 4
-  br i1 %26, label %27, label %.thread40
+  br i1 %26, label %27, label %.thread38
 
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8
   %.not = icmp eq ptr %29, null
-  br i1 %.not, label %.thread40, label %30
+  br i1 %.not, label %.thread38, label %30
 
 30:                                               ; preds = %27
   %31 = load i32, ptr %29, align 4
   %32 = icmp eq i32 %31, 6
-  br i1 %32, label %33, label %.thread40
+  br i1 %32, label %33, label %.thread38
 
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %35 = load i32, ptr %34, align 8
   %36 = icmp eq i32 %35, 0
-  br i1 %36, label %37, label %.thread40
+  br i1 %36, label %37, label %.thread38
 
-.thread40:                                        ; preds = %23, %33, %30, %27
+.thread38:                                        ; preds = %23, %33, %30, %27
   br label %37
 
-37:                                               ; preds = %3, %.thread, %.thread40, %33, %19, %1
-  %.0 = phi ptr [ null, %1 ], [ %15, %19 ], [ %29, %33 ], [ null, %.thread40 ], [ null, %.thread ], [ null, %3 ]
+37:                                               ; preds = %3, %.thread, %.thread38, %33, %19, %1
+  %.0 = phi ptr [ null, %1 ], [ %15, %19 ], [ %29, %33 ], [ null, %.thread38 ], [ null, %.thread ], [ null, %3 ]
   ret ptr %.0
 }
 
@@ -5070,11 +5070,11 @@ define internal fastcc ptr @simplify_function(i32 noundef %0, i32 noundef %1, i3
   %.val52.pre = load ptr, ptr %28, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.val52.pre, i64 22
   %.pre = load i8, ptr %.phi.trans.insert, align 2
-  %.pre102 = zext i8 %.pre to i64
+  %.pre101 = zext i8 %.pre to i64
   br label %36
 
 36:                                               ; preds = %33, %27
-  %.pre-phi = phi i64 [ %.pre102, %33 ], [ %31, %27 ]
+  %.pre-phi = phi i64 [ %.pre101, %33 ], [ %31, %27 ]
   %.val52 = phi ptr [ %.val52.pre, %33 ], [ %.val, %27 ]
   %.048 = phi ptr [ %35, %33 ], [ %21, %27 ]
   %37 = getelementptr inbounds nuw i8, ptr %.val52, i64 %.pre-phi
@@ -5640,11 +5640,11 @@ thread-pre-split:                                 ; preds = %298
   %325 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %326 = load i32, ptr %323, align 4
   %327 = icmp sgt i32 %326, 0
-  br i1 %327, label %.lr.ph96, label %.critedge.i56.thread
+  br i1 %327, label %.lr.ph95, label %.critedge.i56.thread
 
-.lr.ph96:                                         ; preds = %.lr.ph, %.thread83
-  %328 = phi i32 [ %351, %.thread83 ], [ %326, %.lr.ph ]
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread83 ], [ 0, %.lr.ph ]
+.lr.ph95:                                         ; preds = %.lr.ph, %.thread82
+  %328 = phi i32 [ %351, %.thread82 ], [ %326, %.lr.ph ]
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.thread82 ], [ 0, %.lr.ph ]
   %329 = load ptr, ptr %324, align 8
   %330 = getelementptr inbounds nuw %union.ListCell, ptr %329, i64 %indvars.iv
   %331 = load ptr, ptr %330, align 8
@@ -5652,30 +5652,30 @@ thread-pre-split:                                 ; preds = %298
   %333 = load i32, ptr %332, align 4
   switch i32 %333, label %337 [
     i32 0, label %334
-    i32 1, label %.thread83
+    i32 1, label %.thread82
   ]
 
-334:                                              ; preds = %.lr.ph96
+334:                                              ; preds = %.lr.ph95
   %335 = load i8, ptr %306, align 1, !range !4, !noundef !5
   %336 = trunc nuw i8 %335 to i1
-  br i1 %336, label %.thread, label %.thread83
+  br i1 %336, label %.thread, label %.thread82
 
-337:                                              ; preds = %.lr.ph96
+337:                                              ; preds = %.lr.ph95
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %338 = icmp eq ptr %331, null
-  br i1 %338, label %contain_subplans.exit.thread72, label %339
+  br i1 %338, label %contain_subplans.exit.thread71, label %339
 
 339:                                              ; preds = %337
   %340 = load i32, ptr %331, align 4
   %.off.i.i = add i32 %340, -22
   %switch.i.i = icmp ult i32 %.off.i.i, 3
-  br i1 %switch.i.i, label %.thread75, label %contain_subplans.exit
+  br i1 %switch.i.i, label %.thread74, label %contain_subplans.exit
 
 contain_subplans.exit:                            ; preds = %339
   %341 = call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %331, ptr noundef nonnull @contain_subplans_walker, ptr noundef null) #8
-  br i1 %341, label %.thread75, label %contain_subplans.exit.thread72
+  br i1 %341, label %.thread74, label %contain_subplans.exit.thread71
 
-contain_subplans.exit.thread72:                   ; preds = %337, %contain_subplans.exit
+contain_subplans.exit.thread71:                   ; preds = %337, %contain_subplans.exit
   %342 = call ptr @list_make1_impl(i32 noundef 1, ptr %331) #8
   call void @cost_qual_eval(ptr noundef nonnull %17, ptr noundef %342, ptr noundef null) #8
   %343 = load double, ptr %17, align 8
@@ -5684,29 +5684,29 @@ contain_subplans.exit.thread72:                   ; preds = %337, %contain_subpl
   %346 = load double, ptr @cpu_operator_cost, align 8
   %347 = fmul double %346, 1.000000e+01
   %348 = fcmp ogt double %345, %347
-  br i1 %348, label %.thread75, label %349
+  br i1 %348, label %.thread74, label %349
 
-.thread75:                                        ; preds = %339, %contain_subplans.exit.thread72, %contain_subplans.exit
+.thread74:                                        ; preds = %339, %contain_subplans.exit.thread71, %contain_subplans.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %.thread
 
-349:                                              ; preds = %contain_subplans.exit.thread72
+349:                                              ; preds = %contain_subplans.exit.thread71
   %350 = call zeroext i1 @contain_volatile_functions_walker(ptr noundef %331, ptr noundef null)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br i1 %350, label %.thread, label %..thread83_crit_edge
+  br i1 %350, label %.thread, label %..thread82_crit_edge
 
-..thread83_crit_edge:                             ; preds = %349
-  %.pre101 = load i32, ptr %323, align 4
-  br label %.thread83
+..thread82_crit_edge:                             ; preds = %349
+  %.pre100 = load i32, ptr %323, align 4
+  br label %.thread82
 
-.thread83:                                        ; preds = %..thread83_crit_edge, %.lr.ph96, %334
-  %351 = phi i32 [ %.pre101, %..thread83_crit_edge ], [ %328, %.lr.ph96 ], [ %328, %334 ]
+.thread82:                                        ; preds = %..thread82_crit_edge, %.lr.ph95, %334
+  %351 = phi i32 [ %.pre100, %..thread82_crit_edge ], [ %328, %.lr.ph95 ], [ %328, %334 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %352 = sext i32 %351 to i64
   %353 = icmp slt i64 %indvars.iv.next, %352
-  br i1 %353, label %.lr.ph96, label %.critedge.i56.thread
+  br i1 %353, label %.lr.ph95, label %.critedge.i56.thread
 
-.critedge.i56.thread:                             ; preds = %.thread83, %.lr.ph, %313
+.critedge.i56.thread:                             ; preds = %.thread82, %.lr.ph, %313
   store ptr %159, ptr @CurrentMemoryContext, align 8
   %354 = call ptr @copyObjectImpl(ptr noundef %322) #8
   call void @MemoryContextDelete(ptr noundef %158) #8
@@ -5752,7 +5752,7 @@ contain_subplans.exit.thread72:                   ; preds = %337, %contain_subpl
   store ptr %371, ptr %146, align 8
   br label %inline_function.exit.sink.split
 
-.thread:                                          ; preds = %334, %349, %.thread75, %272, %198, %192, %list_length.exit62, %311, %309, %303, %298, %287, %284, %277, %list_length.exit, %269, %266, %263, %260, %257, %254, %251, %248, %245, %242, %237, %234, %231, %227, %223, %219, %215, %212, %209, %list_length.exit60
+.thread:                                          ; preds = %334, %349, %.thread74, %272, %198, %192, %list_length.exit62, %311, %309, %303, %298, %287, %284, %277, %list_length.exit, %269, %266, %263, %260, %257, %254, %251, %248, %245, %242, %237, %234, %231, %227, %223, %219, %215, %212, %209, %list_length.exit60
   store ptr %159, ptr @CurrentMemoryContext, align 8
   call void @MemoryContextDelete(ptr noundef %158) #8
   br label %inline_function.exit.sink.split
@@ -6157,7 +6157,7 @@ declare ptr @list_delete_last(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal zeroext i1 @contain_context_dependent_node_walker(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
-  br i1 %3, label %common.ret33, label %4
+  br i1 %3, label %common.ret32, label %4
 
 4:                                                ; preds = %2
   %5 = load i32, ptr %0, align 4
@@ -6171,7 +6171,7 @@ define internal zeroext i1 @contain_context_dependent_node_walker(ptr noundef %0
   %7 = load i32, ptr %1, align 4
   %8 = and i32 %7, 1
   %.not30 = icmp eq i32 %8, 0
-  br label %common.ret33
+  br label %common.ret32
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6185,17 +6185,17 @@ define internal zeroext i1 @contain_context_dependent_node_walker(ptr noundef %0
   store i32 %14, ptr %1, align 4
   %15 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_context_dependent_node_walker, ptr noundef nonnull %1) #8
   store i32 %13, ptr %1, align 4
-  br label %common.ret33
+  br label %common.ret32
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 @contain_context_dependent_node_walker(ptr noundef %18, ptr noundef %1)
-  br i1 %19, label %common.ret33, label %20
+  br i1 %19, label %common.ret32, label %20
 
-common.ret33:                                     ; preds = %12, %16, %2, %.thread, %6, %20
-  %common.ret33.op = phi i1 [ %25, %20 ], [ %.not30, %6 ], [ %26, %.thread ], [ %15, %12 ], [ false, %2 ], [ true, %16 ]
-  ret i1 %common.ret33.op
+common.ret32:                                     ; preds = %12, %16, %2, %.thread, %6, %20
+  %common.ret32.op = phi i1 [ %25, %20 ], [ %.not30, %6 ], [ %26, %.thread ], [ %15, %12 ], [ false, %2 ], [ true, %16 ]
+  ret i1 %common.ret32.op
 
 20:                                               ; preds = %16
   %21 = load i32, ptr %1, align 4
@@ -6205,11 +6205,11 @@ common.ret33:                                     ; preds = %12, %16, %2, %.thre
   %24 = load ptr, ptr %23, align 8
   %25 = tail call zeroext i1 @contain_context_dependent_node_walker(ptr noundef %24, ptr noundef nonnull %1)
   store i32 %21, ptr %1, align 4
-  br label %common.ret33
+  br label %common.ret32
 
 .thread:                                          ; preds = %9, %4
   %26 = tail call zeroext i1 @expression_tree_walker_impl(ptr noundef nonnull %0, ptr noundef nonnull @contain_context_dependent_node_walker, ptr noundef %1) #8
-  br label %common.ret33
+  br label %common.ret32
 }
 
 ; Function Attrs: nounwind uwtable

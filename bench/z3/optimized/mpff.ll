@@ -2577,9 +2577,8 @@ _ZNK12mpff_manager6is_twoERK4mpff.exit:           ; preds = %67, %.preheader.i
   %71 = load i32, ptr %70, align 4, !tbaa !35
   %72 = sext i32 %71 to i64
   %73 = add nsw i64 %72, -1
-  %74 = add nsw i64 %72, -2147483649
-  %or.cond.i = icmp samesign ult i64 %74, -4294967296
-  br i1 %or.cond.i, label %75, label %76
+  %74 = icmp eq i32 %71, -2147483648
+  br i1 %74, label %75, label %76
 
 75:                                               ; preds = %_ZNK12mpff_manager6is_twoERK4mpff.exit
   tail call void @_ZN12mpff_manager16set_big_exponentER4mpffl(ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 4 dereferenceable(8) %3, i64 noundef %73)

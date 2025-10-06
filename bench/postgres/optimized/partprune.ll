@@ -44,14 +44,14 @@ define dso_local i32 @make_partition_pruneinfo(ptr noundef %0, ptr noundef reado
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load i32, ptr %13, align 4
   %17 = icmp sgt i32 %16, 0
-  br i1 %17, label %.lr.ph183, label %.critedge
+  br i1 %17, label %.lr.ph182, label %.critedge
 
-.lr.ph183:                                        ; preds = %.lr.ph, %92
-  %.075120182 = phi i32 [ %93, %92 ], [ 1, %.lr.ph ]
-  %.069121181 = phi ptr [ %.170, %92 ], [ null, %.lr.ph ]
-  %indvars.iv180 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph ]
+.lr.ph182:                                        ; preds = %.lr.ph, %92
+  %.075119181 = phi i32 [ %93, %92 ], [ 1, %.lr.ph ]
+  %.069120180 = phi ptr [ %.170, %92 ], [ null, %.lr.ph ]
+  %indvars.iv179 = phi i64 [ %indvars.iv.next, %92 ], [ 0, %.lr.ph ]
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv180
+  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv179
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -61,13 +61,13 @@ define dso_local i32 @make_partition_pruneinfo(ptr noundef %0, ptr noundef reado
   br i1 %25, label %.preheader, label %92
 
 .critedge:                                        ; preds = %92, %.lr.ph
-  %.069121.lcssa = phi ptr [ null, %.lr.ph ], [ %.170, %92 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.069121.lcssa, i64 4
-  %.not83 = icmp eq ptr %.069121.lcssa, null
-  br i1 %.not83, label %.critedge91.thread, label %.lr.ph133
+  %.069120.lcssa = phi ptr [ null, %.lr.ph ], [ %.170, %92 ]
+  %26 = getelementptr inbounds nuw i8, ptr %.069120.lcssa, i64 4
+  %.not83 = icmp eq ptr %.069120.lcssa, null
+  br i1 %.not83, label %.critedge91.thread, label %.lr.ph132
 
-.lr.ph133:                                        ; preds = %.critedge
-  %27 = getelementptr inbounds nuw i8, ptr %.069121.lcssa, i64 16
+.lr.ph132:                                        ; preds = %.critedge
+  %27 = getelementptr inbounds nuw i8, ptr %.069120.lcssa, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 27
@@ -79,11 +79,11 @@ define dso_local i32 @make_partition_pruneinfo(ptr noundef %0, ptr noundef reado
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load i32, ptr %26, align 4
   %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph187, label %.critedge91
+  br i1 %38, label %.lr.ph186, label %.critedge91
 
-.preheader:                                       ; preds = %.lr.ph183, %67
-  %.078 = phi ptr [ %47, %67 ], [ %22, %.lr.ph183 ]
-  %.076 = phi ptr [ %65, %67 ], [ null, %.lr.ph183 ]
+.preheader:                                       ; preds = %.lr.ph182, %67
+  %.078 = phi ptr [ %47, %67 ], [ %22, %.lr.ph182 ]
+  %.076 = phi ptr [ %65, %67 ], [ null, %.lr.ph182 ]
   %39 = load ptr, ptr %15, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.078, i64 112
   %41 = load i32, ptr %40, align 8
@@ -134,18 +134,18 @@ define dso_local i32 @make_partition_pruneinfo(ptr noundef %0, ptr noundef reado
   br i1 %70, label %.preheader, label %.thread, !llvm.loop !4
 
 .thread:                                          ; preds = %62, %.preheader, %50, %53, %57, %60, %67
-  %.177106 = phi ptr [ %65, %67 ], [ %.076, %.preheader ], [ %.076, %50 ], [ %.076, %53 ], [ %.076, %57 ], [ %.076, %60 ], [ %65, %62 ]
-  %.not89 = icmp eq ptr %.177106, null
+  %.177105 = phi ptr [ %65, %67 ], [ %.076, %.preheader ], [ %.076, %50 ], [ %.076, %53 ], [ %.076, %57 ], [ %.076, %60 ], [ %65, %62 ]
+  %.not89 = icmp eq ptr %.177105, null
   br i1 %.not89, label %92, label %71
 
 71:                                               ; preds = %.thread
-  %72 = tail call i32 @bms_next_member(ptr noundef nonnull %.177106, i32 noundef -1) #5
-  %.not.i = icmp eq ptr %.069121181, null
+  %72 = tail call i32 @bms_next_member(ptr noundef nonnull %.177105, i32 noundef -1) #5
+  %.not.i = icmp eq ptr %.069120180, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %71
-  %73 = getelementptr inbounds nuw i8, ptr %.069121181, i64 4
-  %74 = getelementptr inbounds nuw i8, ptr %.069121181, i64 16
+  %73 = getelementptr inbounds nuw i8, ptr %.069120180, i64 4
+  %74 = getelementptr inbounds nuw i8, ptr %.069120180, i64 16
   %75 = load i32, ptr %73, align 4
   %76 = icmp sgt i32 %75, 0
   br i1 %76, label %.lr.ph42.i, label %._crit_edge.i
@@ -168,38 +168,38 @@ define dso_local i32 @make_partition_pruneinfo(ptr noundef %0, ptr noundef reado
 
 .split.i:                                         ; preds = %.lr.ph42.i
   %85 = getelementptr inbounds nuw %union.ListCell, ptr %81, i64 %indvars.iv.i
-  %86 = tail call ptr @bms_add_members(ptr noundef %83, ptr noundef nonnull %.177106) #5
+  %86 = tail call ptr @bms_add_members(ptr noundef %83, ptr noundef nonnull %.177105) #5
   store ptr %86, ptr %85, align 8
   br label %add_part_relids.exit
 
 ._crit_edge.i:                                    ; preds = %77, %.lr.ph.i, %71
-  %87 = tail call ptr @lappend(ptr noundef %.069121181, ptr noundef nonnull %.177106) #5
+  %87 = tail call ptr @lappend(ptr noundef %.069120180, ptr noundef nonnull %.177105) #5
   br label %add_part_relids.exit
 
 add_part_relids.exit:                             ; preds = %.split.i, %._crit_edge.i
-  %.3.i = phi ptr [ %87, %._crit_edge.i ], [ %.069121181, %.split.i ]
+  %.3.i = phi ptr [ %87, %._crit_edge.i ], [ %.069120180, %.split.i ]
   %88 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %89 = load i32, ptr %88, align 8
   %90 = zext i32 %89 to i64
   %91 = getelementptr inbounds nuw i32, ptr %12, i64 %90
-  store i32 %.075120182, ptr %91, align 4
+  store i32 %.075119181, ptr %91, align 4
   br label %92
 
-92:                                               ; preds = %.thread, %add_part_relids.exit, %.lr.ph183
-  %.170 = phi ptr [ %.069121181, %.lr.ph183 ], [ %.3.i, %add_part_relids.exit ], [ %.069121181, %.thread ]
-  %93 = add nuw i32 %.075120182, 1
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv180, 1
+92:                                               ; preds = %.thread, %add_part_relids.exit, %.lr.ph182
+  %.170 = phi ptr [ %.069120180, %.lr.ph182 ], [ %.3.i, %add_part_relids.exit ], [ %.069120180, %.thread ]
+  %93 = add nuw i32 %.075119181, 1
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv179, 1
   %94 = load i32, ptr %13, align 4
   %95 = sext i32 %94 to i64
   %96 = icmp slt i64 %indvars.iv.next, %95
-  br i1 %96, label %.lr.ph183, label %.critedge
+  br i1 %96, label %.lr.ph182, label %.critedge
 
-.lr.ph187:                                        ; preds = %.lr.ph133, %make_partitionedrel_pruneinfo.exit.thread
-  %.071131186 = phi ptr [ %.172, %make_partitionedrel_pruneinfo.exit.thread ], [ null, %.lr.ph133 ]
-  %.068132185 = phi ptr [ %.1, %make_partitionedrel_pruneinfo.exit.thread ], [ null, %.lr.ph133 ]
-  %indvars.iv145184 = phi i64 [ %indvars.iv.next146, %make_partitionedrel_pruneinfo.exit.thread ], [ 0, %.lr.ph133 ]
+.lr.ph186:                                        ; preds = %.lr.ph132, %make_partitionedrel_pruneinfo.exit.thread
+  %.071130185 = phi ptr [ %.172, %make_partitionedrel_pruneinfo.exit.thread ], [ null, %.lr.ph132 ]
+  %.068131184 = phi ptr [ %.1, %make_partitionedrel_pruneinfo.exit.thread ], [ null, %.lr.ph132 ]
+  %indvars.iv144183 = phi i64 [ %indvars.iv.next145, %make_partitionedrel_pruneinfo.exit.thread ], [ 0, %.lr.ph132 ]
   %97 = load ptr, ptr %27, align 8
-  %98 = getelementptr inbounds nuw %union.ListCell, ptr %97, i64 %indvars.iv145184
+  %98 = getelementptr inbounds nuw %union.ListCell, ptr %97, i64 %indvars.iv144183
   %99 = load ptr, ptr %98, align 8
   %100 = load i32, ptr %8, align 8
   %101 = sext i32 %100 to i64
@@ -209,13 +209,13 @@ add_part_relids.exit:                             ; preds = %.split.i, %._crit_e
   %105 = icmp sgt i32 %104, 0
   br i1 %105, label %.lr.ph162.i, label %._crit_edge.thread.i
 
-.lr.ph162.i:                                      ; preds = %.lr.ph187, %204
-  %106 = phi i32 [ %213, %204 ], [ %104, %.lr.ph187 ]
-  %.0111161.i = phi ptr [ %.2113.i, %204 ], [ %3, %.lr.ph187 ]
-  %.0114160.i = phi ptr [ %.1115.i, %204 ], [ null, %.lr.ph187 ]
-  %.0116159.i = phi ptr [ %212, %204 ], [ null, %.lr.ph187 ]
-  %.0118158.i = phi i1 [ %spec.select145.i, %204 ], [ false, %.lr.ph187 ]
-  %.0128157.i = phi i32 [ %108, %204 ], [ 1, %.lr.ph187 ]
+.lr.ph162.i:                                      ; preds = %.lr.ph186, %204
+  %106 = phi i32 [ %213, %204 ], [ %104, %.lr.ph186 ]
+  %.0111161.i = phi ptr [ %.2113.i, %204 ], [ %3, %.lr.ph186 ]
+  %.0114160.i = phi ptr [ %.1115.i, %204 ], [ null, %.lr.ph186 ]
+  %.0116159.i = phi ptr [ %212, %204 ], [ null, %.lr.ph186 ]
+  %.0118158.i = phi i1 [ %spec.select145.i, %204 ], [ false, %.lr.ph186 ]
+  %.0128157.i = phi i32 [ %108, %204 ], [ 1, %.lr.ph186 ]
   %107 = call ptr @find_base_rel(ptr noundef %0, i32 noundef %106) #5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %108 = add i32 %.0128157.i, 1
@@ -449,9 +449,9 @@ get_partkey_exec_paramids.exit.i:                 ; preds = %.critedge28.i.i, %.
 .preheader.i:                                     ; preds = %._crit_edge.i92
   %215 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %.not.i93 = icmp eq ptr %212, null
-  br i1 %.not.i93, label %make_partitionedrel_pruneinfo.exit.thread110, label %.lr.ph174.i
+  br i1 %.not.i93, label %make_partitionedrel_pruneinfo.exit.thread109, label %.lr.ph174.i
 
-make_partitionedrel_pruneinfo.exit.thread110:     ; preds = %.preheader.i
+make_partitionedrel_pruneinfo.exit.thread109:     ; preds = %.preheader.i
   call void @pfree(ptr noundef %103) #5
   br label %make_partitionedrel_pruneinfo.exit.thread
 
@@ -459,17 +459,17 @@ make_partitionedrel_pruneinfo.exit.thread110:     ; preds = %.preheader.i
   %216 = getelementptr inbounds nuw i8, ptr %212, i64 16
   %217 = load i32, ptr %215, align 4
   %218 = icmp sgt i32 %217, 0
-  br i1 %218, label %.lr.ph128, label %._crit_edge
+  br i1 %218, label %.lr.ph127, label %._crit_edge
 
-._crit_edge.thread.i:                             ; preds = %._crit_edge.i92, %.lr.ph187
+._crit_edge.thread.i:                             ; preds = %._crit_edge.i92, %.lr.ph186
   call void @pfree(ptr noundef %103) #5
   br label %make_partitionedrel_pruneinfo.exit.thread
 
-.lr.ph128:                                        ; preds = %.lr.ph174.i, %._crit_edge169.i
-  %.0121173.i127 = phi ptr [ %.1122.lcssa.i, %._crit_edge169.i ], [ null, %.lr.ph174.i ]
-  %indvars.iv.i94126 = phi i64 [ %indvars.iv.next.i95, %._crit_edge169.i ], [ 0, %.lr.ph174.i ]
+.lr.ph127:                                        ; preds = %.lr.ph174.i, %._crit_edge169.i
+  %.0121173.i126 = phi ptr [ %.1122.lcssa.i, %._crit_edge169.i ], [ null, %.lr.ph174.i ]
+  %indvars.iv.i94125 = phi i64 [ %indvars.iv.next.i95, %._crit_edge169.i ], [ 0, %.lr.ph174.i ]
   %219 = load ptr, ptr %216, align 8
-  %220 = getelementptr inbounds nuw %union.ListCell, ptr %219, i64 %indvars.iv.i94126
+  %220 = getelementptr inbounds nuw %union.ListCell, ptr %219, i64 %indvars.iv.i94125
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 4
   %223 = load i32, ptr %222, align 4
@@ -490,13 +490,13 @@ make_partitionedrel_pruneinfo.exit.thread110:     ; preds = %.preheader.i
   %236 = icmp sgt i32 %235, -1
   br i1 %236, label %.lr.ph168.i, label %._crit_edge169.i
 
-.lr.ph168.i:                                      ; preds = %.lr.ph128
+.lr.ph168.i:                                      ; preds = %.lr.ph127
   %237 = getelementptr inbounds nuw i8, ptr %224, i64 408
   br label %238
 
 238:                                              ; preds = %286, %.lr.ph168.i
   %239 = phi i32 [ %235, %.lr.ph168.i ], [ %288, %286 ]
-  %.1122166.i = phi ptr [ %.0121173.i127, %.lr.ph168.i ], [ %.2123.i, %286 ]
+  %.1122166.i = phi ptr [ %.0121173.i126, %.lr.ph168.i ], [ %.2123.i, %286 ]
   %.0126165.i = phi ptr [ null, %.lr.ph168.i ], [ %.1127.i, %286 ]
   %240 = load ptr, ptr %237, align 8
   %241 = zext nneg i32 %239 to i64
@@ -573,9 +573,9 @@ make_partitionedrel_pruneinfo.exit.thread110:     ; preds = %.preheader.i
   %289 = icmp sgt i32 %288, -1
   br i1 %289, label %238, label %._crit_edge169.i, !llvm.loop !9
 
-._crit_edge169.i:                                 ; preds = %286, %.lr.ph128
-  %.0126.lcssa.i = phi ptr [ null, %.lr.ph128 ], [ %.1127.i, %286 ]
-  %.1122.lcssa.i = phi ptr [ %.0121173.i127, %.lr.ph128 ], [ %.2123.i, %286 ]
+._crit_edge169.i:                                 ; preds = %286, %.lr.ph127
+  %.0126.lcssa.i = phi ptr [ null, %.lr.ph127 ], [ %.1127.i, %286 ]
+  %.1122.lcssa.i = phi ptr [ %.0121173.i126, %.lr.ph127 ], [ %.2123.i, %286 ]
   %290 = getelementptr inbounds nuw i8, ptr %221, i64 8
   store ptr %.0126.lcssa.i, ptr %290, align 8
   %291 = getelementptr inbounds nuw i8, ptr %221, i64 16
@@ -588,11 +588,11 @@ make_partitionedrel_pruneinfo.exit.thread110:     ; preds = %.preheader.i
   store ptr %231, ptr %294, align 8
   %295 = getelementptr inbounds nuw i8, ptr %221, i64 40
   store ptr %232, ptr %295, align 8
-  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94126, 1
+  %indvars.iv.next.i95 = add nuw nsw i64 %indvars.iv.i94125, 1
   %296 = load i32, ptr %215, align 4
   %297 = sext i32 %296 to i64
   %298 = icmp slt i64 %indvars.iv.next.i95, %297
-  br i1 %298, label %.lr.ph128, label %._crit_edge
+  br i1 %298, label %.lr.ph127, label %._crit_edge
 
 .critedge.i:                                      ; preds = %gen_partprune_steps.exit151.i, %gen_partprune_steps.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -602,28 +602,28 @@ make_partitionedrel_pruneinfo.exit.thread110:     ; preds = %.preheader.i
   tail call void @pfree(ptr noundef %12) #5
   br label %list_length.exit101
 
-.critedge91:                                      ; preds = %make_partitionedrel_pruneinfo.exit.thread, %.lr.ph133
-  %.068132.lcssa = phi ptr [ null, %.lr.ph133 ], [ %.1, %make_partitionedrel_pruneinfo.exit.thread ]
-  %.071131.lcssa = phi ptr [ null, %.lr.ph133 ], [ %.172, %make_partitionedrel_pruneinfo.exit.thread ]
+.critedge91:                                      ; preds = %make_partitionedrel_pruneinfo.exit.thread, %.lr.ph132
+  %.068131.lcssa = phi ptr [ null, %.lr.ph132 ], [ %.1, %make_partitionedrel_pruneinfo.exit.thread ]
+  %.071130.lcssa = phi ptr [ null, %.lr.ph132 ], [ %.172, %make_partitionedrel_pruneinfo.exit.thread ]
   call void @pfree(ptr noundef %12) #5
-  %299 = icmp eq ptr %.071131.lcssa, null
+  %299 = icmp eq ptr %.071130.lcssa, null
   br i1 %299, label %list_length.exit101, label %list_length.exit.thread
 
 ._crit_edge:                                      ; preds = %._crit_edge169.i, %.lr.ph174.i
   %.0121173.i.lcssa = phi ptr [ null, %.lr.ph174.i ], [ %.1122.lcssa.i, %._crit_edge169.i ]
   call void @pfree(ptr noundef %103) #5
-  %300 = call ptr @lappend(ptr noundef %.071131186, ptr noundef nonnull %212) #5
-  %301 = call ptr @bms_join(ptr noundef %.0121173.i.lcssa, ptr noundef %.068132185) #5
+  %300 = call ptr @lappend(ptr noundef %.071130185, ptr noundef nonnull %212) #5
+  %301 = call ptr @bms_join(ptr noundef %.0121173.i.lcssa, ptr noundef %.068131184) #5
   br label %make_partitionedrel_pruneinfo.exit.thread
 
-make_partitionedrel_pruneinfo.exit.thread:        ; preds = %.critedge.i, %._crit_edge.thread.i, %make_partitionedrel_pruneinfo.exit.thread110, %._crit_edge
-  %.172 = phi ptr [ %300, %._crit_edge ], [ %.071131186, %make_partitionedrel_pruneinfo.exit.thread110 ], [ %.071131186, %._crit_edge.thread.i ], [ %.071131186, %.critedge.i ]
-  %.1 = phi ptr [ %301, %._crit_edge ], [ %.068132185, %make_partitionedrel_pruneinfo.exit.thread110 ], [ %.068132185, %._crit_edge.thread.i ], [ %.068132185, %.critedge.i ]
-  %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145184, 1
+make_partitionedrel_pruneinfo.exit.thread:        ; preds = %.critedge.i, %._crit_edge.thread.i, %make_partitionedrel_pruneinfo.exit.thread109, %._crit_edge
+  %.172 = phi ptr [ %300, %._crit_edge ], [ %.071130185, %make_partitionedrel_pruneinfo.exit.thread109 ], [ %.071130185, %._crit_edge.thread.i ], [ %.071130185, %.critedge.i ]
+  %.1 = phi ptr [ %301, %._crit_edge ], [ %.068131184, %make_partitionedrel_pruneinfo.exit.thread109 ], [ %.068131184, %._crit_edge.thread.i ], [ %.068131184, %.critedge.i ]
+  %indvars.iv.next145 = add nuw nsw i64 %indvars.iv144183, 1
   %302 = load i32, ptr %26, align 4
   %303 = sext i32 %302 to i64
-  %304 = icmp slt i64 %indvars.iv.next146, %303
-  br i1 %304, label %.lr.ph187, label %.critedge91
+  %304 = icmp slt i64 %indvars.iv.next145, %303
+  br i1 %304, label %.lr.ph186, label %.critedge91
 
 list_length.exit.thread:                          ; preds = %.critedge91
   %305 = call noundef ptr @palloc0(i64 noundef 32) #5
@@ -634,8 +634,8 @@ list_length.exit.thread:                          ; preds = %.critedge91
   %309 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store ptr %308, ptr %309, align 8
   %310 = getelementptr inbounds nuw i8, ptr %305, i64 16
-  store ptr %.071131.lcssa, ptr %310, align 8
-  %311 = call i32 @bms_num_members(ptr noundef %.068132.lcssa) #5
+  store ptr %.071130.lcssa, ptr %310, align 8
+  %311 = call i32 @bms_num_members(ptr noundef %.068131.lcssa) #5
   %312 = load i32, ptr %13, align 4
   %313 = icmp slt i32 %311, %312
   br i1 %313, label %list_length.exit99, label %317
@@ -643,7 +643,7 @@ list_length.exit.thread:                          ; preds = %.critedge91
 list_length.exit99:                               ; preds = %list_length.exit.thread
   %314 = add nsw i32 %312, -1
   %315 = call ptr @bms_add_range(ptr noundef null, i32 noundef 0, i32 noundef %314) #5
-  %316 = call ptr @bms_del_members(ptr noundef %315, ptr noundef %.068132.lcssa) #5
+  %316 = call ptr @bms_del_members(ptr noundef %315, ptr noundef %.068131.lcssa) #5
   br label %317
 
 317:                                              ; preds = %list_length.exit.thread, %list_length.exit99

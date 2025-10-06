@@ -176,19 +176,19 @@ _ZN4llvmL18isPGSOColdCodeOnlyEPNS_18ProfileSummaryInfoE.exit.thread: ; preds = %
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %.sroa.022.031.i = load ptr, ptr %46, align 8, !tbaa !149
-  %.not3032.i = icmp eq ptr %.sroa.022.031.i, %47
-  br i1 %.not3032.i, label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit, label %.lr.ph.i
+  %.sroa.020.028.i = load ptr, ptr %46, align 8, !tbaa !149
+  %.not2729.i = icmp eq ptr %.sroa.020.028.i, %47
+  br i1 %.not2729.i, label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit, label %.lr.ph.i
 
 48:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i
-  %49 = getelementptr inbounds nuw i8, ptr %.sroa.022.033.i, i64 8
-  %.sroa.022.0.i = load ptr, ptr %49, align 8, !tbaa !149
-  %.not30.i = icmp eq ptr %.sroa.022.0.i, %47
-  br i1 %.not30.i, label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit, label %.lr.ph.i
+  %49 = getelementptr inbounds nuw i8, ptr %.sroa.020.030.i, i64 8
+  %.sroa.020.0.i = load ptr, ptr %49, align 8, !tbaa !149
+  %.not27.i = icmp eq ptr %.sroa.020.0.i, %47
+  br i1 %.not27.i, label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %45, %48
-  %.sroa.022.033.i = phi ptr [ %.sroa.022.0.i, %48 ], [ %.sroa.022.031.i, %45 ]
-  %50 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.sroa.022.033.i) #3
+  %.sroa.020.030.i = phi ptr [ %.sroa.020.0.i, %48 ], [ %.sroa.020.028.i, %45 ]
+  %50 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull %.sroa.020.030.i) #3
   %51 = extractvalue { i64, i8 } %50, 1
   %52 = trunc nuw i8 %51 to i1
   br i1 %52, label %_ZNK4llvm18ProfileSummaryInfo11isColdBlockINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbPKT_PT0_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo25isFunctionColdInCallGraphINS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbPKT_RT0_.exit
@@ -537,19 +537,19 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo38is
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  %.sroa.025.034.i = load ptr, ptr %18, align 8, !tbaa !149
-  %.not3335.i = icmp eq ptr %.sroa.025.034.i, %19
-  br i1 %.not3335.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb0ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
+  %.sroa.023.031.i = load ptr, ptr %18, align 8, !tbaa !149
+  %.not3032.i = icmp eq ptr %.sroa.023.031.i, %19
+  br i1 %.not3032.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb0ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
 
 20:                                               ; preds = %_ZNK4llvm18ProfileSummaryInfo24isColdBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.025.036.i, i64 8
-  %.sroa.025.0.i = load ptr, ptr %21, align 8, !tbaa !149
-  %.not33.i = icmp eq ptr %.sroa.025.0.i, %19
-  br i1 %.not33.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb0ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.023.033.i, i64 8
+  %.sroa.023.0.i = load ptr, ptr %21, align 8, !tbaa !149
+  %.not30.i = icmp eq ptr %.sroa.023.0.i, %19
+  br i1 %.not30.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb0ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %20
-  %.sroa.025.036.i = phi ptr [ %.sroa.025.0.i, %20 ], [ %.sroa.025.034.i, %17 ]
-  %22 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.sroa.025.036.i) #3
+  %.sroa.023.033.i = phi ptr [ %.sroa.023.0.i, %20 ], [ %.sroa.023.031.i, %17 ]
+  %22 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.sroa.023.033.i) #3
   %23 = extractvalue { i64, i8 } %22, 1
   %24 = trunc nuw i8 %23 to i1
   br i1 %24, label %_ZNK4llvm18ProfileSummaryInfo24isColdBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb0ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit
@@ -595,13 +595,13 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm18ProfileSummaryInfo37is
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 328
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 320
-  %.sroa.025.034.i = load ptr, ptr %18, align 8, !tbaa !149
-  %.not3335.not.i = icmp eq ptr %.sroa.025.034.i, %19
-  br i1 %.not3335.not.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
+  %.sroa.023.033.i = load ptr, ptr %18, align 8, !tbaa !149
+  %.not3234.i = icmp eq ptr %.sroa.023.033.i, %19
+  br i1 %.not3234.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i
-  %.sroa.025.036.i = phi ptr [ %.sroa.025.0.i, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i ], [ %.sroa.025.034.i, %17 ]
-  %20 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.sroa.025.036.i) #3
+  %.sroa.023.035.i = phi ptr [ %.sroa.023.0.i, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i ], [ %.sroa.023.033.i, %17 ]
+  %20 = call { i64, i8 } @_ZNK4llvm25MachineBlockFrequencyInfo20getBlockProfileCountEPKNS_17MachineBasicBlockE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %.sroa.023.035.i) #3
   %21 = extractvalue { i64, i8 } %20, 1
   %22 = trunc nuw i8 %21 to i1
   br i1 %22, label %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i, label %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i
@@ -612,10 +612,10 @@ _ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKN
   br i1 %24, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i
 
 _ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i: ; preds = %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i, %.lr.ph.i
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.025.036.i, i64 8
-  %.sroa.025.0.i = load ptr, ptr %25, align 8, !tbaa !149
-  %.not33.not.i = icmp eq ptr %.sroa.025.0.i, %19
-  br i1 %.not33.not.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.023.035.i, i64 8
+  %.sroa.023.0.i = load ptr, ptr %25, align 8, !tbaa !149
+  %.not32.i = icmp eq ptr %.sroa.023.0.i, %19
+  br i1 %.not32.i, label %_ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit, label %.lr.ph.i
 
 _ZNK4llvm18ProfileSummaryInfo43isFunctionHotOrColdInCallGraphNthPercentileILb1ENS_15MachineFunctionEKNS_25MachineBlockFrequencyInfoEEEbiPKT0_RT1_.exit: ; preds = %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i, %4, %16, %17
   %.0.i = phi i1 [ true, %16 ], [ false, %4 ], [ false, %17 ], [ true, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.i ], [ false, %_ZNK4llvm18ProfileSummaryInfo23isHotBlockNthPercentileINS_17MachineBasicBlockEKNS_25MachineBlockFrequencyInfoEEEbiPKT_PT0_.exit.thread.i ]

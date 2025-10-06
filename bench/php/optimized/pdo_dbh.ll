@@ -834,22 +834,22 @@ zend_hash_str_find_ptr.exit.i:                    ; preds = %89, %84
   %93 = zext i32 %92 to i64
   %.idx.i = shl nuw nsw i64 %93, 5
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx.i
-  %.not6077.i = icmp eq i32 %92, 0
+  %.not6075.i = icmp eq i32 %92, 0
   %.pre474 = load ptr, ptr @pdo_dbh_ce, align 8, !tbaa !58
-  br i1 %.not6077.i, label %.thread.thread.i, label %.lr.ph.i
+  br i1 %.not6075.i, label %.thread.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %zend_hash_str_find_ptr.exit.i, %103
   %95 = phi ptr [ %104, %103 ], [ %.pre474, %zend_hash_str_find_ptr.exit.i ]
-  %.05178.i = phi ptr [ %105, %103 ], [ %91, %zend_hash_str_find_ptr.exit.i ]
-  %96 = getelementptr inbounds nuw i8, ptr %.05178.i, i64 8
+  %.05176.i = phi ptr [ %105, %103 ], [ %91, %zend_hash_str_find_ptr.exit.i ]
+  %96 = getelementptr inbounds nuw i8, ptr %.05176.i, i64 8
   %97 = load i8, ptr %96, align 8, !tbaa !4
   %98 = icmp eq i8 %97, 0
   %.not61.i = icmp eq ptr %3, %95
-  %or.cond76.i = select i1 %98, i1 true, i1 %.not61.i, !prof !78
-  br i1 %or.cond76.i, label %103, label %99, !prof !78
+  %or.cond74.i = select i1 %98, i1 true, i1 %.not61.i, !prof !78
+  br i1 %or.cond74.i, label %103, label %99, !prof !78
 
 99:                                               ; preds = %.lr.ph.i
-  %100 = load ptr, ptr %.05178.i, align 8, !tbaa !4
+  %100 = load ptr, ptr %.05176.i, align 8, !tbaa !4
   %101 = icmp eq ptr %3, %100
   br i1 %101, label %.thread.i, label %instanceof_function.exit.i
 
@@ -860,7 +860,7 @@ instanceof_function.exit.i:                       ; preds = %99
 
 103:                                              ; preds = %instanceof_function.exit.i, %.lr.ph.i
   %104 = phi ptr [ %.pre.i, %instanceof_function.exit.i ], [ %95, %.lr.ph.i ]
-  %105 = getelementptr inbounds nuw i8, ptr %.05178.i, i64 32
+  %105 = getelementptr inbounds nuw i8, ptr %.05176.i, i64 32
   %.not60.i = icmp eq ptr %105, %94
   br i1 %.not60.i, label %.thread.thread.i, label %.lr.ph.i
 

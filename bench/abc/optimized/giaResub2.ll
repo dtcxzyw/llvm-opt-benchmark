@@ -5349,7 +5349,7 @@ define noalias noundef ptr @Gia_RsbWindowInit(ptr noundef %0, ptr noundef readon
   br i1 %17, label %.lr.ph, label %.loopexit
 
 18:                                               ; preds = %4, %Vec_IntPush.exit
-  %19 = phi ptr [ %9, %4 ], [ %.pre.i73, %Vec_IntPush.exit ]
+  %19 = phi ptr [ %9, %4 ], [ %.pre.i72, %Vec_IntPush.exit ]
   %.not.i = phi i1 [ true, %4 ], [ false, %Vec_IntPush.exit ]
   %.val.i = load i64, ptr %13, align 4
   %20 = lshr i64 %.val.i, 32
@@ -5395,18 +5395,18 @@ define noalias noundef ptr @Gia_RsbWindowInit(ptr noundef %0, ptr noundef readon
   br label %Vec_IntPush.exit.sink.split
 
 Vec_IntPush.exit.sink.split:                      ; preds = %36, %38, %28, %30
-  %.sink84 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %37, %36 ], [ %39, %38 ]
+  %.sink83 = phi ptr [ %29, %28 ], [ %31, %30 ], [ %37, %36 ], [ %39, %38 ]
   %.sink = phi i32 [ 16, %28 ], [ 16, %30 ], [ %33, %36 ], [ %33, %38 ]
-  store ptr %.sink84, ptr %10, align 8, !tbaa !3
+  store ptr %.sink83, ptr %10, align 8, !tbaa !3
   store i32 %.sink, ptr %7, align 8, !tbaa !11
   br label %Vec_IntPush.exit
 
 Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.sink.split, %18
-  %.pre.i73 = phi ptr [ %19, %18 ], [ %.sink84, %Vec_IntPush.exit.sink.split ]
+  %.pre.i72 = phi ptr [ %19, %18 ], [ %.sink83, %Vec_IntPush.exit.sink.split ]
   %40 = add nsw i32 %22, 1
   store i32 %40, ptr %8, align 4, !tbaa !10
   %41 = sext i32 %22 to i64
-  %42 = getelementptr inbounds i32, ptr %.pre.i73, i64 %41
+  %42 = getelementptr inbounds i32, ptr %.pre.i72, i64 %41
   store i32 %21, ptr %42, align 4, !tbaa !30
   %.val35 = load ptr, ptr %14, align 8, !tbaa !3
   %43 = sext i32 %21 to i64
@@ -5419,12 +5419,12 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   br i1 %.not.i, label %18, label %.preheader, !llvm.loop !125
 
 .lr.ph:                                           ; preds = %.preheader, %81
-  %.03071 = phi i32 [ %82, %81 ], [ 0, %.preheader ]
-  %.03270 = phi i32 [ %.val34, %81 ], [ 0, %.preheader ]
+  %.03070 = phi i32 [ %82, %81 ], [ 0, %.preheader ]
+  %.03269 = phi i32 [ %.val34, %81 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %.val34 = load i32, ptr %8, align 4, !tbaa !10
-  %46 = call i32 @Gia_RsbWindowExplore(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %.03270, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
+  %46 = call i32 @Gia_RsbWindowExplore(ptr noundef nonnull %0, ptr noundef nonnull %7, i32 noundef %.03269, ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6)
   %.not = icmp eq i32 %46, 0
   br i1 %.not, label %81, label %47
 
@@ -5506,13 +5506,13 @@ Vec_IntGrow.exit.i48:                             ; preds = %62, %60
 81:                                               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %82 = add nuw nsw i32 %.03071, 1
+  %82 = add nuw nsw i32 %.03070, 1
   %exitcond.not = icmp eq i32 %82, %3
   br i1 %exitcond.not, label %.loopexit.thread, label %.lr.ph, !llvm.loop !126
 
 .loopexit:                                        ; preds = %.preheader, %76
-  %.03068 = phi i32 [ %.03071, %76 ], [ 0, %.preheader ]
-  %83 = icmp eq i32 %.03068, %3
+  %.03067 = phi i32 [ %.03070, %76 ], [ 0, %.preheader ]
+  %83 = icmp eq i32 %.03067, %3
   br i1 %83, label %.loopexit.thread, label %85
 
 .loopexit.thread:                                 ; preds = %81, %.loopexit

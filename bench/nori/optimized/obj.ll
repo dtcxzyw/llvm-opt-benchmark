@@ -2165,8 +2165,8 @@ define linkonce_odr hidden void @_ZNK10filesystem8resolver7resolveERKNS_4pathE(p
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
-  %.not11 = icmp eq ptr %6, %8
-  br i1 %.not11, label %._crit_edge, label %.lr.ph
+  %.not10 = icmp eq ptr %6, %8
+  br i1 %.not10, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2174,8 +2174,8 @@ define linkonce_odr hidden void @_ZNK10filesystem8resolver7resolveERKNS_4pathE(p
   br label %11
 
 11:                                               ; preds = %.lr.ph, %24
-  %.sroa.07.012 = phi ptr [ %6, %.lr.ph ], [ %25, %24 ]
-  call void @_ZNK10filesystem4pathdvERKS0_(ptr dead_on_unwind writable sret(%"class.filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %.sroa.07.012, ptr noundef nonnull align 8 dereferenceable(34) %2)
+  %.sroa.07.011 = phi ptr [ %6, %.lr.ph ], [ %25, %24 ]
+  call void @_ZNK10filesystem4pathdvERKS0_(ptr dead_on_unwind writable sret(%"class.filesystem::path") align 8 %0, ptr noundef nonnull align 8 dereferenceable(34) %.sroa.07.011, ptr noundef nonnull align 8 dereferenceable(34) %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   invoke void @_ZNK10filesystem4path3strB5cxx11ENS0_9path_typeE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef nonnull align 8 dereferenceable(34) %0, i32 noundef 1)
@@ -2223,7 +2223,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %24
 
 24:                                               ; preds = %23, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.07.012, i64 40
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.07.011, i64 40
   %26 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %25, %26
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !57

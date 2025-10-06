@@ -142,9 +142,9 @@ define hidden void @_mi_random_init(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %15, label %os_random_buf.exit.thread, label %.preheader.i
 
 .preheader.i:                                     ; preds = %13, %26
-  %.02546.i = phi i64 [ %.227.i, %26 ], [ 0, %13 ]
-  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.02546.i
-  %17 = sub nuw nsw i64 32, %.02546.i
+  %.02543.i = phi i64 [ %.227.i, %26 ], [ 0, %13 ]
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 %.02543.i
+  %17 = sub nuw nsw i64 32, %.02543.i
   %18 = call i64 @read(i32 noundef %14, ptr noundef nonnull %16, i64 noundef %17) #10
   %19 = icmp slt i64 %18, 1
   br i1 %19, label %20, label %24
@@ -152,25 +152,25 @@ define hidden void @_mi_random_init(ptr noundef %0) local_unnamed_addr #1 {
 20:                                               ; preds = %.preheader.i
   %21 = tail call ptr @__errno_location() #11
   %22 = load i32, ptr %21, align 4, !tbaa !3
-  switch i32 %22, label %.thread42.i.thread [
+  switch i32 %22, label %.thread40.i.thread [
     i32 11, label %26
     i32 4, label %26
   ]
 
-.thread42.i.thread:                               ; preds = %20
+.thread40.i.thread:                               ; preds = %20
   %23 = call i32 @close(i32 noundef %14) #10
   br label %os_random_buf.exit.thread
 
 24:                                               ; preds = %.preheader.i
-  %25 = add nuw i64 %18, %.02546.i
+  %25 = add nuw i64 %18, %.02543.i
   br label %26
 
 26:                                               ; preds = %24, %20, %20
-  %.227.i = phi i64 [ %25, %24 ], [ %.02546.i, %20 ], [ %.02546.i, %20 ]
+  %.227.i = phi i64 [ %25, %24 ], [ %.02543.i, %20 ], [ %.02543.i, %20 ]
   %27 = icmp ult i64 %.227.i, 32
-  br i1 %27, label %.preheader.i, label %.thread42.i
+  br i1 %27, label %.preheader.i, label %.thread40.i
 
-.thread42.i:                                      ; preds = %26
+.thread40.i:                                      ; preds = %26
   %28 = call i32 @close(i32 noundef %14) #10
   %29 = icmp eq i64 %.227.i, 32
   br i1 %29, label %.loopexit, label %os_random_buf.exit.thread
@@ -179,7 +179,7 @@ os_random_buf.exit:                               ; preds = %6
   %30 = icmp eq i64 %7, 32
   br i1 %30, label %.loopexit, label %os_random_buf.exit.thread
 
-os_random_buf.exit.thread:                        ; preds = %9, %13, %.thread42.i.thread, %.thread42.i, %os_random_buf.exit
+os_random_buf.exit.thread:                        ; preds = %9, %13, %.thread40.i.thread, %.thread40.i, %os_random_buf.exit
   call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %31 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %2) #10
@@ -234,7 +234,7 @@ _mi_os_random_weak.exit:                          ; preds = %40
   %exitcond.not = icmp eq i64 %63, 8
   br i1 %exitcond.not, label %.loopexit, label %51, !llvm.loop !15
 
-.loopexit:                                        ; preds = %51, %.thread42.i, %os_random_buf.exit
+.loopexit:                                        ; preds = %51, %.thread40.i, %os_random_buf.exit
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(132) %0, i8 0, i64 132, i1 false)
   br label %64
 

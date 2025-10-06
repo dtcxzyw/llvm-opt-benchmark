@@ -16160,8 +16160,8 @@ _ZN16AssertPreVisitor16getPropertyExprpEPK11AstProperty.exit: ; preds = %17, %_Z
   %25 = load ptr, ptr %3, align 8, !tbaa !416
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !416
-  %.not99 = icmp eq ptr %25, %27
-  br i1 %.not99, label %._crit_edge, label %.lr.ph
+  %.not98 = icmp eq ptr %25, %27
+  br i1 %.not98, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN16AssertPreVisitor16getPropertyExprpEPK11AstProperty.exit
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -16174,9 +16174,9 @@ _ZN16AssertPreVisitor16getPropertyExprpEPK11AstProperty.exit: ; preds = %17, %_Z
   br i1 %.not51, label %_ZN11AstPropSpec8disablepEP11AstNodeExpr.exit, label %42
 
 31:                                               ; preds = %.lr.ph, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit
-  %.sroa.079.0100 = phi ptr [ %25, %.lr.ph ], [ %39, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit ]
-  %32 = load ptr, ptr %.sroa.079.0100, align 8, !tbaa !418
-  %33 = getelementptr inbounds nuw i8, ptr %.sroa.079.0100, i64 8
+  %.sroa.079.099 = phi ptr [ %25, %.lr.ph ], [ %39, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit ]
+  %32 = load ptr, ptr %.sroa.079.099, align 8, !tbaa !418
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.079.099, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !421
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !129
@@ -16192,7 +16192,7 @@ _ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit: ; preds = %31
           to label %_ZN9VNVisitor11pushDeletepEP7AstNode.exit unwind label %40
 
 _ZN9VNVisitor11pushDeletepEP7AstNode.exit:        ; preds = %38
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.079.0100, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.079.099, i64 16
   %.not = icmp eq ptr %39, %27
   br i1 %.not, label %._crit_edge, label %31
 
@@ -16244,8 +16244,8 @@ _ZN9VNVisitor11pushDeletepEP7AstNode.exit63:      ; preds = %_ZN11AstNodeExpr12u
   br i1 %.not53, label %_ZN11AstPropSpec8disablepEP11AstNodeExpr.exit, label %_ZN9VNVisitor11pushDeletepEP7AstNode.exit63.thread
 
 _ZN9VNVisitor11pushDeletepEP7AstNode.exit63.thread: ; preds = %42, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit63
-  %.pr116 = phi ptr [ %.pr.pre, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit63 ], [ %30, %42 ]
-  %57 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %.pr116, ptr noundef null)
+  %.pr115 = phi ptr [ %.pr.pre, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit63 ], [ %30, %42 ]
+  %57 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(152) %.pr115, ptr noundef null)
           to label %_ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit64 unwind label %59
 
 _ZN11AstNodeExpr12unlinkFrBackEP10VNRelinker.exit64: ; preds = %_ZN9VNVisitor11pushDeletepEP7AstNode.exit63.thread
@@ -16305,12 +16305,12 @@ _ZN9VNVisitor11pushDeletepEP7AstNode.exit70:      ; preds = %_ZN10AstSenItem12un
   br i1 %.not56, label %_ZN11AstPropSpec7sensespEP10AstSenItem.exit, label %_ZN9VNVisitor11pushDeletepEP7AstNode.exit70.thread
 
 _ZN9VNVisitor11pushDeletepEP7AstNode.exit70.thread: ; preds = %63, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit70
-  %.pr87119 = phi ptr [ %.pr87.pre, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit70 ], [ %62, %63 ]
-  %76 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(160) %.pr87119, ptr noundef null)
+  %.pr87118 = phi ptr [ %.pr87.pre, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit70 ], [ %62, %63 ]
+  %76 = invoke noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(160) %.pr87118, ptr noundef null)
           to label %_ZN10AstSenItem12unlinkFrBackEP10VNRelinker.exit72 unwind label %77
 
 _ZN10AstSenItem12unlinkFrBackEP10VNRelinker.exit72: ; preds = %_ZN9VNVisitor11pushDeletepEP7AstNode.exit70.thread
-  invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull %.pr87119)
+  invoke void @_ZN7AstNode7setOp1pEPS_(ptr noundef nonnull align 8 dereferenceable(152) %23, ptr noundef nonnull %.pr87118)
           to label %_ZN11AstPropSpec7sensespEP10AstSenItem.exit unwind label %77
 
 77:                                               ; preds = %_ZN10AstSenItem12unlinkFrBackEP10VNRelinker.exit72, %_ZN9VNVisitor11pushDeletepEP7AstNode.exit70.thread

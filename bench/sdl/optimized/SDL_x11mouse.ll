@@ -778,9 +778,9 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   %17 = load ptr, ptr %16, align 8
   %18 = tail call zeroext i1 @X11_Xinput2IsInitialized() #5
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %13, i64 1656
-  br i1 %18, label %19, label %.thread49
+  br i1 %18, label %19, label %.thread48
 
-.thread49:                                        ; preds = %2
+.thread48:                                        ; preds = %2
   store i8 1, ptr %.phi.trans.insert, align 8
   br label %21
 
@@ -789,7 +789,7 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
   %20 = trunc nuw i8 %.pre to i1
   br i1 %20, label %21, label %61
 
-21:                                               ; preds = %.thread49, %19
+21:                                               ; preds = %.thread48, %19
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 1656
   %23 = tail call ptr @SDL_GetDisplays_REAL(ptr noundef null) #5
   %.not = icmp eq ptr %23, null
@@ -797,8 +797,8 @@ define internal i32 @X11_GetGlobalMouseState(ptr noundef writeonly captures(none
 
 .preheader:                                       ; preds = %21
   %24 = load i32, ptr %23, align 4
-  %.not3343 = icmp eq i32 %24, 0
-  br i1 %.not3343, label %.loopexit, label %.lr.ph
+  %.not3342 = icmp eq i32 %24, 0
+  br i1 %.not3342, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 232

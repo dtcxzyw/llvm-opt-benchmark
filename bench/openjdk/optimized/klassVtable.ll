@@ -2309,8 +2309,8 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %23, %29
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 28
   %52 = load i32, ptr %51, align 4
   %53 = and i32 %52, 64
-  %.not62 = icmp eq i32 %53, 0
-  br i1 %.not62, label %54, label %_ZN12methodHandleC2EP6ThreadP6Method.exit.thread
+  %.not61 = icmp eq i32 %53, 0
+  br i1 %.not61, label %54, label %_ZN12methodHandleC2EP6ThreadP6Method.exit.thread
 
 54:                                               ; preds = %48
   call void @_ZN10HandleMark10initializeEP6Thread(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull %2) #15
@@ -3856,8 +3856,8 @@ define hidden void @_ZN11klassItable17check_constraintsEP13GrowableArrayIP6Metho
 22:                                               ; preds = %.lr.ph, %141
   %23 = phi i32 [ %7, %.lr.ph ], [ %142, %141 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %141 ]
-  %.03280 = phi ptr [ %18, %.lr.ph ], [ %143, %141 ]
-  %24 = load ptr, ptr %.03280, align 8
+  %.03279 = phi ptr [ %18, %.lr.ph ], [ %143, %141 ]
+  %24 = load ptr, ptr %.03279, align 8
   %25 = load ptr, ptr %19, align 8
   %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
@@ -4082,7 +4082,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %135, %133
 
 141:                                              ; preds = %_ZN12ResourceMarkD2Ev.exit.thread, %22
   %142 = phi i32 [ %.pre, %_ZN12ResourceMarkD2Ev.exit.thread ], [ %23, %22 ]
-  %143 = getelementptr inbounds nuw i8, ptr %.03280, i64 8
+  %143 = getelementptr inbounds nuw i8, ptr %.03279, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = sext i32 %142 to i64
   %145 = icmp slt i64 %indvars.iv.next, %144

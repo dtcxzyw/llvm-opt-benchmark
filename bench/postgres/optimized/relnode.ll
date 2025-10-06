@@ -579,7 +579,7 @@ define dso_local ptr @find_join_rel(ptr noundef captures(none) %0, ptr noundef %
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
-  br i1 %.not.i, label %.thread43, label %list_length.exit
+  br i1 %.not.i, label %.thread41, label %list_length.exit
 
 list_length.exit:                                 ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -603,8 +603,8 @@ list_length.exit:                                 ; preds = %8
   %21 = call ptr @hash_create(ptr noundef nonnull @.str.5, i64 noundef 256, ptr noundef nonnull %3, i32 noundef 1224) #6
   %22 = load ptr, ptr %9, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %.not.i34 = icmp eq ptr %22, null
-  br i1 %.not.i34, label %thread-pre-split, label %.lr.ph.i
+  %.not.i33 = icmp eq ptr %22, null
+  br i1 %.not.i33, label %thread-pre-split, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -641,33 +641,33 @@ thread-pre-split:                                 ; preds = %.lr.ph17.i, %.lr.ph
   store ptr %1, ptr %5, align 8
   %37 = call ptr @hash_search(ptr noundef nonnull %36, ptr noundef nonnull %5, i32 noundef 0, ptr noundef null) #6
   %.not31.not = icmp eq ptr %37, null
-  br i1 %.not31.not, label %.thread43.sink.split, label %38
+  br i1 %.not31.not, label %.thread41.sink.split, label %38
 
 38:                                               ; preds = %.thread
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %40 = load ptr, ptr %39, align 8
-  br label %.thread43.sink.split
+  br label %.thread41.sink.split
 
 thread-pre-split.thread:                          ; preds = %list_length.exit, %thread-pre-split
   %.pr = load ptr, ptr %9, align 8
   %41 = getelementptr inbounds nuw i8, ptr %.pr, i64 4
   %.not29 = icmp eq ptr %.pr, null
-  br i1 %.not29, label %.thread43, label %.lr.ph
+  br i1 %.not29, label %.thread41, label %.lr.ph
 
 .lr.ph:                                           ; preds = %thread-pre-split.thread
   %42 = getelementptr inbounds nuw i8, ptr %.pr, i64 16
   %43 = load i32, ptr %41, align 4
   %44 = icmp sgt i32 %43, 0
-  br i1 %44, label %.lr.ph55, label %.thread43
+  br i1 %44, label %.lr.ph53, label %.thread41
 
-45:                                               ; preds = %.lr.ph55
+45:                                               ; preds = %.lr.ph53
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %46 = load i32, ptr %41, align 4
   %47 = sext i32 %46 to i64
   %48 = icmp slt i64 %indvars.iv.next, %47
-  br i1 %48, label %.lr.ph55, label %.thread43
+  br i1 %48, label %.lr.ph53, label %.thread41
 
-.lr.ph55:                                         ; preds = %.lr.ph, %45
+.lr.ph53:                                         ; preds = %.lr.ph, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %45 ], [ 0, %.lr.ph ]
   %49 = load ptr, ptr %42, align 8
   %50 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv
@@ -675,15 +675,15 @@ thread-pre-split.thread:                          ; preds = %list_length.exit, %
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = call zeroext i1 @bms_equal(ptr noundef %53, ptr noundef %1) #6
-  br i1 %54, label %.thread43, label %45
+  br i1 %54, label %.thread41, label %45
 
-.thread43.sink.split:                             ; preds = %.thread, %38
+.thread41.sink.split:                             ; preds = %.thread, %38
   %.1.ph = phi ptr [ %40, %38 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread43
+  br label %.thread41
 
-.thread43:                                        ; preds = %45, %.lr.ph55, %.thread43.sink.split, %8, %thread-pre-split.thread, %.lr.ph
-  %.1 = phi ptr [ null, %thread-pre-split.thread ], [ null, %.lr.ph ], [ null, %8 ], [ %.1.ph, %.thread43.sink.split ], [ null, %45 ], [ %51, %.lr.ph55 ]
+.thread41:                                        ; preds = %45, %.lr.ph53, %.thread41.sink.split, %8, %thread-pre-split.thread, %.lr.ph
+  %.1 = phi ptr [ null, %thread-pre-split.thread ], [ null, %.lr.ph ], [ null, %8 ], [ %.1.ph, %.thread41.sink.split ], [ null, %45 ], [ %51, %.lr.ph53 ]
   ret ptr %.1
 }
 

@@ -1528,7 +1528,7 @@ _ZNK7CmdLine7is_stopEv.exit:                      ; preds = %_ZN8DCmdIter4nextEv
 _ZNK7CmdLine13is_executableEv.exit:               ; preds = %_ZNK7CmdLine7is_stopEv.exit
   %57 = load i8, ptr %40, align 1
   %.not = icmp eq i8 %57, 35
-  br i1 %.not, label %120, label %_ZNK7CmdLine13is_executableEv.exit.thread
+  br i1 %.not, label %121, label %_ZNK7CmdLine13is_executableEv.exit.thread
 
 _ZNK7CmdLine13is_executableEv.exit.thread:        ; preds = %_ZN8DCmdIter4nextEv.exit, %_ZNK7CmdLine13is_executableEv.exit
   %58 = load ptr, ptr %15, align 8
@@ -1661,19 +1661,19 @@ _ZN8DCmdMarkD2Ev.exit:                            ; preds = %113, %106, %93
   br label %_ZN12ResourceMarkD2Ev.exit
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %116, %118
-  %switch = icmp eq i32 %.0, 0
-  %119 = icmp ult i64 %53, %10
-  %or.cond44 = and i1 %switch, %119
+  %119 = icmp eq i32 %.0, 0
+  %120 = icmp ult i64 %53, %10
+  %or.cond44 = and i1 %119, %120
   br i1 %or.cond44, label %.backedge, label %.loopexit
 
-120:                                              ; preds = %_ZNK7CmdLine13is_executableEv.exit
+121:                                              ; preds = %_ZNK7CmdLine13is_executableEv.exit
   %.old43 = icmp ult i64 %53, %10
   br i1 %.old43, label %.backedge, label %.loopexit
 
-.backedge:                                        ; preds = %120, %_ZN12ResourceMarkD2Ev.exit
+.backedge:                                        ; preds = %121, %_ZN12ResourceMarkD2Ev.exit
   br i1 %11, label %19, label %.lr.ph.i, !llvm.loop !37
 
-.loopexit:                                        ; preds = %120, %_ZNK7CmdLine7is_stopEv.exit, %_ZN12ResourceMarkD2Ev.exit, %9, %5, %19
+.loopexit:                                        ; preds = %121, %_ZNK7CmdLine7is_stopEv.exit, %_ZN12ResourceMarkD2Ev.exit, %9, %5, %19
   ret void
 }
 

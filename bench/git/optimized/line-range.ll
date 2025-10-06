@@ -371,24 +371,24 @@ find_funcname_matching_regexp.exit:               ; preds = %.critedge2.i, %66, 
   br i1 %.not89, label %.preheader, label %125
 
 .preheader:                                       ; preds = %._crit_edge
-  %storemerge108124 = add nsw i64 %110, 1
-  store i64 %storemerge108124, ptr %6, align 8, !tbaa !4
-  %111 = icmp slt i64 %storemerge108124, %3
-  br i1 %111, label %.lr.ph126, label %.thread
+  %storemerge107123 = add nsw i64 %110, 1
+  store i64 %storemerge107123, ptr %6, align 8, !tbaa !4
+  %111 = icmp slt i64 %storemerge107123, %3
+  br i1 %111, label %.lr.ph125, label %.thread
 
-.lr.ph126:                                        ; preds = %.preheader
-  br i1 %.not.i.i, label %.lr.ph126.split.us, label %match_funcname.exit
+.lr.ph125:                                        ; preds = %.preheader
+  br i1 %.not.i.i, label %.lr.ph125.split.us, label %match_funcname.exit
 
-.lr.ph126.split.us:                               ; preds = %.lr.ph126, %match_funcname.exit.thread.us
-  %storemerge108125.us = phi i64 [ %storemerge108.us, %match_funcname.exit.thread.us ], [ %storemerge108124, %.lr.ph126 ]
-  %112 = call ptr %1(ptr noundef %2, i64 noundef %storemerge108125.us) #8
+.lr.ph125.split.us:                               ; preds = %.lr.ph125, %match_funcname.exit.thread.us
+  %storemerge107124.us = phi i64 [ %storemerge107.us, %match_funcname.exit.thread.us ], [ %storemerge107123, %.lr.ph125 ]
+  %112 = call ptr %1(ptr noundef %2, i64 noundef %storemerge107124.us) #8
   %113 = load i64, ptr %6, align 8, !tbaa !4
   %114 = add nsw i64 %113, 1
   %115 = call ptr %1(ptr noundef %2, i64 noundef %114) #8
   %116 = icmp eq ptr %112, %115
   br i1 %116, label %match_funcname.exit.thread.us, label %117
 
-117:                                              ; preds = %.lr.ph126.split.us
+117:                                              ; preds = %.lr.ph125.split.us
   %118 = load i8, ptr %112, align 1, !tbaa !8
   %119 = zext i8 %118 to i64
   %120 = getelementptr inbounds nuw i8, ptr @sane_ctype, i64 %119
@@ -404,20 +404,20 @@ switch.early.test.i.us:                           ; preds = %117
     i8 36, label %.thread
   ]
 
-match_funcname.exit.thread.us:                    ; preds = %switch.early.test.i.us, %.lr.ph126.split.us
+match_funcname.exit.thread.us:                    ; preds = %switch.early.test.i.us, %.lr.ph125.split.us
   %123 = load i64, ptr %6, align 8, !tbaa !4
-  %storemerge108.us = add nsw i64 %123, 1
-  store i64 %storemerge108.us, ptr %6, align 8, !tbaa !4
-  %124 = icmp slt i64 %storemerge108.us, %3
-  br i1 %124, label %.lr.ph126.split.us, label %.thread
+  %storemerge107.us = add nsw i64 %123, 1
+  store i64 %storemerge107.us, ptr %6, align 8, !tbaa !4
+  %124 = icmp slt i64 %storemerge107.us, %3
+  br i1 %124, label %.lr.ph125.split.us, label %.thread
 
 125:                                              ; preds = %._crit_edge
   call void (ptr, ...) @die(ptr noundef nonnull @.str.2, ptr noundef %26) #9
   unreachable
 
-match_funcname.exit:                              ; preds = %.lr.ph126, %match_funcname.exit.thread
-  %storemerge108125 = phi i64 [ %storemerge108, %match_funcname.exit.thread ], [ %storemerge108124, %.lr.ph126 ]
-  %126 = call ptr %1(ptr noundef %2, i64 noundef %storemerge108125) #8
+match_funcname.exit:                              ; preds = %.lr.ph125, %match_funcname.exit.thread
+  %storemerge107124 = phi i64 [ %storemerge107, %match_funcname.exit.thread ], [ %storemerge107123, %.lr.ph125 ]
+  %126 = call ptr %1(ptr noundef %2, i64 noundef %storemerge107124) #8
   %127 = load i64, ptr %6, align 8, !tbaa !4
   %128 = add nsw i64 %127, 1
   %129 = call ptr %1(ptr noundef %2, i64 noundef %128) #8
@@ -430,7 +430,7 @@ match_funcname.exit:                              ; preds = %.lr.ph126, %match_f
   %135 = call i64 %130(ptr noundef %126, i64 noundef %133, ptr noundef nonnull %10, i64 noundef 1, ptr noundef %134) #8
   %136 = icmp sgt i64 %135, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br i1 %136, label %.thread.thread148, label %match_funcname.exit.thread
+  br i1 %136, label %.thread.thread147, label %match_funcname.exit.thread
 
 .thread.thread:                                   ; preds = %117
   call void @regfree(ptr noundef nonnull %14) #8
@@ -438,12 +438,12 @@ match_funcname.exit:                              ; preds = %.lr.ph126, %match_f
 
 match_funcname.exit.thread:                       ; preds = %match_funcname.exit
   %137 = load i64, ptr %6, align 8, !tbaa !4
-  %storemerge108 = add nsw i64 %137, 1
-  store i64 %storemerge108, ptr %6, align 8, !tbaa !4
-  %138 = icmp slt i64 %storemerge108, %3
-  br i1 %138, label %match_funcname.exit, label %.thread.thread148
+  %storemerge107 = add nsw i64 %137, 1
+  store i64 %storemerge107, ptr %6, align 8, !tbaa !4
+  %138 = icmp slt i64 %storemerge107, %3
+  br i1 %138, label %match_funcname.exit, label %.thread.thread147
 
-.thread.thread148:                                ; preds = %match_funcname.exit.thread, %match_funcname.exit
+.thread.thread147:                                ; preds = %match_funcname.exit.thread, %match_funcname.exit
   call void @regfree(ptr noundef nonnull %14) #8
   br label %139
 
@@ -451,7 +451,7 @@ match_funcname.exit.thread:                       ; preds = %match_funcname.exit
   call void @regfree(ptr noundef nonnull %14) #8
   br i1 %.not.i.i, label %140, label %139
 
-139:                                              ; preds = %.thread.thread148, %.thread
+139:                                              ; preds = %.thread.thread147, %.thread
   call void @xdiff_clear_find_func(ptr noundef nonnull %.071) #8
   br label %140
 

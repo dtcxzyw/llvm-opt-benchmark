@@ -2937,9 +2937,9 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %59
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %.lr.ph
 
-.preheader79:                                     ; preds = %.lr.ph
+.preheader78:                                     ; preds = %.lr.ph
   %67 = icmp ult ptr %.0.lcssa.i, %28
-  br i1 %67, label %.lr.ph90, label %.critedge
+  br i1 %67, label %.lr.ph89, label %.critedge
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
@@ -2947,17 +2947,17 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %59
   store ptr %.0.lcssa.i, ptr %68, align 8, !tbaa !170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader79, label %.lr.ph, !llvm.loop !171
+  br i1 %exitcond.not, label %.preheader78, label %.lr.ph, !llvm.loop !171
 
-.lr.ph90:                                         ; preds = %.preheader79, %83
-  %.189 = phi i32 [ %.4, %83 ], [ 0, %.preheader79 ]
-  %.26388 = phi ptr [ %.465, %83 ], [ %.0.lcssa.i, %.preheader79 ]
-  %69 = load i8, ptr %.26388, align 1, !tbaa !27
+.lr.ph89:                                         ; preds = %.preheader78, %83
+  %.188 = phi i32 [ %.4, %83 ], [ 0, %.preheader78 ]
+  %.26387 = phi ptr [ %.465, %83 ], [ %.0.lcssa.i, %.preheader78 ]
+  %69 = load i8, ptr %.26387, align 1, !tbaa !27
   %70 = icmp eq i8 %69, 47
   br i1 %70, label %.preheader, label %79
 
-.preheader:                                       ; preds = %.lr.ph90, %72
-  %.263.pn = phi ptr [ %.364, %72 ], [ %.26388, %.lr.ph90 ]
+.preheader:                                       ; preds = %.lr.ph89, %72
+  %.263.pn = phi ptr [ %.364, %72 ], [ %.26387, %.lr.ph89 ]
   %.364 = getelementptr i8, ptr %.263.pn, i64 1
   %71 = icmp ult ptr %.364, %28
   br i1 %71, label %72, label %.critedge
@@ -2968,29 +2968,29 @@ rb_alloc_tmp_buffer2.exit:                        ; preds = %59
   br i1 %74, label %.preheader, label %.critedge.thread75, !llvm.loop !172
 
 .critedge.thread75:                               ; preds = %72
-  %75 = add i32 %.189, 1
-  %76 = sext i32 %.189 to i64
+  %75 = add i32 %.188, 1
+  %76 = sext i32 %.188 to i64
   %77 = getelementptr ptr, ptr %66, i64 %76
-  store ptr %.26388, ptr %77, align 8, !tbaa !170
+  store ptr %.26387, ptr %77, align 8, !tbaa !170
   %78 = icmp eq i32 %75, %1
   %spec.store.select = select i1 %78, i32 0, i32 %75
   br label %83
 
-79:                                               ; preds = %.lr.ph90
-  %80 = call i32 @rb_enc_mbclen(ptr noundef nonnull %.26388, ptr noundef nonnull %28, ptr noundef %29) #22
+79:                                               ; preds = %.lr.ph89
+  %80 = call i32 @rb_enc_mbclen(ptr noundef nonnull %.26387, ptr noundef nonnull %28, ptr noundef %29) #22
   %81 = sext i32 %80 to i64
-  %82 = getelementptr i8, ptr %.26388, i64 %81
+  %82 = getelementptr i8, ptr %.26387, i64 %81
   br label %83
 
 83:                                               ; preds = %.critedge.thread75, %79
   %.465 = phi ptr [ %82, %79 ], [ %.364, %.critedge.thread75 ]
-  %.4 = phi i32 [ %.189, %79 ], [ %spec.store.select, %.critedge.thread75 ]
+  %.4 = phi i32 [ %.188, %79 ], [ %spec.store.select, %.critedge.thread75 ]
   %84 = icmp ult ptr %.465, %28
-  br i1 %84, label %.lr.ph90, label %.critedge, !llvm.loop !173
+  br i1 %84, label %.lr.ph89, label %.critedge, !llvm.loop !173
 
-.critedge:                                        ; preds = %83, %.preheader, %.preheader79
-  %.184 = phi i32 [ 0, %.preheader79 ], [ %.189, %.preheader ], [ %.4, %83 ]
-  %85 = sext i32 %.184 to i64
+.critedge:                                        ; preds = %83, %.preheader, %.preheader78
+  %.183 = phi i32 [ 0, %.preheader78 ], [ %.188, %.preheader ], [ %.4, %83 ]
+  %85 = sext i32 %.183 to i64
   %86 = getelementptr ptr, ptr %66, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !170
   call void @rb_free_tmp_buffer(ptr noundef nonnull %5) #22

@@ -663,9 +663,9 @@ _ZNSt14_Optional_baseIN4llvm7remarks17ParsedStringTableELb0ELb0EED2Ev.exit: ; pr
   %46 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %47 = load i8, ptr %46, align 8
   %48 = trunc i8 %47 to i1
-  br i1 %48, label %.thread60, label %51
+  br i1 %48, label %.thread59, label %51
 
-.thread60:                                        ; preds = %_ZNSt14_Optional_baseIN4llvm7remarks17ParsedStringTableELb0ELb0EED2Ev.exit
+.thread59:                                        ; preds = %_ZNSt14_Optional_baseIN4llvm7remarks17ParsedStringTableELb0ELb0EED2Ev.exit
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   %49 = load i64, ptr %10, align 8, !tbaa !36, !noalias !89
   %50 = inttoptr i64 %49 to ptr
@@ -702,8 +702,8 @@ _ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEE9ta
   %67 = load i64, ptr %13, align 8, !tbaa !36, !noalias !94
   %68 = inttoptr i64 %67 to ptr
   store ptr null, ptr %13, align 8, !tbaa !36, !noalias !94
-  %.not47 = icmp ne i64 %67, 0
-  call void @llvm.assume(i1 %.not47)
+  %.not46 = icmp ne i64 %67, 0
+  call void @llvm.assume(i1 %.not46)
   %69 = load ptr, ptr %68, align 8, !tbaa !28
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 48
   %71 = load ptr, ptr %70, align 8
@@ -763,7 +763,7 @@ _ZNSt10unique_ptrIN4llvm7remarks6RemarkESt14default_deleteIS2_EED2Ev.exit: ; pre
   br label %_ZN4llvm5ErrorD2Ev.exit15.thread
 
 _ZN4llvm5ErrorD2Ev.exit15.thread:                 ; preds = %80, %_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEE9takeErrorEv.exit, %._ZN4llvm5ErrorD2Ev.exit15_crit_edge, %_ZNSt10unique_ptrIN4llvm7remarks6RemarkESt14default_deleteIS2_EED2Ev.exit
-  %.pr48 = phi ptr [ null, %_ZNSt10unique_ptrIN4llvm7remarks6RemarkESt14default_deleteIS2_EED2Ev.exit ], [ null, %._ZN4llvm5ErrorD2Ev.exit15_crit_edge ], [ null, %80 ], [ %68, %_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEE9takeErrorEv.exit ]
+  %.pr47 = phi ptr [ null, %_ZNSt10unique_ptrIN4llvm7remarks6RemarkESt14default_deleteIS2_EED2Ev.exit ], [ null, %._ZN4llvm5ErrorD2Ev.exit15_crit_edge ], [ null, %80 ], [ %68, %_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEE9takeErrorEv.exit ]
   %.2 = phi i32 [ 0, %_ZNSt10unique_ptrIN4llvm7remarks6RemarkESt14default_deleteIS2_EED2Ev.exit ], [ 0, %._ZN4llvm5ErrorD2Ev.exit15_crit_edge ], [ 3, %80 ], [ 1, %_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEE9takeErrorEv.exit ]
   %91 = load i8, ptr %53, align 8
   %92 = trunc i8 %91 to i1
@@ -810,7 +810,7 @@ _ZN4llvm5ErrorD2Ev.exit18.loopexit:               ; preds = %_ZN4llvm8ExpectedIS
   br label %_ZN4llvm5ErrorD2Ev.exit18
 
 _ZN4llvm5ErrorD2Ev.exit18:                        ; preds = %_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEED2Ev.exit, %_ZN4llvm5ErrorD2Ev.exit18.loopexit
-  %storemerge = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit18.loopexit ], [ %.pr48, %_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEED2Ev.exit ]
+  %storemerge = phi ptr [ null, %_ZN4llvm5ErrorD2Ev.exit18.loopexit ], [ %.pr47, %_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks6RemarkESt14default_deleteIS3_EEED2Ev.exit ]
   store ptr %storemerge, ptr %0, align 8
   %.pr = load ptr, ptr %10, align 8, !tbaa !129
   %.not.i1.i19 = icmp eq ptr %.pr, null
@@ -826,7 +826,7 @@ _ZNSt10unique_ptrIN4llvm7remarks12RemarkParserESt14default_deleteIS2_EED2Ev.exit
   call void %109(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #19
   br label %_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks12RemarkParserESt14default_deleteIS3_EEED2Ev.exit
 
-_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks12RemarkParserESt14default_deleteIS3_EEED2Ev.exit: ; preds = %.thread60, %_ZN4llvm5ErrorD2Ev.exit18, %_ZNSt10unique_ptrIN4llvm7remarks12RemarkParserESt14default_deleteIS2_EED2Ev.exit.sink.split.i
+_ZN4llvm8ExpectedISt10unique_ptrINS_7remarks12RemarkParserESt14default_deleteIS3_EEED2Ev.exit: ; preds = %.thread59, %_ZN4llvm5ErrorD2Ev.exit18, %_ZNSt10unique_ptrIN4llvm7remarks12RemarkParserESt14default_deleteIS2_EED2Ev.exit.sink.split.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %110
 

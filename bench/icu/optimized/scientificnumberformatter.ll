@@ -557,7 +557,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7725ScientificN
   %10 = alloca %"class.icu_77::FieldPosition", align 8
   %11 = load i32, ptr %5, align 4, !tbaa !6
   %12 = icmp slt i32 %11, 1
-  br i1 %12, label %13, label %89
+  br i1 %12, label %13, label %91
 
 13:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -582,7 +582,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %_ZN6icu_7713Unicode
 
 20:                                               ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_.exit
   %.not51 = icmp eq i8 %19, 0
-  br i1 %.not51, label %78, label %21
+  br i1 %.not51, label %80, label %21
 
 21:                                               ; preds = %20
   %22 = load i32, ptr %14, align 8, !tbaa !9
@@ -592,7 +592,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %_ZN6icu_7713Unicode
     i32 5, label %59
   ], !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph.i, %.noexc, %70
+.loopexit:                                        ; preds = %.lr.ph.i, %.noexc, %71
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -607,7 +607,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_.exit:      ; preds = %_ZN6icu_7713Unicode
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %78
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %80
   %lpad.loopexit.split-lp70 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -712,64 +712,64 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit59:  ; preds = %59
 
 .preheader.i:                                     ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit59
   %66 = load i32, ptr %15, align 4, !tbaa !13
-  %.not23.not.i = icmp slt i32 %66, %63
-  br i1 %.not23.not.i, label %.lr.ph.i, label %_ZN6icu_7713UnicodeString6appendERKS0_.exit.outer.backedge
+  %67 = icmp slt i32 %66, %63
+  br i1 %67, label %.lr.ph.i, label %_ZN6icu_7713UnicodeString6appendERKS0_.exit.outer.backedge
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.noexc61
-  %.01524.i = phi i32 [ %77, %.noexc61 ], [ %66, %.preheader.i ]
-  %67 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.01524.i)
+  %.01523.i = phi i32 [ %78, %.noexc61 ], [ %66, %.preheader.i ]
+  %68 = invoke noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.01523.i)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
-  %68 = invoke i32 @u_charDigitValue_77(i32 noundef %67)
+  %69 = invoke i32 @u_charDigitValue_77(i32 noundef %68)
           to label %.noexc60 unwind label %.loopexit
 
 .noexc60:                                         ; preds = %.noexc
-  %69 = icmp sgt i32 %68, -1
-  br i1 %69, label %70, label %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63.sink.split
+  %70 = icmp sgt i32 %69, -1
+  br i1 %70, label %71, label %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63.sink.split
 
-70:                                               ; preds = %.noexc60
-  %71 = zext nneg i32 %68 to i64
-  %72 = getelementptr inbounds nuw i16, ptr @_ZN6icu_77L18kSuperscriptDigitsE, i64 %71
-  %73 = load i16, ptr %72, align 2, !tbaa !18
+71:                                               ; preds = %.noexc60
+  %72 = zext nneg i32 %69 to i64
+  %73 = getelementptr inbounds nuw i16, ptr @_ZN6icu_77L18kSuperscriptDigitsE, i64 %72
+  %74 = load i16, ptr %73, align 2, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  store i16 %73, ptr %7, align 2, !tbaa !18
-  %74 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1)
+  store i16 %74, ptr %7, align 2, !tbaa !18
+  %75 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1)
           to label %.noexc61 unwind label %.loopexit
 
-.noexc61:                                         ; preds = %70
+.noexc61:                                         ; preds = %71
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %75 = icmp ult i32 %67, 65536
-  %76 = select i1 %75, i32 1, i32 2
-  %77 = add nsw i32 %76, %.01524.i
-  %.not.not.i = icmp slt i32 %77, %63
-  br i1 %.not.not.i, label %.lr.ph.i, label %_ZN6icu_77L17copyAsSuperscriptERKNS_13UnicodeStringEiiRS0_R10UErrorCode.exit.loopexit, !llvm.loop !20
+  %76 = icmp ult i32 %68, 65536
+  %77 = select i1 %76, i32 1, i32 2
+  %78 = add nsw i32 %77, %.01523.i
+  %79 = icmp slt i32 %78, %63
+  br i1 %79, label %.lr.ph.i, label %_ZN6icu_77L17copyAsSuperscriptERKNS_13UnicodeStringEiiRS0_R10UErrorCode.exit.loopexit, !llvm.loop !20
 
 _ZN6icu_77L17copyAsSuperscriptERKNS_13UnicodeStringEiiRS0_R10UErrorCode.exit.loopexit: ; preds = %.noexc61
   %.pre = load i32, ptr %16, align 8, !tbaa !14
   br label %_ZN6icu_7713UnicodeString6appendERKS0_.exit.outer.backedge
 
-78:                                               ; preds = %20
-  %79 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %80 = load i16, ptr %79, align 8, !tbaa !17
-  %81 = icmp slt i16 %80, 0
-  %82 = ashr i16 %80, 5
-  %83 = sext i16 %82 to i32
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %85 = load i32, ptr %84, align 4
-  %86 = select i1 %81, i32 %85, i32 %83
-  %87 = sub nsw i32 %86, %.046.ph
-  %88 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.046.ph, i32 noundef %87)
+80:                                               ; preds = %20
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %82 = load i16, ptr %81, align 8, !tbaa !17
+  %83 = icmp slt i16 %82, 0
+  %84 = ashr i16 %82, 5
+  %85 = sext i16 %84 to i32
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %87 = load i32, ptr %86, align 4
+  %88 = select i1 %83, i32 %87, i32 %85
+  %89 = sub nsw i32 %88, %.046.ph
+  %90 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendERKS0_ii(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef %.046.ph, i32 noundef %89)
           to label %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63 unwind label %.loopexit.split-lp.loopexit.split-lp
 
 _ZN6icu_7713UnicodeString6appendERKS0_ii.exit63.sink.split: ; preds = %54, %.noexc60
   store i32 10, ptr %5, align 4, !tbaa !6
   br label %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63
 
-_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63:  ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit59, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63.sink.split, %78
+_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63:  ; preds = %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit59, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63.sink.split, %80
   call void @_ZN6icu_7713FieldPositionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %10) #7
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %89
+  br label %91
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %48
   %.pn = phi { ptr, i32 } [ %49, %48 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp70, %.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit101, %.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.loopexit.split-lp ]
@@ -777,7 +777,7 @@ _ZN6icu_7713UnicodeString6appendERKS0_ii.exit63:  ; preds = %_ZN6icu_7713Unicode
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   resume { ptr, i32 } %.pn
 
-89:                                               ; preds = %6, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63
+91:                                               ; preds = %6, %_ZN6icu_7713UnicodeString6appendERKS0_ii.exit63
   ret ptr %4
 }
 

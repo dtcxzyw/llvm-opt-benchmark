@@ -108,9 +108,9 @@ define hidden i32 @Curl_pgrsUpdate(ptr noundef initializes((2720, 2728), (2768, 
   br label %30
 
 30:                                               ; preds = %29, %16, %16
-  %brmerge45.not.i = and i1 %9, %.not38.not.i
-  %.mux46.i = select i1 %.not38.not.i, i32 0, i32 %28
-  br i1 %brmerge45.not.i, label %54, label %pgrsupdate.exit
+  %brmerge46.not.i = and i1 %9, %.not38.not.i
+  %.mux47.i = select i1 %.not38.not.i, i32 0, i32 %28
+  br i1 %brmerge46.not.i, label %54, label %pgrsupdate.exit
 
 31:                                               ; preds = %13
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 592
@@ -458,7 +458,7 @@ progress_meter.exit.i:                            ; preds = %193, %191, %188
   br label %pgrsupdate.exit
 
 pgrsupdate.exit:                                  ; preds = %1, %30, %52, %53, %progress_meter.exit.i
-  %.1.i = phi i32 [ %.mux46.i, %30 ], [ %.mux.i, %52 ], [ 0, %53 ], [ 0, %progress_meter.exit.i ], [ 0, %1 ]
+  %.1.i = phi i32 [ %.mux47.i, %30 ], [ %.mux.i, %52 ], [ 0, %53 ], [ 0, %progress_meter.exit.i ], [ 0, %1 ]
   ret i32 %.1.i
 }
 

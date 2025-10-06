@@ -3557,7 +3557,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_115DarwinAsmParser18p
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 184
   %28 = load ptr, ptr %27, align 8
   %29 = tail call noundef nonnull align 8 dereferenceable(40) ptr %28(ptr noundef nonnull align 8 dereferenceable(34) %25) #18
-  %30 = icmp slt i32 %5, 0
+  %30 = icmp slt i32 %5, -2147483639
   %31 = load ptr, ptr %10, align 8, !tbaa !11
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 56

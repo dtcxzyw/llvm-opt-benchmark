@@ -1576,7 +1576,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableISt4pairIiiES1_SaIS1
 
 ..thread_crit_edge:                               ; preds = %4
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %.pre44 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !54
+  %.pre42 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !54
   br label %.thread
 
 7:                                                ; preds = %4
@@ -1602,7 +1602,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableISt4pairIiiES1_SaIS1
   br i1 %19, label %_ZNKSt10_HashtableISt4pairIiiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ERKZN3igl10seam_edgesIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEESB_NSA_IiLin1ELin1ELi0ELin1ELin1EEESC_SC_SC_SC_EEvRKNS9_10MatrixBaseIT_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EERNS9_15PlainObjectBaseIT3_EERNSU_IT4_EERNSU_IT5_EEEUlRKS1_E_NS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKSE_m.exit, label %11, !llvm.loop !73
 
 .thread:                                          ; preds = %11, %..thread_crit_edge
-  %20 = phi i32 [ %.pre44, %..thread_crit_edge ], [ %10, %11 ]
+  %20 = phi i32 [ %.pre42, %..thread_crit_edge ], [ %10, %11 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !46
   %22 = load i32, ptr %21, align 4, !tbaa !20
   %23 = mul nsw i32 %22, %.pre

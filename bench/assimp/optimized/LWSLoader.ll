@@ -380,8 +380,8 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit: ; preds = %28, %30
   %.0.lcssa.i.i = phi ptr [ %.0.i.i, %28 ], [ %scevgep.i.i, %30 ]
   store ptr %.0.lcssa.i.i, ptr %1, align 8
   %33 = load i8, ptr %.0.lcssa.i.i, align 1
-  %.not98 = icmp eq i8 %33, 0
-  br i1 %.not98, label %223, label %34
+  %.not96 = icmp eq i8 %33, 0
+  br i1 %.not96, label %223, label %34
 
 34:                                               ; preds = %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit
   %35 = icmp eq i8 %33, 123
@@ -644,18 +644,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 124:                                              ; preds = %.critedge.i.i53
   %125 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   call void @_ZN6Assimp6Logger12verboseDebugEPKc(ptr noundef nonnull align 8 dereferenceable(12) %125, ptr noundef nonnull @.str.2)
-  %.promoted102 = load ptr, ptr %1, align 8
+  %.promoted100 = load ptr, ptr %1, align 8
   br label %126
 
 126:                                              ; preds = %_ZN6Assimp8SkipLineIcEEbPPKT_S3_.exit, %124
-  %.1.lcssa.i.i103 = phi ptr [ %.1.lcssa.i.i, %_ZN6Assimp8SkipLineIcEEbPPKT_S3_.exit ], [ %.promoted102, %124 ]
-  %127 = ptrtoint ptr %.1.lcssa.i.i103 to i64
+  %.1.lcssa.i.i101 = phi ptr [ %.1.lcssa.i.i, %_ZN6Assimp8SkipLineIcEEbPPKT_S3_.exit ], [ %.promoted100, %124 ]
+  %127 = ptrtoint ptr %.1.lcssa.i.i101 to i64
   %128 = sub i64 %10, %127
-  %scevgep.i.i56 = getelementptr i8, ptr %.1.lcssa.i.i103, i64 %128
+  %scevgep.i.i56 = getelementptr i8, ptr %.1.lcssa.i.i101, i64 %128
   br label %129
 
 129:                                              ; preds = %132, %126
-  %.0.i.i57 = phi ptr [ %.1.lcssa.i.i103, %126 ], [ %133, %132 ]
+  %.0.i.i57 = phi ptr [ %.1.lcssa.i.i101, %126 ], [ %133, %132 ]
   %130 = load i8, ptr %.0.i.i57, align 1
   switch i8 %130, label %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit60 [
     i8 32, label %131
@@ -676,8 +676,8 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit60: ; preds = %129, %131
   %.0.lcssa.i.i59 = phi ptr [ %.0.i.i57, %129 ], [ %scevgep.i.i56, %131 ]
   store ptr %.0.lcssa.i.i59, ptr %1, align 8
   %134 = load i8, ptr %.0.lcssa.i.i59, align 1
-  %.not99 = icmp eq i8 %134, 0
-  br i1 %.not99, label %.loopexit, label %135
+  %.not97 = icmp eq i8 %134, 0
+  br i1 %.not97, label %.loopexit, label %135
 
 135:                                              ; preds = %_ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit60
   %136 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %.0.lcssa.i.i59, ptr noundef nonnull dereferenceable(10) @.str.3, i64 noundef 9) #30
@@ -691,7 +691,7 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit60: ; preds = %129, %131
   br label %140
 
 140:                                              ; preds = %143, %137
-  %141 = phi i8 [ %134, %137 ], [ %.pre105, %143 ]
+  %141 = phi i8 [ %134, %137 ], [ %.pre103, %143 ]
   %.0.i.i62 = phi ptr [ %.0.lcssa.i.i59, %137 ], [ %144, %143 ]
   switch i8 %141, label %142 [
     i8 13, label %.critedge.i.i63
@@ -706,7 +706,7 @@ _ZN6Assimp20SkipSpacesAndLineEndIcEEbPPKT_S3_.exit60: ; preds = %129, %131
 
 143:                                              ; preds = %142
   %144 = getelementptr inbounds nuw i8, ptr %.0.i.i62, i64 1
-  %.pre105 = load i8, ptr %144, align 1
+  %.pre103 = load i8, ptr %144, align 1
   br label %140, !llvm.loop !8
 
 .critedge.i.i63:                                  ; preds = %142, %140, %140, %140, %140

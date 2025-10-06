@@ -3932,12 +3932,12 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h0566f826a231c2a
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val1.i = load i64, ptr %3, align 8, !noalias !585
   %4 = mul i64 %.val.i, -1065810590584100411
-  %.not.i = icmp eq i64 %.val.i, 0
-  %5 = add i64 %4, %.val1.i
-  %6 = mul i64 %5, -1065810590584100411
-  %storemerge.i.i = select i1 %.not.i, i64 0, i64 %6
-  %7 = tail call noundef i64 @llvm.fshl.i64(i64 %storemerge.i.i, i64 %storemerge.i.i, i64 26)
-  ret i64 %7
+  %5 = icmp eq i64 %.val.i, 0
+  %6 = add i64 %4, %.val1.i
+  %7 = mul i64 %6, -1065810590584100411
+  %storemerge.i.i = select i1 %5, i64 0, i64 %7
+  %8 = tail call noundef i64 @llvm.fshl.i64(i64 %storemerge.i.i, i64 %storemerge.i.i, i64 26)
+  ret i64 %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
@@ -9695,13 +9695,12 @@ _ZN4core4iter6traits8iterator8Iterator12try_for_each17hbf1ab8751484f915E.exit.i:
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1966
   call void @"_ZN80_$LT$std..path..Components$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17he0ff127f8b21ed2cE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %7), !noalias !1970
   %54 = load i8, ptr %3, align 8, !range !1892, !noalias !1966, !noundef !3
-  %.not.i.i = icmp eq i8 %54, 10
+  %cond = icmp eq i8 %54, 10
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !1966
-  %. = select i1 %.not.i.i, i1 true, i1 false
   br label %_ZN4core4iter6traits8iterator12iter_compare17h7dd1a01d2e06add2E.exit
 
 _ZN4core4iter6traits8iterator12iter_compare17h7dd1a01d2e06add2E.exit: ; preds = %.loopexit.i, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbf1ab8751484f915E.exit.i
-  %55 = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbf1ab8751484f915E.exit.i ], [ %., %.loopexit.i ]
+  %55 = phi i1 [ false, %_ZN4core4iter6traits8iterator8Iterator12try_for_each17hbf1ab8751484f915E.exit.i ], [ %cond, %.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   ret i1 %55
@@ -28933,8 +28932,8 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN18ty_python_semantic5types13type_or
   %15 = icmp eq i8 %14, 1
   br i1 %15, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %16
 
-"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit": ; preds = %595, %610, %switch.lookup, %307, %306, %304, %302, %299, %310, %297, %288, %271, %298, %290, %296, %289, %281, %287, %269, %265, %292, %525, %505, %411, %317, %222, %208, %176, %166, %156, %146, %136, %126, %116, %106, %94, %80, %70, %60, %50, %40, %30, %21, %535, %251, %232, %551, %550, %548, %547, %545, %543, %537, %.sink.split.i193, %506, %.sink.split.i182, %209, %204, %203, %201, %200, %198, %196, %194, %.sink.split.i, %188, %.thread234, %533, %532, %523, %522, %316, %514, %503, %502, %500, %498, %496, %494, %492, %490, %488, %486, %484, %482, %480, %478, %476, %474, %472, %470, %468, %466, %464, %462, %460, %458, %456, %454, %452, %450, %448, %446, %444, %442, %440, %438, %436, %434, %422, %430, %431, %421, %409, %417, %418, %408, %406, %404, %402, %400, %398, %396, %394, %392, %390, %388, %386, %384, %382, %380, %378, %376, %374, %372, %370, %368, %366, %364, %362, %360, %358, %356, %354, %352, %350, %348, %346, %344, %342, %340, %338, %336, %334, %332, %330, %324, %318, %249, %248, %246, %244, %242, %240, %230, %229, %220, %219, %206, %205, %174, %186, %187, %173, %164, %163, %154, %153, %144, %143, %134, %133, %124, %123, %114, %113, %104, %103, %92, %91, %78, %77, %68, %67, %58, %57, %48, %47, %38, %37, %28, %27, %19, %18, %16, %13, %10, %4, %579, %590, %432, %419, %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit188", %314, %526, %515, %234, %223, %167, %157, %147, %137, %127, %117, %107, %95, %81, %71, %61, %51, %41, %31
-  %.sroa.0.0 = phi i8 [ %580, %579 ], [ %591, %590 ], [ %531, %526 ], [ %521, %515 ], [ %433, %432 ], [ %420, %419 ], [ %315, %314 ], [ %276, %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit188" ], [ %239, %234 ], [ %228, %223 ], [ %172, %167 ], [ %162, %157 ], [ %152, %147 ], [ %142, %137 ], [ %132, %127 ], [ %122, %117 ], [ %112, %107 ], [ %102, %95 ], [ %.sroa.0.0.i, %81 ], [ %76, %71 ], [ %66, %61 ], [ %56, %51 ], [ %46, %41 ], [ %36, %31 ], [ 0, %4 ], [ -1, %10 ], [ 1, %13 ], [ -1, %16 ], [ 1, %18 ], [ -1, %19 ], [ 1, %27 ], [ -1, %28 ], [ 1, %37 ], [ -1, %38 ], [ 1, %47 ], [ -1, %48 ], [ 1, %57 ], [ -1, %58 ], [ 1, %67 ], [ -1, %68 ], [ 1, %77 ], [ -1, %78 ], [ 1, %91 ], [ -1, %92 ], [ 1, %103 ], [ -1, %104 ], [ 1, %113 ], [ -1, %114 ], [ 1, %123 ], [ -1, %124 ], [ 1, %133 ], [ -1, %134 ], [ 1, %143 ], [ -1, %144 ], [ 1, %153 ], [ -1, %154 ], [ 1, %163 ], [ -1, %164 ], [ 1, %173 ], [ -1, %187 ], [ 1, %186 ], [ -1, %174 ], [ 1, %205 ], [ -1, %206 ], [ 1, %219 ], [ -1, %220 ], [ 1, %229 ], [ -1, %230 ], [ 1, %240 ], [ -1, %242 ], [ 1, %244 ], [ -1, %246 ], [ 1, %248 ], [ -1, %249 ], [ -1, %318 ], [ 1, %324 ], [ -1, %330 ], [ 1, %332 ], [ -1, %334 ], [ 1, %336 ], [ -1, %338 ], [ 1, %340 ], [ -1, %342 ], [ 1, %344 ], [ -1, %346 ], [ 1, %348 ], [ -1, %350 ], [ 1, %352 ], [ -1, %354 ], [ 1, %356 ], [ -1, %358 ], [ 1, %360 ], [ -1, %362 ], [ 1, %364 ], [ -1, %366 ], [ 1, %368 ], [ -1, %370 ], [ 1, %372 ], [ -1, %374 ], [ 1, %376 ], [ -1, %378 ], [ 1, %380 ], [ -1, %382 ], [ 1, %384 ], [ -1, %386 ], [ 1, %388 ], [ -1, %390 ], [ 1, %392 ], [ -1, %394 ], [ 1, %396 ], [ -1, %398 ], [ 1, %400 ], [ -1, %402 ], [ 1, %404 ], [ -1, %406 ], [ 1, %408 ], [ %.146, %418 ], [ 1, %417 ], [ -1, %409 ], [ 1, %421 ], [ %.147, %431 ], [ 1, %430 ], [ -1, %422 ], [ 1, %434 ], [ -1, %436 ], [ 1, %438 ], [ -1, %440 ], [ 1, %442 ], [ -1, %444 ], [ 1, %446 ], [ -1, %448 ], [ 1, %450 ], [ -1, %452 ], [ 1, %454 ], [ -1, %456 ], [ 1, %458 ], [ -1, %460 ], [ 1, %462 ], [ -1, %464 ], [ 1, %466 ], [ -1, %468 ], [ 1, %470 ], [ -1, %472 ], [ 1, %474 ], [ -1, %476 ], [ 1, %478 ], [ -1, %480 ], [ 1, %482 ], [ -1, %484 ], [ 1, %486 ], [ -1, %488 ], [ 1, %490 ], [ -1, %492 ], [ 1, %494 ], [ -1, %496 ], [ 1, %498 ], [ -1, %500 ], [ 1, %502 ], [ -1, %503 ], [ 1, %514 ], [ -1, %316 ], [ 1, %522 ], [ -1, %523 ], [ 1, %532 ], [ -1, %533 ], [ 1, %.thread234 ], [ %191, %188 ], [ %193, %.sink.split.i ], [ -1, %204 ], [ -1, %194 ], [ 1, %196 ], [ -1, %198 ], [ %.sroa.4.4.extract.trunc, %200 ], [ 0, %203 ], [ 1, %201 ], [ %214, %209 ], [ %218, %.sink.split.i182 ], [ %509, %506 ], [ %513, %.sink.split.i193 ], [ -1, %551 ], [ -1, %537 ], [ 1, %543 ], [ -1, %545 ], [ %541, %547 ], [ 0, %550 ], [ 1, %548 ], [ 1, %232 ], [ 1, %251 ], [ 1, %535 ], [ 1, %21 ], [ 1, %30 ], [ 1, %40 ], [ 1, %50 ], [ 1, %60 ], [ 1, %70 ], [ 1, %80 ], [ 1, %94 ], [ 1, %106 ], [ 1, %116 ], [ 1, %126 ], [ 1, %136 ], [ 1, %146 ], [ 1, %156 ], [ 1, %166 ], [ 1, %176 ], [ 1, %208 ], [ 1, %222 ], [ 1, %317 ], [ 1, %411 ], [ 1, %505 ], [ 1, %525 ], [ %274, %271 ], [ 1, %298 ], [ -1, %290 ], [ 1, %296 ], [ 1, %289 ], [ -1, %281 ], [ 1, %287 ], [ 1, %269 ], [ -1, %265 ], [ -1, %288 ], [ -1, %297 ], [ 1, %292 ], [ 1, %307 ], [ %.sroa.458.4.extract.trunc, %306 ], [ -1, %304 ], [ 1, %302 ], [ -1, %299 ], [ -1, %310 ], [ %26, %switch.lookup ], [ %613, %610 ], [ %598, %595 ]
+"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit": ; preds = %602, %617, %switch.lookup, %309, %308, %306, %304, %301, %313, %298, %289, %272, %299, %291, %297, %290, %282, %288, %270, %266, %293, %530, %414, %320, %223, %209, %176, %166, %156, %146, %136, %126, %116, %106, %94, %80, %70, %60, %50, %40, %30, %21, %540, %508, %252, %233, %557, %555, %553, %552, %550, %548, %542, %.sink.split.i190, %510, %.sink.split.i180, %210, %205, %203, %201, %200, %198, %196, %194, %.sink.split.i, %188, %.thread231, %538, %537, %528, %527, %319, %518, %506, %505, %503, %501, %499, %497, %495, %493, %491, %489, %487, %485, %483, %481, %479, %477, %475, %473, %471, %469, %467, %465, %463, %461, %459, %457, %455, %453, %451, %449, %447, %445, %443, %441, %439, %437, %425, %433, %434, %424, %412, %420, %421, %411, %409, %407, %405, %403, %401, %399, %397, %395, %393, %391, %389, %387, %385, %383, %381, %379, %377, %375, %373, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %327, %321, %250, %249, %247, %245, %243, %241, %231, %230, %221, %220, %207, %206, %174, %186, %187, %173, %164, %163, %154, %153, %144, %143, %134, %133, %124, %123, %114, %113, %104, %103, %92, %91, %78, %77, %68, %67, %58, %57, %48, %47, %38, %37, %28, %27, %19, %18, %16, %13, %10, %4, %586, %597, %435, %422, %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit186", %317, %531, %520, %235, %224, %167, %157, %147, %137, %127, %117, %107, %95, %81, %71, %61, %51, %41, %31
+  %.sroa.0.0 = phi i8 [ %587, %586 ], [ %598, %597 ], [ %536, %531 ], [ %526, %520 ], [ %436, %435 ], [ %423, %422 ], [ %318, %317 ], [ %277, %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit186" ], [ %240, %235 ], [ %229, %224 ], [ %172, %167 ], [ %162, %157 ], [ %152, %147 ], [ %142, %137 ], [ %132, %127 ], [ %122, %117 ], [ %112, %107 ], [ %102, %95 ], [ %.sroa.0.0.i, %81 ], [ %76, %71 ], [ %66, %61 ], [ %56, %51 ], [ %46, %41 ], [ %36, %31 ], [ 0, %4 ], [ -1, %10 ], [ 1, %13 ], [ -1, %16 ], [ 1, %18 ], [ -1, %19 ], [ 1, %27 ], [ -1, %28 ], [ 1, %37 ], [ -1, %38 ], [ 1, %47 ], [ -1, %48 ], [ 1, %57 ], [ -1, %58 ], [ 1, %67 ], [ -1, %68 ], [ 1, %77 ], [ -1, %78 ], [ 1, %91 ], [ -1, %92 ], [ 1, %103 ], [ -1, %104 ], [ 1, %113 ], [ -1, %114 ], [ 1, %123 ], [ -1, %124 ], [ 1, %133 ], [ -1, %134 ], [ 1, %143 ], [ -1, %144 ], [ 1, %153 ], [ -1, %154 ], [ 1, %163 ], [ -1, %164 ], [ 1, %173 ], [ -1, %187 ], [ 1, %186 ], [ -1, %174 ], [ 1, %206 ], [ -1, %207 ], [ 1, %220 ], [ -1, %221 ], [ 1, %230 ], [ -1, %231 ], [ 1, %241 ], [ -1, %243 ], [ 1, %245 ], [ -1, %247 ], [ 1, %249 ], [ -1, %250 ], [ -1, %321 ], [ 1, %327 ], [ -1, %333 ], [ 1, %335 ], [ -1, %337 ], [ 1, %339 ], [ -1, %341 ], [ 1, %343 ], [ -1, %345 ], [ 1, %347 ], [ -1, %349 ], [ 1, %351 ], [ -1, %353 ], [ 1, %355 ], [ -1, %357 ], [ 1, %359 ], [ -1, %361 ], [ 1, %363 ], [ -1, %365 ], [ 1, %367 ], [ -1, %369 ], [ 1, %371 ], [ -1, %373 ], [ 1, %375 ], [ -1, %377 ], [ 1, %379 ], [ -1, %381 ], [ 1, %383 ], [ -1, %385 ], [ 1, %387 ], [ -1, %389 ], [ 1, %391 ], [ -1, %393 ], [ 1, %395 ], [ -1, %397 ], [ 1, %399 ], [ -1, %401 ], [ 1, %403 ], [ -1, %405 ], [ 1, %407 ], [ -1, %409 ], [ 1, %411 ], [ %.146, %421 ], [ 1, %420 ], [ -1, %412 ], [ 1, %424 ], [ %.147, %434 ], [ 1, %433 ], [ -1, %425 ], [ 1, %437 ], [ -1, %439 ], [ 1, %441 ], [ -1, %443 ], [ 1, %445 ], [ -1, %447 ], [ 1, %449 ], [ -1, %451 ], [ 1, %453 ], [ -1, %455 ], [ 1, %457 ], [ -1, %459 ], [ 1, %461 ], [ -1, %463 ], [ 1, %465 ], [ -1, %467 ], [ 1, %469 ], [ -1, %471 ], [ 1, %473 ], [ -1, %475 ], [ 1, %477 ], [ -1, %479 ], [ 1, %481 ], [ -1, %483 ], [ 1, %485 ], [ -1, %487 ], [ 1, %489 ], [ -1, %491 ], [ 1, %493 ], [ -1, %495 ], [ 1, %497 ], [ -1, %499 ], [ 1, %501 ], [ -1, %503 ], [ 1, %505 ], [ -1, %506 ], [ 1, %518 ], [ -1, %319 ], [ 1, %527 ], [ -1, %528 ], [ 1, %537 ], [ -1, %538 ], [ 1, %.thread231 ], [ %191, %188 ], [ %193, %.sink.split.i ], [ -1, %205 ], [ -1, %194 ], [ 1, %196 ], [ -1, %198 ], [ %.sroa.4.4.extract.trunc, %200 ], [ 0, %203 ], [ 1, %201 ], [ %215, %210 ], [ %219, %.sink.split.i180 ], [ %513, %510 ], [ %517, %.sink.split.i190 ], [ -1, %557 ], [ -1, %542 ], [ 1, %548 ], [ -1, %550 ], [ %546, %552 ], [ 0, %555 ], [ 1, %553 ], [ 1, %233 ], [ 1, %252 ], [ 1, %508 ], [ 1, %540 ], [ 1, %21 ], [ 1, %30 ], [ 1, %40 ], [ 1, %50 ], [ 1, %60 ], [ 1, %70 ], [ 1, %80 ], [ 1, %94 ], [ 1, %106 ], [ 1, %116 ], [ 1, %126 ], [ 1, %136 ], [ 1, %146 ], [ 1, %156 ], [ 1, %166 ], [ 1, %176 ], [ 1, %209 ], [ 1, %223 ], [ 1, %320 ], [ 1, %414 ], [ 1, %530 ], [ %275, %272 ], [ 1, %299 ], [ -1, %291 ], [ 1, %297 ], [ 1, %290 ], [ -1, %282 ], [ 1, %288 ], [ 1, %270 ], [ -1, %266 ], [ -1, %289 ], [ -1, %298 ], [ 1, %293 ], [ 1, %309 ], [ %.sroa.458.4.extract.trunc, %308 ], [ -1, %306 ], [ 1, %304 ], [ -1, %301 ], [ -1, %313 ], [ %26, %switch.lookup ], [ %620, %617 ], [ %605, %602 ]
   ret i8 %.sroa.0.0
 
 16:                                               ; preds = %13
@@ -28952,8 +28951,8 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN18ty_python_semantic5types13type_or
   br i1 %20, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %27
 
 21:                                               ; preds = %18
-  %cond260 = icmp eq i8 %11, 22
-  br i1 %cond260, label %switch.lookup, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond257 = icmp eq i8 %11, 22
+  br i1 %cond257, label %switch.lookup, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 switch.lookup:                                    ; preds = %21
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -28974,8 +28973,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %29, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %37
 
 30:                                               ; preds = %27
-  %cond261 = icmp eq i8 %11, 21
-  br i1 %cond261, label %31, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond258 = icmp eq i8 %11, 21
+  br i1 %cond258, label %31, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 31:                                               ; preds = %30
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -28996,8 +28995,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %39, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %47
 
 40:                                               ; preds = %37
-  %cond262 = icmp eq i8 %11, 23
-  br i1 %cond262, label %41, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond259 = icmp eq i8 %11, 23
+  br i1 %cond259, label %41, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 41:                                               ; preds = %40
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29018,8 +29017,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %49, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %57
 
 50:                                               ; preds = %47
-  %cond263 = icmp eq i8 %11, 25
-  br i1 %cond263, label %51, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond260 = icmp eq i8 %11, 25
+  br i1 %cond260, label %51, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29040,8 +29039,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %59, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %67
 
 60:                                               ; preds = %57
-  %cond264 = icmp eq i8 %11, 2
-  br i1 %cond264, label %61, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond261 = icmp eq i8 %11, 2
+  br i1 %cond261, label %61, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 61:                                               ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29062,8 +29061,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %69, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %77
 
 70:                                               ; preds = %67
-  %cond265 = icmp eq i8 %11, 3
-  br i1 %cond265, label %71, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond262 = icmp eq i8 %11, 3
+  br i1 %cond262, label %71, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29084,23 +29083,23 @@ switch.lookup:                                    ; preds = %21
   br i1 %79, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %91
 
 80:                                               ; preds = %77
-  %cond266 = icmp eq i8 %11, 4
-  br i1 %cond266, label %81, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond263 = icmp eq i8 %11, 4
+  br i1 %cond263, label %81, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 81:                                               ; preds = %80
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %83 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %.val = load i32, ptr %82, align 4, !range !369, !noundef !3
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val152 = load i32, ptr %84, align 8
-  %.val153 = load i32, ptr %83, align 4, !range !369, !noundef !3
+  %.val150 = load i32, ptr %84, align 8
+  %.val151 = load i32, ptr %83, align 4, !range !369, !noundef !3
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.val154 = load i32, ptr %85, align 8
+  %.val152 = load i32, ptr %85, align 8
   %86 = zext nneg i32 %.val to i64
-  %87 = zext nneg i32 %.val153 to i64
+  %87 = zext nneg i32 %.val151 to i64
   %88 = tail call i8 @llvm.scmp.i8.i64(i64 %86, i64 %87)
-  %89 = icmp eq i32 %.val, %.val153
-  %90 = tail call i8 @llvm.ucmp.i8.i32(i32 %.val152, i32 %.val154)
+  %89 = icmp eq i32 %.val, %.val151
+  %90 = tail call i8 @llvm.ucmp.i8.i32(i32 %.val150, i32 %.val152)
   %.sroa.0.0.i = select i1 %89, i8 %90, i8 %88
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
@@ -29115,8 +29114,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %93, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %103
 
 94:                                               ; preds = %91
-  %cond267 = icmp eq i8 %11, 5
-  br i1 %cond267, label %95, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond264 = icmp eq i8 %11, 5
+  br i1 %cond264, label %95, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 95:                                               ; preds = %94
   %96 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -29139,8 +29138,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %105, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %113
 
 106:                                              ; preds = %103
-  %cond268 = icmp eq i8 %11, 6
-  br i1 %cond268, label %107, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond265 = icmp eq i8 %11, 6
+  br i1 %cond265, label %107, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 107:                                              ; preds = %106
   %108 = getelementptr inbounds nuw i8, ptr %2, i64 2
@@ -29161,8 +29160,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %115, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %123
 
 116:                                              ; preds = %113
-  %cond269 = icmp eq i8 %11, 7
-  br i1 %cond269, label %117, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond266 = icmp eq i8 %11, 7
+  br i1 %cond266, label %117, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 117:                                              ; preds = %116
   %118 = getelementptr inbounds nuw i8, ptr %2, i64 1
@@ -29183,8 +29182,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %125, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %133
 
 126:                                              ; preds = %123
-  %cond270 = icmp eq i8 %11, 8
-  br i1 %cond270, label %127, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond267 = icmp eq i8 %11, 8
+  br i1 %cond267, label %127, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 127:                                              ; preds = %126
   %128 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29205,8 +29204,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %135, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %143
 
 136:                                              ; preds = %133
-  %cond271 = icmp eq i8 %11, 26
-  br i1 %cond271, label %137, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond268 = icmp eq i8 %11, 26
+  br i1 %cond268, label %137, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 137:                                              ; preds = %136
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29227,8 +29226,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %145, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %153
 
 146:                                              ; preds = %143
-  %cond272 = icmp eq i8 %11, 9
-  br i1 %cond272, label %147, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond269 = icmp eq i8 %11, 9
+  br i1 %cond269, label %147, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 147:                                              ; preds = %146
   %148 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29249,8 +29248,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %155, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %163
 
 156:                                              ; preds = %153
-  %cond273 = icmp eq i8 %11, 10
-  br i1 %cond273, label %157, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond270 = icmp eq i8 %11, 10
+  br i1 %cond270, label %157, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 157:                                              ; preds = %156
   %158 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29271,8 +29270,8 @@ switch.lookup:                                    ; preds = %21
   br i1 %165, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %173
 
 166:                                              ; preds = %163
-  %cond274 = icmp eq i8 %11, 11
-  br i1 %cond274, label %167, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond271 = icmp eq i8 %11, 11
+  br i1 %cond271, label %167, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 167:                                              ; preds = %166
   %168 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29290,11 +29289,11 @@ switch.lookup:                                    ; preds = %21
 
 174:                                              ; preds = %173
   %175 = icmp eq i8 %11, 12
-  br i1 %175, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %205
+  br i1 %175, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %206
 
 176:                                              ; preds = %173
-  %cond275 = icmp eq i8 %11, 12
-  br i1 %cond275, label %177, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %cond272 = icmp eq i8 %11, 12
+  br i1 %cond272, label %177, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 177:                                              ; preds = %176
   %178 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -29352,902 +29351,902 @@ switch.lookup:                                    ; preds = %21
 
 201:                                              ; preds = %200
   %202 = icmp eq i8 %.sroa.3.4.extract.trunc, 3
-  br i1 %202, label %204, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  br i1 %202, label %205, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 203:                                              ; preds = %200
-  %switch.i = icmp eq i8 %.sroa.3.4.extract.trunc, 2
-  br i1 %switch.i, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %204
+  %204 = icmp eq i8 %.sroa.3.4.extract.trunc, 2
+  br i1 %204, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %205
 
-204:                                              ; preds = %203, %201
+205:                                              ; preds = %203, %201
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-205:                                              ; preds = %174
-  switch i8 %14, label %206 [
+206:                                              ; preds = %174
+  switch i8 %14, label %207 [
     i8 12, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i8 13, label %208
+    i8 13, label %209
   ]
 
-206:                                              ; preds = %205
-  %207 = icmp eq i8 %11, 13
-  br i1 %207, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %219
+207:                                              ; preds = %206
+  %208 = icmp eq i8 %11, 13
+  br i1 %208, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %220
 
-208:                                              ; preds = %205
-  %cond276 = icmp eq i8 %11, 13
-  br i1 %cond276, label %209, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+209:                                              ; preds = %206
+  %cond273 = icmp eq i8 %11, 13
+  br i1 %cond273, label %210, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-209:                                              ; preds = %208
-  %210 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %211 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.val159 = load i32, ptr %210, align 4, !range !393, !noundef !3
-  %.val161 = load i32, ptr %211, align 4, !range !393, !noundef !3
-  %212 = trunc nuw nsw i32 %.val159 to i8
-  %213 = trunc nuw nsw i32 %.val161 to i8
-  %214 = sub nsw i8 %212, %213
-  %215 = icmp eq i8 %214, 0
-  br i1 %215, label %.sink.split.i182, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+210:                                              ; preds = %209
+  %211 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %212 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.val157 = load i32, ptr %211, align 4, !range !393, !noundef !3
+  %.val159 = load i32, ptr %212, align 4, !range !393, !noundef !3
+  %213 = trunc nuw nsw i32 %.val157 to i8
+  %214 = trunc nuw nsw i32 %.val159 to i8
+  %215 = sub nsw i8 %213, %214
+  %216 = icmp eq i8 %215, 0
+  br i1 %216, label %.sink.split.i180, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-.sink.split.i182:                                 ; preds = %209
-  %216 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.val162 = load i32, ptr %216, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %2, i64 8
+.sink.split.i180:                                 ; preds = %210
+  %217 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.val160 = load i32, ptr %217, align 8
-  %218 = tail call i8 @llvm.ucmp.i8.i32(i32 %.val160, i32 %.val162)
+  %218 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val158 = load i32, ptr %218, align 8
+  %219 = tail call i8 @llvm.ucmp.i8.i32(i32 %.val158, i32 %.val160)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-219:                                              ; preds = %206
-  switch i8 %14, label %220 [
+220:                                              ; preds = %207
+  switch i8 %14, label %221 [
     i8 13, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i8 14, label %222
+    i8 14, label %223
   ]
 
-220:                                              ; preds = %219
-  %221 = icmp eq i8 %11, 14
-  br i1 %221, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %229
+221:                                              ; preds = %220
+  %222 = icmp eq i8 %11, 14
+  br i1 %222, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %230
 
-222:                                              ; preds = %219
-  %cond277 = icmp eq i8 %11, 14
-  br i1 %cond277, label %223, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+223:                                              ; preds = %220
+  %cond274 = icmp eq i8 %11, 14
+  br i1 %cond274, label %224, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-223:                                              ; preds = %222
-  %224 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %225 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %.val167 = load i32, ptr %224, align 4, !range !5233, !noundef !3
-  %226 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val168 = load i32, ptr %226, align 8
-  %.val169 = load i32, ptr %225, align 4, !range !5233, !noundef !3
-  %227 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.val170 = load i32, ptr %227, align 8
-  %228 = tail call fastcc noundef i8 @"_ZN80_$LT$ty_python_semantic..types..instance..Protocol$u20$as$u20$core..cmp..Ord$GT$3cmp17h9286eb79c2e291a3E"(i32 %.val167, i32 %.val168, i32 %.val169, i32 %.val170)
+224:                                              ; preds = %223
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %226 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %.val165 = load i32, ptr %225, align 4, !range !5233, !noundef !3
+  %227 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val166 = load i32, ptr %227, align 8
+  %.val167 = load i32, ptr %226, align 4, !range !5233, !noundef !3
+  %228 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.val168 = load i32, ptr %228, align 8
+  %229 = tail call fastcc noundef i8 @"_ZN80_$LT$ty_python_semantic..types..instance..Protocol$u20$as$u20$core..cmp..Ord$GT$3cmp17h9286eb79c2e291a3E"(i32 %.val165, i32 %.val166, i32 %.val167, i32 %.val168)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-229:                                              ; preds = %220
-  switch i8 %14, label %230 [
+230:                                              ; preds = %221
+  switch i8 %14, label %231 [
     i8 14, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i8 27, label %232
+    i8 27, label %233
   ]
 
-230:                                              ; preds = %229
-  %231 = icmp eq i8 %11, 27
-  br i1 %231, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %240
+231:                                              ; preds = %230
+  %232 = icmp eq i8 %11, 27
+  br i1 %232, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %241
 
-232:                                              ; preds = %229
-  %233 = icmp eq i8 %11, 27
-  br i1 %233, label %234, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+233:                                              ; preds = %230
+  %234 = icmp eq i8 %11, 27
+  br i1 %234, label %235, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-234:                                              ; preds = %232
-  %235 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %236 = load i32, ptr %235, align 4, !range !473, !noundef !3
-  %237 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %238 = load i32, ptr %237, align 4, !range !473, !noundef !3
-  %239 = tail call i8 @llvm.ucmp.i8.i32(i32 %236, i32 %238)
+235:                                              ; preds = %233
+  %236 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %237 = load i32, ptr %236, align 4, !range !473, !noundef !3
+  %238 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %239 = load i32, ptr %238, align 4, !range !473, !noundef !3
+  %240 = tail call i8 @llvm.ucmp.i8.i32(i32 %237, i32 %239)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-240:                                              ; preds = %230
-  %241 = icmp eq i8 %14, 27
-  br i1 %241, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %242
+241:                                              ; preds = %231
+  %242 = icmp eq i8 %14, 27
+  br i1 %242, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %243
 
-242:                                              ; preds = %240
-  %243 = icmp eq i8 %11, 19
-  br i1 %243, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %244
+243:                                              ; preds = %241
+  %244 = icmp eq i8 %11, 19
+  br i1 %244, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %245
 
-244:                                              ; preds = %242
-  %245 = icmp eq i8 %14, 19
-  br i1 %245, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %246
+245:                                              ; preds = %243
+  %246 = icmp eq i8 %14, 19
+  br i1 %246, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %247
 
-246:                                              ; preds = %244
-  %247 = icmp eq i8 %11, 20
-  br i1 %247, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %248
+247:                                              ; preds = %245
+  %248 = icmp eq i8 %11, 20
+  br i1 %248, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %249
 
-248:                                              ; preds = %246
-  switch i8 %14, label %249 [
+249:                                              ; preds = %247
+  switch i8 %14, label %250 [
     i8 20, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i8 28, label %251
+    i8 28, label %252
   ]
 
-249:                                              ; preds = %248
-  %250 = icmp eq i8 %11, 28
-  br i1 %250, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %.thread226
+250:                                              ; preds = %249
+  %251 = icmp eq i8 %11, 28
+  br i1 %251, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %.thread222
 
-251:                                              ; preds = %248
-  %252 = icmp eq i8 %11, 28
-  br i1 %252, label %253, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+252:                                              ; preds = %249
+  %253 = icmp eq i8 %11, 28
+  br i1 %253, label %254, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-253:                                              ; preds = %251
-  %254 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %255 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %256 = load i32, ptr %254, align 4, !range !473, !noundef !3
-  %257 = tail call i64 @"_ZN18ty_python_semantic5types1_59_$LT$impl$u20$ty_python_semantic..types..BoundSuperType$GT$11pivot_class17h7dc48f9ca692211bE"(i32 noundef %256, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
-  %.sroa.083.0.extract.trunc = trunc i64 %257 to i32
-  %.sroa.484.0.extract.shift = lshr i64 %257, 32
+254:                                              ; preds = %252
+  %255 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %256 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %257 = load i32, ptr %255, align 4, !range !473, !noundef !3
+  %258 = tail call i64 @"_ZN18ty_python_semantic5types1_59_$LT$impl$u20$ty_python_semantic..types..BoundSuperType$GT$11pivot_class17h7dc48f9ca692211bE"(i32 noundef %257, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
+  %.sroa.083.0.extract.trunc = trunc i64 %258 to i32
+  %.sroa.484.0.extract.shift = lshr i64 %258, 32
   %.sroa.484.0.extract.trunc = trunc nuw i64 %.sroa.484.0.extract.shift to i32
-  %258 = load i32, ptr %255, align 4, !range !473, !noundef !3
-  %259 = tail call i64 @"_ZN18ty_python_semantic5types1_59_$LT$impl$u20$ty_python_semantic..types..BoundSuperType$GT$11pivot_class17h7dc48f9ca692211bE"(i32 noundef %258, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
-  %.sroa.085.0.extract.trunc = trunc i64 %259 to i32
-  %.sroa.486.0.extract.shift = lshr i64 %259, 32
+  %259 = load i32, ptr %256, align 4, !range !473, !noundef !3
+  %260 = tail call i64 @"_ZN18ty_python_semantic5types1_59_$LT$impl$u20$ty_python_semantic..types..BoundSuperType$GT$11pivot_class17h7dc48f9ca692211bE"(i32 noundef %259, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
+  %.sroa.085.0.extract.trunc = trunc i64 %260 to i32
+  %.sroa.486.0.extract.shift = lshr i64 %260, 32
   %.sroa.486.0.extract.trunc = trunc nuw i64 %.sroa.486.0.extract.shift to i32
-  %260 = add i32 %.sroa.083.0.extract.trunc, -2
-  %261 = icmp ugt i32 %260, 3
-  %262 = icmp eq i32 %260, 1
-  %263 = or i1 %261, %262
-  %264 = add i32 %.sroa.085.0.extract.trunc, -2
-  br i1 %263, label %265, label %269
+  %261 = add i32 %.sroa.083.0.extract.trunc, -2
+  %262 = icmp ugt i32 %261, 3
+  %263 = icmp eq i32 %261, 1
+  %264 = or i1 %262, %263
+  %265 = add i32 %.sroa.085.0.extract.trunc, -2
+  br i1 %264, label %266, label %270
 
-265:                                              ; preds = %253
-  %266 = icmp ugt i32 %264, 3
-  %267 = icmp eq i32 %264, 1
-  %268 = or i1 %266, %267
-  br i1 %268, label %271, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+266:                                              ; preds = %254
+  %267 = icmp ugt i32 %265, 3
+  %268 = icmp eq i32 %265, 1
+  %269 = or i1 %267, %268
+  br i1 %269, label %272, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-269:                                              ; preds = %253
-  %270 = icmp ult i32 %264, 4
-  %narrow124 = select i1 %270, i32 %264, i32 1
-  switch i32 %narrow124, label %281 [
+270:                                              ; preds = %254
+  %271 = icmp ult i32 %265, 4
+  %narrow124 = select i1 %271, i32 %265, i32 1
+  switch i32 %narrow124, label %282 [
     i32 1, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i32 2, label %283
+    i32 2, label %284
   ]
 
-271:                                              ; preds = %265
-  %272 = trunc i64 %257 to i8
-  %273 = trunc i64 %259 to i8
-  %274 = sub i8 %272, %273
-  %275 = icmp eq i8 %274, 0
-  br i1 %275, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit188", label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+272:                                              ; preds = %266
+  %273 = trunc i64 %258 to i8
+  %274 = trunc i64 %260 to i8
+  %275 = sub i8 %273, %274
+  %276 = icmp eq i8 %275, 0
+  br i1 %276, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit186", label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit188": ; preds = %271, %296, %287
-  %276 = tail call i8 @llvm.ucmp.i8.i32(i32 %.sroa.484.0.extract.trunc, i32 %.sroa.486.0.extract.trunc)
-  store ptr %254, ptr %8, align 8
-  %277 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %0, ptr %277, align 8
-  %278 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %1, ptr %278, align 8
-  %279 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %255, ptr %279, align 8
-  %280 = icmp eq i64 %.sroa.484.0.extract.shift, %.sroa.486.0.extract.shift
-  br i1 %280, label %314, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit186": ; preds = %272, %297, %288
+  %277 = tail call i8 @llvm.ucmp.i8.i32(i32 %.sroa.484.0.extract.trunc, i32 %.sroa.486.0.extract.trunc)
+  store ptr %255, ptr %8, align 8
+  %278 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %0, ptr %278, align 8
+  %279 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %1, ptr %279, align 8
+  %280 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %256, ptr %280, align 8
+  %281 = icmp eq i64 %.sroa.484.0.extract.shift, %.sroa.486.0.extract.shift
+  br i1 %281, label %317, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-281:                                              ; preds = %269
-  %282 = icmp eq i32 %260, 2
-  br i1 %282, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %289
+282:                                              ; preds = %270
+  %283 = icmp eq i32 %261, 2
+  br i1 %283, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %290
 
-283:                                              ; preds = %269
-  %cond = icmp eq i32 %260, 2
-  br i1 %cond, label %284, label %289
+284:                                              ; preds = %270
+  %cond = icmp eq i32 %261, 2
+  br i1 %cond, label %285, label %290
 
-284:                                              ; preds = %283
-  %285 = icmp ugt i64 %257, 4294967295
-  %286 = icmp ugt i64 %259, 4294967295
-  br i1 %285, label %287, label %288
+285:                                              ; preds = %284
+  %286 = icmp ugt i64 %258, 4294967295
+  %287 = icmp ugt i64 %260, 4294967295
+  br i1 %286, label %288, label %289
 
-287:                                              ; preds = %284
-  br i1 %286, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit188", label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+288:                                              ; preds = %285
+  br i1 %287, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit186", label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-288:                                              ; preds = %284
-  br i1 %286, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %.sink.split
+289:                                              ; preds = %285
+  br i1 %287, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %.sink.split
 
-289:                                              ; preds = %283, %281
-  switch i32 %.sroa.085.0.extract.trunc, label %290 [
+290:                                              ; preds = %284, %282
+  switch i32 %.sroa.085.0.extract.trunc, label %291 [
     i32 4, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i32 5, label %292
+    i32 5, label %293
   ]
 
-290:                                              ; preds = %289
-  %291 = icmp eq i32 %260, 3
-  br i1 %291, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %298
+291:                                              ; preds = %290
+  %292 = icmp eq i32 %261, 3
+  br i1 %292, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %299
 
-292:                                              ; preds = %289
-  %cond12 = icmp eq i32 %260, 3
-  br i1 %cond12, label %293, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+293:                                              ; preds = %290
+  %cond12 = icmp eq i32 %261, 3
+  br i1 %cond12, label %294, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-293:                                              ; preds = %292
-  %294 = icmp ugt i64 %257, 4294967295
-  %295 = icmp ugt i64 %259, 4294967295
-  br i1 %294, label %296, label %297
+294:                                              ; preds = %293
+  %295 = icmp ugt i64 %258, 4294967295
+  %296 = icmp ugt i64 %260, 4294967295
+  br i1 %295, label %297, label %298
 
-296:                                              ; preds = %293
-  br i1 %295, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit188", label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+297:                                              ; preds = %294
+  br i1 %296, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit186", label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-297:                                              ; preds = %293
-  br i1 %295, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %.sink.split
+298:                                              ; preds = %294
+  br i1 %296, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %.sink.split
 
-298:                                              ; preds = %290
-  %switch = icmp eq i32 %264, 0
-  br i1 %switch, label %299, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+299:                                              ; preds = %291
+  %300 = icmp eq i32 %.sroa.085.0.extract.trunc, 2
+  br i1 %300, label %301, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-299:                                              ; preds = %298
-  %300 = icmp eq i32 %260, 0
-  tail call void @llvm.assume(i1 %300)
+301:                                              ; preds = %299
+  %302 = icmp eq i32 %261, 0
+  tail call void @llvm.assume(i1 %302)
   %.sroa.351.4.extract.trunc = trunc i64 %.sroa.484.0.extract.shift to i8
   %.sroa.458.4.extract.trunc = trunc i64 %.sroa.486.0.extract.shift to i8
-  %301 = icmp eq i8 %.sroa.351.4.extract.trunc, 0
-  br i1 %301, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %302
-
-302:                                              ; preds = %299
-  %303 = icmp eq i8 %.sroa.458.4.extract.trunc, 0
+  %303 = icmp eq i8 %.sroa.351.4.extract.trunc, 0
   br i1 %303, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %304
 
-304:                                              ; preds = %302
-  %305 = icmp eq i8 %.sroa.351.4.extract.trunc, 1
+304:                                              ; preds = %301
+  %305 = icmp eq i8 %.sroa.458.4.extract.trunc, 0
   br i1 %305, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %306
 
 306:                                              ; preds = %304
-  switch i8 %.sroa.458.4.extract.trunc, label %307 [
+  %307 = icmp eq i8 %.sroa.351.4.extract.trunc, 1
+  br i1 %307, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %308
+
+308:                                              ; preds = %306
+  switch i8 %.sroa.458.4.extract.trunc, label %309 [
     i8 1, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i8 2, label %309
+    i8 2, label %311
   ]
 
-307:                                              ; preds = %306
-  %308 = icmp eq i8 %.sroa.351.4.extract.trunc, 3
-  br i1 %308, label %310, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+309:                                              ; preds = %308
+  %310 = icmp eq i8 %.sroa.351.4.extract.trunc, 3
+  br i1 %310, label %313, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-309:                                              ; preds = %306
-  %switch.i189 = icmp eq i8 %.sroa.351.4.extract.trunc, 2
-  br i1 %switch.i189, label %.sink.split, label %310
+311:                                              ; preds = %308
+  %312 = icmp eq i8 %.sroa.351.4.extract.trunc, 2
+  br i1 %312, label %.sink.split, label %313
 
-310:                                              ; preds = %309, %307
+313:                                              ; preds = %311, %309
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-.sink.split:                                      ; preds = %309, %297, %288
-  store ptr %254, ptr %8, align 8
-  %311 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store ptr %0, ptr %311, align 8
-  %312 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %1, ptr %312, align 8
-  %313 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %255, ptr %313, align 8
-  br label %314
+.sink.split:                                      ; preds = %311, %298, %289
+  store ptr %255, ptr %8, align 8
+  %314 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store ptr %0, ptr %314, align 8
+  %315 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %1, ptr %315, align 8
+  %316 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %256, ptr %316, align 8
+  br label %317
 
-314:                                              ; preds = %.sink.split, %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit188"
-  %315 = call fastcc noundef i8 @"_ZN18ty_python_semantic5types13type_ordering39union_or_intersection_elements_ordering28_$u7b$$u7b$closure$u7d$$u7d$17hcd269ddf1c2a7d8aE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8)
+317:                                              ; preds = %.sink.split, %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit186"
+  %318 = call fastcc noundef i8 @"_ZN18ty_python_semantic5types13type_ordering39union_or_intersection_elements_ordering28_$u7b$$u7b$closure$u7d$$u7d$17hcd269ddf1c2a7d8aE"(ptr noalias noundef align 8 captures(none) dereferenceable(32) %8)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-.thread226:                                       ; preds = %249
-  %cond259 = icmp eq i8 %14, 15
-  %cond278 = icmp eq i8 %11, 15
-  br i1 %cond259, label %317, label %316
+.thread222:                                       ; preds = %250
+  %cond256 = icmp eq i8 %14, 15
+  %cond275 = icmp eq i8 %11, 15
+  br i1 %cond256, label %320, label %319
 
-316:                                              ; preds = %.thread226
-  br i1 %cond278, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %522
+319:                                              ; preds = %.thread222
+  br i1 %cond275, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %527
 
-317:                                              ; preds = %.thread226
-  br i1 %cond278, label %318, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+320:                                              ; preds = %.thread222
+  br i1 %cond275, label %321, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-318:                                              ; preds = %317
-  %319 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %320 = load i32, ptr %319, align 4, !range !5234, !noundef !3
-  %321 = add nsw i32 %320, -2
-  %322 = icmp ult i32 %321, 42
-  %narrow126 = select i1 %322, i32 %321, i32 21
-  %323 = icmp eq i32 %narrow126, 7
-  br i1 %323, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %324
+321:                                              ; preds = %320
+  %322 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %323 = load i32, ptr %322, align 4, !range !5234, !noundef !3
+  %324 = add nsw i32 %323, -2
+  %325 = icmp ult i32 %324, 42
+  %narrow126 = select i1 %325, i32 %324, i32 21
+  %326 = icmp eq i32 %narrow126, 7
+  br i1 %326, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %327
 
-324:                                              ; preds = %318
-  %325 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %326 = load i32, ptr %325, align 4, !range !5234, !noundef !3
-  %327 = add nsw i32 %326, -2
-  %328 = icmp ult i32 %327, 42
-  %narrow127 = select i1 %328, i32 %327, i32 21
-  %329 = icmp eq i32 %narrow127, 7
-  br i1 %329, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %330
+327:                                              ; preds = %321
+  %328 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %329 = load i32, ptr %328, align 4, !range !5234, !noundef !3
+  %330 = add nsw i32 %329, -2
+  %331 = icmp ult i32 %330, 42
+  %narrow127 = select i1 %331, i32 %330, i32 21
+  %332 = icmp eq i32 %narrow127, 7
+  br i1 %332, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %333
 
-330:                                              ; preds = %324
-  %331 = icmp eq i32 %narrow126, 24
-  br i1 %331, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %332
+333:                                              ; preds = %327
+  %334 = icmp eq i32 %narrow126, 24
+  br i1 %334, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %335
 
-332:                                              ; preds = %330
-  %333 = icmp eq i32 %narrow127, 24
-  br i1 %333, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %334
+335:                                              ; preds = %333
+  %336 = icmp eq i32 %narrow127, 24
+  br i1 %336, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %337
 
-334:                                              ; preds = %332
-  %335 = icmp eq i32 %narrow126, 23
-  br i1 %335, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %336
+337:                                              ; preds = %335
+  %338 = icmp eq i32 %narrow126, 23
+  br i1 %338, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %339
 
-336:                                              ; preds = %334
-  %337 = icmp eq i32 %narrow127, 23
-  br i1 %337, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %338
+339:                                              ; preds = %337
+  %340 = icmp eq i32 %narrow127, 23
+  br i1 %340, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %341
 
-338:                                              ; preds = %336
-  %339 = icmp eq i32 %narrow126, 0
-  br i1 %339, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %340
+341:                                              ; preds = %339
+  %342 = icmp eq i32 %narrow126, 0
+  br i1 %342, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %343
 
-340:                                              ; preds = %338
-  %341 = icmp eq i32 %narrow127, 0
-  br i1 %341, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %342
+343:                                              ; preds = %341
+  %344 = icmp eq i32 %narrow127, 0
+  br i1 %344, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %345
 
-342:                                              ; preds = %340
-  %343 = icmp eq i32 %narrow126, 29
-  br i1 %343, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %344
+345:                                              ; preds = %343
+  %346 = icmp eq i32 %narrow126, 29
+  br i1 %346, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %347
 
-344:                                              ; preds = %342
-  %345 = icmp eq i32 %narrow127, 29
-  br i1 %345, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %346
+347:                                              ; preds = %345
+  %348 = icmp eq i32 %narrow127, 29
+  br i1 %348, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %349
 
-346:                                              ; preds = %344
-  %347 = icmp eq i32 %narrow126, 12
-  br i1 %347, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %348
+349:                                              ; preds = %347
+  %350 = icmp eq i32 %narrow126, 12
+  br i1 %350, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %351
 
-348:                                              ; preds = %346
-  %349 = icmp eq i32 %narrow127, 12
-  br i1 %349, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %350
+351:                                              ; preds = %349
+  %352 = icmp eq i32 %narrow127, 12
+  br i1 %352, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %353
 
-350:                                              ; preds = %348
-  %351 = icmp eq i32 %narrow126, 32
-  br i1 %351, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %352
+353:                                              ; preds = %351
+  %354 = icmp eq i32 %narrow126, 32
+  br i1 %354, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %355
 
-352:                                              ; preds = %350
-  %353 = icmp eq i32 %narrow127, 32
-  br i1 %353, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %354
+355:                                              ; preds = %353
+  %356 = icmp eq i32 %narrow127, 32
+  br i1 %356, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %357
 
-354:                                              ; preds = %352
-  %355 = icmp eq i32 %narrow126, 33
-  br i1 %355, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %356
+357:                                              ; preds = %355
+  %358 = icmp eq i32 %narrow126, 33
+  br i1 %358, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %359
 
-356:                                              ; preds = %354
-  %357 = icmp eq i32 %narrow127, 33
-  br i1 %357, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %358
+359:                                              ; preds = %357
+  %360 = icmp eq i32 %narrow127, 33
+  br i1 %360, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %361
 
-358:                                              ; preds = %356
-  %359 = icmp eq i32 %narrow126, 13
-  br i1 %359, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %360
+361:                                              ; preds = %359
+  %362 = icmp eq i32 %narrow126, 13
+  br i1 %362, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %363
 
-360:                                              ; preds = %358
-  %361 = icmp eq i32 %narrow127, 13
-  br i1 %361, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %362
+363:                                              ; preds = %361
+  %364 = icmp eq i32 %narrow127, 13
+  br i1 %364, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %365
 
-362:                                              ; preds = %360
-  %363 = icmp eq i32 %narrow126, 14
-  br i1 %363, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %364
+365:                                              ; preds = %363
+  %366 = icmp eq i32 %narrow126, 14
+  br i1 %366, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %367
 
-364:                                              ; preds = %362
-  %365 = icmp eq i32 %narrow127, 14
-  br i1 %365, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %366
+367:                                              ; preds = %365
+  %368 = icmp eq i32 %narrow127, 14
+  br i1 %368, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %369
 
-366:                                              ; preds = %364
-  %367 = icmp eq i32 %narrow126, 15
-  br i1 %367, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %368
+369:                                              ; preds = %367
+  %370 = icmp eq i32 %narrow126, 15
+  br i1 %370, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %371
 
-368:                                              ; preds = %366
-  %369 = icmp eq i32 %narrow127, 15
-  br i1 %369, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %370
+371:                                              ; preds = %369
+  %372 = icmp eq i32 %narrow127, 15
+  br i1 %372, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %373
 
-370:                                              ; preds = %368
-  %371 = icmp eq i32 %narrow126, 9
-  br i1 %371, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %372
+373:                                              ; preds = %371
+  %374 = icmp eq i32 %narrow126, 9
+  br i1 %374, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %375
 
-372:                                              ; preds = %370
-  %373 = icmp eq i32 %narrow127, 9
-  br i1 %373, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %374
+375:                                              ; preds = %373
+  %376 = icmp eq i32 %narrow127, 9
+  br i1 %376, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %377
 
-374:                                              ; preds = %372
-  %375 = icmp eq i32 %narrow126, 31
-  br i1 %375, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %376
+377:                                              ; preds = %375
+  %378 = icmp eq i32 %narrow126, 31
+  br i1 %378, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %379
 
-376:                                              ; preds = %374
-  %377 = icmp eq i32 %narrow127, 31
-  br i1 %377, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %378
+379:                                              ; preds = %377
+  %380 = icmp eq i32 %narrow127, 31
+  br i1 %380, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %381
 
-378:                                              ; preds = %376
-  %379 = icmp eq i32 %narrow126, 11
-  br i1 %379, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %380
+381:                                              ; preds = %379
+  %382 = icmp eq i32 %narrow126, 11
+  br i1 %382, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %383
 
-380:                                              ; preds = %378
-  %381 = icmp eq i32 %narrow127, 11
-  br i1 %381, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %382
+383:                                              ; preds = %381
+  %384 = icmp eq i32 %narrow127, 11
+  br i1 %384, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %385
 
-382:                                              ; preds = %380
-  %383 = icmp eq i32 %narrow126, 38
-  br i1 %383, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %384
+385:                                              ; preds = %383
+  %386 = icmp eq i32 %narrow126, 38
+  br i1 %386, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %387
 
-384:                                              ; preds = %382
-  %385 = icmp eq i32 %narrow127, 38
-  br i1 %385, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %386
+387:                                              ; preds = %385
+  %388 = icmp eq i32 %narrow127, 38
+  br i1 %388, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %389
 
-386:                                              ; preds = %384
-  %387 = icmp eq i32 %narrow126, 39
-  br i1 %387, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %388
+389:                                              ; preds = %387
+  %390 = icmp eq i32 %narrow126, 39
+  br i1 %390, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %391
 
-388:                                              ; preds = %386
-  %389 = icmp eq i32 %narrow127, 39
-  br i1 %389, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %390
+391:                                              ; preds = %389
+  %392 = icmp eq i32 %narrow127, 39
+  br i1 %392, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %393
 
-390:                                              ; preds = %388
-  %391 = icmp eq i32 %narrow126, 8
-  br i1 %391, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %392
+393:                                              ; preds = %391
+  %394 = icmp eq i32 %narrow126, 8
+  br i1 %394, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %395
 
-392:                                              ; preds = %390
-  %393 = icmp eq i32 %narrow127, 8
-  br i1 %393, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %394
+395:                                              ; preds = %393
+  %396 = icmp eq i32 %narrow127, 8
+  br i1 %396, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %397
 
-394:                                              ; preds = %392
-  %395 = icmp eq i32 %narrow126, 1
-  br i1 %395, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %396
+397:                                              ; preds = %395
+  %398 = icmp eq i32 %narrow126, 1
+  br i1 %398, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %399
 
-396:                                              ; preds = %394
-  %397 = icmp eq i32 %narrow127, 1
-  br i1 %397, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %398
+399:                                              ; preds = %397
+  %400 = icmp eq i32 %narrow127, 1
+  br i1 %400, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %401
 
-398:                                              ; preds = %396
-  %399 = icmp eq i32 %narrow126, 2
-  br i1 %399, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %400
+401:                                              ; preds = %399
+  %402 = icmp eq i32 %narrow126, 2
+  br i1 %402, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %403
 
-400:                                              ; preds = %398
-  %401 = icmp eq i32 %narrow127, 2
-  br i1 %401, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %402
+403:                                              ; preds = %401
+  %404 = icmp eq i32 %narrow127, 2
+  br i1 %404, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %405
 
-402:                                              ; preds = %400
-  %403 = icmp eq i32 %narrow126, 3
-  br i1 %403, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %404
+405:                                              ; preds = %403
+  %406 = icmp eq i32 %narrow126, 3
+  br i1 %406, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %407
 
-404:                                              ; preds = %402
-  %405 = icmp eq i32 %narrow127, 3
-  br i1 %405, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %406
+407:                                              ; preds = %405
+  %408 = icmp eq i32 %narrow127, 3
+  br i1 %408, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %409
 
-406:                                              ; preds = %404
-  %407 = icmp eq i32 %narrow126, 16
-  br i1 %407, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %408
+409:                                              ; preds = %407
+  %410 = icmp eq i32 %narrow126, 16
+  br i1 %410, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %411
 
-408:                                              ; preds = %406
-  switch i32 %326, label %409 [
+411:                                              ; preds = %409
+  switch i32 %329, label %412 [
     i32 18, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i32 20, label %411
+    i32 20, label %414
   ]
-
-409:                                              ; preds = %408
-  %410 = icmp eq i32 %narrow126, 18
-  br i1 %410, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %421
-
-411:                                              ; preds = %408
-  %cond279 = icmp eq i32 %narrow126, 18
-  br i1 %cond279, label %412, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 412:                                              ; preds = %411
-  %413 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %414 = load i32, ptr %413, align 8, !noundef !3
-  %.not = icmp eq i32 %414, 0
-  %415 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %416 = load i32, ptr %415, align 8, !noundef !3
-  br i1 %.not, label %418, label %417
+  %413 = icmp eq i32 %narrow126, 18
+  br i1 %413, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %424
 
-417:                                              ; preds = %412
-  %.not129 = icmp eq i32 %416, 0
-  br i1 %.not129, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %419
+414:                                              ; preds = %411
+  %cond276 = icmp eq i32 %narrow126, 18
+  br i1 %cond276, label %415, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-418:                                              ; preds = %412
-  %.not128 = icmp ne i32 %416, 0
+415:                                              ; preds = %414
+  %416 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %417 = load i32, ptr %416, align 8, !noundef !3
+  %.not = icmp eq i32 %417, 0
+  %418 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %419 = load i32, ptr %418, align 8, !noundef !3
+  br i1 %.not, label %421, label %420
+
+420:                                              ; preds = %415
+  %.not129 = icmp eq i32 %419, 0
+  br i1 %.not129, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %422
+
+421:                                              ; preds = %415
+  %.not128 = icmp ne i32 %419, 0
   %.146 = sext i1 %.not128 to i8
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-419:                                              ; preds = %417
-  %420 = tail call i8 @llvm.ucmp.i8.i32(i32 %414, i32 %416)
+422:                                              ; preds = %420
+  %423 = tail call i8 @llvm.ucmp.i8.i32(i32 %417, i32 %419)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-421:                                              ; preds = %409
-  switch i32 %326, label %422 [
-    i32 19, label %424
+424:                                              ; preds = %412
+  switch i32 %329, label %425 [
+    i32 19, label %427
     i32 20, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
   ]
 
-422:                                              ; preds = %421
-  %423 = icmp eq i32 %narrow126, 17
-  br i1 %423, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %434
-
-424:                                              ; preds = %421
-  %cond280 = icmp eq i32 %narrow126, 17
-  br i1 %cond280, label %425, label %434
-
 425:                                              ; preds = %424
-  %426 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %427 = load i32, ptr %426, align 8, !noundef !3
-  %.not132 = icmp eq i32 %427, 0
-  %428 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %429 = load i32, ptr %428, align 8, !noundef !3
-  br i1 %.not132, label %431, label %430
+  %426 = icmp eq i32 %narrow126, 17
+  br i1 %426, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %437
 
-430:                                              ; preds = %425
-  %.not134 = icmp eq i32 %429, 0
-  br i1 %.not134, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %432
+427:                                              ; preds = %424
+  %cond277 = icmp eq i32 %narrow126, 17
+  br i1 %cond277, label %428, label %437
 
-431:                                              ; preds = %425
-  %.not133 = icmp ne i32 %429, 0
+428:                                              ; preds = %427
+  %429 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %430 = load i32, ptr %429, align 8, !noundef !3
+  %.not132 = icmp eq i32 %430, 0
+  %431 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %432 = load i32, ptr %431, align 8, !noundef !3
+  br i1 %.not132, label %434, label %433
+
+433:                                              ; preds = %428
+  %.not134 = icmp eq i32 %432, 0
+  br i1 %.not134, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %435
+
+434:                                              ; preds = %428
+  %.not133 = icmp ne i32 %432, 0
   %.147 = sext i1 %.not133 to i8
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-432:                                              ; preds = %430
-  %433 = tail call i8 @llvm.ucmp.i8.i32(i32 %427, i32 %429)
+435:                                              ; preds = %433
+  %436 = tail call i8 @llvm.ucmp.i8.i32(i32 %430, i32 %432)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-434:                                              ; preds = %424, %422
-  %435 = icmp eq i32 %narrow127, 17
-  br i1 %435, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %436
+437:                                              ; preds = %427, %425
+  %438 = icmp eq i32 %narrow127, 17
+  br i1 %438, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %439
 
-436:                                              ; preds = %434
-  %437 = icmp eq i32 %narrow126, 5
-  br i1 %437, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %438
+439:                                              ; preds = %437
+  %440 = icmp eq i32 %narrow126, 5
+  br i1 %440, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %441
 
-438:                                              ; preds = %436
-  %439 = icmp eq i32 %narrow127, 5
-  br i1 %439, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %440
+441:                                              ; preds = %439
+  %442 = icmp eq i32 %narrow127, 5
+  br i1 %442, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %443
 
-440:                                              ; preds = %438
-  %441 = icmp eq i32 %narrow126, 6
-  br i1 %441, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %442
+443:                                              ; preds = %441
+  %444 = icmp eq i32 %narrow126, 6
+  br i1 %444, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %445
 
-442:                                              ; preds = %440
-  %443 = icmp eq i32 %narrow127, 6
-  br i1 %443, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %444
+445:                                              ; preds = %443
+  %446 = icmp eq i32 %narrow127, 6
+  br i1 %446, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %447
 
-444:                                              ; preds = %442
-  %445 = icmp eq i32 %narrow126, 10
-  br i1 %445, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %446
+447:                                              ; preds = %445
+  %448 = icmp eq i32 %narrow126, 10
+  br i1 %448, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %449
 
-446:                                              ; preds = %444
-  %447 = icmp eq i32 %narrow127, 10
-  br i1 %447, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %448
+449:                                              ; preds = %447
+  %450 = icmp eq i32 %narrow127, 10
+  br i1 %450, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %451
 
-448:                                              ; preds = %446
-  %449 = icmp eq i32 %narrow126, 19
-  br i1 %449, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %450
+451:                                              ; preds = %449
+  %452 = icmp eq i32 %narrow126, 19
+  br i1 %452, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %453
 
-450:                                              ; preds = %448
-  %451 = icmp eq i32 %narrow127, 19
-  br i1 %451, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %452
+453:                                              ; preds = %451
+  %454 = icmp eq i32 %narrow127, 19
+  br i1 %454, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %455
 
-452:                                              ; preds = %450
-  %453 = icmp eq i32 %narrow126, 37
-  br i1 %453, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %454
+455:                                              ; preds = %453
+  %456 = icmp eq i32 %narrow126, 37
+  br i1 %456, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %457
 
-454:                                              ; preds = %452
-  %455 = icmp eq i32 %narrow127, 37
-  br i1 %455, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %456
+457:                                              ; preds = %455
+  %458 = icmp eq i32 %narrow127, 37
+  br i1 %458, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %459
 
-456:                                              ; preds = %454
-  %457 = icmp eq i32 %narrow126, 22
-  br i1 %457, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %458
+459:                                              ; preds = %457
+  %460 = icmp eq i32 %narrow126, 22
+  br i1 %460, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %461
 
-458:                                              ; preds = %456
-  %459 = icmp eq i32 %narrow127, 22
-  br i1 %459, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %460
+461:                                              ; preds = %459
+  %462 = icmp eq i32 %narrow127, 22
+  br i1 %462, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %463
 
-460:                                              ; preds = %458
-  %461 = icmp eq i32 %narrow126, 25
-  br i1 %461, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %462
+463:                                              ; preds = %461
+  %464 = icmp eq i32 %narrow126, 25
+  br i1 %464, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %465
 
-462:                                              ; preds = %460
-  %463 = icmp eq i32 %narrow127, 25
-  br i1 %463, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %464
+465:                                              ; preds = %463
+  %466 = icmp eq i32 %narrow127, 25
+  br i1 %466, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %467
 
-464:                                              ; preds = %462
-  %465 = icmp eq i32 %narrow126, 26
-  br i1 %465, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %466
+467:                                              ; preds = %465
+  %468 = icmp eq i32 %narrow126, 26
+  br i1 %468, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %469
 
-466:                                              ; preds = %464
-  %467 = icmp eq i32 %narrow127, 26
-  br i1 %467, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %468
+469:                                              ; preds = %467
+  %470 = icmp eq i32 %narrow127, 26
+  br i1 %470, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %471
 
-468:                                              ; preds = %466
-  %469 = icmp eq i32 %narrow126, 27
-  br i1 %469, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %470
+471:                                              ; preds = %469
+  %472 = icmp eq i32 %narrow126, 27
+  br i1 %472, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %473
 
-470:                                              ; preds = %468
-  %471 = icmp eq i32 %narrow127, 27
-  br i1 %471, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %472
+473:                                              ; preds = %471
+  %474 = icmp eq i32 %narrow127, 27
+  br i1 %474, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %475
 
-472:                                              ; preds = %470
-  %473 = icmp eq i32 %narrow126, 28
-  br i1 %473, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %474
+475:                                              ; preds = %473
+  %476 = icmp eq i32 %narrow126, 28
+  br i1 %476, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %477
 
-474:                                              ; preds = %472
-  %475 = icmp eq i32 %narrow127, 28
-  br i1 %475, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %476
+477:                                              ; preds = %475
+  %478 = icmp eq i32 %narrow127, 28
+  br i1 %478, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %479
 
-476:                                              ; preds = %474
-  %477 = icmp eq i32 %narrow126, 34
-  br i1 %477, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %478
+479:                                              ; preds = %477
+  %480 = icmp eq i32 %narrow126, 34
+  br i1 %480, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %481
 
-478:                                              ; preds = %476
-  %479 = icmp eq i32 %narrow127, 34
-  br i1 %479, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %480
+481:                                              ; preds = %479
+  %482 = icmp eq i32 %narrow127, 34
+  br i1 %482, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %483
 
-480:                                              ; preds = %478
-  %481 = icmp eq i32 %narrow126, 30
-  br i1 %481, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %482
+483:                                              ; preds = %481
+  %484 = icmp eq i32 %narrow126, 30
+  br i1 %484, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %485
 
-482:                                              ; preds = %480
-  %483 = icmp eq i32 %narrow127, 30
-  br i1 %483, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %484
+485:                                              ; preds = %483
+  %486 = icmp eq i32 %narrow127, 30
+  br i1 %486, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %487
 
-484:                                              ; preds = %482
-  %485 = icmp eq i32 %narrow126, 35
-  br i1 %485, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %486
+487:                                              ; preds = %485
+  %488 = icmp eq i32 %narrow126, 35
+  br i1 %488, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %489
 
-486:                                              ; preds = %484
-  %487 = icmp eq i32 %narrow127, 35
-  br i1 %487, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %488
+489:                                              ; preds = %487
+  %490 = icmp eq i32 %narrow127, 35
+  br i1 %490, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %491
 
-488:                                              ; preds = %486
-  %489 = icmp eq i32 %narrow126, 36
-  br i1 %489, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %490
+491:                                              ; preds = %489
+  %492 = icmp eq i32 %narrow126, 36
+  br i1 %492, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %493
 
-490:                                              ; preds = %488
-  %491 = icmp eq i32 %narrow127, 36
-  br i1 %491, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %492
+493:                                              ; preds = %491
+  %494 = icmp eq i32 %narrow127, 36
+  br i1 %494, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %495
 
-492:                                              ; preds = %490
-  %493 = icmp eq i32 %narrow126, 40
-  br i1 %493, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %494
+495:                                              ; preds = %493
+  %496 = icmp eq i32 %narrow126, 40
+  br i1 %496, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %497
 
-494:                                              ; preds = %492
-  %495 = icmp eq i32 %narrow127, 40
-  br i1 %495, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %496
+497:                                              ; preds = %495
+  %498 = icmp eq i32 %narrow127, 40
+  br i1 %498, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %499
 
-496:                                              ; preds = %494
-  %497 = icmp eq i32 %narrow126, 41
-  br i1 %497, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %498
+499:                                              ; preds = %497
+  %500 = icmp eq i32 %narrow126, 41
+  br i1 %500, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %501
 
-498:                                              ; preds = %496
-  %499 = icmp eq i32 %narrow127, 41
-  br i1 %499, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %500
+501:                                              ; preds = %499
+  %502 = icmp eq i32 %narrow127, 41
+  br i1 %502, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %503
 
-500:                                              ; preds = %498
-  %501 = icmp eq i32 %narrow126, 4
-  br i1 %501, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %502
+503:                                              ; preds = %501
+  %504 = icmp eq i32 %narrow126, 4
+  br i1 %504, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %505
 
-502:                                              ; preds = %500
-  switch i32 %narrow127, label %503 [
+505:                                              ; preds = %503
+  switch i32 %narrow127, label %506 [
     i32 4, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i32 21, label %505
+    i32 21, label %508
   ]
-
-503:                                              ; preds = %502
-  %504 = icmp eq i32 %narrow126, 21
-  br i1 %504, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %514
-
-505:                                              ; preds = %502
-  %cond281 = icmp eq i32 %narrow126, 21
-  br i1 %cond281, label %506, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 506:                                              ; preds = %505
-  %507 = trunc nuw nsw i32 %320 to i8
-  %508 = trunc nuw nsw i32 %326 to i8
-  %509 = sub nsw i8 %507, %508
-  %510 = icmp eq i8 %509, 0
-  br i1 %510, label %.sink.split.i193, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  %507 = icmp eq i32 %narrow126, 21
+  br i1 %507, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %518
 
-.sink.split.i193:                                 ; preds = %506
-  %511 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %.val174 = load i32, ptr %511, align 8
-  %512 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.val172 = load i32, ptr %512, align 8
-  %513 = tail call i8 @llvm.ucmp.i8.i32(i32 %.val172, i32 %.val174)
+508:                                              ; preds = %505
+  %509 = icmp eq i32 %narrow126, 21
+  br i1 %509, label %510, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+
+510:                                              ; preds = %508
+  %511 = trunc nuw nsw i32 %323 to i8
+  %512 = trunc nuw nsw i32 %329 to i8
+  %513 = sub nsw i8 %511, %512
+  %514 = icmp eq i8 %513, 0
+  br i1 %514, label %.sink.split.i190, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+
+.sink.split.i190:                                 ; preds = %510
+  %515 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.val172 = load i32, ptr %515, align 8
+  %516 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.val170 = load i32, ptr %516, align 8
+  %517 = tail call i8 @llvm.ucmp.i8.i32(i32 %.val170, i32 %.val172)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-514:                                              ; preds = %503
-  %switch148 = icmp eq i32 %narrow127, 20
-  br i1 %switch148, label %515, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+518:                                              ; preds = %506
+  %519 = icmp eq i32 %narrow127, 20
+  br i1 %519, label %520, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-515:                                              ; preds = %514
-  %516 = icmp eq i32 %narrow126, 20
-  tail call void @llvm.assume(i1 %516)
-  %517 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %518 = load i32, ptr %517, align 8, !range !473, !noundef !3
-  %519 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %520 = load i32, ptr %519, align 8, !range !473, !noundef !3
-  %521 = tail call i8 @llvm.ucmp.i8.i32(i32 %518, i32 %520)
+520:                                              ; preds = %518
+  %521 = icmp eq i32 %narrow126, 20
+  tail call void @llvm.assume(i1 %521)
+  %522 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %523 = load i32, ptr %522, align 8, !range !473, !noundef !3
+  %524 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %525 = load i32, ptr %524, align 8, !range !473, !noundef !3
+  %526 = tail call i8 @llvm.ucmp.i8.i32(i32 %523, i32 %525)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-522:                                              ; preds = %316
-  switch i8 %14, label %523 [
+527:                                              ; preds = %319
+  switch i8 %14, label %528 [
     i8 15, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i8 16, label %525
+    i8 16, label %530
   ]
 
-523:                                              ; preds = %522
-  %524 = icmp eq i8 %11, 16
-  br i1 %524, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %532
+528:                                              ; preds = %527
+  %529 = icmp eq i8 %11, 16
+  br i1 %529, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %537
 
-525:                                              ; preds = %522
-  %cond282 = icmp eq i8 %11, 16
-  br i1 %cond282, label %526, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+530:                                              ; preds = %527
+  %cond278 = icmp eq i8 %11, 16
+  br i1 %cond278, label %531, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-526:                                              ; preds = %525
-  %527 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %528 = load i32, ptr %527, align 4, !range !473, !noundef !3
-  %529 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %530 = load i32, ptr %529, align 4, !range !473, !noundef !3
-  %531 = tail call i8 @llvm.ucmp.i8.i32(i32 %528, i32 %530)
+531:                                              ; preds = %530
+  %532 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %533 = load i32, ptr %532, align 4, !range !473, !noundef !3
+  %534 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %535 = load i32, ptr %534, align 4, !range !473, !noundef !3
+  %536 = tail call i8 @llvm.ucmp.i8.i32(i32 %533, i32 %535)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-532:                                              ; preds = %523
-  switch i8 %14, label %533 [
-    i8 0, label %535
+537:                                              ; preds = %528
+  switch i8 %14, label %538 [
+    i8 0, label %540
     i8 16, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
   ]
 
-533:                                              ; preds = %532
-  %534 = icmp eq i8 %11, 0
-  br i1 %534, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %.thread234
+538:                                              ; preds = %537
+  %539 = icmp eq i8 %11, 0
+  br i1 %539, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %.thread231
 
-535:                                              ; preds = %532
-  %536 = icmp eq i8 %11, 0
-  br i1 %536, label %537, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+540:                                              ; preds = %537
+  %541 = icmp eq i8 %11, 0
+  br i1 %541, label %542, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-537:                                              ; preds = %535
-  %538 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %539 = load i8, ptr %538, align 1, !range !376, !noundef !3
-  %540 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %541 = load i8, ptr %540, align 1, !range !376, !noundef !3
-  %542 = icmp eq i8 %539, 0
-  br i1 %542, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %543
+542:                                              ; preds = %540
+  %543 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %544 = load i8, ptr %543, align 1, !range !376, !noundef !3
+  %545 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  %546 = load i8, ptr %545, align 1, !range !376, !noundef !3
+  %547 = icmp eq i8 %544, 0
+  br i1 %547, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %548
 
-543:                                              ; preds = %537
-  %544 = icmp eq i8 %541, 0
-  br i1 %544, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %545
+548:                                              ; preds = %542
+  %549 = icmp eq i8 %546, 0
+  br i1 %549, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %550
 
-545:                                              ; preds = %543
-  %546 = icmp eq i8 %539, 1
-  br i1 %546, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %547
+550:                                              ; preds = %548
+  %551 = icmp eq i8 %544, 1
+  br i1 %551, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %552
 
-547:                                              ; preds = %545
-  switch i8 %541, label %548 [
+552:                                              ; preds = %550
+  switch i8 %546, label %553 [
     i8 1, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-    i8 2, label %550
+    i8 2, label %555
   ]
 
-548:                                              ; preds = %547
-  %549 = icmp eq i8 %539, 3
-  br i1 %549, label %551, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+553:                                              ; preds = %552
+  %554 = icmp eq i8 %544, 3
+  br i1 %554, label %557, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-550:                                              ; preds = %547
-  %switch.i195 = icmp eq i8 %539, 2
-  br i1 %switch.i195, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %551
+555:                                              ; preds = %552
+  %556 = icmp eq i8 %544, 2
+  br i1 %556, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %557
 
-551:                                              ; preds = %550, %548
+557:                                              ; preds = %555, %553
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-.thread234:                                       ; preds = %533
-  %552 = icmp eq i8 %14, 0
-  br i1 %552, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %553
+.thread231:                                       ; preds = %538
+  %558 = icmp eq i8 %14, 0
+  br i1 %558, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %559
 
-553:                                              ; preds = %.thread234
-  %554 = icmp eq i8 %11, 17
-  %switch150 = icmp eq i8 %14, 17
-  %or.cond = or i1 %554, %switch150
-  br i1 %or.cond, label %555, label %560, !prof !5235
+559:                                              ; preds = %.thread231
+  %560 = icmp eq i8 %11, 17
+  %561 = icmp eq i8 %14, 17
+  %or.cond = or i1 %560, %561
+  br i1 %or.cond, label %562, label %567, !prof !5235
 
-555:                                              ; preds = %553
+562:                                              ; preds = %559
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr @anon.4370228678aea563ecef3852b2bac777.220, ptr %7, align 8
-  %556 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 1, ptr %556, align 8
-  %557 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store ptr null, ptr %557, align 8
-  %558 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %5, ptr %558, align 8
-  %559 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store i64 0, ptr %559, align 8
+  %563 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 1, ptr %563, align 8
+  %564 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store ptr null, ptr %564, align 8
+  %565 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %5, ptr %565, align 8
+  %566 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store i64 0, ptr %566, align 8
   call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4370228678aea563ecef3852b2bac777.222) #39
   unreachable
 
-560:                                              ; preds = %553
-  %561 = icmp eq i8 %11, 18
-  tail call void @llvm.assume(i1 %561)
-  %562 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %563 = load i32, ptr %562, align 4, !range !473, !noundef !3
-  %564 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN18ty_python_semantic5types1_61_$LT$impl$u20$ty_python_semantic..types..IntersectionType$GT$8positive17hac8758633f735272E"(i32 noundef %563, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
-  %565 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %566 = load i32, ptr %565, align 4, !range !473, !noundef !3
-  %567 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN18ty_python_semantic5types1_61_$LT$impl$u20$ty_python_semantic..types..IntersectionType$GT$8positive17hac8758633f735272E"(i32 noundef %566, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
-  %568 = getelementptr inbounds nuw i8, ptr %564, i64 48
-  %569 = load i64, ptr %568, align 8, !noundef !3
-  %570 = getelementptr inbounds nuw i8, ptr %567, i64 48
-  %571 = load i64, ptr %570, align 8, !noundef !3
-  %.not139 = icmp eq i64 %569, %571
-  br i1 %.not139, label %572, label %579
-
-572:                                              ; preds = %560
-  %573 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN18ty_python_semantic5types1_61_$LT$impl$u20$ty_python_semantic..types..IntersectionType$GT$8negative17h0d4ec5e71076b824E"(i32 noundef %563, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
-  %574 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN18ty_python_semantic5types1_61_$LT$impl$u20$ty_python_semantic..types..IntersectionType$GT$8negative17h0d4ec5e71076b824E"(i32 noundef %566, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
-  %575 = getelementptr inbounds nuw i8, ptr %573, i64 48
+567:                                              ; preds = %559
+  %568 = icmp eq i8 %11, 18
+  tail call void @llvm.assume(i1 %568)
+  %569 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %570 = load i32, ptr %569, align 4, !range !473, !noundef !3
+  %571 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN18ty_python_semantic5types1_61_$LT$impl$u20$ty_python_semantic..types..IntersectionType$GT$8positive17hac8758633f735272E"(i32 noundef %570, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
+  %572 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %573 = load i32, ptr %572, align 4, !range !473, !noundef !3
+  %574 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN18ty_python_semantic5types1_61_$LT$impl$u20$ty_python_semantic..types..IntersectionType$GT$8positive17hac8758633f735272E"(i32 noundef %573, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
+  %575 = getelementptr inbounds nuw i8, ptr %571, i64 48
   %576 = load i64, ptr %575, align 8, !noundef !3
   %577 = getelementptr inbounds nuw i8, ptr %574, i64 48
   %578 = load i64, ptr %577, align 8, !noundef !3
-  %.not140 = icmp eq i64 %576, %578
-  br i1 %.not140, label %581, label %590
+  %.not139 = icmp eq i64 %576, %578
+  br i1 %.not139, label %579, label %586
 
-579:                                              ; preds = %560
-  %580 = tail call i8 @llvm.ucmp.i8.i64(i64 %569, i64 %571)
-  br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
-
-581:                                              ; preds = %572
-  %582 = getelementptr inbounds nuw i8, ptr %564, i64 8
-  %583 = load ptr, ptr %582, align 8, !nonnull !3, !noundef !3
-  %584 = getelementptr inbounds nuw i8, ptr %564, i64 16
+579:                                              ; preds = %567
+  %580 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN18ty_python_semantic5types1_61_$LT$impl$u20$ty_python_semantic..types..IntersectionType$GT$8negative17h0d4ec5e71076b824E"(i32 noundef %570, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
+  %581 = tail call noundef align 8 dereferenceable(56) ptr @"_ZN18ty_python_semantic5types1_61_$LT$impl$u20$ty_python_semantic..types..IntersectionType$GT$8negative17h0d4ec5e71076b824E"(i32 noundef %573, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1)
+  %582 = getelementptr inbounds nuw i8, ptr %580, i64 48
+  %583 = load i64, ptr %582, align 8, !noundef !3
+  %584 = getelementptr inbounds nuw i8, ptr %581, i64 48
   %585 = load i64, ptr %584, align 8, !noundef !3
-  %586 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %583, i64 %585
-  %587 = getelementptr inbounds nuw i8, ptr %567, i64 8
-  %.val177 = load ptr, ptr %587, align 8, !nonnull !3, !noundef !3
-  %588 = getelementptr inbounds nuw i8, ptr %567, i64 16
-  %.val178 = load i64, ptr %588, align 8, !noundef !3
-  %589 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %.val177, i64 %.val178
-  br label %592
+  %.not140 = icmp eq i64 %583, %585
+  br i1 %.not140, label %588, label %597
 
-590:                                              ; preds = %572
-  %591 = tail call i8 @llvm.ucmp.i8.i64(i64 %576, i64 %578)
+586:                                              ; preds = %567
+  %587 = tail call i8 @llvm.ucmp.i8.i64(i64 %576, i64 %578)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-592:                                              ; preds = %595, %581
-  %.sroa.0214.0 = phi ptr [ %583, %581 ], [ %596, %595 ]
-  %.sroa.8.0 = phi ptr [ %.val177, %581 ], [ %597, %595 ]
-  %593 = icmp eq ptr %.sroa.0214.0, %586
-  %594 = icmp eq ptr %.sroa.8.0, %589
-  %or.cond283 = select i1 %593, i1 true, i1 %594
-  br i1 %or.cond283, label %select.unfold235, label %595
+588:                                              ; preds = %579
+  %589 = getelementptr inbounds nuw i8, ptr %571, i64 8
+  %590 = load ptr, ptr %589, align 8, !nonnull !3, !noundef !3
+  %591 = getelementptr inbounds nuw i8, ptr %571, i64 16
+  %592 = load i64, ptr %591, align 8, !noundef !3
+  %593 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %590, i64 %592
+  %594 = getelementptr inbounds nuw i8, ptr %574, i64 8
+  %.val175 = load ptr, ptr %594, align 8, !nonnull !3, !noundef !3
+  %595 = getelementptr inbounds nuw i8, ptr %574, i64 16
+  %.val176 = load i64, ptr %595, align 8, !noundef !3
+  %596 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %.val175, i64 %.val176
+  br label %599
 
-595:                                              ; preds = %592
-  %596 = getelementptr inbounds nuw i8, ptr %.sroa.0214.0, i64 24
-  %597 = getelementptr inbounds nuw i8, ptr %.sroa.8.0, i64 24
-  %598 = tail call noundef i8 @_ZN18ty_python_semantic5types13type_ordering39union_or_intersection_elements_ordering17hd190a344ff0e83edE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0214.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.8.0)
-  %.not144 = icmp eq i8 %598, 0
-  br i1 %.not144, label %592, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+597:                                              ; preds = %579
+  %598 = tail call i8 @llvm.ucmp.i8.i64(i64 %583, i64 %585)
+  br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-select.unfold235:                                 ; preds = %592
-  %599 = getelementptr inbounds nuw i8, ptr %573, i64 8
-  %600 = load ptr, ptr %599, align 8, !nonnull !3, !noundef !3
-  %601 = getelementptr inbounds nuw i8, ptr %573, i64 16
-  %602 = load i64, ptr %601, align 8, !noundef !3
-  %603 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %600, i64 %602
-  %604 = getelementptr inbounds nuw i8, ptr %574, i64 8
-  %.val175 = load ptr, ptr %604, align 8, !nonnull !3, !noundef !3
-  %605 = getelementptr inbounds nuw i8, ptr %574, i64 16
-  %.val176 = load i64, ptr %605, align 8, !noundef !3
-  %606 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %.val175, i64 %.val176
-  br label %607
+599:                                              ; preds = %602, %588
+  %.sroa.0210.0 = phi ptr [ %590, %588 ], [ %603, %602 ]
+  %.sroa.8.0 = phi ptr [ %.val175, %588 ], [ %604, %602 ]
+  %600 = icmp eq ptr %.sroa.0210.0, %593
+  %601 = icmp eq ptr %.sroa.8.0, %596
+  %or.cond279 = select i1 %600, i1 true, i1 %601
+  br i1 %or.cond279, label %select.unfold232, label %602
 
-607:                                              ; preds = %610, %select.unfold235
-  %.sroa.0220.0 = phi ptr [ %600, %select.unfold235 ], [ %611, %610 ]
-  %.sroa.8222.0 = phi ptr [ %.val175, %select.unfold235 ], [ %612, %610 ]
-  %608 = icmp eq ptr %.sroa.0220.0, %603
-  %609 = icmp eq ptr %.sroa.8222.0, %606
-  %or.cond284 = select i1 %608, i1 true, i1 %609
-  br i1 %or.cond284, label %select.unfold241, label %610
+602:                                              ; preds = %599
+  %603 = getelementptr inbounds nuw i8, ptr %.sroa.0210.0, i64 24
+  %604 = getelementptr inbounds nuw i8, ptr %.sroa.8.0, i64 24
+  %605 = tail call noundef i8 @_ZN18ty_python_semantic5types13type_ordering39union_or_intersection_elements_ordering17hd190a344ff0e83edE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0210.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.8.0)
+  %.not144 = icmp eq i8 %605, 0
+  br i1 %.not144, label %599, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-610:                                              ; preds = %607
-  %611 = getelementptr inbounds nuw i8, ptr %.sroa.0220.0, i64 24
-  %612 = getelementptr inbounds nuw i8, ptr %.sroa.8222.0, i64 24
-  %613 = tail call noundef i8 @_ZN18ty_python_semantic5types13type_ordering39union_or_intersection_elements_ordering17hd190a344ff0e83edE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0220.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.8222.0)
-  %.not143 = icmp eq i8 %613, 0
-  br i1 %.not143, label %607, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+select.unfold232:                                 ; preds = %599
+  %606 = getelementptr inbounds nuw i8, ptr %580, i64 8
+  %607 = load ptr, ptr %606, align 8, !nonnull !3, !noundef !3
+  %608 = getelementptr inbounds nuw i8, ptr %580, i64 16
+  %609 = load i64, ptr %608, align 8, !noundef !3
+  %610 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %607, i64 %609
+  %611 = getelementptr inbounds nuw i8, ptr %581, i64 8
+  %.val173 = load ptr, ptr %611, align 8, !nonnull !3, !noundef !3
+  %612 = getelementptr inbounds nuw i8, ptr %581, i64 16
+  %.val174 = load i64, ptr %612, align 8, !noundef !3
+  %613 = getelementptr inbounds nuw { { i8, [15 x i8] }, i64, {} }, ptr %.val173, i64 %.val174
+  br label %614
 
-select.unfold241:                                 ; preds = %607
+614:                                              ; preds = %617, %select.unfold232
+  %.sroa.0216.0 = phi ptr [ %607, %select.unfold232 ], [ %618, %617 ]
+  %.sroa.8218.0 = phi ptr [ %.val173, %select.unfold232 ], [ %619, %617 ]
+  %615 = icmp eq ptr %.sroa.0216.0, %610
+  %616 = icmp eq ptr %.sroa.8218.0, %613
+  %or.cond280 = select i1 %615, i1 true, i1 %616
+  br i1 %or.cond280, label %select.unfold238, label %617
+
+617:                                              ; preds = %614
+  %618 = getelementptr inbounds nuw i8, ptr %.sroa.0216.0, i64 24
+  %619 = getelementptr inbounds nuw i8, ptr %.sroa.8218.0, i64 24
+  %620 = tail call noundef i8 @_ZN18ty_python_semantic5types13type_ordering39union_or_intersection_elements_ordering17hd190a344ff0e83edE(ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(224) %1, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0216.0, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.8218.0)
+  %.not143 = icmp eq i8 %620, 0
+  br i1 %.not143, label %614, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+
+select.unfold238:                                 ; preds = %614
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr @anon.4370228678aea563ecef3852b2bac777.224, ptr %6, align 8
-  %614 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 1, ptr %614, align 8
-  %615 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr null, ptr %615, align 8
-  %616 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %5, ptr %616, align 8
-  %617 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store i64 0, ptr %617, align 8
+  %621 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i64 1, ptr %621, align 8
+  %622 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr null, ptr %622, align 8
+  %623 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %5, ptr %623, align 8
+  %624 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store i64 0, ptr %624, align 8
   call void @_ZN4core9panicking9panic_fmt17hd54fb667be51beeaE(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %6, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4370228678aea563ecef3852b2bac777.225) #39
   unreachable
 }
@@ -30331,8 +30330,8 @@ define internal fastcc noundef range(i8 -1, 2) i8 @"_ZN18ty_python_semantic5type
   %39 = call i8 @llvm.ucmp.i8.i32(i32 %.sroa.5.0.copyload, i32 %.sroa.6.0.copyload)
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
-"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit": ; preds = %60, %59, %57, %56, %54, %52, %49, %40, %.sink.split.i10, %43, %.sink.split.i, %34, %41, %33, %31
-  %.sroa.0.0 = phi i8 [ -1, %31 ], [ %.sroa.017.0.copyload, %33 ], [ -1, %41 ], [ %37, %34 ], [ %39, %.sink.split.i ], [ %46, %43 ], [ %48, %.sink.split.i10 ], [ 1, %40 ], [ -1, %60 ], [ -1, %49 ], [ 1, %52 ], [ -1, %54 ], [ %.sroa.319.0.copyload, %56 ], [ 0, %59 ], [ 1, %57 ]
+"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit": ; preds = %61, %59, %57, %56, %54, %52, %49, %40, %.sink.split.i10, %43, %.sink.split.i, %34, %41, %33, %31
+  %.sroa.0.0 = phi i8 [ -1, %31 ], [ %.sroa.017.0.copyload, %33 ], [ -1, %41 ], [ %37, %34 ], [ %39, %.sink.split.i ], [ %46, %43 ], [ %48, %.sink.split.i10 ], [ 1, %40 ], [ -1, %61 ], [ -1, %49 ], [ 1, %52 ], [ -1, %54 ], [ %.sroa.319.0.copyload, %56 ], [ 0, %59 ], [ 1, %57 ]
   ret i8 %.sroa.0.0
 
 default.unreachable:                              ; preds = %33
@@ -30379,13 +30378,13 @@ default.unreachable:                              ; preds = %33
 
 57:                                               ; preds = %56
   %58 = icmp eq i8 %.sroa.2.0.copyload, 3
-  br i1 %58, label %60, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
+  br i1 %58, label %61, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 
 59:                                               ; preds = %56
-  %switch.i = icmp eq i8 %.sroa.2.0.copyload, 2
-  br i1 %switch.i, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %60
+  %60 = icmp eq i8 %.sroa.2.0.copyload, 2
+  br i1 %60, label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit", label %61
 
-60:                                               ; preds = %59, %57
+61:                                               ; preds = %59, %57
   br label %"_ZN78_$LT$ty_python_semantic..types..class..ClassType$u20$as$u20$core..cmp..Ord$GT$3cmp17hc67458b254fe7c69E.exit"
 }
 

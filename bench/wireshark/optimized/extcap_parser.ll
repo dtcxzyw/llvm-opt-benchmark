@@ -1044,8 +1044,8 @@ define internal fastcc ptr @extcap_tokenize_sentences(ptr noundef %0) unnamed_ad
   %29 = call i32 @g_regex_match_full(ptr noundef nonnull %27, ptr noundef nonnull %6, i64 noundef -1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %2, ptr noundef nonnull %3)
   %30 = load ptr, ptr %2, align 8
   %31 = call i32 @g_match_info_matches(ptr noundef %30)
-  %.not6568.i = icmp eq i32 %31, 0
-  br i1 %.not6568.i, label %.thread.i, label %.lr.ph.i
+  %.not6567.i = icmp eq i32 %31, 0
+  br i1 %.not6567.i, label %.thread.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28, %109
   %32 = load ptr, ptr %2, align 8

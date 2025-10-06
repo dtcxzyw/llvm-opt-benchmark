@@ -46,17 +46,17 @@ define hidden range(i32 0, 2) i32 @HKDF(ptr noundef writeonly captures(none) %0,
   br i1 %.not, label %49, label %.preheader
 
 .preheader:                                       ; preds = %25
-  %.not62 = icmp ugt i64 %15, %17
-  br i1 %.not62, label %._crit_edge, label %.lr.ph
+  %.not61 = icmp ugt i64 %15, %17
+  br i1 %.not61, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %41
-  %.03961 = phi i32 [ %29, %41 ], [ 0, %.preheader ]
-  %.04060 = phi i64 [ %46, %41 ], [ 0, %.preheader ]
+  %.03960 = phi i32 [ %29, %41 ], [ 0, %.preheader ]
+  %.04059 = phi i64 [ %46, %41 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %29 = add i32 %.03961, 1
+  %29 = add i32 %.03960, 1
   %30 = trunc i32 %29 to i8
   store i8 %30, ptr %14, align 1, !tbaa !10
-  %.not44 = icmp eq i32 %.03961, 0
+  %.not44 = icmp eq i32 %.03960, 0
   br i1 %.not44, label %35, label %31
 
 31:                                               ; preds = %.lr.ph
@@ -89,13 +89,13 @@ define hidden range(i32 0, 2) i32 @HKDF(ptr noundef writeonly captures(none) %0,
   br label %49
 
 41:                                               ; preds = %39
-  %42 = add i64 %.04060, %15
+  %42 = add i64 %.04059, %15
   %43 = icmp ugt i64 %42, %1
-  %44 = sub i64 %1, %.04060
+  %44 = sub i64 %1, %.04059
   %spec.select = select i1 %43, i64 %44, i64 %15
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %.04060
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %.04059
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr nonnull align 16 %11, i64 %spec.select, i1 false)
-  %46 = add i64 %spec.select, %.04060
+  %46 = add i64 %spec.select, %.04059
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %47 = zext i32 %29 to i64
   %48 = icmp ugt i64 %18, %47

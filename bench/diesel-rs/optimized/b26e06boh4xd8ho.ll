@@ -14,47 +14,47 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden void @"_ZN118_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..Row$LT$diesel..sqlite..backend..Sqlite$GT$$GT$3get17h7563ebc967f85ed2E"(ptr noalias noundef writeonly sret({ ptr, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call { i64, i64 } @"_ZN97_$LT$diesel..sqlite..connection..row..SqliteRow$u20$as$u20$diesel..row..RowIndex$LT$usize$GT$$GT$3idx17h6fa7abb433d65b39E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %1, i64 noundef %2)
   %.fca.0.extract = extractvalue { i64, i64 } %4, 0
-  %switch = icmp eq i64 %.fca.0.extract, 0
+  %5 = icmp eq i64 %.fca.0.extract, 0
   %.fca.1.extract = extractvalue { i64, i64 } %4, 1
-  br i1 %switch, label %10, label %5
+  br i1 %5, label %11, label %6
 
-5:                                                ; preds = %3
-  %6 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %8 = load i64, ptr %7, align 8, !noundef !4
-  %9 = icmp ult i64 %8, 9223372036854775807
-  br i1 %9, label %11, label %14
+6:                                                ; preds = %3
+  %7 = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
+  %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %9 = load i64, ptr %8, align 8, !noundef !4
+  %10 = icmp ult i64 %9, 9223372036854775807
+  br i1 %10, label %12, label %15
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   store ptr null, ptr %0, align 8
-  br label %19
+  br label %20
 
-11:                                               ; preds = %5
-  %12 = add nuw nsw i64 %8, 1
-  store i64 %12, ptr %7, align 8
-  %13 = icmp ult i64 %.fca.1.extract, 2147483648
-  br i1 %13, label %15, label %18
+12:                                               ; preds = %6
+  %13 = add nuw nsw i64 %9, 1
+  store i64 %13, ptr %8, align 8
+  %14 = icmp ult i64 %.fca.1.extract, 2147483648
+  br i1 %14, label %16, label %19
 
-14:                                               ; preds = %5
+15:                                               ; preds = %6
   tail call void @_ZN4core4cell30panic_already_mutably_borrowed17hbc333334528bd302E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.48ae27b98e90814c4b92622925866189.3) #17
   unreachable
 
-15:                                               ; preds = %11
-  %16 = trunc nuw nsw i64 %.fca.1.extract to i32
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %17, ptr %0, align 8
+16:                                               ; preds = %12
+  %17 = trunc nuw nsw i64 %.fca.1.extract to i32
+  %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  store ptr %18, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %7, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %8, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.63.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %16, ptr %.sroa.63.0..sroa_idx, align 8
-  br label %19
+  store i32 %17, ptr %.sroa.63.0..sroa_idx, align 8
+  br label %20
 
-18:                                               ; preds = %11
+19:                                               ; preds = %12
   store ptr null, ptr %0, align 8
-  store i64 %8, ptr %7, align 8, !noalias !5
-  br label %19
+  store i64 %9, ptr %8, align 8, !noalias !5
+  br label %20
 
-19:                                               ; preds = %18, %15, %10
+20:                                               ; preds = %19, %16, %11
   ret void
 }
 

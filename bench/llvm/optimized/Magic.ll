@@ -48,40 +48,40 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: read) uwtable
 define dso_local range(i32 0, 40) i32 @_ZN4llvm14identify_magicENS_9StringRefE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 {
   %3 = icmp ult i64 %1, 4
-  br i1 %3, label %.thread236, label %4
+  br i1 %3, label %.thread234, label %4
 
 4:                                                ; preds = %2
   %5 = load i8, ptr %0, align 1, !tbaa !3
-  switch i8 %5, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread [
+  switch i8 %5, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread [
     i8 0, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit
     i8 1, label %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit
     i8 3, label %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit
-    i8 7, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit97
-    i8 16, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit100
-    i8 -34, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit103
-    i8 66, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit106
-    i8 67, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit109
+    i8 7, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit95
+    i8 16, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit98
+    i8 -34, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit101
+    i8 66, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit104
+    i8 67, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit107
     i8 33, label %33
     i8 60, label %36
-    i8 127, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit123
-    i8 -54, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit126
-    i8 -2, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit132
-    i8 -50, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit132
-    i8 -49, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit132
-    i8 -16, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit144
-    i8 -125, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit144
-    i8 -124, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit144
-    i8 102, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit144
-    i8 80, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit144
+    i8 127, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit121
+    i8 -54, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit124
+    i8 -2, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit130
+    i8 -50, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit130
+    i8 -49, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit130
+    i8 -16, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit142
+    i8 -125, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit142
+    i8 -124, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit142
+    i8 102, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit142
+    i8 80, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit142
     i8 76, label %87
     i8 -60, label %87
     i8 -112, label %91
     i8 104, label %91
-    i8 77, label %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit147
+    i8 77, label %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit145
     i8 100, label %104
     i8 45, label %108
-    i8 123, label %.thread236
-    i8 68, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit160
+    i8 123, label %.thread234
+    i8 68, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit158
     i8 65, label %113
     i8 78, label %117
     i8 95, label %121
@@ -94,19 +94,19 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %4
 
 7:                                                ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit
   %8 = icmp ult i64 %1, 28
-  br i1 %8, label %.thread236, label %9
+  br i1 %8, label %.thread234, label %9
 
 9:                                                ; preds = %7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %bcmp75 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %10, ptr noundef nonnull dereferenceable(16) @_ZN4llvm4COFFL11BigObjMagicE, i64 16)
   %11 = icmp eq i32 %bcmp75, 0
-  br i1 %11, label %.thread236, label %12
+  br i1 %11, label %.thread234, label %12
 
 12:                                               ; preds = %9
   %bcmp76 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %10, ptr noundef nonnull dereferenceable(16) @_ZN4llvm4COFFL12ClGlObjMagicE, i64 16)
   %13 = icmp eq i32 %bcmp76, 0
   %spec.select = select i1 %13, i32 24, i32 26
-  br label %.thread236
+  br label %.thread234
 
 14:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit
   %15 = icmp ugt i64 %1, 15
@@ -115,100 +115,100 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %4
 16:                                               ; preds = %14
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %0, ptr noundef nonnull dereferenceable(16) @_ZN4llvm4COFFL11WinResMagicE, i64 16)
   %17 = icmp eq i32 %bcmp, 0
-  br i1 %17, label %.thread236, label %18
+  br i1 %17, label %.thread234, label %18
 
 18:                                               ; preds = %16, %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !3
   %21 = icmp eq i8 %20, 0
-  br i1 %21, label %.thread236, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84
+  br i1 %21, label %.thread234, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit82
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84: ; preds = %18
-  %bcmp.i.i83 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
-  %22 = icmp eq i32 %bcmp.i.i83, 0
-  br i1 %22, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit82: ; preds = %18
+  %bcmp.i.i81 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.1, i64 4)
+  %22 = icmp eq i32 %bcmp.i.i81, 0
+  br i1 %22, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
 _ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %4
-  %bcmp.i.i86 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.2, i64 2)
-  %23 = icmp eq i32 %bcmp.i.i86, 0
-  br i1 %23, label %.thread236, label %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit89
+  %bcmp.i.i84 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.2, i64 2)
+  %23 = icmp eq i32 %bcmp.i.i84, 0
+  br i1 %23, label %.thread234, label %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit87
 
-_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit89: ; preds = %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit
-  %bcmp.i.i88 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
-  %24 = icmp eq i32 %bcmp.i.i88, 0
-  br i1 %24, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit87: ; preds = %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit
+  %bcmp.i.i86 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.3, i64 2)
+  %24 = icmp eq i32 %bcmp.i.i86, 0
+  br i1 %24, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
 _ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %4
-  %bcmp.i.i91 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
-  %25 = icmp eq i32 %bcmp.i.i91, 0
-  br i1 %25, label %.thread236, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit94
+  %bcmp.i.i89 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(3) %0, ptr noundef nonnull dereferenceable(3) @.str.4, i64 3)
+  %25 = icmp eq i32 %bcmp.i.i89, 0
+  br i1 %25, label %.thread234, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit92
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit94: ; preds = %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit
-  %bcmp.i.i93 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
-  %26 = icmp eq i32 %bcmp.i.i93, 0
-  br i1 %26, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit92: ; preds = %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit
+  %bcmp.i.i91 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.5, i64 4)
+  %26 = icmp eq i32 %bcmp.i.i91, 0
+  br i1 %26, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit97: ; preds = %4
-  %bcmp.i.i96 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
-  %27 = icmp eq i32 %bcmp.i.i96, 0
-  br i1 %27, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit95: ; preds = %4
+  %bcmp.i.i94 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.6, i64 4)
+  %27 = icmp eq i32 %bcmp.i.i94, 0
+  br i1 %27, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit100: ; preds = %4
-  %bcmp.i.i99 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.7, i64 4)
-  %28 = icmp eq i32 %bcmp.i.i99, 0
-  br i1 %28, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit98: ; preds = %4
+  %bcmp.i.i97 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.7, i64 4)
+  %28 = icmp eq i32 %bcmp.i.i97, 0
+  br i1 %28, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit103: ; preds = %4
-  %bcmp.i.i102 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
-  %29 = icmp eq i32 %bcmp.i.i102, 0
-  br i1 %29, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit101: ; preds = %4
+  %bcmp.i.i100 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.8, i64 4)
+  %29 = icmp eq i32 %bcmp.i.i100, 0
+  br i1 %29, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit106: ; preds = %4
-  %bcmp.i.i105 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
-  %30 = icmp eq i32 %bcmp.i.i105, 0
-  br i1 %30, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit104: ; preds = %4
+  %bcmp.i.i103 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.9, i64 4)
+  %30 = icmp eq i32 %bcmp.i.i103, 0
+  br i1 %30, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit109: ; preds = %4
-  %bcmp.i.i108 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.10, i64 4)
-  %31 = icmp eq i32 %bcmp.i.i108, 0
-  br i1 %31, label %.thread236, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit112
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit107: ; preds = %4
+  %bcmp.i.i106 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.10, i64 4)
+  %31 = icmp eq i32 %bcmp.i.i106, 0
+  br i1 %31, label %.thread234, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit110
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit112: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit109
-  %bcmp.i.i111 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.11, i64 4)
-  %32 = icmp eq i32 %bcmp.i.i111, 0
-  br i1 %32, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit110: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit107
+  %bcmp.i.i109 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.11, i64 4)
+  %32 = icmp eq i32 %bcmp.i.i109, 0
+  br i1 %32, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
 33:                                               ; preds = %4
-  %.not.i.i113 = icmp ult i64 %1, 8
-  br i1 %.not.i.i113, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit
+  %.not.i.i111 = icmp ult i64 %1, 8
+  br i1 %.not.i.i111, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit
 
 _ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %33
-  %bcmp.i.i114 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str.12, i64 8)
-  %34 = icmp eq i32 %bcmp.i.i114, 0
-  br i1 %34, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117
+  %bcmp.i.i112 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str.12, i64 8)
+  %34 = icmp eq i32 %bcmp.i.i112, 0
+  br i1 %34, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115
 
-_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117: ; preds = %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit
-  %bcmp.i.i116 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str.13, i64 8)
-  %35 = icmp eq i32 %bcmp.i.i116, 0
-  br i1 %35, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115: ; preds = %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit
+  %bcmp.i.i114 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str.13, i64 8)
+  %35 = icmp eq i32 %bcmp.i.i114, 0
+  br i1 %35, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
 36:                                               ; preds = %4
-  %.not.i.i118 = icmp ult i64 %1, 8
-  br i1 %.not.i.i118, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit120
+  %.not.i.i116 = icmp ult i64 %1, 8
+  br i1 %.not.i.i116, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit118
 
-_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit120: ; preds = %36
-  %bcmp.i.i119 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str.14, i64 8)
-  %37 = icmp eq i32 %bcmp.i.i119, 0
-  br i1 %37, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit118: ; preds = %36
+  %bcmp.i.i117 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(8) %0, ptr noundef nonnull dereferenceable(8) @.str.14, i64 8)
+  %37 = icmp eq i32 %bcmp.i.i117, 0
+  br i1 %37, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit123: ; preds = %4
-  %bcmp.i.i122 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.15, i64 4)
-  %38 = icmp eq i32 %bcmp.i.i122, 0
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit121: ; preds = %4
+  %bcmp.i.i120 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.15, i64 4)
+  %38 = icmp eq i32 %bcmp.i.i120, 0
   %39 = icmp ugt i64 %1, 17
   %or.cond = and i1 %39, %38
-  br i1 %or.cond, label %40, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  br i1 %or.cond, label %40, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-40:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit123
+40:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit121
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %42 = load i8, ptr %41, align 1, !tbaa !3
   %43 = icmp eq i8 %42, 2
@@ -216,7 +216,7 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit123: ; preds = %4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
   %46 = load i8, ptr %45, align 1, !tbaa !3
   %47 = icmp eq i8 %46, 0
-  br i1 %47, label %48, label %.thread236
+  br i1 %47, label %48, label %.thread234
 
 48:                                               ; preds = %40
   %49 = select i1 %43, i64 17, i64 16
@@ -224,137 +224,137 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit123: ; preds = %4
   %51 = load i8, ptr %50, align 1, !tbaa !3
   %switch.tableidx = add i8 %51, -1
   %52 = icmp ult i8 %switch.tableidx, 4
-  br i1 %52, label %switch.lookup, label %.thread236
+  br i1 %52, label %switch.lookup, label %.thread234
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit126: ; preds = %4
-  %bcmp.i.i125 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.16, i64 4)
-  %53 = icmp eq i32 %bcmp.i.i125, 0
-  br i1 %53, label %56, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit129
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit124: ; preds = %4
+  %bcmp.i.i123 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.16, i64 4)
+  %53 = icmp eq i32 %bcmp.i.i123, 0
+  br i1 %53, label %56, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit127
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit129: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit126
-  %bcmp.i.i128 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.17, i64 4)
-  %54 = icmp eq i32 %bcmp.i.i128, 0
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit127: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit124
+  %bcmp.i.i126 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.17, i64 4)
+  %54 = icmp eq i32 %bcmp.i.i126, 0
   %55 = icmp ugt i64 %1, 7
-  %or.cond251 = and i1 %55, %54
-  br i1 %or.cond251, label %57, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  %or.cond244 = and i1 %55, %54
+  br i1 %or.cond244, label %57, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-56:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit126
+56:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit124
   %.old = icmp ugt i64 %1, 7
-  br i1 %.old, label %57, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  br i1 %.old, label %57, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-57:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit129, %56
+57:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit127, %56
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 7
   %59 = load i8, ptr %58, align 1, !tbaa !3
   %60 = icmp slt i8 %59, 43
-  br i1 %60, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  br i1 %60, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit132: ; preds = %4, %4, %4
-  %bcmp.i.i131 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.18, i64 4)
-  %61 = icmp eq i32 %bcmp.i.i131, 0
-  br i1 %61, label %63, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit135
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit130: ; preds = %4, %4, %4
+  %bcmp.i.i129 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.18, i64 4)
+  %61 = icmp eq i32 %bcmp.i.i129, 0
+  br i1 %61, label %63, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit133
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit135: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit132
-  %bcmp.i.i134 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.19, i64 4)
-  %62 = icmp eq i32 %bcmp.i.i134, 0
-  br i1 %62, label %63, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit138
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit133: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit130
+  %bcmp.i.i132 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.19, i64 4)
+  %62 = icmp eq i32 %bcmp.i.i132, 0
+  br i1 %62, label %63, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit136
 
-63:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit135, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit132
+63:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit133, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit130
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %65 = load i8, ptr %64, align 1, !tbaa !3
   %66 = icmp eq i8 %65, -50
   %. = select i1 %66, i64 28, i64 32
   %.not74 = icmp ult i64 %1, %.
-  br i1 %.not74, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread, label %71
+  br i1 %.not74, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread, label %71
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit138: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit135
-  %bcmp.i.i137 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.20, i64 4)
-  %67 = icmp eq i32 %bcmp.i.i137, 0
-  br i1 %67, label %69, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit141
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit136: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit133
+  %bcmp.i.i135 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.20, i64 4)
+  %67 = icmp eq i32 %bcmp.i.i135, 0
+  br i1 %67, label %69, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit139
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit141: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit138
-  %bcmp.i.i140 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.21, i64 4)
-  %68 = icmp eq i32 %bcmp.i.i140, 0
-  br i1 %68, label %69, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit139: ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit136
+  %bcmp.i.i138 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.21, i64 4)
+  %68 = icmp eq i32 %bcmp.i.i138, 0
+  br i1 %68, label %69, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-69:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit141, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit138
+69:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit139, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit136
   %70 = icmp eq i8 %5, -50
   %.77 = select i1 %70, i64 28, i64 32
   %.not = icmp ult i64 %1, %.77
-  br i1 %.not, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread, label %71
+  br i1 %.not, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread, label %71
 
 71:                                               ; preds = %69, %63
-  %.sink265 = phi i64 [ 13, %63 ], [ 14, %69 ]
-  %.sink263 = phi i64 [ 14, %63 ], [ 13, %69 ]
-  %.sink259 = phi i64 [ 15, %63 ], [ 12, %69 ]
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink265
+  %.sink258 = phi i64 [ 13, %63 ], [ 14, %69 ]
+  %.sink256 = phi i64 [ 14, %63 ], [ 13, %69 ]
+  %.sink252 = phi i64 [ 15, %63 ], [ 12, %69 ]
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink258
   %73 = load i8, ptr %72, align 1, !tbaa !3
   %74 = zext i8 %73 to i16
   %75 = shl i16 %74, 12
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink263
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink256
   %77 = load i8, ptr %76, align 1, !tbaa !3
   %78 = zext i8 %77 to i16
   %79 = shl nuw i16 %78, 8
   %80 = or i16 %79, %75
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink259
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink252
   %82 = load i8, ptr %81, align 1, !tbaa !3
   %83 = sext i8 %82 to i16
   %84 = or i16 %80, %83
-  %switch.tableidx266 = add i16 %84, -1
-  %85 = icmp ult i16 %switch.tableidx266, 12
-  br i1 %85, label %switch.lookup267, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  %switch.tableidx259 = add i16 %84, -1
+  %85 = icmp ult i16 %switch.tableidx259, 12
+  br i1 %85, label %switch.lookup260, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit144: ; preds = %4, %4, %4, %4, %4
-  %bcmp.i.i143 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.22, i64 4)
-  %86 = icmp eq i32 %bcmp.i.i143, 0
-  br i1 %86, label %.thread236, label %87
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit142: ; preds = %4, %4, %4, %4, %4
+  %bcmp.i.i141 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.22, i64 4)
+  %86 = icmp eq i32 %bcmp.i.i141, 0
+  br i1 %86, label %.thread234, label %87
 
-87:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit144, %4, %4
+87:                                               ; preds = %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit142, %4, %4
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %89 = load i8, ptr %88, align 1, !tbaa !3
   %90 = icmp eq i8 %89, 1
-  br i1 %90, label %.thread236, label %91
+  br i1 %90, label %.thread234, label %91
 
 91:                                               ; preds = %87, %4, %4
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %93 = load i8, ptr %92, align 1, !tbaa !3
   %94 = icmp eq i8 %93, 2
-  br i1 %94, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  br i1 %94, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit147: ; preds = %4
-  %bcmp.i.i146 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.23, i64 2)
-  %95 = icmp eq i32 %bcmp.i.i146, 0
+_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit145: ; preds = %4
+  %bcmp.i.i144 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(2) %0, ptr noundef nonnull dereferenceable(2) @.str.23, i64 2)
+  %95 = icmp eq i32 %bcmp.i.i144, 0
   %96 = icmp ugt i64 %1, 63
-  %or.cond253 = and i1 %96, %95
-  br i1 %or.cond253, label %97, label %.thread241
+  %or.cond246 = and i1 %96, %95
+  br i1 %or.cond246, label %97, label %.thread237
 
-97:                                               ; preds = %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit147
+97:                                               ; preds = %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit145
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %.0.copyload.i.i.i.i.i.i = load i32, ptr %98, align 1
   %99 = zext i32 %.0.copyload.i.i.i.i.i.i to i64
   %.sroa.speculated4.i = tail call i64 @llvm.umin.i64(i64 %1, i64 %99)
   %100 = sub i64 %1, %.sroa.speculated4.i
   %.not.i = icmp ult i64 %100, 4
-  br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit150, label %_ZNK4llvm9StringRef11starts_withES0_.exit
+  br i1 %.not.i, label %_ZNK4llvm9StringRef11starts_withES0_.exit148, label %_ZNK4llvm9StringRef11starts_withES0_.exit
 
 _ZNK4llvm9StringRef11starts_withES0_.exit:        ; preds = %97
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.speculated4.i
   %bcmp.i = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %101, ptr noundef nonnull dereferenceable(4) @_ZN4llvm4COFFL7PEMagicE, i64 4)
-  %.not254 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not254, label %.thread236, label %_ZNK4llvm9StringRef11starts_withES0_.exit150
+  %.not247 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not247, label %.thread234, label %_ZNK4llvm9StringRef11starts_withES0_.exit148
 
-.thread241:                                       ; preds = %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit147
-  %.not.i148 = icmp ult i64 %1, 26
-  br i1 %.not.i148, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit153, label %_ZNK4llvm9StringRef11starts_withES0_.exit150
+.thread237:                                       ; preds = %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit145
+  %.not.i146 = icmp ult i64 %1, 26
+  br i1 %.not.i146, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit151, label %_ZNK4llvm9StringRef11starts_withES0_.exit148
 
-_ZNK4llvm9StringRef11starts_withES0_.exit150:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %97, %.thread241
-  %bcmp.i149 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %0, ptr noundef nonnull dereferenceable(26) @.str.24, i64 26)
-  %102 = icmp eq i32 %bcmp.i149, 0
-  br i1 %102, label %.thread236, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit153
+_ZNK4llvm9StringRef11starts_withES0_.exit148:     ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit, %97, %.thread237
+  %bcmp.i147 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(26) %0, ptr noundef nonnull dereferenceable(26) @.str.24, i64 26)
+  %102 = icmp eq i32 %bcmp.i147, 0
+  br i1 %102, label %.thread234, label %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit151
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit153: ; preds = %.thread241, %_ZNK4llvm9StringRef11starts_withES0_.exit150
-  %bcmp.i.i152 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.25, i64 4)
-  %103 = icmp eq i32 %bcmp.i.i152, 0
-  br i1 %103, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit151: ; preds = %.thread237, %_ZNK4llvm9StringRef11starts_withES0_.exit148
+  %bcmp.i.i150 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.25, i64 4)
+  %103 = icmp eq i32 %bcmp.i.i150, 0
+  br i1 %103, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
 104:                                              ; preds = %4
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 1
@@ -363,69 +363,69 @@ _ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit153: ; preds = %.thread241, %
   %switch.selectcmp.case2 = icmp eq i8 %106, -86
   %switch.selectcmp = or i1 %switch.selectcmp.case1, %switch.selectcmp.case2
   %107 = select i1 %switch.selectcmp, i32 25, i32 0
-  br label %.thread236
+  br label %.thread234
 
 108:                                              ; preds = %4
-  %.not.i.i154 = icmp ult i64 %1, 9
-  br i1 %.not.i.i154, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread, label %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit
+  %.not.i.i152 = icmp ult i64 %1, 9
+  br i1 %.not.i.i152, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread, label %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit
 
 _ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %108
-  %bcmp.i.i155 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %0, ptr noundef nonnull dereferenceable(9) @.str.26, i64 9)
-  %109 = icmp eq i32 %bcmp.i.i155, 0
-  br i1 %109, label %.thread236, label %110
+  %bcmp.i.i153 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(9) %0, ptr noundef nonnull dereferenceable(9) @.str.26, i64 9)
+  %109 = icmp eq i32 %bcmp.i.i153, 0
+  br i1 %109, label %.thread234, label %110
 
 110:                                              ; preds = %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit
-  %.not.i.i156 = icmp eq i64 %1, 9
-  br i1 %.not.i.i156, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread, label %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit
+  %.not.i.i154 = icmp eq i64 %1, 9
+  br i1 %.not.i.i154, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread, label %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit
 
 _ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %110
-  %bcmp.i.i157 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %0, ptr noundef nonnull dereferenceable(10) @.str.27, i64 10)
-  %111 = icmp eq i32 %bcmp.i.i157, 0
-  br i1 %111, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  %bcmp.i.i155 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(10) %0, ptr noundef nonnull dereferenceable(10) @.str.27, i64 10)
+  %111 = icmp eq i32 %bcmp.i.i155, 0
+  br i1 %111, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit160: ; preds = %4
-  %bcmp.i.i159 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.28, i64 4)
-  %112 = icmp eq i32 %bcmp.i.i159, 0
-  br i1 %112, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit158: ; preds = %4
+  %bcmp.i.i157 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %0, ptr noundef nonnull dereferenceable(4) @.str.28, i64 4)
+  %112 = icmp eq i32 %bcmp.i.i157, 0
+  br i1 %112, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
 113:                                              ; preds = %4
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %115 = load i8, ptr %114, align 1, !tbaa !3
   %116 = icmp eq i8 %115, -90
-  br i1 %116, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  br i1 %116, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
 117:                                              ; preds = %4
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %119 = load i8, ptr %118, align 1, !tbaa !3
   %120 = icmp eq i8 %119, -90
-  br i1 %120, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  br i1 %120, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
 121:                                              ; preds = %4
   %122 = icmp ugt i64 %1, 24
-  br i1 %122, label %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  br i1 %122, label %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
 _ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit: ; preds = %121
-  %bcmp.i.i162 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) %0, ptr noundef nonnull readonly align 1 dereferenceable(25) @__const._ZN4llvm14identify_magicENS_9StringRefE.OBMagic, i64 24)
-  %123 = icmp eq i32 %bcmp.i.i162, 0
-  br i1 %123, label %.thread236, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
+  %bcmp.i.i160 = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(24) %0, ptr noundef nonnull readonly align 1 dereferenceable(25) @__const._ZN4llvm14identify_magicENS_9StringRefE.OBMagic, i64 24)
+  %123 = icmp eq i32 %bcmp.i.i160, 0
+  br i1 %123, label %.thread234, label %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
 
-_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread: ; preds = %71, %121, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit141, %63, %69, %108, %110, %36, %33, %4, %117, %113, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit160, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit153, %91, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit129, %57, %56, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit123, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit120, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit112, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit106, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit103, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit100, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit97, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit94, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit89, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84
-  br label %.thread236
+_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread: ; preds = %71, %121, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, %108, %110, %69, %63, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit139, %36, %33, %4, %117, %113, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit158, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit151, %91, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit127, %57, %56, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit121, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit118, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit110, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit104, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit101, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit98, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit95, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit92, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit87, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit82
+  br label %.thread234
 
 switch.lookup:                                    ; preds = %48
   %narrow = add nuw nsw i8 %51, 4
   %switch.offset = zext nneg i8 %narrow to i32
-  br label %.thread236
+  br label %.thread234
 
-switch.lookup267:                                 ; preds = %71
-  %124 = zext nneg i16 %switch.tableidx266 to i64
+switch.lookup260:                                 ; preds = %71
+  %124 = zext nneg i16 %switch.tableidx259 to i64
   %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm14identify_magicENS_9StringRefE, i64 %124
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %.thread236
+  br label %.thread234
 
-.thread236:                                       ; preds = %switch.lookup267, %switch.lookup, %48, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, %104, %12, %117, %113, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit160, %4, %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit153, %_ZNK4llvm9StringRef11starts_withES0_.exit150, %91, %87, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit144, %57, %40, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit120, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit112, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit109, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit106, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit103, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit100, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit97, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit94, %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit89, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84, %18, %16, %9, %7, %2, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread
-  %.sroa.0232.0 = phi i32 [ 0, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117.thread ], [ 27, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 0, %2 ], [ 26, %7 ], [ 25, %9 ], [ 28, %16 ], [ 25, %18 ], [ 31, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit84 ], [ 29, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit ], [ 30, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit89 ], [ 9, %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit ], [ 39, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit94 ], [ 39, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit97 ], [ 35, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit100 ], [ 1, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit103 ], [ 1, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit106 ], [ 38, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit109 ], [ 2, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit112 ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit117 ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit120 ], [ 4, %48 ], [ 4, %40 ], [ 21, %57 ], [ 34, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit144 ], [ 25, %87 ], [ 25, %91 ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit150 ], [ 23, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit153 ], [ 33, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit ], [ 33, %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit ], [ 33, %4 ], [ 36, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit160 ], [ 25, %113 ], [ 25, %117 ], [ %spec.select, %12 ], [ %107, %104 ], [ 37, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit ], [ %switch.offset, %switch.lookup ], [ %switch.load, %switch.lookup267 ]
-  ret i32 %.sroa.0232.0
+.thread234:                                       ; preds = %switch.lookup260, %switch.lookup, %48, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit, %104, %12, %117, %113, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit158, %4, %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit151, %_ZNK4llvm9StringRef11starts_withES0_.exit148, %91, %87, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit142, %57, %40, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit118, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit110, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit107, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit104, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit101, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit98, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit95, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit92, %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit87, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit82, %18, %16, %9, %7, %2, %_ZNK4llvm9StringRef11starts_withES0_.exit, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread
+  %.sroa.0230.0 = phi i32 [ 0, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115.thread ], [ 27, %_ZNK4llvm9StringRef11starts_withES0_.exit ], [ 0, %2 ], [ 26, %7 ], [ 25, %9 ], [ 28, %16 ], [ 25, %18 ], [ 31, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit82 ], [ 29, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit ], [ 30, %_ZL10startswithILm3EEbN4llvm9StringRefERAT__Kc.exit87 ], [ 9, %_ZL10startswithILm4EEbN4llvm9StringRefERAT__Kc.exit ], [ 39, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit92 ], [ 39, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit95 ], [ 35, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit98 ], [ 1, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit101 ], [ 1, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit104 ], [ 38, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit107 ], [ 2, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit110 ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit115 ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit ], [ 3, %_ZL10startswithILm9EEbN4llvm9StringRefERAT__Kc.exit118 ], [ 4, %48 ], [ 4, %40 ], [ 21, %57 ], [ 34, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit142 ], [ 25, %87 ], [ 25, %91 ], [ 32, %_ZNK4llvm9StringRef11starts_withES0_.exit148 ], [ 23, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit151 ], [ 33, %_ZL10startswithILm11EEbN4llvm9StringRefERAT__Kc.exit ], [ 33, %_ZL10startswithILm10EEbN4llvm9StringRefERAT__Kc.exit ], [ 33, %4 ], [ 36, %_ZL10startswithILm5EEbN4llvm9StringRefERAT__Kc.exit158 ], [ 25, %113 ], [ 25, %117 ], [ %spec.select, %12 ], [ %107, %104 ], [ 37, %_ZL10startswithILm25EEbN4llvm9StringRefERAT__Kc.exit ], [ %switch.offset, %switch.lookup ], [ %switch.load, %switch.lookup260 ]
+  ret i32 %.sroa.0230.0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

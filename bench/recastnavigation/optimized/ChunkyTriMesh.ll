@@ -360,10 +360,10 @@ _ZL11calcExtendsPK10BoundsItemiiiPfS2_.exit93:    ; preds = %110, %82
   %115 = phi float [ %25, %82 ], [ %105, %110 ]
   %116 = fsub float %115, %114
   %117 = fsub float %113, %112
-  %118 = fcmp ogt float %117, %116
+  %118 = fcmp ule float %117, %116
   %119 = sext i32 %11 to i64
-  %_ZL12compareItemYPKvS0_._ZL12compareItemXPKvS0_ = select i1 %118, ptr @_ZL12compareItemYPKvS0_, ptr @_ZL12compareItemXPKvS0_
-  tail call void @qsort(ptr noundef nonnull %19, i64 noundef %119, i64 noundef 20, ptr noundef nonnull %_ZL12compareItemYPKvS0_._ZL12compareItemXPKvS0_)
+  %_ZL12compareItemXPKvS0_._ZL12compareItemYPKvS0_ = select i1 %118, ptr @_ZL12compareItemXPKvS0_, ptr @_ZL12compareItemYPKvS0_
+  tail call void @qsort(ptr noundef nonnull %19, i64 noundef %119, i64 noundef 20, ptr noundef nonnull %_ZL12compareItemXPKvS0_._ZL12compareItemYPKvS0_)
   %120 = sdiv i32 %11, 2
   %121 = add nsw i32 %120, %1
   tail call fastcc void @_ZL9subdivideP10BoundsItemiiiiRiP19rcChunkyTriMeshNodeiS1_PiPKi(ptr noundef %0, i32 noundef %1, i32 noundef %121, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef %8, ptr noundef %9)

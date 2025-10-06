@@ -614,41 +614,41 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h44f11877
 
 14:                                               ; preds = %12
   %.not72 = icmp eq i64 %5, %1
-  br i1 %.not72, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit80.thread, label %16
+  br i1 %.not72, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit78.thread, label %16
 
 15:                                               ; preds = %12
-  br i1 %6, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit80.thread, label %29
+  br i1 %6, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit78.thread, label %29
 
 16:                                               ; preds = %14
   %17 = mul i64 %1, 132
   %or.cond = icmp ugt i64 %1, 69874030582233150
-  br i1 %or.cond, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit80.thread, label %18
+  br i1 %or.cond, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit78.thread, label %18
 
 18:                                               ; preds = %16
   br i1 %6, label %21, label %19
 
 19:                                               ; preds = %18
   %20 = mul i64 %.sink.i, 132
-  %or.cond98 = icmp ugt i64 %5, 69874030582233150
-  br i1 %or.cond98, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit80.thread, label %24
+  %or.cond94 = icmp ugt i64 %5, 69874030582233150
+  br i1 %or.cond94, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit78.thread, label %24
 
 21:                                               ; preds = %18
   %22 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1
   %23 = tail call noundef align 4 ptr @__rust_alloc(i64 noundef %17, i64 noundef 4) #25
-  %.not101 = icmp eq ptr %23, null
-  br i1 %.not101, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit80.thread, label %27
+  %.not97 = icmp eq ptr %23, null
+  br i1 %.not97, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit78.thread, label %27
 
 24:                                               ; preds = %19
   %25 = tail call noundef align 4 ptr @__rust_realloc(ptr noundef nonnull %8, i64 noundef %20, i64 noundef 4, i64 noundef %17) #25
-  %.not100 = icmp eq ptr %25, null
-  br i1 %.not100, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit80.thread, label %26
+  %.not96 = icmp eq ptr %25, null
+  br i1 %.not96, label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit78.thread, label %26
 
 26:                                               ; preds = %24, %27
   %.sroa.053.0 = phi ptr [ %23, %27 ], [ %25, %24 ]
   store ptr %.sroa.053.0, ptr %0, align 8
   store i64 %10, ptr %9, align 8
   store i64 %1, ptr %4, align 8
-  br label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit80.thread
+  br label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit78.thread
 
 27:                                               ; preds = %21
   %28 = mul nuw nsw i64 %5, 132
@@ -673,9 +673,9 @@ define hidden { i64, i64 } @"_ZN8smallvec17SmallVec$LT$A$GT$8try_grow17h44f11877
 
 _ZN8smallvec10deallocate17hae5cc98101608e10E.exit: ; preds = %29
   tail call void @__rust_dealloc(ptr noundef nonnull %8, i64 noundef %31, i64 noundef 4) #25
-  br label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit80.thread
+  br label %_ZN8smallvec12layout_array17hb2051cb40e732597E.exit78.thread
 
-_ZN8smallvec12layout_array17hb2051cb40e732597E.exit80.thread: ; preds = %19, %16, %15, %_ZN8smallvec10deallocate17hae5cc98101608e10E.exit, %26, %14, %21, %24
+_ZN8smallvec12layout_array17hb2051cb40e732597E.exit78.thread: ; preds = %19, %16, %15, %_ZN8smallvec10deallocate17hae5cc98101608e10E.exit, %26, %14, %21, %24
   %.sroa.7.0 = phi i64 [ %17, %24 ], [ %17, %21 ], [ undef, %14 ], [ undef, %26 ], [ undef, %_ZN8smallvec10deallocate17hae5cc98101608e10E.exit ], [ undef, %15 ], [ %17, %16 ], [ %20, %19 ]
   %.sroa.0.0 = phi i64 [ 4, %24 ], [ 4, %21 ], [ -9223372036854775807, %14 ], [ -9223372036854775807, %26 ], [ -9223372036854775807, %_ZN8smallvec10deallocate17hae5cc98101608e10E.exit ], [ -9223372036854775807, %15 ], [ 0, %16 ], [ 0, %19 ]
   %34 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0

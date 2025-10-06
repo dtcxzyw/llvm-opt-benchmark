@@ -743,10 +743,10 @@ _ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %_ZN3g2o15SparseOpti
   %135 = load ptr, ptr %25, align 8, !tbaa !66
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 32
   %137 = load i64, ptr %136, align 8, !tbaa !102
-  %.not.i59 = icmp eq i64 %137, 0
-  br i1 %.not.i59, label %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit, label %.lr.ph.i60
+  %.not.i58 = icmp eq i64 %137, 0
+  br i1 %.not.i58, label %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit, label %.lr.ph.i59
 
-.lr.ph.i60:                                       ; preds = %133
+.lr.ph.i59:                                       ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %135, i64 16
   %139 = load ptr, ptr %138, align 8, !tbaa !98
   %140 = load double, ptr %82, align 8, !tbaa !10
@@ -754,9 +754,9 @@ _ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %_ZN3g2o15SparseOpti
   %142 = load ptr, ptr %141, align 8, !tbaa !103
   br label %143
 
-143:                                              ; preds = %143, %.lr.ph.i60
-  %.09.i = phi i64 [ 0, %.lr.ph.i60 ], [ %150, %143 ]
-  %.078.i = phi double [ 0.000000e+00, %.lr.ph.i60 ], [ %149, %143 ]
+143:                                              ; preds = %143, %.lr.ph.i59
+  %.09.i = phi i64 [ 0, %.lr.ph.i59 ], [ %150, %143 ]
+  %.078.i = phi double [ 0.000000e+00, %.lr.ph.i59 ], [ %149, %143 ]
   %144 = getelementptr inbounds nuw double, ptr %139, i64 %.09.i
   %145 = load double, ptr %144, align 8, !tbaa !48
   %146 = getelementptr inbounds nuw double, ptr %142, i64 %.09.i
@@ -764,8 +764,8 @@ _ZN3g2o15SparseOptimizer9terminateEv.exit:        ; preds = %_ZN3g2o15SparseOpti
   %148 = tail call double @llvm.fmuladd.f64(double %140, double %145, double %147)
   %149 = tail call double @llvm.fmuladd.f64(double %145, double %148, double %.078.i)
   %150 = add nuw i64 %.09.i, 1
-  %exitcond.not.i61 = icmp eq i64 %150, %137
-  br i1 %exitcond.not.i61, label %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit, label %143, !llvm.loop !104
+  %exitcond.not.i60 = icmp eq i64 %150, %137
+  br i1 %exitcond.not.i60, label %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit, label %143, !llvm.loop !104
 
 _ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit: ; preds = %143
   %151 = fadd double %149, 1.000000e-03
@@ -773,21 +773,21 @@ _ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit: ; preds 
 
 _ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit: ; preds = %133, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit, %131
   %152 = phi double [ %132, %131 ], [ %134, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ %134, %133 ]
-  %.04670 = phi double [ 0x7FEFFFFFFFFFFFFF, %131 ], [ %130, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ %130, %133 ]
+  %.04669 = phi double [ 0x7FEFFFFFFFFFFFFF, %131 ], [ %130, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ %130, %133 ]
   %153 = phi double [ 1.000000e+00, %131 ], [ %151, %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit.loopexit ], [ 1.000000e-03, %133 ]
   %154 = fdiv double %152, %153
   %155 = fcmp ogt double %154, 0.000000e+00
   br i1 %155, label %156, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit
-  %.pre80 = load double, ptr %82, align 8, !tbaa !10
+  %.pre78 = load double, ptr %82, align 8, !tbaa !10
   br label %172
 
 156:                                              ; preds = %_ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit
-  %157 = tail call double @llvm.fabs.f64(double %.04670)
+  %157 = tail call double @llvm.fabs.f64(double %.04669)
   %158 = fcmp one double %157, 0x7FF0000000000000
   %or.cond3 = and i1 %108, %158
-  %.pre81 = load double, ptr %82, align 8, !tbaa !10
+  %.pre79 = load double, ptr %82, align 8, !tbaa !10
   br i1 %or.cond3, label %159, label %172
 
 159:                                              ; preds = %156
@@ -796,11 +796,11 @@ _ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit: ; preds = %133, %
   %162 = fsub double 1.000000e+00, %161
   %163 = load double, ptr %86, align 8, !tbaa !48
   %164 = fcmp olt double %163, %162
-  %.sroa.speculated68 = select i1 %164, double %163, double %162
+  %.sroa.speculated67 = select i1 %164, double %163, double %162
   %165 = load double, ptr %87, align 8, !tbaa !48
-  %166 = fcmp olt double %165, %.sroa.speculated68
-  %.sroa.speculated = select i1 %166, double %.sroa.speculated68, double %165
-  %167 = fmul double %.pre81, %.sroa.speculated
+  %166 = fcmp olt double %165, %.sroa.speculated67
+  %.sroa.speculated = select i1 %166, double %.sroa.speculated67, double %165
+  %167 = fmul double %.pre79, %.sroa.speculated
   store double %167, ptr %82, align 8, !tbaa !10
   store double 2.000000e+00, ptr %85, align 8, !tbaa !40
   %168 = load ptr, ptr %14, align 8, !tbaa !67
@@ -811,7 +811,7 @@ _ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit: ; preds = %133, %
   br label %184
 
 172:                                              ; preds = %._crit_edge, %156
-  %173 = phi double [ %.pre80, %._crit_edge ], [ %.pre81, %156 ]
+  %173 = phi double [ %.pre78, %._crit_edge ], [ %.pre79, %156 ]
   %174 = load double, ptr %85, align 8, !tbaa !40
   %175 = fmul double %174, %173
   store double %175, ptr %82, align 8, !tbaa !10
@@ -828,11 +828,11 @@ _ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit: ; preds = %133, %
   br i1 %183, label %..critedge_crit_edge, label %184
 
 ..critedge_crit_edge:                             ; preds = %172
-  %.pre82 = load i32, ptr %80, align 8, !tbaa !52
+  %.pre80 = load i32, ptr %80, align 8, !tbaa !52
   br label %.critedge
 
 184:                                              ; preds = %159, %172
-  %.151 = phi double [ %.04670, %159 ], [ %.050, %172 ]
+  %.151 = phi double [ %.04669, %159 ], [ %.050, %172 ]
   %185 = load i32, ptr %80, align 8, !tbaa !52
   %186 = add nsw i32 %185, 1
   store i32 %186, ptr %80, align 8, !tbaa !52
@@ -850,8 +850,8 @@ _ZNK3g2o30OptimizationAlgorithmLevenberg12computeScaleEv.exit: ; preds = %133, %
   %194 = load ptr, ptr %14, align 8, !tbaa !67
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 288
   %196 = load ptr, ptr %195, align 8, !tbaa !105
-  %.not.i64 = icmp eq ptr %196, null
-  br i1 %.not.i64, label %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge, label %197
+  %.not.i63 = icmp eq ptr %196, null
+  br i1 %.not.i63, label %_ZN3g2o15SparseOptimizer9terminateEv.exit.backedge, label %197
 
 197:                                              ; preds = %193
   %198 = load i8, ptr %196, align 1, !tbaa !151, !range !152, !noundef !153
@@ -862,7 +862,7 @@ _ZN3g2o15SparseOptimizer9terminateEv.exit.backedge: ; preds = %197, %193
   br label %_ZN3g2o15SparseOptimizer9terminateEv.exit, !llvm.loop !154
 
 .critedge:                                        ; preds = %197, %184, %188, %..critedge_crit_edge
-  %200 = phi i32 [ %.pre82, %..critedge_crit_edge ], [ %186, %188 ], [ %186, %184 ], [ %186, %197 ]
+  %200 = phi i32 [ %.pre80, %..critedge_crit_edge ], [ %186, %188 ], [ %186, %184 ], [ %186, %197 ]
   %201 = load ptr, ptr %88, align 8, !tbaa !53
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 40
   %203 = load i32, ptr %202, align 4, !tbaa !52

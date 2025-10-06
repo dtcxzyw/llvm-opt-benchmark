@@ -2108,10 +2108,10 @@ define range(i32 0, 2) i32 @solve(ptr noundef readonly captures(none) %0) local_
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i32, ptr %10, align 8, !tbaa !187
   %12 = icmp sgt i32 %11, 0
-  br i1 %12, label %.lr.ph, label %._crit_edge
+  br i1 %12, label %.lr.ph, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49
 
 .lr.ph:                                           ; preds = %1, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit77
-  %.034110 = phi i32 [ %173, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit77 ], [ 0, %1 ]
+  %.034108 = phi i32 [ %173, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit77 ], [ 0, %1 ]
   tail call void @forward_pass(ptr noundef nonnull %0)
   tail call void @update_slack(ptr noundef nonnull %0)
   tail call void @update_dual(ptr noundef nonnull %0)
@@ -2430,24 +2430,24 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit77: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i71, %._crit_edge.i.i.i.i.i.i.i.i70
   tail call void @backward_pass_grad(ptr noundef nonnull %0)
-  %173 = add nuw nsw i32 %.034110, 1
+  %173 = add nuw nsw i32 %.034108, 1
   %174 = load ptr, ptr %8, align 8, !tbaa !113
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 16
   %176 = load i32, ptr %175, align 8, !tbaa !187
   %177 = icmp slt i32 %173, %176
-  br i1 %177, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !190
+  br i1 %177, label %.lr.ph, label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49.loopexit, !llvm.loop !190
 
-._crit_edge.loopexit:                             ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit77
+_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49.loopexit: ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit77
   %.pre = load ptr, ptr %4, align 8, !tbaa !3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 580
-  %.pre118 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !170
-  %.pre119 = load ptr, ptr %0, align 8, !tbaa !182
-  br label %._crit_edge
+  %.pre116 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !170
+  %.pre117 = load ptr, ptr %0, align 8, !tbaa !182
+  br label %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %1
-  %178 = phi ptr [ %.pre119, %._crit_edge.loopexit ], [ %2, %1 ]
-  %179 = phi i32 [ %.pre118, %._crit_edge.loopexit ], [ 0, %1 ]
-  %180 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %5, %1 ]
+_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49: ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49.loopexit, %1
+  %178 = phi ptr [ %.pre117, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49.loopexit ], [ %2, %1 ]
+  %179 = phi i32 [ %.pre116, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49.loopexit ], [ 0, %1 ]
+  %180 = phi ptr [ %.pre, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49.loopexit ], [ %5, %1 ]
   store i32 %179, ptr %178, align 8, !tbaa !185
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 4
   store i32 0, ptr %181, align 4, !tbaa !183
@@ -2467,7 +2467,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit77: ; preds = %.lr.ph.i.
   %or.cond.i.i.i.i.i.i.i.i80 = select i1 %.not.i.i.i.i.i.i.i.i78, i1 %.not8.i.i.i.i.i.i.i.i79, i1 false
   br i1 %or.cond.i.i.i.i.i.i.i.i80, label %200, label %193
 
-193:                                              ; preds = %._crit_edge
+193:                                              ; preds = %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49
   %194 = icmp eq i64 %188, 0
   br i1 %194, label %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i81, label %195
 
@@ -2489,9 +2489,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.pre20.i.i.i.i.i.i.i83 = load i64, ptr %191, align 8, !tbaa !64
   br label %200
 
-200:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i81, %._crit_edge
-  %201 = phi i64 [ %.pre20.i.i.i.i.i.i.i83, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i81 ], [ %188, %._crit_edge ]
-  %202 = phi i64 [ %.pre.i.i.i.i.i.i.i82, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i81 ], [ %186, %._crit_edge ]
+200:                                              ; preds = %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i81, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49
+  %201 = phi i64 [ %.pre20.i.i.i.i.i.i.i83, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i81 ], [ %188, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49 ]
+  %202 = phi i64 [ %.pre.i.i.i.i.i.i.i82, %_ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exit.i.i.i.i.i.i.i.i81 ], [ %186, %_ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEaSERKS1_.exit49 ]
   %203 = load ptr, ptr %183, align 8, !tbaa !21
   %204 = mul nsw i64 %202, %201
   %205 = sdiv i64 %204, 2

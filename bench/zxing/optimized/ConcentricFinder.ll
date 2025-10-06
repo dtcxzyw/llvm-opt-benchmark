@@ -2314,7 +2314,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit:     ; preds = %15
 
 38:                                               ; preds = %35
   %39 = icmp eq i32 %.049.i, 1
-  br i1 %39, label %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread56, label %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit
+  br i1 %39, label %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread55, label %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit
 
 40:                                               ; preds = %35
   %.sroa.02.0.copyload.i = load double, ptr %7, align 8, !tbaa !23, !noalias !92
@@ -2328,7 +2328,7 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit:     ; preds = %15
   %46 = sdiv i32 %45, 2
   %47 = sitofp i32 %46 to double
   %48 = fcmp ogt double %sqrt.i.i.i, %47
-  br i1 %48, label %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread56, label %49
+  br i1 %48, label %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread55, label %49
 
 49:                                               ; preds = %40
   %50 = fadd double %.sroa.025.046.i, %.sroa.02.0.copyload.i
@@ -2356,7 +2356,7 @@ _ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread: ; preds =
   store i8 1, ptr %57, align 8, !tbaa !25, !alias.scope !92
   br label %63
 
-_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread56: ; preds = %40, %38
+_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread55: ; preds = %40, %38
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 0, ptr %58, align 8, !tbaa !25, !alias.scope !92
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !92
@@ -2399,10 +2399,10 @@ _ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit: ; preds = %38
 _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit22:   ; preds = %63
   %76 = getelementptr inbounds nuw i8, ptr %71, i64 %69
   %77 = load i8, ptr %76, align 1, !tbaa !30
-  %.not31 = icmp eq i8 %77, 0
-  br i1 %.not31, label %78, label %.thread
+  %.not30 = icmp eq i8 %77, 0
+  br i1 %.not30, label %78, label %.thread
 
-78:                                               ; preds = %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread56, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit22
+78:                                               ; preds = %_ZN5ZXing13CenterOfRingsERKNS_9BitMatrixENS_6PointTIdEEii.exit.thread55, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit22
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call fastcc void @_ZN5ZXingL17FitSquareToPointsERKNS_9BitMatrixENS_6PointTIdEEiib(ptr dead_on_unwind noalias writable align 8 %9, ptr noundef nonnull align 8 dereferenceable(32) %1, double %.sroa.07.0.copyload, double %.sroa.28.0.copyload, i32 noundef %4, i32 noundef 1, i1 noundef zeroext false)
   %79 = getelementptr inbounds nuw i8, ptr %9, i64 64
@@ -2452,8 +2452,8 @@ _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit22:   ; preds = %63
 _ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit24:   ; preds = %88
   %101 = getelementptr inbounds nuw i8, ptr %96, i64 %94
   %102 = load i8, ptr %101, align 1, !tbaa !30
-  %.not32 = icmp eq i8 %102, 0
-  br i1 %.not32, label %103, label %.thread
+  %.not31 = icmp eq i8 %102, 0
+  br i1 %.not31, label %103, label %.thread
 
 .thread:                                          ; preds = %82, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit22, %_ZNK5ZXing9BitMatrix3getENS_6PointTIdEE.exit24
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

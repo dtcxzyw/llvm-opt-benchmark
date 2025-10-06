@@ -8601,8 +8601,8 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3704 = and i64 %3703, 3968
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3666, i64 40
   %.sroa.3.0.copyload.i = load i32, ptr %.sroa.3.0..sroa_idx.i, align 8
-  %switch.i.not = icmp eq i32 %.sroa.3.0.copyload.i, 11
-  %3705 = select i1 %switch.i.not, i64 0, i64 33554432
+  %.not5317 = icmp eq i32 %.sroa.3.0.copyload.i, 11
+  %3705 = select i1 %.not5317, i64 0, i64 33554432
   %3706 = or disjoint i64 %3686, %3704
   %3707 = or disjoint i64 %3706, %3705
   %3708 = or i64 %3707, %10
@@ -8734,8 +8734,8 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3792 = and i64 %3791, 3968
   %.sroa.3.0..sroa_idx.i4866 = getelementptr inbounds nuw i8, ptr %3754, i64 40
   %.sroa.3.0.copyload.i4867 = load i32, ptr %.sroa.3.0..sroa_idx.i4866, align 8
-  %switch.i4868.not = icmp eq i32 %.sroa.3.0.copyload.i4867, 11
-  %3793 = select i1 %switch.i4868.not, i64 0, i64 33554432
+  %.not5316 = icmp eq i32 %.sroa.3.0.copyload.i4867, 11
+  %3793 = select i1 %.not5316, i64 0, i64 33554432
   %3794 = or disjoint i64 %3774, %3792
   %3795 = or disjoint i64 %3794, %3793
   %3796 = or i64 %3795, %10
@@ -8762,17 +8762,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3812 = getelementptr inbounds nuw i16, ptr %3810, i64 %3811
   %3813 = load i16, ptr %3812, align 2, !tbaa !240
   %3814 = zext i16 %3813 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4871
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4870
 
 3815:                                             ; preds = %3797
   %3816 = icmp eq i8 %3802, 2
   tail call void @llvm.assume(i1 %3816)
   %3817 = load i64, ptr %3804, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4871
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4870
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4871: ; preds = %3805, %3815
-  %.0.i4870 = phi i64 [ %3814, %3805 ], [ %3817, %3815 ]
-  %3818 = shl i64 %.0.i4870, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4870: ; preds = %3805, %3815
+  %.0.i4869 = phi i64 [ %3814, %3805 ], [ %3817, %3815 ]
+  %3818 = shl i64 %.0.i4869, 7
   %3819 = and i64 %3818, 3968
   %3820 = getelementptr inbounds nuw i8, ptr %3799, i64 32
   %3821 = load i8, ptr %3820, align 8, !tbaa !70
@@ -8780,7 +8780,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3823 = getelementptr inbounds nuw i8, ptr %3799, i64 40
   br i1 %3822, label %3824, label %3834
 
-3824:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4871
+3824:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4870
   %3825 = getelementptr inbounds nuw i8, ptr %.val4343, i64 160
   %3826 = load ptr, ptr %3825, align 8, !tbaa !72
   %3827 = load i32, ptr %3823, align 8, !tbaa !26
@@ -8790,17 +8790,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3831 = getelementptr inbounds nuw i16, ptr %3829, i64 %3830
   %3832 = load i16, ptr %3831, align 2, !tbaa !240
   %3833 = zext i16 %3832 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4873
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4872
 
-3834:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4871
+3834:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4870
   %3835 = icmp eq i8 %3821, 2
   tail call void @llvm.assume(i1 %3835)
   %3836 = load i64, ptr %3823, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4873
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4872
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4873: ; preds = %3824, %3834
-  %.0.i4872 = phi i64 [ %3833, %3824 ], [ %3836, %3834 ]
-  %3837 = shl i64 %.0.i4872, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4872: ; preds = %3824, %3834
+  %.0.i4871 = phi i64 [ %3833, %3824 ], [ %3836, %3834 ]
+  %3837 = shl i64 %.0.i4871, 2
   %3838 = and i64 %3837, 124
   %3839 = or disjoint i64 %3819, %3838
   %3840 = or i64 %3839, %10
@@ -8827,17 +8827,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3856 = getelementptr inbounds nuw i16, ptr %3854, i64 %3855
   %3857 = load i16, ptr %3856, align 2, !tbaa !240
   %3858 = zext i16 %3857 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4875
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4874
 
 3859:                                             ; preds = %3841
   %3860 = icmp eq i8 %3845, 2
   tail call void @llvm.assume(i1 %3860)
   %3861 = load i64, ptr %3847, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4875
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4874
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4875: ; preds = %3848, %3859
-  %.0.i4874 = phi i64 [ %3858, %3848 ], [ %3861, %3859 ]
-  %3862 = shl i64 %.0.i4874, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4874: ; preds = %3848, %3859
+  %.0.i4873 = phi i64 [ %3858, %3848 ], [ %3861, %3859 ]
+  %3862 = shl i64 %.0.i4873, 7
   %3863 = and i64 %3862, 896
   %3864 = or i64 %3863, %10
   br label %8504
@@ -8863,24 +8863,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3880 = getelementptr inbounds nuw i16, ptr %3878, i64 %3879
   %3881 = load i16, ptr %3880, align 2, !tbaa !240
   %3882 = zext i16 %3881 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4877
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4876
 
 3883:                                             ; preds = %3865
   %3884 = icmp eq i8 %3870, 2
   tail call void @llvm.assume(i1 %3884)
   %3885 = load i64, ptr %3872, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4877
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4876
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4877: ; preds = %3873, %3883
-  %.0.i4876 = phi i64 [ %3882, %3873 ], [ %3885, %3883 ]
-  %3886 = shl i64 %.0.i4876, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4876: ; preds = %3873, %3883
+  %.0.i4875 = phi i64 [ %3882, %3873 ], [ %3885, %3883 ]
+  %3886 = shl i64 %.0.i4875, 15
   %3887 = and i64 %3886, 1015808
   %3888 = load i8, ptr %3867, align 8, !tbaa !70
   %3889 = icmp eq i8 %3888, 1
   %3890 = getelementptr inbounds nuw i8, ptr %3867, i64 8
   br i1 %3889, label %3891, label %3901
 
-3891:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4877
+3891:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4876
   %3892 = getelementptr inbounds nuw i8, ptr %.val4346, i64 160
   %3893 = load ptr, ptr %3892, align 8, !tbaa !72
   %3894 = load i32, ptr %3890, align 8, !tbaa !26
@@ -8890,17 +8890,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3898 = getelementptr inbounds nuw i16, ptr %3896, i64 %3897
   %3899 = load i16, ptr %3898, align 2, !tbaa !240
   %3900 = zext i16 %3899 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4879
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4878
 
-3901:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4877
+3901:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4876
   %3902 = icmp eq i8 %3888, 2
   tail call void @llvm.assume(i1 %3902)
   %3903 = load i64, ptr %3890, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4879
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4878
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4879: ; preds = %3891, %3901
-  %.0.i4878 = phi i64 [ %3900, %3891 ], [ %3903, %3901 ]
-  %3904 = shl i64 %.0.i4878, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4878: ; preds = %3891, %3901
+  %.0.i4877 = phi i64 [ %3900, %3891 ], [ %3903, %3901 ]
+  %3904 = shl i64 %.0.i4877, 7
   %3905 = and i64 %3904, 3968
   %3906 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4132 = load i64, ptr %3906, align 8, !tbaa !27
@@ -8933,24 +8933,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3928 = getelementptr inbounds nuw i16, ptr %3926, i64 %3927
   %3929 = load i16, ptr %3928, align 2, !tbaa !240
   %3930 = zext i16 %3929 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4881
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4880
 
 3931:                                             ; preds = %3913
   %3932 = icmp eq i8 %3918, 2
   tail call void @llvm.assume(i1 %3932)
   %3933 = load i64, ptr %3920, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4881
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4880
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4881: ; preds = %3921, %3931
-  %.0.i4880 = phi i64 [ %3930, %3921 ], [ %3933, %3931 ]
-  %3934 = shl i64 %.0.i4880, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4880: ; preds = %3921, %3931
+  %.0.i4879 = phi i64 [ %3930, %3921 ], [ %3933, %3931 ]
+  %3934 = shl i64 %.0.i4879, 15
   %3935 = and i64 %3934, 1015808
   %3936 = load i8, ptr %3915, align 8, !tbaa !70
   %3937 = icmp eq i8 %3936, 1
   %3938 = getelementptr inbounds nuw i8, ptr %3915, i64 8
   br i1 %3937, label %3939, label %3949
 
-3939:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4881
+3939:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4880
   %3940 = getelementptr inbounds nuw i8, ptr %.val4348, i64 160
   %3941 = load ptr, ptr %3940, align 8, !tbaa !72
   %3942 = load i32, ptr %3938, align 8, !tbaa !26
@@ -8960,17 +8960,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3946 = getelementptr inbounds nuw i16, ptr %3944, i64 %3945
   %3947 = load i16, ptr %3946, align 2, !tbaa !240
   %3948 = zext i16 %3947 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4883
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4882
 
-3949:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4881
+3949:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4880
   %3950 = icmp eq i8 %3936, 2
   tail call void @llvm.assume(i1 %3950)
   %3951 = load i64, ptr %3938, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4883
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4882
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4883: ; preds = %3939, %3949
-  %.0.i4882 = phi i64 [ %3948, %3939 ], [ %3951, %3949 ]
-  %3952 = shl i64 %.0.i4882, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4882: ; preds = %3939, %3949
+  %.0.i4881 = phi i64 [ %3948, %3939 ], [ %3951, %3949 ]
+  %3952 = shl i64 %.0.i4881, 7
   %3953 = and i64 %3952, 3968
   %3954 = getelementptr inbounds nuw i8, ptr %3915, i64 16
   %3955 = load i8, ptr %3954, align 8, !tbaa !70
@@ -8978,7 +8978,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3957 = getelementptr inbounds nuw i8, ptr %3915, i64 24
   br i1 %3956, label %3958, label %3968
 
-3958:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4883
+3958:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4882
   %3959 = getelementptr inbounds nuw i8, ptr %.val4348, i64 160
   %3960 = load ptr, ptr %3959, align 8, !tbaa !72
   %3961 = load i32, ptr %3957, align 8, !tbaa !26
@@ -8988,17 +8988,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3965 = getelementptr inbounds nuw i16, ptr %3963, i64 %3964
   %3966 = load i16, ptr %3965, align 2, !tbaa !240
   %3967 = zext i16 %3966 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4885
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4884
 
-3968:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4883
+3968:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4882
   %3969 = icmp eq i8 %3955, 2
   tail call void @llvm.assume(i1 %3969)
   %3970 = load i64, ptr %3957, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4885
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4884
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4885: ; preds = %3958, %3968
-  %.0.i4884 = phi i64 [ %3967, %3958 ], [ %3970, %3968 ]
-  %3971 = shl i64 %.0.i4884, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4884: ; preds = %3958, %3968
+  %.0.i4883 = phi i64 [ %3967, %3958 ], [ %3970, %3968 ]
+  %3971 = shl i64 %.0.i4883, 20
   %3972 = and i64 %3971, 4293918720
   %3973 = or disjoint i64 %3935, %3953
   %3974 = or disjoint i64 %3973, %3972
@@ -9026,24 +9026,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %3991 = getelementptr inbounds nuw i16, ptr %3989, i64 %3990
   %3992 = load i16, ptr %3991, align 2, !tbaa !240
   %3993 = zext i16 %3992 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4887
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4886
 
 3994:                                             ; preds = %3976
   %3995 = icmp eq i8 %3981, 2
   tail call void @llvm.assume(i1 %3995)
   %3996 = load i64, ptr %3983, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4887
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4886
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4887: ; preds = %3984, %3994
-  %.0.i4886 = phi i64 [ %3993, %3984 ], [ %3996, %3994 ]
-  %3997 = shl i64 %.0.i4886, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4886: ; preds = %3984, %3994
+  %.0.i4885 = phi i64 [ %3993, %3984 ], [ %3996, %3994 ]
+  %3997 = shl i64 %.0.i4885, 15
   %3998 = and i64 %3997, 1015808
   %3999 = load i8, ptr %3978, align 8, !tbaa !70
   %4000 = icmp eq i8 %3999, 1
   %4001 = getelementptr inbounds nuw i8, ptr %3978, i64 8
   br i1 %4000, label %4002, label %4012
 
-4002:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4887
+4002:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4886
   %4003 = getelementptr inbounds nuw i8, ptr %.val4351, i64 160
   %4004 = load ptr, ptr %4003, align 8, !tbaa !72
   %4005 = load i32, ptr %4001, align 8, !tbaa !26
@@ -9053,17 +9053,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4009 = getelementptr inbounds nuw i16, ptr %4007, i64 %4008
   %4010 = load i16, ptr %4009, align 2, !tbaa !240
   %4011 = zext i16 %4010 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4889
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4888
 
-4012:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4887
+4012:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4886
   %4013 = icmp eq i8 %3999, 2
   tail call void @llvm.assume(i1 %4013)
   %4014 = load i64, ptr %4001, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4889
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4888
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4889: ; preds = %4002, %4012
-  %.0.i4888 = phi i64 [ %4011, %4002 ], [ %4014, %4012 ]
-  %4015 = shl i64 %.0.i4888, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4888: ; preds = %4002, %4012
+  %.0.i4887 = phi i64 [ %4011, %4002 ], [ %4014, %4012 ]
+  %4015 = shl i64 %.0.i4887, 7
   %4016 = and i64 %4015, 3968
   %4017 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4133 = load i64, ptr %4017, align 8, !tbaa !27
@@ -9101,17 +9101,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4043 = getelementptr inbounds nuw i16, ptr %4041, i64 %4042
   %4044 = load i16, ptr %4043, align 2, !tbaa !240
   %4045 = zext i16 %4044 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4891
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4890
 
 4046:                                             ; preds = %4028
   %4047 = icmp eq i8 %4033, 2
   tail call void @llvm.assume(i1 %4047)
   %4048 = load i64, ptr %4035, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4891
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4890
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4891: ; preds = %4036, %4046
-  %.0.i4890 = phi i64 [ %4045, %4036 ], [ %4048, %4046 ]
-  %4049 = shl i64 %.0.i4890, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4890: ; preds = %4036, %4046
+  %.0.i4889 = phi i64 [ %4045, %4036 ], [ %4048, %4046 ]
+  %4049 = shl i64 %.0.i4889, 15
   %4050 = and i64 %4049, 1015808
   %4051 = getelementptr inbounds nuw i8, ptr %4030, i64 16
   %4052 = load i8, ptr %4051, align 8, !tbaa !70
@@ -9119,7 +9119,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4054 = getelementptr inbounds nuw i8, ptr %4030, i64 24
   br i1 %4053, label %4055, label %4065
 
-4055:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4891
+4055:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4890
   %4056 = getelementptr inbounds nuw i8, ptr %.val4353, i64 160
   %4057 = load ptr, ptr %4056, align 8, !tbaa !72
   %4058 = load i32, ptr %4054, align 8, !tbaa !26
@@ -9129,17 +9129,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4062 = getelementptr inbounds nuw i16, ptr %4060, i64 %4061
   %4063 = load i16, ptr %4062, align 2, !tbaa !240
   %4064 = zext i16 %4063 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4893
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4892
 
-4065:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4891
+4065:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4890
   %4066 = icmp eq i8 %4052, 2
   tail call void @llvm.assume(i1 %4066)
   %4067 = load i64, ptr %4054, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4893
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4892
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4893: ; preds = %4055, %4065
-  %.0.i4892 = phi i64 [ %4064, %4055 ], [ %4067, %4065 ]
-  %4068 = shl i64 %.0.i4892, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4892: ; preds = %4055, %4065
+  %.0.i4891 = phi i64 [ %4064, %4055 ], [ %4067, %4065 ]
+  %4068 = shl i64 %.0.i4891, 7
   %4069 = and i64 %4068, 3968
   %4070 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4135 = load i64, ptr %4070, align 8, !tbaa !27
@@ -9172,17 +9172,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4092 = getelementptr inbounds nuw i16, ptr %4090, i64 %4091
   %4093 = load i16, ptr %4092, align 2, !tbaa !240
   %4094 = zext i16 %4093 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4895
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4894
 
 4095:                                             ; preds = %4077
   %4096 = icmp eq i8 %4082, 2
   tail call void @llvm.assume(i1 %4096)
   %4097 = load i64, ptr %4084, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4895
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4894
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4895: ; preds = %4085, %4095
-  %.0.i4894 = phi i64 [ %4094, %4085 ], [ %4097, %4095 ]
-  %4098 = shl i64 %.0.i4894, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4894: ; preds = %4085, %4095
+  %.0.i4893 = phi i64 [ %4094, %4085 ], [ %4097, %4095 ]
+  %4098 = shl i64 %.0.i4893, 15
   %4099 = and i64 %4098, 1015808
   %4100 = getelementptr inbounds nuw i8, ptr %4079, i64 16
   %4101 = load i8, ptr %4100, align 8, !tbaa !70
@@ -9190,7 +9190,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4103 = getelementptr inbounds nuw i8, ptr %4079, i64 24
   br i1 %4102, label %4104, label %4114
 
-4104:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4895
+4104:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4894
   %4105 = getelementptr inbounds nuw i8, ptr %.val4355, i64 160
   %4106 = load ptr, ptr %4105, align 8, !tbaa !72
   %4107 = load i32, ptr %4103, align 8, !tbaa !26
@@ -9200,17 +9200,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4111 = getelementptr inbounds nuw i16, ptr %4109, i64 %4110
   %4112 = load i16, ptr %4111, align 2, !tbaa !240
   %4113 = zext i16 %4112 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4897
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4896
 
-4114:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4895
+4114:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4894
   %4115 = icmp eq i8 %4101, 2
   tail call void @llvm.assume(i1 %4115)
   %4116 = load i64, ptr %4103, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4897
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4896
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4897: ; preds = %4104, %4114
-  %.0.i4896 = phi i64 [ %4113, %4104 ], [ %4116, %4114 ]
-  %4117 = shl i64 %.0.i4896, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4896: ; preds = %4104, %4114
+  %.0.i4895 = phi i64 [ %4113, %4104 ], [ %4116, %4114 ]
+  %4117 = shl i64 %.0.i4895, 7
   %4118 = and i64 %4117, 3968
   %4119 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4136 = load i64, ptr %4119, align 8, !tbaa !27
@@ -9246,17 +9246,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4144 = getelementptr inbounds nuw i16, ptr %4142, i64 %4143
   %4145 = load i16, ptr %4144, align 2, !tbaa !240
   %4146 = zext i16 %4145 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4899
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4898
 
 4147:                                             ; preds = %4129
   %4148 = icmp eq i8 %4134, 2
   tail call void @llvm.assume(i1 %4148)
   %4149 = load i64, ptr %4136, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4899
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4898
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4899: ; preds = %4137, %4147
-  %.0.i4898 = phi i64 [ %4146, %4137 ], [ %4149, %4147 ]
-  %4150 = shl i64 %.0.i4898, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4898: ; preds = %4137, %4147
+  %.0.i4897 = phi i64 [ %4146, %4137 ], [ %4149, %4147 ]
+  %4150 = shl i64 %.0.i4897, 15
   %4151 = and i64 %4150, 1015808
   %4152 = getelementptr inbounds nuw i8, ptr %4131, i64 16
   %4153 = load i8, ptr %4152, align 8, !tbaa !70
@@ -9264,7 +9264,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4155 = getelementptr inbounds nuw i8, ptr %4131, i64 24
   br i1 %4154, label %4156, label %4166
 
-4156:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4899
+4156:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4898
   %4157 = getelementptr inbounds nuw i8, ptr %.val4357, i64 160
   %4158 = load ptr, ptr %4157, align 8, !tbaa !72
   %4159 = load i32, ptr %4155, align 8, !tbaa !26
@@ -9274,17 +9274,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4163 = getelementptr inbounds nuw i16, ptr %4161, i64 %4162
   %4164 = load i16, ptr %4163, align 2, !tbaa !240
   %4165 = zext i16 %4164 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4901
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4900
 
-4166:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4899
+4166:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4898
   %4167 = icmp eq i8 %4153, 2
   tail call void @llvm.assume(i1 %4167)
   %4168 = load i64, ptr %4155, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4901
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4900
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4901: ; preds = %4156, %4166
-  %.0.i4900 = phi i64 [ %4165, %4156 ], [ %4168, %4166 ]
-  %4169 = shl i64 %.0.i4900, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4900: ; preds = %4156, %4166
+  %.0.i4899 = phi i64 [ %4165, %4156 ], [ %4168, %4166 ]
+  %4169 = shl i64 %.0.i4899, 7
   %4170 = and i64 %4169, 3968
   %4171 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4137 = load i64, ptr %4171, align 8, !tbaa !27
@@ -9322,17 +9322,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4197 = getelementptr inbounds nuw i16, ptr %4195, i64 %4196
   %4198 = load i16, ptr %4197, align 2, !tbaa !240
   %4199 = zext i16 %4198 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4903
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4902
 
 4200:                                             ; preds = %4182
   %4201 = icmp eq i8 %4187, 2
   tail call void @llvm.assume(i1 %4201)
   %4202 = load i64, ptr %4189, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4903
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4902
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4903: ; preds = %4190, %4200
-  %.0.i4902 = phi i64 [ %4199, %4190 ], [ %4202, %4200 ]
-  %4203 = shl i64 %.0.i4902, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4902: ; preds = %4190, %4200
+  %.0.i4901 = phi i64 [ %4199, %4190 ], [ %4202, %4200 ]
+  %4203 = shl i64 %.0.i4901, 15
   %4204 = and i64 %4203, 1015808
   %4205 = getelementptr inbounds nuw i8, ptr %4184, i64 16
   %4206 = load i8, ptr %4205, align 8, !tbaa !70
@@ -9340,7 +9340,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4208 = getelementptr inbounds nuw i8, ptr %4184, i64 24
   br i1 %4207, label %4209, label %4219
 
-4209:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4903
+4209:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4902
   %4210 = getelementptr inbounds nuw i8, ptr %.val4359, i64 160
   %4211 = load ptr, ptr %4210, align 8, !tbaa !72
   %4212 = load i32, ptr %4208, align 8, !tbaa !26
@@ -9350,17 +9350,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4216 = getelementptr inbounds nuw i16, ptr %4214, i64 %4215
   %4217 = load i16, ptr %4216, align 2, !tbaa !240
   %4218 = zext i16 %4217 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4905
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4904
 
-4219:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4903
+4219:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4902
   %4220 = icmp eq i8 %4206, 2
   tail call void @llvm.assume(i1 %4220)
   %4221 = load i64, ptr %4208, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4905
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4904
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4905: ; preds = %4209, %4219
-  %.0.i4904 = phi i64 [ %4218, %4209 ], [ %4221, %4219 ]
-  %4222 = shl i64 %.0.i4904, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4904: ; preds = %4209, %4219
+  %.0.i4903 = phi i64 [ %4218, %4209 ], [ %4221, %4219 ]
+  %4222 = shl i64 %.0.i4903, 7
   %4223 = and i64 %4222, 3968
   %4224 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4139 = load i64, ptr %4224, align 8, !tbaa !27
@@ -9398,17 +9398,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4250 = getelementptr inbounds nuw i16, ptr %4248, i64 %4249
   %4251 = load i16, ptr %4250, align 2, !tbaa !240
   %4252 = zext i16 %4251 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4907
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4906
 
 4253:                                             ; preds = %4235
   %4254 = icmp eq i8 %4240, 2
   tail call void @llvm.assume(i1 %4254)
   %4255 = load i64, ptr %4242, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4907
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4906
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4907: ; preds = %4243, %4253
-  %.0.i4906 = phi i64 [ %4252, %4243 ], [ %4255, %4253 ]
-  %4256 = shl i64 %.0.i4906, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4906: ; preds = %4243, %4253
+  %.0.i4905 = phi i64 [ %4252, %4243 ], [ %4255, %4253 ]
+  %4256 = shl i64 %.0.i4905, 15
   %4257 = and i64 %4256, 1015808
   %4258 = getelementptr inbounds nuw i8, ptr %4237, i64 16
   %4259 = load i8, ptr %4258, align 8, !tbaa !70
@@ -9416,7 +9416,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4261 = getelementptr inbounds nuw i8, ptr %4237, i64 24
   br i1 %4260, label %4262, label %4272
 
-4262:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4907
+4262:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4906
   %4263 = getelementptr inbounds nuw i8, ptr %.val4361, i64 160
   %4264 = load ptr, ptr %4263, align 8, !tbaa !72
   %4265 = load i32, ptr %4261, align 8, !tbaa !26
@@ -9426,17 +9426,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4269 = getelementptr inbounds nuw i16, ptr %4267, i64 %4268
   %4270 = load i16, ptr %4269, align 2, !tbaa !240
   %4271 = zext i16 %4270 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4909
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4908
 
-4272:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4907
+4272:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4906
   %4273 = icmp eq i8 %4259, 2
   tail call void @llvm.assume(i1 %4273)
   %4274 = load i64, ptr %4261, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4909
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4908
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4909: ; preds = %4262, %4272
-  %.0.i4908 = phi i64 [ %4271, %4262 ], [ %4274, %4272 ]
-  %4275 = shl i64 %.0.i4908, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4908: ; preds = %4262, %4272
+  %.0.i4907 = phi i64 [ %4271, %4262 ], [ %4274, %4272 ]
+  %4275 = shl i64 %.0.i4907, 7
   %4276 = and i64 %4275, 3968
   %4277 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4141 = load i64, ptr %4277, align 8, !tbaa !27
@@ -9474,17 +9474,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4303 = getelementptr inbounds nuw i16, ptr %4301, i64 %4302
   %4304 = load i16, ptr %4303, align 2, !tbaa !240
   %4305 = zext i16 %4304 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4911
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4910
 
 4306:                                             ; preds = %4288
   %4307 = icmp eq i8 %4293, 2
   tail call void @llvm.assume(i1 %4307)
   %4308 = load i64, ptr %4295, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4911
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4910
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4911: ; preds = %4296, %4306
-  %.0.i4910 = phi i64 [ %4305, %4296 ], [ %4308, %4306 ]
-  %4309 = shl i64 %.0.i4910, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4910: ; preds = %4296, %4306
+  %.0.i4909 = phi i64 [ %4305, %4296 ], [ %4308, %4306 ]
+  %4309 = shl i64 %.0.i4909, 15
   %4310 = and i64 %4309, 1015808
   %4311 = getelementptr inbounds nuw i8, ptr %4290, i64 16
   %4312 = load i8, ptr %4311, align 8, !tbaa !70
@@ -9492,7 +9492,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4314 = getelementptr inbounds nuw i8, ptr %4290, i64 24
   br i1 %4313, label %4315, label %4325
 
-4315:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4911
+4315:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4910
   %4316 = getelementptr inbounds nuw i8, ptr %.val4363, i64 160
   %4317 = load ptr, ptr %4316, align 8, !tbaa !72
   %4318 = load i32, ptr %4314, align 8, !tbaa !26
@@ -9502,17 +9502,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4322 = getelementptr inbounds nuw i16, ptr %4320, i64 %4321
   %4323 = load i16, ptr %4322, align 2, !tbaa !240
   %4324 = zext i16 %4323 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4913
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4912
 
-4325:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4911
+4325:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4910
   %4326 = icmp eq i8 %4312, 2
   tail call void @llvm.assume(i1 %4326)
   %4327 = load i64, ptr %4314, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4913
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4912
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4913: ; preds = %4315, %4325
-  %.0.i4912 = phi i64 [ %4324, %4315 ], [ %4327, %4325 ]
-  %4328 = shl i64 %.0.i4912, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4912: ; preds = %4315, %4325
+  %.0.i4911 = phi i64 [ %4324, %4315 ], [ %4327, %4325 ]
+  %4328 = shl i64 %.0.i4911, 7
   %4329 = and i64 %4328, 3968
   %4330 = or disjoint i64 %4310, %4329
   %4331 = or i64 %4330, %10
@@ -9568,17 +9568,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4369 = getelementptr inbounds nuw i16, ptr %4367, i64 %4368
   %4370 = load i16, ptr %4369, align 2, !tbaa !240
   %4371 = zext i16 %4370 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4915
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4914
 
 4372:                                             ; preds = %4350
   %4373 = icmp eq i8 %4358, 2
   tail call void @llvm.assume(i1 %4373)
   %4374 = load i64, ptr %4360, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4915
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4914
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4915: ; preds = %4361, %4372
-  %.0.i4914 = phi i64 [ %4371, %4361 ], [ %4374, %4372 ]
-  %4375 = shl i64 %.0.i4914, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4914: ; preds = %4361, %4372
+  %.0.i4913 = phi i64 [ %4371, %4361 ], [ %4374, %4372 ]
+  %4375 = shl i64 %.0.i4913, 15
   %4376 = and i64 %4375, 1015808
   %.val4148 = load i64, ptr %4351, align 8, !tbaa !27
   %4377 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val4148)
@@ -9623,17 +9623,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4408 = getelementptr inbounds nuw i16, ptr %4406, i64 %4407
   %4409 = load i16, ptr %4408, align 2, !tbaa !240
   %4410 = zext i16 %4409 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4917
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4916
 
 4411:                                             ; preds = %4387
   %4412 = icmp eq i8 %4397, 2
   tail call void @llvm.assume(i1 %4412)
   %4413 = load i64, ptr %4399, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4917
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4916
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4917: ; preds = %4400, %4411
-  %.0.i4916 = phi i64 [ %4410, %4400 ], [ %4413, %4411 ]
-  %4414 = shl i64 %.0.i4916, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4916: ; preds = %4400, %4411
+  %.0.i4915 = phi i64 [ %4410, %4400 ], [ %4413, %4411 ]
+  %4414 = shl i64 %.0.i4915, 7
   %4415 = and i64 %4414, 3968
   %.val4152 = load i64, ptr %4388, align 8, !tbaa !27
   %4416 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val4152)
@@ -9671,24 +9671,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4442 = getelementptr inbounds nuw i16, ptr %4440, i64 %4441
   %4443 = load i16, ptr %4442, align 2, !tbaa !240
   %4444 = zext i16 %4443 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4919
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4918
 
 4445:                                             ; preds = %4423
   %4446 = icmp eq i8 %4432, 2
   tail call void @llvm.assume(i1 %4446)
   %4447 = load i64, ptr %4434, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4919
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4918
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4919: ; preds = %4435, %4445
-  %.0.i4918 = phi i64 [ %4444, %4435 ], [ %4447, %4445 ]
-  %4448 = shl i64 %.0.i4918, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4918: ; preds = %4435, %4445
+  %.0.i4917 = phi i64 [ %4444, %4435 ], [ %4447, %4445 ]
+  %4448 = shl i64 %.0.i4917, 15
   %4449 = and i64 %4448, 1015808
   %4450 = load i8, ptr %4429, align 8, !tbaa !70
   %4451 = icmp eq i8 %4450, 1
   %4452 = getelementptr inbounds nuw i8, ptr %4429, i64 8
   br i1 %4451, label %4453, label %4463
 
-4453:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4919
+4453:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4918
   %4454 = getelementptr inbounds nuw i8, ptr %.val4367, i64 160
   %4455 = load ptr, ptr %4454, align 8, !tbaa !72
   %4456 = load i32, ptr %4452, align 8, !tbaa !26
@@ -9698,17 +9698,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4460 = getelementptr inbounds nuw i16, ptr %4458, i64 %4459
   %4461 = load i16, ptr %4460, align 2, !tbaa !240
   %4462 = zext i16 %4461 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4921
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4920
 
-4463:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4919
+4463:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4918
   %4464 = icmp eq i8 %4450, 2
   tail call void @llvm.assume(i1 %4464)
   %4465 = load i64, ptr %4452, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4921
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4920
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4921: ; preds = %4453, %4463
-  %.0.i4920 = phi i64 [ %4462, %4453 ], [ %4465, %4463 ]
-  %4466 = shl i64 %.0.i4920, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4920: ; preds = %4453, %4463
+  %.0.i4919 = phi i64 [ %4462, %4453 ], [ %4465, %4463 ]
+  %4466 = shl i64 %.0.i4919, 7
   %4467 = and i64 %4466, 3968
   %.val4154 = load i64, ptr %4424, align 8, !tbaa !27
   %4468 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val4154)
@@ -9746,17 +9746,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4494 = getelementptr inbounds nuw i16, ptr %4492, i64 %4493
   %4495 = load i16, ptr %4494, align 2, !tbaa !240
   %4496 = zext i16 %4495 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4923
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4922
 
 4497:                                             ; preds = %4475
   %4498 = icmp eq i8 %4484, 2
   tail call void @llvm.assume(i1 %4498)
   %4499 = load i64, ptr %4486, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4923
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4922
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4923: ; preds = %4487, %4497
-  %.0.i4922 = phi i64 [ %4496, %4487 ], [ %4499, %4497 ]
-  %4500 = shl i64 %.0.i4922, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4922: ; preds = %4487, %4497
+  %.0.i4921 = phi i64 [ %4496, %4487 ], [ %4499, %4497 ]
+  %4500 = shl i64 %.0.i4921, 15
   %4501 = and i64 %4500, 1015808
   %4502 = getelementptr inbounds nuw i8, ptr %4481, i64 16
   %4503 = load i8, ptr %4502, align 8, !tbaa !70
@@ -9764,7 +9764,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4505 = getelementptr inbounds nuw i8, ptr %4481, i64 24
   br i1 %4504, label %4506, label %4516
 
-4506:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4923
+4506:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4922
   %4507 = getelementptr inbounds nuw i8, ptr %.val4369, i64 160
   %4508 = load ptr, ptr %4507, align 8, !tbaa !72
   %4509 = load i32, ptr %4505, align 8, !tbaa !26
@@ -9774,17 +9774,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4513 = getelementptr inbounds nuw i16, ptr %4511, i64 %4512
   %4514 = load i16, ptr %4513, align 2, !tbaa !240
   %4515 = zext i16 %4514 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4925
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4924
 
-4516:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4923
+4516:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4922
   %4517 = icmp eq i8 %4503, 2
   tail call void @llvm.assume(i1 %4517)
   %4518 = load i64, ptr %4505, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4925
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4924
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4925: ; preds = %4506, %4516
-  %.0.i4924 = phi i64 [ %4515, %4506 ], [ %4518, %4516 ]
-  %4519 = shl i64 %.0.i4924, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4924: ; preds = %4506, %4516
+  %.0.i4923 = phi i64 [ %4515, %4506 ], [ %4518, %4516 ]
+  %4519 = shl i64 %.0.i4923, 7
   %4520 = and i64 %4519, 3968
   %.val4156 = load i64, ptr %4476, align 8, !tbaa !27
   %4521 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 4, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val4156)
@@ -9816,17 +9816,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4542 = getelementptr inbounds nuw i16, ptr %4540, i64 %4541
   %4543 = load i16, ptr %4542, align 2, !tbaa !240
   %4544 = zext i16 %4543 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4927
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4926
 
 4545:                                             ; preds = %4528
   %4546 = icmp eq i8 %4531, 2
   tail call void @llvm.assume(i1 %4546)
   %4547 = load i64, ptr %4533, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4927
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4926
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4927: ; preds = %4534, %4545
-  %.0.i4926 = phi i64 [ %4544, %4534 ], [ %4547, %4545 ]
-  %4548 = shl i64 %.0.i4926, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4926: ; preds = %4534, %4545
+  %.0.i4925 = phi i64 [ %4544, %4534 ], [ %4547, %4545 ]
+  %4548 = shl i64 %.0.i4925, 20
   %4549 = and i64 %4548, 32505856
   %4550 = or i64 %4549, %10
   br label %8504
@@ -9851,7 +9851,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4565 = getelementptr inbounds nuw i16, ptr %4563, i64 %4564
   %4566 = load i16, ptr %4565, align 2, !tbaa !240
   %4567 = zext i16 %4566 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4929
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4928
 
 4568:                                             ; preds = %4551
   %4569 = icmp eq i8 %4555, 2
@@ -9861,12 +9861,12 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %.val4554.val.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !72
   %.phi.trans.insert5319 = getelementptr i8, ptr %.val4554.val.pre, i64 104
   %.val4554.val.val.pre = load ptr, ptr %.phi.trans.insert5319, align 8, !tbaa !225
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4929
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4928
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4929: ; preds = %4558, %4568
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4928: ; preds = %4558, %4568
   %.val4554.val.val = phi ptr [ %4563, %4558 ], [ %.val4554.val.val.pre, %4568 ]
-  %.0.i4928 = phi i64 [ %4567, %4558 ], [ %4570, %4568 ]
-  %4571 = shl i64 %.0.i4928, 20
+  %.0.i4927 = phi i64 [ %4567, %4558 ], [ %4570, %4568 ]
+  %4571 = shl i64 %.0.i4927, 20
   %4572 = and i64 %4571, 32505856
   %4573 = getelementptr i8, ptr %4553, i64 24
   %.val4555.val = load i32, ptr %4573, align 8, !tbaa !26
@@ -9911,17 +9911,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4606 = getelementptr inbounds nuw i16, ptr %4604, i64 %4605
   %4607 = load i16, ptr %4606, align 2, !tbaa !240
   %4608 = zext i16 %4607 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4931
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4930
 
 4609:                                             ; preds = %4592
   %4610 = icmp eq i8 %4596, 2
   tail call void @llvm.assume(i1 %4610)
   %4611 = load i64, ptr %4598, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4931
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4930
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4931: ; preds = %4599, %4609
-  %.0.i4930 = phi i64 [ %4608, %4599 ], [ %4611, %4609 ]
-  %4612 = shl i64 %.0.i4930, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4930: ; preds = %4599, %4609
+  %.0.i4929 = phi i64 [ %4608, %4599 ], [ %4611, %4609 ]
+  %4612 = shl i64 %.0.i4929, 20
   %4613 = and i64 %4612, 32505856
   %4614 = getelementptr inbounds nuw i8, ptr %4594, i64 16
   %4615 = load i8, ptr %4614, align 8, !tbaa !70
@@ -9929,7 +9929,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4617 = getelementptr inbounds nuw i8, ptr %4594, i64 24
   br i1 %4616, label %4618, label %4628
 
-4618:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4931
+4618:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4930
   %4619 = getelementptr inbounds nuw i8, ptr %.val4373, i64 160
   %4620 = load ptr, ptr %4619, align 8, !tbaa !72
   %4621 = load i32, ptr %4617, align 8, !tbaa !26
@@ -9939,17 +9939,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4625 = getelementptr inbounds nuw i16, ptr %4623, i64 %4624
   %4626 = load i16, ptr %4625, align 2, !tbaa !240
   %4627 = zext i16 %4626 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4933
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4932
 
-4628:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4931
+4628:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4930
   %4629 = icmp eq i8 %4615, 2
   tail call void @llvm.assume(i1 %4629)
   %4630 = load i64, ptr %4617, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4933
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4932
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4933: ; preds = %4618, %4628
-  %.0.i4932 = phi i64 [ %4627, %4618 ], [ %4630, %4628 ]
-  %4631 = shl i64 %.0.i4932, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4932: ; preds = %4618, %4628
+  %.0.i4931 = phi i64 [ %4627, %4618 ], [ %4630, %4628 ]
+  %4631 = shl i64 %.0.i4931, 15
   %4632 = and i64 %4631, 1015808
   %4633 = or disjoint i64 %4613, %4632
   %4634 = or i64 %4633, %10
@@ -9975,17 +9975,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4649 = getelementptr inbounds nuw i16, ptr %4647, i64 %4648
   %4650 = load i16, ptr %4649, align 2, !tbaa !240
   %4651 = zext i16 %4650 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4935
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4934
 
 4652:                                             ; preds = %4635
   %4653 = icmp eq i8 %4639, 2
   tail call void @llvm.assume(i1 %4653)
   %4654 = load i64, ptr %4641, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4935
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4934
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4935: ; preds = %4642, %4652
-  %.0.i4934 = phi i64 [ %4651, %4642 ], [ %4654, %4652 ]
-  %4655 = shl i64 %.0.i4934, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4934: ; preds = %4642, %4652
+  %.0.i4933 = phi i64 [ %4651, %4642 ], [ %4654, %4652 ]
+  %4655 = shl i64 %.0.i4933, 2
   %4656 = and i64 %4655, 28
   %4657 = getelementptr inbounds nuw i8, ptr %4637, i64 16
   %4658 = load i8, ptr %4657, align 8, !tbaa !70
@@ -9993,7 +9993,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4660 = getelementptr inbounds nuw i8, ptr %4637, i64 24
   br i1 %4659, label %4661, label %4671
 
-4661:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4935
+4661:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4934
   %4662 = getelementptr inbounds nuw i8, ptr %.val4375, i64 160
   %4663 = load ptr, ptr %4662, align 8, !tbaa !72
   %4664 = load i32, ptr %4660, align 8, !tbaa !26
@@ -10003,17 +10003,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4668 = getelementptr inbounds nuw i16, ptr %4666, i64 %4667
   %4669 = load i16, ptr %4668, align 2, !tbaa !240
   %4670 = zext i16 %4669 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4937
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4936
 
-4671:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4935
+4671:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4934
   %4672 = icmp eq i8 %4658, 2
   tail call void @llvm.assume(i1 %4672)
   %4673 = load i64, ptr %4660, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4937
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4936
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4937: ; preds = %4661, %4671
-  %.0.i4936 = phi i64 [ %4670, %4661 ], [ %4673, %4671 ]
-  %4674 = shl i64 %.0.i4936, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4936: ; preds = %4661, %4671
+  %.0.i4935 = phi i64 [ %4670, %4661 ], [ %4673, %4671 ]
+  %4674 = shl i64 %.0.i4935, 7
   %4675 = and i64 %4674, 896
   %4676 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4157 = load i64, ptr %4676, align 8, !tbaa !27
@@ -10051,17 +10051,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4703 = getelementptr inbounds nuw i16, ptr %4701, i64 %4702
   %4704 = load i16, ptr %4703, align 2, !tbaa !240
   %4705 = zext i16 %4704 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4939
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4938
 
 4706:                                             ; preds = %4689
   %4707 = icmp eq i8 %4693, 2
   tail call void @llvm.assume(i1 %4707)
   %4708 = load i64, ptr %4695, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4939
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4938
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4939: ; preds = %4696, %4706
-  %.0.i4938 = phi i64 [ %4705, %4696 ], [ %4708, %4706 ]
-  %4709 = shl i64 %.0.i4938, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4938: ; preds = %4696, %4706
+  %.0.i4937 = phi i64 [ %4705, %4696 ], [ %4708, %4706 ]
+  %4709 = shl i64 %.0.i4937, 2
   %4710 = and i64 %4709, 28
   %4711 = getelementptr inbounds nuw i8, ptr %4691, i64 16
   %4712 = load i8, ptr %4711, align 8, !tbaa !70
@@ -10069,7 +10069,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4714 = getelementptr inbounds nuw i8, ptr %4691, i64 24
   br i1 %4713, label %4715, label %4725
 
-4715:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4939
+4715:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4938
   %4716 = getelementptr inbounds nuw i8, ptr %.val4377, i64 160
   %4717 = load ptr, ptr %4716, align 8, !tbaa !72
   %4718 = load i32, ptr %4714, align 8, !tbaa !26
@@ -10079,17 +10079,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4722 = getelementptr inbounds nuw i16, ptr %4720, i64 %4721
   %4723 = load i16, ptr %4722, align 2, !tbaa !240
   %4724 = zext i16 %4723 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4941
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4940
 
-4725:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4939
+4725:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4938
   %4726 = icmp eq i8 %4712, 2
   tail call void @llvm.assume(i1 %4726)
   %4727 = load i64, ptr %4714, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4941
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4940
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4941: ; preds = %4715, %4725
-  %.0.i4940 = phi i64 [ %4724, %4715 ], [ %4727, %4725 ]
-  %4728 = shl i64 %.0.i4940, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4940: ; preds = %4715, %4725
+  %.0.i4939 = phi i64 [ %4724, %4715 ], [ %4727, %4725 ]
+  %4728 = shl i64 %.0.i4939, 7
   %4729 = and i64 %4728, 896
   %4730 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4158 = load i64, ptr %4730, align 8, !tbaa !27
@@ -10124,17 +10124,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4754 = getelementptr inbounds nuw i16, ptr %4752, i64 %4753
   %4755 = load i16, ptr %4754, align 2, !tbaa !240
   %4756 = zext i16 %4755 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4943
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4942
 
 4757:                                             ; preds = %4740
   %4758 = icmp eq i8 %4744, 2
   tail call void @llvm.assume(i1 %4758)
   %4759 = load i64, ptr %4746, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4943
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4942
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4943: ; preds = %4747, %4757
-  %.0.i4942 = phi i64 [ %4756, %4747 ], [ %4759, %4757 ]
-  %4760 = shl i64 %.0.i4942, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4942: ; preds = %4747, %4757
+  %.0.i4941 = phi i64 [ %4756, %4747 ], [ %4759, %4757 ]
+  %4760 = shl i64 %.0.i4941, 2
   %4761 = and i64 %4760, 28
   %4762 = getelementptr inbounds nuw i8, ptr %4742, i64 16
   %4763 = load i8, ptr %4762, align 8, !tbaa !70
@@ -10142,7 +10142,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4765 = getelementptr inbounds nuw i8, ptr %4742, i64 24
   br i1 %4764, label %4766, label %4776
 
-4766:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4943
+4766:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4942
   %4767 = getelementptr inbounds nuw i8, ptr %.val4379, i64 160
   %4768 = load ptr, ptr %4767, align 8, !tbaa !72
   %4769 = load i32, ptr %4765, align 8, !tbaa !26
@@ -10152,17 +10152,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4773 = getelementptr inbounds nuw i16, ptr %4771, i64 %4772
   %4774 = load i16, ptr %4773, align 2, !tbaa !240
   %4775 = zext i16 %4774 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4945
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4944
 
-4776:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4943
+4776:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4942
   %4777 = icmp eq i8 %4763, 2
   tail call void @llvm.assume(i1 %4777)
   %4778 = load i64, ptr %4765, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4945
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4944
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4945: ; preds = %4766, %4776
-  %.0.i4944 = phi i64 [ %4775, %4766 ], [ %4778, %4776 ]
-  %4779 = shl i64 %.0.i4944, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4944: ; preds = %4766, %4776
+  %.0.i4943 = phi i64 [ %4775, %4766 ], [ %4778, %4776 ]
+  %4779 = shl i64 %.0.i4943, 7
   %4780 = and i64 %4779, 896
   %4781 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4159 = load i64, ptr %4781, align 8, !tbaa !27
@@ -10197,17 +10197,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4805 = getelementptr inbounds nuw i16, ptr %4803, i64 %4804
   %4806 = load i16, ptr %4805, align 2, !tbaa !240
   %4807 = zext i16 %4806 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4947
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4946
 
 4808:                                             ; preds = %4791
   %4809 = icmp eq i8 %4795, 2
   tail call void @llvm.assume(i1 %4809)
   %4810 = load i64, ptr %4797, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4947
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4946
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4947: ; preds = %4798, %4808
-  %.0.i4946 = phi i64 [ %4807, %4798 ], [ %4810, %4808 ]
-  %4811 = shl i64 %.0.i4946, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4946: ; preds = %4798, %4808
+  %.0.i4945 = phi i64 [ %4807, %4798 ], [ %4810, %4808 ]
+  %4811 = shl i64 %.0.i4945, 2
   %4812 = and i64 %4811, 28
   %4813 = getelementptr inbounds nuw i8, ptr %4793, i64 16
   %4814 = load i8, ptr %4813, align 8, !tbaa !70
@@ -10215,7 +10215,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4816 = getelementptr inbounds nuw i8, ptr %4793, i64 24
   br i1 %4815, label %4817, label %4827
 
-4817:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4947
+4817:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4946
   %4818 = getelementptr inbounds nuw i8, ptr %.val4381, i64 160
   %4819 = load ptr, ptr %4818, align 8, !tbaa !72
   %4820 = load i32, ptr %4816, align 8, !tbaa !26
@@ -10225,17 +10225,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4824 = getelementptr inbounds nuw i16, ptr %4822, i64 %4823
   %4825 = load i16, ptr %4824, align 2, !tbaa !240
   %4826 = zext i16 %4825 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4949
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4948
 
-4827:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4947
+4827:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4946
   %4828 = icmp eq i8 %4814, 2
   tail call void @llvm.assume(i1 %4828)
   %4829 = load i64, ptr %4816, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4949
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4948
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4949: ; preds = %4817, %4827
-  %.0.i4948 = phi i64 [ %4826, %4817 ], [ %4829, %4827 ]
-  %4830 = shl i64 %.0.i4948, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4948: ; preds = %4817, %4827
+  %.0.i4947 = phi i64 [ %4826, %4817 ], [ %4829, %4827 ]
+  %4830 = shl i64 %.0.i4947, 7
   %4831 = and i64 %4830, 896
   %4832 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4160 = load i64, ptr %4832, align 8, !tbaa !27
@@ -10273,17 +10273,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4859 = getelementptr inbounds nuw i16, ptr %4857, i64 %4858
   %4860 = load i16, ptr %4859, align 2, !tbaa !240
   %4861 = zext i16 %4860 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4951
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4950
 
 4862:                                             ; preds = %4845
   %4863 = icmp eq i8 %4849, 2
   tail call void @llvm.assume(i1 %4863)
   %4864 = load i64, ptr %4851, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4951
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4950
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4951: ; preds = %4852, %4862
-  %.0.i4950 = phi i64 [ %4861, %4852 ], [ %4864, %4862 ]
-  %4865 = shl i64 %.0.i4950, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4950: ; preds = %4852, %4862
+  %.0.i4949 = phi i64 [ %4861, %4852 ], [ %4864, %4862 ]
+  %4865 = shl i64 %.0.i4949, 2
   %4866 = and i64 %4865, 28
   %4867 = getelementptr inbounds nuw i8, ptr %4847, i64 16
   %4868 = load i8, ptr %4867, align 8, !tbaa !70
@@ -10291,7 +10291,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4870 = getelementptr inbounds nuw i8, ptr %4847, i64 24
   br i1 %4869, label %4871, label %4881
 
-4871:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4951
+4871:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4950
   %4872 = getelementptr inbounds nuw i8, ptr %.val4383, i64 160
   %4873 = load ptr, ptr %4872, align 8, !tbaa !72
   %4874 = load i32, ptr %4870, align 8, !tbaa !26
@@ -10301,17 +10301,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4878 = getelementptr inbounds nuw i16, ptr %4876, i64 %4877
   %4879 = load i16, ptr %4878, align 2, !tbaa !240
   %4880 = zext i16 %4879 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4953
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4952
 
-4881:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4951
+4881:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4950
   %4882 = icmp eq i8 %4868, 2
   tail call void @llvm.assume(i1 %4882)
   %4883 = load i64, ptr %4870, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4953
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4952
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4953: ; preds = %4871, %4881
-  %.0.i4952 = phi i64 [ %4880, %4871 ], [ %4883, %4881 ]
-  %4884 = shl i64 %.0.i4952, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4952: ; preds = %4871, %4881
+  %.0.i4951 = phi i64 [ %4880, %4871 ], [ %4883, %4881 ]
+  %4884 = shl i64 %.0.i4951, 7
   %4885 = and i64 %4884, 896
   %4886 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4161 = load i64, ptr %4886, align 8, !tbaa !27
@@ -10346,17 +10346,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4910 = getelementptr inbounds nuw i16, ptr %4908, i64 %4909
   %4911 = load i16, ptr %4910, align 2, !tbaa !240
   %4912 = zext i16 %4911 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4955
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4954
 
 4913:                                             ; preds = %4896
   %4914 = icmp eq i8 %4900, 2
   tail call void @llvm.assume(i1 %4914)
   %4915 = load i64, ptr %4902, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4955
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4954
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4955: ; preds = %4903, %4913
-  %.0.i4954 = phi i64 [ %4912, %4903 ], [ %4915, %4913 ]
-  %4916 = shl i64 %.0.i4954, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4954: ; preds = %4903, %4913
+  %.0.i4953 = phi i64 [ %4912, %4903 ], [ %4915, %4913 ]
+  %4916 = shl i64 %.0.i4953, 2
   %4917 = and i64 %4916, 28
   %4918 = getelementptr inbounds nuw i8, ptr %4898, i64 16
   %4919 = load i8, ptr %4918, align 8, !tbaa !70
@@ -10364,7 +10364,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4921 = getelementptr inbounds nuw i8, ptr %4898, i64 24
   br i1 %4920, label %4922, label %4932
 
-4922:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4955
+4922:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4954
   %4923 = getelementptr inbounds nuw i8, ptr %.val4385, i64 160
   %4924 = load ptr, ptr %4923, align 8, !tbaa !72
   %4925 = load i32, ptr %4921, align 8, !tbaa !26
@@ -10374,17 +10374,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4929 = getelementptr inbounds nuw i16, ptr %4927, i64 %4928
   %4930 = load i16, ptr %4929, align 2, !tbaa !240
   %4931 = zext i16 %4930 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4957
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4956
 
-4932:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4955
+4932:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4954
   %4933 = icmp eq i8 %4919, 2
   tail call void @llvm.assume(i1 %4933)
   %4934 = load i64, ptr %4921, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4957
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4956
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4957: ; preds = %4922, %4932
-  %.0.i4956 = phi i64 [ %4931, %4922 ], [ %4934, %4932 ]
-  %4935 = shl i64 %.0.i4956, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4956: ; preds = %4922, %4932
+  %.0.i4955 = phi i64 [ %4931, %4922 ], [ %4934, %4932 ]
+  %4935 = shl i64 %.0.i4955, 7
   %4936 = and i64 %4935, 896
   %4937 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4162 = load i64, ptr %4937, align 8, !tbaa !27
@@ -10417,24 +10417,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4959 = getelementptr inbounds nuw i16, ptr %4957, i64 %4958
   %4960 = load i16, ptr %4959, align 2, !tbaa !240
   %4961 = zext i16 %4960 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4959
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4958
 
 4962:                                             ; preds = %4944
   %4963 = icmp eq i8 %4949, 2
   tail call void @llvm.assume(i1 %4963)
   %4964 = load i64, ptr %4951, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4959
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4958
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4959: ; preds = %4952, %4962
-  %.0.i4958 = phi i64 [ %4961, %4952 ], [ %4964, %4962 ]
-  %4965 = shl i64 %.0.i4958, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4958: ; preds = %4952, %4962
+  %.0.i4957 = phi i64 [ %4961, %4952 ], [ %4964, %4962 ]
+  %4965 = shl i64 %.0.i4957, 20
   %4966 = and i64 %4965, 32505856
   %4967 = load i8, ptr %4946, align 8, !tbaa !70
   %4968 = icmp eq i8 %4967, 1
   %4969 = getelementptr inbounds nuw i8, ptr %4946, i64 8
   br i1 %4968, label %4970, label %4980
 
-4970:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4959
+4970:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4958
   %4971 = getelementptr inbounds nuw i8, ptr %.val4387, i64 160
   %4972 = load ptr, ptr %4971, align 8, !tbaa !72
   %4973 = load i32, ptr %4969, align 8, !tbaa !26
@@ -10444,17 +10444,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %4977 = getelementptr inbounds nuw i16, ptr %4975, i64 %4976
   %4978 = load i16, ptr %4977, align 2, !tbaa !240
   %4979 = zext i16 %4978 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4961
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4960
 
-4980:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4959
+4980:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4958
   %4981 = icmp eq i8 %4967, 2
   tail call void @llvm.assume(i1 %4981)
   %4982 = load i64, ptr %4969, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4961
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4960
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4961: ; preds = %4970, %4980
-  %.0.i4960 = phi i64 [ %4979, %4970 ], [ %4982, %4980 ]
-  %4983 = shl i64 %.0.i4960, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4960: ; preds = %4970, %4980
+  %.0.i4959 = phi i64 [ %4979, %4970 ], [ %4982, %4980 ]
+  %4983 = shl i64 %.0.i4959, 15
   %4984 = and i64 %4983, 1015808
   %4985 = or disjoint i64 %4966, %4984
   %4986 = or i64 %4985, %10
@@ -10481,17 +10481,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5002 = getelementptr inbounds nuw i16, ptr %5000, i64 %5001
   %5003 = load i16, ptr %5002, align 2, !tbaa !240
   %5004 = zext i16 %5003 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4963
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4962
 
 5005:                                             ; preds = %4987
   %5006 = icmp eq i8 %4992, 2
   tail call void @llvm.assume(i1 %5006)
   %5007 = load i64, ptr %4994, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4963
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4962
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4963: ; preds = %4995, %5005
-  %.0.i4962 = phi i64 [ %5004, %4995 ], [ %5007, %5005 ]
-  %5008 = shl i64 %.0.i4962, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4962: ; preds = %4995, %5005
+  %.0.i4961 = phi i64 [ %5004, %4995 ], [ %5007, %5005 ]
+  %5008 = shl i64 %.0.i4961, 20
   %5009 = and i64 %5008, 32505856
   %5010 = getelementptr inbounds nuw i8, ptr %4989, i64 32
   %5011 = load i8, ptr %5010, align 8, !tbaa !70
@@ -10499,7 +10499,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5013 = getelementptr inbounds nuw i8, ptr %4989, i64 40
   br i1 %5012, label %5014, label %5024
 
-5014:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4963
+5014:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4962
   %5015 = getelementptr inbounds nuw i8, ptr %.val4389, i64 160
   %5016 = load ptr, ptr %5015, align 8, !tbaa !72
   %5017 = load i32, ptr %5013, align 8, !tbaa !26
@@ -10509,24 +10509,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5021 = getelementptr inbounds nuw i16, ptr %5019, i64 %5020
   %5022 = load i16, ptr %5021, align 2, !tbaa !240
   %5023 = zext i16 %5022 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4965
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4964
 
-5024:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4963
+5024:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4962
   %5025 = icmp eq i8 %5011, 2
   tail call void @llvm.assume(i1 %5025)
   %5026 = load i64, ptr %5013, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4965
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4964
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4965: ; preds = %5014, %5024
-  %.0.i4964 = phi i64 [ %5023, %5014 ], [ %5026, %5024 ]
-  %5027 = shl i64 %.0.i4964, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4964: ; preds = %5014, %5024
+  %.0.i4963 = phi i64 [ %5023, %5014 ], [ %5026, %5024 ]
+  %5027 = shl i64 %.0.i4963, 15
   %5028 = and i64 %5027, 1015808
   %5029 = load i8, ptr %4989, align 8, !tbaa !70
   %5030 = icmp eq i8 %5029, 1
   %5031 = getelementptr inbounds nuw i8, ptr %4989, i64 8
   br i1 %5030, label %5032, label %5042
 
-5032:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4965
+5032:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4964
   %5033 = getelementptr inbounds nuw i8, ptr %.val4389, i64 160
   %5034 = load ptr, ptr %5033, align 8, !tbaa !72
   %5035 = load i32, ptr %5031, align 8, !tbaa !26
@@ -10536,17 +10536,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5039 = getelementptr inbounds nuw i16, ptr %5037, i64 %5038
   %5040 = load i16, ptr %5039, align 2, !tbaa !240
   %5041 = zext i16 %5040 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4967
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4966
 
-5042:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4965
+5042:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4964
   %5043 = icmp eq i8 %5029, 2
   tail call void @llvm.assume(i1 %5043)
   %5044 = load i64, ptr %5031, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4967
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4966
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4967: ; preds = %5032, %5042
-  %.0.i4966 = phi i64 [ %5041, %5032 ], [ %5044, %5042 ]
-  %5045 = shl i64 %.0.i4966, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4966: ; preds = %5032, %5042
+  %.0.i4965 = phi i64 [ %5041, %5032 ], [ %5044, %5042 ]
+  %5045 = shl i64 %.0.i4965, 7
   %5046 = and i64 %5045, 3968
   %5047 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4163 = load i64, ptr %5047, align 8, !tbaa !27
@@ -10580,17 +10580,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5070 = getelementptr inbounds nuw i16, ptr %5068, i64 %5069
   %5071 = load i16, ptr %5070, align 2, !tbaa !240
   %5072 = zext i16 %5071 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4969
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4968
 
 5073:                                             ; preds = %5055
   %5074 = icmp eq i8 %5059, 2
   tail call void @llvm.assume(i1 %5074)
   %5075 = load i64, ptr %5061, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4969
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4968
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4969: ; preds = %5062, %5073
-  %.0.i4968 = phi i64 [ %5072, %5062 ], [ %5075, %5073 ]
-  %5076 = shl i64 %.0.i4968, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4968: ; preds = %5062, %5073
+  %.0.i4967 = phi i64 [ %5072, %5062 ], [ %5075, %5073 ]
+  %5076 = shl i64 %.0.i4967, 2
   %5077 = and i64 %5076, 124
   %5078 = or i64 %5077, %10
   br label %8504
@@ -10616,24 +10616,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5094 = getelementptr inbounds nuw i16, ptr %5092, i64 %5093
   %5095 = load i16, ptr %5094, align 2, !tbaa !240
   %5096 = zext i16 %5095 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4971
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4970
 
 5097:                                             ; preds = %5079
   %5098 = icmp eq i8 %5084, 2
   tail call void @llvm.assume(i1 %5098)
   %5099 = load i64, ptr %5086, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4971
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4970
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4971: ; preds = %5087, %5097
-  %.0.i4970 = phi i64 [ %5096, %5087 ], [ %5099, %5097 ]
-  %5100 = shl i64 %.0.i4970, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4970: ; preds = %5087, %5097
+  %.0.i4969 = phi i64 [ %5096, %5087 ], [ %5099, %5097 ]
+  %5100 = shl i64 %.0.i4969, 2
   %5101 = and i64 %5100, 28
   %5102 = load i8, ptr %5081, align 8, !tbaa !70
   %5103 = icmp eq i8 %5102, 1
   %5104 = getelementptr inbounds nuw i8, ptr %5081, i64 8
   br i1 %5103, label %5105, label %5115
 
-5105:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4971
+5105:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4970
   %5106 = getelementptr inbounds nuw i8, ptr %.val4393, i64 160
   %5107 = load ptr, ptr %5106, align 8, !tbaa !72
   %5108 = load i32, ptr %5104, align 8, !tbaa !26
@@ -10643,17 +10643,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5112 = getelementptr inbounds nuw i16, ptr %5110, i64 %5111
   %5113 = load i16, ptr %5112, align 2, !tbaa !240
   %5114 = zext i16 %5113 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4973
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4972
 
-5115:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4971
+5115:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4970
   %5116 = icmp eq i8 %5102, 2
   tail call void @llvm.assume(i1 %5116)
   %5117 = load i64, ptr %5104, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4973
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4972
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4973: ; preds = %5105, %5115
-  %.0.i4972 = phi i64 [ %5114, %5105 ], [ %5117, %5115 ]
-  %5118 = shl i64 %.0.i4972, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4972: ; preds = %5105, %5115
+  %.0.i4971 = phi i64 [ %5114, %5105 ], [ %5117, %5115 ]
+  %5118 = shl i64 %.0.i4971, 7
   %5119 = and i64 %5118, 896
   %5120 = or disjoint i64 %5101, %5119
   %5121 = or i64 %5120, %10
@@ -10680,17 +10680,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5137 = getelementptr inbounds nuw i16, ptr %5135, i64 %5136
   %5138 = load i16, ptr %5137, align 2, !tbaa !240
   %5139 = zext i16 %5138 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4975
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4974
 
 5140:                                             ; preds = %5122
   %5141 = icmp eq i8 %5127, 2
   tail call void @llvm.assume(i1 %5141)
   %5142 = load i64, ptr %5129, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4975
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4974
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4975: ; preds = %5130, %5140
-  %.0.i4974 = phi i64 [ %5139, %5130 ], [ %5142, %5140 ]
-  %5143 = shl i64 %.0.i4974, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4974: ; preds = %5130, %5140
+  %.0.i4973 = phi i64 [ %5139, %5130 ], [ %5142, %5140 ]
+  %5143 = shl i64 %.0.i4973, 20
   %5144 = and i64 %5143, 32505856
   %5145 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4164 = load i64, ptr %5145, align 8, !tbaa !27
@@ -10703,7 +10703,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5152 = getelementptr inbounds nuw i8, ptr %5149, i64 8
   br i1 %5151, label %5153, label %5163
 
-5153:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4975
+5153:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4974
   %.val4396 = load ptr, ptr %5126, align 8
   %5154 = getelementptr inbounds nuw i8, ptr %.val4396, i64 160
   %5155 = load ptr, ptr %5154, align 8, !tbaa !72
@@ -10714,17 +10714,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5160 = getelementptr inbounds nuw i16, ptr %5158, i64 %5159
   %5161 = load i16, ptr %5160, align 2, !tbaa !240
   %5162 = zext i16 %5161 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4977
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4976
 
-5163:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4975
+5163:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4974
   %5164 = icmp eq i8 %5150, 2
   tail call void @llvm.assume(i1 %5164)
   %5165 = load i64, ptr %5152, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4977
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4976
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4977: ; preds = %5153, %5163
-  %.0.i4976 = phi i64 [ %5162, %5153 ], [ %5165, %5163 ]
-  %5166 = shl i64 %.0.i4976, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4976: ; preds = %5153, %5163
+  %.0.i4975 = phi i64 [ %5162, %5153 ], [ %5165, %5163 ]
+  %5166 = shl i64 %.0.i4975, 7
   %5167 = and i64 %5166, 3968
   %5168 = or disjoint i64 %5144, %5148
   %5169 = or disjoint i64 %5168, %5167
@@ -10752,17 +10752,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5186 = getelementptr inbounds nuw i16, ptr %5184, i64 %5185
   %5187 = load i16, ptr %5186, align 2, !tbaa !240
   %5188 = zext i16 %5187 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4979
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4978
 
 5189:                                             ; preds = %5171
   %5190 = icmp eq i8 %5175, 2
   tail call void @llvm.assume(i1 %5190)
   %5191 = load i64, ptr %5177, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4979
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4978
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4979: ; preds = %5178, %5189
-  %.0.i4978 = phi i64 [ %5188, %5178 ], [ %5191, %5189 ]
-  %5192 = shl i64 %.0.i4978, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4978: ; preds = %5178, %5189
+  %.0.i4977 = phi i64 [ %5188, %5178 ], [ %5191, %5189 ]
+  %5192 = shl i64 %.0.i4977, 20
   %5193 = and i64 %5192, 32505856
   %5194 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4165 = load i64, ptr %5194, align 8, !tbaa !27
@@ -10804,17 +10804,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5223 = getelementptr inbounds nuw i16, ptr %5221, i64 %5222
   %5224 = load i16, ptr %5223, align 2, !tbaa !240
   %5225 = zext i16 %5224 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4981
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4980
 
 5226:                                             ; preds = %5208
   %5227 = icmp eq i8 %5213, 2
   tail call void @llvm.assume(i1 %5227)
   %5228 = load i64, ptr %5215, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4981
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4980
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4981: ; preds = %5216, %5226
-  %.0.i4980 = phi i64 [ %5225, %5216 ], [ %5228, %5226 ]
-  %5229 = shl i64 %.0.i4980, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4980: ; preds = %5216, %5226
+  %.0.i4979 = phi i64 [ %5225, %5216 ], [ %5228, %5226 ]
+  %5229 = shl i64 %.0.i4979, 20
   %5230 = and i64 %5229, 32505856
   %5231 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4168 = load i64, ptr %5231, align 8, !tbaa !27
@@ -10827,7 +10827,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5238 = getelementptr inbounds nuw i8, ptr %5235, i64 8
   br i1 %5237, label %5239, label %5249
 
-5239:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4981
+5239:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4980
   %.val4399 = load ptr, ptr %5212, align 8
   %5240 = getelementptr inbounds nuw i8, ptr %.val4399, i64 160
   %5241 = load ptr, ptr %5240, align 8, !tbaa !72
@@ -10838,17 +10838,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5246 = getelementptr inbounds nuw i16, ptr %5244, i64 %5245
   %5247 = load i16, ptr %5246, align 2, !tbaa !240
   %5248 = zext i16 %5247 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4983
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4982
 
-5249:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4981
+5249:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4980
   %5250 = icmp eq i8 %5236, 2
   tail call void @llvm.assume(i1 %5250)
   %5251 = load i64, ptr %5238, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4983
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4982
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4983: ; preds = %5239, %5249
-  %.0.i4982 = phi i64 [ %5248, %5239 ], [ %5251, %5249 ]
-  %5252 = shl i64 %.0.i4982, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4982: ; preds = %5239, %5249
+  %.0.i4981 = phi i64 [ %5248, %5239 ], [ %5251, %5249 ]
+  %5252 = shl i64 %.0.i4981, 7
   %5253 = and i64 %5252, 3968
   %.val4169 = load i64, ptr %5231, align 8, !tbaa !27
   %5254 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val4169)
@@ -10881,17 +10881,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5276 = getelementptr inbounds nuw i16, ptr %5274, i64 %5275
   %5277 = load i16, ptr %5276, align 2, !tbaa !240
   %5278 = zext i16 %5277 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4985
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4984
 
 5279:                                             ; preds = %5261
   %5280 = icmp eq i8 %5266, 2
   tail call void @llvm.assume(i1 %5280)
   %5281 = load i64, ptr %5268, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4985
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4984
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4985: ; preds = %5269, %5279
-  %.0.i4984 = phi i64 [ %5278, %5269 ], [ %5281, %5279 ]
-  %5282 = shl i64 %.0.i4984, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4984: ; preds = %5269, %5279
+  %.0.i4983 = phi i64 [ %5278, %5269 ], [ %5281, %5279 ]
+  %5282 = shl i64 %.0.i4983, 20
   %5283 = and i64 %5282, 32505856
   %5284 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4170 = load i64, ptr %5284, align 8, !tbaa !27
@@ -10905,7 +10905,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5292 = getelementptr inbounds nuw i8, ptr %5288, i64 24
   br i1 %5291, label %5293, label %5303
 
-5293:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4985
+5293:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4984
   %.val4401 = load ptr, ptr %5265, align 8
   %5294 = getelementptr inbounds nuw i8, ptr %.val4401, i64 160
   %5295 = load ptr, ptr %5294, align 8, !tbaa !72
@@ -10916,17 +10916,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5300 = getelementptr inbounds nuw i16, ptr %5298, i64 %5299
   %5301 = load i16, ptr %5300, align 2, !tbaa !240
   %5302 = zext i16 %5301 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4987
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4986
 
-5303:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4985
+5303:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4984
   %5304 = icmp eq i8 %5290, 2
   tail call void @llvm.assume(i1 %5304)
   %5305 = load i64, ptr %5292, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4987
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4986
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4987: ; preds = %5293, %5303
-  %.0.i4986 = phi i64 [ %5302, %5293 ], [ %5305, %5303 ]
-  %5306 = shl i64 %.0.i4986, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4986: ; preds = %5293, %5303
+  %.0.i4985 = phi i64 [ %5302, %5293 ], [ %5305, %5303 ]
+  %5306 = shl i64 %.0.i4985, 7
   %5307 = and i64 %5306, 3968
   %.val4171 = load i64, ptr %5284, align 8, !tbaa !27
   %5308 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val4171)
@@ -10959,17 +10959,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5330 = getelementptr inbounds nuw i16, ptr %5328, i64 %5329
   %5331 = load i16, ptr %5330, align 2, !tbaa !240
   %5332 = zext i16 %5331 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4989
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4988
 
 5333:                                             ; preds = %5315
   %5334 = icmp eq i8 %5320, 2
   tail call void @llvm.assume(i1 %5334)
   %5335 = load i64, ptr %5322, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4989
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4988
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4989: ; preds = %5323, %5333
-  %.0.i4988 = phi i64 [ %5332, %5323 ], [ %5335, %5333 ]
-  %5336 = shl i64 %.0.i4988, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4988: ; preds = %5323, %5333
+  %.0.i4987 = phi i64 [ %5332, %5323 ], [ %5335, %5333 ]
+  %5336 = shl i64 %.0.i4987, 20
   %5337 = and i64 %5336, 32505856
   %5338 = getelementptr inbounds nuw i8, ptr %5317, i64 16
   %5339 = load i8, ptr %5338, align 8, !tbaa !70
@@ -10977,7 +10977,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5341 = getelementptr inbounds nuw i8, ptr %5317, i64 24
   br i1 %5340, label %5342, label %5352
 
-5342:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4989
+5342:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4988
   %5343 = getelementptr inbounds nuw i8, ptr %.val4402, i64 160
   %5344 = load ptr, ptr %5343, align 8, !tbaa !72
   %5345 = load i32, ptr %5341, align 8, !tbaa !26
@@ -10987,17 +10987,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5349 = getelementptr inbounds nuw i16, ptr %5347, i64 %5348
   %5350 = load i16, ptr %5349, align 2, !tbaa !240
   %5351 = zext i16 %5350 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4991
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4990
 
-5352:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4989
+5352:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4988
   %5353 = icmp eq i8 %5339, 2
   tail call void @llvm.assume(i1 %5353)
   %5354 = load i64, ptr %5341, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4991
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4990
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4991: ; preds = %5342, %5352
-  %.0.i4990 = phi i64 [ %5351, %5342 ], [ %5354, %5352 ]
-  %5355 = shl i64 %.0.i4990, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4990: ; preds = %5342, %5352
+  %.0.i4989 = phi i64 [ %5351, %5342 ], [ %5354, %5352 ]
+  %5355 = shl i64 %.0.i4989, 15
   %5356 = and i64 %5355, 1015808
   %5357 = getelementptr inbounds nuw i8, ptr %5317, i64 48
   %5358 = load i8, ptr %5357, align 8, !tbaa !70
@@ -11005,7 +11005,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5360 = getelementptr inbounds nuw i8, ptr %5317, i64 56
   br i1 %5359, label %5361, label %5371
 
-5361:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4991
+5361:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4990
   %5362 = getelementptr inbounds nuw i8, ptr %.val4402, i64 160
   %5363 = load ptr, ptr %5362, align 8, !tbaa !72
   %5364 = load i32, ptr %5360, align 8, !tbaa !26
@@ -11015,24 +11015,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5368 = getelementptr inbounds nuw i16, ptr %5366, i64 %5367
   %5369 = load i16, ptr %5368, align 2, !tbaa !240
   %5370 = zext i16 %5369 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4993
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4992
 
-5371:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4991
+5371:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4990
   %5372 = icmp eq i8 %5358, 2
   tail call void @llvm.assume(i1 %5372)
   %5373 = load i64, ptr %5360, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4993
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4992
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4993: ; preds = %5361, %5371
-  %.0.i4992 = phi i64 [ %5370, %5361 ], [ %5373, %5371 ]
-  %5374 = shl i64 %.0.i4992, 12
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4992: ; preds = %5361, %5371
+  %.0.i4991 = phi i64 [ %5370, %5361 ], [ %5373, %5371 ]
+  %5374 = shl i64 %.0.i4991, 12
   %5375 = and i64 %5374, 28672
   %5376 = load i8, ptr %5317, align 8, !tbaa !70
   %5377 = icmp eq i8 %5376, 1
   %5378 = getelementptr inbounds nuw i8, ptr %5317, i64 8
   br i1 %5377, label %5379, label %5389
 
-5379:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4993
+5379:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4992
   %5380 = getelementptr inbounds nuw i8, ptr %.val4402, i64 160
   %5381 = load ptr, ptr %5380, align 8, !tbaa !72
   %5382 = load i32, ptr %5378, align 8, !tbaa !26
@@ -11042,17 +11042,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5386 = getelementptr inbounds nuw i16, ptr %5384, i64 %5385
   %5387 = load i16, ptr %5386, align 2, !tbaa !240
   %5388 = zext i16 %5387 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4995
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4994
 
-5389:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4993
+5389:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4992
   %5390 = icmp eq i8 %5376, 2
   tail call void @llvm.assume(i1 %5390)
   %5391 = load i64, ptr %5378, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4995
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4994
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4995: ; preds = %5379, %5389
-  %.0.i4994 = phi i64 [ %5388, %5379 ], [ %5391, %5389 ]
-  %5392 = shl i64 %.0.i4994, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4994: ; preds = %5379, %5389
+  %.0.i4993 = phi i64 [ %5388, %5379 ], [ %5391, %5389 ]
+  %5392 = shl i64 %.0.i4993, 7
   %5393 = and i64 %5392, 3968
   %5394 = or disjoint i64 %5337, %5356
   %5395 = or disjoint i64 %5394, %5375
@@ -11081,17 +11081,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5413 = getelementptr inbounds nuw i16, ptr %5411, i64 %5412
   %5414 = load i16, ptr %5413, align 2, !tbaa !240
   %5415 = zext i16 %5414 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4997
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4996
 
 5416:                                             ; preds = %5398
   %5417 = icmp eq i8 %5403, 2
   tail call void @llvm.assume(i1 %5417)
   %5418 = load i64, ptr %5405, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4997
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4996
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4997: ; preds = %5406, %5416
-  %.0.i4996 = phi i64 [ %5415, %5406 ], [ %5418, %5416 ]
-  %5419 = shl i64 %.0.i4996, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4996: ; preds = %5406, %5416
+  %.0.i4995 = phi i64 [ %5415, %5406 ], [ %5418, %5416 ]
+  %5419 = shl i64 %.0.i4995, 20
   %5420 = and i64 %5419, 32505856
   %5421 = getelementptr inbounds nuw i8, ptr %5400, i64 16
   %5422 = load i8, ptr %5421, align 8, !tbaa !70
@@ -11099,7 +11099,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5424 = getelementptr inbounds nuw i8, ptr %5400, i64 24
   br i1 %5423, label %5425, label %5435
 
-5425:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4997
+5425:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4996
   %5426 = getelementptr inbounds nuw i8, ptr %.val4406, i64 160
   %5427 = load ptr, ptr %5426, align 8, !tbaa !72
   %5428 = load i32, ptr %5424, align 8, !tbaa !26
@@ -11109,24 +11109,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5432 = getelementptr inbounds nuw i16, ptr %5430, i64 %5431
   %5433 = load i16, ptr %5432, align 2, !tbaa !240
   %5434 = zext i16 %5433 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4999
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4998
 
-5435:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4997
+5435:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4996
   %5436 = icmp eq i8 %5422, 2
   tail call void @llvm.assume(i1 %5436)
   %5437 = load i64, ptr %5424, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4999
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4998
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4999: ; preds = %5425, %5435
-  %.0.i4998 = phi i64 [ %5434, %5425 ], [ %5437, %5435 ]
-  %5438 = shl i64 %.0.i4998, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4998: ; preds = %5425, %5435
+  %.0.i4997 = phi i64 [ %5434, %5425 ], [ %5437, %5435 ]
+  %5438 = shl i64 %.0.i4997, 15
   %5439 = and i64 %5438, 1015808
   %5440 = load i8, ptr %5400, align 8, !tbaa !70
   %5441 = icmp eq i8 %5440, 1
   %5442 = getelementptr inbounds nuw i8, ptr %5400, i64 8
   br i1 %5441, label %5443, label %5453
 
-5443:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4999
+5443:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4998
   %5444 = getelementptr inbounds nuw i8, ptr %.val4406, i64 160
   %5445 = load ptr, ptr %5444, align 8, !tbaa !72
   %5446 = load i32, ptr %5442, align 8, !tbaa !26
@@ -11136,17 +11136,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5450 = getelementptr inbounds nuw i16, ptr %5448, i64 %5449
   %5451 = load i16, ptr %5450, align 2, !tbaa !240
   %5452 = zext i16 %5451 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5001
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5000
 
-5453:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4999
+5453:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4998
   %5454 = icmp eq i8 %5440, 2
   tail call void @llvm.assume(i1 %5454)
   %5455 = load i64, ptr %5442, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5001
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5000
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5001: ; preds = %5443, %5453
-  %.0.i5000 = phi i64 [ %5452, %5443 ], [ %5455, %5453 ]
-  %5456 = shl i64 %.0.i5000, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5000: ; preds = %5443, %5453
+  %.0.i4999 = phi i64 [ %5452, %5443 ], [ %5455, %5453 ]
+  %5456 = shl i64 %.0.i4999, 7
   %5457 = and i64 %5456, 3968
   %5458 = or disjoint i64 %5420, %5439
   %5459 = or disjoint i64 %5458, %5457
@@ -11174,17 +11174,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5476 = getelementptr inbounds nuw i16, ptr %5474, i64 %5475
   %5477 = load i16, ptr %5476, align 2, !tbaa !240
   %5478 = zext i16 %5477 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5003
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5002
 
 5479:                                             ; preds = %5461
   %5480 = icmp eq i8 %5466, 2
   tail call void @llvm.assume(i1 %5480)
   %5481 = load i64, ptr %5468, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5003
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5002
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5003: ; preds = %5469, %5479
-  %.0.i5002 = phi i64 [ %5478, %5469 ], [ %5481, %5479 ]
-  %5482 = shl i64 %.0.i5002, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5002: ; preds = %5469, %5479
+  %.0.i5001 = phi i64 [ %5478, %5469 ], [ %5481, %5479 ]
+  %5482 = shl i64 %.0.i5001, 20
   %5483 = and i64 %5482, 32505856
   %5484 = getelementptr inbounds nuw i8, ptr %5463, i64 16
   %5485 = load i8, ptr %5484, align 8, !tbaa !70
@@ -11192,7 +11192,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5487 = getelementptr inbounds nuw i8, ptr %5463, i64 24
   br i1 %5486, label %5488, label %5498
 
-5488:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5003
+5488:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5002
   %5489 = getelementptr inbounds nuw i8, ptr %.val4409, i64 160
   %5490 = load ptr, ptr %5489, align 8, !tbaa !72
   %5491 = load i32, ptr %5487, align 8, !tbaa !26
@@ -11202,24 +11202,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5495 = getelementptr inbounds nuw i16, ptr %5493, i64 %5494
   %5496 = load i16, ptr %5495, align 2, !tbaa !240
   %5497 = zext i16 %5496 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5005
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5004
 
-5498:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5003
+5498:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5002
   %5499 = icmp eq i8 %5485, 2
   tail call void @llvm.assume(i1 %5499)
   %5500 = load i64, ptr %5487, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5005
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5004
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5005: ; preds = %5488, %5498
-  %.0.i5004 = phi i64 [ %5497, %5488 ], [ %5500, %5498 ]
-  %5501 = shl i64 %.0.i5004, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5004: ; preds = %5488, %5498
+  %.0.i5003 = phi i64 [ %5497, %5488 ], [ %5500, %5498 ]
+  %5501 = shl i64 %.0.i5003, 15
   %5502 = and i64 %5501, 1015808
   %5503 = load i8, ptr %5463, align 8, !tbaa !70
   %5504 = icmp eq i8 %5503, 1
   %5505 = getelementptr inbounds nuw i8, ptr %5463, i64 8
   br i1 %5504, label %5506, label %5516
 
-5506:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5005
+5506:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5004
   %5507 = getelementptr inbounds nuw i8, ptr %.val4409, i64 160
   %5508 = load ptr, ptr %5507, align 8, !tbaa !72
   %5509 = load i32, ptr %5505, align 8, !tbaa !26
@@ -11229,17 +11229,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5513 = getelementptr inbounds nuw i16, ptr %5511, i64 %5512
   %5514 = load i16, ptr %5513, align 2, !tbaa !240
   %5515 = zext i16 %5514 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5007
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5006
 
-5516:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5005
+5516:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5004
   %5517 = icmp eq i8 %5503, 2
   tail call void @llvm.assume(i1 %5517)
   %5518 = load i64, ptr %5505, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5007
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5006
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5007: ; preds = %5506, %5516
-  %.0.i5006 = phi i64 [ %5515, %5506 ], [ %5518, %5516 ]
-  %5519 = shl i64 %.0.i5006, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5006: ; preds = %5506, %5516
+  %.0.i5005 = phi i64 [ %5515, %5506 ], [ %5518, %5516 ]
+  %5519 = shl i64 %.0.i5005, 7
   %5520 = and i64 %5519, 3968
   %5521 = getelementptr inbounds nuw i8, ptr %5463, i64 48
   %5522 = load i8, ptr %5521, align 8, !tbaa !70
@@ -11247,7 +11247,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5524 = getelementptr inbounds nuw i8, ptr %5463, i64 56
   br i1 %5523, label %5525, label %5535
 
-5525:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5007
+5525:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5006
   %5526 = getelementptr inbounds nuw i8, ptr %.val4409, i64 160
   %5527 = load ptr, ptr %5526, align 8, !tbaa !72
   %5528 = load i32, ptr %5524, align 8, !tbaa !26
@@ -11257,17 +11257,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5532 = getelementptr inbounds nuw i16, ptr %5530, i64 %5531
   %5533 = load i16, ptr %5532, align 2, !tbaa !240
   %5534 = zext i16 %5533 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5009
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5008
 
-5535:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5007
+5535:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5006
   %5536 = icmp eq i8 %5522, 2
   tail call void @llvm.assume(i1 %5536)
   %5537 = load i64, ptr %5524, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5009
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5008
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5009: ; preds = %5525, %5535
-  %.0.i5008 = phi i64 [ %5534, %5525 ], [ %5537, %5535 ]
-  %5538 = shl i64 %.0.i5008, 30
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5008: ; preds = %5525, %5535
+  %.0.i5007 = phi i64 [ %5534, %5525 ], [ %5537, %5535 ]
+  %5538 = shl i64 %.0.i5007, 30
   %5539 = and i64 %5538, 3221225472
   %5540 = or disjoint i64 %5483, %5502
   %5541 = or disjoint i64 %5540, %5520
@@ -11296,17 +11296,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5559 = getelementptr inbounds nuw i16, ptr %5557, i64 %5558
   %5560 = load i16, ptr %5559, align 2, !tbaa !240
   %5561 = zext i16 %5560 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5011
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5010
 
 5562:                                             ; preds = %5544
   %5563 = icmp eq i8 %5549, 2
   tail call void @llvm.assume(i1 %5563)
   %5564 = load i64, ptr %5551, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5011
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5010
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5011: ; preds = %5552, %5562
-  %.0.i5010 = phi i64 [ %5561, %5552 ], [ %5564, %5562 ]
-  %5565 = shl i64 %.0.i5010, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5010: ; preds = %5552, %5562
+  %.0.i5009 = phi i64 [ %5561, %5552 ], [ %5564, %5562 ]
+  %5565 = shl i64 %.0.i5009, 20
   %5566 = and i64 %5565, 32505856
   %5567 = getelementptr inbounds nuw i8, ptr %5546, i64 16
   %5568 = load i8, ptr %5567, align 8, !tbaa !70
@@ -11314,7 +11314,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5570 = getelementptr inbounds nuw i8, ptr %5546, i64 24
   br i1 %5569, label %5571, label %5581
 
-5571:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5011
+5571:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5010
   %5572 = getelementptr inbounds nuw i8, ptr %.val4413, i64 160
   %5573 = load ptr, ptr %5572, align 8, !tbaa !72
   %5574 = load i32, ptr %5570, align 8, !tbaa !26
@@ -11324,24 +11324,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5578 = getelementptr inbounds nuw i16, ptr %5576, i64 %5577
   %5579 = load i16, ptr %5578, align 2, !tbaa !240
   %5580 = zext i16 %5579 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5013
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5012
 
-5581:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5011
+5581:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5010
   %5582 = icmp eq i8 %5568, 2
   tail call void @llvm.assume(i1 %5582)
   %5583 = load i64, ptr %5570, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5013
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5012
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5013: ; preds = %5571, %5581
-  %.0.i5012 = phi i64 [ %5580, %5571 ], [ %5583, %5581 ]
-  %5584 = shl i64 %.0.i5012, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5012: ; preds = %5571, %5581
+  %.0.i5011 = phi i64 [ %5580, %5571 ], [ %5583, %5581 ]
+  %5584 = shl i64 %.0.i5011, 15
   %5585 = and i64 %5584, 1015808
   %5586 = load i8, ptr %5546, align 8, !tbaa !70
   %5587 = icmp eq i8 %5586, 1
   %5588 = getelementptr inbounds nuw i8, ptr %5546, i64 8
   br i1 %5587, label %5589, label %5599
 
-5589:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5013
+5589:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5012
   %5590 = getelementptr inbounds nuw i8, ptr %.val4413, i64 160
   %5591 = load ptr, ptr %5590, align 8, !tbaa !72
   %5592 = load i32, ptr %5588, align 8, !tbaa !26
@@ -11351,17 +11351,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5596 = getelementptr inbounds nuw i16, ptr %5594, i64 %5595
   %5597 = load i16, ptr %5596, align 2, !tbaa !240
   %5598 = zext i16 %5597 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5015
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5014
 
-5599:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5013
+5599:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5012
   %5600 = icmp eq i8 %5586, 2
   tail call void @llvm.assume(i1 %5600)
   %5601 = load i64, ptr %5588, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5015
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5014
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5015: ; preds = %5589, %5599
-  %.0.i5014 = phi i64 [ %5598, %5589 ], [ %5601, %5599 ]
-  %5602 = shl i64 %.0.i5014, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5014: ; preds = %5589, %5599
+  %.0.i5013 = phi i64 [ %5598, %5589 ], [ %5601, %5599 ]
+  %5602 = shl i64 %.0.i5013, 7
   %5603 = and i64 %5602, 3968
   %5604 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4172 = load i64, ptr %5604, align 8, !tbaa !27
@@ -11395,17 +11395,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5627 = getelementptr inbounds nuw i16, ptr %5625, i64 %5626
   %5628 = load i16, ptr %5627, align 2, !tbaa !240
   %5629 = zext i16 %5628 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5017
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5016
 
 5630:                                             ; preds = %5612
   %5631 = icmp eq i8 %5617, 2
   tail call void @llvm.assume(i1 %5631)
   %5632 = load i64, ptr %5619, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5017
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5016
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5017: ; preds = %5620, %5630
-  %.0.i5016 = phi i64 [ %5629, %5620 ], [ %5632, %5630 ]
-  %5633 = shl i64 %.0.i5016, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5016: ; preds = %5620, %5630
+  %.0.i5015 = phi i64 [ %5629, %5620 ], [ %5632, %5630 ]
+  %5633 = shl i64 %.0.i5015, 20
   %5634 = and i64 %5633, 32505856
   %5635 = getelementptr inbounds nuw i8, ptr %5614, i64 16
   %5636 = load i8, ptr %5635, align 8, !tbaa !70
@@ -11413,7 +11413,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5638 = getelementptr inbounds nuw i8, ptr %5614, i64 24
   br i1 %5637, label %5639, label %5649
 
-5639:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5017
+5639:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5016
   %5640 = getelementptr inbounds nuw i8, ptr %.val4416, i64 160
   %5641 = load ptr, ptr %5640, align 8, !tbaa !72
   %5642 = load i32, ptr %5638, align 8, !tbaa !26
@@ -11423,24 +11423,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5646 = getelementptr inbounds nuw i16, ptr %5644, i64 %5645
   %5647 = load i16, ptr %5646, align 2, !tbaa !240
   %5648 = zext i16 %5647 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5019
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5018
 
-5649:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5017
+5649:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5016
   %5650 = icmp eq i8 %5636, 2
   tail call void @llvm.assume(i1 %5650)
   %5651 = load i64, ptr %5638, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5019
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5018
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5019: ; preds = %5639, %5649
-  %.0.i5018 = phi i64 [ %5648, %5639 ], [ %5651, %5649 ]
-  %5652 = shl i64 %.0.i5018, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5018: ; preds = %5639, %5649
+  %.0.i5017 = phi i64 [ %5648, %5639 ], [ %5651, %5649 ]
+  %5652 = shl i64 %.0.i5017, 15
   %5653 = and i64 %5652, 1015808
   %5654 = load i8, ptr %5614, align 8, !tbaa !70
   %5655 = icmp eq i8 %5654, 1
   %5656 = getelementptr inbounds nuw i8, ptr %5614, i64 8
   br i1 %5655, label %5657, label %5667
 
-5657:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5019
+5657:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5018
   %5658 = getelementptr inbounds nuw i8, ptr %.val4416, i64 160
   %5659 = load ptr, ptr %5658, align 8, !tbaa !72
   %5660 = load i32, ptr %5656, align 8, !tbaa !26
@@ -11450,17 +11450,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5664 = getelementptr inbounds nuw i16, ptr %5662, i64 %5663
   %5665 = load i16, ptr %5664, align 2, !tbaa !240
   %5666 = zext i16 %5665 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5021
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5020
 
-5667:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5019
+5667:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5018
   %5668 = icmp eq i8 %5654, 2
   tail call void @llvm.assume(i1 %5668)
   %5669 = load i64, ptr %5656, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5021
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5020
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5021: ; preds = %5657, %5667
-  %.0.i5020 = phi i64 [ %5666, %5657 ], [ %5669, %5667 ]
-  %5670 = shl i64 %.0.i5020, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5020: ; preds = %5657, %5667
+  %.0.i5019 = phi i64 [ %5666, %5657 ], [ %5669, %5667 ]
+  %5670 = shl i64 %.0.i5019, 7
   %5671 = and i64 %5670, 3968
   %5672 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4173 = load i64, ptr %5672, align 8, !tbaa !27
@@ -11494,17 +11494,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5695 = getelementptr inbounds nuw i16, ptr %5693, i64 %5694
   %5696 = load i16, ptr %5695, align 2, !tbaa !240
   %5697 = zext i16 %5696 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5023
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5022
 
 5698:                                             ; preds = %5680
   %5699 = icmp eq i8 %5685, 2
   tail call void @llvm.assume(i1 %5699)
   %5700 = load i64, ptr %5687, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5023
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5022
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5023: ; preds = %5688, %5698
-  %.0.i5022 = phi i64 [ %5697, %5688 ], [ %5700, %5698 ]
-  %5701 = shl i64 %.0.i5022, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5022: ; preds = %5688, %5698
+  %.0.i5021 = phi i64 [ %5697, %5688 ], [ %5700, %5698 ]
+  %5701 = shl i64 %.0.i5021, 20
   %5702 = and i64 %5701, 32505856
   %5703 = getelementptr inbounds nuw i8, ptr %5682, i64 16
   %5704 = load i8, ptr %5703, align 8, !tbaa !70
@@ -11512,7 +11512,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5706 = getelementptr inbounds nuw i8, ptr %5682, i64 24
   br i1 %5705, label %5707, label %5717
 
-5707:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5023
+5707:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5022
   %5708 = getelementptr inbounds nuw i8, ptr %.val4419, i64 160
   %5709 = load ptr, ptr %5708, align 8, !tbaa !72
   %5710 = load i32, ptr %5706, align 8, !tbaa !26
@@ -11522,24 +11522,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5714 = getelementptr inbounds nuw i16, ptr %5712, i64 %5713
   %5715 = load i16, ptr %5714, align 2, !tbaa !240
   %5716 = zext i16 %5715 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5025
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5024
 
-5717:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5023
+5717:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5022
   %5718 = icmp eq i8 %5704, 2
   tail call void @llvm.assume(i1 %5718)
   %5719 = load i64, ptr %5706, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5025
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5024
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5025: ; preds = %5707, %5717
-  %.0.i5024 = phi i64 [ %5716, %5707 ], [ %5719, %5717 ]
-  %5720 = shl i64 %.0.i5024, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5024: ; preds = %5707, %5717
+  %.0.i5023 = phi i64 [ %5716, %5707 ], [ %5719, %5717 ]
+  %5720 = shl i64 %.0.i5023, 15
   %5721 = and i64 %5720, 1015808
   %5722 = load i8, ptr %5682, align 8, !tbaa !70
   %5723 = icmp eq i8 %5722, 1
   %5724 = getelementptr inbounds nuw i8, ptr %5682, i64 8
   br i1 %5723, label %5725, label %5735
 
-5725:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5025
+5725:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5024
   %5726 = getelementptr inbounds nuw i8, ptr %.val4419, i64 160
   %5727 = load ptr, ptr %5726, align 8, !tbaa !72
   %5728 = load i32, ptr %5724, align 8, !tbaa !26
@@ -11549,17 +11549,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5732 = getelementptr inbounds nuw i16, ptr %5730, i64 %5731
   %5733 = load i16, ptr %5732, align 2, !tbaa !240
   %5734 = zext i16 %5733 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5027
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5026
 
-5735:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5025
+5735:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5024
   %5736 = icmp eq i8 %5722, 2
   tail call void @llvm.assume(i1 %5736)
   %5737 = load i64, ptr %5724, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5027
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5026
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5027: ; preds = %5725, %5735
-  %.0.i5026 = phi i64 [ %5734, %5725 ], [ %5737, %5735 ]
-  %5738 = shl i64 %.0.i5026, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5026: ; preds = %5725, %5735
+  %.0.i5025 = phi i64 [ %5734, %5725 ], [ %5737, %5735 ]
+  %5738 = shl i64 %.0.i5025, 7
   %5739 = and i64 %5738, 3968
   %5740 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4174 = load i64, ptr %5740, align 8, !tbaa !27
@@ -11593,17 +11593,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5763 = getelementptr inbounds nuw i16, ptr %5761, i64 %5762
   %5764 = load i16, ptr %5763, align 2, !tbaa !240
   %5765 = zext i16 %5764 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5029
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5028
 
 5766:                                             ; preds = %5748
   %5767 = icmp eq i8 %5753, 2
   tail call void @llvm.assume(i1 %5767)
   %5768 = load i64, ptr %5755, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5029
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5028
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5029: ; preds = %5756, %5766
-  %.0.i5028 = phi i64 [ %5765, %5756 ], [ %5768, %5766 ]
-  %5769 = shl i64 %.0.i5028, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5028: ; preds = %5756, %5766
+  %.0.i5027 = phi i64 [ %5765, %5756 ], [ %5768, %5766 ]
+  %5769 = shl i64 %.0.i5027, 20
   %5770 = and i64 %5769, 32505856
   %5771 = getelementptr inbounds nuw i8, ptr %5750, i64 16
   %5772 = load i8, ptr %5771, align 8, !tbaa !70
@@ -11611,7 +11611,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5774 = getelementptr inbounds nuw i8, ptr %5750, i64 24
   br i1 %5773, label %5775, label %5785
 
-5775:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5029
+5775:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5028
   %5776 = getelementptr inbounds nuw i8, ptr %.val4422, i64 160
   %5777 = load ptr, ptr %5776, align 8, !tbaa !72
   %5778 = load i32, ptr %5774, align 8, !tbaa !26
@@ -11621,24 +11621,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5782 = getelementptr inbounds nuw i16, ptr %5780, i64 %5781
   %5783 = load i16, ptr %5782, align 2, !tbaa !240
   %5784 = zext i16 %5783 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5031
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5030
 
-5785:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5029
+5785:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5028
   %5786 = icmp eq i8 %5772, 2
   tail call void @llvm.assume(i1 %5786)
   %5787 = load i64, ptr %5774, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5031
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5030
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5031: ; preds = %5775, %5785
-  %.0.i5030 = phi i64 [ %5784, %5775 ], [ %5787, %5785 ]
-  %5788 = shl i64 %.0.i5030, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5030: ; preds = %5775, %5785
+  %.0.i5029 = phi i64 [ %5784, %5775 ], [ %5787, %5785 ]
+  %5788 = shl i64 %.0.i5029, 15
   %5789 = and i64 %5788, 1015808
   %5790 = load i8, ptr %5750, align 8, !tbaa !70
   %5791 = icmp eq i8 %5790, 1
   %5792 = getelementptr inbounds nuw i8, ptr %5750, i64 8
   br i1 %5791, label %5793, label %5803
 
-5793:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5031
+5793:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5030
   %5794 = getelementptr inbounds nuw i8, ptr %.val4422, i64 160
   %5795 = load ptr, ptr %5794, align 8, !tbaa !72
   %5796 = load i32, ptr %5792, align 8, !tbaa !26
@@ -11648,17 +11648,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5800 = getelementptr inbounds nuw i16, ptr %5798, i64 %5799
   %5801 = load i16, ptr %5800, align 2, !tbaa !240
   %5802 = zext i16 %5801 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5033
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5032
 
-5803:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5031
+5803:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5030
   %5804 = icmp eq i8 %5790, 2
   tail call void @llvm.assume(i1 %5804)
   %5805 = load i64, ptr %5792, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5033
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5032
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5033: ; preds = %5793, %5803
-  %.0.i5032 = phi i64 [ %5802, %5793 ], [ %5805, %5803 ]
-  %5806 = shl i64 %.0.i5032, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5032: ; preds = %5793, %5803
+  %.0.i5031 = phi i64 [ %5802, %5793 ], [ %5805, %5803 ]
+  %5806 = shl i64 %.0.i5031, 7
   %5807 = and i64 %5806, 3968
   %5808 = getelementptr inbounds nuw i8, ptr %5750, i64 48
   %5809 = load i8, ptr %5808, align 8, !tbaa !70
@@ -11666,7 +11666,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5811 = getelementptr inbounds nuw i8, ptr %5750, i64 56
   br i1 %5810, label %5812, label %5822
 
-5812:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5033
+5812:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5032
   %5813 = getelementptr inbounds nuw i8, ptr %.val4422, i64 160
   %5814 = load ptr, ptr %5813, align 8, !tbaa !72
   %5815 = load i32, ptr %5811, align 8, !tbaa !26
@@ -11676,17 +11676,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5819 = getelementptr inbounds nuw i16, ptr %5817, i64 %5818
   %5820 = load i16, ptr %5819, align 2, !tbaa !240
   %5821 = zext i16 %5820 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5035
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5034
 
-5822:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5033
+5822:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5032
   %5823 = icmp eq i8 %5809, 2
   tail call void @llvm.assume(i1 %5823)
   %5824 = load i64, ptr %5811, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5035
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5034
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5035: ; preds = %5812, %5822
-  %.0.i5034 = phi i64 [ %5821, %5812 ], [ %5824, %5822 ]
-  %5825 = shl i64 %.0.i5034, 25
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5034: ; preds = %5812, %5822
+  %.0.i5033 = phi i64 [ %5821, %5812 ], [ %5824, %5822 ]
+  %5825 = shl i64 %.0.i5033, 25
   %5826 = and i64 %5825, 1040187392
   %5827 = or disjoint i64 %5770, %5789
   %5828 = or disjoint i64 %5827, %5807
@@ -11715,17 +11715,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5846 = getelementptr inbounds nuw i16, ptr %5844, i64 %5845
   %5847 = load i16, ptr %5846, align 2, !tbaa !240
   %5848 = zext i16 %5847 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5037
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5036
 
 5849:                                             ; preds = %5831
   %5850 = icmp eq i8 %5836, 2
   tail call void @llvm.assume(i1 %5850)
   %5851 = load i64, ptr %5838, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5037
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5036
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5037: ; preds = %5839, %5849
-  %.0.i5036 = phi i64 [ %5848, %5839 ], [ %5851, %5849 ]
-  %5852 = shl i64 %.0.i5036, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5036: ; preds = %5839, %5849
+  %.0.i5035 = phi i64 [ %5848, %5839 ], [ %5851, %5849 ]
+  %5852 = shl i64 %.0.i5035, 20
   %5853 = and i64 %5852, 32505856
   %5854 = getelementptr inbounds nuw i8, ptr %5833, i64 16
   %5855 = load i8, ptr %5854, align 8, !tbaa !70
@@ -11733,7 +11733,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5857 = getelementptr inbounds nuw i8, ptr %5833, i64 24
   br i1 %5856, label %5858, label %5868
 
-5858:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5037
+5858:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5036
   %5859 = getelementptr inbounds nuw i8, ptr %.val4426, i64 160
   %5860 = load ptr, ptr %5859, align 8, !tbaa !72
   %5861 = load i32, ptr %5857, align 8, !tbaa !26
@@ -11743,24 +11743,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5865 = getelementptr inbounds nuw i16, ptr %5863, i64 %5864
   %5866 = load i16, ptr %5865, align 2, !tbaa !240
   %5867 = zext i16 %5866 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5039
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5038
 
-5868:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5037
+5868:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5036
   %5869 = icmp eq i8 %5855, 2
   tail call void @llvm.assume(i1 %5869)
   %5870 = load i64, ptr %5857, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5039
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5038
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5039: ; preds = %5858, %5868
-  %.0.i5038 = phi i64 [ %5867, %5858 ], [ %5870, %5868 ]
-  %5871 = shl i64 %.0.i5038, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5038: ; preds = %5858, %5868
+  %.0.i5037 = phi i64 [ %5867, %5858 ], [ %5870, %5868 ]
+  %5871 = shl i64 %.0.i5037, 15
   %5872 = and i64 %5871, 1015808
   %5873 = load i8, ptr %5833, align 8, !tbaa !70
   %5874 = icmp eq i8 %5873, 1
   %5875 = getelementptr inbounds nuw i8, ptr %5833, i64 8
   br i1 %5874, label %5876, label %5886
 
-5876:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5039
+5876:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5038
   %5877 = getelementptr inbounds nuw i8, ptr %.val4426, i64 160
   %5878 = load ptr, ptr %5877, align 8, !tbaa !72
   %5879 = load i32, ptr %5875, align 8, !tbaa !26
@@ -11770,17 +11770,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5883 = getelementptr inbounds nuw i16, ptr %5881, i64 %5882
   %5884 = load i16, ptr %5883, align 2, !tbaa !240
   %5885 = zext i16 %5884 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5041
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5040
 
-5886:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5039
+5886:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5038
   %5887 = icmp eq i8 %5873, 2
   tail call void @llvm.assume(i1 %5887)
   %5888 = load i64, ptr %5875, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5041
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5040
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5041: ; preds = %5876, %5886
-  %.0.i5040 = phi i64 [ %5885, %5876 ], [ %5888, %5886 ]
-  %5889 = shl i64 %.0.i5040, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5040: ; preds = %5876, %5886
+  %.0.i5039 = phi i64 [ %5885, %5876 ], [ %5888, %5886 ]
+  %5889 = shl i64 %.0.i5039, 7
   %5890 = and i64 %5889, 3968
   %5891 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4175 = load i64, ptr %5891, align 8, !tbaa !27
@@ -11814,17 +11814,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5914 = getelementptr inbounds nuw i16, ptr %5912, i64 %5913
   %5915 = load i16, ptr %5914, align 2, !tbaa !240
   %5916 = zext i16 %5915 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5043
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5042
 
 5917:                                             ; preds = %5899
   %5918 = icmp eq i8 %5904, 2
   tail call void @llvm.assume(i1 %5918)
   %5919 = load i64, ptr %5906, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5043
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5042
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5043: ; preds = %5907, %5917
-  %.0.i5042 = phi i64 [ %5916, %5907 ], [ %5919, %5917 ]
-  %5920 = shl i64 %.0.i5042, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5042: ; preds = %5907, %5917
+  %.0.i5041 = phi i64 [ %5916, %5907 ], [ %5919, %5917 ]
+  %5920 = shl i64 %.0.i5041, 20
   %5921 = and i64 %5920, 32505856
   %5922 = getelementptr inbounds nuw i8, ptr %5901, i64 16
   %5923 = load i8, ptr %5922, align 8, !tbaa !70
@@ -11832,7 +11832,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5925 = getelementptr inbounds nuw i8, ptr %5901, i64 24
   br i1 %5924, label %5926, label %5936
 
-5926:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5043
+5926:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5042
   %5927 = getelementptr inbounds nuw i8, ptr %.val4429, i64 160
   %5928 = load ptr, ptr %5927, align 8, !tbaa !72
   %5929 = load i32, ptr %5925, align 8, !tbaa !26
@@ -11842,24 +11842,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5933 = getelementptr inbounds nuw i16, ptr %5931, i64 %5932
   %5934 = load i16, ptr %5933, align 2, !tbaa !240
   %5935 = zext i16 %5934 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5045
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5044
 
-5936:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5043
+5936:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5042
   %5937 = icmp eq i8 %5923, 2
   tail call void @llvm.assume(i1 %5937)
   %5938 = load i64, ptr %5925, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5045
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5044
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5045: ; preds = %5926, %5936
-  %.0.i5044 = phi i64 [ %5935, %5926 ], [ %5938, %5936 ]
-  %5939 = shl i64 %.0.i5044, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5044: ; preds = %5926, %5936
+  %.0.i5043 = phi i64 [ %5935, %5926 ], [ %5938, %5936 ]
+  %5939 = shl i64 %.0.i5043, 15
   %5940 = and i64 %5939, 1015808
   %5941 = load i8, ptr %5901, align 8, !tbaa !70
   %5942 = icmp eq i8 %5941, 1
   %5943 = getelementptr inbounds nuw i8, ptr %5901, i64 8
   br i1 %5942, label %5944, label %5954
 
-5944:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5045
+5944:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5044
   %5945 = getelementptr inbounds nuw i8, ptr %.val4429, i64 160
   %5946 = load ptr, ptr %5945, align 8, !tbaa !72
   %5947 = load i32, ptr %5943, align 8, !tbaa !26
@@ -11869,22 +11869,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5951 = getelementptr inbounds nuw i16, ptr %5949, i64 %5950
   %5952 = load i16, ptr %5951, align 2, !tbaa !240
   %5953 = zext i16 %5952 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5047
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5046
 
-5954:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5045
+5954:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5044
   %5955 = icmp eq i8 %5941, 2
   tail call void @llvm.assume(i1 %5955)
   %5956 = load i64, ptr %5943, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5047
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5046
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5047: ; preds = %5944, %5954
-  %.0.i5046 = phi i64 [ %5953, %5944 ], [ %5956, %5954 ]
-  %5957 = shl i64 %.0.i5046, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5046: ; preds = %5944, %5954
+  %.0.i5045 = phi i64 [ %5953, %5944 ], [ %5956, %5954 ]
+  %5957 = shl i64 %.0.i5045, 7
   %5958 = and i64 %5957, 3968
-  %.sroa.3.0..sroa_idx.i5048 = getelementptr inbounds nuw i8, ptr %5901, i64 56
-  %.sroa.3.0.copyload.i5049 = load i32, ptr %.sroa.3.0..sroa_idx.i5048, align 8
-  %switch.i5050.not = icmp eq i32 %.sroa.3.0.copyload.i5049, 11
-  %5959 = select i1 %switch.i5050.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5047 = getelementptr inbounds nuw i8, ptr %5901, i64 56
+  %.sroa.3.0.copyload.i5048 = load i32, ptr %.sroa.3.0..sroa_idx.i5047, align 8
+  %.not5315 = icmp eq i32 %.sroa.3.0.copyload.i5048, 11
+  %5959 = select i1 %.not5315, i64 0, i64 33554432
   %5960 = or disjoint i64 %5921, %5940
   %5961 = or disjoint i64 %5960, %5958
   %5962 = or disjoint i64 %5961, %5959
@@ -11912,17 +11912,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5979 = getelementptr inbounds nuw i16, ptr %5977, i64 %5978
   %5980 = load i16, ptr %5979, align 2, !tbaa !240
   %5981 = zext i16 %5980 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5051
 
 5982:                                             ; preds = %5964
   %5983 = icmp eq i8 %5969, 2
   tail call void @llvm.assume(i1 %5983)
   %5984 = load i64, ptr %5971, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5051
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053: ; preds = %5972, %5982
-  %.0.i5052 = phi i64 [ %5981, %5972 ], [ %5984, %5982 ]
-  %5985 = shl i64 %.0.i5052, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5051: ; preds = %5972, %5982
+  %.0.i5050 = phi i64 [ %5981, %5972 ], [ %5984, %5982 ]
+  %5985 = shl i64 %.0.i5050, 20
   %5986 = and i64 %5985, 32505856
   %5987 = getelementptr inbounds nuw i8, ptr %5966, i64 16
   %5988 = load i8, ptr %5987, align 8, !tbaa !70
@@ -11930,7 +11930,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5990 = getelementptr inbounds nuw i8, ptr %5966, i64 24
   br i1 %5989, label %5991, label %6001
 
-5991:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053
+5991:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5051
   %5992 = getelementptr inbounds nuw i8, ptr %.val4432, i64 160
   %5993 = load ptr, ptr %5992, align 8, !tbaa !72
   %5994 = load i32, ptr %5990, align 8, !tbaa !26
@@ -11940,24 +11940,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %5998 = getelementptr inbounds nuw i16, ptr %5996, i64 %5997
   %5999 = load i16, ptr %5998, align 2, !tbaa !240
   %6000 = zext i16 %5999 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053
 
-6001:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053
+6001:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5051
   %6002 = icmp eq i8 %5988, 2
   tail call void @llvm.assume(i1 %6002)
   %6003 = load i64, ptr %5990, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055: ; preds = %5991, %6001
-  %.0.i5054 = phi i64 [ %6000, %5991 ], [ %6003, %6001 ]
-  %6004 = shl i64 %.0.i5054, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053: ; preds = %5991, %6001
+  %.0.i5052 = phi i64 [ %6000, %5991 ], [ %6003, %6001 ]
+  %6004 = shl i64 %.0.i5052, 15
   %6005 = and i64 %6004, 1015808
   %6006 = load i8, ptr %5966, align 8, !tbaa !70
   %6007 = icmp eq i8 %6006, 1
   %6008 = getelementptr inbounds nuw i8, ptr %5966, i64 8
   br i1 %6007, label %6009, label %6019
 
-6009:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055
+6009:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053
   %6010 = getelementptr inbounds nuw i8, ptr %.val4432, i64 160
   %6011 = load ptr, ptr %6010, align 8, !tbaa !72
   %6012 = load i32, ptr %6008, align 8, !tbaa !26
@@ -11967,22 +11967,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6016 = getelementptr inbounds nuw i16, ptr %6014, i64 %6015
   %6017 = load i16, ptr %6016, align 2, !tbaa !240
   %6018 = zext i16 %6017 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5057
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055
 
-6019:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055
+6019:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5053
   %6020 = icmp eq i8 %6006, 2
   tail call void @llvm.assume(i1 %6020)
   %6021 = load i64, ptr %6008, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5057
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5057: ; preds = %6009, %6019
-  %.0.i5056 = phi i64 [ %6018, %6009 ], [ %6021, %6019 ]
-  %6022 = shl i64 %.0.i5056, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055: ; preds = %6009, %6019
+  %.0.i5054 = phi i64 [ %6018, %6009 ], [ %6021, %6019 ]
+  %6022 = shl i64 %.0.i5054, 7
   %6023 = and i64 %6022, 3968
-  %.sroa.3.0..sroa_idx.i5058 = getelementptr inbounds nuw i8, ptr %5966, i64 56
-  %.sroa.3.0.copyload.i5059 = load i32, ptr %.sroa.3.0..sroa_idx.i5058, align 8
-  %switch.i5060.not = icmp eq i32 %.sroa.3.0.copyload.i5059, 11
-  %6024 = select i1 %switch.i5060.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5056 = getelementptr inbounds nuw i8, ptr %5966, i64 56
+  %.sroa.3.0.copyload.i5057 = load i32, ptr %.sroa.3.0..sroa_idx.i5056, align 8
+  %.not5314 = icmp eq i32 %.sroa.3.0.copyload.i5057, 11
+  %6024 = select i1 %.not5314, i64 0, i64 33554432
   %6025 = or disjoint i64 %5986, %6005
   %6026 = or disjoint i64 %6025, %6023
   %6027 = or disjoint i64 %6026, %6024
@@ -12010,17 +12010,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6044 = getelementptr inbounds nuw i16, ptr %6042, i64 %6043
   %6045 = load i16, ptr %6044, align 2, !tbaa !240
   %6046 = zext i16 %6045 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5063
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5060
 
 6047:                                             ; preds = %6029
   %6048 = icmp eq i8 %6034, 2
   tail call void @llvm.assume(i1 %6048)
   %6049 = load i64, ptr %6036, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5063
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5060
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5063: ; preds = %6037, %6047
-  %.0.i5062 = phi i64 [ %6046, %6037 ], [ %6049, %6047 ]
-  %6050 = shl i64 %.0.i5062, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5060: ; preds = %6037, %6047
+  %.0.i5059 = phi i64 [ %6046, %6037 ], [ %6049, %6047 ]
+  %6050 = shl i64 %.0.i5059, 20
   %6051 = and i64 %6050, 32505856
   %6052 = getelementptr inbounds nuw i8, ptr %6031, i64 48
   %6053 = load i8, ptr %6052, align 8, !tbaa !70
@@ -12028,7 +12028,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6055 = getelementptr inbounds nuw i8, ptr %6031, i64 56
   br i1 %6054, label %6056, label %6066
 
-6056:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5063
+6056:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5060
   %6057 = getelementptr inbounds nuw i8, ptr %.val4435, i64 160
   %6058 = load ptr, ptr %6057, align 8, !tbaa !72
   %6059 = load i32, ptr %6055, align 8, !tbaa !26
@@ -12038,17 +12038,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6063 = getelementptr inbounds nuw i16, ptr %6061, i64 %6062
   %6064 = load i16, ptr %6063, align 2, !tbaa !240
   %6065 = zext i16 %6064 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5065
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5062
 
-6066:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5063
+6066:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5060
   %6067 = icmp eq i8 %6053, 2
   tail call void @llvm.assume(i1 %6067)
   %6068 = load i64, ptr %6055, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5065
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5062
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5065: ; preds = %6056, %6066
-  %.0.i5064 = phi i64 [ %6065, %6056 ], [ %6068, %6066 ]
-  %6069 = shl i64 %.0.i5064, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5062: ; preds = %6056, %6066
+  %.0.i5061 = phi i64 [ %6065, %6056 ], [ %6068, %6066 ]
+  %6069 = shl i64 %.0.i5061, 15
   %6070 = and i64 %6069, 1015808
   %6071 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4176 = load i64, ptr %6071, align 8, !tbaa !27
@@ -12086,17 +12086,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6097 = getelementptr inbounds nuw i16, ptr %6095, i64 %6096
   %6098 = load i16, ptr %6097, align 2, !tbaa !240
   %6099 = zext i16 %6098 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5067
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5064
 
 6100:                                             ; preds = %6082
   %6101 = icmp eq i8 %6087, 2
   tail call void @llvm.assume(i1 %6101)
   %6102 = load i64, ptr %6089, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5067
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5064
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5067: ; preds = %6090, %6100
-  %.0.i5066 = phi i64 [ %6099, %6090 ], [ %6102, %6100 ]
-  %6103 = shl i64 %.0.i5066, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5064: ; preds = %6090, %6100
+  %.0.i5063 = phi i64 [ %6099, %6090 ], [ %6102, %6100 ]
+  %6103 = shl i64 %.0.i5063, 20
   %6104 = and i64 %6103, 32505856
   %6105 = getelementptr inbounds nuw i8, ptr %6084, i64 48
   %6106 = load i8, ptr %6105, align 8, !tbaa !70
@@ -12104,7 +12104,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6108 = getelementptr inbounds nuw i8, ptr %6084, i64 56
   br i1 %6107, label %6109, label %6119
 
-6109:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5067
+6109:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5064
   %6110 = getelementptr inbounds nuw i8, ptr %.val4437, i64 160
   %6111 = load ptr, ptr %6110, align 8, !tbaa !72
   %6112 = load i32, ptr %6108, align 8, !tbaa !26
@@ -12114,17 +12114,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6116 = getelementptr inbounds nuw i16, ptr %6114, i64 %6115
   %6117 = load i16, ptr %6116, align 2, !tbaa !240
   %6118 = zext i16 %6117 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5069
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5066
 
-6119:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5067
+6119:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5064
   %6120 = icmp eq i8 %6106, 2
   tail call void @llvm.assume(i1 %6120)
   %6121 = load i64, ptr %6108, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5069
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5066
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5069: ; preds = %6109, %6119
-  %.0.i5068 = phi i64 [ %6118, %6109 ], [ %6121, %6119 ]
-  %6122 = shl i64 %.0.i5068, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5066: ; preds = %6109, %6119
+  %.0.i5065 = phi i64 [ %6118, %6109 ], [ %6121, %6119 ]
+  %6122 = shl i64 %.0.i5065, 15
   %6123 = and i64 %6122, 1015808
   %6124 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4178 = load i64, ptr %6124, align 8, !tbaa !27
@@ -12162,17 +12162,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6150 = getelementptr inbounds nuw i16, ptr %6148, i64 %6149
   %6151 = load i16, ptr %6150, align 2, !tbaa !240
   %6152 = zext i16 %6151 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5071
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5068
 
 6153:                                             ; preds = %6135
   %6154 = icmp eq i8 %6140, 2
   tail call void @llvm.assume(i1 %6154)
   %6155 = load i64, ptr %6142, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5071
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5068
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5071: ; preds = %6143, %6153
-  %.0.i5070 = phi i64 [ %6152, %6143 ], [ %6155, %6153 ]
-  %6156 = shl i64 %.0.i5070, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5068: ; preds = %6143, %6153
+  %.0.i5067 = phi i64 [ %6152, %6143 ], [ %6155, %6153 ]
+  %6156 = shl i64 %.0.i5067, 20
   %6157 = and i64 %6156, 32505856
   %6158 = getelementptr inbounds nuw i8, ptr %6137, i64 48
   %6159 = load i8, ptr %6158, align 8, !tbaa !70
@@ -12180,7 +12180,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6161 = getelementptr inbounds nuw i8, ptr %6137, i64 56
   br i1 %6160, label %6162, label %6172
 
-6162:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5071
+6162:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5068
   %6163 = getelementptr inbounds nuw i8, ptr %.val4439, i64 160
   %6164 = load ptr, ptr %6163, align 8, !tbaa !72
   %6165 = load i32, ptr %6161, align 8, !tbaa !26
@@ -12190,24 +12190,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6169 = getelementptr inbounds nuw i16, ptr %6167, i64 %6168
   %6170 = load i16, ptr %6169, align 2, !tbaa !240
   %6171 = zext i16 %6170 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5073
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5070
 
-6172:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5071
+6172:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5068
   %6173 = icmp eq i8 %6159, 2
   tail call void @llvm.assume(i1 %6173)
   %6174 = load i64, ptr %6161, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5073
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5070
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5073: ; preds = %6162, %6172
-  %.0.i5072 = phi i64 [ %6171, %6162 ], [ %6174, %6172 ]
-  %6175 = shl i64 %.0.i5072, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5070: ; preds = %6162, %6172
+  %.0.i5069 = phi i64 [ %6171, %6162 ], [ %6174, %6172 ]
+  %6175 = shl i64 %.0.i5069, 15
   %6176 = and i64 %6175, 1015808
   %6177 = load i8, ptr %6137, align 8, !tbaa !70
   %6178 = icmp eq i8 %6177, 1
   %6179 = getelementptr inbounds nuw i8, ptr %6137, i64 8
   br i1 %6178, label %6180, label %6190
 
-6180:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5073
+6180:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5070
   %6181 = getelementptr inbounds nuw i8, ptr %.val4439, i64 160
   %6182 = load ptr, ptr %6181, align 8, !tbaa !72
   %6183 = load i32, ptr %6179, align 8, !tbaa !26
@@ -12217,17 +12217,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6187 = getelementptr inbounds nuw i16, ptr %6185, i64 %6186
   %6188 = load i16, ptr %6187, align 2, !tbaa !240
   %6189 = zext i16 %6188 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5075
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5072
 
-6190:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5073
+6190:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5070
   %6191 = icmp eq i8 %6177, 2
   tail call void @llvm.assume(i1 %6191)
   %6192 = load i64, ptr %6179, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5075
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5072
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5075: ; preds = %6180, %6190
-  %.0.i5074 = phi i64 [ %6189, %6180 ], [ %6192, %6190 ]
-  %6193 = shl i64 %.0.i5074, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5072: ; preds = %6180, %6190
+  %.0.i5071 = phi i64 [ %6189, %6180 ], [ %6192, %6190 ]
+  %6193 = shl i64 %.0.i5071, 7
   %6194 = and i64 %6193, 3968
   %6195 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4180 = load i64, ptr %6195, align 8, !tbaa !27
@@ -12261,17 +12261,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6218 = getelementptr inbounds nuw i16, ptr %6216, i64 %6217
   %6219 = load i16, ptr %6218, align 2, !tbaa !240
   %6220 = zext i16 %6219 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5077
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5074
 
 6221:                                             ; preds = %6203
   %6222 = icmp eq i8 %6208, 2
   tail call void @llvm.assume(i1 %6222)
   %6223 = load i64, ptr %6210, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5077
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5074
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5077: ; preds = %6211, %6221
-  %.0.i5076 = phi i64 [ %6220, %6211 ], [ %6223, %6221 ]
-  %6224 = shl i64 %.0.i5076, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5074: ; preds = %6211, %6221
+  %.0.i5073 = phi i64 [ %6220, %6211 ], [ %6223, %6221 ]
+  %6224 = shl i64 %.0.i5073, 20
   %6225 = and i64 %6224, 32505856
   %6226 = getelementptr inbounds nuw i8, ptr %6205, i64 48
   %6227 = load i8, ptr %6226, align 8, !tbaa !70
@@ -12279,7 +12279,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6229 = getelementptr inbounds nuw i8, ptr %6205, i64 56
   br i1 %6228, label %6230, label %6240
 
-6230:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5077
+6230:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5074
   %6231 = getelementptr inbounds nuw i8, ptr %.val4442, i64 160
   %6232 = load ptr, ptr %6231, align 8, !tbaa !72
   %6233 = load i32, ptr %6229, align 8, !tbaa !26
@@ -12289,24 +12289,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6237 = getelementptr inbounds nuw i16, ptr %6235, i64 %6236
   %6238 = load i16, ptr %6237, align 2, !tbaa !240
   %6239 = zext i16 %6238 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5079
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5076
 
-6240:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5077
+6240:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5074
   %6241 = icmp eq i8 %6227, 2
   tail call void @llvm.assume(i1 %6241)
   %6242 = load i64, ptr %6229, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5079
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5076
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5079: ; preds = %6230, %6240
-  %.0.i5078 = phi i64 [ %6239, %6230 ], [ %6242, %6240 ]
-  %6243 = shl i64 %.0.i5078, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5076: ; preds = %6230, %6240
+  %.0.i5075 = phi i64 [ %6239, %6230 ], [ %6242, %6240 ]
+  %6243 = shl i64 %.0.i5075, 15
   %6244 = and i64 %6243, 1015808
   %6245 = load i8, ptr %6205, align 8, !tbaa !70
   %6246 = icmp eq i8 %6245, 1
   %6247 = getelementptr inbounds nuw i8, ptr %6205, i64 8
   br i1 %6246, label %6248, label %6258
 
-6248:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5079
+6248:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5076
   %6249 = getelementptr inbounds nuw i8, ptr %.val4442, i64 160
   %6250 = load ptr, ptr %6249, align 8, !tbaa !72
   %6251 = load i32, ptr %6247, align 8, !tbaa !26
@@ -12316,17 +12316,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6255 = getelementptr inbounds nuw i16, ptr %6253, i64 %6254
   %6256 = load i16, ptr %6255, align 2, !tbaa !240
   %6257 = zext i16 %6256 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5081
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5078
 
-6258:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5079
+6258:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5076
   %6259 = icmp eq i8 %6245, 2
   tail call void @llvm.assume(i1 %6259)
   %6260 = load i64, ptr %6247, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5081
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5078
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5081: ; preds = %6248, %6258
-  %.0.i5080 = phi i64 [ %6257, %6248 ], [ %6260, %6258 ]
-  %6261 = shl i64 %.0.i5080, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5078: ; preds = %6248, %6258
+  %.0.i5077 = phi i64 [ %6257, %6248 ], [ %6260, %6258 ]
+  %6261 = shl i64 %.0.i5077, 7
   %6262 = and i64 %6261, 3968
   %6263 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4181 = load i64, ptr %6263, align 8, !tbaa !27
@@ -12360,17 +12360,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6286 = getelementptr inbounds nuw i16, ptr %6284, i64 %6285
   %6287 = load i16, ptr %6286, align 2, !tbaa !240
   %6288 = zext i16 %6287 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5083
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5080
 
 6289:                                             ; preds = %6271
   %6290 = icmp eq i8 %6276, 2
   tail call void @llvm.assume(i1 %6290)
   %6291 = load i64, ptr %6278, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5083
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5080
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5083: ; preds = %6279, %6289
-  %.0.i5082 = phi i64 [ %6288, %6279 ], [ %6291, %6289 ]
-  %6292 = shl i64 %.0.i5082, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5080: ; preds = %6279, %6289
+  %.0.i5079 = phi i64 [ %6288, %6279 ], [ %6291, %6289 ]
+  %6292 = shl i64 %.0.i5079, 20
   %6293 = and i64 %6292, 32505856
   %6294 = getelementptr inbounds nuw i8, ptr %6273, i64 48
   %6295 = load i8, ptr %6294, align 8, !tbaa !70
@@ -12378,7 +12378,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6297 = getelementptr inbounds nuw i8, ptr %6273, i64 56
   br i1 %6296, label %6298, label %6308
 
-6298:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5083
+6298:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5080
   %6299 = getelementptr inbounds nuw i8, ptr %.val4445, i64 160
   %6300 = load ptr, ptr %6299, align 8, !tbaa !72
   %6301 = load i32, ptr %6297, align 8, !tbaa !26
@@ -12388,17 +12388,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6305 = getelementptr inbounds nuw i16, ptr %6303, i64 %6304
   %6306 = load i16, ptr %6305, align 2, !tbaa !240
   %6307 = zext i16 %6306 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5085
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5082
 
-6308:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5083
+6308:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5080
   %6309 = icmp eq i8 %6295, 2
   tail call void @llvm.assume(i1 %6309)
   %6310 = load i64, ptr %6297, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5085
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5082
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5085: ; preds = %6298, %6308
-  %.0.i5084 = phi i64 [ %6307, %6298 ], [ %6310, %6308 ]
-  %6311 = shl i64 %.0.i5084, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5082: ; preds = %6298, %6308
+  %.0.i5081 = phi i64 [ %6307, %6298 ], [ %6310, %6308 ]
+  %6311 = shl i64 %.0.i5081, 15
   %6312 = and i64 %6311, 1015808
   %6313 = getelementptr inbounds nuw i8, ptr %6273, i64 16
   %6314 = load i8, ptr %6313, align 8, !tbaa !70
@@ -12406,7 +12406,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6316 = getelementptr inbounds nuw i8, ptr %6273, i64 24
   br i1 %6315, label %6317, label %6327
 
-6317:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5085
+6317:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5082
   %6318 = getelementptr inbounds nuw i8, ptr %.val4445, i64 160
   %6319 = load ptr, ptr %6318, align 8, !tbaa !72
   %6320 = load i32, ptr %6316, align 8, !tbaa !26
@@ -12416,17 +12416,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6324 = getelementptr inbounds nuw i16, ptr %6322, i64 %6323
   %6325 = load i16, ptr %6324, align 2, !tbaa !240
   %6326 = zext i16 %6325 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5087
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5084
 
-6327:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5085
+6327:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5082
   %6328 = icmp eq i8 %6314, 2
   tail call void @llvm.assume(i1 %6328)
   %6329 = load i64, ptr %6316, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5087
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5084
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5087: ; preds = %6317, %6327
-  %.0.i5086 = phi i64 [ %6326, %6317 ], [ %6329, %6327 ]
-  %6330 = shl i64 %.0.i5086, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5084: ; preds = %6317, %6327
+  %.0.i5083 = phi i64 [ %6326, %6317 ], [ %6329, %6327 ]
+  %6330 = shl i64 %.0.i5083, 7
   %6331 = and i64 %6330, 3968
   %6332 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4182 = load i64, ptr %6332, align 8, !tbaa !27
@@ -12460,17 +12460,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6355 = getelementptr inbounds nuw i16, ptr %6353, i64 %6354
   %6356 = load i16, ptr %6355, align 2, !tbaa !240
   %6357 = zext i16 %6356 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5089
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5086
 
 6358:                                             ; preds = %6340
   %6359 = icmp eq i8 %6345, 2
   tail call void @llvm.assume(i1 %6359)
   %6360 = load i64, ptr %6347, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5089
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5086
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5089: ; preds = %6348, %6358
-  %.0.i5088 = phi i64 [ %6357, %6348 ], [ %6360, %6358 ]
-  %6361 = shl i64 %.0.i5088, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5086: ; preds = %6348, %6358
+  %.0.i5085 = phi i64 [ %6357, %6348 ], [ %6360, %6358 ]
+  %6361 = shl i64 %.0.i5085, 20
   %6362 = and i64 %6361, 32505856
   %6363 = getelementptr inbounds nuw i8, ptr %6342, i64 48
   %6364 = load i8, ptr %6363, align 8, !tbaa !70
@@ -12478,7 +12478,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6366 = getelementptr inbounds nuw i8, ptr %6342, i64 56
   br i1 %6365, label %6367, label %6377
 
-6367:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5089
+6367:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5086
   %6368 = getelementptr inbounds nuw i8, ptr %.val4448, i64 160
   %6369 = load ptr, ptr %6368, align 8, !tbaa !72
   %6370 = load i32, ptr %6366, align 8, !tbaa !26
@@ -12488,17 +12488,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6374 = getelementptr inbounds nuw i16, ptr %6372, i64 %6373
   %6375 = load i16, ptr %6374, align 2, !tbaa !240
   %6376 = zext i16 %6375 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5091
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5088
 
-6377:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5089
+6377:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5086
   %6378 = icmp eq i8 %6364, 2
   tail call void @llvm.assume(i1 %6378)
   %6379 = load i64, ptr %6366, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5091
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5088
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5091: ; preds = %6367, %6377
-  %.0.i5090 = phi i64 [ %6376, %6367 ], [ %6379, %6377 ]
-  %6380 = shl i64 %.0.i5090, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5088: ; preds = %6367, %6377
+  %.0.i5087 = phi i64 [ %6376, %6367 ], [ %6379, %6377 ]
+  %6380 = shl i64 %.0.i5087, 15
   %6381 = and i64 %6380, 1015808
   %6382 = getelementptr inbounds nuw i8, ptr %6342, i64 16
   %6383 = load i8, ptr %6382, align 8, !tbaa !70
@@ -12506,7 +12506,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6385 = getelementptr inbounds nuw i8, ptr %6342, i64 24
   br i1 %6384, label %6386, label %6396
 
-6386:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5091
+6386:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5088
   %6387 = getelementptr inbounds nuw i8, ptr %.val4448, i64 160
   %6388 = load ptr, ptr %6387, align 8, !tbaa !72
   %6389 = load i32, ptr %6385, align 8, !tbaa !26
@@ -12516,17 +12516,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6393 = getelementptr inbounds nuw i16, ptr %6391, i64 %6392
   %6394 = load i16, ptr %6393, align 2, !tbaa !240
   %6395 = zext i16 %6394 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5093
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5090
 
-6396:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5091
+6396:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5088
   %6397 = icmp eq i8 %6383, 2
   tail call void @llvm.assume(i1 %6397)
   %6398 = load i64, ptr %6385, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5093
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5090
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5093: ; preds = %6386, %6396
-  %.0.i5092 = phi i64 [ %6395, %6386 ], [ %6398, %6396 ]
-  %6399 = shl i64 %.0.i5092, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5090: ; preds = %6386, %6396
+  %.0.i5089 = phi i64 [ %6395, %6386 ], [ %6398, %6396 ]
+  %6399 = shl i64 %.0.i5089, 7
   %6400 = and i64 %6399, 3968
   %6401 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4183 = load i64, ptr %6401, align 8, !tbaa !27
@@ -12560,17 +12560,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6424 = getelementptr inbounds nuw i16, ptr %6422, i64 %6423
   %6425 = load i16, ptr %6424, align 2, !tbaa !240
   %6426 = zext i16 %6425 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5095
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5092
 
 6427:                                             ; preds = %6409
   %6428 = icmp eq i8 %6413, 2
   tail call void @llvm.assume(i1 %6428)
   %6429 = load i64, ptr %6415, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5095
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5092
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5095: ; preds = %6416, %6427
-  %.0.i5094 = phi i64 [ %6426, %6416 ], [ %6429, %6427 ]
-  %6430 = shl i64 %.0.i5094, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5092: ; preds = %6416, %6427
+  %.0.i5091 = phi i64 [ %6426, %6416 ], [ %6429, %6427 ]
+  %6430 = shl i64 %.0.i5091, 2
   %6431 = and i64 %6430, 124
   %6432 = or i64 %6431, %10
   br label %8504
@@ -12596,17 +12596,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6448 = getelementptr inbounds nuw i16, ptr %6446, i64 %6447
   %6449 = load i16, ptr %6448, align 2, !tbaa !240
   %6450 = zext i16 %6449 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5097
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5094
 
 6451:                                             ; preds = %6433
   %6452 = icmp eq i8 %6438, 2
   tail call void @llvm.assume(i1 %6452)
   %6453 = load i64, ptr %6440, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5097
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5094
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5097: ; preds = %6441, %6451
-  %.0.i5096 = phi i64 [ %6450, %6441 ], [ %6453, %6451 ]
-  %6454 = shl i64 %.0.i5096, 2
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5094: ; preds = %6441, %6451
+  %.0.i5093 = phi i64 [ %6450, %6441 ], [ %6453, %6451 ]
+  %6454 = shl i64 %.0.i5093, 2
   %6455 = and i64 %6454, 28
   %6456 = getelementptr inbounds nuw i8, ptr %6435, i64 16
   %6457 = load i8, ptr %6456, align 8, !tbaa !70
@@ -12614,7 +12614,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6459 = getelementptr inbounds nuw i8, ptr %6435, i64 24
   br i1 %6458, label %6460, label %6470
 
-6460:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5097
+6460:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5094
   %6461 = getelementptr inbounds nuw i8, ptr %.val4452, i64 160
   %6462 = load ptr, ptr %6461, align 8, !tbaa !72
   %6463 = load i32, ptr %6459, align 8, !tbaa !26
@@ -12624,17 +12624,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6467 = getelementptr inbounds nuw i16, ptr %6465, i64 %6466
   %6468 = load i16, ptr %6467, align 2, !tbaa !240
   %6469 = zext i16 %6468 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5099
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5096
 
-6470:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5097
+6470:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5094
   %6471 = icmp eq i8 %6457, 2
   tail call void @llvm.assume(i1 %6471)
   %6472 = load i64, ptr %6459, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5099
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5096
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5099: ; preds = %6460, %6470
-  %.0.i5098 = phi i64 [ %6469, %6460 ], [ %6472, %6470 ]
-  %6473 = shl i64 %.0.i5098, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5096: ; preds = %6460, %6470
+  %.0.i5095 = phi i64 [ %6469, %6460 ], [ %6472, %6470 ]
+  %6473 = shl i64 %.0.i5095, 7
   %6474 = and i64 %6473, 896
   %6475 = or disjoint i64 %6455, %6474
   %6476 = or i64 %6475, %10
@@ -12661,17 +12661,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6492 = getelementptr inbounds nuw i16, ptr %6490, i64 %6491
   %6493 = load i16, ptr %6492, align 2, !tbaa !240
   %6494 = zext i16 %6493 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5101
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5098
 
 6495:                                             ; preds = %6477
   %6496 = icmp eq i8 %6482, 2
   tail call void @llvm.assume(i1 %6496)
   %6497 = load i64, ptr %6484, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5101
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5098
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5101: ; preds = %6485, %6495
-  %.0.i5100 = phi i64 [ %6494, %6485 ], [ %6497, %6495 ]
-  %6498 = shl i64 %.0.i5100, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5098: ; preds = %6485, %6495
+  %.0.i5097 = phi i64 [ %6494, %6485 ], [ %6497, %6495 ]
+  %6498 = shl i64 %.0.i5097, 20
   %6499 = and i64 %6498, 32505856
   %6500 = getelementptr inbounds nuw i8, ptr %6479, i64 16
   %6501 = load i8, ptr %6500, align 8, !tbaa !70
@@ -12679,7 +12679,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6503 = getelementptr inbounds nuw i8, ptr %6479, i64 24
   br i1 %6502, label %6504, label %6514
 
-6504:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5101
+6504:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5098
   %6505 = getelementptr inbounds nuw i8, ptr %.val4454, i64 160
   %6506 = load ptr, ptr %6505, align 8, !tbaa !72
   %6507 = load i32, ptr %6503, align 8, !tbaa !26
@@ -12689,17 +12689,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6511 = getelementptr inbounds nuw i16, ptr %6509, i64 %6510
   %6512 = load i16, ptr %6511, align 2, !tbaa !240
   %6513 = zext i16 %6512 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5103
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5100
 
-6514:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5101
+6514:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5098
   %6515 = icmp eq i8 %6501, 2
   tail call void @llvm.assume(i1 %6515)
   %6516 = load i64, ptr %6503, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5103
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5100
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5103: ; preds = %6504, %6514
-  %.0.i5102 = phi i64 [ %6513, %6504 ], [ %6516, %6514 ]
-  %6517 = shl i64 %.0.i5102, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5100: ; preds = %6504, %6514
+  %.0.i5099 = phi i64 [ %6513, %6504 ], [ %6516, %6514 ]
+  %6517 = shl i64 %.0.i5099, 7
   %6518 = and i64 %6517, 3968
   %6519 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4184 = load i64, ptr %6519, align 8, !tbaa !27
@@ -12737,17 +12737,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6545 = getelementptr inbounds nuw i16, ptr %6543, i64 %6544
   %6546 = load i16, ptr %6545, align 2, !tbaa !240
   %6547 = zext i16 %6546 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5105
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5102
 
 6548:                                             ; preds = %6530
   %6549 = icmp eq i8 %6535, 2
   tail call void @llvm.assume(i1 %6549)
   %6550 = load i64, ptr %6537, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5105
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5102
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5105: ; preds = %6538, %6548
-  %.0.i5104 = phi i64 [ %6547, %6538 ], [ %6550, %6548 ]
-  %6551 = shl i64 %.0.i5104, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5102: ; preds = %6538, %6548
+  %.0.i5101 = phi i64 [ %6547, %6538 ], [ %6550, %6548 ]
+  %6551 = shl i64 %.0.i5101, 20
   %6552 = and i64 %6551, 32505856
   %6553 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4186 = load i64, ptr %6553, align 8, !tbaa !27
@@ -12761,7 +12761,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6561 = getelementptr inbounds nuw i8, ptr %6557, i64 40
   br i1 %6560, label %6562, label %6572
 
-6562:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5105
+6562:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5102
   %.val4457 = load ptr, ptr %6534, align 8
   %6563 = getelementptr inbounds nuw i8, ptr %.val4457, i64 160
   %6564 = load ptr, ptr %6563, align 8, !tbaa !72
@@ -12772,17 +12772,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6569 = getelementptr inbounds nuw i16, ptr %6567, i64 %6568
   %6570 = load i16, ptr %6569, align 2, !tbaa !240
   %6571 = zext i16 %6570 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5107
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5104
 
-6572:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5105
+6572:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5102
   %6573 = icmp eq i8 %6559, 2
   tail call void @llvm.assume(i1 %6573)
   %6574 = load i64, ptr %6561, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5107
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5104
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5107: ; preds = %6562, %6572
-  %.0.i5106 = phi i64 [ %6571, %6562 ], [ %6574, %6572 ]
-  %6575 = shl i64 %.0.i5106, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5104: ; preds = %6562, %6572
+  %.0.i5103 = phi i64 [ %6571, %6562 ], [ %6574, %6572 ]
+  %6575 = shl i64 %.0.i5103, 7
   %6576 = and i64 %6575, 3968
   %.val4187 = load i64, ptr %6553, align 8, !tbaa !27
   %6577 = tail call fastcc noundef i64 @_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter13getImmOpValueERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 %.val4187)
@@ -12815,17 +12815,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6599 = getelementptr inbounds nuw i16, ptr %6597, i64 %6598
   %6600 = load i16, ptr %6599, align 2, !tbaa !240
   %6601 = zext i16 %6600 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5109
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5106
 
 6602:                                             ; preds = %6584
   %6603 = icmp eq i8 %6589, 2
   tail call void @llvm.assume(i1 %6603)
   %6604 = load i64, ptr %6591, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5109
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5106
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5109: ; preds = %6592, %6602
-  %.0.i5108 = phi i64 [ %6601, %6592 ], [ %6604, %6602 ]
-  %6605 = shl i64 %.0.i5108, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5106: ; preds = %6592, %6602
+  %.0.i5105 = phi i64 [ %6601, %6592 ], [ %6604, %6602 ]
+  %6605 = shl i64 %.0.i5105, 20
   %6606 = and i64 %6605, 32505856
   %6607 = getelementptr inbounds nuw i8, ptr %6586, i64 32
   %6608 = load i8, ptr %6607, align 8, !tbaa !70
@@ -12833,7 +12833,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6610 = getelementptr inbounds nuw i8, ptr %6586, i64 40
   br i1 %6609, label %6611, label %6621
 
-6611:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5109
+6611:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5106
   %6612 = getelementptr inbounds nuw i8, ptr %.val4458, i64 160
   %6613 = load ptr, ptr %6612, align 8, !tbaa !72
   %6614 = load i32, ptr %6610, align 8, !tbaa !26
@@ -12843,24 +12843,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6618 = getelementptr inbounds nuw i16, ptr %6616, i64 %6617
   %6619 = load i16, ptr %6618, align 2, !tbaa !240
   %6620 = zext i16 %6619 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5111
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5108
 
-6621:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5109
+6621:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5106
   %6622 = icmp eq i8 %6608, 2
   tail call void @llvm.assume(i1 %6622)
   %6623 = load i64, ptr %6610, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5111
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5108
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5111: ; preds = %6611, %6621
-  %.0.i5110 = phi i64 [ %6620, %6611 ], [ %6623, %6621 ]
-  %6624 = shl i64 %.0.i5110, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5108: ; preds = %6611, %6621
+  %.0.i5107 = phi i64 [ %6620, %6611 ], [ %6623, %6621 ]
+  %6624 = shl i64 %.0.i5107, 15
   %6625 = and i64 %6624, 1015808
   %6626 = load i8, ptr %6586, align 8, !tbaa !70
   %6627 = icmp eq i8 %6626, 1
   %6628 = getelementptr inbounds nuw i8, ptr %6586, i64 8
   br i1 %6627, label %6629, label %6639
 
-6629:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5111
+6629:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5108
   %6630 = getelementptr inbounds nuw i8, ptr %.val4458, i64 160
   %6631 = load ptr, ptr %6630, align 8, !tbaa !72
   %6632 = load i32, ptr %6628, align 8, !tbaa !26
@@ -12870,17 +12870,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6636 = getelementptr inbounds nuw i16, ptr %6634, i64 %6635
   %6637 = load i16, ptr %6636, align 2, !tbaa !240
   %6638 = zext i16 %6637 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5113
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5110
 
-6639:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5111
+6639:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5108
   %6640 = icmp eq i8 %6626, 2
   tail call void @llvm.assume(i1 %6640)
   %6641 = load i64, ptr %6628, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5113
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5110
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5113: ; preds = %6629, %6639
-  %.0.i5112 = phi i64 [ %6638, %6629 ], [ %6641, %6639 ]
-  %6642 = shl i64 %.0.i5112, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5110: ; preds = %6629, %6639
+  %.0.i5109 = phi i64 [ %6638, %6629 ], [ %6641, %6639 ]
+  %6642 = shl i64 %.0.i5109, 7
   %6643 = and i64 %6642, 3968
   %6644 = or disjoint i64 %6606, %6625
   %6645 = or disjoint i64 %6644, %6643
@@ -12908,17 +12908,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6662 = getelementptr inbounds nuw i16, ptr %6660, i64 %6661
   %6663 = load i16, ptr %6662, align 2, !tbaa !240
   %6664 = zext i16 %6663 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5115
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5112
 
 6665:                                             ; preds = %6647
   %6666 = icmp eq i8 %6652, 2
   tail call void @llvm.assume(i1 %6666)
   %6667 = load i64, ptr %6654, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5115
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5112
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5115: ; preds = %6655, %6665
-  %.0.i5114 = phi i64 [ %6664, %6655 ], [ %6667, %6665 ]
-  %6668 = shl i64 %.0.i5114, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5112: ; preds = %6655, %6665
+  %.0.i5111 = phi i64 [ %6664, %6655 ], [ %6667, %6665 ]
+  %6668 = shl i64 %.0.i5111, 20
   %6669 = and i64 %6668, 32505856
   %6670 = getelementptr inbounds nuw i8, ptr %6649, i64 32
   %6671 = load i8, ptr %6670, align 8, !tbaa !70
@@ -12926,7 +12926,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6673 = getelementptr inbounds nuw i8, ptr %6649, i64 40
   br i1 %6672, label %6674, label %6684
 
-6674:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5115
+6674:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5112
   %6675 = getelementptr inbounds nuw i8, ptr %.val4461, i64 160
   %6676 = load ptr, ptr %6675, align 8, !tbaa !72
   %6677 = load i32, ptr %6673, align 8, !tbaa !26
@@ -12936,17 +12936,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6681 = getelementptr inbounds nuw i16, ptr %6679, i64 %6680
   %6682 = load i16, ptr %6681, align 2, !tbaa !240
   %6683 = zext i16 %6682 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5117
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5114
 
-6684:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5115
+6684:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5112
   %6685 = icmp eq i8 %6671, 2
   tail call void @llvm.assume(i1 %6685)
   %6686 = load i64, ptr %6673, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5117
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5114
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5117: ; preds = %6674, %6684
-  %.0.i5116 = phi i64 [ %6683, %6674 ], [ %6686, %6684 ]
-  %6687 = shl i64 %.0.i5116, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5114: ; preds = %6674, %6684
+  %.0.i5113 = phi i64 [ %6683, %6674 ], [ %6686, %6684 ]
+  %6687 = shl i64 %.0.i5113, 15
   %6688 = and i64 %6687, 1015808
   %6689 = getelementptr inbounds nuw i8, ptr %6649, i64 16
   %6690 = load i8, ptr %6689, align 8, !tbaa !70
@@ -12954,7 +12954,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6692 = getelementptr inbounds nuw i8, ptr %6649, i64 24
   br i1 %6691, label %6693, label %6703
 
-6693:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5117
+6693:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5114
   %6694 = getelementptr inbounds nuw i8, ptr %.val4461, i64 160
   %6695 = load ptr, ptr %6694, align 8, !tbaa !72
   %6696 = load i32, ptr %6692, align 8, !tbaa !26
@@ -12964,17 +12964,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6700 = getelementptr inbounds nuw i16, ptr %6698, i64 %6699
   %6701 = load i16, ptr %6700, align 2, !tbaa !240
   %6702 = zext i16 %6701 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5119
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5116
 
-6703:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5117
+6703:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5114
   %6704 = icmp eq i8 %6690, 2
   tail call void @llvm.assume(i1 %6704)
   %6705 = load i64, ptr %6692, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5119
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5116
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5119: ; preds = %6693, %6703
-  %.0.i5118 = phi i64 [ %6702, %6693 ], [ %6705, %6703 ]
-  %6706 = shl i64 %.0.i5118, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5116: ; preds = %6693, %6703
+  %.0.i5115 = phi i64 [ %6702, %6693 ], [ %6705, %6703 ]
+  %6706 = shl i64 %.0.i5115, 7
   %6707 = and i64 %6706, 3968
   %6708 = or disjoint i64 %6669, %6688
   %6709 = or disjoint i64 %6708, %6707
@@ -13002,17 +13002,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6726 = getelementptr inbounds nuw i16, ptr %6724, i64 %6725
   %6727 = load i16, ptr %6726, align 2, !tbaa !240
   %6728 = zext i16 %6727 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5121
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5118
 
 6729:                                             ; preds = %6711
   %6730 = icmp eq i8 %6716, 2
   tail call void @llvm.assume(i1 %6730)
   %6731 = load i64, ptr %6718, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5121
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5118
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5121: ; preds = %6719, %6729
-  %.0.i5120 = phi i64 [ %6728, %6719 ], [ %6731, %6729 ]
-  %6732 = shl i64 %.0.i5120, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5118: ; preds = %6719, %6729
+  %.0.i5117 = phi i64 [ %6728, %6719 ], [ %6731, %6729 ]
+  %6732 = shl i64 %.0.i5117, 20
   %6733 = and i64 %6732, 32505856
   %6734 = getelementptr inbounds nuw i8, ptr %6713, i64 32
   %6735 = load i8, ptr %6734, align 8, !tbaa !70
@@ -13020,7 +13020,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6737 = getelementptr inbounds nuw i8, ptr %6713, i64 40
   br i1 %6736, label %6738, label %6748
 
-6738:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5121
+6738:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5118
   %6739 = getelementptr inbounds nuw i8, ptr %.val4464, i64 160
   %6740 = load ptr, ptr %6739, align 8, !tbaa !72
   %6741 = load i32, ptr %6737, align 8, !tbaa !26
@@ -13030,17 +13030,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6745 = getelementptr inbounds nuw i16, ptr %6743, i64 %6744
   %6746 = load i16, ptr %6745, align 2, !tbaa !240
   %6747 = zext i16 %6746 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5123
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5120
 
-6748:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5121
+6748:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5118
   %6749 = icmp eq i8 %6735, 2
   tail call void @llvm.assume(i1 %6749)
   %6750 = load i64, ptr %6737, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5123
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5120
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5123: ; preds = %6738, %6748
-  %.0.i5122 = phi i64 [ %6747, %6738 ], [ %6750, %6748 ]
-  %6751 = shl i64 %.0.i5122, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5120: ; preds = %6738, %6748
+  %.0.i5119 = phi i64 [ %6747, %6738 ], [ %6750, %6748 ]
+  %6751 = shl i64 %.0.i5119, 15
   %6752 = and i64 %6751, 1015808
   %6753 = getelementptr inbounds nuw i8, ptr %6713, i64 16
   %6754 = load i8, ptr %6753, align 8, !tbaa !70
@@ -13048,7 +13048,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6756 = getelementptr inbounds nuw i8, ptr %6713, i64 24
   br i1 %6755, label %6757, label %6767
 
-6757:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5123
+6757:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5120
   %6758 = getelementptr inbounds nuw i8, ptr %.val4464, i64 160
   %6759 = load ptr, ptr %6758, align 8, !tbaa !72
   %6760 = load i32, ptr %6756, align 8, !tbaa !26
@@ -13058,17 +13058,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6764 = getelementptr inbounds nuw i16, ptr %6762, i64 %6763
   %6765 = load i16, ptr %6764, align 2, !tbaa !240
   %6766 = zext i16 %6765 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5125
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5122
 
-6767:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5123
+6767:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5120
   %6768 = icmp eq i8 %6754, 2
   tail call void @llvm.assume(i1 %6768)
   %6769 = load i64, ptr %6756, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5125
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5122
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5125: ; preds = %6757, %6767
-  %.0.i5124 = phi i64 [ %6766, %6757 ], [ %6769, %6767 ]
-  %6770 = shl i64 %.0.i5124, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5122: ; preds = %6757, %6767
+  %.0.i5121 = phi i64 [ %6766, %6757 ], [ %6769, %6767 ]
+  %6770 = shl i64 %.0.i5121, 7
   %6771 = and i64 %6770, 3968
   %6772 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4188 = load i64, ptr %6772, align 8, !tbaa !27
@@ -13102,17 +13102,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6795 = getelementptr inbounds nuw i16, ptr %6793, i64 %6794
   %6796 = load i16, ptr %6795, align 2, !tbaa !240
   %6797 = zext i16 %6796 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5127
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5124
 
 6798:                                             ; preds = %6780
   %6799 = icmp eq i8 %6785, 2
   tail call void @llvm.assume(i1 %6799)
   %6800 = load i64, ptr %6787, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5127
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5124
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5127: ; preds = %6788, %6798
-  %.0.i5126 = phi i64 [ %6797, %6788 ], [ %6800, %6798 ]
-  %6801 = shl i64 %.0.i5126, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5124: ; preds = %6788, %6798
+  %.0.i5123 = phi i64 [ %6797, %6788 ], [ %6800, %6798 ]
+  %6801 = shl i64 %.0.i5123, 20
   %6802 = and i64 %6801, 32505856
   %6803 = getelementptr inbounds nuw i8, ptr %6782, i64 32
   %6804 = load i8, ptr %6803, align 8, !tbaa !70
@@ -13120,7 +13120,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6806 = getelementptr inbounds nuw i8, ptr %6782, i64 40
   br i1 %6805, label %6807, label %6817
 
-6807:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5127
+6807:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5124
   %6808 = getelementptr inbounds nuw i8, ptr %.val4467, i64 160
   %6809 = load ptr, ptr %6808, align 8, !tbaa !72
   %6810 = load i32, ptr %6806, align 8, !tbaa !26
@@ -13130,17 +13130,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6814 = getelementptr inbounds nuw i16, ptr %6812, i64 %6813
   %6815 = load i16, ptr %6814, align 2, !tbaa !240
   %6816 = zext i16 %6815 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5129
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5126
 
-6817:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5127
+6817:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5124
   %6818 = icmp eq i8 %6804, 2
   tail call void @llvm.assume(i1 %6818)
   %6819 = load i64, ptr %6806, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5129
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5126
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5129: ; preds = %6807, %6817
-  %.0.i5128 = phi i64 [ %6816, %6807 ], [ %6819, %6817 ]
-  %6820 = shl i64 %.0.i5128, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5126: ; preds = %6807, %6817
+  %.0.i5125 = phi i64 [ %6816, %6807 ], [ %6819, %6817 ]
+  %6820 = shl i64 %.0.i5125, 15
   %6821 = and i64 %6820, 1015808
   %6822 = getelementptr inbounds nuw i8, ptr %6782, i64 16
   %6823 = load i8, ptr %6822, align 8, !tbaa !70
@@ -13148,7 +13148,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6825 = getelementptr inbounds nuw i8, ptr %6782, i64 24
   br i1 %6824, label %6826, label %6836
 
-6826:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5129
+6826:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5126
   %6827 = getelementptr inbounds nuw i8, ptr %.val4467, i64 160
   %6828 = load ptr, ptr %6827, align 8, !tbaa !72
   %6829 = load i32, ptr %6825, align 8, !tbaa !26
@@ -13158,17 +13158,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6833 = getelementptr inbounds nuw i16, ptr %6831, i64 %6832
   %6834 = load i16, ptr %6833, align 2, !tbaa !240
   %6835 = zext i16 %6834 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5131
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5128
 
-6836:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5129
+6836:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5126
   %6837 = icmp eq i8 %6823, 2
   tail call void @llvm.assume(i1 %6837)
   %6838 = load i64, ptr %6825, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5131
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5128
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5131: ; preds = %6826, %6836
-  %.0.i5130 = phi i64 [ %6835, %6826 ], [ %6838, %6836 ]
-  %6839 = shl i64 %.0.i5130, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5128: ; preds = %6826, %6836
+  %.0.i5127 = phi i64 [ %6835, %6826 ], [ %6838, %6836 ]
+  %6839 = shl i64 %.0.i5127, 7
   %6840 = and i64 %6839, 3968
   %6841 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4189 = load i64, ptr %6841, align 8, !tbaa !27
@@ -13202,17 +13202,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6864 = getelementptr inbounds nuw i16, ptr %6862, i64 %6863
   %6865 = load i16, ptr %6864, align 2, !tbaa !240
   %6866 = zext i16 %6865 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5133
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5130
 
 6867:                                             ; preds = %6849
   %6868 = icmp eq i8 %6854, 2
   tail call void @llvm.assume(i1 %6868)
   %6869 = load i64, ptr %6856, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5133
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5130
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5133: ; preds = %6857, %6867
-  %.0.i5132 = phi i64 [ %6866, %6857 ], [ %6869, %6867 ]
-  %6870 = shl i64 %.0.i5132, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5130: ; preds = %6857, %6867
+  %.0.i5129 = phi i64 [ %6866, %6857 ], [ %6869, %6867 ]
+  %6870 = shl i64 %.0.i5129, 20
   %6871 = and i64 %6870, 32505856
   %6872 = getelementptr inbounds nuw i8, ptr %6851, i64 32
   %6873 = load i8, ptr %6872, align 8, !tbaa !70
@@ -13220,7 +13220,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6875 = getelementptr inbounds nuw i8, ptr %6851, i64 40
   br i1 %6874, label %6876, label %6886
 
-6876:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5133
+6876:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5130
   %6877 = getelementptr inbounds nuw i8, ptr %.val4470, i64 160
   %6878 = load ptr, ptr %6877, align 8, !tbaa !72
   %6879 = load i32, ptr %6875, align 8, !tbaa !26
@@ -13230,17 +13230,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6883 = getelementptr inbounds nuw i16, ptr %6881, i64 %6882
   %6884 = load i16, ptr %6883, align 2, !tbaa !240
   %6885 = zext i16 %6884 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5135
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5132
 
-6886:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5133
+6886:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5130
   %6887 = icmp eq i8 %6873, 2
   tail call void @llvm.assume(i1 %6887)
   %6888 = load i64, ptr %6875, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5135
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5132
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5135: ; preds = %6876, %6886
-  %.0.i5134 = phi i64 [ %6885, %6876 ], [ %6888, %6886 ]
-  %6889 = shl i64 %.0.i5134, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5132: ; preds = %6876, %6886
+  %.0.i5131 = phi i64 [ %6885, %6876 ], [ %6888, %6886 ]
+  %6889 = shl i64 %.0.i5131, 15
   %6890 = and i64 %6889, 1015808
   %6891 = getelementptr inbounds nuw i8, ptr %6851, i64 16
   %6892 = load i8, ptr %6891, align 8, !tbaa !70
@@ -13248,7 +13248,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6894 = getelementptr inbounds nuw i8, ptr %6851, i64 24
   br i1 %6893, label %6895, label %6905
 
-6895:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5135
+6895:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5132
   %6896 = getelementptr inbounds nuw i8, ptr %.val4470, i64 160
   %6897 = load ptr, ptr %6896, align 8, !tbaa !72
   %6898 = load i32, ptr %6894, align 8, !tbaa !26
@@ -13258,17 +13258,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6902 = getelementptr inbounds nuw i16, ptr %6900, i64 %6901
   %6903 = load i16, ptr %6902, align 2, !tbaa !240
   %6904 = zext i16 %6903 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5137
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5134
 
-6905:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5135
+6905:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5132
   %6906 = icmp eq i8 %6892, 2
   tail call void @llvm.assume(i1 %6906)
   %6907 = load i64, ptr %6894, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5137
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5134
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5137: ; preds = %6895, %6905
-  %.0.i5136 = phi i64 [ %6904, %6895 ], [ %6907, %6905 ]
-  %6908 = shl i64 %.0.i5136, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5134: ; preds = %6895, %6905
+  %.0.i5133 = phi i64 [ %6904, %6895 ], [ %6907, %6905 ]
+  %6908 = shl i64 %.0.i5133, 7
   %6909 = and i64 %6908, 3968
   %6910 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4190 = load i64, ptr %6910, align 8, !tbaa !27
@@ -13302,17 +13302,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6933 = getelementptr inbounds nuw i16, ptr %6931, i64 %6932
   %6934 = load i16, ptr %6933, align 2, !tbaa !240
   %6935 = zext i16 %6934 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5139
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5136
 
 6936:                                             ; preds = %6918
   %6937 = icmp eq i8 %6923, 2
   tail call void @llvm.assume(i1 %6937)
   %6938 = load i64, ptr %6925, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5139
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5136
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5139: ; preds = %6926, %6936
-  %.0.i5138 = phi i64 [ %6935, %6926 ], [ %6938, %6936 ]
-  %6939 = shl i64 %.0.i5138, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5136: ; preds = %6926, %6936
+  %.0.i5135 = phi i64 [ %6935, %6926 ], [ %6938, %6936 ]
+  %6939 = shl i64 %.0.i5135, 20
   %6940 = and i64 %6939, 32505856
   %6941 = getelementptr inbounds nuw i8, ptr %6920, i64 64
   %6942 = load i8, ptr %6941, align 8, !tbaa !70
@@ -13320,7 +13320,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6944 = getelementptr inbounds nuw i8, ptr %6920, i64 72
   br i1 %6943, label %6945, label %6955
 
-6945:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5139
+6945:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5136
   %6946 = getelementptr inbounds nuw i8, ptr %.val4473, i64 160
   %6947 = load ptr, ptr %6946, align 8, !tbaa !72
   %6948 = load i32, ptr %6944, align 8, !tbaa !26
@@ -13330,17 +13330,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6952 = getelementptr inbounds nuw i16, ptr %6950, i64 %6951
   %6953 = load i16, ptr %6952, align 2, !tbaa !240
   %6954 = zext i16 %6953 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5141
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5138
 
-6955:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5139
+6955:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5136
   %6956 = icmp eq i8 %6942, 2
   tail call void @llvm.assume(i1 %6956)
   %6957 = load i64, ptr %6944, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5141
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5138
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5141: ; preds = %6945, %6955
-  %.0.i5140 = phi i64 [ %6954, %6945 ], [ %6957, %6955 ]
-  %6958 = shl i64 %.0.i5140, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5138: ; preds = %6945, %6955
+  %.0.i5137 = phi i64 [ %6954, %6945 ], [ %6957, %6955 ]
+  %6958 = shl i64 %.0.i5137, 15
   %6959 = and i64 %6958, 1015808
   %6960 = getelementptr inbounds nuw i8, ptr %6920, i64 32
   %6961 = load i8, ptr %6960, align 8, !tbaa !70
@@ -13348,7 +13348,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6963 = getelementptr inbounds nuw i8, ptr %6920, i64 40
   br i1 %6962, label %6964, label %6974
 
-6964:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5141
+6964:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5138
   %6965 = getelementptr inbounds nuw i8, ptr %.val4473, i64 160
   %6966 = load ptr, ptr %6965, align 8, !tbaa !72
   %6967 = load i32, ptr %6963, align 8, !tbaa !26
@@ -13358,17 +13358,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %6971 = getelementptr inbounds nuw i16, ptr %6969, i64 %6970
   %6972 = load i16, ptr %6971, align 2, !tbaa !240
   %6973 = zext i16 %6972 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5143
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5140
 
-6974:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5141
+6974:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5138
   %6975 = icmp eq i8 %6961, 2
   tail call void @llvm.assume(i1 %6975)
   %6976 = load i64, ptr %6963, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5143
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5140
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5143: ; preds = %6964, %6974
-  %.0.i5142 = phi i64 [ %6973, %6964 ], [ %6976, %6974 ]
-  %6977 = shl i64 %.0.i5142, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5140: ; preds = %6964, %6974
+  %.0.i5139 = phi i64 [ %6973, %6964 ], [ %6976, %6974 ]
+  %6977 = shl i64 %.0.i5139, 7
   %6978 = and i64 %6977, 3968
   %6979 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4191 = load i64, ptr %6979, align 8, !tbaa !27
@@ -13402,17 +13402,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7002 = getelementptr inbounds nuw i16, ptr %7000, i64 %7001
   %7003 = load i16, ptr %7002, align 2, !tbaa !240
   %7004 = zext i16 %7003 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5145
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5142
 
 7005:                                             ; preds = %6987
   %7006 = icmp eq i8 %6992, 2
   tail call void @llvm.assume(i1 %7006)
   %7007 = load i64, ptr %6994, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5145
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5142
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5145: ; preds = %6995, %7005
-  %.0.i5144 = phi i64 [ %7004, %6995 ], [ %7007, %7005 ]
-  %7008 = shl i64 %.0.i5144, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5142: ; preds = %6995, %7005
+  %.0.i5141 = phi i64 [ %7004, %6995 ], [ %7007, %7005 ]
+  %7008 = shl i64 %.0.i5141, 20
   %7009 = and i64 %7008, 32505856
   %7010 = getelementptr inbounds nuw i8, ptr %6989, i64 64
   %7011 = load i8, ptr %7010, align 8, !tbaa !70
@@ -13420,7 +13420,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7013 = getelementptr inbounds nuw i8, ptr %6989, i64 72
   br i1 %7012, label %7014, label %7024
 
-7014:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5145
+7014:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5142
   %7015 = getelementptr inbounds nuw i8, ptr %.val4476, i64 160
   %7016 = load ptr, ptr %7015, align 8, !tbaa !72
   %7017 = load i32, ptr %7013, align 8, !tbaa !26
@@ -13430,17 +13430,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7021 = getelementptr inbounds nuw i16, ptr %7019, i64 %7020
   %7022 = load i16, ptr %7021, align 2, !tbaa !240
   %7023 = zext i16 %7022 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5147
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5144
 
-7024:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5145
+7024:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5142
   %7025 = icmp eq i8 %7011, 2
   tail call void @llvm.assume(i1 %7025)
   %7026 = load i64, ptr %7013, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5147
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5144
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5147: ; preds = %7014, %7024
-  %.0.i5146 = phi i64 [ %7023, %7014 ], [ %7026, %7024 ]
-  %7027 = shl i64 %.0.i5146, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5144: ; preds = %7014, %7024
+  %.0.i5143 = phi i64 [ %7023, %7014 ], [ %7026, %7024 ]
+  %7027 = shl i64 %.0.i5143, 15
   %7028 = and i64 %7027, 1015808
   %7029 = getelementptr inbounds nuw i8, ptr %6989, i64 32
   %7030 = load i8, ptr %7029, align 8, !tbaa !70
@@ -13448,7 +13448,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7032 = getelementptr inbounds nuw i8, ptr %6989, i64 40
   br i1 %7031, label %7033, label %7043
 
-7033:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5147
+7033:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5144
   %7034 = getelementptr inbounds nuw i8, ptr %.val4476, i64 160
   %7035 = load ptr, ptr %7034, align 8, !tbaa !72
   %7036 = load i32, ptr %7032, align 8, !tbaa !26
@@ -13458,17 +13458,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7040 = getelementptr inbounds nuw i16, ptr %7038, i64 %7039
   %7041 = load i16, ptr %7040, align 2, !tbaa !240
   %7042 = zext i16 %7041 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5149
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5146
 
-7043:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5147
+7043:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5144
   %7044 = icmp eq i8 %7030, 2
   tail call void @llvm.assume(i1 %7044)
   %7045 = load i64, ptr %7032, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5149
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5146
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5149: ; preds = %7033, %7043
-  %.0.i5148 = phi i64 [ %7042, %7033 ], [ %7045, %7043 ]
-  %7046 = shl i64 %.0.i5148, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5146: ; preds = %7033, %7043
+  %.0.i5145 = phi i64 [ %7042, %7033 ], [ %7045, %7043 ]
+  %7046 = shl i64 %.0.i5145, 7
   %7047 = and i64 %7046, 3968
   %7048 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4192 = load i64, ptr %7048, align 8, !tbaa !27
@@ -13502,17 +13502,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7071 = getelementptr inbounds nuw i16, ptr %7069, i64 %7070
   %7072 = load i16, ptr %7071, align 2, !tbaa !240
   %7073 = zext i16 %7072 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5151
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5148
 
 7074:                                             ; preds = %7056
   %7075 = icmp eq i8 %7061, 2
   tail call void @llvm.assume(i1 %7075)
   %7076 = load i64, ptr %7063, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5151
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5148
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5151: ; preds = %7064, %7074
-  %.0.i5150 = phi i64 [ %7073, %7064 ], [ %7076, %7074 ]
-  %7077 = shl i64 %.0.i5150, 27
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5148: ; preds = %7064, %7074
+  %.0.i5147 = phi i64 [ %7073, %7064 ], [ %7076, %7074 ]
+  %7077 = shl i64 %.0.i5147, 27
   %7078 = and i64 %7077, 4160749568
   %7079 = getelementptr inbounds nuw i8, ptr %7058, i64 16
   %7080 = load i8, ptr %7079, align 8, !tbaa !70
@@ -13520,7 +13520,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7082 = getelementptr inbounds nuw i8, ptr %7058, i64 24
   br i1 %7081, label %7083, label %7093
 
-7083:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5151
+7083:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5148
   %7084 = getelementptr inbounds nuw i8, ptr %.val4479, i64 160
   %7085 = load ptr, ptr %7084, align 8, !tbaa !72
   %7086 = load i32, ptr %7082, align 8, !tbaa !26
@@ -13530,24 +13530,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7090 = getelementptr inbounds nuw i16, ptr %7088, i64 %7089
   %7091 = load i16, ptr %7090, align 2, !tbaa !240
   %7092 = zext i16 %7091 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5153
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5150
 
-7093:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5151
+7093:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5148
   %7094 = icmp eq i8 %7080, 2
   tail call void @llvm.assume(i1 %7094)
   %7095 = load i64, ptr %7082, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5153
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5150
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5153: ; preds = %7083, %7093
-  %.0.i5152 = phi i64 [ %7092, %7083 ], [ %7095, %7093 ]
-  %7096 = shl i64 %.0.i5152, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5150: ; preds = %7083, %7093
+  %.0.i5149 = phi i64 [ %7092, %7083 ], [ %7095, %7093 ]
+  %7096 = shl i64 %.0.i5149, 15
   %7097 = and i64 %7096, 1015808
   %7098 = load i8, ptr %7058, align 8, !tbaa !70
   %7099 = icmp eq i8 %7098, 1
   %7100 = getelementptr inbounds nuw i8, ptr %7058, i64 8
   br i1 %7099, label %7101, label %7111
 
-7101:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5153
+7101:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5150
   %7102 = getelementptr inbounds nuw i8, ptr %.val4479, i64 160
   %7103 = load ptr, ptr %7102, align 8, !tbaa !72
   %7104 = load i32, ptr %7100, align 8, !tbaa !26
@@ -13557,17 +13557,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7108 = getelementptr inbounds nuw i16, ptr %7106, i64 %7107
   %7109 = load i16, ptr %7108, align 2, !tbaa !240
   %7110 = zext i16 %7109 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5155
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5152
 
-7111:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5153
+7111:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5150
   %7112 = icmp eq i8 %7098, 2
   tail call void @llvm.assume(i1 %7112)
   %7113 = load i64, ptr %7100, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5155
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5152
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5155: ; preds = %7101, %7111
-  %.0.i5154 = phi i64 [ %7110, %7101 ], [ %7113, %7111 ]
-  %7114 = shl i64 %.0.i5154, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5152: ; preds = %7101, %7111
+  %.0.i5151 = phi i64 [ %7110, %7101 ], [ %7113, %7111 ]
+  %7114 = shl i64 %.0.i5151, 7
   %7115 = and i64 %7114, 3968
   %7116 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4193 = load i64, ptr %7116, align 8, !tbaa !27
@@ -13601,17 +13601,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7139 = getelementptr inbounds nuw i16, ptr %7137, i64 %7138
   %7140 = load i16, ptr %7139, align 2, !tbaa !240
   %7141 = zext i16 %7140 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5157
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5154
 
 7142:                                             ; preds = %7124
   %7143 = icmp eq i8 %7129, 2
   tail call void @llvm.assume(i1 %7143)
   %7144 = load i64, ptr %7131, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5157
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5154
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5157: ; preds = %7132, %7142
-  %.0.i5156 = phi i64 [ %7141, %7132 ], [ %7144, %7142 ]
-  %7145 = shl i64 %.0.i5156, 27
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5154: ; preds = %7132, %7142
+  %.0.i5153 = phi i64 [ %7141, %7132 ], [ %7144, %7142 ]
+  %7145 = shl i64 %.0.i5153, 27
   %7146 = and i64 %7145, 4160749568
   %7147 = getelementptr inbounds nuw i8, ptr %7126, i64 32
   %7148 = load i8, ptr %7147, align 8, !tbaa !70
@@ -13619,7 +13619,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7150 = getelementptr inbounds nuw i8, ptr %7126, i64 40
   br i1 %7149, label %7151, label %7161
 
-7151:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5157
+7151:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5154
   %7152 = getelementptr inbounds nuw i8, ptr %.val4482, i64 160
   %7153 = load ptr, ptr %7152, align 8, !tbaa !72
   %7154 = load i32, ptr %7150, align 8, !tbaa !26
@@ -13629,17 +13629,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7158 = getelementptr inbounds nuw i16, ptr %7156, i64 %7157
   %7159 = load i16, ptr %7158, align 2, !tbaa !240
   %7160 = zext i16 %7159 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5159
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5156
 
-7161:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5157
+7161:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5154
   %7162 = icmp eq i8 %7148, 2
   tail call void @llvm.assume(i1 %7162)
   %7163 = load i64, ptr %7150, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5159
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5156
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5159: ; preds = %7151, %7161
-  %.0.i5158 = phi i64 [ %7160, %7151 ], [ %7163, %7161 ]
-  %7164 = shl i64 %.0.i5158, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5156: ; preds = %7151, %7161
+  %.0.i5155 = phi i64 [ %7160, %7151 ], [ %7163, %7161 ]
+  %7164 = shl i64 %.0.i5155, 20
   %7165 = and i64 %7164, 32505856
   %7166 = getelementptr inbounds nuw i8, ptr %7126, i64 16
   %7167 = load i8, ptr %7166, align 8, !tbaa !70
@@ -13647,7 +13647,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7169 = getelementptr inbounds nuw i8, ptr %7126, i64 24
   br i1 %7168, label %7170, label %7180
 
-7170:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5159
+7170:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5156
   %7171 = getelementptr inbounds nuw i8, ptr %.val4482, i64 160
   %7172 = load ptr, ptr %7171, align 8, !tbaa !72
   %7173 = load i32, ptr %7169, align 8, !tbaa !26
@@ -13657,17 +13657,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7177 = getelementptr inbounds nuw i16, ptr %7175, i64 %7176
   %7178 = load i16, ptr %7177, align 2, !tbaa !240
   %7179 = zext i16 %7178 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5161
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5158
 
-7180:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5159
+7180:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5156
   %7181 = icmp eq i8 %7167, 2
   tail call void @llvm.assume(i1 %7181)
   %7182 = load i64, ptr %7169, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5161
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5158
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5161: ; preds = %7170, %7180
-  %.0.i5160 = phi i64 [ %7179, %7170 ], [ %7182, %7180 ]
-  %7183 = shl i64 %.0.i5160, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5158: ; preds = %7170, %7180
+  %.0.i5157 = phi i64 [ %7179, %7170 ], [ %7182, %7180 ]
+  %7183 = shl i64 %.0.i5157, 15
   %7184 = and i64 %7183, 1015808
   %7185 = getelementptr inbounds nuw i8, ptr %7126, i64 64
   %7186 = load i8, ptr %7185, align 8, !tbaa !70
@@ -13675,7 +13675,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7188 = getelementptr inbounds nuw i8, ptr %7126, i64 72
   br i1 %7187, label %7189, label %7199
 
-7189:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5161
+7189:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5158
   %7190 = getelementptr inbounds nuw i8, ptr %.val4482, i64 160
   %7191 = load ptr, ptr %7190, align 8, !tbaa !72
   %7192 = load i32, ptr %7188, align 8, !tbaa !26
@@ -13685,24 +13685,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7196 = getelementptr inbounds nuw i16, ptr %7194, i64 %7195
   %7197 = load i16, ptr %7196, align 2, !tbaa !240
   %7198 = zext i16 %7197 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5163
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5160
 
-7199:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5161
+7199:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5158
   %7200 = icmp eq i8 %7186, 2
   tail call void @llvm.assume(i1 %7200)
   %7201 = load i64, ptr %7188, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5163
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5160
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5163: ; preds = %7189, %7199
-  %.0.i5162 = phi i64 [ %7198, %7189 ], [ %7201, %7199 ]
-  %7202 = shl i64 %.0.i5162, 12
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5160: ; preds = %7189, %7199
+  %.0.i5159 = phi i64 [ %7198, %7189 ], [ %7201, %7199 ]
+  %7202 = shl i64 %.0.i5159, 12
   %7203 = and i64 %7202, 28672
   %7204 = load i8, ptr %7126, align 8, !tbaa !70
   %7205 = icmp eq i8 %7204, 1
   %7206 = getelementptr inbounds nuw i8, ptr %7126, i64 8
   br i1 %7205, label %7207, label %7217
 
-7207:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5163
+7207:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5160
   %7208 = getelementptr inbounds nuw i8, ptr %.val4482, i64 160
   %7209 = load ptr, ptr %7208, align 8, !tbaa !72
   %7210 = load i32, ptr %7206, align 8, !tbaa !26
@@ -13712,17 +13712,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7214 = getelementptr inbounds nuw i16, ptr %7212, i64 %7213
   %7215 = load i16, ptr %7214, align 2, !tbaa !240
   %7216 = zext i16 %7215 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5165
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5162
 
-7217:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5163
+7217:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5160
   %7218 = icmp eq i8 %7204, 2
   tail call void @llvm.assume(i1 %7218)
   %7219 = load i64, ptr %7206, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5165
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5162
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5165: ; preds = %7207, %7217
-  %.0.i5164 = phi i64 [ %7216, %7207 ], [ %7219, %7217 ]
-  %7220 = shl i64 %.0.i5164, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5162: ; preds = %7207, %7217
+  %.0.i5161 = phi i64 [ %7216, %7207 ], [ %7219, %7217 ]
+  %7220 = shl i64 %.0.i5161, 7
   %7221 = and i64 %7220, 3968
   %7222 = or disjoint i64 %7146, %7165
   %7223 = or disjoint i64 %7222, %7184
@@ -13752,17 +13752,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7242 = getelementptr inbounds nuw i16, ptr %7240, i64 %7241
   %7243 = load i16, ptr %7242, align 2, !tbaa !240
   %7244 = zext i16 %7243 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5167
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5164
 
 7245:                                             ; preds = %7227
   %7246 = icmp eq i8 %7232, 2
   tail call void @llvm.assume(i1 %7246)
   %7247 = load i64, ptr %7234, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5167
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5164
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5167: ; preds = %7235, %7245
-  %.0.i5166 = phi i64 [ %7244, %7235 ], [ %7247, %7245 ]
-  %7248 = shl i64 %.0.i5166, 27
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5164: ; preds = %7235, %7245
+  %.0.i5163 = phi i64 [ %7244, %7235 ], [ %7247, %7245 ]
+  %7248 = shl i64 %.0.i5163, 27
   %7249 = and i64 %7248, 4160749568
   %7250 = getelementptr inbounds nuw i8, ptr %7229, i64 32
   %7251 = load i8, ptr %7250, align 8, !tbaa !70
@@ -13770,7 +13770,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7253 = getelementptr inbounds nuw i8, ptr %7229, i64 40
   br i1 %7252, label %7254, label %7264
 
-7254:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5167
+7254:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5164
   %7255 = getelementptr inbounds nuw i8, ptr %.val4487, i64 160
   %7256 = load ptr, ptr %7255, align 8, !tbaa !72
   %7257 = load i32, ptr %7253, align 8, !tbaa !26
@@ -13780,17 +13780,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7261 = getelementptr inbounds nuw i16, ptr %7259, i64 %7260
   %7262 = load i16, ptr %7261, align 2, !tbaa !240
   %7263 = zext i16 %7262 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5169
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5166
 
-7264:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5167
+7264:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5164
   %7265 = icmp eq i8 %7251, 2
   tail call void @llvm.assume(i1 %7265)
   %7266 = load i64, ptr %7253, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5169
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5166
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5169: ; preds = %7254, %7264
-  %.0.i5168 = phi i64 [ %7263, %7254 ], [ %7266, %7264 ]
-  %7267 = shl i64 %.0.i5168, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5166: ; preds = %7254, %7264
+  %.0.i5165 = phi i64 [ %7263, %7254 ], [ %7266, %7264 ]
+  %7267 = shl i64 %.0.i5165, 20
   %7268 = and i64 %7267, 32505856
   %7269 = getelementptr inbounds nuw i8, ptr %7229, i64 16
   %7270 = load i8, ptr %7269, align 8, !tbaa !70
@@ -13798,7 +13798,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7272 = getelementptr inbounds nuw i8, ptr %7229, i64 24
   br i1 %7271, label %7273, label %7283
 
-7273:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5169
+7273:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5166
   %7274 = getelementptr inbounds nuw i8, ptr %.val4487, i64 160
   %7275 = load ptr, ptr %7274, align 8, !tbaa !72
   %7276 = load i32, ptr %7272, align 8, !tbaa !26
@@ -13808,24 +13808,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7280 = getelementptr inbounds nuw i16, ptr %7278, i64 %7279
   %7281 = load i16, ptr %7280, align 2, !tbaa !240
   %7282 = zext i16 %7281 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5171
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5168
 
-7283:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5169
+7283:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5166
   %7284 = icmp eq i8 %7270, 2
   tail call void @llvm.assume(i1 %7284)
   %7285 = load i64, ptr %7272, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5171
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5168
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5171: ; preds = %7273, %7283
-  %.0.i5170 = phi i64 [ %7282, %7273 ], [ %7285, %7283 ]
-  %7286 = shl i64 %.0.i5170, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5168: ; preds = %7273, %7283
+  %.0.i5167 = phi i64 [ %7282, %7273 ], [ %7285, %7283 ]
+  %7286 = shl i64 %.0.i5167, 15
   %7287 = and i64 %7286, 1015808
   %7288 = load i8, ptr %7229, align 8, !tbaa !70
   %7289 = icmp eq i8 %7288, 1
   %7290 = getelementptr inbounds nuw i8, ptr %7229, i64 8
   br i1 %7289, label %7291, label %7301
 
-7291:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5171
+7291:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5168
   %7292 = getelementptr inbounds nuw i8, ptr %.val4487, i64 160
   %7293 = load ptr, ptr %7292, align 8, !tbaa !72
   %7294 = load i32, ptr %7290, align 8, !tbaa !26
@@ -13835,17 +13835,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7298 = getelementptr inbounds nuw i16, ptr %7296, i64 %7297
   %7299 = load i16, ptr %7298, align 2, !tbaa !240
   %7300 = zext i16 %7299 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5173
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5170
 
-7301:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5171
+7301:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5168
   %7302 = icmp eq i8 %7288, 2
   tail call void @llvm.assume(i1 %7302)
   %7303 = load i64, ptr %7290, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5173
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5170
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5173: ; preds = %7291, %7301
-  %.0.i5172 = phi i64 [ %7300, %7291 ], [ %7303, %7301 ]
-  %7304 = shl i64 %.0.i5172, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5170: ; preds = %7291, %7301
+  %.0.i5169 = phi i64 [ %7300, %7291 ], [ %7303, %7301 ]
+  %7304 = shl i64 %.0.i5169, 7
   %7305 = and i64 %7304, 3968
   %7306 = or disjoint i64 %7249, %7268
   %7307 = or disjoint i64 %7306, %7287
@@ -13874,17 +13874,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7325 = getelementptr inbounds nuw i16, ptr %7323, i64 %7324
   %7326 = load i16, ptr %7325, align 2, !tbaa !240
   %7327 = zext i16 %7326 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5175
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5172
 
 7328:                                             ; preds = %7310
   %7329 = icmp eq i8 %7315, 2
   tail call void @llvm.assume(i1 %7329)
   %7330 = load i64, ptr %7317, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5175
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5172
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5175: ; preds = %7318, %7328
-  %.0.i5174 = phi i64 [ %7327, %7318 ], [ %7330, %7328 ]
-  %7331 = shl i64 %.0.i5174, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5172: ; preds = %7318, %7328
+  %.0.i5171 = phi i64 [ %7327, %7318 ], [ %7330, %7328 ]
+  %7331 = shl i64 %.0.i5171, 7
   %7332 = and i64 %7331, 3968
   %7333 = getelementptr inbounds nuw i8, ptr %7312, i64 16
   %7334 = load i8, ptr %7333, align 8, !tbaa !70
@@ -13892,7 +13892,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7336 = getelementptr inbounds nuw i8, ptr %7312, i64 24
   br i1 %7335, label %7337, label %7347
 
-7337:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5175
+7337:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5172
   %7338 = getelementptr inbounds nuw i8, ptr %.val4491, i64 160
   %7339 = load ptr, ptr %7338, align 8, !tbaa !72
   %7340 = load i32, ptr %7336, align 8, !tbaa !26
@@ -13902,17 +13902,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7344 = getelementptr inbounds nuw i16, ptr %7342, i64 %7343
   %7345 = load i16, ptr %7344, align 2, !tbaa !240
   %7346 = zext i16 %7345 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5177
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5174
 
-7347:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5175
+7347:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5172
   %7348 = icmp eq i8 %7334, 2
   tail call void @llvm.assume(i1 %7348)
   %7349 = load i64, ptr %7336, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5177
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5174
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5177: ; preds = %7337, %7347
-  %.0.i5176 = phi i64 [ %7346, %7337 ], [ %7349, %7347 ]
-  %7350 = shl i64 %.0.i5176, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5174: ; preds = %7337, %7347
+  %.0.i5173 = phi i64 [ %7346, %7337 ], [ %7349, %7347 ]
+  %7350 = shl i64 %.0.i5173, 20
   %7351 = and i64 %7350, 32505856
   %7352 = getelementptr inbounds nuw i8, ptr %7312, i64 32
   %7353 = load i8, ptr %7352, align 8, !tbaa !70
@@ -13920,7 +13920,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7355 = getelementptr inbounds nuw i8, ptr %7312, i64 40
   br i1 %7354, label %7356, label %7366
 
-7356:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5177
+7356:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5174
   %7357 = getelementptr inbounds nuw i8, ptr %.val4491, i64 160
   %7358 = load ptr, ptr %7357, align 8, !tbaa !72
   %7359 = load i32, ptr %7355, align 8, !tbaa !26
@@ -13930,17 +13930,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7363 = getelementptr inbounds nuw i16, ptr %7361, i64 %7362
   %7364 = load i16, ptr %7363, align 2, !tbaa !240
   %7365 = zext i16 %7364 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5179
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5176
 
-7366:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5177
+7366:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5174
   %7367 = icmp eq i8 %7353, 2
   tail call void @llvm.assume(i1 %7367)
   %7368 = load i64, ptr %7355, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5179
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5176
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5179: ; preds = %7356, %7366
-  %.0.i5178 = phi i64 [ %7365, %7356 ], [ %7368, %7366 ]
-  %7369 = shl i64 %.0.i5178, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5176: ; preds = %7356, %7366
+  %.0.i5175 = phi i64 [ %7365, %7356 ], [ %7368, %7366 ]
+  %7369 = shl i64 %.0.i5175, 15
   %7370 = and i64 %7369, 1015808
   %7371 = or disjoint i64 %7332, %7351
   %7372 = or disjoint i64 %7371, %7370
@@ -13968,17 +13968,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7389 = getelementptr inbounds nuw i16, ptr %7387, i64 %7388
   %7390 = load i16, ptr %7389, align 2, !tbaa !240
   %7391 = zext i16 %7390 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5181
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5178
 
 7392:                                             ; preds = %7374
   %7393 = icmp eq i8 %7379, 2
   tail call void @llvm.assume(i1 %7393)
   %7394 = load i64, ptr %7381, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5181
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5178
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5181: ; preds = %7382, %7392
-  %.0.i5180 = phi i64 [ %7391, %7382 ], [ %7394, %7392 ]
-  %7395 = shl i64 %.0.i5180, 27
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5178: ; preds = %7382, %7392
+  %.0.i5177 = phi i64 [ %7391, %7382 ], [ %7394, %7392 ]
+  %7395 = shl i64 %.0.i5177, 27
   %7396 = and i64 %7395, 4160749568
   %7397 = getelementptr inbounds nuw i8, ptr %7376, i64 48
   %7398 = load i8, ptr %7397, align 8, !tbaa !70
@@ -13986,7 +13986,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7400 = getelementptr inbounds nuw i8, ptr %7376, i64 56
   br i1 %7399, label %7401, label %7411
 
-7401:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5181
+7401:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5178
   %7402 = getelementptr inbounds nuw i8, ptr %.val4494, i64 160
   %7403 = load ptr, ptr %7402, align 8, !tbaa !72
   %7404 = load i32, ptr %7400, align 8, !tbaa !26
@@ -13996,17 +13996,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7408 = getelementptr inbounds nuw i16, ptr %7406, i64 %7407
   %7409 = load i16, ptr %7408, align 2, !tbaa !240
   %7410 = zext i16 %7409 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5183
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5180
 
-7411:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5181
+7411:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5178
   %7412 = icmp eq i8 %7398, 2
   tail call void @llvm.assume(i1 %7412)
   %7413 = load i64, ptr %7400, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5183
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5180
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5183: ; preds = %7401, %7411
-  %.0.i5182 = phi i64 [ %7410, %7401 ], [ %7413, %7411 ]
-  %7414 = shl i64 %.0.i5182, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5180: ; preds = %7401, %7411
+  %.0.i5179 = phi i64 [ %7410, %7401 ], [ %7413, %7411 ]
+  %7414 = shl i64 %.0.i5179, 20
   %7415 = and i64 %7414, 32505856
   %7416 = getelementptr inbounds nuw i8, ptr %7376, i64 16
   %7417 = load i8, ptr %7416, align 8, !tbaa !70
@@ -14014,7 +14014,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7419 = getelementptr inbounds nuw i8, ptr %7376, i64 24
   br i1 %7418, label %7420, label %7430
 
-7420:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5183
+7420:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5180
   %7421 = getelementptr inbounds nuw i8, ptr %.val4494, i64 160
   %7422 = load ptr, ptr %7421, align 8, !tbaa !72
   %7423 = load i32, ptr %7419, align 8, !tbaa !26
@@ -14024,17 +14024,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7427 = getelementptr inbounds nuw i16, ptr %7425, i64 %7426
   %7428 = load i16, ptr %7427, align 2, !tbaa !240
   %7429 = zext i16 %7428 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5185
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5182
 
-7430:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5183
+7430:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5180
   %7431 = icmp eq i8 %7417, 2
   tail call void @llvm.assume(i1 %7431)
   %7432 = load i64, ptr %7419, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5185
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5182
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5185: ; preds = %7420, %7430
-  %.0.i5184 = phi i64 [ %7429, %7420 ], [ %7432, %7430 ]
-  %7433 = shl i64 %.0.i5184, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5182: ; preds = %7420, %7430
+  %.0.i5181 = phi i64 [ %7429, %7420 ], [ %7432, %7430 ]
+  %7433 = shl i64 %.0.i5181, 7
   %7434 = and i64 %7433, 3968
   %7435 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4194 = load i64, ptr %7435, align 8, !tbaa !27
@@ -14072,17 +14072,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7461 = getelementptr inbounds nuw i16, ptr %7459, i64 %7460
   %7462 = load i16, ptr %7461, align 2, !tbaa !240
   %7463 = zext i16 %7462 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5187
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5184
 
 7464:                                             ; preds = %7443
   %7465 = icmp eq i8 %7451, 2
   tail call void @llvm.assume(i1 %7465)
   %7466 = load i64, ptr %7453, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5187
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5184
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5187: ; preds = %7454, %7464
-  %.0.i5186 = phi i64 [ %7463, %7454 ], [ %7466, %7464 ]
-  %7467 = shl i64 %.0.i5186, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5184: ; preds = %7454, %7464
+  %.0.i5183 = phi i64 [ %7463, %7454 ], [ %7466, %7464 ]
+  %7467 = shl i64 %.0.i5183, 7
   %7468 = and i64 %7467, 3968
   %7469 = getelementptr inbounds nuw i8, ptr %7449, i64 32
   %7470 = load i8, ptr %7469, align 8, !tbaa !70
@@ -14090,7 +14090,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7472 = getelementptr inbounds nuw i8, ptr %7449, i64 40
   br i1 %7471, label %7473, label %7483
 
-7473:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5187
+7473:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5184
   %7474 = getelementptr inbounds nuw i8, ptr %.val4497, i64 160
   %7475 = load ptr, ptr %7474, align 8, !tbaa !72
   %7476 = load i32, ptr %7472, align 8, !tbaa !26
@@ -14100,17 +14100,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7480 = getelementptr inbounds nuw i16, ptr %7478, i64 %7479
   %7481 = load i16, ptr %7480, align 2, !tbaa !240
   %7482 = zext i16 %7481 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5189
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5186
 
-7483:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5187
+7483:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5184
   %7484 = icmp eq i8 %7470, 2
   tail call void @llvm.assume(i1 %7484)
   %7485 = load i64, ptr %7472, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5189
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5186
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5189: ; preds = %7473, %7483
-  %.0.i5188 = phi i64 [ %7482, %7473 ], [ %7485, %7483 ]
-  %7486 = shl i64 %.0.i5188, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5186: ; preds = %7473, %7483
+  %.0.i5185 = phi i64 [ %7482, %7473 ], [ %7485, %7483 ]
+  %7486 = shl i64 %.0.i5185, 20
   %7487 = and i64 %7486, 1072693248
   %7488 = or disjoint i64 %7447, %7468
   %7489 = or disjoint i64 %7488, %7487
@@ -14168,22 +14168,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7524 = getelementptr inbounds nuw i16, ptr %7522, i64 %7523
   %7525 = load i16, ptr %7524, align 2, !tbaa !240
   %7526 = zext i16 %7525 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5191
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5188
 
 7527:                                             ; preds = %7510
   %7528 = icmp eq i8 %7513, 2
   tail call void @llvm.assume(i1 %7528)
   %7529 = load i64, ptr %7515, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5191
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5188
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5191: ; preds = %7516, %7527
-  %.0.i5190 = phi i64 [ %7526, %7516 ], [ %7529, %7527 ]
-  %7530 = shl i64 %.0.i5190, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5188: ; preds = %7516, %7527
+  %.0.i5187 = phi i64 [ %7526, %7516 ], [ %7529, %7527 ]
+  %7530 = shl i64 %.0.i5187, 7
   %7531 = and i64 %7530, 3968
-  %.sroa.3.0..sroa_idx.i5192 = getelementptr inbounds nuw i8, ptr %7512, i64 24
-  %.sroa.3.0.copyload.i5193 = load i32, ptr %.sroa.3.0..sroa_idx.i5192, align 8
-  %switch.i5194.not = icmp eq i32 %.sroa.3.0.copyload.i5193, 11
-  %7532 = select i1 %switch.i5194.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5189 = getelementptr inbounds nuw i8, ptr %7512, i64 24
+  %.sroa.3.0.copyload.i5190 = load i32, ptr %.sroa.3.0..sroa_idx.i5189, align 8
+  %.not5313 = icmp eq i32 %.sroa.3.0.copyload.i5190, 11
+  %7532 = select i1 %.not5313, i64 0, i64 33554432
   %7533 = or disjoint i64 %7531, %7532
   %7534 = or i64 %7533, %10
   br label %8504
@@ -14209,24 +14209,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7550 = getelementptr inbounds nuw i16, ptr %7548, i64 %7549
   %7551 = load i16, ptr %7550, align 2, !tbaa !240
   %7552 = zext i16 %7551 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5193
 
 7553:                                             ; preds = %7535
   %7554 = icmp eq i8 %7540, 2
   tail call void @llvm.assume(i1 %7554)
   %7555 = load i64, ptr %7542, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5193
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197: ; preds = %7543, %7553
-  %.0.i5196 = phi i64 [ %7552, %7543 ], [ %7555, %7553 ]
-  %7556 = shl i64 %.0.i5196, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5193: ; preds = %7543, %7553
+  %.0.i5192 = phi i64 [ %7552, %7543 ], [ %7555, %7553 ]
+  %7556 = shl i64 %.0.i5192, 15
   %7557 = and i64 %7556, 1015808
   %7558 = load i8, ptr %7537, align 8, !tbaa !70
   %7559 = icmp eq i8 %7558, 1
   %7560 = getelementptr inbounds nuw i8, ptr %7537, i64 8
   br i1 %7559, label %7561, label %7571
 
-7561:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197
+7561:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5193
   %7562 = getelementptr inbounds nuw i8, ptr %.val4500, i64 160
   %7563 = load ptr, ptr %7562, align 8, !tbaa !72
   %7564 = load i32, ptr %7560, align 8, !tbaa !26
@@ -14236,17 +14236,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7568 = getelementptr inbounds nuw i16, ptr %7566, i64 %7567
   %7569 = load i16, ptr %7568, align 2, !tbaa !240
   %7570 = zext i16 %7569 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5195
 
-7571:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197
+7571:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5193
   %7572 = icmp eq i8 %7558, 2
   tail call void @llvm.assume(i1 %7572)
   %7573 = load i64, ptr %7560, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5195
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199: ; preds = %7561, %7571
-  %.0.i5198 = phi i64 [ %7570, %7561 ], [ %7573, %7571 ]
-  %7574 = shl i64 %.0.i5198, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5195: ; preds = %7561, %7571
+  %.0.i5194 = phi i64 [ %7570, %7561 ], [ %7573, %7571 ]
+  %7574 = shl i64 %.0.i5194, 7
   %7575 = and i64 %7574, 3968
   %7576 = or disjoint i64 %7557, %7575
   %7577 = or i64 %7576, %10
@@ -14273,17 +14273,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7593 = getelementptr inbounds nuw i16, ptr %7591, i64 %7592
   %7594 = load i16, ptr %7593, align 2, !tbaa !240
   %7595 = zext i16 %7594 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5201
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197
 
 7596:                                             ; preds = %7578
   %7597 = icmp eq i8 %7583, 2
   tail call void @llvm.assume(i1 %7597)
   %7598 = load i64, ptr %7585, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5201
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5201: ; preds = %7586, %7596
-  %.0.i5200 = phi i64 [ %7595, %7586 ], [ %7598, %7596 ]
-  %7599 = shl i64 %.0.i5200, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197: ; preds = %7586, %7596
+  %.0.i5196 = phi i64 [ %7595, %7586 ], [ %7598, %7596 ]
+  %7599 = shl i64 %.0.i5196, 20
   %7600 = and i64 %7599, 32505856
   %7601 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4200 = load i64, ptr %7601, align 8, !tbaa !27
@@ -14298,7 +14298,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7610 = getelementptr inbounds nuw i8, ptr %7607, i64 8
   br i1 %7609, label %7611, label %7621
 
-7611:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5201
+7611:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197
   %.val4503 = load ptr, ptr %7582, align 8
   %7612 = getelementptr inbounds nuw i8, ptr %.val4503, i64 160
   %7613 = load ptr, ptr %7612, align 8, !tbaa !72
@@ -14309,22 +14309,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7618 = getelementptr inbounds nuw i16, ptr %7616, i64 %7617
   %7619 = load i16, ptr %7618, align 2, !tbaa !240
   %7620 = zext i16 %7619 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5203
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199
 
-7621:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5201
+7621:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5197
   %7622 = icmp eq i8 %7608, 2
   tail call void @llvm.assume(i1 %7622)
   %7623 = load i64, ptr %7610, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5203
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5203: ; preds = %7611, %7621
-  %.0.i5202 = phi i64 [ %7620, %7611 ], [ %7623, %7621 ]
-  %7624 = shl i64 %.0.i5202, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199: ; preds = %7611, %7621
+  %.0.i5198 = phi i64 [ %7620, %7611 ], [ %7623, %7621 ]
+  %7624 = shl i64 %.0.i5198, 7
   %7625 = and i64 %7624, 3968
-  %.sroa.3.0..sroa_idx.i5204 = getelementptr inbounds nuw i8, ptr %7607, i64 56
-  %.sroa.3.0.copyload.i5205 = load i32, ptr %.sroa.3.0..sroa_idx.i5204, align 8
-  %switch.i5206.not = icmp eq i32 %.sroa.3.0.copyload.i5205, 11
-  %7626 = select i1 %switch.i5206.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5200 = getelementptr inbounds nuw i8, ptr %7607, i64 56
+  %.sroa.3.0.copyload.i5201 = load i32, ptr %.sroa.3.0..sroa_idx.i5200, align 8
+  %.not5312 = icmp eq i32 %.sroa.3.0.copyload.i5201, 11
+  %7626 = select i1 %.not5312, i64 0, i64 33554432
   %7627 = or disjoint i64 %7600, %7604
   %7628 = or disjoint i64 %7627, %7606
   %7629 = or disjoint i64 %7628, %7625
@@ -14353,17 +14353,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7647 = getelementptr inbounds nuw i16, ptr %7645, i64 %7646
   %7648 = load i16, ptr %7647, align 2, !tbaa !240
   %7649 = zext i16 %7648 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5209
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5204
 
 7650:                                             ; preds = %7632
   %7651 = icmp eq i8 %7637, 2
   tail call void @llvm.assume(i1 %7651)
   %7652 = load i64, ptr %7639, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5209
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5204
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5209: ; preds = %7640, %7650
-  %.0.i5208 = phi i64 [ %7649, %7640 ], [ %7652, %7650 ]
-  %7653 = shl i64 %.0.i5208, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5204: ; preds = %7640, %7650
+  %.0.i5203 = phi i64 [ %7649, %7640 ], [ %7652, %7650 ]
+  %7653 = shl i64 %.0.i5203, 20
   %7654 = and i64 %7653, 32505856
   %7655 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4201 = load i64, ptr %7655, align 8, !tbaa !27
@@ -14376,7 +14376,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7662 = getelementptr inbounds nuw i8, ptr %7659, i64 8
   br i1 %7661, label %7663, label %7673
 
-7663:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5209
+7663:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5204
   %.val4505 = load ptr, ptr %7636, align 8
   %7664 = getelementptr inbounds nuw i8, ptr %.val4505, i64 160
   %7665 = load ptr, ptr %7664, align 8, !tbaa !72
@@ -14387,17 +14387,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7670 = getelementptr inbounds nuw i16, ptr %7668, i64 %7669
   %7671 = load i16, ptr %7670, align 2, !tbaa !240
   %7672 = zext i16 %7671 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5211
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5206
 
-7673:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5209
+7673:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5204
   %7674 = icmp eq i8 %7660, 2
   tail call void @llvm.assume(i1 %7674)
   %7675 = load i64, ptr %7662, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5211
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5206
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5211: ; preds = %7663, %7673
-  %.0.i5210 = phi i64 [ %7672, %7663 ], [ %7675, %7673 ]
-  %7676 = shl i64 %.0.i5210, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5206: ; preds = %7663, %7673
+  %.0.i5205 = phi i64 [ %7672, %7663 ], [ %7675, %7673 ]
+  %7676 = shl i64 %.0.i5205, 7
   %7677 = and i64 %7676, 3968
   %7678 = or disjoint i64 %7654, %7658
   %7679 = or disjoint i64 %7678, %7677
@@ -14425,17 +14425,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7696 = getelementptr inbounds nuw i16, ptr %7694, i64 %7695
   %7697 = load i16, ptr %7696, align 2, !tbaa !240
   %7698 = zext i16 %7697 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5213
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5208
 
 7699:                                             ; preds = %7681
   %7700 = icmp eq i8 %7686, 2
   tail call void @llvm.assume(i1 %7700)
   %7701 = load i64, ptr %7688, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5213
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5208
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5213: ; preds = %7689, %7699
-  %.0.i5212 = phi i64 [ %7698, %7689 ], [ %7701, %7699 ]
-  %7702 = shl i64 %.0.i5212, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5208: ; preds = %7689, %7699
+  %.0.i5207 = phi i64 [ %7698, %7689 ], [ %7701, %7699 ]
+  %7702 = shl i64 %.0.i5207, 20
   %7703 = and i64 %7702, 32505856
   %7704 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4202 = load i64, ptr %7704, align 8, !tbaa !27
@@ -14448,7 +14448,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7711 = getelementptr inbounds nuw i8, ptr %7708, i64 8
   br i1 %7710, label %7712, label %7722
 
-7712:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5213
+7712:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5208
   %.val4507 = load ptr, ptr %7685, align 8
   %7713 = getelementptr inbounds nuw i8, ptr %.val4507, i64 160
   %7714 = load ptr, ptr %7713, align 8, !tbaa !72
@@ -14459,22 +14459,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7719 = getelementptr inbounds nuw i16, ptr %7717, i64 %7718
   %7720 = load i16, ptr %7719, align 2, !tbaa !240
   %7721 = zext i16 %7720 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5210
 
-7722:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5213
+7722:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5208
   %7723 = icmp eq i8 %7709, 2
   tail call void @llvm.assume(i1 %7723)
   %7724 = load i64, ptr %7711, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5210
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215: ; preds = %7712, %7722
-  %.0.i5214 = phi i64 [ %7721, %7712 ], [ %7724, %7722 ]
-  %7725 = shl i64 %.0.i5214, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5210: ; preds = %7712, %7722
+  %.0.i5209 = phi i64 [ %7721, %7712 ], [ %7724, %7722 ]
+  %7725 = shl i64 %.0.i5209, 7
   %7726 = and i64 %7725, 3968
-  %.sroa.3.0..sroa_idx.i5216 = getelementptr inbounds nuw i8, ptr %7708, i64 56
-  %.sroa.3.0.copyload.i5217 = load i32, ptr %.sroa.3.0..sroa_idx.i5216, align 8
-  %switch.i5218.not = icmp eq i32 %.sroa.3.0.copyload.i5217, 11
-  %7727 = select i1 %switch.i5218.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5211 = getelementptr inbounds nuw i8, ptr %7708, i64 56
+  %.sroa.3.0.copyload.i5212 = load i32, ptr %.sroa.3.0..sroa_idx.i5211, align 8
+  %.not5311 = icmp eq i32 %.sroa.3.0.copyload.i5212, 11
+  %7727 = select i1 %.not5311, i64 0, i64 33554432
   %7728 = or disjoint i64 %7703, %7707
   %7729 = or disjoint i64 %7728, %7726
   %7730 = or disjoint i64 %7729, %7727
@@ -14502,17 +14502,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7747 = getelementptr inbounds nuw i16, ptr %7745, i64 %7746
   %7748 = load i16, ptr %7747, align 2, !tbaa !240
   %7749 = zext i16 %7748 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215
 
 7750:                                             ; preds = %7732
   %7751 = icmp eq i8 %7737, 2
   tail call void @llvm.assume(i1 %7751)
   %7752 = load i64, ptr %7739, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221: ; preds = %7740, %7750
-  %.0.i5220 = phi i64 [ %7749, %7740 ], [ %7752, %7750 ]
-  %7753 = shl i64 %.0.i5220, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215: ; preds = %7740, %7750
+  %.0.i5214 = phi i64 [ %7749, %7740 ], [ %7752, %7750 ]
+  %7753 = shl i64 %.0.i5214, 20
   %7754 = and i64 %7753, 32505856
   %7755 = getelementptr inbounds nuw i8, ptr %7734, i64 32
   %7756 = load i8, ptr %7755, align 8, !tbaa !70
@@ -14520,7 +14520,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7758 = getelementptr inbounds nuw i8, ptr %7734, i64 40
   br i1 %7757, label %7759, label %7769
 
-7759:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221
+7759:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215
   %7760 = getelementptr inbounds nuw i8, ptr %.val4508, i64 160
   %7761 = load ptr, ptr %7760, align 8, !tbaa !72
   %7762 = load i32, ptr %7758, align 8, !tbaa !26
@@ -14530,24 +14530,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7766 = getelementptr inbounds nuw i16, ptr %7764, i64 %7765
   %7767 = load i16, ptr %7766, align 2, !tbaa !240
   %7768 = zext i16 %7767 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5217
 
-7769:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221
+7769:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215
   %7770 = icmp eq i8 %7756, 2
   tail call void @llvm.assume(i1 %7770)
   %7771 = load i64, ptr %7758, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5217
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223: ; preds = %7759, %7769
-  %.0.i5222 = phi i64 [ %7768, %7759 ], [ %7771, %7769 ]
-  %7772 = shl i64 %.0.i5222, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5217: ; preds = %7759, %7769
+  %.0.i5216 = phi i64 [ %7768, %7759 ], [ %7771, %7769 ]
+  %7772 = shl i64 %.0.i5216, 15
   %7773 = and i64 %7772, 1015808
   %7774 = load i8, ptr %7734, align 8, !tbaa !70
   %7775 = icmp eq i8 %7774, 1
   %7776 = getelementptr inbounds nuw i8, ptr %7734, i64 8
   br i1 %7775, label %7777, label %7787
 
-7777:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223
+7777:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5217
   %7778 = getelementptr inbounds nuw i8, ptr %.val4508, i64 160
   %7779 = load ptr, ptr %7778, align 8, !tbaa !72
   %7780 = load i32, ptr %7776, align 8, !tbaa !26
@@ -14557,17 +14557,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7784 = getelementptr inbounds nuw i16, ptr %7782, i64 %7783
   %7785 = load i16, ptr %7784, align 2, !tbaa !240
   %7786 = zext i16 %7785 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5219
 
-7787:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223
+7787:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5217
   %7788 = icmp eq i8 %7774, 2
   tail call void @llvm.assume(i1 %7788)
   %7789 = load i64, ptr %7776, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5219
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225: ; preds = %7777, %7787
-  %.0.i5224 = phi i64 [ %7786, %7777 ], [ %7789, %7787 ]
-  %7790 = shl i64 %.0.i5224, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5219: ; preds = %7777, %7787
+  %.0.i5218 = phi i64 [ %7786, %7777 ], [ %7789, %7787 ]
+  %7790 = shl i64 %.0.i5218, 7
   %7791 = and i64 %7790, 3968
   %7792 = or disjoint i64 %7754, %7773
   %7793 = or disjoint i64 %7792, %7791
@@ -14595,17 +14595,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7810 = getelementptr inbounds nuw i16, ptr %7808, i64 %7809
   %7811 = load i16, ptr %7810, align 2, !tbaa !240
   %7812 = zext i16 %7811 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5227
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221
 
 7813:                                             ; preds = %7795
   %7814 = icmp eq i8 %7800, 2
   tail call void @llvm.assume(i1 %7814)
   %7815 = load i64, ptr %7802, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5227
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5227: ; preds = %7803, %7813
-  %.0.i5226 = phi i64 [ %7812, %7803 ], [ %7815, %7813 ]
-  %7816 = shl i64 %.0.i5226, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221: ; preds = %7803, %7813
+  %.0.i5220 = phi i64 [ %7812, %7803 ], [ %7815, %7813 ]
+  %7816 = shl i64 %.0.i5220, 20
   %7817 = and i64 %7816, 32505856
   %7818 = getelementptr inbounds nuw i8, ptr %7797, i64 32
   %7819 = load i8, ptr %7818, align 8, !tbaa !70
@@ -14613,7 +14613,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7821 = getelementptr inbounds nuw i8, ptr %7797, i64 40
   br i1 %7820, label %7822, label %7832
 
-7822:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5227
+7822:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221
   %7823 = getelementptr inbounds nuw i8, ptr %.val4511, i64 160
   %7824 = load ptr, ptr %7823, align 8, !tbaa !72
   %7825 = load i32, ptr %7821, align 8, !tbaa !26
@@ -14623,24 +14623,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7829 = getelementptr inbounds nuw i16, ptr %7827, i64 %7828
   %7830 = load i16, ptr %7829, align 2, !tbaa !240
   %7831 = zext i16 %7830 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5229
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223
 
-7832:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5227
+7832:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5221
   %7833 = icmp eq i8 %7819, 2
   tail call void @llvm.assume(i1 %7833)
   %7834 = load i64, ptr %7821, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5229
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5229: ; preds = %7822, %7832
-  %.0.i5228 = phi i64 [ %7831, %7822 ], [ %7834, %7832 ]
-  %7835 = shl i64 %.0.i5228, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223: ; preds = %7822, %7832
+  %.0.i5222 = phi i64 [ %7831, %7822 ], [ %7834, %7832 ]
+  %7835 = shl i64 %.0.i5222, 15
   %7836 = and i64 %7835, 1015808
   %7837 = load i8, ptr %7797, align 8, !tbaa !70
   %7838 = icmp eq i8 %7837, 1
   %7839 = getelementptr inbounds nuw i8, ptr %7797, i64 8
   br i1 %7838, label %7840, label %7850
 
-7840:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5229
+7840:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223
   %7841 = getelementptr inbounds nuw i8, ptr %.val4511, i64 160
   %7842 = load ptr, ptr %7841, align 8, !tbaa !72
   %7843 = load i32, ptr %7839, align 8, !tbaa !26
@@ -14650,22 +14650,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7847 = getelementptr inbounds nuw i16, ptr %7845, i64 %7846
   %7848 = load i16, ptr %7847, align 2, !tbaa !240
   %7849 = zext i16 %7848 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5231
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225
 
-7850:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5229
+7850:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5223
   %7851 = icmp eq i8 %7837, 2
   tail call void @llvm.assume(i1 %7851)
   %7852 = load i64, ptr %7839, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5231
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5231: ; preds = %7840, %7850
-  %.0.i5230 = phi i64 [ %7849, %7840 ], [ %7852, %7850 ]
-  %7853 = shl i64 %.0.i5230, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225: ; preds = %7840, %7850
+  %.0.i5224 = phi i64 [ %7849, %7840 ], [ %7852, %7850 ]
+  %7853 = shl i64 %.0.i5224, 7
   %7854 = and i64 %7853, 3968
-  %.sroa.3.0..sroa_idx.i5232 = getelementptr inbounds nuw i8, ptr %7797, i64 56
-  %.sroa.3.0.copyload.i5233 = load i32, ptr %.sroa.3.0..sroa_idx.i5232, align 8
-  %switch.i5234.not = icmp eq i32 %.sroa.3.0.copyload.i5233, 11
-  %7855 = select i1 %switch.i5234.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5226 = getelementptr inbounds nuw i8, ptr %7797, i64 56
+  %.sroa.3.0.copyload.i5227 = load i32, ptr %.sroa.3.0..sroa_idx.i5226, align 8
+  %.not5310 = icmp eq i32 %.sroa.3.0.copyload.i5227, 11
+  %7855 = select i1 %.not5310, i64 0, i64 33554432
   %7856 = or disjoint i64 %7817, %7836
   %7857 = or disjoint i64 %7856, %7854
   %7858 = or disjoint i64 %7857, %7855
@@ -14693,24 +14693,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7875 = getelementptr inbounds nuw i16, ptr %7873, i64 %7874
   %7876 = load i16, ptr %7875, align 2, !tbaa !240
   %7877 = zext i16 %7876 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5237
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5230
 
 7878:                                             ; preds = %7860
   %7879 = icmp eq i8 %7865, 2
   tail call void @llvm.assume(i1 %7879)
   %7880 = load i64, ptr %7867, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5237
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5230
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5237: ; preds = %7868, %7878
-  %.0.i5236 = phi i64 [ %7877, %7868 ], [ %7880, %7878 ]
-  %7881 = shl i64 %.0.i5236, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5230: ; preds = %7868, %7878
+  %.0.i5229 = phi i64 [ %7877, %7868 ], [ %7880, %7878 ]
+  %7881 = shl i64 %.0.i5229, 20
   %7882 = and i64 %7881, 32505856
   %7883 = load i8, ptr %7862, align 8, !tbaa !70
   %7884 = icmp eq i8 %7883, 1
   %7885 = getelementptr inbounds nuw i8, ptr %7862, i64 8
   br i1 %7884, label %7886, label %7896
 
-7886:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5237
+7886:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5230
   %7887 = getelementptr inbounds nuw i8, ptr %.val4514, i64 160
   %7888 = load ptr, ptr %7887, align 8, !tbaa !72
   %7889 = load i32, ptr %7885, align 8, !tbaa !26
@@ -14720,17 +14720,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7893 = getelementptr inbounds nuw i16, ptr %7891, i64 %7892
   %7894 = load i16, ptr %7893, align 2, !tbaa !240
   %7895 = zext i16 %7894 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5239
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5232
 
-7896:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5237
+7896:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5230
   %7897 = icmp eq i8 %7883, 2
   tail call void @llvm.assume(i1 %7897)
   %7898 = load i64, ptr %7885, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5239
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5232
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5239: ; preds = %7886, %7896
-  %.0.i5238 = phi i64 [ %7895, %7886 ], [ %7898, %7896 ]
-  %7899 = shl i64 %.0.i5238, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5232: ; preds = %7886, %7896
+  %.0.i5231 = phi i64 [ %7895, %7886 ], [ %7898, %7896 ]
+  %7899 = shl i64 %.0.i5231, 7
   %7900 = and i64 %7899, 3968
   %7901 = or disjoint i64 %7882, %7900
   %7902 = or i64 %7901, %10
@@ -14757,24 +14757,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7918 = getelementptr inbounds nuw i16, ptr %7916, i64 %7917
   %7919 = load i16, ptr %7918, align 2, !tbaa !240
   %7920 = zext i16 %7919 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5234
 
 7921:                                             ; preds = %7903
   %7922 = icmp eq i8 %7908, 2
   tail call void @llvm.assume(i1 %7922)
   %7923 = load i64, ptr %7910, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5234
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241: ; preds = %7911, %7921
-  %.0.i5240 = phi i64 [ %7920, %7911 ], [ %7923, %7921 ]
-  %7924 = shl i64 %.0.i5240, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5234: ; preds = %7911, %7921
+  %.0.i5233 = phi i64 [ %7920, %7911 ], [ %7923, %7921 ]
+  %7924 = shl i64 %.0.i5233, 20
   %7925 = and i64 %7924, 32505856
   %7926 = load i8, ptr %7905, align 8, !tbaa !70
   %7927 = icmp eq i8 %7926, 1
   %7928 = getelementptr inbounds nuw i8, ptr %7905, i64 8
   br i1 %7927, label %7929, label %7939
 
-7929:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241
+7929:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5234
   %7930 = getelementptr inbounds nuw i8, ptr %.val4516, i64 160
   %7931 = load ptr, ptr %7930, align 8, !tbaa !72
   %7932 = load i32, ptr %7928, align 8, !tbaa !26
@@ -14784,22 +14784,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7936 = getelementptr inbounds nuw i16, ptr %7934, i64 %7935
   %7937 = load i16, ptr %7936, align 2, !tbaa !240
   %7938 = zext i16 %7937 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5236
 
-7939:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241
+7939:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5234
   %7940 = icmp eq i8 %7926, 2
   tail call void @llvm.assume(i1 %7940)
   %7941 = load i64, ptr %7928, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5236
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243: ; preds = %7929, %7939
-  %.0.i5242 = phi i64 [ %7938, %7929 ], [ %7941, %7939 ]
-  %7942 = shl i64 %.0.i5242, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5236: ; preds = %7929, %7939
+  %.0.i5235 = phi i64 [ %7938, %7929 ], [ %7941, %7939 ]
+  %7942 = shl i64 %.0.i5235, 7
   %7943 = and i64 %7942, 3968
-  %.sroa.3.0..sroa_idx.i5244 = getelementptr inbounds nuw i8, ptr %7905, i64 40
-  %.sroa.3.0.copyload.i5245 = load i32, ptr %.sroa.3.0..sroa_idx.i5244, align 8
-  %switch.i5246.not = icmp eq i32 %.sroa.3.0.copyload.i5245, 11
-  %7944 = select i1 %switch.i5246.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5237 = getelementptr inbounds nuw i8, ptr %7905, i64 40
+  %.sroa.3.0.copyload.i5238 = load i32, ptr %.sroa.3.0..sroa_idx.i5237, align 8
+  %.not5309 = icmp eq i32 %.sroa.3.0.copyload.i5238, 11
+  %7944 = select i1 %.not5309, i64 0, i64 33554432
   %7945 = or disjoint i64 %7925, %7943
   %7946 = or disjoint i64 %7945, %7944
   %7947 = or i64 %7946, %10
@@ -14826,17 +14826,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7963 = getelementptr inbounds nuw i16, ptr %7961, i64 %7962
   %7964 = load i16, ptr %7963, align 2, !tbaa !240
   %7965 = zext i16 %7964 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241
 
 7966:                                             ; preds = %7948
   %7967 = icmp eq i8 %7953, 2
   tail call void @llvm.assume(i1 %7967)
   %7968 = load i64, ptr %7955, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249: ; preds = %7956, %7966
-  %.0.i5248 = phi i64 [ %7965, %7956 ], [ %7968, %7966 ]
-  %7969 = shl i64 %.0.i5248, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241: ; preds = %7956, %7966
+  %.0.i5240 = phi i64 [ %7965, %7956 ], [ %7968, %7966 ]
+  %7969 = shl i64 %.0.i5240, 20
   %7970 = and i64 %7969, 32505856
   %7971 = getelementptr inbounds nuw i8, ptr %7950, i64 32
   %7972 = load i8, ptr %7971, align 8, !tbaa !70
@@ -14844,7 +14844,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7974 = getelementptr inbounds nuw i8, ptr %7950, i64 40
   br i1 %7973, label %7975, label %7985
 
-7975:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249
+7975:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241
   %7976 = getelementptr inbounds nuw i8, ptr %.val4518, i64 160
   %7977 = load ptr, ptr %7976, align 8, !tbaa !72
   %7978 = load i32, ptr %7974, align 8, !tbaa !26
@@ -14854,24 +14854,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %7982 = getelementptr inbounds nuw i16, ptr %7980, i64 %7981
   %7983 = load i16, ptr %7982, align 2, !tbaa !240
   %7984 = zext i16 %7983 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243
 
-7985:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249
+7985:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5241
   %7986 = icmp eq i8 %7972, 2
   tail call void @llvm.assume(i1 %7986)
   %7987 = load i64, ptr %7974, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251: ; preds = %7975, %7985
-  %.0.i5250 = phi i64 [ %7984, %7975 ], [ %7987, %7985 ]
-  %7988 = shl i64 %.0.i5250, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243: ; preds = %7975, %7985
+  %.0.i5242 = phi i64 [ %7984, %7975 ], [ %7987, %7985 ]
+  %7988 = shl i64 %.0.i5242, 15
   %7989 = and i64 %7988, 1015808
   %7990 = load i8, ptr %7950, align 8, !tbaa !70
   %7991 = icmp eq i8 %7990, 1
   %7992 = getelementptr inbounds nuw i8, ptr %7950, i64 8
   br i1 %7991, label %7993, label %8003
 
-7993:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251
+7993:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243
   %7994 = getelementptr inbounds nuw i8, ptr %.val4518, i64 160
   %7995 = load ptr, ptr %7994, align 8, !tbaa !72
   %7996 = load i32, ptr %7992, align 8, !tbaa !26
@@ -14881,17 +14881,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8000 = getelementptr inbounds nuw i16, ptr %7998, i64 %7999
   %8001 = load i16, ptr %8000, align 2, !tbaa !240
   %8002 = zext i16 %8001 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5253
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5245
 
-8003:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251
+8003:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243
   %8004 = icmp eq i8 %7990, 2
   tail call void @llvm.assume(i1 %8004)
   %8005 = load i64, ptr %7992, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5253
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5245
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5253: ; preds = %7993, %8003
-  %.0.i5252 = phi i64 [ %8002, %7993 ], [ %8005, %8003 ]
-  %8006 = shl i64 %.0.i5252, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5245: ; preds = %7993, %8003
+  %.0.i5244 = phi i64 [ %8002, %7993 ], [ %8005, %8003 ]
+  %8006 = shl i64 %.0.i5244, 7
   %8007 = and i64 %8006, 3968
   %8008 = or disjoint i64 %7970, %7989
   %8009 = or disjoint i64 %8008, %8007
@@ -14919,17 +14919,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8026 = getelementptr inbounds nuw i16, ptr %8024, i64 %8025
   %8027 = load i16, ptr %8026, align 2, !tbaa !240
   %8028 = zext i16 %8027 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5255
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5247
 
 8029:                                             ; preds = %8011
   %8030 = icmp eq i8 %8016, 2
   tail call void @llvm.assume(i1 %8030)
   %8031 = load i64, ptr %8018, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5255
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5247
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5255: ; preds = %8019, %8029
-  %.0.i5254 = phi i64 [ %8028, %8019 ], [ %8031, %8029 ]
-  %8032 = shl i64 %.0.i5254, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5247: ; preds = %8019, %8029
+  %.0.i5246 = phi i64 [ %8028, %8019 ], [ %8031, %8029 ]
+  %8032 = shl i64 %.0.i5246, 20
   %8033 = and i64 %8032, 32505856
   %8034 = getelementptr inbounds nuw i8, ptr %8013, i64 32
   %8035 = load i8, ptr %8034, align 8, !tbaa !70
@@ -14937,7 +14937,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8037 = getelementptr inbounds nuw i8, ptr %8013, i64 40
   br i1 %8036, label %8038, label %8048
 
-8038:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5255
+8038:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5247
   %8039 = getelementptr inbounds nuw i8, ptr %.val4521, i64 160
   %8040 = load ptr, ptr %8039, align 8, !tbaa !72
   %8041 = load i32, ptr %8037, align 8, !tbaa !26
@@ -14947,24 +14947,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8045 = getelementptr inbounds nuw i16, ptr %8043, i64 %8044
   %8046 = load i16, ptr %8045, align 2, !tbaa !240
   %8047 = zext i16 %8046 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5257
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249
 
-8048:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5255
+8048:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5247
   %8049 = icmp eq i8 %8035, 2
   tail call void @llvm.assume(i1 %8049)
   %8050 = load i64, ptr %8037, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5257
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5257: ; preds = %8038, %8048
-  %.0.i5256 = phi i64 [ %8047, %8038 ], [ %8050, %8048 ]
-  %8051 = shl i64 %.0.i5256, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249: ; preds = %8038, %8048
+  %.0.i5248 = phi i64 [ %8047, %8038 ], [ %8050, %8048 ]
+  %8051 = shl i64 %.0.i5248, 15
   %8052 = and i64 %8051, 1015808
   %8053 = load i8, ptr %8013, align 8, !tbaa !70
   %8054 = icmp eq i8 %8053, 1
   %8055 = getelementptr inbounds nuw i8, ptr %8013, i64 8
   br i1 %8054, label %8056, label %8066
 
-8056:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5257
+8056:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249
   %8057 = getelementptr inbounds nuw i8, ptr %.val4521, i64 160
   %8058 = load ptr, ptr %8057, align 8, !tbaa !72
   %8059 = load i32, ptr %8055, align 8, !tbaa !26
@@ -14974,22 +14974,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8063 = getelementptr inbounds nuw i16, ptr %8061, i64 %8062
   %8064 = load i16, ptr %8063, align 2, !tbaa !240
   %8065 = zext i16 %8064 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5259
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251
 
-8066:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5257
+8066:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5249
   %8067 = icmp eq i8 %8053, 2
   tail call void @llvm.assume(i1 %8067)
   %8068 = load i64, ptr %8055, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5259
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5259: ; preds = %8056, %8066
-  %.0.i5258 = phi i64 [ %8065, %8056 ], [ %8068, %8066 ]
-  %8069 = shl i64 %.0.i5258, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251: ; preds = %8056, %8066
+  %.0.i5250 = phi i64 [ %8065, %8056 ], [ %8068, %8066 ]
+  %8069 = shl i64 %.0.i5250, 7
   %8070 = and i64 %8069, 3968
-  %.sroa.3.0..sroa_idx.i5260 = getelementptr inbounds nuw i8, ptr %8013, i64 56
-  %.sroa.3.0.copyload.i5261 = load i32, ptr %.sroa.3.0..sroa_idx.i5260, align 8
-  %switch.i5262.not = icmp eq i32 %.sroa.3.0.copyload.i5261, 11
-  %8071 = select i1 %switch.i5262.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5252 = getelementptr inbounds nuw i8, ptr %8013, i64 56
+  %.sroa.3.0.copyload.i5253 = load i32, ptr %.sroa.3.0..sroa_idx.i5252, align 8
+  %.not5308 = icmp eq i32 %.sroa.3.0.copyload.i5253, 11
+  %8071 = select i1 %.not5308, i64 0, i64 33554432
   %8072 = or disjoint i64 %8033, %8052
   %8073 = or disjoint i64 %8072, %8070
   %8074 = or disjoint i64 %8073, %8071
@@ -15017,17 +15017,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8091 = getelementptr inbounds nuw i16, ptr %8089, i64 %8090
   %8092 = load i16, ptr %8091, align 2, !tbaa !240
   %8093 = zext i16 %8092 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5265
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5256
 
 8094:                                             ; preds = %8076
   %8095 = icmp eq i8 %8081, 2
   tail call void @llvm.assume(i1 %8095)
   %8096 = load i64, ptr %8083, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5265
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5256
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5265: ; preds = %8084, %8094
-  %.0.i5264 = phi i64 [ %8093, %8084 ], [ %8096, %8094 ]
-  %8097 = shl i64 %.0.i5264, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5256: ; preds = %8084, %8094
+  %.0.i5255 = phi i64 [ %8093, %8084 ], [ %8096, %8094 ]
+  %8097 = shl i64 %.0.i5255, 20
   %8098 = and i64 %8097, 32505856
   %8099 = getelementptr inbounds nuw i8, ptr %3, i64 232
   %.val4203 = load i64, ptr %8099, align 8, !tbaa !27
@@ -15041,7 +15041,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8107 = getelementptr inbounds nuw i8, ptr %8103, i64 24
   br i1 %8106, label %8108, label %8118
 
-8108:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5265
+8108:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5256
   %.val4525 = load ptr, ptr %8080, align 8
   %8109 = getelementptr inbounds nuw i8, ptr %.val4525, i64 160
   %8110 = load ptr, ptr %8109, align 8, !tbaa !72
@@ -15052,17 +15052,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8115 = getelementptr inbounds nuw i16, ptr %8113, i64 %8114
   %8116 = load i16, ptr %8115, align 2, !tbaa !240
   %8117 = zext i16 %8116 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5267
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5258
 
-8118:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5265
+8118:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5256
   %8119 = icmp eq i8 %8105, 2
   tail call void @llvm.assume(i1 %8119)
   %8120 = load i64, ptr %8107, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5267
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5258
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5267: ; preds = %8108, %8118
-  %.0.i5266 = phi i64 [ %8117, %8108 ], [ %8120, %8118 ]
-  %8121 = shl i64 %.0.i5266, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5258: ; preds = %8108, %8118
+  %.0.i5257 = phi i64 [ %8117, %8108 ], [ %8120, %8118 ]
+  %8121 = shl i64 %.0.i5257, 7
   %8122 = and i64 %8121, 3968
   %8123 = or disjoint i64 %8098, %8102
   %8124 = or disjoint i64 %8123, %8122
@@ -15090,17 +15090,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8141 = getelementptr inbounds nuw i16, ptr %8139, i64 %8140
   %8142 = load i16, ptr %8141, align 2, !tbaa !240
   %8143 = zext i16 %8142 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5260
 
 8144:                                             ; preds = %8126
   %8145 = icmp eq i8 %8131, 2
   tail call void @llvm.assume(i1 %8145)
   %8146 = load i64, ptr %8133, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5260
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269: ; preds = %8134, %8144
-  %.0.i5268 = phi i64 [ %8143, %8134 ], [ %8146, %8144 ]
-  %8147 = shl i64 %.0.i5268, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5260: ; preds = %8134, %8144
+  %.0.i5259 = phi i64 [ %8143, %8134 ], [ %8146, %8144 ]
+  %8147 = shl i64 %.0.i5259, 20
   %8148 = and i64 %8147, 32505856
   %8149 = getelementptr inbounds nuw i8, ptr %8128, i64 16
   %8150 = load i8, ptr %8149, align 8, !tbaa !70
@@ -15108,7 +15108,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8152 = getelementptr inbounds nuw i8, ptr %8128, i64 24
   br i1 %8151, label %8153, label %8163
 
-8153:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269
+8153:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5260
   %8154 = getelementptr inbounds nuw i8, ptr %.val4526, i64 160
   %8155 = load ptr, ptr %8154, align 8, !tbaa !72
   %8156 = load i32, ptr %8152, align 8, !tbaa !26
@@ -15118,24 +15118,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8160 = getelementptr inbounds nuw i16, ptr %8158, i64 %8159
   %8161 = load i16, ptr %8160, align 2, !tbaa !240
   %8162 = zext i16 %8161 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5262
 
-8163:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269
+8163:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5260
   %8164 = icmp eq i8 %8150, 2
   tail call void @llvm.assume(i1 %8164)
   %8165 = load i64, ptr %8152, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5262
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271: ; preds = %8153, %8163
-  %.0.i5270 = phi i64 [ %8162, %8153 ], [ %8165, %8163 ]
-  %8166 = shl i64 %.0.i5270, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5262: ; preds = %8153, %8163
+  %.0.i5261 = phi i64 [ %8162, %8153 ], [ %8165, %8163 ]
+  %8166 = shl i64 %.0.i5261, 15
   %8167 = and i64 %8166, 1015808
   %8168 = load i8, ptr %8128, align 8, !tbaa !70
   %8169 = icmp eq i8 %8168, 1
   %8170 = getelementptr inbounds nuw i8, ptr %8128, i64 8
   br i1 %8169, label %8171, label %8181
 
-8171:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271
+8171:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5262
   %8172 = getelementptr inbounds nuw i8, ptr %.val4526, i64 160
   %8173 = load ptr, ptr %8172, align 8, !tbaa !72
   %8174 = load i32, ptr %8170, align 8, !tbaa !26
@@ -15145,22 +15145,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8178 = getelementptr inbounds nuw i16, ptr %8176, i64 %8177
   %8179 = load i16, ptr %8178, align 2, !tbaa !240
   %8180 = zext i16 %8179 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5264
 
-8181:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271
+8181:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5262
   %8182 = icmp eq i8 %8168, 2
   tail call void @llvm.assume(i1 %8182)
   %8183 = load i64, ptr %8170, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5264
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273: ; preds = %8171, %8181
-  %.0.i5272 = phi i64 [ %8180, %8171 ], [ %8183, %8181 ]
-  %8184 = shl i64 %.0.i5272, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5264: ; preds = %8171, %8181
+  %.0.i5263 = phi i64 [ %8180, %8171 ], [ %8183, %8181 ]
+  %8184 = shl i64 %.0.i5263, 7
   %8185 = and i64 %8184, 3968
-  %.sroa.3.0..sroa_idx.i5274 = getelementptr inbounds nuw i8, ptr %8128, i64 56
-  %.sroa.3.0.copyload.i5275 = load i32, ptr %.sroa.3.0..sroa_idx.i5274, align 8
-  %switch.i5276.not = icmp eq i32 %.sroa.3.0.copyload.i5275, 11
-  %8186 = select i1 %switch.i5276.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5265 = getelementptr inbounds nuw i8, ptr %8128, i64 56
+  %.sroa.3.0.copyload.i5266 = load i32, ptr %.sroa.3.0..sroa_idx.i5265, align 8
+  %.not5307 = icmp eq i32 %.sroa.3.0.copyload.i5266, 11
+  %8186 = select i1 %.not5307, i64 0, i64 33554432
   %8187 = or disjoint i64 %8148, %8167
   %8188 = or disjoint i64 %8187, %8185
   %8189 = or disjoint i64 %8188, %8186
@@ -15188,17 +15188,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8206 = getelementptr inbounds nuw i16, ptr %8204, i64 %8205
   %8207 = load i16, ptr %8206, align 2, !tbaa !240
   %8208 = zext i16 %8207 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5279
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269
 
 8209:                                             ; preds = %8191
   %8210 = icmp eq i8 %8196, 2
   tail call void @llvm.assume(i1 %8210)
   %8211 = load i64, ptr %8198, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5279
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5279: ; preds = %8199, %8209
-  %.0.i5278 = phi i64 [ %8208, %8199 ], [ %8211, %8209 ]
-  %8212 = shl i64 %.0.i5278, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269: ; preds = %8199, %8209
+  %.0.i5268 = phi i64 [ %8208, %8199 ], [ %8211, %8209 ]
+  %8212 = shl i64 %.0.i5268, 20
   %8213 = and i64 %8212, 32505856
   %8214 = getelementptr inbounds nuw i8, ptr %8193, i64 16
   %8215 = load i8, ptr %8214, align 8, !tbaa !70
@@ -15206,7 +15206,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8217 = getelementptr inbounds nuw i8, ptr %8193, i64 24
   br i1 %8216, label %8218, label %8228
 
-8218:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5279
+8218:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269
   %8219 = getelementptr inbounds nuw i8, ptr %.val4529, i64 160
   %8220 = load ptr, ptr %8219, align 8, !tbaa !72
   %8221 = load i32, ptr %8217, align 8, !tbaa !26
@@ -15216,24 +15216,24 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8225 = getelementptr inbounds nuw i16, ptr %8223, i64 %8224
   %8226 = load i16, ptr %8225, align 2, !tbaa !240
   %8227 = zext i16 %8226 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5281
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271
 
-8228:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5279
+8228:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5269
   %8229 = icmp eq i8 %8215, 2
   tail call void @llvm.assume(i1 %8229)
   %8230 = load i64, ptr %8217, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5281
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5281: ; preds = %8218, %8228
-  %.0.i5280 = phi i64 [ %8227, %8218 ], [ %8230, %8228 ]
-  %8231 = shl i64 %.0.i5280, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271: ; preds = %8218, %8228
+  %.0.i5270 = phi i64 [ %8227, %8218 ], [ %8230, %8228 ]
+  %8231 = shl i64 %.0.i5270, 15
   %8232 = and i64 %8231, 1015808
   %8233 = load i8, ptr %8193, align 8, !tbaa !70
   %8234 = icmp eq i8 %8233, 1
   %8235 = getelementptr inbounds nuw i8, ptr %8193, i64 8
   br i1 %8234, label %8236, label %8246
 
-8236:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5281
+8236:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271
   %8237 = getelementptr inbounds nuw i8, ptr %.val4529, i64 160
   %8238 = load ptr, ptr %8237, align 8, !tbaa !72
   %8239 = load i32, ptr %8235, align 8, !tbaa !26
@@ -15243,22 +15243,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8243 = getelementptr inbounds nuw i16, ptr %8241, i64 %8242
   %8244 = load i16, ptr %8243, align 2, !tbaa !240
   %8245 = zext i16 %8244 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5283
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273
 
-8246:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5281
+8246:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5271
   %8247 = icmp eq i8 %8233, 2
   tail call void @llvm.assume(i1 %8247)
   %8248 = load i64, ptr %8235, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5283
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5283: ; preds = %8236, %8246
-  %.0.i5282 = phi i64 [ %8245, %8236 ], [ %8248, %8246 ]
-  %8249 = shl i64 %.0.i5282, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273: ; preds = %8236, %8246
+  %.0.i5272 = phi i64 [ %8245, %8236 ], [ %8248, %8246 ]
+  %8249 = shl i64 %.0.i5272, 7
   %8250 = and i64 %8249, 3968
-  %.sroa.3.0..sroa_idx.i5284 = getelementptr inbounds nuw i8, ptr %8193, i64 56
-  %.sroa.3.0.copyload.i5285 = load i32, ptr %.sroa.3.0..sroa_idx.i5284, align 8
-  %switch.i5286.not = icmp eq i32 %.sroa.3.0.copyload.i5285, 11
-  %8251 = select i1 %switch.i5286.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5274 = getelementptr inbounds nuw i8, ptr %8193, i64 56
+  %.sroa.3.0.copyload.i5275 = load i32, ptr %.sroa.3.0..sroa_idx.i5274, align 8
+  %.not5306 = icmp eq i32 %.sroa.3.0.copyload.i5275, 11
+  %8251 = select i1 %.not5306, i64 0, i64 33554432
   %8252 = or disjoint i64 %8213, %8232
   %8253 = or disjoint i64 %8252, %8250
   %8254 = or disjoint i64 %8253, %8251
@@ -15286,17 +15286,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8271 = getelementptr inbounds nuw i16, ptr %8269, i64 %8270
   %8272 = load i16, ptr %8271, align 2, !tbaa !240
   %8273 = zext i16 %8272 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5289
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5278
 
 8274:                                             ; preds = %8256
   %8275 = icmp eq i8 %8261, 2
   tail call void @llvm.assume(i1 %8275)
   %8276 = load i64, ptr %8263, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5289
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5278
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5289: ; preds = %8264, %8274
-  %.0.i5288 = phi i64 [ %8273, %8264 ], [ %8276, %8274 ]
-  %8277 = shl i64 %.0.i5288, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5278: ; preds = %8264, %8274
+  %.0.i5277 = phi i64 [ %8273, %8264 ], [ %8276, %8274 ]
+  %8277 = shl i64 %.0.i5277, 20
   %8278 = and i64 %8277, 32505856
   %8279 = getelementptr inbounds nuw i8, ptr %8258, i64 16
   %8280 = load i8, ptr %8279, align 8, !tbaa !70
@@ -15304,7 +15304,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8282 = getelementptr inbounds nuw i8, ptr %8258, i64 24
   br i1 %8281, label %8283, label %8293
 
-8283:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5289
+8283:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5278
   %8284 = getelementptr inbounds nuw i8, ptr %.val4532, i64 160
   %8285 = load ptr, ptr %8284, align 8, !tbaa !72
   %8286 = load i32, ptr %8282, align 8, !tbaa !26
@@ -15314,17 +15314,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8290 = getelementptr inbounds nuw i16, ptr %8288, i64 %8289
   %8291 = load i16, ptr %8290, align 2, !tbaa !240
   %8292 = zext i16 %8291 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5291
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5280
 
-8293:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5289
+8293:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5278
   %8294 = icmp eq i8 %8280, 2
   tail call void @llvm.assume(i1 %8294)
   %8295 = load i64, ptr %8282, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5291
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5280
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5291: ; preds = %8283, %8293
-  %.0.i5290 = phi i64 [ %8292, %8283 ], [ %8295, %8293 ]
-  %8296 = shl i64 %.0.i5290, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5280: ; preds = %8283, %8293
+  %.0.i5279 = phi i64 [ %8292, %8283 ], [ %8295, %8293 ]
+  %8296 = shl i64 %.0.i5279, 7
   %8297 = and i64 %8296, 3968
   %8298 = or disjoint i64 %8278, %8297
   %8299 = or i64 %8298, %10
@@ -15351,17 +15351,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8315 = getelementptr inbounds nuw i16, ptr %8313, i64 %8314
   %8316 = load i16, ptr %8315, align 2, !tbaa !240
   %8317 = zext i16 %8316 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5293
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5282
 
 8318:                                             ; preds = %8300
   %8319 = icmp eq i8 %8305, 2
   tail call void @llvm.assume(i1 %8319)
   %8320 = load i64, ptr %8307, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5293
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5282
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5293: ; preds = %8308, %8318
-  %.0.i5292 = phi i64 [ %8317, %8308 ], [ %8320, %8318 ]
-  %8321 = shl i64 %.0.i5292, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5282: ; preds = %8308, %8318
+  %.0.i5281 = phi i64 [ %8317, %8308 ], [ %8320, %8318 ]
+  %8321 = shl i64 %.0.i5281, 20
   %8322 = and i64 %8321, 32505856
   %8323 = getelementptr inbounds nuw i8, ptr %8302, i64 48
   %8324 = load i8, ptr %8323, align 8, !tbaa !70
@@ -15369,7 +15369,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8326 = getelementptr inbounds nuw i8, ptr %8302, i64 56
   br i1 %8325, label %8327, label %8337
 
-8327:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5293
+8327:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5282
   %8328 = getelementptr inbounds nuw i8, ptr %.val4534, i64 160
   %8329 = load ptr, ptr %8328, align 8, !tbaa !72
   %8330 = load i32, ptr %8326, align 8, !tbaa !26
@@ -15379,17 +15379,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8334 = getelementptr inbounds nuw i16, ptr %8332, i64 %8333
   %8335 = load i16, ptr %8334, align 2, !tbaa !240
   %8336 = zext i16 %8335 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5295
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5284
 
-8337:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5293
+8337:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5282
   %8338 = icmp eq i8 %8324, 2
   tail call void @llvm.assume(i1 %8338)
   %8339 = load i64, ptr %8326, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5295
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5284
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5295: ; preds = %8327, %8337
-  %.0.i5294 = phi i64 [ %8336, %8327 ], [ %8339, %8337 ]
-  %8340 = shl i64 %.0.i5294, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5284: ; preds = %8327, %8337
+  %.0.i5283 = phi i64 [ %8336, %8327 ], [ %8339, %8337 ]
+  %8340 = shl i64 %.0.i5283, 15
   %8341 = and i64 %8340, 1015808
   %8342 = getelementptr inbounds nuw i8, ptr %8302, i64 16
   %8343 = load i8, ptr %8342, align 8, !tbaa !70
@@ -15397,7 +15397,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8345 = getelementptr inbounds nuw i8, ptr %8302, i64 24
   br i1 %8344, label %8346, label %8356
 
-8346:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5295
+8346:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5284
   %8347 = getelementptr inbounds nuw i8, ptr %.val4534, i64 160
   %8348 = load ptr, ptr %8347, align 8, !tbaa !72
   %8349 = load i32, ptr %8345, align 8, !tbaa !26
@@ -15407,17 +15407,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8353 = getelementptr inbounds nuw i16, ptr %8351, i64 %8352
   %8354 = load i16, ptr %8353, align 2, !tbaa !240
   %8355 = zext i16 %8354 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5286
 
-8356:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5295
+8356:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5284
   %8357 = icmp eq i8 %8343, 2
   tail call void @llvm.assume(i1 %8357)
   %8358 = load i64, ptr %8345, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5286
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297: ; preds = %8346, %8356
-  %.0.i5296 = phi i64 [ %8355, %8346 ], [ %8358, %8356 ]
-  %8359 = shl i64 %.0.i5296, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5286: ; preds = %8346, %8356
+  %.0.i5285 = phi i64 [ %8355, %8346 ], [ %8358, %8356 ]
+  %8359 = shl i64 %.0.i5285, 7
   %8360 = and i64 %8359, 3968
   %8361 = or disjoint i64 %8322, %8341
   %8362 = or disjoint i64 %8361, %8360
@@ -15445,17 +15445,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8379 = getelementptr inbounds nuw i16, ptr %8377, i64 %8378
   %8380 = load i16, ptr %8379, align 2, !tbaa !240
   %8381 = zext i16 %8380 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5288
 
 8382:                                             ; preds = %8364
   %8383 = icmp eq i8 %8369, 2
   tail call void @llvm.assume(i1 %8383)
   %8384 = load i64, ptr %8371, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5288
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299: ; preds = %8372, %8382
-  %.0.i5298 = phi i64 [ %8381, %8372 ], [ %8384, %8382 ]
-  %8385 = shl i64 %.0.i5298, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5288: ; preds = %8372, %8382
+  %.0.i5287 = phi i64 [ %8381, %8372 ], [ %8384, %8382 ]
+  %8385 = shl i64 %.0.i5287, 20
   %8386 = and i64 %8385, 32505856
   %8387 = getelementptr inbounds nuw i8, ptr %8366, i64 32
   %8388 = load i8, ptr %8387, align 8, !tbaa !70
@@ -15463,7 +15463,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8390 = getelementptr inbounds nuw i8, ptr %8366, i64 40
   br i1 %8389, label %8391, label %8401
 
-8391:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299
+8391:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5288
   %8392 = getelementptr inbounds nuw i8, ptr %.val4537, i64 160
   %8393 = load ptr, ptr %8392, align 8, !tbaa !72
   %8394 = load i32, ptr %8390, align 8, !tbaa !26
@@ -15473,17 +15473,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8398 = getelementptr inbounds nuw i16, ptr %8396, i64 %8397
   %8399 = load i16, ptr %8398, align 2, !tbaa !240
   %8400 = zext i16 %8399 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5290
 
-8401:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299
+8401:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5288
   %8402 = icmp eq i8 %8388, 2
   tail call void @llvm.assume(i1 %8402)
   %8403 = load i64, ptr %8390, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5290
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301: ; preds = %8391, %8401
-  %.0.i5300 = phi i64 [ %8400, %8391 ], [ %8403, %8401 ]
-  %8404 = shl i64 %.0.i5300, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5290: ; preds = %8391, %8401
+  %.0.i5289 = phi i64 [ %8400, %8391 ], [ %8403, %8401 ]
+  %8404 = shl i64 %.0.i5289, 15
   %8405 = and i64 %8404, 1015808
   %8406 = getelementptr inbounds nuw i8, ptr %8366, i64 16
   %8407 = load i8, ptr %8406, align 8, !tbaa !70
@@ -15491,7 +15491,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8409 = getelementptr inbounds nuw i8, ptr %8366, i64 24
   br i1 %8408, label %8410, label %8420
 
-8410:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301
+8410:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5290
   %8411 = getelementptr inbounds nuw i8, ptr %.val4537, i64 160
   %8412 = load ptr, ptr %8411, align 8, !tbaa !72
   %8413 = load i32, ptr %8409, align 8, !tbaa !26
@@ -15501,22 +15501,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8417 = getelementptr inbounds nuw i16, ptr %8415, i64 %8416
   %8418 = load i16, ptr %8417, align 2, !tbaa !240
   %8419 = zext i16 %8418 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5303
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5292
 
-8420:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301
+8420:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5290
   %8421 = icmp eq i8 %8407, 2
   tail call void @llvm.assume(i1 %8421)
   %8422 = load i64, ptr %8409, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5303
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5292
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5303: ; preds = %8410, %8420
-  %.0.i5302 = phi i64 [ %8419, %8410 ], [ %8422, %8420 ]
-  %8423 = shl i64 %.0.i5302, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5292: ; preds = %8410, %8420
+  %.0.i5291 = phi i64 [ %8419, %8410 ], [ %8422, %8420 ]
+  %8423 = shl i64 %.0.i5291, 7
   %8424 = and i64 %8423, 3968
-  %.sroa.3.0..sroa_idx.i5304 = getelementptr inbounds nuw i8, ptr %8366, i64 72
-  %.sroa.3.0.copyload.i5305 = load i32, ptr %.sroa.3.0..sroa_idx.i5304, align 8
-  %switch.i5306.not = icmp eq i32 %.sroa.3.0.copyload.i5305, 11
-  %8425 = select i1 %switch.i5306.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5293 = getelementptr inbounds nuw i8, ptr %8366, i64 72
+  %.sroa.3.0.copyload.i5294 = load i32, ptr %.sroa.3.0..sroa_idx.i5293, align 8
+  %.not5305 = icmp eq i32 %.sroa.3.0.copyload.i5294, 11
+  %8425 = select i1 %.not5305, i64 0, i64 33554432
   %8426 = or disjoint i64 %8386, %8405
   %8427 = or disjoint i64 %8426, %8424
   %8428 = or disjoint i64 %8427, %8425
@@ -15544,17 +15544,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8445 = getelementptr inbounds nuw i16, ptr %8443, i64 %8444
   %8446 = load i16, ptr %8445, align 2, !tbaa !240
   %8447 = zext i16 %8446 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5309
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297
 
 8448:                                             ; preds = %8430
   %8449 = icmp eq i8 %8435, 2
   tail call void @llvm.assume(i1 %8449)
   %8450 = load i64, ptr %8437, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5309
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5309: ; preds = %8438, %8448
-  %.0.i5308 = phi i64 [ %8447, %8438 ], [ %8450, %8448 ]
-  %8451 = shl i64 %.0.i5308, 20
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297: ; preds = %8438, %8448
+  %.0.i5296 = phi i64 [ %8447, %8438 ], [ %8450, %8448 ]
+  %8451 = shl i64 %.0.i5296, 20
   %8452 = and i64 %8451, 32505856
   %8453 = getelementptr inbounds nuw i8, ptr %8432, i64 32
   %8454 = load i8, ptr %8453, align 8, !tbaa !70
@@ -15562,7 +15562,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8456 = getelementptr inbounds nuw i8, ptr %8432, i64 40
   br i1 %8455, label %8457, label %8467
 
-8457:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5309
+8457:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297
   %8458 = getelementptr inbounds nuw i8, ptr %.val4540, i64 160
   %8459 = load ptr, ptr %8458, align 8, !tbaa !72
   %8460 = load i32, ptr %8456, align 8, !tbaa !26
@@ -15572,17 +15572,17 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8464 = getelementptr inbounds nuw i16, ptr %8462, i64 %8463
   %8465 = load i16, ptr %8464, align 2, !tbaa !240
   %8466 = zext i16 %8465 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5311
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299
 
-8467:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5309
+8467:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297
   %8468 = icmp eq i8 %8454, 2
   tail call void @llvm.assume(i1 %8468)
   %8469 = load i64, ptr %8456, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5311
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5311: ; preds = %8457, %8467
-  %.0.i5310 = phi i64 [ %8466, %8457 ], [ %8469, %8467 ]
-  %8470 = shl i64 %.0.i5310, 15
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299: ; preds = %8457, %8467
+  %.0.i5298 = phi i64 [ %8466, %8457 ], [ %8469, %8467 ]
+  %8470 = shl i64 %.0.i5298, 15
   %8471 = and i64 %8470, 1015808
   %8472 = getelementptr inbounds nuw i8, ptr %8432, i64 16
   %8473 = load i8, ptr %8472, align 8, !tbaa !70
@@ -15590,7 +15590,7 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8475 = getelementptr inbounds nuw i8, ptr %8432, i64 24
   br i1 %8474, label %8476, label %8486
 
-8476:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5311
+8476:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299
   %8477 = getelementptr inbounds nuw i8, ptr %.val4540, i64 160
   %8478 = load ptr, ptr %8477, align 8, !tbaa !72
   %8479 = load i32, ptr %8475, align 8, !tbaa !26
@@ -15600,22 +15600,22 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   %8483 = getelementptr inbounds nuw i16, ptr %8481, i64 %8482
   %8484 = load i16, ptr %8483, align 2, !tbaa !240
   %8485 = zext i16 %8484 to i64
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5313
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301
 
-8486:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5311
+8486:                                             ; preds = %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5299
   %8487 = icmp eq i8 %8473, 2
   tail call void @llvm.assume(i1 %8487)
   %8488 = load i64, ptr %8475, align 8, !tbaa !26
-  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5313
+  br label %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301
 
-_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5313: ; preds = %8476, %8486
-  %.0.i5312 = phi i64 [ %8485, %8476 ], [ %8488, %8486 ]
-  %8489 = shl i64 %.0.i5312, 7
+_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301: ; preds = %8476, %8486
+  %.0.i5300 = phi i64 [ %8485, %8476 ], [ %8488, %8486 ]
+  %8489 = shl i64 %.0.i5300, 7
   %8490 = and i64 %8489, 3968
-  %.sroa.3.0..sroa_idx.i5314 = getelementptr inbounds nuw i8, ptr %8432, i64 72
-  %.sroa.3.0.copyload.i5315 = load i32, ptr %.sroa.3.0..sroa_idx.i5314, align 8
-  %switch.i5316.not = icmp eq i32 %.sroa.3.0.copyload.i5315, 11
-  %8491 = select i1 %switch.i5316.not, i64 0, i64 33554432
+  %.sroa.3.0..sroa_idx.i5302 = getelementptr inbounds nuw i8, ptr %8432, i64 72
+  %.sroa.3.0.copyload.i5303 = load i32, ptr %.sroa.3.0..sroa_idx.i5302, align 8
+  %.not = icmp eq i32 %.sroa.3.0.copyload.i5303, 11
+  %8491 = select i1 %.not, i64 0, i64 33554432
   %8492 = or disjoint i64 %8452, %8471
   %8493 = or disjoint i64 %8492, %8490
   %8494 = or disjoint i64 %8493, %8491
@@ -15639,8 +15639,8 @@ _ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_
   call void @_ZN4llvm18report_fatal_errorEPKcb(ptr noundef %8503, i1 noundef zeroext true) #18
   unreachable
 
-8504:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5313, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5303, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5291, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5283, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5267, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5259, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5253, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5239, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5231, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5211, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5203, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5191, %7505, %7500, %7495, %7491, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5189, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5185, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5179, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5173, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5165, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5155, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5149, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5143, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5137, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5131, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5125, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5119, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5113, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5107, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5103, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5099, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5095, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5093, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5087, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5081, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5075, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5069, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5065, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5057, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5047, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5041, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5035, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5027, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5021, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5015, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5009, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5001, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4995, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4987, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4983, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4979, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4977, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4973, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4969, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4967, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4961, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4957, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4953, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4949, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4945, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4941, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4937, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4933, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4929, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4927, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4925, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4921, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4917, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4915, %4332, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4913, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4909, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4905, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4901, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4897, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4893, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4889, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4885, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4879, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4875, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4873, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4865, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4861, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4857, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4853, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4849, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4845, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4839, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4833, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4829, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4825, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4817, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4813, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4809, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4805, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4801, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4797, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4793, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4787, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4783, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4781, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4779, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4775, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4773, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4771, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4769, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4767, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4763, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4759, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4757, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4753, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4749, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4745, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4741, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4737, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4733, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4729, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4725, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4723, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4721, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4717, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4713, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4709, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4707, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4705, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4701, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4697, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4695, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4689, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4685, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4677, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4673, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4671, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4667, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4665, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4659, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4655, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4653, %1111, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4651, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4645, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4639, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4633, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4627, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4623, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4621, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4615, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4611, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4607, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4603, %506, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4601, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4597, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4593, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4591, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4588, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4586, %257, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4584, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4582, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4580, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4578, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4576, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4574, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit, %20, %11
-  %.0 = phi i64 [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %19, %11 ], [ %28, %20 ], [ %59, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit ], [ %87, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4574 ], [ %121, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4576 ], [ %155, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4578 ], [ %187, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4580 ], [ %219, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4582 ], [ %256, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4584 ], [ %274, %257 ], [ %305, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4586 ], [ %336, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4588 ], [ %384, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4591 ], [ %411, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4593 ], [ %458, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4597 ], [ %505, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4601 ], [ %511, %506 ], [ %539, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4603 ], [ %590, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4607 ], [ %642, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4611 ], [ %692, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4615 ], [ %758, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4621 ], [ %786, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4623 ], [ %832, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4627 ], [ %903, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4633 ], [ %974, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4639 ], [ %1042, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4645 ], [ %1110, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4651 ], [ %1116, %1111 ], [ %1139, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4653 ], [ %1170, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4655 ], [ %1229, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4659 ], [ %1303, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4665 ], [ %1344, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4667 ], [ %1403, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4671 ], [ %1439, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4673 ], [ %1495, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4677 ], [ %1590, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4685 ], [ %1645, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4689 ], [ %1720, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4695 ], [ %1751, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4697 ], [ %1791, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4701 ], [ %1849, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4705 ], [ %1887, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4707 ], [ %1922, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4709 ], [ %1973, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4713 ], [ %2028, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4717 ], [ %2071, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4721 ], [ %2094, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4723 ], [ %2135, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4725 ], [ %2178, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4729 ], [ %2229, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4733 ], [ %2283, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4737 ], [ %2334, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4741 ], [ %2385, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4745 ], [ %2439, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4749 ], [ %2490, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4753 ], [ %2538, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4757 ], [ %2562, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4759 ], [ %2606, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4763 ], [ %2661, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4767 ], [ %2685, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4769 ], [ %2716, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4771 ], [ %2744, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4773 ], [ %2771, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4775 ], [ %2819, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4779 ], [ %2842, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4781 ], [ %2865, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4783 ], [ %2908, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4787 ], [ %2971, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4793 ], [ %3014, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4797 ], [ %3062, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4801 ], [ %3110, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4805 ], [ %3158, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4809 ], [ %3209, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4813 ], [ %3261, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4817 ], [ %3344, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4825 ], [ %3392, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4829 ], [ %3440, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4833 ], [ %3503, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4839 ], [ %3566, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4845 ], [ %3620, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4849 ], [ %3663, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4853 ], [ %3708, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4857 ], [ %3751, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4861 ], [ %3796, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4865 ], [ %3840, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4873 ], [ %3864, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4875 ], [ %3912, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4879 ], [ %3975, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4885 ], [ %4027, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4889 ], [ %4076, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4893 ], [ %4128, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4897 ], [ %4181, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4901 ], [ %4234, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4905 ], [ %4287, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4909 ], [ %4331, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4913 ], [ %4349, %4332 ], [ %4386, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4915 ], [ %4422, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4917 ], [ %4474, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4921 ], [ %4527, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4925 ], [ %4550, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4927 ], [ %4591, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4929 ], [ %4634, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4933 ], [ %4688, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4937 ], [ %4739, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4941 ], [ %4790, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4945 ], [ %4844, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4949 ], [ %4895, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4953 ], [ %4943, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4957 ], [ %4986, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4961 ], [ %5054, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4967 ], [ %5078, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4969 ], [ %5121, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4973 ], [ %5170, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4977 ], [ %5207, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4979 ], [ %5260, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4983 ], [ %5314, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4987 ], [ %5397, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4995 ], [ %5460, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5001 ], [ %5543, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5009 ], [ %5611, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5015 ], [ %5679, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5021 ], [ %5747, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5027 ], [ %5830, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5035 ], [ %5898, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5041 ], [ %5963, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5047 ], [ %6028, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5057 ], [ %6081, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5065 ], [ %6134, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5069 ], [ %6202, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5075 ], [ %6270, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5081 ], [ %6339, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5087 ], [ %6408, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5093 ], [ %6432, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5095 ], [ %6476, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5099 ], [ %6529, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5103 ], [ %6583, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5107 ], [ %6646, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5113 ], [ %6710, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5119 ], [ %6779, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5125 ], [ %6848, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5131 ], [ %6917, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5137 ], [ %6986, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5143 ], [ %7055, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5149 ], [ %7123, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5155 ], [ %7226, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5165 ], [ %7309, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5173 ], [ %7373, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5179 ], [ %7442, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5185 ], [ %7490, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5189 ], [ %7494, %7491 ], [ %7499, %7495 ], [ %7504, %7500 ], [ %7509, %7505 ], [ %7534, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5191 ], [ %7577, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199 ], [ %7631, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5203 ], [ %7680, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5211 ], [ %7731, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5215 ], [ %7794, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225 ], [ %7859, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5231 ], [ %7902, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5239 ], [ %7947, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5243 ], [ %8010, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5253 ], [ %8075, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5259 ], [ %8125, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5267 ], [ %8190, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273 ], [ %8255, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5283 ], [ %8299, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5291 ], [ %8363, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5297 ], [ %8429, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5303 ], [ %8495, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5313 ]
+8504:                                             ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %4, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5292, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5286, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5280, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5264, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5258, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5245, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5236, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5232, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5219, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5210, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5206, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5195, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5188, %7505, %7500, %7495, %7491, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5186, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5182, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5176, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5170, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5162, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5152, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5146, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5140, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5134, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5128, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5122, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5116, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5110, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5104, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5100, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5096, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5092, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5090, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5084, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5078, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5072, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5066, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5062, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5046, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5040, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5034, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5026, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5020, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5014, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5008, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5000, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4994, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4986, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4982, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4978, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4976, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4972, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4968, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4966, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4960, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4956, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4952, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4948, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4944, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4940, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4936, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4932, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4928, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4926, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4924, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4920, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4916, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4914, %4332, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4912, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4908, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4904, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4900, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4896, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4892, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4888, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4884, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4878, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4874, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4872, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4865, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4861, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4857, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4853, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4849, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4845, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4839, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4833, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4829, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4825, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4817, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4813, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4809, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4805, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4801, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4797, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4793, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4787, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4783, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4781, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4779, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4775, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4773, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4771, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4769, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4767, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4763, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4759, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4757, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4753, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4749, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4745, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4741, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4737, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4733, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4729, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4725, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4723, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4721, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4717, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4713, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4709, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4707, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4705, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4701, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4697, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4695, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4689, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4685, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4677, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4673, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4671, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4667, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4665, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4659, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4655, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4653, %1111, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4651, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4645, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4639, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4633, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4627, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4623, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4621, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4615, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4611, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4607, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4603, %506, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4601, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4597, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4593, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4591, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4588, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4586, %257, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4584, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4582, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4580, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4578, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4576, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4574, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit, %20, %11
+  %.0 = phi i64 [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %10, %4 ], [ %19, %11 ], [ %28, %20 ], [ %59, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit ], [ %87, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4574 ], [ %121, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4576 ], [ %155, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4578 ], [ %187, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4580 ], [ %219, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4582 ], [ %256, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4584 ], [ %274, %257 ], [ %305, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4586 ], [ %336, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4588 ], [ %384, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4591 ], [ %411, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4593 ], [ %458, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4597 ], [ %505, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4601 ], [ %511, %506 ], [ %539, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4603 ], [ %590, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4607 ], [ %642, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4611 ], [ %692, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4615 ], [ %758, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4621 ], [ %786, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4623 ], [ %832, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4627 ], [ %903, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4633 ], [ %974, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4639 ], [ %1042, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4645 ], [ %1110, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4651 ], [ %1116, %1111 ], [ %1139, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4653 ], [ %1170, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4655 ], [ %1229, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4659 ], [ %1303, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4665 ], [ %1344, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getImmOpValueAsr1ERKN4llvm6MCInstEjRNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4667 ], [ %1403, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4671 ], [ %1439, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4673 ], [ %1495, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4677 ], [ %1590, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4685 ], [ %1645, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4689 ], [ %1720, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4695 ], [ %1751, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4697 ], [ %1791, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4701 ], [ %1849, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4705 ], [ %1887, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4707 ], [ %1922, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4709 ], [ %1973, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4713 ], [ %2028, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4717 ], [ %2071, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4721 ], [ %2094, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4723 ], [ %2135, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4725 ], [ %2178, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4729 ], [ %2229, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4733 ], [ %2283, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4737 ], [ %2334, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4741 ], [ %2385, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4745 ], [ %2439, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4749 ], [ %2490, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4753 ], [ %2538, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4757 ], [ %2562, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4759 ], [ %2606, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4763 ], [ %2661, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4767 ], [ %2685, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4769 ], [ %2716, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4771 ], [ %2744, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4773 ], [ %2771, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4775 ], [ %2819, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4779 ], [ %2842, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4781 ], [ %2865, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4783 ], [ %2908, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4787 ], [ %2971, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4793 ], [ %3014, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4797 ], [ %3062, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4801 ], [ %3110, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4805 ], [ %3158, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4809 ], [ %3209, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4813 ], [ %3261, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4817 ], [ %3344, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4825 ], [ %3392, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4829 ], [ %3440, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4833 ], [ %3503, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4839 ], [ %3566, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4845 ], [ %3620, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4849 ], [ %3663, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4853 ], [ %3708, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4857 ], [ %3751, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4861 ], [ %3796, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4865 ], [ %3840, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4872 ], [ %3864, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4874 ], [ %3912, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4878 ], [ %3975, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4884 ], [ %4027, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4888 ], [ %4076, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4892 ], [ %4128, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4896 ], [ %4181, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4900 ], [ %4234, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4904 ], [ %4287, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4908 ], [ %4331, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4912 ], [ %4349, %4332 ], [ %4386, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4914 ], [ %4422, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4916 ], [ %4474, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4920 ], [ %4527, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4924 ], [ %4550, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4926 ], [ %4591, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4928 ], [ %4634, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4932 ], [ %4688, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4936 ], [ %4739, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4940 ], [ %4790, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4944 ], [ %4844, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4948 ], [ %4895, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4952 ], [ %4943, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4956 ], [ %4986, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4960 ], [ %5054, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4966 ], [ %5078, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4968 ], [ %5121, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4972 ], [ %5170, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4976 ], [ %5207, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4978 ], [ %5260, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4982 ], [ %5314, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4986 ], [ %5397, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit4994 ], [ %5460, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5000 ], [ %5543, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5008 ], [ %5611, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5014 ], [ %5679, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5020 ], [ %5747, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5026 ], [ %5830, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5034 ], [ %5898, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5040 ], [ %5963, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5046 ], [ %6028, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5055 ], [ %6081, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5062 ], [ %6134, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5066 ], [ %6202, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5072 ], [ %6270, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5078 ], [ %6339, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5084 ], [ %6408, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5090 ], [ %6432, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5092 ], [ %6476, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5096 ], [ %6529, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5100 ], [ %6583, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5104 ], [ %6646, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5110 ], [ %6710, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5116 ], [ %6779, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5122 ], [ %6848, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5128 ], [ %6917, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5134 ], [ %6986, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5140 ], [ %7055, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5146 ], [ %7123, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5152 ], [ %7226, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5162 ], [ %7309, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5170 ], [ %7373, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5176 ], [ %7442, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5182 ], [ %7490, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5186 ], [ %7494, %7491 ], [ %7499, %7495 ], [ %7504, %7500 ], [ %7509, %7505 ], [ %7534, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5188 ], [ %7577, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5195 ], [ %7631, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5199 ], [ %7680, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5206 ], [ %7731, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5210 ], [ %7794, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5219 ], [ %7859, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5225 ], [ %7902, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5232 ], [ %7947, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5236 ], [ %8010, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5245 ], [ %8075, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5251 ], [ %8125, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5258 ], [ %8190, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5264 ], [ %8255, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5273 ], [ %8299, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5280 ], [ %8363, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5286 ], [ %8429, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5292 ], [ %8495, %_ZNK12_GLOBAL__N_118RISCVMCCodeEmitter17getMachineOpValueERKN4llvm6MCInstERKNS1_9MCOperandERNS1_15SmallVectorImplINS1_7MCFixupEEERKNS1_15MCSubtargetInfoE.exit5301 ]
   ret i64 %.0
 }
 

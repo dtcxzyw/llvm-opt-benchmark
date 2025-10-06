@@ -2869,8 +2869,8 @@ define linkonce_odr dso_local void @_ZN14FuncOptVisitor5visitEP9AstConcat(ptr no
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, 4294967295
-  %.not23 = icmp eq i64 %13, 0
-  %.not = select i1 %10, i1 true, i1 %.not23
+  %.not22 = icmp eq i64 %13, 0
+  %.not = select i1 %10, i1 true, i1 %.not22
   br i1 %.not, label %14, label %.thread
 
 14:                                               ; preds = %6
@@ -4940,27 +4940,27 @@ _ZN9AstConcatC2EP8FileLineP11AstNodeExprS3_.exit: ; preds = %79, %.noexc48, %68,
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN17BalanceConcatTree20gatherTermsRecursiveEP11AstNodeExprRSt6vectorIS1_SaIS1_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %.not.i14 = icmp eq ptr %0, null
-  br i1 %.not.i14, label %tailrecurse._crit_edge, label %.lr.ph
+  %.not.i13 = icmp eq ptr %0, null
+  br i1 %.not.i13, label %tailrecurse._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %.tr15 = phi ptr [ %8, %tailrecurse ], [ %0, %2 ]
-  %3 = getelementptr inbounds nuw i8, ptr %.tr15, i64 64
+  %.tr14 = phi ptr [ %8, %tailrecurse ], [ %0, %2 ]
+  %3 = getelementptr inbounds nuw i8, ptr %.tr14, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %3, align 8, !tbaa !32
   %4 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 158
   br i1 %4, label %tailrecurse, label %tailrecurse._crit_edge
 
 tailrecurse:                                      ; preds = %.lr.ph
-  %5 = getelementptr inbounds nuw i8, ptr %.tr15, i64 32
+  %5 = getelementptr inbounds nuw i8, ptr %.tr14, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !34
   tail call void @_ZN17BalanceConcatTree20gatherTermsRecursiveEP11AstNodeExprRSt6vectorIS1_SaIS1_EE(ptr noundef %6, ptr noundef nonnull align 8 dereferenceable(24) %1)
-  %7 = getelementptr inbounds nuw i8, ptr %.tr15, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.tr14, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %tailrecurse._crit_edge, label %.lr.ph
 
 tailrecurse._crit_edge:                           ; preds = %.lr.ph, %tailrecurse, %2
-  %.tr.lcssa = phi ptr [ null, %2 ], [ null, %tailrecurse ], [ %.tr15, %.lr.ph ]
+  %.tr.lcssa = phi ptr [ null, %2 ], [ null, %tailrecurse ], [ %.tr14, %.lr.ph ]
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !132
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16

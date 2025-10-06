@@ -14021,8 +14021,8 @@ _ZN4entt13basic_storageI9my_entityS1_SaIS1_EvE4nextEv.exit.i: ; preds = %71, %_Z
   br label %_ZNK4entt16basic_sparse_setI9my_entitySaIS1_EE7currentES1_.exit.thread
 
 _ZNK4entt16basic_sparse_setI9my_entitySaIS1_EE7currentES1_.exit.thread: ; preds = %80, %_ZN4entt13basic_storageI9my_entityS1_SaIS1_EvE4nextEv.exit.i, %27, %_ZNK4entt16basic_sparse_setI9my_entitySaIS1_EE7currentES1_.exit, %19, %7
-  %.sink26 = phi i32 [ %1, %7 ], [ %1, %19 ], [ %1, %_ZNK4entt16basic_sparse_setI9my_entitySaIS1_EE7currentES1_.exit ], [ %1, %27 ], [ %.0.lcssa.i.i, %_ZN4entt13basic_storageI9my_entityS1_SaIS1_EvE4nextEv.exit.i ], [ %82, %80 ]
-  %83 = tail call { ptr, i64 } @_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %.sink26, i1 noundef zeroext true, ptr noundef null)
+  %.sink25 = phi i32 [ %1, %7 ], [ %1, %19 ], [ %1, %_ZNK4entt16basic_sparse_setI9my_entitySaIS1_EE7currentES1_.exit ], [ %1, %27 ], [ %.0.lcssa.i.i, %_ZN4entt13basic_storageI9my_entityS1_SaIS1_EvE4nextEv.exit.i ], [ %82, %80 ]
+  %83 = tail call { ptr, i64 } @_ZN4entt16basic_sparse_setI9my_entitySaIS1_EE11try_emplaceES1_bPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %.sink25, i1 noundef zeroext true, ptr noundef null)
   %84 = extractvalue { ptr, i64 } %83, 0
   %85 = extractvalue { ptr, i64 } %83, 1
   %86 = load ptr, ptr %84, align 8, !tbaa !35

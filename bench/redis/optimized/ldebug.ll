@@ -1414,7 +1414,7 @@ define internal fastcc noundef ptr @getobjname(ptr noundef readonly captures(non
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %46, %4
-  %.tr57 = phi i32 [ %2, %4 ], [ %49, %46 ]
+  %.tr56 = phi i32 [ %2, %4 ], [ %49, %46 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !24
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !33
@@ -1458,14 +1458,14 @@ currentpc.exit:                                   ; preds = %._crit_edge.i, %21
   %30 = lshr exact i64 %29, 2
   %31 = trunc i64 %30 to i32
   %32 = add nsw i32 %31, -1
-  %33 = add nsw i32 %.tr57, 1
+  %33 = add nsw i32 %.tr56, 1
   %34 = tail call ptr @luaF_getlocalname(ptr noundef %18, i32 noundef %33, i32 noundef %32) #10
   store ptr %34, ptr %3, align 8, !tbaa !77
   %.not45 = icmp eq ptr %34, null
   br i1 %.not45, label %35, label %.thread
 
 35:                                               ; preds = %currentpc.exit
-  %36 = tail call fastcc i32 @symbexec(ptr noundef %18, i32 noundef %32, i32 noundef %.tr57)
+  %36 = tail call fastcc i32 @symbexec(ptr noundef %18, i32 noundef %32, i32 noundef %.tr56)
   %37 = and i32 %36, 63
   switch i32 %37, label %.thread [
     i32 5, label %38

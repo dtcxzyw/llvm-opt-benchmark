@@ -81,7 +81,7 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   %.240 = phi ptr [ %1, %29 ], [ %25, %27 ]
   %33 = call i64 @CBS_len(ptr noundef nonnull %6) #7
   %.not53 = icmp eq i64 %33, 0
-  br i1 %.not53, label %.thread72, label %34
+  br i1 %.not53, label %.thread70, label %34
 
 34:                                               ; preds = %32
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 128, ptr noundef nonnull @.str, i32 noundef 110) #7
@@ -92,7 +92,7 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %99
 
-.thread72:                                        ; preds = %32
+.thread70:                                        ; preds = %32
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %38
 
@@ -104,15 +104,15 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   call void @ERR_put_error(i32 noundef 15, i32 noundef 0, i32 noundef 114, ptr noundef nonnull @.str, i32 noundef 116) #7
   br label %99
 
-38:                                               ; preds = %.thread72, %35
-  %.03576 = phi ptr [ %25, %.thread72 ], [ null, %35 ]
-  %.03875 = phi ptr [ %.240, %.thread72 ], [ %1, %35 ]
+38:                                               ; preds = %.thread70, %35
+  %.03574 = phi ptr [ %25, %.thread70 ], [ null, %35 ]
+  %.03873 = phi ptr [ %.240, %.thread70 ], [ %1, %35 ]
   %39 = call ptr @EC_KEY_new() #7
   %40 = icmp eq ptr %39, null
   br i1 %40, label %99, label %41
 
 41:                                               ; preds = %38
-  %42 = call i32 @EC_KEY_set_group(ptr noundef nonnull %39, ptr noundef nonnull %.03875) #7
+  %42 = call i32 @EC_KEY_set_group(ptr noundef nonnull %39, ptr noundef nonnull %.03873) #7
   %.not54 = icmp eq i32 %42, 0
   br i1 %.not54, label %99, label %43
 
@@ -122,7 +122,7 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   %46 = call ptr @BN_bin2bn(ptr noundef %44, i64 noundef %45, ptr noundef null) #7
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 16
   store ptr %46, ptr %47, align 8, !tbaa !6
-  %48 = call ptr @EC_POINT_new(ptr noundef nonnull %.03875) #7
+  %48 = call ptr @EC_POINT_new(ptr noundef nonnull %.03873) #7
   %49 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %48, ptr %49, align 8, !tbaa !18
   %50 = load ptr, ptr %47, align 8, !tbaa !6
@@ -132,7 +132,7 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   br i1 %or.cond64, label %99, label %53
 
 53:                                               ; preds = %43
-  %54 = call ptr @EC_GROUP_get0_order(ptr noundef nonnull %.03875) #7
+  %54 = call ptr @EC_GROUP_get0_order(ptr noundef nonnull %.03873) #7
   %55 = call i32 @BN_cmp(ptr noundef nonnull %50, ptr noundef %54) #7
   %56 = icmp sgt i32 %55, -1
   br i1 %56, label %57, label %58
@@ -176,16 +176,16 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   %73 = load ptr, ptr %49, align 8, !tbaa !18
   %74 = call ptr @CBS_data(ptr noundef nonnull %8) #7
   %75 = call i64 @CBS_len(ptr noundef nonnull %8) #7
-  %76 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %.03875, ptr noundef %73, ptr noundef %74, i64 noundef %75, ptr noundef null) #7
+  %76 = call i32 @EC_POINT_oct2point(ptr noundef nonnull %.03873, ptr noundef %73, ptr noundef %74, i64 noundef %75, ptr noundef null) #7
   %.not59 = icmp eq i32 %76, 0
   br i1 %.not59, label %84, label %77
 
 77:                                               ; preds = %72
   %78 = call i64 @CBS_len(ptr noundef nonnull %7) #7
   %.not60 = icmp eq i64 %78, 0
-  br i1 %.not60, label %.thread77, label %84
+  br i1 %.not60, label %.thread75, label %84
 
-.thread77:                                        ; preds = %77
+.thread75:                                        ; preds = %77
   %79 = call ptr @CBS_data(ptr noundef nonnull %8) #7
   %80 = load i8, ptr %79, align 1, !tbaa !19
   %81 = and i8 %80, -2
@@ -207,7 +207,7 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
 85:                                               ; preds = %58
   %86 = load ptr, ptr %49, align 8, !tbaa !18
   %87 = load ptr, ptr %47, align 8, !tbaa !6
-  %88 = call i32 @EC_POINT_mul(ptr noundef nonnull %.03875, ptr noundef %86, ptr noundef %87, ptr noundef null, ptr noundef null, ptr noundef null) #7
+  %88 = call i32 @EC_POINT_mul(ptr noundef nonnull %.03873, ptr noundef %86, ptr noundef %87, ptr noundef null, ptr noundef null, ptr noundef null) #7
   %.not56 = icmp eq i32 %88, 0
   br i1 %.not56, label %99, label %89
 
@@ -218,7 +218,7 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   store i32 %92, ptr %90, align 8, !tbaa !21
   br label %93
 
-93:                                               ; preds = %.thread77, %89
+93:                                               ; preds = %.thread75, %89
   %94 = call i64 @CBS_len(ptr noundef nonnull %3) #7
   %.not61 = icmp eq i64 %94, 0
   br i1 %.not61, label %96, label %95
@@ -233,11 +233,11 @@ define hidden ptr @EC_KEY_parse_private_key(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not62, label %99, label %98
 
 98:                                               ; preds = %96
-  call void @EC_GROUP_free(ptr noundef %.03576) #7
+  call void @EC_GROUP_free(ptr noundef %.03574) #7
   br label %100
 
 99:                                               ; preds = %84, %.thread, %96, %85, %43, %38, %41, %95, %57, %37
-  %.2 = phi ptr [ null, %37 ], [ %.03576, %38 ], [ %.03576, %43 ], [ %.03576, %57 ], [ %.03576, %95 ], [ %.03576, %96 ], [ %.03576, %84 ], [ %.03576, %85 ], [ %.03576, %41 ], [ %.1.ph, %.thread ]
+  %.2 = phi ptr [ null, %37 ], [ %.03574, %38 ], [ %.03574, %43 ], [ %.03574, %57 ], [ %.03574, %95 ], [ %.03574, %96 ], [ %.03574, %84 ], [ %.03574, %85 ], [ %.03574, %41 ], [ %.1.ph, %.thread ]
   %.0 = phi ptr [ null, %37 ], [ null, %38 ], [ %39, %43 ], [ %39, %57 ], [ %39, %95 ], [ %39, %96 ], [ %39, %84 ], [ %39, %85 ], [ %39, %41 ], [ null, %.thread ]
   call void @EC_KEY_free(ptr noundef %.0) #7
   call void @EC_GROUP_free(ptr noundef %.2) #7

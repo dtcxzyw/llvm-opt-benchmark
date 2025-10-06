@@ -4162,7 +4162,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br i1 %8, label %14, label %26
 
 14:                                               ; preds = %.thread, %13
-  %.087136 = phi ptr [ %12, %.thread ], [ null, %13 ]
+  %.087133 = phi ptr [ %12, %.thread ], [ null, %13 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 348
   %16 = load i32, ptr %15, align 4
   switch i32 %16, label %18 [
@@ -4177,23 +4177,23 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br label %.sink.split
 
 .sink.split:                                      ; preds = %14, %18, %17
-  %.sink149 = phi i64 [ 13, %18 ], [ 13, %17 ], [ 12, %14 ]
+  %.sink146 = phi i64 [ 13, %18 ], [ 13, %17 ], [ 12, %14 ]
   %.sink = phi i64 [ 12, %18 ], [ 12, %17 ], [ 13, %14 ]
-  %.sink143 = phi i64 [ 240, %18 ], [ 216, %17 ], [ 240, %14 ]
-  %.sink142 = phi i64 [ 216, %18 ], [ 240, %17 ], [ 216, %14 ]
-  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink149
+  %.sink140 = phi i64 [ 240, %18 ], [ 216, %17 ], [ 240, %14 ]
+  %.sink139 = phi i64 [ 216, %18 ], [ 240, %17 ], [ 216, %14 ]
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink146
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.sink
   %.080.ph = load i8, ptr %19, align 1
   %.090.ph = load i8, ptr %20, align 1
-  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink143
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink140
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink142
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink139
   %24 = load ptr, ptr %23, align 8
   %25 = freeze ptr %24
   br label %26
 
 26:                                               ; preds = %.sink.split, %13
-  %.087135 = phi ptr [ null, %13 ], [ %.087136, %.sink.split ]
+  %.087132 = phi ptr [ null, %13 ], [ %.087133, %.sink.split ]
   %.090 = phi i8 [ -1, %13 ], [ %.090.ph, %.sink.split ]
   %.089 = phi ptr [ null, %13 ], [ %22, %.sink.split ]
   %.088 = phi ptr [ null, %13 ], [ %25, %.sink.split ]
@@ -4219,18 +4219,18 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br i1 %.not96, label %.critedge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  %.not118 = icmp eq ptr %.088, null
-  br i1 %.not118, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
+  %.not116 = icmp eq ptr %.088, null
+  br i1 %.not116, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split
 
 .lr.ph.split.split.us.preheader:                  ; preds = %.lr.ph.split
-  %.pre129 = load ptr, ptr @sccp_users, align 8
+  %.pre127 = load ptr, ptr @sccp_users, align 8
   br label %.lr.ph.split.split.us
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split.split.us.preheader, %56
   %38 = phi i32 [ %27, %.lr.ph.split.split.us.preheader ], [ %57, %56 ]
-  %39 = phi ptr [ %.pre129, %.lr.ph.split.split.us.preheader ], [ %58, %56 ]
-  %indvars.iv126 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next127, %56 ]
-  %40 = getelementptr %struct._sccp_user_t, ptr %39, i64 %indvars.iv126
+  %39 = phi ptr [ %.pre127, %.lr.ph.split.split.us.preheader ], [ %58, %56 ]
+  %indvars.iv124 = phi i64 [ 0, %.lr.ph.split.split.us.preheader ], [ %indvars.iv.next125, %56 ]
+  %40 = getelementptr %struct._sccp_user_t, ptr %39, i64 %indvars.iv124
   %41 = load i8, ptr %33, align 4
   %42 = zext i8 %41 to i32
   %43 = load i32, ptr %40, align 8
@@ -4254,15 +4254,15 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   %54 = load ptr, ptr %45, align 8
   %55 = tail call zeroext i1 @value_is_in_range(ptr noundef %54, i32 noundef %36)
   %.pre = load ptr, ptr @sccp_users, align 8
-  %.pre130 = load i32, ptr @num_sccp_users, align 4
+  %.pre128 = load i32, ptr @num_sccp_users, align 4
   br label %56
 
 56:                                               ; preds = %53, %.lr.ph.split.split.us
-  %57 = phi i32 [ %.pre130, %53 ], [ %38, %.lr.ph.split.split.us ]
+  %57 = phi i32 [ %.pre128, %53 ], [ %38, %.lr.ph.split.split.us ]
   %58 = phi ptr [ %.pre, %53 ], [ %39, %.lr.ph.split.split.us ]
-  %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
+  %indvars.iv.next125 = add nuw nsw i64 %indvars.iv124, 1
   %59 = zext i32 %57 to i64
-  %60 = icmp samesign ult i64 %indvars.iv.next127, %59
+  %60 = icmp samesign ult i64 %indvars.iv.next125, %59
   br i1 %60, label %.lr.ph.split.split.us, label %.critedge, !llvm.loop !17
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %83
@@ -4309,24 +4309,24 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
 
 .split.us:                                        ; preds = %70, %78, %48
   %.us-phi = phi ptr [ %40, %48 ], [ %62, %78 ], [ %62, %70 ]
-  %.285.in.in = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
-  %.285.in = load ptr, ptr %.285.in.in, align 8
-  %.285 = load ptr, ptr %.285.in, align 8
-  %.not98 = icmp eq ptr %.285, null
+  %.184.in.in = getelementptr inbounds nuw i8, ptr %.us-phi, i64 32
+  %.184.in = load ptr, ptr %.184.in.in, align 8
+  %.184 = load ptr, ptr %.184.in, align 8
+  %.not98 = icmp eq ptr %.184, null
   br i1 %.not98, label %.critedge, label %87
 
 87:                                               ; preds = %.split.us
-  %.2.in = getelementptr inbounds nuw i8, ptr %.us-phi, i64 28
-  %.2 = load i8, ptr %.2.in, align 4, !range !6, !noundef !7
-  %88 = trunc nuw i8 %.2 to i1
+  %.182.in = getelementptr inbounds nuw i8, ptr %.us-phi, i64 28
+  %.182 = load i8, ptr %.182.in, align 4, !range !6, !noundef !7
+  %88 = trunc nuw i8 %.182 to i1
   br i1 %88, label %89, label %90
 
 89:                                               ; preds = %87
-  tail call void @call_tcap_dissector(ptr noundef nonnull %.285, ptr noundef %0, ptr noundef %1, ptr noundef %2)
+  tail call void @call_tcap_dissector(ptr noundef nonnull %.184, ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %116
 
 90:                                               ; preds = %87
-  %91 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %.285, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.087135)
+  %91 = tail call i32 @call_dissector_with_data(ptr noundef nonnull %.184, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.087132)
   br label %116
 
 .critedge:                                        ; preds = %83, %56, %.lr.ph, %.split.us, %28, %26
@@ -4342,7 +4342,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
 97:                                               ; preds = %.critedge
   %98 = zext i8 %.080 to i32
   %99 = load ptr, ptr @sccp_ssn_dissector_table, align 8
-  %100 = tail call i32 @dissector_try_uint_with_data(ptr noundef %99, i32 noundef %98, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %.087135)
+  %100 = tail call i32 @dissector_try_uint_with_data(ptr noundef %99, i32 noundef %98, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %.087132)
   %.not100 = icmp eq i32 %100, 0
   br i1 %.not100, label %101, label %116
 
@@ -4353,13 +4353,13 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
 102:                                              ; preds = %101
   %103 = zext i8 %.090 to i32
   %104 = load ptr, ptr @sccp_ssn_dissector_table, align 8
-  %105 = tail call i32 @dissector_try_uint_with_data(ptr noundef %104, i32 noundef %103, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %.087135)
+  %105 = tail call i32 @dissector_try_uint_with_data(ptr noundef %104, i32 noundef %103, ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true, ptr noundef %.087132)
   %.not102 = icmp eq i32 %105, 0
   br i1 %.not102, label %106, label %116
 
 106:                                              ; preds = %102, %101
   %107 = load ptr, ptr @heur_subdissector_list, align 8
-  %108 = call zeroext i1 @dissector_try_heuristic(ptr noundef %107, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %.087135)
+  %108 = call zeroext i1 @dissector_try_heuristic(ptr noundef %107, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, ptr noundef %.087132)
   br i1 %108, label %116, label %109
 
 109:                                              ; preds = %106
@@ -4368,7 +4368,7 @@ define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef
   br i1 %.not103, label %113, label %111
 
 111:                                              ; preds = %109
-  %112 = call i32 @call_dissector_with_data(ptr noundef nonnull %110, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.087135)
+  %112 = call i32 @call_dissector_with_data(ptr noundef nonnull %110, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %.087132)
   br label %116
 
 113:                                              ; preds = %109

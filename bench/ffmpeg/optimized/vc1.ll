@@ -840,8 +840,8 @@ define range(i32 -2147483648, 1) i32 @ff_vc1_decode_sequence_header(ptr noundef 
   store i32 %566, ptr %567, align 4, !tbaa !64
   %.not111 = icmp ne i32 %566, 0
   %568 = icmp eq i32 %40, 0
-  %or.cond141 = and i1 %568, %.not111
-  br i1 %or.cond141, label %569, label %570
+  %or.cond140 = and i1 %568, %.not111
+  br i1 %or.cond140, label %569, label %570
 
 569:                                              ; preds = %533
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.3) #11
@@ -1062,13 +1062,13 @@ define range(i32 -2147483648, 1) i32 @ff_vc1_decode_sequence_header(ptr noundef 
 719:                                              ; preds = %682
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.7) #11
   %.pre = load i32, ptr %.sroa.46.0..sroa_idx.i, align 8, !tbaa !12
-  %.pre142 = load i32, ptr %.sroa.77.0..sroa_idx.i, align 8, !tbaa !14
-  %.pre143 = load ptr, ptr %2, align 8, !tbaa !15
+  %.pre141 = load i32, ptr %.sroa.77.0..sroa_idx.i, align 8, !tbaa !14
+  %.pre142 = load ptr, ptr %2, align 8, !tbaa !15
   br label %720
 
 720:                                              ; preds = %682, %719
-  %721 = phi ptr [ %579, %682 ], [ %.pre143, %719 ]
-  %722 = phi i32 [ %584, %682 ], [ %.pre142, %719 ]
+  %721 = phi ptr [ %579, %682 ], [ %.pre142, %719 ]
+  %722 = phi i32 [ %584, %682 ], [ %.pre141, %719 ]
   %723 = phi i32 [ %spec.select.i133, %682 ], [ %.pre, %719 ]
   %724 = lshr i32 %723, 3
   %725 = zext nneg i32 %724 to i64

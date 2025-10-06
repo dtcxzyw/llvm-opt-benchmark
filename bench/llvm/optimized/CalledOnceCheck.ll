@@ -1153,8 +1153,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CalledOnceChecker5checkEv(ptr no
   %26 = load ptr, ptr %25, align 8, !tbaa !177
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 88
   %28 = load ptr, ptr %27, align 8, !tbaa !180
-  %.not13.i = icmp eq ptr %26, %28
-  br i1 %.not13.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209, label %29
+  %.not12.i = icmp eq ptr %26, %28
+  br i1 %.not12.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209, label %29
 
 29:                                               ; preds = %23
   %30 = load ptr, ptr %26, align 8, !tbaa !181
@@ -1165,8 +1165,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CalledOnceChecker5checkEv(ptr no
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %33 = load i8, ptr %32, align 8
   %34 = and i8 %33, 1
-  %.not4.i = icmp eq i8 %34, 0
-  br i1 %.not4.i, label %35, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread211
+  %.not3.i = icmp eq i8 %34, 0
+  br i1 %.not3.i, label %35, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread211
 
 35:                                               ; preds = %31, %29, %20
   %36 = getelementptr i8, ptr %.val9, i64 40
@@ -1191,13 +1191,13 @@ define internal fastcc void @_ZN12_GLOBAL__N_117CalledOnceChecker5checkEv(ptr no
   %45 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 8
   %.val.i.i.i.i.i.i = load ptr, ptr %45, align 8, !tbaa !187
   %46 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEvEUlPKN5clang8CFGBlockEE_EclIPKPS5_EEbT_(ptr %.val.i.i.i.i.i.i)
-  br i1 %46, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit600, label %47
+  br i1 %46, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit599, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   %.val30.i.i.i.i.i.i = load ptr, ptr %48, align 8, !tbaa !187
   %49 = tail call fastcc noundef zeroext i1 @_ZN9__gnu_cxx5__ops12_Iter_negateIZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEvEUlPKN5clang8CFGBlockEE_EclIPKPS5_EEbT_(ptr %.val30.i.i.i.i.i.i)
-  br i1 %49, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit598, label %50
+  br i1 %49, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit597, label %50
 
 50:                                               ; preds = %47
   %51 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
@@ -1255,26 +1255,26 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split
   %68 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit598: ; preds = %47
+_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit597: ; preds = %47
   %69 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 16
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit600: ; preds = %44
+_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit599: ; preds = %44
   %70 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 8
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit598, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit600, %58, %62, %66
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %58 ], [ %.1.i.i.i.i.i.i, %62 ], [ %.2.i.i.i.i.i.i, %66 ], [ %68, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit ], [ %69, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit598 ], [ %70, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit600 ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
+_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit597, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit599, %58, %62, %66
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %58 ], [ %.1.i.i.i.i.i.i, %62 ], [ %.2.i.i.i.i.i.i, %66 ], [ %68, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit ], [ %69, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit597 ], [ %70, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.loopexit.split.loop.exit599 ], [ %.02943.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i ]
   %71 = icmp eq ptr %.val9.i, %.028.i.i.i.i.i.i
   br i1 %71, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread211, label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit._ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209_crit_edge
 
 _ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit._ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209_crit_edge: ; preds = %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit
   %.pre = load ptr, ptr %0, align 8, !tbaa !150
-  %.pre460 = load ptr, ptr %14, align 8, !tbaa !175
+  %.pre459 = load ptr, ptr %14, align 8, !tbaa !175
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209
 
 _ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209: ; preds = %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit._ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209_crit_edge, %23, %13
-  %72 = phi ptr [ %.pre460, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit._ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209_crit_edge ], [ %.val10, %23 ], [ %.val10, %13 ]
+  %72 = phi ptr [ %.pre459, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit._ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209_crit_edge ], [ %.val10, %23 ], [ %.val10, %13 ]
   %73 = phi ptr [ %.pre, %_ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit._ZNK12_GLOBAL__N_117CalledOnceChecker19isPossiblyEmptyImplEv.exit.thread209_crit_edge ], [ %.val9, %23 ], [ %.val9, %13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZN5clang24BackwardDataflowWorklistC2ERKNS_3CFGERNS_19AnalysisDeclContextE(ptr noundef nonnull align 8 dereferenceable(256) %9, ptr noundef nonnull align 8 dereferenceable(112) %73, ptr noundef nonnull align 8 dereferenceable(256) %72)
@@ -1418,11 +1418,11 @@ _ZSt4copyIPKN12_GLOBAL__N_115ParameterStatusEPS1_ET0_T_S6_S5_.exit43.i.i.i.i: ; 
 
 .sink.split.i.i.i.i:                              ; preds = %111, %_ZSt4copyIPKN12_GLOBAL__N_115ParameterStatusEPS1_ET0_T_S6_S5_.exit43.i.i.i.i, %101, %100
   store i32 %.val8, ptr %90, align 8, !tbaa !37
-  %.pre461 = load ptr, ptr %10, align 8, !tbaa !35
+  %.pre460 = load ptr, ptr %10, align 8, !tbaa !35
   br label %_ZN12_GLOBAL__N_117CalledOnceChecker11assignStateEPKN5clang8CFGBlockERKNS_5StateE.exit
 
 _ZN12_GLOBAL__N_117CalledOnceChecker11assignStateEPKN5clang8CFGBlockERKNS_5StateE.exit: ; preds = %94, %91, %_ZNK12_GLOBAL__N_15StateeqERKS0_.exit.i, %.sink.split.i.i.i.i
-  %115 = phi ptr [ %.val10.i, %91 ], [ %.val10.i, %_ZNK12_GLOBAL__N_15StateeqERKS0_.exit.i ], [ %.pre461, %.sink.split.i.i.i.i ], [ %.val10.i, %94 ]
+  %115 = phi ptr [ %.val10.i, %91 ], [ %.val10.i, %_ZNK12_GLOBAL__N_15StateeqERKS0_.exit.i ], [ %.pre460, %.sink.split.i.i.i.i ], [ %.val10.i, %94 ]
   %116 = icmp eq ptr %115, %78
   br i1 %116, label %_ZN12_GLOBAL__N_15StateD2Ev.exit, label %117
 
@@ -1450,8 +1450,8 @@ _ZN12_GLOBAL__N_15StateD2Ev.exit:                 ; preds = %_ZN12_GLOBAL__N_117
 _ZN5clang24BackwardDataflowWorklist19enqueuePredecessorsEPKNS_8CFGBlockE.exit: ; preds = %.lr.ph.i, %_ZN12_GLOBAL__N_15StateD2Ev.exit
   %123 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %124 = load i32, ptr %123, align 8, !tbaa !37
-  %.not.i.i.i23305 = icmp eq i32 %124, 0
-  br i1 %.not.i.i.i23305, label %._crit_edge, label %.lr.ph
+  %.not.i.i.i23304 = icmp eq i32 %124, 0
+  br i1 %.not.i.i.i23304, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang24BackwardDataflowWorklist19enqueuePredecessorsEPKNS_8CFGBlockE.exit
   %125 = getelementptr inbounds nuw i8, ptr %9, i64 72
@@ -1545,13 +1545,13 @@ _ZN5clang24BackwardDataflowWorklist19enqueuePredecessorsEPKNS_8CFGBlockE.exit: ;
   %180 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %180, align 8, !tbaa !198, !noalias !204
   %.not.i33.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
-  br i1 %.not.i33.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit608, label %181
+  br i1 %.not.i33.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit607, label %181
 
 181:                                              ; preds = %179
   %182 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %.val30.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %182, align 8, !tbaa !198, !noalias !204
   %.not.i34.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val30.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
-  br i1 %.not.i34.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit606, label %183
+  br i1 %.not.i34.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit605, label %183
 
 183:                                              ; preds = %181
   %184 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
@@ -1614,16 +1614,16 @@ _ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS
   %197 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   br label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i
 
-_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit606: ; preds = %181
+_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit605: ; preds = %181
   %198 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
   br label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i
 
-_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit608: ; preds = %179
+_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit607: ; preds = %179
   %199 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   br label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i
 
-_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit606, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit608, %196, %193, %190
-  %.028.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %190 ], [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i, %193 ], [ %.2.i.i.i.i.i.i.i.i.i.i.i.i.i, %196 ], [ %197, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit ], [ %198, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit606 ], [ %199, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit608 ], [ %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit605, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit607, %196, %193, %190
+  %.028.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i, %190 ], [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i, %193 ], [ %.2.i.i.i.i.i.i.i.i.i.i.i.i.i, %196 ], [ %197, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit ], [ %198, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit605 ], [ %199, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.loopexit.split.loop.exit607 ], [ %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %200 = icmp eq ptr %176, %.028.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %200, label %_ZN4llvm17make_filter_rangeINS_14iterator_rangeIPKN5clang8CFGBlock13AdjacentBlockEEEZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKS3_EUlSB_E_EENS1_INS_20filter_iterator_implIDTcl9adl_beginclsr3stdE7declvalIRT_EEEET0_NS_6detail15fwd_or_bidi_tagISG_E4typeEEEEEOSE_SH_.exit.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.thread.i.i.i.i.i.i
 
@@ -1723,13 +1723,13 @@ _ZN12_GLOBAL__N_15StateC2ERKS0_.exit.i.i:         ; preds = %.sink.split.i.i.i.i
   %226 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %226, align 8, !tbaa !198, !noalias !209
   %.not.i33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
-  br i1 %.not.i33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit616, label %227
+  br i1 %.not.i33.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit615, label %227
 
 227:                                              ; preds = %225
   %228 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %.val30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %228, align 8, !tbaa !198, !noalias !209
   %.not.i34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val30.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, 8
-  br i1 %.not.i34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit614, label %229
+  br i1 %.not.i34.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit613, label %229
 
 229:                                              ; preds = %227
   %230 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
@@ -1786,16 +1786,16 @@ _ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS
   %243 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 48
   br label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i
 
-_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit614: ; preds = %227
+_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit613: ; preds = %227
   %244 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 32
   br label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i
 
-_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit616: ; preds = %225
+_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit615: ; preds = %225
   %245 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, i64 16
   br label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i
 
-_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit614, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit616, %242, %239, %236
-  %.028.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %236 ], [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %239 ], [ %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %242 ], [ %243, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit ], [ %244, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit614 ], [ %245, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit616 ], [ %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
+_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit613, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit615, %242, %239, %236
+  %.028.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %236 ], [ %.1.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %239 ], [ %.2.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %242 ], [ %243, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit ], [ %244, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit613 ], [ %245, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.i.i.i.i.loopexit.split.loop.exit615 ], [ %.02949.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i ]
   %246 = icmp eq ptr %222, %.028.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   br i1 %246, label %_ZN4llvm10drop_beginIRNS_14iterator_rangeINS_20filter_iterator_implIPKN5clang8CFGBlock13AdjacentBlockEZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKS4_EUlSB_E_St26bidirectional_iterator_tagEEEEEEDaOT_m.exit.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.thread.i.i.i.i.i.i.i.i
 
@@ -1947,13 +1947,13 @@ _ZN12_GLOBAL__N_15State4joinERKS0_.exit.i.i:      ; preds = %_ZN12_GLOBAL__N_115
   %299 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i, i64 16
   %.val.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %299, align 8, !tbaa !198
   %.not.i33.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i.i.i.i.i, 8
-  br i1 %.not.i33.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit624, label %300
+  br i1 %.not.i33.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit623, label %300
 
 300:                                              ; preds = %298
   %301 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i, i64 32
   %.val30.i.i.i.i.i.i.i.i.i.i.i = load i32, ptr %301, align 8, !tbaa !198
   %.not.i34.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val30.i.i.i.i.i.i.i.i.i.i.i, 8
-  br i1 %.not.i34.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit622, label %302
+  br i1 %.not.i34.i.i.i.i.i.i.i.i.i.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit621, label %302
 
 302:                                              ; preds = %300
   %303 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i, i64 48
@@ -2010,16 +2010,16 @@ _ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS
   %316 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i, i64 48
   br label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i
 
-_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit622: ; preds = %300
+_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit621: ; preds = %300
   %317 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i, i64 32
   br label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i
 
-_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit624: ; preds = %298
+_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit623: ; preds = %298
   %318 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i.i.i.i.i.i.i, i64 16
   br label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i
 
-_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit622, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit624, %315, %312, %309
-  %.028.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i, %309 ], [ %.1.i.i.i.i.i.i.i.i.i.i.i, %312 ], [ %.2.i.i.i.i.i.i.i.i.i.i.i, %315 ], [ %316, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %317, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit622 ], [ %318, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit624 ], [ %.02949.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
+_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit621, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit623, %315, %312, %309
+  %.028.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i.i.i, %309 ], [ %.1.i.i.i.i.i.i.i.i.i.i.i, %312 ], [ %.2.i.i.i.i.i.i.i.i.i.i.i, %315 ], [ %316, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %317, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit621 ], [ %318, %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.i.i.i.i.loopexit.split.loop.exit623 ], [ %.02949.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %319 = icmp eq ptr %295, %.028.i.i.i.i.i.i.i.i.i.i.i
   br i1 %319, label %_ZN4llvm20filter_iterator_baseIPKN5clang8CFGBlock13AdjacentBlockEZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKS2_EUlS9_E_St26bidirectional_iterator_tagEppEv.exit.i.i, label %_ZZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockEENKUlS4_E_clES4_.exit.thread.i.i.i.i
 
@@ -2082,13 +2082,13 @@ _ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit.i.i.i.i: ; pr
   %342 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 16
   %343 = load ptr, ptr %342, align 8, !tbaa !131
   %344 = icmp eq ptr %343, %325
-  br i1 %344, label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit630, label %345
+  br i1 %344, label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit629, label %345
 
 345:                                              ; preds = %341
   %346 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 24
   %347 = load ptr, ptr %346, align 8, !tbaa !131
   %348 = icmp eq ptr %347, %325
-  br i1 %348, label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit632, label %349
+  br i1 %348, label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit631, label %349
 
 349:                                              ; preds = %345
   %350 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 32
@@ -2142,16 +2142,16 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.
   %366 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 8
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit630: ; preds = %341
+_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit629: ; preds = %341
   %367 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 16
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit632: ; preds = %345
+_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit631: ; preds = %345
   %368 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i, i64 24
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i: ; preds = %334, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit630, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit632, %365, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i, %354
-  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %331, %365 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %354 ], [ %.1.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i.i ], [ %366, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit ], [ %367, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit630 ], [ %368, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit632 ], [ %.02946.i.i.i.i.i.i.i.i.i, %334 ]
+_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i: ; preds = %334, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit629, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit631, %365, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i, %354
+  %.028.i.i.i.i.i.i.i.i.i = phi ptr [ %331, %365 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i, %354 ], [ %.1.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i.i ], [ %366, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit ], [ %367, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit629 ], [ %368, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.i.i.loopexit.split.loop.exit631 ], [ %.02946.i.i.i.i.i.i.i.i.i, %334 ]
   %369 = getelementptr inbounds nuw ptr, ptr %.val26.i.i.i.i, i64 %330
   %.not.not.i31.i.i.i.i = icmp eq ptr %.028.i.i.i.i.i.i.i.i.i, %369
   br i1 %.not.not.i31.i.i.i.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker20handleParameterCheckEPKN5clang8CFGBlockEPKNS1_4ExprERNS_5StateE.exit.i.i.i, label %370
@@ -2306,7 +2306,7 @@ _ZN12_GLOBAL__N_114NamesCollector7collectEPKN5clang4ExprE.exit.i.i.i.i.i: ; pred
   %417 = getelementptr i8, ptr %.02950.i.i.i.i.i.i.i.i.i.i.i, i64 40
   %.val33.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %417, align 8, !tbaa !172
   %418 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EclIPN4llvm9StringRefEEEbT_"(ptr %.val32.i.i.i.i.i.i.i.i.i.i.i, i64 %.val33.i.i.i.i.i.i.i.i.i.i.i)
-  br i1 %418, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit638", label %419
+  br i1 %418, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit637", label %419
 
 419:                                              ; preds = %415
   %420 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i.i.i.i.i, i64 48
@@ -2314,7 +2314,7 @@ _ZN12_GLOBAL__N_114NamesCollector7collectEPKN5clang4ExprE.exit.i.i.i.i.i: ; pred
   %421 = getelementptr i8, ptr %.02950.i.i.i.i.i.i.i.i.i.i.i, i64 56
   %.val35.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %421, align 8, !tbaa !172
   %422 = call fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EclIPN4llvm9StringRefEEEbT_"(ptr %.val34.i.i.i.i.i.i.i.i.i.i.i, i64 %.val35.i.i.i.i.i.i.i.i.i.i.i)
-  br i1 %422, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit640", label %423
+  br i1 %422, label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit639", label %423
 
 423:                                              ; preds = %419
   %424 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i.i.i.i.i, i64 64
@@ -2375,16 +2375,16 @@ _ZN12_GLOBAL__N_114NamesCollector7collectEPKN5clang4ExprE.exit.i.i.i.i.i: ; pred
   %442 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i.i.i.i.i, i64 16
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit638": ; preds = %415
+"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit637": ; preds = %415
   %443 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i.i.i.i.i, i64 32
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit640": ; preds = %419
+"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit639": ; preds = %419
   %444 = getelementptr inbounds nuw i8, ptr %.02950.i.i.i.i.i.i.i.i.i.i.i, i64 48
   br label %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i"
 
-"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i30.i.i, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit638", %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit640", %441, %438, %433, %428
-  %.028.i.i.i.i.i.i.i.i.i39.i.i = phi ptr [ %406, %441 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i36.i.i, %428 ], [ %.1.i.i.i.i.i.i.i.i.i42.i.i, %433 ], [ %.2.i.i.i.i.i.i.i.i.i37.i.i, %438 ], [ %442, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit" ], [ %443, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit638" ], [ %444, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit640" ], [ %.02950.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i30.i.i ]
+"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i30.i.i, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit", %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit637", %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit639", %441, %438, %433, %428
+  %.028.i.i.i.i.i.i.i.i.i39.i.i = phi ptr [ %406, %441 ], [ %.029.lcssa.i.i.i.i.i.i.i.i.i36.i.i, %428 ], [ %.1.i.i.i.i.i.i.i.i.i42.i.i, %433 ], [ %.2.i.i.i.i.i.i.i.i.i37.i.i, %438 ], [ %442, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit" ], [ %443, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit637" ], [ %444, %"_ZN4llvm6any_ofIRNS_11SmallVectorINS_9StringRefELj5EEEZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprEE3$_0EEbOT_T0_.exit.i.i.i.i.i.loopexit.split.loop.exit639" ], [ %.02950.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i30.i.i ]
   %445 = load ptr, ptr %6, align 8, !tbaa !35, !noalias !201
   %446 = icmp eq ptr %445, %139
   br i1 %446, label %_ZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprE.exit.i.i.i.i, label %447
@@ -2471,11 +2471,11 @@ _ZN12_GLOBAL__N_117CalledOnceChecker18isExplicitlyMarkedEPKN5clang11ParmVarDeclE
   br i1 %.not42.i.i.i.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockE.exit.i, label %.lr.ph.i8.i.i.i
 
 _ZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockE.exit.i: ; preds = %474, %448, %_ZN12_GLOBAL__N_130mentionsAnyOfConventionalNamesEPKN5clang4ExprE.exit.i.i.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker20handleParameterCheckEPKN5clang8CFGBlockEPKNS1_4ExprERNS_5StateE.exit.i.i.i, %_ZN12_GLOBAL__N_112getConditionEPKN5clang4StmtE.exit.i.i, %262, %._crit_edge.i.i
-  %.pre463 = load ptr, ptr %8, align 8, !tbaa !35
+  %.pre462 = load ptr, ptr %8, align 8, !tbaa !35
   br i1 %143, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEEaSEOS3_.exit.i, label %477
 
 477:                                              ; preds = %_ZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockE.exit.i
-  %478 = icmp eq ptr %.pre463, %126
+  %478 = icmp eq ptr %.pre462, %126
   br i1 %478, label %486, label %479
 
 479:                                              ; preds = %477
@@ -2489,7 +2489,7 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockE.exit.i
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEE12assignRemoteEOS3_.exit.i.i
 
 _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEE12assignRemoteEOS3_.exit.i.i: ; preds = %482, %479
-  %483 = phi ptr [ %.pre463, %479 ], [ %.pre.i.i, %482 ]
+  %483 = phi ptr [ %.pre462, %479 ], [ %.pre.i.i, %482 ]
   store ptr %483, ptr %142, align 8, !tbaa !35
   %484 = load i32, ptr %127, align 8, !tbaa !37
   store i32 %484, ptr %145, align 8, !tbaa !37
@@ -2514,7 +2514,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEE12assignRemoteEOS3_.
 492:                                              ; preds = %491
   %.val39.i.i = load ptr, ptr %142, align 8, !tbaa !35
   %.idx.i19.i = shl nuw nsw i64 %488, 4
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val39.i.i, ptr align 8 %.pre463, i64 %.idx.i19.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val39.i.i, ptr align 8 %.pre462, i64 %.idx.i19.i, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_115ParameterStatusES2_ET0_T_S4_S3_.exit.i.i
 
 _ZSt4moveIPN12_GLOBAL__N_115ParameterStatusES2_ET0_T_S4_S3_.exit.i.i: ; preds = %492, %491
@@ -2538,7 +2538,7 @@ _ZSt4moveIPN12_GLOBAL__N_115ParameterStatusES2_ET0_T_S4_S3_.exit.i.i: ; preds = 
 498:                                              ; preds = %497
   %.idx49.i.i = shl nuw nsw i64 %490, 4
   %.val35.i.i = load ptr, ptr %142, align 8, !tbaa !35
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val35.i.i, ptr align 8 %.pre463, i64 %.idx49.i.i, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %.val35.i.i, ptr align 8 %.pre462, i64 %.idx49.i.i, i1 false)
   br label %_ZSt4moveIPN12_GLOBAL__N_115ParameterStatusES2_ET0_T_S4_S3_.exit47.i.i
 
 _ZSt4moveIPN12_GLOBAL__N_115ParameterStatusES2_ET0_T_S4_S3_.exit47.i.i: ; preds = %498, %497, %496
@@ -2565,11 +2565,11 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115ParameterStatusELb1EE18uninit
 
 _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEEaSEOS3_.exit.sink.split.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_115ParameterStatusELb1EE18uninitialized_moveIPS2_S5_EEvT_S6_T0_.exit.i.i, %_ZSt4moveIPN12_GLOBAL__N_115ParameterStatusES2_ET0_T_S4_S3_.exit.i.i, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEE12assignRemoteEOS3_.exit.i.i
   store i32 0, ptr %127, align 8, !tbaa !37
-  %.pre462 = load ptr, ptr %8, align 8, !tbaa !35
+  %.pre461 = load ptr, ptr %8, align 8, !tbaa !35
   br label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEEaSEOS3_.exit.i
 
 _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEEaSEOS3_.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEEaSEOS3_.exit.sink.split.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockE.exit.i
-  %504 = phi ptr [ %.pre462, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEEaSEOS3_.exit.sink.split.i ], [ %.pre463, %_ZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockE.exit.i ]
+  %504 = phi ptr [ %.pre461, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_115ParameterStatusEEaSEOS3_.exit.sink.split.i ], [ %.pre462, %_ZNK12_GLOBAL__N_117CalledOnceChecker14joinSuccessorsEPKN5clang8CFGBlockE.exit.i ]
   %505 = icmp eq ptr %504, %126
   br i1 %505, label %_ZN12_GLOBAL__N_15StateD2Ev.exit.i, label %506
 
@@ -2631,8 +2631,8 @@ _ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i: ; preds = %.lr.ph.i
   %528 = load i16, ptr %527, align 8
   %529 = and i16 %528, 510
   %spec.select.i.i.i.i.i.i.i.i.i.i.i = icmp ne i16 %529, 120
-  %.not320.i.i.i = icmp eq i64 %526, 0
-  %.not.i.i16.i = or i1 %.not320.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i.i
+  %.not319.i.i.i = icmp eq i64 %526, 0
+  %.not.i.i16.i = or i1 %.not319.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i.i
   br i1 %.not.i.i16.i, label %568, label %530
 
 530:                                              ; preds = %525
@@ -2811,7 +2811,7 @@ _ZN12_GLOBAL__N_117CalledOnceChecker12markNoReturnEv.exit.i: ; preds = %.lr.ph.i
 568:                                              ; preds = %525
   %569 = and i16 %528, 511
   %570 = icmp ne i16 %569, 4
-  %.not314.i.i.i = or i1 %.not320.i.i.i, %570
+  %.not314.i.i.i = or i1 %.not319.i.i.i, %570
   br i1 %.not314.i.i.i, label %.critedge.i.i.i, label %571
 
 571:                                              ; preds = %568
@@ -3693,13 +3693,13 @@ select.unfold.i.i:                                ; preds = %_ZN9__gnu_cxx5__ops
   %840 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 16
   %841 = load ptr, ptr %840, align 8, !tbaa !131
   %842 = icmp eq ptr %841, %822
-  br i1 %842, label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit646, label %843
+  br i1 %842, label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit645, label %843
 
 843:                                              ; preds = %839
   %844 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 24
   %845 = load ptr, ptr %844, align 8, !tbaa !131
   %846 = icmp eq ptr %845, %822
-  br i1 %846, label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit648, label %847
+  br i1 %846, label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit647, label %847
 
 847:                                              ; preds = %843
   %848 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 32
@@ -3753,16 +3753,16 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.
   %864 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 8
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit646: ; preds = %839
+_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit645: ; preds = %839
   %865 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 16
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit648: ; preds = %843
+_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit647: ; preds = %843
   %866 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i, i64 24
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i: ; preds = %832, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit646, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit648, %863, %._crit_edge._crit_edge52.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i, %852
-  %.028.i.i.i.i.i.i.i = phi ptr [ %829, %863 ], [ %.029.lcssa.i.i.i.i.i.i.i, %852 ], [ %.1.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i ], [ %864, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit ], [ %865, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit646 ], [ %866, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit648 ], [ %.02946.i.i.i.i.i.i.i, %832 ]
+_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i: ; preds = %832, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit645, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit647, %863, %._crit_edge._crit_edge52.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i, %852
+  %.028.i.i.i.i.i.i.i = phi ptr [ %829, %863 ], [ %.029.lcssa.i.i.i.i.i.i.i, %852 ], [ %.1.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i.i.i ], [ %864, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit ], [ %865, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit645 ], [ %866, %_ZNK12_GLOBAL__N_117CalledOnceChecker8getIndexERKN5clang11ParmVarDeclE.exit.i.i.loopexit.split.loop.exit647 ], [ %.02946.i.i.i.i.i.i.i, %832 ]
   %867 = getelementptr inbounds nuw ptr, ptr %.val.i33.i, i64 %828
   %.not.not.i.i.i = icmp eq ptr %.028.i.i.i.i.i.i.i, %867
   br i1 %.not.not.i.i.i, label %_ZN12_GLOBAL__N_117CalledOnceChecker14processCallForEjPKN5clang4ExprE.exit.i.i, label %868
@@ -4259,13 +4259,13 @@ _ZN4llvm9BitVectorC2Ejb.exit90.i:                 ; preds = %_ZN4llvm9BitVectorC
   %1044 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i85, i64 16
   %1045 = load i64, ptr %1044, align 8, !tbaa !172
   %.not34.i.i.i.i.i.i.i.i.i = icmp eq i64 %1045, 0
-  br i1 %.not34.i.i.i.i.i.i.i.i.i, label %1046, label %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit662
+  br i1 %.not34.i.i.i.i.i.i.i.i.i, label %1046, label %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit661
 
 1046:                                             ; preds = %1043
   %1047 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i85, i64 24
   %1048 = load i64, ptr %1047, align 8, !tbaa !172
   %.not35.i.i.i.i.i.i.i.i.i = icmp eq i64 %1048, 0
-  br i1 %.not35.i.i.i.i.i.i.i.i.i, label %1049, label %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit664
+  br i1 %.not35.i.i.i.i.i.i.i.i.i, label %1049, label %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit663
 
 1049:                                             ; preds = %1046
   %1050 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i85, i64 32
@@ -4316,16 +4316,16 @@ _ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit: ; preds = %1040
   %1064 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i85, i64 8
   br label %_ZNK4llvm9BitVector4noneEv.exit.i
 
-_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit662: ; preds = %1043
+_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit661: ; preds = %1043
   %1065 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i85, i64 16
   br label %_ZNK4llvm9BitVector4noneEv.exit.i
 
-_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit664: ; preds = %1046
+_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit663: ; preds = %1046
   %1066 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i.i85, i64 24
   br label %_ZNK4llvm9BitVector4noneEv.exit.i
 
-_ZNK4llvm9BitVector4noneEv.exit.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i83, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit662, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit664, %1062, %1058, %1054
-  %.028.i.i.i.i.i.i.i.i.i86 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i96, %1054 ], [ %.1.i.i.i.i.i.i.i.i.i98, %1058 ], [ %.2.i.i.i.i.i.i.i.i.i97, %1062 ], [ %1064, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit ], [ %1065, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit662 ], [ %1066, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit664 ], [ %.02946.i.i.i.i.i.i.i.i.i85, %.lr.ph.i.i.i.i.i.i.i.i.i83 ]
+_ZNK4llvm9BitVector4noneEv.exit.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i83, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit661, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit663, %1062, %1058, %1054
+  %.028.i.i.i.i.i.i.i.i.i86 = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i.i96, %1054 ], [ %.1.i.i.i.i.i.i.i.i.i98, %1058 ], [ %.2.i.i.i.i.i.i.i.i.i97, %1062 ], [ %1064, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit ], [ %1065, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit661 ], [ %1066, %_ZNK4llvm9BitVector4noneEv.exit.i.loopexit.split.loop.exit663 ], [ %.02946.i.i.i.i.i.i.i.i.i85, %.lr.ph.i.i.i.i.i.i.i.i.i83 ]
   %.not.i.i87 = icmp eq ptr %1036, %.028.i.i.i.i.i.i.i.i.i86
   br i1 %.not.i.i87, label %_ZNK4llvm9BitVector4noneEv.exit.thread.i, label %1222
 
@@ -4379,7 +4379,7 @@ _ZNK4llvm9BitVector4noneEv.exit.i:                ; preds = %.lr.ph.i.i.i.i.i.i.
   %1084 = getelementptr inbounds nuw %"class.(anonymous namespace)::ParameterStatus", ptr %.val33.i.i.i.i.i.i.i.i, i64 %.sroa.722.051.i
   %.val.i.i.i41.i.i.i.i.i.i.i.i = load i32, ptr %1084, align 8, !tbaa !198
   %1085 = icmp eq i32 %.val.i.i.i41.i.i.i.i.i.i.i.i, 1
-  br i1 %1085, label %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit654, label %1086
+  br i1 %1085, label %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit653, label %1086
 
 1086:                                             ; preds = %1082
   %1087 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i.i, i64 144
@@ -4387,7 +4387,7 @@ _ZNK4llvm9BitVector4noneEv.exit.i:                ; preds = %.lr.ph.i.i.i.i.i.i.
   %1088 = getelementptr inbounds nuw %"class.(anonymous namespace)::ParameterStatus", ptr %.val35.i.i.i.i.i.i.i.i, i64 %.sroa.722.051.i
   %.val.i.i.i42.i.i.i.i.i.i.i.i = load i32, ptr %1088, align 8, !tbaa !198
   %1089 = icmp eq i32 %.val.i.i.i42.i.i.i.i.i.i.i.i, 1
-  br i1 %1089, label %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit656, label %1090
+  br i1 %1089, label %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit655, label %1090
 
 1090:                                             ; preds = %1086
   %1091 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i.i, i64 192
@@ -4444,16 +4444,16 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.lo
   %1106 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i.i, i64 48
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit654: ; preds = %1082
+_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit653: ; preds = %1082
   %1107 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i.i, i64 96
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit656: ; preds = %1086
+_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit655: ; preds = %1086
   %1108 = getelementptr inbounds nuw i8, ptr %.02962.i.i.i.i.i.i.i.i, i64 144
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i: ; preds = %1075, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit654, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit656, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i.i.i.i, %1095
-  %.028.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %1095 ], [ %.1.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i ], [ %1106, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit ], [ %1107, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit654 ], [ %1108, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit656 ], [ %.02962.i.i.i.i.i.i.i.i, %1075 ]
+_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i: ; preds = %1075, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit653, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit655, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i.i.i.i, %1095
+  %.028.i.i.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i, %1095 ], [ %.1.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge70.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i ], [ %1106, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit ], [ %1107, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit653 ], [ %1108, %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.i.loopexit.split.loop.exit655 ], [ %.02962.i.i.i.i.i.i.i.i, %1075 ]
   %.not37.i = icmp eq ptr %1072, %.028.i.i.i.i.i.i.i.i
   br i1 %.not37.i, label %_ZNK12_GLOBAL__N_117CalledOnceChecker14hasEverEscapedEj.exit.thread.i, label %1163
 
@@ -4628,13 +4628,13 @@ _ZNK4llvm9BitVector4noneEv.exit.thread.i:         ; preds = %_ZNK4llvm9BitVector
   %1195 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i111.i, i64 16
   %1196 = load i64, ptr %1195, align 8, !tbaa !172
   %.not34.i.i.i.i.i.i.i.i117.i = icmp eq i64 %1196, 0
-  br i1 %.not34.i.i.i.i.i.i.i.i117.i, label %1197, label %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit670
+  br i1 %.not34.i.i.i.i.i.i.i.i117.i, label %1197, label %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit669
 
 1197:                                             ; preds = %1194
   %1198 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i111.i, i64 24
   %1199 = load i64, ptr %1198, align 8, !tbaa !172
   %.not35.i.i.i.i.i.i.i.i119.i = icmp eq i64 %1199, 0
-  br i1 %.not35.i.i.i.i.i.i.i.i119.i, label %1200, label %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit672
+  br i1 %.not35.i.i.i.i.i.i.i.i119.i, label %1200, label %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit671
 
 1200:                                             ; preds = %1197
   %1201 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i111.i, i64 32
@@ -4688,16 +4688,16 @@ _ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit: ; preds = %1191
   %1216 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i111.i, i64 8
   br label %_ZNK4llvm9BitVector4noneEv.exit131.i
 
-_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit670: ; preds = %1194
+_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit669: ; preds = %1194
   %1217 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i111.i, i64 16
   br label %_ZNK4llvm9BitVector4noneEv.exit131.i
 
-_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit672: ; preds = %1197
+_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit671: ; preds = %1197
   %1218 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i111.i, i64 24
   br label %_ZNK4llvm9BitVector4noneEv.exit131.i
 
-_ZNK4llvm9BitVector4noneEv.exit131.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i109.i, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit670, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit672, %1215, %1213, %1209, %1205
-  %.028.i.i.i.i.i.i.i.i113.i = phi ptr [ %1187, %1215 ], [ %.029.lcssa.i.i.i.i.i.i.i.i124.i, %1205 ], [ %.1.i.i.i.i.i.i.i.i127.i, %1209 ], [ %.2.i.i.i.i.i.i.i.i125.i, %1213 ], [ %1216, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit ], [ %1217, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit670 ], [ %1218, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit672 ], [ %.02946.i.i.i.i.i.i.i.i111.i, %.lr.ph.i.i.i.i.i.i.i.i109.i ]
+_ZNK4llvm9BitVector4noneEv.exit131.i:             ; preds = %.lr.ph.i.i.i.i.i.i.i.i109.i, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit669, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit671, %1215, %1213, %1209, %1205
+  %.028.i.i.i.i.i.i.i.i113.i = phi ptr [ %1187, %1215 ], [ %.029.lcssa.i.i.i.i.i.i.i.i124.i, %1205 ], [ %.1.i.i.i.i.i.i.i.i127.i, %1209 ], [ %.2.i.i.i.i.i.i.i.i125.i, %1213 ], [ %1216, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit ], [ %1217, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit669 ], [ %1218, %_ZNK4llvm9BitVector4noneEv.exit131.i.loopexit.split.loop.exit671 ], [ %.02946.i.i.i.i.i.i.i.i111.i, %.lr.ph.i.i.i.i.i.i.i.i109.i ]
   %.not.i114.i = icmp ne ptr %1187, %.028.i.i.i.i.i.i.i.i113.i
   %1219 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %1220 = load i8, ptr %1219, align 2, !range !226
@@ -4763,8 +4763,8 @@ _ZNK4llvm9BitVector4noneEv.exit131.i:             ; preds = %.lr.ph.i.i.i.i.i.i.
   br i1 %1250, label %..critedge2.sink.split.i_crit_edge, label %.critedge.i
 
 ..critedge2.sink.split.i_crit_edge:               ; preds = %1248
-  %.pre464 = load ptr, ptr %1236, align 8, !tbaa !177
-  %.pre465 = load ptr, ptr %1237, align 8, !tbaa !180
+  %.pre463 = load ptr, ptr %1236, align 8, !tbaa !177
+  %.pre464 = load ptr, ptr %1237, align 8, !tbaa !180
   br label %.critedge2.sink.split.i
 
 .critedge.i:                                      ; preds = %1248, %1239
@@ -4831,7 +4831,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccess
   %1275 = getelementptr inbounds nuw %"class.(anonymous namespace)::ParameterStatus", ptr %.val4.i.i36.i.i.i.i.i.i.i.i.i, i64 %.sroa.05.078.i
   %.val.i.i.i37.i.i.i.i.i.i.i.i.i = load i32, ptr %1275, align 8, !tbaa !198
   %1276 = icmp eq i32 %.val.i.i.i37.i.i.i.i.i.i.i.i.i, 1
-  br i1 %1276, label %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit680, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit38.thread.i.i.i.i.i.i.i.i.i
+  br i1 %1276, label %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit679, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit38.thread.i.i.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit38.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit38.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit.thread.i.i.i.i.i.i.i.i.i
   %1277 = getelementptr inbounds nuw i8, ptr %.02997.i.i.i.i.i.i.i.i.i, i64 32
@@ -4848,7 +4848,7 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccess
   %1281 = getelementptr inbounds nuw %"class.(anonymous namespace)::ParameterStatus", ptr %.val4.i.i42.i.i.i.i.i.i.i.i.i, i64 %.sroa.05.078.i
   %.val.i.i.i43.i.i.i.i.i.i.i.i.i = load i32, ptr %1281, align 8, !tbaa !198
   %1282 = icmp eq i32 %.val.i.i.i43.i.i.i.i.i.i.i.i.i, 1
-  br i1 %1282, label %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit678, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit44.thread.i.i.i.i.i.i.i.i.i
+  br i1 %1282, label %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit677, label %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit44.thread.i.i.i.i.i.i.i.i.i
 
 _ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit44.thread.i.i.i.i.i.i.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit44.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit38.thread.i.i.i.i.i.i.i.i.i
   %1283 = getelementptr inbounds nuw i8, ptr %.02997.i.i.i.i.i.i.i.i.i, i64 48
@@ -4950,31 +4950,31 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlo
   %1313 = getelementptr inbounds nuw i8, ptr %.02997.i.i.i.i.i.i.i.i.i, i64 48
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit678: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit44.i.i.i.i.i.i.i.i.i
+_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit677: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit44.i.i.i.i.i.i.i.i.i
   %1314 = getelementptr inbounds nuw i8, ptr %.02997.i.i.i.i.i.i.i.i.i, i64 32
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit680: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit38.i.i.i.i.i.i.i.i.i
+_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit679: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit38.i.i.i.i.i.i.i.i.i
   %1315 = getelementptr inbounds nuw i8, ptr %.02997.i.i.i.i.i.i.i.i.i, i64 16
   br label %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i
 
-_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit.i.i.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit678, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit680, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit68.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit62.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit56.i.i.i.i.i.i.i.i.i
-  %.028.i.i.i.i.i.i.i.i143.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i141.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit56.i.i.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i.i144.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit62.i.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i.i142.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit68.i.i.i.i.i.i.i.i.i ], [ %1313, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit ], [ %1314, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit678 ], [ %1315, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit680 ], [ %.02997.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit.i.i.i.i.i.i.i.i.i ]
+_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i: ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit.i.i.i.i.i.i.i.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit677, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit679, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit68.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit62.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit56.i.i.i.i.i.i.i.i.i
+  %.028.i.i.i.i.i.i.i.i143.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i.i.i141.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit56.i.i.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i.i144.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit62.i.i.i.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i.i.i142.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit68.i.i.i.i.i.i.i.i.i ], [ %1313, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit ], [ %1314, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit677 ], [ %1315, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i.loopexit.split.loop.exit679 ], [ %.02997.i.i.i.i.i.i.i.i.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit.i.i.i.i.i.i.i.i.i ]
   %.not36.i = icmp eq ptr %.val10.i.i91, %.028.i.i.i.i.i.i.i.i143.i
   br i1 %.not36.i, label %.critedge2.i, label %.critedge2.sink.split.i
 
 .critedge2.sink.split.i:                          ; preds = %..critedge2.sink.split.i_crit_edge, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i
-  %1316 = phi ptr [ %.pre465, %..critedge2.sink.split.i_crit_edge ], [ %.val10.i.i91, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i ]
-  %1317 = phi ptr [ %.pre464, %..critedge2.sink.split.i_crit_edge ], [ %.val9.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i ]
+  %1316 = phi ptr [ %.pre464, %..critedge2.sink.split.i_crit_edge ], [ %.val10.i.i91, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i ]
+  %1317 = phi ptr [ %.pre463, %..critedge2.sink.split.i_crit_edge ], [ %.val9.i.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i ]
   %1318 = phi i1 [ true, %..critedge2.sink.split.i_crit_edge ], [ false, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i ]
   %.not24.i = icmp eq ptr %1317, %1316
   br i1 %.not24.i, label %.critedge2.i, label %.lr.ph.i107
 
-.lr.ph.i107:                                      ; preds = %.critedge2.sink.split.i, %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227
-  %.025.i = phi ptr [ %1603, %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227 ], [ %1317, %.critedge2.sink.split.i ]
+.lr.ph.i107:                                      ; preds = %.critedge2.sink.split.i, %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226
+  %.025.i = phi ptr [ %1603, %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226 ], [ %1317, %.critedge2.sink.split.i ]
   %1319 = load ptr, ptr %.025.i, align 8, !tbaa !181
   %.not17.i = icmp eq ptr %1319, null
-  br i1 %.not17.i, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227, label %1320
+  br i1 %.not17.i, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226, label %1320
 
 1320:                                             ; preds = %.lr.ph.i107
   %.val.i108 = load ptr, ptr %86, align 8, !tbaa !35
@@ -4986,14 +4986,14 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlo
   %1324 = getelementptr inbounds nuw %"class.(anonymous namespace)::ParameterStatus", ptr %.val20.i, i64 %.sroa.05.078.i
   %.val.i.i109 = load i32, ptr %1324, align 8, !tbaa !198
   %1325 = icmp eq i32 %.val.i.i109, 5
-  br i1 %1325, label %1326, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227
+  br i1 %1325, label %1326, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226
 
 1326:                                             ; preds = %1320
   %.0.copyload.i.i.i.i.i.i.i112 = load i64, ptr %1238, align 8, !noalias !283
   %1327 = and i64 %.0.copyload.i.i.i.i.i.i.i112, -8
   %1328 = inttoptr i64 %1327 to ptr
   %.not.not.i.i = icmp eq i64 %1327, 0
-  br i1 %.not.not.i.i, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227, label %1329
+  br i1 %.not.not.i.i, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226, label %1329
 
 1329:                                             ; preds = %1326
   %1330 = load i16, ptr %1328, align 8, !noalias !286
@@ -5005,7 +5005,7 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlo
   %1333 = load i32, ptr %1328, align 8, !noalias !286
   %1334 = and i32 %1333, 33030144
   %switch = icmp samesign ult i32 %1334, 17301504
-  br i1 %switch, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227, label %..critedge_crit_edge.i.i.i
+  br i1 %switch, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226, label %..critedge_crit_edge.i.i.i
 
 ..critedge_crit_edge.i.i.i:                       ; preds = %1332
   %.pre.i.i.i = and i16 %1330, 121
@@ -5138,8 +5138,8 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlo
     i16 117, label %.loopexit
     i16 118, label %.loopexit
     i16 119, label %.loopexit
-    i16 120, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227
-    i16 121, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227
+    i16 120, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226
+    i16 121, label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226
     i16 122, label %.loopexit
     i16 123, label %.loopexit
     i16 124, label %.loopexit
@@ -5312,13 +5312,13 @@ _ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlo
   %1353 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i199, i64 32
   %1354 = load ptr, ptr %1353, align 8, !tbaa !181, !noalias !290
   %1355 = icmp eq ptr %1354, %1319
-  br i1 %1355, label %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit718, label %1356
+  br i1 %1355, label %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit717, label %1356
 
 1356:                                             ; preds = %1352
   %1357 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i199, i64 48
   %1358 = load ptr, ptr %1357, align 8, !tbaa !181, !noalias !290
   %1359 = icmp eq ptr %1358, %1319
-  br i1 %1359, label %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit720, label %1360
+  br i1 %1359, label %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit719, label %1360
 
 1360:                                             ; preds = %1356
   %1361 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i199, i64 64
@@ -5373,16 +5373,16 @@ _ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.
   %1377 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i199, i64 16
   br label %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit
 
-_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit718: ; preds = %1352
+_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit717: ; preds = %1352
   %1378 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i199, i64 32
   br label %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit
 
-_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit720: ; preds = %1356
+_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit719: ; preds = %1356
   %1379 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i199, i64 48
   br label %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit
 
-_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit: ; preds = %1345, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit718, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit720, %1365, %._crit_edge._crit_edge.i.i.i.i.i.i.i194, %._crit_edge._crit_edge52.i.i.i.i.i.i.i190, %1376
-  %.028.i.i.i.i.i.i.i192 = phi ptr [ %.val.val316.i.i.i, %1376 ], [ %.029.lcssa.i.i.i.i.i.i.i189, %1365 ], [ %.1.i.i.i.i.i.i.i195, %._crit_edge._crit_edge.i.i.i.i.i.i.i194 ], [ %.2.i.i.i.i.i.i.i191, %._crit_edge._crit_edge52.i.i.i.i.i.i.i190 ], [ %1377, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit ], [ %1378, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit718 ], [ %1379, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit720 ], [ %.02946.i.i.i.i.i.i.i199, %1345 ]
+_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit: ; preds = %1345, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit717, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit719, %1365, %._crit_edge._crit_edge.i.i.i.i.i.i.i194, %._crit_edge._crit_edge52.i.i.i.i.i.i.i190, %1376
+  %.028.i.i.i.i.i.i.i192 = phi ptr [ %.val.val316.i.i.i, %1376 ], [ %.029.lcssa.i.i.i.i.i.i.i189, %1365 ], [ %.1.i.i.i.i.i.i.i195, %._crit_edge._crit_edge.i.i.i.i.i.i.i194 ], [ %.2.i.i.i.i.i.i.i191, %._crit_edge._crit_edge52.i.i.i.i.i.i.i190 ], [ %1377, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit ], [ %1378, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit717 ], [ %1379, %_ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit.loopexit.split.loop.exit719 ], [ %.02946.i.i.i.i.i.i.i199, %1345 ]
   %1380 = ptrtoint ptr %.028.i.i.i.i.i.i.i192 to i64
   %1381 = sub i64 %1380, %1340
   %1382 = lshr exact i64 %1381, 4
@@ -5422,13 +5422,13 @@ _ZN12_GLOBAL__N_118NotCalledClarifier14VisitWhileStmtEPKN5clang9WhileStmtE.exit:
   %1400 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i180, i64 32
   %1401 = load ptr, ptr %1400, align 8, !tbaa !181, !noalias !296
   %1402 = icmp eq ptr %1401, %1319
-  br i1 %1402, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit710, label %1403
+  br i1 %1402, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit709, label %1403
 
 1403:                                             ; preds = %1399
   %1404 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i180, i64 48
   %1405 = load ptr, ptr %1404, align 8, !tbaa !181, !noalias !296
   %1406 = icmp eq ptr %1405, %1319
-  br i1 %1406, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit712, label %1407
+  br i1 %1406, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit711, label %1407
 
 1407:                                             ; preds = %1403
   %1408 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i180, i64 64
@@ -5483,16 +5483,16 @@ _ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClar
   %1424 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i180, i64 16
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit
 
-_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit710: ; preds = %1399
+_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit709: ; preds = %1399
   %1425 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i180, i64 32
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit
 
-_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit712: ; preds = %1403
+_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit711: ; preds = %1403
   %1426 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i180, i64 48
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit
 
-_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit: ; preds = %1392, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit710, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit712, %1412, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i175, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i171, %1423
-  %.028.i.i.i.i.i.i.i.i173 = phi ptr [ %.val317.val319.i.i.i, %1423 ], [ %.029.lcssa.i.i.i.i.i.i.i.i170, %1412 ], [ %.1.i.i.i.i.i.i.i.i176, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i175 ], [ %.2.i.i.i.i.i.i.i.i172, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i171 ], [ %1424, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit ], [ %1425, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit710 ], [ %1426, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit712 ], [ %.02946.i.i.i.i.i.i.i.i180, %1392 ]
+_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit: ; preds = %1392, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit709, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit711, %1412, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i175, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i171, %1423
+  %.028.i.i.i.i.i.i.i.i173 = phi ptr [ %.val317.val319.i.i.i, %1423 ], [ %.029.lcssa.i.i.i.i.i.i.i.i170, %1412 ], [ %.1.i.i.i.i.i.i.i.i176, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i175 ], [ %.2.i.i.i.i.i.i.i.i172, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i171 ], [ %1424, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit ], [ %1425, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit709 ], [ %1426, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE24VisitConditionalOperatorEPKNS_19ConditionalOperatorE.exit.loopexit.split.loop.exit711 ], [ %.02946.i.i.i.i.i.i.i.i180, %1392 ]
   %1427 = ptrtoint ptr %.028.i.i.i.i.i.i.i.i173 to i64
   %1428 = sub i64 %1427, %1387
   %1429 = lshr exact i64 %1428, 4
@@ -5531,13 +5531,13 @@ _ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClar
   %1446 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 32
   %1447 = load ptr, ptr %1446, align 8, !tbaa !181, !noalias !303
   %1448 = icmp eq ptr %1447, %1319
-  br i1 %1448, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit702, label %1449
+  br i1 %1448, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit701, label %1449
 
 1449:                                             ; preds = %1445
   %1450 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 48
   %1451 = load ptr, ptr %1450, align 8, !tbaa !181, !noalias !303
   %1452 = icmp eq ptr %1451, %1319
-  br i1 %1452, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit704, label %1453
+  br i1 %1452, label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit703, label %1453
 
 1453:                                             ; preds = %1449
   %1454 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 64
@@ -5592,16 +5592,16 @@ _ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClar
   %1470 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 16
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit
 
-_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit702: ; preds = %1445
+_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit701: ; preds = %1445
   %1471 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 32
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit
 
-_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit704: ; preds = %1449
+_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit703: ; preds = %1449
   %1472 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i.i, i64 48
   br label %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit
 
-_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit: ; preds = %1438, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit702, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit704, %1458, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i163, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i, %1469
-  %.028.i.i.i.i.i.i.i.i161 = phi ptr [ %.val320.val322.i.i.i, %1469 ], [ %.029.lcssa.i.i.i.i.i.i.i.i159, %1458 ], [ %.1.i.i.i.i.i.i.i.i164, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i163 ], [ %.2.i.i.i.i.i.i.i.i160, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i ], [ %1470, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit ], [ %1471, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit702 ], [ %1472, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit704 ], [ %.02946.i.i.i.i.i.i.i.i, %1438 ]
+_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit: ; preds = %1438, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit701, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit703, %1458, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i163, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i, %1469
+  %.028.i.i.i.i.i.i.i.i161 = phi ptr [ %.val320.val322.i.i.i, %1469 ], [ %.029.lcssa.i.i.i.i.i.i.i.i159, %1458 ], [ %.1.i.i.i.i.i.i.i.i164, %._crit_edge._crit_edge.i.i.i.i.i.i.i.i163 ], [ %.2.i.i.i.i.i.i.i.i160, %._crit_edge._crit_edge52.i.i.i.i.i.i.i.i ], [ %1470, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit ], [ %1471, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit701 ], [ %1472, %_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClarifierESt8optionalINS3_13ClarificationEEJEE30VisitBinaryConditionalOperatorEPKNS_25BinaryConditionalOperatorE.exit.loopexit.split.loop.exit703 ], [ %.02946.i.i.i.i.i.i.i.i, %1438 ]
   %1473 = ptrtoint ptr %.028.i.i.i.i.i.i.i.i161 to i64
   %1474 = sub i64 %1473, %1433
   %1475 = lshr exact i64 %1474, 4
@@ -5657,13 +5657,13 @@ _ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_118NotCalledClar
   %1498 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i151, i64 32
   %1499 = load ptr, ptr %1498, align 8, !tbaa !181, !noalias !316
   %1500 = icmp eq ptr %1499, %1319
-  br i1 %1500, label %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit694, label %1501
+  br i1 %1500, label %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit693, label %1501
 
 1501:                                             ; preds = %1497
   %1502 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i151, i64 48
   %1503 = load ptr, ptr %1502, align 8, !tbaa !181, !noalias !316
   %1504 = icmp eq ptr %1503, %1319
-  br i1 %1504, label %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit696, label %1505
+  br i1 %1504, label %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit695, label %1505
 
 1505:                                             ; preds = %1501
   %1506 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i151, i64 64
@@ -5718,16 +5718,16 @@ _ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopex
   %1522 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i151, i64 16
   br label %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit
 
-_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit694: ; preds = %1497
+_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit693: ; preds = %1497
   %1523 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i151, i64 32
   br label %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit
 
-_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit696: ; preds = %1501
+_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit695: ; preds = %1501
   %1524 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i151, i64 48
   br label %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit
 
-_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit: ; preds = %1490, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit694, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit696, %1510, %._crit_edge._crit_edge.i.i.i.i.i.i.i146, %._crit_edge._crit_edge52.i.i.i.i.i.i.i142, %1521
-  %.028.i.i.i.i.i.i.i144 = phi ptr [ %.val324.val326.i.i.i, %1521 ], [ %.029.lcssa.i.i.i.i.i.i.i141, %1510 ], [ %.1.i.i.i.i.i.i.i147, %._crit_edge._crit_edge.i.i.i.i.i.i.i146 ], [ %.2.i.i.i.i.i.i.i143, %._crit_edge._crit_edge52.i.i.i.i.i.i.i142 ], [ %1522, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit ], [ %1523, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit694 ], [ %1524, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit696 ], [ %.02946.i.i.i.i.i.i.i151, %1490 ]
+_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit: ; preds = %1490, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit693, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit695, %1510, %._crit_edge._crit_edge.i.i.i.i.i.i.i146, %._crit_edge._crit_edge52.i.i.i.i.i.i.i142, %1521
+  %.028.i.i.i.i.i.i.i144 = phi ptr [ %.val324.val326.i.i.i, %1521 ], [ %.029.lcssa.i.i.i.i.i.i.i141, %1510 ], [ %.1.i.i.i.i.i.i.i147, %._crit_edge._crit_edge.i.i.i.i.i.i.i146 ], [ %.2.i.i.i.i.i.i.i143, %._crit_edge._crit_edge52.i.i.i.i.i.i.i142 ], [ %1522, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit ], [ %1523, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit693 ], [ %1524, %_ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit.loopexit.split.loop.exit695 ], [ %.02946.i.i.i.i.i.i.i151, %1490 ]
   %1525 = ptrtoint ptr %.028.i.i.i.i.i.i.i144 to i64
   %1526 = sub i64 %1525, %1485
   %1527 = lshr exact i64 %1526, 4
@@ -5766,13 +5766,13 @@ _ZN12_GLOBAL__N_118NotCalledClarifier11VisitIfStmtEPKN5clang6IfStmtE.exit: ; pre
   %1544 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i137, i64 32
   %1545 = load ptr, ptr %1544, align 8, !tbaa !181, !noalias !321
   %1546 = icmp eq ptr %1545, %1319
-  br i1 %1546, label %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit686, label %1547
+  br i1 %1546, label %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit685, label %1547
 
 1547:                                             ; preds = %1543
   %1548 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i137, i64 48
   %1549 = load ptr, ptr %1548, align 8, !tbaa !181, !noalias !321
   %1550 = icmp eq ptr %1549, %1319
-  br i1 %1550, label %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit688, label %1551
+  br i1 %1550, label %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit687, label %1551
 
 1551:                                             ; preds = %1547
   %1552 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i137, i64 64
@@ -5827,16 +5827,16 @@ _ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loop
   %1568 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i137, i64 16
   br label %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit
 
-_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit686: ; preds = %1543
+_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit685: ; preds = %1543
   %1569 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i137, i64 32
   br label %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit
 
-_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit688: ; preds = %1547
+_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit687: ; preds = %1547
   %1570 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i.i.i137, i64 48
   br label %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit
 
-_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit: ; preds = %1536, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit686, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit688, %1556, %._crit_edge._crit_edge.i.i.i.i.i.i.i132, %._crit_edge._crit_edge52.i.i.i.i.i.i.i129, %1567
-  %.028.i.i.i.i.i.i.i131 = phi ptr [ %.val327.val329.i.i.i, %1567 ], [ %.029.lcssa.i.i.i.i.i.i.i128, %1556 ], [ %.1.i.i.i.i.i.i.i133, %._crit_edge._crit_edge.i.i.i.i.i.i.i132 ], [ %.2.i.i.i.i.i.i.i130, %._crit_edge._crit_edge52.i.i.i.i.i.i.i129 ], [ %1568, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit ], [ %1569, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit686 ], [ %1570, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit688 ], [ %.02946.i.i.i.i.i.i.i137, %1536 ]
+_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit: ; preds = %1536, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit685, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit687, %1556, %._crit_edge._crit_edge.i.i.i.i.i.i.i132, %._crit_edge._crit_edge52.i.i.i.i.i.i.i129, %1567
+  %.028.i.i.i.i.i.i.i131 = phi ptr [ %.val327.val329.i.i.i, %1567 ], [ %.029.lcssa.i.i.i.i.i.i.i128, %1556 ], [ %.1.i.i.i.i.i.i.i133, %._crit_edge._crit_edge.i.i.i.i.i.i.i132 ], [ %.2.i.i.i.i.i.i.i130, %._crit_edge._crit_edge52.i.i.i.i.i.i.i129 ], [ %1568, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit ], [ %1569, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit685 ], [ %1570, %_ZN12_GLOBAL__N_118NotCalledClarifier12VisitForStmtEPKN5clang7ForStmtE.exit.loopexit.split.loop.exit687 ], [ %.02946.i.i.i.i.i.i.i137, %1536 ]
   %1571 = ptrtoint ptr %.028.i.i.i.i.i.i.i131 to i64
   %1572 = sub i64 %1571, %1531
   %1573 = lshr exact i64 %1572, 4
@@ -5895,14 +5895,14 @@ _ZN12_GLOBAL__N_117CalledOnceChecker18isExplicitlyMarkedEPKN5clang11ParmVarDeclE
   %1601 = getelementptr inbounds nuw i8, ptr %1600, i64 40
   %1602 = load ptr, ptr %1601, align 8
   call void %1602(ptr noundef nonnull align 8 dereferenceable(8) %1578, ptr noundef %1577, ptr noundef %1581, ptr noundef %.sroa.272206.6.ph, i32 noundef %.sroa.0.6.ph, i1 noundef zeroext %1318, i1 noundef zeroext %1599) #16
-  br label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227
+  br label %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226
 
-_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227: ; preds = %1332, %.critedge.i.i.i115, %.critedge.i.i.i115, %1326, %_ZN12_GLOBAL__N_117CalledOnceChecker18isExplicitlyMarkedEPKN5clang11ParmVarDeclE.exit.i122, %1320, %.lr.ph.i107
+_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226: ; preds = %1332, %.critedge.i.i.i115, %.critedge.i.i.i115, %1326, %_ZN12_GLOBAL__N_117CalledOnceChecker18isExplicitlyMarkedEPKN5clang11ParmVarDeclE.exit.i122, %1320, %.lr.ph.i107
   %1603 = getelementptr inbounds nuw i8, ptr %.025.i, i64 16
   %.not.i110 = icmp eq ptr %1603, %1316
   br i1 %.not.i110, label %.critedge2.i, label %.lr.ph.i107
 
-.critedge2.i:                                     ; preds = %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread227, %.critedge2.sink.split.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit68.i.i.i.i.i.i.i.i.i, %1307, %._crit_edge.i.i.i.i.i.i.i.i140.i, %1255, %.critedge.i
+.critedge2.i:                                     ; preds = %_ZN12_GLOBAL__N_118NotCalledClarifier7clarifyEPKN5clang8CFGBlockES4_.exit.i.thread226, %.critedge2.sink.split.i, %_ZNK12_GLOBAL__N_117CalledOnceChecker12isLosingJoinERKNS_5StateEPKN5clang8CFGBlockEjNS_15ParameterStatus4KindES9_.exit.i, %_ZN9__gnu_cxx5__ops10_Iter_predIZNK12_GLOBAL__N_117CalledOnceChecker21anySuccessorHasStatusEPKN5clang8CFGBlockEjNS2_15ParameterStatus4KindEEUlS7_E_EclIPKNS5_13AdjacentBlockEEEbT_.exit68.i.i.i.i.i.i.i.i.i, %1307, %._crit_edge.i.i.i.i.i.i.i.i140.i, %1255, %.critedge.i
   %1604 = add nuw nsw i64 %.sroa.05.078.i, 1
   %.not33.i = icmp eq i64 %1604, %1235
   br i1 %.not33.i, label %.loopexit.i, label %1239
@@ -7213,16 +7213,16 @@ define internal fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_cons
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %166, %2
-  %.tr329 = phi ptr [ %1, %2 ], [ %168, %166 ]
-  %3 = load i16, ptr %.tr329, align 8
+  %.tr328 = phi ptr [ %1, %2 ], [ %168, %166 ]
+  %3 = load i16, ptr %.tr328, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %4, 120
-  %.not327 = icmp eq ptr %.tr329, null
-  %.not = or i1 %.not327, %spec.select.i.i.i.i.i.i.i.i
+  %.not326 = icmp eq ptr %.tr328, null
+  %.not = or i1 %.not326, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %76, label %5
 
 5:                                                ; preds = %tailrecurse
-  %6 = load i32, ptr %.tr329, align 8
+  %6 = load i32, ptr %.tr328, align 8
   %7 = lshr i32 %6, 19
   %8 = and i32 %7, 63
   %9 = trunc i32 %6 to i16
@@ -7263,145 +7263,145 @@ tailrecurse:                                      ; preds = %166, %2
   ]
 
 10:                                               ; preds = %5
-  %11 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %11 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 12:                                               ; preds = %5
-  %13 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %13 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 14:                                               ; preds = %5
-  %15 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %15 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 16:                                               ; preds = %5
-  %17 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %17 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 18:                                               ; preds = %5
-  %19 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %19 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 20:                                               ; preds = %5
-  %21 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %21 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 22:                                               ; preds = %5
-  %23 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %23 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 24:                                               ; preds = %5
-  %25 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %25 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 26:                                               ; preds = %5
-  %27 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %27 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 28:                                               ; preds = %5
-  %29 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %29 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 30:                                               ; preds = %5
-  %31 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %31 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 32:                                               ; preds = %5
-  %33 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %33 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 34:                                               ; preds = %5
-  %35 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %35 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 36:                                               ; preds = %5
-  %37 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %37 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 38:                                               ; preds = %5
-  %39 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %39 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 40:                                               ; preds = %5
-  %41 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %41 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 42:                                               ; preds = %5
-  %43 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %43 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 44:                                               ; preds = %5
-  %45 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %45 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 46:                                               ; preds = %5
-  %47 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %47 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 48:                                               ; preds = %5
-  %49 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %49 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 50:                                               ; preds = %5
-  %51 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %51 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 52:                                               ; preds = %5
-  %53 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %53 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 54:                                               ; preds = %5
-  %55 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %55 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 56:                                               ; preds = %5
-  %57 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %57 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 58:                                               ; preds = %5
-  %59 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %59 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 60:                                               ; preds = %5
-  %61 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %61 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 62:                                               ; preds = %5
-  %63 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %63 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 64:                                               ; preds = %5
-  %65 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %65 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 66:                                               ; preds = %5
-  %67 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %67 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 68:                                               ; preds = %5
-  %69 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %69 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 70:                                               ; preds = %5
-  %71 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %71 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 72:                                               ; preds = %5
-  %73 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %73 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE27VisitCompoundAssignOperatorEPKNS_22CompoundAssignOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 74:                                               ; preds = %5
-  %75 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %75 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 76:                                               ; preds = %tailrecurse
   %77 = and i16 %3, 511
   %78 = icmp ne i16 %77, 4
-  %.not317 = or i1 %.not327, %78
+  %.not317 = or i1 %.not326, %78
   br i1 %.not317, label %112, label %79
 
 79:                                               ; preds = %76
-  %80 = load i32, ptr %.tr329, align 8
+  %80 = load i32, ptr %.tr328, align 8
   %81 = lshr i32 %80, 19
   %82 = and i32 %81, 31
   %83 = trunc i32 %80 to i16
@@ -7423,59 +7423,59 @@ tailrecurse:                                      ; preds = %166, %2
   ]
 
 84:                                               ; preds = %79
-  %85 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %85 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 86:                                               ; preds = %79
-  %87 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %87 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 88:                                               ; preds = %79
-  %89 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %89 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 90:                                               ; preds = %79
-  %91 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %91 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 92:                                               ; preds = %79
-  %93 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %93 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 94:                                               ; preds = %79
-  %95 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %95 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 96:                                               ; preds = %79
-  %97 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %97 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 98:                                               ; preds = %79
-  %99 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %99 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 100:                                              ; preds = %79
-  %101 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %101 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 102:                                              ; preds = %79
-  %103 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %103 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 104:                                              ; preds = %79
-  %105 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %105 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 106:                                              ; preds = %79
-  %107 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %107 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 108:                                              ; preds = %79
-  %109 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %109 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 110:                                              ; preds = %79
-  %111 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %111 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 112:                                              ; preds = %5, %76, %79
@@ -7744,523 +7744,523 @@ tailrecurse:                                      ; preds = %166, %2
   unreachable
 
 116:                                              ; preds = %112
-  %117 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %117 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 118:                                              ; preds = %112
-  %119 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %119 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder18VisitUnaryOperatorEPKN5clang13UnaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 120:                                              ; preds = %112
-  %121 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %121 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 122:                                              ; preds = %112
-  %123 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %123 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 124:                                              ; preds = %112
-  %125 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %125 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 126:                                              ; preds = %112
-  %127 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %127 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 128:                                              ; preds = %112
-  %129 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %129 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 130:                                              ; preds = %112
-  %131 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %131 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 132:                                              ; preds = %112
-  %133 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %133 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 134:                                              ; preds = %112
-  %135 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %135 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 136:                                              ; preds = %112
-  %137 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %137 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 138:                                              ; preds = %112
-  %139 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %139 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 140:                                              ; preds = %112
-  %141 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %141 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 142:                                              ; preds = %112
-  %143 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %143 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 144:                                              ; preds = %112
-  %145 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %145 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 146:                                              ; preds = %112
-  %147 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %147 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 148:                                              ; preds = %112
-  %149 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %149 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 150:                                              ; preds = %112
-  %151 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %151 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 152:                                              ; preds = %112
-  %153 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %153 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 154:                                              ; preds = %112
-  %155 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %155 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 156:                                              ; preds = %112
-  %157 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %157 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 158:                                              ; preds = %112
-  %159 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %159 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 160:                                              ; preds = %112
-  %161 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE17VisitOverloadExprEPKNS_12OverloadExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %161 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE17VisitOverloadExprEPKNS_12OverloadExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 162:                                              ; preds = %112
-  %163 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE17VisitOverloadExprEPKNS_12OverloadExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %163 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE17VisitOverloadExprEPKNS_12OverloadExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 164:                                              ; preds = %112
-  %165 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %165 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 166:                                              ; preds = %112
-  %167 = getelementptr inbounds nuw i8, ptr %.tr329, i64 16
+  %167 = getelementptr inbounds nuw i8, ptr %.tr328, i64 16
   %168 = load ptr, ptr %167, align 8, !tbaa !353
   br label %tailrecurse
 
 169:                                              ; preds = %112
-  %170 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %170 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 171:                                              ; preds = %112
-  %172 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %172 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 173:                                              ; preds = %112
-  %174 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %174 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 175:                                              ; preds = %112
-  %176 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %176 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 177:                                              ; preds = %112
-  %178 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %178 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 179:                                              ; preds = %112
-  %180 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %180 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 181:                                              ; preds = %112
-  %182 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %182 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 183:                                              ; preds = %112
-  %184 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %184 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 185:                                              ; preds = %112
-  %186 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %186 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 187:                                              ; preds = %112
-  %188 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %188 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 189:                                              ; preds = %112
-  %190 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %190 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 191:                                              ; preds = %112
-  %192 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %192 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 193:                                              ; preds = %112
-  %194 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %194 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 195:                                              ; preds = %112
-  %196 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %196 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 197:                                              ; preds = %112
-  %198 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %198 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 199:                                              ; preds = %112
-  %200 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %200 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 201:                                              ; preds = %112
-  %202 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %202 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 203:                                              ; preds = %112
-  %204 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %204 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 205:                                              ; preds = %112
-  %206 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %206 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 207:                                              ; preds = %112
-  %208 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %208 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 209:                                              ; preds = %112
-  %210 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %210 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 211:                                              ; preds = %112
-  %212 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %212 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 213:                                              ; preds = %112
-  %214 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %214 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 215:                                              ; preds = %112
-  %216 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %216 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 217:                                              ; preds = %112
-  %218 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %218 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 219:                                              ; preds = %112
-  %220 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %220 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 221:                                              ; preds = %112
-  %222 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %222 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 223:                                              ; preds = %112
-  %224 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %224 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 225:                                              ; preds = %112
-  %226 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %226 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 227:                                              ; preds = %112
-  %228 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %228 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 229:                                              ; preds = %112
-  %230 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %230 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 231:                                              ; preds = %112
-  %232 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %232 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 233:                                              ; preds = %112
-  %234 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %234 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 235:                                              ; preds = %112
-  %236 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitFullExprEPKNS_8FullExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %236 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitFullExprEPKNS_8FullExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 237:                                              ; preds = %112
-  %238 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitFullExprEPKNS_8FullExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %238 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitFullExprEPKNS_8FullExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 239:                                              ; preds = %112
-  %240 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %240 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 241:                                              ; preds = %112
-  %242 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %242 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 243:                                              ; preds = %112
-  %244 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %244 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 245:                                              ; preds = %112
-  %246 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %246 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 247:                                              ; preds = %112
-  %248 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %248 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 249:                                              ; preds = %112
-  %250 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %250 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 251:                                              ; preds = %112
-  %252 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %252 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 253:                                              ; preds = %112
-  %254 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %254 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 255:                                              ; preds = %112
-  %256 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %256 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 257:                                              ; preds = %112
-  %258 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE25VisitCoroutineSuspendExprEPKNS_20CoroutineSuspendExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %258 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE25VisitCoroutineSuspendExprEPKNS_20CoroutineSuspendExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 259:                                              ; preds = %112
-  %260 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE25VisitCoroutineSuspendExprEPKNS_20CoroutineSuspendExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %260 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE25VisitCoroutineSuspendExprEPKNS_20CoroutineSuspendExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 261:                                              ; preds = %112
-  %262 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %262 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 263:                                              ; preds = %112
-  %264 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %264 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 265:                                              ; preds = %112
-  %266 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %266 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 267:                                              ; preds = %112
-  %268 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %268 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 269:                                              ; preds = %112
-  %270 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %270 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 271:                                              ; preds = %112
-  %272 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %272 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 273:                                              ; preds = %112
-  %274 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %274 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 275:                                              ; preds = %112
-  %276 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %276 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 277:                                              ; preds = %112
-  %278 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %278 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 279:                                              ; preds = %112
-  %280 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %280 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 281:                                              ; preds = %112
-  %282 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %282 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 283:                                              ; preds = %112
-  %284 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %284 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE13VisitCastExprEPKNS_8CastExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 285:                                              ; preds = %112
-  %286 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %286 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 287:                                              ; preds = %112
-  %288 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %288 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 289:                                              ; preds = %112
-  %290 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %290 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 291:                                              ; preds = %112
-  %292 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %292 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 293:                                              ; preds = %112
-  %294 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %294 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 295:                                              ; preds = %112
-  %296 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %296 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 297:                                              ; preds = %112
-  %298 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %298 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 299:                                              ; preds = %112
-  %300 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %300 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 301:                                              ; preds = %112
-  %302 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %302 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 303:                                              ; preds = %112
-  %304 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %304 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 305:                                              ; preds = %112
-  %306 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %306 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 307:                                              ; preds = %112
-  %308 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %308 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 309:                                              ; preds = %112
-  %310 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %310 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 311:                                              ; preds = %112
-  %312 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %312 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 313:                                              ; preds = %112
-  %314 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %314 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 315:                                              ; preds = %112
-  %316 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %316 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 317:                                              ; preds = %112
-  %318 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %318 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 319:                                              ; preds = %112
-  %320 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %320 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 321:                                              ; preds = %112
-  %322 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %322 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 323:                                              ; preds = %112
-  %324 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %324 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 325:                                              ; preds = %112
-  %326 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %326 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 327:                                              ; preds = %112
-  %328 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %328 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 329:                                              ; preds = %112
-  %330 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %330 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 331:                                              ; preds = %112
-  %332 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %332 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 333:                                              ; preds = %112
-  %334 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %334 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 335:                                              ; preds = %112
-  %336 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %336 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 337:                                              ; preds = %112
-  %338 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %338 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 339:                                              ; preds = %112
-  %340 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %340 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 341:                                              ; preds = %112
-  %342 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %342 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE21VisitCXXConstructExprEPKNS_16CXXConstructExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 343:                                              ; preds = %112
-  %344 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %344 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 345:                                              ; preds = %112
-  %346 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %346 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 347:                                              ; preds = %112
-  %348 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %348 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 349:                                              ; preds = %112
-  %350 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %350 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 351:                                              ; preds = %112
-  %352 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr329)
+  %352 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder19VisitBinaryOperatorEPKN5clang14BinaryOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %.tr328)
   br label %.thread323
 
 353:                                              ; preds = %112
-  %354 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %354 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 355:                                              ; preds = %112
-  %356 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %356 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 357:                                              ; preds = %112
-  %358 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %358 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 359:                                              ; preds = %112
-  %360 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %360 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 361:                                              ; preds = %112
-  %362 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %362 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 363:                                              ; preds = %112
-  %364 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %364 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 365:                                              ; preds = %112
-  %366 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %366 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 367:                                              ; preds = %112
-  %368 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %368 = tail call fastcc noundef ptr @_ZN12_GLOBAL__N_113DeclRefFinder9VisitExprEPKN5clang4ExprE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 369:                                              ; preds = %112
-  %370 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE32VisitAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %370 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE32VisitAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 371:                                              ; preds = %112
-  %372 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE32VisitAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr329)
+  %372 = tail call fastcc noundef ptr @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_113DeclRefFinderEPKNS_11DeclRefExprEJEE32VisitAbstractConditionalOperatorEPKNS_27AbstractConditionalOperatorE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.tr328)
   br label %.thread323
 
 .thread323.loopexit:                              ; preds = %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112, %112
   br label %.thread323
 
 .thread323:                                       ; preds = %112, %.thread323.loopexit, %110, %108, %106, %104, %102, %100, %98, %96, %94, %92, %90, %88, %86, %84, %74, %72, %70, %68, %66, %64, %62, %60, %58, %56, %54, %52, %50, %48, %46, %44, %42, %40, %38, %36, %34, %32, %30, %28, %26, %24, %22, %20, %18, %16, %14, %12, %10, %371, %369, %367, %365, %363, %361, %359, %357, %355, %353, %351, %349, %347, %345, %343, %341, %339, %337, %335, %333, %331, %329, %327, %325, %323, %321, %319, %317, %315, %313, %311, %309, %307, %305, %303, %301, %299, %297, %295, %293, %291, %289, %287, %285, %283, %281, %279, %277, %275, %273, %271, %269, %267, %265, %263, %261, %259, %257, %255, %253, %251, %249, %247, %245, %243, %241, %239, %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %211, %209, %207, %205, %203, %201, %199, %197, %195, %193, %191, %189, %187, %185, %183, %181, %179, %177, %175, %173, %171, %169, %164, %162, %160, %158, %156, %154, %152, %150, %148, %146, %144, %142, %140, %138, %136, %134, %132, %130, %128, %126, %124, %122, %120, %118, %116
-  %.3 = phi ptr [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ null, %.thread323.loopexit ], [ %.tr329, %112 ]
+  %.3 = phi ptr [ %117, %116 ], [ %119, %118 ], [ %121, %120 ], [ %123, %122 ], [ %125, %124 ], [ %127, %126 ], [ %129, %128 ], [ %131, %130 ], [ %133, %132 ], [ %135, %134 ], [ %137, %136 ], [ %139, %138 ], [ %141, %140 ], [ %143, %142 ], [ %145, %144 ], [ %147, %146 ], [ %149, %148 ], [ %151, %150 ], [ %153, %152 ], [ %155, %154 ], [ %157, %156 ], [ %159, %158 ], [ %161, %160 ], [ %163, %162 ], [ %165, %164 ], [ %170, %169 ], [ %172, %171 ], [ %174, %173 ], [ %176, %175 ], [ %178, %177 ], [ %180, %179 ], [ %182, %181 ], [ %184, %183 ], [ %186, %185 ], [ %188, %187 ], [ %190, %189 ], [ %192, %191 ], [ %194, %193 ], [ %196, %195 ], [ %198, %197 ], [ %200, %199 ], [ %202, %201 ], [ %204, %203 ], [ %206, %205 ], [ %208, %207 ], [ %210, %209 ], [ %212, %211 ], [ %214, %213 ], [ %216, %215 ], [ %218, %217 ], [ %220, %219 ], [ %222, %221 ], [ %224, %223 ], [ %226, %225 ], [ %228, %227 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %238, %237 ], [ %240, %239 ], [ %242, %241 ], [ %244, %243 ], [ %246, %245 ], [ %248, %247 ], [ %250, %249 ], [ %252, %251 ], [ %254, %253 ], [ %256, %255 ], [ %258, %257 ], [ %260, %259 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %274, %273 ], [ %276, %275 ], [ %278, %277 ], [ %280, %279 ], [ %282, %281 ], [ %284, %283 ], [ %286, %285 ], [ %288, %287 ], [ %290, %289 ], [ %292, %291 ], [ %294, %293 ], [ %296, %295 ], [ %298, %297 ], [ %300, %299 ], [ %302, %301 ], [ %304, %303 ], [ %306, %305 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %316, %315 ], [ %318, %317 ], [ %320, %319 ], [ %322, %321 ], [ %324, %323 ], [ %326, %325 ], [ %328, %327 ], [ %330, %329 ], [ %332, %331 ], [ %334, %333 ], [ %336, %335 ], [ %338, %337 ], [ %340, %339 ], [ %342, %341 ], [ %344, %343 ], [ %346, %345 ], [ %348, %347 ], [ %350, %349 ], [ %352, %351 ], [ %354, %353 ], [ %356, %355 ], [ %358, %357 ], [ %360, %359 ], [ %362, %361 ], [ %364, %363 ], [ %366, %365 ], [ %368, %367 ], [ %370, %369 ], [ %372, %371 ], [ %75, %74 ], [ %73, %72 ], [ %71, %70 ], [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ], [ %51, %50 ], [ %49, %48 ], [ %47, %46 ], [ %45, %44 ], [ %43, %42 ], [ %41, %40 ], [ %39, %38 ], [ %37, %36 ], [ %35, %34 ], [ %33, %32 ], [ %31, %30 ], [ %29, %28 ], [ %27, %26 ], [ %25, %24 ], [ %23, %22 ], [ %21, %20 ], [ %19, %18 ], [ %17, %16 ], [ %15, %14 ], [ %13, %12 ], [ %11, %10 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ], [ %103, %102 ], [ %101, %100 ], [ %99, %98 ], [ %97, %96 ], [ %95, %94 ], [ %93, %92 ], [ %91, %90 ], [ %89, %88 ], [ %87, %86 ], [ %85, %84 ], [ null, %.thread323.loopexit ], [ %.tr328, %112 ]
   ret ptr %.3
 }
 
@@ -11988,13 +11988,13 @@ _ZN12_GLOBAL__N_125findReferencedParmVarDeclEPKN5clang4ExprEb.exit: ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !131
   %24 = icmp eq ptr %23, %7
-  br i1 %24, label %.loopexit.loopexit.split.loop.exit34, label %25
+  br i1 %24, label %.loopexit.loopexit.split.loop.exit33, label %25
 
 25:                                               ; preds = %21
   %26 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !131
   %28 = icmp eq ptr %27, %7
-  br i1 %28, label %.loopexit.loopexit.split.loop.exit32, label %29
+  br i1 %28, label %.loopexit.loopexit.split.loop.exit31, label %29
 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
@@ -12057,16 +12057,16 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 24
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit32:             ; preds = %25
+.loopexit.loopexit.split.loop.exit31:             ; preds = %25
   %51 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 16
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit34:             ; preds = %21
+.loopexit.loopexit.split.loop.exit33:             ; preds = %21
   %52 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %18, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit32, %.loopexit.loopexit.split.loop.exit34, %49, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %38
-  %.028.i.i.i.i.i = phi ptr [ %15, %49 ], [ %.029.lcssa.i.i.i.i.i, %38 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %50, %.loopexit.loopexit.split.loop.exit ], [ %51, %.loopexit.loopexit.split.loop.exit32 ], [ %52, %.loopexit.loopexit.split.loop.exit34 ], [ %.02946.i.i.i.i.i, %18 ]
+.loopexit:                                        ; preds = %18, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit31, %.loopexit.loopexit.split.loop.exit33, %49, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %38
+  %.028.i.i.i.i.i = phi ptr [ %15, %49 ], [ %.029.lcssa.i.i.i.i.i, %38 ], [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %50, %.loopexit.loopexit.split.loop.exit ], [ %51, %.loopexit.loopexit.split.loop.exit31 ], [ %52, %.loopexit.loopexit.split.loop.exit33 ], [ %.02946.i.i.i.i.i, %18 ]
   %53 = getelementptr inbounds nuw ptr, ptr %.val, i64 %14
   %.not.not.i6 = icmp eq ptr %.028.i.i.i.i.i, %53
   %54 = ptrtoint ptr %.028.i.i.i.i.i to i64
@@ -12080,9 +12080,9 @@ default.unreachable:                              ; preds = %._crit_edge.i.i.i.i
   br label %60
 
 60:                                               ; preds = %2, %5, %.loopexit
-  %.sroa.0.017 = phi i64 [ %59, %.loopexit ], [ 0, %5 ], [ 0, %2 ]
+  %.sroa.0.016 = phi i64 [ %59, %.loopexit ], [ 0, %5 ], [ 0, %2 ]
   %.sroa.2.1 = phi i64 [ %.sroa.2.0.extract.shift, %.loopexit ], [ 0, %5 ], [ 0, %2 ]
-  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.0.017
+  %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.1, %.sroa.0.016
   ret i64 %.sroa.0.0.insert.insert
 }
 

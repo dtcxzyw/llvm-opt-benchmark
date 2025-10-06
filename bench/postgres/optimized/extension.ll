@@ -1940,19 +1940,19 @@ define dso_local noundef zeroext i1 @extension_file_exists(ptr noundef readonly 
 11:                                               ; preds = %7, %1
   %12 = call ptr @ReadDir(ptr noundef %5, ptr noundef %3) #14
   %.not17.not = icmp eq ptr %12, null
-  br i1 %.not17.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not17.not, label %.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %11, %.backedge
-  %13 = phi ptr [ %25, %.backedge ], [ %12, %11 ]
+.lr.ph:                                           ; preds = %11, %is_extension_control_filename.exit.thread
+  %13 = phi ptr [ %25, %is_extension_control_filename.exit.thread ], [ %12, %11 ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 19
   %15 = call ptr @strrchr(ptr noundef nonnull readonly dereferenceable(1) %14, i32 noundef 46) #16
   %.not.i = icmp eq ptr %15, null
-  br i1 %.not.i, label %.backedge, label %is_extension_control_filename.exit
+  br i1 %.not.i, label %is_extension_control_filename.exit.thread, label %is_extension_control_filename.exit
 
 is_extension_control_filename.exit:               ; preds = %.lr.ph
   %16 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.107) #16
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %.backedge, !llvm.loop !12
+  br i1 %17, label %18, label %is_extension_control_filename.exit.thread, !llvm.loop !12
 
 18:                                               ; preds = %is_extension_control_filename.exit
   %19 = call ptr @pstrdup(ptr noundef nonnull %14) #14
@@ -1960,25 +1960,25 @@ is_extension_control_filename.exit:               ; preds = %.lr.ph
   store i8 0, ptr %20, align 1
   %21 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) @.str.10) #16
   %.not14 = icmp eq ptr %21, null
-  br i1 %.not14, label %22, label %.backedge, !llvm.loop !12
+  br i1 %.not14, label %22, label %is_extension_control_filename.exit.thread, !llvm.loop !12
 
 22:                                               ; preds = %18
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %0) #16
   %24 = icmp eq i32 %23, 0
-  br i1 %24, label %._crit_edge, label %.backedge
+  br i1 %24, label %.thread, label %is_extension_control_filename.exit.thread
 
-.backedge:                                        ; preds = %is_extension_control_filename.exit, %18, %.lr.ph, %22
+is_extension_control_filename.exit.thread:        ; preds = %.lr.ph, %22, %18, %is_extension_control_filename.exit
   %25 = call ptr @ReadDir(ptr noundef %5, ptr noundef %3) #14
   %.not.not = icmp eq ptr %25, null
-  br i1 %.not.not, label %._crit_edge, label %.lr.ph
+  br i1 %.not.not, label %.thread, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.backedge, %22, %11
-  %.not.lcssa = phi i1 [ false, %11 ], [ false, %.backedge ], [ true, %22 ]
+.thread:                                          ; preds = %is_extension_control_filename.exit.thread, %22, %11
+  %.not.lcssa = phi i1 [ false, %11 ], [ true, %22 ], [ false, %is_extension_control_filename.exit.thread ]
   %26 = call i32 @FreeDir(ptr noundef %5) #14
   br label %27
 
-27:                                               ; preds = %7, %._crit_edge
-  %.012 = phi i1 [ false, %7 ], [ %.not.lcssa, %._crit_edge ]
+27:                                               ; preds = %7, %.thread
+  %.012 = phi i1 [ false, %7 ], [ %.not.lcssa, %.thread ]
   ret i1 %.012
 }
 

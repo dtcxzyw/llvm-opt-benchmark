@@ -786,7 +786,7 @@ define linkonce_odr void @_ZN6icu_778internal16LocalOpenPointerI15UResourceBundl
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define noundef ptr @_ZNK6icu_775units15ConversionRates21extractConversionInfoENS_11StringPieceER10UErrorCode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %0, ptr readonly captures(none) %1, i32 %2, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %3) local_unnamed_addr #12 align 2 {
-  %.fr20 = freeze i32 %2
+  %.fr18 = freeze i32 %2
   %5 = load i32, ptr %0, align 8, !tbaa !33
   %6 = sext i32 %5 to i64
   %.not = icmp eq i32 %5, 0
@@ -795,13 +795,13 @@ define noundef ptr @_ZNK6icu_775units15ConversionRates21extractConversionInfoENS
 .lr.ph:                                           ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !38
-  %9 = icmp eq i32 %.fr20, 0
-  %10 = sext i32 %.fr20 to i64
+  %9 = icmp eq i32 %.fr18, 0
+  %10 = sext i32 %.fr18 to i64
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us
-  %.01017.us = phi i64 [ %16, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us ], [ 0, %.lr.ph ]
-  %11 = getelementptr inbounds ptr, ptr %8, i64 %.01017.us
+  %.01015.us = phi i64 [ %16, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us ], [ 0, %.lr.ph ]
+  %11 = getelementptr inbounds ptr, ptr %8, i64 %.01015.us
   %12 = load ptr, ptr %11, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load i32, ptr %13, align 8, !tbaa !15
@@ -809,17 +809,17 @@ define noundef ptr @_ZNK6icu_775units15ConversionRates21extractConversionInfoENS
   br i1 %15, label %.thread, label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us
 
 _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us: ; preds = %.lr.ph.split.us
-  %16 = add nuw i64 %.01017.us, 1
-  %exitcond26.not = icmp eq i64 %16, %6
-  br i1 %exitcond26.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !41
+  %16 = add nuw i64 %.01015.us, 1
+  %exitcond24.not = icmp eq i64 %16, %6
+  br i1 %exitcond24.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !41
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12
-  %.01017 = phi i64 [ %25, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12 ], [ 0, %.lr.ph ]
-  %17 = getelementptr inbounds ptr, ptr %8, i64 %.01017
+  %.01015 = phi i64 [ %25, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12 ], [ 0, %.lr.ph ]
+  %17 = getelementptr inbounds ptr, ptr %8, i64 %.01015
   %18 = load ptr, ptr %17, align 8, !tbaa !39
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %20 = load i32, ptr %19, align 8, !tbaa !15
-  %21 = icmp eq i32 %20, %.fr20
+  %21 = icmp eq i32 %20, %.fr18
   br i1 %21, label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit, label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12
 
 _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit: ; preds = %.lr.ph.split
@@ -830,7 +830,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit: ; preds = %.lr.ph.split
   br i1 %24, label %.thread, label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12
 
 _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12: ; preds = %.lr.ph.split, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit
-  %25 = add nuw i64 %.01017, 1
+  %25 = add nuw i64 %.01015, 1
   %exitcond.not = icmp eq i64 %25, %6
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !41
 
@@ -1831,7 +1831,7 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %2
 313:                                              ; preds = %312
   %314 = load ptr, ptr %34, align 8
   %315 = load i32, ptr %262, align 8
-  %.fr20.i = freeze i32 %315
+  %.fr18.i = freeze i32 %315
   %316 = load i32, ptr %31, align 8, !tbaa !33
   %317 = sext i32 %316 to i64
   %.not.i151 = icmp eq i32 %316, 0
@@ -1839,13 +1839,13 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %2
 
 .lr.ph.i:                                         ; preds = %313
   %318 = load ptr, ptr %252, align 8, !tbaa !38
-  %319 = icmp eq i32 %.fr20.i, 0
-  %320 = sext i32 %.fr20.i to i64
+  %319 = icmp eq i32 %.fr18.i, 0
+  %320 = sext i32 %.fr18.i to i64
   br i1 %319, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us.i
-  %.01017.us.i = phi i64 [ %326, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us.i ], [ 0, %.lr.ph.i ]
-  %321 = getelementptr inbounds ptr, ptr %318, i64 %.01017.us.i
+  %.01015.us.i = phi i64 [ %326, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us.i ], [ 0, %.lr.ph.i ]
+  %321 = getelementptr inbounds ptr, ptr %318, i64 %.01015.us.i
   %322 = load ptr, ptr %321, align 8, !tbaa !39
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 64
   %324 = load i32, ptr %323, align 8, !tbaa !15
@@ -1853,17 +1853,17 @@ _ZN6icu_7715MeasureUnitImplD2Ev.exit:             ; preds = %._crit_edge.i.i, %2
   br i1 %325, label %_ZNK6icu_775units15ConversionRates21extractConversionInfoENS_11StringPieceER10UErrorCode.exit, label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us.i
 
 _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.us.i: ; preds = %.lr.ph.split.us.i
-  %326 = add nuw i64 %.01017.us.i, 1
-  %exitcond26.not.i = icmp eq i64 %326, %317
-  br i1 %exitcond26.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !41
+  %326 = add nuw i64 %.01015.us.i, 1
+  %exitcond24.not.i = icmp eq i64 %326, %317
+  br i1 %exitcond24.not.i, label %._crit_edge.i, label %.lr.ph.split.us.i, !llvm.loop !41
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.i
-  %.01017.i = phi i64 [ %335, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.i ], [ 0, %.lr.ph.i ]
-  %327 = getelementptr inbounds ptr, ptr %318, i64 %.01017.i
+  %.01015.i = phi i64 [ %335, %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.i ], [ 0, %.lr.ph.i ]
+  %327 = getelementptr inbounds ptr, ptr %318, i64 %.01015.i
   %328 = load ptr, ptr %327, align 8, !tbaa !39
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 64
   %330 = load i32, ptr %329, align 8, !tbaa !15
-  %331 = icmp eq i32 %330, %.fr20.i
+  %331 = icmp eq i32 %330, %.fr18.i
   br i1 %331, label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.i, label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.i
 
 _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.i: ; preds = %.lr.ph.split.i
@@ -1874,7 +1874,7 @@ _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.i: ; preds = %.lr.ph.split.i
   br i1 %334, label %_ZNK6icu_775units15ConversionRates21extractConversionInfoENS_11StringPieceER10UErrorCode.exit, label %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.i
 
 _ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.thread12.i: ; preds = %_ZNK6icu_7710CharStringeqENS_11StringPieceE.exit.i, %.lr.ph.split.i
-  %335 = add nuw i64 %.01017.i, 1
+  %335 = add nuw i64 %.01015.i, 1
   %exitcond.not.i = icmp eq i64 %335, %317
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !41
 

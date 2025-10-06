@@ -1602,10 +1602,9 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %160, %.sink.split.i
   %286 = getelementptr inbounds nuw %struct.rcSweepSpan, ptr %44, i64 %indvars.iv401
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 6
   %288 = load i16, ptr %287, align 2
-  switch i16 %288, label %289 [
-    i16 -1, label %306
-    i16 0, label %306
-  ]
+  %.off = add i16 %288, -1
+  %switch = icmp ult i16 %.off, -2
+  br i1 %switch, label %289, label %306
 
 289:                                              ; preds = %.lr.ph379
   %290 = zext i16 %288 to i64
@@ -1637,7 +1636,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %160, %.sink.split.i
   %305 = load i16, ptr %287, align 2
   br label %308
 
-306:                                              ; preds = %.lr.ph379, %.lr.ph379, %296
+306:                                              ; preds = %.lr.ph379, %296
   %307 = add i16 %.2170378, 1
   br label %308
 
@@ -7857,10 +7856,9 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %164, %.sink.split.i
   %290 = getelementptr inbounds nuw %struct.rcSweepSpan, ptr %48, i64 %indvars.iv416
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 6
   %292 = load i16, ptr %291, align 2
-  switch i16 %292, label %293 [
-    i16 -1, label %310
-    i16 0, label %310
-  ]
+  %.off = add i16 %292, -1
+  %switch = icmp ult i16 %.off, -2
+  br i1 %switch, label %293, label %310
 
 293:                                              ; preds = %.lr.ph388
   %294 = zext i16 %292 to i64
@@ -7892,7 +7890,7 @@ _ZN10rcIntArray6resizeEi.exit:                    ; preds = %164, %.sink.split.i
   %309 = load i16, ptr %291, align 2
   br label %312
 
-310:                                              ; preds = %.lr.ph388, %.lr.ph388, %300
+310:                                              ; preds = %.lr.ph388, %300
   %311 = add i16 %.2169387, 1
   br label %312
 

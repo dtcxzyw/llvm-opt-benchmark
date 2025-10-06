@@ -2304,13 +2304,13 @@ mysql_set_conn_state.exit.i:                      ; preds = %94, %89
   br label %110
 
 110:                                              ; preds = %108, %106, %mysql_set_conn_state.exit.i
-  %.sink156.i = phi i32 [ -7, %108 ], [ -1, %106 ], [ -1, %mysql_set_conn_state.exit.i ]
-  %.sink154.i = phi i32 [ 11, %108 ], [ 5, %106 ], [ 5, %mysql_set_conn_state.exit.i ]
+  %.sink155.i = phi i32 [ -7, %108 ], [ -1, %106 ], [ -1, %mysql_set_conn_state.exit.i ]
+  %.sink153.i = phi i32 [ 11, %108 ], [ 5, %106 ], [ 5, %mysql_set_conn_state.exit.i ]
   %111 = load ptr, ptr %67, align 8
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 408
   %113 = load ptr, ptr %112, align 8
-  %114 = add i32 %.sink156.i, %103
-  %115 = call ptr @tvb_format_text(ptr noundef %113, ptr noundef %0, i32 noundef %.sink154.i, i32 noundef %114)
+  %114 = add i32 %.sink155.i, %103
+  %115 = call ptr @tvb_format_text(ptr noundef %113, ptr noundef %0, i32 noundef %.sink153.i, i32 noundef %114)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %111, i32 noundef 25, ptr noundef nonnull @.str.1207, ptr noundef %115)
   %116 = load ptr, ptr %67, align 8
   call void @col_set_fence(ptr noundef %116, i32 noundef 25)
@@ -2322,8 +2322,8 @@ mysql_set_conn_state.exit.i:                      ; preds = %94, %89
   br i1 %120, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %110, %124
-  %.0135145.i = phi i32 [ %129, %124 ], [ 0, %110 ]
-  %121 = add nuw i32 %.0135145.i, 5
+  %.0135144.i = phi i32 [ %129, %124 ], [ 0, %110 ]
+  %121 = add nuw i32 %.0135144.i, 5
   %122 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %121)
   %123 = icmp eq i8 %122, 46
   br i1 %123, label %._crit_edge.i, label %124
@@ -2334,7 +2334,7 @@ mysql_set_conn_state.exit.i:                      ; preds = %94, %89
   %127 = add i8 %122, -48
   %128 = add i8 %127, %126
   store i8 %128, ptr %119, align 8
-  %129 = add nuw nsw i32 %.0135145.i, 1
+  %129 = add nuw nsw i32 %.0135144.i, 1
   %exitcond.not.i = icmp eq i32 %129, %103
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 

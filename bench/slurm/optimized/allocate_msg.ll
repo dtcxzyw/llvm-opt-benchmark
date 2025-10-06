@@ -613,7 +613,7 @@ _handle_ping.exit:                                ; preds = %18, %21
 .thread.i:                                        ; preds = %77
   %82 = call i32 @net_set_nodelay(i32 noundef %80, i1 noundef zeroext true, ptr noundef null) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread30.i
+  br label %.thread28.i
 
 83:                                               ; preds = %77
   %84 = load ptr, ptr %78, align 8
@@ -627,12 +627,12 @@ _handle_ping.exit:                                ; preds = %18, %21
   %89 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %90 = load ptr, ptr %89, align 8
   %.not22.i = icmp eq ptr %90, null
-  br i1 %.not22.i, label %.thread30.i, label %91
+  br i1 %.not22.i, label %.thread28.i, label %91
 
 91:                                               ; preds = %88
   %92 = tail call i32 @slurm_open_unix_stream(ptr noundef nonnull %90, i32 noundef 0, ptr noundef %70) #8
   %.not23.i = icmp eq i32 %92, 0
-  br i1 %.not23.i, label %.thread30.i, label %93
+  br i1 %.not23.i, label %.thread28.i, label %93
 
 93:                                               ; preds = %91
   %94 = load ptr, ptr %89, align 8
@@ -640,7 +640,7 @@ _handle_ping.exit:                                ; preds = %18, %21
   %96 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.25, ptr noundef nonnull @__func__._net_forward, ptr noundef %94, ptr noundef %95) #8
   br label %105
 
-.thread30.i:                                      ; preds = %91, %88, %.thread.i
+.thread28.i:                                      ; preds = %91, %88, %.thread.i
   %97 = call i32 @slurm_send_rc_msg(ptr noundef nonnull %1, i32 noundef 0) #8
   store i32 -1, ptr %72, align 8
   %98 = load i32, ptr %70, align 4
@@ -660,7 +660,7 @@ _handle_ping.exit:                                ; preds = %18, %21
   call void @slurm_xfree(ptr noundef nonnull %4) #8
   br label %_net_forward.exit
 
-_net_forward.exit:                                ; preds = %.thread30.i, %105
+_net_forward.exit:                                ; preds = %.thread28.i, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_handle_job_complete.exit

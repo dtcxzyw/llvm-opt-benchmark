@@ -4170,238 +4170,238 @@ is_big_endian.exit:                               ; preds = %4, %18, %22
   br label %.critedge
 
 57:                                               ; preds = %is_big_endian.exit
-  %.not139 = icmp eq i8 %42, 0
-  br i1 %.not139, label %67, label %58
+  %58 = icmp eq i8 %42, 0
+  br i1 %58, label %68, label %59
 
-58:                                               ; preds = %57
-  %59 = load i32, ptr @hf_giop_message_flags, align 4
-  %60 = load i32, ptr @ett_giop_message_flags, align 4
-  %61 = call ptr @proto_tree_add_bitmask(ptr noundef %35, ptr noundef %0, i32 noundef 6, i32 noundef %59, i32 noundef %60, ptr noundef nonnull @giop_message_flags, i32 noundef 0)
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %63 = load i8, ptr %62, align 2
-  %64 = and i8 %63, 1
-  %65 = icmp eq i8 %64, 0
-  br i1 %65, label %66, label %71
+59:                                               ; preds = %57
+  %60 = load i32, ptr @hf_giop_message_flags, align 4
+  %61 = load i32, ptr @ett_giop_message_flags, align 4
+  %62 = call ptr @proto_tree_add_bitmask(ptr noundef %35, ptr noundef %0, i32 noundef 6, i32 noundef %60, i32 noundef %61, ptr noundef nonnull @giop_message_flags, i32 noundef 0)
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %64 = load i8, ptr %63, align 2
+  %65 = and i8 %64, 1
+  %66 = icmp eq i8 %65, 0
+  br i1 %66, label %67, label %72
 
-66:                                               ; preds = %58
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %61, ptr noundef nonnull @.str.253)
-  br label %71
+67:                                               ; preds = %59
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %62, ptr noundef nonnull @.str.253)
+  br label %72
 
-67:                                               ; preds = %57
-  %68 = load i32, ptr @hf_giop_message_flags_little_endian, align 4
+68:                                               ; preds = %57
+  %69 = load i32, ptr @hf_giop_message_flags_little_endian, align 4
   %not. = xor i1 %.0.i, true
-  %69 = zext i1 %not. to i64
-  %70 = call ptr @proto_tree_add_boolean(ptr noundef %26, i32 noundef %68, ptr noundef %0, i32 noundef 6, i32 noundef 1, i64 noundef %69)
-  br label %71
+  %70 = zext i1 %not. to i64
+  %71 = call ptr @proto_tree_add_boolean(ptr noundef %26, i32 noundef %69, ptr noundef %0, i32 noundef 6, i32 noundef 1, i64 noundef %70)
+  br label %72
 
-71:                                               ; preds = %58, %66, %67
-  %72 = load i32, ptr @hf_giop_message_type, align 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %72, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
-  br i1 %.0.i, label %74, label %76
+72:                                               ; preds = %59, %67, %68
+  %73 = load i32, ptr @hf_giop_message_type, align 4
+  %74 = call ptr @proto_tree_add_item(ptr noundef %26, i32 noundef %73, ptr noundef %0, i32 noundef 7, i32 noundef 1, i32 noundef 0)
+  br i1 %.0.i, label %75, label %77
 
-74:                                               ; preds = %71
-  %75 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
-  br label %78
+75:                                               ; preds = %72
+  %76 = call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 8)
+  br label %79
 
-76:                                               ; preds = %71
-  %77 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8)
-  br label %78
+77:                                               ; preds = %72
+  %78 = call i32 @tvb_get_letohl(ptr noundef %0, i32 noundef 8)
+  br label %79
 
-78:                                               ; preds = %76, %74
-  %.0117 = phi i32 [ %75, %74 ], [ %77, %76 ]
-  %79 = load ptr, ptr %8, align 8
-  %80 = load i8, ptr %30, align 4
-  %81 = zext i8 %80 to i32
-  %82 = load i8, ptr %16, align 1
-  %83 = zext i8 %82 to i32
-  %84 = getelementptr inbounds nuw i8, ptr %5, i64 7
-  %85 = load i8, ptr %84, align 1
-  %86 = zext i8 %85 to i32
-  %87 = call ptr @val_to_str(i32 noundef %86, ptr noundef nonnull @giop_message_types, ptr noundef nonnull @.str.255)
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %79, i32 noundef 25, ptr noundef nonnull @.str.254, i32 noundef %81, i32 noundef %83, ptr noundef %87, i32 noundef %.0117)
-  %88 = load i32, ptr @hf_giop_message_size, align 4
-  %89 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %88, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %.0117)
-  %90 = load i32, ptr @giop_max_message_size, align 4
-  %91 = icmp ugt i32 %.0117, %90
-  br i1 %91, label %92, label %94
+79:                                               ; preds = %77, %75
+  %.0117 = phi i32 [ %76, %75 ], [ %78, %77 ]
+  %80 = load ptr, ptr %8, align 8
+  %81 = load i8, ptr %30, align 4
+  %82 = zext i8 %81 to i32
+  %83 = load i8, ptr %16, align 1
+  %84 = zext i8 %83 to i32
+  %85 = getelementptr inbounds nuw i8, ptr %5, i64 7
+  %86 = load i8, ptr %85, align 1
+  %87 = zext i8 %86 to i32
+  %88 = call ptr @val_to_str(i32 noundef %87, ptr noundef nonnull @giop_message_types, ptr noundef nonnull @.str.255)
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %80, i32 noundef 25, ptr noundef nonnull @.str.254, i32 noundef %82, i32 noundef %84, ptr noundef %88, i32 noundef %.0117)
+  %89 = load i32, ptr @hf_giop_message_size, align 4
+  %90 = call ptr @proto_tree_add_uint(ptr noundef %26, i32 noundef %89, ptr noundef %0, i32 noundef 8, i32 noundef 4, i32 noundef %.0117)
+  %91 = load i32, ptr @giop_max_message_size, align 4
+  %92 = icmp ugt i32 %.0117, %91
+  br i1 %92, label %93, label %95
 
-92:                                               ; preds = %78
-  %93 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %89, ptr noundef nonnull @ei_giop_message_size_too_big, ptr noundef nonnull @.str.256, i32 noundef %.0117)
+93:                                               ; preds = %79
+  %94 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %90, ptr noundef nonnull @ei_giop_message_size_too_big, ptr noundef nonnull @.str.256, i32 noundef %.0117)
   br label %.critedge
 
-94:                                               ; preds = %78
-  %95 = icmp eq i32 %.0117, 0
-  br i1 %95, label %.critedge, label %96
+95:                                               ; preds = %79
+  %96 = icmp eq i32 %.0117, 0
+  br i1 %96, label %.critedge, label %97
 
-96:                                               ; preds = %94
-  %97 = getelementptr inbounds nuw i8, ptr %5, i64 6
-  %98 = load i8, ptr %97, align 2
-  %99 = and i8 %98, 8
-  %.not = icmp eq i8 %99, 0
-  br i1 %.not, label %106, label %100
+97:                                               ; preds = %95
+  %98 = getelementptr inbounds nuw i8, ptr %5, i64 6
+  %99 = load i8, ptr %98, align 2
+  %100 = and i8 %99, 8
+  %.not = icmp eq i8 %100, 0
+  br i1 %.not, label %107, label %101
 
-100:                                              ; preds = %96
-  %101 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 12)
-  %102 = icmp slt i32 %101, 1
-  br i1 %102, label %.critedge, label %103
+101:                                              ; preds = %97
+  %102 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef 12)
+  %103 = icmp slt i32 %102, 1
+  br i1 %103, label %.critedge, label %104
 
-103:                                              ; preds = %100
-  %104 = call ptr @tvb_child_uncompress_zlib(ptr noundef %0, ptr noundef %0, i32 noundef 12, i32 noundef %101)
-  %.not124 = icmp eq ptr %104, null
-  br i1 %.not124, label %.critedge, label %105
+104:                                              ; preds = %101
+  %105 = call ptr @tvb_child_uncompress_zlib(ptr noundef %0, ptr noundef %0, i32 noundef 12, i32 noundef %102)
+  %.not124 = icmp eq ptr %105, null
+  br i1 %.not124, label %.critedge, label %106
 
-105:                                              ; preds = %103
-  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %104, ptr noundef nonnull @.str.257)
-  br label %108
+106:                                              ; preds = %104
+  call void @add_new_data_source(ptr noundef %1, ptr noundef nonnull %105, ptr noundef nonnull @.str.257)
+  br label %109
 
-106:                                              ; preds = %96
-  %107 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 12)
-  br label %108
+107:                                              ; preds = %97
+  %108 = call ptr @tvb_new_subset_remaining(ptr noundef %0, i32 noundef 12)
+  br label %109
 
-108:                                              ; preds = %105, %106
-  %.1114 = phi ptr [ %104, %105 ], [ %107, %106 ]
-  %109 = load i8, ptr @giop_reassemble, align 1, !range !29, !noundef !30
-  %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %111, label %158
+109:                                              ; preds = %106, %107
+  %.1114 = phi ptr [ %105, %106 ], [ %108, %107 ]
+  %110 = load i8, ptr @giop_reassemble, align 1, !range !29, !noundef !30
+  %111 = trunc nuw i8 %110 to i1
+  br i1 %111, label %112, label %159
 
-111:                                              ; preds = %108
-  br i1 %.0.i, label %112, label %114
+112:                                              ; preds = %109
+  br i1 %.0.i, label %113, label %115
 
-112:                                              ; preds = %111
-  %113 = call i32 @tvb_get_ntohl(ptr noundef %.1114, i32 noundef 0)
+113:                                              ; preds = %112
+  %114 = call i32 @tvb_get_ntohl(ptr noundef %.1114, i32 noundef 0)
   br label %get_CDR_ulong.exit
 
-114:                                              ; preds = %111
-  %115 = call i32 @tvb_get_letohl(ptr noundef %.1114, i32 noundef 0)
+115:                                              ; preds = %112
+  %116 = call i32 @tvb_get_letohl(ptr noundef %.1114, i32 noundef 0)
   br label %get_CDR_ulong.exit
 
-get_CDR_ulong.exit:                               ; preds = %112, %114
-  %116 = phi i32 [ %113, %112 ], [ %115, %114 ]
-  %117 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %116, ptr %117, align 4
-  %118 = load i8, ptr %84, align 1
-  %.not125 = icmp eq i8 %118, 7
+get_CDR_ulong.exit:                               ; preds = %113, %115
+  %117 = phi i32 [ %114, %113 ], [ %116, %115 ]
+  %118 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %117, ptr %118, align 4
+  %119 = load i8, ptr %85, align 1
+  %.not125 = icmp eq i8 %119, 7
   %spec.select133 = select i1 %.not125, i32 4, i32 0
-  %119 = call i32 @tvb_captured_length_remaining(ptr noundef %.1114, i32 noundef %spec.select133)
-  %120 = load i8, ptr %97, align 2
-  %121 = and i8 %120, 2
-  %122 = icmp ne i8 %121, 0
-  %123 = call ptr @fragment_add_seq_next(ptr noundef nonnull @giop_reassembly_table, ptr noundef %.1114, i32 noundef %spec.select133, ptr noundef %1, i32 noundef %116, ptr noundef null, i32 noundef %119, i1 noundef zeroext %122)
-  %124 = call ptr @process_reassembled_data(ptr noundef %.1114, i32 noundef %spec.select133, ptr noundef %1, ptr noundef nonnull @.str.258, ptr noundef %123, ptr noundef nonnull @giop_frag_items, ptr noundef null, ptr noundef %2)
-  %.not126 = icmp eq ptr %124, null
-  %spec.select = select i1 %.not126, ptr %.1114, ptr %124
-  %125 = call ptr @find_or_create_conversation(ptr noundef %1)
-  %126 = load i32, ptr @proto_giop, align 4
-  %127 = call ptr @conversation_get_proto_data(ptr noundef %125, i32 noundef %126)
-  %128 = icmp eq ptr %127, null
-  br i1 %128, label %129, label %135
+  %120 = call i32 @tvb_captured_length_remaining(ptr noundef %.1114, i32 noundef %spec.select133)
+  %121 = load i8, ptr %98, align 2
+  %122 = and i8 %121, 2
+  %123 = icmp ne i8 %122, 0
+  %124 = call ptr @fragment_add_seq_next(ptr noundef nonnull @giop_reassembly_table, ptr noundef %.1114, i32 noundef %spec.select133, ptr noundef %1, i32 noundef %117, ptr noundef null, i32 noundef %120, i1 noundef zeroext %123)
+  %125 = call ptr @process_reassembled_data(ptr noundef %.1114, i32 noundef %spec.select133, ptr noundef %1, ptr noundef nonnull @.str.258, ptr noundef %124, ptr noundef nonnull @giop_frag_items, ptr noundef null, ptr noundef %2)
+  %.not126 = icmp eq ptr %125, null
+  %spec.select = select i1 %.not126, ptr %.1114, ptr %125
+  %126 = call ptr @find_or_create_conversation(ptr noundef %1)
+  %127 = load i32, ptr @proto_giop, align 4
+  %128 = call ptr @conversation_get_proto_data(ptr noundef %126, i32 noundef %127)
+  %129 = icmp eq ptr %128, null
+  br i1 %129, label %130, label %136
 
-129:                                              ; preds = %get_CDR_ulong.exit
-  %130 = call ptr @wmem_file_scope()
-  %131 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %130, i64 noundef 8) #17
-  %132 = call ptr @wmem_file_scope()
-  %133 = call noalias ptr @wmem_map_new(ptr noundef %132, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
-  store ptr %133, ptr %131, align 8
-  %134 = load i32, ptr @proto_giop, align 4
-  call void @conversation_add_proto_data(ptr noundef %125, i32 noundef %134, ptr noundef %131)
-  br label %135
+130:                                              ; preds = %get_CDR_ulong.exit
+  %131 = call ptr @wmem_file_scope()
+  %132 = call noalias dereferenceable_or_null(8) ptr @wmem_alloc0(ptr noundef %131, i64 noundef 8) #17
+  %133 = call ptr @wmem_file_scope()
+  %134 = call noalias ptr @wmem_map_new(ptr noundef %133, ptr noundef nonnull @g_direct_hash, ptr noundef nonnull @g_direct_equal)
+  store ptr %134, ptr %132, align 8
+  %135 = load i32, ptr @proto_giop, align 4
+  call void @conversation_add_proto_data(ptr noundef %126, i32 noundef %135, ptr noundef %132)
+  br label %136
 
-135:                                              ; preds = %129, %get_CDR_ulong.exit
-  %.0116 = phi ptr [ %131, %129 ], [ %127, %get_CDR_ulong.exit ]
-  %136 = load i8, ptr %84, align 1
-  %.not127 = icmp eq i8 %136, 7
-  br i1 %.not127, label %145, label %137
+136:                                              ; preds = %130, %get_CDR_ulong.exit
+  %.0116 = phi ptr [ %132, %130 ], [ %128, %get_CDR_ulong.exit ]
+  %137 = load i8, ptr %85, align 1
+  %.not127 = icmp eq i8 %137, 7
+  br i1 %.not127, label %146, label %138
 
-137:                                              ; preds = %135
-  %138 = load ptr, ptr %.0116, align 8
-  %139 = load i32, ptr %117, align 4
-  %140 = zext i32 %139 to i64
-  %141 = inttoptr i64 %140 to ptr
-  %142 = zext i8 %136 to i64
-  %143 = inttoptr i64 %142 to ptr
-  %144 = call ptr @wmem_map_insert(ptr noundef %138, ptr noundef %141, ptr noundef %143)
-  br label %158
+138:                                              ; preds = %136
+  %139 = load ptr, ptr %.0116, align 8
+  %140 = load i32, ptr %118, align 4
+  %141 = zext i32 %140 to i64
+  %142 = inttoptr i64 %141 to ptr
+  %143 = zext i8 %137 to i64
+  %144 = inttoptr i64 %143 to ptr
+  %145 = call ptr @wmem_map_insert(ptr noundef %139, ptr noundef %142, ptr noundef %144)
+  br label %159
 
-145:                                              ; preds = %135
-  %146 = load i8, ptr %97, align 2
-  %147 = and i8 %146, 2
-  %.not128 = icmp eq i8 %147, 0
-  br i1 %.not128, label %148, label %158
+146:                                              ; preds = %136
+  %147 = load i8, ptr %98, align 2
+  %148 = and i8 %147, 2
+  %.not128 = icmp eq i8 %148, 0
+  br i1 %.not128, label %149, label %159
 
-148:                                              ; preds = %145
-  %149 = load ptr, ptr %.0116, align 8
-  %150 = load i32, ptr %117, align 4
-  %151 = zext i32 %150 to i64
-  %152 = inttoptr i64 %151 to ptr
-  %153 = call ptr @wmem_map_lookup(ptr noundef %149, ptr noundef %152)
-  %154 = ptrtoint ptr %153 to i64
-  %155 = trunc i64 %154 to i8
-  store i8 %155, ptr %84, align 1
-  %156 = call i32 @tvb_captured_length_remaining(ptr noundef %spec.select, i32 noundef 0)
-  %157 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %156, ptr %157, align 8
-  br label %158
+149:                                              ; preds = %146
+  %150 = load ptr, ptr %.0116, align 8
+  %151 = load i32, ptr %118, align 4
+  %152 = zext i32 %151 to i64
+  %153 = inttoptr i64 %152 to ptr
+  %154 = call ptr @wmem_map_lookup(ptr noundef %150, ptr noundef %153)
+  %155 = ptrtoint ptr %154 to i64
+  %156 = trunc i64 %155 to i8
+  store i8 %156, ptr %85, align 1
+  %157 = call i32 @tvb_captured_length_remaining(ptr noundef %spec.select, i32 noundef 0)
+  %158 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %157, ptr %158, align 8
+  br label %159
 
-158:                                              ; preds = %137, %148, %145, %108
-  %.2 = phi ptr [ %.1114, %108 ], [ %spec.select, %145 ], [ %spec.select, %148 ], [ %spec.select, %137 ]
-  %159 = load i8, ptr %84, align 1
-  switch i8 %159, label %174 [
-    i8 0, label %160
-    i8 1, label %165
-    i8 2, label %170
-    i8 3, label %171
-    i8 4, label %172
-    i8 7, label %173
+159:                                              ; preds = %138, %149, %146, %109
+  %.2 = phi ptr [ %.1114, %109 ], [ %spec.select, %146 ], [ %spec.select, %149 ], [ %spec.select, %138 ]
+  %160 = load i8, ptr %85, align 1
+  switch i8 %160, label %175 [
+    i8 0, label %161
+    i8 1, label %166
+    i8 2, label %171
+    i8 3, label %172
+    i8 4, label %173
+    i8 7, label %174
   ]
 
-160:                                              ; preds = %158
-  %161 = load i8, ptr %16, align 1
-  %162 = icmp ult i8 %161, 2
-  br i1 %162, label %163, label %164
+161:                                              ; preds = %159
+  %162 = load i8, ptr %16, align 1
+  %163 = icmp ult i8 %162, 2
+  br i1 %163, label %164, label %165
 
-163:                                              ; preds = %160
+164:                                              ; preds = %161
   call fastcc void @dissect_giop_request_1_1(ptr noundef %.2, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i1 noundef zeroext %.0.i)
-  br label %174
+  br label %175
 
-164:                                              ; preds = %160
+165:                                              ; preds = %161
   call fastcc void @dissect_giop_request_1_2(ptr noundef %.2, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i1 noundef zeroext %.0.i)
-  br label %174
+  br label %175
 
-165:                                              ; preds = %158
-  %166 = load i8, ptr %16, align 1
-  %167 = icmp ult i8 %166, 2
-  br i1 %167, label %168, label %169
+166:                                              ; preds = %159
+  %167 = load i8, ptr %16, align 1
+  %168 = icmp ult i8 %167, 2
+  br i1 %168, label %169, label %170
 
-168:                                              ; preds = %165
+169:                                              ; preds = %166
   call fastcc void @dissect_giop_reply(ptr noundef %.2, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i1 noundef zeroext %.0.i)
-  br label %174
+  br label %175
 
-169:                                              ; preds = %165
+170:                                              ; preds = %166
   call fastcc void @dissect_giop_reply_1_2(ptr noundef %.2, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i1 noundef zeroext %.0.i)
-  br label %174
+  br label %175
 
-170:                                              ; preds = %158
+171:                                              ; preds = %159
   call fastcc void @dissect_giop_cancel_request(ptr noundef %.2, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %.0.i)
-  br label %174
+  br label %175
 
-171:                                              ; preds = %158
+172:                                              ; preds = %159
   call fastcc void @dissect_giop_locate_request(ptr noundef %.2, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i1 noundef zeroext %.0.i)
-  br label %174
+  br label %175
 
-172:                                              ; preds = %158
+173:                                              ; preds = %159
   call fastcc void @dissect_giop_locate_reply(ptr noundef %.2, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5, i1 noundef zeroext %.0.i)
-  br label %174
+  br label %175
 
-173:                                              ; preds = %158
+174:                                              ; preds = %159
   call fastcc void @dissect_giop_fragment(ptr noundef %.2, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %.0.i)
-  br label %174
+  br label %175
 
-174:                                              ; preds = %158, %168, %169, %163, %164, %173, %172, %171, %170
-  %175 = call i32 @tvb_captured_length(ptr noundef %0)
+175:                                              ; preds = %159, %169, %170, %164, %165, %174, %173, %172, %171
+  %176 = call i32 @tvb_captured_length(ptr noundef %0)
   br label %.critedge
 
-.critedge:                                        ; preds = %100, %103, %94, %174, %92, %44
-  %.0 = phi i32 [ %56, %44 ], [ 8, %92 ], [ %175, %174 ], [ 8, %94 ], [ 8, %103 ], [ 8, %100 ]
+.critedge:                                        ; preds = %101, %104, %95, %175, %93, %44
+  %.0 = phi i32 [ %56, %44 ], [ 8, %93 ], [ %176, %175 ], [ 8, %95 ], [ 8, %104 ], [ 8, %101 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

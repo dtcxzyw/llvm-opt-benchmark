@@ -2076,14 +2076,14 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
 
 43:                                               ; preds = %30
   %cond = icmp eq i16 %1, 1
-  br i1 %cond, label %47, label %.preheader79
+  br i1 %cond, label %47, label %.preheader78
 
-.preheader79:                                     ; preds = %43
+.preheader78:                                     ; preds = %43
   %44 = load i16, ptr @converterCount, align 2, !tbaa !19
-  %.not85 = icmp eq i16 %44, 0
-  br i1 %.not85, label %.loopexit, label %.preheader.lr.ph
+  %.not84 = icmp eq i16 %44, 0
+  br i1 %.not84, label %.loopexit, label %.preheader.lr.ph
 
-.preheader.lr.ph:                                 ; preds = %.preheader79
+.preheader.lr.ph:                                 ; preds = %.preheader78
   %45 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %22
   %46 = zext nneg i16 %2 to i64
   br label %.preheader
@@ -2120,11 +2120,11 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   br label %.loopexit
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %.thread
-  %indvars.iv88 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next89, %.thread ]
-  %65 = getelementptr inbounds nuw %struct.AliasList, ptr %21, i64 %indvars.iv88
+  %indvars.iv87 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next88, %.thread ]
+  %65 = getelementptr inbounds nuw %struct.AliasList, ptr %21, i64 %indvars.iv87
   %66 = load i16, ptr %65, align 8, !tbaa !41
-  %.not86 = icmp eq i16 %66, 0
-  br i1 %.not86, label %.thread, label %.lr.ph
+  %.not85 = icmp eq i16 %66, 0
+  br i1 %.not85, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
@@ -2152,7 +2152,7 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   br label %116
 
 79:                                               ; preds = %73
-  %80 = icmp eq i64 %indvars.iv88, %46
+  %80 = icmp eq i64 %indvars.iv87, %46
   br i1 %80, label %81, label %98
 
 81:                                               ; preds = %79
@@ -2191,7 +2191,7 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   %107 = zext i16 %106 to i64
   %108 = shl nuw nsw i64 %107, 1
   %109 = getelementptr inbounds nuw i8, ptr @stringStore, i64 %108
-  %110 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %indvars.iv88
+  %110 = getelementptr inbounds nuw %struct.Converter, ptr @converters, i64 %indvars.iv87
   %111 = load i16, ptr %110, align 4, !tbaa !33
   %112 = zext i16 %111 to i64
   %113 = shl nuw nsw i64 %112, 1
@@ -2207,13 +2207,13 @@ define internal fastcc void @addAlias(ptr noundef %0, i16 noundef zeroext %1, i1
   br i1 %119, label %68, label %.thread, !llvm.loop !60
 
 .thread:                                          ; preds = %116, %.preheader, %98, %85, %82
-  %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %120 = load i16, ptr @converterCount, align 2, !tbaa !19
   %121 = zext i16 %120 to i64
-  %122 = icmp samesign ult i64 %indvars.iv.next89, %121
+  %122 = icmp samesign ult i64 %indvars.iv.next88, %121
   br i1 %122, label %.preheader, label %.loopexit, !llvm.loop !61
 
-.loopexit:                                        ; preds = %.thread, %.preheader79, %47, %61, %59
+.loopexit:                                        ; preds = %.thread, %.preheader78, %47, %61, %59
   %123 = load i16, ptr %23, align 8, !tbaa !41
   %.not73 = icmp eq i16 %123, 0
   br i1 %.not73, label %124, label %125

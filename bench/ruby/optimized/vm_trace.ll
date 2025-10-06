@@ -2124,8 +2124,8 @@ fill_id_and_klass.exit:                           ; preds = %15, %rbimpl_RB_TYPE
   tail call void (i64, ptr, ...) @rb_raise(i64 noundef %54, ptr noundef nonnull @.str) #17
   unreachable
 
-55:                                               ; preds = %4, %1, %39, %fill_id_and_klass.exit, %.thread, %50
-  %.1 = phi i64 [ %52, %50 ], [ %14, %.thread ], [ 4, %fill_id_and_klass.exit ], [ 4, %39 ], [ 4, %1 ], [ 4, %4 ]
+55:                                               ; preds = %1, %39, %fill_id_and_klass.exit, %4, %.thread, %50
+  %.1 = phi i64 [ %52, %50 ], [ %14, %.thread ], [ 4, %4 ], [ 4, %fill_id_and_klass.exit ], [ 4, %39 ], [ 4, %1 ]
   ret i64 %.1
 }
 

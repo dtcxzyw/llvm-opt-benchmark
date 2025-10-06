@@ -5032,19 +5032,19 @@ dissect_query_reply_rpq_names.exit:               ; preds = %tn3270_add_hf_items
   br i1 %.not.i.i365, label %tn3270_add_hf_items.exit.preheader.i370, label %.lr.ph.i.i364, !llvm.loop !6
 
 tn3270_add_hf_items.exit.i379:                    ; preds = %776
-  %737 = add nuw nsw i32 %.02438.i, 1
+  %737 = add nuw nsw i32 %.02437.i, 1
   %exitcond.not.i380 = icmp eq i32 %737, 3
   br i1 %exitcond.not.i380, label %.thread.i371, label %tn3270_add_hf_items.exit.preheader.i370, !llvm.loop !26
 
 tn3270_add_hf_items.exit.preheader.i370:          ; preds = %732, %tn3270_add_hf_items.exit.i379
-  %.02339.i = phi i32 [ %.pn.i, %tn3270_add_hf_items.exit.i379 ], [ %734, %732 ]
-  %.02438.i = phi i32 [ %737, %tn3270_add_hf_items.exit.i379 ], [ 0, %732 ]
-  %738 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.02339.i)
+  %.02338.i = phi i32 [ %.pn.i, %tn3270_add_hf_items.exit.i379 ], [ %734, %732 ]
+  %.02437.i = phi i32 [ %737, %tn3270_add_hf_items.exit.i379 ], [ 0, %732 ]
+  %738 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.02338.i)
   %.not.i27.i = icmp eq i8 %738, 11
   br i1 %.not.i27.i, label %739, label %.thread.i371
 
 739:                                              ; preds = %tn3270_add_hf_items.exit.preheader.i370
-  %740 = add i32 %.02339.i, 1
+  %740 = add i32 %.02338.i, 1
   %741 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %740)
   switch i8 %741, label %.thread.i371 [
     i8 1, label %.lr.ph.i.preheader.i.i381
@@ -5055,7 +5055,7 @@ tn3270_add_hf_items.exit.preheader.i370:          ; preds = %732, %tn3270_add_hf
 .lr.ph.i.preheader.i.i381:                        ; preds = %739, %.lr.ph.i.preheader.i.i381
   %indvars.iv40.i.i = phi i64 [ %indvars.iv.next41.i.i, %.lr.ph.i.preheader.i.i381 ], [ 0, %739 ]
   %742 = phi ptr [ %752, %.lr.ph.i.preheader.i.i381 ], [ @hf_tn3270_sdp_ln, %739 ]
-  %.02832.i.i.i382 = phi i32 [ %750, %.lr.ph.i.preheader.i.i381 ], [ %.02339.i, %739 ]
+  %.02832.i.i.i382 = phi i32 [ %750, %.lr.ph.i.preheader.i.i381 ], [ %.02338.i, %739 ]
   %743 = load i32, ptr %742, align 4
   %744 = getelementptr %struct.hf_items, ptr @dissect_query_reply_implicit_partitions_sd_parms.sdp1, i64 %indvars.iv40.i.i
   %745 = getelementptr inbounds nuw i8, ptr %744, i64 16
@@ -5073,7 +5073,7 @@ tn3270_add_hf_items.exit.preheader.i370:          ; preds = %732, %tn3270_add_hf
 .lr.ph.i22.preheader.i.i:                         ; preds = %739, %.lr.ph.i22.preheader.i.i
   %indvars.iv37.i.i = phi i64 [ %indvars.iv.next38.i.i, %.lr.ph.i22.preheader.i.i ], [ 0, %739 ]
   %753 = phi ptr [ %763, %.lr.ph.i22.preheader.i.i ], [ @hf_tn3270_sdp_ln, %739 ]
-  %.02832.i24.i.i = phi i32 [ %761, %.lr.ph.i22.preheader.i.i ], [ %.02339.i, %739 ]
+  %.02832.i24.i.i = phi i32 [ %761, %.lr.ph.i22.preheader.i.i ], [ %.02338.i, %739 ]
   %754 = load i32, ptr %753, align 4
   %755 = getelementptr %struct.hf_items, ptr @dissect_query_reply_implicit_partitions_sd_parms.sdp2, i64 %indvars.iv37.i.i
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 16
@@ -5091,7 +5091,7 @@ tn3270_add_hf_items.exit.preheader.i370:          ; preds = %732, %tn3270_add_hf
 .lr.ph.i27.preheader.i.i374:                      ; preds = %739, %.lr.ph.i27.preheader.i.i374
   %indvars.iv.i.i375 = phi i64 [ %indvars.iv.next.i.i377, %.lr.ph.i27.preheader.i.i374 ], [ 0, %739 ]
   %764 = phi ptr [ %774, %.lr.ph.i27.preheader.i.i374 ], [ @hf_tn3270_sdp_ln, %739 ]
-  %.02832.i29.i.i376 = phi i32 [ %772, %.lr.ph.i27.preheader.i.i374 ], [ %.02339.i, %739 ]
+  %.02832.i29.i.i376 = phi i32 [ %772, %.lr.ph.i27.preheader.i.i374 ], [ %.02338.i, %739 ]
   %765 = load i32, ptr %764, align 4
   %766 = getelementptr %struct.hf_items, ptr @dissect_query_reply_implicit_partitions_sd_parms.sdp3, i64 %indvars.iv.i.i375
   %767 = getelementptr inbounds nuw i8, ptr %766, i64 16
@@ -5108,16 +5108,16 @@ tn3270_add_hf_items.exit.preheader.i370:          ; preds = %732, %tn3270_add_hf
 
 dissect_query_reply_implicit_partitions_sd_parms.exit.i: ; preds = %.lr.ph.i27.preheader.i.i374, %.lr.ph.i22.preheader.i.i, %.lr.ph.i.preheader.i.i381
   %.pn.i = phi i32 [ %750, %.lr.ph.i.preheader.i.i381 ], [ %761, %.lr.ph.i22.preheader.i.i ], [ %772, %.lr.ph.i27.preheader.i.i374 ]
-  %775 = icmp eq i32 %.pn.i, %.02339.i
+  %775 = icmp eq i32 %.pn.i, %.02338.i
   br i1 %775, label %.thread.i371, label %776
 
 776:                                              ; preds = %dissect_query_reply_implicit_partitions_sd_parms.exit.i
-  %777 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.02339.i)
+  %777 = tail call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.02338.i)
   %778 = icmp slt i32 %777, 1
   br i1 %778, label %.thread.i371, label %tn3270_add_hf_items.exit.i379
 
 .thread.i371:                                     ; preds = %776, %dissect_query_reply_implicit_partitions_sd_parms.exit.i, %739, %tn3270_add_hf_items.exit.preheader.i370, %tn3270_add_hf_items.exit.i379
-  %.023.lcssa.i = phi i32 [ %.02339.i, %776 ], [ %.02339.i, %739 ], [ %.02339.i, %tn3270_add_hf_items.exit.preheader.i370 ], [ %.02339.i, %dissect_query_reply_implicit_partitions_sd_parms.exit.i ], [ %.pn.i, %tn3270_add_hf_items.exit.i379 ]
+  %.023.lcssa.i = phi i32 [ %.02338.i, %776 ], [ %.02338.i, %739 ], [ %.02338.i, %tn3270_add_hf_items.exit.preheader.i370 ], [ %.02338.i, %dissect_query_reply_implicit_partitions_sd_parms.exit.i ], [ %.pn.i, %tn3270_add_hf_items.exit.i379 ]
   %.neg.i.i372 = sub i32 %2, %.023.lcssa.i
   %779 = add i32 %.neg.i.i372, %5
   %780 = icmp sgt i32 %779, 0

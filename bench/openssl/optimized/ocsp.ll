@@ -1945,26 +1945,26 @@ define internal fastcc void @make_ocsp_response(ptr noundef %0, ptr noundef nonn
   %29 = tail call ptr @OCSP_BASICRESP_new() #9
   %30 = tail call ptr @X509_gmtime_adj(ptr noundef null, i64 noundef 0) #9
   %.not = icmp eq i32 %12, -1
-  br i1 %.not, label %.lr.ph142, label %31
+  br i1 %.not, label %.lr.ph138, label %31
 
 31:                                               ; preds = %28
   %32 = mul nsw i32 %11, 60
   %33 = sext i32 %32 to i64
   %34 = tail call ptr @X509_time_adj_ex(ptr noundef null, i32 noundef %12, i64 noundef %33, ptr noundef null) #9
-  br label %.lr.ph142
+  br label %.lr.ph138
 
-.lr.ph142:                                        ; preds = %28, %31
+.lr.ph138:                                        ; preds = %28, %31
   %.1 = phi ptr [ %34, %31 ], [ null, %28 ]
   %.not124 = icmp eq ptr %14, null
   %35 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %37
 
-37:                                               ; preds = %.lr.ph142, %115
-  %.098140 = phi i32 [ 0, %.lr.ph142 ], [ %116, %115 ]
+37:                                               ; preds = %.lr.ph138, %115
+  %.098136 = phi i32 [ 0, %.lr.ph138 ], [ %116, %115 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %38 = call ptr @OCSP_request_onereq_get0(ptr noundef %2, i32 noundef %.098140) #9
+  %38 = call ptr @OCSP_request_onereq_get0(ptr noundef %2, i32 noundef %.098136) #9
   %39 = call ptr @OCSP_onereq_get0_id(ptr noundef %38) #9
   %40 = call i32 @OCSP_id_get0_info(ptr noundef null, ptr noundef nonnull %19, ptr noundef null, ptr noundef null, ptr noundef %39) #9
   %41 = load ptr, ptr %19, align 8, !tbaa !44
@@ -1972,24 +1972,24 @@ define internal fastcc void @make_ocsp_response(ptr noundef %0, ptr noundef nonn
   %43 = call ptr @OBJ_nid2sn(i32 noundef %42) #9
   %44 = call ptr @EVP_get_digestbyname(ptr noundef %43) #9
   %45 = icmp eq ptr %44, null
-  br i1 %45, label %56, label %.preheader135
+  br i1 %45, label %56, label %.preheader131
 
-.preheader135:                                    ; preds = %37
+.preheader131:                                    ; preds = %37
   %46 = call i32 @OPENSSL_sk_num(ptr noundef %4) #9
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader135
+.lr.ph:                                           ; preds = %.preheader131
   br i1 %.not124, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.0105136.us = phi i32 [ %52, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %48 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.0105136.us) #9
+  %.0105132.us = phi i32 [ %52, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+  %48 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.0105132.us) #9
   %49 = call ptr @OCSP_cert_to_id(ptr noundef nonnull %44, ptr noundef null, ptr noundef %48) #9
   %50 = call i32 @OCSP_id_issuer_cmp(ptr noundef %49, ptr noundef %39) #9
   %51 = icmp ne i32 %50, 0
   call void @OCSP_CERTID_free(ptr noundef %49) #9
-  %52 = add nuw nsw i32 %.0105136.us, 1
+  %52 = add nuw nsw i32 %.0105132.us, 1
   %53 = call i32 @OPENSSL_sk_num(ptr noundef %4) #9
   %54 = icmp slt i32 %52, %53
   %55 = and i1 %51, %54
@@ -1998,12 +1998,12 @@ define internal fastcc void @make_ocsp_response(ptr noundef %0, ptr noundef nonn
 56:                                               ; preds = %37
   %57 = call ptr @OCSP_response_create(i32 noundef 2, ptr noundef null) #9
   store ptr %57, ptr %1, align 8, !tbaa !13
-  br label %.thread128
+  br label %.thread127
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %64
-  %.0100137 = phi ptr [ %.1101, %64 ], [ null, %.lr.ph ]
-  %.0105136 = phi i32 [ %65, %64 ], [ 0, %.lr.ph ]
-  %58 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.0105136) #9
+  %.0100133 = phi ptr [ %.1101, %64 ], [ null, %.lr.ph ]
+  %.0105132 = phi i32 [ %65, %64 ], [ 0, %.lr.ph ]
+  %58 = call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %.0105132) #9
   %59 = call ptr @OCSP_cert_to_id(ptr noundef nonnull %44, ptr noundef null, ptr noundef %58) #9
   %60 = call i32 @OCSP_id_issuer_cmp(ptr noundef %59, ptr noundef %39) #9
   %61 = icmp ne i32 %60, 0
@@ -2014,17 +2014,17 @@ define internal fastcc void @make_ocsp_response(ptr noundef %0, ptr noundef nonn
   br label %64
 
 64:                                               ; preds = %62, %.lr.ph.split
-  %.1101 = phi ptr [ %63, %62 ], [ %.0100137, %.lr.ph.split ]
+  %.1101 = phi ptr [ %63, %62 ], [ %.0100133, %.lr.ph.split ]
   call void @OCSP_CERTID_free(ptr noundef %59) #9
-  %65 = add nuw nsw i32 %.0105136, 1
+  %65 = add nuw nsw i32 %.0105132, 1
   %66 = call i32 @OPENSSL_sk_num(ptr noundef %4) #9
   %67 = icmp slt i32 %65, %66
   %68 = and i1 %61, %67
   br i1 %68, label %.lr.ph.split, label %._crit_edge, !llvm.loop !46
 
-._crit_edge:                                      ; preds = %64, %.lr.ph.split.us, %.preheader135
-  %.0100.lcssa = phi ptr [ null, %.preheader135 ], [ null, %.lr.ph.split.us ], [ %.1101, %64 ]
-  %.not119.lcssa = phi i1 [ true, %.preheader135 ], [ %51, %.lr.ph.split.us ], [ %61, %64 ]
+._crit_edge:                                      ; preds = %64, %.lr.ph.split.us, %.preheader131
+  %.0100.lcssa = phi ptr [ null, %.preheader131 ], [ null, %.lr.ph.split.us ], [ %.1101, %64 ]
+  %.not119.lcssa = phi i1 [ true, %.preheader131 ], [ %51, %.lr.ph.split.us ], [ %61, %64 ]
   %69 = call i32 @OCSP_id_get0_info(ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %18, ptr noundef %39) #9
   %70 = load ptr, ptr %18, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -2116,7 +2116,7 @@ lookup_serial.exit:                               ; preds = %75, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %.thread128
+  br label %.thread127
 
 102:                                              ; preds = %94
   %103 = load ptr, ptr %22, align 8, !tbaa !47
@@ -2153,7 +2153,7 @@ lookup_serial.exit:                               ; preds = %75, %78
   call void @OCSP_CERTID_free(ptr noundef %.0100.lcssa) #9
   br label %115
 
-.thread128:                                       ; preds = %56, %.thread
+.thread127:                                       ; preds = %56, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %146
@@ -2161,17 +2161,17 @@ lookup_serial.exit:                               ; preds = %75, %78
 115:                                              ; preds = %83, %114
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %116 = add nuw nsw i32 %.098140, 1
+  %116 = add nuw nsw i32 %.098136, 1
   %exitcond.not = icmp eq i32 %116, %24
-  br i1 %exitcond.not, label %._crit_edge143, label %37, !llvm.loop !50
+  br i1 %exitcond.not, label %._crit_edge139, label %37, !llvm.loop !50
 
-._crit_edge143:                                   ; preds = %115
+._crit_edge139:                                   ; preds = %115
   %117 = call i32 @OCSP_copy_nonce(ptr noundef %29, ptr noundef %2) #9
   %118 = call ptr @EVP_MD_CTX_new() #9
   %119 = icmp eq ptr %118, null
   br i1 %119, label %124, label %120
 
-120:                                              ; preds = %._crit_edge143
+120:                                              ; preds = %._crit_edge139
   %121 = call i32 @EVP_DigestSignInit(ptr noundef nonnull %118, ptr noundef nonnull %17, ptr noundef %7, ptr noundef null, ptr noundef %6) #9
   %.not116 = icmp eq i32 %121, 0
   br i1 %.not116, label %124, label %.preheader
@@ -2179,28 +2179,28 @@ lookup_serial.exit:                               ; preds = %75, %78
 .preheader:                                       ; preds = %120
   %122 = call i32 @OPENSSL_sk_num(ptr noundef %8) #9
   %123 = icmp sgt i32 %122, 0
-  br i1 %123, label %.lr.ph145, label %._crit_edge146
+  br i1 %123, label %.lr.ph141, label %._crit_edge142
 
-124:                                              ; preds = %120, %._crit_edge143
+124:                                              ; preds = %120, %._crit_edge139
   %125 = call ptr @OCSP_response_create(i32 noundef 2, ptr noundef null) #9
   store ptr %125, ptr %1, align 8, !tbaa !13
   br label %146
 
-126:                                              ; preds = %.lr.ph145
-  %127 = add nuw nsw i32 %.199144, 1
+126:                                              ; preds = %.lr.ph141
+  %127 = add nuw nsw i32 %.199140, 1
   %128 = call i32 @OPENSSL_sk_num(ptr noundef %8) #9
   %129 = icmp slt i32 %127, %128
-  br i1 %129, label %.lr.ph145, label %._crit_edge146, !llvm.loop !51
+  br i1 %129, label %.lr.ph141, label %._crit_edge142, !llvm.loop !51
 
-.lr.ph145:                                        ; preds = %.preheader, %126
-  %.199144 = phi i32 [ %127, %126 ], [ 0, %.preheader ]
-  %130 = call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %.199144) #9
+.lr.ph141:                                        ; preds = %.preheader, %126
+  %.199140 = phi i32 [ %127, %126 ], [ 0, %.preheader ]
+  %130 = call ptr @OPENSSL_sk_value(ptr noundef %8, i32 noundef %.199140) #9
   %131 = load ptr, ptr %17, align 8, !tbaa !42
   %132 = call i32 @pkey_ctrl_string(ptr noundef %131, ptr noundef %130) #9
   %133 = icmp slt i32 %132, 1
   br i1 %133, label %134, label %126
 
-134:                                              ; preds = %.lr.ph145
+134:                                              ; preds = %.lr.ph141
   %135 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.247, ptr noundef %130) #9
   %136 = load ptr, ptr @bio_err, align 8, !tbaa !4
   call void @ERR_print_errors(ptr noundef %136) #9
@@ -2208,17 +2208,17 @@ lookup_serial.exit:                               ; preds = %75, %78
   store ptr %137, ptr %1, align 8, !tbaa !13
   br label %146
 
-._crit_edge146:                                   ; preds = %126, %.preheader
+._crit_edge142:                                   ; preds = %126, %.preheader
   %138 = call i32 @OCSP_basic_sign_ctx(ptr noundef %29, ptr noundef %5, ptr noundef nonnull %118, ptr noundef %9, i64 noundef %10) #9
   %.not117 = icmp eq i32 %138, 0
   br i1 %.not117, label %139, label %141
 
-139:                                              ; preds = %._crit_edge146
+139:                                              ; preds = %._crit_edge142
   %140 = call ptr @OCSP_response_create(i32 noundef 2, ptr noundef %29) #9
   store ptr %140, ptr %1, align 8, !tbaa !13
   br label %146
 
-141:                                              ; preds = %._crit_edge146
+141:                                              ; preds = %._crit_edge142
   %.not118 = icmp eq i32 %13, 0
   br i1 %.not118, label %144, label %142
 
@@ -2232,11 +2232,11 @@ lookup_serial.exit:                               ; preds = %75, %78
   store ptr %145, ptr %1, align 8, !tbaa !13
   br label %146
 
-146:                                              ; preds = %134, %.thread128, %144, %139, %124, %26
-  %.0102 = phi ptr [ null, %26 ], [ %118, %124 ], [ %118, %134 ], [ %118, %144 ], [ %118, %139 ], [ null, %.thread128 ]
-  %.097 = phi ptr [ null, %26 ], [ %29, %124 ], [ %29, %134 ], [ %29, %144 ], [ %29, %139 ], [ %29, %.thread128 ]
-  %.094 = phi ptr [ null, %26 ], [ %.1, %124 ], [ %.1, %134 ], [ %.1, %144 ], [ %.1, %139 ], [ %.1, %.thread128 ]
-  %.0 = phi ptr [ null, %26 ], [ %30, %124 ], [ %30, %134 ], [ %30, %144 ], [ %30, %139 ], [ %30, %.thread128 ]
+146:                                              ; preds = %134, %.thread127, %144, %139, %124, %26
+  %.0102 = phi ptr [ null, %26 ], [ %118, %124 ], [ %118, %134 ], [ %118, %144 ], [ %118, %139 ], [ null, %.thread127 ]
+  %.097 = phi ptr [ null, %26 ], [ %29, %124 ], [ %29, %134 ], [ %29, %144 ], [ %29, %139 ], [ %29, %.thread127 ]
+  %.094 = phi ptr [ null, %26 ], [ %.1, %124 ], [ %.1, %134 ], [ %.1, %144 ], [ %.1, %139 ], [ %.1, %.thread127 ]
+  %.0 = phi ptr [ null, %26 ], [ %30, %124 ], [ %30, %134 ], [ %30, %144 ], [ %30, %139 ], [ %30, %.thread127 ]
   call void @EVP_MD_CTX_free(ptr noundef %.0102) #9
   call void @ASN1_TIME_free(ptr noundef %.0) #9
   call void @ASN1_TIME_free(ptr noundef %.094) #9

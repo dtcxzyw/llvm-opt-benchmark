@@ -6617,11 +6617,11 @@ codebook_bits_offset.exit.i.i:                    ; preds = %3138, %._crit_edge.
   %.sroa.12.1.i.i = phi i8 [ %3154, %.lr.ph.i97.i.i ], [ %.sroa.12.2.i.i, %3215 ]
   %.sroa.7.1.i.i = phi i32 [ %3156, %.lr.ph.i97.i.i ], [ %.sroa.7.2.i.i, %3215 ]
   %.sroa.0.1.i.i = phi i32 [ %.080.i.i, %.lr.ph.i97.i.i ], [ %.sroa.0.2.i.i210, %3215 ]
-  %.02141.i.i.i = phi i32 [ 0, %.lr.ph.i97.i.i ], [ %.1.i100.i.i, %3215 ]
-  %.02240.i.i.i = phi i32 [ %3162, %.lr.ph.i97.i.i ], [ %3216, %3215 ]
-  %.02539.i.i.i = phi i32 [ -1, %.lr.ph.i97.i.i ], [ %3203, %3215 ]
-  %3169 = sub nsw i32 %.084.lcssa.i.i, %.02240.i.i.i
-  %3170 = sub nsw i32 %.083.lcssa.i.i, %.02240.i.i.i
+  %.02140.i.i.i = phi i32 [ 0, %.lr.ph.i97.i.i ], [ %.1.i100.i.i, %3215 ]
+  %.02239.i.i.i = phi i32 [ %3162, %.lr.ph.i97.i.i ], [ %3216, %3215 ]
+  %.02538.i.i.i = phi i32 [ -1, %.lr.ph.i97.i.i ], [ %3203, %3215 ]
+  %3169 = sub nsw i32 %.084.lcssa.i.i, %.02239.i.i.i
+  %3170 = sub nsw i32 %.083.lcssa.i.i, %.02239.i.i.i
   %3171 = icmp slt i32 %3169, %3116
   %3172 = icmp sgt i32 %3170, %3119
   %3173 = select i1 %3171, i1 true, i1 %3172
@@ -6645,7 +6645,7 @@ codebook_bits_offset.exit.i.i:                    ; preds = %3138, %._crit_edge.
   %3181 = add nsw i32 %3180, -1
   %.173.i.i.i.i = add nuw nsw i32 %.072.lcssa.i.i.i.i, %3132
   %3182 = select i1 %3131, i32 %3180, i32 0
-  %.067.neg.i.i.i.i = sub i32 %3182, %.02240.i.i.i
+  %.067.neg.i.i.i.i = sub i32 %3182, %.02239.i.i.i
   br i1 %.not166.i.i, label %codebook_bits_offset.exit.i.i.i, label %.lr.ph9.i.i.i.i
 
 .lr.ph9.i.i.i.i:                                  ; preds = %._crit_edge.i.i.i110.i
@@ -6687,11 +6687,11 @@ codebook_bits_offset.exit.i.i.i:                  ; preds = %3185, %._crit_edge.
   %3201 = trunc i32 %.173.i.i.i.i to i8
   %3202 = mul nuw nsw i32 %.173.i.i.i.i, %3031
   %3203 = add i32 %.068.lcssa.i.i.i.i, %3202
-  %3204 = sub nsw i32 %.02240.i.i.i, %.070.lcssa.i.i.i.i
+  %3204 = sub nsw i32 %.02239.i.i.i, %.070.lcssa.i.i.i.i
   %3205 = call i32 @llvm.smax.i32(i32 %3204, i32 -16384)
-  %3206 = add nsw i32 %.069.lcssa.i.i.i.i, %.02240.i.i.i
+  %3206 = add nsw i32 %.069.lcssa.i.i.i.i, %.02239.i.i.i
   %3207 = call i32 @llvm.smin.i32(i32 %3206, i32 16383)
-  %3208 = icmp ult i32 %3203, %.02539.i.i.i
+  %3208 = icmp ult i32 %3203, %.02538.i.i.i
   br i1 %3208, label %3209, label %3212
 
 3209:                                             ; preds = %codebook_bits_offset.exit.i.i.i
@@ -6702,7 +6702,7 @@ codebook_bits_offset.exit.i.i.i:                  ; preds = %3185, %._crit_edge.
   br label %3215
 
 3212:                                             ; preds = %codebook_bits_offset.exit.i.i.i
-  %3213 = add nsw i32 %.02141.i.i.i, 1
+  %3213 = add nsw i32 %.02140.i.i.i, 1
   %3214 = load i32, ptr %2472, align 16, !tbaa !230
   %.not.i99.i.i = icmp slt i32 %3213, %3214
   br i1 %.not.i99.i.i, label %3215, label %codebook_bits.exit.i.i
@@ -6712,7 +6712,7 @@ codebook_bits_offset.exit.i.i.i:                  ; preds = %3185, %._crit_edge.
   %.sroa.15139.2.i.i = phi i32 [ %3205, %3211 ], [ %.sroa.15139.1.i.i, %3209 ], [ %.sroa.15139.1.i.i, %3212 ]
   %.sroa.12.2.i.i = phi i8 [ %3201, %3211 ], [ %.sroa.12.1.i.i, %3209 ], [ %.sroa.12.1.i.i, %3212 ]
   %.sroa.7.2.i.i = phi i32 [ %3203, %3211 ], [ %.sroa.7.1.i.i, %3209 ], [ %.sroa.7.1.i.i, %3212 ]
-  %.sroa.0.2.i.i210 = phi i32 [ %.02240.i.i.i, %3211 ], [ %.sroa.0.1.i.i, %3209 ], [ %.sroa.0.1.i.i, %3212 ]
+  %.sroa.0.2.i.i210 = phi i32 [ %.02239.i.i.i, %3211 ], [ %.sroa.0.1.i.i, %3209 ], [ %.sroa.0.1.i.i, %3212 ]
   %.1.i100.i.i = phi i32 [ 0, %3211 ], [ 0, %3209 ], [ %3213, %3212 ]
   %3216 = add nsw i32 %3205, -1
   %3217 = icmp sle i32 %3216, %3108
@@ -6743,11 +6743,11 @@ codebook_bits.exit.i.i:                           ; preds = %3215, %3212, %3161
   %.sroa.12.4.i.i = phi i8 [ %.sroa.12.3.i.i, %.lr.ph.i101.i.i209 ], [ %.sroa.12.5.i.i, %3273 ]
   %.sroa.7.4.i.i = phi i32 [ %.sroa.7.3.i.i, %.lr.ph.i101.i.i209 ], [ %.sroa.7.5.i.i, %3273 ]
   %.sroa.0.4.i.i = phi i32 [ %.sroa.0.3.i.i, %.lr.ph.i101.i.i209 ], [ %.sroa.0.5.i.i, %3273 ]
-  %.02141.i105.i.i = phi i32 [ 0, %.lr.ph.i101.i.i209 ], [ %.1.i129.i.i, %3273 ]
-  %.02240.i106.i.i = phi i32 [ %3220, %.lr.ph.i101.i.i209 ], [ %3274, %3273 ]
-  %.02539.i107.i.i = phi i32 [ -1, %.lr.ph.i101.i.i209 ], [ %3261, %3273 ]
-  %3227 = sub nsw i32 %.084.lcssa.i.i, %.02240.i106.i.i
-  %3228 = sub nsw i32 %.083.lcssa.i.i, %.02240.i106.i.i
+  %.02140.i105.i.i = phi i32 [ 0, %.lr.ph.i101.i.i209 ], [ %.1.i129.i.i, %3273 ]
+  %.02239.i106.i.i = phi i32 [ %3220, %.lr.ph.i101.i.i209 ], [ %3274, %3273 ]
+  %.02538.i107.i.i = phi i32 [ -1, %.lr.ph.i101.i.i209 ], [ %3261, %3273 ]
+  %3227 = sub nsw i32 %.084.lcssa.i.i, %.02239.i106.i.i
+  %3228 = sub nsw i32 %.083.lcssa.i.i, %.02239.i106.i.i
   %3229 = icmp slt i32 %3227, %3116
   %3230 = icmp sgt i32 %3228, %3119
   %3231 = select i1 %3229, i1 true, i1 %3230
@@ -6771,7 +6771,7 @@ codebook_bits.exit.i.i:                           ; preds = %3215, %3212, %3161
   %3239 = add nsw i32 %3238, -1
   %.173.i.i110.i.i = add nuw nsw i32 %.072.lcssa.i.i109.i.i, %3132
   %3240 = select i1 %3131, i32 %3238, i32 0
-  %.067.neg.i.i111.i.i = sub i32 %3240, %.02240.i106.i.i
+  %.067.neg.i.i111.i.i = sub i32 %3240, %.02239.i106.i.i
   br i1 %.not166.i.i, label %codebook_bits_offset.exit.i124.i.i, label %.lr.ph9.i.i113.i.i
 
 .lr.ph9.i.i113.i.i:                               ; preds = %._crit_edge.i.i108.i.i
@@ -6813,11 +6813,11 @@ codebook_bits_offset.exit.i124.i.i:               ; preds = %3243, %._crit_edge.
   %3259 = trunc i32 %.173.i.i110.i.i to i8
   %3260 = mul nuw nsw i32 %.173.i.i110.i.i, %3031
   %3261 = add i32 %.068.lcssa.i.i127.i.i, %3260
-  %3262 = sub nsw i32 %.02240.i106.i.i, %.070.lcssa.i.i125.i.i
+  %3262 = sub nsw i32 %.02239.i106.i.i, %.070.lcssa.i.i125.i.i
   %3263 = call i32 @llvm.smax.i32(i32 %3262, i32 -16384)
-  %3264 = add nsw i32 %.069.lcssa.i.i126.i.i, %.02240.i106.i.i
+  %3264 = add nsw i32 %.069.lcssa.i.i126.i.i, %.02239.i106.i.i
   %3265 = call i32 @llvm.smin.i32(i32 %3264, i32 16383)
-  %3266 = icmp ult i32 %3261, %.02539.i107.i.i
+  %3266 = icmp ult i32 %3261, %.02538.i107.i.i
   br i1 %3266, label %3267, label %3270
 
 3267:                                             ; preds = %codebook_bits_offset.exit.i124.i.i
@@ -6828,7 +6828,7 @@ codebook_bits_offset.exit.i124.i.i:               ; preds = %3243, %._crit_edge.
   br label %3273
 
 3270:                                             ; preds = %codebook_bits_offset.exit.i124.i.i
-  %3271 = add nsw i32 %.02141.i105.i.i, 1
+  %3271 = add nsw i32 %.02140.i105.i.i, 1
   %3272 = load i32, ptr %2472, align 16, !tbaa !230
   %.not.i128.i.i = icmp slt i32 %3271, %3272
   br i1 %.not.i128.i.i, label %3273, label %codebook_bits.exit134.i.i
@@ -6838,7 +6838,7 @@ codebook_bits_offset.exit.i124.i.i:               ; preds = %3243, %._crit_edge.
   %.sroa.15139.5.i.i = phi i32 [ %3263, %3269 ], [ %.sroa.15139.4.i.i, %3267 ], [ %.sroa.15139.4.i.i, %3270 ]
   %.sroa.12.5.i.i = phi i8 [ %3259, %3269 ], [ %.sroa.12.4.i.i, %3267 ], [ %.sroa.12.4.i.i, %3270 ]
   %.sroa.7.5.i.i = phi i32 [ %3261, %3269 ], [ %.sroa.7.4.i.i, %3267 ], [ %.sroa.7.4.i.i, %3270 ]
-  %.sroa.0.5.i.i = phi i32 [ %.02240.i106.i.i, %3269 ], [ %.sroa.0.4.i.i, %3267 ], [ %.sroa.0.4.i.i, %3270 ]
+  %.sroa.0.5.i.i = phi i32 [ %.02239.i106.i.i, %3269 ], [ %.sroa.0.4.i.i, %3267 ], [ %.sroa.0.4.i.i, %3270 ]
   %.1.i129.i.i = phi i32 [ 0, %3269 ], [ 0, %3267 ], [ %3271, %3270 ]
   %3274 = add nsw i32 %3265, 1
   %3275 = icmp slt i32 %3264, %3108

@@ -1465,8 +1465,8 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %37
   %45 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.231.i.i.i.i.i, i1 true)
   %46 = trunc nuw nsw i64 %45 to i32
   %47 = or disjoint i32 %44, %46
-  %.not4454 = icmp eq i32 %47, -1
-  br i1 %.not4454, label %._crit_edge, label %.lr.ph
+  %.not4252 = icmp eq i32 %47, -1
+  br i1 %.not4252, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK4llvm9BitVector8set_bitsEv.exit
   %48 = add i32 %26, -1
@@ -1481,20 +1481,20 @@ _ZNK4llvm9BitVector8set_bitsEv.exit:              ; preds = %37
   br label %56
 
 56:                                               ; preds = %.lr.ph, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit
-  %.sroa.4.055 = phi i32 [ %47, %.lr.ph ], [ %90, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ]
-  %57 = and i32 %.sroa.4.055, 63
+  %.sroa.4.053 = phi i32 [ %47, %.lr.ph ], [ %90, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit ]
+  %57 = and i32 %.sroa.4.053, 63
   %58 = zext nneg i32 %57 to i64
   %59 = shl nuw i64 1, %58
-  %60 = lshr i32 %.sroa.4.055, 6
+  %60 = lshr i32 %.sroa.4.053, 6
   %61 = zext nneg i32 %60 to i64
   %62 = getelementptr inbounds nuw i64, ptr %13, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !20
   %64 = and i64 %63, %59
-  %.not45 = icmp eq i64 %64, 0
-  br i1 %.not45, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit, label %65
+  %.not43 = icmp eq i64 %64, 0
+  br i1 %.not43, label %_ZL8isSubsetIN4llvm3omp13TraitPropertyEEbNS0_8ArrayRefIT_EES5_.exit, label %65
 
 65:                                               ; preds = %56
-  %66 = add nuw i32 %.sroa.4.055, 1
+  %66 = add nuw i32 %.sroa.4.053, 1
   %67 = icmp eq i32 %66, %26
   br i1 %67, label %._crit_edge, label %68
 
@@ -1538,8 +1538,8 @@ _ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit: ; preds = %78
   %88 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.231.i.i.i.i, i1 true)
   %89 = trunc nuw nsw i64 %88 to i32
   %90 = or disjoint i32 %87, %89
-  %.not44 = icmp eq i32 %90, -1
-  br i1 %.not44, label %._crit_edge, label %56
+  %.not42 = icmp eq i32 %90, -1
+  br i1 %.not42, label %._crit_edge, label %56
 
 ._crit_edge:                                      ; preds = %42, %68, %65, %_ZN4llvm28const_set_bits_iterator_implINS_9BitVectorEEppEv.exit, %85, %24, %_ZNK4llvm9BitVector8set_bitsEv.exit
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 224

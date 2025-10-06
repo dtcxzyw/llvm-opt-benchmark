@@ -161,16 +161,16 @@ declare i32 @_pysqlite_seterror(ptr noundef, ptr noundef) local_unnamed_addr #1
 define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #3 {
   br label %2
 
-2:                                                ; preds = %.loopexit, %1
-  %.026 = phi ptr [ %0, %1 ], [ %27, %.loopexit ]
+2:                                                ; preds = %.loopexit39, %1
+  %.026 = phi ptr [ %0, %1 ], [ %27, %.loopexit39 ]
   %3 = load i8, ptr %.026, align 1, !tbaa !28
-  switch i8 %3, label %.critedge2.thread [
-    i8 0, label %.critedge2.thread.loopexit66
-    i8 32, label %.loopexit
-    i8 9, label %.loopexit
-    i8 12, label %.loopexit
-    i8 10, label %.loopexit
-    i8 13, label %.loopexit
+  switch i8 %3, label %.thread [
+    i8 0, label %.thread.loopexit69
+    i8 32, label %.loopexit39
+    i8 9, label %.loopexit39
+    i8 12, label %.loopexit39
+    i8 10, label %.loopexit39
+    i8 13, label %.loopexit39
     i8 45, label %4
     i8 47, label %14
   ]
@@ -179,7 +179,7 @@ define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret
   %5 = getelementptr i8, ptr %.026, i64 1
   %6 = load i8, ptr %5, align 1, !tbaa !28
   %7 = icmp eq i8 %6, 45
-  br i1 %7, label %8, label %.critedge2.thread
+  br i1 %7, label %8, label %.thread
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %.026, i64 2
@@ -189,8 +189,8 @@ define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret
   %.1 = phi ptr [ %9, %8 ], [ %13, %12 ]
   %11 = load i8, ptr %.1, align 1, !tbaa !28
   switch i8 %11, label %12 [
-    i8 0, label %.critedge2.thread
-    i8 10, label %.loopexit
+    i8 0, label %.thread
+    i8 10, label %.loopexit39
   ]
 
 12:                                               ; preds = %10
@@ -201,7 +201,7 @@ define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret
   %15 = getelementptr i8, ptr %.026, i64 1
   %16 = load i8, ptr %15, align 1, !tbaa !28
   %17 = icmp eq i8 %16, 42
-  br i1 %17, label %18, label %.critedge2.thread
+  br i1 %17, label %18, label %.thread
 
 18:                                               ; preds = %14
   %19 = getelementptr i8, ptr %.026, i64 2
@@ -211,7 +211,7 @@ define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret
   %.3 = phi ptr [ %19, %18 ], [ %25, %.critedge4 ]
   %21 = load i8, ptr %.3, align 1, !tbaa !28
   switch i8 %21, label %.critedge4 [
-    i8 0, label %.critedge2.thread
+    i8 0, label %.thread
     i8 42, label %22
   ]
 
@@ -219,27 +219,27 @@ define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret
   %23 = getelementptr i8, ptr %.3, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !28
   %.not34 = icmp eq i8 %24, 47
-  br i1 %.not34, label %.loopexit.loopexit52, label %.critedge4
+  br i1 %.not34, label %.loopexit39.loopexit55, label %.critedge4
 
 .critedge4:                                       ; preds = %20, %22
   %25 = getelementptr i8, ptr %.3, i64 1
   br label %20, !llvm.loop !31
 
-.loopexit.loopexit52:                             ; preds = %22
+.loopexit39.loopexit55:                           ; preds = %22
   %26 = getelementptr i8, ptr %.3, i64 1
-  br label %.loopexit
+  br label %.loopexit39
 
-.loopexit:                                        ; preds = %10, %.loopexit.loopexit52, %2, %2, %2, %2, %2
-  %.2 = phi ptr [ %.026, %2 ], [ %.026, %2 ], [ %.026, %2 ], [ %.026, %2 ], [ %.026, %2 ], [ %26, %.loopexit.loopexit52 ], [ %.1, %10 ]
+.loopexit39:                                      ; preds = %10, %.loopexit39.loopexit55, %2, %2, %2, %2, %2
+  %.2 = phi ptr [ %.026, %2 ], [ %.026, %2 ], [ %.026, %2 ], [ %.026, %2 ], [ %.026, %2 ], [ %26, %.loopexit39.loopexit55 ], [ %.1, %10 ]
   %27 = getelementptr i8, ptr %.2, i64 1
   br label %2, !llvm.loop !32
 
-.critedge2.thread.loopexit66:                     ; preds = %2
-  br label %.critedge2.thread
+.thread.loopexit69:                               ; preds = %2
+  br label %.thread
 
-.critedge2.thread:                                ; preds = %20, %10, %14, %4, %2, %.critedge2.thread.loopexit66
-  %switch = phi ptr [ null, %.critedge2.thread.loopexit66 ], [ %.026, %2 ], [ %.026, %4 ], [ %.026, %14 ], [ null, %10 ], [ null, %20 ]
-  ret ptr %switch
+.thread:                                          ; preds = %20, %10, %14, %4, %2, %.thread.loopexit69
+  %28 = phi ptr [ null, %.thread.loopexit69 ], [ %.026, %2 ], [ %.026, %4 ], [ %.026, %14 ], [ null, %10 ], [ null, %20 ]
+  ret ptr %28
 }
 
 declare i32 @PyOS_mystrnicmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1

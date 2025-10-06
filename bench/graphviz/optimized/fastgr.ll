@@ -611,13 +611,13 @@ define void @safe_other_edge(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not.i, label %.thread.i.thread, label %.lr.ph.i
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = add nuw i64 %.01522.i, 1
+  %14 = add nuw i64 %.01520.i, 1
   %exitcond.not.i = icmp eq i64 %14, %12
   br i1 %exitcond.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !46
 
 .lr.ph.i:                                         ; preds = %1, %13
-  %.01522.i = phi i64 [ %14, %13 ], [ 0, %1 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.01522.i
+  %.01520.i = phi i64 [ %14, %13 ], [ 0, %1 ]
+  %15 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.01520.i
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = icmp eq ptr %0, %16
   br i1 %17, label %safe_list_append.exit, label %13

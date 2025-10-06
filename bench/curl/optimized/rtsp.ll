@@ -1027,7 +1027,7 @@ define hidden range(i32 0, 87) i32 @Curl_rtsp_parseheader(ptr noundef %0, ptr no
   %43 = tail call ptr @Curl_memdup0(ptr noundef nonnull %.060, i64 noundef %34) #7
   store ptr %43, ptr %35, align 8, !tbaa !100
   %.not76 = icmp eq ptr %43, null
-  %spec.select88 = select i1 %.not76, i32 27, i32 0
+  %spec.select85 = select i1 %.not76, i32 27, i32 0
   br label %rtsp_parse_transport.exit
 
 44:                                               ; preds = %19
@@ -1175,7 +1175,7 @@ select.unfold.i:                                  ; preds = %.critedge2.i
   br i1 %.not68.i, label %rtsp_parse_transport.exit, label %.lr.ph.i
 
 rtsp_parse_transport.exit:                        ; preds = %.lr.ph.i, %select.unfold.i, %42, %26, %41, %44, %.thread, %39, %.loopexit.i, %18
-  %.1 = phi i32 [ 85, %18 ], [ 0, %.loopexit.i ], [ 0, %39 ], [ 0, %.thread ], [ 0, %44 ], [ 86, %26 ], [ 86, %41 ], [ %spec.select88, %42 ], [ 0, %select.unfold.i ], [ 0, %.lr.ph.i ]
+  %.1 = phi i32 [ 85, %18 ], [ 0, %.loopexit.i ], [ 0, %39 ], [ 0, %.thread ], [ 0, %44 ], [ 86, %26 ], [ 86, %41 ], [ %spec.select85, %42 ], [ 0, %select.unfold.i ], [ 0, %.lr.ph.i ]
   ret i32 %.1
 }
 

@@ -793,17 +793,17 @@ compareJsonbScalarValue.exit.thread:              ; preds = %73, %108, %114, %12
   br label %thread-pre-split
 
 compareJsonbScalarValue.exit:                     ; preds = %81, %95, %88, %82, %101, %111, %75
-  %.1 = phi i32 [ 0, %75 ], [ 0, %111 ], [ %.2, %101 ], [ %87, %82 ], [ %94, %88 ], [ 0, %95 ], [ 0, %81 ]
+  %.1 = phi i32 [ 0, %75 ], [ %.2, %101 ], [ 0, %111 ], [ %87, %82 ], [ %94, %88 ], [ 0, %95 ], [ 0, %81 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %131 = icmp eq i32 %.1, 0
   br i1 %131, label %69, label %thread-pre-split, !llvm.loop !11
 
 thread-pre-split:                                 ; preds = %compareJsonbScalarValue.exit, %compareJsonbScalarValue.exit.thread
-  %.137 = phi i32 [ %.1.ph, %compareJsonbScalarValue.exit.thread ], [ %.1, %compareJsonbScalarValue.exit ]
+  %.135 = phi i32 [ %.1.ph, %compareJsonbScalarValue.exit.thread ], [ %.1, %compareJsonbScalarValue.exit ]
   %.pr = load ptr, ptr %3, align 8
-  %.not2556 = icmp eq ptr %.pr, null
-  br i1 %.not2556, label %thread-pre-split30, label %.lr.ph
+  %.not2554 = icmp eq ptr %.pr, null
+  br i1 %.not2554, label %thread-pre-split30, label %.lr.ph
 
 .lr.ph:                                           ; preds = %thread-pre-split, %.lr.ph
   %132 = phi ptr [ %134, %.lr.ph ], [ %.pr, %thread-pre-split ]
@@ -815,21 +815,21 @@ thread-pre-split:                                 ; preds = %compareJsonbScalarV
 
 thread-pre-split30:                               ; preds = %.lr.ph, %thread-pre-split
   %.pr31 = load ptr, ptr %4, align 8
-  %.not2659 = icmp eq ptr %.pr31, null
-  br i1 %.not2659, label %._crit_edge, label %.lr.ph60
+  %.not2657 = icmp eq ptr %.pr31, null
+  br i1 %.not2657, label %._crit_edge, label %.lr.ph58
 
-.lr.ph60:                                         ; preds = %thread-pre-split30, %.lr.ph60
-  %135 = phi ptr [ %137, %.lr.ph60 ], [ %.pr31, %thread-pre-split30 ]
+.lr.ph58:                                         ; preds = %thread-pre-split30, %.lr.ph58
+  %135 = phi ptr [ %137, %.lr.ph58 ], [ %.pr31, %thread-pre-split30 ]
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %137 = load ptr, ptr %136, align 8
   tail call void @pfree(ptr noundef nonnull %135) #12
   %.not26 = icmp eq ptr %137, null
-  br i1 %.not26, label %._crit_edge, label %.lr.ph60, !llvm.loop !13
+  br i1 %.not26, label %._crit_edge, label %.lr.ph58, !llvm.loop !13
 
-._crit_edge:                                      ; preds = %.lr.ph60, %thread-pre-split30
+._crit_edge:                                      ; preds = %.lr.ph58, %thread-pre-split30
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  ret i32 %.137
+  ret i32 %.135
 }
 
 ; Function Attrs: nounwind uwtable

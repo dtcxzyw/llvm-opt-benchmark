@@ -3277,10 +3277,10 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
   br label %18
 
 18:                                               ; preds = %.preheader, %51
-  %.04970 = phi i32 [ 0, %.preheader ], [ %52, %51 ]
-  %.169 = phi ptr [ null, %.preheader ], [ %.3, %51 ]
-  %19 = icmp eq i32 %.04970, 0
-  %20 = icmp eq i32 %.04970, 1
+  %.04969 = phi i32 [ 0, %.preheader ], [ %52, %51 ]
+  %.168 = phi ptr [ null, %.preheader ], [ %.3, %51 ]
+  %19 = icmp eq i32 %.04969, 0
+  %20 = icmp eq i32 %.04969, 1
   %21 = select i1 %20, ptr null, ptr %.str.306..str.281
   %22 = select i1 %19, ptr %5, ptr %21
   %23 = load ptr, ptr @testctx, align 8, !tbaa !10
@@ -3307,7 +3307,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
 
 34:                                               ; preds = %30
   %35 = call i32 @OSSL_DECODER_from_bio(ptr noundef %24, ptr noundef %15) #8
-  %36 = icmp ne i32 %.04970, 2
+  %36 = icmp ne i32 %.04969, 2
   %37 = zext i1 %36 to i32
   %38 = call i32 @test_int_eq(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.310, ptr noundef nonnull @.str.311, i32 noundef %35, i32 noundef %37) #8
   %.not60 = icmp eq i32 %38, 0
@@ -3330,20 +3330,20 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
   br i1 %17, label %45, label %48
 
 45:                                               ; preds = %43
-  %46 = call i32 @EVP_PKEY_parameters_eq(ptr noundef %.169, ptr noundef %44) #8
+  %46 = call i32 @EVP_PKEY_parameters_eq(ptr noundef %.168, ptr noundef %44) #8
   %47 = call i32 @test_int_eq(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.312, ptr noundef nonnull @.str.290, i32 noundef %46, i32 noundef 1) #8
   %.not62 = icmp eq i32 %47, 0
   br i1 %.not62, label %.thread, label %51
 
 48:                                               ; preds = %43
-  %49 = call i32 @EVP_PKEY_eq(ptr noundef %.169, ptr noundef %44) #8
+  %49 = call i32 @EVP_PKEY_eq(ptr noundef %.168, ptr noundef %44) #8
   %50 = call i32 @test_int_eq(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.313, ptr noundef nonnull @.str.290, i32 noundef %49, i32 noundef 1) #8
   %.not61 = icmp eq i32 %50, 0
   br i1 %.not61, label %.thread, label %51
 
 51:                                               ; preds = %42, %48, %45, %40
-  %.3 = phi ptr [ %41, %40 ], [ %.169, %45 ], [ %.169, %48 ], [ %.169, %42 ]
-  %52 = add nuw nsw i32 %.04970, 1
+  %.3 = phi ptr [ %41, %40 ], [ %.168, %45 ], [ %.168, %48 ], [ %.168, %42 ]
+  %52 = add nuw nsw i32 %.04969, 1
   %exitcond.not = icmp eq i32 %52, 3
   br i1 %exitcond.not, label %53, label %18, !llvm.loop !35
 
@@ -3353,7 +3353,7 @@ define internal fastcc range(i32 0, 2) i32 @decode_EVP_PKEY_prov(ptr noundef %0,
 
 .thread:                                          ; preds = %48, %45, %18, %27, %30, %34, %10, %53
   %.052 = phi ptr [ null, %53 ], [ null, %10 ], [ %24, %34 ], [ %24, %30 ], [ %24, %27 ], [ %24, %18 ], [ null, %45 ], [ null, %48 ]
-  %.051 = phi ptr [ null, %53 ], [ null, %10 ], [ %.169, %34 ], [ %.169, %30 ], [ %.169, %27 ], [ %.169, %18 ], [ %.169, %45 ], [ %.169, %48 ]
+  %.051 = phi ptr [ null, %53 ], [ null, %10 ], [ %.168, %34 ], [ %.168, %30 ], [ %.168, %27 ], [ %.168, %18 ], [ %.168, %45 ], [ %.168, %48 ]
   %.050 = phi i32 [ 1, %53 ], [ 0, %10 ], [ 0, %34 ], [ 0, %30 ], [ 0, %27 ], [ 0, %18 ], [ 0, %45 ], [ 0, %48 ]
   call void @EVP_PKEY_free(ptr noundef %.051) #8
   %54 = load ptr, ptr %11, align 8, !tbaa !21

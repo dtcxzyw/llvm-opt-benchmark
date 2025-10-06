@@ -1549,12 +1549,12 @@ _ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %59 = call noundef ptr @_ZNK5clang4ento12ProgramState7FindGDMEPv(ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull @_ZZN5clang4ento17ProgramStateTraitIN12_GLOBAL__N_118VariantHeldTypeMapEE8GDMIndexEvE5Index) #17
   %.not.i.i36 = icmp eq ptr %59, null
-  br i1 %.not.i.i36, label %.thread123, label %60
+  br i1 %.not.i.i36, label %.thread122, label %60
 
 60:                                               ; preds = %53
   %61 = load ptr, ptr %59, align 8, !tbaa !18, !noalias !252
   %.not.i.i.i.i.i = icmp eq ptr %61, null
-  br i1 %.not.i.i.i.i.i, label %.thread123, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionENS_8QualTypeENS2_16ImutKeyValueInfoIS6_S7_EEEEvE8MakeDataEPKPv.exit.i
+  br i1 %.not.i.i.i.i.i, label %.thread122, label %_ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionENS_8QualTypeENS2_16ImutKeyValueInfoIS6_S7_EEEEvE8MakeDataEPKPv.exit.i
 
 _ZN5clang4ento24ProgramStatePartialTraitIN4llvm12ImmutableMapIPKNS0_9MemRegionENS_8QualTypeENS2_16ImutKeyValueInfoIS6_S7_EEEEvE8MakeDataEPKPv.exit.i: ; preds = %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 68
@@ -1856,13 +1856,13 @@ switch.lookup:                                    ; preds = %_ZN4llvm11raw_ostre
   %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 %203
   %switch.load = load i64, ptr %switch.gep, align 8
   %204 = zext nneg i32 %201 to i64
-  %switch.gep155 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 %204
-  %switch.load156 = load ptr, ptr %switch.gep155, align 8
+  %switch.gep154 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 %204
+  %switch.load155 = load ptr, ptr %switch.gep154, align 8
   br label %_ZL29indefiniteArticleBasedOnVowelc.exit
 
 _ZL29indefiniteArticleBasedOnVowelc.exit:         ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit52, %switch.lookup
   %.sroa.3.0.i = phi i64 [ %switch.load, %switch.lookup ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit52 ]
-  %.sroa.0.0.i = phi ptr [ %switch.load156, %switch.lookup ], [ @.str.16, %_ZN4llvm11raw_ostreamlsEPKc.exit52 ]
+  %.sroa.0.0.i = phi ptr [ %switch.load155, %switch.lookup ], [ @.str.16, %_ZN4llvm11raw_ostreamlsEPKc.exit52 ]
   %205 = getelementptr inbounds nuw i8, ptr %.0.i.i51, i64 24
   %206 = load ptr, ptr %205, align 8, !tbaa !279
   %207 = getelementptr inbounds nuw i8, ptr %.0.i.i51, i64 32
@@ -1944,20 +1944,20 @@ _ZN4llvm11raw_ostreamlsEPKc.exit61:               ; preds = %243, %245
   %251 = add nsw i32 %250, -97
   %252 = call i32 @llvm.fshl.i32(i32 %251, i32 %251, i32 31)
   %253 = icmp ult i32 %252, 11
-  br i1 %253, label %switch.lookup157, label %_ZL29indefiniteArticleBasedOnVowelc.exit67
+  br i1 %253, label %switch.lookup156, label %_ZL29indefiniteArticleBasedOnVowelc.exit67
 
-switch.lookup157:                                 ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61
+switch.lookup156:                                 ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61
   %254 = zext nneg i32 %252 to i64
-  %switch.gep158 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 %254
-  %switch.load159 = load i64, ptr %switch.gep158, align 8
+  %switch.gep157 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.3, i64 %254
+  %switch.load158 = load i64, ptr %switch.gep157, align 8
   %255 = zext nneg i32 %252 to i64
-  %switch.gep160 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 %255
-  %switch.load161 = load ptr, ptr %switch.gep160, align 8
+  %switch.gep159 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK17StdVariantChecker16handleStdGetCallERKN5clang4ento9CallEventERNS1_14CheckerContextE.4, i64 %255
+  %switch.load160 = load ptr, ptr %switch.gep159, align 8
   br label %_ZL29indefiniteArticleBasedOnVowelc.exit67
 
-_ZL29indefiniteArticleBasedOnVowelc.exit67:       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61, %switch.lookup157
-  %.sroa.3.0.i62 = phi i64 [ %switch.load159, %switch.lookup157 ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ]
-  %.sroa.0.0.i63 = phi ptr [ %switch.load161, %switch.lookup157 ], [ @.str.16, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ]
+_ZL29indefiniteArticleBasedOnVowelc.exit67:       ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit61, %switch.lookup156
+  %.sroa.3.0.i62 = phi i64 [ %switch.load158, %switch.lookup156 ], [ 1, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ]
+  %.sroa.0.0.i63 = phi ptr [ %switch.load160, %switch.lookup156 ], [ @.str.16, %_ZN4llvm11raw_ostreamlsEPKc.exit61 ]
   %256 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 24
   %257 = load ptr, ptr %256, align 8, !tbaa !279
   %258 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 32
@@ -1970,8 +1970,8 @@ _ZL29indefiniteArticleBasedOnVowelc.exit67:       ; preds = %_ZN4llvm11raw_ostre
 
 264:                                              ; preds = %_ZL29indefiniteArticleBasedOnVowelc.exit67
   %265 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i60, ptr noundef nonnull %.sroa.0.0.i63, i64 noundef %.sroa.3.0.i62) #17
-  %.phi.trans.insert129 = getelementptr inbounds nuw i8, ptr %265, i64 32
-  %.pre130 = load ptr, ptr %.phi.trans.insert129, align 8, !tbaa !280
+  %.phi.trans.insert128 = getelementptr inbounds nuw i8, ptr %265, i64 32
+  %.pre129 = load ptr, ptr %.phi.trans.insert128, align 8, !tbaa !280
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70
 
 266:                                              ; preds = %_ZL29indefiniteArticleBasedOnVowelc.exit67
@@ -1982,7 +1982,7 @@ _ZL29indefiniteArticleBasedOnVowelc.exit67:       ; preds = %_ZN4llvm11raw_ostre
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit70:    ; preds = %264, %266
-  %269 = phi ptr [ %.pre130, %264 ], [ %268, %266 ]
+  %269 = phi ptr [ %.pre129, %264 ], [ %268, %266 ]
   %.0.i69 = phi ptr [ %265, %264 ], [ %.0.i.i60, %266 ]
   %270 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 24
   %271 = load ptr, ptr %270, align 8, !tbaa !279
@@ -2128,16 +2128,16 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit:          ; preds = %_ZNSt7__cxx1112basi
 
 _ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit.thread: ; preds = %39, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118VariantHeldTypeMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit, %.thread, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit
   %.0 = phi i1 [ false, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit ], [ false, %_ZNK5clang4ento12ProgramState3getIN12_GLOBAL__N_118VariantHeldTypeMapEEENS0_17ProgramStateTraitIT_E11lookup_typeENS7_8key_typeE.exit ], [ %.3, %.thread ], [ false, %_ZNK5clang8CallExpr15getDirectCalleeEv.exit ], [ false, %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEEC2ERKS5_.exit ], [ false, %_ZN4llvmeqENS_9StringRefES0_.exit.i.i ], [ false, %_ZNK5clang9NamedDecl7getNameEv.exit.i.i ], [ false, %39 ]
-  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit89, label %.thread123
+  br i1 %.not.i.i, label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit89, label %.thread122
 
-.thread123:                                       ; preds = %60, %53, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit.thread
-  %.0125 = phi i1 [ %.0, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit.thread ], [ false, %53 ], [ false, %60 ]
+.thread122:                                       ; preds = %60, %53, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit.thread
+  %.0124 = phi i1 [ %.0, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit.thread ], [ false, %53 ], [ false, %60 ]
   call void @_ZN5clang4ento19ProgramStateReleaseEPKNS0_12ProgramStateE(ptr noundef nonnull %17) #17
   br label %_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit89
 
-_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit89: ; preds = %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit.thread, %.thread123
-  %.0126 = phi i1 [ %.0, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit.thread ], [ %.0125, %.thread123 ]
-  ret i1 %.0126
+_ZN4llvm18IntrusiveRefCntPtrIKN5clang4ento12ProgramStateEED2Ev.exit89: ; preds = %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit.thread, %.thread122
+  %.0125 = phi i1 [ %.0, %_ZN5clang4ento21tagged_union_modeling12isStdVariantEPKNS_4TypeE.exit.thread ], [ %.0124, %.thread122 ]
+  ret i1 %.0125
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4423,14 +4423,14 @@ _ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualT
   br label %27
 
 27:                                               ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEE5beginEv.exit
-  %28 = phi i32 [ %.pre44, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10 ], [ 0, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEE5beginEv.exit ]
+  %28 = phi i32 [ %.pre43, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10 ], [ 0, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEE5beginEv.exit ]
   %29 = phi i32 [ %.pre, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10 ], [ %12, %_ZNK4llvm11ImutAVLTreeINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEE5beginEv.exit ]
   %.not.i.i.i.i = icmp eq i32 %29, %28
   br i1 %.not.i.i.i.i, label %30, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread
 
 30:                                               ; preds = %27
   %.not.not.i.i.i.i.i.i.i.i = icmp eq i32 %28, 0
-  br i1 %.not.not.i.i.i.i.i.i.i.i, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread36, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit
+  br i1 %.not.not.i.i.i.i.i.i.i.i, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread35, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit: ; preds = %30
   %31 = zext i32 %28 to i64
@@ -4439,22 +4439,22 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %33 = load ptr, ptr %5, align 8, !tbaa !319
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr %32, ptr %33, i64 %.idx.i.i.i.i)
   %.not9.i.i.i.i.i.i.i.i.not = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i.i.i.i.not, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread36, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread
+  br i1 %.not9.i.i.i.i.i.i.i.i.not, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread35, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread: ; preds = %27, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit
   %34 = load i32, ptr %23, align 8, !tbaa !321
   %35 = load i32, ptr %24, align 8, !tbaa !321
   %.not.i.i.i = icmp eq i32 %34, %35
-  br i1 %.not.i.i.i, label %36, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39_crit_edge
+  br i1 %.not.i.i.i, label %36, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38_crit_edge
 
-_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39_crit_edge: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread
-  %.pre45 = load ptr, ptr %1, align 8, !tbaa !319
-  %.pre57 = zext i32 %34 to i64
-  br label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39
+_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38_crit_edge: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread
+  %.pre44 = load ptr, ptr %1, align 8, !tbaa !319
+  %.pre56 = zext i32 %34 to i64
+  br label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38
 
 36:                                               ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread
   %.not.not.i.i.i.i.i.i.i = icmp eq i32 %34, 0
-  br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread36, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit
+  br i1 %.not.not.i.i.i.i.i.i.i, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread35, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit
 
 _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit: ; preds = %36
   %37 = zext i32 %34 to i64
@@ -4463,11 +4463,11 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %39 = load ptr, ptr %2, align 8, !tbaa !319
   %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr %38, ptr %39, i64 %.idx.i.i.i)
   %.not9.i.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
-  br i1 %.not9.i.i.i.i.i.i.i, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread36, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39
+  br i1 %.not9.i.i.i.i.i.i.i, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread35, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38
 
-_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39_crit_edge, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit
-  %.pre-phi = phi i64 [ %.pre57, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39_crit_edge ], [ %37, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit ]
-  %40 = phi ptr [ %.pre45, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39_crit_edge ], [ %38, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit ]
+_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38_crit_edge, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit
+  %.pre-phi = phi i64 [ %.pre56, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38_crit_edge ], [ %37, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit ]
+  %40 = phi ptr [ %.pre44, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread._ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38_crit_edge ], [ %38, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit ]
   %41 = load ptr, ptr %4, align 8, !tbaa !319
   %42 = zext i32 %29 to i64
   %43 = getelementptr inbounds nuw i64, ptr %41, i64 %42
@@ -4491,19 +4491,19 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
   %.0.copyload.i.i2.i.i.i.i.i.i.i = load i64, ptr %59, align 8
   %60 = icmp eq i64 %.0.copyload.i.i.i.i.i.i.i.i.i, %.0.copyload.i.i2.i.i.i.i.i.i.i
   %.0.i.i = select i1 %57, i1 %60, i1 false
-  br i1 %.0.i.i, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread36
+  br i1 %.0.i.i, label %.preheader, label %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread35
 
-.preheader:                                       ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39, %106
-  %.pr47 = phi i32 [ %.pr4871, %106 ], [ %29, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39 ]
-  %61 = phi i64 [ %111, %106 ], [ %45, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39 ]
-  %62 = phi ptr [ %107, %106 ], [ %41, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39 ]
-  %63 = zext i32 %.pr47 to i64
+.preheader:                                       ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38, %107
+  %.pr46 = phi i32 [ %.pr4770, %107 ], [ %29, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38 ]
+  %61 = phi i64 [ %112, %107 ], [ %45, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38 ]
+  %62 = phi ptr [ %108, %107 ], [ %41, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38 ]
+  %63 = zext i32 %.pr46 to i64
   %64 = getelementptr inbounds nuw i64, ptr %62, i64 %63
   %65 = getelementptr inbounds i8, ptr %64, i64 -8
   %66 = and i64 %61, -4
   %67 = inttoptr i64 %66 to ptr
   %68 = and i64 %61, 3
-  switch i64 %68, label %105 [
+  switch i64 %68, label %106 [
     i64 0, label %69
     i64 1, label %83
     i64 3, label %97
@@ -4518,7 +4518,7 @@ _ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRe
 72:                                               ; preds = %69
   %73 = ptrtoint ptr %71 to i64
   %74 = load i32, ptr %8, align 4, !tbaa !322
-  %.not.i.i.not.i.i = icmp ult i32 %.pr47, %74
+  %.not.i.i.not.i.i = icmp ult i32 %.pr46, %74
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, label %75, !prof !55
 
 75:                                               ; preds = %72
@@ -4553,7 +4553,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i: ; preds = %75, %72
 86:                                               ; preds = %83
   %87 = ptrtoint ptr %85 to i64
   %88 = load i32, ptr %8, align 4, !tbaa !322
-  %.not.i.i.not.i9.i = icmp ult i32 %.pr47, %88
+  %.not.i.i.not.i9.i = icmp ult i32 %.pr46, %88
   br i1 %.not.i.i.not.i9.i, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i, label %89, !prof !55
 
 89:                                               ; preds = %86
@@ -4580,7 +4580,7 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i: ; preds = %89, %8
   br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit
 
 97:                                               ; preds = %.preheader
-  %98 = add i32 %.pr47, -1
+  %98 = add i32 %.pr46, -1
   store i32 %98, ptr %7, align 8, !tbaa !321
   %.not.i.i.i12 = icmp eq i32 %98, 0
   br i1 %.not.i.i.i12, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit, label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit.thread
@@ -4591,189 +4591,189 @@ _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemReg
   %101 = getelementptr inbounds i8, ptr %100, i64 -8
   %102 = load i64, ptr %101, align 8, !tbaa !36
   %103 = and i64 %102, 3
-  %switch.i.i = icmp eq i64 %103, 0
-  %..i.i = select i1 %switch.i.i, i64 1, i64 3
-  %104 = or i64 %..i.i, %102
-  store i64 %104, ptr %101, align 8, !tbaa !36
-  br label %106
+  %104 = icmp eq i64 %103, 0
+  %..i.i = select i1 %104, i64 1, i64 3
+  %105 = or i64 %..i.i, %102
+  store i64 %105, ptr %101, align 8, !tbaa !36
+  br label %107
 
-105:                                              ; preds = %.preheader
+106:                                              ; preds = %.preheader
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit: ; preds = %81, %95, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i
-  %.pr48 = phi i32 [ %80, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %94, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %.pr47, %95 ], [ %.pr47, %81 ]
-  %.not.i.i.i7 = icmp eq i32 %.pr48, 0
-  br i1 %.not.i.i.i7, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit, label %106
+  %.pr47 = phi i32 [ %80, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i ], [ %94, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i ], [ %.pr46, %95 ], [ %.pr46, %81 ]
+  %.not.i.i.i7 = icmp eq i32 %.pr47, 0
+  br i1 %.not.i.i.i7, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit, label %107
 
-106:                                              ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit
-  %.pr4871 = phi i32 [ %98, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit.thread ], [ %.pr48, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit ]
-  %107 = load ptr, ptr %4, align 8, !tbaa !319
-  %108 = zext i32 %.pr4871 to i64
-  %109 = getelementptr inbounds nuw i64, ptr %107, i64 %108
-  %110 = getelementptr inbounds i8, ptr %109, i64 -8
-  %111 = load i64, ptr %110, align 8, !tbaa !36
-  %112 = and i64 %111, 3
-  %.not.i = icmp eq i64 %112, 1
+107:                                              ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit
+  %.pr4770 = phi i32 [ %98, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit.thread ], [ %.pr47, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit ]
+  %108 = load ptr, ptr %4, align 8, !tbaa !319
+  %109 = zext i32 %.pr4770 to i64
+  %110 = getelementptr inbounds nuw i64, ptr %108, i64 %109
+  %111 = getelementptr inbounds i8, ptr %110, i64 -8
+  %112 = load i64, ptr %111, align 8, !tbaa !36
+  %113 = and i64 %112, 3
+  %.not.i = icmp eq i64 %113, 1
   br i1 %.not.i, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit, label %.preheader, !llvm.loop !361
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit: ; preds = %97, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit, %106
-  %.pre49 = load ptr, ptr %1, align 8, !tbaa !319
-  %.pre50 = load i32, ptr %23, align 8, !tbaa !321
-  %.phi.trans.insert = zext i32 %.pre50 to i64
-  %.phi.trans.insert51 = getelementptr inbounds nuw i64, ptr %.pre49, i64 %.phi.trans.insert
-  %.phi.trans.insert52 = getelementptr inbounds i8, ptr %.phi.trans.insert51, i64 -8
-  %.pre53 = load i64, ptr %.phi.trans.insert52, align 8, !tbaa !36
-  br label %113
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit: ; preds = %97, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit, %107
+  %.pre48 = load ptr, ptr %1, align 8, !tbaa !319
+  %.pre49 = load i32, ptr %23, align 8, !tbaa !321
+  %.phi.trans.insert = zext i32 %.pre49 to i64
+  %.phi.trans.insert50 = getelementptr inbounds nuw i64, ptr %.pre48, i64 %.phi.trans.insert
+  %.phi.trans.insert51 = getelementptr inbounds i8, ptr %.phi.trans.insert50, i64 -8
+  %.pre52 = load i64, ptr %.phi.trans.insert51, align 8, !tbaa !36
+  br label %114
 
-113:                                              ; preds = %159, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit
-  %.pr4256 = phi i32 [ %.pr425474, %159 ], [ %.pre50, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit ]
-  %114 = phi i64 [ %164, %159 ], [ %.pre53, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit ]
-  %115 = phi ptr [ %160, %159 ], [ %.pre49, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit ]
-  %116 = zext i32 %.pr4256 to i64
-  %117 = getelementptr inbounds nuw i64, ptr %115, i64 %116
-  %118 = getelementptr inbounds i8, ptr %117, i64 -8
-  %119 = and i64 %114, -4
-  %120 = inttoptr i64 %119 to ptr
-  %121 = and i64 %114, 3
-  switch i64 %121, label %158 [
-    i64 0, label %122
-    i64 1, label %136
-    i64 3, label %150
+114:                                              ; preds = %161, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit
+  %.pr4155 = phi i32 [ %.pr415373, %161 ], [ %.pre49, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit ]
+  %115 = phi i64 [ %166, %161 ], [ %.pre52, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit ]
+  %116 = phi ptr [ %162, %161 ], [ %.pre48, %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit ]
+  %117 = zext i32 %.pr4155 to i64
+  %118 = getelementptr inbounds nuw i64, ptr %116, i64 %117
+  %119 = getelementptr inbounds i8, ptr %118, i64 -8
+  %120 = and i64 %115, -4
+  %121 = inttoptr i64 %120 to ptr
+  %122 = and i64 %115, 3
+  switch i64 %122, label %160 [
+    i64 0, label %123
+    i64 1, label %137
+    i64 3, label %151
   ]
 
-122:                                              ; preds = %113
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %124 = load ptr, ptr %123, align 8, !tbaa !300
-  %.not8.i25 = icmp eq ptr %124, null
-  br i1 %.not8.i25, label %134, label %125
+123:                                              ; preds = %114
+  %124 = getelementptr inbounds nuw i8, ptr %121, i64 8
+  %125 = load ptr, ptr %124, align 8, !tbaa !300
+  %.not8.i24 = icmp eq ptr %125, null
+  br i1 %.not8.i24, label %135, label %126
 
-125:                                              ; preds = %122
-  %126 = ptrtoint ptr %124 to i64
-  %127 = load i32, ptr %25, align 4, !tbaa !322
-  %.not.i.i.not.i.i26 = icmp ult i32 %.pr4256, %127
-  br i1 %.not.i.i.not.i.i26, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i30, label %128, !prof !55
+126:                                              ; preds = %123
+  %127 = ptrtoint ptr %125 to i64
+  %128 = load i32, ptr %25, align 4, !tbaa !322
+  %.not.i.i.not.i.i25 = icmp ult i32 %.pr4155, %128
+  br i1 %.not.i.i.not.i.i25, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29, label %129, !prof !55
 
-128:                                              ; preds = %125
-  %129 = add nuw nsw i64 %116, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull %26, i64 noundef %129, i64 noundef 8) #17
-  %.pre.i.i27 = load i32, ptr %23, align 8, !tbaa !321
-  %.pre12.i28 = load ptr, ptr %1, align 8, !tbaa !319
-  %.pre13.i29 = zext i32 %.pre.i.i27 to i64
-  br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i30
+129:                                              ; preds = %126
+  %130 = add nuw nsw i64 %117, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull %26, i64 noundef %130, i64 noundef 8) #17
+  %.pre.i.i26 = load i32, ptr %23, align 8, !tbaa !321
+  %.pre12.i27 = load ptr, ptr %1, align 8, !tbaa !319
+  %.pre13.i28 = zext i32 %.pre.i.i26 to i64
+  br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29
 
-_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i30: ; preds = %128, %125
-  %.pre-phi.i31 = phi i64 [ %116, %125 ], [ %.pre13.i29, %128 ]
-  %130 = phi ptr [ %115, %125 ], [ %.pre12.i28, %128 ]
-  %131 = getelementptr inbounds nuw i64, ptr %130, i64 %.pre-phi.i31
-  store i64 %126, ptr %131, align 1
-  %132 = load i32, ptr %23, align 8, !tbaa !321
-  %133 = add i32 %132, 1
-  store i32 %133, ptr %23, align 8, !tbaa !321
-  br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32
+_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29: ; preds = %129, %126
+  %.pre-phi.i30 = phi i64 [ %117, %126 ], [ %.pre13.i28, %129 ]
+  %131 = phi ptr [ %116, %126 ], [ %.pre12.i27, %129 ]
+  %132 = getelementptr inbounds nuw i64, ptr %131, i64 %.pre-phi.i30
+  store i64 %127, ptr %132, align 1
+  %133 = load i32, ptr %23, align 8, !tbaa !321
+  %134 = add i32 %133, 1
+  store i32 %134, ptr %23, align 8, !tbaa !321
+  br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31
 
-134:                                              ; preds = %122
-  %135 = or i64 %114, 1
-  store i64 %135, ptr %118, align 8, !tbaa !36
-  br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32
+135:                                              ; preds = %123
+  %136 = or i64 %115, 1
+  store i64 %136, ptr %119, align 8, !tbaa !36
+  br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31
 
-136:                                              ; preds = %113
-  %137 = getelementptr inbounds nuw i8, ptr %120, i64 16
-  %138 = load ptr, ptr %137, align 8, !tbaa !301
-  %.not.i18 = icmp eq ptr %138, null
-  br i1 %.not.i18, label %148, label %139
+137:                                              ; preds = %114
+  %138 = getelementptr inbounds nuw i8, ptr %121, i64 16
+  %139 = load ptr, ptr %138, align 8, !tbaa !301
+  %.not.i17 = icmp eq ptr %139, null
+  br i1 %.not.i17, label %149, label %140
 
-139:                                              ; preds = %136
-  %140 = ptrtoint ptr %138 to i64
-  %141 = load i32, ptr %25, align 4, !tbaa !322
-  %.not.i.i.not.i9.i19 = icmp ult i32 %.pr4256, %141
-  br i1 %.not.i.i.not.i9.i19, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i23, label %142, !prof !55
+140:                                              ; preds = %137
+  %141 = ptrtoint ptr %139 to i64
+  %142 = load i32, ptr %25, align 4, !tbaa !322
+  %.not.i.i.not.i9.i18 = icmp ult i32 %.pr4155, %142
+  br i1 %.not.i.i.not.i9.i18, label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22, label %143, !prof !55
 
-142:                                              ; preds = %139
-  %143 = add nuw nsw i64 %116, 1
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull %26, i64 noundef %143, i64 noundef 8) #17
-  %.pre.i10.i20 = load i32, ptr %23, align 8, !tbaa !321
-  %.pre.i21 = load ptr, ptr %1, align 8, !tbaa !319
-  %.pre14.i22 = zext i32 %.pre.i10.i20 to i64
-  br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i23
+143:                                              ; preds = %140
+  %144 = add nuw nsw i64 %117, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef nonnull %26, i64 noundef %144, i64 noundef 8) #17
+  %.pre.i10.i19 = load i32, ptr %23, align 8, !tbaa !321
+  %.pre.i20 = load ptr, ptr %1, align 8, !tbaa !319
+  %.pre14.i21 = zext i32 %.pre.i10.i19 to i64
+  br label %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22
 
-_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i23: ; preds = %142, %139
-  %.pre-phi15.i24 = phi i64 [ %116, %139 ], [ %.pre14.i22, %142 ]
-  %144 = phi ptr [ %115, %139 ], [ %.pre.i21, %142 ]
-  %145 = getelementptr inbounds nuw i64, ptr %144, i64 %.pre-phi15.i24
-  store i64 %140, ptr %145, align 1
-  %146 = load i32, ptr %23, align 8, !tbaa !321
-  %147 = add i32 %146, 1
-  store i32 %147, ptr %23, align 8, !tbaa !321
-  br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32
+_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22: ; preds = %143, %140
+  %.pre-phi15.i23 = phi i64 [ %117, %140 ], [ %.pre14.i21, %143 ]
+  %145 = phi ptr [ %116, %140 ], [ %.pre.i20, %143 ]
+  %146 = getelementptr inbounds nuw i64, ptr %145, i64 %.pre-phi15.i23
+  store i64 %141, ptr %146, align 1
+  %147 = load i32, ptr %23, align 8, !tbaa !321
+  %148 = add i32 %147, 1
+  store i32 %148, ptr %23, align 8, !tbaa !321
+  br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31
 
-148:                                              ; preds = %136
-  %149 = or i64 %114, 3
-  store i64 %149, ptr %118, align 8, !tbaa !36
-  br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32
+149:                                              ; preds = %137
+  %150 = or i64 %115, 3
+  store i64 %150, ptr %119, align 8, !tbaa !36
+  br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31
 
-150:                                              ; preds = %113
-  %151 = add i32 %.pr4256, -1
-  store i32 %151, ptr %23, align 8, !tbaa !321
-  %.not.i.i.i14 = icmp eq i32 %151, 0
-  br i1 %.not.i.i.i14, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10, label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32.thread
+151:                                              ; preds = %114
+  %152 = add i32 %.pr4155, -1
+  store i32 %152, ptr %23, align 8, !tbaa !321
+  %.not.i.i.i14 = icmp eq i32 %152, 0
+  br i1 %.not.i.i.i14, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10, label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31.thread
 
-_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32.thread: ; preds = %150
-  %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw i64, ptr %115, i64 %152
-  %154 = getelementptr inbounds i8, ptr %153, i64 -8
-  %155 = load i64, ptr %154, align 8, !tbaa !36
-  %156 = and i64 %155, 3
-  %switch.i.i16 = icmp eq i64 %156, 0
-  %..i.i17 = select i1 %switch.i.i16, i64 1, i64 3
-  %157 = or i64 %..i.i17, %155
-  store i64 %157, ptr %154, align 8, !tbaa !36
-  br label %159
+_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31.thread: ; preds = %151
+  %153 = zext i32 %152 to i64
+  %154 = getelementptr inbounds nuw i64, ptr %116, i64 %153
+  %155 = getelementptr inbounds i8, ptr %154, i64 -8
+  %156 = load i64, ptr %155, align 8, !tbaa !36
+  %157 = and i64 %156, 3
+  %158 = icmp eq i64 %157, 0
+  %..i.i16 = select i1 %158, i64 1, i64 3
+  %159 = or i64 %..i.i16, %156
+  store i64 %159, ptr %155, align 8, !tbaa !36
+  br label %161
 
-158:                                              ; preds = %113
+160:                                              ; preds = %114
   unreachable
 
-_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32: ; preds = %134, %148, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i30, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i23
-  %.pr4254 = phi i32 [ %133, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i30 ], [ %147, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i23 ], [ %.pr4256, %148 ], [ %.pr4256, %134 ]
-  %.not.i.i.i8 = icmp eq i32 %.pr4254, 0
-  br i1 %.not.i.i.i8, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10, label %159
+_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31: ; preds = %135, %149, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22
+  %.pr4153 = phi i32 [ %134, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit.i29 ], [ %148, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11.i22 ], [ %.pr4155, %149 ], [ %.pr4155, %135 ]
+  %.not.i.i.i8 = icmp eq i32 %.pr4153, 0
+  br i1 %.not.i.i.i8, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10, label %161
 
-159:                                              ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32
-  %.pr425474 = phi i32 [ %151, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32.thread ], [ %.pr4254, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32 ]
-  %160 = load ptr, ptr %1, align 8, !tbaa !319
-  %161 = zext i32 %.pr425474 to i64
-  %162 = getelementptr inbounds nuw i64, ptr %160, i64 %161
-  %163 = getelementptr inbounds i8, ptr %162, i64 -8
-  %164 = load i64, ptr %163, align 8, !tbaa !36
-  %165 = and i64 %164, 3
-  %.not.i9 = icmp eq i64 %165, 1
-  br i1 %.not.i9, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10, label %113, !llvm.loop !361
+161:                                              ; preds = %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31.thread, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31
+  %.pr415373 = phi i32 [ %152, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31.thread ], [ %.pr4153, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31 ]
+  %162 = load ptr, ptr %1, align 8, !tbaa !319
+  %163 = zext i32 %.pr415373 to i64
+  %164 = getelementptr inbounds nuw i64, ptr %162, i64 %163
+  %165 = getelementptr inbounds i8, ptr %164, i64 -8
+  %166 = load i64, ptr %165, align 8, !tbaa !36
+  %167 = and i64 %166, 3
+  %.not.i9 = icmp eq i64 %167, 1
+  br i1 %.not.i9, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10, label %114, !llvm.loop !361
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10: ; preds = %150, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit32, %159
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit10: ; preds = %151, %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEppEv.exit31, %161
   %.pre = load i32, ptr %7, align 8, !tbaa !321
-  %.pre44 = load i32, ptr %21, align 8, !tbaa !321
+  %.pre43 = load i32, ptr %21, align 8, !tbaa !321
   br label %27, !llvm.loop !387
 
-_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread36: ; preds = %36, %30, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39
-  %.0 = phi i1 [ true, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread39 ], [ true, %30 ], [ false, %36 ]
-  %166 = load ptr, ptr %5, align 8, !tbaa !319
-  %167 = icmp eq ptr %166, %20
-  br i1 %167, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit, label %168
+_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread35: ; preds = %36, %30, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38
+  %.0 = phi i1 [ true, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit ], [ false, %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEeqERKS9_.exit.thread38 ], [ true, %30 ], [ false, %36 ]
+  %168 = load ptr, ptr %5, align 8, !tbaa !319
+  %169 = icmp eq ptr %168, %20
+  br i1 %169, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit, label %170
 
-168:                                              ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread36
-  call void @free(ptr noundef %166) #17
+170:                                              ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread35
+  call void @free(ptr noundef %168) #17
   br label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread36, %168
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit: ; preds = %_ZNK4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEEneERKS9_.exit.thread35, %170
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %169 = load ptr, ptr %4, align 8, !tbaa !319
-  %170 = icmp eq ptr %169, %6
-  br i1 %170, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit11, label %171
+  %171 = load ptr, ptr %4, align 8, !tbaa !319
+  %172 = icmp eq ptr %171, %6
+  br i1 %172, label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit11, label %173
 
-171:                                              ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit
-  call void @free(ptr noundef %169) #17
+173:                                              ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit
+  call void @free(ptr noundef %171) #17
   br label %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit11
 
-_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit11: ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit, %171
+_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit11: ; preds = %_ZN4llvm26ImutAVLTreeInOrderIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEED2Ev.exit, %173
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i1 %.0
 }
@@ -4790,7 +4790,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN
   %9 = and i64 %8, -4
   %10 = inttoptr i64 %9 to ptr
   %11 = and i64 %8, 3
-  switch i64 %11, label %52 [
+  switch i64 %11, label %53 [
     i64 0, label %12
     i64 1, label %28
     i64 3, label %44
@@ -4882,13 +4882,13 @@ _ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11: ; preds = %31, %35
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
   %49 = load i64, ptr %48, align 8, !tbaa !36
   %50 = and i64 %49, 3
-  %switch.i = icmp eq i64 %50, 0
-  %..i = select i1 %switch.i, i64 1, i64 3
-  %51 = or i64 %..i, %49
-  store i64 %51, ptr %48, align 8, !tbaa !36
+  %51 = icmp eq i64 %50, 0
+  %..i = select i1 %51, i64 1, i64 3
+  %52 = or i64 %..i, %49
+  store i64 %52, ptr %48, align 8, !tbaa !36
   br label %_ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEE12skipToParentEv.exit
 
-52:                                               ; preds = %1
+53:                                               ; preds = %1
   unreachable
 
 _ZN4llvm26ImutAVLTreeGenericIteratorINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS2_8QualTypeEEEE12skipToParentEv.exit: ; preds = %.sink.split.i, %44, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit11, %42, %_ZN4llvm23SmallVectorTemplateBaseImLb1EE9push_backEm.exit, %26

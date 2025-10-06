@@ -1278,9 +1278,9 @@ strbuf_addch.exit167:                             ; preds = %strbuf_avail.exit.i
   br label %.sink.split
 
 .sink.split:                                      ; preds = %91, %142
-  %.sink241 = phi i32 [ %144, %142 ], [ %92, %91 ]
+  %.sink240 = phi i32 [ %144, %142 ], [ %92, %91 ]
   %.sink.ph = phi i64 [ 4, %142 ], [ 2, %91 ]
-  %145 = tail call i32 @fputc(i32 noundef %.sink241, ptr noundef nonnull %3)
+  %145 = tail call i32 @fputc(i32 noundef %.sink240, ptr noundef nonnull %3)
   br label %146
 
 146:                                              ; preds = %.sink.split, %141, %90

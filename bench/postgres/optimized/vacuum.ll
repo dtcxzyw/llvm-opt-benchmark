@@ -1573,13 +1573,13 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   %9 = tail call ptr @table_open(i32 noundef 1259, i32 noundef 1) #15
   %10 = tail call ptr @systable_beginscan(ptr noundef %9, i32 noundef 0, i1 noundef zeroext false, ptr noundef null, i32 noundef 0, ptr noundef null) #15
   %11 = tail call ptr @systable_getnext(ptr noundef %10) #15
-  %.not.not89 = icmp eq ptr %11, null
-  br i1 %.not.not89, label %.thread, label %.lr.ph
+  %.not.not87 = icmp eq ptr %11, null
+  br i1 %.not.not87, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %0, %38
   %12 = phi ptr [ %39, %38 ], [ %11, %0 ]
-  %.04991 = phi i32 [ %.2, %38 ], [ %4, %0 ]
-  %.05090 = phi i32 [ %.252, %38 ], [ %5, %0 ]
+  %.04989 = phi i32 [ %.2, %38 ], [ %4, %0 ]
+  %.05088 = phi i32 [ %.252, %38 ], [ %5, %0 ]
   %13 = getelementptr i8, ptr %12, i64 16
   %.val = load ptr, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 22
@@ -1614,12 +1614,12 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %29
-  %32 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %19, i32 noundef %.04991) #15
-  %spec.select = select i1 %32, i32 %19, i32 %.04991
+  %32 = tail call zeroext i1 @TransactionIdPrecedes(i32 noundef %19, i32 noundef %.04989) #15
+  %spec.select = select i1 %32, i32 %19, i32 %.04989
   br label %33
 
 33:                                               ; preds = %31, %28
-  %.3 = phi i32 [ %.04991, %28 ], [ %spec.select, %31 ]
+  %.3 = phi i32 [ %.04989, %28 ], [ %spec.select, %31 ]
   %.not70 = icmp eq i32 %21, 0
   br i1 %.not70, label %38, label %34
 
@@ -1628,13 +1628,13 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br i1 %35, label %.critedge, label %36
 
 36:                                               ; preds = %34
-  %37 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %21, i32 noundef %.05090) #15
-  %spec.select74 = select i1 %37, i32 %21, i32 %.05090
+  %37 = tail call zeroext i1 @MultiXactIdPrecedes(i32 noundef %21, i32 noundef %.05088) #15
+  %spec.select74 = select i1 %37, i32 %21, i32 %.05088
   br label %38
 
 38:                                               ; preds = %36, %33, %26
-  %.252 = phi i32 [ %.05090, %26 ], [ %.05090, %33 ], [ %spec.select74, %36 ]
-  %.2 = phi i32 [ %.04991, %26 ], [ %.3, %33 ], [ %.3, %36 ]
+  %.252 = phi i32 [ %.05088, %26 ], [ %.05088, %33 ], [ %spec.select74, %36 ]
+  %.2 = phi i32 [ %.04989, %26 ], [ %.3, %33 ], [ %.3, %36 ]
   %39 = tail call ptr @systable_getnext(ptr noundef %10) #15
   %.not.not = icmp eq ptr %39, null
   br i1 %.not.not, label %.thread, label %.lr.ph
@@ -1699,27 +1699,27 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
 
 65:                                               ; preds = %62
   %66 = call zeroext i1 @MultiXactIdPrecedes(i32 noundef %64, i32 noundef %.050.lcssa) #15
-  br i1 %66, label %.thread82, label %67
+  br i1 %66, label %.thread80, label %67
 
 67:                                               ; preds = %65
   %68 = load i32, ptr %63, align 4
   %69 = call zeroext i1 @MultiXactIdPrecedes(i32 noundef %8, i32 noundef %68) #15
-  br i1 %69, label %.thread82, label %._crit_edge103
+  br i1 %69, label %.thread80, label %._crit_edge101
 
-._crit_edge103:                                   ; preds = %67
-  %.pre104 = load i32, ptr %63, align 4
+._crit_edge101:                                   ; preds = %67
+  %.pre102 = load i32, ptr %63, align 4
   br label %70
 
-.thread82:                                        ; preds = %65, %67
+.thread80:                                        ; preds = %65, %67
   store i32 %.050.lcssa, ptr %63, align 4
   br label %72
 
-70:                                               ; preds = %._crit_edge103, %62
-  %71 = phi i32 [ %.pre104, %._crit_edge103 ], [ %.050.lcssa, %62 ]
+70:                                               ; preds = %._crit_edge101, %62
+  %71 = phi i32 [ %.pre102, %._crit_edge101 ], [ %.050.lcssa, %62 ]
   br i1 %.055, label %72, label %75
 
-72:                                               ; preds = %.thread82, %70
-  %.45488 = phi i32 [ %.050.lcssa, %.thread82 ], [ %71, %70 ]
+72:                                               ; preds = %.thread80, %70
+  %.45486 = phi i32 [ %.050.lcssa, %.thread80 ], [ %71, %70 ]
   %73 = load ptr, ptr %3, align 8
   %74 = load ptr, ptr %1, align 8
   call void @systable_inplace_update_finish(ptr noundef %73, ptr noundef %74) #15
@@ -1731,12 +1731,12 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   br label %77
 
 77:                                               ; preds = %75, %72
-  %.45487 = phi i32 [ %71, %75 ], [ %.45488, %72 ]
-  %.15685 = phi i1 [ false, %75 ], [ true, %72 ]
+  %.45485 = phi i32 [ %71, %75 ], [ %.45486, %72 ]
+  %.15683 = phi i1 [ false, %75 ], [ true, %72 ]
   %78 = load ptr, ptr %1, align 8
   call void @heap_freetuple(ptr noundef %78) #15
   call void @table_close(ptr noundef %40, i32 noundef 3) #15
-  br i1 %.15685, label %81, label %79
+  br i1 %.15683, label %81, label %79
 
 79:                                               ; preds = %77
   %80 = call zeroext i1 @ForceTransactionIdLimitUpdate() #15
@@ -1758,7 +1758,7 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %81, %122
   %91 = phi ptr [ %123, %122 ], [ %90, %81 ]
   %.056.i = phi i32 [ %.1.i, %122 ], [ %.4, %81 ]
-  %.03455.i = phi i32 [ %.135.i, %122 ], [ %.45487, %81 ]
+  %.03455.i = phi i32 [ %.135.i, %122 ], [ %.45485, %81 ]
   %.03754.i = phi i32 [ %.138.i, %122 ], [ %87, %81 ]
   %.04053.i = phi i1 [ %.141.i, %122 ], [ false, %81 ]
   %.04352.i = phi i1 [ %.144.i, %122 ], [ false, %81 ]
@@ -1837,7 +1837,7 @@ define dso_local void @vac_update_datfrozenxid() local_unnamed_addr #0 {
   %.043.lcssa.i = phi i1 [ false, %81 ], [ %.144.i, %122 ]
   %.040.lcssa.i = phi i1 [ false, %81 ], [ %.141.i, %122 ]
   %.037.lcssa.i = phi i32 [ %87, %81 ], [ %.138.i, %122 ]
-  %.034.lcssa.i = phi i32 [ %.45487, %81 ], [ %.135.i, %122 ]
+  %.034.lcssa.i = phi i32 [ %.45485, %81 ], [ %.135.i, %122 ]
   %.0.lcssa.i = phi i32 [ %.4, %81 ], [ %.1.i, %122 ]
   %124 = load ptr, ptr %89, align 8
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 320

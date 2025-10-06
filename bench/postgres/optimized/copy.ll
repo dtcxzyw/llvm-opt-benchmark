@@ -81,7 +81,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %11 = tail call ptr @strtokx(ptr noundef nonnull %0, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %10) #11
   %.not115.i = icmp eq ptr %11, null
-  br i1 %.not115.i, label %.thread139.i, label %12
+  br i1 %.not115.i, label %.thread136.i, label %12
 
 12:                                               ; preds = %7
   %13 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %11, ptr noundef nonnull @.str.25) #11
@@ -97,32 +97,32 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %19 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %20 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %19) #11
   %.not116.i = icmp eq ptr %20, null
-  br i1 %.not116.i, label %.thread139.i, label %21
+  br i1 %.not116.i, label %.thread136.i, label %21
 
 21:                                               ; preds = %15, %12
   %.191.i = phi ptr [ %20, %15 ], [ %11, %12 ]
   %22 = load i8, ptr %.191.i, align 1
   %23 = icmp eq i8 %22, 40
-  br i1 %23, label %.preheader149.i, label %.thread.i
+  br i1 %23, label %.preheader146.i, label %.thread.i
 
-.preheader149.i:                                  ; preds = %21, %37
-  %.087154.i = phi i32 [ %.1.i, %37 ], [ 1, %21 ]
-  %.3153.i = phi ptr [ %30, %37 ], [ %.191.i, %21 ]
+.preheader146.i:                                  ; preds = %21, %37
+  %.087151.i = phi i32 [ %.1.i, %37 ], [ 1, %21 ]
+  %.3150.i = phi ptr [ %30, %37 ], [ %.191.i, %21 ]
   %24 = load ptr, ptr %8, align 8
   %25 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.40, ptr noundef %24, ptr noundef nonnull @.str.26) #11
   %26 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %26) #11
   store ptr %25, ptr %8, align 8
-  %27 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.40, ptr noundef %25, ptr noundef nonnull %.3153.i) #11
+  %27 = tail call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.40, ptr noundef %25, ptr noundef nonnull %.3150.i) #11
   %28 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %28) #11
   store ptr %27, ptr %8, align 8
   %29 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %30 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, i8 noundef signext %5, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef %29) #11
   %.not117.i = icmp eq ptr %30, null
-  br i1 %.not117.i, label %.thread139.i, label %31
+  br i1 %.not117.i, label %.thread136.i, label %31
 
-31:                                               ; preds = %.preheader149.i
+31:                                               ; preds = %.preheader146.i
   %32 = load i8, ptr %30, align 1
   switch i8 %32, label %37 [
     i8 40, label %33
@@ -130,17 +130,17 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   ]
 
 33:                                               ; preds = %31
-  %34 = add nuw i32 %.087154.i, 1
+  %34 = add nuw i32 %.087151.i, 1
   br label %37
 
 35:                                               ; preds = %31
-  %36 = add nsw i32 %.087154.i, -1
+  %36 = add nsw i32 %.087151.i, -1
   br label %37
 
 37:                                               ; preds = %35, %33, %31
-  %.1.i = phi i32 [ %34, %33 ], [ %36, %35 ], [ %.087154.i, %31 ]
+  %.1.i = phi i32 [ %34, %33 ], [ %36, %35 ], [ %.087151.i, %31 ]
   %38 = icmp sgt i32 %.1.i, 0
-  br i1 %38, label %.preheader149.i, label %.thread.i, !llvm.loop !4
+  br i1 %38, label %.preheader146.i, label %.thread.i, !llvm.loop !4
 
 .thread.i:                                        ; preds = %37, %21
   %.2.i = phi ptr [ %.191.i, %21 ], [ %30, %37 ]
@@ -156,7 +156,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %44 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %45 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %44) #11
   %.not118.i = icmp eq ptr %45, null
-  br i1 %.not118.i, label %.thread139.i, label %46
+  br i1 %.not118.i, label %.thread136.i, label %46
 
 46:                                               ; preds = %.thread.i
   %47 = load i8, ptr %45, align 1
@@ -172,7 +172,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %53 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %54 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %53) #11
   %.not119.i = icmp eq ptr %54, null
-  br i1 %.not119.i, label %.thread139.i, label %55
+  br i1 %.not119.i, label %.thread136.i, label %55
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %8, align 8
@@ -183,7 +183,7 @@ define dso_local zeroext i1 @do_copy(ptr noundef %0) local_unnamed_addr #0 {
   %59 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %60 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %59) #11
   %.not120.i = icmp eq ptr %60, null
-  br i1 %.not120.i, label %.thread139.i, label %thread-pre-split.i
+  br i1 %.not120.i, label %.thread136.i, label %thread-pre-split.i
 
 thread-pre-split.i:                               ; preds = %55
   %.pr.i = load i8, ptr %60, align 1
@@ -209,7 +209,7 @@ thread-pre-split.i:                               ; preds = %55
   %69 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %70 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %69) #11
   %.not121.i = icmp eq ptr %70, null
-  br i1 %.not121.i, label %.thread139.i, label %71
+  br i1 %.not121.i, label %.thread136.i, label %71
 
 71:                                               ; preds = %.preheader.i
   %72 = load i8, ptr %70, align 1
@@ -229,7 +229,7 @@ thread-pre-split.i:                               ; preds = %55
   %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %81 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %80) #11
   %.not122.i = icmp eq ptr %81, null
-  br i1 %.not122.i, label %.thread139.i, label %82
+  br i1 %.not122.i, label %.thread136.i, label %82
 
 82:                                               ; preds = %74, %61
   %.6.i = phi ptr [ %81, %74 ], [ %.5.i, %61 ]
@@ -240,7 +240,7 @@ thread-pre-split.i:                               ; preds = %55
 85:                                               ; preds = %82
   %86 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %.6.i, ptr noundef nonnull @.str.30) #11
   %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %.thread142.i
+  br i1 %87, label %88, label %.thread139.i
 
 88:                                               ; preds = %85, %82
   %.sink.i = phi i8 [ 1, %82 ], [ 0, %85 ]
@@ -249,7 +249,7 @@ thread-pre-split.i:                               ; preds = %55
   %90 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %91 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %90) #11
   %.not123.i = icmp eq ptr %91, null
-  br i1 %.not123.i, label %.thread139.i, label %92
+  br i1 %.not123.i, label %.thread136.i, label %92
 
 92:                                               ; preds = %88
   %93 = tail call i32 @pg_strcasecmp(ptr noundef nonnull %91, ptr noundef nonnull @.str.33) #11
@@ -260,7 +260,7 @@ thread-pre-split.i:                               ; preds = %55
   %96 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
   %97 = tail call ptr @strtokx(ptr noundef null, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i8 noundef signext 0, i1 noundef zeroext false, i1 noundef zeroext false, i32 noundef %96) #11
   %.not124.i = icmp eq ptr %97, null
-  br i1 %.not124.i, label %.thread139.i, label %98
+  br i1 %.not124.i, label %.thread136.i, label %98
 
 98:                                               ; preds = %95
   %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %97) #12
@@ -269,7 +269,7 @@ thread-pre-split.i:                               ; preds = %55
   %102 = icmp ne i8 %101, 39
   %103 = icmp slt i32 %100, 2
   %or.cond.i = select i1 %102, i1 true, i1 %103
-  br i1 %or.cond.i, label %.thread142.i, label %104
+  br i1 %or.cond.i, label %.thread139.i, label %104
 
 104:                                              ; preds = %98
   %105 = add i64 %99, 4294967295
@@ -277,7 +277,7 @@ thread-pre-split.i:                               ; preds = %55
   %107 = getelementptr inbounds nuw i8, ptr %97, i64 %106
   %108 = load i8, ptr %107, align 1
   %.not125.i = icmp eq i8 %108, 39
-  br i1 %.not125.i, label %109, label %.thread142.i
+  br i1 %.not125.i, label %109, label %.thread139.i
 
 109:                                              ; preds = %104
   %110 = load i32, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 8), align 8
@@ -342,16 +342,16 @@ thread-pre-split.i:                               ; preds = %55
   store ptr %139, ptr %140, align 8
   br label %parse_slash_copy.exit
 
-.thread142.i:                                     ; preds = %104, %98, %85
-  %.090145.i = phi ptr [ %.6.i, %85 ], [ %97, %104 ], [ %97, %98 ]
-  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %.090145.i) #11
+.thread139.i:                                     ; preds = %104, %98, %85
+  %.090142.i = phi ptr [ %.6.i, %85 ], [ %97, %104 ], [ %97, %98 ]
+  tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.38, ptr noundef nonnull %.090142.i) #11
   br label %free_copy_options.exit.i
 
-.thread139.i:                                     ; preds = %.preheader149.i, %.preheader.i, %95, %88, %74, %55, %49, %.thread.i, %15, %7
+.thread136.i:                                     ; preds = %.preheader146.i, %.preheader.i, %95, %88, %74, %55, %49, %.thread.i, %15, %7
   tail call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.39) #11
   br label %free_copy_options.exit.i
 
-free_copy_options.exit.i:                         ; preds = %.thread139.i, %.thread142.i
+free_copy_options.exit.i:                         ; preds = %.thread136.i, %.thread139.i
   %141 = load ptr, ptr %8, align 8
   tail call void @free(ptr noundef %141) #11
   %142 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -805,8 +805,8 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   %.not73.not = xor i1 %.not73, true
   %15 = load i8, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 402), align 2, !range !6
   %16 = trunc nuw i8 %15 to i1
-  %or.cond86 = select i1 %.not73.not, i1 true, i1 %16
-  br i1 %or.cond86, label %19, label %17
+  %or.cond85 = select i1 %.not73.not, i1 true, i1 %16
+  br i1 %or.cond85, label %19, label %17
 
 17:                                               ; preds = %12
   %18 = call i32 @puts(ptr noundef nonnull dereferenceable(1) @.str.16)
@@ -816,7 +816,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   br i1 %2, label %20, label %.preheader
 
 20:                                               ; preds = %19
-  br i1 %.not73, label %21, label %.preheader113
+  br i1 %.not73, label %21, label %.preheader110
 
 21:                                               ; preds = %20
   %22 = call ptr @get_prompt(i32 noundef 7, ptr noundef null) #11
@@ -824,12 +824,12 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   %24 = call i32 @fputs(ptr noundef %22, ptr noundef %23)
   %25 = load ptr, ptr @stdout, align 8
   %26 = call i32 @fflush(ptr noundef %25)
-  br label %.preheader113
+  br label %.preheader110
 
-.preheader113:                                    ; preds = %21, %20
+.preheader110:                                    ; preds = %21, %20
   br label %27
 
-27:                                               ; preds = %.preheader113, %31
+27:                                               ; preds = %.preheader110, %31
   store volatile i32 1, ptr @sigint_interrupt_enabled, align 4
   %28 = call i64 @fread(ptr noundef nonnull %5, i64 noundef 1, i64 noundef 8192, ptr noundef %1)
   %29 = trunc i64 %28 to i32
@@ -843,9 +843,9 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   br i1 %33, label %.thread, label %27
 
 .preheader:                                       ; preds = %19, %77
-  %.05898 = phi i1 [ %.159, %77 ], [ true, %19 ]
-  %.06197 = phi i32 [ %.566, %77 ], [ 0, %19 ]
-  %or.cond = and i1 %.not73, %.05898
+  %.05895 = phi i1 [ %.159, %77 ], [ true, %19 ]
+  %.06194 = phi i32 [ %.566, %77 ], [ 0, %19 ]
+  %or.cond = and i1 %.not73, %.05895
   br i1 %or.cond, label %34, label %40
 
 34:                                               ; preds = %.preheader
@@ -858,9 +858,9 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
 
 40:                                               ; preds = %34, %.preheader
   store volatile i32 1, ptr @sigint_interrupt_enabled, align 4
-  %41 = sext i32 %.06197 to i64
+  %41 = sext i32 %.06194 to i64
   %42 = getelementptr inbounds i8, ptr %5, i64 %41
-  %43 = sub i32 8192, %.06197
+  %43 = sub i32 8192, %.06194
   %44 = call ptr @fgets(ptr noundef nonnull %42, i32 noundef %43, ptr noundef %1)
   store volatile i32 0, ptr @sigint_interrupt_enabled, align 4
   %.not74 = icmp eq ptr %44, null
@@ -869,7 +869,7 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
 45:                                               ; preds = %40
   %46 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %44) #12
   %47 = trunc i64 %46 to i32
-  %48 = add i32 %.06197, %47
+  %48 = add i32 %.06194, %47
   %49 = add i32 %48, -1
   %50 = sext i32 %49 to i64
   %51 = getelementptr inbounds i8, ptr %5, i64 %50
@@ -880,11 +880,11 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
 54:                                               ; preds = %45
   %55 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 320), align 8
   %56 = icmp eq ptr %1, %55
-  %or.cond79 = select i1 %.05898, i1 %56, i1 false
+  %or.cond79 = select i1 %.05895, i1 %56, i1 false
   br i1 %or.cond79, label %57, label %63
 
 57:                                               ; preds = %54
-  switch i32 %47, label %.thread104 [
+  switch i32 %47, label %.thread101 [
     i32 3, label %58
     i32 4, label %60
   ]
@@ -892,12 +892,12 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
 58:                                               ; preds = %57
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %44, ptr noundef nonnull dereferenceable(3) @.str.17, i64 3)
   %59 = icmp eq i32 %bcmp, 0
-  br i1 %59, label %62, label %.thread104
+  br i1 %59, label %62, label %.thread101
 
 60:                                               ; preds = %57
   %bcmp75 = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %44, ptr noundef nonnull dereferenceable(4) @.str.18, i64 4)
   %61 = icmp eq i32 %bcmp75, 0
-  br i1 %61, label %62, label %.thread104
+  br i1 %61, label %62, label %.thread101
 
 62:                                               ; preds = %60, %58
   store i8 0, ptr %44, align 1
@@ -907,13 +907,13 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
 63:                                               ; preds = %62, %54
   %64 = phi ptr [ %.pre, %62 ], [ %55, %54 ]
   %.269 = phi i8 [ 1, %62 ], [ 0, %54 ]
-  %.263 = phi i32 [ %.06197, %62 ], [ %48, %54 ]
+  %.263 = phi i32 [ %.06194, %62 ], [ %48, %54 ]
   %65 = icmp eq ptr %1, %64
-  br i1 %65, label %.thread104, label %70
+  br i1 %65, label %.thread101, label %70
 
-.thread104:                                       ; preds = %58, %57, %60, %63
-  %.263108 = phi i32 [ %.263, %63 ], [ %48, %60 ], [ %48, %57 ], [ %48, %58 ]
-  %.269107 = phi i8 [ %.269, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %58 ]
+.thread101:                                       ; preds = %58, %57, %60, %63
+  %.263105 = phi i32 [ %.263, %63 ], [ %48, %60 ], [ %48, %57 ], [ %48, %58 ]
+  %.269104 = phi i8 [ %.269, %63 ], [ 0, %60 ], [ 0, %57 ], [ 0, %58 ]
   %66 = load i64, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 352), align 8
   %67 = add i64 %66, 1
   store i64 %67, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 352), align 8
@@ -922,10 +922,10 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   store i64 %69, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 360), align 8
   br label %70
 
-70:                                               ; preds = %.thread104, %63, %45, %40
-  %.168 = phi i8 [ 1, %40 ], [ %.269107, %.thread104 ], [ %.269, %63 ], [ 0, %45 ]
-  %.162 = phi i32 [ %.06197, %40 ], [ %.263108, %.thread104 ], [ %.263, %63 ], [ %48, %45 ]
-  %.159 = phi i1 [ %.05898, %40 ], [ true, %.thread104 ], [ true, %63 ], [ false, %45 ]
+70:                                               ; preds = %.thread101, %63, %45, %40
+  %.168 = phi i8 [ 1, %40 ], [ %.269104, %.thread101 ], [ %.269, %63 ], [ 0, %45 ]
+  %.162 = phi i32 [ %.06194, %40 ], [ %.263105, %.thread101 ], [ %.263, %63 ], [ %48, %45 ]
+  %.159 = phi i1 [ %.05895, %40 ], [ true, %.thread101 ], [ true, %63 ], [ false, %45 ]
   %71 = icmp sgt i32 %.162, 8186
   %72 = trunc nuw i8 %.168 to i1
   %73 = icmp sgt i32 %.162, 0
@@ -960,11 +960,11 @@ define dso_local zeroext i1 @handleCopyIn(ptr noundef %0, ptr noundef captures(a
   %85 = phi ptr [ null, %.thread ], [ %83, %80 ]
   %86 = call i32 @PQputCopyEnd(ptr noundef %0, ptr noundef %85) #11
   %87 = icmp slt i32 %86, 1
-  %spec.select84 = select i1 %87, i8 0, i8 %spec.select
+  %spec.select83 = select i1 %87, i8 0, i8 %spec.select
   br label %88
 
 88:                                               ; preds = %84, %7
-  %.0 = phi i8 [ 0, %7 ], [ %spec.select84, %84 ]
+  %.0 = phi i8 [ 0, %7 ], [ %spec.select83, %84 ]
   call void @clearerr(ptr noundef %1) #11
   %89 = call ptr @PQgetResult(ptr noundef %0) #11
   store ptr %89, ptr %3, align 8

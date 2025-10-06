@@ -2954,27 +2954,27 @@ zend_dval_to_lval.exit:                           ; preds = %10
   %23 = call zeroext i8 @is_numeric_str_function(ptr noundef %22, ptr noundef %1, ptr noundef nonnull %4) #34
   switch i8 %23, label %24 [
     i8 4, label %39
-    i8 0, label %.thread48
+    i8 0, label %.thread46
   ], !prof !74
 
 24:                                               ; preds = %21
   %25 = load double, ptr %4, align 8, !tbaa !75
   %26 = fcmp uno double %25, 0.000000e+00
-  br i1 %26, label %.thread48, label %27, !prof !46
+  br i1 %26, label %.thread46, label %27, !prof !46
 
 27:                                               ; preds = %24
   %28 = fcmp oge double %25, 0x43E0000000000000
   %29 = fcmp olt double %25, 0xC3E0000000000000
   %30 = or i1 %28, %29
-  br i1 %30, label %.thread48, label %zend_dval_to_lval.exit45, !prof !46
+  br i1 %30, label %.thread46, label %zend_dval_to_lval.exit44, !prof !46
 
-zend_dval_to_lval.exit45:                         ; preds = %27
+zend_dval_to_lval.exit44:                         ; preds = %27
   %31 = fptosi double %25 to i64
   %32 = sitofp i64 %31 to double
   %33 = fcmp oeq double %25, %32
   br i1 %33, label %.critedge, label %34, !prof !45
 
-34:                                               ; preds = %zend_dval_to_lval.exit45
+34:                                               ; preds = %zend_dval_to_lval.exit44
   %.not36 = icmp eq i32 %2, -1
   br i1 %.not36, label %37, label %35
 
@@ -2986,18 +2986,18 @@ zend_dval_to_lval.exit45:                         ; preds = %27
 37:                                               ; preds = %35, %34
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
   %.not37 = icmp eq ptr %38, null
-  br i1 %.not37, label %.critedge, label %.thread48, !prof !45
+  br i1 %.not37, label %.critedge, label %.thread46, !prof !45
 
-.critedge:                                        ; preds = %37, %zend_dval_to_lval.exit45
+.critedge:                                        ; preds = %37, %zend_dval_to_lval.exit44
   store i64 %31, ptr %1, align 8, !tbaa !73
   br label %39
 
 39:                                               ; preds = %.critedge, %21
   %40 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !64
   %.not38 = icmp eq ptr %40, null
-  br i1 %.not38, label %41, label %.thread48, !prof !45
+  br i1 %.not38, label %41, label %.thread46, !prof !45
 
-.thread48:                                        ; preds = %37, %27, %24, %21, %39
+.thread46:                                        ; preds = %37, %27, %24, %21, %39
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %52
 
@@ -3029,8 +3029,8 @@ zend_dval_to_lval.exit45:                         ; preds = %27
   store i64 1, ptr %1, align 8, !tbaa !73
   br label %52
 
-52:                                               ; preds = %48, %51, %.thread, %41, %.thread48, %19, %49, %46, %10, %7
-  %.0 = phi i1 [ false, %7 ], [ false, %10 ], [ false, %46 ], [ false, %49 ], [ false, %19 ], [ false, %.thread48 ], [ true, %41 ], [ true, %.thread ], [ true, %51 ], [ true, %48 ]
+52:                                               ; preds = %48, %51, %.thread, %41, %.thread46, %19, %49, %46, %10, %7
+  %.0 = phi i1 [ false, %7 ], [ false, %10 ], [ false, %46 ], [ false, %49 ], [ false, %19 ], [ false, %.thread46 ], [ true, %41 ], [ true, %.thread ], [ true, %51 ], [ true, %48 ]
   ret i1 %.0
 }
 
@@ -3315,10 +3315,10 @@ define dso_local noundef zeroext i1 @zend_parse_arg_number_slow(ptr noundef %0, 
   br label %23
 
 23:                                               ; preds = %19, %22
-  %storemerge32.in = phi ptr [ %5, %22 ], [ %4, %19 ]
+  %storemerge31.in = phi ptr [ %5, %22 ], [ %4, %19 ]
   %storemerge = phi i32 [ 5, %22 ], [ 4, %19 ]
-  %storemerge32 = load double, ptr %storemerge32.in, align 8, !tbaa !42
-  store double %storemerge32, ptr %0, align 8, !tbaa !42
+  %storemerge31 = load double, ptr %storemerge31.in, align 8, !tbaa !42
+  store double %storemerge31, ptr %0, align 8, !tbaa !42
   store i32 %storemerge, ptr %16, align 8, !tbaa !42
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !42
@@ -5239,8 +5239,8 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   %18 = load ptr, ptr %17, align 8, !tbaa !69
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !42
-  %.not.i97 = icmp eq ptr %20, null
-  br i1 %.not.i97, label %25, label %21
+  %.not.i96 = icmp eq ptr %20, null
+  br i1 %.not.i96, label %25, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -5282,8 +5282,8 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   %43 = load ptr, ptr %42, align 8, !tbaa !69
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !42
-  %.not.i98 = icmp eq ptr %45, null
-  br i1 %.not.i98, label %50, label %46
+  %.not.i97 = icmp eq ptr %45, null
+  br i1 %.not.i97, label %50, label %46
 
 46:                                               ; preds = %41
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -5294,8 +5294,8 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
 50:                                               ; preds = %46, %41
   %51 = phi ptr [ %49, %46 ], [ @.str.22, %41 ]
   %52 = load i8, ptr %51, align 1, !tbaa !42
-  %.not6.i99 = icmp eq i8 %52, 0
-  %53 = select i1 %.not6.i99, ptr @.str.22, ptr @.str.107
+  %.not6.i98 = icmp eq i8 %52, 0
+  %53 = select i1 %.not6.i98, ptr @.str.22, ptr @.str.107
   %54 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !42
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
@@ -5372,8 +5372,8 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   br i1 %90, label %93, label %.preheader
 
 .preheader:                                       ; preds = %87
-  %.not89123 = icmp eq i32 %0, 0
-  br i1 %.not89123, label %zend_string_release.exit, label %.lr.ph
+  %.not89121 = icmp eq i32 %0, 0
+  br i1 %.not89121, label %zend_string_release.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %91 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -5385,8 +5385,8 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   %95 = load ptr, ptr %94, align 8, !tbaa !69
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 16
   %97 = load ptr, ptr %96, align 8, !tbaa !42
-  %.not.i101 = icmp eq ptr %97, null
-  br i1 %.not.i101, label %102, label %98
+  %.not.i100 = icmp eq ptr %97, null
+  br i1 %.not.i100, label %102, label %98
 
 98:                                               ; preds = %93
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
@@ -5397,8 +5397,8 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
 102:                                              ; preds = %98, %93
   %103 = phi ptr [ %101, %98 ], [ @.str.22, %93 ]
   %104 = load i8, ptr %103, align 1, !tbaa !42
-  %.not6.i102 = icmp eq i8 %104, 0
-  %105 = select i1 %.not6.i102, ptr @.str.22, ptr @.str.107
+  %.not6.i101 = icmp eq i8 %104, 0
+  %105 = select i1 %.not6.i101, ptr @.str.22, ptr @.str.107
   %106 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !42
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
@@ -5406,10 +5406,10 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   unreachable
 
 109:                                              ; preds = %.lr.ph, %.backedge
-  %.062126 = phi i32 [ %0, %.lr.ph ], [ %.062.be, %.backedge ]
-  %.064125 = phi ptr [ null, %.lr.ph ], [ %.064.be, %.backedge ]
-  %.080124 = phi i32 [ 0, %.lr.ph ], [ %.080.be, %.backedge ]
-  %110 = add i32 %.062126, -1
+  %.062124 = phi i32 [ %0, %.lr.ph ], [ %.062.be, %.backedge ]
+  %.064123 = phi ptr [ null, %.lr.ph ], [ %.064.be, %.backedge ]
+  %.080122 = phi i32 [ 0, %.lr.ph ], [ %.080.be, %.backedge ]
+  %110 = add i32 %.062124, -1
   %111 = load ptr, ptr %6, align 8, !tbaa !44
   %112 = load i8, ptr %111, align 1, !tbaa !42
   %113 = icmp eq i8 %112, 124
@@ -5425,16 +5425,16 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   %117 = phi i8 [ %.pre, %114 ], [ %112, %109 ]
   %118 = phi ptr [ %115, %114 ], [ %111, %109 ]
   %119 = and i8 %117, -2
-  %switch96 = icmp eq i8 %119, 42
-  br i1 %switch96, label %120, label %154
+  %switch = icmp eq i8 %119, 42
+  br i1 %switch, label %120, label %154
 
 120:                                              ; preds = %116
-  %121 = sub i32 %.062126, %.273
+  %121 = sub i32 %.062124, %.273
   %122 = load i32, ptr %2, align 8
   %123 = icmp ult i32 %122, 41
-  br i1 %123, label %127, label %.thread149
+  br i1 %123, label %127, label %.thread147
 
-.thread149:                                       ; preds = %120
+.thread147:                                       ; preds = %120
   %124 = load ptr, ptr %91, align 8
   %125 = getelementptr i8, ptr %124, i64 8
   store ptr %125, ptr %91, align 8
@@ -5459,8 +5459,8 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   store i32 %138, ptr %2, align 8
   br label %143
 
-139:                                              ; preds = %.thread149, %127
-  %140 = phi ptr [ %126, %.thread149 ], [ %132, %127 ]
+139:                                              ; preds = %.thread147, %127
+  %140 = phi ptr [ %126, %.thread147 ], [ %132, %127 ]
   %141 = load ptr, ptr %91, align 8
   %142 = getelementptr i8, ptr %141, i64 8
   store ptr %142, ptr %91, align 8
@@ -5472,7 +5472,7 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
   %146 = load ptr, ptr %145, align 8, !tbaa !119
   %147 = getelementptr inbounds nuw i8, ptr %118, i64 1
   store ptr %147, ptr %6, align 8, !tbaa !44
-  %.not90 = icmp eq i32 %.062126, %.273
+  %.not90 = icmp eq i32 %.062124, %.273
   br i1 %.not90, label %.thread, label %148
 
 .thread:                                          ; preds = %143
@@ -5483,18 +5483,18 @@ define internal fastcc range(i32 -1, 1) i32 @zend_parse_va_args(i32 noundef %0, 
 148:                                              ; preds = %143
   store i32 %121, ptr %146, align 4, !tbaa !121
   %149 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !4
-  %150 = sext i32 %.080124 to i64
+  %150 = sext i32 %.080122 to i64
   %151 = getelementptr %struct._zval_struct, ptr %149, i64 %150
   %152 = getelementptr i8, ptr %151, i64 80
   store ptr %152, ptr %144, align 8, !tbaa !77
-  %153 = add i32 %121, %.080124
+  %153 = add i32 %121, %.080122
   br label %.backedge
 
 154:                                              ; preds = %.thread, %116
-  %.165 = phi ptr [ %.064125, %116 ], [ %144, %.thread ]
+  %.165 = phi ptr [ %.064123, %116 ], [ %144, %.thread ]
   %155 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 512), align 8, !tbaa !4
-  %156 = add i32 %.080124, 1
-  %157 = sext i32 %.080124 to i64
+  %156 = add i32 %.080122, 1
+  %157 = sext i32 %.080122 to i64
   %158 = getelementptr %struct._zval_struct, ptr %155, i64 %157
   %159 = getelementptr i8, ptr %158, i64 80
   %160 = call fastcc i32 @zend_parse_arg(i32 noundef %156, ptr noundef %159, ptr noundef %2, ptr noundef %6, i32 noundef %3)
@@ -6893,10 +6893,9 @@ define dso_local void @object_properties_init_ex(ptr noundef initializes((32, 40
   %24 = load ptr, ptr %5, align 8, !tbaa !47
   %25 = call ptr @zend_get_property_info(ptr noundef %24, ptr noundef %23, i32 noundef 1) #34
   %magicptr = ptrtoint ptr %25 to i64
-  switch i64 %magicptr, label %26 [
-    i64 -1, label %51
-    i64 0, label %51
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %26, label %51
 
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -6950,7 +6949,7 @@ define dso_local void @object_properties_init_ex(ptr noundef initializes((32, 40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %51
 
-51:                                               ; preds = %.critedge, %50, %26, %21, %21, %17
+51:                                               ; preds = %.critedge, %50, %21, %26, %17
   %52 = getelementptr inbounds nuw i8, ptr %.058, i64 32
   %.not55 = icmp eq ptr %52, %15
   br i1 %.not55, label %.loopexit, label %17
@@ -7145,10 +7144,9 @@ zend_string_release_ex.exit97:                    ; preds = %zend_string_release
   %.1 = phi ptr [ %.0, %87 ], [ %90, %88 ]
   %.not104 = icmp eq ptr %.1, inttoptr (i64 -1 to ptr)
   %magicptr = ptrtoint ptr %.1 to i64
-  switch i64 %magicptr, label %92 [
-    i64 -1, label %107
-    i64 0, label %107
-  ]
+  %magicptr.off = add i64 %magicptr, -1
+  %switch = icmp ult i64 %magicptr.off, -2
+  br i1 %switch, label %92, label %107
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %.1, i64 4
@@ -7178,7 +7176,7 @@ zend_string_release_ex.exit97:                    ; preds = %zend_string_release
   %106 = call ptr @zend_hash_update(ptr noundef nonnull %104, ptr noundef nonnull %.178, ptr noundef nonnull %7) #34
   br label %167
 
-107:                                              ; preds = %91, %91, %92
+107:                                              ; preds = %91, %92
   %108 = load ptr, ptr %16, align 8, !tbaa !47
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 28
   %110 = load i32, ptr %109, align 4, !tbaa !67
@@ -10073,44 +10071,44 @@ define internal void @zend_sort_modules(ptr noundef captures(address) %0, i64 no
   %.idx = shl nuw nsw i64 %1, 5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.not43 = icmp eq i64 %1, 0
-  br i1 %.not43, label %._crit_edge, label %.preheader34
+  %.not42 = icmp eq i64 %1, 0
+  br i1 %.not42, label %._crit_edge, label %.preheader33
 
-.preheader34:                                     ; preds = %5, %.thread
-  %.02642 = phi ptr [ %32, %.thread ], [ %0, %5 ]
-  %8 = load ptr, ptr %.02642, align 8, !tbaa !42
+.preheader33:                                     ; preds = %5, %.thread
+  %.02641 = phi ptr [ %32, %.thread ], [ %0, %5 ]
+  %8 = load ptr, ptr %.02641, align 8, !tbaa !42
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %10 = load i32, ptr %9, align 8, !tbaa !180
-  %.not39 = icmp eq i32 %10, 0
-  br i1 %.not39, label %.lr.ph40, label %.thread
+  %.not38 = icmp eq i32 %10, 0
+  br i1 %.not38, label %.lr.ph39, label %.thread
 
-.lr.ph40:                                         ; preds = %.preheader34, %28
-  %11 = phi ptr [ %29, %28 ], [ %8, %.preheader34 ]
+.lr.ph39:                                         ; preds = %.preheader33, %28
+  %11 = phi ptr [ %29, %28 ], [ %8, %.preheader33 ]
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !185
   %.not30 = icmp eq ptr %13, null
   br i1 %.not30, label %.thread, label %.preheader
 
-.preheader:                                       ; preds = %.lr.ph40
+.preheader:                                       ; preds = %.lr.ph39
   %14 = load ptr, ptr %13, align 8, !tbaa !186
-  %.not3137 = icmp eq ptr %14, null
-  br i1 %.not3137, label %.thread, label %.lr.ph
+  %.not3136 = icmp eq ptr %14, null
+  br i1 %.not3136, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.loopexit
   %15 = phi ptr [ %27, %.loopexit ], [ %14, %.preheader ]
-  %.02538 = phi ptr [ %26, %.loopexit ], [ %13, %.preheader ]
-  %16 = getelementptr inbounds nuw i8, ptr %.02538, i64 24
+  %.02537 = phi ptr [ %26, %.loopexit ], [ %13, %.preheader ]
+  %16 = getelementptr inbounds nuw i8, ptr %.02537, i64 24
   %17 = load i8, ptr %16, align 8, !tbaa !188
   switch i8 %17, label %.loopexit [
-    i8 1, label %.preheader53
-    i8 3, label %.preheader53
+    i8 1, label %.preheader52
+    i8 3, label %.preheader52
   ]
 
-.preheader53:                                     ; preds = %.lr.ph, %.lr.ph
+.preheader52:                                     ; preds = %.lr.ph, %.lr.ph
   br label %18
 
-18:                                               ; preds = %.preheader53, %20
-  %.026.pn = phi ptr [ %.027, %20 ], [ %.02642, %.preheader53 ]
+18:                                               ; preds = %.preheader52, %20
+  %.026.pn = phi ptr [ %.027, %20 ], [ %.02641, %.preheader52 ]
   %.027 = getelementptr inbounds nuw i8, ptr %.026.pn, i64 32
   %19 = icmp ult ptr %.027, %7
   br i1 %19, label %20, label %.loopexit
@@ -10124,25 +10122,25 @@ define internal void @zend_sort_modules(ptr noundef captures(address) %0, i64 no
   br i1 %25, label %28, label %18
 
 .loopexit:                                        ; preds = %18, %.lr.ph
-  %26 = getelementptr inbounds nuw i8, ptr %.02538, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.02537, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !186
   %.not31 = icmp eq ptr %27, null
   br i1 %.not31, label %.thread, label %.lr.ph
 
 28:                                               ; preds = %20
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.02642, i64 32, i1 false), !tbaa.struct !205
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.02642, ptr noundef nonnull align 8 dereferenceable(32) %.027, i64 32, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %.02641, i64 32, i1 false), !tbaa.struct !205
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.02641, ptr noundef nonnull align 8 dereferenceable(32) %.027, i64 32, i1 false), !tbaa.struct !205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.027, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !205
-  %29 = load ptr, ptr %.02642, align 8, !tbaa !42
+  %29 = load ptr, ptr %.02641, align 8, !tbaa !42
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 136
   %31 = load i32, ptr %30, align 8, !tbaa !180
   %.not = icmp eq i32 %31, 0
-  br i1 %.not, label %.lr.ph40, label %.thread
+  br i1 %.not, label %.lr.ph39, label %.thread
 
-.thread:                                          ; preds = %28, %.lr.ph40, %.preheader, %.loopexit, %.preheader34
-  %32 = getelementptr inbounds nuw i8, ptr %.02642, i64 32
+.thread:                                          ; preds = %28, %.lr.ph39, %.preheader, %.loopexit, %.preheader33
+  %32 = getelementptr inbounds nuw i8, ptr %.02641, i64 32
   %33 = icmp ult ptr %32, %7
-  br i1 %33, label %.preheader34, label %._crit_edge
+  br i1 %33, label %.preheader33, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.thread, %5
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -16109,18 +16107,18 @@ define dso_local void @zend_fcall_info_args_clear(ptr noundef captures(none) %0,
   %8 = zext i32 %7 to i64
   %.idx = shl nuw nsw i64 %8, 4
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx
-  %.not1216 = icmp eq i32 %7, 0
-  br i1 %.not1216, label %._crit_edge, label %.lr.ph
+  %.not1215 = icmp eq i32 %7, 0
+  br i1 %.not1215, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %i_zval_ptr_dtor.exit
-  %.017 = phi ptr [ %33, %i_zval_ptr_dtor.exit ], [ %4, %5 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.017, i64 9
+  %.016 = phi ptr [ %33, %i_zval_ptr_dtor.exit ], [ %4, %5 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.016, i64 9
   %11 = load i8, ptr %10, align 1, !tbaa !42
   %.not.i = icmp eq i8 %11, 0
   br i1 %.not.i, label %i_zval_ptr_dtor.exit, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = load ptr, ptr %.017, align 8, !tbaa !42
+  %13 = load ptr, ptr %.016, align 8, !tbaa !42
   %14 = load i32, ptr %13, align 4, !tbaa !43
   %15 = icmp ne i32 %14, 0
   tail call void @llvm.assume(i1 %15)
@@ -16165,7 +16163,7 @@ define dso_local void @zend_fcall_info_args_clear(ptr noundef captures(none) %0,
   br label %i_zval_ptr_dtor.exit
 
 i_zval_ptr_dtor.exit:                             ; preds = %32, %28, %22, %.lr.ph, %17
-  %33 = getelementptr inbounds nuw i8, ptr %.017, i64 16
+  %33 = getelementptr inbounds nuw i8, ptr %.016, i64 16
   %.not12 = icmp eq ptr %33, %9
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -16210,18 +16208,18 @@ define dso_local void @zend_fcall_info_args_restore(ptr noundef captures(none) %
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
-  %.not1216.i = icmp eq i32 %8, 0
-  br i1 %.not1216.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1215.i = icmp eq i32 %8, 0
+  br i1 %.not1215.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %6, %i_zval_ptr_dtor.exit.i
-  %.017.i = phi ptr [ %34, %i_zval_ptr_dtor.exit.i ], [ %5, %6 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.017.i, i64 9
+  %.016.i = phi ptr [ %34, %i_zval_ptr_dtor.exit.i ], [ %5, %6 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.016.i, i64 9
   %12 = load i8, ptr %11, align 1, !tbaa !42
   %.not.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i, label %i_zval_ptr_dtor.exit.i, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = load ptr, ptr %.017.i, align 8, !tbaa !42
+  %14 = load ptr, ptr %.016.i, align 8, !tbaa !42
   %15 = load i32, ptr %14, align 4, !tbaa !43
   %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
@@ -16266,7 +16264,7 @@ define dso_local void @zend_fcall_info_args_restore(ptr noundef captures(none) %
   br label %i_zval_ptr_dtor.exit.i
 
 i_zval_ptr_dtor.exit.i:                           ; preds = %33, %29, %23, %18, %.lr.ph.i
-  %34 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %.not12.i = icmp eq ptr %34, %10
   br i1 %.not12.i, label %._crit_edge.i.loopexit, label %.lr.ph.i
 
@@ -16300,18 +16298,18 @@ define dso_local range(i32 -1, 1) i32 @zend_fcall_info_args_ex(ptr noundef captu
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
-  %.not1216.i = icmp eq i32 %8, 0
-  br i1 %.not1216.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1215.i = icmp eq i32 %8, 0
+  br i1 %.not1215.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %i_zval_ptr_dtor.exit.i
-  %.017.i = phi ptr [ %34, %i_zval_ptr_dtor.exit.i ], [ %5, %7 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.017.i, i64 9
+  %.016.i = phi ptr [ %34, %i_zval_ptr_dtor.exit.i ], [ %5, %7 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.016.i, i64 9
   %12 = load i8, ptr %11, align 1, !tbaa !42
   %.not.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i, label %i_zval_ptr_dtor.exit.i, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = load ptr, ptr %.017.i, align 8, !tbaa !42
+  %14 = load ptr, ptr %.016.i, align 8, !tbaa !42
   %15 = load i32, ptr %14, align 4, !tbaa !43
   %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
@@ -16356,7 +16354,7 @@ define dso_local range(i32 -1, 1) i32 @zend_fcall_info_args_ex(ptr noundef captu
   br label %i_zval_ptr_dtor.exit.i
 
 i_zval_ptr_dtor.exit.i:                           ; preds = %33, %29, %23, %18, %.lr.ph.i
-  %34 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %.not12.i = icmp eq ptr %34, %10
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -16571,18 +16569,18 @@ define dso_local void @zend_fcall_info_argp(ptr noundef captures(none) %0, i32 n
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
-  %.not1216.i = icmp eq i32 %8, 0
-  br i1 %.not1216.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1215.i = icmp eq i32 %8, 0
+  br i1 %.not1215.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %i_zval_ptr_dtor.exit.i
-  %.017.i = phi ptr [ %34, %i_zval_ptr_dtor.exit.i ], [ %5, %7 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.017.i, i64 9
+  %.016.i = phi ptr [ %34, %i_zval_ptr_dtor.exit.i ], [ %5, %7 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.016.i, i64 9
   %12 = load i8, ptr %11, align 1, !tbaa !42
   %.not.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i, label %i_zval_ptr_dtor.exit.i, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = load ptr, ptr %.017.i, align 8, !tbaa !42
+  %14 = load ptr, ptr %.016.i, align 8, !tbaa !42
   %15 = load i32, ptr %14, align 4, !tbaa !43
   %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
@@ -16627,7 +16625,7 @@ define dso_local void @zend_fcall_info_argp(ptr noundef captures(none) %0, i32 n
   br label %i_zval_ptr_dtor.exit.i
 
 i_zval_ptr_dtor.exit.i:                           ; preds = %33, %29, %23, %18, %.lr.ph.i
-  %34 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %.not12.i = icmp eq ptr %34, %10
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -16698,18 +16696,18 @@ define dso_local void @zend_fcall_info_argv(ptr noundef captures(none) %0, i32 n
   %9 = zext i32 %8 to i64
   %.idx.i = shl nuw nsw i64 %9, 4
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 %.idx.i
-  %.not1216.i = icmp eq i32 %8, 0
-  br i1 %.not1216.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not1215.i = icmp eq i32 %8, 0
+  br i1 %.not1215.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %7, %i_zval_ptr_dtor.exit.i
-  %.017.i = phi ptr [ %34, %i_zval_ptr_dtor.exit.i ], [ %5, %7 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.017.i, i64 9
+  %.016.i = phi ptr [ %34, %i_zval_ptr_dtor.exit.i ], [ %5, %7 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.016.i, i64 9
   %12 = load i8, ptr %11, align 1, !tbaa !42
   %.not.i.i = icmp eq i8 %12, 0
   br i1 %.not.i.i, label %i_zval_ptr_dtor.exit.i, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = load ptr, ptr %.017.i, align 8, !tbaa !42
+  %14 = load ptr, ptr %.016.i, align 8, !tbaa !42
   %15 = load i32, ptr %14, align 4, !tbaa !43
   %16 = icmp ne i32 %15, 0
   tail call void @llvm.assume(i1 %16)
@@ -16754,7 +16752,7 @@ define dso_local void @zend_fcall_info_argv(ptr noundef captures(none) %0, i32 n
   br label %i_zval_ptr_dtor.exit.i
 
 i_zval_ptr_dtor.exit.i:                           ; preds = %33, %29, %23, %18, %.lr.ph.i
-  %34 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
+  %34 = getelementptr inbounds nuw i8, ptr %.016.i, i64 16
   %.not12.i = icmp eq ptr %34, %10
   br i1 %.not12.i, label %._crit_edge.i, label %.lr.ph.i
 
@@ -16894,18 +16892,18 @@ define dso_local i32 @zend_fcall_info_call(ptr noundef initializes((24, 32)) %0,
   %26 = zext i32 %25 to i64
   %.idx.i.i = shl nuw nsw i64 %26, 4
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
-  %.not1216.i.i = icmp eq i32 %25, 0
-  br i1 %.not1216.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not1215.i.i = icmp eq i32 %25, 0
+  br i1 %.not1215.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %23, %i_zval_ptr_dtor.exit.i.i
-  %.017.i.i = phi ptr [ %51, %i_zval_ptr_dtor.exit.i.i ], [ %22, %23 ]
-  %28 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 9
+  %.016.i.i = phi ptr [ %51, %i_zval_ptr_dtor.exit.i.i ], [ %22, %23 ]
+  %28 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 9
   %29 = load i8, ptr %28, align 1, !tbaa !42
   %.not.i.i.i = icmp eq i8 %29, 0
   br i1 %.not.i.i.i, label %i_zval_ptr_dtor.exit.i.i, label %30
 
 30:                                               ; preds = %.lr.ph.i.i
-  %31 = load ptr, ptr %.017.i.i, align 8, !tbaa !42
+  %31 = load ptr, ptr %.016.i.i, align 8, !tbaa !42
   %32 = load i32, ptr %31, align 4, !tbaa !43
   %33 = icmp ne i32 %32, 0
   call void @llvm.assume(i1 %33)
@@ -16950,7 +16948,7 @@ define dso_local i32 @zend_fcall_info_call(ptr noundef initializes((24, 32)) %0,
   br label %i_zval_ptr_dtor.exit.i.i
 
 i_zval_ptr_dtor.exit.i.i:                         ; preds = %50, %46, %40, %35, %.lr.ph.i.i
-  %51 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
   %.not12.i.i = icmp eq ptr %51, %27
   br i1 %.not12.i.i, label %._crit_edge.i.loopexit.i, label %.lr.ph.i.i
 
@@ -20043,13 +20041,13 @@ define dso_local range(i32 -1, 1) i32 @zend_get_default_from_internal_arg_info(p
   br i1 %30, label %try_parse_string.exit, label %.preheader.i
 
 31:                                               ; preds = %.preheader.i
-  %32 = add nuw i64 %.01219.i, 1
+  %32 = add nuw i64 %.01217.i, 1
   %exitcond.not.i = icmp eq i64 %32, %29
   br i1 %exitcond.not.i, label %try_parse_string.exit.thread68, label %.preheader.i
 
 .preheader.i:                                     ; preds = %27, %31
-  %.01219.i = phi i64 [ %32, %31 ], [ 0, %27 ]
-  %33 = getelementptr inbounds nuw i8, ptr %28, i64 %.01219.i
+  %.01217.i = phi i64 [ %32, %31 ], [ 0, %27 ]
+  %33 = getelementptr inbounds nuw i8, ptr %28, i64 %.01217.i
   %34 = load i8, ptr %33, align 1, !tbaa !42
   %35 = icmp eq i8 %34, 92
   %36 = icmp eq i8 %34, %21

@@ -693,7 +693,7 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   %21 = load i64, ptr %20, align 8, !tbaa !20
   %22 = and i64 %21, 1
   %23 = icmp eq i64 %22, 0
-  br i1 %23, label %24, label %.loopexit.thread138.loopexit
+  br i1 %23, label %24, label %.loopexit.thread136.loopexit
 
 24:                                               ; preds = %19
   %25 = load ptr, ptr %17, align 8, !tbaa !11
@@ -781,26 +781,26 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   %.sink.i = or i64 %77, %76
   store i64 %.sink.i, ptr %74, align 8, !tbaa !20
   %.pre = load i64, ptr %20, align 8, !tbaa !20
-  %.pre121 = and i64 %.pre, 1
-  %.not65 = icmp eq i64 %.pre121, 0
-  br i1 %.not65, label %.loopexit.thread, label %.loopexit.thread138
+  %.pre119 = and i64 %.pre, 1
+  %.not65 = icmp eq i64 %.pre119, 0
+  br i1 %.not65, label %.loopexit.thread, label %.loopexit.thread136
 
-.loopexit.thread138.loopexit:                     ; preds = %19
+.loopexit.thread136.loopexit:                     ; preds = %19
   %78 = getelementptr inbounds nuw ptr, ptr %.051, i64 %15
-  br label %.loopexit.thread138
+  br label %.loopexit.thread136
 
-.loopexit.thread138:                              ; preds = %.loopexit.thread138.loopexit, %.loopexit
-  %79 = phi ptr [ %46, %.loopexit ], [ %78, %.loopexit.thread138.loopexit ]
-  %.050142 = phi ptr [ %67, %.loopexit ], [ %17, %.loopexit.thread138.loopexit ]
-  %80 = phi i64 [ %.pre, %.loopexit ], [ %21, %.loopexit.thread138.loopexit ]
-  %81 = getelementptr inbounds nuw i8, ptr %.050142, i64 16
+.loopexit.thread136:                              ; preds = %.loopexit.thread136.loopexit, %.loopexit
+  %79 = phi ptr [ %46, %.loopexit ], [ %78, %.loopexit.thread136.loopexit ]
+  %.050140 = phi ptr [ %67, %.loopexit ], [ %17, %.loopexit.thread136.loopexit ]
+  %80 = phi i64 [ %.pre, %.loopexit ], [ %21, %.loopexit.thread136.loopexit ]
+  %81 = getelementptr inbounds nuw i8, ptr %.050140, i64 16
   %82 = load i64, ptr %81, align 8, !tbaa !20
   %83 = and i64 %82, 1
   %84 = icmp eq i64 %83, 0
   br i1 %84, label %85, label %.loopexit.thread
 
-85:                                               ; preds = %.loopexit.thread138
-  %86 = load ptr, ptr %.050142, align 8, !tbaa !11
+85:                                               ; preds = %.loopexit.thread136
+  %86 = load ptr, ptr %.050140, align 8, !tbaa !11
   %87 = icmp eq ptr %86, null
   br i1 %87, label %93, label %88
 
@@ -812,7 +812,7 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   br i1 %92, label %93, label %.loopexit.thread
 
 93:                                               ; preds = %88, %85
-  %94 = getelementptr inbounds nuw i8, ptr %.050142, i64 8
+  %94 = getelementptr inbounds nuw i8, ptr %.050140, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !11
   %96 = icmp eq ptr %95, null
   br i1 %96, label %102, label %97
@@ -836,10 +836,10 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   %106 = getelementptr inbounds nuw ptr, ptr %.051, i64 %15
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %.loopexit.thread.loopexit, %97, %88, %.loopexit.thread138, %.loopexit
-  %107 = phi ptr [ %79, %97 ], [ %79, %88 ], [ %79, %.loopexit.thread138 ], [ %46, %.loopexit ], [ %106, %.loopexit.thread.loopexit ]
-  %.050137 = phi ptr [ %.050142, %97 ], [ %.050142, %88 ], [ %.050142, %.loopexit.thread138 ], [ %67, %.loopexit ], [ %17, %.loopexit.thread.loopexit ]
-  %108 = getelementptr inbounds nuw ptr, ptr %.050137, i64 %15
+.loopexit.thread:                                 ; preds = %.loopexit.thread.loopexit, %97, %88, %.loopexit.thread136, %.loopexit
+  %107 = phi ptr [ %79, %97 ], [ %79, %88 ], [ %79, %.loopexit.thread136 ], [ %46, %.loopexit ], [ %106, %.loopexit.thread.loopexit ]
+  %.050135 = phi ptr [ %.050140, %97 ], [ %.050140, %88 ], [ %.050140, %.loopexit.thread136 ], [ %67, %.loopexit ], [ %17, %.loopexit.thread.loopexit ]
+  %108 = getelementptr inbounds nuw ptr, ptr %.050135, i64 %15
   %109 = load ptr, ptr %108, align 8, !tbaa !11
   %110 = icmp eq ptr %109, null
   br i1 %110, label %119, label %111
@@ -849,9 +849,9 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   %113 = load i64, ptr %112, align 8, !tbaa !20
   %114 = and i64 %113, 1
   %115 = icmp eq i64 %114, 0
-  br i1 %115, label %119, label %.thread143
+  br i1 %115, label %119, label %.thread141
 
-.thread143:                                       ; preds = %111
+.thread141:                                       ; preds = %111
   %116 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %117 = load i64, ptr %116, align 8, !tbaa !20
   %118 = and i64 %117, -2
@@ -859,13 +859,13 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   br label %163
 
 119:                                              ; preds = %111, %.loopexit.thread
-  %120 = getelementptr inbounds nuw ptr, ptr %.050137, i64 %5
+  %120 = getelementptr inbounds nuw ptr, ptr %.050135, i64 %5
   %121 = load ptr, ptr %120, align 8, !tbaa !11
   %122 = icmp eq ptr %121, null
   br i1 %122, label %155, label %123
 
 123:                                              ; preds = %119
-  %124 = getelementptr inbounds nuw i8, ptr %.050137, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.050135, i64 16
   %125 = load i64, ptr %124, align 8, !tbaa !20
   %126 = and i64 %125, -4
   %127 = inttoptr i64 %126 to ptr
@@ -876,7 +876,7 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   %131 = getelementptr inbounds nuw ptr, ptr %121, i64 %15
   %132 = load ptr, ptr %131, align 8, !tbaa !11
   store ptr %132, ptr %120, align 8, !tbaa !11
-  store ptr %.050137, ptr %131, align 8, !tbaa !11
+  store ptr %.050135, ptr %131, align 8, !tbaa !11
   %133 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %134 = load i64, ptr %133, align 8, !tbaa !20
   %135 = and i64 %134, 3
@@ -904,7 +904,7 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
   br i1 %149, label %155, label %.sink.split.i69
 
 .sink.split.i69:                                  ; preds = %123
-  %150 = ptrtoint ptr %.050137 to i64
+  %150 = ptrtoint ptr %.050135 to i64
   %151 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %152 = load i64, ptr %151, align 8, !tbaa !20
   %153 = and i64 %152, 1
@@ -918,20 +918,20 @@ define internal fastcc void @__archive_rb_tree_removal_rebalance(ptr noundef rea
 155:                                              ; preds = %.sink.split.i69, %123, %119
   %156 = load ptr, ptr %107, align 8, !tbaa !11
   %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %156, i64 %15
-  %.pre120 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
-  %157 = icmp eq ptr %.pre120, null
+  %.pre118 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !11
+  %157 = icmp eq ptr %.pre118, null
   br i1 %157, label %__archive_rb_tree_reparent_nodes.exit81.thread, label %158
 
 158:                                              ; preds = %155
-  %159 = getelementptr inbounds nuw i8, ptr %.pre120, i64 16
+  %159 = getelementptr inbounds nuw i8, ptr %.pre118, i64 16
   %160 = load i64, ptr %159, align 8, !tbaa !20
   %161 = and i64 %160, -2
   store i64 %161, ptr %159, align 8, !tbaa !20
   %162 = icmp eq ptr %156, null
   br i1 %162, label %__archive_rb_tree_reparent_nodes.exit81.thread, label %163
 
-163:                                              ; preds = %.thread143, %158
-  %164 = phi ptr [ %.050137, %.thread143 ], [ %156, %158 ]
+163:                                              ; preds = %.thread141, %158
+  %164 = phi ptr [ %.050135, %.thread141 ], [ %156, %158 ]
   %165 = load i64, ptr %20, align 8, !tbaa !20
   %166 = and i64 %165, -4
   %167 = inttoptr i64 %166 to ptr

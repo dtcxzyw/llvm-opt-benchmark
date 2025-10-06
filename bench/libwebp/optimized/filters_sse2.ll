@@ -349,18 +349,18 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly captures(addres
 .preheader.i16:                                   ; preds = %.preheader.loopexit.i15, %46
   %.0.lcssa.i17 = phi i32 [ 0, %46 ], [ %52, %.preheader.loopexit.i15 ]
   %53 = icmp slt i32 %.0.lcssa.i17, %44
-  br i1 %53, label %.lr.ph71.preheader.i, label %HorizontalUnfilter_SSE2.exit
+  br i1 %53, label %.lr.ph70.preheader.i, label %HorizontalUnfilter_SSE2.exit
 
-.lr.ph71.preheader.i:                             ; preds = %.preheader.i16
+.lr.ph70.preheader.i:                             ; preds = %.preheader.i16
   %54 = zext i32 %.0.lcssa.i17 to i64
   %wide.trip.count.i18 = zext nneg i32 %44 to i64
   %scevgep31 = getelementptr i8, ptr %2, i64 %54
   %load_initial32 = load i8, ptr %scevgep31, align 1
-  br label %.lr.ph71.i
+  br label %.lr.ph70.i
 
 .lr.ph.i12:                                       ; preds = %96, %.lr.ph.preheader.i11
   %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.preheader.i11 ], [ %indvars.iv.next.i14, %96 ]
-  %.05368.i = phi <2 x i64> [ %50, %.lr.ph.preheader.i11 ], [ %98, %96 ]
+  %.05367.i = phi <2 x i64> [ %50, %.lr.ph.preheader.i11 ], [ %98, %96 ]
   %55 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv.i13
   %56 = load i64, ptr %55, align 1, !tbaa !7
   %57 = insertelement <2 x i64> poison, i64 %56, i64 0
@@ -378,7 +378,7 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly captures(addres
   %69 = bitcast <16 x i8> %64 to <8 x i16>
   %70 = sub nsw <8 x i16> %68, %69
   %71 = bitcast <2 x i64> %67 to <16 x i8>
-  %72 = bitcast <2 x i64> %.05368.i to <8 x i16>
+  %72 = bitcast <2 x i64> %.05367.i to <8 x i16>
   %73 = add <8 x i16> %70, %72
   %74 = tail call <16 x i8> @llvm.x86.sse2.packuswb.128(<8 x i16> %73, <8 x i16> zeroinitializer)
   %75 = add <16 x i8> %74, %71
@@ -416,12 +416,12 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly captures(addres
   %101 = icmp samesign ult i64 %indvars.iv.next.i14, %51
   br i1 %101, label %.lr.ph.i12, label %.preheader.loopexit.i15, !llvm.loop !13
 
-.lr.ph71.i:                                       ; preds = %.lr.ph71.i, %.lr.ph71.preheader.i
-  %store_forwarded33 = phi i8 [ %load_initial32, %.lr.ph71.preheader.i ], [ %116, %.lr.ph71.i ]
-  %indvars.iv75.i = phi i64 [ %54, %.lr.ph71.preheader.i ], [ %indvars.iv.next76.i, %.lr.ph71.i ]
-  %102 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv75.i
+.lr.ph70.i:                                       ; preds = %.lr.ph70.i, %.lr.ph70.preheader.i
+  %store_forwarded33 = phi i8 [ %load_initial32, %.lr.ph70.preheader.i ], [ %116, %.lr.ph70.i ]
+  %indvars.iv74.i = phi i64 [ %54, %.lr.ph70.preheader.i ], [ %indvars.iv.next75.i, %.lr.ph70.i ]
+  %102 = getelementptr inbounds nuw i8, ptr %42, i64 %indvars.iv74.i
   %103 = load i8, ptr %102, align 1, !tbaa !7
-  %104 = getelementptr i8, ptr %0, i64 %indvars.iv75.i
+  %104 = getelementptr i8, ptr %0, i64 %indvars.iv74.i
   %105 = load i8, ptr %104, align 1, !tbaa !7
   %106 = zext i8 %store_forwarded33 to i32
   %107 = zext i8 %103 to i32
@@ -430,17 +430,17 @@ define internal void @GradientUnfilter_SSE2(ptr noundef readonly captures(addres
   %110 = sub nsw i32 %108, %109
   %111 = tail call i32 @llvm.smax.i32(i32 %110, i32 0)
   %112 = tail call range(i32 0, 256) i32 @llvm.umin.i32(i32 %111, i32 255)
-  %113 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv75.i
+  %113 = getelementptr inbounds nuw i8, ptr %41, i64 %indvars.iv74.i
   %114 = load i8, ptr %113, align 1, !tbaa !7
   %115 = trunc nuw i32 %112 to i8
   %116 = add i8 %114, %115
-  %117 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv75.i
+  %117 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv74.i
   store i8 %116, ptr %117, align 1, !tbaa !7
-  %indvars.iv.next76.i = add nuw nsw i64 %indvars.iv75.i, 1
-  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next76.i, %wide.trip.count.i18
-  br i1 %exitcond.not.i19, label %HorizontalUnfilter_SSE2.exit, label %.lr.ph71.i, !llvm.loop !14
+  %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
+  %exitcond.not.i19 = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count.i18
+  br i1 %exitcond.not.i19, label %HorizontalUnfilter_SSE2.exit, label %.lr.ph70.i, !llvm.loop !14
 
-HorizontalUnfilter_SSE2.exit:                     ; preds = %.lr.ph71.i, %.lr.ph42.i, %.preheader.i16, %38, %.preheader.i, %7
+HorizontalUnfilter_SSE2.exit:                     ; preds = %.lr.ph70.i, %.lr.ph42.i, %.preheader.i16, %38, %.preheader.i, %7
   ret void
 }
 

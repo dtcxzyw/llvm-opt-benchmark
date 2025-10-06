@@ -2568,9 +2568,9 @@ _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit: ; preds = %
   br label %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.thread
 
 _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.thread: ; preds = %33, %35, %16, %11, %3, %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit, %.critedge
-  %.sroa.0.016 = phi ptr [ %39, %.critedge ], [ undef, %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit ], [ undef, %3 ], [ undef, %11 ], [ undef, %16 ], [ undef, %35 ], [ undef, %33 ]
+  %.sroa.0.015 = phi ptr [ %39, %.critedge ], [ undef, %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit ], [ undef, %3 ], [ undef, %11 ], [ undef, %16 ], [ undef, %35 ], [ undef, %33 ]
   %.sroa.2.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit ], [ 0, %3 ], [ 0, %11 ], [ 0, %16 ], [ 0, %35 ], [ 0, %33 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.016, 0
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.015, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { ptr, i8 } %.fca.1.insert
 }
@@ -2640,9 +2640,9 @@ _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit: ; preds = %
   br label %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.thread
 
 _ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit.thread: ; preds = %33, %35, %16, %11, %3, %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit, %.critedge
-  %.sroa.0.016 = phi ptr [ %39, %.critedge ], [ undef, %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit ], [ undef, %3 ], [ undef, %11 ], [ undef, %16 ], [ undef, %35 ], [ undef, %33 ]
+  %.sroa.0.015 = phi ptr [ %39, %.critedge ], [ undef, %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit ], [ undef, %3 ], [ undef, %11 ], [ undef, %16 ], [ undef, %35 ], [ undef, %33 ]
   %.sroa.2.1 = phi i8 [ 1, %.critedge ], [ 0, %_ZN4Luau18findExprAtPositionERKNS_12SourceModuleENS_8PositionE.exit ], [ 0, %3 ], [ 0, %11 ], [ 0, %16 ], [ 0, %35 ], [ 0, %33 ]
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.016, 0
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.0.015, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.2.1, 1
   ret { ptr, i8 } %.fca.1.insert
 }

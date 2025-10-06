@@ -9640,9 +9640,10 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap3pop17h684c75140e3a31c6E.exit.thr
 
 _ZN12polars_arrow6bitmap7mutable13MutableBitmap3pop17h684c75140e3a31c6E.exit13: ; preds = %29, %41
   %44 = shl nuw i8 1, %40
-  %45 = and i8 %38, %44
-  %cond = icmp eq i8 %45, 0
-  %spec.select = select i1 %cond, i8 2, i8 %22
+  %.fr = freeze i8 %44
+  %45 = and i8 %38, %.fr
+  %.not = icmp eq i8 %45, 0
+  %spec.select = select i1 %.not, i8 2, i8 %22
   br label %_ZN12polars_arrow6bitmap7mutable13MutableBitmap3pop17h684c75140e3a31c6E.exit.thread
 }
 

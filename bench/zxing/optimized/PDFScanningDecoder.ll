@@ -4087,26 +4087,26 @@ _ZN5ZXing6Pdf417L18GetBarcodeMetadataERNS_8NullableINS0_21DetectionResultColumnE
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, i8 0, i64 16, i1 false)
   %158 = trunc nuw i8 %.pre.i to i1
-  br i1 %158, label %159, label %.thread15.i
+  br i1 %158, label %159, label %.thread14.i
 
 159:                                              ; preds = %157
   %160 = invoke noundef zeroext i1 @_ZN5ZXing6Pdf41721DetectionResultColumn18getBarcodeMetadataERNS0_15BarcodeMetadataE(ptr noundef nonnull align 8 dereferenceable(148) %66, ptr noundef nonnull align 4 dereferenceable(16) %24)
           to label %.noexc104 unwind label %.loopexit200
 
 .noexc104:                                        ; preds = %159
-  br i1 %160, label %161, label %.thread15.i
+  br i1 %160, label %161, label %.thread14.i
 
 161:                                              ; preds = %.noexc104
   %162 = load i32, ptr %23, align 4, !tbaa !126
   %163 = load i32, ptr %24, align 4, !tbaa !126
   %.not.i.i = icmp eq i32 %162, %163
-  br i1 %.not.i.i, label %.thread15.i, label %164
+  br i1 %.not.i.i, label %.thread14.i, label %164
 
 164:                                              ; preds = %161
   %165 = load i32, ptr %86, align 4, !tbaa !128
   %166 = load i32, ptr %87, align 4, !tbaa !128
   %.not10.i.i = icmp eq i32 %165, %166
-  br i1 %.not10.i.i, label %.thread15.i, label %167
+  br i1 %.not10.i.i, label %.thread14.i, label %167
 
 167:                                              ; preds = %164
   %168 = load i32, ptr %88, align 4, !tbaa !129
@@ -4116,9 +4116,9 @@ _ZN5ZXing6Pdf417L18GetBarcodeMetadataERNS_8NullableINS0_21DetectionResultColumnE
   %172 = load i32, ptr %91, align 4, !tbaa !130
   %173 = add nsw i32 %172, %171
   %.not11.i.i = icmp eq i32 %170, %173
-  br i1 %.not11.i.i, label %.thread15.i, label %174
+  br i1 %.not11.i.i, label %.thread14.i, label %174
 
-.thread15.i:                                      ; preds = %167, %164, %161, %.noexc104, %157
+.thread14.i:                                      ; preds = %167, %164, %161, %.noexc104, %157
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %23, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
@@ -4137,7 +4137,7 @@ _ZN5ZXing6Pdf417L18GetBarcodeMetadataERNS_8NullableINS0_21DetectionResultColumnE
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br i1 %175, label %176, label %_ZN5ZXing6Pdf417L5MergeERNS_8NullableINS0_21DetectionResultColumnEEES4_RNS0_15DetectionResultE.exit.thread182
 
-176:                                              ; preds = %.noexc105, %.thread15.i
+176:                                              ; preds = %.noexc105, %.thread14.i
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   store i8 0, ptr %26, align 8, !tbaa !131
   invoke void @_ZN5ZXing6Pdf41711BoundingBoxC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %92)

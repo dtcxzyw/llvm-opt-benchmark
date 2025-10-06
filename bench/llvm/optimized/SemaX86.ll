@@ -998,15 +998,15 @@ _ZN4llvm5APIntD2Ev.exit:                          ; preds = %70, %73, %76
 define dso_local noundef zeroext i1 @_ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefIiEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %.idx = shl nuw nsw i64 %3, 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx
-  %.not15.not = icmp eq i64 %3, 0
-  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
+  %.not16.not = icmp eq i64 %3, 0
+  br i1 %.not16.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
-  %.01316 = phi ptr [ %9, %.lr.ph ], [ %2, %4 ]
-  %6 = load i32, ptr %.01316, align 4, !tbaa !48
+  %.01317 = phi ptr [ %9, %.lr.ph ], [ %2, %4 ]
+  %6 = load i32, ptr %.01317, align 4, !tbaa !48
   %7 = load ptr, ptr %0, align 8, !tbaa !15
   %8 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %7, ptr noundef %1, i32 noundef %6, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #15
-  %9 = getelementptr inbounds nuw i8, ptr %.01316, i64 4
+  %9 = getelementptr inbounds nuw i8, ptr %.01317, i64 4
   %.not.not = icmp eq ptr %9, %5
   %or.cond = select i1 %8, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -1234,17 +1234,17 @@ _ZNSt6bitsetILm8EE3setEmb.exit:                   ; preds = %_ZNKSt6bitsetILm8EE
 define dso_local noundef zeroext i1 @_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
   %.idx.i = shl nuw nsw i64 %3, 2
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i
-  %.not15.not.i = icmp eq i64 %3, 0
-  br i1 %.not15.not.i, label %.loopexit, label %.lr.ph.i
+  %.not16.not.i = icmp eq i64 %3, 0
+  br i1 %.not16.not.i, label %.loopexit, label %.lr.ph.i
 
 6:                                                ; preds = %.lr.ph.i
-  %7 = getelementptr inbounds nuw i8, ptr %.01316.i, i64 4
+  %7 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 4
   %.not.not.i = icmp eq ptr %7, %5
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %4, %6
-  %.01316.i = phi ptr [ %7, %6 ], [ %2, %4 ]
-  %8 = load i32, ptr %.01316.i, align 4, !tbaa !48
+  %.01317.i = phi ptr [ %7, %6 ], [ %2, %4 ]
+  %8 = load i32, ptr %.01317.i, align 4, !tbaa !48
   %9 = load ptr, ptr %0, align 8, !tbaa !15
   %10 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %9, ptr noundef %1, i32 noundef %8, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #15
   br i1 %10, label %_ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit, label %6
@@ -1321,14 +1321,14 @@ define dso_local noundef zeroext i1 @_ZN5clang7SemaX8625CheckBuiltinTileArgument
   br label %.lr.ph.i.i
 
 11:                                               ; preds = %.lr.ph.i.i
-  %.01316.i.i.add = add nuw nsw i64 %.01316.i.i.idx, 4
-  %.not.not.i.i = icmp eq i64 %.01316.i.i.add, 12
+  %.01317.i.i.add = add nuw nsw i64 %.01317.i.i.idx, 4
+  %.not.not.i.i = icmp eq i64 %.01317.i.i.add, 12
   br i1 %.not.not.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %8, %11
-  %.01316.i.i.idx = phi i64 [ %.01316.i.i.add, %11 ], [ 0, %8 ]
-  %.01316.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.01316.i.i.idx
-  %12 = load i32, ptr %.01316.i.i.ptr, align 4, !tbaa !48
+  %.01317.i.i.idx = phi i64 [ %.01317.i.i.add, %11 ], [ 0, %8 ]
+  %.01317.i.i.ptr = getelementptr inbounds nuw i8, ptr %4, i64 %.01317.i.i.idx
+  %12 = load i32, ptr %.01317.i.i.ptr, align 4, !tbaa !48
   %13 = load ptr, ptr %0, align 8, !tbaa !15
   %14 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %13, ptr noundef %2, i32 noundef %12, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #15
   br i1 %14, label %_ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit, label %11
@@ -1350,13 +1350,13 @@ _ZN5clang7SemaX8633CheckBuiltinTileRangeAndDuplicateEPNS_8CallExprEN4llvm8ArrayR
   br label %.lr.ph.i9
 
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9, %17
-  %.01316.i10.idx = phi i64 [ 0, %17 ], [ %.01316.i10.add, %.lr.ph.i9 ]
-  %.01316.i10.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.01316.i10.idx
-  %19 = load i32, ptr %.01316.i10.ptr, align 4, !tbaa !48
+  %.01317.i10.idx = phi i64 [ 0, %17 ], [ %.01317.i10.add, %.lr.ph.i9 ]
+  %.01317.i10.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.01317.i10.idx
+  %19 = load i32, ptr %.01317.i10.ptr, align 4, !tbaa !48
   %20 = load ptr, ptr %0, align 8, !tbaa !15
   %21 = tail call noundef zeroext i1 @_ZN5clang4Sema23BuiltinConstantArgRangeEPNS_8CallExprEiiib(ptr noundef nonnull align 8 dereferenceable(17504) %20, ptr noundef %2, i32 noundef %19, i32 noundef 0, i32 noundef 7, i1 noundef zeroext true) #15
-  %.01316.i10.add = add nuw nsw i64 %.01316.i10.idx, 4
-  %.not.not.i11 = icmp eq i64 %.01316.i10.add, 8
+  %.01317.i10.add = add nuw nsw i64 %.01317.i10.idx, 4
+  %.not.not.i11 = icmp eq i64 %.01317.i10.add, 8
   %or.cond18 = select i1 %21, i1 true, i1 %.not.not.i11
   br i1 %or.cond18, label %_ZN5clang7SemaX8630CheckBuiltinTileArgumentsRangeEPNS_8CallExprEN4llvm8ArrayRefIiEE.exit13, label %.lr.ph.i9
 
@@ -2817,24 +2817,24 @@ define linkonce_odr hidden i64 @_ZN5clang29getFunctionOrMethodParamRangeEPKNS_4D
   %5 = and i32 %4, 126
   %6 = add nsw i32 %5, -38
   %7 = icmp ult i32 %6, -6
-  %.not.not36.i = icmp eq ptr %0, null
-  %.not.not.i = or i1 %.not.not36.i, %7
+  %.not.not32.i = icmp eq ptr %0, null
+  %.not.not.i = or i1 %.not.not32.i, %7
   br i1 %.not.not.i, label %8, label %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit
 
 8:                                                ; preds = %2
   %9 = and i32 %4, 127
   %10 = icmp ne i32 %9, 16
-  %.not21.not.i = or i1 %.not.not36.i, %10
+  %.not21.not.i = or i1 %.not.not32.i, %10
   br i1 %.not21.not.i, label %11, label %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit
 
 11:                                               ; preds = %8
   %12 = icmp ne i32 %9, 8
-  %.not22.not.i = or i1 %.not.not36.i, %12
+  %.not22.not.i = or i1 %.not.not32.i, %12
   br i1 %.not22.not.i, label %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit.thread, label %_ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit
 
 _ZN5clang24getFunctionOrMethodParamEPKNS_4DeclEj.exit: ; preds = %2, %8, %11
-  %.sink42.i = phi i64 [ 120, %2 ], [ 96, %8 ], [ 72, %11 ]
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink42.i
+  %.sink38.i = phi i64 [ 120, %2 ], [ 96, %8 ], [ 72, %11 ]
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink38.i
   %14 = load ptr, ptr %13, align 8, !tbaa !1125
   %15 = zext i32 %1 to i64
   %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15

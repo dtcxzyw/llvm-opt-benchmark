@@ -2586,17 +2586,17 @@ if.then33:                                        ; preds = %land.lhs.true
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %value_.i.i, align 8
   %retval.sroa.2.0.value_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 248
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.value_.sroa_idx.i.i, align 8
-  %switch = icmp eq i8 %groupIdTypeKind.0, 3
+  %15 = icmp eq i8 %groupIdTypeKind.0, 3
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #36, !noalias !19
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !19
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !19
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i, i64 16
-  %15 = trunc i64 %retval.sroa.0.0.copyload.i.i to i32
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %15, 13
+  %16 = trunc i64 %retval.sroa.0.0.copyload.i.i to i32
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %16, 13
   %conv.i.i.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 4294967295
-  br i1 %switch, label %sw.bb, label %sw.bb36
+  br i1 %15, label %sw.bb, label %sw.bb36
 
 sw.bb:                                            ; preds = %if.then33
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !20
@@ -2604,14 +2604,14 @@ sw.bb:                                            ; preds = %if.then33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i), !noalias !20
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i), !noalias !20
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %pattern.i.i.i.i.i.i.i.i, align 8, !noalias !20
-  %16 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i, i64 8
-  store ptr %retval.sroa.2.0.copyload.i.i, ptr %16, align 8, !noalias !20
+  %17 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i, i64 8
+  store ptr %retval.sroa.2.0.copyload.i.i, ptr %17, align 8, !noalias !20
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !20
   %prefix_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i, i64 4
   %cond.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, ptr %prefix_.i.i.i.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i
   store ptr %cond.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8, !noalias !20
-  %17 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
-  store i64 %conv.i.i.i.i.i.i.i.i.i.i, ptr %17, align 8, !noalias !20
+  %18 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
+  store i64 %conv.i.i.i.i.i.i.i.i.i.i, ptr %18, align 8, !noalias !20
   invoke void @_ZN3re23RE27OptionsC1ENS0_13CannedOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.i.i.i.i.i.i.i.i, i32 noundef 3)
           to label %.noexc.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !20
 
@@ -2621,12 +2621,12 @@ sw.bb:                                            ; preds = %if.then33
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !20
 
 common.resume:                                    ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %18, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %21, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %22, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i.i.i.i) #37, !noalias !19
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %.noexc.i.i.i.i, %sw.bb
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -2647,14 +2647,14 @@ sw.bb36:                                          ; preds = %if.then33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i24), !noalias !23
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i25), !noalias !23
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %pattern.i.i.i.i.i.i.i.i23, align 8, !noalias !23
-  %19 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i23, i64 8
-  store ptr %retval.sroa.2.0.copyload.i.i, ptr %19, align 8, !noalias !23
+  %20 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i23, i64 8
+  store ptr %retval.sroa.2.0.copyload.i.i, ptr %20, align 8, !noalias !23
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !23
   %prefix_.i.i.i.i.i.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i23, i64 4
   %cond.i.i.i.i.i.i.i.i.i.i32 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, ptr %prefix_.i.i.i.i.i.i.i.i.i.i31, ptr %retval.sroa.2.0.copyload.i.i
   store ptr %cond.i.i.i.i.i.i.i.i.i.i32, ptr %ref.tmp.i.i.i.i.i.i.i.i24, align 8, !noalias !23
-  %20 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i24, i64 8
-  store i64 %conv.i.i.i.i.i.i.i.i.i.i, ptr %20, align 8, !noalias !23
+  %21 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i24, i64 8
+  store i64 %conv.i.i.i.i.i.i.i.i.i.i, ptr %21, align 8, !noalias !23
   invoke void @_ZN3re23RE27OptionsC1ENS0_13CannedOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.i.i.i.i.i.i.i.i25, i32 noundef 3)
           to label %.noexc.i.i.i.i34 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !23
 
@@ -2664,7 +2664,7 @@ sw.bb36:                                          ; preds = %if.then33
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !23
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %.noexc.i.i.i.i34, %sw.bb36
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -2680,7 +2680,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_134Re2SearchAndExtractC
   br label %return
 
 if.end38:                                         ; preds = %land.lhs.true, %if.end28
-  %switch155 = icmp eq i8 %groupIdTypeKind.0, 3
+  %23 = icmp eq i8 %groupIdTypeKind.0, 3
   %call5.i.i.i5.i.i.i.i72 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #36, !noalias !19
   %_M_use_count.i.i.i.i.i.i73 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i72, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i73, align 8, !noalias !19
@@ -2689,7 +2689,7 @@ if.end38:                                         ; preds = %land.lhs.true, %if.
   %_M_impl.i.i.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i72, i64 16
   %emptyNoMatch_.i.i.i.i.i.i.i.i77 = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i72, i64 24
   %_M_refcount.i.i78 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  br i1 %switch155, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiEEED2Ev.exit, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlEEED2Ev.exit
+  br i1 %23, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiEEED2Ev.exit, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIlEEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiEEED2Ev.exit: ; preds = %if.end38
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_119Re2SearchAndExtractIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i72, align 8, !noalias !26
@@ -5681,17 +5681,17 @@ if.then33:                                        ; preds = %land.lhs.true
   %retval.sroa.0.0.copyload.i.i = load i64, ptr %value_.i.i, align 8
   %retval.sroa.2.0.value_.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 248
   %retval.sroa.2.0.copyload.i.i = load ptr, ptr %retval.sroa.2.0.value_.sroa_idx.i.i, align 8
-  %switch = icmp eq i8 %groupIdTypeKind.0, 3
+  %15 = icmp eq i8 %groupIdTypeKind.0, 3
   %call5.i.i.i5.i.i.i.i = tail call noalias noundef nonnull dereferenceable(240) ptr @_Znwm(i64 noundef 240) #36, !noalias !19
   %_M_use_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !19
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !19
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i5.i.i.i.i, i64 16
-  %15 = trunc i64 %retval.sroa.0.0.copyload.i.i to i32
-  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %15, 13
+  %16 = trunc i64 %retval.sroa.0.0.copyload.i.i to i32
+  %cmp.i.i.i.i.i.i.i.i.i.i.i.i = icmp ult i32 %16, 13
   %conv.i.i.i.i.i.i.i.i.i.i = and i64 %retval.sroa.0.0.copyload.i.i, 4294967295
-  br i1 %switch, label %sw.bb, label %sw.bb36
+  br i1 %15, label %sw.bb, label %sw.bb36
 
 sw.bb:                                            ; preds = %if.then33
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i5.i.i.i.i, align 8, !noalias !78
@@ -5699,14 +5699,14 @@ sw.bb:                                            ; preds = %if.then33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i), !noalias !78
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i), !noalias !78
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %pattern.i.i.i.i.i.i.i.i, align 8, !noalias !78
-  %16 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i, i64 8
-  store ptr %retval.sroa.2.0.copyload.i.i, ptr %16, align 8, !noalias !78
+  %17 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i, i64 8
+  store ptr %retval.sroa.2.0.copyload.i.i, ptr %17, align 8, !noalias !78
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !78
   %prefix_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i, i64 4
   %cond.i.i.i.i.i.i.i.i.i.i = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, ptr %prefix_.i.i.i.i.i.i.i.i.i.i, ptr %retval.sroa.2.0.copyload.i.i
   store ptr %cond.i.i.i.i.i.i.i.i.i.i, ptr %ref.tmp.i.i.i.i.i.i.i.i, align 8, !noalias !78
-  %17 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
-  store i64 %conv.i.i.i.i.i.i.i.i.i.i, ptr %17, align 8, !noalias !78
+  %18 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i, i64 8
+  store i64 %conv.i.i.i.i.i.i.i.i.i.i, ptr %18, align 8, !noalias !78
   invoke void @_ZN3re23RE27OptionsC1ENS0_13CannedOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.i.i.i.i.i.i.i.i, i32 noundef 3)
           to label %.noexc.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !78
 
@@ -5716,12 +5716,12 @@ sw.bb:                                            ; preds = %if.then33
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !78
 
 common.resume:                                    ; preds = %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %18, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %21, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
+  %common.resume.op = phi { ptr, i32 } [ %19, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ], [ %22, %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i5.i.i.i.i) #37, !noalias !19
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIiEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %.noexc.i.i.i.i, %sw.bb
-  %18 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -5740,14 +5740,14 @@ sw.bb36:                                          ; preds = %if.then33
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i.i.i.i.i.i.i.i21), !noalias !81
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp2.i.i.i.i.i.i.i.i22), !noalias !81
   store i64 %retval.sroa.0.0.copyload.i.i, ptr %pattern.i.i.i.i.i.i.i.i20, align 8, !noalias !81
-  %19 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i20, i64 8
-  store ptr %retval.sroa.2.0.copyload.i.i, ptr %19, align 8, !noalias !81
+  %20 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i20, i64 8
+  store ptr %retval.sroa.2.0.copyload.i.i, ptr %20, align 8, !noalias !81
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlEE, i64 16), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !81
   %prefix_.i.i.i.i.i.i.i.i.i.i28 = getelementptr inbounds nuw i8, ptr %pattern.i.i.i.i.i.i.i.i20, i64 4
   %cond.i.i.i.i.i.i.i.i.i.i29 = select i1 %cmp.i.i.i.i.i.i.i.i.i.i.i.i, ptr %prefix_.i.i.i.i.i.i.i.i.i.i28, ptr %retval.sroa.2.0.copyload.i.i
   store ptr %cond.i.i.i.i.i.i.i.i.i.i29, ptr %ref.tmp.i.i.i.i.i.i.i.i21, align 8, !noalias !81
-  %20 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i21, i64 8
-  store i64 %conv.i.i.i.i.i.i.i.i.i.i, ptr %20, align 8, !noalias !81
+  %21 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i.i.i.i.i.i.i21, i64 8
+  store i64 %conv.i.i.i.i.i.i.i.i.i.i, ptr %21, align 8, !noalias !81
   invoke void @_ZN3re23RE27OptionsC1ENS0_13CannedOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2.i.i.i.i.i.i.i.i22, i32 noundef 3)
           to label %.noexc.i.i.i.i31 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !81
 
@@ -5757,7 +5757,7 @@ sw.bb36:                                          ; preds = %if.then33
           to label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !81
 
 _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstantPatternIlEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i: ; preds = %.noexc.i.i.i.i31, %sw.bb36
-  %21 = landingpad { ptr, i32 }
+  %22 = landingpad { ptr, i32 }
           cleanup
   br label %common.resume
 
@@ -5771,7 +5771,7 @@ _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_128Re2ExtractAllConstan
   br label %return
 
 if.end38:                                         ; preds = %land.lhs.true, %if.end28
-  %switch142 = icmp eq i8 %groupIdTypeKind.0, 3
+  %23 = icmp eq i8 %groupIdTypeKind.0, 3
   %call5.i.i.i3.i.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #36, !noalias !19
   %_M_use_count.i.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 8
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i67, align 8, !noalias !19
@@ -5779,7 +5779,7 @@ if.end38:                                         ; preds = %land.lhs.true, %if.
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i68, align 4, !noalias !19
   %_M_impl.i.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   %_M_refcount.i.i70 = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
-  br i1 %switch142, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiEEED2Ev.exit, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlEEED2Ev.exit
+  br i1 %23, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiEEED2Ev.exit, label %_ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIlEEED2Ev.exit
 
 _ZNSt10shared_ptrIN8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiEEED2Ev.exit: ; preds = %if.end38
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook5velox9functions12_GLOBAL__N_113Re2ExtractAllIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !84

@@ -234,8 +234,8 @@ define hidden ptr @phar_get_efp(ptr noundef captures(address) %0, i32 noundef %1
 
 tailrecurse:                                      ; preds = %7, %2
   %.tr = phi ptr [ %0, %2 ], [ %8, %7 ]
-  %.tr53 = phi i1 [ %3, %2 ], [ false, %7 ]
-  br i1 %.tr53, label %.thread, label %4
+  %.tr52 = phi i1 [ %3, %2 ], [ false, %7 ]
+  br i1 %.tr52, label %.thread, label %4
 
 4:                                                ; preds = %tailrecurse
   %5 = getelementptr inbounds nuw i8, ptr %.tr, i64 128
@@ -279,10 +279,10 @@ phar_get_fp_type.exit.thread:                     ; preds = %.thread
   %23 = load i32, ptr %22, align 4, !tbaa !39
   %24 = zext i32 %23 to i64
   %25 = getelementptr inbounds nuw %struct._phar_entry_fp_info, ptr %21, i64 %24
-  %.0.i47 = load i32, ptr %25, align 8, !tbaa !28
-  switch i32 %.0.i47, label %phar_get_fp_type.exit39.thread._crit_edge [
+  %.0.i46 = load i32, ptr %25, align 8, !tbaa !28
+  switch i32 %.0.i46, label %phar_get_fp_type.exit39.thread._crit_edge [
     i32 0, label %phar_get_entrypfp.exit
-    i32 1, label %.thread52
+    i32 1, label %.thread51
   ]
 
 26:                                               ; preds = %phar_get_fp_type.exit
@@ -384,7 +384,7 @@ phar_get_fp_type.exit39.thread._crit_edge:        ; preds = %phar_get_fp_type.ex
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 256
   br label %phar_get_entrypfp.exit35
 
-.thread52:                                        ; preds = %phar_get_fp_type.exit.thread
+.thread51:                                        ; preds = %phar_get_fp_type.exit.thread
   %77 = getelementptr inbounds nuw i8, ptr %19, i64 8
   br label %phar_get_entrypfp.exit35
 
@@ -406,8 +406,8 @@ phar_get_fp_type.exit39.thread._crit_edge:        ; preds = %phar_get_fp_type.ex
   store ptr %87, ptr %81, align 8, !tbaa !45
   br label %phar_get_entrypfp.exit35
 
-phar_get_entrypfp.exit35:                         ; preds = %78, %82, %84, %.thread52, %73, %65, %61
-  %.1.in = phi ptr [ %72, %65 ], [ %64, %61 ], [ %77, %.thread52 ], [ %76, %73 ], [ %81, %84 ], [ %81, %82 ], [ %81, %78 ]
+phar_get_entrypfp.exit35:                         ; preds = %78, %82, %84, %.thread51, %73, %65, %61
+  %.1.in = phi ptr [ %72, %65 ], [ %64, %61 ], [ %77, %.thread51 ], [ %76, %73 ], [ %81, %84 ], [ %81, %82 ], [ %81, %78 ]
   %.1 = load ptr, ptr %.1.in, align 8, !tbaa !40
   ret ptr %.1
 }

@@ -6279,8 +6279,8 @@ lean_dec.exit46:                                  ; preds = %lean_dec.exit46.bac
   br i1 %.not, label %lean_dec.exit47.thread, label %lean_dec.exit47, !prof !18
 
 lean_dec.exit47:                                  ; preds = %lean_dec.exit46
-  %.not84 = icmp ult ptr %.033, %11
-  br i1 %.not84, label %21, label %.loopexit
+  %.not82 = icmp ult ptr %.033, %11
+  br i1 %.not82, label %21, label %.loopexit
 
 lean_dec.exit47.thread:                           ; preds = %lean_dec.exit46
   %14 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.033, ptr noundef nonnull %11) #3

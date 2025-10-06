@@ -236,8 +236,8 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17haf798e9
   %9 = add i64 %5, -1
   %.promoted = load i64, ptr %8, align 8
   %10 = add i64 %9, %.promoted
-  %.not3754 = icmp ult i64 %10, %3
-  br i1 %.not3754, label %.lr.ph, label %._crit_edge
+  %.not3451 = icmp ult i64 %10, %3
+  br i1 %.not3451, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -247,7 +247,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17haf798e9
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = sub i64 %5, %16
-  %.promoted55 = load i64, ptr %14, align 8
+  %.promoted52 = load i64, ptr %14, align 8
   br label %18
 
 ._crit_edge:                                      ; preds = %33, %7
@@ -255,7 +255,7 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17haf798e9
   br label %29
 
 18:                                               ; preds = %.lr.ph, %33
-  %19 = phi i64 [ %.promoted55, %.lr.ph ], [ %34, %33 ]
+  %19 = phi i64 [ %.promoted52, %.lr.ph ], [ %34, %33 ]
   %20 = phi i64 [ %10, %.lr.ph ], [ %36, %33 ]
   %21 = phi i64 [ %.promoted, %.lr.ph ], [ %35, %33 ]
   %22 = getelementptr inbounds i8, ptr %2, i64 %20
@@ -284,16 +284,16 @@ define internal fastcc void @_ZN4core3str7pattern14TwoWaySearcher4next17haf798e9
 
 .sink.split:                                      ; preds = %30, %74, %61
   %.sink = phi i64 [ %17, %61 ], [ 0, %74 ], [ 0, %30 ]
-  %.ph90 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
+  %.ph87 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ]
   store i64 %.sink, ptr %14, align 8
   br label %33
 
 33:                                               ; preds = %.sink.split, %61, %74, %30
   %34 = phi i64 [ %19, %61 ], [ %19, %74 ], [ %19, %30 ], [ %.sink, %.sink.split ]
-  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph90, %.sink.split ]
+  %35 = phi i64 [ %62, %61 ], [ %77, %74 ], [ %31, %30 ], [ %.ph87, %.sink.split ]
   %36 = add i64 %9, %35
-  %.not37 = icmp ult i64 %36, %3
-  br i1 %.not37, label %18, label %._crit_edge
+  %.not34 = icmp ult i64 %36, %3
+  br i1 %.not34, label %18, label %._crit_edge
 
 37:                                               ; preds = %66, %32
   %.sroa.04.0 = phi i64 [ %.014, %32 ], [ %67, %66 ]
@@ -793,8 +793,8 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
   %129 = add i64 %126, -1
   %.promoted.i35.i.i.i = load i64, ptr %128, align 8, !alias.scope !167, !noalias !174
   %130 = add i64 %.promoted.i35.i.i.i, %129
-  %.not3754.i.i.i.i = icmp ult i64 %130, %122
-  br i1 %.not3754.i.i.i.i, label %.lr.ph.i37.i.i.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i.thread.i"
+  %.not3451.i.i.i.i = icmp ult i64 %130, %122
+  br i1 %.not3451.i.i.i.i, label %.lr.ph.i37.i.i.i, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i.thread.i"
 
 .lr.ph.i37.i.i.i:                                 ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -806,7 +806,7 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
   br label %137
 
 137:                                              ; preds = %.sink.split.i.i.i.i, %.lr.ph.i37.i.i.i
-  %138 = phi i64 [ %.promoted.i35.i.i.i, %.lr.ph.i37.i.i.i ], [ %.ph90.i.i.i.i, %.sink.split.i.i.i.i ]
+  %138 = phi i64 [ %.promoted.i35.i.i.i, %.lr.ph.i37.i.i.i ], [ %.ph87.i.i.i.i, %.sink.split.i.i.i.i ]
   %139 = phi i64 [ %117, %.lr.ph.i37.i.i.i ], [ %.sink.i.i.i.i, %.sink.split.i.i.i.i ]
   %140 = phi i64 [ %130, %.lr.ph.i37.i.i.i ], [ %151, %.sink.split.i.i.i.i ]
   %141 = getelementptr inbounds i8, ptr %120, i64 %140
@@ -828,10 +828,10 @@ _ZN4core3str11validations15next_code_point17h111f1ff751556898E.exit.thread.i.i.i
 
 .sink.split.i.i.i.i:                              ; preds = %181, %168, %148
   %.sink.i.i.i.i = phi i64 [ %136, %168 ], [ 0, %181 ], [ 0, %148 ]
-  %.ph90.i.i.i.i = phi i64 [ %169, %168 ], [ %183, %181 ], [ %149, %148 ]
-  %151 = add i64 %.ph90.i.i.i.i, %129
-  %.not37.i.i.i.i = icmp ult i64 %151, %122
-  br i1 %.not37.i.i.i.i, label %137, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i.thread.i"
+  %.ph87.i.i.i.i = phi i64 [ %169, %168 ], [ %183, %181 ], [ %149, %148 ]
+  %151 = add i64 %.ph87.i.i.i.i, %129
+  %.not34.i.i.i.i = icmp ult i64 %151, %122
+  br i1 %.not34.i.i.i.i, label %137, label %"_ZN80_$LT$core..str..pattern..StrSearcher$u20$as$u20$core..str..pattern..Searcher$GT$10next_match17h81357aafb99f3895E.exit.i.i.thread.i"
 
 152:                                              ; preds = %173, %150
   %.sroa.04.0.i.i.i.i = phi i64 [ %.0.sroa.speculated.i.i.i.i.i, %150 ], [ %174, %173 ]

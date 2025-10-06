@@ -27134,17 +27134,17 @@ _ZN6casadi6MatrixINS_6SXElemEED2Ev.exit471:       ; preds = %_ZNSt6vectorIN6casa
   %776 = load ptr, ptr %775, align 8, !tbaa !15
   %777 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %778 = load ptr, ptr %777, align 8, !tbaa !15
-  %.not11.not.i = icmp eq ptr %776, %778
-  br i1 %.not11.not.i, label %.loopexit, label %.lr.ph.i
+  %.not12.not.i = icmp eq ptr %776, %778
+  br i1 %.not12.not.i, label %.loopexit, label %.lr.ph.i
 
 779:                                              ; preds = %.lr.ph.i
-  %780 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i, i64 8
+  %780 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 8
   %.not.not.i = icmp eq ptr %780, %778
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %774, %779
-  %.sroa.08.012.i = phi ptr [ %780, %779 ], [ %776, %774 ]
-  %781 = tail call noundef zeroext i1 @_ZN6casadi13casadi_limitsINS_6SXElemEE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.08.012.i)
+  %.sroa.08.013.i = phi ptr [ %780, %779 ], [ %776, %774 ]
+  %781 = tail call noundef zeroext i1 @_ZN6casadi13casadi_limitsINS_6SXElemEE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.08.013.i)
   br i1 %781, label %_ZNK6casadi6MatrixINS_6SXElemEE9has_zerosEv.exit, label %779
 
 _ZNK6casadi6MatrixINS_6SXElemEE9has_zerosEv.exit: ; preds = %.lr.ph.i
@@ -30148,13 +30148,13 @@ define weak_odr noundef zeroext i1 @_ZNK6casadi6MatrixINS_6SXElemEE9has_zerosEv(
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !15
-  %.not11.not = icmp eq ptr %3, %5
-  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %5
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.08.012 = phi ptr [ %7, %.lr.ph ], [ %3, %1 ]
-  %6 = tail call noundef zeroext i1 @_ZN6casadi13casadi_limitsINS_6SXElemEE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.08.012)
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
+  %.sroa.08.013 = phi ptr [ %7, %.lr.ph ], [ %3, %1 ]
+  %6 = tail call noundef zeroext i1 @_ZN6casadi13casadi_limitsINS_6SXElemEE7is_zeroERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %.sroa.08.013)
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
   %.not.not = icmp eq ptr %7, %5
   %or.cond = select i1 %6, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph
@@ -80195,30 +80195,30 @@ define noundef zeroext i1 @_ZNK6casadi6MatrixINS_6SXElemEE10is_regularEv(ptr nou
 .preheader:                                       ; preds = %.critedge, %1
   %7 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %8 = icmp slt i64 %7, 1
-  br i1 %8, label %.thread, label %.lr.ph37
+  br i1 %8, label %.thread, label %.lr.ph34
 
-.lr.ph37:                                         ; preds = %.preheader
+.lr.ph34:                                         ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %30
 
 11:                                               ; preds = %.lr.ph, %.critedge
-  %.01835 = phi i64 [ 0, %.lr.ph ], [ %27, %.critedge ]
+  %.01832 = phi i64 [ 0, %.lr.ph ], [ %27, %.critedge ]
   %12 = load ptr, ptr %6, align 8, !tbaa !9
   %13 = load ptr, ptr %5, align 8, !tbaa !12
   %14 = ptrtoint ptr %12 to i64
   %15 = ptrtoint ptr %13 to i64
   %16 = sub i64 %14, %15
   %17 = ashr exact i64 %16, 3
-  %.not.i.i = icmp ult i64 %.01835, %17
+  %.not.i.i = icmp ult i64 %.01832, %17
   br i1 %.not.i.i, label %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit, label %18
 
 18:                                               ; preds = %11
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.481, i64 noundef %.01835, i64 noundef %17) #31
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.481, i64 noundef %.01832, i64 noundef %17) #31
   unreachable
 
 _ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit: ; preds = %11
-  %19 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %13, i64 %.01835
+  %19 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %13, i64 %.01832
   %20 = tail call noundef zeroext i1 @_ZNK6casadi6SXElem11is_constantEv(ptr noundef nonnull align 8 dereferenceable(8) %19)
   br i1 %20, label %21, label %.critedge
 
@@ -80235,39 +80235,39 @@ _ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit: ; preds = %11
   br i1 %26, label %.thread, label %.critedge
 
 .critedge:                                        ; preds = %25, %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit
-  %27 = add nuw nsw i64 %.01835, 1
+  %27 = add nuw nsw i64 %.01832, 1
   %28 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %29 = icmp slt i64 %27, %28
   br i1 %29, label %11, label %.preheader, !llvm.loop !1060
 
-30:                                               ; preds = %.lr.ph37, %40
-  %.036 = phi i64 [ 0, %.lr.ph37 ], [ %41, %40 ]
+30:                                               ; preds = %.lr.ph34, %40
+  %.033 = phi i64 [ 0, %.lr.ph34 ], [ %41, %40 ]
   %31 = load ptr, ptr %10, align 8, !tbaa !9
   %32 = load ptr, ptr %9, align 8, !tbaa !12
   %33 = ptrtoint ptr %31 to i64
   %34 = ptrtoint ptr %32 to i64
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 3
-  %.not.i.i21 = icmp ult i64 %.036, %36
-  br i1 %.not.i.i21, label %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit22, label %37
+  %.not.i.i20 = icmp ult i64 %.033, %36
+  br i1 %.not.i.i20, label %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit21, label %37
 
 37:                                               ; preds = %30
-  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.481, i64 noundef %.036, i64 noundef %36) #31
+  tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str.481, i64 noundef %.033, i64 noundef %36) #31
   unreachable
 
-_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit22: ; preds = %30
-  %38 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %32, i64 %.036
+_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit21: ; preds = %30
+  %38 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %32, i64 %.033
   %39 = tail call noundef zeroext i1 @_ZNK6casadi6SXElem10is_regularEv(ptr noundef nonnull align 8 dereferenceable(8) %38)
   br i1 %39, label %40, label %.thread
 
-40:                                               ; preds = %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit22
-  %41 = add nuw nsw i64 %.036, 1
+40:                                               ; preds = %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit21
+  %41 = add nuw nsw i64 %.033, 1
   %42 = tail call noundef i64 @_ZNK6casadi8Sparsity3nnzEv(ptr noundef nonnull align 8 dereferenceable(8) %2)
   %.not = icmp slt i64 %41, %42
   br i1 %.not, label %30, label %.thread, !llvm.loop !1061
 
-.thread:                                          ; preds = %25, %23, %21, %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit22, %40, %.preheader
-  %.3 = phi i1 [ true, %.preheader ], [ %39, %40 ], [ %39, %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit22 ], [ false, %21 ], [ false, %23 ], [ false, %25 ]
+.thread:                                          ; preds = %25, %23, %21, %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit21, %40, %.preheader
+  %.3 = phi i1 [ true, %.preheader ], [ %39, %40 ], [ %39, %_ZNKSt6vectorIN6casadi6SXElemESaIS1_EE2atEm.exit21 ], [ false, %21 ], [ false, %23 ], [ false, %25 ]
   ret i1 %.3
 }
 

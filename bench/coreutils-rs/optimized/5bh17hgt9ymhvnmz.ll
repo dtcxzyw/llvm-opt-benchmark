@@ -648,11 +648,11 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN6uu_env14native_int_str24ge
   %14 = zext nneg i8 %13 to i32
   %15 = or disjoint i32 %12, %14
   %16 = icmp samesign ugt i8 %5, -33
-  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i", label %.thread7
+  br i1 %16, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i", label %.thread6
 
 17:                                               ; preds = %4
   %18 = zext nneg i8 %5 to i32
-  br label %.thread7
+  br label %.thread6
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit13.i"
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -666,7 +666,7 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN6uu_env14native_int_str24ge
   %26 = shl nuw nsw i32 %9, 12
   %27 = or disjoint i32 %25, %26
   %28 = icmp samesign ugt i8 %5, -17
-  br i1 %28, label %29, label %.thread7
+  br i1 %28, label %29, label %.thread6
 
 29:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i"
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 3
@@ -681,15 +681,15 @@ define hidden noundef range(i32 0, 1114112) i32 @"_ZN6uu_env14native_int_str24ge
   %38 = or disjoint i32 %35, %37
   %39 = or disjoint i32 %38, %34
   %40 = icmp eq i32 %39, 1114112
-  br i1 %40, label %.thread, label %.thread7
+  br i1 %40, label %.thread, label %.thread6
 
 .thread:                                          ; preds = %2, %29
   tail call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.33683ce109590f0b3fb10d2ea2f16572.26.llvm.11676108902394252037) #17
   unreachable
 
-.thread7:                                         ; preds = %17, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit13.i", %29
-  %.sroa.4.0.i.ph9 = phi i32 [ %39, %29 ], [ %18, %17 ], [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i" ], [ %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit13.i" ]
-  ret i32 %.sroa.4.0.i.ph9
+.thread6:                                         ; preds = %17, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit13.i", %29
+  %.sroa.4.0.i.ph8 = phi i32 [ %39, %29 ], [ %18, %17 ], [ %27, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit15.i" ], [ %15, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h86f92eeef77deff8E.exit13.i" ]
+  ret i32 %.sroa.4.0.i.ph8
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
@@ -900,9 +900,9 @@ define void @_ZN6uu_env14native_int_str9NativeStr10split_once17haa6ff1d5b07adc40
 
 37:                                               ; preds = %.noexc
   invoke void @_ZN4core6result13unwrap_failed17ha188096f98826595E(ptr noalias noundef nonnull readonly align 1 @anon.33683ce109590f0b3fb10d2ea2f16572.18, i64 noundef 43, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.33683ce109590f0b3fb10d2ea2f16572.19, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.33683ce109590f0b3fb10d2ea2f16572.28) #17
-          to label %.noexc20 unwind label %31
+          to label %.noexc18 unwind label %31
 
-.noexc20:                                         ; preds = %37
+.noexc18:                                         ; preds = %37
   unreachable
 
 38:                                               ; preds = %.noexc

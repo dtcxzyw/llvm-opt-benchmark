@@ -60,9 +60,9 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
   %33 = load i16, ptr %32, align 2, !tbaa !32
   %34 = load ptr, ptr %8, align 8, !tbaa !30
   %35 = icmp ult ptr %7, %34
-  br i1 %35, label %.lr.ph.i, label %.thread11
+  br i1 %35, label %.lr.ph.i, label %.thread10
 
-.thread11:                                        ; preds = %30
+.thread10:                                        ; preds = %30
   %36 = load i32, ptr %7, align 8, !tbaa !35
   br label %.sink.split
 
@@ -216,8 +216,8 @@ define hidden i32 @lj_opt_narrow_convert(ptr noundef %0) local_unnamed_addr #0 {
   %112 = load i32, ptr %7, align 8, !tbaa !35
   br label %.sink.split
 
-.sink.split:                                      ; preds = %24, %.thread11, %111
-  %.1.ph = phi i32 [ %36, %.thread11 ], [ %112, %111 ], [ 0, %24 ]
+.sink.split:                                      ; preds = %24, %.thread10, %111
+  %.1.ph = phi i32 [ %36, %.thread10 ], [ %112, %111 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br label %113
 

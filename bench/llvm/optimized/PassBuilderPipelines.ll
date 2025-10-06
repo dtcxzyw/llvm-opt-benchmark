@@ -62003,28 +62003,28 @@ _ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCa
   %91 = zext i32 %90 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %91, 3
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx.i.i.i.i
-  %.not1316.not.i.i.i.i = icmp eq i32 %90, 0
-  br i1 %.not1316.not.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i, label %.lr.ph.i.i.i.i
+  %.not1316.i.i.i.i = icmp eq i32 %90, 0
+  br i1 %.not1316.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCachedResultINS_32ShouldRunExtraSimpleLoopUnswitchEEEPNT_6ResultERS1_.exit.thread.thread, %100
-  %.01217.i.i.i.i = phi ptr [ %101, %100 ], [ %89, %_ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCachedResultINS_32ShouldRunExtraSimpleLoopUnswitchEEEPNT_6ResultERS1_.exit.thread.thread ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCachedResultINS_32ShouldRunExtraSimpleLoopUnswitchEEEPNT_6ResultERS1_.exit.thread.thread, %95
+  %.01217.i.i.i.i = phi ptr [ %96, %95 ], [ %89, %_ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCachedResultINS_32ShouldRunExtraSimpleLoopUnswitchEEEPNT_6ResultERS1_.exit.thread.thread ]
   %93 = load ptr, ptr %.01217.i.i.i.i, align 8, !tbaa !2480
   %94 = icmp eq ptr %93, @_ZN4llvm32ShouldRunExtraSimpleLoopUnswitch3KeyE
-  br i1 %94, label %95, label %100
+  br i1 %94, label %97, label %95
 
 95:                                               ; preds = %.lr.ph.i.i.i.i
-  %96 = add i32 %90, -1
-  store i32 %96, ptr %9, align 4, !tbaa !37
-  %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %89, i64 %97
-  %99 = load ptr, ptr %98, align 8, !tbaa !2480
-  store ptr %99, ptr %.01217.i.i.i.i, align 8, !tbaa !2480
-  br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i
+  %96 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i, i64 8
+  %.not13.i.i.i.i = icmp eq ptr %96, %92
+  br i1 %.not13.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2618
 
-100:                                              ; preds = %.lr.ph.i.i.i.i
-  %101 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i, i64 8
-  %.not13.not.i.i.i.i = icmp eq ptr %101, %92
-  br i1 %.not13.not.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2618
+97:                                               ; preds = %.lr.ph.i.i.i.i
+  %98 = add i32 %90, -1
+  store i32 %98, ptr %9, align 4, !tbaa !37
+  %99 = zext i32 %98 to i64
+  %100 = getelementptr inbounds nuw ptr, ptr %89, i64 %99
+  %101 = load ptr, ptr %100, align 8, !tbaa !2480
+  store ptr %101, ptr %.01217.i.i.i.i, align 8, !tbaa !2480
+  br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i
 
 102:                                              ; preds = %_ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCachedResultINS_32ShouldRunExtraSimpleLoopUnswitchEEEPNT_6ResultERS1_.exit.thread
   %103 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull @_ZN4llvm32ShouldRunExtraSimpleLoopUnswitch3KeyE) #20
@@ -62038,7 +62038,7 @@ _ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCa
   store i32 %106, ptr %10, align 8, !tbaa !38
   br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i
 
-_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i: ; preds = %100, %104, %102, %95, %_ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCachedResultINS_32ShouldRunExtraSimpleLoopUnswitchEEEPNT_6ResultERS1_.exit.thread.thread
+_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i: ; preds = %95, %104, %102, %97, %_ZNK4llvm15AnalysisManagerINS_4LoopEJRNS_27LoopStandardAnalysisResultsEEE15getCachedResultINS_32ShouldRunExtraSimpleLoopUnswitchEEEPNT_6ResultERS1_.exit.thread.thread
   %107 = load i8, ptr %17, align 4, !tbaa !39, !range !62, !noalias !2619, !noundef !63
   %108 = trunc nuw i8 %107 to i1
   br i1 %108, label %109, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
@@ -62049,17 +62049,17 @@ _ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i: ; preds = %100, %104, %102, %9
   %112 = zext i32 %111 to i64
   %.idx.i.i3.i.i = shl nuw nsw i64 %112, 3
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 %.idx.i.i3.i.i
-  %.not36.i.i.i.i = icmp eq i32 %111, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i4.i.i
+  %.not34.i.i.i.i = icmp eq i32 %111, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i4.i.i
 
 .lr.ph.i.i4.i.i:                                  ; preds = %109, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %115, %.critedge.i.i.i.i ], [ %110, %109 ]
-  %114 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !2480, !noalias !2619
+  %.02935.i.i.i.i = phi ptr [ %115, %.critedge.i.i.i.i ], [ %110, %109 ]
+  %114 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !2480, !noalias !2619
   %.not17.i.i.i.i = icmp eq ptr %114, @_ZN4llvm32ShouldRunExtraSimpleLoopUnswitch3KeyE
   br i1 %.not17.i.i.i.i, label %_ZN4llvm17PreservedAnalyses7abandonINS_32ShouldRunExtraSimpleLoopUnswitchEEEvv.exit, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i4.i.i
-  %115 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %115 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %115, %113
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i4.i.i, !llvm.loop !2622
 
@@ -62237,28 +62237,28 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5beginEv.exit: ; preds = %.lr.ph.i
   %76 = zext i32 %75 to i64
   %.idx.i.i = shl nuw nsw i64 %76, 3
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 %.idx.i.i
-  %.not1316.not.i.i = icmp eq i32 %75, 0
-  br i1 %.not1316.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit, label %.lr.ph.i.i
+  %.not1316.i.i = icmp eq i32 %75, 0
+  br i1 %.not1316.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %73, %85
-  %.01217.i.i = phi ptr [ %86, %85 ], [ %74, %73 ]
+.lr.ph.i.i:                                       ; preds = %73, %80
+  %.01217.i.i = phi ptr [ %81, %80 ], [ %74, %73 ]
   %78 = load ptr, ptr %.01217.i.i, align 8, !tbaa !2480
   %79 = icmp eq ptr %78, %70
-  br i1 %79, label %80, label %85
+  br i1 %79, label %82, label %80
 
 80:                                               ; preds = %.lr.ph.i.i
-  %81 = add i32 %75, -1
-  store i32 %81, ptr %64, align 4, !tbaa !37
-  %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %74, i64 %82
-  %84 = load ptr, ptr %83, align 8, !tbaa !2480
-  store ptr %84, ptr %.01217.i.i, align 8, !tbaa !2480
-  br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit
+  %81 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
+  %.not13.i.i = icmp eq ptr %81, %77
+  br i1 %.not13.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit, label %.lr.ph.i.i, !llvm.loop !2618
 
-85:                                               ; preds = %.lr.ph.i.i
-  %86 = getelementptr inbounds nuw i8, ptr %.01217.i.i, i64 8
-  %.not13.not.i.i = icmp eq ptr %86, %77
-  br i1 %.not13.not.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit, label %.lr.ph.i.i, !llvm.loop !2618
+82:                                               ; preds = %.lr.ph.i.i
+  %83 = add i32 %75, -1
+  store i32 %83, ptr %64, align 4, !tbaa !37
+  %84 = zext i32 %83 to i64
+  %85 = getelementptr inbounds nuw ptr, ptr %74, i64 %84
+  %86 = load ptr, ptr %85, align 8, !tbaa !2480
+  store ptr %86, ptr %.01217.i.i, align 8, !tbaa !2480
+  br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit
 
 87:                                               ; preds = %69
   %88 = tail call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(21) %0, ptr noundef %70) #20
@@ -62272,7 +62272,7 @@ _ZNK4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE5beginEv.exit: ; preds = %.lr.ph.i
   store i32 %91, ptr %63, align 8, !tbaa !38
   br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit
 
-_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit:     ; preds = %85, %73, %80, %87, %89
+_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit:     ; preds = %80, %73, %82, %87, %89
   %92 = load i8, ptr %66, align 4, !tbaa !39, !range !62, !noalias !2625, !noundef !63
   %93 = trunc nuw i8 %92 to i1
   br i1 %93, label %94, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
@@ -62283,17 +62283,17 @@ _ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit:     ; preds = %85, %73, %80, %87, 
   %97 = zext i32 %96 to i64
   %.idx.i.i15 = shl nuw nsw i64 %97, 3
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx.i.i15
-  %.not36.i.i = icmp eq i32 %96, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i16
+  %.not34.i.i = icmp eq i32 %96, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i16
 
 .lr.ph.i.i16:                                     ; preds = %94, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %100, %.critedge.i.i ], [ %95, %94 ]
-  %99 = load ptr, ptr %.02937.i.i, align 8, !tbaa !2480, !noalias !2625
+  %.02935.i.i = phi ptr [ %100, %.critedge.i.i ], [ %95, %94 ]
+  %99 = load ptr, ptr %.02935.i.i, align 8, !tbaa !2480, !noalias !2625
   %.not17.i.i = icmp eq ptr %99, %70
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_11AnalysisKeyEE6insertES2_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i16
-  %100 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %100 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i17 = icmp eq ptr %100, %98
   br i1 %.not.i.i17, label %._crit_edge.i.i, label %.lr.ph.i.i16, !llvm.loop !2622
 
@@ -74284,28 +74284,28 @@ _ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_26ShouldRunExtra
   %89 = zext i32 %88 to i64
   %.idx.i.i.i.i = shl nuw nsw i64 %89, 3
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 %.idx.i.i.i.i
-  %.not1316.not.i.i.i.i = icmp eq i32 %88, 0
-  br i1 %.not1316.not.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i, label %.lr.ph.i.i.i.i
+  %.not1316.i.i.i.i = icmp eq i32 %88, 0
+  br i1 %.not1316.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_26ShouldRunExtraVectorPassesEEEPNT_6ResultERS1_.exit.thread.thread, %98
-  %.01217.i.i.i.i = phi ptr [ %99, %98 ], [ %87, %_ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_26ShouldRunExtraVectorPassesEEEPNT_6ResultERS1_.exit.thread.thread ]
+.lr.ph.i.i.i.i:                                   ; preds = %_ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_26ShouldRunExtraVectorPassesEEEPNT_6ResultERS1_.exit.thread.thread, %93
+  %.01217.i.i.i.i = phi ptr [ %94, %93 ], [ %87, %_ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_26ShouldRunExtraVectorPassesEEEPNT_6ResultERS1_.exit.thread.thread ]
   %91 = load ptr, ptr %.01217.i.i.i.i, align 8, !tbaa !2480
   %92 = icmp eq ptr %91, @_ZN4llvm26ShouldRunExtraVectorPasses3KeyE
-  br i1 %92, label %93, label %98
+  br i1 %92, label %95, label %93
 
 93:                                               ; preds = %.lr.ph.i.i.i.i
-  %94 = add i32 %88, -1
-  store i32 %94, ptr %7, align 4, !tbaa !37
-  %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %87, i64 %95
-  %97 = load ptr, ptr %96, align 8, !tbaa !2480
-  store ptr %97, ptr %.01217.i.i.i.i, align 8, !tbaa !2480
-  br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i, i64 8
+  %.not13.i.i.i.i = icmp eq ptr %94, %90
+  br i1 %.not13.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2618
 
-98:                                               ; preds = %.lr.ph.i.i.i.i
-  %99 = getelementptr inbounds nuw i8, ptr %.01217.i.i.i.i, i64 8
-  %.not13.not.i.i.i.i = icmp eq ptr %99, %90
-  br i1 %.not13.not.i.i.i.i, label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !2618
+95:                                               ; preds = %.lr.ph.i.i.i.i
+  %96 = add i32 %88, -1
+  store i32 %96, ptr %7, align 4, !tbaa !37
+  %97 = zext i32 %96 to i64
+  %98 = getelementptr inbounds nuw ptr, ptr %87, i64 %97
+  %99 = load ptr, ptr %98, align 8, !tbaa !2480
+  store ptr %99, ptr %.01217.i.i.i.i, align 8, !tbaa !2480
+  br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i
 
 100:                                              ; preds = %_ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_26ShouldRunExtraVectorPassesEEEPNT_6ResultERS1_.exit.thread
   %101 = call noundef ptr @_ZNK4llvm19SmallPtrSetImplBase6doFindEPKv(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull @_ZN4llvm26ShouldRunExtraVectorPasses3KeyE) #20
@@ -74319,7 +74319,7 @@ _ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_26ShouldRunExtra
   store i32 %104, ptr %8, align 8, !tbaa !38
   br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i
 
-_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i: ; preds = %98, %102, %100, %93, %_ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_26ShouldRunExtraVectorPassesEEEPNT_6ResultERS1_.exit.thread.thread
+_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i: ; preds = %93, %102, %100, %95, %_ZNK4llvm15AnalysisManagerINS_8FunctionEJEE15getCachedResultINS_26ShouldRunExtraVectorPassesEEEPNT_6ResultERS1_.exit.thread.thread
   %105 = load i8, ptr %15, align 4, !tbaa !39, !range !62, !noalias !2728, !noundef !63
   %106 = trunc nuw i8 %105 to i1
   br i1 %106, label %107, label %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i.i
@@ -74330,17 +74330,17 @@ _ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i: ; preds = %98, %102, %100, %93
   %110 = zext i32 %109 to i64
   %.idx.i.i3.i.i = shl nuw nsw i64 %110, 3
   %111 = getelementptr inbounds nuw i8, ptr %108, i64 %.idx.i.i3.i.i
-  %.not36.i.i.i.i = icmp eq i32 %109, 0
-  br i1 %.not36.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i4.i.i
+  %.not34.i.i.i.i = icmp eq i32 %109, 0
+  br i1 %.not34.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i4.i.i
 
 .lr.ph.i.i4.i.i:                                  ; preds = %107, %.critedge.i.i.i.i
-  %.02937.i.i.i.i = phi ptr [ %113, %.critedge.i.i.i.i ], [ %108, %107 ]
-  %112 = load ptr, ptr %.02937.i.i.i.i, align 8, !tbaa !2480, !noalias !2728
+  %.02935.i.i.i.i = phi ptr [ %113, %.critedge.i.i.i.i ], [ %108, %107 ]
+  %112 = load ptr, ptr %.02935.i.i.i.i, align 8, !tbaa !2480, !noalias !2728
   %.not17.i.i.i.i = icmp eq ptr %112, @_ZN4llvm26ShouldRunExtraVectorPasses3KeyE
   br i1 %.not17.i.i.i.i, label %_ZN4llvm17PreservedAnalyses7abandonINS_26ShouldRunExtraVectorPassesEEEvv.exit, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %.lr.ph.i.i4.i.i
-  %113 = getelementptr inbounds nuw i8, ptr %.02937.i.i.i.i, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %.02935.i.i.i.i, i64 8
   %.not.i.i.i.i = icmp eq ptr %113, %111
   br i1 %.not.i.i.i.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i4.i.i, !llvm.loop !2622
 

@@ -41,7 +41,7 @@ _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicI
   %13 = icmp ne i32 %12, 0
   %14 = icmp samesign ult i32 %.015.us, 9
   %15 = select i1 %13, i1 %14, i1 false
-  br i1 %15, label %.preheader.split.us, label %.split26.us, !llvm.loop !10
+  br i1 %15, label %.preheader.split.us, label %.split25.us, !llvm.loop !10
 
 .preheader.split:                                 ; preds = %.preheader, %38
   %.015 = phi i32 [ %39, %38 ], [ 0, %.preheader ]
@@ -83,8 +83,8 @@ _ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i: ; preds = %_ZN3tbb6detail2d
   %.sroa.0.1.us.i = phi i32 [ %28, %_ZN3tbb6detail2d0L13machine_pauseEi.exit.i.us.i ], [ %.sroa.0.09.us.i, %22 ]
   %29 = load atomic i8, ptr %0 acquire, align 128
   %30 = and i8 %29, 1
-  %.not24 = icmp eq i8 %30, 0
-  br i1 %.not24, label %_ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicIS4_ET0_St12memory_orderEUlbE_EES4_S8_S9_SA_.exit, label %.lr.ph.i18, !llvm.loop !13
+  %.not23 = icmp eq i8 %30, 0
+  br i1 %.not23, label %_ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicIS4_ET0_St12memory_orderEUlbE_EES4_S8_S9_SA_.exit, label %.lr.ph.i18, !llvm.loop !13
 
 _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicIS4_ET0_St12memory_orderEUlbE_EES4_S8_S9_SA_.exit: ; preds = %_ZN3tbb6detail2d014atomic_backoff5pauseEv.exit.us.i, %18, %.preheader.split
   %31 = tail call noundef i32 @llvm.x86.xbegin()
@@ -112,15 +112,15 @@ _ZN3tbb6detail2d015spin_wait_whileIbZNS1_18spin_wait_while_eqIbbEET_RKSt6atomicI
   %41 = icmp ne i32 %40, 0
   %42 = icmp samesign ult i32 %.015, 9
   %43 = select i1 %41, i1 %42, i1 false
-  br i1 %43, label %.preheader.split, label %.split26.us, !llvm.loop !10
+  br i1 %43, label %.preheader.split, label %.split25.us, !llvm.loop !10
 
-.split26.us:                                      ; preds = %38, %10
+.split25.us:                                      ; preds = %38, %10
   br i1 %2, label %.thread, label %45
 
 44:                                               ; preds = %3
   br i1 %2, label %.thread, label %45
 
-45:                                               ; preds = %.split26.us, %44
+45:                                               ; preds = %.split25.us, %44
   store ptr %0, ptr %1, align 8, !tbaa !19
   %46 = atomicrmw xchg ptr %0, i8 1 seq_cst, align 1
   %47 = trunc i8 %46 to i1
@@ -161,7 +161,7 @@ _ZN3tbb6detail2d110spin_mutex4lockEv.exit:        ; preds = %_ZN3tbb6detail2d014
   store i32 2, ptr %58, align 8, !tbaa !14
   br label %.thread
 
-.thread:                                          ; preds = %.preheader.split.us, %36, %.split26.us, %44, %_ZN3tbb6detail2d110spin_mutex4lockEv.exit
+.thread:                                          ; preds = %.preheader.split.us, %36, %.split25.us, %44, %_ZN3tbb6detail2d110spin_mutex4lockEv.exit
   ret void
 }
 

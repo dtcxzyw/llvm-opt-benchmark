@@ -2190,8 +2190,8 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
 
 20:                                               ; preds = %19
   %21 = and i32 %9, 1024
-  %.not27.i.i = icmp eq i32 %21, 0
-  br i1 %.not27.i.i, label %.critedge, label %22
+  %.not26.i.i = icmp eq i32 %21, 0
+  br i1 %.not26.i.i, label %.critedge, label %22
 
 22:                                               ; preds = %20
   %23 = tail call noundef zeroext i1 @_ZNK4llvm10StructType24containsHomogeneousTypesEv(ptr noundef nonnull align 8 dereferenceable(32) %7) #15
@@ -2203,7 +2203,7 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %27 = load ptr, ptr %26, align 8, !tbaa !6
   %.phi.trans.insert.i2.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.pre.i3.i = load i32, ptr %.phi.trans.insert.i2.i, align 8
-  %.pre30.i.i = and i32 %.pre.i3.i, 255
+  %.pre29.i.i = and i32 %.pre.i3.i, 255
   br label %.loopexit.i.i
 
 .preheader.i.i:                                   ; preds = %19, %.preheader.i.i
@@ -2214,12 +2214,12 @@ _ZNK4llvm4Type13getScalarTypeEv.exit.i.i:         ; preds = %12, %5
   %31 = load i32, ptr %30, align 8
   %32 = and i32 %31, 255
   %33 = icmp ne i32 %32, 16
-  %.not1829.i.i = icmp eq ptr %29, null
-  %.not18.i.i = or i1 %.not1829.i.i, %33
+  %.not1828.i.i = icmp eq ptr %29, null
+  %.not18.i.i = or i1 %.not1828.i.i, %33
   br i1 %.not18.i.i, label %.loopexit.i.i, label %.preheader.i.i, !llvm.loop !740
 
 .loopexit.i.i:                                    ; preds = %.preheader.i.i, %24, %19
-  %.pre-phi.i.i = phi i32 [ %.pre30.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
+  %.pre-phi.i.i = phi i32 [ %.pre29.i.i, %24 ], [ %10, %19 ], [ %32, %.preheader.i.i ]
   %34 = phi i32 [ %.pre.i3.i, %24 ], [ %9, %19 ], [ %31, %.preheader.i.i ]
   %.013.ph.i.i = phi ptr [ %27, %24 ], [ %7, %19 ], [ %29, %.preheader.i.i ]
   %35 = add nsw i32 %.pre-phi.i.i, -17
@@ -7231,8 +7231,8 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
   %4 = load i16, ptr %1, align 8
   %5 = and i16 %4, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %5, 120
-  %.not336 = icmp eq ptr %1, null
-  %.not = or i1 %.not336, %spec.select.i.i.i.i.i.i.i.i
+  %.not335 = icmp eq ptr %1, null
+  %.not = or i1 %.not335, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %143, label %6
 
 6:                                                ; preds = %2
@@ -7477,7 +7477,7 @@ define internal fastcc { ptr, ptr } @_ZN5clang15StmtVisitorBaseISt11add_pointerN
 143:                                              ; preds = %2
   %144 = and i16 %4, 511
   %145 = icmp ne i16 %144, 4
-  %.not314 = or i1 %.not336, %145
+  %.not314 = or i1 %.not335, %145
   br i1 %.not314, label %211, label %146
 
 146:                                              ; preds = %143
@@ -16798,13 +16798,13 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27: ; preds = %4, %_ZN
   %35 = and i32 %34, 3
   %36 = icmp eq i32 %35, 2
   %37 = and i64 %1, 54043195528445952
-  %.not34 = icmp eq i64 %37, 0
+  %.not33 = icmp eq i64 %37, 0
   %38 = lshr i32 %.sroa.022.0.extract.trunc, 22
   %39 = and i32 %38, 3
   %40 = icmp eq i32 %39, %35
   %or.cond = and i1 %3, %25
   %or.cond3 = and i1 %or.cond, %36
-  %or.cond5 = select i1 %.not34, i1 true, i1 %40
+  %or.cond5 = select i1 %.not33, i1 true, i1 %40
   %or.cond18 = and i1 %or.cond3, %or.cond5
   %41 = getelementptr inbounds nuw i8, ptr %28, i64 144
   %42 = load ptr, ptr %41, align 8, !tbaa !789
@@ -16821,8 +16821,8 @@ _ZNK5clang4Type5getAsINS_11ComplexTypeEEEPKT_v.exit.thread27: ; preds = %4, %_ZN
   %switch.maskindex = trunc i32 %switch.tableidx to i8
   %switch.shifted = lshr i8 55, %switch.maskindex
   %switch.lobit = trunc i8 %switch.shifted to i1
-  %or.cond35 = select i1 %49, i1 %switch.lobit, i1 false
-  br i1 %or.cond35, label %switch.lookup, label %_ZNK5clang10ASTContext24GetHigherPrecisionFPTypeENS_8QualTypeE.exit.i
+  %or.cond34 = select i1 %49, i1 %switch.lobit, i1 false
+  br i1 %or.cond34, label %switch.lookup, label %_ZNK5clang10ASTContext24GetHigherPrecisionFPTypeENS_8QualTypeE.exit.i
 
 switch.lookup:                                    ; preds = %43
   %50 = zext nneg i32 %switch.tableidx to i64

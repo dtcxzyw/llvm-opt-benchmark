@@ -172,8 +172,8 @@ declare void @raxStop(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.raxIterator, align 8
-  %.not5767.not = icmp eq i64 %2, 0
-  br i1 %.not5767.not, label %.loopexit58, label %.lr.ph69
+  %.not70 = icmp eq i64 %2, 0
+  br i1 %.not70, label %.thread55, label %.lr.ph69
 
 .lr.ph69:                                         ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 680
@@ -182,8 +182,8 @@ define dso_local i32 @checkPrefixCollisionsOrReply(ptr noundef %0, ptr noundef r
   br label %8
 
 .loopexit:                                        ; preds = %65, %49
-  %exitcond76.not = icmp eq i64 %50, %2
-  br i1 %exitcond76.not, label %.loopexit58, label %8
+  %exitcond77.not = icmp eq i64 %50, %2
+  br i1 %exitcond77.not, label %.thread55, label %8
 
 8:                                                ; preds = %.lr.ph69, %.loopexit
   %.04068 = phi i64 [ 0, %.lr.ph69 ], [ %50, %.loopexit ]
@@ -253,8 +253,8 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
   %.0.i = phi i64 [ %27, %25 ], [ %31, %28 ], [ %35, %32 ], [ %39, %36 ], [ %42, %40 ], [ 0, %15 ]
   %43 = call i64 @llvm.umin.i64(i64 %17, i64 %.0.i)
   %bcmp.i = call i32 @bcmp(ptr readonly %16, ptr nonnull readonly %20, i64 %43)
-  %.not55 = icmp eq i32 %bcmp.i, 0
-  br i1 %.not55, label %44, label %13, !llvm.loop !72
+  %.not58 = icmp eq i32 %bcmp.i, 0
+  br i1 %.not58, label %44, label %13, !llvm.loop !72
 
 .thread:                                          ; preds = %13
   call void @raxStop(ptr noundef nonnull %4) #9
@@ -270,12 +270,12 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
   call void @sdsfree(ptr noundef %45) #9
   call void @raxStop(ptr noundef nonnull %4) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.loopexit58
+  br label %.thread55
 
 49:                                               ; preds = %.thread, %8
   %50 = add nuw i64 %.04068, 1
-  %.not4565 = icmp ult i64 %50, %2
-  br i1 %.not4565, label %.lr.ph, label %.loopexit
+  %.not4566 = icmp ult i64 %50, %2
+  br i1 %.not4566, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %49
   %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %.04068
@@ -295,12 +295,12 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
   br label %67
 
 65:                                               ; preds = %sdslen.exit49
-  %66 = add i64 %.066, 1
+  %66 = add i64 %.067, 1
   %exitcond.not = icmp eq i64 %66, %2
   br i1 %exitcond.not, label %.loopexit, label %67, !llvm.loop !73
 
 67:                                               ; preds = %.lr.ph, %65
-  %.066 = phi i64 [ %50, %.lr.ph ], [ %66, %65 ]
+  %.067 = phi i64 [ %50, %.lr.ph ], [ %66, %65 ]
   switch i32 %58, label %sdslen.exit47 [
     i32 0, label %68
     i32 1, label %69
@@ -333,7 +333,7 @@ sdslen.exit:                                      ; preds = %15, %25, %28, %32, 
 
 sdslen.exit47:                                    ; preds = %67, %68, %69, %72, %75, %78
   %.0.i46 = phi i64 [ %64, %68 ], [ %71, %69 ], [ %74, %72 ], [ %77, %75 ], [ %79, %78 ], [ 0, %67 ]
-  %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %.066
+  %80 = getelementptr inbounds nuw ptr, ptr %1, i64 %.067
   %81 = load ptr, ptr %80, align 8, !tbaa !64
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !65
@@ -381,17 +381,17 @@ sdslen.exit49:                                    ; preds = %sdslen.exit47, %88,
   %.0.i48 = phi i64 [ %90, %88 ], [ %94, %91 ], [ %98, %95 ], [ %102, %99 ], [ %105, %103 ], [ 0, %sdslen.exit47 ]
   %106 = call i64 @llvm.umin.i64(i64 %.0.i46, i64 %.0.i48)
   %bcmp.i50 = call i32 @bcmp(ptr nonnull readonly %54, ptr nonnull readonly %83, i64 %106)
-  %.not56 = icmp eq i32 %bcmp.i50, 0
-  br i1 %.not56, label %.thread52, label %65
+  %.not59 = icmp eq i32 %bcmp.i50, 0
+  br i1 %.not59, label %.thread52, label %65
 
 .thread52:                                        ; preds = %sdslen.exit49
   call void (ptr, ptr, ...) @addReplyErrorFormat(ptr noundef %0, ptr noundef nonnull @.str.4, ptr noundef nonnull %54, ptr noundef nonnull %83) #9
   %107 = trunc i64 %.04068 to i32
-  br label %.loopexit58
+  br label %.thread55
 
-.loopexit58:                                      ; preds = %.loopexit, %3, %.thread52, %44
-  %spec.select = phi i32 [ 0, %44 ], [ %107, %.thread52 ], [ 1, %3 ], [ 1, %.loopexit ]
-  ret i32 %spec.select
+.thread55:                                        ; preds = %.loopexit, %3, %.thread52, %44
+  %108 = phi i32 [ %107, %.thread52 ], [ 0, %44 ], [ 1, %3 ], [ 1, %.loopexit ]
+  ret i32 %108
 }
 
 declare ptr @sdsnewlen(ptr noundef, i64 noundef) local_unnamed_addr #1

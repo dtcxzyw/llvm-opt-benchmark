@@ -764,12 +764,11 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %5 = load i32, ptr %4, align 8
   %6 = and i32 %5, 3
-  switch i32 %6, label %8 [
-    i32 3, label %7
-    i32 0, label %7
-  ]
+  %.off = add nsw i32 %6, -1
+  %switch = icmp ult i32 %.off, 2
+  br i1 %switch, label %8, label %7
 
-7:                                                ; preds = %2, %2
+7:                                                ; preds = %2
   tail call void asm sideeffect "455: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 455b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 455) #20, !srcloc !16
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.1, i32 685, i32 0, i64 12) #20, !srcloc !17
   unreachable

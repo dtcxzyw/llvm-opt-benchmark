@@ -517,9 +517,9 @@ Vec_PtrStart.exit:                                ; preds = %Vec_IntStartNatural
   br label %100
 
 100:                                              ; preds = %Vec_PtrStart.exit, %224
-  %.0213 = phi ptr [ %0, %Vec_PtrStart.exit ], [ %.5, %224 ]
-  %.0120211 = phi i32 [ 0, %Vec_PtrStart.exit ], [ %229, %224 ]
-  %.0121210 = phi i32 [ %42, %Vec_PtrStart.exit ], [ %228, %224 ]
+  %.0212 = phi ptr [ %0, %Vec_PtrStart.exit ], [ %.5, %224 ]
+  %.0120210 = phi i32 [ 0, %Vec_PtrStart.exit ], [ %229, %224 ]
+  %.0121209 = phi i32 [ %42, %Vec_PtrStart.exit ], [ %228, %224 ]
   %101 = load i32, ptr %77, align 4, !tbaa !3
   %102 = icmp sgt i32 %101, 0
   br i1 %102, label %.lr.ph.i161, label %Vec_PtrCountZero.exit
@@ -550,15 +550,15 @@ Vec_PtrCountZero.exit:                            ; preds = %104, %100
   %.not131 = icmp eq i32 %110, 0
   %111 = zext i1 %.not131 to i32
   store i32 %111, ptr %84, align 8, !tbaa !75
-  store i32 %.0121210, ptr %85, align 8, !tbaa !76
-  %112 = trunc nuw nsw i32 %.0120211 to i16
+  store i32 %.0121209, ptr %85, align 8, !tbaa !76
+  %112 = trunc nuw nsw i32 %.0120210 to i16
   %.lhs.trunc = mul nuw i16 %112, 17
   %113 = urem i16 %.lhs.trunc, 500
   %.zext = zext nneg i16 %113 to i32
   store i32 %.zext, ptr %86, align 4, !tbaa !77
   store i32 5, ptr %87, align 4, !tbaa !78
-  %114 = call i32 @Ssw_RarSimulate(ptr noundef %.0213, ptr noundef nonnull %7) #16
-  %115 = getelementptr inbounds nuw i8, ptr %.0213, i64 416
+  %114 = call i32 @Ssw_RarSimulate(ptr noundef %.0212, ptr noundef nonnull %7) #16
+  %115 = getelementptr inbounds nuw i8, ptr %.0212, i64 416
   %116 = load ptr, ptr %115, align 8, !tbaa !79
   %.not132 = icmp eq ptr %116, null
   br i1 %.not132, label %126, label %117
@@ -573,7 +573,7 @@ Vec_PtrCountZero.exit:                            ; preds = %104, %100
 121:                                              ; preds = %117
   %122 = getelementptr i8, ptr %118, i64 8
   %.val154 = load ptr, ptr %122, align 8, !tbaa !13
-  %123 = call ptr @Saig_ManDupCones(ptr noundef nonnull %.0213, ptr noundef %.val154, i32 noundef %.val147) #16
+  %123 = call ptr @Saig_ManDupCones(ptr noundef nonnull %.0212, ptr noundef %.val154, i32 noundef %.val147) #16
   %124 = load ptr, ptr %122, align 8, !tbaa !13
   %.not.i = icmp eq ptr %124, null
   br i1 %.not.i, label %Vec_IntFree.exit, label %125
@@ -584,11 +584,11 @@ Vec_PtrCountZero.exit:                            ; preds = %104, %100
 
 Vec_IntFree.exit:                                 ; preds = %121, %125
   call void @free(ptr noundef nonnull %118) #16
-  call void @Aig_ManStop(ptr noundef nonnull %.0213) #16
+  call void @Aig_ManStop(ptr noundef nonnull %.0212) #16
   br label %126
 
 126:                                              ; preds = %Vec_IntFree.exit, %Vec_PtrCountZero.exit
-  %.2 = phi ptr [ %123, %Vec_IntFree.exit ], [ %.0213, %Vec_PtrCountZero.exit ]
+  %.2 = phi ptr [ %123, %Vec_IntFree.exit ], [ %.0212, %Vec_PtrCountZero.exit ]
   %127 = load i32, ptr %43, align 4, !tbaa !62
   %.not133 = icmp eq i32 %127, 0
   br i1 %.not133, label %129, label %128
@@ -617,7 +617,7 @@ Vec_IntFree.exit:                                 ; preds = %121, %125
 Abc_Clock.exit167:                                ; preds = %130, %133
   %.0.i166 = phi i64 [ %138, %133 ], [ -1, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %139 = sext i32 %.0121210 to i64
+  %139 = sext i32 %.0121209 to i64
   %140 = mul nsw i64 %139, 1000000
   %141 = add nsw i64 %.0.i166, %140
   %142 = icmp sgt i64 %141, %35
@@ -636,7 +636,7 @@ Abc_Clock.exit167:                                ; preds = %130, %133
   %.not135 = icmp eq i32 %147, 0
   %148 = zext i1 %.not135 to i32
   store i32 %148, ptr %91, align 8, !tbaa !83
-  store i32 %.0121210, ptr %92, align 4, !tbaa !84
+  store i32 %.0121209, ptr %92, align 4, !tbaa !84
   %149 = load i32, ptr %93, align 4, !tbaa !65
   store i32 %149, ptr %94, align 4, !tbaa !85
   %150 = call i32 @Saig_ManBmcScalable(ptr noundef %.2, ptr noundef nonnull %8) #16
@@ -739,7 +739,7 @@ Vec_IntFree.exit177:                              ; preds = %176, %180
 Abc_Clock.exit179:                                ; preds = %185, %188
   %.0.i178 = phi i64 [ %193, %188 ], [ -1, %185 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %194 = sext i32 %.0121210 to i64
+  %194 = sext i32 %.0121209 to i64
   %195 = mul nsw i64 %194, 1000000
   %196 = add nsw i64 %.0.i178, %195
   %197 = icmp sgt i64 %196, %35
@@ -753,7 +753,7 @@ Abc_Clock.exit179:                                ; preds = %185, %188
 201:                                              ; preds = %Abc_Clock.exit179, %184
   %202 = load i32, ptr %97, align 4, !tbaa !64
   %.not139 = icmp eq i32 %202, 0
-  %.not140 = icmp sgt i32 %202, %.0121210
+  %.not140 = icmp sgt i32 %202, %.0121209
   %or.cond = select i1 %.not139, i1 true, i1 %.not140
   br i1 %or.cond, label %216, label %203
 
@@ -811,15 +811,15 @@ Vec_PtrCountZero.exit187:                         ; preds = %207, %203
 224:                                              ; preds = %218, %223, %216
   %.5 = phi ptr [ %221, %223 ], [ %221, %218 ], [ %.4, %216 ]
   %225 = load i32, ptr %99, align 4, !tbaa !63
-  %226 = mul nsw i32 %225, %.0121210
+  %226 = mul nsw i32 %225, %.0121209
   %227 = sdiv i32 %226, 100
-  %228 = add nsw i32 %227, %.0121210
-  %229 = add nuw nsw i32 %.0120211, 1
+  %228 = add nsw i32 %227, %.0121209
+  %229 = add nuw nsw i32 %.0120210, 1
   %exitcond.not = icmp eq i32 %229, 1000
   br i1 %exitcond.not, label %.thread197, label %100, !llvm.loop !87
 
 .thread197:                                       ; preds = %172, %117, %224, %214, %198, %143
-  %.1 = phi ptr [ %.4, %214 ], [ %.4, %198 ], [ %.2, %143 ], [ %.0213, %117 ], [ %.2, %172 ], [ %.5, %224 ]
+  %.1 = phi ptr [ %.4, %214 ], [ %.4, %198 ], [ %.2, %143 ], [ %.0212, %117 ], [ %.2, %172 ], [ %.5, %224 ]
   %230 = load ptr, ptr %67, align 8, !tbaa !13
   %.not.i188 = icmp eq ptr %230, null
   br i1 %.not.i188, label %Vec_IntFree.exit189, label %231

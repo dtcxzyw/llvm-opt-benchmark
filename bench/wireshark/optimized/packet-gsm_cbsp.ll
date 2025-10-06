@@ -761,8 +761,8 @@ dissect_cell_id_list_ie.exit.i:                   ; preds = %236, %cell_id_len.e
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %273, %.lr.ph.preheader.i.i
-  %.03245.i.i = phi i32 [ %279, %273 ], [ %261, %.lr.ph.preheader.i.i ]
-  %.03344.i.i = phi i32 [ %285, %273 ], [ 0, %.lr.ph.preheader.i.i ]
+  %.03244.i.i = phi i32 [ %279, %273 ], [ %261, %.lr.ph.preheader.i.i ]
+  %.03343.i.i = phi i32 [ %285, %273 ], [ 0, %.lr.ph.preheader.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -781,11 +781,11 @@ switch.lookup70:                                  ; preds = %.lr.ph.i.i
 cell_id_len.exit.i161.i:                          ; preds = %.lr.ph.i.i, %switch.lookup70
   %.0.i.i162.i = phi i32 [ %switch.load72, %switch.lookup70 ], [ 2, %.lr.ph.i.i ]
   %266 = load i32, ptr @ett_cbsp_num_bcast_compl_list, align 4
-  %267 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %.03245.i.i, i32 noundef %.0.i.i162.i, i32 noundef %266, ptr noundef nonnull %12, ptr noundef nonnull @.str.168)
+  %267 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %.03244.i.i, i32 noundef %.0.i.i162.i, i32 noundef %266, ptr noundef nonnull %12, ptr noundef nonnull @.str.168)
   %268 = load i32, ptr %11, align 4
   %269 = trunc i32 %268 to i8
   %270 = load ptr, ptr %12, align 8
-  %271 = call fastcc i32 @dissect_cell_id_elem(i8 noundef zeroext %269, ptr noundef %0, ptr noundef %1, i32 noundef %.03245.i.i, ptr noundef %267, ptr noundef %270)
+  %271 = call fastcc i32 @dissect_cell_id_elem(i8 noundef zeroext %269, ptr noundef %0, ptr noundef %1, i32 noundef %.03244.i.i, ptr noundef %267, ptr noundef %270)
   %272 = icmp slt i32 %271, 1
   br i1 %272, label %.thread.i.i, label %273
 
@@ -796,7 +796,7 @@ cell_id_len.exit.i161.i:                          ; preds = %.lr.ph.i.i, %switch
   br label %dissect_bc_compl_list_ie.exit.i
 
 273:                                              ; preds = %cell_id_len.exit.i161.i
-  %274 = add i32 %271, %.03245.i.i
+  %274 = add i32 %271, %.03244.i.i
   %275 = load i32, ptr @hf_cbsp_num_bcast_compl, align 4
   %276 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %267, i32 noundef %275, ptr noundef %0, i32 noundef %274, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %13)
   %277 = add i32 %274, 2
@@ -808,7 +808,7 @@ cell_id_len.exit.i161.i:                          ; preds = %.lr.ph.i.i, %switch
   %283 = load i32, ptr %14, align 4
   %284 = call ptr @val_to_str_const(i32 noundef %283, ptr noundef nonnull @cbsp_num_bcast_shortinfo_vals, ptr noundef nonnull @.str.155)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %281, ptr noundef nonnull @.str.169, i32 noundef %282, ptr noundef %284)
-  %285 = add i32 %.03344.i.i, 1
+  %285 = add i32 %.03343.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -817,10 +817,10 @@ cell_id_len.exit.i161.i:                          ; preds = %.lr.ph.i.i, %switch
   br i1 %287, label %.lr.ph.i.i, label %dissect_bc_compl_list_ie.exit.i
 
 dissect_bc_compl_list_ie.exit.i:                  ; preds = %273, %.thread.i.i, %254
-  %.03343.i.i = phi i32 [ %.03344.i.i, %.thread.i.i ], [ 0, %254 ], [ %285, %273 ]
+  %.03342.i.i = phi i32 [ %.03343.i.i, %.thread.i.i ], [ 0, %254 ], [ %285, %273 ]
   %288 = load i32, ptr %11, align 4
   %289 = call ptr @val_to_str_const(i32 noundef %288, ptr noundef nonnull @cbsp_cell_id_disc_vals, ptr noundef nonnull @.str.155)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %255, ptr noundef nonnull @.str.162, ptr noundef %289, i32 noundef %.03343.i.i)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %255, ptr noundef nonnull @.str.162, ptr noundef %289, i32 noundef %.03342.i.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %353
 
@@ -830,11 +830,11 @@ dissect_bc_compl_list_ie.exit.i:                  ; preds = %273, %.thread.i.i, 
   br i1 %.not.i163.i, label %dissect_failure_list_ie.exit.i, label %.lr.ph.i164.i
 
 .lr.ph.i164.i:                                    ; preds = %290, %304
-  %.03144.i.i = phi i32 [ %307, %304 ], [ %72, %290 ]
-  %.03243.i.i = phi i32 [ %312, %304 ], [ 0, %290 ]
+  %.03143.i.i = phi i32 [ %307, %304 ], [ %72, %290 ]
+  %.03242.i.i = phi i32 [ %312, %304 ], [ 0, %290 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %292 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03144.i.i)
+  %292 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.03143.i.i)
   %293 = and i8 %292, 15
   %294 = icmp samesign ult i8 %293, 7
   br i1 %294, label %switch.lookup73, label %cell_id_len.exit.i165.i
@@ -848,10 +848,10 @@ switch.lookup73:                                  ; preds = %.lr.ph.i164.i
 cell_id_len.exit.i165.i:                          ; preds = %.lr.ph.i164.i, %switch.lookup73
   %.0.i.i166.i = phi i32 [ %switch.load75, %switch.lookup73 ], [ 1, %.lr.ph.i164.i ]
   %296 = load i32, ptr @ett_cbsp_fail_list, align 4
-  %297 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %.03144.i.i, i32 noundef %.0.i.i166.i, i32 noundef %296, ptr noundef nonnull %9, ptr noundef nonnull @.str.174)
+  %297 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %.03143.i.i, i32 noundef %.0.i.i166.i, i32 noundef %296, ptr noundef nonnull %9, ptr noundef nonnull @.str.174)
   %298 = load i32, ptr @hf_cbsp_cell_id_disc, align 4
-  %299 = add i32 %.03144.i.i, 1
-  %300 = call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %298, ptr noundef %0, i32 noundef %.03144.i.i, i32 noundef 1, i32 noundef 0)
+  %299 = add i32 %.03143.i.i, 1
+  %300 = call ptr @proto_tree_add_item(ptr noundef %297, i32 noundef %298, ptr noundef %0, i32 noundef %.03143.i.i, i32 noundef 1, i32 noundef 0)
   %301 = load ptr, ptr %9, align 8
   %302 = call fastcc i32 @dissect_cell_id_elem(i8 noundef zeroext %293, ptr noundef %0, ptr noundef %1, i32 noundef %299, ptr noundef %297, ptr noundef %301)
   %303 = icmp slt i32 %302, 1
@@ -871,7 +871,7 @@ cell_id_len.exit.i165.i:                          ; preds = %.lr.ph.i164.i, %swi
   %310 = load i32, ptr %10, align 4
   %311 = call ptr @val_to_str_const(i32 noundef %310, ptr noundef nonnull @cbsp_cause_vals, ptr noundef nonnull @.str.176)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %309, ptr noundef nonnull @.str.175, ptr noundef %311)
-  %312 = add i32 %.03243.i.i, 1
+  %312 = add i32 %.03242.i.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %313 = sub i32 %307, %72
@@ -879,8 +879,8 @@ cell_id_len.exit.i165.i:                          ; preds = %.lr.ph.i164.i, %swi
   br i1 %314, label %.lr.ph.i164.i, label %dissect_failure_list_ie.exit.i
 
 dissect_failure_list_ie.exit.i:                   ; preds = %304, %.thread.i167.i, %290
-  %.03242.i.i = phi i32 [ %.03243.i.i, %.thread.i167.i ], [ 0, %290 ], [ %312, %304 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %291, ptr noundef nonnull @.str.177, i32 noundef %.03242.i.i)
+  %.03241.i.i = phi i32 [ %.03242.i.i, %.thread.i167.i ], [ 0, %290 ], [ %312, %304 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %291, ptr noundef nonnull @.str.177, i32 noundef %.03241.i.i)
   br label %353
 
 315:                                              ; preds = %71
@@ -899,8 +899,8 @@ dissect_failure_list_ie.exit.i:                   ; preds = %304, %.thread.i167.
   br label %.lr.ph.i170.i
 
 .lr.ph.i170.i:                                    ; preds = %334, %.lr.ph.preheader.i169.i
-  %.03144.i171.i = phi i32 [ %340, %334 ], [ %322, %.lr.ph.preheader.i169.i ]
-  %.03243.i172.i = phi i32 [ %345, %334 ], [ 0, %.lr.ph.preheader.i169.i ]
+  %.03143.i171.i = phi i32 [ %340, %334 ], [ %322, %.lr.ph.preheader.i169.i ]
+  %.03242.i172.i = phi i32 [ %345, %334 ], [ 0, %.lr.ph.preheader.i169.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -919,11 +919,11 @@ switch.lookup76:                                  ; preds = %.lr.ph.i170.i
 cell_id_len.exit.i173.i:                          ; preds = %.lr.ph.i170.i, %switch.lookup76
   %.0.i.i174.i = phi i32 [ %switch.load78, %switch.lookup76 ], [ 1, %.lr.ph.i170.i ]
   %327 = load i32, ptr @ett_cbsp_load_list, align 4
-  %328 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %.03144.i171.i, i32 noundef %.0.i.i174.i, i32 noundef %327, ptr noundef nonnull %8, ptr noundef nonnull @.str.178)
+  %328 = call ptr @proto_tree_add_subtree(ptr noundef %65, ptr noundef %0, i32 noundef %.03143.i171.i, i32 noundef %.0.i.i174.i, i32 noundef %327, ptr noundef nonnull %8, ptr noundef nonnull @.str.178)
   %329 = load i32, ptr %5, align 4
   %330 = trunc i32 %329 to i8
   %331 = load ptr, ptr %8, align 8
-  %332 = call fastcc i32 @dissect_cell_id_elem(i8 noundef zeroext %330, ptr noundef %0, ptr noundef %1, i32 noundef %.03144.i171.i, ptr noundef %328, ptr noundef %331)
+  %332 = call fastcc i32 @dissect_cell_id_elem(i8 noundef zeroext %330, ptr noundef %0, ptr noundef %1, i32 noundef %.03143.i171.i, ptr noundef %328, ptr noundef %331)
   %333 = icmp slt i32 %332, 1
   br i1 %333, label %.thread.i175.i, label %334
 
@@ -934,7 +934,7 @@ cell_id_len.exit.i173.i:                          ; preds = %.lr.ph.i170.i, %swi
   br label %dissect_rr_load_list_ie.exit.i
 
 334:                                              ; preds = %cell_id_len.exit.i173.i
-  %335 = add i32 %332, %.03144.i171.i
+  %335 = add i32 %332, %.03143.i171.i
   %336 = load i32, ptr @hf_cbsp_cell_load1, align 4
   %337 = add i32 %335, 1
   %338 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %328, i32 noundef %336, ptr noundef %0, i32 noundef %335, i32 noundef 1, i32 noundef 0, ptr noundef nonnull %6)
@@ -945,7 +945,7 @@ cell_id_len.exit.i173.i:                          ; preds = %.lr.ph.i170.i, %swi
   %343 = load i32, ptr %6, align 4
   %344 = load i32, ptr %7, align 4
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %342, ptr noundef nonnull @.str.179, i32 noundef %343, i32 noundef %344)
-  %345 = add i32 %.03243.i172.i, 1
+  %345 = add i32 %.03242.i172.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -954,10 +954,10 @@ cell_id_len.exit.i173.i:                          ; preds = %.lr.ph.i170.i, %swi
   br i1 %347, label %.lr.ph.i170.i, label %dissect_rr_load_list_ie.exit.i
 
 dissect_rr_load_list_ie.exit.i:                   ; preds = %334, %.thread.i175.i, %315
-  %.03242.i168.i = phi i32 [ %.03243.i172.i, %.thread.i175.i ], [ 0, %315 ], [ %345, %334 ]
+  %.03241.i168.i = phi i32 [ %.03242.i172.i, %.thread.i175.i ], [ 0, %315 ], [ %345, %334 ]
   %348 = load i32, ptr %5, align 4
   %349 = call ptr @val_to_str_const(i32 noundef %348, ptr noundef nonnull @cbsp_cell_id_disc_vals, ptr noundef nonnull @.str.155)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %316, ptr noundef nonnull @.str.162, ptr noundef %349, i32 noundef %.03242.i168.i)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %316, ptr noundef nonnull @.str.162, ptr noundef %349, i32 noundef %.03241.i168.i)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %353
 

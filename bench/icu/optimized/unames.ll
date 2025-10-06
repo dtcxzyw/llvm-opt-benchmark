@@ -1336,12 +1336,12 @@ _ZN6icu_77L8getGroupEPNS_10UCharNamesEj.exit:     ; preds = %._ZN6icu_77L8getGro
 
 49:                                               ; preds = %46
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.not15.not19.i.not = icmp slt i32 %1, %spec.select
-  br i1 %.not15.not19.i.not, label %.lr.ph.i181, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread218
+  %.not15.not18.i.not = icmp slt i32 %1, %spec.select
+  br i1 %.not15.not18.i.not, label %.lr.ph.i181, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread218
 
 .lr.ph.i181:                                      ; preds = %49, %56
-  %.01220.i = phi i32 [ %57, %56 ], [ %1, %49 ]
-  %50 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.01220.i, ptr noundef nonnull %10, i16 noundef zeroext 200)
+  %.01219.i = phi i32 [ %57, %56 ], [ %1, %49 ]
+  %50 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.01219.i, ptr noundef nonnull %10, i16 noundef zeroext 200)
   %51 = zext i16 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 %51
   store i8 0, ptr %52, align 1, !tbaa !26
@@ -1350,13 +1350,13 @@ _ZN6icu_77L8getGroupEPNS_10UCharNamesEj.exit:     ; preds = %._ZN6icu_77L8getGro
 
 53:                                               ; preds = %.lr.ph.i181
   %54 = zext i16 %50 to i32
-  %55 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.01220.i, i32 noundef 2, ptr noundef nonnull %10, i32 noundef %54)
+  %55 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.01219.i, i32 noundef 2, ptr noundef nonnull %10, i32 noundef %54)
   %.not17.i = icmp eq i8 %55, 0
   br i1 %.not17.i, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit, label %56
 
 56:                                               ; preds = %53, %.lr.ph.i181
-  %57 = add i32 %.01220.i, 1
-  %exitcond.not.i = icmp eq i32 %.01220.i, %48
+  %57 = add i32 %.01219.i, 1
+  %exitcond.not.i = icmp eq i32 %.01219.i, %48
   br i1 %exitcond.not.i, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread218, label %.lr.ph.i181, !llvm.loop !57
 
 _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread218: ; preds = %56, %49
@@ -1446,12 +1446,12 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread: ; preds
 
 101:                                              ; preds = %98
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.not15.not19.i183.not = icmp slt i32 %.0128, %spec.select166
-  br i1 %.not15.not19.i183.not, label %.lr.ph.i184, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread224
+  %.not15.not18.i183.not = icmp slt i32 %.0128, %spec.select166
+  br i1 %.not15.not18.i183.not, label %.lr.ph.i184, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread224
 
 .lr.ph.i184:                                      ; preds = %101, %108
-  %.01220.i185 = phi i32 [ %109, %108 ], [ %.0128, %101 ]
-  %102 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.01220.i185, ptr noundef nonnull %9, i16 noundef zeroext 200)
+  %.01219.i185 = phi i32 [ %109, %108 ], [ %.0128, %101 ]
+  %102 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.01219.i185, ptr noundef nonnull %9, i16 noundef zeroext 200)
   %103 = zext i16 %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %9, i64 %103
   store i8 0, ptr %104, align 1, !tbaa !26
@@ -1460,13 +1460,13 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit.thread: ; preds
 
 105:                                              ; preds = %.lr.ph.i184
   %106 = zext i16 %102 to i32
-  %107 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.01220.i185, i32 noundef 2, ptr noundef nonnull %9, i32 noundef %106)
+  %107 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.01219.i185, i32 noundef 2, ptr noundef nonnull %9, i32 noundef %106)
   %.not17.i187 = icmp eq i8 %107, 0
   br i1 %.not17.i187, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192, label %108
 
 108:                                              ; preds = %105, %.lr.ph.i184
-  %109 = add i32 %.01220.i185, 1
-  %exitcond.not.i188 = icmp eq i32 %.01220.i185, %100
+  %109 = add i32 %.01219.i185, 1
+  %exitcond.not.i188 = icmp eq i32 %.01219.i185, %100
   br i1 %exitcond.not.i188, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread224, label %.lr.ph.i184, !llvm.loop !57
 
 _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread224: ; preds = %108, %101
@@ -1527,12 +1527,12 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread: ; pr
   %134 = shl nuw nsw i32 %127, 5
   %135 = add nuw nsw i32 %134, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %.not15.not19.i194.not = icmp slt i32 %135, %spec.select169
-  br i1 %.not15.not19.i194.not, label %.lr.ph.i195, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread229
+  %.not15.not18.i194.not = icmp slt i32 %135, %spec.select169
+  br i1 %.not15.not18.i194.not, label %.lr.ph.i195, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread229
 
 .lr.ph.i195:                                      ; preds = %133, %142
-  %.01220.i196 = phi i32 [ %143, %142 ], [ %135, %133 ]
-  %136 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.01220.i196, ptr noundef nonnull %8, i16 noundef zeroext 200)
+  %.01219.i196 = phi i32 [ %143, %142 ], [ %135, %133 ]
+  %136 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.01219.i196, ptr noundef nonnull %8, i16 noundef zeroext 200)
   %137 = zext i16 %136 to i64
   %138 = getelementptr inbounds nuw i8, ptr %8, i64 %137
   store i8 0, ptr %138, align 1, !tbaa !26
@@ -1541,13 +1541,13 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit192.thread: ; pr
 
 139:                                              ; preds = %.lr.ph.i195
   %140 = zext i16 %136 to i32
-  %141 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.01220.i196, i32 noundef 2, ptr noundef nonnull %8, i32 noundef %140)
+  %141 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.01219.i196, i32 noundef 2, ptr noundef nonnull %8, i32 noundef %140)
   %.not17.i198 = icmp eq i8 %141, 0
   br i1 %.not17.i198, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203, label %142
 
 142:                                              ; preds = %139, %.lr.ph.i195
-  %143 = add i32 %.01220.i196, 1
-  %exitcond.not.i199 = icmp eq i32 %.01220.i196, %132
+  %143 = add i32 %.01219.i196, 1
+  %exitcond.not.i199 = icmp eq i32 %.01219.i196, %132
   br i1 %exitcond.not.i199, label %_ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread229, label %.lr.ph.i195, !llvm.loop !57
 
 _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread229: ; preds = %142, %133
@@ -1609,12 +1609,12 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread: ; pr
 
 163:                                              ; preds = %161
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %.not15.not19.i205.not = icmp slt i32 %.2130236, %spec.store.select
-  br i1 %.not15.not19.i205.not, label %.lr.ph.i206, label %.sink.split.i211
+  %.not15.not18.i205.not = icmp slt i32 %.2130236, %spec.store.select
+  br i1 %.not15.not18.i205.not, label %.lr.ph.i206, label %.sink.split.i211
 
 .lr.ph.i206:                                      ; preds = %163, %170
-  %.01220.i207 = phi i32 [ %171, %170 ], [ %.2130236, %163 ]
-  %164 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.01220.i207, ptr noundef nonnull %7, i16 noundef zeroext 200)
+  %.01219.i207 = phi i32 [ %171, %170 ], [ %.2130236, %163 ]
+  %164 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.01219.i207, ptr noundef nonnull %7, i16 noundef zeroext 200)
   %165 = zext i16 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr %7, i64 %165
   store i8 0, ptr %166, align 1, !tbaa !26
@@ -1623,13 +1623,13 @@ _ZN6icu_77L12enumExtNamesEiiPFaPvi15UCharNameChoicePKciES0_.exit203.thread: ; pr
 
 167:                                              ; preds = %.lr.ph.i206
   %168 = zext i16 %164 to i32
-  %169 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.01220.i207, i32 noundef 2, ptr noundef nonnull %7, i32 noundef %168)
+  %169 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.01219.i207, i32 noundef 2, ptr noundef nonnull %7, i32 noundef %168)
   %.not17.i209 = icmp eq i8 %169, 0
   br i1 %.not17.i209, label %.sink.split.i211, label %170
 
 170:                                              ; preds = %167, %.lr.ph.i206
-  %171 = add i32 %.01220.i207, 1
-  %exitcond.not.i210 = icmp eq i32 %.01220.i207, %162
+  %171 = add i32 %.01219.i207, 1
+  %exitcond.not.i210 = icmp eq i32 %.01219.i207, %162
   br i1 %exitcond.not.i210, label %.sink.split.i211, label %.lr.ph.i206, !llvm.loop !57
 
 .sink.split.i211:                                 ; preds = %170, %167, %163

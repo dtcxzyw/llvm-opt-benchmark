@@ -3734,8 +3734,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %9, %_
 .lr.ph.i:                                         ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %18 = load i64, ptr %4, align 8, !tbaa !18
   %19 = and i64 %18, 144115188075855871
-  %.not52.i = icmp eq i64 %19, 0
-  br i1 %.not52.i, label %.critedge.i, label %20
+  %.not49.i = icmp eq i64 %19, 0
+  br i1 %.not49.i, label %.critedge.i, label %20
 
 20:                                               ; preds = %.lr.ph.i
   %.mask.i.i = and i64 %18, -144115188075855872

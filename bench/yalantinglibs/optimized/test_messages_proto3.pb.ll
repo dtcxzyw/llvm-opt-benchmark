@@ -4242,8 +4242,8 @@ declare void @_ZN6google8protobuf8internal17AssignDescriptorsEPKNS1_15Descriptor
 define dso_local noundef zeroext i1 @_ZN22protobuf_test_messages6proto337TestAllTypesProto3_NestedEnum_IsValidEi(i32 noundef %value) local_unnamed_addr #4 {
 entry:
   %0 = add i32 %value, 1
-  %switch.selectcmp = icmp ult i32 %0, 4
-  ret i1 %switch.selectcmp
+  %switch = icmp ult i32 %0, 4
+  ret i1 %switch
 }
 
 ; Function Attrs: mustprogress uwtable

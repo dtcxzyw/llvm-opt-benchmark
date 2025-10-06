@@ -135,13 +135,13 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %10 = icmp eq ptr %2, null
-  %.sink181.sroa.gep204 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %.sink182.sroa.gep205 = getelementptr inbounds nuw i8, ptr %5, i64 120
-  br i1 %10, label %.thread133, label %11
+  %.sink178.sroa.gep201 = getelementptr inbounds nuw i8, ptr %5, i64 136
+  %.sink179.sroa.gep202 = getelementptr inbounds nuw i8, ptr %5, i64 120
+  br i1 %10, label %.thread130, label %11
 
 11:                                               ; preds = %4
-  %.sink182.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 176
-  %.sink181.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 216
+  %.sink179.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 176
+  %.sink178.sroa.gep = getelementptr inbounds nuw i8, ptr %5, i64 216
   store i32 %1, ptr %6, align 8, !tbaa !20
   %12 = icmp eq i32 %1, 1
   br i1 %12, label %16, label %13
@@ -152,14 +152,14 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
 
 15:                                               ; preds = %13
   tail call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 133, ptr noundef nonnull @.str.1, i32 noundef 295) #14
-  br label %.thread133
+  br label %.thread130
 
 16:                                               ; preds = %13, %11
-  %.sink182.sroa.phi = phi ptr [ %.sink182.sroa.gep, %11 ], [ %.sink182.sroa.gep205, %13 ]
-  %.sink181.sroa.phi = phi ptr [ %.sink181.sroa.gep, %11 ], [ %.sink181.sroa.gep204, %13 ]
+  %.sink179.sroa.phi = phi ptr [ %.sink179.sroa.gep, %11 ], [ %.sink179.sroa.gep202, %13 ]
+  %.sink178.sroa.phi = phi ptr [ %.sink178.sroa.gep, %11 ], [ %.sink178.sroa.gep201, %13 ]
   %.090 = phi ptr [ @.str.2, %11 ], [ @.str.3, %13 ]
-  store ptr %.sink182.sroa.phi, ptr %5, align 8, !tbaa !22
-  store ptr %2, ptr %.sink181.sroa.phi, align 8, !tbaa !22
+  store ptr %.sink179.sroa.phi, ptr %5, align 8, !tbaa !22
+  store ptr %2, ptr %.sink178.sroa.phi, align 8, !tbaa !22
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %5, ptr %17, align 8, !tbaa !22
   %18 = call ptr @BUF_MEM_new() #14
@@ -168,7 +168,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
 
 20:                                               ; preds = %16
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 7, ptr noundef nonnull @.str.1, i32 noundef 300) #14
-  br label %.thread133
+  br label %.thread130
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -187,15 +187,15 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %indvars.iv.sroa.phi.sroa.speculated = phi i64 [ %24, %21 ], [ %25, %._crit_edge ]
   %33 = load ptr, ptr %26, align 8, !tbaa !13
   %34 = call i64 @sk_num(ptr noundef %33) #14
-  %.not146 = icmp eq i64 %34, 0
-  br i1 %.not146, label %._crit_edge, label %.lr.ph
+  %.not143 = icmp eq i64 %34, 0
+  br i1 %.not143, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %31, %149
-  %.094144 = phi i64 [ %150, %149 ], [ 0, %31 ]
+  %.094141 = phi i64 [ %150, %149 ], [ 0, %31 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %35 = load ptr, ptr %26, align 8, !tbaa !13
-  %36 = call ptr @sk_value(ptr noundef %35, i64 noundef %.094144) #14
+  %36 = call ptr @sk_value(ptr noundef %35, i64 noundef %.094141) #14
   %37 = load ptr, ptr %36, align 8, !tbaa !23
   %38 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #15
   %39 = shl i64 %38, 32
@@ -207,7 +207,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
 
 42:                                               ; preds = %.lr.ph
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str.1, i32 noundef 317) #14
-  br label %.thread128
+  br label %.thread126
 
 43:                                               ; preds = %.lr.ph
   br i1 %27, label %44, label %57
@@ -254,18 +254,18 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %64 = call i32 @stat(ptr noundef %63, ptr noundef nonnull %9) #14
   %65 = icmp sgt i32 %64, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %65, label %.lr.ph190, label %.thread
+  br i1 %65, label %.lr.ph187, label %.thread
 
-.lr.ph190:                                        ; preds = %.split.us.preheader, %.split.us
-  %.297.us189 = phi i32 [ %70, %.split.us ], [ 0, %.split.us.preheader ]
+.lr.ph187:                                        ; preds = %.split.us.preheader, %.split.us
+  %.297.us186 = phi i32 [ %70, %.split.us ], [ 0, %.split.us.preheader ]
   %66 = load ptr, ptr %28, align 8, !tbaa !32
   %67 = load i32, ptr %58, align 8, !tbaa !35
   %68 = call i32 @X509_load_cert_file(ptr noundef %0, ptr noundef %66, i32 noundef %67) #14
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %.thread, label %.split.us
 
-.split.us:                                        ; preds = %.lr.ph190
-  %70 = add nuw nsw i32 %.297.us189, 1
+.split.us:                                        ; preds = %.lr.ph187
+  %70 = add nuw nsw i32 %.297.us186, 1
   %71 = load ptr, ptr %28, align 8, !tbaa !32
   %72 = load i64, ptr %29, align 8, !tbaa !34
   %73 = load ptr, ptr %36, align 8, !tbaa !23
@@ -275,7 +275,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %76 = call i32 @stat(ptr noundef %75, ptr noundef nonnull %9) #14
   %77 = icmp sgt i32 %76, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %77, label %.lr.ph190, label %.thread
+  br i1 %77, label %.lr.ph187, label %.thread
 
 .split.split.us.preheader:                        ; preds = %44, %56
   %.196.ph = phi i32 [ 0, %44 ], [ %.095, %56 ]
@@ -290,18 +290,18 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %84 = call i32 @stat(ptr noundef %83, ptr noundef nonnull %9) #14
   %85 = icmp sgt i32 %84, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %85, label %.lr.ph193, label %.thread
+  br i1 %85, label %.lr.ph190, label %.thread
 
-.lr.ph193:                                        ; preds = %.split.split.us.preheader, %.split.split.us
-  %.297.us140192 = phi i32 [ %90, %.split.split.us ], [ %.196.ph, %.split.split.us.preheader ]
+.lr.ph190:                                        ; preds = %.split.split.us.preheader, %.split.split.us
+  %.297.us137189 = phi i32 [ %90, %.split.split.us ], [ %.196.ph, %.split.split.us.preheader ]
   %86 = load ptr, ptr %28, align 8, !tbaa !32
   %87 = load i32, ptr %78, align 8, !tbaa !35
   %88 = call i32 @X509_load_crl_file(ptr noundef %0, ptr noundef %86, i32 noundef %87) #14
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %.thread, label %.split.split.us
 
-.split.split.us:                                  ; preds = %.lr.ph193
-  %90 = add nsw i32 %.297.us140192, 1
+.split.split.us:                                  ; preds = %.lr.ph190
+  %90 = add nsw i32 %.297.us137189, 1
   %91 = load ptr, ptr %28, align 8, !tbaa !32
   %92 = load i64, ptr %29, align 8, !tbaa !34
   %93 = load ptr, ptr %36, align 8, !tbaa !23
@@ -311,7 +311,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %96 = call i32 @stat(ptr noundef %95, ptr noundef nonnull %9) #14
   %97 = icmp sgt i32 %96, -1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br i1 %97, label %.lr.ph193, label %.thread
+  br i1 %97, label %.lr.ph190, label %.thread
 
 .split.split:                                     ; preds = %57, %.split.split
   %.297 = phi i32 [ %spec.select, %.split.split ], [ 0, %57 ]
@@ -328,9 +328,9 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %spec.select = add nuw nsw i32 %.297, %105
   br i1 %104, label %.split.split, label %.thread
 
-.thread:                                          ; preds = %.split.split, %.lr.ph190, %.split.us, %.lr.ph193, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
-  %.1165 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us ], [ %.1.ph, %.lr.ph193 ], [ null, %.split.us ], [ null, %.lr.ph190 ], [ null, %.split.split ]
-  %.us-phi = phi i32 [ %.196.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.297.us140192, %.lr.ph193 ], [ %90, %.split.split.us ], [ %.297.us189, %.lr.ph190 ], [ %70, %.split.us ], [ %spec.select, %.split.split ]
+.thread:                                          ; preds = %.split.split, %.lr.ph187, %.split.us, %.lr.ph190, %.split.split.us, %.split.us.preheader, %.split.split.us.preheader
+  %.1162 = phi ptr [ %.1.ph, %.split.split.us.preheader ], [ null, %.split.us.preheader ], [ %.1.ph, %.split.split.us ], [ %.1.ph, %.lr.ph190 ], [ null, %.split.us ], [ null, %.lr.ph187 ], [ null, %.split.split ]
+  %.us-phi = phi i32 [ %.196.ph, %.split.split.us.preheader ], [ 0, %.split.us.preheader ], [ %.297.us137189, %.lr.ph190 ], [ %90, %.split.split.us ], [ %.297.us186, %.lr.ph187 ], [ %70, %.split.us ], [ %spec.select, %.split.split ]
   %106 = load ptr, ptr %30, align 8, !tbaa !36
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 16
   call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %107) #14
@@ -358,8 +358,8 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
 
 121:                                              ; preds = %118
   call void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef nonnull @g_ent_hashes_lock) #14
-  %.not107 = icmp eq ptr %.1165, null
-  br i1 %.not107, label %122, label %.thread123
+  %.not107 = icmp eq ptr %.1162, null
+  br i1 %.not107, label %122, label %.thread121
 
 122:                                              ; preds = %121
   store i64 %indvars.iv.sroa.phi.sroa.speculated, ptr %8, align 8, !tbaa !27
@@ -367,25 +367,25 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %124 = load ptr, ptr %123, align 8, !tbaa !26
   %125 = call i32 @sk_find(ptr noundef %124, ptr noundef nonnull %7, ptr noundef nonnull %8) #14
   %.not108 = icmp eq i32 %125, 0
-  br i1 %.not108, label %.thread120, label %126
+  br i1 %.not108, label %.thread118, label %126
 
 126:                                              ; preds = %122
   %127 = load ptr, ptr %123, align 8, !tbaa !26
   %128 = load i64, ptr %7, align 8, !tbaa !30
   %129 = call ptr @sk_value(ptr noundef %127, i64 noundef %128) #14
   %.not109 = icmp eq ptr %129, null
-  br i1 %.not109, label %.thread120, label %.thread123
+  br i1 %.not109, label %.thread118, label %.thread121
 
-.thread120:                                       ; preds = %122, %126
+.thread118:                                       ; preds = %122, %126
   %130 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #13
   %131 = icmp eq ptr %130, null
   br i1 %131, label %132, label %133
 
-132:                                              ; preds = %.thread120
+132:                                              ; preds = %.thread118
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #14
-  br label %.thread128
+  br label %.thread126
 
-133:                                              ; preds = %.thread120
+133:                                              ; preds = %.thread118
   store i64 %indvars.iv.sroa.phi.sroa.speculated, ptr %130, align 8, !tbaa !27
   %134 = getelementptr inbounds nuw i8, ptr %130, i64 8
   store i32 %.us-phi, ptr %134, align 8, !tbaa !31
@@ -397,20 +397,20 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
 137:                                              ; preds = %133
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #14
   call void @free(ptr noundef nonnull %130) #14
-  br label %.thread128
+  br label %.thread126
 
-.thread123:                                       ; preds = %121, %126
-  %.2126 = phi ptr [ %129, %126 ], [ %.1165, %121 ]
-  %138 = getelementptr inbounds nuw i8, ptr %.2126, i64 8
+.thread121:                                       ; preds = %121, %126
+  %.2124 = phi ptr [ %129, %126 ], [ %.1162, %121 ]
+  %138 = getelementptr inbounds nuw i8, ptr %.2124, i64 8
   %139 = load i32, ptr %138, align 8, !tbaa !31
   %140 = icmp slt i32 %139, %.us-phi
   br i1 %140, label %141, label %142
 
-141:                                              ; preds = %.thread123
+141:                                              ; preds = %.thread121
   store i32 %.us-phi, ptr %138, align 8, !tbaa !31
   br label %142
 
-142:                                              ; preds = %.thread123, %141, %133
+142:                                              ; preds = %.thread121, %141, %133
   call void @CRYPTO_STATIC_MUTEX_unlock(ptr noundef nonnull @g_ent_hashes_lock) #14
   br label %143
 
@@ -425,9 +425,9 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
   %147 = getelementptr inbounds nuw i8, ptr %.091, i64 8
   %148 = load i64, ptr %147, align 8
   store i64 %148, ptr %146, align 8
-  br label %.thread128
+  br label %.thread126
 
-.thread128:                                       ; preds = %144, %132, %137, %42
+.thread126:                                       ; preds = %144, %132, %137, %42
   %.3.ph = phi i32 [ 0, %42 ], [ 0, %137 ], [ 0, %132 ], [ 1, %144 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -436,7 +436,7 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
 149:                                              ; preds = %143
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %150 = add nuw i64 %.094144, 1
+  %150 = add nuw i64 %.094141, 1
   %151 = load ptr, ptr %26, align 8, !tbaa !13
   %152 = call i64 @sk_num(ptr noundef %151) #14
   %153 = icmp ult i64 %150, %152
@@ -445,12 +445,12 @@ define internal range(i32 0, 2) i32 @get_cert_by_subject(ptr noundef %0, i32 nou
 ._crit_edge:                                      ; preds = %149, %31
   br i1 %32, label %31, label %.loopexit, !llvm.loop !44
 
-.loopexit:                                        ; preds = %._crit_edge, %.thread128
-  %.084 = phi i32 [ %.3.ph, %.thread128 ], [ 0, %._crit_edge ]
+.loopexit:                                        ; preds = %._crit_edge, %.thread126
+  %.084 = phi i32 [ %.3.ph, %.thread126 ], [ 0, %._crit_edge ]
   call void @BUF_MEM_free(ptr noundef nonnull %18) #14
-  br label %.thread133
+  br label %.thread130
 
-.thread133:                                       ; preds = %15, %20, %.loopexit, %4
+.thread130:                                       ; preds = %15, %20, %.loopexit, %4
   %.0 = phi i32 [ 0, %4 ], [ %.084, %.loopexit ], [ 0, %20 ], [ 0, %15 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

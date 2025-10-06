@@ -142,8 +142,8 @@ jss_skip_whitespace.exit:                         ; preds = %17
   %41 = load i8, ptr %36, align 1, !tbaa !30
   %.not.i28 = icmp ne i8 %41, 0
   %42 = icmp samesign ult i64 %.066.idx.i, 126
-  %or.cond31.i = select i1 %.not.i28, i1 %42, i1 false
-  br i1 %or.cond31.i, label %switch.early.test.i, label %.critedge.i
+  %or.cond30.i = select i1 %.not.i28, i1 %42, i1 false
+  br i1 %or.cond30.i, label %switch.early.test.i, label %.critedge.i
 
 switch.early.test.i:                              ; preds = %.preheader.i
   switch i8 %41, label %.preheader.i [
@@ -220,12 +220,12 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
 
 59:                                               ; preds = %57
   %spec.store.select.i = select i1 %53, i32 %.064.i, i32 1
-  %spec.select18.i = select i1 %.not76.i, i32 32, i32 8
+  %spec.select17.i = select i1 %.not76.i, i32 32, i32 8
   br label %60
 
 60:                                               ; preds = %59, %.thread4.i
   %spec.store.select9.i = phi i32 [ %spec.store.select6.i, %.thread4.i ], [ %spec.store.select.i, %59 ]
-  %61 = phi i32 [ %.065.ph.i, %.thread4.i ], [ %spec.select18.i, %59 ]
+  %61 = phi i32 [ %.065.ph.i, %.thread4.i ], [ %spec.select17.i, %59 ]
   %62 = or disjoint i32 %61, %spec.store.select9.i
   switch i32 %62, label %.backedge.i.preheader [
     i32 17, label %.sink.split.i
@@ -316,9 +316,9 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
   %85 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %84) #7
   %86 = call i32 @strncmp(ptr noundef nonnull %.2.i, ptr noundef nonnull %84, i64 noundef %85) #7
   %.not79.i = icmp eq i32 %86, 0
-  br i1 %.not79.i, label %.thread16.i, label %95
+  br i1 %.not79.i, label %.thread15.i, label %95
 
-.thread16.i:                                      ; preds = %82
+.thread15.i:                                      ; preds = %82
   %87 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !37
   %89 = getelementptr inbounds nuw i8, ptr %.2.i, i64 %85
@@ -340,8 +340,8 @@ jss_skip_whitespace.exit.i:                       ; preds = %43, %25
   call void (ptr, ptr, ...) @av_bprintf(ptr noundef nonnull %6, ptr noundef nonnull @.str.17, i32 noundef %98) #8
   br label %.backedge.i.backedge
 
-.backedge.i.backedge:                             ; preds = %78, %96, %.thread16.i
-  %.2.i.be = phi ptr [ %97, %96 ], [ %94, %.thread16.i ], [ %.3.i, %78 ]
+.backedge.i.backedge:                             ; preds = %78, %96, %.thread15.i
+  %.2.i.be = phi ptr [ %97, %96 ], [ %94, %.thread15.i ], [ %.3.i, %78 ]
   br label %.backedge.i, !llvm.loop !33
 
 jacosub_to_ass.exit:                              ; preds = %.backedge.i, %.backedge.i

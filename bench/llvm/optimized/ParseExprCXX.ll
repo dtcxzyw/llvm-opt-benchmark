@@ -19071,7 +19071,7 @@ _ZN5clang6Parser12ConsumeParenEv.exit.i:          ; preds = %483
   br i1 %.not.i131, label %.critedge.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN5clang6Parser12ConsumeParenEv.exit.i, %499
-  %.0158.i = phi i32 [ %.217.i, %499 ], [ 1, %_ZN5clang6Parser12ConsumeParenEv.exit.i ]
+  %.0157.i = phi i32 [ %.217.i, %499 ], [ 1, %_ZN5clang6Parser12ConsumeParenEv.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i16 22, ptr %9, align 2, !tbaa !314
   store i16 23, ptr %221, align 2, !tbaa !314
@@ -19085,7 +19085,7 @@ _ZN5clang6Parser12ConsumeParenEv.exit.i:          ; preds = %483
   %502 = icmp eq i16 %500, 23
   %503 = sext i1 %502 to i32
   %.217.v.i = select i1 %501, i32 1, i32 %503
-  %.217.i = add i32 %.217.v.i, %.0158.i
+  %.217.i = add i32 %.217.v.i, %.0157.i
   %504 = call i32 @_ZN5clang6Parser15ConsumeAnyTokenEb(ptr noundef nonnull align 8 dereferenceable(2936) %0, i1 noundef zeroext false)
   %.not18.i = icmp eq i32 %.217.i, 0
   br i1 %.not18.i, label %.thread.i, label %.preheader.i
@@ -20201,7 +20201,7 @@ define dso_local i64 @_ZN5clang6Parser19ParseArrayTypeTraitEv(ptr noundef nonnul
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i16, ptr %7, align 8, !tbaa !307
-  %switch.i.not = icmp eq i16 %8, 311
+  %.not = icmp eq i16 %8, 311
   %9 = load i32, ptr %6, align 8, !tbaa !305
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %9, ptr %10, align 8, !tbaa !312
@@ -20254,7 +20254,7 @@ define dso_local i64 @_ZN5clang6Parser19ParseArrayTypeTraitEv(ptr noundef nonnul
   br label %50
 
 30:                                               ; preds = %24
-  br i1 %switch.i.not, label %31, label %36
+  br i1 %.not, label %31, label %36
 
 31:                                               ; preds = %30
   %32 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker12consumeCloseEv(ptr noundef nonnull align 8 dereferenceable(56) %5)
@@ -20338,26 +20338,26 @@ define dso_local i64 @_ZN5clang6Parser20ParseExpressionTraitEv(ptr noundef nonnu
   store i64 ptrtoint (ptr @_ZN5clang6Parser12ConsumeParenEv to i64), ptr %18, align 8, !tbaa !1118
   store i64 0, ptr %.repack6.i, align 8, !tbaa !1118
   %20 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker16expectAndConsumeEjPKcNS_3tok9TokenKindE(ptr noundef nonnull align 8 dereferenceable(56) %2, i32 noundef 14, ptr noundef nonnull @.str.10, i16 noundef zeroext 0) #19
-  br i1 %20, label %29, label %21
+  br i1 %20, label %30, label %21
 
 21:                                               ; preds = %1
-  %switch.i = icmp ne i16 %5, 284
-  %..i = zext i1 %switch.i to i32
-  %22 = call i64 @_ZN5clang6Parser15ParseExpressionENS0_13TypeCastStateE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 0) #19
-  %23 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker12consumeCloseEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %25 = load ptr, ptr %24, align 8, !tbaa !322
-  %26 = and i64 %22, -2
-  %27 = inttoptr i64 %26 to ptr
+  %22 = icmp ne i16 %5, 284
+  %..i = zext i1 %22 to i32
+  %23 = call i64 @_ZN5clang6Parser15ParseExpressionENS0_13TypeCastStateE(ptr noundef nonnull align 8 dereferenceable(2936) %0, i32 noundef 0) #19
+  %24 = call noundef zeroext i1 @_ZN5clang24BalancedDelimiterTracker12consumeCloseEv(ptr noundef nonnull align 8 dereferenceable(56) %2)
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %26 = load ptr, ptr %25, align 8, !tbaa !322
+  %27 = and i64 %23, -2
+  %28 = inttoptr i64 %27 to ptr
   %.sroa.0.0.copyload.i = load i32, ptr %17, align 4, !tbaa !312
-  %28 = call i64 @_ZN5clang4Sema20ActOnExpressionTraitENS_15ExpressionTraitENS_14SourceLocationEPNS_4ExprES2_(ptr noundef nonnull align 8 dereferenceable(17504) %25, i32 noundef %..i, i32 %.sroa.01.0.copyload.i, ptr noundef %27, i32 %.sroa.0.0.copyload.i) #19
-  br label %29
+  %29 = call i64 @_ZN5clang4Sema20ActOnExpressionTraitENS_15ExpressionTraitENS_14SourceLocationEPNS_4ExprES2_(ptr noundef nonnull align 8 dereferenceable(17504) %26, i32 noundef %..i, i32 %.sroa.01.0.copyload.i, ptr noundef %28, i32 %.sroa.0.0.copyload.i) #19
+  br label %30
 
-29:                                               ; preds = %1, %21
-  %.sroa.03.0 = phi i64 [ %28, %21 ], [ 1, %1 ]
-  %30 = load i8, ptr %11, align 8, !tbaa !1110, !range !974, !noundef !975
-  %31 = load ptr, ptr %2, align 8, !tbaa !1119
-  store i8 %30, ptr %31, align 1, !tbaa !986
+30:                                               ; preds = %1, %21
+  %.sroa.03.0 = phi i64 [ %29, %21 ], [ 1, %1 ]
+  %31 = load i8, ptr %11, align 8, !tbaa !1110, !range !974, !noundef !975
+  %32 = load ptr, ptr %2, align 8, !tbaa !1119
+  store i8 %31, ptr %32, align 1, !tbaa !986
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret i64 %.sroa.03.0
 }

@@ -2353,8 +2353,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %13 = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN5arrow7compute8FunctionEEESaISD_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %.not15 = icmp eq ptr %13, null
-  br i1 %.not15, label %.thread, label %14
+  %.not13 = icmp eq ptr %13, null
+  br i1 %.not13, label %.thread, label %14
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !167
@@ -3913,8 +3913,8 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %4
 11:                                               ; preds = %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %13 = call ptr @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PKN5arrow7compute19FunctionOptionsTypeEESaISD_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSF_18_Mod_range_hashingENSF_20_Default_ranged_hashENSF_20_Prime_rehash_policyENSF_17_Hashtable_traitsILb1ELb0ELb1EEEE4findERS7_(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  %.not15 = icmp eq ptr %13, null
-  br i1 %.not15, label %.thread, label %14
+  %.not13 = icmp eq ptr %13, null
+  br i1 %.not13, label %.thread, label %14
 
 14:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !222

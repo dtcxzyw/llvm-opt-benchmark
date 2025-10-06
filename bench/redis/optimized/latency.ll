@@ -1807,14 +1807,14 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
 
 .lr.ph:                                           ; preds = %128, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 2, %128 ]
-  %.072 = phi i32 [ %147, %.lr.ph ], [ 0, %128 ]
+  %.071 = phi i32 [ %147, %.lr.ph ], [ 0, %128 ]
   %141 = load ptr, ptr %4, align 8, !tbaa !93
   %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8, !tbaa !94
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !95
   %146 = tail call i32 @latencyResetEvent(ptr noundef %145)
-  %147 = add nsw i32 %146, %.072
+  %147 = add nsw i32 %146, %.071
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %148 = load i32, ptr %125, align 8, !tbaa !83
   %149 = sext i32 %148 to i64

@@ -704,7 +704,7 @@ define dso_local noundef ptr @_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsERN
   %27 = load i32, ptr %.068.i.i.i, align 8
   %28 = and i32 %27, 16252928
   %29 = icmp eq i32 %28, 6291456
-  br i1 %29, label %30, label %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit118
+  br i1 %29, label %30, label %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit117
 
 30:                                               ; preds = %26
   %31 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 16
@@ -735,8 +735,8 @@ define dso_local noundef ptr @_ZNK5clang4Expr30skipRValueSubobjectAdjustmentsERN
   %49 = load ptr, ptr %48, align 8, !tbaa !3
   %50 = load i24, ptr %49, align 8
   %51 = and i24 %50, 196608
-  %.not73.i.i.i = icmp eq i24 %51, 0
-  br i1 %.not73.i.i.i, label %52, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %51, 0
+  br i1 %.not70.i.i.i, label %52, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -779,13 +779,13 @@ _ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit: ; preds = %61
   %66 = trunc i32 %62 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
-_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit118: ; preds = %26
+_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit117: ; preds = %26
   %67 = trunc i32 %27 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
-_ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %47, %33, %.lr.ph.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit118, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge
-  %68 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %66, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %67, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit118 ], [ %21, %.lr.ph.i.i.i ], [ %21, %33 ], [ %21, %47 ]
-  %.1.i3.i.i = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit118 ], [ %.068.i.i.i, %.lr.ph.i.i.i ], [ %.068.i.i.i, %33 ], [ %.068.i.i.i, %47 ]
+_ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %47, %33, %.lr.ph.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit117, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge
+  %68 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %66, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %67, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit117 ], [ %21, %.lr.ph.i.i.i ], [ %21, %33 ], [ %21, %47 ]
+  %.1.i3.i.i = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit117 ], [ %.068.i.i.i, %.lr.ph.i.i.i ], [ %.068.i.i.i, %33 ], [ %.068.i.i.i, %47 ]
   %69 = and i16 %68, 511
   %70 = add nsw i16 %69, -91
   %spec.select.i.i.i.i.i.i.i.i = icmp ult i16 %70, -10
@@ -888,8 +888,8 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang19SubobjectAdjustmentELb1EE9push_backER
 122:                                              ; preds = %121
   %123 = load i32, ptr %.1.i3.i.i, align 8
   %124 = and i32 %123, 524288
-  %.not101 = icmp eq i32 %124, 0
-  br i1 %.not101, label %125, label %.thread94
+  %.not100 = icmp eq i32 %124, 0
+  br i1 %.not100, label %125, label %.thread94
 
 125:                                              ; preds = %122
   %126 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 24
@@ -899,16 +899,16 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang19SubobjectAdjustmentELb1EE9push_backER
   %130 = and i32 %129, 127
   %131 = add nsw i32 %130, -50
   %132 = icmp ult i32 %131, -3
-  %.not54102 = icmp eq ptr %127, null
-  %.not54 = or i1 %.not54102, %132
+  %.not54101 = icmp eq ptr %127, null
+  %.not54 = or i1 %.not54101, %132
   br i1 %.not54, label %.thread94, label %133
 
 133:                                              ; preds = %125
   %134 = getelementptr inbounds nuw i8, ptr %127, i64 68
   %135 = load i32, ptr %134, align 4
   %136 = and i32 %135, 1
-  %.not103 = icmp eq i32 %136, 0
-  br i1 %.not103, label %137, label %.thread94
+  %.not102 = icmp eq i32 %136, 0
+  br i1 %.not102, label %137, label %.thread94
 
 137:                                              ; preds = %133
   %138 = getelementptr inbounds nuw i8, ptr %127, i64 48
@@ -1016,11 +1016,11 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang19SubobjectAdjustmentELb1EE9push_backER
 
 196:                                              ; preds = %188
   %197 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %185) #32
-  %.pre105 = load ptr, ptr %180, align 8, !tbaa !3
+  %.pre104 = load ptr, ptr %180, align 8, !tbaa !3
   br label %_ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit
 
 _ZNK5clang4Type5getAsINS_17MemberPointerTypeEEEPKT_v.exit: ; preds = %177, %188, %196
-  %198 = phi ptr [ %.pre105, %196 ], [ %181, %177 ], [ %181, %188 ]
+  %198 = phi ptr [ %.pre104, %196 ], [ %181, %177 ], [ %181, %188 ]
   %.1.i = phi ptr [ %197, %196 ], [ %185, %177 ], [ null, %188 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 2, ptr %6, align 8, !tbaa !48
@@ -1156,8 +1156,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr25isKnownToHaveBooleanValueE
   %31 = load ptr, ptr %30, align 8, !tbaa !3
   %32 = load i24, ptr %31, align 8
   %33 = and i24 %32, 196608
-  %.not73.i.i.i = icmp eq i24 %33, 0
-  br i1 %.not73.i.i.i, label %34, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %33, 0
+  br i1 %.not70.i.i.i, label %34, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -1426,8 +1426,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr25isFlexibleArrayMemberLikeE
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = load i24, ptr %33, align 8
   %35 = and i24 %34, 196608
-  %.not73.i.i.i = icmp eq i24 %35, 0
-  br i1 %.not73.i.i.i, label %36, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %35, 0
+  br i1 %.not70.i.i.i, label %36, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -2534,13 +2534,13 @@ _ZN12_GLOBAL__N_114getExprLocImplIN5clang20UnresolvedLookupExprEEENS1_14SourceLo
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define internal fastcc i32 @_ZN12_GLOBAL__N_114getExprLocImplIN5clang12InitListExprEEENS1_14SourceLocationEPKNS1_4ExprEMS4_KFS3_vE(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.0.copyload.i.i.i.i.i19.i = load i64, ptr %2, align 8
-  %3 = and i64 %.0.copyload.i.i.i.i.i19.i, 4
-  %.not.i20.i = icmp eq i64 %3, 0
-  %4 = and i64 %.0.copyload.i.i.i.i.i19.i, -8
-  %.not.not1821.i = icmp eq i64 %4, 0
-  %.not.not22.i = or i1 %.not.i20.i, %.not.not1821.i
-  br i1 %.not.not22.i, label %tailrecurse._crit_edge.i, label %tailrecurse.i
+  %.0.copyload.i.i.i.i.i18.i = load i64, ptr %2, align 8
+  %3 = and i64 %.0.copyload.i.i.i.i.i18.i, 4
+  %.not.i19.i = icmp eq i64 %3, 0
+  %4 = and i64 %.0.copyload.i.i.i.i.i18.i, -8
+  %.not.not1720.i = icmp eq i64 %4, 0
+  %.not.not21.i = or i1 %.not.i19.i, %.not.not1720.i
+  br i1 %.not.not21.i, label %tailrecurse._crit_edge.i, label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %1, %tailrecurse.i
   %5 = phi i64 [ %9, %tailrecurse.i ], [ %4, %1 ]
@@ -2550,8 +2550,8 @@ tailrecurse.i:                                    ; preds = %1, %tailrecurse.i
   %8 = and i64 %.0.copyload.i.i.i.i.i.i, 4
   %.not.i.i = icmp eq i64 %8, 0
   %9 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %.not.not18.i = icmp eq i64 %9, 0
-  %.not.not.i = or i1 %.not.i.i, %.not.not18.i
+  %.not.not17.i = icmp eq i64 %9, 0
+  %.not.not.i = or i1 %.not.i.i, %.not.not17.i
   br i1 %.not.not.i, label %tailrecurse._crit_edge.i, label %tailrecurse.i
 
 tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %1
@@ -2566,17 +2566,17 @@ tailrecurse._crit_edge.i:                         ; preds = %tailrecurse.i, %1
   %15 = load ptr, ptr %14, align 8, !tbaa !132
   %16 = getelementptr inbounds nuw i8, ptr %.tr.lcssa.i, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !137
-  %.not1323.i = icmp eq ptr %15, %17
-  br i1 %.not1323.i, label %_ZNK5clang12InitListExpr11getBeginLocEv.exit, label %.critedge.i
+  %.not1322.i = icmp eq ptr %15, %17
+  br i1 %.not1322.i, label %_ZNK5clang12InitListExpr11getBeginLocEv.exit, label %.critedge.i
 
 18:                                               ; preds = %.critedge.i
-  %19 = getelementptr inbounds nuw i8, ptr %.01024.i, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.01023.i, i64 8
   %.not13.i = icmp eq ptr %19, %17
   br i1 %.not13.i, label %_ZNK5clang12InitListExpr11getBeginLocEv.exit, label %.critedge.i, !llvm.loop !138
 
 .critedge.i:                                      ; preds = %13, %18
-  %.01024.i = phi ptr [ %19, %18 ], [ %15, %13 ]
-  %20 = load ptr, ptr %.01024.i, align 8, !tbaa !3
+  %.01023.i = phi ptr [ %19, %18 ], [ %15, %13 ]
+  %20 = load ptr, ptr %.01023.i, align 8, !tbaa !3
   %.not14.i = icmp eq ptr %20, null
   br i1 %.not14.i, label %18, label %21
 
@@ -2760,13 +2760,13 @@ define linkonce_odr hidden i32 @_ZNK5clang18ArraySubscriptExpr10getExprLocEv(ptr
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 16
   %14 = icmp ne i8 %13, 13
-  %.not.not24.i.i.i = icmp eq ptr %11, null
-  %.not.not.i.i.i = or i1 %.not.not24.i.i.i, %14
+  %.not.not21.i.i.i = icmp eq ptr %11, null
+  %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %14
   br i1 %.not.not.i.i.i, label %15, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i
 
 15:                                               ; preds = %1
   %16 = icmp ne i8 %13, 46
-  %.not13.not.i.i.i = or i1 %.not.not24.i.i.i, %16
+  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %16
   br i1 %.not13.not.i.i.i, label %30, label %17
 
 17:                                               ; preds = %15
@@ -2844,13 +2844,13 @@ define dso_local noundef range(i32 1, 3) i32 @_ZN5clang12ConstantExpr14getStorag
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 16
   %9 = icmp ne i8 %8, 13
-  %.not.not22.i = icmp eq ptr %6, null
-  %.not.not.i = or i1 %.not.not22.i, %9
+  %.not.not19.i = icmp eq ptr %6, null
+  %.not.not.i = or i1 %.not.not19.i, %9
   br i1 %.not.not.i, label %10, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit
 
 10:                                               ; preds = %2
   %11 = icmp ne i8 %8, 46
-  %.not12.not.i = or i1 %.not.not22.i, %11
+  %.not12.not.i = or i1 %.not.not19.i, %11
   br i1 %.not12.not.i, label %20, label %12
 
 12:                                               ; preds = %10
@@ -3248,68 +3248,68 @@ define dso_local void @_ZNK5clang12ConstantExpr17getResultAsAPSIntEv(ptr dead_on
   %3 = alloca %"class.llvm::APInt", align 8
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 1572864
-  %switch = icmp eq i32 %5, 1048576
-  br i1 %switch, label %6, label %18
+  %6 = icmp eq i32 %5, 1048576
+  br i1 %6, label %7, label %19
 
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %10 = load i32, ptr %9, align 8, !tbaa !150
-  store i32 %10, ptr %8, align 8, !tbaa !150
-  %11 = icmp ult i32 %10, 65
-  br i1 %11, label %12, label %14
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %11 = load i32, ptr %10, align 8, !tbaa !150
+  store i32 %11, ptr %9, align 8, !tbaa !150
+  %12 = icmp ult i32 %11, 65
+  br i1 %12, label %13, label %15
 
-12:                                               ; preds = %6
-  %13 = load i64, ptr %7, align 8, !tbaa !25
-  store i64 %13, ptr %0, align 8, !tbaa !25
+13:                                               ; preds = %7
+  %14 = load i64, ptr %8, align 8, !tbaa !25
+  store i64 %14, ptr %0, align 8, !tbaa !25
   br label %_ZN4llvm6APSIntC2ERKS0_.exit
 
-14:                                               ; preds = %6
-  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(13) %7) #32
+15:                                               ; preds = %7
+  tail call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %0, ptr noundef nonnull align 8 dereferenceable(13) %8) #32
   br label %_ZN4llvm6APSIntC2ERKS0_.exit
 
-_ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %12, %14
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %17 = load i8, ptr %16, align 4, !tbaa !168, !range !42, !noundef !43
-  store i8 %17, ptr %15, align 4, !tbaa !168
-  br label %36
+_ZN4llvm6APSIntC2ERKS0_.exit:                     ; preds = %13, %15
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %18 = load i8, ptr %17, align 4, !tbaa !168, !range !42, !noundef !43
+  store i8 %18, ptr %16, align 4, !tbaa !168
+  br label %37
 
-18:                                               ; preds = %2
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %20 = load i16, ptr %19, align 4
-  %21 = and i16 %20, 127
-  %22 = zext nneg i16 %21 to i32
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %24 = load i64, ptr %23, align 8, !tbaa !167
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %22, ptr %25, align 8, !tbaa !150
-  %26 = icmp samesign ult i16 %21, 65
-  br i1 %26, label %_ZN4llvm5APIntD2Ev.exit, label %27
+19:                                               ; preds = %2
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %21 = load i16, ptr %20, align 4
+  %22 = and i16 %21, 127
+  %23 = zext nneg i16 %22 to i32
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %25 = load i64, ptr %24, align 8, !tbaa !167
+  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %23, ptr %26, align 8, !tbaa !150
+  %27 = icmp samesign ult i16 %22, 65
+  br i1 %27, label %_ZN4llvm5APIntD2Ev.exit, label %28
 
-27:                                               ; preds = %18
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef %24, i1 noundef zeroext false) #32
+28:                                               ; preds = %19
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %3, i64 noundef %25, i1 noundef zeroext false) #32
   %.pre = load i32, ptr %1, align 8
-  %.pre1 = load i32, ptr %25, align 8, !tbaa !150
+  %.pre1 = load i32, ptr %26, align 8, !tbaa !150
   %.pre2 = load i64, ptr %3, align 8
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %18, %27
-  %28 = phi i64 [ %.pre2, %27 ], [ %24, %18 ]
-  %29 = phi i32 [ %.pre1, %27 ], [ %22, %18 ]
-  %30 = phi i32 [ %.pre, %27 ], [ %4, %18 ]
-  %31 = lshr i32 %30, 25
-  %32 = trunc nuw nsw i32 %31 to i8
-  %33 = and i8 %32, 1
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %29, ptr %34, align 8, !tbaa !150
-  store i64 %28, ptr %0, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i8 %33, ptr %35, align 4, !tbaa !168
-  br label %36
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %19, %28
+  %29 = phi i64 [ %.pre2, %28 ], [ %25, %19 ]
+  %30 = phi i32 [ %.pre1, %28 ], [ %23, %19 ]
+  %31 = phi i32 [ %.pre, %28 ], [ %4, %19 ]
+  %32 = lshr i32 %31, 25
+  %33 = trunc nuw nsw i32 %32 to i8
+  %34 = and i8 %33, 1
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %30, ptr %35, align 8, !tbaa !150
+  store i64 %29, ptr %0, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i8 %34, ptr %36, align 4, !tbaa !168
+  br label %37
 
-36:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %_ZN4llvm6APSIntC2ERKS0_.exit
+37:                                               ; preds = %_ZN4llvm5APIntD2Ev.exit, %_ZN4llvm6APSIntC2ERKS0_.exit
   ret void
 }
 
@@ -9445,8 +9445,8 @@ define dso_local noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr no
   %2 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 511
-  %.not111 = icmp eq i16 %4, 9
-  br i1 %.not111, label %.lr.ph, label %.preheader.preheader
+  %.not108 = icmp eq i16 %4, 9
+  br i1 %.not108, label %.lr.ph, label %.preheader.preheader
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %5 = phi ptr [ %8, %.lr.ph ], [ %2, %1 ]
@@ -9473,38 +9473,38 @@ define dso_local noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr no
   %14 = load i32, ptr %.234, align 8
   %15 = and i32 %14, 32505856
   %16 = icmp eq i32 %15, 0
-  br i1 %16, label %23, label %.split.loop.exit91, !llvm.loop !763
+  br i1 %16, label %23, label %.split.loop.exit88, !llvm.loop !763
 
 17:                                               ; preds = %.preheader
   %18 = and i16 %11, 511
-  %.not82 = icmp eq i16 %18, 4
-  br i1 %.not82, label %19, label %.split.loop.exit94
+  %.not79 = icmp eq i16 %18, 4
+  br i1 %.not79, label %19, label %.split.loop.exit91
 
 19:                                               ; preds = %17
   %20 = load i32, ptr %.234, align 8
   %21 = lshr i32 %20, 19
   %22 = and i32 %21, 31
   %.off = add nsw i32 %22, -4
-  %switch78 = icmp ult i32 %.off, 3
-  br i1 %switch78, label %23, label %.split.loop.exit
+  %switch = icmp ult i32 %.off, 3
+  br i1 %switch, label %23, label %.split.loop.exit
 
 23:                                               ; preds = %19, %13
-  %.sink100 = phi i64 [ 24, %13 ], [ 16, %19 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.234, i64 %.sink100
+  %.sink97 = phi i64 [ 24, %13 ], [ 16, %19 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.234, i64 %.sink97
   %25 = load ptr, ptr %24, align 8, !tbaa !3
   %26 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %25) #31
   br label %.preheader
 
 .split.loop.exit:                                 ; preds = %19
   %27 = trunc i32 %20 to i16
-  br label %.split.loop.exit94
+  br label %.split.loop.exit91
 
-.split.loop.exit91:                               ; preds = %13
+.split.loop.exit88:                               ; preds = %13
   %28 = trunc i32 %14 to i16
-  br label %.split.loop.exit94
+  br label %.split.loop.exit91
 
-.split.loop.exit94:                               ; preds = %17, %.split.loop.exit91, %.split.loop.exit
-  %29 = phi i16 [ %27, %.split.loop.exit ], [ %28, %.split.loop.exit91 ], [ %11, %17 ]
+.split.loop.exit91:                               ; preds = %17, %.split.loop.exit88, %.split.loop.exit
+  %29 = phi i16 [ %27, %.split.loop.exit ], [ %28, %.split.loop.exit88 ], [ %11, %17 ]
   %30 = and i16 %29, 511
   switch i16 %30, label %34 [
     i16 73, label %.sink.split
@@ -9512,17 +9512,17 @@ define dso_local noundef ptr @_ZN5clang4Expr25getReferencedDeclOfCalleeEv(ptr no
     i16 119, label %.sink.split
   ]
 
-31:                                               ; preds = %.split.loop.exit94
+31:                                               ; preds = %.split.loop.exit91
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.split.loop.exit94, %.split.loop.exit94, %31
-  %.sink102 = phi i64 [ 24, %31 ], [ 16, %.split.loop.exit94 ], [ 16, %.split.loop.exit94 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.234, i64 %.sink102
+.sink.split:                                      ; preds = %.split.loop.exit91, %.split.loop.exit91, %31
+  %.sink99 = phi i64 [ 24, %31 ], [ 16, %.split.loop.exit91 ], [ 16, %.split.loop.exit91 ]
+  %32 = getelementptr inbounds nuw i8, ptr %.234, i64 %.sink99
   %33 = load ptr, ptr %32, align 8, !tbaa !61
   br label %34
 
-34:                                               ; preds = %.sink.split, %.split.loop.exit94
-  %.1 = phi ptr [ null, %.split.loop.exit94 ], [ %33, %.sink.split ]
+34:                                               ; preds = %.sink.split, %.split.loop.exit91
+  %.1 = phi ptr [ null, %.split.loop.exit91 ], [ %33, %.sink.split ]
   ret ptr %.1
 }
 
@@ -9582,8 +9582,8 @@ define dso_local noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef 
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = load i24, ptr %30, align 8
   %32 = and i24 %31, 196608
-  %.not73.i = icmp eq i24 %32, 0
-  br i1 %.not73.i, label %33, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
+  %.not70.i = icmp eq i24 %32, 0
+  br i1 %.not70.i, label %33, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.079.i, i64 48
@@ -9868,8 +9868,8 @@ _ZNK5clang4Type25isSpecificPlaceholderTypeEj.exit: ; preds = %_ZNK5clang4Type5ge
   %72 = load ptr, ptr %71, align 8, !tbaa !3
   %73 = load i24, ptr %72, align 8
   %74 = and i24 %73, 196608
-  %.not73.i.i.i = icmp eq i24 %74, 0
-  br i1 %.not73.i.i.i, label %75, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %74, 0
+  br i1 %.not70.i.i.i, label %75, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -9974,8 +9974,8 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %70, %56, %.lr.ph.i.
   %124 = load ptr, ptr %123, align 8, !tbaa !3
   %125 = load i24, ptr %124, align 8
   %126 = and i24 %125, 196608
-  %.not73.i.i.i40 = icmp eq i24 %126, 0
-  br i1 %.not73.i.i.i40, label %127, label %_ZNK5clang4Expr12IgnoreParensEv.exit42
+  %.not70.i.i.i40 = icmp eq i24 %126, 0
+  br i1 %.not70.i.i.i40, label %127, label %_ZNK5clang4Expr12IgnoreParensEv.exit42
 
 127:                                              ; preds = %122
   %128 = getelementptr inbounds nuw i8, ptr %.068.i.i.i31, i64 48
@@ -10111,7 +10111,7 @@ define dso_local i64 @_ZN5clang4Expr19findBoundMemberTypeEPKS0_(ptr noundef read
   %8 = load i32, ptr %.068.i.i.i, align 8
   %9 = and i32 %8, 16252928
   %10 = icmp eq i32 %9, 6291456
-  br i1 %10, label %11, label %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit30
+  br i1 %10, label %11, label %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit27
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 16
@@ -10142,8 +10142,8 @@ define dso_local i64 @_ZN5clang4Expr19findBoundMemberTypeEPKS0_(ptr noundef read
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = load i24, ptr %30, align 8
   %32 = and i24 %31, 196608
-  %.not73.i.i.i = icmp eq i24 %32, 0
-  br i1 %.not73.i.i.i, label %33, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %32, 0
+  br i1 %.not70.i.i.i, label %33, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -10182,13 +10182,13 @@ _ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit: ; preds = %42
   %47 = trunc i32 %43 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
-_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit30: ; preds = %7
+_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit27: ; preds = %7
   %48 = trunc i32 %8 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
-_ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %28, %14, %.lr.ph.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit30, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge
-  %49 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %47, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %48, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit30 ], [ %2, %.lr.ph.i.i.i ], [ %2, %14 ], [ %2, %28 ]
-  %.1.i3.i.i = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit30 ], [ %.068.i.i.i, %.lr.ph.i.i.i ], [ %.068.i.i.i, %14 ], [ %.068.i.i.i, %28 ]
+_ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %28, %14, %.lr.ph.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit27, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge
+  %49 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %47, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %48, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit27 ], [ %2, %.lr.ph.i.i.i ], [ %2, %14 ], [ %2, %28 ]
+  %.1.i3.i.i = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit27 ], [ %.068.i.i.i, %.lr.ph.i.i.i ], [ %.068.i.i.i, %14 ], [ %.068.i.i.i, %28 ]
   %50 = and i16 %49, 511
   %51 = icmp eq i16 %50, 48
   br i1 %51, label %52, label %56
@@ -10209,8 +10209,8 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %28, %14, %.lr.ph.i.
   %59 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !3
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %.sroa.0.0.copyload.i14 = load i64, ptr %61, align 8, !tbaa !25
-  %62 = and i64 %.sroa.0.0.copyload.i14, -16
+  %.sroa.0.0.copyload.i13 = load i64, ptr %61, align 8, !tbaa !25
+  %62 = and i64 %.sroa.0.0.copyload.i13, -16
   %63 = inttoptr i64 %62 to ptr
   %64 = load ptr, ptr %63, align 16, !tbaa !26
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -10225,26 +10225,26 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %28, %14, %.lr.ph.i.
 69:                                               ; preds = %67, %58
   %.1.i = phi ptr [ %68, %67 ], [ %64, %58 ]
   %70 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
-  %.sroa.0.0.copyload.i15 = load i64, ptr %70, align 16, !tbaa !25
+  %.sroa.0.0.copyload.i14 = load i64, ptr %70, align 16, !tbaa !25
   br label %71
 
 71:                                               ; preds = %56, %69, %52
-  %.sroa.016.1 = phi i64 [ %.sroa.0.0.copyload.i15, %69 ], [ %.sroa.0.0.copyload.i, %52 ], [ 0, %56 ]
-  ret i64 %.sroa.016.1
+  %.sroa.015.1 = phi i64 [ %.sroa.0.0.copyload.i14, %69 ], [ %.sroa.0.0.copyload.i, %52 ], [ 0, %56 ]
+  ret i64 %.sroa.015.1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local { ptr, ptr } @_ZNK5clang8CallExpr19getUnusedResultAttrERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(23216) %1) local_unnamed_addr #1 align 2 {
   %3 = tail call noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr noundef nonnull align 8 dereferenceable(24) %0)
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %.loopexit86, label %4
+  br i1 %.not, label %.loopexit80, label %4
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %6 = load i32, ptr %5, align 4
   %7 = and i32 %6, 256
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.loopexit86, label %8
+  br i1 %.not.i, label %.loopexit80, label %8
 
 8:                                                ; preds = %4
   %9 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %3) #32
@@ -10255,7 +10255,7 @@ define dso_local { ptr, ptr } @_ZNK5clang8CallExpr19getUnusedResultAttrERKNS_10A
   %.idx.i.i = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i, label %.loopexit86, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i, label %.loopexit80, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %8, %19
   %.sroa.07.1.i.i.i.i = phi ptr [ %20, %19 ], [ %10, %8 ]
@@ -10268,11 +10268,11 @@ define dso_local { ptr, ptr } @_ZNK5clang8CallExpr19getUnusedResultAttrERKNS_10A
 19:                                               ; preds = %.lr.ph.i.i.i.i.i
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %20, %14
-  br i1 %.not.i.i.i.i.i, label %.loopexit86, label %.lr.ph.i.i.i.i.i, !llvm.loop !773
+  br i1 %.not.i.i.i.i.i, label %.loopexit80, label %.lr.ph.i.i.i.i.i, !llvm.loop !773
 
 _ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i
   %.not5.i.i = icmp eq ptr %.sroa.07.1.i.i.i.i, %14
-  br i1 %.not5.i.i, label %.loopexit86, label %21
+  br i1 %.not5.i.i, label %.loopexit80, label %21
 
 21:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i
   %22 = load ptr, ptr %10, align 8, !tbaa !208
@@ -10290,21 +10290,21 @@ _ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallV
   %31 = icmp eq i16 %30, 388
   br i1 %31, label %_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i, !llvm.loop !774
 
-.loopexit86:                                      ; preds = %19, %2, %4, %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %8
+.loopexit80:                                      ; preds = %19, %2, %4, %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i, %8
   %32 = tail call i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1)
   %33 = and i64 %32, -16
   %34 = inttoptr i64 %33 to ptr
   %35 = load ptr, ptr %34, align 16, !tbaa !26
   %36 = tail call noundef ptr @_ZNK5clang4Type12getAsTagDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %35) #32
   %.not19 = icmp eq ptr %36, null
-  br i1 %.not19, label %.loopexit84, label %37
+  br i1 %.not19, label %.loopexit78, label %37
 
-37:                                               ; preds = %.loopexit86
+37:                                               ; preds = %.loopexit80
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = and i32 %39, 256
-  %.not.i31 = icmp eq i32 %40, 0
-  br i1 %.not.i31, label %.loopexit84, label %41
+  %.not.i29 = icmp eq i32 %40, 0
+  br i1 %.not.i29, label %.loopexit78, label %41
 
 41:                                               ; preds = %37
   %42 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %36) #32
@@ -10312,62 +10312,62 @@ _ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallV
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !51
   %46 = zext i32 %45 to i64
-  %.idx.i.i32 = shl nuw nsw i64 %46, 3
-  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i32
-  %.not.i.i33 = icmp eq i32 %45, 0
-  br i1 %.not.i.i33, label %.loopexit84, label %.lr.ph.i.i.i.i.i34
+  %.idx.i.i30 = shl nuw nsw i64 %46, 3
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i30
+  %.not.i.i31 = icmp eq i32 %45, 0
+  br i1 %.not.i.i31, label %.loopexit78, label %.lr.ph.i.i.i.i.i32
 
-.lr.ph.i.i.i.i.i34:                               ; preds = %41, %52
-  %.sroa.07.1.i.i.i.i35 = phi ptr [ %53, %52 ], [ %43, %41 ]
-  %48 = load ptr, ptr %.sroa.07.1.i.i.i.i35, align 8, !tbaa !208
+.lr.ph.i.i.i.i.i32:                               ; preds = %41, %52
+  %.sroa.07.1.i.i.i.i33 = phi ptr [ %53, %52 ], [ %43, %41 ]
+  %48 = load ptr, ptr %.sroa.07.1.i.i.i.i33, align 8, !tbaa !208
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 32
   %50 = load i16, ptr %49, align 8
   %51 = icmp eq i16 %50, 388
-  br i1 %51, label %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i37, label %52
+  br i1 %51, label %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i35, label %52
 
-52:                                               ; preds = %.lr.ph.i.i.i.i.i34
-  %53 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i35, i64 8
-  %.not.i.i.i.i.i36 = icmp eq ptr %53, %47
-  br i1 %.not.i.i.i.i.i36, label %.loopexit84, label %.lr.ph.i.i.i.i.i34, !llvm.loop !773
+52:                                               ; preds = %.lr.ph.i.i.i.i.i32
+  %53 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i33, i64 8
+  %.not.i.i.i.i.i34 = icmp eq ptr %53, %47
+  br i1 %.not.i.i.i.i.i34, label %.loopexit78, label %.lr.ph.i.i.i.i.i32, !llvm.loop !773
 
-_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i37: ; preds = %.lr.ph.i.i.i.i.i34
-  %.not5.i.i38 = icmp eq ptr %.sroa.07.1.i.i.i.i35, %47
-  br i1 %.not5.i.i38, label %.loopexit84, label %54
+_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i35: ; preds = %.lr.ph.i.i.i.i.i32
+  %.not5.i.i36 = icmp eq ptr %.sroa.07.1.i.i.i.i33, %47
+  br i1 %.not5.i.i36, label %.loopexit78, label %54
 
-54:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i37
+54:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i35
   %55 = load ptr, ptr %43, align 8, !tbaa !208
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = load i16, ptr %56, align 8
   %58 = icmp eq i16 %57, 388
-  br i1 %58, label %_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i39
+  br i1 %58, label %_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i37
 
-.lr.ph.i.i.i.i39:                                 ; preds = %54, %.lr.ph.i.i.i.i39
-  %59 = phi ptr [ %60, %.lr.ph.i.i.i.i39 ], [ %43, %54 ]
+.lr.ph.i.i.i.i37:                                 ; preds = %54, %.lr.ph.i.i.i.i37
+  %59 = phi ptr [ %60, %.lr.ph.i.i.i.i37 ], [ %43, %54 ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !208
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = load i16, ptr %62, align 8
   %64 = icmp eq i16 %63, 388
-  br i1 %64, label %_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i39, !llvm.loop !774
+  br i1 %64, label %_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit, label %.lr.ph.i.i.i.i37, !llvm.loop !774
 
-.loopexit84:                                      ; preds = %52, %.loopexit86, %37, %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i37, %41
+.loopexit78:                                      ; preds = %52, %.loopexit80, %37, %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i35, %41
   %65 = tail call i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(23216) %1)
   %66 = and i64 %65, -16
   %67 = inttoptr i64 %66 to ptr
   %68 = load ptr, ptr %67, align 16, !tbaa !26
   %69 = tail call noundef ptr @_ZNK5clang4Type5getAsINS_11TypedefTypeEEEPKT_v(ptr noundef nonnull align 16 dereferenceable(24) %68) #32
-  %.not2194 = icmp eq ptr %69, null
-  br i1 %.not2194, label %_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit, label %.lr.ph
+  %.not2188 = icmp eq ptr %69, null
+  br i1 %.not2188, label %_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.loopexit84, %.critedge28
-  %.095 = phi ptr [ %104, %.critedge28 ], [ %69, %.loopexit84 ]
-  %70 = getelementptr inbounds nuw i8, ptr %.095, i64 32
+.lr.ph:                                           ; preds = %.loopexit78, %.critedge27
+  %.089 = phi ptr [ %104, %.critedge27 ], [ %69, %.loopexit78 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.089, i64 32
   %71 = load ptr, ptr %70, align 16, !tbaa !775
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 28
   %73 = load i32, ptr %72, align 4
   %74 = and i32 %73, 256
-  %.not.i42 = icmp eq i32 %74, 0
-  br i1 %.not.i42, label %.critedge28, label %75
+  %.not.i40 = icmp eq i32 %74, 0
+  br i1 %.not.i40, label %.critedge27, label %75
 
 75:                                               ; preds = %.lr.ph
   %76 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %71) #32
@@ -10375,47 +10375,47 @@ _ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallV
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %79 = load i32, ptr %78, align 8, !tbaa !51
   %80 = zext i32 %79 to i64
-  %.idx.i.i43 = shl nuw nsw i64 %80, 3
-  %81 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx.i.i43
-  %.not.i.i44 = icmp eq i32 %79, 0
-  br i1 %.not.i.i44, label %.critedge28, label %.lr.ph.i.i.i.i.i45
+  %.idx.i.i41 = shl nuw nsw i64 %80, 3
+  %81 = getelementptr inbounds nuw i8, ptr %77, i64 %.idx.i.i41
+  %.not.i.i42 = icmp eq i32 %79, 0
+  br i1 %.not.i.i42, label %.critedge27, label %.lr.ph.i.i.i.i.i43
 
-.lr.ph.i.i.i.i.i45:                               ; preds = %75, %86
-  %.sroa.07.1.i.i.i.i46 = phi ptr [ %87, %86 ], [ %77, %75 ]
-  %82 = load ptr, ptr %.sroa.07.1.i.i.i.i46, align 8, !tbaa !208
+.lr.ph.i.i.i.i.i43:                               ; preds = %75, %86
+  %.sroa.07.1.i.i.i.i44 = phi ptr [ %87, %86 ], [ %77, %75 ]
+  %82 = load ptr, ptr %.sroa.07.1.i.i.i.i44, align 8, !tbaa !208
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
   %84 = load i16, ptr %83, align 8
   %85 = icmp eq i16 %84, 388
-  br i1 %85, label %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i48, label %86
+  br i1 %85, label %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i46, label %86
 
-86:                                               ; preds = %.lr.ph.i.i.i.i.i45
-  %87 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i46, i64 8
-  %.not.i.i.i.i.i47 = icmp eq ptr %87, %81
-  br i1 %.not.i.i.i.i.i47, label %.critedge28, label %.lr.ph.i.i.i.i.i45, !llvm.loop !773
+86:                                               ; preds = %.lr.ph.i.i.i.i.i43
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i44, i64 8
+  %.not.i.i.i.i.i45 = icmp eq ptr %87, %81
+  br i1 %.not.i.i.i.i.i45, label %.critedge27, label %.lr.ph.i.i.i.i.i43, !llvm.loop !773
 
-_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i48: ; preds = %.lr.ph.i.i.i.i.i45
-  %.not5.i.i49 = icmp eq ptr %.sroa.07.1.i.i.i.i46, %81
-  br i1 %.not5.i.i49, label %.critedge28, label %88
+_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i46: ; preds = %.lr.ph.i.i.i.i.i43
+  %.not5.i.i47 = icmp eq ptr %.sroa.07.1.i.i.i.i44, %81
+  br i1 %.not5.i.i47, label %.critedge27, label %88
 
-88:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i48
-  %89 = getelementptr inbounds nuw i8, ptr %.095, i64 32
+88:                                               ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i46
+  %89 = getelementptr inbounds nuw i8, ptr %.089, i64 32
   %90 = load ptr, ptr %77, align 8, !tbaa !208
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load i16, ptr %91, align 8
   %93 = icmp eq i16 %92, 388
-  br i1 %93, label %.loopexit, label %.lr.ph.i.i.i.i50
+  br i1 %93, label %.loopexit, label %.lr.ph.i.i.i.i48
 
-.lr.ph.i.i.i.i50:                                 ; preds = %88, %.lr.ph.i.i.i.i50
-  %94 = phi ptr [ %95, %.lr.ph.i.i.i.i50 ], [ %77, %88 ]
+.lr.ph.i.i.i.i48:                                 ; preds = %88, %.lr.ph.i.i.i.i48
+  %94 = phi ptr [ %95, %.lr.ph.i.i.i.i48 ], [ %77, %88 ]
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !208
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 32
   %98 = load i16, ptr %97, align 8
   %99 = icmp eq i16 %98, 388
-  br i1 %99, label %.loopexit, label %.lr.ph.i.i.i.i50, !llvm.loop !774
+  br i1 %99, label %.loopexit, label %.lr.ph.i.i.i.i48, !llvm.loop !774
 
-.critedge28:                                      ; preds = %86, %.lr.ph, %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i48, %75
-  %100 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %.095) #32
+.critedge27:                                      ; preds = %86, %.lr.ph, %_ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.i.i46, %75
+  %100 = tail call i64 @_ZNK5clang11TypedefType7desugarEv(ptr noundef nonnull align 16 dereferenceable(48) %.089) #32
   %101 = and i64 %100, -16
   %102 = inttoptr i64 %101 to ptr
   %103 = load ptr, ptr %102, align 16, !tbaa !26
@@ -10423,15 +10423,15 @@ _ZN5clangneENS_22specific_attr_iteratorINS_20WarnUnusedResultAttrEN4llvm11SmallV
   %.not21 = icmp eq ptr %104, null
   br i1 %.not21, label %_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit, label %.lr.ph, !llvm.loop !779
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i.i50, %88
-  %105 = phi ptr [ %90, %88 ], [ %96, %.lr.ph.i.i.i.i50 ]
+.loopexit:                                        ; preds = %.lr.ph.i.i.i.i48, %88
+  %105 = phi ptr [ %90, %88 ], [ %96, %.lr.ph.i.i.i.i48 ]
   %106 = load ptr, ptr %89, align 16, !tbaa !775
   br label %_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit
 
-_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i39, %.critedge28, %.loopexit84, %.loopexit, %54, %21
-  %.sroa.5.1 = phi ptr [ %105, %.loopexit ], [ %22, %21 ], [ %55, %54 ], [ null, %.loopexit84 ], [ null, %.critedge28 ], [ %61, %.lr.ph.i.i.i.i39 ], [ %28, %.lr.ph.i.i.i.i ]
-  %.sroa.060.1 = phi ptr [ %106, %.loopexit ], [ null, %21 ], [ %36, %54 ], [ null, %.loopexit84 ], [ null, %.critedge28 ], [ %36, %.lr.ph.i.i.i.i39 ], [ null, %.lr.ph.i.i.i.i ]
-  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.060.1, 0
+_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v.exit: ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i37, %.critedge27, %.loopexit78, %.loopexit, %54, %21
+  %.sroa.5.1 = phi ptr [ %105, %.loopexit ], [ %22, %21 ], [ %55, %54 ], [ null, %.loopexit78 ], [ null, %.critedge27 ], [ %61, %.lr.ph.i.i.i.i37 ], [ %28, %.lr.ph.i.i.i.i ]
+  %.sroa.058.1 = phi ptr [ %106, %.loopexit ], [ null, %21 ], [ %36, %54 ], [ null, %.loopexit78 ], [ null, %.critedge27 ], [ %36, %.lr.ph.i.i.i.i37 ], [ null, %.lr.ph.i.i.i.i ]
+  %.fca.0.insert = insertvalue { ptr, ptr } poison, ptr %.sroa.058.1, 0
   %.fca.1.insert = insertvalue { ptr, ptr } %.fca.0.insert, ptr %.sroa.5.1, 1
   ret { ptr, ptr } %.fca.1.insert
 }
@@ -10475,24 +10475,24 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr
   %19 = load i32, ptr %.234.i.i, align 8
   %20 = and i32 %19, 32505856
   %21 = icmp eq i32 %20, 0
-  br i1 %21, label %28, label %.split.loop.exit91.i.i, !llvm.loop !763
+  br i1 %21, label %28, label %.split.loop.exit88.i.i, !llvm.loop !763
 
 22:                                               ; preds = %.preheader.i.i
   %23 = and i16 %16, 511
-  %.not82.i.i = icmp eq i16 %23, 4
-  br i1 %.not82.i.i, label %24, label %.split.loop.exit94.i.i
+  %.not79.i.i = icmp eq i16 %23, 4
+  br i1 %.not79.i.i, label %24, label %.split.loop.exit91.i.i
 
 24:                                               ; preds = %22
   %25 = load i32, ptr %.234.i.i, align 8
   %26 = lshr i32 %25, 19
   %27 = and i32 %26, 31
   %.off.i.i = add nsw i32 %27, -4
-  %switch78.i.i = icmp ult i32 %.off.i.i, 3
-  br i1 %switch78.i.i, label %28, label %.split.loop.exit.i.i
+  %switch.i.i = icmp ult i32 %.off.i.i, 3
+  br i1 %switch.i.i, label %28, label %.split.loop.exit.i.i
 
 28:                                               ; preds = %24, %18
-  %.sink100.i.i = phi i64 [ 24, %18 ], [ 16, %24 ]
-  %29 = getelementptr inbounds nuw i8, ptr %.234.i.i, i64 %.sink100.i.i
+  %.sink97.i.i = phi i64 [ 24, %18 ], [ 16, %24 ]
+  %29 = getelementptr inbounds nuw i8, ptr %.234.i.i, i64 %.sink97.i.i
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %30) #31
   %.pre.i = load i16, ptr %31, align 8
@@ -10500,14 +10500,14 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr
 
 .split.loop.exit.i.i:                             ; preds = %24
   %32 = trunc i32 %25 to i16
-  br label %.split.loop.exit94.i.i
+  br label %.split.loop.exit91.i.i
 
-.split.loop.exit91.i.i:                           ; preds = %18
+.split.loop.exit88.i.i:                           ; preds = %18
   %33 = trunc i32 %19 to i16
-  br label %.split.loop.exit94.i.i
+  br label %.split.loop.exit91.i.i
 
-.split.loop.exit94.i.i:                           ; preds = %22, %.split.loop.exit91.i.i, %.split.loop.exit.i.i
-  %34 = phi i16 [ %32, %.split.loop.exit.i.i ], [ %33, %.split.loop.exit91.i.i ], [ %16, %22 ]
+.split.loop.exit91.i.i:                           ; preds = %22, %.split.loop.exit88.i.i, %.split.loop.exit.i.i
+  %34 = phi i16 [ %32, %.split.loop.exit.i.i ], [ %33, %.split.loop.exit88.i.i ], [ %16, %22 ]
   %35 = and i16 %34, 511
   switch i16 %35, label %_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit [
     i16 73, label %.sink.split.i.i
@@ -10515,17 +10515,17 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr
     i16 119, label %.sink.split.i.i
   ]
 
-36:                                               ; preds = %.split.loop.exit94.i.i
+36:                                               ; preds = %.split.loop.exit91.i.i
   br label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %36, %.split.loop.exit94.i.i, %.split.loop.exit94.i.i
-  %.sink102.i.i = phi i64 [ 24, %36 ], [ 16, %.split.loop.exit94.i.i ], [ 16, %.split.loop.exit94.i.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %.234.i.i, i64 %.sink102.i.i
+.sink.split.i.i:                                  ; preds = %36, %.split.loop.exit91.i.i, %.split.loop.exit91.i.i
+  %.sink99.i.i = phi i64 [ 24, %36 ], [ 16, %.split.loop.exit91.i.i ], [ 16, %.split.loop.exit91.i.i ]
+  %37 = getelementptr inbounds nuw i8, ptr %.234.i.i, i64 %.sink99.i.i
   %38 = load ptr, ptr %37, align 8, !tbaa !61
   br label %_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit
 
-_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit: ; preds = %.split.loop.exit94.i.i, %.sink.split.i.i
-  %.1.i.i = phi ptr [ null, %.split.loop.exit94.i.i ], [ %38, %.sink.split.i.i ]
+_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit: ; preds = %.split.loop.exit91.i.i, %.sink.split.i.i
+  %.1.i.i = phi ptr [ null, %.split.loop.exit91.i.i ], [ %38, %.sink.split.i.i ]
   ret ptr %.1.i.i
 }
 
@@ -11388,8 +11388,8 @@ define dso_local i32 @_ZNK5clang10MemberExpr11getBeginLocEv(ptr noundef nonnull 
 18:                                               ; preds = %10, %.preheader.i
   %19 = phi i16 [ %14, %10 ], [ %5, %.preheader.i ]
   %20 = and i16 %19, 511
-  %.not75.i.i = icmp eq i16 %20, 4
-  br i1 %.not75.i.i, label %21, label %29
+  %.not68.i.i = icmp eq i16 %20, 4
+  br i1 %.not68.i.i, label %21, label %29
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %.026.i.i, align 8
@@ -12570,13 +12570,13 @@ define dso_local noundef zeroext i1 @_ZN5clang14BinaryOperator32isNullPointerAri
 
 27:                                               ; preds = %5
   %28 = icmp ne i8 %26, 13
-  %.not.not24.i = icmp eq ptr %24, null
-  %.not.not.i = or i1 %.not.not24.i, %28
+  %.not.not21.i = icmp eq ptr %24, null
+  %.not.not.i = or i1 %.not.not21.i, %28
   br i1 %.not.not.i, label %29, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 29:                                               ; preds = %27
   %30 = icmp ne i8 %26, 46
-  %.not13.not.i = or i1 %.not.not24.i, %30
+  %.not13.not.i = or i1 %.not.not21.i, %30
   br i1 %.not13.not.i, label %44, label %31
 
 31:                                               ; preds = %29
@@ -12708,9 +12708,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %.tr = phi ptr [ %0, %3 ], [ %.tr.be, %tailrecurse.backedge ]
   %7 = load i24, ptr %.tr, align 8
   %8 = and i24 %7, 131072
-  %.not293 = icmp eq i24 %8, 0
+  %.not288 = icmp eq i24 %8, 0
   %9 = trunc i24 %7 to i16
-  br i1 %.not293, label %25, label %10
+  br i1 %.not288, label %25, label %10
 
 10:                                               ; preds = %tailrecurse
   %11 = load ptr, ptr %6, align 8, !tbaa !228
@@ -12732,8 +12732,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 17:                                               ; preds = %16
   %18 = and i24 %7, 65536
-  %.not294 = icmp eq i24 %18, 0
-  br i1 %.not294, label %19, label %.critedge
+  %.not289 = icmp eq i24 %18, 0
+  br i1 %.not289, label %19, label %.critedge
 
 19:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
@@ -12760,14 +12760,14 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 32:                                               ; preds = %28
   %33 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.sroa.0.0.copyload.i183 = load i64, ptr %33, align 8, !tbaa !25
-  %34 = and i64 %.sroa.0.0.copyload.i183, -16
+  %.sroa.0.0.copyload.i181 = load i64, ptr %33, align 8, !tbaa !25
+  %34 = and i64 %.sroa.0.0.copyload.i181, -16
   %35 = inttoptr i64 %34 to ptr
   %36 = load ptr, ptr %35, align 16, !tbaa !26
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i8, ptr %37, align 16
   %.not.i = icmp eq i8 %38, 41
-  br i1 %.not.i, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread252, label %39
+  br i1 %.not.i, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread250, label %39
 
 39:                                               ; preds = %32
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -12783,13 +12783,13 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit: ; preds = %39
   %47 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %36) #32
   %.not162 = icmp eq ptr %47, null
-  br i1 %.not162, label %.critedge15.thread, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread252
+  br i1 %.not162, label %.critedge15.thread, label %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread250
 
-_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread252: ; preds = %32, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit
-  %.1.i255 = phi ptr [ %47, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ %36, %32 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.1.i255, i64 32
-  %.sroa.0.0.copyload.i185 = load i64, ptr %48, align 16, !tbaa !25
-  %49 = and i64 %.sroa.0.0.copyload.i185, -16
+_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread250: ; preds = %32, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit
+  %.1.i253 = phi ptr [ %47, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit ], [ %36, %32 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.1.i253, i64 32
+  %.sroa.0.0.copyload.i183 = load i64, ptr %48, align 16, !tbaa !25
+  %49 = and i64 %.sroa.0.0.copyload.i183, -16
   %50 = inttoptr i64 %49 to ptr
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %51, align 8
@@ -12797,16 +12797,16 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread252: ; preds = %32, %_
   %.not.i.i = icmp eq i64 %52, 0
   br i1 %.not.i.i, label %_ZNK5clang8QualType13getQualifiersEv.exit, label %53
 
-53:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread252
+53:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread250
   %54 = and i64 %.0.copyload.i.i.i.i.i.i, -16
   %55 = inttoptr i64 %54 to ptr
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %56, align 8, !tbaa !167
   br label %_ZNK5clang8QualType13getQualifiersEv.exit
 
-_ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread252, %53
-  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %53 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread252 ]
-  %57 = or i64 %.0.copyload.i.i.i.i.i.i, %.sroa.0.0.copyload.i185
+_ZNK5clang8QualType13getQualifiersEv.exit:        ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread250, %53
+  %.sroa.0.0.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i, %53 ], [ 0, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread250 ]
+  %57 = or i64 %.0.copyload.i.i.i.i.i.i, %.sroa.0.0.copyload.i183
   %58 = and i64 %57, 7
   %59 = or i64 %.sroa.0.0.i.i, %58
   %60 = load ptr, ptr %6, align 8, !tbaa !228
@@ -12821,21 +12821,21 @@ _ZNK5clang8QualType15getAddressSpaceEv.exit:      ; preds = %_ZNK5clang8QualType
   %64 = and i64 %.0.copyload.i.i.i.i.i.i, -16
   %65 = inttoptr i64 %64 to ptr
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %.sroa.0.0.copyload.i.i.i.i187 = load i64, ptr %66, align 8, !tbaa !167
-  %67 = lshr i64 %.sroa.0.0.copyload.i.i.i.i187, 9
+  %.sroa.0.0.copyload.i.i.i.i185 = load i64, ptr %66, align 8, !tbaa !167
+  %67 = lshr i64 %.sroa.0.0.copyload.i.i.i.i185, 9
   %68 = trunc i64 %67 to i32
   %69 = getelementptr inbounds nuw i8, ptr %60, i64 56
   %70 = load i64, ptr %69, align 8
   %71 = and i64 %70, 4294967296
-  %.not.i188 = icmp eq i64 %71, 0
-  %72 = select i1 %.not.i188, i32 4, i32 5
+  %.not.i186 = icmp eq i64 %71, 0
+  %72 = select i1 %.not.i186, i32 4, i32 5
   %73 = icmp eq i32 %72, %68
   %74 = and i64 %59, 511
-  %spec.select291 = select i1 %73, i64 %74, i64 %59
+  %spec.select286 = select i1 %73, i64 %74, i64 %59
   br label %_ZNK5clang8QualType15getAddressSpaceEv.exit.thread
 
 _ZNK5clang8QualType15getAddressSpaceEv.exit.thread: ; preds = %_ZNK5clang8QualType15getAddressSpaceEv.exit, %_ZNK5clang8QualType13getQualifiersEv.exit
-  %.sroa.0243.0 = phi i64 [ %59, %_ZNK5clang8QualType13getQualifiersEv.exit ], [ %spec.select291, %_ZNK5clang8QualType15getAddressSpaceEv.exit ]
+  %.sroa.0241.0 = phi i64 [ %59, %_ZNK5clang8QualType13getQualifiersEv.exit ], [ %spec.select286, %_ZNK5clang8QualType15getAddressSpaceEv.exit ]
   %75 = load ptr, ptr %50, align 16, !tbaa !26
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %.sroa.0.0.copyload.i.i.i.i.i.i = load i64, ptr %76, align 8, !tbaa !25
@@ -12853,33 +12853,33 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %_ZNK5clang8QualType
   %83 = load i32, ptr %80, align 16
   %84 = and i32 %83, 267911168
   %85 = icmp eq i32 %84, 227540992
-  %.not.i191 = icmp eq i64 %.sroa.0243.0, 0
-  %or.cond292 = select i1 %85, i1 %.not.i191, i1 false
-  br i1 %or.cond292, label %86, label %.critedge15.thread
+  %.not.i189 = icmp eq i64 %.sroa.0241.0, 0
+  %or.cond287 = select i1 %85, i1 %.not.i189, i1 false
+  br i1 %or.cond287, label %86, label %.critedge15.thread
 
 86:                                               ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit
   %87 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %88 = load ptr, ptr %87, align 8, !tbaa !46
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
-  %.sroa.0.0.copyload.i192 = load i64, ptr %89, align 8, !tbaa !25
-  %90 = and i64 %.sroa.0.0.copyload.i192, -16
+  %.sroa.0.0.copyload.i190 = load i64, ptr %89, align 8, !tbaa !25
+  %90 = and i64 %.sroa.0.0.copyload.i190, -16
   %91 = inttoptr i64 %90 to ptr
   %92 = load ptr, ptr %91, align 16, !tbaa !26
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
-  %.sroa.0.0.copyload.i.i.i.i194 = load i64, ptr %93, align 8, !tbaa !25
-  %94 = and i64 %.sroa.0.0.copyload.i.i.i.i194, -16
+  %.sroa.0.0.copyload.i.i.i.i192 = load i64, ptr %93, align 8, !tbaa !25
+  %94 = and i64 %.sroa.0.0.copyload.i.i.i.i192, -16
   %95 = inttoptr i64 %94 to ptr
   %96 = load ptr, ptr %95, align 16, !tbaa !26
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i8, ptr %97, align 16
   %99 = icmp ne i8 %98, 13
-  %.not.not24.i = icmp eq ptr %96, null
-  %.not.not.i = or i1 %.not.not24.i, %99
+  %.not.not21.i = icmp eq ptr %96, null
+  %.not.not.i = or i1 %.not.not21.i, %99
   br i1 %.not.not.i, label %100, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 100:                                              ; preds = %86
   %101 = icmp ne i8 %98, 46
-  %.not13.not.i = or i1 %.not.not24.i, %101
+  %.not13.not.i = or i1 %.not.not21.i, %101
   br i1 %.not13.not.i, label %115, label %102
 
 102:                                              ; preds = %100
@@ -12968,8 +12968,8 @@ _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %86
   %144 = load ptr, ptr %143, align 8, !tbaa !3
   %145 = load i24, ptr %144, align 8
   %146 = and i24 %145, 196608
-  %.not299 = icmp eq i24 %146, 0
-  br i1 %.not299, label %147, label %.critedge
+  %.not294 = icmp eq i24 %146, 0
+  br i1 %.not294, label %147, label %.critedge
 
 147:                                              ; preds = %142
   %148 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
@@ -12992,10 +12992,10 @@ _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %86
 
 160:                                              ; preds = %121
   %161 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i203 = load i64, ptr %161, align 8
-  %162 = and i64 %.0.copyload.i.i.i.i.i.i.i.i203, 4
+  %.0.copyload.i.i.i.i.i.i.i.i201 = load i64, ptr %161, align 8
+  %162 = and i64 %.0.copyload.i.i.i.i.i.i.i.i201, 4
   %163 = icmp eq i64 %162, 0
-  %164 = and i64 %.0.copyload.i.i.i.i.i.i.i.i203, -8
+  %164 = and i64 %.0.copyload.i.i.i.i.i.i.i.i201, -8
   %165 = inttoptr i64 %164 to ptr
   br i1 %163, label %tailrecurse.backedge, label %166
 
@@ -13012,25 +13012,25 @@ _ZNK5clang4Type13isIntegerTypeEv.exit:            ; preds = %86
 
 .critedge15.thread:                               ; preds = %121, %102, %_ZNK5clang8QualType15getAddressSpaceEv.exit.thread, %39, %_ZNK5clang4Type10isVoidTypeEv.exit, %110, %115, %_ZNK5clang4Type13isIntegerTypeEv.exit, %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit, %169, %28
   %172 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.sroa.0.0.copyload.i205 = load i64, ptr %172, align 8, !tbaa !25
-  %.not.i.i207 = icmp ult i64 %.sroa.0.0.copyload.i205, 16
-  br i1 %.not.i.i207, label %.critedge, label %173
+  %.sroa.0.0.copyload.i203 = load i64, ptr %172, align 8, !tbaa !25
+  %.not.i.i205 = icmp ult i64 %.sroa.0.0.copyload.i203, 16
+  br i1 %.not.i.i205, label %.critedge, label %173
 
 173:                                              ; preds = %.critedge15.thread
-  %174 = and i64 %.sroa.0.0.copyload.i205, -16
+  %174 = and i64 %.sroa.0.0.copyload.i203, -16
   %175 = inttoptr i64 %174 to ptr
   %176 = load ptr, ptr %175, align 16, !tbaa !26
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i210 = load i64, ptr %177, align 8, !tbaa !25
-  %178 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i210, -16
+  %.sroa.0.0.copyload.i.i.i.i.i.i208 = load i64, ptr %177, align 8, !tbaa !25
+  %178 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i208, -16
   %179 = inttoptr i64 %178 to ptr
   %180 = load ptr, ptr %179, align 16, !tbaa !26
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load i8, ptr %181, align 16
   %183 = icmp eq i8 %182, 13
-  %.not7.i.i211 = icmp ne ptr %180, null
-  %.not.not.not.i.i212 = and i1 %.not7.i.i211, %183
-  br i1 %.not.not.not.i.i212, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
+  %.not7.i.i209 = icmp ne ptr %180, null
+  %.not.not.not.i.i210 = and i1 %.not7.i.i209, %183
+  br i1 %.not.not.not.i.i210, label %_ZNK5clang4Type13isNullPtrTypeEv.exit, label %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
 
 _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %173
   %184 = load i32, ptr %181, align 16
@@ -13041,22 +13041,22 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit:            ; preds = %173
 _ZNK5clang4Type13isNullPtrTypeEv.exit.thread:     ; preds = %173, %_ZNK5clang4Type13isNullPtrTypeEv.exit
   %187 = tail call noundef ptr @_ZNK5clang4Type14getAsUnionTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %176) #32
   %.not164 = icmp eq ptr %187, null
-  br i1 %.not164, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271, label %188
+  br i1 %.not164, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268, label %188
 
 188:                                              ; preds = %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread
   %189 = load ptr, ptr %6, align 8, !tbaa !228
   %190 = load i64, ptr %189, align 8
   %191 = and i64 %190, 4096
   %192 = icmp eq i64 %191, 0
-  br i1 %192, label %193, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271
+  br i1 %192, label %193, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268
 
 193:                                              ; preds = %188
   %194 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %187) #32
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 28
   %196 = load i32, ptr %195, align 4
   %197 = and i32 %196, 256
-  %.not.i216 = icmp eq i32 %197, 0
-  br i1 %.not.i216, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271, label %198
+  %.not.i214 = icmp eq i32 %197, 0
+  br i1 %.not.i214, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268, label %198
 
 198:                                              ; preds = %193
   %199 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %194) #32
@@ -13066,8 +13066,8 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit.thread:     ; preds = %173, %_ZNK5clang4Ty
   %203 = zext i32 %202 to i64
   %.idx.i.i = shl nuw nsw i64 %203, 3
   %204 = getelementptr inbounds nuw i8, ptr %200, i64 %.idx.i.i
-  %.not.i.i217 = icmp eq i32 %202, 0
-  br i1 %.not.i.i217, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271, label %.lr.ph.i.i.i.i.i
+  %.not.i.i215 = icmp eq i32 %202, 0
+  br i1 %.not.i.i215, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %198, %209
   %.sroa.07.1.i.i.i.i = phi ptr [ %210, %209 ], [ %200, %198 ]
@@ -13079,26 +13079,26 @@ _ZNK5clang4Type13isNullPtrTypeEv.exit.thread:     ; preds = %173, %_ZNK5clang4Ty
 
 209:                                              ; preds = %.lr.ph.i.i.i.i.i
   %210 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
-  %.not.i.i.i.i.i218 = icmp eq ptr %210, %204
-  br i1 %.not.i.i.i.i.i218, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271, label %.lr.ph.i.i.i.i.i, !llvm.loop !813
+  %.not.i.i.i.i.i216 = icmp eq ptr %210, %204
+  br i1 %.not.i.i.i.i.i216, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268, label %.lr.ph.i.i.i.i.i, !llvm.loop !813
 
 _ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i
-  %.not304 = icmp eq ptr %.sroa.07.1.i.i.i.i, %204
-  br i1 %.not304, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271, label %211
+  %.not299 = icmp eq ptr %.sroa.07.1.i.i.i.i, %204
+  br i1 %.not299, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268, label %211
 
 211:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit
   %212 = load i16, ptr %.tr, align 8
   %213 = and i16 %212, 511
-  %.not305 = icmp eq i16 %213, 78
-  br i1 %.not305, label %214, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271
+  %.not300 = icmp eq i16 %213, 78
+  br i1 %.not300, label %214, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268
 
 214:                                              ; preds = %211
   %215 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %216 = load ptr, ptr %215, align 8, !tbaa !109
   %217 = load i16, ptr %216, align 8
   %218 = and i16 %217, 511
-  %.not307 = icmp eq i16 %218, 55
-  br i1 %.not307, label %219, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271
+  %.not302 = icmp eq i16 %218, 55
+  br i1 %.not302, label %219, label %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268
 
 219:                                              ; preds = %214
   %220 = getelementptr inbounds nuw i8, ptr %216, i64 16
@@ -13106,28 +13106,28 @@ _ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit: ; preds = %.lr.ph.i
   %222 = load ptr, ptr %221, align 8, !tbaa !3
   br label %tailrecurse.backedge
 
-_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271: ; preds = %198, %193, %188, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread, %211, %214, %209
+_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268: ; preds = %198, %193, %188, %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit, %_ZNK5clang4Type13isNullPtrTypeEv.exit.thread, %211, %214, %209
   %223 = getelementptr inbounds nuw i8, ptr %.tr, i64 8
-  %.sroa.0.0.copyload.i221 = load i64, ptr %223, align 8, !tbaa !25
-  %224 = and i64 %.sroa.0.0.copyload.i221, -16
+  %.sroa.0.0.copyload.i219 = load i64, ptr %223, align 8, !tbaa !25
+  %224 = and i64 %.sroa.0.0.copyload.i219, -16
   %225 = inttoptr i64 %224 to ptr
   %226 = load ptr, ptr %225, align 16, !tbaa !26
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
-  %.sroa.0.0.copyload.i.i.i.i223 = load i64, ptr %227, align 8, !tbaa !25
-  %228 = and i64 %.sroa.0.0.copyload.i.i.i.i223, -16
+  %.sroa.0.0.copyload.i.i.i.i221 = load i64, ptr %227, align 8, !tbaa !25
+  %228 = and i64 %.sroa.0.0.copyload.i.i.i.i221, -16
   %229 = inttoptr i64 %228 to ptr
   %230 = load ptr, ptr %229, align 16, !tbaa !26
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 16
   %232 = load i8, ptr %231, align 16
   %233 = icmp ne i8 %232, 13
-  %.not.not24.i224 = icmp eq ptr %230, null
-  %.not.not.i225 = or i1 %.not.not24.i224, %233
-  br i1 %.not.not.i225, label %234, label %_ZNK5clang4Type13isIntegerTypeEv.exit231
+  %.not.not21.i222 = icmp eq ptr %230, null
+  %.not.not.i223 = or i1 %.not.not21.i222, %233
+  br i1 %.not.not.i223, label %234, label %_ZNK5clang4Type13isIntegerTypeEv.exit229
 
-234:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271
+234:                                              ; preds = %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268
   %235 = icmp ne i8 %232, 46
-  %.not13.not.i228 = or i1 %.not.not24.i224, %235
-  br i1 %.not13.not.i228, label %249, label %236
+  %.not13.not.i226 = or i1 %.not.not21.i222, %235
+  br i1 %.not13.not.i226, label %249, label %236
 
 236:                                              ; preds = %234
   %237 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %230) #32
@@ -13136,9 +13136,9 @@ _ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271: ; preds =
   %240 = and i8 %239, 1
   %241 = icmp ne i8 %240, 0
   %242 = getelementptr inbounds nuw i8, ptr %237, i64 128
-  %.0.copyload.i.i.i.i.i.i.i.i229 = load i64, ptr %242, align 8
-  %.not.i.i.i.i.i230 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i229, 7
-  %243 = select i1 %241, i1 true, i1 %.not.i.i.i.i.i230
+  %.0.copyload.i.i.i.i.i.i.i.i227 = load i64, ptr %242, align 8
+  %.not.i.i.i.i.i228 = icmp ugt i64 %.0.copyload.i.i.i.i.i.i.i.i227, 7
+  %243 = select i1 %241, i1 true, i1 %.not.i.i.i.i.i228
   br i1 %243, label %244, label %.critedge
 
 244:                                              ; preds = %236
@@ -13152,15 +13152,15 @@ _ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271: ; preds =
   %250 = icmp eq i8 %232, 10
   br i1 %250, label %255, label %.critedge
 
-_ZNK5clang4Type13isIntegerTypeEv.exit231:         ; preds = %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread271
+_ZNK5clang4Type13isIntegerTypeEv.exit229:         ; preds = %_ZNK5clang4Decl7hasAttrINS_20TransparentUnionAttrEEEbv.exit.thread268
   %251 = load i32, ptr %231, align 16
   %252 = lshr i32 %251, 19
   %253 = and i32 %252, 511
   %254 = add nsw i32 %253, -435
-  %spec.select.i226 = icmp ult i32 %254, 20
-  br i1 %spec.select.i226, label %255, label %.critedge
+  %spec.select.i224 = icmp ult i32 %254, 20
+  br i1 %spec.select.i224, label %255, label %.critedge
 
-255:                                              ; preds = %244, %249, %_ZNK5clang4Type13isIntegerTypeEv.exit231
+255:                                              ; preds = %244, %249, %_ZNK5clang4Type13isIntegerTypeEv.exit229
   %256 = load ptr, ptr %6, align 8, !tbaa !228
   %257 = load i64, ptr %256, align 8
   %258 = and i64 %257, 2048
@@ -13168,13 +13168,13 @@ _ZNK5clang4Type13isIntegerTypeEv.exit231:         ; preds = %_ZNK5clang4Decl7has
   br i1 %.not167, label %.critedge20, label %259
 
 259:                                              ; preds = %255
-  %.sroa.0.0.copyload.i232 = load i64, ptr %223, align 8, !tbaa !25
-  %260 = and i64 %.sroa.0.0.copyload.i232, -16
+  %.sroa.0.0.copyload.i230 = load i64, ptr %223, align 8, !tbaa !25
+  %260 = and i64 %.sroa.0.0.copyload.i230, -16
   %261 = inttoptr i64 %260 to ptr
   %262 = load ptr, ptr %261, align 16, !tbaa !26
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
-  %.sroa.0.0.copyload.i.i.i.i234 = load i64, ptr %263, align 8, !tbaa !25
-  %264 = and i64 %.sroa.0.0.copyload.i.i.i.i234, -16
+  %.sroa.0.0.copyload.i.i.i.i232 = load i64, ptr %263, align 8, !tbaa !25
+  %264 = and i64 %.sroa.0.0.copyload.i.i.i.i232, -16
   %265 = inttoptr i64 %264 to ptr
   %266 = load ptr, ptr %265, align 16, !tbaa !26
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 16
@@ -13190,8 +13190,8 @@ _ZNK5clang4Type13isIntegerTypeEv.exit231:         ; preds = %_ZNK5clang4Decl7has
 271:                                              ; preds = %.critedge20
   %272 = load i16, ptr %.tr, align 8
   %273 = and i16 %272, 511
-  %.not308 = icmp eq i16 %273, 54
-  br i1 %.not308, label %274, label %.critedge174.thread
+  %.not303 = icmp eq i16 %273, 54
+  br i1 %.not303, label %274, label %.critedge173.thread
 
 274:                                              ; preds = %271
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -13206,36 +13206,36 @@ _ZNK5clang4Type13isIntegerTypeEv.exit231:         ; preds = %_ZNK5clang4Decl7has
   %280 = load i64, ptr %4, align 8, !tbaa !25
   %281 = icmp eq i64 %280, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %281, label %.critedge, label %.critedge174..critedge174.thread_crit_edge
+  br i1 %281, label %.critedge, label %.critedge173..critedge173.thread_crit_edge
 
 282:                                              ; preds = %274
   %283 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #31
   %284 = icmp eq i32 %283, %277
   %285 = load ptr, ptr %4, align 8, !tbaa !25
   %286 = icmp eq ptr %285, null
-  br i1 %286, label %.critedge174, label %287
+  br i1 %286, label %.critedge173, label %287
 
 287:                                              ; preds = %282
   call void @_ZdaPv(ptr noundef nonnull %285) #34
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %284, label %.critedge, label %.critedge174..critedge174.thread_crit_edge
+  br i1 %284, label %.critedge, label %.critedge173..critedge173.thread_crit_edge
 
-.critedge174:                                     ; preds = %282
+.critedge173:                                     ; preds = %282
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %284, label %.critedge, label %.critedge174..critedge174.thread_crit_edge
+  br i1 %284, label %.critedge, label %.critedge173..critedge173.thread_crit_edge
 
-.critedge174..critedge174.thread_crit_edge:       ; preds = %279, %287, %.critedge174
-  %.pre331 = load ptr, ptr %6, align 8, !tbaa !228
-  %.pre332 = load i64, ptr %.pre331, align 8
-  br label %.critedge174.thread
+.critedge173..critedge173.thread_crit_edge:       ; preds = %279, %287, %.critedge173
+  %.pre326 = load ptr, ptr %6, align 8, !tbaa !228
+  %.pre327 = load i64, ptr %.pre326, align 8
+  br label %.critedge173.thread
 
-.critedge174.thread:                              ; preds = %.critedge174..critedge174.thread_crit_edge, %271
-  %288 = phi i64 [ %.pre332, %.critedge174..critedge174.thread_crit_edge ], [ %257, %271 ]
+.critedge173.thread:                              ; preds = %.critedge173..critedge173.thread_crit_edge, %271
+  %288 = phi i64 [ %.pre327, %.critedge173..critedge173.thread_crit_edge ], [ %257, %271 ]
   %289 = and i64 %288, 32
   %.not170 = icmp eq i64 %289, 0
   br i1 %.not170, label %.critedge, label %290
 
-290:                                              ; preds = %.critedge174.thread
+290:                                              ; preds = %.critedge173.thread
   %291 = call noundef zeroext i1 @_ZNK5clang4Expr27isCXX98IntegralConstantExprERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %.tr, ptr noundef nonnull align 8 dereferenceable(23216) %1) #32
   br i1 %291, label %294, label %.critedge
 
@@ -13250,30 +13250,30 @@ _ZNK5clang4Type13isIntegerTypeEv.exit231:         ; preds = %_ZNK5clang4Decl7has
   %296 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %297 = load i32, ptr %296, align 8, !tbaa !150
   %298 = icmp ugt i32 %297, 64
-  br i1 %298, label %299, label %_ZN4llvm5APIntD2Ev.exit236
+  br i1 %298, label %299, label %_ZN4llvm5APIntD2Ev.exit234
 
 299:                                              ; preds = %294
   %300 = load ptr, ptr %5, align 8, !tbaa !25
   %301 = icmp eq ptr %300, null
-  br i1 %301, label %_ZN4llvm5APIntD2Ev.exit236, label %302
+  br i1 %301, label %_ZN4llvm5APIntD2Ev.exit234, label %302
 
 302:                                              ; preds = %299
   call void @_ZdaPv(ptr noundef nonnull %300) #34
-  br label %_ZN4llvm5APIntD2Ev.exit236
+  br label %_ZN4llvm5APIntD2Ev.exit234
 
-_ZN4llvm5APIntD2Ev.exit236:                       ; preds = %294, %299, %302
+_ZN4llvm5APIntD2Ev.exit234:                       ; preds = %294, %299, %302
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %295, label %.critedge, label %303
 
-303:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit236
+303:                                              ; preds = %_ZN4llvm5APIntD2Ev.exit234
   %304 = load i16, ptr %.tr, align 8
   %305 = and i16 %304, 511
   %306 = icmp eq i16 %305, 54
   %. = select i1 %306, i32 2, i32 1
   br label %.critedge
 
-.critedge:                                        ; preds = %121, %142, %128, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %.critedge15.thread, %16, %14, %279, %287, %290, %.critedge174.thread, %.critedge174, %236, %_ZNK5clang4Type13isIntegerTypeEv.exit231, %249, %244, %17, %19, %303, %_ZN4llvm5APIntD2Ev.exit236, %292, %259
-  %.0118 = phi i32 [ 0, %259 ], [ 0, %292 ], [ 0, %_ZN4llvm5APIntD2Ev.exit236 ], [ %., %303 ], [ %spec.select, %19 ], [ 1, %17 ], [ 0, %244 ], [ 0, %249 ], [ 0, %_ZNK5clang4Type13isIntegerTypeEv.exit231 ], [ 0, %236 ], [ 0, %290 ], [ 0, %.critedge174.thread ], [ 2, %.critedge174 ], [ 2, %287 ], [ 2, %279 ], [ 4, %121 ], [ 0, %128 ], [ 0, %142 ], [ 3, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ 0, %.critedge15.thread ], [ 0, %16 ], [ 0, %14 ]
+.critedge:                                        ; preds = %121, %142, %128, %_ZNK5clang4Type13isNullPtrTypeEv.exit, %.critedge15.thread, %16, %14, %279, %287, %290, %.critedge173.thread, %.critedge173, %236, %_ZNK5clang4Type13isIntegerTypeEv.exit229, %249, %244, %17, %19, %303, %_ZN4llvm5APIntD2Ev.exit234, %292, %259
+  %.0118 = phi i32 [ 0, %259 ], [ 0, %292 ], [ 0, %_ZN4llvm5APIntD2Ev.exit234 ], [ %., %303 ], [ %spec.select, %19 ], [ 1, %17 ], [ 0, %244 ], [ 0, %249 ], [ 0, %_ZNK5clang4Type13isIntegerTypeEv.exit229 ], [ 0, %236 ], [ 0, %290 ], [ 0, %.critedge173.thread ], [ 2, %.critedge173 ], [ 2, %287 ], [ 2, %279 ], [ 4, %121 ], [ 0, %128 ], [ 0, %142 ], [ 3, %_ZNK5clang4Type13isNullPtrTypeEv.exit ], [ 0, %.critedge15.thread ], [ 0, %16 ], [ 0, %14 ]
   ret i32 %.0118
 }
 
@@ -15695,13 +15695,13 @@ _ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread16: ; preds = %10, %_ZNK5clan
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load i8, ptr %35, align 16
   %37 = icmp ne i8 %36, 13
-  %.not.not24.i = icmp eq ptr %34, null
-  %.not.not.i = or i1 %.not.not24.i, %37
+  %.not.not21.i = icmp eq ptr %34, null
+  %.not.not.i = or i1 %.not.not21.i, %37
   br i1 %.not.not.i, label %38, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 38:                                               ; preds = %_ZNK5clang4Type20getAsArrayTypeUnsafeEv.exit.thread16
   %39 = icmp ne i8 %36, 46
-  %.not13.not.i = or i1 %.not.not24.i, %39
+  %.not13.not.i = or i1 %.not.not21.i, %39
   br i1 %.not13.not.i, label %53, label %40
 
 40:                                               ; preds = %38
@@ -15997,6 +15997,64 @@ _ZNK4llvm5APInt13getActiveBitsEv.exit:            ; preds = %2
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local i32 @_ZNK5clang12InitListExpr11getBeginLocEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %.0.copyload.i.i.i.i.i18 = load i64, ptr %2, align 8
+  %3 = and i64 %.0.copyload.i.i.i.i.i18, 4
+  %.not.i19 = icmp eq i64 %3, 0
+  %4 = and i64 %.0.copyload.i.i.i.i.i18, -8
+  %.not.not1720 = icmp eq i64 %4, 0
+  %.not.not21 = or i1 %.not.i19, %.not.not1720
+  br i1 %.not.not21, label %tailrecurse._crit_edge, label %tailrecurse
+
+tailrecurse:                                      ; preds = %1, %tailrecurse
+  %5 = phi i64 [ %9, %tailrecurse ], [ %4, %1 ]
+  %6 = inttoptr i64 %5 to ptr
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %.0.copyload.i.i.i.i.i = load i64, ptr %7, align 8
+  %8 = and i64 %.0.copyload.i.i.i.i.i, 4
+  %.not.i = icmp eq i64 %8, 0
+  %9 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %.not.not17 = icmp eq i64 %9, 0
+  %.not.not = or i1 %.not.i, %.not.not17
+  br i1 %.not.not, label %tailrecurse._crit_edge, label %tailrecurse
+
+tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
+  %.tr.lcssa = phi ptr [ %0, %1 ], [ %6, %tailrecurse ]
+  %10 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 40
+  %11 = load i32, ptr %10, align 8, !tbaa !83
+  %12 = icmp eq i32 %11, 0
+  br i1 %12, label %13, label %.loopexit
+
+13:                                               ; preds = %tailrecurse._crit_edge
+  %14 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 16
+  %15 = load ptr, ptr %14, align 8, !tbaa !132
+  %16 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 24
+  %17 = load ptr, ptr %16, align 8, !tbaa !137
+  %.not1322 = icmp eq ptr %15, %17
+  br i1 %.not1322, label %.loopexit, label %.critedge
+
+18:                                               ; preds = %.critedge
+  %19 = getelementptr inbounds nuw i8, ptr %.01023, i64 8
+  %.not13 = icmp eq ptr %19, %17
+  br i1 %.not13, label %.loopexit, label %.critedge, !llvm.loop !138
+
+.critedge:                                        ; preds = %13, %18
+  %.01023 = phi ptr [ %19, %18 ], [ %15, %13 ]
+  %20 = load ptr, ptr %.01023, align 8, !tbaa !3
+  %.not14 = icmp eq ptr %20, null
+  br i1 %.not14, label %18, label %21
+
+21:                                               ; preds = %.critedge
+  %22 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #31
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %18, %13, %21, %tailrecurse._crit_edge
+  %.sroa.0.1 = phi i32 [ %22, %21 ], [ %11, %tailrecurse._crit_edge ], [ 0, %13 ], [ 0, %18 ]
+  ret i32 %.sroa.0.1
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
+define dso_local i32 @_ZNK5clang12InitListExpr9getEndLocEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
+  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.0.copyload.i.i.i.i.i19 = load i64, ptr %2, align 8
   %3 = and i64 %.0.copyload.i.i.i.i.i19, 4
   %.not.i20 = icmp eq i64 %3, 0
@@ -16015,64 +16073,6 @@ tailrecurse:                                      ; preds = %1, %tailrecurse
   %9 = and i64 %.0.copyload.i.i.i.i.i, -8
   %.not.not18 = icmp eq i64 %9, 0
   %.not.not = or i1 %.not.i, %.not.not18
-  br i1 %.not.not, label %tailrecurse._crit_edge, label %tailrecurse
-
-tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
-  %.tr.lcssa = phi ptr [ %0, %1 ], [ %6, %tailrecurse ]
-  %10 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 40
-  %11 = load i32, ptr %10, align 8, !tbaa !83
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %.loopexit
-
-13:                                               ; preds = %tailrecurse._crit_edge
-  %14 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !132
-  %16 = getelementptr inbounds nuw i8, ptr %.tr.lcssa, i64 24
-  %17 = load ptr, ptr %16, align 8, !tbaa !137
-  %.not1323 = icmp eq ptr %15, %17
-  br i1 %.not1323, label %.loopexit, label %.critedge
-
-18:                                               ; preds = %.critedge
-  %19 = getelementptr inbounds nuw i8, ptr %.01024, i64 8
-  %.not13 = icmp eq ptr %19, %17
-  br i1 %.not13, label %.loopexit, label %.critedge, !llvm.loop !138
-
-.critedge:                                        ; preds = %13, %18
-  %.01024 = phi ptr [ %19, %18 ], [ %15, %13 ]
-  %20 = load ptr, ptr %.01024, align 8, !tbaa !3
-  %.not14 = icmp eq ptr %20, null
-  br i1 %.not14, label %18, label %21
-
-21:                                               ; preds = %.critedge
-  %22 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %20) #31
-  br label %.loopexit
-
-.loopexit:                                        ; preds = %18, %13, %21, %tailrecurse._crit_edge
-  %.sroa.0.1 = phi i32 [ %22, %21 ], [ %11, %tailrecurse._crit_edge ], [ 0, %13 ], [ 0, %18 ]
-  ret i32 %.sroa.0.1
-}
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local i32 @_ZNK5clang12InitListExpr9getEndLocEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(64) %0) local_unnamed_addr #4 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.0.copyload.i.i.i.i.i20 = load i64, ptr %2, align 8
-  %3 = and i64 %.0.copyload.i.i.i.i.i20, 4
-  %.not.i21 = icmp eq i64 %3, 0
-  %4 = and i64 %.0.copyload.i.i.i.i.i20, -8
-  %.not.not1922 = icmp eq i64 %4, 0
-  %.not.not23 = or i1 %.not.i21, %.not.not1922
-  br i1 %.not.not23, label %tailrecurse._crit_edge, label %tailrecurse
-
-tailrecurse:                                      ; preds = %1, %tailrecurse
-  %5 = phi i64 [ %9, %tailrecurse ], [ %4, %1 ]
-  %6 = inttoptr i64 %5 to ptr
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %.0.copyload.i.i.i.i.i = load i64, ptr %7, align 8
-  %8 = and i64 %.0.copyload.i.i.i.i.i, 4
-  %.not.i = icmp eq i64 %8, 0
-  %9 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %.not.not19 = icmp eq i64 %9, 0
-  %.not.not = or i1 %.not.i, %.not.not19
   br i1 %.not.not, label %tailrecurse._crit_edge, label %tailrecurse
 
 tailrecurse._crit_edge:                           ; preds = %tailrecurse, %1
@@ -16245,8 +16245,8 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %.lr.ph
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = load i24, ptr %38, align 8
   %40 = and i24 %39, 196608
-  %.not73.i.i.i = icmp eq i24 %40, 0
-  br i1 %.not73.i.i.i, label %41, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %40, 0
+  br i1 %.not70.i.i.i, label %41, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -16382,8 +16382,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPK
   %7 = alloca %"class.llvm::APInt", align 8
   %8 = load i24, ptr %0, align 8
   %9 = and i24 %8, 65536
-  %.not500538 = icmp eq i24 %9, 0
-  br i1 %.not500538, label %.lr.ph, label %.critedge412
+  %.not497535 = icmp eq i24 %9, 0
+  br i1 %.not497535, label %.lr.ph, label %.critedge411
 
 .lr.ph:                                           ; preds = %6
   %10 = trunc i24 %8 to i16
@@ -16392,7 +16392,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPK
 
 12:                                               ; preds = %.lr.ph, %tailrecurse.backedge
   %13 = phi i16 [ %10, %.lr.ph ], [ %37, %tailrecurse.backedge ]
-  %.tr539 = phi ptr [ %0, %.lr.ph ], [ %.tr.be, %tailrecurse.backedge ]
+  %.tr536 = phi ptr [ %0, %.lr.ph ], [ %.tr.be, %tailrecurse.backedge ]
   %14 = and i16 %13, 511
   switch i16 %14, label %15 [
     i16 22, label %32
@@ -16402,9 +16402,9 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPK
     i16 79, label %52
     i16 4, label %61
     i16 120, label %81
-    i16 121, label %.critedge412
-    i16 3, label %.critedge412
-    i16 122, label %.critedge412
+    i16 121, label %.critedge411
+    i16 3, label %.critedge411
+    i16 122, label %.critedge411
     i16 130, label %122
     i16 131, label %129
     i16 48, label %132
@@ -16413,9 +16413,9 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPK
     i16 91, label %.critedge.thread
     i16 94, label %.critedge.thread
     i16 92, label %.critedge.thread
-    i16 26, label %.critedge412
-    i16 97, label %.critedge412
-    i16 18, label %.critedge412
+    i16 26, label %.critedge411
+    i16 97, label %.critedge411
+    i16 18, label %.critedge411
     i16 116, label %218
     i16 115, label %218
     i16 35, label %259
@@ -16428,8 +16428,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPK
     i16 81, label %452
     i16 114, label %465
     i16 113, label %467
-    i16 108, label %.critedge412
-    i16 112, label %.critedge412
+    i16 108, label %.critedge411
+    i16 112, label %.critedge411
     i16 50, label %469
     i16 118, label %478
     i16 62, label %481
@@ -16437,7 +16437,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPK
   ]
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.tr539, i64 8
+  %16 = getelementptr inbounds nuw i8, ptr %.tr536, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %16, align 8, !tbaa !25
   %17 = and i64 %.sroa.0.0.copyload.i, -16
   %18 = inttoptr i64 %17 to ptr
@@ -16458,32 +16458,32 @@ _ZNK5clang4Type10isVoidTypeEv.exit:               ; preds = %15
   %27 = load i32, ptr %24, align 16
   %28 = and i32 %27, 267911168
   %29 = icmp eq i32 %28, 227540992
-  br i1 %29, label %.critedge412, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
+  br i1 %29, label %.critedge411, label %_ZNK5clang4Type10isVoidTypeEv.exit.thread
 
 _ZNK5clang4Type10isVoidTypeEv.exit.thread:        ; preds = %15, %_ZNK5clang4Type10isVoidTypeEv.exit
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %30 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr539) #31
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %30 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr536) #31
   store i32 %30, ptr %2, align 4, !tbaa !83
-  %31 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr539) #31
+  %31 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr536) #31
   store i64 %31, ptr %3, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 32:                                               ; preds = %12
-  %33 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
+  %33 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
   %34 = load ptr, ptr %33, align 8, !tbaa !32
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %452, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %475, %469, %32, %38, %49, %52, %75, %126, %129, %465, %467, %478, %481, %484, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit, %_ZNK5clang12CompoundStmt9body_backEv.exit, %340, %.critedge410, %_ZNK5clang4Expr12IgnoreParensEv.exit
-  %.tr.be = phi ptr [ %34, %32 ], [ %48, %38 ], [ %51, %49 ], [ %60, %52 ], [ %77, %75 ], [ %128, %126 ], [ %131, %129 ], [ %466, %465 ], [ %468, %467 ], [ %480, %478 ], [ %483, %481 ], [ %486, %484 ], [ %325, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ %336, %_ZNK5clang12CompoundStmt9body_backEv.exit ], [ %342, %340 ], [ %.1.i3.i.i, %.critedge410 ], [ %364, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ %477, %475 ], [ %474, %469 ], [ %457, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ %457, %452 ]
+tailrecurse.backedge:                             ; preds = %452, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %475, %469, %32, %38, %49, %52, %75, %126, %129, %465, %467, %478, %481, %484, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit, %_ZNK5clang12CompoundStmt9body_backEv.exit, %340, %.critedge409, %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.tr.be = phi ptr [ %34, %32 ], [ %48, %38 ], [ %51, %49 ], [ %60, %52 ], [ %77, %75 ], [ %128, %126 ], [ %131, %129 ], [ %466, %465 ], [ %468, %467 ], [ %480, %478 ], [ %483, %481 ], [ %486, %484 ], [ %325, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ %336, %_ZNK5clang12CompoundStmt9body_backEv.exit ], [ %342, %340 ], [ %.1.i3.i.i, %.critedge409 ], [ %364, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ %477, %475 ], [ %474, %469 ], [ %457, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ %457, %452 ]
   %35 = load i24, ptr %.tr.be, align 8
   %36 = and i24 %35, 65536
-  %.not500 = icmp eq i24 %36, 0
+  %.not497 = icmp eq i24 %36, 0
   %37 = trunc i24 %35 to i16
-  br i1 %.not500, label %12, label %.critedge412
+  br i1 %.not497, label %12, label %.critedge411
 
 38:                                               ; preds = %12
-  %39 = getelementptr inbounds nuw i8, ptr %.tr539, i64 32
-  %40 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.tr536, i64 32
+  %40 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %41 = load i32, ptr %40, align 8
   %42 = lshr i32 %41, 30
   %.lobit.i.i = and i32 %42, 1
@@ -16496,72 +16496,72 @@ tailrecurse.backedge:                             ; preds = %452, %_ZNK5clang8Qu
   br label %tailrecurse.backedge
 
 49:                                               ; preds = %12, %12
-  %50 = getelementptr inbounds nuw i8, ptr %.tr539, i64 56
+  %50 = getelementptr inbounds nuw i8, ptr %.tr536, i64 56
   %51 = load ptr, ptr %50, align 8, !tbaa !3
   br label %tailrecurse.backedge
 
 52:                                               ; preds = %12
-  %53 = getelementptr inbounds nuw i8, ptr %.tr539, i64 48
+  %53 = getelementptr inbounds nuw i8, ptr %.tr536, i64 48
   %54 = load i8, ptr %53, align 8, !tbaa !39, !range !42, !noundef !43
   %55 = trunc nuw i8 %54 to i1
-  %56 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
+  %56 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %.tr539, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %.tr536, i64 32
   %59 = load ptr, ptr %58, align 8
   %60 = select i1 %55, ptr %57, ptr %59
   br label %tailrecurse.backedge
 
 61:                                               ; preds = %12
-  %62 = load i32, ptr %.tr539, align 8
+  %62 = load i32, ptr %.tr536, align 8
   %63 = lshr i32 %62, 19
   %64 = and i32 %63, 31
   switch i32 %64, label %.loopexit.loopexit [
     i32 12, label %75
     i32 11, label %65
     i32 10, label %65
-    i32 3, label %.critedge412
-    i32 2, label %.critedge412
-    i32 1, label %.critedge412
-    i32 13, label %.critedge412
-    i32 0, label %.critedge412
+    i32 3, label %.critedge411
+    i32 2, label %.critedge411
+    i32 1, label %.critedge411
+    i32 13, label %.critedge411
+    i32 0, label %.critedge411
   ]
 
 65:                                               ; preds = %61, %61
-  %66 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %66 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !37
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
-  %.sroa.0.0.copyload.i414 = load i64, ptr %68, align 8, !tbaa !25
-  %69 = and i64 %.sroa.0.0.copyload.i414, -16
+  %.sroa.0.0.copyload.i413 = load i64, ptr %68, align 8, !tbaa !25
+  %69 = and i64 %.sroa.0.0.copyload.i413, -16
   %70 = inttoptr i64 %69 to ptr
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i64, ptr %71, align 8, !tbaa !25
-  %73 = or i64 %72, %.sroa.0.0.copyload.i414
+  %73 = or i64 %72, %.sroa.0.0.copyload.i413
   %74 = and i64 %73, 4
-  %.not516 = icmp eq i64 %74, 0
-  br i1 %.not516, label %.loopexit, label %.critedge412
+  %.not513 = icmp eq i64 %74, 0
+  br i1 %.not513, label %.loopexit, label %.critedge411
 
 75:                                               ; preds = %61
-  %76 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %76 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !37
   br label %tailrecurse.backedge
 
 .loopexit.loopexit:                               ; preds = %61
-  %.phi.trans.insert577 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
-  %.pre578 = load ptr, ptr %.phi.trans.insert577, align 8, !tbaa !37
+  %.phi.trans.insert574 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
+  %.pre575 = load ptr, ptr %.phi.trans.insert574, align 8, !tbaa !37
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %65
-  %78 = phi ptr [ %.pre578, %.loopexit.loopexit ], [ %67, %65 ]
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %79 = getelementptr inbounds nuw i8, ptr %.tr539, i64 4
-  %.sroa.0.0.copyload.i415 = load i32, ptr %79, align 4, !tbaa !83
-  store i32 %.sroa.0.0.copyload.i415, ptr %2, align 4, !tbaa !83
+  %78 = phi ptr [ %.pre575, %.loopexit.loopexit ], [ %67, %65 ]
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %79 = getelementptr inbounds nuw i8, ptr %.tr536, i64 4
+  %.sroa.0.0.copyload.i414 = load i32, ptr %79, align 4, !tbaa !83
+  store i32 %.sroa.0.0.copyload.i414, ptr %2, align 4, !tbaa !83
   %80 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %78) #31
   store i64 %80, ptr %3, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 81:                                               ; preds = %12
-  %82 = load i32, ptr %.tr539, align 8
+  %82 = load i32, ptr %.tr536, align 8
   %83 = lshr i32 %82, 19
   %84 = and i32 %83, 63
   switch i32 %84, label %111 [
@@ -16571,13 +16571,13 @@ tailrecurse.backedge:                             ; preds = %452, %_ZNK5clang8Qu
   ]
 
 85:                                               ; preds = %81
-  %86 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
+  %86 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
   %87 = load ptr, ptr %86, align 8, !tbaa !3
   %88 = tail call noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull align 8 dereferenceable(16) %87) #31
   %89 = load i16, ptr %88, align 8
   %90 = and i16 %89, 511
-  %.not515 = icmp eq i16 %90, 54
-  br i1 %.not515, label %91, label %.critedge398
+  %.not512 = icmp eq i16 %90, 54
+  br i1 %.not512, label %91, label %.critedge398
 
 91:                                               ; preds = %85
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -16600,104 +16600,104 @@ tailrecurse.backedge:                             ; preds = %452, %_ZNK5clang8Qu
 
 _ZN4llvm5APIntD2Ev.exit:                          ; preds = %91, %97, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %93, label %.critedge412, label %_ZN4llvm5APIntD2Ev.exit..critedge398_crit_edge
+  br i1 %93, label %.critedge411, label %_ZN4llvm5APIntD2Ev.exit..critedge398_crit_edge
 
 _ZN4llvm5APIntD2Ev.exit..critedge398_crit_edge:   ; preds = %_ZN4llvm5APIntD2Ev.exit
-  %.pre575 = load ptr, ptr %86, align 8, !tbaa !3
+  %.pre572 = load ptr, ptr %86, align 8, !tbaa !3
   br label %.critedge398
 
 .critedge398:                                     ; preds = %_ZN4llvm5APIntD2Ev.exit..critedge398_crit_edge, %85
-  %101 = phi ptr [ %.pre575, %_ZN4llvm5APIntD2Ev.exit..critedge398_crit_edge ], [ %87, %85 ]
+  %101 = phi ptr [ %.pre572, %_ZN4llvm5APIntD2Ev.exit..critedge398_crit_edge ], [ %87, %85 ]
   %102 = call noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPKS0_RNS_14SourceLocationERNS_11SourceRangeES7_RNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(23216) %5)
-  br label %.critedge412
+  br label %.critedge411
 
 103:                                              ; preds = %81, %81
-  %104 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %104 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %105 = load ptr, ptr %104, align 8, !tbaa !3
   %106 = tail call noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPKS0_RNS_14SourceLocationERNS_11SourceRangeES7_RNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %105, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(23216) %5)
-  br i1 %106, label %107, label %.critedge412
+  br i1 %106, label %107, label %.critedge411
 
 107:                                              ; preds = %103
-  %108 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
+  %108 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
   %109 = load ptr, ptr %108, align 8, !tbaa !3
   %110 = tail call noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPKS0_RNS_14SourceLocationERNS_11SourceRangeES7_RNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(23216) %5)
-  br i1 %110, label %._crit_edge, label %.critedge412
+  br i1 %110, label %._crit_edge, label %.critedge411
 
 ._crit_edge:                                      ; preds = %107
-  %.pre576 = load i32, ptr %.tr539, align 8
-  %.pre579 = lshr i32 %.pre576, 19
-  %.pre580 = and i32 %.pre579, 63
+  %.pre573 = load i32, ptr %.tr536, align 8
+  %.pre576 = lshr i32 %.pre573, 19
+  %.pre577 = and i32 %.pre576, 63
   br label %111
 
 111:                                              ; preds = %._crit_edge, %81
-  %.pre-phi581 = phi i32 [ %.pre580, %._crit_edge ], [ %84, %81 ]
-  %112 = add nsw i32 %.pre-phi581, -21
+  %.pre-phi578 = phi i32 [ %.pre577, %._crit_edge ], [ %84, %81 ]
+  %112 = add nsw i32 %.pre-phi578, -21
   %113 = icmp ult i32 %112, 11
-  br i1 %113, label %.critedge412, label %114
+  br i1 %113, label %.critedge411, label %114
 
 114:                                              ; preds = %111
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %115 = getelementptr inbounds nuw i8, ptr %.tr539, i64 4
-  %.sroa.0.0.copyload.i417 = load i32, ptr %115, align 4, !tbaa !83
-  store i32 %.sroa.0.0.copyload.i417, ptr %2, align 4, !tbaa !83
-  %116 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %115 = getelementptr inbounds nuw i8, ptr %.tr536, i64 4
+  %.sroa.0.0.copyload.i416 = load i32, ptr %115, align 4, !tbaa !83
+  store i32 %.sroa.0.0.copyload.i416, ptr %2, align 4, !tbaa !83
+  %116 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %117 = load ptr, ptr %116, align 8, !tbaa !3
   %118 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %117) #31
   store i64 %118, ptr %3, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
+  %119 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !3
   %121 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %120) #31
   store i64 %121, ptr %4, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 122:                                              ; preds = %12
-  %123 = getelementptr inbounds nuw i8, ptr %.tr539, i64 32
+  %123 = getelementptr inbounds nuw i8, ptr %.tr536, i64 32
   %124 = load ptr, ptr %123, align 8, !tbaa !3
   %125 = tail call noundef zeroext i1 @_ZNK5clang4Expr22isUnusedResultAWarningERPKS0_RNS_14SourceLocationERNS_11SourceRangeES7_RNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(16) %124, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(23216) %5)
-  br i1 %125, label %126, label %.critedge412
+  br i1 %125, label %126, label %.critedge411
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds nuw i8, ptr %.tr539, i64 40
+  %127 = getelementptr inbounds nuw i8, ptr %.tr536, i64 40
   %128 = load ptr, ptr %127, align 8, !tbaa !3
   br label %tailrecurse.backedge
 
 129:                                              ; preds = %12
-  %130 = getelementptr inbounds nuw i8, ptr %.tr539, i64 48
+  %130 = getelementptr inbounds nuw i8, ptr %.tr536, i64 48
   %131 = load ptr, ptr %130, align 8, !tbaa !3
   br label %tailrecurse.backedge
 
 132:                                              ; preds = %12
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %133 = getelementptr inbounds nuw i8, ptr %.tr539, i64 40
-  %.sroa.0.0.copyload.i418 = load i32, ptr %133, align 8, !tbaa !83
-  store i32 %.sroa.0.0.copyload.i418, ptr %2, align 4, !tbaa !83
-  %.sroa.4477.0.insert.ext = zext i32 %.sroa.0.0.copyload.i418 to i64
-  %.sroa.4477.0.insert.shift = shl nuw i64 %.sroa.4477.0.insert.ext, 32
-  %.sroa.0476.0.insert.insert = or disjoint i64 %.sroa.4477.0.insert.shift, %.sroa.4477.0.insert.ext
-  store i64 %.sroa.0476.0.insert.insert, ptr %3, align 4
-  %134 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %133 = getelementptr inbounds nuw i8, ptr %.tr536, i64 40
+  %.sroa.0.0.copyload.i417 = load i32, ptr %133, align 8, !tbaa !83
+  store i32 %.sroa.0.0.copyload.i417, ptr %2, align 4, !tbaa !83
+  %.sroa.4476.0.insert.ext = zext i32 %.sroa.0.0.copyload.i417 to i64
+  %.sroa.4476.0.insert.shift = shl nuw i64 %.sroa.4476.0.insert.ext, 32
+  %.sroa.0475.0.insert.insert = or disjoint i64 %.sroa.4476.0.insert.shift, %.sroa.4476.0.insert.ext
+  store i64 %.sroa.0475.0.insert.insert, ptr %3, align 4
+  %134 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !60
   %136 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %135) #31
   store i64 %136, ptr %4, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 137:                                              ; preds = %12
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %138 = getelementptr inbounds nuw i8, ptr %.tr539, i64 4
-  %.sroa.0.0.copyload.i419 = load i32, ptr %138, align 4, !tbaa !83
-  store i32 %.sroa.0.0.copyload.i419, ptr %2, align 4, !tbaa !83
-  %139 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %138 = getelementptr inbounds nuw i8, ptr %.tr536, i64 4
+  %.sroa.0.0.copyload.i418 = load i32, ptr %138, align 4, !tbaa !83
+  store i32 %.sroa.0.0.copyload.i418, ptr %2, align 4, !tbaa !83
+  %139 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !3
   %141 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %140) #31
   store i64 %141, ptr %3, align 4
-  %142 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
+  %142 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
   %143 = load ptr, ptr %142, align 8, !tbaa !3
   %144 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %143) #31
   store i64 %144, ptr %4, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 145:                                              ; preds = %12
-  %146 = getelementptr inbounds nuw i8, ptr %.tr539, i64 4
+  %146 = getelementptr inbounds nuw i8, ptr %.tr536, i64 4
   %147 = load i8, ptr %146, align 4
   %148 = and i8 %147, 63
   switch i8 %148, label %.critedge.thread [
@@ -16710,7 +16710,7 @@ _ZN4llvm5APIntD2Ev.exit..critedge398_crit_edge:   ; preds = %_ZN4llvm5APIntD2Ev.
   ]
 
 149:                                              ; preds = %145, %145, %145, %145, %145, %145
-  %150 = tail call i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %.tr539, ptr noundef nonnull align 8 dereferenceable(23216) %5)
+  %150 = tail call i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %.tr536, ptr noundef nonnull align 8 dereferenceable(23216) %5)
   %151 = and i64 %150, -16
   %152 = inttoptr i64 %151 to ptr
   %153 = load ptr, ptr %152, align 16, !tbaa !26
@@ -16726,48 +16726,48 @@ _ZN4llvm5APIntD2Ev.exit..critedge398_crit_edge:   ; preds = %_ZN4llvm5APIntD2Ev.
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %.critedge.thread, label %161
 
 161:                                              ; preds = %149
-  %162 = tail call i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %.tr539, ptr noundef nonnull align 8 dereferenceable(23216) %5)
+  %162 = tail call i64 @_ZNK5clang8CallExpr17getCallReturnTypeERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %.tr536, ptr noundef nonnull align 8 dereferenceable(23216) %5)
   %163 = and i64 %162, -16
   %164 = inttoptr i64 %163 to ptr
   %165 = load ptr, ptr %164, align 16, !tbaa !26
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i422 = load i64, ptr %166, align 8, !tbaa !25
-  %167 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i422, -16
+  %.sroa.0.0.copyload.i.i.i.i.i.i421 = load i64, ptr %166, align 8, !tbaa !25
+  %167 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i421, -16
   %168 = inttoptr i64 %167 to ptr
   %169 = load ptr, ptr %168, align 16, !tbaa !26
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   %171 = load i8, ptr %170, align 16
   %172 = icmp eq i8 %171, 13
-  %.not7.i.i423 = icmp ne ptr %169, null
-  %.not.not.not.i.i424 = and i1 %.not7.i.i423, %172
-  br i1 %.not.not.not.i.i424, label %_ZNK5clang4Type10isVoidTypeEv.exit426, label %.critedge
+  %.not7.i.i422 = icmp ne ptr %169, null
+  %.not.not.not.i.i423 = and i1 %.not7.i.i422, %172
+  br i1 %.not.not.not.i.i423, label %_ZNK5clang4Type10isVoidTypeEv.exit425, label %.critedge
 
-_ZNK5clang4Type10isVoidTypeEv.exit426:            ; preds = %161
+_ZNK5clang4Type10isVoidTypeEv.exit425:            ; preds = %161
   %173 = load i32, ptr %170, align 16
   %174 = and i32 %173, 267911168
   %175 = icmp eq i32 %174, 227540992
   br i1 %175, label %.critedge.thread, label %.critedge
 
-.critedge:                                        ; preds = %161, %_ZNK5clang4Type10isVoidTypeEv.exit426
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %176 = getelementptr inbounds nuw i8, ptr %.tr539, i64 20
+.critedge:                                        ; preds = %161, %_ZNK5clang4Type10isVoidTypeEv.exit425
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %176 = getelementptr inbounds nuw i8, ptr %.tr536, i64 20
   %.sroa.0.0.copyload.i.i = load i32, ptr %176, align 4, !tbaa !83
   store i32 %.sroa.0.0.copyload.i.i, ptr %2, align 4, !tbaa !83
-  %177 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
-  %.sroa.0.0.copyload.i427 = load i64, ptr %177, align 8
-  store i64 %.sroa.0.0.copyload.i427, ptr %3, align 4
-  br label %.critedge412
+  %177 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
+  %.sroa.0.0.copyload.i426 = load i64, ptr %177, align 8
+  store i64 %.sroa.0.0.copyload.i426, ptr %3, align 4
+  br label %.critedge411
 
-.critedge.thread:                                 ; preds = %12, %12, %12, %149, %145, %_ZNK5clang4Type10isVoidTypeEv.exit426
-  %178 = tail call noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr539)
+.critedge.thread:                                 ; preds = %12, %12, %12, %149, %145, %_ZNK5clang4Type10isVoidTypeEv.exit425
+  %178 = tail call noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr noundef nonnull align 8 dereferenceable(24) %.tr536)
   %.not394 = icmp eq ptr %178, null
-  br i1 %.not394, label %.critedge412, label %179
+  br i1 %.not394, label %.critedge411, label %179
 
 179:                                              ; preds = %.critedge.thread
-  %180 = tail call { ptr, ptr } @_ZNK5clang8CallExpr19getUnusedResultAttrERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %.tr539, ptr noundef nonnull align 8 dereferenceable(23216) %5)
+  %180 = tail call { ptr, ptr } @_ZNK5clang8CallExpr19getUnusedResultAttrERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(24) %.tr536, ptr noundef nonnull align 8 dereferenceable(23216) %5)
   %181 = extractvalue { ptr, ptr } %180, 1
-  %.not513 = icmp eq ptr %181, null
-  br i1 %.not513, label %182, label %186
+  %.not510 = icmp eq ptr %181, null
+  br i1 %.not510, label %182, label %186
 
 182:                                              ; preds = %179
   %183 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %178)
@@ -16775,34 +16775,34 @@ _ZNK5clang4Type10isVoidTypeEv.exit426:            ; preds = %161
 
 184:                                              ; preds = %182
   %185 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %178)
-  br i1 %185, label %186, label %.critedge412
+  br i1 %185, label %186, label %.critedge411
 
 186:                                              ; preds = %184, %182, %179
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %187 = load i32, ptr %.tr539, align 8
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %187 = load i32, ptr %.tr536, align 8
   %188 = lshr i32 %187, 24
   %189 = zext nneg i32 %188 to i64
-  %190 = getelementptr inbounds nuw i8, ptr %.tr539, i64 %189
+  %190 = getelementptr inbounds nuw i8, ptr %.tr536, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !3
   %192 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %191) #31
   store i32 %192, ptr %2, align 4, !tbaa !83
-  %193 = load i32, ptr %.tr539, align 8
+  %193 = load i32, ptr %.tr536, align 8
   %194 = lshr i32 %193, 24
   %195 = zext nneg i32 %194 to i64
-  %196 = getelementptr inbounds nuw i8, ptr %.tr539, i64 %195
+  %196 = getelementptr inbounds nuw i8, ptr %.tr536, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !3
   %198 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %197) #31
   store i64 %198, ptr %3, align 4
-  %199 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %199 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %200 = load i32, ptr %199, align 8, !tbaa !753
   %.not395 = icmp eq i32 %200, 0
-  br i1 %.not395, label %.critedge412, label %201
+  br i1 %.not395, label %.critedge411, label %201
 
 201:                                              ; preds = %186
-  %202 = load i32, ptr %.tr539, align 8
+  %202 = load i32, ptr %.tr536, align 8
   %203 = lshr i32 %202, 24
   %204 = zext nneg i32 %203 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %.tr539, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %.tr536, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 8
   %207 = lshr i32 %202, 19
   %208 = and i32 %207, 1
@@ -16815,17 +16815,17 @@ _ZNK5clang4Type10isVoidTypeEv.exit426:            ; preds = %161
   %215 = getelementptr inbounds nuw ptr, ptr %210, i64 %214
   %216 = load ptr, ptr %215, align 8, !tbaa !146
   %217 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %216) #31
-  %.sroa.4473.0.insert.ext = zext i32 %217 to i64
-  %.sroa.4473.0.insert.shift = shl nuw i64 %.sroa.4473.0.insert.ext, 32
-  %.sroa.0472.0.insert.ext = zext i32 %212 to i64
-  %.sroa.0472.0.insert.insert = or disjoint i64 %.sroa.4473.0.insert.shift, %.sroa.0472.0.insert.ext
-  store i64 %.sroa.0472.0.insert.insert, ptr %4, align 4
-  br label %.critedge412
+  %.sroa.4472.0.insert.ext = zext i32 %217 to i64
+  %.sroa.4472.0.insert.shift = shl nuw i64 %.sroa.4472.0.insert.ext, 32
+  %.sroa.0471.0.insert.ext = zext i32 %212 to i64
+  %.sroa.0471.0.insert.insert = or disjoint i64 %.sroa.4472.0.insert.shift, %.sroa.0471.0.insert.ext
+  store i64 %.sroa.0471.0.insert.insert, ptr %4, align 4
+  br label %.critedge411
 
 218:                                              ; preds = %12, %12
-  %219 = getelementptr inbounds nuw i8, ptr %.tr539, i64 8
-  %.sroa.0.0.copyload.i428 = load i64, ptr %219, align 8, !tbaa !25
-  %220 = and i64 %.sroa.0.0.copyload.i428, -16
+  %219 = getelementptr inbounds nuw i8, ptr %.tr536, i64 8
+  %.sroa.0.0.copyload.i427 = load i64, ptr %219, align 8, !tbaa !25
+  %220 = and i64 %.sroa.0.0.copyload.i427, -16
   %221 = inttoptr i64 %220 to ptr
   %222 = load ptr, ptr %221, align 16, !tbaa !26
   %223 = tail call noundef ptr @_ZNK5clang4Type18getAsCXXRecordDeclEv(ptr noundef nonnull align 16 dereferenceable(24) %222) #32
@@ -16847,47 +16847,47 @@ _ZNK5clang4Type10isVoidTypeEv.exit426:            ; preds = %161
   br i1 %230, label %231, label %234
 
 231:                                              ; preds = %224, %228
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %232 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr539) #31
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %232 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr536) #31
   store i32 %232, ptr %2, align 4, !tbaa !83
-  %233 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr539) #31
+  %233 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr536) #31
   store i64 %233, ptr %3, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 234:                                              ; preds = %228, %227, %218
-  %235 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %235 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %236 = load ptr, ptr %235, align 8, !tbaa !804
   %.not391 = icmp eq ptr %236, null
-  br i1 %.not391, label %.critedge412, label %237
+  br i1 %.not391, label %.critedge411, label %237
 
 237:                                              ; preds = %234
   %238 = tail call noundef ptr @_ZNK5clang4Decl7getAttrINS_20WarnUnusedResultAttrEEEPT_v(ptr noundef nonnull align 8 dereferenceable(33) %236)
   %.not392 = icmp eq ptr %238, null
-  br i1 %.not392, label %.critedge412, label %239
+  br i1 %.not392, label %.critedge411, label %239
 
 239:                                              ; preds = %237
   %240 = tail call noundef i32 @_ZNK5clang20WarnUnusedResultAttr19getSemanticSpellingEv(ptr noundef nonnull align 8 dereferenceable(48) %238) #32
   %241 = icmp eq i32 %240, 0
-  br i1 %241, label %242, label %.critedge412
+  br i1 %241, label %242, label %.critedge411
 
 242:                                              ; preds = %239
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %243 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr539) #31
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %243 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr536) #31
   store i32 %243, ptr %2, align 4, !tbaa !83
-  %244 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr539) #31
+  %244 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr536) #31
   store i64 %244, ptr %3, align 4
-  %245 = getelementptr inbounds nuw i8, ptr %.tr539, i64 32
+  %245 = getelementptr inbounds nuw i8, ptr %.tr536, i64 32
   %246 = load i32, ptr %245, align 8, !tbaa !889
   %.not393 = icmp eq i32 %246, 0
-  br i1 %.not393, label %.critedge412, label %247
+  br i1 %.not393, label %.critedge411, label %247
 
 247:                                              ; preds = %242
-  %248 = load i16, ptr %.tr539, align 8
+  %248 = load i16, ptr %.tr536, align 8
   %249 = and i16 %248, 511
   %.not.i.i.i.i = icmp eq i16 %249, 116
-  %spec.select.i.i.i.i.i.i = select i1 %.not.i.i.i.i, ptr %.tr539, ptr null
+  %spec.select.i.i.i.i.i.i = select i1 %.not.i.i.i.i, ptr %.tr536, ptr null
   %250 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i.i, i64 48
-  %251 = getelementptr inbounds nuw i8, ptr %.tr539, i64 40
+  %251 = getelementptr inbounds nuw i8, ptr %.tr536, i64 40
   %spec.select.i.i.i.i = select i1 %.not.i.i.i.i, ptr %250, ptr %251
   %252 = load ptr, ptr %spec.select.i.i.i.i, align 8, !tbaa !146
   %253 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %252) #31
@@ -16898,10 +16898,10 @@ _ZNK5clang4Type10isVoidTypeEv.exit426:            ; preds = %161
   %258 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %257) #31
   %.sroa.4.0.insert.ext = zext i32 %258 to i64
   %.sroa.4.0.insert.shift = shl nuw i64 %.sroa.4.0.insert.ext, 32
-  %.sroa.0470.0.insert.ext = zext i32 %253 to i64
-  %.sroa.0470.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0470.0.insert.ext
-  store i64 %.sroa.0470.0.insert.insert, ptr %4, align 4
-  br label %.critedge412
+  %.sroa.0469.0.insert.ext = zext i32 %253 to i64
+  %.sroa.0469.0.insert.insert = or disjoint i64 %.sroa.4.0.insert.shift, %.sroa.0469.0.insert.ext
+  store i64 %.sroa.0469.0.insert.insert, ptr %4, align 4
+  br label %.critedge411
 
 259:                                              ; preds = %12
   %260 = load ptr, ptr %11, align 8, !tbaa !228
@@ -16912,81 +16912,81 @@ _ZNK5clang4Type10isVoidTypeEv.exit426:            ; preds = %161
   br i1 %.not387, label %.critedge14, label %264
 
 264:                                              ; preds = %259
-  %265 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
+  %265 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
   %266 = load i32, ptr %265, align 8
   %267 = and i32 %266, 16580608
   %spec.select.i = icmp eq i32 %267, 65536
   br i1 %spec.select.i, label %268, label %.critedge14
 
 268:                                              ; preds = %264
-  %269 = getelementptr inbounds nuw i8, ptr %.tr539, i64 8
-  %.sroa.0.0.copyload.i433 = load i64, ptr %269, align 8, !tbaa !25
-  %270 = and i64 %.sroa.0.0.copyload.i433, -16
+  %269 = getelementptr inbounds nuw i8, ptr %.tr536, i64 8
+  %.sroa.0.0.copyload.i432 = load i64, ptr %269, align 8, !tbaa !25
+  %270 = and i64 %.sroa.0.0.copyload.i432, -16
   %271 = inttoptr i64 %270 to ptr
   %272 = load ptr, ptr %271, align 16, !tbaa !26
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i435 = load i64, ptr %273, align 8, !tbaa !25
-  %274 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i435, -16
+  %.sroa.0.0.copyload.i.i.i.i.i.i434 = load i64, ptr %273, align 8, !tbaa !25
+  %274 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i434, -16
   %275 = inttoptr i64 %274 to ptr
   %276 = load ptr, ptr %275, align 16, !tbaa !26
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
   %278 = load i8, ptr %277, align 16
   %279 = icmp eq i8 %278, 13
-  %.not7.i.i436 = icmp ne ptr %276, null
-  %.not.not.not.i.i437 = and i1 %.not7.i.i436, %279
-  br i1 %.not.not.not.i.i437, label %_ZNK5clang4Type10isVoidTypeEv.exit439, label %_ZNK5clang4Type10isVoidTypeEv.exit439.thread
+  %.not7.i.i435 = icmp ne ptr %276, null
+  %.not.not.not.i.i436 = and i1 %.not7.i.i435, %279
+  br i1 %.not.not.not.i.i436, label %_ZNK5clang4Type10isVoidTypeEv.exit438, label %_ZNK5clang4Type10isVoidTypeEv.exit438.thread
 
-_ZNK5clang4Type10isVoidTypeEv.exit439:            ; preds = %268
+_ZNK5clang4Type10isVoidTypeEv.exit438:            ; preds = %268
   %280 = load i32, ptr %277, align 16
   %281 = and i32 %280, 267911168
   %282 = icmp eq i32 %281, 227540992
-  br i1 %282, label %.critedge14, label %_ZNK5clang4Type10isVoidTypeEv.exit439.thread
+  br i1 %282, label %.critedge14, label %_ZNK5clang4Type10isVoidTypeEv.exit438.thread
 
-_ZNK5clang4Type10isVoidTypeEv.exit439.thread:     ; preds = %268, %_ZNK5clang4Type10isVoidTypeEv.exit439
-  %283 = tail call noundef i32 @_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr539)
+_ZNK5clang4Type10isVoidTypeEv.exit438.thread:     ; preds = %268, %_ZNK5clang4Type10isVoidTypeEv.exit438
+  %283 = tail call noundef i32 @_ZNK5clang15ObjCMessageExpr15getMethodFamilyEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr536)
   %284 = icmp eq i32 %283, 3
   br i1 %284, label %285, label %.critedge14
 
-285:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit439.thread
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %286 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr539) #31
+285:                                              ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit438.thread
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %286 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr536) #31
   store i32 %286, ptr %2, align 4, !tbaa !83
-  %287 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr539) #31
+  %287 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr536) #31
   store i64 %287, ptr %3, align 4
-  br label %.critedge412
+  br label %.critedge411
 
-.critedge14:                                      ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit439, %264, %259, %_ZNK5clang4Type10isVoidTypeEv.exit439.thread
-  %288 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
+.critedge14:                                      ; preds = %_ZNK5clang4Type10isVoidTypeEv.exit438, %264, %259, %_ZNK5clang4Type10isVoidTypeEv.exit438.thread
+  %288 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
   %289 = load i32, ptr %288, align 8
   %290 = and i32 %289, 16777216
   %.not.i = icmp eq i32 %290, 0
-  %291 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %291 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %292 = load i64, ptr %291, align 8
-  %.not388512 = icmp eq i64 %292, 0
-  %.not388 = select i1 %.not.i, i1 true, i1 %.not388512
-  br i1 %.not388, label %.critedge412, label %293
+  %.not388509 = icmp eq i64 %292, 0
+  %.not388 = select i1 %.not.i, i1 true, i1 %.not388509
+  br i1 %.not388, label %.critedge411, label %293
 
 293:                                              ; preds = %.critedge14
   %294 = inttoptr i64 %292 to ptr
   %295 = tail call noundef zeroext i1 @_ZNK5clang4Decl7hasAttrINS_20WarnUnusedResultAttrEEEbv(ptr noundef nonnull align 8 dereferenceable(33) %294)
-  br i1 %295, label %296, label %.critedge412
+  br i1 %295, label %296, label %.critedge411
 
 296:                                              ; preds = %293
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %297 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr539) #31
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %297 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr536) #31
   store i32 %297, ptr %2, align 4, !tbaa !83
-  br label %.critedge412
+  br label %.critedge411
 
 298:                                              ; preds = %12, %12
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %299 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr539) #31
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %299 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr536) #31
   store i32 %299, ptr %2, align 4, !tbaa !83
-  %300 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr539) #31
+  %300 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr536) #31
   store i64 %300, ptr %3, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 301:                                              ; preds = %12
-  %302 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %302 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %303 = load ptr, ptr %302, align 8, !tbaa !146
   %304 = load i16, ptr %303, align 8
   %305 = and i16 %304, 511
@@ -16996,17 +16996,17 @@ _ZNK5clang4Type10isVoidTypeEv.exit439.thread:     ; preds = %268, %_ZNK5clang4Ty
   ]
 
 306:                                              ; preds = %301, %301
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %307 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr539) #31
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %307 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr536) #31
   store i32 %307, ptr %2, align 4, !tbaa !83
-  %308 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr539) #31
+  %308 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr536) #31
   store i64 %308, ptr %3, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 309:                                              ; preds = %301
   %310 = and i16 %304, 510
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i16 %310, 120
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %311, label %.critedge406
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %311, label %.critedge405
 
 311:                                              ; preds = %309
   %312 = load i32, ptr %303, align 8
@@ -17014,37 +17014,37 @@ _ZNK5clang4Type10isVoidTypeEv.exit439.thread:     ; preds = %268, %_ZNK5clang4Ty
   %314 = and i32 %313, 63
   %315 = add nsw i32 %314, -21
   %316 = icmp ult i32 %315, 11
-  br i1 %316, label %.critedge412, label %.critedge406
+  br i1 %316, label %.critedge411, label %.critedge405
 
-.critedge406:                                     ; preds = %311, %309
-  %.not511 = icmp eq i16 %305, 4
-  br i1 %.not511, label %317, label %.critedge408
+.critedge405:                                     ; preds = %311, %309
+  %.not508 = icmp eq i16 %305, 4
+  br i1 %.not508, label %317, label %.critedge407
 
-317:                                              ; preds = %.critedge406
+317:                                              ; preds = %.critedge405
   %318 = load i32, ptr %303, align 8
   %319 = and i32 %318, 14680064
   %320 = icmp eq i32 %319, 0
-  br i1 %320, label %.critedge412, label %.critedge408
+  br i1 %320, label %.critedge411, label %.critedge407
 
-.critedge408:                                     ; preds = %317, %.critedge406
-  %321 = load i64, ptr %.tr539, align 8
+.critedge407:                                     ; preds = %317, %.critedge405
+  %321 = load i64, ptr %.tr536, align 8
   %322 = icmp ult i64 %321, 281474976710656
-  br i1 %322, label %.critedge412, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
+  br i1 %322, label %.critedge411, label %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit
 
-_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit: ; preds = %.critedge408
+_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit: ; preds = %.critedge407
   %323 = lshr i64 %321, 48
   %324 = getelementptr inbounds nuw ptr, ptr %302, i64 %323
   %325 = load ptr, ptr %324, align 8, !tbaa !146
   %.not386 = icmp eq ptr %325, null
-  br i1 %.not386, label %.critedge412, label %tailrecurse.backedge
+  br i1 %.not386, label %.critedge411, label %tailrecurse.backedge
 
 326:                                              ; preds = %12
-  %327 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %327 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %328 = load ptr, ptr %327, align 8, !tbaa !890
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 4
   %330 = load i32, ptr %329, align 4, !tbaa !25
   %331 = icmp eq i32 %330, 0
-  br i1 %331, label %.thread496, label %_ZNK5clang12CompoundStmt9body_backEv.exit
+  br i1 %331, label %.thread493, label %_ZNK5clang12CompoundStmt9body_backEv.exit
 
 _ZNK5clang12CompoundStmt9body_backEv.exit:        ; preds = %326
   %332 = getelementptr inbounds nuw i8, ptr %328, i64 16
@@ -17055,57 +17055,57 @@ _ZNK5clang12CompoundStmt9body_backEv.exit:        ; preds = %326
   %337 = load i16, ptr %336, align 8
   %338 = and i16 %337, 511
   %339 = add nsw i16 %338, -132
-  %spec.select.i.i.i.i.i.i.i.i443 = icmp ult i16 %339, -129
-  br i1 %spec.select.i.i.i.i.i.i.i.i443, label %_ZNK5clang12CompoundStmt9body_backEv.exit445, label %tailrecurse.backedge
+  %spec.select.i.i.i.i.i.i.i.i442 = icmp ult i16 %339, -129
+  br i1 %spec.select.i.i.i.i.i.i.i.i442, label %_ZNK5clang12CompoundStmt9body_backEv.exit444, label %tailrecurse.backedge
 
-_ZNK5clang12CompoundStmt9body_backEv.exit445:     ; preds = %_ZNK5clang12CompoundStmt9body_backEv.exit
-  %.not507 = icmp eq i16 %338, 2
-  br i1 %.not507, label %340, label %.thread496
+_ZNK5clang12CompoundStmt9body_backEv.exit444:     ; preds = %_ZNK5clang12CompoundStmt9body_backEv.exit
+  %.not504 = icmp eq i16 %338, 2
+  br i1 %.not504, label %340, label %.thread493
 
-340:                                              ; preds = %_ZNK5clang12CompoundStmt9body_backEv.exit445
+340:                                              ; preds = %_ZNK5clang12CompoundStmt9body_backEv.exit444
   %341 = getelementptr inbounds nuw i8, ptr %336, i64 16
   %342 = load ptr, ptr %341, align 8, !tbaa !892
   %343 = load i16, ptr %342, align 8
   %344 = and i16 %343, 511
   %345 = add nsw i16 %344, -132
-  %spec.select.i.i.i.i.i.i.i.i447 = icmp ult i16 %345, -129
-  br i1 %spec.select.i.i.i.i.i.i.i.i447, label %.thread496, label %tailrecurse.backedge
+  %spec.select.i.i.i.i.i.i.i.i446 = icmp ult i16 %345, -129
+  br i1 %spec.select.i.i.i.i.i.i.i.i446, label %.thread493, label %tailrecurse.backedge
 
-.thread496:                                       ; preds = %340, %_ZNK5clang12CompoundStmt9body_backEv.exit445, %326
-  %346 = getelementptr inbounds nuw i8, ptr %.tr539, i64 8
-  %.sroa.0.0.copyload.i449 = load i64, ptr %346, align 8, !tbaa !25
-  %347 = and i64 %.sroa.0.0.copyload.i449, -16
+.thread493:                                       ; preds = %340, %_ZNK5clang12CompoundStmt9body_backEv.exit444, %326
+  %346 = getelementptr inbounds nuw i8, ptr %.tr536, i64 8
+  %.sroa.0.0.copyload.i448 = load i64, ptr %346, align 8, !tbaa !25
+  %347 = and i64 %.sroa.0.0.copyload.i448, -16
   %348 = inttoptr i64 %347 to ptr
   %349 = load ptr, ptr %348, align 16, !tbaa !26
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i.i451 = load i64, ptr %350, align 8, !tbaa !25
-  %351 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i451, -16
+  %.sroa.0.0.copyload.i.i.i.i.i.i450 = load i64, ptr %350, align 8, !tbaa !25
+  %351 = and i64 %.sroa.0.0.copyload.i.i.i.i.i.i450, -16
   %352 = inttoptr i64 %351 to ptr
   %353 = load ptr, ptr %352, align 16, !tbaa !26
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 16
   %355 = load i8, ptr %354, align 16
   %356 = icmp eq i8 %355, 13
-  %.not7.i.i452 = icmp ne ptr %353, null
-  %.not.not.not.i.i453 = and i1 %.not7.i.i452, %356
-  br i1 %.not.not.not.i.i453, label %_ZNK5clang4Type10isVoidTypeEv.exit455, label %_ZNK5clang4Type10isVoidTypeEv.exit455.thread
+  %.not7.i.i451 = icmp ne ptr %353, null
+  %.not.not.not.i.i452 = and i1 %.not7.i.i451, %356
+  br i1 %.not.not.not.i.i452, label %_ZNK5clang4Type10isVoidTypeEv.exit454, label %_ZNK5clang4Type10isVoidTypeEv.exit454.thread
 
-_ZNK5clang4Type10isVoidTypeEv.exit455:            ; preds = %.thread496
+_ZNK5clang4Type10isVoidTypeEv.exit454:            ; preds = %.thread493
   %357 = load i32, ptr %354, align 16
   %358 = and i32 %357, 267911168
   %359 = icmp eq i32 %358, 227540992
-  br i1 %359, label %.critedge412, label %_ZNK5clang4Type10isVoidTypeEv.exit455.thread
+  br i1 %359, label %.critedge411, label %_ZNK5clang4Type10isVoidTypeEv.exit454.thread
 
-_ZNK5clang4Type10isVoidTypeEv.exit455.thread:     ; preds = %.thread496, %_ZNK5clang4Type10isVoidTypeEv.exit455
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %360 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
-  %.sroa.0.0.copyload.i456 = load i32, ptr %360, align 8, !tbaa !83
-  store i32 %.sroa.0.0.copyload.i456, ptr %2, align 4, !tbaa !83
-  %361 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr539) #31
+_ZNK5clang4Type10isVoidTypeEv.exit454.thread:     ; preds = %.thread493, %_ZNK5clang4Type10isVoidTypeEv.exit454
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %360 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
+  %.sroa.0.0.copyload.i455 = load i32, ptr %360, align 8, !tbaa !83
+  store i32 %.sroa.0.0.copyload.i455, ptr %2, align 4, !tbaa !83
+  %361 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.tr536) #31
   store i64 %361, ptr %3, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 362:                                              ; preds = %12, %12
-  %363 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %363 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %364 = load ptr, ptr %363, align 8, !tbaa !46
   br label %.lr.ph.i.i.i
 
@@ -17161,8 +17161,8 @@ _ZNK5clang4Type10isVoidTypeEv.exit455.thread:     ; preds = %.thread496, %_ZNK5c
   %393 = load ptr, ptr %392, align 8, !tbaa !3
   %394 = load i24, ptr %393, align 8
   %395 = and i24 %394, 196608
-  %.not73.i.i.i = icmp eq i24 %395, 0
-  br i1 %.not73.i.i.i, label %396, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %395, 0
+  br i1 %.not70.i.i.i, label %396, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 396:                                              ; preds = %391
   %397 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -17195,13 +17195,13 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14Pre
 
 _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %.lr.ph.i.i.i, %370, %377, %391, %405, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
   %.1.i3.i.i = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i ], [ %.068.i.i.i, %370 ], [ %.068.i.i.i, %377 ], [ %.068.i.i.i, %391 ], [ %.068.i.i.i, %405 ], [ %.068.i.i.i, %.lr.ph.i.i.i ]
-  %410 = load i32, ptr %.tr539, align 8
+  %410 = load i32, ptr %.tr536, align 8
   %411 = lshr i32 %410, 19
   %412 = and i32 %411, 127
   switch i32 %412, label %443 [
     i32 24, label %413
     i32 20, label %tailrecurse.backedge
-    i32 0, label %.critedge412
+    i32 0, label %.critedge411
   ]
 
 413:                                              ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
@@ -17209,17 +17209,17 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %.lr.ph.i.i.i, %370,
   %415 = load i64, ptr %414, align 8
   %416 = and i64 %415, 6144
   %or.cond = icmp eq i64 %416, 2048
-  br i1 %or.cond, label %417, label %.critedge412
+  br i1 %or.cond, label %417, label %.critedge411
 
 417:                                              ; preds = %413
   %418 = tail call noundef zeroext i1 @_ZNK5clang4Expr30isReadIfDiscardedInCPlusPlus11Ev(ptr noundef nonnull align 8 dereferenceable(16) %.1.i3.i.i)
-  br i1 %418, label %419, label %.critedge412
+  br i1 %418, label %419, label %.critedge411
 
 419:                                              ; preds = %417
   %420 = load i16, ptr %.1.i3.i.i, align 8
   %421 = and i16 %420, 511
-  %.not503 = icmp eq i16 %421, 73
-  br i1 %.not503, label %422, label %.critedge410
+  %.not500 = icmp eq i16 %421, 73
+  br i1 %.not500, label %422, label %.critedge409
 
 422:                                              ; preds = %419
   %423 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 16
@@ -17229,90 +17229,90 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %.lr.ph.i.i.i, %370,
   %427 = and i32 %426, 127
   %428 = add nsw i32 %427, -45
   %429 = icmp ult i32 %428, -7
-  %.not380504 = icmp eq ptr %424, null
-  %.not380 = or i1 %.not380504, %429
-  br i1 %.not380, label %.critedge410, label %430
+  %.not380501 = icmp eq ptr %424, null
+  %.not380 = or i1 %.not380501, %429
+  br i1 %.not380, label %.critedge409, label %430
 
 430:                                              ; preds = %422
   %431 = tail call noundef zeroext i8 @_ZNK5clang9NamedDecl18getLinkageInternalEv(ptr noundef nonnull align 8 dereferenceable(48) %424) #32
   %.off.i.i = add i8 %431, -4
   %switch.i.i = icmp ult i8 %.off.i.i, 3
-  br i1 %switch.i.i, label %.critedge410, label %.critedge412
+  br i1 %switch.i.i, label %.critedge409, label %.critedge411
 
-.critedge410:                                     ; preds = %422, %430, %419
+.critedge409:                                     ; preds = %422, %430, %419
   %432 = getelementptr inbounds nuw i8, ptr %.1.i3.i.i, i64 8
-  %.sroa.0.0.copyload.i459 = load i64, ptr %432, align 8, !tbaa !25
-  %433 = and i64 %.sroa.0.0.copyload.i459, -16
+  %.sroa.0.0.copyload.i458 = load i64, ptr %432, align 8, !tbaa !25
+  %433 = and i64 %.sroa.0.0.copyload.i458, -16
   %434 = inttoptr i64 %433 to ptr
   %435 = load ptr, ptr %434, align 16, !tbaa !26
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 8
-  %.sroa.0.0.copyload.i.i.i.i461 = load i64, ptr %436, align 8, !tbaa !25
-  %437 = and i64 %.sroa.0.0.copyload.i.i.i.i461, -16
+  %.sroa.0.0.copyload.i.i.i.i460 = load i64, ptr %436, align 8, !tbaa !25
+  %437 = and i64 %.sroa.0.0.copyload.i.i.i.i460, -16
   %438 = inttoptr i64 %437 to ptr
   %439 = load ptr, ptr %438, align 16, !tbaa !26
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 16
   %441 = load i8, ptr %440, align 16
   %442 = add i8 %441, -2
   %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %442, 5
-  br i1 %switch.i.i.i.i.i.i.i.i.i, label %.critedge412, label %tailrecurse.backedge
+  br i1 %switch.i.i.i.i.i.i.i.i.i, label %.critedge411, label %tailrecurse.backedge
 
 443:                                              ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit
-  store ptr %.tr539, ptr %1, align 8, !tbaa !146
-  %444 = load i16, ptr %.tr539, align 8
+  store ptr %.tr536, ptr %1, align 8, !tbaa !146
+  %444 = load i16, ptr %.tr536, align 8
   %445 = and i16 %444, 511
   %.not = icmp eq i16 %445, 88
   br i1 %.not, label %446, label %448
 
 446:                                              ; preds = %443
-  %447 = tail call i32 @_ZNK5clang21CXXFunctionalCastExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr539) #31
+  %447 = tail call i32 @_ZNK5clang21CXXFunctionalCastExpr11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(40) %.tr536) #31
   br label %450
 
 448:                                              ; preds = %443
-  %449 = getelementptr inbounds nuw i8, ptr %.tr539, i64 32
-  %.sroa.0.0.copyload.i463 = load i32, ptr %449, align 8, !tbaa !83
+  %449 = getelementptr inbounds nuw i8, ptr %.tr536, i64 32
+  %.sroa.0.0.copyload.i462 = load i32, ptr %449, align 8, !tbaa !83
   br label %450
 
 450:                                              ; preds = %448, %446
-  %.sroa.0.0.copyload.i463.sink = phi i32 [ %.sroa.0.0.copyload.i463, %448 ], [ %447, %446 ]
-  store i32 %.sroa.0.0.copyload.i463.sink, ptr %2, align 4, !tbaa !83
+  %.sroa.0.0.copyload.i462.sink = phi i32 [ %.sroa.0.0.copyload.i462, %448 ], [ %447, %446 ]
+  store i32 %.sroa.0.0.copyload.i462.sink, ptr %2, align 4, !tbaa !83
   %451 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %364) #31
   store i64 %451, ptr %3, align 4
-  br label %.critedge412
+  br label %.critedge411
 
 452:                                              ; preds = %12
-  %453 = load i32, ptr %.tr539, align 8
+  %453 = load i32, ptr %.tr536, align 8
   %454 = and i32 %453, 66584576
   %455 = icmp eq i32 %454, 2097152
-  %456 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %456 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %457 = load ptr, ptr %456, align 8, !tbaa !46
   br i1 %455, label %458, label %tailrecurse.backedge
 
 458:                                              ; preds = %452
   %459 = getelementptr inbounds nuw i8, ptr %457, i64 8
-  %.sroa.0.0.copyload.i464 = load i64, ptr %459, align 8, !tbaa !25
-  %460 = and i64 %.sroa.0.0.copyload.i464, 4
-  %.not.i466 = icmp eq i64 %460, 0
-  br i1 %.not.i466, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, label %.critedge412
+  %.sroa.0.0.copyload.i463 = load i64, ptr %459, align 8, !tbaa !25
+  %460 = and i64 %.sroa.0.0.copyload.i463, 4
+  %.not.i465 = icmp eq i64 %460, 0
+  br i1 %.not.i465, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, label %.critedge411
 
 _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %458
-  %461 = and i64 %.sroa.0.0.copyload.i464, -16
+  %461 = and i64 %.sroa.0.0.copyload.i463, -16
   %462 = inttoptr i64 %461 to ptr
   %463 = getelementptr inbounds nuw i8, ptr %462, i64 8
   %.0.copyload.i.i.i.i.i1.i = load i64, ptr %463, align 8
   %464 = and i64 %.0.copyload.i.i.i.i.i1.i, 4
-  %.not501 = icmp eq i64 %464, 0
-  br i1 %.not501, label %tailrecurse.backedge, label %.critedge412
+  %.not498 = icmp eq i64 %464, 0
+  br i1 %.not498, label %tailrecurse.backedge, label %.critedge411
 
 465:                                              ; preds = %12
-  %466 = tail call noundef ptr @_ZN5clang17CXXDefaultArgExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr539) #32
+  %466 = tail call noundef ptr @_ZN5clang17CXXDefaultArgExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr536) #32
   br label %tailrecurse.backedge
 
 467:                                              ; preds = %12
-  %468 = tail call noundef ptr @_ZN5clang18CXXDefaultInitExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr539) #32
+  %468 = tail call noundef ptr @_ZN5clang18CXXDefaultInitExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr536) #32
   br label %tailrecurse.backedge
 
 469:                                              ; preds = %12
-  %470 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %470 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %.0.copyload.i.i.i.i.i.i.i.i = load i64, ptr %470, align 8
   %471 = and i64 %.0.copyload.i.i.i.i.i.i.i.i, 4
   %472 = icmp eq i64 %471, 0
@@ -17326,22 +17326,22 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %458
   br label %tailrecurse.backedge
 
 478:                                              ; preds = %12
-  %479 = getelementptr inbounds nuw i8, ptr %.tr539, i64 24
+  %479 = getelementptr inbounds nuw i8, ptr %.tr536, i64 24
   %480 = load ptr, ptr %479, align 8, !tbaa !126
   br label %tailrecurse.backedge
 
 481:                                              ; preds = %12
-  %482 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %482 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %483 = load ptr, ptr %482, align 8, !tbaa !96
   br label %tailrecurse.backedge
 
 484:                                              ; preds = %12
-  %485 = getelementptr inbounds nuw i8, ptr %.tr539, i64 16
+  %485 = getelementptr inbounds nuw i8, ptr %.tr536, i64 16
   %486 = load ptr, ptr %485, align 8, !tbaa !88
   br label %tailrecurse.backedge
 
-.critedge412:                                     ; preds = %tailrecurse.backedge, %61, %61, %61, %61, %61, %12, %12, %12, %12, %12, %12, %12, %12, %122, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit, %317, %311, %430, %413, %417, %.critedge410, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %.critedge408, %458, %_ZNK5clang4Expr12IgnoreParensEv.exit, %6, %239, %237, %234, %242, %247, %201, %186, %184, %.critedge.thread, %296, %293, %.critedge14, %231, %.critedge, %450, %_ZNK5clang4Type10isVoidTypeEv.exit455.thread, %_ZNK5clang4Type10isVoidTypeEv.exit455, %306, %285, %.critedge398, %114, %_ZN4llvm5APIntD2Ev.exit, %107, %103, %111, %.loopexit, %65, %_ZNK5clang4Type10isVoidTypeEv.exit, %298, %137, %132, %_ZNK5clang4Type10isVoidTypeEv.exit.thread
-  %.0 = phi i1 [ true, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ true, %132 ], [ true, %137 ], [ true, %.critedge ], [ true, %231 ], [ true, %298 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ true, %.loopexit ], [ false, %65 ], [ true, %114 ], [ %102, %.critedge398 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %107 ], [ false, %103 ], [ false, %111 ], [ true, %285 ], [ true, %306 ], [ true, %_ZNK5clang4Type10isVoidTypeEv.exit455.thread ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit455 ], [ true, %450 ], [ true, %296 ], [ false, %293 ], [ false, %.critedge14 ], [ true, %201 ], [ true, %186 ], [ false, %184 ], [ false, %.critedge.thread ], [ false, %239 ], [ false, %237 ], [ false, %234 ], [ true, %242 ], [ true, %247 ], [ false, %6 ], [ false, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ false, %458 ], [ false, %.critedge408 ], [ false, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ false, %.critedge410 ], [ false, %417 ], [ false, %413 ], [ false, %430 ], [ false, %311 ], [ false, %317 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ false, %122 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %tailrecurse.backedge ]
+.critedge411:                                     ; preds = %tailrecurse.backedge, %61, %61, %61, %61, %61, %12, %12, %12, %12, %12, %12, %12, %12, %122, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit, %317, %311, %430, %413, %417, %.critedge409, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %.critedge407, %458, %_ZNK5clang4Expr12IgnoreParensEv.exit, %6, %239, %237, %234, %242, %247, %201, %186, %184, %.critedge.thread, %296, %293, %.critedge14, %231, %.critedge, %450, %_ZNK5clang4Type10isVoidTypeEv.exit454.thread, %_ZNK5clang4Type10isVoidTypeEv.exit454, %306, %285, %.critedge398, %114, %_ZN4llvm5APIntD2Ev.exit, %107, %103, %111, %.loopexit, %65, %_ZNK5clang4Type10isVoidTypeEv.exit, %298, %137, %132, %_ZNK5clang4Type10isVoidTypeEv.exit.thread
+  %.0 = phi i1 [ true, %_ZNK5clang4Type10isVoidTypeEv.exit.thread ], [ true, %132 ], [ true, %137 ], [ true, %.critedge ], [ true, %231 ], [ true, %298 ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit ], [ true, %.loopexit ], [ false, %65 ], [ true, %114 ], [ %102, %.critedge398 ], [ false, %_ZN4llvm5APIntD2Ev.exit ], [ false, %107 ], [ false, %103 ], [ false, %111 ], [ true, %285 ], [ true, %306 ], [ true, %_ZNK5clang4Type10isVoidTypeEv.exit454.thread ], [ false, %_ZNK5clang4Type10isVoidTypeEv.exit454 ], [ true, %450 ], [ true, %296 ], [ false, %293 ], [ false, %.critedge14 ], [ true, %201 ], [ true, %186 ], [ false, %184 ], [ false, %.critedge.thread ], [ false, %239 ], [ false, %237 ], [ false, %234 ], [ true, %242 ], [ true, %247 ], [ false, %6 ], [ false, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ false, %458 ], [ false, %.critedge407 ], [ false, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ false, %.critedge409 ], [ false, %417 ], [ false, %413 ], [ false, %430 ], [ false, %311 ], [ false, %317 ], [ false, %_ZNK5clang16PseudoObjectExpr13getResultExprEv.exit ], [ false, %122 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %12 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %61 ], [ false, %tailrecurse.backedge ]
   ret i1 %.0
 }
 
@@ -17404,8 +17404,8 @@ define dso_local noundef ptr @_ZN5clang4Expr12IgnoreParensEv(ptr noundef nonnull
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = load i24, ptr %30, align 8
   %32 = and i24 %31, 196608
-  %.not73.i = icmp eq i24 %32, 0
-  br i1 %.not73.i, label %33, label %_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_EEEES2_S2_DpOT_.exit
+  %.not70.i = icmp eq i24 %32, 0
+  br i1 %.not70.i, label %33, label %_ZN5clang15IgnoreExprNodesIJRFPNS_4ExprES2_EEEES2_S2_DpOT_.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.068.i, i64 48
@@ -17695,8 +17695,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr17isOBJCGCCandidateERNS_10AS
   %31 = load ptr, ptr %30, align 8, !tbaa !3
   %32 = load i24, ptr %31, align 8
   %33 = and i24 %32, 196608
-  %.not73.i.i.i = icmp eq i24 %33, 0
-  br i1 %.not73.i.i.i, label %34, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %33, 0
+  br i1 %.not70.i.i.i, label %34, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -17850,13 +17850,13 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %29, %15, %.lr.ph.i.
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %111 = load i8, ptr %110, align 16
   %112 = icmp ne i8 %111, 13
-  %.not.not24.i.i.i = icmp eq ptr %109, null
-  %.not.not.i.i.i = or i1 %.not.not24.i.i.i, %112
+  %.not.not21.i.i.i = icmp eq ptr %109, null
+  %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %112
   br i1 %.not.not.i.i.i, label %113, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i
 
 113:                                              ; preds = %99
   %114 = icmp ne i8 %111, 46
-  %.not13.not.i.i.i = or i1 %.not.not24.i.i.i, %114
+  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %114
   br i1 %.not13.not.i.i.i, label %128, label %115
 
 115:                                              ; preds = %113
@@ -17926,13 +17926,13 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang18ArraySubscriptExpr7getBaseEv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 16
   %14 = icmp ne i8 %13, 13
-  %.not.not24.i.i = icmp eq ptr %11, null
-  %.not.not.i.i = or i1 %.not.not24.i.i, %14
+  %.not.not21.i.i = icmp eq ptr %11, null
+  %.not.not.i.i = or i1 %.not.not21.i.i, %14
   br i1 %.not.not.i.i, label %15, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit
 
 15:                                               ; preds = %1
   %16 = icmp ne i8 %13, 46
-  %.not13.not.i.i = or i1 %.not.not24.i.i, %16
+  %.not13.not.i.i = or i1 %.not.not21.i.i, %16
   br i1 %.not13.not.i.i, label %30, label %17
 
 17:                                               ; preds = %15
@@ -18039,8 +18039,8 @@ define dso_local noundef ptr @_ZN5clang4Expr11IgnoreCastsEv(ptr noundef nonnull 
 
 8:                                                ; preds = %.lr.ph.i
   %9 = and i16 %2, 510
-  %spec.select.i.i.i.i.i.i.i.i34.i = icmp eq i16 %9, 62
-  br i1 %spec.select.i.i.i.i.i.i.i.i34.i, label %10, label %13
+  %spec.select.i.i.i.i.i.i.i.i31.i = icmp eq i16 %9, 62
+  br i1 %spec.select.i.i.i.i.i.i.i.i31.i, label %10, label %13
 
 10:                                               ; preds = %8
   %11 = getelementptr inbounds nuw i8, ptr %.068.i, i64 16
@@ -18254,8 +18254,8 @@ define dso_local noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef non
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = load i24, ptr %30, align 8
   %32 = and i24 %31, 196608
-  %.not73.i = icmp eq i24 %32, 0
-  br i1 %.not73.i, label %33, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
+  %.not70.i = icmp eq i24 %32, 0
+  br i1 %.not70.i, label %33, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.079.i, i64 48
@@ -18296,8 +18296,8 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit: ; preds = %.lr.ph.i, %4, %7, 
 
 53:                                               ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
   %54 = and i16 %47, 510
-  %spec.select.i.i.i.i.i.i.i.i34.i = icmp eq i16 %54, 62
-  br i1 %spec.select.i.i.i.i.i.i.i.i34.i, label %55, label %58
+  %spec.select.i.i.i.i.i.i.i.i31.i = icmp eq i16 %54, 62
+  br i1 %spec.select.i.i.i.i.i.i.i.i31.i, label %55, label %58
 
 55:                                               ; preds = %53
   %56 = getelementptr inbounds nuw i8, ptr %.1.i1, i64 16
@@ -18422,8 +18422,8 @@ define dso_local noundef ptr @_ZN5clang4Expr22IgnoreParenLValueCastsEv(ptr nound
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = load i24, ptr %30, align 8
   %32 = and i24 %31, 196608
-  %.not73.i = icmp eq i24 %32, 0
-  br i1 %.not73.i, label %33, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
+  %.not70.i = icmp eq i24 %32, 0
+  br i1 %.not70.i, label %33, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.079.i, i64 48
@@ -18470,8 +18470,8 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit: ; preds = %.lr.ph.i, %4, %7, 
 
 .critedge.i:                                      ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
   %56 = and i16 %47, 510
-  %spec.select.i.i.i.i.i.i.i.i34.i.i = icmp eq i16 %56, 62
-  br i1 %spec.select.i.i.i.i.i.i.i.i34.i.i, label %57, label %60
+  %spec.select.i.i.i.i.i.i.i.i31.i.i = icmp eq i16 %56, 62
+  br i1 %spec.select.i.i.i.i.i.i.i.i31.i.i, label %57, label %60
 
 57:                                               ; preds = %.critedge.i
   %58 = getelementptr inbounds nuw i8, ptr %.1.i1, i64 16
@@ -18568,8 +18568,8 @@ define dso_local noundef ptr @_ZN5clang4Expr20IgnoreParenBaseCastsEv(ptr noundef
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = load i24, ptr %30, align 8
   %32 = and i24 %31, 196608
-  %.not73.i = icmp eq i24 %32, 0
-  br i1 %.not73.i, label %33, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
+  %.not70.i = icmp eq i24 %32, 0
+  br i1 %.not70.i, label %33, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.079.i, i64 48
@@ -18683,8 +18683,8 @@ define dso_local noundef ptr @_ZN5clang4Expr20IgnoreParenNoopCastsERKNS_10ASTCon
   %32 = load ptr, ptr %31, align 8, !tbaa !3
   %33 = load i24, ptr %32, align 8
   %34 = and i24 %33, 196608
-  %.not73.i.i.i = icmp eq i24 %34, 0
-  br i1 %.not73.i.i.i, label %35, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
+  %.not70.i.i.i = icmp eq i24 %34, 0
+  br i1 %.not70.i.i.i, label %35, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i
 
 35:                                               ; preds = %30
   %36 = getelementptr inbounds nuw i8, ptr %.071.i, i64 48
@@ -18758,12 +18758,12 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i: ; preds = %_ZN5clang14Pre
 ._crit_edge.i.i.i.i:                              ; preds = %80
   %.sroa.0.0.copyload.i36.pre.i.i.i.i = load i64, ptr %56, align 8, !tbaa !25
   %.pre.i.i.i.i = and i64 %.sroa.0.0.copyload.i36.pre.i.i.i.i, -16
-  %.pre55.i.i.i.i = inttoptr i64 %.pre.i.i.i.i to ptr
+  %.pre54.i.i.i.i = inttoptr i64 %.pre.i.i.i.i to ptr
   br label %82
 
 82:                                               ; preds = %._crit_edge.i.i.i.i, %52
-  %.pre-phi56.i.i.i.i = phi ptr [ %.pre55.i.i.i.i, %._crit_edge.i.i.i.i ], [ %65, %52 ]
-  %83 = load ptr, ptr %.pre-phi56.i.i.i.i, align 8, !tbaa !26
+  %.pre-phi55.i.i.i.i = phi ptr [ %.pre54.i.i.i.i, %._crit_edge.i.i.i.i ], [ %65, %52 ]
+  %83 = load ptr, ptr %.pre-phi55.i.i.i.i, align 8, !tbaa !26
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %.sroa.0.0.copyload.i.i.i.i38.i.i.i.i = load i64, ptr %84, align 8, !tbaa !25
   %85 = and i64 %.sroa.0.0.copyload.i.i.i.i38.i.i.i.i, -16
@@ -18930,7 +18930,7 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
   %49 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %48) #31
   %50 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %spec.select.i.i.i.i.i) #31
   %or.cond.not.i.i.i.i.i.i = icmp eq i64 %49, %50
-  %spec.select28.i.i.i.i.i.i = select i1 %or.cond.not.i.i.i.i.i.i, ptr %48, ptr %spec.select.i.i.i.i.i
+  %spec.select26.i.i.i.i.i.i = select i1 %or.cond.not.i.i.i.i.i.i, ptr %48, ptr %spec.select.i.i.i.i.i
   br label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
 
 .thread.i.i.i.i.i.i:                              ; preds = %_ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i
@@ -18960,12 +18960,12 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
   br i1 %62, label %.critedge.i.i.i.i.i.i, label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
 
 .critedge.i.i.i.i.i.i:                            ; preds = %52, %55
-  %.not.i.i.i47.i.i.i.i.i.i = icmp eq i16 %45, 116
-  %spec.select.i.i.i.i.i48.i.i.i.i.i.i = select i1 %.not.i.i.i47.i.i.i.i.i.i, ptr %spec.select.i.i.i.i.i, ptr null
-  %63 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i48.i.i.i.i.i.i, i64 48
+  %.not.i.i.i46.i.i.i.i.i.i = icmp eq i16 %45, 116
+  %spec.select.i.i.i.i.i47.i.i.i.i.i.i = select i1 %.not.i.i.i46.i.i.i.i.i.i, ptr %spec.select.i.i.i.i.i, ptr null
+  %63 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i47.i.i.i.i.i.i, i64 48
   %64 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 40
-  %spec.select.i.i.i49.i.i.i.i.i.i = select i1 %.not.i.i.i47.i.i.i.i.i.i, ptr %63, ptr %64
-  %65 = load ptr, ptr %spec.select.i.i.i49.i.i.i.i.i.i, align 8, !tbaa !146
+  %spec.select.i.i.i48.i.i.i.i.i.i = select i1 %.not.i.i.i46.i.i.i.i.i.i, ptr %63, ptr %64
+  %65 = load ptr, ptr %spec.select.i.i.i48.i.i.i.i.i.i, align 8, !tbaa !146
   %66 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %65) #31
   %67 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull readonly align 8 dereferenceable(8) %spec.select.i.i.i.i.i) #31
   %68 = icmp eq i64 %66, %67
@@ -18975,12 +18975,12 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
   %69 = load i32, ptr %spec.select.i.i.i.i.i, align 8
   %.fr.i.i.i.i.i.i = freeze i32 %69
   %70 = and i32 %.fr.i.i.i.i.i.i, 524288
-  %.not26.i.i.i.i.i.i = icmp eq i32 %70, 0
-  %spec.select.i.i.i.i.i.i = select i1 %.not26.i.i.i.i.i.i, ptr %spec.select.i.i.i.i.i, ptr %65
+  %.not24.i.i.i.i.i.i = icmp eq i32 %70, 0
+  %spec.select.i.i.i.i.i.i = select i1 %.not24.i.i.i.i.i.i, ptr %spec.select.i.i.i.i.i, ptr %65
   br label %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
 
 "_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i": ; preds = %.critedge6.i.i.i.i.i.i, %.critedge.i.i.i.i.i.i, %55, %52, %.thread.i.i.i.i.i.i, %46
-  %.3.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %.thread.i.i.i.i.i.i ], [ %65, %.critedge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %55 ], [ %spec.select.i.i.i.i.i, %52 ], [ %spec.select.i.i.i.i.i.i, %.critedge6.i.i.i.i.i.i ], [ %spec.select28.i.i.i.i.i.i, %46 ]
+  %.3.i.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i, %.thread.i.i.i.i.i.i ], [ %65, %.critedge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i, %55 ], [ %spec.select.i.i.i.i.i, %52 ], [ %spec.select.i.i.i.i.i.i, %.critedge6.i.i.i.i.i.i ], [ %spec.select26.i.i.i.i.i.i, %46 ]
   %71 = load i16, ptr %.3.i.i.i.i.i.i, align 8
   %72 = and i16 %71, 511
   %.not.i.i.i.i.i.i.i = icmp eq i16 %72, 94
@@ -18992,9 +18992,9 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
   %.sroa.09.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %75 to i32
   %.sroa.410.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %75, 32
   %76 = tail call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %.3.i.i.i.i.i.i) #31
-  %.fr28.i.i.i.i.i.i.i = freeze i64 %76
-  %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %.fr28.i.i.i.i.i.i.i to i32
-  %.sroa.48.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %.fr28.i.i.i.i.i.i.i, 32
+  %.fr27.i.i.i.i.i.i.i = freeze i64 %76
+  %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i = trunc i64 %.fr27.i.i.i.i.i.i.i to i32
+  %.sroa.48.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %.fr27.i.i.i.i.i.i.i, 32
   %77 = icmp eq i32 %.sroa.09.0.extract.trunc.i.i.i.i.i.i.i, %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i
   %78 = icmp eq i64 %.sroa.410.0.extract.shift.i.i.i.i.i.i.i, %.sroa.48.0.extract.shift.i.i.i.i.i.i.i
   %79 = and i1 %77, %78
@@ -19003,9 +19003,9 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
 80:                                               ; preds = %73
   %81 = load i16, ptr %74, align 8
   %82 = and i16 %81, 511
-  %.not32.i.i.i.i.i.i.i = icmp eq i16 %82, 22
-  %83 = icmp eq i64 %75, %.fr28.i.i.i.i.i.i.i
-  %or.cond.i.i.i.i.i.i = and i1 %83, %.not32.i.i.i.i.i.i.i
+  %.not31.i.i.i.i.i.i.i = icmp eq i16 %82, 22
+  %83 = icmp eq i64 %75, %.fr27.i.i.i.i.i.i.i
+  %or.cond.i.i.i.i.i.i = and i1 %83, %.not31.i.i.i.i.i.i.i
   br i1 %or.cond.i.i.i.i.i.i, label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i", label %84
 
 84:                                               ; preds = %80
@@ -19016,8 +19016,8 @@ _ZN5clang26IgnoreParensOnlySingleStepEPNS_4ExprE.exit.i.i.i.i: ; preds = %41, %_
   %.sroa.42.0.extract.shift.i.i.i.i.i.i.i = lshr i64 %.fr.i.i.i.i.i.i.i, 32
   %87 = icmp ne i32 %.sroa.01.0.extract.trunc.i.i.i.i.i.i.i, %.sroa.07.0.extract.trunc.i.i.i.i.i.i.i
   %88 = icmp ne i64 %.sroa.42.0.extract.shift.i.i.i.i.i.i.i, %.sroa.48.0.extract.shift.i.i.i.i.i.i.i
-  %.not27.i.i.i.i.i.i.i = or i1 %87, %88
-  %spec.select.i.i.i.i.i.i.i = select i1 %.not27.i.i.i.i.i.i.i, ptr %.3.i.i.i.i.i.i, ptr %85
+  %.not26.i.i.i.i.i.i.i = or i1 %87, %88
+  %spec.select.i.i.i.i.i.i.i = select i1 %.not26.i.i.i.i.i.i.i, ptr %.3.i.i.i.i.i.i, ptr %85
   br label %"_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i"
 
 "_ZN5clang6detail19IgnoreExprNodesImplIRFPNS_4ExprES3_EJS5_S5_RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_0RZNS2_27IgnoreUnlessSpelledInSourceEvE3$_1EEES3_S3_OT_DpOT0_.exit.i": ; preds = %84, %80, %73, %"_ZZN5clang4Expr27IgnoreUnlessSpelledInSourceEvENK3$_0clEPS0_.exit.i.i.i.i.i"
@@ -19054,16 +19054,16 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %10, %4, %1
   %.010 = phi ptr [ %0, %1 ], [ %12, %10 ], [ %9, %4 ]
   %13 = load i16, ptr %.010, align 8
   %14 = and i16 %13, 511
-  %.not1617 = icmp eq i16 %14, 81
-  br i1 %.not1617, label %.lr.ph, label %._crit_edge
+  %.not1516 = icmp eq i16 %14, 81
+  br i1 %.not1516, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit, %.lr.ph
-  %.118 = phi ptr [ %15, %.lr.ph ], [ %.010, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit ]
-  %15 = tail call noundef ptr @_ZN5clang8CastExpr19getSubExprAsWrittenEv(ptr noundef nonnull align 8 dereferenceable(24) %.118)
+  %.117 = phi ptr [ %15, %.lr.ph ], [ %.010, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit ]
+  %15 = tail call noundef ptr @_ZN5clang8CastExpr19getSubExprAsWrittenEv(ptr noundef nonnull align 8 dereferenceable(24) %.117)
   %16 = load i16, ptr %15, align 8
   %17 = and i16 %16, 511
-  %.not16 = icmp eq i16 %17, 81
-  br i1 %.not16, label %.lr.ph, label %._crit_edge
+  %.not15 = icmp eq i16 %17, 81
+  br i1 %.not15, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %.lr.ph, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit
   %.pre-phi = phi i16 [ %14, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit ], [ %17, %.lr.ph ]
@@ -19131,65 +19131,65 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i: ; preds = %34, %28, %
   %.0.i = phi ptr [ %0, %25 ], [ %36, %34 ], [ %33, %28 ]
   %37 = load i16, ptr %.0.i, align 8
   %38 = and i16 %37, 511
-  %.not39.i21 = icmp eq i16 %38, 81
-  br i1 %.not39.i21, label %.lr.ph, label %.preheader44.i.preheader
+  %.not36.i21 = icmp eq i16 %38, 81
+  br i1 %.not36.i21, label %.lr.ph, label %.preheader41.i.preheader
 
 .lr.ph:                                           ; preds = %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i, %42
   %.1.i22 = phi ptr [ %44, %42 ], [ %.0.i, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i ]
   %39 = load i32, ptr %.1.i22, align 8
   %40 = and i32 %39, 66584576
   %41 = icmp eq i32 %40, 2621440
-  br i1 %41, label %42, label %.preheader44.preheader.i.loopexit.split.loop.exit
+  br i1 %41, label %42, label %.preheader41.preheader.i.loopexit.split.loop.exit
 
 42:                                               ; preds = %.lr.ph
   %43 = getelementptr inbounds nuw i8, ptr %.1.i22, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !46
   %45 = load i16, ptr %44, align 8
   %46 = and i16 %45, 511
-  %.not39.i = icmp eq i16 %46, 81
-  br i1 %.not39.i, label %.lr.ph, label %.preheader44.i.preheader
+  %.not36.i = icmp eq i16 %46, 81
+  br i1 %.not36.i, label %.lr.ph, label %.preheader41.i.preheader
 
-.preheader44.preheader.i.loopexit.split.loop.exit: ; preds = %.lr.ph
+.preheader41.preheader.i.loopexit.split.loop.exit: ; preds = %.lr.ph
   %47 = trunc i32 %39 to i16
-  br label %.preheader44.i.preheader
+  br label %.preheader41.i.preheader
 
-.preheader44.i.preheader:                         ; preds = %42, %.preheader44.preheader.i.loopexit.split.loop.exit, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i
-  %.ph = phi i16 [ %47, %.preheader44.preheader.i.loopexit.split.loop.exit ], [ %37, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i ], [ %45, %42 ]
-  %.3.i.ph = phi ptr [ %.1.i22, %.preheader44.preheader.i.loopexit.split.loop.exit ], [ %.0.i, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i ], [ %44, %42 ]
-  br label %.preheader44.i
+.preheader41.i.preheader:                         ; preds = %42, %.preheader41.preheader.i.loopexit.split.loop.exit, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i
+  %.ph = phi i16 [ %47, %.preheader41.preheader.i.loopexit.split.loop.exit ], [ %37, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i ], [ %45, %42 ]
+  %.3.i.ph = phi ptr [ %.1.i22, %.preheader41.preheader.i.loopexit.split.loop.exit ], [ %.0.i, %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i ], [ %44, %42 ]
+  br label %.preheader41.i
 
-.preheader44.i:                                   ; preds = %.preheader44.i.preheader, %50
-  %48 = phi i16 [ %.pre, %50 ], [ %.ph, %.preheader44.i.preheader ]
-  %.3.i = phi ptr [ %52, %50 ], [ %.3.i.ph, %.preheader44.i.preheader ]
+.preheader41.i:                                   ; preds = %.preheader41.i.preheader, %50
+  %48 = phi i16 [ %.pre, %50 ], [ %.ph, %.preheader41.i.preheader ]
+  %.3.i = phi ptr [ %52, %50 ], [ %.3.i.ph, %.preheader41.i.preheader ]
   %49 = and i16 %48, 511
   switch i16 %49, label %.lr.ph.i.i.i.i.preheader [
     i16 118, label %50
     i16 81, label %.lr.ph.i
   ]
 
-50:                                               ; preds = %.preheader44.i
+50:                                               ; preds = %.preheader41.i
   %51 = getelementptr inbounds nuw i8, ptr %.3.i, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !126
   %.pre = load i16, ptr %52, align 8
-  br label %.preheader44.i
+  br label %.preheader41.i
 
-.lr.ph.i:                                         ; preds = %.preheader44.i, %56
-  %.546.i = phi ptr [ %58, %56 ], [ %.3.i, %.preheader44.i ]
-  %53 = load i32, ptr %.546.i, align 8
+.lr.ph.i:                                         ; preds = %.preheader41.i, %56
+  %.543.i = phi ptr [ %58, %56 ], [ %.3.i, %.preheader41.i ]
+  %53 = load i32, ptr %.543.i, align 8
   %54 = and i32 %53, 66584576
   %55 = icmp eq i32 %54, 2621440
   br i1 %55, label %56, label %.lr.ph.i.i.i.i.preheader
 
 56:                                               ; preds = %.lr.ph.i
-  %57 = getelementptr inbounds nuw i8, ptr %.546.i, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.543.i, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !46
   %59 = load i16, ptr %58, align 8
   %60 = and i16 %59, 511
-  %.not43.i = icmp eq i16 %60, 81
-  br i1 %.not43.i, label %.lr.ph.i, label %.lr.ph.i.i.i.i.preheader
+  %.not40.i = icmp eq i16 %60, 81
+  br i1 %.not40.i, label %.lr.ph.i, label %.lr.ph.i.i.i.i.preheader
 
-.lr.ph.i.i.i.i.preheader:                         ; preds = %.preheader44.i, %56, %.lr.ph.i
-  %.068.i.i.i.i.ph = phi ptr [ %58, %56 ], [ %.546.i, %.lr.ph.i ], [ %.3.i, %.preheader44.i ]
+.lr.ph.i.i.i.i.preheader:                         ; preds = %.preheader41.i, %56, %.lr.ph.i
+  %.068.i.i.i.i.ph = phi ptr [ %58, %56 ], [ %.543.i, %.lr.ph.i ], [ %.3.i, %.preheader41.i ]
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i.i
@@ -19244,8 +19244,8 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit.i: ; preds = %34, %28, %
   %89 = load ptr, ptr %88, align 8, !tbaa !3
   %90 = load i24, ptr %89, align 8
   %91 = and i24 %90, 196608
-  %.not73.i.i.i.i = icmp eq i24 %91, 0
-  br i1 %.not73.i.i.i.i, label %92, label %_ZL39skipTemporaryBindingsNoOpCastsAndParensPKN5clang4ExprE.exit
+  %.not70.i.i.i.i = icmp eq i24 %91, 0
+  br i1 %.not70.i.i.i.i, label %92, label %_ZL39skipTemporaryBindingsNoOpCastsAndParensPKN5clang4ExprE.exit
 
 92:                                               ; preds = %87
   %93 = getelementptr inbounds nuw i8, ptr %.068.i.i.i.i, i64 48
@@ -19362,8 +19362,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr17isImplicitCXXThisEv(ptr no
 15:                                               ; preds = %.backedge, %7
   %16 = phi i16 [ %11, %7 ], [ %2, %.backedge ]
   %17 = and i16 %16, 511
-  %.not75 = icmp eq i16 %17, 4
-  br i1 %.not75, label %18, label %26
+  %.not68 = icmp eq i16 %17, 4
+  br i1 %.not68, label %18, label %26
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %.026, align 8
@@ -19416,26 +19416,26 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr17isImplicitCXXThisEv(ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local noundef zeroext i1 @_ZN5clang4Expr28hasAnyTypeDependentArgumentsEN4llvm8ArrayRefIPS0_EE(ptr readonly captures(none) %0, i64 %1) local_unnamed_addr #0 align 2 {
-  %.not78.not = icmp eq i64 %1, 0
-  br i1 %.not78.not, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq i64 %1, 0
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %3 = phi i64 [ %9, %.lr.ph ], [ 0, %2 ]
-  %.049 = phi i32 [ %8, %.lr.ph ], [ 0, %2 ]
+  %.048 = phi i32 [ %8, %.lr.ph ], [ 0, %2 ]
   %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !146
   %6 = load i24, ptr %5, align 8
   %7 = and i24 %6, 65536
   %.not.not = icmp ne i24 %7, 0
-  %8 = add i32 %.049, 1
+  %8 = add i32 %.048, 1
   %9 = zext i32 %8 to i64
-  %.not7 = icmp ule i64 %1, %9
-  %or.cond.not = select i1 %.not.not, i1 true, i1 %.not7
+  %10 = icmp ule i64 %1, %9
+  %or.cond.not = select i1 %.not.not, i1 true, i1 %10
   br i1 %or.cond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !900
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
-  %.not7.lcssa = phi i1 [ false, %2 ], [ %.not.not, %.lr.ph ]
-  ret i1 %.not7.lcssa
+  %.lcssa = phi i1 [ false, %2 ], [ %.not.not, %.lr.ph ]
+  ret i1 %.lcssa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -19446,10 +19446,10 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr21isConstantInitializerERNS_
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %4
   %.tr = phi ptr [ %0, %4 ], [ %.tr.be, %tailrecurse.backedge ]
-  %.tr285 = phi i1 [ %2, %4 ], [ %.tr285.be, %tailrecurse.backedge ]
+  %.tr277 = phi i1 [ %2, %4 ], [ %.tr277.be, %tailrecurse.backedge ]
   %7 = load i16, ptr %.tr, align 8
   %8 = and i16 %7, 511
-  br i1 %.tr285, label %9, label %34
+  br i1 %.tr277, label %9, label %34
 
 9:                                                ; preds = %tailrecurse
   switch i16 %8, label %22 [
@@ -19490,11 +19490,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %27 = call noundef zeroext i1 @_ZNK5clang4Expr16EvaluateAsLValueERNS0_10EvalResultERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr, ptr noundef nonnull align 8 dereferenceable(72) %5, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext false) #32
   %28 = load i8, ptr %5, align 8, !range !42
   %29 = trunc nuw i8 %28 to i1
-  %.not283 = xor i1 %29, true
-  %or.cond.not = select i1 %27, i1 %.not283, i1 false
+  %.not275 = xor i1 %29, true
+  %or.cond.not = select i1 %27, i1 %.not275, i1 false
   %.not188 = icmp eq ptr %3, null
-  %or.cond203 = or i1 %.not188, %or.cond.not
-  br i1 %or.cond203, label %31, label %30
+  %or.cond198 = or i1 %.not188, %or.cond.not
+  br i1 %or.cond198, label %31, label %30
 
 30:                                               ; preds = %22
   store ptr %.tr, ptr %3, align 8, !tbaa !146
@@ -19511,21 +19511,21 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 _ZN5clang4Expr10EvalResultD2Ev.exit:              ; preds = %31, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.thread239
+  br label %.thread232
 
 34:                                               ; preds = %tailrecurse
-  switch i16 %8, label %.thread255 [
+  switch i16 %8, label %.thread252 [
     i16 62, label %35
-    i16 10, label %.thread239
-    i16 39, label %.thread239
+    i16 10, label %.thread232
+    i16 39, label %.thread232
     i16 116, label %38
     i16 115, label %38
     i16 63, label %71
     i16 78, label %74
     i16 69, label %77
     i16 55, label %84
-    i16 56, label %.thread239
-    i16 47, label %.thread239
+    i16 56, label %.thread232
+    i16 47, label %.thread232
     i16 22, label %220
     i16 59, label %223
     i16 79, label %234
@@ -19557,8 +19557,8 @@ _ZN5clang4Expr10EvalResultD2Ev.exit:              ; preds = %31, %33
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 82
   %42 = load i32, ptr %41, align 2
   %43 = and i32 %42, 128
-  %.not281 = icmp eq i32 %43, 0
-  br i1 %.not281, label %.thread255, label %44
+  %.not273 = icmp eq i32 %43, 0
+  br i1 %.not273, label %.thread252, label %44
 
 44:                                               ; preds = %38
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 72
@@ -19585,14 +19585,14 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
   %59 = load ptr, ptr %58, align 8, !tbaa !662
   %60 = load i64, ptr %59, align 8
   %61 = and i64 %60, 17592186044416
-  %.not282 = icmp eq i64 %61, 0
-  br i1 %.not282, label %.thread255, label %62
+  %.not274 = icmp eq i64 %61, 0
+  br i1 %.not274, label %.thread252, label %62
 
 62:                                               ; preds = %_ZN5clang13CXXMethodDecl9getParentEv.exit
   %63 = getelementptr inbounds nuw i8, ptr %.tr, i64 32
   %64 = load i32, ptr %63, align 8, !tbaa !889
   %.not184 = icmp eq i32 %64, 0
-  br i1 %.not184, label %.thread239, label %65
+  br i1 %.not184, label %.thread232, label %65
 
 65:                                               ; preds = %62
   %66 = load i16, ptr %.tr, align 8
@@ -19619,7 +19619,7 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
   %78 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %79 = load ptr, ptr %78, align 8, !tbaa !3
   %80 = tail call noundef zeroext i1 @_ZNK5clang4Expr21isConstantInitializerERNS_10ASTContextEbPPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %79, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext false, ptr noundef %3)
-  br i1 %80, label %81, label %.thread239
+  br i1 %80, label %81, label %.thread232
 
 81:                                               ; preds = %77
   %82 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -19652,28 +19652,28 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
   %102 = ptrtoint ptr %100 to i64
   %103 = sub i64 %101, %102
   %104 = and i64 %103, 34359738360
-  %.not183309 = icmp eq i64 %104, 0
-  br i1 %.not183309, label %.thread239, label %.lr.ph311.preheader
+  %.not183.not301.not = icmp eq i64 %104, 0
+  br i1 %.not183.not301.not, label %.thread232, label %.lr.ph303.preheader
 
-.lr.ph311.preheader:                              ; preds = %96
+.lr.ph303.preheader:                              ; preds = %96
   %105 = lshr exact i64 %103, 3
   %wide.trip.count = and i64 %105, 4294967295
-  br label %.lr.ph311
+  br label %.lr.ph303
 
-.lr.ph311:                                        ; preds = %.lr.ph311, %.lr.ph311.preheader
-  %indvars.iv = phi i64 [ 0, %.lr.ph311.preheader ], [ %indvars.iv.next, %.lr.ph311 ]
+.lr.ph303:                                        ; preds = %.lr.ph303, %.lr.ph303.preheader
+  %indvars.iv = phi i64 [ 0, %.lr.ph303.preheader ], [ %indvars.iv.next, %.lr.ph303 ]
   %106 = load ptr, ptr %97, align 8, !tbaa !132
   %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv
   %108 = load ptr, ptr %107, align 8, !tbaa !3
   %109 = tail call noundef zeroext i1 @_ZNK5clang4Expr21isConstantInitializerERNS_10ASTContextEbPPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext false, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond327.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
-  %or.cond.not355 = select i1 %109, i1 %exitcond327.not, i1 false
-  br i1 %or.cond.not355, label %.lr.ph311, label %.thread239, !llvm.loop !902
+  %exitcond319.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
+  %or.cond.not347 = select i1 %109, i1 %exitcond319.not, i1 false
+  br i1 %or.cond.not347, label %.lr.ph303, label %.thread232, !llvm.loop !902
 
 110:                                              ; preds = %84
   %111 = icmp eq i8 %94, 47
-  br i1 %111, label %112, label %.thread255
+  br i1 %111, label %112, label %.thread252
 
 112:                                              ; preds = %110
   %113 = tail call noundef ptr @_ZNK5clang7TagType7getDeclEv(ptr noundef nonnull align 16 dereferenceable(32) %92) #32
@@ -19682,8 +19682,8 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
   %116 = and i32 %115, 127
   %117 = add nsw i32 %116, -60
   %118 = icmp ult i32 %117, -3
-  %.not179279 = icmp eq ptr %113, null
-  %.not179 = or i1 %.not179279, %118
+  %.not179271 = icmp eq ptr %113, null
+  %.not179 = or i1 %.not179271, %118
   br i1 %.not179, label %.loopexit, label %119
 
 119:                                              ; preds = %112
@@ -19695,8 +19695,8 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
   %125 = load ptr, ptr %124, align 8, !tbaa !662
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = load i32, ptr %126, align 8, !tbaa !903
-  %.not180299.not = icmp eq i32 %127, 0
-  br i1 %.not180299.not, label %.loopexit, label %.lr.ph
+  %.not180291.not = icmp eq i32 %127, 0
+  br i1 %.not180291.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %119
   %128 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
@@ -19704,8 +19704,8 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
   br label %130
 
 130:                                              ; preds = %.lr.ph, %145
-  %.1162301 = phi i32 [ 0, %.lr.ph ], [ %.3164, %145 ]
-  %.0169300 = phi i32 [ 0, %.lr.ph ], [ %146, %145 ]
+  %.1162293 = phi i32 [ 0, %.lr.ph ], [ %.3164, %145 ]
+  %.0169292 = phi i32 [ 0, %.lr.ph ], [ %146, %145 ]
   %131 = load ptr, ptr %129, align 8, !tbaa !137
   %132 = load ptr, ptr %128, align 8, !tbaa !132
   %133 = ptrtoint ptr %131 to i64
@@ -19713,30 +19713,30 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
   %135 = sub i64 %133, %134
   %136 = lshr exact i64 %135, 3
   %137 = trunc i64 %136 to i32
-  %138 = icmp ult i32 %.1162301, %137
+  %138 = icmp ult i32 %.1162293, %137
   br i1 %138, label %139, label %145
 
 139:                                              ; preds = %130
-  %140 = add nuw i32 %.1162301, 1
-  %141 = zext i32 %.1162301 to i64
+  %140 = add nuw i32 %.1162293, 1
+  %141 = zext i32 %.1162293 to i64
   %142 = getelementptr inbounds nuw ptr, ptr %132, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !3
   %144 = tail call noundef zeroext i1 @_ZNK5clang4Expr21isConstantInitializerERNS_10ASTContextEbPPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %143, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext false, ptr noundef %3)
-  br i1 %144, label %145, label %.thread239
+  br i1 %144, label %145, label %.thread232
 
 145:                                              ; preds = %130, %139
-  %.3164 = phi i32 [ %140, %139 ], [ %.1162301, %130 ]
-  %146 = add nuw i32 %.0169300, 1
+  %.3164 = phi i32 [ %140, %139 ], [ %.1162293, %130 ]
+  %146 = add nuw i32 %.0169292, 1
   %exitcond.not = icmp eq i32 %146, %127
   br i1 %exitcond.not, label %.loopexit, label %130, !llvm.loop !915
 
 .loopexit:                                        ; preds = %145, %119, %112
   %.4165.ph = phi i32 [ 0, %112 ], [ 0, %119 ], [ %.3164, %145 ]
   %147 = tail call ptr @_ZNK5clang10RecordDecl11field_beginEv(ptr noundef nonnull align 8 dereferenceable(128) %113) #32
-  %.not280302 = icmp eq ptr %147, null
-  br i1 %.not280302, label %.thread239, label %.lr.ph305
+  %.not272294 = icmp eq ptr %147, null
+  br i1 %.not272294, label %.thread232, label %.lr.ph297
 
-.lr.ph305:                                        ; preds = %.loopexit
+.lr.ph297:                                        ; preds = %.loopexit
   %148 = getelementptr inbounds nuw i8, ptr %113, i64 72
   %149 = getelementptr inbounds nuw i8, ptr %.tr, i64 56
   %150 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
@@ -19747,9 +19747,9 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
   %155 = getelementptr inbounds nuw i8, ptr %6, i64 20
   br label %156
 
-156:                                              ; preds = %.lr.ph305, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit
-  %.5166304 = phi i32 [ %.4165.ph, %.lr.ph305 ], [ %.6167.ph, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
-  %.sroa.0227.0303 = phi ptr [ %147, %.lr.ph305 ], [ %.sroa.0227.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+156:                                              ; preds = %.lr.ph297, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit
+  %.5166296 = phi i32 [ %.4165.ph, %.lr.ph297 ], [ %.6167.ph, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
+  %.sroa.0222.0295 = phi ptr [ %147, %.lr.ph297 ], [ %.sroa.0222.2, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ]
   %157 = load i16, ptr %148, align 8
   %.mask.i = and i16 %157, -8192
   %158 = icmp eq i16 %.mask.i, 16384
@@ -19758,23 +19758,23 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
 159:                                              ; preds = %156
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %149, align 8
   %160 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 2
-  %.not.i.i.i.i216 = icmp ne i64 %160, 0
+  %.not.i.i.i.i211 = icmp ne i64 %160, 0
   %161 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -4
   %162 = inttoptr i64 %161 to ptr
-  %.not181315 = icmp eq ptr %.sroa.0227.0303, %162
-  %.not181 = and i1 %.not.i.i.i.i216, %.not181315
-  br i1 %.not181, label %163, label %.critedge194
+  %.not181307 = icmp eq ptr %.sroa.0222.0295, %162
+  %.not181 = and i1 %.not.i.i.i.i211, %.not181307
+  br i1 %.not181, label %163, label %.critedge192
 
 163:                                              ; preds = %159, %156
-  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0227.0303, i64 68
+  %164 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0295, i64 68
   %165 = load i32, ptr %164, align 4
   %166 = and i32 %165, 1
   %167 = icmp ne i32 %166, 0
-  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0227.0303, i64 40
+  %168 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0295, i64 40
   %.sroa.0.0.copyload.i.i = load i64, ptr %168, align 8
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i, 0
   %169 = select i1 %167, i1 %.not.i, i1 false
-  br i1 %169, label %.critedge194, label %170
+  br i1 %169, label %.critedge192, label %170
 
 170:                                              ; preds = %163
   %171 = load ptr, ptr %151, align 8, !tbaa !137
@@ -19784,12 +19784,12 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
   %175 = sub i64 %173, %174
   %176 = lshr exact i64 %175, 3
   %177 = trunc i64 %176 to i32
-  %178 = icmp ult i32 %.5166304, %177
-  br i1 %178, label %179, label %.critedge194
+  %178 = icmp ult i32 %.5166296, %177
+  br i1 %178, label %179, label %.critedge192
 
 179:                                              ; preds = %170
-  %180 = add nuw i32 %.5166304, 1
-  %181 = zext i32 %.5166304 to i64
+  %180 = add nuw i32 %.5166296, 1
+  %181 = zext i32 %.5166296 to i64
   %182 = getelementptr inbounds nuw ptr, ptr %172, i64 %181
   %183 = load ptr, ptr %182, align 8, !tbaa !3
   br i1 %167, label %184, label %193
@@ -19816,26 +19816,26 @@ _ZN5clang13CXXMethodDecl9getParentEv.exit:        ; preds = %44, %52
 
 190:                                              ; preds = %188, %189
   %191 = load i32, ptr %154, align 8, !tbaa !67
-  %switch.i.i217 = icmp ult i32 %191, 2
-  br i1 %switch.i.i217, label %_ZN5clang4Expr10EvalResultD2Ev.exit218, label %192
+  %switch.i.i212 = icmp ult i32 %191, 2
+  br i1 %switch.i.i212, label %_ZN5clang4Expr10EvalResultD2Ev.exit213, label %192
 
 192:                                              ; preds = %190
   call void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull align 8 dereferenceable(56) %154) #32
-  br label %_ZN5clang4Expr10EvalResultD2Ev.exit218
+  br label %_ZN5clang4Expr10EvalResultD2Ev.exit213
 
-_ZN5clang4Expr10EvalResultD2Ev.exit218:           ; preds = %190, %192
+_ZN5clang4Expr10EvalResultD2Ev.exit213:           ; preds = %190, %192
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread239
+  br label %.thread232
 
 193:                                              ; preds = %179
-  %194 = getelementptr inbounds nuw i8, ptr %.sroa.0227.0303, i64 48
-  %.sroa.0.0.copyload.i219 = load i64, ptr %194, align 8, !tbaa !25
-  %195 = and i64 %.sroa.0.0.copyload.i219, -16
+  %194 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0295, i64 48
+  %.sroa.0.0.copyload.i214 = load i64, ptr %194, align 8, !tbaa !25
+  %195 = and i64 %.sroa.0.0.copyload.i214, -16
   %196 = inttoptr i64 %195 to ptr
   %197 = load ptr, ptr %196, align 16, !tbaa !26
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  %.sroa.0.0.copyload.i.i.i.i221 = load i64, ptr %198, align 8, !tbaa !25
-  %199 = and i64 %.sroa.0.0.copyload.i.i.i.i221, -16
+  %.sroa.0.0.copyload.i.i.i.i216 = load i64, ptr %198, align 8, !tbaa !25
+  %199 = and i64 %.sroa.0.0.copyload.i.i.i.i216, -16
   %200 = inttoptr i64 %199 to ptr
   %201 = load ptr, ptr %200, align 16, !tbaa !26
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 16
@@ -19843,33 +19843,33 @@ _ZN5clang4Expr10EvalResultD2Ev.exit218:           ; preds = %190, %192
   %204 = and i8 %203, -2
   %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %204, 42
   %205 = call noundef zeroext i1 @_ZNK5clang4Expr21isConstantInitializerERNS_10ASTContextEbPPKS0_(ptr noundef nonnull align 8 dereferenceable(16) %183, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %spec.select.i.i.i.i.i.i.i.i.i, ptr noundef %3)
-  br i1 %205, label %.critedge194, label %.thread239
+  br i1 %205, label %.critedge192, label %.thread232
 
 .critedge:                                        ; preds = %184
   %206 = load i32, ptr %154, align 8, !tbaa !67
-  %switch.i.i222 = icmp ult i32 %206, 2
-  br i1 %switch.i.i222, label %_ZN5clang4Expr10EvalResultD2Ev.exit223, label %207
+  %switch.i.i217 = icmp ult i32 %206, 2
+  br i1 %switch.i.i217, label %_ZN5clang4Expr10EvalResultD2Ev.exit218, label %207
 
 207:                                              ; preds = %.critedge
   call void @_ZN5clang7APValue24DestroyDataAndMakeUninitEv(ptr noundef nonnull align 8 dereferenceable(56) %154) #32
-  br label %_ZN5clang4Expr10EvalResultD2Ev.exit223
+  br label %_ZN5clang4Expr10EvalResultD2Ev.exit218
 
-_ZN5clang4Expr10EvalResultD2Ev.exit223:           ; preds = %.critedge, %207
+_ZN5clang4Expr10EvalResultD2Ev.exit218:           ; preds = %.critedge, %207
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.critedge194
+  br label %.critedge192
 
-.critedge194:                                     ; preds = %193, %_ZN5clang4Expr10EvalResultD2Ev.exit223, %159, %163, %170
-  %.6167.ph = phi i32 [ %.5166304, %170 ], [ %.5166304, %163 ], [ %.5166304, %159 ], [ %180, %_ZN5clang4Expr10EvalResultD2Ev.exit223 ], [ %180, %193 ]
-  %208 = getelementptr inbounds nuw i8, ptr %.sroa.0227.0303, i64 8
+.critedge192:                                     ; preds = %193, %_ZN5clang4Expr10EvalResultD2Ev.exit218, %159, %163, %170
+  %.6167.ph = phi i32 [ %.5166296, %170 ], [ %.5166296, %163 ], [ %.5166296, %159 ], [ %180, %_ZN5clang4Expr10EvalResultD2Ev.exit218 ], [ %180, %193 ]
+  %208 = getelementptr inbounds nuw i8, ptr %.sroa.0222.0295, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %208, align 8
   %209 = and i64 %.0.copyload.i.i.i.i.i.i, -8
   %210 = inttoptr i64 %209 to ptr
   %.not1.i.i = icmp eq i64 %209, 0
   br i1 %.not1.i.i, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %.critedge194, %216
-  %.sroa.0227.1 = phi ptr [ %219, %216 ], [ %210, %.critedge194 ]
-  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0227.1, i64 28
+.lr.ph.i.i:                                       ; preds = %.critedge192, %216
+  %.sroa.0222.1 = phi ptr [ %219, %216 ], [ %210, %.critedge192 ]
+  %211 = getelementptr inbounds nuw i8, ptr %.sroa.0222.1, i64 28
   %212 = load i32, ptr %211, align 4
   %213 = and i32 %212, 127
   %214 = add nsw i32 %213, -47
@@ -19877,17 +19877,17 @@ _ZN5clang4Expr10EvalResultD2Ev.exit223:           ; preds = %.critedge, %207
   br i1 %215, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, label %216
 
 216:                                              ; preds = %.lr.ph.i.i
-  %217 = getelementptr inbounds nuw i8, ptr %.sroa.0227.1, i64 8
+  %217 = getelementptr inbounds nuw i8, ptr %.sroa.0222.1, i64 8
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %217, align 8
   %218 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %219 = inttoptr i64 %218 to ptr
   %.not.i.i = icmp eq i64 %218, 0
   br i1 %.not.i.i, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, label %.lr.ph.i.i, !llvm.loop !807
 
-_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds = %.lr.ph.i.i, %216, %.critedge194
-  %.sroa.0227.2 = phi ptr [ %210, %.critedge194 ], [ %219, %216 ], [ %.sroa.0227.1, %.lr.ph.i.i ]
-  %.not280 = icmp eq ptr %.sroa.0227.2, null
-  br i1 %.not280, label %.thread239, label %156
+_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds = %.lr.ph.i.i, %216, %.critedge192
+  %.sroa.0222.2 = phi ptr [ %210, %.critedge192 ], [ %219, %216 ], [ %.sroa.0222.1, %.lr.ph.i.i ]
+  %.not272 = icmp eq ptr %.sroa.0222.2, null
+  br i1 %.not272, label %.thread232, label %156
 
 220:                                              ; preds = %34
   %221 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
@@ -19913,16 +19913,16 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %236 = load ptr, ptr %235, align 8, !tbaa !3
   %237 = load i24, ptr %236, align 8
   %238 = and i24 %237, 196608
-  %.not278 = icmp eq i24 %238, 0
-  br i1 %.not278, label %241, label %239
+  %.not270 = icmp eq i24 %238, 0
+  br i1 %.not270, label %241, label %239
 
 239:                                              ; preds = %234
   %.not178 = icmp eq ptr %3, null
-  br i1 %.not178, label %.thread239, label %240
+  br i1 %.not178, label %.thread232, label %240
 
 240:                                              ; preds = %239
   store ptr %.tr, ptr %3, align 8, !tbaa !146
-  br label %.thread239
+  br label %.thread232
 
 241:                                              ; preds = %234
   %242 = getelementptr inbounds nuw i8, ptr %.tr, i64 48
@@ -19939,9 +19939,9 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %251 = load i32, ptr %.tr, align 8
   %252 = and i32 %251, 16252928
   %253 = icmp eq i32 %252, 6291456
-  br i1 %253, label %.thread260, label %.thread255
+  br i1 %253, label %.thread255, label %.thread252
 
-.thread260:                                       ; preds = %250
+.thread255:                                       ; preds = %250
   %254 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %255 = load ptr, ptr %254, align 8, !tbaa !37
   br label %tailrecurse.backedge
@@ -19958,28 +19958,28 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %263 = load i32, ptr %.tr, align 8
   %264 = lshr i32 %263, 19
   %265 = and i32 %264, 127
-  switch i32 %265, label %.thread255 [
-    i32 5, label %.thread265
-    i32 4, label %.thread265
-    i32 10, label %.thread265
-    i32 20, label %.thread265
-    i32 59, label %.thread265
-    i32 58, label %.thread265
-    i32 13, label %.thread265
-    i32 64, label %.thread265
+  switch i32 %265, label %.thread252 [
+    i32 5, label %.thread258
+    i32 4, label %.thread258
+    i32 10, label %.thread258
+    i32 20, label %.thread258
+    i32 59, label %.thread258
+    i32 58, label %.thread258
+    i32 13, label %.thread258
+    i32 64, label %.thread258
   ]
 
-.thread265:                                       ; preds = %262, %262, %262, %262, %262, %262, %262, %262
+.thread258:                                       ; preds = %262, %262, %262, %262, %262, %262, %262, %262
   %266 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
   %267 = load ptr, ptr %266, align 8, !tbaa !46
   br label %tailrecurse.backedge
 
 268:                                              ; preds = %34
   %269 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.0.copyload.i.i.i.i.i.i.i.i224 = load i64, ptr %269, align 8
-  %270 = and i64 %.0.copyload.i.i.i.i.i.i.i.i224, 4
+  %.0.copyload.i.i.i.i.i.i.i.i219 = load i64, ptr %269, align 8
+  %270 = and i64 %.0.copyload.i.i.i.i.i.i.i.i219, 4
   %271 = icmp eq i64 %270, 0
-  %272 = and i64 %.0.copyload.i.i.i.i.i.i.i.i224, -8
+  %272 = and i64 %.0.copyload.i.i.i.i.i.i.i.i219, -8
   %273 = inttoptr i64 %272 to ptr
   br i1 %271, label %tailrecurse.backedge, label %274
 
@@ -19988,9 +19988,9 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit: ; preds
   %276 = load ptr, ptr %275, align 8, !tbaa !10
   br label %tailrecurse.backedge
 
-tailrecurse.backedge:                             ; preds = %274, %268, %13, %19, %10, %35, %65, %71, %74, %81, %220, %223, %241, %.thread260, %256, %.thread265, %277, %280, %282
-  %.tr.be = phi ptr [ %12, %10 ], [ %37, %35 ], [ %70, %65 ], [ %73, %71 ], [ %76, %74 ], [ %83, %81 ], [ %222, %220 ], [ %233, %223 ], [ %249, %241 ], [ %255, %.thread260 ], [ %261, %256 ], [ %267, %.thread265 ], [ %279, %277 ], [ %281, %280 ], [ %283, %282 ], [ %21, %19 ], [ %18, %13 ], [ %276, %274 ], [ %273, %268 ]
-  %.tr285.be = phi i1 [ true, %10 ], [ false, %35 ], [ false, %65 ], [ false, %71 ], [ false, %74 ], [ false, %81 ], [ false, %220 ], [ false, %223 ], [ false, %241 ], [ false, %.thread260 ], [ false, %256 ], [ false, %.thread265 ], [ false, %277 ], [ false, %280 ], [ false, %282 ], [ false, %19 ], [ false, %13 ], [ false, %274 ], [ false, %268 ]
+tailrecurse.backedge:                             ; preds = %274, %268, %13, %19, %10, %35, %65, %71, %74, %81, %220, %223, %241, %.thread255, %256, %.thread258, %277, %280, %282
+  %.tr.be = phi ptr [ %12, %10 ], [ %37, %35 ], [ %70, %65 ], [ %73, %71 ], [ %76, %74 ], [ %83, %81 ], [ %222, %220 ], [ %233, %223 ], [ %249, %241 ], [ %255, %.thread255 ], [ %261, %256 ], [ %267, %.thread258 ], [ %279, %277 ], [ %281, %280 ], [ %283, %282 ], [ %21, %19 ], [ %18, %13 ], [ %276, %274 ], [ %273, %268 ]
+  %.tr277.be = phi i1 [ true, %10 ], [ false, %35 ], [ false, %65 ], [ false, %71 ], [ false, %74 ], [ false, %81 ], [ false, %220 ], [ false, %223 ], [ false, %241 ], [ false, %.thread255 ], [ false, %256 ], [ false, %.thread258 ], [ false, %277 ], [ false, %280 ], [ false, %282 ], [ false, %19 ], [ false, %13 ], [ false, %274 ], [ false, %268 ]
   br label %tailrecurse
 
 277:                                              ; preds = %34
@@ -20006,20 +20006,20 @@ tailrecurse.backedge:                             ; preds = %274, %268, %13, %19
   %283 = tail call noundef ptr @_ZN5clang18CXXDefaultInitExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr) #32
   br label %tailrecurse.backedge
 
-.thread255:                                       ; preds = %262, %250, %_ZN5clang13CXXMethodDecl9getParentEv.exit, %38, %34, %110
+.thread252:                                       ; preds = %262, %250, %_ZN5clang13CXXMethodDecl9getParentEv.exit, %38, %34, %110
   %284 = tail call noundef zeroext i1 @_ZNK5clang4Expr13isEvaluatableERKNS_10ASTContextENS0_15SideEffectsKindE(ptr noundef nonnull align 8 dereferenceable(16) %.tr, ptr noundef nonnull align 8 dereferenceable(23216) %1, i32 noundef 1) #32
-  br i1 %284, label %.thread239, label %285
+  br i1 %284, label %.thread232, label %285
 
-285:                                              ; preds = %.thread255
+285:                                              ; preds = %.thread252
   %.not185 = icmp eq ptr %3, null
-  br i1 %.not185, label %.thread239, label %286
+  br i1 %.not185, label %.thread232, label %286
 
 286:                                              ; preds = %285
   store ptr %.tr, ptr %3, align 8, !tbaa !146
-  br label %.thread239
+  br label %.thread232
 
-.thread239:                                       ; preds = %62, %77, %34, %34, %34, %34, %139, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %193, %.lr.ph311, %.loopexit, %96, %_ZN5clang4Expr10EvalResultD2Ev.exit218, %285, %286, %.thread255, %239, %240, %_ZN5clang4Expr10EvalResultD2Ev.exit
-  %.1 = phi i1 [ %or.cond.not, %_ZN5clang4Expr10EvalResultD2Ev.exit ], [ false, %240 ], [ false, %239 ], [ true, %.thread255 ], [ false, %286 ], [ false, %285 ], [ false, %_ZN5clang4Expr10EvalResultD2Ev.exit218 ], [ true, %96 ], [ true, %.loopexit ], [ %109, %.lr.ph311 ], [ true, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ], [ false, %193 ], [ false, %139 ], [ true, %62 ], [ false, %77 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ]
+.thread232:                                       ; preds = %62, %77, %34, %34, %34, %34, %139, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit, %193, %.lr.ph303, %.loopexit, %96, %_ZN5clang4Expr10EvalResultD2Ev.exit213, %285, %286, %.thread252, %239, %240, %_ZN5clang4Expr10EvalResultD2Ev.exit
+  %.1 = phi i1 [ %or.cond.not, %_ZN5clang4Expr10EvalResultD2Ev.exit ], [ false, %240 ], [ false, %239 ], [ true, %.thread252 ], [ false, %286 ], [ false, %285 ], [ false, %_ZN5clang4Expr10EvalResultD2Ev.exit213 ], [ true, %96 ], [ true, %.loopexit ], [ %109, %.lr.ph303 ], [ true, %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit ], [ false, %193 ], [ false, %139 ], [ true, %62 ], [ false, %77 ], [ true, %34 ], [ true, %34 ], [ true, %34 ], [ true, %34 ]
   ret i1 %.1
 }
 
@@ -20126,111 +20126,111 @@ tailrecurse.us:                                   ; preds = %3, %tailrecurse.us.
   %7 = load i16, ptr %.tr.us, align 8
   %8 = and i16 %7, 511
   switch i16 %8, label %.thread [
-    i16 34, label %.split224.us
-    i16 35, label %.split224.us
-    i16 82, label %.split224.us
-    i16 30, label %.split224.us
-    i16 38, label %.split224.us
-    i16 37, label %.split224.us
-    i16 33, label %.split224.us
-    i16 32, label %.split224.us
-    i16 40, label %.split224.us
-    i16 44, label %.split224.us
-    i16 41, label %.split224.us
-    i16 19, label %.split227.us
-    i16 53, label %.split230.us
-    i16 109, label %.split233.us
-    i16 116, label %.split236.us
-    i16 115, label %.split236.us
-    i16 98, label %.split239.us
-    i16 90, label %.thread165
-    i16 88, label %.thread165
-    i16 87, label %.thread165
-    i16 86, label %.thread165
-    i16 84, label %.thread165
-    i16 83, label %.thread165
-    i16 89, label %.thread165
-    i16 81, label %.thread165
-    i16 85, label %.split243.us
-    i16 113, label %.split246.us
+    i16 34, label %.split213.us
+    i16 35, label %.split213.us
+    i16 82, label %.split213.us
+    i16 30, label %.split213.us
+    i16 38, label %.split213.us
+    i16 37, label %.split213.us
+    i16 33, label %.split213.us
+    i16 32, label %.split213.us
+    i16 40, label %.split213.us
+    i16 44, label %.split213.us
+    i16 41, label %.split213.us
+    i16 19, label %.split216.us
+    i16 53, label %.split219.us
+    i16 109, label %.split222.us
+    i16 116, label %.split225.us
+    i16 115, label %.split225.us
+    i16 98, label %.split228.us
+    i16 90, label %.thread160
+    i16 88, label %.thread160
+    i16 87, label %.thread160
+    i16 86, label %.thread160
+    i16 84, label %.thread160
+    i16 83, label %.thread160
+    i16 89, label %.thread160
+    i16 81, label %.thread160
+    i16 85, label %.split232.us
+    i16 113, label %.split235.us
     i16 114, label %32
     i16 79, label %23
     i16 59, label %12
-    i16 55, label %.split249.us
-    i16 120, label %.split252.us
-    i16 4, label %.split255.us
-    i16 71, label %.critedge145.loopexit695
-    i16 97, label %.critedge145.loopexit695
-    i16 111, label %.critedge145.loopexit695
-    i16 26, label %.critedge145.loopexit695
-    i16 25, label %.critedge145.loopexit695
-    i16 24, label %.critedge145.loopexit695
-    i16 8, label %.critedge145.loopexit695
-    i16 61, label %.critedge145.loopexit695
-    i16 6, label %.critedge145.loopexit695
-    i16 18, label %.critedge145.loopexit695
-    i16 110, label %.critedge145.loopexit695
-    i16 73, label %.critedge145
-    i16 36, label %.critedge145
-    i16 20, label %.critedge145
-    i16 54, label %.critedge145
-    i16 65, label %.critedge145
-    i16 64, label %.critedge145
-    i16 57, label %.critedge145
-    i16 10, label %.critedge145
-    i16 80, label %.critedge145
-    i16 29, label %.critedge145
-    i16 56, label %.critedge145
-    i16 5, label %.critedge145
-    i16 129, label %.critedge145
-    i16 62, label %.split260.us
-    i16 11, label %.split263.us
-    i16 74, label %.critedge145.loopexit695
-    i16 72, label %.critedge145.loopexit695
-    i16 75, label %.critedge145.loopexit695
-    i16 112, label %.critedge145.loopexit695
-    i16 108, label %.critedge145.loopexit695
-    i16 99, label %.critedge145.loopexit695
-    i16 122, label %.critedge145.loopexit695
-    i16 3, label %.critedge145.loopexit695
-    i16 121, label %.critedge145.loopexit695
-    i16 51, label %.critedge145.loopexit695
-    i16 52, label %.critedge145.loopexit695
-    i16 118, label %.split268.us
-    i16 119, label %.split268.us
-    i16 92, label %.split271.us
-    i16 95, label %.split271.us
-    i16 94, label %.split271.us
-    i16 93, label %.split271.us
-    i16 91, label %.split271.us
+    i16 55, label %.split238.us
+    i16 120, label %.split241.us
+    i16 4, label %.split244.us
+    i16 71, label %.critedge142.loopexit680
+    i16 97, label %.critedge142.loopexit680
+    i16 111, label %.critedge142.loopexit680
+    i16 26, label %.critedge142.loopexit680
+    i16 25, label %.critedge142.loopexit680
+    i16 24, label %.critedge142.loopexit680
+    i16 8, label %.critedge142.loopexit680
+    i16 61, label %.critedge142.loopexit680
+    i16 6, label %.critedge142.loopexit680
+    i16 18, label %.critedge142.loopexit680
+    i16 110, label %.critedge142.loopexit680
+    i16 73, label %.critedge142
+    i16 36, label %.critedge142
+    i16 20, label %.critedge142
+    i16 54, label %.critedge142
+    i16 65, label %.critedge142
+    i16 64, label %.critedge142
+    i16 57, label %.critedge142
+    i16 10, label %.critedge142
+    i16 80, label %.critedge142
+    i16 29, label %.critedge142
+    i16 56, label %.critedge142
+    i16 5, label %.critedge142
+    i16 129, label %.critedge142
+    i16 62, label %.split249.us
+    i16 11, label %.split252.us
+    i16 74, label %.critedge142.loopexit680
+    i16 72, label %.critedge142.loopexit680
+    i16 75, label %.critedge142.loopexit680
+    i16 112, label %.critedge142.loopexit680
+    i16 108, label %.critedge142.loopexit680
+    i16 99, label %.critedge142.loopexit680
+    i16 122, label %.critedge142.loopexit680
+    i16 3, label %.critedge142.loopexit680
+    i16 121, label %.critedge142.loopexit680
+    i16 51, label %.critedge142.loopexit680
+    i16 52, label %.critedge142.loopexit680
+    i16 118, label %.split257.us
+    i16 119, label %.split257.us
+    i16 92, label %.split260.us
+    i16 95, label %.split260.us
+    i16 94, label %.split260.us
+    i16 93, label %.split260.us
+    i16 91, label %.split260.us
     i16 63, label %9
-    i16 16, label %.critedge145
-    i16 27, label %.critedge145
-    i16 58, label %.critedge145
-    i16 23, label %.critedge145
-    i16 15, label %.critedge145
-    i16 17, label %.critedge145
-    i16 77, label %.critedge145
-    i16 68, label %.critedge145
-    i16 12, label %.critedge145
-    i16 28, label %.critedge145
-    i16 96, label %.critedge145
-    i16 43, label %.critedge145
-    i16 42, label %.critedge145
-    i16 39, label %.critedge145
-    i16 31, label %.critedge145
-    i16 13, label %.critedge145
-    i16 107, label %.critedge145
-    i16 67, label %.critedge145
-    i16 124, label %.critedge145
-    i16 7, label %.critedge145
-    i16 102, label %.critedge145
-    i16 100, label %.critedge145
-    i16 106, label %.critedge145
-    i16 117, label %.critedge145
-    i16 47, label %.critedge145
-    i16 128, label %.critedge145
-    i16 60, label %.critedge145
+    i16 16, label %.critedge142
+    i16 27, label %.critedge142
+    i16 58, label %.critedge142
+    i16 23, label %.critedge142
+    i16 15, label %.critedge142
+    i16 17, label %.critedge142
+    i16 77, label %.critedge142
+    i16 68, label %.critedge142
+    i16 12, label %.critedge142
+    i16 28, label %.critedge142
+    i16 96, label %.critedge142
+    i16 43, label %.critedge142
+    i16 42, label %.critedge142
+    i16 39, label %.critedge142
+    i16 31, label %.critedge142
+    i16 13, label %.critedge142
+    i16 107, label %.critedge142
+    i16 67, label %.critedge142
+    i16 124, label %.critedge142
+    i16 7, label %.critedge142
+    i16 102, label %.critedge142
+    i16 100, label %.critedge142
+    i16 106, label %.critedge142
+    i16 117, label %.critedge142
+    i16 47, label %.critedge142
+    i16 128, label %.critedge142
+    i16 60, label %.critedge142
   ]
 
 9:                                                ; preds = %tailrecurse.us
@@ -20274,122 +20274,122 @@ tailrecurse.us.backedge:                          ; preds = %32, %23, %12, %9
 .split:                                           ; preds = %3
   %34 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %.critedge145, label %.critedge
+  br i1 %35, label %.critedge142, label %.critedge
 
 .critedge:                                        ; preds = %.split, %tailrecurse.backedge
-  %.tr273 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %.split ]
-  %36 = load i16, ptr %.tr273, align 8
+  %.tr262 = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %0, %.split ]
+  %36 = load i16, ptr %.tr262, align 8
   %37 = and i16 %36, 511
   switch i16 %37, label %.thread [
-    i16 34, label %.split224.us
-    i16 35, label %.split224.us
-    i16 82, label %.split224.us
-    i16 30, label %.split224.us
-    i16 38, label %.split224.us
-    i16 37, label %.split224.us
-    i16 33, label %.split224.us
-    i16 32, label %.split224.us
-    i16 40, label %.split224.us
-    i16 44, label %.split224.us
-    i16 41, label %.split224.us
-    i16 19, label %.split227.us
-    i16 53, label %.split230.us
-    i16 109, label %.split233.us
-    i16 116, label %.split236.us
-    i16 115, label %.split236.us
-    i16 98, label %.split239.us
-    i16 90, label %.thread165
-    i16 88, label %.thread165
-    i16 87, label %.thread165
-    i16 86, label %.thread165
-    i16 84, label %.thread165
-    i16 83, label %.thread165
-    i16 89, label %.thread165
-    i16 81, label %.thread165
-    i16 85, label %.split243.us
-    i16 113, label %.split246.us
+    i16 34, label %.split213.us
+    i16 35, label %.split213.us
+    i16 82, label %.split213.us
+    i16 30, label %.split213.us
+    i16 38, label %.split213.us
+    i16 37, label %.split213.us
+    i16 33, label %.split213.us
+    i16 32, label %.split213.us
+    i16 40, label %.split213.us
+    i16 44, label %.split213.us
+    i16 41, label %.split213.us
+    i16 19, label %.split216.us
+    i16 53, label %.split219.us
+    i16 109, label %.split222.us
+    i16 116, label %.split225.us
+    i16 115, label %.split225.us
+    i16 98, label %.split228.us
+    i16 90, label %.thread160
+    i16 88, label %.thread160
+    i16 87, label %.thread160
+    i16 86, label %.thread160
+    i16 84, label %.thread160
+    i16 83, label %.thread160
+    i16 89, label %.thread160
+    i16 81, label %.thread160
+    i16 85, label %.split232.us
+    i16 113, label %.split235.us
     i16 114, label %121
     i16 79, label %112
     i16 59, label %101
-    i16 55, label %.split249.us
-    i16 120, label %.split252.us
-    i16 4, label %.split255.us
-    i16 71, label %.critedge145.loopexit727
-    i16 97, label %.critedge145.loopexit727
-    i16 111, label %.critedge145.loopexit727
-    i16 26, label %.critedge145.loopexit727
-    i16 25, label %.critedge145.loopexit727
-    i16 24, label %.critedge145.loopexit727
-    i16 8, label %.critedge145.loopexit727
-    i16 61, label %.critedge145.loopexit727
-    i16 6, label %.critedge145.loopexit727
-    i16 18, label %.critedge145.loopexit727
-    i16 110, label %.critedge145.loopexit727
-    i16 73, label %.critedge145.loopexit727
-    i16 36, label %.critedge145.loopexit727
-    i16 20, label %.critedge145.loopexit727
-    i16 54, label %.critedge145.loopexit727
-    i16 65, label %.critedge145.loopexit727
-    i16 64, label %.critedge145.loopexit727
-    i16 57, label %.critedge145.loopexit727
-    i16 10, label %.critedge145.loopexit727
-    i16 80, label %.critedge145.loopexit727
-    i16 29, label %.critedge145.loopexit727
-    i16 56, label %.critedge145.loopexit727
-    i16 5, label %.critedge145.loopexit727
-    i16 129, label %.critedge145.loopexit727
-    i16 62, label %.split260.us
-    i16 11, label %.split263.us
-    i16 74, label %.critedge145
-    i16 72, label %.critedge145
-    i16 75, label %.critedge145
-    i16 112, label %.critedge145
-    i16 108, label %.critedge145
-    i16 99, label %.critedge145
-    i16 122, label %.critedge145
-    i16 3, label %.critedge145
-    i16 121, label %.critedge145
-    i16 51, label %.critedge145
-    i16 52, label %.critedge145
-    i16 118, label %.split268.us
-    i16 119, label %.split268.us
-    i16 92, label %.split271.us
-    i16 95, label %.split271.us
-    i16 94, label %.split271.us
-    i16 93, label %.split271.us
-    i16 91, label %.split271.us
+    i16 55, label %.split238.us
+    i16 120, label %.split241.us
+    i16 4, label %.split244.us
+    i16 71, label %.critedge142.loopexit712
+    i16 97, label %.critedge142.loopexit712
+    i16 111, label %.critedge142.loopexit712
+    i16 26, label %.critedge142.loopexit712
+    i16 25, label %.critedge142.loopexit712
+    i16 24, label %.critedge142.loopexit712
+    i16 8, label %.critedge142.loopexit712
+    i16 61, label %.critedge142.loopexit712
+    i16 6, label %.critedge142.loopexit712
+    i16 18, label %.critedge142.loopexit712
+    i16 110, label %.critedge142.loopexit712
+    i16 73, label %.critedge142.loopexit712
+    i16 36, label %.critedge142.loopexit712
+    i16 20, label %.critedge142.loopexit712
+    i16 54, label %.critedge142.loopexit712
+    i16 65, label %.critedge142.loopexit712
+    i16 64, label %.critedge142.loopexit712
+    i16 57, label %.critedge142.loopexit712
+    i16 10, label %.critedge142.loopexit712
+    i16 80, label %.critedge142.loopexit712
+    i16 29, label %.critedge142.loopexit712
+    i16 56, label %.critedge142.loopexit712
+    i16 5, label %.critedge142.loopexit712
+    i16 129, label %.critedge142.loopexit712
+    i16 62, label %.split249.us
+    i16 11, label %.split252.us
+    i16 74, label %.critedge142
+    i16 72, label %.critedge142
+    i16 75, label %.critedge142
+    i16 112, label %.critedge142
+    i16 108, label %.critedge142
+    i16 99, label %.critedge142
+    i16 122, label %.critedge142
+    i16 3, label %.critedge142
+    i16 121, label %.critedge142
+    i16 51, label %.critedge142
+    i16 52, label %.critedge142
+    i16 118, label %.split257.us
+    i16 119, label %.split257.us
+    i16 92, label %.split260.us
+    i16 95, label %.split260.us
+    i16 94, label %.split260.us
+    i16 93, label %.split260.us
+    i16 91, label %.split260.us
     i16 63, label %38
-    i16 16, label %.critedge145.loopexit727
-    i16 27, label %.critedge145.loopexit727
-    i16 58, label %.critedge145.loopexit727
-    i16 23, label %.critedge145.loopexit727
-    i16 15, label %.critedge145.loopexit727
-    i16 17, label %.critedge145.loopexit727
-    i16 77, label %.critedge145.loopexit727
-    i16 68, label %.critedge145.loopexit727
-    i16 12, label %.critedge145.loopexit727
-    i16 28, label %.critedge145.loopexit727
-    i16 96, label %.critedge145.loopexit727
-    i16 43, label %.critedge145.loopexit727
-    i16 42, label %.critedge145.loopexit727
-    i16 39, label %.critedge145.loopexit727
-    i16 31, label %.critedge145.loopexit727
-    i16 13, label %.critedge145.loopexit727
-    i16 107, label %.critedge145.loopexit727
-    i16 67, label %.critedge145.loopexit727
-    i16 124, label %.critedge145.loopexit727
-    i16 7, label %.critedge145.loopexit727
-    i16 102, label %.critedge145.loopexit727
-    i16 100, label %.critedge145.loopexit727
-    i16 106, label %.critedge145.loopexit727
-    i16 117, label %.critedge145.loopexit727
-    i16 47, label %.critedge145.loopexit727
-    i16 128, label %.critedge145.loopexit727
-    i16 60, label %.critedge145.loopexit727
+    i16 16, label %.critedge142.loopexit712
+    i16 27, label %.critedge142.loopexit712
+    i16 58, label %.critedge142.loopexit712
+    i16 23, label %.critedge142.loopexit712
+    i16 15, label %.critedge142.loopexit712
+    i16 17, label %.critedge142.loopexit712
+    i16 77, label %.critedge142.loopexit712
+    i16 68, label %.critedge142.loopexit712
+    i16 12, label %.critedge142.loopexit712
+    i16 28, label %.critedge142.loopexit712
+    i16 96, label %.critedge142.loopexit712
+    i16 43, label %.critedge142.loopexit712
+    i16 42, label %.critedge142.loopexit712
+    i16 39, label %.critedge142.loopexit712
+    i16 31, label %.critedge142.loopexit712
+    i16 13, label %.critedge142.loopexit712
+    i16 107, label %.critedge142.loopexit712
+    i16 67, label %.critedge142.loopexit712
+    i16 124, label %.critedge142.loopexit712
+    i16 7, label %.critedge142.loopexit712
+    i16 102, label %.critedge142.loopexit712
+    i16 100, label %.critedge142.loopexit712
+    i16 106, label %.critedge142.loopexit712
+    i16 117, label %.critedge142.loopexit712
+    i16 47, label %.critedge142.loopexit712
+    i16 128, label %.critedge142.loopexit712
+    i16 60, label %.critedge142.loopexit712
   ]
 
 38:                                               ; preds = %.critedge
-  %39 = getelementptr inbounds nuw i8, ptr %.tr273, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.tr262, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !96
   br label %tailrecurse.backedge
 
@@ -20397,20 +20397,20 @@ tailrecurse.backedge:                             ; preds = %38, %101, %112, %12
   %.tr.be = phi ptr [ %40, %38 ], [ %111, %101 ], [ %120, %112 ], [ %122, %121 ]
   %41 = tail call i32 @_ZNK5clang4Expr10getExprLocEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr.be) #31
   %42 = icmp slt i32 %41, 0
-  br i1 %42, label %.critedge145.loopexit727, label %.critedge
+  br i1 %42, label %.critedge142.loopexit712, label %.critedge
 
-.split271.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
-  %.us-phi272 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ]
-  %43 = tail call noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr noundef nonnull align 8 dereferenceable(24) %.us-phi272)
+.split260.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
+  %.us-phi261 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ]
+  %43 = tail call noundef ptr @_ZNK5clang8CallExpr13getCalleeDeclEv(ptr noundef nonnull align 8 dereferenceable(24) %.us-phi261)
   %.not124 = icmp eq ptr %43, null
   br i1 %.not124, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %44
 
-44:                                               ; preds = %.split271.us
+44:                                               ; preds = %.split260.us
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 28
   %46 = load i32, ptr %45, align 4
   %47 = and i32 %46, 256
   %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158, label %48
+  br i1 %.not.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread154, label %48
 
 48:                                               ; preds = %44
   %49 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %43) #32
@@ -20421,7 +20421,7 @@ tailrecurse.backedge:                             ; preds = %38, %101, %112, %12
   %.idx.i.i = shl nuw nsw i64 %53, 3
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i
   %.not.i.i = icmp eq i32 %52, 0
-  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158, label %.lr.ph.i.i.i.i.i
+  br i1 %.not.i.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread154, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %48, %59
   %.sroa.07.1.i.i.i.i = phi ptr [ %60, %59 ], [ %50, %48 ]
@@ -20434,58 +20434,58 @@ tailrecurse.backedge:                             ; preds = %38, %101, %112, %12
 59:                                               ; preds = %.lr.ph.i.i.i.i.i
   %60 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %60, %54
-  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158, label %.lr.ph.i.i.i.i.i, !llvm.loop !896
+  br i1 %.not.i.i.i.i.i, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread154, label %.lr.ph.i.i.i.i.i, !llvm.loop !896
 
 _ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit:  ; preds = %.lr.ph.i.i.i.i.i
-  %.not182 = icmp eq ptr %.sroa.07.1.i.i.i.i, %54
-  br i1 %.not182, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158, label %.thread
+  %.not175 = icmp eq ptr %.sroa.07.1.i.i.i.i, %54
+  br i1 %.not175, label %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread154, label %.thread
 
-_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158: ; preds = %59, %48, %44, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit
+_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread154: ; preds = %59, %48, %44, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit
   %61 = load i32, ptr %45, align 4
   %62 = and i32 %61, 256
-  %.not.i444 = icmp eq i32 %62, 0
-  br i1 %.not.i444, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %63
+  %.not.i429 = icmp eq i32 %62, 0
+  br i1 %.not.i429, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %63
 
-63:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158
+63:                                               ; preds = %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread154
   %64 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %43) #32
   %65 = load ptr, ptr %64, align 8, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !51
   %68 = zext i32 %67 to i64
-  %.idx.i.i445 = shl nuw nsw i64 %68, 3
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i445
-  %.not.i.i446 = icmp eq i32 %67, 0
-  br i1 %.not.i.i446, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %.lr.ph.i.i.i.i.i447
+  %.idx.i.i430 = shl nuw nsw i64 %68, 3
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx.i.i430
+  %.not.i.i431 = icmp eq i32 %67, 0
+  br i1 %.not.i.i431, label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, label %.lr.ph.i.i.i.i.i432
 
-.lr.ph.i.i.i.i.i447:                              ; preds = %63, %74
-  %.sroa.07.1.i.i.i.i448 = phi ptr [ %75, %74 ], [ %65, %63 ]
-  %70 = load ptr, ptr %.sroa.07.1.i.i.i.i448, align 8, !tbaa !208
+.lr.ph.i.i.i.i.i432:                              ; preds = %63, %74
+  %.sroa.07.1.i.i.i.i433 = phi ptr [ %75, %74 ], [ %65, %63 ]
+  %70 = load ptr, ptr %.sroa.07.1.i.i.i.i433, align 8, !tbaa !208
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
   %72 = load i16, ptr %71, align 8
   %73 = icmp eq i16 %72, 329
   br i1 %73, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %74
 
-74:                                               ; preds = %.lr.ph.i.i.i.i.i447
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i448, i64 8
-  %.not.i.i.i.i.i449 = icmp eq ptr %75, %69
-  br i1 %.not.i.i.i.i.i449, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i447, !llvm.loop !895
+74:                                               ; preds = %.lr.ph.i.i.i.i.i432
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.07.1.i.i.i.i433, i64 8
+  %.not.i.i.i.i.i434 = icmp eq ptr %75, %69
+  br i1 %.not.i.i.i.i.i434, label %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, label %.lr.ph.i.i.i.i.i432, !llvm.loop !895
 
-_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %74, %.lr.ph.i.i.i.i.i447
-  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i448, %.lr.ph.i.i.i.i.i447 ], [ %69, %74 ]
+_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i: ; preds = %74, %.lr.ph.i.i.i.i.i432
+  %.sroa.07.0.i.i.ph.i.i = phi ptr [ %.sroa.07.1.i.i.i.i433, %.lr.ph.i.i.i.i.i432 ], [ %69, %74 ]
   %76 = icmp eq ptr %.sroa.07.0.i.i.ph.i.i, %69
   br label %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit
 
-_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit:   ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, %63, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158, %.split271.us
-  %.not = phi i1 [ true, %.split271.us ], [ true, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread158 ], [ true, %63 ], [ %76, %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ]
+_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit:   ; preds = %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i, %63, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread154, %.split260.us
+  %.not = phi i1 [ true, %.split260.us ], [ true, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit.thread154 ], [ true, %63 ], [ %76, %_ZN5clangneENS_22specific_attr_iteratorINS_8PureAttrEN4llvm11SmallVectorIPNS_4AttrELj4EEEEES7_.exit.loopexit.i.i ]
   %or.cond = and i1 %2, %.not
-  br i1 %or.cond, label %.critedge145, label %.thread
+  br i1 %or.cond, label %.critedge142, label %.thread
 
-.split268.us:                                     ; preds = %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us
-  %.us-phi269 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ]
-  br i1 %2, label %.critedge145, label %.thread
+.split257.us:                                     ; preds = %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us
+  %.us-phi258 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ]
+  br i1 %2, label %.critedge142, label %.thread
 
-.split263.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi264 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
+.split252.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi253 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %77 = zext i1 %2 to i8
   store ptr %1, ptr %5, align 8, !tbaa !916
@@ -20493,59 +20493,59 @@ _ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit:   ; preds = %_ZN5clangneENS_22sp
   store i8 %77, ptr %78, align 8, !tbaa !917
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 9
   store i8 0, ptr %79, align 1, !tbaa !921
-  %80 = getelementptr inbounds nuw i8, ptr %.us-phi264, i64 16
+  %80 = getelementptr inbounds nuw i8, ptr %.us-phi253, i64 16
   %81 = load ptr, ptr %80, align 8, !tbaa !890
   call fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEvJEE5VisitEPKNS_4StmtE(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %81)
   %.val = load i8, ptr %79, align 1, !tbaa !921, !range !42, !noundef !43
   %82 = trunc nuw i8 %.val to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %.critedge145
+  br label %.critedge142
 
-.split260.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi261 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
+.split249.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi250 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
   br i1 %2, label %83, label %.thread
 
-83:                                               ; preds = %.split260.us
-  %84 = load i32, ptr %.us-phi261, align 8
+83:                                               ; preds = %.split249.us
+  %84 = load i32, ptr %.us-phi250, align 8
   %85 = and i32 %84, 524288
-  %.not183 = icmp eq i32 %85, 0
-  br i1 %.not183, label %.thread, label %.critedge145
+  %.not176 = icmp eq i32 %85, 0
+  br i1 %.not176, label %.thread, label %.critedge142
 
-.split255.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi256 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %86 = load i32, ptr %.us-phi256, align 8
+.split244.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi245 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
+  %86 = load i32, ptr %.us-phi245, align 8
   %87 = and i32 %86, 14680064
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.critedge145, label %.thread
+  br i1 %88, label %.critedge142, label %.thread
 
-.split252.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi253 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %89 = load i32, ptr %.us-phi253, align 8
+.split241.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi242 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
+  %89 = load i32, ptr %.us-phi242, align 8
   %90 = lshr i32 %89, 19
   %91 = and i32 %90, 63
   %92 = add nsw i32 %91, -21
   %93 = icmp ult i32 %92, 11
-  br i1 %93, label %.critedge145, label %.thread
+  br i1 %93, label %.critedge142, label %.thread
 
-.split249.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi250 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %94 = getelementptr inbounds nuw i8, ptr %.us-phi250, i64 56
+.split238.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi239 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
+  %94 = getelementptr inbounds nuw i8, ptr %.us-phi239, i64 56
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %94, align 8
   %95 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, 2
   %96 = icmp ne i64 %95, 0
   %97 = and i64 %.sroa.0.0.copyload.i.i.i.i.i, -4
-  %.not125184 = icmp eq i64 %97, 0
-  %.not125 = or i1 %96, %.not125184
+  %.not125177 = icmp eq i64 %97, 0
+  %.not125 = or i1 %96, %.not125177
   br i1 %.not125, label %.thread, label %98
 
-98:                                               ; preds = %.split249.us
+98:                                               ; preds = %.split238.us
   %99 = inttoptr i64 %97 to ptr
   %100 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %99, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  br i1 %100, label %.critedge145, label %.thread
+  br i1 %100, label %.critedge142, label %.thread
 
 101:                                              ; preds = %.critedge
-  %102 = getelementptr inbounds nuw i8, ptr %.tr273, i64 32
-  %103 = getelementptr inbounds nuw i8, ptr %.tr273, i64 16
+  %102 = getelementptr inbounds nuw i8, ptr %.tr262, i64 32
+  %103 = getelementptr inbounds nuw i8, ptr %.tr262, i64 16
   %104 = load i32, ptr %103, align 8
   %105 = lshr i32 %104, 30
   %.lobit.i.i = and i32 %105, 1
@@ -20558,40 +20558,40 @@ _ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit:   ; preds = %_ZN5clangneENS_22sp
   br label %tailrecurse.backedge
 
 112:                                              ; preds = %.critedge
-  %113 = getelementptr inbounds nuw i8, ptr %.tr273, i64 48
+  %113 = getelementptr inbounds nuw i8, ptr %.tr262, i64 48
   %114 = load i8, ptr %113, align 8, !tbaa !39, !range !42, !noundef !43
   %115 = trunc nuw i8 %114 to i1
-  %116 = getelementptr inbounds nuw i8, ptr %.tr273, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %.tr262, i64 24
   %117 = load ptr, ptr %116, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %.tr273, i64 32
+  %118 = getelementptr inbounds nuw i8, ptr %.tr262, i64 32
   %119 = load ptr, ptr %118, align 8
   %120 = select i1 %115, ptr %117, ptr %119
   br label %tailrecurse.backedge
 
 121:                                              ; preds = %.critedge
-  %122 = tail call noundef ptr @_ZN5clang17CXXDefaultArgExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr273) #32
+  %122 = tail call noundef ptr @_ZN5clang17CXXDefaultArgExpr7getExprEv(ptr noundef nonnull align 8 dereferenceable(32) %.tr262) #32
   br label %tailrecurse.backedge
 
-.split246.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi247 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %123 = getelementptr inbounds nuw i8, ptr %.us-phi247, i64 16
+.split235.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi236 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
+  %123 = getelementptr inbounds nuw i8, ptr %.us-phi236, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !922
   %125 = tail call noundef ptr @_ZNK5clang9FieldDecl21getInClassInitializerEv(ptr noundef nonnull align 8 dereferenceable(80) %124) #32
   %.not126 = icmp eq ptr %125, null
   br i1 %.not126, label %128, label %126
 
-126:                                              ; preds = %.split246.us
+126:                                              ; preds = %.split235.us
   %127 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %125, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
   br label %128
 
-128:                                              ; preds = %.split246.us, %126
-  %.5 = phi i1 [ %127, %126 ], [ undef, %.split246.us ]
+128:                                              ; preds = %.split235.us, %126
+  %.5 = phi i1 [ %127, %126 ], [ undef, %.split235.us ]
   %spec.select = or i1 %.not126, %.5
-  br label %.critedge145
+  br label %.critedge142
 
-.split243.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi244 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %129 = getelementptr inbounds nuw i8, ptr %.us-phi244, i64 24
+.split232.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi233 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
+  %129 = getelementptr inbounds nuw i8, ptr %.us-phi233, i64 24
   %130 = load ptr, ptr %129, align 8, !tbaa !809
   %.sroa.0.0.copyload.i.i = load i64, ptr %130, align 8, !tbaa !25
   %131 = and i64 %.sroa.0.0.copyload.i.i, -16
@@ -20606,32 +20606,32 @@ _ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit:   ; preds = %_ZN5clangneENS_22sp
   %139 = load i8, ptr %138, align 16
   %140 = and i8 %139, -2
   %spec.select.i.i.i.i.i.i.i.i.i = icmp eq i8 %140, 42
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %141, label %.thread165
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %141, label %.thread160
 
-141:                                              ; preds = %.split243.us
-  %142 = load i32, ptr %.us-phi244, align 8
+141:                                              ; preds = %.split232.us
+  %142 = load i32, ptr %.us-phi233, align 8
   %143 = and i32 %142, 66584576
   %144 = icmp eq i32 %143, 4718592
-  br i1 %144, label %.critedge145, label %.thread165
+  br i1 %144, label %.critedge142, label %.thread160
 
-.thread165:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %.split243.us, %141
-  %.tr220 = phi ptr [ %.us-phi244, %.split243.us ], [ %.us-phi244, %141 ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ]
+.thread160:                                       ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %.split232.us, %141
+  %.tr209 = phi ptr [ %.us-phi233, %.split232.us ], [ %.us-phi233, %141 ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ]
   br i1 %2, label %145, label %.thread
 
-145:                                              ; preds = %.thread165
-  %146 = load i32, ptr %.tr220, align 8
+145:                                              ; preds = %.thread160
+  %146 = load i32, ptr %.tr209, align 8
   %147 = and i32 %146, 66584576
   %148 = icmp eq i32 %147, 2097152
   br i1 %148, label %149, label %.thread
 
 149:                                              ; preds = %145
-  %150 = getelementptr inbounds nuw i8, ptr %.tr220, i64 16
+  %150 = getelementptr inbounds nuw i8, ptr %.tr209, i64 16
   %151 = load ptr, ptr %150, align 8, !tbaa !46
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %.sroa.0.0.copyload.i = load i64, ptr %152, align 8, !tbaa !25
   %153 = and i64 %.sroa.0.0.copyload.i, 4
-  %.not.i149 = icmp eq i64 %153, 0
-  br i1 %.not.i149, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, label %.critedge145
+  %.not.i145 = icmp eq i64 %153, 0
+  br i1 %.not.i145, label %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, label %.critedge142
 
 _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %149
   %154 = and i64 %.sroa.0.0.copyload.i, -16
@@ -20639,147 +20639,147 @@ _ZNK5clang8QualType19isVolatileQualifiedEv.exit:  ; preds = %149
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %.0.copyload.i.i.i.i.i1.i = load i64, ptr %156, align 8
   %157 = and i64 %.0.copyload.i.i.i.i.i1.i, 4
-  %.not185 = icmp eq i64 %157, 0
-  br i1 %.not185, label %.thread, label %.critedge145
+  %.not178 = icmp eq i64 %157, 0
+  br i1 %.not178, label %.thread, label %.critedge142
 
-.split239.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi240 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %158 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr22isPotentiallyEvaluatedEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi240) #32
-  br i1 %158, label %159, label %.critedge145
+.split228.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi229 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
+  %158 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr22isPotentiallyEvaluatedEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi229) #32
+  br i1 %158, label %159, label %.critedge142
 
-159:                                              ; preds = %.split239.us
+159:                                              ; preds = %.split228.us
   br i1 %2, label %160, label %.thread
 
 160:                                              ; preds = %159
-  %161 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr12hasNullCheckEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi240) #32
-  br i1 %161, label %.critedge145, label %.thread
+  %161 = tail call noundef zeroext i1 @_ZNK5clang13CXXTypeidExpr12hasNullCheckEv(ptr noundef nonnull align 8 dereferenceable(32) %.us-phi229) #32
+  br i1 %161, label %.critedge142, label %.thread
 
-.split236.us:                                     ; preds = %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us
-  %.us-phi237 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ]
-  %162 = getelementptr inbounds nuw i8, ptr %.us-phi237, i64 16
+.split225.us:                                     ; preds = %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us
+  %.us-phi226 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ]
+  %162 = getelementptr inbounds nuw i8, ptr %.us-phi226, i64 16
   %163 = load ptr, ptr %162, align 8, !tbaa !804
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 82
   %165 = load i32, ptr %164, align 2
   %166 = and i32 %165, 128
-  %.not186 = icmp eq i32 %166, 0
-  %or.cond13 = and i1 %2, %.not186
-  br i1 %or.cond13, label %.critedge145, label %.thread
+  %.not179 = icmp eq i32 %166, 0
+  %or.cond13 = and i1 %2, %.not179
+  br i1 %or.cond13, label %.critedge142, label %.thread
 
-.split233.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi234 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %167 = getelementptr inbounds nuw i8, ptr %.us-phi234, i64 16
+.split222.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi223 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
+  %167 = getelementptr inbounds nuw i8, ptr %.us-phi223, i64 16
   %168 = load ptr, ptr %167, align 8, !tbaa !925
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 82
   %170 = load i32, ptr %169, align 2
   %171 = and i32 %170, 128
-  %.not187 = icmp eq i32 %171, 0
-  %or.cond16 = and i1 %2, %.not187
-  br i1 %or.cond16, label %.critedge145, label %.thread
+  %.not180 = icmp eq i32 %171, 0
+  %or.cond16 = and i1 %2, %.not180
+  br i1 %or.cond16, label %.critedge142, label %.thread
 
-.split230.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi231 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %172 = getelementptr inbounds nuw i8, ptr %.us-phi231, i64 32
-  %173 = getelementptr inbounds nuw i8, ptr %.us-phi231, i64 4
+.split219.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi220 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
+  %172 = getelementptr inbounds nuw i8, ptr %.us-phi220, i64 32
+  %173 = getelementptr inbounds nuw i8, ptr %.us-phi220, i64 4
   %174 = load i16, ptr %173, align 4
   %175 = zext i16 %174 to i64
   %.idx = shl nuw nsw i64 %175, 3
   %176 = getelementptr inbounds nuw i8, ptr %172, i64 %.idx
-  %.not127.not295 = icmp eq i16 %174, 0
-  br i1 %.not127.not295, label %.critedge145, label %.lr.ph
+  %.not127.not284 = icmp eq i16 %174, 0
+  br i1 %.not127.not284, label %.critedge142, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.split230.us, %.critedge141
-  %.0115296 = phi ptr [ %180, %.critedge141 ], [ %172, %.split230.us ]
-  %177 = load ptr, ptr %.0115296, align 8, !tbaa !146
+.lr.ph:                                           ; preds = %.split219.us, %.critedge138
+  %.0115285 = phi ptr [ %180, %.critedge138 ], [ %172, %.split219.us ]
+  %177 = load ptr, ptr %.0115285, align 8, !tbaa !146
   %.not128 = icmp eq ptr %177, null
-  br i1 %.not128, label %.critedge141, label %178
+  br i1 %.not128, label %.critedge138, label %178
 
 178:                                              ; preds = %.lr.ph
   %179 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %177, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  br i1 %179, label %.critedge145, label %.critedge141
+  br i1 %179, label %.critedge142, label %.critedge138
 
-.critedge141:                                     ; preds = %178, %.lr.ph
-  %180 = getelementptr inbounds nuw i8, ptr %.0115296, i64 8
+.critedge138:                                     ; preds = %178, %.lr.ph
+  %180 = getelementptr inbounds nuw i8, ptr %.0115285, i64 8
   %.not127.not = icmp eq ptr %180, %176
-  br i1 %.not127.not, label %.critedge145, label %.lr.ph
+  br i1 %.not127.not, label %.critedge142, label %.lr.ph
 
-.split227.us:                                     ; preds = %.critedge, %tailrecurse.us
-  %.us-phi228 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
-  %181 = load i64, ptr %.us-phi228, align 8
+.split216.us:                                     ; preds = %.critedge, %tailrecurse.us
+  %.us-phi217 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
+  %181 = load i64, ptr %.us-phi217, align 8
   %182 = lshr i64 %181, 29
-  %.idx312 = and i64 %182, 524280
-  %183 = add nuw nsw i64 %.idx312, 16
-  %184 = getelementptr inbounds nuw i8, ptr %.us-phi228, i64 %183
-  %.not129.not300 = icmp samesign eq i64 %183, 24
-  br i1 %.not129.not300, label %.critedge145, label %.lr.ph302.preheader
+  %.idx297 = and i64 %182, 524280
+  %183 = add nuw nsw i64 %.idx297, 16
+  %184 = getelementptr inbounds nuw i8, ptr %.us-phi217, i64 %183
+  %.not129.not289 = icmp samesign eq i64 %183, 24
+  br i1 %.not129.not289, label %.critedge142, label %.lr.ph291.preheader
 
-.lr.ph302.preheader:                              ; preds = %.split227.us
-  %185 = getelementptr inbounds nuw i8, ptr %.us-phi228, i64 24
-  br label %.lr.ph302
+.lr.ph291.preheader:                              ; preds = %.split216.us
+  %185 = getelementptr inbounds nuw i8, ptr %.us-phi217, i64 24
+  br label %.lr.ph291
 
-.lr.ph302:                                        ; preds = %192, %.lr.ph302.preheader
-  %.0117301 = phi ptr [ %185, %.lr.ph302.preheader ], [ %194, %192 ]
-  %186 = load ptr, ptr %.0117301, align 8, !tbaa !146
+.lr.ph291:                                        ; preds = %192, %.lr.ph291.preheader
+  %.0117290 = phi ptr [ %185, %.lr.ph291.preheader ], [ %194, %192 ]
+  %186 = load ptr, ptr %.0117290, align 8, !tbaa !146
   %187 = load i16, ptr %186, align 8
   %188 = and i16 %187, 511
-  %.not189 = icmp eq i16 %188, 28
-  br i1 %.not189, label %189, label %192
+  %.not182 = icmp eq i16 %188, 28
+  br i1 %.not182, label %189, label %192
 
-189:                                              ; preds = %.lr.ph302
+189:                                              ; preds = %.lr.ph291
   %190 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %191 = load ptr, ptr %190, align 8, !tbaa !88
   br label %192
 
-192:                                              ; preds = %189, %.lr.ph302
-  %.0116 = phi ptr [ %191, %189 ], [ %186, %.lr.ph302 ]
+192:                                              ; preds = %189, %.lr.ph291
+  %.0116 = phi ptr [ %191, %189 ], [ %186, %.lr.ph291 ]
   %193 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.0116, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  %194 = getelementptr inbounds nuw i8, ptr %.0117301, i64 8
+  %194 = getelementptr inbounds nuw i8, ptr %.0117290, i64 8
   %.not129.not = icmp eq ptr %194, %184
-  %or.cond692 = select i1 %193, i1 true, i1 %.not129.not
-  br i1 %or.cond692, label %.critedge145, label %.lr.ph302, !llvm.loop !927
+  %or.cond677 = select i1 %193, i1 true, i1 %.not129.not
+  br i1 %or.cond677, label %.critedge142, label %.lr.ph291, !llvm.loop !927
 
-.split224.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
-  %.us-phi225 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ], [ %.tr273, %.critedge ]
-  br i1 %2, label %.critedge145, label %.thread
+.split213.us:                                     ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
+  %.us-phi214 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ], [ %.tr262, %.critedge ]
+  br i1 %2, label %.critedge142, label %.thread
 
-.thread:                                          ; preds = %.critedge, %tailrecurse.us, %160, %159, %145, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %98, %.split249.us, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit, %.split233.us, %.split236.us, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %.split224.us, %.thread165, %.split252.us, %.split255.us, %.split260.us, %83, %.split268.us
-  %.tr221 = phi ptr [ %.us-phi240, %160 ], [ %.us-phi240, %159 ], [ %.tr220, %145 ], [ %.tr220, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ %.us-phi250, %98 ], [ %.us-phi250, %.split249.us ], [ %.us-phi272, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit ], [ %.us-phi234, %.split233.us ], [ %.us-phi237, %.split236.us ], [ %.us-phi272, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ %.us-phi225, %.split224.us ], [ %.tr220, %.thread165 ], [ %.us-phi253, %.split252.us ], [ %.us-phi256, %.split255.us ], [ %.us-phi261, %.split260.us ], [ %.us-phi261, %83 ], [ %.us-phi269, %.split268.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr273, %.critedge ]
+.thread:                                          ; preds = %.critedge, %tailrecurse.us, %98, %.split238.us, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit, %160, %159, %145, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %.split222.us, %.split225.us, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %.split213.us, %.thread160, %.split241.us, %.split244.us, %.split249.us, %83, %.split257.us
+  %.tr210 = phi ptr [ %.us-phi239, %98 ], [ %.us-phi239, %.split238.us ], [ %.us-phi261, %_ZNK5clang4Decl7hasAttrINS_9ConstAttrEEEbv.exit ], [ %.us-phi229, %160 ], [ %.us-phi229, %159 ], [ %.tr209, %145 ], [ %.tr209, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ %.us-phi223, %.split222.us ], [ %.us-phi226, %.split225.us ], [ %.us-phi261, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ %.us-phi214, %.split213.us ], [ %.tr209, %.thread160 ], [ %.us-phi242, %.split241.us ], [ %.us-phi245, %.split244.us ], [ %.us-phi250, %.split249.us ], [ %.us-phi250, %83 ], [ %.us-phi258, %.split257.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr262, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !928
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.874") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %.tr221) #32, !noalias !928
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.874") align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %.tr210) #32, !noalias !928
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %195 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.4152.24.copyload = load ptr, ptr %195, align 8
+  %.sroa.4148.24.copyload = load ptr, ptr %195, align 8
   %.sroa.6.24..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.6.24.copyload = load i64, ptr %.sroa.6.24..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !928
   %196 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %197 = load ptr, ptr %6, align 8, !tbaa !25
-  %198 = icmp ne ptr %197, %.sroa.4152.24.copyload
+  %198 = icmp ne ptr %197, %.sroa.4148.24.copyload
   %199 = load i64, ptr %196, align 8
   %200 = icmp ne i64 %199, %.sroa.6.24.copyload
-  %.not3.i.not.not306 = select i1 %198, i1 true, i1 %200
-  br i1 %.not3.i.not.not306, label %.lr.ph308, label %._crit_edge
+  %.not3.i295 = select i1 %198, i1 true, i1 %200
+  br i1 %.not3.i295, label %.lr.ph296, label %._crit_edge
 
-.lr.ph308:                                        ; preds = %.thread, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
+.lr.ph296:                                        ; preds = %.thread, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
   %201 = phi i64 [ %222, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %199, %.thread ]
   %202 = phi ptr [ %220, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ %197, %.thread ]
   %203 = and i64 %201, 3
   %204 = icmp eq i64 %203, 0
   br i1 %204, label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, label %205
 
-205:                                              ; preds = %.lr.ph308
+205:                                              ; preds = %.lr.ph296
   %206 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5clang16StmtIteratorBase11GetDeclExprEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
   br label %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
 
-_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph308, %205
-  %.in.i = phi ptr [ %206, %205 ], [ %202, %.lr.ph308 ]
+_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; preds = %.lr.ph296, %205
+  %.in.i = phi ptr [ %206, %205 ], [ %202, %.lr.ph296 ]
   %207 = load ptr, ptr %.in.i, align 8, !tbaa !3
   %.not131 = icmp eq ptr %207, null
   br i1 %.not131, label %210, label %208
 
 208:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit
   %209 = call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %207, ptr noundef nonnull align 8 dereferenceable(23216) %1, i1 noundef zeroext %2)
-  br i1 %209, label %._crit_edge, label %210
+  br i1 %209, label %224, label %210
 
 210:                                              ; preds = %_ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit, %208
   %211 = load i64, ptr %196, align 8, !tbaa !931
@@ -20794,8 +20794,8 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
   br label %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit
 
 217:                                              ; preds = %210
-  %.not.i150 = icmp ult i64 %211, 4
-  br i1 %.not.i150, label %219, label %218
+  %.not.i146 = icmp ult i64 %211, 4
+  br i1 %.not.i146, label %219, label %218
 
 218:                                              ; preds = %217
   call void @_ZN5clang16StmtIteratorBase6NextVAEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #32
@@ -20807,25 +20807,28 @@ _ZNK5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEdeEv.exit: ; pre
 
 _ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit: ; preds = %214, %218, %219
   %220 = load ptr, ptr %6, align 8, !tbaa !25
-  %221 = icmp ne ptr %220, %.sroa.4152.24.copyload
+  %221 = icmp ne ptr %220, %.sroa.4148.24.copyload
   %222 = load i64, ptr %196, align 8
   %223 = icmp ne i64 %222, %.sroa.6.24.copyload
-  %.not3.i.not.not = select i1 %221, i1 true, i1 %223
-  br i1 %.not3.i.not.not, label %.lr.ph308, label %._crit_edge
+  %.not3.i = select i1 %221, i1 true, i1 %223
+  br i1 %.not3.i, label %.lr.ph296, label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %208, %.thread
-  %.not3.i.not.not.lcssa = phi i1 [ false, %.thread ], [ false, %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit ], [ true, %208 ]
+224:                                              ; preds = %208
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.critedge145
+  br label %.critedge142
 
-.critedge145.loopexit695:                         ; preds = %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
-  br label %.critedge145
+._crit_edge:                                      ; preds = %_ZN5clang16StmtIteratorImplINS_17ConstStmtIteratorEPKNS_4StmtEEppEv.exit, %.thread
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  br label %.critedge142
 
-.critedge145.loopexit727:                         ; preds = %tailrecurse.backedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  br label %.critedge145
+.critedge142.loopexit680:                         ; preds = %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us
+  br label %.critedge142
 
-.critedge145:                                     ; preds = %178, %.critedge141, %192, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %.critedge145.loopexit727, %.critedge145.loopexit695, %.split, %.split230.us, %.split227.us, %160, %.split239.us, %149, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %141, %98, %._crit_edge, %.split233.us, %.split236.us, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %.split224.us, %.split252.us, %.split255.us, %83, %.split268.us, %128, %.split263.us
-  %.0 = phi i1 [ true, %.split233.us ], [ true, %.split236.us ], [ %spec.select, %128 ], [ %82, %.split263.us ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.split268.us ], [ true, %83 ], [ true, %.split255.us ], [ true, %.split252.us ], [ true, %.split224.us ], [ %.not3.i.not.not.lcssa, %._crit_edge ], [ true, %98 ], [ true, %141 ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ true, %149 ], [ true, %160 ], [ false, %.split239.us ], [ false, %.split227.us ], [ false, %.split230.us ], [ false, %.split ], [ true, %.critedge145.loopexit695 ], [ false, %.critedge145.loopexit727 ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ %193, %192 ], [ false, %.critedge141 ], [ true, %178 ]
+.critedge142.loopexit712:                         ; preds = %tailrecurse.backedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
+  br label %.critedge142
+
+.critedge142:                                     ; preds = %178, %.critedge138, %192, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %tailrecurse.us, %.critedge142.loopexit712, %.critedge142.loopexit680, %.split, %.split219.us, %.split216.us, %160, %.split228.us, %149, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit, %._crit_edge, %224, %141, %98, %.split222.us, %.split225.us, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit, %.split213.us, %.split241.us, %.split244.us, %83, %.split257.us, %128, %.split252.us
+  %.0 = phi i1 [ true, %.split222.us ], [ true, %.split225.us ], [ %spec.select, %128 ], [ %82, %.split252.us ], [ true, %_ZNK5clang4Decl7hasAttrINS_8PureAttrEEEbv.exit ], [ true, %.split257.us ], [ true, %83 ], [ true, %.split244.us ], [ true, %.split241.us ], [ true, %.split213.us ], [ true, %98 ], [ true, %141 ], [ false, %._crit_edge ], [ true, %224 ], [ true, %_ZNK5clang8QualType19isVolatileQualifiedEv.exit ], [ true, %149 ], [ true, %160 ], [ false, %.split228.us ], [ false, %.split216.us ], [ false, %.split219.us ], [ false, %.split ], [ true, %.critedge142.loopexit680 ], [ false, %.critedge142.loopexit712 ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ false, %tailrecurse.us ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ true, %.critedge ], [ %193, %192 ], [ false, %.critedge138 ], [ true, %178 ]
   ret i1 %.0
 }
 
@@ -20837,16 +20840,16 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
-  %.tr469 = phi ptr [ %1, %2 ], [ %.tr469.be, %tailrecurse.backedge ]
-  %6 = load i16, ptr %.tr469, align 8
+  %.tr468 = phi ptr [ %1, %2 ], [ %.tr468.be, %tailrecurse.backedge ]
+  %6 = load i16, ptr %.tr468, align 8
   %7 = and i16 %6, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %7, 120
-  %.not467 = icmp eq ptr %.tr469, null
-  %.not = or i1 %.not467, %spec.select.i.i.i.i.i.i.i.i
+  %.not466 = icmp eq ptr %.tr468, null
+  %.not = or i1 %.not466, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %376, label %8
 
 8:                                                ; preds = %tailrecurse
-  %9 = load i32, ptr %.tr469, align 8
+  %9 = load i32, ptr %.tr468, align 8
   %10 = lshr i32 %9, 19
   %11 = and i32 %10, 63
   %12 = trunc i32 %9 to i16
@@ -20897,7 +20900,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %20 = load i8, ptr %19, align 8, !tbaa !917, !range !42, !noundef !43
   %21 = trunc nuw i8 %20 to i1
-  %22 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %18, i1 noundef zeroext %21)
+  %22 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %18, i1 noundef zeroext %21)
   br i1 %22, label %23, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 23:                                               ; preds = %17
@@ -20915,7 +20918,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load i8, ptr %30, align 8, !tbaa !917, !range !42, !noundef !43
   %32 = trunc nuw i8 %31 to i1
-  %33 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %29, i1 noundef zeroext %32)
+  %33 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %29, i1 noundef zeroext %32)
   br i1 %33, label %34, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 34:                                               ; preds = %28
@@ -20933,7 +20936,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load i8, ptr %41, align 8, !tbaa !917, !range !42, !noundef !43
   %43 = trunc nuw i8 %42 to i1
-  %44 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %40, i1 noundef zeroext %43)
+  %44 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %40, i1 noundef zeroext %43)
   br i1 %44, label %45, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 45:                                               ; preds = %39
@@ -20951,7 +20954,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %53 = load i8, ptr %52, align 8, !tbaa !917, !range !42, !noundef !43
   %54 = trunc nuw i8 %53 to i1
-  %55 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %51, i1 noundef zeroext %54)
+  %55 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %51, i1 noundef zeroext %54)
   br i1 %55, label %56, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 56:                                               ; preds = %50
@@ -20969,7 +20972,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %64 = load i8, ptr %63, align 8, !tbaa !917, !range !42, !noundef !43
   %65 = trunc nuw i8 %64 to i1
-  %66 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %62, i1 noundef zeroext %65)
+  %66 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %62, i1 noundef zeroext %65)
   br i1 %66, label %67, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 67:                                               ; preds = %61
@@ -20987,7 +20990,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %75 = load i8, ptr %74, align 8, !tbaa !917, !range !42, !noundef !43
   %76 = trunc nuw i8 %75 to i1
-  %77 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %73, i1 noundef zeroext %76)
+  %77 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %73, i1 noundef zeroext %76)
   br i1 %77, label %78, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 78:                                               ; preds = %72
@@ -21005,7 +21008,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load i8, ptr %85, align 8, !tbaa !917, !range !42, !noundef !43
   %87 = trunc nuw i8 %86 to i1
-  %88 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %84, i1 noundef zeroext %87)
+  %88 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %84, i1 noundef zeroext %87)
   br i1 %88, label %89, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 89:                                               ; preds = %83
@@ -21023,7 +21026,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %97 = load i8, ptr %96, align 8, !tbaa !917, !range !42, !noundef !43
   %98 = trunc nuw i8 %97 to i1
-  %99 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %95, i1 noundef zeroext %98)
+  %99 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %95, i1 noundef zeroext %98)
   br i1 %99, label %100, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 100:                                              ; preds = %94
@@ -21041,7 +21044,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %108 = load i8, ptr %107, align 8, !tbaa !917, !range !42, !noundef !43
   %109 = trunc nuw i8 %108 to i1
-  %110 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %106, i1 noundef zeroext %109)
+  %110 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %106, i1 noundef zeroext %109)
   br i1 %110, label %111, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 111:                                              ; preds = %105
@@ -21059,7 +21062,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %119 = load i8, ptr %118, align 8, !tbaa !917, !range !42, !noundef !43
   %120 = trunc nuw i8 %119 to i1
-  %121 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %117, i1 noundef zeroext %120)
+  %121 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %117, i1 noundef zeroext %120)
   br i1 %121, label %122, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 122:                                              ; preds = %116
@@ -21077,7 +21080,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %130 = load i8, ptr %129, align 8, !tbaa !917, !range !42, !noundef !43
   %131 = trunc nuw i8 %130 to i1
-  %132 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %128, i1 noundef zeroext %131)
+  %132 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %128, i1 noundef zeroext %131)
   br i1 %132, label %133, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 133:                                              ; preds = %127
@@ -21095,7 +21098,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %141 = load i8, ptr %140, align 8, !tbaa !917, !range !42, !noundef !43
   %142 = trunc nuw i8 %141 to i1
-  %143 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %139, i1 noundef zeroext %142)
+  %143 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %139, i1 noundef zeroext %142)
   br i1 %143, label %144, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 144:                                              ; preds = %138
@@ -21113,7 +21116,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %152 = load i8, ptr %151, align 8, !tbaa !917, !range !42, !noundef !43
   %153 = trunc nuw i8 %152 to i1
-  %154 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %150, i1 noundef zeroext %153)
+  %154 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %150, i1 noundef zeroext %153)
   br i1 %154, label %155, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 155:                                              ; preds = %149
@@ -21131,7 +21134,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %163 = load i8, ptr %162, align 8, !tbaa !917, !range !42, !noundef !43
   %164 = trunc nuw i8 %163 to i1
-  %165 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %161, i1 noundef zeroext %164)
+  %165 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %161, i1 noundef zeroext %164)
   br i1 %165, label %166, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 166:                                              ; preds = %160
@@ -21149,7 +21152,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %174 = load i8, ptr %173, align 8, !tbaa !917, !range !42, !noundef !43
   %175 = trunc nuw i8 %174 to i1
-  %176 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %172, i1 noundef zeroext %175)
+  %176 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %172, i1 noundef zeroext %175)
   br i1 %176, label %177, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 177:                                              ; preds = %171
@@ -21167,7 +21170,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %185 = load i8, ptr %184, align 8, !tbaa !917, !range !42, !noundef !43
   %186 = trunc nuw i8 %185 to i1
-  %187 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %183, i1 noundef zeroext %186)
+  %187 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %183, i1 noundef zeroext %186)
   br i1 %187, label %188, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 188:                                              ; preds = %182
@@ -21185,7 +21188,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %195 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %196 = load i8, ptr %195, align 8, !tbaa !917, !range !42, !noundef !43
   %197 = trunc nuw i8 %196 to i1
-  %198 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %194, i1 noundef zeroext %197)
+  %198 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %194, i1 noundef zeroext %197)
   br i1 %198, label %199, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 199:                                              ; preds = %193
@@ -21203,7 +21206,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %206 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %207 = load i8, ptr %206, align 8, !tbaa !917, !range !42, !noundef !43
   %208 = trunc nuw i8 %207 to i1
-  %209 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %205, i1 noundef zeroext %208)
+  %209 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %205, i1 noundef zeroext %208)
   br i1 %209, label %210, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 210:                                              ; preds = %204
@@ -21221,7 +21224,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %217 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %218 = load i8, ptr %217, align 8, !tbaa !917, !range !42, !noundef !43
   %219 = trunc nuw i8 %218 to i1
-  %220 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %216, i1 noundef zeroext %219)
+  %220 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %216, i1 noundef zeroext %219)
   br i1 %220, label %221, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 221:                                              ; preds = %215
@@ -21239,7 +21242,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %229 = load i8, ptr %228, align 8, !tbaa !917, !range !42, !noundef !43
   %230 = trunc nuw i8 %229 to i1
-  %231 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %227, i1 noundef zeroext %230)
+  %231 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %227, i1 noundef zeroext %230)
   br i1 %231, label %232, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 232:                                              ; preds = %226
@@ -21257,7 +21260,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %239 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %240 = load i8, ptr %239, align 8, !tbaa !917, !range !42, !noundef !43
   %241 = trunc nuw i8 %240 to i1
-  %242 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %238, i1 noundef zeroext %241)
+  %242 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %238, i1 noundef zeroext %241)
   br i1 %242, label %243, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 243:                                              ; preds = %237
@@ -21275,7 +21278,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %250 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %251 = load i8, ptr %250, align 8, !tbaa !917, !range !42, !noundef !43
   %252 = trunc nuw i8 %251 to i1
-  %253 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %249, i1 noundef zeroext %252)
+  %253 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %249, i1 noundef zeroext %252)
   br i1 %253, label %254, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 254:                                              ; preds = %248
@@ -21293,7 +21296,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %261 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %262 = load i8, ptr %261, align 8, !tbaa !917, !range !42, !noundef !43
   %263 = trunc nuw i8 %262 to i1
-  %264 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %260, i1 noundef zeroext %263)
+  %264 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %260, i1 noundef zeroext %263)
   br i1 %264, label %265, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 265:                                              ; preds = %259
@@ -21311,7 +21314,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %272 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %273 = load i8, ptr %272, align 8, !tbaa !917, !range !42, !noundef !43
   %274 = trunc nuw i8 %273 to i1
-  %275 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %271, i1 noundef zeroext %274)
+  %275 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %271, i1 noundef zeroext %274)
   br i1 %275, label %276, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 276:                                              ; preds = %270
@@ -21329,7 +21332,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %284 = load i8, ptr %283, align 8, !tbaa !917, !range !42, !noundef !43
   %285 = trunc nuw i8 %284 to i1
-  %286 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %282, i1 noundef zeroext %285)
+  %286 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %282, i1 noundef zeroext %285)
   br i1 %286, label %287, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 287:                                              ; preds = %281
@@ -21347,7 +21350,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %294 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %295 = load i8, ptr %294, align 8, !tbaa !917, !range !42, !noundef !43
   %296 = trunc nuw i8 %295 to i1
-  %297 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %293, i1 noundef zeroext %296)
+  %297 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %293, i1 noundef zeroext %296)
   br i1 %297, label %298, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 298:                                              ; preds = %292
@@ -21365,7 +21368,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %305 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %306 = load i8, ptr %305, align 8, !tbaa !917, !range !42, !noundef !43
   %307 = trunc nuw i8 %306 to i1
-  %308 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %304, i1 noundef zeroext %307)
+  %308 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %304, i1 noundef zeroext %307)
   br i1 %308, label %309, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 309:                                              ; preds = %303
@@ -21383,7 +21386,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %317 = load i8, ptr %316, align 8, !tbaa !917, !range !42, !noundef !43
   %318 = trunc nuw i8 %317 to i1
-  %319 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %315, i1 noundef zeroext %318)
+  %319 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %315, i1 noundef zeroext %318)
   br i1 %319, label %320, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 320:                                              ; preds = %314
@@ -21401,7 +21404,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %327 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %328 = load i8, ptr %327, align 8, !tbaa !917, !range !42, !noundef !43
   %329 = trunc nuw i8 %328 to i1
-  %330 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %326, i1 noundef zeroext %329)
+  %330 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %326, i1 noundef zeroext %329)
   br i1 %330, label %331, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 331:                                              ; preds = %325
@@ -21419,7 +21422,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %338 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %339 = load i8, ptr %338, align 8, !tbaa !917, !range !42, !noundef !43
   %340 = trunc nuw i8 %339 to i1
-  %341 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %337, i1 noundef zeroext %340)
+  %341 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %337, i1 noundef zeroext %340)
   br i1 %341, label %342, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 342:                                              ; preds = %336
@@ -21437,7 +21440,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %349 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %350 = load i8, ptr %349, align 8, !tbaa !917, !range !42, !noundef !43
   %351 = trunc nuw i8 %350 to i1
-  %352 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %348, i1 noundef zeroext %351)
+  %352 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %348, i1 noundef zeroext %351)
   br i1 %352, label %353, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 353:                                              ; preds = %347
@@ -21455,7 +21458,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %361 = load i8, ptr %360, align 8, !tbaa !917, !range !42, !noundef !43
   %362 = trunc nuw i8 %361 to i1
-  %363 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %359, i1 noundef zeroext %362)
+  %363 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %359, i1 noundef zeroext %362)
   br i1 %363, label %364, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 364:                                              ; preds = %358
@@ -21473,7 +21476,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %372 = load i8, ptr %371, align 8, !tbaa !917, !range !42, !noundef !43
   %373 = trunc nuw i8 %372 to i1
-  %374 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %370, i1 noundef zeroext %373)
+  %374 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %370, i1 noundef zeroext %373)
   br i1 %374, label %375, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 375:                                              ; preds = %369
@@ -21483,11 +21486,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 376:                                              ; preds = %tailrecurse
   %377 = and i16 %6, 511
   %378 = icmp ne i16 %377, 4
-  %.not314 = or i1 %.not467, %378
+  %.not314 = or i1 %.not466, %378
   br i1 %.not314, label %.critedge, label %379
 
 379:                                              ; preds = %376
-  %380 = load i32, ptr %.tr469, align 8
+  %380 = load i32, ptr %.tr468, align 8
   %381 = lshr i32 %380, 19
   %382 = and i32 %381, 31
   %383 = trunc i32 %380 to i16
@@ -21519,7 +21522,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %390 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %391 = load i8, ptr %390, align 8, !tbaa !917, !range !42, !noundef !43
   %392 = trunc nuw i8 %391 to i1
-  %393 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %389, i1 noundef zeroext %392)
+  %393 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %389, i1 noundef zeroext %392)
   br i1 %393, label %394, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 394:                                              ; preds = %388
@@ -21537,7 +21540,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %401 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %402 = load i8, ptr %401, align 8, !tbaa !917, !range !42, !noundef !43
   %403 = trunc nuw i8 %402 to i1
-  %404 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %400, i1 noundef zeroext %403)
+  %404 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %400, i1 noundef zeroext %403)
   br i1 %404, label %405, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 405:                                              ; preds = %399
@@ -21555,7 +21558,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %412 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %413 = load i8, ptr %412, align 8, !tbaa !917, !range !42, !noundef !43
   %414 = trunc nuw i8 %413 to i1
-  %415 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %411, i1 noundef zeroext %414)
+  %415 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %411, i1 noundef zeroext %414)
   br i1 %415, label %416, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 416:                                              ; preds = %410
@@ -21573,7 +21576,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %423 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %424 = load i8, ptr %423, align 8, !tbaa !917, !range !42, !noundef !43
   %425 = trunc nuw i8 %424 to i1
-  %426 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %422, i1 noundef zeroext %425)
+  %426 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %422, i1 noundef zeroext %425)
   br i1 %426, label %427, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 427:                                              ; preds = %421
@@ -21591,7 +21594,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %434 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %435 = load i8, ptr %434, align 8, !tbaa !917, !range !42, !noundef !43
   %436 = trunc nuw i8 %435 to i1
-  %437 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %433, i1 noundef zeroext %436)
+  %437 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %433, i1 noundef zeroext %436)
   br i1 %437, label %438, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 438:                                              ; preds = %432
@@ -21609,7 +21612,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %445 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %446 = load i8, ptr %445, align 8, !tbaa !917, !range !42, !noundef !43
   %447 = trunc nuw i8 %446 to i1
-  %448 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %444, i1 noundef zeroext %447)
+  %448 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %444, i1 noundef zeroext %447)
   br i1 %448, label %449, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 449:                                              ; preds = %443
@@ -21627,7 +21630,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %456 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %457 = load i8, ptr %456, align 8, !tbaa !917, !range !42, !noundef !43
   %458 = trunc nuw i8 %457 to i1
-  %459 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %455, i1 noundef zeroext %458)
+  %459 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %455, i1 noundef zeroext %458)
   br i1 %459, label %460, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 460:                                              ; preds = %454
@@ -21645,7 +21648,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %467 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %468 = load i8, ptr %467, align 8, !tbaa !917, !range !42, !noundef !43
   %469 = trunc nuw i8 %468 to i1
-  %470 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %466, i1 noundef zeroext %469)
+  %470 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %466, i1 noundef zeroext %469)
   br i1 %470, label %471, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 471:                                              ; preds = %465
@@ -21663,7 +21666,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %478 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %479 = load i8, ptr %478, align 8, !tbaa !917, !range !42, !noundef !43
   %480 = trunc nuw i8 %479 to i1
-  %481 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %477, i1 noundef zeroext %480)
+  %481 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %477, i1 noundef zeroext %480)
   br i1 %481, label %482, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 482:                                              ; preds = %476
@@ -21681,7 +21684,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %490 = load i8, ptr %489, align 8, !tbaa !917, !range !42, !noundef !43
   %491 = trunc nuw i8 %490 to i1
-  %492 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %488, i1 noundef zeroext %491)
+  %492 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %488, i1 noundef zeroext %491)
   br i1 %492, label %493, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 493:                                              ; preds = %487
@@ -21699,7 +21702,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %500 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %501 = load i8, ptr %500, align 8, !tbaa !917, !range !42, !noundef !43
   %502 = trunc nuw i8 %501 to i1
-  %503 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %499, i1 noundef zeroext %502)
+  %503 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %499, i1 noundef zeroext %502)
   br i1 %503, label %504, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 504:                                              ; preds = %498
@@ -21717,7 +21720,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %511 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %512 = load i8, ptr %511, align 8, !tbaa !917, !range !42, !noundef !43
   %513 = trunc nuw i8 %512 to i1
-  %514 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %510, i1 noundef zeroext %513)
+  %514 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %510, i1 noundef zeroext %513)
   br i1 %514, label %515, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 515:                                              ; preds = %509
@@ -21735,7 +21738,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %522 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %523 = load i8, ptr %522, align 8, !tbaa !917, !range !42, !noundef !43
   %524 = trunc nuw i8 %523 to i1
-  %525 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %521, i1 noundef zeroext %524)
+  %525 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %521, i1 noundef zeroext %524)
   br i1 %525, label %526, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 526:                                              ; preds = %520
@@ -21753,7 +21756,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %533 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %534 = load i8, ptr %533, align 8, !tbaa !917, !range !42, !noundef !43
   %535 = trunc nuw i8 %534 to i1
-  %536 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %532, i1 noundef zeroext %535)
+  %536 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %532, i1 noundef zeroext %535)
   br i1 %536, label %537, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 537:                                              ; preds = %531
@@ -22026,11 +22029,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   unreachable
 
 541:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 542:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 543:                                              ; preds = %.critedge
@@ -22044,7 +22047,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %549 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %550 = load i8, ptr %549, align 8, !tbaa !917, !range !42, !noundef !43
   %551 = trunc nuw i8 %550 to i1
-  %552 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %548, i1 noundef zeroext %551)
+  %552 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %548, i1 noundef zeroext %551)
   br i1 %552, label %553, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 553:                                              ; preds = %547
@@ -22062,7 +22065,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %560 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %561 = load i8, ptr %560, align 8, !tbaa !917, !range !42, !noundef !43
   %562 = trunc nuw i8 %561 to i1
-  %563 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %559, i1 noundef zeroext %562)
+  %563 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %559, i1 noundef zeroext %562)
   br i1 %563, label %564, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 564:                                              ; preds = %558
@@ -22080,7 +22083,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %571 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %572 = load i8, ptr %571, align 8, !tbaa !917, !range !42, !noundef !43
   %573 = trunc nuw i8 %572 to i1
-  %574 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %570, i1 noundef zeroext %573)
+  %574 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %570, i1 noundef zeroext %573)
   br i1 %574, label %575, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 575:                                              ; preds = %569
@@ -22098,7 +22101,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %582 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %583 = load i8, ptr %582, align 8, !tbaa !917, !range !42, !noundef !43
   %584 = trunc nuw i8 %583 to i1
-  %585 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %581, i1 noundef zeroext %584)
+  %585 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %581, i1 noundef zeroext %584)
   br i1 %585, label %586, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 586:                                              ; preds = %580
@@ -22116,7 +22119,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %593 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %594 = load i8, ptr %593, align 8, !tbaa !917, !range !42, !noundef !43
   %595 = trunc nuw i8 %594 to i1
-  %596 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %592, i1 noundef zeroext %595)
+  %596 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %592, i1 noundef zeroext %595)
   br i1 %596, label %597, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 597:                                              ; preds = %591
@@ -22134,7 +22137,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %604 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %605 = load i8, ptr %604, align 8, !tbaa !917, !range !42, !noundef !43
   %606 = trunc nuw i8 %605 to i1
-  %607 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %603, i1 noundef zeroext %606)
+  %607 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %603, i1 noundef zeroext %606)
   br i1 %607, label %608, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 608:                                              ; preds = %602
@@ -22152,7 +22155,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %615 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %616 = load i8, ptr %615, align 8, !tbaa !917, !range !42, !noundef !43
   %617 = trunc nuw i8 %616 to i1
-  %618 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %614, i1 noundef zeroext %617)
+  %618 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %614, i1 noundef zeroext %617)
   br i1 %618, label %619, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 619:                                              ; preds = %613
@@ -22170,7 +22173,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %626 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %627 = load i8, ptr %626, align 8, !tbaa !917, !range !42, !noundef !43
   %628 = trunc nuw i8 %627 to i1
-  %629 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %625, i1 noundef zeroext %628)
+  %629 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %625, i1 noundef zeroext %628)
   br i1 %629, label %630, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 630:                                              ; preds = %624
@@ -22188,7 +22191,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %637 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %638 = load i8, ptr %637, align 8, !tbaa !917, !range !42, !noundef !43
   %639 = trunc nuw i8 %638 to i1
-  %640 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %636, i1 noundef zeroext %639)
+  %640 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %636, i1 noundef zeroext %639)
   br i1 %640, label %641, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 641:                                              ; preds = %635
@@ -22206,7 +22209,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %648 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %649 = load i8, ptr %648, align 8, !tbaa !917, !range !42, !noundef !43
   %650 = trunc nuw i8 %649 to i1
-  %651 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %647, i1 noundef zeroext %650)
+  %651 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %647, i1 noundef zeroext %650)
   br i1 %651, label %652, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 652:                                              ; preds = %646
@@ -22224,7 +22227,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %659 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %660 = load i8, ptr %659, align 8, !tbaa !917, !range !42, !noundef !43
   %661 = trunc nuw i8 %660 to i1
-  %662 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %658, i1 noundef zeroext %661)
+  %662 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %658, i1 noundef zeroext %661)
   br i1 %662, label %663, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 663:                                              ; preds = %657
@@ -22242,7 +22245,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %671 = load i8, ptr %670, align 8, !tbaa !917, !range !42, !noundef !43
   %672 = trunc nuw i8 %671 to i1
-  %673 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %669, i1 noundef zeroext %672)
+  %673 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %669, i1 noundef zeroext %672)
   br i1 %673, label %674, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 674:                                              ; preds = %668
@@ -22260,7 +22263,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %681 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %682 = load i8, ptr %681, align 8, !tbaa !917, !range !42, !noundef !43
   %683 = trunc nuw i8 %682 to i1
-  %684 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %680, i1 noundef zeroext %683)
+  %684 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %680, i1 noundef zeroext %683)
   br i1 %684, label %685, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 685:                                              ; preds = %679
@@ -22278,7 +22281,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %692 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %693 = load i8, ptr %692, align 8, !tbaa !917, !range !42, !noundef !43
   %694 = trunc nuw i8 %693 to i1
-  %695 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %691, i1 noundef zeroext %694)
+  %695 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %691, i1 noundef zeroext %694)
   br i1 %695, label %696, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 696:                                              ; preds = %690
@@ -22296,7 +22299,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %703 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %704 = load i8, ptr %703, align 8, !tbaa !917, !range !42, !noundef !43
   %705 = trunc nuw i8 %704 to i1
-  %706 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %702, i1 noundef zeroext %705)
+  %706 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %702, i1 noundef zeroext %705)
   br i1 %706, label %707, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 707:                                              ; preds = %701
@@ -22314,7 +22317,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %714 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %715 = load i8, ptr %714, align 8, !tbaa !917, !range !42, !noundef !43
   %716 = trunc nuw i8 %715 to i1
-  %717 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %713, i1 noundef zeroext %716)
+  %717 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %713, i1 noundef zeroext %716)
   br i1 %717, label %718, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 718:                                              ; preds = %712
@@ -22332,7 +22335,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %725 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %726 = load i8, ptr %725, align 8, !tbaa !917, !range !42, !noundef !43
   %727 = trunc nuw i8 %726 to i1
-  %728 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %724, i1 noundef zeroext %727)
+  %728 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %724, i1 noundef zeroext %727)
   br i1 %728, label %729, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 729:                                              ; preds = %723
@@ -22350,7 +22353,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %736 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %737 = load i8, ptr %736, align 8, !tbaa !917, !range !42, !noundef !43
   %738 = trunc nuw i8 %737 to i1
-  %739 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %735, i1 noundef zeroext %738)
+  %739 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %735, i1 noundef zeroext %738)
   br i1 %739, label %740, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 740:                                              ; preds = %734
@@ -22368,7 +22371,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %747 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %748 = load i8, ptr %747, align 8, !tbaa !917, !range !42, !noundef !43
   %749 = trunc nuw i8 %748 to i1
-  %750 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %746, i1 noundef zeroext %749)
+  %750 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %746, i1 noundef zeroext %749)
   br i1 %750, label %751, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 751:                                              ; preds = %745
@@ -22386,7 +22389,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %758 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %759 = load i8, ptr %758, align 8, !tbaa !917, !range !42, !noundef !43
   %760 = trunc nuw i8 %759 to i1
-  %761 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %757, i1 noundef zeroext %760)
+  %761 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %757, i1 noundef zeroext %760)
   br i1 %761, label %762, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 762:                                              ; preds = %756
@@ -22404,7 +22407,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %769 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %770 = load i8, ptr %769, align 8, !tbaa !917, !range !42, !noundef !43
   %771 = trunc nuw i8 %770 to i1
-  %772 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %768, i1 noundef zeroext %771)
+  %772 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %768, i1 noundef zeroext %771)
   br i1 %772, label %773, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 773:                                              ; preds = %767
@@ -22422,7 +22425,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %780 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %781 = load i8, ptr %780, align 8, !tbaa !917, !range !42, !noundef !43
   %782 = trunc nuw i8 %781 to i1
-  %783 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %779, i1 noundef zeroext %782)
+  %783 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %779, i1 noundef zeroext %782)
   br i1 %783, label %784, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 784:                                              ; preds = %778
@@ -22440,7 +22443,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %791 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %792 = load i8, ptr %791, align 8, !tbaa !917, !range !42, !noundef !43
   %793 = trunc nuw i8 %792 to i1
-  %794 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %790, i1 noundef zeroext %793)
+  %794 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %790, i1 noundef zeroext %793)
   br i1 %794, label %795, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 795:                                              ; preds = %789
@@ -22458,7 +22461,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %802 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %803 = load i8, ptr %802, align 8, !tbaa !917, !range !42, !noundef !43
   %804 = trunc nuw i8 %803 to i1
-  %805 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %801, i1 noundef zeroext %804)
+  %805 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %801, i1 noundef zeroext %804)
   br i1 %805, label %806, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 806:                                              ; preds = %800
@@ -22476,7 +22479,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %813 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %814 = load i8, ptr %813, align 8, !tbaa !917, !range !42, !noundef !43
   %815 = trunc nuw i8 %814 to i1
-  %816 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %812, i1 noundef zeroext %815)
+  %816 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %812, i1 noundef zeroext %815)
   br i1 %816, label %817, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 817:                                              ; preds = %811
@@ -22494,7 +22497,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %824 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %825 = load i8, ptr %824, align 8, !tbaa !917, !range !42, !noundef !43
   %826 = trunc nuw i8 %825 to i1
-  %827 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %823, i1 noundef zeroext %826)
+  %827 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %823, i1 noundef zeroext %826)
   br i1 %827, label %828, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 828:                                              ; preds = %822
@@ -22512,7 +22515,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %835 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %836 = load i8, ptr %835, align 8, !tbaa !917, !range !42, !noundef !43
   %837 = trunc nuw i8 %836 to i1
-  %838 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %834, i1 noundef zeroext %837)
+  %838 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %834, i1 noundef zeroext %837)
   br i1 %838, label %839, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 839:                                              ; preds = %833
@@ -22530,7 +22533,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %846 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %847 = load i8, ptr %846, align 8, !tbaa !917, !range !42, !noundef !43
   %848 = trunc nuw i8 %847 to i1
-  %849 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %845, i1 noundef zeroext %848)
+  %849 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %845, i1 noundef zeroext %848)
   br i1 %849, label %850, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 850:                                              ; preds = %844
@@ -22548,7 +22551,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %857 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %858 = load i8, ptr %857, align 8, !tbaa !917, !range !42, !noundef !43
   %859 = trunc nuw i8 %858 to i1
-  %860 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %856, i1 noundef zeroext %859)
+  %860 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %856, i1 noundef zeroext %859)
   br i1 %860, label %861, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 861:                                              ; preds = %855
@@ -22566,7 +22569,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %868 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %869 = load i8, ptr %868, align 8, !tbaa !917, !range !42, !noundef !43
   %870 = trunc nuw i8 %869 to i1
-  %871 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %867, i1 noundef zeroext %870)
+  %871 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %867, i1 noundef zeroext %870)
   br i1 %871, label %872, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 872:                                              ; preds = %866
@@ -22584,7 +22587,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %879 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %880 = load i8, ptr %879, align 8, !tbaa !917, !range !42, !noundef !43
   %881 = trunc nuw i8 %880 to i1
-  %882 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %878, i1 noundef zeroext %881)
+  %882 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %878, i1 noundef zeroext %881)
   br i1 %882, label %883, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 883:                                              ; preds = %877
@@ -22602,7 +22605,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %890 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %891 = load i8, ptr %890, align 8, !tbaa !917, !range !42, !noundef !43
   %892 = trunc nuw i8 %891 to i1
-  %893 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %889, i1 noundef zeroext %892)
+  %893 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %889, i1 noundef zeroext %892)
   br i1 %893, label %894, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 894:                                              ; preds = %888
@@ -22620,7 +22623,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %901 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %902 = load i8, ptr %901, align 8, !tbaa !917, !range !42, !noundef !43
   %903 = trunc nuw i8 %902 to i1
-  %904 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %900, i1 noundef zeroext %903)
+  %904 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %900, i1 noundef zeroext %903)
   br i1 %904, label %905, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 905:                                              ; preds = %899
@@ -22638,7 +22641,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %912 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %913 = load i8, ptr %912, align 8, !tbaa !917, !range !42, !noundef !43
   %914 = trunc nuw i8 %913 to i1
-  %915 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %911, i1 noundef zeroext %914)
+  %915 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %911, i1 noundef zeroext %914)
   br i1 %915, label %916, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 916:                                              ; preds = %910
@@ -22656,7 +22659,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %923 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %924 = load i8, ptr %923, align 8, !tbaa !917, !range !42, !noundef !43
   %925 = trunc nuw i8 %924 to i1
-  %926 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %922, i1 noundef zeroext %925)
+  %926 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %922, i1 noundef zeroext %925)
   br i1 %926, label %927, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 927:                                              ; preds = %921
@@ -22674,7 +22677,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %934 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %935 = load i8, ptr %934, align 8, !tbaa !917, !range !42, !noundef !43
   %936 = trunc nuw i8 %935 to i1
-  %937 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %933, i1 noundef zeroext %936)
+  %937 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %933, i1 noundef zeroext %936)
   br i1 %937, label %938, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 938:                                              ; preds = %932
@@ -22692,7 +22695,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %945 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %946 = load i8, ptr %945, align 8, !tbaa !917, !range !42, !noundef !43
   %947 = trunc nuw i8 %946 to i1
-  %948 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %944, i1 noundef zeroext %947)
+  %948 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %944, i1 noundef zeroext %947)
   br i1 %948, label %949, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 949:                                              ; preds = %943
@@ -22710,7 +22713,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %956 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %957 = load i8, ptr %956, align 8, !tbaa !917, !range !42, !noundef !43
   %958 = trunc nuw i8 %957 to i1
-  %959 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %955, i1 noundef zeroext %958)
+  %959 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %955, i1 noundef zeroext %958)
   br i1 %959, label %960, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 960:                                              ; preds = %954
@@ -22728,7 +22731,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %967 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %968 = load i8, ptr %967, align 8, !tbaa !917, !range !42, !noundef !43
   %969 = trunc nuw i8 %968 to i1
-  %970 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %966, i1 noundef zeroext %969)
+  %970 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %966, i1 noundef zeroext %969)
   br i1 %970, label %971, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 971:                                              ; preds = %965
@@ -22746,7 +22749,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %978 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %979 = load i8, ptr %978, align 8, !tbaa !917, !range !42, !noundef !43
   %980 = trunc nuw i8 %979 to i1
-  %981 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %977, i1 noundef zeroext %980)
+  %981 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %977, i1 noundef zeroext %980)
   br i1 %981, label %982, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 982:                                              ; preds = %976
@@ -22764,7 +22767,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %989 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %990 = load i8, ptr %989, align 8, !tbaa !917, !range !42, !noundef !43
   %991 = trunc nuw i8 %990 to i1
-  %992 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %988, i1 noundef zeroext %991)
+  %992 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %988, i1 noundef zeroext %991)
   br i1 %992, label %993, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 993:                                              ; preds = %987
@@ -22782,7 +22785,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %1000 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1001 = load i8, ptr %1000, align 8, !tbaa !917, !range !42, !noundef !43
   %1002 = trunc nuw i8 %1001 to i1
-  %1003 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %999, i1 noundef zeroext %1002)
+  %1003 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %999, i1 noundef zeroext %1002)
   br i1 %1003, label %1004, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1004:                                             ; preds = %998
@@ -22800,7 +22803,7 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   %1011 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1012 = load i8, ptr %1011, align 8, !tbaa !917, !range !42, !noundef !43
   %1013 = trunc nuw i8 %1012 to i1
-  %1014 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1010, i1 noundef zeroext %1013)
+  %1014 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1010, i1 noundef zeroext %1013)
   br i1 %1014, label %1015, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1015:                                             ; preds = %1009
@@ -22808,12 +22811,12 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1016:                                             ; preds = %.critedge
-  %1017 = getelementptr inbounds nuw i8, ptr %.tr469, i64 16
+  %1017 = getelementptr inbounds nuw i8, ptr %.tr468, i64 16
   %1018 = load ptr, ptr %1017, align 8, !tbaa !60
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit
-  %.tr469.be = phi ptr [ %1018, %1016 ], [ %1228, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
+  %.tr468.be = phi ptr [ %1018, %1016 ], [ %1228, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
   br label %tailrecurse
 
 1019:                                             ; preds = %.critedge
@@ -22827,7 +22830,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1025 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1026 = load i8, ptr %1025, align 8, !tbaa !917, !range !42, !noundef !43
   %1027 = trunc nuw i8 %1026 to i1
-  %1028 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1024, i1 noundef zeroext %1027)
+  %1028 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1024, i1 noundef zeroext %1027)
   br i1 %1028, label %1029, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1029:                                             ; preds = %1023
@@ -22845,7 +22848,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1036 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1037 = load i8, ptr %1036, align 8, !tbaa !917, !range !42, !noundef !43
   %1038 = trunc nuw i8 %1037 to i1
-  %1039 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1035, i1 noundef zeroext %1038)
+  %1039 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1035, i1 noundef zeroext %1038)
   br i1 %1039, label %1040, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1040:                                             ; preds = %1034
@@ -22863,7 +22866,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1047 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1048 = load i8, ptr %1047, align 8, !tbaa !917, !range !42, !noundef !43
   %1049 = trunc nuw i8 %1048 to i1
-  %1050 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1046, i1 noundef zeroext %1049)
+  %1050 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1046, i1 noundef zeroext %1049)
   br i1 %1050, label %1051, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1051:                                             ; preds = %1045
@@ -22881,7 +22884,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1058 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1059 = load i8, ptr %1058, align 8, !tbaa !917, !range !42, !noundef !43
   %1060 = trunc nuw i8 %1059 to i1
-  %1061 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1057, i1 noundef zeroext %1060)
+  %1061 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1057, i1 noundef zeroext %1060)
   br i1 %1061, label %1062, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1062:                                             ; preds = %1056
@@ -22889,7 +22892,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1063:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1064:                                             ; preds = %.critedge
@@ -22903,7 +22906,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1070 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1071 = load i8, ptr %1070, align 8, !tbaa !917, !range !42, !noundef !43
   %1072 = trunc nuw i8 %1071 to i1
-  %1073 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1069, i1 noundef zeroext %1072)
+  %1073 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1069, i1 noundef zeroext %1072)
   br i1 %1073, label %1074, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1074:                                             ; preds = %1068
@@ -22921,7 +22924,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1081 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1082 = load i8, ptr %1081, align 8, !tbaa !917, !range !42, !noundef !43
   %1083 = trunc nuw i8 %1082 to i1
-  %1084 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1080, i1 noundef zeroext %1083)
+  %1084 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1080, i1 noundef zeroext %1083)
   br i1 %1084, label %1085, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1085:                                             ; preds = %1079
@@ -22939,7 +22942,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1092 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1093 = load i8, ptr %1092, align 8, !tbaa !917, !range !42, !noundef !43
   %1094 = trunc nuw i8 %1093 to i1
-  %1095 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1091, i1 noundef zeroext %1094)
+  %1095 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1091, i1 noundef zeroext %1094)
   br i1 %1095, label %1096, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1096:                                             ; preds = %1090
@@ -22957,7 +22960,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1103 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1104 = load i8, ptr %1103, align 8, !tbaa !917, !range !42, !noundef !43
   %1105 = trunc nuw i8 %1104 to i1
-  %1106 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1102, i1 noundef zeroext %1105)
+  %1106 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1102, i1 noundef zeroext %1105)
   br i1 %1106, label %1107, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1107:                                             ; preds = %1101
@@ -22975,7 +22978,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1114 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1115 = load i8, ptr %1114, align 8, !tbaa !917, !range !42, !noundef !43
   %1116 = trunc nuw i8 %1115 to i1
-  %1117 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1113, i1 noundef zeroext %1116)
+  %1117 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1113, i1 noundef zeroext %1116)
   br i1 %1117, label %1118, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1118:                                             ; preds = %1112
@@ -22983,7 +22986,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1119:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE25VisitGenericSelectionExprEPKNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE25VisitGenericSelectionExprEPKNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1120:                                             ; preds = %.critedge
@@ -22997,7 +23000,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1126 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1127 = load i8, ptr %1126, align 8, !tbaa !917, !range !42, !noundef !43
   %1128 = trunc nuw i8 %1127 to i1
-  %1129 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1125, i1 noundef zeroext %1128)
+  %1129 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1125, i1 noundef zeroext %1128)
   br i1 %1129, label %1130, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1130:                                             ; preds = %1124
@@ -23015,7 +23018,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1137 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1138 = load i8, ptr %1137, align 8, !tbaa !917, !range !42, !noundef !43
   %1139 = trunc nuw i8 %1138 to i1
-  %1140 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1136, i1 noundef zeroext %1139)
+  %1140 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1136, i1 noundef zeroext %1139)
   br i1 %1140, label %1141, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1141:                                             ; preds = %1135
@@ -23033,7 +23036,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1148 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1149 = load i8, ptr %1148, align 8, !tbaa !917, !range !42, !noundef !43
   %1150 = trunc nuw i8 %1149 to i1
-  %1151 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1147, i1 noundef zeroext %1150)
+  %1151 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1147, i1 noundef zeroext %1150)
   br i1 %1151, label %1152, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1152:                                             ; preds = %1146
@@ -23051,7 +23054,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1159 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1160 = load i8, ptr %1159, align 8, !tbaa !917, !range !42, !noundef !43
   %1161 = trunc nuw i8 %1160 to i1
-  %1162 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1158, i1 noundef zeroext %1161)
+  %1162 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1158, i1 noundef zeroext %1161)
   br i1 %1162, label %1163, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1163:                                             ; preds = %1157
@@ -23069,7 +23072,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1170 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1171 = load i8, ptr %1170, align 8, !tbaa !917, !range !42, !noundef !43
   %1172 = trunc nuw i8 %1171 to i1
-  %1173 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1169, i1 noundef zeroext %1172)
+  %1173 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1169, i1 noundef zeroext %1172)
   br i1 %1173, label %1174, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1174:                                             ; preds = %1168
@@ -23087,7 +23090,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1181 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1182 = load i8, ptr %1181, align 8, !tbaa !917, !range !42, !noundef !43
   %1183 = trunc nuw i8 %1182 to i1
-  %1184 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1180, i1 noundef zeroext %1183)
+  %1184 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1180, i1 noundef zeroext %1183)
   br i1 %1184, label %1185, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1185:                                             ; preds = %1179
@@ -23105,7 +23108,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1192 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1193 = load i8, ptr %1192, align 8, !tbaa !917, !range !42, !noundef !43
   %1194 = trunc nuw i8 %1193 to i1
-  %1195 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1191, i1 noundef zeroext %1194)
+  %1195 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1191, i1 noundef zeroext %1194)
   br i1 %1195, label %1196, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1196:                                             ; preds = %1190
@@ -23123,7 +23126,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1203 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1204 = load i8, ptr %1203, align 8, !tbaa !917, !range !42, !noundef !43
   %1205 = trunc nuw i8 %1204 to i1
-  %1206 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1202, i1 noundef zeroext %1205)
+  %1206 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1202, i1 noundef zeroext %1205)
   br i1 %1206, label %1207, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1207:                                             ; preds = %1201
@@ -23141,7 +23144,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
   %1214 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1215 = load i8, ptr %1214, align 8, !tbaa !917, !range !42, !noundef !43
   %1216 = trunc nuw i8 %1215 to i1
-  %1217 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1213, i1 noundef zeroext %1216)
+  %1217 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1213, i1 noundef zeroext %1216)
   br i1 %1217, label %1218, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1218:                                             ; preds = %1212
@@ -23151,7 +23154,7 @@ tailrecurse.backedge:                             ; preds = %1016, %_ZNK5clang18
 1219:                                             ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !934
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.874") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.tr469) #32, !noalias !934
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.874") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.tr468) #32, !noalias !934
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !934
   %1220 = load i64, ptr %5, align 8, !tbaa !931
@@ -23184,7 +23187,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1235 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1236 = load i8, ptr %1235, align 8, !tbaa !917, !range !42, !noundef !43
   %1237 = trunc nuw i8 %1236 to i1
-  %1238 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1234, i1 noundef zeroext %1237)
+  %1238 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1234, i1 noundef zeroext %1237)
   br i1 %1238, label %1239, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1239:                                             ; preds = %1233
@@ -23202,7 +23205,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1246 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1247 = load i8, ptr %1246, align 8, !tbaa !917, !range !42, !noundef !43
   %1248 = trunc nuw i8 %1247 to i1
-  %1249 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1245, i1 noundef zeroext %1248)
+  %1249 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1245, i1 noundef zeroext %1248)
   br i1 %1249, label %1250, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1250:                                             ; preds = %1244
@@ -23220,7 +23223,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1257 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1258 = load i8, ptr %1257, align 8, !tbaa !917, !range !42, !noundef !43
   %1259 = trunc nuw i8 %1258 to i1
-  %1260 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1256, i1 noundef zeroext %1259)
+  %1260 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1256, i1 noundef zeroext %1259)
   br i1 %1260, label %1261, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1261:                                             ; preds = %1255
@@ -23238,7 +23241,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1268 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1269 = load i8, ptr %1268, align 8, !tbaa !917, !range !42, !noundef !43
   %1270 = trunc nuw i8 %1269 to i1
-  %1271 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1267, i1 noundef zeroext %1270)
+  %1271 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1267, i1 noundef zeroext %1270)
   br i1 %1271, label %1272, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1272:                                             ; preds = %1266
@@ -23256,7 +23259,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1279 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1280 = load i8, ptr %1279, align 8, !tbaa !917, !range !42, !noundef !43
   %1281 = trunc nuw i8 %1280 to i1
-  %1282 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1278, i1 noundef zeroext %1281)
+  %1282 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1278, i1 noundef zeroext %1281)
   br i1 %1282, label %1283, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1283:                                             ; preds = %1277
@@ -23274,7 +23277,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1290 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1291 = load i8, ptr %1290, align 8, !tbaa !917, !range !42, !noundef !43
   %1292 = trunc nuw i8 %1291 to i1
-  %1293 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1289, i1 noundef zeroext %1292)
+  %1293 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1289, i1 noundef zeroext %1292)
   br i1 %1293, label %1294, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1294:                                             ; preds = %1288
@@ -23292,7 +23295,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1301 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1302 = load i8, ptr %1301, align 8, !tbaa !917, !range !42, !noundef !43
   %1303 = trunc nuw i8 %1302 to i1
-  %1304 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1300, i1 noundef zeroext %1303)
+  %1304 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1300, i1 noundef zeroext %1303)
   br i1 %1304, label %1305, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1305:                                             ; preds = %1299
@@ -23300,7 +23303,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1306:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE15VisitChooseExprEPKNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE15VisitChooseExprEPKNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1307:                                             ; preds = %.critedge
@@ -23314,7 +23317,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1313 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1314 = load i8, ptr %1313, align 8, !tbaa !917, !range !42, !noundef !43
   %1315 = trunc nuw i8 %1314 to i1
-  %1316 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1312, i1 noundef zeroext %1315)
+  %1316 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1312, i1 noundef zeroext %1315)
   br i1 %1316, label %1317, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1317:                                             ; preds = %1311
@@ -23332,7 +23335,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1324 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1325 = load i8, ptr %1324, align 8, !tbaa !917, !range !42, !noundef !43
   %1326 = trunc nuw i8 %1325 to i1
-  %1327 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1323, i1 noundef zeroext %1326)
+  %1327 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1323, i1 noundef zeroext %1326)
   br i1 %1327, label %1328, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1328:                                             ; preds = %1322
@@ -23350,7 +23353,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1335 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1336 = load i8, ptr %1335, align 8, !tbaa !917, !range !42, !noundef !43
   %1337 = trunc nuw i8 %1336 to i1
-  %1338 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1334, i1 noundef zeroext %1337)
+  %1338 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1334, i1 noundef zeroext %1337)
   br i1 %1338, label %1339, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1339:                                             ; preds = %1333
@@ -23368,7 +23371,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1346 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1347 = load i8, ptr %1346, align 8, !tbaa !917, !range !42, !noundef !43
   %1348 = trunc nuw i8 %1347 to i1
-  %1349 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1345, i1 noundef zeroext %1348)
+  %1349 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1345, i1 noundef zeroext %1348)
   br i1 %1349, label %1350, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1350:                                             ; preds = %1344
@@ -23386,7 +23389,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1357 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1358 = load i8, ptr %1357, align 8, !tbaa !917, !range !42, !noundef !43
   %1359 = trunc nuw i8 %1358 to i1
-  %1360 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1356, i1 noundef zeroext %1359)
+  %1360 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1356, i1 noundef zeroext %1359)
   br i1 %1360, label %1361, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1361:                                             ; preds = %1355
@@ -23404,7 +23407,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1368 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1369 = load i8, ptr %1368, align 8, !tbaa !917, !range !42, !noundef !43
   %1370 = trunc nuw i8 %1369 to i1
-  %1371 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1367, i1 noundef zeroext %1370)
+  %1371 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1367, i1 noundef zeroext %1370)
   br i1 %1371, label %1372, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1372:                                             ; preds = %1366
@@ -23422,7 +23425,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1379 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1380 = load i8, ptr %1379, align 8, !tbaa !917, !range !42, !noundef !43
   %1381 = trunc nuw i8 %1380 to i1
-  %1382 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1378, i1 noundef zeroext %1381)
+  %1382 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1378, i1 noundef zeroext %1381)
   br i1 %1382, label %1383, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1383:                                             ; preds = %1377
@@ -23440,7 +23443,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1390 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1391 = load i8, ptr %1390, align 8, !tbaa !917, !range !42, !noundef !43
   %1392 = trunc nuw i8 %1391 to i1
-  %1393 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1389, i1 noundef zeroext %1392)
+  %1393 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1389, i1 noundef zeroext %1392)
   br i1 %1393, label %1394, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1394:                                             ; preds = %1388
@@ -23458,7 +23461,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1401 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1402 = load i8, ptr %1401, align 8, !tbaa !917, !range !42, !noundef !43
   %1403 = trunc nuw i8 %1402 to i1
-  %1404 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1400, i1 noundef zeroext %1403)
+  %1404 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1400, i1 noundef zeroext %1403)
   br i1 %1404, label %1405, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1405:                                             ; preds = %1399
@@ -23476,7 +23479,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1412 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1413 = load i8, ptr %1412, align 8, !tbaa !917, !range !42, !noundef !43
   %1414 = trunc nuw i8 %1413 to i1
-  %1415 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1411, i1 noundef zeroext %1414)
+  %1415 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1411, i1 noundef zeroext %1414)
   br i1 %1415, label %1416, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1416:                                             ; preds = %1410
@@ -23494,7 +23497,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1423 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1424 = load i8, ptr %1423, align 8, !tbaa !917, !range !42, !noundef !43
   %1425 = trunc nuw i8 %1424 to i1
-  %1426 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1422, i1 noundef zeroext %1425)
+  %1426 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1422, i1 noundef zeroext %1425)
   br i1 %1426, label %1427, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1427:                                             ; preds = %1421
@@ -23502,23 +23505,23 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1428:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1429:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1430:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1431:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1432:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE13VisitCallExprEPKNS_8CallExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1433:                                             ; preds = %.critedge
@@ -23532,7 +23535,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1439 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1440 = load i8, ptr %1439, align 8, !tbaa !917, !range !42, !noundef !43
   %1441 = trunc nuw i8 %1440 to i1
-  %1442 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1438, i1 noundef zeroext %1441)
+  %1442 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1438, i1 noundef zeroext %1441)
   br i1 %1442, label %1443, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1443:                                             ; preds = %1437
@@ -23540,7 +23543,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1444:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE18VisitCXXTypeidExprEPKNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE18VisitCXXTypeidExprEPKNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1445:                                             ; preds = %.critedge
@@ -23554,7 +23557,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1451 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1452 = load i8, ptr %1451, align 8, !tbaa !917, !range !42, !noundef !43
   %1453 = trunc nuw i8 %1452 to i1
-  %1454 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1450, i1 noundef zeroext %1453)
+  %1454 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1450, i1 noundef zeroext %1453)
   br i1 %1454, label %1455, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1455:                                             ; preds = %1449
@@ -23572,7 +23575,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1462 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1463 = load i8, ptr %1462, align 8, !tbaa !917, !range !42, !noundef !43
   %1464 = trunc nuw i8 %1463 to i1
-  %1465 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1461, i1 noundef zeroext %1464)
+  %1465 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1461, i1 noundef zeroext %1464)
   br i1 %1465, label %1466, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1466:                                             ; preds = %1460
@@ -23590,7 +23593,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1473 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1474 = load i8, ptr %1473, align 8, !tbaa !917, !range !42, !noundef !43
   %1475 = trunc nuw i8 %1474 to i1
-  %1476 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1472, i1 noundef zeroext %1475)
+  %1476 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1472, i1 noundef zeroext %1475)
   br i1 %1476, label %1477, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1477:                                             ; preds = %1471
@@ -23608,7 +23611,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1484 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1485 = load i8, ptr %1484, align 8, !tbaa !917, !range !42, !noundef !43
   %1486 = trunc nuw i8 %1485 to i1
-  %1487 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1483, i1 noundef zeroext %1486)
+  %1487 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1483, i1 noundef zeroext %1486)
   br i1 %1487, label %1488, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1488:                                             ; preds = %1482
@@ -23626,7 +23629,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1495 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1496 = load i8, ptr %1495, align 8, !tbaa !917, !range !42, !noundef !43
   %1497 = trunc nuw i8 %1496 to i1
-  %1498 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1494, i1 noundef zeroext %1497)
+  %1498 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1494, i1 noundef zeroext %1497)
   br i1 %1498, label %1499, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1499:                                             ; preds = %1493
@@ -23644,7 +23647,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1506 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1507 = load i8, ptr %1506, align 8, !tbaa !917, !range !42, !noundef !43
   %1508 = trunc nuw i8 %1507 to i1
-  %1509 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1505, i1 noundef zeroext %1508)
+  %1509 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1505, i1 noundef zeroext %1508)
   br i1 %1509, label %1510, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1510:                                             ; preds = %1504
@@ -23662,7 +23665,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1517 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1518 = load i8, ptr %1517, align 8, !tbaa !917, !range !42, !noundef !43
   %1519 = trunc nuw i8 %1518 to i1
-  %1520 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1516, i1 noundef zeroext %1519)
+  %1520 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1516, i1 noundef zeroext %1519)
   br i1 %1520, label %1521, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1521:                                             ; preds = %1515
@@ -23680,7 +23683,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1528 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1529 = load i8, ptr %1528, align 8, !tbaa !917, !range !42, !noundef !43
   %1530 = trunc nuw i8 %1529 to i1
-  %1531 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1527, i1 noundef zeroext %1530)
+  %1531 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1527, i1 noundef zeroext %1530)
   br i1 %1531, label %1532, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1532:                                             ; preds = %1526
@@ -23698,7 +23701,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1539 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1540 = load i8, ptr %1539, align 8, !tbaa !917, !range !42, !noundef !43
   %1541 = trunc nuw i8 %1540 to i1
-  %1542 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1538, i1 noundef zeroext %1541)
+  %1542 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1538, i1 noundef zeroext %1541)
   br i1 %1542, label %1543, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1543:                                             ; preds = %1537
@@ -23716,7 +23719,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1550 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1551 = load i8, ptr %1550, align 8, !tbaa !917, !range !42, !noundef !43
   %1552 = trunc nuw i8 %1551 to i1
-  %1553 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1549, i1 noundef zeroext %1552)
+  %1553 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1549, i1 noundef zeroext %1552)
   br i1 %1553, label %1554, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1554:                                             ; preds = %1548
@@ -23734,7 +23737,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1561 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1562 = load i8, ptr %1561, align 8, !tbaa !917, !range !42, !noundef !43
   %1563 = trunc nuw i8 %1562 to i1
-  %1564 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1560, i1 noundef zeroext %1563)
+  %1564 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1560, i1 noundef zeroext %1563)
   br i1 %1564, label %1565, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1565:                                             ; preds = %1559
@@ -23752,7 +23755,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1572 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1573 = load i8, ptr %1572, align 8, !tbaa !917, !range !42, !noundef !43
   %1574 = trunc nuw i8 %1573 to i1
-  %1575 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1571, i1 noundef zeroext %1574)
+  %1575 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1571, i1 noundef zeroext %1574)
   br i1 %1575, label %1576, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1576:                                             ; preds = %1570
@@ -23770,7 +23773,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1583 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1584 = load i8, ptr %1583, align 8, !tbaa !917, !range !42, !noundef !43
   %1585 = trunc nuw i8 %1584 to i1
-  %1586 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1582, i1 noundef zeroext %1585)
+  %1586 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1582, i1 noundef zeroext %1585)
   br i1 %1586, label %1587, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1587:                                             ; preds = %1581
@@ -23788,7 +23791,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1594 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1595 = load i8, ptr %1594, align 8, !tbaa !917, !range !42, !noundef !43
   %1596 = trunc nuw i8 %1595 to i1
-  %1597 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1593, i1 noundef zeroext %1596)
+  %1597 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1593, i1 noundef zeroext %1596)
   br i1 %1597, label %1598, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1598:                                             ; preds = %1592
@@ -23806,7 +23809,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1605 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1606 = load i8, ptr %1605, align 8, !tbaa !917, !range !42, !noundef !43
   %1607 = trunc nuw i8 %1606 to i1
-  %1608 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1604, i1 noundef zeroext %1607)
+  %1608 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1604, i1 noundef zeroext %1607)
   br i1 %1608, label %1609, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1609:                                             ; preds = %1603
@@ -23824,7 +23827,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1616 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1617 = load i8, ptr %1616, align 8, !tbaa !917, !range !42, !noundef !43
   %1618 = trunc nuw i8 %1617 to i1
-  %1619 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1615, i1 noundef zeroext %1618)
+  %1619 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1615, i1 noundef zeroext %1618)
   br i1 %1619, label %1620, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1620:                                             ; preds = %1614
@@ -23842,7 +23845,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1627 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1628 = load i8, ptr %1627, align 8, !tbaa !917, !range !42, !noundef !43
   %1629 = trunc nuw i8 %1628 to i1
-  %1630 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1626, i1 noundef zeroext %1629)
+  %1630 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1626, i1 noundef zeroext %1629)
   br i1 %1630, label %1631, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1631:                                             ; preds = %1625
@@ -23860,7 +23863,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1638 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1639 = load i8, ptr %1638, align 8, !tbaa !917, !range !42, !noundef !43
   %1640 = trunc nuw i8 %1639 to i1
-  %1641 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1637, i1 noundef zeroext %1640)
+  %1641 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1637, i1 noundef zeroext %1640)
   br i1 %1641, label %1642, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1642:                                             ; preds = %1636
@@ -23878,7 +23881,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1649 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1650 = load i8, ptr %1649, align 8, !tbaa !917, !range !42, !noundef !43
   %1651 = trunc nuw i8 %1650 to i1
-  %1652 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1648, i1 noundef zeroext %1651)
+  %1652 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1648, i1 noundef zeroext %1651)
   br i1 %1652, label %1653, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1653:                                             ; preds = %1647
@@ -23896,7 +23899,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1660 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1661 = load i8, ptr %1660, align 8, !tbaa !917, !range !42, !noundef !43
   %1662 = trunc nuw i8 %1661 to i1
-  %1663 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1659, i1 noundef zeroext %1662)
+  %1663 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1659, i1 noundef zeroext %1662)
   br i1 %1663, label %1664, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1664:                                             ; preds = %1658
@@ -23914,7 +23917,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1671 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1672 = load i8, ptr %1671, align 8, !tbaa !917, !range !42, !noundef !43
   %1673 = trunc nuw i8 %1672 to i1
-  %1674 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1670, i1 noundef zeroext %1673)
+  %1674 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1670, i1 noundef zeroext %1673)
   br i1 %1674, label %1675, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1675:                                             ; preds = %1669
@@ -23932,7 +23935,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1682 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1683 = load i8, ptr %1682, align 8, !tbaa !917, !range !42, !noundef !43
   %1684 = trunc nuw i8 %1683 to i1
-  %1685 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1681, i1 noundef zeroext %1684)
+  %1685 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1681, i1 noundef zeroext %1684)
   br i1 %1685, label %1686, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1686:                                             ; preds = %1680
@@ -23950,7 +23953,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1693 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1694 = load i8, ptr %1693, align 8, !tbaa !917, !range !42, !noundef !43
   %1695 = trunc nuw i8 %1694 to i1
-  %1696 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1692, i1 noundef zeroext %1695)
+  %1696 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1692, i1 noundef zeroext %1695)
   br i1 %1696, label %1697, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1697:                                             ; preds = %1691
@@ -23968,7 +23971,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1704 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1705 = load i8, ptr %1704, align 8, !tbaa !917, !range !42, !noundef !43
   %1706 = trunc nuw i8 %1705 to i1
-  %1707 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1703, i1 noundef zeroext %1706)
+  %1707 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1703, i1 noundef zeroext %1706)
   br i1 %1707, label %1708, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1708:                                             ; preds = %1702
@@ -23986,7 +23989,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1715 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1716 = load i8, ptr %1715, align 8, !tbaa !917, !range !42, !noundef !43
   %1717 = trunc nuw i8 %1716 to i1
-  %1718 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1714, i1 noundef zeroext %1717)
+  %1718 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1714, i1 noundef zeroext %1717)
   br i1 %1718, label %1719, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1719:                                             ; preds = %1713
@@ -24004,7 +24007,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1726 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1727 = load i8, ptr %1726, align 8, !tbaa !917, !range !42, !noundef !43
   %1728 = trunc nuw i8 %1727 to i1
-  %1729 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1725, i1 noundef zeroext %1728)
+  %1729 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1725, i1 noundef zeroext %1728)
   br i1 %1729, label %1730, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1730:                                             ; preds = %1724
@@ -24022,7 +24025,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1737 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1738 = load i8, ptr %1737, align 8, !tbaa !917, !range !42, !noundef !43
   %1739 = trunc nuw i8 %1738 to i1
-  %1740 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1736, i1 noundef zeroext %1739)
+  %1740 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1736, i1 noundef zeroext %1739)
   br i1 %1740, label %1741, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1741:                                             ; preds = %1735
@@ -24040,7 +24043,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1748 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1749 = load i8, ptr %1748, align 8, !tbaa !917, !range !42, !noundef !43
   %1750 = trunc nuw i8 %1749 to i1
-  %1751 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1747, i1 noundef zeroext %1750)
+  %1751 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1747, i1 noundef zeroext %1750)
   br i1 %1751, label %1752, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1752:                                             ; preds = %1746
@@ -24058,7 +24061,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1759 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1760 = load i8, ptr %1759, align 8, !tbaa !917, !range !42, !noundef !43
   %1761 = trunc nuw i8 %1760 to i1
-  %1762 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1758, i1 noundef zeroext %1761)
+  %1762 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1758, i1 noundef zeroext %1761)
   br i1 %1762, label %1763, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1763:                                             ; preds = %1757
@@ -24076,7 +24079,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1770 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1771 = load i8, ptr %1770, align 8, !tbaa !917, !range !42, !noundef !43
   %1772 = trunc nuw i8 %1771 to i1
-  %1773 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1769, i1 noundef zeroext %1772)
+  %1773 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1769, i1 noundef zeroext %1772)
   br i1 %1773, label %1774, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1774:                                             ; preds = %1768
@@ -24094,7 +24097,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   %1781 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %1782 = load i8, ptr %1781, align 8, !tbaa !917, !range !42, !noundef !43
   %1783 = trunc nuw i8 %1782 to i1
-  %1784 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr469, ptr noundef nonnull align 8 dereferenceable(23216) %1780, i1 noundef zeroext %1783)
+  %1784 = tail call noundef zeroext i1 @_ZNK5clang4Expr14HasSideEffectsERKNS_10ASTContextEb(ptr noundef nonnull align 8 dereferenceable(16) %.tr468, ptr noundef nonnull align 8 dereferenceable(23216) %1780, i1 noundef zeroext %1783)
   br i1 %1784, label %1785, label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1785:                                             ; preds = %1779
@@ -24102,503 +24105,503 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %1223, %1225
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1786:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1787:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1788:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1789:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1790:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1791:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1792:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1793:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1794:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1795:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1796:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1797:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1798:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1799:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1800:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1801:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1802:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1803:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1804:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1805:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1806:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1807:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1808:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1809:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1810:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1811:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1812:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1813:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1814:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1815:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1816:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1817:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1818:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1819:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1820:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1821:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1822:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1823:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1824:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1825:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1826:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1827:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1828:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1829:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1830:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1831:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1832:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1833:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1834:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1835:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1836:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1837:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1838:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1839:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1840:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1841:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1842:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1843:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1844:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1845:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1846:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1847:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1848:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1849:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1850:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1851:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1852:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1853:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1854:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1855:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1856:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1857:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1858:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1859:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1860:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1861:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1862:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1863:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1864:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1865:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1866:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1867:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1868:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1869:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1870:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1871:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1872:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1873:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1874:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1875:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1876:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1877:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1878:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1879:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1880:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1881:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1882:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1883:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1884:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1885:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1886:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1887:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1888:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1889:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1890:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1891:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1892:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1893:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1894:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1895:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1896:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1897:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1898:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1899:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_116SideEffectFinder13VisitDeclStmtEPKN5clang8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull %.tr469)
+  tail call fastcc void @_ZN12_GLOBAL__N_116SideEffectFinder13VisitDeclStmtEPKN5clang8DeclStmtE(ptr noundef nonnull align 8 dereferenceable(10) %0, ptr noundef nonnull %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1900:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1901:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1902:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1903:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1904:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1905:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1906:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1907:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1908:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1909:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 1910:                                             ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr469)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_116SideEffectFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr468)
   br label %_ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit
 
 _ZN12_GLOBAL__N_116SideEffectFinder9VisitExprEPKN5clang4ExprE.exit: ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %537, %531, %527, %526, %520, %516, %515, %509, %505, %504, %498, %494, %493, %487, %483, %482, %476, %472, %471, %465, %461, %460, %454, %450, %449, %443, %439, %438, %432, %428, %427, %421, %417, %416, %410, %406, %405, %399, %395, %394, %388, %384, %375, %369, %365, %364, %358, %354, %353, %347, %343, %342, %336, %332, %331, %325, %321, %320, %314, %310, %309, %303, %299, %298, %292, %288, %287, %281, %277, %276, %270, %266, %265, %259, %255, %254, %248, %244, %243, %237, %233, %232, %226, %222, %221, %215, %211, %210, %204, %200, %199, %193, %189, %188, %182, %178, %177, %171, %167, %166, %160, %156, %155, %149, %145, %144, %138, %134, %133, %127, %123, %122, %116, %112, %111, %105, %101, %100, %94, %90, %89, %83, %79, %78, %72, %68, %67, %61, %57, %56, %50, %46, %45, %39, %35, %34, %28, %24, %23, %17, %13, %1785, %1779, %1775, %1774, %1768, %1764, %1763, %1757, %1753, %1752, %1746, %1742, %1741, %1735, %1731, %1730, %1724, %1720, %1719, %1713, %1709, %1708, %1702, %1698, %1697, %1691, %1687, %1686, %1680, %1676, %1675, %1669, %1665, %1664, %1658, %1654, %1653, %1647, %1643, %1642, %1636, %1632, %1631, %1625, %1621, %1620, %1614, %1610, %1609, %1603, %1599, %1598, %1592, %1588, %1587, %1581, %1577, %1576, %1570, %1566, %1565, %1559, %1555, %1554, %1548, %1544, %1543, %1537, %1533, %1532, %1526, %1522, %1521, %1515, %1511, %1510, %1504, %1500, %1499, %1493, %1489, %1488, %1482, %1478, %1477, %1471, %1467, %1466, %1460, %1456, %1455, %1449, %1445, %1443, %1437, %1433, %1427, %1421, %1417, %1416, %1410, %1406, %1405, %1399, %1395, %1394, %1388, %1384, %1383, %1377, %1373, %1372, %1366, %1362, %1361, %1355, %1351, %1350, %1344, %1340, %1339, %1333, %1329, %1328, %1322, %1318, %1317, %1311, %1307, %1305, %1299, %1295, %1294, %1288, %1284, %1283, %1277, %1273, %1272, %1266, %1262, %1261, %1255, %1251, %1250, %1244, %1240, %1239, %1233, %1229, %1218, %1212, %1208, %1207, %1201, %1197, %1196, %1190, %1186, %1185, %1179, %1175, %1174, %1168, %1164, %1163, %1157, %1153, %1152, %1146, %1142, %1141, %1135, %1131, %1130, %1124, %1120, %1118, %1112, %1108, %1107, %1101, %1097, %1096, %1090, %1086, %1085, %1079, %1075, %1074, %1068, %1064, %1062, %1056, %1052, %1051, %1045, %1041, %1040, %1034, %1030, %1029, %1023, %1019, %1015, %1009, %1005, %1004, %998, %994, %993, %987, %983, %982, %976, %972, %971, %965, %961, %960, %954, %950, %949, %943, %939, %938, %932, %928, %927, %921, %917, %916, %910, %906, %905, %899, %895, %894, %888, %884, %883, %877, %873, %872, %866, %862, %861, %855, %851, %850, %844, %840, %839, %833, %829, %828, %822, %818, %817, %811, %807, %806, %800, %796, %795, %789, %785, %784, %778, %774, %773, %767, %763, %762, %756, %752, %751, %745, %741, %740, %734, %730, %729, %723, %719, %718, %712, %708, %707, %701, %697, %696, %690, %686, %685, %679, %675, %674, %668, %664, %663, %657, %653, %652, %646, %642, %641, %635, %631, %630, %624, %620, %619, %613, %609, %608, %602, %598, %597, %591, %587, %586, %580, %576, %575, %569, %565, %564, %558, %554, %553, %547, %543, %1910, %1909, %1908, %1907, %1906, %1905, %1904, %1903, %1902, %1901, %1900, %1899, %1898, %1897, %1896, %1895, %1894, %1893, %1892, %1891, %1890, %1889, %1888, %1887, %1886, %1885, %1884, %1883, %1882, %1881, %1880, %1879, %1878, %1877, %1876, %1875, %1874, %1873, %1872, %1871, %1870, %1869, %1868, %1867, %1866, %1865, %1864, %1863, %1862, %1861, %1860, %1859, %1858, %1857, %1856, %1855, %1854, %1853, %1852, %1851, %1850, %1849, %1848, %1847, %1846, %1845, %1844, %1843, %1842, %1841, %1840, %1839, %1838, %1837, %1836, %1835, %1834, %1833, %1832, %1831, %1830, %1829, %1828, %1827, %1826, %1825, %1824, %1823, %1822, %1821, %1820, %1819, %1818, %1817, %1816, %1815, %1814, %1813, %1812, %1811, %1810, %1809, %1808, %1807, %1806, %1805, %1804, %1803, %1802, %1801, %1800, %1799, %1798, %1797, %1796, %1795, %1794, %1793, %1792, %1791, %1790, %1789, %1788, %1787, %1786, %1444, %1432, %1431, %1430, %1429, %1428, %1306, %1119, %1063, %542, %541
@@ -24694,52 +24697,52 @@ _ZNK5clang8CallExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit: ; preds = %
 58:                                               ; preds = %_ZNK5clang8CallExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit
   %59 = load i32, ptr %0, align 8
   %60 = and i32 %59, 33554432
-  %.not.i31 = icmp eq i32 %60, 0
-  br i1 %.not.i31, label %96, label %61
+  %.not.i28 = icmp eq i32 %60, 0
+  br i1 %.not.i28, label %96, label %61
 
 61:                                               ; preds = %58
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.sroa.0.0.copyload.i.i32 = load i64, ptr %62, align 8
-  %.sroa.4.0.extract.shift.i33 = lshr i64 %.sroa.0.0.copyload.i.i32, 32
-  %.sroa.4.0.extract.trunc.i34 = trunc nuw i64 %.sroa.4.0.extract.shift.i33 to i32
+  %.sroa.0.0.copyload.i.i29 = load i64, ptr %62, align 8
+  %.sroa.4.0.extract.shift.i30 = lshr i64 %.sroa.0.0.copyload.i.i29, 32
+  %.sroa.4.0.extract.trunc.i31 = trunc nuw i64 %.sroa.4.0.extract.shift.i30 to i32
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %64 = load i64, ptr %63, align 8
   %65 = lshr i64 %64, 55
   %66 = trunc nuw nsw i64 %65 to i32
   %67 = and i32 %66, 3
   %68 = icmp eq i32 %67, 3
-  %spec.store.select.i.i.i35 = select i1 %68, i32 2, i32 %67
+  %spec.store.select.i.i.i32 = select i1 %68, i32 2, i32 %67
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %70 = load i64, ptr %69, align 8
   %71 = trunc i64 %70 to i32
   %72 = lshr i32 %71, 21
   %73 = and i32 %72, 4
-  %sh.diff.i.i.i36 = lshr i64 %64, 51
-  %tr.sh.diff.i.i.i37 = trunc nuw nsw i64 %sh.diff.i.i.i36 to i32
-  %74 = and i32 %tr.sh.diff.i.i.i37, 192
+  %sh.diff.i.i.i33 = lshr i64 %64, 51
+  %tr.sh.diff.i.i.i34 = trunc nuw nsw i64 %sh.diff.i.i.i33 to i32
+  %74 = and i32 %tr.sh.diff.i.i.i34, 192
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %76 = load i64, ptr %75, align 8
   %77 = lshr i64 %76, 37
   %78 = trunc nuw nsw i64 %77 to i32
   %79 = and i32 %78, 32256
-  %80 = icmp eq i32 %spec.store.select.i.i.i35, 1
-  %.not3.i.i.i.i38 = icmp ne i32 %73, 0
-  %or.cond.not16.i.i.i39 = select i1 %80, i1 %.not3.i.i.i.i38, i1 false
+  %80 = icmp eq i32 %spec.store.select.i.i.i32, 1
+  %.not3.i.i.i.i35 = icmp ne i32 %73, 0
+  %or.cond.not16.i.i.i36 = select i1 %80, i1 %.not3.i.i.i.i35, i1 false
   %81 = icmp eq i32 %74, 128
-  %or.cond15.i.i.i40 = select i1 %or.cond.not16.i.i.i39, i1 %81, i1 false
-  %masksel.i.i.i41 = select i1 %or.cond15.i.i.i40, i32 256, i32 0
+  %or.cond15.i.i.i37 = select i1 %or.cond.not16.i.i.i36, i1 %81, i1 false
+  %masksel.i.i.i38 = select i1 %or.cond15.i.i.i37, i32 256, i32 0
   %82 = trunc i64 %64 to i32
   %83 = shl i32 %82, 7
   %84 = and i32 %83, 12582912
   %85 = or disjoint i32 %84, %79
-  %86 = or disjoint i32 %85, %masksel.i.i.i41
+  %86 = or disjoint i32 %85, %masksel.i.i.i38
   %87 = or disjoint i32 %86, %74
   %88 = or disjoint i32 %87, %73
-  %89 = or disjoint i32 %88, %spec.store.select.i.i.i35
+  %89 = or disjoint i32 %88, %spec.store.select.i.i.i32
   %90 = or i32 %89, 56
-  %91 = xor i32 %.sroa.4.0.extract.trunc.i34, -1
+  %91 = xor i32 %.sroa.4.0.extract.trunc.i31, -1
   %92 = and i32 %90, %91
-  %93 = and i64 %.sroa.4.0.extract.shift.i33, %.sroa.0.0.copyload.i.i32
+  %93 = and i64 %.sroa.4.0.extract.shift.i30, %.sroa.0.0.copyload.i.i29
   %94 = trunc nuw i64 %93 to i32
   %95 = or i32 %92, %94
   br label %_ZNK5clang8CallExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit.thread
@@ -24750,61 +24753,61 @@ _ZNK5clang8CallExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit: ; preds = %
 
 _ZNK5clang13UnaryOperator21getFPFeaturesInEffectERKNS_11LangOptionsE.exit: ; preds = %_ZNK5clang8CallExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit
   %98 = and i16 %3, 510
-  %spec.select.i.i.i.i.i.i.i.i43 = icmp eq i16 %98, 120
-  br i1 %spec.select.i.i.i.i.i.i.i.i43, label %99, label %_ZNK5clang14BinaryOperator21getFPFeaturesInEffectERKNS_11LangOptionsE.exit
+  %spec.select.i.i.i.i.i.i.i.i40 = icmp eq i16 %98, 120
+  br i1 %spec.select.i.i.i.i.i.i.i.i40, label %99, label %_ZNK5clang14BinaryOperator21getFPFeaturesInEffectERKNS_11LangOptionsE.exit
 
 99:                                               ; preds = %_ZNK5clang13UnaryOperator21getFPFeaturesInEffectERKNS_11LangOptionsE.exit
   %100 = load i32, ptr %0, align 8
   %101 = and i32 %100, 33554432
-  %.not.i45 = icmp eq i32 %101, 0
-  br i1 %.not.i45, label %140, label %102
+  %.not.i42 = icmp eq i32 %101, 0
+  br i1 %.not.i42, label %140, label %102
 
 102:                                              ; preds = %99
   %103 = and i32 %100, 511
   %104 = icmp eq i32 %103, 121
   %105 = select i1 %104, i64 48, i64 32
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 %105
-  %.sroa.0.0.copyload.i.i46 = load i64, ptr %106, align 8
-  %.sroa.4.0.extract.shift.i47 = lshr i64 %.sroa.0.0.copyload.i.i46, 32
-  %.sroa.4.0.extract.trunc.i48 = trunc nuw i64 %.sroa.4.0.extract.shift.i47 to i32
+  %.sroa.0.0.copyload.i.i43 = load i64, ptr %106, align 8
+  %.sroa.4.0.extract.shift.i44 = lshr i64 %.sroa.0.0.copyload.i.i43, 32
+  %.sroa.4.0.extract.trunc.i45 = trunc nuw i64 %.sroa.4.0.extract.shift.i44 to i32
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %108 = load i64, ptr %107, align 8
   %109 = lshr i64 %108, 55
   %110 = trunc nuw nsw i64 %109 to i32
   %111 = and i32 %110, 3
   %112 = icmp eq i32 %111, 3
-  %spec.store.select.i.i.i49 = select i1 %112, i32 2, i32 %111
+  %spec.store.select.i.i.i46 = select i1 %112, i32 2, i32 %111
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %114 = load i64, ptr %113, align 8
   %115 = trunc i64 %114 to i32
   %116 = lshr i32 %115, 21
   %117 = and i32 %116, 4
-  %sh.diff.i.i.i50 = lshr i64 %108, 51
-  %tr.sh.diff.i.i.i51 = trunc nuw nsw i64 %sh.diff.i.i.i50 to i32
-  %118 = and i32 %tr.sh.diff.i.i.i51, 192
+  %sh.diff.i.i.i47 = lshr i64 %108, 51
+  %tr.sh.diff.i.i.i48 = trunc nuw nsw i64 %sh.diff.i.i.i47 to i32
+  %118 = and i32 %tr.sh.diff.i.i.i48, 192
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %120 = load i64, ptr %119, align 8
   %121 = lshr i64 %120, 37
   %122 = trunc nuw nsw i64 %121 to i32
   %123 = and i32 %122, 32256
-  %124 = icmp eq i32 %spec.store.select.i.i.i49, 1
-  %.not3.i.i.i.i52 = icmp ne i32 %117, 0
-  %or.cond.not16.i.i.i53 = select i1 %124, i1 %.not3.i.i.i.i52, i1 false
+  %124 = icmp eq i32 %spec.store.select.i.i.i46, 1
+  %.not3.i.i.i.i49 = icmp ne i32 %117, 0
+  %or.cond.not16.i.i.i50 = select i1 %124, i1 %.not3.i.i.i.i49, i1 false
   %125 = icmp eq i32 %118, 128
-  %or.cond15.i.i.i54 = select i1 %or.cond.not16.i.i.i53, i1 %125, i1 false
-  %masksel.i.i.i55 = select i1 %or.cond15.i.i.i54, i32 256, i32 0
+  %or.cond15.i.i.i51 = select i1 %or.cond.not16.i.i.i50, i1 %125, i1 false
+  %masksel.i.i.i52 = select i1 %or.cond15.i.i.i51, i32 256, i32 0
   %126 = trunc i64 %108 to i32
   %127 = shl i32 %126, 7
   %128 = and i32 %127, 12582912
   %129 = or disjoint i32 %128, %123
-  %130 = or disjoint i32 %129, %masksel.i.i.i55
+  %130 = or disjoint i32 %129, %masksel.i.i.i52
   %131 = or disjoint i32 %130, %118
   %132 = or disjoint i32 %131, %117
-  %133 = or disjoint i32 %132, %spec.store.select.i.i.i49
+  %133 = or disjoint i32 %132, %spec.store.select.i.i.i46
   %134 = or i32 %133, 56
-  %135 = xor i32 %.sroa.4.0.extract.trunc.i48, -1
+  %135 = xor i32 %.sroa.4.0.extract.trunc.i45, -1
   %136 = and i32 %134, %135
-  %137 = and i64 %.sroa.4.0.extract.shift.i47, %.sroa.0.0.copyload.i.i46
+  %137 = and i64 %.sroa.4.0.extract.shift.i44, %.sroa.0.0.copyload.i.i43
   %138 = trunc nuw i64 %137 to i32
   %139 = or i32 %136, %138
   br label %_ZNK5clang8CallExpr21getFPFeaturesInEffectERKNS_11LangOptionsE.exit.thread
@@ -24815,8 +24818,8 @@ _ZNK5clang13UnaryOperator21getFPFeaturesInEffectERKNS_11LangOptionsE.exit: ; pre
 
 _ZNK5clang14BinaryOperator21getFPFeaturesInEffectERKNS_11LangOptionsE.exit: ; preds = %_ZNK5clang13UnaryOperator21getFPFeaturesInEffectERKNS_11LangOptionsE.exit
   %142 = add nsw i16 %4, -81
-  %spec.select.i.i.i.i.i.i.i.i57 = icmp ult i16 %142, 10
-  br i1 %spec.select.i.i.i.i.i.i.i.i57, label %143, label %145
+  %spec.select.i.i.i.i.i.i.i.i54 = icmp ult i16 %142, 10
+  br i1 %spec.select.i.i.i.i.i.i.i.i54, label %143, label %145
 
 143:                                              ; preds = %_ZNK5clang14BinaryOperator21getFPFeaturesInEffectERKNS_11LangOptionsE.exit
   %144 = tail call i32 @_ZNK5clang8CastExpr21getFPFeaturesInEffectERKNS_11LangOptionsE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(849) %1)
@@ -24928,16 +24931,16 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseIN4llvm14make_const_ptrEN
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %2
-  %.tr321 = phi ptr [ %1, %2 ], [ %.tr321.be, %tailrecurse.backedge ]
-  %6 = load i16, ptr %.tr321, align 8
+  %.tr320 = phi ptr [ %1, %2 ], [ %.tr320.be, %tailrecurse.backedge ]
+  %6 = load i16, ptr %.tr320, align 8
   %7 = and i16 %6, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %7, 120
-  %.not318 = icmp eq ptr %.tr321, null
-  %.not = or i1 %.not318, %spec.select.i.i.i.i.i.i.i.i
+  %.not317 = icmp eq ptr %.tr320, null
+  %.not = or i1 %.not317, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %46, label %8
 
 8:                                                ; preds = %tailrecurse
-  %9 = load i32, ptr %.tr321, align 8
+  %9 = load i32, ptr %.tr320, align 8
   %10 = lshr i32 %9, 19
   %11 = and i32 %10, 63
   %12 = trunc i32 %9 to i16
@@ -24978,145 +24981,145 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 13:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 14:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 15:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 16:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 17:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 18:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 19:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 20:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 21:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 22:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 23:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 24:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 25:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 26:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 27:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 28:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 29:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 30:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 31:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 32:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 33:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 34:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 35:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 36:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 37:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 38:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 39:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 40:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 41:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 42:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 43:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 44:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 45:                                               ; preds = %8
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 46:                                               ; preds = %tailrecurse
   %47 = and i16 %6, 511
   %48 = icmp ne i16 %47, 4
-  %.not314 = or i1 %.not318, %48
+  %.not314 = or i1 %.not317, %48
   br i1 %.not314, label %.critedge, label %49
 
 49:                                               ; preds = %46
-  %50 = load i32, ptr %.tr321, align 8
+  %50 = load i32, ptr %.tr320, align 8
   %51 = lshr i32 %50, 19
   %52 = and i32 %51, 31
   %53 = trunc i32 %50 to i16
@@ -25138,59 +25141,59 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   ]
 
 54:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 55:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 56:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 57:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 58:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 59:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 60:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 61:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 62:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 63:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 64:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 65:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 66:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 67:                                               ; preds = %49
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 .critedge:                                        ; preds = %49, %46, %8
@@ -25459,278 +25462,278 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   unreachable
 
 71:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 72:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 73:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 74:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 75:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 76:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 77:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 78:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 79:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 80:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 81:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 82:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 83:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 84:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 85:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 86:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 87:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 88:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 89:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 90:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 91:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 92:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 93:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 94:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 95:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 96:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 97:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 98:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 99:                                               ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 100:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 101:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 102:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 103:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 104:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 105:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 106:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 107:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 108:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 109:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 110:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 111:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 112:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 113:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 114:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 115:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 116:                                              ; preds = %.critedge
-  %117 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  %117 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %118 = load ptr, ptr %117, align 8, !tbaa !60
   br label %tailrecurse.backedge
 
 tailrecurse.backedge:                             ; preds = %116, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit
-  %.tr321.be = phi ptr [ %118, %116 ], [ %148, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
+  %.tr320.be = phi ptr [ %118, %116 ], [ %148, %_ZNK5clang18DesignatedInitExpr7getInitEv.exit ]
   br label %tailrecurse
 
 119:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 120:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 121:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 122:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 123:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE15VisitLambdaExprEPKNS_10LambdaExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 124:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 125:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 126:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 127:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 128:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 129:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE25VisitGenericSelectionExprEPKNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE25VisitGenericSelectionExprEPKNS_20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 130:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 131:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 132:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 133:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 134:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 135:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 136:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 137:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 138:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 139:                                              ; preds = %.critedge
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !941
-  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.874") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.tr321) #32, !noalias !941
+  call void @_ZN5clang4Stmt8childrenEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::iterator_range.874") align 8 %3, ptr noundef nonnull align 8 dereferenceable(32) %.tr320) #32, !noalias !941
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !941
   %140 = load i64, ptr %5, align 8, !tbaa !931
@@ -25753,171 +25756,171 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %143, %145
   br label %tailrecurse.backedge
 
 149:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 150:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 151:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 152:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 153:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 154:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 155:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 156:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE15VisitChooseExprEPKNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE15VisitChooseExprEPKNS_10ChooseExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 157:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 158:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 159:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 160:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 161:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 162:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 163:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 164:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 165:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 166:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 167:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 168:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 169:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 170:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 171:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 172:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder13VisitCallExprEPKN5clang8CallExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 173:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 174:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE18VisitCXXTypeidExprEPKNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE18VisitCXXTypeidExprEPKNS_13CXXTypeidExprE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 175:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 176:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 177:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 178:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 179:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 180:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 181:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 182:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 183:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 184:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 185:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 186:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 187:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 188:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 189:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 190:                                              ; preds = %.critedge
-  %191 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  %191 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %192 = load ptr, ptr %191, align 8, !tbaa !804
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 82
   %194 = load i32, ptr %193, align 2
@@ -25926,7 +25929,7 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %143, %145
   br i1 %.not.i, label %197, label %196
 
 196:                                              ; preds = %190
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 197:                                              ; preds = %190
@@ -25935,16 +25938,16 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %143, %145
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 199:                                              ; preds = %.critedge
-  %200 = getelementptr inbounds nuw i8, ptr %.tr321, i64 16
+  %200 = getelementptr inbounds nuw i8, ptr %.tr320, i64 16
   %201 = load ptr, ptr %200, align 8, !tbaa !804
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 82
   %203 = load i32, ptr %202, align 2
   %204 = and i32 %203, 128
-  %.not320 = icmp eq i32 %204, 0
-  br i1 %.not320, label %206, label %205
+  %.not319 = icmp eq i32 %204, 0
+  br i1 %.not319, label %206, label %205
 
 205:                                              ; preds = %199
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 206:                                              ; preds = %199
@@ -25953,559 +25956,559 @@ _ZNK5clang18DesignatedInitExpr7getInitEv.exit:    ; preds = %143, %145
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 208:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 209:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder25VisitCXXBindTemporaryExprEPKN5clang20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder25VisitCXXBindTemporaryExprEPKN5clang20CXXBindTemporaryExprE(ptr noundef nonnull align 8 dereferenceable(9) %0, ptr noundef nonnull %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 210:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 211:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 212:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 213:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 214:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 215:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 216:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 217:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 218:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 219:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 220:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 221:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 222:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 223:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 224:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 225:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 226:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 227:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 228:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 229:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 230:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 231:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 232:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 233:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 234:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 235:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 236:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 237:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 238:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 239:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 240:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 241:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 242:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 243:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 244:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 245:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 246:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 247:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 248:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 249:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 250:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 251:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 252:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 253:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 254:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 255:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 256:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 257:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 258:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 259:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 260:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 261:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 262:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 263:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 264:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 265:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 266:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 267:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 268:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 269:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 270:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 271:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 272:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 273:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 274:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 275:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 276:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 277:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 278:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 279:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 280:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 281:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 282:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 283:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 284:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 285:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 286:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 287:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 288:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 289:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 290:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 291:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 292:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 293:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 294:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 295:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 296:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 297:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 298:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 299:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 300:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 301:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 302:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 303:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 304:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 305:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 306:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 307:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 308:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 309:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 310:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 311:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 312:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 313:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 314:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 315:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 316:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 317:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 318:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 319:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 320:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 321:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 322:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 323:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 324:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 325:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 326:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 327:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 328:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 329:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 330:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 331:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 332:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 333:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 334:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 335:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 336:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 337:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 338:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 339:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 340:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 341:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 342:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 343:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 344:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 345:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 346:                                              ; preds = %.critedge
-  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr321)
+  tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.tr320)
   br label %_ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit
 
 _ZN12_GLOBAL__N_120NonTrivialCallFinder21VisitCXXConstructExprEPKN5clang16CXXConstructExprE.exit: ; preds = %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %197, %196, %54, %55, %56, %57, %58, %59, %60, %61, %62, %63, %64, %65, %66, %67, %45, %44, %43, %42, %41, %40, %39, %38, %37, %36, %35, %34, %33, %32, %31, %30, %29, %28, %27, %26, %25, %24, %23, %22, %21, %20, %19, %18, %17, %16, %15, %14, %13, %206, %205, %346, %345, %344, %343, %342, %341, %340, %339, %338, %337, %336, %335, %334, %333, %332, %331, %330, %329, %328, %327, %326, %325, %324, %323, %322, %321, %320, %319, %318, %317, %316, %315, %314, %313, %312, %311, %310, %309, %308, %307, %306, %305, %304, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %283, %282, %281, %280, %279, %278, %277, %276, %275, %274, %273, %272, %271, %270, %269, %268, %267, %266, %265, %264, %263, %262, %261, %260, %259, %258, %257, %256, %255, %254, %253, %252, %251, %250, %249, %248, %247, %246, %245, %244, %243, %242, %241, %240, %239, %238, %237, %236, %235, %234, %233, %232, %231, %230, %229, %228, %227, %226, %225, %224, %223, %222, %221, %220, %219, %218, %217, %216, %215, %214, %213, %212, %211, %210, %209, %208, %189, %188, %187, %186, %185, %184, %183, %182, %181, %180, %179, %178, %177, %176, %175, %174, %173, %172, %171, %170, %169, %168, %167, %166, %165, %164, %163, %162, %161, %160, %159, %158, %157, %156, %155, %154, %153, %152, %151, %150, %149, %138, %137, %136, %135, %134, %133, %132, %131, %130, %129, %128, %127, %126, %125, %124, %123, %122, %121, %120, %119, %115, %114, %113, %112, %111, %110, %109, %108, %107, %106, %105, %104, %103, %102, %101, %100, %99, %98, %97, %96, %95, %94, %93, %92, %91, %90, %89, %88, %87, %86, %85, %84, %83, %82, %81, %80, %79, %78, %77, %76, %75, %74, %73, %72, %71
@@ -26556,8 +26559,8 @@ define dso_local noundef ptr @_ZNK5clang4Expr15getObjCPropertyEv(ptr noundef non
   %2 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #31
   %3 = load i16, ptr %2, align 8
   %4 = and i16 %3, 510
-  %spec.select.i.i.i.i.i.i.i.i.not14 = icmp eq i16 %4, 120
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not14, label %.lr.ph, label %._crit_edge
+  %spec.select.i.i.i.i.i.i.i.i.not13 = icmp eq i16 %4, 120
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not13, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1, %9
   %5 = phi ptr [ %12, %9 ], [ %2, %1 ]
@@ -26656,7 +26659,7 @@ define dso_local noundef ptr @_ZN5clang4Expr17getSourceBitFieldEv(ptr noundef no
   %8 = load i32, ptr %.068.i.i, align 8
   %9 = and i32 %8, 16252928
   %10 = icmp eq i32 %9, 6291456
-  br i1 %10, label %11, label %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit201
+  br i1 %10, label %11, label %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit200
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %.068.i.i, i64 16
@@ -26687,8 +26690,8 @@ define dso_local noundef ptr @_ZN5clang4Expr17getSourceBitFieldEv(ptr noundef no
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = load i24, ptr %30, align 8
   %32 = and i24 %31, 196608
-  %.not73.i.i = icmp eq i24 %32, 0
-  br i1 %.not73.i.i, label %33, label %_ZN5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i = icmp eq i24 %32, 0
+  br i1 %.not70.i.i, label %33, label %_ZN5clang4Expr12IgnoreParensEv.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.068.i.i, i64 48
@@ -26731,33 +26734,33 @@ _ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit: ; preds = %42
   %47 = trunc i32 %43 to i16
   br label %_ZN5clang4Expr12IgnoreParensEv.exit
 
-_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit201: ; preds = %7
+_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit200: ; preds = %7
   %48 = trunc i32 %8 to i16
   br label %_ZN5clang4Expr12IgnoreParensEv.exit
 
-_ZN5clang4Expr12IgnoreParensEv.exit:              ; preds = %28, %14, %.lr.ph.i.i, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit201, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i._ZN5clang4Expr12IgnoreParensEv.exit_crit_edge
-  %49 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i._ZN5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %47, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %48, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit201 ], [ %2, %.lr.ph.i.i ], [ %2, %14 ], [ %2, %28 ]
-  %.1.i3.i = phi ptr [ %.1.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i._ZN5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit201 ], [ %.068.i.i, %.lr.ph.i.i ], [ %.068.i.i, %14 ], [ %.068.i.i, %28 ]
+_ZN5clang4Expr12IgnoreParensEv.exit:              ; preds = %28, %14, %.lr.ph.i.i, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit200, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i._ZN5clang4Expr12IgnoreParensEv.exit_crit_edge
+  %49 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i._ZN5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %47, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %48, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit200 ], [ %2, %.lr.ph.i.i ], [ %2, %14 ], [ %2, %28 ]
+  %.1.i3.i = phi ptr [ %.1.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i._ZN5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i, %_ZN5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit200 ], [ %.068.i.i, %.lr.ph.i.i ], [ %.068.i.i, %14 ], [ %.068.i.i, %28 ]
   %50 = and i16 %49, 511
-  %.not169 = icmp eq i16 %50, 81
-  br i1 %.not169, label %.lr.ph, label %._crit_edge
+  %.not168 = icmp eq i16 %50, 81
+  br i1 %.not168, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZN5clang4Expr12IgnoreParensEv.exit, %_ZN5clang4Expr12IgnoreParensEv.exit112
-  %.062170 = phi ptr [ %.163, %_ZN5clang4Expr12IgnoreParensEv.exit112 ], [ %.1.i3.i, %_ZN5clang4Expr12IgnoreParensEv.exit ]
-  %51 = load i32, ptr %.062170, align 8
+  %.062169 = phi ptr [ %.163, %_ZN5clang4Expr12IgnoreParensEv.exit112 ], [ %.1.i3.i, %_ZN5clang4Expr12IgnoreParensEv.exit ]
+  %51 = load i32, ptr %.062169, align 8
   %52 = and i32 %51, 66584576
   %53 = icmp eq i32 %52, 2097152
   br i1 %53, label %57, label %54
 
 54:                                               ; preds = %.lr.ph
   %55 = and i32 %51, 1536
-  %.not153 = icmp ne i32 %55, 0
+  %.not152 = icmp ne i32 %55, 0
   %56 = icmp eq i32 %52, 2621440
-  %or.cond191 = and i1 %.not153, %56
-  br i1 %or.cond191, label %57, label %._crit_edge.loopexit.split.loop.exit222
+  %or.cond190 = and i1 %.not152, %56
+  br i1 %or.cond190, label %57, label %._crit_edge.loopexit.split.loop.exit221
 
 57:                                               ; preds = %54, %.lr.ph
-  %58 = getelementptr inbounds nuw i8, ptr %.062170, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.062169, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !46
   br label %.lr.ph.i.i100
 
@@ -26782,7 +26785,7 @@ _ZN5clang4Expr12IgnoreParensEv.exit:              ; preds = %28, %14, %.lr.ph.i.
   %66 = load i32, ptr %.068.i.i101, align 8
   %67 = and i32 %66, 16252928
   %68 = icmp eq i32 %67, 6291456
-  br i1 %68, label %69, label %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit208
+  br i1 %68, label %69, label %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %.068.i.i101, i64 16
@@ -26813,8 +26816,8 @@ _ZN5clang4Expr12IgnoreParensEv.exit:              ; preds = %28, %14, %.lr.ph.i.
   %88 = load ptr, ptr %87, align 8, !tbaa !3
   %89 = load i24, ptr %88, align 8
   %90 = and i24 %89, 196608
-  %.not73.i.i110 = icmp eq i24 %90, 0
-  br i1 %.not73.i.i110, label %91, label %_ZN5clang4Expr12IgnoreParensEv.exit112
+  %.not70.i.i110 = icmp eq i24 %90, 0
+  br i1 %.not70.i.i110, label %91, label %_ZN5clang4Expr12IgnoreParensEv.exit112
 
 91:                                               ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %.068.i.i101, i64 48
@@ -26831,7 +26834,7 @@ _ZN5clang4Expr12IgnoreParensEv.exit:              ; preds = %28, %14, %.lr.ph.i.
   %101 = load i32, ptr %.068.i.i101, align 8
   %102 = and i32 %101, 25165824
   %or.cond.not.i.i102 = icmp eq i32 %102, 25165824
-  br i1 %or.cond.not.i.i102, label %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i104, label %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit217
+  br i1 %or.cond.not.i.i102, label %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i104, label %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216
 
 _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i104: ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %.068.i.i101, i64 16
@@ -26846,33 +26849,33 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107: ; preds = %_ZN5clang14Pr
   br i1 %.not.i.i109, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge, label %.lr.ph.i.i100, !llvm.loop !45
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge: ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107
-  %.pre183 = load i16, ptr %.1.i.i108, align 8
+  %.pre182 = load i16, ptr %.1.i.i108, align 8
   br label %_ZN5clang4Expr12IgnoreParensEv.exit112, !llvm.loop !45
 
-_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit208: ; preds = %65
+_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207: ; preds = %65
   %105 = trunc i32 %66 to i16
   br label %_ZN5clang4Expr12IgnoreParensEv.exit112
 
-_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit217: ; preds = %100
+_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216: ; preds = %100
   %106 = trunc i32 %101 to i16
   br label %_ZN5clang4Expr12IgnoreParensEv.exit112
 
-_ZN5clang4Expr12IgnoreParensEv.exit112:           ; preds = %.lr.ph.i.i100, %72, %86, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit208, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit217, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge
-  %107 = phi i16 [ %.pre183, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge ], [ %105, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit208 ], [ %106, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit217 ], [ %60, %86 ], [ %60, %72 ], [ %60, %.lr.ph.i.i100 ]
-  %.163 = phi ptr [ %.1.i.i108, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge ], [ %.068.i.i101, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit208 ], [ %.068.i.i101, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit217 ], [ %.068.i.i101, %86 ], [ %.068.i.i101, %72 ], [ %.068.i.i101, %.lr.ph.i.i100 ]
+_ZN5clang4Expr12IgnoreParensEv.exit112:           ; preds = %.lr.ph.i.i100, %72, %86, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge
+  %107 = phi i16 [ %.pre182, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge ], [ %105, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207 ], [ %106, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216 ], [ %60, %86 ], [ %60, %72 ], [ %60, %.lr.ph.i.i100 ]
+  %.163 = phi ptr [ %.1.i.i108, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i107._ZN5clang4Expr12IgnoreParensEv.exit112_crit_edge ], [ %.068.i.i101, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit207 ], [ %.068.i.i101, %_ZN5clang4Expr12IgnoreParensEv.exit112.loopexit.split.loop.exit216 ], [ %.068.i.i101, %86 ], [ %.068.i.i101, %72 ], [ %.068.i.i101, %.lr.ph.i.i100 ]
   %108 = and i16 %107, 511
   %.not = icmp eq i16 %108, 81
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit.split.loop.exit222:          ; preds = %54
+._crit_edge.loopexit.split.loop.exit221:          ; preds = %54
   %109 = trunc i32 %51 to i16
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZN5clang4Expr12IgnoreParensEv.exit112, %._crit_edge.loopexit.split.loop.exit222, %_ZN5clang4Expr12IgnoreParensEv.exit
-  %110 = phi i16 [ %49, %_ZN5clang4Expr12IgnoreParensEv.exit ], [ %109, %._crit_edge.loopexit.split.loop.exit222 ], [ %107, %_ZN5clang4Expr12IgnoreParensEv.exit112 ]
-  %.062.lcssa = phi ptr [ %.1.i3.i, %_ZN5clang4Expr12IgnoreParensEv.exit ], [ %.062170, %._crit_edge.loopexit.split.loop.exit222 ], [ %.163, %_ZN5clang4Expr12IgnoreParensEv.exit112 ]
+._crit_edge:                                      ; preds = %_ZN5clang4Expr12IgnoreParensEv.exit112, %._crit_edge.loopexit.split.loop.exit221, %_ZN5clang4Expr12IgnoreParensEv.exit
+  %110 = phi i16 [ %49, %_ZN5clang4Expr12IgnoreParensEv.exit ], [ %109, %._crit_edge.loopexit.split.loop.exit221 ], [ %107, %_ZN5clang4Expr12IgnoreParensEv.exit112 ]
+  %.062.lcssa = phi ptr [ %.1.i3.i, %_ZN5clang4Expr12IgnoreParensEv.exit ], [ %.062169, %._crit_edge.loopexit.split.loop.exit221 ], [ %.163, %_ZN5clang4Expr12IgnoreParensEv.exit112 ]
   %111 = and i16 %110, 511
-  switch i16 %111, label %.thread128 [
+  switch i16 %111, label %.thread127 [
     i16 48, label %112
     i16 36, label %124
     i16 73, label %130
@@ -26886,16 +26889,16 @@ _ZN5clang4Expr12IgnoreParensEv.exit112:           ; preds = %.lr.ph.i.i100, %72,
   %117 = and i32 %116, 127
   %118 = add nsw i32 %117, -50
   %119 = icmp ult i32 %118, -3
-  %.not86156 = icmp eq ptr %114, null
-  %.not86 = or i1 %.not86156, %119
-  br i1 %.not86, label %.thread128, label %120
+  %.not86155 = icmp eq ptr %114, null
+  %.not86 = or i1 %.not86155, %119
+  br i1 %.not86, label %.thread127, label %120
 
 120:                                              ; preds = %112
   %121 = getelementptr inbounds nuw i8, ptr %114, i64 68
   %122 = load i32, ptr %121, align 4
   %123 = and i32 %122, 1
-  %.not157 = icmp eq i32 %123, 0
-  br i1 %.not157, label %.thread128, label %.split.loop.exit
+  %.not156 = icmp eq i32 %123, 0
+  br i1 %.not156, label %.thread127, label %.split.loop.exit
 
 124:                                              ; preds = %._crit_edge
   %125 = getelementptr inbounds nuw i8, ptr %.062.lcssa, i64 16
@@ -26903,8 +26906,8 @@ _ZN5clang4Expr12IgnoreParensEv.exit112:           ; preds = %.lr.ph.i.i100, %72,
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 68
   %128 = load i32, ptr %127, align 4
   %129 = and i32 %128, 1
-  %.not160 = icmp eq i32 %129, 0
-  br i1 %.not160, label %.thread128, label %.split.loop.exit
+  %.not159 = icmp eq i32 %129, 0
+  br i1 %.not159, label %.thread127, label %.split.loop.exit
 
 130:                                              ; preds = %._crit_edge
   %131 = getelementptr inbounds nuw i8, ptr %.062.lcssa, i64 16
@@ -26914,34 +26917,34 @@ _ZN5clang4Expr12IgnoreParensEv.exit112:           ; preds = %.lr.ph.i.i100, %72,
   %135 = and i32 %134, 127
   %136 = add nsw i32 %135, -50
   %137 = icmp ult i32 %136, -3
-  %.not89163 = icmp eq ptr %132, null
-  %.not89 = or i1 %.not89163, %137
+  %.not89162 = icmp eq ptr %132, null
+  %.not89 = or i1 %.not89162, %137
   br i1 %.not89, label %142, label %138
 
 138:                                              ; preds = %130
   %139 = getelementptr inbounds nuw i8, ptr %132, i64 68
   %140 = load i32, ptr %139, align 4
   %141 = and i32 %140, 1
-  %.not164 = icmp eq i32 %141, 0
-  br i1 %.not164, label %.thread128, label %.split.loop.exit
+  %.not163 = icmp eq i32 %141, 0
+  br i1 %.not163, label %.thread127, label %.split.loop.exit
 
 142:                                              ; preds = %130
   %143 = icmp ne i32 %135, 50
-  %.not90 = or i1 %.not89163, %143
-  br i1 %.not90, label %.thread128, label %144
+  %.not90 = or i1 %.not89162, %143
+  br i1 %.not90, label %.thread127, label %144
 
 144:                                              ; preds = %142
   %145 = getelementptr inbounds nuw i8, ptr %132, i64 64
   %146 = load ptr, ptr %145, align 8, !tbaa !952
   %.not91 = icmp eq ptr %146, null
-  br i1 %.not91, label %.thread128, label %.lr.ph.i.i.backedge
+  br i1 %.not91, label %.thread127, label %.lr.ph.i.i.backedge
 
-.thread128:                                       ; preds = %._crit_edge, %138, %120, %112, %124, %142, %144
+.thread127:                                       ; preds = %._crit_edge, %138, %120, %112, %124, %142, %144
   %147 = and i16 %110, 510
   %spec.select.i.i.i.i.i.i.i.i.not = icmp eq i16 %147, 120
-  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %148, label %.thread141
+  br i1 %spec.select.i.i.i.i.i.i.i.i.not, label %148, label %.thread140
 
-148:                                              ; preds = %.thread128
+148:                                              ; preds = %.thread127
   %149 = load i32, ptr %.062.lcssa, align 8
   %150 = lshr i32 %149, 19
   %151 = and i32 %150, 63
@@ -26953,23 +26956,23 @@ _ZN5clang4Expr12IgnoreParensEv.exit112:           ; preds = %.lr.ph.i.i100, %72,
   %155 = getelementptr inbounds nuw i8, ptr %.062.lcssa, i64 16
   %156 = load ptr, ptr %155, align 8, !tbaa !3
   %.not93 = icmp eq ptr %156, null
-  br i1 %.not93, label %.thread141, label %.lr.ph.i.i.backedge
+  br i1 %.not93, label %.thread140, label %.lr.ph.i.i.backedge
 
 157:                                              ; preds = %148
   %158 = icmp eq i32 %151, 32
-  br i1 %158, label %159, label %.thread141
+  br i1 %158, label %159, label %.thread140
 
 159:                                              ; preds = %157
   %160 = getelementptr inbounds nuw i8, ptr %.062.lcssa, i64 24
   %161 = load ptr, ptr %160, align 8, !tbaa !3
   %.not94 = icmp eq ptr %161, null
-  br i1 %.not94, label %.thread141, label %.lr.ph.i.i.backedge
+  br i1 %.not94, label %.thread140, label %.lr.ph.i.i.backedge
 
-.thread141:                                       ; preds = %154, %157, %159, %.thread128
-  %.not168 = icmp eq i16 %111, 4
-  br i1 %.not168, label %162, label %.split.loop.exit
+.thread140:                                       ; preds = %154, %157, %159, %.thread127
+  %.not167 = icmp eq i16 %111, 4
+  br i1 %.not167, label %162, label %.split.loop.exit
 
-162:                                              ; preds = %.thread141
+162:                                              ; preds = %.thread140
   %163 = load i32, ptr %.062.lcssa, align 8
   %164 = and i32 %163, 15728640
   %or.cond = icmp eq i32 %164, 1048576
@@ -26980,8 +26983,8 @@ _ZN5clang4Expr12IgnoreParensEv.exit112:           ; preds = %.lr.ph.i.i100, %72,
   %167 = load ptr, ptr %166, align 8, !tbaa !37
   br label %.lr.ph.i.i.backedge
 
-.split.loop.exit:                                 ; preds = %120, %138, %.thread141, %162, %124
-  %.3 = phi ptr [ %126, %124 ], [ %114, %120 ], [ %132, %138 ], [ null, %.thread141 ], [ null, %162 ]
+.split.loop.exit:                                 ; preds = %120, %138, %.thread140, %162, %124
+  %.3 = phi ptr [ %126, %124 ], [ %114, %120 ], [ %132, %138 ], [ null, %.thread140 ], [ null, %162 ]
   ret ptr %.3
 }
 
@@ -27033,7 +27036,7 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr21refersToVectorElementEv(pt
   %8 = load i32, ptr %.068.i.i.i, align 8
   %9 = and i32 %8, 16252928
   %10 = icmp eq i32 %9, 6291456
-  br i1 %10, label %11, label %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit102
+  br i1 %10, label %11, label %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit101
 
 11:                                               ; preds = %7
   %12 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 16
@@ -27064,8 +27067,8 @@ define dso_local noundef zeroext i1 @_ZNK5clang4Expr21refersToVectorElementEv(pt
   %30 = load ptr, ptr %29, align 8, !tbaa !3
   %31 = load i24, ptr %30, align 8
   %32 = and i24 %31, 196608
-  %.not73.i.i.i = icmp eq i24 %32, 0
-  br i1 %.not73.i.i.i, label %33, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %32, 0
+  br i1 %.not70.i.i.i, label %33, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -27108,32 +27111,32 @@ _ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit: ; preds = %42
   %47 = trunc i32 %43 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
-_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit102: ; preds = %7
+_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit101: ; preds = %7
   %48 = trunc i32 %8 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
-_ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %28, %14, %.lr.ph.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit102, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge
-  %49 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %47, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %48, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit102 ], [ %2, %.lr.ph.i.i.i ], [ %2, %14 ], [ %2, %28 ]
-  %.1.i3.i.i = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit102 ], [ %.068.i.i.i, %.lr.ph.i.i.i ], [ %.068.i.i.i, %14 ], [ %.068.i.i.i, %28 ]
+_ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %28, %14, %.lr.ph.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit101, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge
+  %49 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %47, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %48, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit101 ], [ %2, %.lr.ph.i.i.i ], [ %2, %14 ], [ %2, %28 ]
+  %.1.i3.i.i = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit101 ], [ %.068.i.i.i, %.lr.ph.i.i.i ], [ %.068.i.i.i, %14 ], [ %.068.i.i.i, %28 ]
   %50 = and i16 %49, 511
-  %.not77 = icmp eq i16 %50, 81
-  br i1 %.not77, label %.lr.ph, label %._crit_edge
+  %.not76 = icmp eq i16 %50, 81
+  br i1 %.not76, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit49
-  %.05778 = phi ptr [ %.158, %_ZNK5clang4Expr12IgnoreParensEv.exit49 ], [ %.1.i3.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit ]
-  %51 = load i24, ptr %.05778, align 8
+  %.05777 = phi ptr [ %.158, %_ZNK5clang4Expr12IgnoreParensEv.exit49 ], [ %.1.i3.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit ]
+  %51 = load i24, ptr %.05777, align 8
   %52 = and i24 %51, 1536
-  %.not69 = icmp eq i24 %52, 0
-  br i1 %.not69, label %._crit_edge.loopexit.split.loop.exit126, label %53
+  %.not68 = icmp eq i24 %52, 0
+  br i1 %.not68, label %._crit_edge.loopexit.split.loop.exit125, label %53
 
 53:                                               ; preds = %.lr.ph
-  %54 = load i32, ptr %.05778, align 8
+  %54 = load i32, ptr %.05777, align 8
   %55 = and i32 %54, 66584576
   %56 = icmp eq i32 %55, 2621440
-  br i1 %56, label %57, label %._crit_edge.loopexit.split.loop.exit123
+  br i1 %56, label %57, label %._crit_edge.loopexit.split.loop.exit122
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw i8, ptr %.05778, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.05777, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !46
   br label %.lr.ph.i.i.i37
 
@@ -27158,7 +27161,7 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %28, %14, %.lr.ph.i.
   %66 = load i32, ptr %.068.i.i.i38, align 8
   %67 = and i32 %66, 16252928
   %68 = icmp eq i32 %67, 6291456
-  br i1 %68, label %69, label %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit109
+  br i1 %68, label %69, label %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108
 
 69:                                               ; preds = %65
   %70 = getelementptr inbounds nuw i8, ptr %.068.i.i.i38, i64 16
@@ -27189,8 +27192,8 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %28, %14, %.lr.ph.i.
   %88 = load ptr, ptr %87, align 8, !tbaa !3
   %89 = load i24, ptr %88, align 8
   %90 = and i24 %89, 196608
-  %.not73.i.i.i47 = icmp eq i24 %90, 0
-  br i1 %.not73.i.i.i47, label %91, label %_ZNK5clang4Expr12IgnoreParensEv.exit49
+  %.not70.i.i.i47 = icmp eq i24 %90, 0
+  br i1 %.not70.i.i.i47, label %91, label %_ZNK5clang4Expr12IgnoreParensEv.exit49
 
 91:                                               ; preds = %86
   %92 = getelementptr inbounds nuw i8, ptr %.068.i.i.i38, i64 48
@@ -27207,7 +27210,7 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %28, %14, %.lr.ph.i.
   %101 = load i32, ptr %.068.i.i.i38, align 8
   %102 = and i32 %101, 25165824
   %or.cond.not.i.i.i39 = icmp eq i32 %102, 25165824
-  br i1 %or.cond.not.i.i.i39, label %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i41, label %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit118
+  br i1 %or.cond.not.i.i.i39, label %_ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i41, label %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117
 
 _ZN5clang14PredefinedExpr15getFunctionNameEv.exit.i.i.i41: ; preds = %100
   %103 = getelementptr inbounds nuw i8, ptr %.068.i.i.i38, i64 16
@@ -27222,39 +27225,39 @@ _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44: ; preds = %_ZN5clang14P
   br i1 %.not.i.i.i46, label %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge, label %.lr.ph.i.i.i37, !llvm.loop !45
 
 _ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge: ; preds = %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44
-  %.pre85 = load i16, ptr %.1.i.i.i45, align 8
+  %.pre84 = load i16, ptr %.1.i.i.i45, align 8
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit49, !llvm.loop !45
 
-_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit109: ; preds = %65
+_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108: ; preds = %65
   %105 = trunc i32 %66 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit49
 
-_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit118: ; preds = %100
+_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117: ; preds = %100
   %106 = trunc i32 %101 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit49
 
-_ZNK5clang4Expr12IgnoreParensEv.exit49:           ; preds = %.lr.ph.i.i.i37, %72, %86, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit109, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit118, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge
-  %107 = phi i16 [ %.pre85, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge ], [ %105, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit109 ], [ %106, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit118 ], [ %60, %86 ], [ %60, %72 ], [ %60, %.lr.ph.i.i.i37 ]
-  %.158 = phi ptr [ %.1.i.i.i45, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge ], [ %.068.i.i.i38, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit109 ], [ %.068.i.i.i38, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit118 ], [ %.068.i.i.i38, %86 ], [ %.068.i.i.i38, %72 ], [ %.068.i.i.i38, %.lr.ph.i.i.i37 ]
+_ZNK5clang4Expr12IgnoreParensEv.exit49:           ; preds = %.lr.ph.i.i.i37, %72, %86, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge
+  %107 = phi i16 [ %.pre84, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge ], [ %105, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108 ], [ %106, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117 ], [ %60, %86 ], [ %60, %72 ], [ %60, %.lr.ph.i.i.i37 ]
+  %.158 = phi ptr [ %.1.i.i.i45, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i44._ZNK5clang4Expr12IgnoreParensEv.exit49_crit_edge ], [ %.068.i.i.i38, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit108 ], [ %.068.i.i.i38, %_ZNK5clang4Expr12IgnoreParensEv.exit49.loopexit.split.loop.exit117 ], [ %.068.i.i.i38, %86 ], [ %.068.i.i.i38, %72 ], [ %.068.i.i.i38, %.lr.ph.i.i.i37 ]
   %108 = and i16 %107, 511
   %.not = icmp eq i16 %108, 81
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
-._crit_edge.loopexit.split.loop.exit123:          ; preds = %53
+._crit_edge.loopexit.split.loop.exit122:          ; preds = %53
   %109 = trunc i32 %54 to i16
   br label %._crit_edge
 
-._crit_edge.loopexit.split.loop.exit126:          ; preds = %.lr.ph
+._crit_edge.loopexit.split.loop.exit125:          ; preds = %.lr.ph
   %110 = trunc i24 %51 to i16
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit49, %._crit_edge.loopexit.split.loop.exit123, %._crit_edge.loopexit.split.loop.exit126, %_ZNK5clang4Expr12IgnoreParensEv.exit
-  %111 = phi i16 [ %49, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ %109, %._crit_edge.loopexit.split.loop.exit123 ], [ %110, %._crit_edge.loopexit.split.loop.exit126 ], [ %107, %_ZNK5clang4Expr12IgnoreParensEv.exit49 ]
-  %.057.lcssa = phi ptr [ %.1.i3.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ %.05778, %._crit_edge.loopexit.split.loop.exit123 ], [ %.05778, %._crit_edge.loopexit.split.loop.exit126 ], [ %.158, %_ZNK5clang4Expr12IgnoreParensEv.exit49 ]
+._crit_edge:                                      ; preds = %_ZNK5clang4Expr12IgnoreParensEv.exit49, %._crit_edge.loopexit.split.loop.exit122, %._crit_edge.loopexit.split.loop.exit125, %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %111 = phi i16 [ %49, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ %109, %._crit_edge.loopexit.split.loop.exit122 ], [ %110, %._crit_edge.loopexit.split.loop.exit125 ], [ %107, %_ZNK5clang4Expr12IgnoreParensEv.exit49 ]
+  %.057.lcssa = phi ptr [ %.1.i3.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit ], [ %.05777, %._crit_edge.loopexit.split.loop.exit122 ], [ %.05777, %._crit_edge.loopexit.split.loop.exit125 ], [ %.158, %_ZNK5clang4Expr12IgnoreParensEv.exit49 ]
   %112 = and i16 %111, 511
   switch i16 %112, label %.fold.split [
     i16 125, label %113
-    i16 66, label %.fold.split.loopexit158
+    i16 66, label %.fold.split.loopexit157
     i16 73, label %163
   ]
 
@@ -27274,13 +27277,13 @@ _ZNK5clang4Expr12IgnoreParensEv.exit49:           ; preds = %.lr.ph.i.i.i37, %72
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load i8, ptr %124, align 16
   %126 = icmp ne i8 %125, 13
-  %.not.not24.i.i.i = icmp eq ptr %123, null
-  %.not.not.i.i.i = or i1 %.not.not24.i.i.i, %126
+  %.not.not21.i.i.i = icmp eq ptr %123, null
+  %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %126
   br i1 %.not.not.i.i.i, label %127, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i
 
 127:                                              ; preds = %113
   %128 = icmp ne i8 %125, 46
-  %.not13.not.i.i.i = or i1 %.not.not24.i.i.i, %128
+  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %128
   br i1 %.not13.not.i.i.i, label %142, label %129
 
 129:                                              ; preds = %127
@@ -27344,8 +27347,8 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %113
   %167 = load i32, ptr %166, align 4
   %168 = and i32 %167, 127
   %169 = icmp ne i32 %168, 50
-  %.not3374 = icmp eq ptr %165, null
-  %.not33 = or i1 %.not3374, %169
+  %.not3373 = icmp eq ptr %165, null
+  %.not33 = or i1 %.not3373, %169
   br i1 %.not33, label %.fold.split, label %170
 
 170:                                              ; preds = %163
@@ -27354,11 +27357,11 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %113
   %.not34 = icmp eq ptr %172, null
   br i1 %.not34, label %.fold.split, label %.lr.ph.i.i.i.backedge
 
-.fold.split.loopexit158:                          ; preds = %._crit_edge
+.fold.split.loopexit157:                          ; preds = %._crit_edge
   br label %.fold.split
 
-.fold.split:                                      ; preds = %163, %170, %._crit_edge, %.fold.split.loopexit158, %150
-  %.1 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i.i, %150 ], [ true, %.fold.split.loopexit158 ], [ false, %._crit_edge ], [ false, %170 ], [ false, %163 ]
+.fold.split:                                      ; preds = %163, %170, %._crit_edge, %.fold.split.loopexit157, %150
+  %.1 = phi i1 [ %spec.select.i.i.i.i.i.i.i.i.i, %150 ], [ true, %.fold.split.loopexit157 ], [ false, %._crit_edge ], [ false, %170 ], [ false, %163 ]
   ret i1 %.1
 }
 
@@ -27530,8 +27533,8 @@ define dso_local noundef zeroext i1 @_ZN5clang4Expr23isSameComparisonOperandEPKS
   %33 = load ptr, ptr %32, align 8, !tbaa !3
   %34 = load i24, ptr %33, align 8
   %35 = and i24 %34, 196608
-  %.not73.i.i.i = icmp eq i24 %35, 0
-  br i1 %.not73.i.i.i, label %36, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %35, 0
+  br i1 %.not70.i.i.i, label %36, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 36:                                               ; preds = %31
   %37 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -27618,8 +27621,8 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %.lr.ph.i.i.i, %10, 
   %78 = load ptr, ptr %77, align 8, !tbaa !3
   %79 = load i24, ptr %78, align 8
   %80 = and i24 %79, 196608
-  %.not73.i.i.i85 = icmp eq i24 %80, 0
-  br i1 %.not73.i.i.i85, label %81, label %_ZNK5clang4Expr12IgnoreParensEv.exit87
+  %.not70.i.i.i85 = icmp eq i24 %80, 0
+  br i1 %.not70.i.i.i85, label %81, label %_ZNK5clang4Expr12IgnoreParensEv.exit87
 
 81:                                               ; preds = %76
   %82 = getelementptr inbounds nuw i8, ptr %.068.i.i.i76, i64 48
@@ -27780,8 +27783,8 @@ _ZNK5clang4Expr12IgnoreParensEv.exit87:           ; preds = %76, %62, %.lr.ph.i.
   %161 = load ptr, ptr %160, align 8, !tbaa !3
   %162 = load i24, ptr %161, align 8
   %163 = and i24 %162, 196608
-  %.not73.i.i.i99 = icmp eq i24 %163, 0
-  br i1 %.not73.i.i.i99, label %164, label %_ZNK5clang4Expr12IgnoreParensEv.exit101
+  %.not70.i.i.i99 = icmp eq i24 %163, 0
+  br i1 %.not70.i.i.i99, label %164, label %_ZNK5clang4Expr12IgnoreParensEv.exit101
 
 164:                                              ; preds = %159
   %165 = getelementptr inbounds nuw i8, ptr %.068.i.i.i90, i64 48
@@ -27870,8 +27873,8 @@ _ZNK5clang4Expr12IgnoreParensEv.exit101:          ; preds = %.lr.ph.i.i.i89, %13
   %208 = load ptr, ptr %207, align 8, !tbaa !3
   %209 = load i24, ptr %208, align 8
   %210 = and i24 %209, 196608
-  %.not73.i.i.i112 = icmp eq i24 %210, 0
-  br i1 %.not73.i.i.i112, label %211, label %_ZNK5clang4Expr12IgnoreParensEv.exit114
+  %.not70.i.i.i112 = icmp eq i24 %210, 0
+  br i1 %.not70.i.i.i112, label %211, label %_ZNK5clang4Expr12IgnoreParensEv.exit114
 
 211:                                              ; preds = %206
   %212 = getelementptr inbounds nuw i8, ptr %.068.i.i.i103, i64 48
@@ -28163,8 +28166,8 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %_ZNK5clang7VarD
   br i1 %367, label %_ZN5clang18declaresSameEntityEPKNS_4DeclES2_.exit, label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit"
 
 .sink.split.i:                                    ; preds = %319, %.preheader
-  %.sink4.i = phi i64 [ 16, %.preheader ], [ 24, %319 ]
-  %368 = getelementptr inbounds nuw i8, ptr %.2, i64 %.sink4.i
+  %.sink3.i = phi i64 [ 16, %.preheader ], [ 24, %319 ]
+  %368 = getelementptr inbounds nuw i8, ptr %.2, i64 %.sink3.i
   %369 = load ptr, ptr %368, align 8, !tbaa !957
   br label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit"
 
@@ -28181,8 +28184,8 @@ _ZNK5clang7VarDecl18isStaticDataMemberEv.exit.thread: ; preds = %_ZNK5clang7VarD
   br label %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit135"
 
 "_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit135": ; preds = %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit", %372
-  %.sink4.i133 = phi i64 [ 24, %372 ], [ 16, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit" ]
-  %373 = getelementptr inbounds nuw i8, ptr %.2163, i64 %.sink4.i133
+  %.sink3.i133 = phi i64 [ 24, %372 ], [ 16, %"_ZZN5clang4Expr23isSameComparisonOperandEPKS0_S2_ENK3$_0clES2_.exit" ]
+  %373 = getelementptr inbounds nuw i8, ptr %.2163, i64 %.sink3.i133
   %374 = load ptr, ptr %373, align 8, !tbaa !957
   %375 = icmp ne ptr %.1.i, null
   %376 = icmp ne ptr %374, null
@@ -28227,13 +28230,13 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang18ArraySubscriptExpr6getIdxEv(
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i8, ptr %12, align 16
   %14 = icmp ne i8 %13, 13
-  %.not.not24.i.i = icmp eq ptr %11, null
-  %.not.not.i.i = or i1 %.not.not24.i.i, %14
+  %.not.not21.i.i = icmp eq ptr %11, null
+  %.not.not.i.i = or i1 %.not.not21.i.i, %14
   br i1 %.not.not.i.i, label %15, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit
 
 15:                                               ; preds = %1
   %16 = icmp ne i8 %13, 46
-  %.not13.not.i.i = or i1 %.not.not24.i.i, %16
+  %.not13.not.i.i = or i1 %.not.not21.i.i, %16
   br i1 %.not13.not.i.i, label %30, label %17
 
 17:                                               ; preds = %15
@@ -28428,8 +28431,8 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit: ; preds = %9
   br i1 %.not.not, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread11, label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread11.sink.split
 
 _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread11.sink.split: ; preds = %1, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit
-  %.sink23 = phi ptr [ %17, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %5, %1 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink23, i64 20
+  %.sink21 = phi ptr [ %17, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit ], [ %5, %1 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sink21, i64 20
   %19 = load i32, ptr %18, align 4, !tbaa !25
   br label %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.thread11
 
@@ -28616,8 +28619,8 @@ _ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.i: ; preds = %29
   br i1 %.not.not.i, label %.lr.ph, label %_ZNK5clang20ExtVectorElementExpr14getNumElementsEv.exit
 
 _ZNK5clang20ExtVectorElementExpr14getNumElementsEv.exit: ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit39, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.i
-  %.sink23.i = phi ptr [ %37, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.i ], [ %25, %_ZN4llvmeqENS_9StringRefES0_.exit39 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sink23.i, i64 20
+  %.sink21.i = phi ptr [ %37, %_ZNK5clang4Type5getAsINS_10VectorTypeEEEPKT_v.exit.i ], [ %25, %_ZN4llvmeqENS_9StringRefES0_.exit39 ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sink21.i, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !25
   %.not67 = icmp eq i32 %39, 0
   br i1 %.not67, label %._crit_edge, label %.lr.ph
@@ -30842,24 +30845,24 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %66 = load i32, ptr %.234.i.i.i.i, align 8
   %67 = and i32 %66, 32505856
   %68 = icmp eq i32 %67, 0
-  br i1 %68, label %75, label %.split.loop.exit91.i.i.i.i, !llvm.loop !763
+  br i1 %68, label %75, label %.split.loop.exit88.i.i.i.i, !llvm.loop !763
 
 69:                                               ; preds = %.preheader.i.i.i.i
   %70 = and i16 %63, 511
-  %.not82.i.i.i.i = icmp eq i16 %70, 4
-  br i1 %.not82.i.i.i.i, label %71, label %.split.loop.exit94.i.i.i.i
+  %.not79.i.i.i.i = icmp eq i16 %70, 4
+  br i1 %.not79.i.i.i.i, label %71, label %.split.loop.exit91.i.i.i.i
 
 71:                                               ; preds = %69
   %72 = load i32, ptr %.234.i.i.i.i, align 8
   %73 = lshr i32 %72, 19
   %74 = and i32 %73, 31
   %.off.i.i.i.i = add nsw i32 %74, -4
-  %switch78.i.i.i.i = icmp ult i32 %.off.i.i.i.i, 3
-  br i1 %switch78.i.i.i.i, label %75, label %.split.loop.exit.i.i.i.i
+  %switch.i.i.i.i = icmp ult i32 %.off.i.i.i.i, 3
+  br i1 %switch.i.i.i.i, label %75, label %.split.loop.exit.i.i.i.i
 
 75:                                               ; preds = %71, %65
-  %.sink100.i.i.i.i = phi i64 [ 24, %65 ], [ 16, %71 ]
-  %76 = getelementptr inbounds nuw i8, ptr %.234.i.i.i.i, i64 %.sink100.i.i.i.i
+  %.sink97.i.i.i.i = phi i64 [ 24, %65 ], [ 16, %71 ]
+  %76 = getelementptr inbounds nuw i8, ptr %.234.i.i.i.i, i64 %.sink97.i.i.i.i
   %77 = load ptr, ptr %76, align 8, !tbaa !3
   %78 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %77) #31
   %.pre.i.i.i = load i16, ptr %78, align 8
@@ -30867,14 +30870,14 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
 
 .split.loop.exit.i.i.i.i:                         ; preds = %71
   %79 = trunc i32 %72 to i16
-  br label %.split.loop.exit94.i.i.i.i
+  br label %.split.loop.exit91.i.i.i.i
 
-.split.loop.exit91.i.i.i.i:                       ; preds = %65
+.split.loop.exit88.i.i.i.i:                       ; preds = %65
   %80 = trunc i32 %66 to i16
-  br label %.split.loop.exit94.i.i.i.i
+  br label %.split.loop.exit91.i.i.i.i
 
-.split.loop.exit94.i.i.i.i:                       ; preds = %69, %.split.loop.exit91.i.i.i.i, %.split.loop.exit.i.i.i.i
-  %81 = phi i16 [ %79, %.split.loop.exit.i.i.i.i ], [ %80, %.split.loop.exit91.i.i.i.i ], [ %63, %69 ]
+.split.loop.exit91.i.i.i.i:                       ; preds = %69, %.split.loop.exit88.i.i.i.i, %.split.loop.exit.i.i.i.i
+  %81 = phi i16 [ %79, %.split.loop.exit.i.i.i.i ], [ %80, %.split.loop.exit88.i.i.i.i ], [ %63, %69 ]
   %82 = and i16 %81, 511
   switch i16 %82, label %_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i [
     i16 73, label %.sink.split.i.i.i.i
@@ -30882,17 +30885,17 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
     i16 119, label %.sink.split.i.i.i.i
   ]
 
-83:                                               ; preds = %.split.loop.exit94.i.i.i.i
+83:                                               ; preds = %.split.loop.exit91.i.i.i.i
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %83, %.split.loop.exit94.i.i.i.i, %.split.loop.exit94.i.i.i.i
-  %.sink102.i.i.i.i = phi i64 [ 24, %83 ], [ 16, %.split.loop.exit94.i.i.i.i ], [ 16, %.split.loop.exit94.i.i.i.i ]
-  %84 = getelementptr inbounds nuw i8, ptr %.234.i.i.i.i, i64 %.sink102.i.i.i.i
+.sink.split.i.i.i.i:                              ; preds = %83, %.split.loop.exit91.i.i.i.i, %.split.loop.exit91.i.i.i.i
+  %.sink99.i.i.i.i = phi i64 [ 24, %83 ], [ 16, %.split.loop.exit91.i.i.i.i ], [ 16, %.split.loop.exit91.i.i.i.i ]
+  %84 = getelementptr inbounds nuw i8, ptr %.234.i.i.i.i, i64 %.sink99.i.i.i.i
   %85 = load ptr, ptr %84, align 8, !tbaa !61
   br label %_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i
 
-_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i: ; preds = %.sink.split.i.i.i.i, %.split.loop.exit94.i.i.i.i
-  %.1.i.i.i.i = phi ptr [ null, %.split.loop.exit94.i.i.i.i ], [ %85, %.sink.split.i.i.i.i ]
+_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i: ; preds = %.sink.split.i.i.i.i, %.split.loop.exit91.i.i.i.i
+  %.1.i.i.i.i = phi ptr [ null, %.split.loop.exit91.i.i.i.i ], [ %85, %.sink.split.i.i.i.i ]
   %86 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %49) #31
   %87 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %86) #31
   %88 = load i16, ptr %87, align 8
@@ -30926,24 +30929,24 @@ _ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i: ; preds = %.sink.split.i.
   %99 = load i32, ptr %.234.i.i46.i.i, align 8
   %100 = and i32 %99, 32505856
   %101 = icmp eq i32 %100, 0
-  br i1 %101, label %108, label %.split.loop.exit91.i.i58.i.i, !llvm.loop !763
+  br i1 %101, label %108, label %.split.loop.exit88.i.i58.i.i, !llvm.loop !763
 
 102:                                              ; preds = %.preheader.i.i45.i.i
   %103 = and i16 %96, 511
-  %.not82.i.i48.i.i = icmp eq i16 %103, 4
-  br i1 %.not82.i.i48.i.i, label %104, label %.split.loop.exit94.i.i49.i.i
+  %.not79.i.i48.i.i = icmp eq i16 %103, 4
+  br i1 %.not79.i.i48.i.i, label %104, label %.split.loop.exit91.i.i49.i.i
 
 104:                                              ; preds = %102
   %105 = load i32, ptr %.234.i.i46.i.i, align 8
   %106 = lshr i32 %105, 19
   %107 = and i32 %106, 31
   %.off.i.i53.i.i = add nsw i32 %107, -4
-  %switch78.i.i54.i.i = icmp ult i32 %.off.i.i53.i.i, 3
-  br i1 %switch78.i.i54.i.i, label %108, label %.split.loop.exit.i.i55.i.i
+  %switch.i.i54.i.i = icmp ult i32 %.off.i.i53.i.i, 3
+  br i1 %switch.i.i54.i.i, label %108, label %.split.loop.exit.i.i55.i.i
 
 108:                                              ; preds = %104, %98
-  %.sink100.i.i56.i.i = phi i64 [ 24, %98 ], [ 16, %104 ]
-  %109 = getelementptr inbounds nuw i8, ptr %.234.i.i46.i.i, i64 %.sink100.i.i56.i.i
+  %.sink97.i.i56.i.i = phi i64 [ 24, %98 ], [ 16, %104 ]
+  %109 = getelementptr inbounds nuw i8, ptr %.234.i.i46.i.i, i64 %.sink97.i.i56.i.i
   %110 = load ptr, ptr %109, align 8, !tbaa !3
   %111 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %110) #31
   %.pre.i57.i.i = load i16, ptr %111, align 8
@@ -30951,14 +30954,14 @@ _ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i: ; preds = %.sink.split.i.
 
 .split.loop.exit.i.i55.i.i:                       ; preds = %104
   %112 = trunc i32 %105 to i16
-  br label %.split.loop.exit94.i.i49.i.i
+  br label %.split.loop.exit91.i.i49.i.i
 
-.split.loop.exit91.i.i58.i.i:                     ; preds = %98
+.split.loop.exit88.i.i58.i.i:                     ; preds = %98
   %113 = trunc i32 %99 to i16
-  br label %.split.loop.exit94.i.i49.i.i
+  br label %.split.loop.exit91.i.i49.i.i
 
-.split.loop.exit94.i.i49.i.i:                     ; preds = %102, %.split.loop.exit91.i.i58.i.i, %.split.loop.exit.i.i55.i.i
-  %114 = phi i16 [ %112, %.split.loop.exit.i.i55.i.i ], [ %113, %.split.loop.exit91.i.i58.i.i ], [ %96, %102 ]
+.split.loop.exit91.i.i49.i.i:                     ; preds = %102, %.split.loop.exit88.i.i58.i.i, %.split.loop.exit.i.i55.i.i
+  %114 = phi i16 [ %112, %.split.loop.exit.i.i55.i.i ], [ %113, %.split.loop.exit88.i.i58.i.i ], [ %96, %102 ]
   %115 = and i16 %114, 511
   switch i16 %115, label %_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit61.i.i [
     i16 73, label %.sink.split.i.i50.i.i
@@ -30966,17 +30969,17 @@ _ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i: ; preds = %.sink.split.i.
     i16 119, label %.sink.split.i.i50.i.i
   ]
 
-116:                                              ; preds = %.split.loop.exit94.i.i49.i.i
+116:                                              ; preds = %.split.loop.exit91.i.i49.i.i
   br label %.sink.split.i.i50.i.i
 
-.sink.split.i.i50.i.i:                            ; preds = %116, %.split.loop.exit94.i.i49.i.i, %.split.loop.exit94.i.i49.i.i
-  %.sink102.i.i51.i.i = phi i64 [ 24, %116 ], [ 16, %.split.loop.exit94.i.i49.i.i ], [ 16, %.split.loop.exit94.i.i49.i.i ]
-  %117 = getelementptr inbounds nuw i8, ptr %.234.i.i46.i.i, i64 %.sink102.i.i51.i.i
+.sink.split.i.i50.i.i:                            ; preds = %116, %.split.loop.exit91.i.i49.i.i, %.split.loop.exit91.i.i49.i.i
+  %.sink99.i.i51.i.i = phi i64 [ 24, %116 ], [ 16, %.split.loop.exit91.i.i49.i.i ], [ 16, %.split.loop.exit91.i.i49.i.i ]
+  %117 = getelementptr inbounds nuw i8, ptr %.234.i.i46.i.i, i64 %.sink99.i.i51.i.i
   %118 = load ptr, ptr %117, align 8, !tbaa !61
   br label %_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit61.i.i
 
-_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit61.i.i: ; preds = %.sink.split.i.i50.i.i, %.split.loop.exit94.i.i49.i.i
-  %.1.i.i52.i.i = phi ptr [ null, %.split.loop.exit94.i.i49.i.i ], [ %118, %.sink.split.i.i50.i.i ]
+_ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit61.i.i: ; preds = %.sink.split.i.i50.i.i, %.split.loop.exit91.i.i49.i.i
+  %.1.i.i52.i.i = phi ptr [ null, %.split.loop.exit91.i.i49.i.i ], [ %118, %.sink.split.i.i50.i.i ]
   %119 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.028.i.i) #31
   %120 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %119) #31
   %121 = load i16, ptr %120, align 8
@@ -31010,24 +31013,24 @@ _ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit61.i.i: ; preds = %.sink.split.
   %132 = load i32, ptr %.234.i.i.i, align 8
   %133 = and i32 %132, 32505856
   %134 = icmp eq i32 %133, 0
-  br i1 %134, label %141, label %.split.loop.exit91.i.i.i, !llvm.loop !763
+  br i1 %134, label %141, label %.split.loop.exit88.i.i.i, !llvm.loop !763
 
 135:                                              ; preds = %.preheader.i.i.i
   %136 = and i16 %129, 511
-  %.not82.i.i.i = icmp eq i16 %136, 4
-  br i1 %.not82.i.i.i, label %137, label %.split.loop.exit94.i.i.i
+  %.not79.i.i.i = icmp eq i16 %136, 4
+  br i1 %.not79.i.i.i, label %137, label %.split.loop.exit91.i.i.i
 
 137:                                              ; preds = %135
   %138 = load i32, ptr %.234.i.i.i, align 8
   %139 = lshr i32 %138, 19
   %140 = and i32 %139, 31
   %.off.i.i.i = add nsw i32 %140, -4
-  %switch78.i.i.i = icmp ult i32 %.off.i.i.i, 3
-  br i1 %switch78.i.i.i, label %141, label %.split.loop.exit.i.i.i
+  %switch.i.i.i = icmp ult i32 %.off.i.i.i, 3
+  br i1 %switch.i.i.i, label %141, label %.split.loop.exit.i.i.i
 
 141:                                              ; preds = %137, %131
-  %.sink100.i.i.i = phi i64 [ 24, %131 ], [ 16, %137 ]
-  %142 = getelementptr inbounds nuw i8, ptr %.234.i.i.i, i64 %.sink100.i.i.i
+  %.sink97.i.i.i = phi i64 [ 24, %131 ], [ 16, %137 ]
+  %142 = getelementptr inbounds nuw i8, ptr %.234.i.i.i, i64 %.sink97.i.i.i
   %143 = load ptr, ptr %142, align 8, !tbaa !3
   %144 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %143) #31
   %.pre.i.i = load i16, ptr %144, align 8
@@ -31035,14 +31038,14 @@ _ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit61.i.i: ; preds = %.sink.split.
 
 .split.loop.exit.i.i.i:                           ; preds = %137
   %145 = trunc i32 %138 to i16
-  br label %.split.loop.exit94.i.i.i
+  br label %.split.loop.exit91.i.i.i
 
-.split.loop.exit91.i.i.i:                         ; preds = %131
+.split.loop.exit88.i.i.i:                         ; preds = %131
   %146 = trunc i32 %132 to i16
-  br label %.split.loop.exit94.i.i.i
+  br label %.split.loop.exit91.i.i.i
 
-.split.loop.exit94.i.i.i:                         ; preds = %135, %.split.loop.exit91.i.i.i, %.split.loop.exit.i.i.i
-  %147 = phi i16 [ %145, %.split.loop.exit.i.i.i ], [ %146, %.split.loop.exit91.i.i.i ], [ %129, %135 ]
+.split.loop.exit91.i.i.i:                         ; preds = %135, %.split.loop.exit88.i.i.i, %.split.loop.exit.i.i.i
+  %147 = phi i16 [ %145, %.split.loop.exit.i.i.i ], [ %146, %.split.loop.exit88.i.i.i ], [ %129, %135 ]
   %148 = and i16 %147, 511
   switch i16 %148, label %_ZL31computeOverflowPatternExclusionRKN5clang10ASTContextEPKNS_14BinaryOperatorE.exit [
     i16 73, label %_ZN5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i
@@ -31050,12 +31053,12 @@ _ZNK5clang4Expr25getReferencedDeclOfCalleeEv.exit61.i.i: ; preds = %.sink.split.
     i16 119, label %_ZN5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i
   ]
 
-149:                                              ; preds = %.split.loop.exit94.i.i.i
+149:                                              ; preds = %.split.loop.exit91.i.i.i
   br label %_ZN5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i
 
-_ZN5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i: ; preds = %149, %.split.loop.exit94.i.i.i, %.split.loop.exit94.i.i.i
-  %.sink102.i.i.i = phi i64 [ 24, %149 ], [ 16, %.split.loop.exit94.i.i.i ], [ 16, %.split.loop.exit94.i.i.i ]
-  %150 = getelementptr inbounds nuw i8, ptr %.234.i.i.i, i64 %.sink102.i.i.i
+_ZN5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i: ; preds = %149, %.split.loop.exit91.i.i.i, %.split.loop.exit91.i.i.i
+  %.sink99.i.i.i = phi i64 [ 24, %149 ], [ 16, %.split.loop.exit91.i.i.i ], [ 16, %.split.loop.exit91.i.i.i ]
+  %150 = getelementptr inbounds nuw i8, ptr %.234.i.i.i, i64 %.sink99.i.i.i
   %151 = load ptr, ptr %150, align 8, !tbaa !61
   %.not35.i.i = icmp eq ptr %151, null
   br i1 %.not35.i.i, label %_ZL31computeOverflowPatternExclusionRKN5clang10ASTContextEPKNS_14BinaryOperatorE.exit, label %152
@@ -31118,7 +31121,7 @@ _ZNRSt8optionalIPN5clang14BinaryOperatorEE5valueEv.exit10.i: ; preds = %172, %16
   store i32 %180, ptr %.0.i.i, align 8
   br label %_ZL31computeOverflowPatternExclusionRKN5clang10ASTContextEPKNS_14BinaryOperatorE.exit
 
-_ZL31computeOverflowPatternExclusionRKN5clang10ASTContextEPKNS_14BinaryOperatorE.exit: ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit, %38, %41, %45, %.split.loop.exit94.i.i.i, %_ZN5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i, %152, %155, %_ZNK5clang11LangOptions25isOverflowPatternExcludedENS_15LangOptionsBase28OverflowPatternExclusionKindE.exit.thread27.i, %172, %_ZNRSt8optionalIPN5clang14BinaryOperatorEE5valueEv.exit10.i
+_ZL31computeOverflowPatternExclusionRKN5clang10ASTContextEPKNS_14BinaryOperatorE.exit: ; preds = %_ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObjectKindE.exit, %38, %41, %45, %.split.loop.exit91.i.i.i, %_ZN5clang4Expr25getReferencedDeclOfCalleeEv.exit.i.i, %152, %155, %_ZNK5clang11LangOptions25isOverflowPatternExcludedENS_15LangOptionsBase28OverflowPatternExclusionKindE.exit.thread27.i, %172, %_ZNRSt8optionalIPN5clang14BinaryOperatorEE5valueEv.exit10.i
   %.not = icmp ult i64 %9, 4294967296
   %181 = load i32, ptr %0, align 8
   %182 = select i1 %.not, i32 0, i32 33554432
@@ -31669,8 +31672,8 @@ define dso_local noundef ptr @_ZN5clang15OpaqueValueExpr19findInCopyConstructEPK
   %8 = phi i16 [ %.pre, %4 ], [ %2, %1 ]
   %.011 = phi ptr [ %6, %4 ], [ %0, %1 ]
   %9 = and i16 %8, 511
-  %.not25 = icmp eq i16 %9, 50
-  br i1 %.not25, label %10, label %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit
+  %.not24 = icmp eq i16 %9, 50
+  br i1 %.not24, label %10, label %_ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %.011, i64 16
@@ -31702,9 +31705,9 @@ _ZNK5clang24MaterializeTemporaryExpr10getSubExprEv.exit: ; preds = %16, %10, %7
   %.2 = load ptr, ptr %.2.in, align 8, !tbaa !61
   %24 = load i16, ptr %.2, align 8
   %25 = and i16 %24, 511
-  %.not27 = icmp eq i16 %25, 81
+  %.not26 = icmp eq i16 %25, 81
   %26 = getelementptr inbounds nuw i8, ptr %.2, i64 16
-  br i1 %.not27, label %23, label %27
+  br i1 %.not26, label %23, label %27
 
 27:                                               ; preds = %23
   ret ptr %.2
@@ -31932,9 +31935,9 @@ define dso_local void @_ZN5clang24UnaryExprOrTypeTraitExpr8childrenEv(ptr dead_o
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.010.i)
   %3 = load i24, ptr %1, align 8, !noalias !1024
   %4 = and i24 %3, 4194304
-  %.not21.i = icmp eq i24 %4, 0
+  %.not20.i = icmp eq i24 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %.not21.i, label %15, label %6
+  br i1 %.not20.i, label %15, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %5, align 8, !tbaa !25, !noalias !1024
@@ -31945,8 +31948,8 @@ define dso_local void @_ZN5clang24UnaryExprOrTypeTraitExpr8childrenEv(ptr dead_o
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 16, !noalias !1024
   %13 = icmp ne i8 %12, 6
-  %.not.not22.i = icmp eq ptr %10, null
-  %.not.not.i = or i1 %.not.not22.i, %13
+  %.not.not21.i = icmp eq ptr %10, null
+  %.not.not.i = or i1 %.not.not21.i, %13
   br i1 %.not.not.i, label %_ZNK5clang24UnaryExprOrTypeTraitExpr8childrenEv.exit, label %14
 
 14:                                               ; preds = %6
@@ -31985,9 +31988,9 @@ define dso_local void @_ZNK5clang24UnaryExprOrTypeTraitExpr8childrenEv(ptr dead_
   %.sroa.010 = alloca %"class.clang::StmtIteratorBase", align 8
   %3 = load i24, ptr %1, align 8
   %4 = and i24 %3, 4194304
-  %.not21 = icmp eq i24 %4, 0
+  %.not20 = icmp eq i24 %4, 0
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br i1 %.not21, label %17, label %6
+  br i1 %.not20, label %17, label %6
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %5, align 8, !tbaa !25
@@ -31998,8 +32001,8 @@ define dso_local void @_ZNK5clang24UnaryExprOrTypeTraitExpr8childrenEv(ptr dead_
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i8, ptr %11, align 16
   %13 = icmp ne i8 %12, 6
-  %.not.not22 = icmp eq ptr %10, null
-  %.not.not = or i1 %.not.not22, %13
+  %.not.not21 = icmp eq ptr %10, null
+  %.not.not = or i1 %.not.not21, %13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br i1 %.not.not, label %16, label %15
 
@@ -32187,7 +32190,7 @@ define dso_local i64 @_ZN5clang16ArraySectionExpr19getBaseOriginalTypeEPKNS_4Exp
   %9 = load i32, ptr %.068.i.i.i, align 8
   %10 = and i32 %9, 16252928
   %11 = icmp eq i32 %10, 6291456
-  br i1 %11, label %12, label %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit98
+  br i1 %11, label %12, label %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit96
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 16
@@ -32218,8 +32221,8 @@ define dso_local i64 @_ZN5clang16ArraySectionExpr19getBaseOriginalTypeEPKNS_4Exp
   %31 = load ptr, ptr %30, align 8, !tbaa !3
   %32 = load i24, ptr %31, align 8
   %33 = and i24 %32, 196608
-  %.not73.i.i.i = icmp eq i24 %33, 0
-  br i1 %.not73.i.i.i, label %34, label %_ZNK5clang4Expr12IgnoreParensEv.exit
+  %.not70.i.i.i = icmp eq i24 %33, 0
+  br i1 %.not70.i.i.i, label %34, label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %.068.i.i.i, i64 48
@@ -32258,13 +32261,13 @@ _ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit: ; preds = %43
   %48 = trunc i32 %44 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
-_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit98: ; preds = %8
+_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit96: ; preds = %8
   %49 = trunc i32 %9 to i16
   br label %_ZNK5clang4Expr12IgnoreParensEv.exit
 
-_ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %29, %15, %.lr.ph.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit98, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge
-  %50 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %48, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %49, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit98 ], [ %3, %.lr.ph.i.i.i ], [ %3, %15 ], [ %3, %29 ]
-  %.1.i3.i.i = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit98 ], [ %.068.i.i.i, %.lr.ph.i.i.i ], [ %.068.i.i.i, %15 ], [ %.068.i.i.i, %29 ]
+_ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %29, %15, %.lr.ph.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit96, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge
+  %50 = phi i16 [ %.pre, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %48, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %49, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit96 ], [ %3, %.lr.ph.i.i.i ], [ %3, %15 ], [ %3, %29 ]
+  %.1.i3.i.i = phi ptr [ %.1.i.i.i, %_ZN5clang22IgnoreParensSingleStepEPNS_4ExprE.exit.i.i._ZNK5clang4Expr12IgnoreParensEv.exit_crit_edge ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit ], [ %.068.i.i.i, %_ZNK5clang4Expr12IgnoreParensEv.exit.loopexit.split.loop.exit96 ], [ %.068.i.i.i, %.lr.ph.i.i.i ], [ %.068.i.i.i, %15 ], [ %.068.i.i.i, %29 ]
   %51 = and i16 %50, 511
   %.not = icmp eq i16 %51, 126
   br i1 %.not, label %52, label %.preheader
@@ -32279,12 +32282,12 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %29, %15, %.lr.ph.i.
   %56 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.0) #31
   %57 = load i16, ptr %56, align 8
   %58 = and i16 %57, 511
-  %.not6771 = icmp eq i16 %58, 125
-  br i1 %.not6771, label %.lr.ph, label %._crit_edge
+  %.not6569 = icmp eq i16 %58, 125
+  br i1 %.not6569, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %96
   %59 = phi ptr [ %99, %96 ], [ %56, %.preheader ]
-  %.22472 = phi i32 [ %98, %96 ], [ %.022, %.preheader ]
+  %.22470 = phi i32 [ %98, %96 ], [ %.022, %.preheader ]
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %61 = load ptr, ptr %60, align 8, !tbaa !3
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -32300,13 +32303,13 @@ _ZNK5clang4Expr12IgnoreParensEv.exit:             ; preds = %29, %15, %.lr.ph.i.
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load i8, ptr %70, align 16
   %72 = icmp ne i8 %71, 13
-  %.not.not24.i.i.i = icmp eq ptr %69, null
-  %.not.not.i.i.i = or i1 %.not.not24.i.i.i, %72
+  %.not.not21.i.i.i = icmp eq ptr %69, null
+  %.not.not.i.i.i = or i1 %.not.not21.i.i.i, %72
   br i1 %.not.not.i.i.i, label %73, label %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i
 
 73:                                               ; preds = %.lr.ph
   %74 = icmp ne i8 %71, 46
-  %.not13.not.i.i.i = or i1 %.not.not24.i.i.i, %74
+  %.not13.not.i.i.i = or i1 %.not.not21.i.i.i, %74
   br i1 %.not13.not.i.i.i, label %88, label %75
 
 75:                                               ; preds = %73
@@ -32337,8 +32340,8 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %.lr.ph
   %91 = lshr i32 %90, 19
   %92 = and i32 %91, 511
   %93 = add nsw i32 %92, -435
-  %spec.select.i.i.i41 = icmp ult i32 %93, 20
-  br i1 %spec.select.i.i.i41, label %94, label %96
+  %spec.select.i.i.i40 = icmp ult i32 %93, 20
+  br i1 %spec.select.i.i.i40, label %94, label %96
 
 94:                                               ; preds = %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %88, %83
   %95 = getelementptr inbounds nuw i8, ptr %59, i64 16
@@ -32347,12 +32350,12 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %.lr.ph
 96:                                               ; preds = %94, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i, %88, %83, %75
   %.in.i = phi ptr [ %95, %94 ], [ %60, %75 ], [ %60, %83 ], [ %60, %88 ], [ %60, %_ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i ]
   %97 = load ptr, ptr %.in.i, align 8, !tbaa !3
-  %98 = add i32 %.22472, 1
+  %98 = add i32 %.22470, 1
   %99 = tail call noundef ptr @_ZN5clang4Expr19IgnoreParenImpCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %97) #31
   %100 = load i16, ptr %99, align 8
   %101 = and i16 %100, 511
-  %.not67 = icmp eq i16 %101, 125
-  br i1 %.not67, label %.lr.ph, label %._crit_edge
+  %.not65 = icmp eq i16 %101, 125
+  br i1 %.not65, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %96, %.preheader
   %.224.lcssa = phi i32 [ %.022, %.preheader ], [ %98, %96 ]
@@ -32362,8 +32365,8 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %.lr.ph
   %.sroa.0.0.copyload.i = load i64, ptr %103, align 8, !tbaa !25
   %104 = load i16, ptr %102, align 8
   %105 = and i16 %104, 511
-  %.not69 = icmp eq i16 %105, 73
-  br i1 %.not69, label %106, label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit
+  %.not67 = icmp eq i16 %105, 73
+  br i1 %.not67, label %106, label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit
 
 106:                                              ; preds = %._crit_edge
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 16
@@ -32372,8 +32375,8 @@ _ZNK5clang18ArraySubscriptExpr9lhsIsBaseEv.exit.i: ; preds = %.lr.ph
   %110 = load i32, ptr %109, align 4
   %111 = and i32 %110, 127
   %112 = icmp ne i32 %111, 41
-  %.not3670 = icmp eq ptr %108, null
-  %.not36 = or i1 %.not3670, %112
+  %.not3668 = icmp eq ptr %108, null
+  %.not36 = or i1 %.not3668, %112
   br i1 %.not36, label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, label %113
 
 113:                                              ; preds = %106
@@ -32413,7 +32416,7 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br i1 %.not4.i.i, label %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
-  %.05.i.i = phi ptr [ %.1.i.i.i44, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ], [ %.1.i8.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i ]
+  %.05.i.i = phi ptr [ %.1.i.i.i43, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ], [ %.1.i8.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i ]
   %133 = getelementptr inbounds nuw i8, ptr %.05.i.i, i64 32
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %133, align 8
   %134 = and i64 %.0.copyload.i.i.i.i.i.i.i, -16
@@ -32430,33 +32433,33 @@ _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i: ; preds = %_ZNK
   br label %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i
 
 _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %140, %.lr.ph.i.i
-  %.1.i.i.i44 = phi ptr [ %141, %140 ], [ %136, %.lr.ph.i.i ]
-  %142 = getelementptr inbounds nuw i8, ptr %.1.i.i.i44, i64 16
+  %.1.i.i.i43 = phi ptr [ %141, %140 ], [ %136, %.lr.ph.i.i ]
+  %142 = getelementptr inbounds nuw i8, ptr %.1.i.i.i43, i64 16
   %143 = load i24, ptr %142, align 16
   %144 = and i24 %143, 1048576
   %.not.i.i = icmp eq i24 %144, 0
   br i1 %.not.i.i, label %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, label %.lr.ph.i.i, !llvm.loop !1032
 
 _ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i: ; preds = %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i
-  %.0.lcssa.i.i = phi ptr [ %.1.i8.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i ], [ %.1.i.i.i44, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ]
+  %.0.lcssa.i.i = phi ptr [ %.1.i8.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i ], [ %.1.i.i.i43, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ]
   %145 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i, i64 32
   %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i = load i64, ptr %145, align 8, !tbaa !25
   br label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit
 
 _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i, %121, %106, %._crit_edge
-  %.sroa.053.0 = phi i64 [ %.sroa.0.0.copyload.i, %._crit_edge ], [ %.sroa.0.0.copyload.i, %106 ], [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ], [ %114, %121 ], [ %114, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ]
-  %.not3774.not = icmp eq i32 %.224.lcssa, 0
-  br i1 %.not3774.not, label %.critedge, label %.lr.ph77
+  %.sroa.052.0 = phi i64 [ %.sroa.0.0.copyload.i, %._crit_edge ], [ %.sroa.0.0.copyload.i, %106 ], [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i ], [ %114, %121 ], [ %114, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i ]
+  %.not3772.not = icmp eq i32 %.224.lcssa, 0
+  br i1 %.not3772.not, label %.critedge, label %.lr.ph75
 
-.lr.ph77:                                         ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %167
-  %.02676 = phi i32 [ %168, %167 ], [ 0, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
-  %.sroa.053.175 = phi i64 [ %storemerge, %167 ], [ %.sroa.053.0, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
-  %146 = and i64 %.sroa.053.175, -16
+.lr.ph75:                                         ; preds = %_ZNK5clang8QualType19getNonReferenceTypeEv.exit, %167
+  %.02674 = phi i32 [ %168, %167 ], [ 0, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
+  %.sroa.052.173 = phi i64 [ %storemerge, %167 ], [ %.sroa.052.0, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ]
+  %146 = and i64 %.sroa.052.173, -16
   %147 = inttoptr i64 %146 to ptr
   %148 = load ptr, ptr %147, align 16, !tbaa !26
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
-  %.sroa.0.0.copyload.i.i.i.i.i45 = load i64, ptr %149, align 8, !tbaa !25
-  %150 = and i64 %.sroa.0.0.copyload.i.i.i.i.i45, -16
+  %.sroa.0.0.copyload.i.i.i.i.i44 = load i64, ptr %149, align 8, !tbaa !25
+  %150 = and i64 %.sroa.0.0.copyload.i.i.i.i.i44, -16
   %151 = inttoptr i64 %150 to ptr
   %152 = load ptr, ptr %151, align 16, !tbaa !26
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 16
@@ -32465,11 +32468,11 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %_ZNK5clang13Referen
   %spec.select.i = icmp eq i8 %155, 33
   br i1 %spec.select.i, label %156, label %158
 
-156:                                              ; preds = %.lr.ph77
+156:                                              ; preds = %.lr.ph75
   %157 = tail call i64 @_ZNK5clang4Type14getPointeeTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %148) #32
   br label %167
 
-158:                                              ; preds = %.lr.ph77
+158:                                              ; preds = %.lr.ph75
   %159 = add i8 %154, -2
   %switch.i.i.i.i.i.i.i.i.i = icmp ult i8 %159, 5
   br i1 %switch.i.i.i.i.i.i.i.i.i, label %160, label %.critedge
@@ -32478,8 +32481,8 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %_ZNK5clang13Referen
   %161 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %162 = load i8, ptr %161, align 16
   %163 = add i8 %162, -7
-  %switch.i.i.i.i.i.i.i.i.i49 = icmp ult i8 %163, -5
-  br i1 %switch.i.i.i.i.i.i.i.i.i49, label %164, label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit
+  %switch.i.i.i.i.i.i.i.i.i48 = icmp ult i8 %163, -5
+  br i1 %switch.i.i.i.i.i.i.i.i.i48, label %164, label %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit
 
 164:                                              ; preds = %160
   %165 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %148) #32
@@ -32488,18 +32491,18 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit:  ; preds = %_ZNK5clang13Referen
 _ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit:    ; preds = %160, %164
   %.1.i = phi ptr [ %165, %164 ], [ %148, %160 ]
   %166 = getelementptr inbounds nuw i8, ptr %.1.i, i64 32
-  %.sroa.0.0.copyload.i50 = load i64, ptr %166, align 16, !tbaa !25
+  %.sroa.0.0.copyload.i49 = load i64, ptr %166, align 16, !tbaa !25
   br label %167
 
 167:                                              ; preds = %156, %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit
-  %storemerge = phi i64 [ %.sroa.0.0.copyload.i50, %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit ], [ %157, %156 ]
-  %168 = add nuw i32 %.02676, 1
+  %storemerge = phi i64 [ %.sroa.0.0.copyload.i49, %_ZNK5clang4Type21castAsArrayTypeUnsafeEv.exit ], [ %157, %156 ]
+  %168 = add nuw i32 %.02674, 1
   %exitcond.not = icmp eq i32 %168, %.224.lcssa
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph77, !llvm.loop !1033
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph75, !llvm.loop !1033
 
 .critedge:                                        ; preds = %158, %167, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit
-  %.sroa.058.0 = phi i64 [ %.sroa.053.0, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ], [ %storemerge, %167 ], [ 0, %158 ]
-  ret i64 %.sroa.058.0
+  %.sroa.057.0 = phi i64 [ %.sroa.052.0, %_ZNK5clang8QualType19getNonReferenceTypeEv.exit ], [ %storemerge, %167 ], [ 0, %158 ]
+  ret i64 %.sroa.057.0
 }
 
 declare i64 @_ZNK5clang11ParmVarDecl15getOriginalTypeEv(ptr noundef nonnull align 8 dereferenceable(104)) local_unnamed_addr #3
@@ -33747,8 +33750,8 @@ define internal range(i64 0, 8589934592) i64 @"_ZZN5clang24SYCLUniqueStableNameE
   %5 = and i32 %4, 127
   %6 = add nsw i32 %5, -60
   %7 = icmp ult i32 %6, -3
-  %.not.not5.i = icmp eq ptr %1, null
-  %.not.not.i = or i1 %.not.not5.i, %7
+  %.not.not4.i = icmp eq ptr %1, null
+  %.not.not.i = or i1 %.not.not4.i, %7
   br i1 %.not.not.i, label %"_ZZN5clang24SYCLUniqueStableNameExpr11ComputeNameB5cxx11ERNS_10ASTContextENS_8QualTypeEENK3$_0clES2_PKNS_9NamedDeclE.exit", label %8
 
 8:                                                ; preds = %2
@@ -33757,9 +33760,9 @@ define internal range(i64 0, 8589934592) i64 @"_ZZN5clang24SYCLUniqueStableNameE
   br label %"_ZZN5clang24SYCLUniqueStableNameExpr11ComputeNameB5cxx11ERNS_10ASTContextENS_8QualTypeEENK3$_0clES2_PKNS_9NamedDeclE.exit"
 
 "_ZZN5clang24SYCLUniqueStableNameExpr11ComputeNameB5cxx11ERNS_10ASTContextENS_8QualTypeEENK3$_0clES2_PKNS_9NamedDeclE.exit": ; preds = %2, %8
-  %.sroa.0.03.i = phi i64 [ %10, %8 ], [ 0, %2 ]
+  %.sroa.0.02.i = phi i64 [ %10, %8 ], [ 0, %2 ]
   %.sroa.2.1.i = phi i64 [ 4294967296, %8 ], [ 0, %2 ]
-  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.1.i, %.sroa.0.03.i
+  %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.1.i, %.sroa.0.02.i
   ret i64 %.sroa.0.0.insert.insert.i
 }
 
@@ -34777,8 +34780,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42
@@ -34815,7 +34818,7 @@ define linkonce_odr hidden i64 @_ZNK5clang16PackIndexingExpr16getSelectedIndexEv
   %4 = load i24, ptr %0, align 8
   %5 = and i24 %4, 32768
   %.not = icmp eq i24 %5, 0
-  br i1 %.not, label %6, label %62
+  br i1 %.not, label %6, label %63
 
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -34825,117 +34828,117 @@ define linkonce_odr hidden i64 @_ZNK5clang16PackIndexingExpr16getSelectedIndexEv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = load i32, ptr %8, align 8, !noalias !1167
   %10 = and i32 %9, 1572864
-  %switch.i = icmp eq i32 %10, 1048576
-  br i1 %switch.i, label %11, label %23
+  %11 = icmp eq i32 %10, 1048576
+  br i1 %11, label %12, label %24
 
-11:                                               ; preds = %6
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %15 = load i32, ptr %14, align 8, !tbaa !150, !noalias !1167
-  store i32 %15, ptr %13, align 8, !tbaa !150, !alias.scope !1167
-  %16 = icmp ult i32 %15, 65
-  br i1 %16, label %17, label %19
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %14 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %15 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  %16 = load i32, ptr %15, align 8, !tbaa !150, !noalias !1167
+  store i32 %16, ptr %14, align 8, !tbaa !150, !alias.scope !1167
+  %17 = icmp ult i32 %16, 65
+  br i1 %17, label %18, label %20
 
-17:                                               ; preds = %11
-  %18 = load i64, ptr %12, align 8, !tbaa !25, !noalias !1167
-  store i64 %18, ptr %3, align 8, !tbaa !25, !alias.scope !1167
+18:                                               ; preds = %12
+  %19 = load i64, ptr %13, align 8, !tbaa !25, !noalias !1167
+  store i64 %19, ptr %3, align 8, !tbaa !25, !alias.scope !1167
   br label %_ZN4llvm6APSIntC2ERKS0_.exit.i
 
-19:                                               ; preds = %11
-  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %12) #32
-  %.pre.pre = load i32, ptr %13, align 8, !tbaa !150
+20:                                               ; preds = %12
+  call void @_ZN4llvm5APInt12initSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %13) #32
+  %.pre.pre = load i32, ptr %14, align 8, !tbaa !150
   br label %_ZN4llvm6APSIntC2ERKS0_.exit.i
 
-_ZN4llvm6APSIntC2ERKS0_.exit.i:                   ; preds = %19, %17
-  %.pre = phi i32 [ %.pre.pre, %19 ], [ %15, %17 ]
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %21 = getelementptr inbounds nuw i8, ptr %8, i64 44
-  %22 = load i8, ptr %21, align 4, !tbaa !168, !range !42, !noalias !1167, !noundef !43
-  store i8 %22, ptr %20, align 4, !tbaa !168, !alias.scope !1167
+_ZN4llvm6APSIntC2ERKS0_.exit.i:                   ; preds = %20, %18
+  %.pre = phi i32 [ %.pre.pre, %20 ], [ %16, %18 ]
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %22 = getelementptr inbounds nuw i8, ptr %8, i64 44
+  %23 = load i8, ptr %22, align 4, !tbaa !168, !range !42, !noalias !1167, !noundef !43
+  store i8 %23, ptr %21, align 4, !tbaa !168, !alias.scope !1167
   br label %_ZNK5clang12ConstantExpr17getResultAsAPSIntEv.exit
 
-23:                                               ; preds = %6
-  %24 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %25 = load i16, ptr %24, align 4, !noalias !1167
-  %26 = and i16 %25, 127
-  %27 = zext nneg i16 %26 to i32
-  %28 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %29 = load i64, ptr %28, align 8, !tbaa !167, !noalias !1167
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %27, ptr %30, align 8, !tbaa !150, !noalias !1167
-  %31 = icmp samesign ult i16 %26, 65
-  br i1 %31, label %_ZN4llvm5APIntD2Ev.exit.i, label %32
+24:                                               ; preds = %6
+  %25 = getelementptr inbounds nuw i8, ptr %8, i64 4
+  %26 = load i16, ptr %25, align 4, !noalias !1167
+  %27 = and i16 %26, 127
+  %28 = zext nneg i16 %27 to i32
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %30 = load i64, ptr %29, align 8, !tbaa !167, !noalias !1167
+  %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %28, ptr %31, align 8, !tbaa !150, !noalias !1167
+  %32 = icmp samesign ult i16 %27, 65
+  br i1 %32, label %_ZN4llvm5APIntD2Ev.exit.i, label %33
 
-32:                                               ; preds = %23
-  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %29, i1 noundef zeroext false) #32, !noalias !1167
+33:                                               ; preds = %24
+  call void @_ZN4llvm5APInt12initSlowCaseEmb(ptr noundef nonnull align 8 dereferenceable(12) %2, i64 noundef %30, i1 noundef zeroext false) #32, !noalias !1167
   %.pre.i = load i32, ptr %8, align 8, !noalias !1167
-  %.pre1.i = load i32, ptr %30, align 8, !tbaa !150, !noalias !1167
+  %.pre1.i = load i32, ptr %31, align 8, !tbaa !150, !noalias !1167
   %.pre2.i = load i64, ptr %2, align 8, !noalias !1167
   br label %_ZN4llvm5APIntD2Ev.exit.i
 
-_ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %32, %23
-  %33 = phi i64 [ %.pre2.i, %32 ], [ %29, %23 ]
-  %34 = phi i32 [ %.pre1.i, %32 ], [ %27, %23 ]
-  %35 = phi i32 [ %.pre.i, %32 ], [ %9, %23 ]
-  %36 = lshr i32 %35, 25
-  %37 = trunc nuw nsw i32 %36 to i8
-  %38 = and i8 %37, 1
-  %39 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %34, ptr %39, align 8, !tbaa !150, !alias.scope !1167
-  store i64 %33, ptr %3, align 8, !alias.scope !1167
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  store i8 %38, ptr %40, align 4, !tbaa !168, !alias.scope !1167
+_ZN4llvm5APIntD2Ev.exit.i:                        ; preds = %33, %24
+  %34 = phi i64 [ %.pre2.i, %33 ], [ %30, %24 ]
+  %35 = phi i32 [ %.pre1.i, %33 ], [ %28, %24 ]
+  %36 = phi i32 [ %.pre.i, %33 ], [ %9, %24 ]
+  %37 = lshr i32 %36, 25
+  %38 = trunc nuw nsw i32 %37 to i8
+  %39 = and i8 %38, 1
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 %35, ptr %40, align 8, !tbaa !150, !alias.scope !1167
+  store i64 %34, ptr %3, align 8, !alias.scope !1167
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  store i8 %39, ptr %41, align 4, !tbaa !168, !alias.scope !1167
   br label %_ZNK5clang12ConstantExpr17getResultAsAPSIntEv.exit
 
 _ZNK5clang12ConstantExpr17getResultAsAPSIntEv.exit: ; preds = %_ZN4llvm6APSIntC2ERKS0_.exit.i, %_ZN4llvm5APIntD2Ev.exit.i
-  %41 = phi i32 [ %.pre, %_ZN4llvm6APSIntC2ERKS0_.exit.i ], [ %34, %_ZN4llvm5APIntD2Ev.exit.i ]
-  %42 = phi i8 [ %22, %_ZN4llvm6APSIntC2ERKS0_.exit.i ], [ %38, %_ZN4llvm5APIntD2Ev.exit.i ]
+  %42 = phi i32 [ %.pre, %_ZN4llvm6APSIntC2ERKS0_.exit.i ], [ %35, %_ZN4llvm5APIntD2Ev.exit.i ]
+  %43 = phi i8 [ %23, %_ZN4llvm6APSIntC2ERKS0_.exit.i ], [ %39, %_ZN4llvm5APIntD2Ev.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %43 = trunc nuw i8 %42 to i1
-  %44 = icmp ult i32 %41, 65
-  br i1 %43, label %_ZNK4llvm6APSInt11getExtValueEv.exit, label %45
+  %44 = trunc nuw i8 %43 to i1
+  %45 = icmp ult i32 %42, 65
+  br i1 %44, label %_ZNK4llvm6APSInt11getExtValueEv.exit, label %46
 
-45:                                               ; preds = %_ZNK5clang12ConstantExpr17getResultAsAPSIntEv.exit
-  br i1 %44, label %_ZNK4llvm6APSInt11getExtValueEv.exit.thread2, label %.thread
+46:                                               ; preds = %_ZNK5clang12ConstantExpr17getResultAsAPSIntEv.exit
+  br i1 %45, label %_ZNK4llvm6APSInt11getExtValueEv.exit.thread2, label %.thread
 
-_ZNK4llvm6APSInt11getExtValueEv.exit.thread2:     ; preds = %45
-  %46 = load i64, ptr %3, align 8, !tbaa !25
-  %47 = icmp eq i32 %41, 0
-  %48 = sub nuw nsw i32 64, %41
-  %49 = zext nneg i32 %48 to i64
-  %50 = shl i64 %46, %49
-  %51 = ashr exact i64 %50, %49
-  %52 = select i1 %47, i64 0, i64 %51
+_ZNK4llvm6APSInt11getExtValueEv.exit.thread2:     ; preds = %46
+  %47 = load i64, ptr %3, align 8, !tbaa !25
+  %48 = icmp eq i32 %42, 0
+  %49 = sub nuw nsw i32 64, %42
+  %50 = zext nneg i32 %49 to i64
+  %51 = shl i64 %47, %50
+  %52 = ashr exact i64 %51, %50
+  %53 = select i1 %48, i64 0, i64 %52
   br label %_ZN4llvm5APIntD2Ev.exit
 
-.thread:                                          ; preds = %45
-  %53 = load ptr, ptr %3, align 8, !tbaa !25
-  %54 = load i64, ptr %53, align 8, !tbaa !167
-  br label %57
+.thread:                                          ; preds = %46
+  %54 = load ptr, ptr %3, align 8, !tbaa !25
+  %55 = load i64, ptr %54, align 8, !tbaa !167
+  br label %58
 
 _ZNK4llvm6APSInt11getExtValueEv.exit:             ; preds = %_ZNK5clang12ConstantExpr17getResultAsAPSIntEv.exit
-  %55 = load ptr, ptr %3, align 8
-  %.0.in.i.i = select i1 %44, ptr %3, ptr %55
+  %56 = load ptr, ptr %3, align 8
+  %.0.in.i.i = select i1 %45, ptr %3, ptr %56
   %.0.i1.i = load i64, ptr %.0.in.i.i, align 8, !tbaa !25
-  %56 = icmp eq ptr %55, null
-  %or.cond = select i1 %44, i1 true, i1 %56
-  br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %57
+  %57 = icmp eq ptr %56, null
+  %or.cond = select i1 %45, i1 true, i1 %57
+  br i1 %or.cond, label %_ZN4llvm5APIntD2Ev.exit, label %58
 
-57:                                               ; preds = %_ZNK4llvm6APSInt11getExtValueEv.exit, %.thread
-  %58 = phi i64 [ %54, %.thread ], [ %.0.i1.i, %_ZNK4llvm6APSInt11getExtValueEv.exit ]
-  %59 = phi ptr [ %53, %.thread ], [ %55, %_ZNK4llvm6APSInt11getExtValueEv.exit ]
-  call void @_ZdaPv(ptr noundef nonnull %59) #34
+58:                                               ; preds = %_ZNK4llvm6APSInt11getExtValueEv.exit, %.thread
+  %59 = phi i64 [ %55, %.thread ], [ %.0.i1.i, %_ZNK4llvm6APSInt11getExtValueEv.exit ]
+  %60 = phi ptr [ %54, %.thread ], [ %56, %_ZNK4llvm6APSInt11getExtValueEv.exit ]
+  call void @_ZdaPv(ptr noundef nonnull %60) #34
   br label %_ZN4llvm5APIntD2Ev.exit
 
-_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm6APSInt11getExtValueEv.exit.thread2, %_ZNK4llvm6APSInt11getExtValueEv.exit, %57
-  %60 = phi i64 [ %.0.i1.i, %_ZNK4llvm6APSInt11getExtValueEv.exit ], [ %58, %57 ], [ %52, %_ZNK4llvm6APSInt11getExtValueEv.exit.thread2 ]
+_ZN4llvm5APIntD2Ev.exit:                          ; preds = %_ZNK4llvm6APSInt11getExtValueEv.exit.thread2, %_ZNK4llvm6APSInt11getExtValueEv.exit, %58
+  %61 = phi i64 [ %.0.i1.i, %_ZNK4llvm6APSInt11getExtValueEv.exit ], [ %59, %58 ], [ %53, %_ZNK4llvm6APSInt11getExtValueEv.exit.thread2 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %61 = and i64 %60, 4294967295
-  br label %62
+  %62 = and i64 %61, 4294967295
+  br label %63
 
-62:                                               ; preds = %1, %_ZN4llvm5APIntD2Ev.exit
-  %.sroa.0.0 = phi i64 [ %61, %_ZN4llvm5APIntD2Ev.exit ], [ 0, %1 ]
+63:                                               ; preds = %1, %_ZN4llvm5APIntD2Ev.exit
+  %.sroa.0.0 = phi i64 [ %62, %_ZN4llvm5APIntD2Ev.exit ], [ 0, %1 ]
   %.sroa.2.0 = phi i64 [ 4294967296, %_ZN4llvm5APIntD2Ev.exit ], [ 0, %1 ]
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.2.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert
@@ -35226,8 +35229,8 @@ define linkonce_odr hidden i32 @_ZNK5clang17MSPropertyRefExpr11getBeginLocEv(ptr
 17:                                               ; preds = %9, %.preheader.i
   %18 = phi i16 [ %13, %9 ], [ %4, %.preheader.i ]
   %19 = and i16 %18, 511
-  %.not75.i.i = icmp eq i16 %19, 4
-  br i1 %.not75.i.i, label %20, label %28
+  %.not68.i.i = icmp eq i16 %19, 4
+  br i1 %.not68.i.i, label %20, label %28
 
 20:                                               ; preds = %17
   %21 = load i32, ptr %.026.i.i, align 8
@@ -35348,8 +35351,8 @@ define linkonce_odr hidden i32 @_ZNK5clang27CXXDependentScopeMemberExpr11getBegi
 18:                                               ; preds = %10, %.preheader.i
   %19 = phi i16 [ %14, %10 ], [ %5, %.preheader.i ]
   %20 = and i16 %19, 511
-  %.not75.i.i = icmp eq i16 %20, 4
-  br i1 %.not75.i.i, label %21, label %29
+  %.not68.i.i = icmp eq i16 %20, 4
+  br i1 %.not68.i.i, label %21, label %29
 
 21:                                               ; preds = %18
   %22 = load i32, ptr %.026.i.i, align 8
@@ -36040,8 +36043,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_120NonTrivialCallFinder25VisitCXXBi
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 82
   %8 = load i32, ptr %7, align 2
   %9 = and i32 %8, 128
-  %.not8 = icmp eq i32 %9, 0
-  br i1 %.not8, label %11, label %10
+  %.not7 = icmp eq i32 %9, 0
+  br i1 %.not7, label %11, label %10
 
 10:                                               ; preds = %6
   tail call fastcc void @_ZN5clang24EvaluatedExprVisitorBaseIN4llvm14make_const_ptrEN12_GLOBAL__N_120NonTrivialCallFinderEE9VisitStmtEPKNS_4StmtE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %1)

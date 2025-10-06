@@ -4229,11 +4229,11 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i.i: ; preds = %_ZNK6vectorIjLb0EjE
   br label %.thread7.sink.split.i
 
 .thread7.sink.split.i:                            ; preds = %.lr.ph.preheader.i.i.i, %83, %_ZNK8uint_set8containsEj.exit.i
-  %.sink20.i = phi ptr [ %68, %_ZNK8uint_set8containsEj.exit.i ], [ %79, %.lr.ph.preheader.i.i.i ], [ %79, %83 ]
+  %.sink18.i = phi ptr [ %68, %_ZNK8uint_set8containsEj.exit.i ], [ %79, %.lr.ph.preheader.i.i.i ], [ %79, %83 ]
   %90 = and i32 %65, 31
   %91 = shl nuw i32 1, %90
   %92 = zext nneg i32 %67 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %.sink20.i, i64 %92
+  %93 = getelementptr inbounds nuw i32, ptr %.sink18.i, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !9
   %95 = or i32 %94, %91
   store i32 %95, ptr %93, align 4, !tbaa !9
@@ -5227,7 +5227,7 @@ _ZNK8uint_set8containsEj.exit:                    ; preds = %_ZNK6vectorIjLb0EjE
 thread-pre-split.i.i.preheader:                   ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i, %8
   %.ph = phi ptr [ null, %8 ], [ %12, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
   %.0.i16.i.i.ph = phi i32 [ 0, %8 ], [ %15, %_ZNK6vectorIjLb0EjE4sizeEv.exit.i ]
-  %.ph22 = add nuw nsw i32 %11, 1
+  %.ph20 = add nuw nsw i32 %11, 1
   br label %thread-pre-split.i.i
 
 thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.i.preheader, %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
@@ -5238,8 +5238,8 @@ thread-pre-split.i.i:                             ; preds = %thread-pre-split.i.
 _ZNK6vectorIjLb0EjE8capacityEv.exit.i.i:          ; preds = %thread-pre-split.i.i
   %25 = getelementptr inbounds i8, ptr %23, i64 -8
   %26 = load i32, ptr %25, align 4, !tbaa !9
-  %.not23 = icmp ult i32 %11, %26
-  br i1 %.not23, label %27, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
+  %.not21 = icmp ult i32 %11, %26
+  br i1 %.not21, label %27, label %_ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i
 
 _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i, %thread-pre-split.i.i
   tail call void @_ZN6vectorIjLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %10)
@@ -5248,12 +5248,12 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
 
 27:                                               ; preds = %_ZNK6vectorIjLb0EjE8capacityEv.exit.i.i
   %28 = getelementptr inbounds i8, ptr %23, i64 -4
-  store i32 %.ph22, ptr %28, align 4, !tbaa !9
-  %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph22
+  store i32 %.ph20, ptr %28, align 4, !tbaa !9
+  %.not1218.i.i = icmp eq i32 %.0.i16.i.i.ph, %.ph20
   br i1 %.not1218.i.i, label %.thread7.sink.split, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %27
-  %29 = zext nneg i32 %.ph22 to i64
+  %29 = zext nneg i32 %.ph20 to i64
   %30 = zext nneg i32 %.0.i16.i.i.ph to i64
   %31 = getelementptr i32, ptr %23, i64 %30
   %32 = sub nsw i64 %29, %30
@@ -5262,11 +5262,11 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i.i:   ; preds = %_ZNK6vectorIjLb0EjE
   br label %.thread7.sink.split
 
 .thread7.sink.split:                              ; preds = %27, %.lr.ph.preheader.i.i, %_ZNK8uint_set8containsEj.exit
-  %.sink20 = phi ptr [ %12, %_ZNK8uint_set8containsEj.exit ], [ %23, %.lr.ph.preheader.i.i ], [ %23, %27 ]
+  %.sink18 = phi ptr [ %12, %_ZNK8uint_set8containsEj.exit ], [ %23, %.lr.ph.preheader.i.i ], [ %23, %27 ]
   %34 = and i32 %9, 31
   %35 = shl nuw i32 1, %34
   %36 = zext nneg i32 %11 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %.sink20, i64 %36
+  %37 = getelementptr inbounds nuw i32, ptr %.sink18, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !9
   %39 = or i32 %38, %35
   store i32 %39, ptr %37, align 4, !tbaa !9

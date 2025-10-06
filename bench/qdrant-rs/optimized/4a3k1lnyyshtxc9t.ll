@@ -1030,8 +1030,8 @@ common.resume:                                    ; preds = %35, %25
   br label %41
 
 31:                                               ; preds = %9, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$tempfile..dir..TempDir$C$std..io..error..Error$GT$$GT$17he70ba6a2f6db12fcE.exit"
-  %.sroa.03.025 = phi i32 [ 0, %9 ], [ %32, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$tempfile..dir..TempDir$C$std..io..error..Error$GT$$GT$17he70ba6a2f6db12fcE.exit" ]
-  %32 = add nuw i32 %.sroa.03.025, 1
+  %.sroa.03.024 = phi i32 [ 0, %9 ], [ %32, %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$tempfile..dir..TempDir$C$std..io..error..Error$GT$$GT$17he70ba6a2f6db12fcE.exit" ]
+  %32 = add nuw i32 %.sroa.03.024, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZN8tempfile4util7tmpname17h2816c124f95ee651E(ptr noalias noundef nonnull sret({ { { { i64, ptr, {} }, i64 } } }) align 8 captures(none) dereferenceable(24) %15, ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef %6, i64 noundef %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
@@ -1090,18 +1090,18 @@ _ZN3std4path4Path4join17h3c9322b02a4712bbE.exit:  ; preds = %31
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !222
   call void @_ZN3std2io5error14repr_bitpacked11decode_repr17h7fe281308b7a2d8eE.llvm.4482545766329047864(ptr noalias noundef nonnull sret({ i8, [15 x i8] }) align 8 captures(none) dereferenceable(16) %10, ptr noundef nonnull %.val16), !noalias !222
   %50 = load i8, ptr %10, align 8, !range !231, !alias.scope !232, !noalias !222, !noundef !12
-  %switch.not.i.i.i.i.i = icmp eq i8 %50, 3
-  br i1 %switch.not.i.i.i.i.i, label %51, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$tempfile..dir..TempDir$C$std..io..error..Error$GT$$GT$17he70ba6a2f6db12fcE.exit"
+  %51 = icmp eq i8 %50, 3
+  br i1 %51, label %52, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$tempfile..dir..TempDir$C$std..io..error..Error$GT$$GT$17he70ba6a2f6db12fcE.exit"
 
-51:                                               ; preds = %49
+52:                                               ; preds = %49
   call void @"_ZN4core3ptr68drop_in_place$LT$alloc..boxed..Box$LT$std..io..error..Custom$GT$$GT$17hefa37f298c578ee4E.llvm.4482545766329047864"(ptr noalias noundef nonnull align 8 dereferenceable(8) %21), !noalias !222
   br label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$tempfile..dir..TempDir$C$std..io..error..Error$GT$$GT$17he70ba6a2f6db12fcE.exit"
 
-"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$tempfile..dir..TempDir$C$std..io..error..Error$GT$$GT$17he70ba6a2f6db12fcE.exit": ; preds = %49, %51
+"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$tempfile..dir..TempDir$C$std..io..error..Error$GT$$GT$17he70ba6a2f6db12fcE.exit": ; preds = %49, %52
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !222
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  %52 = icmp slt i32 %32, 0
-  br i1 %52, label %22, label %31
+  %53 = icmp slt i32 %32, 0
+  br i1 %53, label %22, label %31
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1213,10 +1213,10 @@ common.resume:                                    ; preds = %.body, %97, %26
   resume { ptr, i32 } %common.resume.op
 
 36:                                               ; preds = %.lr.ph, %88
-  %.sroa.010.056 = phi i32 [ 0, %.lr.ph ], [ %37, %88 ]
-  %37 = add nuw i32 %.sroa.010.056, 1
+  %.sroa.010.055 = phi i32 [ 0, %.lr.ph ], [ %37, %88 ]
+  %37 = add nuw i32 %.sroa.010.055, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  store i32 %.sroa.010.056, ptr %9, align 4
+  store i32 %.sroa.010.055, ptr %9, align 4
   %38 = invoke { ptr, i64 } @_ZN6sparse5index14inverted_index19inverted_index_mmap17InvertedIndexMmap3get17hf3841e2827e4b9cbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9)
           to label %39 unwind label %.loopexit
 
@@ -1715,8 +1715,8 @@ define void @_ZN6sparse5index14inverted_index18inverted_index_ram16InvertedIndex
   %31 = load float, ptr %23, align 4, !noalias !330, !noundef !12
   %32 = zext i32 %21 to i64
   %33 = load i64, ptr %13, align 8, !noundef !12
-  %.not50 = icmp ugt i64 %33, %32
-  br i1 %.not50, label %64, label %34
+  %.not49 = icmp ugt i64 %33, %32
+  br i1 %.not49, label %64, label %34
 
 34:                                               ; preds = %29
   %35 = add nuw nsw i64 %32, 1

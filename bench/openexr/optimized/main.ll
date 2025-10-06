@@ -2041,9 +2041,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %5, %13
 ; Function Attrs: mustprogress norecurse uwtable
 define dso_local noundef range(i32 -1, 2) i32 @main(i32 noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = icmp slt i32 %0, 2
-  br i1 %3, label %5, label %.preheader53
+  br i1 %3, label %5, label %.preheader51
 
-.preheader53:                                     ; preds = %2
+.preheader51:                                     ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %wide.trip.count = zext nneg i32 %0 to i64
   br label %sub_0
@@ -2079,19 +2079,19 @@ _Z12usageMessageRSoPKcb.exit:                     ; preds = %8, %16
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph, label %sub_0, !llvm.loop !110
 
-sub_0:                                            ; preds = %.preheader53, %20
-  %indvars.iv = phi i64 [ 1, %.preheader53 ], [ %indvars.iv.next, %20 ]
+sub_0:                                            ; preds = %.preheader51, %20
+  %indvars.iv = phi i64 [ 1, %.preheader51 ], [ %indvars.iv.next, %20 ]
   %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !109
   %23 = load i8, ptr %22, align 1
-  %.not56 = icmp eq i8 %23, 45
-  br i1 %.not56, label %sub_1, label %.tail.thread
+  %.not54 = icmp eq i8 %23, 45
+  br i1 %.not54, label %sub_1, label %.tail.thread
 
 sub_1:                                            ; preds = %sub_0
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %25 = load i8, ptr %24, align 1
-  %.not57 = icmp eq i8 %25, 104
-  br i1 %.not57, label %.tail, label %.tail.thread
+  %.not55 = icmp eq i8 %25, 104
+  br i1 %.not55, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_1
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 2
@@ -2247,16 +2247,16 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit48: ; preds = %98
   br label %.thread
 
 .lr.ph:                                           ; preds = %20, %110
-  %indvars.iv59 = phi i64 [ %indvars.iv.next60, %110 ], [ 1, %20 ]
-  %108 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv59
+  %indvars.iv57 = phi i64 [ %indvars.iv.next58, %110 ], [ 1, %20 ]
+  %108 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv57
   %109 = load ptr, ptr %108, align 8, !tbaa !109
   invoke void @_Z13printManifestPKc(ptr noundef %109)
           to label %110 unwind label %111
 
 110:                                              ; preds = %.lr.ph
-  %indvars.iv.next60 = add nuw nsw i64 %indvars.iv59, 1
-  %exitcond63.not = icmp eq i64 %indvars.iv.next60, %wide.trip.count
-  br i1 %exitcond63.not, label %.thread, label %.lr.ph, !llvm.loop !111
+  %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
+  %exitcond61.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count
+  br i1 %exitcond61.not, label %.thread, label %.lr.ph, !llvm.loop !111
 
 111:                                              ; preds = %.lr.ph
   %112 = landingpad { ptr, i32 }

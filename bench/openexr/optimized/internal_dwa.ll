@@ -793,13 +793,13 @@ DwaCompressor_setupChannelData.exit:              ; preds = %162
 .thread.i:                                        ; preds = %206, %203
   store ptr %202, ptr %204, align 8, !tbaa !110
   store i64 %200, ptr %192, align 16, !tbaa !109
-  %.pre28.i = load i64, ptr %190, align 8, !tbaa !108
+  %.pre27.i = load i64, ptr %190, align 8, !tbaa !108
   %.pre.pre = load i32, ptr %113, align 8, !tbaa !45
   br label %210
 
 210:                                              ; preds = %._crit_edge.i399, %.thread.i
   %.pre = phi i32 [ %.pre574, %._crit_edge.i399 ], [ %.pre.pre, %.thread.i ]
-  %211 = phi i64 [ %191, %._crit_edge.i399 ], [ %.pre28.i, %.thread.i ]
+  %211 = phi i64 [ %191, %._crit_edge.i399 ], [ %.pre27.i, %.thread.i ]
   %212 = phi ptr [ %.pre.i400, %._crit_edge.i399 ], [ %202, %.thread.i ]
   %213 = getelementptr inbounds nuw ptr, ptr %212, i64 %211
   store ptr %.1323496, ptr %213, align 8, !tbaa !97
@@ -7541,11 +7541,11 @@ define internal fastcc range(i32 0, 2) i32 @DctCoderChannelData_push_row(ptr nou
 .thread:                                          ; preds = %17, %20
   store ptr %16, ptr %18, align 8, !tbaa !110
   store i64 %14, ptr %7, align 16, !tbaa !109
-  %.pre28 = load i64, ptr %5, align 8, !tbaa !108
+  %.pre27 = load i64, ptr %5, align 8, !tbaa !108
   br label %24
 
 24:                                               ; preds = %._crit_edge, %.thread
-  %25 = phi i64 [ %6, %._crit_edge ], [ %.pre28, %.thread ]
+  %25 = phi i64 [ %6, %._crit_edge ], [ %.pre27, %.thread ]
   %26 = phi ptr [ %.pre, %._crit_edge ], [ %16, %.thread ]
   %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
   store ptr %3, ptr %27, align 8, !tbaa !97

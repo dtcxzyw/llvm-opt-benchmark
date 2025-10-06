@@ -1203,11 +1203,11 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_vi
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %.sroa.028.045 = load ptr, ptr %8, align 8, !tbaa !30
-  %.not3846 = icmp eq ptr %.sroa.028.045, null
-  %.pre58 = load i64, ptr %1, align 8, !tbaa !70
-  %.sroa.01.0.copyload.i.i.fr = freeze i64 %.pre58
-  br i1 %.not3846, label %.thread, label %.lr.ph
+  %.sroa.028.043 = load ptr, ptr %8, align 8, !tbaa !30
+  %.not3644 = icmp eq ptr %.sroa.028.043, null
+  %.pre56 = load i64, ptr %1, align 8, !tbaa !70
+  %.sroa.01.0.copyload.i.i.fr = freeze i64 %.pre56
+  br i1 %.not3644, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %.sroa.22.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1216,35 +1216,35 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableISt17basic_string_vi
   br i1 %9, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %12
-  %.sroa.028.047.us = phi ptr [ %.sroa.028.0.us, %12 ], [ %.sroa.028.045, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.028.047.us, i64 8
+  %.sroa.028.045.us = phi ptr [ %.sroa.028.0.us, %12 ], [ %.sroa.028.043, %.lr.ph ]
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.028.045.us, i64 8
   %.sroa.0.0.copyload.i.i.us = load i64, ptr %10, align 8, !tbaa !10
   %11 = icmp eq i64 %.sroa.0.0.copyload.i.i.us, 0
   br i1 %11, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWindowsRegistry4ViewEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNSA_10_Hash_nodeIS8_Lb1EEEmRKT_m.exit, label %12
 
 12:                                               ; preds = %.lr.ph.split.us
-  %.sroa.028.0.us = load ptr, ptr %.sroa.028.047.us, align 8, !tbaa !30
-  %.not38.us = icmp eq ptr %.sroa.028.0.us, null
-  br i1 %.not38.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !71
+  %.sroa.028.0.us = load ptr, ptr %.sroa.028.045.us, align 8, !tbaa !30
+  %.not36.us = icmp eq ptr %.sroa.028.0.us, null
+  br i1 %.not36.us, label %.thread, label %.lr.ph.split.us, !llvm.loop !71
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %16
-  %.sroa.028.047 = phi ptr [ %.sroa.028.0, %16 ], [ %.sroa.028.045, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i8, ptr %.sroa.028.047, i64 8
+  %.sroa.028.045 = phi ptr [ %.sroa.028.0, %16 ], [ %.sroa.028.043, %.lr.ph ]
+  %13 = getelementptr inbounds nuw i8, ptr %.sroa.028.045, i64 8
   %.sroa.0.0.copyload.i.i = load i64, ptr %13, align 8, !tbaa !10
   %14 = icmp eq i64 %.sroa.01.0.copyload.i.i.fr, %.sroa.0.0.copyload.i.i
   br i1 %14, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, label %16
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %.lr.ph.split
-  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.028.047, i64 16
+  %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.sroa.028.045, i64 16
   %.sroa.2.0.copyload.i.i = load ptr, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !17
   %bcmp.i.i.i = tail call i32 @bcmp(ptr %.sroa.22.0.copyload.i.i, ptr %.sroa.2.0.copyload.i.i, i64 %.sroa.01.0.copyload.i.i.fr)
   %15 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %15, label %_ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWindowsRegistry4ViewEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNSA_10_Hash_nodeIS8_Lb1EEEmRKT_m.exit, label %16
 
 16:                                               ; preds = %.lr.ph.split, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
-  %.sroa.028.0 = load ptr, ptr %.sroa.028.047, align 8, !tbaa !30
-  %.not38 = icmp eq ptr %.sroa.028.0, null
-  br i1 %.not38, label %.thread, label %.lr.ph.split, !llvm.loop !71
+  %.sroa.028.0 = load ptr, ptr %.sroa.028.045, align 8, !tbaa !30
+  %.not36 = icmp eq ptr %.sroa.028.0, null
+  br i1 %.not36, label %.thread, label %.lr.ph.split, !llvm.loop !71
 
 .thread:                                          ; preds = %16, %12, %..thread_crit_edge, %7
   %17 = phi i64 [ %.pre, %..thread_crit_edge ], [ %.sroa.01.0.copyload.i.i.fr, %7 ], [ %.sroa.01.0.copyload.i.i.fr, %12 ], [ %.sroa.01.0.copyload.i.i.fr, %16 ]
@@ -1359,7 +1359,7 @@ _ZNSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWin
   resume { ptr, i32 } %65
 
 _ZNKSt10_HashtableISt17basic_string_viewIcSt11char_traitsIcEESt4pairIKS3_N17cmWindowsRegistry4ViewEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE15_M_find_node_trIS3_EEPNSA_10_Hash_nodeIS8_Lb1EEEmRKT_m.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %.lr.ph.split.us, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i, %38, %.critedge
-  %.sroa.031.1 = phi ptr [ %64, %.critedge ], [ %.0.us.i.i, %38 ], [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.028.047.us, %.lr.ph.split.us ], [ %.sroa.028.047, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
+  %.sroa.031.1 = phi ptr [ %64, %.critedge ], [ %.0.us.i.i, %38 ], [ %.0.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ %.sroa.028.045.us, %.lr.ph.split.us ], [ %.sroa.028.045, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %.sroa.432.1 = phi i8 [ 1, %.critedge ], [ 0, %38 ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i ], [ 0, %.lr.ph.split.us ], [ 0, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.031.1, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.432.1, 1
@@ -1824,9 +1824,9 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN17cmWindowsRegistr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !37
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load i32, ptr %1, align 4, !tbaa !22
   %8 = sext i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1862,7 +1862,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN17cmWindowsRegistr
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !30
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 4, !tbaa !22
@@ -1890,10 +1890,10 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIN17cmWindowsRegistr
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !86
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi i32 [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi i32 [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #25
   store ptr null, ptr %45, align 8, !tbaa !30

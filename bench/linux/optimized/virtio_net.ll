@@ -1981,18 +1981,16 @@ define internal void @virtnet_config_changed_work(ptr noundef %0) #2 align 16 {
   call void %56(ptr noundef %53, i32 noundef 16, ptr noundef nonnull %3, i32 noundef 1) #26
   %57 = load i8, ptr %3, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i8 %57, label %60 [
-    i8 0, label %58
-    i8 1, label %58
-    i8 -1, label %58
-  ]
+  %.off = add i8 %57, -2
+  %switch = icmp ult i8 %.off, -3
+  br i1 %switch, label %60, label %58
 
-58:                                               ; preds = %51, %51, %51
+58:                                               ; preds = %51
   %59 = getelementptr i8, ptr %0, i64 80
   store i8 %57, ptr %59, align 8
   br label %60
 
-60:                                               ; preds = %58, %51, %36
+60:                                               ; preds = %51, %58, %36
   %61 = getelementptr i8, ptr %0, i64 -160
   %62 = load ptr, ptr %61, align 8
   call void @netif_carrier_on(ptr noundef %62) #26
@@ -2710,18 +2708,16 @@ define internal fastcc void @virtnet_update_settings(ptr noundef captures(none) 
   call void %23(ptr noundef %20, i32 noundef 16, ptr noundef nonnull %3, i32 noundef 1) #26
   %24 = load i8, ptr %3, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  switch i8 %24, label %27 [
-    i8 0, label %25
-    i8 1, label %25
-    i8 -1, label %25
-  ]
+  %.off = add i8 %24, -2
+  %switch = icmp ult i8 %.off, -3
+  br i1 %switch, label %27, label %25
 
-25:                                               ; preds = %18, %18, %18
+25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i8 %24, ptr %26, align 8
   br label %27
 
-27:                                               ; preds = %25, %18, %1
+27:                                               ; preds = %18, %25, %1
   ret void
 }
 

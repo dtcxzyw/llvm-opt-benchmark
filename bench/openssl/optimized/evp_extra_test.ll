@@ -3229,11 +3229,11 @@ define internal range(i32 0, 2) i32 @test_EVP_SM2() #1 {
   br label %122
 
 122:                                              ; preds = %176, %121
-  %.not124 = phi i1 [ false, %121 ], [ true, %176 ]
+  %.not123 = phi i1 [ false, %121 ], [ true, %176 ]
   %indvars.iv = phi i64 [ 0, %121 ], [ 1, %176 ]
-  %.1109 = phi ptr [ %55, %121 ], [ %163, %176 ]
-  %.157108 = phi ptr [ null, %121 ], [ %127, %176 ]
-  call void @EVP_PKEY_CTX_free(ptr noundef %.157108) #9
+  %.1108 = phi ptr [ %55, %121 ], [ %163, %176 ]
+  %.157107 = phi ptr [ null, %121 ], [ %127, %176 ]
+  call void @EVP_PKEY_CTX_free(ptr noundef %.157107) #9
   %123 = getelementptr inbounds nuw ptr, ptr @__const.test_EVP_SM2.mdnames, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %124 = load ptr, ptr %123, align 8, !tbaa !19
@@ -3301,7 +3301,7 @@ define internal range(i32 0, 2) i32 @test_EVP_SM2() #1 {
   br i1 %.not97, label %.thread, label %161
 
 161:                                              ; preds = %156
-  call void @EVP_MD_free(ptr noundef %.1109) #9
+  call void @EVP_MD_free(ptr noundef %.1108) #9
   %162 = load ptr, ptr @testctx, align 8, !tbaa !6
   %163 = call ptr @EVP_MD_fetch(ptr noundef %162, ptr noundef nonnull %11, ptr noundef null) #9
   %164 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 2546, ptr noundef nonnull @.str.270, ptr noundef %163) #9
@@ -3334,7 +3334,7 @@ define internal range(i32 0, 2) i32 @test_EVP_SM2() #1 {
   %178 = zext i1 %177 to i32
   %179 = call i32 @test_true(ptr noundef nonnull @.str.18, i32 noundef 2556, ptr noundef nonnull @.str.274, i32 noundef %178) #9
   %.not101 = icmp eq i32 %179, 0
-  %brmerge = or i1 %.not101, %.not124
+  %brmerge = or i1 %.not101, %.not123
   br i1 %brmerge, label %.thread.loopexit.split.loop.exit, label %122
 
 .thread.loopexit.split.loop.exit:                 ; preds = %176
@@ -3350,7 +3350,7 @@ define internal range(i32 0, 2) i32 @test_EVP_SM2() #1 {
   %.060 = phi ptr [ %43, %117 ], [ %43, %112 ], [ %43, %109 ], [ %43, %103 ], [ %43, %99 ], [ %43, %94 ], [ %43, %91 ], [ %43, %85 ], [ %43, %80 ], [ %43, %76 ], [ %43, %71 ], [ %43, %66 ], [ %43, %63 ], [ %43, %57 ], [ %43, %53 ], [ %43, %48 ], [ %43, %45 ], [ %43, %42 ], [ null, %37 ], [ null, %34 ], [ null, %29 ], [ null, %24 ], [ null, %21 ], [ null, %16 ], [ null, %0 ], [ %43, %170 ], [ %43, %171 ], [ %43, %161 ], [ %43, %156 ], [ %43, %152 ], [ %43, %147 ], [ %43, %144 ], [ %43, %139 ], [ %43, %134 ], [ %43, %129 ], [ %43, %122 ], [ %43, %.thread.loopexit.split.loop.exit ]
   %.059 = phi ptr [ %46, %117 ], [ %46, %112 ], [ %46, %109 ], [ %46, %103 ], [ %46, %99 ], [ %46, %94 ], [ %46, %91 ], [ %46, %85 ], [ %46, %80 ], [ %46, %76 ], [ %46, %71 ], [ %46, %66 ], [ %46, %63 ], [ %46, %57 ], [ %46, %53 ], [ %46, %48 ], [ %46, %45 ], [ null, %42 ], [ null, %37 ], [ null, %34 ], [ null, %29 ], [ null, %24 ], [ null, %21 ], [ null, %16 ], [ null, %0 ], [ %46, %170 ], [ %46, %171 ], [ %46, %161 ], [ %46, %156 ], [ %46, %152 ], [ %46, %147 ], [ %46, %144 ], [ %46, %139 ], [ %46, %134 ], [ %46, %129 ], [ %46, %122 ], [ %46, %.thread.loopexit.split.loop.exit ]
   %.056 = phi ptr [ null, %117 ], [ null, %112 ], [ null, %109 ], [ null, %103 ], [ null, %99 ], [ null, %94 ], [ null, %91 ], [ null, %85 ], [ null, %80 ], [ null, %76 ], [ null, %71 ], [ null, %66 ], [ null, %63 ], [ null, %57 ], [ null, %53 ], [ null, %48 ], [ null, %45 ], [ null, %42 ], [ null, %37 ], [ null, %34 ], [ null, %29 ], [ null, %24 ], [ null, %21 ], [ null, %16 ], [ null, %0 ], [ %127, %170 ], [ %127, %171 ], [ %127, %161 ], [ %127, %156 ], [ %127, %152 ], [ %127, %147 ], [ %127, %144 ], [ %127, %139 ], [ %127, %134 ], [ %127, %129 ], [ %127, %122 ], [ %127, %.thread.loopexit.split.loop.exit ]
-  %.055 = phi ptr [ %55, %117 ], [ %55, %112 ], [ %55, %109 ], [ %55, %103 ], [ %55, %99 ], [ %55, %94 ], [ %55, %91 ], [ %55, %85 ], [ %55, %80 ], [ %55, %76 ], [ %55, %71 ], [ %55, %66 ], [ %55, %63 ], [ %55, %57 ], [ %55, %53 ], [ null, %48 ], [ null, %45 ], [ null, %42 ], [ null, %37 ], [ null, %34 ], [ null, %29 ], [ null, %24 ], [ null, %21 ], [ null, %16 ], [ null, %0 ], [ %163, %170 ], [ %163, %.thread.loopexit.split.loop.exit ], [ %.1109, %122 ], [ %.1109, %129 ], [ %.1109, %134 ], [ %.1109, %139 ], [ %.1109, %144 ], [ %.1109, %147 ], [ %.1109, %152 ], [ %.1109, %156 ], [ %163, %161 ], [ %163, %171 ]
+  %.055 = phi ptr [ %55, %117 ], [ %55, %112 ], [ %55, %109 ], [ %55, %103 ], [ %55, %99 ], [ %55, %94 ], [ %55, %91 ], [ %55, %85 ], [ %55, %80 ], [ %55, %76 ], [ %55, %71 ], [ %55, %66 ], [ %55, %63 ], [ %55, %57 ], [ %55, %53 ], [ null, %48 ], [ null, %45 ], [ null, %42 ], [ null, %37 ], [ null, %34 ], [ null, %29 ], [ null, %24 ], [ null, %21 ], [ null, %16 ], [ null, %0 ], [ %163, %170 ], [ %163, %.thread.loopexit.split.loop.exit ], [ %.1108, %122 ], [ %.1108, %129 ], [ %.1108, %134 ], [ %.1108, %139 ], [ %.1108, %144 ], [ %.1108, %147 ], [ %.1108, %152 ], [ %.1108, %156 ], [ %163, %161 ], [ %163, %171 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %14) #9
   call void @EVP_PKEY_CTX_free(ptr noundef %.063) #9
   call void @EVP_PKEY_CTX_free(ptr noundef %.062) #9

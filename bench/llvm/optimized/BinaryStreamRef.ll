@@ -454,7 +454,7 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengt
   %.0.i4.i = phi i64 [ %28, %26 ], [ %39, %32 ], [ 0, %29 ]
   %40 = add i64 %2, 1
   %41 = icmp ult i64 %.0.i4.i, %40
-  br i1 %41, label %42, label %_ZN4llvm5ErrorD2Ev.exit18
+  br i1 %41, label %42, label %_ZN4llvm5ErrorD2Ev.exit17
 
 42:                                               ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit5.i
   %.sink11.i = phi i32 [ 3, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit.i ], [ 1, %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit5.i ]
@@ -462,7 +462,7 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengt
   tail call void @_ZN4llvm17BinaryStreamErrorC1ENS_17stream_error_codeE(ptr noundef nonnull align 8 dereferenceable(44) %43, i32 noundef %.sink11.i) #13, !noalias !60
   br label %.sink.split
 
-_ZN4llvm5ErrorD2Ev.exit18:                        ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit5.i
+_ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %_ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengthEv.exit5.i
   store ptr null, ptr %0, align 8, !tbaa !57, !alias.scope !60
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !3
@@ -477,7 +477,7 @@ _ZN4llvm5ErrorD2Ev.exit18:                        ; preds = %_ZNK4llvm19BinarySt
   %.not = icmp eq ptr %52, null
   br i1 %.not, label %53, label %73
 
-53:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit18
+53:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit17
   %54 = load i8, ptr %5, align 8, !tbaa !20, !range !55, !noundef !56
   %55 = trunc nuw i8 %54 to i1
   br i1 %55, label %56, label %59
@@ -518,7 +518,7 @@ _ZNK4llvm19BinaryStreamRefBaseINS_15BinaryStreamRefENS_12BinaryStreamEE9getLengt
   store ptr %.sink, ptr %0, align 8, !tbaa !57
   br label %73
 
-73:                                               ; preds = %.sink.split, %_ZN4llvm5ErrorD2Ev.exit18
+73:                                               ; preds = %.sink.split, %_ZN4llvm5ErrorD2Ev.exit17
   ret void
 }
 

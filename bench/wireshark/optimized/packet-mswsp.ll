@@ -1859,9 +1859,9 @@ define internal zeroext i1 @dissect_mswsp_smb_heur(ptr noundef %0, ptr noundef %
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  %.02241.i.i = load ptr, ptr %25, align 8
-  %.not2942.i.i = icmp eq ptr %.02241.i.i, null
-  br i1 %.not2942.i.i, label %dissect_mswsp_smb.exit, label %.lr.ph.i.i
+  %.02240.i.i = load ptr, ptr %25, align 8
+  %.not2941.i.i = icmp eq ptr %.02240.i.i, null
+  br i1 %.not2941.i.i, label %dissect_mswsp_smb.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -1869,8 +1869,8 @@ define internal zeroext i1 @dissect_mswsp_smb_heur(ptr noundef %0, ptr noundef %
   br label %28
 
 28:                                               ; preds = %37, %.lr.ph.i.i
-  %.02243.i.i = phi ptr [ %.02241.i.i, %.lr.ph.i.i ], [ %.022.i.i, %37 ]
-  %29 = load ptr, ptr %.02243.i.i, align 8
+  %.02242.i.i = phi ptr [ %.02240.i.i, %.lr.ph.i.i ], [ %.022.i.i, %37 ]
+  %29 = load ptr, ptr %.02242.i.i, align 8
   %30 = load i16, ptr %29, align 8
   %31 = zext i16 %30 to i32
   %32 = icmp eq i32 %27, %31
@@ -1883,7 +1883,7 @@ define internal zeroext i1 @dissect_mswsp_smb_heur(ptr noundef %0, ptr noundef %
   br i1 %36, label %find_fid_info.exit.i, label %37
 
 37:                                               ; preds = %33, %28
-  %38 = getelementptr inbounds nuw i8, ptr %.02243.i.i, i64 8
+  %38 = getelementptr inbounds nuw i8, ptr %.02242.i.i, i64 8
   %.022.i.i = load ptr, ptr %38, align 8
   %.not29.i.i = icmp eq ptr %.022.i.i, null
   br i1 %.not29.i.i, label %dissect_mswsp_smb.exit, label %28, !llvm.loop !10
@@ -2393,9 +2393,9 @@ get_create_converstation_data.exit.i144:          ; preds = %178, %175, %166
   %225 = load i32, ptr @proto_mswsp, align 4
   %226 = call ptr @p_get_proto_data(ptr noundef %224, ptr noundef %1, i32 noundef %225, i32 noundef 0)
   %227 = call fastcc zeroext i1 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef readonly %4)
-  %.01723.i.i.i = load ptr, ptr %.0.i.i, align 8
-  %.not24.i.i.i = icmp eq ptr %.01723.i.i.i, null
-  br i1 %.not24.i.i.i, label %find_binding_msg_data.exit.i, label %.lr.ph.i.i.i
+  %.01722.i.i.i = load ptr, ptr %.0.i.i, align 8
+  %.not23.i.i.i = icmp eq ptr %.01722.i.i.i, null
+  br i1 %.not23.i.i.i, label %find_binding_msg_data.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %221
   %228 = load i32, ptr %16, align 4
@@ -2403,8 +2403,8 @@ get_create_converstation_data.exit.i144:          ; preds = %178, %175, %166
   br label %230
 
 230:                                              ; preds = %250, %.lr.ph.i.i.i
-  %.01725.i.i.i = phi ptr [ %.01723.i.i.i, %.lr.ph.i.i.i ], [ %.017.i.i.i, %250 ]
-  %231 = load ptr, ptr %.01725.i.i.i, align 8
+  %.01724.i.i.i = phi ptr [ %.01722.i.i.i, %.lr.ph.i.i.i ], [ %.017.i.i.i, %250 ]
+  %231 = load ptr, ptr %.01724.i.i.i, align 8
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
   %233 = load i32, ptr %232, align 4
   %234 = icmp ult i32 %233, %228
@@ -2435,7 +2435,7 @@ get_create_converstation_data.exit.i144:          ; preds = %178, %175, %166
   br i1 %249, label %find_binding_msg_data.exit.i, label %250
 
 250:                                              ; preds = %245, %241, %238, %235, %230
-  %251 = getelementptr inbounds nuw i8, ptr %.01725.i.i.i, i64 8
+  %251 = getelementptr inbounds nuw i8, ptr %.01724.i.i.i, i64 8
   %.017.i.i.i = load ptr, ptr %251, align 8
   %.not.i.i.i = icmp eq ptr %.017.i.i.i, null
   br i1 %.not.i.i.i, label %find_binding_msg_data.exit.i, label %230, !llvm.loop !12
@@ -2454,9 +2454,9 @@ find_binding_msg_data.exit.i:                     ; preds = %250, %245, %221
   %254 = load i32, ptr @proto_mswsp, align 4
   %255 = call ptr @p_get_proto_data(ptr noundef %253, ptr noundef %1, i32 noundef %254, i32 noundef 0)
   %256 = call fastcc zeroext i1 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef readonly %4)
-  %.01723.i.i153.i = load ptr, ptr %.0.i.i, align 8
-  %.not24.i.i154.i = icmp eq ptr %.01723.i.i153.i, null
-  br i1 %.not24.i.i154.i, label %find_rowsin_msg_data.exit.i, label %.lr.ph.i.i155.i
+  %.01722.i.i153.i = load ptr, ptr %.0.i.i, align 8
+  %.not23.i.i154.i = icmp eq ptr %.01722.i.i153.i, null
+  br i1 %.not23.i.i154.i, label %find_rowsin_msg_data.exit.i, label %.lr.ph.i.i155.i
 
 .lr.ph.i.i155.i:                                  ; preds = %find_binding_msg_data.exit.i
   %257 = load i32, ptr %14, align 4
@@ -2464,8 +2464,8 @@ find_binding_msg_data.exit.i:                     ; preds = %250, %245, %221
   br label %259
 
 259:                                              ; preds = %279, %.lr.ph.i.i155.i
-  %.01725.i.i156.i = phi ptr [ %.01723.i.i153.i, %.lr.ph.i.i155.i ], [ %.017.i.i157.i, %279 ]
-  %260 = load ptr, ptr %.01725.i.i156.i, align 8
+  %.01724.i.i156.i = phi ptr [ %.01722.i.i153.i, %.lr.ph.i.i155.i ], [ %.017.i.i157.i, %279 ]
+  %260 = load ptr, ptr %.01724.i.i156.i, align 8
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 4
   %262 = load i32, ptr %261, align 4
   %263 = icmp ult i32 %262, %257
@@ -2496,7 +2496,7 @@ find_binding_msg_data.exit.i:                     ; preds = %250, %245, %221
   br i1 %278, label %find_rowsin_msg_data.exit.i, label %279
 
 279:                                              ; preds = %274, %270, %267, %264, %259
-  %280 = getelementptr inbounds nuw i8, ptr %.01725.i.i156.i, i64 8
+  %280 = getelementptr inbounds nuw i8, ptr %.01724.i.i156.i, i64 8
   %.017.i.i157.i = load ptr, ptr %280, align 8
   %.not.i.i158.i = icmp eq ptr %.017.i.i157.i, null
   br i1 %.not.i.i158.i, label %find_rowsin_msg_data.exit.i, label %259, !llvm.loop !12
@@ -2515,9 +2515,9 @@ find_rowsin_msg_data.exit.i:                      ; preds = %279, %274, %find_bi
   %283 = load i32, ptr @proto_mswsp, align 4
   %284 = call ptr @p_get_proto_data(ptr noundef %282, ptr noundef %1, i32 noundef %283, i32 noundef 0)
   %285 = call fastcc zeroext i1 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef readonly %4)
-  %.01723.i.i163.i = load ptr, ptr %.0.i.i, align 8
-  %.not24.i.i164.i = icmp eq ptr %.01723.i.i163.i, null
-  br i1 %.not24.i.i164.i, label %find_matching_request_by_fid.exit.thread.i.i, label %.lr.ph.i.i165.i
+  %.01722.i.i163.i = load ptr, ptr %.0.i.i, align 8
+  %.not23.i.i164.i = icmp eq ptr %.01722.i.i163.i, null
+  br i1 %.not23.i.i164.i, label %find_matching_request_by_fid.exit.thread.i.i, label %.lr.ph.i.i165.i
 
 .lr.ph.i.i165.i:                                  ; preds = %find_rowsin_msg_data.exit.i
   %286 = load i32, ptr %12, align 4
@@ -2525,8 +2525,8 @@ find_rowsin_msg_data.exit.i:                      ; preds = %279, %274, %find_bi
   br label %288
 
 288:                                              ; preds = %308, %.lr.ph.i.i165.i
-  %.01725.i.i166.i = phi ptr [ %.01723.i.i163.i, %.lr.ph.i.i165.i ], [ %.017.i.i167.i, %308 ]
-  %289 = load ptr, ptr %.01725.i.i166.i, align 8
+  %.01724.i.i166.i = phi ptr [ %.01722.i.i163.i, %.lr.ph.i.i165.i ], [ %.017.i.i167.i, %308 ]
+  %289 = load ptr, ptr %.01724.i.i166.i, align 8
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 4
   %291 = load i32, ptr %290, align 4
   %292 = icmp ult i32 %291, %286
@@ -2557,7 +2557,7 @@ find_rowsin_msg_data.exit.i:                      ; preds = %279, %274, %find_bi
   br i1 %307, label %find_matching_request_by_fid.exit.i.i, label %308
 
 308:                                              ; preds = %303, %299, %296, %293, %288
-  %309 = getelementptr inbounds nuw i8, ptr %.01725.i.i166.i, i64 8
+  %309 = getelementptr inbounds nuw i8, ptr %.01724.i.i166.i, i64 8
   %.017.i.i167.i = load ptr, ptr %309, align 8
   %.not.i.i168.i = icmp eq ptr %.017.i.i167.i, null
   br i1 %.not.i.i168.i, label %find_matching_request_by_fid.exit.thread.i.i, label %288, !llvm.loop !12
@@ -2584,9 +2584,9 @@ find_matching_request_by_fid.exit.i.i:            ; preds = %303
   %314 = load i32, ptr @proto_mswsp, align 4
   %315 = call ptr @p_get_proto_data(ptr noundef %313, ptr noundef %1, i32 noundef %314, i32 noundef 0)
   %316 = call fastcc zeroext i1 @get_fid_and_frame(ptr noundef %1, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef readonly %4)
-  %.01723.i16.i.i = load ptr, ptr %.0.i.i, align 8
-  %.not24.i17.i.i = icmp eq ptr %.01723.i16.i.i, null
-  br i1 %.not24.i17.i.i, label %find_matching_request_by_fid.exit23.thread.i.i, label %.lr.ph.i18.i.i
+  %.01722.i16.i.i = load ptr, ptr %.0.i.i, align 8
+  %.not23.i17.i.i = icmp eq ptr %.01722.i16.i.i, null
+  br i1 %.not23.i17.i.i, label %find_matching_request_by_fid.exit23.thread.i.i, label %.lr.ph.i18.i.i
 
 .lr.ph.i18.i.i:                                   ; preds = %310
   %317 = load i32, ptr %10, align 4
@@ -2594,8 +2594,8 @@ find_matching_request_by_fid.exit.i.i:            ; preds = %303
   br label %319
 
 319:                                              ; preds = %340, %.lr.ph.i18.i.i
-  %.01725.i19.i.i = phi ptr [ %.01723.i16.i.i, %.lr.ph.i18.i.i ], [ %.017.i20.i.i, %340 ]
-  %320 = load ptr, ptr %.01725.i19.i.i, align 8
+  %.01724.i19.i.i = phi ptr [ %.01722.i16.i.i, %.lr.ph.i18.i.i ], [ %.017.i20.i.i, %340 ]
+  %320 = load ptr, ptr %.01724.i19.i.i, align 8
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 4
   %322 = load i32, ptr %321, align 4
   %323 = icmp ult i32 %322, %317
@@ -2626,7 +2626,7 @@ find_matching_request_by_fid.exit.i.i:            ; preds = %303
   br i1 %339, label %find_matching_request_by_fid.exit23.i.i, label %340
 
 340:                                              ; preds = %335, %331, %327, %324, %319
-  %341 = getelementptr inbounds nuw i8, ptr %.01725.i19.i.i, i64 8
+  %341 = getelementptr inbounds nuw i8, ptr %.01724.i19.i.i, i64 8
   %.017.i20.i.i = load ptr, ptr %341, align 8
   %.not.i21.i.i = icmp eq ptr %.017.i20.i.i, null
   br i1 %.not.i21.i.i, label %find_matching_request_by_fid.exit23.thread.i.i, label %319, !llvm.loop !12
@@ -3495,9 +3495,9 @@ define internal fastcc noundef zeroext i1 @get_fid_and_frame(ptr noundef %0, ptr
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  %.02241.i = load ptr, ptr %35, align 8
-  %.not2942.i = icmp eq ptr %.02241.i, null
-  br i1 %.not2942.i, label %.critedge, label %.lr.ph.i
+  %.02240.i = load ptr, ptr %35, align 8
+  %.not2941.i = icmp eq ptr %.02240.i, null
+  br i1 %.not2941.i, label %.critedge, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -3505,8 +3505,8 @@ define internal fastcc noundef zeroext i1 @get_fid_and_frame(ptr noundef %0, ptr
   br label %38
 
 38:                                               ; preds = %47, %.lr.ph.i
-  %.02243.i = phi ptr [ %.02241.i, %.lr.ph.i ], [ %.022.i, %47 ]
-  %39 = load ptr, ptr %.02243.i, align 8
+  %.02242.i = phi ptr [ %.02240.i, %.lr.ph.i ], [ %.022.i, %47 ]
+  %39 = load ptr, ptr %.02242.i, align 8
   %40 = load i16, ptr %39, align 8
   %41 = zext i16 %40 to i32
   %42 = icmp eq i32 %37, %41
@@ -3519,7 +3519,7 @@ define internal fastcc noundef zeroext i1 @get_fid_and_frame(ptr noundef %0, ptr
   br i1 %46, label %find_fid_info.exit, label %47
 
 47:                                               ; preds = %43, %38
-  %48 = getelementptr inbounds nuw i8, ptr %.02243.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.02242.i, i64 8
   %.022.i = load ptr, ptr %48, align 8
   %.not29.i = icmp eq ptr %.022.i, null
   br i1 %.not29.i, label %.critedge, label %38, !llvm.loop !10

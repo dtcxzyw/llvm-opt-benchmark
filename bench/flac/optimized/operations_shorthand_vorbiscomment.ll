@@ -180,25 +180,25 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
   store ptr %68, ptr %62, align 8, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 200
-  br i1 %exitcond.not.i, label %.preheader48.i, label %61, !llvm.loop !21
+  br i1 %exitcond.not.i, label %.preheader47.i, label %61, !llvm.loop !21
 
 69:                                               ; preds = %61
   %70 = trunc nuw nsw i64 %indvars.iv.i to i32
   %71 = icmp samesign ugt i64 %indvars.iv.i, 200
-  br i1 %71, label %78, label %.preheader48.i
+  br i1 %71, label %78, label %.preheader47.i
 
-.preheader48.i:                                   ; preds = %67, %69
-  %.039.lcssa61.i = phi i32 [ %70, %69 ], [ 200, %67 ]
+.preheader47.i:                                   ; preds = %67, %69
+  %.039.lcssa60.i = phi i32 [ %70, %69 ], [ 200, %67 ]
   %72 = getelementptr inbounds nuw i8, ptr %.060, i64 32
   %73 = load i32, ptr %72, align 8, !tbaa !17
-  %.not52.i = icmp eq i32 %73, 0
-  br i1 %.not52.i, label %remove_vc_all_except.exit, label %.preheader.lr.ph.i
+  %.not51.i = icmp eq i32 %73, 0
+  br i1 %.not51.i, label %remove_vc_all_except.exit, label %.preheader.lr.ph.i
 
-.preheader.lr.ph.i:                               ; preds = %.preheader48.i
-  %74 = add nsw i32 %.039.lcssa61.i, -1
+.preheader.lr.ph.i:                               ; preds = %.preheader47.i
+  %74 = add nsw i32 %.039.lcssa60.i, -1
   %75 = getelementptr inbounds nuw i8, ptr %.060, i64 40
   %76 = zext nneg i32 %74 to i64
-  %wide.trip.count.i = zext nneg i32 %.039.lcssa61.i to i64
+  %wide.trip.count.i = zext nneg i32 %.039.lcssa60.i to i64
   %77 = getelementptr inbounds nuw ptr, ptr %10, i64 %76
   br label %.preheader.i
 
@@ -208,18 +208,18 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
   br label %remove_vc_all_except.exit
 
 .preheader.i:                                     ; preds = %107, %.preheader.lr.ph.i
-  %.03751.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.138.i, %107 ]
-  %81 = zext i32 %.03751.i to i64
+  %.03750.i = phi i32 [ 0, %.preheader.lr.ph.i ], [ %.138.i, %107 ]
+  %81 = zext i32 %.03750.i to i64
   br label %83
 
 82:                                               ; preds = %95
-  %indvars.iv.next55.i = add nuw nsw i64 %indvars.iv54.i, 1
-  %exitcond57.not.i = icmp eq i64 %indvars.iv.next55.i, %wide.trip.count.i
-  br i1 %exitcond57.not.i, label %.critedge.loopexit.i, label %83, !llvm.loop !22
+  %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
+  %exitcond56.not.i = icmp eq i64 %indvars.iv.next54.i, %wide.trip.count.i
+  br i1 %exitcond56.not.i, label %.critedge.loopexit.i, label %83, !llvm.loop !22
 
 83:                                               ; preds = %82, %.preheader.i
-  %indvars.iv54.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next55.i, %82 ]
-  %84 = icmp eq i64 %indvars.iv54.i, %76
+  %indvars.iv53.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next54.i, %82 ]
+  %84 = icmp eq i64 %indvars.iv53.i, %76
   br i1 %84, label %85, label %88
 
 85:                                               ; preds = %83
@@ -228,7 +228,7 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
   br label %95
 
 88:                                               ; preds = %83
-  %89 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv54.i
+  %89 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv53.i
   %90 = load ptr, ptr %89, align 8, !tbaa !19
   %91 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %90, i32 noundef 61) #12
   %92 = ptrtoint ptr %91 to i64
@@ -250,22 +250,22 @@ define dso_local range(i32 0, 2) i32 @do_shorthand_operation__vorbis_comment(ptr
   br i1 %.not42.i, label %82, label %104
 
 104:                                              ; preds = %95
-  %105 = add i32 %.03751.i, 1
+  %105 = add i32 %.03750.i, 1
   br label %107
 
 .critedge.loopexit.i:                             ; preds = %82
-  %106 = tail call i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef nonnull %.060, i32 noundef %.03751.i) #11
+  %106 = tail call i32 @FLAC__metadata_object_vorbiscomment_delete_comment(ptr noundef nonnull %.060, i32 noundef %.03750.i) #11
   store i32 1, ptr %4, align 4, !tbaa !18
   br label %107
 
 107:                                              ; preds = %.critedge.loopexit.i, %104
-  %.138.i = phi i32 [ %105, %104 ], [ %.03751.i, %.critedge.loopexit.i ]
+  %.138.i = phi i32 [ %105, %104 ], [ %.03750.i, %.critedge.loopexit.i ]
   %108 = load i32, ptr %72, align 8, !tbaa !17
   %109 = icmp ult i32 %.138.i, %108
   br i1 %109, label %.preheader.i, label %remove_vc_all_except.exit, !llvm.loop !23
 
-remove_vc_all_except.exit:                        ; preds = %107, %.preheader48.i, %78
-  %.0.i71 = phi i32 [ 0, %78 ], [ 1, %.preheader48.i ], [ 1, %107 ]
+remove_vc_all_except.exit:                        ; preds = %107, %.preheader47.i, %78
+  %.0.i71 = phi i32 [ 0, %78 ], [ 1, %.preheader47.i ], [ 1, %107 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %remove_vc_all.exit
 

@@ -124,7 +124,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %29 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 304, ptr noundef nonnull @.str, i32 noundef 151) #10
   store ptr %29, ptr %8, align 8, !tbaa !13
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %.thread159, label %31
+  br i1 %30, label %.thread155, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -141,7 +141,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %37 = tail call ptr @BIO_new_fp(ptr noundef %36, i32 noundef 0) #10
   %38 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 160, ptr noundef nonnull @.str.2, ptr noundef %37) #10
   %.not111 = icmp eq i32 %38, 0
-  br i1 %.not111, label %.thread159, label %39
+  br i1 %.not111, label %.thread155, label %39
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %7, align 8, !tbaa !11
@@ -166,13 +166,13 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %49 = zext i1 %48 to i32
   %50 = call i32 @test_false(ptr noundef nonnull @.str, i32 noundef 171, ptr noundef nonnull @.str.3, i32 noundef %49) #10
   %.not113 = icmp eq i32 %50, 0
-  br i1 %.not113, label %.thread159, label %51
+  br i1 %.not113, label %.thread155, label %51
 
 51:                                               ; preds = %45
   %52 = call ptr @BIO_ADDR_new() #10
   %53 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @.str.4, ptr noundef %52) #10
   %.not114 = icmp eq i32 %53, 0
-  br i1 %.not114, label %.thread159, label %54
+  br i1 %.not114, label %.thread155, label %54
 
 54:                                               ; preds = %51
   %55 = and i32 %5, 1
@@ -218,7 +218,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
 .thread:                                          ; preds = %.thread.sink.split, %56
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread159
+  br label %.thread155
 
 74:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -231,7 +231,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %78 = zext i1 %77 to i32
   %79 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 204, ptr noundef nonnull @.str.8, i32 noundef %78) #10
   %.not116 = icmp eq i32 %79, 0
-  br i1 %.not116, label %.thread159, label %80
+  br i1 %.not116, label %.thread155, label %80
 
 80:                                               ; preds = %75
   %81 = load ptr, ptr %13, align 8, !tbaa !4
@@ -241,7 +241,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %85 = zext i1 %84 to i32
   %86 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 207, ptr noundef nonnull @.str.9, i32 noundef %85) #10
   %.not117 = icmp eq i32 %86, 0
-  br i1 %.not117, label %.thread159, label %87
+  br i1 %.not117, label %.thread155, label %87
 
 87:                                               ; preds = %80
   %88 = load ptr, ptr %14, align 8, !tbaa !4
@@ -251,13 +251,13 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %92 = zext i1 %91 to i32
   %93 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 208, ptr noundef nonnull @.str.10, i32 noundef %92) #10
   %.not118 = icmp eq i32 %93, 0
-  br i1 %.not118, label %.thread159, label %94
+  br i1 %.not118, label %.thread155, label %94
 
 94:                                               ; preds = %87
   %95 = call ptr @BIO_ADDR_new() #10
   %96 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 211, ptr noundef nonnull @.str.11, ptr noundef %95) #10
   %.not119 = icmp eq i32 %96, 0
-  br i1 %.not119, label %.thread159, label %97
+  br i1 %.not119, label %.thread155, label %97
 
 97:                                               ; preds = %94
   %98 = call i32 @BIO_ADDR_rawmake(ptr noundef %95, i32 noundef 2, ptr noundef nonnull %15, i64 noundef 4, i16 noundef zeroext 0) #10
@@ -269,7 +269,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
 
 102:                                              ; preds = %97
   call void @BIO_ADDR_free(ptr noundef %95) #10
-  br label %.thread159
+  br label %.thread155
 
 103:                                              ; preds = %97
   %104 = load ptr, ptr %13, align 8, !tbaa !4
@@ -281,7 +281,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
 
 108:                                              ; preds = %103
   call void @BIO_ADDR_free(ptr noundef %95) #10
-  br label %.thread159
+  br label %.thread155
 
 109:                                              ; preds = %103
   %110 = call i32 @BIO_ADDR_rawmake(ptr noundef %52, i32 noundef 2, ptr noundef nonnull %15, i64 noundef 4, i16 noundef zeroext 0) #10
@@ -289,7 +289,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %112 = zext i1 %111 to i32
   %113 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 225, ptr noundef nonnull @.str.15, i32 noundef %112) #10
   %.not122 = icmp eq i32 %113, 0
-  br i1 %.not122, label %.thread159, label %114
+  br i1 %.not122, label %.thread155, label %114
 
 114:                                              ; preds = %109, %74
   %115 = and i32 %5, 8
@@ -301,7 +301,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %118 = call ptr @BIO_new(ptr noundef %117) #10
   %119 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 232, ptr noundef nonnull @.str.16, ptr noundef %118) #10
   %.not127 = icmp eq i32 %119, 0
-  br i1 %.not127, label %.thread159, label %120
+  br i1 %.not127, label %.thread155, label %120
 
 120:                                              ; preds = %116
   %121 = load ptr, ptr %13, align 8, !tbaa !4
@@ -312,7 +312,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %124 = call ptr @BIO_new(ptr noundef %123) #10
   %125 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 238, ptr noundef nonnull @.str.16, ptr noundef %124) #10
   %.not128 = icmp eq i32 %125, 0
-  br i1 %.not128, label %.thread159, label %126
+  br i1 %.not128, label %.thread155, label %126
 
 126:                                              ; preds = %120
   %127 = load ptr, ptr %14, align 8, !tbaa !4
@@ -331,14 +331,14 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) @__const.qtest_create_quic_objects.now_cb, i64 16, i1 false)
   %132 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 251, ptr noundef nonnull @.str.17, ptr noundef %8) #10
   %.not130 = icmp eq i32 %132, 0
-  br i1 %.not130, label %.thread167, label %133
+  br i1 %.not130, label %.thread161, label %133
 
 133:                                              ; preds = %131
   %134 = call ptr @bio_f_noisy_dgram_filter() #10
   %135 = call ptr @BIO_new(ptr noundef %134) #10
   %136 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 256, ptr noundef nonnull @.str.18, ptr noundef %135) #10
   %.not131 = icmp eq i32 %136, 0
-  br i1 %.not131, label %.thread167, label %137
+  br i1 %.not131, label %.thread161, label %137
 
 137:                                              ; preds = %133
   %138 = load ptr, ptr %13, align 8, !tbaa !4
@@ -353,14 +353,14 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %143 = trunc i64 %142 to i32
   %144 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 261, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.14, i32 noundef %143, i32 noundef 1) #10
   %.not133 = icmp eq i32 %144, 0
-  br i1 %.not133, label %.thread167, label %145
+  br i1 %.not133, label %.thread161, label %145
 
 145:                                              ; preds = %141, %137
   %146 = call ptr @bio_f_noisy_dgram_filter() #10
   %147 = call ptr @BIO_new(ptr noundef %146) #10
   %148 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 267, ptr noundef nonnull @.str.18, ptr noundef %147) #10
   %.not134 = icmp eq i32 %148, 0
-  br i1 %.not134, label %.thread167, label %149
+  br i1 %.not134, label %.thread161, label %149
 
 149:                                              ; preds = %145
   %150 = load ptr, ptr %14, align 8, !tbaa !4
@@ -373,15 +373,15 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %154 = trunc i64 %153 to i32
   %155 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 272, ptr noundef nonnull @.str.20, ptr noundef nonnull @.str.14, i32 noundef %154, i32 noundef 1) #10
   %.not135 = icmp eq i32 %155, 0
-  br i1 %.not135, label %.thread167, label %._crit_edge
+  br i1 %.not135, label %.thread161, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %152
   %.pre = load ptr, ptr %14, align 8, !tbaa !4
   br label %156
 
-.thread167:                                       ; preds = %131, %133, %141, %145, %152
+.thread161:                                       ; preds = %131, %133, %141, %145, %152
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  br label %.thread159
+  br label %.thread155
 
 156:                                              ; preds = %._crit_edge, %149
   %157 = phi ptr [ %.pre, %._crit_edge ], [ %151, %149 ]
@@ -416,7 +416,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %177 = zext i1 %176 to i32
   %178 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 290, ptr noundef nonnull @.str.21, i32 noundef %177) #10
   %.not136 = icmp eq i32 %178, 0
-  br i1 %.not136, label %.thread159, label %179
+  br i1 %.not136, label %.thread155, label %179
 
 179:                                              ; preds = %171
   %180 = load ptr, ptr %7, align 8, !tbaa !11
@@ -425,21 +425,21 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %183 = zext i1 %182 to i32
   %184 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 293, ptr noundef nonnull @.str.22, i32 noundef %183) #10
   %.not137 = icmp eq i32 %184, 0
-  br i1 %.not137, label %.thread159, label %185
+  br i1 %.not137, label %.thread155, label %185
 
 185:                                              ; preds = %179
   %186 = call ptr @qtest_get_bio_method()
   %187 = call ptr @BIO_new(ptr noundef %186) #10
   %188 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 297, ptr noundef nonnull @.str.23, ptr noundef %187) #10
   %.not138 = icmp eq i32 %188, 0
-  br i1 %.not138, label %.thread159, label %189
+  br i1 %.not138, label %.thread155, label %189
 
 189:                                              ; preds = %185
   call void @BIO_set_data(ptr noundef %187, ptr noundef nonnull %19) #10
   %190 = load ptr, ptr %14, align 8, !tbaa !4
   %191 = call i32 @BIO_up_ref(ptr noundef %190) #10
   %.not139 = icmp eq i32 %191, 0
-  br i1 %.not139, label %.thread159, label %192
+  br i1 %.not139, label %.thread155, label %192
 
 192:                                              ; preds = %189
   %193 = load ptr, ptr %14, align 8, !tbaa !4
@@ -451,7 +451,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
 196:                                              ; preds = %192
   %197 = load ptr, ptr %14, align 8, !tbaa !4
   %198 = call i32 @BIO_free(ptr noundef %197) #10
-  br label %.thread159
+  br label %.thread155
 
 199:                                              ; preds = %192
   store ptr %0, ptr %12, align 8, !tbaa !34
@@ -471,7 +471,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %207 = zext i1 %206 to i32
   %208 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 313, ptr noundef nonnull @.str.25, i32 noundef %207) #10
   %.not142 = icmp eq i32 %208, 0
-  br i1 %.not142, label %.thread159, label %209
+  br i1 %.not142, label %.thread155, label %209
 
 209:                                              ; preds = %204, %199
   %210 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -484,7 +484,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   %214 = call ptr @CRYPTO_THREAD_lock_new() #10
   store ptr %214, ptr @fake_now_lock, align 8, !tbaa !42
   %215 = icmp eq ptr %214, null
-  br i1 %215, label %.thread159, label %216
+  br i1 %215, label %.thread155, label %216
 
 216:                                              ; preds = %213, %209
   %217 = and i32 %5, 2
@@ -509,20 +509,20 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   store ptr %224, ptr %6, align 8, !tbaa !9
   %225 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 331, ptr noundef nonnull @.str.26, ptr noundef %224) #10
   %.not144 = icmp eq i32 %225, 0
-  br i1 %.not144, label %..thread159_crit_edge, label %226
+  br i1 %.not144, label %..thread155_crit_edge, label %226
 
-..thread159_crit_edge:                            ; preds = %223
-  %.pre171 = load ptr, ptr %210, align 8, !tbaa !41
-  br label %.thread159
+..thread155_crit_edge:                            ; preds = %223
+  %.pre164 = load ptr, ptr %210, align 8, !tbaa !41
+  br label %.thread155
 
 226:                                              ; preds = %223
   %227 = load ptr, ptr %6, align 8, !tbaa !9
   %228 = call i64 @ossl_quic_tserver_get_short_header_conn_id_len(ptr noundef %227) #10
   store i64 %228, ptr %19, align 8, !tbaa !44
   store ptr null, ptr %14, align 8, !tbaa !4
-  br i1 %.not129, label %232, label %.thread170
+  br i1 %.not129, label %232, label %.thread163
 
-.thread170:                                       ; preds = %226
+.thread163:                                       ; preds = %226
   %229 = load ptr, ptr %6, align 8, !tbaa !9
   %230 = load ptr, ptr %8, align 8, !tbaa !13
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 272
@@ -532,7 +532,7 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
 232:                                              ; preds = %226
   br i1 %.not109, label %236, label %233
 
-233:                                              ; preds = %.thread170, %232
+233:                                              ; preds = %.thread163, %232
   %234 = load ptr, ptr %6, align 8, !tbaa !9
   %235 = load ptr, ptr %8, align 8, !tbaa !13
   store ptr %234, ptr %235, align 8, !tbaa !45
@@ -542,11 +542,11 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   call void @BIO_ADDR_free(ptr noundef %52) #10
   br label %247
 
-.thread159:                                       ; preds = %..thread159_crit_edge, %120, %116, %109, %94, %80, %87, %75, %102, %108, %.thread167, %.thread, %213, %204, %189, %185, %179, %171, %51, %45, %35, %28, %196
-  %237 = phi ptr [ null, %28 ], [ %2, %213 ], [ %.pre171, %..thread159_crit_edge ], [ null, %204 ], [ null, %196 ], [ null, %189 ], [ null, %185 ], [ null, %179 ], [ null, %171 ], [ null, %51 ], [ null, %45 ], [ null, %35 ], [ null, %.thread ], [ null, %.thread167 ], [ null, %108 ], [ null, %102 ], [ null, %75 ], [ null, %87 ], [ null, %80 ], [ null, %94 ], [ null, %109 ], [ null, %116 ], [ null, %120 ]
-  %.099 = phi ptr [ null, %28 ], [ %187, %213 ], [ %187, %..thread159_crit_edge ], [ %187, %204 ], [ %187, %196 ], [ %187, %189 ], [ %187, %185 ], [ null, %179 ], [ null, %171 ], [ null, %51 ], [ null, %45 ], [ null, %35 ], [ null, %.thread ], [ null, %.thread167 ], [ null, %108 ], [ null, %102 ], [ null, %75 ], [ null, %87 ], [ null, %80 ], [ null, %94 ], [ null, %109 ], [ null, %116 ], [ null, %120 ]
-  %.098 = phi ptr [ null, %28 ], [ %52, %213 ], [ %52, %..thread159_crit_edge ], [ %52, %204 ], [ %52, %196 ], [ %52, %189 ], [ %52, %185 ], [ %52, %179 ], [ %52, %171 ], [ %52, %51 ], [ null, %45 ], [ null, %35 ], [ %52, %.thread ], [ %52, %.thread167 ], [ %52, %108 ], [ %52, %102 ], [ %52, %75 ], [ %52, %87 ], [ %52, %80 ], [ %52, %94 ], [ %52, %109 ], [ %52, %116 ], [ %52, %120 ]
-  %.096 = phi ptr [ null, %28 ], [ %.197, %213 ], [ %.197, %..thread159_crit_edge ], [ %.197, %204 ], [ %.197, %196 ], [ %.197, %189 ], [ %.197, %185 ], [ %.197, %179 ], [ %.197, %171 ], [ %.197, %51 ], [ %.197, %45 ], [ %37, %35 ], [ %.197, %.thread ], [ %.197, %.thread167 ], [ %.197, %108 ], [ %.197, %102 ], [ %.197, %75 ], [ %.197, %87 ], [ %.197, %80 ], [ %.197, %94 ], [ %.197, %109 ], [ %.197, %116 ], [ %.197, %120 ]
+.thread155:                                       ; preds = %..thread155_crit_edge, %120, %116, %109, %94, %80, %87, %75, %102, %108, %.thread161, %.thread, %213, %204, %189, %185, %179, %171, %51, %45, %35, %28, %196
+  %237 = phi ptr [ null, %28 ], [ %2, %213 ], [ %.pre164, %..thread155_crit_edge ], [ null, %204 ], [ null, %196 ], [ null, %189 ], [ null, %185 ], [ null, %179 ], [ null, %171 ], [ null, %51 ], [ null, %45 ], [ null, %35 ], [ null, %.thread ], [ null, %.thread161 ], [ null, %108 ], [ null, %102 ], [ null, %75 ], [ null, %87 ], [ null, %80 ], [ null, %94 ], [ null, %109 ], [ null, %116 ], [ null, %120 ]
+  %.099 = phi ptr [ null, %28 ], [ %187, %213 ], [ %187, %..thread155_crit_edge ], [ %187, %204 ], [ %187, %196 ], [ %187, %189 ], [ %187, %185 ], [ null, %179 ], [ null, %171 ], [ null, %51 ], [ null, %45 ], [ null, %35 ], [ null, %.thread ], [ null, %.thread161 ], [ null, %108 ], [ null, %102 ], [ null, %75 ], [ null, %87 ], [ null, %80 ], [ null, %94 ], [ null, %109 ], [ null, %116 ], [ null, %120 ]
+  %.098 = phi ptr [ null, %28 ], [ %52, %213 ], [ %52, %..thread155_crit_edge ], [ %52, %204 ], [ %52, %196 ], [ %52, %189 ], [ %52, %185 ], [ %52, %179 ], [ %52, %171 ], [ %52, %51 ], [ null, %45 ], [ null, %35 ], [ %52, %.thread ], [ %52, %.thread161 ], [ %52, %108 ], [ %52, %102 ], [ %52, %75 ], [ %52, %87 ], [ %52, %80 ], [ %52, %94 ], [ %52, %109 ], [ %52, %116 ], [ %52, %120 ]
+  %.096 = phi ptr [ null, %28 ], [ %.197, %213 ], [ %.197, %..thread155_crit_edge ], [ %.197, %204 ], [ %.197, %196 ], [ %.197, %189 ], [ %.197, %185 ], [ %.197, %179 ], [ %.197, %171 ], [ %.197, %51 ], [ %.197, %45 ], [ %37, %35 ], [ %.197, %.thread ], [ %.197, %.thread161 ], [ %.197, %108 ], [ %.197, %102 ], [ %.197, %75 ], [ %.197, %87 ], [ %.197, %80 ], [ %.197, %94 ], [ %.197, %109 ], [ %.197, %116 ], [ %.197, %120 ]
   call void @SSL_CTX_free(ptr noundef %237) #10
   call void @BIO_ADDR_free(ptr noundef %.098) #10
   %238 = load ptr, ptr %13, align 8, !tbaa !4
@@ -561,12 +561,12 @@ define dso_local range(i32 0, 2) i32 @qtest_create_quic_objects(ptr noundef %0, 
   call void @ossl_quic_tserver_free(ptr noundef %241) #10
   br i1 %.not109, label %244, label %242
 
-242:                                              ; preds = %.thread159
+242:                                              ; preds = %.thread155
   %243 = load ptr, ptr %8, align 8, !tbaa !13
   call void @CRYPTO_free(ptr noundef %243, ptr noundef nonnull @.str, i32 noundef 359) #10
   br label %244
 
-244:                                              ; preds = %242, %.thread159
+244:                                              ; preds = %242, %.thread155
   call void @CRYPTO_free(ptr noundef nonnull %19, ptr noundef nonnull @.str, i32 noundef 360) #10
   %245 = call i32 @BIO_free(ptr noundef %.096) #10
   %.not145 = icmp eq ptr %9, null
@@ -1306,7 +1306,7 @@ define dso_local range(i32 0, 2) i32 @qtest_shutdown(ptr noundef %0, ptr noundef
   %9 = zext i1 %8 to i32
   %10 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 645, ptr noundef nonnull @.str.33, i32 noundef %9) #10
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %26, label %.split.us
+  br i1 %.not, label %27, label %.split.us
 
 .split.us:                                        ; preds = %6, %13
   %11 = call i32 @SSL_shutdown(ptr noundef %1) #10
@@ -1314,39 +1314,39 @@ define dso_local range(i32 0, 2) i32 @qtest_shutdown(ptr noundef %0, ptr noundef
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %.split.us
-  %switch.us = icmp sgt i32 %11, -1
-  br i1 %switch.us, label %.split.us, label %.thread
+  %14 = icmp sgt i32 %11, -1
+  br i1 %14, label %.split.us, label %.thread
 
-.split:                                           ; preds = %2, %18
-  %14 = tail call i32 @SSL_shutdown(ptr noundef %1) #10
-  %15 = icmp eq i32 %14, 1
-  br i1 %15, label %.thread, label %16
+.split:                                           ; preds = %2, %19
+  %15 = tail call i32 @SSL_shutdown(ptr noundef %1) #10
+  %16 = icmp eq i32 %15, 1
+  br i1 %16, label %.thread, label %17
 
-16:                                               ; preds = %.split
-  %17 = icmp sgt i32 %14, -1
-  br i1 %17, label %18, label %.thread
+17:                                               ; preds = %.split
+  %18 = icmp sgt i32 %15, -1
+  br i1 %18, label %19, label %.thread
 
-18:                                               ; preds = %16
-  %19 = tail call i32 @ossl_quic_tserver_tick(ptr noundef %0) #10
+19:                                               ; preds = %17
+  %20 = tail call i32 @ossl_quic_tserver_tick(ptr noundef %0) #10
   br label %.split
 
-.thread:                                          ; preds = %.split, %16, %.split.us, %13
-  %.us-phi = phi i32 [ 0, %13 ], [ 1, %.split.us ], [ 0, %16 ], [ 1, %.split ]
+.thread:                                          ; preds = %.split, %17, %.split.us, %13
+  %.us-phi = phi i32 [ 0, %13 ], [ 1, %.split.us ], [ 0, %17 ], [ 1, %.split ]
   store atomic i32 1, ptr @shutdowndone monotonic, align 4
-  br i1 %5, label %20, label %26
+  br i1 %5, label %21, label %27
 
-20:                                               ; preds = %.thread
-  %21 = load i64, ptr %3, align 8, !tbaa !46
-  %22 = call i32 @pthread_join(i64 noundef %21, ptr noundef null) #10
-  %23 = icmp eq i32 %22, 0
-  %24 = zext i1 %23 to i32
-  %25 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 674, ptr noundef nonnull @.str.31, i32 noundef %24) #10
-  %.not17 = icmp eq i32 %25, 0
+21:                                               ; preds = %.thread
+  %22 = load i64, ptr %3, align 8, !tbaa !46
+  %23 = call i32 @pthread_join(i64 noundef %22, ptr noundef null) #10
+  %24 = icmp eq i32 %23, 0
+  %25 = zext i1 %24 to i32
+  %26 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 674, ptr noundef nonnull @.str.31, i32 noundef %25) #10
+  %.not17 = icmp eq i32 %26, 0
   %spec.select = select i1 %.not17, i32 0, i32 %.us-phi
-  br label %26
+  br label %27
 
-26:                                               ; preds = %20, %.thread, %6
-  %.0 = phi i32 [ 0, %6 ], [ %.us-phi, %.thread ], [ %spec.select, %20 ]
+27:                                               ; preds = %21, %.thread, %6
+  %.0 = phi i32 [ 0, %6 ], [ %.us-phi, %.thread ], [ %spec.select, %21 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

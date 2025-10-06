@@ -662,8 +662,8 @@ define hidden void @"_ZN8indexmap3map25IndexMap$LT$K$C$V$C$S$GT$16swap_remove_fu
   br label %"_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$16swap_remove_full17h5686647a7aad1844E.exit"
 
 "_ZN8indexmap3map4core25IndexMapCore$LT$K$C$V$GT$16swap_remove_full17h5686647a7aad1844E.exit": ; preds = %37, %60
-  %.sroa.0.0.i12.i = phi i64 [ 1, %60 ], [ 0, %37 ]
-  store i64 %.sroa.0.0.i12.i, ptr %0, align 8, !alias.scope !96, !noalias !107
+  %.sroa.0.0.i11.i = phi i64 [ 1, %60 ], [ 0, %37 ]
+  store i64 %.sroa.0.0.i11.i, ptr %0, align 8, !alias.scope !96, !noalias !107
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %36
 }

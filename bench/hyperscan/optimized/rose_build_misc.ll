@@ -915,8 +915,8 @@ define hidden noundef zeroext i1 @_ZN3ue218hasAnchHistorySuccERKNS_9RoseGraphENS
 5:                                                ; preds = %6, %3
   %.sroa.09.0.in = phi ptr [ %4, %3 ], [ %.sroa.09.0, %6 ]
   %.sroa.09.0 = load ptr, ptr %.sroa.09.0.in, align 8
-  %.not14.not.not.not.not.not = icmp ne ptr %.sroa.09.0, %4
-  br i1 %.not14.not.not.not.not.not, label %6, label %9
+  %.not15.not.not.not.not.not = icmp ne ptr %.sroa.09.0, %4
+  br i1 %.not15.not.not.not.not.not, label %6, label %9
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.09.0, i64 80
@@ -925,7 +925,7 @@ define hidden noundef zeroext i1 @_ZN3ue218hasAnchHistorySuccERKNS_9RoseGraphENS
   br i1 %.not, label %9, label %5
 
 9:                                                ; preds = %5, %6
-  ret i1 %.not14.not.not.not.not.not
+  ret i1 %.not15.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -936,8 +936,8 @@ define hidden noundef zeroext i1 @_ZN3ue222hasLastByteHistorySuccERKNS_9RoseGrap
 5:                                                ; preds = %6, %3
   %.sroa.09.0.in = phi ptr [ %4, %3 ], [ %.sroa.09.0, %6 ]
   %.sroa.09.0 = load ptr, ptr %.sroa.09.0.in, align 8
-  %.not14.not.not.not.not.not = icmp ne ptr %.sroa.09.0, %4
-  br i1 %.not14.not.not.not.not.not, label %6, label %9
+  %.not15.not.not.not.not.not = icmp ne ptr %.sroa.09.0, %4
+  br i1 %.not15.not.not.not.not.not, label %6, label %9
 
 6:                                                ; preds = %5
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.09.0, i64 80
@@ -946,7 +946,7 @@ define hidden noundef zeroext i1 @_ZN3ue222hasLastByteHistorySuccERKNS_9RoseGrap
   br i1 %.not, label %9, label %5
 
 9:                                                ; preds = %5, %6
-  ret i1 %.not14.not.not.not.not.not
+  ret i1 %.not15.not.not.not.not.not
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1346,9 +1346,9 @@ define hidden noundef zeroext i1 @_ZNK3ue213RoseBuildImpl18hasNoFloatingRootsEv(
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.sroa.0.0.copyload.i = load ptr, ptr %2, align 8, !noalias !69
   %3 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 352
-  %.sroa.037.052 = load ptr, ptr %3, align 8
-  %.not53 = icmp eq ptr %.sroa.037.052, %3
-  br i1 %.not53, label %._crit_edge, label %.lr.ph
+  %.sroa.036.049 = load ptr, ptr %3, align 8
+  %.not50 = icmp eq ptr %.sroa.036.049, %3
+  br i1 %.not50, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1389,8 +1389,8 @@ define hidden noundef zeroext i1 @_ZNK3ue213RoseBuildImpl18hasNoFloatingRootsEv(
   br label %38
 
 38:                                               ; preds = %.lr.ph, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread
-  %.sroa.037.054 = phi ptr [ %.sroa.037.052, %.lr.ph ], [ %.sroa.037.0, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread ]
-  %39 = getelementptr inbounds nuw i8, ptr %.sroa.037.054, i64 40
+  %.sroa.036.051 = phi ptr [ %.sroa.036.049, %.lr.ph ], [ %.sroa.036.0, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread ]
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.036.051, i64 40
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %42 = load i64, ptr %41, align 8
@@ -1449,19 +1449,19 @@ _ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2
   br i1 %70, label %.loopexit, label %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread
 
 _ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread: ; preds = %38, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit
-  %.sroa.037.0 = load ptr, ptr %.sroa.037.054, align 8
-  %.not = icmp eq ptr %.sroa.037.0, %3
+  %.sroa.036.0 = load ptr, ptr %.sroa.036.051, align 8
+  %.not = icmp eq ptr %.sroa.036.0, %3
   br i1 %.not, label %._crit_edge, label %38
 
 ._crit_edge:                                      ; preds = %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit.thread, %1
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.sroa.0.0.copyload.i21 = load ptr, ptr %71, align 8, !noalias !82
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i21, i64 352
-  %.sroa.032.055 = load ptr, ptr %72, align 8
-  %.not4756 = icmp eq ptr %.sroa.032.055, %72
-  br i1 %.not4756, label %.loopexit, label %.lr.ph60
+  %.sroa.0.0.copyload.i20 = load ptr, ptr %71, align 8, !noalias !82
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i20, i64 352
+  %.sroa.031.052 = load ptr, ptr %72, align 8
+  %.not4453 = icmp eq ptr %.sroa.031.052, %72
+  br i1 %.not4453, label %.loopexit, label %.lr.ph57
 
-.lr.ph60:                                         ; preds = %._crit_edge
+.lr.ph57:                                         ; preds = %._crit_edge
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 176
@@ -1473,8 +1473,8 @@ _ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2
   %81 = sub i64 %79, %80
   %82 = ashr exact i64 %81, 3
   %83 = icmp ne ptr %76, null
-  %.neg.i.i.i.i.i.i.i25 = sext i1 %83 to i64
-  %84 = add nsw i64 %82, %.neg.i.i.i.i.i.i.i25
+  %.neg.i.i.i.i.i.i.i24 = sext i1 %83 to i64
+  %84 = add nsw i64 %82, %.neg.i.i.i.i.i.i.i24
   %85 = shl nsw i64 %84, 2
   %86 = load ptr, ptr %73, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -1499,22 +1499,22 @@ _ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2
   %106 = ashr exact i64 %105, 7
   br label %107
 
-107:                                              ; preds = %.lr.ph60, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31.thread
-  %.sroa.032.057 = phi ptr [ %.sroa.032.055, %.lr.ph60 ], [ %.sroa.032.0, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31.thread ]
-  %108 = getelementptr inbounds nuw i8, ptr %.sroa.032.057, i64 40
+107:                                              ; preds = %.lr.ph57, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30.thread
+  %.sroa.031.054 = phi ptr [ %.sroa.031.052, %.lr.ph57 ], [ %.sroa.031.0, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30.thread ]
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.031.054, i64 40
   %109 = load ptr, ptr %108, align 8
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 32
   %111 = load i64, ptr %110, align 8
-  %.not.i.i.i.i24 = icmp eq i64 %111, 0
-  br i1 %.not.i.i.i.i24, label %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31.thread, label %112
+  %.not.i.i.i.i23 = icmp eq i64 %111, 0
+  br i1 %.not.i.i.i.i23, label %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30.thread, label %112
 
 112:                                              ; preds = %107
   %113 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %114 = load ptr, ptr %113, align 8, !noalias !85
   %115 = load i32, ptr %114, align 4
   %116 = zext i32 %115 to i64
-  %.not.i.i.i.i.i26 = icmp ugt i64 %101, %116
-  br i1 %.not.i.i.i.i.i26, label %_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i27, label %117
+  %.not.i.i.i.i.i25 = icmp ugt i64 %101, %116
+  br i1 %.not.i.i.i.i.i25, label %_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i26, label %117
 
 117:                                              ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1522,24 +1522,24 @@ _ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2
   tail call void (ptr, ...) @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef nonnull @.str, i64 noundef %116, i64 noundef %119) #31
   unreachable
 
-_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i27: ; preds = %112
+_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i26: ; preds = %112
   %120 = add nsw i64 %106, %116
   %121 = icmp sgt i64 %120, -1
   br i1 %121, label %122, label %128
 
-122:                                              ; preds = %_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i27
+122:                                              ; preds = %_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i26
   %123 = icmp samesign ult i64 %120, 4
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122
   %125 = getelementptr inbounds nuw %"struct.ue2::rose_literal_id", ptr %96, i64 %116
-  br label %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31
+  br label %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30
 
 126:                                              ; preds = %122
   %127 = lshr i64 %120, 2
   br label %130
 
-128:                                              ; preds = %_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i27
+128:                                              ; preds = %_ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i26
   %129 = ashr i64 %120, 2
   br label %130
 
@@ -1550,22 +1550,22 @@ _ZNKSt5dequeIN3ue215rose_literal_idESaIS1_EE14_M_range_checkEm.exit.i.i.i.i27: ;
   %134 = shl nsw i64 %131, 2
   %135 = sub nsw i64 %120, %134
   %136 = getelementptr inbounds %"struct.ue2::rose_literal_id", ptr %133, i64 %135
-  br label %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31
+  br label %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30
 
-_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31: ; preds = %124, %130
-  %storemerge.i.i.i.i.i.i.i.i29 = phi ptr [ %136, %130 ], [ %125, %124 ]
-  %137 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i.i.i.i29, i64 112
+_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30: ; preds = %124, %130
+  %storemerge.i.i.i.i.i.i.i.i28 = phi ptr [ %136, %130 ], [ %125, %124 ]
+  %137 = getelementptr inbounds nuw i8, ptr %storemerge.i.i.i.i.i.i.i.i28, i64 112
   %138 = load i32, ptr %137, align 8
   %139 = icmp eq i32 %138, 1
-  br i1 %139, label %.loopexit, label %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31.thread
+  br i1 %139, label %.loopexit, label %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30.thread
 
-_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31.thread: ; preds = %107, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31
-  %.sroa.032.0 = load ptr, ptr %.sroa.032.057, align 8
-  %.not47 = icmp eq ptr %.sroa.032.0, %72
-  br i1 %.not47, label %.loopexit, label %107
+_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30.thread: ; preds = %107, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30
+  %.sroa.031.0 = load ptr, ptr %.sroa.031.054, align 8
+  %.not44 = icmp eq ptr %.sroa.031.0, %72
+  br i1 %.not44, label %.loopexit, label %107
 
-.loopexit:                                        ; preds = %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31.thread, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31, %._crit_edge
-  %.3 = phi i1 [ true, %._crit_edge ], [ true, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31.thread ], [ false, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit31 ], [ false, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit ]
+.loopexit:                                        ; preds = %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30.thread, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30, %._crit_edge
+  %.3 = phi i1 [ true, %._crit_edge ], [ true, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30.thread ], [ false, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit30 ], [ false, %_ZNK3ue213RoseBuildImpl10isFloatingENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_9RoseGraphENS_15RoseVertexPropsENS_13RoseEdgePropsEEEEE.exit ]
   ret i1 %.3
 }
 
@@ -3426,12 +3426,12 @@ define hidden void @_ZN3ue220normaliseLiteralMaskERKNS_11ue2_literalERSt6vectorI
   %19 = load i64, ptr %18, align 8, !noalias !259
   %20 = load ptr, ptr %8, align 8
   %21 = load ptr, ptr %1, align 8
-  %.not67 = icmp ne ptr %20, %21
+  %.not65 = icmp ne ptr %20, %21
   %22 = icmp ne i64 %19, 0
-  %or.cond68 = select i1 %.not67, i1 %22, i1 false
-  br i1 %or.cond68, label %.lr.ph71, label %.critedge.preheader
+  %or.cond66 = select i1 %.not65, i1 %22, i1 false
+  br i1 %or.cond66, label %.lr.ph69, label %.critedge.preheader
 
-.lr.ph71:                                         ; preds = %17
+.lr.ph69:                                         ; preds = %17
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %20 to i64
   %25 = xor i64 %23, -1
@@ -3440,26 +3440,26 @@ define hidden void @_ZN3ue220normaliseLiteralMaskERKNS_11ue2_literalERSt6vectorI
   br label %32
 
 .critedge.preheader.loopexit:                     ; preds = %.loopexit
-  %.pre76 = load ptr, ptr %1, align 8
-  %.pre77 = load ptr, ptr %8, align 8
+  %.pre74 = load ptr, ptr %1, align 8
+  %.pre75 = load ptr, ptr %8, align 8
   br label %.critedge.preheader
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.loopexit, %17
-  %28 = phi ptr [ %.pre77, %.critedge.preheader.loopexit ], [ %20, %17 ]
-  %29 = phi ptr [ %.pre76, %.critedge.preheader.loopexit ], [ %21, %17 ]
+  %28 = phi ptr [ %.pre75, %.critedge.preheader.loopexit ], [ %20, %17 ]
+  %29 = phi ptr [ %.pre74, %.critedge.preheader.loopexit ], [ %21, %17 ]
   %30 = icmp eq ptr %29, %28
-  br i1 %30, label %.critedge2, label %.lr.ph72
+  br i1 %30, label %.critedge2, label %.lr.ph70
 
-.lr.ph72:                                         ; preds = %.critedge.preheader
+.lr.ph70:                                         ; preds = %.critedge.preheader
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %91
 
-32:                                               ; preds = %.lr.ph71, %.loopexit
-  %33 = phi i64 [ %26, %.lr.ph71 ], [ %89, %.loopexit ]
-  %.sroa.6.069 = phi i64 [ %19, %.lr.ph71 ], [ %34, %.loopexit ]
+32:                                               ; preds = %.lr.ph69, %.loopexit
+  %33 = phi i64 [ %26, %.lr.ph69 ], [ %89, %.loopexit ]
+  %.sroa.6.067 = phi i64 [ %19, %.lr.ph69 ], [ %34, %.loopexit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %34 = add i64 %.sroa.6.069, -1
+  %34 = add i64 %.sroa.6.067, -1
   %35 = load ptr, ptr %4, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 %34
   %37 = load i8, ptr %36, align 1
@@ -3483,28 +3483,28 @@ define hidden void @_ZN3ue220normaliseLiteralMaskERKNS_11ue2_literalERSt6vectorI
   br label %46
 
 46:                                               ; preds = %49, %45
-  %.0710.i.i = phi i64 [ 0, %45 ], [ %50, %49 ]
-  %47 = getelementptr inbounds nuw i64, ptr %5, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %45 ], [ %50, %49 ]
+  %47 = getelementptr inbounds nuw i64, ptr %5, i64 %.0712.i.i
   %48 = load i64, ptr %47, align 8
   %.not.i.i = icmp eq i64 %48, 0
   br i1 %.not.i.i, label %49, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 49:                                               ; preds = %46
-  %50 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %50, 4
-  br i1 %exitcond.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit.thread, label %46, !llvm.loop !262
+  %50 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %50, 4
+  br i1 %exitcond.not.i.i, label %_ZNK3ue29CharReach10find_firstEv.exit.thread, label %46, !llvm.loop !262
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread:     ; preds = %49
-  %.pre99 = load ptr, ptr %1, align 8
+  %.pre97 = load ptr, ptr %1, align 8
   br label %._crit_edge
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %46
-  %51 = shl nuw nsw i64 %.0710.i.i, 6
+  %51 = shl nuw nsw i64 %.0712.i.i, 6
   %52 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %48, i1 true)
   %53 = or disjoint i64 %52, %51
-  %.not3765 = icmp eq i64 %53, 256
+  %.not3763 = icmp eq i64 %53, 256
   %.pre = load ptr, ptr %1, align 8
-  br i1 %.not3765, label %._crit_edge, label %.lr.ph
+  br i1 %.not3763, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %54 = getelementptr inbounds nuw i8, ptr %.pre, i64 %33
@@ -3516,8 +3516,8 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %46
   %60 = zext i8 %59 to i32
   %61 = trunc i64 %53 to i32
   %62 = and i32 %56, %61
-  %.not38113 = icmp eq i32 %62, %60
-  br i1 %.not38113, label %.lr.ph115, label %.loopexit
+  %.not38111 = icmp eq i32 %62, %60
+  br i1 %.not38111, label %.lr.ph113, label %.loopexit
 
 63:                                               ; preds = %32
   %64 = landingpad { ptr, i32 }
@@ -3525,14 +3525,14 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %46
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %122
 
-.lr.ph115:                                        ; preds = %.lr.ph, %_ZNK3ue29CharReach9find_nextEm.exit
-  %.03566114 = phi i64 [ %83, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %53, %.lr.ph ]
-  %.not.i.i46 = icmp ult i64 %.03566114, 256
+.lr.ph113:                                        ; preds = %.lr.ph, %_ZNK3ue29CharReach9find_nextEm.exit
+  %.03564112 = phi i64 [ %83, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %53, %.lr.ph ]
+  %.not.i.i46 = icmp ult i64 %.03564112, 256
   br i1 %.not.i.i46, label %65, label %._crit_edge
 
-65:                                               ; preds = %.lr.ph115
-  %66 = lshr i64 %.03566114, 6
-  %67 = and i64 %.03566114, 63
+65:                                               ; preds = %.lr.ph113
+  %66 = lshr i64 %.03564112, 6
+  %67 = and i64 %.03564112, 63
   %.not20.i.i = icmp eq i64 %67, 63
   br i1 %.not20.i.i, label %.preheader, label %68
 
@@ -3548,7 +3548,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %46
   br i1 %.not21.i.i, label %.preheader, label %73
 
 73:                                               ; preds = %68
-  %74 = and i64 %.03566114, 192
+  %74 = and i64 %.03564112, 192
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 75:                                               ; preds = %.preheader, %77
@@ -3568,18 +3568,18 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %46
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %73, %80
-  %.sink108 = phi i64 [ %72, %73 ], [ %79, %80 ]
-  %.sink107 = phi i64 [ %74, %73 ], [ %81, %80 ]
-  %82 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink108, i1 true)
-  %83 = or disjoint i64 %82, %.sink107
+  %.sink106 = phi i64 [ %72, %73 ], [ %79, %80 ]
+  %.sink105 = phi i64 [ %74, %73 ], [ %81, %80 ]
+  %82 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink106, i1 true)
+  %83 = or disjoint i64 %82, %.sink105
   %84 = trunc i64 %83 to i32
   %85 = and i32 %56, %84
   %.not38 = icmp eq i32 %85, %60
-  br i1 %.not38, label %.lr.ph115, label %.loopexit
+  br i1 %.not38, label %.lr.ph113, label %.loopexit
 
-._crit_edge:                                      ; preds = %.lr.ph115, %75, %_ZNK3ue29CharReach10find_firstEv.exit.thread, %_ZNK3ue29CharReach10find_firstEv.exit
-  %.pre100 = phi ptr [ %.pre99, %_ZNK3ue29CharReach10find_firstEv.exit.thread ], [ %.pre, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %.pre, %75 ], [ %.pre, %.lr.ph115 ]
-  %86 = getelementptr inbounds nuw i8, ptr %.pre100, i64 %33
+._crit_edge:                                      ; preds = %.lr.ph113, %75, %_ZNK3ue29CharReach10find_firstEv.exit.thread, %_ZNK3ue29CharReach10find_firstEv.exit
+  %.pre98 = phi ptr [ %.pre97, %_ZNK3ue29CharReach10find_firstEv.exit.thread ], [ %.pre, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %.pre, %75 ], [ %.pre, %.lr.ph113 ]
+  %86 = getelementptr inbounds nuw i8, ptr %.pre98, i64 %33
   store i8 0, ptr %86, align 1
   %87 = load ptr, ptr %2, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 %33
@@ -3594,9 +3594,9 @@ _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %73, %80
   %or.cond = and i1 %.not, %90
   br i1 %or.cond, label %32, label %.critedge.preheader.loopexit, !llvm.loop !264
 
-91:                                               ; preds = %.lr.ph72, %.critedge
-  %92 = phi ptr [ %28, %.lr.ph72 ], [ %113, %.critedge ]
-  %93 = phi ptr [ %29, %.lr.ph72 ], [ %112, %.critedge ]
+91:                                               ; preds = %.lr.ph70, %.critedge
+  %92 = phi ptr [ %28, %.lr.ph70 ], [ %113, %.critedge ]
+  %93 = phi ptr [ %29, %.lr.ph70 ], [ %112, %.critedge ]
   %94 = load i8, ptr %93, align 1
   %95 = icmp eq i8 %94, 0
   br i1 %95, label %96, label %.critedge2

@@ -91,21 +91,21 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %13 = icmp sgt i32 %0, 1
   br i1 %13, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %2, %.thread324
-  %.0158569 = phi i32 [ %.2, %.thread324 ], [ 1, %2 ]
-  %.0168568 = phi ptr [ %.2170, %.thread324 ], [ null, %2 ]
-  %.0174567 = phi i64 [ %.3177, %.thread324 ], [ 0, %2 ]
-  %.0180566 = phi i32 [ %.3183, %.thread324 ], [ %12, %2 ]
-  %.0186565 = phi i32 [ %.3189, %.thread324 ], [ 0, %2 ]
-  %.0193564 = phi i64 [ %.3196, %.thread324 ], [ 0, %2 ]
-  %.0199563 = phi i32 [ %.3202, %.thread324 ], [ 0, %2 ]
-  %.0205562 = phi i32 [ %.3208, %.thread324 ], [ 0, %2 ]
-  %.0211561 = phi i32 [ %.3214, %.thread324 ], [ -1, %2 ]
-  %.0217560 = phi i32 [ %.3220, %.thread324 ], [ 0, %2 ]
-  %.0223559 = phi i32 [ %.3226, %.thread324 ], [ 0, %2 ]
-  %.0229558 = phi i32 [ %.3232, %.thread324 ], [ 0, %2 ]
-  %.0235557 = phi i32 [ %.3238, %.thread324 ], [ 0, %2 ]
-  %14 = sext i32 %.0158569 to i64
+.lr.ph:                                           ; preds = %2, %.thread323
+  %.0158565 = phi i32 [ %.2, %.thread323 ], [ 1, %2 ]
+  %.0168564 = phi ptr [ %.2170, %.thread323 ], [ null, %2 ]
+  %.0174563 = phi i64 [ %.3177, %.thread323 ], [ 0, %2 ]
+  %.0180562 = phi i32 [ %.3183, %.thread323 ], [ %12, %2 ]
+  %.0186561 = phi i32 [ %.3189, %.thread323 ], [ 0, %2 ]
+  %.0193560 = phi i64 [ %.3196, %.thread323 ], [ 0, %2 ]
+  %.0199559 = phi i32 [ %.3202, %.thread323 ], [ 0, %2 ]
+  %.0205558 = phi i32 [ %.3208, %.thread323 ], [ 0, %2 ]
+  %.0211557 = phi i32 [ %.3214, %.thread323 ], [ -1, %2 ]
+  %.0217556 = phi i32 [ %.3220, %.thread323 ], [ 0, %2 ]
+  %.0223555 = phi i32 [ %.3226, %.thread323 ], [ 0, %2 ]
+  %.0229554 = phi i32 [ %.3232, %.thread323 ], [ 0, %2 ]
+  %.0235553 = phi i32 [ %.3238, %.thread323 ], [ 0, %2 ]
+  %14 = sext i32 %.0158565 to i64
   %15 = getelementptr inbounds ptr, ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !7
   %17 = load i8, ptr %16, align 1, !tbaa !12
@@ -119,7 +119,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not248, label %.critedge.loopexit, label %22
 
 22:                                               ; preds = %19
-  %23 = add nsw i32 %.0158569, 1
+  %23 = add nsw i32 %.0158565, 1
   %24 = icmp eq i8 %21, 45
   br i1 %24, label %25, label %.preheader
 
@@ -137,17 +137,17 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %30
 
 30:                                               ; preds = %.backedge, %.preheader
-  %.3238 = phi i32 [ %.0235557, %.preheader ], [ %.3238.be, %.backedge ]
-  %.3232 = phi i32 [ %.0229558, %.preheader ], [ %.3232.be, %.backedge ]
-  %.3226 = phi i32 [ %.0223559, %.preheader ], [ %.3226.be, %.backedge ]
-  %.3220 = phi i32 [ %.0217560, %.preheader ], [ %.3220.be, %.backedge ]
-  %.3214 = phi i32 [ %.0211561, %.preheader ], [ %.3214.be, %.backedge ]
-  %.3208 = phi i32 [ %.0205562, %.preheader ], [ %.3208.be, %.backedge ]
-  %.3202 = phi i32 [ %.0199563, %.preheader ], [ %.3202.be, %.backedge ]
-  %.3196 = phi i64 [ %.0193564, %.preheader ], [ %.3196.be, %.backedge ]
-  %.3189 = phi i32 [ %.0186565, %.preheader ], [ %.3189.be, %.backedge ]
-  %.3183 = phi i32 [ %.0180566, %.preheader ], [ %.3183.be, %.backedge ]
-  %.3177 = phi i64 [ %.0174567, %.preheader ], [ %.3177.be, %.backedge ]
+  %.3238 = phi i32 [ %.0235553, %.preheader ], [ %.3238.be, %.backedge ]
+  %.3232 = phi i32 [ %.0229554, %.preheader ], [ %.3232.be, %.backedge ]
+  %.3226 = phi i32 [ %.0223555, %.preheader ], [ %.3226.be, %.backedge ]
+  %.3220 = phi i32 [ %.0217556, %.preheader ], [ %.3220.be, %.backedge ]
+  %.3214 = phi i32 [ %.0211557, %.preheader ], [ %.3214.be, %.backedge ]
+  %.3208 = phi i32 [ %.0205558, %.preheader ], [ %.3208.be, %.backedge ]
+  %.3202 = phi i32 [ %.0199559, %.preheader ], [ %.3202.be, %.backedge ]
+  %.3196 = phi i64 [ %.0193560, %.preheader ], [ %.3196.be, %.backedge ]
+  %.3189 = phi i32 [ %.0186561, %.preheader ], [ %.3189.be, %.backedge ]
+  %.3183 = phi i32 [ %.0180562, %.preheader ], [ %.3183.be, %.backedge ]
+  %.3177 = phi i64 [ %.0174563, %.preheader ], [ %.3177.be, %.backedge ]
   %.1165 = phi ptr [ %.1165.ph, %.preheader ], [ %.1165.be, %.backedge ]
   %.1163 = phi ptr [ %.1163.ph, %.preheader ], [ @.str.2, %.backedge ]
   %.3 = phi i32 [ %23, %.preheader ], [ %.3.be, %.backedge ]
@@ -158,7 +158,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 32:                                               ; preds = %30
   %33 = load i8, ptr %.1163, align 1, !tbaa !12
   %.not251 = icmp eq i8 %33, 0
-  br i1 %.not251, label %.thread324, label %.thread
+  br i1 %.not251, label %.thread323, label %.thread
 
 .critedge2:                                       ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %.1165, i64 1
@@ -175,8 +175,8 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 .thread:                                          ; preds = %32
   %38 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.3) #15
-  %.not253295 = icmp eq i32 %38, 0
-  br i1 %.not253295, label %39, label %.thread301
+  %.not253294 = icmp eq i32 %38, 0
+  br i1 %.not253294, label %39, label %.thread300
 
 39:                                               ; preds = %.thread, %.critedge2, %.critedge2, %36
   %puts.i = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
@@ -192,16 +192,16 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.not254 = icmp eq i32 %43, 0
   br i1 %.not254, label %45, label %57
 
-.thread301:                                       ; preds = %.thread
+.thread300:                                       ; preds = %.thread
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(5) @.str.4) #15
-  %.not254303 = icmp eq i32 %44, 0
-  br i1 %.not254303, label %45, label %.thread309
+  %.not254302 = icmp eq i32 %44, 0
+  br i1 %.not254302, label %45, label %.thread308
 
-45:                                               ; preds = %.thread301, %42, %40
-  %spec.select286292296300 = phi ptr [ %34, %42 ], [ %34, %40 ], [ %.1165, %.thread301 ]
-  %46 = load i8, ptr %spec.select286292296300, align 1, !tbaa !12
+45:                                               ; preds = %.thread300, %42, %40
+  %spec.select286291295299 = phi ptr [ %34, %42 ], [ %34, %40 ], [ %.1165, %.thread300 ]
+  %46 = load i8, ptr %spec.select286291295299, align 1, !tbaa !12
   %.not271 = icmp eq i8 %46, 0
-  br i1 %.not271, label %47, label %.thread324
+  br i1 %.not271, label %47, label %.thread323
 
 47:                                               ; preds = %45
   %48 = icmp slt i32 %.3, %0
@@ -212,7 +212,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %51 = sext i32 %.3 to i64
   %52 = getelementptr inbounds ptr, ptr %1, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !7
-  br label %.thread324
+  br label %.thread323
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr @stderr, align 8, !tbaa !13
@@ -229,13 +229,13 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.not255 = icmp eq i32 %60, 0
   br i1 %.not255, label %62, label %79
 
-.thread309:                                       ; preds = %.thread301
+.thread308:                                       ; preds = %.thread300
   %61 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(8) @.str.6) #15
-  %.not255311 = icmp eq i32 %61, 0
-  br i1 %.not255311, label %62, label %.thread317
+  %.not255310 = icmp eq i32 %61, 0
+  br i1 %.not255310, label %62, label %.thread316
 
-62:                                               ; preds = %.thread309, %59, %57
-  %spec.select286292296299304308 = phi ptr [ %34, %59 ], [ %34, %57 ], [ %.1165, %.thread309 ]
+62:                                               ; preds = %.thread308, %59, %57
+  %spec.select286291295298303307 = phi ptr [ %34, %59 ], [ %34, %57 ], [ %.1165, %.thread308 ]
   %.not270 = icmp slt i32 %.3, %0
   br i1 %.not270, label %66, label %63
 
@@ -275,28 +275,28 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.not256 = icmp eq i32 %82, 0
   br i1 %.not256, label %84, label %86
 
-.thread317:                                       ; preds = %.thread309
+.thread316:                                       ; preds = %.thread308
   %83 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(12) @.str.9) #15
-  %.not256319 = icmp eq i32 %83, 0
-  br i1 %.not256319, label %84, label %.thread321
+  %.not256318 = icmp eq i32 %83, 0
+  br i1 %.not256318, label %84, label %.thread320
 
-84:                                               ; preds = %.thread317, %81, %79
-  %spec.select286292296299304307312316 = phi ptr [ %34, %81 ], [ %34, %79 ], [ %.1165, %.thread317 ]
+84:                                               ; preds = %.thread316, %81, %79
+  %spec.select286291295298303306311315 = phi ptr [ %34, %81 ], [ %34, %79 ], [ %.1165, %.thread316 ]
   %85 = add i32 %.3238, 1
   br label %.backedge
 
 86:                                               ; preds = %81
   %87 = icmp eq i8 %31, 109
-  br i1 %87, label %.backedge, label %.thread321
+  br i1 %87, label %.backedge, label %.thread320
 
-.thread321:                                       ; preds = %.thread317, %86
-  %88 = phi i32 [ %35, %86 ], [ 0, %.thread317 ]
-  %spec.select286292296299304307312315320323 = phi ptr [ %34, %86 ], [ %.1165, %.thread317 ]
+.thread320:                                       ; preds = %.thread316, %86
+  %88 = phi i32 [ %35, %86 ], [ 0, %.thread316 ]
+  %spec.select286291295298303306311314319322 = phi ptr [ %34, %86 ], [ %.1165, %.thread316 ]
   %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(7) @.str.10) #15
   %.not257 = icmp eq i32 %89, 0
   br i1 %.not257, label %.backedge, label %90
 
-90:                                               ; preds = %.thread321
+90:                                               ; preds = %.thread320
   %91 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.1163, ptr noundef nonnull dereferenceable(7) @.str.11) #15
   %.not258 = icmp eq i32 %91, 0
   br i1 %.not258, label %.backedge, label %92
@@ -351,21 +351,21 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   %.not264 = icmp eq i32 %112, 0
   br i1 %.not264, label %.backedge, label %113
 
-.backedge:                                        ; preds = %111, %106, %104, %90, %86, %.thread321, %138, %125, %117, %110, %102, %96, %84, %71
-  %.3238.be = phi i32 [ %.3238, %71 ], [ %85, %84 ], [ %.3238, %96 ], [ %.3238, %102 ], [ %.3238, %117 ], [ %.3238, %138 ], [ %.3238, %125 ], [ %.3238, %110 ], [ %.3238, %.thread321 ], [ %.3238, %86 ], [ %.3238, %90 ], [ %.3238, %104 ], [ %.3238, %106 ], [ %.3238, %111 ]
-  %.3232.be = phi i32 [ %.3232, %71 ], [ %.3232, %84 ], [ %97, %96 ], [ %.3232, %102 ], [ %.3232, %117 ], [ %.3232, %138 ], [ %.3232, %125 ], [ %.3232, %110 ], [ %.3232, %.thread321 ], [ %.3232, %86 ], [ %.3232, %90 ], [ %.3232, %104 ], [ %.3232, %106 ], [ %.3232, %111 ]
-  %.3226.be = phi i32 [ %.3226, %71 ], [ %.3226, %84 ], [ %.3226, %96 ], [ %103, %102 ], [ %.3226, %117 ], [ %.3226, %138 ], [ %.3226, %125 ], [ %.3226, %110 ], [ %.3226, %.thread321 ], [ %.3226, %86 ], [ %.3226, %90 ], [ %.3226, %104 ], [ %.3226, %106 ], [ %.3226, %111 ]
-  %.3220.be = phi i32 [ %.3220, %71 ], [ %.3220, %84 ], [ %.3220, %96 ], [ %.3220, %102 ], [ %118, %117 ], [ %.3220, %138 ], [ %.3220, %125 ], [ %.3220, %110 ], [ %.3220, %.thread321 ], [ %.3220, %86 ], [ %.3220, %90 ], [ %.3220, %104 ], [ %.3220, %106 ], [ %.3220, %111 ]
-  %.3214.be = phi i32 [ %.3214, %71 ], [ %.3214, %84 ], [ %.3214, %96 ], [ %.3214, %102 ], [ %.3214, %117 ], [ %.3214, %138 ], [ %.3214, %125 ], [ %.3214, %110 ], [ 1, %.thread321 ], [ 1, %86 ], [ 0, %90 ], [ %.3214, %104 ], [ %.3214, %106 ], [ %.3214, %111 ]
-  %.3208.be = phi i32 [ %.3208, %71 ], [ %.3208, %84 ], [ %.3208, %96 ], [ %.3208, %102 ], [ %.3208, %117 ], [ %.3208, %138 ], [ %.3208, %125 ], [ %.3208, %110 ], [ %.3208, %.thread321 ], [ %.3208, %86 ], [ %.3208, %90 ], [ 1, %104 ], [ %.3208, %106 ], [ %.3208, %111 ]
-  %.3202.be = phi i32 [ %.3202, %71 ], [ %.3202, %84 ], [ %.3202, %96 ], [ %.3202, %102 ], [ %.3202, %117 ], [ %.3202, %138 ], [ %.3202, %125 ], [ %.3202, %110 ], [ %.3202, %.thread321 ], [ %.3202, %86 ], [ %.3202, %90 ], [ %.3202, %104 ], [ 1, %106 ], [ %.3202, %111 ]
-  %.3196.be = phi i64 [ %.3196, %71 ], [ %.3196, %84 ], [ %.3196, %96 ], [ %.3196, %102 ], [ %.3196, %117 ], [ %.3196, %138 ], [ %131, %125 ], [ %.3196, %110 ], [ %.3196, %.thread321 ], [ %.3196, %86 ], [ %.3196, %90 ], [ %.3196, %104 ], [ %.3196, %106 ], [ %.3196, %111 ]
-  %.3189.be = phi i32 [ %77, %71 ], [ %.3189, %84 ], [ %.3189, %96 ], [ %.3189, %102 ], [ %.3189, %117 ], [ %.3189, %138 ], [ %.3189, %125 ], [ %.3189, %110 ], [ %.3189, %.thread321 ], [ %.3189, %86 ], [ %.3189, %90 ], [ %.3189, %104 ], [ %.3189, %106 ], [ %.3189, %111 ]
-  %.3183.be = phi i32 [ %.3183, %71 ], [ %.3183, %84 ], [ %.3183, %96 ], [ %.3183, %102 ], [ %.3183, %117 ], [ %.3183, %138 ], [ %.3183, %125 ], [ %.3183, %110 ], [ %.3183, %.thread321 ], [ %.3183, %86 ], [ %.3183, %90 ], [ %.3183, %104 ], [ %.3183, %106 ], [ 1, %111 ]
-  %.3177.be = phi i64 [ %.3177, %71 ], [ %.3177, %84 ], [ %.3177, %96 ], [ %.3177, %102 ], [ %.3177, %117 ], [ %144, %138 ], [ %.3177, %125 ], [ %.3177, %110 ], [ %.3177, %.thread321 ], [ %.3177, %86 ], [ %.3177, %90 ], [ %.3177, %104 ], [ %.3177, %106 ], [ %.3177, %111 ]
-  %.1165.be = phi ptr [ %spec.select286292296299304308, %71 ], [ %spec.select286292296299304307312316, %84 ], [ %spec.select286292296299304307312315320323, %96 ], [ %spec.select286292296299304307312315320323, %102 ], [ %spec.select286292296299304307312315320323, %117 ], [ %spec.select286292296299304307312315320323, %138 ], [ %spec.select286292296299304307312315320323, %125 ], [ %spec.select286292296299304307312315320323, %110 ], [ %spec.select286292296299304307312315320323, %.thread321 ], [ %34, %86 ], [ %spec.select286292296299304307312315320323, %90 ], [ %spec.select286292296299304307312315320323, %104 ], [ %spec.select286292296299304307312315320323, %106 ], [ %spec.select286292296299304307312315320323, %111 ]
-  %.3.be = phi i32 [ %73, %71 ], [ %.3, %84 ], [ %.3, %96 ], [ %.3, %102 ], [ %.3, %117 ], [ %139, %138 ], [ %126, %125 ], [ %.3, %110 ], [ %.3, %.thread321 ], [ %.3, %86 ], [ %.3, %90 ], [ %.3, %104 ], [ %.3, %106 ], [ %.3, %111 ]
-  br label %30
+.backedge:                                        ; preds = %111, %106, %104, %90, %86, %.thread320, %138, %125, %117, %110, %102, %96, %84, %71
+  %.3238.be = phi i32 [ %.3238, %71 ], [ %85, %84 ], [ %.3238, %96 ], [ %.3238, %102 ], [ %.3238, %117 ], [ %.3238, %138 ], [ %.3238, %125 ], [ %.3238, %110 ], [ %.3238, %.thread320 ], [ %.3238, %86 ], [ %.3238, %90 ], [ %.3238, %104 ], [ %.3238, %106 ], [ %.3238, %111 ]
+  %.3232.be = phi i32 [ %.3232, %71 ], [ %.3232, %84 ], [ %97, %96 ], [ %.3232, %102 ], [ %.3232, %117 ], [ %.3232, %138 ], [ %.3232, %125 ], [ %.3232, %110 ], [ %.3232, %.thread320 ], [ %.3232, %86 ], [ %.3232, %90 ], [ %.3232, %104 ], [ %.3232, %106 ], [ %.3232, %111 ]
+  %.3226.be = phi i32 [ %.3226, %71 ], [ %.3226, %84 ], [ %.3226, %96 ], [ %103, %102 ], [ %.3226, %117 ], [ %.3226, %138 ], [ %.3226, %125 ], [ %.3226, %110 ], [ %.3226, %.thread320 ], [ %.3226, %86 ], [ %.3226, %90 ], [ %.3226, %104 ], [ %.3226, %106 ], [ %.3226, %111 ]
+  %.3220.be = phi i32 [ %.3220, %71 ], [ %.3220, %84 ], [ %.3220, %96 ], [ %.3220, %102 ], [ %118, %117 ], [ %.3220, %138 ], [ %.3220, %125 ], [ %.3220, %110 ], [ %.3220, %.thread320 ], [ %.3220, %86 ], [ %.3220, %90 ], [ %.3220, %104 ], [ %.3220, %106 ], [ %.3220, %111 ]
+  %.3214.be = phi i32 [ %.3214, %71 ], [ %.3214, %84 ], [ %.3214, %96 ], [ %.3214, %102 ], [ %.3214, %117 ], [ %.3214, %138 ], [ %.3214, %125 ], [ %.3214, %110 ], [ 1, %.thread320 ], [ 1, %86 ], [ 0, %90 ], [ %.3214, %104 ], [ %.3214, %106 ], [ %.3214, %111 ]
+  %.3208.be = phi i32 [ %.3208, %71 ], [ %.3208, %84 ], [ %.3208, %96 ], [ %.3208, %102 ], [ %.3208, %117 ], [ %.3208, %138 ], [ %.3208, %125 ], [ %.3208, %110 ], [ %.3208, %.thread320 ], [ %.3208, %86 ], [ %.3208, %90 ], [ 1, %104 ], [ %.3208, %106 ], [ %.3208, %111 ]
+  %.3202.be = phi i32 [ %.3202, %71 ], [ %.3202, %84 ], [ %.3202, %96 ], [ %.3202, %102 ], [ %.3202, %117 ], [ %.3202, %138 ], [ %.3202, %125 ], [ %.3202, %110 ], [ %.3202, %.thread320 ], [ %.3202, %86 ], [ %.3202, %90 ], [ %.3202, %104 ], [ 1, %106 ], [ %.3202, %111 ]
+  %.3196.be = phi i64 [ %.3196, %71 ], [ %.3196, %84 ], [ %.3196, %96 ], [ %.3196, %102 ], [ %.3196, %117 ], [ %.3196, %138 ], [ %131, %125 ], [ %.3196, %110 ], [ %.3196, %.thread320 ], [ %.3196, %86 ], [ %.3196, %90 ], [ %.3196, %104 ], [ %.3196, %106 ], [ %.3196, %111 ]
+  %.3189.be = phi i32 [ %77, %71 ], [ %.3189, %84 ], [ %.3189, %96 ], [ %.3189, %102 ], [ %.3189, %117 ], [ %.3189, %138 ], [ %.3189, %125 ], [ %.3189, %110 ], [ %.3189, %.thread320 ], [ %.3189, %86 ], [ %.3189, %90 ], [ %.3189, %104 ], [ %.3189, %106 ], [ %.3189, %111 ]
+  %.3183.be = phi i32 [ %.3183, %71 ], [ %.3183, %84 ], [ %.3183, %96 ], [ %.3183, %102 ], [ %.3183, %117 ], [ %.3183, %138 ], [ %.3183, %125 ], [ %.3183, %110 ], [ %.3183, %.thread320 ], [ %.3183, %86 ], [ %.3183, %90 ], [ %.3183, %104 ], [ %.3183, %106 ], [ 1, %111 ]
+  %.3177.be = phi i64 [ %.3177, %71 ], [ %.3177, %84 ], [ %.3177, %96 ], [ %.3177, %102 ], [ %.3177, %117 ], [ %144, %138 ], [ %.3177, %125 ], [ %.3177, %110 ], [ %.3177, %.thread320 ], [ %.3177, %86 ], [ %.3177, %90 ], [ %.3177, %104 ], [ %.3177, %106 ], [ %.3177, %111 ]
+  %.1165.be = phi ptr [ %spec.select286291295298303307, %71 ], [ %spec.select286291295298303306311315, %84 ], [ %spec.select286291295298303306311314319322, %96 ], [ %spec.select286291295298303306311314319322, %102 ], [ %spec.select286291295298303306311314319322, %117 ], [ %spec.select286291295298303306311314319322, %138 ], [ %spec.select286291295298303306311314319322, %125 ], [ %spec.select286291295298303306311314319322, %110 ], [ %spec.select286291295298303306311314319322, %.thread320 ], [ %34, %86 ], [ %spec.select286291295298303306311314319322, %90 ], [ %spec.select286291295298303306311314319322, %104 ], [ %spec.select286291295298303306311314319322, %106 ], [ %spec.select286291295298303306311314319322, %111 ]
+  %.3.be = phi i32 [ %73, %71 ], [ %.3, %84 ], [ %.3, %96 ], [ %.3, %102 ], [ %.3, %117 ], [ %139, %138 ], [ %126, %125 ], [ %.3, %110 ], [ %.3, %.thread320 ], [ %.3, %86 ], [ %.3, %90 ], [ %.3, %104 ], [ %.3, %106 ], [ %.3, %111 ]
+  br label %30, !llvm.loop !15
 
 113:                                              ; preds = %111
   %114 = icmp eq i8 %31, 113
@@ -441,30 +441,30 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br label %151
 
 151:                                              ; preds = %149, %147
-  %puts.i289 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
+  %puts.i288 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
   tail call void @exit(i32 noundef 1) #14
   unreachable
 
-.thread324:                                       ; preds = %32, %45, %49
-  %.2170 = phi ptr [ %spec.select286292296300, %45 ], [ %53, %49 ], [ %.0168568, %32 ]
+.thread323:                                       ; preds = %32, %45, %49
+  %.2170 = phi ptr [ %spec.select286291295299, %45 ], [ %53, %49 ], [ %.0168564, %32 ]
   %.2 = phi i32 [ %.3, %45 ], [ %50, %49 ], [ %.3, %32 ]
   %152 = icmp slt i32 %.2, %0
   br i1 %152, label %.lr.ph, label %.critedge.loopexit
 
-.critedge.loopexit:                               ; preds = %25, %19, %.thread324, %.lr.ph
-  %.0235.lcssa.ph = phi i32 [ %.0235557, %.lr.ph ], [ %.3238, %.thread324 ], [ %.0235557, %19 ], [ %.0235557, %25 ]
-  %.0229.lcssa.ph = phi i32 [ %.0229558, %.lr.ph ], [ %.3232, %.thread324 ], [ %.0229558, %19 ], [ %.0229558, %25 ]
-  %.0223.lcssa.ph = phi i32 [ %.0223559, %.lr.ph ], [ %.3226, %.thread324 ], [ %.0223559, %19 ], [ %.0223559, %25 ]
-  %.0217.lcssa.ph = phi i32 [ %.0217560, %.lr.ph ], [ %.3220, %.thread324 ], [ %.0217560, %19 ], [ %.0217560, %25 ]
-  %.0211.lcssa.ph = phi i32 [ %.0211561, %.lr.ph ], [ %.3214, %.thread324 ], [ %.0211561, %19 ], [ %.0211561, %25 ]
-  %.0205.lcssa.ph = phi i32 [ %.0205562, %.lr.ph ], [ %.3208, %.thread324 ], [ %.0205562, %19 ], [ %.0205562, %25 ]
-  %.0199.lcssa.ph = phi i32 [ %.0199563, %.lr.ph ], [ %.3202, %.thread324 ], [ %.0199563, %19 ], [ %.0199563, %25 ]
-  %.0193.lcssa.ph = phi i64 [ %.0193564, %.lr.ph ], [ %.3196, %.thread324 ], [ %.0193564, %19 ], [ %.0193564, %25 ]
-  %.0186.lcssa.ph = phi i32 [ %.0186565, %.lr.ph ], [ %.3189, %.thread324 ], [ %.0186565, %19 ], [ %.0186565, %25 ]
-  %.0180.lcssa.ph = phi i32 [ %.0180566, %.lr.ph ], [ %.3183, %.thread324 ], [ %.0180566, %19 ], [ %.0180566, %25 ]
-  %.0174.lcssa.ph = phi i64 [ %.0174567, %.lr.ph ], [ %.3177, %.thread324 ], [ %.0174567, %19 ], [ %.0174567, %25 ]
-  %.0168.lcssa.ph = phi ptr [ %.0168568, %.lr.ph ], [ %.2170, %.thread324 ], [ %.0168568, %19 ], [ %.0168568, %25 ]
-  %.1.ph = phi i32 [ %.0158569, %.lr.ph ], [ %.2, %.thread324 ], [ %.0158569, %19 ], [ %23, %25 ]
+.critedge.loopexit:                               ; preds = %25, %19, %.thread323, %.lr.ph
+  %.0235.lcssa.ph = phi i32 [ %.0235553, %.lr.ph ], [ %.3238, %.thread323 ], [ %.0235553, %19 ], [ %.0235553, %25 ]
+  %.0229.lcssa.ph = phi i32 [ %.0229554, %.lr.ph ], [ %.3232, %.thread323 ], [ %.0229554, %19 ], [ %.0229554, %25 ]
+  %.0223.lcssa.ph = phi i32 [ %.0223555, %.lr.ph ], [ %.3226, %.thread323 ], [ %.0223555, %19 ], [ %.0223555, %25 ]
+  %.0217.lcssa.ph = phi i32 [ %.0217556, %.lr.ph ], [ %.3220, %.thread323 ], [ %.0217556, %19 ], [ %.0217556, %25 ]
+  %.0211.lcssa.ph = phi i32 [ %.0211557, %.lr.ph ], [ %.3214, %.thread323 ], [ %.0211557, %19 ], [ %.0211557, %25 ]
+  %.0205.lcssa.ph = phi i32 [ %.0205558, %.lr.ph ], [ %.3208, %.thread323 ], [ %.0205558, %19 ], [ %.0205558, %25 ]
+  %.0199.lcssa.ph = phi i32 [ %.0199559, %.lr.ph ], [ %.3202, %.thread323 ], [ %.0199559, %19 ], [ %.0199559, %25 ]
+  %.0193.lcssa.ph = phi i64 [ %.0193560, %.lr.ph ], [ %.3196, %.thread323 ], [ %.0193560, %19 ], [ %.0193560, %25 ]
+  %.0186.lcssa.ph = phi i32 [ %.0186561, %.lr.ph ], [ %.3189, %.thread323 ], [ %.0186561, %19 ], [ %.0186561, %25 ]
+  %.0180.lcssa.ph = phi i32 [ %.0180562, %.lr.ph ], [ %.3183, %.thread323 ], [ %.0180562, %19 ], [ %.0180562, %25 ]
+  %.0174.lcssa.ph = phi i64 [ %.0174563, %.lr.ph ], [ %.3177, %.thread323 ], [ %.0174563, %19 ], [ %.0174563, %25 ]
+  %.0168.lcssa.ph = phi ptr [ %.0168564, %.lr.ph ], [ %.2170, %.thread323 ], [ %.0168564, %19 ], [ %.0168564, %25 ]
+  %.1.ph = phi i32 [ %.0158565, %.lr.ph ], [ %.2, %.thread323 ], [ %.0158565, %19 ], [ %23, %25 ]
   %153 = icmp eq i32 %.0223.lcssa.ph, 0
   %154 = icmp eq i32 %.0199.lcssa.ph, 0
   %155 = icmp ne i32 %.0217.lcssa.ph, 0
@@ -499,7 +499,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 161:                                              ; preds = %160
   %162 = tail call noalias dereferenceable_or_null(8) ptr @malloc(i64 noundef 8) #19
-  store ptr %162, ptr %3, align 8, !tbaa !15
+  store ptr %162, ptr %3, align 8, !tbaa !17
   tail call void @free(ptr noundef %162) #17
   %163 = call ptr @JS_NewRuntime2(ptr noundef nonnull @trace_mf, ptr noundef nonnull %3) #17
   br label %166
@@ -576,7 +576,7 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
   br i1 %.not272, label %190, label %187
 
 187:                                              ; preds = %186
-  %188 = load i32, ptr @qjsc_qjscalc_size, align 4, !tbaa !17
+  %188 = load i32, ptr @qjsc_qjscalc_size, align 4, !tbaa !19
   %189 = zext i32 %188 to i64
   call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_qjscalc, i64 noundef %189, i32 noundef 0) #17
   br label %190
@@ -594,19 +594,19 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 196:                                              ; preds = %194, %190
   %197 = icmp sgt i32 %.0186.lcssa, 0
-  br i1 %197, label %.lr.ph625.preheader, label %._crit_edge
+  br i1 %197, label %.lr.ph621.preheader, label %._crit_edge
 
-.lr.ph625.preheader:                              ; preds = %196
+.lr.ph621.preheader:                              ; preds = %196
   %wide.trip.count = zext nneg i32 %.0186.lcssa to i64
-  br label %.lr.ph625
+  br label %.lr.ph621
 
-198:                                              ; preds = %.lr.ph625
+198:                                              ; preds = %.lr.ph621
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph625, !llvm.loop !19
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph621, !llvm.loop !21
 
-.lr.ph625:                                        ; preds = %.lr.ph625.preheader, %198
-  %indvars.iv = phi i64 [ 0, %.lr.ph625.preheader ], [ %indvars.iv.next, %198 ]
+.lr.ph621:                                        ; preds = %.lr.ph621.preheader, %198
+  %indvars.iv = phi i64 [ 0, %.lr.ph621.preheader ], [ %indvars.iv.next, %198 ]
   %199 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
   %200 = load ptr, ptr %199, align 8, !tbaa !7
   %201 = call fastcc i32 @eval_file(ptr noundef %175, ptr noundef %200, i32 noundef %.0211.lcssa)
@@ -639,9 +639,9 @@ define dso_local range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local
 
 211:                                              ; preds = %208
   %212 = inttoptr i64 %.sroa.07.1.i to ptr
-  %213 = load i32, ptr %212, align 4, !tbaa !21
+  %213 = load i32, ptr %212, align 4, !tbaa !22
   %214 = add i32 %213, -1
-  store i32 %214, ptr %212, align 4, !tbaa !21
+  store i32 %214, ptr %212, align 4, !tbaa !22
   %215 = icmp slt i32 %214, 1
   br i1 %215, label %216, label %eval_buf.exit
 
@@ -654,7 +654,7 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
 
 217:                                              ; preds = %._crit_edge
   %.not281 = icmp slt i32 %.1, %0
-  br i1 %.not281, label %218, label %.thread359
+  br i1 %.not281, label %218, label %.thread355
 
 218:                                              ; preds = %217
   %219 = load ptr, ptr %193, align 8, !tbaa !7
@@ -663,15 +663,15 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   br i1 %.not282, label %221, label %.loopexit
 
 221:                                              ; preds = %218, %eval_buf.exit
-  br i1 %.0235.lcssa, label %224, label %.thread359
+  br i1 %.0235.lcssa, label %224, label %.thread355
 
-.thread359:                                       ; preds = %217, %221
-  %222 = load i32, ptr @qjsc_repl_size, align 4, !tbaa !17
+.thread355:                                       ; preds = %217, %221
+  %222 = load i32, ptr @qjsc_repl_size, align 4, !tbaa !19
   %223 = zext i32 %222 to i64
   call void @js_std_eval_binary(ptr noundef nonnull %175, ptr noundef nonnull @qjsc_repl, i64 noundef %223, i32 noundef 0) #17
   br label %224
 
-224:                                              ; preds = %.thread359, %221
+224:                                              ; preds = %.thread355, %221
   call void @js_std_loop(ptr noundef nonnull %175) #17
   br label %225
 
@@ -702,88 +702,88 @@ eval_buf.exit:                                    ; preds = %208, %211, %216
   %233 = getelementptr inbounds nuw i8, ptr %6, i64 32
   br label %234
 
-234:                                              ; preds = %229, %.split628.us
-  %.0156629 = phi i32 [ 0, %229 ], [ %267, %.split628.us ]
+234:                                              ; preds = %229, %.split624.us
+  %.0156625 = phi i32 [ 0, %229 ], [ %267, %.split624.us ]
   %235 = call i64 @clock() #17
-  store i64 %235, ptr %6, align 16, !tbaa !23
+  store i64 %235, ptr %6, align 16, !tbaa !24
   %236 = call ptr @JS_NewRuntime() #17
   %237 = call i64 @clock() #17
-  store i64 %237, ptr %230, align 8, !tbaa !23
+  store i64 %237, ptr %230, align 8, !tbaa !24
   %238 = call ptr @JS_NewContext(ptr noundef %236) #17
   %239 = call i64 @clock() #17
-  store i64 %239, ptr %231, align 16, !tbaa !23
+  store i64 %239, ptr %231, align 16, !tbaa !24
   call void @JS_FreeContext(ptr noundef %238) #17
   %240 = call i64 @clock() #17
-  store i64 %240, ptr %232, align 8, !tbaa !23
+  store i64 %240, ptr %232, align 8, !tbaa !24
   call void @JS_FreeRuntime(ptr noundef %236) #17
   %241 = call i64 @clock() #17
-  store i64 %241, ptr %233, align 16, !tbaa !23
-  %242 = icmp eq i32 %.0156629, 0
+  store i64 %241, ptr %233, align 16, !tbaa !24
+  %242 = icmp eq i32 %.0156625, 0
   br i1 %242, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %234, %.split.us
-  %indvars.iv746 = phi i64 [ %indvars.iv.next747, %.split.us ], [ 4, %234 ]
-  %243 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv746
-  %244 = load i64, ptr %243, align 8, !tbaa !23
+  %indvars.iv742 = phi i64 [ %indvars.iv.next743, %.split.us ], [ 4, %234 ]
+  %243 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv742
+  %244 = load i64, ptr %243, align 8, !tbaa !24
   %245 = getelementptr i8, ptr %243, i64 -8
-  %246 = load i64, ptr %245, align 8, !tbaa !23
+  %246 = load i64, ptr %245, align 8, !tbaa !24
   %247 = sub i64 %244, %246
   %248 = sitofp i64 %247 to double
   %249 = fmul double %248, 1.000000e+03
   %250 = fdiv double %249, 1.000000e+06
-  %251 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv746
-  store double %250, ptr %251, align 8, !tbaa !25
-  %indvars.iv.next747 = add nsw i64 %indvars.iv746, -1
-  %252 = icmp samesign ugt i64 %indvars.iv746, 1
-  br i1 %252, label %.split.us, label %.split628.us, !llvm.loop !27
+  %251 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv742
+  store double %250, ptr %251, align 8, !tbaa !26
+  %indvars.iv.next743 = add nsw i64 %indvars.iv742, -1
+  %252 = icmp samesign ugt i64 %indvars.iv742, 1
+  br i1 %252, label %.split.us, label %.split624.us, !llvm.loop !28
 
 .split:                                           ; preds = %234, %265
-  %indvars.iv743 = phi i64 [ %indvars.iv.next744, %265 ], [ 4, %234 ]
-  %253 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv743
-  %254 = load i64, ptr %253, align 8, !tbaa !23
+  %indvars.iv739 = phi i64 [ %indvars.iv.next740, %265 ], [ 4, %234 ]
+  %253 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv739
+  %254 = load i64, ptr %253, align 8, !tbaa !24
   %255 = getelementptr i8, ptr %253, i64 -8
-  %256 = load i64, ptr %255, align 8, !tbaa !23
+  %256 = load i64, ptr %255, align 8, !tbaa !24
   %257 = sub i64 %254, %256
   %258 = sitofp i64 %257 to double
   %259 = fmul double %258, 1.000000e+03
   %260 = fdiv double %259, 1.000000e+06
-  %261 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv743
-  %262 = load double, ptr %261, align 8, !tbaa !25
+  %261 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv739
+  %262 = load double, ptr %261, align 8, !tbaa !26
   %263 = fcmp ogt double %262, %260
   br i1 %263, label %264, label %265
 
 264:                                              ; preds = %.split
-  store double %260, ptr %261, align 8, !tbaa !25
+  store double %260, ptr %261, align 8, !tbaa !26
   br label %265
 
 265:                                              ; preds = %264, %.split
-  %indvars.iv.next744 = add nsw i64 %indvars.iv743, -1
-  %266 = icmp samesign ugt i64 %indvars.iv743, 1
-  br i1 %266, label %.split, label %.split628.us, !llvm.loop !27
+  %indvars.iv.next740 = add nsw i64 %indvars.iv739, -1
+  %266 = icmp samesign ugt i64 %indvars.iv739, 1
+  br i1 %266, label %.split, label %.split624.us, !llvm.loop !28
 
-.split628.us:                                     ; preds = %265, %.split.us
-  %267 = add nuw nsw i32 %.0156629, 1
-  %exitcond749.not = icmp eq i32 %267, 100
-  br i1 %exitcond749.not, label %268, label %234, !llvm.loop !28
+.split624.us:                                     ; preds = %265, %.split.us
+  %267 = add nuw nsw i32 %.0156625, 1
+  %exitcond745.not = icmp eq i32 %267, 100
+  br i1 %exitcond745.not, label %268, label %234, !llvm.loop !29
 
-268:                                              ; preds = %.split628.us
+268:                                              ; preds = %.split624.us
   %269 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %270 = load double, ptr %269, align 8, !tbaa !25
+  %270 = load double, ptr %269, align 8, !tbaa !26
   %271 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %272 = load double, ptr %271, align 16, !tbaa !25
+  %272 = load double, ptr %271, align 16, !tbaa !26
   %273 = fadd double %270, %272
   %274 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %275 = load double, ptr %274, align 8, !tbaa !25
+  %275 = load double, ptr %274, align 8, !tbaa !26
   %276 = fadd double %273, %275
   %277 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %278 = load double, ptr %277, align 16, !tbaa !25
+  %278 = load double, ptr %277, align 16, !tbaa !26
   %279 = fadd double %276, %278
   %280 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %279, double noundef %270, double noundef %272, double noundef %275, double noundef %278)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %281
 
-.loopexit:                                        ; preds = %.lr.ph625, %218, %eval_buf.exit
+.loopexit:                                        ; preds = %.lr.ph621, %218, %eval_buf.exit
   call void @js_std_free_handlers(ptr noundef nonnull %.0157) #17
   call void @JS_FreeContext(ptr noundef nonnull %175) #17
   call void @JS_FreeRuntime(ptr noundef nonnull %.0157) #17
@@ -912,9 +912,9 @@ define internal fastcc range(i32 -1, 1) i32 @eval_buf(ptr noundef nonnull %0, pt
 
 27:                                               ; preds = %24
   %28 = inttoptr i64 %.sroa.07.1 to ptr
-  %29 = load i32, ptr %28, align 4, !tbaa !21
+  %29 = load i32, ptr %28, align 4, !tbaa !22
   %30 = add i32 %29, -1
-  store i32 %30, ptr %28, align 4, !tbaa !21
+  store i32 %30, ptr %28, align 4, !tbaa !22
   %31 = icmp slt i32 %30, 1
   br i1 %31, label %32, label %JS_FreeValue.exit
 
@@ -949,7 +949,7 @@ define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, p
   br i1 %.not17, label %11, label %.thread
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %4, align 8, !tbaa !23
+  %12 = load i64, ptr %4, align 8, !tbaa !24
   %13 = call i32 @JS_DetectModule(ptr noundef nonnull %5, i64 noundef %12) #17
   %.fr = freeze i32 %13
   %14 = icmp ne i32 %.fr, 0
@@ -964,7 +964,7 @@ define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, p
 
 .thread:                                          ; preds = %16, %9
   %17 = phi i32 [ 1, %9 ], [ %spec.select, %16 ]
-  %18 = load i64, ptr %4, align 8, !tbaa !23
+  %18 = load i64, ptr %4, align 8, !tbaa !24
   %19 = trunc i64 %18 to i32
   %20 = call fastcc i32 @eval_buf(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %19, ptr noundef %1, i32 noundef %17)
   call void @js_free(ptr noundef nonnull %0, ptr noundef nonnull %5) #17
@@ -998,12 +998,12 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: nounwind uwtable
 define internal noundef ptr @js_trace_malloc(ptr noundef captures(none) %0, i64 noundef %1) #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load i64, ptr %3, align 8, !tbaa !29
+  %4 = load i64, ptr %3, align 8, !tbaa !30
   %5 = add i64 %4, %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load i64, ptr %6, align 8, !tbaa !31
+  %7 = load i64, ptr %6, align 8, !tbaa !32
   %8 = icmp ugt i64 %5, %7
-  br i1 %8, label %18, label %9, !prof !32
+  br i1 %8, label %18, label %9, !prof !33
 
 9:                                                ; preds = %2
   %10 = tail call noalias ptr @malloc(i64 noundef %1) #19
@@ -1012,14 +1012,14 @@ define internal noundef ptr @js_trace_malloc(ptr noundef captures(none) %0, i64 
   br i1 %.not, label %18, label %11
 
 11:                                               ; preds = %9
-  %12 = load i64, ptr %0, align 8, !tbaa !33
+  %12 = load i64, ptr %0, align 8, !tbaa !34
   %13 = add i64 %12, 1
-  store i64 %13, ptr %0, align 8, !tbaa !33
+  store i64 %13, ptr %0, align 8, !tbaa !34
   %14 = tail call i64 @malloc_usable_size(ptr noundef nonnull %10) #17
   %15 = add i64 %14, 8
-  %16 = load i64, ptr %3, align 8, !tbaa !29
+  %16 = load i64, ptr %3, align 8, !tbaa !30
   %17 = add i64 %15, %16
-  store i64 %17, ptr %3, align 8, !tbaa !29
+  store i64 %17, ptr %3, align 8, !tbaa !30
   br label %18
 
 18:                                               ; preds = %9, %11, %2
@@ -1034,15 +1034,15 @@ define internal void @js_trace_free(ptr noundef captures(none) %0, ptr noundef %
 
 3:                                                ; preds = %2
   tail call void (ptr, ptr, ...) @js_trace_malloc_printf(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef nonnull %1)
-  %4 = load i64, ptr %0, align 8, !tbaa !33
+  %4 = load i64, ptr %0, align 8, !tbaa !34
   %5 = add i64 %4, -1
-  store i64 %5, ptr %0, align 8, !tbaa !33
+  store i64 %5, ptr %0, align 8, !tbaa !34
   %6 = tail call i64 @malloc_usable_size(ptr noundef nonnull %1) #17
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !29
+  %8 = load i64, ptr %7, align 8, !tbaa !30
   %reass.sub = sub i64 %8, %6
   %9 = add i64 %reass.sub, -8
-  store i64 %9, ptr %7, align 8, !tbaa !29
+  store i64 %9, ptr %7, align 8, !tbaa !30
   tail call void @free(ptr noundef nonnull %1) #17
   br label %10
 
@@ -1061,12 +1061,12 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %8 = load i64, ptr %7, align 8, !tbaa !29
+  %8 = load i64, ptr %7, align 8, !tbaa !30
   %9 = add i64 %8, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %11 = load i64, ptr %10, align 8, !tbaa !31
+  %11 = load i64, ptr %10, align 8, !tbaa !32
   %12 = icmp ugt i64 %9, %11
-  br i1 %12, label %js_trace_malloc.exit, label %13, !prof !32
+  br i1 %12, label %js_trace_malloc.exit, label %13, !prof !33
 
 13:                                               ; preds = %6
   %14 = tail call noalias ptr @malloc(i64 noundef %2) #19
@@ -1075,14 +1075,14 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
   br i1 %.not.i, label %js_trace_malloc.exit, label %15
 
 15:                                               ; preds = %13
-  %16 = load i64, ptr %0, align 8, !tbaa !33
+  %16 = load i64, ptr %0, align 8, !tbaa !34
   %17 = add i64 %16, 1
-  store i64 %17, ptr %0, align 8, !tbaa !33
+  store i64 %17, ptr %0, align 8, !tbaa !34
   %18 = tail call i64 @malloc_usable_size(ptr noundef nonnull %14) #17
   %19 = add i64 %18, 8
-  %20 = load i64, ptr %7, align 8, !tbaa !29
+  %20 = load i64, ptr %7, align 8, !tbaa !30
   %21 = add i64 %19, %20
-  store i64 %21, ptr %7, align 8, !tbaa !29
+  store i64 %21, ptr %7, align 8, !tbaa !30
   br label %js_trace_malloc.exit
 
 22:                                               ; preds = %3
@@ -1092,24 +1092,24 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
 
 25:                                               ; preds = %22
   tail call void (ptr, ptr, ...) @js_trace_malloc_printf(ptr noundef %0, ptr noundef nonnull @.str.35, i64 noundef 0, ptr noundef nonnull %1)
-  %26 = load i64, ptr %0, align 8, !tbaa !33
+  %26 = load i64, ptr %0, align 8, !tbaa !34
   %27 = add i64 %26, -1
-  store i64 %27, ptr %0, align 8, !tbaa !33
+  store i64 %27, ptr %0, align 8, !tbaa !34
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %29 = load i64, ptr %28, align 8, !tbaa !29
+  %29 = load i64, ptr %28, align 8, !tbaa !30
   %reass.sub = sub i64 %29, %23
   %30 = add i64 %reass.sub, -8
-  store i64 %30, ptr %28, align 8, !tbaa !29
+  store i64 %30, ptr %28, align 8, !tbaa !30
   tail call void @free(ptr noundef nonnull %1) #17
   br label %js_trace_malloc.exit
 
 31:                                               ; preds = %22
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %33 = load i64, ptr %32, align 8, !tbaa !29
+  %33 = load i64, ptr %32, align 8, !tbaa !30
   %34 = sub i64 %2, %23
   %35 = add i64 %34, %33
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %37 = load i64, ptr %36, align 8, !tbaa !31
+  %37 = load i64, ptr %36, align 8, !tbaa !32
   %38 = icmp ugt i64 %35, %37
   br i1 %38, label %js_trace_malloc.exit, label %39
 
@@ -1123,9 +1123,9 @@ define internal noundef ptr @js_trace_realloc(ptr noundef captures(none) %0, ptr
 41:                                               ; preds = %39
   %42 = tail call i64 @malloc_usable_size(ptr noundef nonnull %40) #17
   %43 = sub i64 %42, %23
-  %44 = load i64, ptr %32, align 8, !tbaa !29
+  %44 = load i64, ptr %32, align 8, !tbaa !30
   %45 = add i64 %43, %44
-  store i64 %45, ptr %32, align 8, !tbaa !29
+  store i64 %45, ptr %32, align 8, !tbaa !30
   br label %js_trace_malloc.exit
 
 js_trace_malloc.exit:                             ; preds = %15, %13, %6, %39, %41, %31, %4, %25
@@ -1187,7 +1187,7 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
 
 23:                                               ; preds = %20, %15
   %24 = phi ptr [ %18, %15 ], [ %21, %20 ]
-  %25 = load ptr, ptr %24, align 8, !tbaa !34
+  %25 = load ptr, ptr %24, align 8, !tbaa !35
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %29
 
@@ -1196,8 +1196,8 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
   br label %36
 
 29:                                               ; preds = %23
-  %30 = load ptr, ptr %6, align 8, !tbaa !35
-  %.val = load ptr, ptr %30, align 8, !tbaa !15
+  %30 = load ptr, ptr %6, align 8, !tbaa !36
+  %.val = load ptr, ptr %30, align 8, !tbaa !17
   %31 = ptrtoint ptr %25 to i64
   %32 = ptrtoint ptr %.val to i64
   %33 = sub i64 %31, %32
@@ -1211,7 +1211,7 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
 
 .backedge.backedge:                               ; preds = %36, %53, %58
   %.0.be = phi ptr [ %37, %36 ], [ %57, %53 ], [ %7, %58 ]
-  br label %.backedge, !llvm.loop !36
+  br label %.backedge, !llvm.loop !37
 
 38:                                               ; preds = %10
   %39 = getelementptr inbounds nuw i8, ptr %.0, i64 2
@@ -1240,7 +1240,7 @@ define internal void @js_trace_malloc_printf(ptr noundef readonly captures(none)
 
 53:                                               ; preds = %50, %45
   %54 = phi ptr [ %48, %45 ], [ %51, %50 ]
-  %55 = load i64, ptr %54, align 8, !tbaa !23
+  %55 = load i64, ptr %54, align 8, !tbaa !24
   %56 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.33, i64 noundef %55)
   %57 = getelementptr inbounds nuw i8, ptr %.0, i64 3
   br label %.backedge.backedge
@@ -1357,25 +1357,26 @@ attributes #20 = { nounwind allocsize(1) }
 !12 = !{!10, !10, i64 0}
 !13 = !{!14, !14, i64 0}
 !14 = !{!"p1 _ZTS8_IO_FILE", !9, i64 0}
-!15 = !{!16, !8, i64 0}
-!16 = !{!"trace_malloc_data", !8, i64 0}
-!17 = !{!18, !18, i64 0}
-!18 = !{!"int", !10, i64 0}
-!19 = distinct !{!19, !20}
-!20 = !{!"llvm.loop.mustprogress"}
-!21 = !{!22, !18, i64 0}
-!22 = !{!"JSRefCountHeader", !18, i64 0}
-!23 = !{!24, !24, i64 0}
-!24 = !{!"long", !10, i64 0}
-!25 = !{!26, !26, i64 0}
-!26 = !{!"double", !10, i64 0}
-!27 = distinct !{!27, !20}
-!28 = distinct !{!28, !20}
-!29 = !{!30, !24, i64 8}
-!30 = !{!"JSMallocState", !24, i64 0, !24, i64 8, !24, i64 16, !9, i64 24}
-!31 = !{!30, !24, i64 16}
-!32 = !{!"branch_weights", !"expected", i32 1, i32 2000}
-!33 = !{!30, !24, i64 0}
-!34 = !{!9, !9, i64 0}
-!35 = !{!30, !9, i64 24}
-!36 = distinct !{!36, !20}
+!15 = distinct !{!15, !16}
+!16 = !{!"llvm.loop.mustprogress"}
+!17 = !{!18, !8, i64 0}
+!18 = !{!"trace_malloc_data", !8, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"int", !10, i64 0}
+!21 = distinct !{!21, !16}
+!22 = !{!23, !20, i64 0}
+!23 = !{!"JSRefCountHeader", !20, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"long", !10, i64 0}
+!26 = !{!27, !27, i64 0}
+!27 = !{!"double", !10, i64 0}
+!28 = distinct !{!28, !16}
+!29 = distinct !{!29, !16}
+!30 = !{!31, !25, i64 8}
+!31 = !{!"JSMallocState", !25, i64 0, !25, i64 8, !25, i64 16, !9, i64 24}
+!32 = !{!31, !25, i64 16}
+!33 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!34 = !{!31, !25, i64 0}
+!35 = !{!9, !9, i64 0}
+!36 = !{!31, !9, i64 24}
+!37 = distinct !{!37, !16}

@@ -4771,10 +4771,10 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
 11:                                               ; preds = %5, %8
   %12 = phi ptr [ %10, %8 ], [ null, %5 ]
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 72), align 8, !tbaa !61
-  %.0150223 = load ptr, ptr %13, align 8, !tbaa !58
-  %.not167224 = icmp eq ptr %12, null
-  %14 = icmp ne ptr %.0150223, null
-  %15 = select i1 %.not167224, i1 %14, i1 false
+  %.0150222 = load ptr, ptr %13, align 8, !tbaa !58
+  %.not167223 = icmp eq ptr %12, null
+  %14 = icmp ne ptr %.0150222, null
+  %15 = select i1 %.not167223, i1 %14, i1 false
   br i1 %15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %11
@@ -4794,13 +4794,13 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %23, label %31, label %35
 
 24:                                               ; preds = %.lr.ph, %24
-  %.0150226 = phi ptr [ %.0150223, %.lr.ph ], [ %.0150, %24 ]
-  %25 = load ptr, ptr %.0150226, align 8, !tbaa !59
+  %.0150225 = phi ptr [ %.0150222, %.lr.ph ], [ %.0150, %24 ]
+  %25 = load ptr, ptr %.0150225, align 8, !tbaa !59
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 288
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull dereferenceable(1) %17) #18
   %.not211 = icmp eq i32 %27, 0
   %spec.select = select i1 %.not211, ptr %25, ptr null
-  %28 = getelementptr inbounds nuw i8, ptr %.0150226, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.0150225, i64 8
   %.0150 = load ptr, ptr %28, align 8, !tbaa !58
   %.not167 = icmp eq ptr %spec.select, null
   %29 = icmp ne ptr %.0150, null
@@ -5117,12 +5117,12 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not184, label %236, label %.sink.split
 
 .sink.split:                                      ; preds = %228, %226
-  %.sink236 = phi i32 [ 332, %226 ], [ 336, %228 ]
+  %.sink235 = phi i32 [ 332, %226 ], [ 336, %228 ]
   %231 = load ptr, ptr @stderr, align 8, !tbaa !54
   %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !53
   %233 = call ptr @dt_database_get(ptr noundef %232) #16
   %234 = call ptr @sqlite3_errmsg(ptr noundef %233) #16
-  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, i32 noundef %.sink236, ptr noundef nonnull @__FUNCTION__._edit_preset_response, ptr noundef %234) #17
+  %235 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %231, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, i32 noundef %.sink235, ptr noundef nonnull @__FUNCTION__._edit_preset_response, ptr noundef %234) #17
   br label %236
 
 236:                                              ; preds = %.sink.split, %228, %226
@@ -5295,7 +5295,7 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
 
 359:                                              ; preds = %353, %359
   %indvars.iv = phi i64 [ 0, %353 ], [ %indvars.iv.next, %359 ]
-  %.0153228 = phi i32 [ 0, %353 ], [ %367, %359 ]
+  %.0153227 = phi i32 [ 0, %353 ], [ %367, %359 ]
   %360 = getelementptr inbounds nuw ptr, ptr %354, i64 %indvars.iv
   %361 = load ptr, ptr %360, align 8, !tbaa !113
   %362 = call ptr @g_type_check_instance_cast(ptr noundef %361, i64 noundef %125) #16
@@ -5303,7 +5303,7 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   %364 = getelementptr inbounds nuw i32, ptr @_gui_presets_format_flag, i64 %indvars.iv
   %365 = load i32, ptr %364, align 4, !tbaa !117
   %366 = mul nsw i32 %365, %363
-  %367 = add nsw i32 %366, %.0153228
+  %367 = add nsw i32 %366, %.0153227
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 5
   br i1 %exitcond.not, label %355, label %359
@@ -5491,12 +5491,12 @@ define internal void @_edit_preset_response(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %.not206, label %.thread219, label %.thread219.sink.split
 
 .thread219.sink.split:                            ; preds = %478, %466
-  %.sink240 = phi i32 [ 401, %466 ], [ 407, %478 ]
+  %.sink239 = phi i32 [ 401, %466 ], [ 407, %478 ]
   %481 = load ptr, ptr @stderr, align 8, !tbaa !54
   %482 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 136), align 8, !tbaa !53
   %483 = call ptr @dt_database_get(ptr noundef %482) #16
   %484 = call ptr @sqlite3_errmsg(ptr noundef %483) #16
-  %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %481, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, i32 noundef %.sink240, ptr noundef nonnull @__FUNCTION__._edit_preset_response, ptr noundef %484) #17
+  %485 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %481, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.43, i32 noundef %.sink239, ptr noundef nonnull @__FUNCTION__._edit_preset_response, ptr noundef %484) #17
   br label %.thread219
 
 .thread219:                                       ; preds = %.thread219.sink.split, %377, %478, %466, %430

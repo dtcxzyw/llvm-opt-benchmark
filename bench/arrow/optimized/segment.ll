@@ -2646,14 +2646,14 @@ mi_commit_mask_set.exit:                          ; preds = %.preheader
   br label %90
 
 .critedge23:                                      ; preds = %19, %.critedge23
-  %.079.i = phi i64 [ %57, %.critedge23 ], [ 0, %19 ]
-  %52 = getelementptr inbounds nuw i64, ptr %20, i64 %.079.i
+  %.0710.i = phi i64 [ %57, %.critedge23 ], [ 0, %19 ]
+  %52 = getelementptr inbounds nuw i64, ptr %20, i64 %.0710.i
   %53 = load i64, ptr %52, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw i64, ptr %8, i64 %.079.i
+  %54 = getelementptr inbounds nuw i64, ptr %8, i64 %.0710.i
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %56 = and i64 %55, %53
   %.not.not.i = icmp ne i64 %56, 0
-  %57 = add nuw nsw i64 %.079.i, 1
+  %57 = add nuw nsw i64 %.0710.i, 1
   %exitcond.not.i32 = icmp eq i64 %57, 16
   %or.cond.i = select i1 %.not.not.i, i1 true, i1 %exitcond.not.i32
   br i1 %or.cond.i, label %mi_commit_mask_any_set.exit, label %.critedge23, !llvm.loop !96
@@ -2749,14 +2749,14 @@ mi_commit_mask_clear.exit:                        ; preds = %82
   br label %92
 
 92:                                               ; preds = %92, %.critedge25
-  %.079.i49 = phi i64 [ 0, %.critedge25 ], [ %98, %92 ]
-  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %.079.i49
+  %.0710.i49 = phi i64 [ 0, %.critedge25 ], [ %98, %92 ]
+  %93 = getelementptr inbounds nuw i64, ptr %91, i64 %.0710.i49
   %94 = load i64, ptr %93, align 8, !tbaa !3
-  %95 = getelementptr inbounds nuw i64, ptr %8, i64 %.079.i49
+  %95 = getelementptr inbounds nuw i64, ptr %8, i64 %.0710.i49
   %96 = load i64, ptr %95, align 8, !tbaa !3
   %97 = and i64 %96, %94
   %.not.not.i50 = icmp ne i64 %97, 0
-  %98 = add nuw nsw i64 %.079.i49, 1
+  %98 = add nuw nsw i64 %.0710.i49, 1
   %exitcond.not.i51 = icmp eq i64 %98, 16
   %or.cond.i52 = select i1 %.not.not.i50, i1 true, i1 %exitcond.not.i51
   br i1 %or.cond.i52, label %mi_commit_mask_any_set.exit53, label %92, !llvm.loop !96

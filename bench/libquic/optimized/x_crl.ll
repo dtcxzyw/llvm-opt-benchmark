@@ -511,22 +511,22 @@ setup_idp.exit:                                   ; preds = %57, %.thread.i
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %101 = load ptr, ptr %100, align 8, !tbaa !65
   %102 = tail call i64 @sk_num(ptr noundef %101) #11
-  %.not83 = icmp eq i64 %102, 0
-  br i1 %.not83, label %.thread, label %.lr.ph
+  %.not82 = icmp eq i64 %102, 0
+  br i1 %.not82, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %98
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 28
   br label %108
 
 104:                                              ; preds = %116
-  %105 = add nuw i64 %.06182, 1
+  %105 = add nuw i64 %.06181, 1
   %106 = tail call i64 @sk_num(ptr noundef %101) #11
   %107 = icmp ult i64 %105, %106
   br i1 %107, label %108, label %.thread, !llvm.loop !66
 
 108:                                              ; preds = %.lr.ph, %104
-  %.06182 = phi i64 [ 0, %.lr.ph ], [ %105, %104 ]
-  %109 = tail call ptr @sk_value(ptr noundef %101, i64 noundef %.06182) #11
+  %.06181 = phi i64 [ 0, %.lr.ph ], [ %105, %104 ]
+  %109 = tail call ptr @sk_value(ptr noundef %101, i64 noundef %.06181) #11
   %110 = load ptr, ptr %109, align 8, !tbaa !68
   %111 = tail call i32 @OBJ_obj2nid(ptr noundef %110) #11
   %112 = icmp eq i32 %111, 857

@@ -3400,8 +3400,8 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114PaddingChecker11visitRecordEPKN
   %8 = alloca %"class.llvm::SmallVector.634", align 8
   %9 = alloca %"struct.std::pair.639", align 8
   %10 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %1) #21
-  %.not.i63 = icmp eq ptr %10, null
-  br i1 %.not.i63, label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread, label %.lr.ph
+  %.not.i62 = icmp eq ptr %10, null
+  br i1 %.not.i62, label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -3409,7 +3409,7 @@ define internal fastcc void @_ZNK12_GLOBAL__N_114PaddingChecker11visitRecordEPKN
 
 12:                                               ; preds = %.lr.ph, %tailrecurse
   %13 = phi ptr [ %10, %.lr.ph ], [ %138, %tailrecurse ]
-  %.tr5864 = phi ptr [ %1, %.lr.ph ], [ %137, %tailrecurse ]
+  %.tr5763 = phi ptr [ %1, %.lr.ph ], [ %137, %tailrecurse ]
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %.sroa.0.0.copyload.i.i = load i32, ptr %14, align 8, !tbaa !228
   %.not29.i = icmp eq i32 %.sroa.0.0.copyload.i.i, 0
@@ -3560,7 +3560,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i.i.i.
   br i1 %.not.i.i.i.i.i.i, label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !302
 
 _ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit: ; preds = %_ZN5clang11DeclContext22specific_decl_iteratorINS_9FieldDeclEEppEv.exit.i.i.i.i.i.i, %.critedge.i
-  %102 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %.tr5864) #21
+  %102 = tail call noundef ptr @_ZNK5clang7TagDecl13getDefinitionEv(ptr noundef nonnull align 8 dereferenceable(128) %.tr5763) #21
   %.not = icmp eq ptr %102, null
   br i1 %.not, label %_ZNK12_GLOBAL__N_114PaddingChecker14shouldSkipDeclEPKN5clang10RecordDeclE.exit.thread, label %103
 
@@ -4992,8 +4992,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

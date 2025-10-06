@@ -418,7 +418,7 @@ define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %39, i32 4, ptr nonnull %40, ptr noundef nonnull align 8 dereferenceable(34) %31) #17, !noalias !33
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %39, align 8, !tbaa !11, !noalias !33
   call void @llvm.lifetime.end.p0(ptr nonnull %31), !noalias !33
-  br label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split
+  br label %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split
 
 43:                                               ; preds = %3
   %44 = load ptr, ptr %32, align 8, !tbaa !42, !noalias !29
@@ -441,7 +441,7 @@ define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %46, i32 2, ptr nonnull %47, ptr noundef nonnull align 8 dereferenceable(34) %30) #17, !noalias !48
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %46, align 8, !tbaa !11, !noalias !48
   call void @llvm.lifetime.end.p0(ptr nonnull %30), !noalias !48
-  br label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split
+  br label %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split
 
 50:                                               ; preds = %43
   store ptr null, ptr %0, align 8, !tbaa !30, !alias.scope !23
@@ -449,8 +449,8 @@ define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %52 = getelementptr i8, ptr %44, i64 4
   %.val.i = load i32, ptr %52, align 1, !noalias !53
-  %.not.i.i16 = icmp eq i32 %.val.i, -248575718
-  br i1 %.not.i.i16, label %58, label %53
+  %.not.i.i14 = icmp eq i32 %.val.i, -248575718
+  br i1 %.not.i.i14, label %58, label %53
 
 53:                                               ; preds = %50
   %54 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18, !noalias !56
@@ -464,14 +464,14 @@ define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %54, i32 2, ptr nonnull %55, ptr noundef nonnull align 8 dereferenceable(34) %28) #17, !noalias !56
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %54, align 8, !tbaa !11, !noalias !56
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !56
-  br label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split
+  br label %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split
 
 58:                                               ; preds = %50
   %59 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %.0.copyload.i.i.i.i17 = load i32, ptr %59, align 1, !noalias !53
-  %60 = and i32 %.0.copyload.i.i.i.i17, 7
-  %.not.i18 = icmp eq i32 %60, 0
-  br i1 %.not.i18, label %66, label %61
+  %.0.copyload.i.i.i.i15 = load i32, ptr %59, align 1, !noalias !53
+  %60 = and i32 %.0.copyload.i.i.i.i15, 7
+  %.not.i16 = icmp eq i32 %60, 0
+  br i1 %.not.i16, label %66, label %61
 
 61:                                               ; preds = %58
   %62 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18, !noalias !63
@@ -485,15 +485,15 @@ define dso_local void @_ZN4llvm3pdb12GSIHashTable4readERNS_18BinaryStreamReaderE
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %62, i32 4, ptr nonnull %63, ptr noundef nonnull align 8 dereferenceable(34) %27) #17, !noalias !63
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %62, align 8, !tbaa !11, !noalias !63
   call void @llvm.lifetime.end.p0(ptr nonnull %27), !noalias !63
-  br label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split
+  br label %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split
 
 66:                                               ; preds = %58
-  %67 = lshr exact i32 %.0.copyload.i.i.i.i17, 3
+  %67 = lshr exact i32 %.0.copyload.i.i.i.i15, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !53
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_3pdb12PSHashRecordEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %29, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(48) %51, i32 noundef %67), !noalias !53
   %68 = load ptr, ptr %29, align 8, !tbaa !30, !noalias !53
-  %.not23.i = icmp eq ptr %68, null
-  br i1 %.not23.i, label %_ZN4llvm5ErrorD2Ev.exit19.thread, label %69
+  %.not22.i = icmp eq ptr %68, null
+  br i1 %.not22.i, label %_ZN4llvm5ErrorD2Ev.exit17.thread, label %69
 
 69:                                               ; preds = %66
   store ptr null, ptr %29, align 8, !tbaa !30, !noalias !53
@@ -550,7 +550,7 @@ _ZN4llvm5ErrorD2Ev.exit11.i:                      ; preds = %82, %_ZN4llvm5Error
   call void %91(ptr noundef nonnull align 8 dereferenceable(8) %86) #17
   br label %_ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_13GSIHashHeaderERNS_18BinaryStreamReaderE.exit
 
-_ZN4llvm5ErrorD2Ev.exit19.thread:                 ; preds = %66
+_ZN4llvm5ErrorD2Ev.exit17.thread:                 ; preds = %66
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !53
   store ptr null, ptr %0, align 8, !tbaa !30, !alias.scope !53
   br label %92
@@ -558,15 +558,15 @@ _ZN4llvm5ErrorD2Ev.exit19.thread:                 ; preds = %66
 _ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_13GSIHashHeaderERNS_18BinaryStreamReaderE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit11.i, %88
   call void @llvm.lifetime.end.p0(ptr nonnull %29), !noalias !53
   %.pr = load ptr, ptr %0, align 8, !tbaa !30
-  %.not40 = icmp eq ptr %.pr, null
-  br i1 %.not40, label %92, label %_ZN4llvm5ErrorD2Ev.exit19.thread33
+  %.not33 = icmp eq ptr %.pr, null
+  br i1 %.not33, label %92, label %_ZN4llvm5ErrorD2Ev.exit17.thread29
 
-92:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit19.thread, %_ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_13GSIHashHeaderERNS_18BinaryStreamReaderE.exit
+92:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit17.thread, %_ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_13GSIHashHeaderERNS_18BinaryStreamReaderE.exit
   %93 = load ptr, ptr %1, align 8, !tbaa !76
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %.0.copyload.i.i.i = load i32, ptr %94, align 1
   %.not = icmp eq i32 %.0.copyload.i.i.i, 0
-  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split, label %95
+  br i1 %.not, label %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split, label %95
 
 95:                                               ; preds = %92
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -576,10 +576,10 @@ _ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_1
   %.val = load i32, ptr %99, align 1
   call void @llvm.experimental.noalias.scope.decl(metadata !89)
   call void @llvm.experimental.noalias.scope.decl(metadata !92)
-  %.not.i.i20 = icmp eq i32 %.val, -248575718
-  br i1 %.not.i.i20, label %104, label %_ZN4llvm5ErrorD2Ev.exit25.thread38
+  %.not.i.i18 = icmp eq i32 %.val, -248575718
+  br i1 %.not.i.i18, label %104, label %_ZN4llvm5ErrorD2Ev.exit23.thread32
 
-_ZN4llvm5ErrorD2Ev.exit25.thread38:               ; preds = %95
+_ZN4llvm5ErrorD2Ev.exit23.thread32:               ; preds = %95
   %100 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18, !noalias !95
   %101 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm3pdb14RawErrCategoryEv() #17, !noalias !95
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !95
@@ -591,15 +591,15 @@ _ZN4llvm5ErrorD2Ev.exit25.thread38:               ; preds = %95
   call void @_ZN4llvm11StringErrorC2ESt10error_codeRKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(57) %100, i32 2, ptr nonnull %101, ptr noundef nonnull align 8 dereferenceable(34) %20) #17, !noalias !95
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm3pdb8RawErrorE, i64 16), ptr %100, align 8, !tbaa !11, !noalias !95
   call void @llvm.lifetime.end.p0(ptr nonnull %20), !noalias !95
-  br label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split
+  br label %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split
 
 104:                                              ; preds = %95
   store ptr null, ptr %0, align 8, !tbaa !30, !alias.scope !100
   call void @llvm.lifetime.start.p0(ptr nonnull %21), !noalias !89
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %21, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(48) %97, i32 noundef 129), !noalias !89
   %105 = load ptr, ptr %21, align 8, !tbaa !30, !noalias !89
-  %.not20.i = icmp eq ptr %105, null
-  br i1 %.not20.i, label %_ZN4llvm5ErrorD2Ev.exit38.i, label %106
+  %.not19.i = icmp eq ptr %105, null
+  br i1 %.not19.i, label %_ZN4llvm5ErrorD2Ev.exit38.i, label %106
 
 106:                                              ; preds = %104
   store ptr null, ptr %21, align 8, !tbaa !30, !noalias !89
@@ -621,28 +621,28 @@ _ZN4llvm5ErrorD2Ev.exit25.thread38:               ; preds = %95
   call void @_ZN4llvm9ErrorList4joinENS_5ErrorES1_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull %17, ptr noundef nonnull %18)
   %111 = load ptr, ptr %18, align 8, !tbaa !30, !noalias !106
   %112 = icmp eq ptr %111, null
-  br i1 %112, label %_ZN4llvm5ErrorD2Ev.exit.i.i21, label %113
+  br i1 %112, label %_ZN4llvm5ErrorD2Ev.exit.i.i19, label %113
 
 113:                                              ; preds = %106
   %114 = load ptr, ptr %111, align 8, !tbaa !11
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8
   call void %116(ptr noundef nonnull align 8 dereferenceable(8) %111) #17
-  br label %_ZN4llvm5ErrorD2Ev.exit.i.i21
+  br label %_ZN4llvm5ErrorD2Ev.exit.i.i19
 
-_ZN4llvm5ErrorD2Ev.exit.i.i21:                    ; preds = %113, %106
+_ZN4llvm5ErrorD2Ev.exit.i.i19:                    ; preds = %113, %106
   %117 = load ptr, ptr %17, align 8, !tbaa !30, !noalias !106
   %118 = icmp eq ptr %117, null
   br i1 %118, label %_ZN4llvm5ErrorD2Ev.exit36.i, label %119
 
-119:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit.i.i21
+119:                                              ; preds = %_ZN4llvm5ErrorD2Ev.exit.i.i19
   %120 = load ptr, ptr %117, align 8, !tbaa !11
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8
   call void %122(ptr noundef nonnull align 8 dereferenceable(8) %117) #17
   br label %_ZN4llvm5ErrorD2Ev.exit36.i
 
-_ZN4llvm5ErrorD2Ev.exit36.i:                      ; preds = %119, %_ZN4llvm5ErrorD2Ev.exit.i.i21
+_ZN4llvm5ErrorD2Ev.exit36.i:                      ; preds = %119, %_ZN4llvm5ErrorD2Ev.exit.i.i19
   call void @llvm.lifetime.end.p0(ptr nonnull %17), !noalias !89
   call void @llvm.lifetime.end.p0(ptr nonnull %18), !noalias !89
   %123 = load ptr, ptr %21, align 8, !tbaa !30, !noalias !89
@@ -762,7 +762,7 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
 
 175:                                              ; preds = %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEixEj.exit.i, %_ZN4llvm5ErrorD2Ev.exit38.i
   %indvars.iv.i = phi i64 [ 0, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %indvars.iv.next.i, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEixEj.exit.i ]
-  %.03025.i = phi i32 [ 0, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %spec.select43.i, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEixEj.exit.i ]
+  %.03024.i = phi i32 [ 0, %_ZN4llvm5ErrorD2Ev.exit38.i ], [ %spec.select42.i, %_ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEixEj.exit.i ]
   %176 = trunc nuw nsw i64 %indvars.iv.i to i32
   %177 = and i32 %176, 31
   %178 = lshr i64 %indvars.iv.i, 3
@@ -812,13 +812,13 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !89
   %194 = load ptr, ptr %15, align 8, !tbaa !42, !noalias !89
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !89
-  %.0.copyload.i.i.i.i22 = load i32, ptr %194, align 1, !noalias !89
+  %.0.copyload.i.i.i.i20 = load i32, ptr %194, align 1, !noalias !89
   %195 = shl nuw i32 1, %177
-  %196 = and i32 %.0.copyload.i.i.i.i22, %195
-  %.not.i23 = icmp ne i32 %196, 0
-  %spec.select.i = select i1 %.not.i23, i32 %.03025.i, i32 -1
-  %197 = zext i1 %.not.i23 to i32
-  %spec.select43.i = add i32 %.03025.i, %197
+  %196 = and i32 %.0.copyload.i.i.i.i20, %195
+  %.not.i21 = icmp ne i32 %196, 0
+  %spec.select.i = select i1 %.not.i21, i32 %.03024.i, i32 -1
+  %197 = zext i1 %.not.i21 to i32
+  %spec.select42.i = add i32 %.03024.i, %197
   %198 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i
   store i32 %spec.select.i, ptr %198, align 4, !tbaa !21, !noalias !89
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -834,8 +834,8 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   %or.cond.i = select i1 %201, i1 %.not.i.i.i.i42.i, i1 false
   %203 = load i64, ptr %173, align 8, !noalias !89
   %.not7.i.i.i.i.i = icmp eq i64 %203, %.sroa.7.16.copyload.i
-  %or.cond19.i = select i1 %or.cond.i, i1 %.not7.i.i.i.i.i, i1 false
-  br i1 %or.cond19.i, label %204, label %_ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt26random_access_iterator_tagKS6_lPS9_RS9_EneERKS7_.exit.thread.i
+  %or.cond18.i = select i1 %or.cond.i, i1 %.not7.i.i.i.i.i, i1 false
+  br i1 %or.cond18.i, label %204, label %_ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt26random_access_iterator_tagKS6_lPS9_RS9_EneERKS7_.exit.thread.i
 
 204:                                              ; preds = %199
   %205 = load i8, ptr %174, align 8, !tbaa !3, !range !116, !noalias !89, !noundef !120
@@ -846,8 +846,8 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
 
 208:                                              ; preds = %204
   %209 = load i64, ptr %172, align 8, !tbaa !121, !noalias !89
-  %.not22.i = icmp eq i64 %209, %.sroa.8.16.copyload.i
-  br i1 %.not22.i, label %210, label %_ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt26random_access_iterator_tagKS6_lPS9_RS9_EneERKS7_.exit.thread.i
+  %.not21.i = icmp eq i64 %209, %.sroa.8.16.copyload.i
+  br i1 %.not21.i, label %210, label %_ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt26random_access_iterator_tagKS6_lPS9_RS9_EneERKS7_.exit.thread.i
 
 _ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt26random_access_iterator_tagKS6_lPS9_RS9_EneERKS7_.exit.i: ; preds = %204
   br i1 %207, label %210, label %_ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt26random_access_iterator_tagKS6_lPS9_RS9_EneERKS7_.exit.thread.i
@@ -953,8 +953,8 @@ _ZN4llvm24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_in
   call void @llvm.lifetime.start.p0(ptr nonnull %23), !noalias !89
   call void @_ZN4llvm18BinaryStreamReader9readArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEENS_5ErrorERNS_16FixedStreamArrayIT_EEj(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %23, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(48) %96, i32 noundef %.029.i), !noalias !89
   %254 = load ptr, ptr %23, align 8, !tbaa !30, !noalias !89
-  %.not23.i24 = icmp eq ptr %254, null
-  br i1 %.not23.i24, label %_ZN4llvm5ErrorD2Ev.exit25.thread, label %276
+  %.not22.i22 = icmp eq ptr %254, null
+  br i1 %.not22.i22, label %_ZN4llvm5ErrorD2Ev.exit23.thread, label %276
 
 _ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt26random_access_iterator_tagKS6_lPS9_RS9_EneERKS7_.exit.thread.i: ; preds = %_ZNK4llvm20iterator_facade_baseINS_24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEESt26random_access_iterator_tagKS6_lPS9_RS9_EneERKS7_.exit.i, %208, %199
   %255 = shl i32 %200, 2
@@ -1071,21 +1071,21 @@ _ZN4llvm5ErrorD2Ev.exit55.i:                      ; preds = %295, %_ZN4llvm5Erro
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !89
   br label %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit
 
-_ZN4llvm5ErrorD2Ev.exit25.thread:                 ; preds = %_ZN4llvm24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEED2Ev.exit48.i
+_ZN4llvm5ErrorD2Ev.exit23.thread:                 ; preds = %_ZN4llvm24FixedStreamArrayIteratorINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEED2Ev.exit48.i
   call void @llvm.lifetime.end.p0(ptr nonnull %23), !noalias !89
-  br label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split
+  br label %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split
 
 _ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit37.i, %_ZN4llvm5ErrorD2Ev.exit55.i
-  %.pr35 = load ptr, ptr %0, align 8, !tbaa !30
-  %.not41 = icmp eq ptr %.pr35, null
-  br i1 %.not41, label %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split, label %_ZN4llvm5ErrorD2Ev.exit19.thread33
+  %.pr30 = load ptr, ptr %0, align 8, !tbaa !30
+  %.not34 = icmp eq ptr %.pr30, null
+  br i1 %.not34, label %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split, label %_ZN4llvm5ErrorD2Ev.exit17.thread29
 
-_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split:    ; preds = %_ZN4llvm5ErrorD2Ev.exit25.thread, %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit, %92, %35, %45, %_ZN4llvm5ErrorD2Ev.exit25.thread38, %61, %53
-  %.sink = phi ptr [ %54, %53 ], [ %62, %61 ], [ %100, %_ZN4llvm5ErrorD2Ev.exit25.thread38 ], [ %39, %35 ], [ %46, %45 ], [ null, %92 ], [ null, %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit ], [ null, %_ZN4llvm5ErrorD2Ev.exit25.thread ]
+_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split:    ; preds = %_ZN4llvm5ErrorD2Ev.exit23.thread, %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit, %92, %35, %45, %_ZN4llvm5ErrorD2Ev.exit23.thread32, %61, %53
+  %.sink = phi ptr [ %54, %53 ], [ %62, %61 ], [ %100, %_ZN4llvm5ErrorD2Ev.exit23.thread32 ], [ %39, %35 ], [ %46, %45 ], [ null, %92 ], [ null, %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit ], [ null, %_ZN4llvm5ErrorD2Ev.exit23.thread ]
   store ptr %.sink, ptr %0, align 8, !tbaa !30
-  br label %_ZN4llvm5ErrorD2Ev.exit19.thread33
+  br label %_ZN4llvm5ErrorD2Ev.exit17.thread29
 
-_ZN4llvm5ErrorD2Ev.exit19.thread33:               ; preds = %_ZN4llvm5ErrorD2Ev.exit19.thread33.sink.split, %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit, %_ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_13GSIHashHeaderERNS_18BinaryStreamReaderE.exit
+_ZN4llvm5ErrorD2Ev.exit17.thread29:               ; preds = %_ZN4llvm5ErrorD2Ev.exit17.thread29.sink.split, %_ZL18readGSIHashBucketsRN4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEEES7_PKNS_3pdb13GSIHashHeaderENS_15MutableArrayRefIiEERNS_18BinaryStreamReaderE.exit, %_ZL18readGSIHashRecordsRN4llvm16FixedStreamArrayINS_3pdb12PSHashRecordEEEPKNS1_13GSIHashHeaderERNS_18BinaryStreamReaderE.exit
   ret void
 }
 

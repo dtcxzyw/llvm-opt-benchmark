@@ -305,11 +305,11 @@ define i32 @ucol_mergeSortkeys_77(ptr noundef readonly captures(address_is_null)
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %57 = phi i8 [ %60, %.lr.ph ], [ %55, %.preheader ]
-  %.1100 = phi ptr [ %59, %.lr.ph ], [ %.0, %.preheader ]
-  %.17199 = phi ptr [ %58, %.lr.ph ], [ %.070, %.preheader ]
-  %58 = getelementptr inbounds nuw i8, ptr %.17199, i64 1
-  %59 = getelementptr inbounds nuw i8, ptr %.1100, i64 1
-  store i8 %57, ptr %.1100, align 1, !tbaa !11
+  %.199 = phi ptr [ %59, %.lr.ph ], [ %.0, %.preheader ]
+  %.17198 = phi ptr [ %58, %.lr.ph ], [ %.070, %.preheader ]
+  %58 = getelementptr inbounds nuw i8, ptr %.17198, i64 1
+  %59 = getelementptr inbounds nuw i8, ptr %.199, i64 1
+  store i8 %57, ptr %.199, align 1, !tbaa !11
   %60 = load i8, ptr %58, align 1, !tbaa !11
   %61 = icmp ugt i8 %60, 1
   br i1 %61, label %.lr.ph, label %._crit_edge, !llvm.loop !12
@@ -318,41 +318,41 @@ define i32 @ucol_mergeSortkeys_77(ptr noundef readonly captures(address_is_null)
   %.171.lcssa = phi ptr [ %.070, %.preheader ], [ %58, %.lr.ph ]
   %.1.lcssa = phi ptr [ %.0, %.preheader ], [ %59, %.lr.ph ]
   store i8 2, ptr %.1.lcssa, align 1, !tbaa !11
-  %.2102 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 1
+  %.2101 = getelementptr inbounds nuw i8, ptr %.1.lcssa, i64 1
   %62 = load i8, ptr %.075, align 1, !tbaa !11
   %63 = icmp ugt i8 %62, 1
-  br i1 %63, label %.lr.ph106, label %._crit_edge107
+  br i1 %63, label %.lr.ph105, label %._crit_edge106
 
-.lr.ph106:                                        ; preds = %._crit_edge, %.lr.ph106
-  %64 = phi i8 [ %66, %.lr.ph106 ], [ %62, %._crit_edge ]
-  %.2104 = phi ptr [ %.2, %.lr.ph106 ], [ %.2102, %._crit_edge ]
-  %.176103 = phi ptr [ %65, %.lr.ph106 ], [ %.075, %._crit_edge ]
-  %65 = getelementptr inbounds nuw i8, ptr %.176103, i64 1
-  store i8 %64, ptr %.2104, align 1, !tbaa !11
-  %.2 = getelementptr inbounds nuw i8, ptr %.2104, i64 1
+.lr.ph105:                                        ; preds = %._crit_edge, %.lr.ph105
+  %64 = phi i8 [ %66, %.lr.ph105 ], [ %62, %._crit_edge ]
+  %.2103 = phi ptr [ %.2, %.lr.ph105 ], [ %.2101, %._crit_edge ]
+  %.176102 = phi ptr [ %65, %.lr.ph105 ], [ %.075, %._crit_edge ]
+  %65 = getelementptr inbounds nuw i8, ptr %.176102, i64 1
+  store i8 %64, ptr %.2103, align 1, !tbaa !11
+  %.2 = getelementptr inbounds nuw i8, ptr %.2103, i64 1
   %66 = load i8, ptr %65, align 1, !tbaa !11
   %67 = icmp ugt i8 %66, 1
-  br i1 %67, label %.lr.ph106, label %._crit_edge107, !llvm.loop !14
+  br i1 %67, label %.lr.ph105, label %._crit_edge106, !llvm.loop !14
 
-._crit_edge107:                                   ; preds = %.lr.ph106, %._crit_edge
-  %.176.lcssa = phi ptr [ %.075, %._crit_edge ], [ %65, %.lr.ph106 ]
-  %.1.pn.lcssa = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.2104, %.lr.ph106 ]
-  %.2.lcssa = phi ptr [ %.2102, %._crit_edge ], [ %.2, %.lr.ph106 ]
-  %.lcssa98 = phi i8 [ %62, %._crit_edge ], [ %66, %.lr.ph106 ]
+._crit_edge106:                                   ; preds = %.lr.ph105, %._crit_edge
+  %.176.lcssa = phi ptr [ %.075, %._crit_edge ], [ %65, %.lr.ph105 ]
+  %.1.pn.lcssa = phi ptr [ %.1.lcssa, %._crit_edge ], [ %.2103, %.lr.ph105 ]
+  %.2.lcssa = phi ptr [ %.2101, %._crit_edge ], [ %.2, %.lr.ph105 ]
+  %.lcssa97 = phi i8 [ %62, %._crit_edge ], [ %66, %.lr.ph105 ]
   %68 = load i8, ptr %.171.lcssa, align 1, !tbaa !11
   %69 = icmp eq i8 %68, 1
-  %70 = icmp ne i8 %.lcssa98, 0
+  %70 = icmp ne i8 %.lcssa97, 0
   %or.cond87 = and i1 %70, %69
   br i1 %or.cond87, label %71, label %75
 
-71:                                               ; preds = %._crit_edge107
+71:                                               ; preds = %._crit_edge106
   %72 = getelementptr inbounds nuw i8, ptr %.171.lcssa, i64 1
   %73 = getelementptr inbounds nuw i8, ptr %.176.lcssa, i64 1
   %74 = getelementptr inbounds nuw i8, ptr %.1.pn.lcssa, i64 2
   store i8 1, ptr %.2.lcssa, align 1, !tbaa !11
   br label %.preheader
 
-75:                                               ; preds = %._crit_edge107
+75:                                               ; preds = %._crit_edge106
   %.not = icmp eq i8 %68, 0
   %spec.select = select i1 %.not, ptr %.176.lcssa, ptr %.171.lcssa
   br label %76

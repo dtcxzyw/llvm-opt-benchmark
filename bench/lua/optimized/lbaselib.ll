@@ -779,9 +779,9 @@ b_str2int.exit:                                   ; preds = %54, %25, %66
   %71 = load i64, ptr %3, align 8, !tbaa !9
   %72 = getelementptr inbounds nuw i8, ptr %20, i64 %71
   %73 = icmp eq ptr %.0.i, %72
-  br i1 %73, label %74, label %.thread27
+  br i1 %73, label %74, label %.thread25
 
-.thread27:                                        ; preds = %b_str2int.exit
+.thread25:                                        ; preds = %b_str2int.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %75
 
@@ -790,7 +790,7 @@ b_str2int.exit:                                   ; preds = %54, %25, %66
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %76
 
-75:                                               ; preds = %.thread27, %.thread
+75:                                               ; preds = %.thread25, %.thread
   call void @lua_pushnil(ptr noundef %0) #9
   br label %76
 

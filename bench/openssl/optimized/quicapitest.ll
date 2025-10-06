@@ -3651,13 +3651,13 @@ define internal range(i32 0, 2) i32 @test_tparam(i32 noundef %0) #1 {
   %25 = zext i1 %24 to i32
   %26 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2277, ptr noundef nonnull @.str.272, i32 noundef %25) #10
   %.not10 = icmp eq i32 %26, 0
-  %.pre29 = load ptr, ptr %5, align 8, !tbaa !50
+  %.pre28 = load ptr, ptr %5, align 8, !tbaa !50
   br i1 %.not10, label %70, label %27
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %3, align 8, !tbaa !15
   %29 = load ptr, ptr %2, align 8, !tbaa !13
-  %30 = getelementptr inbounds nuw i8, ptr %.pre29, i64 16
+  %30 = getelementptr inbounds nuw i8, ptr %.pre28, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !53
   %32 = icmp ne ptr %31, null
   %33 = zext i1 %32 to i32
@@ -3666,11 +3666,11 @@ define internal range(i32 0, 2) i32 @test_tparam(i32 noundef %0) #1 {
   %36 = zext i1 %35 to i32
   %37 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 2281, ptr noundef nonnull @.str.273, i32 noundef %36) #10
   %.not11 = icmp eq i32 %37, 0
-  %.pre28 = load ptr, ptr %5, align 8, !tbaa !50
+  %.pre27 = load ptr, ptr %5, align 8, !tbaa !50
   br i1 %.not11, label %70, label %38
 
 38:                                               ; preds = %27
-  %39 = getelementptr inbounds nuw i8, ptr %.pre28, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.pre27, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !53
   %.not12 = icmp eq ptr %40, null
   br i1 %.not12, label %81, label %41
@@ -3731,7 +3731,7 @@ define internal range(i32 0, 2) i32 @test_tparam(i32 noundef %0) #1 {
   br label %81
 
 70:                                               ; preds = %27, %21, %13, %1, %.thread
-  %71 = phi ptr [ %.pre28, %27 ], [ %.pre29, %21 ], [ %8, %13 ], [ %8, %1 ], [ %.pre, %.thread ]
+  %71 = phi ptr [ %.pre27, %27 ], [ %.pre28, %21 ], [ %8, %13 ], [ %8, %1 ], [ %.pre, %.thread ]
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !53
   %.not18 = icmp eq ptr %73, null
@@ -3751,7 +3751,7 @@ define internal range(i32 0, 2) i32 @test_tparam(i32 noundef %0) #1 {
   br label %81
 
 81:                                               ; preds = %69, %38, %79, %80
-  %.0626 = phi i32 [ 0, %79 ], [ 0, %80 ], [ 1, %69 ], [ 1, %38 ]
+  %.0625 = phi i32 [ 0, %79 ], [ 0, %80 ], [ 1, %69 ], [ 1, %38 ]
   %82 = load ptr, ptr %3, align 8, !tbaa !15
   call void @ossl_quic_tserver_free(ptr noundef %82) #10
   %83 = load ptr, ptr %2, align 8, !tbaa !13
@@ -3763,7 +3763,7 @@ define internal range(i32 0, 2) i32 @test_tparam(i32 noundef %0) #1 {
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %.0626
+  ret i32 %.0625
 }
 
 ; Function Attrs: nounwind uwtable

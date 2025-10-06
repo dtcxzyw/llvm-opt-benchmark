@@ -668,19 +668,19 @@ _ZNK3ue29CharReachcoEv.exit:                      ; preds = %91
   br label %96
 
 96:                                               ; preds = %99, %_ZNK3ue29CharReachcoEv.exit
-  %.0710.i.i = phi i64 [ 0, %_ZNK3ue29CharReachcoEv.exit ], [ %100, %99 ]
-  %97 = getelementptr inbounds nuw i64, ptr %7, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %_ZNK3ue29CharReachcoEv.exit ], [ %100, %99 ]
+  %97 = getelementptr inbounds nuw i64, ptr %7, i64 %.0712.i.i
   %98 = load i64, ptr %97, align 8
   %.not.i.i = icmp eq i64 %98, 0
   br i1 %.not.i.i, label %99, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 99:                                               ; preds = %96
-  %100 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %100, 4
-  br i1 %exitcond.i.i, label %._crit_edge106, label %96, !llvm.loop !10
+  %100 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %100, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge106, label %96, !llvm.loop !10
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %96
-  %101 = shl nuw nsw i64 %.0710.i.i, 6
+  %101 = shl nuw nsw i64 %.0712.i.i, 6
   %102 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %98, i1 true)
   %103 = or disjoint i64 %102, %101
   %.not103 = icmp eq i64 %103, 256
@@ -830,19 +830,19 @@ _ZNK3ue25depthcvjEv.exit:                         ; preds = %7
   br label %16
 
 16:                                               ; preds = %19, %_ZNK3ue25depthcvjEv.exit
-  %.0710.i.i = phi i64 [ 0, %_ZNK3ue25depthcvjEv.exit ], [ %20, %19 ]
-  %17 = getelementptr inbounds nuw i64, ptr %4, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %_ZNK3ue25depthcvjEv.exit ], [ %20, %19 ]
+  %17 = getelementptr inbounds nuw i64, ptr %4, i64 %.0712.i.i
   %18 = load i64, ptr %17, align 8
   %.not.i.i12 = icmp eq i64 %18, 0
   br i1 %.not.i.i12, label %19, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 19:                                               ; preds = %16
-  %20 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %20, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %16, !llvm.loop !10
+  %20 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %20, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge, label %16, !llvm.loop !10
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
-  %21 = shl nuw nsw i64 %.0710.i.i, 6
+  %21 = shl nuw nsw i64 %.0712.i.i, 6
   %22 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %18, i1 true)
   %23 = or disjoint i64 %22, %21
   %.not22 = icmp eq i64 %23, 256

@@ -9995,21 +9995,21 @@ define internal fastcc range(i32 0, 2) i32 @avifParseLayerSelectorProperty(ptr n
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = call i32 @avifROStreamReadU16(ptr noundef nonnull %5, ptr noundef nonnull %8) #13
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %switch.lookup, label %10
+  br i1 %.not, label %14, label %10
 
 10:                                               ; preds = %4
   %11 = load i16, ptr %8, align 2
-  %switch.tableidx = add i16 %11, 1
-  %12 = icmp ult i16 %switch.tableidx, 5
-  br i1 %12, label %switch.lookup, label %13
+  %.off = add i16 %11, -4
+  %switch = icmp ult i16 %.off, -5
+  br i1 %switch, label %12, label %14
 
-13:                                               ; preds = %10
-  %14 = zext i16 %11 to i32
-  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %3, ptr noundef nonnull @.str.88, i32 noundef %14) #13
-  br label %switch.lookup
+12:                                               ; preds = %10
+  %13 = zext i16 %11 to i32
+  call void (ptr, ptr, ...) @avifDiagnosticsPrintf(ptr noundef %3, ptr noundef nonnull @.str.88, i32 noundef %13) #13
+  br label %14
 
-switch.lookup:                                    ; preds = %10, %4, %13
-  %.0 = phi i32 [ 0, %13 ], [ 0, %4 ], [ 1, %10 ]
+14:                                               ; preds = %10, %4, %12
+  %.0 = phi i32 [ 0, %12 ], [ 0, %4 ], [ 1, %10 ]
   ret i32 %.0
 }
 

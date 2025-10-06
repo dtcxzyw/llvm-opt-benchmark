@@ -3313,8 +3313,8 @@ _ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit: ; preds = %_ZN6vectorIPN
   %36 = zext i32 %29 to i64
   %.idx.i = shl nuw nsw i64 %36, 2
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx.i
-  %.not14.not.i = icmp eq i32 %29, 0
-  br i1 %.not14.not.i, label %.loopexit180, label %.lr.ph.i
+  %.not15.not.i = icmp eq i32 %29, 0
+  br i1 %.not15.not.i, label %.loopexit180, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %34
   %38 = load ptr, ptr %0, align 8, !tbaa !14
@@ -3327,13 +3327,13 @@ _ZN6vectorISt4pairIN3sat7literalES2_ELb0EjE3endEv.exit: ; preds = %_ZN6vectorIPN
   br label %45
 
 43:                                               ; preds = %45
-  %44 = getelementptr inbounds nuw i8, ptr %.01115.i, i64 4
+  %44 = getelementptr inbounds nuw i8, ptr %.01116.i, i64 4
   %.not.not.i = icmp eq ptr %44, %37
   br i1 %.not.not.i, label %.loopexit180, label %45
 
 45:                                               ; preds = %43, %.lr.ph.i
-  %.01115.i = phi ptr [ %35, %.lr.ph.i ], [ %44, %43 ]
-  %.sroa.01.0.copyload.i = load i32, ptr %.01115.i, align 4, !tbaa !55
+  %.01116.i = phi ptr [ %35, %.lr.ph.i ], [ %44, %43 ]
+  %.sroa.01.0.copyload.i = load i32, ptr %.01116.i, align 4, !tbaa !55
   %46 = lshr i32 %.sroa.01.0.copyload.i, 1
   %47 = zext nneg i32 %46 to i64
   %48 = getelementptr inbounds nuw i8, ptr %42, i64 %47
@@ -3818,21 +3818,21 @@ _ZN6vectorIPN3sat6clauseELb0EjE6shrinkEj.exit153: ; preds = %245, %._crit_edge21
   %260 = zext i32 %259 to i64
   %.idx.i154 = shl nuw nsw i64 %260, 2
   %261 = getelementptr inbounds nuw i8, ptr %257, i64 %.idx.i154
-  %.not14.not.i155 = icmp eq i32 %259, 0
-  br i1 %.not14.not.i155, label %.loopexit, label %.lr.ph.i156
+  %.not15.not.i155 = icmp eq i32 %259, 0
+  br i1 %.not15.not.i155, label %.loopexit, label %.lr.ph.i156
 
 .lr.ph.i156:                                      ; preds = %.lr.ph218
   %262 = load ptr, ptr %76, align 8, !tbaa !92
   br label %265
 
 263:                                              ; preds = %265
-  %264 = getelementptr inbounds nuw i8, ptr %.01115.i157, i64 4
+  %264 = getelementptr inbounds nuw i8, ptr %.01116.i157, i64 4
   %.not.not.i159 = icmp eq ptr %264, %261
   br i1 %.not.not.i159, label %.loopexit, label %265
 
 265:                                              ; preds = %263, %.lr.ph.i156
-  %.01115.i157 = phi ptr [ %257, %.lr.ph.i156 ], [ %264, %263 ]
-  %.sroa.01.0.copyload.i158 = load i32, ptr %.01115.i157, align 4, !tbaa !55
+  %.01116.i157 = phi ptr [ %257, %.lr.ph.i156 ], [ %264, %263 ]
+  %.sroa.01.0.copyload.i158 = load i32, ptr %.01116.i157, align 4, !tbaa !55
   %266 = lshr i32 %.sroa.01.0.copyload.i158, 1
   %267 = zext nneg i32 %266 to i64
   %268 = getelementptr inbounds nuw i8, ptr %262, i64 %267
@@ -5602,8 +5602,8 @@ define hidden noundef zeroext i1 @_ZN3sat14anf_simplifier16is_pre_satisfiedERKNS
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not14.not = icmp eq i32 %5, 0
-  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
+  %.not15.not = icmp eq i32 %5, 0
+  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = load ptr, ptr %0, align 8, !tbaa !14
@@ -5616,8 +5616,8 @@ define hidden noundef zeroext i1 @_ZN3sat14anf_simplifier16is_pre_satisfiedERKNS
   br label %13
 
 13:                                               ; preds = %13, %.lr.ph
-  %.01115 = phi ptr [ %3, %.lr.ph ], [ %19, %13 ]
-  %.sroa.01.0.copyload = load i32, ptr %.01115, align 4, !tbaa !55
+  %.01116 = phi ptr [ %3, %.lr.ph ], [ %19, %13 ]
+  %.sroa.01.0.copyload = load i32, ptr %.01116, align 4, !tbaa !55
   %14 = lshr i32 %.sroa.01.0.copyload, 1
   %15 = zext nneg i32 %14 to i64
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %15
@@ -5625,7 +5625,7 @@ define hidden noundef zeroext i1 @_ZN3sat14anf_simplifier16is_pre_satisfiedERKNS
   %17 = trunc nuw i8 %.in.i to i1
   %18 = trunc i32 %.sroa.01.0.copyload to i1
   %spec.select.i = xor i1 %18, %17
-  %19 = getelementptr inbounds nuw i8, ptr %.01115, i64 4
+  %19 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %.not.not = icmp eq ptr %19, %7
   %or.cond = select i1 %spec.select.i, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %13
@@ -5755,8 +5755,8 @@ define hidden noundef zeroext i1 @_ZN3sat14anf_simplifier16has_relevant_varERKNS
   %6 = zext i32 %5 to i64
   %.idx = shl nuw nsw i64 %6, 2
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx
-  %.not14.not = icmp eq i32 %5, 0
-  br i1 %.not14.not, label %._crit_edge, label %.lr.ph
+  %.not15.not = icmp eq i32 %5, 0
+  br i1 %.not15.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5764,14 +5764,14 @@ define hidden noundef zeroext i1 @_ZN3sat14anf_simplifier16has_relevant_varERKNS
   br label %10
 
 10:                                               ; preds = %10, %.lr.ph
-  %.01115 = phi ptr [ %3, %.lr.ph ], [ %16, %10 ]
-  %.sroa.01.0.copyload = load i32, ptr %.01115, align 4, !tbaa !55
+  %.01116 = phi ptr [ %3, %.lr.ph ], [ %16, %10 ]
+  %.sroa.01.0.copyload = load i32, ptr %.01116, align 4, !tbaa !55
   %11 = lshr i32 %.sroa.01.0.copyload, 1
   %12 = zext nneg i32 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %12
   %14 = load i8, ptr %13, align 1, !tbaa !88, !range !86, !noundef !87
   %15 = trunc nuw i8 %14 to i1
-  %16 = getelementptr inbounds nuw i8, ptr %.01115, i64 4
+  %16 = getelementptr inbounds nuw i8, ptr %.01116, i64 4
   %.not.not = icmp eq ptr %16, %7
   %or.cond = select i1 %15, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %10

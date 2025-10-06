@@ -1609,19 +1609,19 @@ define ptr @OSSL_CMP_CRLSTATUS_create(ptr noundef %0, ptr noundef %1, i32 nounde
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %7, label %.thread111
+  br i1 %6, label %7, label %.thread109
 
 7:                                                ; preds = %3
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %46, label %9
 
-.thread111:                                       ; preds = %3
+.thread109:                                       ; preds = %3
   %8 = tail call ptr @X509_CRL_get0_lastUpdate(ptr noundef nonnull %0) #6
-  %.not112 = icmp eq ptr %1, null
-  br i1 %.not112, label %47, label %9
+  %.not110 = icmp eq ptr %1, null
+  br i1 %.not110, label %47, label %9
 
-9:                                                ; preds = %.thread111, %7
-  %10 = phi ptr [ %8, %.thread111 ], [ null, %7 ]
+9:                                                ; preds = %.thread109, %7
+  %10 = phi ptr [ %8, %.thread109 ], [ null, %7 ]
   %11 = tail call ptr @X509_get_ext_d2i(ptr noundef nonnull %1, i32 noundef 103, ptr noundef null, ptr noundef null) #6
   %12 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #6
   %13 = icmp sgt i32 %12, 0
@@ -1632,44 +1632,44 @@ define ptr @OSSL_CMP_CRLSTATUS_create(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %gennames_allowed.exit.thread.us
-  %.056145.us = phi i32 [ %23, %gennames_allowed.exit.thread.us ], [ 0, %.lr.ph ]
-  %.059144.us = phi ptr [ %.1.ph.us, %gennames_allowed.exit.thread.us ], [ null, %.lr.ph ]
-  %14 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %.056145.us) #6
+  %.056143.us = phi i32 [ %23, %gennames_allowed.exit.thread.us ], [ 0, %.lr.ph ]
+  %.059142.us = phi ptr [ %.1.ph.us, %gennames_allowed.exit.thread.us ], [ null, %.lr.ph ]
+  %14 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %.056143.us) #6
   %15 = icmp eq ptr %14, null
   br i1 %15, label %gennames_allowed.exit.thread.us, label %16
 
 16:                                               ; preds = %.lr.ph.split.us
   %17 = load ptr, ptr %14, align 8, !tbaa !45
   %.not86.us = icmp eq ptr %17, null
-  br i1 %.not86.us, label %18, label %.thread119
+  br i1 %.not86.us, label %18, label %.thread117
 
 18:                                               ; preds = %16
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !49
   %21 = icmp ne ptr %20, null
-  %22 = icmp eq ptr %.059144.us, null
-  %or.cond147 = select i1 %21, i1 %22, i1 false
-  %spec.select = select i1 %or.cond147, ptr %20, ptr %.059144.us
+  %22 = icmp eq ptr %.059142.us, null
+  %or.cond145 = select i1 %21, i1 %22, i1 false
+  %spec.select = select i1 %or.cond145, ptr %20, ptr %.059142.us
   br label %gennames_allowed.exit.thread.us
 
 gennames_allowed.exit.thread.us:                  ; preds = %18, %.lr.ph.split.us
-  %.1.ph.us = phi ptr [ %.059144.us, %.lr.ph.split.us ], [ %spec.select, %18 ]
-  %23 = add nuw nsw i32 %.056145.us, 1
+  %.1.ph.us = phi ptr [ %.059142.us, %.lr.ph.split.us ], [ %spec.select, %18 ]
+  %23 = add nuw nsw i32 %.056143.us, 1
   %24 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #6
   %25 = icmp slt i32 %23, %24
   br i1 %25, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !50
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %gennames_allowed.exit.thread
-  %.056145 = phi i32 [ %43, %gennames_allowed.exit.thread ], [ 0, %.lr.ph ]
-  %.059144 = phi ptr [ %.1.ph, %gennames_allowed.exit.thread ], [ null, %.lr.ph ]
-  %26 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %.056145) #6
+  %.056143 = phi i32 [ %43, %gennames_allowed.exit.thread ], [ 0, %.lr.ph ]
+  %.059142 = phi ptr [ %.1.ph, %gennames_allowed.exit.thread ], [ null, %.lr.ph ]
+  %26 = tail call ptr @OPENSSL_sk_value(ptr noundef %11, i32 noundef %.056143) #6
   %27 = icmp eq ptr %26, null
   br i1 %27, label %gennames_allowed.exit.thread, label %28
 
 28:                                               ; preds = %.lr.ph.split
   %29 = load ptr, ptr %26, align 8, !tbaa !45
   %.not86 = icmp eq ptr %29, null
-  br i1 %.not86, label %30, label %.thread119
+  br i1 %.not86, label %30, label %.thread117
 
 30:                                               ; preds = %28
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -1686,7 +1686,7 @@ gennames_allowed.exit:                            ; preds = %34
   %37 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %32, i32 noundef 0) #6
   %38 = load i32, ptr %37, align 8, !tbaa !51
   %39 = icmp eq i32 %38, 4
-  %40 = icmp eq ptr %.059144, null
+  %40 = icmp eq ptr %.059142, null
   %or.cond = select i1 %39, i1 %40, i1 false
   br i1 %or.cond, label %41, label %gennames_allowed.exit.thread
 
@@ -1695,8 +1695,8 @@ gennames_allowed.exit:                            ; preds = %34
   br label %gennames_allowed.exit.thread
 
 gennames_allowed.exit.thread:                     ; preds = %34, %30, %.lr.ph.split, %41, %gennames_allowed.exit
-  %.1.ph = phi ptr [ %.059144, %gennames_allowed.exit ], [ %42, %41 ], [ %.059144, %.lr.ph.split ], [ %.059144, %30 ], [ %.059144, %34 ]
-  %43 = add nuw nsw i32 %.056145, 1
+  %.1.ph = phi ptr [ %.059142, %gennames_allowed.exit ], [ %42, %41 ], [ %.059142, %.lr.ph.split ], [ %.059142, %30 ], [ %.059142, %34 ]
+  %43 = add nuw nsw i32 %.056143, 1
   %44 = tail call i32 @OPENSSL_sk_num(ptr noundef %11) #6
   %45 = icmp slt i32 %43, %44
   br i1 %45, label %.lr.ph.split, label %.loopexit, !llvm.loop !50
@@ -1707,7 +1707,7 @@ gennames_allowed.exit.thread:                     ; preds = %34, %30, %.lr.ph.sp
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 58, i32 noundef 103, ptr noundef null) #6
   br label %103
 
-47:                                               ; preds = %.thread111
+47:                                               ; preds = %.thread109
   %48 = tail call ptr @X509_CRL_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 770, ptr noundef null, ptr noundef null) #6
   %.not84 = icmp eq ptr %48, null
   br i1 %.not84, label %.loopexit, label %49
@@ -1717,7 +1717,7 @@ gennames_allowed.exit.thread:                     ; preds = %34, %30, %.lr.ph.sp
   br label %.loopexit
 
 .loopexit:                                        ; preds = %gennames_allowed.exit.thread, %gennames_allowed.exit.thread.us, %9, %49, %47
-  %.not113 = phi i1 [ true, %47 ], [ true, %49 ], [ false, %9 ], [ false, %gennames_allowed.exit.thread.us ], [ false, %gennames_allowed.exit.thread ]
+  %.not111 = phi i1 [ true, %47 ], [ true, %49 ], [ false, %9 ], [ false, %gennames_allowed.exit.thread.us ], [ false, %gennames_allowed.exit.thread ]
   %51 = phi ptr [ %8, %47 ], [ %8, %49 ], [ %10, %9 ], [ %10, %gennames_allowed.exit.thread.us ], [ %10, %gennames_allowed.exit.thread ]
   %.270 = phi ptr [ null, %47 ], [ %50, %49 ], [ null, %9 ], [ null, %gennames_allowed.exit.thread.us ], [ null, %gennames_allowed.exit.thread ]
   %.3 = phi ptr [ null, %47 ], [ null, %49 ], [ null, %9 ], [ %.1.ph.us, %gennames_allowed.exit.thread.us ], [ %.1.ph, %gennames_allowed.exit.thread ]
@@ -1726,10 +1726,10 @@ gennames_allowed.exit.thread:                     ; preds = %34, %30, %.lr.ph.sp
   %52 = icmp eq ptr %.270, null
   %53 = icmp eq ptr %.3, null
   %or.cond3 = select i1 %52, i1 %53, i1 false
-  br i1 %or.cond3, label %54, label %.thread119
+  br i1 %or.cond3, label %54, label %.thread117
 
 54:                                               ; preds = %.loopexit
-  br i1 %.not113, label %gennames_allowed.exit93.thread133, label %55
+  br i1 %.not111, label %gennames_allowed.exit93.thread131, label %55
 
 55:                                               ; preds = %54
   %56 = tail call ptr @X509_get_ext_d2i(ptr noundef nonnull %1, i32 noundef 90, ptr noundef null, ptr noundef null) #6
@@ -1744,7 +1744,7 @@ gennames_allowed.exit.thread:                     ; preds = %34, %30, %.lr.ph.sp
 
 61:                                               ; preds = %57
   %.not.i91 = icmp eq i32 %2, 0
-  br i1 %.not.i91, label %.thread119, label %62
+  br i1 %.not.i91, label %.thread117, label %62
 
 62:                                               ; preds = %61
   %63 = tail call i32 @OPENSSL_sk_num(ptr noundef nonnull %59) #6
@@ -1754,12 +1754,12 @@ gennames_allowed.exit.thread:                     ; preds = %34, %30, %.lr.ph.sp
 gennames_allowed.exit93:                          ; preds = %62
   %65 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %59, i32 noundef 0) #6
   %66 = load i32, ptr %65, align 8, !tbaa !51
-  %.not141 = icmp eq i32 %66, 4
-  br i1 %.not141, label %gennames_allowed.exit93.gennames_allowed.exit93.thread133_crit_edge, label %gennames_allowed.exit93.thread
+  %.not139 = icmp eq i32 %66, 4
+  br i1 %.not139, label %gennames_allowed.exit93.gennames_allowed.exit93.thread131_crit_edge, label %gennames_allowed.exit93.thread
 
-gennames_allowed.exit93.gennames_allowed.exit93.thread133_crit_edge: ; preds = %gennames_allowed.exit93
+gennames_allowed.exit93.gennames_allowed.exit93.thread131_crit_edge: ; preds = %gennames_allowed.exit93
   %.pre = load ptr, ptr %58, align 8, !tbaa !55
-  br label %gennames_allowed.exit93.thread133
+  br label %gennames_allowed.exit93.thread131
 
 gennames_allowed.exit93.thread:                   ; preds = %62, %57, %gennames_allowed.exit93, %55
   %67 = tail call ptr @X509_get_issuer_name(ptr noundef nonnull %1) #6
@@ -1786,18 +1786,18 @@ gennames_allowed.exit93.thread:                   ; preds = %62, %57, %gennames_
 gennames_new.exit:                                ; preds = %gennames_allowed.exit93.thread, %72, %73
   %.0.i95 = phi ptr [ %68, %73 ], [ null, %72 ], [ null, %gennames_allowed.exit93.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %gennames_allowed.exit93.thread133
+  br label %gennames_allowed.exit93.thread131
 
-gennames_allowed.exit93.thread133:                ; preds = %gennames_allowed.exit93.gennames_allowed.exit93.thread133_crit_edge, %gennames_new.exit, %54
-  %.165 = phi ptr [ %56, %gennames_new.exit ], [ null, %54 ], [ %56, %gennames_allowed.exit93.gennames_allowed.exit93.thread133_crit_edge ]
-  %.161 = phi ptr [ %.0.i95, %gennames_new.exit ], [ null, %54 ], [ null, %gennames_allowed.exit93.gennames_allowed.exit93.thread133_crit_edge ]
-  %.5 = phi ptr [ %.0.i95, %gennames_new.exit ], [ null, %54 ], [ %.pre, %gennames_allowed.exit93.gennames_allowed.exit93.thread133_crit_edge ]
+gennames_allowed.exit93.thread131:                ; preds = %gennames_allowed.exit93.gennames_allowed.exit93.thread131_crit_edge, %gennames_new.exit, %54
+  %.165 = phi ptr [ %56, %gennames_new.exit ], [ null, %54 ], [ %56, %gennames_allowed.exit93.gennames_allowed.exit93.thread131_crit_edge ]
+  %.161 = phi ptr [ %.0.i95, %gennames_new.exit ], [ null, %54 ], [ null, %gennames_allowed.exit93.gennames_allowed.exit93.thread131_crit_edge ]
+  %.5 = phi ptr [ %.0.i95, %gennames_new.exit ], [ null, %54 ], [ %.pre, %gennames_allowed.exit93.gennames_allowed.exit93.thread131_crit_edge ]
   %76 = icmp eq ptr %.5, null
   %77 = icmp ne ptr %0, null
   %or.cond5 = and i1 %77, %76
-  br i1 %or.cond5, label %78, label %gennames_allowed.exit98.thread138
+  br i1 %or.cond5, label %78, label %gennames_allowed.exit98.thread136
 
-78:                                               ; preds = %gennames_allowed.exit93.thread133
+78:                                               ; preds = %gennames_allowed.exit93.thread131
   %79 = call ptr @X509_CRL_get_ext_d2i(ptr noundef nonnull %0, i32 noundef 90, ptr noundef null, ptr noundef null) #6
   %.not89 = icmp eq ptr %79, null
   br i1 %.not89, label %gennames_allowed.exit98.thread, label %80
@@ -1810,7 +1810,7 @@ gennames_allowed.exit93.thread133:                ; preds = %gennames_allowed.ex
 
 84:                                               ; preds = %80
   %.not.i96 = icmp eq i32 %2, 0
-  br i1 %.not.i96, label %.thread119, label %85
+  br i1 %.not.i96, label %.thread117, label %85
 
 85:                                               ; preds = %84
   %86 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %82) #6
@@ -1820,12 +1820,12 @@ gennames_allowed.exit93.thread133:                ; preds = %gennames_allowed.ex
 gennames_allowed.exit98:                          ; preds = %85
   %88 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %82, i32 noundef 0) #6
   %89 = load i32, ptr %88, align 8, !tbaa !51
-  %.not142 = icmp eq i32 %89, 4
-  br i1 %.not142, label %gennames_allowed.exit98.gennames_allowed.exit98.thread138_crit_edge, label %gennames_allowed.exit98.thread
+  %.not140 = icmp eq i32 %89, 4
+  br i1 %.not140, label %gennames_allowed.exit98.gennames_allowed.exit98.thread136_crit_edge, label %gennames_allowed.exit98.thread
 
-gennames_allowed.exit98.gennames_allowed.exit98.thread138_crit_edge: ; preds = %gennames_allowed.exit98
-  %.pre151 = load ptr, ptr %81, align 8, !tbaa !55
-  br label %gennames_allowed.exit98.thread138
+gennames_allowed.exit98.gennames_allowed.exit98.thread136_crit_edge: ; preds = %gennames_allowed.exit98
+  %.pre149 = load ptr, ptr %81, align 8, !tbaa !55
+  br label %gennames_allowed.exit98.thread136
 
 gennames_allowed.exit98.thread:                   ; preds = %85, %80, %gennames_allowed.exit98, %78
   %90 = call ptr @X509_CRL_get_issuer(ptr noundef nonnull %0) #6
@@ -1852,34 +1852,34 @@ gennames_allowed.exit98.thread:                   ; preds = %85, %80, %gennames_
 gennames_new.exit101:                             ; preds = %gennames_allowed.exit98.thread, %95, %96
   %.0.i100 = phi ptr [ %91, %96 ], [ null, %95 ], [ null, %gennames_allowed.exit98.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %gennames_allowed.exit98.thread138
+  br label %gennames_allowed.exit98.thread136
 
-gennames_allowed.exit98.thread138:                ; preds = %gennames_allowed.exit98.gennames_allowed.exit98.thread138_crit_edge, %gennames_new.exit101, %gennames_allowed.exit93.thread133
-  %.266 = phi ptr [ %79, %gennames_new.exit101 ], [ %.165, %gennames_allowed.exit93.thread133 ], [ %79, %gennames_allowed.exit98.gennames_allowed.exit98.thread138_crit_edge ]
-  %.262 = phi ptr [ %.0.i100, %gennames_new.exit101 ], [ %.161, %gennames_allowed.exit93.thread133 ], [ %.161, %gennames_allowed.exit98.gennames_allowed.exit98.thread138_crit_edge ]
-  %.6 = phi ptr [ %.0.i100, %gennames_new.exit101 ], [ %.5, %gennames_allowed.exit93.thread133 ], [ %.pre151, %gennames_allowed.exit98.gennames_allowed.exit98.thread138_crit_edge ]
+gennames_allowed.exit98.thread136:                ; preds = %gennames_allowed.exit98.gennames_allowed.exit98.thread136_crit_edge, %gennames_new.exit101, %gennames_allowed.exit93.thread131
+  %.266 = phi ptr [ %79, %gennames_new.exit101 ], [ %.165, %gennames_allowed.exit93.thread131 ], [ %79, %gennames_allowed.exit98.gennames_allowed.exit98.thread136_crit_edge ]
+  %.262 = phi ptr [ %.0.i100, %gennames_new.exit101 ], [ %.161, %gennames_allowed.exit93.thread131 ], [ %.161, %gennames_allowed.exit98.gennames_allowed.exit98.thread136_crit_edge ]
+  %.6 = phi ptr [ %.0.i100, %gennames_new.exit101 ], [ %.5, %gennames_allowed.exit93.thread131 ], [ %.pre149, %gennames_allowed.exit98.gennames_allowed.exit98.thread136_crit_edge ]
   %99 = icmp eq ptr %.6, null
-  br i1 %99, label %102, label %.thread119
+  br i1 %99, label %102, label %.thread117
 
-.thread119:                                       ; preds = %28, %16, %61, %84, %gennames_allowed.exit98.thread138, %.loopexit
-  %.055130 = phi ptr [ %.055, %gennames_allowed.exit98.thread138 ], [ %.055, %.loopexit ], [ %.055, %84 ], [ %.055, %61 ], [ %11, %16 ], [ %11, %28 ]
-  %.058128 = phi ptr [ %.058, %gennames_allowed.exit98.thread138 ], [ %.058, %.loopexit ], [ %.058, %84 ], [ %.058, %61 ], [ null, %16 ], [ null, %28 ]
-  %.270126 = phi ptr [ null, %gennames_allowed.exit98.thread138 ], [ %.270, %.loopexit ], [ null, %84 ], [ null, %61 ], [ %17, %16 ], [ %29, %28 ]
-  %100 = phi ptr [ %51, %gennames_allowed.exit98.thread138 ], [ %51, %.loopexit ], [ %51, %84 ], [ %51, %61 ], [ %10, %16 ], [ %10, %28 ]
-  %.064 = phi ptr [ %.266, %gennames_allowed.exit98.thread138 ], [ null, %.loopexit ], [ %79, %84 ], [ %56, %61 ], [ null, %16 ], [ null, %28 ]
-  %.060 = phi ptr [ %.262, %gennames_allowed.exit98.thread138 ], [ null, %.loopexit ], [ %.161, %84 ], [ null, %61 ], [ null, %16 ], [ null, %28 ]
-  %.4 = phi ptr [ %.6, %gennames_allowed.exit98.thread138 ], [ %.3, %.loopexit ], [ %82, %84 ], [ %59, %61 ], [ null, %16 ], [ null, %28 ]
-  %101 = call ptr @OSSL_CMP_CRLSTATUS_new1(ptr noundef %.270126, ptr noundef %.4, ptr noundef %100)
+.thread117:                                       ; preds = %28, %16, %61, %84, %gennames_allowed.exit98.thread136, %.loopexit
+  %.055128 = phi ptr [ %.055, %gennames_allowed.exit98.thread136 ], [ %.055, %.loopexit ], [ %.055, %84 ], [ %.055, %61 ], [ %11, %16 ], [ %11, %28 ]
+  %.058126 = phi ptr [ %.058, %gennames_allowed.exit98.thread136 ], [ %.058, %.loopexit ], [ %.058, %84 ], [ %.058, %61 ], [ null, %16 ], [ null, %28 ]
+  %.270124 = phi ptr [ null, %gennames_allowed.exit98.thread136 ], [ %.270, %.loopexit ], [ null, %84 ], [ null, %61 ], [ %17, %16 ], [ %29, %28 ]
+  %100 = phi ptr [ %51, %gennames_allowed.exit98.thread136 ], [ %51, %.loopexit ], [ %51, %84 ], [ %51, %61 ], [ %10, %16 ], [ %10, %28 ]
+  %.064 = phi ptr [ %.266, %gennames_allowed.exit98.thread136 ], [ null, %.loopexit ], [ %79, %84 ], [ %56, %61 ], [ null, %16 ], [ null, %28 ]
+  %.060 = phi ptr [ %.262, %gennames_allowed.exit98.thread136 ], [ null, %.loopexit ], [ %.161, %84 ], [ null, %61 ], [ null, %16 ], [ null, %28 ]
+  %.4 = phi ptr [ %.6, %gennames_allowed.exit98.thread136 ], [ %.3, %.loopexit ], [ %82, %84 ], [ %59, %61 ], [ null, %16 ], [ null, %28 ]
+  %101 = call ptr @OSSL_CMP_CRLSTATUS_new1(ptr noundef %.270124, ptr noundef %.4, ptr noundef %100)
   br label %102
 
-102:                                              ; preds = %gennames_allowed.exit98.thread138, %.thread119
-  %.055129 = phi ptr [ %.055, %gennames_allowed.exit98.thread138 ], [ %.055130, %.thread119 ]
-  %.058127 = phi ptr [ %.058, %gennames_allowed.exit98.thread138 ], [ %.058128, %.thread119 ]
-  %.367 = phi ptr [ %.266, %gennames_allowed.exit98.thread138 ], [ %.064, %.thread119 ]
-  %.363 = phi ptr [ %.262, %gennames_allowed.exit98.thread138 ], [ %.060, %.thread119 ]
-  %.057 = phi ptr [ null, %gennames_allowed.exit98.thread138 ], [ %101, %.thread119 ]
-  call void @OPENSSL_sk_pop_free(ptr noundef %.055129, ptr noundef nonnull @DIST_POINT_free) #6
-  call void @ISSUING_DIST_POINT_free(ptr noundef %.058127) #6
+102:                                              ; preds = %gennames_allowed.exit98.thread136, %.thread117
+  %.055127 = phi ptr [ %.055, %gennames_allowed.exit98.thread136 ], [ %.055128, %.thread117 ]
+  %.058125 = phi ptr [ %.058, %gennames_allowed.exit98.thread136 ], [ %.058126, %.thread117 ]
+  %.367 = phi ptr [ %.266, %gennames_allowed.exit98.thread136 ], [ %.064, %.thread117 ]
+  %.363 = phi ptr [ %.262, %gennames_allowed.exit98.thread136 ], [ %.060, %.thread117 ]
+  %.057 = phi ptr [ null, %gennames_allowed.exit98.thread136 ], [ %101, %.thread117 ]
+  call void @OPENSSL_sk_pop_free(ptr noundef %.055127, ptr noundef nonnull @DIST_POINT_free) #6
+  call void @ISSUING_DIST_POINT_free(ptr noundef %.058125) #6
   call void @AUTHORITY_KEYID_free(ptr noundef %.367) #6
   call void @OPENSSL_sk_pop_free(ptr noundef %.363, ptr noundef nonnull @GENERAL_NAME_free) #6
   br label %103

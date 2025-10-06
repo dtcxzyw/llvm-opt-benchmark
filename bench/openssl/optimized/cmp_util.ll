@@ -255,8 +255,8 @@ define void @OSSL_CMP_print_errors_cb(ptr noundef readonly captures(address_is_n
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %9 = call i64 @ERR_get_error_all(ptr noundef nonnull %3, ptr noundef nonnull %6, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %7) #7
-  %.not33 = icmp eq i64 %9, 0
-  br i1 %.not33, label %.loopexit, label %.lr.ph
+  %.not32 = icmp eq i64 %9, 0
+  br i1 %.not32, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %10 = icmp eq ptr %0, null

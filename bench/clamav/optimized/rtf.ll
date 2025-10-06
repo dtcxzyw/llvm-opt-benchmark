@@ -1022,8 +1022,8 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   br label %15
 
 15:                                               ; preds = %.preheader, %22
-  %.0215288 = phi i64 [ 0, %.preheader ], [ %23, %22 ]
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.0215288
+  %.0215287 = phi i64 [ 0, %.preheader ], [ %23, %22 ]
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %.0215287
   %17 = load i8, ptr %16, align 1, !tbaa !3
   %18 = zext i8 %17 to i64
   %19 = getelementptr inbounds nuw i16, ptr %14, i64 %18
@@ -1033,14 +1033,14 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   br i1 %.not242, label %22, label %.critedge
 
 22:                                               ; preds = %15
-  %23 = add nuw i64 %.0215288, 1
+  %23 = add nuw i64 %.0215287, 1
   %exitcond.not = icmp eq i64 %23, %2
   br i1 %exitcond.not, label %.critedge257, label %15
 
 .critedge:                                        ; preds = %15
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !80
-  %26 = add nuw i64 %.0215288, 1
+  %26 = add nuw i64 %.0215287, 1
   %27 = getelementptr inbounds nuw i16, ptr @hextable, i64 %18
   %28 = load i16, ptr %27, align 2, !tbaa !73
   %29 = zext i16 %28 to i32
@@ -1061,10 +1061,10 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   br label %35
 
 35:                                               ; preds = %.lr.ph, %71
-  %.1204290 = phi i64 [ %.0203, %.lr.ph ], [ %.4207, %71 ]
-  %.2217289 = phi i64 [ %.1216, %.lr.ph ], [ %72, %71 ]
+  %.1204289 = phi i64 [ %.0203, %.lr.ph ], [ %.4207, %71 ]
+  %.2217288 = phi i64 [ %.1216, %.lr.ph ], [ %72, %71 ]
   %36 = load ptr, ptr %34, align 8, !tbaa !71
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.2217289
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 %.2217288
   %38 = load i8, ptr %37, align 1, !tbaa !3
   %39 = zext i8 %38 to i64
   %40 = getelementptr inbounds nuw i16, ptr %36, i64 %39
@@ -1078,15 +1078,15 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %45 = load i16, ptr %44, align 2, !tbaa !73
   %46 = trunc i16 %45 to i8
   %47 = shl i8 %46, 4
-  %48 = add nuw i64 %.2217289, 1
+  %48 = add nuw i64 %.2217288, 1
   %umax = tail call i64 @llvm.umax.i64(i64 %2, i64 %48)
   %49 = add i64 %umax, -1
   br label %50
 
 50:                                               ; preds = %51, %43
-  %.3218.in = phi i64 [ %.2217289, %43 ], [ %.3218, %51 ]
-  %exitcond325.not = icmp eq i64 %.3218.in, %49
-  br i1 %exitcond325.not, label %.critedge5, label %51
+  %.3218.in = phi i64 [ %.2217288, %43 ], [ %.3218, %51 ]
+  %exitcond324.not = icmp eq i64 %.3218.in, %49
+  br i1 %exitcond324.not, label %.critedge5, label %51
 
 51:                                               ; preds = %50
   %.3218 = add nuw i64 %.3218.in, 1
@@ -1112,8 +1112,8 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %63 = load i16, ptr %62, align 2, !tbaa !73
   %64 = trunc i16 %63 to i8
   %65 = or i8 %47, %64
-  %66 = add i64 %.1204290, 1
-  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.1204290
+  %66 = add i64 %.1204289, 1
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 %.1204289
   store i8 %65, ptr %67, align 1, !tbaa !3
   br label %71
 
@@ -1125,18 +1125,18 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   br label %.loopexit
 
 71:                                               ; preds = %.thread, %35
-  %.4219 = phi i64 [ %.2217289, %35 ], [ %.3218.lcssa, %.thread ]
-  %.4207 = phi i64 [ %.1204290, %35 ], [ %66, %.thread ]
+  %.4219 = phi i64 [ %.2217288, %35 ], [ %.3218.lcssa, %.thread ]
+  %.4207 = phi i64 [ %.1204289, %35 ], [ %66, %.thread ]
   %72 = add i64 %.4219, 1
   %73 = icmp ult i64 %72, %2
   br i1 %73, label %35, label %.loopexit
 
 .loopexit:                                        ; preds = %71, %32, %68
-  %.1204284 = phi i64 [ %.1204290, %68 ], [ %.0203, %32 ], [ %.4207, %71 ]
-  %.not245296 = icmp eq i64 %.1204284, 0
-  br i1 %.not245296, label %.critedge257, label %.lr.ph299
+  %.1204283 = phi i64 [ %.1204289, %68 ], [ %.0203, %32 ], [ %.4207, %71 ]
+  %.not245295 = icmp eq i64 %.1204283, 0
+  br i1 %.not245295, label %.critedge257, label %.lr.ph298
 
-.lr.ph299:                                        ; preds = %.loopexit
+.lr.ph298:                                        ; preds = %.loopexit
   %74 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %75 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %76 = getelementptr inbounds nuw i8, ptr %7, i64 56
@@ -1146,9 +1146,9 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %80 = getelementptr inbounds nuw i8, ptr %7, i64 24
   br label %81
 
-81:                                               ; preds = %.lr.ph299, %237
-  %.0200298 = phi ptr [ %4, %.lr.ph299 ], [ %.1201, %237 ]
-  %.5208297 = phi i64 [ %.1204284, %.lr.ph299 ], [ %.6209, %237 ]
+81:                                               ; preds = %.lr.ph298, %237
+  %.0200297 = phi ptr [ %4, %.lr.ph298 ], [ %.1201, %237 ]
+  %.5208296 = phi i64 [ %.1204283, %.lr.ph298 ], [ %.6209, %237 ]
   %82 = load i32, ptr %74, align 4, !tbaa !83
   switch i32 %82, label %.critedge257 [
     i32 0, label %83
@@ -1161,49 +1161,49 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
 
 83:                                               ; preds = %81
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.15) #10
-  %.pre336 = load i64, ptr %76, align 8, !tbaa !82
+  %.pre335 = load i64, ptr %76, align 8, !tbaa !82
   br label %84
 
 84:                                               ; preds = %83, %97
-  %85 = phi i64 [ %.pre336, %83 ], [ %100, %97 ]
-  %.5220295 = phi i64 [ 0, %83 ], [ %99, %97 ]
+  %85 = phi i64 [ %.pre335, %83 ], [ %100, %97 ]
+  %.5220294 = phi i64 [ 0, %83 ], [ %99, %97 ]
   %86 = icmp ult i64 %85, 8
   br i1 %86, label %87, label %.critedge7
 
 87:                                               ; preds = %84
   %88 = getelementptr inbounds nuw i8, ptr @rtf_data_magic, i64 %85
   %89 = load i8, ptr %88, align 1, !tbaa !3
-  %90 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.5220295
+  %90 = getelementptr inbounds nuw i8, ptr %.0200297, i64 %.5220294
   %91 = load i8, ptr %90, align 1, !tbaa !3
   %.not256 = icmp eq i8 %89, %91
   br i1 %.not256, label %97, label %92
 
 92:                                               ; preds = %87
   %93 = zext i8 %91 to i32
-  %94 = getelementptr inbounds nuw i8, ptr @rtf_data_magic, i64 %.5220295
+  %94 = getelementptr inbounds nuw i8, ptr @rtf_data_magic, i64 %.5220294
   %95 = load i8, ptr %94, align 1, !tbaa !3
   %96 = zext i8 %95 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.16, i32 noundef %96, i32 noundef %93, i64 noundef %85) #10
-  %.pre337 = load i64, ptr %76, align 8, !tbaa !82
+  %.pre336 = load i64, ptr %76, align 8, !tbaa !82
   br label %97
 
 97:                                               ; preds = %87, %92
-  %98 = phi i64 [ %85, %87 ], [ %.pre337, %92 ]
-  %99 = add nuw i64 %.5220295, 1
+  %98 = phi i64 [ %85, %87 ], [ %.pre336, %92 ]
+  %99 = add nuw i64 %.5220294, 1
   %100 = add i64 %98, 1
   store i64 %100, ptr %76, align 8, !tbaa !82
-  %exitcond333.not = icmp eq i64 %99, %.5208297
-  br i1 %exitcond333.not, label %.critedge7, label %84
+  %exitcond332.not = icmp eq i64 %99, %.5208296
+  br i1 %exitcond332.not, label %.critedge7, label %84
 
 .critedge7:                                       ; preds = %97, %84
   %101 = phi i64 [ %100, %97 ], [ %85, %84 ]
-  %.5220.lcssa = phi i64 [ %.5208297, %97 ], [ %.5220295, %84 ]
-  %102 = sub i64 %.5208297, %.5220.lcssa
+  %.5220.lcssa = phi i64 [ %.5208296, %97 ], [ %.5220294, %84 ]
+  %102 = sub i64 %.5208296, %.5220.lcssa
   %103 = icmp eq i64 %101, 8
   br i1 %103, label %104, label %237
 
 104:                                              ; preds = %.critedge7
-  %105 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.5220.lcssa
+  %105 = getelementptr inbounds nuw i8, ptr %.0200297, i64 %.5220.lcssa
   store i64 0, ptr %76, align 8, !tbaa !82
   store i32 1, ptr %74, align 4, !tbaa !83
   br label %237
@@ -1211,23 +1211,23 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
 106:                                              ; preds = %81
   %107 = load i64, ptr %76, align 8, !tbaa !82
   %108 = icmp eq i64 %107, 0
-  br i1 %108, label %109, label %.preheader393
+  br i1 %108, label %109, label %.preheader392
 
 109:                                              ; preds = %106
   store i64 0, ptr %75, align 8, !tbaa !88
-  br label %.preheader393
+  br label %.preheader392
 
-.preheader393:                                    ; preds = %109, %106
+.preheader392:                                    ; preds = %109, %106
   br label %110
 
-110:                                              ; preds = %.preheader393, %113
-  %.6221294 = phi i64 [ %121, %113 ], [ 0, %.preheader393 ]
-  %111 = phi i64 [ %122, %113 ], [ %107, %.preheader393 ]
+110:                                              ; preds = %.preheader392, %113
+  %.6221293 = phi i64 [ %121, %113 ], [ 0, %.preheader392 ]
+  %111 = phi i64 [ %122, %113 ], [ %107, %.preheader392 ]
   %112 = icmp ult i64 %111, 4
   br i1 %112, label %113, label %.critedge9
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.6221294
+  %114 = getelementptr inbounds nuw i8, ptr %.0200297, i64 %.6221293
   %115 = load i8, ptr %114, align 1, !tbaa !3
   %116 = zext i8 %115 to i64
   %117 = shl nuw nsw i64 %111, 3
@@ -1235,21 +1235,21 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %119 = load i64, ptr %75, align 8, !tbaa !88
   %120 = or i64 %118, %119
   store i64 %120, ptr %75, align 8, !tbaa !88
-  %121 = add nuw nsw i64 %.6221294, 1
+  %121 = add nuw nsw i64 %.6221293, 1
   %122 = add nuw nsw i64 %111, 1
   store i64 %122, ptr %76, align 8, !tbaa !82
-  %exitcond331.not = icmp eq i64 %121, %.5208297
-  br i1 %exitcond331.not, label %.critedge9, label %110
+  %exitcond330.not = icmp eq i64 %121, %.5208296
+  br i1 %exitcond330.not, label %.critedge9, label %110
 
 .critedge9:                                       ; preds = %110, %113
-  %.6221276 = phi i64 [ %.5208297, %113 ], [ %.6221294, %110 ]
+  %.6221275 = phi i64 [ %.5208296, %113 ], [ %.6221293, %110 ]
   %123 = phi i64 [ %122, %113 ], [ %111, %110 ]
-  %124 = sub i64 %.5208297, %.6221276
+  %124 = sub i64 %.5208296, %.6221275
   %125 = icmp eq i64 %123, 4
   br i1 %125, label %126, label %237
 
 126:                                              ; preds = %.critedge9
-  %127 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.6221276
+  %127 = getelementptr inbounds nuw i8, ptr %.0200297, i64 %.6221275
   store i64 0, ptr %76, align 8, !tbaa !82
   %128 = load i64, ptr %75, align 8, !tbaa !88
   %129 = icmp ugt i64 %128, 64
@@ -1283,12 +1283,12 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
 
 140:                                              ; preds = %81
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.20) #10
-  %.pre334 = load i64, ptr %76, align 8, !tbaa !82
+  %.pre333 = load i64, ptr %76, align 8, !tbaa !82
   br label %141
 
 141:                                              ; preds = %140, %146
-  %142 = phi i64 [ %.pre334, %140 ], [ %153, %146 ]
-  %.7222292 = phi i64 [ 0, %140 ], [ %151, %146 ]
+  %142 = phi i64 [ %.pre333, %140 ], [ %153, %146 ]
+  %.7222291 = phi i64 [ 0, %140 ], [ %151, %146 ]
   %143 = load i64, ptr %75, align 8, !tbaa !88
   %144 = icmp ult i64 %142, %143
   %145 = icmp ult i64 %142, 64
@@ -1296,28 +1296,28 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   br i1 %or.cond258, label %146, label %.critedge11
 
 146:                                              ; preds = %141
-  %147 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.7222292
+  %147 = getelementptr inbounds nuw i8, ptr %.0200297, i64 %.7222291
   %148 = load i8, ptr %147, align 1, !tbaa !3
   %149 = load ptr, ptr %80, align 8, !tbaa !87
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 %142
   store i8 %148, ptr %150, align 1, !tbaa !3
-  %151 = add nuw i64 %.7222292, 1
+  %151 = add nuw i64 %.7222291, 1
   %152 = load i64, ptr %76, align 8, !tbaa !82
   %153 = add i64 %152, 1
   store i64 %153, ptr %76, align 8, !tbaa !82
-  %exitcond329.not = icmp eq i64 %151, %.5208297
-  br i1 %exitcond329.not, label %..critedge11_crit_edge, label %141
+  %exitcond328.not = icmp eq i64 %151, %.5208296
+  br i1 %exitcond328.not, label %..critedge11_crit_edge, label %141
 
 ..critedge11_crit_edge:                           ; preds = %146
-  %.pre335 = load i64, ptr %75, align 8, !tbaa !88
+  %.pre334 = load i64, ptr %75, align 8, !tbaa !88
   br label %.critedge11
 
 .critedge11:                                      ; preds = %141, %..critedge11_crit_edge
-  %154 = phi i64 [ %.pre335, %..critedge11_crit_edge ], [ %143, %141 ]
+  %154 = phi i64 [ %.pre334, %..critedge11_crit_edge ], [ %143, %141 ]
   %155 = phi i64 [ %153, %..critedge11_crit_edge ], [ %142, %141 ]
-  %.7222.lcssa = phi i64 [ %.5208297, %..critedge11_crit_edge ], [ %.7222292, %141 ]
-  %156 = sub i64 %.5208297, %.7222.lcssa
-  %157 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.7222.lcssa
+  %.7222.lcssa = phi i64 [ %.5208296, %..critedge11_crit_edge ], [ %.7222291, %141 ]
+  %156 = sub i64 %.5208296, %.7222.lcssa
+  %157 = getelementptr inbounds nuw i8, ptr %.0200297, i64 %.7222.lcssa
   %158 = icmp ult i64 %155, %154
   %159 = icmp ult i64 %155, 64
   %or.cond259 = and i1 %159, %158
@@ -1362,20 +1362,20 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
 176:                                              ; preds = %81
   %177 = load i64, ptr %76, align 8, !tbaa !82
   %178 = sub i64 8, %177
-  %179 = icmp ult i64 %.5208297, %178
-  br i1 %179, label %181, label %.thread263
+  %179 = icmp ult i64 %.5208296, %178
+  br i1 %179, label %181, label %.thread262
 
-.thread263:                                       ; preds = %176
-  %180 = sub nuw i64 %.5208297, %178
+.thread262:                                       ; preds = %176
+  %180 = sub nuw i64 %.5208296, %178
   br label %183
 
 181:                                              ; preds = %176
   %182 = icmp eq i64 %177, 8
   br i1 %182, label %183, label %.critedge257
 
-183:                                              ; preds = %.thread263, %181
-  %.7210265 = phi i64 [ %180, %.thread263 ], [ 0, %181 ]
-  %184 = getelementptr inbounds nuw i8, ptr %.0200298, i64 8
+183:                                              ; preds = %.thread262, %181
+  %.7210264 = phi i64 [ %180, %.thread262 ], [ 0, %181 ]
+  %184 = getelementptr inbounds nuw i8, ptr %.0200297, i64 8
   store i64 0, ptr %76, align 8, !tbaa !82
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.24) #10
   store i32 4, ptr %74, align 4, !tbaa !83
@@ -1385,23 +1385,23 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.25) #10
   %186 = load i64, ptr %76, align 8, !tbaa !82
   %187 = icmp eq i64 %186, 0
-  br i1 %187, label %188, label %.preheader394
+  br i1 %187, label %188, label %.preheader393
 
 188:                                              ; preds = %185
   store i64 0, ptr %75, align 8, !tbaa !88
-  br label %.preheader394
+  br label %.preheader393
 
-.preheader394:                                    ; preds = %188, %185
+.preheader393:                                    ; preds = %188, %185
   br label %189
 
-189:                                              ; preds = %.preheader394, %192
-  %.8223291 = phi i64 [ %200, %192 ], [ 0, %.preheader394 ]
-  %190 = phi i64 [ %201, %192 ], [ %186, %.preheader394 ]
+189:                                              ; preds = %.preheader393, %192
+  %.8223290 = phi i64 [ %200, %192 ], [ 0, %.preheader393 ]
+  %190 = phi i64 [ %201, %192 ], [ %186, %.preheader393 ]
   %191 = icmp ult i64 %190, 4
   br i1 %191, label %192, label %.critedge13
 
 192:                                              ; preds = %189
-  %193 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.8223291
+  %193 = getelementptr inbounds nuw i8, ptr %.0200297, i64 %.8223290
   %194 = load i8, ptr %193, align 1, !tbaa !3
   %195 = zext i8 %194 to i64
   %196 = shl nuw nsw i64 %190, 3
@@ -1409,16 +1409,16 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %198 = load i64, ptr %75, align 8, !tbaa !88
   %199 = or i64 %197, %198
   store i64 %199, ptr %75, align 8, !tbaa !88
-  %200 = add nuw nsw i64 %.8223291, 1
+  %200 = add nuw nsw i64 %.8223290, 1
   %201 = add nuw nsw i64 %190, 1
   store i64 %201, ptr %76, align 8, !tbaa !82
-  %exitcond327.not = icmp eq i64 %200, %.5208297
-  br i1 %exitcond327.not, label %.critedge13, label %189
+  %exitcond326.not = icmp eq i64 %200, %.5208296
+  br i1 %exitcond326.not, label %.critedge13, label %189
 
 .critedge13:                                      ; preds = %189, %192
-  %.8223274 = phi i64 [ %.5208297, %192 ], [ %.8223291, %189 ]
+  %.8223273 = phi i64 [ %.5208296, %192 ], [ %.8223290, %189 ]
   %202 = phi i64 [ %201, %192 ], [ %190, %189 ]
-  %203 = sub i64 %.5208297, %.8223274
+  %203 = sub i64 %.5208296, %.8223273
   %204 = icmp eq i64 %202, 4
   br i1 %204, label %205, label %237
 
@@ -1432,25 +1432,25 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   br i1 %.not253, label %209, label %.critedge257
 
 209:                                              ; preds = %205
-  %210 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.8223274
+  %210 = getelementptr inbounds nuw i8, ptr %.0200297, i64 %.8223273
   store i32 5, ptr %74, align 4, !tbaa !83
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.27) #10
   br label %237
 
 211:                                              ; preds = %81
   %212 = load i64, ptr %75, align 8, !tbaa !88
-  %.5208. = call i64 @llvm.umin.i64(i64 %.5208297, i64 %212)
+  %.5208. = call i64 @llvm.umin.i64(i64 %.5208296, i64 %212)
   %213 = load i64, ptr %76, align 8, !tbaa !82
   %.not246 = icmp eq i64 %213, 0
   br i1 %.not246, label %214, label %224
 
 214:                                              ; preds = %211
-  %215 = load i8, ptr %.0200298, align 1, !tbaa !3
+  %215 = load i8, ptr %.0200297, align 1, !tbaa !3
   %.not247 = icmp eq i8 %215, -48
   br i1 %.not247, label %216, label %219
 
 216:                                              ; preds = %214
-  %217 = getelementptr inbounds nuw i8, ptr %.0200298, i64 1
+  %217 = getelementptr inbounds nuw i8, ptr %.0200297, i64 1
   %218 = load i8, ptr %217, align 1, !tbaa !3
   %.not248 = icmp eq i8 %218, -49
   br i1 %.not248, label %223, label %219
@@ -1479,13 +1479,13 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   %226 = sub i64 %225, %.5208.
   store i64 %226, ptr %75, align 8, !tbaa !88
   %227 = load i32, ptr %77, align 8, !tbaa !77
-  %228 = call i64 @cli_writen(i32 noundef %227, ptr noundef %.0200298, i64 noundef %.5208.) #10
+  %228 = call i64 @cli_writen(i32 noundef %227, ptr noundef %.0200297, i64 noundef %.5208.) #10
   %.not250 = icmp eq i64 %228, %.5208.
   br i1 %.not250, label %229, label %.critedge257
 
 229:                                              ; preds = %224
-  %230 = getelementptr inbounds nuw i8, ptr %.0200298, i64 %.5208.
-  %231 = sub i64 %.5208297, %.5208.
+  %230 = getelementptr inbounds nuw i8, ptr %.0200297, i64 %.5208.
+  %231 = sub i64 %.5208296, %.5208.
   %232 = load i64, ptr %75, align 8, !tbaa !88
   %.not251 = icmp eq i64 %232, 0
   br i1 %.not251, label %233, label %237
@@ -1502,8 +1502,8 @@ define internal i32 @rtf_object_process(ptr noundef readonly captures(none) %0, 
   br label %237
 
 237:                                              ; preds = %229, %236, %.critedge13, %209, %183, %170, %172, %.critedge9, %138, %.critedge7, %104
-  %.6209 = phi i64 [ %102, %104 ], [ %102, %.critedge7 ], [ %124, %138 ], [ %124, %.critedge9 ], [ %171, %172 ], [ %171, %170 ], [ %.7210265, %183 ], [ %203, %209 ], [ %203, %.critedge13 ], [ %231, %229 ], [ %231, %236 ]
-  %.1201 = phi ptr [ %105, %104 ], [ %.0200298, %.critedge7 ], [ %127, %138 ], [ %.0200298, %.critedge9 ], [ %173, %172 ], [ %157, %170 ], [ %184, %183 ], [ %210, %209 ], [ %.0200298, %.critedge13 ], [ %230, %229 ], [ %230, %236 ]
+  %.6209 = phi i64 [ %102, %104 ], [ %102, %.critedge7 ], [ %124, %138 ], [ %124, %.critedge9 ], [ %171, %172 ], [ %171, %170 ], [ %.7210264, %183 ], [ %203, %209 ], [ %203, %.critedge13 ], [ %231, %229 ], [ %231, %236 ]
+  %.1201 = phi ptr [ %105, %104 ], [ %.0200297, %.critedge7 ], [ %127, %138 ], [ %.0200297, %.critedge9 ], [ %173, %172 ], [ %157, %170 ], [ %184, %183 ], [ %210, %209 ], [ %.0200297, %.critedge13 ], [ %230, %229 ], [ %230, %236 ]
   %.not245 = icmp eq i64 %.6209, 0
   br i1 %.not245, label %.critedge257, label %81
 

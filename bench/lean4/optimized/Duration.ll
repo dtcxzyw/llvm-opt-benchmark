@@ -1152,8 +1152,8 @@ define ptr @l_Nat_repeatTR_loop___at_Std_Time_instToStringDuration_leftPad___spe
   br i1 %.not, label %lean_nat_eq.exit.thread, label %lean_nat_eq.exit, !prof !8
 
 lean_nat_eq.exit:                                 ; preds = %4
-  %.not33 = icmp eq ptr %.014, inttoptr (i64 1 to ptr)
-  br i1 %.not33, label %.loopexit, label %8
+  %.not31 = icmp eq ptr %.014, inttoptr (i64 1 to ptr)
+  br i1 %.not31, label %.loopexit, label %8
 
 lean_nat_eq.exit.thread:                          ; preds = %4
   %7 = tail call zeroext i1 @lean_nat_big_eq(ptr noundef %.014, ptr noundef nonnull inttoptr (i64 1 to ptr)) #3

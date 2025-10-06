@@ -43,37 +43,37 @@ define noundef ptr @SUNSparseMatrix(i64 noundef %0, i64 noundef %1, i64 noundef 
   store i64 %1, ptr %19, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store i64 %2, ptr %20, align 8, !tbaa !30
-  %switch = icmp eq i32 %3, 0
-  br i1 %switch, label %.sink.split, label %21
+  %21 = icmp eq i32 %3, 0
+  br i1 %21, label %.sink.split, label %22
 
-21:                                               ; preds = %5
+22:                                               ; preds = %5
   br label %.sink.split
 
-.sink.split:                                      ; preds = %5, %21
-  %.sink = phi i64 [ %0, %21 ], [ %1, %5 ]
-  %.sink54 = phi i64 [ 80, %21 ], [ 64, %5 ]
-  %.sink52 = phi i64 [ 88, %21 ], [ 72, %5 ]
-  %.sink50 = phi i64 [ 64, %21 ], [ 80, %5 ]
-  %22 = getelementptr inbounds nuw i8, ptr %17, i64 24
-  store i64 %.sink, ptr %22, align 8, !tbaa !31
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %24 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink54
-  store ptr %23, ptr %24, align 8, !tbaa !32
-  %25 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %26 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink52
-  store ptr %25, ptr %26, align 8, !tbaa !32
-  %27 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink50
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %27, i8 0, i64 16, i1 false)
-  %28 = add nsw i64 %.sink, 1
-  %29 = getelementptr inbounds nuw i8, ptr %17, i64 32
-  %30 = getelementptr inbounds nuw i8, ptr %17, i64 48
-  %31 = getelementptr inbounds nuw i8, ptr %17, i64 56
-  %32 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 8) #19
-  store ptr %32, ptr %29, align 8, !tbaa !33
+.sink.split:                                      ; preds = %5, %22
+  %.sink = phi i64 [ %0, %22 ], [ %1, %5 ]
+  %.sink54 = phi i64 [ 80, %22 ], [ 64, %5 ]
+  %.sink52 = phi i64 [ 88, %22 ], [ 72, %5 ]
+  %.sink50 = phi i64 [ 64, %22 ], [ 80, %5 ]
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 24
+  store i64 %.sink, ptr %23, align 8, !tbaa !31
+  %24 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %25 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink54
+  store ptr %24, ptr %25, align 8, !tbaa !32
+  %26 = getelementptr inbounds nuw i8, ptr %17, i64 56
+  %27 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink52
+  store ptr %26, ptr %27, align 8, !tbaa !32
+  %28 = getelementptr inbounds nuw i8, ptr %17, i64 %.sink50
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %28, i8 0, i64 16, i1 false)
+  %29 = add nsw i64 %.sink, 1
+  %30 = getelementptr inbounds nuw i8, ptr %17, i64 32
+  %31 = getelementptr inbounds nuw i8, ptr %17, i64 48
+  %32 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %33 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 8) #19
-  store ptr %33, ptr %30, align 8, !tbaa !34
-  %34 = tail call noalias ptr @calloc(i64 noundef %28, i64 noundef 8) #19
-  store ptr %34, ptr %31, align 8, !tbaa !35
+  store ptr %33, ptr %30, align 8, !tbaa !33
+  %34 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 8) #19
+  store ptr %34, ptr %31, align 8, !tbaa !34
+  %35 = tail call noalias ptr @calloc(i64 noundef %29, i64 noundef 8) #19
+  store ptr %35, ptr %32, align 8, !tbaa !35
   ret ptr %6
 }
 

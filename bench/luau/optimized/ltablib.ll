@@ -1089,27 +1089,27 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_T
   br label %17
 
 17:                                               ; preds = %.lr.ph, %124
-  %.097170 = phi i32 [ %2, %.lr.ph ], [ %.198, %124 ]
-  %.0100169 = phi i32 [ %3, %.lr.ph ], [ %.1101, %124 ]
-  %.0103168 = phi i32 [ %4, %.lr.ph ], [ %116, %124 ]
-  %18 = icmp eq i32 %.0103168, 0
+  %.097169 = phi i32 [ %2, %.lr.ph ], [ %.198, %124 ]
+  %.0100168 = phi i32 [ %3, %.lr.ph ], [ %.1101, %124 ]
+  %.0103167 = phi i32 [ %4, %.lr.ph ], [ %116, %124 ]
+  %18 = icmp eq i32 %.0103167, 0
   br i1 %18, label %.lr.ph.preheader.i, label %33
 
 .lr.ph.preheader.i:                               ; preds = %17
-  %19 = sub nsw i32 %.0100169, %.097170
+  %19 = sub nsw i32 %.0100168, %.097169
   %20 = add nuw nsw i32 %19, 1
   %21 = lshr i32 %20, 1
   br label %.lr.ph.i
 
 .lr.ph27.i:                                       ; preds = %.lr.ph.i
-  %22 = sext i32 %.097170 to i64
+  %22 = sext i32 %.097169 to i64
   %23 = zext nneg i32 %19 to i64
   br label %25
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.024.in25.i = phi i32 [ %.024.i, %.lr.ph.i ], [ %21, %.lr.ph.preheader.i ]
   %.024.i = add nsw i32 %.024.in25.i, -1
-  tail call fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.097170, i32 noundef %.0100169, ptr noundef readonly %5, i32 noundef %.024.i)
+  tail call fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.097169, i32 noundef %.0100168, ptr noundef readonly %5, i32 noundef %.024.i)
   %24 = icmp samesign ugt i32 %.024.in25.i, 1
   br i1 %24, label %.lr.ph.i, label %.lr.ph27.i, !llvm.loop !54
 
@@ -1126,7 +1126,7 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_T
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %30 = trunc i64 %26 to i32
   %31 = add i32 %30, -1
-  tail call fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.097170, i32 noundef %31, ptr noundef readonly %5, i32 noundef 0)
+  tail call fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_Ei(ptr noundef %0, ptr noundef readonly %1, i32 noundef %.097169, i32 noundef %31, ptr noundef readonly %5, i32 noundef 0)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %32 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %32, label %25, label %_ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit, !llvm.loop !55
@@ -1134,9 +1134,9 @@ define internal fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_T
 33:                                               ; preds = %17
   %34 = load ptr, ptr %15, align 8, !tbaa !23
   %35 = load i32, ptr %16, align 8, !tbaa !20
-  %36 = sext i32 %.0100169 to i64
+  %36 = sext i32 %.0100168 to i64
   %37 = getelementptr inbounds %struct.lua_TValue, ptr %34, i64 %36
-  %38 = sext i32 %.097170 to i64
+  %38 = sext i32 %.097169 to i64
   %39 = getelementptr inbounds %struct.lua_TValue, ptr %34, i64 %38
   %40 = tail call noundef i32 %5(ptr noundef %0, ptr noundef %37, ptr noundef %39)
   %41 = load i32, ptr %16, align 8, !tbaa !20
@@ -1163,13 +1163,13 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %33
   br label %47
 
 47:                                               ; preds = %43, %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit
-  %48 = sub nsw i32 %.0100169, %.097170
+  %48 = sub nsw i32 %.0100168, %.097169
   %49 = icmp eq i32 %48, 1
   br i1 %49, label %_ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit, label %50
 
 50:                                               ; preds = %47
   %51 = ashr i32 %48, 1
-  %52 = add nsw i32 %51, %.097170
+  %52 = add nsw i32 %51, %.097169
   %53 = load ptr, ptr %15, align 8, !tbaa !23
   %54 = load i32, ptr %16, align 8, !tbaa !20
   %55 = sext i32 %52 to i64
@@ -1230,7 +1230,7 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit121: ; preds = %
   br i1 %75, label %_ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit, label %76
 
 76:                                               ; preds = %74
-  %77 = add nsw i32 %.0100169, -1
+  %77 = add nsw i32 %.0100168, -1
   %78 = load ptr, ptr %15, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %79 = getelementptr inbounds %struct.lua_TValue, ptr %78, i64 %55
@@ -1243,7 +1243,7 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit121: ; preds = %
   br label %82
 
 82:                                               ; preds = %106, %76
-  %.095 = phi i32 [ %.097170, %76 ], [ %91, %106 ]
+  %.095 = phi i32 [ %.097169, %76 ], [ %91, %106 ]
   %.0 = phi i32 [ %77, %76 ], [ %107, %106 ]
   %83 = sext i32 %.095 to i64
   %.pre = load i32, ptr %16, align 8, !tbaa !20
@@ -1282,11 +1282,11 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit123: ; preds = %
   unreachable
 
 95:                                               ; preds = %.preheader, %102
-  %indvars.iv211 = phi i64 [ %92, %.preheader ], [ %indvars.iv.next212, %102 ]
-  %indvars.iv.next212 = add nsw i64 %indvars.iv211, -1
+  %indvars.iv210 = phi i64 [ %92, %.preheader ], [ %indvars.iv.next211, %102 ]
+  %indvars.iv.next211 = add nsw i64 %indvars.iv210, -1
   %96 = load ptr, ptr %15, align 8, !tbaa !23
   %97 = getelementptr inbounds %struct.lua_TValue, ptr %96, i64 %80
-  %98 = getelementptr inbounds %struct.lua_TValue, ptr %96, i64 %indvars.iv.next212
+  %98 = getelementptr inbounds %struct.lua_TValue, ptr %96, i64 %indvars.iv.next211
   %99 = tail call noundef i32 %5(ptr noundef %0, ptr noundef %97, ptr noundef %98)
   %100 = load i32, ptr %16, align 8, !tbaa !20
   %.not.i124 = icmp eq i32 %100, %.pre
@@ -1301,7 +1301,7 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125: ; preds = %
   br i1 %.not114, label %104, label %102
 
 102:                                              ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125
-  %.not116 = icmp sgt i64 %indvars.iv.next212, %38
+  %.not116 = icmp sgt i64 %indvars.iv.next211, %38
   br i1 %.not116, label %95, label %103, !llvm.loop !57
 
 103:                                              ; preds = %102
@@ -1309,16 +1309,16 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125: ; preds = %
   unreachable
 
 104:                                              ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125
-  %.not115 = icmp sgt i64 %indvars.iv211, %indvars.iv.next
+  %.not115 = icmp sgt i64 %indvars.iv210, %indvars.iv.next
   %105 = load ptr, ptr %15, align 8, !tbaa !23
   br i1 %.not115, label %106, label %110
 
 106:                                              ; preds = %104
-  %107 = trunc nsw i64 %indvars.iv.next212 to i32
+  %107 = trunc nsw i64 %indvars.iv.next211 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %108 = getelementptr inbounds %struct.lua_TValue, ptr %105, i64 %indvars.iv.next
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %108, i64 16, i1 false), !tbaa.struct !25
-  %109 = getelementptr inbounds %struct.lua_TValue, ptr %105, i64 %indvars.iv.next212
+  %109 = getelementptr inbounds %struct.lua_TValue, ptr %105, i64 %indvars.iv.next211
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %108, ptr noundef nonnull align 8 dereferenceable(16) %109, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %109, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1333,27 +1333,27 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit125: ; preds = %
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, ptr noundef nonnull align 8 dereferenceable(16) %113, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %113, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %114 = lshr i32 %.0103168, 1
-  %115 = lshr i32 %.0103168, 2
+  %114 = lshr i32 %.0103167, 1
+  %115 = lshr i32 %.0103167, 2
   %116 = add nuw nsw i32 %114, %115
-  %117 = sub nsw i32 %91, %.097170
-  %118 = sub nsw i32 %.0100169, %91
+  %117 = sub nsw i32 %91, %.097169
+  %118 = sub nsw i32 %.0100168, %91
   %119 = icmp slt i32 %117, %118
   br i1 %119, label %120, label %122
 
 120:                                              ; preds = %110
-  tail call fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_TValueS5_E(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.097170, i32 noundef %111, i32 noundef %116, ptr noundef %5)
+  tail call fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_TValueS5_E(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %.097169, i32 noundef %111, i32 noundef %116, ptr noundef %5)
   %121 = add nsw i32 %111, 2
   br label %124
 
 122:                                              ; preds = %110
   %123 = add nsw i32 %111, 2
-  tail call fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_TValueS5_E(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %123, i32 noundef %.0100169, i32 noundef %116, ptr noundef %5)
+  tail call fastcc void @_ZL8sort_recP9lua_StateP8LuaTableiiiPFiS0_PK10lua_TValueS5_E(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %123, i32 noundef %.0100168, i32 noundef %116, ptr noundef %5)
   br label %124
 
 124:                                              ; preds = %120, %122
-  %.1101 = phi i32 [ %.0100169, %120 ], [ %111, %122 ]
-  %.198 = phi i32 [ %121, %120 ], [ %.097170, %122 ]
+  %.1101 = phi i32 [ %.0100168, %120 ], [ %111, %122 ]
+  %.198 = phi i32 [ %121, %120 ], [ %.097169, %122 ]
   %125 = icmp slt i32 %.198, %.1101
   br i1 %125, label %17, label %_ZL9sort_heapP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit
 
@@ -1370,8 +1370,8 @@ define internal fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10
   %9 = sub nsw i32 %3, %2
   %10 = shl nuw nsw i32 %5, 1
   %11 = add nuw nsw i32 %10, 2
-  %.not66 = icmp sgt i32 %11, %9
-  br i1 %.not66, label %.thread, label %.lr.ph
+  %.not65 = icmp sgt i32 %11, %9
+  br i1 %.not65, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -1381,9 +1381,9 @@ define internal fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10
 14:                                               ; preds = %.lr.ph, %42
   %15 = phi i32 [ %11, %.lr.ph ], [ %49, %42 ]
   %16 = phi i32 [ %10, %.lr.ph ], [ %48, %42 ]
-  %.067 = phi i32 [ %5, %.lr.ph ], [ %40, %42 ]
+  %.066 = phi i32 [ %5, %.lr.ph ], [ %40, %42 ]
   %17 = or disjoint i32 %16, 1
-  %18 = add nsw i32 %.067, %2
+  %18 = add nsw i32 %.066, %2
   %19 = add nsw i32 %17, %2
   %20 = load ptr, ptr %12, align 8, !tbaa !23
   %21 = load i32, ptr %13, align 8, !tbaa !20
@@ -1402,7 +1402,7 @@ define internal fastcc void @_ZL13sort_siftheapP9lua_StateP8LuaTableiiPFiS0_PK10
 
 _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %14
   %.not54 = icmp eq i32 %26, 0
-  %29 = select i1 %.not54, i32 %.067, i32 %17
+  %29 = select i1 %.not54, i32 %.066, i32 %17
   %30 = add nsw i32 %29, %2
   %31 = add nsw i32 %15, %2
   %32 = load ptr, ptr %12, align 8, !tbaa !23
@@ -1422,11 +1422,11 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit: ; preds = %14
 _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58: ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit
   %.not55 = icmp eq i32 %37, 0
   %40 = select i1 %.not55, i32 %29, i32 %15
-  %41 = icmp eq i32 %40, %.067
+  %41 = icmp eq i32 %40, %.066
   br i1 %41, label %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loopexit_crit_edge, label %42
 
 _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loopexit_crit_edge: ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58
-  %.pre69 = shl nuw nsw i32 %.067, 1
+  %.pre68 = shl nuw nsw i32 %.066, 1
   br label %.thread
 
 42:                                               ; preds = %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58
@@ -1446,8 +1446,8 @@ _Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loope
   br i1 %.not, label %.thread, label %14
 
 .thread:                                          ; preds = %42, %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loopexit_crit_edge, %6
-  %.pre-phi = phi i32 [ %10, %6 ], [ %.pre69, %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loopexit_crit_edge ], [ %48, %42 ]
-  %.0.lcssa = phi i32 [ %5, %6 ], [ %.067, %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loopexit_crit_edge ], [ %40, %42 ]
+  %.pre-phi = phi i32 [ %10, %6 ], [ %.pre68, %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loopexit_crit_edge ], [ %48, %42 ]
+  %.0.lcssa = phi i32 [ %5, %6 ], [ %.066, %_Z9sort_lessP9lua_StateP8LuaTableiiPFiS0_PK10lua_TValueS5_E.exit58..thread.loopexit_crit_edge ], [ %40, %42 ]
   %50 = or disjoint i32 %.pre-phi, 1
   %51 = icmp eq i32 %50, %9
   br i1 %51, label %52, label %69

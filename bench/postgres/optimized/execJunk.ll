@@ -136,7 +136,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
 
 20:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %.03138 = phi ptr [ %17, %.lr.ph ], [ %.1, %37 ]
+  %.03137 = phi ptr [ %17, %.lr.ph ], [ %.1, %37 ]
   %21 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %1, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 33
   %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
@@ -151,7 +151,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br label %27
 
 27:                                               ; preds = %.preheader, %27
-  %.2 = phi ptr [ %..i, %27 ], [ %.03138, %.preheader ]
+  %.2 = phi ptr [ %..i, %27 ], [ %.03137, %.preheader ]
   %28 = load ptr, ptr %.2, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.2, i64 8
   %30 = icmp ult ptr %29, %26
@@ -169,7 +169,7 @@ define dso_local noundef ptr @ExecInitJunkFilterConversion(ptr noundef %0, ptr n
   br label %37
 
 37:                                               ; preds = %.thread, %20
-  %.1 = phi ptr [ %.03138, %20 ], [ %..i, %.thread ]
+  %.1 = phi ptr [ %.03137, %20 ], [ %..i, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !6

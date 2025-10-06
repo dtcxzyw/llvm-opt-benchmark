@@ -2921,7 +2921,7 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIjLb1ETnPN12hb_enable_i
 41:                                               ; preds = %.thread, %37
   %.pn = phi i64 [ %17, %.thread ], [ %.pre, %37 ]
   %42 = phi ptr [ %21, %.thread ], [ %40, %37 ]
-  %.04383 = phi i32 [ %13, %.thread ], [ %storemerge.i.i.ph.sink.i.i, %37 ]
+  %.04483 = phi i32 [ %13, %.thread ], [ %storemerge.i.i.ph.sink.i.i, %37 ]
   %43 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %10, i64 %.pn
   %44 = load i32, ptr %1, align 4, !tbaa !30
   %45 = and i32 %44, 511
@@ -2979,19 +2979,19 @@ thread-pre-split.i:                               ; preds = %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %41
   store i32 -1, ptr %1, align 4, !tbaa !30
-  %70 = add i32 %.04383, 1
+  %70 = add i32 %.04483, 1
   %.pre71 = load i32, ptr %14, align 4, !tbaa !120
   br label %71
 
 71:                                               ; preds = %.loopexit, %37
   %72 = phi ptr [ %42, %.loopexit ], [ %40, %37 ]
   %73 = phi i32 [ %.pre71, %.loopexit ], [ %15, %37 ]
-  %.144 = phi i32 [ %70, %.loopexit ], [ %storemerge.i.i.ph.sink.i.i, %37 ]
-  %74 = icmp ult i32 %.144, %73
+  %.145 = phi i32 [ %70, %.loopexit ], [ %storemerge.i.i.ph.sink.i.i, %37 ]
+  %74 = icmp ult i32 %.145, %73
   br i1 %74, label %.lr.ph62, label %._crit_edge63
 
 .lr.ph62:                                         ; preds = %71, %.critedge31
-  %.260 = phi i32 [ %94, %.critedge31 ], [ %.144, %71 ]
+  %.260 = phi i32 [ %94, %.critedge31 ], [ %.145, %71 ]
   %75 = zext i32 %.260 to i64
   %76 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %10, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
@@ -3010,8 +3010,8 @@ thread-pre-split.i:                               ; preds = %.lr.ph
 
 85:                                               ; preds = %82
   %indvars.iv.next.i34 = add nuw nsw i64 %indvars.iv.i32, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i34, 8
-  br i1 %exitcond.i, label %.critedge31, label %82, !llvm.loop !173
+  %exitcond.not.i35 = icmp eq i64 %indvars.iv.next.i34, 8
+  br i1 %exitcond.not.i35, label %.critedge31, label %82, !llvm.loop !173
 
 _ZNK13hb_bit_page_t7get_minEv.exit:               ; preds = %82
   %86 = trunc nuw nsw i64 %indvars.iv.i32 to i32
@@ -3132,29 +3132,29 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18:     ; preds = %8, %_ZNK16hb_vector
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %23
 
-23:                                               ; preds = %32, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18
-  %indvars.iv.i = phi i64 [ 0, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18 ], [ %indvars.iv.next.i, %32 ]
+23:                                               ; preds = %26, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18
+  %indvars.iv.i = phi i64 [ 0, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18 ], [ %indvars.iv.next.i, %26 ]
   %24 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv.i
   %25 = load i64, ptr %24, align 8, !tbaa !130
   %.not.i15 = icmp eq i64 %25, 0
-  br i1 %.not.i15, label %32, label %26
+  br i1 %.not.i15, label %26, label %27
 
 26:                                               ; preds = %23
-  %27 = trunc nuw nsw i64 %indvars.iv.i to i32
-  %28 = shl nuw nsw i32 %27, 6
-  %29 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %25, i1 true)
-  %30 = trunc nuw nsw i64 %29 to i32
-  %31 = or disjoint i32 %28, %30
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8
+  br i1 %exitcond.not.i, label %.loopexit, label %23, !llvm.loop !173
+
+27:                                               ; preds = %23
+  %28 = trunc nuw nsw i64 %indvars.iv.i to i32
+  %29 = shl nuw nsw i32 %28, 6
+  %30 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %25, i1 true)
+  %31 = trunc nuw nsw i64 %30 to i32
+  %32 = or disjoint i32 %29, %31
   br label %.loopexit
 
-32:                                               ; preds = %23
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %.loopexit, label %23, !llvm.loop !173
-
-.loopexit:                                        ; preds = %32, %26
-  %spec.select.i = phi i32 [ %31, %26 ], [ -1, %32 ]
-  %33 = add i32 %spec.select.i, %21
+.loopexit:                                        ; preds = %26, %27
+  %33 = phi i32 [ %32, %27 ], [ -1, %26 ]
+  %34 = add i32 %33, %21
   br label %.loopexit24
 
 .thread:                                          ; preds = %8, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread
@@ -3163,7 +3163,7 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18:     ; preds = %8, %_ZNK16hb_vector
   br i1 %exitcond.not, label %.loopexit24, label %8, !llvm.loop !177
 
 .loopexit24:                                      ; preds = %.thread, %1, %.loopexit
-  %spec.select = phi i32 [ %33, %.loopexit ], [ -1, %1 ], [ -1, %.thread ]
+  %spec.select = phi i32 [ %34, %.loopexit ], [ -1, %1 ], [ -1, %.thread ]
   ret i32 %spec.select
 }
 
@@ -3329,36 +3329,36 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable
   %83 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %74, i64 %82
   br label %84
 
-84:                                               ; preds = %86, %77
-  %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %86 ], [ 8, %77 ]
-  %85 = icmp eq i64 %indvars.iv.i17, 0
-  br i1 %85, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, label %86
+84:                                               ; preds = %85, %77
+  %indvars.iv.i17 = phi i64 [ %indvars.iv.next.i18, %85 ], [ 8, %77 ]
+  %.not14.i = icmp eq i64 %indvars.iv.i17, 0
+  br i1 %.not14.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread, label %85
 
-86:                                               ; preds = %84
+85:                                               ; preds = %84
   %indvars.iv.next.i18 = add nsw i64 %indvars.iv.i17, -1
-  %87 = getelementptr i64, ptr %83, i64 %indvars.iv.i17
-  %88 = load i64, ptr %87, align 8, !tbaa !130
-  %.not.i19 = icmp eq i64 %88, 0
+  %86 = getelementptr i64, ptr %83, i64 %indvars.iv.i17
+  %87 = load i64, ptr %86, align 8, !tbaa !130
+  %.not.i19 = icmp eq i64 %87, 0
   br i1 %.not.i19, label %84, label %_ZNK13hb_bit_page_t7get_maxEv.exit, !llvm.loop !179
 
-_ZNK13hb_bit_page_t7get_maxEv.exit:               ; preds = %86
-  %89 = trunc nsw i64 %indvars.iv.next.i18 to i32
-  %90 = shl i32 %89, 6
-  %91 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %88, i1 true)
-  %92 = trunc nuw nsw i64 %91 to i32
-  %93 = or disjoint i32 %90, %92
-  %.not = icmp eq i32 %93, -64
-  br i1 %.not, label %.critedge, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit30, !llvm.loop !180
+_ZNK13hb_bit_page_t7get_maxEv.exit:               ; preds = %85
+  %88 = trunc nsw i64 %indvars.iv.next.i18 to i32
+  %89 = shl i32 %88, 6
+  %90 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %87, i1 true)
+  %91 = trunc nuw nsw i64 %90 to i32
+  %92 = or disjoint i32 %89, %91
+  %.not = icmp eq i32 %92, -64
+  br i1 %.not, label %.critedge, label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit28, !llvm.loop !180
 
-_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit30: ; preds = %_ZNK13hb_bit_page_t7get_maxEv.exit
-  %94 = xor i32 %93, 63
+_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit28: ; preds = %_ZNK13hb_bit_page_t7get_maxEv.exit
+  %93 = xor i32 %92, 63
   br label %_ZNK13hb_bit_page_t7get_maxEv.exit.thread
 
-_ZNK13hb_bit_page_t7get_maxEv.exit.thread:        ; preds = %84, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit30
-  %spec.select.i29 = phi i32 [ %94, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit30 ], [ 0, %84 ]
+_ZNK13hb_bit_page_t7get_maxEv.exit.thread:        ; preds = %84, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit28
+  %94 = phi i32 [ %93, %_ZNK13hb_bit_page_t7get_maxEv.exit.thread.loopexit28 ], [ 0, %84 ]
   %95 = load i32, ptr %79, align 4, !tbaa !125
   %96 = shl i32 %95, 9
-  %97 = add i32 %96, %spec.select.i29
+  %97 = add i32 %96, %94
   store i32 %97, ptr %1, align 4, !tbaa !30
   br label %99
 
@@ -3464,30 +3464,30 @@ _ZNK13hb_bit_page_t8is_emptyEv.exit.thread18:     ; preds = %10, %_ZNK16hb_vecto
   %23 = shl i32 %22, 9
   br label %24
 
-24:                                               ; preds = %26, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %26 ], [ 8, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18 ]
-  %25 = icmp eq i64 %indvars.iv.i, 0
-  br i1 %25, label %_ZNK13hb_bit_page_t7get_maxEv.exit, label %26
+24:                                               ; preds = %25, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 8, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread18 ]
+  %.not14.i = icmp eq i64 %indvars.iv.i, 0
+  br i1 %.not14.i, label %_ZNK13hb_bit_page_t7get_maxEv.exit, label %25
 
-26:                                               ; preds = %24
+25:                                               ; preds = %24
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %27 = getelementptr i64, ptr %15, i64 %indvars.iv.i
-  %28 = load i64, ptr %27, align 8, !tbaa !130
-  %.not.i15 = icmp eq i64 %28, 0
-  br i1 %.not.i15, label %24, label %29, !llvm.loop !179
+  %26 = getelementptr i64, ptr %15, i64 %indvars.iv.i
+  %27 = load i64, ptr %26, align 8, !tbaa !130
+  %.not.i15 = icmp eq i64 %27, 0
+  br i1 %.not.i15, label %24, label %28, !llvm.loop !179
 
-29:                                               ; preds = %26
-  %30 = trunc nsw i64 %indvars.iv.next.i to i32
-  %31 = shl i32 %30, 6
-  %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %28, i1 true)
-  %33 = trunc nuw nsw i64 %32 to i32
-  %34 = or disjoint i32 %31, %33
-  %35 = xor i32 %34, 63
+28:                                               ; preds = %25
+  %29 = trunc nsw i64 %indvars.iv.next.i to i32
+  %30 = shl i32 %29, 6
+  %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %27, i1 true)
+  %32 = trunc nuw nsw i64 %31 to i32
+  %33 = or disjoint i32 %30, %32
+  %34 = xor i32 %33, 63
   br label %_ZNK13hb_bit_page_t7get_maxEv.exit
 
-_ZNK13hb_bit_page_t7get_maxEv.exit:               ; preds = %24, %29
-  %spec.select.i = phi i32 [ %35, %29 ], [ 0, %24 ]
-  %36 = add i32 %spec.select.i, %23
+_ZNK13hb_bit_page_t7get_maxEv.exit:               ; preds = %24, %28
+  %35 = phi i32 [ %34, %28 ], [ 0, %24 ]
+  %36 = add i32 %35, %23
   br label %.loopexit, !llvm.loop !182
 
 37:                                               ; preds = %10, %_ZNK13hb_bit_page_t8is_emptyEv.exit.thread

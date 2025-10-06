@@ -527,9 +527,9 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %spec.store.select.i.i = select i1 %99, i16 0, i16 %97
   %100 = zext i16 %spec.store.select.i.i to i32
   %101 = tail call ptr @tvb_format_text(ptr noundef %96, ptr noundef %0, i32 noundef 8, i32 noundef %100)
-  br i1 %.not.i, label %._crit_edge234.i, label %102
+  br i1 %.not.i, label %._crit_edge233.i, label %102
 
-._crit_edge234.i:                                 ; preds = %94
+._crit_edge233.i:                                 ; preds = %94
   %.pre.i = zext i16 %98 to i32
   br label %107
 
@@ -540,8 +540,8 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %106 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %.047, i32 noundef %103, ptr noundef %0, i32 noundef 6, i32 noundef %105, ptr noundef %101)
   br label %107
 
-107:                                              ; preds = %102, %._crit_edge234.i
-  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge234.i ], [ %104, %102 ]
+107:                                              ; preds = %102, %._crit_edge233.i
+  %.pre-phi.i = phi i32 [ %.pre.i, %._crit_edge233.i ], [ %104, %102 ]
   %108 = add nuw nsw i32 %.pre-phi.i, 8
   %109 = load ptr, ptr %95, align 8
   %110 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %108)
@@ -551,10 +551,10 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %113 = add nuw nsw i32 %.pre-phi.i, 10
   %114 = zext i16 %spec.store.select.i193.i to i32
   %115 = tail call ptr @tvb_format_text(ptr noundef %109, ptr noundef %0, i32 noundef %113, i32 noundef %114)
-  br i1 %.not.i, label %._crit_edge233.i, label %116
+  br i1 %.not.i, label %._crit_edge232.i, label %116
 
-._crit_edge233.i:                                 ; preds = %107
-  %.pre235.i = zext i16 %111 to i32
+._crit_edge232.i:                                 ; preds = %107
+  %.pre234.i = zext i16 %111 to i32
   br label %121
 
 116:                                              ; preds = %107
@@ -564,9 +564,9 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %120 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %.047, i32 noundef %117, ptr noundef %0, i32 noundef %108, i32 noundef %119, ptr noundef %115)
   br label %121
 
-121:                                              ; preds = %116, %._crit_edge233.i
-  %.pre-phi236.i = phi i32 [ %.pre235.i, %._crit_edge233.i ], [ %118, %116 ]
-  %122 = add nuw nsw i32 %.pre-phi236.i, %108
+121:                                              ; preds = %116, %._crit_edge232.i
+  %.pre-phi235.i = phi i32 [ %.pre234.i, %._crit_edge232.i ], [ %118, %116 ]
+  %122 = add nuw nsw i32 %.pre-phi235.i, %108
   %123 = add nuw nsw i32 %122, 2
   %124 = load ptr, ptr %24, align 8
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %124, i32 noundef 25, ptr noundef nonnull @.str.205, ptr noundef %115, ptr noundef %101)
@@ -578,10 +578,10 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %129 = add nuw nsw i32 %122, 4
   %130 = zext i16 %spec.store.select.i194.i to i32
   %131 = tail call ptr @tvb_format_text(ptr noundef %125, ptr noundef %0, i32 noundef %129, i32 noundef %130)
-  br i1 %.not.i, label %._crit_edge232.i, label %132
+  br i1 %.not.i, label %._crit_edge231.i, label %132
 
-._crit_edge232.i:                                 ; preds = %121
-  %.pre237.i = zext i16 %127 to i32
+._crit_edge231.i:                                 ; preds = %121
+  %.pre236.i = zext i16 %127 to i32
   br label %137
 
 132:                                              ; preds = %121
@@ -591,9 +591,9 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %136 = tail call ptr @proto_tree_add_string(ptr noundef nonnull %.047, i32 noundef %133, ptr noundef %0, i32 noundef %123, i32 noundef %135, ptr noundef %131)
   br label %137
 
-137:                                              ; preds = %132, %._crit_edge232.i
-  %.pre-phi238.i = phi i32 [ %.pre237.i, %._crit_edge232.i ], [ %134, %132 ]
-  %138 = add nuw nsw i32 %.pre-phi238.i, %123
+137:                                              ; preds = %132, %._crit_edge231.i
+  %.pre-phi237.i = phi i32 [ %.pre236.i, %._crit_edge231.i ], [ %134, %132 ]
+  %138 = add nuw nsw i32 %.pre-phi237.i, %123
   %139 = add nuw nsw i32 %138, 2
   %140 = load ptr, ptr %95, align 8
   %141 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %139)
@@ -606,7 +606,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not.i, label %._crit_edge.i, label %147
 
 ._crit_edge.i:                                    ; preds = %137
-  %.pre239.i = zext i16 %142 to i32
+  %.pre238.i = zext i16 %142 to i32
   br label %152
 
 147:                                              ; preds = %137
@@ -617,8 +617,8 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   br label %152
 
 152:                                              ; preds = %147, %._crit_edge.i
-  %.pre-phi240.i = phi i32 [ %.pre239.i, %._crit_edge.i ], [ %149, %147 ]
-  %153 = add nuw nsw i32 %.pre-phi240.i, %139
+  %.pre-phi239.i = phi i32 [ %.pre238.i, %._crit_edge.i ], [ %149, %147 ]
+  %153 = add nuw nsw i32 %.pre-phi239.i, %139
   %154 = add nuw nsw i32 %153, 2
   %155 = load ptr, ptr %95, align 8
   %156 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %154)
@@ -661,26 +661,26 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %184 = zext i16 %.in.i to i32
   %185 = add nuw nsw i32 %183, 7
   store i32 0, ptr %.048, align 4
-  %.not231.i = icmp eq i16 %.in.i, 0
-  br i1 %.not231.i, label %.preheader.i, label %.lr.ph.i
+  %.not230.i = icmp eq i16 %.in.i, 0
+  br i1 %.not230.i, label %.preheader.i, label %.lr.ph.i
 
 .preheader.i:                                     ; preds = %246, %182
   %.0.lcssa.i = phi i32 [ %185, %182 ], [ %.1.i, %246 ]
   %186 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.0.lcssa.i)
   %187 = icmp sgt i32 %186, 0
-  br i1 %187, label %.lr.ph229.i, label %display_req_body.exit
+  br i1 %187, label %.lr.ph228.i, label %display_req_body.exit
 
 .lr.ph.i:                                         ; preds = %182, %246
-  %.0227.i = phi i32 [ %.1.i, %246 ], [ %185, %182 ]
-  %.0183226.i = phi i32 [ %247, %246 ], [ 0, %182 ]
-  %188 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0227.i)
+  %.0226.i = phi i32 [ %.1.i, %246 ], [ %185, %182 ]
+  %.0183225.i = phi i32 [ %247, %246 ], [ 0, %182 ]
+  %188 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.0226.i)
   %189 = icmp eq i8 %188, -96
   br i1 %189, label %190, label %216
 
 190:                                              ; preds = %.lr.ph.i
-  %191 = add i32 %.0227.i, 1
+  %191 = add i32 %.0226.i, 1
   %192 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %191)
-  %193 = add i32 %.0227.i, 2
+  %193 = add i32 %.0226.i, 2
   %194 = icmp ugt i8 %192, 14
   %spec.store.select.i = select i1 %194, i8 0, i8 %192
   %195 = load ptr, ptr %95, align 8
@@ -688,7 +688,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %197 = add i16 %196, 1
   %198 = icmp eq i16 %196, -1
   %spec.store.select.i197.i = select i1 %198, i16 0, i16 %196
-  %199 = add i32 %.0227.i, 4
+  %199 = add i32 %.0226.i, 4
   %200 = zext i16 %spec.store.select.i197.i to i32
   %201 = tail call ptr @tvb_format_text(ptr noundef %195, ptr noundef %0, i32 noundef %199, i32 noundef %200)
   %202 = zext i8 %spec.store.select.i to i64
@@ -697,7 +697,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %205 = load i32, ptr %204, align 4
   %206 = zext i16 %197 to i32
   %207 = add nuw nsw i32 %206, 4
-  %208 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %.047, i32 noundef %205, ptr noundef %0, i32 noundef %.0227.i, i32 noundef %207, ptr noundef %201, ptr noundef nonnull @.str.206, ptr noundef %201)
+  %208 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %.047, i32 noundef %205, ptr noundef %0, i32 noundef %.0226.i, i32 noundef %207, ptr noundef %201, ptr noundef nonnull @.str.206, ptr noundef %201)
   %209 = icmp eq i8 %spec.store.select.i, 8
   br i1 %209, label %210, label %214
 
@@ -715,16 +715,16 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
 
 216:                                              ; preds = %.lr.ph.i
   %217 = load ptr, ptr %95, align 8
-  %218 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0227.i)
+  %218 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.0226.i)
   %219 = add i16 %218, 1
   %220 = icmp eq i16 %218, -1
   %spec.store.select.i198.i = select i1 %220, i16 0, i16 %218
-  %221 = add i32 %.0227.i, 2
+  %221 = add i32 %.0226.i, 2
   %222 = zext i16 %spec.store.select.i198.i to i32
   %223 = tail call ptr @tvb_format_text(ptr noundef %217, ptr noundef %0, i32 noundef %221, i32 noundef %222)
   %224 = zext i16 %219 to i32
   %225 = add nuw nsw i32 %224, 2
-  %226 = add i32 %225, %.0227.i
+  %226 = add i32 %225, %.0226.i
   %227 = icmp ugt i8 %188, 14
   %spec.store.select1.i = select i1 %227, i8 0, i8 %188
   %228 = load ptr, ptr %95, align 8
@@ -744,33 +744,33 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %241 = add nuw nsw i32 %240, %239
   %242 = load ptr, ptr %95, align 8
   %243 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %242, ptr noundef nonnull @.str.207, ptr noundef %223, ptr noundef %234)
-  %244 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.047, i32 noundef %238, ptr noundef %0, i32 noundef %.0227.i, i32 noundef %241, ptr noundef %243, ptr noundef nonnull @.str.207, ptr noundef %223, ptr noundef %234)
+  %244 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.047, i32 noundef %238, ptr noundef %0, i32 noundef %.0226.i, i32 noundef %241, ptr noundef %243, ptr noundef nonnull @.str.207, ptr noundef %223, ptr noundef %234)
   %245 = add i32 %232, %239
   br label %246
 
 246:                                              ; preds = %216, %214
   %.1.i = phi i32 [ %215, %214 ], [ %245, %216 ]
-  %247 = add nuw nsw i32 %.0183226.i, 1
+  %247 = add nuw nsw i32 %.0183225.i, 1
   %exitcond.not.i = icmp eq i32 %247, %184
   br i1 %exitcond.not.i, label %.preheader.i, label %.lr.ph.i, !llvm.loop !8
 
-.lr.ph229.i:                                      ; preds = %.preheader.i, %298
-  %.2228.i = phi i32 [ %.3.i, %298 ], [ %.0.lcssa.i, %.preheader.i ]
-  %248 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2228.i)
-  %249 = add i32 %.2228.i, 1
+.lr.ph228.i:                                      ; preds = %.preheader.i, %298
+  %.2227.i = phi i32 [ %.3.i, %298 ], [ %.0.lcssa.i, %.preheader.i ]
+  %248 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.2227.i)
+  %249 = add i32 %.2227.i, 1
   switch i8 %248, label %281 [
     i8 -1, label %display_req_body.exit
     i8 10, label %250
     i8 11, label %275
   ]
 
-250:                                              ; preds = %.lr.ph229.i
+250:                                              ; preds = %.lr.ph228.i
   %251 = load ptr, ptr %95, align 8
   %252 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %249)
   %253 = add i16 %252, 1
   %254 = icmp eq i16 %252, -1
   %spec.store.select.i200.i = select i1 %254, i16 0, i16 %252
-  %255 = add i32 %.2228.i, 3
+  %255 = add i32 %.2227.i, 3
   %256 = zext i16 %spec.store.select.i200.i to i32
   %257 = tail call ptr @tvb_format_text(ptr noundef %251, ptr noundef %0, i32 noundef %255, i32 noundef %256)
   %258 = zext i16 %253 to i32
@@ -790,18 +790,18 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %271 = add nuw nsw i32 %270, %267
   %272 = load ptr, ptr %95, align 8
   %273 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %272, ptr noundef nonnull @.str.207, ptr noundef %257, ptr noundef %266)
-  %274 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.047, i32 noundef %269, ptr noundef %0, i32 noundef %.2228.i, i32 noundef %271, ptr noundef %273, ptr noundef nonnull @.str.207, ptr noundef %257, ptr noundef %266)
+  %274 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format(ptr noundef %.047, i32 noundef %269, ptr noundef %0, i32 noundef %.2227.i, i32 noundef %271, ptr noundef %273, ptr noundef nonnull @.str.207, ptr noundef %257, ptr noundef %266)
   br label %298
 
-275:                                              ; preds = %.lr.ph229.i
+275:                                              ; preds = %.lr.ph228.i
   %276 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %249)
   %277 = load i32, ptr @hf_ajp13_ssl_key_size, align 4
   %278 = zext i16 %276 to i32
-  %279 = tail call ptr @proto_tree_add_uint(ptr noundef %.047, i32 noundef %277, ptr noundef %0, i32 noundef %.2228.i, i32 noundef 3, i32 noundef %278)
-  %280 = add i32 %.2228.i, 3
+  %279 = tail call ptr @proto_tree_add_uint(ptr noundef %.047, i32 noundef %277, ptr noundef %0, i32 noundef %.2227.i, i32 noundef 3, i32 noundef %278)
+  %280 = add i32 %.2227.i, 3
   br label %298
 
-281:                                              ; preds = %.lr.ph229.i
+281:                                              ; preds = %.lr.ph228.i
   %282 = icmp ugt i8 %248, 13
   %spec.store.select2.i = select i1 %282, i8 0, i8 %248
   %283 = load ptr, ptr %95, align 8
@@ -809,7 +809,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %285 = add i16 %284, 1
   %286 = icmp eq i16 %284, -1
   %spec.store.select.i202.i = select i1 %286, i16 0, i16 %284
-  %287 = add i32 %.2228.i, 3
+  %287 = add i32 %.2227.i, 3
   %288 = zext i16 %spec.store.select.i202.i to i32
   %289 = tail call ptr @tvb_format_text(ptr noundef %283, ptr noundef %0, i32 noundef %287, i32 noundef %288)
   %290 = zext i16 %285 to i32
@@ -819,14 +819,14 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %294 = load ptr, ptr %293, align 8
   %295 = load i32, ptr %294, align 4
   %296 = add nuw nsw i32 %290, 3
-  %297 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %.047, i32 noundef %295, ptr noundef %0, i32 noundef %.2228.i, i32 noundef %296, ptr noundef %289, ptr noundef nonnull @.str.206, ptr noundef %289)
+  %297 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_string_format_value(ptr noundef %.047, i32 noundef %295, ptr noundef %0, i32 noundef %.2227.i, i32 noundef %296, ptr noundef %289, ptr noundef nonnull @.str.206, ptr noundef %289)
   br label %298
 
 298:                                              ; preds = %281, %275, %250
   %.3.i = phi i32 [ %268, %250 ], [ %280, %275 ], [ %291, %281 ]
   %299 = tail call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %.3.i)
   %300 = icmp sgt i32 %299, 0
-  br i1 %300, label %.lr.ph229.i, label %display_req_body.exit
+  br i1 %300, label %.lr.ph228.i, label %display_req_body.exit
 
 301:                                              ; preds = %49
   %302 = icmp eq i16 %26, 16706
@@ -1016,7 +1016,7 @@ define internal i32 @dissect_ajp13_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr n
   %417 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %.047, i32 noundef %416, ptr noundef %0, i32 noundef 7, i32 noundef -1, i32 noundef 2)
   br label %display_req_body.exit
 
-display_req_body.exit:                            ; preds = %406, %298, %.lr.ph229.i, %415, %414, %411, %408, %349, %318, %317, %316, %.preheader.i, %84, %65, %64, %60, %301
+display_req_body.exit:                            ; preds = %406, %298, %.lr.ph228.i, %415, %414, %411, %408, %349, %318, %317, %316, %.preheader.i, %84, %65, %64, %60, %301
   %418 = tail call i32 @tvb_reported_length(ptr noundef %0)
   ret i32 %418
 }

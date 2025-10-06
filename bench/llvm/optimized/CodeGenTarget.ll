@@ -1012,17 +1012,17 @@ define dso_local void @_ZN4llvm16getQualifiedNameB5cxx11EPKNS_6RecordE(ptr dead_
   %20 = zext i32 %19 to i64
   %.idx.i.i = mul nuw nsw i64 %20, 56
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 %.idx.i.i
-  %.not16.i.i = icmp eq i32 %19, 0
-  br i1 %.not16.i.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread, label %.lr.ph.i.i
+  %.not18.i.i = icmp eq i32 %19, 0
+  br i1 %.not18.i.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2, %23
-  %.01417.i.i = phi ptr [ %24, %23 ], [ %17, %2 ]
-  %22 = load ptr, ptr %.01417.i.i, align 8, !tbaa !98
+  %.01419.i.i = phi ptr [ %24, %23 ], [ %17, %2 ]
+  %22 = load ptr, ptr %.01419.i.i, align 8, !tbaa !98
   %.not15.i.i = icmp eq ptr %22, %15
   br i1 %.not15.i.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit, label %23
 
 23:                                               ; preds = %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.01417.i.i, i64 56
+  %24 = getelementptr inbounds nuw i8, ptr %.01419.i.i, i64 56
   %.not.i.i = icmp eq ptr %24, %21
   br i1 %.not.i.i, label %_ZNK4llvm6Record8getValueENS_9StringRefE.exit.thread, label %.lr.ph.i.i
 
@@ -3018,22 +3018,22 @@ _ZNSt10unique_ptrIN4llvm18CodeGenInstructionESt14default_deleteIS1_EED2Ev.exit: 
   %30 = zext i32 %29 to i64
   %.idx.i.i.i = mul nuw nsw i64 %30, 56
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 %.idx.i.i.i
-  %.not16.i.i.i = icmp eq i32 %29, 0
-  br i1 %.not16.i.i.i, label %_ZNK4llvm18CodeGenInstruction24isVariableLengthEncodingEv.exit.thread, label %.lr.ph.i.i.i
+  %.not18.i.i.i = icmp eq i32 %29, 0
+  br i1 %.not18.i.i.i, label %_ZNK4llvm18CodeGenInstruction24isVariableLengthEncodingEv.exit.thread, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %_ZNSt10unique_ptrIN4llvm18CodeGenInstructionESt14default_deleteIS1_EED2Ev.exit, %33
-  %.01417.i.i.i = phi ptr [ %34, %33 ], [ %27, %_ZNSt10unique_ptrIN4llvm18CodeGenInstructionESt14default_deleteIS1_EED2Ev.exit ]
-  %32 = load ptr, ptr %.01417.i.i.i, align 8, !tbaa !98
+  %.01419.i.i.i = phi ptr [ %34, %33 ], [ %27, %_ZNSt10unique_ptrIN4llvm18CodeGenInstructionESt14default_deleteIS1_EED2Ev.exit ]
+  %32 = load ptr, ptr %.01419.i.i.i, align 8, !tbaa !98
   %.not15.i.i.i = icmp eq ptr %32, %25
   br i1 %.not15.i.i.i, label %_ZNK4llvm18CodeGenInstruction24isVariableLengthEncodingEv.exit, label %33
 
 33:                                               ; preds = %.lr.ph.i.i.i
-  %34 = getelementptr inbounds nuw i8, ptr %.01417.i.i.i, i64 56
+  %34 = getelementptr inbounds nuw i8, ptr %.01419.i.i.i, i64 56
   %.not.i.i.i = icmp eq ptr %34, %31
   br i1 %.not.i.i.i, label %_ZNK4llvm18CodeGenInstruction24isVariableLengthEncodingEv.exit.thread, label %.lr.ph.i.i.i
 
 _ZNK4llvm18CodeGenInstruction24isVariableLengthEncodingEv.exit: ; preds = %.lr.ph.i.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %.01417.i.i.i, i64 24
+  %35 = getelementptr inbounds nuw i8, ptr %.01419.i.i.i, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !323
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i8, ptr %37, align 8, !tbaa !324
@@ -3814,8 +3814,8 @@ _ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit: ; preds = %29
   br i1 %.not15.i.i.i56, label %_ZN4llvm6Record8getValueENS_9StringRefE.exit, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.thread, %.lr.ph.i.i.i
-  %.01417.i.i.i57 = phi ptr [ %72, %.lr.ph.i.i.i ], [ %66, %._crit_edge.thread ]
-  %72 = getelementptr inbounds nuw i8, ptr %.01417.i.i.i57, i64 56
+  %.01419.i.i.i57 = phi ptr [ %72, %.lr.ph.i.i.i ], [ %66, %._crit_edge.thread ]
+  %72 = getelementptr inbounds nuw i8, ptr %.01419.i.i.i57, i64 56
   %.not.i.i.i = icmp ne ptr %72, %70
   call void @llvm.assume(i1 %.not.i.i.i)
   %73 = load ptr, ptr %72, align 8, !tbaa !98
@@ -3823,8 +3823,8 @@ _ZN4llvm11SmallVectorIPKNS_4InitELj16EEC2Em.exit: ; preds = %29
   br i1 %.not15.i.i.i, label %_ZN4llvm6Record8getValueENS_9StringRefE.exit, label %.lr.ph.i.i.i
 
 _ZN4llvm6Record8getValueENS_9StringRefE.exit:     ; preds = %.lr.ph.i.i.i, %._crit_edge.thread
-  %.01417.i.i.i.lcssa = phi ptr [ %66, %._crit_edge.thread ], [ %72, %.lr.ph.i.i.i ]
-  %74 = call noundef zeroext i1 @_ZN4llvm9RecordVal8setValueEPKNS_4InitE(ptr noundef nonnull align 8 dereferenceable(56) %.01417.i.i.i.lcssa, ptr noundef %61) #22
+  %.01419.i.i.i.lcssa = phi ptr [ %66, %._crit_edge.thread ], [ %72, %.lr.ph.i.i.i ]
+  %74 = call noundef zeroext i1 @_ZN4llvm9RecordVal8setValueEPKNS_4InitE(ptr noundef nonnull align 8 dereferenceable(56) %.01419.i.i.i.lcssa, ptr noundef %61) #22
   %75 = load ptr, ptr %2, align 8, !tbaa !25
   %76 = icmp eq ptr %75, %13
   br i1 %76, label %_ZN4llvm11SmallVectorIPKNS_4InitELj16EED2Ev.exit, label %77

@@ -1497,13 +1497,13 @@ _ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread82: ; preds = %7, %_ZN
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i8, ptr %34, align 16
   %36 = icmp ne i8 %35, 13
-  %.not.not24.i = icmp eq ptr %33, null
-  %.not.not.i = or i1 %.not.not24.i, %36
+  %.not.not21.i = icmp eq ptr %33, null
+  %.not.not.i = or i1 %.not.not21.i, %36
   br i1 %.not.not.i, label %37, label %_ZNK5clang4Type13isIntegerTypeEv.exit
 
 37:                                               ; preds = %_ZNK5clang4Type5getAsINS_11PointerTypeEEEPKT_v.exit.thread82
   %38 = icmp ne i8 %35, 46
-  %.not13.not.i = or i1 %.not.not24.i, %38
+  %.not13.not.i = or i1 %.not.not21.i, %38
   br i1 %.not13.not.i, label %52, label %39
 
 39:                                               ; preds = %37
@@ -2545,8 +2545,8 @@ _ZN5clang12CXXBasePathsC2Ebbb.exit:               ; preds = %.lr.ph.i.i.i.i
   %.not.i.i.i.i17 = icmp eq i64 %31, 0
   %32 = and i64 %.sroa.020.030, -8
   %33 = inttoptr i64 %32 to ptr
-  %.not.not8.i = icmp eq i64 %32, 0
-  %.not.not.i = or i1 %.not.i.i.i.i17, %.not.not8.i
+  %.not.not7.i = icmp eq i64 %32, 0
+  %.not.not.i = or i1 %.not.i.i.i.i17, %.not.not7.i
   br i1 %.not.not.i, label %_ZNK5clang12DeclListNode8iteratordeEv.exit, label %34
 
 34:                                               ; preds = %.lr.ph
@@ -3471,8 +3471,8 @@ _ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource
   %.not.i.i.i.i.i = icmp eq i64 %43, 0
   %44 = and i64 %.0.copyload.i.i.i.i.i.i10, -8
   %45 = inttoptr i64 %44 to ptr
-  %.not.not15.i = icmp eq i64 %44, 0
-  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not15.i
+  %.not.not14.i = icmp eq i64 %44, 0
+  %.not.not.i = or i1 %.not.i.i.i.i.i, %.not.not14.i
   br i1 %.not.not.i, label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEE3getES3_.exit, label %46
 
 46:                                               ; preds = %42

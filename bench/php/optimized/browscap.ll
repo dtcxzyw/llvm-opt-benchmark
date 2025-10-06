@@ -426,15 +426,15 @@ zend_parse_arg_str_ex.exit:                       ; preds = %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %26 = load i8, ptr %25, align 8, !tbaa !4
   switch i8 %26, label %zend_parse_arg_bool_ex.exit [
-    i8 3, label %.thread186
-    i8 2, label %.thread186.fold.split
+    i8 3, label %.thread184
+    i8 2, label %.thread184.fold.split
   ], !prof !33
 
-.thread186.fold.split:                            ; preds = %24
-  br label %.thread186
+.thread184.fold.split:                            ; preds = %24
+  br label %.thread184
 
-.thread186:                                       ; preds = %24, %.thread186.fold.split
-  %storemerge.i143 = phi i8 [ 1, %24 ], [ 0, %.thread186.fold.split ]
+.thread184:                                       ; preds = %24, %.thread184.fold.split
+  %storemerge.i143 = phi i8 [ 1, %24 ], [ 0, %.thread184.fold.split ]
   store i8 %storemerge.i143, ptr %7, align 1, !tbaa !27
   br label %.critedge
 
@@ -452,7 +452,7 @@ zend_parse_arg_bool_ex.exit:                      ; preds = %24
   call void @zend_wrong_parameter_error(i32 noundef %.0109167, i32 noundef %.0103170, ptr noundef null, i32 noundef %.0107168, ptr noundef %.0106169) #13
   br label %zend_hash_find_ptr.exit135.thread
 
-.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread186, %14, %23
+.critedge:                                        ; preds = %zend_parse_arg_bool_ex.exit, %.thread184, %14, %23
   %29 = load i8, ptr getelementptr inbounds nuw (i8, ptr @browscap_globals, i64 24), align 8, !tbaa !4
   %.not116 = icmp eq i8 %29, 0
   br i1 %.not116, label %38, label %30
@@ -543,23 +543,23 @@ zend_hash_find_ptr.exit:                          ; preds = %59
   %71 = zext i32 %70 to i64
   %.idx = shl nuw nsw i64 %71, 5
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 %.idx
-  %.not120192 = icmp eq i32 %70, 0
-  br i1 %.not120192, label %._crit_edge196.thread, label %.lr.ph195
+  %.not120189 = icmp eq i32 %70, 0
+  br i1 %.not120189, label %.critedge128._crit_edge.thread, label %.lr.ph191
 
-.lr.ph195:                                        ; preds = %65
+.lr.ph191:                                        ; preds = %65
   %73 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %74 = getelementptr inbounds nuw i8, ptr %61, i64 24
   br label %.backedge
 
-.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph195
-  %.0108193 = phi ptr [ %68, %.lr.ph195 ], [ %.0108193.be, %.backedge.backedge ]
-  %75 = getelementptr inbounds nuw i8, ptr %.0108193, i64 8
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph191
+  %.0108190 = phi ptr [ %68, %.lr.ph191 ], [ %.0108190.be, %.backedge.backedge ]
+  %75 = getelementptr inbounds nuw i8, ptr %.0108190, i64 8
   %76 = load i8, ptr %75, align 8, !tbaa !4
   %77 = icmp eq i8 %76, 0
-  br i1 %77, label %.thread180, label %78, !prof !29
+  br i1 %77, label %select.unfold, label %78, !prof !29
 
 78:                                               ; preds = %.backedge
-  %79 = load ptr, ptr %.0108193, align 8, !tbaa !4
+  %79 = load ptr, ptr %.0108190, align 8, !tbaa !4
   %80 = load i64, ptr %73, align 8, !tbaa !40
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 39
   %82 = load i8, ptr %81, align 1, !tbaa !42
@@ -580,11 +580,11 @@ zend_hash_find_ptr.exit:                          ; preds = %59
 
 browscap_get_minimum_length.exit:                 ; preds = %85
   %90 = icmp ult i64 %80, %89
-  br i1 %90, label %.thread180, label %.preheader
+  br i1 %90, label %select.unfold, label %.preheader
 
 .preheader:                                       ; preds = %browscap_get_minimum_length.exit
-  %.not122190.not = icmp eq i8 %82, 0
-  br i1 %.not122190.not, label %._crit_edge, label %.lr.ph
+  %.not122187.not = icmp eq i8 %82, 0
+  br i1 %.not122187.not, label %.critedge128, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %91 = load ptr, ptr %79, align 8, !tbaa !44
@@ -592,58 +592,58 @@ browscap_get_minimum_length.exit:                 ; preds = %85
   br label %95
 
 93:                                               ; preds = %95
-  %94 = add nuw nsw i64 %.0104191, 1
+  %94 = add nuw nsw i64 %.0104188, 1
   %exitcond.not = icmp eq i64 %94, %83
-  br i1 %exitcond.not, label %._crit_edge, label %95
+  br i1 %exitcond.not, label %.critedge128, label %95
 
 95:                                               ; preds = %.lr.ph, %93
-  %.0104191 = phi i64 [ 0, %.lr.ph ], [ %94, %93 ]
-  %96 = getelementptr inbounds nuw i8, ptr %74, i64 %.0104191
+  %.0104188 = phi i64 [ 0, %.lr.ph ], [ %94, %93 ]
+  %96 = getelementptr inbounds nuw i8, ptr %74, i64 %.0104188
   %97 = load i8, ptr %96, align 1, !tbaa !4
   %98 = sext i8 %97 to i32
-  %99 = getelementptr inbounds nuw i8, ptr %92, i64 %.0104191
+  %99 = getelementptr inbounds nuw i8, ptr %92, i64 %.0104188
   %100 = load i8, ptr %99, align 1, !tbaa !4
   %101 = zext i8 %100 to i64
   %102 = getelementptr inbounds nuw i8, ptr @zend_tolower_map, i64 %101
   %103 = load i8, ptr %102, align 1, !tbaa !4
   %104 = zext i8 %103 to i32
   %.not121 = icmp eq i32 %98, %104
-  br i1 %.not121, label %93, label %.thread180
+  br i1 %.not121, label %93, label %select.unfold
 
-._crit_edge:                                      ; preds = %93, %.preheader
+.critedge128:                                     ; preds = %93, %.preheader
   %105 = call fastcc i32 @browser_reg_compare(ptr noundef nonnull %79, ptr noundef nonnull %61, ptr noundef %8, ptr noundef %9)
-  %.not123.not = icmp ne i32 %105, 0
-  %106 = getelementptr inbounds nuw i8, ptr %.0108193, i64 32
+  %.not123 = icmp ne i32 %105, 0
+  %106 = getelementptr inbounds nuw i8, ptr %.0108190, i64 32
   %.not120 = icmp eq ptr %106, %72
-  %or.cond = select i1 %.not123.not, i1 true, i1 %.not120
-  br i1 %or.cond, label %._crit_edge196, label %.backedge.backedge
+  %or.cond = select i1 %.not123, i1 true, i1 %.not120
+  br i1 %or.cond, label %.critedge128._crit_edge, label %.backedge.backedge
 
-.thread180:                                       ; preds = %95, %browscap_get_minimum_length.exit, %.backedge
-  %.old = getelementptr inbounds nuw i8, ptr %.0108193, i64 32
+select.unfold:                                    ; preds = %95, %.backedge, %browscap_get_minimum_length.exit
+  %.old = getelementptr inbounds nuw i8, ptr %.0108190, i64 32
   %.not120.old = icmp eq ptr %.old, %72
-  br i1 %.not120.old, label %._crit_edge196, label %.backedge.backedge
+  br i1 %.not120.old, label %.critedge128._crit_edge, label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %.thread180, %._crit_edge
-  %.0108193.be = phi ptr [ %.old, %.thread180 ], [ %106, %._crit_edge ]
+.backedge.backedge:                               ; preds = %select.unfold, %.critedge128
+  %.0108190.be = phi ptr [ %.old, %select.unfold ], [ %106, %.critedge128 ]
   br label %.backedge
 
-._crit_edge196:                                   ; preds = %.thread180, %._crit_edge
+.critedge128._crit_edge:                          ; preds = %select.unfold, %.critedge128
   %.pre = load ptr, ptr %8, align 8, !tbaa !37
   %107 = icmp eq ptr %.pre, null
-  br i1 %107, label %._crit_edge196.thread, label %121
+  br i1 %107, label %.critedge128._crit_edge.thread, label %121
 
-._crit_edge196.thread:                            ; preds = %65, %._crit_edge196
+.critedge128._crit_edge.thread:                   ; preds = %65, %.critedge128._crit_edge
   %108 = load ptr, ptr %.0, align 8, !tbaa !7
   %109 = call ptr @zend_hash_str_find(ptr noundef %108, ptr noundef nonnull @.str.4, i64 noundef 35) #13
   %.not.i136 = icmp eq ptr %109, null
   br i1 %.not.i136, label %.critedge131, label %zend_hash_str_find_ptr.exit
 
-zend_hash_str_find_ptr.exit:                      ; preds = %._crit_edge196.thread
+zend_hash_str_find_ptr.exit:                      ; preds = %.critedge128._crit_edge.thread
   %110 = load ptr, ptr %109, align 8, !tbaa !4, !nonnull !36, !noundef !36
   store ptr %110, ptr %8, align 8, !tbaa !37
   br label %121
 
-.critedge131:                                     ; preds = %._crit_edge196.thread
+.critedge131:                                     ; preds = %.critedge128._crit_edge.thread
   %111 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %112 = load i32, ptr %111, align 4, !tbaa !4
   %113 = and i32 %112, 64
@@ -669,8 +669,8 @@ zend_string_release_ex.exit:                      ; preds = %.critedge131, %114,
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %zend_hash_find_ptr.exit135.thread
 
-121:                                              ; preds = %zend_hash_str_find_ptr.exit, %._crit_edge196
-  %122 = phi ptr [ %110, %zend_hash_str_find_ptr.exit ], [ %.pre, %._crit_edge196 ]
+121:                                              ; preds = %zend_hash_str_find_ptr.exit, %.critedge128._crit_edge
+  %122 = phi ptr [ %110, %zend_hash_str_find_ptr.exit ], [ %.pre, %.critedge128._crit_edge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %123
 
@@ -1028,8 +1028,8 @@ browscap_entry_to_array.exit:                     ; preds = %273, %255
 282:                                              ; preds = %browscap_entry_to_array.exit
   %283 = load ptr, ptr @zend_standard_class_def, align 8, !tbaa !50
   %284 = call i32 @object_and_properties_init(ptr noundef %1, ptr noundef %283, ptr noundef %142) #13
-  %.pre205 = load i8, ptr %7, align 1, !tbaa !27, !range !49
-  %285 = trunc nuw i8 %.pre205 to i1
+  %.pre199 = load i8, ptr %7, align 1, !tbaa !27, !range !49
+  %285 = trunc nuw i8 %.pre199 to i1
   br i1 %285, label %286, label %288
 
 286:                                              ; preds = %.thread, %282
@@ -1048,16 +1048,16 @@ browscap_entry_to_array.exit:                     ; preds = %273, %255
 295:                                              ; preds = %288, %286
   %296 = phi ptr [ %287, %286 ], [ %294, %288 ]
   %297 = load ptr, ptr %133, align 8, !tbaa !47
-  %.not124200 = icmp eq ptr %297, null
-  br i1 %.not124200, label %zend_hash_find_ptr.exit135.thread, label %.lr.ph202
+  %.not124194 = icmp eq ptr %297, null
+  br i1 %.not124194, label %zend_hash_find_ptr.exit135.thread, label %.lr.ph196
 
-.lr.ph202:                                        ; preds = %295
+.lr.ph196:                                        ; preds = %295
   %298 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %299 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %300
 
-300:                                              ; preds = %.lr.ph202, %browscap_entry_add_kv_to_existing_array.exit
-  %301 = phi ptr [ %297, %.lr.ph202 ], [ %330, %browscap_entry_add_kv_to_existing_array.exit ]
+300:                                              ; preds = %.lr.ph196, %browscap_entry_add_kv_to_existing_array.exit
+  %301 = phi ptr [ %297, %.lr.ph196 ], [ %330, %browscap_entry_add_kv_to_existing_array.exit ]
   %302 = load ptr, ptr %.0, align 8, !tbaa !7
   %303 = call ptr @zend_hash_find(ptr noundef %302, ptr noundef nonnull %301) #13
   %.not.i133 = icmp eq ptr %303, null

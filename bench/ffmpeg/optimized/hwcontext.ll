@@ -672,7 +672,7 @@ av_hwframe_transfer_get_formats.exit:             ; preds = %21
 transfer_data_alloc.exit:                         ; preds = %8, %11, %52
   %.018.i = phi i32 [ %.017.i, %52 ], [ -22, %8 ], [ -12, %11 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %.thread67
+  br label %.thread66
 
 53:                                               ; preds = %3
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -698,7 +698,7 @@ transfer_data_alloc.exit:                         ; preds = %8, %11, %52
 
 66:                                               ; preds = %61
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %60, i32 noundef 16, ptr noundef nonnull @.str.1) #11
-  br label %.thread67
+  br label %.thread66
 
 67:                                               ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 96
@@ -708,7 +708,7 @@ transfer_data_alloc.exit:                         ; preds = %8, %11, %52
 
 70:                                               ; preds = %67
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %60, i32 noundef 16, ptr noundef nonnull @.str.2) #11
-  br label %.thread67
+  br label %.thread66
 
 71:                                               ; preds = %67
   %72 = getelementptr inbounds nuw i8, ptr %60, i64 80
@@ -730,7 +730,7 @@ transfer_data_alloc.exit:                         ; preds = %8, %11, %52
 84:                                               ; preds = %71, %78
   %.044 = phi i32 [ %83, %78 ], [ %76, %71 ]
   %85 = icmp sgt i32 %.044, -1
-  br i1 %85, label %103, label %.thread67
+  br i1 %85, label %103, label %.thread66
 
 86:                                               ; preds = %58
   %87 = getelementptr inbounds nuw i8, ptr %60, i64 80
@@ -739,10 +739,10 @@ transfer_data_alloc.exit:                         ; preds = %8, %11, %52
   %90 = load ptr, ptr %89, align 8, !tbaa !83
   %91 = tail call i32 %90(ptr noundef %60, ptr noundef nonnull %0, ptr noundef nonnull %1) #11
   %92 = icmp sgt i32 %91, -1
-  br i1 %92, label %103, label %.thread67
+  br i1 %92, label %103, label %.thread66
 
 93:                                               ; preds = %53
-  br i1 %.not56, label %.thread67, label %94
+  br i1 %.not56, label %.thread66, label %94
 
 94:                                               ; preds = %93
   %95 = getelementptr inbounds nuw i8, ptr %57, i64 8
@@ -753,12 +753,12 @@ transfer_data_alloc.exit:                         ; preds = %8, %11, %52
   %100 = load ptr, ptr %99, align 8, !tbaa !84
   %101 = tail call i32 %100(ptr noundef %96, ptr noundef nonnull %0, ptr noundef nonnull %1) #11
   %102 = icmp sgt i32 %101, -1
-  br i1 %102, label %103, label %.thread67
+  br i1 %102, label %103, label %.thread66
 
 103:                                              ; preds = %86, %94, %84
-  br label %.thread67
+  br label %.thread66
 
-.thread67:                                        ; preds = %70, %66, %93, %84, %86, %94, %103, %transfer_data_alloc.exit
+.thread66:                                        ; preds = %70, %66, %93, %84, %86, %94, %103, %transfer_data_alloc.exit
   %.0 = phi i32 [ 0, %103 ], [ %.044, %84 ], [ %91, %86 ], [ %101, %94 ], [ %.018.i, %transfer_data_alloc.exit ], [ -38, %93 ], [ -38, %66 ], [ -38, %70 ]
   ret i32 %.0
 }

@@ -43,8 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 $_ZN10NMTPreInit14handle_reallocEPPvS0_m8MEMFLAGS = comdat any
 
-$_ZNK5frame12link_or_nullEv = comdat any
-
 $_ZN7LogImplILN6LogTag4typeE108ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE3EEEvPKcz = comdat any
 
 $_ZN7LogImplILN6LogTag4typeE105ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz = comdat any
@@ -2929,11 +2927,11 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread: ; preds = %41, %_ZN28JavaT
   br i1 %121, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %115, %.lr.ph
-  %.090 = phi ptr [ %124, %.lr.ph ], [ %5, %115 ]
-  %122 = load i8, ptr %.090, align 1
+  %.088 = phi ptr [ %124, %.lr.ph ], [ %5, %115 ]
+  %122 = load i8, ptr %.088, align 1
   %123 = zext i8 %122 to i32
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull @.str.52, i32 noundef %123) #28
-  %124 = getelementptr inbounds nuw i8, ptr %.090, i64 1
+  %124 = getelementptr inbounds nuw i8, ptr %.088, i64 1
   %125 = icmp ult ptr %124, %120
   br i1 %125, label %.lr.ph, label %._crit_edge, !llvm.loop !23
 
@@ -2968,7 +2966,7 @@ declare noundef zeroext i1 @_ZN10MemTracker23print_containing_regionEPKvP12outpu
 declare noundef zeroext i1 @_ZN2os4findEPhP12outputStream(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN2os16is_first_C_frameEP5frame(ptr noundef %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN2os16is_first_C_frameEP5frame(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr %0, align 8
   %3 = ptrtoint ptr %2 to i64
   %4 = and i64 %3, 7
@@ -2978,14 +2976,14 @@ define hidden noundef zeroext i1 @_ZN2os16is_first_C_frameEP5frame(ptr noundef %
 6:                                                ; preds = %1
   %7 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %2, i32 noundef -889275714) #28
   %.not.i.i = icmp eq i32 %7, -889275714
-  br i1 %.not.i.i, label %_ZL14is_pointer_badPl.exit, label %_ZL14is_pointer_badPl.exit.thread24
+  br i1 %.not.i.i, label %_ZL14is_pointer_badPl.exit, label %_ZL14is_pointer_badPl.exit.thread33
 
 _ZL14is_pointer_badPl.exit:                       ; preds = %6
   %8 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %2, i32 noundef -559038737) #28
   %9 = icmp eq i32 %8, -559038737
-  br i1 %9, label %_ZL14is_pointer_badPl.exit.thread, label %_ZL14is_pointer_badPl.exit.thread24
+  br i1 %9, label %_ZL14is_pointer_badPl.exit.thread, label %_ZL14is_pointer_badPl.exit.thread33
 
-_ZL14is_pointer_badPl.exit.thread24:              ; preds = %6, %_ZL14is_pointer_badPl.exit
+_ZL14is_pointer_badPl.exit.thread33:              ; preds = %6, %_ZL14is_pointer_badPl.exit
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8
   %12 = ptrtoint ptr %11 to i64
@@ -2993,17 +2991,17 @@ _ZL14is_pointer_badPl.exit.thread24:              ; preds = %6, %_ZL14is_pointer
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %_ZL14is_pointer_badPl.exit.thread
 
-15:                                               ; preds = %_ZL14is_pointer_badPl.exit.thread24
+15:                                               ; preds = %_ZL14is_pointer_badPl.exit.thread33
   %16 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %11, i32 noundef -889275714) #28
-  %.not.i.i19 = icmp eq i32 %16, -889275714
-  br i1 %.not.i.i19, label %_ZL14is_pointer_badPl.exit20, label %_ZL14is_pointer_badPl.exit20.thread25
+  %.not.i.i20 = icmp eq i32 %16, -889275714
+  br i1 %.not.i.i20, label %_ZL14is_pointer_badPl.exit21, label %_ZL14is_pointer_badPl.exit21.thread34
 
-_ZL14is_pointer_badPl.exit20:                     ; preds = %15
+_ZL14is_pointer_badPl.exit21:                     ; preds = %15
   %17 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %11, i32 noundef -559038737) #28
   %18 = icmp eq i32 %17, -559038737
-  br i1 %18, label %_ZL14is_pointer_badPl.exit.thread, label %_ZL14is_pointer_badPl.exit20.thread25
+  br i1 %18, label %_ZL14is_pointer_badPl.exit.thread, label %_ZL14is_pointer_badPl.exit21.thread34
 
-_ZL14is_pointer_badPl.exit20.thread25:            ; preds = %15, %_ZL14is_pointer_badPl.exit20
+_ZL14is_pointer_badPl.exit21.thread34:            ; preds = %15, %_ZL14is_pointer_badPl.exit21
   %19 = load ptr, ptr %10, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = ptrtoint ptr %20 to i64
@@ -3011,108 +3009,92 @@ _ZL14is_pointer_badPl.exit20.thread25:            ; preds = %15, %_ZL14is_pointe
   %23 = icmp eq i64 %22, 0
   br i1 %23, label %24, label %_ZL14is_pointer_badPl.exit.thread
 
-24:                                               ; preds = %_ZL14is_pointer_badPl.exit20.thread25
+24:                                               ; preds = %_ZL14is_pointer_badPl.exit21.thread34
   %25 = tail call noundef i32 @SafeFetch32_impl(ptr noundef nonnull %20, i32 noundef -889275714) #28
-  %.not.i.i21 = icmp eq i32 %25, -889275714
-  br i1 %.not.i.i21, label %_ZL14is_pointer_badPl.exit22, label %_ZL14is_pointer_badPl.exit22.thread26
+  %.not.i.i22 = icmp eq i32 %25, -889275714
+  br i1 %.not.i.i22, label %_ZL14is_pointer_badPl.exit23, label %_ZL14is_pointer_badPl.exit23.thread35
 
-_ZL14is_pointer_badPl.exit22:                     ; preds = %24
+_ZL14is_pointer_badPl.exit23:                     ; preds = %24
   %26 = tail call noundef i32 @SafeFetch32_impl(ptr noundef nonnull %20, i32 noundef -559038737) #28
   %27 = icmp eq i32 %26, -559038737
-  br i1 %27, label %_ZL14is_pointer_badPl.exit.thread, label %_ZL14is_pointer_badPl.exit22.thread26
+  br i1 %27, label %_ZL14is_pointer_badPl.exit.thread, label %_ZL14is_pointer_badPl.exit23.thread35
 
-_ZL14is_pointer_badPl.exit22.thread26:            ; preds = %24, %_ZL14is_pointer_badPl.exit22
+_ZL14is_pointer_badPl.exit23.thread35:            ; preds = %24, %_ZL14is_pointer_badPl.exit23
   %28 = load ptr, ptr %10, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, -4
   %31 = inttoptr i64 %30 to ptr
   %32 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %31, i32 noundef -889275714) #28
-  %.not.i.i23 = icmp eq i32 %32, -889275714
-  br i1 %.not.i.i23, label %_ZN2os19is_readable_pointerEPKv.exit.i, label %_ZN2os19is_readable_pointerEPKv.exit.thread.i
+  %.not.i.i24 = icmp eq i32 %32, -889275714
+  br i1 %.not.i.i24, label %_ZN2os19is_readable_pointerEPKv.exit.i, label %_ZN2os19is_readable_pointerEPKv.exit.thread.i
 
-_ZN2os19is_readable_pointerEPKv.exit.i:           ; preds = %_ZL14is_pointer_badPl.exit22.thread26
+_ZN2os19is_readable_pointerEPKv.exit.i:           ; preds = %_ZL14is_pointer_badPl.exit23.thread35
   %33 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %31, i32 noundef -559038737) #28
   %.not.i = icmp eq i32 %33, -559038737
   br i1 %.not.i, label %_ZNK5frame12link_or_nullEv.exit, label %_ZN2os19is_readable_pointerEPKv.exit.thread.i
 
-_ZN2os19is_readable_pointerEPKv.exit.thread.i:    ; preds = %_ZN2os19is_readable_pointerEPKv.exit.i, %_ZL14is_pointer_badPl.exit22.thread26
+_ZN2os19is_readable_pointerEPKv.exit.thread.i:    ; preds = %_ZN2os19is_readable_pointerEPKv.exit.i, %_ZL14is_pointer_badPl.exit23.thread35
   %34 = load ptr, ptr %28, align 8
   br label %_ZNK5frame12link_or_nullEv.exit
 
 _ZNK5frame12link_or_nullEv.exit:                  ; preds = %_ZN2os19is_readable_pointerEPKv.exit.i, %_ZN2os19is_readable_pointerEPKv.exit.thread.i
   %35 = phi ptr [ %34, %_ZN2os19is_readable_pointerEPKv.exit.thread.i ], [ null, %_ZN2os19is_readable_pointerEPKv.exit.i ]
   %36 = ptrtoint ptr %35 to i64
-  switch i64 %36, label %37 [
-    i64 -1, label %_ZL14is_pointer_badPl.exit.thread
-    i64 0, label %_ZL14is_pointer_badPl.exit.thread
-  ]
-
-37:                                               ; preds = %_ZNK5frame12link_or_nullEv.exit
+  %37 = add i64 %36, 1
+  %switch = icmp ult i64 %37, 2
   %38 = icmp eq ptr %35, %11
-  br i1 %38, label %_ZL14is_pointer_badPl.exit.thread, label %39
+  %or.cond = or i1 %38, %switch
+  br i1 %or.cond, label %_ZL14is_pointer_badPl.exit.thread, label %39
 
-39:                                               ; preds = %37
-  %40 = tail call noundef ptr @_ZNK5frame12link_or_nullEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %41 = tail call fastcc noundef zeroext i1 @_ZL14is_pointer_badPl(ptr noundef %40)
-  %42 = icmp ult ptr %35, %11
-  %or.cond = or i1 %42, %41
-  br i1 %or.cond, label %_ZL14is_pointer_badPl.exit.thread, label %43
+39:                                               ; preds = %_ZNK5frame12link_or_nullEv.exit
+  %40 = load ptr, ptr %10, align 8
+  %41 = ptrtoint ptr %40 to i64
+  %42 = and i64 %41, -4
+  %43 = inttoptr i64 %42 to ptr
+  %44 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %43, i32 noundef -889275714) #28
+  %.not.i.i25 = icmp eq i32 %44, -889275714
+  br i1 %.not.i.i25, label %_ZN2os19is_readable_pointerEPKv.exit.i27, label %_ZN2os19is_readable_pointerEPKv.exit.thread.i26
 
-43:                                               ; preds = %39
-  %44 = sub i64 %36, %12
-  %45 = icmp ugt i64 %44, 65536
+_ZN2os19is_readable_pointerEPKv.exit.i27:         ; preds = %39
+  %45 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %43, i32 noundef -559038737) #28
+  %.not.i28 = icmp eq i32 %45, -559038737
+  br i1 %.not.i28, label %_ZNK5frame12link_or_nullEv.exit29, label %_ZN2os19is_readable_pointerEPKv.exit.thread.i26
+
+_ZN2os19is_readable_pointerEPKv.exit.thread.i26:  ; preds = %_ZN2os19is_readable_pointerEPKv.exit.i27, %39
+  %46 = load ptr, ptr %40, align 8
+  br label %_ZNK5frame12link_or_nullEv.exit29
+
+_ZNK5frame12link_or_nullEv.exit29:                ; preds = %_ZN2os19is_readable_pointerEPKv.exit.i27, %_ZN2os19is_readable_pointerEPKv.exit.thread.i26
+  %47 = phi ptr [ %46, %_ZN2os19is_readable_pointerEPKv.exit.thread.i26 ], [ null, %_ZN2os19is_readable_pointerEPKv.exit.i27 ]
+  %48 = ptrtoint ptr %47 to i64
+  %49 = and i64 %48, 7
+  %50 = icmp eq i64 %49, 0
+  br i1 %50, label %51, label %_ZL14is_pointer_badPl.exit.thread
+
+51:                                               ; preds = %_ZNK5frame12link_or_nullEv.exit29
+  %52 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %47, i32 noundef -889275714) #28
+  %.not.i.i31 = icmp eq i32 %52, -889275714
+  br i1 %.not.i.i31, label %53, label %_ZL14is_pointer_badPl.exit32
+
+53:                                               ; preds = %51
+  %54 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %47, i32 noundef -559038737) #28
+  %55 = icmp eq i32 %54, -559038737
+  br label %_ZL14is_pointer_badPl.exit32
+
+_ZL14is_pointer_badPl.exit32:                     ; preds = %51, %53
+  %56 = phi i1 [ false, %51 ], [ %55, %53 ]
+  %57 = icmp ult ptr %35, %11
+  %or.cond19 = or i1 %57, %56
+  br i1 %or.cond19, label %_ZL14is_pointer_badPl.exit.thread, label %58
+
+58:                                               ; preds = %_ZL14is_pointer_badPl.exit32
+  %59 = sub i64 %36, %12
+  %60 = icmp ugt i64 %59, 65536
   br label %_ZL14is_pointer_badPl.exit.thread
 
-_ZL14is_pointer_badPl.exit.thread:                ; preds = %_ZL14is_pointer_badPl.exit.thread24, %1, %43, %37, %39, %_ZNK5frame12link_or_nullEv.exit, %_ZNK5frame12link_or_nullEv.exit, %_ZL14is_pointer_badPl.exit20.thread25, %_ZL14is_pointer_badPl.exit22, %_ZL14is_pointer_badPl.exit20, %_ZL14is_pointer_badPl.exit
-  %.0 = phi i1 [ true, %_ZL14is_pointer_badPl.exit ], [ true, %_ZL14is_pointer_badPl.exit20 ], [ true, %_ZL14is_pointer_badPl.exit22 ], [ true, %_ZL14is_pointer_badPl.exit20.thread25 ], [ true, %_ZNK5frame12link_or_nullEv.exit ], [ true, %_ZNK5frame12link_or_nullEv.exit ], [ true, %39 ], [ true, %37 ], [ %45, %43 ], [ true, %1 ], [ true, %_ZL14is_pointer_badPl.exit.thread24 ]
+_ZL14is_pointer_badPl.exit.thread:                ; preds = %_ZNK5frame12link_or_nullEv.exit29, %_ZL14is_pointer_badPl.exit.thread33, %1, %_ZNK5frame12link_or_nullEv.exit, %58, %_ZL14is_pointer_badPl.exit32, %_ZL14is_pointer_badPl.exit21.thread34, %_ZL14is_pointer_badPl.exit23, %_ZL14is_pointer_badPl.exit21, %_ZL14is_pointer_badPl.exit
+  %.0 = phi i1 [ true, %_ZL14is_pointer_badPl.exit ], [ true, %_ZL14is_pointer_badPl.exit21 ], [ true, %_ZL14is_pointer_badPl.exit23 ], [ true, %_ZL14is_pointer_badPl.exit21.thread34 ], [ true, %_ZNK5frame12link_or_nullEv.exit ], [ true, %_ZL14is_pointer_badPl.exit32 ], [ %60, %58 ], [ true, %1 ], [ true, %_ZL14is_pointer_badPl.exit.thread33 ], [ true, %_ZNK5frame12link_or_nullEv.exit29 ]
   ret i1 %.0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL14is_pointer_badPl(ptr noundef %0) unnamed_addr #3 {
-  %2 = ptrtoint ptr %0 to i64
-  %3 = and i64 %2, 7
-  %4 = icmp eq i64 %3, 0
-  br i1 %4, label %5, label %_ZN2os19is_readable_pointerEPKv.exit
-
-5:                                                ; preds = %1
-  %6 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %0, i32 noundef -889275714) #28
-  %.not.i = icmp eq i32 %6, -889275714
-  br i1 %.not.i, label %7, label %_ZN2os19is_readable_pointerEPKv.exit
-
-7:                                                ; preds = %5
-  %8 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %0, i32 noundef -559038737) #28
-  %9 = icmp eq i32 %8, -559038737
-  br label %_ZN2os19is_readable_pointerEPKv.exit
-
-_ZN2os19is_readable_pointerEPKv.exit:             ; preds = %7, %5, %1
-  %10 = phi i1 [ true, %1 ], [ false, %5 ], [ %9, %7 ]
-  ret i1 %10
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden noundef ptr @_ZNK5frame12link_or_nullEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #3 comdat align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %3 = load ptr, ptr %2, align 8
-  %4 = ptrtoint ptr %3 to i64
-  %5 = and i64 %4, -4
-  %6 = inttoptr i64 %5 to ptr
-  %7 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %6, i32 noundef -889275714) #28
-  %.not.i = icmp eq i32 %7, -889275714
-  br i1 %.not.i, label %_ZN2os19is_readable_pointerEPKv.exit, label %_ZN2os19is_readable_pointerEPKv.exit.thread
-
-_ZN2os19is_readable_pointerEPKv.exit:             ; preds = %1
-  %8 = tail call noundef i32 @SafeFetch32_impl(ptr noundef %6, i32 noundef -559038737) #28
-  %.not = icmp eq i32 %8, -559038737
-  br i1 %.not, label %10, label %_ZN2os19is_readable_pointerEPKv.exit.thread
-
-_ZN2os19is_readable_pointerEPKv.exit.thread:      ; preds = %1, %_ZN2os19is_readable_pointerEPKv.exit
-  %9 = load ptr, ptr %3, align 8
-  br label %10
-
-10:                                               ; preds = %_ZN2os19is_readable_pointerEPKv.exit, %_ZN2os19is_readable_pointerEPKv.exit.thread
-  %11 = phi ptr [ %9, %_ZN2os19is_readable_pointerEPKv.exit.thread ], [ null, %_ZN2os19is_readable_pointerEPKv.exit ]
-  ret ptr %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

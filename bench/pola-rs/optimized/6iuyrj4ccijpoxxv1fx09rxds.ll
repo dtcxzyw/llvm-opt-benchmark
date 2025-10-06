@@ -45232,12 +45232,11 @@ define hidden { ptr, ptr } @_ZN13polars_stream14async_executor9TaskScope10spawn_
   %.pn.pn25 = phi { ptr, i32 } [ %10, %.thread ], [ %.pn36, %"_ZN4core3ptr145drop_in_place$LT$core..option..Option$LT$polars_stream..async_executor..task..Runnable$LT$polars_stream..async_executor..TaskMetadata$GT$$GT$$GT$17hd7841dd8628c5edbE.exit" ]
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %52 = load i8, ptr %51, align 8, !range !280, !noundef !4
-  switch i8 %52, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit" [
-    i8 0, label %common.ret.sink.split.i
-    i8 3, label %common.ret.sink.split.i
-  ]
+  %.off.i = add nsw i8 %52, -1
+  %switch.i = icmp ult i8 %.off.i, 2
+  br i1 %switch.i, label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit", label %common.ret.sink.split.i
 
-common.ret.sink.split.i:                          ; preds = %50, %50
+common.ret.sink.split.i:                          ; preds = %50
   invoke void @"_ZN4core3ptr110drop_in_place$LT$polars_stream..async_primitives..connector..Receiver$LT$polars_stream..morsel..Morsel$GT$$GT$17h661cd1be42756dc3E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
           to label %"_ZN4core3ptr165drop_in_place$LT$$LT$polars_stream..nodes..negative_slice..NegativeSliceNode$u20$as$u20$polars_stream..nodes..ComputeNode$GT$..spawn..$u7b$$u7b$closure$u7d$$u7d$$GT$17h2f52bd22cdbd3bddE.exit" unwind label %41
 }

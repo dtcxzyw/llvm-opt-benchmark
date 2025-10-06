@@ -15534,13 +15534,13 @@ _ZN5mmu_t27translate_insn_addr_to_hostEm.exit53:  ; preds = %118, %121
   br i1 %.not.i, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.i
 
 148:                                              ; preds = %.lr.ph.i
-  %149 = getelementptr inbounds nuw i8, ptr %.sroa.011.014.i, i64 8
-  %.not17.i = icmp eq ptr %149, %147
-  br i1 %.not17.i, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.i
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.011.015.i, i64 8
+  %.not18.i = icmp eq ptr %149, %147
+  br i1 %.not18.i, label %_ZN16memtracer_list_t5traceEmm11access_type.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.thread56, %148
-  %.sroa.011.014.i = phi ptr [ %149, %148 ], [ %145, %.thread56 ]
-  %150 = load ptr, ptr %.sroa.011.014.i, align 8, !tbaa !464
+  %.sroa.011.015.i = phi ptr [ %149, %148 ], [ %145, %.thread56 ]
+  %150 = load ptr, ptr %.sroa.011.015.i, align 8, !tbaa !464
   %151 = load ptr, ptr %150, align 8, !tbaa !26
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
   %153 = load ptr, ptr %152, align 8

@@ -1414,15 +1414,15 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr noundef read
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %16, align 8
-  %.not89 = icmp eq ptr %19, null
-  br i1 %.not89, label %.critedge, label %.lr.ph
+  %.not88 = icmp eq ptr %19, null
+  br i1 %.not88, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %74
   %20 = phi ptr [ %75, %74 ], [ %19, %5 ]
-  %.04292 = phi ptr [ %.14372, %74 ], [ null, %5 ]
-  %.04591 = phi ptr [ %.14670, %74 ], [ %16, %5 ]
-  %.04890 = phi ptr [ %.25068, %74 ], [ %18, %5 ]
-  %21 = load ptr, ptr %.04890, align 8
+  %.04291 = phi ptr [ %.14372, %74 ], [ null, %5 ]
+  %.04590 = phi ptr [ %.14670, %74 ], [ %16, %5 ]
+  %.04889 = phi ptr [ %.25068, %74 ], [ %18, %5 ]
+  %21 = load ptr, ptr %.04889, align 8
   %.not55 = icmp eq ptr %21, null
   br i1 %.not55, label %.critedge, label %22
 
@@ -1438,13 +1438,13 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr noundef read
   br i1 %.not56, label %30, label %.thread
 
 .thread:                                          ; preds = %27
-  %28 = getelementptr inbounds nuw i8, ptr %.04591, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.04590, i64 8
   %29 = load ptr, ptr %28, align 8
   br label %74
 
 30:                                               ; preds = %27
-  %31 = load ptr, ptr %.04591, align 8
-  %32 = load ptr, ptr %.04890, align 8
+  %31 = load ptr, ptr %.04590, align 8
+  %32 = load ptr, ptr %.04889, align 8
   %33 = tail call ptr @match_avp(ptr noundef %31, ptr noundef %32)
   %.not57 = icmp eq ptr %33, null
   br i1 %.not57, label %65, label %34
@@ -1453,9 +1453,9 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr noundef read
   %35 = load ptr, ptr %14, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
-  %38 = load ptr, ptr %.04591, align 8
+  %38 = load ptr, ptr %.04590, align 8
   %39 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #14
-  br i1 %4, label %40, label %.thread99
+  br i1 %4, label %40, label %.thread98
 
 40:                                               ; preds = %34
   %41 = tail call noalias dereferenceable_or_null(40) ptr @g_slice_alloc(i64 noundef 40) #14
@@ -1473,9 +1473,9 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr noundef read
   %51 = load i8, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i8 %51, ptr %52, align 8
-  br label %.thread99
+  br label %.thread98
 
-.thread99:                                        ; preds = %40, %34
+.thread98:                                        ; preds = %40, %34
   %53 = phi ptr [ %41, %40 ], [ %38, %34 ]
   store ptr %53, ptr %39, align 8
   %54 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -1490,62 +1490,62 @@ define hidden noundef ptr @new_avpl_pairs_match(ptr noundef %0, ptr noundef read
   %59 = load i32, ptr %11, align 8
   %60 = add i32 %59, 1
   store i32 %60, ptr %11, align 8
-  %61 = load ptr, ptr %.04890, align 8
+  %61 = load ptr, ptr %.04889, align 8
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %.04591, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %.04590, i64 8
   %64 = load ptr, ptr %63, align 8
-  %.250.in103 = getelementptr inbounds nuw i8, ptr %.04890, i64 8
-  %.250104 = load ptr, ptr %.250.in103, align 8
+  %.250.in102 = getelementptr inbounds nuw i8, ptr %.04889, i64 8
+  %.250103 = load ptr, ptr %.250.in102, align 8
   br label %74
 
 65:                                               ; preds = %30, %22
-  %66 = load ptr, ptr %.04890, align 8
+  %66 = load ptr, ptr %.04889, align 8
   %67 = load ptr, ptr %66, align 8
-  %.250.in = getelementptr inbounds nuw i8, ptr %.04890, i64 8
+  %.250.in = getelementptr inbounds nuw i8, ptr %.04889, i64 8
   %.250 = load ptr, ptr %.250.in, align 8
   %.not58 = icmp eq ptr %67, null
   br i1 %.not58, label %74, label %68
 
 68:                                               ; preds = %65
-  br i1 %3, label %.thread84, label %69
+  br i1 %3, label %.thread83, label %69
 
 69:                                               ; preds = %68
-  %.not59 = icmp eq ptr %.04292, %67
+  %.not59 = icmp eq ptr %.04291, %67
   br i1 %.not59, label %74, label %70
 
 70:                                               ; preds = %69
   %71 = load ptr, ptr %.250, align 8
   %.not60 = icmp eq ptr %71, null
-  br i1 %.not60, label %.thread84, label %72
+  br i1 %.not60, label %.thread83, label %72
 
 72:                                               ; preds = %70
   %73 = load ptr, ptr %71, align 8
-  %.not61 = icmp eq ptr %73, %.04292
-  br i1 %.not61, label %74, label %.thread84
+  %.not61 = icmp eq ptr %73, %.04291
+  br i1 %.not61, label %74, label %.thread83
 
-74:                                               ; preds = %.thread99, %72, %65, %69, %.thread
-  %.14372 = phi ptr [ %.04292, %.thread ], [ %.04292, %69 ], [ %.04292, %65 ], [ %.04292, %72 ], [ %62, %.thread99 ]
-  %.14670 = phi ptr [ %29, %.thread ], [ %.04591, %69 ], [ %.04591, %65 ], [ %.04591, %72 ], [ %64, %.thread99 ]
-  %.25068 = phi ptr [ %.04890, %.thread ], [ %.250, %69 ], [ %.250, %65 ], [ %.250, %72 ], [ %.250104, %.thread99 ]
+74:                                               ; preds = %.thread98, %72, %65, %69, %.thread
+  %.14372 = phi ptr [ %.04291, %.thread ], [ %.04291, %69 ], [ %.04291, %65 ], [ %.04291, %72 ], [ %62, %.thread98 ]
+  %.14670 = phi ptr [ %29, %.thread ], [ %.04590, %69 ], [ %.04590, %65 ], [ %.04590, %72 ], [ %64, %.thread98 ]
+  %.25068 = phi ptr [ %.04889, %.thread ], [ %.250, %69 ], [ %.250, %65 ], [ %.250, %72 ], [ %.250103, %.thread98 ]
   %75 = load ptr, ptr %.14670, align 8
   %.not = icmp eq ptr %75, null
   br i1 %.not, label %.critedge, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph, %74, %5
-  %.048.lcssa = phi ptr [ %18, %5 ], [ %.25068, %74 ], [ %.04890, %.lr.ph ]
-  br i1 %3, label %76, label %.critedge87
+  %.048.lcssa = phi ptr [ %18, %5 ], [ %.25068, %74 ], [ %.04889, %.lr.ph ]
+  br i1 %3, label %76, label %.critedge86
 
 76:                                               ; preds = %.critedge
   %77 = load ptr, ptr %.048.lcssa, align 8
   %.not62 = icmp eq ptr %77, null
-  br i1 %.not62, label %.critedge87, label %.thread84
+  br i1 %.not62, label %.critedge86, label %.thread83
 
-.thread84:                                        ; preds = %70, %72, %68, %76
+.thread83:                                        ; preds = %70, %72, %68, %76
   tail call void @delete_avpl(ptr noundef %8, i1 noundef zeroext %4)
-  br label %.critedge87
+  br label %.critedge86
 
-.critedge87:                                      ; preds = %.critedge, %76, %.thread84
-  %.039 = phi ptr [ null, %.thread84 ], [ %8, %76 ], [ %8, %.critedge ]
+.critedge86:                                      ; preds = %.critedge, %76, %.thread83
+  %.039 = phi ptr [ null, %.thread83 ], [ %8, %76 ], [ %8, %.critedge ]
   ret ptr %.039
 }
 

@@ -63,14 +63,14 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @sendln(i32 noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %.not24 = icmp eq i32 %2, 0
-  br i1 %.not24, label %.loopexit, label %.lr.ph
+  %.not22 = icmp eq i32 %2, 0
+  br i1 %.not22, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3, %19
-  %.01226 = phi i32 [ %.113, %19 ], [ %2, %3 ]
-  %.01425 = phi ptr [ %.115, %19 ], [ %1, %3 ]
-  %4 = zext i32 %.01226 to i64
-  %5 = tail call i64 @send(i32 noundef %0, ptr noundef %.01425, i64 noundef %4, i32 noundef 0) #16
+  %.01224 = phi i32 [ %.113, %19 ], [ %2, %3 ]
+  %.01423 = phi ptr [ %.115, %19 ], [ %1, %3 ]
+  %4 = zext i32 %.01224 to i64
+  %5 = tail call i64 @send(i32 noundef %0, ptr noundef %.01423, i64 noundef %4, i32 noundef 0) #16
   %6 = trunc i64 %5 to i32
   %7 = icmp slt i32 %6, 1
   br i1 %7, label %8, label %15
@@ -93,13 +93,13 @@ define range(i32 0, 2) i32 @sendln(i32 noundef %0, ptr noundef %1, i32 noundef %
 
 15:                                               ; preds = %.lr.ph
   %16 = and i64 %5, 2147483647
-  %17 = getelementptr inbounds nuw i8, ptr %.01425, i64 %16
-  %18 = sub i32 %.01226, %6
+  %17 = getelementptr inbounds nuw i8, ptr %.01423, i64 %16
+  %18 = sub i32 %.01224, %6
   br label %19
 
 19:                                               ; preds = %9, %15
-  %.115 = phi ptr [ %17, %15 ], [ %.01425, %9 ]
-  %.113 = phi i32 [ %18, %15 ], [ %.01226, %9 ]
+  %.115 = phi ptr [ %17, %15 ], [ %.01423, %9 ]
+  %.113 = phi i32 [ %18, %15 ], [ %.01224, %9 ]
   %.not = icmp eq i32 %.113, 0
   br i1 %.not, label %.loopexit, label %.lr.ph
 
@@ -362,10 +362,10 @@ define range(i32 -1, 2) i32 @send_fdpass(i32 noundef %0, ptr noundef %1) local_u
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24, %13
-  %.01226.i = phi i32 [ %.113.i, %24 ], [ 8, %13 ]
-  %.01425.i = phi ptr [ %.115.i, %24 ], [ %7, %13 ]
-  %14 = zext i32 %.01226.i to i64
-  %15 = call i64 @send(i32 noundef %0, ptr noundef %.01425.i, i64 noundef %14, i32 noundef 0) #16
+  %.01224.i = phi i32 [ %.113.i, %24 ], [ 8, %13 ]
+  %.01423.i = phi ptr [ %.115.i, %24 ], [ %7, %13 ]
+  %14 = zext i32 %.01224.i to i64
+  %15 = call i64 @send(i32 noundef %0, ptr noundef %.01423.i, i64 noundef %14, i32 noundef 0) #16
   %16 = trunc i64 %15 to i32
   %17 = icmp slt i32 %16, 1
   br i1 %17, label %18, label %20
@@ -380,13 +380,13 @@ define range(i32 -1, 2) i32 @send_fdpass(i32 noundef %0, ptr noundef %1) local_u
 
 20:                                               ; preds = %.lr.ph.i
   %21 = and i64 %15, 2147483647
-  %22 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 %21
-  %23 = sub i32 %.01226.i, %16
+  %22 = getelementptr inbounds nuw i8, ptr %.01423.i, i64 %21
+  %23 = sub i32 %.01224.i, %16
   br label %24
 
 24:                                               ; preds = %18, %20
-  %.115.i = phi ptr [ %22, %20 ], [ %.01425.i, %18 ]
-  %.113.i = phi i32 [ %23, %20 ], [ %.01226.i, %18 ]
+  %.115.i = phi ptr [ %22, %20 ], [ %.01423.i, %18 ]
+  %.113.i = phi i32 [ %23, %20 ], [ %.01224.i, %18 ]
   %.not.i = icmp eq i32 %.113.i, 0
   br i1 %.not.i, label %29, label %.lr.ph.i
 
@@ -482,10 +482,10 @@ define range(i32 -1, 2) i32 @send_stream(i32 noundef %0, ptr noundef %1, ptr nou
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %25, %14
-  %.01226.i = phi i32 [ %.113.i, %25 ], [ 10, %14 ]
-  %.01425.i = phi ptr [ %.115.i, %25 ], [ %5, %14 ]
-  %15 = zext i32 %.01226.i to i64
-  %16 = call i64 @send(i32 noundef %0, ptr noundef %.01425.i, i64 noundef %15, i32 noundef 0) #16
+  %.01224.i = phi i32 [ %.113.i, %25 ], [ 10, %14 ]
+  %.01423.i = phi ptr [ %.115.i, %25 ], [ %5, %14 ]
+  %15 = zext i32 %.01224.i to i64
+  %16 = call i64 @send(i32 noundef %0, ptr noundef %.01423.i, i64 noundef %15, i32 noundef 0) #16
   %17 = trunc i64 %16 to i32
   %18 = icmp slt i32 %17, 1
   br i1 %18, label %19, label %21
@@ -500,13 +500,13 @@ define range(i32 -1, 2) i32 @send_stream(i32 noundef %0, ptr noundef %1, ptr nou
 
 21:                                               ; preds = %.lr.ph.i
   %22 = and i64 %16, 2147483647
-  %23 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 %22
-  %24 = sub i32 %.01226.i, %17
+  %23 = getelementptr inbounds nuw i8, ptr %.01423.i, i64 %22
+  %24 = sub i32 %.01224.i, %17
   br label %25
 
 25:                                               ; preds = %19, %21
-  %.115.i = phi ptr [ %23, %21 ], [ %.01425.i, %19 ]
-  %.113.i = phi i32 [ %24, %21 ], [ %.01226.i, %19 ]
+  %.115.i = phi ptr [ %23, %21 ], [ %.01423.i, %19 ]
+  %.113.i = phi i32 [ %24, %21 ], [ %.01224.i, %19 ]
   %.not.i = icmp eq i32 %.113.i, 0
   br i1 %.not.i, label %sendln.exit.preheader, label %.lr.ph.i
 
@@ -535,14 +535,14 @@ sendln.exit:                                      ; preds = %sendln.exit.prehead
   %38 = call noundef i32 @llvm.bswap.i32(i32 range(i32 0, -2147483648) %spec.select)
   store i32 %38, ptr %4, align 16, !tbaa !3
   %39 = add i32 %spec.select, 4
-  %.not24.i = icmp eq i32 %39, 0
-  br i1 %.not24.i, label %.loopexit, label %.lr.ph.i34
+  %.not22.i = icmp eq i32 %39, 0
+  br i1 %.not22.i, label %.loopexit, label %.lr.ph.i34
 
 .lr.ph.i34:                                       ; preds = %34, %50
-  %.01226.i35 = phi i32 [ %.113.i38, %50 ], [ %39, %34 ]
-  %.01425.i36 = phi ptr [ %.115.i37, %50 ], [ %4, %34 ]
-  %40 = zext i32 %.01226.i35 to i64
-  %41 = call i64 @send(i32 noundef %0, ptr noundef %.01425.i36, i64 noundef %40, i32 noundef 0) #16
+  %.01224.i35 = phi i32 [ %.113.i38, %50 ], [ %39, %34 ]
+  %.01423.i36 = phi ptr [ %.115.i37, %50 ], [ %4, %34 ]
+  %40 = zext i32 %.01224.i35 to i64
+  %41 = call i64 @send(i32 noundef %0, ptr noundef %.01423.i36, i64 noundef %40, i32 noundef 0) #16
   %42 = trunc i64 %41 to i32
   %43 = icmp slt i32 %42, 1
   br i1 %43, label %44, label %46
@@ -557,13 +557,13 @@ sendln.exit:                                      ; preds = %sendln.exit.prehead
 
 46:                                               ; preds = %.lr.ph.i34
   %47 = and i64 %41, 2147483647
-  %48 = getelementptr inbounds nuw i8, ptr %.01425.i36, i64 %47
-  %49 = sub i32 %.01226.i35, %42
+  %48 = getelementptr inbounds nuw i8, ptr %.01423.i36, i64 %47
+  %49 = sub i32 %.01224.i35, %42
   br label %50
 
 50:                                               ; preds = %44, %46
-  %.115.i37 = phi ptr [ %48, %46 ], [ %.01425.i36, %44 ]
-  %.113.i38 = phi i32 [ %49, %46 ], [ %.01226.i35, %44 ]
+  %.115.i37 = phi ptr [ %48, %46 ], [ %.01423.i36, %44 ]
+  %.113.i38 = phi i32 [ %49, %46 ], [ %.01224.i35, %44 ]
   %.not.i39 = icmp eq i32 %.113.i38, 0
   br i1 %.not.i39, label %.loopexit, label %.lr.ph.i34
 
@@ -598,10 +598,10 @@ sendln.exit:                                      ; preds = %sendln.exit.prehead
   br label %.lr.ph.i45
 
 .lr.ph.i45:                                       ; preds = %76, %63
-  %.01226.i46 = phi i32 [ %.113.i49, %76 ], [ 4, %63 ]
-  %.01425.i47 = phi ptr [ %.115.i48, %76 ], [ %4, %63 ]
-  %64 = zext i32 %.01226.i46 to i64
-  %65 = call i64 @send(i32 noundef %0, ptr noundef %.01425.i47, i64 noundef %64, i32 noundef 0) #16
+  %.01224.i46 = phi i32 [ %.113.i49, %76 ], [ 4, %63 ]
+  %.01423.i47 = phi ptr [ %.115.i48, %76 ], [ %4, %63 ]
+  %64 = zext i32 %.01224.i46 to i64
+  %65 = call i64 @send(i32 noundef %0, ptr noundef %.01423.i47, i64 noundef %64, i32 noundef 0) #16
   %66 = trunc i64 %65 to i32
   %67 = icmp slt i32 %66, 1
   br i1 %67, label %68, label %72
@@ -621,13 +621,13 @@ sendln.exit:                                      ; preds = %sendln.exit.prehead
 
 72:                                               ; preds = %.lr.ph.i45
   %73 = and i64 %65, 2147483647
-  %74 = getelementptr inbounds nuw i8, ptr %.01425.i47, i64 %73
-  %75 = sub i32 %.01226.i46, %66
+  %74 = getelementptr inbounds nuw i8, ptr %.01423.i47, i64 %73
+  %75 = sub i32 %.01224.i46, %66
   br label %76
 
 76:                                               ; preds = %68, %72
-  %.115.i48 = phi ptr [ %74, %72 ], [ %.01425.i47, %68 ]
-  %.113.i49 = phi i32 [ %75, %72 ], [ %.01226.i46, %68 ]
+  %.115.i48 = phi ptr [ %74, %72 ], [ %.01423.i47, %68 ]
+  %.113.i49 = phi i32 [ %75, %72 ], [ %.01224.i46, %68 ]
   %.not.i50 = icmp eq i32 %.113.i49, 0
   br i1 %.not.i50, label %sendln.exit55, label %.lr.ph.i45
 
@@ -902,14 +902,14 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
 
 48:                                               ; preds = %32
   %49 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) @.str.25, ptr noundef nonnull %36, ptr noundef nonnull %2) #16
-  %.not24.i = icmp eq i32 %40, 0
-  br i1 %.not24.i, label %.loopexit141, label %.lr.ph.i
+  %.not22.i = icmp eq i32 %40, 0
+  br i1 %.not22.i, label %.loopexit140, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %48, %60
-  %.01226.i = phi i32 [ %.113.i, %60 ], [ %40, %48 ]
-  %.01425.i = phi ptr [ %.115.i, %60 ], [ %42, %48 ]
-  %50 = zext i32 %.01226.i to i64
-  %51 = call i64 @send(i32 noundef %0, ptr noundef %.01425.i, i64 noundef %50, i32 noundef 0) #16
+  %.01224.i = phi i32 [ %.113.i, %60 ], [ %40, %48 ]
+  %.01423.i = phi ptr [ %.115.i, %60 ], [ %42, %48 ]
+  %50 = zext i32 %.01224.i to i64
+  %51 = call i64 @send(i32 noundef %0, ptr noundef %.01423.i, i64 noundef %50, i32 noundef 0) #16
   %52 = trunc i64 %51 to i32
   %53 = icmp slt i32 %52, 1
   br i1 %53, label %54, label %56
@@ -919,20 +919,20 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   %.pre.i = tail call ptr @__errno_location() #17
   %.pre = load i32, ptr %.pre.i, align 4, !tbaa !3
   %55 = icmp eq i32 %.pre, 4
-  %or.cond174 = select i1 %.not18.i, i1 %55, i1 false
-  br i1 %or.cond174, label %60, label %61
+  %or.cond173 = select i1 %.not18.i, i1 %55, i1 false
+  br i1 %or.cond173, label %60, label %61
 
 56:                                               ; preds = %.lr.ph.i
   %57 = and i64 %51, 2147483647
-  %58 = getelementptr inbounds nuw i8, ptr %.01425.i, i64 %57
-  %59 = sub i32 %.01226.i, %52
+  %58 = getelementptr inbounds nuw i8, ptr %.01423.i, i64 %57
+  %59 = sub i32 %.01224.i, %52
   br label %60
 
 60:                                               ; preds = %54, %56
-  %.115.i = phi ptr [ %58, %56 ], [ %.01425.i, %54 ]
-  %.113.i = phi i32 [ %59, %56 ], [ %.01226.i, %54 ]
+  %.115.i = phi ptr [ %58, %56 ], [ %.01423.i, %54 ]
+  %.113.i = phi i32 [ %59, %56 ], [ %.01224.i, %54 ]
   %.not.i114 = icmp eq i32 %.113.i, 0
-  br i1 %.not.i114, label %.loopexit141.loopexit, label %.lr.ph.i
+  br i1 %.not.i114, label %.loopexit140.loopexit, label %.lr.ph.i
 
 61:                                               ; preds = %54
   %62 = call ptr @strerror(i32 noundef %.pre) #16
@@ -941,12 +941,12 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   call void @free(ptr noundef %64) #16
   br label %.loopexit
 
-.loopexit141.loopexit:                            ; preds = %60
-  %.pre150 = load ptr, ptr %7, align 8, !tbaa !15
-  br label %.loopexit141
+.loopexit140.loopexit:                            ; preds = %60
+  %.pre149 = load ptr, ptr %7, align 8, !tbaa !15
+  br label %.loopexit140
 
-.loopexit141:                                     ; preds = %.loopexit141.loopexit, %48
-  %65 = phi ptr [ %.pre150, %.loopexit141.loopexit ], [ %42, %48 ]
+.loopexit140:                                     ; preds = %.loopexit140.loopexit, %48
+  %65 = phi ptr [ %.pre149, %.loopexit140.loopexit ], [ %42, %48 ]
   call void @free(ptr noundef %65) #16
   br label %70
 
@@ -958,8 +958,8 @@ chkpath.exit.thread:                              ; preds = %21, %11, %6
   %69 = call i32 @send_fdpass(i32 noundef %0, ptr noundef %2)
   br label %70
 
-70:                                               ; preds = %68, %66, %.loopexit141
-  %.071 = phi i32 [ %40, %.loopexit141 ], [ %67, %66 ], [ %69, %68 ]
+70:                                               ; preds = %68, %66, %.loopexit140
+  %.071 = phi i32 [ %40, %.loopexit140 ], [ %67, %66 ], [ %69, %68 ]
   %71 = icmp slt i32 %.071, 1
   br i1 %71, label %.thread, label %.preheader
 

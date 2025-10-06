@@ -86,8 +86,8 @@ define void @_ZN5folly10AtForkList7prepareEv(ptr noundef nonnull align 8 derefer
 _ZNSt5mutex4lockEv.exit.preheader:                ; preds = %1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !7, !noalias !13
-  %.not2653 = icmp eq ptr %3, %4
-  br i1 %.not2653, label %.thread17, label %.lr.ph
+  %.not2350 = icmp eq ptr %3, %4
+  br i1 %.not2350, label %.thread15, label %.lr.ph
 
 5:                                                ; preds = %1
   invoke void @_ZSt20__throw_system_errori(i32 noundef %2) #24
@@ -98,18 +98,18 @@ _ZNSt5mutex4lockEv.exit.preheader:                ; preds = %1
 
 _ZNSt5mutex4lockEv.exit.loopexit:                 ; preds = %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit, %.preheader
   %6 = load ptr, ptr %3, align 8, !tbaa !7, !noalias !13
-  %.not26 = icmp eq ptr %3, %6
-  br i1 %.not26, label %.thread17, label %.lr.ph.backedge
+  %.not23 = icmp eq ptr %3, %6
+  br i1 %.not23, label %.thread15, label %.lr.ph.backedge
 
 .lr.ph:                                           ; preds = %_ZNSt5mutex4lockEv.exit.preheader, %.lr.ph.backedge
   %7 = phi ptr [ %.be, %.lr.ph.backedge ], [ %4, %_ZNSt5mutex4lockEv.exit.preheader ]
-  %.sroa.014.027 = phi ptr [ %.sroa.014.027.be, %.lr.ph.backedge ], [ %3, %_ZNSt5mutex4lockEv.exit.preheader ]
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.014.027, i64 8
+  %.sroa.013.024 = phi ptr [ %.sroa.013.024.be, %.lr.ph.backedge ], [ %3, %_ZNSt5mutex4lockEv.exit.preheader ]
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.013.024, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !17
-  %.not19 = icmp eq ptr %11, null
-  br i1 %.not19, label %17, label %12
+  %.not16 = icmp eq ptr %11, null
+  br i1 %.not16, label %17, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
@@ -119,42 +119,42 @@ _ZNSt5mutex4lockEv.exit.loopexit:                 ; preds = %_ZN5folly6detail8fu
           to label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit unwind label %.loopexit.split-lp.loopexit
 
 _ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit: ; preds = %12
-  %.pre34.pre = load ptr, ptr %3, align 8, !tbaa !7, !noalias !20
-  br i1 %16, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge
+  %.pre31.pre = load ptr, ptr %3, align 8, !tbaa !7, !noalias !20
+  br i1 %16, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge
 
-_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32: ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit
+_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29: ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit
   %.pre = load ptr, ptr %8, align 8, !tbaa !16
   br label %17
 
-17:                                               ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32, %.lr.ph
-  %18 = phi ptr [ %.pre34.pre, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32 ], [ %7, %.lr.ph ]
-  %19 = phi ptr [ %.pre, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32 ], [ %9, %.lr.ph ]
+17:                                               ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29, %.lr.ph
+  %18 = phi ptr [ %.pre31.pre, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29 ], [ %7, %.lr.ph ]
+  %19 = phi ptr [ %.pre, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29 ], [ %9, %.lr.ph ]
   %.not = icmp eq ptr %19, %18
-  br i1 %.not, label %.thread17, label %.lr.ph.backedge
+  br i1 %.not, label %.thread15, label %.lr.ph.backedge
 
 .lr.ph.backedge:                                  ; preds = %17, %_ZNSt5mutex4lockEv.exit.loopexit
   %.be = phi ptr [ %18, %17 ], [ %6, %_ZNSt5mutex4lockEv.exit.loopexit ]
-  %.sroa.014.027.be = phi ptr [ %19, %17 ], [ %3, %_ZNSt5mutex4lockEv.exit.loopexit ]
+  %.sroa.013.024.be = phi ptr [ %19, %17 ], [ %3, %_ZNSt5mutex4lockEv.exit.loopexit ]
   br label %.lr.ph, !llvm.loop !23
 
 _ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge: ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit
-  %20 = icmp eq ptr %.sroa.014.027, %.pre34.pre
-  br i1 %20, label %.thread17, label %.preheader
+  %20 = icmp eq ptr %.sroa.013.024, %.pre31.pre
+  br i1 %20, label %.thread15, label %.preheader
 
 .preheader:                                       ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge
-  %.not2029 = icmp eq ptr %3, %.sroa.014.027
-  br i1 %.not2029, label %_ZNSt5mutex4lockEv.exit.loopexit, label %.lr.ph31
+  %.not1726 = icmp eq ptr %3, %.sroa.013.024
+  br i1 %.not1726, label %_ZNSt5mutex4lockEv.exit.loopexit, label %.lr.ph28
 
-.lr.ph31:                                         ; preds = %.preheader, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit
-  %.sroa.0.030 = phi ptr [ %29, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit ], [ %3, %.preheader ]
-  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.030, i64 8
+.lr.ph28:                                         ; preds = %.preheader, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit
+  %.sroa.0.027 = phi ptr [ %29, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit ], [ %3, %.preheader ]
+  %21 = getelementptr inbounds nuw i8, ptr %.sroa.0.027, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !16
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 152
   %24 = load ptr, ptr %23, align 8, !tbaa !25
-  %.not21 = icmp eq ptr %24, null
-  br i1 %.not21, label %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit, label %25
+  %.not18 = icmp eq ptr %24, null
+  br i1 %.not18, label %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit, label %25
 
-25:                                               ; preds = %.lr.ph31
+25:                                               ; preds = %.lr.ph28
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %28 = load ptr, ptr %27, align 16, !tbaa !27
@@ -162,15 +162,15 @@ _ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge: ; preds = %
           to label %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge unwind label %.loopexit
 
 ._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge: ; preds = %25
-  %.pre35 = load ptr, ptr %21, align 8, !tbaa !16
+  %.pre32 = load ptr, ptr %21, align 8, !tbaa !16
   br label %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit
 
-_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit: ; preds = %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge, %.lr.ph31
-  %29 = phi ptr [ %.pre35, %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge ], [ %22, %.lr.ph31 ]
-  %.not20 = icmp eq ptr %29, %.sroa.014.027
-  br i1 %.not20, label %_ZNSt5mutex4lockEv.exit.loopexit, label %.lr.ph31, !llvm.loop !28
+_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit: ; preds = %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge, %.lr.ph28
+  %29 = phi ptr [ %.pre32, %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge ], [ %22, %.lr.ph28 ]
+  %.not17 = icmp eq ptr %29, %.sroa.013.024
+  br i1 %.not17, label %_ZNSt5mutex4lockEv.exit.loopexit, label %.lr.ph28, !llvm.loop !28
 
-.thread17:                                        ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge, %_ZNSt5mutex4lockEv.exit.loopexit, %17, %_ZNSt5mutex4lockEv.exit.preheader
+.thread15:                                        ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge, %_ZNSt5mutex4lockEv.exit.loopexit, %17, %_ZNSt5mutex4lockEv.exit.preheader
   ret void
 
 .loopexit:                                        ; preds = %25
@@ -179,17 +179,17 @@ _ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit: ; preds = %._ZN5folly6
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %12
-  %lpad.loopexit22 = landingpad { ptr, i32 }
+  %lpad.loopexit19 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %5
-  %lpad.loopexit.split-lp23 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20 = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit22, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp23, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit19, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp20, %.loopexit.split-lp.loopexit.split-lp ]
   %30 = extractvalue { ptr, i32 } %lpad.phi, 0
   tail call void @__clang_call_terminate(ptr %30) #25
   unreachable
@@ -1361,8 +1361,8 @@ _ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit: ; preds = %4, %7, %11
 _ZNSt5mutex4lockEv.exit.preheader.i:              ; preds = %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !7, !noalias !65
-  %.not26.i5 = icmp eq ptr %23, %24
-  br i1 %.not26.i5, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i
+  %.not23.i5 = icmp eq ptr %23, %24
+  br i1 %.not23.i5, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i
 
 25:                                               ; preds = %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef %22) #24
@@ -1376,19 +1376,19 @@ _ZNSt5mutex4lockEv.exit.loopexit.i.loopexit:      ; preds = %_ZN5folly6detail8fu
   br label %_ZNSt5mutex4lockEv.exit.loopexit.i
 
 _ZNSt5mutex4lockEv.exit.loopexit.i:               ; preds = %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit, %.preheader.i
-  %26 = phi ptr [ %.pre, %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit ], [ %.pre34.pre.i, %.preheader.i ]
-  %.not26.i = icmp eq ptr %23, %26
-  br i1 %.not26.i, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i.backedge
+  %26 = phi ptr [ %.pre, %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit ], [ %.pre31.pre.i, %.preheader.i ]
+  %.not23.i = icmp eq ptr %23, %26
+  br i1 %.not23.i, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i.backedge
 
 .lr.ph.i:                                         ; preds = %_ZNSt5mutex4lockEv.exit.preheader.i, %.lr.ph.i.backedge
   %27 = phi ptr [ %.be, %.lr.ph.i.backedge ], [ %24, %_ZNSt5mutex4lockEv.exit.preheader.i ]
-  %.sroa.014.027.i = phi ptr [ %.sroa.014.027.i.be, %.lr.ph.i.backedge ], [ %23, %_ZNSt5mutex4lockEv.exit.preheader.i ]
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.014.027.i, i64 8
+  %.sroa.013.024.i = phi ptr [ %.sroa.013.024.i.be, %.lr.ph.i.backedge ], [ %23, %_ZNSt5mutex4lockEv.exit.preheader.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.013.024.i, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 88
   %31 = load ptr, ptr %30, align 8, !tbaa !17
-  %.not19.i = icmp eq ptr %31, null
-  br i1 %.not19.i, label %37, label %32
+  %.not16.i = icmp eq ptr %31, null
+  br i1 %.not16.i, label %37, label %32
 
 32:                                               ; preds = %.lr.ph.i
   %33 = getelementptr inbounds nuw i8, ptr %29, i64 32
@@ -1398,42 +1398,42 @@ _ZNSt5mutex4lockEv.exit.loopexit.i:               ; preds = %_ZNSt5mutex4lockEv.
           to label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i unwind label %.loopexit.split-lp.loopexit.i
 
 _ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i: ; preds = %32
-  %.pre34.pre.i = load ptr, ptr %23, align 8, !tbaa !7, !noalias !68
-  br i1 %36, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i
+  %.pre31.pre.i = load ptr, ptr %23, align 8, !tbaa !7, !noalias !68
+  br i1 %36, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i
 
-_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i: ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i
+_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i: ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i
   %.pre.i = load ptr, ptr %28, align 8, !tbaa !16
   br label %37
 
-37:                                               ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i, %.lr.ph.i
-  %38 = phi ptr [ %.pre34.pre.i, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i ], [ %27, %.lr.ph.i ]
-  %39 = phi ptr [ %.pre.i, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i ], [ %29, %.lr.ph.i ]
+37:                                               ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i, %.lr.ph.i
+  %38 = phi ptr [ %.pre31.pre.i, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i ], [ %27, %.lr.ph.i ]
+  %39 = phi ptr [ %.pre.i, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i ], [ %29, %.lr.ph.i ]
   %.not.i1 = icmp eq ptr %39, %38
   br i1 %.not.i1, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %37, %_ZNSt5mutex4lockEv.exit.loopexit.i
   %.be = phi ptr [ %38, %37 ], [ %26, %_ZNSt5mutex4lockEv.exit.loopexit.i ]
-  %.sroa.014.027.i.be = phi ptr [ %39, %37 ], [ %23, %_ZNSt5mutex4lockEv.exit.loopexit.i ]
+  %.sroa.013.024.i.be = phi ptr [ %39, %37 ], [ %23, %_ZNSt5mutex4lockEv.exit.loopexit.i ]
   br label %.lr.ph.i, !llvm.loop !23
 
 _ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i: ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i
-  %40 = icmp eq ptr %.sroa.014.027.i, %.pre34.pre.i
+  %40 = icmp eq ptr %.sroa.013.024.i, %.pre31.pre.i
   br i1 %40, label %_ZN5folly10AtForkList7prepareEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i
-  %.not2029.i = icmp eq ptr %23, %.sroa.014.027.i
-  br i1 %.not2029.i, label %_ZNSt5mutex4lockEv.exit.loopexit.i, label %.lr.ph31.i
+  %.not1726.i = icmp eq ptr %23, %.sroa.013.024.i
+  br i1 %.not1726.i, label %_ZNSt5mutex4lockEv.exit.loopexit.i, label %.lr.ph28.i
 
-.lr.ph31.i:                                       ; preds = %.preheader.i, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i
-  %.sroa.0.030.i = phi ptr [ %49, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i ], [ %23, %.preheader.i ]
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.030.i, i64 8
+.lr.ph28.i:                                       ; preds = %.preheader.i, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i
+  %.sroa.0.027.i = phi ptr [ %49, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i ], [ %23, %.preheader.i ]
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !16
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 152
   %44 = load ptr, ptr %43, align 8, !tbaa !25
-  %.not21.i = icmp eq ptr %44, null
-  br i1 %.not21.i, label %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i, label %45
+  %.not18.i = icmp eq ptr %44, null
+  br i1 %.not18.i, label %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i, label %45
 
-45:                                               ; preds = %.lr.ph31.i
+45:                                               ; preds = %.lr.ph28.i
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 96
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 144
   %48 = load ptr, ptr %47, align 16, !tbaa !27
@@ -1441,13 +1441,13 @@ _ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i: ; preds =
           to label %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i unwind label %.loopexit.i
 
 ._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i: ; preds = %45
-  %.pre35.i = load ptr, ptr %41, align 8, !tbaa !16
+  %.pre32.i = load ptr, ptr %41, align 8, !tbaa !16
   br label %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i
 
-_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i: ; preds = %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i, %.lr.ph31.i
-  %49 = phi ptr [ %.pre35.i, %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i ], [ %42, %.lr.ph31.i ]
-  %.not20.i = icmp eq ptr %49, %.sroa.014.027.i
-  br i1 %.not20.i, label %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit, label %.lr.ph31.i, !llvm.loop !28
+_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i: ; preds = %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i, %.lr.ph28.i
+  %49 = phi ptr [ %.pre32.i, %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i ], [ %42, %.lr.ph28.i ]
+  %.not17.i = icmp eq ptr %49, %.sroa.013.024.i
+  br i1 %.not17.i, label %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit, label %.lr.ph28.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %45
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -1455,17 +1455,17 @@ _ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i: ; preds = %._ZN5foll
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.i:                    ; preds = %32
-  %lpad.loopexit22.i = landingpad { ptr, i32 }
+  %lpad.loopexit19.i = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %25
-  %lpad.loopexit.split-lp23.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20.i = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp23.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp20.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   %50 = extractvalue { ptr, i32 } %lpad.phi.i, 0
   tail call void @__clang_call_terminate(ptr %50) #25
   unreachable
@@ -2208,8 +2208,8 @@ _ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit: ; preds = %7, %10, %14
 _ZNSt5mutex4lockEv.exit.preheader.i:              ; preds = %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !7, !noalias !91
-  %.not26.i26 = icmp eq ptr %26, %27
-  br i1 %.not26.i26, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i
+  %.not23.i26 = icmp eq ptr %26, %27
+  br i1 %.not23.i26, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i
 
 28:                                               ; preds = %_ZN5folly12_GLOBAL__N_119AtForkListSingleton3getEv.exit
   invoke void @_ZSt20__throw_system_errori(i32 noundef %25) #24
@@ -2223,19 +2223,19 @@ _ZNSt5mutex4lockEv.exit.loopexit.i.loopexit:      ; preds = %_ZN5folly6detail8fu
   br label %_ZNSt5mutex4lockEv.exit.loopexit.i
 
 _ZNSt5mutex4lockEv.exit.loopexit.i:               ; preds = %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit, %.preheader.i
-  %29 = phi ptr [ %.pre, %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit ], [ %.pre34.pre.i, %.preheader.i ]
-  %.not26.i = icmp eq ptr %26, %29
-  br i1 %.not26.i, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i.backedge
+  %29 = phi ptr [ %.pre, %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit ], [ %.pre31.pre.i, %.preheader.i ]
+  %.not23.i = icmp eq ptr %26, %29
+  br i1 %.not23.i, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i.backedge
 
 .lr.ph.i:                                         ; preds = %_ZNSt5mutex4lockEv.exit.preheader.i, %.lr.ph.i.backedge
   %30 = phi ptr [ %.be, %.lr.ph.i.backedge ], [ %27, %_ZNSt5mutex4lockEv.exit.preheader.i ]
-  %.sroa.014.027.i = phi ptr [ %.sroa.014.027.i.be, %.lr.ph.i.backedge ], [ %26, %_ZNSt5mutex4lockEv.exit.preheader.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %.sroa.014.027.i, i64 8
+  %.sroa.013.024.i = phi ptr [ %.sroa.013.024.i.be, %.lr.ph.i.backedge ], [ %26, %_ZNSt5mutex4lockEv.exit.preheader.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.013.024.i, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 88
   %34 = load ptr, ptr %33, align 8, !tbaa !17
-  %.not19.i = icmp eq ptr %34, null
-  br i1 %.not19.i, label %40, label %35
+  %.not16.i = icmp eq ptr %34, null
+  br i1 %.not16.i, label %40, label %35
 
 35:                                               ; preds = %.lr.ph.i
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
@@ -2245,42 +2245,42 @@ _ZNSt5mutex4lockEv.exit.loopexit.i:               ; preds = %_ZNSt5mutex4lockEv.
           to label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i unwind label %.loopexit.split-lp.loopexit.i
 
 _ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i: ; preds = %35
-  %.pre34.pre.i = load ptr, ptr %26, align 8, !tbaa !7, !noalias !94
-  br i1 %39, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i
+  %.pre31.pre.i = load ptr, ptr %26, align 8, !tbaa !7, !noalias !94
+  br i1 %39, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i, label %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i
 
-_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i: ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i
+_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i: ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i
   %.pre.i = load ptr, ptr %31, align 8, !tbaa !16
   br label %40
 
-40:                                               ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i, %.lr.ph.i
-  %41 = phi ptr [ %.pre34.pre.i, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i ], [ %30, %.lr.ph.i ]
-  %42 = phi ptr [ %.pre.i, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge32.i ], [ %32, %.lr.ph.i ]
+40:                                               ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i, %.lr.ph.i
+  %41 = phi ptr [ %.pre31.pre.i, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i ], [ %30, %.lr.ph.i ]
+  %42 = phi ptr [ %.pre.i, %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge29.i ], [ %32, %.lr.ph.i ]
   %.not.i10 = icmp eq ptr %42, %41
   br i1 %.not.i10, label %_ZN5folly10AtForkList7prepareEv.exit, label %.lr.ph.i.backedge
 
 .lr.ph.i.backedge:                                ; preds = %40, %_ZNSt5mutex4lockEv.exit.loopexit.i
   %.be = phi ptr [ %41, %40 ], [ %29, %_ZNSt5mutex4lockEv.exit.loopexit.i ]
-  %.sroa.014.027.i.be = phi ptr [ %42, %40 ], [ %26, %_ZNSt5mutex4lockEv.exit.loopexit.i ]
+  %.sroa.013.024.i.be = phi ptr [ %42, %40 ], [ %26, %_ZNSt5mutex4lockEv.exit.loopexit.i ]
   br label %.lr.ph.i, !llvm.loop !23
 
 _ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i: ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit.i
-  %43 = icmp eq ptr %.sroa.014.027.i, %.pre34.pre.i
+  %43 = icmp eq ptr %.sroa.013.024.i, %.pre31.pre.i
   br i1 %43, label %_ZN5folly10AtForkList7prepareEv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i
-  %.not2029.i = icmp eq ptr %26, %.sroa.014.027.i
-  br i1 %.not2029.i, label %_ZNSt5mutex4lockEv.exit.loopexit.i, label %.lr.ph31.i
+  %.not1726.i = icmp eq ptr %26, %.sroa.013.024.i
+  br i1 %.not1726.i, label %_ZNSt5mutex4lockEv.exit.loopexit.i, label %.lr.ph28.i
 
-.lr.ph31.i:                                       ; preds = %.preheader.i, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i
-  %.sroa.0.030.i = phi ptr [ %52, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i ], [ %26, %.preheader.i ]
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.030.i, i64 8
+.lr.ph28.i:                                       ; preds = %.preheader.i, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i
+  %.sroa.0.027.i = phi ptr [ %52, %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i ], [ %26, %.preheader.i ]
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !16
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 152
   %47 = load ptr, ptr %46, align 8, !tbaa !25
-  %.not21.i = icmp eq ptr %47, null
-  br i1 %.not21.i, label %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i, label %48
+  %.not18.i = icmp eq ptr %47, null
+  br i1 %.not18.i, label %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i, label %48
 
-48:                                               ; preds = %.lr.ph31.i
+48:                                               ; preds = %.lr.ph28.i
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 96
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 144
   %51 = load ptr, ptr %50, align 16, !tbaa !27
@@ -2288,13 +2288,13 @@ _ZN5folly6detail8function14FunctionTraitsIFbvEEclEv.exit._crit_edge.i: ; preds =
           to label %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i unwind label %.loopexit.i
 
 ._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i: ; preds = %48
-  %.pre35.i = load ptr, ptr %44, align 8, !tbaa !16
+  %.pre32.i = load ptr, ptr %44, align 8, !tbaa !16
   br label %_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i
 
-_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i: ; preds = %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i, %.lr.ph31.i
-  %52 = phi ptr [ %.pre35.i, %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i ], [ %45, %.lr.ph31.i ]
-  %.not20.i = icmp eq ptr %52, %.sroa.014.027.i
-  br i1 %.not20.i, label %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit, label %.lr.ph31.i, !llvm.loop !28
+_ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i: ; preds = %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i, %.lr.ph28.i
+  %52 = phi ptr [ %.pre32.i, %._ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit_crit_edge.i ], [ %45, %.lr.ph28.i ]
+  %.not17.i = icmp eq ptr %52, %.sroa.013.024.i
+  br i1 %.not17.i, label %_ZNSt5mutex4lockEv.exit.loopexit.i.loopexit, label %.lr.ph28.i, !llvm.loop !28
 
 .loopexit.i:                                      ; preds = %48
   %lpad.loopexit.i = landingpad { ptr, i32 }
@@ -2302,17 +2302,17 @@ _ZN5folly6detail8function14FunctionTraitsIFvvEEclEv.exit.i: ; preds = %._ZN5foll
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.i:                    ; preds = %35
-  %lpad.loopexit22.i = landingpad { ptr, i32 }
+  %lpad.loopexit19.i = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.loopexit.split-lp.i:           ; preds = %28
-  %lpad.loopexit.split-lp23.i = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp20.i = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp.i
 
 .loopexit.split-lp.i:                             ; preds = %.loopexit.split-lp.loopexit.split-lp.i, %.loopexit.split-lp.loopexit.i, %.loopexit.i
-  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit22.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp23.i, %.loopexit.split-lp.loopexit.split-lp.i ]
+  %lpad.phi.i = phi { ptr, i32 } [ %lpad.loopexit.i, %.loopexit.i ], [ %lpad.loopexit19.i, %.loopexit.split-lp.loopexit.i ], [ %lpad.loopexit.split-lp20.i, %.loopexit.split-lp.loopexit.split-lp.i ]
   %53 = extractvalue { ptr, i32 } %lpad.phi.i, 0
   tail call void @__clang_call_terminate(ptr %53) #25
   unreachable

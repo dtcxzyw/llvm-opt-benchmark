@@ -811,14 +811,14 @@ _ZN3tbb6detail2r18governor13one_time_initEv.exit.preheader: ; preds = %0, %3
   br label %_ZN3tbb6detail2r18governor13one_time_initEv.exit
 
 4:                                                ; preds = %_ZN3tbb6detail2r18governor13one_time_initEv.exit
-  %.012.add.i = add nuw nsw i64 %.012.idx16.i, 8
+  %.012.add.i = add nuw nsw i64 %.012.idx19.i, 8
   %.not.i = icmp eq i64 %.012.add.i, 24
   br i1 %.not.i, label %_ZN3tbb6detail2r115system_topology12_GLOBAL__N_126load_tbbbind_shared_objectEv.exit.thread, label %_ZN3tbb6detail2r18governor13one_time_initEv.exit
 
 _ZN3tbb6detail2r18governor13one_time_initEv.exit: ; preds = %_ZN3tbb6detail2r18governor13one_time_initEv.exit.preheader, %4
-  %.012.idx16.i = phi i64 [ %.012.add.i, %4 ], [ 0, %_ZN3tbb6detail2r18governor13one_time_initEv.exit.preheader ]
-  %.012.ptr17.i = getelementptr inbounds nuw i8, ptr @constinit, i64 %.012.idx16.i
-  %5 = load ptr, ptr %.012.ptr17.i, align 8, !tbaa !125
+  %.012.idx19.i = phi i64 [ %.012.add.i, %4 ], [ 0, %_ZN3tbb6detail2r18governor13one_time_initEv.exit.preheader ]
+  %.012.ptr20.i = getelementptr inbounds nuw i8, ptr @constinit, i64 %.012.idx19.i
+  %5 = load ptr, ptr %.012.ptr20.i, align 8, !tbaa !125
   %6 = tail call noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_link_descriptorEmPPvi(ptr noundef %5, ptr noundef nonnull @_ZN3tbb6detail2r1L16TbbBindLinkTableE, i64 noundef 7, ptr noundef null, i32 noundef 10)
   br i1 %6, label %_ZN3tbb6detail2r115system_topology12_GLOBAL__N_126load_tbbbind_shared_objectEv.exit, label %4
 
@@ -875,14 +875,14 @@ _ZN3tbb6detail2r18governor13one_time_initEv.exit.i.preheader: ; preds = %10, %7
   br label %_ZN3tbb6detail2r18governor13one_time_initEv.exit.i
 
 11:                                               ; preds = %_ZN3tbb6detail2r18governor13one_time_initEv.exit.i
-  %.012.add.i.i = add nuw nsw i64 %.012.idx16.i.i, 8
+  %.012.add.i.i = add nuw nsw i64 %.012.idx19.i.i, 8
   %.not.i.i = icmp eq i64 %.012.add.i.i, 24
   br i1 %.not.i.i, label %_ZN3tbb6detail2r115system_topology12_GLOBAL__N_126load_tbbbind_shared_objectEv.exit.thread.i, label %_ZN3tbb6detail2r18governor13one_time_initEv.exit.i
 
 _ZN3tbb6detail2r18governor13one_time_initEv.exit.i: ; preds = %_ZN3tbb6detail2r18governor13one_time_initEv.exit.i.preheader, %11
-  %.012.idx16.i.i = phi i64 [ %.012.add.i.i, %11 ], [ 0, %_ZN3tbb6detail2r18governor13one_time_initEv.exit.i.preheader ]
-  %.012.ptr17.i.i = getelementptr inbounds nuw i8, ptr @constinit, i64 %.012.idx16.i.i
-  %12 = load ptr, ptr %.012.ptr17.i.i, align 8, !tbaa !125
+  %.012.idx19.i.i = phi i64 [ %.012.add.i.i, %11 ], [ 0, %_ZN3tbb6detail2r18governor13one_time_initEv.exit.i.preheader ]
+  %.012.ptr20.i.i = getelementptr inbounds nuw i8, ptr @constinit, i64 %.012.idx19.i.i
+  %12 = load ptr, ptr %.012.ptr20.i.i, align 8, !tbaa !125
   %13 = tail call noundef zeroext i1 @_ZN3tbb6detail2r112dynamic_linkEPKcPKNS1_23dynamic_link_descriptorEmPPvi(ptr noundef %12, ptr noundef nonnull @_ZN3tbb6detail2r1L16TbbBindLinkTableE, i64 noundef 7, ptr noundef null, i32 noundef 10)
   br i1 %13, label %_ZN3tbb6detail2r115system_topology12_GLOBAL__N_126load_tbbbind_shared_objectEv.exit.i, label %11
 

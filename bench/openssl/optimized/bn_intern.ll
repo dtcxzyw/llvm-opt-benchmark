@@ -95,8 +95,8 @@ define ptr @bn_compute_wNAF(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %.1.us = phi i32 [ %spec.select, %39 ], [ %.069.us, %37 ]
   %.not88.us = icmp sle i32 %.1.us, %35
   %.not89.us = icmp sge i32 %.1.us, %12
-  %or.cond94.not103.us = or i1 %.not88.us, %.not89.us
-  %or.cond95.us = or i1 %or.cond94.not103.us, %.pre-phi
+  %or.cond94.not102.us = or i1 %.not88.us, %.not89.us
+  %or.cond95.us = or i1 %or.cond94.not102.us, %.pre-phi
   br i1 %or.cond95.us, label %.thread.sink.split, label %45
 
 45:                                               ; preds = %44
@@ -113,7 +113,7 @@ define ptr @bn_compute_wNAF(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
 48:                                               ; preds = %.split.us
   %49 = add i64 %.066.us, %33
   %50 = icmp ult i64 %49, %24
-  br i1 %50, label %.critedge.thread.us, label %.split112.us
+  br i1 %50, label %.critedge.thread.us, label %.split111.us
 
 .critedge.thread.us:                              ; preds = %48, %47, %45, %.critedge.us
   %.170.us = phi i32 [ %46, %47 ], [ 0, %45 ], [ %.069.us, %.critedge.us ], [ 0, %48 ]
@@ -140,7 +140,7 @@ define ptr @bn_compute_wNAF(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
 61:                                               ; preds = %.split
   %62 = add i64 %.066, %33
   %63 = icmp ult i64 %62, %24
-  br i1 %63, label %.critedge.thread, label %.split112.us
+  br i1 %63, label %.critedge.thread, label %.split111.us
 
 .critedge:                                        ; preds = %.split
   %64 = and i32 %.069, 1
@@ -157,18 +157,18 @@ define ptr @bn_compute_wNAF(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %69 = add i64 %.066, %33
   %.not87 = icmp ult i64 %69, %24
   %70 = and i32 %.069, %34
-  %spec.select115 = select i1 %.not87, i32 %68, i32 %70
-  %.pre127 = and i32 %spec.select115, 1
-  %71 = icmp eq i32 %.pre127, 0
+  %spec.select114 = select i1 %.not87, i32 %68, i32 %70
+  %.pre126 = and i32 %spec.select114, 1
+  %71 = icmp eq i32 %.pre126, 0
   br label %72
 
 72:                                               ; preds = %67, %65
-  %.pre-phi128 = phi i1 [ %71, %67 ], [ false, %65 ]
-  %.1 = phi i32 [ %spec.select115, %67 ], [ %.069, %65 ]
+  %.pre-phi127 = phi i1 [ %71, %67 ], [ false, %65 ]
+  %.1 = phi i32 [ %spec.select114, %67 ], [ %.069, %65 ]
   %.not88 = icmp sle i32 %.1, %35
   %.not89 = icmp sge i32 %.1, %12
-  %or.cond94.not103 = or i1 %.not88, %.not89
-  %or.cond95 = or i1 %or.cond94.not103, %.pre-phi128
+  %or.cond94.not102 = or i1 %.not88, %.not89
+  %or.cond95 = or i1 %or.cond94.not102, %.pre-phi127
   br i1 %or.cond95, label %.thread.sink.split, label %73
 
 73:                                               ; preds = %72
@@ -199,18 +199,18 @@ define ptr @bn_compute_wNAF(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %86 = icmp sgt i32 %85, %13
   br i1 %86, label %.thread.sink.split, label %.split
 
-.split112.us:                                     ; preds = %61, %48
+.split111.us:                                     ; preds = %61, %48
   %.us-phi = phi i64 [ %.066.us, %48 ], [ %.066, %61 ]
   %87 = icmp ugt i64 %.us-phi, %25
   br i1 %87, label %.thread.sink.split, label %88
 
-88:                                               ; preds = %.split112.us
+88:                                               ; preds = %.split111.us
   store i64 %.us-phi, ptr %2, align 8, !tbaa !6
   br label %89
 
-.thread.sink.split:                               ; preds = %.critedge.thread, %75, %72, %.critedge.thread.us, %47, %44, %.split112.us, %11, %18, %9
-  %.sink = phi i32 [ 41, %9 ], [ 53, %18 ], [ 53, %11 ], [ 126, %.split112.us ], [ 97, %44 ], [ 109, %47 ], [ 120, %.critedge.thread.us ], [ 97, %72 ], [ 109, %75 ], [ 120, %.critedge.thread ]
-  %.071.ph = phi ptr [ null, %9 ], [ null, %18 ], [ null, %11 ], [ %26, %.split112.us ], [ %26, %44 ], [ %26, %47 ], [ %26, %.critedge.thread.us ], [ %26, %72 ], [ %26, %75 ], [ %26, %.critedge.thread ]
+.thread.sink.split:                               ; preds = %.critedge.thread, %75, %72, %.critedge.thread.us, %47, %44, %.split111.us, %11, %18, %9
+  %.sink = phi i32 [ 41, %9 ], [ 53, %18 ], [ 53, %11 ], [ 126, %.split111.us ], [ 97, %44 ], [ 109, %47 ], [ 120, %.critedge.thread.us ], [ 97, %72 ], [ 109, %75 ], [ 120, %.critedge.thread ]
+  %.071.ph = phi ptr [ null, %9 ], [ null, %18 ], [ null, %11 ], [ %26, %.split111.us ], [ %26, %44 ], [ %26, %47 ], [ %26, %.critedge.thread.us ], [ %26, %72 ], [ %26, %75 ], [ %26, %.critedge.thread ]
   tail call void @ERR_new() #7
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink, ptr noundef nonnull @__func__.bn_compute_wNAF) #7
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 3, i32 noundef 786691, ptr noundef null) #7

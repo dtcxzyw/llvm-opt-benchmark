@@ -208,12 +208,12 @@ BufferGetPage.exit:                               ; preds = %38, %42
   %63 = and i32 %.val, 32767
   %64 = zext nneg i32 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %64
-  %.val66 = load i16, ptr %65, align 2
+  %.val65 = load i16, ptr %65, align 2
   %66 = getelementptr i8, ptr %65, i64 2
-  %.val67 = load i16, ptr %66, align 2
-  %67 = zext i16 %.val66 to i32
+  %.val66 = load i16, ptr %66, align 2
+  %67 = zext i16 %.val65 to i32
   %68 = shl nuw i32 %67, 16
-  %69 = zext i16 %.val67 to i32
+  %69 = zext i16 %.val66 to i32
   %70 = or disjoint i32 %68, %69
   call void @UnlockReleaseBuffer(i32 noundef %.057.ph) #6
   %71 = load ptr, ptr %16, align 8
@@ -246,8 +246,8 @@ BufferGetPage.exit:                               ; preds = %38, %42
   br label %BufferGetPage.exit.i
 
 BufferGetPage.exit.i:                             ; preds = %82, %76
-  %.0.i.i6881 = phi ptr [ %81, %76 ], [ %87, %82 ]
-  %88 = getelementptr i8, ptr %.0.i.i6881, i64 12
+  %.0.i.i6780 = phi ptr [ %81, %76 ], [ %87, %82 ]
+  %88 = getelementptr i8, ptr %.0.i.i6780, i64 12
   %.val82.i = load i16, ptr %88, align 4
   %89 = icmp ult i16 %.val82.i, 25
   %90 = zext i16 %.val82.i to i32
@@ -259,16 +259,16 @@ BufferGetPage.exit.i:                             ; preds = %82, %76
   br i1 %.not88.i, label %ginVacuumEntryPage.exit.thread, label %.lr.ph.i
 
 ginVacuumEntryPage.exit.thread:                   ; preds = %BufferGetPage.exit.i
-  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i6881, i64 16
+  %94 = getelementptr inbounds nuw i8, ptr %.0.i.i6780, i64 16
   %95 = load i16, ptr %94, align 4
   %96 = zext i16 %95 to i64
-  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i6881, i64 %96
+  %97 = getelementptr inbounds nuw i8, ptr %.0.i.i6780, i64 %96
   %98 = load i32, ptr %97, align 4
   br label %247
 
 .lr.ph.i:                                         ; preds = %BufferGetPage.exit.i, %199
-  %.077 = phi i32 [ %.178, %199 ], [ 0, %BufferGetPage.exit.i ]
-  %.05991.i = phi ptr [ %.1.i, %199 ], [ %.0.i.i6881, %BufferGetPage.exit.i ]
+  %.076 = phi i32 [ %.177, %199 ], [ 0, %BufferGetPage.exit.i ]
+  %.05991.i = phi ptr [ %.1.i, %199 ], [ %.0.i.i6780, %BufferGetPage.exit.i ]
   %.06089.i = phi i16 [ %200, %199 ], [ 1, %BufferGetPage.exit.i ]
   %99 = zext i16 %.06089.i to i64
   %100 = getelementptr i8, ptr %.05991.i, i64 20
@@ -292,10 +292,10 @@ ginVacuumEntryPage.exit.thread:                   ; preds = %BufferGetPage.exit.
   %109 = shl nuw i32 %108, 16
   %110 = zext i16 %.val81.i to i32
   %111 = or disjoint i32 %109, %110
-  %112 = zext i32 %.077 to i64
+  %112 = zext i32 %.076 to i64
   %113 = getelementptr inbounds nuw i32, ptr %9, i64 %112
   store i32 %111, ptr %113, align 4
-  %114 = add i32 %.077, 1
+  %114 = add i32 %.076, 1
   br label %199
 
 115:                                              ; preds = %.lr.ph.i
@@ -420,11 +420,11 @@ ginVacuumItemPointers.exit.i:                     ; preds = %155
 169:                                              ; preds = %161, %158
   %.058.i = phi ptr [ %162, %161 ], [ null, %158 ]
   %.0.i = phi i64 [ %168, %161 ], [ 0, %158 ]
-  %170 = icmp eq ptr %.05991.i, %.0.i.i6881
+  %170 = icmp eq ptr %.05991.i, %.0.i.i6780
   br i1 %170, label %171, label %178
 
 171:                                              ; preds = %169
-  %172 = call ptr @PageGetTempPageCopy(ptr noundef %.0.i.i6881) #6
+  %172 = call ptr @PageGetTempPageCopy(ptr noundef %.0.i.i6780) #6
   %173 = getelementptr i8, ptr %172, i64 20
   %174 = getelementptr %struct.ItemIdData, ptr %173, i64 %99
   %.val.i = load i32, ptr %174, align 4
@@ -480,28 +480,28 @@ ginVacuumItemPointers.exit.i:                     ; preds = %155
   br label %199
 
 199:                                              ; preds = %198, %106, %.lr.ph.i
-  %.178 = phi i32 [ %.077, %198 ], [ %114, %106 ], [ %.077, %.lr.ph.i ]
+  %.177 = phi i32 [ %.076, %198 ], [ %114, %106 ], [ %.076, %.lr.ph.i ]
   %.1.i = phi ptr [ %.2.i, %198 ], [ %.05991.i, %106 ], [ %.05991.i, %.lr.ph.i ]
   %200 = add i16 %.06089.i, 1
   %.not.i = icmp ugt i16 %200, %93
   br i1 %.not.i, label %ginVacuumEntryPage.exit, label %.lr.ph.i, !llvm.loop !6
 
 ginVacuumEntryPage.exit:                          ; preds = %199
-  %201 = icmp eq ptr %.1.i, %.0.i.i6881
-  %202 = getelementptr inbounds nuw i8, ptr %.0.i.i6881, i64 16
+  %201 = icmp eq ptr %.1.i, %.0.i.i6780
+  %202 = getelementptr inbounds nuw i8, ptr %.0.i.i6780, i64 16
   %203 = load i16, ptr %202, align 4
   %204 = zext i16 %203 to i64
-  %205 = getelementptr inbounds nuw i8, ptr %.0.i.i6881, i64 %204
+  %205 = getelementptr inbounds nuw i8, ptr %.0.i.i6780, i64 %204
   %206 = load i32, ptr %205, align 4
-  %.not6386 = icmp eq ptr %.1.i, null
-  %.not63 = or i1 %201, %.not6386
+  %.not6384 = icmp eq ptr %.1.i, null
+  %.not63 = or i1 %201, %.not6384
   br i1 %.not63, label %247, label %207
 
 207:                                              ; preds = %ginVacuumEntryPage.exit
   %208 = load volatile i32, ptr @CritSectionCount, align 4
   %209 = add i32 %208, 1
   store volatile i32 %209, ptr @CritSectionCount, align 4
-  call void @PageRestoreTempPage(ptr noundef nonnull %.1.i, ptr noundef nonnull %.0.i.i6881) #6
+  call void @PageRestoreTempPage(ptr noundef nonnull %.1.i, ptr noundef nonnull %.0.i.i6780) #6
   call void @MarkBufferDirty(i32 noundef %.2) #6
   %210 = load ptr, ptr %8, align 8
   br i1 %75, label %211, label %217
@@ -512,7 +512,7 @@ ginVacuumEntryPage.exit:                          ; preds = %199
   %214 = zext nneg i32 %213 to i64
   %215 = getelementptr inbounds nuw ptr, ptr %212, i64 %214
   %216 = load ptr, ptr %215, align 8
-  br label %BufferGetPage.exit.i70
+  br label %BufferGetPage.exit.i69
 
 217:                                              ; preds = %207
   %218 = load ptr, ptr @BufferBlocks, align 8
@@ -520,10 +520,10 @@ ginVacuumEntryPage.exit:                          ; preds = %199
   %220 = sext i32 %219 to i64
   %221 = shl nsw i64 %220, 13
   %222 = getelementptr inbounds nuw i8, ptr %218, i64 %221
-  br label %BufferGetPage.exit.i70
+  br label %BufferGetPage.exit.i69
 
-BufferGetPage.exit.i70:                           ; preds = %217, %211
-  %.0.i.i.i71 = phi ptr [ %216, %211 ], [ %222, %217 ]
+BufferGetPage.exit.i69:                           ; preds = %217, %211
+  %.0.i.i.i70 = phi ptr [ %216, %211 ], [ %222, %217 ]
   %223 = getelementptr inbounds nuw i8, ptr %210, i64 56
   %224 = load ptr, ptr %223, align 8
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 114
@@ -531,7 +531,7 @@ BufferGetPage.exit.i70:                           ; preds = %217, %211
   %227 = icmp eq i8 %226, 112
   br i1 %227, label %228, label %xlogVacuumPage.exit
 
-228:                                              ; preds = %BufferGetPage.exit.i70
+228:                                              ; preds = %BufferGetPage.exit.i69
   %229 = load i32, ptr @wal_level, align 4
   %230 = icmp sgt i32 %229, 0
   br i1 %230, label %239, label %231
@@ -554,13 +554,13 @@ BufferGetPage.exit.i70:                           ; preds = %217, %211
   %240 = call i64 @XLogInsert(i8 noundef zeroext 13, i8 noundef zeroext 64) #6
   %241 = lshr i64 %240, 32
   %242 = trunc nuw i64 %241 to i32
-  store i32 %242, ptr %.0.i.i.i71, align 4
+  store i32 %242, ptr %.0.i.i.i70, align 4
   %243 = trunc i64 %240 to i32
-  %244 = getelementptr inbounds nuw i8, ptr %.0.i.i.i71, i64 4
+  %244 = getelementptr inbounds nuw i8, ptr %.0.i.i.i70, i64 4
   store i32 %243, ptr %244, align 4
   br label %xlogVacuumPage.exit
 
-xlogVacuumPage.exit:                              ; preds = %BufferGetPage.exit.i70, %231, %235, %239
+xlogVacuumPage.exit:                              ; preds = %BufferGetPage.exit.i69, %231, %235, %239
   call void @UnlockReleaseBuffer(i32 noundef %.2) #6
   %245 = load volatile i32, ptr @CritSectionCount, align 4
   %246 = add i32 %245, -1
@@ -569,19 +569,19 @@ xlogVacuumPage.exit:                              ; preds = %BufferGetPage.exit.
 
 247:                                              ; preds = %ginVacuumEntryPage.exit.thread, %ginVacuumEntryPage.exit
   %248 = phi i32 [ %98, %ginVacuumEntryPage.exit.thread ], [ %206, %ginVacuumEntryPage.exit ]
-  %.279112 = phi i32 [ 0, %ginVacuumEntryPage.exit.thread ], [ %.178, %ginVacuumEntryPage.exit ]
+  %.278109 = phi i32 [ 0, %ginVacuumEntryPage.exit.thread ], [ %.177, %ginVacuumEntryPage.exit ]
   call void @UnlockReleaseBuffer(i32 noundef %.2) #6
   br label %249
 
 249:                                              ; preds = %247, %xlogVacuumPage.exit
   %250 = phi i32 [ %248, %247 ], [ %206, %xlogVacuumPage.exit ]
-  %.279111 = phi i32 [ %.279112, %247 ], [ %.178, %xlogVacuumPage.exit ]
+  %.278108 = phi i32 [ %.278109, %247 ], [ %.177, %xlogVacuumPage.exit ]
   call void @vacuum_delay_point(i1 noundef zeroext false) #6
-  %.not89 = icmp eq i32 %.279111, 0
-  br i1 %.not89, label %._crit_edge, label %.lr.ph.preheader
+  %.not87 = icmp eq i32 %.278108, 0
+  br i1 %.not87, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %249
-  %wide.trip.count = zext i32 %.279111 to i64
+  %wide.trip.count = zext i32 %.278108 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %ginVacuumPostingTree.exit
@@ -670,13 +670,13 @@ BufferGetPage.exit46.i.i:                         ; preds = %BufferGetPage.exit4
   %296 = getelementptr inbounds nuw i8, ptr %.041.i.i, i64 12
   %297 = load i16, ptr %296, align 4
   %298 = icmp eq i16 %297, 32
-  br i1 %298, label %.thread.i74, label %303
+  br i1 %298, label %.thread.i73, label %303
 
 299:                                              ; preds = %BufferGetPage.exit46.i.i
   %300 = getelementptr inbounds nuw i8, ptr %291, i64 4
   %301 = load i16, ptr %300, align 4
   %302 = icmp eq i16 %301, 0
-  br i1 %302, label %.thread.i74, label %303
+  br i1 %302, label %.thread.i73, label %303
 
 303:                                              ; preds = %299, %295
   %304 = load i32, ptr %291, align 4
@@ -684,15 +684,15 @@ BufferGetPage.exit46.i.i:                         ; preds = %BufferGetPage.exit4
   %305 = icmp eq i32 %304, -1
   br i1 %305, label %ginVacuumPostingTreeLeaves.exit.i, label %308
 
-.thread.i74:                                      ; preds = %299, %295
+.thread.i73:                                      ; preds = %299, %295
   %306 = load i32, ptr %291, align 4
   call void @UnlockReleaseBuffer(i32 noundef %.038.i.i) #6
   %307 = icmp eq i32 %306, -1
   br i1 %307, label %ginVacuumPostingTreeLeaves.exit.thread.i, label %308
 
-308:                                              ; preds = %.thread.i74, %303
-  %309 = phi i32 [ %306, %.thread.i74 ], [ %304, %303 ]
-  %.140.i13.i = phi i1 [ true, %.thread.i74 ], [ %.039.i.i, %303 ]
+308:                                              ; preds = %.thread.i73, %303
+  %309 = phi i32 [ %306, %.thread.i73 ], [ %304, %303 ]
+  %.140.i13.i = phi i1 [ true, %.thread.i73 ], [ %.039.i.i, %303 ]
   %310 = load ptr, ptr %8, align 8
   %311 = load ptr, ptr %18, align 8
   %312 = call i32 @ReadBufferExtended(ptr noundef %310, i32 noundef 0, i32 noundef %309, i32 noundef 0, ptr noundef %311) #6
@@ -723,7 +723,7 @@ BufferGetPage.exit46.i.i.backedge:                ; preds = %320, %314
 ginVacuumPostingTreeLeaves.exit.i:                ; preds = %303
   br i1 %.039.i.i, label %ginVacuumPostingTreeLeaves.exit.thread.i, label %ginVacuumPostingTree.exit
 
-ginVacuumPostingTreeLeaves.exit.thread.i:         ; preds = %.thread.i74, %ginVacuumPostingTreeLeaves.exit.i
+ginVacuumPostingTreeLeaves.exit.thread.i:         ; preds = %.thread.i73, %ginVacuumPostingTreeLeaves.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %326 = load ptr, ptr %8, align 8
   %327 = load ptr, ptr %18, align 8
@@ -734,16 +734,16 @@ ginVacuumPostingTreeLeaves.exit.thread.i:         ; preds = %.thread.i74, %ginVa
   %329 = call fastcc zeroext i1 @ginScanToDelete(ptr noundef nonnull %8, i32 noundef %252, i1 noundef zeroext true, ptr noundef nonnull %5, i16 noundef zeroext 0)
   %330 = load ptr, ptr %5, align 8
   %.not17.i = icmp eq ptr %330, null
-  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i72
+  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i71
 
-.lr.ph.i72:                                       ; preds = %ginVacuumPostingTreeLeaves.exit.thread.i, %.lr.ph.i72
-  %.018.i = phi ptr [ %331, %.lr.ph.i72 ], [ %330, %ginVacuumPostingTreeLeaves.exit.thread.i ]
+.lr.ph.i71:                                       ; preds = %ginVacuumPostingTreeLeaves.exit.thread.i, %.lr.ph.i71
+  %.018.i = phi ptr [ %331, %.lr.ph.i71 ], [ %330, %ginVacuumPostingTreeLeaves.exit.thread.i ]
   %331 = load ptr, ptr %.018.i, align 8
   call void @pfree(ptr noundef nonnull %.018.i) #6
-  %.not.i73 = icmp eq ptr %331, null
-  br i1 %.not.i73, label %._crit_edge.i, label %.lr.ph.i72, !llvm.loop !7
+  %.not.i72 = icmp eq ptr %331, null
+  br i1 %.not.i72, label %._crit_edge.i, label %.lr.ph.i71, !llvm.loop !7
 
-._crit_edge.i:                                    ; preds = %.lr.ph.i72, %ginVacuumPostingTreeLeaves.exit.thread.i
+._crit_edge.i:                                    ; preds = %.lr.ph.i71, %ginVacuumPostingTreeLeaves.exit.thread.i
   call void @UnlockReleaseBuffer(i32 noundef %328) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %ginVacuumPostingTree.exit

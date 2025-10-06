@@ -1752,12 +1752,12 @@ Py_DECREF.exit:                                   ; preds = %16, %13, %8, %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @s_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val22 = load ptr, ptr %4, align 8, !tbaa !24
-  %.not = icmp eq ptr %.val22, null
+  %.val21 = load ptr, ptr %4, align 8, !tbaa !24
+  %.not = icmp eq ptr %.val21, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val22, ptr noundef %2) #7
+  %6 = tail call i32 %1(ptr noundef nonnull %.val21, ptr noundef %2) #7
   %.not17.not = icmp eq i32 %6, 0
   br i1 %.not17.not, label %7, label %13
 
@@ -3658,12 +3658,12 @@ Py_DECREF.exit:                                   ; preds = %Py_XDECREF.exit, %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @unpackiter_traverse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
-  %.val36 = load ptr, ptr %4, align 8, !tbaa !24
-  %.not = icmp eq ptr %.val36, null
+  %.val34 = load ptr, ptr %4, align 8, !tbaa !24
+  %.not = icmp eq ptr %.val34, null
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 %1(ptr noundef nonnull %.val36, ptr noundef %2) #7
+  %6 = tail call i32 %1(ptr noundef nonnull %.val34, ptr noundef %2) #7
   %.not27.not = icmp eq i32 %6, 0
   br i1 %.not27.not, label %7, label %18
 

@@ -2872,12 +2872,12 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev18FormatMetadataImpl17getAtt
   %7 = load ptr, ptr %6, align 8, !tbaa !43
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %9 = load ptr, ptr %8, align 8, !tbaa !43
-  %.not2427 = icmp eq ptr %7, %9
-  br i1 %.not2427, label %.thread19, label %.lr.ph
+  %.not2225 = icmp eq ptr %7, %9
+  br i1 %.not2225, label %.thread19, label %.lr.ph
 
 .lr.ph:                                           ; preds = %5, %13
-  %.sroa.015.028 = phi ptr [ %14, %13 ], [ %7, %5 ]
-  %10 = load ptr, ptr %.sroa.015.028, align 8, !tbaa !13
+  %.sroa.015.026 = phi ptr [ %14, %13 ], [ %7, %5 ]
+  %10 = load ptr, ptr %.sroa.015.026, align 8, !tbaa !13
   %11 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull %1, ptr noundef %10)
           to label %12 unwind label %18
 
@@ -2886,12 +2886,12 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev18FormatMetadataImpl17getAtt
   br i1 %.not14, label %15, label %13
 
 13:                                               ; preds = %12
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.015.028, i64 64
-  %.not24 = icmp eq ptr %14, %9
-  br i1 %.not24, label %.thread19, label %.lr.ph
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.015.026, i64 64
+  %.not22 = icmp eq ptr %14, %9
+  br i1 %.not22, label %.thread19, label %.lr.ph
 
 15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %.sroa.015.028, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.sroa.015.026, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   br label %.thread19
 
@@ -2923,67 +2923,67 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK19OpenColorIO
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %10 = load ptr, ptr %9, align 8, !tbaa !43
-  %.not2326 = icmp eq ptr %8, %10
-  br i1 %.not2326, label %.thread, label %.lr.ph
+  %.not2123 = icmp eq ptr %8, %10
+  br i1 %.not2123, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %14
-  %.sroa.016.027 = phi ptr [ %15, %14 ], [ %8, %6 ]
-  %11 = load ptr, ptr %.sroa.016.027, align 8, !tbaa !13
+  %.sroa.016.024 = phi ptr [ %15, %14 ], [ %8, %6 ]
+  %11 = load ptr, ptr %.sroa.016.024, align 8, !tbaa !13
   %12 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef nonnull %1, ptr noundef %11)
           to label %13 unwind label %.loopexit
 
 13:                                               ; preds = %.lr.ph
   %.not14 = icmp eq i32 %12, 0
-  br i1 %.not14, label %16, label %14
+  br i1 %.not14, label %.loopexit22, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.016.027, i64 64
-  %.not23 = icmp eq ptr %15, %10
-  br i1 %.not23, label %.thread, label %.lr.ph
-
-16:                                               ; preds = %13
-  %17 = getelementptr inbounds nuw i8, ptr %.sroa.016.027, i64 32
-  br label %25
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.016.024, i64 64
+  %.not21 = icmp eq ptr %15, %10
+  br i1 %.not21, label %.thread, label %.lr.ph
 
 .thread:                                          ; preds = %14, %6, %4, %2
-  %18 = load atomic i8, ptr @_ZGVZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11 acquire, align 8
-  %19 = icmp eq i8 %18, 0
-  br i1 %19, label %20, label %25, !prof !58
+  %16 = load atomic i8, ptr @_ZGVZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11 acquire, align 8
+  %17 = icmp eq i8 %16, 0
+  br i1 %17, label %18, label %24, !prof !58
 
-20:                                               ; preds = %.thread
-  %21 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11) #25
-  %.not15 = icmp eq i32 %21, 0
-  br i1 %.not15, label %25, label %22
+18:                                               ; preds = %.thread
+  %19 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11) #25
+  %.not15 = icmp eq i32 %19, 0
+  br i1 %.not15, label %24, label %20
 
-22:                                               ; preds = %20
+20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) @_ZZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %3)
-          to label %23 unwind label %.loopexit.split-lp
+          to label %21 unwind label %.loopexit.split-lp
 
-23:                                               ; preds = %22
+21:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %24 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11, ptr nonnull @__dso_handle) #25
+  %22 = call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev, ptr nonnull @_ZZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11, ptr nonnull @__dso_handle) #25
   call void @__cxa_guard_release(ptr nonnull @_ZGVZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11) #25
-  br label %25
+  br label %24
 
-25:                                               ; preds = %16, %.thread, %20, %23
-  %.3 = phi ptr [ %17, %16 ], [ @_ZZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11, %23 ], [ @_ZZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11, %20 ], [ @_ZZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11, %.thread ]
+.loopexit22:                                      ; preds = %13
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.016.024, i64 32
+  br label %24
+
+24:                                               ; preds = %.loopexit22, %.thread, %18, %21
+  %.3 = phi ptr [ @_ZZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11, %21 ], [ @_ZZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11, %18 ], [ @_ZZNK19OpenColorIO_v2_5dev18FormatMetadataImpl23getAttributeValueStringB5cxx11EPKcE11emptyStringB5cxx11, %.thread ], [ %23, %.loopexit22 ]
   ret ptr %.3
 
 .loopexit:                                        ; preds = %.lr.ph
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
-  br label %26
+  br label %25
 
-.loopexit.split-lp:                               ; preds = %22
+.loopexit.split-lp:                               ; preds = %20
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           catch ptr null
-  br label %26
+  br label %25
 
-26:                                               ; preds = %.loopexit.split-lp, %.loopexit
+25:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %27 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %27) #29
+  %26 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %26) #29
   unreachable
 }
 

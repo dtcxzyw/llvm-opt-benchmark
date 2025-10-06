@@ -1646,15 +1646,15 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE6Bucket9cas_firstEPNS
   br label %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit
 
 _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit: ; preds = %.thread, %84, %81
-  %.1.ph83 = phi i1 [ true, %.thread ], [ false, %81 ], [ false, %84 ]
-  %.1.i61.ph81 = phi i64 [ %.1.i62, %.thread ], [ %55, %81 ], [ %55, %84 ]
+  %.1.ph82 = phi i1 [ true, %.thread ], [ false, %81 ], [ false, %84 ]
+  %.1.i61.ph80 = phi i64 [ %.1.i62, %.thread ], [ %55, %81 ], [ %55, %84 ]
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %90, label %85
 
 85:                                               ; preds = %_ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEPvPS3_.exit
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %87 = load i64, ptr %86, align 8
-  %88 = icmp ugt i64 %.1.i61.ph81, %87
+  %88 = icmp ugt i64 %.1.i61.ph80, %87
   %89 = zext i1 %88 to i8
   store i8 %89, ptr %5, align 1
   br label %90
@@ -1668,7 +1668,7 @@ _ZN19ConcurrentHashTableI19ThreadIdTableConfigL8MEMFLAGS9EE4Node12destroy_nodeEP
   br label %92
 
 92:                                               ; preds = %91, %90
-  ret i1 %.1.ph83
+  ret i1 %.1.ph82
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

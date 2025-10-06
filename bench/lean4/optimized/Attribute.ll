@@ -657,17 +657,17 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinatorAttribute___spec__2(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not40 = icmp eq i64 %1, %2
-  br i1 %.not40, label %._crit_edge, label %.lr.ph
+  %.not38 = icmp eq i64 %1, %2
+  br i1 %.not38, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %44
-  %.02042 = phi i64 [ %1, %.lr.ph ], [ %46, %44 ]
-  %.02241 = phi ptr [ %3, %.lr.ph ], [ %45, %44 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02042
+  %.02040 = phi i64 [ %1, %.lr.ph ], [ %46, %44 ]
+  %.02239 = phi ptr [ %3, %.lr.ph ], [ %45, %44 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02040
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -697,8 +697,8 @@ lean_array_uget.exit:                             ; preds = %6, %13, %15, %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
-  %.not37 = icmp eq i64 %20, 0
-  br i1 %.not37, label %21, label %lean_inc.exit24
+  %.not35 = icmp eq i64 %20, 0
+  br i1 %.not35, label %21, label %lean_inc.exit24
 
 21:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %18, align 4, !tbaa !8
@@ -723,8 +723,8 @@ lean_inc.exit24:                                  ; preds = %26, %25, %23, %lean
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
-  %.not38 = icmp eq i64 %30, 0
-  br i1 %.not38, label %31, label %lean_inc.exit
+  %.not36 = icmp eq i64 %30, 0
+  br i1 %.not36, label %31, label %lean_inc.exit
 
 31:                                               ; preds = %lean_inc.exit24
   %.val.i27 = load i32, ptr %28, align 4, !tbaa !8
@@ -766,8 +766,8 @@ lean_inc.exit:                                    ; preds = %36, %35, %33, %lean
   br label %44
 
 44:                                               ; preds = %lean_inc.exit, %40, %42, %43
-  %45 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.02241, ptr noundef %18, ptr noundef %28) #6
-  %46 = add i64 %.02042, 1
+  %45 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.02239, ptr noundef %18, ptr noundef %28) #6
+  %46 = add i64 %.02040, 1
   %.not = icmp eq i64 %46, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -780,17 +780,17 @@ declare ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr 
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinatorAttribute___spec__3(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
-  %.not69 = icmp eq i64 %1, %2
-  br i1 %.not69, label %._crit_edge, label %.lr.ph
+  %.not67 = icmp eq i64 %1, %2
+  br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %lean_dec.exit43
-  %.03171 = phi i64 [ %1, %.lr.ph ], [ %33, %lean_dec.exit43 ]
-  %.03370 = phi ptr [ %3, %.lr.ph ], [ %.336, %lean_dec.exit43 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03171
+  %.03169 = phi i64 [ %1, %.lr.ph ], [ %33, %lean_dec.exit43 ]
+  %.03368 = phi ptr [ %3, %.lr.ph ], [ %.336, %lean_dec.exit43 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.03169
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -819,18 +819,18 @@ lean_nat_lt.exit:                                 ; preds = %16, %15, %13
   %17 = getelementptr i8, ptr %8, i64 8
   %.val = load i64, ptr %17, align 8, !tbaa !12
   %.mask = and i64 %.val, 9223372036854775807
-  %.not66 = icmp eq i64 %.mask, 0
-  br i1 %.not66, label %lean_dec.exit44, label %lean_dec.exit40
+  %.not64 = icmp eq i64 %.mask, 0
+  br i1 %.not64, label %lean_dec.exit44, label %lean_dec.exit40
 
 lean_nat_lt.exit.thread:                          ; preds = %6
   %18 = getelementptr i8, ptr %8, i64 8
-  %.val77 = load i64, ptr %18, align 8, !tbaa !12
-  %.mask78 = and i64 %.val77, 9223372036854775807
-  %.not6679 = icmp eq i64 %.mask78, 0
-  br i1 %.not6679, label %lean_dec.exit43, label %lean_dec.exit40.thread
+  %.val75 = load i64, ptr %18, align 8, !tbaa !12
+  %.mask76 = and i64 %.val75, 9223372036854775807
+  %.not6477 = icmp eq i64 %.mask76, 0
+  br i1 %.not6477, label %lean_dec.exit43, label %lean_dec.exit40.thread
 
 lean_dec.exit40.thread:                           ; preds = %lean_nat_lt.exit.thread
-  %19 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinatorAttribute___spec__2(ptr noundef nonnull %8, i64 noundef 0, i64 noundef %.mask78, ptr noundef %.03370)
+  %19 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinatorAttribute___spec__2(ptr noundef nonnull %8, i64 noundef 0, i64 noundef %.mask76, ptr noundef %.03368)
   br label %lean_dec.exit43
 
 lean_dec.exit44:                                  ; preds = %lean_nat_lt.exit
@@ -852,7 +852,7 @@ lean_dec.exit44:                                  ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit43
 
 lean_dec.exit40:                                  ; preds = %lean_nat_lt.exit
-  %26 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinatorAttribute___spec__2(ptr noundef nonnull %8, i64 noundef 0, i64 noundef %.mask, ptr noundef %.03370)
+  %26 = tail call ptr @l_Array_foldlMUnsafe_fold___at_Lean_ParserCompiler_registerCombinatorAttribute___spec__2(ptr noundef nonnull %8, i64 noundef 0, i64 noundef %.mask, ptr noundef %.03368)
   %27 = load i32, ptr %8, align 4, !tbaa !8
   %28 = icmp sgt i32 %27, 1
   br i1 %28, label %29, label %31, !prof !11
@@ -871,8 +871,8 @@ lean_dec.exit40:                                  ; preds = %lean_nat_lt.exit
   br label %lean_dec.exit43
 
 lean_dec.exit43:                                  ; preds = %lean_nat_lt.exit.thread, %lean_dec.exit40.thread, %29, %31, %32, %22, %24, %25
-  %.336 = phi ptr [ %.03370, %25 ], [ %.03370, %24 ], [ %.03370, %22 ], [ %26, %32 ], [ %26, %31 ], [ %26, %29 ], [ %19, %lean_dec.exit40.thread ], [ %.03370, %lean_nat_lt.exit.thread ]
-  %33 = add i64 %.03171, 1
+  %.336 = phi ptr [ %.03368, %25 ], [ %.03368, %24 ], [ %.03368, %22 ], [ %26, %32 ], [ %26, %31 ], [ %26, %29 ], [ %19, %lean_dec.exit40.thread ], [ %.03368, %lean_nat_lt.exit.thread ]
+  %33 = add i64 %.03169, 1
   %.not = icmp eq i64 %33, %2
   br i1 %.not, label %._crit_edge, label %6
 

@@ -341,8 +341,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !224
   %10 = load ptr, ptr %7, align 8, !tbaa !227
-  %.not39 = icmp eq ptr %9, %10
-  br i1 %.not39, label %.loopexit, label %.lr.ph
+  %.not = icmp eq ptr %9, %10
+  br i1 %.not, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %11 = ptrtoint ptr %9 to i64
@@ -357,10 +357,10 @@ define hidden noundef range(i32 0, 2) i32 @_ZN4cvc58internal13preprocessing6pass
   br label %20
 
 20:                                               ; preds = %.lr.ph, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit
-  %.02040 = phi i64 [ 0, %.lr.ph ], [ %109, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  %.02032 = phi i64 [ 0, %.lr.ph ], [ %109, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %21 = load ptr, ptr %7, align 8, !tbaa !227
-  %22 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %21, i64 %.02040
+  %22 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %21, i64 %.02032
   %23 = load ptr, ptr %22, align 8, !tbaa !228
   store ptr %23, ptr %3, align 8, !tbaa !228
   %24 = load i64, ptr %23, align 8
@@ -436,7 +436,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit: ; preds = %29, %35, %37
 60:                                               ; preds = %56, %50, %58
   %61 = load ptr, ptr %18, align 8, !tbaa !239
   store ptr %61, ptr %17, align 8, !tbaa !239
-  invoke void @_ZN4cvc58internal13preprocessing17AssertionPipeline14replaceTrustedEmNS0_9TrustNodeENS0_7TrustIdE(ptr noundef nonnull align 8 dereferenceable(232) %1, i64 noundef %.02040, ptr noundef nonnull %6, i32 noundef 68)
+  invoke void @_ZN4cvc58internal13preprocessing17AssertionPipeline14replaceTrustedEmNS0_9TrustNodeENS0_7TrustIdE(ptr noundef nonnull align 8 dereferenceable(232) %1, i64 noundef %.02032, ptr noundef nonnull %6, i32 noundef 68)
           to label %62 unwind label %82
 
 62:                                               ; preds = %60
@@ -543,7 +543,7 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit24:           ; preds = %.critedge, %87, %93
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZN4cvc58internal9TrustNodeD2Ev.exit24, %99, %105
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %109 = add nuw i64 %.02040, 1
+  %109 = add nuw i64 %.02032, 1
   %exitcond.not = icmp eq i64 %109, %14
   br i1 %exitcond.not, label %.loopexit, label %20, !llvm.loop !269
 
@@ -579,7 +579,7 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit26:           ; preds = %110, %114, %120
   %124 = load i64, ptr %23, align 8
   %125 = and i64 %124, 1152920405095219200
   %.not.i.i27 = icmp eq i64 %125, 1152920405095219200
-  br i1 %.not.i.i27, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28, label %126, !prof !232
+  br i1 %.not.i.i27, label %138, label %126, !prof !232
 
 126:                                              ; preds = %_ZN4cvc58internal9TrustNodeD2Ev.exit26
   %127 = add i64 %124, 1152920405095219200
@@ -588,11 +588,11 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit26:           ; preds = %110, %114, %120
   %130 = or disjoint i64 %128, %129
   store i64 %130, ptr %23, align 8
   %131 = icmp eq i64 %128, 0
-  br i1 %131, label %132, label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28, !prof !232
+  br i1 %131, label %132, label %138, !prof !232
 
 132:                                              ; preds = %126
   invoke void @_ZN4cvc58internal4expr9NodeValue15markForDeletionEv(ptr noundef nonnull align 8 dereferenceable(24) %23)
-          to label %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28 unwind label %133
+          to label %138 unwind label %133
 
 133:                                              ; preds = %132
   %134 = landingpad { ptr, i32 }
@@ -600,10 +600,6 @@ _ZN4cvc58internal9TrustNodeD2Ev.exit26:           ; preds = %110, %114, %120
   %135 = extractvalue { ptr, i32 } %134, 0
   call void @__clang_call_terminate(ptr %135) #22
   unreachable
-
-_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28: ; preds = %_ZN4cvc58internal9TrustNodeD2Ev.exit26, %126, %132
-  call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %.loopexit
 
 136:                                              ; preds = %82, %80
   %.pn = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ]
@@ -617,9 +613,13 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28: ; preds = %_ZN4cvc58internal9T
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   resume { ptr, i32 } %.pn.pn
 
-.loopexit:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %2, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28
-  %.not38 = phi i32 [ 0, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit28 ], [ 1, %2 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
-  ret i32 %.not38
+138:                                              ; preds = %132, %126, %_ZN4cvc58internal9TrustNodeD2Ev.exit26
+  call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit, %2, %138
+  %139 = phi i32 [ 0, %138 ], [ 1, %2 ], [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit ]
+  ret i32 %139
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4845,8 +4845,8 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIN4cvc58internal12NodeT
   %18 = load i64, ptr %17, align 8, !tbaa !282
   %19 = urem i64 %16, %18
   %20 = load i64, ptr %6, align 8, !tbaa !351
-  %.not32 = icmp eq i64 %20, 0
-  br i1 %.not32, label %.critedge, label %21
+  %.not30 = icmp eq i64 %20, 0
+  br i1 %.not30, label %.critedge, label %21
 
 21:                                               ; preds = %.thread
   %22 = load ptr, ptr %0, align 8, !tbaa !280

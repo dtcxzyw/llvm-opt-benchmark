@@ -253,41 +253,41 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %.018 = phi i32 [ undef, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %30, %_ZL12lookup_phasePKc.exit ]
   %.017 = phi i32 [ %32, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit ], [ %30, %_ZL12lookup_phasePKc.exit ]
   %.1 = phi i1 [ %8, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit ], [ false, %_ZL12lookup_phasePKc.exit ]
-  %switch = phi i1 [ true, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit ], [ false, %_ZL12lookup_phasePKc.exit ]
-  br i1 %3, label %56, label %_ZN14PhaseTypeGuardD2Ev.exit
+  %56 = phi i1 [ true, %_ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit ], [ false, %_ZL12lookup_phasePKc.exit ]
+  br i1 %3, label %57, label %_ZN14PhaseTypeGuardD2Ev.exit
 
-56:                                               ; preds = %55
+57:                                               ; preds = %55
   tail call void @_ZN14PosixSemaphore6signalEj(ptr noundef nonnull align 8 dereferenceable(32) @_ZN14PhaseTypeGuard16_mutex_semaphoreE, i32 noundef 1) #11
   br label %_ZN14PhaseTypeGuardD2Ev.exit
 
-_ZN14PhaseTypeGuardD2Ev.exit:                     ; preds = %55, %56
-  br i1 %switch, label %57, label %65
+_ZN14PhaseTypeGuardD2Ev.exit:                     ; preds = %55, %57
+  br i1 %56, label %58, label %66
 
-57:                                               ; preds = %_ZN14PhaseTypeGuardD2Ev.exit
-  br i1 %.1, label %58, label %61
+58:                                               ; preds = %_ZN14PhaseTypeGuardD2Ev.exit
+  br i1 %.1, label %59, label %62
 
-58:                                               ; preds = %57
-  %59 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #11
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV25CompilerPhaseTypeConstant, i64 16), ptr %59, align 8
-  %60 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 197, i1 noundef zeroext false, ptr noundef nonnull %59) #11
-  br label %65
+59:                                               ; preds = %58
+  %60 = tail call noundef ptr @_Z12AllocateHeapm8MEMFLAGSN17AllocFailStrategy13AllocFailEnumE(i64 noundef 8, i8 noundef zeroext 16, i32 noundef 0) #11
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTV25CompilerPhaseTypeConstant, i64 16), ptr %60, align 8
+  %61 = tail call noundef zeroext i1 @_ZN13JfrSerializer19register_serializerE9JfrTypeIdbPS_(i32 noundef 197, i1 noundef zeroext false, ptr noundef nonnull %60) #11
+  br label %66
 
-61:                                               ; preds = %57
-  %62 = tail call noundef zeroext i1 @_ZN3Jfr12is_recordingEv() #11
-  br i1 %62, label %63, label %65
+62:                                               ; preds = %58
+  %63 = tail call noundef zeroext i1 @_ZN3Jfr12is_recordingEv() #11
+  br i1 %63, label %64, label %66
 
-63:                                               ; preds = %61
+64:                                               ; preds = %62
   call void @_ZN19JfrCheckpointWriterC1Eb17JfrCheckpointType23JfrCheckpointBufferKind(ptr noundef nonnull align 8 dereferenceable(73) %5, i1 noundef zeroext true, i32 noundef 0, i32 noundef 0) #11
   call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %5, i32 noundef 197) #11
   call void @_ZN19JfrCheckpointWriter11write_countEj(ptr noundef nonnull align 8 dereferenceable(73) %5, i32 noundef 1) #11
-  %64 = sext i32 %.017 to i64
-  call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %5, i64 noundef %64) #11
+  %65 = sext i32 %.017 to i64
+  call void @_ZN19JfrCheckpointWriter9write_keyEm(ptr noundef nonnull align 8 dereferenceable(73) %5, i64 noundef %65) #11
   call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %5, ptr noundef %0)
   call void @_ZN19JfrCheckpointWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(73) %5) #11
-  br label %65
+  br label %66
 
-65:                                               ; preds = %58, %63, %61, %_ZN14PhaseTypeGuardD2Ev.exit
-  %.119 = phi i32 [ %.018, %_ZN14PhaseTypeGuardD2Ev.exit ], [ %.017, %61 ], [ %.017, %63 ], [ %.017, %58 ]
+66:                                               ; preds = %59, %64, %62, %_ZN14PhaseTypeGuardD2Ev.exit
+  %.119 = phi i32 [ %.018, %_ZN14PhaseTypeGuardD2Ev.exit ], [ %.017, %62 ], [ %.017, %64 ], [ %.017, %59 ]
   ret i32 %.119
 }
 

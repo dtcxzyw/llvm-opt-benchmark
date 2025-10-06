@@ -104,47 +104,47 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   %5 = tail call noundef i8 @"_ZN71_$LT$yara_x_proto_json..test..Enum$u20$as$u20$protobuf..enums..Enum$GT$8from_i3217h9de3c59fc48f1d25E"(i32 noundef %.val), !noalias !10
   %.not.i = icmp eq i8 %5, 0
-  br i1 %.not.i, label %8, label %6
+  br i1 %.not.i, label %9, label %6
 
 6:                                                ; preds = %2
-  %switch.i.i = icmp eq i8 %5, 1
-  %anon.63a2ad18bb0ba969f87c17772988fd0d.74.anon.63a2ad18bb0ba969f87c17772988fd0d.75.i.i = select i1 %switch.i.i, ptr @anon.63a2ad18bb0ba969f87c17772988fd0d.74, ptr @anon.63a2ad18bb0ba969f87c17772988fd0d.75
-  %7 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %anon.63a2ad18bb0ba969f87c17772988fd0d.74.anon.63a2ad18bb0ba969f87c17772988fd0d.75.i.i, i64 noundef 3)
+  %7 = icmp eq i8 %5, 1
+  %anon.63a2ad18bb0ba969f87c17772988fd0d.74.anon.63a2ad18bb0ba969f87c17772988fd0d.75.i.i = select i1 %7, ptr @anon.63a2ad18bb0ba969f87c17772988fd0d.74, ptr @anon.63a2ad18bb0ba969f87c17772988fd0d.75
+  %8 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf872a87fa5f13d84E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %anon.63a2ad18bb0ba969f87c17772988fd0d.74.anon.63a2ad18bb0ba969f87c17772988fd0d.75.i.i, i64 noundef 3)
   br label %"_ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfecf1dc92a16fcf1E.exit"
 
-8:                                                ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !10
   store i32 %.val, ptr %3, align 4, !noalias !10
-  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %10 = load i32, ptr %9, align 8, !alias.scope !13, !noalias !16, !noundef !3
-  %11 = and i32 %10, 33554432
-  %12 = icmp eq i32 %11, 0
-  br i1 %12, label %13, label %16
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %11 = load i32, ptr %10, align 8, !alias.scope !13, !noalias !16, !noundef !3
+  %12 = and i32 %11, 33554432
+  %13 = icmp eq i32 %12, 0
+  br i1 %13, label %14, label %17
 
-13:                                               ; preds = %8
-  %14 = and i32 %10, 67108864
-  %15 = icmp eq i32 %14, 0
-  br i1 %15, label %18, label %20
+14:                                               ; preds = %9
+  %15 = and i32 %11, 67108864
+  %16 = icmp eq i32 %15, 0
+  br i1 %16, label %19, label %21
 
-16:                                               ; preds = %8
-  %17 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hfbe4e54af49e1846E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+17:                                               ; preds = %9
+  %18 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..LowerHex$u20$for$u20$i32$GT$3fmt17hfbe4e54af49e1846E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h1ec9616e03b8f1c4E.exit.i"
 
-18:                                               ; preds = %13
-  %19 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17ha12a4e2e8a8cbbefE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+19:                                               ; preds = %14
+  %20 = call noundef zeroext i1 @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$i32$GT$3fmt17ha12a4e2e8a8cbbefE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h1ec9616e03b8f1c4E.exit.i"
 
-20:                                               ; preds = %13
-  %21 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17hde978402a30b0d4fE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
+21:                                               ; preds = %14
+  %22 = call noundef zeroext i1 @"_ZN4core3fmt3num53_$LT$impl$u20$core..fmt..UpperHex$u20$for$u20$i32$GT$3fmt17hde978402a30b0d4fE"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3, ptr noalias noundef nonnull align 8 dereferenceable(24) %1)
   br label %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h1ec9616e03b8f1c4E.exit.i"
 
-"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h1ec9616e03b8f1c4E.exit.i": ; preds = %20, %18, %16
-  %.sroa.0.0.in.i.i = phi i1 [ %19, %18 ], [ %21, %20 ], [ %17, %16 ]
+"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h1ec9616e03b8f1c4E.exit.i": ; preds = %21, %19, %17
+  %.sroa.0.0.in.i.i = phi i1 [ %20, %19 ], [ %22, %21 ], [ %18, %17 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !10
   br label %"_ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfecf1dc92a16fcf1E.exit"
 
 "_ZN86_$LT$protobuf..enum_or_unknown..EnumOrUnknown$LT$E$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hfecf1dc92a16fcf1E.exit": ; preds = %6, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h1ec9616e03b8f1c4E.exit.i"
-  %.sroa.0.0.in.i = phi i1 [ %7, %6 ], [ %.sroa.0.0.in.i.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h1ec9616e03b8f1c4E.exit.i" ]
+  %.sroa.0.0.in.i = phi i1 [ %8, %6 ], [ %.sroa.0.0.in.i.i, %"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$i32$GT$3fmt17h1ec9616e03b8f1c4E.exit.i" ]
   ret i1 %.sroa.0.0.in.i
 }
 

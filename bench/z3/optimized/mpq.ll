@@ -2850,12 +2850,12 @@ _ZN11mpq_managerILb1EE15get_denominatorERK3mpqR3mpz.exit: ; preds = %28, %30
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 42:                                               ; preds = %.lr.ph
-  %43 = add nuw i32 %.01319, 1
+  %43 = add nuw i32 %.01317, 1
   %exitcond.not = icmp eq i32 %43, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %40, %42
-  %.01319 = phi i32 [ %43, %42 ], [ 0, %40 ]
+  %.01317 = phi i32 [ %43, %42 ], [ 0, %40 ]
   call void @_ZN11mpz_managerILb1EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @_ZN11mpz_managerILb1EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @_ZNK11mpz_managerILb1EE7displayERSoRK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %8)
@@ -9567,12 +9567,12 @@ _ZN11mpq_managerILb0EE15get_denominatorERK3mpqR3mpz.exit: ; preds = %28, %30
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 42:                                               ; preds = %.lr.ph
-  %43 = add nuw i32 %.01319, 1
+  %43 = add nuw i32 %.01317, 1
   %exitcond.not = icmp eq i32 %43, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !85
 
 .lr.ph:                                           ; preds = %40, %42
-  %.01319 = phi i32 [ %43, %42 ], [ 0, %40 ]
+  %.01317 = phi i32 [ %43, %42 ], [ 0, %40 ]
   call void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %6)
   call void @_ZN11mpz_managerILb0EE3divERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
   call void @_ZNK11mpz_managerILb0EE7displayERSoRK3mpz(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %8)

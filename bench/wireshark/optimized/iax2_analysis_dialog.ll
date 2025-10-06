@@ -8731,9 +8731,9 @@ _ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.i.i.i.i: ; preds
   %27 = phi ptr [ %.pre.i, %.noexc ], [ %24, %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.i.i.i ]
   %28 = load atomic i32, ptr %27 monotonic, align 4
   %29 = icmp sgt i32 %28, 1
-  br i1 %29, label %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread.i.i.i.i, label %.thread49
+  br i1 %29, label %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread.i.i.i.i, label %.thread48
 
-.thread49:                                        ; preds = %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.i.i.i.i
+.thread48:                                        ; preds = %_ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.i.i.i.i
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
@@ -8751,9 +8751,9 @@ _ZNK17QArrayDataPointerIP15QTreeWidgetItemE11needsDetachEv.exit.thread.i.i.i.i: 
   %.not.i.i.i28 = icmp eq ptr %.pre, null
   br i1 %.not.i.i.i28, label %_ZN5QListIP15QTreeWidgetItemED2Ev.exit31, label %_ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i29
 
-_ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i29: ; preds = %.thread49, %33
-  %37 = phi ptr [ %32, %.thread49 ], [ %36, %33 ]
-  %38 = phi ptr [ %27, %.thread49 ], [ %.pre, %33 ]
+_ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i29: ; preds = %.thread48, %33
+  %37 = phi ptr [ %32, %.thread48 ], [ %36, %33 ]
+  %38 = phi ptr [ %27, %.thread48 ], [ %.pre, %33 ]
   %39 = atomicrmw sub ptr %38, i32 1 seq_cst, align 4
   %.not.i.i30 = icmp eq i32 %39, 1
   br i1 %.not.i.i30, label %40, label %_ZN5QListIP15QTreeWidgetItemED2Ev.exit31
@@ -8794,12 +8794,12 @@ _ZN5QListIP15QTreeWidgetItemED2Ev.exit35:         ; preds = %45, %_ZN17QArrayDat
 
 51:                                               ; preds = %_ZN5QListIP15QTreeWidgetItemED2Ev.exit31
   %52 = call noundef ptr @_ZNK11QTreeWidget9itemBelowEPK15QTreeWidgetItem(ptr noundef nonnull align 8 dereferenceable_or_null(40) %9, ptr noundef %42)
-  %.not2539 = icmp eq ptr %52, %42
-  br i1 %.not2539, label %.loopexit, label %.lr.ph
+  %.not2538 = icmp eq ptr %52, %42
+  br i1 %.not2538, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %51, %59
-  %.02240 = phi ptr [ %60, %59 ], [ %52, %51 ]
-  %.not26 = icmp eq ptr %.02240, null
+  %.02239 = phi ptr [ %60, %59 ], [ %52, %51 ]
+  %.not26 = icmp eq ptr %.02239, null
   br i1 %.not26, label %53, label %55
 
 53:                                               ; preds = %.lr.ph
@@ -8807,7 +8807,7 @@ _ZN5QListIP15QTreeWidgetItemED2Ev.exit35:         ; preds = %45, %_ZN17QArrayDat
   br label %55
 
 55:                                               ; preds = %53, %.lr.ph
-  %.1 = phi ptr [ %.02240, %.lr.ph ], [ %54, %53 ]
+  %.1 = phi ptr [ %.02239, %.lr.ph ], [ %54, %53 ]
   %56 = getelementptr inbounds nuw i8, ptr %.1, i64 128
   %57 = load i8, ptr %56, align 8, !range !27, !noundef !28
   %58 = trunc nuw i8 %57 to i1

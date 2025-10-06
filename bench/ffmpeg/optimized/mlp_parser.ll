@@ -48,18 +48,18 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
 
 .preheader:                                       ; preds = %18
   %21 = icmp sgt i32 %5, 0
-  br i1 %21, label %.lr.ph125, label %._crit_edge126
+  br i1 %21, label %.lr.ph124, label %._crit_edge125
 
-.lr.ph125:                                        ; preds = %.preheader
+.lr.ph124:                                        ; preds = %.preheader
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 20
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.promoted = load i32, ptr %22, align 4, !tbaa !20
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %24
 
-24:                                               ; preds = %.lr.ph125, %38
-  %indvars.iv = phi i64 [ 0, %.lr.ph125 ], [ %indvars.iv.next, %38 ]
-  %25 = phi i32 [ %.promoted, %.lr.ph125 ], [ %30, %38 ]
+24:                                               ; preds = %.lr.ph124, %38
+  %indvars.iv = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next, %38 ]
+  %25 = phi i32 [ %.promoted, %.lr.ph124 ], [ %30, %38 ]
   %26 = shl i32 %25, 8
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv
   %28 = load i8, ptr %27, align 1, !tbaa !21
@@ -79,19 +79,19 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
 
 38:                                               ; preds = %24, %33
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond130.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond130.not, label %._crit_edge126, label %24, !llvm.loop !23
+  %exitcond129.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond129.not, label %._crit_edge125, label %24, !llvm.loop !23
 
-._crit_edge126:                                   ; preds = %38, %.preheader
+._crit_edge125:                                   ; preds = %38, %.preheader
   %39 = call i32 @ff_combine_frame(ptr noundef nonnull %11, i32 noundef -100, ptr noundef nonnull %7, ptr noundef nonnull %8) #4
   %.not103 = icmp eq i32 %39, -1
   br i1 %.not103, label %41, label %40
 
-40:                                               ; preds = %._crit_edge126
+40:                                               ; preds = %._crit_edge125
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 24, ptr noundef nonnull @.str) #4
   br label %41
 
-41:                                               ; preds = %40, %._crit_edge126
+41:                                               ; preds = %40, %._crit_edge125
   %42 = load i32, ptr %8, align 4, !tbaa !9
   br label %201
 
@@ -112,15 +112,15 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   %50 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %51 = load i32, ptr %50, align 8, !tbaa !25
   %52 = icmp eq i32 %51, 0
-  br i1 %52, label %.preheader116, label %102
+  br i1 %52, label %.preheader115, label %102
 
-.preheader116:                                    ; preds = %49
+.preheader115:                                    ; preds = %49
   %53 = getelementptr inbounds nuw i8, ptr %11, i64 28
   %54 = load i32, ptr %53, align 4, !tbaa !26
   %55 = icmp sgt i32 %54, 0
   br i1 %55, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader116
+.lr.ph:                                           ; preds = %.preheader115
   %56 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %57 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %58
@@ -149,8 +149,8 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   %.pre = load i32, ptr %8, align 4, !tbaa !9
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader116
-  %72 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %5, %.preheader116 ]
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader115
+  %72 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %5, %.preheader115 ]
   %73 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !22
   %75 = add nsw i32 %72, %74
@@ -226,11 +226,11 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
 
 112:                                              ; preds = %102
   store i32 0, ptr %50, align 8, !tbaa !25
-  %.pre131 = load i32, ptr %8, align 4, !tbaa !9
+  %.pre130 = load i32, ptr %8, align 4, !tbaa !9
   br label %113
 
 113:                                              ; preds = %14, %112
-  %114 = phi i32 [ %.pre131, %112 ], [ %5, %14 ]
+  %114 = phi i32 [ %.pre130, %112 ], [ %5, %14 ]
   %.093 = phi i32 [ %spec.select, %112 ], [ %5, %14 ]
   %115 = icmp sgt i32 %114, 7
   br i1 %115, label %116, label %.critedge
@@ -248,25 +248,25 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   %122 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %123 = load i32, ptr %122, align 8, !tbaa !30
   %124 = icmp sgt i32 %123, -1
-  br i1 %124, label %.lr.ph122, label %._crit_edge123
+  br i1 %124, label %.lr.ph121, label %._crit_edge122
 
-.lr.ph122:                                        ; preds = %.critedge
+.lr.ph121:                                        ; preds = %.critedge
   %125 = load ptr, ptr %7, align 8, !tbaa !4
   br label %126
 
-126:                                              ; preds = %.lr.ph122, %145
-  %.089121 = phi i32 [ 0, %.lr.ph122 ], [ %.1, %145 ]
-  %.191120 = phi i32 [ -1, %.lr.ph122 ], [ %146, %145 ]
-  %.094119 = phi i8 [ 0, %.lr.ph122 ], [ %.195, %145 ]
-  %127 = sext i32 %.089121 to i64
+126:                                              ; preds = %.lr.ph121, %145
+  %.089120 = phi i32 [ 0, %.lr.ph121 ], [ %.1, %145 ]
+  %.191119 = phi i32 [ -1, %.lr.ph121 ], [ %146, %145 ]
+  %.094118 = phi i8 [ 0, %.lr.ph121 ], [ %.195, %145 ]
+  %127 = sext i32 %.089120 to i64
   %128 = getelementptr inbounds i8, ptr %125, i64 %127
   %129 = load i8, ptr %128, align 1, !tbaa !21
-  %130 = add nsw i32 %.089121, 2
+  %130 = add nsw i32 %.089120, 2
   %131 = getelementptr i8, ptr %128, i64 1
   %132 = load i8, ptr %131, align 1, !tbaa !21
-  %133 = xor i8 %.094119, %132
+  %133 = xor i8 %.094118, %132
   %134 = xor i8 %133, %129
-  %135 = icmp sgt i32 %.191120, -1
+  %135 = icmp sgt i32 %.191119, -1
   %.not108 = icmp sgt i8 %129, -1
   %or.cond = select i1 %135, i1 %.not108, i1 false
   br i1 %or.cond, label %145, label %136
@@ -275,7 +275,7 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   %137 = sext i32 %130 to i64
   %138 = getelementptr inbounds i8, ptr %125, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !21
-  %140 = add nsw i32 %.089121, 4
+  %140 = add nsw i32 %.089120, 4
   %141 = getelementptr i8, ptr %128, i64 3
   %142 = load i8, ptr %141, align 1, !tbaa !21
   %143 = xor i8 %139, %142
@@ -285,23 +285,23 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
 145:                                              ; preds = %126, %136
   %.195 = phi i8 [ %144, %136 ], [ %134, %126 ]
   %.1 = phi i32 [ %140, %136 ], [ %130, %126 ]
-  %146 = add nsw i32 %.191120, 1
+  %146 = add nsw i32 %.191119, 1
   %exitcond.not = icmp eq i32 %146, %123
-  br i1 %exitcond.not, label %._crit_edge123.loopexit, label %126, !llvm.loop !31
+  br i1 %exitcond.not, label %._crit_edge122.loopexit, label %126, !llvm.loop !31
 
-._crit_edge123.loopexit:                          ; preds = %145
+._crit_edge122.loopexit:                          ; preds = %145
   %147 = zext i8 %.195 to i32
-  br label %._crit_edge123
+  br label %._crit_edge122
 
-._crit_edge123:                                   ; preds = %._crit_edge123.loopexit, %.critedge
-  %.094.lcssa = phi i32 [ 0, %.critedge ], [ %147, %._crit_edge123.loopexit ]
+._crit_edge122:                                   ; preds = %._crit_edge122.loopexit, %.critedge
+  %.094.lcssa = phi i32 [ 0, %.critedge ], [ %147, %._crit_edge122.loopexit ]
   %148 = lshr i32 %.094.lcssa, 4
   %.masked106 = and i32 %.094.lcssa, 15
   %149 = xor i32 %148, %.masked106
   %.not107 = icmp eq i32 %149, 15
   br i1 %.not107, label %196, label %150
 
-150:                                              ; preds = %._crit_edge123
+150:                                              ; preds = %._crit_edge122
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %1, i32 noundef 32, ptr noundef nonnull @.str.1) #4
   br label %199
 
@@ -337,9 +337,9 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   %167 = getelementptr inbounds nuw i8, ptr %1, i64 652
   store i32 %166, ptr %167, align 4, !tbaa !40
   %168 = icmp sgt i32 %166, 16
-  %spec.select139 = select i1 %168, i32 2, i32 1
+  %spec.select138 = select i1 %168, i32 2, i32 1
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  store i32 %spec.select139, ptr %169, align 4, !tbaa !57
+  store i32 %spec.select138, ptr %169, align 4, !tbaa !57
   %170 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %171 = load i32, ptr %170, align 8, !tbaa !58
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 344
@@ -357,8 +357,8 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   %180 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %181 = load i32, ptr %180, align 8
   %.not109 = icmp eq i32 %181, 0
-  %.141 = select i1 %.not109, i64 64, i64 72
-  %.sink = select i1 %179, i64 56, i64 %.141
+  %.140 = select i1 %.not109, i64 64, i64 72
+  %.sink = select i1 %179, i64 56, i64 %.140
   %182 = getelementptr inbounds nuw i8, ptr %10, i64 %.sink
   %183 = load i64, ptr %182, align 8, !tbaa !64
   %184 = call i32 @av_channel_layout_from_mask(ptr noundef nonnull %177, i64 noundef %183) #4
@@ -382,7 +382,7 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   store i32 %193, ptr %194, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.pre132 = load i32, ptr %8, align 4, !tbaa !9
+  %.pre131 = load i32, ptr %8, align 4, !tbaa !9
   br label %196
 
 195:                                              ; preds = %151
@@ -390,8 +390,8 @@ define internal i32 @mlp_parse(ptr noundef captures(none) initializes((232, 236)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %199
 
-196:                                              ; preds = %.thread113, %._crit_edge123
-  %197 = phi i32 [ %.pre132, %.thread113 ], [ %114, %._crit_edge123 ]
+196:                                              ; preds = %.thread113, %._crit_edge122
+  %197 = phi i32 [ %.pre131, %.thread113 ], [ %114, %._crit_edge122 ]
   %198 = load ptr, ptr %7, align 8, !tbaa !4
   store ptr %198, ptr %2, align 8, !tbaa !4
   store i32 %197, ptr %3, align 4, !tbaa !9

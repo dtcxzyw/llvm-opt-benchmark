@@ -1170,19 +1170,19 @@ _ZL27is_default_initial_metadataP19grpc_metadata_batch.exit.i: ; preds = %360
 .critedge.i63:                                    ; preds = %387
   call void @_ZN4absl12lts_2024072212log_internal10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %.pre73 = load ptr, ptr %220, align 8, !tbaa !389
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre73, i64 168
-  %.pre74 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !398
-  %.phi.trans.insert75 = getelementptr inbounds nuw i8, ptr %.pre73, i64 152
-  %.pre76 = load ptr, ptr %.phi.trans.insert75, align 8, !tbaa !396
-  %.phi.trans.insert77 = getelementptr inbounds nuw i8, ptr %.pre76, i64 2
-  %.pre78 = load i16, ptr %.phi.trans.insert77, align 2, !tbaa !399
+  %.pre72 = load ptr, ptr %220, align 8, !tbaa !389
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre72, i64 168
+  %.pre73 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !398
+  %.phi.trans.insert74 = getelementptr inbounds nuw i8, ptr %.pre72, i64 152
+  %.pre75 = load ptr, ptr %.phi.trans.insert74, align 8, !tbaa !396
+  %.phi.trans.insert76 = getelementptr inbounds nuw i8, ptr %.pre75, i64 2
+  %.pre77 = load i16, ptr %.phi.trans.insert76, align 2, !tbaa !399
   br label %.critedge7.i
 
 .critedge7.i:                                     ; preds = %.critedge.i63, %384
-  %388 = phi i16 [ %.pre78, %.critedge.i63 ], [ %317, %384 ]
-  %389 = phi ptr [ %.pre76, %.critedge.i63 ], [ %293, %384 ]
-  %390 = phi ptr [ %.pre74, %.critedge.i63 ], [ %306, %384 ]
+  %388 = phi i16 [ %.pre77, %.critedge.i63 ], [ %317, %384 ]
+  %389 = phi ptr [ %.pre75, %.critedge.i63 ], [ %293, %384 ]
+  %390 = phi ptr [ %.pre73, %.critedge.i63 ], [ %306, %384 ]
   %391 = and i16 %388, 32
   %.not.i.i.i.i.i.i58 = icmp eq i16 %391, 0
   br i1 %.not.i.i.i.i.i.i58, label %_ZNK9grpc_core5TableIJNS_15metadata_detail5ValueINS_17LbCostBinMetadataEvEENS2_INS_17GrpcStatusContextEvEENS2_INS_22W3CTraceParentMetadataEvEENS2_INS_18XEnvoyPeerMetadataEvEENS2_INS_15LbTokenMetadataEvEENS2_INS_10PeerStringEvEENS2_INS_19GrpcTagsBinMetadataEvEENS2_INS_20GrpcTraceBinMetadataEvEENS2_INS_26GrpcServerStatsBinMetadataEvEENS2_INS_30EndpointLoadMetricsBinMetadataEvEENS2_INS_12HostMetadataEvEENS2_INS_19GrpcMessageMetadataEvEENS2_INS_17UserAgentMetadataEvEENS2_INS_21HttpAuthorityMetadataEvEENS2_INS_16HttpPathMetadataEvEENS2_INS_27GrpcRetryPushbackMsMetadataEvEENS2_INS_19GrpcTimeoutMetadataEvEENS2_INS_25GrpcLbClientStatsMetadataEvEENS2_INS_20GrpcRegisteredMethodEvEENS2_INS_27GrpcInternalEncodingRequestEvEENS2_INS_20GrpcEncodingMetadataEvEENS2_INS_18HttpStatusMetadataEvEENS2_INS_31GrpcPreviousRpcAttemptsMetadataEvEENS2_INS_18GrpcStatusMetadataEvEENS2_INS_12WaitForReadyEvEENS2_INS_16GrpcTrailersOnlyEvEENS2_INS_26GrpcAcceptEncodingMetadataEvEENS2_INS_18IsTransparentRetryEvEENS2_INS_22GrpcStreamNetworkState, label %392
@@ -1753,15 +1753,15 @@ _ZN12_GLOBAL__N_118StreamWriteContext20FlushInitialMetadataEv.exit: ; preds = %_
   %648 = call noundef i32 @_ZNK9grpc_core6chttp217StreamFlowControl19DesiredAnnounceSizeEv(ptr noundef nonnull align 8 dereferenceable(48) %647)
   call void @_ZN9grpc_core6chttp217StreamFlowControl10SentUpdateEj(ptr noundef nonnull align 8 dereferenceable(48) %647, i32 noundef %648)
   %649 = icmp eq i32 %648, 0
-  %.pre80 = load ptr, ptr %220, align 8, !tbaa !389
+  %.pre79 = load ptr, ptr %220, align 8, !tbaa !389
   br i1 %649, label %_ZN12_GLOBAL__N_118StreamWriteContext18FlushWindowUpdatesEv.exit, label %650
 
 650:                                              ; preds = %646
   %651 = load ptr, ptr %219, align 8, !tbaa !388
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 1040
-  %653 = getelementptr inbounds nuw i8, ptr %.pre80, i64 144
+  %653 = getelementptr inbounds nuw i8, ptr %.pre79, i64 144
   %654 = load i32, ptr %653, align 8, !tbaa !392
-  %655 = getelementptr inbounds nuw i8, ptr %.pre80, i64 2176
+  %655 = getelementptr inbounds nuw i8, ptr %.pre79, i64 2176
   call void @_Z32grpc_chttp2_window_update_createjjPN9grpc_core19CallTracerInterfaceE(ptr dead_on_unwind nonnull writable sret(%struct.grpc_slice) align 8 %34, i32 noundef %654, i32 noundef %648, ptr noundef nonnull %655)
   call void @grpc_slice_buffer_add(ptr noundef nonnull %652, ptr noundef nonnull byval(%struct.grpc_slice) align 8 %34)
   %656 = load ptr, ptr %219, align 8, !tbaa !388
@@ -1771,11 +1771,11 @@ _ZN12_GLOBAL__N_118StreamWriteContext20FlushInitialMetadataEv.exit: ; preds = %_
   %659 = load i32, ptr %658, align 8, !tbaa !464
   %660 = add nsw i32 %659, 1
   store i32 %660, ptr %658, align 8, !tbaa !464
-  %.pre79 = load ptr, ptr %220, align 8, !tbaa !389
+  %.pre78 = load ptr, ptr %220, align 8, !tbaa !389
   br label %_ZN12_GLOBAL__N_118StreamWriteContext18FlushWindowUpdatesEv.exit
 
 _ZN12_GLOBAL__N_118StreamWriteContext18FlushWindowUpdatesEv.exit: ; preds = %_ZN12_GLOBAL__N_118StreamWriteContext20FlushInitialMetadataEv.exit, %646, %650
-  %661 = phi ptr [ %642, %_ZN12_GLOBAL__N_118StreamWriteContext20FlushInitialMetadataEv.exit ], [ %.pre80, %646 ], [ %.pre79, %650 ]
+  %661 = phi ptr [ %642, %_ZN12_GLOBAL__N_118StreamWriteContext20FlushInitialMetadataEv.exit ], [ %.pre79, %646 ], [ %.pre78, %650 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 2244
   %663 = load i8, ptr %662, align 4, !tbaa !394, !range !17, !noundef !18
@@ -2337,11 +2337,11 @@ _ZNSt6vectorIN9grpc_core16ContextListEntryESaIS1_EE12emplace_backIJPvRlS6_RmlRSt
   br i1 %927, label %._crit_edge, label %256
 
 _ZN12_GLOBAL__N_112WriteContext10NextStreamEv.exit.thread.loopexit: ; preds = %256
-  %.pre81 = load ptr, ptr %53, align 8, !tbaa !7
+  %.pre80 = load ptr, ptr %53, align 8, !tbaa !7
   br label %_ZN12_GLOBAL__N_112WriteContext10NextStreamEv.exit.thread
 
 _ZN12_GLOBAL__N_112WriteContext10NextStreamEv.exit.thread: ; preds = %_ZN12_GLOBAL__N_112WriteContext10NextStreamEv.exit.thread.loopexit, %._crit_edge
-  %928 = phi ptr [ %.pre81, %_ZN12_GLOBAL__N_112WriteContext10NextStreamEv.exit.thread.loopexit ], [ %254, %._crit_edge ]
+  %928 = phi ptr [ %.pre80, %_ZN12_GLOBAL__N_112WriteContext10NextStreamEv.exit.thread.loopexit ], [ %254, %._crit_edge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   %929 = getelementptr inbounds nuw i8, ptr %928, i64 2768
   %930 = getelementptr inbounds nuw i8, ptr %928, i64 1056

@@ -325,14 +325,14 @@ switch.lookup:                                    ; preds = %.thread
   %switch.shiftamt = shl nuw nsw i32 %switch.tableidx, 3
   %switch.downshift = lshr i32 16908548, %switch.shiftamt
   %switch.masked = trunc i32 %switch.downshift to i8
-  %switch.shiftamt322 = shl nuw nsw i32 %switch.tableidx, 3
-  %switch.downshift323 = lshr i32 393216, %switch.shiftamt322
-  %switch.masked324 = trunc i32 %switch.downshift323 to i8
+  %switch.shiftamt321 = shl nuw nsw i32 %switch.tableidx, 3
+  %switch.downshift322 = lshr i32 393216, %switch.shiftamt321
+  %switch.masked323 = trunc i32 %switch.downshift322 to i8
   br label %114
 
 114:                                              ; preds = %switch.lookup, %.thread289, %97
   %.3170.shrunk = phi i8 [ %102, %97 ], [ %90, %.thread289 ], [ %switch.masked, %switch.lookup ]
-  %.3162.shrunk = phi i8 [ %.4163.in, %97 ], [ %.4163.in292, %.thread289 ], [ %switch.masked324, %switch.lookup ]
+  %.3162.shrunk = phi i8 [ %.4163.in, %97 ], [ %.4163.in292, %.thread289 ], [ %switch.masked323, %switch.lookup ]
   %.3162 = zext nneg i8 %.3162.shrunk to i32
   %.3170 = zext nneg i8 %.3170.shrunk to i32
   %115 = load ptr, ptr %4, align 8
@@ -404,12 +404,12 @@ switch.lookup:                                    ; preds = %.thread
 .lr.ph.i148:                                      ; preds = %.preheader.i147
   %155 = load ptr, ptr %151, align 8
   %wide.trip.count.i149 = zext nneg i32 %153 to i64
-  %.fr310 = freeze ptr %155
+  %.fr309 = freeze ptr %155
   br label %156
 
 156:                                              ; preds = %165, %.lr.ph.i148
   %indvars.iv.i150 = phi i64 [ 0, %.lr.ph.i148 ], [ %indvars.iv.next.i151, %165 ]
-  %157 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %.fr310, i64 %indvars.iv.i150
+  %157 = getelementptr %struct.ieee80211_radiotap_namespace, ptr %.fr309, i64 %indvars.iv.i150
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 12
   %159 = load i32, ptr %158, align 4
   %.not13.i = icmp eq i32 %159, %148

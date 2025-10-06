@@ -6232,16 +6232,16 @@ define internal fastcc noundef zeroext i1 @_ZN5arrow3ipc12_GLOBAL__N_123HasUnres
   %13 = load ptr, ptr %12, align 8, !tbaa !135
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %15 = load ptr, ptr %14, align 8, !tbaa !135
-  %.not14.not = icmp eq ptr %13, %15
-  br i1 %.not14.not, label %.loopexit, label %.lr.ph
+  %.not15 = icmp eq ptr %13, %15
+  br i1 %.not15, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.lr.ph
-  %.sroa.011.015 = phi ptr [ %18, %.lr.ph ], [ %13, %11 ]
-  %16 = load ptr, ptr %.sroa.011.015, align 8, !tbaa !141
+  %.sroa.011.016 = phi ptr [ %18, %.lr.ph ], [ %13, %11 ]
+  %16 = load ptr, ptr %.sroa.011.016, align 8, !tbaa !141
   %17 = tail call fastcc noundef zeroext i1 @_ZN5arrow3ipc12_GLOBAL__N_123HasUnresolvedNestedDictERKNS_9ArrayDataE(ptr noundef nonnull align 8 dereferenceable(120) %16)
-  %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.015, i64 16
-  %.not.not = icmp eq ptr %18, %15
-  %or.cond = select i1 %17, i1 true, i1 %.not.not
+  %18 = getelementptr inbounds nuw i8, ptr %.sroa.011.016, i64 16
+  %.not = icmp eq ptr %18, %15
+  %or.cond = select i1 %17, i1 true, i1 %.not
   br i1 %or.cond, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %11, %9, %6

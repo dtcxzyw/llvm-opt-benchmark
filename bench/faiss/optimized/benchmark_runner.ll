@@ -2480,8 +2480,8 @@ define hidden void @_ZN9benchmark8internal15BenchmarkRunner15DoOneRepetitionEv(p
   %4 = alloca %"struct.benchmark::BenchmarkReporter::Run", align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %6 = load i32, ptr %5, align 4, !tbaa !77
-  %.fr54 = freeze i32 %6
-  %.not55 = icmp eq i32 %.fr54, 0
+  %.fr53 = freeze i32 %6
+  %.not54 = icmp eq i32 %.fr53, 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %8 = load i8, ptr %7, align 8, !tbaa !72, !range !47, !noundef !48
   %9 = trunc nuw i8 %8 to i1
@@ -2531,24 +2531,24 @@ define hidden void @_ZN9benchmark8internal15BenchmarkRunner15DoOneRepetitionEv(p
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 168
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  br i1 %.not55, label %.split, label %.split.us
+  br i1 %.not54, label %.split, label %.split.us
 
 .split.us:                                        ; preds = %11
   %37 = load ptr, ptr %24, align 8, !tbaa !50
   invoke void @_ZNK9benchmark8internal17BenchmarkInstance5SetupEv(ptr noundef nonnull align 8 dereferenceable(424) %37)
-          to label %38 unwind label %.split46.us
+          to label %38 unwind label %.split45.us
 
 38:                                               ; preds = %.split.us
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN9benchmark8internal15BenchmarkRunner13DoNIterationsEv(ptr dead_on_unwind nonnull writable sret(%"struct.benchmark::internal::BenchmarkRunner::IterationResults") align 8 %3, ptr noundef nonnull align 8 dereferenceable(184) %0)
-          to label %39 unwind label %.split48.us
+          to label %39 unwind label %.split47.us
 
 39:                                               ; preds = %38
   %40 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN9benchmark8internal13ThreadManager6ResultaSEOS2_(ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(176) %3) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %41 = load ptr, ptr %28, align 8, !tbaa !105
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9benchmark7CounterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef %41)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9benchmark7CounterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i.i.us unwind label %.split51.us
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9benchmark7CounterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i.i.us unwind label %.split50.us
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9benchmark7CounterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i.i.us: ; preds = %39
   %42 = load ptr, ptr %29, align 8, !tbaa !11
@@ -2576,19 +2576,19 @@ _ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit.us: ; preds =
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %50 = load ptr, ptr %24, align 8, !tbaa !50
   invoke void @_ZNK9benchmark8internal17BenchmarkInstance8TeardownEv(ptr noundef nonnull align 8 dereferenceable(424) %50)
-          to label %_ZNK9benchmark8internal15BenchmarkRunner28ShouldReportIterationResultsERKNS1_16IterationResultsE.exit.thread unwind label %.split46.us
+          to label %_ZNK9benchmark8internal15BenchmarkRunner28ShouldReportIterationResultsERKNS1_16IterationResultsE.exit.thread unwind label %.split45.us
 
-.split46.us:                                      ; preds = %_ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit.us, %.split.us
+.split45.us:                                      ; preds = %_ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit.us, %.split.us
   %51 = landingpad { ptr, i32 }
           cleanup
   br label %263
 
-.split48.us:                                      ; preds = %38
+.split47.us:                                      ; preds = %38
   %52 = landingpad { ptr, i32 }
           cleanup
   br label %97
 
-.split51.us:                                      ; preds = %39
+.split50.us:                                      ; preds = %39
   %53 = landingpad { ptr, i32 }
           catch ptr null
   br label %60
@@ -2596,28 +2596,28 @@ _ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit.us: ; preds =
 .split:                                           ; preds = %11, %.critedge
   %54 = load ptr, ptr %24, align 8, !tbaa !50
   invoke void @_ZNK9benchmark8internal17BenchmarkInstance5SetupEv(ptr noundef nonnull align 8 dereferenceable(424) %54)
-          to label %55 unwind label %.split46
+          to label %55 unwind label %.split45
 
 55:                                               ; preds = %.split
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   invoke void @_ZN9benchmark8internal15BenchmarkRunner13DoNIterationsEv(ptr dead_on_unwind nonnull writable sret(%"struct.benchmark::internal::BenchmarkRunner::IterationResults") align 8 %3, ptr noundef nonnull align 8 dereferenceable(184) %0)
-          to label %56 unwind label %.split48
+          to label %56 unwind label %.split47
 
 56:                                               ; preds = %55
   %57 = call noundef nonnull align 8 dereferenceable(160) ptr @_ZN9benchmark8internal13ThreadManager6ResultaSEOS2_(ptr noundef nonnull align 8 dereferenceable(176) %2, ptr noundef nonnull align 8 dereferenceable(176) %3) #25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %26, i64 16, i1 false)
   %58 = load ptr, ptr %28, align 8, !tbaa !105
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N9benchmark7CounterEESt10_Select1stISA_ESt4lessIS5_ESaISA_EE8_M_eraseEPSt13_Rb_tree_nodeISA_E(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef %58)
-          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9benchmark7CounterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i.i unwind label %.split51
+          to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN9benchmark7CounterESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit.i.i unwind label %.split50
 
-.split51:                                         ; preds = %56
+.split50:                                         ; preds = %56
   %59 = landingpad { ptr, i32 }
           catch ptr null
   br label %60
 
-60:                                               ; preds = %.split51.us, %.split51
-  %.us-phi52 = phi { ptr, i32 } [ %59, %.split51 ], [ %53, %.split51.us ]
-  %61 = extractvalue { ptr, i32 } %.us-phi52, 0
+60:                                               ; preds = %.split50.us, %.split50
+  %.us-phi51 = phi { ptr, i32 } [ %59, %.split50 ], [ %53, %.split50.us ]
+  %61 = extractvalue { ptr, i32 } %.us-phi51, 0
   call void @__clang_call_terminate(ptr %61) #29
   unreachable
 
@@ -2647,7 +2647,7 @@ _ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit: ; preds = %_
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %70 = load ptr, ptr %24, align 8, !tbaa !50
   invoke void @_ZNK9benchmark8internal17BenchmarkInstance8TeardownEv(ptr noundef nonnull align 8 dereferenceable(424) %70)
-          to label %71 unwind label %.split46
+          to label %71 unwind label %.split45
 
 71:                                               ; preds = %_ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit
   %72 = load i8, ptr %33, align 8, !range !47
@@ -2688,18 +2688,18 @@ _ZNK9benchmark8internal15BenchmarkRunner28ShouldReportIterationResultsERKNS1_16I
   %94 = trunc nuw i8 %93 to i1
   br i1 %94, label %_ZNK9benchmark8internal15BenchmarkRunner28ShouldReportIterationResultsERKNS1_16IterationResultsE.exit.thread38, label %_ZNK9benchmark8internal15BenchmarkRunner28ShouldReportIterationResultsERKNS1_16IterationResultsE.exit.thread
 
-.split46:                                         ; preds = %_ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit, %.split
+.split45:                                         ; preds = %_ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit, %.split
   %95 = landingpad { ptr, i32 }
           cleanup
   br label %263
 
-.split48:                                         ; preds = %55
+.split47:                                         ; preds = %55
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %97
 
-97:                                               ; preds = %.split48.us, %.split48
-  %.us-phi49 = phi { ptr, i32 } [ %96, %.split48 ], [ %52, %.split48.us ]
+97:                                               ; preds = %.split47.us, %.split47
+  %.us-phi48 = phi { ptr, i32 } [ %96, %.split47 ], [ %52, %.split47.us ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %263
 
@@ -3083,8 +3083,8 @@ _ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev.exit35: ; preds = 
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %263
 
-263:                                              ; preds = %.split46, %.split46.us, %105, %.body, %98, %97
-  %.pn.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %.us-phi49, %97 ], [ %.pn, %.body ], [ %106, %105 ], [ %95, %.split46 ], [ %51, %.split46.us ]
+263:                                              ; preds = %.split45, %.split45.us, %105, %.body, %98, %97
+  %.pn.pn.pn = phi { ptr, i32 } [ %99, %98 ], [ %.us-phi48, %97 ], [ %.pn, %.body ], [ %106, %105 ], [ %95, %.split45 ], [ %51, %.split45.us ]
   call void @_ZN9benchmark8internal15BenchmarkRunner16IterationResultsD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %2) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn.pn.pn

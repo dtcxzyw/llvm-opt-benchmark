@@ -207,28 +207,28 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
 74:                                               ; preds = %71
   %75 = call i32 @X509_REQ_get_attr_count(ptr noundef %1) #4
   %76 = icmp eq i32 %75, 0
-  br i1 %76, label %79, label %.preheader158
+  br i1 %76, label %79, label %.preheader155
 
-.preheader158:                                    ; preds = %74
+.preheader155:                                    ; preds = %74
   %77 = call i32 @X509_REQ_get_attr_count(ptr noundef %1) #4
   %78 = icmp sgt i32 %77, 0
-  br i1 %78, label %.lr.ph163, label %.loopexit
+  br i1 %78, label %.lr.ph160, label %.loopexit
 
 79:                                               ; preds = %74
   %80 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.4) #4
   %81 = icmp slt i32 %80, 1
   br i1 %81, label %.sink.split, label %.loopexit
 
-.lr.ph163:                                        ; preds = %.preheader158, %127
-  %.0100162 = phi i32 [ %128, %127 ], [ 0, %.preheader158 ]
-  %82 = call ptr @X509_REQ_get_attr(ptr noundef %1, i32 noundef %.0100162) #4
+.lr.ph160:                                        ; preds = %.preheader155, %127
+  %.0100159 = phi i32 [ %128, %127 ], [ 0, %.preheader155 ]
+  %82 = call ptr @X509_REQ_get_attr(ptr noundef %1, i32 noundef %.0100159) #4
   %83 = call ptr @X509_ATTRIBUTE_get0_object(ptr noundef %82) #4
   %84 = call i32 @OBJ_obj2nid(ptr noundef %83) #4
   %85 = call i32 @X509_REQ_extension_nid(i32 noundef %84) #4
   %.not130 = icmp eq i32 %85, 0
   br i1 %.not130, label %86, label %127
 
-86:                                               ; preds = %.lr.ph163
+86:                                               ; preds = %.lr.ph160
   %87 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.4) #4
   %88 = icmp slt i32 %87, 1
   br i1 %88, label %.sink.split, label %89
@@ -236,9 +236,9 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
 89:                                               ; preds = %86
   %90 = call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %83) #4
   %91 = icmp sgt i32 %90, 0
-  br i1 %91, label %93, label %.thread176
+  br i1 %91, label %93, label %.thread173
 
-.thread176:                                       ; preds = %89
+.thread173:                                       ; preds = %89
   %92 = sub i32 25, %90
   br label %.lr.ph.preheader
 
@@ -249,8 +249,8 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
 
 96:                                               ; preds = %93, %125
   %.1109 = phi i32 [ %90, %93 ], [ %.2110.lcssa, %125 ]
-  %.1106 = phi i32 [ %94, %93 ], [ %.0105186, %125 ]
-  %.1104 = phi i32 [ 0, %93 ], [ %.0103188, %125 ]
+  %.1106 = phi i32 [ %94, %93 ], [ %.0105183, %125 ]
+  %.1104 = phi i32 [ 0, %93 ], [ %.0103185, %125 ]
   %97 = call ptr @X509_ATTRIBUTE_get0_type(ptr noundef %82, i32 noundef %.1104) #4
   %98 = load i32, ptr %97, align 8, !tbaa !8
   %99 = getelementptr inbounds nuw i8, ptr %97, i64 8
@@ -260,39 +260,39 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   %103 = icmp slt i32 %.1109, 25
   br i1 %103, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %.thread176, %96
-  %104 = phi i32 [ %92, %.thread176 ], [ %102, %96 ]
-  %.0103189 = phi i32 [ 1, %.thread176 ], [ %101, %96 ]
-  %.0105187 = phi i32 [ 1, %.thread176 ], [ %.1106, %96 ]
-  %.0107185 = phi i32 [ 0, %.thread176 ], [ %98, %96 ]
-  %.0112183 = phi ptr [ null, %.thread176 ], [ %100, %96 ]
+.lr.ph.preheader:                                 ; preds = %.thread173, %96
+  %104 = phi i32 [ %92, %.thread173 ], [ %102, %96 ]
+  %.0103186 = phi i32 [ 1, %.thread173 ], [ %101, %96 ]
+  %.0105184 = phi i32 [ 1, %.thread173 ], [ %.1106, %96 ]
+  %.0107182 = phi i32 [ 0, %.thread173 ], [ %98, %96 ]
+  %.0112180 = phi ptr [ null, %.thread173 ], [ %100, %96 ]
   %smin = call i32 @llvm.smin.i32(i32 %104, i32 1)
   %105 = add i32 %smin, -1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %107
-  %.2110161 = phi i32 [ %108, %107 ], [ %104, %.lr.ph.preheader ]
+  %.2110158 = phi i32 [ %108, %107 ], [ %104, %.lr.ph.preheader ]
   %106 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.14, i32 noundef 1) #4
   %.not132 = icmp eq i32 %106, 1
   br i1 %.not132, label %107, label %.sink.split
 
 107:                                              ; preds = %.lr.ph
-  %108 = add nsw i32 %.2110161, -1
-  %109 = icmp sgt i32 %.2110161, 1
+  %108 = add nsw i32 %.2110158, -1
+  %109 = icmp sgt i32 %.2110158, 1
   br i1 %109, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %107, %96
-  %.0103188 = phi i32 [ %101, %96 ], [ %.0103189, %107 ]
-  %.0105186 = phi i32 [ %.1106, %96 ], [ %.0105187, %107 ]
-  %.0107184 = phi i32 [ %98, %96 ], [ %.0107185, %107 ]
-  %.0112182 = phi ptr [ %100, %96 ], [ %.0112183, %107 ]
+  %.0103185 = phi i32 [ %101, %96 ], [ %.0103186, %107 ]
+  %.0105183 = phi i32 [ %.1106, %96 ], [ %.0105184, %107 ]
+  %.0107181 = phi i32 [ %98, %96 ], [ %.0107182, %107 ]
+  %.0112179 = phi ptr [ %100, %96 ], [ %.0112180, %107 ]
   %.2110.lcssa = phi i32 [ %102, %96 ], [ %105, %107 ]
   %110 = call i32 @BIO_puts(ptr noundef %0, ptr noundef nonnull @.str.15) #4
   %111 = icmp slt i32 %110, 1
   br i1 %111, label %.sink.split, label %112
 
 112:                                              ; preds = %._crit_edge
-  switch i32 %.0107184, label %122 [
+  switch i32 %.0107181, label %122 [
     i32 19, label %113
     i32 20, label %113
     i32 18, label %113
@@ -301,11 +301,11 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   ]
 
 113:                                              ; preds = %112, %112, %112, %112, %112
-  %114 = getelementptr inbounds nuw i8, ptr %.0112182, i64 8
+  %114 = getelementptr inbounds nuw i8, ptr %.0112179, i64 8
   %115 = load ptr, ptr %114, align 8, !tbaa !14
-  %116 = load i32, ptr %.0112182, align 8, !tbaa !18
+  %116 = load i32, ptr %.0112179, align 8, !tbaa !18
   %117 = call i32 @BIO_write(ptr noundef %0, ptr noundef %115, i32 noundef %116) #4
-  %118 = load i32, ptr %.0112182, align 8, !tbaa !18
+  %118 = load i32, ptr %.0112179, align 8, !tbaa !18
   %.not131 = icmp eq i32 %117, %118
   br i1 %.not131, label %119, label %.sink.split
 
@@ -320,16 +320,16 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   br i1 %124, label %.sink.split, label %125
 
 125:                                              ; preds = %122, %119
-  %126 = icmp slt i32 %.0103188, %.0105186
+  %126 = icmp slt i32 %.0103185, %.0105183
   br i1 %126, label %96, label %127
 
-127:                                              ; preds = %.lr.ph163, %125
-  %128 = add nuw nsw i32 %.0100162, 1
+127:                                              ; preds = %.lr.ph160, %125
+  %128 = add nuw nsw i32 %.0100159, 1
   %129 = call i32 @X509_REQ_get_attr_count(ptr noundef %1) #4
   %130 = icmp slt i32 %128, %129
-  br i1 %130, label %.lr.ph163, label %.loopexit, !llvm.loop !19
+  br i1 %130, label %.lr.ph160, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %127, %.preheader158, %79, %69
+.loopexit:                                        ; preds = %127, %.preheader155, %79, %69
   %131 = and i64 %3, 256
   %.not133 = icmp eq i64 %131, 0
   br i1 %.not133, label %132, label %167
@@ -347,22 +347,22 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
 .preheader:                                       ; preds = %134
   %137 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %133) #4
   %138 = icmp sgt i32 %137, 0
-  br i1 %138, label %.lr.ph165, label %._crit_edge166
+  br i1 %138, label %.lr.ph162, label %._crit_edge163
 
 139:                                              ; preds = %164
-  %140 = add nuw nsw i32 %.1101164, 1
+  %140 = add nuw nsw i32 %.1101161, 1
   %141 = call i32 @OPENSSL_sk_num(ptr noundef nonnull %133) #4
   %142 = icmp slt i32 %140, %141
-  br i1 %142, label %.lr.ph165, label %._crit_edge166, !llvm.loop !20
+  br i1 %142, label %.lr.ph162, label %._crit_edge163, !llvm.loop !20
 
-.lr.ph165:                                        ; preds = %.preheader, %139
-  %.1101164 = phi i32 [ %140, %139 ], [ 0, %.preheader ]
-  %143 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %133, i32 noundef %.1101164) #4
+.lr.ph162:                                        ; preds = %.preheader, %139
+  %.1101161 = phi i32 [ %140, %139 ], [ 0, %.preheader ]
+  %143 = call ptr @OPENSSL_sk_value(ptr noundef nonnull %133, i32 noundef %.1101161) #4
   %144 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.4) #4
   %145 = icmp slt i32 %144, 1
   br i1 %145, label %.sink.split, label %146
 
-146:                                              ; preds = %.lr.ph165
+146:                                              ; preds = %.lr.ph162
   %147 = call ptr @X509_EXTENSION_get_object(ptr noundef %143) #4
   %148 = call i32 @i2a_ASN1_OBJECT(ptr noundef %0, ptr noundef %147) #4
   %149 = icmp slt i32 %148, 1
@@ -397,11 +397,11 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   %166 = icmp slt i32 %165, 1
   br i1 %166, label %.sink.split, label %139
 
-._crit_edge166:                                   ; preds = %139, %.preheader
+._crit_edge163:                                   ; preds = %139, %.preheader
   call void @OPENSSL_sk_pop_free(ptr noundef nonnull %133, ptr noundef nonnull @X509_EXTENSION_free) #4
   br label %167
 
-167:                                              ; preds = %132, %._crit_edge166, %.loopexit
+167:                                              ; preds = %132, %._crit_edge163, %.loopexit
   %168 = and i64 %3, 512
   %.not137 = icmp eq i64 %168, 0
   br i1 %.not137, label %169, label %173
@@ -418,11 +418,11 @@ define range(i32 0, 2) i32 @X509_REQ_print_ex(ptr noundef %0, ptr noundef %1, i6
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %.not138, label %.sink.split, label %173
 
-.sink.split:                                      ; preds = %86, %._crit_edge, %113, %119, %122, %93, %.lr.ph, %.lr.ph165, %146, %150, %160, %157, %164, %12, %15, %23, %26, %31, %34, %38, %71, %79, %134, %169, %.thread
-  %.sink192 = phi i32 [ 207, %.thread ], [ 207, %169 ], [ 207, %134 ], [ 207, %79 ], [ 207, %71 ], [ 207, %38 ], [ 207, %34 ], [ 207, %31 ], [ 207, %26 ], [ 207, %23 ], [ 207, %15 ], [ 207, %12 ], [ 207, %164 ], [ 207, %157 ], [ 207, %160 ], [ 207, %150 ], [ 207, %146 ], [ 207, %.lr.ph165 ], [ 207, %.lr.ph ], [ 131, %93 ], [ 207, %122 ], [ 207, %119 ], [ 207, %113 ], [ 207, %._crit_edge ], [ 207, %86 ]
-  %.sink = phi i32 [ 524295, %.thread ], [ 524295, %169 ], [ 524295, %134 ], [ 524295, %79 ], [ 524295, %71 ], [ 524295, %38 ], [ 524295, %34 ], [ 524295, %31 ], [ 524295, %26 ], [ 524295, %23 ], [ 524295, %15 ], [ 524295, %12 ], [ 524295, %164 ], [ 524295, %157 ], [ 524295, %160 ], [ 524295, %150 ], [ 524295, %146 ], [ 524295, %.lr.ph165 ], [ 524295, %.lr.ph ], [ 138, %93 ], [ 524295, %122 ], [ 524295, %119 ], [ 524295, %113 ], [ 524295, %._crit_edge ], [ 524295, %86 ]
+.sink.split:                                      ; preds = %86, %._crit_edge, %113, %119, %122, %93, %.lr.ph, %.lr.ph162, %146, %150, %160, %157, %164, %12, %15, %23, %26, %31, %34, %38, %71, %79, %134, %169, %.thread
+  %.sink189 = phi i32 [ 207, %.thread ], [ 207, %169 ], [ 207, %134 ], [ 207, %79 ], [ 207, %71 ], [ 207, %38 ], [ 207, %34 ], [ 207, %31 ], [ 207, %26 ], [ 207, %23 ], [ 207, %15 ], [ 207, %12 ], [ 207, %164 ], [ 207, %157 ], [ 207, %160 ], [ 207, %150 ], [ 207, %146 ], [ 207, %.lr.ph162 ], [ 207, %.lr.ph ], [ 131, %93 ], [ 207, %122 ], [ 207, %119 ], [ 207, %113 ], [ 207, %._crit_edge ], [ 207, %86 ]
+  %.sink = phi i32 [ 524295, %.thread ], [ 524295, %169 ], [ 524295, %134 ], [ 524295, %79 ], [ 524295, %71 ], [ 524295, %38 ], [ 524295, %34 ], [ 524295, %31 ], [ 524295, %26 ], [ 524295, %23 ], [ 524295, %15 ], [ 524295, %12 ], [ 524295, %164 ], [ 524295, %157 ], [ 524295, %160 ], [ 524295, %150 ], [ 524295, %146 ], [ 524295, %.lr.ph162 ], [ 524295, %.lr.ph ], [ 138, %93 ], [ 524295, %122 ], [ 524295, %119 ], [ 524295, %113 ], [ 524295, %._crit_edge ], [ 524295, %86 ]
   call void @ERR_new() #4
-  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink192, ptr noundef nonnull @__func__.X509_REQ_print_ex) #4
+  call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef %.sink189, ptr noundef nonnull @__func__.X509_REQ_print_ex) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef %.sink, ptr noundef null) #4
   br label %173
 

@@ -283,31 +283,31 @@ define internal void @pic_textspan(ptr noundef %0, double %1, double %2, ptr nou
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %37, %23
-  %.tr21.i = phi i64 [ %strlen.i, %23 ], [ %39, %37 ]
+  %.tr19.i = phi i64 [ %strlen.i, %23 ], [ %39, %37 ]
   br label %27
 
 25:                                               ; preds = %27
-  %26 = add nuw nsw i64 %.01423.i, 1
+  %26 = add nuw nsw i64 %.01421.i, 1
   %exitcond.not.i = icmp eq i64 %26, 33
   br i1 %exitcond.not.i, label %34, label %27, !llvm.loop !47
 
 27:                                               ; preds = %25, %tailrecurse.i
-  %.01423.i = phi i64 [ 0, %tailrecurse.i ], [ %26, %25 ]
-  %28 = getelementptr inbounds nuw %struct.fontinfo, ptr @fonttab, i64 %.01423.i
+  %.01421.i = phi i64 [ 0, %tailrecurse.i ], [ %26, %25 ]
+  %28 = getelementptr inbounds nuw %struct.fontinfo, ptr @fonttab, i64 %.01421.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !49
   %strlen.i.i.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %30)
-  %31 = tail call i64 @llvm.umin.i64(i64 %.tr21.i, i64 %strlen.i.i.i)
+  %31 = tail call i64 @llvm.umin.i64(i64 %.tr19.i, i64 %strlen.i.i.i)
   %32 = tail call i32 @strncmp(ptr noundef nonnull readonly %18, ptr noundef nonnull readonly %30, i64 noundef %31) #9
   %.not.i.i.i.i = icmp eq i32 %32, 0
-  %33 = icmp eq i64 %.tr21.i, %strlen.i.i.i
+  %33 = icmp eq i64 %.tr19.i, %strlen.i.i.i
   %spec.select.i.i.i = and i1 %33, %.not.i.i.i.i
   br i1 %spec.select.i.i.i, label %picfontname.exit, label %25
 
 34:                                               ; preds = %25
-  %35 = trunc i64 %.tr21.i to i32
+  %35 = trunc i64 %.tr19.i to i32
   tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.47, ptr noundef nonnull @picgen_msghdr, i32 noundef %35, ptr noundef nonnull %18) #8
-  %36 = tail call ptr @memrchr(ptr noundef nonnull %18, i32 noundef 45, i64 noundef %.tr21.i)
+  %36 = tail call ptr @memrchr(ptr noundef nonnull %18, i32 noundef 45, i64 noundef %.tr19.i)
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %picfontname.exit, label %37
 

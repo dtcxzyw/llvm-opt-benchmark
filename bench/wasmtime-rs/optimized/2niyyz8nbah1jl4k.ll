@@ -5230,7 +5230,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable35 [
+  switch i8 %6, label %default.unreachable34 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5240,11 +5240,11 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !359, !noalias !364
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !359, !noalias !364
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !359, !noalias !364
   br label %20
 
-default.unreachable35:                            ; preds = %3
+default.unreachable34:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -5315,7 +5315,7 @@ common.ret:                                       ; preds = %39, %7
   unreachable
 
 20:                                               ; preds = %._crit_edge, %15
-  %21 = phi ptr [ %.pre33, %._crit_edge ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.122.llvm.9870732553834023604, %15 ]
+  %21 = phi ptr [ %.pre32, %._crit_edge ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.122.llvm.9870732553834023604, %15 ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %11, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5400,7 +5400,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable35 [
+  switch i8 %6, label %default.unreachable34 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5410,11 +5410,11 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !379, !noalias !384
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !379, !noalias !384
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !379, !noalias !384
   br label %20
 
-default.unreachable35:                            ; preds = %3
+default.unreachable34:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -5485,7 +5485,7 @@ common.ret:                                       ; preds = %39, %7
   unreachable
 
 20:                                               ; preds = %._crit_edge, %15
-  %21 = phi ptr [ %.pre33, %._crit_edge ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.214.llvm.10561276912860805957, %15 ]
+  %21 = phi ptr [ %.pre32, %._crit_edge ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.214.llvm.10561276912860805957, %15 ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %11, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5570,7 +5570,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable35 [
+  switch i8 %6, label %default.unreachable34 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5580,11 +5580,11 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !399, !noalias !404
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !399, !noalias !404
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !399, !noalias !404
   br label %20
 
-default.unreachable35:                            ; preds = %3
+default.unreachable34:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -5655,7 +5655,7 @@ common.ret:                                       ; preds = %39, %7
   unreachable
 
 20:                                               ; preds = %._crit_edge, %15
-  %21 = phi ptr [ %.pre33, %._crit_edge ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.218.llvm.10561276912860805957, %15 ]
+  %21 = phi ptr [ %.pre32, %._crit_edge ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.218.llvm.10561276912860805957, %15 ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %11, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5740,7 +5740,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable35 [
+  switch i8 %6, label %default.unreachable34 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5750,11 +5750,11 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !419, !noalias !424
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !419, !noalias !424
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !419, !noalias !424
   br label %20
 
-default.unreachable35:                            ; preds = %3
+default.unreachable34:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -5825,7 +5825,7 @@ common.ret:                                       ; preds = %39, %7
   unreachable
 
 20:                                               ; preds = %._crit_edge, %15
-  %21 = phi ptr [ %.pre33, %._crit_edge ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.131.llvm.9870732553834023604, %15 ]
+  %21 = phi ptr [ %.pre32, %._crit_edge ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.131.llvm.9870732553834023604, %15 ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %11, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -5910,7 +5910,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable35 [
+  switch i8 %6, label %default.unreachable34 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -5920,11 +5920,11 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !439, !noalias !444
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !439, !noalias !444
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !439, !noalias !444
   br label %20
 
-default.unreachable35:                            ; preds = %3
+default.unreachable34:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -5995,7 +5995,7 @@ common.ret:                                       ; preds = %39, %7
   unreachable
 
 20:                                               ; preds = %._crit_edge, %15
-  %21 = phi ptr [ %.pre33, %._crit_edge ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.206.llvm.10561276912860805957, %15 ]
+  %21 = phi ptr [ %.pre32, %._crit_edge ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.206.llvm.10561276912860805957, %15 ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %11, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6080,7 +6080,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable35 [
+  switch i8 %6, label %default.unreachable34 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -6090,11 +6090,11 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !459, !noalias !464
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !459, !noalias !464
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !459, !noalias !464
   br label %20
 
-default.unreachable35:                            ; preds = %3
+default.unreachable34:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -6165,7 +6165,7 @@ common.ret:                                       ; preds = %39, %7
   unreachable
 
 20:                                               ; preds = %._crit_edge, %15
-  %21 = phi ptr [ %.pre33, %._crit_edge ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.105.llvm.9870732553834023604, %15 ]
+  %21 = phi ptr [ %.pre32, %._crit_edge ], [ @anon.4e3d9daafcce16016cc0c68d602f6e14.105.llvm.9870732553834023604, %15 ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %11, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -6250,7 +6250,7 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
   %4 = alloca { i8, [15 x i8] }, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load i8, ptr %5, align 8, !range !27, !noundef !28
-  switch i8 %6, label %default.unreachable35 [
+  switch i8 %6, label %default.unreachable34 [
     i8 0, label %8
     i8 1, label %18
     i8 2, label %19
@@ -6260,11 +6260,11 @@ define internal void @"_ZN11wasi_common4file8WasiFile12get_filestat28_$u7b$$u7b$
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !479, !noalias !484
-  %.phi.trans.insert32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.pre33 = load ptr, ptr %.phi.trans.insert32, align 8, !alias.scope !479, !noalias !484
+  %.phi.trans.insert31 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.pre32 = load ptr, ptr %.phi.trans.insert31, align 8, !alias.scope !479, !noalias !484
   br label %20
 
-default.unreachable35:                            ; preds = %3
+default.unreachable34:                            ; preds = %3
   unreachable
 
 common.ret:                                       ; preds = %39, %7
@@ -6335,7 +6335,7 @@ common.ret:                                       ; preds = %39, %7
   unreachable
 
 20:                                               ; preds = %._crit_edge, %15
-  %21 = phi ptr [ %.pre33, %._crit_edge ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.233.llvm.10561276912860805957, %15 ]
+  %21 = phi ptr [ %.pre32, %._crit_edge ], [ @anon.bfa31fafe4958aae8e9727502c2557cc.233.llvm.10561276912860805957, %15 ]
   %22 = phi ptr [ %.pre, %._crit_edge ], [ %11, %15 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8

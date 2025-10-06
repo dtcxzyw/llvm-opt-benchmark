@@ -28,18 +28,18 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_certificates(ptr noundef %0, ptr no
 10:                                               ; preds = %2
   %11 = call i32 @CBS_get_asn1(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 160) #4
   %.not17 = icmp eq i32 %11, 0
-  br i1 %.not17, label %13, label %.preheader27
+  br i1 %.not17, label %13, label %.preheader26
 
-.preheader27:                                     ; preds = %10
+.preheader26:                                     ; preds = %10
   %12 = call i64 @CBS_len(ptr noundef nonnull %4) #4
-  %.not1829 = icmp eq i64 %12, 0
-  br i1 %.not1829, label %.loopexit28, label %.lr.ph
+  %.not1828 = icmp eq i64 %12, 0
+  br i1 %.not1828, label %.loopexit27, label %.lr.ph
 
 13:                                               ; preds = %10
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 121, ptr noundef nonnull @.str, i32 noundef 105) #4
-  br label %.loopexit28
+  br label %.loopexit27
 
-.lr.ph:                                           ; preds = %.preheader27, %26
+.lr.ph:                                           ; preds = %.preheader26, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %14 = call i32 @CBS_get_asn1_element(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 48) #4
@@ -71,43 +71,43 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_certificates(ptr noundef %0, ptr no
 .thread:                                          ; preds = %.lr.ph, %15, %18, %25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit28
+  br label %.loopexit27
 
 26:                                               ; preds = %22
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %27 = call i64 @CBS_len(ptr noundef nonnull %4) #4
   %.not18 = icmp eq i64 %27, 0
-  br i1 %.not18, label %.loopexit28, label %.lr.ph
+  br i1 %.not18, label %.loopexit27, label %.lr.ph
 
-.loopexit28:                                      ; preds = %26, %.preheader27, %.thread, %13
-  %.not22 = phi i1 [ true, %13 ], [ true, %.thread ], [ false, %.preheader27 ], [ false, %26 ]
-  %.013 = phi i32 [ 0, %13 ], [ 0, %.thread ], [ 1, %.preheader27 ], [ 1, %26 ]
+.loopexit27:                                      ; preds = %26, %.preheader26, %.thread, %13
+  %.not22 = phi i1 [ true, %13 ], [ true, %.thread ], [ false, %.preheader26 ], [ false, %26 ]
+  %.013 = phi i32 [ 0, %13 ], [ 0, %.thread ], [ 1, %.preheader26 ], [ 1, %26 ]
   %28 = load ptr, ptr %5, align 8, !tbaa !6
   %.not21 = icmp eq ptr %28, null
   br i1 %.not21, label %30, label %29
 
-29:                                               ; preds = %.loopexit28
+29:                                               ; preds = %.loopexit27
   call void @free(ptr noundef nonnull %28) #4
   br label %30
 
-30:                                               ; preds = %29, %.loopexit28
+30:                                               ; preds = %29, %.loopexit27
   br i1 %.not22, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %30
   %31 = call i64 @sk_num(ptr noundef %0) #4
-  %.not2330 = icmp eq i64 %31, %8
-  br i1 %.not2330, label %.loopexit, label %.lr.ph31
+  %.not2329 = icmp eq i64 %31, %8
+  br i1 %.not2329, label %.loopexit, label %.lr.ph30
 
-.lr.ph31:                                         ; preds = %.preheader, %.lr.ph31
+.lr.ph30:                                         ; preds = %.preheader, %.lr.ph30
   %32 = call ptr @sk_pop(ptr noundef %0) #4
   call void @X509_free(ptr noundef %32) #4
   %33 = call i64 @sk_num(ptr noundef %0) #4
   %.not23 = icmp eq i64 %33, %8
-  br i1 %.not23, label %.loopexit, label %.lr.ph31, !llvm.loop !11
+  br i1 %.not23, label %.loopexit, label %.lr.ph30, !llvm.loop !11
 
-.loopexit:                                        ; preds = %.lr.ph31, %.preheader, %30, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.013, %30 ], [ %.013, %.preheader ], [ %.013, %.lr.ph31 ]
+.loopexit:                                        ; preds = %.lr.ph30, %.preheader, %30, %2
+  %.0 = phi i32 [ 0, %2 ], [ %.013, %30 ], [ %.013, %.preheader ], [ %.013, %.lr.ph30 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -279,23 +279,23 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_CRLs(ptr noundef %0, ptr noundef %1
 12:                                               ; preds = %10
   %13 = call i32 @CBS_get_asn1(ptr noundef nonnull %3, ptr noundef null, i32 noundef 160) #4
   %.not17 = icmp eq i32 %13, 0
-  br i1 %.not17, label %.loopexit29, label %14
+  br i1 %.not17, label %.loopexit28, label %14
 
 14:                                               ; preds = %12, %10
   %15 = call i32 @CBS_get_asn1(ptr noundef nonnull %3, ptr noundef nonnull %4, i32 noundef 161) #4
   %.not18 = icmp eq i32 %15, 0
-  br i1 %.not18, label %17, label %.preheader28
+  br i1 %.not18, label %17, label %.preheader27
 
-.preheader28:                                     ; preds = %14
+.preheader27:                                     ; preds = %14
   %16 = call i64 @CBS_len(ptr noundef nonnull %4) #4
-  %.not1930 = icmp eq i64 %16, 0
-  br i1 %.not1930, label %.loopexit29, label %.lr.ph
+  %.not1929 = icmp eq i64 %16, 0
+  br i1 %.not1929, label %.loopexit28, label %.lr.ph
 
 17:                                               ; preds = %14
   call void @ERR_put_error(i32 noundef 11, i32 noundef 0, i32 noundef 123, ptr noundef nonnull @.str, i32 noundef 175) #4
-  br label %.loopexit29
+  br label %.loopexit28
 
-.lr.ph:                                           ; preds = %.preheader28, %30
+.lr.ph:                                           ; preds = %.preheader27, %30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %18 = call i32 @CBS_get_asn1_element(ptr noundef nonnull %4, ptr noundef nonnull %6, i32 noundef 48) #4
@@ -327,43 +327,43 @@ define hidden range(i32 0, 2) i32 @PKCS7_get_CRLs(ptr noundef %0, ptr noundef %1
 .thread:                                          ; preds = %.lr.ph, %19, %22, %29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.loopexit29
+  br label %.loopexit28
 
 30:                                               ; preds = %26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %31 = call i64 @CBS_len(ptr noundef nonnull %4) #4
   %.not19 = icmp eq i64 %31, 0
-  br i1 %.not19, label %.loopexit29, label %.lr.ph
+  br i1 %.not19, label %.loopexit28, label %.lr.ph
 
-.loopexit29:                                      ; preds = %30, %.preheader28, %.thread, %12, %17
-  %.not23 = phi i1 [ true, %17 ], [ true, %12 ], [ true, %.thread ], [ false, %.preheader28 ], [ false, %30 ]
-  %.013 = phi i32 [ 0, %17 ], [ 0, %12 ], [ 0, %.thread ], [ 1, %.preheader28 ], [ 1, %30 ]
+.loopexit28:                                      ; preds = %30, %.preheader27, %.thread, %12, %17
+  %.not23 = phi i1 [ true, %17 ], [ true, %12 ], [ true, %.thread ], [ false, %.preheader27 ], [ false, %30 ]
+  %.013 = phi i32 [ 0, %17 ], [ 0, %12 ], [ 0, %.thread ], [ 1, %.preheader27 ], [ 1, %30 ]
   %32 = load ptr, ptr %5, align 8, !tbaa !6
   %.not22 = icmp eq ptr %32, null
   br i1 %.not22, label %34, label %33
 
-33:                                               ; preds = %.loopexit29
+33:                                               ; preds = %.loopexit28
   call void @free(ptr noundef nonnull %32) #4
   br label %34
 
-34:                                               ; preds = %33, %.loopexit29
+34:                                               ; preds = %33, %.loopexit28
   br i1 %.not23, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %34
   %35 = call i64 @sk_num(ptr noundef %0) #4
-  %.not2431 = icmp eq i64 %35, %8
-  br i1 %.not2431, label %.loopexit, label %.lr.ph32
+  %.not2430 = icmp eq i64 %35, %8
+  br i1 %.not2430, label %.loopexit, label %.lr.ph31
 
-.lr.ph32:                                         ; preds = %.preheader, %.lr.ph32
+.lr.ph31:                                         ; preds = %.preheader, %.lr.ph31
   %36 = call ptr @sk_pop(ptr noundef %0) #4
   call void @X509_CRL_free(ptr noundef %36) #4
   %37 = call i64 @sk_num(ptr noundef %0) #4
   %.not24 = icmp eq i64 %37, %8
-  br i1 %.not24, label %.loopexit, label %.lr.ph32, !llvm.loop !15
+  br i1 %.not24, label %.loopexit, label %.lr.ph31, !llvm.loop !15
 
-.loopexit:                                        ; preds = %.lr.ph32, %.preheader, %34, %2
-  %.0 = phi i32 [ 0, %2 ], [ %.013, %34 ], [ %.013, %.preheader ], [ %.013, %.lr.ph32 ]
+.loopexit:                                        ; preds = %.lr.ph31, %.preheader, %34, %2
+  %.0 = phi i32 [ 0, %2 ], [ %.013, %34 ], [ %.013, %.preheader ], [ %.013, %.lr.ph31 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

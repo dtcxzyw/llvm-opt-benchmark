@@ -221,8 +221,8 @@ msg_encode.exit:                                  ; preds = %33
 
 shake_xof_2.exit.i:                               ; preds = %129
   %131 = call i32 @EVP_DigestSqueeze(ptr noundef nonnull %87, ptr noundef nonnull %19, i64 noundef 64) #5
-  %.not323.i = icmp eq i32 %131, 0
-  br i1 %.not323.i, label %shake_xof_2.exit.thread.i, label %132
+  %.not321.i = icmp eq i32 %131, 0
+  br i1 %.not321.i, label %shake_xof_2.exit.thread.i, label %132
 
 132:                                              ; preds = %shake_xof_2.exit.i, %121
   %.0134.i = phi ptr [ %19, %shake_xof_2.exit.i ], [ %.030, %121 ]
@@ -250,8 +250,8 @@ shake_xof_2.exit.i:                               ; preds = %129
 
 shake_xof_3.exit.i:                               ; preds = %141
   %143 = call i32 @EVP_DigestSqueeze(ptr noundef nonnull %87, ptr noundef nonnull %20, i64 noundef 64) #5
-  %.not324.i = icmp eq i32 %143, 0
-  br i1 %.not324.i, label %shake_xof_2.exit.thread.i, label %144
+  %.not322.i = icmp eq i32 %143, 0
+  br i1 %.not322.i, label %shake_xof_2.exit.thread.i, label %144
 
 144:                                              ; preds = %shake_xof_3.exit.i
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -295,8 +295,8 @@ vector_ntt.exit180.thread.i:                      ; preds = %vector_ntt.exit.i
   %156 = getelementptr inbounds nuw %struct.poly_st, ptr %96, i64 %.04.i179.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef nonnull %156) #5
   %157 = add nuw nsw i64 %.04.i179.i, 1
-  %exitcond332.not.i = icmp eq i64 %157, %92
-  br i1 %exitcond332.not.i, label %vector_ntt.exit180.i, label %.lr.ph.i178.i, !llvm.loop !35
+  %exitcond330.not.i = icmp eq i64 %157, %92
+  br i1 %exitcond330.not.i, label %vector_ntt.exit180.i, label %.lr.ph.i178.i, !llvm.loop !35
 
 vector_ntt.exit180.i:                             ; preds = %.lr.ph.i178.i
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 208
@@ -312,8 +312,8 @@ vector_ntt.exit180.i:                             ; preds = %.lr.ph.i178.i
   %161 = getelementptr inbounds nuw %struct.poly_st, ptr %97, i64 %.04.i183.i
   call void @ossl_ml_dsa_poly_ntt(ptr noundef nonnull %161) #5
   %162 = add nuw nsw i64 %.04.i183.i, 1
-  %exitcond333.not.i = icmp eq i64 %162, %92
-  br i1 %exitcond333.not.i, label %vector_ntt.exit184.i, label %.lr.ph.i182.i, !llvm.loop !35
+  %exitcond331.not.i = icmp eq i64 %162, %92
+  br i1 %exitcond331.not.i, label %vector_ntt.exit184.i, label %.lr.ph.i182.i, !llvm.loop !35
 
 vector_ntt.exit184.i:                             ; preds = %.lr.ph.i182.i, %vector_ntt.exit180.thread.i
   %163 = getelementptr inbounds nuw i8, ptr %13, i64 64
@@ -340,8 +340,8 @@ vector_ntt.exit184.i:                             ; preds = %.lr.ph.i182.i, %vec
   %174 = getelementptr inbounds nuw %struct.poly_st, ptr %104, i64 %.012.i.i
   %175 = call i32 @ossl_ml_dsa_poly_expand_mask(ptr noundef nonnull %174, ptr noundef nonnull %13, i64 noundef 66, i32 noundef %59, ptr noundef nonnull %87, ptr noundef %171) #5
   %176 = add nuw nsw i64 %.012.i.i, 1
-  %exitcond334.not.i = icmp eq i64 %176, %93
-  br i1 %exitcond334.not.i, label %vector_expand_mask.exit.i, label %.lr.ph.i186.i, !llvm.loop !37
+  %exitcond332.not.i = icmp eq i64 %176, %93
+  br i1 %exitcond332.not.i, label %vector_expand_mask.exit.i, label %.lr.ph.i186.i, !llvm.loop !37
 
 vector_expand_mask.exit.i:                        ; preds = %.lr.ph.i186.i, %168
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -426,8 +426,8 @@ vector_high_bits.exit.i:                          ; preds = %poly_high_bits.exit
 
 shake_xof_2.exit199.i:                            ; preds = %207
   %209 = call i32 @EVP_DigestSqueeze(ptr noundef nonnull %87, ptr noundef nonnull %21, i64 noundef range(i64 -536870912, 536870912) %73) #5
-  %.not325.i = icmp eq i32 %209, 0
-  br i1 %.not325.i, label %shake_xof_2.exit.thread.i, label %210
+  %.not323.i = icmp eq i32 %209, 0
+  br i1 %.not323.i, label %shake_xof_2.exit.thread.i, label %210
 
 210:                                              ; preds = %shake_xof_2.exit199.i
   %211 = load ptr, ptr %133, align 8, !tbaa !34
@@ -447,8 +447,8 @@ shake_xof_2.exit199.i:                            ; preds = %207
   %217 = getelementptr inbounds nuw %struct.poly_st, ptr %216, i64 %.07.i203.i
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %215, ptr noundef nonnull %90, ptr noundef %217) #5
   %218 = add nuw nsw i64 %.07.i203.i, 1
-  %exitcond335.not.i = icmp eq i64 %218, %93
-  br i1 %exitcond335.not.i, label %vector_mult_scalar.exit.i, label %.lr.ph.i202.i, !llvm.loop !43
+  %exitcond333.not.i = icmp eq i64 %218, %93
+  br i1 %exitcond333.not.i, label %vector_mult_scalar.exit.i, label %.lr.ph.i202.i, !llvm.loop !43
 
 vector_mult_scalar.exit.i:                        ; preds = %.lr.ph.i202.i, %214
   %219 = load i64, ptr %108, align 8, !tbaa !29
@@ -474,16 +474,16 @@ vector_ntt_inverse.exit207.i:                     ; preds = %.lr.ph.i205.i, %vec
   %226 = getelementptr inbounds nuw %struct.poly_st, ptr %102, i64 %.07.i210.i
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %225, ptr noundef nonnull %90, ptr noundef nonnull %226) #5
   %227 = add nuw nsw i64 %.07.i210.i, 1
-  %exitcond336.not.i = icmp eq i64 %227, %92
-  br i1 %exitcond336.not.i, label %.lr.ph.i213.i, label %.lr.ph.i209.i, !llvm.loop !43
+  %exitcond334.not.i = icmp eq i64 %227, %92
+  br i1 %exitcond334.not.i, label %.lr.ph.i213.i, label %.lr.ph.i209.i, !llvm.loop !43
 
 .lr.ph.i213.i:                                    ; preds = %.lr.ph.i209.i, %.lr.ph.i213.i
   %.04.i214.i = phi i64 [ %229, %.lr.ph.i213.i ], [ 0, %.lr.ph.i209.i ]
   %228 = getelementptr inbounds nuw %struct.poly_st, ptr %102, i64 %.04.i214.i
   call void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef nonnull %228) #5
   %229 = add nuw nsw i64 %.04.i214.i, 1
-  %exitcond337.not.i = icmp eq i64 %229, %92
-  br i1 %exitcond337.not.i, label %vector_ntt_inverse.exit215.i, label %.lr.ph.i213.i, !llvm.loop !38
+  %exitcond335.not.i = icmp eq i64 %229, %92
+  br i1 %exitcond335.not.i, label %vector_ntt_inverse.exit215.i, label %.lr.ph.i213.i, !llvm.loop !38
 
 vector_ntt_inverse.exit215.i:                     ; preds = %.lr.ph.i213.i, %vector_ntt_inverse.exit207.i
   %.val160.i = load ptr, ptr %16, align 8
@@ -719,8 +719,8 @@ vector_max_signed.exit.i:                         ; preds = %poly_max_signed.exi
   %349 = getelementptr inbounds nuw %struct.poly_st, ptr %348, i64 %.07.i257.i
   call void @ossl_ml_dsa_poly_ntt_mult(ptr noundef nonnull %347, ptr noundef nonnull %90, ptr noundef %349) #5
   %350 = add nuw nsw i64 %.07.i257.i, 1
-  %exitcond338.not.i = icmp eq i64 %350, %92
-  br i1 %exitcond338.not.i, label %vector_mult_scalar.exit258.loopexit.i, label %.lr.ph.i256.i, !llvm.loop !43
+  %exitcond336.not.i = icmp eq i64 %350, %92
+  br i1 %exitcond336.not.i, label %vector_mult_scalar.exit258.loopexit.i, label %.lr.ph.i256.i, !llvm.loop !43
 
 vector_mult_scalar.exit258.loopexit.i:            ; preds = %.lr.ph.i256.i
   %.pre.i = load i64, ptr %101, align 8, !tbaa !29
@@ -742,7 +742,7 @@ vector_mult_scalar.exit258.i:                     ; preds = %vector_mult_scalar.
   br i1 %356, label %.lr.ph.i260.i, label %vector_ntt_inverse.exit262.i, !llvm.loop !38
 
 vector_ntt_inverse.exit262.i:                     ; preds = %.lr.ph.i260.i, %vector_mult_scalar.exit258.i
-  %.val169342.i = phi i64 [ 0, %vector_mult_scalar.exit258.i ], [ %355, %.lr.ph.i260.i ]
+  %.val169340.i = phi i64 [ 0, %vector_mult_scalar.exit258.i ], [ %355, %.lr.ph.i260.i ]
   %.not.i263.i = icmp eq i64 %170, 0
   br i1 %.not.i263.i, label %vector_make_hint.exit.i, label %.lr.ph.i264.i
 
@@ -781,7 +781,7 @@ vector_make_hint.exit.loopexit.i:                 ; preds = %poly_make_hint.exit
   br label %vector_make_hint.exit.i
 
 vector_make_hint.exit.i:                          ; preds = %vector_make_hint.exit.loopexit.i, %vector_ntt_inverse.exit262.i
-  %.val169.i = phi i64 [ %.val169.pre.i, %vector_make_hint.exit.loopexit.i ], [ %.val169342.i, %vector_ntt_inverse.exit262.i ]
+  %.val169.i = phi i64 [ %.val169.pre.i, %vector_make_hint.exit.loopexit.i ], [ %.val169340.i, %vector_ntt_inverse.exit262.i ]
   %.val168.i = load ptr, ptr %15, align 8
   %.not.i268.i = icmp eq i64 %.val169.i, 0
   br i1 %.not.i268.i, label %vector_max.exit281.i, label %.lr.ph.i269.i

@@ -5855,7 +5855,7 @@ if.end94:                                         ; preds = %if.then91, %if.end8
           to label %cleanup unwind label %lpad32
 
 cleanup:                                          ; preds = %if.end94, %invoke.cont84
-  %switch.not = phi i1 [ true, %invoke.cont84 ], [ false, %if.end94 ]
+  %.not = phi i1 [ true, %invoke.cont84 ], [ false, %if.end94 ]
   %84 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i107 = icmp eq ptr %84, null
   br i1 %cmp.not.i.i.i107, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit137, label %if.then.i.i.i108
@@ -5932,7 +5932,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit137: ; preds = %clean
   call void @_ZN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS2_8LeafNodeIfLj3EEELj4EEELj5EEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %instCutterGrid) #19
   %inc = add nuw i64 %p.0178, 1
   %exitcond.not = icmp eq i64 %inc, %.pre183
-  %or.cond = select i1 %switch.not, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %for.end, label %for.body, !llvm.loop !7
 
 ehcleanup:                                        ; preds = %lpad78, %lpad63, %lpad32
@@ -10431,7 +10431,7 @@ if.end94:                                         ; preds = %if.then91, %if.end8
           to label %cleanup unwind label %lpad32
 
 cleanup:                                          ; preds = %if.end94, %invoke.cont84
-  %switch.not = phi i1 [ true, %invoke.cont84 ], [ false, %if.end94 ]
+  %.not = phi i1 [ true, %invoke.cont84 ], [ false, %if.end94 ]
   %84 = load ptr, ptr %_M_refcount3.i.i, align 8
   %cmp.not.i.i.i107 = icmp eq ptr %84, null
   br i1 %cmp.not.i.i.i107, label %_ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit137, label %if.then.i.i.i108
@@ -10508,7 +10508,7 @@ _ZNSt10shared_ptrIN7openvdb5v11_04math9TransformEED2Ev.exit137: ; preds = %clean
   call void @_ZN7openvdb5v11_04GridINS0_4tree4TreeINS2_8RootNodeINS2_12InternalNodeINS5_INS2_8LeafNodeIdLj3EEELj4EEELj5EEEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %instCutterGrid) #19
   %inc = add nuw i64 %p.0178, 1
   %exitcond.not = icmp eq i64 %inc, %.pre183
-  %or.cond = select i1 %switch.not, i1 true, i1 %exitcond.not
+  %or.cond = select i1 %.not, i1 true, i1 %exitcond.not
   br i1 %or.cond, label %for.end, label %for.body, !llvm.loop !44
 
 ehcleanup:                                        ; preds = %lpad78, %lpad63, %lpad32
@@ -74755,16 +74755,12 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i.i
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %2, i64 266240
   %4 = load i64, ptr %mValueMask.i, align 8
   %cmp.i4.i = icmp eq i64 %4, -1
-  switch i64 %4, label %for.inc [
-    i64 -1, label %land.rhs.i5.i.preheader
-    i64 0, label %land.rhs.i5.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i5.i
 
-land.rhs.i5.i.preheader:                          ; preds = %lor.lhs.false.i, %lor.lhs.false.i
-  br label %land.rhs.i5.i
-
-land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.preheader, %while.body.i.i
-  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %land.rhs.i5.i.preheader ]
+land.rhs.i5.i:                                    ; preds = %lor.lhs.false.i, %while.body.i.i
+  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %lor.lhs.false.i ]
   %w.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i, i64 %w.0.idx6.i.i
   %5 = load i64, ptr %w.0.ptr.i.i, align 8
   %cmp12.i.i = icmp eq i64 %5, %4
@@ -76376,16 +76372,12 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i.i
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %3, i64 33280
   %5 = load i64, ptr %mValueMask.i, align 8
   %cmp.i4.i = icmp eq i64 %5, -1
-  switch i64 %5, label %for.inc [
-    i64 -1, label %land.rhs.i5.i.preheader
-    i64 0, label %land.rhs.i5.i.preheader
-  ]
+  %.off = add i64 %5, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i5.i
 
-land.rhs.i5.i.preheader:                          ; preds = %lor.lhs.false.i, %lor.lhs.false.i
-  br label %land.rhs.i5.i
-
-land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.preheader, %while.body.i.i
-  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %land.rhs.i5.i.preheader ]
+land.rhs.i5.i:                                    ; preds = %lor.lhs.false.i, %while.body.i.i
+  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %lor.lhs.false.i ]
   %w.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i, i64 %w.0.idx6.i.i
   %6 = load i64, ptr %w.0.ptr.i.i, align 8
   %cmp12.i.i = icmp eq i64 %6, %5
@@ -76635,16 +76627,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load i64, ptr %mValueMask.i, align 8
   %cmp.i.i = icmp eq i64 %4, -1
-  switch i64 %4, label %for.inc [
-    i64 -1, label %land.rhs.i.i.preheader
-    i64 0, label %land.rhs.i.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i.i
 
-land.rhs.i.i.preheader:                           ; preds = %for.body, %for.body
-  br label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
-  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %land.rhs.i.i.preheader ]
+land.rhs.i.i:                                     ; preds = %for.body, %while.body.i.i
+  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %for.body ]
   %w.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i, i64 %w.0.idx6.i.i
   %5 = load i64, ptr %w.0.ptr.i.i, align 8
   %cmp12.i.i = icmp eq i64 %5, %4
@@ -196399,16 +196387,12 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i.i
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %2, i64 266240
   %4 = load i64, ptr %mValueMask.i, align 8
   %cmp.i4.i = icmp eq i64 %4, -1
-  switch i64 %4, label %for.inc [
-    i64 -1, label %land.rhs.i5.i.preheader
-    i64 0, label %land.rhs.i5.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i5.i
 
-land.rhs.i5.i.preheader:                          ; preds = %lor.lhs.false.i, %lor.lhs.false.i
-  br label %land.rhs.i5.i
-
-land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.preheader, %while.body.i.i
-  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %land.rhs.i5.i.preheader ]
+land.rhs.i5.i:                                    ; preds = %lor.lhs.false.i, %while.body.i.i
+  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %lor.lhs.false.i ]
   %w.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i, i64 %w.0.idx6.i.i
   %5 = load i64, ptr %w.0.ptr.i.i, align 8
   %cmp12.i.i = icmp eq i64 %5, %4
@@ -198009,16 +197993,12 @@ lor.lhs.false.i:                                  ; preds = %for.cond.i.i
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %3, i64 33280
   %5 = load i64, ptr %mValueMask.i, align 8
   %cmp.i4.i = icmp eq i64 %5, -1
-  switch i64 %5, label %for.inc [
-    i64 -1, label %land.rhs.i5.i.preheader
-    i64 0, label %land.rhs.i5.i.preheader
-  ]
+  %.off = add i64 %5, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i5.i
 
-land.rhs.i5.i.preheader:                          ; preds = %lor.lhs.false.i, %lor.lhs.false.i
-  br label %land.rhs.i5.i
-
-land.rhs.i5.i:                                    ; preds = %land.rhs.i5.i.preheader, %while.body.i.i
-  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %land.rhs.i5.i.preheader ]
+land.rhs.i5.i:                                    ; preds = %lor.lhs.false.i, %while.body.i.i
+  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %lor.lhs.false.i ]
   %w.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i, i64 %w.0.idx6.i.i
   %6 = load i64, ptr %w.0.ptr.i.i, align 8
   %cmp12.i.i = icmp eq i64 %6, %5
@@ -198268,16 +198248,12 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %mValueMask.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %4 = load i64, ptr %mValueMask.i, align 8
   %cmp.i.i = icmp eq i64 %4, -1
-  switch i64 %4, label %for.inc [
-    i64 -1, label %land.rhs.i.i.preheader
-    i64 0, label %land.rhs.i.i.preheader
-  ]
+  %.off = add i64 %4, -1
+  %switch = icmp ult i64 %.off, -2
+  br i1 %switch, label %for.inc, label %land.rhs.i.i
 
-land.rhs.i.i.preheader:                           ; preds = %for.body, %for.body
-  br label %land.rhs.i.i
-
-land.rhs.i.i:                                     ; preds = %land.rhs.i.i.preheader, %while.body.i.i
-  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %land.rhs.i.i.preheader ]
+land.rhs.i.i:                                     ; preds = %for.body, %while.body.i.i
+  %w.0.idx6.i.i = phi i64 [ %w.0.add.i.i, %while.body.i.i ], [ 8, %for.body ]
   %w.0.ptr.i.i = getelementptr inbounds nuw i8, ptr %mValueMask.i, i64 %w.0.idx6.i.i
   %5 = load i64, ptr %w.0.ptr.i.i, align 8
   %cmp12.i.i = icmp eq i64 %5, %4

@@ -2992,12 +2992,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit31: ; preds = %102
   br label %115
 
 113:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37
-  %114 = add nuw i32 %.048, 1
+  %114 = add nuw i32 %.046, 1
   %exitcond.not = icmp eq i32 %114, %4
   br i1 %exitcond.not, label %.thread.sink.split, label %115, !llvm.loop !55
 
 115:                                              ; preds = %.lr.ph, %113
-  %.048 = phi i32 [ 0, %.lr.ph ], [ %114, %113 ]
+  %.046 = phi i32 [ 0, %.lr.ph ], [ %114, %113 ]
   %116 = load ptr, ptr %0, align 8, !tbaa !26
   call void @_ZN11mpz_managerILb0EE3mulERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600) %116, ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %10)
   %117 = load ptr, ptr %0, align 8, !tbaa !26
@@ -3030,11 +3030,11 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit33:       ; preds = %115, %124
   br i1 %133, label %_ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit33._crit_edge, label %.thread.sink.split
 
 _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit33._crit_edge: ; preds = %_ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit33
-  %.pre49 = load ptr, ptr %0, align 8, !tbaa !26
+  %.pre47 = load ptr, ptr %0, align 8, !tbaa !26
   br label %134
 
 134:                                              ; preds = %_ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit33._crit_edge, %128
-  %135 = phi ptr [ %.pre49, %_ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit33._crit_edge ], [ %120, %128 ]
+  %135 = phi ptr [ %.pre47, %_ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit33._crit_edge ], [ %120, %128 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @_ZNK11mpz_managerILb0EE9to_stringB5cxx11ERK3mpz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(600) %135, ptr noundef nonnull align 8 dereferenceable(16) %11)
   %136 = load ptr, ptr %15, align 8, !tbaa !31
@@ -3063,8 +3063,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit37: ; preds = %_ZS
   %146 = icmp eq i32 %145, 0
   %147 = load i32, ptr %12, align 8
   %148 = icmp eq i32 %147, 0
-  %or.cond46 = select i1 %146, i1 %148, i1 false
-  br i1 %or.cond46, label %.thread, label %113
+  %or.cond44 = select i1 %146, i1 %148, i1 false
+  br i1 %or.cond44, label %.thread, label %113
 
 149:                                              ; preds = %134
   %150 = landingpad { ptr, i32 }
@@ -4780,7 +4780,7 @@ _ZN12mpbq_manager3setER4mpbqRKS0_.exit81:         ; preds = %183, %187
   %195 = load ptr, ptr %0, align 8, !tbaa !26
   %196 = sub nuw i32 %.161, %192
   tail call void @_ZN11mpz_managerILb0EE5mul2kER3mpzj(ptr noundef nonnull align 8 dereferenceable(600) %195, ptr noundef nonnull align 8 dereferenceable(20) %27, i32 noundef %196)
-  %.pre102 = load i32, ptr %100, align 8, !tbaa !13
+  %.pre101 = load i32, ptr %100, align 8, !tbaa !13
   br label %199
 
 197:                                              ; preds = %191
@@ -4788,7 +4788,7 @@ _ZN12mpbq_manager3setER4mpbqRKS0_.exit81:         ; preds = %183, %187
   br label %199
 
 199:                                              ; preds = %197, %194
-  %200 = phi i32 [ %189, %197 ], [ %.pre102, %194 ]
+  %200 = phi i32 [ %189, %197 ], [ %.pre101, %194 ]
   %.sink.i83 = phi i32 [ %198, %197 ], [ 0, %194 ]
   store i32 %.sink.i83, ptr %97, align 8, !tbaa !13
   %201 = icmp ult i32 %200, %.161

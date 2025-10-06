@@ -471,13 +471,13 @@ _ZN5clang4ento15StmtNodeBuilderC2EPNS0_12ExplodedNodeERNS0_15ExplodedNodeSetERKN
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %200 = load i8, ptr %199, align 16
   %201 = icmp ne i8 %200, 13
-  %.not.not22.i.i = icmp eq ptr %198, null
-  %.not.not.i.i = or i1 %.not.not22.i.i, %201
+  %.not.not19.i.i = icmp eq ptr %198, null
+  %.not.not.i.i = or i1 %.not.not19.i.i, %201
   br i1 %.not.not.i.i, label %202, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i
 
 202:                                              ; preds = %191
   %203 = icmp ne i8 %200, 46
-  %.not12.not.i.i = or i1 %.not.not22.i.i, %203
+  %.not12.not.i.i = or i1 %.not.not19.i.i, %203
   br i1 %.not12.not.i.i, label %213, label %204
 
 204:                                              ; preds = %202
@@ -545,13 +545,13 @@ _ZL29conjureOffsetSymbolOnLocationN5clang4ento4SValES1_PNS_4ExprERNS0_11SValBuil
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
   %235 = load i8, ptr %234, align 16
   %236 = icmp ne i8 %235, 13
-  %.not.not22.i.i240 = icmp eq ptr %233, null
-  %.not.not.i.i241 = or i1 %.not.not22.i.i240, %236
+  %.not.not19.i.i240 = icmp eq ptr %233, null
+  %.not.not.i.i241 = or i1 %.not.not19.i.i240, %236
   br i1 %.not.not.i.i241, label %237, label %_ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit.i242
 
 237:                                              ; preds = %226
   %238 = icmp ne i8 %235, 46
-  %.not12.not.i.i246 = or i1 %.not.not22.i.i240, %238
+  %.not12.not.i.i246 = or i1 %.not.not19.i.i240, %238
   br i1 %.not12.not.i.i246, label %248, label %239
 
 239:                                              ; preds = %237

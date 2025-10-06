@@ -191,8 +191,8 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
   %9 = load i8, ptr %8, align 8
   %10 = or i8 %9, 1
   store i8 %10, ptr %8, align 8
-  %.not84 = icmp eq i64 %1, 0
-  br i1 %.not84, label %.loopexit71, label %.lr.ph
+  %.not83 = icmp eq i64 %1, 0
+  br i1 %.not83, label %.loopexit70, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %11 = and i64 %6, 4294967295
@@ -200,18 +200,18 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
 
 .loopexit:                                        ; preds = %63
   %.not = icmp eq i64 %.451, 0
-  br i1 %.not, label %.loopexit71, label %12
+  br i1 %.not, label %.loopexit70, label %12
 
 12:                                               ; preds = %.lr.ph, %.loopexit
-  %.04686 = phi ptr [ %0, %.lr.ph ], [ %.4, %.loopexit ]
-  %.04785 = phi i64 [ %1, %.lr.ph ], [ %.451, %.loopexit ]
-  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04686) #9
+  %.04685 = phi ptr [ %0, %.lr.ph ], [ %.4, %.loopexit ]
+  %.04784 = phi i64 [ %1, %.lr.ph ], [ %.451, %.loopexit ]
+  %13 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.04685) #9
   %14 = add i64 %13, 1
-  %.not58 = icmp ugt i64 %.04785, %14
-  br i1 %.not58, label %15, label %.loopexit69
+  %.not58 = icmp ugt i64 %.04784, %14
+  br i1 %.not58, label %15, label %.loopexit68
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @string_list_insert(ptr noundef %7, ptr noundef nonnull %.04686) #8
+  %16 = tail call ptr @string_list_insert(ptr noundef %7, ptr noundef nonnull %.04685) #8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %.not59 = icmp eq ptr %18, null
@@ -224,8 +224,8 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
 
 21:                                               ; preds = %19, %15
   %22 = phi ptr [ %20, %19 ], [ %18, %15 ]
-  %23 = sub i64 %.04785, %14
-  %24 = getelementptr inbounds nuw i8, ptr %.04686, i64 %14
+  %23 = sub i64 %.04784, %14
+  %24 = getelementptr inbounds nuw i8, ptr %.04685, i64 %14
   br label %26
 
 .preheader:                                       ; preds = %39
@@ -234,70 +234,70 @@ define dso_local ptr @resolve_undo_read(ptr noundef %0, i64 noundef %1, ptr noun
 
 26:                                               ; preds = %21, %39
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %39 ]
-  %.280 = phi ptr [ %24, %21 ], [ %41, %39 ]
-  %.24979 = phi i64 [ %23, %21 ], [ %40, %39 ]
-  %27 = call i64 @strtoul(ptr noundef %.280, ptr noundef nonnull %4, i32 noundef 8) #8
+  %.279 = phi ptr [ %24, %21 ], [ %41, %39 ]
+  %.24978 = phi i64 [ %23, %21 ], [ %40, %39 ]
+  %27 = call i64 @strtoul(ptr noundef %.279, ptr noundef nonnull %4, i32 noundef 8) #8
   %28 = trunc i64 %27 to i32
   %29 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !4
   %30 = load ptr, ptr %4, align 8, !tbaa !47
   %.not61 = icmp eq ptr %30, null
-  %31 = icmp eq ptr %30, %.280
+  %31 = icmp eq ptr %30, %.279
   %or.cond = or i1 %.not61, %31
-  br i1 %or.cond, label %.loopexit69, label %32
+  br i1 %or.cond, label %.loopexit68, label %32
 
 32:                                               ; preds = %26
   %33 = load i8, ptr %30, align 1, !tbaa !39
   %.not62 = icmp eq i8 %33, 0
-  br i1 %.not62, label %34, label %.loopexit69
+  br i1 %.not62, label %34, label %.loopexit68
 
 34:                                               ; preds = %32
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 1
   %36 = ptrtoint ptr %35 to i64
-  %37 = ptrtoint ptr %.280 to i64
+  %37 = ptrtoint ptr %.279 to i64
   %38 = sub i64 %36, %37
-  %.not63 = icmp ugt i64 %.24979, %38
-  br i1 %.not63, label %39, label %.loopexit69
+  %.not63 = icmp ugt i64 %.24978, %38
+  br i1 %.not63, label %39, label %.loopexit68
 
 39:                                               ; preds = %34
-  %40 = sub nuw i64 %.24979, %38
-  %41 = getelementptr inbounds nuw i8, ptr %.280, i64 %38
+  %40 = sub nuw i64 %.24978, %38
+  %41 = getelementptr inbounds nuw i8, ptr %.279, i64 %38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.preheader, label %26, !llvm.loop !48
 
 42:                                               ; preds = %.preheader, %63
-  %indvars.iv92 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next93, %63 ]
-  %.383 = phi ptr [ %41, %.preheader ], [ %.4, %63 ]
-  %.35082 = phi i64 [ %40, %.preheader ], [ %.451, %63 ]
-  %43 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv92
+  %indvars.iv91 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next92, %63 ]
+  %.382 = phi ptr [ %41, %.preheader ], [ %.4, %63 ]
+  %.35081 = phi i64 [ %40, %.preheader ], [ %.451, %63 ]
+  %43 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv91
   %44 = load i32, ptr %43, align 4, !tbaa !4
   %.not60 = icmp eq i32 %44, 0
   br i1 %.not60, label %63, label %45
 
 45:                                               ; preds = %42
-  %46 = icmp ult i64 %.35082, %11
-  br i1 %46, label %.loopexit69, label %47
+  %46 = icmp ult i64 %.35081, %11
+  br i1 %46, label %.loopexit68, label %47
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw %struct.object_id, ptr %25, i64 %indvars.iv92
+  %48 = getelementptr inbounds nuw %struct.object_id, ptr %25, i64 %indvars.iv91
   %49 = load i64, ptr %5, align 8, !tbaa !42
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr readonly align 1 %.383, i64 %49, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %48, ptr readonly align 1 %.382, i64 %49, i1 false)
   %50 = load i64, ptr %5, align 8, !tbaa !42
   %51 = icmp ult i64 %50, 32
-  br i1 %51, label %52, label %.preheader111
+  br i1 %51, label %52, label %.preheader110
 
 52:                                               ; preds = %47
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 %50
   %54 = sub nuw nsw i64 32, %50
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %53, i8 0, i64 %54, i1 false)
-  br label %.preheader111
+  br label %.preheader110
 
-.preheader111:                                    ; preds = %52, %47
+.preheader110:                                    ; preds = %52, %47
   br label %55
 
-55:                                               ; preds = %.preheader111, %57
-  %.0811.i.i = phi i64 [ %58, %57 ], [ 0, %.preheader111 ]
+55:                                               ; preds = %.preheader110, %57
+  %.0811.i.i = phi i64 [ %58, %57 ], [ 0, %.preheader110 ]
   %56 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %2, %56
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %57
@@ -315,24 +315,24 @@ oidread.exit:                                     ; preds = %57, %.split.loop.ex
   %.2.i.i = phi i32 [ %59, %.split.loop.exit9.i.i ], [ 0, %57 ]
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 32
   store i32 %.2.i.i, ptr %60, align 4, !tbaa !28
-  %61 = sub nuw i64 %.35082, %11
-  %62 = getelementptr inbounds nuw i8, ptr %.383, i64 %11
+  %61 = sub nuw i64 %.35081, %11
+  %62 = getelementptr inbounds nuw i8, ptr %.382, i64 %11
   br label %63
 
 63:                                               ; preds = %42, %oidread.exit
-  %.451 = phi i64 [ %61, %oidread.exit ], [ %.35082, %42 ]
-  %.4 = phi ptr [ %62, %oidread.exit ], [ %.383, %42 ]
-  %indvars.iv.next93 = add nuw nsw i64 %indvars.iv92, 1
-  %exitcond95.not = icmp eq i64 %indvars.iv.next93, 3
-  br i1 %exitcond95.not, label %.loopexit, label %42, !llvm.loop !50
+  %.451 = phi i64 [ %61, %oidread.exit ], [ %.35081, %42 ]
+  %.4 = phi ptr [ %62, %oidread.exit ], [ %.382, %42 ]
+  %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
+  %exitcond94.not = icmp eq i64 %indvars.iv.next92, 3
+  br i1 %exitcond94.not, label %.loopexit, label %42, !llvm.loop !50
 
-.loopexit69:                                      ; preds = %12, %32, %26, %34, %45
+.loopexit68:                                      ; preds = %12, %32, %26, %34, %45
   tail call void @string_list_clear(ptr noundef %7, i32 noundef 1) #8
   %64 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.1) #8
-  br label %.loopexit71
+  br label %.loopexit70
 
-.loopexit71:                                      ; preds = %.loopexit, %3, %.loopexit69
-  %.045 = phi ptr [ null, %.loopexit69 ], [ %7, %3 ], [ %7, %.loopexit ]
+.loopexit70:                                      ; preds = %.loopexit, %3, %.loopexit68
+  %.045 = phi ptr [ null, %.loopexit68 ], [ %7, %3 ], [ %7, %.loopexit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %.045
 }

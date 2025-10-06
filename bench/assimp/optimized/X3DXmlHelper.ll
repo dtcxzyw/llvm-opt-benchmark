@@ -172,13 +172,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper19getColor3DAttributeE
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %.017.i.i = load ptr, ptr %18, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %18, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %24
-  %.019.i.i = phi ptr [ %.0.i.i, %24 ], [ %.017.i.i, %17 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %24 ], [ %.015.i.i, %17 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not13.i.i = icmp eq ptr %20, null
   br i1 %.not13.i.i, label %24, label %21
@@ -189,13 +189,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper19getColor3DAttributeE
   br i1 %23, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %24
 
 24:                                               ; preds = %21, %.lr.ph.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %25, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not7.i.i = icmp eq ptr %27, null
   %28 = select i1 %.not7.i.i, ptr @.str.1, ptr %27
@@ -1194,13 +1194,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper20getVector2DAttribute
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.017.i.i = load ptr, ptr %17, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %17, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %23
-  %.019.i.i = phi ptr [ %.0.i.i, %23 ], [ %.017.i.i, %16 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %23 ], [ %.015.i.i, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not13.i.i = icmp eq ptr %19, null
   br i1 %.not13.i.i, label %23, label %20
@@ -1211,13 +1211,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper20getVector2DAttribute
   br i1 %22, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %23
 
 23:                                               ; preds = %20, %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %24, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not7.i.i = icmp eq ptr %26, null
   %27 = select i1 %.not7.i.i, ptr @.str.1, ptr %26
@@ -1573,13 +1573,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper20getVector3DAttribute
 
 17:                                               ; preds = %3
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %.017.i.i = load ptr, ptr %18, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %18, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %17, %24
-  %.019.i.i = phi ptr [ %.0.i.i, %24 ], [ %.017.i.i, %17 ]
-  %19 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %24 ], [ %.015.i.i, %17 ]
+  %19 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %20 = load ptr, ptr %19, align 8
   %.not13.i.i = icmp eq ptr %20, null
   br i1 %.not13.i.i, label %24, label %21
@@ -1590,13 +1590,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper20getVector3DAttribute
   br i1 %23, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %24
 
 24:                                               ; preds = %21, %.lr.ph.i.i
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %25, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %21
-  %26 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %26 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %27 = load ptr, ptr %26, align 8
   %.not7.i.i = icmp eq ptr %27, null
   %28 = select i1 %.not7.i.i, ptr @.str.1, ptr %27
@@ -2005,13 +2005,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper24getBooleanArrayAttri
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.017.i.i = load ptr, ptr %17, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %17, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %23
-  %.019.i.i = phi ptr [ %.0.i.i, %23 ], [ %.017.i.i, %16 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %23 ], [ %.015.i.i, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not13.i.i = icmp eq ptr %19, null
   br i1 %.not13.i.i, label %23, label %20
@@ -2022,13 +2022,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper24getBooleanArrayAttri
   br i1 %22, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %23
 
 23:                                               ; preds = %20, %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %24, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not7.i.i = icmp eq ptr %26, null
   %27 = select i1 %.not7.i.i, ptr @.str.1, ptr %26
@@ -2713,13 +2713,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper23getDoubleArrayAttrib
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.017.i.i = load ptr, ptr %17, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %17, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %23
-  %.019.i.i = phi ptr [ %.0.i.i, %23 ], [ %.017.i.i, %16 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %23 ], [ %.015.i.i, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not13.i.i = icmp eq ptr %19, null
   br i1 %.not13.i.i, label %23, label %20
@@ -2730,13 +2730,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper23getDoubleArrayAttrib
   br i1 %22, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %23
 
 23:                                               ; preds = %20, %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %24, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not7.i.i = icmp eq ptr %26, null
   %27 = select i1 %.not7.i.i, ptr @.str.1, ptr %26
@@ -3442,13 +3442,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getFloatArrayAttribu
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.017.i.i = load ptr, ptr %17, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %17, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %23
-  %.019.i.i = phi ptr [ %.0.i.i, %23 ], [ %.017.i.i, %16 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %23 ], [ %.015.i.i, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not13.i.i = icmp eq ptr %19, null
   br i1 %.not13.i.i, label %23, label %20
@@ -3459,13 +3459,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getFloatArrayAttribu
   br i1 %22, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %23
 
 23:                                               ; preds = %20, %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %24, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not7.i.i = icmp eq ptr %26, null
   %27 = select i1 %.not7.i.i, ptr @.str.1, ptr %26
@@ -3885,13 +3885,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getInt32ArrayAttribu
 
 16:                                               ; preds = %3
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 56
-  %.017.i.i = load ptr, ptr %17, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %17, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %16, %23
-  %.019.i.i = phi ptr [ %.0.i.i, %23 ], [ %.017.i.i, %16 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %23 ], [ %.015.i.i, %16 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %19 = load ptr, ptr %18, align 8
   %.not13.i.i = icmp eq ptr %19, null
   br i1 %.not13.i.i, label %23, label %20
@@ -3902,13 +3902,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getInt32ArrayAttribu
   br i1 %22, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %23
 
 23:                                               ; preds = %20, %.lr.ph.i.i
-  %24 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %24 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %24, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit49, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %20
-  %25 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %25 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %26 = load ptr, ptr %25, align 8
   %.not7.i.i = icmp eq ptr %26, null
   %27 = select i1 %.not7.i.i, ptr @.str.1, ptr %26
@@ -4627,13 +4627,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getStringListAttribu
 
 28:                                               ; preds = %3
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 56
-  %.017.i.i = load ptr, ptr %29, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %29, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %28, %35
-  %.019.i.i = phi ptr [ %.0.i.i, %35 ], [ %.017.i.i, %28 ]
-  %30 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %35 ], [ %.015.i.i, %28 ]
+  %30 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %31 = load ptr, ptr %30, align 8
   %.not13.i.i = icmp eq ptr %31, null
   br i1 %.not13.i.i, label %35, label %32
@@ -4644,13 +4644,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper22getStringListAttribu
   br i1 %34, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %35
 
 35:                                               ; preds = %32, %.lr.ph.i.i
-  %36 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %36, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %32
-  %37 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %38 = load ptr, ptr %37, align 8
   %.not7.i.i = icmp eq ptr %38, null
   %39 = select i1 %.not7.i.i, ptr @.str.1, ptr %38
@@ -5934,13 +5934,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper24getVector2DListAttri
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -5951,13 +5951,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper24getVector2DListAttri
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.1, ptr %24
@@ -6480,13 +6480,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper24getVector3DListAttri
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -6497,13 +6497,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper24getVector3DListAttri
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.1, ptr %24
@@ -7025,13 +7025,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper23getColor3DListAttrib
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -7042,13 +7042,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper23getColor3DListAttrib
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.1, ptr %24
@@ -7345,13 +7345,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper23getColor4DListAttrib
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %.017.i.i = load ptr, ptr %15, align 8
-  %.not1218.i.i = icmp eq ptr %.017.i.i, null
-  br i1 %.not1218.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i
+  %.015.i.i = load ptr, ptr %15, align 8
+  %.not1216.i.i = icmp eq ptr %.015.i.i, null
+  br i1 %.not1216.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %14, %21
-  %.019.i.i = phi ptr [ %.0.i.i, %21 ], [ %.017.i.i, %14 ]
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 8
+  %.017.i.i = phi ptr [ %.0.i.i, %21 ], [ %.015.i.i, %14 ]
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 8
   %17 = load ptr, ptr %16, align 8
   %.not13.i.i = icmp eq ptr %17, null
   br i1 %.not13.i.i, label %21, label %18
@@ -7362,13 +7362,13 @@ define hidden noundef zeroext i1 @_ZN6Assimp12X3DXmlHelper23getColor4DListAttrib
   br i1 %20, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit.i, label %21
 
 21:                                               ; preds = %18, %.lr.ph.i.i
-  %22 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 32
+  %22 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 32
   %.0.i.i = load ptr, ptr %22, align 8
   %.not12.i.i = icmp eq ptr %.0.i.i, null
   br i1 %.not12.i.i, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33, label %.lr.ph.i.i, !llvm.loop !3
 
 _ZNK4pugi13xml_attribute9as_stringEPKc.exit.i:    ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 16
+  %23 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not7.i.i = icmp eq ptr %24, null
   %25 = select i1 %.not7.i.i, ptr @.str.1, ptr %24

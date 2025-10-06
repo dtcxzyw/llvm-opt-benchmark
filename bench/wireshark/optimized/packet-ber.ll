@@ -5016,12 +5016,12 @@ define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef
   br i1 %58, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %83
-  %.1199272 = phi i32 [ %82, %83 ], [ %.0198, %.preheader ]
-  %.1209271 = phi i32 [ %84, %83 ], [ 0, %.preheader ]
+  %.1199271 = phi i32 [ %82, %83 ], [ %.0198, %.preheader ]
+  %.1209270 = phi i32 [ %84, %83 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %59 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.1199272)
+  %59 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.1199271)
   %60 = icmp eq i8 %59, 0
-  %61 = add nsw i32 %.1199272, 1
+  %61 = add nsw i32 %.1199271, 1
   br i1 %60, label %62, label %.lr.ph._crit_edge
 
 62:                                               ; preds = %.lr.ph
@@ -5030,7 +5030,7 @@ define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef
   br i1 %64, label %.thread, label %.lr.ph._crit_edge
 
 .lr.ph._crit_edge:                                ; preds = %.lr.ph, %62
-  %65 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.1199272)
+  %65 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.1199271)
   %66 = lshr i8 %65, 6
   %67 = lshr i8 %65, 5
   %.lobit.i = and i8 %67, 1
@@ -5065,17 +5065,17 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %73, 
   %80 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %4, i32 noundef %.028.i, ptr noundef nonnull %18, ptr noundef nonnull %14, i32 noundef 1)
   %81 = load i32, ptr %18, align 4
   %82 = add i32 %81, %80
-  %.not228 = icmp sgt i32 %82, %.1199272
+  %.not228 = icmp sgt i32 %82, %.1199271
   br i1 %.not228, label %83, label %.thread
 
 .thread:                                          ; preds = %62, %get_ber_identifier.exit
   %.2215.ph = phi i1 [ false, %get_ber_identifier.exit ], [ true, %62 ]
-  %.2210.ph = phi i32 [ 0, %get_ber_identifier.exit ], [ %.1209271, %62 ]
+  %.2210.ph = phi i32 [ 0, %get_ber_identifier.exit ], [ %.1209270, %62 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %.loopexit
 
 83:                                               ; preds = %get_ber_identifier.exit
-  %84 = add i32 %.1209271, 1
+  %84 = add i32 %.1209270, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %85 = icmp slt i32 %82, %.0216
   br i1 %85, label %.lr.ph, label %.loopexit
@@ -5140,9 +5140,9 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %73, 
 ber_check_items.exit:                             ; preds = %.sink.split.i, %105, %87, %.loopexit
   %.0206 = phi ptr [ null, %87 ], [ %3, %.loopexit ], [ %103, %105 ], [ %103, %.sink.split.i ]
   %110 = icmp slt i32 %.0198, %.0216
-  br i1 %110, label %.lr.ph275, label %._crit_edge
+  br i1 %110, label %.lr.ph274, label %._crit_edge
 
-.lr.ph275:                                        ; preds = %ber_check_items.exit
+.lr.ph274:                                        ; preds = %ber_check_items.exit
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %112 = getelementptr inbounds nuw i8, ptr %8, i64 12
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -5150,18 +5150,18 @@ ber_check_items.exit:                             ; preds = %.sink.split.i, %105
   %115 = getelementptr inbounds nuw i8, ptr %8, i64 24
   br label %116
 
-116:                                              ; preds = %.lr.ph275, %221
-  %.3274 = phi i32 [ %.0198, %.lr.ph275 ], [ %150, %221 ]
+116:                                              ; preds = %.lr.ph274, %221
+  %.3273 = phi i32 [ %.0198, %.lr.ph274 ], [ %150, %221 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %117 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.3274)
+  %117 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.3273)
   %118 = icmp eq i8 %117, 0
-  %119 = add nsw i32 %.3274, 1
-  br i1 %118, label %120, label %._crit_edge282
+  %119 = add nsw i32 %.3273, 1
+  br i1 %118, label %120, label %._crit_edge281
 
 120:                                              ; preds = %116
   %121 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %119)
   %122 = icmp eq i8 %121, 0
-  br i1 %122, label %123, label %._crit_edge282
+  br i1 %122, label %123, label %._crit_edge281
 
 123:                                              ; preds = %120
   %124 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
@@ -5170,16 +5170,16 @@ ber_check_items.exit:                             ; preds = %.sink.split.i, %105
 
 126:                                              ; preds = %123
   %127 = load i32, ptr @hf_ber_seq_of_eoc, align 4
-  %128 = sub i32 %.0216, %.3274
-  %129 = call ptr @proto_tree_add_item(ptr noundef %.0206, i32 noundef %127, ptr noundef %4, i32 noundef %.3274, i32 noundef %128, i32 noundef 0)
+  %128 = sub i32 %.0216, %.3273
+  %129 = call ptr @proto_tree_add_item(ptr noundef %.0206, i32 noundef %127, ptr noundef %4, i32 noundef %.3273, i32 noundef %128, i32 noundef 0)
   br label %130
 
 130:                                              ; preds = %126, %123
-  %131 = add i32 %.3274, 2
-  br label %.thread261
+  %131 = add i32 %.3273, 2
+  br label %.thread260
 
-._crit_edge282:                                   ; preds = %116, %120
-  %132 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.3274)
+._crit_edge281:                                   ; preds = %116, %120
+  %132 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.3273)
   %133 = lshr i8 %132, 6
   %134 = lshr i8 %132, 5
   %.lobit.i240 = and i8 %134, 1
@@ -5188,9 +5188,9 @@ ber_check_items.exit:                             ; preds = %.sink.split.i, %105
   %137 = icmp eq i8 %135, 31
   br i1 %137, label %.preheader.i243, label %get_ber_identifier.exit247
 
-.preheader.i243:                                  ; preds = %._crit_edge282, %140
-  %.129.i244 = phi i32 [ %142, %140 ], [ %119, %._crit_edge282 ]
-  %.1.i245 = phi i32 [ %146, %140 ], [ 0, %._crit_edge282 ]
+.preheader.i243:                                  ; preds = %._crit_edge281, %140
+  %.129.i244 = phi i32 [ %142, %140 ], [ %119, %._crit_edge281 ]
+  %.1.i245 = phi i32 [ %146, %140 ], [ 0, %._crit_edge281 ]
   %138 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.129.i244)
   %139 = icmp sgt i32 %138, 0
   br i1 %139, label %140, label %get_ber_identifier.exit247
@@ -5205,17 +5205,17 @@ ber_check_items.exit:                             ; preds = %.sink.split.i, %105
   %.not.i246 = icmp sgt i8 %141, -1
   br i1 %.not.i246, label %get_ber_identifier.exit247, label %.preheader.i243, !llvm.loop !6
 
-get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %140, %._crit_edge282
-  %.028.i241 = phi i32 [ %119, %._crit_edge282 ], [ %142, %140 ], [ %.129.i244, %.preheader.i243 ]
-  %.0.i242 = phi i32 [ %136, %._crit_edge282 ], [ %146, %140 ], [ %.1.i245, %.preheader.i243 ]
+get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %140, %._crit_edge281
+  %.028.i241 = phi i32 [ %119, %._crit_edge281 ], [ %142, %140 ], [ %.129.i244, %.preheader.i243 ]
+  %.0.i242 = phi i32 [ %136, %._crit_edge281 ], [ %146, %140 ], [ %.1.i245, %.preheader.i243 ]
   store i8 %133, ptr @last_class, align 1
   store i8 %.lobit.i240, ptr @last_pc, align 1
   store i32 %.0.i242, ptr @last_tag, align 4
-  %147 = sub i32 %.028.i241, %.3274
+  %147 = sub i32 %.028.i241, %.3273
   %148 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %4, i32 noundef %.028.i241, ptr noundef nonnull %19, ptr noundef nonnull %15, i32 noundef 1)
   %149 = load i32, ptr %19, align 4
   %150 = add i32 %149, %148
-  %.not231 = icmp sgt i32 %150, %.3274
+  %.not231 = icmp sgt i32 %150, %.3273
   br i1 %.not231, label %152, label %151
 
 151:                                              ; preds = %get_ber_identifier.exit247
@@ -5229,9 +5229,9 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
   br i1 %or.cond7, label %155, label %158
 
 155:                                              ; preds = %152
-  %156 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.3274, ptr noundef null, ptr noundef null, ptr noundef null)
+  %156 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.3273, ptr noundef null, ptr noundef null, ptr noundef null)
   %157 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %156, ptr noundef null, ptr noundef null)
-  br label %.thread261
+  br label %.thread260
 
 158:                                              ; preds = %152
   %159 = load i8, ptr %111, align 8
@@ -5266,7 +5266,7 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
   %174 = load i32, ptr %112, align 4
   %175 = call ptr @val_to_str_ext_const(i32 noundef %174, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
   %176 = call ptr @val_to_str_const(i32 noundef %168, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %177 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %170, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %4, i32 noundef %.3274, i32 noundef %147, ptr noundef nonnull @.str.358, ptr noundef %171, i32 noundef %173, i32 noundef %174, ptr noundef %175, ptr noundef %176, i32 noundef %168, i32 noundef %.0.i242)
+  %177 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %170, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %4, i32 noundef %.3273, i32 noundef %147, ptr noundef nonnull @.str.358, ptr noundef %171, i32 noundef %173, i32 noundef %174, ptr noundef %175, ptr noundef %176, i32 noundef %168, i32 noundef %.0.i242)
   br label %187
 
 178:                                              ; preds = %166
@@ -5277,7 +5277,7 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
   %183 = sext i8 %182 to i32
   %184 = load i32, ptr %112, align 4
   %185 = call ptr @val_to_str_const(i32 noundef %168, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %186 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %180, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %4, i32 noundef %.3274, i32 noundef %147, ptr noundef nonnull @.str.359, ptr noundef %181, i32 noundef %183, i32 noundef %184, ptr noundef %185, i32 noundef %168, i32 noundef %.0.i242)
+  %186 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %180, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %4, i32 noundef %.3273, i32 noundef %147, ptr noundef nonnull @.str.359, ptr noundef %181, i32 noundef %183, i32 noundef %184, ptr noundef %185, i32 noundef %168, i32 noundef %.0.i242)
   br label %187
 
 187:                                              ; preds = %178, %169
@@ -5290,7 +5290,7 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
   %191 = load i32, ptr @ett_ber_unknown, align 4
   %192 = call ptr @proto_item_add_subtree(ptr noundef %.0201, i32 noundef %191)
   %193 = load ptr, ptr %114, align 8
-  %194 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %193, ptr noundef %4, i32 noundef %.3274, ptr noundef %192, i32 noundef 1)
+  %194 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %193, ptr noundef %4, i32 noundef %.3273, ptr noundef %192, i32 noundef 1)
   br label %221, !llvm.loop !24
 
 195:                                              ; preds = %161, %163, %158
@@ -5300,14 +5300,14 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
   br i1 %or.cond238, label %198, label %201
 
 198:                                              ; preds = %195
-  %199 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.3274, ptr noundef null, ptr noundef null, ptr noundef null)
+  %199 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.3273, ptr noundef null, ptr noundef null, ptr noundef null)
   %200 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %199, ptr noundef null, ptr noundef null)
   %.pre = load i32, ptr %113, align 8
   br label %201
 
 201:                                              ; preds = %198, %195
   %202 = phi i32 [ %196, %195 ], [ %.pre, %198 ]
-  %.0202 = phi i32 [ %.3274, %195 ], [ %200, %198 ]
+  %.0202 = phi i32 [ %.3273, %195 ], [ %200, %198 ]
   %203 = icmp eq i32 %202, 2
   br i1 %203, label %204, label %210
 
@@ -5335,7 +5335,7 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
   %220 = call i32 %217(i1 noundef zeroext %216, ptr noundef %214, i32 noundef 0, ptr noundef %2, ptr noundef %.0206, i32 noundef %219)
   br label %221
 
-.thread261:                                       ; preds = %130, %155
+.thread260:                                       ; preds = %130, %155
   %.2.ph = phi i32 [ %150, %155 ], [ %131, %130 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %231
@@ -5361,8 +5361,8 @@ get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %1
   %230 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %226, ptr noundef nonnull @ei_ber_error_length, ptr noundef %4, i32 noundef %224, i32 noundef 2, ptr noundef nonnull @.str.360, ptr noundef nonnull %228, i32 noundef %229)
   br label %231
 
-231:                                              ; preds = %.thread261, %._crit_edge, %223, %34, %45
-  %.0 = phi i32 [ %26, %45 ], [ %26, %34 ], [ %.0216, %223 ], [ %.0216, %._crit_edge ], [ %.2.ph, %.thread261 ]
+231:                                              ; preds = %.thread260, %._crit_edge, %223, %34, %45
+  %.0 = phi i32 [ %26, %45 ], [ %26, %34 ], [ %.0216, %223 ], [ %.0216, %._crit_edge ], [ %.2.ph, %.thread260 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)

@@ -1131,21 +1131,21 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.pre182.pre = load i32, ptr %20, align 4, !tbaa !30
+  %.pre181.pre = load i32, ptr %20, align 4, !tbaa !30
   br label %24
 
 24:                                               ; preds = %137, %16
-  %.pre182 = phi i32 [ %.pre182184, %137 ], [ %.pre182.pre, %16 ]
+  %.pre181 = phi i32 [ %.pre181183, %137 ], [ %.pre181.pre, %16 ]
   %.not = phi i1 [ false, %137 ], [ %19, %16 ]
   %.0 = phi i32 [ %.2, %137 ], [ %18, %16 ]
   br i1 %.not, label %.critedge3, label %.preheader
 
 .preheader:                                       ; preds = %24
-  %25 = icmp slt i32 %.pre182, %.0
+  %25 = icmp slt i32 %.pre181, %.0
   br i1 %25, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %.preheader, %36
-  %26 = phi i32 [ %39, %36 ], [ %.pre182, %.preheader ]
+  %26 = phi i32 [ %39, %36 ], [ %.pre181, %.preheader ]
   %27 = load ptr, ptr %8, align 8, !tbaa !17
   %28 = load ptr, ptr %1, align 8, !tbaa !15
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 80
@@ -1168,18 +1168,18 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   br i1 %40, label %.lr.ph, label %.critedge, !llvm.loop !32
 
 .critedge:                                        ; preds = %.lr.ph, %36, %.preheader
-  %41 = phi i32 [ %.pre182, %.preheader ], [ %.pre.pre, %.lr.ph ], [ %39, %36 ]
+  %41 = phi i32 [ %.pre181, %.preheader ], [ %.pre.pre, %.lr.ph ], [ %39, %36 ]
   store i32 %41, ptr %17, align 4, !tbaa !31
   %42 = icmp slt i32 %41, %.0
-  br i1 %42, label %.lr.ph171, label %.critedge3
+  br i1 %42, label %.lr.ph170, label %.critedge3
 
-.lr.ph171:                                        ; preds = %.critedge, %52
-  %storemerge170 = phi i32 [ %56, %52 ], [ %41, %.critedge ]
+.lr.ph170:                                        ; preds = %.critedge, %52
+  %storemerge169 = phi i32 [ %56, %52 ], [ %41, %.critedge ]
   %43 = load ptr, ptr %8, align 8, !tbaa !17
   %44 = load ptr, ptr %1, align 8, !tbaa !15
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 80
   %46 = load ptr, ptr %45, align 8
-  %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %storemerge170)
+  %47 = call noundef i32 %46(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %storemerge169)
   %48 = load ptr, ptr %43, align 8, !tbaa !15
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   %50 = load ptr, ptr %49, align 8
@@ -1187,21 +1187,21 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   %.not149 = icmp eq i8 %51, 0
   br i1 %.not149, label %.critedge3.loopexit, label %52
 
-52:                                               ; preds = %.lr.ph171
+52:                                               ; preds = %.lr.ph170
   %53 = icmp ult i32 %47, 65536
   %54 = select i1 %53, i32 1, i32 2
   %55 = load i32, ptr %17, align 4, !tbaa !31
   %56 = add nsw i32 %55, %54
   store i32 %56, ptr %17, align 4, !tbaa !31
   %57 = icmp slt i32 %56, %.0
-  br i1 %57, label %.lr.ph171, label %.critedge3.loopexit, !llvm.loop !34
+  br i1 %57, label %.lr.ph170, label %.critedge3.loopexit, !llvm.loop !34
 
-.critedge3.loopexit:                              ; preds = %.lr.ph171, %52
-  %.pre181 = load i32, ptr %20, align 4, !tbaa !30
+.critedge3.loopexit:                              ; preds = %.lr.ph170, %52
+  %.pre180 = load i32, ptr %20, align 4, !tbaa !30
   br label %.critedge3
 
 .critedge3:                                       ; preds = %.critedge3.loopexit, %.critedge, %24
-  %58 = phi i32 [ %.pre181, %.critedge3.loopexit ], [ %41, %.critedge ], [ %.pre182, %24 ]
+  %58 = phi i32 [ %.pre180, %.critedge3.loopexit ], [ %41, %.critedge ], [ %.pre181, %24 ]
   %59 = load i32, ptr %17, align 4, !tbaa !31
   %60 = icmp eq i32 %59, %58
   br i1 %60, label %140, label %61
@@ -1232,17 +1232,17 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   %80 = select i1 %79, i32 1, i32 2
   %81 = add nsw i32 %80, %74
   %82 = icmp sgt i32 %81, %59
-  br i1 %82, label %._crit_edge, label %.lr.ph178
+  br i1 %82, label %._crit_edge, label %.lr.ph177
 
-.lr.ph178:                                        ; preds = %65, %112
+.lr.ph177:                                        ; preds = %65, %112
   %83 = phi i32 [ %119, %112 ], [ %81, %65 ]
   %84 = phi i32 [ %118, %112 ], [ %80, %65 ]
-  %.0121177 = phi i32 [ %.1122, %112 ], [ 0, %65 ]
-  %.0124176 = phi i32 [ %.1125, %112 ], [ 0, %65 ]
-  %.0130175 = phi i32 [ %.1131, %112 ], [ %70, %65 ]
-  %.0133174 = phi i32 [ %.1134, %112 ], [ %58, %65 ]
-  %.0136173 = phi i32 [ %.1137, %112 ], [ %59, %65 ]
-  %85 = add nsw i32 %84, %.0124176
+  %.0121176 = phi i32 [ %.1122, %112 ], [ 0, %65 ]
+  %.0124175 = phi i32 [ %.1125, %112 ], [ 0, %65 ]
+  %.0130174 = phi i32 [ %.1131, %112 ], [ %70, %65 ]
+  %.0133173 = phi i32 [ %.1134, %112 ], [ %58, %65 ]
+  %.0136172 = phi i32 [ %.1137, %112 ], [ %59, %65 ]
+  %85 = add nsw i32 %84, %.0124175
   store i32 %83, ptr %17, align 4, !tbaa !31
   %86 = load ptr, ptr %0, align 8, !tbaa !15
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 80
@@ -1254,19 +1254,19 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   %.not152 = icmp eq i32 %91, %89
   br i1 %.not152, label %107, label %92
 
-92:                                               ; preds = %.lr.ph178
+92:                                               ; preds = %.lr.ph177
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr getelementptr inbounds nuw inrange(-16, 88) (i8, ptr @_ZTVN6icu_7713UnicodeStringE, i64 16), ptr %6, align 8, !tbaa !15
   store i16 2, ptr %21, align 8, !tbaa !26
   %93 = load ptr, ptr %1, align 8, !tbaa !15
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
   %95 = load ptr, ptr %94, align 8
-  invoke void %95(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.0133174, i32 noundef %89, ptr noundef nonnull align 8 dereferenceable(64) %6)
+  invoke void %95(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %.0133173, i32 noundef %89, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %96 unwind label %105
 
 96:                                               ; preds = %92
-  %97 = add nsw i32 %90, %.0130175
-  %.neg = sub i32 %.0133174, %89
+  %97 = add nsw i32 %90, %.0130174
+  %.neg = sub i32 %.0133173, %89
   %98 = add i32 %97, %.neg
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -1274,8 +1274,8 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   %100 = load ptr, ptr %1, align 8, !tbaa !15
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load ptr, ptr %101, align 8
-  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %98, i32 noundef %99, i32 noundef %.0133174)
-  store i32 %.0133174, ptr %20, align 4, !tbaa !30
+  call void %102(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %98, i32 noundef %99, i32 noundef %.0133173)
+  store i32 %.0133173, ptr %20, align 4, !tbaa !30
   store i32 %83, ptr %17, align 4, !tbaa !31
   %103 = load i32, ptr %22, align 4, !tbaa !29
   %104 = sub nsw i32 %103, %90
@@ -1289,20 +1289,20 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %129
 
-107:                                              ; preds = %.lr.ph178
-  %108 = add i32 %90, %.0130175
+107:                                              ; preds = %.lr.ph177
+  %108 = add i32 %90, %.0130174
   %109 = add i32 %108, %85
-  %110 = add nsw i32 %90, %.0136173
-  %111 = add nsw i32 %90, %.0121177
+  %110 = add nsw i32 %90, %.0136172
+  %111 = add nsw i32 %90, %.0121176
   br label %112
 
 112:                                              ; preds = %96, %107
-  %.1137 = phi i32 [ %.0136173, %96 ], [ %110, %107 ]
-  %.1134 = phi i32 [ %.0133174, %96 ], [ %89, %107 ]
-  %.1131 = phi i32 [ %.0130175, %96 ], [ %109, %107 ]
+  %.1137 = phi i32 [ %.0136172, %96 ], [ %110, %107 ]
+  %.1134 = phi i32 [ %.0133173, %96 ], [ %89, %107 ]
+  %.1131 = phi i32 [ %.0130174, %96 ], [ %109, %107 ]
   %.1128 = phi i32 [ %83, %96 ], [ %89, %107 ]
   %.1125 = phi i32 [ %85, %96 ], [ 0, %107 ]
-  %.1122 = phi i32 [ %.0121177, %96 ], [ %111, %107 ]
+  %.1122 = phi i32 [ %.0121176, %96 ], [ %111, %107 ]
   %113 = load ptr, ptr %1, align 8, !tbaa !15
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 80
   %115 = load ptr, ptr %114, align 8
@@ -1311,7 +1311,7 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   %118 = select i1 %117, i32 1, i32 2
   %119 = add nsw i32 %118, %.1128
   %120 = icmp sgt i32 %119, %.1137
-  br i1 %120, label %._crit_edge, label %.lr.ph178
+  br i1 %120, label %._crit_edge, label %.lr.ph177
 
 ._crit_edge:                                      ; preds = %112, %65
   %.0133.lcssa = phi i32 [ %58, %65 ], [ %.1134, %112 ]
@@ -1362,7 +1362,7 @@ define void @_ZNK6icu_7714Transliterator21filteredTransliterateERNS_11Replaceabl
   br label %137
 
 137:                                              ; preds = %.sink.split, %130
-  %.pre182184 = phi i32 [ %136, %130 ], [ %.sink, %.sink.split ]
+  %.pre181183 = phi i32 [ %136, %130 ], [ %.sink, %.sink.split ]
   %.1122.pn = phi i32 [ %135, %130 ], [ %.1122.pn.ph, %.sink.split ]
   %.2 = add nsw i32 %.1122.pn, %.0
   %138 = load ptr, ptr %8, align 8, !tbaa !17
@@ -2733,9 +2733,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7714Transliterator18initialize
   br label %70
 
 70:                                               ; preds = %.lr.ph, %192
-  %.0114192 = phi i32 [ 0, %.lr.ph ], [ %193, %192 ]
-  %71 = invoke ptr @ures_getByIndex_77(ptr noundef %44, i32 noundef %.0114192, ptr noundef null, ptr noundef nonnull %7)
-          to label %72 unwind label %.loopexit191
+  %.0114191 = phi i32 [ 0, %.lr.ph ], [ %193, %192 ]
+  %71 = invoke ptr @ures_getByIndex_77(ptr noundef %44, i32 noundef %.0114191, ptr noundef null, ptr noundef nonnull %7)
+          to label %72 unwind label %.loopexit190
 
 72:                                               ; preds = %70
   %73 = load i32, ptr %7, align 4, !tbaa !13
@@ -2795,7 +2795,7 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %95
   invoke void @ures_close_77(ptr noundef %71)
           to label %187 unwind label %103
 
-.loopexit191:                                     ; preds = %70, %191
+.loopexit190:                                     ; preds = %70, %191
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %343
@@ -2930,8 +2930,8 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit.thread: ; preds = %.sink.split.i.i
   %147 = sext i16 %146 to i32
   %148 = load i32, ptr %67, align 4
   %149 = select i1 %145, i32 %148, i32 %147
-  %.not190 = icmp eq i32 %149, 0
-  br i1 %.not190, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %150
+  %.not189 = icmp eq i32 %149, 0
+  br i1 %.not189, label %_ZNK6icu_7713UnicodeString6charAtEi.exit, label %150
 
 150:                                              ; preds = %143
   %151 = and i16 %144, 2
@@ -3070,10 +3070,10 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %150, %143
 
 191:                                              ; preds = %.thread187, %72
   invoke void @ures_close_77(ptr noundef %71)
-          to label %192 unwind label %.loopexit191
+          to label %192 unwind label %.loopexit190
 
 192:                                              ; preds = %187, %191
-  %193 = add nuw nsw i32 %.0114192, 1
+  %193 = add nuw nsw i32 %.0114191, 1
   %exitcond.not = icmp eq i32 %193, %58
   br i1 %exitcond.not, label %.loopexit, label %70, !llvm.loop !59
 
@@ -3512,9 +3512,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %150, %143
   br label %343
 
 .sink.split.sink.split:                           ; preds = %258, %49
-  %.sink222 = phi ptr [ %50, %49 ], [ %259, %258 ]
-  call void @_ZN6icu_7722TransliteratorRegistryD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %.sink222) #21
-  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.sink222) #21
+  %.sink221 = phi ptr [ %50, %49 ], [ %259, %258 ]
+  call void @_ZN6icu_7722TransliteratorRegistryD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %.sink221) #21
+  call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %.sink221) #21
   br label %.sink.split
 
 .sink.split:                                      ; preds = %.sink.split.sink.split, %258, %49
@@ -3529,8 +3529,8 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %150, %143
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %345
 
-343:                                              ; preds = %.loopexit191, %.loopexit.split-lp, %261, %265, %269, %310, %320, %330, %340, %273, %271, %267, %263, %190
-  %.pn173 = phi { ptr, i32 } [ %.pn170.pn, %190 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %311, %310 ], [ %.pn144.pn, %340 ], [ %.pn141.pn, %330 ], [ %.pn.pn, %320 ], [ %274, %273 ], [ %lpad.loopexit, %.loopexit191 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+343:                                              ; preds = %.loopexit190, %.loopexit.split-lp, %261, %265, %269, %310, %320, %330, %340, %273, %271, %267, %263, %190
+  %.pn173 = phi { ptr, i32 } [ %.pn170.pn, %190 ], [ %262, %261 ], [ %264, %263 ], [ %266, %265 ], [ %268, %267 ], [ %270, %269 ], [ %272, %271 ], [ %311, %310 ], [ %.pn144.pn, %340 ], [ %.pn141.pn, %330 ], [ %.pn.pn, %320 ], [ %274, %273 ], [ %lpad.loopexit, %.loopexit190 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN6icu_7713UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #21
   br label %344
 

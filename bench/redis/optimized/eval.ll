@@ -2596,8 +2596,8 @@ define dso_local range(i32 0, 2) i32 @ldbStartSession(ptr noundef %0) local_unna
 
 sdslen.exit:                                      ; preds = %49, %52, %56, %60, %64
   %.0.i = phi i64 [ %51, %49 ], [ %55, %52 ], [ %59, %56 ], [ %63, %60 ], [ %66, %64 ]
-  %.not34 = icmp eq i64 %.0.i, 0
-  br i1 %.not34, label %.split25, label %.lr.ph
+  %.not33 = icmp eq i64 %.0.i, 0
+  br i1 %.not33, label %.split25, label %.lr.ph
 
 .split25.loopexit:                                ; preds = %.critedge2
   %.pre = load i8, ptr %45, align 1, !tbaa !13
@@ -2639,8 +2639,8 @@ sdslen.exit:                                      ; preds = %49, %52, %56, %60, 
   br label %.critedge
 
 .lr.ph:                                           ; preds = %sdslen.exit, %.critedge2
-  %.035 = phi i64 [ %95, %.critedge2 ], [ %.0.i, %sdslen.exit ]
-  %77 = getelementptr i8, ptr %44, i64 %.035
+  %.034 = phi i64 [ %95, %.critedge2 ], [ %.0.i, %sdslen.exit ]
+  %77 = getelementptr i8, ptr %44, i64 %.034
   %78 = getelementptr i8, ptr %77, i64 -1
   %79 = load i8, ptr %78, align 1, !tbaa !13
   switch i8 %79, label %.split [
@@ -2660,36 +2660,36 @@ sdslen.exit:                                      ; preds = %49, %52, %56, %60, 
   ]
 
 82:                                               ; preds = %.split
-  %.tr.i = trunc i64 %.035 to i8
+  %.tr.i = trunc i64 %.034 to i8
   %83 = shl i8 %.tr.i, 3
   store i8 %83, ptr %45, align 1, !tbaa !13
   br label %.critedge
 
 84:                                               ; preds = %.split
-  %85 = trunc i64 %.035 to i8
+  %85 = trunc i64 %.034 to i8
   %86 = getelementptr inbounds i8, ptr %44, i64 -3
   store i8 %85, ptr %86, align 1, !tbaa !13
   br label %.critedge
 
 87:                                               ; preds = %.split
-  %88 = trunc i64 %.035 to i16
+  %88 = trunc i64 %.034 to i16
   %89 = getelementptr inbounds i8, ptr %44, i64 -5
   store i16 %88, ptr %89, align 1, !tbaa !94
   br label %.critedge
 
 90:                                               ; preds = %.split
-  %91 = trunc i64 %.035 to i32
+  %91 = trunc i64 %.034 to i32
   %92 = getelementptr inbounds i8, ptr %44, i64 -9
   store i32 %91, ptr %92, align 1, !tbaa !91
   br label %.critedge
 
 93:                                               ; preds = %.split
   %94 = getelementptr inbounds i8, ptr %44, i64 -17
-  store i64 %.035, ptr %94, align 1, !tbaa !95
+  store i64 %.034, ptr %94, align 1, !tbaa !95
   br label %.critedge
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
-  %95 = add i64 %.035, -1
+  %95 = add i64 %.034, -1
   %96 = getelementptr inbounds nuw i8, ptr %44, i64 %95
   store i8 0, ptr %96, align 1, !tbaa !13
   %.not = icmp eq i64 %95, 0

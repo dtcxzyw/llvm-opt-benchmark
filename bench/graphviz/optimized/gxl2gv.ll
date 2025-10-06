@@ -1816,7 +1816,7 @@ define internal fastcc void @push_subg(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge.i.i.i:                                ; preds = %1
   %.pre.i.i.i = load i64, ptr getelementptr inbounds nuw (i8, ptr @Gstack, i64 8), align 8, !tbaa !58
-  %.pre4.i.i.i = load ptr, ptr @Gstack, align 8, !tbaa !24
+  %.pre3.i.i.i = load ptr, ptr @Gstack, align 8, !tbaa !24
   br label %graph_stack_push_back.exit
 
 5:                                                ; preds = %1
@@ -1870,7 +1870,7 @@ define internal fastcc void @push_subg(ptr noundef %0) unnamed_addr #0 {
   unreachable
 
 graph_stack_push_back.exit:                       ; preds = %._crit_edge.i.i.i, %28
-  %34 = phi ptr [ %.pre4.i.i.i, %._crit_edge.i.i.i ], [ %11, %28 ]
+  %34 = phi ptr [ %.pre3.i.i.i, %._crit_edge.i.i.i ], [ %11, %28 ]
   %35 = phi i64 [ %3, %._crit_edge.i.i.i ], [ %spec.select.i.i.i, %28 ]
   %36 = phi i64 [ %2, %._crit_edge.i.i.i ], [ %19, %28 ]
   %37 = phi i64 [ %.pre.i.i.i, %._crit_edge.i.i.i ], [ %29, %28 ]

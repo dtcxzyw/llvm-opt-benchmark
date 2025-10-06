@@ -709,8 +709,8 @@ define { i64, i8 } @_ZN6uu_env15string_expander14StringExpander8take_one17ha9db1
   %.sroa.623.16.insert.ext = zext i56 %.sroa.6.sroa.0.0.copyload to i64
   %.sroa.4.16.insert.ext = zext i8 %11 to i64
   %.idx = shl i64 %.sroa.623.16.insert.ext, 12
-  %.idx43 = shl nuw nsw i64 %.sroa.4.16.insert.ext, 4
-  %15 = or disjoint i64 %.idx, %.idx43
+  %.idx42 = shl nuw nsw i64 %.sroa.4.16.insert.ext, 4
+  %15 = or disjoint i64 %.idx, %.idx42
   %16 = getelementptr i8, ptr %13, i64 %15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %13, ptr %3, align 8
@@ -830,9 +830,9 @@ common.resume:                                    ; preds = %21, %24
   br label %52
 
 52:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e42d29207d138bE.exit", %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit"
-  %.sink46 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e42d29207d138bE.exit" ], [ %.sroa.7.8.copyload, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit" ]
+  %.sink45 = phi i64 [ 1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17he3e42d29207d138bE.exit" ], [ %.sroa.7.8.copyload, %"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17h6a650d4252cb6caaE.exit" ]
   %53 = load i64, ptr %18, align 8, !noundef !5
-  %54 = add i64 %53, %.sink46
+  %54 = add i64 %53, %.sink45
   store i64 %54, ptr %18, align 8
   %55 = load ptr, ptr %.sroa.628.0..sroa_idx, align 8, !alias.scope !145, !noalias !134, !nonnull !5, !noundef !5
   %56 = load ptr, ptr %.sroa.425.0..sroa_idx, align 8, !alias.scope !145, !noalias !134, !nonnull !5, !noundef !5

@@ -2714,8 +2714,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit290: ; preds = %
   %781 = load ptr, ptr %772, align 8, !tbaa !233, !noalias !229
   %782 = getelementptr inbounds nuw i8, ptr %770, i64 256
   %783 = load ptr, ptr %782, align 8, !tbaa !233, !noalias !229
-  %.not2021.not.i.i = icmp eq ptr %781, %783
-  br i1 %.not2021.not.i.i, label %_ZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNS_9StructDefENS_10IDLOptions16ProtoIdGapActionEb.exit.thread, label %.lr.ph.i.i
+  %.not2122.not.i.i = icmp eq ptr %781, %783
+  br i1 %.not2122.not.i.i, label %_ZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNS_9StructDefENS_10IDLOptions16ProtoIdGapActionEb.exit.thread, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %780
   %784 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11flatbuffers12_GLOBAL__N_114HasFieldWithIdERKSt6vectorIPNS_8FieldDefESaIS3_EEE2IDB5cxx11, i64 8), align 8, !noalias !229
@@ -2730,8 +2730,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit290: ; preds = %
   br label %.body392
 
 788:                                              ; preds = %.critedge.i.i, %.lr.ph.i.i
-  %.sroa.016.022.i.i = phi ptr [ %781, %.lr.ph.i.i ], [ %817, %.critedge.i.i ]
-  %789 = load ptr, ptr %.sroa.016.022.i.i, align 8, !tbaa !235, !noalias !229
+  %.sroa.016.023.i.i = phi ptr [ %781, %.lr.ph.i.i ], [ %817, %.critedge.i.i ]
+  %789 = load ptr, ptr %.sroa.016.023.i.i, align 8, !tbaa !235, !noalias !229
   %790 = getelementptr inbounds nuw i8, ptr %789, i64 104
   %791 = load ptr, ptr %790, align 8, !tbaa !237, !noalias !229
   %792 = getelementptr inbounds nuw i8, ptr %789, i64 96
@@ -2814,9 +2814,9 @@ _ZNK11flatbuffers11SymbolTableINS_5ValueEE6LookupERKNSt7__cxx1112basic_stringIcS
   br i1 %816, label %.critedge.i.i, label %_ZN11flatbuffers12_GLOBAL__N_114HasFieldWithIdERKSt6vectorIPNS_8FieldDefESaIS3_EE.exit.i
 
 .critedge.i.i:                                    ; preds = %813, %_ZNK11flatbuffers11SymbolTableINS_5ValueEE6LookupERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN11flatbuffers5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i.i, %788
-  %817 = getelementptr inbounds nuw i8, ptr %.sroa.016.022.i.i, i64 8
-  %.not20.not.i.i = icmp eq ptr %817, %783
-  br i1 %.not20.not.i.i, label %_ZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNS_9StructDefENS_10IDLOptions16ProtoIdGapActionEb.exit.thread, label %788
+  %817 = getelementptr inbounds nuw i8, ptr %.sroa.016.023.i.i, i64 8
+  %.not21.not.i.i = icmp eq ptr %817, %783
+  br i1 %.not21.not.i.i, label %_ZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNS_9StructDefENS_10IDLOptions16ProtoIdGapActionEb.exit.thread, label %788
 
 _ZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNS_9StructDefENS_10IDLOptions16ProtoIdGapActionEb.exit.thread: ; preds = %.critedge.i.i, %780
   store ptr %356, ptr %46, align 8, !tbaa !243, !alias.scope !229
@@ -2851,8 +2851,8 @@ _ZN11flatbuffers12_GLOBAL__N_114HasFieldWithIdERKSt6vectorIPNS_8FieldDefESaIS3_E
 825:                                              ; preds = %823, %820, %_ZN11flatbuffers12_GLOBAL__N_114HasFieldWithIdERKSt6vectorIPNS_8FieldDefESaIS3_EE.exit.i
   %826 = load ptr, ptr %772, align 8, !tbaa !233, !noalias !229
   %827 = load ptr, ptr %782, align 8, !tbaa !233, !noalias !229
-  %.not2629.not.i.i.i = icmp eq ptr %826, %827
-  br i1 %.not2629.not.i.i.i, label %_ZN11flatbuffers12_GLOBAL__N_121HasNonPositiveFieldIdERKSt6vectorIPNS_8FieldDefESaIS3_EE.exit.i.i, label %.lr.ph.i.i.i
+  %.not2730.not.i.i.i = icmp eq ptr %826, %827
+  br i1 %.not2730.not.i.i.i, label %_ZN11flatbuffers12_GLOBAL__N_121HasNonPositiveFieldIdERKSt6vectorIPNS_8FieldDefESaIS3_EE.exit.i.i, label %.lr.ph.i.i.i
 
 828:                                              ; preds = %822
   %829 = landingpad { ptr, i32 }
@@ -2862,8 +2862,8 @@ _ZN11flatbuffers12_GLOBAL__N_114HasFieldWithIdERKSt6vectorIPNS_8FieldDefESaIS3_E
   br label %.body392
 
 .lr.ph.i.i.i:                                     ; preds = %825, %.critedge.i.i.i
-  %.sroa.021.030.i.i.i = phi ptr [ %889, %.critedge.i.i.i ], [ %826, %825 ]
-  %830 = load ptr, ptr %.sroa.021.030.i.i.i, align 8, !tbaa !235, !noalias !229
+  %.sroa.021.031.i.i.i = phi ptr [ %889, %.critedge.i.i.i ], [ %826, %825 ]
+  %830 = load ptr, ptr %.sroa.021.031.i.i.i, align 8, !tbaa !235, !noalias !229
   %831 = getelementptr inbounds nuw i8, ptr %830, i64 104
   %832 = load ptr, ptr %831, align 8, !tbaa !237, !noalias !229
   %833 = getelementptr inbounds nuw i8, ptr %830, i64 96
@@ -3014,9 +3014,9 @@ _ZN11flatbuffers14StringToNumberItEEbPKcPT_.exit.i.i.i: ; preds = %.critedge.thr
   br i1 %or.cond.i.i.i.i, label %.critedge.i.i.i, label %890
 
 .critedge.i.i.i:                                  ; preds = %_ZN11flatbuffers14StringToNumberItEEbPKcPT_.exit.i.i.i, %857, %_ZNK11flatbuffers11SymbolTableINS_5ValueEE6LookupERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i.i.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN11flatbuffers5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i.i.i, %.lr.ph.i.i.i
-  %889 = getelementptr inbounds nuw i8, ptr %.sroa.021.030.i.i.i, i64 8
-  %.not26.not.i.i.i = icmp eq ptr %889, %827
-  br i1 %.not26.not.i.i.i, label %_ZN11flatbuffers12_GLOBAL__N_121HasNonPositiveFieldIdERKSt6vectorIPNS_8FieldDefESaIS3_EE.exit.i.i, label %.lr.ph.i.i.i
+  %889 = getelementptr inbounds nuw i8, ptr %.sroa.021.031.i.i.i, i64 8
+  %.not27.not.i.i.i = icmp eq ptr %889, %827
+  br i1 %.not27.not.i.i.i, label %_ZN11flatbuffers12_GLOBAL__N_121HasNonPositiveFieldIdERKSt6vectorIPNS_8FieldDefESaIS3_EE.exit.i.i, label %.lr.ph.i.i.i
 
 890:                                              ; preds = %_ZN11flatbuffers14StringToNumberItEEbPKcPT_.exit.i.i.i, %.critedge.thread.i.i.i.i.i, %878
   br i1 %3, label %_ZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNS_9StructDefENS_10IDLOptions16ProtoIdGapActionEb.exit.thread1629, label %.sink.split.i
@@ -3233,8 +3233,8 @@ _ZN11flatbuffers12_GLOBAL__N_114HasTwiceUsedIdERKSt6vectorIPNS_8FieldDefESaIS3_E
 960:                                              ; preds = %958, %955, %951
   %961 = load ptr, ptr %772, align 8, !tbaa !233, !noalias !229
   %962 = load ptr, ptr %782, align 8, !tbaa !233, !noalias !229
-  %.not4052.not.i.i.i = icmp eq ptr %961, %962
-  br i1 %.not4052.not.i.i.i, label %_ZN11flatbuffers12_GLOBAL__N_125HasFieldIdFromReservedIdsERKSt6vectorIPNS_8FieldDefESaIS3_EERKS1_ItSaItEE.exit.i.i, label %.lr.ph.i21.i.i
+  %.not4153.not.i.i.i = icmp eq ptr %961, %962
+  br i1 %.not4153.not.i.i.i, label %_ZN11flatbuffers12_GLOBAL__N_125HasFieldIdFromReservedIdsERKSt6vectorIPNS_8FieldDefESaIS3_EERKS1_ItSaItEE.exit.i.i, label %.lr.ph.i21.i.i
 
 .lr.ph.i21.i.i:                                   ; preds = %960
   %963 = getelementptr inbounds nuw i8, ptr %770, i64 312
@@ -3248,8 +3248,8 @@ _ZN11flatbuffers12_GLOBAL__N_114HasTwiceUsedIdERKSt6vectorIPNS_8FieldDefESaIS3_E
   br label %.body392
 
 966:                                              ; preds = %.critedge27.i.i.i, %.lr.ph.i21.i.i
-  %.sroa.033.053.i.i.i = phi ptr [ %961, %.lr.ph.i21.i.i ], [ %1069, %.critedge27.i.i.i ]
-  %967 = load ptr, ptr %.sroa.033.053.i.i.i, align 8, !tbaa !235, !noalias !229
+  %.sroa.033.054.i.i.i = phi ptr [ %961, %.lr.ph.i21.i.i ], [ %1069, %.critedge27.i.i.i ]
+  %967 = load ptr, ptr %.sroa.033.054.i.i.i, align 8, !tbaa !235, !noalias !229
   %968 = getelementptr inbounds nuw i8, ptr %967, i64 104
   %969 = load ptr, ptr %968, align 8, !tbaa !237, !noalias !229
   %970 = getelementptr inbounds nuw i8, ptr %967, i64 96
@@ -3502,13 +3502,13 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.e
 
 _ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i.i.i: ; preds = %1035, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i.i.i.loopexit.split.loop.exit, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i.i.i.loopexit.split.loop.exit1650, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i.i.i.loopexit.split.loop.exit1652, %._crit_edge._crit_edge57.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %1055
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.032.0.lcssa.i.i.i.i.i.i, %1055 ], [ %.sroa.032.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %spec.select.i.i.i.i.i.i, %._crit_edge._crit_edge57.i.i.i.i.i.i ], [ %1066, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i.i.i.loopexit.split.loop.exit ], [ %1067, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i.i.i.loopexit.split.loop.exit1650 ], [ %1068, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i.i.i.loopexit.split.loop.exit1652 ], [ %.sroa.032.051.i.i.i.i.i.i, %1035 ]
-  %.not41.i.i.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %1028
-  br i1 %.not41.i.i.i, label %.critedge27.i.i.i, label %1070
+  %.not42.i.i.i = icmp eq ptr %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i, %1028
+  br i1 %.not42.i.i.i, label %.critedge27.i.i.i, label %1070
 
 .critedge27.i.i.i:                                ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i.i.i, %._crit_edge.i.i.i.i.i.i, %994, %_ZNK11flatbuffers11SymbolTableINS_5ValueEE6LookupERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i42.i.i, %_ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN11flatbuffers5ValueESt4lessIS5_ESaISt4pairIKS5_S8_EEE4findERSC_.exit.i.i40.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN11flatbuffers5ValueEESt10_Select1stISB_ESt4lessIS5_ESaISB_EE14_M_lower_boundEPKSt13_Rb_tree_nodeISB_EPKSt18_Rb_tree_node_baseRS7_.exit.i.i.i.i36.i.i, %966
-  %1069 = getelementptr inbounds nuw i8, ptr %.sroa.033.053.i.i.i, i64 8
-  %.not40.not.i.i.i = icmp eq ptr %1069, %962
-  br i1 %.not40.not.i.i.i, label %_ZN11flatbuffers12_GLOBAL__N_125HasFieldIdFromReservedIdsERKSt6vectorIPNS_8FieldDefESaIS3_EERKS1_ItSaItEE.exit.i.i, label %966
+  %1069 = getelementptr inbounds nuw i8, ptr %.sroa.033.054.i.i.i, i64 8
+  %.not41.not.i.i.i = icmp eq ptr %1069, %962
+  br i1 %.not41.not.i.i.i, label %_ZN11flatbuffers12_GLOBAL__N_125HasFieldIdFromReservedIdsERKSt6vectorIPNS_8FieldDefESaIS3_EERKS1_ItSaItEE.exit.i.i, label %966
 
 1070:                                             ; preds = %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPKtSt6vectorItSaItEEEEtET_S8_S8_RKT0_.exit.i.i.i, %_ZN11flatbuffers14StringToNumberItEEbPKcPT_.exit.i50.i.i, %.critedge.thread.i.i.i47.i.i, %1015
   br i1 %3, label %_ZN11flatbuffers12_GLOBAL__N_121MapProtoIdsToFieldsIdERKNS_9StructDefENS_10IDLOptions16ProtoIdGapActionEb.exit.thread1629, label %.sink.split.i

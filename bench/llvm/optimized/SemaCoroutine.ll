@@ -9431,12 +9431,12 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
   %188 = zext i32 %187 to i64
   %.idx.i = shl nuw nsw i64 %188, 3
   %189 = getelementptr inbounds nuw i8, ptr %186, i64 %.idx.i
-  %.not3965.i = icmp eq i32 %187, 0
-  br i1 %.not3965.i, label %_ZL20collectPlacementArgsRN5clang4SemaERNS_12FunctionDeclENS_14SourceLocationERN4llvm15SmallVectorImplIPNS_4ExprEEE.exit, label %.lr.ph.i
+  %.not3963.i = icmp eq i32 %187, 0
+  br i1 %.not3963.i, label %_ZL20collectPlacementArgsRN5clang4SemaERNS_12FunctionDeclENS_14SourceLocationERN4llvm15SmallVectorImplIPNS_4ExprEEE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %184, %248
-  %.03866.i = phi ptr [ %249, %248 ], [ %186, %184 ]
-  %190 = load ptr, ptr %.03866.i, align 8, !tbaa !824
+  %.03864.i = phi ptr [ %249, %248 ], [ %186, %184 ]
+  %190 = load ptr, ptr %.03864.i, align 8, !tbaa !824
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 48
   %.sroa.0.0.copyload.i.i = load i64, ptr %191, align 8, !tbaa !11
   %192 = and i64 %.sroa.0.0.copyload.i.i, -16
@@ -9450,7 +9450,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
 
 198:                                              ; preds = %.lr.ph.i
   %199 = getelementptr inbounds nuw i8, ptr %190, i64 24
-  %.sroa.0.0.copyload.i42.i = load i32, ptr %199, align 8, !tbaa !684
+  %.sroa.0.0.copyload.i41.i = load i32, ptr %199, align 8, !tbaa !684
   %200 = call i64 @_ZNK5clang11ParmVarDecl15getOriginalTypeEv(ptr noundef nonnull align 8 dereferenceable(104) %190) #21
   %201 = and i64 %200, -16
   %202 = inttoptr i64 %201 to ptr
@@ -9475,8 +9475,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit.i: ; pr
 
 _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i: ; preds = %207
   %215 = call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %203) #21
-  %.not.i43.i = icmp eq ptr %215, null
-  br i1 %.not.i43.i, label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i
+  %.not.i42.i = icmp eq ptr %215, null
+  br i1 %.not.i42.i, label %_ZNK5clang8QualType19getNonReferenceTypeEv.exit.i, label %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i
 
 _ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i: ; preds = %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i, %198
   %.1.i8.i.i = phi ptr [ %215, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ], [ %203, %198 ]
@@ -9508,8 +9508,8 @@ _ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i: ; preds = %226, %.
   %228 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i, i64 16
   %229 = load i24, ptr %228, align 16
   %230 = and i24 %229, 1048576
-  %.not.i.i44.i = icmp eq i24 %230, 0
-  br i1 %.not.i.i44.i, label %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !688
+  %.not.i.i43.i = icmp eq i24 %230, 0
+  br i1 %.not.i.i43.i, label %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !688
 
 _ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i: ; preds = %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i
   %.0.lcssa.i.i.i = phi ptr [ %.1.i8.i.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.thread5.i.i ], [ %.1.i.i.i.i, %_ZNK5clang4Type6castAsINS_13ReferenceTypeEEEPKT_v.exit.i.i.i ]
@@ -9519,7 +9519,7 @@ _ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i: ; preds = %_ZNK5clang4Type
 
 _ZNK5clang8QualType19getNonReferenceTypeEv.exit.i: ; preds = %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i, %207
   %.sroa.0.0.in.i.sroa.speculated.i = phi i64 [ %.sroa.0.0.in.i.sroa.speculate.load._ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i, %_ZNK5clang13ReferenceType14getPointeeTypeEv.exit.i.i ], [ %200, %207 ], [ %200, %_ZNK5clang4Type5getAsINS_13ReferenceTypeEEEPKT_v.exit.i.i ]
-  %232 = call noundef ptr @_ZN5clang4Sema16BuildDeclRefExprEPNS_9ValueDeclENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationEPKNS_12CXXScopeSpecE(ptr noundef nonnull align 8 dereferenceable(17504) %123, ptr noundef nonnull %190, i64 %.sroa.0.0.in.i.sroa.speculated.i, i32 noundef 1, i32 %.sroa.0.0.copyload.i42.i, ptr noundef null) #21
+  %232 = call noundef ptr @_ZN5clang4Sema16BuildDeclRefExprEPNS_9ValueDeclENS_8QualTypeENS_13ExprValueKindENS_14SourceLocationEPKNS_12CXXScopeSpecE(ptr noundef nonnull align 8 dereferenceable(17504) %123, ptr noundef nonnull %190, i64 %.sroa.0.0.in.i.sroa.speculated.i, i32 noundef 1, i32 %.sroa.0.0.copyload.i41.i, ptr noundef null) #21
   %233 = icmp eq ptr %232, inttoptr (i64 1 to ptr)
   br i1 %233, label %.critedge, label %234
 
@@ -9528,18 +9528,18 @@ _ZNK5clang8QualType19getNonReferenceTypeEv.exit.i: ; preds = %_ZNK5clang13Refere
   %236 = and i64 %235, -2
   %237 = load i32, ptr %49, align 8, !tbaa !9
   %238 = load i32, ptr %50, align 4, !tbaa !10
-  %.not.i.i.not.i45.i = icmp ult i32 %237, %238
-  br i1 %.not.i.i.not.i45.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit47.i, label %239, !prof !686
+  %.not.i.i.not.i44.i = icmp ult i32 %237, %238
+  br i1 %.not.i.i.not.i44.i, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit46.i, label %239, !prof !686
 
 239:                                              ; preds = %234
   %240 = zext i32 %237 to i64
   %241 = add nuw nsw i64 %240, 1
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull %48, i64 noundef %241, i64 noundef 8) #21
-  %.pre.i46.i = load i32, ptr %49, align 8, !tbaa !9
-  br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit47.i
+  %.pre.i45.i = load i32, ptr %49, align 8, !tbaa !9
+  br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit46.i
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit47.i: ; preds = %239, %234
-  %242 = phi i32 [ %237, %234 ], [ %.pre.i46.i, %239 ]
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit46.i: ; preds = %239, %234
+  %242 = phi i32 [ %237, %234 ], [ %.pre.i45.i, %239 ]
   %243 = load ptr, ptr %23, align 8, !tbaa !3
   %244 = zext i32 %242 to i64
   %245 = getelementptr inbounds nuw ptr, ptr %243, i64 %244
@@ -9549,8 +9549,8 @@ _ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit47.i: ; 
   store i32 %247, ptr %49, align 8, !tbaa !9
   br label %248
 
-248:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit47.i, %.lr.ph.i
-  %249 = getelementptr inbounds nuw i8, ptr %.03866.i, i64 8
+248:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPN5clang4ExprELb1EE9push_backES3_.exit46.i, %.lr.ph.i
+  %249 = getelementptr inbounds nuw i8, ptr %.03864.i, i64 8
   %.not39.i = icmp eq ptr %249, %189
   br i1 %.not39.i, label %_ZL20collectPlacementArgsRN5clang4SemaERNS_12FunctionDeclENS_14SourceLocationERN4llvm15SmallVectorImplIPNS_4ExprEEE.exit, label %.lr.ph.i
 
@@ -13148,8 +13148,8 @@ define internal fastcc void @"_ZZL12checkNoThrowRN5clang4SemaEPKNS_4StmtERN4llvm
   %16 = and i32 %15, 126
   %17 = add nsw i32 %16, -38
   %18 = icmp ult i32 %17, -6
-  %.not812 = icmp eq ptr %1, null
-  %.not8 = or i1 %.not812, %18
+  %.not811 = icmp eq ptr %1, null
+  %.not8 = or i1 %.not811, %18
   br i1 %.not8, label %22, label %19
 
 19:                                               ; preds = %13
@@ -13193,17 +13193,17 @@ define internal fastcc void @"_ZZL12checkNoThrowRN5clang4SemaEPKNS_4StmtERN4llvm
   %45 = zext i32 %44 to i64
   %.idx.i.i = shl nuw nsw i64 %45, 3
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %44, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %44, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %41, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %48, %.critedge.i.i ], [ %42, %41 ]
-  %47 = load ptr, ptr %.02937.i.i, align 8, !tbaa !891, !noalias !1173
+  %.02935.i.i = phi ptr [ %48, %.critedge.i.i ], [ %42, %41 ]
+  %47 = load ptr, ptr %.02935.i.i, align 8, !tbaa !891, !noalias !1173
   %.not17.i.i = icmp eq ptr %47, %1
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPKN5clang4DeclEE6insertES4_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %48 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %48, %46
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !1176
 

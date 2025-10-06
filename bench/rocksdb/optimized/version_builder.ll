@@ -9297,11 +9297,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit143: ; preds = %34
   br i1 %352, label %.body122, label %.body122.sink.split
 
 .body122.sink.split:                              ; preds = %349, %283
-  %.sink236 = phi ptr [ %285, %283 ], [ %351, %349 ]
+  %.sink235 = phi ptr [ %285, %283 ], [ %351, %349 ]
   %.pn55.ph = phi { ptr, i32 } [ %284, %283 ], [ %350, %349 ]
   %353 = load i64, ptr %269, align 8, !tbaa !16
   %354 = add i64 %353, 1
-  call void @_ZdlPvm(ptr noundef %.sink236, i64 noundef %354) #28
+  call void @_ZdlPvm(ptr noundef %.sink235, i64 noundef %354) #28
   br label %.body122
 
 .body122:                                         ; preds = %.body122.sink.split, %349, %283
@@ -9525,11 +9525,11 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit174: ; pred
   br i1 %447, label %.body165, label %.body165.sink.split
 
 .body165.sink.split:                              ; preds = %444, %415
-  %.sink239 = phi ptr [ %417, %415 ], [ %446, %444 ]
+  %.sink238 = phi ptr [ %417, %415 ], [ %446, %444 ]
   %.pn58.ph = phi { ptr, i32 } [ %416, %415 ], [ %445, %444 ]
   %448 = load i64, ptr %401, align 8, !tbaa !16
   %449 = add i64 %448, 1
-  call void @_ZdlPvm(ptr noundef %.sink239, i64 noundef %449) #28
+  call void @_ZdlPvm(ptr noundef %.sink238, i64 noundef %449) #28
   br label %.body165
 
 .body165:                                         ; preds = %.body165.sink.split, %444, %415
@@ -12147,9 +12147,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !314
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %14, label %.thread36
+  br i1 %.not.not, label %14, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load i64, ptr %1, align 8, !tbaa !252
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !199
@@ -12183,7 +12183,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
   %25 = urem i64 %16, %24
   br label %.critedge
 
-26:                                               ; preds = %.thread36
+26:                                               ; preds = %.thread34
   %27 = load ptr, ptr %13, align 8, !tbaa !210
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !252
@@ -12210,9 +12210,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableImmSaImENSt8__detail9_Identity
 ..loopexit_crit_edge21.i.i:                       ; preds = %34
   br label %.critedge, !llvm.loop !888
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread36
-  %38 = phi i64 [ %25, %22 ], [ %10, %.thread36 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
-  %39 = phi i64 [ %16, %22 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %22, %..loopexit_crit_edge21.i.i, %.thread34
+  %38 = phi i64 [ %25, %22 ], [ %10, %.thread34 ], [ %10, %..loopexit_crit_edge21.i.i ], [ %10, %.lr.ph.i.i ]
+  %39 = phi i64 [ %16, %22 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %40 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29
   store ptr null, ptr %40, align 8, !tbaa !210
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -15288,8 +15288,8 @@ define linkonce_odr void @_ZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToEPNS_1
 18:                                               ; preds = %19, %15
   %.sroa.020.0.in.i = phi ptr [ %17, %15 ], [ %.sroa.020.0.i, %19 ]
   %.sroa.020.0.i = load ptr, ptr %.sroa.020.0.in.i, align 8, !tbaa !210
-  %.not28.i = icmp eq ptr %.sroa.020.0.i, null
-  br i1 %.not28.i, label %24, label %19
+  %.not26.i = icmp eq ptr %.sroa.020.0.i, null
+  br i1 %.not26.i, label %24, label %19
 
 19:                                               ; preds = %18
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.i, i64 16
@@ -21846,8 +21846,8 @@ define linkonce_odr void @_ZZN7rocksdb14VersionBuilder3Rep17LoadTableHandlersEPN
   %14 = ptrtoint ptr %12 to i64
   %15 = sub i64 %13, %14
   %16 = ashr exact i64 %15, 4
-  %.not16 = icmp ult i64 %8, %16
-  br i1 %.not16, label %.lr.ph, label %._crit_edge
+  %.not15 = icmp ult i64 %8, %16
+  br i1 %.not15, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 16

@@ -91,7 +91,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   store i32 2, ptr %6, align 4, !tbaa !29
   %34 = load i16, ptr %7, align 2, !tbaa !30
   %35 = icmp eq i16 %34, 23117
-  br i1 %35, label %36, label %.thread186.i
+  br i1 %35, label %36, label %.thread185.i
 
 36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -101,13 +101,13 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %40 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %39) #11
   store i32 %40, ptr %6, align 4, !tbaa !29
   %.not133.i = icmp eq i32 %40, 0
-  br i1 %.not133.i, label %41, label %.thread182.i
+  br i1 %.not133.i, label %41, label %.thread181.i
 
 41:                                               ; preds = %36
   %42 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winne_header_fields, ptr noundef nonnull %8) #11
   store i32 %42, ptr %6, align 4, !tbaa !29
   %.not134.i = icmp eq i32 %42, 0
-  br i1 %.not134.i, label %43, label %.thread182.i
+  br i1 %.not134.i, label %43, label %.thread181.i
 
 43:                                               ; preds = %41
   store i32 2, ptr %6, align 4, !tbaa !29
@@ -127,7 +127,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %52 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %51) #11
   store i32 %52, ptr %6, align 4, !tbaa !29
   %.not157.i = icmp eq i32 %52, 0
-  br i1 %.not157.i, label %53, label %.thread174.thread.i
+  br i1 %.not157.i, label %53, label %.thread173.thread.i
 
 53:                                               ; preds = %45
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -139,7 +139,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %60 = call i32 @FT_Stream_EnterFrame(ptr noundef %26, i64 noundef %59) #11
   store i32 %60, ptr %6, align 4, !tbaa !29
   %.not158.i = icmp eq i32 %60, 0
-  br i1 %.not158.i, label %61, label %.thread174.thread.i
+  br i1 %.not158.i, label %61, label %.thread173.thread.i
 
 61:                                               ; preds = %53
   %62 = call zeroext i16 @FT_Stream_GetUShortLE(ptr noundef %26) #11
@@ -148,15 +148,15 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
 
 .preheader.i:                                     ; preds = %61
   %64 = call zeroext i16 @FT_Stream_GetUShortLE(ptr noundef %26) #11
-  %.not159216.i = icmp eq i16 %64, 0
-  br i1 %.not159216.i, label %.loopexit.i, label %.lr.ph217.i
+  %.not159215.i = icmp eq i16 %64, 0
+  br i1 %.not159215.i, label %.loopexit.i, label %.lr.ph216.i
 
-.lr.ph217.i:                                      ; preds = %.preheader.i
+.lr.ph216.i:                                      ; preds = %.preheader.i
   %65 = getelementptr inbounds nuw i8, ptr %26, i64 64
   br label %66
 
-66:                                               ; preds = %79, %.lr.ph217.i
-  %67 = phi i16 [ %64, %.lr.ph217.i ], [ %85, %79 ]
+66:                                               ; preds = %79, %.lr.ph216.i
+  %67 = phi i16 [ %64, %.lr.ph216.i ], [ %85, %79 ]
   %68 = call zeroext i16 @FT_Stream_GetUShortLE(ptr noundef %26) #11
   %69 = icmp eq i16 %67, -32760
   br i1 %69, label %70, label %79
@@ -191,7 +191,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %86 = icmp ne i16 %.1120.ph.i, 0
   %87 = icmp ne i64 %.1122.ph.i, 0
   %or.cond.i = select i1 %86, i1 %87, i1 false
-  br i1 %or.cond.i, label %88, label %.thread174.thread.sink.split.i
+  br i1 %or.cond.i, label %88, label %.thread173.thread.sink.split.i
 
 88:                                               ; preds = %.loopexit.i
   %89 = zext i16 %.1120.ph.i to i64
@@ -199,22 +199,22 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %91 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %92 = load i64, ptr %91, align 8, !tbaa !40
   %93 = icmp ugt i64 %90, %92
-  br i1 %93, label %.thread174.thread.sink.split.i, label %94
+  br i1 %93, label %.thread173.thread.sink.split.i, label %94
 
 94:                                               ; preds = %88
   store i64 %89, ptr %1, align 8, !tbaa !41
-  br i1 %22, label %.thread174.thread.i, label %95
+  br i1 %22, label %.thread173.thread.i, label %95
 
 95:                                               ; preds = %94
   %.not160.i = icmp samesign ult i64 %28, %89
-  br i1 %.not160.i, label %96, label %.thread174.thread.sink.split.i
+  br i1 %.not160.i, label %96, label %.thread173.thread.sink.split.i
 
 96:                                               ; preds = %95
   %97 = call ptr @ft_mem_alloc(ptr noundef %21, i64 noundef 240, ptr noundef nonnull %6) #11
   store ptr %97, ptr %27, align 8, !tbaa !26
   %98 = load i32, ptr %6, align 4, !tbaa !29
   %.not161.i = icmp eq i32 %98, 0
-  br i1 %.not161.i, label %99, label %.thread174.thread.i
+  br i1 %.not161.i, label %99, label %.thread173.thread.i
 
 99:                                               ; preds = %96
   %100 = mul nuw nsw i64 %28, 12
@@ -222,13 +222,13 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %102 = call i32 @FT_Stream_Seek(ptr noundef nonnull %26, i64 noundef %101) #11
   store i32 %102, ptr %6, align 4, !tbaa !29
   %.not162.i = icmp eq i32 %102, 0
-  br i1 %.not162.i, label %103, label %.thread186.sink.split.i
+  br i1 %.not162.i, label %103, label %.thread185.sink.split.i
 
 103:                                              ; preds = %99
   %104 = call i32 @FT_Stream_EnterFrame(ptr noundef nonnull %26, i64 noundef 12) #11
   store i32 %104, ptr %6, align 4, !tbaa !29
   %.not163.i = icmp eq i32 %104, 0
-  br i1 %.not163.i, label %105, label %.thread186.sink.split.i
+  br i1 %.not163.i, label %105, label %.thread185.sink.split.i
 
 105:                                              ; preds = %103
   %106 = call zeroext i16 @FT_Stream_GetUShortLE(ptr noundef nonnull %26) #11
@@ -269,13 +269,13 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %125 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %124) #11
   store i32 %125, ptr %6, align 4, !tbaa !29
   %.not135.i = icmp eq i32 %125, 0
-  br i1 %.not135.i, label %126, label %.thread174.thread195.i
+  br i1 %.not135.i, label %126, label %.thread173.thread194.i
 
 126:                                              ; preds = %122
   %127 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winpe32_header_fields, ptr noundef nonnull %9) #11
   store i32 %127, ptr %6, align 4, !tbaa !29
   %.not136.i = icmp eq i32 %127, 0
-  br i1 %.not136.i, label %128, label %.thread174.thread195.i
+  br i1 %.not136.i, label %128, label %.thread173.thread194.i
 
 128:                                              ; preds = %126
   %129 = load i64, ptr %9, align 8, !tbaa !46
@@ -292,14 +292,14 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %138 = load i16, ptr %137, align 2
   %139 = icmp ne i16 %138, 267
   %or.cond14.i = select i1 %or.cond10.i, i1 true, i1 %139
-  br i1 %or.cond14.i, label %.thread174.thread195.sink.split.i, label %140
+  br i1 %or.cond14.i, label %.thread173.thread194.sink.split.i, label %140
 
 140:                                              ; preds = %128
   store i64 0, ptr %1, align 8, !tbaa !41
   %141 = getelementptr inbounds nuw i8, ptr %9, i64 10
   %142 = load i16, ptr %141, align 2, !tbaa !48
-  %.not218.i = icmp eq i16 %142, 0
-  br i1 %.not218.i, label %.thread174.thread195.sink.split.i, label %.lr.ph.i
+  %.not217.i = icmp eq i16 %142, 0
+  br i1 %.not217.i, label %.thread173.thread194.sink.split.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %140
   %143 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -307,17 +307,17 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   br label %149
 
 145:                                              ; preds = %151
-  %146 = add nuw i16 %.0117205.i, 1
+  %146 = add nuw i16 %.0117204.i, 1
   %147 = load i16, ptr %141, align 2, !tbaa !48
   %148 = icmp ult i16 %146, %147
-  br i1 %148, label %149, label %.thread174.thread195.sink.split.i, !llvm.loop !49
+  br i1 %148, label %149, label %.thread173.thread194.sink.split.i, !llvm.loop !49
 
 149:                                              ; preds = %145, %.lr.ph.i
-  %.0117205.i = phi i16 [ 0, %.lr.ph.i ], [ %146, %145 ]
+  %.0117204.i = phi i16 [ 0, %.lr.ph.i ], [ %146, %145 ]
   %150 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winpe32_section_fields, ptr noundef nonnull %10) #11
   store i32 %150, ptr %6, align 4, !tbaa !29
   %.not137.i = icmp eq i32 %150, 0
-  br i1 %.not137.i, label %151, label %.thread174.thread195.i
+  br i1 %.not137.i, label %151, label %.thread173.thread194.i
 
 151:                                              ; preds = %149
   %152 = load i64, ptr %143, align 8, !tbaa !51
@@ -331,13 +331,13 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %158 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %157) #11
   store i32 %158, ptr %6, align 4, !tbaa !29
   %.not138.i = icmp eq i32 %158, 0
-  br i1 %.not138.i, label %159, label %.thread174.thread195.i
+  br i1 %.not138.i, label %159, label %.thread173.thread194.i
 
 159:                                              ; preds = %155
   %160 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winpe_rsrc_dir_fields, ptr noundef nonnull %11) #11
   store i32 %160, ptr %6, align 4, !tbaa !29
   %.not139.i = icmp eq i32 %160, 0
-  br i1 %.not139.i, label %161, label %.thread174.thread195.i
+  br i1 %.not139.i, label %161, label %.thread173.thread194.i
 
 161:                                              ; preds = %159
   %162 = load i64, ptr %156, align 8, !tbaa !54
@@ -346,10 +346,10 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %165 = load i16, ptr %163, align 4, !tbaa !55
   %166 = load i16, ptr %164, align 2, !tbaa !57
   %167 = or i16 %166, %165
-  %.not219.i = icmp eq i16 %167, 0
-  br i1 %.not219.i, label %._crit_edge215.i, label %.lr.ph214.i
+  %.not218.i = icmp eq i16 %167, 0
+  br i1 %.not218.i, label %._crit_edge214.i, label %.lr.ph213.i
 
-.lr.ph214.i:                                      ; preds = %161
+.lr.ph213.i:                                      ; preds = %161
   %168 = add i64 %162, 16
   %169 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %170 = getelementptr inbounds nuw i8, ptr %12, i64 20
@@ -361,28 +361,28 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %176 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %177
 
-177:                                              ; preds = %._crit_edge211.i, %.lr.ph214.i
-  %178 = phi i32 [ 0, %.lr.ph214.i ], [ %277, %._crit_edge211.i ]
-  %.1212.i = phi i16 [ 0, %.lr.ph214.i ], [ %276, %._crit_edge211.i ]
+177:                                              ; preds = %._crit_edge210.i, %.lr.ph213.i
+  %178 = phi i32 [ 0, %.lr.ph213.i ], [ %277, %._crit_edge210.i ]
+  %.1211.i = phi i16 [ 0, %.lr.ph213.i ], [ %276, %._crit_edge210.i ]
   %179 = shl nuw nsw i32 %178, 3
   %180 = zext nneg i32 %179 to i64
   %181 = add i64 %168, %180
   %182 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %181) #11
   store i32 %182, ptr %6, align 4, !tbaa !29
   %.not140.i = icmp eq i32 %182, 0
-  br i1 %.not140.i, label %183, label %.thread174.thread195.i
+  br i1 %.not140.i, label %183, label %.thread173.thread194.i
 
 183:                                              ; preds = %177
   %184 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winpe_rsrc_dir_entry_fields, ptr noundef nonnull %14) #11
   store i32 %184, ptr %6, align 4, !tbaa !29
   %.not141.i = icmp eq i32 %184, 0
-  br i1 %.not141.i, label %185, label %.thread174.thread195.i
+  br i1 %.not141.i, label %185, label %.thread173.thread194.i
 
 185:                                              ; preds = %183
   %186 = load i64, ptr %169, align 8, !tbaa !58
   %187 = and i64 %186, 2147483648
   %.not142.i = icmp eq i64 %187, 0
-  br i1 %.not142.i, label %.thread174.thread195.sink.split.i, label %188
+  br i1 %.not142.i, label %.thread173.thread194.sink.split.i, label %188
 
 188:                                              ; preds = %185
   %189 = and i64 %186, -2147483649
@@ -392,47 +392,47 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %192 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %191) #11
   store i32 %192, ptr %6, align 4, !tbaa !29
   %.not143.i = icmp eq i32 %192, 0
-  br i1 %.not143.i, label %193, label %.thread174.thread195.i
+  br i1 %.not143.i, label %193, label %.thread173.thread194.i
 
 193:                                              ; preds = %188
   %194 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winpe_rsrc_dir_fields, ptr noundef nonnull %12) #11
   store i32 %194, ptr %6, align 4, !tbaa !29
   %.not144.i = icmp eq i32 %194, 0
-  br i1 %.not144.i, label %.preheader200.i, label %.thread174.thread195.i
+  br i1 %.not144.i, label %.preheader199.i, label %.thread173.thread194.i
 
-.preheader200.i:                                  ; preds = %193
+.preheader199.i:                                  ; preds = %193
   %195 = load i16, ptr %170, align 4, !tbaa !55
   %196 = load i16, ptr %171, align 2, !tbaa !57
   %197 = or i16 %196, %195
-  %.not220.i = icmp eq i16 %197, 0
-  br i1 %.not220.i, label %._crit_edge211.i, label %.lr.ph210.i
+  %.not219.i = icmp eq i16 %197, 0
+  br i1 %.not219.i, label %._crit_edge210.i, label %.lr.ph209.i
 
-.lr.ph210.i:                                      ; preds = %.preheader200.i
+.lr.ph209.i:                                      ; preds = %.preheader199.i
   %198 = add i64 %191, 16
   br label %199
 
-199:                                              ; preds = %._crit_edge208.i, %.lr.ph210.i
-  %200 = phi i32 [ 0, %.lr.ph210.i ], [ %269, %._crit_edge208.i ]
-  %.0116209.i = phi i16 [ 0, %.lr.ph210.i ], [ %268, %._crit_edge208.i ]
+199:                                              ; preds = %._crit_edge207.i, %.lr.ph209.i
+  %200 = phi i32 [ 0, %.lr.ph209.i ], [ %269, %._crit_edge207.i ]
+  %.0116208.i = phi i16 [ 0, %.lr.ph209.i ], [ %268, %._crit_edge207.i ]
   %201 = shl nuw nsw i32 %200, 3
   %202 = zext nneg i32 %201 to i64
   %203 = add i64 %198, %202
   %204 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %203) #11
   store i32 %204, ptr %6, align 4, !tbaa !29
   %.not145.i = icmp eq i32 %204, 0
-  br i1 %.not145.i, label %205, label %.thread174.thread195.i
+  br i1 %.not145.i, label %205, label %.thread173.thread194.i
 
 205:                                              ; preds = %199
   %206 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winpe_rsrc_dir_entry_fields, ptr noundef nonnull %15) #11
   store i32 %206, ptr %6, align 4, !tbaa !29
   %.not146.i = icmp eq i32 %206, 0
-  br i1 %.not146.i, label %207, label %.thread174.thread195.i
+  br i1 %.not146.i, label %207, label %.thread173.thread194.i
 
 207:                                              ; preds = %205
   %208 = load i64, ptr %172, align 8, !tbaa !58
   %209 = and i64 %208, 2147483648
   %.not147.i = icmp eq i64 %209, 0
-  br i1 %.not147.i, label %.thread174.thread195.sink.split.i, label %210
+  br i1 %.not147.i, label %.thread173.thread194.sink.split.i, label %210
 
 210:                                              ; preds = %207
   %211 = and i64 %208, -2147483649
@@ -442,47 +442,47 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %214 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %213) #11
   store i32 %214, ptr %6, align 4, !tbaa !29
   %.not148.i = icmp eq i32 %214, 0
-  br i1 %.not148.i, label %215, label %.thread174.thread195.i
+  br i1 %.not148.i, label %215, label %.thread173.thread194.i
 
 215:                                              ; preds = %210
   %216 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winpe_rsrc_dir_fields, ptr noundef nonnull %13) #11
   store i32 %216, ptr %6, align 4, !tbaa !29
   %.not149.i = icmp eq i32 %216, 0
-  br i1 %.not149.i, label %.preheader199.i, label %.thread174.thread195.i
+  br i1 %.not149.i, label %.preheader198.i, label %.thread173.thread194.i
 
-.preheader199.i:                                  ; preds = %215
+.preheader198.i:                                  ; preds = %215
   %217 = load i16, ptr %173, align 4, !tbaa !55
   %218 = load i16, ptr %174, align 2, !tbaa !57
   %219 = or i16 %218, %217
-  %.not221.i = icmp eq i16 %219, 0
-  br i1 %.not221.i, label %._crit_edge208.i, label %.lr.ph207.i
+  %.not220.i = icmp eq i16 %219, 0
+  br i1 %.not220.i, label %._crit_edge207.i, label %.lr.ph206.i
 
-.lr.ph207.i:                                      ; preds = %.preheader199.i
+.lr.ph206.i:                                      ; preds = %.preheader198.i
   %220 = add i64 %213, 16
   br label %221
 
-221:                                              ; preds = %259, %.lr.ph207.i
-  %222 = phi i32 [ 0, %.lr.ph207.i ], [ %261, %259 ]
-  %.0206.i = phi i16 [ 0, %.lr.ph207.i ], [ %260, %259 ]
+221:                                              ; preds = %259, %.lr.ph206.i
+  %222 = phi i32 [ 0, %.lr.ph206.i ], [ %261, %259 ]
+  %.0205.i = phi i16 [ 0, %.lr.ph206.i ], [ %260, %259 ]
   %223 = shl nuw nsw i32 %222, 3
   %224 = zext nneg i32 %223 to i64
   %225 = add i64 %220, %224
   %226 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %225) #11
   store i32 %226, ptr %6, align 4, !tbaa !29
   %.not150.i = icmp eq i32 %226, 0
-  br i1 %.not150.i, label %227, label %.thread174.thread195.i
+  br i1 %.not150.i, label %227, label %.thread173.thread194.i
 
 227:                                              ; preds = %221
   %228 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winpe_rsrc_dir_entry_fields, ptr noundef nonnull %16) #11
   store i32 %228, ptr %6, align 4, !tbaa !29
   %.not151.i = icmp eq i32 %228, 0
-  br i1 %.not151.i, label %229, label %.thread174.thread195.i
+  br i1 %.not151.i, label %229, label %.thread173.thread194.i
 
 229:                                              ; preds = %227
   %230 = load i64, ptr %172, align 8, !tbaa !58
   %231 = and i64 %230, 2147483648
   %.not152.i = icmp eq i64 %231, 0
-  br i1 %.not152.i, label %232, label %.thread174.thread195.sink.split.i
+  br i1 %.not152.i, label %232, label %.thread173.thread194.sink.split.i
 
 232:                                              ; preds = %229
   %233 = load i64, ptr %14, align 8, !tbaa !60
@@ -495,13 +495,13 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %238 = call i32 @FT_Stream_Seek(ptr noundef %26, i64 noundef %237) #11
   store i32 %238, ptr %6, align 4, !tbaa !29
   %.not153.i = icmp eq i32 %238, 0
-  br i1 %.not153.i, label %239, label %.thread174.thread195.i
+  br i1 %.not153.i, label %239, label %.thread173.thread194.i
 
 239:                                              ; preds = %235
   %240 = call i32 @FT_Stream_ReadFields(ptr noundef %26, ptr noundef nonnull @winpe_rsrc_data_entry_fields, ptr noundef nonnull %17) #11
   store i32 %240, ptr %6, align 4, !tbaa !29
   %.not154.i = icmp eq i32 %240, 0
-  br i1 %.not154.i, label %241, label %.thread174.thread195.i
+  br i1 %.not154.i, label %241, label %.thread173.thread194.i
 
 241:                                              ; preds = %239
   %242 = load i64, ptr %1, align 8, !tbaa !41
@@ -513,7 +513,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   store ptr %245, ptr %27, align 8, !tbaa !26
   %246 = load i32, ptr %6, align 4, !tbaa !29
   %.not155.i = icmp eq i32 %246, 0
-  br i1 %.not155.i, label %247, label %.thread174.thread195.i
+  br i1 %.not155.i, label %247, label %.thread173.thread194.i
 
 247:                                              ; preds = %244
   %248 = load i64, ptr %156, align 8, !tbaa !54
@@ -528,20 +528,20 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %255 = call fastcc i32 @fnt_font_load(ptr noundef nonnull %245, ptr noundef %26)
   store i32 %255, ptr %6, align 4, !tbaa !29
   %.not156.i = icmp eq i32 %255, 0
-  br i1 %.not156.i, label %._crit_edge226.i, label %.thread174.i
+  br i1 %.not156.i, label %._crit_edge225.i, label %.thread173.i
 
-._crit_edge226.i:                                 ; preds = %247
+._crit_edge225.i:                                 ; preds = %247
   %.pre.i = load i64, ptr %1, align 8, !tbaa !41
   br label %256
 
-256:                                              ; preds = %._crit_edge226.i, %241
-  %257 = phi i64 [ %.pre.i, %._crit_edge226.i ], [ %242, %241 ]
+256:                                              ; preds = %._crit_edge225.i, %241
+  %257 = phi i64 [ %.pre.i, %._crit_edge225.i ], [ %242, %241 ]
   %258 = add nsw i64 %257, 1
   store i64 %258, ptr %1, align 8, !tbaa !41
   br label %259
 
 259:                                              ; preds = %256, %232
-  %260 = add i16 %.0206.i, 1
+  %260 = add i16 %.0205.i, 1
   %261 = zext i16 %260 to i32
   %262 = load i16, ptr %173, align 4, !tbaa !55
   %263 = zext i16 %262 to i32
@@ -549,10 +549,10 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %265 = zext i16 %264 to i32
   %266 = add nuw nsw i32 %265, %263
   %267 = icmp samesign ugt i32 %266, %261
-  br i1 %267, label %221, label %._crit_edge208.i, !llvm.loop !64
+  br i1 %267, label %221, label %._crit_edge207.i, !llvm.loop !64
 
-._crit_edge208.i:                                 ; preds = %259, %.preheader199.i
-  %268 = add i16 %.0116209.i, 1
+._crit_edge207.i:                                 ; preds = %259, %.preheader198.i
+  %268 = add i16 %.0116208.i, 1
   %269 = zext i16 %268 to i32
   %270 = load i16, ptr %170, align 4, !tbaa !55
   %271 = zext i16 %270 to i32
@@ -560,10 +560,10 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %273 = zext i16 %272 to i32
   %274 = add nuw nsw i32 %273, %271
   %275 = icmp samesign ugt i32 %274, %269
-  br i1 %275, label %199, label %._crit_edge211.i, !llvm.loop !65
+  br i1 %275, label %199, label %._crit_edge210.i, !llvm.loop !65
 
-._crit_edge211.i:                                 ; preds = %._crit_edge208.i, %.preheader200.i
-  %276 = add i16 %.1212.i, 1
+._crit_edge210.i:                                 ; preds = %._crit_edge207.i, %.preheader199.i
+  %276 = add i16 %.1211.i, 1
   %277 = zext i16 %276 to i32
   %278 = load i16, ptr %163, align 4, !tbaa !55
   %279 = zext i16 %278 to i32
@@ -571,9 +571,9 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   %281 = zext i16 %280 to i32
   %282 = add nuw nsw i32 %281, %279
   %283 = icmp samesign ugt i32 %282, %277
-  br i1 %283, label %177, label %._crit_edge215.i, !llvm.loop !66
+  br i1 %283, label %177, label %._crit_edge214.i, !llvm.loop !66
 
-._crit_edge215.i:                                 ; preds = %._crit_edge211.i, %161
+._crit_edge214.i:                                 ; preds = %._crit_edge210.i, %161
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -585,39 +585,39 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %284
 
-284:                                              ; preds = %._crit_edge215.i, %105, %43
-  %.pr228.i = phi i1 [ true, %._crit_edge215.i ], [ %121, %105 ], [ false, %43 ]
+284:                                              ; preds = %._crit_edge214.i, %105, %43
+  %.pr227.i = phi i1 [ true, %._crit_edge214.i ], [ %121, %105 ], [ false, %43 ]
   %285 = load i64, ptr %1, align 8, !tbaa !41
   %.not164.i = icmp eq i64 %285, 0
-  br i1 %.not164.i, label %.thread182.sink.split.i, label %286
+  br i1 %.not164.i, label %.thread181.sink.split.i, label %286
 
 286:                                              ; preds = %284
   %.not165.i = icmp sgt i64 %285, %28
-  br i1 %.not165.i, label %287, label %.thread182.sink.split.i
+  br i1 %.not165.i, label %287, label %.thread181.sink.split.i
 
-.thread182.sink.split.i:                          ; preds = %286, %284
+.thread181.sink.split.i:                          ; preds = %286, %284
   %.sink.i = phi i32 [ 3, %284 ], [ 6, %286 ]
   store i32 %.sink.i, ptr %6, align 4, !tbaa !29
-  br label %.thread182.i
+  br label %.thread181.i
 
-.thread182.i:                                     ; preds = %.thread182.sink.split.i, %41, %36
+.thread181.i:                                     ; preds = %.thread181.sink.split.i, %41, %36
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %fnt_face_get_dll_font.exit
 
-.thread174.thread.sink.split.i:                   ; preds = %95, %88, %.loopexit.i
-  %.sink253.i = phi i32 [ 3, %.loopexit.i ], [ 3, %88 ], [ 6, %95 ]
-  store i32 %.sink253.i, ptr %6, align 4, !tbaa !29
-  br label %.thread174.thread.i
+.thread173.thread.sink.split.i:                   ; preds = %95, %88, %.loopexit.i
+  %.sink252.i = phi i32 [ 3, %.loopexit.i ], [ 3, %88 ], [ 6, %95 ]
+  store i32 %.sink252.i, ptr %6, align 4, !tbaa !29
+  br label %.thread173.thread.i
 
-.thread174.thread.i:                              ; preds = %.thread174.thread.sink.split.i, %96, %94, %53, %45
+.thread173.thread.i:                              ; preds = %.thread173.thread.sink.split.i, %96, %94, %53, %45
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %fnt_face_get_dll_font.exit
 
-.thread174.thread195.sink.split.i:                ; preds = %145, %185, %207, %229, %140, %128
+.thread173.thread194.sink.split.i:                ; preds = %145, %185, %207, %229, %140, %128
   store i32 3, ptr %6, align 4, !tbaa !29
-  br label %.thread174.thread195.i
+  br label %.thread173.thread194.i
 
-.thread174.thread195.i:                           ; preds = %149, %193, %188, %183, %177, %215, %210, %205, %199, %244, %239, %235, %227, %221, %.thread174.thread195.sink.split.i, %159, %155, %126, %122
+.thread173.thread194.i:                           ; preds = %149, %193, %188, %183, %177, %215, %210, %205, %199, %244, %239, %235, %227, %221, %.thread173.thread194.sink.split.i, %159, %155, %126, %122
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -630,7 +630,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %fnt_face_get_dll_font.exit
 
-.thread174.i:                                     ; preds = %247
+.thread173.i:                                     ; preds = %247
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -640,24 +640,24 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %.thread186.sink.split.i
+  br label %.thread185.sink.split.i
 
 287:                                              ; preds = %286
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.pr228.i, label %fnt_face_get_dll_font.exit, label %.thread186.i
+  br i1 %.pr227.i, label %fnt_face_get_dll_font.exit, label %.thread185.i
 
-.thread186.sink.split.i:                          ; preds = %.thread174.i, %103, %99
+.thread185.sink.split.i:                          ; preds = %.thread173.i, %103, %99
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread186.i
+  br label %.thread185.i
 
-.thread186.i:                                     ; preds = %.thread186.sink.split.i, %287, %33
+.thread185.i:                                     ; preds = %.thread185.sink.split.i, %287, %33
   %288 = load ptr, ptr %20, align 8, !tbaa !3
   %289 = load ptr, ptr %25, align 8, !tbaa !25
   %290 = load ptr, ptr %27, align 8, !tbaa !26
   %.not.i.i = icmp eq ptr %290, null
   br i1 %.not.i.i, label %fnt_face_get_dll_font.exit, label %291
 
-291:                                              ; preds = %.thread186.i
+291:                                              ; preds = %.thread185.i
   %292 = getelementptr inbounds nuw i8, ptr %290, i64 216
   %293 = load ptr, ptr %292, align 8, !tbaa !67
   %.not13.i.i = icmp eq ptr %293, null
@@ -682,7 +682,7 @@ define internal i32 @FNT_Face_Init(ptr noundef %0, ptr noundef initializes((248,
   call void @FT_Stream_ExitFrame(ptr noundef %26) #11
   br label %fnt_face_get_dll_font.exit
 
-fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, %.thread174.thread.i, %.thread174.thread195.i, %287, %.thread186.i, %295, %298
+fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread181.i, %.thread173.thread.i, %.thread173.thread194.i, %287, %.thread185.i, %295, %298
   %299 = load i32, ptr %6, align 4, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -718,10 +718,10 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
 
 312:                                              ; preds = %307
   %.not113 = icmp eq i32 %24, 0
-  br i1 %.not113, label %.thread.thread, label %.thread143.sink.split
+  br i1 %.not113, label %.thread.thread, label %.thread141.sink.split
 
 313:                                              ; preds = %307
-  br i1 %.not112, label %.thread143, label %FNT_Face_Done.exit
+  br i1 %.not112, label %.thread141, label %FNT_Face_Done.exit
 
 .thread:                                          ; preds = %301
   %.not114 = icmp eq i32 %299, 0
@@ -732,7 +732,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 108
   %316 = load i16, ptr %315, align 4, !tbaa !70
   %.not115 = icmp eq i16 %316, 0
-  br i1 %.not115, label %.thread143.sink.split, label %317
+  br i1 %.not115, label %.thread141.sink.split, label %317
 
 317:                                              ; preds = %.thread.thread
   %318 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -785,7 +785,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   store ptr %345, ptr %346, align 8, !tbaa !78
   %347 = load i32, ptr %18, align 4, !tbaa !29
   %.not117 = icmp eq i32 %347, 0
-  br i1 %.not117, label %348, label %.thread143
+  br i1 %.not117, label %348, label %.thread141
 
 348:                                              ; preds = %344
   %349 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -862,7 +862,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   store i32 %390, ptr %18, align 4, !tbaa !29
   %.not120 = icmp eq i32 %390, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %.not120, label %391, label %.thread143
+  br i1 %.not120, label %391, label %.thread141
 
 391:                                              ; preds = %389
   %392 = getelementptr inbounds nuw i8, ptr %314, i64 117
@@ -870,7 +870,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   %394 = getelementptr inbounds nuw i8, ptr %314, i64 116
   %395 = load i8, ptr %394, align 4, !tbaa !97
   %396 = icmp ult i8 %393, %395
-  br i1 %396, label %.thread143.sink.split, label %397
+  br i1 %396, label %.thread141.sink.split, label %397
 
 397:                                              ; preds = %391
   %narrow = sub nuw i8 %393, %395
@@ -883,7 +883,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   %403 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %404 = load i64, ptr %403, align 8, !tbaa !100
   %.not121 = icmp ult i64 %402, %404
-  br i1 %.not121, label %405, label %.thread143.sink.split
+  br i1 %.not121, label %405, label %.thread141.sink.split
 
 405:                                              ; preds = %397
   %406 = sub nuw i64 %404, %402
@@ -893,7 +893,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   store ptr %408, ptr %409, align 8, !tbaa !68
   %410 = load i32, ptr %18, align 4, !tbaa !29
   %.not122 = icmp eq i32 %410, 0
-  br i1 %.not122, label %411, label %.thread143
+  br i1 %.not122, label %411, label %.thread141
 
 411:                                              ; preds = %405
   %412 = getelementptr inbounds nuw i8, ptr %314, i64 216
@@ -911,7 +911,7 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   store ptr %421, ptr %409, align 8, !tbaa !68
   %422 = load i32, ptr %18, align 4, !tbaa !29
   %.not123 = icmp eq i32 %422, 0
-  br i1 %.not123, label %423, label %.thread143
+  br i1 %.not123, label %423, label %.thread141
 
 423:                                              ; preds = %411
   %424 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -946,21 +946,21 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
 
 435:                                              ; preds = %.thread
   %.not.i128 = icmp eq ptr %1, null
-  br i1 %.not.i128, label %FNT_Face_Done.exit, label %.thread143
+  br i1 %.not.i128, label %FNT_Face_Done.exit, label %.thread141
 
-.thread143.sink.split:                            ; preds = %397, %391, %.thread.thread, %312
+.thread141.sink.split:                            ; preds = %397, %391, %.thread.thread, %312
   %.sink = phi i32 [ 6, %312 ], [ 3, %.thread.thread ], [ 3, %391 ], [ 3, %397 ]
   store i32 %.sink, ptr %18, align 4, !tbaa !29
-  br label %.thread143
+  br label %.thread141
 
-.thread143:                                       ; preds = %.thread143.sink.split, %313, %389, %411, %405, %344, %435
+.thread141:                                       ; preds = %.thread141.sink.split, %313, %389, %411, %405, %344, %435
   %436 = load ptr, ptr %20, align 8, !tbaa !3
   %437 = load ptr, ptr %25, align 8, !tbaa !25
   %438 = load ptr, ptr %27, align 8, !tbaa !26
   %.not.i.i129 = icmp eq ptr %438, null
   br i1 %.not.i.i129, label %fnt_font_done.exit.i, label %439
 
-439:                                              ; preds = %.thread143
+439:                                              ; preds = %.thread141
   %440 = getelementptr inbounds nuw i8, ptr %438, i64 216
   %441 = load ptr, ptr %440, align 8, !tbaa !67
   %.not13.i.i130 = icmp eq ptr %441, null
@@ -979,18 +979,18 @@ fnt_face_get_dll_font.exit:                       ; preds = %32, %.thread182.i, 
   store ptr null, ptr %27, align 8, !tbaa !26
   br label %fnt_font_done.exit.i
 
-fnt_font_done.exit.i:                             ; preds = %443, %.thread143
+fnt_font_done.exit.i:                             ; preds = %443, %.thread141
   %446 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %447 = load ptr, ptr %446, align 8, !tbaa !78
   call void @ft_mem_free(ptr noundef %436, ptr noundef %447) #11
   store ptr null, ptr %446, align 8, !tbaa !78
   %448 = getelementptr inbounds nuw i8, ptr %1, i64 56
   store i32 0, ptr %448, align 8, !tbaa !79
-  %.pre164 = load i32, ptr %18, align 4, !tbaa !29
+  %.pre162 = load i32, ptr %18, align 4, !tbaa !29
   br label %FNT_Face_Done.exit
 
 FNT_Face_Done.exit:                               ; preds = %432, %431, %434, %433, %304, %fnt_font_done.exit.i, %435, %313, %fnt_face_get_dll_font.exit
-  %449 = phi i32 [ 0, %432 ], [ 0, %431 ], [ 0, %434 ], [ 0, %433 ], [ %306, %304 ], [ %.pre164, %fnt_font_done.exit.i ], [ %299, %435 ], [ 0, %313 ], [ 0, %fnt_face_get_dll_font.exit ]
+  %449 = phi i32 [ 0, %432 ], [ 0, %431 ], [ 0, %434 ], [ 0, %433 ], [ %306, %304 ], [ %.pre162, %fnt_font_done.exit.i ], [ %299, %435 ], [ 0, %313 ], [ 0, %fnt_face_get_dll_font.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   ret i32 %449
 }

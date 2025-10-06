@@ -443,8 +443,8 @@ _ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit: ; preds = %_ZNK12QHashPrivate
   %133 = load ptr, ptr %132, align 8
   %134 = zext i8 %.pre.i to i64
   %135 = getelementptr %"struct.QHashPrivate::Span<QHashPrivate::Node<int, ft_framenum_type>>::Entry", ptr %133, i64 %134
-  %.not333 = icmp eq ptr %135, null
-  br i1 %.not333, label %_ZNK5QHashIi16ft_framenum_typeEixERKi.exit, label %.lr.ph.i.i.i.i
+  %.not332 = icmp eq ptr %135, null
+  br i1 %.not332, label %_ZNK5QHashIi16ft_framenum_typeEixERKi.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit, %145
   %136 = phi i8 [ %152, %145 ], [ %112, %_ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit ]
@@ -475,8 +475,8 @@ _ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i.i: ; p
   %.pre7.i.i.i = and i64 %.01827.i.i.i.i, 127
   %.pre.i.i.i = lshr i64 %.01827.i.i.i.i, 7
   %.phi.trans.insert.i.i = getelementptr %"struct.QHashPrivate::Span", ptr %107, i64 %.pre.i.i.i
-  %.phi.trans.insert20.i.i = getelementptr i8, ptr %.phi.trans.insert.i.i, i64 %.pre7.i.i.i
-  %.pre.i.i201 = load i8, ptr %.phi.trans.insert20.i.i, align 1
+  %.phi.trans.insert19.i.i = getelementptr i8, ptr %.phi.trans.insert.i.i, i64 %.pre7.i.i.i
+  %.pre.i.i201 = load i8, ptr %.phi.trans.insert19.i.i, align 1
   %.not.i.i.i.i = icmp eq i8 %.pre.i.i201, -1
   br i1 %.not.i.i.i.i, label %_ZNK5QHashIi16ft_framenum_typeEixERKi.exit, label %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i
 
@@ -497,9 +497,9 @@ _ZNK5QHashIi16ft_framenum_typeEixERKi.exit:       ; preds = %123, %145, %_ZNK5QH
   %159 = phi i32 [ 7, %_ZNK5QHashIi16ft_framenum_typeE8containsERKi.exit ], [ 0, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i.i ], [ 0, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i ], [ %.1.i.pre.i.else.val, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE8findNodeERKi.exit.i.i.else ], [ 7, %82 ], [ 7, %86 ], [ 7, %_ZNK12QHashPrivate4DataINS_4NodeIi16ft_framenum_typeEEE4findERKi.exit.i.i ], [ 7, %89 ], [ 0, %145 ], [ 7, %123 ]
   %160 = icmp eq i32 %.0157, 0
   %161 = icmp eq i32 %.0158, 0
-  %or.cond.not336 = select i1 %160, i1 true, i1 %161
+  %or.cond.not335 = select i1 %160, i1 true, i1 %161
   %.not172 = icmp eq i32 %.0157, %.0158
-  %or.cond196 = select i1 %or.cond.not336, i1 true, i1 %.not172
+  %or.cond196 = select i1 %or.cond.not335, i1 true, i1 %.not172
   br i1 %or.cond196, label %178, label %162
 
 162:                                              ; preds = %_ZNK5QHashIi16ft_framenum_typeEixERKi.exit
@@ -567,7 +567,7 @@ _ZNK5QHashIi16ft_framenum_typeEixERKi.exit:       ; preds = %123, %145, %_ZNK5QH
           to label %192 unwind label %213
 
 192:                                              ; preds = %183
-  %.not337 = icmp eq i64 %191, -1
+  %.not336 = icmp eq i64 %191, -1
   %193 = load ptr, ptr %29, align 8
   %.not.i.i.i202 = icmp eq ptr %193, null
   br i1 %.not.i.i.i202, label %_ZN7QStringD2Ev.exit, label %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i
@@ -600,7 +600,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i205:   ; preds = %_ZN7QStringD2Ev.exi
 
 _ZN7QStringD2Ev.exit207:                          ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i205, %199
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  br i1 %.not337, label %.critedge, label %201
+  br i1 %.not336, label %.critedge, label %201
 
 201:                                              ; preds = %_ZN7QStringD2Ev.exit207
   %202 = getelementptr inbounds nuw i8, ptr %27, i64 40
@@ -1168,12 +1168,12 @@ _ZN8QPainter8drawLineEiiii.exit237:               ; preds = %357
   %.sroa.0315.0.insert.ext = zext i32 %399 to i64
   %.sroa.0315.0.insert.insert = or disjoint i64 %.sroa.5318.0.insert.shift, %.sroa.0315.0.insert.ext
   %400 = sdiv i32 %285, 4
-  %.not339 = icmp slt i32 %399, %52
+  %.not338 = icmp slt i32 %399, %52
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store i64 %.sroa.0315.0.insert.insert, ptr %14, align 16
   %401 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %402 = sub nsw i32 0, %400
-  %403 = select i1 %.not339, i32 %400, i32 %402
+  %403 = select i1 %.not338, i32 %400, i32 %402
   %404 = add nsw i32 %403, %399
   %405 = sdiv i32 %285, 8
   %406 = add nsw i32 %405, %397
@@ -1375,12 +1375,12 @@ _ZN8QPainter8drawLineEiiii.exit237:               ; preds = %357
   %.sroa.0290.0.insert.ext = zext i32 %494 to i64
   %.sroa.0290.0.insert.insert = or disjoint i64 %.sroa.5293.0.insert.shift, %.sroa.0290.0.insert.ext
   %495 = sdiv i32 %285, 4
-  %.not338 = icmp slt i32 %494, %52
+  %.not337 = icmp slt i32 %494, %52
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %.sroa.0290.0.insert.insert, ptr %6, align 16
   %496 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %497 = sub nsw i32 0, %495
-  %498 = select i1 %.not338, i32 %495, i32 %497
+  %498 = select i1 %.not337, i32 %495, i32 %497
   %499 = add nsw i32 %498, %494
   %500 = sdiv i32 %285, 8
   %501 = add nsw i32 %500, %493

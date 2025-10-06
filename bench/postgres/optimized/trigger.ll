@@ -4158,8 +4158,8 @@ define internal fastcc noundef zeroext i1 @TriggerEnabled(ptr noundef %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %23 = load i16, ptr %16, align 4
   %24 = sext i16 %23 to i64
-  %.not56 = icmp slt i64 %indvars.iv.next, %24
-  br i1 %.not56, label %25, label %.loopexit, !llvm.loop !29
+  %.not54 = icmp slt i64 %indvars.iv.next, %24
+  br i1 %.not54, label %25, label %.loopexit, !llvm.loop !29
 
 25:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
@@ -4247,9 +4247,9 @@ ExecQual.exit:                                    ; preds = %65
   %75 = load ptr, ptr %74, align 8
   %76 = call i64 %75(ptr noundef nonnull %69, ptr noundef nonnull %66, ptr noundef nonnull %8) #15
   store ptr %73, ptr @CurrentMemoryContext, align 8
-  %.not57 = icmp eq i64 %76, 0
+  %.not55 = icmp eq i64 %76, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not57, label %.loopexit, label %77
+  br i1 %.not55, label %.loopexit, label %77
 
 77:                                               ; preds = %ExecQual.exit.thread, %ExecQual.exit, %.thread
   br label %.loopexit
@@ -5721,8 +5721,8 @@ define dso_local noundef zeroext i1 @ExecBRDeleteTriggers(ptr noundef %0, ptr no
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %67 = load i32, ptr %32, align 8
   %68 = sext i32 %67 to i64
-  %.not66 = icmp slt i64 %indvars.iv.next, %68
-  br i1 %.not66, label %41, label %._crit_edge, !llvm.loop !35
+  %.not64 = icmp slt i64 %indvars.iv.next, %68
+  br i1 %.not64, label %41, label %._crit_edge, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %66, %57, %27
   %.lcssa = phi i1 [ true, %27 ], [ false, %57 ], [ true, %66 ]
@@ -7122,30 +7122,30 @@ define dso_local void @AfterTriggerEndQuery(ptr noundef %0) local_unnamed_addr #
   %6 = sext i32 %2 to i64
   %7 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %5, i64 %6
   %8 = tail call fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef %7, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i1 noundef zeroext true)
-  br i1 %8, label %.lr.ph17, label %.thread
+  br i1 %8, label %.lr.ph16, label %.thread
 
 .loopexit:                                        ; preds = %afterTriggerDeleteHeadEventChunk.exit, %15
   %9 = tail call fastcc zeroext i1 @afterTriggerMarkEvents(ptr noundef nonnull %19, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 16), i1 noundef zeroext true)
-  br i1 %9, label %.lr.ph17, label %.thread
+  br i1 %9, label %.lr.ph16, label %.thread
 
-.lr.ph17:                                         ; preds = %4, %.loopexit
-  %.016 = phi ptr [ %19, %.loopexit ], [ %7, %4 ]
+.lr.ph16:                                         ; preds = %4, %.loopexit
+  %.015 = phi ptr [ %19, %.loopexit ], [ %7, %4 ]
   %10 = load i32, ptr @afterTriggers, align 8
   %11 = add i32 %10, 1
   store i32 %11, ptr @afterTriggers, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %.016, i64 8
+  %12 = getelementptr inbounds nuw i8, ptr %.015, i64 8
   %13 = load ptr, ptr %12, align 8
-  %14 = tail call fastcc zeroext i1 @afterTriggerInvokeEvents(ptr noundef %.016, i32 noundef %10, ptr noundef %0, i1 noundef zeroext false)
+  %14 = tail call fastcc zeroext i1 @afterTriggerInvokeEvents(ptr noundef %.015, i32 noundef %10, ptr noundef %0, i1 noundef zeroext false)
   br i1 %14, label %.thread, label %15
 
-15:                                               ; preds = %.lr.ph17
+15:                                               ; preds = %.lr.ph16
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %17 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds %struct.AfterTriggersQueryData, ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
-  %.not1115 = icmp eq ptr %20, %13
-  br i1 %.not1115, label %.loopexit, label %.lr.ph
+  %.not1114 = icmp eq ptr %20, %13
+  br i1 %.not1114, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %15
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -7202,7 +7202,7 @@ afterTriggerDeleteHeadEventChunk.exit:            ; preds = %42, %22, %.lr.ph.i
   %.not11 = icmp eq ptr %47, %13
   br i1 %.not11, label %.loopexit, label %22, !llvm.loop !42
 
-.thread:                                          ; preds = %.loopexit, %.lr.ph17, %4
+.thread:                                          ; preds = %.loopexit, %.lr.ph16, %4
   %48 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 48), align 8
   %49 = load i32, ptr getelementptr inbounds nuw (i8, ptr @afterTriggers, i64 56), align 8
   %50 = sext i32 %49 to i64

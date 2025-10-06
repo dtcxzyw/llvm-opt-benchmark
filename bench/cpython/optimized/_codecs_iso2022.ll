@@ -559,9 +559,9 @@ define internal range(i64 -3, 2) i64 @iso2022_encode(ptr noundef captures(none) 
   %11 = alloca i64, align 8
   %12 = load i64, ptr %4, align 8, !tbaa !55
   %13 = icmp slt i64 %12, %5
-  br i1 %13, label %.lr.ph201, label %.thread184
+  br i1 %13, label %.lr.ph199, label %.thread184
 
-.lr.ph201:                                        ; preds = %9
+.lr.ph199:                                        ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %16 = and i32 %8, 1
@@ -570,9 +570,9 @@ define internal range(i64 -3, 2) i64 @iso2022_encode(ptr noundef captures(none) 
   %18 = getelementptr i8, ptr %0, i64 4
   br label %19
 
-19:                                               ; preds = %.lr.ph201, %254
-  %20 = phi i64 [ %12, %.lr.ph201 ], [ %255, %254 ]
-  %.0138200 = phi i64 [ %7, %.lr.ph201 ], [ %.2140, %254 ]
+19:                                               ; preds = %.lr.ph199, %254
+  %20 = phi i64 [ %12, %.lr.ph199 ], [ %255, %254 ]
+  %.0138198 = phi i64 [ %7, %.lr.ph199 ], [ %.2140, %254 ]
   switch i32 %2, label %29 [
     i32 1, label %21
     i32 2, label %25
@@ -606,7 +606,7 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
   br i1 %.not159, label %46, label %35
 
 35:                                               ; preds = %33
-  %36 = icmp slt i64 %.0138200, 3
+  %36 = icmp slt i64 %.0138198, 3
   br i1 %36, label %.thread184, label %37
 
 37:                                               ; preds = %35
@@ -622,11 +622,11 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
   %43 = load ptr, ptr %6, align 8, !tbaa !39
   %44 = getelementptr i8, ptr %43, i64 3
   store ptr %44, ptr %6, align 8, !tbaa !39
-  %45 = add nsw i64 %.0138200, -3
+  %45 = add nsw i64 %.0138198, -3
   br label %46
 
 46:                                               ; preds = %37, %33
-  %.1139 = phi i64 [ %45, %37 ], [ %.0138200, %33 ]
+  %.1139 = phi i64 [ %45, %37 ], [ %.0138198, %33 ]
   %47 = load i8, ptr %18, align 1, !tbaa !36
   %48 = and i8 %47, 1
   %.not160 = icmp eq i8 %48, 0
@@ -671,20 +671,20 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !48
   %72 = load i8, ptr %71, align 8, !tbaa !51
-  %.not193 = icmp eq i8 %72, 0
-  br i1 %.not193, label %.thread184, label %.lr.ph
+  %.not191 = icmp eq i8 %72, 0
+  br i1 %.not191, label %.thread184, label %.lr.ph
 
 .lr.ph:                                           ; preds = %68
   br i1 %.not152, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %select.unfold.us
-  %.0137194.us = phi ptr [ %96, %select.unfold.us ], [ %71, %.lr.ph ]
+  %.0137192.us = phi ptr [ %96, %select.unfold.us ], [ %71, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %.0.i, ptr %10, align 4, !tbaa !57
   store i32 0, ptr %15, align 4, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 1, ptr %11, align 8, !tbaa !55
-  %73 = getelementptr inbounds nuw i8, ptr %.0137194.us, i64 24
+  %73 = getelementptr inbounds nuw i8, ptr %.0137192.us, i64 24
   %74 = load ptr, ptr %73, align 8, !tbaa !59
   %75 = call zeroext i16 %74(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   switch i16 %75, label %.split.us [
@@ -696,7 +696,7 @@ PyUnicode_READ.exit:                              ; preds = %21, %25, %29
   %77 = load i64, ptr %4, align 8, !tbaa !55
   %78 = sub i64 %5, %77
   %79 = icmp slt i64 %78, 2
-  br i1 %79, label %.split199.us, label %80
+  br i1 %79, label %.split197.us, label %80
 
 80:                                               ; preds = %76
   %81 = add i64 %77, 1
@@ -735,19 +735,19 @@ PyUnicode_READ.exit163.us:                        ; preds = %90, %86, %82
 select.unfold.us:                                 ; preds = %PyUnicode_READ.exit163.us, %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %96 = getelementptr i8, ptr %.0137194.us, i64 32
+  %96 = getelementptr i8, ptr %.0137192.us, i64 32
   %97 = load i8, ptr %96, align 8, !tbaa !51
   %.not.us = icmp eq i8 %97, 0
   br i1 %.not.us, label %.thread184, label %.lr.ph.split.us, !llvm.loop !60
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %select.unfold
-  %.0137194 = phi ptr [ %122, %select.unfold ], [ %71, %.lr.ph ]
+  %.0137192 = phi ptr [ %122, %select.unfold ], [ %71, %.lr.ph ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i32 %.0.i, ptr %10, align 4, !tbaa !57
   store i32 0, ptr %15, align 4, !tbaa !57
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i64 1, ptr %11, align 8, !tbaa !55
-  %98 = getelementptr inbounds nuw i8, ptr %.0137194, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.0137192, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !59
   %100 = call zeroext i16 %99(ptr noundef %1, ptr noundef nonnull %10, ptr noundef nonnull %11) #15
   switch i16 %100, label %.split.us [
@@ -799,7 +799,7 @@ PyUnicode_READ.exit163:                           ; preds = %107, %111, %115
   %121 = load i64, ptr %11, align 8
   br i1 %.not153, label %select.unfold, label %.split.us
 
-.split199.us:                                     ; preds = %76
+.split197.us:                                     ; preds = %76
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.thread184
@@ -807,15 +807,15 @@ PyUnicode_READ.exit163:                           ; preds = %107, %111, %115
 select.unfold:                                    ; preds = %118, %.lr.ph.split
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %122 = getelementptr i8, ptr %.0137194, i64 32
+  %122 = getelementptr i8, ptr %.0137192, i64 32
   %123 = load i8, ptr %122, align 8, !tbaa !51
   %.not = icmp eq i8 %123, 0
   br i1 %.not, label %.thread184, label %.lr.ph.split, !llvm.loop !60
 
 .split.us:                                        ; preds = %118, %.lr.ph.split, %.lr.ph.split.us, %PyUnicode_READ.exit163.us
-  %.us-phi = phi ptr [ %.0137194.us, %PyUnicode_READ.exit163.us ], [ %.0137194.us, %.lr.ph.split.us ], [ %.0137194, %.lr.ph.split ], [ %.0137194, %118 ]
-  %.us-phi196 = phi i16 [ %75, %.lr.ph.split.us ], [ %94, %PyUnicode_READ.exit163.us ], [ %120, %118 ], [ %100, %.lr.ph.split ]
-  %.us-phi197 = phi i64 [ 1, %.lr.ph.split.us ], [ %95, %PyUnicode_READ.exit163.us ], [ %121, %118 ], [ 1, %.lr.ph.split ]
+  %.us-phi = phi ptr [ %.0137192.us, %PyUnicode_READ.exit163.us ], [ %.0137192.us, %.lr.ph.split.us ], [ %.0137192, %.lr.ph.split ], [ %.0137192, %118 ]
+  %.us-phi194 = phi i16 [ %75, %.lr.ph.split.us ], [ %94, %PyUnicode_READ.exit163.us ], [ %120, %118 ], [ %100, %.lr.ph.split ]
+  %.us-phi195 = phi i64 [ 1, %.lr.ph.split.us ], [ %95, %PyUnicode_READ.exit163.us ], [ %121, %118 ], [ 1, %.lr.ph.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %.pr = load i8, ptr %.us-phi, align 8, !tbaa !51
@@ -837,7 +837,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %.not157, label %139, label %130
 
 130:                                              ; preds = %127
-  %131 = icmp slt i64 %.0138200, 1
+  %131 = icmp slt i64 %.0138198, 1
   br i1 %131, label %.thread184, label %132
 
 132:                                              ; preds = %130
@@ -849,13 +849,13 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   %136 = load ptr, ptr %6, align 8, !tbaa !39
   %137 = getelementptr i8, ptr %136, i64 1
   store ptr %137, ptr %6, align 8, !tbaa !39
-  %138 = add nsw i64 %.0138200, -1
+  %138 = add nsw i64 %.0138198, -1
   %.pre = load i8, ptr %.us-phi, align 8, !tbaa !51
   br label %139
 
 139:                                              ; preds = %132, %127
   %140 = phi i8 [ %.pre, %132 ], [ %.pr, %127 ]
-  %.4142 = phi i64 [ %138, %132 ], [ %.0138200, %127 ]
+  %.4142 = phi i64 [ %138, %132 ], [ %.0138198, %127 ]
   %141 = load i8, ptr %0, align 1, !tbaa !36
   %.not158 = icmp eq i8 %141, %140
   br i1 %.not158, label %230, label %142
@@ -954,7 +954,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %197, label %198, label %202
 
 198:                                              ; preds = %194
-  %199 = icmp slt i64 %.0138200, 3
+  %199 = icmp slt i64 %.0138198, 3
   br i1 %199, label %.thread184, label %200
 
 200:                                              ; preds = %198
@@ -963,7 +963,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br label %.sink.split
 
 202:                                              ; preds = %194
-  %203 = icmp slt i64 %.0138200, 4
+  %203 = icmp slt i64 %.0138198, 4
   br i1 %203, label %.thread184, label %204
 
 204:                                              ; preds = %202
@@ -975,28 +975,28 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br label %.sink.split
 
 .sink.split:                                      ; preds = %204, %200
-  %.sink262 = phi i64 [ 1, %200 ], [ 2, %204 ]
-  %.sink258 = phi i64 [ 2, %200 ], [ 3, %204 ]
-  %.sink253 = phi i64 [ 3, %200 ], [ 4, %204 ]
+  %.sink260 = phi i64 [ 1, %200 ], [ 2, %204 ]
+  %.sink256 = phi i64 [ 2, %200 ], [ 3, %204 ]
+  %.sink251 = phi i64 [ 3, %200 ], [ 4, %204 ]
   %.sink = phi i64 [ -3, %200 ], [ -4, %204 ]
   %208 = load ptr, ptr %6, align 8, !tbaa !39
-  %209 = getelementptr i8, ptr %208, i64 %.sink262
+  %209 = getelementptr i8, ptr %208, i64 %.sink260
   store i8 41, ptr %209, align 1, !tbaa !36
   %210 = load i8, ptr %.us-phi, align 8, !tbaa !51
   %211 = and i8 %210, 127
   %212 = load ptr, ptr %6, align 8, !tbaa !39
-  %213 = getelementptr i8, ptr %212, i64 %.sink258
+  %213 = getelementptr i8, ptr %212, i64 %.sink256
   store i8 %211, ptr %213, align 1, !tbaa !36
   %214 = load i8, ptr %.us-phi, align 8, !tbaa !51
   store i8 %214, ptr %17, align 1, !tbaa !36
   %215 = load ptr, ptr %6, align 8, !tbaa !39
-  %216 = getelementptr i8, ptr %215, i64 %.sink253
+  %216 = getelementptr i8, ptr %215, i64 %.sink251
   store ptr %216, ptr %6, align 8, !tbaa !39
-  %217 = add nsw i64 %.0138200, %.sink
+  %217 = add nsw i64 %.0138198, %.sink
   br label %218
 
 218:                                              ; preds = %.sink.split, %192
-  %.6 = phi i64 [ %.0138200, %192 ], [ %217, %.sink.split ]
+  %.6 = phi i64 [ %.0138198, %192 ], [ %217, %.sink.split ]
   %219 = load i8, ptr %18, align 1, !tbaa !36
   %220 = and i8 %219, 1
   %.not156 = icmp eq i8 %220, 0
@@ -1030,7 +1030,7 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %235, label %.thread184, label %236
 
 236:                                              ; preds = %234
-  %237 = trunc i16 %.us-phi196 to i8
+  %237 = trunc i16 %.us-phi194 to i8
   %238 = load ptr, ptr %6, align 8, !tbaa !39
   store i8 %237, ptr %238, align 1, !tbaa !36
   br label %248
@@ -1040,25 +1040,25 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   br i1 %240, label %.thread184, label %241
 
 241:                                              ; preds = %239
-  %242 = lshr i16 %.us-phi196, 8
+  %242 = lshr i16 %.us-phi194, 8
   %243 = trunc nuw i16 %242 to i8
   %244 = load ptr, ptr %6, align 8, !tbaa !39
   store i8 %243, ptr %244, align 1, !tbaa !36
-  %245 = trunc i16 %.us-phi196 to i8
+  %245 = trunc i16 %.us-phi194 to i8
   %246 = load ptr, ptr %6, align 8, !tbaa !39
   %247 = getelementptr i8, ptr %246, i64 1
   store i8 %245, ptr %247, align 1, !tbaa !36
   br label %248
 
 248:                                              ; preds = %236, %241
-  %.sink266 = phi i64 [ 1, %236 ], [ 2, %241 ]
-  %.sink263 = phi i64 [ -1, %236 ], [ -2, %241 ]
+  %.sink264 = phi i64 [ 1, %236 ], [ 2, %241 ]
+  %.sink261 = phi i64 [ -1, %236 ], [ -2, %241 ]
   %249 = load ptr, ptr %6, align 8, !tbaa !39
-  %250 = getelementptr i8, ptr %249, i64 %.sink266
+  %250 = getelementptr i8, ptr %249, i64 %.sink264
   store ptr %250, ptr %6, align 8, !tbaa !39
-  %251 = add nsw i64 %.5143, %.sink263
+  %251 = add nsw i64 %.5143, %.sink261
   %252 = load i64, ptr %4, align 8, !tbaa !55
-  %253 = add i64 %252, %.us-phi197
+  %253 = add i64 %252, %.us-phi195
   store i64 %253, ptr %4, align 8, !tbaa !55
   br label %254
 
@@ -1068,8 +1068,8 @@ select.unfold:                                    ; preds = %118, %.lr.ph.split
   %256 = icmp slt i64 %255, %5
   br i1 %256, label %19, label %.thread184
 
-.thread184:                                       ; preds = %254, %35, %49, %58, %.split.us, %130, %146, %162, %176, %198, %202, %221, %124, %234, %239, %68, %select.unfold, %select.unfold.us, %9, %.split199.us
-  %.5 = phi i64 [ -2, %.split199.us ], [ 0, %9 ], [ 1, %select.unfold.us ], [ 1, %select.unfold ], [ 1, %68 ], [ 0, %254 ], [ -1, %35 ], [ -1, %49 ], [ -1, %58 ], [ 1, %.split.us ], [ -1, %130 ], [ -1, %146 ], [ -1, %162 ], [ -1, %176 ], [ -1, %198 ], [ -1, %202 ], [ -1, %221 ], [ -3, %124 ], [ -1, %234 ], [ -1, %239 ]
+.thread184:                                       ; preds = %254, %35, %49, %58, %.split.us, %130, %146, %162, %176, %198, %202, %221, %124, %234, %239, %68, %select.unfold, %select.unfold.us, %9, %.split197.us
+  %.5 = phi i64 [ -2, %.split197.us ], [ 0, %9 ], [ 1, %select.unfold.us ], [ 1, %select.unfold ], [ 1, %68 ], [ 0, %254 ], [ -1, %35 ], [ -1, %49 ], [ -1, %58 ], [ 1, %.split.us ], [ -1, %130 ], [ -1, %146 ], [ -1, %162 ], [ -1, %176 ], [ -1, %198 ], [ -1, %202 ], [ -1, %221 ], [ -3, %124 ], [ -1, %234 ], [ -1, %239 ]
   ret i64 %.5
 }
 

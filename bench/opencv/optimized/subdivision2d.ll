@@ -1853,26 +1853,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
   %108 = add nsw i32 %.neg.i, %106
   %109 = icmp sgt i32 %108, 0
   %110 = xor i32 %58, 2
-  %spec.select186 = select i1 %109, i32 %110, i32 %58
-  %.not190 = icmp sgt i32 %20, 0
-  br i1 %.not190, label %.lr.ph.preheader, label %._crit_edge
+  %spec.select185 = select i1 %109, i32 %110, i32 %58
+  %.not189 = icmp sgt i32 %20, 0
+  br i1 %.not189, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %70
-  %spec.select185 = select i1 %109, i32 -1, i32 %108
+  %spec.select184 = select i1 %109, i32 -1, i32 %108
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %237
-  %.079193 = phi i32 [ %238, %237 ], [ 0, %.lr.ph.preheader ]
-  %.192192 = phi i32 [ %.495, %237 ], [ %spec.select186, %.lr.ph.preheader ]
-  %.1104191 = phi i32 [ %.3106, %237 ], [ %spec.select185, %.lr.ph.preheader ]
-  %111 = ashr i32 %.192192, 2
+  %.079192 = phi i32 [ %238, %237 ], [ 0, %.lr.ph.preheader ]
+  %.192191 = phi i32 [ %.495, %237 ], [ %spec.select185, %.lr.ph.preheader ]
+  %.1104190 = phi i32 [ %.3106, %237 ], [ %spec.select184, %.lr.ph.preheader ]
+  %111 = ashr i32 %.192191, 2
   %112 = sext i32 %111 to i64
   %113 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %15, i64 %112
-  %114 = and i32 %.192192, 3
+  %114 = and i32 %.192191, 3
   %115 = zext nneg i32 %114 to i64
   %116 = getelementptr inbounds nuw i32, ptr %113, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !9
-  %118 = add i32 %.192192, 3
+  %118 = add i32 %.192191, 3
   %119 = and i32 %118, 3
   %120 = zext nneg i32 %119 to i64
   %121 = getelementptr inbounds nuw i32, ptr %113, i64 %120
@@ -1969,7 +1969,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
 
 199:                                              ; preds = %198
   %200 = icmp eq i32 %161, 0
-  %201 = icmp eq i32 %.1104191, 0
+  %201 = icmp eq i32 %.1104190, 0
   %or.cond = select i1 %200, i1 %201, i1 false
   br i1 %or.cond, label %239, label %237
 
@@ -1978,12 +1978,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
 
 203:                                              ; preds = %202
   %204 = icmp eq i32 %195, 0
-  %205 = icmp eq i32 %.1104191, 0
+  %205 = icmp eq i32 %.1104190, 0
   %or.cond3 = select i1 %204, i1 %205, i1 false
   br i1 %or.cond3, label %239, label %237
 
 206:                                              ; preds = %202
-  %207 = icmp eq i32 %.1104191, 0
+  %207 = icmp eq i32 %.1104190, 0
   br i1 %207, label %208, label %237
 
 208:                                              ; preds = %206
@@ -2018,25 +2018,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
   %233 = fmul double %229, %232
   %234 = call noundef double @llvm.fmuladd.f64(double %225, double %227, double %233)
   %235 = fcmp uge double %234, 0.000000e+00
-  %236 = xor i32 %.192192, 2
-  %spec.select187 = select i1 %235, i32 0, i32 %161
-  %spec.select188 = select i1 %235, i32 %236, i32 %117
+  %236 = xor i32 %.192191, 2
+  %spec.select186 = select i1 %235, i32 0, i32 %161
+  %spec.select187 = select i1 %235, i32 %236, i32 %117
   br label %237
 
 237:                                              ; preds = %208, %206, %203, %199
-  %.3106 = phi i32 [ %161, %199 ], [ %195, %203 ], [ %161, %206 ], [ %spec.select187, %208 ]
-  %.495 = phi i32 [ %117, %199 ], [ %126, %203 ], [ %117, %206 ], [ %spec.select188, %208 ]
-  %238 = add nuw nsw i32 %.079193, 1
+  %.3106 = phi i32 [ %161, %199 ], [ %195, %203 ], [ %161, %206 ], [ %spec.select186, %208 ]
+  %.495 = phi i32 [ %117, %199 ], [ %126, %203 ], [ %117, %206 ], [ %spec.select187, %208 ]
+  %238 = add nuw nsw i32 %.079192, 1
   %exitcond.not = icmp eq i32 %238, %20
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !66
 
 ._crit_edge:                                      ; preds = %237, %70
-  %.192.lcssa = phi i32 [ %spec.select186, %70 ], [ %.495, %237 ]
+  %.192.lcssa = phi i32 [ %spec.select185, %70 ], [ %.495, %237 ]
   store i32 %.192.lcssa, ptr %57, align 4, !tbaa !20
   br label %297
 
 239:                                              ; preds = %199, %198, %203
-  store i32 %.192192, ptr %57, align 4, !tbaa !20
+  store i32 %.192191, ptr %57, align 4, !tbaa !20
   %240 = getelementptr inbounds nuw i8, ptr %113, i64 16
   %241 = getelementptr inbounds nuw i32, ptr %240, i64 %115
   %242 = load i32, ptr %241, align 4, !tbaa !9
@@ -2063,8 +2063,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
   %260 = fpext float %259 to double
   %261 = fadd double %257, %260
   %.sroa.0.0.vec.extract = extractelement <2 x float> %254, i64 0
-  %foldExtExtBinop217 = fsub <2 x float> %1, %254
-  %262 = extractelement <2 x float> %foldExtExtBinop217, i64 0
+  %foldExtExtBinop216 = fsub <2 x float> %1, %254
+  %262 = extractelement <2 x float> %foldExtExtBinop216, i64 0
   %263 = call noundef float @llvm.fabs.f32(float %262)
   %264 = fpext float %263 to double
   %.sroa.0.4.vec.extract167 = extractelement <2 x float> %254, i64 1
@@ -2072,8 +2072,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
   %266 = call noundef float @llvm.fabs.f32(float %265)
   %267 = fpext float %266 to double
   %268 = fadd double %264, %267
-  %foldExtExtBinop219 = fsub <2 x float> %246, %254
-  %269 = extractelement <2 x float> %foldExtExtBinop219, i64 0
+  %foldExtExtBinop218 = fsub <2 x float> %246, %254
+  %269 = extractelement <2 x float> %foldExtExtBinop218, i64 0
   %270 = call noundef float @llvm.fabs.f32(float %269)
   %271 = fpext float %270 to double
   %272 = fsub float %.sroa.0169.4.vec.extract176, %.sroa.0.4.vec.extract167
@@ -2114,7 +2114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit139: ; preds = %65
 
 297:                                              ; preds = %282, %296, %279, %239, %277, %._crit_edge
   %spec.select133 = phi i32 [ 0, %._crit_edge ], [ 0, %296 ], [ 0, %282 ], [ 0, %279 ], [ %242, %239 ], [ %250, %277 ]
-  %spec.select = phi i32 [ 0, %._crit_edge ], [ %.192192, %296 ], [ %.192192, %282 ], [ %.192192, %279 ], [ 0, %239 ], [ 0, %277 ]
+  %spec.select = phi i32 [ 0, %._crit_edge ], [ %.192191, %296 ], [ %.192191, %282 ], [ %.192191, %279 ], [ 0, %239 ], [ 0, %277 ]
   %.3101 = phi i32 [ -2, %._crit_edge ], [ 2, %296 ], [ 0, %282 ], [ 0, %279 ], [ 1, %239 ], [ 1, %277 ]
   store i32 %spec.select, ptr %2, align 4, !tbaa !9
   store i32 %spec.select133, ptr %3, align 4, !tbaa !9
@@ -2200,15 +2200,15 @@ define noundef i32 @_ZN2cv8Subdiv2D6insertENS_6Point_IfEE(ptr noundef nonnull al
           to label %14 unwind label %18
 
 14:                                               ; preds = %2
-  switch i32 %13, label %default.unreachable102 [
+  switch i32 %13, label %default.unreachable101 [
     i32 -2, label %15
     i32 -1, label %27
-    i32 1, label %._crit_edge92
+    i32 1, label %._crit_edge91
     i32 2, label %37
     i32 0, label %._crit_edge
   ]
 
-._crit_edge92:                                    ; preds = %14
+._crit_edge91:                                    ; preds = %14
   %.0.pre = load i32, ptr %5, align 4, !tbaa !9
   br label %.loopexit
 
@@ -2391,7 +2391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit63: ; preds = %32,
   store i32 %40, ptr %117, align 8, !tbaa !47
   br label %120
 
-default.unreachable102:                           ; preds = %14
+default.unreachable101:                           ; preds = %14
   unreachable
 
 120:                                              ; preds = %._crit_edge, %37
@@ -2606,12 +2606,12 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %352
   %238 = phi ptr [ %353, %352 ], [ %211, %.lr.ph.preheader ]
-  %.04686 = phi i32 [ %354, %352 ], [ 0, %.lr.ph.preheader ]
-  %storemerge8485 = phi i32 [ %storemerge, %352 ], [ %221, %.lr.ph.preheader ]
-  %239 = ashr i32 %storemerge8485, 2
+  %.04685 = phi i32 [ %354, %352 ], [ 0, %.lr.ph.preheader ]
+  %storemerge8384 = phi i32 [ %storemerge, %352 ], [ %221, %.lr.ph.preheader ]
+  %239 = ashr i32 %storemerge8384, 2
   %240 = sext i32 %239 to i64
   %241 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %238, i64 %240
-  %242 = add i32 %storemerge8485, 1
+  %242 = add i32 %storemerge8384, 1
   %243 = and i32 %242, 3
   %244 = zext nneg i32 %243 to i64
   %245 = getelementptr inbounds nuw i32, ptr %241, i64 %244
@@ -2627,7 +2627,7 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   %255 = getelementptr inbounds nuw i32, ptr %252, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !9
   %257 = getelementptr inbounds nuw i8, ptr %241, i64 16
-  %258 = and i32 %storemerge8485, 3
+  %258 = and i32 %storemerge8384, 3
   %259 = zext nneg i32 %258 to i64
   %260 = getelementptr inbounds nuw i32, ptr %257, i64 %259
   %261 = load i32, ptr %260, align 4, !tbaa !9
@@ -2710,7 +2710,7 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
   br i1 %325, label %326, label %339
 
 326:                                              ; preds = %292
-  call void @_ZN2cv8Subdiv2D9swapEdgesEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %storemerge8485)
+  call void @_ZN2cv8Subdiv2D9swapEdgesEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %storemerge8384)
   %327 = load ptr, ptr %138, align 8, !tbaa !3
   %328 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %327, i64 %240
   %329 = getelementptr inbounds nuw i32, ptr %328, i64 %244
@@ -2751,12 +2751,12 @@ _ZNSt6vectorIN2cv8Subdiv2D8QuadEdgeESaIS2_EE12emplace_backIJEEEvDpOT_.exit.i: ; 
 352:                                              ; preds = %326, %341
   %353 = phi ptr [ %238, %341 ], [ %327, %326 ]
   %storemerge = phi i32 [ %351, %341 ], [ %334, %326 ]
-  %354 = add nuw nsw i32 %.04686, 1
+  %354 = add nuw nsw i32 %.04685, 1
   %exitcond.not = icmp eq i32 %354, %237
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
-.loopexit:                                        ; preds = %352, %339, %230, %._crit_edge92
-  %.0 = phi i32 [ %.0.pre, %._crit_edge92 ], [ %133, %230 ], [ %133, %339 ], [ %133, %352 ]
+.loopexit:                                        ; preds = %352, %339, %230, %._crit_edge91
+  %.0 = phi i32 [ %.0.pre, %._crit_edge91 ], [ %133, %230 ], [ %133, %339 ], [ %133, %352 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %355 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -3361,9 +3361,9 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
   %34 = lshr exact i64 %33, 4
   %35 = trunc i64 %34 to i32
   %36 = icmp sgt i32 %35, 0
-  br i1 %36, label %.preheader84.lr.ph, label %.thread
+  br i1 %36, label %.preheader83.lr.ph, label %.thread
 
-.preheader84.lr.ph:                               ; preds = %25
+.preheader83.lr.ph:                               ; preds = %25
   %37 = load i32, ptr %6, align 4, !tbaa !9
   %38 = add nsw i32 %37, 1
   %39 = and i32 %38, 3
@@ -3394,37 +3394,37 @@ define noundef i32 @_ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_(ptr noundef 
   %61 = fneg double %60
   %62 = fpext float %.sroa.076.0.vec.extract to double
   %63 = fpext float %.sroa.076.4.vec.extract to double
-  br label %.preheader84
+  br label %.preheader83
 
-.preheader84:                                     ; preds = %.preheader84.lr.ph, %194
-  %.014117 = phi i32 [ 0, %.preheader84.lr.ph ], [ %196, %194 ]
-  %.lcssa105112116 = phi i32 [ %41, %.preheader84.lr.ph ], [ %195, %194 ]
-  %64 = ashr i32 %.lcssa105112116, 2
+.preheader83:                                     ; preds = %.preheader83.lr.ph, %194
+  %.014116 = phi i32 [ 0, %.preheader83.lr.ph ], [ %196, %194 ]
+  %.lcssa104111115 = phi i32 [ %41, %.preheader83.lr.ph ], [ %195, %194 ]
+  %64 = ashr i32 %.lcssa104111115, 2
   %65 = sext i32 %64 to i64
   %66 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %27, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
-  %68 = and i32 %.lcssa105112116, 3
+  %68 = and i32 %.lcssa104111115, 3
   %69 = xor i32 %68, 2
   %70 = zext nneg i32 %69 to i64
   %71 = getelementptr inbounds nuw i32, ptr %67, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !9
   %73 = icmp sgt i32 %72, 0
-  br i1 %73, label %.lr.ph, label %.preheader84._crit_edge
+  br i1 %73, label %.lr.ph, label %.preheader83._crit_edge
 
-.preheader84._crit_edge:                          ; preds = %.preheader84, %117
+.preheader83._crit_edge:                          ; preds = %.preheader83, %117
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @.str.11, ptr noundef nonnull align 1 dereferenceable(1) %8)
           to label %74 unwind label %76
 
-74:                                               ; preds = %.preheader84._crit_edge
+74:                                               ; preds = %.preheader83._crit_edge
   invoke void @_ZN2cv5errorEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKcS9_i(i32 noundef -215, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull @__func__._ZN2cv8Subdiv2D11findNearestENS_6Point_IfEEPS2_, ptr noundef nonnull @.str.1, i32 noundef 682) #28
           to label %75 unwind label %78
 
 75:                                               ; preds = %74
   unreachable
 
-76:                                               ; preds = %.preheader84._crit_edge
+76:                                               ; preds = %.preheader83._crit_edge
   %77 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -3447,10 +3447,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %78, %
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %220
 
-.lr.ph:                                           ; preds = %.preheader84, %117
-  %83 = phi i32 [ %135, %117 ], [ %72, %.preheader84 ]
-  %84 = phi i64 [ %129, %117 ], [ %65, %.preheader84 ]
-  %85 = phi i32 [ %127, %117 ], [ %.lcssa105112116, %.preheader84 ]
+.lr.ph:                                           ; preds = %.preheader83, %117
+  %83 = phi i32 [ %135, %117 ], [ %72, %.preheader83 ]
+  %84 = phi i64 [ %129, %117 ], [ %65, %.preheader83 ]
+  %85 = phi i32 [ %127, %117 ], [ %.lcssa104111115, %.preheader83 ]
   %86 = zext nneg i32 %83 to i64
   %87 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %28, i64 %86
   %.sroa_idx61 = getelementptr inbounds nuw i8, ptr %87, i64 12
@@ -3476,15 +3476,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %78, %
   %104 = getelementptr inbounds nuw i32, ptr %101, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !9
   %106 = icmp sgt i32 %105, 0
-  br i1 %106, label %.lr.ph107.preheader, label %.preheader._crit_edge
+  br i1 %106, label %.lr.ph106.preheader, label %.preheader._crit_edge
 
-.lr.ph107.preheader:                              ; preds = %.preheader
+.lr.ph106.preheader:                              ; preds = %.preheader
   %107 = zext nneg i32 %105 to i64
-  %.pn121198 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %28, i64 %107
-  %.in120199 = getelementptr inbounds nuw i8, ptr %.pn121198, i64 8
-  %108 = load float, ptr %.in120199, align 4
-  %.in200 = getelementptr inbounds nuw i8, ptr %.pn121198, i64 12
-  %109 = load float, ptr %.in200, align 4
+  %.pn120197 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %28, i64 %107
+  %.in119198 = getelementptr inbounds nuw i8, ptr %.pn120197, i64 8
+  %108 = load float, ptr %.in119198, align 4
+  %.in199 = getelementptr inbounds nuw i8, ptr %.pn120197, i64 12
+  %109 = load float, ptr %.in199, align 4
   %110 = fpext float %108 to double
   %111 = fsub double %57, %110
   %112 = fpext float %109 to double
@@ -3492,7 +3492,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %78, %
   %114 = fmul double %113, %61
   %115 = call double @llvm.fmuladd.f64(double %111, double %58, double %114)
   %116 = fcmp olt double %115, 0.000000e+00
-  br i1 %116, label %.lr.ph107._crit_edge, label %.lr.ph201
+  br i1 %116, label %.lr.ph106._crit_edge, label %.lr.ph200
 
 117:                                              ; preds = %.lr.ph
   %118 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %27, i64 %84
@@ -3514,9 +3514,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %78, %
   %134 = getelementptr inbounds nuw i32, ptr %131, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !9
   %136 = icmp sgt i32 %135, 0
-  br i1 %136, label %.lr.ph, label %.preheader84._crit_edge, !llvm.loop !79
+  br i1 %136, label %.lr.ph, label %.preheader83._crit_edge, !llvm.loop !79
 
-.preheader._crit_edge:                            ; preds = %.preheader, %.lr.ph201
+.preheader._crit_edge:                            ; preds = %.preheader, %.lr.ph200
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -3552,12 +3552,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %141
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %220
 
-.lr.ph107:                                        ; preds = %.lr.ph201
+.lr.ph106:                                        ; preds = %.lr.ph200
   %146 = zext nneg i32 %171 to i64
-  %.pn121 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %28, i64 %146
-  %.in120 = getelementptr inbounds nuw i8, ptr %.pn121, i64 8
-  %147 = load float, ptr %.in120, align 4
-  %.in = getelementptr inbounds nuw i8, ptr %.pn121, i64 12
+  %.pn120 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::Vertex", ptr %28, i64 %146
+  %.in119 = getelementptr inbounds nuw i8, ptr %.pn120, i64 8
+  %147 = load float, ptr %.in119, align 4
+  %.in = getelementptr inbounds nuw i8, ptr %.pn120, i64 12
   %148 = load float, ptr %.in, align 4
   %149 = fpext float %147 to double
   %150 = fsub double %57, %149
@@ -3566,11 +3566,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %141
   %153 = fmul double %152, %61
   %154 = call double @llvm.fmuladd.f64(double %150, double %58, double %153)
   %155 = fcmp olt double %154, 0.000000e+00
-  br i1 %155, label %.lr.ph107._crit_edge, label %.lr.ph201, !llvm.loop !80
+  br i1 %155, label %.lr.ph106._crit_edge, label %.lr.ph200, !llvm.loop !80
 
-.lr.ph201:                                        ; preds = %.lr.ph107.preheader, %.lr.ph107
-  %156 = phi i32 [ %163, %.lr.ph107 ], [ %85, %.lr.ph107.preheader ]
-  %157 = phi i64 [ %165, %.lr.ph107 ], [ %99, %.lr.ph107.preheader ]
+.lr.ph200:                                        ; preds = %.lr.ph106.preheader, %.lr.ph106
+  %156 = phi i32 [ %163, %.lr.ph106 ], [ %85, %.lr.ph106.preheader ]
+  %157 = phi i64 [ %165, %.lr.ph106 ], [ %99, %.lr.ph106.preheader ]
   %158 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %27, i64 %157
   %159 = and i32 %156, 3
   %160 = zext nneg i32 %159 to i64
@@ -3586,19 +3586,19 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %141
   %170 = getelementptr inbounds nuw i32, ptr %167, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !9
   %172 = icmp sgt i32 %171, 0
-  br i1 %172, label %.lr.ph107, label %.preheader._crit_edge, !llvm.loop !80
+  br i1 %172, label %.lr.ph106, label %.preheader._crit_edge, !llvm.loop !80
 
-.lr.ph107._crit_edge:                             ; preds = %.lr.ph107, %.lr.ph107.preheader
-  %.lcssa196 = phi i32 [ %102, %.lr.ph107.preheader ], [ %168, %.lr.ph107 ]
-  %.lcssa194 = phi i64 [ %99, %.lr.ph107.preheader ], [ %165, %.lr.ph107 ]
-  %.lcssa191 = phi i32 [ %85, %.lr.ph107.preheader ], [ %163, %.lr.ph107 ]
-  %.lcssa189 = phi float [ %108, %.lr.ph107.preheader ], [ %147, %.lr.ph107 ]
-  %.lcssa187 = phi float [ %109, %.lr.ph107.preheader ], [ %148, %.lr.ph107 ]
-  %.lcssa185 = phi double [ %110, %.lr.ph107.preheader ], [ %149, %.lr.ph107 ]
-  %.lcssa183 = phi double [ %112, %.lr.ph107.preheader ], [ %151, %.lr.ph107 ]
-  %173 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %27, i64 %.lcssa194
+.lr.ph106._crit_edge:                             ; preds = %.lr.ph106, %.lr.ph106.preheader
+  %.lcssa195 = phi i32 [ %102, %.lr.ph106.preheader ], [ %168, %.lr.ph106 ]
+  %.lcssa193 = phi i64 [ %99, %.lr.ph106.preheader ], [ %165, %.lr.ph106 ]
+  %.lcssa190 = phi i32 [ %85, %.lr.ph106.preheader ], [ %163, %.lr.ph106 ]
+  %.lcssa188 = phi float [ %108, %.lr.ph106.preheader ], [ %147, %.lr.ph106 ]
+  %.lcssa186 = phi float [ %109, %.lr.ph106.preheader ], [ %148, %.lr.ph106 ]
+  %.lcssa184 = phi double [ %110, %.lr.ph106.preheader ], [ %149, %.lr.ph106 ]
+  %.lcssa182 = phi double [ %112, %.lr.ph106.preheader ], [ %151, %.lr.ph106 ]
+  %173 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %27, i64 %.lcssa193
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 16
-  %175 = xor i32 %.lcssa196, 2
+  %175 = xor i32 %.lcssa195, 2
   %176 = zext nneg i32 %175 to i64
   %177 = getelementptr inbounds nuw i32, ptr %174, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !9
@@ -3608,11 +3608,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %141
   %182 = load float, ptr %181, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %180, i64 12
   %183 = load float, ptr %.sroa_idx, align 4
-  %184 = fsub float %182, %.lcssa189
-  %185 = fsub float %183, %.lcssa187
-  %186 = fsub double %.lcssa185, %62
+  %184 = fsub float %182, %.lcssa188
+  %185 = fsub float %183, %.lcssa186
+  %186 = fsub double %.lcssa184, %62
   %187 = fpext float %185 to double
-  %188 = fsub double %.lcssa183, %63
+  %188 = fsub double %.lcssa182, %63
   %189 = fpext float %184 to double
   %190 = fneg double %189
   %191 = fmul double %188, %190
@@ -3620,16 +3620,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %141
   %193 = fcmp uge double %192, 0.000000e+00
   br i1 %193, label %197, label %194
 
-194:                                              ; preds = %.lr.ph107._crit_edge
-  %195 = xor i32 %.lcssa191, 2
-  %196 = add nuw nsw i32 %.014117, 1
+194:                                              ; preds = %.lr.ph106._crit_edge
+  %195 = xor i32 %.lcssa190, 2
+  %196 = add nuw nsw i32 %.014116, 1
   %exitcond.not = icmp eq i32 %196, %35
-  br i1 %exitcond.not, label %.thread, label %.preheader84, !llvm.loop !81
+  br i1 %exitcond.not, label %.thread, label %.preheader83, !llvm.loop !81
 
-197:                                              ; preds = %.lr.ph107._crit_edge
-  %198 = add nsw i32 %.lcssa191, 3
+197:                                              ; preds = %.lr.ph106._crit_edge
+  %198 = add nsw i32 %.lcssa190, 3
   %199 = and i32 %198, 3
-  %200 = ashr i32 %.lcssa191, 2
+  %200 = ashr i32 %.lcssa190, 2
   %201 = sext i32 %200 to i64
   %202 = getelementptr inbounds nuw %"struct.cv::Subdiv2D::QuadEdge", ptr %27, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 16

@@ -718,10 +718,10 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
 
 .preheader:                                       ; preds = %7, %47
   %12 = phi ptr [ %50, %47 ], [ @.str.18, %7 ]
-  %.057 = phi ptr [ %48, %47 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 24), %7 ]
+  %.056 = phi ptr [ %48, %47 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 24), %7 ]
   %13 = tail call i32 @strcasecmp(ptr noundef nonnull %1, ptr noundef nonnull %12) #24
   %14 = icmp eq i32 %13, 0
-  %15 = load i32, ptr %.057, align 8, !tbaa !59
+  %15 = load i32, ptr %.056, align 8, !tbaa !59
   %16 = icmp eq i32 %15, 18
   br i1 %16, label %17, label %22
 
@@ -740,12 +740,12 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not46, label %47, label %26
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %.057, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %.056, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !61
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread64, label %31
+  br i1 %29, label %.thread63, label %31
 
-.thread64:                                        ; preds = %26
+.thread63:                                        ; preds = %26
   tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.14, ptr noundef nonnull %12) #20
   store i32 18, ptr %2, align 8, !tbaa !56
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -759,9 +759,9 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   %33 = icmp eq i32 %15, 18
   br i1 %33, label %34, label %.thread
 
-34:                                               ; preds = %.thread64, %31
-  %.266 = phi ptr [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 24), %.thread64 ], [ %.057, %31 ]
-  %35 = getelementptr inbounds nuw i8, ptr %.266, i64 8
+34:                                               ; preds = %.thread63, %31
+  %.265 = phi ptr [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 24), %.thread63 ], [ %.056, %31 ]
+  %35 = getelementptr inbounds nuw i8, ptr %.265, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !62
   %37 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %36) #24
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 %37
@@ -782,14 +782,14 @@ define internal fastcc void @getAdjustMode(ptr noundef %0, ptr noundef %1, ptr n
   br label %.thread
 
 47:                                               ; preds = %22
-  %48 = getelementptr inbounds nuw i8, ptr %.057, i64 24
-  %49 = getelementptr inbounds nuw i8, ptr %.057, i64 32
+  %48 = getelementptr inbounds nuw i8, ptr %.056, i64 24
+  %49 = getelementptr inbounds nuw i8, ptr %.056, i64 32
   %50 = load ptr, ptr %49, align 8, !tbaa !62
   %.not = icmp eq ptr %50, null
   br i1 %.not, label %.thread, label %.preheader
 
 .thread:                                          ; preds = %47, %31, %34
-  %.1 = phi ptr [ %.266, %34 ], [ %.057, %31 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 408), %47 ]
+  %.1 = phi ptr [ %.265, %34 ], [ %.056, %31 ], [ getelementptr inbounds nuw (i8, ptr @adjustMode, i64 408), %47 ]
   %51 = getelementptr inbounds nuw i8, ptr %.1, i64 8
   %52 = load ptr, ptr %51, align 8, !tbaa !62
   %53 = icmp eq ptr %52, null

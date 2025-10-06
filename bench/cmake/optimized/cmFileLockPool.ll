@@ -335,17 +335,17 @@ define dso_local i64 @_ZN14cmFileLockPool17LockFunctionScopeERKNSt7__cxx1112basi
   %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %.not44.i = icmp eq ptr %4, %6
-  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not39.i = icmp eq ptr %4, %6
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.032.045.i, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.031.040.i, i64 24
   %.not.i = icmp eq ptr %8, %6
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %7
-  %.sroa.032.045.i = phi ptr [ %8, %7 ], [ %4, %3 ]
-  %9 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.032.045.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.031.040.i = phi ptr [ %8, %7 ], [ %4, %3 ]
+  %9 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.031.040.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %9, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %7
 
 ._crit_edge.i:                                    ; preds = %7, %3
@@ -353,17 +353,17 @@ define dso_local i64 @_ZN14cmFileLockPool17LockFunctionScopeERKNSt7__cxx1112basi
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !20
-  %.not4246.i = icmp eq ptr %11, %13
-  br i1 %.not4246.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
+  %.not3741.i = icmp eq ptr %11, %13
+  br i1 %.not3741.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph44.i
 
-14:                                               ; preds = %.lr.ph49.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.028.047.i, i64 24
-  %.not42.i = icmp eq ptr %15, %13
-  br i1 %.not42.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
+14:                                               ; preds = %.lr.ph44.i
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.027.042.i, i64 24
+  %.not37.i = icmp eq ptr %15, %13
+  br i1 %.not37.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph44.i
 
-.lr.ph49.i:                                       ; preds = %._crit_edge.i, %14
-  %.sroa.028.047.i = phi ptr [ %15, %14 ], [ %11, %._crit_edge.i ]
-  %16 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.028.047.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+.lr.ph44.i:                                       ; preds = %._crit_edge.i, %14
+  %.sroa.027.042.i = phi ptr [ %15, %14 ], [ %11, %._crit_edge.i ]
+  %16 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.027.042.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %16, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %14
 
 _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %14, %._crit_edge.i
@@ -371,7 +371,7 @@ _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_trai
   %18 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %18, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %20
 
-_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i, %.lr.ph49.i, %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i, %.lr.ph44.i, %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %19 = tail call i64 @_ZN16cmFileLockResult17MakeAlreadyLockedEv()
   br label %29
 
@@ -400,17 +400,17 @@ define dso_local noundef zeroext i1 @_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt
   %3 = load ptr, ptr %0, align 8, !tbaa !20
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !20
-  %.not44 = icmp eq ptr %3, %5
-  br i1 %.not44, label %._crit_edge, label %.lr.ph
+  %.not39 = icmp eq ptr %3, %5
+  br i1 %.not39, label %._crit_edge, label %.lr.ph
 
 6:                                                ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.sroa.032.045, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.sroa.031.040, i64 24
   %.not = icmp eq ptr %7, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %6
-  %.sroa.032.045 = phi ptr [ %7, %6 ], [ %3, %2 ]
-  %8 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.032.045, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.031.040 = phi ptr [ %7, %6 ], [ %3, %2 ]
+  %8 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.031.040, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %8, label %.loopexit, label %6
 
 ._crit_edge:                                      ; preds = %6, %2
@@ -418,26 +418,26 @@ define dso_local noundef zeroext i1 @_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt
   %10 = load ptr, ptr %9, align 8, !tbaa !20
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8, !tbaa !20
-  %.not4246 = icmp eq ptr %10, %12
-  br i1 %.not4246, label %._crit_edge50, label %.lr.ph49
+  %.not3741 = icmp eq ptr %10, %12
+  br i1 %.not3741, label %._crit_edge45, label %.lr.ph44
 
-13:                                               ; preds = %.lr.ph49
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.028.047, i64 24
-  %.not42 = icmp eq ptr %14, %12
-  br i1 %.not42, label %._crit_edge50, label %.lr.ph49
+13:                                               ; preds = %.lr.ph44
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.027.042, i64 24
+  %.not37 = icmp eq ptr %14, %12
+  br i1 %.not37, label %._crit_edge45, label %.lr.ph44
 
-.lr.ph49:                                         ; preds = %._crit_edge, %13
-  %.sroa.028.047 = phi ptr [ %14, %13 ], [ %10, %._crit_edge ]
-  %15 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.028.047, ptr noundef nonnull align 8 dereferenceable(32) %1)
+.lr.ph44:                                         ; preds = %._crit_edge, %13
+  %.sroa.027.042 = phi ptr [ %14, %13 ], [ %10, %._crit_edge ]
+  %15 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.027.042, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %15, label %.loopexit, label %13
 
-._crit_edge50:                                    ; preds = %13, %._crit_edge
+._crit_edge45:                                    ; preds = %13, %._crit_edge
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %17 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph49, %._crit_edge50
-  %.3 = phi i1 [ %17, %._crit_edge50 ], [ true, %.lr.ph49 ], [ true, %.lr.ph ]
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph44, %._crit_edge45
+  %.3 = phi i1 [ %17, %._crit_edge45 ], [ true, %.lr.ph44 ], [ true, %.lr.ph ]
   ret i1 %.3
 }
 
@@ -511,17 +511,17 @@ define dso_local i64 @_ZN14cmFileLockPool13LockFileScopeERKNSt7__cxx1112basic_st
   %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %.not44.i = icmp eq ptr %4, %6
-  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not39.i = icmp eq ptr %4, %6
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.032.045.i, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.031.040.i, i64 24
   %.not.i = icmp eq ptr %8, %6
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %7
-  %.sroa.032.045.i = phi ptr [ %8, %7 ], [ %4, %3 ]
-  %9 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.032.045.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.031.040.i = phi ptr [ %8, %7 ], [ %4, %3 ]
+  %9 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.031.040.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %9, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %7
 
 ._crit_edge.i:                                    ; preds = %7, %3
@@ -529,17 +529,17 @@ define dso_local i64 @_ZN14cmFileLockPool13LockFileScopeERKNSt7__cxx1112basic_st
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !20
-  %.not4246.i = icmp eq ptr %11, %13
-  br i1 %.not4246.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
+  %.not3741.i = icmp eq ptr %11, %13
+  br i1 %.not3741.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph44.i
 
-14:                                               ; preds = %.lr.ph49.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.028.047.i, i64 24
-  %.not42.i = icmp eq ptr %15, %13
-  br i1 %.not42.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
+14:                                               ; preds = %.lr.ph44.i
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.027.042.i, i64 24
+  %.not37.i = icmp eq ptr %15, %13
+  br i1 %.not37.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph44.i
 
-.lr.ph49.i:                                       ; preds = %._crit_edge.i, %14
-  %.sroa.028.047.i = phi ptr [ %15, %14 ], [ %11, %._crit_edge.i ]
-  %16 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.028.047.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+.lr.ph44.i:                                       ; preds = %._crit_edge.i, %14
+  %.sroa.027.042.i = phi ptr [ %15, %14 ], [ %11, %._crit_edge.i ]
+  %16 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.027.042.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %16, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %14
 
 _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %14, %._crit_edge.i
@@ -547,7 +547,7 @@ _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_trai
   %18 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %18, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %20
 
-_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i, %.lr.ph49.i, %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i, %.lr.ph44.i, %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %19 = tail call i64 @_ZN16cmFileLockResult17MakeAlreadyLockedEv()
   br label %24
 
@@ -567,17 +567,17 @@ define dso_local i64 @_ZN14cmFileLockPool16LockProcessScopeERKNSt7__cxx1112basic
   %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %.not44.i = icmp eq ptr %4, %6
-  br i1 %.not44.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not39.i = icmp eq ptr %4, %6
+  br i1 %.not39.i, label %._crit_edge.i, label %.lr.ph.i
 
 7:                                                ; preds = %.lr.ph.i
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.032.045.i, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.031.040.i, i64 24
   %.not.i = icmp eq ptr %8, %6
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %3, %7
-  %.sroa.032.045.i = phi ptr [ %8, %7 ], [ %4, %3 ]
-  %9 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.032.045.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.031.040.i = phi ptr [ %8, %7 ], [ %4, %3 ]
+  %9 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.031.040.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %9, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %7
 
 ._crit_edge.i:                                    ; preds = %7, %3
@@ -585,17 +585,17 @@ define dso_local i64 @_ZN14cmFileLockPool16LockProcessScopeERKNSt7__cxx1112basic
   %11 = load ptr, ptr %10, align 8, !tbaa !20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !20
-  %.not4246.i = icmp eq ptr %11, %13
-  br i1 %.not4246.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
+  %.not3741.i = icmp eq ptr %11, %13
+  br i1 %.not3741.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph44.i
 
-14:                                               ; preds = %.lr.ph49.i
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.028.047.i, i64 24
-  %.not42.i = icmp eq ptr %15, %13
-  br i1 %.not42.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph49.i
+14:                                               ; preds = %.lr.ph44.i
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.027.042.i, i64 24
+  %.not37.i = icmp eq ptr %15, %13
+  br i1 %.not37.i, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.lr.ph44.i
 
-.lr.ph49.i:                                       ; preds = %._crit_edge.i, %14
-  %.sroa.028.047.i = phi ptr [ %15, %14 ], [ %11, %._crit_edge.i ]
-  %16 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.028.047.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+.lr.ph44.i:                                       ; preds = %._crit_edge.i, %14
+  %.sroa.027.042.i = phi ptr [ %15, %14 ], [ %11, %._crit_edge.i ]
+  %16 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.027.042.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %16, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %14
 
 _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %14, %._crit_edge.i
@@ -603,7 +603,7 @@ _ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_trai
   %18 = tail call noundef zeroext i1 @_ZNK14cmFileLockPool9ScopePool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(24) %17, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %18, label %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread, label %20
 
-_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i, %.lr.ph49.i, %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
+_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.thread: ; preds = %.lr.ph.i, %.lr.ph44.i, %_ZNK14cmFileLockPool15IsAlreadyLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
   %19 = tail call i64 @_ZN16cmFileLockResult17MakeAlreadyLockedEv()
   br label %22
 
@@ -622,34 +622,34 @@ define dso_local i64 @_ZN14cmFileLockPool7ReleaseERKNSt7__cxx1112basic_stringIcS
   %4 = load ptr, ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !20
-  %.not49 = icmp eq ptr %4, %6
-  br i1 %.not49, label %._crit_edge, label %.lr.ph
+  %.not44 = icmp eq ptr %4, %6
+  br i1 %.not44, label %._crit_edge, label %.lr.ph
 
 7:                                                ; preds = %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.034.050, i64 24
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.033.045, i64 24
   %.not = icmp eq ptr %8, %6
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %7
-  %.sroa.034.050 = phi ptr [ %8, %7 ], [ %4, %2 ]
-  %9 = load ptr, ptr %.sroa.034.050, align 8, !tbaa !21
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.034.050, i64 8
+  %.sroa.033.045 = phi ptr [ %8, %7 ], [ %4, %2 ]
+  %9 = load ptr, ptr %.sroa.033.045, align 8, !tbaa !21
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.033.045, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !21
-  %.not17.i = icmp eq ptr %9, %11
-  br i1 %.not17.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not15.i = icmp eq ptr %9, %11
+  br i1 %.not15.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph, %13
-  %.sroa.07.018.i = phi ptr [ %14, %13 ], [ %9, %.lr.ph ]
-  %12 = call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.07.016.i = phi ptr [ %14, %13 ], [ %9, %.lr.ph ]
+  %12 = call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.016.i, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %12, label %15, label %13
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.i, i64 40
+  %14 = getelementptr inbounds nuw i8, ptr %.sroa.07.016.i, i64 40
   %.not.i = icmp eq ptr %14, %11
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i
 
 15:                                               ; preds = %.lr.ph.i
-  %16 = call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018.i)
+  %16 = call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.016.i)
   br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
 ._crit_edge.i:                                    ; preds = %13, %.lr.ph
@@ -667,78 +667,78 @@ _ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_trai
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !tbaa !20
-  %.not4451 = icmp eq ptr %20, %22
-  br i1 %.not4451, label %._crit_edge55, label %.lr.ph54
+  %.not3946 = icmp eq ptr %20, %22
+  br i1 %.not3946, label %._crit_edge50, label %.lr.ph49
 
-23:                                               ; preds = %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.030.052, i64 24
-  %.not44 = icmp eq ptr %24, %22
-  br i1 %.not44, label %._crit_edge55, label %.lr.ph54
+23:                                               ; preds = %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.029.047, i64 24
+  %.not39 = icmp eq ptr %24, %22
+  br i1 %.not39, label %._crit_edge50, label %.lr.ph49
 
-.lr.ph54:                                         ; preds = %._crit_edge, %23
-  %.sroa.030.052 = phi ptr [ %24, %23 ], [ %20, %._crit_edge ]
-  %25 = load ptr, ptr %.sroa.030.052, align 8, !tbaa !21
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.030.052, i64 8
+.lr.ph49:                                         ; preds = %._crit_edge, %23
+  %.sroa.029.047 = phi ptr [ %24, %23 ], [ %20, %._crit_edge ]
+  %25 = load ptr, ptr %.sroa.029.047, align 8, !tbaa !21
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.029.047, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !21
-  %.not17.i16 = icmp eq ptr %25, %27
-  br i1 %.not17.i16, label %._crit_edge.i20, label %.lr.ph.i17
+  %.not15.i15 = icmp eq ptr %25, %27
+  br i1 %.not15.i15, label %._crit_edge.i19, label %.lr.ph.i16
 
-.lr.ph.i17:                                       ; preds = %.lr.ph54, %29
-  %.sroa.07.018.i18 = phi ptr [ %30, %29 ], [ %25, %.lr.ph54 ]
-  %28 = call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018.i18, ptr noundef nonnull align 8 dereferenceable(32) %1)
+.lr.ph.i16:                                       ; preds = %.lr.ph49, %29
+  %.sroa.07.016.i17 = phi ptr [ %30, %29 ], [ %25, %.lr.ph49 ]
+  %28 = call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.016.i17, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %28, label %31, label %29
 
-29:                                               ; preds = %.lr.ph.i17
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.i18, i64 40
-  %.not.i19 = icmp eq ptr %30, %27
-  br i1 %.not.i19, label %._crit_edge.i20, label %.lr.ph.i17
+29:                                               ; preds = %.lr.ph.i16
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.07.016.i17, i64 40
+  %.not.i18 = icmp eq ptr %30, %27
+  br i1 %.not.i18, label %._crit_edge.i19, label %.lr.ph.i16
 
-31:                                               ; preds = %.lr.ph.i17
-  %32 = call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018.i18)
-  br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
+31:                                               ; preds = %.lr.ph.i16
+  %32 = call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.016.i17)
+  br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21
 
-._crit_edge.i20:                                  ; preds = %29, %.lr.ph54
+._crit_edge.i19:                                  ; preds = %29, %.lr.ph49
   %33 = call i64 @_ZN16cmFileLockResult6MakeOkEv()
-  br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22
+  br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21
 
-_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22: ; preds = %31, %._crit_edge.i20
-  %.sroa.0.3.i21 = phi i64 [ %33, %._crit_edge.i20 ], [ %32, %31 ]
-  store i64 %.sroa.0.3.i21, ptr %3, align 8
+_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21: ; preds = %31, %._crit_edge.i19
+  %.sroa.0.3.i20 = phi i64 [ %33, %._crit_edge.i19 ], [ %32, %31 ]
+  store i64 %.sroa.0.3.i20, ptr %3, align 8
   %34 = call noundef zeroext i1 @_ZNK16cmFileLockResult4IsOkEv(ptr noundef nonnull align 4 dereferenceable(8) %3)
   br i1 %34, label %23, label %.loopexit
 
-._crit_edge55:                                    ; preds = %23, %._crit_edge
+._crit_edge50:                                    ; preds = %23, %._crit_edge
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !21
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %38 = load ptr, ptr %37, align 8, !tbaa !21
-  %.not17.i23 = icmp eq ptr %36, %38
-  br i1 %.not17.i23, label %._crit_edge.i27, label %.lr.ph.i24
+  %.not15.i22 = icmp eq ptr %36, %38
+  br i1 %.not15.i22, label %._crit_edge.i26, label %.lr.ph.i23
 
-.lr.ph.i24:                                       ; preds = %._crit_edge55, %40
-  %.sroa.07.018.i25 = phi ptr [ %41, %40 ], [ %36, %._crit_edge55 ]
-  %39 = call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018.i25, ptr noundef nonnull align 8 dereferenceable(32) %1)
+.lr.ph.i23:                                       ; preds = %._crit_edge50, %40
+  %.sroa.07.016.i24 = phi ptr [ %41, %40 ], [ %36, %._crit_edge50 ]
+  %39 = call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.016.i24, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %39, label %42, label %40
 
-40:                                               ; preds = %.lr.ph.i24
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.07.018.i25, i64 40
-  %.not.i26 = icmp eq ptr %41, %38
-  br i1 %.not.i26, label %._crit_edge.i27, label %.lr.ph.i24
+40:                                               ; preds = %.lr.ph.i23
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.07.016.i24, i64 40
+  %.not.i25 = icmp eq ptr %41, %38
+  br i1 %.not.i25, label %._crit_edge.i26, label %.lr.ph.i23
 
-42:                                               ; preds = %.lr.ph.i24
-  %43 = call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018.i25)
-  br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit29
+42:                                               ; preds = %.lr.ph.i23
+  %43 = call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.016.i24)
+  br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit28
 
-._crit_edge.i27:                                  ; preds = %40, %._crit_edge55
+._crit_edge.i26:                                  ; preds = %40, %._crit_edge50
   %44 = call i64 @_ZN16cmFileLockResult6MakeOkEv()
-  br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit29
+  br label %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit28
 
-_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit29: ; preds = %42, %._crit_edge.i27
-  %.sroa.0.3.i28 = phi i64 [ %44, %._crit_edge.i27 ], [ %43, %42 ]
-  store i64 %.sroa.0.3.i28, ptr %3, align 8
+_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit28: ; preds = %42, %._crit_edge.i26
+  %.sroa.0.3.i27 = phi i64 [ %44, %._crit_edge.i26 ], [ %43, %42 ]
+  store i64 %.sroa.0.3.i27, ptr %3, align 8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit22, %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit29
+.loopexit:                                        ; preds = %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit21, %_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit28
   %45 = load i64, ptr %3, align 8
   ret i64 %45
 }
@@ -748,21 +748,21 @@ define dso_local i64 @_ZN14cmFileLockPool9ScopePool7ReleaseERKNSt7__cxx1112basic
   %3 = load ptr, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !21
-  %.not17 = icmp eq ptr %3, %5
-  br i1 %.not17, label %._crit_edge, label %.lr.ph
+  %.not15 = icmp eq ptr %3, %5
+  br i1 %.not15, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %7
-  %.sroa.07.018 = phi ptr [ %8, %7 ], [ %3, %2 ]
-  %6 = tail call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018, ptr noundef nonnull align 8 dereferenceable(32) %1)
+  %.sroa.07.016 = phi ptr [ %8, %7 ], [ %3, %2 ]
+  %6 = tail call noundef zeroext i1 @_ZNK10cmFileLock8IsLockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.016, ptr noundef nonnull align 8 dereferenceable(32) %1)
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.07.018, i64 40
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.07.016, i64 40
   %.not = icmp eq ptr %8, %5
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
-  %10 = tail call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.018)
+  %10 = tail call i64 @_ZN10cmFileLock7ReleaseEv(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.07.016)
   br label %12
 
 ._crit_edge:                                      ; preds = %7, %2

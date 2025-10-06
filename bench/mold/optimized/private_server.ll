@@ -582,7 +582,7 @@ define void @_ZN3tbb6detail2r13rml14private_server9wake_someEi(ptr noundef nonnu
   %4 = alloca %"class.tbb::detail::d1::unique_scoped_lock", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %.not = icmp eq i32 %1, 0
-  %.1.idx53.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %.1.idx52.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 8
   br i1 %.not, label %8, label %5
 
 5:                                                ; preds = %2
@@ -596,15 +596,15 @@ define void @_ZN3tbb6detail2r13rml14private_server9wake_someEi(ptr noundef nonnu
 
 10:                                               ; preds = %8, %19
   %11 = phi i1 [ true, %8 ], [ false, %19 ]
-  %.02750 = phi i32 [ 0, %8 ], [ 1, %19 ]
+  %.02749 = phi i32 [ 0, %8 ], [ 1, %19 ]
   %12 = load atomic i32, ptr %9 monotonic, align 8
   %13 = icmp slt i32 %12, 1
   br i1 %13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %10, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit
-  %.03647 = phi i32 [ %17, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit ], [ %12, %10 ]
-  %14 = add nsw i32 %.03647, -1
-  %15 = cmpxchg ptr %9, i32 %.03647, i32 %14 seq_cst seq_cst, align 4
+  %.03646 = phi i32 [ %17, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit ], [ %12, %10 ]
+  %14 = add nsw i32 %.03646, -1
+  %15 = cmpxchg ptr %9, i32 %.03646, i32 %14 seq_cst seq_cst, align 4
   %16 = extractvalue { i32, i1 } %15, 1
   br i1 %16, label %19, label %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit
 
@@ -614,61 +614,61 @@ _ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit: ; 
   br i1 %18, label %._crit_edge, label %.lr.ph, !llvm.loop !52
 
 19:                                               ; preds = %.lr.ph
-  br i1 %11, label %10, label %.thread42
+  br i1 %11, label %10, label %.thread41
 
 ._crit_edge:                                      ; preds = %10, %_ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit
-  br i1 %11, label %._crit_edge63, label %.thread42
+  br i1 %11, label %._crit_edge62, label %.thread41
 
-.thread42:                                        ; preds = %19, %._crit_edge
-  %.22945 = phi i32 [ %.02750, %._crit_edge ], [ 2, %19 ]
+.thread41:                                        ; preds = %19, %._crit_edge
+  %.22944 = phi i32 [ %.02749, %._crit_edge ], [ 2, %19 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr null, ptr %4, align 8, !tbaa !53
   call void @_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7acquireERS3_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %20)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %22 = load atomic i64, ptr %21 monotonic, align 8
-  %.not64 = icmp eq i64 %22, 0
-  br i1 %.not64, label %.critedge.thread, label %.lr.ph55.preheader
+  %.not63 = icmp eq i64 %22, 0
+  br i1 %.not63, label %.critedge.thread, label %.lr.ph54.preheader
 
-.critedge.thread:                                 ; preds = %.thread42
+.critedge.thread:                                 ; preds = %.thread41
   store atomic i64 %22, ptr %21 monotonic, align 8
   br label %31
 
-.lr.ph55.preheader:                               ; preds = %.thread42
+.lr.ph54.preheader:                               ; preds = %.thread41
   %.0.i.i = inttoptr i64 %22 to ptr
-  br label %.lr.ph55
+  br label %.lr.ph54
 
-.lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55
-  %23 = phi i1 [ false, %.lr.ph55 ], [ true, %.lr.ph55.preheader ]
-  %.1.idx53.sroa.phi = phi ptr [ %.1.idx53.sroa.gep, %.lr.ph55 ], [ %3, %.lr.ph55.preheader ]
-  %.1.idx53 = phi i64 [ 8, %.lr.ph55 ], [ 0, %.lr.ph55.preheader ]
-  %.02552 = phi ptr [ %26, %.lr.ph55 ], [ %.0.i.i, %.lr.ph55.preheader ]
-  %.351 = phi i32 [ %24, %.lr.ph55 ], [ %.22945, %.lr.ph55.preheader ]
-  %24 = add nsw i32 %.351, -1
-  store ptr %.02552, ptr %.1.idx53.sroa.phi, align 8, !tbaa !56
-  %25 = getelementptr inbounds nuw i8, ptr %.02552, i64 48
+.lr.ph54:                                         ; preds = %.lr.ph54.preheader, %.lr.ph54
+  %23 = phi i1 [ false, %.lr.ph54 ], [ true, %.lr.ph54.preheader ]
+  %.1.idx52.sroa.phi = phi ptr [ %.1.idx52.sroa.gep, %.lr.ph54 ], [ %3, %.lr.ph54.preheader ]
+  %.1.idx52 = phi i64 [ 8, %.lr.ph54 ], [ 0, %.lr.ph54.preheader ]
+  %.02551 = phi ptr [ %26, %.lr.ph54 ], [ %.0.i.i, %.lr.ph54.preheader ]
+  %.350 = phi i32 [ %24, %.lr.ph54 ], [ %.22944, %.lr.ph54.preheader ]
+  %24 = add nsw i32 %.350, -1
+  store ptr %.02551, ptr %.1.idx52.sroa.phi, align 8, !tbaa !56
+  %25 = getelementptr inbounds nuw i8, ptr %.02551, i64 48
   %26 = load ptr, ptr %25, align 8, !tbaa !27
   %27 = icmp ne ptr %26, null
   %or.cond = and i1 %27, %23
   %28 = icmp ne i32 %24, 0
   %or.cond5 = select i1 %or.cond, i1 %28, i1 false
-  br i1 %or.cond5, label %.lr.ph55, label %.critedge, !llvm.loop !57
+  br i1 %or.cond5, label %.lr.ph54, label %.critedge, !llvm.loop !57
 
-.critedge:                                        ; preds = %.lr.ph55
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.idx53
+.critedge:                                        ; preds = %.lr.ph54
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 %.1.idx52
   %.1.ptr = getelementptr inbounds nuw i8, ptr %29, i64 8
   %30 = ptrtoint ptr %26 to i64
   store atomic i64 %30, ptr %21 monotonic, align 8
   br i1 %28, label %31, label %33
 
 31:                                               ; preds = %.critedge.thread, %.critedge
-  %.1.ptr.lcssa84 = phi ptr [ %3, %.critedge.thread ], [ %.1.ptr, %.critedge ]
-  %.3.lcssa82 = phi i32 [ %.22945, %.critedge.thread ], [ %24, %.critedge ]
-  %32 = atomicrmw add ptr %9, i32 %.3.lcssa82 seq_cst, align 4
+  %.1.ptr.lcssa83 = phi ptr [ %3, %.critedge.thread ], [ %.1.ptr, %.critedge ]
+  %.3.lcssa81 = phi i32 [ %.22944, %.critedge.thread ], [ %24, %.critedge ]
+  %32 = atomicrmw add ptr %9, i32 %.3.lcssa81 seq_cst, align 4
   br label %33
 
 33:                                               ; preds = %31, %.critedge
-  %.1.ptr.lcssa83 = phi ptr [ %.1.ptr.lcssa84, %31 ], [ %.1.ptr, %.critedge ]
+  %.1.ptr.lcssa82 = phi ptr [ %.1.ptr.lcssa83, %31 ], [ %.1.ptr, %.critedge ]
   %34 = load ptr, ptr %4, align 8, !tbaa !53
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i, label %35
@@ -687,20 +687,20 @@ _ZNSt13__atomic_baseIiE23compare_exchange_strongERiiSt12memory_orderS2_.exit: ; 
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i: ; preds = %35, %33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %40 = icmp ugt ptr %.1.ptr.lcssa83, %3
-  br i1 %40, label %.lr.ph62, label %._crit_edge63
+  %40 = icmp ugt ptr %.1.ptr.lcssa82, %3
+  br i1 %40, label %.lr.ph61, label %._crit_edge62
 
-.lr.ph62:                                         ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i, %.lr.ph62
-  %.260 = phi ptr [ %41, %.lr.ph62 ], [ %.1.ptr.lcssa83, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i ]
-  %41 = getelementptr inbounds i8, ptr %.260, i64 -8
+.lr.ph61:                                         ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i, %.lr.ph61
+  %.259 = phi ptr [ %41, %.lr.ph61 ], [ %.1.ptr.lcssa82, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i ]
+  %41 = getelementptr inbounds i8, ptr %.259, i64 -8
   %42 = load ptr, ptr %41, align 8, !tbaa !56
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
   store ptr null, ptr %43, align 8, !tbaa !27
   call void @_ZN3tbb6detail2r13rml14private_worker14wake_or_launchEv(ptr noundef nonnull align 8 dereferenceable(56) %42)
   %44 = icmp ugt ptr %41, %3
-  br i1 %44, label %.lr.ph62, label %._crit_edge63, !llvm.loop !58
+  br i1 %44, label %.lr.ph61, label %._crit_edge62, !llvm.loop !58
 
-._crit_edge63:                                    ; preds = %.lr.ph62, %._crit_edge, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i
+._crit_edge62:                                    ; preds = %.lr.ph61, %._crit_edge, %_ZN3tbb6detail2d118unique_scoped_lockINS1_5mutexEE7releaseEv.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

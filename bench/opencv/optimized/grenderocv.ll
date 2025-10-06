@@ -3502,17 +3502,17 @@ define linkonce_odr hidden void @_ZN2cv4gapi13getCompileArgINS0_3wip4draw13freet
   %5 = load ptr, ptr %1, align 8, !tbaa !151
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !151
-  %.not13 = icmp eq ptr %5, %7
-  br i1 %.not13, label %._crit_edge, label %.lr.ph
+  %.not11 = icmp eq ptr %5, %7
+  br i1 %.not11, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %.critedge
-  %.sroa.06.014 = phi ptr [ %34, %.critedge ], [ %5, %2 ]
-  %8 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.014, ptr noundef nonnull @.str.8) #24
+  %.sroa.06.012 = phi ptr [ %34, %.critedge ], [ %5, %2 ]
+  %8 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.06.012, ptr noundef nonnull @.str.8) #24
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %.critedge
 
 10:                                               ; preds = %.lr.ph
-  %11 = getelementptr inbounds nuw i8, ptr %.sroa.06.014, i64 64
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !40
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN2cv4util8any_castINS_4gapi3wip4draw13freetype_fontEEEPKT_PKNS0_3anyE.exit.thread.i.i, label %_ZN2cv4util8any_castINS_4gapi3wip4draw13freetype_fontEEEPKT_PKNS0_3anyE.exit.i.i
@@ -3586,7 +3586,7 @@ _ZNK2cv11GCompileArg3getINS_4gapi3wip4draw13freetype_fontEEERKT_v.exit: ; preds 
   unreachable
 
 .critedge:                                        ; preds = %.lr.ph
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.014, i64 72
+  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.012, i64 72
   %.not = icmp eq ptr %34, %7
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

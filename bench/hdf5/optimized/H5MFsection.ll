@@ -771,84 +771,83 @@ define internal range(i32 -1, 1) i32 @H5MF__sect_large_shrink(ptr noundef captur
   %6 = trunc nuw i8 %5 to i1
   %7 = xor i1 %6, true
   %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %53, !prof !9
+  br i1 %8, label %9, label %52, !prof !9
 
 9:                                                ; preds = %2
   %10 = load ptr, ptr %0, align 8, !tbaa !22
   %11 = load i64, ptr %10, align 8, !tbaa !15
-  switch i64 %11, label %12 [
-    i64 -1, label %23
-    i64 0, label %23
-  ]
+  %.off = add i64 %11, -1
+  %switch = icmp ult i64 %.off, -2
+  %.pre = load ptr, ptr %1, align 8, !tbaa !24
+  br i1 %switch, label %12, label %22
 
 12:                                               ; preds = %9
-  %13 = load ptr, ptr %1, align 8, !tbaa !24
-  %14 = tail call i64 @H5F_get_base_addr(ptr noundef %13) #4
-  %15 = add i64 %14, %11
-  %16 = load ptr, ptr %1, align 8, !tbaa !24
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %18 = load ptr, ptr %17, align 8, !tbaa !31
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1976
-  %20 = load i64, ptr %19, align 8, !tbaa !43
-  %21 = urem i64 %15, %20
-  %.not26 = icmp eq i64 %21, 0
-  %22 = sub i64 %20, %21
-  %spec.select = select i1 %.not26, i64 0, i64 %22
-  %.pre = load ptr, ptr %0, align 8, !tbaa !22
-  %.pre28 = load i64, ptr %.pre, align 8, !tbaa !15
-  br label %23
+  %13 = tail call i64 @H5F_get_base_addr(ptr noundef %.pre) #4
+  %14 = add i64 %13, %11
+  %15 = load ptr, ptr %1, align 8, !tbaa !24
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %17 = load ptr, ptr %16, align 8, !tbaa !31
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 1976
+  %19 = load i64, ptr %18, align 8, !tbaa !43
+  %20 = urem i64 %14, %19
+  %.not26 = icmp eq i64 %20, 0
+  %21 = sub i64 %19, %20
+  %spec.select = select i1 %.not26, i64 0, i64 %21
+  %.pre28 = load ptr, ptr %0, align 8, !tbaa !22
+  %.pre29 = load i64, ptr %.pre28, align 8, !tbaa !15
+  br label %22
 
-23:                                               ; preds = %12, %9, %9
-  %24 = phi i64 [ %11, %9 ], [ %11, %9 ], [ %.pre28, %12 ]
-  %25 = phi ptr [ %10, %9 ], [ %10, %9 ], [ %.pre, %12 ]
-  %.0 = phi i64 [ 0, %9 ], [ 0, %9 ], [ %spec.select, %12 ]
-  %26 = load ptr, ptr %1, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %28 = load i32, ptr %27, align 8, !tbaa !28
-  %29 = add i64 %24, %.0
-  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %31 = load i64, ptr %30, align 8, !tbaa !18
-  %32 = sub i64 %31, %.0
-  %33 = tail call i32 @H5F__free(ptr noundef %26, i32 noundef %28, i64 noundef %29, i64 noundef %32) #4
-  %34 = icmp slt i32 %33, 0
-  br i1 %34, label %35, label %39
+22:                                               ; preds = %12, %9
+  %23 = phi i64 [ %11, %9 ], [ %.pre29, %12 ]
+  %24 = phi ptr [ %10, %9 ], [ %.pre28, %12 ]
+  %25 = phi ptr [ %.pre, %9 ], [ %15, %12 ]
+  %.0 = phi i64 [ 0, %9 ], [ %spec.select, %12 ]
+  %26 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %27 = load i32, ptr %26, align 8, !tbaa !28
+  %28 = add i64 %23, %.0
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %30 = load i64, ptr %29, align 8, !tbaa !18
+  %31 = sub i64 %30, %.0
+  %32 = tail call i32 @H5F__free(ptr noundef %25, i32 noundef %27, i64 noundef %28, i64 noundef %31) #4
+  %33 = icmp slt i32 %32, 0
+  br i1 %33, label %34, label %38
 
-35:                                               ; preds = %23
-  %36 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !21
-  %37 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !21
-  %38 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__sect_large_shrink, i32 noundef 909, i64 noundef %36, i64 noundef %37, ptr noundef nonnull @.str.8) #4
-  br label %53
+34:                                               ; preds = %22
+  %35 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !21
+  %36 = load i64, ptr @H5E_CANTFREE_g, align 8, !tbaa !21
+  %37 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5MF__sect_large_shrink, i32 noundef 909, i64 noundef %35, i64 noundef %36, ptr noundef nonnull @.str.8) #4
+  br label %52
 
-39:                                               ; preds = %23
+38:                                               ; preds = %22
   %.not27 = icmp eq i64 %.0, 0
-  br i1 %.not27, label %43, label %40
+  br i1 %.not27, label %42, label %39
 
-40:                                               ; preds = %39
-  %41 = load ptr, ptr %0, align 8, !tbaa !22
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  store i64 %.0, ptr %42, align 8, !tbaa !18
-  br label %53
+39:                                               ; preds = %38
+  %40 = load ptr, ptr %0, align 8, !tbaa !22
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
+  store i64 %.0, ptr %41, align 8, !tbaa !18
+  br label %52
 
-43:                                               ; preds = %39
-  %44 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
-  %45 = trunc nuw i8 %44 to i1
-  %46 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %47 = trunc nuw i8 %46 to i1
-  %48 = xor i1 %47, true
-  %49 = select i1 %45, i1 true, i1 %48
-  br i1 %49, label %50, label %H5MF__sect_free.exit, !prof !9
+42:                                               ; preds = %38
+  %43 = load i8, ptr @H5MF_init_g, align 1, !tbaa !3, !range !7, !noundef !8
+  %44 = trunc nuw i8 %43 to i1
+  %45 = load i8, ptr @H5_libterm_g, align 1, !range !7
+  %46 = trunc nuw i8 %45 to i1
+  %47 = xor i1 %46, true
+  %48 = select i1 %44, i1 true, i1 %47
+  br i1 %48, label %49, label %H5MF__sect_free.exit, !prof !9
 
-50:                                               ; preds = %43
-  %51 = load ptr, ptr %0, align 8, !tbaa !22
-  %52 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5MF_free_section_t_reg_free_list, ptr noundef %51) #4
+49:                                               ; preds = %42
+  %50 = load ptr, ptr %0, align 8, !tbaa !22
+  %51 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5MF_free_section_t_reg_free_list, ptr noundef %50) #4
   br label %H5MF__sect_free.exit
 
-H5MF__sect_free.exit:                             ; preds = %43, %50
+H5MF__sect_free.exit:                             ; preds = %42, %49
   store ptr null, ptr %0, align 8, !tbaa !22
-  br label %53
+  br label %52
 
-53:                                               ; preds = %35, %H5MF__sect_free.exit, %40, %2
-  %.022 = phi i32 [ -1, %35 ], [ 0, %40 ], [ 0, %H5MF__sect_free.exit ], [ 0, %2 ]
+52:                                               ; preds = %34, %H5MF__sect_free.exit, %39, %2
+  %.022 = phi i32 [ -1, %34 ], [ 0, %39 ], [ 0, %H5MF__sect_free.exit ], [ 0, %2 ]
   ret i32 %.022
 }
 

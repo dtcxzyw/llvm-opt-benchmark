@@ -2738,8 +2738,8 @@ _ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16
 .lr.ph:                                           ; preds = %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16, %select.unfold
   %.pn.in = phi ptr [ %.pn, %select.unfold ], [ %21, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16 ]
   %.pn = load ptr, ptr %.pn.in, align 8
-  %.01125 = getelementptr inbounds i8, ptr %.pn, i64 -24
-  %27 = load i8, ptr %.01125, align 8, !tbaa !257
+  %.01126 = getelementptr inbounds i8, ptr %.pn, i64 -24
+  %27 = load i8, ptr %.01126, align 8, !tbaa !257
   %28 = icmp eq i8 %27, 85
   br i1 %28, label %29, label %select.unfold
 
@@ -2773,7 +2773,7 @@ _ZN4llvm14CastIsPossibleINS_17InstrProfCallsiteEPNS_11InstructionEvE10isPossible
   %43 = getelementptr inbounds nuw i8, ptr %31, i64 36
   %44 = load i32, ptr %43, align 4, !tbaa !286
   %45 = icmp eq i32 %44, 196
-  br i1 %45, label %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread.loopexit.split.loop.exit29, label %select.unfold
+  br i1 %45, label %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread.loopexit.split.loop.exit, label %select.unfold
 
 select.unfold:                                    ; preds = %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, %.lr.ph, %32, %29, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZN4llvm14CastIsPossibleINS_17InstrProfCallsiteEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i
   %46 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
@@ -2783,12 +2783,12 @@ select.unfold:                                    ; preds = %_ZN4llvm3isaINS_13I
   %50 = icmp eq ptr %.pn, %49
   br i1 %50, label %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread, label %.lr.ph
 
-_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread.loopexit.split.loop.exit29: ; preds = %_ZN4llvm14CastIsPossibleINS_17InstrProfCallsiteEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i
-  %.01125.le = getelementptr inbounds i8, ptr %.pn, i64 -24
+_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread.loopexit.split.loop.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_17InstrProfCallsiteEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i
+  %.01126.le = getelementptr inbounds i8, ptr %.pn, i64 -24
   br label %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread
 
-_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread: ; preds = %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread.loopexit.split.loop.exit29, %select.unfold, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %8, %10, %1, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit
-  %.0 = phi ptr [ null, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit ], [ null, %1 ], [ null, %10 ], [ null, %8 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ null, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16 ], [ %.01125.le, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread.loopexit.split.loop.exit29 ], [ null, %select.unfold ]
+_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread: ; preds = %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread.loopexit.split.loop.exit, %select.unfold, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i, %8, %10, %1, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit
+  %.0 = phi ptr [ null, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit ], [ null, %1 ], [ null, %10 ], [ null, %8 ], [ null, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i ], [ null, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16 ], [ %.01126.le, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread.loopexit.split.loop.exit ], [ null, %select.unfold ]
   ret ptr %.0
 }
 
@@ -2796,19 +2796,19 @@ _ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread: 
 define dso_local noundef ptr @_ZN4llvm15CtxProfAnalysis20getBBInstrumentationERNS_10BasicBlockE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.sroa.024.045 = load ptr, ptr %2, align 8, !tbaa !254
-  %.not46 = icmp eq ptr %.sroa.024.045, %3
-  br i1 %.not46, label %.thread, label %.lr.ph
+  %.sroa.024.048 = load ptr, ptr %2, align 8, !tbaa !254
+  %.not49 = icmp eq ptr %.sroa.024.048, %3
+  br i1 %.not49, label %_ZN4llvm3isaINS_26InstrProfIncrementInstStepEPNS_11InstructionEEEbRKT0_.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread
-  %.sroa.024.047 = phi ptr [ %.sroa.024.0, %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread ], [ %.sroa.024.045, %1 ]
-  %4 = getelementptr inbounds i8, ptr %.sroa.024.047, i64 -24
+  %.sroa.024.050 = phi ptr [ %.sroa.024.0, %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread ], [ %.sroa.024.048, %1 ]
+  %4 = getelementptr inbounds i8, ptr %.sroa.024.050, i64 -24
   %5 = load i8, ptr %4, align 8, !tbaa !257
   %6 = icmp eq i8 %5, 85
   br i1 %6, label %7, label %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds i8, ptr %.sroa.024.047, i64 -56
+  %8 = getelementptr inbounds i8, ptr %.sroa.024.050, i64 -56
   %9 = load ptr, ptr %8, align 8, !tbaa !261
   %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %9, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, label %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread, label %10
@@ -2821,7 +2821,7 @@ define dso_local noundef ptr @_ZN4llvm15CtxProfAnalysis20getBBInstrumentationERN
 _ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !265
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.024.047, i64 56
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.024.050, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !270
   %17 = icmp eq ptr %14, %16
   br i1 %17, label %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i, label %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread
@@ -2837,21 +2837,21 @@ _ZN4llvm14CastIsPossibleINS_22InstrProfIncrementInstEPNS_11InstructionEvE10isPos
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %22 = load i32, ptr %21, align 4, !tbaa !286
   %or.cond.not = icmp eq i32 %22, 198
-  br i1 %or.cond.not, label %.thread.loopexit.split.loop.exit, label %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread
+  br i1 %or.cond.not, label %_ZN4llvm3isaINS_26InstrProfIncrementInstStepEPNS_11InstructionEEEbRKT0_.exit.thread.loopexit.split.loop.exit, label %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread
 
 _ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread: ; preds = %_ZN4llvm14CastIsPossibleINS_22InstrProfIncrementInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i, %_ZN4llvm16dyn_cast_or_nullINS_8FunctionENS_5ValueEEEDaPT0_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %7, %10, %.lr.ph, %_ZN4llvm3isaINS_13IntrinsicInstEPKNS_5ValueEEEbRKT0_.exit.i.i.i.i.i.i.i.i
-  %23 = getelementptr inbounds nuw i8, ptr %.sroa.024.047, i64 8
+  %23 = getelementptr inbounds nuw i8, ptr %.sroa.024.050, i64 8
   %.sroa.024.0 = load ptr, ptr %23, align 8, !tbaa !254
   %.not = icmp eq ptr %.sroa.024.0, %3
-  br i1 %.not, label %.thread, label %.lr.ph
+  br i1 %.not, label %_ZN4llvm3isaINS_26InstrProfIncrementInstStepEPNS_11InstructionEEEbRKT0_.exit.thread, label %.lr.ph
 
-.thread.loopexit.split.loop.exit:                 ; preds = %_ZN4llvm14CastIsPossibleINS_22InstrProfIncrementInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i
-  %24 = getelementptr inbounds i8, ptr %.sroa.024.047, i64 -24
-  br label %.thread
+_ZN4llvm3isaINS_26InstrProfIncrementInstStepEPNS_11InstructionEEEbRKT0_.exit.thread.loopexit.split.loop.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_22InstrProfIncrementInstEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i
+  %24 = getelementptr inbounds i8, ptr %.sroa.024.050, i64 -24
+  br label %_ZN4llvm3isaINS_26InstrProfIncrementInstStepEPNS_11InstructionEEEbRKT0_.exit.thread
 
-.thread:                                          ; preds = %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread, %.thread.loopexit.split.loop.exit, %1
-  %spec.select = phi ptr [ null, %1 ], [ %24, %.thread.loopexit.split.loop.exit ], [ null, %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread ]
-  ret ptr %spec.select
+_ZN4llvm3isaINS_26InstrProfIncrementInstStepEPNS_11InstructionEEEbRKT0_.exit.thread: ; preds = %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread, %_ZN4llvm3isaINS_26InstrProfIncrementInstStepEPNS_11InstructionEEEbRKT0_.exit.thread.loopexit.split.loop.exit, %1
+  %25 = phi ptr [ null, %1 ], [ %24, %_ZN4llvm3isaINS_26InstrProfIncrementInstStepEPNS_11InstructionEEEbRKT0_.exit.thread.loopexit.split.loop.exit ], [ null, %_ZN4llvm8dyn_castINS_22InstrProfIncrementInstENS_11InstructionEEEDcPT0_.exit.thread ]
+  ret ptr %25
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
@@ -3303,8 +3303,8 @@ _ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16
 .lr.ph.i:                                         ; preds = %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16.i, %select.unfold.i
   %.pn.in.i = phi ptr [ %.pn.i, %select.unfold.i ], [ %25, %_ZN4llvm17InstrProfCallsite21canInstrumentCallsiteERKNS_8CallBaseE.exit.thread16.i ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8
-  %.01125.i = getelementptr inbounds i8, ptr %.pn.i, i64 -24
-  %31 = load i8, ptr %.01125.i, align 8, !tbaa !257
+  %.01126.i = getelementptr inbounds i8, ptr %.pn.i, i64 -24
+  %31 = load i8, ptr %.01126.i, align 8, !tbaa !257
   %32 = icmp eq i8 %31, 85
   br i1 %32, label %33, label %select.unfold.i
 
@@ -3349,10 +3349,10 @@ select.unfold.i:                                  ; preds = %_ZN4llvm14CastIsPos
   br i1 %54, label %_ZN4llvm15CtxProfAnalysis26getCallsiteInstrumentationERNS_8CallBaseE.exit.thread, label %.lr.ph.i
 
 _ZN4llvm15CtxProfAnalysis26getCallsiteInstrumentationERNS_8CallBaseE.exit: ; preds = %_ZN4llvm14CastIsPossibleINS_17InstrProfCallsiteEPNS_11InstructionEvE10isPossibleERKS3_.exit.i.i.i
-  %.01125.i.le = getelementptr inbounds i8, ptr %.pn.i, i64 -24
+  %.01126.i.le = getelementptr inbounds i8, ptr %.pn.i, i64 -24
   %55 = tail call noundef ptr @_ZNK4llvm10BasicBlock9getModuleEv(ptr noundef nonnull align 8 dereferenceable(80) %27) #25
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %56 = tail call noundef ptr @_ZNK4llvm21InstrProfCntrInstBase8getIndexEv(ptr noundef nonnull align 8 dereferenceable(88) %.01125.i.le) #25
+  %56 = tail call noundef ptr @_ZNK4llvm21InstrProfCntrInstBase8getIndexEv(ptr noundef nonnull align 8 dereferenceable(88) %.01126.i.le) #25
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %59 = load i32, ptr %58, align 8, !tbaa !172

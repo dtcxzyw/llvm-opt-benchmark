@@ -1148,54 +1148,54 @@ usrc_writeUCPTrieArrays.exit:                     ; preds = %22, %29, %.fold.spl
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %36 = load i32, ptr %35, align 4, !tbaa !42
   call void @usrc_writeArray(ptr noundef %0, ptr noundef nonnull readonly %6, ptr noundef %34, i32 noundef %32, i32 noundef %36, ptr noundef nonnull %24, ptr noundef nonnull readonly %7)
-  %switch = icmp eq i32 %3, 0
-  br i1 %switch, label %39, label %37
+  %37 = icmp eq i32 %3, 0
+  br i1 %37, label %40, label %38
 
-37:                                               ; preds = %usrc_writeUCPTrieArrays.exit
+38:                                               ; preds = %usrc_writeUCPTrieArrays.exit
   store i8 0, ptr %5, align 16, !tbaa !15
   store i8 0, ptr %6, align 16, !tbaa !15
   store i8 0, ptr %7, align 16, !tbaa !15
   store i8 0, ptr %8, align 16, !tbaa !15
-  %38 = call i32 @fputs(ptr noundef nonnull readonly %5, ptr noundef %0)
+  %39 = call i32 @fputs(ptr noundef nonnull readonly %5, ptr noundef %0)
   br label %usrc_writeUCPTrieStruct.exit
 
-39:                                               ; preds = %usrc_writeUCPTrieArrays.exit
-  %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.24, ptr noundef %1) #24
-  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.25, ptr noundef %1) #24
-  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.26, ptr noundef %1) #24
+40:                                               ; preds = %usrc_writeUCPTrieArrays.exit
+  %41 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 100, ptr noundef nonnull @.str.24, ptr noundef %1) #24
+  %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.25, ptr noundef %1) #24
+  %43 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %7, i64 noundef 100, ptr noundef nonnull @.str.26, ptr noundef %1) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(5) %8, ptr noundef nonnull align 1 dereferenceable(5) @.str.27, i64 5, i1 false)
-  %43 = call i32 @fputs(ptr noundef nonnull readonly %5, ptr noundef %0)
-  %44 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
+  %44 = call i32 @fputs(ptr noundef nonnull readonly %5, ptr noundef %0)
+  %45 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef nonnull %6, ptr noundef nonnull %7) #24
   br label %usrc_writeUCPTrieStruct.exit
 
-usrc_writeUCPTrieStruct.exit:                     ; preds = %37, %39
-  %45 = phi ptr [ @.str.16, %39 ], [ @.str.17, %37 ]
-  %46 = load i32, ptr %26, align 8, !tbaa !40
-  %47 = sext i32 %46 to i64
-  %48 = load i32, ptr %35, align 4, !tbaa !42
-  %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %51 = load i32, ptr %50, align 8, !tbaa !43
-  %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %2, i64 28
-  %54 = load i16, ptr %53, align 4, !tbaa !44
-  %55 = zext i16 %54 to i32
-  %56 = getelementptr inbounds nuw i8, ptr %2, i64 30
-  %57 = load i8, ptr %56, align 2, !tbaa !45
-  %58 = sext i8 %57 to i32
-  %59 = load i8, ptr %9, align 1, !tbaa !41
-  %60 = sext i8 %59 to i32
-  %61 = getelementptr inbounds nuw i8, ptr %2, i64 38
-  %62 = load i16, ptr %61, align 2, !tbaa !46
-  %63 = zext i16 %62 to i32
-  %64 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %65 = load i32, ptr %64, align 8, !tbaa !47
-  %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %68 = load i32, ptr %67, align 4, !tbaa !48
-  %69 = zext i32 %68 to i64
-  %70 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %45, i64 noundef %47, i64 noundef %49, i64 noundef %52, i32 noundef %55, i32 noundef %58, i32 noundef %60, i32 noundef %63, i64 noundef %66, i64 noundef %69) #24
-  %71 = call i32 @fputs(ptr noundef nonnull readonly %8, ptr noundef %0)
+usrc_writeUCPTrieStruct.exit:                     ; preds = %38, %40
+  %46 = phi ptr [ @.str.16, %40 ], [ @.str.17, %38 ]
+  %47 = load i32, ptr %26, align 8, !tbaa !40
+  %48 = sext i32 %47 to i64
+  %49 = load i32, ptr %35, align 4, !tbaa !42
+  %50 = sext i32 %49 to i64
+  %51 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %52 = load i32, ptr %51, align 8, !tbaa !43
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 28
+  %55 = load i16, ptr %54, align 4, !tbaa !44
+  %56 = zext i16 %55 to i32
+  %57 = getelementptr inbounds nuw i8, ptr %2, i64 30
+  %58 = load i8, ptr %57, align 2, !tbaa !45
+  %59 = sext i8 %58 to i32
+  %60 = load i8, ptr %9, align 1, !tbaa !41
+  %61 = sext i8 %60 to i32
+  %62 = getelementptr inbounds nuw i8, ptr %2, i64 38
+  %63 = load i16, ptr %62, align 2, !tbaa !46
+  %64 = zext i16 %63 to i32
+  %65 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %66 = load i32, ptr %65, align 8, !tbaa !47
+  %67 = sext i32 %66 to i64
+  %68 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %69 = load i32, ptr %68, align 4, !tbaa !48
+  %70 = zext i32 %69 to i64
+  %71 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull %46, i64 noundef %48, i64 noundef %50, i64 noundef %53, i32 noundef %56, i32 noundef %59, i32 noundef %61, i32 noundef %64, i64 noundef %67, i64 noundef %70) #24
+  %72 = call i32 @fputs(ptr noundef nonnull readonly %8, ptr noundef %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

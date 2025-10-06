@@ -135,7 +135,7 @@ define hidden void @_ZN2cv5aruco12zmaxheap_addEPNS0_8zmaxheapEPvf(ptr noundef %0
 
 ._ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit_crit_edge: ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %.pre29 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !19
+  %.pre28 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !19
   br label %_ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit
 
 .preheader.i:                                     ; preds = %3, %.preheader.i
@@ -164,7 +164,7 @@ define hidden void @_ZN2cv5aruco12zmaxheap_addEPNS0_8zmaxheapEPvf(ptr noundef %0
   br label %_ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit
 
 _ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit: ; preds = %._ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit_crit_edge, %10
-  %21 = phi ptr [ %.pre29, %._ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit_crit_edge ], [ %20, %10 ]
+  %21 = phi ptr [ %.pre28, %._ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit_crit_edge ], [ %20, %10 ]
   %22 = phi i32 [ %5, %._ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit_crit_edge ], [ %.pre, %10 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !13
@@ -186,8 +186,8 @@ _ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit: ; preds = %._ZN2
   br label %34
 
 34:                                               ; preds = %.lr.ph, %42
-  %.02226 = phi i32 [ %22, %.lr.ph ], [ %36, %42 ]
-  %35 = add nsw i32 %.02226, -1
+  %.02225 = phi i32 [ %22, %.lr.ph ], [ %36, %42 ]
+  %35 = add nsw i32 %.02225, -1
   %36 = lshr i32 %35, 1
   %37 = load ptr, ptr %23, align 8, !tbaa !13
   %38 = zext nneg i32 %36 to i64
@@ -198,9 +198,9 @@ _ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit: ; preds = %._ZN2
 
 42:                                               ; preds = %34
   %43 = load ptr, ptr %33, align 8, !tbaa !12
-  tail call void %43(ptr noundef nonnull %0, i32 noundef %.02226, i32 noundef %36)
-  %.not28 = icmp ult i32 %35, 2
-  br i1 %.not28, label %.thread, label %34
+  tail call void %43(ptr noundef nonnull %0, i32 noundef %.02225, i32 noundef %36)
+  %.not27 = icmp ult i32 %35, 2
+  br i1 %.not27, label %.thread, label %34
 
 .thread:                                          ; preds = %42, %34, %_ZN2cv5arucoL25_zmaxheap_ensure_capacityEPNS0_8zmaxheapEi.exit
   ret void
@@ -275,8 +275,8 @@ define hidden noundef range(i32 0, 2) i32 @_ZN2cv5aruco19zmaxheap_remove_maxEPNS
 
 41:                                               ; preds = %88, %.lr.ph.i
   %42 = phi i32 [ %38, %.lr.ph.i ], [ %90, %88 ]
-  %.06993.i = phi i32 [ 0, %.lr.ph.i ], [ %.sink.i, %88 ]
-  %43 = shl nsw i32 %.06993.i, 1
+  %.06992.i = phi i32 [ 0, %.lr.ph.i ], [ %.sink.i, %88 ]
+  %43 = shl nsw i32 %.06992.i, 1
   %44 = or disjoint i32 %43, 1
   %45 = add nsw i32 %43, 2
   %46 = icmp slt i32 %44, %42
@@ -393,7 +393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89.i: ; preds = %8
 88:                                               ; preds = %77, %66
   %.sink.i = phi i32 [ %44, %66 ], [ %45, %77 ]
   %89 = load ptr, ptr %40, align 8, !tbaa !12
-  tail call void %89(ptr noundef nonnull %0, i32 noundef %.06993.i, i32 noundef %.sink.i)
+  tail call void %89(ptr noundef nonnull %0, i32 noundef %.06992.i, i32 noundef %.sink.i)
   %90 = load i32, ptr %8, align 8, !tbaa !21
   %91 = icmp slt i32 %.sink.i, %90
   br i1 %91, label %41, label %_ZN2cv5arucoL21zmaxheap_remove_indexEPNS0_8zmaxheapEiPvPf.exit

@@ -497,7 +497,7 @@ helper_init.exit:                                 ; preds = %118
   %.070 = phi ptr [ %615, %614 ], [ %1, %helper_init.exit ]
   %139 = load i32, ptr %.070, align 8, !tbaa !14
   switch i32 %139, label %613 [
-    i32 0, label %.thread196
+    i32 0, label %.thread183
     i32 1, label %140
     i32 2, label %153
     i32 3, label %162
@@ -536,7 +536,7 @@ helper_init.exit:                                 ; preds = %118
   %147 = load i64, ptr %137, align 8, !tbaa !81
   %148 = call i32 @test_size_t_gt(ptr noundef nonnull @.str.2, i32 noundef 1314, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %147, i64 noundef 0) #8
   %.not124 = icmp eq i32 %148, 0
-  br i1 %.not124, label %.thread202, label %149
+  br i1 %.not124, label %.thread189, label %149
 
 149:                                              ; preds = %146, %140
   %150 = load ptr, ptr %22, align 8, !tbaa !49
@@ -558,7 +558,7 @@ helper_init.exit:                                 ; preds = %118
   %160 = load i64, ptr %137, align 8, !tbaa !81
   %161 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1322, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.5, i64 noundef %160, i64 noundef 0) #8
   %.not122 = icmp eq i32 %161, 0
-  br i1 %.not122, label %.thread202, label %614
+  br i1 %.not122, label %.thread189, label %614
 
 162:                                              ; preds = %138
   %163 = load ptr, ptr %116, align 8, !tbaa !76
@@ -572,7 +572,7 @@ helper_init.exit:                                 ; preds = %118
   %169 = zext i1 %168 to i32
   %170 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1330, ptr noundef nonnull @.str.6, i32 noundef %169) #8
   %.not119 = icmp eq i32 %170, 0
-  br i1 %.not119, label %.thread202, label %171
+  br i1 %.not119, label %.thread189, label %171
 
 171:                                              ; preds = %162
   %172 = load ptr, ptr %136, align 8, !tbaa !83
@@ -593,7 +593,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %.0.i = phi i32 [ 1, %177 ], [ 0, %171 ]
   %180 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1334, ptr noundef nonnull @.str.7, i32 noundef %.0.i) #8
   %.not120 = icmp eq i32 %180, 0
-  br i1 %.not120, label %.thread202, label %181
+  br i1 %.not120, label %.thread189, label %181
 
 181:                                              ; preds = %PACKET_buf_init.exit
   store i64 -1, ptr %131, align 8, !tbaa !93
@@ -608,7 +608,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %188 = zext i1 %187 to i32
   %189 = call i32 @test_false(ptr noundef nonnull @.str.2, i32 noundef 1340, ptr noundef nonnull @.str.6, i32 noundef %188) #8
   %.not118 = icmp eq i32 %189, 0
-  br i1 %.not118, label %.thread202, label %190
+  br i1 %.not118, label %.thread189, label %190
 
 190:                                              ; preds = %182
   store i64 -1, ptr %131, align 8, !tbaa !93
@@ -622,7 +622,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %196 = load i64, ptr %195, align 8, !tbaa !95
   %197 = call i32 @test_size_t_ge(ptr noundef nonnull @.str.2, i32 noundef 1345, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, i64 noundef %194, i64 noundef %196) #8
   %.not116 = icmp eq i32 %197, 0
-  br i1 %.not116, label %.thread202, label %198
+  br i1 %.not116, label %.thread189, label %198
 
 198:                                              ; preds = %191
   %199 = load ptr, ptr %136, align 8, !tbaa !83
@@ -632,7 +632,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %203 = load i64, ptr %202, align 8, !tbaa !96
   %204 = call i32 @test_size_t_le(ptr noundef nonnull @.str.2, i32 noundef 1346, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.10, i64 noundef %201, i64 noundef %203) #8
   %.not117 = icmp eq i32 %204, 0
-  br i1 %.not117, label %.thread202, label %614
+  br i1 %.not117, label %.thread189, label %614
 
 205:                                              ; preds = %138
   %206 = load i64, ptr %131, align 8, !tbaa !93
@@ -640,7 +640,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %208 = load i64, ptr %207, align 8, !tbaa !95
   %209 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1350, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, i64 noundef %206, i64 noundef %208) #8
   %.not115 = icmp eq i32 %209, 0
-  br i1 %.not115, label %.thread202, label %614
+  br i1 %.not115, label %.thread189, label %614
 
 210:                                              ; preds = %138
   %211 = load ptr, ptr %136, align 8, !tbaa !83
@@ -655,7 +655,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %220 = load i64, ptr %219, align 8, !tbaa !95
   %221 = call i32 @test_mem_eq(ptr noundef nonnull @.str.2, i32 noundef 1355, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.14, ptr noundef %214, i64 noundef %216, ptr noundef %218, i64 noundef %220) #8
   %.not114 = icmp eq i32 %221, 0
-  br i1 %.not114, label %.thread202, label %614
+  br i1 %.not114, label %.thread189, label %614
 
 222:                                              ; preds = %138
   %223 = load ptr, ptr %136, align 8, !tbaa !83
@@ -667,8 +667,8 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %229 = load i32, ptr %226, align 8
   %230 = and i32 %229, 255
   %231 = call i32 @test_int_eq(ptr noundef nonnull @.str.70, i32 noundef 24, ptr noundef nonnull @.str.71, ptr noundef nonnull @.str.72, i32 noundef %228, i32 noundef %230) #8
-  %.not.i148 = icmp eq i32 %231, 0
-  br i1 %.not.i148, label %320, label %232
+  %.not.i142 = icmp eq i32 %231, 0
+  br i1 %.not.i142, label %320, label %232
 
 232:                                              ; preds = %222
   %233 = load i32, ptr %224, align 8
@@ -801,7 +801,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   br label %321
 
 321:                                              ; preds = %320, %314
-  %.0.i149 = phi i32 [ 1, %314 ], [ 0, %320 ]
+  %.0.i143 = phi i32 [ 1, %314 ], [ 0, %320 ]
   %322 = getelementptr inbounds nuw i8, ptr %224, i64 64
   %323 = load i64, ptr %322, align 8, !tbaa !98
   %.not64.i = icmp eq i64 %323, 0
@@ -820,13 +820,13 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %331 = load ptr, ptr %330, align 8, !tbaa !97
   %332 = call i32 @test_mem_eq(ptr noundef nonnull @.str.70, i32 noundef 41, ptr noundef nonnull @.str.97, ptr noundef nonnull @.str.98, ptr noundef %329, i64 noundef %323, ptr noundef %331, i64 noundef %326) #8
   %.not66.i = icmp eq i32 %332, 0
-  %spec.select.i = select i1 %.not66.i, i32 0, i32 %.0.i149
+  %spec.select.i = select i1 %.not66.i, i32 0, i32 %.0.i143
   %.pr.pre.i = load i64, ptr %322, align 8, !tbaa !98
   %333 = icmp eq i64 %.pr.pre.i, 0
   br i1 %333, label %.thread.i, label %.thread7.i
 
 .thread.i:                                        ; preds = %327, %321
-  %.13.i = phi i32 [ %spec.select.i, %327 ], [ %.0.i149, %321 ]
+  %.13.i = phi i32 [ %spec.select.i, %327 ], [ %.0.i143, %321 ]
   %334 = getelementptr inbounds nuw i8, ptr %224, i64 56
   %335 = load ptr, ptr %334, align 8, !tbaa !97
   %336 = call i32 @test_ptr_null(ptr noundef nonnull @.str.70, i32 noundef 44, ptr noundef nonnull @.str.97, ptr noundef %335) #8
@@ -834,7 +834,7 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   br i1 %.not67.i, label %344, label %.thread7.i
 
 .thread7.i:                                       ; preds = %.thread.i, %327, %324
-  %.12.i = phi i32 [ %.13.i, %.thread.i ], [ %spec.select.i, %327 ], [ %.0.i149, %324 ]
+  %.12.i = phi i32 [ %.13.i, %.thread.i ], [ %spec.select.i, %327 ], [ %.0.i143, %324 ]
   %337 = getelementptr inbounds nuw i8, ptr %226, i64 64
   %338 = load i64, ptr %337, align 8, !tbaa !98
   %339 = icmp eq i64 %338, 0
@@ -844,8 +844,8 @@ PACKET_buf_init.exit:                             ; preds = %171, %177
   %341 = getelementptr inbounds nuw i8, ptr %226, i64 56
   %342 = load ptr, ptr %341, align 8, !tbaa !97
   %343 = call i32 @test_ptr_null(ptr noundef nonnull @.str.70, i32 noundef 45, ptr noundef nonnull @.str.98, ptr noundef %342) #8
-  %.not68.i150 = icmp eq i32 %343, 0
-  br i1 %.not68.i150, label %344, label %cmp_pkt_hdr.exit
+  %.not68.i144 = icmp eq i32 %343, 0
+  br i1 %.not68.i144, label %344, label %cmp_pkt_hdr.exit
 
 344:                                              ; preds = %340, %.thread.i
   br label %cmp_pkt_hdr.exit
@@ -854,7 +854,7 @@ cmp_pkt_hdr.exit:                                 ; preds = %.thread7.i, %340, %
   %.2.i = phi i32 [ %.12.i, %340 ], [ 0, %344 ], [ %.12.i, %.thread7.i ]
   %345 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1360, ptr noundef nonnull @.str.15, i32 noundef %.2.i) #8
   %.not113 = icmp eq i32 %345, 0
-  br i1 %.not113, label %.thread202, label %614
+  br i1 %.not113, label %.thread189, label %614
 
 346:                                              ; preds = %138
   %347 = getelementptr inbounds nuw i8, ptr %.070, i64 40
@@ -864,15 +864,15 @@ cmp_pkt_hdr.exit:                                 ; preds = %.thread7.i, %340, %
   %351 = zext i1 %350 to i32
   %352 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1364, ptr noundef nonnull @.str.16, i32 noundef %351) #8
   %.not112 = icmp eq i32 %352, 0
-  br i1 %.not112, label %.thread202, label %614
+  br i1 %.not112, label %.thread189, label %614
 
 353:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %354 = call i32 @ossl_quic_wire_peek_frame_header(ptr noundef nonnull %129, ptr noundef nonnull %4, ptr noundef null) #8
-  %.not.i151 = icmp ne i32 %354, 0
+  %.not.i145 = icmp ne i32 %354, 0
   %355 = load i64, ptr %4, align 8
   %356 = icmp eq i64 %355, 0
-  %or.cond.i = select i1 %.not.i151, i1 %356, i1 false
+  %or.cond.i = select i1 %.not.i145, i1 %356, i1 false
   br i1 %or.cond.i, label %357, label %skip_padding.exit
 
 357:                                              ; preds = %353
@@ -920,7 +920,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %366 = zext i1 %365 to i32
   %367 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1376, ptr noundef nonnull @.str.17, i32 noundef %366) #8
   %.not111 = icmp eq i32 %367, 0
-  br i1 %.not111, label %.thread202, label %614
+  br i1 %.not111, label %.thread189, label %614
 
 368:                                              ; preds = %361
   %369 = call i32 @ossl_quic_wire_decode_frame_ping(ptr noundef nonnull %129) #8
@@ -928,7 +928,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %371 = zext i1 %370 to i32
   %372 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1380, ptr noundef nonnull @.str.18, i32 noundef %371) #8
   %.not110 = icmp eq i32 %372, 0
-  br i1 %.not110, label %.thread202, label %614
+  br i1 %.not110, label %.thread189, label %614
 
 373:                                              ; preds = %361
   %374 = call i32 @ossl_quic_wire_decode_frame_max_data(ptr noundef nonnull %129, ptr noundef nonnull %132) #8
@@ -936,7 +936,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %376 = zext i1 %375 to i32
   %377 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1385, ptr noundef nonnull @.str.19, i32 noundef %376) #8
   %.not109 = icmp eq i32 %377, 0
-  br i1 %.not109, label %.thread202, label %614
+  br i1 %.not109, label %.thread189, label %614
 
 378:                                              ; preds = %361
   %379 = call i32 @ossl_quic_wire_decode_frame_new_conn_id(ptr noundef nonnull %129, ptr noundef nonnull %132) #8
@@ -944,7 +944,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %381 = zext i1 %380 to i32
   %382 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1390, ptr noundef nonnull @.str.20, i32 noundef %381) #8
   %.not108 = icmp eq i32 %382, 0
-  br i1 %.not108, label %.thread202, label %614
+  br i1 %.not108, label %.thread189, label %614
 
 383:                                              ; preds = %361
   %384 = call i32 @ossl_quic_wire_decode_frame_new_token(ptr noundef nonnull %129, ptr noundef nonnull %132, ptr noundef nonnull %134) #8
@@ -952,7 +952,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %386 = zext i1 %385 to i32
   %387 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1396, ptr noundef nonnull @.str.21, i32 noundef %386) #8
   %.not107 = icmp eq i32 %387, 0
-  br i1 %.not107, label %.thread202, label %614
+  br i1 %.not107, label %.thread189, label %614
 
 388:                                              ; preds = %361, %361
   store ptr %133, ptr %132, align 8, !tbaa !64
@@ -963,7 +963,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %392 = zext i1 %391 to i32
   %393 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1406, ptr noundef nonnull @.str.22, i32 noundef %392) #8
   %.not106 = icmp eq i32 %393, 0
-  br i1 %.not106, label %.thread202, label %614
+  br i1 %.not106, label %.thread189, label %614
 
 394:                                              ; preds = %361
   %395 = call i32 @ossl_quic_wire_decode_frame_crypto(ptr noundef nonnull %129, i32 noundef 0, ptr noundef nonnull %132) #8
@@ -971,7 +971,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %397 = zext i1 %396 to i32
   %398 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1410, ptr noundef nonnull @.str.23, i32 noundef %397) #8
   %.not105 = icmp eq i32 %398, 0
-  br i1 %.not105, label %.thread202, label %614
+  br i1 %.not105, label %.thread189, label %614
 
 399:                                              ; preds = %361, %361, %361, %361, %361, %361, %361, %361
   %400 = call i32 @ossl_quic_wire_decode_frame_stream(ptr noundef nonnull %129, i32 noundef 0, ptr noundef nonnull %132) #8
@@ -979,7 +979,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %402 = zext i1 %401 to i32
   %403 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1422, ptr noundef nonnull @.str.24, i32 noundef %402) #8
   %.not104 = icmp eq i32 %403, 0
-  br i1 %.not104, label %.thread202, label %614
+  br i1 %.not104, label %.thread189, label %614
 
 404:                                              ; preds = %361
   %405 = call i32 @ossl_quic_wire_decode_frame_stop_sending(ptr noundef nonnull %129, ptr noundef nonnull %132) #8
@@ -987,7 +987,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %407 = zext i1 %406 to i32
   %408 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1428, ptr noundef nonnull @.str.25, i32 noundef %407) #8
   %.not103 = icmp eq i32 %408, 0
-  br i1 %.not103, label %.thread202, label %614
+  br i1 %.not103, label %.thread189, label %614
 
 409:                                              ; preds = %361
   %410 = call i32 @ossl_quic_wire_decode_frame_reset_stream(ptr noundef nonnull %129, ptr noundef nonnull %132) #8
@@ -995,7 +995,7 @@ skip_padding.exit:                                ; preds = %353, %357
   %412 = zext i1 %411 to i32
   %413 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1434, ptr noundef nonnull @.str.26, i32 noundef %412) #8
   %.not102 = icmp eq i32 %413, 0
-  br i1 %.not102, label %.thread202, label %614
+  br i1 %.not102, label %.thread189, label %614
 
 414:                                              ; preds = %361, %361
   %415 = call i32 @ossl_quic_wire_decode_frame_conn_close(ptr noundef nonnull %129, ptr noundef nonnull %132) #8
@@ -1003,31 +1003,31 @@ skip_padding.exit:                                ; preds = %353, %357
   %417 = zext i1 %416 to i32
   %418 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1441, ptr noundef nonnull @.str.27, i32 noundef %417) #8
   %.not101 = icmp eq i32 %418, 0
-  br i1 %.not101, label %.thread202, label %614
+  br i1 %.not101, label %.thread189, label %614
 
 419:                                              ; preds = %361
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1446, ptr noundef nonnull @.str.28) #8
-  br label %.thread202
+  br label %.thread189
 
 420:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %421 = call i32 @ossl_quic_wire_peek_frame_header(ptr noundef nonnull %129, ptr noundef nonnull %3, ptr noundef null) #8
-  %.not.i152 = icmp ne i32 %421, 0
+  %.not.i146 = icmp ne i32 %421, 0
   %422 = load i64, ptr %3, align 8
   %423 = icmp eq i64 %422, 0
-  %or.cond.i153 = select i1 %.not.i152, i1 %423, i1 false
-  br i1 %or.cond.i153, label %424, label %skip_padding.exit154
+  %or.cond.i147 = select i1 %.not.i146, i1 %423, i1 false
+  br i1 %or.cond.i147, label %424, label %skip_padding.exit148
 
 424:                                              ; preds = %420
   %425 = call i64 @ossl_quic_wire_decode_padding(ptr noundef nonnull %129) #8
-  br label %skip_padding.exit154
+  br label %skip_padding.exit148
 
-skip_padding.exit154:                             ; preds = %420, %424
+skip_padding.exit148:                             ; preds = %420, %424
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val = load i64, ptr %130, align 8, !tbaa !92
   %426 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1452, ptr noundef nonnull @.str.29, ptr noundef nonnull @.str.5, i64 noundef %.val, i64 noundef 0) #8
   %.not99 = icmp eq i32 %426, 0
-  br i1 %.not99, label %.thread202, label %614
+  br i1 %.not99, label %.thread189, label %614
 
 427:                                              ; preds = %138
   %428 = load ptr, ptr %22, align 8, !tbaa !49
@@ -1046,7 +1046,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %441 = zext i1 %440 to i32
   %442 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1459, ptr noundef nonnull @.str.30, i32 noundef %441) #8
   %.not97 = icmp eq i32 %442, 0
-  br i1 %.not97, label %.thread202, label %443
+  br i1 %.not97, label %.thread189, label %443
 
 443:                                              ; preds = %427
   %444 = load ptr, ptr %126, align 8, !tbaa !80
@@ -1061,7 +1061,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %453 = zext i1 %452 to i32
   %454 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1464, ptr noundef nonnull @.str.31, i32 noundef %453) #8
   %.not98 = icmp eq i32 %454, 0
-  br i1 %.not98, label %.thread202, label %614
+  br i1 %.not98, label %.thread189, label %614
 
 455:                                              ; preds = %138
   %456 = load ptr, ptr %6, align 8, !tbaa !74
@@ -1073,7 +1073,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %462 = zext i1 %461 to i32
   %463 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1469, ptr noundef nonnull @.str.32, i32 noundef %462) #8
   %.not96 = icmp eq i32 %463, 0
-  br i1 %.not96, label %.thread202, label %614
+  br i1 %.not96, label %.thread189, label %614
 
 464:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1102,7 +1102,7 @@ skip_padding.exit154:                             ; preds = %420, %424
 
 .thread:                                          ; preds = %464, %477
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread202
+  br label %.thread189
 
 481:                                              ; preds = %477
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1115,7 +1115,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %486 = call ptr @ossl_quic_stream_map_alloc(ptr noundef %483, i64 noundef %485, i32 noundef 0) #8
   %487 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1495, ptr noundef nonnull @.str.36, ptr noundef %486) #8
   %.not89 = icmp eq i32 %487, 0
-  br i1 %.not89, label %.thread202, label %488
+  br i1 %.not89, label %.thread189, label %488
 
 488:                                              ; preds = %482
   %489 = call ptr @ossl_quic_sstream_new(i64 noundef 524288) #8
@@ -1157,7 +1157,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   call void @ossl_quic_sstream_free(ptr noundef %510) #8
   %511 = load ptr, ptr %99, align 8, !tbaa !65
   call void @ossl_quic_stream_map_release(ptr noundef %511, ptr noundef nonnull %486) #8
-  br label %.thread202
+  br label %.thread189
 
 512:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1168,7 +1168,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %516 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %513, i64 noundef %515) #8
   %517 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1518, ptr noundef nonnull @.str.41, ptr noundef %516) #8
   %.not86 = icmp eq i32 %517, 0
-  br i1 %.not86, label %.thread165, label %518
+  br i1 %.not86, label %.thread157, label %518
 
 518:                                              ; preds = %512
   %519 = getelementptr inbounds nuw i8, ptr %516, i64 112
@@ -1182,18 +1182,18 @@ skip_padding.exit154:                             ; preds = %420, %424
   %527 = zext i1 %526 to i32
   %528 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1522, ptr noundef nonnull @.str.42, i32 noundef %527) #8
   %.not87 = icmp eq i32 %528, 0
-  br i1 %.not87, label %.thread165, label %529
+  br i1 %.not87, label %.thread157, label %529
 
 529:                                              ; preds = %518
   %530 = load i64, ptr %8, align 8, !tbaa !102
   %531 = load i64, ptr %523, align 8, !tbaa !9
   %532 = call i32 @test_size_t_eq(ptr noundef nonnull @.str.2, i32 noundef 1525, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.35, i64 noundef %530, i64 noundef %531) #8
   %.not88 = icmp eq i32 %532, 0
-  br i1 %.not88, label %.thread165, label %533
+  br i1 %.not88, label %.thread157, label %533
 
-.thread165:                                       ; preds = %512, %518, %529
+.thread157:                                       ; preds = %512, %518, %529
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %.thread202
+  br label %.thread189
 
 533:                                              ; preds = %529
   %534 = load ptr, ptr %99, align 8, !tbaa !65
@@ -1208,9 +1208,9 @@ skip_padding.exit154:                             ; preds = %420, %424
   %539 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %536, i64 noundef %538) #8
   %540 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1536, ptr noundef nonnull @.str.41, ptr noundef %539) #8
   %.not85 = icmp eq i32 %540, 0
-  br i1 %.not85, label %.thread202, label %.thread168
+  br i1 %.not85, label %.thread189, label %.thread159
 
-.thread168:                                       ; preds = %535
+.thread159:                                       ; preds = %535
   %541 = getelementptr inbounds nuw i8, ptr %539, i64 112
   %542 = load ptr, ptr %541, align 8, !tbaa !103
   call void @ossl_quic_sstream_fin(ptr noundef %542) #8
@@ -1223,7 +1223,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %547 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %544, i64 noundef %546) #8
   %548 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1547, ptr noundef nonnull @.str.41, ptr noundef %547) #8
   %.not82 = icmp eq i32 %548, 0
-  br i1 %.not82, label %.thread202, label %549
+  br i1 %.not82, label %.thread189, label %549
 
 549:                                              ; preds = %543
   %550 = load ptr, ptr %99, align 8, !tbaa !65
@@ -1234,7 +1234,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %555 = zext i1 %554 to i32
   %556 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1551, ptr noundef nonnull @.str.43, i32 noundef %555) #8
   %.not83 = icmp eq i32 %556, 0
-  br i1 %.not83, label %.thread202, label %557
+  br i1 %.not83, label %.thread189, label %557
 
 557:                                              ; preds = %549
   %558 = load ptr, ptr %99, align 8, !tbaa !65
@@ -1246,7 +1246,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %563 = and i32 %562, 1
   %564 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1556, ptr noundef nonnull @.str.44, i32 noundef %563) #8
   %.not84 = icmp eq i32 %564, 0
-  br i1 %.not84, label %.thread202, label %614
+  br i1 %.not84, label %.thread189, label %614
 
 565:                                              ; preds = %138
   %566 = load ptr, ptr %99, align 8, !tbaa !65
@@ -1255,7 +1255,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %569 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %566, i64 noundef %568) #8
   %570 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1565, ptr noundef nonnull @.str.41, ptr noundef %569) #8
   %.not79 = icmp eq i32 %570, 0
-  br i1 %.not79, label %.thread202, label %571
+  br i1 %.not79, label %.thread189, label %571
 
 571:                                              ; preds = %565
   %572 = load ptr, ptr %99, align 8, !tbaa !65
@@ -1266,7 +1266,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %577 = zext i1 %576 to i32
   %578 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1569, ptr noundef nonnull @.str.45, i32 noundef %577) #8
   %.not80 = icmp eq i32 %578, 0
-  br i1 %.not80, label %.thread202, label %579
+  br i1 %.not80, label %.thread189, label %579
 
 579:                                              ; preds = %571
   %580 = load ptr, ptr %99, align 8, !tbaa !65
@@ -1278,7 +1278,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %585 = and i32 %584, 1
   %586 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1574, ptr noundef nonnull @.str.44, i32 noundef %585) #8
   %.not81 = icmp eq i32 %586, 0
-  br i1 %.not81, label %.thread202, label %614
+  br i1 %.not81, label %.thread189, label %614
 
 587:                                              ; preds = %138
   %588 = load ptr, ptr %100, align 8, !tbaa !66
@@ -1289,7 +1289,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %593 = zext i1 %592 to i32
   %594 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1579, ptr noundef nonnull @.str.46, i32 noundef %593) #8
   %.not78 = icmp eq i32 %594, 0
-  br i1 %.not78, label %.thread202, label %614
+  br i1 %.not78, label %.thread189, label %614
 
 595:                                              ; preds = %138
   %596 = load ptr, ptr %99, align 8, !tbaa !65
@@ -1298,7 +1298,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %599 = call ptr @ossl_quic_stream_map_get_by_id(ptr noundef %596, i64 noundef %598) #8
   %600 = call i32 @test_ptr(ptr noundef nonnull @.str.2, i32 noundef 1588, ptr noundef nonnull @.str.47, ptr noundef %599) #8
   %.not76 = icmp eq i32 %600, 0
-  br i1 %.not76, label %.thread202, label %601
+  br i1 %.not76, label %.thread189, label %601
 
 601:                                              ; preds = %595
   %602 = getelementptr inbounds nuw i8, ptr %599, i64 128
@@ -1309,7 +1309,7 @@ skip_padding.exit154:                             ; preds = %420, %424
   %607 = zext i1 %606 to i32
   %608 = call i32 @test_true(ptr noundef nonnull @.str.2, i32 noundef 1591, ptr noundef nonnull @.str.48, i32 noundef %607) #8
   %.not77 = icmp eq i32 %608, 0
-  br i1 %.not77, label %.thread202, label %609
+  br i1 %.not77, label %.thread189, label %609
 
 609:                                              ; preds = %601
   %610 = load ptr, ptr %99, align 8, !tbaa !65
@@ -1323,18 +1323,18 @@ skip_padding.exit154:                             ; preds = %420, %424
 
 613:                                              ; preds = %138
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1603, ptr noundef nonnull @.str.49) #8
-  br label %.thread202
+  br label %.thread189
 
-614:                                              ; preds = %609, %579, %557, %.thread168, %533, %504, %481, %138, %149, %181, %190, %360, %611, %159, %153, %198, %205, %210, %cmp_pkt_hdr.exit, %346, %414, %409, %404, %399, %394, %388, %383, %378, %373, %368, %363, %skip_padding.exit154, %443, %455, %587
+614:                                              ; preds = %609, %579, %557, %.thread159, %533, %504, %481, %138, %149, %181, %190, %360, %611, %159, %153, %198, %205, %210, %cmp_pkt_hdr.exit, %346, %414, %409, %404, %399, %394, %388, %383, %378, %373, %368, %363, %skip_padding.exit148, %443, %455, %587
   %615 = getelementptr inbounds nuw i8, ptr %.070, i64 48
   %616 = add i64 %.1, 1
   br label %138, !llvm.loop !107
 
-.thread202:                                       ; preds = %535, %587, %455, %427, %443, %skip_padding.exit154, %414, %409, %404, %399, %394, %388, %383, %378, %373, %368, %363, %346, %cmp_pkt_hdr.exit, %210, %205, %191, %198, %182, %162, %PACKET_buf_init.exit, %159, %146, %482, %543, %549, %557, %565, %571, %579, %595, %601, %.thread165, %.thread, %419, %613, %508
+.thread189:                                       ; preds = %535, %587, %455, %427, %443, %skip_padding.exit148, %414, %409, %404, %399, %394, %388, %383, %378, %373, %368, %363, %346, %cmp_pkt_hdr.exit, %210, %205, %191, %198, %182, %162, %PACKET_buf_init.exit, %159, %146, %482, %543, %549, %557, %565, %571, %579, %595, %601, %.thread157, %.thread, %419, %613, %508
   %617 = add nsw i32 %0, 1
   %618 = add i64 %.1, 1
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1611, ptr noundef nonnull @.str.50, i32 noundef %617, i64 noundef %618) #8
-  br label %.thread196
+  br label %.thread183
 
 .loopexit:                                        ; preds = %93, %2, %15, %24, %28, %32, %38, %44, %50, %62, %68, %75, %82, %97, %112, %118
   call fastcc void @helper_cleanup(ptr noundef nonnull %6)
@@ -1342,16 +1342,16 @@ skip_padding.exit154:                             ; preds = %420, %424
   call void (ptr, i32, ptr, ...) @test_error(ptr noundef nonnull @.str.2, i32 noundef 1611, ptr noundef nonnull @.str.50, i32 noundef %619, i64 noundef 1) #8
   br label %620
 
-.thread196:                                       ; preds = %138, %.thread202
-  %.068194199 = phi i32 [ 0, %.thread202 ], [ 1, %138 ]
+.thread183:                                       ; preds = %138, %.thread189
+  %.068181186 = phi i32 [ 0, %.thread189 ], [ 1, %138 ]
   call fastcc void @helper_cleanup(ptr noundef %6)
   br label %620
 
-620:                                              ; preds = %.loopexit, %.thread196
-  %.068194200 = phi i32 [ 0, %.loopexit ], [ %.068194199, %.thread196 ]
+620:                                              ; preds = %.loopexit, %.thread183
+  %.068181187 = phi i32 [ 0, %.loopexit ], [ %.068181186, %.thread183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  ret i32 %.068194200
+  ret i32 %.068181187
 }
 
 declare i32 @test_true(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

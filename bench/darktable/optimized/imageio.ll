@@ -342,7 +342,7 @@ define range(i32 0, 2) i32 @dt_imageio_large_thumbnail(ptr noundef %0, ptr nound
   store i32 1, ptr %4, align 4, !tbaa !52
   %30 = call i32 @dt_imageio_jpeg_decompress(ptr noundef nonnull %9, ptr noundef nonnull %26) #18
   %.not16 = icmp eq i32 %30, 0
-  br i1 %.not16, label %.thread22, label %31
+  br i1 %.not16, label %.thread21, label %31
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %1, align 8, !tbaa !6
@@ -354,7 +354,7 @@ define range(i32 0, 2) i32 @dt_imageio_large_thumbnail(ptr noundef %0, ptr nound
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %35
 
-.thread22:                                        ; preds = %27
+.thread21:                                        ; preds = %27
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %35
 
@@ -364,8 +364,8 @@ define range(i32 0, 2) i32 @dt_imageio_large_thumbnail(ptr noundef %0, ptr nound
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.3, ptr noundef %34) #18
   br label %35
 
-35:                                               ; preds = %.thread22, %.thread, %33, %5
-  %.012 = phi i32 [ 1, %5 ], [ 1, %33 ], [ 1, %.thread ], [ 0, %.thread22 ]
+35:                                               ; preds = %.thread21, %.thread, %33, %5
+  %.012 = phi i32 [ 1, %5 ], [ 1, %33 ], [ 1, %.thread ], [ 0, %.thread21 ]
   %36 = load ptr, ptr %7, align 8, !tbaa !6
   call void @free(ptr noundef %36) #18
   %37 = load ptr, ptr %6, align 8, !tbaa !6

@@ -1327,10 +1327,10 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev10ColorSpace8hasAliasEPKc(pt
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %6 = load ptr, ptr %5, align 8, !tbaa !56
   %7 = load ptr, ptr %4, align 8, !tbaa !55
-  %.not9.not = icmp eq ptr %6, %7
-  br i1 %.not9.not, label %._crit_edge, label %.lr.ph
+  %.not = icmp eq ptr %6, %7
+  br i1 %.not, label %._crit_edge, label %.lr.ph
 
-8:                                                ; preds = %23
+8:                                                ; preds = %24
   %9 = add nuw i64 %.0610, 1
   %10 = load ptr, ptr %0, align 8, !tbaa !52
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 160
@@ -1341,30 +1341,30 @@ define noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev10ColorSpace8hasAliasEPKc(pt
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
   %18 = ashr exact i64 %17, 5
-  %.not = icmp ult i64 %9, %18
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !72
+  %19 = icmp ult i64 %9, %18
+  br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
 .lr.ph:                                           ; preds = %2, %8
-  %19 = phi ptr [ %14, %8 ], [ %7, %2 ]
+  %20 = phi ptr [ %14, %8 ], [ %7, %2 ]
   %.0610 = phi i64 [ %9, %8 ], [ 0, %2 ]
-  %20 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %.0610
-  %21 = load ptr, ptr %20, align 8, !tbaa !57
-  %22 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %21, ptr noundef %1)
-          to label %23 unwind label %25
+  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %.0610
+  %22 = load ptr, ptr %21, align 8, !tbaa !57
+  %23 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %22, ptr noundef %1)
+          to label %24 unwind label %26
 
-23:                                               ; preds = %.lr.ph
-  %24 = icmp eq i32 %22, 0
-  br i1 %24, label %._crit_edge, label %8
+24:                                               ; preds = %.lr.ph
+  %25 = icmp eq i32 %23, 0
+  br i1 %25, label %._crit_edge, label %8
 
-._crit_edge:                                      ; preds = %8, %23, %2
-  %.not.lcssa = phi i1 [ false, %2 ], [ %24, %23 ], [ %24, %8 ]
-  ret i1 %.not.lcssa
+._crit_edge:                                      ; preds = %24, %8, %2
+  %.lcssa = phi i1 [ false, %2 ], [ %25, %8 ], [ %25, %24 ]
+  ret i1 %.lcssa
 
-25:                                               ; preds = %.lr.ph
-  %26 = landingpad { ptr, i32 }
+26:                                               ; preds = %.lr.ph
+  %27 = landingpad { ptr, i32 }
           catch ptr null
-  %27 = extractvalue { ptr, i32 } %26, 0
-  tail call void @__clang_call_terminate(ptr %27) #26
+  %28 = extractvalue { ptr, i32 } %27, 0
+  tail call void @__clang_call_terminate(ptr %28) #26
   unreachable
 }
 

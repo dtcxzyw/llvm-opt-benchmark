@@ -62,8 +62,8 @@ define hidden void @luaE_shrinkCI(ptr noundef %0) local_unnamed_addr #1 {
 .preheader:                                       ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !28
-  %.not20 = icmp eq ptr %8, null
-  br i1 %.not20, label %.thread, label %.lr.ph
+  %.not19 = icmp eq ptr %8, null
+  br i1 %.not19, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -72,7 +72,7 @@ define hidden void @luaE_shrinkCI(ptr noundef %0) local_unnamed_addr #1 {
 10:                                               ; preds = %.lr.ph, %18
   %11 = phi ptr [ %8, %.lr.ph ], [ %21, %18 ]
   %12 = phi ptr [ %7, %.lr.ph ], [ %20, %18 ]
-  %.021 = phi ptr [ %5, %.lr.ph ], [ %14, %18 ]
+  %.020 = phi ptr [ %5, %.lr.ph ], [ %14, %18 ]
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   store ptr %14, ptr %12, align 8, !tbaa !28
@@ -85,7 +85,7 @@ define hidden void @luaE_shrinkCI(ptr noundef %0) local_unnamed_addr #1 {
 
 18:                                               ; preds = %10
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %.021, ptr %19, align 8, !tbaa !29
+  store ptr %.020, ptr %19, align 8, !tbaa !29
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %21 = load ptr, ptr %20, align 8, !tbaa !28
   %.not = icmp eq ptr %21, null

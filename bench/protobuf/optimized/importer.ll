@@ -1943,16 +1943,16 @@ if.end:                                           ; preds = %lor.rhs
   %2 = load ptr, ptr %mappings_, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %3 = load ptr, ptr %_M_finish.i, align 8
-  %cmp.i.not16 = icmp eq ptr %2, %3
-  br i1 %cmp.i.not16, label %for.end, label %for.body
+  %cmp.i.not15 = icmp eq ptr %2, %3
+  br i1 %cmp.i.not15, label %for.end, label %for.body
 
 for.body:                                         ; preds = %if.end, %for.inc
-  %__begin2.sroa.0.017 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %2, %if.end ]
+  %__begin2.sroa.0.016 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %2, %if.end ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %temp_disk_file) #27
-  %call15 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.017) #27
+  %call15 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %__begin2.sroa.0.016) #27
   %4 = extractvalue { i64, ptr } %call15, 0
   %5 = extractvalue { i64, ptr } %call15, 1
-  %disk_path = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 32
+  %disk_path = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.016, i64 32
   %call17 = call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %disk_path) #27
   %6 = extractvalue { i64, ptr } %call17, 0
   %7 = extractvalue { i64, ptr } %call17, 1
@@ -2027,7 +2027,7 @@ cleanup.thread:                                   ; preds = %invoke.cont41, %if.
 
 for.inc:                                          ; preds = %if.end32, %invoke.cont19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %temp_disk_file) #27
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.017, i64 64
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.016, i64 64
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %3
   br i1 %cmp.i.not, label %for.end, label %for.body
 

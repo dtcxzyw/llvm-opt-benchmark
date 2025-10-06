@@ -1056,10 +1056,10 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN13yara_x_parser3ast7P
   %2 = load i64, ptr %0, align 8, !range !12, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !8, !noundef !4
-  %switch = icmp eq i64 %2, 1
-  %. = select i1 %switch, i64 48, i64 72
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 %.
-  ret ptr %5
+  %5 = icmp eq i64 %2, 1
+  %. = select i1 %5, i64 48, i64 72
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.
+  ret ptr %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -1067,8 +1067,8 @@ define noundef nonnull align 8 dereferenceable(24) ptr @_ZN13yara_x_parser3ast7P
   %2 = load i64, ptr %0, align 8, !range !12, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !4, !align !8, !noundef !4
-  %switch = icmp eq i64 %2, 1
-  %.sroa.0.0.idx = select i1 %switch, i64 24, i64 0
+  %5 = icmp eq i64 %2, 1
+  %.sroa.0.0.idx = select i1 %5, i64 24, i64 0
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.0.idx
   ret ptr %.sroa.0.0
 }

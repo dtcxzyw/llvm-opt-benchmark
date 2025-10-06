@@ -392,21 +392,21 @@ _ZSt11make_sharedIN5ZXing6Pdf41718DecoderResultExtraEJEESt10shared_ptrIT_EDpOT0_
   br i1 %104, label %.lr.ph.i.i, label %.thread.thread.i.i
 
 .lr.ph.i.i:                                       ; preds = %103
-  %.not31.i.i = icmp eq i32 %101, 924
-  br i1 %.not31.i.i, label %.lr.ph.split.i.i, label %.lr.ph.split.us.i.i
+  %.not29.i.i = icmp eq i32 %101, 924
+  br i1 %.not29.i.i, label %.lr.ph.split.i.i, label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.lr.ph.i.i, %119
-  %.03722.us.i.i = phi i32 [ %.2.us.i.i, %119 ], [ 0, %.lr.ph.i.i ]
-  %.03921.us.i.i = phi i32 [ %.241.us.i.i, %119 ], [ %98, %.lr.ph.i.i ]
-  %105 = add nsw i32 %.03921.us.i.i, 1
-  %106 = sext i32 %.03921.us.i.i to i64
+  %.03720.us.i.i = phi i32 [ %.2.us.i.i, %119 ], [ 0, %.lr.ph.i.i ]
+  %.03919.us.i.i = phi i32 [ %.241.us.i.i, %119 ], [ %98, %.lr.ph.i.i ]
+  %105 = add nsw i32 %.03919.us.i.i, 1
+  %106 = sext i32 %.03919.us.i.i to i64
   %107 = getelementptr inbounds nuw i32, ptr %97, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !39
   %109 = icmp sgt i32 %108, 899
   br i1 %109, label %112, label %110
 
 110:                                              ; preds = %.lr.ph.split.us.i.i
-  %111 = add nsw i32 %.03722.us.i.i, 1
+  %111 = add nsw i32 %.03720.us.i.i, 1
   br label %119
 
 112:                                              ; preds = %.lr.ph.split.us.i.i
@@ -422,22 +422,22 @@ _ZSt11make_sharedIN5ZXing6Pdf41718DecoderResultExtraEJEESt10shared_ptrIT_EDpOT0_
 
 119:                                              ; preds = %115, %110
   %.241.us.i.i = phi i32 [ %118, %115 ], [ %105, %110 ]
-  %.2.us.i.i = phi i32 [ %.03722.us.i.i, %115 ], [ %111, %110 ]
+  %.2.us.i.i = phi i32 [ %.03720.us.i.i, %115 ], [ %111, %110 ]
   %120 = icmp slt i32 %.241.us.i.i, %96
   br i1 %120, label %.lr.ph.split.us.i.i, label %.thread.i.i
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %165
-  %.03722.i.i = phi i32 [ %.2.i.i, %165 ], [ 0, %.lr.ph.i.i ]
-  %.03921.i.i = phi i32 [ %.241.i.i, %165 ], [ %98, %.lr.ph.i.i ]
-  %121 = add nsw i32 %.03921.i.i, 1
-  %122 = sext i32 %.03921.i.i to i64
+  %.03720.i.i = phi i32 [ %.2.i.i, %165 ], [ 0, %.lr.ph.i.i ]
+  %.03919.i.i = phi i32 [ %.241.i.i, %165 ], [ %98, %.lr.ph.i.i ]
+  %121 = add nsw i32 %.03919.i.i, 1
+  %122 = sext i32 %.03919.i.i to i64
   %123 = getelementptr inbounds nuw i32, ptr %97, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !39
   %125 = icmp sgt i32 %124, 899
   br i1 %125, label %126, label %163
 
 126:                                              ; preds = %.lr.ph.split.i.i
-  %127 = srem i32 %.03722.i.i, 5
+  %127 = srem i32 %.03720.i.i, 5
   %.not.i.i = icmp eq i32 %127, 0
   br i1 %.not.i.i, label %142, label %_ZN5ZXing5ErrorC2EPKcsNS0_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i
 
@@ -490,9 +490,9 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i47
 
 .split.us.i.i:                                    ; preds = %112, %142
   %.us-phi.i.i = phi i32 [ %121, %142 ], [ %105, %112 ]
-  %.us-phi25.i.i = phi i32 [ %124, %142 ], [ %108, %112 ]
-  %.us-phi26.i.i = phi i32 [ %.03722.i.i, %142 ], [ %.03722.us.i.i, %112 ]
-  switch i32 %.us-phi25.i.i, label %_ZN5ZXing5ErrorC2EPKcsNS0_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit49.i.i [
+  %.us-phi23.i.i = phi i32 [ %124, %142 ], [ %108, %112 ]
+  %.us-phi24.i.i = phi i32 [ %.03720.i.i, %142 ], [ %.03720.us.i.i, %112 ]
+  switch i32 %.us-phi23.i.i, label %_ZN5ZXing5ErrorC2EPKcsNS0_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit49.i.i [
     i32 900, label %.thread.i.i
     i32 901, label %.thread.i.i
     i32 902, label %.thread.i.i
@@ -539,17 +539,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   br label %.body
 
 163:                                              ; preds = %.lr.ph.split.i.i
-  %164 = add nsw i32 %.03722.i.i, 1
+  %164 = add nsw i32 %.03720.i.i, 1
   br label %165
 
 165:                                              ; preds = %163, %145
   %.241.i.i = phi i32 [ %148, %145 ], [ %121, %163 ]
-  %.2.i.i = phi i32 [ %.03722.i.i, %145 ], [ %164, %163 ]
+  %.2.i.i = phi i32 [ %.03720.i.i, %145 ], [ %164, %163 ]
   %166 = icmp slt i32 %.241.i.i, %96
   br i1 %166, label %.lr.ph.split.i.i, label %.thread.i.i
 
 .thread.i.i:                                      ; preds = %119, %165, %.split.us.i.i, %.split.us.i.i, %.split.us.i.i, %.split.us.i.i, %.split.us.i.i, %.split.us.i.i, %.split.us.i.i
-  %.03714.i.i = phi i32 [ %.us-phi26.i.i, %.split.us.i.i ], [ %.us-phi26.i.i, %.split.us.i.i ], [ %.us-phi26.i.i, %.split.us.i.i ], [ %.us-phi26.i.i, %.split.us.i.i ], [ %.us-phi26.i.i, %.split.us.i.i ], [ %.us-phi26.i.i, %.split.us.i.i ], [ %.us-phi26.i.i, %.split.us.i.i ], [ %.2.i.i, %165 ], [ %.2.us.i.i, %119 ]
+  %.03712.i.i = phi i32 [ %.us-phi24.i.i, %.split.us.i.i ], [ %.us-phi24.i.i, %.split.us.i.i ], [ %.us-phi24.i.i, %.split.us.i.i ], [ %.us-phi24.i.i, %.split.us.i.i ], [ %.us-phi24.i.i, %.split.us.i.i ], [ %.us-phi24.i.i, %.split.us.i.i ], [ %.us-phi24.i.i, %.split.us.i.i ], [ %.2.i.i, %165 ], [ %.2.us.i.i, %119 ]
   %.140.i.i = phi i32 [ %.us-phi.i.i, %.split.us.i.i ], [ %.us-phi.i.i, %.split.us.i.i ], [ %.us-phi.i.i, %.split.us.i.i ], [ %.us-phi.i.i, %.split.us.i.i ], [ %.us-phi.i.i, %.split.us.i.i ], [ %.us-phi.i.i, %.split.us.i.i ], [ %.us-phi.i.i, %.split.us.i.i ], [ %.241.i.i, %165 ], [ %.241.us.i.i, %119 ]
   %167 = icmp sgt i32 %.140.i.i, %96
   br i1 %167, label %_ZN5ZXing5ErrorC2EPKcsNS0_4TypeENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit54.i.i, label %182
@@ -602,19 +602,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55
   br label %.body
 
 182:                                              ; preds = %.thread.i.i
-  %183 = icmp eq i32 %.03714.i.i, 0
+  %183 = icmp eq i32 %.03712.i.i, 0
   br i1 %183, label %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i, label %184
 
 184:                                              ; preds = %182
   %185 = icmp eq i32 %101, 901
-  %186 = srem i32 %.03714.i.i, 5
+  %186 = srem i32 %.03712.i.i, 5
   %187 = icmp eq i32 %186, 0
   br i1 %185, label %188, label %190
 
 188:                                              ; preds = %184
-  %189 = add nsw i32 %.03714.i.i, -5
+  %189 = add nsw i32 %.03712.i.i, -5
   %spec.select.i = select i1 %187, i32 5, i32 %186
-  %spec.select67.i = select i1 %187, i32 %189, i32 %.03714.i.i
+  %spec.select67.i = select i1 %187, i32 %189, i32 %.03712.i.i
   br label %205
 
 190:                                              ; preds = %184
@@ -658,7 +658,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i60
 
 205:                                              ; preds = %190, %188
   %.065.i = phi i32 [ 0, %190 ], [ %spec.select.i, %188 ]
-  %.3.i.i = phi i32 [ %.03714.i.i, %190 ], [ %spec.select67.i, %188 ]
+  %.3.i.i = phi i32 [ %.03712.i.i, %190 ], [ %spec.select67.i, %188 ]
   %206 = sdiv i32 %.3.i.i, 5
   br label %_ZN5ZXing6Pdf417L16CountByteBatchesEiRKSt6vectorIiSaIiEEiRi.exit.i
 
@@ -3834,15 +3834,15 @@ define internal fastcc noundef range(i32 -2147483647, -2147483648) i32 @_ZN5ZXin
 12:                                               ; preds = %.lr.ph, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit
   %13 = phi i32 [ %7, %.lr.ph ], [ %82, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
   %14 = phi ptr [ %6, %.lr.ph ], [ %81, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
-  %.03159 = phi i32 [ %1, %.lr.ph ], [ %.4, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
-  %.03258 = phi i32 [ 0, %.lr.ph ], [ %.23447, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
-  %15 = sext i32 %.03159 to i64
+  %.03158 = phi i32 [ %1, %.lr.ph ], [ %.4, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
+  %.03257 = phi i32 [ 0, %.lr.ph ], [ %.23447, %_ZN5ZXing6Pdf417L10ProcessECIERKSt6vectorIiSaIiEEiiiRNS_7ContentE.exit ]
+  %15 = sext i32 %.03158 to i64
   %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !39
   %18 = icmp slt i32 %17, 900
   %19 = zext i1 %18 to i32
-  %.133 = add nsw i32 %.03258, %19
-  %.2 = add nsw i32 %.03159, %19
+  %.133 = add nsw i32 %.03257, %19
+  %.2 = add nsw i32 %.03158, %19
   %20 = icmp sgt i32 %.133, 0
   br i1 %20, label %21, label %45
 
@@ -3915,7 +3915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %39,
   br i1 %49, label %50, label %66
 
 50:                                               ; preds = %47
-  %51 = add nsw i32 %.03159, 1
+  %51 = add nsw i32 %.03158, 1
   %52 = load ptr, ptr %0, align 8, !tbaa !38
   %53 = load i32, ptr %52, align 4, !tbaa !39
   %54 = icmp slt i32 %51, %53
@@ -3926,7 +3926,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit40: ; preds = %39,
   br i1 %56, label %57, label %62
 
 57:                                               ; preds = %55
-  %58 = add nsw i32 %.03159, 2
+  %58 = add nsw i32 %.03158, 2
   %59 = sext i32 %51 to i64
   %60 = getelementptr inbounds nuw i32, ptr %52, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !39

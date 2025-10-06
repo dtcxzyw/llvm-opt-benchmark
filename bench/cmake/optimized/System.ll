@@ -335,11 +335,11 @@ define internal fastcc range(i32 0, 2) i32 @kwsysSystem__AppendArgument(ptr noun
 21:                                               ; preds = %20
   tail call void @free(ptr noundef %10) #8
   %.pre.i = load i32, ptr %7, align 4, !tbaa !4
-  %.pre29.i = shl nsw i32 %.pre.i, 1
+  %.pre28.i = shl nsw i32 %.pre.i, 1
   br label %.thread.i
 
 .thread.i:                                        ; preds = %21, %20
-  %.pre-phi.i = phi i32 [ %17, %20 ], [ %.pre29.i, %21 ]
+  %.pre-phi.i = phi i32 [ %17, %20 ], [ %.pre28.i, %21 ]
   store ptr %19, ptr %5, align 8, !tbaa !11
   %22 = getelementptr inbounds i8, ptr %19, i64 %13
   store i32 %.pre-phi.i, ptr %7, align 4, !tbaa !4

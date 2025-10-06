@@ -1133,8 +1133,8 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
   %3 = load i16, ptr %1, align 8
   %4 = and i16 %3, 510
   %spec.select.i.i.i.i.i.i.i.i = icmp ne i16 %4, 120
-  %.not318 = icmp eq ptr %1, null
-  %.not = or i1 %.not318, %spec.select.i.i.i.i.i.i.i.i
+  %.not317 = icmp eq ptr %1, null
+  %.not = or i1 %.not317, %spec.select.i.i.i.i.i.i.i.i
   br i1 %.not, label %43, label %5
 
 5:                                                ; preds = %2
@@ -1313,7 +1313,7 @@ define internal fastcc void @_ZN5clang15StmtVisitorBaseISt11add_pointerN12_GLOBA
 43:                                               ; preds = %2
   %44 = and i16 %3, 511
   %45 = icmp ne i16 %44, 4
-  %.not314 = or i1 %.not318, %45
+  %.not314 = or i1 %.not317, %45
   br i1 %.not314, label %.critedge, label %46
 
 46:                                               ; preds = %43
@@ -8011,18 +8011,18 @@ declare noundef zeroext i1 @_ZNK5clang4Type18isRealFloatingTypeEv(ptr noundef no
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define internal fastcc noundef ptr @_ZL17getIncrementedVarPKN5clang4ExprEPKNS_7VarDeclES5_(ptr noundef nonnull readonly %0, ptr noundef readnone %1, ptr noundef readnone %2) unnamed_addr #14 {
-  br label %tailrecurse81
+  br label %tailrecurse77
 
-tailrecurse81:                                    ; preds = %38, %3
+tailrecurse77:                                    ; preds = %38, %3
   %.tr = phi ptr [ %0, %3 ], [ %40, %38 ]
   %4 = tail call noundef ptr @_ZN5clang4Expr16IgnoreParenCastsEv(ptr noundef nonnull align 8 dereferenceable(16) %.tr) #24
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 510
-  %spec.select.i.i.i.i.i.i.i.i69 = icmp eq i16 %6, 120
-  br i1 %spec.select.i.i.i.i.i.i.i.i69, label %.lr.ph, label %tailrecurse._crit_edge
+  %spec.select.i.i.i.i.i.i.i.i65 = icmp eq i16 %6, 120
+  br i1 %spec.select.i.i.i.i.i.i.i.i65, label %.lr.ph, label %tailrecurse._crit_edge
 
-.lr.ph:                                           ; preds = %tailrecurse81, %tailrecurse
-  %7 = phi ptr [ %24, %tailrecurse ], [ %4, %tailrecurse81 ]
+.lr.ph:                                           ; preds = %tailrecurse77, %tailrecurse
+  %7 = phi ptr [ %24, %tailrecurse ], [ %4, %tailrecurse77 ]
   %8 = load i32, ptr %7, align 8
   %9 = lshr i32 %8, 19
   %10 = and i32 %9, 63
@@ -8035,8 +8035,8 @@ tailrecurse81:                                    ; preds = %38, %3
   %15 = add nsw i32 %14, -22
   %16 = icmp ult i32 %15, 10
   %17 = icmp eq i32 %10, 32
-  %or.cond63 = or i1 %17, %16
-  br i1 %or.cond63, label %18, label %.thread
+  %or.cond59 = or i1 %17, %16
+  br i1 %or.cond59, label %18, label %.thread
 
 18:                                               ; preds = %13, %.lr.ph
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -8054,9 +8054,9 @@ tailrecurse:                                      ; preds = %18
   %spec.select.i.i.i.i.i.i.i.i = icmp eq i16 %26, 120
   br i1 %spec.select.i.i.i.i.i.i.i.i, label %.lr.ph, label %tailrecurse._crit_edge
 
-tailrecurse._crit_edge:                           ; preds = %tailrecurse, %tailrecurse81
-  %.lcssa67 = phi ptr [ %4, %tailrecurse81 ], [ %24, %tailrecurse ]
-  %.lcssa = phi i16 [ %5, %tailrecurse81 ], [ %25, %tailrecurse ]
+tailrecurse._crit_edge:                           ; preds = %tailrecurse, %tailrecurse77
+  %.lcssa63 = phi ptr [ %4, %tailrecurse77 ], [ %24, %tailrecurse ]
+  %.lcssa = phi i16 [ %5, %tailrecurse77 ], [ %25, %tailrecurse ]
   %27 = and i16 %.lcssa, 511
   switch i16 %27, label %.thread [
     i16 73, label %28
@@ -8064,24 +8064,24 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %tailr
   ]
 
 28:                                               ; preds = %tailrecurse._crit_edge
-  %29 = getelementptr inbounds nuw i8, ptr %.lcssa67, i64 16
+  %29 = getelementptr inbounds nuw i8, ptr %.lcssa63, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !586
   %31 = icmp eq ptr %30, %1
   %32 = icmp eq ptr %30, %2
   %or.cond = or i1 %31, %32
-  %33 = select i1 %or.cond, ptr %.lcssa67, ptr null
+  %33 = select i1 %or.cond, ptr %.lcssa63, ptr null
   br label %.thread
 
 34:                                               ; preds = %tailrecurse._crit_edge
-  %35 = load i32, ptr %.lcssa67, align 8
+  %35 = load i32, ptr %.lcssa63, align 8
   %36 = and i32 %35, 14680064
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %.lcssa67, i64 16
+  %39 = getelementptr inbounds nuw i8, ptr %.lcssa63, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !593
-  br label %tailrecurse81
+  br label %tailrecurse77
 
 .thread:                                          ; preds = %13, %18, %34, %tailrecurse._crit_edge, %28
   %.3 = phi ptr [ %33, %28 ], [ null, %34 ], [ null, %tailrecurse._crit_edge ], [ null, %13 ], [ %21, %18 ]

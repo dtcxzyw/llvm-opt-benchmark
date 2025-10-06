@@ -529,7 +529,7 @@ define ptr @l_Lean_Elab_initFn____x40_Lean_Elab_AutoBound___hyg_40_(ptr noundef 
 define zeroext range(i8 0, 2) i8 @l_String_anyAux___at___private_Lean_Elab_AutoBound_0__Lean_Elab_isValidAutoBoundSuffix___spec__1(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = ptrtoint ptr %1 to i64
   %5 = and i64 %4, 1
-  %.not117 = icmp eq i64 %5, 0
+  %.not115 = icmp eq i64 %5, 0
   br label %lean_dec.exit89
 
 lean_dec.exit89:                                  ; preds = %lean_dec.exit89.backedge, %3
@@ -537,24 +537,24 @@ lean_dec.exit89:                                  ; preds = %lean_dec.exit89.bac
   %6 = ptrtoint ptr %.062 to i64
   %7 = and i64 %6, 1
   %.not = icmp eq i64 %7, 0
-  br i1 %.not, label %lean_nat_lt.exit.thread115, label %8, !prof !15
+  br i1 %.not, label %lean_nat_lt.exit.thread113, label %8, !prof !15
 
 8:                                                ; preds = %lean_dec.exit89
-  br i1 %.not117, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !15
+  br i1 %.not115, label %lean_nat_lt.exit, label %lean_nat_lt.exit.thread, !prof !15
 
 lean_nat_lt.exit:                                 ; preds = %8
   %9 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.062, ptr noundef %1) #3
   br i1 %9, label %18, label %.thread
 
-lean_nat_lt.exit.thread115:                       ; preds = %lean_dec.exit89
+lean_nat_lt.exit.thread113:                       ; preds = %lean_dec.exit89
   %10 = tail call zeroext i1 @lean_nat_big_lt(ptr noundef %.062, ptr noundef %1) #3
   br i1 %10, label %18, label %11
 
 lean_nat_lt.exit.thread:                          ; preds = %8
-  %.not118 = icmp ult ptr %.062, %1
-  br i1 %.not118, label %18, label %.thread
+  %.not116 = icmp ult ptr %.062, %1
+  br i1 %.not116, label %18, label %.thread
 
-11:                                               ; preds = %lean_nat_lt.exit.thread115
+11:                                               ; preds = %lean_nat_lt.exit.thread113
   %12 = load i32, ptr %.062, align 4, !tbaa !10
   %13 = icmp sgt i32 %12, 1
   br i1 %13, label %14, label %16, !prof !14
@@ -572,7 +572,7 @@ lean_nat_lt.exit.thread:                          ; preds = %8
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.062) #3
   br label %.thread
 
-18:                                               ; preds = %lean_nat_lt.exit.thread115, %lean_nat_lt.exit.thread, %lean_nat_lt.exit
+18:                                               ; preds = %lean_nat_lt.exit.thread113, %lean_nat_lt.exit.thread, %lean_nat_lt.exit
   %19 = tail call i32 @lean_string_utf8_get(ptr noundef %0, ptr noundef %.062) #3
   %20 = icmp ult i32 %19, 48
   br i1 %20, label %21, label %51
@@ -583,8 +583,8 @@ lean_nat_lt.exit.thread:                          ; preds = %8
   br i1 %23, label %24, label %42
 
 24:                                               ; preds = %21
-  %.not120 = icmp eq i32 %19, 39
-  br i1 %.not120, label %33, label %25
+  %.not118 = icmp eq i32 %19, 39
+  br i1 %.not118, label %33, label %25
 
 25:                                               ; preds = %24
   br i1 %.not, label %26, label %.thread
@@ -661,8 +661,8 @@ lean_nat_lt.exit.thread:                          ; preds = %8
   br i1 %55, label %56, label %74
 
 56:                                               ; preds = %53
-  %.not119 = icmp eq i32 %19, 95
-  br i1 %.not119, label %65, label %57
+  %.not117 = icmp eq i32 %19, 95
+  br i1 %.not117, label %65, label %57
 
 57:                                               ; preds = %56
   br i1 %.not, label %58, label %.thread

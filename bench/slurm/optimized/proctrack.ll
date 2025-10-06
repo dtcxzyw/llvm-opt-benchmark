@@ -223,7 +223,7 @@ define dso_local i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_u
 .lr.ph:                                           ; preds = %16, %39
   %19 = phi i32 [ %40, %39 ], [ %17, %16 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ 0, %16 ]
-  %.236 = phi i32 [ %.3, %39 ], [ 0, %16 ]
+  %.235 = phi i32 [ %.3, %39 ], [ 0, %16 ]
   %20 = load ptr, ptr %5, align 8
   %21 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
@@ -249,7 +249,7 @@ define dso_local i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_u
   br label %33
 
 33:                                               ; preds = %29, %26
-  %34 = add nsw i32 %.236, 1
+  %34 = add nsw i32 %.235, 1
   br label %38
 
 35:                                               ; preds = %23
@@ -259,14 +259,14 @@ define dso_local i32 @proctrack_g_signal(i64 noundef %0, i32 noundef %1) local_u
   br label %38
 
 38:                                               ; preds = %35, %33
-  %.4 = phi i32 [ %34, %33 ], [ %.236, %35 ]
+  %.4 = phi i32 [ %34, %33 ], [ %.235, %35 ]
   call void @slurm_xfree(ptr noundef nonnull %7) #10
   %.pre = load i32, ptr %6, align 4
   br label %39
 
 39:                                               ; preds = %.lr.ph, %38
   %40 = phi i32 [ %.pre, %38 ], [ %19, %.lr.ph ]
-  %.3 = phi i32 [ %.4, %38 ], [ %.236, %.lr.ph ]
+  %.3 = phi i32 [ %.4, %38 ], [ %.235, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %41 = sext i32 %40 to i64
   %42 = icmp slt i64 %indvars.iv.next, %41
@@ -689,23 +689,23 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
   %7 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @ops, i64 56), align 8
   %8 = call i32 %7(i64 noundef %6, ptr noundef nonnull %2, ptr noundef nonnull %3) #10
   %9 = icmp eq i32 %8, 0
-  br i1 %9, label %.preheader23, label %.loopexit
+  br i1 %9, label %.preheader21, label %.loopexit
 
-.preheader23:                                     ; preds = %5
+.preheader21:                                     ; preds = %5
   %10 = load i32, ptr %3, align 4
   %11 = icmp sgt i32 %10, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
 .preheader:                                       ; preds = %26
   %12 = icmp sgt i32 %27, 0
-  br i1 %12, label %.lr.ph26, label %._crit_edge
+  br i1 %12, label %.lr.ph24, label %._crit_edge
 
-.lr.ph26:                                         ; preds = %.preheader
+.lr.ph24:                                         ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %30
 
-.lr.ph:                                           ; preds = %.preheader23, %26
-  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader23 ]
+.lr.ph:                                           ; preds = %.preheader21, %26
+  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader21 ]
   %14 = load ptr, ptr %2, align 8
   %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
@@ -734,20 +734,20 @@ define internal noalias noundef ptr @_sig_agent(ptr noundef %0) #0 {
   %29 = icmp slt i64 %indvars.iv.next, %28
   br i1 %29, label %.lr.ph, label %.preheader, !llvm.loop !14
 
-30:                                               ; preds = %.lr.ph26, %30
-  %indvars.iv30 = phi i64 [ 0, %.lr.ph26 ], [ %indvars.iv.next31, %30 ]
+30:                                               ; preds = %.lr.ph24, %30
+  %indvars.iv28 = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next29, %30 ]
   %31 = load ptr, ptr %2, align 8
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv30
+  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv28
   %33 = load i32, ptr %32, align 4
   %34 = load i32, ptr %13, align 8
   %35 = call i32 @kill(i32 noundef %33, i32 noundef %34) #10
-  %indvars.iv.next31 = add nuw nsw i64 %indvars.iv30, 1
+  %indvars.iv.next29 = add nuw nsw i64 %indvars.iv28, 1
   %36 = load i32, ptr %3, align 4
   %37 = sext i32 %36 to i64
-  %38 = icmp slt i64 %indvars.iv.next31, %37
+  %38 = icmp slt i64 %indvars.iv.next29, %37
   br i1 %38, label %30, label %._crit_edge, !llvm.loop !15
 
-._crit_edge:                                      ; preds = %.preheader23, %30, %.preheader
+._crit_edge:                                      ; preds = %.preheader21, %30, %.preheader
   call void @slurm_xfree(ptr noundef nonnull %2) #10
   br label %.loopexit
 

@@ -206,8 +206,8 @@ define dso_local i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 nou
   %14 = getelementptr inbounds i8, ptr %1, i64 %13
   %15 = ptrtoint ptr %14 to i64
   %16 = tail call ptr @memchr(ptr noundef %1, i32 noundef 10, i64 noundef %13) #11
-  %.not48.i = icmp eq ptr %16, null
-  br i1 %.not48.i, label %.critedge.i, label %.lr.ph.i
+  %.not47.i = icmp eq ptr %16, null
+  br i1 %.not47.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %12
   %17 = ptrtoint ptr %1 to i64
@@ -217,7 +217,7 @@ define dso_local i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 nou
   %19 = phi i64 [ %10, %.lr.ph.i ], [ %43, %42 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
   %20 = phi ptr [ %16, %.lr.ph.i ], [ %44, %42 ]
-  %.03649.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %42 ]
+  %.03648.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %42 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %22 = urem i64 %indvars.iv.next.i, %19
@@ -225,19 +225,19 @@ define dso_local i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 nou
   br i1 %23, label %24, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %18
-  %.pre59.i = ptrtoint ptr %21 to i64
-  %.pre60.i = sub i64 %15, %.pre59.i
+  %.pre58.i = ptrtoint ptr %21 to i64
+  %.pre59.i = sub i64 %15, %.pre58.i
   br label %42
 
 24:                                               ; preds = %18
-  %25 = sext i32 %.03649.i to i64
+  %25 = sext i32 %.03648.i to i64
   %26 = getelementptr inbounds i8, ptr %1, i64 %25
   %27 = ptrtoint ptr %21 to i64
   %28 = add i64 %25, %17
   %29 = sub i64 %27, %28
   %30 = tail call i64 @write(i32 noundef %0, ptr noundef %26, i64 noundef %29) #8
   %31 = trunc i64 %30 to i32
-  %32 = add i32 %.03649.i, %31
+  %32 = add i32 %.03648.i, %31
   %33 = sub i64 %15, %27
   %34 = tail call ptr @memchr(ptr noundef nonnull %21, i32 noundef 10, i64 noundef %33) #11
   %.not40.i = icmp eq ptr %34, null
@@ -262,10 +262,10 @@ define dso_local i32 @phpdbg_mixed_write(i32 noundef %0, ptr noundef %1, i32 nou
   br label %.loopexit.i
 
 42:                                               ; preds = %.thread.i, %._crit_edge.i
-  %.pre-phi61.i = phi i64 [ %.pre60.i, %._crit_edge.i ], [ %33, %.thread.i ]
+  %.pre-phi60.i = phi i64 [ %.pre59.i, %._crit_edge.i ], [ %33, %.thread.i ]
   %43 = phi i64 [ %19, %._crit_edge.i ], [ %.pre.i, %.thread.i ]
-  %.2.i = phi i32 [ %.03649.i, %._crit_edge.i ], [ %32, %.thread.i ]
-  %44 = tail call ptr @memchr(ptr noundef nonnull %21, i32 noundef 10, i64 noundef %.pre-phi61.i) #11
+  %.2.i = phi i32 [ %.03648.i, %._crit_edge.i ], [ %32, %.thread.i ]
+  %44 = tail call ptr @memchr(ptr noundef nonnull %21, i32 noundef 10, i64 noundef %.pre-phi60.i) #11
   %.not.i = icmp eq ptr %44, null
   br i1 %.not.i, label %.loopexit.i, label %18
 

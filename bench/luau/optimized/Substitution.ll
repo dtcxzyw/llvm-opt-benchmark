@@ -3120,9 +3120,9 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan4loopEv(ptr noundef
   %4 = load ptr, ptr %2, align 8, !tbaa !156
   %5 = load ptr, ptr %3, align 8, !tbaa !156
   %6 = icmp eq ptr %4, %5
-  br i1 %6, label %_ZN4Luau6Tarjan9visitEdgeEii.exit43.thread, label %.lr.ph123
+  br i1 %6, label %_ZN4Luau6Tarjan9visitEdgeEii.exit42.thread, label %.lr.ph119
 
-.lr.ph123:                                        ; preds = %1
+.lr.ph119:                                        ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 140
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 112
@@ -3143,10 +3143,10 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan4loopEv(ptr noundef
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 184
   br label %25
 
-25:                                               ; preds = %.lr.ph123, %_ZN4Luau6Tarjan9visitEdgeEii.exit43
-  %26 = phi ptr [ %5, %.lr.ph123 ], [ %331, %_ZN4Luau6Tarjan9visitEdgeEii.exit43 ]
+25:                                               ; preds = %.lr.ph119, %_ZN4Luau6Tarjan9visitEdgeEii.exit42
+  %26 = phi ptr [ %5, %.lr.ph119 ], [ %331, %_ZN4Luau6Tarjan9visitEdgeEii.exit42 ]
   %27 = getelementptr inbounds i8, ptr %26, i64 -12
-  %.sroa.061.0.copyload = load i32, ptr %27, align 4, !tbaa !4
+  %.sroa.060.0.copyload = load i32, ptr %27, align 4, !tbaa !4
   %.sroa.19.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 -8
   %.sroa.19.0.copyload = load i32, ptr %.sroa.19.0..sroa_idx, align 4, !tbaa !4
   %.sroa.27.0..sroa_idx = getelementptr inbounds i8, ptr %26, i64 -4
@@ -3162,7 +3162,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan4loopEv(ptr noundef
   %33 = icmp slt i32 %32, 1
   %.not = icmp sgt i32 %32, %31
   %or.cond = select i1 %33, i1 true, i1 %.not
-  br i1 %or.cond, label %34, label %_ZN4Luau6Tarjan9visitEdgeEii.exit43.thread
+  br i1 %or.cond, label %34, label %_ZN4Luau6Tarjan9visitEdgeEii.exit42.thread
 
 34:                                               ; preds = %29
   %35 = load ptr, ptr %10, align 8, !tbaa !43
@@ -3171,7 +3171,7 @@ define dso_local noundef range(i32 0, 2) i32 @_ZN4Luau6Tarjan4loopEv(ptr noundef
   br i1 %.not.i, label %39, label %37
 
 37:                                               ; preds = %34
-  store i32 %.sroa.061.0.copyload, ptr %35, align 4, !tbaa !4
+  store i32 %.sroa.060.0.copyload, ptr %35, align 4, !tbaa !4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
   store ptr %38, ptr %10, align 8, !tbaa !43
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
@@ -3200,7 +3200,7 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i: ; preds = %39
   %51 = shl nuw nsw i64 %50, 2
   %52 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %51) #24
   %53 = getelementptr inbounds i8, ptr %52, i64 %43
-  store i32 %.sroa.061.0.copyload, ptr %53, align 4, !tbaa !4
+  store i32 %.sroa.060.0.copyload, ptr %53, align 4, !tbaa !4
   %54 = icmp sgt i64 %43, 0
   br i1 %54, label %55, label %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
 
@@ -3225,7 +3225,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %37, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
-  %59 = sext i32 %.sroa.061.0.copyload to i64
+  %59 = sext i32 %.sroa.060.0.copyload to i64
   %60 = load ptr, ptr %12, align 8, !tbaa !35
   %61 = getelementptr inbounds nuw %"struct.Luau::TarjanNode", ptr %60, i64 %59
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
@@ -3273,11 +3273,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %37, %_ZNSt6vectorIi
 
 ._ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit_crit_edge: ; preds = %84
   %.pre = load ptr, ptr %12, align 8, !tbaa !35
-  %.pre138 = sext i32 %.sroa.061.0.copyload to i64
+  %.pre134 = sext i32 %.sroa.060.0.copyload to i64
   br label %_ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit
 
 .lr.ph:                                           ; preds = %84
-  %86 = sext i32 %.sroa.061.0.copyload to i64
+  %86 = sext i32 %.sroa.060.0.copyload to i64
   %87 = sext i32 %.sroa.19.0 to i64
   br label %88
 
@@ -3296,8 +3296,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %37, %_ZNSt6vectorIi
   %96 = load i64, ptr %18, align 8, !tbaa !23
   %97 = mul i64 %96, 3
   %98 = lshr i64 %97, 2
-  %.not.i.i44 = icmp ult i64 %95, %98
-  br i1 %.not.i.i44, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i, label %99
+  %.not.i.i43 = icmp ult i64 %95, %98
+  br i1 %.not.i.i43, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i, label %99
 
 99:                                               ; preds = %92
   %100 = icmp eq i64 %95, 0
@@ -3333,8 +3333,8 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %37, %_ZNSt6vectorIi
 117:                                              ; preds = %115
   %118 = add i64 %.02028.i.i.i, 1
   %119 = add i64 %118, %.02129.i.i.i
-  %.not.i.i.i45 = icmp ugt i64 %118, %105
-  br i1 %.not.i.i.i45, label %.loopexit.i.i, label %111, !llvm.loop !145
+  %.not.i.i.i44 = icmp ugt i64 %118, %105
+  br i1 %.not.i.i.i44, label %.loopexit.i.i, label %111, !llvm.loop !145
 
 .loopexit.i.i:                                    ; preds = %117, %115, %101, %99
   tail call void @_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE6rehashEv(ptr noundef nonnull align 8 dereferenceable(40) %16)
@@ -3352,38 +3352,38 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInte
   %126 = xor i64 %124, %125
   %127 = load ptr, ptr %16, align 8, !tbaa !16
   %128 = load ptr, ptr %19, align 8, !tbaa !24
-  %.02331.i.i203 = and i64 %126, %122
-  %129 = getelementptr inbounds nuw %"struct.std::pair.154", ptr %127, i64 %.02331.i.i203
+  %.02331.i.i199 = and i64 %126, %122
+  %129 = getelementptr inbounds nuw %"struct.std::pair.154", ptr %127, i64 %.02331.i.i199
   %130 = load ptr, ptr %129, align 8, !tbaa !24
   %131 = icmp eq ptr %130, %128
-  br i1 %131, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i, label %.lr.ph206
+  br i1 %131, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i, label %.lr.ph202
 
-.lr.ph206:                                        ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i, %135
+.lr.ph202:                                        ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i, %135
   %132 = phi ptr [ %139, %135 ], [ %130, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i ]
   %133 = phi ptr [ %138, %135 ], [ %129, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i ]
-  %.02331.i.i205 = phi i64 [ %.02331.i.i, %135 ], [ %.02331.i.i203, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i ]
-  %.02230.i.i204 = phi i64 [ %136, %135 ], [ 0, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i ]
+  %.02331.i.i201 = phi i64 [ %.02331.i.i, %135 ], [ %.02331.i.i199, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i ]
+  %.02230.i.i200 = phi i64 [ %136, %135 ], [ 0, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i ]
   %134 = icmp eq ptr %132, %94
-  br i1 %134, label %.loopexit183, label %135
+  br i1 %134, label %.loopexit179, label %135
 
-135:                                              ; preds = %.lr.ph206
-  %136 = add i64 %.02230.i.i204, 1
-  %137 = add i64 %136, %.02331.i.i205
+135:                                              ; preds = %.lr.ph202
+  %136 = add i64 %.02230.i.i200, 1
+  %137 = add i64 %136, %.02331.i.i201
   %.not.i8.i = icmp ule i64 %136, %122
   tail call void @llvm.assume(i1 %.not.i8.i)
   %.02331.i.i = and i64 %137, %122
   %138 = getelementptr inbounds nuw %"struct.std::pair.154", ptr %127, i64 %.02331.i.i
   %139 = load ptr, ptr %138, align 8, !tbaa !24
   %140 = icmp eq ptr %139, %128
-  br i1 %140, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i, label %.lr.ph206
+  br i1 %140, label %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i, label %.lr.ph202
 
 _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i: ; preds = %135, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i
   %.lcssa = phi ptr [ %129, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE14rehash_if_fullERS7_.exit.i ], [ %138, %135 ]
   store ptr %94, ptr %.lcssa, align 8, !tbaa !147
   %141 = add i64 %121, 1
   store i64 %141, ptr %17, align 8, !tbaa !144
-  %.not.i46 = icmp eq i64 %121, -1
-  br i1 %.not.i46, label %.loopexit183, label %142
+  %.not.i45 = icmp eq i64 %121, -1
+  br i1 %.not.i45, label %.loopexit179, label %142
 
 142:                                              ; preds = %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i
   %143 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 8
@@ -3396,8 +3396,8 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInte
   %150 = trunc i64 %149 to i32
   store i32 %150, ptr %143, align 4, !tbaa !4
   %151 = load ptr, ptr %21, align 8, !tbaa !39
-  %.not.i.i.i38 = icmp eq ptr %144, %151
-  br i1 %.not.i.i.i38, label %154, label %152
+  %.not.i.i.i37 = icmp eq ptr %144, %151
+  br i1 %.not.i.i.i37, label %154, label %152
 
 152:                                              ; preds = %142
   store ptr %94, ptr %144, align 8, !tbaa !24
@@ -3411,7 +3411,7 @@ _ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInte
   store i32 %150, ptr %.sroa.815.0..sroa_idx.i, align 4, !tbaa !4
   %153 = getelementptr inbounds nuw i8, ptr %144, i64 24
   store ptr %153, ptr %20, align 8, !tbaa !38
-  br label %.thread181
+  br label %.thread177
 
 154:                                              ; preds = %142
   %155 = icmp eq i64 %148, 9223372036854775800
@@ -3462,7 +3462,7 @@ _ZNSt6vectorIN4Luau10TarjanNodeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx1
   store ptr %166, ptr %20, align 8, !tbaa !38
   %168 = getelementptr inbounds nuw %"struct.Luau::TarjanNode", ptr %162, i64 %160
   store ptr %168, ptr %21, align 8, !tbaa !39
-  br label %.thread181
+  br label %.thread177
 
 169:                                              ; preds = %88
   %170 = load ptr, ptr %22, align 8, !tbaa !51
@@ -3473,27 +3473,27 @@ _ZNSt6vectorIN4Luau10TarjanNodeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx1
 
 173:                                              ; preds = %169
   %174 = tail call i64 @_ZN4Luau6Tarjan8indexifyEPKNS_11TypePackVarE(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %172)
-  %.sroa.055.0.extract.trunc = trunc i64 %174 to i32
-  %.sroa.055.4.extract.trunc = icmp samesign ugt i64 %174, 4294967295
-  br i1 %.sroa.055.4.extract.trunc, label %.loopexit185, label %.thread
+  %.sroa.054.0.extract.trunc = trunc i64 %174 to i32
+  %.sroa.054.4.extract.trunc = icmp samesign ugt i64 %174, 4294967295
+  br i1 %.sroa.054.4.extract.trunc, label %.loopexit181, label %.thread
 
-.thread181:                                       ; preds = %152, %_ZNSt6vectorIN4Luau10TarjanNodeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
+.thread177:                                       ; preds = %152, %_ZNSt6vectorIN4Luau10TarjanNodeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i
   %175 = load i32, ptr %143, align 4, !tbaa !4
-  br label %.loopexit185
+  br label %.loopexit181
 
-.loopexit183:                                     ; preds = %.lr.ph206, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i
-  %176 = phi ptr [ %.lcssa, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i ], [ %133, %.lr.ph206 ]
+.loopexit179:                                     ; preds = %.lr.ph202, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i
+  %176 = phi ptr [ %.lcssa, %_ZN4Luau6detail14DenseHashTableIPKNS_4TypeESt4pairIS4_iES5_IKS4_iENS0_16ItemInterfaceMapIS4_iEENS_16DenseHashPointerESt8equal_toIS4_EE13insert_unsafeERS7_.exit.i ], [ %133, %.lr.ph202 ]
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 8
   %178 = load i32, ptr %177, align 4, !tbaa !4
   br label %.thread
 
-.loopexit185:                                     ; preds = %173, %.thread181
-  %.0180 = phi i32 [ %175, %.thread181 ], [ %.sroa.055.0.extract.trunc, %173 ]
+.loopexit181:                                     ; preds = %173, %.thread177
+  %.0176 = phi i32 [ %175, %.thread177 ], [ %.sroa.054.0.extract.trunc, %173 ]
   %179 = trunc nsw i64 %indvars.iv to i32
   %180 = add nsw i32 %179, 1
   %181 = load ptr, ptr %3, align 8, !tbaa !156
   %182 = getelementptr inbounds i8, ptr %181, i64 -12
-  store i32 %.sroa.061.0.copyload, ptr %182, align 4, !tbaa !4
+  store i32 %.sroa.060.0.copyload, ptr %182, align 4, !tbaa !4
   %.sroa.4.0..sroa_idx = getelementptr inbounds i8, ptr %181, i64 -8
   store i32 %180, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !4
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %181, i64 -4
@@ -3502,17 +3502,17 @@ _ZNSt6vectorIN4Luau10TarjanNodeESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx1
   %.not.i.i = icmp eq ptr %181, %183
   br i1 %.not.i.i, label %186, label %184
 
-184:                                              ; preds = %.loopexit185
-  store i32 %.0180, ptr %181, align 4, !tbaa !4
-  %.sroa.5.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  store i32 -1, ptr %.sroa.5.0..sroa_idx49, align 4, !tbaa !4
+184:                                              ; preds = %.loopexit181
+  store i32 %.0176, ptr %181, align 4, !tbaa !4
+  %.sroa.5.0..sroa_idx48 = getelementptr inbounds nuw i8, ptr %181, i64 4
+  store i32 -1, ptr %.sroa.5.0..sroa_idx48, align 4, !tbaa !4
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i32 -1, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !4
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 12
   store ptr %185, ptr %3, align 8, !tbaa !59
-  br label %_ZN4Luau6Tarjan9visitEdgeEii.exit43
+  br label %_ZN4Luau6Tarjan9visitEdgeEii.exit42
 
-186:                                              ; preds = %.loopexit185
+186:                                              ; preds = %.loopexit181
   %187 = load ptr, ptr %2, align 8, !tbaa !56
   %188 = ptrtoint ptr %181 to i64
   %189 = ptrtoint ptr %187 to i64
@@ -3536,11 +3536,11 @@ _ZNKSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE12_M_check_lenEmPKc.exit.i.i.
   %198 = mul nuw nsw i64 %197, 12
   %199 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %198) #24
   %200 = getelementptr inbounds i8, ptr %199, i64 %190
-  store i32 %.0180, ptr %200, align 4, !tbaa !4
-  %.sroa.5.0..sroa_idx50 = getelementptr inbounds nuw i8, ptr %200, i64 4
-  store i32 -1, ptr %.sroa.5.0..sroa_idx50, align 4, !tbaa !4
-  %.sroa.6.0..sroa_idx52 = getelementptr inbounds nuw i8, ptr %200, i64 8
-  store i32 -1, ptr %.sroa.6.0..sroa_idx52, align 4, !tbaa !4
+  store i32 %.0176, ptr %200, align 4, !tbaa !4
+  %.sroa.5.0..sroa_idx49 = getelementptr inbounds nuw i8, ptr %200, i64 4
+  store i32 -1, ptr %.sroa.5.0..sroa_idx49, align 4, !tbaa !4
+  %.sroa.6.0..sroa_idx51 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  store i32 -1, ptr %.sroa.6.0..sroa_idx51, align 4, !tbaa !4
   %201 = icmp sgt i64 %190, 0
   br i1 %201, label %202, label %_ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
 
@@ -3562,11 +3562,11 @@ _ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE17_M_realloc_insertIJS1_EEEvN9
   store ptr %203, ptr %3, align 8, !tbaa !59
   %205 = getelementptr inbounds nuw %"struct.Luau::TarjanWorklistVertex", ptr %199, i64 %197
   store ptr %205, ptr %23, align 8, !tbaa !60
-  br label %_ZN4Luau6Tarjan9visitEdgeEii.exit43
+  br label %_ZN4Luau6Tarjan9visitEdgeEii.exit42
 
-.thread:                                          ; preds = %.loopexit183, %173, %169
-  %.099 = phi i32 [ %178, %.loopexit183 ], [ -1, %169 ], [ %.sroa.055.0.extract.trunc, %173 ]
-  %206 = sext i32 %.099 to i64
+.thread:                                          ; preds = %.loopexit179, %173, %169
+  %.098 = phi i32 [ %178, %.loopexit179 ], [ -1, %169 ], [ %.sroa.054.0.extract.trunc, %173 ]
+  %206 = sext i32 %.098 to i64
   %207 = load ptr, ptr %12, align 8, !tbaa !35
   %208 = getelementptr inbounds nuw %"struct.Luau::TarjanNode", ptr %207, i64 %206
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
@@ -3578,7 +3578,7 @@ _ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE17_M_realloc_insertIJS1_EEEvN9
   %213 = getelementptr inbounds nuw %"struct.Luau::TarjanNode", ptr %207, i64 %86
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 20
   %215 = load i32, ptr %214, align 4, !tbaa !4
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.099, i32 %215)
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %.098, i32 %215)
   store i32 %.sroa.speculated, ptr %214, align 4, !tbaa !163
   br label %216
 
@@ -3601,12 +3601,12 @@ _ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE17_M_realloc_insertIJS1_EEEvN9
   br i1 %exitcond.not, label %_ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit, label %88, !llvm.loop !165
 
 _ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit: ; preds = %223, %._ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit_crit_edge
-  %.pre-phi = phi i64 [ %.pre138, %._ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit_crit_edge ], [ %86, %223 ]
+  %.pre-phi = phi i64 [ %.pre134, %._ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit_crit_edge ], [ %86, %223 ]
   %224 = phi ptr [ %.pre, %._ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit_crit_edge ], [ %207, %223 ]
   %225 = getelementptr inbounds nuw %"struct.Luau::TarjanNode", ptr %224, i64 %.pre-phi
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 20
   %227 = load i32, ptr %226, align 4, !tbaa !163
-  %228 = icmp eq i32 %227, %.sroa.061.0.copyload
+  %228 = icmp eq i32 %227, %.sroa.060.0.copyload
   br i1 %228, label %229, label %.loopexit
 
 229:                                              ; preds = %_ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit
@@ -3618,8 +3618,8 @@ _ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit: ; preds 
 .lr.ph.preheader.i:                               ; preds = %229
   %233 = load ptr, ptr %10, align 8, !tbaa !166, !noalias !167
   %234 = load ptr, ptr %9, align 8, !tbaa !166, !noalias !170
-  %.not50.i120 = icmp eq ptr %233, %234
-  br i1 %.not50.i120, label %_ZN4Luau6Tarjan8visitSCCEi.exit, label %.lr.ph122.outer
+  %.not50.i116 = icmp eq ptr %233, %234
+  br i1 %.not50.i116, label %_ZN4Luau6Tarjan8visitSCCEi.exit, label %.lr.ph118.outer
 
 235:                                              ; preds = %244
   br i1 %248, label %.critedge.thread.i, label %.lr.ph.i.backedge
@@ -3627,50 +3627,50 @@ _ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit: ; preds 
 .lr.ph.i.backedge:                                ; preds = %235
   %.old = load ptr, ptr %9, align 8, !tbaa !166, !noalias !170
   %.not50.i.old = icmp eq ptr %236, %.old
-  br i1 %.not50.i.old, label %_ZN4Luau6Tarjan8visitSCCEi.exit, label %.lr.ph.i.backedge..lr.ph122.backedge_crit_edge
+  br i1 %.not50.i.old, label %_ZN4Luau6Tarjan8visitSCCEi.exit, label %.lr.ph.i.backedge..lr.ph118.backedge_crit_edge
 
-.lr.ph.i.backedge..lr.ph122.backedge_crit_edge:   ; preds = %.lr.ph.i.backedge
-  %.pre134.pre = load ptr, ptr %12, align 8, !tbaa !35
-  br label %.lr.ph122.outer, !llvm.loop !173
+.lr.ph.i.backedge..lr.ph118.backedge_crit_edge:   ; preds = %.lr.ph.i.backedge
+  %.pre130.pre = load ptr, ptr %12, align 8, !tbaa !35
+  br label %.lr.ph118.outer, !llvm.loop !173
 
-.lr.ph122.outer:                                  ; preds = %.lr.ph.preheader.i, %.lr.ph.i.backedge..lr.ph122.backedge_crit_edge
-  %.pre134135.ph = phi ptr [ %.pre134.pre, %.lr.ph.i.backedge..lr.ph122.backedge_crit_edge ], [ %224, %.lr.ph.preheader.i ]
-  %.ph = phi ptr [ %.old, %.lr.ph.i.backedge..lr.ph122.backedge_crit_edge ], [ %234, %.lr.ph.preheader.i ]
-  %.sroa.044.053.i121.ph = phi ptr [ %236, %.lr.ph.i.backedge..lr.ph122.backedge_crit_edge ], [ %233, %.lr.ph.preheader.i ]
-  br label %.lr.ph122
+.lr.ph118.outer:                                  ; preds = %.lr.ph.preheader.i, %.lr.ph.i.backedge..lr.ph118.backedge_crit_edge
+  %.pre130131.ph = phi ptr [ %.pre130.pre, %.lr.ph.i.backedge..lr.ph118.backedge_crit_edge ], [ %224, %.lr.ph.preheader.i ]
+  %.ph = phi ptr [ %.old, %.lr.ph.i.backedge..lr.ph118.backedge_crit_edge ], [ %234, %.lr.ph.preheader.i ]
+  %.sroa.044.053.i117.ph = phi ptr [ %236, %.lr.ph.i.backedge..lr.ph118.backedge_crit_edge ], [ %233, %.lr.ph.preheader.i ]
+  br label %.lr.ph118
 
-.lr.ph122:                                        ; preds = %.lr.ph122.outer, %.thread.i
-  %.sroa.044.053.i121 = phi ptr [ %236, %.thread.i ], [ %.sroa.044.053.i121.ph, %.lr.ph122.outer ]
-  %236 = getelementptr inbounds i8, ptr %.sroa.044.053.i121, i64 -4
+.lr.ph118:                                        ; preds = %.lr.ph118.outer, %.thread.i
+  %.sroa.044.053.i117 = phi ptr [ %236, %.thread.i ], [ %.sroa.044.053.i117.ph, %.lr.ph118.outer ]
+  %236 = getelementptr inbounds i8, ptr %.sroa.044.053.i117, i64 -4
   %237 = load i32, ptr %236, align 4, !tbaa !4
   %238 = sext i32 %237 to i64
-  %239 = getelementptr inbounds nuw %"struct.Luau::TarjanNode", ptr %.pre134135.ph, i64 %238
+  %239 = getelementptr inbounds nuw %"struct.Luau::TarjanNode", ptr %.pre130131.ph, i64 %238
   %240 = load ptr, ptr %239, align 8, !tbaa !161
-  %.not.i39 = icmp eq ptr %240, null
-  br i1 %.not.i39, label %241, label %244
+  %.not.i38 = icmp eq ptr %240, null
+  br i1 %.not.i38, label %241, label %244
 
-241:                                              ; preds = %.lr.ph122
+241:                                              ; preds = %.lr.ph118
   %242 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %243 = load ptr, ptr %242, align 8, !tbaa !162
   %.not29.i = icmp eq ptr %243, null
   br i1 %.not29.i, label %.thread.i, label %244
 
-244:                                              ; preds = %241, %.lr.ph122
-  %.sink70.i = phi i64 [ 32, %.lr.ph122 ], [ 40, %241 ]
-  %.sink.i = phi ptr [ %240, %.lr.ph122 ], [ %243, %241 ]
+244:                                              ; preds = %241, %.lr.ph118
+  %.sink70.i = phi i64 [ 32, %.lr.ph118 ], [ 40, %241 ]
+  %.sink.i = phi ptr [ %240, %.lr.ph118 ], [ %243, %241 ]
   %245 = load ptr, ptr %0, align 8, !tbaa !8
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 %.sink70.i
   %247 = load ptr, ptr %246, align 8
   %248 = tail call noundef zeroext i1 %247(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %.sink.i)
   %249 = load i32, ptr %236, align 4, !tbaa !4
-  %.not30.i = icmp eq i32 %249, %.sroa.061.0.copyload
+  %.not30.i = icmp eq i32 %249, %.sroa.060.0.copyload
   br i1 %.not30.i, label %.critedge.i, label %235
 
 .thread.i:                                        ; preds = %241
-  %.not3060.i = icmp eq i32 %237, %.sroa.061.0.copyload
+  %.not3060.i = icmp eq i32 %237, %.sroa.060.0.copyload
   %.not50.i = icmp eq ptr %236, %.ph
-  %or.cond126 = or i1 %.not3060.i, %.not50.i
-  br i1 %or.cond126, label %_ZN4Luau6Tarjan8visitSCCEi.exit, label %.lr.ph122, !llvm.loop !173
+  %or.cond122 = or i1 %.not3060.i, %.not50.i
+  br i1 %or.cond122, label %_ZN4Luau6Tarjan8visitSCCEi.exit, label %.lr.ph118, !llvm.loop !173
 
 .critedge.i:                                      ; preds = %244
   br i1 %248, label %.critedge.thread.i, label %_ZN4Luau6Tarjan8visitSCCEi.exit
@@ -3710,12 +3710,12 @@ _ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit: ; preds 
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 %.sink75.i
   %266 = load ptr, ptr %265, align 8
   tail call void %266(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull %.sink71.i)
-  %.pre137 = load i32, ptr %254, align 4, !tbaa !4
+  %.pre133 = load i32, ptr %254, align 4, !tbaa !4
   br label %267
 
 267:                                              ; preds = %.sink.split.i, %261
-  %268 = phi i32 [ %.pre137, %.sink.split.i ], [ %255, %261 ]
-  %.not33.i = icmp eq i32 %268, %.sroa.061.0.copyload
+  %268 = phi i32 [ %.pre133, %.sink.split.i ], [ %255, %261 ]
+  %.not33.i = icmp eq i32 %268, %.sroa.060.0.copyload
   br i1 %.not33.i, label %_ZN4Luau6Tarjan8visitSCCEi.exit, label %251, !llvm.loop !180
 
 _ZN4Luau6Tarjan8visitSCCEi.exit:                  ; preds = %.thread.i, %.lr.ph.i.backedge, %251, %267, %.lr.ph.preheader.i, %.critedge.i
@@ -3737,7 +3737,7 @@ _ZN4Luau6Tarjan8visitSCCEi.exit:                  ; preds = %.thread.i, %.lr.ph.
   %278 = getelementptr inbounds nuw %"struct.Luau::TarjanNode", ptr %270, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 16
   store i8 0, ptr %279, align 8, !tbaa !159
-  %280 = icmp eq i32 %276, %.sroa.061.0.copyload
+  %280 = icmp eq i32 %276, %.sroa.060.0.copyload
   br i1 %280, label %.loopexit, label %271
 
 .loopexit:                                        ; preds = %274, %271, %_ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE9push_backEOS1_.exit
@@ -3746,7 +3746,7 @@ _ZN4Luau6Tarjan8visitSCCEi.exit:                  ; preds = %.thread.i, %.lr.ph.
   store ptr %282, ptr %3, align 8, !tbaa !59
   %283 = load ptr, ptr %2, align 8, !tbaa !156
   %284 = icmp eq ptr %283, %282
-  br i1 %284, label %_ZN4Luau6Tarjan9visitEdgeEii.exit43, label %285
+  br i1 %284, label %_ZN4Luau6Tarjan9visitEdgeEii.exit42, label %285
 
 285:                                              ; preds = %.loopexit
   %286 = getelementptr inbounds i8, ptr %281, i64 -24
@@ -3774,8 +3774,8 @@ _ZN4Luau6Tarjan8visitSCCEi.exit:                  ; preds = %.thread.i, %.lr.ph.
 
 299:                                              ; preds = %297
   %300 = getelementptr inbounds nuw ptr, ptr %289, i64 %287
-  %.not.i.i40 = icmp eq ptr %288, %300
-  br i1 %.not.i.i40, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE6resizeEm.exit, label %301
+  %.not.i.i39 = icmp eq ptr %288, %300
+  br i1 %.not.i.i39, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EE6resizeEm.exit, label %301
 
 301:                                              ; preds = %299
   store ptr %300, ptr %14, align 8, !tbaa !49
@@ -3802,8 +3802,8 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EE6resizeEm.exit: ; preds = %295, %297, %299, %
 
 313:                                              ; preds = %311
   %314 = getelementptr inbounds nuw ptr, ptr %303, i64 %287
-  %.not.i.i41 = icmp eq ptr %302, %314
-  br i1 %.not.i.i41, label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE6resizeEm.exit, label %315
+  %.not.i.i40 = icmp eq ptr %302, %314
+  br i1 %.not.i.i40, label %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE6resizeEm.exit, label %315
 
 315:                                              ; preds = %313
   store ptr %314, ptr %24, align 8, !tbaa !54
@@ -3823,21 +3823,21 @@ _ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE6resizeEm.exit: ; preds = %309, %311,
   %325 = getelementptr inbounds nuw i8, ptr %320, i64 17
   %326 = load i8, ptr %325, align 1, !tbaa !164, !range !117, !noundef !118
   %327 = trunc nuw i8 %326 to i1
-  br i1 %327, label %328, label %_ZN4Luau6Tarjan9visitEdgeEii.exit43
+  br i1 %327, label %328, label %_ZN4Luau6Tarjan9visitEdgeEii.exit42
 
 328:                                              ; preds = %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE6resizeEm.exit
   %329 = getelementptr inbounds nuw i8, ptr %318, i64 17
   store i8 1, ptr %329, align 1, !tbaa !164
-  br label %_ZN4Luau6Tarjan9visitEdgeEii.exit43
+  br label %_ZN4Luau6Tarjan9visitEdgeEii.exit42
 
-_ZN4Luau6Tarjan9visitEdgeEii.exit43:              ; preds = %_ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %184, %328, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE6resizeEm.exit, %.loopexit
+_ZN4Luau6Tarjan9visitEdgeEii.exit42:              ; preds = %_ZNSt6vectorIN4Luau20TarjanWorklistVertexESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %184, %328, %_ZNSt6vectorIPKN4Luau11TypePackVarESaIS3_EE6resizeEm.exit, %.loopexit
   %330 = load ptr, ptr %2, align 8, !tbaa !156
   %331 = load ptr, ptr %3, align 8, !tbaa !156
   %332 = icmp eq ptr %330, %331
-  br i1 %332, label %_ZN4Luau6Tarjan9visitEdgeEii.exit43.thread, label %25
+  br i1 %332, label %_ZN4Luau6Tarjan9visitEdgeEii.exit42.thread, label %25
 
-_ZN4Luau6Tarjan9visitEdgeEii.exit43.thread:       ; preds = %_ZN4Luau6Tarjan9visitEdgeEii.exit43, %29, %1
-  %.2 = phi i32 [ 1, %1 ], [ 0, %29 ], [ 1, %_ZN4Luau6Tarjan9visitEdgeEii.exit43 ]
+_ZN4Luau6Tarjan9visitEdgeEii.exit42.thread:       ; preds = %_ZN4Luau6Tarjan9visitEdgeEii.exit42, %29, %1
+  %.2 = phi i32 [ 1, %1 ], [ 0, %29 ], [ 1, %_ZN4Luau6Tarjan9visitEdgeEii.exit42 ]
   ret i32 %.2
 }
 

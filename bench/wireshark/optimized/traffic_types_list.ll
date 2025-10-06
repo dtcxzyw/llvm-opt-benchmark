@@ -2927,8 +2927,8 @@ define noundef zeroext i1 @_ZNK20TrafficListSortModel16filterAcceptsRowEiRK11QMo
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %27 = load ptr, ptr %26, align 8
   %28 = icmp ne ptr %27, null
-  %or.cond22 = select i1 %or.cond, i1 %28, i1 false
-  br i1 %or.cond22, label %_ZNK11QModelIndex4dataEi.exit, label %.thread
+  %or.cond21 = select i1 %or.cond, i1 %28, i1 false
+  br i1 %or.cond21, label %_ZNK11QModelIndex4dataEi.exit, label %.thread
 
 _ZNK11QModelIndex4dataEi.exit:                    ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

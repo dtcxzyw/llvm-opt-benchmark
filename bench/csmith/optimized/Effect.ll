@@ -3762,8 +3762,8 @@ define dso_local noundef zeroext i1 @_ZNK6Effect19union_field_is_readEv(ptr noun
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = load ptr, ptr %0, align 8, !tbaa !17
-  %.not10.not = icmp eq ptr %3, %4
-  br i1 %.not10.not, label %_ZNK8Variable21is_inside_union_fieldEv.exit.thread, label %.lr.ph.preheader
+  %.not = icmp eq ptr %3, %4
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %1
   %5 = ptrtoint ptr %3 to i64
@@ -3773,8 +3773,8 @@ define dso_local noundef zeroext i1 @_ZNK6Effect19union_field_is_readEv(ptr noun
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK8Variable21is_inside_union_fieldEv.exit
-  %.0511 = phi i64 [ %17, %_ZNK8Variable21is_inside_union_fieldEv.exit ], [ 0, %.lr.ph.preheader ]
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0511
+  %.0510 = phi i64 [ %17, %_ZNK8Variable21is_inside_union_fieldEv.exit ], [ 0, %.lr.ph.preheader ]
+  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0510
   %10 = load ptr, ptr %9, align 8, !tbaa !23
   br label %tailrecurse.i
 
@@ -3790,16 +3790,16 @@ _ZNK8Variable14is_union_fieldEv.exit.i:           ; preds = %tailrecurse.i
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = load i32, ptr %14, align 8, !tbaa !50
   %16 = icmp eq i32 %15, 2
-  br i1 %16, label %_ZNK8Variable21is_inside_union_fieldEv.exit.thread, label %tailrecurse.i
+  br i1 %16, label %.loopexit, label %tailrecurse.i
 
 _ZNK8Variable21is_inside_union_fieldEv.exit:      ; preds = %tailrecurse.i
-  %17 = add nuw i64 %.0511, 1
+  %17 = add nuw i64 %.0510, 1
   %exitcond.not = icmp eq i64 %17, %8
-  br i1 %exitcond.not, label %_ZNK8Variable21is_inside_union_fieldEv.exit.thread, label %.lr.ph, !llvm.loop !158
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !158
 
-_ZNK8Variable21is_inside_union_fieldEv.exit.thread: ; preds = %_ZNK8Variable21is_inside_union_fieldEv.exit, %_ZNK8Variable14is_union_fieldEv.exit.i, %1
-  %.not9 = phi i1 [ false, %1 ], [ true, %_ZNK8Variable14is_union_fieldEv.exit.i ], [ false, %_ZNK8Variable21is_inside_union_fieldEv.exit ]
-  ret i1 %.not9
+.loopexit:                                        ; preds = %_ZNK8Variable21is_inside_union_fieldEv.exit, %_ZNK8Variable14is_union_fieldEv.exit.i, %1
+  %18 = phi i1 [ false, %1 ], [ true, %_ZNK8Variable14is_union_fieldEv.exit.i ], [ false, %_ZNK8Variable21is_inside_union_fieldEv.exit ]
+  ret i1 %18
 }
 
 declare noundef zeroext i1 @_ZNK8Variable5matchEPKS_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #0

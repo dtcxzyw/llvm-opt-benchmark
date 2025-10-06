@@ -713,15 +713,15 @@ define hidden noundef ptr @SDL_CreateDeviceName(i16 noundef zeroext %0, i16 noun
   %7 = load i8, ptr %.098, align 1
   %8 = icmp eq i8 %7, 32
   %9 = getelementptr inbounds nuw i8, ptr %.098, i64 1
-  br i1 %8, label %6, label %.preheader142, !llvm.loop !6
+  br i1 %8, label %6, label %.preheader141, !llvm.loop !6
 
-.preheader142:                                    ; preds = %6
+.preheader141:                                    ; preds = %6
   %.not117 = icmp eq ptr %3, null
   %spec.store.select3 = select i1 %.not117, ptr @.str.3, ptr %3
   br label %10
 
-10:                                               ; preds = %10, %.preheader142
-  %.0107 = phi ptr [ %13, %10 ], [ %spec.store.select3, %.preheader142 ]
+10:                                               ; preds = %10, %.preheader141
+  %.0107 = phi ptr [ %13, %10 ], [ %spec.store.select3, %.preheader141 ]
   %11 = load i8, ptr %.0107, align 1
   %12 = icmp eq i8 %11, 32
   %13 = getelementptr inbounds nuw i8, ptr %.0107, i64 1
@@ -790,81 +790,81 @@ switch.lookup:                                    ; preds = %28
 .thread132:                                       ; preds = %33, %21, %37
   %.0106135 = phi ptr [ %38, %37 ], [ %32, %33 ], [ %20, %21 ]
   %39 = tail call i64 @SDL_strlen_REAL(ptr noundef nonnull %.0106135) #10
-  %.not125148 = icmp eq i64 %39, 0
-  br i1 %.not125148, label %.critedge.thread, label %.lr.ph
+  %.not125147 = icmp eq i64 %39, 0
+  br i1 %.not125147, label %.critedge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread132, %44
-  %.0100149 = phi i64 [ %45, %44 ], [ %39, %.thread132 ]
-  %40 = getelementptr i8, ptr %.0106135, i64 %.0100149
+  %.0100148 = phi i64 [ %45, %44 ], [ %39, %.thread132 ]
+  %40 = getelementptr i8, ptr %.0106135, i64 %.0100148
   %41 = getelementptr i8, ptr %40, i64 -1
   %42 = load i8, ptr %41, align 1
   %43 = icmp eq i8 %42, 32
   br i1 %43, label %44, label %.critedge
 
 44:                                               ; preds = %.lr.ph
-  %45 = add i64 %.0100149, -1
+  %45 = add i64 %.0100148, -1
   %.not125 = icmp eq i64 %45, 0
   br i1 %.not125, label %.critedge.thread, label %.lr.ph, !llvm.loop !8
 
 .critedge.thread:                                 ; preds = %44, %.thread132
   store i8 0, ptr %.0106135, align 1
-  br label %.lr.ph154.preheader
+  br label %.lr.ph153.preheader
 
 .critedge:                                        ; preds = %.lr.ph
-  %46 = getelementptr inbounds nuw i8, ptr %.0106135, i64 %.0100149
+  %46 = getelementptr inbounds nuw i8, ptr %.0106135, i64 %.0100148
   store i8 0, ptr %46, align 1
-  %47 = add i64 %.0100149, -1
-  %.not163 = icmp eq i64 %47, 0
-  br i1 %.not163, label %.preheader, label %.lr.ph154.preheader
+  %47 = add i64 %.0100148, -1
+  %.not162 = icmp eq i64 %47, 0
+  br i1 %.not162, label %.preheader, label %.lr.ph153.preheader
 
-.lr.ph154.preheader:                              ; preds = %.critedge.thread, %.critedge
+.lr.ph153.preheader:                              ; preds = %.critedge.thread, %.critedge
   %.ph = phi i64 [ %47, %.critedge ], [ -1, %.critedge.thread ]
-  %.1101153.ph = phi i64 [ %.0100149, %.critedge ], [ 0, %.critedge.thread ]
-  br label %.lr.ph154
+  %.1101152.ph = phi i64 [ %.0100148, %.critedge ], [ 0, %.critedge.thread ]
+  br label %.lr.ph153
 
 .preheader:                                       ; preds = %60, %.critedge
   %.1101.lcssa = phi i64 [ 1, %.critedge ], [ %.2, %60 ]
   br label %65
 
-.lr.ph154:                                        ; preds = %.lr.ph154.preheader, %60
-  %48 = phi i64 [ %61, %60 ], [ %.ph, %.lr.ph154.preheader ]
-  %.1101153 = phi i64 [ %.2, %60 ], [ %.1101153.ph, %.lr.ph154.preheader ]
-  %.0102152 = phi i64 [ %.1103, %60 ], [ 0, %.lr.ph154.preheader ]
-  %49 = getelementptr inbounds nuw i8, ptr %.0106135, i64 %.0102152
+.lr.ph153:                                        ; preds = %.lr.ph153.preheader, %60
+  %48 = phi i64 [ %61, %60 ], [ %.ph, %.lr.ph153.preheader ]
+  %.1101152 = phi i64 [ %.2, %60 ], [ %.1101152.ph, %.lr.ph153.preheader ]
+  %.0102151 = phi i64 [ %.1103, %60 ], [ 0, %.lr.ph153.preheader ]
+  %49 = getelementptr inbounds nuw i8, ptr %.0106135, i64 %.0102151
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 32
   br i1 %51, label %52, label %58
 
-52:                                               ; preds = %.lr.ph154
+52:                                               ; preds = %.lr.ph153
   %53 = getelementptr i8, ptr %49, i64 1
   %54 = load i8, ptr %53, align 1
   %55 = icmp eq i8 %54, 32
   br i1 %55, label %56, label %58
 
 56:                                               ; preds = %52
-  %57 = sub i64 %.1101153, %.0102152
+  %57 = sub i64 %.1101152, %.0102151
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %49, ptr nonnull align 1 %53, i64 %57, i1 false)
   br label %60
 
-58:                                               ; preds = %52, %.lr.ph154
-  %59 = add nuw i64 %.0102152, 1
+58:                                               ; preds = %52, %.lr.ph153
+  %59 = add nuw i64 %.0102151, 1
   br label %60
 
 60:                                               ; preds = %58, %56
-  %.1103 = phi i64 [ %.0102152, %56 ], [ %59, %58 ]
-  %.2 = phi i64 [ %48, %56 ], [ %.1101153, %58 ]
+  %.1103 = phi i64 [ %.0102151, %56 ], [ %59, %58 ]
+  %.2 = phi i64 [ %48, %56 ], [ %.1101152, %58 ]
   %61 = add i64 %.2, -1
   %62 = icmp ult i64 %.1103, %61
-  br i1 %62, label %.lr.ph154, label %.preheader, !llvm.loop !9
+  br i1 %62, label %.lr.ph153, label %.preheader, !llvm.loop !9
 
 63:                                               ; preds = %65
-  %64 = add nuw nsw i64 %.2104157, 1
+  %64 = add nuw nsw i64 %.2104156, 1
   %exitcond.not = icmp eq i64 %64, 13
   br i1 %exitcond.not, label %.thread137, label %65, !llvm.loop !10
 
 65:                                               ; preds = %.preheader, %63
-  %.2104157 = phi i64 [ 0, %.preheader ], [ %64, %63 ]
-  %66 = getelementptr inbounds nuw %struct.anon, ptr @SDL_CreateDeviceName.replacements, i64 %.2104157
+  %.2104156 = phi i64 [ 0, %.preheader ], [ %64, %63 ]
+  %66 = getelementptr inbounds nuw %struct.anon, ptr @SDL_CreateDeviceName.replacements, i64 %.2104156
   %67 = load ptr, ptr %66, align 16
   %68 = tail call i64 @SDL_strlen_REAL(ptr noundef %67) #10
   %69 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef nonnull %.0106135, ptr noundef %67, i64 noundef %68) #10
@@ -893,21 +893,21 @@ switch.lookup:                                    ; preds = %28
   %.4 = phi i64 [ %.1101.lcssa, %71 ], [ %80, %75 ], [ %.1101.lcssa, %63 ]
   %81 = add i64 %.4, -1
   %82 = icmp ugt i64 %81, 1
-  br i1 %82, label %.lr.ph162, label %.thread
+  br i1 %82, label %.lr.ph161, label %.thread
 
-.lr.ph162:                                        ; preds = %.thread137, %.critedge128
-  %.3105161 = phi i64 [ %114, %.critedge128 ], [ 1, %.thread137 ]
-  %83 = getelementptr inbounds nuw i8, ptr %.0106135, i64 %.3105161
+.lr.ph161:                                        ; preds = %.thread137, %.critedge128
+  %.3105160 = phi i64 [ %114, %.critedge128 ], [ 1, %.thread137 ]
+  %83 = getelementptr inbounds nuw i8, ptr %.0106135, i64 %.3105160
   %84 = tail call i32 @SDL_strncmp_REAL(ptr noundef nonnull %.0106135, ptr noundef nonnull @.str.47, i64 noundef 5) #10
   %85 = icmp eq i32 %84, 0
   br i1 %85, label %86, label %89
 
-86:                                               ; preds = %.lr.ph162
+86:                                               ; preds = %.lr.ph161
   %87 = tail call i32 @SDL_strncmp_REAL(ptr noundef nonnull %83, ptr noundef nonnull @.str.48, i64 noundef 5) #10
   %88 = icmp eq i32 %87, 0
-  br i1 %88, label %.lr.ph160.preheader, label %89
+  br i1 %88, label %.lr.ph159.preheader, label %89
 
-89:                                               ; preds = %86, %.lr.ph162
+89:                                               ; preds = %86, %.lr.ph161
   %90 = load i8, ptr %.0106135, align 1
   %.not12.i = icmp eq i8 %90, 0
   br i1 %.not12.i, label %.critedge128, label %.lr.ph.i
@@ -936,19 +936,19 @@ switch.lookup:                                    ; preds = %28
   %103 = add nuw nsw i32 %.015.i, 1
   %104 = load i8, ptr %102, align 1
   %.not.i = icmp eq i8 %104, 0
-  br i1 %.not.i, label %.lr.ph160.preheader, label %.lr.ph.i, !llvm.loop !11
+  br i1 %.not.i, label %.lr.ph159.preheader, label %.lr.ph.i, !llvm.loop !11
 
 PrefixMatch.exit:                                 ; preds = %.lr.ph.i, %93
-  %.not207 = icmp eq i32 %.015.i, 0
-  br i1 %.not207, label %.critedge128, label %.lr.ph160.preheader
+  %.not206 = icmp eq i32 %.015.i, 0
+  br i1 %.not206, label %.critedge128, label %.lr.ph159.preheader
 
-.lr.ph160.preheader:                              ; preds = %100, %86, %PrefixMatch.exit
-  %.010.i192 = phi i32 [ %.015.i, %PrefixMatch.exit ], [ 5, %86 ], [ %103, %100 ]
-  %105 = zext nneg i32 %.010.i192 to i64
-  br label %.lr.ph160
+.lr.ph159.preheader:                              ; preds = %100, %86, %PrefixMatch.exit
+  %.010.i191 = phi i32 [ %.015.i, %PrefixMatch.exit ], [ 5, %86 ], [ %103, %100 ]
+  %105 = zext nneg i32 %.010.i191 to i64
+  br label %.lr.ph159
 
-.lr.ph160:                                        ; preds = %.lr.ph160.preheader, %112
-  %indvars.iv = phi i64 [ %105, %.lr.ph160.preheader ], [ %indvars.iv.next, %112 ]
+.lr.ph159:                                        ; preds = %.lr.ph159.preheader, %112
+  %indvars.iv = phi i64 [ %105, %.lr.ph159.preheader ], [ %indvars.iv.next, %112 ]
   %106 = getelementptr inbounds nuw i8, ptr %.0106135, i64 %indvars.iv
   %107 = load i8, ptr %106, align 1
   switch i8 %107, label %112 [
@@ -956,22 +956,22 @@ PrefixMatch.exit:                                 ; preds = %.lr.ph.i, %93
     i8 45, label %108
   ]
 
-108:                                              ; preds = %.lr.ph160, %.lr.ph160
+108:                                              ; preds = %.lr.ph159, %.lr.ph159
   %109 = getelementptr inbounds nuw i8, ptr %.0106135, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 1
   %111 = sub i64 %.4, %indvars.iv
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %.0106135, ptr nonnull align 1 %110, i64 %111, i1 false)
   br label %.thread
 
-112:                                              ; preds = %.lr.ph160
+112:                                              ; preds = %.lr.ph159
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %113 = icmp sgt i64 %indvars.iv, 1
-  br i1 %113, label %.lr.ph160, label %.critedge128, !llvm.loop !12
+  br i1 %113, label %.lr.ph159, label %.critedge128, !llvm.loop !12
 
 .critedge128:                                     ; preds = %112, %89, %PrefixMatch.exit
-  %114 = add nuw i64 %.3105161, 1
-  %exitcond172.not = icmp eq i64 %114, %81
-  br i1 %exitcond172.not, label %.thread, label %.lr.ph162, !llvm.loop !13
+  %114 = add nuw i64 %.3105160, 1
+  %exitcond171.not = icmp eq i64 %114, %81
+  br i1 %exitcond171.not, label %.thread, label %.lr.ph161, !llvm.loop !13
 
 .thread:                                          ; preds = %.critedge128, %.thread137, %35, %31, %15, %108, %37
   %.097 = phi ptr [ null, %37 ], [ %.0106135, %108 ], [ null, %15 ], [ null, %31 ], [ null, %35 ], [ %.0106135, %.thread137 ], [ %.0106135, %.critedge128 ]

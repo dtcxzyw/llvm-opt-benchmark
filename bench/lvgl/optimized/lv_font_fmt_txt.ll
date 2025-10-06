@@ -490,7 +490,7 @@ define noundef zeroext i1 @lv_font_get_glyph_dsc_fmt_txt(ptr noundef readonly ca
   br label %get_kern_value.exit
 
 42:                                               ; preds = %23
-  %43 = icmp sgt i32 %25, -1
+  %43 = icmp sgt i32 %25, 1073741823
   br i1 %43, label %44, label %get_kern_value.exit
 
 44:                                               ; preds = %42

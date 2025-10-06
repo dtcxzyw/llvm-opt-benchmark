@@ -585,11 +585,11 @@ _ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EE17_M_realloc_insertIJ
   br label %_ZNSt10unique_ptrImSt14default_deleteImEED2Ev.exit
 
 _ZNSt10unique_ptrImSt14default_deleteImEED2Ev.exit: ; preds = %_ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %if.then.i.i
-  %cmp64 = icmp sgt i32 %thread_pool_size, 0
-  br i1 %cmp64, label %for.body, label %for.end
+  %cmp63 = icmp sgt i32 %thread_pool_size, 0
+  br i1 %cmp63, label %for.body, label %for.end
 
 for.body:                                         ; preds = %_ZNSt10unique_ptrImSt14default_deleteImEED2Ev.exit, %for.inc
-  %i.065 = phi i32 [ %inc, %for.inc ], [ 0, %_ZNSt10unique_ptrImSt14default_deleteImEED2Ev.exit ]
+  %i.064 = phi i32 [ %inc, %for.inc ], [ 0, %_ZNSt10unique_ptrImSt14default_deleteImEED2Ev.exit ]
   %call9 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   store ptr %this, ptr %call9, align 16
   %platform_workers_mutex11 = getelementptr inbounds nuw i8, ptr %call9, i64 8
@@ -599,7 +599,7 @@ for.body:                                         ; preds = %_ZNSt10unique_ptrIm
   %pending_platform_workers13 = getelementptr inbounds nuw i8, ptr %call9, i64 24
   store ptr %pending_platform_workers, ptr %pending_platform_workers13, align 8
   %id = getelementptr inbounds nuw i8, ptr %call9, i64 32
-  store i32 %i.065, ptr %id, align 16
+  store i32 %i.064, ptr %id, align 16
   %call14 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #27
   store i64 0, ptr %call14, align 8
   %call16 = call i32 @uv_thread_create(ptr noundef nonnull %call14, ptr noundef nonnull @_ZN4node12_GLOBAL__N_120PlatformWorkerThreadEPv, ptr noundef nonnull %call9) #25
@@ -684,14 +684,14 @@ _ZNSt10unique_ptrImSt14default_deleteImEED2Ev.exit51: ; preds = %for.body
   br label %for.end
 
 for.inc:                                          ; preds = %if.then.i.i16, %_ZNSt6vectorISt10unique_ptrImSt14default_deleteImEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i45
-  %inc = add nuw nsw i32 %i.065, 1
+  %inc = add nuw nsw i32 %i.064, 1
   %exitcond.not = icmp eq i32 %inc, %thread_pool_size
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !23
 
 for.end:                                          ; preds = %for.inc, %_ZNSt10unique_ptrImSt14default_deleteImEED2Ev.exit, %_ZNSt10unique_ptrImSt14default_deleteImEED2Ev.exit51
   %18 = load i32, ptr %pending_platform_workers, align 4
-  %cmp1966 = icmp sgt i32 %18, 0
-  br i1 %cmp1966, label %while.body, label %while.end
+  %cmp1965 = icmp sgt i32 %18, 0
+  br i1 %cmp1965, label %while.body, label %while.end
 
 while.body:                                       ; preds = %for.end, %while.body
   call void @uv_cond_wait(ptr noundef nonnull align 8 dereferenceable(48) %platform_workers_ready, ptr noundef nonnull %platform_workers_mutex) #25
@@ -879,8 +879,8 @@ do.end:                                           ; preds = %_ZNSt10unique_ptrIN
   call void @uv_mutex_unlock(ptr noundef nonnull %10) #25
   call void @_ZN4node9TaskQueueIN2v84TaskEE11BlockingPopEv(ptr nonnull sret(%"class.std::unique_ptr.22") align 8 %task, ptr noundef nonnull align 8 dereferenceable(224) %0)
   %14 = load ptr, ptr %task, align 8
-  %cmp.i21.not35 = icmp eq ptr %14, null
-  br i1 %cmp.i21.not35, label %_ZNSt10unique_ptrIN4node12_GLOBAL__N_118PlatformWorkerDataESt14default_deleteIS2_EED2Ev.exit, label %while.body.lr.ph
+  %cmp.i21.not34 = icmp eq ptr %14, null
+  br i1 %cmp.i21.not34, label %_ZNSt10unique_ptrIN4node12_GLOBAL__N_118PlatformWorkerDataESt14default_deleteIS2_EED2Ev.exit, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %do.end
   %outstanding_tasks_.i = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1404,8 +1404,8 @@ entry:
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 488
   %0 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !37
   %1 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !37
-  %cmp.i.i.i.i41 = icmp ne ptr %0, %1
-  br i1 %cmp.i.i.i.i41, label %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.lr.ph, label %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.thread
+  %cmp.i.i.i.i40 = icmp ne ptr %0, %1
+  br i1 %cmp.i.i.i.i40, label %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.lr.ph, label %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.thread
 
 _ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.lr.ph: ; preds = %entry
   %task_queue_.i = getelementptr inbounds nuw i8, ptr %this, i64 472
@@ -1418,8 +1418,8 @@ _ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.lr.ph: ; preds = %entry
   store ptr null, ptr %1, align 8, !noalias !37
   tail call void @_ZNSt5dequeISt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS2_EESaIS5_EE9pop_frontEv(ptr noundef nonnull align 8 dereferenceable(80) %task_queue_.i) #25, !noalias !37
   tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #25, !noalias !37
-  %cmp.i.not61.not = icmp eq i64 %2, 0
-  br i1 %cmp.i.not61.not, label %while.end, label %while.body
+  %cmp.i.not60.not = icmp eq i64 %2, 0
+  br i1 %cmp.i.not60.not, label %while.end, label %while.body
 
 _ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.thread: ; preds = %_ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit, %entry
   tail call void @uv_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_delayed_tasks_) #25, !noalias !37
@@ -1535,7 +1535,7 @@ _ZNSt10unique_ptrIN4node11DelayedTaskESt14default_deleteIS1_EED2Ev.exit: ; preds
   br i1 %cmp.i.i.i.i, label %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.thread, label %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit
 
 while.end:                                        ; preds = %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.lr.ph, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.thread
-  %did_work.040 = phi i1 [ %cmp.i.i.i.i41, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.thread ], [ false, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.lr.ph ], [ true, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit ]
+  %did_work.039 = phi i1 [ %cmp.i.i.i.i40, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.thread ], [ false, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit.lr.ph ], [ true, %_ZN4node9TaskQueueINS_11DelayedTaskEE3PopEv.exit ]
   %foreground_tasks_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
   tail call void @uv_mutex_lock(ptr noundef nonnull align 8 dereferenceable(224) %foreground_tasks_) #25, !noalias !46
@@ -1574,8 +1574,8 @@ while.end:                                        ; preds = %_ZN4node9TaskQueueI
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %tasks, i64 16
   %20 = load ptr, ptr %_M_finish.i.i, align 8
   %21 = load ptr, ptr %_M_start.i.i, align 8
-  %cmp.i.i.i544 = icmp eq ptr %20, %21
-  br i1 %cmp.i.i.i544, label %while.end21, label %while.body19.lr.ph
+  %cmp.i.i.i543 = icmp eq ptr %20, %21
+  br i1 %cmp.i.i.i543, label %while.end21, label %while.body19.lr.ph
 
 while.body19.lr.ph:                               ; preds = %while.end
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %tasks, i64 32
@@ -1632,7 +1632,7 @@ _ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit20: ; preds = %_ZNK
   br i1 %cmp.i.i.i5, label %while.end21, label %while.body19, !llvm.loop !49
 
 while.end21:                                      ; preds = %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit20, %while.end
-  %did_work.2.lcssa = phi i1 [ %did_work.040, %while.end ], [ true, %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit20 ]
+  %did_work.2.lcssa = phi i1 [ %did_work.039, %while.end ], [ true, %_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev.exit20 ]
   call void @_ZNSt5dequeISt10unique_ptrIN2v84TaskESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %tasks) #25
   ret i1 %did_work.2.lcssa
 }
@@ -5128,8 +5128,8 @@ entry:
   %_M_start.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 200
   %3 = load ptr, ptr %_M_finish.i.i.i, align 8, !noalias !108
   %4 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !108
-  %cmp.i.i.i.i14 = icmp eq ptr %3, %4
-  br i1 %cmp.i.i.i.i14, label %_ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit.thread, label %if.end.i.lr.ph
+  %cmp.i.i.i.i13 = icmp eq ptr %3, %4
+  br i1 %cmp.i.i.i.i13, label %_ZN4node9TaskQueueIN2v84TaskEE3PopEv.exit.thread, label %if.end.i.lr.ph
 
 if.end.i.lr.ph:                                   ; preds = %entry
   %_M_last.i.i.i = getelementptr inbounds nuw i8, ptr %2, i64 216

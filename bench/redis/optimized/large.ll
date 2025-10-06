@@ -313,51 +313,51 @@ arena_choose_maybe_huge.exit:                     ; preds = %70, %75, %78, %96, 
   br i1 %136, label %sz_sa2u.exit.thread, label %arena_choose_maybe_huge.exit.thread, !prof !82
 
 arena_choose_maybe_huge.exit.thread:              ; preds = %percpu_arena_ind_limit.exit.i.i, %106, %134, %59, %arena_choose_maybe_huge.exit
-  %.02445 = phi ptr [ %.024, %arena_choose_maybe_huge.exit ], [ %.037.i.i, %percpu_arena_ind_limit.exit.i.i ], [ %.037.i.i, %106 ], [ %.2.i.i, %134 ], [ %1, %59 ]
-  %137 = tail call ptr @je_arena_extent_alloc_large(ptr noundef %0, ptr noundef nonnull %.02445, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #11
+  %.02444 = phi ptr [ %.024, %arena_choose_maybe_huge.exit ], [ %.037.i.i, %percpu_arena_ind_limit.exit.i.i ], [ %.037.i.i, %106 ], [ %.2.i.i, %134 ], [ %1, %59 ]
+  %137 = tail call ptr @je_arena_extent_alloc_large(ptr noundef %0, ptr noundef nonnull %.02444, i64 noundef %2, i64 noundef %3, i1 noundef zeroext %4) #11
   %138 = icmp eq ptr %137, null
   br i1 %138, label %sz_sa2u.exit.thread, label %139
 
 139:                                              ; preds = %arena_choose_maybe_huge.exit.thread
-  %140 = getelementptr i8, ptr %.02445, i64 78928
+  %140 = getelementptr i8, ptr %.02444, i64 78928
   %.024.val = load i32, ptr %140, align 8, !tbaa !16
   %141 = load i32, ptr @je_manual_arena_base, align 4, !tbaa !70
   %142 = icmp ult i32 %.024.val, %141
   br i1 %142, label %181, label %143
 
 143:                                              ; preds = %139
-  %144 = getelementptr inbounds nuw i8, ptr %.02445, i64 10600
+  %144 = getelementptr inbounds nuw i8, ptr %.02444, i64 10600
   %145 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %144) #11
   %.not.i35 = icmp eq i32 %145, 0
   br i1 %.not.i35, label %149, label %146
 
 146:                                              ; preds = %143
-  %147 = getelementptr inbounds nuw i8, ptr %.02445, i64 10536
+  %147 = getelementptr inbounds nuw i8, ptr %.02444, i64 10536
   tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %147) #11
-  %148 = getelementptr inbounds nuw i8, ptr %.02445, i64 10640
+  %148 = getelementptr inbounds nuw i8, ptr %.02444, i64 10640
   store atomic i8 1, ptr %148 monotonic, align 1
   br label %149
 
 149:                                              ; preds = %146, %143
-  %150 = getelementptr inbounds nuw i8, ptr %.02445, i64 10592
+  %150 = getelementptr inbounds nuw i8, ptr %.02444, i64 10592
   %151 = load i64, ptr %150, align 8, !tbaa !83
   %152 = add i64 %151, 1
   store i64 %152, ptr %150, align 8, !tbaa !83
-  %153 = getelementptr inbounds nuw i8, ptr %.02445, i64 10584
+  %153 = getelementptr inbounds nuw i8, ptr %.02444, i64 10584
   %154 = load ptr, ptr %153, align 8, !tbaa !85
   %.not.i.i36 = icmp eq ptr %154, %0
   br i1 %.not.i.i36, label %malloc_mutex_lock.exit, label %155
 
 155:                                              ; preds = %149
   store ptr %0, ptr %153, align 8, !tbaa !85
-  %156 = getelementptr inbounds nuw i8, ptr %.02445, i64 10576
+  %156 = getelementptr inbounds nuw i8, ptr %.02444, i64 10576
   %157 = load i64, ptr %156, align 8, !tbaa !86
   %158 = add i64 %157, 1
   store i64 %158, ptr %156, align 8, !tbaa !86
   br label %malloc_mutex_lock.exit
 
 malloc_mutex_lock.exit:                           ; preds = %149, %155
-  %159 = getelementptr inbounds nuw i8, ptr %.02445, i64 10528
+  %159 = getelementptr inbounds nuw i8, ptr %.02444, i64 10528
   %160 = getelementptr inbounds nuw i8, ptr %137, i64 40
   store ptr %137, ptr %160, align 8, !tbaa !5
   %161 = getelementptr inbounds nuw i8, ptr %137, i64 48
@@ -391,7 +391,7 @@ malloc_mutex_lock.exit:                           ; preds = %149, %155
 edata_list_active_append.exit:                    ; preds = %malloc_mutex_lock.exit, %164
   %178 = phi ptr [ %.pre.i, %164 ], [ %137, %malloc_mutex_lock.exit ]
   store ptr %178, ptr %159, align 8, !tbaa !87
-  %179 = getelementptr inbounds nuw i8, ptr %.02445, i64 10640
+  %179 = getelementptr inbounds nuw i8, ptr %.02444, i64 10640
   store atomic i8 0, ptr %179 monotonic, align 8
   %180 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %144) #11
   br label %181
@@ -424,7 +424,7 @@ edata_list_active_append.exit:                    ; preds = %malloc_mutex_lock.e
   %200 = udiv i64 %199, 61
   %201 = trunc i64 %200 to i32
   store i32 %201, ptr %183, align 8, !tbaa !88
-  tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef nonnull %.02445, i1 noundef zeroext false, i1 noundef zeroext false) #11
+  tail call void @je_arena_decay(ptr noundef nonnull %0, ptr noundef nonnull %.02444, i1 noundef zeroext false, i1 noundef zeroext false) #11
   br label %arena_decay_ticks.exit
 
 arena_decay_ticks.exit:                           ; preds = %182, %181, %187
@@ -1893,7 +1893,7 @@ attributes #11 = { nounwind }
 !79 = !{!"p1 _ZTS11cache_bin_s", !15, i64 0}
 !80 = !{!"p1 _ZTS8tcache_s", !15, i64 0}
 !81 = !{!17, !20, i64 16}
-!82 = !{!"branch_weights", !"expected", i32 5707125, i32 2141776523}
+!82 = !{!"branch_weights", !"expected", i32 5706770, i32 2141776878}
 !83 = !{!84, !9, i64 56}
 !84 = !{!"", !22, i64 0, !22, i64 8, !9, i64 16, !9, i64 24, !19, i64 32, !18, i64 36, !9, i64 40, !20, i64 48, !9, i64 56}
 !85 = !{!84, !20, i64 48}

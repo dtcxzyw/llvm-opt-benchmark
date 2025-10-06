@@ -4954,8 +4954,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3rdf17TargetOperandInfo10isFixedRe
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8, !tbaa !237
   %15 = and i64 %14, 128
-  %.not54 = icmp eq i64 %15, 0
-  br i1 %.not54, label %17, label %.thread
+  %.not52 = icmp eq i64 %15, 0
+  br i1 %.not52, label %17, label %.thread
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %3
   %16 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 128, i32 noundef 1) #24
@@ -4963,11 +4963,11 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit: ; preds = %3
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge: ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit
   %.pre = load i32, ptr %4, align 4
-  %.pre72 = and i32 %.pre, 12
+  %.pre70 = and i32 %.pre, 12
   br label %17
 
 17:                                               ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge, %10
-  %.pre-phi = phi i32 [ %.pre72, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge ], [ %6, %10 ]
+  %.pre-phi = phi i32 [ %.pre70, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge ], [ %6, %10 ]
   %18 = phi i32 [ %.pre, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge ], [ %5, %10 ]
   %19 = icmp eq i32 %.pre-phi, 0
   %20 = and i32 %18, 4
@@ -4981,8 +4981,8 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge: ; preds = %_ZNK4
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i64, ptr %25, align 8, !tbaa !237
   %27 = and i64 %26, 32
-  %.not55 = icmp eq i64 %27, 0
-  br i1 %.not55, label %29, label %.thread
+  %.not53 = icmp eq i64 %27, 0
+  br i1 %.not53, label %29, label %.thread
 
 _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit: ; preds = %17
   %28 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 32, i32 noundef 1) #24
@@ -5010,8 +5010,8 @@ _ZNK4llvm12MachineInstr8isReturnENS0_9QueryTypeE.exit: ; preds = %17
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8, !tbaa !237
   %44 = and i64 %43, 1024
-  %.not56 = icmp eq i64 %44, 0
-  br i1 %.not56, label %.loopexit, label %46
+  %.not54 = icmp eq i64 %44, 0
+  br i1 %.not54, label %.loopexit, label %46
 
 _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %33
   %45 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %1, i64 noundef 1024, i32 noundef 1) #24
@@ -5025,17 +5025,17 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %33
   %51 = zext i24 %50 to i64
   %.idx = shl nuw nsw i64 %51, 5
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 %.idx
-  %.not58 = icmp eq i24 %50, 0
-  br i1 %.not58, label %.loopexit, label %.critedge30
+  %.not56 = icmp eq i24 %50, 0
+  br i1 %.not56, label %.loopexit, label %.critedge30
 
 53:                                               ; preds = %.critedge30
-  %54 = getelementptr inbounds nuw i8, ptr %.02559, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.02557, i64 32
   %.not = icmp eq ptr %54, %52
   br i1 %.not, label %.loopexit, label %.critedge30
 
 .critedge30:                                      ; preds = %46, %53
-  %.02559 = phi ptr [ %54, %53 ], [ %48, %46 ]
-  %55 = load i32, ptr %.02559, align 8
+  %.02557 = phi ptr [ %54, %53 ], [ %48, %46 ]
+  %55 = load i32, ptr %.02557, align 8
   %56 = and i32 %55, 255
   %.off = add nsw i32 %56, -9
   %switch = icmp ult i32 %.off, 2
@@ -5077,24 +5077,24 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %33
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %83 = load i32, ptr %82, align 4, !tbaa !50
   %84 = and i32 %79, 16777216
-  %.not57 = icmp eq i32 %84, 0
-  %spec.select = select i1 %.not57, i64 %69, i64 %72
-  %spec.select53.idx = select i1 %.not57, i64 0, i64 %69
-  %spec.select53 = getelementptr inbounds nuw i16, ptr %66, i64 %spec.select53.idx
+  %.not55 = icmp eq i32 %84, 0
+  %spec.select = select i1 %.not55, i64 %69, i64 %72
+  %spec.select51.idx = select i1 %.not55, i64 0, i64 %69
+  %spec.select51 = getelementptr inbounds nuw i16, ptr %66, i64 %spec.select51.idx
   %.idx4.i = shl nuw nsw i64 %spec.select, 1
-  %85 = getelementptr inbounds nuw i8, ptr %spec.select53, i64 %.idx4.i
+  %85 = getelementptr inbounds nuw i8, ptr %spec.select51, i64 %.idx4.i
   %.not.i = icmp samesign ult i64 %spec.select, 4
   br i1 %.not.i, label %._crit_edge.i.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %81
   %86 = lshr i64 %spec.select, 2
   %87 = and i64 %.idx4.i, 504
-  %scevgep.i.i.i.i = getelementptr i8, ptr %spec.select53, i64 %87
+  %scevgep.i.i.i.i = getelementptr i8, ptr %spec.select51, i64 %87
   br label %88
 
 88:                                               ; preds = %107, %.lr.ph.i.i.i.i
   %.047.i.i.i.i = phi i64 [ %86, %.lr.ph.i.i.i.i ], [ %109, %107 ]
-  %.02946.i.i.i.i = phi ptr [ %spec.select53, %.lr.ph.i.i.i.i ], [ %108, %107 ]
+  %.02946.i.i.i.i = phi ptr [ %spec.select51, %.lr.ph.i.i.i.i ], [ %108, %107 ]
   %89 = load i16, ptr %.02946.i.i.i.i, align 2, !tbaa !384
   %90 = zext i16 %89 to i32
   %91 = icmp eq i32 %83, %90
@@ -5112,14 +5112,14 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %33
   %99 = load i16, ptr %98, align 2, !tbaa !384
   %100 = zext i16 %99 to i32
   %101 = icmp eq i32 %83, %100
-  br i1 %101, label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit75, label %102
+  br i1 %101, label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit73, label %102
 
 102:                                              ; preds = %97
   %103 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 6
   %104 = load i16, ptr %103, align 2, !tbaa !384
   %105 = zext i16 %104 to i32
   %106 = icmp eq i32 %83, %105
-  br i1 %106, label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit77, label %107
+  br i1 %106, label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit75, label %107
 
 107:                                              ; preds = %102
   %108 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
@@ -5133,7 +5133,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %33
 
 ._crit_edge.i.i.i.i:                              ; preds = %._crit_edge.loopexit.i.i.i.i, %81
   %.pre-phi56.i.i.i.i = phi i64 [ %111, %._crit_edge.loopexit.i.i.i.i ], [ %spec.select, %81 ]
-  %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %spec.select53, %81 ]
+  %.029.lcssa.i.i.i.i = phi ptr [ %scevgep.i.i.i.i, %._crit_edge.loopexit.i.i.i.i ], [ %spec.select51, %81 ]
   switch i64 %.pre-phi56.i.i.i.i, label %default.unreachable [
     i64 3, label %112
     i64 2, label %._crit_edge._crit_edge.i.i.i.i
@@ -5179,16 +5179,16 @@ _ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.s
   %127 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 2
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit75: ; preds = %97
+_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit73: ; preds = %97
   %128 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 4
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit77: ; preds = %102
+_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit75: ; preds = %102
   %129 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 6
   br label %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit
 
-_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit: ; preds = %88, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit75, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit77, %112, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %126
-  %.028.i.i.i.i = phi ptr [ %85, %126 ], [ %.029.lcssa.i.i.i.i, %112 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %127, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %128, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit75 ], [ %129, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit77 ], [ %.02946.i.i.i.i, %88 ]
+_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit: ; preds = %88, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit73, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit75, %112, %._crit_edge._crit_edge.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i, %126
+  %.028.i.i.i.i = phi ptr [ %85, %126 ], [ %.029.lcssa.i.i.i.i, %112 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %127, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit ], [ %128, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit73 ], [ %129, %_ZN4llvm12is_containedIRNS_8ArrayRefItEENS_8RegisterEEEbOT_RKT0_.exit.loopexit.split.loop.exit75 ], [ %.02946.i.i.i.i, %88 ]
   %130 = icmp ne ptr %.028.i.i.i.i, %85
   br label %.thread
 
@@ -10336,8 +10336,8 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph9buildStmtENS0_8NodeAddrIPNS0_
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i64, ptr %21, align 8, !tbaa !237
   %23 = and i64 %22, 128
-  %.not4.i = icmp eq i64 %23, 0
-  br i1 %.not4.i, label %25, label %"_ZZN4llvm3rdf13DataFlowGraph9buildStmtENS0_8NodeAddrIPNS0_9BlockNodeEEERNS_12MachineInstrEENK3$_0clERKS6_.exit"
+  %.not2.i = icmp eq i64 %23, 0
+  br i1 %.not2.i, label %25, label %"_ZZN4llvm3rdf13DataFlowGraph9buildStmtENS0_8NodeAddrIPNS0_9BlockNodeEEERNS_12MachineInstrEENK3$_0clERKS6_.exit"
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %4
   %24 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %3, i64 noundef 128, i32 noundef 1) #24
@@ -10345,11 +10345,11 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i: ; preds = %4
 
 _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge.i: ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit.i
   %.pre.i = load i32, ptr %12, align 4
-  %.pre9.i = and i32 %.pre.i, 12
+  %.pre7.i = and i32 %.pre.i, 12
   br label %25
 
 25:                                               ; preds = %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge.i, %18
-  %.pre-phi.i = phi i32 [ %.pre9.i, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge.i ], [ %14, %18 ]
+  %.pre-phi.i = phi i32 [ %.pre7.i, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge.i ], [ %14, %18 ]
   %26 = phi i32 [ %.pre.i, %_ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge.i ], [ %13, %18 ]
   %27 = icmp eq i32 %.pre-phi.i, 0
   %28 = and i32 %26, 4
@@ -10363,8 +10363,8 @@ _ZNK4llvm12MachineInstr6isCallENS0_9QueryTypeE.exit._crit_edge.i: ; preds = %_ZN
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load i64, ptr %33, align 8, !tbaa !237
   %35 = and i64 %34, 1024
-  %.not5.i = icmp eq i64 %35, 0
-  br i1 %.not5.i, label %60, label %37
+  %.not3.i = icmp eq i64 %35, 0
+  br i1 %.not3.i, label %60, label %37
 
 _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit.i: ; preds = %25
   %36 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %3, i64 noundef 1024, i32 noundef 1) #24
@@ -10378,17 +10378,17 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit.i: ; preds = %25
   %42 = zext i24 %41 to i64
   %.idx.i = shl nuw nsw i64 %42, 5
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx.i
-  %.not7.i = icmp eq i24 %41, 0
-  br i1 %.not7.i, label %._crit_edge.i, label %.critedge.i
+  %.not5.i = icmp eq i24 %41, 0
+  br i1 %.not5.i, label %._crit_edge.i, label %.critedge.i
 
 44:                                               ; preds = %.critedge.i
-  %45 = getelementptr inbounds nuw i8, ptr %.0168.i, i64 32
+  %45 = getelementptr inbounds nuw i8, ptr %.0166.i, i64 32
   %.not.i = icmp eq ptr %45, %43
   br i1 %.not.i, label %._crit_edge.i, label %.critedge.i
 
 .critedge.i:                                      ; preds = %37, %44
-  %.0168.i = phi ptr [ %45, %44 ], [ %39, %37 ]
-  %46 = load i32, ptr %.0168.i, align 8
+  %.0166.i = phi ptr [ %45, %44 ], [ %39, %37 ]
+  %46 = load i32, ptr %.0166.i, align 8
   %47 = and i32 %46, 255
   %.off.i = add nsw i32 %47, -9
   %switch.i = icmp ult i32 %.off.i, 2
@@ -10409,8 +10409,8 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit.i: ; preds = %25
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load i64, ptr %56, align 8, !tbaa !237
   %58 = and i64 %57, 2048
-  %.not6.i = icmp eq i64 %58, 0
-  br i1 %.not6.i, label %60, label %"_ZZN4llvm3rdf13DataFlowGraph9buildStmtENS0_8NodeAddrIPNS0_9BlockNodeEEERNS_12MachineInstrEENK3$_0clERKS6_.exit"
+  %.not4.i = icmp eq i64 %58, 0
+  br i1 %.not4.i, label %60, label %"_ZZN4llvm3rdf13DataFlowGraph9buildStmtENS0_8NodeAddrIPNS0_9BlockNodeEEERNS_12MachineInstrEENK3$_0clERKS6_.exit"
 
 _ZNK4llvm12MachineInstr16isIndirectBranchENS0_9QueryTypeE.exit.i: ; preds = %._crit_edge.i
   %59 = tail call noundef zeroext i1 @_ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE(ptr noundef nonnull align 8 dereferenceable(70) %3, i64 noundef 2048, i32 noundef 1) #24
@@ -16440,12 +16440,12 @@ _ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE.exit56: ; preds = %_ZNK4ll
   %282 = zext i32 %265 to i64
   %.idx.i = shl nuw nsw i64 %282, 4
   %283 = getelementptr inbounds nuw i8, ptr %.val.pre, i64 %.idx.i
-  %.not7.not.i = icmp eq i32 %265, 0
-  br i1 %.not7.not.i, label %._crit_edge225, label %.lr.ph.i57
+  %.not9.not.i = icmp eq i32 %265, 0
+  br i1 %.not9.not.i, label %._crit_edge225, label %.lr.ph.i57
 
 .lr.ph.i57:                                       ; preds = %_ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE.exit56, %select.unfold.i
-  %.0138.i = phi ptr [ %292, %select.unfold.i ], [ %.val.pre, %_ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE.exit56 ]
-  %.sroa.02.0.copyload.i = load ptr, ptr %.0138.i, align 8, !tbaa !97
+  %.01310.i = phi ptr [ %292, %select.unfold.i ], [ %.val.pre, %_ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE.exit56 ]
+  %.sroa.02.0.copyload.i = load ptr, ptr %.01310.i, align 8, !tbaa !97
   %284 = load i16, ptr %.sroa.02.0.copyload.i, align 8, !tbaa !47
   %285 = and i16 %284, 28
   %.not14.i = icmp eq i16 %285, 4
@@ -16464,7 +16464,7 @@ _ZNK4llvm3rdf8CodeNode7membersERKNS0_13DataFlowGraphE.exit56: ; preds = %_ZNK4ll
   br i1 %.not16.i, label %select.unfold.i, label %_ZN4llvm3rdf8CodeNode12removeMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit
 
 select.unfold.i:                                  ; preds = %289, %.lr.ph.i57
-  %292 = getelementptr inbounds nuw i8, ptr %.0138.i, i64 16
+  %292 = getelementptr inbounds nuw i8, ptr %.01310.i, i64 16
   %.not.not.i = icmp eq ptr %292, %283
   br i1 %.not.not.i, label %.lr.ph224, label %.lr.ph.i57
 
@@ -20456,7 +20456,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   br i1 %.not.i, label %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit", label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit.i, !llvm.loop !921
 
 "_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_backES5_.exit.i, %3
-  %.pre135138 = phi i32 [ 0, %3 ], [ %38, %_ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_backES5_.exit.i ]
+  %.pre134137 = phi i32 [ 0, %3 ], [ %38, %_ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_backES5_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %42 = load i32, ptr %41, align 4, !tbaa !50
@@ -20519,91 +20519,91 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   br i1 %.not.i78, label %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79.loopexit", label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit.i72, !llvm.loop !921
 
 "_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79.loopexit": ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_backES5_.exit.i76
-  %.pre135.pre = load i32, ptr %11, align 8, !tbaa !94
+  %.pre134.pre = load i32, ptr %11, align 8, !tbaa !94
   br label %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79"
 
 "_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79": ; preds = %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79.loopexit", %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit"
-  %.pre135 = phi i32 [ %.pre135.pre, %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79.loopexit" ], [ %.pre135138, %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit" ]
+  %.pre134 = phi i32 [ %.pre134.pre, %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79.loopexit" ], [ %.pre134137, %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit" ]
   %74 = phi i32 [ %71, %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79.loopexit" ], [ 0, %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit" ]
   %75 = icmp eq i32 %7, 0
   %.pre = load ptr, ptr %4, align 8, !tbaa !95
-  %76 = zext i32 %.pre135 to i64
+  %76 = zext i32 %.pre134 to i64
   %.idx = shl nuw nsw i64 %76, 4
-  br i1 %75, label %77, label %.loopexit111
+  br i1 %75, label %77, label %.loopexit110
 
 77:                                               ; preds = %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79"
   %78 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
-  %.not112 = icmp eq i32 %.pre135, 0
-  br i1 %.not112, label %._crit_edge, label %.lr.ph
+  %.not111 = icmp eq i32 %.pre134, 0
+  br i1 %.not111, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %77
   %79 = load ptr, ptr %5, align 8, !tbaa !95
   %80 = zext i32 %74 to i64
-  %.idx131 = shl nuw nsw i64 %80, 4
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx131
-  %.not65114 = icmp eq i32 %74, 0
-  br i1 %.not65114, label %.loopexit111, label %.lr.ph117
+  %.idx130 = shl nuw nsw i64 %80, 4
+  %81 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx130
+  %.not65113 = icmp eq i32 %74, 0
+  br i1 %.not65113, label %.loopexit110, label %.lr.ph116
 
 .lr.ph:                                           ; preds = %77, %.lr.ph
-  %.0113 = phi ptr [ %84, %.lr.ph ], [ %.pre, %77 ]
-  %82 = load ptr, ptr %.0113, align 8, !tbaa !129
+  %.0112 = phi ptr [ %84, %.lr.ph ], [ %.pre, %77 ]
+  %82 = load ptr, ptr %.0112, align 8, !tbaa !129
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 12
   store i32 0, ptr %83, align 4, !tbaa !50
-  %84 = getelementptr inbounds nuw i8, ptr %.0113, i64 16
+  %84 = getelementptr inbounds nuw i8, ptr %.0112, i64 16
   %.not = icmp eq ptr %84, %78
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
-.lr.ph117:                                        ; preds = %._crit_edge, %.lr.ph117
-  %.059115 = phi ptr [ %87, %.lr.ph117 ], [ %79, %._crit_edge ]
-  %85 = load ptr, ptr %.059115, align 8, !tbaa !129
+.lr.ph116:                                        ; preds = %._crit_edge, %.lr.ph116
+  %.059114 = phi ptr [ %87, %.lr.ph116 ], [ %79, %._crit_edge ]
+  %85 = load ptr, ptr %.059114, align 8, !tbaa !129
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 12
   store i32 0, ptr %86, align 4, !tbaa !50
-  %87 = getelementptr inbounds nuw i8, ptr %.059115, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.059114, i64 16
   %.not65 = icmp eq ptr %87, %81
-  br i1 %.not65, label %.loopexit111, label %.lr.ph117
+  br i1 %.not65, label %.loopexit110, label %.lr.ph116
 
-.loopexit111:                                     ; preds = %.lr.ph117, %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79", %._crit_edge
+.loopexit110:                                     ; preds = %.lr.ph116, %"_ZZN4llvm3rdf13DataFlowGraph11unlinkDefDFENS0_8NodeAddrIPNS0_7DefNodeEEEENK3$_0clEj.exit79", %._crit_edge
   %88 = getelementptr inbounds nuw i8, ptr %.pre, i64 %.idx
-  %.not66118 = icmp eq i32 %.pre135, 0
-  br i1 %.not66118, label %._crit_edge122, label %.lr.ph121
+  %.not66117 = icmp eq i32 %.pre134, 0
+  br i1 %.not66117, label %._crit_edge121, label %.lr.ph120
 
-._crit_edge122.loopexit:                          ; preds = %.lr.ph121
-  %.pre136 = load i32, ptr %44, align 8, !tbaa !94
-  br label %._crit_edge122
+._crit_edge121.loopexit:                          ; preds = %.lr.ph120
+  %.pre135 = load i32, ptr %44, align 8, !tbaa !94
+  br label %._crit_edge121
 
-._crit_edge122:                                   ; preds = %._crit_edge122.loopexit, %.loopexit111
-  %89 = phi i32 [ %.pre136, %._crit_edge122.loopexit ], [ %74, %.loopexit111 ]
+._crit_edge121:                                   ; preds = %._crit_edge121.loopexit, %.loopexit110
+  %89 = phi i32 [ %.pre135, %._crit_edge121.loopexit ], [ %74, %.loopexit110 ]
   %90 = load ptr, ptr %5, align 8, !tbaa !95
   %91 = zext i32 %89 to i64
-  %.idx133 = shl nuw nsw i64 %91, 4
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx133
-  %.not67123 = icmp eq i32 %89, 0
-  br i1 %.not67123, label %._crit_edge127, label %.lr.ph126
+  %.idx132 = shl nuw nsw i64 %91, 4
+  %92 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx132
+  %.not67122 = icmp eq i32 %89, 0
+  br i1 %.not67122, label %._crit_edge126, label %.lr.ph125
 
-.lr.ph121:                                        ; preds = %.loopexit111, %.lr.ph121
-  %.060119 = phi ptr [ %95, %.lr.ph121 ], [ %.pre, %.loopexit111 ]
-  %93 = load ptr, ptr %.060119, align 8, !tbaa !129
+.lr.ph120:                                        ; preds = %.loopexit110, %.lr.ph120
+  %.060118 = phi ptr [ %95, %.lr.ph120 ], [ %.pre, %.loopexit110 ]
+  %93 = load ptr, ptr %.060118, align 8, !tbaa !129
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   store i32 %7, ptr %94, align 8, !tbaa !50
-  %95 = getelementptr inbounds nuw i8, ptr %.060119, i64 16
+  %95 = getelementptr inbounds nuw i8, ptr %.060118, i64 16
   %.not66 = icmp eq ptr %95, %88
-  br i1 %.not66, label %._crit_edge122.loopexit, label %.lr.ph121
+  br i1 %.not66, label %._crit_edge121.loopexit, label %.lr.ph120
 
-._crit_edge127:                                   ; preds = %.lr.ph126, %._crit_edge122
+._crit_edge126:                                   ; preds = %.lr.ph125, %._crit_edge121
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %97 = load i32, ptr %96, align 4, !tbaa !50
   br i1 %75, label %170, label %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit
 
-.lr.ph126:                                        ; preds = %._crit_edge122, %.lr.ph126
-  %.061124 = phi ptr [ %100, %.lr.ph126 ], [ %90, %._crit_edge122 ]
-  %98 = load ptr, ptr %.061124, align 8, !tbaa !129
+.lr.ph125:                                        ; preds = %._crit_edge121, %.lr.ph125
+  %.061123 = phi ptr [ %100, %.lr.ph125 ], [ %90, %._crit_edge121 ]
+  %98 = load ptr, ptr %.061123, align 8, !tbaa !129
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i32 %7, ptr %99, align 8, !tbaa !50
-  %100 = getelementptr inbounds nuw i8, ptr %.061124, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %.061123, i64 16
   %.not67 = icmp eq ptr %100, %92
-  br i1 %.not67, label %._crit_edge127, label %.lr.ph126
+  br i1 %.not67, label %._crit_edge126, label %.lr.ph125
 
-_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit: ; preds = %._crit_edge127
+_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit: ; preds = %._crit_edge126
   %101 = add i32 %7, -1
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %103 = load i32, ptr %102, align 4, !tbaa !26
@@ -20629,9 +20629,9 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83: ; 
   br i1 %119, label %132, label %.loopexit
 
 _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thread: ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit
-  br i1 %119, label %132, label %.lr.ph130.preheader
+  br i1 %119, label %132, label %.lr.ph129.preheader
 
-.lr.ph130.preheader:                              ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thread
+.lr.ph129.preheader:                              ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thread
   %120 = add i32 %117, -1
   %121 = lshr i32 %120, %103
   %122 = zext i32 %121 to i64
@@ -20644,24 +20644,24 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thr
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 12
   %130 = load i32, ptr %129, align 4, !tbaa !50
   %131 = icmp eq i32 %130, %2
-  br i1 %131, label %.thread, label %.lr.ph166
+  br i1 %131, label %.thread, label %.lr.ph165
 
 132:                                              ; preds = %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thread, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83
   store i32 %97, ptr %116, align 8, !tbaa !50
   br label %.loopexit
 
-.thread:                                          ; preds = %.lr.ph130, %.lr.ph130.preheader
-  %.sroa.07.0129.lcssa = phi ptr [ %128, %.lr.ph130.preheader ], [ %144, %.lr.ph130 ]
-  %133 = getelementptr inbounds nuw i8, ptr %.sroa.07.0129.lcssa, i64 12
+.thread:                                          ; preds = %.lr.ph129, %.lr.ph129.preheader
+  %.sroa.07.0128.lcssa = phi ptr [ %128, %.lr.ph129.preheader ], [ %144, %.lr.ph129 ]
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.07.0128.lcssa, i64 12
   store i32 %97, ptr %133, align 4, !tbaa !50
   br label %.loopexit
 
-.lr.ph166:                                        ; preds = %.lr.ph130.preheader, %.lr.ph130
-  %134 = phi i32 [ %146, %.lr.ph130 ], [ %130, %.lr.ph130.preheader ]
+.lr.ph165:                                        ; preds = %.lr.ph129.preheader, %.lr.ph129
+  %134 = phi i32 [ %146, %.lr.ph129 ], [ %130, %.lr.ph129.preheader ]
   %135 = icmp eq i32 %134, 0
-  br i1 %135, label %.loopexit, label %.lr.ph130
+  br i1 %135, label %.loopexit, label %.lr.ph129
 
-.lr.ph130:                                        ; preds = %.lr.ph166
+.lr.ph129:                                        ; preds = %.lr.ph165
   %136 = add i32 %134, -1
   %137 = lshr i32 %136, %103
   %138 = and i32 %106, %136
@@ -20674,9 +20674,9 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thr
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 12
   %146 = load i32, ptr %145, align 4, !tbaa !50
   %147 = icmp eq i32 %146, %2
-  br i1 %147, label %.thread, label %.lr.ph166
+  br i1 %147, label %.thread, label %.lr.ph165
 
-.loopexit:                                        ; preds = %.lr.ph166, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83, %.thread, %132
+.loopexit:                                        ; preds = %.lr.ph165, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83, %.thread, %132
   %148 = load i32, ptr %11, align 8, !tbaa !94
   %.not.i88 = icmp eq i32 %148, 0
   br i1 %.not.i88, label %158, label %149
@@ -20713,7 +20713,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thr
   store i32 %169, ptr %165, align 4, !tbaa !50
   br label %170
 
-170:                                              ; preds = %158, %160, %._crit_edge127
+170:                                              ; preds = %158, %160, %._crit_edge126
   %171 = icmp eq ptr %90, %43
   br i1 %171, label %_ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit, label %172
 

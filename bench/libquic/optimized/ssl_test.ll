@@ -247,13 +247,13 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #3 personal
   br label %5
 
 4:                                                ; preds = %_ZL14TestCipherRuleRK10CipherTest.exit.i
-  %.028.add.i = add nuw nsw i64 %.028.idx67.i, 32
+  %.028.add.i = add nuw nsw i64 %.028.idx61.i, 32
   %.not.i = icmp eq i64 %.028.add.i, 416
-  br i1 %.not.i, label %.preheader62.i, label %5
+  br i1 %.not.i, label %.preheader56.i, label %5
 
 5:                                                ; preds = %4, %0
-  %.028.idx67.i = phi i64 [ 0, %0 ], [ %.028.add.i, %4 ]
-  %.028.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL12kCipherTests, i64 %.028.idx67.i
+  %.028.idx61.i = phi i64 [ 0, %0 ], [ %.028.add.i, %4 ]
+  %.028.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL12kCipherTests, i64 %.028.idx61.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %6 = tail call ptr @TLS_method()
   %7 = tail call ptr @SSL_CTX_new(ptr noundef %6)
@@ -394,7 +394,7 @@ _ZL14TestCipherRuleRK10CipherTest.exit.thread.i:  ; preds = %5
   unreachable
 
 common.resume.i:                                  ; preds = %122, %80, %73
-  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %73 ], [ %81, %80 ], [ %.pn.i47.i, %122 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %.pn.i.i, %73 ], [ %81, %80 ], [ %.pn.i45.i, %122 ]
   resume { ptr, i32 } %common.resume.op.i
 
 73:                                               ; preds = %.loopexit.split-lp.i.i, %.loopexit.i.i, %16
@@ -407,18 +407,18 @@ _ZL14TestCipherRuleRK10CipherTest.exit.i:         ; preds = %.critedge.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   br i1 %.0.ph.i.i, label %4, label %_ZL15TestCipherRulesv.exit.thread
 
-.preheader62.i:                                   ; preds = %4, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i
-  %.036.idx68.i = phi i64 [ %.036.add.i, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i ], [ 0, %4 ]
-  %.036.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL9kBadRules, i64 %.036.idx68.i
+.preheader56.i:                                   ; preds = %4, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i
+  %.036.idx62.i = phi i64 [ %.036.add.i, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i ], [ 0, %4 ]
+  %.036.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL9kBadRules, i64 %.036.idx62.i
   %74 = load ptr, ptr %.036.ptr.i, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %75 = tail call ptr @SSLv23_server_method()
   %76 = tail call ptr @SSL_CTX_new(ptr noundef %75)
   store ptr %76, ptr %3, align 8, !tbaa !12
-  %.not61.i = icmp eq ptr %76, null
-  br i1 %.not61.i, label %.thread56.i, label %77
+  %.not55.i = icmp eq ptr %76, null
+  br i1 %.not55.i, label %.thread52.i, label %77
 
-77:                                               ; preds = %.preheader62.i
+77:                                               ; preds = %.preheader56.i
   %78 = invoke i32 @SSL_CTX_set_cipher_list(ptr noundef nonnull %76, ptr noundef %74)
           to label %79 unwind label %80
 
@@ -450,15 +450,15 @@ _ZL14TestCipherRuleRK10CipherTest.exit.i:         ; preds = %.critedge.i.i
 
 _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i: ; preds = %83
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.036.add.i = add nuw nsw i64 %.036.idx68.i, 8
+  %.036.add.i = add nuw nsw i64 %.036.idx62.i, 8
   %.not37.i = icmp eq i64 %.036.add.i, 104
-  br i1 %.not37.i, label %.preheader.i, label %.preheader62.i
+  br i1 %.not37.i, label %.preheader.i, label %.preheader56.i
 
 87:                                               ; preds = %79
   %88 = load ptr, ptr @stderr, align 8, !tbaa !20
   %89 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %88, ptr noundef nonnull @.str.23, ptr noundef %74) #26
   invoke void @SSL_CTX_free(ptr noundef nonnull %76)
-          to label %.thread56.i unwind label %90
+          to label %.thread52.i unwind label %90
 
 90:                                               ; preds = %87
   %91 = landingpad { ptr, i32 }
@@ -467,18 +467,18 @@ _ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.e
   tail call void @__clang_call_terminate(ptr %92) #27
   unreachable
 
-.thread56.i:                                      ; preds = %.preheader62.i, %87
+.thread52.i:                                      ; preds = %.preheader56.i, %87
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZL15TestCipherRulesv.exit.thread
 
 93:                                               ; preds = %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i
-  %.029.add.i = add nuw nsw i64 %.029.idx69.i, 8
+  %.029.add.i = add nuw nsw i64 %.029.idx63.i, 8
   %.not39.i = icmp eq i64 %.029.add.i, 104
   br i1 %.not39.i, label %_ZL15TestCipherRulesv.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i, %93
-  %.029.idx69.i = phi i64 [ %.029.add.i, %93 ], [ 0, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i ]
-  %.029.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL19kMustNotIncludeNull, i64 %.029.idx69.i
+  %.029.idx63.i = phi i64 [ %.029.add.i, %93 ], [ 0, %_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev.exit.i ]
+  %.029.ptr.i = getelementptr inbounds nuw i8, ptr @_ZL19kMustNotIncludeNull, i64 %.029.idx63.i
   %94 = load ptr, ptr %.029.ptr.i, align 8, !tbaa !53
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   %95 = tail call ptr @SSLv23_server_method()
@@ -496,30 +496,30 @@ _ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i: ; preds = %.preheader.i
           to label %99 unwind label %101
 
 99:                                               ; preds = %97
-  %.not.i48.i = icmp eq i32 %98, 0
-  br i1 %.not.i48.i, label %.loopexit.sink.split.i.i, label %.preheader.preheader.i.i
+  %.not.i46.i = icmp eq i32 %98, 0
+  br i1 %.not.i46.i, label %.loopexit.sink.split.i.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %99
   %100 = getelementptr inbounds nuw i8, ptr %96, i64 72
-  br label %.preheader.i49.i
+  br label %.preheader.i47.i
 
 101:                                              ; preds = %97
   %102 = landingpad { ptr, i32 }
           cleanup
   br label %122
 
-.preheader.i49.i:                                 ; preds = %115, %.preheader.preheader.i.i
+.preheader.i47.i:                                 ; preds = %115, %.preheader.preheader.i.i
   %.0.i.i = phi i64 [ %116, %115 ], [ 0, %.preheader.preheader.i.i ]
   %103 = load ptr, ptr %100, align 8, !tbaa !22
   %104 = load ptr, ptr %103, align 8, !tbaa !43
   %105 = invoke i64 @sk_num(ptr noundef %104)
           to label %106 unwind label %107
 
-106:                                              ; preds = %.preheader.i49.i
+106:                                              ; preds = %.preheader.i47.i
   %.not15.not.i.i = icmp ult i64 %.0.i.i, %105
-  br i1 %.not15.not.i.i, label %109, label %.loopexit.i50.i
+  br i1 %.not15.not.i.i, label %109, label %.loopexit.i48.i
 
-107:                                              ; preds = %113, %109, %.preheader.i49.i
+107:                                              ; preds = %113, %109, %.preheader.i47.i
   %108 = landingpad { ptr, i32 }
           cleanup
   br label %122
@@ -537,20 +537,20 @@ _ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i: ; preds = %.preheader.i
 115:                                              ; preds = %113
   %.not14.i.i = icmp eq i32 %114, 0
   %116 = add nuw i64 %.0.i.i, 1
-  br i1 %.not14.i.i, label %.preheader.i49.i, label %.loopexit.sink.split.i.i, !llvm.loop !54
+  br i1 %.not14.i.i, label %.preheader.i47.i, label %.loopexit.sink.split.i.i, !llvm.loop !54
 
 .loopexit.sink.split.i.i:                         ; preds = %115, %99
   %.str.57.sink.i.i = phi ptr [ @.str.57, %99 ], [ @.str.58, %115 ]
   %117 = load ptr, ptr @stderr, align 8, !tbaa !20
   %118 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %117, ptr noundef nonnull %.str.57.sink.i.i, ptr noundef %94) #26
-  br label %.loopexit.i50.i
+  br label %.loopexit.i48.i
 
-.loopexit.i50.i:                                  ; preds = %106, %.loopexit.sink.split.i.i
+.loopexit.i48.i:                                  ; preds = %106, %.loopexit.sink.split.i.i
   %.012.ph.i.i = phi i1 [ false, %.loopexit.sink.split.i.i ], [ true, %106 ]
   invoke void @SSL_CTX_free(ptr noundef nonnull %96)
           to label %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i unwind label %119
 
-119:                                              ; preds = %.loopexit.i50.i
+119:                                              ; preds = %.loopexit.i48.i
   %120 = landingpad { ptr, i32 }
           catch ptr null
   %121 = extractvalue { ptr, i32 } %120, 0
@@ -558,12 +558,12 @@ _ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i: ; preds = %.preheader.i
   unreachable
 
 122:                                              ; preds = %107, %101
-  %.pn.i47.i = phi { ptr, i32 } [ %108, %107 ], [ %102, %101 ]
+  %.pn.i45.i = phi { ptr, i32 } [ %108, %107 ], [ %102, %101 ]
   call void @_ZNSt10unique_ptrI10ssl_ctx_st14OpenSSLDeleterIS0_XadL_Z12SSL_CTX_freeEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br label %common.resume.i
 
-_ZL26TestRuleDoesNotIncludeNullPKc.exit.i:        ; preds = %.loopexit.i50.i
+_ZL26TestRuleDoesNotIncludeNullPKc.exit.i:        ; preds = %.loopexit.i48.i
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   br i1 %.012.ph.i.i, label %93, label %_ZL15TestCipherRulesv.exit.thread
 
@@ -879,7 +879,7 @@ _ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37: ; preds = %250
   %265 = tail call fastcc noundef zeroext i1 @_ZL18TestSequenceNumberb(i1 noundef zeroext true)
   br i1 %265, label %267, label %_ZL15TestCipherRulesv.exit.thread
 
-_ZL15TestCipherRulesv.exit.thread:                ; preds = %_ZL14TestCipherRuleRK10CipherTest.exit.i, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i, %239, %224, %209, %194, %179, %164, %149, %134, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i, %_ZL14TestCipherRuleRK10CipherTest.exit.thread.i, %.thread56.i, %264, %262, %260, %258, %256, %254, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit, %132, %130, %128, %126, %124, %_ZL15TestCipherRulesv.exit
+_ZL15TestCipherRulesv.exit.thread:                ; preds = %_ZL14TestCipherRuleRK10CipherTest.exit.i, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.i, %239, %224, %209, %194, %179, %164, %149, %134, %_ZL26TestRuleDoesNotIncludeNullPKc.exit.thread.i, %_ZL14TestCipherRuleRK10CipherTest.exit.thread.i, %.thread52.i, %264, %262, %260, %258, %256, %254, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit37, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit32, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit27, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit22, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit17, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit12, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit7, %_ZL18TestDefaultVersiontPFPK13ssl_method_stvE.exit, %132, %130, %128, %126, %124, %_ZL15TestCipherRulesv.exit
   %266 = load ptr, ptr @stderr, align 8, !tbaa !20
   tail call void @ERR_print_errors_fp(ptr noundef %266)
   br label %268

@@ -691,69 +691,66 @@ define hidden void @_ZN6Symbol39print_as_signature_external_return_typeEP12outpu
   ret void
 
 10:                                               ; preds = %.lr.ph, %_ZL11print_classP12outputStreamRK15SignatureStream.exit
-  %11 = phi i32 [ %5, %.lr.ph ], [ %43, %_ZL11print_classP12outputStreamRK15SignatureStream.exit ]
+  %11 = phi i32 [ %5, %.lr.ph ], [ %40, %_ZL11print_classP12outputStreamRK15SignatureStream.exit ]
   %12 = icmp eq i32 %11, 3
   br i1 %12, label %13, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
 13:                                               ; preds = %10
   %14 = load i8, ptr %7, align 8
-  %15 = icmp eq i8 %14, 13
-  br i1 %15, label %16, label %17
+  switch i8 %14, label %38 [
+    i8 13, label %15
+    i8 12, label %16
+  ]
 
-16:                                               ; preds = %13
+15:                                               ; preds = %13
   call fastcc void @_ZL11print_arrayP12outputStreamR15SignatureStream(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
   br label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
-17:                                               ; preds = %13
-  %18 = and i8 %14, -2
-  %or.cond.i.i = icmp eq i8 %18, 12
-  br i1 %or.cond.i.i, label %19, label %41
+16:                                               ; preds = %13
+  %17 = load i32, ptr %8, align 8
+  %18 = load ptr, ptr %3, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 6
+  %20 = sext i32 %17 to i64
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
+  %22 = load i8, ptr %21, align 1
+  %23 = icmp eq i8 %22, 76
+  %24 = zext i1 %23 to i32
+  %25 = add nsw i32 %17, %24
+  %26 = load i32, ptr %9, align 4
+  %.neg.i.i = sext i1 %23 to i32
+  %27 = add i32 %26, %.neg.i.i
+  %28 = icmp slt i32 %25, %27
+  br i1 %28, label %.lr.ph.preheader.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
-19:                                               ; preds = %17
-  %20 = load i32, ptr %8, align 8
-  %21 = load ptr, ptr %3, align 8
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 6
-  %23 = sext i32 %20 to i64
-  %24 = getelementptr inbounds i8, ptr %22, i64 %23
-  %25 = load i8, ptr %24, align 1
-  %26 = icmp eq i8 %25, 76
-  %27 = zext i1 %26 to i32
-  %28 = add nsw i32 %20, %27
-  %29 = load i32, ptr %9, align 4
-  %.neg.i.i = sext i1 %26 to i32
-  %30 = add i32 %29, %.neg.i.i
-  %31 = icmp slt i32 %28, %30
-  br i1 %31, label %.lr.ph.preheader.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
-
-.lr.ph.preheader.i:                               ; preds = %19
-  %32 = zext i1 %26 to i64
-  %33 = add nsw i64 %32, %23
-  %34 = sext i32 %30 to i64
+.lr.ph.preheader.i:                               ; preds = %16
+  %29 = zext i1 %23 to i64
+  %30 = add nsw i64 %29, %20
+  %31 = sext i32 %27 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %33, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 6
-  %37 = getelementptr inbounds i8, ptr %36, i64 %indvars.iv.i
-  %38 = load i8, ptr %37, align 1
-  %39 = icmp eq i8 %38, 47
-  %..i = select i1 %39, i8 46, i8 %38
+  %indvars.iv.i = phi i64 [ %30, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %32 = load ptr, ptr %3, align 8
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 6
+  %34 = getelementptr inbounds i8, ptr %33, i64 %indvars.iv.i
+  %35 = load i8, ptr %34, align 1
+  %36 = icmp eq i8 %35, 47
+  %..i = select i1 %36, i8 46, i8 %35
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 noundef signext %..i) #17
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %40 = icmp slt i64 %indvars.iv.next.i, %34
-  br i1 %40, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
+  %37 = icmp slt i64 %indvars.iv.next.i, %31
+  br i1 %37, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
 
-41:                                               ; preds = %17
-  %42 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %14) #17
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %42) #17
+38:                                               ; preds = %13
+  %39 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %14) #17
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %39) #17
   br label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
-_ZL11print_classP12outputStreamRK15SignatureStream.exit: ; preds = %.lr.ph.i, %19, %10, %41, %16
+_ZL11print_classP12outputStreamRK15SignatureStream.exit: ; preds = %.lr.ph.i, %16, %10, %38, %15
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
-  %43 = load i32, ptr %4, align 4
-  %44 = icmp slt i32 %43, 0
-  br i1 %44, label %._crit_edge, label %10, !llvm.loop !12
+  %40 = load i32, ptr %4, align 4
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %._crit_edge, label %10, !llvm.loop !12
 }
 
 declare void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef, i1 noundef zeroext) unnamed_addr #2
@@ -864,64 +861,61 @@ define hidden void @_ZN6Symbol38print_as_signature_external_parametersEP12output
 
 12:                                               ; preds = %.lr.ph, %11
   %13 = load i8, ptr %8, align 8
-  %14 = icmp eq i8 %13, 13
-  br i1 %14, label %15, label %16
+  switch i8 %13, label %37 [
+    i8 13, label %14
+    i8 12, label %15
+  ]
 
-15:                                               ; preds = %12
+14:                                               ; preds = %12
   call fastcc void @_ZL11print_arrayP12outputStreamR15SignatureStream(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
   br label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
-16:                                               ; preds = %12
-  %17 = and i8 %13, -2
-  %or.cond.i.i = icmp eq i8 %17, 12
-  br i1 %or.cond.i.i, label %18, label %40
+15:                                               ; preds = %12
+  %16 = load i32, ptr %9, align 8
+  %17 = load ptr, ptr %3, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %17, i64 6
+  %19 = sext i32 %16 to i64
+  %20 = getelementptr inbounds i8, ptr %18, i64 %19
+  %21 = load i8, ptr %20, align 1
+  %22 = icmp eq i8 %21, 76
+  %23 = zext i1 %22 to i32
+  %24 = add nsw i32 %16, %23
+  %25 = load i32, ptr %10, align 4
+  %.neg.i.i = sext i1 %22 to i32
+  %26 = add i32 %25, %.neg.i.i
+  %27 = icmp slt i32 %24, %26
+  br i1 %27, label %.lr.ph.preheader.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
-18:                                               ; preds = %16
-  %19 = load i32, ptr %9, align 8
-  %20 = load ptr, ptr %3, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 6
-  %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds i8, ptr %21, i64 %22
-  %24 = load i8, ptr %23, align 1
-  %25 = icmp eq i8 %24, 76
-  %26 = zext i1 %25 to i32
-  %27 = add nsw i32 %19, %26
-  %28 = load i32, ptr %10, align 4
-  %.neg.i.i = sext i1 %25 to i32
-  %29 = add i32 %28, %.neg.i.i
-  %30 = icmp slt i32 %27, %29
-  br i1 %30, label %.lr.ph.preheader.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
-
-.lr.ph.preheader.i:                               ; preds = %18
-  %31 = zext i1 %25 to i64
-  %32 = add nsw i64 %31, %22
-  %33 = sext i32 %29 to i64
+.lr.ph.preheader.i:                               ; preds = %15
+  %28 = zext i1 %22 to i64
+  %29 = add nsw i64 %28, %19
+  %30 = sext i32 %26 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %32, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 6
-  %36 = getelementptr inbounds i8, ptr %35, i64 %indvars.iv.i
-  %37 = load i8, ptr %36, align 1
-  %38 = icmp eq i8 %37, 47
-  %..i = select i1 %38, i8 46, i8 %37
+  %indvars.iv.i = phi i64 [ %29, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
+  %33 = getelementptr inbounds i8, ptr %32, i64 %indvars.iv.i
+  %34 = load i8, ptr %33, align 1
+  %35 = icmp eq i8 %34, 47
+  %..i = select i1 %35, i8 46, i8 %34
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 noundef signext %..i) #17
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %39 = icmp slt i64 %indvars.iv.next.i, %33
-  br i1 %39, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
+  %36 = icmp slt i64 %indvars.iv.next.i, %30
+  br i1 %36, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
 
-40:                                               ; preds = %16
-  %41 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %13) #17
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %41) #17
+37:                                               ; preds = %12
+  %38 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %13) #17
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %38) #17
   br label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
-_ZL11print_classP12outputStreamRK15SignatureStream.exit: ; preds = %.lr.ph.i, %18, %40, %15
+_ZL11print_classP12outputStreamRK15SignatureStream.exit: ; preds = %.lr.ph.i, %15, %37, %14
   call void @_ZN15SignatureStream4nextEv(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
-  %42 = load i32, ptr %4, align 4
-  %43 = icmp slt i32 %42, 0
-  %44 = icmp eq i32 %42, 3
-  %or.cond = or i1 %43, %44
+  %39 = load i32, ptr %4, align 4
+  %40 = icmp slt i32 %39, 0
+  %41 = icmp eq i32 %39, 3
+  %or.cond = or i1 %40, %41
   br i1 %or.cond, label %._crit_edge, label %11, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %_ZL11print_classP12outputStreamRK15SignatureStream.exit, %2
@@ -935,61 +929,58 @@ define hidden void @_ZN6Symbol28print_as_field_external_typeEP12outputStream(ptr
   call void @_ZN15SignatureStreamC1EPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull %0, i1 noundef zeroext false) #17
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i8, ptr %4, align 8
-  %6 = icmp eq i8 %5, 13
-  br i1 %6, label %7, label %8
+  switch i8 %5, label %31 [
+    i8 13, label %6
+    i8 12, label %7
+  ]
 
-7:                                                ; preds = %2
+6:                                                ; preds = %2
   call fastcc void @_ZL11print_arrayP12outputStreamR15SignatureStream(ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %3)
   br label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
-8:                                                ; preds = %2
-  %9 = and i8 %5, -2
-  %or.cond.i.i = icmp eq i8 %9, 12
-  br i1 %or.cond.i.i, label %10, label %34
+7:                                                ; preds = %2
+  %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %9 = load i32, ptr %8, align 8
+  %10 = load ptr, ptr %3, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 6
+  %12 = sext i32 %9 to i64
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  %14 = load i8, ptr %13, align 1
+  %15 = icmp eq i8 %14, 76
+  %16 = zext i1 %15 to i32
+  %17 = add nsw i32 %9, %16
+  %18 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %19 = load i32, ptr %18, align 4
+  %.neg.i.i = sext i1 %15 to i32
+  %20 = add i32 %19, %.neg.i.i
+  %21 = icmp slt i32 %17, %20
+  br i1 %21, label %.lr.ph.preheader.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
-10:                                               ; preds = %8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = load i32, ptr %11, align 8
-  %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 6
-  %15 = sext i32 %12 to i64
-  %16 = getelementptr inbounds i8, ptr %14, i64 %15
-  %17 = load i8, ptr %16, align 1
-  %18 = icmp eq i8 %17, 76
-  %19 = zext i1 %18 to i32
-  %20 = add nsw i32 %12, %19
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %22 = load i32, ptr %21, align 4
-  %.neg.i.i = sext i1 %18 to i32
-  %23 = add i32 %22, %.neg.i.i
-  %24 = icmp slt i32 %20, %23
-  br i1 %24, label %.lr.ph.preheader.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
-
-.lr.ph.preheader.i:                               ; preds = %10
-  %25 = zext i1 %18 to i64
-  %26 = add nsw i64 %25, %15
-  %27 = sext i32 %23 to i64
+.lr.ph.preheader.i:                               ; preds = %7
+  %22 = zext i1 %15 to i64
+  %23 = add nsw i64 %22, %12
+  %24 = sext i32 %20 to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %26, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 6
-  %30 = getelementptr inbounds i8, ptr %29, i64 %indvars.iv.i
-  %31 = load i8, ptr %30, align 1
-  %32 = icmp eq i8 %31, 47
-  %..i = select i1 %32, i8 46, i8 %31
+  %indvars.iv.i = phi i64 [ %23, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %25 = load ptr, ptr %3, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 6
+  %27 = getelementptr inbounds i8, ptr %26, i64 %indvars.iv.i
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %28, 47
+  %..i = select i1 %29, i8 46, i8 %28
   call void @_ZN12outputStream3putEc(ptr noundef nonnull align 8 dereferenceable(56) %1, i8 noundef signext %..i) #17
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %33 = icmp slt i64 %indvars.iv.next.i, %27
-  br i1 %33, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
+  %30 = icmp slt i64 %indvars.iv.next.i, %24
+  br i1 %30, label %.lr.ph.i, label %_ZL11print_classP12outputStreamRK15SignatureStream.exit, !llvm.loop !11
 
-34:                                               ; preds = %8
-  %35 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %5) #17
-  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %35) #17
+31:                                               ; preds = %2
+  %32 = call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %5) #17
+  call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str, ptr noundef %32) #17
   br label %_ZL11print_classP12outputStreamRK15SignatureStream.exit
 
-_ZL11print_classP12outputStreamRK15SignatureStream.exit: ; preds = %.lr.ph.i, %10, %34, %7
+_ZL11print_classP12outputStreamRK15SignatureStream.exit: ; preds = %.lr.ph.i, %7, %31, %6
   call void @_ZN15SignatureStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #17
   ret void
 }

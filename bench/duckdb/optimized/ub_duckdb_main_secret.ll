@@ -46896,8 +46896,8 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt
   %16 = load i64, ptr %15, align 8, !tbaa !69
   %17 = urem i64 %14, %16
   %18 = load i64, ptr %6, align 8, !tbaa !60
-  %.not33 = icmp eq i64 %18, 0
-  br i1 %.not33, label %.critedge, label %19
+  %.not31 = icmp eq i64 %18, 0
+  br i1 %.not31, label %.critedge, label %19
 
 19:                                               ; preds = %.thread
   %20 = load ptr, ptr %0, align 8, !tbaa !70
@@ -51230,8 +51230,8 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt
   %16 = load i64, ptr %15, align 8, !tbaa !69
   %17 = urem i64 %14, %16
   %18 = load i64, ptr %6, align 8, !tbaa !60
-  %.not32 = icmp eq i64 %18, 0
-  br i1 %.not32, label %.critedge, label %19
+  %.not30 = icmp eq i64 %18, 0
+  br i1 %.not30, label %.critedge, label %19
 
 19:                                               ; preds = %.thread
   %20 = load ptr, ptr %0, align 8, !tbaa !70
@@ -53660,8 +53660,8 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt
   %16 = load i64, ptr %15, align 8, !tbaa !69
   %17 = urem i64 %14, %16
   %18 = load i64, ptr %6, align 8, !tbaa !60
-  %.not32 = icmp eq i64 %18, 0
-  br i1 %.not32, label %.critedge, label %19
+  %.not30 = icmp eq i64 %18, 0
+  br i1 %.not30, label %.critedge, label %19
 
 19:                                               ; preds = %.thread
   %20 = load ptr, ptr %0, align 8, !tbaa !70

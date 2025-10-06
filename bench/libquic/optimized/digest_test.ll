@@ -92,8 +92,8 @@ define hidden noundef range(i32 0, 2) i32 @main() local_unnamed_addr #0 personal
   br label %8
 
 8:                                                ; preds = %0, %225
-  %.0623 = phi i64 [ 0, %0 ], [ %226, %225 ]
-  %9 = getelementptr inbounds nuw %struct.TestVector, ptr @_ZL12kTestVectors, i64 %.0623
+  %.0621 = phi i64 [ 0, %0 ], [ %226, %225 ]
+  %9 = getelementptr inbounds nuw %struct.TestVector, ptr @_ZL12kTestVectors, i64 %.0621
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @EVP_MD_CTX_init(ptr noundef nonnull align 8 dereferenceable(32) %5)
   %10 = load ptr, ptr %9, align 16, !tbaa !6
@@ -292,8 +292,8 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit.i:      ; preds = %._crit_edge.i.i
   br label %214
 
 .critedge68.i:                                    ; preds = %90, %.lr.ph105.split.i
-  %exitcond31.not = icmp eq i64 %.040104.i, %84
-  br i1 %exitcond31.not, label %.critedge70.i, label %.lr.ph105.split.ithread-pre-split, !llvm.loop !29
+  %exitcond29.not = icmp eq i64 %.040104.i, %84
+  br i1 %exitcond29.not, label %.critedge70.i, label %.lr.ph105.split.ithread-pre-split, !llvm.loop !29
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr @stderr, align 8, !tbaa !18
@@ -382,7 +382,7 @@ _ZL13CompareDigestPK10TestVectorPKhm.exit79.i:    ; preds = %._crit_edge.i77.i
   %141 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %142 = load ptr, ptr %141, align 8, !tbaa !31
   %.not63.i = icmp ne ptr %142, null
-  %143 = shl nuw nsw i64 1, %.0623
+  %143 = shl nuw nsw i64 1, %.0621
   %144 = and i64 %143, 267182015
   %145 = icmp ne i64 %144, 0
   %or.cond = and i1 %145, %.not63.i
@@ -565,13 +565,13 @@ _ZL10TestDigestPK10TestVector.exit:               ; preds = %215
   br i1 %.047.i, label %227, label %225
 
 225:                                              ; preds = %_ZL10TestDigestPK10TestVector.exit
-  %226 = add nuw nsw i64 %.0623, 1
-  %exitcond32.not = icmp eq i64 %226, 28
-  br i1 %exitcond32.not, label %231, label %8, !llvm.loop !32
+  %226 = add nuw nsw i64 %.0621, 1
+  %exitcond30.not = icmp eq i64 %226, 28
+  br i1 %exitcond30.not, label %231, label %8, !llvm.loop !32
 
 227:                                              ; preds = %_ZL10TestDigestPK10TestVector.exit
   %228 = load ptr, ptr @stderr, align 8, !tbaa !18
-  %229 = trunc nuw nsw i64 %.0623 to i32
+  %229 = trunc nuw nsw i64 %.0621 to i32
   %230 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %228, ptr noundef nonnull @.str, i32 noundef %229) #11
   br label %_ZL11TestGettersv.exit.thread
 

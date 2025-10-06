@@ -489,8 +489,8 @@ if.end31:                                         ; preds = %if.end13
   %15 = lshr i64 %shl, 12
   %cond37 = select i1 %cmp33, i64 0, i64 %15
   %cmp38 = icmp ugt i64 %12, 9007199254740991
-  %cmp50.not77 = icmp eq i64 %13, 11
-  %cmp50.not = or i1 %cmp38, %cmp50.not77
+  %16 = icmp eq i64 %13, 11
+  %cmp50.not = or i1 %cmp38, %16
   br i1 %cmp50.not, label %if.end.i43, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %if.end31
@@ -500,10 +500,10 @@ land.lhs.true:                                    ; preds = %if.end31
 if.end.i43.thread:                                ; preds = %land.lhs.true
   %spec.select.sroa.sel.v.sroa.sel.v = select i1 %tobool17.not, i64 -24, i64 -16
   %spec.select.sroa.sel.v.sroa.sel = getelementptr inbounds i8, ptr %add.ptr, i64 %spec.select.sroa.sel.v.sroa.sel.v
-  %16 = load i64, ptr %spec.select.sroa.sel.v.sroa.sel, align 8
+  %17 = load i64, ptr %spec.select.sroa.sel.v.sroa.sel, align 8
   %sub55 = sub nuw nsw i32 75, %conv
   %sh_prom56 = zext nneg i32 %sub55 to i64
-  %shr57 = lshr i64 %16, %sh_prom56
+  %shr57 = lshr i64 %17, %sh_prom56
   %or = or i64 %shr57, %cond37
   br label %if.end6.i
 
@@ -525,20 +525,20 @@ if.end5.i:                                        ; preds = %if.then2.i
   br label %if.end6.i
 
 if.end6.i:                                        ; preds = %if.end.i43.thread, %if.end5.i, %if.end.i43
-  %17 = phi i64 [ %.pre, %if.end5.i ], [ %12, %if.end.i43 ], [ %16, %if.end.i43.thread ]
+  %18 = phi i64 [ %.pre, %if.end5.i ], [ %12, %if.end.i43 ], [ %17, %if.end.i43.thread ]
   %mantissa.06376 = phi i64 [ %cond37, %if.end5.i ], [ %cond37, %if.end.i43 ], [ %or, %if.end.i43.thread ]
   %currDigit.addr.0.i = phi ptr [ %spec.select.sroa.sel84.v.sroa.sel, %if.end5.i ], [ %spec.select, %if.end.i43 ], [ %spec.select.sroa.sel.v.sroa.sel, %if.end.i43.thread ]
   %numUnusedBitsInCurrDigit.addr.0.i = phi i32 [ 64, %if.end5.i ], [ %cond49, %if.end.i43 ], [ %sub55, %if.end.i43.thread ]
   %sub.i44 = add nsw i32 %numUnusedBitsInCurrDigit.addr.0.i, -1
   %sh_prom.i = zext nneg i32 %sub.i44 to i64
   %shl.i = shl nuw i64 1, %sh_prom.i
-  %and.i = and i64 %shl.i, %17
+  %and.i = and i64 %shl.i, %18
   %tobool.not.i = icmp eq i64 %and.i, 0
   br i1 %tobool.not.i, label %if.end75, label %if.end8.i
 
 if.end8.i:                                        ; preds = %if.end6.i
   %sub9.i = add i64 %shl.i, -1
-  %and10.i = and i64 %sub9.i, %17
+  %and10.i = and i64 %sub9.i, %18
   %tobool11.not.i = icmp eq i64 %and10.i, 0
   br i1 %tobool11.not.i, label %while.cond.i, label %if.then62
 
@@ -549,8 +549,8 @@ while.cond.i:                                     ; preds = %if.end8.i, %while.b
 
 while.body.i:                                     ; preds = %while.cond.i
   %incdec.ptr15.i = getelementptr inbounds i8, ptr %currDigit.addr.1.i, i64 -8
-  %18 = load i64, ptr %incdec.ptr15.i, align 8
-  %tobool16.not.i = icmp eq i64 %18, 0
+  %19 = load i64, ptr %incdec.ptr15.i, align 8
+  %tobool16.not.i = icmp eq i64 %19, 0
   br i1 %tobool16.not.i, label %while.cond.i, label %if.then62, !llvm.loop !9
 
 _ZN6hermes6bigint12_GLOBAL__N_115roundMantissaUpEmPKmS3_jj.exit: ; preds = %while.cond.i
@@ -585,12 +585,12 @@ if.end75:                                         ; preds = %land.lhs.true, %if.
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end75, %if.then67, %if.then26
-  %19 = load ptr, ptr %tmpStorage, align 8
-  %cmp.i.i.i.i45 = icmp eq ptr %19, %add.ptr.i.i.i.i.i.i
+  %20 = load ptr, ptr %tmpStorage, align 8
+  %cmp.i.i.i.i45 = icmp eq ptr %20, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i45, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %cleanup
-  call void @free(ptr noundef %19) #18
+  call void @free(ptr noundef %20) #18
   br label %return
 
 return:                                           ; preds = %if.then.i.i.i, %cleanup, %if.then

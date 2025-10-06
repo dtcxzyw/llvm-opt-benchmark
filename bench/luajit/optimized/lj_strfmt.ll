@@ -1459,16 +1459,16 @@ lj_strfmt_putfnum_int.exit:                       ; preds = %lj_strfmt_putfnum_i
   %86 = zext i8 %85 to i32
   %87 = add nsw i32 %86, -65
   %88 = icmp ult i32 %87, 56
-  br i1 %88, label %89, label %lj_strfmt_parse.exit.thread155, !prof !16
+  br i1 %88, label %89, label %lj_strfmt_parse.exit.thread153, !prof !16
 
 89:                                               ; preds = %84
   %90 = zext nneg i32 %87 to i64
   %91 = shl nuw nsw i64 1, %90
   %92 = and i64 %91, 29905079884578702
   %.not85.not.not.i = icmp eq i64 %92, 0
-  br i1 %.not85.not.not.i, label %lj_strfmt_parse.exit, label %lj_strfmt_parse.exit.thread155
+  br i1 %.not85.not.not.i, label %lj_strfmt_parse.exit, label %lj_strfmt_parse.exit.thread153
 
-lj_strfmt_parse.exit.thread155:                   ; preds = %84, %89
+lj_strfmt_parse.exit.thread153:                   ; preds = %84, %89
   %93 = icmp ugt i8 %85, 31
   %spec.select.idx.i = zext i1 %93 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.7.i, i64 %spec.select.idx.i
@@ -1488,7 +1488,7 @@ lj_strfmt_parse.exit.thread155:                   ; preds = %84, %89
   %99 = sub i64 %98, %23
   %100 = trunc i64 %99 to i32
   %.not.i = icmp eq i32 %100, 0
-  br i1 %.not.i, label %lj_strfmt_parse.exit.thread, label %lj_strfmt_parse.exit.thread147
+  br i1 %.not.i, label %lj_strfmt_parse.exit.thread, label %lj_strfmt_parse.exit.thread145
 
 lj_strfmt_parse.exit:                             ; preds = %89
   %101 = getelementptr inbounds nuw i8, ptr @strfmt_map, i64 %90
@@ -1501,19 +1501,19 @@ lj_strfmt_parse.exit:                             ; preds = %89
   %107 = or i32 %106, %.377.i
   switch i32 %107, label %112 [
     i32 0, label %lj_strfmt_parse.exit.thread
-    i32 2, label %lj_strfmt_parse.exit.thread147
+    i32 2, label %lj_strfmt_parse.exit.thread145
     i32 1, label %.loopexit
   ]
 
-lj_strfmt_parse.exit.thread147:                   ; preds = %.thread88.i, %lj_strfmt_parse.exit
-  %.sroa.0.1154 = phi ptr [ %104, %lj_strfmt_parse.exit ], [ %storemerge.i, %.thread88.i ]
-  %.sroa.12.1152 = phi i32 [ %.sroa.12.0, %lj_strfmt_parse.exit ], [ %100, %.thread88.i ]
-  %108 = tail call ptr @lj_buf_putmem(ptr noundef %1, ptr noundef %.sroa.0.0, i32 noundef %.sroa.12.1152) #13
+lj_strfmt_parse.exit.thread145:                   ; preds = %.thread88.i, %lj_strfmt_parse.exit
+  %.sroa.0.1152 = phi ptr [ %104, %lj_strfmt_parse.exit ], [ %storemerge.i, %.thread88.i ]
+  %.sroa.12.1150 = phi i32 [ %.sroa.12.0, %lj_strfmt_parse.exit ], [ %100, %.thread88.i ]
+  %108 = tail call ptr @lj_buf_putmem(ptr noundef %1, ptr noundef %.sroa.0.0, i32 noundef %.sroa.12.1150) #13
   br label %lj_strfmt_putfnum_int.exit.backedge
 
-.loopexit:                                        ; preds = %lj_strfmt_parse.exit, %lj_strfmt_parse.exit.thread155
-  %.sroa.12.1159 = phi i32 [ %96, %lj_strfmt_parse.exit.thread155 ], [ %.sroa.12.0, %lj_strfmt_parse.exit ]
-  %109 = zext i32 %.sroa.12.1159 to i64
+.loopexit:                                        ; preds = %lj_strfmt_parse.exit, %lj_strfmt_parse.exit.thread153
+  %.sroa.12.1157 = phi i32 [ %96, %lj_strfmt_parse.exit.thread153 ], [ %.sroa.12.0, %lj_strfmt_parse.exit ]
+  %109 = zext i32 %.sroa.12.1157 to i64
   %110 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef %.sroa.0.0, i64 noundef %109) #13
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %0, i32 noundef 1928, ptr noundef nonnull %111) #14
@@ -1554,8 +1554,8 @@ lj_strfmt_parse.exit.thread147:                   ; preds = %.thread88.i, %lj_st
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 10
   %127 = load i16, ptr %126, align 2, !tbaa !47
   %.off = add i16 %127, -11
-  %switch119 = icmp ult i16 %.off, 2
-  br i1 %switch119, label %128, label %.thread
+  %switch = icmp ult i16 %.off, 2
+  br i1 %switch, label %128, label %.thread
 
 128:                                              ; preds = %123
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 16
@@ -1601,16 +1601,16 @@ lj_strfmt_putint.exit.i:                          ; preds = %146, %137
   %152 = load i64, ptr %116, align 8, !tbaa !13
   %.mask = and i64 %152, -140737488355328
   %153 = icmp eq i64 %.mask, -1548112371908608
-  br i1 %153, label %154, label %.thread162
+  br i1 %153, label %154, label %.thread159
 
 154:                                              ; preds = %151
   %155 = and i64 %152, 140737488355327
   %156 = inttoptr i64 %155 to ptr
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 10
   %158 = load i16, ptr %157, align 2, !tbaa !47
-  %.off120 = add i16 %158, -11
-  %switch121 = icmp ult i16 %.off120, 2
-  br i1 %switch121, label %159, label %.thread162
+  %.off118 = add i16 %158, -11
+  %switch119 = icmp ult i16 %.off118, 2
+  br i1 %switch119, label %159, label %.thread159
 
 159:                                              ; preds = %154
   %160 = getelementptr inbounds nuw i8, ptr %156, i64 16
@@ -1618,14 +1618,14 @@ lj_strfmt_putint.exit.i:                          ; preds = %146, %137
   %162 = tail call ptr @lj_strfmt_putfxint(ptr noundef %1, i32 noundef %107, i64 noundef %161)
   br label %lj_strfmt_putfnum_int.exit.backedge
 
-lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strfmt_putint.exit.i, %128, %.thread162, %167, %lj_strfmt_putfchar.exit, %lj_strfmt_putptr.exit, %118, %230, %strfmt_putfstrlen.exit, %183, %lj_strfmt_parse.exit.thread147
-  %.sroa.12.0.be = phi i32 [ %.sroa.12.1152, %lj_strfmt_parse.exit.thread147 ], [ %.sroa.12.0, %118 ], [ %.sroa.12.0, %128 ], [ %.sroa.12.0, %.thread162 ], [ %.sroa.12.0, %159 ], [ %.sroa.12.0, %167 ], [ %.sroa.12.0, %lj_strfmt_putfchar.exit ], [ %.sroa.12.0, %lj_strfmt_putptr.exit ], [ %.sroa.12.0, %183 ], [ %.sroa.12.0, %strfmt_putfstrlen.exit ], [ %.sroa.12.0, %230 ], [ %.sroa.12.0, %lj_strfmt_putint.exit.i ], [ %.sroa.12.0, %149 ]
-  %.sroa.0.0.be = phi ptr [ %.sroa.0.1154, %lj_strfmt_parse.exit.thread147 ], [ %104, %118 ], [ %104, %128 ], [ %104, %.thread162 ], [ %104, %159 ], [ %104, %167 ], [ %104, %lj_strfmt_putfchar.exit ], [ %104, %lj_strfmt_putptr.exit ], [ %104, %183 ], [ %104, %strfmt_putfstrlen.exit ], [ %104, %230 ], [ %104, %lj_strfmt_putint.exit.i ], [ %104, %149 ]
-  %.097.be = phi i32 [ %.097, %lj_strfmt_parse.exit.thread147 ], [ %.097, %118 ], [ %.097, %128 ], [ %.097, %.thread162 ], [ %.097, %159 ], [ %.097, %167 ], [ %.097, %lj_strfmt_putfchar.exit ], [ %.097, %lj_strfmt_putptr.exit ], [ 1, %183 ], [ %.097, %strfmt_putfstrlen.exit ], [ %.097, %230 ], [ %.097, %lj_strfmt_putint.exit.i ], [ %.097, %149 ]
-  %.0.be = phi i32 [ %.0, %lj_strfmt_parse.exit.thread147 ], [ %114, %118 ], [ %114, %128 ], [ %114, %.thread162 ], [ %114, %159 ], [ %114, %167 ], [ %114, %lj_strfmt_putfchar.exit ], [ %114, %lj_strfmt_putptr.exit ], [ %114, %183 ], [ %114, %strfmt_putfstrlen.exit ], [ %114, %230 ], [ %114, %lj_strfmt_putint.exit.i ], [ %114, %149 ]
+lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strfmt_putint.exit.i, %128, %.thread159, %167, %lj_strfmt_putfchar.exit, %lj_strfmt_putptr.exit, %118, %230, %strfmt_putfstrlen.exit, %183, %lj_strfmt_parse.exit.thread145
+  %.sroa.12.0.be = phi i32 [ %.sroa.12.1150, %lj_strfmt_parse.exit.thread145 ], [ %.sroa.12.0, %118 ], [ %.sroa.12.0, %128 ], [ %.sroa.12.0, %.thread159 ], [ %.sroa.12.0, %159 ], [ %.sroa.12.0, %167 ], [ %.sroa.12.0, %lj_strfmt_putfchar.exit ], [ %.sroa.12.0, %lj_strfmt_putptr.exit ], [ %.sroa.12.0, %183 ], [ %.sroa.12.0, %strfmt_putfstrlen.exit ], [ %.sroa.12.0, %230 ], [ %.sroa.12.0, %lj_strfmt_putint.exit.i ], [ %.sroa.12.0, %149 ]
+  %.sroa.0.0.be = phi ptr [ %.sroa.0.1152, %lj_strfmt_parse.exit.thread145 ], [ %104, %118 ], [ %104, %128 ], [ %104, %.thread159 ], [ %104, %159 ], [ %104, %167 ], [ %104, %lj_strfmt_putfchar.exit ], [ %104, %lj_strfmt_putptr.exit ], [ %104, %183 ], [ %104, %strfmt_putfstrlen.exit ], [ %104, %230 ], [ %104, %lj_strfmt_putint.exit.i ], [ %104, %149 ]
+  %.097.be = phi i32 [ %.097, %lj_strfmt_parse.exit.thread145 ], [ %.097, %118 ], [ %.097, %128 ], [ %.097, %.thread159 ], [ %.097, %159 ], [ %.097, %167 ], [ %.097, %lj_strfmt_putfchar.exit ], [ %.097, %lj_strfmt_putptr.exit ], [ 1, %183 ], [ %.097, %strfmt_putfstrlen.exit ], [ %.097, %230 ], [ %.097, %lj_strfmt_putint.exit.i ], [ %.097, %149 ]
+  %.0.be = phi i32 [ %.0, %lj_strfmt_parse.exit.thread145 ], [ %114, %118 ], [ %114, %128 ], [ %114, %.thread159 ], [ %114, %159 ], [ %114, %167 ], [ %114, %lj_strfmt_putfchar.exit ], [ %114, %lj_strfmt_putptr.exit ], [ %114, %183 ], [ %114, %strfmt_putfstrlen.exit ], [ %114, %230 ], [ %114, %lj_strfmt_putint.exit.i ], [ %114, %149 ]
   br label %lj_strfmt_putfnum_int.exit, !llvm.loop !51
 
-.thread162:                                       ; preds = %154, %151
+.thread159:                                       ; preds = %154, %151
   %163 = tail call double @lj_lib_checknum(ptr noundef nonnull %0, i32 noundef %114) #13
   %164 = fcmp ult double %163, 0x43E0000000000000
   %165 = fadd double %163, 0xC3F0000000000000
@@ -1642,7 +1642,7 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
 170:                                              ; preds = %118
   %171 = load i64, ptr %116, align 8, !tbaa !13
   %172 = ashr i64 %171, 47
-  switch i64 %172, label %.critedge118 [
+  switch i64 %172, label %.critedge117 [
     i64 -5, label %.critedge
     i64 -13, label %173
   ]
@@ -1653,13 +1653,13 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 10
   %177 = load i8, ptr %176, align 2, !tbaa !13
   %.not = icmp eq i8 %177, 3
-  br i1 %.not, label %.critedge, label %.critedge118, !prof !16
+  br i1 %.not, label %.critedge, label %.critedge117, !prof !16
 
-.critedge118:                                     ; preds = %170, %173
+.critedge117:                                     ; preds = %170, %173
   %178 = icmp sgt i32 %.097, -1
   br i1 %178, label %179, label %.critedge
 
-179:                                              ; preds = %.critedge118
+179:                                              ; preds = %.critedge117
   %180 = tail call ptr @lj_meta_lookup(ptr noundef nonnull %0, ptr noundef nonnull %116, i32 noundef 18) #13
   %181 = load i64, ptr %180, align 8, !tbaa !13
   %182 = icmp eq i64 %181, -1
@@ -1691,9 +1691,9 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   %195 = icmp samesign ult i32 %.097, 2
   br i1 %195, label %lj_strfmt_putfnum_int.exit.backedge, label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %170, %183, %.critedge118, %173
-  %196 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %194, %183 ], [ %171, %.critedge118 ], [ %171, %173 ], [ %171, %170 ]
-  %.099 = phi ptr [ %116, %..critedge_crit_edge ], [ %191, %183 ], [ %116, %.critedge118 ], [ %116, %173 ], [ %116, %170 ]
+.critedge:                                        ; preds = %..critedge_crit_edge, %170, %183, %.critedge117, %173
+  %196 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %194, %183 ], [ %171, %.critedge117 ], [ %171, %173 ], [ %171, %170 ]
+  %.099 = phi ptr [ %116, %..critedge_crit_edge ], [ %191, %183 ], [ %116, %.critedge117 ], [ %116, %173 ], [ %116, %170 ]
   %197 = ashr i64 %196, 47
   switch i64 %197, label %223 [
     i64 -5, label %198
@@ -1759,8 +1759,8 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
   %234 = and i32 %233, 255
   %235 = lshr i32 %.377.i, 24
   %236 = add nsw i32 %235, -1
-  %spec.select.i122 = tail call i32 @llvm.umin.i32(i32 %.0101, i32 %236)
-  %237 = tail call i32 @llvm.umax.i32(i32 %234, i32 %spec.select.i122)
+  %spec.select.i120 = tail call i32 @llvm.umin.i32(i32 %.0101, i32 %236)
+  %237 = tail call i32 @llvm.umax.i32(i32 %234, i32 %spec.select.i120)
   %238 = load ptr, ptr %22, align 8, !tbaa !35
   %239 = load ptr, ptr %1, align 8, !tbaa !34
   %240 = ptrtoint ptr %238 to i64
@@ -1777,42 +1777,42 @@ lj_strfmt_putfnum_int.exit.backedge:              ; preds = %159, %149, %lj_strf
 lj_buf_more.exit.i:                               ; preds = %245, %232
   %.0.i.i = phi ptr [ %246, %245 ], [ %239, %232 ]
   %247 = and i32 %.377.i, 256
-  %.not.i123 = icmp eq i32 %247, 0
-  br i1 %.not.i123, label %251, label %248
+  %.not.i121 = icmp eq i32 %247, 0
+  br i1 %.not.i121, label %251, label %248
 
 248:                                              ; preds = %lj_buf_more.exit.i
-  %249 = zext i32 %spec.select.i122 to i64
+  %249 = zext i32 %spec.select.i120 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0.i.i, ptr readonly align 1 %.0100, i64 %249, i1 false)
   %250 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %249
   br label %251
 
 251:                                              ; preds = %248, %lj_buf_more.exit.i
-  %.0.i124 = phi ptr [ %250, %248 ], [ %.0.i.i, %lj_buf_more.exit.i ]
-  %252 = icmp ugt i32 %234, %spec.select.i122
-  br i1 %252, label %.lr.ph.preheader.i127, label %._crit_edge.i125
+  %.0.i122 = phi ptr [ %250, %248 ], [ %.0.i.i, %lj_buf_more.exit.i ]
+  %252 = icmp ugt i32 %234, %spec.select.i120
+  br i1 %252, label %.lr.ph.preheader.i125, label %._crit_edge.i123
 
-.lr.ph.preheader.i127:                            ; preds = %251
-  %253 = xor i32 %spec.select.i122, -1
+.lr.ph.preheader.i125:                            ; preds = %251
+  %253 = xor i32 %spec.select.i120, -1
   %254 = add nsw i32 %234, %253
   %255 = zext i32 %254 to i64
   %256 = add nuw nsw i64 %255, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i124, i8 32, i64 %256, i1 false), !tbaa !13
-  %scevgep.i128 = getelementptr i8, ptr %.0.i124, i64 %256
-  br label %._crit_edge.i125
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.0.i122, i8 32, i64 %256, i1 false), !tbaa !13
+  %scevgep.i126 = getelementptr i8, ptr %.0.i122, i64 %256
+  br label %._crit_edge.i123
 
-._crit_edge.i125:                                 ; preds = %.lr.ph.preheader.i127, %251
-  %.1.lcssa.i = phi ptr [ %.0.i124, %251 ], [ %scevgep.i128, %.lr.ph.preheader.i127 ]
-  br i1 %.not.i123, label %257, label %strfmt_putfstrlen.exit
+._crit_edge.i123:                                 ; preds = %.lr.ph.preheader.i125, %251
+  %.1.lcssa.i = phi ptr [ %.0.i122, %251 ], [ %scevgep.i126, %.lr.ph.preheader.i125 ]
+  br i1 %.not.i121, label %257, label %strfmt_putfstrlen.exit
 
-257:                                              ; preds = %._crit_edge.i125
-  %258 = zext i32 %spec.select.i122 to i64
+257:                                              ; preds = %._crit_edge.i123
+  %258 = zext i32 %spec.select.i120 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1.lcssa.i, ptr readonly align 1 %.0100, i64 %258, i1 false)
   %259 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i, i64 %258
   br label %strfmt_putfstrlen.exit
 
-strfmt_putfstrlen.exit:                           ; preds = %._crit_edge.i125, %257
-  %.2.i126 = phi ptr [ %.1.lcssa.i, %._crit_edge.i125 ], [ %259, %257 ]
-  store ptr %.2.i126, ptr %1, align 8, !tbaa !34
+strfmt_putfstrlen.exit:                           ; preds = %._crit_edge.i123, %257
+  %.2.i124 = phi ptr [ %.1.lcssa.i, %._crit_edge.i123 ], [ %259, %257 ]
+  store ptr %.2.i124, ptr %1, align 8, !tbaa !34
   br label %lj_strfmt_putfnum_int.exit.backedge
 
 260:                                              ; preds = %118
@@ -1827,51 +1827,51 @@ strfmt_putfstrlen.exit:                           ; preds = %._crit_edge.i125, %
   %269 = sub i64 %267, %268
   %270 = trunc i64 %269 to i32
   %271 = icmp ugt i32 %264, %270
-  br i1 %271, label %272, label %lj_buf_more.exit.i129, !prof !36
+  br i1 %271, label %272, label %lj_buf_more.exit.i127, !prof !36
 
 272:                                              ; preds = %260
   %273 = tail call ptr @lj_buf_more2(ptr noundef nonnull %1, i32 noundef %264) #13
-  br label %lj_buf_more.exit.i129
+  br label %lj_buf_more.exit.i127
 
-lj_buf_more.exit.i129:                            ; preds = %272, %260
-  %.0.i.i130 = phi ptr [ %273, %272 ], [ %266, %260 ]
+lj_buf_more.exit.i127:                            ; preds = %272, %260
+  %.0.i.i128 = phi ptr [ %273, %272 ], [ %266, %260 ]
   %274 = and i32 %.377.i, 256
-  %.not.i131 = icmp eq i32 %274, 0
-  br i1 %.not.i131, label %278, label %275
+  %.not.i129 = icmp eq i32 %274, 0
+  br i1 %.not.i129, label %278, label %275
 
-275:                                              ; preds = %lj_buf_more.exit.i129
+275:                                              ; preds = %lj_buf_more.exit.i127
   %276 = trunc i32 %261 to i8
-  %277 = getelementptr inbounds nuw i8, ptr %.0.i.i130, i64 1
-  store i8 %276, ptr %.0.i.i130, align 1, !tbaa !13
+  %277 = getelementptr inbounds nuw i8, ptr %.0.i.i128, i64 1
+  store i8 %276, ptr %.0.i.i128, align 1, !tbaa !13
   br label %278
 
-278:                                              ; preds = %275, %lj_buf_more.exit.i129
-  %.0.i132 = phi ptr [ %277, %275 ], [ %.0.i.i130, %lj_buf_more.exit.i129 ]
+278:                                              ; preds = %275, %lj_buf_more.exit.i127
+  %.0.i130 = phi ptr [ %277, %275 ], [ %.0.i.i128, %lj_buf_more.exit.i127 ]
   %279 = icmp samesign ugt i32 %263, 1
-  br i1 %279, label %.lr.ph.preheader.i136, label %._crit_edge.i133
+  br i1 %279, label %.lr.ph.preheader.i134, label %._crit_edge.i131
 
-.lr.ph.preheader.i136:                            ; preds = %278
+.lr.ph.preheader.i134:                            ; preds = %278
   %280 = add nsw i32 %263, -1
   %281 = zext nneg i32 %280 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i132, i8 32, i64 %281, i1 false), !tbaa !13
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.0.i130, i8 32, i64 %281, i1 false), !tbaa !13
   %282 = zext nneg i32 %263 to i64
-  %283 = getelementptr i8, ptr %.0.i132, i64 %282
-  %scevgep.i137 = getelementptr i8, ptr %283, i64 -1
-  br label %._crit_edge.i133
+  %283 = getelementptr i8, ptr %.0.i130, i64 %282
+  %scevgep.i135 = getelementptr i8, ptr %283, i64 -1
+  br label %._crit_edge.i131
 
-._crit_edge.i133:                                 ; preds = %.lr.ph.preheader.i136, %278
-  %.1.lcssa.i134 = phi ptr [ %.0.i132, %278 ], [ %scevgep.i137, %.lr.ph.preheader.i136 ]
-  br i1 %.not.i131, label %284, label %lj_strfmt_putfchar.exit
+._crit_edge.i131:                                 ; preds = %.lr.ph.preheader.i134, %278
+  %.1.lcssa.i132 = phi ptr [ %.0.i130, %278 ], [ %scevgep.i135, %.lr.ph.preheader.i134 ]
+  br i1 %.not.i129, label %284, label %lj_strfmt_putfchar.exit
 
-284:                                              ; preds = %._crit_edge.i133
+284:                                              ; preds = %._crit_edge.i131
   %285 = trunc i32 %261 to i8
-  %286 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i134, i64 1
-  store i8 %285, ptr %.1.lcssa.i134, align 1, !tbaa !13
+  %286 = getelementptr inbounds nuw i8, ptr %.1.lcssa.i132, i64 1
+  store i8 %285, ptr %.1.lcssa.i132, align 1, !tbaa !13
   br label %lj_strfmt_putfchar.exit
 
-lj_strfmt_putfchar.exit:                          ; preds = %._crit_edge.i133, %284
-  %.2.i135 = phi ptr [ %.1.lcssa.i134, %._crit_edge.i133 ], [ %286, %284 ]
-  store ptr %.2.i135, ptr %1, align 8, !tbaa !34
+lj_strfmt_putfchar.exit:                          ; preds = %._crit_edge.i131, %284
+  %.2.i133 = phi ptr [ %.1.lcssa.i132, %._crit_edge.i131 ], [ %286, %284 ]
+  store ptr %.2.i133, ptr %1, align 8, !tbaa !34
   br label %lj_strfmt_putfnum_int.exit.backedge
 
 287:                                              ; preds = %118
@@ -1885,30 +1885,30 @@ lj_strfmt_putfchar.exit:                          ; preds = %._crit_edge.i133, %
   %295 = sub i64 %293, %294
   %296 = trunc i64 %295 to i32
   %297 = icmp ult i32 %296, 18
-  br i1 %297, label %298, label %lj_buf_more.exit.i138, !prof !36
+  br i1 %297, label %298, label %lj_buf_more.exit.i136, !prof !36
 
 298:                                              ; preds = %287
   %299 = tail call ptr @lj_buf_more2(ptr noundef nonnull %1, i32 noundef 18) #13
-  br label %lj_buf_more.exit.i138
+  br label %lj_buf_more.exit.i136
 
-lj_buf_more.exit.i138:                            ; preds = %298, %287
-  %.0.i.i139 = phi ptr [ %299, %298 ], [ %292, %287 ]
+lj_buf_more.exit.i136:                            ; preds = %298, %287
+  %.0.i.i137 = phi ptr [ %299, %298 ], [ %292, %287 ]
   %300 = ptrtoint ptr %290 to i64
   %301 = icmp eq ptr %290, null
   br i1 %301, label %302, label %307
 
-302:                                              ; preds = %lj_buf_more.exit.i138
-  %303 = getelementptr inbounds nuw i8, ptr %.0.i.i139, i64 1
-  store i8 78, ptr %.0.i.i139, align 1, !tbaa !13
-  %304 = getelementptr inbounds nuw i8, ptr %.0.i.i139, i64 2
+302:                                              ; preds = %lj_buf_more.exit.i136
+  %303 = getelementptr inbounds nuw i8, ptr %.0.i.i137, i64 1
+  store i8 78, ptr %.0.i.i137, align 1, !tbaa !13
+  %304 = getelementptr inbounds nuw i8, ptr %.0.i.i137, i64 2
   store i8 85, ptr %303, align 1, !tbaa !13
-  %305 = getelementptr inbounds nuw i8, ptr %.0.i.i139, i64 3
+  %305 = getelementptr inbounds nuw i8, ptr %.0.i.i137, i64 3
   store i8 76, ptr %304, align 1, !tbaa !13
-  %306 = getelementptr inbounds nuw i8, ptr %.0.i.i139, i64 4
+  %306 = getelementptr inbounds nuw i8, ptr %.0.i.i137, i64 4
   store i8 76, ptr %305, align 1, !tbaa !13
   br label %lj_strfmt_putptr.exit
 
-307:                                              ; preds = %lj_buf_more.exit.i138
+307:                                              ; preds = %lj_buf_more.exit.i136
   %.not.i.i = icmp ult ptr %290, inttoptr (i64 4294967296 to ptr)
   br i1 %.not.i.i, label %.lr.ph.preheader.i.i, label %308
 
@@ -1924,8 +1924,8 @@ lj_buf_more.exit.i138:                            ; preds = %298, %287
 
 .lr.ph.preheader.i.i:                             ; preds = %308, %307
   %316 = phi i32 [ %315, %308 ], [ 10, %307 ]
-  store i8 48, ptr %.0.i.i139, align 1, !tbaa !13
-  %317 = getelementptr inbounds nuw i8, ptr %.0.i.i139, i64 1
+  store i8 48, ptr %.0.i.i137, align 1, !tbaa !13
+  %317 = getelementptr inbounds nuw i8, ptr %.0.i.i137, i64 1
   store i8 120, ptr %317, align 1, !tbaa !13
   %.024.i.i = add nsw i32 %316, -1
   %318 = zext nneg i32 %.024.i.i to i64
@@ -1937,7 +1937,7 @@ lj_buf_more.exit.i138:                            ; preds = %298, %287
   %319 = and i64 %.02025.i.i, 15
   %320 = getelementptr inbounds nuw i8, ptr @.str, i64 %319
   %321 = load i8, ptr %320, align 1, !tbaa !13
-  %322 = getelementptr inbounds nuw i8, ptr %.0.i.i139, i64 %indvars.iv.i.i
+  %322 = getelementptr inbounds nuw i8, ptr %.0.i.i137, i64 %indvars.iv.i.i
   store i8 %321, ptr %322, align 1, !tbaa !13
   %323 = ashr i64 %.02025.i.i, 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
@@ -1947,7 +1947,7 @@ lj_buf_more.exit.i138:                            ; preds = %298, %287
 
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %325 = zext nneg i32 %316 to i64
-  %326 = getelementptr inbounds nuw i8, ptr %.0.i.i139, i64 %325
+  %326 = getelementptr inbounds nuw i8, ptr %.0.i.i137, i64 %325
   br label %lj_strfmt_putptr.exit
 
 lj_strfmt_putptr.exit:                            ; preds = %302, %._crit_edge.i.i

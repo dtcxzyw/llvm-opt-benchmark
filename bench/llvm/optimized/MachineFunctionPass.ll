@@ -810,14 +810,14 @@ _ZN4llvmplERKNS_5TwineES2_.exit133:               ; preds = %257, %_ZNK4llvm15Sm
   br label %301
 
 300:                                              ; preds = %301
-  %.01216.i.add = add nuw nsw i64 %.01216.i.idx, 4
-  %.not.not.i = icmp eq i64 %.01216.i.add, 8
+  %.01217.i.add = add nuw nsw i64 %.01217.i.idx, 4
+  %.not.not.i = icmp eq i64 %.01217.i.add, 8
   br i1 %.not.not.i, label %303, label %301
 
 301:                                              ; preds = %300, %298
-  %.01216.i.idx = phi i64 [ 0, %298 ], [ %.01216.i.add, %300 ]
-  %.01216.i.ptr = getelementptr inbounds nuw i8, ptr %21, i64 %.01216.i.idx
-  %302 = load i32, ptr %.01216.i.ptr, align 4, !tbaa !373
+  %.01217.i.idx = phi i64 [ 0, %298 ], [ %.01217.i.add, %300 ]
+  %.01217.i.ptr = getelementptr inbounds nuw i8, ptr %21, i64 %.01217.i.idx
+  %302 = load i32, ptr %.01217.i.ptr, align 4, !tbaa !373
   %.not13.i = icmp eq i32 %302, %292
   br i1 %.not13.i, label %303, label %300
 
@@ -873,14 +873,14 @@ _ZNK4llvm15SmallVectorImplIcEneERKS1_.exit.thread200: ; preds = %260, %_ZNK4llvm
   br label %326
 
 325:                                              ; preds = %326
-  %.01216.i140.add = add nuw nsw i64 %.01216.i140.idx, 4
-  %.not.not.i142 = icmp eq i64 %.01216.i140.add, 12
+  %.01217.i140.add = add nuw nsw i64 %.01217.i140.idx, 4
+  %.not.not.i142 = icmp eq i64 %.01217.i140.add, 12
   br i1 %.not.not.i142, label %_ZN4llvm12is_containedINS_13ChangePrinterES1_EEbSt16initializer_listIT_ERKT0_.exit144, label %326
 
 326:                                              ; preds = %325, %_ZNK4llvm15SmallVectorImplIcEneERKS1_.exit.thread200
-  %.01216.i140.idx = phi i64 [ 0, %_ZNK4llvm15SmallVectorImplIcEneERKS1_.exit.thread200 ], [ %.01216.i140.add, %325 ]
-  %.01216.i140.ptr = getelementptr inbounds nuw i8, ptr %26, i64 %.01216.i140.idx
-  %327 = load i32, ptr %.01216.i140.ptr, align 4, !tbaa !373
+  %.01217.i140.idx = phi i64 [ 0, %_ZNK4llvm15SmallVectorImplIcEneERKS1_.exit.thread200 ], [ %.01217.i140.add, %325 ]
+  %.01217.i140.ptr = getelementptr inbounds nuw i8, ptr %26, i64 %.01217.i140.idx
+  %327 = load i32, ptr %.01217.i140.ptr, align 4, !tbaa !373
   %.not13.i141 = icmp eq i32 %327, %324
   br i1 %.not13.i141, label %328, label %325
 

@@ -782,23 +782,23 @@ define dso_local range(i32 0, 12) i32 @curl_multi_remove_handle(ptr noundef %0, 
 64:                                               ; preds = %63, %60
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = call ptr @Curl_llist_head(ptr noundef nonnull %65) #20
-  %.not7787 = icmp eq ptr %66, null
-  br i1 %.not7787, label %.loopexit, label %.lr.ph
+  %.not7786 = icmp eq ptr %66, null
+  br i1 %.not7786, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %64, %72
-  %.05788 = phi ptr [ %73, %72 ], [ %66, %64 ]
-  %67 = call ptr @Curl_node_elem(ptr noundef nonnull %.05788) #20
+  %.05787 = phi ptr [ %73, %72 ], [ %66, %64 ]
+  %67 = call ptr @Curl_node_elem(ptr noundef nonnull %.05787) #20
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load ptr, ptr %68, align 8, !tbaa !114
   %70 = icmp eq ptr %69, %1
   br i1 %70, label %71, label %72
 
 71:                                               ; preds = %.lr.ph
-  call void @Curl_node_remove(ptr noundef nonnull %.05788) #20
+  call void @Curl_node_remove(ptr noundef nonnull %.05787) #20
   br label %.loopexit
 
 72:                                               ; preds = %.lr.ph
-  %73 = call ptr @Curl_node_next(ptr noundef nonnull %.05788) #20
+  %73 = call ptr @Curl_node_next(ptr noundef nonnull %.05787) #20
   %.not77 = icmp eq ptr %73, null
   br i1 %.not77, label %.loopexit, label %.lr.ph, !llvm.loop !115
 
@@ -2831,21 +2831,21 @@ multi_do.exit.i:                                  ; preds = %328
   ]
 
 multi_do.exit.thread.i:                           ; preds = %multi_do.exit.i
-  %.pre104.i = load i8, ptr %10, align 1, !tbaa !171, !range !166
-  %335 = trunc nuw i8 %.pre104.i to i1
+  %.pre103.i = load i8, ptr %10, align 1, !tbaa !171, !range !166
+  %335 = trunc nuw i8 %.pre103.i to i1
   br i1 %335, label %349, label %multi_do.exit.thread.thread.i
 
 multi_do.exit.thread.thread.i:                    ; preds = %multi_do.exit.thread.i, %328
   %336 = load i32, ptr %63, align 4
   %337 = and i32 %336, 256
   %.not79.i = icmp eq i32 %337, 0
-  br i1 %.not79.i, label %.thread98.i, label %338
+  br i1 %.not79.i, label %.thread97.i, label %338
 
 338:                                              ; preds = %multi_do.exit.thread.thread.i
   %339 = load ptr, ptr %64, align 8, !tbaa !184
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 64
   %341 = load i8, ptr %340, align 8, !tbaa !185
-  switch i8 %341, label %.thread98.i [
+  switch i8 %341, label %.thread97.i [
     i8 7, label %342
     i8 5, label %342
   ]
@@ -2858,12 +2858,12 @@ multi_do.exit.thread.thread.i:                    ; preds = %multi_do.exit.threa
   call fastcc void @mstate(ptr noundef nonnull %2, i32 noundef %345)
   br label %mstate.exit90.i
 
-.thread98.i:                                      ; preds = %338, %multi_do.exit.thread.thread.i
+.thread97.i:                                      ; preds = %338, %multi_do.exit.thread.thread.i
   %346 = load i32, ptr %61, align 8, !tbaa !95
   %347 = icmp eq i32 %346, 10
   br i1 %347, label %mstate.exit90.i, label %348
 
-348:                                              ; preds = %.thread98.i
+348:                                              ; preds = %.thread97.i
   store i32 10, ptr %61, align 8, !tbaa !95
   br label %mstate.exit90.i
 
@@ -2902,7 +2902,7 @@ multi_do.exit.thread.thread.i:                    ; preds = %multi_do.exit.threa
   %367 = load i64, ptr %366, align 8
   %368 = and i64 %367, 64
   %.not82.i = icmp eq i64 %368, 0
-  br i1 %.not82.i, label %.thread102.i, label %369
+  br i1 %.not82.i, label %.thread101.i, label %369
 
 369:                                              ; preds = %364
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -2958,19 +2958,19 @@ mstate.exit93.i:                                  ; preds = %382, %381, %378, %3
 385:                                              ; preds = %multi_do.exit.i
   %.pr.i = load ptr, ptr %62, align 8, !tbaa !102
   %.not83.i = icmp eq ptr %.pr.i, null
-  br i1 %.not83.i, label %387, label %.thread102.i
+  br i1 %.not83.i, label %387, label %.thread101.i
 
-.thread102.i:                                     ; preds = %385, %364
+.thread101.i:                                     ; preds = %385, %364
   %386 = call fastcc i32 @multi_done(ptr noundef nonnull %2, i32 noundef %334, i1 noundef zeroext false)
   br label %387
 
-387:                                              ; preds = %.thread102.i, %385
+387:                                              ; preds = %.thread101.i, %385
   store i8 1, ptr %24, align 1, !tbaa !171
   br label %mstate.exit90.i
 
-mstate.exit90.i:                                  ; preds = %387, %mstate.exit93.i, %360, %358, %357, %355, %348, %.thread98.i, %342
-  %.368.i = phi i32 [ 0, %342 ], [ %.6.i, %mstate.exit93.i ], [ %334, %387 ], [ 0, %.thread98.i ], [ 0, %348 ], [ 0, %355 ], [ 0, %357 ], [ 0, %358 ], [ 0, %360 ]
-  %.264.i = phi i32 [ -1, %342 ], [ %.4.i, %mstate.exit93.i ], [ 0, %387 ], [ -1, %.thread98.i ], [ -1, %348 ], [ -1, %355 ], [ -1, %357 ], [ -1, %358 ], [ -1, %360 ]
+mstate.exit90.i:                                  ; preds = %387, %mstate.exit93.i, %360, %358, %357, %355, %348, %.thread97.i, %342
+  %.368.i = phi i32 [ 0, %342 ], [ %.6.i, %mstate.exit93.i ], [ %334, %387 ], [ 0, %.thread97.i ], [ 0, %348 ], [ 0, %355 ], [ 0, %357 ], [ 0, %358 ], [ 0, %360 ]
+  %.264.i = phi i32 [ -1, %342 ], [ %.4.i, %mstate.exit93.i ], [ 0, %387 ], [ -1, %.thread97.i ], [ -1, %348 ], [ -1, %355 ], [ -1, %357 ], [ -1, %358 ], [ -1, %360 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %state_do.exit
 
@@ -4035,13 +4035,13 @@ define internal fastcc void @add_next_timeout(i64 %0, i32 %1, ptr noundef captur
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 3392
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 3464
   %7 = tail call ptr @Curl_llist_head(ptr noundef nonnull %6) #20
-  %.not27 = icmp eq ptr %7, null
-  br i1 %.not27, label %.thread, label %.lr.ph
+  %.not26 = icmp eq ptr %7, null
+  br i1 %.not26, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %16
-  %.028 = phi ptr [ %8, %16 ], [ %7, %4 ]
-  %8 = tail call ptr @Curl_node_next(ptr noundef nonnull %.028) #20
-  %9 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.028) #20
+  %.027 = phi ptr [ %8, %16 ], [ %7, %4 ]
+  %8 = tail call ptr @Curl_node_next(ptr noundef nonnull %.027) #20
+  %9 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.027) #20
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i64, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -4051,7 +4051,7 @@ define internal fastcc void @add_next_timeout(i64 %0, i32 %1, ptr noundef captur
   br i1 %15, label %16, label %.thread
 
 16:                                               ; preds = %.lr.ph
-  tail call void @Curl_node_remove(ptr noundef nonnull %.028) #20
+  tail call void @Curl_node_remove(ptr noundef nonnull %.027) #20
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.thread, label %.lr.ph
 
@@ -6091,62 +6091,62 @@ define dso_local ptr @Curl_multi_get_handle(ptr noundef %0, i64 noundef %1) loca
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = tail call ptr @Curl_llist_head(ptr noundef nonnull %5) #20
-  %.not35 = icmp eq ptr %6, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph
+  %.not34 = icmp eq ptr %6, null
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4, %11
-  %.02336 = phi ptr [ %12, %11 ], [ %6, %4 ]
-  %7 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.02336) #20
+  %.02335 = phi ptr [ %12, %11 ], [ %6, %4 ]
+  %7 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.02335) #20
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i64, ptr %8, align 8, !tbaa !100
   %10 = icmp eq i64 %9, %1
   br i1 %10, label %.thread, label %11
 
 11:                                               ; preds = %.lr.ph
-  %12 = tail call ptr @Curl_node_next(ptr noundef nonnull %.02336) #20
+  %12 = tail call ptr @Curl_node_next(ptr noundef nonnull %.02335) #20
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !237
 
 ._crit_edge:                                      ; preds = %11, %4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %14 = tail call ptr @Curl_llist_head(ptr noundef nonnull %13) #20
-  %.not2737 = icmp eq ptr %14, null
-  br i1 %.not2737, label %._crit_edge41, label %.lr.ph40
+  %.not2736 = icmp eq ptr %14, null
+  br i1 %.not2736, label %._crit_edge40, label %.lr.ph39
 
-.lr.ph40:                                         ; preds = %._crit_edge, %19
-  %.138 = phi ptr [ %20, %19 ], [ %14, %._crit_edge ]
-  %15 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.138) #20
+.lr.ph39:                                         ; preds = %._crit_edge, %19
+  %.137 = phi ptr [ %20, %19 ], [ %14, %._crit_edge ]
+  %15 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.137) #20
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8, !tbaa !100
   %18 = icmp eq i64 %17, %1
   br i1 %18, label %.thread, label %19
 
-19:                                               ; preds = %.lr.ph40
-  %20 = tail call ptr @Curl_node_next(ptr noundef nonnull %.138) #20
+19:                                               ; preds = %.lr.ph39
+  %20 = tail call ptr @Curl_node_next(ptr noundef nonnull %.137) #20
   %.not27 = icmp eq ptr %20, null
-  br i1 %.not27, label %._crit_edge41, label %.lr.ph40, !llvm.loop !238
+  br i1 %.not27, label %._crit_edge40, label %.lr.ph39, !llvm.loop !238
 
-._crit_edge41:                                    ; preds = %19, %._crit_edge
+._crit_edge40:                                    ; preds = %19, %._crit_edge
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %22 = tail call ptr @Curl_llist_head(ptr noundef nonnull %21) #20
-  %.not2842 = icmp eq ptr %22, null
-  br i1 %.not2842, label %.thread, label %.lr.ph45
+  %.not2841 = icmp eq ptr %22, null
+  br i1 %.not2841, label %.thread, label %.lr.ph44
 
-.lr.ph45:                                         ; preds = %._crit_edge41, %27
-  %.243 = phi ptr [ %28, %27 ], [ %22, %._crit_edge41 ]
-  %23 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.243) #20
+.lr.ph44:                                         ; preds = %._crit_edge40, %27
+  %.242 = phi ptr [ %28, %27 ], [ %22, %._crit_edge40 ]
+  %23 = tail call ptr @Curl_node_elem(ptr noundef nonnull %.242) #20
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i64, ptr %24, align 8, !tbaa !100
   %26 = icmp eq i64 %25, %1
   br i1 %26, label %.thread, label %27
 
-27:                                               ; preds = %.lr.ph45
-  %28 = tail call ptr @Curl_node_next(ptr noundef nonnull %.243) #20
+27:                                               ; preds = %.lr.ph44
+  %28 = tail call ptr @Curl_node_next(ptr noundef nonnull %.242) #20
   %.not28 = icmp eq ptr %28, null
-  br i1 %.not28, label %.thread, label %.lr.ph45, !llvm.loop !239
+  br i1 %.not28, label %.thread, label %.lr.ph44, !llvm.loop !239
 
-.thread:                                          ; preds = %.lr.ph, %.lr.ph40, %27, %.lr.ph45, %._crit_edge41, %2
-  %.125 = phi ptr [ null, %2 ], [ null, %._crit_edge41 ], [ null, %27 ], [ %23, %.lr.ph45 ], [ %15, %.lr.ph40 ], [ %7, %.lr.ph ]
+.thread:                                          ; preds = %.lr.ph, %.lr.ph39, %27, %.lr.ph44, %._crit_edge40, %2
+  %.125 = phi ptr [ null, %2 ], [ null, %._crit_edge40 ], [ null, %27 ], [ %23, %.lr.ph44 ], [ %15, %.lr.ph39 ], [ %7, %.lr.ph ]
   ret ptr %.125
 }
 

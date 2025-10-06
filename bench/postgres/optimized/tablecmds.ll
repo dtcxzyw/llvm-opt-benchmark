@@ -4166,8 +4166,8 @@ define internal fastcc void @CloneForeignKeyConstraints(ptr noundef captures(add
   call void @ScanKeyInit(ptr noundef nonnull %15, i16 noundef signext 11, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %56) #14
   %149 = call ptr @systable_beginscan(ptr noundef %42, i32 noundef 2699, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %15) #14
   %150 = call ptr @systable_getnext(ptr noundef %149) #14
-  %.not37.i.i = icmp eq ptr %150, null
-  br i1 %.not37.i.i, label %.thread.i.thread.i, label %.lr.ph.i.i
+  %.not35.i.i = icmp eq ptr %150, null
+  br i1 %.not35.i.i, label %.thread.i.thread.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %145, %.lr.ph.i.i.backedge
   %.0108.i = phi i32 [ %.0108.i.be, %.lr.ph.i.i.backedge ], [ 0, %145 ]
@@ -5820,35 +5820,35 @@ define dso_local void @ExecuteTruncateGuts(ptr noundef %0, ptr noundef %1, ptr n
 .critedge.preheader:                              ; preds = %6
   %18 = call ptr @heap_truncate_find_FKs(ptr noundef %1) #14
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %.critedge.thread.thread, label %.preheader286
+  br i1 %19, label %.critedge.thread.thread, label %.preheader285
 
-.critedge.loopexit:                               ; preds = %101, %.preheader286
-  %.3199.lcssa = phi ptr [ %.1197313, %.preheader286 ], [ %85, %101 ]
-  %.3.lcssa = phi ptr [ %.1194314, %.preheader286 ], [ %.4, %101 ]
-  %.2.lcssa = phi ptr [ %.0315, %.preheader286 ], [ %86, %101 ]
+.critedge.loopexit:                               ; preds = %101, %.preheader285
+  %.3199.lcssa = phi ptr [ %.1197312, %.preheader285 ], [ %85, %101 ]
+  %.3.lcssa = phi ptr [ %.1194313, %.preheader285 ], [ %.4, %101 ]
+  %.2.lcssa = phi ptr [ %.0314, %.preheader285 ], [ %86, %101 ]
   %20 = call ptr @heap_truncate_find_FKs(ptr noundef %.2.lcssa) #14
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %.critedge.thread, label %.preheader286
+  br i1 %21, label %.critedge.thread, label %.preheader285
 
-.preheader286:                                    ; preds = %.critedge.preheader, %.critedge.loopexit
+.preheader285:                                    ; preds = %.critedge.preheader, %.critedge.loopexit
   %22 = phi ptr [ %20, %.critedge.loopexit ], [ %18, %.critedge.preheader ]
-  %.0315 = phi ptr [ %.2.lcssa, %.critedge.loopexit ], [ %1, %.critedge.preheader ]
-  %.1194314 = phi ptr [ %.3.lcssa, %.critedge.loopexit ], [ %2, %.critedge.preheader ]
-  %.1197313 = phi ptr [ %.3199.lcssa, %.critedge.loopexit ], [ %16, %.critedge.preheader ]
+  %.0314 = phi ptr [ %.2.lcssa, %.critedge.loopexit ], [ %1, %.critedge.preheader ]
+  %.1194313 = phi ptr [ %.3.lcssa, %.critedge.loopexit ], [ %2, %.critedge.preheader ]
+  %.1197312 = phi ptr [ %.3199.lcssa, %.critedge.loopexit ], [ %16, %.critedge.preheader ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load i32, ptr %23, align 4
-  %.not306 = icmp sgt i32 %24, 0
-  br i1 %.not306, label %.lr.ph, label %.critedge.loopexit
+  %.not305 = icmp sgt i32 %24, 0
+  br i1 %.not305, label %.lr.ph, label %.critedge.loopexit
 
-.lr.ph:                                           ; preds = %.preheader286
+.lr.ph:                                           ; preds = %.preheader285
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 16
   br label %26
 
 26:                                               ; preds = %.lr.ph, %101
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %101 ]
-  %.2310 = phi ptr [ %.0315, %.lr.ph ], [ %86, %101 ]
-  %.3309 = phi ptr [ %.1194314, %.lr.ph ], [ %.4, %101 ]
-  %.3199308 = phi ptr [ %.1197313, %.lr.ph ], [ %85, %101 ]
+  %.2309 = phi ptr [ %.0314, %.lr.ph ], [ %86, %101 ]
+  %.3308 = phi ptr [ %.1194313, %.lr.ph ], [ %.4, %101 ]
+  %.3199307 = phi ptr [ %.1197312, %.lr.ph ], [ %85, %101 ]
   %27 = load ptr, ptr %25, align 8
   %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 8
@@ -5945,8 +5945,8 @@ truncate_check_activity.exit:                     ; preds = %truncate_check_perm
   unreachable
 
 CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
-  %85 = call ptr @lappend(ptr noundef %.3199308, ptr noundef nonnull %30) #14
-  %86 = call ptr @lappend_oid(ptr noundef %.2310, i32 noundef %29) #14
+  %85 = call ptr @lappend(ptr noundef %.3199307, ptr noundef nonnull %30) #14
+  %86 = call ptr @lappend_oid(ptr noundef %.2309, i32 noundef %29) #14
   %87 = load i32, ptr @wal_level, align 4
   %88 = icmp sgt i32 %87, 1
   br i1 %88, label %89, label %101
@@ -5969,11 +5969,11 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   br i1 %98, label %101, label %99
 
 99:                                               ; preds = %97
-  %100 = call ptr @lappend_oid(ptr noundef %.3309, i32 noundef %29) #14
+  %100 = call ptr @lappend_oid(ptr noundef %.3308, i32 noundef %29) #14
   br label %101
 
 101:                                              ; preds = %99, %97, %94, %89, %CheckTableNotInUse.exit
-  %.4 = phi ptr [ %.3309, %97 ], [ %100, %99 ], [ %.3309, %94 ], [ %.3309, %89 ], [ %.3309, %CheckTableNotInUse.exit ]
+  %.4 = phi ptr [ %.3308, %97 ], [ %100, %99 ], [ %.3308, %94 ], [ %.3308, %89 ], [ %.3308, %CheckTableNotInUse.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %102 = load i32, ptr %23, align 4
   %103 = sext i32 %102 to i64
@@ -5991,172 +5991,172 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   br label %.critedge.thread.thread
 
 .critedge.thread.thread:                          ; preds = %.critedge.preheader, %105, %.critedge.thread
-  %.0193429 = phi ptr [ %.0193, %105 ], [ %.0193, %.critedge.thread ], [ %2, %.critedge.preheader ]
-  %.0196428 = phi ptr [ %.0196, %105 ], [ %.0196, %.critedge.thread ], [ %16, %.critedge.preheader ]
+  %.0193428 = phi ptr [ %.0193, %105 ], [ %.0193, %.critedge.thread ], [ %2, %.critedge.preheader ]
+  %.0196427 = phi ptr [ %.0196, %105 ], [ %.0196, %.critedge.thread ], [ %16, %.critedge.preheader ]
   br i1 %4, label %.preheader, label %.critedge249
 
 .preheader:                                       ; preds = %.critedge.thread.thread
-  %106 = getelementptr inbounds nuw i8, ptr %.0196428, i64 4
-  %.not227 = icmp eq ptr %.0196428, null
-  br i1 %.not227, label %.critedge249, label %.lr.ph331
+  %106 = getelementptr inbounds nuw i8, ptr %.0196427, i64 4
+  %.not227 = icmp eq ptr %.0196427, null
+  br i1 %.not227, label %.critedge249, label %.lr.ph330
 
-.lr.ph331:                                        ; preds = %.preheader
-  %107 = getelementptr inbounds nuw i8, ptr %.0196428, i64 16
+.lr.ph330:                                        ; preds = %.preheader
+  %107 = getelementptr inbounds nuw i8, ptr %.0196427, i64 16
   %108 = load i32, ptr %106, align 4
   %109 = icmp sgt i32 %108, 0
-  br i1 %109, label %.lr.ph456, label %.critedge249
+  br i1 %109, label %.lr.ph455, label %.critedge249
 
-.lr.ph456:                                        ; preds = %.lr.ph331, %.critedge251
-  %.1201330455 = phi ptr [ %.2202.lcssa, %.critedge251 ], [ null, %.lr.ph331 ]
-  %indvars.iv396454 = phi i64 [ %indvars.iv.next397, %.critedge251 ], [ 0, %.lr.ph331 ]
+.lr.ph455:                                        ; preds = %.lr.ph330, %.critedge251
+  %.1201329454 = phi ptr [ %.2202.lcssa, %.critedge251 ], [ null, %.lr.ph330 ]
+  %indvars.iv395453 = phi i64 [ %indvars.iv.next396, %.critedge251 ], [ 0, %.lr.ph330 ]
   %110 = load ptr, ptr %107, align 8
-  %111 = getelementptr inbounds nuw %union.ListCell, ptr %110, i64 %indvars.iv396454
+  %111 = getelementptr inbounds nuw %union.ListCell, ptr %110, i64 %indvars.iv395453
   %112 = load ptr, ptr %111, align 8
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 72
   %114 = load i32, ptr %113, align 8
   %115 = call ptr @getOwnedSequences(i32 noundef %114) #14
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %.not246 = icmp eq ptr %115, null
-  br i1 %.not246, label %.critedge251, label %.lr.ph320
+  br i1 %.not246, label %.critedge251, label %.lr.ph319
 
-.lr.ph320:                                        ; preds = %.lr.ph456
+.lr.ph319:                                        ; preds = %.lr.ph455
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 16
   %118 = load i32, ptr %116, align 4
   %119 = icmp sgt i32 %118, 0
-  br i1 %119, label %.lr.ph327, label %.critedge251
+  br i1 %119, label %.lr.ph326, label %.critedge251
 
-.lr.ph327:                                        ; preds = %.lr.ph320, %133
-  %indvars.iv393 = phi i64 [ %indvars.iv.next394, %133 ], [ 0, %.lr.ph320 ]
-  %.2202319325 = phi ptr [ %134, %133 ], [ %.1201330455, %.lr.ph320 ]
+.lr.ph326:                                        ; preds = %.lr.ph319, %133
+  %indvars.iv392 = phi i64 [ %indvars.iv.next393, %133 ], [ 0, %.lr.ph319 ]
+  %.2202318324 = phi ptr [ %134, %133 ], [ %.1201329454, %.lr.ph319 ]
   %120 = load ptr, ptr %117, align 8
-  %121 = getelementptr inbounds nuw %union.ListCell, ptr %120, i64 %indvars.iv393
+  %121 = getelementptr inbounds nuw %union.ListCell, ptr %120, i64 %indvars.iv392
   %122 = load i32, ptr %121, align 8
   %123 = call ptr @relation_open(i32 noundef %122, i32 noundef 8) #14
   %124 = call i32 @GetUserId() #14
   %125 = call zeroext i1 @object_ownercheck(i32 noundef 1259, i32 noundef %122, i32 noundef %124) #14
   br i1 %125, label %133, label %129
 
-.critedge251:                                     ; preds = %133, %.lr.ph320, %.lr.ph456
-  %.2202.lcssa = phi ptr [ %.1201330455, %.lr.ph456 ], [ %.1201330455, %.lr.ph320 ], [ %134, %133 ]
-  %indvars.iv.next397 = add nuw nsw i64 %indvars.iv396454, 1
+.critedge251:                                     ; preds = %133, %.lr.ph319, %.lr.ph455
+  %.2202.lcssa = phi ptr [ %.1201329454, %.lr.ph455 ], [ %.1201329454, %.lr.ph319 ], [ %134, %133 ]
+  %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395453, 1
   %126 = load i32, ptr %106, align 4
   %127 = sext i32 %126 to i64
-  %128 = icmp slt i64 %indvars.iv.next397, %127
-  br i1 %128, label %.lr.ph456, label %.critedge249
+  %128 = icmp slt i64 %indvars.iv.next396, %127
+  br i1 %128, label %.lr.ph455, label %.critedge249
 
-129:                                              ; preds = %.lr.ph327
+129:                                              ; preds = %.lr.ph326
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 56
   %131 = load ptr, ptr %130, align 8
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   call void @aclcheck_error(i32 noundef 2, i32 noundef 37, ptr noundef nonnull %132) #14
   br label %133
 
-133:                                              ; preds = %129, %.lr.ph327
-  %134 = call ptr @lappend_oid(ptr noundef %.2202319325, i32 noundef %122) #14
+133:                                              ; preds = %129, %.lr.ph326
+  %134 = call ptr @lappend_oid(ptr noundef %.2202318324, i32 noundef %122) #14
   call void @relation_close(ptr noundef %123, i32 noundef 0) #14
-  %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
+  %indvars.iv.next393 = add nuw nsw i64 %indvars.iv392, 1
   %135 = load i32, ptr %116, align 4
   %136 = sext i32 %135 to i64
-  %137 = icmp slt i64 %indvars.iv.next394, %136
-  br i1 %137, label %.lr.ph327, label %.critedge251
+  %137 = icmp slt i64 %indvars.iv.next393, %136
+  br i1 %137, label %.lr.ph326, label %.critedge251
 
-.critedge249:                                     ; preds = %.critedge251, %.lr.ph331, %.preheader, %.critedge.thread.thread
-  %.0200 = phi ptr [ null, %.critedge.thread.thread ], [ null, %.preheader ], [ null, %.lr.ph331 ], [ %.2202.lcssa, %.critedge251 ]
+.critedge249:                                     ; preds = %.critedge251, %.lr.ph330, %.preheader, %.critedge.thread.thread
+  %.0200 = phi ptr [ null, %.critedge.thread.thread ], [ null, %.preheader ], [ null, %.lr.ph330 ], [ %.2202.lcssa, %.critedge251 ]
   call void @AfterTriggerBeginQuery() #14
   %138 = call ptr @CreateExecutorState() #14
-  %.not.i272 = icmp eq ptr %.0196428, null
-  br i1 %.not.i272, label %.critedge259.thread, label %.lr.ph337
+  %.not.i272 = icmp eq ptr %.0196427, null
+  br i1 %.not.i272, label %.critedge259.thread, label %.lr.ph336
 
-.lr.ph337:                                        ; preds = %.critedge249
-  %139 = getelementptr inbounds nuw i8, ptr %.0196428, i64 4
+.lr.ph336:                                        ; preds = %.critedge249
+  %139 = getelementptr inbounds nuw i8, ptr %.0196427, i64 4
   %140 = load i32, ptr %139, align 4
   %141 = sext i32 %140 to i64
   %142 = mul nsw i64 %141, 392
   %143 = call ptr @palloc(i64 noundef %142) #14
-  %144 = getelementptr inbounds nuw i8, ptr %.0196428, i64 4
-  %145 = getelementptr inbounds nuw i8, ptr %.0196428, i64 16
+  %144 = getelementptr inbounds nuw i8, ptr %.0196427, i64 4
+  %145 = getelementptr inbounds nuw i8, ptr %.0196427, i64 16
   %146 = getelementptr inbounds nuw i8, ptr %138, i64 136
   %147 = load i32, ptr %144, align 4
   %148 = icmp sgt i32 %147, 0
-  br i1 %148, label %.lr.ph341, label %.lr.ph351
+  br i1 %148, label %.lr.ph340, label %.lr.ph350
 
-.lr.ph341:                                        ; preds = %.lr.ph337, %.lr.ph341
-  %indvars.iv399 = phi i64 [ %indvars.iv.next400, %.lr.ph341 ], [ 0, %.lr.ph337 ]
-  %.0206336339 = phi ptr [ %154, %.lr.ph341 ], [ %143, %.lr.ph337 ]
+.lr.ph340:                                        ; preds = %.lr.ph336, %.lr.ph340
+  %indvars.iv398 = phi i64 [ %indvars.iv.next399, %.lr.ph340 ], [ 0, %.lr.ph336 ]
+  %.0206335338 = phi ptr [ %154, %.lr.ph340 ], [ %143, %.lr.ph336 ]
   %149 = load ptr, ptr %145, align 8
-  %150 = getelementptr inbounds nuw %union.ListCell, ptr %149, i64 %indvars.iv399
+  %150 = getelementptr inbounds nuw %union.ListCell, ptr %149, i64 %indvars.iv398
   %151 = load ptr, ptr %150, align 8
-  call void @InitResultRelInfo(ptr noundef %.0206336339, ptr noundef %151, i32 noundef 0, ptr noundef null, i32 noundef 0) #14
+  call void @InitResultRelInfo(ptr noundef %.0206335338, ptr noundef %151, i32 noundef 0, ptr noundef null, i32 noundef 0) #14
   %152 = load ptr, ptr %146, align 8
-  %153 = call ptr @lappend(ptr noundef %152, ptr noundef %.0206336339) #14
+  %153 = call ptr @lappend(ptr noundef %152, ptr noundef %.0206335338) #14
   store ptr %153, ptr %146, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %.0206336339, i64 392
-  %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399, 1
+  %154 = getelementptr inbounds nuw i8, ptr %.0206335338, i64 392
+  %indvars.iv.next399 = add nuw nsw i64 %indvars.iv398, 1
   %155 = load i32, ptr %144, align 4
   %156 = sext i32 %155 to i64
-  %157 = icmp slt i64 %indvars.iv.next400, %156
-  br i1 %157, label %.lr.ph341, label %.lr.ph344.split
+  %157 = icmp slt i64 %indvars.iv.next399, %156
+  br i1 %157, label %.lr.ph340, label %.lr.ph343.split
 
-.lr.ph344.split:                                  ; preds = %.lr.ph341
+.lr.ph343.split:                                  ; preds = %.lr.ph340
   %158 = icmp sgt i32 %155, 0
-  br i1 %158, label %.lr.ph348, label %.lr.ph351
+  br i1 %158, label %.lr.ph347, label %.lr.ph350
 
-.lr.ph348:                                        ; preds = %.lr.ph344.split
-  br i1 %5, label %.lr.ph348.split.us, label %.critedge257
+.lr.ph347:                                        ; preds = %.lr.ph343.split
+  br i1 %5, label %.lr.ph347.split.us, label %.critedge257
 
-.lr.ph348.split.us:                               ; preds = %.lr.ph348, %.lr.ph348.split.us
-  %.sroa.667.0342347.us = phi i32 [ %166, %.lr.ph348.split.us ], [ 0, %.lr.ph348 ]
-  %.1207343346.us = phi ptr [ %165, %.lr.ph348.split.us ], [ %143, %.lr.ph348 ]
+.lr.ph347.split.us:                               ; preds = %.lr.ph347, %.lr.ph347.split.us
+  %.sroa.667.0341346.us = phi i32 [ %166, %.lr.ph347.split.us ], [ 0, %.lr.ph347 ]
+  %.1207342345.us = phi ptr [ %165, %.lr.ph347.split.us ], [ %143, %.lr.ph347 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %159 = getelementptr inbounds nuw i8, ptr %.1207343346.us, i64 8
+  %159 = getelementptr inbounds nuw i8, ptr %.1207342345.us, i64 8
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 56
   %162 = load ptr, ptr %161, align 8
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 80
   %164 = load i32, ptr %163, align 4
   call void @SwitchToUntrustedUser(i32 noundef %164, ptr noundef nonnull %7) #14
-  call void @ExecBSTruncateTriggers(ptr noundef nonnull %138, ptr noundef %.1207343346.us) #14
+  call void @ExecBSTruncateTriggers(ptr noundef nonnull %138, ptr noundef %.1207342345.us) #14
   call void @RestoreUserContext(ptr noundef nonnull %7) #14
-  %165 = getelementptr inbounds nuw i8, ptr %.1207343346.us, i64 392
+  %165 = getelementptr inbounds nuw i8, ptr %.1207342345.us, i64 392
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %166 = add nuw nsw i32 %.sroa.667.0342347.us, 1
+  %166 = add nuw nsw i32 %.sroa.667.0341346.us, 1
   %167 = load i32, ptr %144, align 4
   %168 = icmp slt i32 %166, %167
-  br i1 %168, label %.lr.ph348.split.us, label %.lr.ph351
+  br i1 %168, label %.lr.ph347.split.us, label %.lr.ph350
 
 .critedge259.thread:                              ; preds = %.critedge249
   %169 = call ptr @palloc(i64 noundef 0) #14
-  %170 = getelementptr inbounds nuw i8, ptr %.0196428, i64 4
+  %170 = getelementptr inbounds nuw i8, ptr %.0196427, i64 4
   %171 = call i32 @GetCurrentSubTransactionId() #14
   br label %252
 
-.lr.ph351:                                        ; preds = %.critedge257, %.lr.ph348.split.us, %.lr.ph337, %.lr.ph344.split
+.lr.ph350:                                        ; preds = %.critedge257, %.lr.ph347.split.us, %.lr.ph336, %.lr.ph343.split
   %172 = call i32 @GetCurrentSubTransactionId() #14
-  %173 = getelementptr inbounds nuw i8, ptr %.0196428, i64 16
+  %173 = getelementptr inbounds nuw i8, ptr %.0196427, i64 16
   %174 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %175 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %176 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %177 = load i32, ptr %144, align 4
   %178 = icmp sgt i32 %177, 0
-  br i1 %178, label %.lr.ph459, label %.critedge259
+  br i1 %178, label %.lr.ph458, label %.critedge259
 
-.critedge257:                                     ; preds = %.lr.ph348, %.critedge257
-  %.sroa.667.0342347 = phi i32 [ %180, %.critedge257 ], [ 0, %.lr.ph348 ]
-  %.1207343346 = phi ptr [ %179, %.critedge257 ], [ %143, %.lr.ph348 ]
+.critedge257:                                     ; preds = %.lr.ph347, %.critedge257
+  %.sroa.667.0341346 = phi i32 [ %180, %.critedge257 ], [ 0, %.lr.ph347 ]
+  %.1207342345 = phi ptr [ %179, %.critedge257 ], [ %143, %.lr.ph347 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @ExecBSTruncateTriggers(ptr noundef nonnull %138, ptr noundef %.1207343346) #14
-  %179 = getelementptr inbounds nuw i8, ptr %.1207343346, i64 392
+  call void @ExecBSTruncateTriggers(ptr noundef nonnull %138, ptr noundef %.1207342345) #14
+  %179 = getelementptr inbounds nuw i8, ptr %.1207342345, i64 392
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %180 = add nuw nsw i32 %.sroa.667.0342347, 1
+  %180 = add nuw nsw i32 %.sroa.667.0341346, 1
   %181 = load i32, ptr %144, align 4
   %182 = icmp slt i32 %180, %181
-  br i1 %182, label %.critedge257, label %.lr.ph351
+  br i1 %182, label %.critedge257, label %.lr.ph350
 
-.lr.ph459:                                        ; preds = %.lr.ph351, %233
-  %.0203350458 = phi ptr [ %.1204, %233 ], [ null, %.lr.ph351 ]
-  %indvars.iv402457 = phi i64 [ %indvars.iv.next403, %233 ], [ 0, %.lr.ph351 ]
+.lr.ph458:                                        ; preds = %.lr.ph350, %233
+  %.0203349457 = phi ptr [ %.1204, %233 ], [ null, %.lr.ph350 ]
+  %indvars.iv401456 = phi i64 [ %indvars.iv.next402, %233 ], [ 0, %.lr.ph350 ]
   %183 = load ptr, ptr %173, align 8
-  %184 = getelementptr inbounds nuw %union.ListCell, ptr %183, i64 %indvars.iv402457
+  %184 = getelementptr inbounds nuw %union.ListCell, ptr %183, i64 %indvars.iv401456
   %185 = load ptr, ptr %184, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 56
   %187 = load ptr, ptr %186, align 8
@@ -6167,19 +6167,19 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
     i8 102, label %190
   ]
 
-.critedge259:                                     ; preds = %233, %.lr.ph351
-  %.0203350.lcssa = phi ptr [ null, %.lr.ph351 ], [ %.1204, %233 ]
-  %.not233 = icmp eq ptr %.0203350.lcssa, null
+.critedge259:                                     ; preds = %233, %.lr.ph350
+  %.0203349.lcssa = phi ptr [ null, %.lr.ph350 ], [ %.1204, %233 ]
+  %.not233 = icmp eq ptr %.0203349.lcssa, null
   br i1 %.not233, label %252, label %237
 
-190:                                              ; preds = %.lr.ph459
+190:                                              ; preds = %.lr.ph458
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %191 = getelementptr inbounds nuw i8, ptr %185, i64 72
   %192 = load i32, ptr %191, align 8
   %193 = call i32 @GetForeignServerIdByRelId(i32 noundef %192) #14
   store i32 %193, ptr %8, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %.not245 = icmp eq ptr %.0203350458, null
+  %.not245 = icmp eq ptr %.0203349457, null
   br i1 %.not245, label %194, label %197
 
 194:                                              ; preds = %190
@@ -6194,14 +6194,14 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   br label %197
 
 197:                                              ; preds = %194, %190
-  %.2205 = phi ptr [ %.0203350458, %190 ], [ %196, %194 ]
+  %.2205 = phi ptr [ %.0203349457, %190 ], [ %196, %194 ]
   %198 = call ptr @hash_search(ptr noundef %.2205, ptr noundef nonnull %8, i32 noundef 1, ptr noundef nonnull %9) #14
   %199 = load i8, ptr %9, align 1, !range !6, !noundef !7
   %200 = trunc nuw i8 %199 to i1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %198, i64 8
-  br i1 %200, label %._crit_edge416, label %201
+  br i1 %200, label %._crit_edge415, label %201
 
-._crit_edge416:                                   ; preds = %197
+._crit_edge415:                                   ; preds = %197
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %202
 
@@ -6209,8 +6209,8 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   store ptr null, ptr %.phi.trans.insert, align 8
   br label %202
 
-202:                                              ; preds = %._crit_edge416, %201
-  %203 = phi ptr [ %.pre, %._crit_edge416 ], [ null, %201 ]
+202:                                              ; preds = %._crit_edge415, %201
+  %203 = phi ptr [ %.pre, %._crit_edge415 ], [ null, %201 ]
   %204 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %205 = call ptr @lappend(ptr noundef %203, ptr noundef nonnull %185) #14
   store ptr %205, ptr %204, align 8
@@ -6218,7 +6218,7 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %233
 
-206:                                              ; preds = %.lr.ph459
+206:                                              ; preds = %.lr.ph458
   %207 = getelementptr inbounds nuw i8, ptr %185, i64 40
   %208 = load i32, ptr %207, align 8
   %209 = icmp eq i32 %208, %172
@@ -6269,17 +6269,17 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   call void @pgstat_count_truncate(ptr noundef nonnull %185) #14
   br label %233
 
-233:                                              ; preds = %.lr.ph459, %232, %202
-  %.1204 = phi ptr [ %.2205, %202 ], [ %.0203350458, %232 ], [ %.0203350458, %.lr.ph459 ]
-  %indvars.iv.next403 = add nuw nsw i64 %indvars.iv402457, 1
+233:                                              ; preds = %.lr.ph458, %232, %202
+  %.1204 = phi ptr [ %.2205, %202 ], [ %.0203349457, %232 ], [ %.0203349457, %.lr.ph458 ]
+  %indvars.iv.next402 = add nuw nsw i64 %indvars.iv401456, 1
   %234 = load i32, ptr %144, align 4
   %235 = sext i32 %234 to i64
-  %236 = icmp slt i64 %indvars.iv.next403, %235
-  br i1 %236, label %.lr.ph459, label %.critedge259
+  %236 = icmp slt i64 %indvars.iv.next402, %235
+  br i1 %236, label %.lr.ph458, label %.critedge259
 
 237:                                              ; preds = %.critedge259
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  call void @hash_seq_init(ptr noundef nonnull %12, ptr noundef nonnull %.0203350.lcssa) #14
+  call void @hash_seq_init(ptr noundef nonnull %12, ptr noundef nonnull %.0203349.lcssa) #14
   %238 = load ptr, ptr @PG_exception_stack, align 8
   %239 = load ptr, ptr @error_context_stack, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
@@ -6290,11 +6290,11 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
 241:                                              ; preds = %237
   store ptr %13, ptr @PG_exception_stack, align 8
   %242 = call ptr @hash_seq_search(ptr noundef nonnull %12) #14
-  %.not234355 = icmp eq ptr %242, null
-  br i1 %.not234355, label %._crit_edge, label %.lr.ph356
+  %.not234354 = icmp eq ptr %242, null
+  br i1 %.not234354, label %._crit_edge, label %.lr.ph355
 
-.lr.ph356:                                        ; preds = %241, %.lr.ph356
-  %243 = phi ptr [ %250, %.lr.ph356 ], [ %242, %241 ]
+.lr.ph355:                                        ; preds = %241, %.lr.ph355
+  %243 = phi ptr [ %250, %.lr.ph355 ], [ %242, %241 ]
   %244 = load i32, ptr %243, align 8
   %245 = call ptr @GetFdwRoutineByServerId(i32 noundef %244) #14
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 272
@@ -6304,19 +6304,19 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   call void %247(ptr noundef %249, i32 noundef %3, i1 noundef zeroext %4) #14
   %250 = call ptr @hash_seq_search(ptr noundef nonnull %12) #14
   %.not234 = icmp eq ptr %250, null
-  br i1 %.not234, label %._crit_edge, label %.lr.ph356, !llvm.loop !30
+  br i1 %.not234, label %._crit_edge, label %.lr.ph355, !llvm.loop !30
 
 251:                                              ; preds = %237
   store ptr %238, ptr @PG_exception_stack, align 8
   store ptr %239, ptr @error_context_stack, align 8
-  call void @hash_destroy(ptr noundef nonnull %.0203350.lcssa) #14
+  call void @hash_destroy(ptr noundef nonnull %.0203349.lcssa) #14
   call void @pg_re_throw() #18
   unreachable
 
-._crit_edge:                                      ; preds = %.lr.ph356, %241
+._crit_edge:                                      ; preds = %.lr.ph355, %241
   store ptr %238, ptr @PG_exception_stack, align 8
   store ptr %239, ptr @error_context_stack, align 8
-  call void @hash_destroy(ptr noundef nonnull %.0203350.lcssa) #14
+  call void @hash_destroy(ptr noundef nonnull %.0203349.lcssa) #14
   store ptr %238, ptr @PG_exception_stack, align 8
   store ptr %239, ptr @error_context_stack, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -6328,56 +6328,56 @@ CheckTableNotInUse.exit:                          ; preds = %72, %72, %75
   %254 = phi ptr [ %169, %.critedge259.thread ], [ %143, %._crit_edge ], [ %143, %.critedge259 ]
   %255 = getelementptr inbounds nuw i8, ptr %.0200, i64 4
   %.not236 = icmp eq ptr %.0200, null
-  br i1 %.not236, label %.critedge263, label %.lr.ph359
+  br i1 %.not236, label %.critedge263, label %.lr.ph358
 
-.lr.ph359:                                        ; preds = %252
+.lr.ph358:                                        ; preds = %252
   %256 = getelementptr inbounds nuw i8, ptr %.0200, i64 16
   %257 = load i32, ptr %255, align 4
   %258 = icmp sgt i32 %257, 0
-  br i1 %258, label %.lr.ph362, label %.critedge263
+  br i1 %258, label %.lr.ph361, label %.critedge263
 
-.lr.ph362:                                        ; preds = %.lr.ph359, %.lr.ph362
-  %indvars.iv405 = phi i64 [ %indvars.iv.next406, %.lr.ph362 ], [ 0, %.lr.ph359 ]
+.lr.ph361:                                        ; preds = %.lr.ph358, %.lr.ph361
+  %indvars.iv404 = phi i64 [ %indvars.iv.next405, %.lr.ph361 ], [ 0, %.lr.ph358 ]
   %259 = load ptr, ptr %256, align 8
-  %260 = getelementptr inbounds nuw %union.ListCell, ptr %259, i64 %indvars.iv405
+  %260 = getelementptr inbounds nuw %union.ListCell, ptr %259, i64 %indvars.iv404
   %261 = load i32, ptr %260, align 8
   call void @ResetSequence(i32 noundef %261) #14
-  %indvars.iv.next406 = add nuw nsw i64 %indvars.iv405, 1
+  %indvars.iv.next405 = add nuw nsw i64 %indvars.iv404, 1
   %262 = load i32, ptr %255, align 4
   %263 = sext i32 %262 to i64
-  %264 = icmp slt i64 %indvars.iv.next406, %263
-  br i1 %264, label %.lr.ph362, label %.critedge263
+  %264 = icmp slt i64 %indvars.iv.next405, %263
+  br i1 %264, label %.lr.ph361, label %.critedge263
 
-.critedge263:                                     ; preds = %.lr.ph362, %.lr.ph359, %252
-  %.not238 = icmp eq ptr %.0193429, null
+.critedge263:                                     ; preds = %.lr.ph361, %.lr.ph358, %252
+  %.not238 = icmp eq ptr %.0193428, null
   br i1 %.not238, label %286, label %list_length.exit274
 
 list_length.exit274:                              ; preds = %.critedge263
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %265 = getelementptr inbounds nuw i8, ptr %.0193429, i64 4
+  %265 = getelementptr inbounds nuw i8, ptr %.0193428, i64 4
   %266 = load i32, ptr %265, align 4
   %267 = sext i32 %266 to i64
   %268 = shl nsw i64 %267, 2
   %269 = call ptr @palloc(i64 noundef %268) #14
   %270 = load i32, ptr %265, align 4
-  %.not240363 = icmp sgt i32 %270, 0
-  br i1 %.not240363, label %.lr.ph366, label %list_length.exit276
+  %.not240362 = icmp sgt i32 %270, 0
+  br i1 %.not240362, label %.lr.ph365, label %list_length.exit276
 
-.lr.ph366:                                        ; preds = %list_length.exit274
-  %271 = getelementptr inbounds nuw i8, ptr %.0193429, i64 16
+.lr.ph365:                                        ; preds = %list_length.exit274
+  %271 = getelementptr inbounds nuw i8, ptr %.0193428, i64 16
   br label %272
 
-272:                                              ; preds = %.lr.ph366, %272
-  %indvars.iv408 = phi i64 [ 0, %.lr.ph366 ], [ %indvars.iv.next409, %272 ]
+272:                                              ; preds = %.lr.ph365, %272
+  %indvars.iv407 = phi i64 [ 0, %.lr.ph365 ], [ %indvars.iv.next408, %272 ]
   %273 = load ptr, ptr %271, align 8
-  %274 = getelementptr inbounds nuw %union.ListCell, ptr %273, i64 %indvars.iv408
+  %274 = getelementptr inbounds nuw %union.ListCell, ptr %273, i64 %indvars.iv407
   %275 = load i32, ptr %274, align 8
-  %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
-  %276 = getelementptr inbounds nuw i32, ptr %269, i64 %indvars.iv408
+  %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407, 1
+  %276 = getelementptr inbounds nuw i32, ptr %269, i64 %indvars.iv407
   store i32 %275, ptr %276, align 4
   %277 = load i32, ptr %265, align 4
   %278 = sext i32 %277 to i64
-  %.not240 = icmp slt i64 %indvars.iv.next409, %278
+  %.not240 = icmp slt i64 %indvars.iv.next408, %278
   br i1 %.not240, label %272, label %list_length.exit276, !llvm.loop !31
 
 list_length.exit276:                              ; preds = %272, %list_length.exit274
@@ -6389,8 +6389,8 @@ list_length.exit276:                              ; preds = %272, %list_length.e
   %281 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %spec.select = zext i1 %17 to i8
   %282 = or disjoint i8 %spec.select, 2
-  %spec.select285 = select i1 %4, i8 %282, i8 %spec.select
-  store i8 %spec.select285, ptr %281, align 4
+  %spec.select284 = select i1 %4, i8 %282, i8 %spec.select
+  store i8 %spec.select284, ptr %281, align 4
   call void @XLogBeginInsert() #14
   call void @XLogRegisterData(ptr noundef nonnull %14, i32 noundef 12) #14
   %283 = load i32, ptr %265, align 4
@@ -6402,75 +6402,75 @@ list_length.exit276:                              ; preds = %272, %list_length.e
   br label %286
 
 286:                                              ; preds = %list_length.exit276, %.critedge263
-  br i1 %.not.i272, label %.critedge267, label %.lr.ph371.split
+  br i1 %.not.i272, label %.critedge267, label %.lr.ph370.split
 
-.lr.ph371.split:                                  ; preds = %286
+.lr.ph370.split:                                  ; preds = %286
   %287 = load i32, ptr %253, align 4
   %288 = icmp sgt i32 %287, 0
-  br i1 %288, label %.lr.ph375, label %.critedge267
+  br i1 %288, label %.lr.ph374, label %.critedge267
 
-.lr.ph375:                                        ; preds = %.lr.ph371.split
-  br i1 %5, label %.lr.ph375.split.us, label %.critedge269
+.lr.ph374:                                        ; preds = %.lr.ph370.split
+  br i1 %5, label %.lr.ph374.split.us, label %.critedge269
 
-.lr.ph375.split.us:                               ; preds = %.lr.ph375, %.lr.ph375.split.us
-  %.2208368374.us = phi ptr [ %295, %.lr.ph375.split.us ], [ %254, %.lr.ph375 ]
-  %.sroa.68.0369373.us = phi i32 [ %296, %.lr.ph375.split.us ], [ 0, %.lr.ph375 ]
+.lr.ph374.split.us:                               ; preds = %.lr.ph374, %.lr.ph374.split.us
+  %.2208367373.us = phi ptr [ %295, %.lr.ph374.split.us ], [ %254, %.lr.ph374 ]
+  %.sroa.68.0368372.us = phi i32 [ %296, %.lr.ph374.split.us ], [ 0, %.lr.ph374 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %289 = getelementptr inbounds nuw i8, ptr %.2208368374.us, i64 8
+  %289 = getelementptr inbounds nuw i8, ptr %.2208367373.us, i64 8
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 56
   %292 = load ptr, ptr %291, align 8
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 80
   %294 = load i32, ptr %293, align 4
   call void @SwitchToUntrustedUser(i32 noundef %294, ptr noundef nonnull %15) #14
-  call void @ExecASTruncateTriggers(ptr noundef %138, ptr noundef %.2208368374.us) #14
+  call void @ExecASTruncateTriggers(ptr noundef %138, ptr noundef %.2208367373.us) #14
   call void @RestoreUserContext(ptr noundef nonnull %15) #14
-  %295 = getelementptr inbounds nuw i8, ptr %.2208368374.us, i64 392
+  %295 = getelementptr inbounds nuw i8, ptr %.2208367373.us, i64 392
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %296 = add nuw nsw i32 %.sroa.68.0369373.us, 1
+  %296 = add nuw nsw i32 %.sroa.68.0368372.us, 1
   %297 = load i32, ptr %253, align 4
   %298 = icmp slt i32 %296, %297
-  br i1 %298, label %.lr.ph375.split.us, label %.critedge267
+  br i1 %298, label %.lr.ph374.split.us, label %.critedge267
 
-.critedge267:                                     ; preds = %.critedge269, %.lr.ph375.split.us, %.lr.ph371.split, %286
+.critedge267:                                     ; preds = %.critedge269, %.lr.ph374.split.us, %.lr.ph370.split, %286
   call void @AfterTriggerEndQuery(ptr noundef %138) #14
   call void @FreeExecutorState(ptr noundef %138) #14
-  %299 = call ptr @list_difference_ptr(ptr noundef %.0196428, ptr noundef %0) #14
+  %299 = call ptr @list_difference_ptr(ptr noundef %.0196427, ptr noundef %0) #14
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 4
   %.not242 = icmp eq ptr %299, null
-  br i1 %.not242, label %.critedge271, label %.lr.ph377
+  br i1 %.not242, label %.critedge271, label %.lr.ph376
 
-.lr.ph377:                                        ; preds = %.critedge267
+.lr.ph376:                                        ; preds = %.critedge267
   %301 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %302 = load i32, ptr %300, align 4
   %303 = icmp sgt i32 %302, 0
-  br i1 %303, label %.lr.ph380, label %.critedge271
+  br i1 %303, label %.lr.ph379, label %.critedge271
 
-.critedge269:                                     ; preds = %.lr.ph375, %.critedge269
-  %.2208368374 = phi ptr [ %304, %.critedge269 ], [ %254, %.lr.ph375 ]
-  %.sroa.68.0369373 = phi i32 [ %305, %.critedge269 ], [ 0, %.lr.ph375 ]
+.critedge269:                                     ; preds = %.lr.ph374, %.critedge269
+  %.2208367373 = phi ptr [ %304, %.critedge269 ], [ %254, %.lr.ph374 ]
+  %.sroa.68.0368372 = phi i32 [ %305, %.critedge269 ], [ 0, %.lr.ph374 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  call void @ExecASTruncateTriggers(ptr noundef %138, ptr noundef %.2208368374) #14
-  %304 = getelementptr inbounds nuw i8, ptr %.2208368374, i64 392
+  call void @ExecASTruncateTriggers(ptr noundef %138, ptr noundef %.2208367373) #14
+  %304 = getelementptr inbounds nuw i8, ptr %.2208367373, i64 392
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %305 = add nuw nsw i32 %.sroa.68.0369373, 1
+  %305 = add nuw nsw i32 %.sroa.68.0368372, 1
   %306 = load i32, ptr %253, align 4
   %307 = icmp slt i32 %305, %306
   br i1 %307, label %.critedge269, label %.critedge267
 
-.lr.ph380:                                        ; preds = %.lr.ph377, %.lr.ph380
-  %indvars.iv413 = phi i64 [ %indvars.iv.next414, %.lr.ph380 ], [ 0, %.lr.ph377 ]
+.lr.ph379:                                        ; preds = %.lr.ph376, %.lr.ph379
+  %indvars.iv412 = phi i64 [ %indvars.iv.next413, %.lr.ph379 ], [ 0, %.lr.ph376 ]
   %308 = load ptr, ptr %301, align 8
-  %309 = getelementptr inbounds nuw %union.ListCell, ptr %308, i64 %indvars.iv413
+  %309 = getelementptr inbounds nuw %union.ListCell, ptr %308, i64 %indvars.iv412
   %310 = load ptr, ptr %309, align 8
   call void @table_close(ptr noundef %310, i32 noundef 0) #14
-  %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
+  %indvars.iv.next413 = add nuw nsw i64 %indvars.iv412, 1
   %311 = load i32, ptr %300, align 4
   %312 = sext i32 %311 to i64
-  %313 = icmp slt i64 %indvars.iv.next414, %312
-  br i1 %313, label %.lr.ph380, label %.critedge271
+  %313 = icmp slt i64 %indvars.iv.next413, %312
+  br i1 %313, label %.lr.ph379, label %.critedge271
 
-.critedge271:                                     ; preds = %.lr.ph380, %.lr.ph377, %.critedge267
+.critedge271:                                     ; preds = %.lr.ph379, %.lr.ph376, %.critedge267
   ret void
 }
 
@@ -13327,8 +13327,8 @@ ATExecAddIndexConstraint.exit:                    ; preds = %999, %1003
   %1060 = getelementptr inbounds nuw i8, ptr %.val386.i, i64 8
   %1061 = zext i32 %1059 to i64
   %1062 = call ptr @SearchSysCache1(i32 noundef 19, i64 noundef %1061) #14
-  %.not698.i = icmp eq ptr %1062, null
-  br i1 %.not698.i, label %.loopexit.i, label %.lr.ph.i198
+  %.not697.i = icmp eq ptr %1062, null
+  br i1 %.not697.i, label %.loopexit.i, label %.lr.ph.i198
 
 .lr.ph.i198:                                      ; preds = %.preheader.i197, %1076
   %1063 = phi ptr [ %1078, %1076 ], [ %1062, %.preheader.i197 ]
@@ -13423,16 +13423,16 @@ ATExecAddIndexConstraint.exit:                    ; preds = %999, %1003
   %1114 = load ptr, ptr %11, align 8
   %1115 = getelementptr inbounds nuw i8, ptr %1114, i64 4
   %.not67.i = icmp eq ptr %1114, null
-  br i1 %.not67.i, label %ATExecAlterConstraint.exit, label %.lr.ph10.i
+  br i1 %.not67.i, label %ATExecAlterConstraint.exit, label %.lr.ph9.i
 
-.lr.ph10.i:                                       ; preds = %1113
+.lr.ph9.i:                                        ; preds = %1113
   %1116 = getelementptr inbounds nuw i8, ptr %1114, i64 16
   %1117 = load i32, ptr %1115, align 4
   %1118 = icmp sgt i32 %1117, 0
-  br i1 %1118, label %.lr.ph13.i, label %ATExecAlterConstraint.exit
+  br i1 %1118, label %.lr.ph12.i, label %ATExecAlterConstraint.exit
 
-.lr.ph13.i:                                       ; preds = %.lr.ph10.i, %.lr.ph13.i
-  %indvars.iv.i207 = phi i64 [ %indvars.iv.next.i208, %.lr.ph13.i ], [ 0, %.lr.ph10.i ]
+.lr.ph12.i:                                       ; preds = %.lr.ph9.i, %.lr.ph12.i
+  %indvars.iv.i207 = phi i64 [ %indvars.iv.next.i208, %.lr.ph12.i ], [ 0, %.lr.ph9.i ]
   %1119 = load ptr, ptr %1116, align 8
   %1120 = getelementptr inbounds nuw %union.ListCell, ptr %1119, i64 %indvars.iv.i207
   %1121 = load i32, ptr %1120, align 8
@@ -13441,9 +13441,9 @@ ATExecAddIndexConstraint.exit:                    ; preds = %999, %1003
   %1122 = load i32, ptr %1115, align 4
   %1123 = sext i32 %1122 to i64
   %1124 = icmp slt i64 %indvars.iv.next.i208, %1123
-  br i1 %1124, label %.lr.ph13.i, label %ATExecAlterConstraint.exit
+  br i1 %1124, label %.lr.ph12.i, label %ATExecAlterConstraint.exit
 
-ATExecAlterConstraint.exit:                       ; preds = %.lr.ph13.i, %1113, %.lr.ph10.i
+ATExecAlterConstraint.exit:                       ; preds = %.lr.ph12.i, %1113, %.lr.ph9.i
   call void @systable_endscan(ptr noundef %1029) #14
   call void @table_close(ptr noundef %1022, i32 noundef 3) #14
   call void @table_close(ptr noundef %1021, i32 noundef 3) #14
@@ -18926,9 +18926,9 @@ define internal fastcc void @ATPrepAlterColumnType(ptr noundef nonnull captures(
   %172 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
   %173 = load i32, ptr %172, align 8
   %174 = call zeroext i1 @DomainHasConstraints(i32 noundef %173) #14
-  br i1 %174, label %ATColumnChangeRequiresRewrite.exit.thread, label %.thread25.i
+  br i1 %174, label %ATColumnChangeRequiresRewrite.exit.thread, label %.thread23.i
 
-.thread25.i:                                      ; preds = %171
+.thread23.i:                                      ; preds = %171
   %175 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   br label %185
 
@@ -18936,8 +18936,8 @@ define internal fastcc void @ATPrepAlterColumnType(ptr noundef nonnull captures(
   %177 = getelementptr inbounds nuw i8, ptr %.017.i, i64 4
   %178 = load i32, ptr %177, align 4
   %.off.i = add i32 %178, -2027
-  %switch22.i = icmp ult i32 %.off.i, 2
-  br i1 %switch22.i, label %179, label %ATColumnChangeRequiresRewrite.exit.thread
+  %switch.i = icmp ult i32 %.off.i, 2
+  br i1 %switch.i, label %179, label %ATColumnChangeRequiresRewrite.exit.thread
 
 179:                                              ; preds = %176
   %180 = call zeroext i1 @TimestampTimestampTzRequiresRewrite() #14
@@ -18950,8 +18950,8 @@ define internal fastcc void @ATPrepAlterColumnType(ptr noundef nonnull captures(
   %.val.i = load ptr, ptr %184, align 8
   br label %185
 
-185:                                              ; preds = %181, %.thread25.i, %169
-  %.320.in.i = phi ptr [ %170, %169 ], [ %.val.i, %181 ], [ %175, %.thread25.i ]
+185:                                              ; preds = %181, %.thread23.i, %169
+  %.320.in.i = phi ptr [ %170, %169 ], [ %.val.i, %181 ], [ %175, %.thread23.i ]
   %.320.i = load ptr, ptr %.320.in.i, align 8
   br label %167
 
@@ -25579,8 +25579,8 @@ define internal fastcc void @GetForeignKeyCheckTriggers(ptr noundef %0, i32 noun
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 11, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %8) #14
   %9 = call ptr @systable_beginscan(ptr noundef %0, i32 noundef 2699, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #14
   %10 = call ptr @systable_getnext(ptr noundef %9) #14
-  %.not37 = icmp eq ptr %10, null
-  br i1 %.not37, label %.thread, label %.lr.ph
+  %.not35 = icmp eq ptr %10, null
+  br i1 %.not35, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %40
   %11 = phi ptr [ %41, %40 ], [ %10, %6 ]
@@ -26544,16 +26544,16 @@ MergeAttributesIntoExisting.exit:                 ; preds = %176, %._crit_edge
   %187 = load ptr, ptr %186, align 8
   %188 = call ptr @build_attrmap_by_name(ptr noundef %185, ptr noundef %187, i1 noundef zeroext true) #14
   %189 = call ptr @systable_getnext(ptr noundef %184) #14
-  %.not160.i = icmp eq ptr %189, null
-  br i1 %.not160.i, label %MergeConstraintsIntoExisting.exit, label %.lr.ph162.i
+  %.not158.i = icmp eq ptr %189, null
+  br i1 %.not158.i, label %MergeConstraintsIntoExisting.exit, label %.lr.ph160.i
 
-.lr.ph162.i:                                      ; preds = %MergeAttributesIntoExisting.exit
+.lr.ph160.i:                                      ; preds = %MergeAttributesIntoExisting.exit
   %190 = getelementptr inbounds nuw i8, ptr %182, i64 64
   %191 = getelementptr inbounds nuw i8, ptr %1, i64 56
   br label %192
 
-192:                                              ; preds = %378, %.lr.ph162.i
-  %193 = phi ptr [ %189, %.lr.ph162.i ], [ %379, %378 ]
+192:                                              ; preds = %378, %.lr.ph160.i
+  %193 = phi ptr [ %189, %.lr.ph160.i ], [ %379, %378 ]
   %194 = getelementptr i8, ptr %193, i64 16
   %.val84.i = load ptr, ptr %194, align 8
   %195 = getelementptr inbounds nuw i8, ptr %.val84.i, i64 22
@@ -26590,8 +26590,8 @@ MergeAttributesIntoExisting.exit:                 ; preds = %176, %._crit_edge
   call void @ScanKeyInit(ptr noundef nonnull %7, i16 noundef signext 9, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %212) #14
   %213 = call ptr @systable_beginscan(ptr noundef %182, i32 noundef 2665, i1 noundef zeroext true, ptr noundef null, i32 noundef 1, ptr noundef nonnull %7) #14
   %214 = call ptr @systable_getnext(ptr noundef %213) #14
-  %.not79151.i = icmp eq ptr %214, null
-  br i1 %.not79151.i, label %._crit_edge.i, label %.lr.ph.i23
+  %.not79149.i = icmp eq ptr %214, null
+  br i1 %.not79149.i, label %._crit_edge.i, label %.lr.ph.i23
 
 .lr.ph.i23:                                       ; preds = %210
   %215 = getelementptr inbounds nuw i8, ptr %198, i64 4
@@ -26822,14 +26822,14 @@ constraints_equivalent.exit.thread.i:             ; preds = %constraints_equival
   %356 = getelementptr inbounds nuw i8, ptr %355, i64 115
   %357 = load i8, ptr %356, align 1
   %358 = icmp eq i8 %357, 112
-  br i1 %358, label %359, label %.thread92.i
+  br i1 %358, label %359, label %.thread90.i
 
 359:                                              ; preds = %354
   %360 = getelementptr inbounds nuw i8, ptr %344, i64 103
   store i8 0, ptr %360, align 1
-  br label %.thread92.i
+  br label %.thread90.i
 
-.thread92.i:                                      ; preds = %359, %354
+.thread90.i:                                      ; preds = %359, %354
   %361 = getelementptr inbounds nuw i8, ptr %339, i64 4
   call void @CatalogTupleUpdate(ptr noundef %182, ptr noundef nonnull %361, ptr noundef nonnull %339) #14
   call void @heap_freetuple(ptr noundef nonnull %339) #14
@@ -26865,7 +26865,7 @@ constraints_equivalent.exit.thread.i:             ; preds = %constraints_equival
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 16874, ptr noundef nonnull @__func__.MergeConstraintsIntoExisting) #14
   unreachable
 
-378:                                              ; preds = %.thread92.i, %201, %192
+378:                                              ; preds = %.thread90.i, %201, %192
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %379 = call ptr @systable_getnext(ptr noundef %184) #14
   %.not.i25 = icmp eq ptr %379, null

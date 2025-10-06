@@ -2812,9 +2812,8 @@ define hidden void @"_ZN6diesel6sqlite13query_builder12limit_offset287_$LT$impl$
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !865
   tail call void @llvm.experimental.noalias.scope.decl(metadata !872)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !873)
-  %13 = and i64 %6, 6
-  %switch.i = icmp eq i64 %13, 2
-  br i1 %switch.i, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.i", label %14
+  %13 = icmp eq i64 %6, 1
+  br i1 %13, label %14, label %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8reborrow17hd0c44dc290a6a7a1E.exit.i"
 
 14:                                               ; preds = %"_ZN6diesel13query_builder8ast_pass17AstPass$LT$DB$GT$8push_sql17hfab71232e8b34e69E.exit.i"
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16

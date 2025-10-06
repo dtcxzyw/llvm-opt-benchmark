@@ -1405,7 +1405,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 276
   %107 = load i8, ptr %106, align 4
   %108 = trunc i8 %107 to i1
-  br i1 %108, label %109, label %660
+  br i1 %108, label %109, label %661
 
 109:                                              ; preds = %103
   %110 = load ptr, ptr @tty, align 8
@@ -1476,7 +1476,7 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %175 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %174
   %176 = load ptr, ptr %175, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %110, ptr noundef nonnull @.str.6, ptr noundef %116, ptr noundef %136, ptr noundef %156, ptr noundef %176) #9
-  br label %660
+  br label %661
 
 177:                                              ; preds = %97
   %178 = tail call noundef ptr @_ZN10ciInstance16java_mirror_typeEv(ptr noundef nonnull align 8 dereferenceable(40) %95) #9
@@ -1492,13 +1492,13 @@ define hidden noundef zeroext i1 @_ZN14LibraryCallKit28inline_vector_nary_operat
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 276
   %186 = load i8, ptr %185, align 4
   %187 = trunc i8 %186 to i1
-  br i1 %187, label %188, label %660
+  br i1 %187, label %188, label %661
 
 188:                                              ; preds = %182
   %189 = load ptr, ptr @tty, align 8
   %190 = zext nneg i8 %180 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %189, ptr noundef nonnull @.str.7, i32 noundef %190) #9
-  br label %660
+  br label %661
 
 191:                                              ; preds = %177
   %.val = load ptr, ptr %90, align 8
@@ -1548,12 +1548,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 276
   %212 = load i8, ptr %211, align 4
   %213 = trunc i8 %212 to i1
-  br i1 %213, label %214, label %660
+  br i1 %213, label %214, label %661
 
 214:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread
   %215 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %215, ptr noundef nonnull @.str.8) #9
-  br label %660
+  br label %661
 
 216:                                              ; preds = %_ZL20is_klass_initializedPK11TypeInstPtr.exit
   %217 = load ptr, ptr %3, align 8
@@ -1600,7 +1600,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 276
   %253 = load i8, ptr %252, align 4
   %254 = trunc i8 %253 to i1
-  br i1 %254, label %255, label %660
+  br i1 %254, label %255, label %661
 
 255:                                              ; preds = %249
   %256 = load ptr, ptr @tty, align 8
@@ -1615,7 +1615,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %265 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %264
   %266 = load ptr, ptr %265, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %256, ptr noundef nonnull @.str.9, ptr noundef %266) #9
-  br label %660
+  br label %661
 
 267:                                              ; preds = %245
   %268 = tail call fastcc noundef zeroext i1 @_ZL20is_klass_initializedPK11TypeInstPtr(ptr nonnull %247)
@@ -1627,12 +1627,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 276
   %273 = load i8, ptr %272, align 4
   %274 = trunc i8 %273 to i1
-  br i1 %274, label %275, label %660
+  br i1 %274, label %275, label %661
 
 275:                                              ; preds = %269
   %276 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %276, ptr noundef nonnull @.str.10) #9
-  br label %660
+  br label %661
 
 277:                                              ; preds = %267
   %278 = load ptr, ptr %241, align 8
@@ -1647,12 +1647,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 276
   %286 = load i8, ptr %285, align 4
   %287 = trunc i8 %286 to i1
-  br i1 %287, label %288, label %660
+  br i1 %287, label %288, label %661
 
 288:                                              ; preds = %282
   %289 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %289, ptr noundef nonnull @.str.11) #9
-  br label %660
+  br label %661
 
 290:                                              ; preds = %277, %216
   %291 = load i8, ptr %179, align 8
@@ -1671,7 +1671,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 276
   %302 = load i8, ptr %301, align 4
   %303 = trunc i8 %302 to i1
-  br i1 %303, label %304, label %660
+  br i1 %303, label %304, label %661
 
 304:                                              ; preds = %298
   %305 = load ptr, ptr @tty, align 8
@@ -1680,7 +1680,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %308 = load ptr, ptr %307, align 8
   %309 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %291) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %305, ptr noundef nonnull @.str.12, ptr noundef %308, ptr noundef %309) #9
-  br label %660
+  br label %661
 
 310:                                              ; preds = %290
   %311 = icmp eq i32 %292, 1
@@ -1695,13 +1695,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 276
   %317 = load i8, ptr %316, align 4
   %318 = trunc i8 %317 to i1
-  br i1 %318, label %319, label %660
+  br i1 %318, label %319, label %661
 
 319:                                              ; preds = %313
   %320 = load ptr, ptr @tty, align 8
   %321 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %291) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %320, ptr noundef nonnull @.str.13, i32 noundef %1, i32 noundef %294, i32 noundef 1, ptr noundef %321) #9
-  br label %660
+  br label %661
 
 322:                                              ; preds = %310
   %323 = load ptr, ptr %90, align 8
@@ -1723,12 +1723,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 276
   %336 = load i8, ptr %335, align 4
   %337 = trunc i8 %336 to i1
-  br i1 %337, label %338, label %660
+  br i1 %337, label %338, label %661
 
 338:                                              ; preds = %332
   %339 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %339, ptr noundef nonnull @.str.14) #9
-  br label %660
+  br label %661
 
 340:                                              ; preds = %329
   %341 = tail call noundef zeroext i1 @_ZN7Matcher34supports_vector_calling_conventionEv() #9
@@ -1740,12 +1740,12 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 276
   %346 = load i8, ptr %345, align 4
   %347 = trunc i8 %346 to i1
-  br i1 %347, label %348, label %660
+  br i1 %347, label %348, label %661
 
 348:                                              ; preds = %342
   %349 = load ptr, ptr @tty, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %349, ptr noundef nonnull @.str.15) #9
-  br label %660
+  br label %661
 
 350:                                              ; preds = %340
   %351 = tail call noundef zeroext i1 @_ZN7Matcher21vector_size_supportedE9BasicTypei(i8 noundef zeroext %291, i32 noundef %292)
@@ -1757,13 +1757,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 276
   %356 = load i8, ptr %355, align 4
   %357 = trunc i8 %356 to i1
-  br i1 %357, label %358, label %660
+  br i1 %357, label %358, label %661
 
 358:                                              ; preds = %352
   %359 = load ptr, ptr @tty, align 8
   %360 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %291) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %359, ptr noundef nonnull @.str.16, i32 noundef %292, ptr noundef %360) #9
-  br label %660
+  br label %661
 
 361:                                              ; preds = %350, %322
   %362 = load ptr, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
@@ -1782,7 +1782,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 276
   %372 = load i8, ptr %371, align 4
   %373 = trunc i8 %372 to i1
-  br i1 %373, label %374, label %660
+  br i1 %373, label %374, label %661
 
 374:                                              ; preds = %368
   %375 = load ptr, ptr @tty, align 8
@@ -1792,7 +1792,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %379 = zext i1 %378 to i32
   %380 = zext i1 %243 to i32
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %375, ptr noundef nonnull @.str.17, i32 noundef %1, i32 noundef %295, i32 noundef %292, ptr noundef %376, i32 noundef %379, i32 noundef %380) #9
-  br label %660
+  br label %661
 
 381:                                              ; preds = %364
   br i1 %243, label %382, label %.thread.thread
@@ -1817,13 +1817,13 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 276
   %391 = load i8, ptr %390, align 4
   %392 = trunc i8 %391 to i1
-  br i1 %392, label %393, label %660
+  br i1 %392, label %393, label %661
 
 393:                                              ; preds = %387
   %394 = load ptr, ptr @tty, align 8
   %395 = tail call noundef ptr @_Z9type2name9BasicType(i8 noundef zeroext %291) #9
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %394, ptr noundef nonnull @.str.18, i32 noundef %1, i32 noundef %295, i32 noundef %292, ptr noundef %395) #9
-  br label %660
+  br label %661
 
 .thread.thread:                                   ; preds = %381, %385, %.thread
   %396 = phi i1 [ %384, %385 ], [ %384, %.thread ], [ false, %381 ]
@@ -1858,7 +1858,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 276
   %418 = load i8, ptr %417, align 4
   %419 = trunc i8 %418 to i1
-  br i1 %419, label %420, label %660
+  br i1 %419, label %420, label %661
 
 420:                                              ; preds = %414
   %421 = load ptr, ptr @tty, align 8
@@ -1883,7 +1883,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %440 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %439
   %441 = load ptr, ptr %440, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %421, ptr noundef nonnull @.str.19, ptr noundef %441) #9
-  br label %660
+  br label %661
 
 442:                                              ; preds = %397, %.thread.thread
   %.0158 = phi ptr [ %412, %397 ], [ null, %.thread.thread ]
@@ -1911,7 +1911,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %462 = getelementptr inbounds nuw i8, ptr %461, i64 276
   %463 = load i8, ptr %462, align 4
   %464 = trunc i8 %463 to i1
-  br i1 %464, label %465, label %660
+  br i1 %464, label %465, label %661
 
 465:                                              ; preds = %459
   %466 = load ptr, ptr @tty, align 8
@@ -1936,7 +1936,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %485 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %484
   %486 = load ptr, ptr %485, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %466, ptr noundef nonnull @.str.20, ptr noundef %486) #9
-  br label %660
+  br label %661
 
 487:                                              ; preds = %442, %.thread.thread
   %.1159 = phi ptr [ %.0158, %442 ], [ null, %.thread.thread ]
@@ -1965,7 +1965,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %507 = getelementptr inbounds nuw i8, ptr %506, i64 276
   %508 = load i8, ptr %507, align 4
   %509 = trunc i8 %508 to i1
-  br i1 %509, label %510, label %660
+  br i1 %509, label %510, label %661
 
 510:                                              ; preds = %504
   %511 = load ptr, ptr @tty, align 8
@@ -1990,7 +1990,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %530 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %529
   %531 = load ptr, ptr %530, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %511, ptr noundef nonnull @.str.21, ptr noundef %531) #9
-  br label %660
+  br label %661
 
 532:                                              ; preds = %.thread.thread
   %533 = load ptr, ptr @g_assert_poison, align 8
@@ -2030,7 +2030,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 276
   %560 = load i8, ptr %559, align 4
   %561 = trunc i8 %560 to i1
-  br i1 %561, label %562, label %660
+  br i1 %561, label %562, label %661
 
 562:                                              ; preds = %556
   %563 = load ptr, ptr @tty, align 8
@@ -2055,7 +2055,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %582 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %581
   %583 = load ptr, ptr %582, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %563, ptr noundef nonnull @.str.23, ptr noundef %583) #9
-  br label %660
+  br label %661
 
 584:                                              ; preds = %535, %534
   %.0160 = phi ptr [ %554, %535 ], [ null, %534 ]
@@ -2065,7 +2065,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %586 = load i32, ptr %84, align 8
   %587 = tail call noundef ptr @_ZN14LibraryCallKit16gen_call_to_svmlEi9BasicTypeiP4NodeS2_(ptr noundef nonnull align 8 dereferenceable(108) %0, i32 noundef %586, i8 noundef zeroext %291, i32 noundef %292, ptr noundef nonnull %502, ptr noundef %.0157)
   %588 = icmp eq ptr %587, null
-  br i1 %588, label %589, label %622
+  br i1 %588, label %589, label %623
 
 589:                                              ; preds = %585
   %590 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2073,7 +2073,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %592 = getelementptr inbounds nuw i8, ptr %591, i64 276
   %593 = load i8, ptr %592, align 4
   %594 = trunc i8 %593 to i1
-  br i1 %594, label %595, label %660
+  br i1 %594, label %595, label %661
 
 595:                                              ; preds = %589
   %596 = load ptr, ptr @tty, align 8
@@ -2089,7 +2089,7 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %606 = load i32, ptr %605, align 4
   %607 = mul nsw i32 %606, %292
   tail call void (ptr, ptr, ...) @_ZN12outputStream8print_crEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %596, ptr noundef nonnull @.str.24, ptr noundef nonnull %598, ptr noundef %603, i32 noundef %607) #9
-  br label %660
+  br label %661
 
 608:                                              ; preds = %584
   %609 = load ptr, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
@@ -2098,83 +2098,82 @@ _ZL20is_klass_initializedPK11TypeInstPtr.exit.thread: ; preds = %191, %_ZL20is_k
   %612 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %611
   %613 = load ptr, ptr %612, align 8
   %614 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %613, i32 noundef %292, i1 noundef zeroext %610) #9
-  %.off = add nsw i32 %1, -1
-  %switch = icmp samesign ult i32 %.off, 2
-  br i1 %switch, label %615, label %620
+  %615 = icmp eq i32 %1, 3
+  br i1 %615, label %621, label %616
 
-615:                                              ; preds = %608
-  %616 = load ptr, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
-  %617 = tail call noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %324, ptr noundef %616) #9
-  %618 = tail call noundef zeroext i1 @_ZN10VectorNode15is_shift_opcodeEi(i32 noundef %294) #9
-  %619 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %295, ptr noundef nonnull %502, ptr noundef %.0157, ptr noundef %614, i1 noundef zeroext %617, i1 noundef zeroext %618) #9
-  br label %622
+616:                                              ; preds = %608
+  %617 = load ptr, ptr @_ZN5ciEnv24_vector_VectorMask_klassE, align 8
+  %618 = tail call noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull align 8 dereferenceable(44) %324, ptr noundef %617) #9
+  %619 = tail call noundef zeroext i1 @_ZN10VectorNode15is_shift_opcodeEi(i32 noundef %294) #9
+  %620 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_PK8TypeVectbb(i32 noundef %295, ptr noundef nonnull %502, ptr noundef %.0157, ptr noundef %614, i1 noundef zeroext %618, i1 noundef zeroext %619) #9
+  br label %623
 
-620:                                              ; preds = %608
-  %621 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_S1_PK8TypeVect(i32 noundef %295, ptr noundef nonnull %502, ptr noundef %.0157, ptr noundef %.1159, ptr noundef %614) #9
-  br label %622
+621:                                              ; preds = %608
+  %622 = tail call noundef ptr @_ZN10VectorNode4makeEiP4NodeS1_S1_PK8TypeVect(i32 noundef %295, ptr noundef nonnull %502, ptr noundef %.0157, ptr noundef %.1159, ptr noundef %614) #9
+  br label %623
 
-622:                                              ; preds = %615, %620, %585
-  %.0156 = phi ptr [ %587, %585 ], [ %619, %615 ], [ %621, %620 ]
-  %623 = icmp ne ptr %.0160, null
-  %or.cond16 = and i1 %243, %623
-  br i1 %or.cond16, label %624, label %644
+623:                                              ; preds = %616, %621, %585
+  %.0156 = phi ptr [ %587, %585 ], [ %620, %616 ], [ %622, %621 ]
+  %624 = icmp ne ptr %.0160, null
+  %or.cond16 = and i1 %243, %624
+  br i1 %or.cond16, label %625, label %645
 
-624:                                              ; preds = %622
-  br i1 %396, label %625, label %629
+625:                                              ; preds = %623
+  br i1 %396, label %626, label %630
 
-625:                                              ; preds = %624
+626:                                              ; preds = %625
   tail call void @_ZN4Node7add_reqEPS_(ptr noundef nonnull align 8 dereferenceable(52) %.0156, ptr noundef nonnull %.0160) #9
-  %626 = getelementptr inbounds nuw i8, ptr %.0156, i64 48
-  %627 = load i32, ptr %626, align 8
-  %628 = or i32 %627, 16384
-  store i32 %628, ptr %626, align 8
-  br label %644
+  %627 = getelementptr inbounds nuw i8, ptr %.0156, i64 48
+  %628 = load i32, ptr %627, align 8
+  %629 = or i32 %628, 16384
+  store i32 %629, ptr %627, align 8
+  br label %645
 
-629:                                              ; preds = %624
-  %630 = getelementptr inbounds nuw i8, ptr %.0156, i64 48
-  %631 = load i32, ptr %630, align 8
-  %632 = or i32 %631, 131072
-  store i32 %632, ptr %630, align 8
-  %633 = load ptr, ptr %3, align 8
-  %634 = load ptr, ptr %633, align 8
+630:                                              ; preds = %625
+  %631 = getelementptr inbounds nuw i8, ptr %.0156, i64 48
+  %632 = load i32, ptr %631, align 8
+  %633 = or i32 %632, 131072
+  store i32 %633, ptr %631, align 8
+  %634 = load ptr, ptr %3, align 8
   %635 = load ptr, ptr %634, align 8
-  %636 = tail call noundef ptr %635(ptr noundef nonnull align 8 dereferenceable(2400) %633, ptr noundef nonnull %.0156) #9
-  %637 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
-  %638 = icmp eq ptr %637, null
-  br i1 %638, label %644, label %639
+  %636 = load ptr, ptr %635, align 8
+  %637 = tail call noundef ptr %636(ptr noundef nonnull align 8 dereferenceable(2400) %634, ptr noundef nonnull %.0156) #9
+  %638 = tail call noundef ptr @_ZN4NodenwEm(i64 noundef 64) #9
+  %639 = icmp eq ptr %638, null
+  br i1 %639, label %645, label %640
 
-639:                                              ; preds = %629
-  %640 = load ptr, ptr %502, align 8
-  %641 = getelementptr inbounds nuw i8, ptr %640, i64 40
-  %642 = load ptr, ptr %641, align 8
-  %643 = tail call noundef ptr %642(ptr noundef nonnull align 8 dereferenceable(52) %502) #9
-  tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %637, ptr noundef nonnull %502, ptr noundef %636, ptr noundef nonnull %.0160, ptr noundef %643)
-  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %637, align 8
-  br label %644
+640:                                              ; preds = %630
+  %641 = load ptr, ptr %502, align 8
+  %642 = getelementptr inbounds nuw i8, ptr %641, i64 40
+  %643 = load ptr, ptr %642, align 8
+  %644 = tail call noundef ptr %643(ptr noundef nonnull align 8 dereferenceable(52) %502) #9
+  tail call void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr noundef nonnull align 8 dereferenceable(64) %638, ptr noundef nonnull %502, ptr noundef %637, ptr noundef nonnull %.0160, ptr noundef %644)
+  store ptr getelementptr inbounds nuw inrange(-16, 192) (i8, ptr @_ZTV15VectorBlendNode, i64 16), ptr %638, align 8
+  br label %645
 
-644:                                              ; preds = %629, %639, %625, %622
-  %.1 = phi ptr [ %.0156, %625 ], [ %.0156, %622 ], [ %637, %639 ], [ null, %629 ]
-  %645 = load ptr, ptr %3, align 8
-  %646 = load ptr, ptr %645, align 8
+645:                                              ; preds = %630, %640, %626, %623
+  %.1 = phi ptr [ %.0156, %626 ], [ %.0156, %623 ], [ %638, %640 ], [ null, %630 ]
+  %646 = load ptr, ptr %3, align 8
   %647 = load ptr, ptr %646, align 8
-  %648 = tail call noundef ptr %647(ptr noundef nonnull align 8 dereferenceable(2400) %645, ptr noundef %.1) #9
-  %649 = tail call noundef ptr @_ZN8GraphKit10box_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %648, ptr noundef %325, i8 noundef zeroext %291, i32 noundef %292, i1 noundef zeroext false)
-  %650 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store ptr %649, ptr %650, align 8
-  %651 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %652 = load ptr, ptr %651, align 8
-  %653 = getelementptr inbounds nuw i8, ptr %652, i64 132
-  %654 = load i32, ptr %653, align 4
-  %655 = zext i8 %291 to i64
-  %656 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %655
-  %657 = load i32, ptr %656, align 4
-  %658 = mul nsw i32 %657, %292
-  %659 = tail call noundef i32 @llvm.umax.i32(i32 %654, i32 %658)
-  store i32 %659, ptr %653, align 4
-  br label %660
+  %648 = load ptr, ptr %647, align 8
+  %649 = tail call noundef ptr %648(ptr noundef nonnull align 8 dereferenceable(2400) %646, ptr noundef %.1) #9
+  %650 = tail call noundef ptr @_ZN8GraphKit10box_vectorEP4NodePK11TypeInstPtr9BasicTypeib(ptr noundef nonnull align 8 dereferenceable(84) %0, ptr noundef %649, ptr noundef %325, i8 noundef zeroext %291, i32 noundef %292, i1 noundef zeroext false)
+  %651 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store ptr %650, ptr %651, align 8
+  %652 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %653 = load ptr, ptr %652, align 8
+  %654 = getelementptr inbounds nuw i8, ptr %653, i64 132
+  %655 = load i32, ptr %654, align 4
+  %656 = zext i8 %291 to i64
+  %657 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %656
+  %658 = load i32, ptr %657, align 4
+  %659 = mul nsw i32 %658, %292
+  %660 = tail call noundef i32 @llvm.umax.i32(i32 %655, i32 %659)
+  store i32 %660, ptr %654, align 4
+  br label %661
 
-660:                                              ; preds = %589, %595, %556, %562, %504, %510, %459, %465, %414, %420, %387, %393, %368, %374, %352, %358, %342, %348, %332, %338, %313, %319, %298, %304, %282, %288, %269, %275, %249, %255, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread, %214, %182, %188, %103, %109, %644
-  %.0 = phi i1 [ true, %644 ], [ false, %109 ], [ false, %103 ], [ false, %188 ], [ false, %182 ], [ false, %214 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread ], [ false, %255 ], [ false, %249 ], [ false, %275 ], [ false, %269 ], [ false, %288 ], [ false, %282 ], [ false, %304 ], [ false, %298 ], [ false, %319 ], [ false, %313 ], [ false, %338 ], [ false, %332 ], [ false, %348 ], [ false, %342 ], [ false, %358 ], [ false, %352 ], [ false, %374 ], [ false, %368 ], [ false, %393 ], [ false, %387 ], [ false, %420 ], [ false, %414 ], [ false, %465 ], [ false, %459 ], [ false, %510 ], [ false, %504 ], [ false, %562 ], [ false, %556 ], [ false, %595 ], [ false, %589 ]
+661:                                              ; preds = %589, %595, %556, %562, %504, %510, %459, %465, %414, %420, %387, %393, %368, %374, %352, %358, %342, %348, %332, %338, %313, %319, %298, %304, %282, %288, %269, %275, %249, %255, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread, %214, %182, %188, %103, %109, %645
+  %.0 = phi i1 [ true, %645 ], [ false, %109 ], [ false, %103 ], [ false, %188 ], [ false, %182 ], [ false, %214 ], [ false, %_ZL20is_klass_initializedPK11TypeInstPtr.exit.thread ], [ false, %255 ], [ false, %249 ], [ false, %275 ], [ false, %269 ], [ false, %288 ], [ false, %282 ], [ false, %304 ], [ false, %298 ], [ false, %319 ], [ false, %313 ], [ false, %338 ], [ false, %332 ], [ false, %348 ], [ false, %342 ], [ false, %358 ], [ false, %352 ], [ false, %374 ], [ false, %368 ], [ false, %393 ], [ false, %387 ], [ false, %420 ], [ false, %414 ], [ false, %465 ], [ false, %459 ], [ false, %510 ], [ false, %504 ], [ false, %562 ], [ false, %556 ], [ false, %595 ], [ false, %589 ]
   ret i1 %.0
 }
 

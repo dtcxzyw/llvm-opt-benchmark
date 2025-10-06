@@ -1552,23 +1552,23 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 20:                                               ; preds = %13
   %.not228 = icmp eq ptr %7, null
-  br i1 %.not228, label %21, label %.thread275
+  br i1 %.not228, label %21, label %.thread274
 
 21:                                               ; preds = %20
   %.not229 = icmp eq ptr %8, null
-  br i1 %.not229, label %22, label %.thread275
+  br i1 %.not229, label %22, label %.thread274
 
 22:                                               ; preds = %21
   %.not230 = icmp eq ptr %9, null
-  br i1 %.not230, label %23, label %.thread275
+  br i1 %.not230, label %23, label %.thread274
 
 23:                                               ; preds = %22
   %.not231 = icmp eq ptr %10, null
-  br i1 %.not231, label %24, label %.thread275
+  br i1 %.not231, label %24, label %.thread274
 
 24:                                               ; preds = %23
   %.not232 = icmp eq ptr %11, null
-  br i1 %.not232, label %25, label %.thread275
+  br i1 %.not232, label %25, label %.thread274
 
 25:                                               ; preds = %24
   %.not233 = icmp eq ptr %12, null
@@ -1590,7 +1590,7 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %31 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %29, ptr noundef nonnull @.str.37, ptr noundef nonnull %30) #27
   br label %250
 
-.thread275:                                       ; preds = %20, %21, %22, %24, %23
+.thread274:                                       ; preds = %20, %21, %22, %24, %23
   %.ph.ph = phi ptr [ @.str.29, %20 ], [ @.str.30, %21 ], [ @.str.18, %22 ], [ @.str.23, %24 ], [ @.str.33, %23 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %32 = tail call i32 @ERR_set_mark() #27
@@ -1602,9 +1602,9 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   store ptr null, ptr %6, align 8, !tbaa !37
   br label %35
 
-35:                                               ; preds = %.thread275, %33
-  %36 = phi ptr [ @.str.28, %33 ], [ %.ph.ph, %.thread275 ]
-  %.0182 = phi i32 [ 4, %33 ], [ -1, %.thread275 ]
+35:                                               ; preds = %.thread274, %33
+  %36 = phi ptr [ @.str.28, %33 ], [ %.ph.ph, %.thread274 ]
+  %.0182 = phi i32 [ 4, %33 ], [ -1, %.thread274 ]
   %.not234 = icmp eq ptr %7, null
   br i1 %.not234, label %39, label %37
 
@@ -1637,8 +1637,8 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 47:                                               ; preds = %44, %43
   %.3185 = phi i32 [ %46, %44 ], [ %.2184, %43 ]
-  %.not336 = icmp ne ptr %10, null
-  br i1 %.not336, label %48, label %63
+  %.not332 = icmp ne ptr %10, null
+  br i1 %.not332, label %48, label %63
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr %10, align 8, !tbaa !39
@@ -1680,12 +1680,12 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 67:                                               ; preds = %64, %63
   %.5 = phi i32 [ %66, %64 ], [ %.4, %63 ]
-  %.not414 = icmp eq ptr %12, null
-  br i1 %.not414, label %85, label %68
+  %.not410 = icmp eq ptr %12, null
+  br i1 %.not410, label %85, label %68
 
 68:                                               ; preds = %.thread, %67
-  %.5382 = phi i32 [ -1, %.thread ], [ %.5, %67 ]
-  %69 = phi i1 [ false, %.thread ], [ %.not336, %67 ]
+  %.5378 = phi i32 [ -1, %.thread ], [ %.5, %67 ]
+  %69 = phi i1 [ false, %.thread ], [ %.not332, %67 ]
   %70 = phi ptr [ @.str.36, %.thread ], [ %36, %67 ]
   %71 = load ptr, ptr %12, align 8, !tbaa !43
   %72 = icmp eq ptr %71, null
@@ -1699,23 +1699,23 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 76:                                               ; preds = %73
   %.not248 = icmp eq i32 %5, 0
-  br i1 %.not248, label %77, label %.critedge.thread383
+  br i1 %.not248, label %77, label %.critedge.thread379
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr @bio_err, align 8, !tbaa !26
   %79 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %78, ptr noundef nonnull @.str.39) #27
-  br label %.critedge.thread383
+  br label %.critedge.thread379
 
 80:                                               ; preds = %73, %68
-  %81 = icmp slt i32 %.5382, 0
-  %82 = icmp eq i32 %.5382, 6
+  %81 = icmp slt i32 %.5378, 0
+  %82 = icmp eq i32 %.5378, 6
   %83 = or i1 %81, %82
   %84 = select i1 %83, i32 6, i32 0
   br label %85
 
 85:                                               ; preds = %80, %67
   %86 = phi i1 [ true, %80 ], [ false, %67 ]
-  %87 = phi i1 [ %69, %80 ], [ %.not336, %67 ]
+  %87 = phi i1 [ %69, %80 ], [ %.not332, %67 ]
   %88 = phi ptr [ %70, %80 ], [ %36, %67 ]
   %.6 = phi i32 [ %84, %80 ], [ %.5, %67 ]
   store ptr %3, ptr %14, align 8, !tbaa !45
@@ -1751,12 +1751,12 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 95:                                               ; preds = %94
   %.not240 = icmp eq i32 %5, 0
-  br i1 %.not240, label %96, label %.critedge.thread383
+  br i1 %.not240, label %96, label %.critedge.thread379
 
 96:                                               ; preds = %95
   %97 = load ptr, ptr @bio_err, align 8, !tbaa !26
   %98 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %97, ptr noundef nonnull @.str.41) #27
-  br label %.critedge.thread383
+  br label %.critedge.thread379
 
 99:                                               ; preds = %94
   %100 = load ptr, ptr @stdin, align 8, !tbaa !28
@@ -1764,36 +1764,36 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %101 = load ptr, ptr @stdin, align 8, !tbaa !28
   %102 = call ptr @BIO_new_fp(ptr noundef %101, i32 noundef 0) #27
   %.not241 = icmp eq ptr %102, null
-  br i1 %.not241, label %.thread292.thread, label %103
+  br i1 %.not241, label %.thread291.thread, label %103
 
 103:                                              ; preds = %99
   %104 = call ptr @get_ui_method() #27
   %105 = call ptr @OSSL_STORE_attach(ptr noundef nonnull %102, ptr noundef nonnull @.str.42, ptr noundef %18, ptr noundef %19, ptr noundef %104, ptr noundef nonnull %14, ptr noundef %.0173, ptr noundef null, ptr noundef null) #27
   %106 = call i32 @BIO_free(ptr noundef nonnull %102) #27
-  br label %.thread292
+  br label %.thread291
 
 107:                                              ; preds = %92
   %108 = call ptr @get_ui_method() #27
   %109 = call ptr @OSSL_STORE_open_ex(ptr noundef nonnull %0, ptr noundef %18, ptr noundef %19, ptr noundef %108, ptr noundef nonnull %14, ptr noundef %.0173, ptr noundef null, ptr noundef null) #27
-  br label %.thread292
+  br label %.thread291
 
-.thread292:                                       ; preds = %103, %107
+.thread291:                                       ; preds = %103, %107
   %.3203 = phi ptr [ %109, %107 ], [ %105, %103 ]
   %.2163 = phi ptr [ %0, %107 ], [ @.str.38, %103 ]
   %110 = icmp eq ptr %.3203, null
-  br i1 %110, label %.thread292.thread, label %114
+  br i1 %110, label %.thread291.thread, label %114
 
-.thread292.thread:                                ; preds = %99, %.thread292
-  %.2163335 = phi ptr [ %.2163, %.thread292 ], [ @.str.38, %99 ]
+.thread291.thread:                                ; preds = %99, %.thread291
+  %.2163331 = phi ptr [ %.2163, %.thread291 ], [ @.str.38, %99 ]
   %.not247 = icmp eq i32 %5, 0
-  br i1 %.not247, label %111, label %.critedge.thread383
+  br i1 %.not247, label %111, label %.critedge.thread379
 
-111:                                              ; preds = %.thread292.thread
+111:                                              ; preds = %.thread291.thread
   %112 = load ptr, ptr @bio_err, align 8, !tbaa !26
   %113 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %112, ptr noundef nonnull @.str.43) #27
-  br label %.critedge.thread383
+  br label %.critedge.thread379
 
-114:                                              ; preds = %.thread292
+114:                                              ; preds = %.thread291
   %115 = icmp sgt i32 %.6, 0
   br i1 %115, label %116, label %122
 
@@ -1804,26 +1804,26 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 118:                                              ; preds = %116
   %.not243 = icmp eq i32 %5, 0
-  br i1 %.not243, label %119, label %.critedge.thread383
+  br i1 %.not243, label %119, label %.critedge.thread379
 
 119:                                              ; preds = %118
   %120 = load ptr, ptr @bio_err, align 8, !tbaa !26
   %121 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %120, ptr noundef nonnull @.str.44) #27
-  br label %.critedge.thread383
+  br label %.critedge.thread379
 
 122:                                              ; preds = %116, %114
   %123 = icmp ne ptr %6, null
   %124 = icmp ne ptr %7, null
-  %or.cond341 = or i1 %123, %124
+  %or.cond337 = or i1 %123, %124
   %125 = icmp ne ptr %8, null
-  %or.cond3342 = or i1 %or.cond341, %125
+  %or.cond3338 = or i1 %or.cond337, %125
   %126 = icmp ne ptr %9, null
-  %or.cond5343 = or i1 %or.cond3342, %126
-  %or.cond7344 = or i1 %87, %or.cond5343
+  %or.cond5339 = or i1 %or.cond3338, %126
+  %or.cond7340 = or i1 %87, %or.cond5339
   %127 = icmp ne ptr %11, null
-  %or.cond9345 = or i1 %or.cond7344, %127
-  %or.cond11346 = or i1 %86, %or.cond9345
-  br i1 %or.cond11346, label %.lr.ph, label %.critedge.thread395
+  %or.cond9341 = or i1 %or.cond7340, %127
+  %or.cond11342 = or i1 %86, %or.cond9341
+  br i1 %or.cond11342, label %.lr.ph, label %.critedge.thread391
 
 .lr.ph:                                           ; preds = %122, %184
   %128 = phi i1 [ %189, %184 ], [ %127, %122 ]
@@ -1831,16 +1831,16 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %130 = phi i1 [ %187, %184 ], [ %125, %122 ]
   %131 = phi i1 [ %186, %184 ], [ %124, %122 ]
   %132 = phi i1 [ %185, %184 ], [ %123, %122 ]
-  %.1165353 = phi ptr [ %.2166, %184 ], [ %6, %122 ]
-  %.1168352 = phi ptr [ %.2169, %184 ], [ %7, %122 ]
-  %.1175351 = phi ptr [ %.2176, %184 ], [ %8, %122 ]
-  %.1187350 = phi i32 [ %.2188, %184 ], [ 0, %122 ]
-  %.1191349 = phi i32 [ %.2192, %184 ], [ 0, %122 ]
-  %.1195348 = phi ptr [ %.2196, %184 ], [ %9, %122 ]
-  %.1206347 = phi ptr [ %.2207, %184 ], [ %11, %122 ]
+  %.1165349 = phi ptr [ %.2166, %184 ], [ %6, %122 ]
+  %.1168348 = phi ptr [ %.2169, %184 ], [ %7, %122 ]
+  %.1175347 = phi ptr [ %.2176, %184 ], [ %8, %122 ]
+  %.1187346 = phi i32 [ %.2188, %184 ], [ 0, %122 ]
+  %.1191345 = phi i32 [ %.2192, %184 ], [ 0, %122 ]
+  %.1195344 = phi ptr [ %.2196, %184 ], [ %9, %122 ]
+  %.1206343 = phi ptr [ %.2207, %184 ], [ %11, %122 ]
   %133 = call i32 @OSSL_STORE_eof(ptr noundef nonnull %.3203) #27
   %.not244 = icmp eq i32 %133, 0
-  br i1 %.not244, label %134, label %.critedge.thread395
+  br i1 %.not244, label %134, label %.critedge.thread391
 
 134:                                              ; preds = %.lr.ph
   %135 = call ptr @OSSL_STORE_load(ptr noundef nonnull %.3203) #27
@@ -1849,7 +1849,7 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 137:                                              ; preds = %134
   %138 = call i32 @OSSL_STORE_INFO_get_type(ptr noundef nonnull %135) #27
-  switch i32 %138, label %.thread298 [
+  switch i32 %138, label %.thread296 [
     i32 4, label %139
     i32 3, label %144
     i32 2, label %149
@@ -1862,32 +1862,32 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 140:                                              ; preds = %139
   %141 = call ptr @OSSL_STORE_INFO_get1_PKEY(ptr noundef nonnull %135) #27
-  store ptr %141, ptr %.1165353, align 8, !tbaa !37
+  store ptr %141, ptr %.1165349, align 8, !tbaa !37
   %142 = icmp ne ptr %141, null
   %143 = zext i1 %142 to i32
-  %spec.select = select i1 %142, ptr null, ptr %.1165353
+  %spec.select = select i1 %142, ptr null, ptr %.1165349
   br label %178
 
 144:                                              ; preds = %139, %137
-  br i1 %131, label %145, label %.thread298
+  br i1 %131, label %145, label %.thread296
 
 145:                                              ; preds = %144
   %146 = call ptr @OSSL_STORE_INFO_get1_PUBKEY(ptr noundef nonnull %135) #27
-  store ptr %146, ptr %.1168352, align 8, !tbaa !37
+  store ptr %146, ptr %.1168348, align 8, !tbaa !37
   %147 = icmp ne ptr %146, null
   %148 = zext i1 %147 to i32
-  %spec.select264 = select i1 %147, ptr null, ptr %.1168352
+  %spec.select264 = select i1 %147, ptr null, ptr %.1168348
   br label %178
 
 149:                                              ; preds = %137
-  br i1 %130, label %150, label %.thread298
+  br i1 %130, label %150, label %.thread296
 
 150:                                              ; preds = %149
   %151 = call ptr @OSSL_STORE_INFO_get1_PARAMS(ptr noundef nonnull %135) #27
-  store ptr %151, ptr %.1175351, align 8, !tbaa !37
+  store ptr %151, ptr %.1175347, align 8, !tbaa !37
   %152 = icmp ne ptr %151, null
   %153 = zext i1 %152 to i32
-  %spec.select265 = select i1 %152, ptr null, ptr %.1175351
+  %spec.select265 = select i1 %152, ptr null, ptr %.1175347
   br label %178
 
 154:                                              ; preds = %137
@@ -1895,10 +1895,10 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 155:                                              ; preds = %154
   %156 = call ptr @OSSL_STORE_INFO_get1_CERT(ptr noundef nonnull %135) #27
-  store ptr %156, ptr %.1195348, align 8, !tbaa !35
+  store ptr %156, ptr %.1195344, align 8, !tbaa !35
   %157 = icmp ne ptr %156, null
   %158 = zext i1 %157 to i32
-  %spec.select266 = select i1 %157, ptr null, ptr %.1195348
+  %spec.select266 = select i1 %157, ptr null, ptr %.1195344
   br label %164
 
 159:                                              ; preds = %154
@@ -1913,7 +1913,7 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 164:                                              ; preds = %155, %159, %160
   %.4198 = phi ptr [ null, %160 ], [ null, %159 ], [ %spec.select266, %155 ]
   %.1 = phi i32 [ %163, %160 ], [ 1, %159 ], [ %158, %155 ]
-  %165 = add nsw i32 %.1, %.1191349
+  %165 = add nsw i32 %.1, %.1191345
   br label %178
 
 166:                                              ; preds = %137
@@ -1921,10 +1921,10 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 
 167:                                              ; preds = %166
   %168 = call ptr @OSSL_STORE_INFO_get1_CRL(ptr noundef nonnull %135) #27
-  store ptr %168, ptr %.1206347, align 8, !tbaa !41
+  store ptr %168, ptr %.1206343, align 8, !tbaa !41
   %169 = icmp ne ptr %168, null
   %170 = zext i1 %169 to i32
-  %spec.select267 = select i1 %169, ptr null, ptr %.1206347
+  %spec.select267 = select i1 %169, ptr null, ptr %.1206343
   br label %176
 
 171:                                              ; preds = %166
@@ -1939,23 +1939,23 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 176:                                              ; preds = %167, %171, %172
   %.4209 = phi ptr [ null, %172 ], [ null, %171 ], [ %spec.select267, %167 ]
   %.2 = phi i32 [ %175, %172 ], [ 1, %171 ], [ %170, %167 ]
-  %177 = add nsw i32 %.2, %.1187350
+  %177 = add nsw i32 %.2, %.1187346
   br label %178
 
-.thread298:                                       ; preds = %137, %144, %149
-  %.3177.ph = phi ptr [ null, %149 ], [ %.1175351, %144 ], [ %.1175351, %137 ]
-  %.3170.ph = phi ptr [ %.1168352, %149 ], [ null, %144 ], [ %.1168352, %137 ]
+.thread296:                                       ; preds = %137, %144, %149
+  %.3177.ph = phi ptr [ null, %149 ], [ %.1175347, %144 ], [ %.1175347, %137 ]
+  %.3170.ph = phi ptr [ %.1168348, %149 ], [ null, %144 ], [ %.1168348, %137 ]
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %135) #27
   br label %184
 
 178:                                              ; preds = %150, %145, %140, %176, %164
-  %.3208 = phi ptr [ %.1206347, %164 ], [ %.4209, %176 ], [ %.1206347, %140 ], [ %.1206347, %145 ], [ %.1206347, %150 ]
-  %.3197 = phi ptr [ %.4198, %164 ], [ %.1195348, %176 ], [ %.1195348, %140 ], [ %.1195348, %145 ], [ %.1195348, %150 ]
-  %.3193 = phi i32 [ %165, %164 ], [ %.1191349, %176 ], [ %.1191349, %140 ], [ %.1191349, %145 ], [ %.1191349, %150 ]
-  %.3189 = phi i32 [ %.1187350, %164 ], [ %177, %176 ], [ %.1187350, %140 ], [ %.1187350, %145 ], [ %.1187350, %150 ]
-  %.3177 = phi ptr [ %.1175351, %164 ], [ %.1175351, %176 ], [ %.1175351, %140 ], [ %.1175351, %145 ], [ %spec.select265, %150 ]
-  %.3170 = phi ptr [ %.1168352, %164 ], [ %.1168352, %176 ], [ %.1168352, %140 ], [ %spec.select264, %145 ], [ %.1168352, %150 ]
-  %.3 = phi ptr [ %.1165353, %164 ], [ %.1165353, %176 ], [ %spec.select, %140 ], [ %.1165353, %145 ], [ %.1165353, %150 ]
+  %.3208 = phi ptr [ %.1206343, %164 ], [ %.4209, %176 ], [ %.1206343, %140 ], [ %.1206343, %145 ], [ %.1206343, %150 ]
+  %.3197 = phi ptr [ %.4198, %164 ], [ %.1195344, %176 ], [ %.1195344, %140 ], [ %.1195344, %145 ], [ %.1195344, %150 ]
+  %.3193 = phi i32 [ %165, %164 ], [ %.1191345, %176 ], [ %.1191345, %140 ], [ %.1191345, %145 ], [ %.1191345, %150 ]
+  %.3189 = phi i32 [ %.1187346, %164 ], [ %177, %176 ], [ %.1187346, %140 ], [ %.1187346, %145 ], [ %.1187346, %150 ]
+  %.3177 = phi ptr [ %.1175347, %164 ], [ %.1175347, %176 ], [ %.1175347, %140 ], [ %.1175347, %145 ], [ %spec.select265, %150 ]
+  %.3170 = phi ptr [ %.1168348, %164 ], [ %.1168348, %176 ], [ %.1168348, %140 ], [ %spec.select264, %145 ], [ %.1168348, %150 ]
+  %.3 = phi ptr [ %.1165349, %164 ], [ %.1165349, %176 ], [ %spec.select, %140 ], [ %.1165349, %145 ], [ %.1165349, %150 ]
   %.0160 = phi i32 [ %.1, %164 ], [ %.2, %176 ], [ %143, %140 ], [ %148, %145 ], [ %153, %150 ]
   call void @OSSL_STORE_INFO_free(ptr noundef nonnull %135) #27
   %.not245 = icmp eq i32 %.0160, 0
@@ -1971,14 +1971,14 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %183 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %182, ptr noundef nonnull @.str.45) #27
   br label %.critedge
 
-184:                                              ; preds = %.thread298, %178, %134
-  %.2207 = phi ptr [ %.1206347, %134 ], [ %.3208, %178 ], [ %.1206347, %.thread298 ]
-  %.2196 = phi ptr [ %.1195348, %134 ], [ %.3197, %178 ], [ %.1195348, %.thread298 ]
-  %.2192 = phi i32 [ %.1191349, %134 ], [ %.3193, %178 ], [ %.1191349, %.thread298 ]
-  %.2188 = phi i32 [ %.1187350, %134 ], [ %.3189, %178 ], [ %.1187350, %.thread298 ]
-  %.2176 = phi ptr [ %.1175351, %134 ], [ %.3177, %178 ], [ %.3177.ph, %.thread298 ]
-  %.2169 = phi ptr [ %.1168352, %134 ], [ %.3170, %178 ], [ %.3170.ph, %.thread298 ]
-  %.2166 = phi ptr [ %.1165353, %134 ], [ %.3, %178 ], [ %.1165353, %.thread298 ]
+184:                                              ; preds = %.thread296, %178, %134
+  %.2207 = phi ptr [ %.1206343, %134 ], [ %.3208, %178 ], [ %.1206343, %.thread296 ]
+  %.2196 = phi ptr [ %.1195344, %134 ], [ %.3197, %178 ], [ %.1195344, %.thread296 ]
+  %.2192 = phi i32 [ %.1191345, %134 ], [ %.3193, %178 ], [ %.1191345, %.thread296 ]
+  %.2188 = phi i32 [ %.1187346, %134 ], [ %.3189, %178 ], [ %.1187346, %.thread296 ]
+  %.2176 = phi ptr [ %.1175347, %134 ], [ %.3177, %178 ], [ %.3177.ph, %.thread296 ]
+  %.2169 = phi ptr [ %.1168348, %134 ], [ %.3170, %178 ], [ %.3170.ph, %.thread296 ]
+  %.2166 = phi ptr [ %.1165349, %134 ], [ %.3, %178 ], [ %.1165349, %.thread296 ]
   %185 = icmp ne ptr %.2166, null
   %186 = icmp ne ptr %.2169, null
   %or.cond = select i1 %185, i1 true, i1 %186
@@ -1990,27 +1990,27 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %189 = icmp ne ptr %.2207, null
   %or.cond9 = select i1 %or.cond7, i1 true, i1 %189
   %or.cond11 = or i1 %86, %or.cond9
-  br i1 %or.cond11, label %.lr.ph, label %.critedge.thread395
+  br i1 %or.cond11, label %.lr.ph, label %.critedge.thread391
 
 .critedge.thread:                                 ; preds = %54, %55
   %190 = tail call i32 @OSSL_STORE_close(ptr noundef null) #27
   br label %212
 
-.critedge.thread383:                              ; preds = %76, %77, %.thread292.thread, %111, %118, %119, %95, %96
-  %.0200.ph = phi ptr [ null, %96 ], [ null, %95 ], [ %.3203, %119 ], [ %.3203, %118 ], [ null, %111 ], [ null, %.thread292.thread ], [ null, %77 ], [ null, %76 ]
-  %.0178.ph = phi ptr [ %88, %96 ], [ %88, %95 ], [ %88, %119 ], [ %88, %118 ], [ %88, %111 ], [ %88, %.thread292.thread ], [ %70, %77 ], [ %70, %76 ]
-  %.0161.ph = phi ptr [ null, %96 ], [ null, %95 ], [ %.2163, %119 ], [ %.2163, %118 ], [ %.2163335, %111 ], [ %.2163335, %.thread292.thread ], [ %0, %77 ], [ %0, %76 ]
+.critedge.thread379:                              ; preds = %76, %77, %.thread291.thread, %111, %118, %119, %95, %96
+  %.0200.ph = phi ptr [ null, %96 ], [ null, %95 ], [ %.3203, %119 ], [ %.3203, %118 ], [ null, %111 ], [ null, %.thread291.thread ], [ null, %77 ], [ null, %76 ]
+  %.0178.ph = phi ptr [ %88, %96 ], [ %88, %95 ], [ %88, %119 ], [ %88, %118 ], [ %88, %111 ], [ %88, %.thread291.thread ], [ %70, %77 ], [ %70, %76 ]
+  %.0161.ph = phi ptr [ null, %96 ], [ null, %95 ], [ %.2163, %119 ], [ %.2163, %118 ], [ %.2163331, %111 ], [ %.2163331, %.thread291.thread ], [ %0, %77 ], [ %0, %76 ]
   %191 = call i32 @OSSL_STORE_close(ptr noundef %.0200.ph) #27
   br label %212
 
-.critedge.thread395:                              ; preds = %.lr.ph, %184, %122
-  %.0205.ph = phi ptr [ null, %122 ], [ %.1206347, %.lr.ph ], [ null, %184 ]
-  %.0194.ph = phi ptr [ null, %122 ], [ %.1195348, %.lr.ph ], [ null, %184 ]
-  %.0190.ph = phi i32 [ 0, %122 ], [ %.1191349, %.lr.ph ], [ %.2192, %184 ]
-  %.0186.ph = phi i32 [ 0, %122 ], [ %.1187350, %.lr.ph ], [ %.2188, %184 ]
-  %.0174.ph = phi ptr [ null, %122 ], [ %.1175351, %.lr.ph ], [ null, %184 ]
-  %.0167.ph = phi ptr [ null, %122 ], [ %.1168352, %.lr.ph ], [ null, %184 ]
-  %.0164.ph = phi ptr [ null, %122 ], [ %.1165353, %.lr.ph ], [ null, %184 ]
+.critedge.thread391:                              ; preds = %.lr.ph, %184, %122
+  %.0205.ph = phi ptr [ null, %122 ], [ %.1206343, %.lr.ph ], [ null, %184 ]
+  %.0194.ph = phi ptr [ null, %122 ], [ %.1195344, %.lr.ph ], [ null, %184 ]
+  %.0190.ph = phi i32 [ 0, %122 ], [ %.1191345, %.lr.ph ], [ %.2192, %184 ]
+  %.0186.ph = phi i32 [ 0, %122 ], [ %.1187346, %.lr.ph ], [ %.2188, %184 ]
+  %.0174.ph = phi ptr [ null, %122 ], [ %.1175347, %.lr.ph ], [ null, %184 ]
+  %.0167.ph = phi ptr [ null, %122 ], [ %.1168348, %.lr.ph ], [ null, %184 ]
+  %.0164.ph = phi ptr [ null, %122 ], [ %.1165349, %.lr.ph ], [ null, %184 ]
   %192 = call i32 @OSSL_STORE_close(ptr noundef nonnull %.3203) #27
   br label %195
 
@@ -2019,40 +2019,40 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %194 = icmp eq ptr %180, null
   br i1 %194, label %195, label %212
 
-195:                                              ; preds = %.critedge.thread395, %.critedge
-  %.0164412 = phi ptr [ %.0164.ph, %.critedge.thread395 ], [ %.3, %.critedge ]
-  %.0167411 = phi ptr [ %.0167.ph, %.critedge.thread395 ], [ %.3170, %.critedge ]
-  %.0174410 = phi ptr [ %.0174.ph, %.critedge.thread395 ], [ %.3177, %.critedge ]
-  %.0186409 = phi i32 [ %.0186.ph, %.critedge.thread395 ], [ %.3189, %.critedge ]
-  %.0190408 = phi i32 [ %.0190.ph, %.critedge.thread395 ], [ %.3193, %.critedge ]
-  %.0194407 = phi ptr [ %.0194.ph, %.critedge.thread395 ], [ %.3197, %.critedge ]
-  %.0205406 = phi ptr [ %.0205.ph, %.critedge.thread395 ], [ %.3208, %.critedge ]
-  %196 = icmp sgt i32 %.0190408, 0
-  %197 = icmp sgt i32 %.0186409, 0
-  %.not250 = icmp eq ptr %.0164412, null
+195:                                              ; preds = %.critedge.thread391, %.critedge
+  %.0164408 = phi ptr [ %.0164.ph, %.critedge.thread391 ], [ %.3, %.critedge ]
+  %.0167407 = phi ptr [ %.0167.ph, %.critedge.thread391 ], [ %.3170, %.critedge ]
+  %.0174406 = phi ptr [ %.0174.ph, %.critedge.thread391 ], [ %.3177, %.critedge ]
+  %.0186405 = phi i32 [ %.0186.ph, %.critedge.thread391 ], [ %.3189, %.critedge ]
+  %.0190404 = phi i32 [ %.0190.ph, %.critedge.thread391 ], [ %.3193, %.critedge ]
+  %.0194403 = phi ptr [ %.0194.ph, %.critedge.thread391 ], [ %.3197, %.critedge ]
+  %.0205402 = phi ptr [ %.0205.ph, %.critedge.thread391 ], [ %.3208, %.critedge ]
+  %196 = icmp sgt i32 %.0190404, 0
+  %197 = icmp sgt i32 %.0186405, 0
+  %.not250 = icmp eq ptr %.0164408, null
   br i1 %.not250, label %198, label %205
 
 198:                                              ; preds = %195
-  %.not251 = icmp eq ptr %.0167411, null
+  %.not251 = icmp eq ptr %.0167407, null
   br i1 %.not251, label %199, label %205
 
 199:                                              ; preds = %198
-  %.not252 = icmp eq ptr %.0174410, null
+  %.not252 = icmp eq ptr %.0174406, null
   br i1 %.not252, label %200, label %205
 
 200:                                              ; preds = %199
-  %.not253 = icmp eq ptr %.0194407, null
+  %.not253 = icmp eq ptr %.0194403, null
   br i1 %.not253, label %201, label %205
 
 201:                                              ; preds = %200
-  %.not254337 = icmp eq ptr %10, null
-  %.not254 = or i1 %.not254337, %196
+  %.not254333 = icmp eq ptr %10, null
+  %.not254 = or i1 %.not254333, %196
   br i1 %.not254, label %202, label %205
 
 202:                                              ; preds = %201
-  %.not255 = icmp eq ptr %.0205406, null
-  %.not256338 = icmp eq ptr %12, null
-  %.not256 = or i1 %.not256338, %197
+  %.not255 = icmp eq ptr %.0205402, null
+  %.not256334 = icmp eq ptr %12, null
+  %.not256 = or i1 %.not256334, %197
   %203 = select i1 %.not256, ptr null, ptr @.str.36
   %204 = select i1 %.not255, ptr %203, ptr @.str.23
   br label %205
@@ -2069,9 +2069,9 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %211 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %210, ptr noundef nonnull @.str.46) #27
   br label %212
 
-212:                                              ; preds = %.critedge.thread383, %.critedge.thread, %205, %209, %.critedge
-  %.0161331 = phi ptr [ %.2163, %205 ], [ %.2163, %209 ], [ %.2163, %.critedge ], [ %0, %.critedge.thread ], [ %.0161.ph, %.critedge.thread383 ]
-  %.3181 = phi ptr [ %206, %205 ], [ %206, %209 ], [ %180, %.critedge ], [ %36, %.critedge.thread ], [ %.0178.ph, %.critedge.thread383 ]
+212:                                              ; preds = %.critedge.thread379, %.critedge.thread, %205, %209, %.critedge
+  %.0161327 = phi ptr [ %.2163, %205 ], [ %.2163, %209 ], [ %.2163, %.critedge ], [ %0, %.critedge.thread ], [ %.0161.ph, %.critedge.thread379 ]
+  %.3181 = phi ptr [ %206, %205 ], [ %206, %209 ], [ %180, %.critedge ], [ %36, %.critedge.thread ], [ %.0178.ph, %.critedge.thread379 ]
   %213 = icmp eq ptr %.3181, null
   %214 = icmp ne i32 %5, 0
   %or.cond15 = or i1 %214, %213
@@ -2080,7 +2080,7 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
 215:                                              ; preds = %212
   %216 = call i64 @ERR_peek_last_error() #27
   %.not257 = icmp eq ptr %4, null
-  br i1 %.not257, label %.critedge272, label %217
+  br i1 %.not257, label %.critedge271, label %217
 
 217:                                              ; preds = %215
   %218 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %.3181) #29
@@ -2098,18 +2098,18 @@ define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 no
   %225 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %224, ptr noundef nonnull @.str.48, ptr noundef nonnull %4) #27
   br label %228
 
-.critedge272:                                     ; preds = %215
+.critedge271:                                     ; preds = %215
   %226 = load ptr, ptr @bio_err, align 8, !tbaa !26
   %227 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %226, ptr noundef nonnull @.str.47, ptr noundef nonnull %.3181) #27
   br label %228
 
-228:                                              ; preds = %.critedge272, %222, %220
-  %.not259 = icmp eq ptr %.0161331, null
+228:                                              ; preds = %.critedge271, %222, %220
+  %.not259 = icmp eq ptr %.0161327, null
   br i1 %.not259, label %232, label %229
 
 229:                                              ; preds = %228
   %230 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %231 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %230, ptr noundef nonnull @.str.49, ptr noundef nonnull %.0161331) #27
+  %231 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %230, ptr noundef nonnull @.str.49, ptr noundef nonnull %.0161327) #27
   br label %232
 
 232:                                              ; preds = %229, %228

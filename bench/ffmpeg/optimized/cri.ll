@@ -908,9 +908,9 @@ define internal fastcc void @unpack_10bit(ptr noundef nonnull captures(none) %0,
 
 11:                                               ; preds = %.lr.ph, %161
   %12 = phi ptr [ %.promoted, %.lr.ph ], [ %41, %161 ]
-  %.0108168 = phi ptr [ %1, %.lr.ph ], [ %.10, %161 ]
-  %.0109167 = phi i32 [ %6, %.lr.ph ], [ %162, %161 ]
-  %.0111166 = phi i32 [ 0, %.lr.ph ], [ %.10121, %161 ]
+  %.0108167 = phi ptr [ %1, %.lr.ph ], [ %.10, %161 ]
+  %.0109166 = phi i32 [ %6, %.lr.ph ], [ %162, %161 ]
+  %.0111165 = phi i32 [ 0, %.lr.ph ], [ %.10121, %161 ]
   %13 = ptrtoint ptr %12 to i64
   %14 = sub i64 %10, %13
   %15 = trunc i64 %14 to i32
@@ -940,14 +940,14 @@ bytestream2_get_le32.exit160:                     ; preds = %17, %19
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 4
   store ptr %26, ptr %0, align 8, !tbaa !46
   %27 = load i32, ptr %22, align 1, !tbaa !47
-  %.pre179 = ptrtoint ptr %26 to i64
+  %.pre178 = ptrtoint ptr %26 to i64
   br label %bytestream2_get_le32.exit158
 
 bytestream2_get_le32.exit158:                     ; preds = %bytestream2_get_le32.exit160, %25
-  %.pre-phi180 = phi i64 [ %.pre179, %25 ], [ %10, %bytestream2_get_le32.exit160 ]
+  %.pre-phi179 = phi i64 [ %.pre178, %25 ], [ %10, %bytestream2_get_le32.exit160 ]
   %28 = phi ptr [ %26, %25 ], [ %9, %bytestream2_get_le32.exit160 ]
   %.0.i157 = phi i32 [ %27, %25 ], [ 0, %bytestream2_get_le32.exit160 ]
-  %29 = sub i64 %10, %.pre-phi180
+  %29 = sub i64 %10, %.pre-phi179
   %30 = icmp slt i64 %29, 4
   br i1 %30, label %bytestream2_get_le32.exit156, label %31
 
@@ -955,14 +955,14 @@ bytestream2_get_le32.exit158:                     ; preds = %bytestream2_get_le3
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 4
   store ptr %32, ptr %0, align 8, !tbaa !46
   %33 = load i32, ptr %28, align 1, !tbaa !47
-  %.pre181 = ptrtoint ptr %32 to i64
+  %.pre180 = ptrtoint ptr %32 to i64
   br label %bytestream2_get_le32.exit156
 
 bytestream2_get_le32.exit156:                     ; preds = %bytestream2_get_le32.exit158, %31
-  %.pre-phi182 = phi i64 [ %.pre181, %31 ], [ %10, %bytestream2_get_le32.exit158 ]
+  %.pre-phi181 = phi i64 [ %.pre180, %31 ], [ %10, %bytestream2_get_le32.exit158 ]
   %34 = phi ptr [ %32, %31 ], [ %9, %bytestream2_get_le32.exit158 ]
   %.0.i155 = phi i32 [ %33, %31 ], [ 0, %bytestream2_get_le32.exit158 ]
-  %35 = sub i64 %10, %.pre-phi182
+  %35 = sub i64 %10, %.pre-phi181
   %36 = icmp slt i64 %35, 4
   br i1 %36, label %37, label %38
 
@@ -985,24 +985,24 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   %45 = or disjoint i32 %43, %44
   %.tr = trunc nuw nsw i32 %45 to i16
   %46 = shl nuw i16 %.tr, 4
-  %47 = sext i32 %.0111166 to i64
-  %48 = getelementptr inbounds i16, ptr %.0108168, i64 %47
+  %47 = sext i32 %.0111165 to i64
+  %48 = getelementptr inbounds i16, ptr %.0108167, i64 %47
   store i16 %46, ptr %48, align 2, !tbaa !62
-  %49 = add nsw i32 %.0111166, 1
+  %49 = add nsw i32 %.0111165, 1
   %.not = icmp slt i32 %49, %2
   br i1 %.not, label %54, label %50
 
 50:                                               ; preds = %bytestream2_get_le32.exit
-  %51 = icmp eq i32 %.0109167, 1
+  %51 = icmp eq i32 %.0109166, 1
   br i1 %51, label %.thread, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds i16, ptr %.0108168, i64 %4
+  %53 = getelementptr inbounds i16, ptr %.0108167, i64 %4
   br label %54
 
 54:                                               ; preds = %52, %bytestream2_get_le32.exit
   %.2113 = phi i32 [ 0, %52 ], [ %49, %bytestream2_get_le32.exit ]
-  %.2 = phi ptr [ %53, %52 ], [ %.0108168, %bytestream2_get_le32.exit ]
+  %.2 = phi ptr [ %53, %52 ], [ %.0108167, %bytestream2_get_le32.exit ]
   %55 = lshr i32 %.0.i159, 13
   %56 = and i32 %55, 63
   %57 = lshr i32 %.0.i159, 14
@@ -1018,7 +1018,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %.not141, label %68, label %64
 
 64:                                               ; preds = %54
-  %65 = icmp eq i32 %.0109167, 2
+  %65 = icmp eq i32 %.0109166, 2
   br i1 %65, label %.thread, label %66
 
 66:                                               ; preds = %64
@@ -1042,7 +1042,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %.not143, label %81, label %77
 
 77:                                               ; preds = %68
-  %78 = icmp eq i32 %.0109167, 3
+  %78 = icmp eq i32 %.0109166, 3
   br i1 %78, label %.thread, label %79
 
 79:                                               ; preds = %77
@@ -1067,7 +1067,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %.not145, label %95, label %91
 
 91:                                               ; preds = %81
-  %92 = icmp eq i32 %.0109167, 4
+  %92 = icmp eq i32 %.0109166, 4
   br i1 %92, label %.thread, label %93
 
 93:                                               ; preds = %91
@@ -1091,7 +1091,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %.not147, label %108, label %104
 
 104:                                              ; preds = %95
-  %105 = icmp eq i32 %.0109167, 5
+  %105 = icmp eq i32 %.0109166, 5
   br i1 %105, label %.thread, label %106
 
 106:                                              ; preds = %104
@@ -1116,7 +1116,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %.not149, label %122, label %118
 
 118:                                              ; preds = %108
-  %119 = icmp eq i32 %.0109167, 6
+  %119 = icmp eq i32 %.0109166, 6
   br i1 %119, label %.thread, label %120
 
 120:                                              ; preds = %118
@@ -1140,7 +1140,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %.not151, label %135, label %131
 
 131:                                              ; preds = %122
-  %132 = icmp eq i32 %.0109167, 7
+  %132 = icmp eq i32 %.0109166, 7
   br i1 %132, label %.thread, label %133
 
 133:                                              ; preds = %131
@@ -1163,7 +1163,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %.not152, label %147, label %143
 
 143:                                              ; preds = %135
-  %144 = icmp eq i32 %.0109167, 8
+  %144 = icmp eq i32 %.0109166, 8
   br i1 %144, label %.thread, label %145
 
 145:                                              ; preds = %143
@@ -1188,7 +1188,7 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
   br i1 %.not154, label %161, label %157
 
 157:                                              ; preds = %147
-  %158 = icmp eq i32 %.0109167, 9
+  %158 = icmp eq i32 %.0109166, 9
   br i1 %158, label %.thread, label %159
 
 159:                                              ; preds = %157
@@ -1198,8 +1198,8 @@ bytestream2_get_le32.exit:                        ; preds = %37, %38
 161:                                              ; preds = %147, %159
   %.10121 = phi i32 [ 0, %159 ], [ %156, %147 ]
   %.10 = phi ptr [ %160, %159 ], [ %.9, %147 ]
-  %162 = add nsw i32 %.0109167, -9
-  %163 = icmp sgt i32 %.0109167, 9
+  %162 = add nsw i32 %.0109166, -9
+  %163 = icmp sgt i32 %.0109166, 9
   br i1 %163, label %11, label %.thread
 
 .thread:                                          ; preds = %161, %11, %50, %64, %77, %91, %104, %118, %131, %143, %157, %5

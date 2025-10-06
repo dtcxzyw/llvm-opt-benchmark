@@ -6517,22 +6517,22 @@ define dso_local { i64, i64 } @_ZNK4llvm6Triple13getiOSVersionEv(ptr noundef non
 define dso_local { i64, i64 } @_ZNK4llvm6Triple17getWatchOSVersionEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %3 = load i32, ptr %2, align 4, !tbaa !32
-  %switch = icmp eq i32 %3, 27
-  br i1 %switch, label %4, label %10
+  %4 = icmp eq i32 %3, 27
+  br i1 %4, label %5, label %11
 
-4:                                                ; preds = %1
-  %5 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  %6 = extractvalue { i64, i64 } %5, 0
-  %7 = extractvalue { i64, i64 } %5, 1
-  %8 = and i64 %6, 4294967295
-  %9 = icmp eq i64 %8, 0
-  %spec.select = select i1 %9, i64 2, i64 %6
-  %spec.select2 = select i1 %9, i64 0, i64 %7
-  br label %10
+5:                                                ; preds = %1
+  %6 = tail call { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56) %0)
+  %7 = extractvalue { i64, i64 } %6, 0
+  %8 = extractvalue { i64, i64 } %6, 1
+  %9 = and i64 %7, 4294967295
+  %10 = icmp eq i64 %9, 0
+  %spec.select = select i1 %10, i64 2, i64 %7
+  %spec.select2 = select i1 %10, i64 0, i64 %8
+  br label %11
 
-10:                                               ; preds = %4, %1
-  %.sroa.01.0 = phi i64 [ 2, %1 ], [ %spec.select, %4 ]
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select2, %4 ]
+11:                                               ; preds = %5, %1
+  %.sroa.01.0 = phi i64 [ 2, %1 ], [ %spec.select, %5 ]
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select2, %5 ]
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.01.0, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.4.0, 1
   ret { i64, i64 } %.fca.1.insert

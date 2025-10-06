@@ -1613,17 +1613,17 @@ if.then8:                                         ; preds = %if.end5
   %env_.i.i5 = getelementptr inbounds nuw i8, ptr %10, i64 176
   %11 = load ptr, ptr %env_.i.i5, align 8
   %12 = icmp ult i32 %call6, 25
-  br i1 %12, label %switch.lookup42, label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31
+  br i1 %12, label %switch.lookup41, label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31
 
-switch.lookup42:                                  ; preds = %if.then8
-  %switch.tableidx41 = add i32 %call6, -1
-  %13 = zext nneg i32 %switch.tableidx41 to i64
-  %switch.gep43 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE10ParseErrorEi, i64 %13
-  %switch.load44 = load ptr, ptr %switch.gep43, align 8
+switch.lookup41:                                  ; preds = %if.then8
+  %switch.tableidx40 = add i32 %call6, -1
+  %13 = zext nneg i32 %switch.tableidx40 to i64
+  %switch.gep42 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4node10cares_wrap9QueryWrapINS0_13ReverseTraitsEE10ParseErrorEi, i64 %13
+  %switch.load43 = load ptr, ptr %switch.gep42, align 8
   br label %_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31
 
-_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31: ; preds = %if.then8, %switch.lookup42
-  %retval.0.i7 = phi ptr [ %switch.load44, %switch.lookup42 ], [ @.str.109, %if.then8 ]
+_ZN4node10cares_wrap17ToErrorCodeStringEi.exit31: ; preds = %if.then8, %switch.lookup41
+  %retval.0.i7 = phi ptr [ %switch.load43, %switch.lookup41 ], [ @.str.109, %if.then8 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %handle_scope.i.i32)
   %isolate_.i.i.i33 = getelementptr inbounds nuw i8, ptr %11, i64 88
   %14 = load ptr, ptr %isolate_.i.i.i33, align 8

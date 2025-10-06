@@ -519,7 +519,7 @@ define hidden void @_ZN11PhaseVector10do_cleanupEv(ptr noundef nonnull readonly 
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 376
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
-  %.not8 = select i1 %39, i1 %42, i1 false
+  %.not7 = select i1 %39, i1 %42, i1 false
   %43 = load ptr, ptr %22, align 8
   %.not.i.i.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i.i.i, label %45, label %44
@@ -542,7 +542,7 @@ define hidden void @_ZN11PhaseVector10do_cleanupEv(ptr noundef nonnull readonly 
 
 _ZN12ResourceMarkD2Ev.exit:                       ; preds = %45, %47
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %2) #6
-  br i1 %.not8, label %48, label %67
+  br i1 %.not7, label %48, label %67
 
 48:                                               ; preds = %_ZN12ResourceMarkD2Ev.exit
   call void @_ZN7Compile10TracePhaseC1EPKcP12elapsedTimer(ptr noundef nonnull align 8 dereferenceable(81) %4, ptr noundef nonnull @.str.5, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN5Phase6timersE, i64 312)) #6
@@ -571,9 +571,9 @@ _ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit: ; preds = %48, %54
   %62 = getelementptr inbounds nuw i8, ptr %56, i64 376
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
-  %.not10 = select i1 %61, i1 %64, i1 false
+  %.not9 = select i1 %61, i1 %64, i1 false
   call void @_ZN7Compile10TracePhaseD1Ev(ptr noundef nonnull align 8 dereferenceable(81) %4) #6
-  br i1 %.not10, label %65, label %67
+  br i1 %.not9, label %65, label %67
 
 65:                                               ; preds = %_ZN12PhaseIterGVN14reset_from_gvnEP8PhaseGVN.exit
   %66 = load ptr, ptr %5, align 8

@@ -187,36 +187,36 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 31:                                               ; preds = %21
   store ptr @bdf_parse_start_, ptr %9, align 8, !tbaa !36
   %32 = call i64 @FT_Stream_TryRead(ptr noundef nonnull %0, ptr noundef %29, i64 noundef 1024) #17
-  %.not7734.i.i = icmp eq i64 %32, 0
-  br i1 %.not7734.i.i, label %bdf_readstream_.exit.i, label %.preheader.preheader.i.i
+  %.not7733.i.i = icmp eq i64 %32, 0
+  br i1 %.not7733.i.i, label %bdf_readstream_.exit.i, label %.preheader.preheader.i.i
 
 .preheader.preheader.i.i:                         ; preds = %31, %57
   %33 = phi i64 [ %61, %57 ], [ %32, %31 ]
-  %.06137.i.i = phi i64 [ %.115.i.i, %57 ], [ 1, %31 ]
-  %.06236.i.i = phi ptr [ %.2.i.i, %57 ], [ %29, %31 ]
-  %.06435.i.i = phi i64 [ %.266.i.i, %57 ], [ 1024, %31 ]
+  %.06136.i.i = phi i64 [ %.114.i.i, %57 ], [ 1, %31 ]
+  %.06235.i.i = phi ptr [ %.2.i.i, %57 ], [ %29, %31 ]
+  %.06434.i.i = phi i64 [ %.266.i.i, %57 ], [ 1024, %31 ]
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %70, %.preheader.preheader.i.i
-  %.115.i.i = phi i64 [ %71, %70 ], [ %.06137.i.i, %.preheader.preheader.i.i ]
-  %.17214.i.i = phi i64 [ %72, %70 ], [ 0, %.preheader.preheader.i.i ]
-  %34 = icmp ult i64 %.17214.i.i, %33
+  %.114.i.i = phi i64 [ %71, %70 ], [ %.06136.i.i, %.preheader.preheader.i.i ]
+  %.17213.i.i = phi i64 [ %72, %70 ], [ 0, %.preheader.preheader.i.i ]
+  %34 = icmp ult i64 %.17213.i.i, %33
   br i1 %34, label %.lr.ph.i.i, label %.critedge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %38
-  %.27311.i.i = phi i64 [ %39, %38 ], [ %.17214.i.i, %.preheader.i.i ]
-  %35 = getelementptr inbounds nuw i8, ptr %.06236.i.i, i64 %.27311.i.i
+  %.27310.i.i = phi i64 [ %39, %38 ], [ %.17213.i.i, %.preheader.i.i ]
+  %35 = getelementptr inbounds nuw i8, ptr %.06235.i.i, i64 %.27310.i.i
   %36 = load i8, ptr %35, align 1, !tbaa !37
   %37 = icmp slt i8 %36, 32
   br i1 %37, label %38, label %.critedge.i.i
 
 38:                                               ; preds = %.lr.ph.i.i
-  %39 = add i64 %.27311.i.i, 1
+  %39 = add i64 %.27310.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %39, %33
   br i1 %exitcond.not.i.i, label %.critedge.i.i, label %.lr.ph.i.i, !llvm.loop !38
 
 .critedge.i.i:                                    ; preds = %38, %.lr.ph.i.i, %.preheader.i.i
-  %.273.lcssa.i.i = phi i64 [ %.17214.i.i, %.preheader.i.i ], [ %33, %38 ], [ %.27311.i.i, %.lr.ph.i.i ]
+  %.273.lcssa.i.i = phi i64 [ %.17213.i.i, %.preheader.i.i ], [ %33, %38 ], [ %.27310.i.i, %.lr.ph.i.i ]
   br label %40
 
 40:                                               ; preds = %42, %.critedge.i.i
@@ -226,7 +226,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %41, label %42, label %.critedge2.i.i
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds nuw i8, ptr %.06236.i.i, i64 %.070.i.i
+  %43 = getelementptr inbounds nuw i8, ptr %.06235.i.i, i64 %.070.i.i
   %44 = load i8, ptr %43, align 1, !tbaa !37
   %45 = icmp sgt i8 %44, 31
   br i1 %45, label %40, label %62, !llvm.loop !40
@@ -236,7 +236,7 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %46, label %47, label %54
 
 47:                                               ; preds = %.critedge2.i.i
-  %48 = icmp samesign ugt i64 %.06435.i.i, 65535
+  %48 = icmp samesign ugt i64 %.06434.i.i, 65535
   br i1 %48, label %49, label %50
 
 49:                                               ; preds = %47
@@ -244,22 +244,22 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   br label %bdf_readstream_.exit.i
 
 50:                                               ; preds = %47
-  %51 = shl nuw nsw i64 %.06435.i.i, 2
-  %52 = call ptr @ft_mem_qrealloc(ptr noundef %28, i64 noundef 1, i64 noundef %.06435.i.i, i64 noundef %51, ptr noundef %.06236.i.i, ptr noundef nonnull %10) #17
+  %51 = shl nuw nsw i64 %.06434.i.i, 2
+  %52 = call ptr @ft_mem_qrealloc(ptr noundef %28, i64 noundef 1, i64 noundef %.06434.i.i, i64 noundef %51, ptr noundef %.06235.i.i, ptr noundef nonnull %10) #17
   %53 = load i32, ptr %10, align 4, !tbaa !25
   %.not81.i.i = icmp eq i32 %53, 0
   br i1 %.not81.i.i, label %57, label %bdf_readstream_.exit.i
 
 54:                                               ; preds = %.critedge2.i.i
   %55 = sub i64 %33, %.273.lcssa.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %.06236.i.i, i64 %.273.lcssa.i.i
-  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.06236.i.i, ptr nonnull align 1 %56, i64 %55, i1 false)
+  %56 = getelementptr inbounds nuw i8, ptr %.06235.i.i, i64 %.273.lcssa.i.i
+  call void @llvm.memmove.p0.p0.i64(ptr align 1 %.06235.i.i, ptr nonnull align 1 %56, i64 %55, i1 false)
   br label %57
 
 57:                                               ; preds = %54, %50
   %.269.i.i = phi i64 [ %55, %54 ], [ %33, %50 ]
-  %.266.i.i = phi i64 [ %.06435.i.i, %54 ], [ %51, %50 ]
-  %.2.i.i = phi ptr [ %.06236.i.i, %54 ], [ %52, %50 ]
+  %.266.i.i = phi i64 [ %.06434.i.i, %54 ], [ %51, %50 ]
+  %.2.i.i = phi ptr [ %.06235.i.i, %54 ], [ %52, %50 ]
   %58 = getelementptr inbounds nuw i8, ptr %.2.i.i, i64 %.269.i.i
   %59 = sub i64 %.266.i.i, %.269.i.i
   %60 = call i64 @FT_Stream_TryRead(ptr noundef nonnull %0, ptr noundef %58, i64 noundef %59) #17
@@ -268,9 +268,9 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
   br i1 %.not77.i.i, label %bdf_readstream_.exit.i, label %.preheader.preheader.i.i
 
 62:                                               ; preds = %42
-  %63 = getelementptr inbounds nuw i8, ptr %.06236.i.i, i64 %.070.i.i
+  %63 = getelementptr inbounds nuw i8, ptr %.06235.i.i, i64 %.070.i.i
   store i8 0, ptr %63, align 1, !tbaa !37
-  %64 = getelementptr inbounds nuw i8, ptr %.06236.i.i, i64 %.273.lcssa.i.i
+  %64 = getelementptr inbounds nuw i8, ptr %.06235.i.i, i64 %.273.lcssa.i.i
   %65 = load i8, ptr %64, align 1, !tbaa !37
   %.not79.i.i = icmp eq i8 %65, 35
   br i1 %.not79.i.i, label %70, label %66
@@ -278,18 +278,18 @@ define internal i32 @BDF_Face_Init(ptr noundef %0, ptr noundef %1, i32 noundef %
 66:                                               ; preds = %62
   %67 = load ptr, ptr %9, align 8, !tbaa !36
   %68 = sub i64 %.070.i.i, %.273.lcssa.i.i
-  %69 = call i32 %67(ptr noundef nonnull %64, i64 noundef %68, i64 noundef %.115.i.i, ptr noundef nonnull %9, ptr noundef nonnull %19) #17
+  %69 = call i32 %67(ptr noundef nonnull %64, i64 noundef %68, i64 noundef %.114.i.i, ptr noundef nonnull %9, ptr noundef nonnull %19) #17
   store i32 %69, ptr %10, align 4, !tbaa !25
   %.not80.i.i = icmp eq i32 %69, 0
   br i1 %.not80.i.i, label %70, label %bdf_readstream_.exit.i
 
 70:                                               ; preds = %66, %62
-  %71 = add i64 %.115.i.i, 1
+  %71 = add i64 %.114.i.i, 1
   %72 = add i64 %.070.in.i.i, 2
   br label %.preheader.i.i
 
 bdf_readstream_.exit.i:                           ; preds = %57, %50, %66, %49, %31, %21
-  %.3.i.i = phi ptr [ %29, %21 ], [ %.06236.i.i, %49 ], [ %29, %31 ], [ %.06236.i.i, %66 ], [ %52, %50 ], [ %.2.i.i, %57 ]
+  %.3.i.i = phi ptr [ %29, %21 ], [ %.06235.i.i, %49 ], [ %29, %31 ], [ %.06235.i.i, %66 ], [ %52, %50 ], [ %.2.i.i, %57 ]
   call void @ft_mem_free(ptr noundef %28, ptr noundef %.3.i.i) #17
   %73 = load i32, ptr %10, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -2087,22 +2087,22 @@ bdf_atoul_.exit.thread:                           ; preds = %bdf_strtok_.exit, %
   %116 = call i32 @ft_hash_str_init(ptr noundef nonnull %115, ptr noundef %9) #17
   store i32 %116, ptr %7, align 4, !tbaa !25
   %.not195 = icmp eq i32 %116, 0
-  br i1 %.not195, label %.preheader370, label %.thread355
+  br i1 %.not195, label %.preheader369, label %.thread355
 
-.preheader370:                                    ; preds = %114, %119
-  %.0170396 = phi i64 [ %120, %119 ], [ 0, %114 ]
-  %.0173395 = phi ptr [ %121, %119 ], [ @bdf_properties_, %114 ]
-  %117 = load ptr, ptr %.0173395, align 8, !tbaa !159
-  %118 = call i32 @ft_hash_str_insert(ptr noundef %117, i64 noundef %.0170396, ptr noundef nonnull %115, ptr noundef %9) #17
+.preheader369:                                    ; preds = %114, %119
+  %.0170395 = phi i64 [ %120, %119 ], [ 0, %114 ]
+  %.0173394 = phi ptr [ %121, %119 ], [ @bdf_properties_, %114 ]
+  %117 = load ptr, ptr %.0173394, align 8, !tbaa !159
+  %118 = call i32 @ft_hash_str_insert(ptr noundef %117, i64 noundef %.0170395, ptr noundef nonnull %115, ptr noundef %9) #17
   store i32 %118, ptr %7, align 4, !tbaa !25
   %.not196 = icmp eq i32 %118, 0
   br i1 %.not196, label %119, label %.thread355
 
-119:                                              ; preds = %.preheader370
-  %120 = add nuw nsw i64 %.0170396, 1
-  %121 = getelementptr inbounds nuw i8, ptr %.0173395, i64 24
+119:                                              ; preds = %.preheader369
+  %120 = add nuw nsw i64 %.0170395, 1
+  %121 = getelementptr inbounds nuw i8, ptr %.0173394, i64 24
   %exitcond.not = icmp eq i64 %120, 82
-  br i1 %exitcond.not, label %122, label %.preheader370, !llvm.loop !160
+  br i1 %exitcond.not, label %122, label %.preheader369, !llvm.loop !160
 
 122:                                              ; preds = %119
   %123 = load i64, ptr %4, align 8, !tbaa !26
@@ -2507,15 +2507,15 @@ bdf_strtok_.exit291:                              ; preds = %.loopexit.i287
   store ptr %307, ptr %25, align 8, !tbaa !163
   %308 = load i32, ptr %7, align 4, !tbaa !25
   %.not210 = icmp eq i32 %308, 0
-  br i1 %.not210, label %.preheader368, label %.thread355
+  br i1 %.not210, label %.preheader367, label %.thread355
 
-.preheader368:                                    ; preds = %bdf_strtok_.exit291, %.critedge
-  %.0168398 = phi i32 [ %313, %.critedge ], [ 0, %bdf_strtok_.exit291 ]
-  %.0171397 = phi ptr [ %spec.select230, %.critedge ], [ %.2.i289, %bdf_strtok_.exit291 ]
+.preheader367:                                    ; preds = %bdf_strtok_.exit291, %.critedge
+  %.0168397 = phi i32 [ %313, %.critedge ], [ 0, %bdf_strtok_.exit291 ]
+  %.0171396 = phi ptr [ %spec.select230, %.critedge ], [ %.2.i289, %bdf_strtok_.exit291 ]
   br label %309
 
-309:                                              ; preds = %.preheader368, %311
-  %.1172 = phi ptr [ %312, %311 ], [ %.0171397, %.preheader368 ]
+309:                                              ; preds = %.preheader367, %311
+  %.1172 = phi ptr [ %312, %311 ], [ %.0171396, %.preheader367 ]
   %310 = load i8, ptr %.1172, align 1, !tbaa !37
   switch i8 %310, label %311 [
     i8 0, label %.critedge
@@ -2530,9 +2530,9 @@ bdf_strtok_.exit291:                              ; preds = %.loopexit.i287
   %.not213 = icmp ne i8 %310, 0
   %spec.select230.idx = zext i1 %.not213 to i64
   %spec.select230 = getelementptr inbounds nuw i8, ptr %.1172, i64 %spec.select230.idx
-  %313 = add nuw nsw i32 %.0168398, 1
-  %exitcond423.not = icmp eq i32 %313, 11
-  br i1 %exitcond423.not, label %314, label %.preheader368, !llvm.loop !165
+  %313 = add nuw nsw i32 %.0168397, 1
+  %exitcond422.not = icmp eq i32 %313, 11
+  br i1 %exitcond422.not, label %314, label %.preheader367, !llvm.loop !165
 
 314:                                              ; preds = %.critedge
   %315 = load i8, ptr %spec.select230, align 1, !tbaa !37
@@ -2843,7 +2843,7 @@ bdf_atoul_.exit330:                               ; preds = %.lr.ph.i325, %420, 
   %455 = shl nuw nsw i32 1, %454
   %456 = and i32 %455, %452
   %.not8.i337 = icmp eq i32 %456, 0
-  br i1 %.not8.i337, label %.thread365, label %.lr.ph.i338
+  br i1 %.not8.i337, label %.thread364, label %.lr.ph.i338
 
 .lr.ph.i338:                                      ; preds = %447, %459
   %457 = phi i8 [ %467, %459 ], [ %445, %447 ]
@@ -2883,15 +2883,15 @@ bdf_atous_.exit343:                               ; preds = %459
 
 480:                                              ; preds = %478
   %481 = icmp eq i16 %465, 2
-  br i1 %481, label %bdf_atous_.exit343.thread, label %.thread365
+  br i1 %481, label %bdf_atous_.exit343.thread, label %.thread364
 
-.thread365:                                       ; preds = %447, %480
+.thread364:                                       ; preds = %447, %480
   br label %bdf_atous_.exit343.thread
 
-bdf_atous_.exit343.thread:                        ; preds = %.loopexit.i332, %.lr.ph.i338, %480, %478, %bdf_atous_.exit343, %.thread365
-  %.sink465 = phi i16 [ 1, %.thread365 ], [ 8, %bdf_atous_.exit343 ], [ 4, %478 ], [ 2, %480 ], [ 8, %.lr.ph.i338 ], [ 1, %.loopexit.i332 ]
+bdf_atous_.exit343.thread:                        ; preds = %.loopexit.i332, %.lr.ph.i338, %480, %478, %bdf_atous_.exit343, %.thread364
+  %.sink464 = phi i16 [ 1, %.thread364 ], [ 8, %bdf_atous_.exit343 ], [ 4, %478 ], [ 2, %480 ], [ 8, %.lr.ph.i338 ], [ 1, %.loopexit.i332 ]
   %482 = getelementptr inbounds nuw i8, ptr %25, i64 176
-  store i16 %.sink465, ptr %482, align 8, !tbaa !119
+  store i16 %.sink464, ptr %482, align 8, !tbaa !119
   %483 = load i64, ptr %4, align 8, !tbaa !26
   %484 = or i64 %483, 4
   store i64 %484, ptr %4, align 8, !tbaa !26
@@ -2988,9 +2988,9 @@ bdf_strtok_.exit349:                              ; preds = %.loopexit.i345
 512:                                              ; preds = %511, %bdf_strtok_.exit349
   %513 = phi i64 [ %509, %511 ], [ %504, %bdf_strtok_.exit349 ]
   %514 = icmp eq i64 %513, 0
-  br i1 %514, label %.thread367, label %515
+  br i1 %514, label %.thread366, label %515
 
-.thread367:                                       ; preds = %512
+.thread366:                                       ; preds = %512
   store i64 64, ptr %505, align 8, !tbaa !80
   br label %518
 
@@ -3002,8 +3002,8 @@ bdf_strtok_.exit349:                              ; preds = %.loopexit.i345
   store i32 6, ptr %7, align 4, !tbaa !25
   br label %.thread355
 
-518:                                              ; preds = %.thread367, %515
-  %519 = phi i64 [ 64, %.thread367 ], [ %513, %515 ]
+518:                                              ; preds = %.thread366, %515
+  %519 = phi i64 [ 64, %.thread366 ], [ %513, %515 ]
   %520 = call ptr @ft_mem_realloc(ptr noundef %9, i64 noundef 56, i64 noundef 0, i64 noundef %519, ptr noundef null, ptr noundef nonnull %7) #17
   %521 = getelementptr inbounds nuw i8, ptr %25, i64 96
   store ptr %520, ptr %521, align 8, !tbaa !94
@@ -3022,7 +3022,7 @@ bdf_strtok_.exit349:                              ; preds = %.loopexit.i345
   store i32 3, ptr %7, align 4, !tbaa !25
   br label %.thread355
 
-.thread355:                                       ; preds = %.preheader370, %114, %318, %bdf_strtok_.exit291, %518, %112, %108, %switch.edge217, %bdf_add_comment_.exit, %switch.edge, %.critedge236, %523, %517, %496, %493, %490, %bdf_atous_.exit343.thread, %bdf_atos_.exit285, %122, %107, %101, %21, %.critedge216
+.thread355:                                       ; preds = %.preheader369, %114, %318, %bdf_strtok_.exit291, %518, %112, %108, %switch.edge217, %bdf_add_comment_.exit, %switch.edge, %.critedge236, %523, %517, %496, %493, %490, %bdf_atous_.exit343.thread, %bdf_atos_.exit285, %122, %107, %101, %21, %.critedge216
   %526 = load i32, ptr %7, align 4, !tbaa !25
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i32 %526
@@ -5181,8 +5181,8 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr noundef readonl
   %4 = load ptr, ptr %3, align 8, !tbaa !204
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !202
-  %.not49 = icmp eq i64 %6, 0
-  br i1 %.not49, label %.loopexit, label %.lr.ph
+  %.not48 = icmp eq i64 %6, 0
+  br i1 %.not48, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %7 = lshr i64 %6, 1
@@ -5190,10 +5190,10 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr noundef readonl
   br label %9
 
 9:                                                ; preds = %.lr.ph, %17
-  %.02848 = phi i64 [ %7, %.lr.ph ], [ %.230, %17 ]
-  %.03147 = phi i64 [ %6, %.lr.ph ], [ %.233, %17 ]
-  %.03446 = phi i64 [ 0, %.lr.ph ], [ %.236, %17 ]
-  %10 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %4, i64 %.02848
+  %.02847 = phi i64 [ %7, %.lr.ph ], [ %.230, %17 ]
+  %.03146 = phi i64 [ %6, %.lr.ph ], [ %.233, %17 ]
+  %.03445 = phi i64 [ 0, %.lr.ph ], [ %.236, %17 ]
+  %10 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %4, i64 %.02847
   %11 = load i64, ptr %10, align 8, !tbaa !99
   %12 = icmp eq i64 %11, %8
   br i1 %12, label %.thread, label %17
@@ -5207,11 +5207,11 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_index(ptr noundef readonl
 
 17:                                               ; preds = %9
   %18 = icmp ugt i64 %11, %8
-  %19 = add i64 %.02848, 1
-  %.236 = select i1 %18, i64 %.03446, i64 %19
-  %.233 = select i1 %18, i64 %.02848, i64 %.03147
+  %19 = add i64 %.02847, 1
+  %.236 = select i1 %18, i64 %.03445, i64 %19
+  %.233 = select i1 %18, i64 %.02847, i64 %.03146
   %20 = sub i64 %8, %11
-  %21 = add i64 %20, %.02848
+  %21 = add i64 %20, %.02847
   %.not = icmp uge i64 %21, %.233
   %22 = icmp ult i64 %21, %.236
   %or.cond = or i1 %.not, %22
@@ -5235,18 +5235,18 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr noundef readonly
   %7 = zext i32 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !tbaa !202
-  %.not70 = icmp eq i64 %9, 0
-  br i1 %.not70, label %._crit_edge, label %.lr.ph.preheader
+  %.not69 = icmp eq i64 %9, 0
+  br i1 %.not69, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %2
   %10 = lshr i64 %9, 1
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
-  %.04069 = phi i64 [ %.2, %17 ], [ %10, %.lr.ph.preheader ]
-  %.04168 = phi i64 [ %.243, %17 ], [ %9, %.lr.ph.preheader ]
-  %.04467 = phi i64 [ %.246, %17 ], [ 0, %.lr.ph.preheader ]
-  %11 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %4, i64 %.04069
+  %.04068 = phi i64 [ %.2, %17 ], [ %10, %.lr.ph.preheader ]
+  %.04167 = phi i64 [ %.243, %17 ], [ %9, %.lr.ph.preheader ]
+  %.04466 = phi i64 [ %.246, %17 ], [ 0, %.lr.ph.preheader ]
+  %11 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %4, i64 %.04068
   %12 = load i64, ptr %11, align 8, !tbaa !99
   %13 = icmp eq i64 %12, %7
   br i1 %13, label %.thread, label %17
@@ -5255,15 +5255,15 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr noundef readonly
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %15 = load i16, ptr %14, align 8, !tbaa !101
   %16 = add i16 %15, 1
-  br label %.thread61
+  br label %.thread60
 
 17:                                               ; preds = %.lr.ph
   %18 = icmp ugt i64 %12, %7
-  %19 = add i64 %.04069, 1
-  %.246 = select i1 %18, i64 %.04467, i64 %19
-  %.243 = select i1 %18, i64 %.04069, i64 %.04168
+  %19 = add i64 %.04068, 1
+  %.246 = select i1 %18, i64 %.04466, i64 %19
+  %.243 = select i1 %18, i64 %.04068, i64 %.04167
   %20 = sub i64 %7, %12
-  %21 = add i64 %20, %.04069
+  %21 = add i64 %20, %.04068
   %.not = icmp uge i64 %21, %.243
   %22 = icmp ult i64 %21, %.246
   %or.cond = or i1 %.not, %22
@@ -5276,7 +5276,7 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr noundef readonly
 ._crit_edge:                                      ; preds = %17, %2
   %.044.lcssa = phi i64 [ 0, %2 ], [ %.246, %17 ]
   %26 = icmp ult i64 %.044.lcssa, %9
-  br i1 %26, label %27, label %.thread61
+  br i1 %26, label %27, label %.thread60
 
 27:                                               ; preds = %._crit_edge
   %28 = getelementptr inbounds nuw %struct.BDF_encoding_el_, ptr %4, i64 %.044.lcssa
@@ -5288,13 +5288,13 @@ define internal range(i32 0, 65536) i32 @bdf_cmap_char_next(ptr noundef readonly
   %33 = icmp ugt i64 %.fr, 4294967295
   %34 = trunc nuw i64 %.fr to i32
   %spec.select = select i1 %33, i32 0, i32 %34
-  br label %.thread61
+  br label %.thread60
 
-.thread61:                                        ; preds = %.thread, %._crit_edge, %27
-  %.25065 = phi i16 [ %32, %27 ], [ %16, %.thread ], [ 0, %._crit_edge ]
+.thread60:                                        ; preds = %.thread, %._crit_edge, %27
+  %.25064 = phi i16 [ %32, %27 ], [ %16, %.thread ], [ 0, %._crit_edge ]
   %35 = phi i32 [ %spec.select, %27 ], [ %6, %.thread ], [ 0, %._crit_edge ]
   store i32 %35, ptr %1, align 4, !tbaa !25
-  %36 = zext i16 %.25065 to i32
+  %36 = zext i16 %.25064 to i32
   ret i32 %36
 }
 

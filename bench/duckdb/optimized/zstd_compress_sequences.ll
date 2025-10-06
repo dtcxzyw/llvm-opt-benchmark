@@ -225,13 +225,13 @@ _ZN11duckdb_zstd21ZSTD_crossEntropyCostEPKsjPKjj.exit: ; preds = %42
   %69 = shl nuw nsw i32 %59, 8
   %70 = add nuw nsw i32 %69, 256
   %71 = add nuw nsw i32 %2, 1
-  %wide.trip.count.i66 = zext nneg i32 %71 to i64
+  %wide.trip.count.i65 = zext nneg i32 %71 to i64
   br label %72
 
 72:                                               ; preds = %94, %.preheader.i
-  %indvars.iv.i67 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i68, %94 ]
+  %indvars.iv.i66 = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i67, %94 ]
   %.01932.i = phi i64 [ 0, %.preheader.i ], [ %.120.ph.i, %94 ]
-  %73 = getelementptr %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %64, i64 %indvars.iv.i67
+  %73 = getelementptr %"struct.duckdb_zstd::FSE_symbolCompressionTransform", ptr %64, i64 %indvars.iv.i66
   %74 = getelementptr i8, ptr %73, i64 8
   %75 = load i32, ptr %74, align 4, !tbaa !7
   %76 = lshr i32 %75, 16
@@ -243,7 +243,7 @@ _ZN11duckdb_zstd21ZSTD_crossEntropyCostEPKsjPKjj.exit: ; preds = %42
   %82 = lshr i32 %81, %59
   %83 = shl nuw nsw i32 %77, 8
   %84 = sub i32 %83, %82
-  %85 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i67
+  %85 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i66
   %86 = load i32, ptr %85, align 4, !tbaa !10
   %87 = icmp eq i32 %86, 0
   br i1 %87, label %94, label %88
@@ -261,8 +261,8 @@ _ZN11duckdb_zstd21ZSTD_crossEntropyCostEPKsjPKjj.exit: ; preds = %42
 
 94:                                               ; preds = %89, %72
   %.120.ph.i = phi i64 [ %.01932.i, %72 ], [ %93, %89 ]
-  %indvars.iv.next.i68 = add nuw nsw i64 %indvars.iv.i67, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i68, %wide.trip.count.i66
+  %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i67, %wide.trip.count.i65
   br i1 %exitcond.not.i, label %95, label %72, !llvm.loop !11
 
 95:                                               ; preds = %94
@@ -289,14 +289,14 @@ _ZN11duckdb_zstdL15ZSTD_NCountCostEPKjjmj.exit:   ; preds = %_ZN11duckdb_zstd15Z
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %105 = add i32 %2, 1
-  %umax.i69 = call i32 @llvm.umax.i32(i32 %105, i32 1)
-  %wide.trip.count.i70 = zext i32 %umax.i69 to i64
+  %umax.i68 = call i32 @llvm.umax.i32(i32 %105, i32 1)
+  %wide.trip.count.i69 = zext i32 %umax.i68 to i64
   br label %106
 
 106:                                              ; preds = %106, %_ZN11duckdb_zstdL15ZSTD_NCountCostEPKjjmj.exit
-  %indvars.iv.i71 = phi i64 [ 0, %_ZN11duckdb_zstdL15ZSTD_NCountCostEPKjjmj.exit ], [ %indvars.iv.next.i72, %106 ]
+  %indvars.iv.i70 = phi i64 [ 0, %_ZN11duckdb_zstdL15ZSTD_NCountCostEPKjjmj.exit ], [ %indvars.iv.next.i71, %106 ]
   %.016.i = phi i32 [ 0, %_ZN11duckdb_zstdL15ZSTD_NCountCostEPKjjmj.exit ], [ %118, %106 ]
-  %107 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i71
+  %107 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.i70
   %108 = load i32, ptr %107, align 4, !tbaa !10
   %109 = shl i32 %108, 8
   %110 = zext i32 %109 to i64
@@ -309,9 +309,9 @@ _ZN11duckdb_zstdL15ZSTD_NCountCostEPKjjmj.exit:   ; preds = %_ZN11duckdb_zstd15Z
   %116 = load i32, ptr %115, align 4, !tbaa !10
   %117 = mul i32 %116, %108
   %118 = add i32 %117, %.016.i
-  %indvars.iv.next.i72 = add nuw nsw i64 %indvars.iv.i71, 1
-  %exitcond.i73 = icmp eq i64 %indvars.iv.next.i72, %wide.trip.count.i70
-  br i1 %exitcond.i73, label %_ZN11duckdb_zstdL16ZSTD_entropyCostEPKjjm.exit, label %106, !llvm.loop !16
+  %indvars.iv.next.i71 = add nuw nsw i64 %indvars.iv.i70, 1
+  %exitcond.i72 = icmp eq i64 %indvars.iv.next.i71, %wide.trip.count.i69
+  br i1 %exitcond.i72, label %_ZN11duckdb_zstdL16ZSTD_entropyCostEPKjjm.exit, label %106, !llvm.loop !16
 
 _ZN11duckdb_zstdL16ZSTD_entropyCostEPKjjm.exit:   ; preds = %106
   %119 = shl i64 %.1.i, 3

@@ -856,7 +856,7 @@ define dso_local noundef zeroext range(i8 0, 31) i8 @_ZN5clang17computeDependenc
   %13 = or disjoint i8 %11, %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !425
-  %.ptr18.i = getelementptr inbounds nuw i8, ptr %15, i64 16
+  %.ptr16.i = getelementptr inbounds nuw i8, ptr %15, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !15
   %18 = zext i32 %17 to i64
@@ -885,7 +885,7 @@ define dso_local noundef zeroext range(i8 0, 31) i8 @_ZN5clang17computeDependenc
 _ZN5clang12CompoundStmt17getStmtExprResultEv.exit: ; preds = %25
   %27 = add i32 %17, -1
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %.ptr18.i, i64 %28
+  %29 = getelementptr inbounds nuw ptr, ptr %.ptr16.i, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !415
   %.not.i.i = icmp eq ptr %30, null
   br i1 %.not.i.i, label %_ZN4llvm16dyn_cast_or_nullIN5clang9ValueStmtENS1_4StmtEEEDaPT0_.exit.thread, label %_ZN5clang12CompoundStmt17getStmtExprResultEv.exit._ZN5clang12CompoundStmt17getStmtExprResultEv.exit.thread13_crit_edge
@@ -1640,15 +1640,15 @@ define dso_local noundef zeroext range(i8 0, 32) i8 @_ZN5clang17computeDependenc
   br label %9
 
 9:                                                ; preds = %1, %4
-  %.sink12 = phi i8 [ 19, %4 ], [ 17, %1 ]
-  %.sink10 = phi i8 [ %8, %4 ], [ 14, %1 ]
+  %.sink11 = phi i8 [ 19, %4 ], [ 17, %1 ]
+  %.sink9 = phi i8 [ %8, %4 ], [ 14, %1 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %11 = load ptr, ptr %10, align 8, !tbaa !415
   %12 = load i24, ptr %11, align 8
   %13 = lshr i24 %12, 14
   %14 = trunc i24 %13 to i8
-  %15 = and i8 %.sink12, %14
-  %16 = or i8 %15, %.sink10
+  %15 = and i8 %.sink11, %14
+  %16 = or i8 %15, %.sink9
   ret i8 %16
 }
 

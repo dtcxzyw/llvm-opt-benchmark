@@ -1925,11 +1925,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit68:               ; preds = %99, %97, %88
 
 .critedge2.thread:                                ; preds = %111
   %114 = trunc nuw i8 %.1 to i1
-  br i1 %114, label %.thread85, label %_ZN4llvm11raw_ostreamlsEPKc.exit71
+  br i1 %114, label %.thread84, label %_ZN4llvm11raw_ostreamlsEPKc.exit71
 
 115:                                              ; preds = %.critedge2
   %116 = icmp sgt i64 %108, 0
-  br i1 %116, label %117, label %.thread85
+  br i1 %116, label %117, label %.thread84
 
 117:                                              ; preds = %115
   %118 = load ptr, ptr %47, align 8, !tbaa !18
@@ -1951,7 +1951,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit68:               ; preds = %99, %97, %88
   store ptr %128, ptr %45, align 8, !tbaa !23
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit71
 
-.thread85:                                        ; preds = %.critedge2.thread, %115
+.thread84:                                        ; preds = %.critedge2.thread, %115
   %129 = load ptr, ptr %47, align 8, !tbaa !18
   %130 = load ptr, ptr %45, align 8, !tbaa !23
   %131 = ptrtoint ptr %129 to i64
@@ -1960,11 +1960,11 @@ _ZN4llvm11raw_ostreamlsEPKc.exit68:               ; preds = %99, %97, %88
   %134 = icmp ult i64 %133, 3
   br i1 %134, label %135, label %137
 
-135:                                              ; preds = %.thread85
+135:                                              ; preds = %.thread84
   %136 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull @.str.31, i64 noundef 3) #13
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit74
 
-137:                                              ; preds = %.thread85
+137:                                              ; preds = %.thread84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %130, ptr noundef nonnull align 1 dereferenceable(3) @.str.31, i64 3, i1 false)
   %138 = load ptr, ptr %45, align 8, !tbaa !23
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 3

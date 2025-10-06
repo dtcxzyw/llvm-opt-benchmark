@@ -440,20 +440,20 @@ switch.lookup:                                    ; preds = %16
   br i1 %30, label %939, label %.preheader
 
 .preheader:                                       ; preds = %26
-  %.not124 = icmp eq i64 %spec.select, 0
-  br i1 %.not124, label %.thread, label %.lr.ph
+  %.not123 = icmp eq i64 %spec.select, 0
+  br i1 %.not123, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.066123 = phi i64 [ %38, %.lr.ph ], [ 0, %.preheader ]
+  %.066122 = phi i64 [ %38, %.lr.ph ], [ 0, %.preheader ]
   %31 = load ptr, ptr %1, align 8, !tbaa !4
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.066123
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %.066122
   %33 = load i8, ptr %32, align 1, !tbaa !14
   %34 = and i8 %33, 63
   %35 = zext nneg i8 %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr @cov_2char, i64 %35
   %37 = load i8, ptr %36, align 1, !tbaa !14
   store i8 %37, ptr %32, align 1, !tbaa !14
-  %38 = add nuw nsw i64 %.066123, 1
+  %38 = add nuw nsw i64 %.066122, 1
   %exitcond.not = icmp eq i64 %38, %spec.select
   br i1 %exitcond.not, label %.thread, label %.lr.ph, !llvm.loop !16
 
@@ -485,14 +485,14 @@ switch.lookup:                                    ; preds = %16
 50:                                               ; preds = %48, %41
   %51 = add nsw i32 %8, -1
   %or.cond7 = icmp ult i32 %51, 2
-  br i1 %or.cond7, label %.thread76, label %56
+  br i1 %or.cond7, label %.thread75, label %56
 
-.thread76:                                        ; preds = %50
+.thread75:                                        ; preds = %50
   %52 = icmp eq i32 %8, 1
   %53 = select i1 %52, ptr @.str.27, ptr @.str.25
   %54 = load ptr, ptr %1, align 8, !tbaa !4
   %55 = tail call fastcc ptr @md5crypt(ptr noundef nonnull %3, ptr noundef nonnull %53, ptr noundef %54)
-  br label %.thread78
+  br label %.thread77
 
 56:                                               ; preds = %50
   %57 = icmp eq i32 %8, 5
@@ -501,11 +501,11 @@ switch.lookup:                                    ; preds = %16
 58:                                               ; preds = %56
   %59 = load ptr, ptr %1, align 8, !tbaa !4
   %60 = tail call fastcc ptr @md5crypt(ptr noundef nonnull %3, ptr noundef nonnull @.str.55, ptr noundef %59)
-  br label %.thread78
+  br label %.thread77
 
 61:                                               ; preds = %56
   %62 = icmp samesign ugt i32 %8, 2
-  br i1 %62, label %63, label %.thread78
+  br i1 %62, label %63, label %.thread77
 
 63:                                               ; preds = %61
   %64 = icmp eq i32 %8, 3
@@ -1867,20 +1867,20 @@ shacrypt.exit:                                    ; preds = %63, %.loopexit.i, %
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %.thread78
+  br label %.thread77
 
-.thread78:                                        ; preds = %58, %.thread76, %61, %shacrypt.exit
-  %.2 = phi ptr [ %.0333.i, %shacrypt.exit ], [ null, %61 ], [ %55, %.thread76 ], [ %60, %58 ]
+.thread77:                                        ; preds = %58, %.thread75, %61, %shacrypt.exit
+  %.2 = phi ptr [ %.0333.i, %shacrypt.exit ], [ null, %61 ], [ %55, %.thread75 ], [ %60, %58 ]
   %929 = icmp eq i32 %6, 0
   %930 = icmp ne i32 %7, 0
   %or.cond11 = or i1 %929, %930
   br i1 %or.cond11, label %933, label %931
 
-931:                                              ; preds = %.thread78
+931:                                              ; preds = %.thread77
   %932 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %4, ptr noundef nonnull @.str.56, ptr noundef nonnull %3, ptr noundef %.2) #7
   br label %939
 
-933:                                              ; preds = %.thread78
+933:                                              ; preds = %.thread77
   %934 = icmp ne i32 %6, 0
   %or.cond13 = and i1 %934, %930
   br i1 %or.cond13, label %935, label %937

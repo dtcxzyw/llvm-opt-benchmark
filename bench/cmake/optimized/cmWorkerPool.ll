@@ -3863,7 +3863,7 @@ define dso_local void @_ZN20cmWorkerPoolInternal4WorkEj(ptr noundef nonnull alig
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %12 = load i8, ptr %11, align 1, !tbaa !241, !range !88, !noundef !89
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %.loopexit42, label %.lr.ph
+  br i1 %13, label %.loopexit41, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -3890,7 +3890,7 @@ define dso_local void @_ZN20cmWorkerPoolInternal4WorkEj(ptr noundef nonnull alig
   %31 = add i32 %30, 1
   store i32 %31, ptr %24, align 8, !tbaa !281
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(9) %3)
-          to label %32 unwind label %.loopexit46
+          to label %32 unwind label %.loopexit45
 
 32:                                               ; preds = %29
   %33 = load i32, ptr %24, align 8, !tbaa !281
@@ -3901,14 +3901,14 @@ define dso_local void @_ZN20cmWorkerPoolInternal4WorkEj(ptr noundef nonnull alig
 .backedge:                                        ; preds = %93, %88, %32, %40
   %35 = load i8, ptr %11, align 1, !tbaa !241, !range !88, !noundef !89
   %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.loopexit42, label %25, !llvm.loop !282
+  br i1 %36, label %.loopexit41, label %25, !llvm.loop !282
 
-.loopexit46:                                      ; preds = %29, %40
-  %lpad.loopexit48 = landingpad { ptr, i32 }
+.loopexit45:                                      ; preds = %29, %40
+  %lpad.loopexit47 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp47:                             ; preds = %97
+.loopexit.split-lp46:                             ; preds = %97
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -3920,7 +3920,7 @@ define dso_local void @_ZN20cmWorkerPoolInternal4WorkEj(ptr noundef nonnull alig
 
 40:                                               ; preds = %37
   invoke void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(9) %3)
-          to label %.backedge unwind label %.loopexit46
+          to label %.backedge unwind label %.loopexit45
 
 _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EEaSEOS4_.exit: ; preds = %37
   %41 = load ptr, ptr %27, align 8, !tbaa !231
@@ -3955,7 +3955,7 @@ _ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE
   br i1 %51, label %52, label %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge
 
 _ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge: ; preds = %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit
-  %.pre75 = load i32, ptr %20, align 4, !tbaa !289
+  %.pre74 = load i32, ptr %20, align 4, !tbaa !289
   br label %58
 
 52:                                               ; preds = %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit
@@ -3980,13 +3980,13 @@ _ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %_ZNSt11unique_lockISt5mutexE6unlockEv.exit
-  %lpad.loopexit43 = landingpad { ptr, i32 }
+  %lpad.loopexit42 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke, %63
   %.sroa.0.5.ph.ph = phi ptr [ %41, %63 ], [ null, %.invoke ]
-  %lpad.loopexit.split-lp44 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp43 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -3996,10 +3996,10 @@ _ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE
 .thread:                                          ; preds = %.critedge
   store i8 0, ptr %16, align 2, !tbaa !283
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #25
-  br label %.loopexit42
+  br label %.loopexit41
 
 58:                                               ; preds = %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge, %.critedge
-  %59 = phi i32 [ %.pre75, %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge ], [ %54, %.critedge ]
+  %59 = phi i32 [ %.pre74, %_ZNSt5dequeISt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS2_EESaIS5_EE9pop_frontEv.exit._crit_edge ], [ %54, %.critedge ]
   %60 = add i32 %59, 1
   store i32 %60, ptr %20, align 4, !tbaa !289
   %61 = load i8, ptr %5, align 8, !tbaa !179, !range !88, !noundef !89
@@ -4072,11 +4072,11 @@ _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EE5resetEPS1_.exit:
 87:                                               ; preds = %84
   store i8 0, ptr %16, align 2, !tbaa !283
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %23) #25
-  %.pre76 = load i32, ptr %20, align 4
+  %.pre75 = load i32, ptr %20, align 4
   br label %88
 
 88:                                               ; preds = %87, %84
-  %89 = phi i32 [ %.pre76, %87 ], [ %86, %84 ]
+  %89 = phi i32 [ %.pre75, %87 ], [ %86, %84 ]
   %90 = load i8, ptr %16, align 2, !tbaa !283, !range !88, !noundef !89
   %91 = trunc nuw i8 %90 to i1
   %92 = icmp eq i32 %89, 0
@@ -4087,7 +4087,7 @@ _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EE5resetEPS1_.exit:
   call void @_ZNSt18condition_variable10notify_allEv(ptr noundef nonnull align 8 dereferenceable(48) %21) #25
   br label %.backedge
 
-.loopexit42:                                      ; preds = %.backedge, %7, %.thread
+.loopexit41:                                      ; preds = %.backedge, %7, %.thread
   %.sroa.0.1 = phi ptr [ %41, %.thread ], [ null, %7 ], [ null, %.backedge ]
   %94 = load i32, ptr %8, align 4, !tbaa !280
   %95 = add i32 %94, -1
@@ -4095,12 +4095,12 @@ _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EE5resetEPS1_.exit:
   %96 = icmp eq i32 %95, 0
   br i1 %96, label %97, label %99
 
-97:                                               ; preds = %.loopexit42
+97:                                               ; preds = %.loopexit41
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 24
   invoke void @_ZN2cm12uv_async_ptr4sendEv(ptr noundef nonnull align 8 dereferenceable(16) %98)
-          to label %99 unwind label %.loopexit.split-lp47
+          to label %99 unwind label %.loopexit.split-lp46
 
-99:                                               ; preds = %97, %.loopexit42
+99:                                               ; preds = %97, %.loopexit41
   %100 = load i8, ptr %5, align 8, !tbaa !179, !range !88, !noundef !89
   %101 = trunc nuw i8 %100 to i1
   br i1 %101, label %102, label %_ZNSt11unique_lockISt5mutexED2Ev.exit
@@ -4129,9 +4129,9 @@ _ZNKSt14default_deleteIN12cmWorkerPool4JobTEEclEPS1_.exit.i: ; preds = %_ZNSt11u
 _ZNSt10unique_ptrIN12cmWorkerPool4JobTESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNSt11unique_lockISt5mutexED2Ev.exit, %_ZNKSt14default_deleteIN12cmWorkerPool4JobTEEclEPS1_.exit.i
   ret void
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit46, %.loopexit.split-lp47
-  %.sroa.0.4 = phi ptr [ null, %.loopexit46 ], [ %.sroa.0.1, %.loopexit.split-lp47 ], [ %41, %.loopexit ], [ %41, %.loopexit.split-lp.loopexit ], [ %.sroa.0.5.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
-  %.pn = phi { ptr, i32 } [ %lpad.loopexit48, %.loopexit46 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp47 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit43, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp44, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit45, %.loopexit.split-lp46
+  %.sroa.0.4 = phi ptr [ null, %.loopexit45 ], [ %.sroa.0.1, %.loopexit.split-lp46 ], [ %41, %.loopexit ], [ %41, %.loopexit.split-lp.loopexit ], [ %.sroa.0.5.ph.ph, %.loopexit.split-lp.loopexit.split-lp ]
+  %.pn = phi { ptr, i32 } [ %lpad.loopexit47, %.loopexit45 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp46 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit42, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp43, %.loopexit.split-lp.loopexit.split-lp ]
   %109 = load i8, ptr %5, align 8, !tbaa !179, !range !88, !noundef !89
   %110 = trunc nuw i8 %109 to i1
   br i1 %110, label %111, label %_ZNSt11unique_lockISt5mutexED2Ev.exit26

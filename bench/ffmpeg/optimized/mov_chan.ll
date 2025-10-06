@@ -76,9 +76,9 @@ define range(i32 -38, 1) i32 @ff_mov_get_channel_layout_tag(ptr noundef %0, ptr 
   br i1 %24, label %find_layout_map.exit.i, label %.lr.ph.i, !llvm.loop !22
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.i.i
-  %.01116.i26.i = phi i32 [ %27, %.lr.ph.i.i ], [ 0, %22 ]
+  %.01118.i25.i = phi i32 [ %27, %.lr.ph.i.i ], [ 0, %22 ]
   %25 = phi i32 [ %31, %.lr.ph.i.i ], [ 1, %22 ]
-  %26 = add i32 %.01116.i26.i, 1
+  %26 = add i32 %.01118.i25.i, 1
   %27 = add i32 %26, %25
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds %struct.MovChannelLayoutMap, ptr @mov_ch_layout_map, i64 %28
@@ -96,14 +96,14 @@ find_layout_map.exit.i:                           ; preds = %.lr.ph.i.i, %22
 
 .preheader.i:                                     ; preds = %find_layout_map.exit.i
   %34 = icmp sgt i32 %20, 0
-  br i1 %34, label %.lr.ph28.preheader.i, label %._crit_edge.i
+  br i1 %34, label %.lr.ph27.preheader.i, label %._crit_edge.i
 
-.lr.ph28.preheader.i:                             ; preds = %.preheader.i
+.lr.ph27.preheader.i:                             ; preds = %.preheader.i
   %wide.trip.count.i = zext nneg i32 %20 to i64
-  br label %.lr.ph28.i
+  br label %.lr.ph27.i
 
-.lr.ph28.i:                                       ; preds = %39, %.lr.ph28.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph28.preheader.i ], [ %indvars.iv.next.i, %39 ]
+.lr.ph27.i:                                       ; preds = %39, %.lr.ph27.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i, %39 ]
   %35 = trunc nuw nsw i64 %indvars.iv.i to i32
   %36 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef nonnull %16, i32 noundef %35) #3
   %37 = getelementptr inbounds nuw %struct.MovChannelLayoutMap, ptr %33, i64 %indvars.iv.i
@@ -111,13 +111,13 @@ find_layout_map.exit.i:                           ; preds = %.lr.ph.i.i, %22
   %.not21.i = icmp eq i32 %36, %38
   br i1 %.not21.i, label %39, label %._crit_edge.i
 
-39:                                               ; preds = %.lr.ph28.i
+39:                                               ; preds = %.lr.ph27.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph28.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %.loopexit, label %.lr.ph27.i, !llvm.loop !24
 
-._crit_edge.i:                                    ; preds = %.lr.ph28.i, %.preheader.i
-  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %35, %.lr.ph28.i ]
+._crit_edge.i:                                    ; preds = %.lr.ph27.i, %.preheader.i
+  %.0.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %35, %.lr.ph27.i ]
   %.not22.i = icmp eq i32 %.0.lcssa.i, %20
   br i1 %.not22.i, label %.loopexit, label %find_layout_map.exit.thread.i
 
@@ -461,8 +461,8 @@ declare i32 @av_channel_layout_from_mask(ptr noundef, i64 noundef) local_unnamed
 define internal fastcc i32 @mov_get_channel_layout(ptr noundef %0, i32 noundef range(i32 1, 0) %1, i64 noundef %2, ptr noundef readonly captures(address) %3) unnamed_addr #0 {
   %5 = load i32, ptr %3, align 4, !tbaa !23
   %6 = and i32 %5, 65535
-  %.not15.i = icmp eq i32 %6, 0
-  br i1 %.not15.i, label %find_layout_map.exit.thread, label %.lr.ph.i.preheader
+  %.not17.i = icmp eq i32 %6, 0
+  br i1 %.not17.i, label %find_layout_map.exit.thread, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %4
   %7 = icmp eq i32 %5, %1
@@ -473,10 +473,10 @@ define internal fastcc i32 @mov_get_channel_layout(ptr noundef %0, i32 noundef r
   br i1 %8, label %find_layout_map.exit, label %.lr.ph, !llvm.loop !22
 
 .lr.ph:                                           ; preds = %.lr.ph.i.preheader, %.lr.ph.i
-  %.01116.i38 = phi i32 [ %11, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
+  %.01118.i37 = phi i32 [ %11, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %9 = phi i32 [ %15, %.lr.ph.i ], [ %6, %.lr.ph.i.preheader ]
   %10 = add nuw nsw i32 %9, 1
-  %11 = add i32 %10, %.01116.i38
+  %11 = add i32 %10, %.01118.i37
   %12 = sext i32 %11 to i64
   %13 = getelementptr inbounds %struct.MovChannelLayoutMap, ptr %3, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !23
@@ -510,9 +510,9 @@ find_layout_map.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i
   %27 = icmp ne i32 %19, 0
   %28 = icmp sgt i32 %21, 0
   %29 = select i1 %27, i1 %28, i1 false
-  br i1 %29, label %.lr.ph42, label %._crit_edge
+  br i1 %29, label %.lr.ph41, label %._crit_edge
 
-.lr.ph42:                                         ; preds = %.preheader
+.lr.ph41:                                         ; preds = %.preheader
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %32
 
@@ -520,11 +520,11 @@ find_layout_map.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i
   %31 = tail call i32 @av_channel_layout_retype(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 2) #3
   br label %find_layout_map.exit.thread
 
-32:                                               ; preds = %.lr.ph42, %42
-  %indvars.iv = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next, %42 ]
-  %.02641 = phi i32 [ 0, %.lr.ph42 ], [ %.127, %42 ]
-  %.02939 = phi i64 [ %2, %.lr.ph42 ], [ %43, %42 ]
-  %33 = and i64 %.02939, 1
+32:                                               ; preds = %.lr.ph41, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next, %42 ]
+  %.02640 = phi i32 [ 0, %.lr.ph41 ], [ %.127, %42 ]
+  %.02938 = phi i64 [ %2, %.lr.ph41 ], [ %43, %42 ]
+  %33 = and i64 %.02938, 1
   %.not33 = icmp eq i64 %33, 0
   br i1 %.not33, label %34, label %42
 
@@ -534,16 +534,16 @@ find_layout_map.exit:                             ; preds = %.lr.ph.i, %.lr.ph.i
   %.not34 = icmp eq i32 %36, -1
   %37 = select i1 %.not34, i32 768, i32 %36
   %38 = load ptr, ptr %30, align 8, !tbaa !23
-  %39 = add nsw i32 %.02641, 1
-  %40 = sext i32 %.02641 to i64
+  %39 = add nsw i32 %.02640, 1
+  %40 = sext i32 %.02640 to i64
   %41 = getelementptr inbounds %struct.AVChannelCustom, ptr %38, i64 %40
   store i32 %37, ptr %41, align 8, !tbaa !52
   br label %42
 
 42:                                               ; preds = %32, %34
-  %.127 = phi i32 [ %.02641, %32 ], [ %39, %34 ]
+  %.127 = phi i32 [ %.02640, %32 ], [ %39, %34 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = lshr i64 %.02939, 1
+  %43 = lshr i64 %.02938, 1
   %44 = icmp samesign ult i64 %indvars.iv.next, %22
   %45 = icmp slt i32 %.127, %21
   %46 = select i1 %44, i1 %45, i1 false
@@ -574,14 +574,14 @@ define noundef i32 @ff_mov_get_channel_config_from_layout(ptr noundef %0, ptr no
 find_layout_map.exit.i:                           ; preds = %4
   %9 = getelementptr i8, ptr %7, i64 4
   %.not20.i = icmp eq ptr %9, null
-  br i1 %.not20.i, label %find_layout_map.exit.thread.i, label %.lr.ph28.preheader.i
+  br i1 %.not20.i, label %find_layout_map.exit.thread.i, label %.lr.ph27.preheader.i
 
-.lr.ph28.preheader.i:                             ; preds = %find_layout_map.exit.i
+.lr.ph27.preheader.i:                             ; preds = %find_layout_map.exit.i
   %wide.trip.count.i = zext nneg i32 %5 to i64
-  br label %.lr.ph28.i
+  br label %.lr.ph27.i
 
-.lr.ph28.i:                                       ; preds = %14, %.lr.ph28.preheader.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph28.preheader.i ], [ %indvars.iv.next.i, %14 ]
+.lr.ph27.i:                                       ; preds = %14, %.lr.ph27.preheader.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph27.preheader.i ], [ %indvars.iv.next.i, %14 ]
   %10 = trunc nuw nsw i64 %indvars.iv.i to i32
   %11 = tail call i32 @av_channel_layout_channel_from_index(ptr noundef %0, i32 noundef %10) #3
   %12 = getelementptr inbounds nuw %struct.MovChannelLayoutMap, ptr %9, i64 %indvars.iv.i
@@ -589,12 +589,12 @@ find_layout_map.exit.i:                           ; preds = %4
   %.not21.i = icmp eq i32 %11, %13
   br i1 %.not21.i, label %14, label %._crit_edge.i
 
-14:                                               ; preds = %.lr.ph28.i
+14:                                               ; preds = %.lr.ph27.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %is_layout_valid_for_tag.exit, label %.lr.ph28.i, !llvm.loop !24
+  br i1 %exitcond.not.i, label %is_layout_valid_for_tag.exit, label %.lr.ph27.i, !llvm.loop !24
 
-._crit_edge.i:                                    ; preds = %.lr.ph28.i
+._crit_edge.i:                                    ; preds = %.lr.ph27.i
   %.not22.i = icmp eq i32 %5, %10
   br i1 %.not22.i, label %is_layout_valid_for_tag.exit, label %find_layout_map.exit.thread.i
 

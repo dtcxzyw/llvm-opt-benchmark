@@ -304,14 +304,11 @@ define hidden noundef zeroext i1 @lbmpdm_verify_payload(ptr noundef %0, i32 noun
   store i32 %.sink.i, ptr %2, align 4
   %24 = add i32 %1, 5
   %25 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %24)
-  switch i8 %25, label %check_lbmpdm_encoding.exit [
-    i8 0, label %26
-    i8 1, label %26
-    i8 2, label %26
-    i8 -1, label %26
-  ]
+  %.off = add i8 %25, -3
+  %switch = icmp ult i8 %.off, -4
+  br i1 %switch, label %check_lbmpdm_encoding.exit, label %26
 
-26:                                               ; preds = %23, %23, %23, %23
+26:                                               ; preds = %23
   %27 = add i32 %1, 12
   %28 = load i32, ptr %2, align 4
   %29 = tail call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %27, i32 noundef %28)

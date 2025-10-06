@@ -2789,11 +2789,11 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   br label %3
 
 3:                                                ; preds = %69, %2
-  %.narrow.i.i.i.i.i3349 = phi i64 [ %.narrow.i.i.i.i.i33, %69 ], [ %.sroa.22.0..sroa_idx.i.i.i.promoted, %2 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i3147 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31, %69 ], [ %.promoted, %2 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i3349 to i128
+  %.narrow.i.i.i.i.i3348 = phi i64 [ %.narrow.i.i.i.i.i33, %69 ], [ %.sroa.22.0..sroa_idx.i.i.i.promoted, %2 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i3146 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31, %69 ], [ %.promoted, %2 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i3348 to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i3147 to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i3146 to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i
   %4 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i = add i128 %4, 1442695040888963407
@@ -2856,8 +2856,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %41 = lshr i64 %40, 11
   %42 = and i64 %41, 4503599627370495
   %43 = shl nuw nsw i64 %38, 52
-  %reass.sub52 = sub nsw i64 %42, %43
-  %44 = add nsw i64 %reass.sub52, 4602678819172646912
+  %reass.sub51 = sub nsw i64 %42, %43
+  %44 = add nsw i64 %reass.sub51, 4602678819172646912
   %45 = bitcast i64 %44 to double
   %46 = tail call double @llvm.log.f64(double %45), !tbaa !49
   %47 = fmul double %46, 0x3FD2972A8AFC6175
@@ -2880,8 +2880,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4503599627370495
   %57 = shl nuw nsw i64 %52, 52
-  %reass.sub53 = sub nsw i64 %56, %57
-  %58 = add nsw i64 %reass.sub53, 4602678819172646912
+  %reass.sub52 = sub nsw i64 %56, %57
+  %58 = add nsw i64 %reass.sub52, 4602678819172646912
   %59 = bitcast i64 %58 to double
   %60 = tail call double @llvm.log.f64(double %59), !tbaa !49
   %61 = fneg double %60
@@ -2935,10 +2935,10 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_10pcg
   br i1 %91, label %select.unfold.loopexit, label %3
 
 select.unfold.loopexit:                           ; preds = %3, %69
-  %.narrow.i.i.i.i.i3350 = phi i64 [ %.narrow.i.i.i.i.i, %3 ], [ %.narrow.i.i.i.i.i33, %69 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i3148 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31, %69 ]
-  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i3148, ptr %1, align 16, !tbaa !31
-  store i64 %.narrow.i.i.i.i.i3350, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !31
+  %.narrow.i.i.i.i.i3349 = phi i64 [ %.narrow.i.i.i.i.i, %3 ], [ %.narrow.i.i.i.i.i33, %69 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i3147 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i31, %69 ]
+  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i3147, ptr %1, align 16, !tbaa !31
+  store i64 %.narrow.i.i.i.i.i3349, ptr %.sroa.22.0..sroa_idx.i.i.i, align 8, !tbaa !31
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.loopexit, %_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEEEEdRT_b.exit
@@ -6714,8 +6714,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %51 = lshr i64 %50, 11
   %52 = and i64 %51, 4503599627370495
   %53 = shl nuw nsw i64 %48, 52
-  %reass.sub39 = sub nsw i64 %52, %53
-  %54 = add nsw i64 %reass.sub39, 4602678819172646912
+  %reass.sub38 = sub nsw i64 %52, %53
+  %54 = add nsw i64 %reass.sub38, 4602678819172646912
   %55 = bitcast i64 %54 to double
   %56 = tail call double @llvm.log.f64(double %55), !tbaa !49
   %57 = fmul double %56, 0x3FD2972A8AFC6175
@@ -6730,8 +6730,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %65 = lshr i64 %64, 11
   %66 = and i64 %65, 4503599627370495
   %67 = shl nuw nsw i64 %62, 52
-  %reass.sub40 = sub nsw i64 %66, %67
-  %68 = add nsw i64 %reass.sub40, 4602678819172646912
+  %reass.sub39 = sub nsw i64 %66, %67
+  %68 = add nsw i64 %reass.sub39, 4602678819172646912
   %69 = bitcast i64 %68 to double
   %70 = tail call double @llvm.log.f64(double %69), !tbaa !49
   %71 = fneg double %70
@@ -20243,11 +20243,11 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   br label %3
 
 3:                                                ; preds = %69, %2
-  %.narrow.i.i.i.i.i.i3349 = phi i64 [ %.narrow.i.i.i.i.i.i33, %69 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted, %2 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3147 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i31, %69 ], [ %.promoted, %2 ]
-  %.sroa.24.0.insert.ext.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i3349 to i128
+  %.narrow.i.i.i.i.i.i3348 = phi i64 [ %.narrow.i.i.i.i.i.i33, %69 ], [ %.sroa.22.0..sroa_idx.i.i.i.i.promoted, %2 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3146 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i31, %69 ], [ %.promoted, %2 ]
+  %.sroa.24.0.insert.ext.i.i.i.i.i.i = zext i64 %.narrow.i.i.i.i.i.i3348 to i128
   %.sroa.24.0.insert.shift.i.i.i.i.i.i = shl nuw i128 %.sroa.24.0.insert.ext.i.i.i.i.i.i, 64
-  %.sroa.03.0.insert.ext.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3147 to i128
+  %.sroa.03.0.insert.ext.i.i.i.i.i.i = zext i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3146 to i128
   %.sroa.03.0.insert.insert.i.i.i.i.i.i = or disjoint i128 %.sroa.24.0.insert.shift.i.i.i.i.i.i, %.sroa.03.0.insert.ext.i.i.i.i.i.i
   %4 = mul i128 %.sroa.03.0.insert.insert.i.i.i.i.i.i, 47026247687942121848144207491837523525
   %.sroa.03.0.insert.insert.i16.i.i.i.i.i = add i128 %4, 1442695040888963407
@@ -20310,8 +20310,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %41 = lshr i64 %40, 11
   %42 = and i64 %41, 4503599627370495
   %43 = shl nuw nsw i64 %38, 52
-  %reass.sub52 = sub nsw i64 %42, %43
-  %44 = add nsw i64 %reass.sub52, 4602678819172646912
+  %reass.sub51 = sub nsw i64 %42, %43
+  %44 = add nsw i64 %reass.sub51, 4602678819172646912
   %45 = bitcast i64 %44 to double
   %46 = tail call double @llvm.log.f64(double %45), !tbaa !49
   %47 = fmul double %46, 0x3FD2972A8AFC6175
@@ -20334,8 +20334,8 @@ define linkonce_odr dso_local noundef double @_ZN4absl15random_internal26gaussia
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4503599627370495
   %57 = shl nuw nsw i64 %52, 52
-  %reass.sub53 = sub nsw i64 %56, %57
-  %58 = add nsw i64 %reass.sub53, 4602678819172646912
+  %reass.sub52 = sub nsw i64 %56, %57
+  %58 = add nsw i64 %reass.sub52, 4602678819172646912
   %59 = bitcast i64 %58 to double
   %60 = tail call double @llvm.log.f64(double %59), !tbaa !49
   %61 = fneg double %60
@@ -20389,10 +20389,10 @@ _ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17Non
   br i1 %91, label %select.unfold.loopexit, label %3
 
 select.unfold.loopexit:                           ; preds = %3, %69
-  %.narrow.i.i.i.i.i.i3350 = phi i64 [ %.narrow.i.i.i.i.i.i, %3 ], [ %.narrow.i.i.i.i.i.i33, %69 ]
-  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3148 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i31, %69 ]
-  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3148, ptr %1, align 16, !tbaa !31
-  store i64 %.narrow.i.i.i.i.i.i3350, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !31
+  %.narrow.i.i.i.i.i.i3349 = phi i64 [ %.narrow.i.i.i.i.i.i, %3 ], [ %.narrow.i.i.i.i.i.i33, %69 ]
+  %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3147 = phi i64 [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i, %3 ], [ %.sroa.0.0.extract.trunc.i17.i.i.i.i.i31, %69 ]
+  store i64 %.sroa.0.0.extract.trunc.i17.i.i.i.i.i3147, ptr %1, align 16, !tbaa !31
+  store i64 %.narrow.i.i.i.i.i.i3349, ptr %.sroa.22.0..sroa_idx.i.i.i.i, align 8, !tbaa !31
   br label %select.unfold
 
 select.unfold:                                    ; preds = %select.unfold.loopexit, %_ZN4absl15random_internal26gaussian_distribution_base15zignor_fallbackINS0_17NonsecureURBGBaseINS0_10pcg_engineINS0_13pcg128_paramsILm2549297995355413924ELm4865540595714422341ELm6364136223846793005ELm1442695040888963407EEENS0_17pcg_xsl_rr_128_64EEENS0_17RandenPoolSeedSeqEEEEEdRT_b.exit

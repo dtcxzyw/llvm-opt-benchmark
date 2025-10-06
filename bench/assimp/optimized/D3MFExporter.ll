@@ -2486,8 +2486,8 @@ _ZNK10aiMetadata3GetEmRPK8aiStringRPK15aiMetadataEntry.exit: ; preds = %20, %26
   %51 = getelementptr inbounds nuw i8, ptr %17, i64 %50
   store i8 0, ptr %51, align 1
   %52 = load i32, ptr %45, align 8
-  %.not14.not.i.i = icmp eq i32 %52, 0
-  br i1 %.not14.not.i.i, label %.loopexit, label %.lr.ph.i.i
+  %.not.i3.i = icmp eq i32 %52, 0
+  br i1 %.not.i3.i, label %.loopexit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %39
   %53 = getelementptr inbounds nuw i8, ptr %45, i64 8

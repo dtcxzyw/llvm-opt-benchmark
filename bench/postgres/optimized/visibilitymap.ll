@@ -534,8 +534,8 @@ BufferGetPage.exit:                               ; preds = %18, %24
 ; Function Attrs: nounwind uwtable
 define dso_local void @visibilitymap_count(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false)
-  %.not2829 = icmp eq i32 %4, 0
-  br i1 %.not2829, label %._crit_edge, label %.lr.ph
+  %.not2728 = icmp eq i32 %4, 0
+  br i1 %.not2728, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %.not = icmp eq ptr %2, null
@@ -543,8 +543,8 @@ define dso_local void @visibilitymap_count(ptr noundef %0, ptr noundef writeonly
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %BufferGetPage.exit.us
   %5 = phi i32 [ %25, %BufferGetPage.exit.us ], [ %4, %.lr.ph ]
-  %.01632.us = phi i32 [ %24, %BufferGetPage.exit.us ], [ 0, %.lr.ph ]
-  %.01731.us = phi i32 [ %23, %BufferGetPage.exit.us ], [ 0, %.lr.ph ]
+  %.01631.us = phi i32 [ %24, %BufferGetPage.exit.us ], [ 0, %.lr.ph ]
+  %.01730.us = phi i32 [ %23, %BufferGetPage.exit.us ], [ 0, %.lr.ph ]
   %6 = icmp slt i32 %5, 0
   br i1 %6, label %13, label %7
 
@@ -570,18 +570,18 @@ BufferGetPage.exit.us:                            ; preds = %13, %7
   %20 = load ptr, ptr @pg_popcount_masked_optimized, align 8
   %21 = tail call i64 %20(ptr noundef nonnull %19, i32 noundef 8168, i8 noundef zeroext 85) #6
   %22 = trunc i64 %21 to i32
-  %23 = add i32 %.01731.us, %22
+  %23 = add i32 %.01730.us, %22
   tail call void @ReleaseBuffer(i32 noundef %5) #6
-  %24 = add i32 %.01632.us, 1
+  %24 = add i32 %.01631.us, 1
   %25 = tail call fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef %24, i1 noundef zeroext false)
-  %.not28.us = icmp eq i32 %25, 0
-  br i1 %.not28.us, label %._crit_edge, label %.lr.ph.split.us
+  %.not27.us = icmp eq i32 %25, 0
+  br i1 %.not27.us, label %._crit_edge, label %.lr.ph.split.us
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %BufferGetPage.exit
   %26 = phi i32 [ %50, %BufferGetPage.exit ], [ %4, %.lr.ph ]
-  %.01632 = phi i32 [ %49, %BufferGetPage.exit ], [ 0, %.lr.ph ]
-  %.01731 = phi i32 [ %44, %BufferGetPage.exit ], [ 0, %.lr.ph ]
-  %.01830 = phi i32 [ %48, %BufferGetPage.exit ], [ 0, %.lr.ph ]
+  %.01631 = phi i32 [ %49, %BufferGetPage.exit ], [ 0, %.lr.ph ]
+  %.01730 = phi i32 [ %44, %BufferGetPage.exit ], [ 0, %.lr.ph ]
+  %.01829 = phi i32 [ %48, %BufferGetPage.exit ], [ 0, %.lr.ph ]
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %34
 
@@ -607,16 +607,16 @@ BufferGetPage.exit:                               ; preds = %28, %34
   %41 = load ptr, ptr @pg_popcount_masked_optimized, align 8
   %42 = tail call i64 %41(ptr noundef nonnull %40, i32 noundef 8168, i8 noundef zeroext 85) #6
   %43 = trunc i64 %42 to i32
-  %44 = add i32 %.01731, %43
+  %44 = add i32 %.01730, %43
   %45 = load ptr, ptr @pg_popcount_masked_optimized, align 8
   %46 = tail call i64 %45(ptr noundef nonnull %40, i32 noundef 8168, i8 noundef zeroext -86) #6
   %47 = trunc i64 %46 to i32
-  %48 = add i32 %.01830, %47
+  %48 = add i32 %.01829, %47
   tail call void @ReleaseBuffer(i32 noundef %26) #6
-  %49 = add i32 %.01632, 1
+  %49 = add i32 %.01631, 1
   %50 = tail call fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef %49, i1 noundef zeroext false)
-  %.not28 = icmp eq i32 %50, 0
-  br i1 %.not28, label %._crit_edge, label %.lr.ph.split
+  %.not27 = icmp eq i32 %50, 0
+  br i1 %.not27, label %._crit_edge, label %.lr.ph.split
 
 ._crit_edge:                                      ; preds = %BufferGetPage.exit, %BufferGetPage.exit.us, %3
   %.018.lcssa = phi i32 [ 0, %3 ], [ 0, %BufferGetPage.exit.us ], [ %48, %BufferGetPage.exit ]

@@ -2355,11 +2355,11 @@ declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef range(i32 1, 3) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, i1 noundef zeroext %5) unnamed_addr #0 {
-  %switch = icmp eq i32 %0, 2
-  %. = zext i1 %switch to i32
-  %7 = select i1 %switch, i32 2, i32 1
-  %8 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.)
-  %.0142173 = and i8 %8, 1
+  %7 = icmp eq i32 %0, 2
+  %. = zext i1 %7 to i32
+  %8 = select i1 %7, i32 2, i32 1
+  %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.)
+  %.0142173 = and i8 %9, 1
   %.not174 = icmp eq i8 %.0142173, 0
   br i1 %.not174, label %._crit_edge, label %.lr.ph
 
@@ -2367,196 +2367,196 @@ define internal fastcc signext range(i16 -1, 16) i16 @rlc_decode_li(i32 noundef 
   br i1 %5, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %.0144175.us = phi i32 [ %10, %.lr.ph.split.us ], [ %7, %.lr.ph ]
-  %9 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0144175.us)
-  %10 = add i32 %.0144175.us, 2
-  %.0142.us191 = and i16 %9, 1
+  %.0144175.us = phi i32 [ %11, %.lr.ph.split.us ], [ %8, %.lr.ph ]
+  %10 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.0144175.us)
+  %11 = add i32 %.0144175.us, 2
+  %.0142.us191 = and i16 %10, 1
   %.not.us = icmp eq i16 %.0142.us191, 0
   br i1 %.not.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !11
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.0144175 = phi i32 [ %12, %.lr.ph.split ], [ %7, %.lr.ph ]
-  %11 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.0144175)
-  %12 = add i32 %.0144175, 1
-  %.0142 = and i8 %11, 1
+  %.0144175 = phi i32 [ %13, %.lr.ph.split ], [ %8, %.lr.ph ]
+  %12 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.0144175)
+  %13 = add i32 %.0144175, 1
+  %.0142 = and i8 %12, 1
   %.not = icmp eq i8 %.0142, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.lr.ph.split, %.lr.ph.split.us, %6
-  %.0144.lcssa = phi i32 [ %7, %6 ], [ %10, %.lr.ph.split.us ], [ %12, %.lr.ph.split ]
-  %13 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.0144.lcssa)
-  %14 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.)
-  %15 = and i8 %14, 1
-  %16 = icmp eq i32 %0, 1
-  %17 = and i32 %13, 65535
+  %.0144.lcssa = phi i32 [ %8, %6 ], [ %11, %.lr.ph.split.us ], [ %13, %.lr.ph.split ]
+  %14 = tail call i32 @tvb_captured_length_remaining(ptr noundef %1, i32 noundef %.0144.lcssa)
+  %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.)
+  %16 = and i8 %15, 1
+  %17 = icmp eq i32 %0, 1
+  %18 = and i32 %14, 65535
   br i1 %5, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %._crit_edge, %36
-  %indvars.iv211 = phi i64 [ %indvars.iv.next212, %36 ], [ 0, %._crit_edge ]
-  %.1146.us = phi i32 [ %20, %36 ], [ %7, %._crit_edge ]
-  %.1143.us = phi i8 [ %22, %36 ], [ %15, %._crit_edge ]
-  %.0139.us = phi i16 [ %.1.us, %36 ], [ 0, %._crit_edge ]
+.split.us:                                        ; preds = %._crit_edge, %37
+  %indvars.iv211 = phi i64 [ %indvars.iv.next212, %37 ], [ 0, %._crit_edge ]
+  %.1146.us = phi i32 [ %21, %37 ], [ %8, %._crit_edge ]
+  %.1143.us = phi i8 [ %23, %37 ], [ %16, %._crit_edge ]
+  %.0139.us = phi i16 [ %.1.us, %37 ], [ 0, %._crit_edge ]
   %.not154.us = icmp eq i8 %.1143.us, 0
-  br i1 %.not154.us, label %.split178.us, label %18
+  br i1 %.not154.us, label %.split178.us, label %19
 
-18:                                               ; preds = %.split.us
-  %19 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.1146.us)
-  %20 = add nuw nsw i32 %.1146.us, 2
-  %21 = trunc i16 %19 to i8
-  %22 = and i8 %21, 1
-  %23 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv211
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store i8 %22, ptr %24, align 4
-  %25 = lshr i16 %19, 1
-  store i16 %25, ptr %23, align 8
-  switch i16 %25, label %28 [
+19:                                               ; preds = %.split.us
+  %20 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %1, i32 noundef %.1146.us)
+  %21 = add nuw nsw i32 %.1146.us, 2
+  %22 = trunc i16 %20 to i8
+  %23 = and i8 %22, 1
+  %24 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv211
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  store i8 %23, ptr %25, align 4
+  %26 = lshr i16 %20, 1
+  store i16 %26, ptr %24, align 8
+  switch i16 %26, label %29 [
     i16 0, label %.sink.split
     i16 32763, label %.sink.split
     i16 32766, label %.sink.split
     i16 32767, label %.sink.split
-    i16 32762, label %26
-    i16 32764, label %26
-    i16 32765, label %26
+    i16 32762, label %27
+    i16 32764, label %27
+    i16 32765, label %27
   ]
 
-26:                                               ; preds = %18, %18, %18
-  %27 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  store i16 0, ptr %27, align 2
-  br i1 %16, label %36, label %.split181.us
+27:                                               ; preds = %19, %19, %19
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 2
+  store i16 0, ptr %28, align 2
+  br i1 %17, label %37, label %.split181.us
 
-28:                                               ; preds = %18
-  %29 = zext nneg i16 %25 to i32
-  %30 = icmp samesign uge i32 %17, %29
-  %31 = load i8, ptr @global_rlc_headers_expected, align 1, !range !6
-  %32 = trunc nuw i8 %31 to i1
-  %or.cond.us = select i1 %30, i1 true, i1 %32
-  %33 = icmp uge i16 %25, %.0139.us
-  %or.cond155.not.us = select i1 %or.cond.us, i1 %33, i1 false
-  br i1 %or.cond155.not.us, label %34, label %.split185.us
+29:                                               ; preds = %19
+  %30 = zext nneg i16 %26 to i32
+  %31 = icmp samesign uge i32 %18, %30
+  %32 = load i8, ptr @global_rlc_headers_expected, align 1, !range !6
+  %33 = trunc nuw i8 %32 to i1
+  %or.cond.us = select i1 %31, i1 true, i1 %33
+  %34 = icmp uge i16 %26, %.0139.us
+  %or.cond155.not.us = select i1 %or.cond.us, i1 %34, i1 false
+  br i1 %or.cond155.not.us, label %35, label %.split185.us
 
-34:                                               ; preds = %28
-  %narrow.us = sub nuw nsw i16 %25, %.0139.us
+35:                                               ; preds = %29
+  %narrow.us = sub nuw nsw i16 %26, %.0139.us
   br label %.sink.split
 
-.sink.split:                                      ; preds = %18, %18, %18, %18, %34
-  %narrow.us.sink = phi i16 [ %narrow.us, %34 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ], [ 0, %18 ]
-  %.1.us.ph = phi i16 [ %25, %34 ], [ %.0139.us, %18 ], [ %.0139.us, %18 ], [ %.0139.us, %18 ], [ %.0139.us, %18 ]
-  %35 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  store i16 %narrow.us.sink, ptr %35, align 2
-  br label %36
+.sink.split:                                      ; preds = %19, %19, %19, %19, %35
+  %narrow.us.sink = phi i16 [ %narrow.us, %35 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ], [ 0, %19 ]
+  %.1.us.ph = phi i16 [ %26, %35 ], [ %.0139.us, %19 ], [ %.0139.us, %19 ], [ %.0139.us, %19 ], [ %.0139.us, %19 ]
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 2
+  store i16 %narrow.us.sink, ptr %36, align 2
+  br label %37
 
-36:                                               ; preds = %.sink.split, %26
-  %.1.us = phi i16 [ %.0139.us, %26 ], [ %.1.us.ph, %.sink.split ]
-  %37 = trunc nuw nsw i64 %indvars.iv211 to i8
-  %38 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %23, i8 noundef zeroext %37, i32 noundef %7, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3)
-  %39 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr %38, ptr %39, align 8
+37:                                               ; preds = %.sink.split, %27
+  %.1.us = phi i16 [ %.0139.us, %27 ], [ %.1.us.ph, %.sink.split ]
+  %38 = trunc nuw nsw i64 %indvars.iv211 to i8
+  %39 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %24, i8 noundef zeroext %38, i32 noundef %8, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3)
+  %40 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store ptr %39, ptr %40, align 8
   %indvars.iv.next212 = add nuw nsw i64 %indvars.iv211, 1
   %exitcond214 = icmp eq i64 %indvars.iv.next212, 16
   br i1 %exitcond214, label %.split189.us, label %.split.us, !llvm.loop !12
 
-.split:                                           ; preds = %._crit_edge, %78
-  %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %._crit_edge ]
-  %.1146 = phi i32 [ %41, %78 ], [ %7, %._crit_edge ]
-  %.1143 = phi i8 [ %43, %78 ], [ %15, %._crit_edge ]
-  %.0139 = phi i16 [ %.1, %78 ], [ 0, %._crit_edge ]
+.split:                                           ; preds = %._crit_edge, %79
+  %indvars.iv = phi i64 [ %indvars.iv.next, %79 ], [ 0, %._crit_edge ]
+  %.1146 = phi i32 [ %42, %79 ], [ %8, %._crit_edge ]
+  %.1143 = phi i8 [ %44, %79 ], [ %16, %._crit_edge ]
+  %.0139 = phi i16 [ %.1, %79 ], [ 0, %._crit_edge ]
   %.not154 = icmp eq i8 %.1143, 0
-  br i1 %.not154, label %.split178.us, label %40
+  br i1 %.not154, label %.split178.us, label %41
 
-40:                                               ; preds = %.split
-  %41 = add nuw nsw i32 %.1146, 1
-  %42 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.1146)
-  %43 = and i8 %42, 1
-  %44 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i8 %43, ptr %45, align 4
-  %46 = lshr i8 %42, 1
-  %47 = zext nneg i8 %46 to i16
-  store i16 %47, ptr %44, align 8
-  switch i8 %46, label %63 [
-    i8 0, label %55
-    i8 126, label %55
-    i8 127, label %55
-    i8 124, label %57
-    i8 125, label %57
+41:                                               ; preds = %.split
+  %42 = add nuw nsw i32 %.1146, 1
+  %43 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.1146)
+  %44 = and i8 %43, 1
+  %45 = getelementptr %struct.rlc_li, ptr %4, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i8 %44, ptr %46, align 4
+  %47 = lshr i8 %43, 1
+  %48 = zext nneg i8 %47 to i16
+  store i16 %48, ptr %45, align 8
+  switch i8 %47, label %64 [
+    i8 0, label %56
+    i8 126, label %56
+    i8 127, label %56
+    i8 124, label %58
+    i8 125, label %58
   ]
 
-.split181.us:                                     ; preds = %26
-  %48 = trunc nuw nsw i64 %indvars.iv211 to i8
-  %49 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef %23, i8 noundef zeroext %48, i32 noundef %7, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3)
-  %50 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %49, ptr noundef nonnull @ei_rlc_li_reserved)
-  br label %84
+.split181.us:                                     ; preds = %27
+  %49 = trunc nuw nsw i64 %indvars.iv211 to i8
+  %50 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef %24, i8 noundef zeroext %49, i32 noundef %8, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3)
+  %51 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %50, ptr noundef nonnull @ei_rlc_li_reserved)
+  br label %85
 
-.split185.us:                                     ; preds = %28
-  %51 = trunc nuw nsw i64 %indvars.iv211 to i8
-  %52 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  store i16 0, ptr %52, align 2
-  %53 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %23, i8 noundef zeroext %51, i32 noundef %7, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3)
-  %54 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %53, ptr noundef nonnull @ei_rlc_li_incorrect_warn)
-  br label %84
+.split185.us:                                     ; preds = %29
+  %52 = trunc nuw nsw i64 %indvars.iv211 to i8
+  %53 = getelementptr inbounds nuw i8, ptr %24, i64 2
+  store i16 0, ptr %53, align 2
+  %54 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %24, i8 noundef zeroext %52, i32 noundef %8, i1 noundef zeroext true, ptr noundef %1, ptr noundef %3)
+  %55 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %54, ptr noundef nonnull @ei_rlc_li_incorrect_warn)
+  br label %85
 
-55:                                               ; preds = %40, %40, %40
-  %56 = getelementptr inbounds nuw i8, ptr %44, i64 2
-  store i16 0, ptr %56, align 2
-  br label %78
+56:                                               ; preds = %41, %41, %41
+  %57 = getelementptr inbounds nuw i8, ptr %45, i64 2
+  store i16 0, ptr %57, align 2
+  br label %79
 
-57:                                               ; preds = %40, %40
-  %58 = getelementptr inbounds nuw i8, ptr %44, i64 2
-  store i16 0, ptr %58, align 2
-  br i1 %16, label %78, label %59
+58:                                               ; preds = %41, %41
+  %59 = getelementptr inbounds nuw i8, ptr %45, i64 2
+  store i16 0, ptr %59, align 2
+  br i1 %17, label %79, label %60
 
-59:                                               ; preds = %57
-  %60 = trunc nuw nsw i64 %indvars.iv to i8
-  %61 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef %44, i8 noundef zeroext %60, i32 noundef %7, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
-  %62 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %61, ptr noundef nonnull @ei_rlc_li_reserved)
-  br label %84
+60:                                               ; preds = %58
+  %61 = trunc nuw nsw i64 %indvars.iv to i8
+  %62 = tail call fastcc ptr @tree_add_li(i32 noundef 2, ptr noundef %45, i8 noundef zeroext %61, i32 noundef %8, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
+  %63 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %62, ptr noundef nonnull @ei_rlc_li_reserved)
+  br label %85
 
-63:                                               ; preds = %40
-  %64 = sub nsw i16 %47, %.0139
-  %65 = getelementptr inbounds nuw i8, ptr %44, i64 2
-  store i16 %64, ptr %65, align 2
-  %66 = zext nneg i8 %46 to i32
-  %67 = icmp samesign uge i32 %17, %66
-  %68 = load i8, ptr @global_rlc_headers_expected, align 1, !range !6
-  %69 = trunc nuw i8 %68 to i1
-  %or.cond3 = select i1 %67, i1 true, i1 %69
-  %70 = icmp ule i16 %.0139, %47
-  %or.cond156.not = select i1 %or.cond3, i1 %70, i1 false
-  br i1 %or.cond156.not, label %78, label %71
+64:                                               ; preds = %41
+  %65 = sub nsw i16 %48, %.0139
+  %66 = getelementptr inbounds nuw i8, ptr %45, i64 2
+  store i16 %65, ptr %66, align 2
+  %67 = zext nneg i8 %47 to i32
+  %68 = icmp samesign uge i32 %18, %67
+  %69 = load i8, ptr @global_rlc_headers_expected, align 1, !range !6
+  %70 = trunc nuw i8 %69 to i1
+  %or.cond3 = select i1 %68, i1 true, i1 %70
+  %71 = icmp ule i16 %.0139, %48
+  %or.cond156.not = select i1 %or.cond3, i1 %71, i1 false
+  br i1 %or.cond156.not, label %79, label %72
 
-71:                                               ; preds = %63
-  %72 = getelementptr inbounds nuw i8, ptr %44, i64 2
-  %73 = trunc nuw nsw i64 %indvars.iv to i8
-  store i16 0, ptr %72, align 2
-  %74 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %44, i8 noundef zeroext %73, i32 noundef %7, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
-  %75 = load i16, ptr %44, align 8
-  %76 = zext i16 %75 to i32
-  %77 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %74, ptr noundef nonnull @ei_rlc_li_incorrect_mal, ptr noundef nonnull @.str.198, i32 noundef %76)
-  br label %84
+72:                                               ; preds = %64
+  %73 = getelementptr inbounds nuw i8, ptr %45, i64 2
+  %74 = trunc nuw nsw i64 %indvars.iv to i8
+  store i16 0, ptr %73, align 2
+  %75 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %45, i8 noundef zeroext %74, i32 noundef %8, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
+  %76 = load i16, ptr %45, align 8
+  %77 = zext i16 %76 to i32
+  %78 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %2, ptr noundef %75, ptr noundef nonnull @ei_rlc_li_incorrect_mal, ptr noundef nonnull @.str.198, i32 noundef %77)
+  br label %85
 
-78:                                               ; preds = %63, %55, %57
-  %.1 = phi i16 [ %.0139, %55 ], [ %.0139, %57 ], [ %47, %63 ]
-  %79 = trunc nuw nsw i64 %indvars.iv to i8
-  %80 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %44, i8 noundef zeroext %79, i32 noundef %7, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
-  %81 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  store ptr %80, ptr %81, align 8
+79:                                               ; preds = %64, %56, %58
+  %.1 = phi i16 [ %.0139, %56 ], [ %.0139, %58 ], [ %48, %64 ]
+  %80 = trunc nuw nsw i64 %indvars.iv to i8
+  %81 = tail call fastcc ptr @tree_add_li(i32 noundef %0, ptr noundef %45, i8 noundef zeroext %80, i32 noundef %8, i1 noundef zeroext false, ptr noundef %1, ptr noundef %3)
+  %82 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  store ptr %81, ptr %82, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond, label %.split189.us, label %.split, !llvm.loop !12
 
-.split189.us:                                     ; preds = %78, %36
-  %.us-phi190 = phi ptr [ %38, %36 ], [ %80, %78 ]
-  %82 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %.us-phi190, ptr noundef nonnull @ei_rlc_li_too_many)
-  br label %84
+.split189.us:                                     ; preds = %79, %37
+  %.us-phi190 = phi ptr [ %39, %37 ], [ %81, %79 ]
+  %83 = tail call ptr @expert_add_info(ptr noundef %2, ptr noundef %.us-phi190, ptr noundef nonnull @ei_rlc_li_too_many)
+  br label %85
 
 .split178.us:                                     ; preds = %.split, %.split.us
   %.us-phi179.in = phi i64 [ %indvars.iv211, %.split.us ], [ %indvars.iv, %.split ]
   %.us-phi179 = trunc i64 %.us-phi179.in to i16
-  %83 = and i16 %.us-phi179, 255
-  br label %84
+  %84 = and i16 %.us-phi179, 255
+  br label %85
 
-84:                                               ; preds = %.split178.us, %.split189.us, %71, %59, %.split185.us, %.split181.us
-  %.0 = phi i16 [ -1, %.split185.us ], [ -1, %.split189.us ], [ -1, %.split181.us ], [ -1, %71 ], [ -1, %59 ], [ %83, %.split178.us ]
+85:                                               ; preds = %.split178.us, %.split189.us, %72, %60, %.split185.us, %.split181.us
+  %.0 = phi i16 [ -1, %.split185.us ], [ -1, %.split189.us ], [ -1, %.split181.us ], [ -1, %72 ], [ -1, %60 ], [ %84, %.split178.us ]
   ret i16 %.0
 }
 

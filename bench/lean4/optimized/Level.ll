@@ -632,8 +632,8 @@ lean_dec.exit31:                                  ; preds = %lean_dec.exit29
 13:                                               ; preds = %10, %lean_dec.exit31
   %14 = ptrtoint ptr %.024 to i64
   %15 = and i64 %14, 1
-  %.not54 = icmp eq i64 %15, 0
-  br i1 %.not54, label %16, label %lean_dec.exit30
+  %.not52 = icmp eq i64 %15, 0
+  br i1 %.not52, label %16, label %lean_dec.exit30
 
 16:                                               ; preds = %13
   %17 = load i32, ptr %.024, align 4, !tbaa !8
@@ -10996,17 +10996,17 @@ lean_dec.exit:                                    ; preds = %lean_obj_tag.exit, 
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams_visitArgs___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %.not25 = icmp eq i64 %1, %2
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i64 %1, %2
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %17
-  %.01427 = phi i64 [ %1, %.lr.ph ], [ %19, %17 ]
-  %.01626 = phi ptr [ %3, %.lr.ph ], [ %18, %17 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01427
+  %.01425 = phi i64 [ %1, %.lr.ph ], [ %19, %17 ]
+  %.01624 = phi ptr [ %3, %.lr.ph ], [ %18, %17 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01425
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -11032,8 +11032,8 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams
   br label %17
 
 17:                                               ; preds = %16, %15, %13, %6
-  %18 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %8, ptr noundef %.01626)
-  %19 = add i64 %.01427, 1
+  %18 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %8, ptr noundef %.01624)
+  %19 = add i64 %.01425, 1
   %.not = icmp eq i64 %19, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -11056,9 +11056,9 @@ lean_nat_lt.exit:
   br label %4
 
 4:                                                ; preds = %15, %.lr.ph.i
-  %.01427.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %15 ]
-  %.01626.i = phi ptr [ %1, %.lr.ph.i ], [ %16, %15 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.01427.i
+  %.01425.i = phi i64 [ 0, %.lr.ph.i ], [ %17, %15 ]
+  %.01624.i = phi ptr [ %1, %.lr.ph.i ], [ %16, %15 ]
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.01425.i
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -11084,8 +11084,8 @@ lean_nat_lt.exit:
   br label %15
 
 15:                                               ; preds = %14, %13, %11, %4
-  %16 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %6, ptr noundef %.01626.i)
-  %17 = add nuw nsw i64 %.01427.i, 1
+  %16 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %6, ptr noundef %.01624.i)
+  %17 = add nuw nsw i64 %.01425.i, 1
   %.not.i27 = icmp eq i64 %17, %.mask
   br i1 %.not.i27, label %lean_dec.exit19, label %4
 
@@ -11148,17 +11148,17 @@ lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   br label %lean_dec.exit9
 
 lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean_dec.exit10
-  %.not25.i = icmp eq i64 %.val, %.val15
-  br i1 %.not25.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams_visitArgs___spec__1.exit, label %.lr.ph.i
+  %.not23.i = icmp eq i64 %.val, %.val15
+  br i1 %.not23.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams_visitArgs___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %37, %.lr.ph.i
-  %.01427.i = phi i64 [ %.val, %.lr.ph.i ], [ %39, %37 ]
-  %.01626.i = phi ptr [ %3, %.lr.ph.i ], [ %38, %37 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01427.i
+  %.01425.i = phi i64 [ %.val, %.lr.ph.i ], [ %39, %37 ]
+  %.01624.i = phi ptr [ %3, %.lr.ph.i ], [ %38, %37 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01425.i
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -11184,8 +11184,8 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
   br label %37
 
 37:                                               ; preds = %36, %35, %33, %26
-  %38 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %28, ptr noundef %.01626.i)
-  %39 = add i64 %.01427.i, 1
+  %38 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %28, ptr noundef %.01624.i)
+  %39 = add i64 %.01425.i, 1
   %.not.i16 = icmp eq i64 %39, %.val15
   br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams_visitArgs___spec__1.exit, label %26
 
@@ -11231,9 +11231,9 @@ define ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArgs___boxed(ptr nounde
   br label %5
 
 5:                                                ; preds = %16, %.lr.ph.i.i
-  %.01427.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %16 ]
-  %.01626.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %17, %16 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01427.i.i
+  %.01425.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %16 ]
+  %.01624.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %17, %16 ]
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01425.i.i
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -11259,8 +11259,8 @@ define ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArgs___boxed(ptr nounde
   br label %16
 
 16:                                               ; preds = %15, %14, %12, %5
-  %17 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %7, ptr noundef %.01626.i.i)
-  %18 = add nuw nsw i64 %.01427.i.i, 1
+  %17 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %7, ptr noundef %.01624.i.i)
+  %18 = add nuw nsw i64 %.01425.i.i, 1
   %.not.i27.i = icmp eq i64 %18, %.mask.i
   br i1 %.not.i27.i, label %l_Lean_Compiler_LCNF_CollectLevelParams_visitArgs.exit, label %5
 
@@ -11403,9 +11403,9 @@ lean_dec.exit27:                                  ; preds = %38, %37, %35, %lean
   br label %41
 
 41:                                               ; preds = %52, %.lr.ph.i.i
-  %.01427.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %54, %52 ]
-  %.01626.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %53, %52 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %.01427.i.i
+  %.01425.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %54, %52 ]
+  %.01624.i.i = phi ptr [ %1, %.lr.ph.i.i ], [ %53, %52 ]
+  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %.01425.i.i
   %43 = load ptr, ptr %42, align 8, !tbaa !4
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, 1
@@ -11431,8 +11431,8 @@ lean_dec.exit27:                                  ; preds = %38, %37, %35, %lean
   br label %52
 
 52:                                               ; preds = %51, %50, %48, %41
-  %53 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %43, ptr noundef %.01626.i.i)
-  %54 = add nuw nsw i64 %.01427.i.i, 1
+  %53 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %43, ptr noundef %.01624.i.i)
+  %54 = add nuw nsw i64 %.01425.i.i, 1
   %.not.i27.i = icmp eq i64 %54, %.mask.i
   br i1 %.not.i27.i, label %l_Lean_Compiler_LCNF_CollectLevelParams_visitArgs.exit, label %41
 
@@ -11521,9 +11521,9 @@ lean_dec.exit25:                                  ; preds = %80, %79, %77, %lean
   br label %83
 
 83:                                               ; preds = %94, %.lr.ph.i.i51
-  %.01427.i.i52 = phi i64 [ 0, %.lr.ph.i.i51 ], [ %96, %94 ]
-  %.01626.i.i53 = phi ptr [ %1, %.lr.ph.i.i51 ], [ %95, %94 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %.01427.i.i52
+  %.01425.i.i52 = phi i64 [ 0, %.lr.ph.i.i51 ], [ %96, %94 ]
+  %.01624.i.i53 = phi ptr [ %1, %.lr.ph.i.i51 ], [ %95, %94 ]
+  %84 = getelementptr inbounds nuw ptr, ptr %82, i64 %.01425.i.i52
   %85 = load ptr, ptr %84, align 8, !tbaa !4
   %86 = ptrtoint ptr %85 to i64
   %87 = and i64 %86, 1
@@ -11549,8 +11549,8 @@ lean_dec.exit25:                                  ; preds = %80, %79, %77, %lean
   br label %94
 
 94:                                               ; preds = %93, %92, %90, %83
-  %95 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %85, ptr noundef %.01626.i.i53)
-  %96 = add nuw nsw i64 %.01427.i.i52, 1
+  %95 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %85, ptr noundef %.01624.i.i53)
+  %96 = add nuw nsw i64 %.01425.i.i52, 1
   %.not.i27.i55 = icmp eq i64 %96, %.mask.i49
   br i1 %.not.i27.i55, label %l_Lean_Compiler_LCNF_CollectLevelParams_visitArgs.exit59, label %83
 
@@ -11662,17 +11662,17 @@ lean_dec.exit:                                    ; preds = %21, %20, %18, %lean
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams_visitParams___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %.not28 = icmp eq i64 %1, %2
-  br i1 %.not28, label %._crit_edge, label %.lr.ph
+  %.not26 = icmp eq i64 %1, %2
+  br i1 %.not26, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %34
-  %.01430 = phi i64 [ %1, %.lr.ph ], [ %36, %34 ]
-  %.01629 = phi ptr [ %3, %.lr.ph ], [ %35, %34 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01430
+  %.01428 = phi i64 [ %1, %.lr.ph ], [ %36, %34 ]
+  %.01627 = phi ptr [ %3, %.lr.ph ], [ %35, %34 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01428
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -11745,8 +11745,8 @@ lean_inc.exit.i:                                  ; preds = %26, %25, %23, %lean
   br label %34
 
 34:                                               ; preds = %33, %32, %30, %lean_inc.exit.i
-  %35 = tail call ptr @l_Lean_CollectLevelParams_visitExpr(ptr noundef %18, ptr noundef %.01629) #4
-  %36 = add i64 %.01430, 1
+  %35 = tail call ptr @l_Lean_CollectLevelParams_visitExpr(ptr noundef %18, ptr noundef %.01627) #4
+  %36 = add i64 %.01428, 1
   %.not = icmp eq i64 %36, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -12333,9 +12333,9 @@ lean_dec.exit91:                                  ; preds = %85, %84, %82, %lean
   br label %88
 
 88:                                               ; preds = %99, %.lr.ph.i.i
-  %.01427.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %101, %99 ]
-  %.01626.i.i = phi ptr [ %.069, %.lr.ph.i.i ], [ %100, %99 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %.01427.i.i
+  %.01425.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %101, %99 ]
+  %.01624.i.i = phi ptr [ %.069, %.lr.ph.i.i ], [ %100, %99 ]
+  %89 = getelementptr inbounds nuw ptr, ptr %87, i64 %.01425.i.i
   %90 = load ptr, ptr %89, align 8, !tbaa !4
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 1
@@ -12361,8 +12361,8 @@ lean_dec.exit91:                                  ; preds = %85, %84, %82, %lean
   br label %99
 
 99:                                               ; preds = %98, %97, %95, %88
-  %100 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %90, ptr noundef %.01626.i.i)
-  %101 = add nuw nsw i64 %.01427.i.i, 1
+  %100 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitArg(ptr noundef %90, ptr noundef %.01624.i.i)
+  %101 = add nuw nsw i64 %.01425.i.i, 1
   %.not.i27.i = icmp eq i64 %101, %.mask.i
   br i1 %.not.i27.i, label %l_Lean_Compiler_LCNF_CollectLevelParams_visitArgs.exit, label %88
 
@@ -12521,9 +12521,9 @@ lean_dec.exit88:                                  ; preds = %153, %152, %150, %l
   br label %157
 
 157:                                              ; preds = %168, %.lr.ph.i
-  %.014.i39.i = phi i64 [ 0, %.lr.ph.i ], [ %170, %168 ]
-  %.016.i38.i = phi ptr [ %154, %.lr.ph.i ], [ %169, %168 ]
-  %158 = getelementptr inbounds nuw ptr, ptr %156, i64 %.014.i39.i
+  %.014.i37.i = phi i64 [ 0, %.lr.ph.i ], [ %170, %168 ]
+  %.016.i36.i = phi ptr [ %154, %.lr.ph.i ], [ %169, %168 ]
+  %158 = getelementptr inbounds nuw ptr, ptr %156, i64 %.014.i37.i
   %159 = load ptr, ptr %158, align 8, !tbaa !4
   %160 = ptrtoint ptr %159 to i64
   %161 = and i64 %160, 1
@@ -12549,10 +12549,10 @@ lean_dec.exit88:                                  ; preds = %153, %152, %150, %l
   br label %168
 
 168:                                              ; preds = %167, %166, %164, %157
-  %169 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %159, ptr noundef %.016.i38.i)
-  %170 = add nuw nsw i64 %.014.i39.i, 1
-  %.not36.i = icmp eq i64 %170, %.mask.i238
-  br i1 %.not36.i, label %l_Lean_Compiler_LCNF_CollectLevelParams_visitAlts.exit, label %157
+  %169 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %159, ptr noundef %.016.i36.i)
+  %170 = add nuw nsw i64 %.014.i37.i, 1
+  %.not34.i = icmp eq i64 %170, %.mask.i238
+  br i1 %.not34.i, label %l_Lean_Compiler_LCNF_CollectLevelParams_visitAlts.exit, label %157
 
 l_Lean_Compiler_LCNF_CollectLevelParams_visitAlts.exit: ; preds = %168, %lean_dec.exit88
   %.0.i240 = phi ptr [ %154, %lean_dec.exit88 ], [ %169, %168 ]
@@ -12877,9 +12877,9 @@ lean_nat_lt.exit:
   br label %4
 
 4:                                                ; preds = %.lr.ph, %15
-  %.014.i39 = phi i64 [ 0, %.lr.ph ], [ %17, %15 ]
-  %.016.i38 = phi ptr [ %1, %.lr.ph ], [ %16, %15 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.014.i39
+  %.014.i37 = phi i64 [ 0, %.lr.ph ], [ %17, %15 ]
+  %.016.i36 = phi ptr [ %1, %.lr.ph ], [ %16, %15 ]
+  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %.014.i37
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -12905,10 +12905,10 @@ lean_nat_lt.exit:
   br label %15
 
 15:                                               ; preds = %14, %13, %11, %4
-  %16 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %6, ptr noundef %.016.i38)
-  %17 = add nuw nsw i64 %.014.i39, 1
-  %.not36 = icmp eq i64 %17, %.mask
-  br i1 %.not36, label %lean_dec.exit19, label %4
+  %16 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %6, ptr noundef %.016.i36)
+  %17 = add nuw nsw i64 %.014.i37, 1
+  %.not34 = icmp eq i64 %17, %.mask
+  br i1 %.not34, label %lean_dec.exit19, label %4
 
 lean_dec.exit19:                                  ; preds = %15, %lean_nat_lt.exit
   %.0 = phi ptr [ %1, %lean_nat_lt.exit ], [ %16, %15 ]
@@ -12917,17 +12917,17 @@ lean_dec.exit19:                                  ; preds = %15, %lean_nat_lt.ex
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams_visitAlts___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %.not25 = icmp eq i64 %1, %2
-  br i1 %.not25, label %._crit_edge, label %.lr.ph
+  %.not23 = icmp eq i64 %1, %2
+  br i1 %.not23, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %17
-  %.01427 = phi i64 [ %1, %.lr.ph ], [ %19, %17 ]
-  %.01626 = phi ptr [ %3, %.lr.ph ], [ %18, %17 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01427
+  %.01425 = phi i64 [ %1, %.lr.ph ], [ %19, %17 ]
+  %.01624 = phi ptr [ %3, %.lr.ph ], [ %18, %17 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01425
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -12953,8 +12953,8 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams
   br label %17
 
 17:                                               ; preds = %16, %15, %13, %6
-  %18 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %8, ptr noundef %.01626)
-  %19 = add i64 %.01427, 1
+  %18 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %8, ptr noundef %.01624)
+  %19 = add i64 %.01425, 1
   %.not = icmp eq i64 %19, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -13017,17 +13017,17 @@ lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   br label %lean_dec.exit9
 
 lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean_dec.exit10
-  %.not25.i = icmp eq i64 %.val15, %.val
-  br i1 %.not25.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams_visitAlts___spec__1.exit, label %.lr.ph.i
+  %.not23.i = icmp eq i64 %.val15, %.val
+  br i1 %.not23.i, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams_visitAlts___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %37, %.lr.ph.i
-  %.01427.i = phi i64 [ %.val15, %.lr.ph.i ], [ %39, %37 ]
-  %.01626.i = phi ptr [ %3, %.lr.ph.i ], [ %38, %37 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01427.i
+  %.01425.i = phi i64 [ %.val15, %.lr.ph.i ], [ %39, %37 ]
+  %.01624.i = phi ptr [ %3, %.lr.ph.i ], [ %38, %37 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01425.i
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -13053,8 +13053,8 @@ lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean
   br label %37
 
 37:                                               ; preds = %36, %35, %33, %26
-  %38 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %28, ptr noundef %.01626.i)
-  %39 = add i64 %.01427.i, 1
+  %38 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %28, ptr noundef %.01624.i)
+  %39 = add i64 %.01425.i, 1
   %.not.i16 = icmp eq i64 %39, %.val
   br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_CollectLevelParams_visitAlts___spec__1.exit, label %26
 
@@ -13100,9 +13100,9 @@ define ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlts___boxed(ptr nounde
   br label %5
 
 5:                                                ; preds = %16, %.lr.ph.i
-  %.014.i39.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %16 ]
-  %.016.i38.i = phi ptr [ %1, %.lr.ph.i ], [ %17, %16 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.014.i39.i
+  %.014.i37.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %16 ]
+  %.016.i36.i = phi ptr [ %1, %.lr.ph.i ], [ %17, %16 ]
+  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %.014.i37.i
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = ptrtoint ptr %7 to i64
   %9 = and i64 %8, 1
@@ -13128,10 +13128,10 @@ define ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlts___boxed(ptr nounde
   br label %16
 
 16:                                               ; preds = %15, %14, %12, %5
-  %17 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %7, ptr noundef %.016.i38.i)
-  %18 = add nuw nsw i64 %.014.i39.i, 1
-  %.not36.i = icmp eq i64 %18, %.mask.i
-  br i1 %.not36.i, label %l_Lean_Compiler_LCNF_CollectLevelParams_visitAlts.exit, label %5
+  %17 = tail call ptr @l_Lean_Compiler_LCNF_CollectLevelParams_visitAlt(ptr noundef %7, ptr noundef %.016.i36.i)
+  %18 = add nuw nsw i64 %.014.i37.i, 1
+  %.not34.i = icmp eq i64 %18, %.mask.i
+  br i1 %.not34.i, label %l_Lean_Compiler_LCNF_CollectLevelParams_visitAlts.exit, label %5
 
 l_Lean_Compiler_LCNF_CollectLevelParams_visitAlts.exit: ; preds = %16, %2
   %.0.i = phi ptr [ %1, %2 ], [ %17, %16 ]

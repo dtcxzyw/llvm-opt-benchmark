@@ -304,8 +304,8 @@ declare ptr @lv_display_get_next(ptr noundef) local_unnamed_addr #2
 define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %4 = load ptr, ptr %3, align 8, !tbaa !45
-  %.not48 = icmp eq ptr %4, null
-  br i1 %.not48, label %._crit_edge, label %.lr.ph
+  %.not47 = icmp eq ptr %4, null
+  br i1 %.not47, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2
   %.not38.i = icmp eq ptr %0, null
@@ -314,22 +314,22 @@ define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_
   br label %7
 
 7:                                                ; preds = %.lr.ph, %59
-  %.050 = phi ptr [ null, %.lr.ph ], [ %.1, %59 ]
-  %.03449 = phi ptr [ %4, %.lr.ph ], [ %8, %59 ]
-  %8 = load ptr, ptr %.03449, align 8, !tbaa !48
-  %9 = getelementptr inbounds nuw i8, ptr %.03449, i64 96
+  %.049 = phi ptr [ null, %.lr.ph ], [ %.1, %59 ]
+  %.03448 = phi ptr [ %4, %.lr.ph ], [ %8, %59 ]
+  %8 = load ptr, ptr %.03448, align 8, !tbaa !48
+  %9 = getelementptr inbounds nuw i8, ptr %.03448, i64 96
   %10 = load volatile i32, ptr %9, align 8, !tbaa !44
   %11 = icmp eq i32 %10, 3
   br i1 %11, label %12, label %59
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw i8, ptr %.03449, i64 8
+  %13 = getelementptr inbounds nuw i8, ptr %.03448, i64 8
   %14 = load i32, ptr %13, align 8, !tbaa !67
   %15 = icmp eq i32 %14, 7
   br i1 %15, label %16, label %46
 
 16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.03449, i64 104
+  %17 = getelementptr inbounds nuw i8, ptr %.03448, i64 104
   %18 = load ptr, ptr %17, align 8, !tbaa !50
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !68
@@ -391,7 +391,7 @@ define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_
   br label %46
 
 46:                                               ; preds = %45, %31, %12
-  %47 = tail call ptr @lv_draw_task_get_label_dsc(ptr noundef nonnull %.03449) #11
+  %47 = tail call ptr @lv_draw_task_get_label_dsc(ptr noundef nonnull %.03448) #11
   %.not41.i = icmp eq ptr %47, null
   br i1 %.not41.i, label %lv_cleanup_task.exit, label %48
 
@@ -410,15 +410,15 @@ define zeroext i1 @lv_draw_dispatch_layer(ptr noundef %0, ptr noundef %1) local_
   br label %lv_cleanup_task.exit
 
 lv_cleanup_task.exit:                             ; preds = %46, %48, %52
-  %55 = getelementptr inbounds nuw i8, ptr %.03449, i64 104
+  %55 = getelementptr inbounds nuw i8, ptr %.03448, i64 104
   %56 = load ptr, ptr %55, align 8, !tbaa !50
   tail call void @lv_free(ptr noundef %56) #11
-  tail call void @lv_free(ptr noundef nonnull %.03449) #11
-  %.not43 = icmp eq ptr %.050, null
+  tail call void @lv_free(ptr noundef nonnull %.03448) #11
+  %.not43 = icmp eq ptr %.049, null
   br i1 %.not43, label %58, label %57
 
 57:                                               ; preds = %lv_cleanup_task.exit
-  store ptr %8, ptr %.050, align 8, !tbaa !48
+  store ptr %8, ptr %.049, align 8, !tbaa !48
   br label %59
 
 58:                                               ; preds = %lv_cleanup_task.exit
@@ -426,7 +426,7 @@ lv_cleanup_task.exit:                             ; preds = %46, %48, %52
   br label %59
 
 59:                                               ; preds = %7, %57, %58
-  %.1 = phi ptr [ %.050, %57 ], [ null, %58 ], [ %.03449, %7 ]
+  %.1 = phi ptr [ %.049, %57 ], [ null, %58 ], [ %.03448, %7 ]
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %._crit_edge, label %7, !llvm.loop !92
 
@@ -449,25 +449,25 @@ lv_cleanup_task.exit:                             ; preds = %46, %48, %52
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %61, i64 72
-  %.03551 = load ptr, ptr %70, align 8, !tbaa !95
-  %.not4252 = icmp eq ptr %.03551, null
-  br i1 %.not4252, label %.loopexit, label %.lr.ph55
+  %.03550 = load ptr, ptr %70, align 8, !tbaa !95
+  %.not4251 = icmp eq ptr %.03550, null
+  br i1 %.not4251, label %.loopexit, label %.lr.ph54
 
-.lr.ph55:                                         ; preds = %69, %.thread
-  %.03553 = phi ptr [ %.035, %.thread ], [ %.03551, %69 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.03553, i64 8
+.lr.ph54:                                         ; preds = %69, %.thread
+  %.03552 = phi ptr [ %.035, %.thread ], [ %.03550, %69 ]
+  %71 = getelementptr inbounds nuw i8, ptr %.03552, i64 8
   %72 = load i32, ptr %71, align 8, !tbaa !67
   %73 = icmp eq i32 %72, 7
   br i1 %73, label %74, label %.thread
 
-74:                                               ; preds = %.lr.ph55
-  %75 = getelementptr inbounds nuw i8, ptr %.03553, i64 96
+74:                                               ; preds = %.lr.ph54
+  %75 = getelementptr inbounds nuw i8, ptr %.03552, i64 96
   %76 = load volatile i32, ptr %75, align 8, !tbaa !44
   %77 = icmp eq i32 %76, 0
   br i1 %77, label %78, label %.thread
 
 78:                                               ; preds = %74
-  %79 = getelementptr inbounds nuw i8, ptr %.03553, i64 104
+  %79 = getelementptr inbounds nuw i8, ptr %.03552, i64 104
   %80 = load ptr, ptr %79, align 8, !tbaa !50
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 48
   %82 = load ptr, ptr %81, align 8, !tbaa !68
@@ -475,35 +475,35 @@ lv_cleanup_task.exit:                             ; preds = %46, %48, %52
   br i1 %83, label %84, label %.thread
 
 84:                                               ; preds = %78
-  %85 = getelementptr inbounds nuw i8, ptr %.03553, i64 96
+  %85 = getelementptr inbounds nuw i8, ptr %.03552, i64 96
   store volatile i32 1, ptr %85, align 8, !tbaa !44
   store volatile i32 1, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 552), align 8, !tbaa !64
   br label %.loopexit
 
-.thread:                                          ; preds = %78, %74, %.lr.ph55
-  %.035 = load ptr, ptr %.03553, align 8, !tbaa !95
+.thread:                                          ; preds = %78, %74, %.lr.ph54
+  %.035 = load ptr, ptr %.03552, align 8, !tbaa !95
   %.not42 = icmp eq ptr %.035, null
-  br i1 %.not42, label %.loopexit, label %.lr.ph55, !llvm.loop !96
+  br i1 %.not42, label %.loopexit, label %.lr.ph54, !llvm.loop !96
 
 86:                                               ; preds = %66, %62, %._crit_edge
-  %.03256 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !59
-  %.not4057 = icmp eq ptr %.03256, null
-  br i1 %.not4057, label %.loopexit, label %.lr.ph61
+  %.03255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 536), align 8, !tbaa !59
+  %.not4056 = icmp eq ptr %.03255, null
+  br i1 %.not4056, label %.loopexit, label %.lr.ph60
 
-.lr.ph61:                                         ; preds = %86, %.lr.ph61
-  %.03259 = phi ptr [ %.032, %.lr.ph61 ], [ %.03256, %86 ]
-  %.13758 = phi i1 [ %spec.select, %.lr.ph61 ], [ false, %86 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.03259, i64 24
+.lr.ph60:                                         ; preds = %86, %.lr.ph60
+  %.03258 = phi ptr [ %.032, %.lr.ph60 ], [ %.03255, %86 ]
+  %.13757 = phi i1 [ %spec.select, %.lr.ph60 ], [ false, %86 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.03258, i64 24
   %88 = load ptr, ptr %87, align 8, !tbaa !97
-  %89 = tail call i32 %88(ptr noundef nonnull %.03259, ptr noundef nonnull %1) #11
+  %89 = tail call i32 %88(ptr noundef nonnull %.03258, ptr noundef nonnull %1) #11
   %.not41 = icmp ne i32 %89, -1
-  %spec.select = select i1 %.not41, i1 true, i1 %.13758
-  %.032 = load ptr, ptr %.03259, align 8, !tbaa !59
+  %spec.select = select i1 %.not41, i1 true, i1 %.13757
+  %.032 = load ptr, ptr %.03258, align 8, !tbaa !59
   %.not40 = icmp eq ptr %.032, null
-  br i1 %.not40, label %.loopexit, label %.lr.ph61, !llvm.loop !98
+  br i1 %.not40, label %.loopexit, label %.lr.ph60, !llvm.loop !98
 
-.loopexit:                                        ; preds = %.thread, %.lr.ph61, %69, %86, %84
-  %.036 = phi i1 [ false, %84 ], [ false, %86 ], [ false, %69 ], [ %spec.select, %.lr.ph61 ], [ false, %.thread ]
+.loopexit:                                        ; preds = %.thread, %.lr.ph60, %69, %86, %84
+  %.036 = phi i1 [ false, %84 ], [ false, %86 ], [ false, %69 ], [ %spec.select, %.lr.ph60 ], [ false, %.thread ]
   ret i1 %.036
 }
 
@@ -596,19 +596,19 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
 .thread:                                          ; preds = %34, %30, %26, %22, %14, %13
   %.not35 = icmp eq ptr %1, null
   %. = select i1 %.not35, ptr %7, ptr %1
-  %.044 = load ptr, ptr %., align 8, !tbaa !95
-  %.not3645 = icmp eq ptr %.044, null
-  br i1 %.not3645, label %is_independent.exit.thread, label %.lr.ph
+  %.043 = load ptr, ptr %., align 8, !tbaa !95
+  %.not3644 = icmp eq ptr %.043, null
+  br i1 %.not3644, label %is_independent.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %is_independent.exit
-  %.046 = phi ptr [ %.0, %is_independent.exit ], [ %.044, %.thread ]
-  %38 = getelementptr inbounds nuw i8, ptr %.046, i64 96
+  %.045 = phi ptr [ %.0, %is_independent.exit ], [ %.043, %.thread ]
+  %38 = getelementptr inbounds nuw i8, ptr %.045, i64 96
   %39 = load volatile i32, ptr %38, align 8, !tbaa !44
   %40 = icmp eq i32 %39, 1
   br i1 %40, label %41, label %is_independent.exit
 
 41:                                               ; preds = %.lr.ph
-  %42 = getelementptr inbounds nuw i8, ptr %.046, i64 112
+  %42 = getelementptr inbounds nuw i8, ptr %.045, i64 112
   %43 = load i8, ptr %42, align 8, !tbaa !58
   %44 = icmp eq i8 %43, 0
   %45 = icmp eq i8 %43, %2
@@ -618,12 +618,12 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
 46:                                               ; preds = %41
   %.0915.i = load ptr, ptr %7, align 8, !tbaa !95
   %47 = icmp eq ptr %.0915.i, null
-  %48 = icmp eq ptr %.0915.i, %.046
+  %48 = icmp eq ptr %.0915.i, %.045
   %.not1416.i = or i1 %47, %48
   br i1 %.not1416.i, label %is_independent.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %.046, i64 28
+  %49 = getelementptr inbounds nuw i8, ptr %.045, i64 28
   br label %50
 
 50:                                               ; preds = %56, %.lr.ph.i
@@ -643,17 +643,17 @@ define ptr @lv_draw_get_next_available_task(ptr noundef readonly captures(none) 
 56:                                               ; preds = %53, %50
   %.09.i = load ptr, ptr %.0917.i, align 8, !tbaa !95
   %57 = icmp eq ptr %.09.i, null
-  %58 = icmp eq ptr %.09.i, %.046
+  %58 = icmp eq ptr %.09.i, %.045
   %.not14.i = or i1 %57, %58
   br i1 %.not14.i, label %is_independent.exit.thread, label %50, !llvm.loop !104
 
 is_independent.exit:                              ; preds = %53, %41, %.lr.ph
-  %.0 = load ptr, ptr %.046, align 8, !tbaa !95
+  %.0 = load ptr, ptr %.045, align 8, !tbaa !95
   %.not36 = icmp eq ptr %.0, null
   br i1 %.not36, label %is_independent.exit.thread, label %.lr.ph, !llvm.loop !105
 
 is_independent.exit.thread:                       ; preds = %is_independent.exit, %46, %56, %.thread, %34, %10, %9
-  %.027 = phi ptr [ null, %9 ], [ %spec.select, %10 ], [ null, %34 ], [ null, %.thread ], [ %.046, %56 ], [ null, %is_independent.exit ], [ %.046, %46 ]
+  %.027 = phi ptr [ null, %9 ], [ %spec.select, %10 ], [ null, %34 ], [ null, %.thread ], [ %.045, %56 ], [ null, %is_independent.exit ], [ %.045, %46 ]
   ret ptr %.027
 }
 

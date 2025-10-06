@@ -412,19 +412,19 @@ list_options_for_command.exit:                    ; preds = %list_options_for_co
 85:                                               ; preds = %list_options_for_command.exit
   %86 = tail call ptr @opt_arg() #6
   %87 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @functions, i64 8), align 8, !tbaa !9
-  %.not30.i = icmp eq ptr %87, null
-  br i1 %.not30.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not28.i = icmp eq ptr %87, null
+  br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %85, %91
   %88 = phi ptr [ %94, %91 ], [ %87, %85 ]
-  %.031.i = phi ptr [ %92, %91 ], [ @functions, %85 ]
+  %.029.i = phi ptr [ %92, %91 ], [ @functions, %85 ]
   %89 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %88, ptr noundef nonnull dereferenceable(1) %86) #7
   %90 = icmp eq i32 %89, 0
   br i1 %90, label %97, label %91
 
 91:                                               ; preds = %.lr.ph.i
-  %92 = getelementptr inbounds nuw i8, ptr %.031.i, i64 48
-  %93 = getelementptr inbounds nuw i8, ptr %.031.i, i64 56
+  %92 = getelementptr inbounds nuw i8, ptr %.029.i, i64 48
+  %93 = getelementptr inbounds nuw i8, ptr %.029.i, i64 56
   %94 = load ptr, ptr %93, align 8, !tbaa !9
   %.not.i = icmp eq ptr %94, null
   br i1 %.not.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !14
@@ -435,25 +435,25 @@ list_options_for_command.exit:                    ; preds = %list_options_for_co
   br label %list_options_for_command.exit.backedge
 
 97:                                               ; preds = %.lr.ph.i
-  %98 = getelementptr inbounds nuw i8, ptr %.031.i, i64 24
+  %98 = getelementptr inbounds nuw i8, ptr %.029.i, i64 24
   %99 = load ptr, ptr %98, align 8, !tbaa !16
   %100 = icmp eq ptr %99, null
   br i1 %100, label %list_options_for_command.exit.backedge, label %.preheader.i
 
 .preheader.i:                                     ; preds = %97
   %101 = load ptr, ptr %99, align 8, !tbaa !17
-  %.not2332.i = icmp eq ptr %101, null
-  br i1 %.not2332.i, label %._crit_edge35.i, label %.lr.ph34.i
+  %.not2330.i = icmp eq ptr %101, null
+  br i1 %.not2330.i, label %._crit_edge33.i, label %.lr.ph32.i
 
-.lr.ph34.i:                                       ; preds = %.preheader.i, %119
+.lr.ph32.i:                                       ; preds = %.preheader.i, %119
   %102 = phi ptr [ %121, %119 ], [ %101, %.preheader.i ]
-  %.01933.i = phi ptr [ %120, %119 ], [ %99, %.preheader.i ]
-  %103 = getelementptr inbounds nuw i8, ptr %.01933.i, i64 12
+  %.01931.i = phi ptr [ %120, %119 ], [ %99, %.preheader.i ]
+  %103 = getelementptr inbounds nuw i8, ptr %.01931.i, i64 12
   %104 = load i32, ptr %103, align 4, !tbaa !19
   %105 = icmp eq ptr %102, @OPT_PARAM_STR
-  br i1 %105, label %._crit_edge35.i, label %106
+  br i1 %105, label %._crit_edge33.i, label %106
 
-106:                                              ; preds = %.lr.ph34.i
+106:                                              ; preds = %.lr.ph32.i
   %107 = icmp eq ptr %102, @OPT_HELP_STR
   %108 = icmp eq ptr %102, @OPT_MORE_STR
   %or.cond.i = or i1 %107, %108
@@ -476,21 +476,21 @@ list_options_for_command.exit:                    ; preds = %list_options_for_co
   br label %119
 
 119:                                              ; preds = %113, %110, %106
-  %120 = getelementptr inbounds nuw i8, ptr %.01933.i, i64 24
+  %120 = getelementptr inbounds nuw i8, ptr %.01931.i, i64 24
   %121 = load ptr, ptr %120, align 8, !tbaa !17
   %.not23.i = icmp eq ptr %121, null
-  br i1 %.not23.i, label %._crit_edge35.i, label %.lr.ph34.i, !llvm.loop !21
+  br i1 %.not23.i, label %._crit_edge33.i, label %.lr.ph32.i, !llvm.loop !21
 
-._crit_edge35.i:                                  ; preds = %119, %.lr.ph34.i, %.preheader.i
+._crit_edge33.i:                                  ; preds = %119, %.lr.ph32.i, %.preheader.i
   %122 = load ptr, ptr @bio_out, align 8, !tbaa !4
   %123 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %122, ptr noundef nonnull @.str.95) #6
   br label %list_options_for_command.exit.backedge
 
-list_options_for_command.exit.backedge:           ; preds = %._crit_edge35.i, %97, %._crit_edge.i, %list_options_for_command.exit, %127, %125, %124, %83, %81, %79, %77, %75, %73, %71, %69, %68, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %26
-  %.097.be = phi i32 [ 1, %26 ], [ %.097, %27 ], [ %.097, %29 ], [ %.097, %31 ], [ %.097, %33 ], [ %.097, %35 ], [ %.097, %37 ], [ %.097, %39 ], [ %.097, %41 ], [ %.097, %43 ], [ %.097, %45 ], [ %.097, %47 ], [ %.097, %49 ], [ %.097, %51 ], [ %.097, %53 ], [ %.097, %55 ], [ %.097, %57 ], [ %.097, %59 ], [ %.097, %61 ], [ %.097, %63 ], [ %.097, %65 ], [ %.097, %67 ], [ %.097, %68 ], [ %.097, %69 ], [ %.097, %71 ], [ %.097, %73 ], [ %.097, %75 ], [ %.097, %77 ], [ %.097, %79 ], [ %.097, %81 ], [ %.097, %83 ], [ %.097, %124 ], [ %.097, %125 ], [ %.097, %127 ], [ %.097, %list_options_for_command.exit ], [ %.097, %._crit_edge.i ], [ %.097, %97 ], [ %.097, %._crit_edge35.i ]
-  %.092.be = phi i32 [ %.092, %26 ], [ %.092, %27 ], [ %.092, %29 ], [ %.092, %31 ], [ %.092, %33 ], [ %.092, %35 ], [ %.092, %37 ], [ %.092, %39 ], [ %.092, %41 ], [ %.092, %43 ], [ %.092, %45 ], [ %.092, %47 ], [ %.092, %49 ], [ %.092, %51 ], [ %.092, %53 ], [ %.092, %55 ], [ %.092, %57 ], [ %.092, %59 ], [ %.092, %61 ], [ %.092, %63 ], [ 1, %65 ], [ %.092, %67 ], [ %.092, %68 ], [ %.092, %69 ], [ %.092, %71 ], [ %.092, %73 ], [ %.092, %75 ], [ %.092, %77 ], [ %.092, %79 ], [ %.092, %81 ], [ %.092, %83 ], [ %.092, %124 ], [ %.092, %125 ], [ %.092, %127 ], [ %.092, %list_options_for_command.exit ], [ %.092, %._crit_edge.i ], [ %.092, %97 ], [ %.092, %._crit_edge35.i ]
-  %.0.be = phi i32 [ %.0, %26 ], [ %.0, %27 ], [ %.0, %29 ], [ %.0, %31 ], [ %.0, %33 ], [ %.0, %35 ], [ %.0, %37 ], [ %.0, %39 ], [ %.0, %41 ], [ %.0, %43 ], [ %.0, %45 ], [ %.0, %47 ], [ %.0, %49 ], [ %.0, %51 ], [ %.0, %53 ], [ %.0, %55 ], [ %.0, %57 ], [ %.0, %59 ], [ %.0, %61 ], [ %.0, %63 ], [ %.0, %65 ], [ 771, %67 ], [ 772, %68 ], [ %.0, %69 ], [ %.0, %71 ], [ %.0, %73 ], [ %.0, %75 ], [ %.0, %77 ], [ %.0, %79 ], [ %.0, %81 ], [ %.0, %83 ], [ %.0, %124 ], [ %.0, %125 ], [ %.0, %127 ], [ %.0, %list_options_for_command.exit ], [ %.0, %._crit_edge.i ], [ %.0, %97 ], [ %.0, %._crit_edge35.i ]
-  %.sroa.0.0.be = phi i32 [ %.sroa.0.0, %26 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %.sroa.0.0, %67 ], [ %.sroa.0.0, %68 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %.sroa.0.0, %124 ], [ %.sroa.0.0, %125 ], [ %.sroa.0.0, %127 ], [ %.sroa.0.0, %list_options_for_command.exit ], [ %.sroa.0.0, %._crit_edge.i ], [ %.sroa.0.0, %97 ], [ %.sroa.0.0, %._crit_edge35.i ]
+list_options_for_command.exit.backedge:           ; preds = %._crit_edge33.i, %97, %._crit_edge.i, %list_options_for_command.exit, %127, %125, %124, %83, %81, %79, %77, %75, %73, %71, %69, %68, %67, %65, %63, %61, %59, %57, %55, %53, %51, %49, %47, %45, %43, %41, %39, %37, %35, %33, %31, %29, %27, %26
+  %.097.be = phi i32 [ 1, %26 ], [ %.097, %27 ], [ %.097, %29 ], [ %.097, %31 ], [ %.097, %33 ], [ %.097, %35 ], [ %.097, %37 ], [ %.097, %39 ], [ %.097, %41 ], [ %.097, %43 ], [ %.097, %45 ], [ %.097, %47 ], [ %.097, %49 ], [ %.097, %51 ], [ %.097, %53 ], [ %.097, %55 ], [ %.097, %57 ], [ %.097, %59 ], [ %.097, %61 ], [ %.097, %63 ], [ %.097, %65 ], [ %.097, %67 ], [ %.097, %68 ], [ %.097, %69 ], [ %.097, %71 ], [ %.097, %73 ], [ %.097, %75 ], [ %.097, %77 ], [ %.097, %79 ], [ %.097, %81 ], [ %.097, %83 ], [ %.097, %124 ], [ %.097, %125 ], [ %.097, %127 ], [ %.097, %list_options_for_command.exit ], [ %.097, %._crit_edge.i ], [ %.097, %97 ], [ %.097, %._crit_edge33.i ]
+  %.092.be = phi i32 [ %.092, %26 ], [ %.092, %27 ], [ %.092, %29 ], [ %.092, %31 ], [ %.092, %33 ], [ %.092, %35 ], [ %.092, %37 ], [ %.092, %39 ], [ %.092, %41 ], [ %.092, %43 ], [ %.092, %45 ], [ %.092, %47 ], [ %.092, %49 ], [ %.092, %51 ], [ %.092, %53 ], [ %.092, %55 ], [ %.092, %57 ], [ %.092, %59 ], [ %.092, %61 ], [ %.092, %63 ], [ 1, %65 ], [ %.092, %67 ], [ %.092, %68 ], [ %.092, %69 ], [ %.092, %71 ], [ %.092, %73 ], [ %.092, %75 ], [ %.092, %77 ], [ %.092, %79 ], [ %.092, %81 ], [ %.092, %83 ], [ %.092, %124 ], [ %.092, %125 ], [ %.092, %127 ], [ %.092, %list_options_for_command.exit ], [ %.092, %._crit_edge.i ], [ %.092, %97 ], [ %.092, %._crit_edge33.i ]
+  %.0.be = phi i32 [ %.0, %26 ], [ %.0, %27 ], [ %.0, %29 ], [ %.0, %31 ], [ %.0, %33 ], [ %.0, %35 ], [ %.0, %37 ], [ %.0, %39 ], [ %.0, %41 ], [ %.0, %43 ], [ %.0, %45 ], [ %.0, %47 ], [ %.0, %49 ], [ %.0, %51 ], [ %.0, %53 ], [ %.0, %55 ], [ %.0, %57 ], [ %.0, %59 ], [ %.0, %61 ], [ %.0, %63 ], [ %.0, %65 ], [ 771, %67 ], [ 772, %68 ], [ %.0, %69 ], [ %.0, %71 ], [ %.0, %73 ], [ %.0, %75 ], [ %.0, %77 ], [ %.0, %79 ], [ %.0, %81 ], [ %.0, %83 ], [ %.0, %124 ], [ %.0, %125 ], [ %.0, %127 ], [ %.0, %list_options_for_command.exit ], [ %.0, %._crit_edge.i ], [ %.0, %97 ], [ %.0, %._crit_edge33.i ]
+  %.sroa.0.0.be = phi i32 [ %.sroa.0.0, %26 ], [ %28, %27 ], [ %30, %29 ], [ %32, %31 ], [ %34, %33 ], [ %36, %35 ], [ %38, %37 ], [ %40, %39 ], [ %42, %41 ], [ %44, %43 ], [ %46, %45 ], [ %48, %47 ], [ %50, %49 ], [ %52, %51 ], [ %54, %53 ], [ %56, %55 ], [ %58, %57 ], [ %60, %59 ], [ %62, %61 ], [ %64, %63 ], [ %66, %65 ], [ %.sroa.0.0, %67 ], [ %.sroa.0.0, %68 ], [ %70, %69 ], [ %72, %71 ], [ %74, %73 ], [ %76, %75 ], [ %78, %77 ], [ %80, %79 ], [ %82, %81 ], [ %84, %83 ], [ %.sroa.0.0, %124 ], [ %.sroa.0.0, %125 ], [ %.sroa.0.0, %127 ], [ %.sroa.0.0, %list_options_for_command.exit ], [ %.sroa.0.0, %._crit_edge.i ], [ %.sroa.0.0, %97 ], [ %.sroa.0.0, %._crit_edge33.i ]
   br label %list_options_for_command.exit, !llvm.loop !22
 
 124:                                              ; preds = %list_options_for_command.exit
@@ -1916,12 +1916,12 @@ list_engines.exit.thread:                         ; preds = %.thread352
   br i1 %699, label %.lr.ph.i193, label %list_objects.exit
 
 .lr.ph.i193:                                      ; preds = %.thread669, %737
-  %.02947.i = phi i32 [ %738, %737 ], [ 1, %.thread669 ]
-  %.03046.i = phi ptr [ %.2.ph.i, %737 ], [ null, %.thread669 ]
-  %.03145.i = phi i32 [ %.132.ph.i, %737 ], [ 0, %.thread669 ]
-  %700 = call ptr @OBJ_nid2obj(i32 noundef %.02947.i) #6
-  %701 = call ptr @OBJ_nid2sn(i32 noundef %.02947.i) #6
-  %702 = call ptr @OBJ_nid2ln(i32 noundef %.02947.i) #6
+  %.02945.i = phi i32 [ %738, %737 ], [ 1, %.thread669 ]
+  %.03044.i = phi ptr [ %.2.ph.i, %737 ], [ null, %.thread669 ]
+  %.03143.i = phi i32 [ %.132.ph.i, %737 ], [ 0, %.thread669 ]
+  %700 = call ptr @OBJ_nid2obj(i32 noundef %.02945.i) #6
+  %701 = call ptr @OBJ_nid2sn(i32 noundef %.02945.i) #6
+  %702 = call ptr @OBJ_nid2ln(i32 noundef %.02945.i) #6
   call void @ERR_clear_error() #6
   %703 = call i32 @OBJ_obj2nid(ptr noundef %700) #6
   %704 = icmp eq i32 %703, 0
@@ -1942,13 +1942,13 @@ list_engines.exit.thread:                         ; preds = %.thread352
   br i1 %712, label %list_objects.exit, label %713
 
 713:                                              ; preds = %711
-  %714 = icmp sgt i32 %706, %.03145.i
+  %714 = icmp sgt i32 %706, %.03143.i
   br i1 %714, label %715, label %723
 
 715:                                              ; preds = %713
   %716 = add nuw nsw i32 %706, 1
   %717 = zext nneg i32 %716 to i64
-  %718 = call ptr @CRYPTO_realloc(ptr noundef %.03046.i, i64 noundef %717, ptr noundef nonnull @.str.135, i32 noundef 1107) #6
+  %718 = call ptr @CRYPTO_realloc(ptr noundef %.03044.i, i64 noundef %717, ptr noundef nonnull @.str.135, i32 noundef 1107) #6
   %719 = icmp eq ptr %718, null
   br i1 %719, label %720, label %723
 
@@ -1958,8 +1958,8 @@ list_engines.exit.thread:                         ; preds = %.thread352
   br label %list_objects.exit
 
 723:                                              ; preds = %715, %713
-  %.233.i = phi i32 [ %.03145.i, %713 ], [ %716, %715 ]
-  %.3.i = phi ptr [ %.03046.i, %713 ], [ %718, %715 ]
+  %.233.i = phi i32 [ %.03143.i, %713 ], [ %716, %715 ]
+  %.3.i = phi ptr [ %.03044.i, %713 ], [ %718, %715 ]
   %724 = call i32 @OBJ_obj2txt(ptr noundef %.3.i, i32 noundef %.233.i, ptr noundef %700, i32 noundef 1) #6
   %725 = icmp slt i32 %724, 0
   br i1 %725, label %list_objects.exit, label %726
@@ -1984,14 +1984,14 @@ list_engines.exit.thread:                         ; preds = %.thread352
   br label %737
 
 737:                                              ; preds = %734, %731, %708, %.lr.ph.i193
-  %.132.ph.i = phi i32 [ %.233.i, %731 ], [ %.233.i, %734 ], [ %.03145.i, %.lr.ph.i193 ], [ %.03145.i, %708 ]
-  %.2.ph.i = phi ptr [ %.3.i, %731 ], [ %.3.i, %734 ], [ %.03046.i, %.lr.ph.i193 ], [ %.03046.i, %708 ]
-  %738 = add nuw nsw i32 %.02947.i, 1
+  %.132.ph.i = phi i32 [ %.233.i, %731 ], [ %.233.i, %734 ], [ %.03143.i, %.lr.ph.i193 ], [ %.03143.i, %708 ]
+  %.2.ph.i = phi ptr [ %.3.i, %731 ], [ %.3.i, %734 ], [ %.03044.i, %.lr.ph.i193 ], [ %.03044.i, %708 ]
+  %738 = add nuw nsw i32 %.02945.i, 1
   %exitcond.not.i194 = icmp eq i32 %738, %698
   br i1 %exitcond.not.i194, label %list_objects.exit, label %.lr.ph.i193, !llvm.loop !36
 
 list_objects.exit:                                ; preds = %711, %723, %737, %.thread669, %720
-  %.1.i = phi ptr [ null, %720 ], [ null, %.thread669 ], [ %.03046.i, %711 ], [ %.3.i, %723 ], [ %.2.ph.i, %737 ]
+  %.1.i = phi ptr [ null, %720 ], [ null, %.thread669 ], [ %.03044.i, %711 ], [ %.3.i, %723 ], [ %.2.ph.i, %737 ]
   call void @CRYPTO_free(ptr noundef %.1.i, ptr noundef nonnull @.str.135, i32 noundef 1122) #6
   br label %739
 

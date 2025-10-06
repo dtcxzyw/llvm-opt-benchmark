@@ -2254,24 +2254,24 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %791, %796, %hwloc_g
   %812 = load i64, ptr %3, align 8, !tbaa !67
   %813 = and i64 %812, 4
   %.not.i565 = icmp eq i64 %813, 0
-  br i1 %.not.i565, label %.preheader8.i, label %.preheader11.i
+  br i1 %.not.i565, label %.preheader7.i, label %.preheader10.i
 
-.preheader11.i:                                   ; preds = %811
-  br i1 %.not1445, label %.loopexit9.i, label %.lr.ph23.i
+.preheader10.i:                                   ; preds = %811
+  br i1 %.not1445, label %.loopexit8.i, label %.lr.ph22.i
 
-.lr.ph23.i:                                       ; preds = %.preheader11.i
+.lr.ph22.i:                                       ; preds = %.preheader10.i
   %.not82.i = icmp samesign ult i64 %.1.i557, 2
   br label %814
 
-.preheader8.i:                                    ; preds = %811
-  br i1 %.not1445, label %.loopexit9.i, label %.lr.ph26.i
+.preheader7.i:                                    ; preds = %811
+  br i1 %.not1445, label %.loopexit8.i, label %.lr.ph25.i
 
-814:                                              ; preds = %._crit_edge.i568, %.lr.ph23.i
-  %indvars.iv42.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next43.i, %._crit_edge.i568 ]
-  %.0221.i = phi i64 [ 0, %.lr.ph23.i ], [ %.13.lcssa.i, %._crit_edge.i568 ]
+814:                                              ; preds = %._crit_edge.i568, %.lr.ph22.i
+  %indvars.iv41.i = phi i64 [ 0, %.lr.ph22.i ], [ %indvars.iv.next42.i, %._crit_edge.i568 ]
+  %.0220.i = phi i64 [ 0, %.lr.ph22.i ], [ %.13.lcssa.i, %._crit_edge.i568 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 0, ptr %4, align 4, !tbaa !14
-  %815 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv42.i
+  %815 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv41.i
   %816 = load ptr, ptr %815, align 8, !tbaa !65
   %817 = call i32 @hwloc_memattr_get_initiators(ptr noundef %808, i32 noundef range(i32 0, -1) %.013.i, ptr noundef %816, i64 noundef 0, ptr noundef nonnull %4, ptr noundef null, ptr noundef null) #27
   %818 = icmp slt i32 %817, 0
@@ -2292,20 +2292,20 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %791, %796, %hwloc_g
 828:                                              ; preds = %819
   %829 = call i32 @hwloc_memattr_get_initiators(ptr noundef %808, i32 noundef range(i32 0, -1) %.013.i, ptr noundef %816, i64 noundef 0, ptr noundef nonnull %4, ptr noundef nonnull %823, ptr noundef nonnull %825) #27
   %830 = icmp slt i32 %829, 0
-  br i1 %830, label %.thread.sink.split.i, label %.preheader10.i
+  br i1 %830, label %.thread.sink.split.i, label %.preheader9.i
 
-.preheader10.i:                                   ; preds = %828
+.preheader9.i:                                    ; preds = %828
   %831 = load i32, ptr %4, align 4, !tbaa !14
-  %.not31.i = icmp eq i32 %831, 0
-  br i1 %.not31.i, label %._crit_edge.i568, label %.lr.ph.i567.preheader
+  %.not30.i = icmp eq i32 %831, 0
+  br i1 %.not30.i, label %._crit_edge.i568, label %.lr.ph.i567.preheader
 
-.lr.ph.i567.preheader:                            ; preds = %.preheader10.i
+.lr.ph.i567.preheader:                            ; preds = %.preheader9.i
   %832 = getelementptr inbounds nuw i8, ptr %816, i64 16
   br label %.lr.ph.i567
 
 .lr.ph.i567:                                      ; preds = %.lr.ph.i567.preheader, %hwloc_utils__update_best_node.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %hwloc_utils__update_best_node.exit.i ], [ 0, %.lr.ph.i567.preheader ]
-  %.1319.i = phi i64 [ %.3.i, %hwloc_utils__update_best_node.exit.i ], [ %.0221.i, %.lr.ph.i567.preheader ]
+  %.1318.i = phi i64 [ %.3.i, %hwloc_utils__update_best_node.exit.i ], [ %.0220.i, %.lr.ph.i567.preheader ]
   %833 = getelementptr inbounds nuw %struct.hwloc_location, ptr %823, i64 %indvars.iv.i
   %834 = load i32, ptr %833, align 8, !tbaa !68
   %.not81.i = icmp eq i32 %834, 1
@@ -2345,7 +2345,7 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %791, %796, %hwloc_g
   br i1 %.not27.i.i, label %862, label %852
 
 852:                                              ; preds = %849
-  %853 = icmp ugt i64 %844, %.1319.i
+  %853 = icmp ugt i64 %844, %.1318.i
   br i1 %853, label %854, label %857
 
 854:                                              ; preds = %852
@@ -2354,7 +2354,7 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %791, %796, %hwloc_g
   br label %hwloc_utils__update_best_node.exit.i
 
 857:                                              ; preds = %852
-  %858 = icmp eq i64 %844, %.1319.i
+  %858 = icmp eq i64 %844, %.1318.i
   br i1 %858, label %859, label %hwloc_utils__update_best_node.exit.i
 
 859:                                              ; preds = %857
@@ -2363,7 +2363,7 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %791, %796, %hwloc_g
   br label %hwloc_utils__update_best_node.exit.i
 
 862:                                              ; preds = %849
-  %863 = icmp ult i64 %844, %.1319.i
+  %863 = icmp ult i64 %844, %.1318.i
   br i1 %863, label %864, label %867
 
 864:                                              ; preds = %862
@@ -2372,7 +2372,7 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %791, %796, %hwloc_g
   br label %hwloc_utils__update_best_node.exit.i
 
 867:                                              ; preds = %862
-  %868 = icmp eq i64 %844, %.1319.i
+  %868 = icmp eq i64 %844, %.1318.i
   br i1 %868, label %869, label %hwloc_utils__update_best_node.exit.i
 
 869:                                              ; preds = %867
@@ -2381,7 +2381,7 @@ hwloc_get_numanode_obj_by_os_index.exit:          ; preds = %791, %796, %hwloc_g
   br label %hwloc_utils__update_best_node.exit.i
 
 hwloc_utils__update_best_node.exit.i:             ; preds = %869, %867, %864, %859, %857, %854, %846, %840, %838, %.lr.ph.i567
-  %.3.i = phi i64 [ %.1319.i, %840 ], [ %.1319.i, %838 ], [ %.1319.i, %.lr.ph.i567 ], [ %844, %864 ], [ %.1319.i, %869 ], [ %.1319.i, %867 ], [ %844, %854 ], [ %.1319.i, %859 ], [ %.1319.i, %857 ], [ %844, %846 ]
+  %.3.i = phi i64 [ %.1318.i, %840 ], [ %.1318.i, %838 ], [ %.1318.i, %.lr.ph.i567 ], [ %844, %864 ], [ %.1318.i, %869 ], [ %.1318.i, %867 ], [ %844, %854 ], [ %.1318.i, %859 ], [ %.1318.i, %857 ], [ %844, %846 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %872 = load i32, ptr %4, align 4, !tbaa !14
   %873 = zext i32 %872 to i64
@@ -2397,26 +2397,26 @@ hwloc_utils__update_best_node.exit.i:             ; preds = %869, %867, %864, %8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %hwloc_utils_get_best_node_in_array_by_memattr.exit
 
-._crit_edge.i568:                                 ; preds = %hwloc_utils__update_best_node.exit.i, %.preheader10.i
-  %.13.lcssa.i = phi i64 [ %.0221.i, %.preheader10.i ], [ %.3.i, %hwloc_utils__update_best_node.exit.i ]
+._crit_edge.i568:                                 ; preds = %hwloc_utils__update_best_node.exit.i, %.preheader9.i
+  %.13.lcssa.i = phi i64 [ %.0220.i, %.preheader9.i ], [ %.3.i, %hwloc_utils__update_best_node.exit.i ]
   call void @free(ptr noundef nonnull %823) #27
   call void @free(ptr noundef %825) #27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next43.i, %782
-  br i1 %exitcond.not.i, label %.loopexit9.i, label %814, !llvm.loop !71
+  %indvars.iv.next42.i = add nuw nsw i64 %indvars.iv41.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next42.i, %782
+  br i1 %exitcond.not.i, label %.loopexit8.i, label %814, !llvm.loop !71
 
-.lr.ph26.i:                                       ; preds = %.preheader8.i, %hwloc_utils__update_best_node.exit90.i
-  %indvars.iv45.i = phi i64 [ %indvars.iv.next46.i, %hwloc_utils__update_best_node.exit90.i ], [ 0, %.preheader8.i ]
-  %.524.i = phi i64 [ %.7.i, %hwloc_utils__update_best_node.exit90.i ], [ 0, %.preheader8.i ]
+.lr.ph25.i:                                       ; preds = %.preheader7.i, %hwloc_utils__update_best_node.exit90.i
+  %indvars.iv44.i = phi i64 [ %indvars.iv.next45.i, %hwloc_utils__update_best_node.exit90.i ], [ 0, %.preheader7.i ]
+  %.523.i = phi i64 [ %.7.i, %hwloc_utils__update_best_node.exit90.i ], [ 0, %.preheader7.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %875 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv45.i
+  %875 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv44.i
   %876 = load ptr, ptr %875, align 8, !tbaa !65
   %877 = call i32 @hwloc_memattr_get_value(ptr noundef %808, i32 noundef range(i32 0, -1) %.013.i, ptr noundef %876, ptr noundef null, i64 noundef 0, ptr noundef nonnull %5) #27
   %.not78.i = icmp eq i32 %877, 0
   br i1 %.not78.i, label %878, label %hwloc_utils__update_best_node.exit90.i
 
-878:                                              ; preds = %.lr.ph26.i
+878:                                              ; preds = %.lr.ph25.i
   %879 = load i64, ptr %5, align 8, !tbaa !67
   %880 = call i32 @hwloc_bitmap_iszero(ptr noundef %39) #28
   %.not.i88.i = icmp eq i32 %880, 0
@@ -2435,7 +2435,7 @@ hwloc_utils__update_best_node.exit.i:             ; preds = %869, %867, %864, %8
   br i1 %.not27.i89.i, label %900, label %888
 
 888:                                              ; preds = %885
-  %889 = icmp ugt i64 %879, %.524.i
+  %889 = icmp ugt i64 %879, %.523.i
   br i1 %889, label %890, label %894
 
 890:                                              ; preds = %888
@@ -2445,7 +2445,7 @@ hwloc_utils__update_best_node.exit.i:             ; preds = %869, %867, %864, %8
   br label %hwloc_utils__update_best_node.exit90.i
 
 894:                                              ; preds = %888
-  %895 = icmp eq i64 %879, %.524.i
+  %895 = icmp eq i64 %879, %.523.i
   br i1 %895, label %896, label %hwloc_utils__update_best_node.exit90.i
 
 896:                                              ; preds = %894
@@ -2455,7 +2455,7 @@ hwloc_utils__update_best_node.exit.i:             ; preds = %869, %867, %864, %8
   br label %hwloc_utils__update_best_node.exit90.i
 
 900:                                              ; preds = %885
-  %901 = icmp ult i64 %879, %.524.i
+  %901 = icmp ult i64 %879, %.523.i
   br i1 %901, label %902, label %906
 
 902:                                              ; preds = %900
@@ -2465,7 +2465,7 @@ hwloc_utils__update_best_node.exit.i:             ; preds = %869, %867, %864, %8
   br label %hwloc_utils__update_best_node.exit90.i
 
 906:                                              ; preds = %900
-  %907 = icmp eq i64 %879, %.524.i
+  %907 = icmp eq i64 %879, %.523.i
   br i1 %907, label %908, label %hwloc_utils__update_best_node.exit90.i
 
 908:                                              ; preds = %906
@@ -2474,35 +2474,35 @@ hwloc_utils__update_best_node.exit.i:             ; preds = %869, %867, %864, %8
   %911 = call i32 @hwloc_bitmap_set(ptr noundef %39, i32 noundef %910) #27
   br label %hwloc_utils__update_best_node.exit90.i
 
-hwloc_utils__update_best_node.exit90.i:           ; preds = %908, %906, %902, %896, %894, %890, %881, %.lr.ph26.i
-  %.7.i = phi i64 [ %.524.i, %.lr.ph26.i ], [ %879, %902 ], [ %.524.i, %908 ], [ %.524.i, %906 ], [ %879, %890 ], [ %.524.i, %896 ], [ %.524.i, %894 ], [ %879, %881 ]
+hwloc_utils__update_best_node.exit90.i:           ; preds = %908, %906, %902, %896, %894, %890, %881, %.lr.ph25.i
+  %.7.i = phi i64 [ %.523.i, %.lr.ph25.i ], [ %879, %902 ], [ %.523.i, %908 ], [ %.523.i, %906 ], [ %879, %890 ], [ %.523.i, %896 ], [ %.523.i, %894 ], [ %879, %881 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %indvars.iv.next46.i = add nuw nsw i64 %indvars.iv45.i, 1
-  %exitcond49.not.i = icmp eq i64 %indvars.iv.next46.i, %782
-  br i1 %exitcond49.not.i, label %.loopexit9.i, label %.lr.ph26.i, !llvm.loop !72
+  %indvars.iv.next45.i = add nuw nsw i64 %indvars.iv44.i, 1
+  %exitcond48.not.i = icmp eq i64 %indvars.iv.next45.i, %782
+  br i1 %exitcond48.not.i, label %.loopexit8.i, label %.lr.ph25.i, !llvm.loop !72
 
-.loopexit9.i:                                     ; preds = %._crit_edge.i568, %hwloc_utils__update_best_node.exit90.i, %.preheader8.i, %.preheader11.i
+.loopexit8.i:                                     ; preds = %._crit_edge.i568, %hwloc_utils__update_best_node.exit90.i, %.preheader7.i, %.preheader10.i
   %912 = and i64 %.1.i557, 1
   %.not79.i = icmp eq i64 %912, 0
   br i1 %.not79.i, label %.loopexit, label %913
 
-913:                                              ; preds = %.loopexit9.i
+913:                                              ; preds = %.loopexit8.i
   %914 = call i32 @hwloc_bitmap_iszero(ptr noundef %39) #28
   %.not80.i = icmp ne i32 %914, 0
   %915 = icmp ne i32 %741, 0
-  %or.cond29.i = and i1 %915, %.not80.i
-  br i1 %or.cond29.i, label %.lr.ph28.i, label %.loopexit
+  %or.cond28.i = and i1 %915, %.not80.i
+  br i1 %or.cond28.i, label %.lr.ph27.i, label %.loopexit
 
-.lr.ph28.i:                                       ; preds = %913, %.lr.ph28.i
-  %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %.lr.ph28.i ], [ 0, %913 ]
-  %916 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv50.i
+.lr.ph27.i:                                       ; preds = %913, %.lr.ph27.i
+  %indvars.iv49.i = phi i64 [ %indvars.iv.next50.i, %.lr.ph27.i ], [ 0, %913 ]
+  %916 = getelementptr inbounds nuw ptr, ptr %784, i64 %indvars.iv49.i
   %917 = load ptr, ptr %916, align 8, !tbaa !65
   %918 = getelementptr inbounds nuw i8, ptr %917, i64 16
   %919 = load i32, ptr %918, align 8, !tbaa !61
   %920 = call i32 @hwloc_bitmap_set(ptr noundef %39, i32 noundef %919) #27
-  %indvars.iv.next51.i = add nuw nsw i64 %indvars.iv50.i, 1
-  %exitcond54.not.i = icmp eq i64 %indvars.iv.next51.i, %782
-  br i1 %exitcond54.not.i, label %.loopexit, label %.lr.ph28.i, !llvm.loop !73
+  %indvars.iv.next50.i = add nuw nsw i64 %indvars.iv49.i, 1
+  %exitcond53.not.i = icmp eq i64 %indvars.iv.next50.i, %782
+  br i1 %exitcond53.not.i, label %.loopexit, label %.lr.ph27.i, !llvm.loop !73
 
 hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, %.thread.i
   call void @hwloc_bitmap_zero(ptr noundef %39) #27
@@ -2510,7 +2510,7 @@ hwloc_utils_get_best_node_in_array_by_memattr.exit: ; preds = %._crit_edge1422, 
   call void @free(ptr noundef nonnull %784) #27
   br label %922
 
-.loopexit:                                        ; preds = %.lr.ph28.i, %913, %.loopexit9.i
+.loopexit:                                        ; preds = %.lr.ph27.i, %913, %.loopexit8.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @free(ptr noundef %784) #27
   %921 = call i32 @hwloc_bitmap_iszero(ptr noundef %39) #28

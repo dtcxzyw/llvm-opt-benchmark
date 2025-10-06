@@ -845,8 +845,8 @@ _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i40: ; preds = %_ZN4llvm11SmallStr
   %186 = extractvalue { i32, ptr } %183, 1
   store ptr %186, ptr %185, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  %.not143 = icmp eq i32 %184, 0
-  br i1 %.not143, label %.critedge, label %._crit_edge.i.i46
+  %.not142 = icmp eq i32 %184, 0
+  br i1 %.not142, label %.critedge, label %._crit_edge.i.i46
 
 ._crit_edge.i.i46:                                ; preds = %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i40
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
@@ -1034,8 +1034,8 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %253, %255
   call void @_ZN4llvm14raw_fd_ostream5closeEv(ptr noundef nonnull align 8 dereferenceable(96) %25) #16
   %260 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %261 = load i32, ptr %260, align 8, !tbaa !47
-  %.not144 = icmp eq i32 %261, 0
-  br i1 %.not144, label %311, label %._crit_edge.i.i63
+  %.not143 = icmp eq i32 %261, 0
+  br i1 %.not143, label %311, label %._crit_edge.i.i63
 
 ._crit_edge.i.i63:                                ; preds = %_ZN4llvm11raw_ostreamlsEc.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
@@ -1183,7 +1183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZN
 
 _ZN4llvm11SmallVectorIcLj256EED2Ev.exit76:        ; preds = %311, %314
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  br i1 %.not144, label %315, label %_ZN12_GLOBAL__N_128RemoveUniqueLockFileOnSignalD2Ev.exit
+  br i1 %.not143, label %315, label %_ZN12_GLOBAL__N_128RemoveUniqueLockFileOnSignalD2Ev.exit
 
 315:                                              ; preds = %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit76
   %316 = load ptr, ptr %48, align 8, !tbaa !42
@@ -1229,10 +1229,10 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit76:        ; preds = %311, %314
   store ptr %341, ptr %325, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  %.not145 = icmp eq i32 %340, 0
-  br i1 %.not145, label %.thread141, label %342
+  %.not144 = icmp eq i32 %340, 0
+  br i1 %.not144, label %.thread140, label %342
 
-.thread141:                                       ; preds = %334
+.thread140:                                       ; preds = %334
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
   br label %_ZN12_GLOBAL__N_128RemoveUniqueLockFileOnSignalD2Ev.exit
 
@@ -1288,7 +1288,7 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit76:        ; preds = %311, %314
 367:                                              ; preds = %._crit_edge.i.i80
   %368 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef %357, i64 noundef %358) #16
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %368, i64 32
-  %.pre147 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
+  %.pre146 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !59
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 369:                                              ; preds = %._crit_edge.i.i80
@@ -1303,7 +1303,7 @@ _ZN4llvm11SmallVectorIcLj256EED2Ev.exit76:        ; preds = %311, %314
   br label %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
 
 _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %367, %369, %370
-  %373 = phi ptr [ %.pre147, %367 ], [ %372, %370 ], [ %362, %369 ]
+  %373 = phi ptr [ %.pre146, %367 ], [ %372, %370 ], [ %362, %369 ]
   %.0.i85 = phi ptr [ %368, %367 ], [ %34, %370 ], [ %34, %369 ]
   %374 = getelementptr inbounds nuw i8, ptr %.0.i85, i64 24
   %375 = load ptr, ptr %374, align 8, !tbaa !63
@@ -1315,8 +1315,8 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %367, %369, %370
 
 380:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
   %381 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i85, ptr noundef nonnull @.str.8, i64 noundef 4) #16
-  %.phi.trans.insert148 = getelementptr inbounds nuw i8, ptr %381, i64 32
-  %.pre149 = load ptr, ptr %.phi.trans.insert148, align 8, !tbaa !59
+  %.phi.trans.insert147 = getelementptr inbounds nuw i8, ptr %381, i64 32
+  %.pre148 = load ptr, ptr %.phi.trans.insert147, align 8, !tbaa !59
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 382:                                              ; preds = %_ZN4llvm11raw_ostreamlsENS_9StringRefE.exit
@@ -1328,7 +1328,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %367, %369, %370
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit
 
 _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %380, %382
-  %386 = phi ptr [ %.pre149, %380 ], [ %385, %382 ]
+  %386 = phi ptr [ %.pre148, %380 ], [ %385, %382 ]
   %.0.i.i = phi ptr [ %381, %380 ], [ %.0.i85, %382 ]
   %387 = load ptr, ptr %48, align 8, !tbaa !42
   %388 = load i64, ptr %50, align 8, !tbaa !45
@@ -1446,9 +1446,9 @@ _ZNSt14_Optional_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %437 = extractvalue { i32, ptr } %435, 1
   store i32 %436, ptr %30, align 8, !tbaa !46
   store ptr %437, ptr %325, align 8, !tbaa !67
-  %.not146 = icmp eq i32 %436, 0
+  %.not145 = icmp eq i32 %436, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
-  br i1 %.not146, label %480, label %._crit_edge.i.i100
+  br i1 %.not145, label %480, label %._crit_edge.i.i100
 
 ._crit_edge.i.i100:                               ; preds = %432
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
@@ -1580,7 +1580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   call void @_ZN4llvm3sys22DontRemoveFileOnSignalENS_9StringRefE(ptr %316, i64 %317) #16
   br label %_ZN12_GLOBAL__N_128RemoveUniqueLockFileOnSignalD2Ev.exit
 
-_ZN12_GLOBAL__N_128RemoveUniqueLockFileOnSignalD2Ev.exit: ; preds = %481, %.thread141, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit76
+_ZN12_GLOBAL__N_128RemoveUniqueLockFileOnSignalD2Ev.exit: ; preds = %481, %.thread140, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57, %_ZN4llvm11SmallVectorIcLj256EED2Ev.exit76
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %486
 

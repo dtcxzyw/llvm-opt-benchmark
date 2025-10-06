@@ -8321,17 +8321,17 @@ _ZNK3euf13enode_parents3endEv.exit.i:             ; preds = %55
   %61 = zext i32 %60 to i64
   %62 = shl nuw nsw i64 %61, 3
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 %62
-  %.not49.not.i = icmp eq i32 %60, 0
-  br i1 %.not49.not.i, label %_ZN5array6solver13is_shared_argEPN3euf5enodeE.exit, label %.lr.ph52.i
+  %.not51.not.i = icmp eq i32 %60, 0
+  br i1 %.not51.not.i, label %_ZN5array6solver13is_shared_argEPN3euf5enodeE.exit, label %.lr.ph54.i
 
-.lr.ph52.i:                                       ; preds = %_ZNK3euf13enode_parents3endEv.exit.i
+.lr.ph54.i:                                       ; preds = %_ZNK3euf13enode_parents3endEv.exit.i
   %64 = load i32, ptr %12, align 8, !tbaa !65
-  %.fr42.i = freeze i32 %64
+  %.fr44.i = freeze i32 %64
   br label %65
 
-65:                                               ; preds = %_ZNK17array_recognizers6is_extEP4expr.exit.thread.i, %.lr.ph52.i
-  %.02550.i = phi ptr [ %57, %.lr.ph52.i ], [ %95, %_ZNK17array_recognizers6is_extEP4expr.exit.thread.i ]
-  %66 = load ptr, ptr %.02550.i, align 8, !tbaa !16
+65:                                               ; preds = %_ZNK17array_recognizers6is_extEP4expr.exit.thread.i, %.lr.ph54.i
+  %.02552.i = phi ptr [ %57, %.lr.ph54.i ], [ %95, %_ZNK17array_recognizers6is_extEP4expr.exit.thread.i ]
+  %66 = load ptr, ptr %.02552.i, align 8, !tbaa !16
   %67 = load ptr, ptr %66, align 8, !tbaa !54
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   %69 = load i32, ptr %68, align 4
@@ -8350,19 +8350,19 @@ _ZNK3euf13enode_parents3endEv.exit.i:             ; preds = %55
 _ZNK17array_recognizers9is_selectEP4expr.exit.i:  ; preds = %72
   %77 = load i32, ptr %76, align 8, !tbaa !76
   %.fr.i = freeze i32 %77
-  %78 = icmp eq i32 %.fr.i, %.fr42.i
+  %78 = icmp eq i32 %.fr.i, %.fr44.i
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %80 = load i32, ptr %79, align 4
-  %.fr43.i = freeze i32 %80
-  %81 = icmp eq i32 %.fr43.i, 1
+  %.fr45.i = freeze i32 %80
+  %81 = icmp eq i32 %.fr45.i, 1
   %82 = and i1 %78, %81
   br i1 %82, label %.preheader.i, label %_ZNK17array_recognizers8is_constEP4expr.exit.i
 
 .preheader.i:                                     ; preds = %_ZNK17array_recognizers9is_selectEP4expr.exit.i
   %83 = getelementptr inbounds nuw i8, ptr %66, i64 152
   %84 = load i32, ptr %83, align 8, !tbaa !308
-  %.not2947.i = icmp ugt i32 %84, 1
-  br i1 %.not2947.i, label %.lr.ph.i, label %_ZNK17array_recognizers6is_extEP4expr.exit.thread.i
+  %.not2949.i = icmp ugt i32 %84, 1
+  br i1 %.not2949.i, label %.lr.ph.i, label %_ZNK17array_recognizers6is_extEP4expr.exit.thread.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %85 = getelementptr inbounds nuw i8, ptr %66, i64 176
@@ -8384,13 +8384,13 @@ _ZNK17array_recognizers9is_selectEP4expr.exit.i:  ; preds = %72
   br i1 %92, label %_ZN5array6solver13is_shared_argEPN3euf5enodeE.exit.thread, label %86
 
 _ZNK17array_recognizers8is_constEP4expr.exit.i:   ; preds = %86, %_ZNK17array_recognizers9is_selectEP4expr.exit.i
-  %93 = and i32 %.fr43.i, -2
+  %93 = and i32 %.fr45.i, -2
   %94 = icmp eq i32 %93, 2
   %or.cond = and i1 %78, %94
   br i1 %or.cond, label %_ZN5array6solver13is_shared_argEPN3euf5enodeE.exit.thread, label %_ZNK17array_recognizers6is_extEP4expr.exit.thread.i
 
 _ZNK17array_recognizers6is_extEP4expr.exit.thread.i: ; preds = %_ZNK17array_recognizers8is_constEP4expr.exit.i, %.preheader.i, %72, %65
-  %95 = getelementptr inbounds nuw i8, ptr %.02550.i, i64 8
+  %95 = getelementptr inbounds nuw i8, ptr %.02552.i, i64 8
   %.not.not.i = icmp eq ptr %95, %63
   br i1 %.not.not.i, label %_ZN5array6solver13is_shared_argEPN3euf5enodeE.exit, label %65
 
@@ -8638,7 +8638,7 @@ define hidden noundef zeroext i1 @_ZN5array6solver13is_shared_argEPN3euf5enodeE(
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !192
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %.thread38, label %_ZNK3euf13enode_parents3endEv.exit
+  br i1 %5, label %.thread, label %_ZNK3euf13enode_parents3endEv.exit
 
 _ZNK3euf13enode_parents3endEv.exit:               ; preds = %2
   %6 = getelementptr inbounds i8, ptr %4, i64 -4
@@ -8646,18 +8646,18 @@ _ZNK3euf13enode_parents3endEv.exit:               ; preds = %2
   %8 = zext i32 %7 to i64
   %9 = shl nuw nsw i64 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
-  %.not49.not = icmp eq i32 %7, 0
-  br i1 %.not49.not, label %.thread38, label %.lr.ph52
+  %.not51.not = icmp eq i32 %7, 0
+  br i1 %.not51.not, label %.thread, label %.lr.ph54
 
-.lr.ph52:                                         ; preds = %_ZNK3euf13enode_parents3endEv.exit
+.lr.ph54:                                         ; preds = %_ZNK3euf13enode_parents3endEv.exit
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %12 = load i32, ptr %11, align 8, !tbaa !65
-  %.fr42 = freeze i32 %12
+  %.fr44 = freeze i32 %12
   br label %13
 
-13:                                               ; preds = %.lr.ph52, %_ZNK17array_recognizers6is_extEP4expr.exit.thread
-  %.02550 = phi ptr [ %4, %.lr.ph52 ], [ %53, %_ZNK17array_recognizers6is_extEP4expr.exit.thread ]
-  %14 = load ptr, ptr %.02550, align 8, !tbaa !16
+13:                                               ; preds = %.lr.ph54, %_ZNK17array_recognizers6is_extEP4expr.exit.thread
+  %.02552 = phi ptr [ %4, %.lr.ph54 ], [ %53, %_ZNK17array_recognizers6is_extEP4expr.exit.thread ]
+  %14 = load ptr, ptr %.02552, align 8, !tbaa !16
   %15 = load ptr, ptr %14, align 8, !tbaa !54
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
@@ -8675,7 +8675,7 @@ _ZNK3euf13enode_parents3endEv.exit:               ; preds = %2
 
 _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %20
   %25 = load i32, ptr %24, align 8, !tbaa !76
-  %26 = icmp eq i32 %25, %.fr42
+  %26 = icmp eq i32 %25, %.fr44
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %28 = load i32, ptr %27, align 4
   %29 = icmp eq i32 %28, 1
@@ -8685,8 +8685,8 @@ _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %20
 .preheader:                                       ; preds = %_ZNK17array_recognizers9is_selectEP4expr.exit
   %31 = getelementptr inbounds nuw i8, ptr %14, i64 152
   %32 = load i32, ptr %31, align 8, !tbaa !308
-  %.not2947 = icmp ugt i32 %32, 1
-  br i1 %.not2947, label %.lr.ph, label %_ZNK17array_recognizers8is_constEP4expr.exit
+  %.not2949 = icmp ugt i32 %32, 1
+  br i1 %.not2949, label %.lr.ph, label %_ZNK17array_recognizers8is_constEP4expr.exit
 
 .lr.ph:                                           ; preds = %.preheader
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 176
@@ -8705,36 +8705,36 @@ _ZNK17array_recognizers9is_selectEP4expr.exit:    ; preds = %20
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = load ptr, ptr %38, align 8, !tbaa !160
   %40 = icmp eq ptr %1, %39
-  br i1 %40, label %.thread38, label %34
+  br i1 %40, label %.thread, label %34
 
 _ZNK17array_recognizers8is_constEP4expr.exit:     ; preds = %34, %_ZNK17array_recognizers9is_selectEP4expr.exit, %.preheader
   %41 = load i32, ptr %24, align 8, !tbaa !76
-  %42 = icmp eq i32 %41, %.fr42
+  %42 = icmp eq i32 %41, %.fr44
   %43 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %44 = load i32, ptr %43, align 4
   %45 = icmp eq i32 %44, 2
   %46 = select i1 %42, i1 %45, i1 false
-  br i1 %46, label %.thread38, label %_ZNK17array_recognizers6is_extEP4expr.exit
+  br i1 %46, label %.thread, label %_ZNK17array_recognizers6is_extEP4expr.exit
 
 _ZNK17array_recognizers6is_extEP4expr.exit:       ; preds = %_ZNK17array_recognizers8is_constEP4expr.exit
   %47 = load i32, ptr %24, align 8, !tbaa !76
   %.fr = freeze i32 %47
-  %48 = icmp eq i32 %.fr, %.fr42
+  %48 = icmp eq i32 %.fr, %.fr44
   %49 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %50 = load i32, ptr %49, align 4
-  %.fr43 = freeze i32 %50
-  %51 = icmp eq i32 %.fr43, 3
+  %.fr45 = freeze i32 %50
+  %51 = icmp eq i32 %.fr45, 3
   %52 = and i1 %48, %51
-  br i1 %52, label %.thread38, label %_ZNK17array_recognizers6is_extEP4expr.exit.thread
+  br i1 %52, label %.thread, label %_ZNK17array_recognizers6is_extEP4expr.exit.thread
 
 _ZNK17array_recognizers6is_extEP4expr.exit.thread: ; preds = %20, %13, %_ZNK17array_recognizers6is_extEP4expr.exit
-  %53 = getelementptr inbounds nuw i8, ptr %.02550, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.02552, i64 8
   %.not.not = icmp eq ptr %53, %10
-  br i1 %.not.not, label %.thread38, label %13
+  br i1 %.not.not, label %.thread, label %13
 
-.thread38:                                        ; preds = %_ZNK17array_recognizers6is_extEP4expr.exit.thread, %_ZNK17array_recognizers8is_constEP4expr.exit, %_ZNK17array_recognizers6is_extEP4expr.exit, %35, %2, %_ZNK3euf13enode_parents3endEv.exit
-  %.not46 = phi i1 [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ false, %2 ], [ true, %35 ], [ false, %_ZNK17array_recognizers6is_extEP4expr.exit.thread ], [ true, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ true, %_ZNK17array_recognizers6is_extEP4expr.exit ]
-  ret i1 %.not46
+.thread:                                          ; preds = %_ZNK17array_recognizers8is_constEP4expr.exit, %_ZNK17array_recognizers6is_extEP4expr.exit.thread, %_ZNK17array_recognizers6is_extEP4expr.exit, %35, %2, %_ZNK3euf13enode_parents3endEv.exit
+  %.not48 = phi i1 [ false, %_ZNK3euf13enode_parents3endEv.exit ], [ false, %2 ], [ true, %35 ], [ true, %_ZNK17array_recognizers8is_constEP4expr.exit ], [ false, %_ZNK17array_recognizers6is_extEP4expr.exit.thread ], [ true, %_ZNK17array_recognizers6is_extEP4expr.exit ]
+  ret i1 %.not48
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

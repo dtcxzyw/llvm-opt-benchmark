@@ -9,30 +9,30 @@ define dso_local i64 @decode_varint(ptr noundef captures(none) %0) local_unnamed
   %3 = load i8, ptr %2, align 1, !tbaa !9
   %4 = and i8 %3, 127
   %5 = zext nneg i8 %4 to i64
-  %.01421 = getelementptr inbounds nuw i8, ptr %2, i64 1
-  %.not22 = icmp sgt i8 %3, -1
-  br i1 %.not22, label %._crit_edge, label %.lr.ph
+  %.01420 = getelementptr inbounds nuw i8, ptr %2, i64 1
+  %.not21 = icmp sgt i8 %3, -1
+  br i1 %.not21, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %6
-  %.01424 = phi ptr [ %.014, %6 ], [ %.01421, %1 ]
-  %.023 = phi i64 [ %12, %6 ], [ %5, %1 ]
-  %or.cond = icmp ult i64 %.023, 144115188075855871
-  br i1 %or.cond, label %6, label %.loopexit
+  %.01423 = phi ptr [ %.014, %6 ], [ %.01420, %1 ]
+  %.022 = phi i64 [ %12, %6 ], [ %5, %1 ]
+  %or.cond = icmp ugt i64 %.022, 144115188075855870
+  br i1 %or.cond, label %.loopexit, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = load i8, ptr %.01424, align 1, !tbaa !9
-  %8 = shl nuw i64 %.023, 7
+  %7 = load i8, ptr %.01423, align 1, !tbaa !9
+  %8 = shl nuw i64 %.022, 7
   %9 = add nuw i64 %8, 128
   %10 = and i8 %7, 127
   %11 = zext nneg i8 %10 to i64
   %12 = or disjoint i64 %9, %11
-  %.014 = getelementptr inbounds nuw i8, ptr %.01424, i64 1
+  %.014 = getelementptr inbounds nuw i8, ptr %.01423, i64 1
   %.not = icmp sgt i8 %7, -1
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %6, %1
   %.0.lcssa = phi i64 [ %5, %1 ], [ %12, %6 ]
-  %.014.lcssa = phi ptr [ %.01421, %1 ], [ %.014, %6 ]
+  %.014.lcssa = phi ptr [ %.01420, %1 ], [ %.014, %6 ]
   store ptr %.014.lcssa, ptr %0, align 8, !tbaa !4
   br label %.loopexit
 

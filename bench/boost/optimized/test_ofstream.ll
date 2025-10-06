@@ -8466,23 +8466,23 @@ _ZNSt11char_traitsIcE4copyEPcPKcm.exit:           ; preds = %33, %39
   br i1 %46, label %.lr.ph, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit
 
 .lr.ph:                                           ; preds = %44, %50
-  %.151 = phi ptr [ %51, %50 ], [ %.030, %44 ]
-  %.13250 = phi i64 [ %52, %50 ], [ %.031, %44 ]
-  %.13549 = phi i64 [ %53, %50 ], [ %.034, %44 ]
+  %.150 = phi ptr [ %51, %50 ], [ %.030, %44 ]
+  %.13249 = phi i64 [ %52, %50 ], [ %.031, %44 ]
+  %.13548 = phi i64 [ %53, %50 ], [ %.034, %44 ]
   %47 = load ptr, ptr %45, align 8, !tbaa !37
-  %48 = tail call i64 @fread(ptr noundef %.151, i64 noundef 1, i64 noundef %.13250, ptr noundef %47)
+  %48 = tail call i64 @fread(ptr noundef %.150, i64 noundef 1, i64 noundef %.13249, ptr noundef %47)
   %49 = icmp eq i64 %48, 0
   br i1 %49, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit, label %50
 
 50:                                               ; preds = %.lr.ph
-  %51 = getelementptr inbounds nuw i8, ptr %.151, i64 %48
-  %52 = sub i64 %.13250, %48
-  %53 = add i64 %48, %.13549
+  %51 = getelementptr inbounds nuw i8, ptr %.150, i64 %48
+  %52 = sub i64 %.13249, %48
+  %53 = add i64 %48, %.13548
   %54 = icmp sgt i64 %52, 0
   br i1 %54, label %.lr.ph, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit
 
 _ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit: ; preds = %50, %.lr.ph, %44, %22, %12, %10
-  %.029 = phi i64 [ %11, %10 ], [ 0, %12 ], [ 0, %22 ], [ %.034, %44 ], [ %53, %50 ], [ %.13549, %.lr.ph ]
+  %.029 = phi i64 [ %11, %10 ], [ 0, %12 ], [ 0, %22 ], [ %.034, %44 ], [ %53, %50 ], [ %.13548, %.lr.ph ]
   ret i64 %.029
 }
 
@@ -8546,10 +8546,10 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6nowide13basic_filebufIcSt11cha
 32:                                               ; preds = %.thread.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %34 = load ptr, ptr %33, align 8, !tbaa !46
-  %.not.i8 = icmp eq ptr %34, null
+  %.not.i7 = icmp eq ptr %34, null
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %36 = load i64, ptr %35, align 8, !tbaa !47
-  br i1 %.not.i8, label %37, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit
+  br i1 %.not.i7, label %37, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit
 
 37:                                               ; preds = %32
   %.not1.i = icmp eq i64 %36, 0
@@ -8576,15 +8576,15 @@ _ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit: ; pred
   store ptr %46, ptr %49, align 8, !tbaa !86
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %47, ptr %50, align 8, !tbaa !87
-  %.not11 = icmp eq i64 %45, 0
-  br i1 %.not11, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge
+  %.not9 = icmp eq i64 %45, 0
+  br i1 %.not9, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit, label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge
 
 _ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge: ; preds = %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit
-  %.pre12 = load i8, ptr %46, align 1, !tbaa !16
+  %.pre10 = load i8, ptr %46, align 1, !tbaa !16
   br label %51
 
 51:                                               ; preds = %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge, %.thread
-  %52 = phi i8 [ %26, %.thread ], [ %.pre12, %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge ]
+  %52 = phi i8 [ %26, %.thread ], [ %.pre10, %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE11make_bufferEv.exit._crit_edge ]
   %53 = zext i8 %52 to i32
   br label %_ZN5boost6nowide13basic_filebufIcSt11char_traitsIcEE12stop_writingEv.exit
 
@@ -9403,28 +9403,28 @@ _ZN5boost6nowide17basic_stackstringIwcLm256EE5clearEv.exit: ; preds = %3, %10
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !7
-  %.not34.i = icmp eq ptr %1, %2
-  br i1 %.not34.i, label %.loopexit, label %.lr.ph.i
+  %.not33.i = icmp eq ptr %1, %2
+  br i1 %.not33.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %20
-  %.02336.in.i = phi i64 [ %.02336.i, %20 ], [ 256, %17 ]
-  %.02035.i = phi ptr [ %21, %20 ], [ %0, %17 ]
-  %.02336.i = add nsw i64 %.02336.in.i, -1
+  %.02335.in.i = phi i64 [ %.02335.i, %20 ], [ 256, %17 ]
+  %.02034.i = phi ptr [ %21, %20 ], [ %0, %17 ]
+  %.02335.i = add nsw i64 %.02335.in.i, -1
   %18 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %2)
-  %19 = icmp eq i64 %.02336.i, 0
+  %19 = icmp eq i64 %.02335.i, 0
   br i1 %19, label %_ZN5boost6nowide3utf14convert_bufferIwcEEPT_S4_mPKT0_S7_.exit, label %20
 
 20:                                               ; preds = %.lr.ph.i
   %or.cond.i13 = icmp ugt i32 %18, -3
   %spec.store.select.i = select i1 %or.cond.i13, i32 65533, i32 %18
-  %21 = getelementptr inbounds nuw i8, ptr %.02035.i, i64 4
-  store i32 %spec.store.select.i, ptr %.02035.i, align 4, !tbaa !94
+  %21 = getelementptr inbounds nuw i8, ptr %.02034.i, i64 4
+  store i32 %spec.store.select.i, ptr %.02034.i, align 4, !tbaa !94
   %22 = load ptr, ptr %5, align 8, !tbaa !7
   %.not.i = icmp eq ptr %22, %2
   br i1 %.not.i, label %.loopexit, label %.lr.ph.i
 
 _ZN5boost6nowide3utf14convert_bufferIwcEEPT_S4_mPKT0_S7_.exit: ; preds = %.lr.ph.i
-  store i32 0, ptr %.02035.i, align 4, !tbaa !94
+  store i32 0, ptr %.02034.i, align 4, !tbaa !94
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %23
 
@@ -9447,28 +9447,28 @@ _ZN5boost6nowide3utf14convert_bufferIwcEEPT_S4_mPKT0_S7_.exit: ; preds = %.lr.ph
   br i1 %28, label %_ZN5boost6nowide3utf14convert_bufferIwcEEPT_S4_mPKT0_S7_.exit24, label %.preheader.i
 
 .preheader.i:                                     ; preds = %23
-  %.not34.i14 = icmp eq ptr %1, %2
-  br i1 %.not34.i14, label %.thread.i, label %.lr.ph.i15
+  %.not33.i14 = icmp eq ptr %1, %2
+  br i1 %.not33.i14, label %.thread.i, label %.lr.ph.i15
 
 .lr.ph.i15:                                       ; preds = %.preheader.i, %31
-  %.02336.in.i16 = phi i64 [ %.02336.i18, %31 ], [ %15, %.preheader.i ]
-  %.02035.i17 = phi ptr [ %32, %31 ], [ %27, %.preheader.i ]
-  %.02336.i18 = add i64 %.02336.in.i16, -1
+  %.02335.in.i16 = phi i64 [ %.02335.i18, %31 ], [ %15, %.preheader.i ]
+  %.02034.i17 = phi ptr [ %32, %31 ], [ %27, %.preheader.i ]
+  %.02335.i18 = add i64 %.02335.in.i16, -1
   %29 = call noundef i32 @_ZN5boost6nowide3utf10utf_traitsIcLi1EE6decodeIPKcEEjRT_S7_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %2)
-  %30 = icmp eq i64 %.02336.i18, 0
+  %30 = icmp eq i64 %.02335.i18, 0
   br i1 %30, label %.thread.i.loopexit, label %31
 
 31:                                               ; preds = %.lr.ph.i15
   %or.cond.i19 = icmp ugt i32 %29, -3
   %spec.store.select.i20 = select i1 %or.cond.i19, i32 65533, i32 %29
-  %32 = getelementptr inbounds nuw i8, ptr %.02035.i17, i64 4
-  store i32 %spec.store.select.i20, ptr %.02035.i17, align 4, !tbaa !94
+  %32 = getelementptr inbounds nuw i8, ptr %.02034.i17, i64 4
+  store i32 %spec.store.select.i20, ptr %.02034.i17, align 4, !tbaa !94
   %33 = load ptr, ptr %4, align 8, !tbaa !7
   %.not.i21 = icmp eq ptr %33, %2
   br i1 %.not.i21, label %.thread.i.loopexit, label %.lr.ph.i15
 
 .thread.i.loopexit:                               ; preds = %.lr.ph.i15, %31
-  %.020.lcssa.i22.ph = phi ptr [ %.02035.i17, %.lr.ph.i15 ], [ %32, %31 ]
+  %.020.lcssa.i22.ph = phi ptr [ %.02034.i17, %.lr.ph.i15 ], [ %32, %31 ]
   %.pre.pre.pre = load ptr, ptr %6, align 8, !tbaa !92
   br label %.thread.i
 

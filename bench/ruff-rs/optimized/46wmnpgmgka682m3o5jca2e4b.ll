@@ -68212,7 +68212,7 @@ define hidden void @_ZN11ruff_linter5rules21flake8_comprehensions5rules15unneces
   %.sroa.9.0.i.i = phi i64 [ %52, %48 ], [ %55, %53 ]
   %.sroa.01.0.i.i = phi ptr [ %50, %48 ], [ %3, %53 ]
   %61 = icmp eq i64 %.sroa.9.0.i.i, 2
-  br i1 %61, label %62, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread36
+  br i1 %61, label %62, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread33
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %.sroa.01.0.i.i, align 8, !nonnull !4, !align !371, !noundef !4
@@ -68239,10 +68239,10 @@ define hidden void @_ZN11ruff_linter5rules21flake8_comprehensions5rules15unneces
           to label %79 unwind label %58, !noalias !3315
 
 78:                                               ; preds = %68
-  br i1 %71, label %72, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread36
+  br i1 %71, label %72, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread33
 
 79:                                               ; preds = %72
-  br i1 %77, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread33, label %80
+  br i1 %77, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread30, label %80
 
 80:                                               ; preds = %79
   %81 = load ptr, ptr %73, align 8, !nonnull !4, !align !371, !noundef !4
@@ -68251,7 +68251,7 @@ define hidden void @_ZN11ruff_linter5rules21flake8_comprehensions5rules15unneces
           to label %84 unwind label %58, !noalias !3315
 
 84:                                               ; preds = %80
-  br i1 %83, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread33, label %85
+  br i1 %83, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread30, label %85
 
 85:                                               ; preds = %84
   %86 = load ptr, ptr %73, align 8, !nonnull !4, !align !371, !noundef !4
@@ -68265,17 +68265,17 @@ define hidden void @_ZN11ruff_linter5rules21flake8_comprehensions5rules15unneces
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
   unreachable
 
-common.resume:                                    ; preds = %170, %58
-  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %171, %170 ]
+common.resume:                                    ; preds = %154, %58
+  %common.resume.op = phi { ptr, i32 } [ %59, %58 ], [ %155, %154 ]
   resume { ptr, i32 } %common.resume.op
 
-_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread33: ; preds = %84, %79
+_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread30: ; preds = %84, %79
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_python_ast..name..QualifiedName$GT$17h8925dadafea610c8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3312
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3312
   br label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
 
-_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread36: ; preds = %78, %60
+_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread33: ; preds = %78, %60
   call void @"_ZN4core3ptr57drop_in_place$LT$ruff_python_ast..name..QualifiedName$GT$17h8925dadafea610c8E"(ptr noalias noundef nonnull align 8 dereferenceable(136) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !3312
   br label %.sink.split
@@ -68286,7 +68286,7 @@ _ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_se
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3312
   br i1 %88, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %91
 
-.sink.split:                                      ; preds = %39, %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread36
+.sink.split:                                      ; preds = %39, %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread33
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !3312
   br label %91
 
@@ -68299,8 +68299,8 @@ _ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_se
   %94 = load ptr, ptr %11, align 8, !alias.scope !3318, !noalias !3323, !nonnull !4, !align !66, !noundef !4
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %96 = load i64, ptr %95, align 8, !alias.scope !3318, !noalias !3323, !noundef !4
-  %.not.i19 = icmp eq i64 %96, 0
-  br i1 %.not.i19, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %97
+  %.not.i18 = icmp eq i64 %96, 0
+  br i1 %.not.i18, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %97
 
 97:                                               ; preds = %93
   %98 = load i32, ptr %94, align 8, !range !114, !noalias !3321, !noundef !4
@@ -68343,8 +68343,8 @@ _ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_se
   %119 = load ptr, ptr %118, align 8, !alias.scope !3325, !noalias !3328, !nonnull !4, !align !66, !noundef !4
   %120 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %121 = load i64, ptr %120, align 8, !alias.scope !3325, !noalias !3328, !noundef !4
-  %.not.i20 = icmp eq i64 %121, 0
-  br i1 %.not.i20, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %122
+  %.not.i19 = icmp eq i64 %121, 0
+  br i1 %.not.i19, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %122
 
 122:                                              ; preds = %117
   %123 = load i32, ptr %119, align 8, !range !114, !noalias !3331, !noundef !4
@@ -68360,8 +68360,8 @@ _ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_se
   %129 = load ptr, ptr %127, align 8, !nonnull !4, !align !66, !noundef !4
   %130 = load i32, ptr %129, align 8, !range !114, !noundef !4
   %131 = and i32 %130, 30
-  %switch16 = icmp eq i32 %131, 28
-  br i1 %switch16, label %132, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
+  %switch = icmp eq i32 %131, 28
+  br i1 %switch, label %132, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
 
 132:                                              ; preds = %128
   %133 = getelementptr inbounds nuw i8, ptr %129, i64 24
@@ -68371,8 +68371,8 @@ _ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_se
   %136 = icmp eq i64 %134, 2
   br i1 %136, label %103, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
 
-137:                                              ; preds = %174, %103
-  %.sroa.07.0 = phi ptr [ %.sroa.010.0, %103 ], [ %.sroa.07.1, %174 ]
+137:                                              ; preds = %158, %103
+  %.sroa.07.0 = phi ptr [ %.sroa.010.0, %103 ], [ %.sroa.07.1, %158 ]
   %138 = icmp eq ptr %.sroa.07.0, %105
   %.sroa.07.1.idx = select i1 %138, i64 0, i64 64
   %.sroa.07.1 = getelementptr inbounds nuw i8, ptr %.sroa.07.0, i64 %.sroa.07.1.idx
@@ -68380,67 +68380,35 @@ _ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_se
 
 139:                                              ; preds = %137
   %140 = call noundef zeroext i1 @_ZN15ruff_python_ast7helpers13any_over_expr17h1fc54c4417d16348E(ptr noundef nonnull align 8 %.sroa.07.0, ptr noundef nonnull align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(48) @anon.b08dd5f4f09c4be6245191ddd275a566.252)
-  br i1 %140, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %174
+  br i1 %140, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %158
 
 141:                                              ; preds = %137
   %.sroa.08.0.val = load ptr, ptr %.sroa.08.0, align 8
   %142 = getelementptr i8, ptr %.sroa.08.0, i64 16
-  %.sroa.08.0.val17 = load ptr, ptr %142, align 8, !align !66, !noundef !4
-  %.not.i24 = icmp eq ptr %.sroa.08.0.val17, null
-  br i1 %.not.i24, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %143
+  %.sroa.08.0.val16 = load ptr, ptr %142, align 8, !align !66, !noundef !4
+  %143 = call fastcc noundef zeroext i1 @_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map25lambda_has_expected_arity17h29a1eaa31289b7a5E(ptr %.sroa.08.0.val, ptr %.sroa.08.0.val16)
+  br i1 %143, label %144, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
 
-143:                                              ; preds = %141
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.val17, i64 40
-  %145 = load i64, ptr %144, align 8, !noundef !4
-  %146 = icmp eq i64 %145, 1
-  br i1 %146, label %147, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
-
-147:                                              ; preds = %143
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.val17, i64 32
-  %149 = load ptr, ptr %148, align 8, !nonnull !4, !noundef !4
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8, !align !66, !noundef !4
-  %.not2.i = icmp eq ptr %151, null
-  br i1 %.not2.i, label %152, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
-
-152:                                              ; preds = %147
-  %153 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.val17, i64 80
-  %154 = load ptr, ptr %153, align 8, !align !66, !noundef !4
-  %.not3.i = icmp eq ptr %154, null
-  br i1 %.not3.i, label %155, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
-
-155:                                              ; preds = %152
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.val17, i64 88
-  %157 = load ptr, ptr %156, align 8, !align !66, !noundef !4
-  %.not4.i = icmp eq ptr %157, null
-  br i1 %.not4.i, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map25lambda_has_expected_arity17h29a1eaa31289b7a5E.exit, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
-
-_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map25lambda_has_expected_arity17h29a1eaa31289b7a5E.exit: ; preds = %155
-  %158 = icmp ne ptr %.sroa.08.0.val, null
-  call void @llvm.assume(i1 %158)
-  %159 = call fastcc noundef zeroext i1 @_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map12late_binding17hce50723831842ffdE(ptr noalias noundef readonly align 8 dereferenceable(96) %.sroa.08.0.val17, ptr noundef nonnull align 8 %.sroa.08.0.val)
-  br i1 %159, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %160
-
-160:                                              ; preds = %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map25lambda_has_expected_arity17h29a1eaa31289b7a5E.exit
+144:                                              ; preds = %141
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %161 = load i8, ptr %9, align 1, !range !403, !noundef !4
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %163 = load i32, ptr %162, align 8, !noundef !4
-  %164 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %165 = load i32, ptr %164, align 4, !noundef !4
-  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17ha36889e958738b4dE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %7, i8 noundef %161, i32 noundef %163, i32 noundef %165)
+  %145 = load i8, ptr %9, align 1, !range !403, !noundef !4
+  %146 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %147 = load i32, ptr %146, align 8, !noundef !4
+  %148 = getelementptr inbounds nuw i8, ptr %1, i64 52
+  %149 = load i32, ptr %148, align 4, !noundef !4
+  call void @_ZN16ruff_diagnostics10diagnostic10Diagnostic3new17ha36889e958738b4dE(ptr noalias noundef nonnull sret([120 x i8]) align 8 captures(none) dereferenceable(120) %7, i8 noundef %145, i32 noundef %147, i32 noundef %149)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %1, ptr %6, align 8
-  %166 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %8, ptr %166, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %9, ptr %167, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %0, ptr %168, align 8
+  %150 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %8, ptr %150, align 8
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %9, ptr %151, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %0, ptr %152, align 8
   invoke fastcc void @_ZN16ruff_diagnostics10diagnostic10Diagnostic11try_set_fix17h69c71dc883e388e5E(ptr noalias noundef align 8 dereferenceable(120) %7, ptr noalias noundef align 8 captures(none) dereferenceable(32) %6)
-          to label %169 unwind label %170
+          to label %153 unwind label %154
 
-169:                                              ; preds = %160
+153:                                              ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) %7, i64 120, i1 false)
@@ -68449,29 +68417,29 @@ _ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map25lambda_has
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split
 
-_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split: ; preds = %174, %139, %30, %106, %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit, %132, %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map25lambda_has_expected_arity17h29a1eaa31289b7a5E.exit, %128, %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread33, %91, %97, %93, %109, %113, %122, %117, %141, %143, %147, %155, %152, %169
+_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split: ; preds = %158, %139, %30, %106, %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit, %132, %141, %128, %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map19is_list_set_or_dict17h9d0ff790568c51f8E.exit.thread30, %91, %97, %93, %109, %113, %122, %117, %153
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit
 
 _ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit: ; preds = %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, %15, %26, %2
   ret void
 
-170:                                              ; preds = %160
-  %171 = landingpad { ptr, i32 }
+154:                                              ; preds = %144
+  %155 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr61drop_in_place$LT$ruff_diagnostics..diagnostic..Diagnostic$GT$17h5e3a7e2da4203097E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %7) #25
-          to label %common.resume unwind label %172
+          to label %common.resume unwind label %156
 
-172:                                              ; preds = %170
-  %173 = landingpad { ptr, i32 }
+156:                                              ; preds = %154
+  %157 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #24
   unreachable
 
-174:                                              ; preds = %139
-  %175 = load i32, ptr %.sroa.07.0, align 8, !range !114, !noundef !4
-  %176 = icmp eq i32 %175, 26
-  br i1 %176, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %137
+158:                                              ; preds = %139
+  %159 = load i32, ptr %.sroa.07.0, align 8, !range !114, !noundef !4
+  %160 = icmp eq i32 %159, 26
+  br i1 %160, label %_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map10ObjectType4from17h6718e1f0e8396114E.exit.sink.split, label %137
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -68479,6 +68447,49 @@ define internal noundef zeroext i1 @"_ZN11ruff_linter5rules21flake8_comprehensio
   %3 = load i32, ptr %1, align 8, !range !114, !noundef !4
   %4 = icmp eq i32 %3, 1
   ret i1 %4
+}
+
+; Function Attrs: nonlazybind uwtable
+define internal fastcc noundef zeroext i1 @_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map25lambda_has_expected_arity17h29a1eaa31289b7a5E(ptr %.0.val, ptr %.16.val) unnamed_addr #1 {
+  %.not = icmp eq ptr %.16.val, null
+  br i1 %.not, label %5, label %1
+
+1:                                                ; preds = %0
+  %2 = getelementptr inbounds nuw i8, ptr %.16.val, i64 40
+  %3 = load i64, ptr %2, align 8, !noundef !4
+  %4 = icmp eq i64 %3, 1
+  br i1 %4, label %6, label %5
+
+5:                                                ; preds = %17, %11, %14, %6, %1, %0
+  %.sroa.0.0 = phi i1 [ false, %0 ], [ false, %1 ], [ false, %6 ], [ false, %14 ], [ false, %11 ], [ %not., %17 ]
+  ret i1 %.sroa.0.0
+
+6:                                                ; preds = %1
+  %7 = getelementptr inbounds nuw i8, ptr %.16.val, i64 32
+  %8 = load ptr, ptr %7, align 8, !nonnull !4, !noundef !4
+  %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %10 = load ptr, ptr %9, align 8, !align !66, !noundef !4
+  %.not2 = icmp eq ptr %10, null
+  br i1 %.not2, label %11, label %5
+
+11:                                               ; preds = %6
+  %12 = getelementptr inbounds nuw i8, ptr %.16.val, i64 80
+  %13 = load ptr, ptr %12, align 8, !align !66, !noundef !4
+  %.not3 = icmp eq ptr %13, null
+  br i1 %.not3, label %14, label %5
+
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %.16.val, i64 88
+  %16 = load ptr, ptr %15, align 8, !align !66, !noundef !4
+  %.not4 = icmp eq ptr %16, null
+  br i1 %.not4, label %17, label %5
+
+17:                                               ; preds = %14
+  %18 = icmp ne ptr %.0.val, null
+  tail call void @llvm.assume(i1 %18)
+  %19 = tail call fastcc noundef zeroext i1 @_ZN11ruff_linter5rules21flake8_comprehensions5rules15unnecessary_map12late_binding17hce50723831842ffdE(ptr noalias noundef readonly align 8 dereferenceable(96) %.16.val, ptr noundef nonnull align 8 %.0.val)
+  %not. = xor i1 %19, true
+  br label %5
 }
 
 ; Function Attrs: nonlazybind uwtable

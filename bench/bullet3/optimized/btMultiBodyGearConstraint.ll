@@ -128,8 +128,8 @@ define dso_local noundef i32 @_ZNK25btMultiBodyGearConstraint12getIslandIdAEv(pt
   br i1 %.not8, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %11, %8
-  %.sink15 = phi ptr [ %10, %8 ], [ %17, %11 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink15, i64 228
+  %.sink14 = phi ptr [ %10, %8 ], [ %17, %11 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sink14, i64 228
   %19 = load i32, ptr %18, align 4, !tbaa !51
   br label %.thread
 
@@ -168,8 +168,8 @@ define dso_local noundef i32 @_ZNK25btMultiBodyGearConstraint12getIslandIdBEv(pt
   br i1 %.not8, label %.thread, label %.thread.sink.split
 
 .thread.sink.split:                               ; preds = %11, %8
-  %.sink15 = phi ptr [ %10, %8 ], [ %17, %11 ]
-  %18 = getelementptr inbounds nuw i8, ptr %.sink15, i64 228
+  %.sink14 = phi ptr [ %10, %8 ], [ %17, %11 ]
+  %18 = getelementptr inbounds nuw i8, ptr %.sink14, i64 228
   %19 = load i32, ptr %18, align 4, !tbaa !51
   br label %.thread
 

@@ -514,15 +514,15 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18Interac
   unreachable
 
 .preheader.i.i:                                   ; preds = %._crit_edge.i.i, %.preheader.lr.ph.i.i
-  %indvars.iv34.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next35.i.i, %._crit_edge.i.i ]
-  %184 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv34.i.i
+  %indvars.iv36.i.i = phi i64 [ 0, %.preheader.lr.ph.i.i ], [ %indvars.iv.next37.i.i, %._crit_edge.i.i ]
+  %184 = getelementptr inbounds nuw i32, ptr %181, i64 %indvars.iv36.i.i
   %185 = load i32, ptr %184, align 4, !tbaa !23
-  %.not2127.i.i = icmp sgt i32 %185, 0
-  br i1 %.not2127.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
+  %.not2129.i.i = icmp sgt i32 %185, 0
+  br i1 %.not2129.i.i, label %.lr.ph.i.i, label %._crit_edge.i.i
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %186 = load ptr, ptr %182, align 8, !tbaa !16
-  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv34.i.i
+  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %indvars.iv36.i.i
   %188 = load ptr, ptr %187, align 8, !tbaa !19
   %wide.trip.count.i.i = zext nneg i32 %185 to i64
   br label %190
@@ -540,9 +540,9 @@ _ZL5add_bP18InteractionsOfTypePiP8sortable.exit:  ; preds = %_ZL5add_bP18Interac
   br i1 %193, label %_ZL22atom_is_present_in_nnbPK8t_nextnbiii.exit.i, label %189
 
 ._crit_edge.i.i:                                  ; preds = %189, %.preheader.i.i
-  %indvars.iv.next35.i.i = add nuw nsw i64 %indvars.iv34.i.i, 1
-  %exitcond38.not.i.i = icmp eq i64 %indvars.iv34.i.i, %indvars.iv80.i
-  br i1 %exitcond38.not.i.i, label %194, label %.preheader.i.i, !llvm.loop !43
+  %indvars.iv.next37.i.i = add nuw nsw i64 %indvars.iv36.i.i, 1
+  %exitcond40.not.i.i = icmp eq i64 %indvars.iv36.i.i, %indvars.iv80.i
+  br i1 %exitcond40.not.i.i, label %194, label %.preheader.i.i, !llvm.loop !43
 
 194:                                              ; preds = %._crit_edge.i.i
   %195 = load ptr, ptr %182, align 8, !tbaa !16

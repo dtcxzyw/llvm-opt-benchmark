@@ -219,13 +219,13 @@ define hidden void @_ZN6Assimp11AMFImporter15ParseNode_ColorERN4pugi8xml_nodeE(p
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 56
-  %.017.i = load ptr, ptr %9, align 8
-  %.not1218.i = icmp eq ptr %.017.i, null
-  br i1 %.not1218.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %.lr.ph.i
+  %.015.i = load ptr, ptr %9, align 8
+  %.not1216.i = icmp eq ptr %.015.i, null
+  br i1 %.not1216.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %8, %15
-  %.019.i = phi ptr [ %.0.i, %15 ], [ %.017.i, %8 ]
-  %10 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
+  %.017.i = phi ptr [ %.0.i, %15 ], [ %.015.i, %8 ]
+  %10 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %11 = load ptr, ptr %10, align 8
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %15, label %12
@@ -236,13 +236,13 @@ define hidden void @_ZN6Assimp11AMFImporter15ParseNode_ColorERN4pugi8xml_nodeE(p
   br i1 %14, label %_ZNK4pugi8xml_node9attributeEPKc.exit, label %15
 
 15:                                               ; preds = %12, %.lr.ph.i
-  %16 = getelementptr inbounds nuw i8, ptr %.019.i, i64 32
+  %16 = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
   %.0.i = load ptr, ptr %16, align 8
   %.not12.i = icmp eq ptr %.0.i, null
   br i1 %.not12.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %.lr.ph.i, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit:            ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
+  %17 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
   %18 = load ptr, ptr %17, align 8
   %.not7.i = icmp eq ptr %18, null
   %19 = select i1 %.not7.i, ptr @.str.1, ptr %18
@@ -460,13 +460,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %7
 
 102:                                              ; preds = %99, %96
   %103 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 32
-  %.0611.i.i.i = load ptr, ptr %103, align 8
-  %.not1012.i.i.i = icmp eq ptr %.0611.i.i.i, null
-  br i1 %.not1012.i.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %.lr.ph.i.i.i
+  %.0612.i.i.i = load ptr, ptr %103, align 8
+  %.not1013.i.i.i = icmp eq ptr %.0612.i.i.i, null
+  br i1 %.not1013.i.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %102, %109
-  %.0613.i.i.i = phi ptr [ %.06.i.i.i, %109 ], [ %.0611.i.i.i, %102 ]
-  %104 = load i64, ptr %.0613.i.i.i, align 8
+  %.0614.i.i.i = phi ptr [ %.06.i.i.i, %109 ], [ %.0612.i.i.i, %102 ]
+  %104 = load i64, ptr %.0614.i.i.i, align 8
   %105 = trunc i64 %104 to i32
   %106 = and i32 %105, 15
   %107 = add nsw i32 %106, -3
@@ -474,13 +474,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %7
   br i1 %108, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i, label %109
 
 109:                                              ; preds = %.lr.ph.i.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i, i64 48
+  %110 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i, i64 48
   %.06.i.i.i = load ptr, ptr %110, align 8
   %.not10.i.i.i = icmp eq ptr %.06.i.i.i, null
   br i1 %.not10.i.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i:              ; preds = %.lr.ph.i.i.i, %99, %90
-  %.07.i.i.i = phi ptr [ %.sroa.0111.0144, %99 ], [ %.sroa.0111.0144, %90 ], [ %.0613.i.i.i, %.lr.ph.i.i.i ]
+  %.07.i.i.i = phi ptr [ %.sroa.0111.0144, %99 ], [ %.sroa.0111.0144, %90 ], [ %.0614.i.i.i, %.lr.ph.i.i.i ]
   %111 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 16
   %112 = load ptr, ptr %111, align 8
   %.not10.i.i = icmp eq ptr %112, null
@@ -532,13 +532,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i:             ; preds = %109, %113, %_ZNK4pu
 
 135:                                              ; preds = %132, %129
   %136 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 32
-  %.0611.i.i.i60 = load ptr, ptr %136, align 8
-  %.not1012.i.i.i61 = icmp eq ptr %.0611.i.i.i60, null
-  br i1 %.not1012.i.i.i61, label %_ZNK4pugi8xml_text8as_floatEf.exit.i66, label %.lr.ph.i.i.i62
+  %.0612.i.i.i60 = load ptr, ptr %136, align 8
+  %.not1013.i.i.i61 = icmp eq ptr %.0612.i.i.i60, null
+  br i1 %.not1013.i.i.i61, label %_ZNK4pugi8xml_text8as_floatEf.exit.i66, label %.lr.ph.i.i.i62
 
 .lr.ph.i.i.i62:                                   ; preds = %135, %142
-  %.0613.i.i.i63 = phi ptr [ %.06.i.i.i64, %142 ], [ %.0611.i.i.i60, %135 ]
-  %137 = load i64, ptr %.0613.i.i.i63, align 8
+  %.0614.i.i.i63 = phi ptr [ %.06.i.i.i64, %142 ], [ %.0612.i.i.i60, %135 ]
+  %137 = load i64, ptr %.0614.i.i.i63, align 8
   %138 = trunc i64 %137 to i32
   %139 = and i32 %138, 15
   %140 = add nsw i32 %139, -3
@@ -546,13 +546,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i:             ; preds = %109, %113, %_ZNK4pu
   br i1 %141, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i68, label %142
 
 142:                                              ; preds = %.lr.ph.i.i.i62
-  %143 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i63, i64 48
+  %143 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i63, i64 48
   %.06.i.i.i64 = load ptr, ptr %143, align 8
   %.not10.i.i.i65 = icmp eq ptr %.06.i.i.i64, null
   br i1 %.not10.i.i.i65, label %_ZNK4pugi8xml_text8as_floatEf.exit.i66, label %.lr.ph.i.i.i62, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i68:            ; preds = %.lr.ph.i.i.i62, %132, %123
-  %.07.i.i.i69 = phi ptr [ %.sroa.0111.0144, %132 ], [ %.sroa.0111.0144, %123 ], [ %.0613.i.i.i63, %.lr.ph.i.i.i62 ]
+  %.07.i.i.i69 = phi ptr [ %.sroa.0111.0144, %132 ], [ %.sroa.0111.0144, %123 ], [ %.0614.i.i.i63, %.lr.ph.i.i.i62 ]
   %144 = getelementptr inbounds nuw i8, ptr %.07.i.i.i69, i64 16
   %145 = load ptr, ptr %144, align 8
   %.not10.i.i70 = icmp eq ptr %145, null
@@ -594,13 +594,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i66:           ; preds = %142, %146, %_ZNK4pu
 
 164:                                              ; preds = %161, %158
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 32
-  %.0611.i.i.i74 = load ptr, ptr %165, align 8
-  %.not1012.i.i.i75 = icmp eq ptr %.0611.i.i.i74, null
-  br i1 %.not1012.i.i.i75, label %_ZNK4pugi8xml_text8as_floatEf.exit.i80, label %.lr.ph.i.i.i76
+  %.0612.i.i.i74 = load ptr, ptr %165, align 8
+  %.not1013.i.i.i75 = icmp eq ptr %.0612.i.i.i74, null
+  br i1 %.not1013.i.i.i75, label %_ZNK4pugi8xml_text8as_floatEf.exit.i80, label %.lr.ph.i.i.i76
 
 .lr.ph.i.i.i76:                                   ; preds = %164, %171
-  %.0613.i.i.i77 = phi ptr [ %.06.i.i.i78, %171 ], [ %.0611.i.i.i74, %164 ]
-  %166 = load i64, ptr %.0613.i.i.i77, align 8
+  %.0614.i.i.i77 = phi ptr [ %.06.i.i.i78, %171 ], [ %.0612.i.i.i74, %164 ]
+  %166 = load i64, ptr %.0614.i.i.i77, align 8
   %167 = trunc i64 %166 to i32
   %168 = and i32 %167, 15
   %169 = add nsw i32 %168, -3
@@ -608,13 +608,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i66:           ; preds = %142, %146, %_ZNK4pu
   br i1 %170, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i82, label %171
 
 171:                                              ; preds = %.lr.ph.i.i.i76
-  %172 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i77, i64 48
+  %172 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i77, i64 48
   %.06.i.i.i78 = load ptr, ptr %172, align 8
   %.not10.i.i.i79 = icmp eq ptr %.06.i.i.i78, null
   br i1 %.not10.i.i.i79, label %_ZNK4pugi8xml_text8as_floatEf.exit.i80, label %.lr.ph.i.i.i76, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i82:            ; preds = %.lr.ph.i.i.i76, %161, %152
-  %.07.i.i.i83 = phi ptr [ %.sroa.0111.0144, %161 ], [ %.sroa.0111.0144, %152 ], [ %.0613.i.i.i77, %.lr.ph.i.i.i76 ]
+  %.07.i.i.i83 = phi ptr [ %.sroa.0111.0144, %161 ], [ %.sroa.0111.0144, %152 ], [ %.0614.i.i.i77, %.lr.ph.i.i.i76 ]
   %173 = getelementptr inbounds nuw i8, ptr %.07.i.i.i83, i64 16
   %174 = load ptr, ptr %173, align 8
   %.not10.i.i84 = icmp eq ptr %174, null
@@ -656,13 +656,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i80:           ; preds = %171, %175, %_ZNK4pu
 
 193:                                              ; preds = %190, %187
   %194 = getelementptr inbounds nuw i8, ptr %.sroa.0111.0144, i64 32
-  %.0611.i.i.i88 = load ptr, ptr %194, align 8
-  %.not1012.i.i.i89 = icmp eq ptr %.0611.i.i.i88, null
-  br i1 %.not1012.i.i.i89, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread.sink.split, label %.lr.ph.i.i.i90
+  %.0612.i.i.i88 = load ptr, ptr %194, align 8
+  %.not1013.i.i.i89 = icmp eq ptr %.0612.i.i.i88, null
+  br i1 %.not1013.i.i.i89, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread.sink.split, label %.lr.ph.i.i.i90
 
 .lr.ph.i.i.i90:                                   ; preds = %193, %200
-  %.0613.i.i.i91 = phi ptr [ %.06.i.i.i92, %200 ], [ %.0611.i.i.i88, %193 ]
-  %195 = load i64, ptr %.0613.i.i.i91, align 8
+  %.0614.i.i.i91 = phi ptr [ %.06.i.i.i92, %200 ], [ %.0612.i.i.i88, %193 ]
+  %195 = load i64, ptr %.0614.i.i.i91, align 8
   %196 = trunc i64 %195 to i32
   %197 = and i32 %196, 15
   %198 = add nsw i32 %197, -3
@@ -670,13 +670,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i80:           ; preds = %171, %175, %_ZNK4pu
   br i1 %199, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i96, label %200
 
 200:                                              ; preds = %.lr.ph.i.i.i90
-  %201 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i91, i64 48
+  %201 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i91, i64 48
   %.06.i.i.i92 = load ptr, ptr %201, align 8
   %.not10.i.i.i93 = icmp eq ptr %.06.i.i.i92, null
   br i1 %.not10.i.i.i93, label %_ZN6Assimp10TXmlParserIN4pugi8xml_nodeEE15getValueAsFloatERS2_Rf.exit.thread.sink.split, label %.lr.ph.i.i.i90, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i96:            ; preds = %.lr.ph.i.i.i90, %190, %181
-  %.07.i.i.i97 = phi ptr [ %.sroa.0111.0144, %190 ], [ %.sroa.0111.0144, %181 ], [ %.0613.i.i.i91, %.lr.ph.i.i.i90 ]
+  %.07.i.i.i97 = phi ptr [ %.sroa.0111.0144, %190 ], [ %.sroa.0111.0144, %181 ], [ %.0614.i.i.i91, %.lr.ph.i.i.i90 ]
   %202 = getelementptr inbounds nuw i8, ptr %.07.i.i.i97, i64 16
   %203 = load ptr, ptr %202, align 8
   %.not10.i.i98 = icmp eq ptr %203, null
@@ -878,13 +878,13 @@ define hidden void @_ZN6Assimp11AMFImporter18ParseNode_MaterialERN4pugi8xml_node
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %.017.i = load ptr, ptr %10, align 8
-  %.not1218.i = icmp eq ptr %.017.i, null
-  br i1 %.not1218.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %.lr.ph.i
+  %.015.i = load ptr, ptr %10, align 8
+  %.not1216.i = icmp eq ptr %.015.i, null
+  br i1 %.not1216.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %26
-  %.019.i = phi ptr [ %.0.i, %26 ], [ %.017.i, %9 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
+  %.017.i = phi ptr [ %.0.i, %26 ], [ %.015.i, %9 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %26, label %sub_0
@@ -917,13 +917,13 @@ sub_2:                                            ; preds = %sub_1
   br i1 %25, label %_ZNK4pugi8xml_node9attributeEPKc.exit, label %26
 
 26:                                               ; preds = %.tail, %.lr.ph.i
-  %27 = getelementptr inbounds nuw i8, ptr %.019.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
   %.0.i = load ptr, ptr %27, align 8
   %.not12.i = icmp eq ptr %.0.i, null
   br i1 %.not12.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %.lr.ph.i, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit:            ; preds = %.tail
-  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not7.i = icmp eq ptr %29, null
   %30 = select i1 %.not7.i, ptr @.str.1, ptr %29
@@ -1234,13 +1234,13 @@ define hidden void @_ZN6Assimp11AMFImporter17ParseNode_TextureERN4pugi8xml_nodeE
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %.017.i = load ptr, ptr %10, align 8
-  %.not1218.i = icmp eq ptr %.017.i, null
-  br i1 %.not1218.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %.lr.ph.i
+  %.015.i = load ptr, ptr %10, align 8
+  %.not1216.i = icmp eq ptr %.015.i, null
+  br i1 %.not1216.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %9, %26
-  %.019.i = phi ptr [ %.0.i, %26 ], [ %.017.i, %9 ]
-  %11 = getelementptr inbounds nuw i8, ptr %.019.i, i64 8
+  %.017.i = phi ptr [ %.0.i, %26 ], [ %.015.i, %9 ]
+  %11 = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %12 = load ptr, ptr %11, align 8
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %26, label %sub_0
@@ -1273,13 +1273,13 @@ sub_2:                                            ; preds = %sub_1
   br i1 %25, label %_ZNK4pugi8xml_node9attributeEPKc.exit, label %26
 
 26:                                               ; preds = %.tail, %.lr.ph.i
-  %27 = getelementptr inbounds nuw i8, ptr %.019.i, i64 32
+  %27 = getelementptr inbounds nuw i8, ptr %.017.i, i64 32
   %.0.i = load ptr, ptr %27, align 8
   %.not12.i = icmp eq ptr %.0.i, null
   br i1 %.not12.i, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit, label %.lr.ph.i, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit:            ; preds = %.tail
-  %28 = getelementptr inbounds nuw i8, ptr %.019.i, i64 16
+  %28 = getelementptr inbounds nuw i8, ptr %.017.i, i64 16
   %29 = load ptr, ptr %28, align 8
   %.not7.i = icmp eq ptr %29, null
   %30 = select i1 %.not7.i, ptr @.str.1, ptr %29
@@ -1332,13 +1332,13 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %26, %9, %2, %_ZNK4p
 
 46:                                               ; preds = %40
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 56
-  %.017.i56 = load ptr, ptr %47, align 8
-  %.not1218.i57 = icmp eq ptr %.017.i56, null
-  br i1 %.not1218.i57, label %.thread, label %.lr.ph.i58
+  %.015.i56 = load ptr, ptr %47, align 8
+  %.not1216.i57 = icmp eq ptr %.015.i56, null
+  br i1 %.not1216.i57, label %.thread, label %.lr.ph.i58
 
 .lr.ph.i58:                                       ; preds = %46, %53
-  %.019.i59 = phi ptr [ %.0.i61, %53 ], [ %.017.i56, %46 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.019.i59, i64 8
+  %.017.i59 = phi ptr [ %.0.i61, %53 ], [ %.015.i56, %46 ]
+  %48 = getelementptr inbounds nuw i8, ptr %.017.i59, i64 8
   %49 = load ptr, ptr %48, align 8
   %.not13.i60 = icmp eq ptr %49, null
   br i1 %.not13.i60, label %53, label %50
@@ -1349,13 +1349,13 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit:      ; preds = %26, %9, %2, %_ZNK4p
   br i1 %52, label %_ZNK4pugi8xml_node9attributeEPKc.exit64, label %53
 
 53:                                               ; preds = %50, %.lr.ph.i58
-  %54 = getelementptr inbounds nuw i8, ptr %.019.i59, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.017.i59, i64 32
   %.0.i61 = load ptr, ptr %54, align 8
   %.not12.i62 = icmp eq ptr %.0.i61, null
   br i1 %.not12.i62, label %_ZNK4pugi13xml_attribute7as_uintEj.exit.thread224, label %.lr.ph.i58, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit64:          ; preds = %50
-  %55 = getelementptr inbounds nuw i8, ptr %.019.i59, i64 16
+  %55 = getelementptr inbounds nuw i8, ptr %.017.i59, i64 16
   %56 = load ptr, ptr %55, align 8
   %.not7.i66 = icmp eq ptr %56, null
   br i1 %.not7.i66, label %_ZNK4pugi13xml_attribute7as_uintEj.exit.thread224, label %.preheader.i
@@ -1505,8 +1505,8 @@ _ZNK4pugi13xml_attribute7as_uintEj.exit.thread224: ; preds = %53, %_ZNK4pugi8xml
   br label %.lr.ph.i71
 
 .lr.ph.i71:                                       ; preds = %_ZNK4pugi13xml_attribute7as_uintEj.exit.thread224, %133
-  %.019.i72 = phi ptr [ %.0.i74, %133 ], [ %.017.i56, %_ZNK4pugi13xml_attribute7as_uintEj.exit.thread224 ]
-  %128 = getelementptr inbounds nuw i8, ptr %.019.i72, i64 8
+  %.017.i72 = phi ptr [ %.0.i74, %133 ], [ %.015.i56, %_ZNK4pugi13xml_attribute7as_uintEj.exit.thread224 ]
+  %128 = getelementptr inbounds nuw i8, ptr %.017.i72, i64 8
   %129 = load ptr, ptr %128, align 8
   %.not13.i73 = icmp eq ptr %129, null
   br i1 %.not13.i73, label %133, label %130
@@ -1517,13 +1517,13 @@ _ZNK4pugi13xml_attribute7as_uintEj.exit.thread224: ; preds = %53, %_ZNK4pugi8xml
   br i1 %132, label %_ZNK4pugi8xml_node9attributeEPKc.exit77, label %133
 
 133:                                              ; preds = %130, %.lr.ph.i71
-  %134 = getelementptr inbounds nuw i8, ptr %.019.i72, i64 32
+  %134 = getelementptr inbounds nuw i8, ptr %.017.i72, i64 32
   %.0.i74 = load ptr, ptr %134, align 8
   %.not12.i75 = icmp eq ptr %.0.i74, null
   br i1 %.not12.i75, label %_ZNK4pugi13xml_attribute7as_uintEj.exit108.thread233, label %.lr.ph.i71, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit77:          ; preds = %130
-  %135 = getelementptr inbounds nuw i8, ptr %.019.i72, i64 16
+  %135 = getelementptr inbounds nuw i8, ptr %.017.i72, i64 16
   %136 = load ptr, ptr %135, align 8
   %.not7.i79 = icmp eq ptr %136, null
   br i1 %.not7.i79, label %_ZNK4pugi13xml_attribute7as_uintEj.exit108.thread233, label %.preheader.i80
@@ -1677,8 +1677,8 @@ _ZNK4pugi13xml_attribute7as_uintEj.exit108.thread233: ; preds = %133, %_ZNK4pugi
   br label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit163
 
 .lr.ph.i112:                                      ; preds = %_ZNK4pugi13xml_attribute7as_uintEj.exit108.thread233, %213
-  %.019.i113 = phi ptr [ %.0.i115, %213 ], [ %.017.i56, %_ZNK4pugi13xml_attribute7as_uintEj.exit108.thread233 ]
-  %208 = getelementptr inbounds nuw i8, ptr %.019.i113, i64 8
+  %.017.i113 = phi ptr [ %.0.i115, %213 ], [ %.015.i56, %_ZNK4pugi13xml_attribute7as_uintEj.exit108.thread233 ]
+  %208 = getelementptr inbounds nuw i8, ptr %.017.i113, i64 8
   %209 = load ptr, ptr %208, align 8
   %.not13.i114 = icmp eq ptr %209, null
   br i1 %.not13.i114, label %213, label %210
@@ -1689,13 +1689,13 @@ _ZNK4pugi13xml_attribute7as_uintEj.exit108.thread233: ; preds = %133, %_ZNK4pugi
   br i1 %212, label %_ZNK4pugi8xml_node9attributeEPKc.exit118, label %213
 
 213:                                              ; preds = %210, %.lr.ph.i112
-  %214 = getelementptr inbounds nuw i8, ptr %.019.i113, i64 32
+  %214 = getelementptr inbounds nuw i8, ptr %.017.i113, i64 32
   %.0.i115 = load ptr, ptr %214, align 8
   %.not12.i116 = icmp eq ptr %.0.i115, null
   br i1 %.not12.i116, label %.loopexit, label %.lr.ph.i112, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit118:         ; preds = %210
-  %215 = getelementptr inbounds nuw i8, ptr %.019.i113, i64 16
+  %215 = getelementptr inbounds nuw i8, ptr %.017.i113, i64 16
   %216 = load ptr, ptr %215, align 8
   %.not7.i120 = icmp eq ptr %216, null
   br i1 %.not7.i120, label %.loopexit, label %.preheader.i121
@@ -1850,8 +1850,8 @@ _ZNK4pugi13xml_attribute7as_uintEj.exit149.thread: ; preds = %40
   br label %.lr.ph.i153
 
 .lr.ph.i153:                                      ; preds = %.loopexit, %293
-  %.019.i154 = phi ptr [ %.0.i156, %293 ], [ %.017.i56, %.loopexit ]
-  %288 = getelementptr inbounds nuw i8, ptr %.019.i154, i64 8
+  %.017.i154 = phi ptr [ %.0.i156, %293 ], [ %.015.i56, %.loopexit ]
+  %288 = getelementptr inbounds nuw i8, ptr %.017.i154, i64 8
   %289 = load ptr, ptr %288, align 8
   %.not13.i155 = icmp eq ptr %289, null
   br i1 %.not13.i155, label %293, label %290
@@ -1862,13 +1862,13 @@ _ZNK4pugi13xml_attribute7as_uintEj.exit149.thread: ; preds = %40
   br i1 %292, label %_ZNK4pugi8xml_node9attributeEPKc.exit159, label %293
 
 293:                                              ; preds = %290, %.lr.ph.i153
-  %294 = getelementptr inbounds nuw i8, ptr %.019.i154, i64 32
+  %294 = getelementptr inbounds nuw i8, ptr %.017.i154, i64 32
   %.0.i156 = load ptr, ptr %294, align 8
   %.not12.i157 = icmp eq ptr %.0.i156, null
   br i1 %.not12.i157, label %_ZNK4pugi13xml_attribute9as_stringEPKc.exit163, label %.lr.ph.i153, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit159:         ; preds = %290
-  %295 = getelementptr inbounds nuw i8, ptr %.019.i154, i64 16
+  %295 = getelementptr inbounds nuw i8, ptr %.017.i154, i64 16
   %296 = load ptr, ptr %295, align 8
   %.not7.i161 = icmp eq ptr %296, null
   %297 = select i1 %.not7.i161, ptr @.str.1, ptr %296
@@ -1927,13 +1927,13 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit163:   ; preds = %293, %.thread, %_ZN
 
 313:                                              ; preds = %307
   %314 = getelementptr inbounds nuw i8, ptr %312, i64 56
-  %.017.i169 = load ptr, ptr %314, align 8
-  %.not1218.i170 = icmp eq ptr %.017.i169, null
-  br i1 %.not1218.i170, label %_ZNK4pugi13xml_attribute7as_boolEb.exit.thread255, label %.lr.ph.i171
+  %.015.i169 = load ptr, ptr %314, align 8
+  %.not1216.i170 = icmp eq ptr %.015.i169, null
+  br i1 %.not1216.i170, label %_ZNK4pugi13xml_attribute7as_boolEb.exit.thread255, label %.lr.ph.i171
 
 .lr.ph.i171:                                      ; preds = %313, %320
-  %.019.i172 = phi ptr [ %.0.i174, %320 ], [ %.017.i169, %313 ]
-  %315 = getelementptr inbounds nuw i8, ptr %.019.i172, i64 8
+  %.017.i172 = phi ptr [ %.0.i174, %320 ], [ %.015.i169, %313 ]
+  %315 = getelementptr inbounds nuw i8, ptr %.017.i172, i64 8
   %316 = load ptr, ptr %315, align 8
   %.not13.i173 = icmp eq ptr %316, null
   br i1 %.not13.i173, label %320, label %317
@@ -1944,13 +1944,13 @@ _ZNK4pugi13xml_attribute9as_stringEPKc.exit163:   ; preds = %293, %.thread, %_ZN
   br i1 %319, label %_ZNK4pugi8xml_node9attributeEPKc.exit177, label %320
 
 320:                                              ; preds = %317, %.lr.ph.i171
-  %321 = getelementptr inbounds nuw i8, ptr %.019.i172, i64 32
+  %321 = getelementptr inbounds nuw i8, ptr %.017.i172, i64 32
   %.0.i174 = load ptr, ptr %321, align 8
   %.not12.i175 = icmp eq ptr %.0.i174, null
   br i1 %.not12.i175, label %_ZNK4pugi13xml_attribute7as_boolEb.exit.thread255, label %.lr.ph.i171, !llvm.loop !3
 
 _ZNK4pugi8xml_node9attributeEPKc.exit177:         ; preds = %317
-  %322 = getelementptr inbounds nuw i8, ptr %.019.i172, i64 16
+  %322 = getelementptr inbounds nuw i8, ptr %.017.i172, i64 16
   %323 = load ptr, ptr %322, align 8
   %.not7.i179 = icmp eq ptr %323, null
   br i1 %.not7.i179, label %_ZNK4pugi13xml_attribute7as_boolEb.exit.thread255, label %324
@@ -2344,13 +2344,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 27:                                               ; preds = %24, %21
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %.0611.i.i = load ptr, ptr %28, align 8
-  %.not1012.i.i = icmp eq ptr %.0611.i.i, null
-  br i1 %.not1012.i.i, label %_ZNK4pugi8xml_text9as_stringEPKc.exit, label %.lr.ph.i.i
+  %.0612.i.i = load ptr, ptr %28, align 8
+  %.not1013.i.i = icmp eq ptr %.0612.i.i, null
+  br i1 %.not1013.i.i, label %_ZNK4pugi8xml_text9as_stringEPKc.exit, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %27, %34
-  %.0613.i.i = phi ptr [ %.06.i.i, %34 ], [ %.0611.i.i, %27 ]
-  %29 = load i64, ptr %.0613.i.i, align 8
+  %.0614.i.i = phi ptr [ %.06.i.i, %34 ], [ %.0612.i.i, %27 ]
+  %29 = load i64, ptr %.0614.i.i, align 8
   %30 = trunc i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = add nsw i32 %31, -3
@@ -2358,13 +2358,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br i1 %33, label %_ZNK4pugi8xml_text5_dataEv.exit.i, label %34
 
 34:                                               ; preds = %.lr.ph.i.i
-  %35 = getelementptr inbounds nuw i8, ptr %.0613.i.i, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.0614.i.i, i64 48
   %.06.i.i = load ptr, ptr %35, align 8
   %.not10.i.i = icmp eq ptr %.06.i.i, null
   br i1 %.not10.i.i, label %_ZNK4pugi8xml_text9as_stringEPKc.exit, label %.lr.ph.i.i, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i:                ; preds = %.lr.ph.i.i, %24, %15
-  %.07.i.i = phi ptr [ %14, %24 ], [ %14, %15 ], [ %.0613.i.i, %.lr.ph.i.i ]
+  %.07.i.i = phi ptr [ %14, %24 ], [ %14, %15 ], [ %.0614.i.i, %.lr.ph.i.i ]
   %36 = getelementptr inbounds nuw i8, ptr %.07.i.i, i64 16
   %37 = load ptr, ptr %36, align 8
   %.not9.i = icmp eq ptr %37, null
@@ -2900,13 +2900,13 @@ _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %_ZNK4pugi8xml_node4
 
 172:                                              ; preds = %169, %166
   %173 = getelementptr inbounds nuw i8, ptr %.sroa.0341.0411, i64 32
-  %.0611.i.i.i = load ptr, ptr %173, align 8
-  %.not1012.i.i.i = icmp eq ptr %.0611.i.i.i, null
-  br i1 %.not1012.i.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %.lr.ph.i.i.i
+  %.0612.i.i.i = load ptr, ptr %173, align 8
+  %.not1013.i.i.i = icmp eq ptr %.0612.i.i.i, null
+  br i1 %.not1013.i.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %172, %179
-  %.0613.i.i.i = phi ptr [ %.06.i.i.i, %179 ], [ %.0611.i.i.i, %172 ]
-  %174 = load i64, ptr %.0613.i.i.i, align 8
+  %.0614.i.i.i = phi ptr [ %.06.i.i.i, %179 ], [ %.0612.i.i.i, %172 ]
+  %174 = load i64, ptr %.0614.i.i.i, align 8
   %175 = trunc i64 %174 to i32
   %176 = and i32 %175, 15
   %177 = add nsw i32 %176, -3
@@ -2914,13 +2914,13 @@ _ZNK4pugi8xml_node4nameEv.exit:                   ; preds = %_ZNK4pugi8xml_node4
   br i1 %178, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i, label %179
 
 179:                                              ; preds = %.lr.ph.i.i.i
-  %180 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i, i64 48
+  %180 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i, i64 48
   %.06.i.i.i = load ptr, ptr %180, align 8
   %.not10.i.i.i = icmp eq ptr %.06.i.i.i, null
   br i1 %.not10.i.i.i, label %_ZNK4pugi8xml_text8as_floatEf.exit.i, label %.lr.ph.i.i.i, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i:              ; preds = %.lr.ph.i.i.i, %169, %160
-  %.07.i.i.i = phi ptr [ %.sroa.0341.0411, %169 ], [ %.sroa.0341.0411, %160 ], [ %.0613.i.i.i, %.lr.ph.i.i.i ]
+  %.07.i.i.i = phi ptr [ %.sroa.0341.0411, %169 ], [ %.sroa.0341.0411, %160 ], [ %.0614.i.i.i, %.lr.ph.i.i.i ]
   %181 = getelementptr inbounds nuw i8, ptr %.07.i.i.i, i64 16
   %182 = load ptr, ptr %181, align 8
   %.not10.i.i = icmp eq ptr %182, null
@@ -2967,13 +2967,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i:             ; preds = %179, %183, %_ZNK4pu
 
 203:                                              ; preds = %200, %197
   %204 = getelementptr inbounds nuw i8, ptr %.sroa.0341.0411, i64 32
-  %.0611.i.i.i171 = load ptr, ptr %204, align 8
-  %.not1012.i.i.i172 = icmp eq ptr %.0611.i.i.i171, null
-  br i1 %.not1012.i.i.i172, label %_ZNK4pugi8xml_text8as_floatEf.exit.i177, label %.lr.ph.i.i.i173
+  %.0612.i.i.i171 = load ptr, ptr %204, align 8
+  %.not1013.i.i.i172 = icmp eq ptr %.0612.i.i.i171, null
+  br i1 %.not1013.i.i.i172, label %_ZNK4pugi8xml_text8as_floatEf.exit.i177, label %.lr.ph.i.i.i173
 
 .lr.ph.i.i.i173:                                  ; preds = %203, %210
-  %.0613.i.i.i174 = phi ptr [ %.06.i.i.i175, %210 ], [ %.0611.i.i.i171, %203 ]
-  %205 = load i64, ptr %.0613.i.i.i174, align 8
+  %.0614.i.i.i174 = phi ptr [ %.06.i.i.i175, %210 ], [ %.0612.i.i.i171, %203 ]
+  %205 = load i64, ptr %.0614.i.i.i174, align 8
   %206 = trunc i64 %205 to i32
   %207 = and i32 %206, 15
   %208 = add nsw i32 %207, -3
@@ -2981,13 +2981,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i:             ; preds = %179, %183, %_ZNK4pu
   br i1 %209, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i179, label %210
 
 210:                                              ; preds = %.lr.ph.i.i.i173
-  %211 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i174, i64 48
+  %211 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i174, i64 48
   %.06.i.i.i175 = load ptr, ptr %211, align 8
   %.not10.i.i.i176 = icmp eq ptr %.06.i.i.i175, null
   br i1 %.not10.i.i.i176, label %_ZNK4pugi8xml_text8as_floatEf.exit.i177, label %.lr.ph.i.i.i173, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i179:           ; preds = %.lr.ph.i.i.i173, %200, %191
-  %.07.i.i.i180 = phi ptr [ %.sroa.0341.0411, %200 ], [ %.sroa.0341.0411, %191 ], [ %.0613.i.i.i174, %.lr.ph.i.i.i173 ]
+  %.07.i.i.i180 = phi ptr [ %.sroa.0341.0411, %200 ], [ %.sroa.0341.0411, %191 ], [ %.0614.i.i.i174, %.lr.ph.i.i.i173 ]
   %212 = getelementptr inbounds nuw i8, ptr %.07.i.i.i180, i64 16
   %213 = load ptr, ptr %212, align 8
   %.not10.i.i181 = icmp eq ptr %213, null
@@ -3029,13 +3029,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i177:          ; preds = %210, %214, %_ZNK4pu
 
 232:                                              ; preds = %229, %226
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.0341.0411, i64 32
-  %.0611.i.i.i185 = load ptr, ptr %233, align 8
-  %.not1012.i.i.i186 = icmp eq ptr %.0611.i.i.i185, null
-  br i1 %.not1012.i.i.i186, label %_ZNK4pugi8xml_text8as_floatEf.exit.i191, label %.lr.ph.i.i.i187
+  %.0612.i.i.i185 = load ptr, ptr %233, align 8
+  %.not1013.i.i.i186 = icmp eq ptr %.0612.i.i.i185, null
+  br i1 %.not1013.i.i.i186, label %_ZNK4pugi8xml_text8as_floatEf.exit.i191, label %.lr.ph.i.i.i187
 
 .lr.ph.i.i.i187:                                  ; preds = %232, %239
-  %.0613.i.i.i188 = phi ptr [ %.06.i.i.i189, %239 ], [ %.0611.i.i.i185, %232 ]
-  %234 = load i64, ptr %.0613.i.i.i188, align 8
+  %.0614.i.i.i188 = phi ptr [ %.06.i.i.i189, %239 ], [ %.0612.i.i.i185, %232 ]
+  %234 = load i64, ptr %.0614.i.i.i188, align 8
   %235 = trunc i64 %234 to i32
   %236 = and i32 %235, 15
   %237 = add nsw i32 %236, -3
@@ -3043,13 +3043,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i177:          ; preds = %210, %214, %_ZNK4pu
   br i1 %238, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i193, label %239
 
 239:                                              ; preds = %.lr.ph.i.i.i187
-  %240 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i188, i64 48
+  %240 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i188, i64 48
   %.06.i.i.i189 = load ptr, ptr %240, align 8
   %.not10.i.i.i190 = icmp eq ptr %.06.i.i.i189, null
   br i1 %.not10.i.i.i190, label %_ZNK4pugi8xml_text8as_floatEf.exit.i191, label %.lr.ph.i.i.i187, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i193:           ; preds = %.lr.ph.i.i.i187, %229, %220
-  %.07.i.i.i194 = phi ptr [ %.sroa.0341.0411, %229 ], [ %.sroa.0341.0411, %220 ], [ %.0613.i.i.i188, %.lr.ph.i.i.i187 ]
+  %.07.i.i.i194 = phi ptr [ %.sroa.0341.0411, %229 ], [ %.sroa.0341.0411, %220 ], [ %.0614.i.i.i188, %.lr.ph.i.i.i187 ]
   %241 = getelementptr inbounds nuw i8, ptr %.07.i.i.i194, i64 16
   %242 = load ptr, ptr %241, align 8
   %.not10.i.i195 = icmp eq ptr %242, null
@@ -3091,13 +3091,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i191:          ; preds = %239, %243, %_ZNK4pu
 
 261:                                              ; preds = %258, %255
   %262 = getelementptr inbounds nuw i8, ptr %.sroa.0341.0411, i64 32
-  %.0611.i.i.i199 = load ptr, ptr %262, align 8
-  %.not1012.i.i.i200 = icmp eq ptr %.0611.i.i.i199, null
-  br i1 %.not1012.i.i.i200, label %_ZNK4pugi8xml_text8as_floatEf.exit.i205, label %.lr.ph.i.i.i201
+  %.0612.i.i.i199 = load ptr, ptr %262, align 8
+  %.not1013.i.i.i200 = icmp eq ptr %.0612.i.i.i199, null
+  br i1 %.not1013.i.i.i200, label %_ZNK4pugi8xml_text8as_floatEf.exit.i205, label %.lr.ph.i.i.i201
 
 .lr.ph.i.i.i201:                                  ; preds = %261, %268
-  %.0613.i.i.i202 = phi ptr [ %.06.i.i.i203, %268 ], [ %.0611.i.i.i199, %261 ]
-  %263 = load i64, ptr %.0613.i.i.i202, align 8
+  %.0614.i.i.i202 = phi ptr [ %.06.i.i.i203, %268 ], [ %.0612.i.i.i199, %261 ]
+  %263 = load i64, ptr %.0614.i.i.i202, align 8
   %264 = trunc i64 %263 to i32
   %265 = and i32 %264, 15
   %266 = add nsw i32 %265, -3
@@ -3105,13 +3105,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i191:          ; preds = %239, %243, %_ZNK4pu
   br i1 %267, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i207, label %268
 
 268:                                              ; preds = %.lr.ph.i.i.i201
-  %269 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i202, i64 48
+  %269 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i202, i64 48
   %.06.i.i.i203 = load ptr, ptr %269, align 8
   %.not10.i.i.i204 = icmp eq ptr %.06.i.i.i203, null
   br i1 %.not10.i.i.i204, label %_ZNK4pugi8xml_text8as_floatEf.exit.i205, label %.lr.ph.i.i.i201, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i207:           ; preds = %.lr.ph.i.i.i201, %258, %249
-  %.07.i.i.i208 = phi ptr [ %.sroa.0341.0411, %258 ], [ %.sroa.0341.0411, %249 ], [ %.0613.i.i.i202, %.lr.ph.i.i.i201 ]
+  %.07.i.i.i208 = phi ptr [ %.sroa.0341.0411, %258 ], [ %.sroa.0341.0411, %249 ], [ %.0614.i.i.i202, %.lr.ph.i.i.i201 ]
   %270 = getelementptr inbounds nuw i8, ptr %.07.i.i.i208, i64 16
   %271 = load ptr, ptr %270, align 8
   %.not10.i.i209 = icmp eq ptr %271, null
@@ -3153,13 +3153,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i205:          ; preds = %268, %272, %_ZNK4pu
 
 290:                                              ; preds = %287, %284
   %291 = getelementptr inbounds nuw i8, ptr %.sroa.0341.0411, i64 32
-  %.0611.i.i.i213 = load ptr, ptr %291, align 8
-  %.not1012.i.i.i214 = icmp eq ptr %.0611.i.i.i213, null
-  br i1 %.not1012.i.i.i214, label %_ZNK4pugi8xml_text8as_floatEf.exit.i219, label %.lr.ph.i.i.i215
+  %.0612.i.i.i213 = load ptr, ptr %291, align 8
+  %.not1013.i.i.i214 = icmp eq ptr %.0612.i.i.i213, null
+  br i1 %.not1013.i.i.i214, label %_ZNK4pugi8xml_text8as_floatEf.exit.i219, label %.lr.ph.i.i.i215
 
 .lr.ph.i.i.i215:                                  ; preds = %290, %297
-  %.0613.i.i.i216 = phi ptr [ %.06.i.i.i217, %297 ], [ %.0611.i.i.i213, %290 ]
-  %292 = load i64, ptr %.0613.i.i.i216, align 8
+  %.0614.i.i.i216 = phi ptr [ %.06.i.i.i217, %297 ], [ %.0612.i.i.i213, %290 ]
+  %292 = load i64, ptr %.0614.i.i.i216, align 8
   %293 = trunc i64 %292 to i32
   %294 = and i32 %293, 15
   %295 = add nsw i32 %294, -3
@@ -3167,13 +3167,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i205:          ; preds = %268, %272, %_ZNK4pu
   br i1 %296, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i221, label %297
 
 297:                                              ; preds = %.lr.ph.i.i.i215
-  %298 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i216, i64 48
+  %298 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i216, i64 48
   %.06.i.i.i217 = load ptr, ptr %298, align 8
   %.not10.i.i.i218 = icmp eq ptr %.06.i.i.i217, null
   br i1 %.not10.i.i.i218, label %_ZNK4pugi8xml_text8as_floatEf.exit.i219, label %.lr.ph.i.i.i215, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i221:           ; preds = %.lr.ph.i.i.i215, %287, %278
-  %.07.i.i.i222 = phi ptr [ %.sroa.0341.0411, %287 ], [ %.sroa.0341.0411, %278 ], [ %.0613.i.i.i216, %.lr.ph.i.i.i215 ]
+  %.07.i.i.i222 = phi ptr [ %.sroa.0341.0411, %287 ], [ %.sroa.0341.0411, %278 ], [ %.0614.i.i.i216, %.lr.ph.i.i.i215 ]
   %299 = getelementptr inbounds nuw i8, ptr %.07.i.i.i222, i64 16
   %300 = load ptr, ptr %299, align 8
   %.not10.i.i223 = icmp eq ptr %300, null
@@ -3215,13 +3215,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i219:          ; preds = %297, %301, %_ZNK4pu
 
 319:                                              ; preds = %316, %313
   %320 = getelementptr inbounds nuw i8, ptr %.sroa.0341.0411, i64 32
-  %.0611.i.i.i227 = load ptr, ptr %320, align 8
-  %.not1012.i.i.i228 = icmp eq ptr %.0611.i.i.i227, null
-  br i1 %.not1012.i.i.i228, label %_ZNK4pugi8xml_text8as_floatEf.exit.i233, label %.lr.ph.i.i.i229
+  %.0612.i.i.i227 = load ptr, ptr %320, align 8
+  %.not1013.i.i.i228 = icmp eq ptr %.0612.i.i.i227, null
+  br i1 %.not1013.i.i.i228, label %_ZNK4pugi8xml_text8as_floatEf.exit.i233, label %.lr.ph.i.i.i229
 
 .lr.ph.i.i.i229:                                  ; preds = %319, %326
-  %.0613.i.i.i230 = phi ptr [ %.06.i.i.i231, %326 ], [ %.0611.i.i.i227, %319 ]
-  %321 = load i64, ptr %.0613.i.i.i230, align 8
+  %.0614.i.i.i230 = phi ptr [ %.06.i.i.i231, %326 ], [ %.0612.i.i.i227, %319 ]
+  %321 = load i64, ptr %.0614.i.i.i230, align 8
   %322 = trunc i64 %321 to i32
   %323 = and i32 %322, 15
   %324 = add nsw i32 %323, -3
@@ -3229,13 +3229,13 @@ _ZNK4pugi8xml_text8as_floatEf.exit.i219:          ; preds = %297, %301, %_ZNK4pu
   br i1 %325, label %_ZNK4pugi8xml_text5_dataEv.exit.i.i235, label %326
 
 326:                                              ; preds = %.lr.ph.i.i.i229
-  %327 = getelementptr inbounds nuw i8, ptr %.0613.i.i.i230, i64 48
+  %327 = getelementptr inbounds nuw i8, ptr %.0614.i.i.i230, i64 48
   %.06.i.i.i231 = load ptr, ptr %327, align 8
   %.not10.i.i.i232 = icmp eq ptr %.06.i.i.i231, null
   br i1 %.not10.i.i.i232, label %_ZNK4pugi8xml_text8as_floatEf.exit.i233, label %.lr.ph.i.i.i229, !llvm.loop !8
 
 _ZNK4pugi8xml_text5_dataEv.exit.i.i235:           ; preds = %.lr.ph.i.i.i229, %316, %307
-  %.07.i.i.i236 = phi ptr [ %.sroa.0341.0411, %316 ], [ %.sroa.0341.0411, %307 ], [ %.0613.i.i.i230, %.lr.ph.i.i.i229 ]
+  %.07.i.i.i236 = phi ptr [ %.sroa.0341.0411, %316 ], [ %.sroa.0341.0411, %307 ], [ %.0614.i.i.i230, %.lr.ph.i.i.i229 ]
   %328 = getelementptr inbounds nuw i8, ptr %.07.i.i.i236, i64 16
   %329 = load ptr, ptr %328, align 8
   %.not10.i.i237 = icmp eq ptr %329, null

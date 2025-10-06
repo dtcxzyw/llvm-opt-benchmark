@@ -3318,7 +3318,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28Al
   br label %_ZNSt6vectorIlSaIlEED2Ev.exit
 
 30:                                               ; preds = %17, %12
-  %switch = phi i32 [ 1, %17 ], [ 2, %12 ]
+  %spec.select = phi i32 [ 1, %17 ], [ 2, %12 ]
   %.0.i = phi i32 [ 2, %17 ], [ 1, %12 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -3425,7 +3425,7 @@ _ZN4absl7debian28AlphaNumC2Ei.exit.i:             ; preds = %_ZN4absl7debian28Al
   %85 = load ptr, ptr %47, align 8
   %86 = getelementptr inbounds i32, ptr %85, i64 %84
   %87 = load i32, ptr %86, align 4
-  %88 = icmp eq i32 %87, %switch
+  %88 = icmp eq i32 %87, %spec.select
   br i1 %88, label %89, label %_ZNSt6vectorIlSaIlEE9push_backEOl.exit
 
 89:                                               ; preds = %81

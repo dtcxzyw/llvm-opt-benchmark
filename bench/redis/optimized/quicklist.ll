@@ -3962,7 +3962,7 @@ define dso_local range(i32 0, 2) i32 @quicklistNext(ptr noundef captures(address
   br i1 %.not73107, label %.loopexit, label %.lr.ph108
 
 .lr.ph108:                                        ; preds = %.lr.ph, %tailrecurse
-  %16 = phi ptr [ %98, %tailrecurse ], [ %15, %.lr.ph ]
+  %16 = phi ptr [ %99, %tailrecurse ], [ %15, %.lr.ph ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = and i32 %18, 786432
@@ -4023,7 +4023,7 @@ __quicklistDecompressNode.exit:                   ; preds = %37, %38
   %52 = tail call ptr @lpSeek(ptr noundef %49, i64 noundef %51) #23
   store ptr %52, ptr %11, align 8, !tbaa !38
   %.pre = load i64, ptr %13, align 8, !tbaa !42
-  br label %63
+  br label %64
 
 53:                                               ; preds = %.lr.ph108
   br i1 %20, label %.thread, label %56, !prof !24
@@ -4034,127 +4034,127 @@ __quicklistDecompressNode.exit:                   ; preds = %37, %38
   %54 = load i64, ptr %13, align 8, !tbaa !42
   %55 = trunc i64 %54 to i32
   store i32 %55, ptr %8, align 8, !tbaa !44
-  br label %78
+  br label %79
 
 56:                                               ; preds = %53
   %57 = load i32, ptr %12, align 8, !tbaa !40
-  %switch = icmp eq i32 %57, 0
-  %spec.select = select i1 %switch, ptr @lpNext, ptr @lpPrev
-  %spec.select79 = select i1 %switch, i64 1, i64 -1
-  %58 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %59 = load ptr, ptr %58, align 8, !tbaa !9
-  %60 = tail call ptr %spec.select(ptr noundef %59, ptr noundef nonnull %21) #23, !callees !54
-  store ptr %60, ptr %11, align 8, !tbaa !38
-  %61 = load i64, ptr %13, align 8, !tbaa !42
-  %62 = add nsw i64 %61, %spec.select79
-  store i64 %62, ptr %13, align 8, !tbaa !42
-  br label %63
+  %58 = icmp eq i32 %57, 0
+  %spec.select = select i1 %58, ptr @lpNext, ptr @lpPrev
+  %spec.select79 = select i1 %58, i64 1, i64 -1
+  %59 = getelementptr inbounds nuw i8, ptr %16, i64 16
+  %60 = load ptr, ptr %59, align 8, !tbaa !9
+  %61 = tail call ptr %spec.select(ptr noundef %60, ptr noundef nonnull %21) #23, !callees !54
+  store ptr %61, ptr %11, align 8, !tbaa !38
+  %62 = load i64, ptr %13, align 8, !tbaa !42
+  %63 = add nsw i64 %62, %spec.select79
+  store i64 %63, ptr %13, align 8, !tbaa !42
+  br label %64
 
-63:                                               ; preds = %56, %50
-  %64 = phi i64 [ %62, %56 ], [ %.pre, %50 ]
-  %65 = phi ptr [ %60, %56 ], [ %52, %50 ]
-  store ptr %65, ptr %5, align 8, !tbaa !48
-  %66 = trunc i64 %64 to i32
-  store i32 %66, ptr %8, align 8, !tbaa !44
-  %.not75 = icmp eq ptr %65, null
-  br i1 %.not75, label %._crit_edge, label %74
+64:                                               ; preds = %56, %50
+  %65 = phi i64 [ %63, %56 ], [ %.pre, %50 ]
+  %66 = phi ptr [ %61, %56 ], [ %52, %50 ]
+  store ptr %66, ptr %5, align 8, !tbaa !48
+  %67 = trunc i64 %65 to i32
+  store i32 %67, ptr %8, align 8, !tbaa !44
+  %.not75 = icmp eq ptr %66, null
+  br i1 %.not75, label %._crit_edge, label %75
 
-._crit_edge:                                      ; preds = %63
+._crit_edge:                                      ; preds = %64
   %.pre101 = load ptr, ptr %10, align 8, !tbaa !41
-  br label %78
+  br label %79
 
 .thread81:                                        ; preds = %46
   store ptr %49, ptr %11, align 8, !tbaa !38
   store ptr %49, ptr %5, align 8, !tbaa !48
-  %67 = load i64, ptr %13, align 8, !tbaa !42
-  %68 = trunc i64 %67 to i32
-  store i32 %68, ptr %8, align 8, !tbaa !44
+  %68 = load i64, ptr %13, align 8, !tbaa !42
+  %69 = trunc i64 %68 to i32
+  store i32 %69, ptr %8, align 8, !tbaa !44
   %.not7582 = icmp eq ptr %49, null
-  br i1 %.not7582, label %78, label %.thread83
+  br i1 %.not7582, label %79, label %.thread83
 
 .thread83:                                        ; preds = %.thread81
-  %69 = load ptr, ptr %7, align 8, !tbaa !33
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
-  %71 = load ptr, ptr %70, align 8, !tbaa !9
-  store ptr %71, ptr %4, align 8, !tbaa !50
-  %72 = getelementptr inbounds nuw i8, ptr %69, i64 24
-  %73 = load i64, ptr %72, align 8, !tbaa !15
-  store i64 %73, ptr %9, align 8, !tbaa !51
+  %70 = load ptr, ptr %7, align 8, !tbaa !33
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
+  %72 = load ptr, ptr %71, align 8, !tbaa !9
+  store ptr %72, ptr %4, align 8, !tbaa !50
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 24
+  %74 = load i64, ptr %73, align 8, !tbaa !15
+  store i64 %74, ptr %9, align 8, !tbaa !51
   br label %.loopexit
 
-74:                                               ; preds = %63
+75:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 4, !tbaa !28
-  %75 = call ptr @lpGetValue(ptr noundef nonnull %65, ptr noundef nonnull %3, ptr noundef nonnull %6) #23
-  store ptr %75, ptr %4, align 8, !tbaa !50
-  %76 = load i32, ptr %3, align 4, !tbaa !28
-  %77 = zext i32 %76 to i64
-  store i64 %77, ptr %9, align 8, !tbaa !51
+  %76 = call ptr @lpGetValue(ptr noundef nonnull %66, ptr noundef nonnull %3, ptr noundef nonnull %6) #23
+  store ptr %76, ptr %4, align 8, !tbaa !50
+  %77 = load i32, ptr %3, align 4, !tbaa !28
+  %78 = zext i32 %77 to i64
+  store i64 %78, ptr %9, align 8, !tbaa !51
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
-78:                                               ; preds = %._crit_edge, %.thread81, %.thread
-  %79 = phi ptr [ %.pre101, %._crit_edge ], [ %47, %.thread81 ], [ %16, %.thread ]
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  %81 = load i32, ptr %80, align 8
-  %82 = and i32 %81, 1048576
-  %.not76 = icmp eq i32 %82, 0
-  br i1 %.not76, label %88, label %83
+79:                                               ; preds = %._crit_edge, %.thread81, %.thread
+  %80 = phi ptr [ %.pre101, %._crit_edge ], [ %47, %.thread81 ], [ %16, %.thread ]
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 32
+  %82 = load i32, ptr %81, align 8
+  %83 = and i32 %82, 1048576
+  %.not76 = icmp eq i32 %83, 0
+  br i1 %.not76, label %89, label %84
 
-83:                                               ; preds = %78
-  %84 = and i32 %81, 196608
-  %85 = icmp eq i32 %84, 65536
-  br i1 %85, label %86, label %90
+84:                                               ; preds = %79
+  %85 = and i32 %82, 196608
+  %86 = icmp eq i32 %85, 65536
+  br i1 %86, label %87, label %91
 
-86:                                               ; preds = %83
-  %87 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %79)
-  br label %90
+87:                                               ; preds = %84
+  %88 = tail call i32 @__quicklistCompressNode(ptr noundef nonnull %80)
+  br label %91
 
-88:                                               ; preds = %78
-  %89 = load ptr, ptr %0, align 8, !tbaa !43
-  tail call void @__quicklistCompress(ptr noundef %89, ptr noundef nonnull %79)
-  br label %90
+89:                                               ; preds = %79
+  %90 = load ptr, ptr %0, align 8, !tbaa !43
+  tail call void @__quicklistCompress(ptr noundef %90, ptr noundef nonnull %80)
+  br label %91
 
-90:                                               ; preds = %83, %86, %88
-  %91 = load i32, ptr %12, align 8, !tbaa !40
-  switch i32 %91, label %tailrecurse [
-    i32 0, label %92
-    i32 1, label %95
+91:                                               ; preds = %84, %87, %89
+  %92 = load i32, ptr %12, align 8, !tbaa !40
+  switch i32 %92, label %tailrecurse [
+    i32 0, label %93
+    i32 1, label %96
   ]
 
-92:                                               ; preds = %90
-  %93 = load ptr, ptr %10, align 8, !tbaa !41
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
+93:                                               ; preds = %91
+  %94 = load ptr, ptr %10, align 8, !tbaa !41
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   br label %tailrecurse.sink.split
 
-95:                                               ; preds = %90
-  %96 = load ptr, ptr %10, align 8, !tbaa !41
+96:                                               ; preds = %91
+  %97 = load ptr, ptr %10, align 8, !tbaa !41
   br label %tailrecurse.sink.split
 
-tailrecurse.sink.split:                           ; preds = %92, %95
-  %.sink106.in = phi ptr [ %96, %95 ], [ %94, %92 ]
-  %.sink = phi i64 [ -1, %95 ], [ 0, %92 ]
+tailrecurse.sink.split:                           ; preds = %93, %96
+  %.sink106.in = phi ptr [ %97, %96 ], [ %95, %93 ]
+  %.sink = phi i64 [ -1, %96 ], [ 0, %93 ]
   %.sink106 = load ptr, ptr %.sink106.in, align 8, !tbaa !16
   store ptr %.sink106, ptr %10, align 8, !tbaa !41
   store i64 %.sink, ptr %13, align 8, !tbaa !42
   br label %tailrecurse
 
-tailrecurse:                                      ; preds = %tailrecurse.sink.split, %90
+tailrecurse:                                      ; preds = %tailrecurse.sink.split, %91
   store ptr null, ptr %11, align 8, !tbaa !38
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store i64 -123456789, ptr %6, align 8, !tbaa !52
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   store i32 123456789, ptr %8, align 8, !tbaa !44
   store i64 0, ptr %9, align 8, !tbaa !51
-  %97 = load ptr, ptr %0, align 8, !tbaa !43
-  store ptr %97, ptr %1, align 8, !tbaa !37
-  %98 = load ptr, ptr %10, align 8, !tbaa !41
-  store ptr %98, ptr %7, align 8, !tbaa !33
-  %.not73 = icmp eq ptr %98, null
+  %98 = load ptr, ptr %0, align 8, !tbaa !43
+  store ptr %98, ptr %1, align 8, !tbaa !37
+  %99 = load ptr, ptr %10, align 8, !tbaa !41
+  store ptr %99, ptr %7, align 8, !tbaa !33
+  %.not73 = icmp eq ptr %99, null
   br i1 %.not73, label %.loopexit, label %.lr.ph108
 
-.loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %2, %.thread83, %74
-  %.0 = phi i32 [ 1, %.thread83 ], [ 1, %74 ], [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %tailrecurse ]
+.loopexit:                                        ; preds = %tailrecurse, %.lr.ph, %2, %.thread83, %75
+  %.0 = phi i32 [ 1, %.thread83 ], [ 1, %75 ], [ 0, %2 ], [ 0, %.lr.ph ], [ 0, %tailrecurse ]
   ret i32 %.0
 }
 

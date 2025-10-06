@@ -56,19 +56,19 @@ _ZNK3ue29CharReach4noneEv.exit:                   ; preds = %2
   br i1 %.not13.i.i, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK3ue29CharReach4noneEv.exit, %6
-  %.0710.i.i = phi i64 [ %7, %6 ], [ 0, %_ZNK3ue29CharReach4noneEv.exit ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ %7, %6 ], [ 0, %_ZNK3ue29CharReach4noneEv.exit ]
+  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
   %5 = load i64, ptr %4, align 8
   %.not.i.i10 = icmp eq i64 %5, 0
   br i1 %.not.i.i10, label %6, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 6:                                                ; preds = %.preheader
-  %7 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %7, 4
-  br i1 %exitcond.i.i, label %.loopexit, label %.preheader, !llvm.loop !5
+  %7 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %7, 4
+  br i1 %exitcond.not.i.i, label %.loopexit, label %.preheader, !llvm.loop !5
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
-  %8 = shl nuw nsw i64 %.0710.i.i, 6
+  %8 = shl nuw nsw i64 %.0712.i.i, 6
   %9 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %5, i1 true)
   %10 = or disjoint i64 %9, %8
   %.not15 = icmp eq i64 %10, 256
@@ -156,47 +156,47 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach14isCaselessCharEv(ptr nound
   %14 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %13)
   %15 = add nuw nsw i64 %11, %14
   %.not = icmp eq i64 %15, 2
-  br i1 %.not, label %.preheader, label %46
+  br i1 %.not, label %.preheader, label %47
 
 .preheader:                                       ; preds = %1, %18
-  %.0710.i.i = phi i64 [ %19, %18 ], [ 0, %1 ]
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ %19, %18 ], [ 0, %1 ]
+  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
   %17 = load i64, ptr %16, align 8
   %.not.i.i = icmp eq i64 %17, 0
   br i1 %.not.i.i, label %18, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 18:                                               ; preds = %.preheader
-  %19 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %19, 4
-  br i1 %exitcond.i.i, label %_ZNK3ue29CharReach9find_nextEm.exit, label %.preheader, !llvm.loop !5
+  %19 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %19, 4
+  br i1 %exitcond.not.i.i, label %_ZNK3ue29CharReach9find_nextEm.exit, label %.preheader, !llvm.loop !5
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
-  %20 = shl nuw nsw i64 %.0710.i.i, 6
+  %20 = shl nuw nsw i64 %.0712.i.i, 6
   %21 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %17, i1 true)
   %22 = or disjoint i64 %21, %20
-  %.not.i.i4 = icmp samesign ult i64 %.0710.i.i, 4
+  %.not.i.i4 = icmp samesign ult i64 %.0712.i.i, 4
   br i1 %.not.i.i4, label %23, label %_ZNK3ue29CharReach9find_nextEm.exit
 
 23:                                               ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %.not20.i.i = icmp eq i64 %21, 63
-  br i1 %.not20.i.i, label %.preheader29, label %24
+  br i1 %.not20.i.i, label %.preheader27, label %24
 
-.preheader29:                                     ; preds = %24, %23
+.preheader27:                                     ; preds = %24, %23
   br label %30
 
 24:                                               ; preds = %23
   %25 = shl nsw i64 -2, %21
   %26 = and i64 %17, %25
   %.not21.i.i = icmp eq i64 %26, 0
-  br i1 %.not21.i.i, label %.preheader29, label %27
+  br i1 %.not21.i.i, label %.preheader27, label %27
 
 27:                                               ; preds = %24
   %28 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %26, i1 true)
   %29 = or disjoint i64 %28, %20
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
-30:                                               ; preds = %.preheader29, %31
-  %.0.in.i.i = phi i64 [ %.0.i.i, %31 ], [ %.0710.i.i, %.preheader29 ]
+30:                                               ; preds = %.preheader27, %31
+  %.0.in.i.i = phi i64 [ %.0.i.i, %31 ], [ %.0712.i.i, %.preheader27 ]
   %exitcond.not = icmp eq i64 %.0.in.i.i, 3
   br i1 %exitcond.not, label %_ZNK3ue29CharReach9find_nextEm.exit, label %31
 
@@ -214,22 +214,22 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %.preheader
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %18, %30, %_ZNK3ue29CharReach10find_firstEv.exit, %27, %34
-  %spec.select.i.i7 = phi i64 [ %22, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %22, %27 ], [ %22, %34 ], [ %22, %30 ], [ 256, %18 ]
+  %38 = phi i64 [ %22, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %22, %27 ], [ %22, %34 ], [ %22, %30 ], [ 256, %18 ]
   %.016.i.i = phi i64 [ 256, %_ZNK3ue29CharReach10find_firstEv.exit ], [ %29, %27 ], [ %37, %34 ], [ 256, %30 ], [ 256, %18 ]
-  %38 = trunc i64 %spec.select.i.i7 to i32
-  %sext = shl i32 %38, 24
-  %39 = ashr exact i32 %sext, 24
-  %40 = trunc i64 %.016.i.i to i8
-  %41 = add i8 %40, -123
-  %42 = icmp ult i8 %41, -26
-  %43 = add i8 %40, -32
-  %.0.i = select i1 %42, i8 %40, i8 %43
-  %44 = sext i8 %.0.i to i32
-  %45 = icmp eq i32 %39, %44
-  br label %46
+  %39 = trunc i64 %38 to i32
+  %sext = shl i32 %39, 24
+  %40 = ashr exact i32 %sext, 24
+  %41 = trunc i64 %.016.i.i to i8
+  %42 = add i8 %41, -123
+  %43 = icmp ult i8 %42, -26
+  %44 = add i8 %41, -32
+  %.0.i = select i1 %43, i8 %41, i8 %44
+  %45 = sext i8 %.0.i to i32
+  %46 = icmp eq i32 %40, %45
+  br label %47
 
-46:                                               ; preds = %1, %_ZNK3ue29CharReach9find_nextEm.exit
-  %.0 = phi i1 [ %45, %_ZNK3ue29CharReach9find_nextEm.exit ], [ false, %1 ]
+47:                                               ; preds = %1, %_ZNK3ue29CharReach9find_nextEm.exit
+  %.0 = phi i1 [ %46, %_ZNK3ue29CharReach9find_nextEm.exit ], [ false, %1 ]
   ret i1 %.0
 }
 
@@ -238,26 +238,26 @@ define hidden noundef zeroext i1 @_ZNK3ue29CharReach17isBit5InsensitiveEv(ptr no
   br label %2
 
 2:                                                ; preds = %5, %1
-  %.0710.i.i = phi i64 [ 0, %1 ], [ %6, %5 ]
-  %3 = getelementptr inbounds nuw i64, ptr %0, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %1 ], [ %6, %5 ]
+  %3 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
   %4 = load i64, ptr %3, align 8
   %.not.i.i = icmp eq i64 %4, 0
   br i1 %.not.i.i, label %5, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 5:                                                ; preds = %2
-  %6 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %6, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %2, !llvm.loop !5
+  %6 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %6, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge, label %2, !llvm.loop !5
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %2
-  %7 = shl nuw nsw i64 %.0710.i.i, 6
+  %7 = shl nuw nsw i64 %.0712.i.i, 6
   %8 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %4, i1 true)
   %9 = or disjoint i64 %8, %7
   %.not12 = icmp eq i64 %9, 256
   br i1 %.not12, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
-  %10 = and i64 %.0710.i.i, 3
+  %10 = and i64 %.0712.i.i, 3
   %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = xor i64 %8, 32
@@ -268,7 +268,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %2
 
 .lr.ph43:                                         ; preds = %.lr.ph.preheader, %_ZNK3ue29CharReach9find_nextEm.exit
   %16 = phi i64 [ %33, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %8, %.lr.ph.preheader ]
-  %17 = phi i64 [ %35, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %.0710.i.i, %.lr.ph.preheader ]
+  %17 = phi i64 [ %35, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %.0712.i.i, %.lr.ph.preheader ]
   %.051342 = phi i64 [ %34, %_ZNK3ue29CharReach9find_nextEm.exit ], [ %9, %.lr.ph.preheader ]
   %.not.i.i7 = icmp ugt i64 %.051342, 255
   br i1 %.not.i.i7, label %._crit_edge, label %18
@@ -338,19 +338,19 @@ define hidden void @_ZNK3ue29CharReach9to_stringB5cxx11Ev(ptr dead_on_unwind noa
   br label %5
 
 5:                                                ; preds = %8, %2
-  %.0710.i.i = phi i64 [ 0, %2 ], [ %9, %8 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %2 ], [ %9, %8 ]
+  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %.0712.i.i
   %7 = load i64, ptr %6, align 8
   %.not.i.i = icmp eq i64 %7, 0
   br i1 %.not.i.i, label %8, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 8:                                                ; preds = %5
-  %9 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %9, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %5, !llvm.loop !5
+  %9 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %9, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge, label %5, !llvm.loop !5
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %5
-  %10 = shl nuw nsw i64 %.0710.i.i, 6
+  %10 = shl nuw nsw i64 %.0712.i.i, 6
   %11 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %7, i1 true)
   %12 = or disjoint i64 %11, %10
   %.not10 = icmp eq i64 %12, 256
@@ -720,19 +720,19 @@ define hidden void @_ZN3ue214fill_bitvectorERKNS_9CharReachEPh(ptr noundef nonnu
   br label %3
 
 3:                                                ; preds = %6, %2
-  %.0710.i.i = phi i64 [ 0, %2 ], [ %7, %6 ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %2 ], [ %7, %6 ]
+  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
   %5 = load i64, ptr %4, align 8
   %.not.i.i = icmp eq i64 %5, 0
   br i1 %.not.i.i, label %6, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 6:                                                ; preds = %3
-  %7 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %7, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %3, !llvm.loop !5
+  %7 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %7, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge, label %3, !llvm.loop !5
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %3
-  %8 = shl nuw nsw i64 %.0710.i.i, 6
+  %8 = shl nuw nsw i64 %.0712.i.i, 6
   %9 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %5, i1 true)
   %10 = or disjoint i64 %9, %8
   %.not11 = icmp eq i64 %10, 256
@@ -747,7 +747,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %3
   %16 = load i8, ptr %15, align 1
   %17 = or i8 %16, %13
   store i8 %17, ptr %15, align 1
-  %.not.i.i736 = icmp samesign ult i64 %.0710.i.i, 4
+  %.not.i.i736 = icmp samesign ult i64 %.0712.i.i, 4
   br i1 %.not.i.i736, label %.lr.ph38, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %6, %_ZNK3ue29CharReach9find_nextEm.exit, %27, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit
@@ -813,19 +813,19 @@ define hidden void @_ZN3ue217make_and_cmp_maskERKNS_9CharReachEPhS3_(ptr noundef
   br label %4
 
 4:                                                ; preds = %7, %3
-  %.0710.i.i = phi i64 [ 0, %3 ], [ %8, %7 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %3 ], [ %8, %7 ]
+  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %.0712.i.i
   %6 = load i64, ptr %5, align 8
   %.not.i.i = icmp eq i64 %6, 0
   br i1 %.not.i.i, label %7, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 7:                                                ; preds = %4
-  %8 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %8, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %4, !llvm.loop !5
+  %8 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %8, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge, label %4, !llvm.loop !5
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
-  %9 = shl nuw nsw i64 %.0710.i.i, 6
+  %9 = shl nuw nsw i64 %.0712.i.i, 6
   %10 = tail call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %6, i1 true)
   %11 = or disjoint i64 %10, %9
   %.not18 = icmp eq i64 %11, 256
@@ -833,7 +833,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %4
 
 .lr.ph.preheader:                                 ; preds = %_ZNK3ue29CharReach10find_firstEv.exit
   %12 = trunc i64 %11 to i8
-  %.not.i.i1456 = icmp samesign ult i64 %.0710.i.i, 4
+  %.not.i.i1456 = icmp samesign ult i64 %.0712.i.i, 4
   br i1 %.not.i.i1456, label %.lr.ph58, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %7, %_ZNK3ue29CharReach9find_nextEm.exit, %26, %.lr.ph.preheader, %_ZNK3ue29CharReach10find_firstEv.exit

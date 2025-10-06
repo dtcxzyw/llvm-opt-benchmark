@@ -2312,12 +2312,12 @@ define internal { ptr, ptr } @_ZN4core5error5Error5cause17h46f0039e7db381c6E(ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17h79e7bee2ef7f0163E(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !182, !alias.scope !186, !noundef !5
-  %switch.i = icmp eq i64 %2, -9223372036854775808
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0.i = select i1 %switch.i, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr @anon.66fbad7e043687e7bbff216f20cb1390.149, 1
-  ret { ptr, ptr } %5
+  %3 = icmp eq i64 %2, -9223372036854775808
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.0.0.i = select i1 %3, ptr %4, ptr null
+  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0.i, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr @anon.66fbad7e043687e7bbff216f20cb1390.149, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -5314,12 +5314,12 @@ default.unreachable1:                             ; preds = %1
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal { ptr, ptr } @"_ZN63_$LT$rmp_serde..encode..Error$u20$as$u20$core..error..Error$GT$6source17hb83b28cf721d7df7E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !range !182, !noundef !5
-  %switch = icmp eq i64 %2, -9223372036854775808
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0 = select i1 %switch, ptr %3, ptr null
-  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %5 = insertvalue { ptr, ptr } %4, ptr @anon.66fbad7e043687e7bbff216f20cb1390.149, 1
-  ret { ptr, ptr } %5
+  %3 = icmp eq i64 %2, -9223372036854775808
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.sroa.0.0 = select i1 %3, ptr %4, ptr null
+  %5 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %6 = insertvalue { ptr, ptr } %5, ptr @anon.66fbad7e043687e7bbff216f20cb1390.149, 1
+  ret { ptr, ptr } %6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -5364,12 +5364,12 @@ define internal { ptr, i64 } @"_ZN66_$LT$core..str..error..Utf8Error$u20$as$u20$
 ; Function Attrs: cold mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define internal { ptr, ptr } @"_ZN66_$LT$rmp..decode..ValueReadError$u20$as$u20$core..error..Error$GT$6source17h72b0fb108a5053c1E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 8, !range !26, !noundef !5
-  %switch = icmp samesign ult i8 %2, 2
+  %3 = icmp eq i8 %2, 2
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.sroa.0.0 = select i1 %switch, ptr %.sroa.01.0, ptr null
-  %3 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
-  %4 = insertvalue { ptr, ptr } %3, ptr @anon.66fbad7e043687e7bbff216f20cb1390.81, 1
-  ret { ptr, ptr } %4
+  %.sroa.0.0 = select i1 %3, ptr null, ptr %.sroa.01.0
+  %4 = insertvalue { ptr, ptr } poison, ptr %.sroa.0.0, 0
+  %5 = insertvalue { ptr, ptr } %4, ptr @anon.66fbad7e043687e7bbff216f20cb1390.81, 1
+  ret { ptr, ptr } %5
 }
 
 ; Function Attrs: nonlazybind uwtable

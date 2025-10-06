@@ -5403,8 +5403,8 @@ define linkonce_odr dso_local void @_ZN15CliFileResolver13resolveModuleEPKN4Luau
   %20 = load i32, ptr %19, align 8, !tbaa !286
   %21 = load i32, ptr @_ZN4Luau7AstRttiINS_21AstExprConstantStringEE5valueE, align 4, !tbaa !4
   %22 = icmp ne i32 %20, %21
-  %.not58 = icmp eq ptr %3, null
-  %.not = or i1 %.not58, %22
+  %.not57 = icmp eq ptr %3, null
+  %.not = or i1 %.not57, %22
   br i1 %.not, label %187, label %23
 
 23:                                               ; preds = %4
@@ -5693,11 +5693,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %120, ptr %0, align 8, !tbaa !25
   %126 = load i64, ptr %102, align 8, !tbaa !17
   store i64 %126, ptr %119, align 8, !tbaa !17
-  %.pre59 = load i64, ptr %115, align 8, !tbaa !14
+  %.pre58 = load i64, ptr %115, align 8, !tbaa !14
   br label %_ZN4Luau10ModuleInfoD2Ev.exit
 
 _ZN4Luau10ModuleInfoD2Ev.exit:                    ; preds = %122, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
-  %127 = phi i64 [ %123, %122 ], [ %.pre59, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
+  %127 = phi i64 [ %123, %122 ], [ %.pre58, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i ]
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %127, ptr %128, align 8, !tbaa !14
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -8691,8 +8691,8 @@ define linkonce_odr dso_local void @_ZN13TaskScheduler14workerFunctionEv(ptr nou
   call void @_ZN13TaskScheduler3popEv(ptr dead_on_unwind nonnull writable sret(%"class.std::function.307") align 8 %2, ptr noundef nonnull align 8 dereferenceable(200) %0)
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !108
-  %.not.i.i.not14 = icmp eq ptr %4, null
-  br i1 %.not.i.i.not14, label %._crit_edge, label %.lr.ph
+  %.not.i.i.not13 = icmp eq ptr %4, null
+  br i1 %.not.i.i.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24

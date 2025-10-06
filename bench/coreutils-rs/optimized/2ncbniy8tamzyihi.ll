@@ -211,8 +211,8 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
 define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4hash17hc929aa6f5666b3f5E.llvm.1386063063301697284"(ptr noalias noundef nonnull readonly align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef align 8 captures(none) dereferenceable(72) %2) unnamed_addr #4 {
 .split:
   %3 = alloca [8 x i8], align 8
-  %.not50 = icmp eq i64 %1, 0
-  br i1 %.not50, label %._crit_edge, label %.lr.ph
+  %.not49 = icmp eq i64 %1, 0
+  br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %14, %.split
   %.033.lcssa = phi i64 [ 0, %.split ], [ %.2, %14 ]
@@ -236,34 +236,34 @@ define hidden void @"_ZN52_$LT$std..path..Path$u20$as$u20$core..hash..Hash$GT$4h
   br label %5
 
 .lr.ph:                                           ; preds = %.split, %14
-  %.048 = phi i64 [ %.1, %14 ], [ 0, %.split ]
-  %.03347 = phi i64 [ %.2, %14 ], [ 0, %.split ]
-  %.sroa.09.046 = phi i64 [ %10, %14 ], [ 0, %.split ]
-  %10 = add nuw i64 %.sroa.09.046, 1
-  %11 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.046
+  %.047 = phi i64 [ %.1, %14 ], [ 0, %.split ]
+  %.03346 = phi i64 [ %.2, %14 ], [ 0, %.split ]
+  %.sroa.09.045 = phi i64 [ %10, %14 ], [ 0, %.split ]
+  %10 = add nuw i64 %.sroa.09.045, 1
+  %11 = getelementptr inbounds i8, ptr %0, i64 %.sroa.09.045
   %12 = load i8, ptr %11, align 1, !noundef !4
   %13 = icmp eq i8 %12, 47
   br i1 %13, label %15, label %14
 
 14:                                               ; preds = %29, %.lr.ph
-  %.2 = phi i64 [ %.3, %29 ], [ %.03347, %.lr.ph ]
-  %.1 = phi i64 [ %30, %29 ], [ %.048, %.lr.ph ]
+  %.2 = phi i64 [ %.3, %29 ], [ %.03346, %.lr.ph ]
+  %.1 = phi i64 [ %30, %29 ], [ %.047, %.lr.ph ]
   %exitcond.not = icmp eq i64 %10, %1
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 15:                                               ; preds = %.lr.ph
-  %16 = icmp ugt i64 %.sroa.09.046, %.048
+  %16 = icmp ugt i64 %.sroa.09.045, %.047
   br i1 %16, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he7b7f8baa73fc435E.exit", label %20
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he7b7f8baa73fc435E.exit": ; preds = %15
-  %17 = sub nuw i64 %.sroa.09.046, %.048
-  %18 = getelementptr inbounds i8, ptr %0, i64 %.048
+  %17 = sub nuw i64 %.sroa.09.045, %.047
+  %18 = getelementptr inbounds i8, ptr %0, i64 %.047
   tail call fastcc void @"_ZN71_$LT$std..hash..random..DefaultHasher$u20$as$u20$core..hash..Hasher$GT$5write17h65f66e5fad0e1a99E"(ptr noalias noundef align 8 dereferenceable(72) %2, ptr noalias noundef nonnull readonly align 1 %18, i64 noundef %17)
-  %19 = add i64 %17, %.03347
+  %19 = add i64 %17, %.03346
   br label %20
 
 20:                                               ; preds = %15, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he7b7f8baa73fc435E.exit"
-  %.3 = phi i64 [ %19, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he7b7f8baa73fc435E.exit" ], [ %.03347, %15 ]
+  %.3 = phi i64 [ %19, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he7b7f8baa73fc435E.exit" ], [ %.03346, %15 ]
   %21 = sub nuw i64 %1, %10
   %22 = getelementptr inbounds i8, ptr %0, i64 %10
   %23 = icmp eq i64 %21, 1

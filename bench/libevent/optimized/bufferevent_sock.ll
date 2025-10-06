@@ -273,7 +273,7 @@ declare i32 @event_assign(ptr noundef, ptr noundef, i32 noundef, i16 noundef sig
 define internal void @bufferevent_readcb(i32 noundef %0, i16 noundef signext %1, ptr noundef %2) #0 {
   tail call void @bufferevent_incref_and_lock_(ptr noundef %2) #10
   %4 = icmp eq i16 %1, 1
-  br i1 %4, label %.thread53, label %5
+  br i1 %4, label %.thread52, label %5
 
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 256
@@ -311,13 +311,13 @@ define internal void @bufferevent_readcb(i32 noundef %0, i16 noundef signext %1,
   %25 = tail call i32 @evbuffer_freeze(ptr noundef %7, i32 noundef 0) #10
   switch i32 %24, label %33 [
     i32 -1, label %26
-    i32 0, label %.thread53
+    i32 0, label %.thread52
   ]
 
 26:                                               ; preds = %19
   %27 = tail call ptr @__errno_location() #11
   %28 = load i32, ptr %27, align 4
-  switch i32 %28, label %.thread53 [
+  switch i32 %28, label %.thread52 [
     i32 11, label %bufferevent_trigger_nolock_.exit
     i32 4, label %bufferevent_trigger_nolock_.exit
     i32 111, label %29
@@ -332,7 +332,7 @@ define internal void @bufferevent_readcb(i32 noundef %0, i16 noundef signext %1,
 
 33:                                               ; preds = %19
   %34 = icmp slt i32 %24, 1
-  br i1 %34, label %.thread53, label %35
+  br i1 %34, label %.thread52, label %35
 
 35:                                               ; preds = %33
   %36 = zext nneg i32 %24 to i64
@@ -348,13 +348,13 @@ define internal void @bufferevent_readcb(i32 noundef %0, i16 noundef signext %1,
   tail call void @bufferevent_run_readcb_(ptr noundef nonnull %2, i32 noundef 0) #10
   br label %bufferevent_trigger_nolock_.exit
 
-.thread53:                                        ; preds = %19, %26, %3, %33
+.thread52:                                        ; preds = %19, %26, %3, %33
   %.040 = phi i16 [ 1, %33 ], [ 65, %3 ], [ 33, %26 ], [ 17, %19 ]
   %43 = tail call i32 @bufferevent_disable(ptr noundef %2, i16 noundef signext 2) #10
   tail call void @bufferevent_run_eventcb_(ptr noundef %2, i16 noundef signext %.040, i32 noundef 0) #10
   br label %bufferevent_trigger_nolock_.exit
 
-bufferevent_trigger_nolock_.exit:                 ; preds = %26, %26, %29, %42, %35, %15, %.thread53, %14
+bufferevent_trigger_nolock_.exit:                 ; preds = %26, %26, %29, %42, %35, %15, %.thread52, %14
   %44 = tail call i32 @bufferevent_decref_and_unlock_(ptr noundef %2) #10
   ret void
 }
@@ -364,7 +364,7 @@ define internal void @bufferevent_writecb(i32 noundef %0, i16 noundef signext %1
   %4 = alloca i32, align 4
   tail call void @bufferevent_incref_and_lock_(ptr noundef %2) #10
   %5 = icmp eq i16 %1, 1
-  br i1 %5, label %.thread81, label %6
+  br i1 %5, label %.thread78, label %6
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 384
@@ -378,9 +378,9 @@ define internal void @bufferevent_writecb(i32 noundef %0, i16 noundef signext %1
   %12 = load i8, ptr %7, align 8
   %13 = and i8 %12, 16
   %.not61 = icmp eq i8 %13, 0
-  br i1 %.not61, label %15, label %.thread70
+  br i1 %.not61, label %15, label %.thread69
 
-.thread70:                                        ; preds = %10
+.thread69:                                        ; preds = %10
   %14 = and i8 %12, -25
   store i8 %14, ptr %7, align 8
   br label %20
@@ -395,7 +395,7 @@ define internal void @bufferevent_writecb(i32 noundef %0, i16 noundef signext %1
   %19 = icmp slt i32 %11, 0
   br i1 %19, label %20, label %25
 
-20:                                               ; preds = %.thread70, %17
+20:                                               ; preds = %.thread69, %17
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %22 = tail call i32 @event_del(ptr noundef nonnull %21) #10
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -458,20 +458,20 @@ bufferevent_socket_set_conn_address_fd_.exit:     ; preds = %25, %28
   %53 = call i32 @evbuffer_freeze(ptr noundef %52, i32 noundef 1) #10
   switch i32 %51, label %57 [
     i32 -1, label %54
-    i32 0, label %.thread81
+    i32 0, label %.thread78
   ]
 
 54:                                               ; preds = %47
   %55 = tail call ptr @__errno_location() #11
   %56 = load i32, ptr %55, align 4
-  switch i32 %56, label %.thread81 [
+  switch i32 %56, label %.thread78 [
     i32 11, label %76
     i32 4, label %76
   ]
 
 57:                                               ; preds = %47
   %58 = icmp slt i32 %51, 1
-  br i1 %58, label %.thread81, label %59
+  br i1 %58, label %.thread78, label %59
 
 59:                                               ; preds = %57
   %60 = zext nneg i32 %51 to i64
@@ -516,13 +516,13 @@ bufferevent_socket_set_conn_address_fd_.exit:     ; preds = %25, %28
   %82 = call i32 @event_del(ptr noundef nonnull %81) #10
   br label %bufferevent_trigger_nolock_.exit
 
-.thread81:                                        ; preds = %47, %54, %3, %57
+.thread78:                                        ; preds = %47, %54, %3, %57
   %.057 = phi i16 [ 2, %57 ], [ 66, %3 ], [ 34, %54 ], [ 18, %47 ]
   %83 = call i32 @bufferevent_disable(ptr noundef %2, i16 noundef signext 4) #10
   call void @bufferevent_run_eventcb_(ptr noundef %2, i16 noundef signext %.057, i32 noundef 0) #10
   br label %bufferevent_trigger_nolock_.exit
 
-bufferevent_trigger_nolock_.exit:                 ; preds = %15, %36, %20, %75, %70, %76, %80, %69, %39, %.thread81
+bufferevent_trigger_nolock_.exit:                 ; preds = %15, %36, %20, %75, %70, %76, %80, %69, %39, %.thread78
   %84 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %2) #10
   ret void
 }

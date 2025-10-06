@@ -1602,11 +1602,11 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   %59 = add nuw nsw i32 %58, 262120
   %60 = lshr i32 %59, 2
   %61 = trunc i32 %60 to i16
-  %.not106114 = icmp eq i16 %61, 0
-  %.not106 = select i1 %57, i1 true, i1 %.not106114
-  br i1 %.not106, label %._crit_edge, label %.lr.ph110
+  %.not103111 = icmp eq i16 %61, 0
+  %.not103 = select i1 %57, i1 true, i1 %.not103111
+  br i1 %.not103, label %._crit_edge, label %.lr.ph107
 
-.lr.ph110:                                        ; preds = %gistDeCompressAtt.exit
+.lr.ph107:                                        ; preds = %gistDeCompressAtt.exit
   %62 = getelementptr i8, ptr %1, i64 20
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %64 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1620,14 +1620,14 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   %72 = ptrtoint ptr %5 to i64
   br label %73
 
-73:                                               ; preds = %.lr.ph110, %215
-  %.050109 = phi i16 [ 1, %.lr.ph110 ], [ %.6, %215 ]
-  %.052108 = phi i16 [ 1, %.lr.ph110 ], [ %216, %215 ]
-  %.058107 = phi i32 [ -1, %.lr.ph110 ], [ %.9.ph, %215 ]
-  %74 = zext i16 %.052108 to i64
+73:                                               ; preds = %.lr.ph107, %215
+  %.050106 = phi i16 [ 1, %.lr.ph107 ], [ %.6, %215 ]
+  %.052105 = phi i16 [ 1, %.lr.ph107 ], [ %216, %215 ]
+  %.058104 = phi i32 [ -1, %.lr.ph107 ], [ %.9.ph, %215 ]
+  %74 = zext i16 %.052105 to i64
   %75 = getelementptr %struct.ItemIdData, ptr %62, i64 %74
-  %.val75 = load i32, ptr %75, align 4
-  %76 = and i32 %.val75, 32767
+  %.val74 = load i32, ptr %75, align 4
+  %76 = and i32 %.val74, 32767
   %77 = zext nneg i32 %76 to i64
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 %77
   %79 = load ptr, ptr %10, align 8
@@ -1643,12 +1643,12 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
 
 85:                                               ; preds = %.lr.ph, %193
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %193 ]
-  %.297 = phi i16 [ %.050109, %.lr.ph ], [ %.5, %193 ]
-  %.05396 = phi i32 [ 0, %.lr.ph ], [ %86, %193 ]
-  %.05495 = phi i1 [ true, %.lr.ph ], [ %.256, %193 ]
-  %.15994 = phi i32 [ %.058107, %.lr.ph ], [ %.462, %193 ]
+  %.294 = phi i16 [ %.050106, %.lr.ph ], [ %.5, %193 ]
+  %.05393 = phi i32 [ 0, %.lr.ph ], [ %86, %193 ]
+  %.05492 = phi i1 [ true, %.lr.ph ], [ %.256, %193 ]
+  %.15991 = phi i32 [ %.058104, %.lr.ph ], [ %.462, %193 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %86 = add nuw nsw i32 %.05396, 1
+  %86 = add nuw nsw i32 %.05393, 1
   %87 = load ptr, ptr %63, align 8
   %.val.i = load i16, ptr %83, align 2
   %88 = icmp slt i16 %.val.i, 0
@@ -1737,7 +1737,7 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   store i64 %.1.i.ph, ptr %7, align 8
   store ptr %0, ptr %64, align 8
   store ptr %1, ptr %65, align 8
-  store i16 %.052108, ptr %66, align 8
+  store i16 %.052105, ptr %66, align 8
   store i8 0, ptr %67, align 2
   %137 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %68, i64 %indvars.iv
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
@@ -1773,7 +1773,7 @@ gistDeCompressAtt.exit:                           ; preds = %gistdentryinit.exit
   store i64 0, ptr %7, align 8
   store ptr %0, ptr %64, align 8
   store ptr %1, ptr %65, align 8
-  store i16 %.052108, ptr %66, align 8
+  store i16 %.052105, ptr %66, align 8
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %155, %145
@@ -1819,7 +1819,7 @@ gistpenalty.exit:                                 ; preds = %165, %172, %173
   %174 = phi float [ %171, %165 ], [ 0.000000e+00, %172 ], [ %..i, %173 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %175 = fcmp ule float %174, 0.000000e+00
-  %.256 = select i1 %175, i1 %.05495, i1 false
+  %.256 = select i1 %175, i1 %.05492, i1 false
   %176 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
   %177 = load float, ptr %176, align 4
   %178 = fcmp olt float %177, 0.000000e+00
@@ -1845,39 +1845,39 @@ gistpenalty.exit:                                 ; preds = %165, %172, %173
 
 190:                                              ; preds = %gistpenalty.exit
   %191 = fcmp oeq float %177, %174
-  %.pre117.pre = load ptr, ptr %10, align 8
-  br i1 %191, label %._crit_edge115, label %..thread.loopexit_crit_edge
+  %.pre114.pre = load ptr, ptr %10, align 8
+  br i1 %191, label %._crit_edge112, label %..thread.loopexit_crit_edge
 
 ..thread.loopexit_crit_edge:                      ; preds = %190
   %192 = trunc nuw nsw i64 %indvars.iv to i32
-  %.phi.trans.insert118.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre117.pre, i64 10
-  %.pre119.pre = load i16, ptr %.phi.trans.insert118.phi.trans.insert, align 2
+  %.phi.trans.insert115.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre114.pre, i64 10
+  %.pre116.pre = load i16, ptr %.phi.trans.insert115.phi.trans.insert, align 2
   br label %.thread
 
-._crit_edge115:                                   ; preds = %190
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre117.pre, i64 10
-  %.pre116 = load i16, ptr %.phi.trans.insert, align 2
-  %.pre = sext i16 %.pre116 to i32
+._crit_edge112:                                   ; preds = %190
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre114.pre, i64 10
+  %.pre113 = load i16, ptr %.phi.trans.insert, align 2
+  %.pre = sext i16 %.pre113 to i32
   br label %193
 
-193:                                              ; preds = %._crit_edge115, %188, %180
-  %.pre-phi = phi i32 [ %.pre, %._crit_edge115 ], [ %184, %188 ], [ %184, %180 ]
-  %194 = phi i16 [ %.pre116, %._crit_edge115 ], [ %183, %188 ], [ %183, %180 ]
-  %.462 = phi i32 [ %.15994, %._crit_edge115 ], [ -1, %188 ], [ -1, %180 ]
-  %.5 = phi i16 [ %.297, %._crit_edge115 ], [ %.052108, %188 ], [ %.052108, %180 ]
+193:                                              ; preds = %._crit_edge112, %188, %180
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge112 ], [ %184, %188 ], [ %184, %180 ]
+  %194 = phi i16 [ %.pre113, %._crit_edge112 ], [ %183, %188 ], [ %183, %180 ]
+  %.462 = phi i32 [ %.15991, %._crit_edge112 ], [ -1, %188 ], [ -1, %180 ]
+  %.5 = phi i16 [ %.294, %._crit_edge112 ], [ %.052105, %188 ], [ %.052105, %180 ]
   %195 = sext i32 %.pre-phi to i64
   %196 = icmp slt i64 %indvars.iv.next, %195
   br i1 %196, label %85, label %.thread, !llvm.loop !19
 
 .thread:                                          ; preds = %193, %..thread.loopexit_crit_edge, %73
-  %197 = phi i16 [ %81, %73 ], [ %.pre119.pre, %..thread.loopexit_crit_edge ], [ %194, %193 ]
-  %.159.lcssa = phi i32 [ %.058107, %73 ], [ %.15994, %..thread.loopexit_crit_edge ], [ %.462, %193 ]
+  %197 = phi i16 [ %81, %73 ], [ %.pre116.pre, %..thread.loopexit_crit_edge ], [ %194, %193 ]
+  %.159.lcssa = phi i32 [ %.058104, %73 ], [ %.15991, %..thread.loopexit_crit_edge ], [ %.462, %193 ]
   %.053.lcssa = phi i32 [ 0, %73 ], [ %192, %..thread.loopexit_crit_edge ], [ %86, %193 ]
-  %.2.lcssa = phi i16 [ %.050109, %73 ], [ %.297, %..thread.loopexit_crit_edge ], [ %.5, %193 ]
+  %.2.lcssa = phi i16 [ %.050106, %73 ], [ %.294, %..thread.loopexit_crit_edge ], [ %.5, %193 ]
   %.155 = phi i1 [ true, %73 ], [ false, %..thread.loopexit_crit_edge ], [ %.256, %193 ]
   %198 = sext i16 %197 to i32
   %199 = icmp ne i32 %.053.lcssa, %198
-  %.not68 = icmp eq i16 %.2.lcssa, %.052108
+  %.not68 = icmp eq i16 %.2.lcssa, %.052105
   %or.cond69 = select i1 %199, i1 true, i1 %.not68
   br i1 %or.cond69, label %207, label %200
 
@@ -1894,7 +1894,7 @@ gistpenalty.exit:                                 ; preds = %165, %172, %173
   %.664 = phi i32 [ %204, %202 ], [ %.159.lcssa, %200 ]
   %206 = icmp eq i32 %.664, 0
   %spec.select = select i1 %206, i32 -1, i32 1
-  %spec.select70 = select i1 %206, i16 %.052108, i16 %.2.lcssa
+  %spec.select70 = select i1 %206, i16 %.052105, i16 %.2.lcssa
   br label %207
 
 207:                                              ; preds = %205, %.thread
@@ -1918,7 +1918,7 @@ gistpenalty.exit:                                 ; preds = %165, %172, %173
 
 215:                                              ; preds = %207, %213
   %.9.ph = phi i32 [ 0, %213 ], [ %.563, %207 ]
-  %216 = add i16 %.052108, 1
+  %216 = add i16 %.052105, 1
   %.not = icmp ugt i16 %216, %61
   br i1 %.not, label %._crit_edge, label %73, !llvm.loop !20
 

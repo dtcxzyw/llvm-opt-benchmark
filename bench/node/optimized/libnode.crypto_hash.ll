@@ -1250,7 +1250,7 @@ cleanup.thread:                                   ; preds = %if.end57
   call void @_ZN4node6crypto10ByteSourceD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp) #21
   call void @CRYPTO_clear_free(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.39, i32 noundef 225) #21
   %.pre = load ptr, ptr %digest_, align 8
-  %.pre38 = load i32, ptr %len, align 4
+  %.pre37 = load i32, ptr %len, align 4
   br label %if.end66
 
 cleanup:                                          ; preds = %if.end57
@@ -1260,7 +1260,7 @@ cleanup:                                          ; preds = %if.end57
   br label %return
 
 if.end66:                                         ; preds = %cleanup.thread, %if.end25
-  %32 = phi i32 [ %.pre38, %cleanup.thread ], [ %26, %if.end25 ]
+  %32 = phi i32 [ %.pre37, %cleanup.thread ], [ %26, %if.end25 ]
   %33 = phi ptr [ %.pre, %cleanup.thread ], [ %27, %if.end25 ]
   store ptr null, ptr %error, align 8
   %isolate_.i28 = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88

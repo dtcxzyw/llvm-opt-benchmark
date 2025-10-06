@@ -1219,8 +1219,8 @@ reverse.exit40:                                   ; preds = %32
 
 41:                                               ; preds = %reverse.exit40
   %42 = load i16, ptr %3, align 2
-  %reass.sub46 = sub i16 %42, %2
-  %43 = add i16 %reass.sub46, -4
+  %reass.sub45 = sub i16 %42, %2
+  %43 = add i16 %reass.sub45, -4
   store i16 %43, ptr %3, align 2
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)

@@ -828,7 +828,7 @@ common.ret:                                       ; preds = %161, %47
 
 48:                                               ; preds = %.noexc
   %49 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.sroa.13.sroa.0.0.copyload18.i = load i64, ptr %49, align 8, !alias.scope !103, !noalias !95
+  %.sroa.13.sroa.0.0.copyload17.i = load i64, ptr %49, align 8, !alias.scope !103, !noalias !95
   %.sroa.13.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sroa.13.sroa.9.i.sroa.0.0.copyload = load i64, ptr %.sroa.13.sroa.9.0..sroa_idx.i, align 8, !noalias !95
   %.sroa.13.sroa.9.i.sroa.6.0..sroa.13.sroa.9.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
@@ -836,7 +836,7 @@ common.ret:                                       ; preds = %161, %47
   %.sroa.13.sroa.9.i.sroa.7.0..sroa.13.sroa.9.0..sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 32
   %.sroa.13.sroa.9.i.sroa.7.0.copyload = load i64, ptr %.sroa.13.sroa.9.i.sroa.7.0..sroa.13.sroa.9.0..sroa_idx.i.sroa_idx, align 8, !noalias !95
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !95
-  %.not = icmp eq i64 %.sroa.13.sroa.0.0.copyload18.i, 0
+  %.not = icmp eq i64 %.sroa.13.sroa.0.0.copyload17.i, 0
   br i1 %.not, label %83, label %51
 
 50:                                               ; preds = %.noexc
@@ -854,7 +854,7 @@ common.ret:                                       ; preds = %161, %47
   br label %79
 
 51:                                               ; preds = %48
-  %52 = inttoptr i64 %.sroa.13.sroa.0.0.copyload18.i to ptr
+  %52 = inttoptr i64 %.sroa.13.sroa.0.0.copyload17.i to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %52, ptr %16, align 8
   %.sroa.10.0..sroa_idx176 = getelementptr inbounds nuw i8, ptr %16, i64 8

@@ -1676,19 +1676,19 @@ _ZN3ue212CodePointSet3setEj.exit95:               ; preds = %270
   br label %417
 
 417:                                              ; preds = %420, %411
-  %.0710.i.i = phi i64 [ 0, %411 ], [ %421, %420 ]
-  %418 = getelementptr inbounds nuw i64, ptr %70, i64 %.0710.i.i
+  %.0712.i.i = phi i64 [ 0, %411 ], [ %421, %420 ]
+  %418 = getelementptr inbounds nuw i64, ptr %70, i64 %.0712.i.i
   %419 = load i64, ptr %418, align 8
   %.not.i.i = icmp eq i64 %419, 0
   br i1 %.not.i.i, label %420, label %_ZNK3ue29CharReach10find_firstEv.exit
 
 420:                                              ; preds = %417
-  %421 = add nuw nsw i64 %.0710.i.i, 1
-  %exitcond.i.i = icmp eq i64 %421, 4
-  br i1 %exitcond.i.i, label %._crit_edge, label %417, !llvm.loop !7
+  %421 = add nuw nsw i64 %.0712.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %421, 4
+  br i1 %exitcond.not.i.i, label %._crit_edge, label %417, !llvm.loop !7
 
 _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %417
-  %422 = shl nuw nsw i64 %.0710.i.i, 6
+  %422 = shl nuw nsw i64 %.0712.i.i, 6
   %423 = call noundef range(i64 0, 65) i64 @llvm.cttz.i64(i64 %419, i1 true)
   %424 = or disjoint i64 %423, %422
   %425 = and i64 %424, 4294967295
@@ -1755,10 +1755,10 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %417
   br label %_ZNK3ue29CharReach9find_nextEm.exit
 
 _ZNK3ue29CharReach9find_nextEm.exit:              ; preds = %439, %446
-  %.sink126 = phi i64 [ %438, %439 ], [ %445, %446 ]
-  %.sink125 = phi i64 [ %440, %439 ], [ %447, %446 ]
-  %448 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink126, i1 true)
-  %449 = or disjoint i64 %448, %.sink125
+  %.sink125 = phi i64 [ %438, %439 ], [ %445, %446 ]
+  %.sink124 = phi i64 [ %440, %439 ], [ %447, %446 ]
+  %448 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sink125, i1 true)
+  %449 = or disjoint i64 %448, %.sink124
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %420, %430, %441, %_ZNK3ue29CharReach10find_firstEv.exit

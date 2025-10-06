@@ -126,22 +126,22 @@ define hidden i32 @mbedtls_hkdf_expand(ptr noundef %0, ptr noundef %1, i64 nound
 
 25:                                               ; preds = %23
   call void @llvm.memset.p0.i64(ptr nonnull align 16 %9, i8 0, i64 %14, i1 false)
-  %.not6579 = icmp eq i64 %.047, 0
-  br i1 %.not6579, label %.loopexit, label %.lr.ph
+  %.not6578 = icmp eq i64 %.047, 0
+  br i1 %.not6578, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %25, %36
-  %.04482 = phi i64 [ %41, %36 ], [ 1, %25 ]
-  %.04581 = phi i64 [ %14, %36 ], [ 0, %25 ]
-  %.04880 = phi i64 [ %40, %36 ], [ 0, %25 ]
+  %.04481 = phi i64 [ %41, %36 ], [ 1, %25 ]
+  %.04580 = phi i64 [ %14, %36 ], [ 0, %25 ]
+  %.04879 = phi i64 [ %40, %36 ], [ 0, %25 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %26 = trunc nuw i64 %.04482 to i8
+  %26 = trunc nuw i64 %.04481 to i8
   store i8 %26, ptr %10, align 1, !tbaa !3
   %27 = call i32 @mbedtls_md_hmac_starts(ptr noundef nonnull %8, ptr noundef %1, i64 noundef %2) #5
   %.not66 = icmp eq i32 %27, 0
   br i1 %.not66, label %28, label %.thread
 
 28:                                               ; preds = %.lr.ph
-  %29 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %.04581) #5
+  %29 = call i32 @mbedtls_md_hmac_update(ptr noundef nonnull %8, ptr noundef nonnull %9, i64 noundef %.04580) #5
   %.not67 = icmp eq i32 %29, 0
   br i1 %.not67, label %30, label %.thread
 
@@ -166,15 +166,15 @@ define hidden i32 @mbedtls_hkdf_expand(ptr noundef %0, ptr noundef %1, i64 nound
   br label %.loopexit
 
 36:                                               ; preds = %34
-  %.not71 = icmp eq i64 %.04482, %.047
-  %37 = sub i64 %6, %.04880
+  %.not71 = icmp eq i64 %.04481, %.047
+  %37 = sub i64 %6, %.04879
   %38 = select i1 %.not71, i64 %37, i64 %14
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 %.04880
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 %.04879
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %39, ptr nonnull align 16 %9, i64 %38, i1 false)
-  %40 = add i64 %.04880, %14
+  %40 = add i64 %.04879, %14
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %41 = add nuw nsw i64 %.04482, 1
-  %.not65.not = icmp ult i64 %.04482, %.047
+  %41 = add nuw nsw i64 %.04481, 1
+  %.not65.not = icmp ult i64 %.04481, %.047
   br i1 %.not65.not, label %.lr.ph, label %.loopexit, !llvm.loop !6
 
 .loopexit:                                        ; preds = %36, %25, %.thread, %23

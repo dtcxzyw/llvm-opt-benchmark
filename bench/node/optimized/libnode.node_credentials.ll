@@ -264,8 +264,8 @@ init.check.i:                                     ; preds = %land.lhs.true
   br i1 %tobool.not.i, label %_ZN4node15linux_at_secureEv.exit, label %init.i
 
 init.i:                                           ; preds = %init.check.i
-  %call.i11 = call i64 @getauxval(i64 noundef 23) #19
-  %tobool1.i = icmp ne i64 %call.i11, 0
+  %call.i10 = call i64 @getauxval(i64 noundef 23) #19
+  %tobool1.i = icmp ne i64 %call.i10, 0
   %frombool.i = zext i1 %tobool1.i to i8
   store i8 %frombool.i, ptr @_ZZN4node15linux_at_secureEvE5value, align 1
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN4node15linux_at_secureEvE5value) #19
@@ -290,8 +290,8 @@ lor.lhs.false4:                                   ; preds = %lor.lhs.false
 
 if.end:                                           ; preds = %lor.lhs.false4
   %4 = load ptr, ptr %env_vars, align 8
-  %cmp.i.i.not17 = icmp eq ptr %4, null
-  br i1 %cmp.i.i.not17, label %if.end49, label %if.then9
+  %cmp.i.i.not16 = icmp eq ptr %4, null
+  br i1 %cmp.i.i.not16, label %if.end49, label %if.then9
 
 if.then9:                                         ; preds = %if.end
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %isolate) #19
@@ -317,7 +317,7 @@ if.end29:                                         ; preds = %_ZN2v810MaybeLocalI
   call void @_ZN2v86String9Utf8ValueC1EPNS_7IsolateENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 8 dereferenceable(12) %utf8_value, ptr noundef %isolate, ptr nonnull %call22) #19
   %7 = load ptr, ptr %utf8_value, align 8
   %cmp39.not = icmp eq ptr %7, null
-  br i1 %cmp39.not, label %fail.critedge18, label %if.end41
+  br i1 %cmp39.not, label %fail.critedge17, label %if.end41
 
 if.end41:                                         ; preds = %if.end29
   %length_.i = getelementptr inbounds nuw i8, ptr %utf8_value, i64 8
@@ -367,23 +367,23 @@ if.then58:                                        ; preds = %if.end56
 cleanup62:                                        ; preds = %if.end56, %if.then58
   %12 = load ptr, ptr %buf_.i, align 8
   %cmp.i.i.i = icmp ne ptr %12, null
-  %cmp.i.i15 = icmp ne ptr %12, %buf_st_.i
-  %13 = and i1 %cmp.i.i.i, %cmp.i.i15
-  br i1 %13, label %if.then.i16, label %_ZN4node16MaybeStackBufferIcLm256EED2Ev.exit
+  %cmp.i.i14 = icmp ne ptr %12, %buf_st_.i
+  %13 = and i1 %cmp.i.i.i, %cmp.i.i14
+  br i1 %13, label %if.then.i15, label %_ZN4node16MaybeStackBufferIcLm256EED2Ev.exit
 
-if.then.i16:                                      ; preds = %cleanup62
+if.then.i15:                                      ; preds = %cleanup62
   call void @free(ptr noundef nonnull %12) #19
   br label %_ZN4node16MaybeStackBufferIcLm256EED2Ev.exit
 
-_ZN4node16MaybeStackBufferIcLm256EED2Ev.exit:     ; preds = %cleanup62, %if.then.i16
+_ZN4node16MaybeStackBufferIcLm256EED2Ev.exit:     ; preds = %cleanup62, %if.then.i15
   call void @uv_mutex_unlock(ptr noundef nonnull @_ZN4node11per_process13env_var_mutexE) #19
   br i1 %cmp57.not, label %return, label %fail
 
-fail.critedge18:                                  ; preds = %if.end29
+fail.critedge17:                                  ; preds = %if.end29
   call void @_ZN2v86String9Utf8ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %utf8_value) #19
   br label %fail.sink.split
 
-fail.sink.split:                                  ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %fail.critedge18
+fail.sink.split:                                  ; preds = %_ZN2v810MaybeLocalINS_6StringEE14ToLocalCheckedEv.exit, %fail.critedge17
   call void @_ZN2v88TryCatchD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %ignore_errors) #19
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #19
   br label %fail
@@ -3310,8 +3310,8 @@ _ZN4node16MaybeStackBufferIjLm64EEC2Em.exit.thread: ; preds = %land.lhs.true.i.i
 
 _ZN4node16MaybeStackBufferIjLm64EEC2Em.exit:      ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit
   store i64 %conv, ptr %groups, align 8
-  %cmp3158.not = icmp eq i32 %call30, 0
-  br i1 %cmp3158.not, label %for.end, label %for.body.lr.ph
+  %cmp3160.not = icmp eq i32 %call30, 0
+  br i1 %cmp3160.not, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN4node16MaybeStackBufferIjLm64EEC2Em.exit.thread, %_ZN4node16MaybeStackBufferIjLm64EEC2Em.exit
   %isolate_.i = getelementptr inbounds nuw i8, ptr %retval.0.i.i, i64 88
@@ -3319,14 +3319,14 @@ for.body.lr.ph:                                   ; preds = %_ZN4node16MaybeStac
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZN4node16MaybeStackBufferIjLm64EEixEm.exit
-  %i.059 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4node16MaybeStackBufferIjLm64EEixEm.exit ]
+  %i.061 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %_ZN4node16MaybeStackBufferIjLm64EEixEm.exit ]
   %21 = load ptr, ptr %isolate_.i, align 8
   %22 = load ptr, ptr %principal_realm_.i.i, align 8
   %vtable.i = load ptr, ptr %22, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 64
   %23 = load ptr, ptr %vfn.i, align 8
   %call2.i = call ptr %23(ptr noundef nonnull align 8 dereferenceable(872) %22) #19
-  %conv40 = trunc nuw i64 %i.059 to i32
+  %conv40 = trunc nuw i64 %i.061 to i32
   %call44 = call ptr @_ZN2v86Object3GetENS_5LocalINS_7ContextEEEj(ptr noundef nonnull align 1 dereferenceable(1) %retval.i.sroa.0.0, ptr %call2.i, i32 noundef %conv40) #19
   %cmp.i.i = icmp eq ptr %call44, null
   br i1 %cmp.i.i, label %if.then.i100, label %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
@@ -3345,7 +3345,7 @@ if.then58:                                        ; preds = %_ZN2v810MaybeLocalI
   %24 = load ptr, ptr %args, align 8
   %arrayidx.i107 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %conv62 = add i32 %conv40, 1
-  %25 = icmp sgt i32 %conv62, -1
+  %25 = icmp samesign ult i64 %i.061, 2147483647
   br i1 %25, label %if.then.i228, label %if.end.i215
 
 if.then.i228:                                     ; preds = %if.then58
@@ -3377,7 +3377,7 @@ if.else.i295:                                     ; preds = %if.end.i215
 
 if.end63:                                         ; preds = %_ZN2v810MaybeLocalINS_5ValueEE14ToLocalCheckedEv.exit
   %32 = load i64, ptr %groups, align 8
-  %cmp.not.i = icmp ult i64 %i.059, %32
+  %cmp.not.i = icmp ult i64 %i.061, %32
   br i1 %cmp.not.i, label %_ZN4node16MaybeStackBufferIjLm64EEixEm.exit, label %do.body4.i
 
 do.body4.i:                                       ; preds = %if.end63
@@ -3387,9 +3387,9 @@ do.body4.i:                                       ; preds = %if.end63
 
 _ZN4node16MaybeStackBufferIjLm64EEixEm.exit:      ; preds = %if.end63
   %33 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i49 = getelementptr inbounds nuw i32, ptr %33, i64 %i.059
+  %arrayidx.i49 = getelementptr inbounds nuw i32, ptr %33, i64 %i.061
   store i32 %call5645, ptr %arrayidx.i49, align 4
-  %inc = add nuw nsw i64 %i.059, 1
+  %inc = add nuw nsw i64 %i.061, 1
   %exitcond.not = icmp eq i64 %inc, %conv
   br i1 %exitcond.not, label %for.end, label %for.body, !llvm.loop !11
 

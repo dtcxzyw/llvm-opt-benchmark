@@ -542,9 +542,9 @@ define hidden void @_glfwInputKey(ptr noundef %0, i32 noundef %1, i32 noundef %2
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !3
   %.fr = freeze i8 %24
-  %.not55 = icmp eq i8 %.fr, 1
+  %.not54 = icmp eq i8 %.fr, 1
   store i8 1, ptr %23, align 1, !tbaa !3
-  br i1 %.not55, label %.thread51, label %25
+  br i1 %.not54, label %.thread51, label %25
 
 25:                                               ; preds = %.thread47, %.thread44, %.thread41, %20
   br label %.thread51

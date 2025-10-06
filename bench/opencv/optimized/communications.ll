@@ -12222,8 +12222,8 @@ _ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEES4_NS_9_IdentityENS1_1
   %49 = load i64, ptr %48, align 8, !tbaa !458
   %50 = urem i64 %47, %49
   %51 = load i64, ptr %6, align 8, !tbaa !124
-  %.not33 = icmp eq i64 %51, 0
-  br i1 %.not33, label %.critedge, label %52
+  %.not31 = icmp eq i64 %51, 0
+  br i1 %.not31, label %.critedge, label %52
 
 52:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseIN3ade6HandleINS1_4NodeEEES4_NS_9_IdentityENS1_12HandleHasherIS3_EENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE15_M_hash_code_trIS4_EEmRKT_.exit
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8

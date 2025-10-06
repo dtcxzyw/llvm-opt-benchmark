@@ -21972,17 +21972,17 @@ lean_dec.exit:                                    ; preds = %20, %19, %17, %l_La
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_foldlMUnsafe_fold___at_Lake_LeanConfig_instConfigMeta___spec__1(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
-  %.not30 = icmp eq i64 %1, %2
-  br i1 %.not30, label %._crit_edge, label %.lr.ph
+  %.not28 = icmp eq i64 %1, %2
+  br i1 %.not28, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %6
 
 6:                                                ; preds = %.lr.ph, %27
-  %.01732 = phi i64 [ %1, %.lr.ph ], [ %29, %27 ]
-  %.01931 = phi ptr [ %3, %.lr.ph ], [ %28, %27 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01732
+  %.01730 = phi i64 [ %1, %.lr.ph ], [ %29, %27 ]
+  %.01929 = phi ptr [ %3, %.lr.ph ], [ %28, %27 ]
+  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01730
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
@@ -22012,8 +22012,8 @@ lean_array_uget.exit:                             ; preds = %6, %13, %15, %16
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %19 = ptrtoint ptr %18 to i64
   %20 = and i64 %19, 1
-  %.not29 = icmp eq i64 %20, 0
-  br i1 %.not29, label %21, label %27
+  %.not27 = icmp eq i64 %20, 0
+  br i1 %.not27, label %21, label %27
 
 21:                                               ; preds = %lean_array_uget.exit
   %.val.i = load i32, ptr %18, align 4, !tbaa !4
@@ -22034,8 +22034,8 @@ lean_array_uget.exit:                             ; preds = %6, %13, %15, %16
   br label %27
 
 27:                                               ; preds = %lean_array_uget.exit, %23, %25, %26
-  %28 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.01931, ptr noundef %18, ptr noundef nonnull %8) #8
-  %29 = add i64 %.01732, 1
+  %28 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.01929, ptr noundef %18, ptr noundef nonnull %8) #8
+  %29 = add i64 %.01730, 1
   %.not = icmp eq i64 %29, %2
   br i1 %.not, label %._crit_edge, label %6
 
@@ -22100,17 +22100,17 @@ lean_dec.exit10:                                  ; preds = %14, %13, %11, %4
   br label %lean_dec.exit9
 
 lean_dec.exit9:                                   ; preds = %24, %23, %21, %lean_dec.exit10
-  %.not30.i = icmp eq i64 %.val, %.val15
-  br i1 %.not30.i, label %l_Array_foldlMUnsafe_fold___at_Lake_LeanConfig_instConfigMeta___spec__1.exit, label %.lr.ph.i
+  %.not28.i = icmp eq i64 %.val, %.val15
+  br i1 %.not28.i, label %l_Array_foldlMUnsafe_fold___at_Lake_LeanConfig_instConfigMeta___spec__1.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %lean_dec.exit9
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
   br label %26
 
 26:                                               ; preds = %47, %.lr.ph.i
-  %.01732.i = phi i64 [ %.val, %.lr.ph.i ], [ %49, %47 ]
-  %.01931.i = phi ptr [ %3, %.lr.ph.i ], [ %48, %47 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01732.i
+  %.01730.i = phi i64 [ %.val, %.lr.ph.i ], [ %49, %47 ]
+  %.01929.i = phi ptr [ %3, %.lr.ph.i ], [ %48, %47 ]
+  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.01730.i
   %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, 1
@@ -22140,8 +22140,8 @@ lean_array_uget.exit.i:                           ; preds = %36, %35, %33, %26
   %38 = load ptr, ptr %37, align 8, !tbaa !10
   %39 = ptrtoint ptr %38 to i64
   %40 = and i64 %39, 1
-  %.not29.i = icmp eq i64 %40, 0
-  br i1 %.not29.i, label %41, label %47
+  %.not27.i = icmp eq i64 %40, 0
+  br i1 %.not27.i, label %41, label %47
 
 41:                                               ; preds = %lean_array_uget.exit.i
   %.val.i.i = load i32, ptr %38, align 4, !tbaa !4
@@ -22162,8 +22162,8 @@ lean_array_uget.exit.i:                           ; preds = %36, %35, %33, %26
   br label %47
 
 47:                                               ; preds = %46, %45, %43, %lean_array_uget.exit.i
-  %48 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.01931.i, ptr noundef %38, ptr noundef nonnull %28) #8
-  %49 = add i64 %.01732.i, 1
+  %48 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.01929.i, ptr noundef %38, ptr noundef nonnull %28) #8
+  %49 = add i64 %.01730.i, 1
   %.not.i16 = icmp eq i64 %49, %.val15
   br i1 %.not.i16, label %l_Array_foldlMUnsafe_fold___at_Lake_LeanConfig_instConfigMeta___spec__1.exit, label %26
 
@@ -22242,14 +22242,14 @@ lean_dec.exit:                                    ; preds = %10, %9, %7, %1
 
 ; Function Attrs: nounwind uwtable
 define ptr @l_Array_mapMUnsafe_map___at_Lake_BuildType_leanArgs___spec__1(i64 noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
-  %.not39 = icmp ult i64 %1, %0
-  br i1 %.not39, label %.lr.ph, label %._crit_edge
+  %.not37 = icmp ult i64 %1, %0
+  br i1 %.not37, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %3, %47
-  %.01841 = phi i64 [ %31, %47 ], [ %1, %3 ]
-  %.02040 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
-  %4 = getelementptr inbounds nuw i8, ptr %.02040, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01841
+  %.01839 = phi i64 [ %31, %47 ], [ %1, %3 ]
+  %.02038 = phi ptr [ %.0.i.i28, %47 ], [ %2, %3 ]
+  %4 = getelementptr inbounds nuw i8, ptr %.02038, i64 24
+  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01839
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = and i64 %7, 1
@@ -22275,18 +22275,18 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_BuildType_leanArgs___spec__1(i64 no
   br label %lean_array_uget.exit
 
 lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %14
-  %.val.i.i23 = load i32, ptr %.02040, align 4, !tbaa !4
+  %.val.i.i23 = load i32, ptr %.02038, align 4, !tbaa !4
   %15 = icmp eq i32 %.val.i.i23, 1
   br i1 %15, label %lean_ensure_exclusive_array.exit.i, label %16
 
 16:                                               ; preds = %lean_array_uget.exit
-  %17 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.02040, i1 noundef zeroext false) #8
+  %17 = tail call ptr @lean_copy_expand_array(ptr noundef nonnull %.02038, i1 noundef zeroext false) #8
   br label %lean_ensure_exclusive_array.exit.i
 
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
-  %.0.i.i = phi ptr [ %17, %16 ], [ %.02040, %lean_array_uget.exit ]
+  %.0.i.i = phi ptr [ %17, %16 ], [ %.02038, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01841
+  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01839
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, 1
@@ -22314,7 +22314,7 @@ lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uge
 lean_array_uset.exit:                             ; preds = %lean_ensure_exclusive_array.exit.i, %26, %28, %29
   store ptr inttoptr (i64 1 to ptr), ptr %19, align 8, !tbaa !10
   %30 = tail call ptr @l_Lake_LeanOption_asCliArg(ptr noundef %6)
-  %31 = add nuw i64 %.01841, 1
+  %31 = add nuw i64 %.01839, 1
   %.val.i.i26 = load i32, ptr %.0.i.i, align 4, !tbaa !4
   %32 = icmp eq i32 %.val.i.i26, 1
   br i1 %32, label %lean_ensure_exclusive_array.exit.i27, label %33
@@ -22326,7 +22326,7 @@ lean_array_uset.exit:                             ; preds = %lean_ensure_exclusi
 lean_ensure_exclusive_array.exit.i27:             ; preds = %33, %lean_array_uset.exit
   %.0.i.i28 = phi ptr [ %34, %33 ], [ %.0.i.i, %lean_array_uset.exit ]
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i28, i64 24
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01841
+  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.01839
   %37 = load ptr, ptr %36, align 8, !tbaa !10
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1
@@ -26991,17 +26991,17 @@ _init_l_Lake_LeanConfig_instConfigMeta___closed__8.exit: ; preds = %1617, %1619
 
 1631:                                             ; preds = %1626
   %1632 = load ptr, ptr @l_Lake_LeanConfig___fields, align 8, !tbaa !10
-  %.not30.i.i = icmp eq i64 %1621, 0
-  br i1 %.not30.i.i, label %l_Array_foldlMUnsafe_fold___at_Lake_LeanConfig_instConfigMeta___spec__1.exit.i, label %.lr.ph.i.i
+  %.not28.i.i = icmp eq i64 %1621, 0
+  br i1 %.not28.i.i, label %l_Array_foldlMUnsafe_fold___at_Lake_LeanConfig_instConfigMeta___spec__1.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1631
   %1633 = getelementptr inbounds nuw i8, ptr %1632, i64 24
   br label %1634
 
 1634:                                             ; preds = %1655, %.lr.ph.i.i
-  %.01732.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %1657, %1655 ]
-  %.01931.i.i = phi ptr [ inttoptr (i64 1 to ptr), %.lr.ph.i.i ], [ %1656, %1655 ]
-  %1635 = getelementptr inbounds nuw ptr, ptr %1633, i64 %.01732.i.i
+  %.01730.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %1657, %1655 ]
+  %.01929.i.i = phi ptr [ inttoptr (i64 1 to ptr), %.lr.ph.i.i ], [ %1656, %1655 ]
+  %1635 = getelementptr inbounds nuw ptr, ptr %1633, i64 %.01730.i.i
   %1636 = load ptr, ptr %1635, align 8, !tbaa !10
   %1637 = ptrtoint ptr %1636 to i64
   %1638 = and i64 %1637, 1
@@ -27031,8 +27031,8 @@ lean_array_uget.exit.i.i:                         ; preds = %1644, %1643, %1641,
   %1646 = load ptr, ptr %1645, align 8, !tbaa !10
   %1647 = ptrtoint ptr %1646 to i64
   %1648 = and i64 %1647, 1
-  %.not29.i.i = icmp eq i64 %1648, 0
-  br i1 %.not29.i.i, label %1649, label %1655
+  %.not27.i.i = icmp eq i64 %1648, 0
+  br i1 %.not27.i.i, label %1649, label %1655
 
 1649:                                             ; preds = %lean_array_uget.exit.i.i
   %.val.i.i.i = load i32, ptr %1646, align 4, !tbaa !4
@@ -27053,8 +27053,8 @@ lean_array_uget.exit.i.i:                         ; preds = %1644, %1643, %1641,
   br label %1655
 
 1655:                                             ; preds = %1654, %1653, %1651, %lean_array_uget.exit.i.i
-  %1656 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.01931.i.i, ptr noundef %1646, ptr noundef nonnull %1636) #8
-  %1657 = add nuw i64 %.01732.i.i, 1
+  %1656 = tail call ptr @l_Lean_RBNode_insert___at_Lean_NameMap_insert___spec__1___rarg(ptr noundef %.01929.i.i, ptr noundef %1646, ptr noundef nonnull %1636) #8
+  %1657 = add nuw i64 %.01730.i.i, 1
   %.not.i.i39 = icmp eq i64 %1657, %1621
   br i1 %.not.i.i39, label %l_Array_foldlMUnsafe_fold___at_Lake_LeanConfig_instConfigMeta___spec__1.exit.i, label %1634
 

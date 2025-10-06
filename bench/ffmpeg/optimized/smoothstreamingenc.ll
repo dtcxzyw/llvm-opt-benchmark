@@ -1539,9 +1539,9 @@ parse_fragment.exit.thread156:                    ; preds = %57, %63, %66, %70, 
   br i1 %159, label %.sink.split.i, label %.lr.ph.i127
 
 .lr.ph.i127:                                      ; preds = %156, %165
-  %.02233.i = phi i64 [ %168, %165 ], [ %60, %156 ]
+  %.02232.i = phi i64 [ %168, %165 ], [ %60, %156 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %160 = call i64 @llvm.umin.i64(i64 %.02233.i, i64 8192)
+  %160 = call i64 @llvm.umin.i64(i64 %.02232.i, i64 8192)
   %161 = trunc nuw nsw i64 %160 to i32
   %162 = load ptr, ptr %3, align 8, !tbaa !109
   %163 = call i32 @avio_read(ptr noundef %162, ptr noundef nonnull %5, i32 noundef %161) #8
@@ -1556,7 +1556,7 @@ parse_fragment.exit.thread156:                    ; preds = %57, %63, %66, %70, 
   %166 = load ptr, ptr %4, align 8, !tbaa !109
   call void @avio_write(ptr noundef %166, ptr noundef nonnull %5, i32 noundef %163) #8
   %167 = zext nneg i32 %163 to i64
-  %168 = sub nsw i64 %.02233.i, %167
+  %168 = sub nsw i64 %.02232.i, %167
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %169 = icmp sgt i64 %168, 0
   br i1 %169, label %.lr.ph.i127, label %.loopexit.i

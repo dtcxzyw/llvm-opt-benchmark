@@ -730,8 +730,8 @@ _ZNK6icu_774Norm19getCompositionPairsERi.exit:    ; preds = %8
   %13 = load i32, ptr %12, align 8, !tbaa !25
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !29
-  %.not22 = icmp sgt i32 %13, 1
-  br i1 %.not22, label %.critedge.lr.ph, label %.thread
+  %.not21 = icmp sgt i32 %13, 1
+  br i1 %.not21, label %.critedge.lr.ph, label %.thread
 
 .critedge.lr.ph:                                  ; preds = %_ZNK6icu_774Norm19getCompositionPairsERi.exit
   %16 = lshr i32 %13, 1

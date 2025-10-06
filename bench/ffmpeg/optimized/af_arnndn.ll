@@ -3170,11 +3170,11 @@ dual_inner_prod.exit.i.i.i:                       ; preds = %475
 
 482:                                              ; preds = %482, %dual_inner_prod.exit.i.i.i
   %indvars.iv.i219.i.i = phi i64 [ 1, %dual_inner_prod.exit.i.i.i ], [ %indvars.iv.next.i220.i.i, %482 ]
-  %.0137197.i.i.i = phi float [ %478, %dual_inner_prod.exit.i.i.i ], [ %491, %482 ]
+  %.0137196.i.i.i = phi float [ %478, %dual_inner_prod.exit.i.i.i ], [ %491, %482 ]
   %483 = sub nsw i64 0, %indvars.iv.i219.i.i
   %484 = getelementptr inbounds float, ptr %77, i64 %483
   %485 = load float, ptr %484, align 4, !tbaa !25
-  %486 = call nsz float @llvm.fmuladd.f32(float %485, float %485, float %.0137197.i.i.i)
+  %486 = call nsz float @llvm.fmuladd.f32(float %485, float %485, float %.0137196.i.i.i)
   %487 = sub nuw nsw i64 480, %indvars.iv.i219.i.i
   %488 = getelementptr inbounds nuw float, ptr %77, i64 %487
   %489 = load float, ptr %488, align 4, !tbaa !25
@@ -3200,20 +3200,20 @@ dual_inner_prod.exit.i.i.i:                       ; preds = %475
   br label %503
 
 503:                                              ; preds = %573, %495
-  %indvars.iv209.i.i.i = phi i64 [ 2, %495 ], [ %indvars.iv.next210.i.i.i, %573 ]
-  %.0132202.i.i.i = phi float [ %497, %495 ], [ %.2.ph.i.i.i, %573 ]
-  %.0133201.i.i.i = phi float [ %481, %495 ], [ %.2135.ph.i.i.i, %573 ]
-  %.0140200.i.i.i = phi float [ %500, %495 ], [ %.2142.ph.i.i.i, %573 ]
-  %.0144199.i.i.i = phi i32 [ %spec.select.i.i.i, %495 ], [ %.2146.ph.i.i.i, %573 ]
-  %indvars211.i.i.i = trunc i64 %indvars.iv209.i.i.i to i32
-  %504 = add nsw i32 %501, %indvars211.i.i.i
-  %505 = shl i32 %indvars211.i.i.i, 1
+  %indvars.iv208.i.i.i = phi i64 [ 2, %495 ], [ %indvars.iv.next209.i.i.i, %573 ]
+  %.0132201.i.i.i = phi float [ %497, %495 ], [ %.2.ph.i.i.i, %573 ]
+  %.0133200.i.i.i = phi float [ %481, %495 ], [ %.2135.ph.i.i.i, %573 ]
+  %.0140199.i.i.i = phi float [ %500, %495 ], [ %.2142.ph.i.i.i, %573 ]
+  %.0144198.i.i.i = phi i32 [ %spec.select.i.i.i, %495 ], [ %.2146.ph.i.i.i, %573 ]
+  %indvars210.i.i.i = trunc i64 %indvars.iv208.i.i.i to i32
+  %504 = add nsw i32 %501, %indvars210.i.i.i
+  %505 = shl i32 %indvars210.i.i.i, 1
   %506 = sdiv i32 %504, %505
   %507 = icmp slt i32 %506, 30
   br i1 %507, label %574, label %508
 
 508:                                              ; preds = %503
-  %509 = icmp eq i64 %indvars.iv209.i.i.i, 2
+  %509 = icmp eq i64 %indvars.iv208.i.i.i, 2
   br i1 %509, label %510, label %513
 
 510:                                              ; preds = %508
@@ -3223,11 +3223,11 @@ dual_inner_prod.exit.i.i.i:                       ; preds = %475
   br label %520
 
 513:                                              ; preds = %508
-  %514 = getelementptr inbounds nuw i8, ptr @second_check, i64 %indvars.iv209.i.i.i
+  %514 = getelementptr inbounds nuw i8, ptr @second_check, i64 %indvars.iv208.i.i.i
   %515 = load i8, ptr %514, align 1, !tbaa !148
   %516 = zext i8 %515 to i32
   %517 = mul i32 %501, %516
-  %518 = add nsw i32 %517, %indvars211.i.i.i
+  %518 = add nsw i32 %517, %indvars210.i.i.i
   %519 = sdiv i32 %518, %505
   br label %520
 
@@ -3281,8 +3281,8 @@ dual_inner_prod.exit172.i.i.i:                    ; preds = %527
   br i1 %553, label %554, label %560
 
 554:                                              ; preds = %552
-  %555 = mul nuw nsw i64 %indvars.iv209.i.i.i, 5
-  %556 = mul i64 %555, %indvars.iv209.i.i.i
+  %555 = mul nuw nsw i64 %indvars.iv208.i.i.i, 5
+  %556 = mul i64 %555, %indvars.iv208.i.i.i
   %557 = trunc i64 %556 to i32
   %558 = icmp sgt i32 %spec.select.i.i.i, %557
   br i1 %558, label %559, label %560
@@ -3314,25 +3314,25 @@ dual_inner_prod.exit172.i.i.i:                    ; preds = %527
   br label %573
 
 573:                                              ; preds = %572, %570
-  %.2146.ph.i.i.i = phi i32 [ %.0144199.i.i.i, %570 ], [ %506, %572 ]
-  %.2142.ph.i.i.i = phi float [ %.0140200.i.i.i, %570 ], [ %548, %572 ]
-  %.2135.ph.i.i.i = phi float [ %.0133201.i.i.i, %570 ], [ %537, %572 ]
-  %.2.ph.i.i.i = phi float [ %.0132202.i.i.i, %570 ], [ %545, %572 ]
-  %indvars.iv.next210.i.i.i = add nuw nsw i64 %indvars.iv209.i.i.i, 1
-  %exitcond212.not.i.i.i = icmp eq i64 %indvars.iv.next210.i.i.i, 16
-  br i1 %exitcond212.not.i.i.i, label %574, label %503, !llvm.loop !172
+  %.2146.ph.i.i.i = phi i32 [ %.0144198.i.i.i, %570 ], [ %506, %572 ]
+  %.2142.ph.i.i.i = phi float [ %.0140199.i.i.i, %570 ], [ %548, %572 ]
+  %.2135.ph.i.i.i = phi float [ %.0133200.i.i.i, %570 ], [ %537, %572 ]
+  %.2.ph.i.i.i = phi float [ %.0132201.i.i.i, %570 ], [ %545, %572 ]
+  %indvars.iv.next209.i.i.i = add nuw nsw i64 %indvars.iv208.i.i.i, 1
+  %exitcond211.not.i.i.i = icmp eq i64 %indvars.iv.next209.i.i.i, 16
+  br i1 %exitcond211.not.i.i.i, label %574, label %503, !llvm.loop !172
 
 574:                                              ; preds = %573, %503
-  %.0144.lcssa.i.i.i = phi i32 [ %.0144199.i.i.i, %503 ], [ %.2146.ph.i.i.i, %573 ]
-  %.0140.lcssa.i.i.i = phi float [ %.0140200.i.i.i, %503 ], [ %.2142.ph.i.i.i, %573 ]
-  %.0133.lcssa.i.i.i = phi float [ %.0133201.i.i.i, %503 ], [ %.2135.ph.i.i.i, %573 ]
-  %.0132.lcssa.i.i.i = phi float [ %.0132202.i.i.i, %503 ], [ %.2.ph.i.i.i, %573 ]
+  %.0144.lcssa.i.i.i = phi i32 [ %.0144198.i.i.i, %503 ], [ %.2146.ph.i.i.i, %573 ]
+  %.0140.lcssa.i.i.i = phi float [ %.0140199.i.i.i, %503 ], [ %.2142.ph.i.i.i, %573 ]
+  %.0133.lcssa.i.i.i = phi float [ %.0133200.i.i.i, %503 ], [ %.2135.ph.i.i.i, %573 ]
+  %.0132.lcssa.i.i.i = phi float [ %.0132201.i.i.i, %503 ], [ %.2.ph.i.i.i, %573 ]
   %575 = add nsw i32 %.0144.lcssa.i.i.i, -1
   br label %576
 
 576:                                              ; preds = %celt_inner_prod.exit.i223.i.i, %574
-  %indvars.iv213.i.i.i = phi i64 [ 0, %574 ], [ %indvars.iv.next214.i.i.i, %celt_inner_prod.exit.i223.i.i ]
-  %577 = trunc nuw nsw i64 %indvars.iv213.i.i.i to i32
+  %indvars.iv212.i.i.i = phi i64 [ 0, %574 ], [ %indvars.iv.next213.i.i.i, %celt_inner_prod.exit.i223.i.i ]
+  %577 = trunc nuw nsw i64 %indvars.iv212.i.i.i to i32
   %578 = add i32 %575, %577
   %579 = sext i32 %578 to i64
   %580 = sub nsw i64 0, %579
@@ -3352,11 +3352,11 @@ dual_inner_prod.exit172.i.i.i:                    ; preds = %527
   br i1 %exitcond.not.i175.i.i.i, label %celt_inner_prod.exit.i223.i.i, label %582, !llvm.loop !151
 
 celt_inner_prod.exit.i223.i.i:                    ; preds = %582
-  %588 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv213.i.i.i
+  %588 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv212.i.i.i
   store float %587, ptr %588, align 4, !tbaa !25
-  %indvars.iv.next214.i.i.i = add nuw nsw i64 %indvars.iv213.i.i.i, 1
-  %exitcond216.not.i.i.i = icmp eq i64 %indvars.iv.next214.i.i.i, 3
-  br i1 %exitcond216.not.i.i.i, label %589, label %576, !llvm.loop !173
+  %indvars.iv.next213.i.i.i = add nuw nsw i64 %indvars.iv212.i.i.i, 1
+  %exitcond215.not.i.i.i = icmp eq i64 %indvars.iv.next213.i.i.i, 3
+  br i1 %exitcond215.not.i.i.i, label %589, label %576, !llvm.loop !173
 
 589:                                              ; preds = %celt_inner_prod.exit.i223.i.i
   %590 = load float, ptr %78, align 4, !tbaa !25

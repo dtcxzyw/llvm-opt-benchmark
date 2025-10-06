@@ -1353,11 +1353,11 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
 
 8:                                                ; preds = %4
   %9 = getelementptr i8, ptr %3, i64 16
-  %.val100 = load i64, ptr %9, align 8, !tbaa !51
+  %.val99 = load i64, ptr %9, align 8, !tbaa !51
   br label %10
 
 10:                                               ; preds = %4, %8
-  %11 = phi i64 [ %.val100, %8 ], [ 0, %4 ]
+  %11 = phi i64 [ %.val99, %8 ], [ 0, %4 ]
   %12 = add i64 %11, %2
   %13 = add i64 %12, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1384,7 +1384,7 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
 
 22:                                               ; preds = %.thread
   %.not76 = icmp eq i64 %13, 0
-  br i1 %.not76, label %76, label %23
+  br i1 %.not76, label %77, label %23
 
 23:                                               ; preds = %22
   %24 = getelementptr i8, ptr %19, i64 8
@@ -1400,7 +1400,7 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
 28:                                               ; preds = %26
   %29 = add i64 %12, -2
   %.not79 = icmp eq i64 %29, 0
-  br i1 %.not79, label %76, label %30
+  br i1 %.not79, label %77, label %30
 
 30:                                               ; preds = %28, %23
   %.056 = phi i64 [ %29, %28 ], [ %13, %23 ]
@@ -1411,10 +1411,10 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
 
 33:                                               ; preds = %30
   %34 = getelementptr i8, ptr %32, i64 8
-  %.val96 = load ptr, ptr %34, align 8, !tbaa !22
-  %35 = getelementptr i8, ptr %.val96, i64 168
-  %.val99 = load i64, ptr %35, align 8, !tbaa !28
-  %36 = and i64 %.val99, 16777216
+  %.val95 = load ptr, ptr %34, align 8, !tbaa !22
+  %35 = getelementptr i8, ptr %.val95, i64 168
+  %.val98 = load i64, ptr %35, align 8, !tbaa !28
+  %36 = and i64 %.val98, 16777216
   %.not81 = icmp eq i64 %36, 0
   br i1 %.not81, label %37, label %38
 
@@ -1425,7 +1425,7 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
 38:                                               ; preds = %33
   %39 = add i64 %.056, -1
   %.not82 = icmp eq i64 %39, 0
-  br i1 %.not82, label %76, label %40
+  br i1 %.not82, label %77, label %40
 
 40:                                               ; preds = %38, %30
   %.157 = phi i64 [ %39, %38 ], [ %.056, %30 ]
@@ -1437,10 +1437,10 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
 
 43:                                               ; preds = %40
   %44 = getelementptr i8, ptr %42, i64 8
-  %.val95 = load ptr, ptr %44, align 8, !tbaa !22
-  %45 = getelementptr i8, ptr %.val95, i64 168
-  %.val98 = load i64, ptr %45, align 8, !tbaa !28
-  %46 = and i64 %.val98, 16777216
+  %.val94 = load ptr, ptr %44, align 8, !tbaa !22
+  %45 = getelementptr i8, ptr %.val94, i64 168
+  %.val97 = load i64, ptr %45, align 8, !tbaa !28
+  %46 = and i64 %.val97, 16777216
   %.not84 = icmp eq i64 %46, 0
   br i1 %.not84, label %47, label %48
 
@@ -1451,7 +1451,7 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
 48:                                               ; preds = %43
   %49 = add i64 %.157, -1
   %.not85 = icmp eq i64 %49, 0
-  br i1 %.not85, label %76, label %50
+  br i1 %.not85, label %77, label %50
 
 50:                                               ; preds = %48, %40
   %.2 = phi i64 [ %49, %48 ], [ %.157, %40 ]
@@ -1465,8 +1465,8 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
   %54 = getelementptr i8, ptr %52, i64 8
   %.val = load ptr, ptr %54, align 8, !tbaa !22
   %55 = getelementptr i8, ptr %.val, i64 168
-  %.val97 = load i64, ptr %55, align 8, !tbaa !28
-  %56 = and i64 %.val97, 16777216
+  %.val96 = load i64, ptr %55, align 8, !tbaa !28
+  %56 = and i64 %.val96, 16777216
   %.not87 = icmp eq i64 %56, 0
   br i1 %.not87, label %57, label %58
 
@@ -1477,7 +1477,7 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
 58:                                               ; preds = %53
   %59 = add i64 %.2, -1
   %.not88 = icmp eq i64 %59, 0
-  br i1 %.not88, label %76, label %60
+  br i1 %.not88, label %77, label %60
 
 60:                                               ; preds = %58, %50
   %.3 = phi i64 [ %59, %58 ], [ %.2, %50 ]
@@ -1485,7 +1485,7 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
   %61 = getelementptr i8, ptr %19, i64 40
   %62 = load ptr, ptr %61, align 8, !tbaa !23
   %.not89 = icmp eq ptr %62, null
-  br i1 %.not89, label %69, label %63
+  br i1 %.not89, label %70, label %63
 
 63:                                               ; preds = %60
   %64 = call i64 @PyLong_AsLong(ptr noundef nonnull %62) #9
@@ -1498,204 +1498,204 @@ define internal ptr @_hashlib_scrypt(ptr readnone captures(none) %0, ptr noundef
   br i1 %.not90, label %68, label %_hashlib_scrypt_impl.exit
 
 68:                                               ; preds = %66, %63
-  %.not91 = icmp eq i64 %.3, 1
-  br i1 %.not91, label %76, label %69
+  %69 = icmp ugt i64 %.3, 1
+  br i1 %69, label %70, label %77
 
-69:                                               ; preds = %68, %60
+70:                                               ; preds = %68, %60
   %.1 = phi i64 [ %64, %68 ], [ 0, %60 ]
-  %70 = getelementptr i8, ptr %19, i64 48
-  %71 = load ptr, ptr %70, align 8, !tbaa !23
-  %72 = call i64 @PyLong_AsLong(ptr noundef %71) #9
-  %73 = icmp eq i64 %72, -1
-  br i1 %73, label %74, label %76
+  %71 = getelementptr i8, ptr %19, i64 48
+  %72 = load ptr, ptr %71, align 8, !tbaa !23
+  %73 = call i64 @PyLong_AsLong(ptr noundef %72) #9
+  %74 = icmp eq i64 %73, -1
+  br i1 %74, label %75, label %77
 
-74:                                               ; preds = %69
-  %75 = call ptr @PyErr_Occurred() #9
-  %.not92 = icmp eq ptr %75, null
-  br i1 %.not92, label %76, label %_hashlib_scrypt_impl.exit
+75:                                               ; preds = %70
+  %76 = call ptr @PyErr_Occurred() #9
+  %.not91 = icmp eq ptr %76, null
+  br i1 %.not91, label %77, label %_hashlib_scrypt_impl.exit
 
-76:                                               ; preds = %69, %74, %68, %58, %48, %38, %28, %22
-  %.054 = phi ptr [ %.155, %74 ], [ %.155, %69 ], [ %.155, %68 ], [ %.155, %58 ], [ %.155, %48 ], [ %32, %38 ], [ @_Py_NoneStruct, %28 ], [ @_Py_NoneStruct, %22 ]
-  %.052 = phi ptr [ %.153, %74 ], [ %.153, %69 ], [ %.153, %68 ], [ %.153, %58 ], [ %42, %48 ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %28 ], [ @_Py_NoneStruct, %22 ]
-  %.050 = phi ptr [ %.151, %74 ], [ %.151, %69 ], [ %.151, %68 ], [ %52, %58 ], [ @_Py_NoneStruct, %48 ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %28 ], [ @_Py_NoneStruct, %22 ]
-  %.049 = phi i64 [ %.1, %74 ], [ %.1, %69 ], [ %64, %68 ], [ 0, %58 ], [ 0, %48 ], [ 0, %38 ], [ 0, %28 ], [ 0, %22 ]
-  %.0 = phi i64 [ -1, %74 ], [ %72, %69 ], [ 64, %68 ], [ 64, %58 ], [ 64, %48 ], [ 64, %38 ], [ 64, %28 ], [ 64, %22 ]
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %78 = load i64, ptr %77, align 8, !tbaa !40
-  %79 = icmp sgt i64 %78, 2147483647
-  br i1 %79, label %80, label %82
+77:                                               ; preds = %70, %75, %68, %58, %48, %38, %28, %22
+  %.054 = phi ptr [ %.155, %75 ], [ %.155, %70 ], [ %.155, %68 ], [ %.155, %58 ], [ %.155, %48 ], [ %32, %38 ], [ @_Py_NoneStruct, %28 ], [ @_Py_NoneStruct, %22 ]
+  %.052 = phi ptr [ %.153, %75 ], [ %.153, %70 ], [ %.153, %68 ], [ %.153, %58 ], [ %42, %48 ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %28 ], [ @_Py_NoneStruct, %22 ]
+  %.050 = phi ptr [ %.151, %75 ], [ %.151, %70 ], [ %.151, %68 ], [ %52, %58 ], [ @_Py_NoneStruct, %48 ], [ @_Py_NoneStruct, %38 ], [ @_Py_NoneStruct, %28 ], [ @_Py_NoneStruct, %22 ]
+  %.049 = phi i64 [ %.1, %75 ], [ %.1, %70 ], [ %64, %68 ], [ 0, %58 ], [ 0, %48 ], [ 0, %38 ], [ 0, %28 ], [ 0, %22 ]
+  %.0 = phi i64 [ -1, %75 ], [ %73, %70 ], [ 64, %68 ], [ 64, %58 ], [ 64, %48 ], [ 64, %38 ], [ 64, %28 ], [ 64, %22 ]
+  %78 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %79 = load i64, ptr %78, align 8, !tbaa !40
+  %80 = icmp sgt i64 %79, 2147483647
+  br i1 %80, label %81, label %83
 
-80:                                               ; preds = %76
-  %81 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !23
-  call void @PyErr_SetString(ptr noundef %81, ptr noundef nonnull @.str.91) #9
+81:                                               ; preds = %77
+  %82 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !23
+  call void @PyErr_SetString(ptr noundef %82, ptr noundef nonnull @.str.91) #9
   br label %_hashlib_scrypt_impl.exit
 
-82:                                               ; preds = %76
-  %83 = load ptr, ptr %7, align 8, !tbaa !39
-  %84 = icmp eq ptr %83, null
-  br i1 %84, label %85, label %87
+83:                                               ; preds = %77
+  %84 = load ptr, ptr %7, align 8, !tbaa !39
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %88
 
-85:                                               ; preds = %82
-  %86 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !23
-  call void @PyErr_SetString(ptr noundef %86, ptr noundef nonnull @.str.105) #9
+86:                                               ; preds = %83
+  %87 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !23
+  call void @PyErr_SetString(ptr noundef %87, ptr noundef nonnull @.str.105) #9
   br label %_hashlib_scrypt_impl.exit
 
-87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %89 = load i64, ptr %88, align 8, !tbaa !40
-  %90 = icmp sgt i64 %89, 2147483647
-  br i1 %90, label %91, label %93
+88:                                               ; preds = %83
+  %89 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %90 = load i64, ptr %89, align 8, !tbaa !40
+  %91 = icmp sgt i64 %90, 2147483647
+  br i1 %91, label %92, label %94
 
-91:                                               ; preds = %87
-  %92 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !23
-  call void @PyErr_SetString(ptr noundef %92, ptr noundef nonnull @.str.92) #9
+92:                                               ; preds = %88
+  %93 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !23
+  call void @PyErr_SetString(ptr noundef %93, ptr noundef nonnull @.str.92) #9
   br label %_hashlib_scrypt_impl.exit
 
-93:                                               ; preds = %87
-  %94 = call i64 @PyLong_AsUnsignedLong(ptr noundef %.054) #9
-  %95 = icmp eq i64 %94, -1
-  br i1 %95, label %96, label %100
+94:                                               ; preds = %88
+  %95 = call i64 @PyLong_AsUnsignedLong(ptr noundef %.054) #9
+  %96 = icmp eq i64 %95, -1
+  br i1 %96, label %97, label %101
 
-96:                                               ; preds = %93
-  %97 = call ptr @PyErr_Occurred() #9
-  %.not.i = icmp eq ptr %97, null
-  br i1 %.not.i, label %100, label %98
+97:                                               ; preds = %94
+  %98 = call ptr @PyErr_Occurred() #9
+  %.not.i = icmp eq ptr %98, null
+  br i1 %.not.i, label %101, label %99
 
-98:                                               ; preds = %96
-  %99 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !23
-  call void @PyErr_SetString(ptr noundef %99, ptr noundef nonnull @.str.106) #9
+99:                                               ; preds = %97
+  %100 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !23
+  call void @PyErr_SetString(ptr noundef %100, ptr noundef nonnull @.str.106) #9
   br label %_hashlib_scrypt_impl.exit
 
-100:                                              ; preds = %96, %93
-  %101 = icmp ugt i64 %94, 1
-  %102 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %94)
-  %.not48.i = icmp samesign ult i64 %102, 2
-  %or.cond53.i = select i1 %101, i1 %.not48.i, i1 false
-  br i1 %or.cond53.i, label %105, label %103
+101:                                              ; preds = %97, %94
+  %102 = icmp ugt i64 %95, 1
+  %103 = call range(i64 1, 65) i64 @llvm.ctpop.i64(i64 %95)
+  %.not48.i = icmp samesign ult i64 %103, 2
+  %or.cond53.i = select i1 %102, i1 %.not48.i, i1 false
+  br i1 %or.cond53.i, label %106, label %104
 
-103:                                              ; preds = %100
-  %104 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
-  call void @PyErr_SetString(ptr noundef %104, ptr noundef nonnull @.str.107) #9
+104:                                              ; preds = %101
+  %105 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
+  call void @PyErr_SetString(ptr noundef %105, ptr noundef nonnull @.str.107) #9
   br label %_hashlib_scrypt_impl.exit
 
-105:                                              ; preds = %100
-  %106 = call i64 @PyLong_AsUnsignedLong(ptr noundef %.052) #9
-  %107 = icmp eq i64 %106, -1
-  br i1 %107, label %108, label %112
+106:                                              ; preds = %101
+  %107 = call i64 @PyLong_AsUnsignedLong(ptr noundef %.052) #9
+  %108 = icmp eq i64 %107, -1
+  br i1 %108, label %109, label %113
 
-108:                                              ; preds = %105
-  %109 = call ptr @PyErr_Occurred() #9
-  %.not49.i = icmp eq ptr %109, null
-  br i1 %.not49.i, label %112, label %110
+109:                                              ; preds = %106
+  %110 = call ptr @PyErr_Occurred() #9
+  %.not49.i = icmp eq ptr %110, null
+  br i1 %.not49.i, label %113, label %111
 
-110:                                              ; preds = %108
-  %111 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !23
-  call void @PyErr_SetString(ptr noundef %111, ptr noundef nonnull @.str.108) #9
+111:                                              ; preds = %109
+  %112 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !23
+  call void @PyErr_SetString(ptr noundef %112, ptr noundef nonnull @.str.108) #9
   br label %_hashlib_scrypt_impl.exit
 
-112:                                              ; preds = %108, %105
-  %113 = call i64 @PyLong_AsUnsignedLong(ptr noundef %.050) #9
-  %114 = icmp eq i64 %113, -1
-  br i1 %114, label %115, label %119
+113:                                              ; preds = %109, %106
+  %114 = call i64 @PyLong_AsUnsignedLong(ptr noundef %.050) #9
+  %115 = icmp eq i64 %114, -1
+  br i1 %115, label %116, label %120
 
-115:                                              ; preds = %112
-  %116 = call ptr @PyErr_Occurred() #9
-  %.not50.i = icmp eq ptr %116, null
-  br i1 %.not50.i, label %119, label %117
+116:                                              ; preds = %113
+  %117 = call ptr @PyErr_Occurred() #9
+  %.not50.i = icmp eq ptr %117, null
+  br i1 %.not50.i, label %120, label %118
 
-117:                                              ; preds = %115
-  %118 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !23
-  call void @PyErr_SetString(ptr noundef %118, ptr noundef nonnull @.str.109) #9
+118:                                              ; preds = %116
+  %119 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !23
+  call void @PyErr_SetString(ptr noundef %119, ptr noundef nonnull @.str.109) #9
   br label %_hashlib_scrypt_impl.exit
 
-119:                                              ; preds = %115, %112
+120:                                              ; preds = %116, %113
   %or.cond.i = icmp ugt i64 %.049, 2147483647
-  br i1 %or.cond.i, label %120, label %123
+  br i1 %or.cond.i, label %121, label %124
 
-120:                                              ; preds = %119
-  %121 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
-  %122 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %121, ptr noundef nonnull @.str.110, i32 noundef 2147483647) #9
+121:                                              ; preds = %120
+  %122 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
+  %123 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %122, ptr noundef nonnull @.str.110, i32 noundef 2147483647) #9
   br label %_hashlib_scrypt_impl.exit
 
-123:                                              ; preds = %119
-  %124 = add i64 %.0, -2147483648
-  %or.cond3.i = icmp ult i64 %124, -2147483647
-  br i1 %or.cond3.i, label %125, label %128
+124:                                              ; preds = %120
+  %125 = add i64 %.0, -2147483648
+  %or.cond3.i = icmp ult i64 %125, -2147483647
+  br i1 %or.cond3.i, label %126, label %129
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
-  %127 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %126, ptr noundef nonnull @.str.111, i32 noundef 2147483647) #9
+126:                                              ; preds = %124
+  %127 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
+  %128 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %127, ptr noundef nonnull @.str.111, i32 noundef 2147483647) #9
   br label %_hashlib_scrypt_impl.exit
 
-128:                                              ; preds = %123
-  %129 = call i32 @EVP_PBE_scrypt(ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef %94, i64 noundef %106, i64 noundef %113, i64 noundef %.049, ptr noundef null, i64 noundef 0) #9
-  %.not51.i = icmp eq i32 %129, 0
-  br i1 %.not51.i, label %130, label %132
+129:                                              ; preds = %124
+  %130 = call i32 @EVP_PBE_scrypt(ptr noundef null, i64 noundef 0, ptr noundef null, i64 noundef 0, i64 noundef %95, i64 noundef %107, i64 noundef %114, i64 noundef %.049, ptr noundef null, i64 noundef 0) #9
+  %.not51.i = icmp eq i32 %130, 0
+  br i1 %.not51.i, label %131, label %133
 
-130:                                              ; preds = %128
-  %131 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
-  call void (ptr, ptr, ...) @_setException(ptr noundef %131, ptr noundef nonnull @.str.112)
+131:                                              ; preds = %129
+  %132 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
+  call void (ptr, ptr, ...) @_setException(ptr noundef %132, ptr noundef nonnull @.str.112)
   br label %_hashlib_scrypt_impl.exit
 
-132:                                              ; preds = %128
-  %133 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %.0) #9
-  %134 = icmp eq ptr %133, null
-  br i1 %134, label %_hashlib_scrypt_impl.exit, label %135
+133:                                              ; preds = %129
+  %134 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %.0) #9
+  %135 = icmp eq ptr %134, null
+  br i1 %135, label %_hashlib_scrypt_impl.exit, label %136
 
-135:                                              ; preds = %132
-  %136 = getelementptr inbounds nuw i8, ptr %133, i64 32
-  %137 = call ptr @PyEval_SaveThread() #9
-  %138 = load ptr, ptr %6, align 8, !tbaa !39
-  %139 = load i64, ptr %77, align 8, !tbaa !40
-  %140 = load ptr, ptr %7, align 8, !tbaa !39
-  %141 = load i64, ptr %88, align 8, !tbaa !40
-  %142 = call i32 @EVP_PBE_scrypt(ptr noundef %138, i64 noundef %139, ptr noundef %140, i64 noundef %141, i64 noundef %94, i64 noundef %106, i64 noundef %113, i64 noundef %.049, ptr noundef nonnull %136, i64 noundef %.0) #9
-  call void @PyEval_RestoreThread(ptr noundef %137) #9
-  %.not52.i = icmp eq i32 %142, 0
-  br i1 %.not52.i, label %143, label %_hashlib_scrypt_impl.exit
+136:                                              ; preds = %133
+  %137 = getelementptr inbounds nuw i8, ptr %134, i64 32
+  %138 = call ptr @PyEval_SaveThread() #9
+  %139 = load ptr, ptr %6, align 8, !tbaa !39
+  %140 = load i64, ptr %78, align 8, !tbaa !40
+  %141 = load ptr, ptr %7, align 8, !tbaa !39
+  %142 = load i64, ptr %89, align 8, !tbaa !40
+  %143 = call i32 @EVP_PBE_scrypt(ptr noundef %139, i64 noundef %140, ptr noundef %141, i64 noundef %142, i64 noundef %95, i64 noundef %107, i64 noundef %114, i64 noundef %.049, ptr noundef nonnull %137, i64 noundef %.0) #9
+  call void @PyEval_RestoreThread(ptr noundef %138) #9
+  %.not52.i = icmp eq i32 %143, 0
+  br i1 %.not52.i, label %144, label %_hashlib_scrypt_impl.exit
 
-143:                                              ; preds = %135
-  %144 = load i32, ptr %133, align 8, !tbaa !21
-  %.not.i.i = icmp sgt i32 %144, -1
-  br i1 %.not.i.i, label %145, label %Py_DECREF.exit.i
+144:                                              ; preds = %136
+  %145 = load i32, ptr %134, align 8, !tbaa !21
+  %.not.i.i = icmp sgt i32 %145, -1
+  br i1 %.not.i.i, label %146, label %Py_DECREF.exit.i
 
-145:                                              ; preds = %143
-  %146 = add nsw i32 %144, -1
-  store i32 %146, ptr %133, align 8, !tbaa !21
-  %147 = icmp eq i32 %146, 0
-  br i1 %147, label %148, label %Py_DECREF.exit.i
+146:                                              ; preds = %144
+  %147 = add nsw i32 %145, -1
+  store i32 %147, ptr %134, align 8, !tbaa !21
+  %148 = icmp eq i32 %147, 0
+  br i1 %148, label %149, label %Py_DECREF.exit.i
 
-148:                                              ; preds = %145
-  call void @_Py_Dealloc(ptr noundef nonnull %133) #9
+149:                                              ; preds = %146
+  call void @_Py_Dealloc(ptr noundef nonnull %134) #9
   br label %Py_DECREF.exit.i
 
-Py_DECREF.exit.i:                                 ; preds = %148, %145, %143
-  %149 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
-  call void (ptr, ptr, ...) @_setException(ptr noundef %149, ptr noundef null)
+Py_DECREF.exit.i:                                 ; preds = %149, %146, %144
+  %150 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !23
+  call void (ptr, ptr, ...) @_setException(ptr noundef %150, ptr noundef null)
   br label %_hashlib_scrypt_impl.exit
 
-_hashlib_scrypt_impl.exit:                        ; preds = %Py_DECREF.exit.i, %135, %132, %130, %125, %120, %117, %110, %103, %98, %91, %85, %80, %74, %66, %26, %.thread, %17, %57, %47, %37
-  %.058 = phi ptr [ null, %.thread ], [ null, %26 ], [ null, %66 ], [ null, %74 ], [ null, %57 ], [ null, %47 ], [ null, %37 ], [ null, %17 ], [ null, %80 ], [ null, %85 ], [ null, %91 ], [ null, %98 ], [ null, %103 ], [ null, %110 ], [ null, %117 ], [ null, %120 ], [ null, %125 ], [ null, %Py_DECREF.exit.i ], [ null, %130 ], [ null, %132 ], [ %133, %135 ]
-  %150 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !54
-  %.not93 = icmp eq ptr %151, null
-  br i1 %.not93, label %153, label %152
+_hashlib_scrypt_impl.exit:                        ; preds = %Py_DECREF.exit.i, %136, %133, %131, %126, %121, %118, %111, %104, %99, %92, %86, %81, %75, %66, %26, %.thread, %17, %57, %47, %37
+  %.058 = phi ptr [ null, %.thread ], [ null, %26 ], [ null, %66 ], [ null, %75 ], [ null, %57 ], [ null, %47 ], [ null, %37 ], [ null, %17 ], [ null, %81 ], [ null, %86 ], [ null, %92 ], [ null, %99 ], [ null, %104 ], [ null, %111 ], [ null, %118 ], [ null, %121 ], [ null, %126 ], [ null, %Py_DECREF.exit.i ], [ null, %131 ], [ null, %133 ], [ %134, %136 ]
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %152 = load ptr, ptr %151, align 8, !tbaa !54
+  %.not92 = icmp eq ptr %152, null
+  br i1 %.not92, label %154, label %153
 
-152:                                              ; preds = %_hashlib_scrypt_impl.exit
+153:                                              ; preds = %_hashlib_scrypt_impl.exit
   call void @PyBuffer_Release(ptr noundef nonnull %6) #9
-  br label %153
+  br label %154
 
-153:                                              ; preds = %152, %_hashlib_scrypt_impl.exit
-  %154 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %155 = load ptr, ptr %154, align 8, !tbaa !54
-  %.not94 = icmp eq ptr %155, null
-  br i1 %.not94, label %157, label %156
+154:                                              ; preds = %153, %_hashlib_scrypt_impl.exit
+  %155 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %156 = load ptr, ptr %155, align 8, !tbaa !54
+  %.not93 = icmp eq ptr %156, null
+  br i1 %.not93, label %158, label %157
 
-156:                                              ; preds = %153
+157:                                              ; preds = %154
   call void @PyBuffer_Release(ptr noundef nonnull %7) #9
-  br label %157
+  br label %158
 
-157:                                              ; preds = %156, %153
+158:                                              ; preds = %157, %154
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -3124,62 +3124,62 @@ define internal fastcc ptr @py_digest_by_name(ptr noundef %0, ptr noundef %1, i3
   %6 = load ptr, ptr %5, align 8, !tbaa !50
   %7 = tail call ptr @_Py_hashtable_get(ptr noundef %6, ptr noundef %1) #9
   %.not = icmp eq ptr %7, null
-  %switch26 = icmp eq i32 %2, 1
-  br i1 %.not, label %27, label %8
+  %8 = icmp eq i32 %2, 1
+  br i1 %.not, label %28, label %9
 
-8:                                                ; preds = %3
-  br i1 %switch26, label %17, label %9
+9:                                                ; preds = %3
+  br i1 %8, label %18, label %10
 
-9:                                                ; preds = %8
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  %11 = load ptr, ptr %10, align 8, !tbaa !64
-  %12 = icmp eq ptr %11, null
-  br i1 %12, label %13, label %.thread33
+10:                                               ; preds = %9
+  %11 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  %12 = load ptr, ptr %11, align 8, !tbaa !64
+  %13 = icmp eq ptr %12, null
+  br i1 %13, label %14, label %.thread31
 
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !65
-  %16 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %15, ptr noundef null) #9
-  store ptr %16, ptr %10, align 8, !tbaa !66
-  br label %25
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %16 = load ptr, ptr %15, align 8, !tbaa !65
+  %17 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %16, ptr noundef null) #9
+  store ptr %17, ptr %11, align 8, !tbaa !66
+  br label %26
 
-17:                                               ; preds = %8
-  %18 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !64
-  %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %.thread33
+18:                                               ; preds = %9
+  %19 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %20 = load ptr, ptr %19, align 8, !tbaa !64
+  %21 = icmp eq ptr %20, null
+  br i1 %21, label %22, label %.thread31
 
-21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %23 = load ptr, ptr %22, align 8, !tbaa !65
-  %24 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %23, ptr noundef nonnull @.str.81) #9
-  store ptr %24, ptr %18, align 8, !tbaa !67
-  br label %25
+22:                                               ; preds = %18
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %24 = load ptr, ptr %23, align 8, !tbaa !65
+  %25 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %24, ptr noundef nonnull @.str.81) #9
+  store ptr %25, ptr %19, align 8, !tbaa !67
+  br label %26
 
-25:                                               ; preds = %21, %13
-  %.022 = phi ptr [ %24, %21 ], [ %16, %13 ]
+26:                                               ; preds = %22, %14
+  %.022 = phi ptr [ %25, %22 ], [ %17, %14 ]
   %.not24 = icmp eq ptr %.022, null
-  br i1 %.not24, label %.thread31, label %.thread33
+  br i1 %.not24, label %.thread29, label %.thread31
 
-.thread33:                                        ; preds = %25, %17, %9
-  %.02230 = phi ptr [ %.022, %25 ], [ %11, %9 ], [ %19, %17 ]
-  %26 = tail call i32 @EVP_MD_up_ref(ptr noundef nonnull %.02230) #9
-  br label %32
+.thread31:                                        ; preds = %26, %18, %10
+  %.02228 = phi ptr [ %.022, %26 ], [ %12, %10 ], [ %20, %18 ]
+  %27 = tail call i32 @EVP_MD_up_ref(ptr noundef nonnull %.02228) #9
+  br label %33
 
-27:                                               ; preds = %3
-  %.str.81. = select i1 %switch26, ptr @.str.81, ptr null
-  %28 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %1, ptr noundef %.str.81.) #9
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %.thread31, label %32
+28:                                               ; preds = %3
+  %.str.81. = select i1 %8, ptr @.str.81, ptr null
+  %29 = tail call ptr @EVP_MD_fetch(ptr noundef null, ptr noundef %1, ptr noundef %.str.81.) #9
+  %30 = icmp eq ptr %29, null
+  br i1 %30, label %.thread29, label %33
 
-.thread31:                                        ; preds = %25, %27
-  %30 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %31 = load ptr, ptr %30, align 8, !tbaa !48
-  tail call void (ptr, ptr, ...) @_setException(ptr noundef %31, ptr noundef nonnull @.str.82, ptr noundef %1)
-  br label %32
+.thread29:                                        ; preds = %26, %28
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %32 = load ptr, ptr %31, align 8, !tbaa !48
+  tail call void (ptr, ptr, ...) @_setException(ptr noundef %32, ptr noundef nonnull @.str.82, ptr noundef %1)
+  br label %33
 
-32:                                               ; preds = %.thread33, %27, %.thread31
-  %.0 = phi ptr [ null, %.thread31 ], [ %28, %27 ], [ %.02230, %.thread33 ]
+33:                                               ; preds = %.thread31, %28, %.thread29
+  %.0 = phi ptr [ null, %.thread29 ], [ %29, %28 ], [ %.02228, %.thread31 ]
   ret ptr %.0
 }
 

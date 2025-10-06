@@ -3146,19 +3146,19 @@ _buttons_get_from_pos.exit.thread:                ; preds = %_buttons_get_from_p
 167:                                              ; preds = %165
   %168 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !129
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 2024
-  %.01012.i = load ptr, ptr %169, align 8, !tbaa !19
-  %.not13.not.i = icmp eq ptr %.01012.i, null
-  br i1 %.not13.not.i, label %_is_module_in_history.exit.thread, label %.lr.ph.i137
+  %.01013.i = load ptr, ptr %169, align 8, !tbaa !19
+  %.not14.i = icmp eq ptr %.01013.i, null
+  br i1 %.not14.i, label %_is_module_in_history.exit.thread, label %.lr.ph.i137
 
 170:                                              ; preds = %.lr.ph.i137
-  %171 = getelementptr inbounds nuw i8, ptr %.01014.i, i64 8
+  %171 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 8
   %.010.i = load ptr, ptr %171, align 8, !tbaa !19
-  %.not.not.i = icmp eq ptr %.010.i, null
-  br i1 %.not.not.i, label %_is_module_in_history.exit.thread, label %.lr.ph.i137
+  %.not.i138 = icmp eq ptr %.010.i, null
+  br i1 %.not.i138, label %_is_module_in_history.exit.thread, label %.lr.ph.i137
 
 .lr.ph.i137:                                      ; preds = %167, %170
-  %.01014.i = phi ptr [ %.010.i, %170 ], [ %.01012.i, %167 ]
-  %172 = load ptr, ptr %.01014.i, align 8, !tbaa !21
+  %.01015.i = phi ptr [ %.010.i, %170 ], [ %.01013.i, %167 ]
+  %172 = load ptr, ptr %.01015.i, align 8, !tbaa !21
   %173 = load ptr, ptr %172, align 8, !tbaa !189
   %.not11.i = icmp eq ptr %173, %91
   br i1 %.not11.i, label %_is_module_in_history.exit.thread158, label %170
@@ -3184,22 +3184,22 @@ _buttons_get_from_pos.exit.thread:                ; preds = %_buttons_get_from_p
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 72
   %.01315.i = load ptr, ptr %187, align 8, !tbaa !19
   %.not16.not.i = icmp eq ptr %.01315.i, null
-  br i1 %.not16.not.i, label %_lib_modulegroups_test_visible.exit.thread, label %.lr.ph.i139
+  br i1 %.not16.not.i, label %_lib_modulegroups_test_visible.exit.thread, label %.lr.ph.i140
 
-188:                                              ; preds = %.lr.ph.i139
+188:                                              ; preds = %.lr.ph.i140
   %189 = getelementptr inbounds nuw i8, ptr %.01317.i, i64 8
   %.013.i = load ptr, ptr %189, align 8, !tbaa !19
-  %.not.not.i142 = icmp eq ptr %.013.i, null
-  br i1 %.not.not.i142, label %_lib_modulegroups_test_visible.exit.thread, label %.lr.ph.i139
+  %.not.not.i = icmp eq ptr %.013.i, null
+  br i1 %.not.not.i, label %_lib_modulegroups_test_visible.exit.thread, label %.lr.ph.i140
 
-.lr.ph.i139:                                      ; preds = %184, %188
+.lr.ph.i140:                                      ; preds = %184, %188
   %.01317.i = phi ptr [ %.013.i, %188 ], [ %.01315.i, %184 ]
   %190 = load ptr, ptr %.01317.i, align 8, !tbaa !21
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
   %192 = load ptr, ptr %191, align 8, !tbaa !90
   %193 = tail call ptr @g_list_find_custom(ptr noundef %192, ptr noundef nonnull %185, ptr noundef nonnull @_iop_compare) #16
-  %.not14.i = icmp eq ptr %193, null
-  br i1 %.not14.i, label %188, label %_is_module_in_history.exit.thread158
+  %.not14.i141 = icmp eq ptr %193, null
+  br i1 %.not14.i141, label %188, label %_is_module_in_history.exit.thread158
 
 _lib_modulegroups_test_visible.exit.thread:       ; preds = %188, %184, %177
   %194 = load i32, ptr %94, align 16, !tbaa !185
@@ -3262,7 +3262,7 @@ _lib_modulegroups_test_internal.exit:             ; preds = %208
   %brmerge.not = icmp eq i32 %227, 0
   br i1 %brmerge.not, label %_is_module_in_history.exit.thread, label %_is_module_in_history.exit.thread158
 
-_is_module_in_history.exit.thread158:             ; preds = %.lr.ph.i139, %.lr.ph.i137, %225, %_lib_modulegroups_test_visible.exit.thread, %174, %220
+_is_module_in_history.exit.thread158:             ; preds = %.lr.ph.i140, %.lr.ph.i137, %225, %_lib_modulegroups_test_visible.exit.thread, %174, %220
   %228 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !129
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 88
   %230 = load ptr, ptr %229, align 8, !tbaa !187
@@ -4632,8 +4632,8 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
   %7 = alloca ptr, align 8
   %.not = icmp eq i32 %4, 0
   %8 = select i1 %.not, ptr @_manage_editor_basics_add, ptr @_manage_direct_basics_module_toggle
-  %.not126162165 = icmp eq ptr %0, null
-  br i1 %.not126162165, label %.outer._crit_edge, label %.lr.ph.lr.ph
+  %.not126161164 = icmp eq ptr %0, null
+  br i1 %.not126161164, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 280
@@ -4641,39 +4641,39 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
-  %.0.ph170 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %.3, %.outer ]
-  %.0106.ph167 = phi ptr [ %2, %.lr.ph.lr.ph ], [ %.1107, %.outer ]
-  %.0108.ph166 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.1109, %.outer ]
+  %.0.ph169 = phi ptr [ %0, %.lr.ph.lr.ph ], [ %.3, %.outer ]
+  %.0106.ph166 = phi ptr [ %2, %.lr.ph.lr.ph ], [ %.1107, %.outer ]
+  %.0108.ph165 = phi ptr [ null, %.lr.ph.lr.ph ], [ %.1109, %.outer ]
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.backedge
-  %.0163 = phi ptr [ %.0.ph170, %.lr.ph ], [ %.0.be, %.backedge ]
+  %.0162 = phi ptr [ %.0.ph169, %.lr.ph ], [ %.0.be, %.backedge ]
   %11 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 88), align 8, !tbaa !232
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 400
-  %13 = icmp eq ptr %.0163, %12
+  %13 = icmp eq ptr %.0162, %12
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 352
-  %15 = icmp eq ptr %.0163, %14
+  %15 = icmp eq ptr %.0162, %14
   %or.cond144 = select i1 %13, i1 true, i1 %15
   br i1 %or.cond144, label %.backedge, label %16
 
 .backedge:                                        ; preds = %21, %19, %10
-  %.0.be.in = getelementptr inbounds nuw i8, ptr %.0163, i64 40
+  %.0.be.in = getelementptr inbounds nuw i8, ptr %.0162, i64 40
   %.0.be = load ptr, ptr %.0.be.in, align 8, !tbaa !242
   %.not126 = icmp eq ptr %.0.be, null
   br i1 %.not126, label %.outer._crit_edge, label %10
 
 16:                                               ; preds = %10
-  %17 = load i32, ptr %.0163, align 8, !tbaa !207
+  %17 = load i32, ptr %.0162, align 8, !tbaa !207
   %18 = icmp eq i32 %17, 4
   br i1 %18, label %19, label %.loopexit
 
 19:                                               ; preds = %16
-  %20 = call i32 @dt_iop_so_is_hidden(ptr noundef nonnull %.0163) #16
+  %20 = call i32 @dt_iop_so_is_hidden(ptr noundef nonnull %.0162) #16
   %.not127 = icmp eq i32 %20, 0
   br i1 %.not127, label %21, label %.backedge
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw i8, ptr %.0163, i64 104
+  %22 = getelementptr inbounds nuw i8, ptr %.0162, i64 104
   %23 = load ptr, ptr %22, align 8, !tbaa !23
   %24 = call i32 %23() #16
   %25 = and i32 %24, 4
@@ -4681,20 +4681,20 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
   br i1 %.not128, label %.thread, label %.backedge
 
 .thread:                                          ; preds = %21
-  %.pr = load i32, ptr %.0163, align 8, !tbaa !207
+  %.pr = load i32, ptr %.0162, align 8, !tbaa !207
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %.thread
   %26 = phi i32 [ %.pr, %.thread ], [ %17, %16 ]
   %27 = icmp ult i32 %26, 6
-  %28 = icmp ne ptr %.0106.ph167, null
+  %28 = icmp ne ptr %.0106.ph166, null
   %or.cond = select i1 %27, i1 true, i1 %28
   br i1 %or.cond, label %38, label %29
 
 29:                                               ; preds = %.loopexit
   %30 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.192, i32 noundef 5) #16
   %31 = call ptr @gtk_check_menu_item_new_with_label(ptr noundef %30) #16
-  %32 = getelementptr inbounds nuw i8, ptr %.0163, i64 32
+  %32 = getelementptr inbounds nuw i8, ptr %.0162, i64 32
   %33 = load ptr, ptr %32, align 8, !tbaa !208
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !243
@@ -4704,26 +4704,26 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
 
 38:                                               ; preds = %.loopexit
   %39 = icmp ult i32 %26, 7
-  br i1 %39, label %40, label %.thread151
+  br i1 %39, label %40, label %.thread150
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %.0163, i64 24
+  %41 = getelementptr inbounds nuw i8, ptr %.0162, i64 24
   %42 = load ptr, ptr %41, align 8, !tbaa !244
-  %43 = call fastcc ptr @_build_menu_from_actions(ptr noundef %42, ptr noundef %1, ptr noundef %.0106.ph167, ptr noundef %3, i32 noundef %4, ptr noundef %5)
+  %43 = call fastcc ptr @_build_menu_from_actions(ptr noundef %42, ptr noundef %1, ptr noundef %.0106.ph166, ptr noundef %3, i32 noundef %4, ptr noundef %5)
   %.not129 = icmp eq ptr %43, null
-  br i1 %.not129, label %..thread151_crit_edge, label %.critedge146
+  br i1 %.not129, label %..thread150_crit_edge, label %.critedge146
 
-..thread151_crit_edge:                            ; preds = %40
-  %.pre = load i32, ptr %.0163, align 8, !tbaa !207
-  br label %.thread151
+..thread150_crit_edge:                            ; preds = %40
+  %.pre = load i32, ptr %.0162, align 8, !tbaa !207
+  br label %.thread150
 
-.thread151:                                       ; preds = %..thread151_crit_edge, %38
-  %44 = phi i32 [ %.pre, %..thread151_crit_edge ], [ %26, %38 ]
+.thread150:                                       ; preds = %..thread150_crit_edge, %38
+  %44 = phi i32 [ %.pre, %..thread150_crit_edge ], [ %26, %38 ]
   %45 = icmp ugt i32 %44, 13
   br i1 %45, label %46, label %.critedge
 
-46:                                               ; preds = %.thread151
-  %47 = getelementptr inbounds nuw i8, ptr %.0163, i64 24
+46:                                               ; preds = %.thread150
+  %47 = getelementptr inbounds nuw i8, ptr %.0162, i64 24
   %48 = load ptr, ptr %47, align 8, !tbaa !244
   %.not130 = icmp eq ptr %48, null
   br i1 %.not130, label %.critedge, label %49
@@ -4745,45 +4745,45 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
   br i1 %57, label %61, label %.critedge
 
 .critedge146:                                     ; preds = %40
-  %58 = getelementptr inbounds nuw i8, ptr %.0163, i64 16
+  %58 = getelementptr inbounds nuw i8, ptr %.0162, i64 16
   %59 = load ptr, ptr %58, align 8, !tbaa !243
   %60 = call ptr @gtk_menu_item_new_with_label(ptr noundef %59) #16
   br label %65
 
 61:                                               ; preds = %55
-  %62 = getelementptr inbounds nuw i8, ptr %.0163, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %.0162, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !243
   %64 = call ptr @gtk_check_menu_item_new_with_label(ptr noundef %63) #16
   br label %65
 
 65:                                               ; preds = %61, %.critedge146
-  %.1121155 = phi ptr [ %43, %.critedge146 ], [ null, %61 ]
+  %.1121154 = phi ptr [ %43, %.critedge146 ], [ null, %61 ]
   %66 = phi ptr [ %60, %.critedge146 ], [ %64, %61 ]
-  %67 = call fastcc ptr @_action_label(ptr noundef nonnull %.0163)
+  %67 = call fastcc ptr @_action_label(ptr noundef nonnull %.0162)
   br label %.critedge
 
-.critedge:                                        ; preds = %52, %65, %55, %46, %.thread151
-  %.1121154 = phi ptr [ %.1121155, %65 ], [ null, %55 ], [ null, %46 ], [ null, %.thread151 ], [ null, %52 ]
-  %.1123 = phi ptr [ %.0163, %65 ], [ null, %55 ], [ null, %46 ], [ null, %.thread151 ], [ null, %52 ]
-  %.1119 = phi ptr [ %66, %65 ], [ null, %55 ], [ null, %46 ], [ null, %.thread151 ], [ null, %52 ]
-  %.1116 = phi ptr [ %67, %65 ], [ null, %55 ], [ null, %46 ], [ null, %.thread151 ], [ null, %52 ]
-  %68 = getelementptr inbounds nuw i8, ptr %.0163, i64 40
+.critedge:                                        ; preds = %52, %65, %55, %46, %.thread150
+  %.1121153 = phi ptr [ %.1121154, %65 ], [ null, %55 ], [ null, %46 ], [ null, %.thread150 ], [ null, %52 ]
+  %.1123 = phi ptr [ %.0162, %65 ], [ null, %55 ], [ null, %46 ], [ null, %.thread150 ], [ null, %52 ]
+  %.1119 = phi ptr [ %66, %65 ], [ null, %55 ], [ null, %46 ], [ null, %.thread150 ], [ null, %52 ]
+  %.1116 = phi ptr [ %67, %65 ], [ null, %55 ], [ null, %46 ], [ null, %.thread150 ], [ null, %52 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.0162, i64 40
   %69 = load ptr, ptr %68, align 8, !tbaa !242
   br label %70
 
 70:                                               ; preds = %.critedge, %29
   %.0122 = phi ptr [ %.1123, %.critedge ], [ %33, %29 ]
-  %.0120 = phi ptr [ %.1121154, %.critedge ], [ null, %29 ]
+  %.0120 = phi ptr [ %.1121153, %.critedge ], [ null, %29 ]
   %.0118 = phi ptr [ %.1119, %.critedge ], [ %31, %29 ]
   %.0115 = phi ptr [ %.1116, %.critedge ], [ %37, %29 ]
-  %.1107 = phi ptr [ %.0106.ph167, %.critedge ], [ %31, %29 ]
-  %.3 = phi ptr [ %69, %.critedge ], [ %.0163, %29 ]
+  %.1107 = phi ptr [ %.0106.ph166, %.critedge ], [ %31, %29 ]
+  %.3 = phi ptr [ %69, %.critedge ], [ %.0162, %29 ]
   %.not133 = icmp eq ptr %.0118, null
   br i1 %.not133, label %.outer, label %71
 
 71:                                               ; preds = %70
   call void @gtk_widget_set_name(ptr noundef nonnull %.0118, ptr noundef nonnull @.str.199) #16
-  %.not134 = icmp eq ptr %.0108.ph166, null
+  %.not134 = icmp eq ptr %.0108.ph165, null
   br i1 %.not134, label %72, label %74
 
 72:                                               ; preds = %71
@@ -4791,7 +4791,7 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
   br label %74
 
 74:                                               ; preds = %72, %71
-  %.2110 = phi ptr [ %.0108.ph166, %71 ], [ %73, %72 ]
+  %.2110 = phi ptr [ %.0108.ph165, %71 ], [ %73, %72 ]
   %75 = tail call i64 @gtk_menu_shell_get_type() #19
   %76 = call ptr @g_type_check_instance_cast(ptr noundef %.2110, i64 noundef %75) #16
   call void @gtk_menu_shell_append(ptr noundef %76, ptr noundef nonnull %.0118) #16
@@ -4938,12 +4938,12 @@ define internal fastcc ptr @_build_menu_from_actions(ptr noundef %0, ptr noundef
   br label %.outer
 
 .outer:                                           ; preds = %138, %70
-  %.1109 = phi ptr [ %.2110, %138 ], [ %.0108.ph166, %70 ]
-  %.not126162 = icmp eq ptr %.3, null
-  br i1 %.not126162, label %.outer._crit_edge, label %.lr.ph
+  %.1109 = phi ptr [ %.2110, %138 ], [ %.0108.ph165, %70 ]
+  %.not126161 = icmp eq ptr %.3, null
+  br i1 %.not126161, label %.outer._crit_edge, label %.lr.ph
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %6
-  %.0108.ph.lcssa = phi ptr [ null, %6 ], [ %.0108.ph166, %.backedge ], [ %.1109, %.outer ]
+  %.0108.ph.lcssa = phi ptr [ null, %6 ], [ %.0108.ph165, %.backedge ], [ %.1109, %.outer ]
   ret ptr %.0108.ph.lcssa
 }
 

@@ -54560,8 +54560,8 @@ _ZNK11CaptureFile7capFileEv.exit79:               ; preds = %41, %.noexc78
 _ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit: ; preds = %49, %55
   %.idx = shl i64 %54, 2
   %57 = getelementptr i8, ptr %52, i64 %.idx
-  %.not271289 = icmp eq i64 %.idx, 0
-  br i1 %.not271289, label %._crit_edge, label %.lr.ph
+  %.not269287 = icmp eq i64 %.idx, 0
+  br i1 %.not269287, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN9QtPrivate21qMakeForeachContainerIR5QListIiEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS6_.exit
   %58 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -54591,8 +54591,8 @@ _ZN9QtPrivate17QForeachContainerI5QListIiEED2Ev.exit: ; preds = %._crit_edge, %_
   br label %_ZN5QListIiED2Ev.exit247
 
 63:                                               ; preds = %.lr.ph, %_ZN7QStringD2Ev.exit
-  %.sroa.12.0290 = phi ptr [ %52, %.lr.ph ], [ %71, %_ZN7QStringD2Ev.exit ]
-  %64 = load i32, ptr %.sroa.12.0290, align 4
+  %.sroa.12.0288 = phi ptr [ %52, %.lr.ph ], [ %71, %_ZN7QStringD2Ev.exit ]
+  %64 = load i32, ptr %.sroa.12.0288, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %9, i32 noundef %64, i32 noundef 10)
           to label %65 unwind label %72
@@ -54619,9 +54619,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %_ZN5QListI7QStringE
 
 _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListI7QStringElsEOS0_.exit, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %69
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %71 = getelementptr i8, ptr %.sroa.12.0290, i64 4
-  %.not271 = icmp eq ptr %71, %57
-  br i1 %.not271, label %._crit_edge, label %63, !llvm.loop !455
+  %71 = getelementptr i8, ptr %.sroa.12.0288, i64 4
+  %.not269 = icmp eq ptr %71, %57
+  br i1 %.not269, label %._crit_edge, label %63, !llvm.loop !455
 
 72:                                               ; preds = %63
   %73 = landingpad { ptr, i32 }
@@ -54808,7 +54808,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i109:   ; preds = %126
 134:                                              ; preds = %133, %132, %_ZN7QStringD2Ev.exit103
   %.1 = phi i1 [ %.0, %_ZN7QStringD2Ev.exit103 ], [ false, %132 ], [ true, %133 ]
   %135 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %33)
-          to label %.noexc112 unwind label %.loopexit272
+          to label %.noexc112 unwind label %.loopexit270
 
 .noexc112:                                        ; preds = %134
   br i1 %135, label %136, label %_ZNK11CaptureFile7capFileEv.exit113
@@ -55018,7 +55018,7 @@ _ZN7QStringD2Ev.exit147:                          ; preds = %177, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %342
 
-.loopexit272:                                     ; preds = %237, %278, %134, %280
+.loopexit270:                                     ; preds = %237, %278, %134, %280
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7QStringD2Ev.exit111
@@ -55202,7 +55202,7 @@ _ZN7QStringD2Ev.exit171:                          ; preds = %233, %_ZN17QArrayDa
 
 237:                                              ; preds = %_ZN10QByteArrayD2Ev.exit
   %238 = invoke noundef i32 @_ZN17CaptureFileDialog16selectedFileTypeEv(ptr noundef nonnull align 8 dereferenceable_or_null(580) %11)
-          to label %239 unwind label %.loopexit272
+          to label %239 unwind label %.loopexit270
 
 239:                                              ; preds = %237
   %240 = icmp eq i32 %238, -1
@@ -55352,11 +55352,11 @@ _ZN7QStringD2Ev.exit191:                          ; preds = %274, %_ZN17QArrayDa
 
 278:                                              ; preds = %239
   %279 = invoke noundef i32 @_ZN17CaptureFileDialog15compressionTypeEv(ptr noundef nonnull align 8 dereferenceable_or_null(580) %11)
-          to label %280 unwind label %.loopexit272
+          to label %280 unwind label %.loopexit270
 
 280:                                              ; preds = %278
   %281 = invoke noundef zeroext i1 @_ZNK11CaptureFile7isValidEv(ptr noundef nonnull align 8 dereferenceable_or_null(48) %33)
-          to label %.noexc192 unwind label %.loopexit272
+          to label %.noexc192 unwind label %.loopexit270
 
 .noexc192:                                        ; preds = %280
   br i1 %281, label %282, label %_ZNK11CaptureFile7capFileEv.exit193
@@ -55564,8 +55564,8 @@ _ZN10QByteArrayD2Ev.exit227:                      ; preds = %340, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %101
 
-_ZN7QStringD2Ev.exit111:                          ; preds = %.loopexit272, %.loopexit.split-lp, %324, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i213, %320, %130, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i109, %126, %_ZN10QByteArrayD2Ev.exit227, %_ZN10QByteArrayD2Ev.exit205, %277, %236, %_ZN10QByteArrayD2Ev.exit151
-  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %236 ], [ %.pn53.pn, %277 ], [ %.pn47, %_ZN10QByteArrayD2Ev.exit227 ], [ %.pn45, %_ZN10QByteArrayD2Ev.exit205 ], [ %.pn43, %_ZN10QByteArrayD2Ev.exit151 ], [ %127, %126 ], [ %127, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i109 ], [ %127, %130 ], [ %321, %320 ], [ %321, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i213 ], [ %321, %324 ], [ %lpad.loopexit, %.loopexit272 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+_ZN7QStringD2Ev.exit111:                          ; preds = %.loopexit270, %.loopexit.split-lp, %324, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i213, %320, %130, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i109, %126, %_ZN10QByteArrayD2Ev.exit227, %_ZN10QByteArrayD2Ev.exit205, %277, %236, %_ZN10QByteArrayD2Ev.exit151
+  %.pn64.pn.pn = phi { ptr, i32 } [ %.pn64.pn, %236 ], [ %.pn53.pn, %277 ], [ %.pn47, %_ZN10QByteArrayD2Ev.exit227 ], [ %.pn45, %_ZN10QByteArrayD2Ev.exit205 ], [ %.pn43, %_ZN10QByteArrayD2Ev.exit151 ], [ %127, %126 ], [ %127, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i109 ], [ %127, %130 ], [ %321, %320 ], [ %321, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i213 ], [ %321, %324 ], [ %lpad.loopexit, %.loopexit270 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZN17CaptureFileDialogD2Ev(ptr noundef nonnull align 8 dereferenceable_or_null(580) %11) #34
   br label %343
 

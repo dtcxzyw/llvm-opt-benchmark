@@ -1022,15 +1022,15 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %70
 
-70:                                               ; preds = %38, %.thread147
-  %indvars.iv199 = phi i64 [ 0, %38 ], [ %indvars.iv.next200, %.thread147 ]
-  %.097187 = phi float [ %26, %38 ], [ %.198151, %.thread147 ]
-  %71 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv199
+70:                                               ; preds = %38, %.thread146
+  %indvars.iv198 = phi i64 [ 0, %38 ], [ %indvars.iv.next199, %.thread146 ]
+  %.097186 = phi float [ %26, %38 ], [ %.198150, %.thread146 ]
+  %71 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv198
   %72 = load float, ptr %71, align 4, !tbaa !50
   %73 = fcmp uge float %72, 0.000000e+00
   %74 = fcmp ult float %72, %61
   %or.cond = and i1 %73, %74
-  br i1 %or.cond, label %75, label %.thread147
+  br i1 %or.cond, label %75, label %.thread146
 
 75:                                               ; preds = %70
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1039,7 +1039,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
   %77 = load i32, ptr %18, align 4, !tbaa !18
   %78 = call noundef float @_ZN5zxing6qrcode19FinderPatternFinder18crossCheckVerticalEmmiiRf(ptr noundef nonnull align 8 dereferenceable(88) %0, i64 noundef %2, i64 noundef %76, i32 noundef %77, i32 noundef %.0108, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %79 = fcmp ult float %78, 0.000000e+00
-  br i1 %79, label %.thread147.sink.split, label %80
+  br i1 %79, label %.thread146.sink.split, label %80
 
 80:                                               ; preds = %75
   %81 = load i32, ptr %9, align 4, !tbaa !23
@@ -1048,8 +1048,8 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
   %84 = tail call noundef float @llvm.fabs.f32(float %83)
   %85 = fcmp ule float %84, %40
   %86 = fcmp ule float %84, %82
-  %or.cond171.not = select i1 %85, i1 %86, i1 false
-  br i1 %or.cond171.not, label %87, label %.thread167.sink.split
+  %or.cond170.not = select i1 %85, i1 %86, i1 false
+  br i1 %or.cond170.not, label %87, label %.thread166.sink.split
 
 87:                                               ; preds = %80
   %88 = fcmp ogt float %82, 4.000000e+00
@@ -1073,7 +1073,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
 
 97:                                               ; preds = %87, %.thread
   %indvars.iv = phi i64 [ 0, %87 ], [ %indvars.iv.next, %.thread ]
-  %.4101185 = phi float [ %.097187, %87 ], [ %.6103133, %.thread ]
+  %.4101184 = phi float [ %.097186, %87 ], [ %.6103132, %.thread ]
   %98 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
   %99 = load float, ptr %98, align 4, !tbaa !50
   %100 = fcmp uge float %99, 0.000000e+00
@@ -1083,15 +1083,15 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
 
 102:                                              ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %103 = fptoui float %.4101185 to i64
+  %103 = fptoui float %.4101184 to i64
   %104 = fptoui float %99 to i64
   %105 = load ptr, ptr %69, align 8, !tbaa !9
   %106 = getelementptr inbounds nuw %"class.std::vector.52", ptr %105, i64 %103
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   %108 = load ptr, ptr %107, align 8, !tbaa !67
   %109 = load ptr, ptr %106, align 8, !tbaa !13
-  %.not12.not.i = icmp eq ptr %108, %109
-  br i1 %.not12.not.i, label %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit.thread, label %.lr.ph.preheader.i
+  %.not.i = icmp eq ptr %108, %109
+  br i1 %.not.i, label %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit.thread, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %102
   %110 = ptrtoint ptr %108 to i64
@@ -1101,13 +1101,13 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder20handleP
   br label %.lr.ph.i
 
 114:                                              ; preds = %.lr.ph.i
-  %115 = add nuw i64 %.01013.i, 1
+  %115 = add nuw i64 %.01014.i, 1
   %exitcond.not.i = icmp eq i64 %115, %113
   br i1 %exitcond.not.i, label %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit.thread, label %.lr.ph.i, !llvm.loop !68
 
 .lr.ph.i:                                         ; preds = %114, %.lr.ph.preheader.i
-  %.01013.i = phi i64 [ %115, %114 ], [ 0, %.lr.ph.preheader.i ]
-  %116 = getelementptr inbounds nuw %"struct.zxing::qrcode::FinderPatternFinder::HorizontalCheckedResult", ptr %109, i64 %.01013.i
+  %.01014.i = phi i64 [ %115, %114 ], [ 0, %.lr.ph.preheader.i ]
+  %116 = getelementptr inbounds nuw %"struct.zxing::qrcode::FinderPatternFinder::HorizontalCheckedResult", ptr %109, i64 %.01014.i
   %117 = load i64, ptr %116, align 8, !tbaa !69
   %118 = icmp eq i64 %117, %104
   br i1 %118, label %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit, label %114
@@ -1193,49 +1193,49 @@ _ZNSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_
   br label %_ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit
 
 _ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit: ; preds = %_ZNSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i, %132, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit.thread, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit
-  %.7104 = phi float [ %120, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit ], [ %.4101185, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit.thread ], [ %123, %132 ], [ %123, %_ZNSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
+  %.7104 = phi float [ %120, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit ], [ %.4101184, %_ZN5zxing6qrcode19FinderPatternFinder26hasHorizontalCheckedResultEmm.exit.thread ], [ %123, %132 ], [ %123, %_ZNSt6vectorIN5zxing6qrcode19FinderPatternFinder23HorizontalCheckedResultESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i ]
   %154 = fcmp uno float %.7104, 0.000000e+00
-  br i1 %154, label %155, label %.thread162
+  br i1 %154, label %155, label %.thread161
 
 155:                                              ; preds = %_ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread
 
 .thread:                                          ; preds = %97, %155
-  %.6103133 = phi float [ %.7104, %155 ], [ %.4101185, %97 ]
+  %.6103132 = phi float [ %.7104, %155 ], [ %.4101184, %97 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %159, label %97, !llvm.loop !75
 
-.thread162:                                       ; preds = %_ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit
+.thread161:                                       ; preds = %_ZN5zxing6qrcode19FinderPatternFinder26addHorizontalCheckedResultEmmf.exit
   %156 = fadd float %40, %82
   %157 = fmul float %156, 5.000000e-01
   %158 = tail call noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18tryToPushToCentersEfffNS1_15CrossCheckStateES2_(ptr noundef nonnull align 8 dereferenceable(88) %0, float noundef %78, float noundef %.7104, float noundef %157, i32 noundef %10, i32 noundef %81)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread167.sink.split
+  br label %.thread166.sink.split
 
 159:                                              ; preds = %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %.thread147.sink.split
+  br label %.thread146.sink.split
 
-.thread147.sink.split:                            ; preds = %75, %159
-  %.198151.ph = phi float [ %.6103133, %159 ], [ %.097187, %75 ]
+.thread146.sink.split:                            ; preds = %75, %159
+  %.198150.ph = phi float [ %.6103132, %159 ], [ %.097186, %75 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread147
+  br label %.thread146
 
-.thread147:                                       ; preds = %.thread147.sink.split, %70
-  %.198151 = phi float [ %.097187, %70 ], [ %.198151.ph, %.thread147.sink.split ]
-  %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
-  %exitcond202.not = icmp eq i64 %indvars.iv.next200, 3
-  br i1 %exitcond202.not, label %.thread167, label %70, !llvm.loop !76
+.thread146:                                       ; preds = %.thread146.sink.split, %70
+  %.198150 = phi float [ %.097186, %70 ], [ %.198150.ph, %.thread146.sink.split ]
+  %indvars.iv.next199 = add nuw nsw i64 %indvars.iv198, 1
+  %exitcond201.not = icmp eq i64 %indvars.iv.next199, 3
+  br i1 %exitcond201.not, label %.thread166, label %70, !llvm.loop !76
 
-.thread167.sink.split:                            ; preds = %80, %.thread162
+.thread166.sink.split:                            ; preds = %80, %.thread161
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %.thread167
+  br label %.thread166
 
-.thread167:                                       ; preds = %.thread147, %.thread167.sink.split
-  %160 = phi i1 [ %or.cond171.not, %.thread167.sink.split ], [ false, %.thread147 ]
+.thread166:                                       ; preds = %.thread146, %.thread166.sink.split
+  %160 = phi i1 [ %or.cond170.not, %.thread166.sink.split ], [ false, %.thread146 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i1 %160
 }
@@ -1580,12 +1580,12 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode19FinderPatternFinder18tryToPu
   %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = load ptr, ptr %9, align 8, !tbaa !78
   %13 = icmp eq ptr %11, %12
-  br i1 %13, label %._crit_edge, label %.lr.ph
+  br i1 %13, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit43, label %.lr.ph
 
 .lr.ph:                                           ; preds = %6, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45
   %14 = phi ptr [ %93, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45 ], [ %12, %6 ]
-  %.03175 = phi i64 [ %91, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45 ], [ 0, %6 ]
-  %15 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %14, i64 %.03175
+  %.03173 = phi i64 [ %91, %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45 ], [ 0, %6 ]
+  %15 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %14, i64 %.03173
   %16 = load ptr, ptr %15, align 8, !tbaa !38
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit, label %17
@@ -1611,7 +1611,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEC2ERKS3_.exit: ; preds = %.lr.ph, %17
 
 24:                                               ; preds = %23
   %25 = load ptr, ptr %9, align 8, !tbaa !78
-  %26 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %25, i64 %.03175
+  %26 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %25, i64 %.03173
   %27 = load ptr, ptr %7, align 8, !tbaa !38
   %.not.i.i41 = icmp eq ptr %27, null
   br i1 %.not.i.i41, label %32, label %28
@@ -1669,7 +1669,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit: ; preds = %32, %34, %39
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEEaSERKS3_.exit, %44, %49
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %53 = load ptr, ptr %9, align 8, !tbaa !78
-  %54 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %53, i64 %.03175
+  %54 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %53, i64 %.03173
   %55 = load ptr, ptr %54, align 8, !tbaa !38
   %56 = icmp eq i32 %4, 0
   br i1 %56, label %57, label %60
@@ -1686,7 +1686,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr %9, align 8, !tbaa !78
-  %64 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %63, i64 %.03175
+  %64 = getelementptr inbounds nuw %"class.zxing::Ref.21", ptr %63, i64 %.03173
   %65 = load ptr, ptr %64, align 8, !tbaa !38
   %66 = icmp eq i32 %5, 0
   br i1 %66, label %67, label %70
@@ -1750,7 +1750,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45
 
 _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45: ; preds = %87, %.critedge
-  %91 = add nuw i64 %.03175, 1
+  %91 = add nuw i64 %.03173, 1
   %92 = load ptr, ptr %10, align 8, !tbaa !77
   %93 = load ptr, ptr %9, align 8, !tbaa !78
   %94 = ptrtoint ptr %92 to i64
@@ -1758,7 +1758,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45: ; preds = %87, %.critedge
   %96 = sub i64 %94, %95
   %97 = ashr exact i64 %96, 3
   %.not = icmp ult i64 %91, %97
-  br i1 %.not, label %.lr.ph, label %._crit_edge, !llvm.loop !87
+  br i1 %.not, label %.lr.ph, label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit43, !llvm.loop !87
 
 98:                                               ; preds = %.loopexit, %.loopexit.split-lp, %72
   %.pn = phi { ptr, i32 } [ %73, %72 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
@@ -1777,13 +1777,13 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45: ; preds = %87, %.critedge
   call void %106(ptr noundef nonnull align 8 dereferenceable(12) %16) #24
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit47
 
-._crit_edge:                                      ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45, %6
+_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit43: ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit45, %6
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %107 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #26
   invoke void @_ZN5zxing6qrcode13FinderPatternC1Efff(ptr noundef nonnull align 8 dereferenceable(40) %107, float noundef %2, float noundef %1, float noundef %3)
           to label %108 unwind label %131
 
-108:                                              ; preds = %._crit_edge
+108:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit43
   %109 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %110 = load i32, ptr %109, align 8, !tbaa !64
   %111 = add i32 %110, 1
@@ -1842,7 +1842,7 @@ _ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit51: ; preds = %_ZNSt6vectorIN5
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit43.thread
 
-131:                                              ; preds = %._crit_edge
+131:                                              ; preds = %_ZN5zxing3RefINS_6qrcode13FinderPatternEED2Ev.exit43
   %132 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPv(ptr noundef nonnull %107) #23
@@ -12138,8 +12138,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder26hasHorizonta
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !67
   %9 = load ptr, ptr %6, align 8, !tbaa !13
-  %.not12.not = icmp eq ptr %8, %9
-  br i1 %.not12.not, label %.loopexit, label %.lr.ph.preheader
+  %.not = icmp eq ptr %8, %9
+  br i1 %.not, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %3
   %10 = ptrtoint ptr %8 to i64
@@ -12149,13 +12149,13 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder26hasHorizonta
   br label %.lr.ph
 
 14:                                               ; preds = %.lr.ph
-  %15 = add nuw i64 %.01013, 1
+  %15 = add nuw i64 %.01014, 1
   %exitcond.not = icmp eq i64 %15, %13
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !68
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
-  %.01013 = phi i64 [ %15, %14 ], [ 0, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds nuw %"struct.zxing::qrcode::FinderPatternFinder::HorizontalCheckedResult", ptr %9, i64 %.01013
+  %.01014 = phi i64 [ %15, %14 ], [ 0, %.lr.ph.preheader ]
+  %16 = getelementptr inbounds nuw %"struct.zxing::qrcode::FinderPatternFinder::HorizontalCheckedResult", ptr %9, i64 %.01014
   %17 = load i64, ptr %16, align 8, !tbaa !69
   %18 = icmp eq i64 %17, %2
   br i1 %18, label %19, label %14
@@ -12166,8 +12166,8 @@ define hidden noundef float @_ZN5zxing6qrcode19FinderPatternFinder26hasHorizonta
   br label %.loopexit
 
 .loopexit:                                        ; preds = %14, %3, %19
-  %.1 = phi float [ %21, %19 ], [ -1.000000e+00, %3 ], [ -1.000000e+00, %14 ]
-  ret float %.1
+  %22 = phi float [ %21, %19 ], [ -1.000000e+00, %3 ], [ -1.000000e+00, %14 ]
+  ret float %22
 }
 
 ; Function Attrs: mustprogress uwtable

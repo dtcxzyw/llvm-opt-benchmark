@@ -675,7 +675,7 @@ define range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr noundef %1, 
   br i1 %9, label %.lr.ph, label %.thread
 
 .lr.ph:                                           ; preds = %8, %29
-  %.02841 = phi i32 [ %.230, %29 ], [ %2, %8 ]
+  %.02840 = phi i32 [ %.230, %29 ], [ %2, %8 ]
   %10 = tail call i32 @BN_num_bits(ptr noundef %3) #4
   %11 = tail call i32 @BN_num_bits(ptr noundef %0) #4
   %12 = sub nsw i32 %10, %11
@@ -689,7 +689,7 @@ define range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr noundef %1, 
   br label %.thread
 
 15:                                               ; preds = %.lr.ph
-  %spec.select = tail call i32 @llvm.umin.i32(i32 %12, i32 %.02841)
+  %spec.select = tail call i32 @llvm.umin.i32(i32 %12, i32 %.02840)
   %.not34 = icmp eq i32 %10, %11
   br i1 %.not34, label %20, label %16
 
@@ -699,7 +699,7 @@ define range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr noundef %1, 
   br i1 %.not36, label %.thread, label %18
 
 18:                                               ; preds = %16
-  %19 = sub nsw i32 %.02841, %spec.select
+  %19 = sub nsw i32 %.02840, %spec.select
   br label %24
 
 20:                                               ; preds = %15
@@ -708,7 +708,7 @@ define range(i32 0, 2) i32 @BN_mod_lshift_quick(ptr noundef %0, ptr noundef %1, 
   br i1 %.not35, label %.thread, label %22
 
 22:                                               ; preds = %20
-  %23 = add nsw i32 %.02841, -1
+  %23 = add nsw i32 %.02840, -1
   br label %24
 
 24:                                               ; preds = %22, %18

@@ -611,45 +611,45 @@ _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !invariant.load !4, !noalias !105, !nonnull !4
   %17 = tail call noundef zeroext i1 %16(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 1 @anon.e831b41a1e1a17865136bdabba0554f7.16, i64 noundef 1), !noalias !105
-  br i1 %17, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit23, label %.preheader
+  br i1 %17, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit21, label %.preheader
 
 .preheader:                                       ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i
   %.not = icmp eq i64 %.sink13.i, 0
-  br i1 %.not, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i18, label %.lr.ph
+  br i1 %.not, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i16, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.47.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %.sroa.738.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %.sroa.839.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %.sroa.1040.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %.sroa.535.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %.sroa.736.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.sroa.837.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %.sroa.1038.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 32
   %20 = add i64 %.sink13.i, -1
   br label %22
 
-_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i18: ; preds = %34, %.preheader
+_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i16: ; preds = %34, %.preheader
   %21 = call noundef zeroext i1 %16(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 1 @anon.e831b41a1e1a17865136bdabba0554f7.18, i64 noundef 1), !noalias !106
-  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit23
+  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit21
 
 22:                                               ; preds = %.lr.ph, %34
-  %.sroa.012.061 = phi i64 [ 0, %.lr.ph ], [ %23, %34 ]
-  %23 = add nuw i64 %.sroa.012.061, 1
+  %.sroa.012.059 = phi i64 [ 0, %.lr.ph ], [ %23, %34 ]
+  %23 = add nuw i64 %.sroa.012.059, 1
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !110
   call void @"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h3f7e1b662adfb680E.llvm.5520512306816613332"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0), !noalias !114
   %24 = load ptr, ptr %3, align 8, !noalias !110, !nonnull !4, !noundef !4
   %25 = load i64, ptr %18, align 8, !noalias !110, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !110
-  %26 = icmp ult i64 %.sroa.012.061, %25
-  br i1 %26, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit29, label %27, !prof !115
+  %26 = icmp ult i64 %.sroa.012.059, %25
+  br i1 %26, label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit27, label %27, !prof !115
 
 27:                                               ; preds = %22
-  call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.012.061, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e831b41a1e1a17865136bdabba0554f7.20) #13, !noalias !116
+  call void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 noundef %.sroa.012.059, i64 noundef %25, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.e831b41a1e1a17865136bdabba0554f7.20) #13, !noalias !116
   unreachable
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit29: ; preds = %22
-  %28 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %24, i64 %.sroa.012.061
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit27: ; preds = %22
+  %28 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %24, i64 %.sroa.012.059
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %28, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -662,37 +662,37 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.ex
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h8120d96572aeb8e5E", ptr %.sroa.411.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !119
   store ptr @anon.e831b41a1e1a17865136bdabba0554f7.22, ptr %2, align 8, !noalias !123
-  store i64 2, ptr %.sroa.537.0..sroa_idx, align 8, !noalias !123
-  store ptr %4, ptr %.sroa.738.0..sroa_idx, align 8, !noalias !123
-  store i64 2, ptr %.sroa.839.0..sroa_idx, align 8, !noalias !123
-  store ptr null, ptr %.sroa.1040.0..sroa_idx, align 8, !noalias !123
+  store i64 2, ptr %.sroa.535.0..sroa_idx, align 8, !noalias !123
+  store ptr %4, ptr %.sroa.736.0..sroa_idx, align 8, !noalias !123
+  store i64 2, ptr %.sroa.837.0..sroa_idx, align 8, !noalias !123
+  store ptr null, ptr %.sroa.1038.0..sroa_idx, align 8, !noalias !123
   %30 = call noundef zeroext i1 @_ZN4core3fmt5write17hc090a2ffd6b28c4aE(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %2), !noalias !119
   call void @llvm.lifetime.end.p0(ptr nonnull %2), !noalias !119
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br i1 %30, label %.loopexit, label %31
 
-_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit23: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i18, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i, %.loopexit
-  %.sroa.0.0 = phi i1 [ true, %.loopexit ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i ], [ %21, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i18 ]
+_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit21: ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i16, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i, %.loopexit
+  %.sroa.0.0 = phi i1 [ true, %.loopexit ], [ true, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i ], [ %21, %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i16 ]
   ret i1 %.sroa.0.0
 
-31:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit29
-  %32 = icmp ult i64 %.sroa.012.061, %20
-  br i1 %32, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i30, label %34
+31:                                               ; preds = %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit27
+  %32 = icmp ult i64 %.sroa.012.059, %20
+  br i1 %32, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i28, label %34
 
-_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i30: ; preds = %31
+_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i28: ; preds = %31
   %33 = call noundef zeroext i1 %16(ptr noundef nonnull align 1 %12, ptr noalias noundef nonnull readonly align 1 @anon.e831b41a1e1a17865136bdabba0554f7.23, i64 noundef 2), !noalias !124
   br i1 %33, label %.loopexit, label %34
 
-34:                                               ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i30, %31
+34:                                               ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i28, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %exitcond.not = icmp eq i64 %23, %.sink13.i
-  br i1 %exitcond.not, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i18, label %22
+  br i1 %exitcond.not, label %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i16, label %22
 
-.loopexit:                                        ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i30, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit29
+.loopexit:                                        ; preds = %_ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.llvm.1169273610523334441.exit.i28, %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit27
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit23
+  br label %_ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.exit21
 }
 
 ; Function Attrs: nonlazybind uwtable

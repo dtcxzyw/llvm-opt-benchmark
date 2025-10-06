@@ -5247,12 +5247,12 @@ define hidden void @_ZN3opt10opt_solver14get_model_coreER3refI5modelE(ptr nounde
   br i1 %43, label %_ZN3refI5modelEaSEPS0_.exit.sink.split, label %_ZN3refI5modelEaSEPS0_.exit
 
 _ZN3refI5modelEaSEPS0_.exit.sink.split:           ; preds = %39, %32, %10
-  %.sink31 = phi ptr [ %9, %10 ], [ %31, %32 ], [ %38, %39 ]
+  %.sink29 = phi ptr [ %9, %10 ], [ %31, %32 ], [ %38, %39 ]
   %.lcssa.sink.ph = phi ptr [ %4, %10 ], [ %26, %32 ], [ null, %39 ]
-  %44 = load ptr, ptr %.sink31, align 8, !tbaa !3
+  %44 = load ptr, ptr %.sink29, align 8, !tbaa !3
   %45 = load ptr, ptr %44, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(96) %.sink31) #26
-  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %.sink31)
+  tail call void %45(ptr noundef nonnull align 8 dereferenceable(96) %.sink29) #26
+  tail call void @_ZN6memory10deallocateEPv(ptr noundef nonnull align 8 dereferenceable(96) %.sink29)
   br label %_ZN3refI5modelEaSEPS0_.exit
 
 _ZN3refI5modelEaSEPS0_.exit:                      ; preds = %_ZN3refI5modelEaSEPS0_.exit.sink.split, %39, %37, %27, %32, %10, %5

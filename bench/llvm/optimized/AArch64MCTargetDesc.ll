@@ -3232,18 +3232,18 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AArch64_MC12isScaledAddrERKNS_6MC
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i64, ptr %6, align 8, !tbaa !18
   %8 = and i64 %7, 14
-  %switch = icmp eq i64 %8, 6
-  br i1 %switch, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit.thread
+  %9 = icmp eq i64 %8, 6
+  br i1 %9, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit, label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit.thread
 
 _ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit:   ; preds = %3
-  %9 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %10 = load i64, ptr %9, align 8, !tbaa !18
-  %11 = and i64 %10, 1
-  %12 = icmp ne i64 %11, 0
+  %10 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %11 = load i64, ptr %10, align 8, !tbaa !18
+  %12 = and i64 %11, 1
+  %13 = icmp ne i64 %12, 0
   br label %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit.thread
 
 _ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit.thread: ; preds = %3, %1, %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit
-  %.0 = phi i1 [ %12, %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit ], [ false, %1 ], [ true, %3 ]
+  %.0 = phi i1 [ %13, %_ZN4llvm10AArch64_AML16getMemExtendTypeEj.exit ], [ false, %1 ], [ true, %3 ]
   ret i1 %.0
 }
 

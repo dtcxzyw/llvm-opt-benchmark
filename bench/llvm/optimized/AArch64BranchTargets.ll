@@ -281,17 +281,17 @@ define internal noundef zeroext i1 @_ZN12_GLOBAL__N_120AArch64BranchTargets20run
   %49 = zext i32 %43 to i64
   %.idx.i.i = shl nuw nsw i64 %49, 3
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 %.idx.i.i
-  %.not36.i.i = icmp eq i32 %43, 0
-  br i1 %.not36.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
+  %.not34.i.i = icmp eq i32 %43, 0
+  br i1 %.not34.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %48, %.critedge.i.i
-  %.02937.i.i = phi ptr [ %52, %.critedge.i.i ], [ %44, %48 ]
-  %51 = load ptr, ptr %.02937.i.i, align 8, !tbaa !3, !noalias !194
+  %.02935.i.i = phi ptr [ %52, %.critedge.i.i ], [ %44, %48 ]
+  %51 = load ptr, ptr %.02935.i.i, align 8, !tbaa !3, !noalias !194
   %.not17.i.i = icmp eq ptr %51, %46
   br i1 %.not17.i.i, label %_ZN4llvm15SmallPtrSetImplIPNS_17MachineBasicBlockEE6insertES2_.exit, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i
-  %52 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
+  %52 = getelementptr inbounds nuw i8, ptr %.02935.i.i, i64 8
   %.not.i.i = icmp eq ptr %52, %50
   br i1 %.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !197
 

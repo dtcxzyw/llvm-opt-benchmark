@@ -26862,17 +26862,17 @@ _ZN6casadi6MatrixIxED2Ev.exit365:                 ; preds = %_ZNSt6vectorIxSaIxE
   %716 = load ptr, ptr %715, align 8, !tbaa !17
   %717 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %718 = load ptr, ptr %717, align 8, !tbaa !17
-  %.not11.not.i = icmp eq ptr %716, %718
-  br i1 %.not11.not.i, label %.loopexit, label %.lr.ph.i
+  %.not12.not.i = icmp eq ptr %716, %718
+  br i1 %.not12.not.i, label %.loopexit, label %.lr.ph.i
 
 719:                                              ; preds = %.lr.ph.i
-  %720 = getelementptr inbounds nuw i8, ptr %.sroa.08.012.i, i64 8
+  %720 = getelementptr inbounds nuw i8, ptr %.sroa.08.013.i, i64 8
   %.not.not.i = icmp eq ptr %720, %718
   br i1 %.not.not.i, label %.loopexit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %714, %719
-  %.sroa.08.012.i = phi ptr [ %720, %719 ], [ %716, %714 ]
-  %721 = load i64, ptr %.sroa.08.012.i, align 8, !tbaa !3
+  %.sroa.08.013.i = phi ptr [ %720, %719 ], [ %716, %714 ]
+  %721 = load i64, ptr %.sroa.08.013.i, align 8, !tbaa !3
   %722 = icmp eq i64 %721, 0
   br i1 %722, label %_ZNK6casadi6MatrixIxE9has_zerosEv.exit, label %719
 
@@ -29598,14 +29598,14 @@ define weak_odr noundef zeroext i1 @_ZNK6casadi6MatrixIxE9has_zerosEv(ptr nounde
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !17
-  %.not11.not = icmp eq ptr %3, %5
-  br i1 %.not11.not, label %._crit_edge, label %.lr.ph
+  %.not12.not = icmp eq ptr %3, %5
+  br i1 %.not12.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
-  %.sroa.08.012 = phi ptr [ %8, %.lr.ph ], [ %3, %1 ]
-  %6 = load i64, ptr %.sroa.08.012, align 8, !tbaa !3
+  %.sroa.08.013 = phi ptr [ %8, %.lr.ph ], [ %3, %1 ]
+  %6 = load i64, ptr %.sroa.08.013, align 8, !tbaa !3
   %7 = icmp eq i64 %6, 0
-  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.012, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.08.013, i64 8
   %.not.not = icmp eq ptr %8, %5
   %or.cond = select i1 %7, i1 true, i1 %.not.not
   br i1 %or.cond, label %._crit_edge, label %.lr.ph

@@ -146,11 +146,11 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 384
   %10 = load ptr, ptr %9, align 8, !tbaa !17
   %.not65 = icmp eq ptr %10, null
-  br i1 %.not65, label %.critedge79, label %.preheader83
+  br i1 %.not65, label %.critedge79, label %.preheader82
 
-.preheader83:                                     ; preds = %8, %.preheader83
-  %.011.i = phi ptr [ %14, %.preheader83 ], [ %10, %8 ]
-  %.0810.i = phi ptr [ %12, %.preheader83 ], [ %7, %8 ]
+.preheader82:                                     ; preds = %8, %.preheader82
+  %.011.i = phi ptr [ %14, %.preheader82 ], [ %10, %8 ]
+  %.0810.i = phi ptr [ %12, %.preheader82 ], [ %7, %8 ]
   %11 = getelementptr inbounds nuw i8, ptr %.0810.i, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !20
   %13 = getelementptr inbounds nuw i8, ptr %.011.i, i64 8
@@ -158,28 +158,28 @@ define void @gui_update(ptr noundef %0) local_unnamed_addr #1 {
   %15 = icmp ne ptr %12, null
   %16 = icmp ne ptr %14, null
   %17 = select i1 %15, i1 %16, i1 false
-  br i1 %17, label %.preheader83, label %dt_list_length_equal.exit
+  br i1 %17, label %.preheader82, label %dt_list_length_equal.exit
 
-dt_list_length_equal.exit:                        ; preds = %.preheader83
+dt_list_length_equal.exit:                        ; preds = %.preheader82
   %18 = select i1 %15, i1 true, i1 %16
   br i1 %18, label %.critedge79, label %.preheader
 
 .preheader:                                       ; preds = %dt_list_length_equal.exit, %25
-  %.05786 = phi ptr [ %27, %25 ], [ %10, %dt_list_length_equal.exit ]
-  %.05885 = phi ptr [ %29, %25 ], [ %7, %dt_list_length_equal.exit ]
-  %19 = load ptr, ptr %.05786, align 8, !tbaa !22
+  %.05785 = phi ptr [ %27, %25 ], [ %10, %dt_list_length_equal.exit ]
+  %.05884 = phi ptr [ %29, %25 ], [ %7, %dt_list_length_equal.exit ]
+  %19 = load ptr, ptr %.05785, align 8, !tbaa !22
   %20 = ptrtoint ptr %19 to i64
   %21 = trunc i64 %20 to i32
-  %22 = load ptr, ptr %.05885, align 8, !tbaa !22
+  %22 = load ptr, ptr %.05884, align 8, !tbaa !22
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i32
   %.not67 = icmp eq i32 %21, %24
   br i1 %.not67, label %25, label %.critedge79
 
 25:                                               ; preds = %.preheader
-  %26 = getelementptr inbounds nuw i8, ptr %.05786, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %.05785, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !20
-  %28 = getelementptr inbounds nuw i8, ptr %.05885, i64 8
+  %28 = getelementptr inbounds nuw i8, ptr %.05884, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !20
   %30 = icmp ne ptr %27, null
   %31 = icmp ne ptr %29, null

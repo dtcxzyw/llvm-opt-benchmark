@@ -7243,12 +7243,12 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit54.thread: ; pr
   br label %_ZN5boost10filesystem4path6assignEPKcS3_.exit
 
 .preheader:                                       ; preds = %47, %94
-  %.02877 = phi i64 [ %95, %94 ], [ 2048, %47 ]
-  %82 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %.02877) #33
+  %.02873 = phi i64 [ %95, %94 ], [ 2048, %47 ]
+  %82 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %.02873) #33
           to label %83 unwind label %86
 
 83:                                               ; preds = %.preheader
-  %84 = tail call i64 @readlink(ptr noundef %11, ptr noundef nonnull %82, i64 noundef %.02877) #27
+  %84 = tail call i64 @readlink(ptr noundef %11, ptr noundef nonnull %82, i64 noundef %.02873) #27
   %85 = icmp slt i64 %84, 0
   br i1 %85, label %97, label %88, !prof !41
 
@@ -7258,15 +7258,15 @@ _ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit54.thread: ; pr
   br label %98
 
 88:                                               ; preds = %83
-  %89 = icmp samesign ult i64 %84, %.02877
+  %89 = icmp samesign ult i64 %84, %.02873
   br i1 %89, label %90, label %94, !prof !32
 
 90:                                               ; preds = %88
   %91 = load i64, ptr %10, align 8, !tbaa !16
   %92 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef %91, ptr noundef nonnull %82, i64 noundef %84)
-          to label %.thread70 unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
+          to label %.thread68 unwind label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit
 
-.thread70:                                        ; preds = %90
+.thread68:                                        ; preds = %90
   tail call void @_ZdaPv(ptr noundef nonnull %82) #31
   br label %_ZN5boost10filesystem4path6assignEPKcS3_.exit
 
@@ -7278,15 +7278,15 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %90
 
 94:                                               ; preds = %88
   tail call void @_ZdaPv(ptr noundef nonnull %82) #31
-  %95 = shl nuw nsw i64 %.02877, 1
-  %96 = icmp samesign ugt i64 %.02877, 16384
+  %95 = shl nuw nsw i64 %.02873, 1
+  %96 = icmp samesign ugt i64 %.02873, 16384
   br i1 %96, label %54, label %.preheader, !prof !63, !llvm.loop !141
 
 97:                                               ; preds = %83
   tail call void @_ZdaPv(ptr noundef nonnull %82) #31
   br label %14
 
-_ZN5boost10filesystem4path6assignEPKcS3_.exit:    ; preds = %.thread70, %.thread, %49, %_ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit
+_ZN5boost10filesystem4path6assignEPKcS3_.exit:    ; preds = %.thread68, %.thread, %49, %_ZN5boost6system10error_code6assignEiRKNS0_14error_categoryE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 

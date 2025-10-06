@@ -6961,8 +6961,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_3M
 .critedge.i:                                      ; preds = %22, %4
   %.sroa.06.0.in.i = phi ptr [ %21, %4 ], [ %.sroa.06.0.i, %22 ]
   %.sroa.06.0.i = load ptr, ptr %.sroa.06.0.in.i, align 8, !tbaa !135, !noalias !367
-  %.not12.i = icmp eq ptr %.sroa.06.0.i, null
-  br i1 %.not12.i, label %_ZNK2cv5kinfu13SubmapManagerINS_3MatEE16getCurrentSubmapEv.exit.thread, label %22
+  %.not10.i = icmp eq ptr %.sroa.06.0.i, null
+  br i1 %.not10.i, label %_ZNK2cv5kinfu13SubmapManagerINS_3MatEE16getCurrentSubmapEv.exit.thread, label %22
 
 22:                                               ; preds = %.critedge.i
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 16
@@ -10701,8 +10701,8 @@ _ZNSt16allocator_traitsISaIN2cv7Affine3IfEEEE8allocateERS3_m.exit.i.i.i.i.i..noe
 .critedge.i:                                      ; preds = %55, %.loopexit
   %.sroa.06.0.in.i = phi ptr [ %54, %.loopexit ], [ %.sroa.06.0.i, %55 ]
   %.sroa.06.0.i = load ptr, ptr %.sroa.06.0.in.i, align 8, !tbaa !135, !noalias !579
-  %.not12.i = icmp eq ptr %.sroa.06.0.i, null
-  br i1 %.not12.i, label %61, label %55
+  %.not10.i = icmp eq ptr %.sroa.06.0.i, null
+  br i1 %.not10.i, label %61, label %55
 
 55:                                               ; preds = %.critedge.i
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 16
@@ -13204,8 +13204,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN2cv5kinfu13SubmapManagerINS_4U
 .critedge.i:                                      ; preds = %22, %4
   %.sroa.06.0.in.i = phi ptr [ %21, %4 ], [ %.sroa.06.0.i, %22 ]
   %.sroa.06.0.i = load ptr, ptr %.sroa.06.0.in.i, align 8, !tbaa !135, !noalias !629
-  %.not12.i = icmp eq ptr %.sroa.06.0.i, null
-  br i1 %.not12.i, label %_ZNK2cv5kinfu13SubmapManagerINS_4UMatEE16getCurrentSubmapEv.exit.thread, label %22
+  %.not10.i = icmp eq ptr %.sroa.06.0.i, null
+  br i1 %.not10.i, label %_ZNK2cv5kinfu13SubmapManagerINS_4UMatEE16getCurrentSubmapEv.exit.thread, label %22
 
 22:                                               ; preds = %.critedge.i
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 16
@@ -16400,8 +16400,8 @@ _ZNSt16allocator_traitsISaIN2cv7Affine3IfEEEE8allocateERS3_m.exit.i.i.i.i.i..noe
 .critedge.i:                                      ; preds = %55, %.loopexit
   %.sroa.06.0.in.i = phi ptr [ %54, %.loopexit ], [ %.sroa.06.0.i, %55 ]
   %.sroa.06.0.i = load ptr, ptr %.sroa.06.0.in.i, align 8, !tbaa !135, !noalias !747
-  %.not12.i = icmp eq ptr %.sroa.06.0.i, null
-  br i1 %.not12.i, label %61, label %55
+  %.not10.i = icmp eq ptr %.sroa.06.0.i, null
+  br i1 %.not10.i, label %61, label %55
 
 55:                                               ; preds = %.critedge.i
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 16

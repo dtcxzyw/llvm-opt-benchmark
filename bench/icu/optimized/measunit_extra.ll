@@ -5543,90 +5543,100 @@ define internal fastcc { i64, i32 } @_ZN6icu_7712_GLOBAL__N_16Parser9nextTokenER
   %12 = load i32, ptr %0, align 8, !tbaa !93
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %.outer
+  %15 = load i32, ptr %14, align 8, !tbaa !103
+  %16 = icmp slt i32 %12, %15
+  br i1 %16, label %.lr.ph, label %.thread.thread
 
-.outer:                                           ; preds = %27, %2
-  %.026.ph = phi i32 [ %34, %27 ], [ -1, %2 ]
-  %.0.ph = phi i32 [ %33, %27 ], [ -1, %2 ]
-  br label %15
-
-15:                                               ; preds = %19, %.outer
-  %16 = load i32, ptr %0, align 8, !tbaa !93
-  %17 = load i32, ptr %14, align 8, !tbaa !103
-  %18 = icmp slt i32 %16, %17
-  br i1 %18, label %19, label %.thread
-
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %13, align 8, !tbaa !133
-  %21 = add nsw i32 %16, 1
-  store i32 %21, ptr %0, align 8, !tbaa !93
-  %22 = sext i32 %16 to i64
-  %23 = getelementptr inbounds i8, ptr %20, i64 %22
-  %24 = load i8, ptr %23, align 1, !tbaa !17
-  %25 = sext i8 %24 to i32
-  %26 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %7, i32 noundef %25)
-  switch i32 %26, label %27 [
-    i32 0, label %.thread
-    i32 1, label %15
+.lr.ph:                                           ; preds = %2, %34
+  %17 = phi i32 [ %35, %34 ], [ %12, %2 ]
+  %.044 = phi i32 [ %.2, %34 ], [ -1, %2 ]
+  %.02643 = phi i32 [ %.228, %34 ], [ -1, %2 ]
+  %18 = load ptr, ptr %13, align 8, !tbaa !133
+  %19 = add nsw i32 %17, 1
+  store i32 %19, ptr %0, align 8, !tbaa !93
+  %20 = sext i32 %17 to i64
+  %21 = getelementptr inbounds i8, ptr %18, i64 %20
+  %22 = load i8, ptr %21, align 1, !tbaa !17
+  %23 = sext i8 %22 to i32
+  %24 = tail call noundef i32 @_ZN6icu_779BytesTrie4nextEi(ptr noundef nonnull align 8 dereferenceable(28) %7, i32 noundef %23)
+  switch i32 %24, label %25 [
+    i32 0, label %..thread_crit_edge47
+    i32 1, label %.lr.ph._crit_edge
   ], !llvm.loop !136
 
-27:                                               ; preds = %19
-  %28 = load ptr, ptr %10, align 8, !tbaa !26
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  %30 = load i8, ptr %28, align 1, !tbaa !17
-  %31 = lshr i8 %30, 1
-  %32 = zext nneg i8 %31 to i32
-  %33 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %29, i32 noundef %32)
-  %34 = load i32, ptr %0, align 8, !tbaa !93
-  %35 = icmp eq i32 %26, 2
-  br i1 %35, label %.thread, label %.outer
+.lr.ph._crit_edge:                                ; preds = %.lr.ph
+  %.pre = load i32, ptr %0, align 8, !tbaa !93
+  br label %34, !llvm.loop !136
 
-.thread:                                          ; preds = %27, %19, %15
-  %.127 = phi i32 [ %.026.ph, %15 ], [ %.026.ph, %19 ], [ %34, %27 ]
-  %.1 = phi i32 [ %.0.ph, %15 ], [ %.0.ph, %19 ], [ %33, %27 ]
-  %36 = icmp sgt i32 %.1, -1
-  br i1 %36, label %37, label %46
+25:                                               ; preds = %.lr.ph
+  %26 = load ptr, ptr %10, align 8, !tbaa !26
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  %28 = load i8, ptr %26, align 1, !tbaa !17
+  %29 = lshr i8 %28, 1
+  %30 = zext nneg i8 %29 to i32
+  %31 = tail call noundef i32 @_ZN6icu_779BytesTrie9readValueEPKhi(ptr noundef nonnull %27, i32 noundef %30)
+  %32 = load i32, ptr %0, align 8, !tbaa !93
+  %33 = icmp eq i32 %24, 2
+  br i1 %33, label %.thread, label %34
 
-37:                                               ; preds = %.thread
+34:                                               ; preds = %.lr.ph._crit_edge, %25
+  %35 = phi i32 [ %32, %25 ], [ %.pre, %.lr.ph._crit_edge ]
+  %.228 = phi i32 [ %32, %25 ], [ %.02643, %.lr.ph._crit_edge ]
+  %.2 = phi i32 [ %31, %25 ], [ %.044, %.lr.ph._crit_edge ]
+  %36 = load i32, ptr %14, align 8, !tbaa !103
+  %37 = icmp slt i32 %35, %36
+  br i1 %37, label %.lr.ph, label %.thread
+
+..thread_crit_edge47:                             ; preds = %.lr.ph
+  br label %.thread, !llvm.loop !136
+
+.thread:                                          ; preds = %34, %25, %..thread_crit_edge47
+  %.127 = phi i32 [ %.02643, %..thread_crit_edge47 ], [ %32, %25 ], [ %.228, %34 ]
+  %.1 = phi i32 [ %.044, %..thread_crit_edge47 ], [ %31, %25 ], [ %.2, %34 ]
+  %38 = icmp sgt i32 %.1, -1
+  br i1 %38, label %39, label %.thread.thread
+
+39:                                               ; preds = %.thread
   store i32 %.127, ptr %0, align 8, !tbaa !93
-  %38 = zext nneg i32 %.1 to i64
-  %39 = icmp samesign ult i32 %.1, 128
-  br i1 %39, label %_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit, label %40
-
-40:                                               ; preds = %37
-  %41 = icmp samesign ult i32 %.1, 192
+  %40 = zext nneg i32 %.1 to i64
+  %41 = icmp samesign ult i32 %.1, 128
   br i1 %41, label %_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit, label %42
 
-42:                                               ; preds = %40
-  %43 = icmp samesign ult i32 %.1, 256
+42:                                               ; preds = %39
+  %43 = icmp samesign ult i32 %.1, 192
   br i1 %43, label %_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit, label %44
 
 44:                                               ; preds = %42
-  %45 = icmp samesign ult i32 %.1, 512
-  %..i = select i1 %45, i32 4, i32 5
+  %45 = icmp samesign ult i32 %.1, 256
+  br i1 %45, label %_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit, label %46
+
+46:                                               ; preds = %44
+  %47 = icmp samesign ult i32 %.1, 512
+  %..i = select i1 %47, i32 4, i32 5
   br label %_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit
 
-46:                                               ; preds = %.thread
+.thread.thread:                                   ; preds = %2, %.thread
+  %.162 = phi i32 [ %.1, %.thread ], [ -1, %2 ]
   call void @_ZN6icu_7711StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull @.str.3)
-  %47 = load ptr, ptr %6, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %49 = load i32, ptr %48, align 8
-  %50 = call noundef i32 @_ZN6icu_7711StringPiece4findES0_i(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr %47, i32 %49, i32 noundef %12)
-  %51 = icmp eq i32 %50, -1
-  %52 = load i32, ptr %14, align 8
-  %spec.select = select i1 %51, i32 %52, i32 %50
+  %48 = load ptr, ptr %6, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %50 = load i32, ptr %49, align 8
+  %51 = call noundef i32 @_ZN6icu_7711StringPiece4findES0_i(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr %48, i32 %50, i32 noundef %12)
+  %52 = icmp eq i32 %51, -1
+  %53 = load i32, ptr %14, align 8
+  %spec.select = select i1 %52, i32 %53, i32 %51
   %.not = icmp sgt i32 %spec.select, %12
-  br i1 %.not, label %55, label %53
+  br i1 %.not, label %56, label %54
 
-53:                                               ; preds = %46
+54:                                               ; preds = %.thread.thread
   store i32 1, ptr %1, align 4, !tbaa !13
-  %54 = sext i32 %.1 to i64
+  %55 = sext i32 %.162 to i64
   br label %_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit
 
-55:                                               ; preds = %46
-  %56 = sub nsw i32 %spec.select, %12
+56:                                               ; preds = %.thread.thread
+  %57 = sub nsw i32 %spec.select, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @_ZN6icu_7711StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %13, i32 noundef %12, i32 noundef %56)
+  call void @_ZN6icu_7711StringPieceC1ERKS0_ii(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %13, i32 noundef %12, i32 noundef %57)
   %.fca.0.load.i = load ptr, ptr %5, align 8
   %.fca.1.gep.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.fca.1.load.i = load i32, ptr %.fca.1.gep.i, align 8
@@ -5634,51 +5644,51 @@ define internal fastcc { i64, i32 } @_ZN6icu_7712_GLOBAL__N_16Parser9nextTokenER
   store i32 %spec.select, ptr %0, align 8, !tbaa !93
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 0, ptr %3, align 8, !tbaa !137
-  %57 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %58 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, i8 0, i64 16, i1 false)
-  store ptr @.str.60, ptr %58, align 8, !tbaa !140
-  %59 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  store ptr @.str.60, ptr %59, align 8, !tbaa !141
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i16 0, ptr %60, align 8, !tbaa !142
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %58, i8 0, i64 16, i1 false)
+  store ptr @.str.60, ptr %59, align 8, !tbaa !140
+  %60 = getelementptr inbounds nuw i8, ptr %3, i64 32
+  store ptr @.str.60, ptr %60, align 8, !tbaa !141
+  %61 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  store i16 0, ptr %61, align 8, !tbaa !142
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %61 = call noundef double @_ZNK6icu_7717double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef %.fca.0.load.i, i32 noundef %.fca.1.load.i, ptr noundef nonnull %4)
-  %62 = load i32, ptr %4, align 4, !tbaa !12
-  %.not.i.i = icmp eq i32 %62, %.fca.1.load.i
-  br i1 %.not.i.i, label %63, label %74
+  %62 = call noundef double @_ZNK6icu_7717double_conversion23StringToDoubleConverter14StringToDoubleEPKciPi(ptr noundef nonnull align 8 dereferenceable(42) %3, ptr noundef %.fca.0.load.i, i32 noundef %.fca.1.load.i, ptr noundef nonnull %4)
+  %63 = load i32, ptr %4, align 4, !tbaa !12
+  %.not.i.i = icmp eq i32 %63, %.fca.1.load.i
+  br i1 %.not.i.i, label %64, label %75
 
-63:                                               ; preds = %55
-  %64 = load i32, ptr %1, align 4, !tbaa !13
-  %65 = icmp sgt i32 %64, 0
-  %66 = fcmp olt double %61, 1.000000e+00
-  %or.cond.i.i = or i1 %66, %65
-  %67 = fcmp ogt double %61, 0x43E0000000000000
-  %or.cond3.i.i = or i1 %67, %or.cond.i.i
-  br i1 %or.cond3.i.i, label %74, label %68
+64:                                               ; preds = %56
+  %65 = load i32, ptr %1, align 4, !tbaa !13
+  %66 = icmp sgt i32 %65, 0
+  %67 = fcmp olt double %62, 1.000000e+00
+  %or.cond.i.i = or i1 %67, %66
+  %68 = fcmp ogt double %62, 0x43E0000000000000
+  %or.cond3.i.i = or i1 %68, %or.cond.i.i
+  br i1 %or.cond3.i.i, label %75, label %69
 
-68:                                               ; preds = %63
-  %69 = fptoui double %61 to i64
-  %70 = uitofp i64 %69 to double
-  %71 = fsub double %61, %70
-  %72 = call noundef double @llvm.fabs.f64(double %71)
-  %73 = fcmp ogt double %72, 1.000000e-09
-  br i1 %73, label %74, label %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit
+69:                                               ; preds = %64
+  %70 = fptoui double %62 to i64
+  %71 = uitofp i64 %70 to double
+  %72 = fsub double %62, %71
+  %73 = call noundef double @llvm.fabs.f64(double %72)
+  %74 = fcmp ogt double %73, 1.000000e-09
+  br i1 %74, label %75, label %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit
 
-74:                                               ; preds = %68, %63, %55
+75:                                               ; preds = %69, %64, %56
   store i32 1, ptr %1, align 4, !tbaa !13
   br label %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit
 
-_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit: ; preds = %68, %74
-  %75 = phi i32 [ 0, %74 ], [ 6, %68 ]
-  %76 = phi i64 [ undef, %74 ], [ %69, %68 ]
+_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit: ; preds = %69, %75
+  %76 = phi i32 [ 0, %75 ], [ 6, %69 ]
+  %77 = phi i64 [ undef, %75 ], [ %70, %69 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit
 
-_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit:          ; preds = %53, %44, %42, %40, %37, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit
-  %.sroa.4.0 = phi i32 [ %75, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit ], [ 1, %37 ], [ 2, %40 ], [ 3, %42 ], [ %..i, %44 ], [ 1, %53 ]
-  %.sroa.0.0 = phi i64 [ %76, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit ], [ %38, %37 ], [ %38, %40 ], [ %38, %42 ], [ %38, %44 ], [ %54, %53 ]
+_ZN6icu_7712_GLOBAL__N_15TokenC2El.exit:          ; preds = %54, %46, %44, %42, %39, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit
+  %.sroa.4.0 = phi i32 [ %76, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit ], [ 1, %39 ], [ 2, %42 ], [ 3, %44 ], [ %..i, %46 ], [ 1, %54 ]
+  %.sroa.0.0 = phi i64 [ %77, %_ZN6icu_7712_GLOBAL__N_15Token13constantTokenENS_11StringPieceER10UErrorCode.exit ], [ %40, %39 ], [ %40, %42 ], [ %40, %44 ], [ %40, %46 ], [ %55, %54 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.4.0, 1
   ret { i64, i32 } %.fca.1.insert

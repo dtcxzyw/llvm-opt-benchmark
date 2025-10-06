@@ -2968,8 +2968,8 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %212
 
 50:                                               ; preds = %44
-  %.not221.not.not.not.not.not.not.not.not = icmp sgt i32 %34, %45
-  br i1 %.not221.not.not.not.not.not.not.not.not, label %51, label %56
+  %.not219.not.not.not.not.not.not.not.not = icmp sgt i32 %34, %45
+  br i1 %.not219.not.not.not.not.not.not.not.not, label %51, label %56
 
 51:                                               ; preds = %50
   %52 = call i64 @lseek(i32 noundef %24, i64 noundef %35, i32 noundef 0) #16
@@ -3037,7 +3037,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 78:                                               ; preds = %74
   %79 = load i16, ptr %5, align 2, !tbaa !48
   %rev.i.i = call i16 @llvm.bswap.i16(i16 %79)
-  %.0.i.i = select i1 %.not221.not.not.not.not.not.not.not.not, i16 %rev.i.i, i16 %79
+  %.0.i.i = select i1 %.not219.not.not.not.not.not.not.not.not, i16 %rev.i.i, i16 %79
   store i16 %.0.i.i, ptr %5, align 2, !tbaa !48
   %.not133 = icmp eq i16 %.0.i.i, -1
   br i1 %.not133, label %86, label %80
@@ -3065,7 +3065,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 90:                                               ; preds = %86
   %91 = load i16, ptr %5, align 2, !tbaa !48
   %rev.i.i149 = call i16 @llvm.bswap.i16(i16 %91)
-  %.0.i.i150 = select i1 %.not221.not.not.not.not.not.not.not.not, i16 %rev.i.i149, i16 %91
+  %.0.i.i150 = select i1 %.not219.not.not.not.not.not.not.not.not, i16 %rev.i.i149, i16 %91
   %92 = icmp eq i16 %.0.i.i150, -1
   %spec.store.select = select i1 %92, i16 0, i16 %.0.i.i150
   store i16 %spec.store.select, ptr %5, align 2
@@ -3092,7 +3092,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 103:                                              ; preds = %99
   %104 = load i16, ptr %4, align 2, !tbaa !48
   %rev.i.i155 = call i16 @llvm.bswap.i16(i16 %104)
-  %.0.i.i156 = select i1 %.not221.not.not.not.not.not.not.not.not, i16 %rev.i.i155, i16 %104
+  %.0.i.i156 = select i1 %.not219.not.not.not.not.not.not.not.not, i16 %rev.i.i155, i16 %104
   store i16 %.0.i.i156, ptr %4, align 2, !tbaa !48
   %105 = zext i16 %.0.i.i156 to i32
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.134, i32 noundef %105) #16
@@ -3121,8 +3121,8 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 .preheader:                                       ; preds = %115
   %118 = load i16, ptr %4, align 2, !tbaa !48
-  %.not243 = icmp eq i16 %118, 0
-  br i1 %.not243, label %.loopexit.thread, label %.lr.ph
+  %.not241 = icmp eq i16 %118, 0
+  br i1 %.not241, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 8
@@ -3133,10 +3133,10 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   %122 = call i32 @close(i32 noundef %24) #16
   br label %212
 
-123:                                              ; preds = %.lr.ph, %.thread214
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread214 ]
-  %.0108241 = phi ptr [ null, %.lr.ph ], [ %.3, %.thread214 ]
-  %.0111240 = phi i16 [ 0, %.lr.ph ], [ %.2113, %.thread214 ]
+123:                                              ; preds = %.lr.ph, %.thread213
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread213 ]
+  %.0108239 = phi ptr [ null, %.lr.ph ], [ %.3, %.thread213 ]
+  %.0111238 = phi i16 [ 0, %.lr.ph ], [ %.2113, %.thread213 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %124 = load ptr, ptr %119, align 8, !tbaa !52
   %125 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv
@@ -3148,7 +3148,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 127:                                              ; preds = %123
   %128 = load i16, ptr %12, align 2, !tbaa !48
   %rev.i.i161 = call i16 @llvm.bswap.i16(i16 %128)
-  %.0.i.i162 = select i1 %.not221.not.not.not.not.not.not.not.not, i16 %rev.i.i161, i16 %128
+  %.0.i.i162 = select i1 %.not219.not.not.not.not.not.not.not.not, i16 %rev.i.i161, i16 %128
   store i16 %.0.i.i162, ptr %12, align 2, !tbaa !48
   %129 = icmp eq i16 %.0.i.i162, 0
   br i1 %129, label %130, label %131
@@ -3158,20 +3158,20 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.loopexit.sink.split
 
 131:                                              ; preds = %127
-  %132 = icmp ugt i16 %.0.i.i162, %.0111240
+  %132 = icmp ugt i16 %.0.i.i162, %.0111238
   br i1 %132, label %133, label %137
 
 133:                                              ; preds = %131
   %134 = zext i16 %.0.i.i162 to i64
-  %135 = call ptr @cli_max_realloc(ptr noundef %.0108241, i64 noundef %134) #16
+  %135 = call ptr @cli_max_realloc(ptr noundef %.0108239, i64 noundef %134) #16
   %.not137 = icmp eq ptr %135, null
   %136 = load i16, ptr %12, align 2
   br i1 %.not137, label %.loopexit.sink.split, label %137
 
 137:                                              ; preds = %133, %131
   %138 = phi i16 [ %136, %133 ], [ %.0.i.i162, %131 ]
-  %.2113 = phi i16 [ %136, %133 ], [ %.0111240, %131 ]
-  %.3 = phi ptr [ %135, %133 ], [ %.0108241, %131 ]
+  %.2113 = phi i16 [ %136, %133 ], [ %.0111238, %131 ]
+  %.3 = phi ptr [ %135, %133 ], [ %.0108239, %131 ]
   %139 = zext i16 %138 to i64
   %140 = call i64 @cli_readn(i32 noundef %24, ptr noundef %.3, i64 noundef %139) #16
   %141 = load i16, ptr %12, align 2, !tbaa !48
@@ -3229,7 +3229,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 165:                                              ; preds = %160
   %166 = load i16, ptr %12, align 2, !tbaa !48
   %rev.i.i167 = call i16 @llvm.bswap.i16(i16 %166)
-  %.0.i.i168 = select i1 %.not221.not.not.not.not.not.not.not.not, i16 %rev.i.i167, i16 %166
+  %.0.i.i168 = select i1 %.not219.not.not.not.not.not.not.not.not, i16 %rev.i.i167, i16 %166
   store i16 %.0.i.i168, ptr %12, align 2, !tbaa !48
   %167 = zext i16 %.0.i.i168 to i64
   %168 = call i64 @lseek(i32 noundef %24, i64 noundef %167, i32 noundef 1) #16
@@ -3240,7 +3240,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 170:                                              ; preds = %165
   %171 = load i16, ptr %5, align 2, !tbaa !48
   %rev.i.i173 = call i16 @llvm.bswap.i16(i16 %171)
-  %.0.i.i174 = select i1 %.not221.not.not.not.not.not.not.not.not, i16 %rev.i.i173, i16 %171
+  %.0.i.i174 = select i1 %.not219.not.not.not.not.not.not.not.not, i16 %rev.i.i173, i16 %171
   store i16 %.0.i.i174, ptr %5, align 2, !tbaa !48
   %172 = icmp eq i16 %.0.i.i174, -1
   br i1 %172, label %173, label %178
@@ -3254,15 +3254,15 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 176:                                              ; preds = %173
   %177 = load i16, ptr %5, align 2, !tbaa !48
   %rev.i.i179 = call i16 @llvm.bswap.i16(i16 %177)
-  %.0.i.i180 = select i1 %.not221.not.not.not.not.not.not.not.not, i16 %rev.i.i179, i16 %177
+  %.0.i.i180 = select i1 %.not219.not.not.not.not.not.not.not.not, i16 %rev.i.i179, i16 %177
   store i16 %.0.i.i180, ptr %5, align 2, !tbaa !48
   br label %178
 
 178:                                              ; preds = %170, %176
   %.0.i.i174.sink = phi i16 [ %.0.i.i180, %176 ], [ %.0.i.i174, %170 ]
-  %.sink298 = phi i64 [ 8, %176 ], [ 10, %170 ]
+  %.sink296 = phi i64 [ 8, %176 ], [ 10, %170 ]
   %179 = zext i16 %.0.i.i174.sink to i64
-  %180 = add nuw nsw i64 %.sink298, %179
+  %180 = add nuw nsw i64 %.sink296, %179
   %181 = call i64 @lseek(i32 noundef %24, i64 noundef %180, i32 noundef 1) #16
   %182 = call i64 @cli_readn(i32 noundef %24, ptr noundef nonnull %6, i64 noundef 2) #16
   %.not.i182 = icmp eq i64 %182, 2
@@ -3271,7 +3271,7 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
 183:                                              ; preds = %178
   %184 = load i16, ptr %6, align 2, !tbaa !48
   %rev.i.i185 = call i16 @llvm.bswap.i16(i16 %184)
-  %.0.i.i186 = select i1 %.not221.not.not.not.not.not.not.not.not, i16 %rev.i.i185, i16 %184
+  %.0.i.i186 = select i1 %.not219.not.not.not.not.not.not.not.not, i16 %rev.i.i185, i16 %184
   store i16 %.0.i.i186, ptr %6, align 2, !tbaa !48
   %185 = zext i16 %.0.i.i186 to i64
   %186 = shl nuw nsw i64 %185, 3
@@ -3279,12 +3279,12 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   %188 = call i64 @lseek(i32 noundef %24, i64 noundef %187, i32 noundef 1) #16
   %189 = call i64 @cli_readn(i32 noundef range(i32 0, -1) %24, ptr noundef nonnull %7, i64 noundef 4) #16
   %.not.i188 = icmp eq i64 %189, 4
-  br i1 %.not.i188, label %.thread214, label %.loopexit.sink.split
+  br i1 %.not.i188, label %.thread213, label %.loopexit.sink.split
 
-.thread214:                                       ; preds = %183
+.thread213:                                       ; preds = %183
   %190 = load i32, ptr %7, align 4, !tbaa !11
   %191 = call i32 @llvm.bswap.i32(i32 %190)
-  %.0.i.i191 = select i1 %.not221.not.not.not.not.not.not.not.not, i32 %191, i32 %190
+  %.0.i.i191 = select i1 %.not219.not.not.not.not.not.not.not.not, i32 %191, i32 %190
   store i32 %.0.i.i191, ptr %7, align 4, !tbaa !11
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.141, i32 noundef %.0.i.i191) #16
   %192 = load i32, ptr %7, align 4, !tbaa !11
@@ -3300,14 +3300,14 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br i1 %198, label %123, label %.loopexit
 
 .loopexit.sink.split:                             ; preds = %133, %183, %178, %173, %165, %160, %123, %144, %159, %152, %143, %130
-  %.1.ph = phi ptr [ %.3, %159 ], [ %.3, %152 ], [ %.3, %143 ], [ %.0108241, %130 ], [ %.0108241, %133 ], [ %.3, %144 ], [ %.0108241, %123 ], [ %.3, %160 ], [ %.3, %165 ], [ %.3, %173 ], [ %.3, %178 ], [ %.3, %183 ]
+  %.1.ph = phi ptr [ %.3, %159 ], [ %.3, %152 ], [ %.3, %143 ], [ %.0108239, %130 ], [ %.0108239, %133 ], [ %.3, %144 ], [ %.0108239, %123 ], [ %.3, %160 ], [ %.3, %165 ], [ %.3, %173 ], [ %.3, %178 ], [ %.3, %183 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.thread214, %.loopexit.sink.split
-  %.0115237.in = phi i64 [ %indvars.iv, %.loopexit.sink.split ], [ %indvars.iv.next, %.thread214 ]
-  %.1 = phi ptr [ %.1.ph, %.loopexit.sink.split ], [ %.3, %.thread214 ]
-  %.0115237 = trunc i64 %.0115237.in to i32
+.loopexit:                                        ; preds = %.thread213, %.loopexit.sink.split
+  %.0115235.in = phi i64 [ %indvars.iv, %.loopexit.sink.split ], [ %indvars.iv.next, %.thread213 ]
+  %.1 = phi ptr [ %.1.ph, %.loopexit.sink.split ], [ %.3, %.thread213 ]
+  %.0115235 = trunc i64 %.0115235.in to i32
   %.not145 = icmp eq ptr %.1, null
   br i1 %.not145, label %.loopexit.thread, label %199
 
@@ -3316,11 +3316,11 @@ define noundef ptr @cli_vba_readdir(ptr noundef %0, ptr noundef %1, i32 noundef 
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.preheader, %199, %.loopexit
-  %.0115237273 = phi i32 [ %.0115237, %199 ], [ %.0115237, %.loopexit ], [ 0, %.preheader ]
+  %.0115235271 = phi i32 [ %.0115235, %199 ], [ %.0115235, %.loopexit ], [ 0, %.preheader ]
   %200 = call i32 @close(i32 noundef %24) #16
   %201 = load i16, ptr %4, align 2, !tbaa !48
   %202 = zext i16 %201 to i32
-  %203 = icmp samesign ult i32 %.0115237273, %202
+  %203 = icmp samesign ult i32 %.0115235271, %202
   br i1 %203, label %204, label %212
 
 204:                                              ; preds = %.loopexit.thread
@@ -3666,18 +3666,18 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
 19:                                               ; preds = %17
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.170, i32 noundef %1) #16
   %20 = add nsw i32 %1, -1
-  %.not93 = icmp eq i32 %20, 0
-  br i1 %.not93, label %.thread._crit_edge, label %.lr.ph.preheader
+  %.not92 = icmp eq i32 %20, 0
+  br i1 %.not92, label %.thread._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %17, %16, %19
-  %.05992 = phi i32 [ %20, %19 ], [ %1, %16 ], [ %1, %17 ]
+  %.05991 = phi i32 [ %20, %19 ], [ %1, %16 ], [ %1, %17 ]
   %21 = phi i64 [ 2, %19 ], [ 1, %16 ], [ 2, %17 ]
-  %22 = zext nneg i32 %.05992 to i64
+  %22 = zext nneg i32 %.05991 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %69 ]
-  %.06280 = phi ptr [ %13, %.lr.ph.preheader ], [ %.4, %69 ]
+  %.06279 = phi ptr [ %13, %.lr.ph.preheader ], [ %.4, %69 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %24 = load i8, ptr %23, align 1, !tbaa !10
   %.not70 = icmp sgt i8 %24, -1
@@ -3699,7 +3699,7 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   %35 = getelementptr inbounds nuw i32, ptr %34, i64 %28
   %36 = load i32, ptr %35, align 4, !tbaa !11
   %37 = trunc i32 %36 to i8
-  store i8 %37, ptr %.06280, align 1, !tbaa !10
+  store i8 %37, ptr %.06279, align 1, !tbaa !10
   br label %69
 
 38:                                               ; preds = %25
@@ -3707,11 +3707,11 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   br i1 %39, label %40, label %.thread
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %.06280, i64 1
-  store i8 95, ptr %.06280, align 1, !tbaa !10
+  %41 = getelementptr inbounds nuw i8, ptr %.06279, i64 1
+  store i8 95, ptr %.06279, align 1, !tbaa !10
   %42 = load i8, ptr %23, align 1, !tbaa !10
   %43 = add i8 %42, 48
-  %44 = getelementptr inbounds nuw i8, ptr %.06280, i64 2
+  %44 = getelementptr inbounds nuw i8, ptr %.06279, i64 2
   store i8 %43, ptr %41, align 1, !tbaa !10
   br label %68
 
@@ -3729,25 +3729,25 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   %51 = load i8, ptr %50, align 1, !tbaa !10
   %52 = sext i8 %51 to i16
   %53 = or i16 %49, %52
-  %54 = getelementptr inbounds nuw i8, ptr %.06280, i64 1
-  store i8 95, ptr %.06280, align 1, !tbaa !10
+  %54 = getelementptr inbounds nuw i8, ptr %.06279, i64 1
+  store i8 95, ptr %.06279, align 1, !tbaa !10
   %55 = and i8 %51, 15
   %56 = add nuw nsw i8 %55, 97
-  %57 = getelementptr inbounds nuw i8, ptr %.06280, i64 2
+  %57 = getelementptr inbounds nuw i8, ptr %.06279, i64 2
   store i8 %56, ptr %54, align 1, !tbaa !10
   %58 = lshr i8 %51, 4
   %59 = add nuw nsw i8 %58, 97
-  %60 = getelementptr inbounds nuw i8, ptr %.06280, i64 3
+  %60 = getelementptr inbounds nuw i8, ptr %.06279, i64 3
   store i8 %59, ptr %57, align 1, !tbaa !10
   %61 = lshr i16 %53, 8
   %62 = trunc nuw i16 %61 to i8
   %63 = and i8 %62, 15
   %64 = add nuw nsw i8 %63, 97
-  %65 = getelementptr inbounds nuw i8, ptr %.06280, i64 4
+  %65 = getelementptr inbounds nuw i8, ptr %.06279, i64 4
   store i8 %64, ptr %60, align 1, !tbaa !10
-  %66 = getelementptr inbounds nuw i8, ptr %.06280, i64 5
+  %66 = getelementptr inbounds nuw i8, ptr %.06279, i64 5
   store i8 97, ptr %65, align 1, !tbaa !10
-  %67 = getelementptr inbounds nuw i8, ptr %.06280, i64 6
+  %67 = getelementptr inbounds nuw i8, ptr %.06279, i64 6
   store i8 97, ptr %66, align 1, !tbaa !10
   br label %68
 
@@ -3757,14 +3757,14 @@ define internal fastcc ptr @get_unicode_name(ptr noundef readonly captures(addre
   br label %69
 
 69:                                               ; preds = %32, %68
-  %.2.pn = phi ptr [ %.2, %68 ], [ %.06280, %32 ]
+  %.2.pn = phi ptr [ %.2, %68 ], [ %.06279, %32 ]
   %.4 = getelementptr inbounds nuw i8, ptr %.2.pn, i64 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %70 = icmp samesign ult i64 %indvars.iv.next, %22
   br i1 %70, label %.lr.ph, label %.thread._crit_edge
 
 .thread._crit_edge:                               ; preds = %69, %.thread, %19
-  %.062.lcssa = phi ptr [ %13, %19 ], [ %.06280, %.thread ], [ %.4, %69 ]
+  %.062.lcssa = phi ptr [ %13, %19 ], [ %.06279, %.thread ], [ %.4, %69 ]
   store i8 0, ptr %.062.lcssa, align 1, !tbaa !10
   %71 = ptrtoint ptr %.062.lcssa to i64
   %72 = ptrtoint ptr %13 to i64

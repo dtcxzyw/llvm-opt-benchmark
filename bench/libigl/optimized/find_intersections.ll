@@ -1492,10 +1492,10 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   %112 = load ptr, ptr %4, align 8, !tbaa !116
   %113 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !116
-  %.not282292 = icmp eq ptr %112, %114
-  br i1 %.not282292, label %.critedge, label %.lr.ph295
+  %.not280290 = icmp eq ptr %112, %114
+  br i1 %.not280290, label %.critedge, label %.lr.ph293
 
-.lr.ph295:                                        ; preds = %111
+.lr.ph293:                                        ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -1533,9 +1533,9 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
           cleanup
   br label %366
 
-.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph295
-  %.sroa.0228.0293 = phi ptr [ %112, %.lr.ph295 ], [ %.sroa.0228.0293.be, %.backedge.backedge ]
-  %147 = load ptr, ptr %.sroa.0228.0293, align 8, !tbaa !70
+.backedge:                                        ; preds = %.backedge.backedge, %.lr.ph293
+  %.sroa.0228.0291 = phi ptr [ %112, %.lr.ph293 ], [ %.sroa.0228.0291.be, %.backedge.backedge ]
+  %147 = load ptr, ptr %.sroa.0228.0291, align 8, !tbaa !70
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 72
   %149 = load i32, ptr %148, align 8, !tbaa !10
   %150 = load ptr, ptr %115, align 8, !tbaa !119
@@ -1562,16 +1562,16 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   br i1 %165, label %_ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiE_clEii.exit, label %163, !llvm.loop !123
 
 163:                                              ; preds = %.loopexit.i, %154
-  %.02741.i = phi i32 [ 0, %154 ], [ %164, %.loopexit.i ]
-  %164 = add nuw nsw i32 %.02741.i, 1
+  %.02745.i = phi i32 [ 0, %154 ], [ %164, %.loopexit.i ]
+  %164 = add nuw nsw i32 %.02745.i, 1
   %165 = icmp eq i32 %164, 3
   %166 = select i1 %165, i32 0, i32 %164
   %167 = zext nneg i32 %166 to i64
   %168 = mul nsw i64 %160, %167
   %169 = getelementptr i32, ptr %161, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !55
-  %.urem.i = add nsw i32 %.02741.i, -1
-  %.cmp.i = icmp eq i32 %.02741.i, 0
+  %.urem.i = add nsw i32 %.02745.i, -1
+  %.cmp.i = icmp eq i32 %.02745.i, 0
   %171 = select i1 %.cmp.i, i32 2, i32 %.urem.i
   %172 = zext nneg i32 %171 to i64
   %173 = mul nsw i64 %160, %172
@@ -1588,13 +1588,13 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   br i1 %180, label %181, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %176
-  %.pre304 = add nuw nsw i64 %indvars.iv.i, 1
+  %.pre302 = add nuw nsw i64 %indvars.iv.i, 1
   br label %188
 
 181:                                              ; preds = %176
-  %.cmp34.not.i = icmp eq i64 %indvars.iv.i, 2
+  %.cmp37.not.i = icmp eq i64 %indvars.iv.i, 2
   %182 = add nuw nsw i64 %indvars.iv.i, 1
-  %183 = select i1 %.cmp34.not.i, i64 0, i64 %182
+  %183 = select i1 %.cmp37.not.i, i64 0, i64 %182
   %184 = mul nsw i64 %183, %160
   %185 = getelementptr i32, ptr %162, i64 %184
   %186 = load i32, ptr %185, align 4, !tbaa !55
@@ -1602,13 +1602,13 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   br i1 %187, label %196, label %188
 
 188:                                              ; preds = %._crit_edge, %181
-  %.pre-phi = phi i64 [ %.pre304, %._crit_edge ], [ %182, %181 ]
+  %.pre-phi = phi i64 [ %.pre302, %._crit_edge ], [ %182, %181 ]
   %189 = icmp eq i32 %179, %170
   br i1 %189, label %190, label %._crit_edge.i
 
 190:                                              ; preds = %188
-  %.cmp37.not.i = icmp eq i64 %indvars.iv.i, 2
-  %191 = select i1 %.cmp37.not.i, i64 0, i64 %.pre-phi
+  %.cmp40.not.i = icmp eq i64 %indvars.iv.i, 2
+  %191 = select i1 %.cmp40.not.i, i64 0, i64 %.pre-phi
   %192 = mul nsw i64 %191, %160
   %193 = getelementptr i32, ptr %162, i64 %192
   %194 = load i32, ptr %193, align 4, !tbaa !55
@@ -1623,7 +1623,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   %197 = load ptr, ptr %118, align 8, !tbaa !125
   %198 = load ptr, ptr %119, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %199 = zext nneg i32 %.02741.i to i64
+  %199 = zext nneg i32 %.02745.i to i64
   %200 = load ptr, ptr %198, align 8, !tbaa !48
   %201 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %202 = load i64, ptr %201, align 8, !tbaa !50
@@ -1643,7 +1643,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLi3ELi1ELi0ELi3ELi1EEEE11setConstantERKd.exit.i.
   store i64 %207, ptr %128, align 8, !tbaa !53, !alias.scope !127
   store i64 0, ptr %129, align 8, !tbaa !53, !alias.scope !127
   store i64 1, ptr %130, align 8, !tbaa !136, !alias.scope !127
-  %212 = invoke noundef zeroext i1 @_ZN3igl39triangle_triangle_intersect_shared_edgeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiRKNS8_IT1_EEiNS9_6ScalarE(ptr noundef nonnull align 1 dereferenceable(1) %197, ptr noundef nonnull align 1 dereferenceable(1) %198, i32 noundef %149, i32 noundef %.02741.i, ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef %1, double noundef 1.000000e-08)
+  %212 = invoke noundef zeroext i1 @_ZN3igl39triangle_triangle_intersect_shared_edgeIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiRKNS8_IT1_EEiNS9_6ScalarE(ptr noundef nonnull align 1 dereferenceable(1) %197, ptr noundef nonnull align 1 dereferenceable(1) %198, i32 noundef %149, i32 noundef %.02745.i, ptr noundef nonnull align 1 dereferenceable(1) %5, i32 noundef %1, double noundef 1.000000e-08)
           to label %213 unwind label %218
 
 213:                                              ; preds = %196
@@ -1686,8 +1686,8 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   br i1 %231, label %.preheader.i._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader.i, %232
-  %indvars.iv.i110288 = phi i64 [ %indvars.iv.next.i, %232 ], [ 0, %.preheader.i ]
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i110288, 1
+  %indvars.iv.i110286 = phi i64 [ %indvars.iv.next.i, %232 ], [ 0, %.preheader.i ]
+  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i110286, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
   br i1 %exitcond.not.i, label %237, label %232, !llvm.loop !142
 
@@ -1709,8 +1709,8 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
 
 .preheader.i._crit_edge:                          ; preds = %.preheader.i, %.preheader.i._crit_edge.loopexit
   %.0273.lcssa = phi i32 [ %238, %.preheader.i._crit_edge.loopexit ], [ 0, %.preheader.i ]
-  %.0302 = trunc i64 %indvars.iv to i32
-  %239 = add nuw nsw i32 %.0302, 1
+  %.0300 = trunc i64 %indvars.iv to i32
+  %239 = add nuw nsw i32 %.0300, 1
   %240 = urem i32 %239, 3
   %241 = load ptr, ptr %118, align 8, !tbaa !125
   %242 = load ptr, ptr %119, align 8, !tbaa !126
@@ -1735,7 +1735,7 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   store i64 %251, ptr %122, align 8, !tbaa !53, !alias.scope !144
   store i64 0, ptr %123, align 8, !tbaa !53, !alias.scope !144
   store i64 1, ptr %124, align 8, !tbaa !136, !alias.scope !144
-  %256 = invoke noundef zeroext i1 @_ZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarE(ptr noundef nonnull align 1 dereferenceable(1) %241, ptr noundef nonnull align 1 dereferenceable(1) %242, i32 noundef %149, i32 noundef %.0302, i32 noundef %240, ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %1, i32 noundef %.0273.lcssa, double noundef 0x3D06849B86A12B9B)
+  %256 = invoke noundef zeroext i1 @_ZN3igl41triangle_triangle_intersect_shared_vertexIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS2_IiLin1ELin1ELi0ELin1ELin1EEENS1_5BlockIKS3_Li1ELin1ELb0EEEEEbRKNS1_10MatrixBaseIT_EERKNS8_IT0_EEiiiRKNS8_IT1_EEiiNS9_6ScalarE(ptr noundef nonnull align 1 dereferenceable(1) %241, ptr noundef nonnull align 1 dereferenceable(1) %242, i32 noundef %149, i32 noundef %.0300, i32 noundef %240, ptr noundef nonnull align 1 dereferenceable(1) %6, i32 noundef %1, i32 noundef %.0273.lcssa, double noundef 0x3D06849B86A12B9B)
           to label %257 unwind label %260
 
 257:                                              ; preds = %.preheader.i._crit_edge
@@ -1766,7 +1766,7 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   br i1 %266, label %350, label %_ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit.thread
 
 _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit.thread: ; preds = %237, %.backedge, %_ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit
-  %.076316 = phi i1 [ %.076, %_ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit ], [ true, %.backedge ], [ true, %237 ]
+  %.076314 = phi i1 [ %.076, %_ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEENS3_IiLin1ELin1ELi0ELin1ELin1EEES4_S5_S5_NS2_5ArrayIbLin1ELi1ELi0ELin1ELi1EEEEEbRKNS_4AABBIT_Li3EEERKNS2_10MatrixBaseIS9_EERKNSD_IT0_EERKNSD_IT1_EERKNSD_IT2_EEbRNS2_15PlainObjectBaseIT3_EERNST_IT4_EEENKUliiRiS10_E_clEiiS10_S10_.exit ], [ true, %.backedge ], [ true, %237 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1807,8 +1807,8 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   %292 = load double, ptr %291, align 8, !tbaa !4, !noalias !153
   store double %292, ptr %134, align 8, !tbaa !4, !alias.scope !153
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %.idx283 = shl i64 %283, 3
-  %293 = getelementptr i8, ptr %271, i64 %.idx283
+  %.idx281 = shl i64 %283, 3
+  %293 = getelementptr i8, ptr %271, i64 %.idx281
   %294 = load i32, ptr %293, align 4, !tbaa !55
   %295 = sext i32 %294 to i64
   %296 = getelementptr inbounds double, ptr %274, i64 %295
@@ -1860,8 +1860,8 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   %328 = load double, ptr %327, align 8, !tbaa !4, !noalias !165
   store double %328, ptr %140, align 8, !tbaa !4, !alias.scope !165
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %.idx284 = shl i64 %319, 3
-  %329 = getelementptr i8, ptr %307, i64 %.idx284
+  %.idx282 = shl i64 %319, 3
+  %329 = getelementptr i8, ptr %307, i64 %.idx282
   %330 = load i32, ptr %329, align 4, !tbaa !55
   %331 = sext i32 %330 to i64
   %332 = getelementptr inbounds double, ptr %310, i64 %331
@@ -1884,7 +1884,7 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %340 = xor i1 %.076316, true
+  %340 = xor i1 %.076314, true
   %brmerge = or i1 %338, %340
   br i1 %brmerge, label %.invoke, label %348
 
@@ -1930,18 +1930,18 @@ _ZZN3igl10predicates18find_intersectionsIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1
   %354 = load ptr, ptr %144, align 8, !tbaa !172
   %355 = load i8, ptr %354, align 1, !tbaa !33, !range !35, !noundef !36
   %356 = trunc nuw i8 %355 to i1
-  %357 = getelementptr inbounds nuw i8, ptr %.sroa.0228.0293, i64 8
-  %.not282 = icmp eq ptr %357, %114
-  %or.cond297 = select i1 %356, i1 true, i1 %.not282
-  br i1 %or.cond297, label %.critedge.loopexit, label %.backedge.backedge
+  %357 = getelementptr inbounds nuw i8, ptr %.sroa.0228.0291, i64 8
+  %.not280 = icmp eq ptr %357, %114
+  %or.cond295 = select i1 %356, i1 true, i1 %.not280
+  br i1 %or.cond295, label %.critedge.loopexit, label %.backedge.backedge
 
 358:                                              ; preds = %350, %153
-  %.old = getelementptr inbounds nuw i8, ptr %.sroa.0228.0293, i64 8
-  %.not282.old = icmp eq ptr %.old, %114
-  br i1 %.not282.old, label %.critedge.loopexit, label %.backedge.backedge
+  %.old = getelementptr inbounds nuw i8, ptr %.sroa.0228.0291, i64 8
+  %.not280.old = icmp eq ptr %.old, %114
+  br i1 %.not280.old, label %.critedge.loopexit, label %.backedge.backedge
 
 .backedge.backedge:                               ; preds = %358, %353
-  %.sroa.0228.0293.be = phi ptr [ %.old, %358 ], [ %357, %353 ]
+  %.sroa.0228.0291.be = phi ptr [ %.old, %358 ], [ %357, %353 ]
   br label %.backedge
 
 .critedge.loopexit:                               ; preds = %358, %353

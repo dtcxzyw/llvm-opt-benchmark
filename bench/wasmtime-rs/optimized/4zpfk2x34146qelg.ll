@@ -126,8 +126,8 @@ switch.lookup:
 define noundef zeroext i1 @_ZN14cranelift_wasm5state17ControlStackFrame7is_loop17hc035f5d79f77e6f8E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4, !range !5, !noundef !4
-  %switch.not = icmp eq i32 %3, 3
-  ret i1 %switch.not
+  %4 = icmp eq i32 %3, 3
+  ret i1 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -938,14 +938,14 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState7push_if17h30c17eb7e
 
 33:                                               ; preds = %.lr.ph, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca15ad9f34f56f27E.llvm.1704480944486436820.exit"
   %34 = phi i64 [ %13, %.lr.ph ], [ %48, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca15ad9f34f56f27E.llvm.1704480944486436820.exit" ]
-  %.sroa.02.013 = phi i64 [ %14, %.lr.ph ], [ %35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca15ad9f34f56f27E.llvm.1704480944486436820.exit" ]
-  %35 = add i64 %.sroa.02.013, 1
-  %36 = icmp ult i64 %.sroa.02.013, %34
+  %.sroa.02.012 = phi i64 [ %14, %.lr.ph ], [ %35, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca15ad9f34f56f27E.llvm.1704480944486436820.exit" ]
+  %35 = add i64 %.sroa.02.012, 1
+  %36 = icmp ult i64 %.sroa.02.012, %34
   br i1 %36, label %37, label %49, !prof !153
 
 37:                                               ; preds = %33
   %38 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds i32, ptr %38, i64 %.sroa.02.013
+  %39 = getelementptr inbounds i32, ptr %38, i64 %.sroa.02.012
   %40 = load i32, ptr %39, align 4, !noundef !4
   %41 = load i64, ptr %0, align 8, !alias.scope !154, !noundef !4
   %42 = icmp eq i64 %34, %41
@@ -954,11 +954,11 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState7push_if17h30c17eb7e
 43:                                               ; preds = %37
   tail call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hb41522c29f662989E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %34)
   %.pre.i9 = load i64, ptr %7, align 8, !alias.scope !154
-  %.pre16 = load ptr, ptr %16, align 8, !alias.scope !154
+  %.pre15 = load ptr, ptr %16, align 8, !alias.scope !154
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca15ad9f34f56f27E.llvm.1704480944486436820.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hca15ad9f34f56f27E.llvm.1704480944486436820.exit": ; preds = %37, %43
-  %44 = phi ptr [ %.pre16, %43 ], [ %38, %37 ]
+  %44 = phi ptr [ %.pre15, %43 ], [ %38, %37 ]
   %45 = phi i64 [ %.pre.i9, %43 ], [ %34, %37 ]
   %46 = getelementptr inbounds i32, ptr %44, i64 %45
   store i32 %40, ptr %46, align 4
@@ -969,7 +969,7 @@ define void @_ZN14cranelift_wasm5state20FuncTranslationState7push_if17h30c17eb7e
   br i1 %exitcond.not, label %._crit_edge, label %33
 
 49:                                               ; preds = %33
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.02.013, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.23) #14
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %.sroa.02.012, i64 noundef %34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.1ebe03cf8da41ec25042ed3876485d5d.23) #14
   unreachable
 }
 

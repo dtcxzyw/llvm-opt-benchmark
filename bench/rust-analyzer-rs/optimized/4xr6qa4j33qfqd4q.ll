@@ -492,8 +492,8 @@ define hidden { i64, i64 } @_ZN6memchr4arch7generic6memchr21search_slice_with_ra
   %.0.i.i = inttoptr i64 %6 to ptr
   %7 = tail call { i64, ptr } %.0.i.i(i8 noundef %5, ptr noundef nonnull %0, ptr noundef nonnull %4), !noalias !16
   %8 = extractvalue { i64, ptr } %7, 0
-  %switch8.not = icmp eq i64 %8, 0
-  br i1 %switch8.not, label %15, label %9
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %15, label %9
 
 9:                                                ; preds = %3
   %10 = extractvalue { i64, ptr } %7, 1
@@ -527,7 +527,7 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h75b05
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %.sroa.5 = alloca [16 x i8], align 8
-  %.sroa.640 = alloca [24 x i8], align 8
+  %.sroa.639 = alloca [24 x i8], align 8
   %6 = alloca { ptr, [5 x i64] }, align 8
   %7 = alloca { ptr, [2 x i64] }, align 8
   %8 = alloca i64, align 8
@@ -561,12 +561,12 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h75b05
   br i1 %17, label %41, label %25
 
 22:                                               ; preds = %3, %10
-  %.sroa.6.043.ph = phi i64 [ 17, %10 ], [ 36, %3 ]
-  %.sroa.0.042.ph = phi ptr [ @anon.d93180882ff7a1921298da0e7de554a2.11.llvm.1655692584469633042, %10 ], [ @anon.d93180882ff7a1921298da0e7de554a2.10.llvm.1655692584469633042, %3 ]
+  %.sroa.6.042.ph = phi i64 [ 17, %10 ], [ 36, %3 ]
+  %.sroa.0.041.ph = phi ptr [ @anon.d93180882ff7a1921298da0e7de554a2.11.llvm.1655692584469633042, %10 ], [ @anon.d93180882ff7a1921298da0e7de554a2.10.llvm.1655692584469633042, %3 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.042.ph, ptr %23, align 8
+  store ptr %.sroa.0.041.ph, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.6.043.ph, ptr %24, align 8
+  store i64 %.sroa.6.042.ph, ptr %24, align 8
   store ptr null, ptr %0, align 8
   br label %40
 
@@ -595,20 +595,20 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h75b05
   br i1 %37, label %39, label %38
 
 38:                                               ; preds = %32
-  %.sroa.5.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx39, i64 16, i1 false)
-  %.sroa.640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.640, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.640.0..sroa_idx, i64 24, i1 false)
+  %.sroa.5.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx38, i64 16, i1 false)
+  %.sroa.639.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.639, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.639.0..sroa_idx, i64 24, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit"
 
 39:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i8 0, i64 16, i1 false)
-  %.sroa.640.8..sroa_idx53 = getelementptr inbounds nuw i8, ptr %.sroa.640, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.640.8..sroa_idx53, i8 0, i64 16, i1 false)
+  %.sroa.639.8..sroa_idx52 = getelementptr inbounds nuw i8, ptr %.sroa.639, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.639.8..sroa_idx52, i8 0, i64 16, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit": ; preds = %38, %39
-  %.sroa.037.0 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %39 ], [ %36, %38 ]
+  %.sroa.036.0 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %39 ], [ %36, %38 ]
   store ptr %9, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %.sroa.4.0..sroa_idx, align 8
@@ -621,11 +621,11 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h75b05
   %.sroa.718.sroa.4.0..sroa.718.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %31, ptr %.sroa.718.sroa.4.0..sroa.718.0..sroa_idx.sroa_idx, align 8
   %.sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sroa.037.0, ptr %.sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.036.0, ptr %.sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx, align 8
   %.sroa.718.sroa.5.sroa.4.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.718.sroa.5.sroa.4.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   %.sroa.718.sroa.5.sroa.5.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.718.sroa.5.sroa.5.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.640, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.718.sroa.5.sroa.5.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.639, i64 24, i1 false)
   %.sroa.718.sroa.6.0..sroa.718.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %35, ptr %.sroa.718.sroa.6.0..sroa.718.0..sroa_idx.sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -655,7 +655,7 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h88bee
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %.sroa.5 = alloca [16 x i8], align 8
-  %.sroa.640 = alloca [24 x i8], align 8
+  %.sroa.639 = alloca [24 x i8], align 8
   %6 = alloca { ptr, [5 x i64] }, align 8
   %7 = alloca { ptr, [2 x i64] }, align 8
   %8 = alloca i64, align 8
@@ -689,12 +689,12 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h88bee
   br i1 %17, label %40, label %25
 
 22:                                               ; preds = %3, %10
-  %.sroa.6.043.ph = phi i64 [ 17, %10 ], [ 36, %3 ]
-  %.sroa.0.042.ph = phi ptr [ @anon.d93180882ff7a1921298da0e7de554a2.11.llvm.1655692584469633042, %10 ], [ @anon.d93180882ff7a1921298da0e7de554a2.10.llvm.1655692584469633042, %3 ]
+  %.sroa.6.042.ph = phi i64 [ 17, %10 ], [ 36, %3 ]
+  %.sroa.0.041.ph = phi ptr [ @anon.d93180882ff7a1921298da0e7de554a2.11.llvm.1655692584469633042, %10 ], [ @anon.d93180882ff7a1921298da0e7de554a2.10.llvm.1655692584469633042, %3 ]
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.0.042.ph, ptr %23, align 8
+  store ptr %.sroa.0.041.ph, ptr %23, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.6.043.ph, ptr %24, align 8
+  store i64 %.sroa.6.042.ph, ptr %24, align 8
   store ptr null, ptr %0, align 8
   br label %39
 
@@ -722,20 +722,20 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h88bee
   br i1 %36, label %38, label %37
 
 37:                                               ; preds = %32
-  %.sroa.5.0..sroa_idx39 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx39, i64 16, i1 false)
-  %.sroa.640.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.640, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.640.0..sroa_idx, i64 24, i1 false)
+  %.sroa.5.0..sroa_idx38 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5.0..sroa_idx38, i64 16, i1 false)
+  %.sroa.639.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.639, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.639.0..sroa_idx, i64 24, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit"
 
 38:                                               ; preds = %32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i8 0, i64 16, i1 false)
-  %.sroa.640.8..sroa_idx53 = getelementptr inbounds nuw i8, ptr %.sroa.640, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.640.8..sroa_idx53, i8 0, i64 16, i1 false)
+  %.sroa.639.8..sroa_idx52 = getelementptr inbounds nuw i8, ptr %.sroa.639, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.639.8..sroa_idx52, i8 0, i64 16, i1 false)
   br label %"_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$17unwrap_or_default17h7194396515465c9fE.exit": ; preds = %37, %38
-  %.sroa.037.0 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %38 ], [ %35, %37 ]
+  %.sroa.036.0 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %38 ], [ %35, %37 ]
   store ptr %9, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %.sroa.4.0..sroa_idx, align 8
@@ -748,11 +748,11 @@ define hidden void @"_ZN6object4read2pe4file20PeFile$LT$Pe$C$R$GT$5parse17h88bee
   %.sroa.718.sroa.4.0..sroa.718.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %31, ptr %.sroa.718.sroa.4.0..sroa.718.0..sroa_idx.sroa_idx, align 8
   %.sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %.sroa.037.0, ptr %.sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx, align 8
+  store ptr %.sroa.036.0, ptr %.sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx, align 8
   %.sroa.718.sroa.5.sroa.4.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.718.sroa.5.sroa.4.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.5, i64 16, i1 false)
   %.sroa.718.sroa.5.sroa.5.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.718.sroa.5.sroa.5.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.640, i64 24, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.718.sroa.5.sroa.5.0..sroa.718.sroa.5.0..sroa.718.0..sroa_idx.sroa_idx.sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.639, i64 24, i1 false)
   %.sroa.718.sroa.6.0..sroa.718.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %.val, ptr %.sroa.718.sroa.6.0..sroa.718.0..sroa_idx.sroa_idx, align 8
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -1757,15 +1757,15 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit: 
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 50
   %.val14.i.i = load i16, ptr %37, align 2, !alias.scope !230, !noalias !231, !noundef !9
   %38 = call i16 @llvm.bswap.i16(i16 %.val14.i.i)
-  %.0.i.i.i.i31 = select i1 %2, i16 %38, i16 %.val14.i.i
-  %.not.i.i32 = icmp eq i16 %.0.i.i.i.i31, -1
-  br i1 %.not.i.i32, label %39, label %45
+  %.0.i.i.i.i28 = select i1 %2, i16 %38, i16 %.val14.i.i
+  %.not.i.i29 = icmp eq i16 %.0.i.i.i.i28, -1
+  br i1 %.not.i.i29, label %39, label %45
 
 39:                                               ; preds = %36
   %40 = call i16 @llvm.bswap.i16(i16 %.val13.i.i)
-  %.0.i.i4.i.i.i35 = select i1 %2, i16 %40, i16 %.val13.i.i
-  %.not.i.i.i36 = icmp eq i16 %.0.i.i4.i.i.i35, 40
-  br i1 %.not.i.i.i36, label %41, label %71
+  %.0.i.i4.i.i.i32 = select i1 %2, i16 %40, i16 %.val13.i.i
+  %.not.i.i.i33 = icmp eq i16 %.0.i.i4.i.i.i32, 40
+  br i1 %.not.i.i.i33, label %41, label %71
 
 41:                                               ; preds = %39
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !236
@@ -1773,12 +1773,12 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit: 
   %42 = call noundef align 4 dereferenceable_or_null(40) ptr @_ZN6object4read8read_ref7ReadRef4read17h4f8ccd93a310bb2eE.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %6), !noalias !243
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !236
   %43 = icmp eq ptr %42, null
-  %spec.select2.i.i.i.i37 = select i1 %43, ptr inttoptr (i64 41 to ptr), ptr %42
-  %44 = ptrtoint ptr %spec.select2.i.i.i.i37 to i64
+  %spec.select2.i.i.i.i34 = select i1 %43, ptr inttoptr (i64 41 to ptr), ptr %42
+  %44 = ptrtoint ptr %spec.select2.i.i.i.i34 to i64
   br i1 %43, label %71, label %47
 
 45:                                               ; preds = %36
-  %46 = zext i16 %.0.i.i.i.i31 to i32
+  %46 = zext i16 %.0.i.i.i.i28 to i32
   br label %50
 
 47:                                               ; preds = %41
@@ -1795,8 +1795,8 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit: 
 
 52:                                               ; preds = %50
   %.sroa.7.8.insert.ext.i = zext i32 %.0.i.i to i64
-  %.not.i33 = icmp ugt i64 %33, %.sroa.7.8.insert.ext.i
-  br i1 %.not.i33, label %53, label %71
+  %.not.i30 = icmp ugt i64 %33, %.sroa.7.8.insert.ext.i
+  br i1 %.not.i30, label %53, label %71
 
 53:                                               ; preds = %52
   %54 = getelementptr inbounds nuw { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }, ptr %32, i64 %.sroa.7.8.insert.ext.i
@@ -1822,41 +1822,41 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit: 
   br label %.thread
 
 _ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit.thread: ; preds = %30, %19, %16, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit
-  %.sink23.i52 = phi i64 [ 48, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit ], [ 37, %30 ], [ %22, %19 ], [ 37, %16 ]
-  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i50 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.30, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %30 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %19 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %16 ]
+  %.sink23.i48 = phi i64 [ 48, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit ], [ 37, %30 ], [ %22, %19 ], [ 37, %16 ]
+  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i46 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.30, %_ZN6object4read3elf4file10FileHeader15section_headers17h6b966f0c302f05caE.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %30 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %19 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %16 ]
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i50, ptr %69, align 8
+  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i46, ptr %69, align 8
   %70 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink23.i52, ptr %70, align 8
+  store i64 %.sink23.i48, ptr %70, align 8
   store ptr null, ptr %0, align 8
   br label %74
 
 .thread:                                          ; preds = %24, %5, %34, %59, %53
-  %.sroa.741.084.ph = phi ptr [ null, %34 ], [ %3, %59 ], [ null, %53 ], [ null, %5 ], [ null, %24 ]
-  %.sroa.17.079.ph = phi i64 [ 0, %34 ], [ %63, %59 ], [ 0, %53 ], [ 0, %5 ], [ 0, %24 ]
-  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i4977.ph = phi ptr [ %32, %34 ], [ %32, %59 ], [ %32, %53 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %24 ]
-  %.sink23.i5175.ph = phi i64 [ 0, %34 ], [ %33, %59 ], [ %33, %53 ], [ 0, %5 ], [ 0, %24 ]
+  %.sroa.738.078.ph = phi ptr [ null, %34 ], [ %3, %59 ], [ null, %53 ], [ null, %5 ], [ null, %24 ]
+  %.sroa.17.073.ph = phi i64 [ 0, %34 ], [ %63, %59 ], [ 0, %53 ], [ 0, %5 ], [ 0, %24 ]
+  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i4571.ph = phi ptr [ %32, %34 ], [ %32, %59 ], [ %32, %53 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %24 ]
+  %.sink23.i4769.ph = phi i64 [ 0, %34 ], [ %33, %59 ], [ %33, %53 ], [ 0, %5 ], [ 0, %24 ]
   %.sroa.12.sroa.5.0.ph = phi i64 [ 0, %34 ], [ %68, %59 ], [ 0, %53 ], [ 0, %5 ], [ 0, %24 ]
-  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i4977.ph, ptr %0, align 8
+  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i4571.ph, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink23.i5175.ph, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sink23.i4769.ph, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sroa.741.084.ph, ptr %.sroa.5.0..sroa_idx, align 8
+  store ptr %.sroa.738.078.ph, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %4, ptr %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %.sroa.17.079.ph, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
+  store i64 %.sroa.17.073.ph, ptr %.sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx, align 8
   %.sroa.5.sroa.5.sroa.4.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %.sroa.12.sroa.5.0.ph, ptr %.sroa.5.sroa.5.sroa.4.0..sroa.5.sroa.5.0..sroa.5.0..sroa_idx.sroa_idx.sroa_idx, align 8
   br label %74
 
 71:                                               ; preds = %50, %41, %39, %52
-  %.sroa.1242.0 = phi i64 [ 22, %50 ], [ %44, %41 ], [ 37, %39 ], [ 22, %52 ]
-  %.sroa.741.0 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.41, %50 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %41 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %39 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.32, %52 ]
+  %.sroa.1239.0 = phi i64 [ 22, %50 ], [ %44, %41 ], [ 37, %39 ], [ 22, %52 ]
+  %.sroa.738.0 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.41, %50 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %41 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %39 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.32, %52 ]
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sroa.741.0, ptr %72, align 8
+  store ptr %.sroa.738.0, ptr %72, align 8
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.1242.0, ptr %73, align 8
+  store i64 %.sroa.1239.0, ptr %73, align 8
   store ptr null, ptr %0, align 8
   br label %74
 
@@ -1948,15 +1948,15 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit: 
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 62
   %.val14.i.i = load i16, ptr %35, align 2, !alias.scope !296, !noalias !297, !noundef !9
   %36 = call i16 @llvm.bswap.i16(i16 %.val14.i.i)
-  %.0.i.i.i.i31 = select i1 %2, i16 %36, i16 %.val14.i.i
-  %.not.i.i32 = icmp eq i16 %.0.i.i.i.i31, -1
-  br i1 %.not.i.i32, label %37, label %43
+  %.0.i.i.i.i28 = select i1 %2, i16 %36, i16 %.val14.i.i
+  %.not.i.i29 = icmp eq i16 %.0.i.i.i.i28, -1
+  br i1 %.not.i.i29, label %37, label %43
 
 37:                                               ; preds = %34
   %38 = call i16 @llvm.bswap.i16(i16 %.val13.i.i)
-  %.0.i.i4.i.i.i35 = select i1 %2, i16 %38, i16 %.val13.i.i
-  %.not.i.i.i36 = icmp eq i16 %.0.i.i4.i.i.i35, 64
-  br i1 %.not.i.i.i36, label %39, label %69
+  %.0.i.i4.i.i.i32 = select i1 %2, i16 %38, i16 %.val13.i.i
+  %.not.i.i.i33 = icmp eq i16 %.0.i.i4.i.i.i32, 64
+  br i1 %.not.i.i.i33, label %39, label %69
 
 39:                                               ; preds = %37
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !302
@@ -1964,12 +1964,12 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit: 
   %40 = call noundef align 8 dereferenceable_or_null(64) ptr @_ZN6object4read8read_ref7ReadRef4read17h41931d68f2494f71E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %6), !noalias !309
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !302
   %41 = icmp eq ptr %40, null
-  %spec.select2.i.i.i.i37 = select i1 %41, ptr inttoptr (i64 41 to ptr), ptr %40
-  %42 = ptrtoint ptr %spec.select2.i.i.i.i37 to i64
+  %spec.select2.i.i.i.i34 = select i1 %41, ptr inttoptr (i64 41 to ptr), ptr %40
+  %42 = ptrtoint ptr %spec.select2.i.i.i.i34 to i64
   br i1 %41, label %69, label %45
 
 43:                                               ; preds = %34
-  %44 = zext i16 %.0.i.i.i.i31 to i32
+  %44 = zext i16 %.0.i.i.i.i28 to i32
   br label %48
 
 45:                                               ; preds = %39
@@ -1986,8 +1986,8 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit: 
 
 50:                                               ; preds = %48
   %.sroa.7.8.insert.ext.i = zext i32 %.0.i.i to i64
-  %.not.i33 = icmp ugt i64 %31, %.sroa.7.8.insert.ext.i
-  br i1 %.not.i33, label %51, label %69
+  %.not.i30 = icmp ugt i64 %31, %.sroa.7.8.insert.ext.i
+  br i1 %.not.i30, label %51, label %69
 
 51:                                               ; preds = %50
   %52 = getelementptr inbounds nuw { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }, ptr %30, i64 %.sroa.7.8.insert.ext.i
@@ -2013,24 +2013,24 @@ _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit: 
   br i1 %66, label %69, label %_ZN6object4read3elf7section13SectionHeader10file_range17hcf0045faa9ddb1f4E.llvm.14695038267805529467.exit.thread.i
 
 _ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit.thread: ; preds = %28, %18, %15, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit
-  %.sink21.i50 = phi i64 [ 48, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit ], [ 37, %28 ], [ %21, %18 ], [ 37, %15 ]
-  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i48 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.30, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %28 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %18 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %15 ]
+  %.sink21.i46 = phi i64 [ 48, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit ], [ 37, %28 ], [ %21, %18 ], [ 37, %15 ]
+  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i44 = phi ptr [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.30, %_ZN6object4read3elf4file10FileHeader15section_headers17h4d60653b00a9eed5E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %28 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.43, %18 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.31, %15 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i48, ptr %67, align 8
+  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i44, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink21.i50, ptr %68, align 8
+  store i64 %.sink21.i46, ptr %68, align 8
   store ptr null, ptr %0, align 8
   br label %72
 
 _ZN6object4read3elf7section13SectionHeader10file_range17hcf0045faa9ddb1f4E.llvm.14695038267805529467.exit.thread.i: ; preds = %23, %5, %57, %51, %32
-  %.sink21.i49 = phi i64 [ 0, %32 ], [ %31, %51 ], [ %31, %57 ], [ 0, %5 ], [ 0, %23 ]
-  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i47 = phi ptr [ %30, %32 ], [ %30, %51 ], [ %30, %57 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %23 ]
+  %.sink21.i45 = phi i64 [ 0, %32 ], [ %31, %51 ], [ %31, %57 ], [ 0, %5 ], [ 0, %23 ]
+  %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i43 = phi ptr [ %30, %32 ], [ %30, %51 ], [ %30, %57 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %23 ]
   %.sroa.20.0 = phi i64 [ 0, %32 ], [ 0, %51 ], [ %.0.i.i1.i.i, %57 ], [ 0, %5 ], [ 0, %23 ]
   %.sroa.23.0 = phi i64 [ 0, %32 ], [ 0, %51 ], [ %65, %57 ], [ 0, %5 ], [ 0, %23 ]
   %.sroa.8.0 = phi ptr [ null, %32 ], [ null, %51 ], [ %3, %57 ], [ null, %5 ], [ null, %23 ]
-  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i47, ptr %0, align 8
+  store ptr %anon.518f0f8e4047b0fec1ad8ab3b728328b.31.sink.i43, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink21.i49, ptr %.sroa.4.0..sroa_idx, align 8
+  store i64 %.sink21.i45, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %.sroa.8.0, ptr %.sroa.5.0..sroa_idx, align 8
   %.sroa.5.sroa.4.0..sroa.5.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2145,25 +2145,25 @@ _ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit: ; pred
   br i1 %.not, label %25, label %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread
 
 _ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread: ; preds = %5, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit
-  %.sink.i.sink.i28 = phi i64 [ %20, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ], [ 0, %5 ]
-  %.sink2.i.sink.i27 = phi ptr [ %19, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ]
-  %21 = ptrtoint ptr %.sink2.i.sink.i27 to i64
+  %.sink.i.sink.i26 = phi i64 [ %20, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ], [ 0, %5 ]
+  %.sink2.i.sink.i25 = phi ptr [ %19, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ]
+  %21 = ptrtoint ptr %.sink2.i.sink.i25 to i64
   %22 = and i64 %21, 3
   %23 = icmp ne i64 %22, 0
-  %24 = lshr i64 %.sink.i.sink.i28, 4
-  %.sink1.i11 = select i1 %23, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, ptr %.sink2.i.sink.i27
-  %.sink.i12 = select i1 %23, i64 34, i64 %24
-  %storemerge.i13 = zext i1 %23 to i64
+  %24 = lshr i64 %.sink.i.sink.i26, 4
+  %.sink1.i10 = select i1 %23, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, ptr %.sink2.i.sink.i25
+  %.sink.i11 = select i1 %23, i64 34, i64 %24
+  %storemerge.i12 = zext i1 %23 to i64
   br label %25
 
 25:                                               ; preds = %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread
-  %.sink1.i11.sink = phi ptr [ %.sink1.i11, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
-  %.sink.i12.sink = phi i64 [ %.sink.i12, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ 34, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
-  %storemerge = phi i64 [ %storemerge.i13, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ 1, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
+  %.sink1.i10.sink = phi ptr [ %.sink1.i10, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
+  %.sink.i11.sink = phi i64 [ %.sink.i11, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ 34, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
+  %storemerge = phi i64 [ %storemerge.i12, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ 1, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink1.i11.sink, ptr %26, align 8
+  store ptr %.sink1.i10.sink, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink.i12.sink, ptr %27, align 8
+  store i64 %.sink.i11.sink, ptr %27, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -2194,26 +2194,26 @@ _ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit: ; pred
   br i1 %.not, label %25, label %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread
 
 _ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread: ; preds = %5, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit
-  %.sink.i.sink.i28 = phi i64 [ %18, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ], [ 0, %5 ]
-  %.sink2.i.sink.i27 = phi ptr [ %17, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ]
-  %19 = udiv i64 %.sink.i.sink.i28, 24
+  %.sink.i.sink.i26 = phi i64 [ %18, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ], [ 0, %5 ]
+  %.sink2.i.sink.i25 = phi ptr [ %17, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ]
+  %19 = udiv i64 %.sink.i.sink.i26, 24
   %20 = mul nuw i64 %19, 24
-  %21 = icmp ugt i64 %20, %.sink.i.sink.i28
-  %22 = ptrtoint ptr %.sink2.i.sink.i27 to i64
+  %21 = icmp ugt i64 %20, %.sink.i.sink.i26
+  %22 = ptrtoint ptr %.sink2.i.sink.i25 to i64
   %23 = and i64 %22, 7
   %24 = icmp ne i64 %23, 0
   %or.cond.not = or i1 %21, %24
-  %.sink2.i.sink.i27.anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467 = select i1 %or.cond.not, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, ptr %.sink2.i.sink.i27
+  %.sink2.i.sink.i25.anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467 = select i1 %or.cond.not, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, ptr %.sink2.i.sink.i25
   %. = select i1 %or.cond.not, i64 34, i64 %19
-  %.32 = zext i1 %or.cond.not to i64
+  %.30 = zext i1 %or.cond.not to i64
   br label %25
 
 25:                                               ; preds = %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread
-  %.sink2.i.sink.i27.anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467.sink = phi ptr [ %.sink2.i.sink.i27.anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
+  %.sink2.i.sink.i25.anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467.sink = phi ptr [ %.sink2.i.sink.i25.anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
   %..sink = phi i64 [ %., %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ 34, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
-  %storemerge = phi i64 [ %.32, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ 1, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
+  %storemerge = phi i64 [ %.30, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ 1, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink2.i.sink.i27.anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467.sink, ptr %26, align 8
+  store ptr %.sink2.i.sink.i25.anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467.sink, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %..sink, ptr %27, align 8
   store i64 %storemerge, ptr %0, align 8
@@ -2246,25 +2246,25 @@ _ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit: ; pred
   br i1 %.not, label %23, label %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread
 
 _ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread: ; preds = %5, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit
-  %.sink.i.sink.i28 = phi i64 [ %18, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ], [ 0, %5 ]
-  %.sink2.i.sink.i27 = phi ptr [ %17, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ]
-  %19 = ptrtoint ptr %.sink2.i.sink.i27 to i64
+  %.sink.i.sink.i26 = phi i64 [ %18, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ], [ 0, %5 ]
+  %.sink2.i.sink.i25 = phi ptr [ %17, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ]
+  %19 = ptrtoint ptr %.sink2.i.sink.i25 to i64
   %20 = and i64 %19, 3
   %21 = icmp ne i64 %20, 0
-  %22 = lshr i64 %.sink.i.sink.i28, 2
-  %.sink1.i11 = select i1 %21, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, ptr %.sink2.i.sink.i27
-  %.sink.i12 = select i1 %21, i64 34, i64 %22
-  %storemerge.i13 = zext i1 %21 to i64
+  %22 = lshr i64 %.sink.i.sink.i26, 2
+  %.sink1.i10 = select i1 %21, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, ptr %.sink2.i.sink.i25
+  %.sink.i11 = select i1 %21, i64 34, i64 %22
+  %storemerge.i12 = zext i1 %21 to i64
   br label %23
 
 23:                                               ; preds = %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread
-  %.sink1.i11.sink = phi ptr [ %.sink1.i11, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
-  %.sink.i12.sink = phi i64 [ %.sink.i12, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ 34, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
-  %storemerge = phi i64 [ %storemerge.i13, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ 1, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
+  %.sink1.i10.sink = phi ptr [ %.sink1.i10, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
+  %.sink.i11.sink = phi i64 [ %.sink.i11, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ 34, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
+  %storemerge = phi i64 [ %storemerge.i12, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit.thread ], [ 1, %_ZN6object4read3elf7section13SectionHeader4data17hf9d685dae4d147c8E.exit ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink1.i11.sink, ptr %24, align 8
+  store ptr %.sink1.i10.sink, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink.i12.sink, ptr %25, align 8
+  store i64 %.sink.i11.sink, ptr %25, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -2297,25 +2297,25 @@ _ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit: ; pred
   br i1 %.not, label %25, label %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread
 
 _ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread: ; preds = %5, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit
-  %.sink.i.sink.i28 = phi i64 [ %20, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ], [ 0, %5 ]
-  %.sink2.i.sink.i27 = phi ptr [ %19, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ]
-  %21 = ptrtoint ptr %.sink2.i.sink.i27 to i64
+  %.sink.i.sink.i26 = phi i64 [ %20, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ], [ 0, %5 ]
+  %.sink2.i.sink.i25 = phi ptr [ %19, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, %5 ]
+  %21 = ptrtoint ptr %.sink2.i.sink.i25 to i64
   %22 = and i64 %21, 3
   %23 = icmp ne i64 %22, 0
-  %24 = lshr i64 %.sink.i.sink.i28, 2
-  %.sink1.i11 = select i1 %23, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, ptr %.sink2.i.sink.i27
-  %.sink.i12 = select i1 %23, i64 34, i64 %24
-  %storemerge.i13 = zext i1 %23 to i64
+  %24 = lshr i64 %.sink.i.sink.i26, 2
+  %.sink1.i10 = select i1 %23, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, ptr %.sink2.i.sink.i25
+  %.sink.i11 = select i1 %23, i64 34, i64 %24
+  %storemerge.i12 = zext i1 %23 to i64
   br label %25
 
 25:                                               ; preds = %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread
-  %.sink1.i11.sink = phi ptr [ %.sink1.i11, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
-  %.sink.i12.sink = phi i64 [ %.sink.i12, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ 34, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
-  %storemerge = phi i64 [ %storemerge.i13, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ 1, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
+  %.sink1.i10.sink = phi ptr [ %.sink1.i10, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.47.llvm.14695038267805529467, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
+  %.sink.i11.sink = phi i64 [ %.sink.i11, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ 34, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
+  %storemerge = phi i64 [ %storemerge.i12, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit.thread ], [ 1, %_ZN6object4read3elf7section13SectionHeader4data17h1e5e7bf05e7e68d6E.exit ]
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %.sink1.i11.sink, ptr %26, align 8
+  store ptr %.sink1.i10.sink, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink.i12.sink, ptr %27, align 8
+  store i64 %.sink.i11.sink, ptr %27, align 8
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -2714,8 +2714,8 @@ define hidden void @"_ZN6object4read5macho12load_command28LoadCommandIterator$LT
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %24 = load i32, ptr %23, align 4, !noundef !9
   %25 = tail call i32 @llvm.bswap.i32(i32 %24)
-  %.0.i29 = select i1 %21, i32 %25, i32 %24
-  %26 = icmp ult i32 %.0.i29, 8
+  %.0.i28 = select i1 %21, i32 %25, i32 %24
+  %26 = icmp ult i32 %.0.i28, 8
   br i1 %26, label %34, label %30
 
 27:                                               ; preds = %7
@@ -2727,7 +2727,7 @@ define hidden void @"_ZN6object4read5macho12load_command28LoadCommandIterator$LT
   br label %16
 
 30:                                               ; preds = %17
-  %31 = zext i32 %.0.i29 to i64
+  %31 = zext i32 %.0.i28 to i64
   %32 = icmp ult i64 %10, %31
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 %31
   %storemerge13.i = select i1 %32, ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.4.llvm.14695038267805529467, ptr %33
@@ -2776,8 +2776,8 @@ define hidden void @"_ZN6object4read5macho12load_command55_$LT$impl$u20$object..
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4, !noundef !9
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
-  %.0.i30 = select i1 %2, i32 %13, i32 %12
-  %14 = zext i32 %.0.i30 to i64
+  %.0.i29 = select i1 %2, i32 %13, i32 %12
+  %14 = zext i32 %.0.i29 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %10, ptr %6, align 8, !noalias !484
   %15 = call { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17hb8eac6abbe167d48E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %14)
@@ -2791,13 +2791,13 @@ define hidden void @"_ZN6object4read5macho12load_command55_$LT$impl$u20$object..
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 4, !noundef !9
   %22 = call i32 @llvm.bswap.i32(i32 %21)
-  %.0.i31 = select i1 %2, i32 %22, i32 %21
-  %23 = zext i32 %.0.i31 to i64
+  %.0.i30 = select i1 %2, i32 %22, i32 %21
+  %23 = zext i32 %.0.i30 to i64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i32, ptr %24, align 4, !noundef !9
   %26 = call i32 @llvm.bswap.i32(i32 %25)
-  %.0.i32 = select i1 %2, i32 %26, i32 %25
-  %27 = zext i32 %.0.i32 to i64
+  %.0.i31 = select i1 %2, i32 %26, i32 %25
+  %27 = zext i32 %.0.i31 to i64
   %28 = add nuw nsw i64 %27, %23
   %.sroa.515.sroa.4.0..sroa.515.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %4, ptr %.sroa.515.sroa.4.0..sroa.515.0..sroa_idx.sroa_idx, align 8
@@ -2808,12 +2808,12 @@ define hidden void @"_ZN6object4read5macho12load_command55_$LT$impl$u20$object..
   br label %29
 
 29:                                               ; preds = %5, %18
-  %.sink45 = phi i64 [ %19, %18 ], [ ptrtoint (ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.55 to i64), %5 ]
-  %.sink44 = phi ptr [ %3, %18 ], [ inttoptr (i64 42 to ptr), %5 ]
+  %.sink43 = phi i64 [ %19, %18 ], [ ptrtoint (ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.55 to i64), %5 ]
+  %.sink42 = phi ptr [ %3, %18 ], [ inttoptr (i64 42 to ptr), %5 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink45, ptr %30, align 8
+  store i64 %.sink43, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink44, ptr %31, align 8
+  store ptr %.sink42, ptr %31, align 8
   store ptr %16, ptr %0, align 8
   ret void
 }
@@ -2829,8 +2829,8 @@ define hidden void @"_ZN6object4read5macho12load_command55_$LT$impl$u20$object..
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = load i32, ptr %11, align 4, !noundef !9
   %13 = tail call i32 @llvm.bswap.i32(i32 %12)
-  %.0.i30 = select i1 %2, i32 %13, i32 %12
-  %14 = zext i32 %.0.i30 to i64
+  %.0.i29 = select i1 %2, i32 %13, i32 %12
+  %14 = zext i32 %.0.i29 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i64 %10, ptr %6, align 8, !noalias !487
   %15 = call { ptr, i64 } @_ZN6object4read8read_ref7ReadRef10read_slice17haa1bced46011c431E.llvm.1655692584469633042(ptr noalias noundef nonnull readonly align 1 %3, i64 noundef %4, ptr noalias noundef nonnull align 8 dereferenceable(8) %6, i64 noundef %14)
@@ -2844,13 +2844,13 @@ define hidden void @"_ZN6object4read5macho12load_command55_$LT$impl$u20$object..
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %21 = load i32, ptr %20, align 4, !noundef !9
   %22 = call i32 @llvm.bswap.i32(i32 %21)
-  %.0.i31 = select i1 %2, i32 %22, i32 %21
-  %23 = zext i32 %.0.i31 to i64
+  %.0.i30 = select i1 %2, i32 %22, i32 %21
+  %23 = zext i32 %.0.i30 to i64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %25 = load i32, ptr %24, align 4, !noundef !9
   %26 = call i32 @llvm.bswap.i32(i32 %25)
-  %.0.i32 = select i1 %2, i32 %26, i32 %25
-  %27 = zext i32 %.0.i32 to i64
+  %.0.i31 = select i1 %2, i32 %26, i32 %25
+  %27 = zext i32 %.0.i31 to i64
   %28 = add nuw nsw i64 %27, %23
   %.sroa.515.sroa.4.0..sroa.515.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %4, ptr %.sroa.515.sroa.4.0..sroa.515.0..sroa_idx.sroa_idx, align 8
@@ -2861,12 +2861,12 @@ define hidden void @"_ZN6object4read5macho12load_command55_$LT$impl$u20$object..
   br label %29
 
 29:                                               ; preds = %5, %18
-  %.sink45 = phi i64 [ %19, %18 ], [ ptrtoint (ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.55 to i64), %5 ]
-  %.sink44 = phi ptr [ %3, %18 ], [ inttoptr (i64 42 to ptr), %5 ]
+  %.sink43 = phi i64 [ %19, %18 ], [ ptrtoint (ptr @anon.518f0f8e4047b0fec1ad8ab3b728328b.55 to i64), %5 ]
+  %.sink42 = phi ptr [ %3, %18 ], [ inttoptr (i64 42 to ptr), %5 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink45, ptr %30, align 8
+  store i64 %.sink43, ptr %30, align 8
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %.sink44, ptr %31, align 8
+  store ptr %.sink42, ptr %31, align 8
   store ptr %16, ptr %0, align 8
   ret void
 }
@@ -2905,21 +2905,21 @@ define hidden void @_ZN6object4read5macho4file10MachHeader13load_commands17h27e7
 13:                                               ; preds = %6
   %14 = extractvalue { ptr, i64 } %11, 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val12 = load i32, ptr %15, align 4, !noundef !9
-  %16 = tail call i32 @llvm.bswap.i32(i32 %.val12)
-  %.0.i.i13 = select i1 %2, i32 %16, i32 %.val12
+  %.val11 = load i32, ptr %15, align 4, !noundef !9
+  %16 = tail call i32 @llvm.bswap.i32(i32 %.val11)
+  %.0.i.i12 = select i1 %2, i32 %16, i32 %.val11
   %17 = zext i1 %2 to i8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.0.i.i13, ptr %.sroa.5.0..sroa_idx, align 8
+  store i32 %.0.i.i12, ptr %.sroa.5.0..sroa_idx, align 8
   br label %18
 
 18:                                               ; preds = %6, %13
-  %.sink19 = phi ptr [ %12, %13 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.57, %6 ]
-  %.sink18 = phi i64 [ %14, %13 ], [ 38, %6 ]
+  %.sink18 = phi ptr [ %12, %13 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.57, %6 ]
+  %.sink17 = phi i64 [ %14, %13 ], [ 38, %6 ]
   %.sink = phi i8 [ %17, %13 ], [ 2, %6 ]
-  store ptr %.sink19, ptr %0, align 8
+  store ptr %.sink18, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink18, ptr %19, align 8
+  store i64 %.sink17, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sink, ptr %20, align 4
   ret void
@@ -2941,21 +2941,21 @@ define hidden void @_ZN6object4read5macho4file10MachHeader13load_commands17h86e5
 13:                                               ; preds = %6
   %14 = extractvalue { ptr, i64 } %11, 1
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val12 = load i32, ptr %15, align 4, !noundef !9
-  %16 = tail call i32 @llvm.bswap.i32(i32 %.val12)
-  %.0.i.i13 = select i1 %2, i32 %16, i32 %.val12
+  %.val11 = load i32, ptr %15, align 4, !noundef !9
+  %16 = tail call i32 @llvm.bswap.i32(i32 %.val11)
+  %.0.i.i12 = select i1 %2, i32 %16, i32 %.val11
   %17 = zext i1 %2 to i8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 %.0.i.i13, ptr %.sroa.5.0..sroa_idx, align 8
+  store i32 %.0.i.i12, ptr %.sroa.5.0..sroa_idx, align 8
   br label %18
 
 18:                                               ; preds = %6, %13
-  %.sink19 = phi ptr [ %12, %13 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.57, %6 ]
-  %.sink18 = phi i64 [ %14, %13 ], [ 38, %6 ]
+  %.sink18 = phi ptr [ %12, %13 ], [ @anon.518f0f8e4047b0fec1ad8ab3b728328b.57, %6 ]
+  %.sink17 = phi i64 [ %14, %13 ], [ 38, %6 ]
   %.sink = phi i8 [ %17, %13 ], [ 2, %6 ]
-  store ptr %.sink19, ptr %0, align 8
+  store ptr %.sink18, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink18, ptr %19, align 8
+  store i64 %.sink17, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i8 %.sink, ptr %20, align 4
   ret void
@@ -3140,8 +3140,8 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section12segment_name1
   %.0.i.i = inttoptr i64 %4 to ptr
   %5 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull readonly align 1 %2, ptr noundef nonnull readonly %3), !noalias !536
   %6 = extractvalue { i64, ptr } %5, 0
-  %switch8.i.not = icmp eq i64 %6, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %9
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %9
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread: ; preds = %9, %1
   %.sroa.5.0 = phi i64 [ 16, %1 ], [ %13, %9 ]
@@ -3172,8 +3172,8 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section12segment_name1
   %.0.i.i = inttoptr i64 %4 to ptr
   %5 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull readonly align 1 %2, ptr noundef nonnull readonly %3), !noalias !542
   %6 = extractvalue { i64, ptr } %5, 0
-  %switch8.i.not = icmp eq i64 %6, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %9
+  %.not = icmp eq i64 %6, 0
+  br i1 %.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %9
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread: ; preds = %9, %1
   %.sroa.5.0 = phi i64 [ 16, %1 ], [ %13, %9 ]
@@ -3276,8 +3276,8 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section4name17h14024c1
   %.0.i.i = inttoptr i64 %3 to ptr
   %4 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull readonly align 1 %0, ptr noundef nonnull readonly %2), !noalias !574
   %5 = extractvalue { i64, ptr } %4, 0
-  %switch8.i.not = icmp eq i64 %5, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %8
+  %.not = icmp eq i64 %5, 0
+  br i1 %.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %8
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread: ; preds = %8, %1
   %.sroa.5.0 = phi i64 [ 16, %1 ], [ %12, %8 ]
@@ -3307,8 +3307,8 @@ define hidden { ptr, i64 } @_ZN6object4read5macho7section7Section4name17h60355e6
   %.0.i.i = inttoptr i64 %3 to ptr
   %4 = tail call { i64, ptr } %.0.i.i(i8 noundef 0, ptr noundef nonnull readonly align 1 %0, ptr noundef nonnull readonly %2), !noalias !580
   %5 = extractvalue { i64, ptr } %4, 0
-  %switch8.i.not = icmp eq i64 %5, 0
-  br i1 %switch8.i.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %8
+  %.not = icmp eq i64 %5, 0
+  br i1 %.not, label %_ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread, label %8
 
 _ZN6memchr4arch7generic6memchr21search_slice_with_raw17hed37a7d0ea39f1b0E.llvm.14695038267805529467.exit.thread: ; preds = %8, %1
   %.sroa.5.0 = phi i64 [ 16, %1 ], [ %12, %8 ]

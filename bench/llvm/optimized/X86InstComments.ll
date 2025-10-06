@@ -586,13 +586,13 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.preheader.i: ; preds = %8
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i: ; preds = %119, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.preheader.i
-  %.sroa.8.075.i = phi ptr [ %121, %119 ], [ %93, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.preheader.i ]
-  %.sroa.053.074.i = phi i64 [ %122, %119 ], [ %92, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.preheader.i ]
+  %.sroa.8.074.i = phi ptr [ %121, %119 ], [ %93, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.preheader.i ]
+  %.sroa.053.073.i = phi i64 [ %122, %119 ], [ %92, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.preheader.i ]
   br label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
 
 _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %98, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i
   %.01116.i.i.i = phi i64 [ %99, %98 ], [ 0, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i ]
-  %94 = getelementptr inbounds nuw i8, ptr %.sroa.8.075.i, i64 %.01116.i.i.i
+  %94 = getelementptr inbounds nuw i8, ptr %.sroa.8.074.i, i64 %.01116.i.i.i
   %95 = load i8, ptr %94, align 1, !tbaa !20
   %96 = add i8 %95, -100
   %97 = icmp ult i8 %96, -3
@@ -600,19 +600,19 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %98, %_ZNSt11char_tr
 
 98:                                               ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
   %99 = add i64 %.01116.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i64 %99, %.sroa.053.074.i
+  %exitcond.not.i.i.i = icmp eq i64 %99, %.sroa.053.073.i
   br i1 %exitcond.not.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i, !llvm.loop !37
 
 _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i: ; preds = %98, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
   %.2.i.i.i = phi i64 [ -1, %98 ], [ %.01116.i.i.i, %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i ]
-  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.053.074.i, i64 %.2.i.i.i)
-  %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.sroa.8.075.i, i64 noundef %.sroa.speculated.i.i) #9
+  %.sroa.speculated.i.i = call i64 @llvm.umin.i64(i64 %.sroa.053.073.i, i64 %.2.i.i.i)
+  %100 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull %.sroa.8.074.i, i64 noundef %.sroa.speculated.i.i) #9
   %101 = icmp eq i64 %.2.i.i.i, -1
   %.pre756 = load ptr, ptr %66, align 8, !tbaa !29
   br i1 %101, label %.thread69.i, label %102
 
 102:                                              ; preds = %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.8.075.i, i64 %.2.i.i.i
+  %103 = getelementptr inbounds nuw i8, ptr %.sroa.8.074.i, i64 %.2.i.i.i
   %104 = load i8, ptr %103, align 1, !tbaa !20
   %105 = sext i8 %104 to i64
   %106 = getelementptr %"class.llvm::StringRef", ptr %4, i64 %105
@@ -644,8 +644,8 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE13find_first_ofEPKcm.exit.i: ; pre
 
 119:                                              ; preds = %116, %115, %113
   %120 = add nuw i64 %.2.i.i.i, 1
-  %121 = getelementptr inbounds nuw i8, ptr %.sroa.8.075.i, i64 %120
-  %122 = sub i64 %.sroa.053.074.i, %120
+  %121 = getelementptr inbounds nuw i8, ptr %.sroa.8.074.i, i64 %120
+  %122 = sub i64 %.sroa.053.073.i, %120
   %123 = icmp eq i64 %122, 0
   br i1 %123, label %..thread69.i_crit_edge, label %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.preheader.i
 

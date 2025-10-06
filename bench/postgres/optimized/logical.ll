@@ -943,8 +943,8 @@ define dso_local void @DecodingContextFindStartpoint(ptr noundef %0) local_unnam
   %17 = load ptr, ptr %5, align 8
   %18 = call ptr @XLogReadRecord(ptr noundef %17, ptr noundef nonnull %2) #9
   %19 = load ptr, ptr %2, align 8
-  %.not23 = icmp eq ptr %19, null
-  br i1 %.not23, label %.lr.ph, label %._crit_edge
+  %.not22 = icmp eq ptr %19, null
+  br i1 %.not22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32

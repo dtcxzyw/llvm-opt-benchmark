@@ -3051,28 +3051,28 @@ join_relfile.exit:                                ; preds = %3, %.sink.split.i
 ; Function Attrs: nofree norecurse nounwind memory(argmem: read) uwtable
 define hidden range(i64 2, 1) i64 @_Py_find_basename(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
   %2 = tail call i64 @wcslen(ptr noundef %0) #18
-  %.not10 = icmp eq i64 %2, 0
-  br i1 %.not10, label %.loopexit, label %.lr.ph
+  %.not12 = icmp eq i64 %2, 0
+  br i1 %.not12, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %1, %8
-  %.0711 = phi i64 [ %9, %8 ], [ %2, %1 ]
-  %3 = getelementptr i32, ptr %0, i64 %.0711
+.lr.ph:                                           ; preds = %1, %6
+  %.0713 = phi i64 [ %7, %6 ], [ %2, %1 ]
+  %3 = getelementptr i32, ptr %0, i64 %.0713
   %4 = load i32, ptr %3, align 4, !tbaa !180
   %5 = icmp eq i32 %4, 47
-  br i1 %5, label %6, label %8
+  br i1 %5, label %8, label %6
 
 6:                                                ; preds = %.lr.ph
-  %7 = add i64 %.0711, 1
-  br label %.loopexit
-
-8:                                                ; preds = %.lr.ph
-  %9 = add i64 %.0711, -1
-  %.not = icmp eq i64 %9, 0
+  %7 = add i64 %.0713, -1
+  %.not = icmp eq i64 %7, 0
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !194
 
-.loopexit:                                        ; preds = %8, %1, %6
-  %spec.select = phi i64 [ %7, %6 ], [ 0, %1 ], [ 0, %8 ]
-  ret i64 %spec.select
+8:                                                ; preds = %.lr.ph
+  %9 = add i64 %.0713, 1
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %6, %1, %8
+  %10 = phi i64 [ %9, %8 ], [ 0, %1 ], [ 0, %6 ]
+  ret i64 %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable

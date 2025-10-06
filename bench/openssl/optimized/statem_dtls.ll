@@ -862,26 +862,26 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %104
 
 234:                                              ; preds = %231, %226, %219
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %.not7493.i.i = icmp eq i64 %199, 0
-  br i1 %.not7493.i.i, label %.thread.i.i, label %.lr.ph.i97.i
+  %.not7492.i.i = icmp eq i64 %199, 0
+  br i1 %.not7492.i.i, label %.thread.i.i, label %.lr.ph.i97.i
 
 .thread.i.i:                                      ; preds = %241, %234
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %dtls1_process_out_of_seq_message.exit.i
 
 .lr.ph.i97.i:                                     ; preds = %234, %241
-  %.05394.i.i = phi i64 [ %243, %241 ], [ %199, %234 ]
+  %.05393.i.i = phi i64 [ %243, %241 ], [ %199, %234 ]
   %235 = load ptr, ptr %17, align 8, !tbaa !118
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 128
   %237 = load ptr, ptr %236, align 8, !tbaa !119
-  %238 = call i64 @llvm.umin.i64(i64 %.05394.i.i, i64 256)
+  %238 = call i64 @llvm.umin.i64(i64 %.05393.i.i, i64 256)
   %239 = call i32 %237(ptr noundef nonnull %0, i8 noundef zeroext 22, ptr noundef null, ptr noundef nonnull %5, i64 noundef %238, i32 noundef 0, ptr noundef nonnull %4) #9
   %240 = icmp slt i32 %239, 1
   br i1 %240, label %.critedge.i.i, label %241
 
 241:                                              ; preds = %.lr.ph.i97.i
   %242 = load i64, ptr %4, align 8, !tbaa !98
-  %243 = sub i64 %.05394.i.i, %242
+  %243 = sub i64 %.05393.i.i, %242
   %.not74.i.i = icmp eq i64 %243, 0
   br i1 %.not74.i.i, label %.thread.i.i, label %.lr.ph.i97.i, !llvm.loop !128
 
@@ -905,9 +905,9 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %104
 
 252:                                              ; preds = %249
   %.not.i.i.i = icmp eq i64 %173, 0
-  br i1 %.not.i.i.i, label %.thread81.i.i, label %254
+  br i1 %.not.i.i.i, label %.thread80.i.i, label %254
 
-.thread81.i.i:                                    ; preds = %252
+.thread80.i.i:                                    ; preds = %252
   %253 = getelementptr inbounds nuw i8, ptr %250, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %253, i8 0, i64 16, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %250, ptr noundef nonnull readonly align 8 dereferenceable(64) %8, i64 64, i1 false)
@@ -938,7 +938,7 @@ dtls1_retrieve_buffered_fragment.exit.i:          ; preds = %104
   %or.cond76.i.i = select i1 %265, i1 %.not72.i.i, i1 false
   br i1 %or.cond76.i.i, label %267, label %275
 
-267:                                              ; preds = %258, %.thread81.i.i
+267:                                              ; preds = %258, %.thread80.i.i
   %268 = call ptr @pitem_new(ptr noundef nonnull %3, ptr noundef nonnull %250) #9
   %269 = icmp eq ptr %268, null
   br i1 %269, label %275, label %270

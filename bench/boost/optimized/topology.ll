@@ -9024,8 +9024,8 @@ define linkonce_odr hidden void @_ZN5boost9algorithm13trim_right_ifINSt7__cxx111
   %23 = getelementptr inbounds nuw i16, ptr %21, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !278
   %25 = and i16 %24, %19
-  %.not7.i.i = icmp eq i16 %25, 0
-  br i1 %.not7.i.i, label %27, label %14, !llvm.loop !280
+  %.not9.i.i = icmp eq i16 %25, 0
+  br i1 %.not9.i.i, label %27, label %14, !llvm.loop !280
 
 .body:                                            ; preds = %15
   %26 = landingpad { ptr, i32 }
@@ -9035,16 +9035,16 @@ define linkonce_odr hidden void @_ZN5boost9algorithm13trim_right_ifINSt7__cxx111
   resume { ptr, i32 } %26
 
 27:                                               ; preds = %.noexc.i, %14
-  %spec.select.i.i = phi ptr [ %5, %14 ], [ %.sroa.0.0.i.i, %.noexc.i ]
+  %28 = phi ptr [ %5, %14 ], [ %.sroa.0.0.i.i, %.noexc.i ]
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #32
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %28 = load ptr, ptr %0, align 8, !tbaa !10
-  %29 = ptrtoint ptr %spec.select.i.i to i64
+  %29 = load ptr, ptr %0, align 8, !tbaa !10
   %30 = ptrtoint ptr %28 to i64
-  %31 = sub i64 %29, %30
-  store i64 %31, ptr %6, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 %31
-  store i8 0, ptr %32, align 1, !tbaa !12
+  %31 = ptrtoint ptr %29 to i64
+  %32 = sub i64 %30, %31
+  store i64 %32, ptr %6, align 8, !tbaa !13
+  %33 = getelementptr inbounds nuw i8, ptr %29, i64 %32
+  store i8 0, ptr %33, align 1, !tbaa !12
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #32
   ret void
 }

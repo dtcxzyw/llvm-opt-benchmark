@@ -764,19 +764,19 @@ gv_calloc.exit67.thread.i:                        ; preds = %._crit_edge.i12
   %336 = ashr exact i64 %sext.i, 32
   %337 = getelementptr inbounds %struct.vtx_data, ptr %316, i64 %336
   %338 = load i64, ptr %337, align 8, !tbaa !37
-  %.not32.i.i = icmp eq i64 %338, 0
+  %.not30.i.i = icmp eq i64 %338, 0
   %.phi.trans.insert.i.i13 = getelementptr inbounds nuw i8, ptr %337, i64 8
   %.pre.i.i14 = load ptr, ptr %.phi.trans.insert.i.i13, align 8, !tbaa !42
-  br i1 %.not32.i.i, label %._crit_edge.i.i16, label %.lr.ph.i.i
+  br i1 %.not30.i.i, label %._crit_edge.i.i16, label %.lr.ph.i.i
 
 339:                                              ; preds = %.lr.ph.i.i
-  %340 = add nuw i64 %.02330.i.i, 1
+  %340 = add nuw i64 %.02328.i.i, 1
   %exitcond.not.i.i15 = icmp eq i64 %340, %338
   br i1 %exitcond.not.i.i15, label %._crit_edge.i.i16, label %.lr.ph.i.i, !llvm.loop !44
 
 .lr.ph.i.i:                                       ; preds = %328, %339
-  %.02330.i.i = phi i64 [ %340, %339 ], [ 0, %328 ]
-  %341 = getelementptr inbounds nuw i32, ptr %.pre.i.i14, i64 %.02330.i.i
+  %.02328.i.i = phi i64 [ %340, %339 ], [ 0, %328 ]
+  %341 = getelementptr inbounds nuw i32, ptr %.pre.i.i14, i64 %.02328.i.i
   %342 = load i32, ptr %341, align 4, !tbaa !30
   %343 = icmp eq i32 %342, %335
   br i1 %343, label %add_edge.exit.i, label %339

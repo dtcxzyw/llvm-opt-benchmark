@@ -2717,7 +2717,7 @@ define linkonce_odr hidden void @_ZN5nlsat7explain3imp8simplifyERNS_21scoped_lit
 6:                                                ; preds = %44, %3
   %7 = load ptr, ptr %4, align 8, !tbaa !55
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22.thread, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit
+  br i1 %8, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21.thread, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit
 
 _ZNK5nlsat21scoped_literal_vector5emptyEv.exit:   ; preds = %6
   %9 = getelementptr inbounds i8, ptr %7, i64 -4
@@ -2797,19 +2797,19 @@ _ZN5nlsat7explain3imp9select_eqERNS_21scoped_literal_vectorEj.exit: ; preds = %3
 _ZNK5nlsat21scoped_literal_vector5emptyEv.exit.thread: ; preds = %44, %_ZN5nlsat7explain3imp9select_eqERNS_21scoped_literal_vectorEj.exit, %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit
   %.pre.pr = load ptr, ptr %4, align 8, !tbaa !55
   %46 = icmp eq ptr %.pre.pr, null
-  br i1 %46, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22.thread, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22
+  br i1 %46, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21.thread, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21
 
-_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22: ; preds = %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit.thread, %62
+_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21: ; preds = %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit.thread, %62
   %47 = phi ptr [ %67, %62 ], [ %.pre.pr, %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit.thread ]
   %48 = getelementptr inbounds i8, ptr %47, i64 -4
   %49 = load i32, ptr %48, align 4, !tbaa !61
   %50 = icmp eq i32 %49, 0
-  br i1 %50, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22.thread, label %51
+  br i1 %50, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21.thread, label %51
 
-51:                                               ; preds = %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22
+51:                                               ; preds = %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21
   %52 = tail call noundef ptr @_ZN5nlsat7explain3imp21select_lower_stage_eqERNS_21scoped_literal_vectorEj(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %2)
   %53 = icmp eq ptr %52, null
-  br i1 %53, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22.thread, label %54
+  br i1 %53, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21.thread, label %54
 
 54:                                               ; preds = %51
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 24
@@ -2833,9 +2833,9 @@ _ZNK5nlsat21scoped_literal_vector5emptyEv.exit22: ; preds = %_ZNK5nlsat21scoped_
   tail call void @_ZN5nlsat7explain3imp11add_literalEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(296) %0, i32 %66)
   %67 = load ptr, ptr %4, align 8, !tbaa !55
   %68 = icmp eq ptr %67, null
-  br i1 %68, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22.thread, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22
+  br i1 %68, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21.thread, label %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21
 
-_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22.thread: ; preds = %6, %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit22, %62, %51, %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit.thread
+_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21.thread: ; preds = %6, %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit21, %62, %51, %_ZNK5nlsat21scoped_literal_vector5emptyEv.exit.thread
   ret void
 }
 

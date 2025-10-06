@@ -391,17 +391,17 @@ define internal fastcc range(i32 0, 2) i32 @use_ecc(ptr noundef %0, i32 noundef 
 9:                                                ; preds = %3
   %10 = tail call ptr @SSL_get1_supported_ciphers(ptr noundef nonnull %0) #10
   %11 = tail call i32 @OPENSSL_sk_num(ptr noundef %10) #10
-  %.not4547 = icmp sgt i32 %11, 0
-  br i1 %.not4547, label %.lr.ph, label %.critedge46
+  %.not4446 = icmp sgt i32 %11, 0
+  br i1 %.not4446, label %.lr.ph, label %.critedge45
 
 12:                                               ; preds = %22
-  %13 = add nuw nsw i32 %.02848, 1
+  %13 = add nuw nsw i32 %.02847, 1
   %exitcond.not = icmp eq i32 %13, %11
-  br i1 %exitcond.not, label %.critedge46, label %.lr.ph, !llvm.loop !85
+  br i1 %exitcond.not, label %.critedge45, label %.lr.ph, !llvm.loop !85
 
 .lr.ph:                                           ; preds = %9, %12
-  %.02848 = phi i32 [ %13, %12 ], [ 0, %9 ]
-  %14 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %.02848) #10
+  %.02847 = phi i32 [ %13, %12 ], [ 0, %9 ]
+  %14 = tail call ptr @OPENSSL_sk_value(ptr noundef %10, i32 noundef %.02847) #10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 28
   %16 = load i32, ptr %15, align 4, !tbaa !87
   %17 = and i32 %16, 132
@@ -425,35 +425,35 @@ define internal fastcc range(i32 0, 2) i32 @use_ecc(ptr noundef %0, i32 noundef 
   tail call void @OPENSSL_sk_free(ptr noundef %10) #10
   call void @tls1_get_supported_groups(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #10
   %26 = load i64, ptr %5, align 8, !tbaa !82
-  %.not53 = icmp eq i64 %26, 0
-  br i1 %.not53, label %.loopexit, label %.lr.ph50
+  %.not52 = icmp eq i64 %26, 0
+  br i1 %.not52, label %.loopexit, label %.lr.ph49
 
-.lr.ph50:                                         ; preds = %.thread.thread, %.critedge
-  %.03449 = phi i64 [ %33, %.critedge ], [ 0, %.thread.thread ]
+.lr.ph49:                                         ; preds = %.thread.thread, %.critedge
+  %.03448 = phi i64 [ %33, %.critedge ], [ 0, %.thread.thread ]
   %27 = load ptr, ptr %4, align 8, !tbaa !83
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %.03449
+  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %.03448
   %29 = load i16, ptr %28, align 2, !tbaa !91
   %30 = call i32 @tls_valid_group(ptr noundef nonnull %0, i16 noundef zeroext %29, i32 noundef %1, i32 noundef %2, i32 noundef 1, ptr noundef null) #10
   %.not37 = icmp eq i32 %30, 0
   br i1 %.not37, label %.critedge, label %31
 
-31:                                               ; preds = %.lr.ph50
+31:                                               ; preds = %.lr.ph49
   %32 = call i32 @tls_group_allowed(ptr noundef nonnull %0, i16 noundef zeroext %29, i32 noundef 131076) #10
   %.not38 = icmp eq i32 %32, 0
   br i1 %.not38, label %.critedge, label %.loopexit
 
-.critedge:                                        ; preds = %31, %.lr.ph50
-  %33 = add nuw i64 %.03449, 1
+.critedge:                                        ; preds = %31, %.lr.ph49
+  %33 = add nuw i64 %.03448, 1
   %34 = load i64, ptr %5, align 8, !tbaa !82
   %35 = icmp ult i64 %33, %34
-  br i1 %35, label %.lr.ph50, label %.loopexit, !llvm.loop !92
+  br i1 %35, label %.lr.ph49, label %.loopexit, !llvm.loop !92
 
-.critedge46:                                      ; preds = %12, %9
+.critedge45:                                      ; preds = %12, %9
   tail call void @OPENSSL_sk_free(ptr noundef %10) #10
   br label %.loopexit
 
-.loopexit:                                        ; preds = %31, %.critedge, %.thread.thread, %.critedge46, %3
-  %.0 = phi i32 [ 0, %3 ], [ 0, %.critedge46 ], [ 0, %.thread.thread ], [ 1, %31 ], [ 0, %.critedge ]
+.loopexit:                                        ; preds = %31, %.critedge, %.thread.thread, %.critedge45, %3
+  %.0 = phi i32 [ 0, %3 ], [ 0, %.critedge45 ], [ 0, %.thread.thread ], [ 1, %31 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0
@@ -3092,19 +3092,19 @@ define range(i32 0, 2) i32 @tls_parse_stoc_sct(ptr noundef %0, ptr noundef captu
 
 10:                                               ; preds = %7
   %11 = getelementptr i8, ptr %1, i64 8
-  %.val40 = load i64, ptr %11, align 8, !tbaa !174
+  %.val39 = load i64, ptr %11, align 8, !tbaa !174
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2608
   %13 = load ptr, ptr %12, align 8, !tbaa !187
   tail call void @CRYPTO_free(ptr noundef %13, ptr noundef nonnull @.str, i32 noundef 1533) #10
   store ptr null, ptr %12, align 8, !tbaa !187
-  %14 = trunc i64 %.val40 to i16
+  %14 = trunc i64 %.val39 to i16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2616
   store i16 %14, ptr %15, align 8, !tbaa !188
-  %.not36 = icmp eq i64 %.val40, 0
+  %.not36 = icmp eq i64 %.val39, 0
   br i1 %.not36, label %.thread, label %16
 
 16:                                               ; preds = %10
-  %17 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.val40, ptr noundef nonnull @.str, i32 noundef 1538) #10
+  %17 = tail call noalias ptr @CRYPTO_malloc(i64 noundef %.val39, ptr noundef nonnull @.str, i32 noundef 1538) #10
   store ptr %17, ptr %12, align 8, !tbaa !187
   %18 = icmp eq ptr %17, null
   br i1 %18, label %19, label %20
@@ -3118,15 +3118,15 @@ define range(i32 0, 2) i32 @tls_parse_stoc_sct(ptr noundef %0, ptr noundef captu
 
 20:                                               ; preds = %16
   %.val.i.i = load i64, ptr %11, align 8, !tbaa !174
-  %21 = icmp ult i64 %.val.i.i, %.val40
+  %21 = icmp ult i64 %.val.i.i, %.val39
   br i1 %21, label %25, label %PACKET_copy_bytes.exit
 
 PACKET_copy_bytes.exit:                           ; preds = %20
   %22 = load ptr, ptr %1, align 8, !tbaa !176
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %22, i64 %.val40, i1 false)
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.val40
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %17, ptr align 1 %22, i64 %.val39, i1 false)
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %.val39
   store ptr %23, ptr %1, align 8, !tbaa !176
-  %24 = sub nuw i64 %.val.i.i, %.val40
+  %24 = sub nuw i64 %.val.i.i, %.val39
   store i64 %24, ptr %11, align 8, !tbaa !174
   br label %.thread
 
@@ -3145,27 +3145,27 @@ PACKET_copy_bytes.exit:                           ; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 128
   %33 = tail call ptr @custom_ext_find(ptr noundef nonnull %32, i32 noundef %29, i32 noundef 18, ptr noundef null) #10
   %34 = icmp eq ptr %33, null
-  br i1 %34, label %.thread46, label %35
+  br i1 %34, label %.thread44, label %35
 
-.thread46:                                        ; preds = %26
+.thread44:                                        ; preds = %26
   tail call void @ERR_new() #10
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1560, ptr noundef nonnull @__func__.tls_parse_stoc_sct) #10
   tail call void (ptr, i32, i32, ptr, ...) @ossl_statem_fatal(ptr noundef nonnull %0, i32 noundef 110, i32 noundef 110, ptr noundef null) #10
   br label %38
 
 35:                                               ; preds = %26
-  %.val41 = load ptr, ptr %1, align 8, !tbaa !176
+  %.val40 = load ptr, ptr %1, align 8, !tbaa !176
   %36 = getelementptr i8, ptr %1, i64 8
   %.val = load i64, ptr %36, align 8, !tbaa !174
-  %37 = tail call i32 @custom_ext_parse(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 18, ptr noundef %.val41, i64 noundef %.val, ptr noundef %3, i64 noundef %4) #10
+  %37 = tail call i32 @custom_ext_parse(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 18, ptr noundef %.val40, i64 noundef %.val, ptr noundef %3, i64 noundef %4) #10
   %.not35.not = icmp eq i32 %37, 0
   br i1 %.not35.not, label %38, label %.thread
 
 .thread:                                          ; preds = %10, %PACKET_copy_bytes.exit, %35
   br label %38
 
-38:                                               ; preds = %.thread46, %19, %25, %35, %5, %.thread
-  %.0 = phi i32 [ 1, %.thread ], [ 0, %35 ], [ 1, %5 ], [ 0, %25 ], [ 0, %19 ], [ 0, %.thread46 ]
+38:                                               ; preds = %.thread44, %19, %25, %35, %5, %.thread
+  %.0 = phi i32 [ 1, %.thread ], [ 0, %35 ], [ 1, %5 ], [ 0, %25 ], [ 0, %19 ], [ 0, %.thread44 ]
   ret i32 %.0
 }
 

@@ -778,23 +778,23 @@ declare ptr @_PyPathConfig_GetGlobalModuleSearchPath() local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @funcs_to_dict(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr @getpath_methods, align 16, !tbaa !27
-  %.not34 = icmp eq ptr %3, null
-  br i1 %.not34, label %._crit_edge, label %.lr.ph
+  %.not32 = icmp eq ptr %3, null
+  br i1 %.not32, label %.critedge, label %.lr.ph
 
 4:                                                ; preds = %Py_DECREF.exit29
-  %5 = getelementptr i8, ptr %.01935, i64 32
+  %5 = getelementptr i8, ptr %.01933, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !27
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !29
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !29
 
 .lr.ph:                                           ; preds = %2, %4
-  %.01935 = phi ptr [ %5, %4 ], [ @getpath_methods, %2 ]
-  %7 = tail call ptr @PyCMethod_New(ptr noundef nonnull %.01935, ptr noundef null, ptr noundef null, ptr noundef null) #13
+  %.01933 = phi ptr [ %5, %4 ], [ @getpath_methods, %2 ]
+  %7 = tail call ptr @PyCMethod_New(ptr noundef nonnull %.01933, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %.not24 = icmp eq ptr %7, null
   br i1 %.not24, label %.critedge.thread, label %8
 
 8:                                                ; preds = %.lr.ph
-  %9 = load ptr, ptr %.01935, align 8, !tbaa !27
+  %9 = load ptr, ptr %.01933, align 8, !tbaa !27
   %10 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %0, ptr noundef %9, ptr noundef nonnull %7) #13
   %11 = icmp sgt i32 %10, -1
   %12 = load i32, ptr %7, align 8, !tbaa !16
@@ -814,14 +814,14 @@ define internal fastcc range(i32 0, 2) i32 @funcs_to_dict(ptr noundef nonnull %0
 Py_DECREF.exit29:                                 ; preds = %8, %13, %16
   br i1 %11, label %4, label %.critedge.thread
 
-._crit_edge:                                      ; preds = %4, %2
+.critedge:                                        ; preds = %4, %2
   %.not25 = icmp eq i32 %1, 0
   %17 = select i1 %.not25, ptr @getpath_nowarn_method, ptr @getpath_warn_method
   %18 = tail call ptr @PyCMethod_New(ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef null) #13
   %.not26 = icmp eq ptr %18, null
   br i1 %.not26, label %.critedge.thread, label %19
 
-19:                                               ; preds = %._crit_edge
+19:                                               ; preds = %.critedge
   %20 = load ptr, ptr %17, align 8, !tbaa !27
   %21 = tail call i32 @PyDict_SetItemString(ptr noundef nonnull %0, ptr noundef %20, ptr noundef nonnull %18) #13
   %22 = icmp sgt i32 %21, -1
@@ -843,8 +843,8 @@ Py_DECREF.exit:                                   ; preds = %19, %24, %27
   %.27 = zext i1 %22 to i32
   br label %.critedge.thread
 
-.critedge.thread:                                 ; preds = %.lr.ph, %Py_DECREF.exit29, %._crit_edge, %Py_DECREF.exit
-  %.3 = phi i32 [ 0, %._crit_edge ], [ %.27, %Py_DECREF.exit ], [ 0, %Py_DECREF.exit29 ], [ 0, %.lr.ph ]
+.critedge.thread:                                 ; preds = %.lr.ph, %Py_DECREF.exit29, %.critedge, %Py_DECREF.exit
+  %.3 = phi i32 [ 0, %.critedge ], [ %.27, %Py_DECREF.exit ], [ 0, %Py_DECREF.exit29 ], [ 0, %.lr.ph ]
   ret i32 %.3
 }
 
@@ -1564,8 +1564,8 @@ Py_DECREF.exit109:                                ; preds = %32, %34, %37
 
 .preheader:                                       ; preds = %39
   %42 = call ptr @wcschr(ptr noundef nonnull %41, i32 noundef 10) #14
-  %.not97133 = icmp eq ptr %42, null
-  br i1 %.not97133, label %._crit_edge.thread, label %.lr.ph135
+  %.not97132 = icmp eq ptr %42, null
+  br i1 %.not97132, label %._crit_edge.thread, label %.lr.ph134
 
 43:                                               ; preds = %39
   %44 = load i32, ptr %15, align 8, !tbaa !16
@@ -1586,19 +1586,19 @@ Py_DECREF.exit107:                                ; preds = %43, %45, %48
   %49 = call ptr @PyErr_NoMemory() #13
   br label %99
 
-.lr.ph135:                                        ; preds = %.preheader, %Py_DECREF.exit105
+.lr.ph134:                                        ; preds = %.preheader, %Py_DECREF.exit105
   %50 = phi ptr [ %82, %Py_DECREF.exit105 ], [ %42, %.preheader ]
-  %.059134 = phi ptr [ %81, %Py_DECREF.exit105 ], [ %41, %.preheader ]
+  %.059133 = phi ptr [ %81, %Py_DECREF.exit105 ], [ %41, %.preheader ]
   %51 = ptrtoint ptr %50 to i64
-  %52 = ptrtoint ptr %.059134 to i64
+  %52 = ptrtoint ptr %.059133 to i64
   %53 = sub i64 %51, %52
   %54 = ashr exact i64 %53, 2
   %55 = icmp sgt i64 %54, -1
   br i1 %55, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %.lr.ph135, %.critedge2
-  %.062130 = phi i64 [ %58, %.critedge2 ], [ %54, %.lr.ph135 ]
-  %56 = getelementptr i32, ptr %.059134, i64 %.062130
+.lr.ph:                                           ; preds = %.lr.ph134, %.critedge2
+  %.062129 = phi i64 [ %58, %.critedge2 ], [ %54, %.lr.ph134 ]
+  %56 = getelementptr i32, ptr %.059133, i64 %.062129
   %57 = load i32, ptr %56, align 4, !tbaa !12
   switch i32 %57, label %.critedge [
     i32 10, label %.critedge2
@@ -1606,15 +1606,15 @@ Py_DECREF.exit107:                                ; preds = %43, %45, %48
   ]
 
 .critedge2:                                       ; preds = %.lr.ph, %.lr.ph
-  %58 = add nsw i64 %.062130, -1
-  %59 = icmp sgt i64 %.062130, 0
+  %58 = add nsw i64 %.062129, -1
+  %59 = icmp sgt i64 %.062129, 0
   br i1 %59, label %.lr.ph, label %.critedge, !llvm.loop !51
 
-.critedge:                                        ; preds = %.critedge2, %.lr.ph, %.lr.ph135
-  %.062.lcssa = phi i64 [ %54, %.lr.ph135 ], [ %.062130, %.lr.ph ], [ -1, %.critedge2 ]
+.critedge:                                        ; preds = %.critedge2, %.lr.ph, %.lr.ph134
+  %.062.lcssa = phi i64 [ %54, %.lr.ph134 ], [ %.062129, %.lr.ph ], [ -1, %.critedge2 ]
   %60 = call i64 @llvm.smax.i64(i64 %.062.lcssa, i64 -1)
   %61 = add nsw i64 %60, 1
-  %62 = call ptr @PyUnicode_FromWideChar(ptr noundef %.059134, i64 noundef %61) #13
+  %62 = call ptr @PyUnicode_FromWideChar(ptr noundef %.059133, i64 noundef %61) #13
   %.not98 = icmp eq ptr %62, null
   br i1 %.not98, label %.critedge.split, label %63
 
@@ -1670,20 +1670,20 @@ Py_DECREF.exit105:                                ; preds = %80, %77, %76
   %81 = getelementptr i8, ptr %50, i64 4
   %82 = call ptr @wcschr(ptr noundef %81, i32 noundef 10) #14
   %.not97 = icmp eq ptr %82, null
-  br i1 %.not97, label %._crit_edge, label %.lr.ph135
+  br i1 %.not97, label %._crit_edge, label %.lr.ph134
 
 ._crit_edge:                                      ; preds = %Py_DECREF.exit105
-  %.not137 = icmp eq ptr %81, null
-  br i1 %.not137, label %Py_XDECREF.exit120, label %._crit_edge.thread
+  %.not136 = icmp eq ptr %81, null
+  br i1 %.not136, label %Py_XDECREF.exit120, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.preheader, %._crit_edge
-  %.059.lcssa162 = phi ptr [ %81, %._crit_edge ], [ %41, %.preheader ]
-  %83 = load i32, ptr %.059.lcssa162, align 4, !tbaa !12
+  %.059.lcssa161 = phi ptr [ %81, %._crit_edge ], [ %41, %.preheader ]
+  %83 = load i32, ptr %.059.lcssa161, align 4, !tbaa !12
   %.not100 = icmp eq i32 %83, 0
   br i1 %.not100, label %Py_XDECREF.exit120, label %84
 
 84:                                               ; preds = %._crit_edge.thread
-  %85 = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %.059.lcssa162, i64 noundef -1) #13
+  %85 = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %.059.lcssa161, i64 noundef -1) #13
   %.not101 = icmp eq ptr %85, null
   br i1 %.not101, label %.split80, label %86
 
@@ -1760,19 +1760,19 @@ define internal ptr @getpath_realpath(ptr readnone captures(none) %0, ptr nounde
 9:                                                ; preds = %6
   %10 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %8) #13
   call void @PyMem_Free(ptr noundef nonnull %8) #13
-  %.not4162 = icmp eq ptr %10, null
-  br i1 %.not4162, label %.thread51, label %.lr.ph
+  %.not4161 = icmp eq ptr %10, null
+  br i1 %.not4161, label %.thread50, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9, %27
-  %.164 = phi ptr [ %.4, %27 ], [ %10, %9 ]
-  %.02763 = phi i32 [ %28, %27 ], [ 0, %9 ]
+  %.163 = phi ptr [ %.4, %27 ], [ %10, %9 ]
+  %.02762 = phi i32 [ %28, %27 ], [ 0, %9 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %11 = call i32 @_Py_wreadlink(ptr noundef nonnull %.164, ptr noundef nonnull %4, i64 noundef 4097) #13
+  %11 = call i32 @_Py_wreadlink(ptr noundef nonnull %.163, ptr noundef nonnull %4, i64 noundef 4097) #13
   %12 = icmp eq i32 %11, -1
-  br i1 %12, label %.thread56, label %14
+  br i1 %12, label %.thread55, label %14
 
-.thread56:                                        ; preds = %.lr.ph
-  %13 = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %.164, i64 noundef -1) #13
+.thread55:                                        ; preds = %.lr.ph
+  %13 = call ptr @PyUnicode_FromWideChar(ptr noundef nonnull %.163, i64 noundef -1) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %32
 
@@ -1782,12 +1782,12 @@ define internal ptr @getpath_realpath(ptr readnone captures(none) %0, ptr nounde
   br i1 %.not42, label %18, label %16
 
 16:                                               ; preds = %14
-  call void @PyMem_RawFree(ptr noundef nonnull %.164) #13
+  call void @PyMem_RawFree(ptr noundef nonnull %.163) #13
   %17 = call ptr @_PyMem_RawWcsdup(ptr noundef nonnull %4) #13
   br label %26
 
 18:                                               ; preds = %14
-  %19 = call ptr @wcsrchr(ptr noundef nonnull %.164, i32 noundef 47) #14
+  %19 = call ptr @wcsrchr(ptr noundef nonnull %.163, i32 noundef 47) #14
   %.not43 = icmp eq ptr %19, null
   br i1 %.not43, label %21, label %20
 
@@ -1796,7 +1796,7 @@ define internal ptr @getpath_realpath(ptr readnone captures(none) %0, ptr nounde
   br label %21
 
 21:                                               ; preds = %20, %18
-  %22 = call ptr @_Py_join_relfile(ptr noundef nonnull %.164, ptr noundef nonnull %4) #13
+  %22 = call ptr @_Py_join_relfile(ptr noundef nonnull %.163, ptr noundef nonnull %4) #13
   %.not44 = icmp eq ptr %22, null
   br i1 %.not44, label %25, label %23
 
@@ -1806,34 +1806,34 @@ define internal ptr @getpath_realpath(ptr readnone captures(none) %0, ptr nounde
 
 25:                                               ; preds = %23, %21
   %.025 = phi ptr [ %24, %23 ], [ null, %21 ]
-  call void @PyMem_RawFree(ptr noundef nonnull %.164) #13
+  call void @PyMem_RawFree(ptr noundef nonnull %.163) #13
   br label %26
 
 26:                                               ; preds = %25, %16
   %.4 = phi ptr [ %17, %16 ], [ %.025, %25 ]
-  %exitcond = icmp eq i32 %.02763, 39
+  %exitcond = icmp eq i32 %.02762, 39
   br i1 %exitcond, label %29, label %27
 
 27:                                               ; preds = %26
-  %28 = add nuw nsw i32 %.02763, 1
+  %28 = add nuw nsw i32 %.02762, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not41 = icmp eq ptr %.4, null
-  br i1 %.not41, label %.thread51, label %.lr.ph
+  br i1 %.not41, label %.thread50, label %.lr.ph
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr @PyExc_OSError, align 8, !tbaa !31
   call void @PyErr_SetString(ptr noundef %30, ptr noundef nonnull @.str.57) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not45 = icmp eq ptr %.4, null
-  br i1 %.not45, label %.thread51, label %32
+  br i1 %.not45, label %.thread50, label %32
 
-.thread51:                                        ; preds = %27, %9, %29
+.thread50:                                        ; preds = %27, %9, %29
   %31 = call ptr @PyErr_NoMemory() #13
   br label %32
 
-32:                                               ; preds = %.thread56, %29, %.thread51, %6
-  %.029 = phi ptr [ null, %29 ], [ null, %.thread51 ], [ null, %6 ], [ %13, %.thread56 ]
-  %.026 = phi ptr [ %.4, %29 ], [ null, %.thread51 ], [ null, %6 ], [ %.164, %.thread56 ]
+32:                                               ; preds = %.thread55, %29, %.thread50, %6
+  %.029 = phi ptr [ null, %29 ], [ null, %.thread50 ], [ null, %6 ], [ %13, %.thread55 ]
+  %.026 = phi ptr [ %.4, %29 ], [ null, %.thread50 ], [ null, %6 ], [ %.163, %.thread55 ]
   call void @PyMem_RawFree(ptr noundef %.026) #13
   br label %33
 

@@ -328,29 +328,29 @@ listdelrec.exit:                                  ; preds = %28
   store ptr %33, ptr %31, align 8, !tbaa !15
   %34 = load i32, ptr %0, align 8
   %35 = and i32 %34, 3
-  %switch = icmp eq i32 %35, 0
-  br i1 %switch, label %36, label %41
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %42
 
-36:                                               ; preds = %listdelrec.exit
-  %37 = icmp eq ptr %.val, %.021.i
-  br i1 %37, label %38, label %objdelrec.exit
+37:                                               ; preds = %listdelrec.exit
+  %38 = icmp eq ptr %.val, %.021.i
+  br i1 %38, label %39, label %objdelrec.exit
 
-38:                                               ; preds = %36
-  %39 = icmp eq ptr %33, %.021.i
-  %..i = select i1 %39, ptr null, ptr %33
+39:                                               ; preds = %37
+  %40 = icmp eq ptr %33, %.021.i
+  %..i = select i1 %40, ptr null, ptr %33
   store ptr %..i, ptr %4, align 8, !tbaa !3
-  %40 = and i32 %34, -8
-  store i32 %40, ptr %0, align 8
+  %41 = and i32 %34, -8
+  store i32 %41, ptr %0, align 8
   br label %objdelrec.exit
 
-41:                                               ; preds = %listdelrec.exit
-  %42 = tail call ptr @agroot(ptr noundef %3) #11
-  %43 = tail call i32 @agapply(ptr noundef %42, ptr noundef nonnull %0, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.021.i, i32 noundef 0) #11
+42:                                               ; preds = %listdelrec.exit
+  %43 = tail call ptr @agroot(ptr noundef %3) #11
+  %44 = tail call i32 @agapply(ptr noundef %43, ptr noundef nonnull %0, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.021.i, i32 noundef 0) #11
   br label %objdelrec.exit
 
-objdelrec.exit:                                   ; preds = %38, %36, %41
-  %44 = load ptr, ptr %.021.i, align 8, !tbaa !12
-  %45 = tail call i32 @agstrfree(ptr noundef %3, ptr noundef %44, i1 noundef zeroext false) #11
+objdelrec.exit:                                   ; preds = %39, %37, %42
+  %45 = load ptr, ptr %.021.i, align 8, !tbaa !12
+  %46 = tail call i32 @agstrfree(ptr noundef %3, ptr noundef %45, i1 noundef zeroext false) #11
   tail call void @free(ptr noundef nonnull %.021.i) #11
   br label %aggetrec.exit
 
@@ -517,13 +517,13 @@ define void @agclean(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnam
   br i1 %.not.us, label %.loopexit19, label %.lr.ph26.split.us, !llvm.loop !24
 
 .lr.ph26.split:                                   ; preds = %.lr.ph26, %.loopexit
-  %.01725 = phi ptr [ %56, %.loopexit ], [ %7, %.lr.ph26 ]
+  %.01725 = phi ptr [ %57, %.loopexit ], [ %7, %.lr.ph26 ]
   %11 = tail call ptr @agfstout(ptr noundef %0, ptr noundef nonnull %.01725) #11
   %.not1821 = icmp eq ptr %11, null
   br i1 %.not1821, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph26.split, %agdelrec.exit
-  %.022 = phi ptr [ %55, %agdelrec.exit ], [ %11, %.lr.ph26.split ]
+  %.022 = phi ptr [ %56, %agdelrec.exit ], [ %11, %.lr.ph26.split ]
   %12 = tail call ptr @agraphof(ptr noundef nonnull %.022) #11
   %13 = getelementptr inbounds nuw i8, ptr %.022, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !3
@@ -591,40 +591,40 @@ listdelrec.exit.i:                                ; preds = %37
   store ptr %42, ptr %40, align 8, !tbaa !15
   %43 = load i32, ptr %.022, align 8
   %44 = and i32 %43, 3
-  %switch.i = icmp eq i32 %44, 0
-  br i1 %switch.i, label %45, label %50
+  %45 = icmp eq i32 %44, 0
+  br i1 %45, label %46, label %51
 
-45:                                               ; preds = %listdelrec.exit.i
-  %46 = icmp eq ptr %.val.i, %.021.i.i
-  br i1 %46, label %47, label %objdelrec.exit.i
+46:                                               ; preds = %listdelrec.exit.i
+  %47 = icmp eq ptr %.val.i, %.021.i.i
+  br i1 %47, label %48, label %objdelrec.exit.i
 
-47:                                               ; preds = %45
-  %48 = icmp eq ptr %42, %.021.i.i
-  %..i.i = select i1 %48, ptr null, ptr %42
+48:                                               ; preds = %46
+  %49 = icmp eq ptr %42, %.021.i.i
+  %..i.i = select i1 %49, ptr null, ptr %42
   store ptr %..i.i, ptr %13, align 8, !tbaa !3
-  %49 = and i32 %43, -8
-  store i32 %49, ptr %.022, align 8
+  %50 = and i32 %43, -8
+  store i32 %50, ptr %.022, align 8
   br label %objdelrec.exit.i
 
-50:                                               ; preds = %listdelrec.exit.i
-  %51 = tail call ptr @agroot(ptr noundef %12) #11
-  %52 = tail call i32 @agapply(ptr noundef %51, ptr noundef nonnull %.022, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.021.i.i, i32 noundef 0) #11
+51:                                               ; preds = %listdelrec.exit.i
+  %52 = tail call ptr @agroot(ptr noundef %12) #11
+  %53 = tail call i32 @agapply(ptr noundef %52, ptr noundef nonnull %.022, ptr noundef nonnull @objdelrec, ptr noundef nonnull %.021.i.i, i32 noundef 0) #11
   br label %objdelrec.exit.i
 
-objdelrec.exit.i:                                 ; preds = %50, %47, %45
-  %53 = load ptr, ptr %.021.i.i, align 8, !tbaa !12
-  %54 = tail call i32 @agstrfree(ptr noundef %12, ptr noundef %53, i1 noundef zeroext false) #11
+objdelrec.exit.i:                                 ; preds = %51, %48, %46
+  %54 = load ptr, ptr %.021.i.i, align 8, !tbaa !12
+  %55 = tail call i32 @agstrfree(ptr noundef %12, ptr noundef %54, i1 noundef zeroext false) #11
   tail call void @free(ptr noundef nonnull %.021.i.i) #11
   br label %agdelrec.exit
 
 agdelrec.exit:                                    ; preds = %15, %20, %objdelrec.exit.i
-  %55 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.022) #11
-  %.not18 = icmp eq ptr %55, null
+  %56 = tail call ptr @agnxtout(ptr noundef %0, ptr noundef nonnull %.022) #11
+  %.not18 = icmp eq ptr %56, null
   br i1 %.not18, label %.loopexit, label %.lr.ph, !llvm.loop !25
 
 .loopexit:                                        ; preds = %agdelrec.exit, %.lr.ph26.split
-  %56 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01725) #11
-  %.not = icmp eq ptr %56, null
+  %57 = tail call ptr @agnxtnode(ptr noundef %0, ptr noundef nonnull %.01725) #11
+  %.not = icmp eq ptr %57, null
   br i1 %.not, label %.loopexit19, label %.lr.ph26.split, !llvm.loop !24
 
 .loopexit19:                                      ; preds = %.loopexit, %.lr.ph26.split.us, %6, %3, %4

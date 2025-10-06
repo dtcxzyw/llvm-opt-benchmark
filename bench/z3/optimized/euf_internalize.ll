@@ -5706,13 +5706,13 @@ define hidden noundef zeroext i1 @_ZNK3euf6solver13is_beta_redexEPNS_5enodeES2_(
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %5 = load i32, ptr %4, align 8
   %6 = icmp ult i32 %5, -256
-  br i1 %6, label %.lr.ph, label %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12._crit_edge
+  br i1 %6, label %.lr.ph, label %select.unfold._crit_edge
 
 .lr.ph:                                           ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2440
   %8 = load ptr, ptr %7, align 8, !tbaa !589
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12._crit_edge, label %.lr.ph.split
+  br i1 %9, label %select.unfold._crit_edge, label %.lr.ph.split
 
 .lr.ph.splitthread-pre-split:                     ; preds = %.critedge
   %.pr = load ptr, ptr %7, align 8, !tbaa !589
@@ -5746,16 +5746,16 @@ _ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12: ; preds = %_ZNK3euf6solve
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 456
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef zeroext i1 %22(ptr noundef nonnull align 8 dereferenceable(80) %.pre.i.then.val, ptr noundef %1, ptr noundef %2)
-  br i1 %23, label %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12._crit_edge, label %.critedge
+  br i1 %23, label %select.unfold._crit_edge, label %.critedge
 
 .critedge:                                        ; preds = %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i, %.lr.ph.split, %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12, %_ZNK3euf6solver10fid2solverEi.exit
   %24 = getelementptr inbounds nuw i8, ptr %.sroa.017.025, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !446
   %.not23.not = icmp eq ptr %25, null
-  br i1 %.not23.not, label %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !591
+  br i1 %.not23.not, label %select.unfold._crit_edge, label %.lr.ph.splitthread-pre-split, !llvm.loop !591
 
-_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12._crit_edge: ; preds = %.critedge, %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12, %.lr.ph, %3
-  %.not23.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph ], [ true, %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12 ], [ false, %.critedge ]
+select.unfold._crit_edge:                         ; preds = %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12, %.critedge, %.lr.ph, %3
+  %.not23.lcssa = phi i1 [ false, %3 ], [ false, %.lr.ph ], [ false, %.critedge ], [ true, %_ZNK6vectorIPN3euf9th_solverELb0EjE4sizeEv.exit.i.i12 ]
   ret i1 %.not23.lcssa
 }
 

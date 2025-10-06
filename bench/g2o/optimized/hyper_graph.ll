@@ -568,17 +568,17 @@ define noundef zeroext i1 @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE(ptr noundef n
   %6 = load ptr, ptr %5, align 8, !tbaa !40
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !40
-  %.not7783 = icmp eq ptr %6, %8
-  br i1 %.not7783, label %._crit_edge, label %.lr.ph
+  %.not7480 = icmp eq ptr %6, %8
+  br i1 %.not7480, label %._crit_edge, label %.lr.ph
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw i8, ptr %.sroa.053.084, i64 8
-  %.not77 = icmp eq ptr %10, %8
-  br i1 %.not77, label %._crit_edge, label %.lr.ph
+  %10 = getelementptr inbounds nuw i8, ptr %.sroa.052.081, i64 8
+  %.not74 = icmp eq ptr %10, %8
+  br i1 %.not74, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %9
-  %.sroa.053.084 = phi ptr [ %10, %9 ], [ %6, %2 ]
-  %11 = load ptr, ptr %.sroa.053.084, align 8, !tbaa !41
+  %.sroa.052.081 = phi ptr [ %10, %9 ], [ %6, %2 ]
+  %11 = load ptr, ptr %.sroa.052.081, align 8, !tbaa !41
   %.not.not = icmp eq ptr %11, null
   br i1 %.not.not, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit, label %9
 
@@ -651,26 +651,26 @@ define noundef zeroext i1 @_ZN3g2o10HyperGraph7addEdgeEPNS0_4EdgeE(ptr noundef n
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_.exit: ; preds = %.noexc
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !tbaa !70
-  %.pre93 = load ptr, ptr %7, align 8, !tbaa !45
-  %.pre94 = load ptr, ptr %5, align 8, !tbaa !38
-  %.pre95 = load ptr, ptr %36, align 8, !tbaa !71
-  %.pre96 = ptrtoint ptr %.pre93 to i64
-  %.pre97 = ptrtoint ptr %.pre94 to i64
-  %.pre99 = sub i64 %.pre96, %.pre97
-  %.pre101 = ashr exact i64 %.pre99, 3
-  %44 = icmp eq i64 %.pre, %.pre101
-  %.not5.i.i.i.i = icmp eq ptr %.pre95, null
+  %.pre90 = load ptr, ptr %7, align 8, !tbaa !45
+  %.pre91 = load ptr, ptr %5, align 8, !tbaa !38
+  %.pre92 = load ptr, ptr %36, align 8, !tbaa !71
+  %.pre93 = ptrtoint ptr %.pre90 to i64
+  %.pre94 = ptrtoint ptr %.pre91 to i64
+  %.pre96 = sub i64 %.pre93, %.pre94
+  %.pre98 = ashr exact i64 %.pre96, 3
+  %44 = icmp eq i64 %.pre, %.pre98
+  %.not5.i.i.i.i = icmp eq ptr %.pre92, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_.exit, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %.pre95, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_.exit ]
+  %.06.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %.pre92, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_.exit ]
   %45 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !53
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 16) #21
   %.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i, label %_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !72
 
 _ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i: ; preds = %.lr.ph.i.i.i.i, %33, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_.exit
-  %.not.not78117 = phi i1 [ %44, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_.exit ], [ false, %33 ], [ %44, %.lr.ph.i.i.i.i ]
+  %.not.not75114 = phi i1 [ %44, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPPN3g2o10HyperGraph6VertexESt6vectorIS5_SaIS5_EEEESt15insert_iteratorISt13unordered_setIS5_St4hashIS5_ESt8equal_toIS5_ES8_EEET0_T_SK_SJ_.exit ], [ false, %33 ], [ %44, %.lr.ph.i.i.i.i ]
   %46 = load ptr, ptr %4, align 8, !tbaa !63
   %47 = load i64, ptr %35, align 8, !tbaa !65
   %48 = shl i64 %47, 3
@@ -688,7 +688,7 @@ _ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8
 
 _ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit: ; preds = %_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %51
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not.not78117, label %56, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
+  br i1 %.not.not75114, label %56, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit
 
 54:                                               ; preds = %.lr.ph.i.i.i.i.i
   %55 = landingpad { ptr, i32 }
@@ -760,81 +760,81 @@ select.unfold.i.i:                                ; preds = %67, %._crit_edge.th
   store i64 %81, ptr %79, align 8, !tbaa !30
   %82 = load ptr, ptr %5, align 8, !tbaa !40
   %83 = load ptr, ptr %7, align 8, !tbaa !40
-  %.not85 = icmp eq ptr %82, %83
-  br i1 %.not85, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit, label %.lr.ph88
+  %.not82 = icmp eq ptr %82, %83
+  br i1 %.not82, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit, label %.lr.ph85
 
-.lr.ph88:                                         ; preds = %75, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit48
-  %.sroa.049.086 = phi ptr [ %109, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit48 ], [ %82, %75 ]
-  %84 = load ptr, ptr %.sroa.049.086, align 8, !tbaa !41
+.lr.ph85:                                         ; preds = %75, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit47
+  %.sroa.048.083 = phi ptr [ %109, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit47 ], [ %82, %75 ]
+  %84 = load ptr, ptr %.sroa.048.083, align 8, !tbaa !41
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 24
-  %.02022.i.i.i25 = load ptr, ptr %85, align 8, !tbaa !73
-  %.not23.i.i.i26 = icmp eq ptr %.02022.i.i.i25, null
-  br i1 %.not23.i.i.i26, label %._crit_edge.thread.i.i.i44, label %.lr.ph.i.i.i28
+  %.02022.i.i.i24 = load ptr, ptr %85, align 8, !tbaa !73
+  %.not23.i.i.i25 = icmp eq ptr %.02022.i.i.i24, null
+  br i1 %.not23.i.i.i25, label %._crit_edge.thread.i.i.i43, label %.lr.ph.i.i.i27
 
-.lr.ph.i.i.i28:                                   ; preds = %.lr.ph88, %.lr.ph.i.i.i28
-  %.02024.i.i.i29 = phi ptr [ %.020.i.i.i32, %.lr.ph.i.i.i28 ], [ %.02022.i.i.i25, %.lr.ph88 ]
-  %87 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i29, i64 32
+.lr.ph.i.i.i27:                                   ; preds = %.lr.ph85, %.lr.ph.i.i.i27
+  %.02024.i.i.i28 = phi ptr [ %.020.i.i.i31, %.lr.ph.i.i.i27 ], [ %.02022.i.i.i24, %.lr.ph85 ]
+  %87 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i28, i64 32
   %88 = load ptr, ptr %87, align 8, !tbaa !74
   %89 = icmp ult ptr %1, %88
-  %.in.v.i.i.i30 = select i1 %89, i64 16, i64 24
-  %.in.i.i.i31 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i29, i64 %.in.v.i.i.i30
-  %.020.i.i.i32 = load ptr, ptr %.in.i.i.i31, align 8, !tbaa !73
-  %.not.i.i.i33 = icmp eq ptr %.020.i.i.i32, null
-  br i1 %.not.i.i.i33, label %._crit_edge.i.i.i34, label %.lr.ph.i.i.i28, !llvm.loop !76
+  %.in.v.i.i.i29 = select i1 %89, i64 16, i64 24
+  %.in.i.i.i30 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i28, i64 %.in.v.i.i.i29
+  %.020.i.i.i31 = load ptr, ptr %.in.i.i.i30, align 8, !tbaa !73
+  %.not.i.i.i32 = icmp eq ptr %.020.i.i.i31, null
+  br i1 %.not.i.i.i32, label %._crit_edge.i.i.i33, label %.lr.ph.i.i.i27, !llvm.loop !76
 
-._crit_edge.i.i.i34:                              ; preds = %.lr.ph.i.i.i28
-  br i1 %89, label %._crit_edge.thread.i.i.i44, label %95
+._crit_edge.i.i.i33:                              ; preds = %.lr.ph.i.i.i27
+  br i1 %89, label %._crit_edge.thread.i.i.i43, label %95
 
-._crit_edge.thread.i.i.i44:                       ; preds = %._crit_edge.i.i.i34, %.lr.ph88
-  %.019.lcssa29.i.i.i45 = phi ptr [ %.02024.i.i.i29, %._crit_edge.i.i.i34 ], [ %86, %.lr.ph88 ]
+._crit_edge.thread.i.i.i43:                       ; preds = %._crit_edge.i.i.i33, %.lr.ph85
+  %.019.lcssa29.i.i.i44 = phi ptr [ %.02024.i.i.i28, %._crit_edge.i.i.i33 ], [ %86, %.lr.ph85 ]
   %90 = getelementptr inbounds nuw i8, ptr %84, i64 40
   %91 = load ptr, ptr %90, align 8, !tbaa !28
-  %92 = icmp eq ptr %.019.lcssa29.i.i.i45, %91
-  br i1 %92, label %select.unfold.i.i41, label %93
+  %92 = icmp eq ptr %.019.lcssa29.i.i.i44, %91
+  br i1 %92, label %select.unfold.i.i40, label %93
 
-93:                                               ; preds = %._crit_edge.thread.i.i.i44
-  %94 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i45) #22
-  %.phi.trans.insert.i.i46 = getelementptr inbounds nuw i8, ptr %94, i64 32
-  %.pre.i.i47 = load ptr, ptr %.phi.trans.insert.i.i46, align 8, !tbaa !74
+93:                                               ; preds = %._crit_edge.thread.i.i.i43
+  %94 = call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa29.i.i.i44) #22
+  %.phi.trans.insert.i.i45 = getelementptr inbounds nuw i8, ptr %94, i64 32
+  %.pre.i.i46 = load ptr, ptr %.phi.trans.insert.i.i45, align 8, !tbaa !74
   br label %95
 
-95:                                               ; preds = %93, %._crit_edge.i.i.i34
-  %96 = phi ptr [ %.pre.i.i47, %93 ], [ %88, %._crit_edge.i.i.i34 ]
-  %.019.lcssa28.i.i.i35 = phi ptr [ %.019.lcssa29.i.i.i45, %93 ], [ %.02024.i.i.i29, %._crit_edge.i.i.i34 ]
+95:                                               ; preds = %93, %._crit_edge.i.i.i33
+  %96 = phi ptr [ %.pre.i.i46, %93 ], [ %88, %._crit_edge.i.i.i33 ]
+  %.019.lcssa28.i.i.i34 = phi ptr [ %.019.lcssa29.i.i.i44, %93 ], [ %.02024.i.i.i28, %._crit_edge.i.i.i33 ]
   %97 = icmp ult ptr %96, %1
-  br i1 %97, label %select.unfold.i.i41, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit48
+  br i1 %97, label %select.unfold.i.i40, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit47
 
-select.unfold.i.i41:                              ; preds = %95, %._crit_edge.thread.i.i.i44
-  %.sroa.4.0.i.ph.i.i42 = phi ptr [ %.019.lcssa29.i.i.i45, %._crit_edge.thread.i.i.i44 ], [ %.019.lcssa28.i.i.i35, %95 ]
-  %98 = icmp eq ptr %.sroa.4.0.i.ph.i.i42, %86
-  br i1 %98, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i43, label %99
+select.unfold.i.i40:                              ; preds = %95, %._crit_edge.thread.i.i.i43
+  %.sroa.4.0.i.ph.i.i41 = phi ptr [ %.019.lcssa29.i.i.i44, %._crit_edge.thread.i.i.i43 ], [ %.019.lcssa28.i.i.i34, %95 ]
+  %98 = icmp eq ptr %.sroa.4.0.i.ph.i.i41, %86
+  br i1 %98, label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i42, label %99
 
-99:                                               ; preds = %select.unfold.i.i41
-  %100 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i42, i64 32
+99:                                               ; preds = %select.unfold.i.i40
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.i.ph.i.i41, i64 32
   %101 = load ptr, ptr %100, align 8, !tbaa !74
   %102 = icmp ult ptr %1, %101
-  br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i43
+  br label %_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i42
 
-_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i43: ; preds = %99, %select.unfold.i.i41
-  %103 = phi i1 [ true, %select.unfold.i.i41 ], [ %102, %99 ]
+_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i42: ; preds = %99, %select.unfold.i.i40
+  %103 = phi i1 [ true, %select.unfold.i.i40 ], [ %102, %99 ]
   %104 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 32
   store ptr %1, ptr %105, align 8, !tbaa !74
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %103, ptr noundef nonnull %104, ptr noundef nonnull %.sroa.4.0.i.ph.i.i42, ptr noundef nonnull align 8 dereferenceable(32) %86) #19
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %103, ptr noundef nonnull %104, ptr noundef nonnull %.sroa.4.0.i.ph.i.i41, ptr noundef nonnull align 8 dereferenceable(32) %86) #19
   %106 = getelementptr inbounds nuw i8, ptr %84, i64 56
   %107 = load i64, ptr %106, align 8, !tbaa !30
   %108 = add i64 %107, 1
   store i64 %108, ptr %106, align 8, !tbaa !30
-  br label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit48
+  br label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit47
 
-_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit48: ; preds = %95, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i43
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.049.086, i64 8
+_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit47: ; preds = %95, %_ZNSt8_Rb_treeIPN3g2o10HyperGraph4EdgeES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_EE10_M_insert_IRKS3_NS9_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS3_EPSt18_Rb_tree_node_baseSH_OT_RT0_.exit.i.i42
+  %109 = getelementptr inbounds nuw i8, ptr %.sroa.048.083, i64 8
   %.not = icmp eq ptr %109, %83
-  br i1 %.not, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit, label %.lr.ph88
+  br i1 %.not, label %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit, label %.lr.ph85
 
-_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit: ; preds = %.lr.ph, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit48, %75, %67, %_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, %21, %26, %16
-  %.3 = phi i1 [ false, %_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit ], [ false, %16 ], [ false, %26 ], [ false, %21 ], [ false, %67 ], [ true, %75 ], [ true, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit48 ], [ false, %.lr.ph ]
+_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit: ; preds = %.lr.ph, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit47, %75, %67, %_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, %21, %26, %16
+  %.3 = phi i1 [ false, %_ZNSt13unordered_setIPN3g2o10HyperGraph6VertexESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit ], [ false, %16 ], [ false, %26 ], [ false, %21 ], [ false, %67 ], [ true, %75 ], [ true, %_ZNSt3setIPN3g2o10HyperGraph4EdgeESt4lessIS3_ESaIS3_EE6insertERKS3_.exit47 ], [ false, %.lr.ph ]
   ret i1 %.3
 }
 
@@ -2886,9 +2886,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !tbaa !70
   %.not.not = icmp eq i64 %6, 0
-  br i1 %.not.not, label %15, label %.thread36
+  br i1 %.not.not, label %15, label %.thread34
 
-.thread36:                                        ; preds = %4
+.thread34:                                        ; preds = %4
   %7 = load ptr, ptr %1, align 8, !tbaa !41
   %8 = ptrtoint ptr %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2924,7 +2924,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_
   %27 = urem i64 %24, %26
   br label %.critedge
 
-28:                                               ; preds = %.thread36
+28:                                               ; preds = %.thread34
   %29 = load ptr, ptr %14, align 8, !tbaa !53
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !41
@@ -2952,10 +2952,10 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN3g2o10HyperGraph6VertexES3_
 ..loopexit_crit_edge21.i.i:                       ; preds = %36
   br label %.critedge, !llvm.loop !108
 
-.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread36
-  %41 = phi i64 [ %27, %23 ], [ %11, %.thread36 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
-  %42 = phi i64 [ %24, %23 ], [ %8, %.thread36 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
-  %43 = phi ptr [ %17, %23 ], [ %7, %.thread36 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
+.critedge:                                        ; preds = %.lr.ph.i.i, %23, %..loopexit_crit_edge21.i.i, %.thread34
+  %41 = phi i64 [ %27, %23 ], [ %11, %.thread34 ], [ %11, %..loopexit_crit_edge21.i.i ], [ %11, %.lr.ph.i.i ]
+  %42 = phi i64 [ %24, %23 ], [ %8, %.thread34 ], [ %8, %..loopexit_crit_edge21.i.i ], [ %8, %.lr.ph.i.i ]
+  %43 = phi ptr [ %17, %23 ], [ %7, %.thread34 ], [ %7, %..loopexit_crit_edge21.i.i ], [ %7, %.lr.ph.i.i ]
   %44 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   store ptr null, ptr %44, align 8, !tbaa !53
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8

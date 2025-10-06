@@ -1183,8 +1183,8 @@ define internal i32 @dissect_kafka(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 34:                                               ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 50
-  br i1 %exitcond.i.i, label %kafka_is_api_version_flexible.exit, label %.preheader.i.i, !llvm.loop !8
+  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 50
+  br i1 %exitcond.not.i.i, label %kafka_is_api_version_flexible.exit, label %.preheader.i.i, !llvm.loop !8
 
 .preheader.i.i:                                   ; preds = %20, %34
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %34 ], [ 0, %20 ]
@@ -1252,8 +1252,8 @@ proto_item_set_hidden.exit:                       ; preds = %kafka_is_api_versio
 
 71:                                               ; preds = %.preheader.i.i639
   %indvars.iv.next.i.i641 = add nuw nsw i64 %indvars.iv.i.i640, 1
-  %exitcond.i.i642 = icmp eq i64 %indvars.iv.next.i.i641, 50
-  br i1 %exitcond.i.i642, label %kafka_get_api_info.exit.thread.i, label %.preheader.i.i639, !llvm.loop !8
+  %exitcond.not.i.i642 = icmp eq i64 %indvars.iv.next.i.i641, 50
+  br i1 %exitcond.not.i.i642, label %kafka_get_api_info.exit.thread.i, label %.preheader.i.i639, !llvm.loop !8
 
 .preheader.i.i639:                                ; preds = %proto_item_set_hidden.exit, %71
   %indvars.iv.i.i640 = phi i64 [ %indvars.iv.next.i.i641, %71 ], [ 0, %proto_item_set_hidden.exit ]
@@ -1763,8 +1763,8 @@ proto_item_set_generated.exit660:                 ; preds = %proto_item_set_hidd
 
 310:                                              ; preds = %.preheader.i.i661
   %indvars.iv.next.i.i663 = add nuw nsw i64 %indvars.iv.i.i662, 1
-  %exitcond.i.i664 = icmp eq i64 %indvars.iv.next.i.i663, 50
-  br i1 %exitcond.i.i664, label %kafka_get_api_info.exit.thread.i665, label %.preheader.i.i661, !llvm.loop !8
+  %exitcond.not.i.i664 = icmp eq i64 %indvars.iv.next.i.i663, 50
+  br i1 %exitcond.not.i.i664, label %kafka_get_api_info.exit.thread.i665, label %.preheader.i.i661, !llvm.loop !8
 
 .preheader.i.i661:                                ; preds = %proto_item_set_generated.exit660, %310
   %indvars.iv.i.i662 = phi i64 [ %indvars.iv.next.i.i663, %310 ], [ 0, %proto_item_set_generated.exit660 ]
@@ -2139,8 +2139,8 @@ define internal fastcc signext i16 @kafka_check_supported_api_version(ptr nounde
 
 8:                                                ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 50
-  br i1 %exitcond.i, label %kafka_get_api_info.exit.thread, label %.preheader.i, !llvm.loop !8
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 50
+  br i1 %exitcond.not.i, label %kafka_get_api_info.exit.thread, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %3, %8
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %8 ], [ 0, %3 ]
@@ -12045,8 +12045,8 @@ define internal i32 @dissect_kafka_api_versions_response_api_version(ptr noundef
 
 32:                                               ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %exitcond.i = icmp eq i64 %indvars.iv.next.i, 50
-  br i1 %exitcond.i, label %kafka_get_api_info.exit.thread, label %.preheader.i, !llvm.loop !8
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 50
+  br i1 %exitcond.not.i, label %kafka_get_api_info.exit.thread, label %.preheader.i, !llvm.loop !8
 
 .preheader.i:                                     ; preds = %30, %32
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %32 ], [ 0, %30 ]

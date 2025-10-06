@@ -83,24 +83,24 @@ define internal void @local_queue_fetch_file(ptr noundef readonly captures(none)
 
 .lr.ph:                                           ; preds = %12, %17
   %15 = phi i64 [ %19, %17 ], [ %13, %12 ]
-  %.01727 = phi i64 [ %18, %17 ], [ 0, %12 ]
+  %.01726 = phi i64 [ %18, %17 ], [ 0, %12 ]
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %21, label %17
 
 17:                                               ; preds = %.lr.ph
-  call void @write_target_range(ptr noundef nonnull %4, i64 noundef %.01727, i64 noundef %15) #8
-  %18 = add i64 %15, %.01727
+  call void @write_target_range(ptr noundef nonnull %4, i64 noundef %.01726, i64 noundef %15) #8
+  %18 = add i64 %15, %.01726
   %19 = call i64 @read(i32 noundef %9, ptr noundef nonnull %4, i64 noundef 8192) #8
   %20 = icmp slt i64 %19, 0
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 21:                                               ; preds = %.lr.ph
-  %.not = icmp eq i64 %.01727, %2
+  %.not = icmp eq i64 %.01726, %2
   br i1 %.not, label %25, label %22
 
 22:                                               ; preds = %21
   %23 = trunc i64 %2 to i32
-  %24 = trunc i64 %.01727 to i32
+  %24 = trunc i64 %.01726 to i32
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.3, ptr noundef nonnull %5, i32 noundef %23, i32 noundef %24) #8
   call void @exit(i32 noundef 1) #9
   unreachable

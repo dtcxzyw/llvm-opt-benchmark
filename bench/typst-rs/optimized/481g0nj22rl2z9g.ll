@@ -51,11 +51,11 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   %23 = zext nneg i8 %22 to i32
   %24 = or disjoint i32 %21, %23
   %25 = icmp samesign ugt i8 %14, -33
-  br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i", label %.thread5.i.i.i
+  br i1 %25, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i", label %.thread4.i.i.i
 
 26:                                               ; preds = %9
   %27 = zext nneg i8 %14 to i32
-  br label %.thread5.i.i.i
+  br label %.thread4.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i.i"
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 2
@@ -69,7 +69,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   %35 = shl nuw nsw i32 %18, 12
   %36 = or disjoint i32 %34, %35
   %37 = icmp samesign ugt i8 %14, -17
-  br i1 %37, label %38, label %.thread5.i.i.i
+  br i1 %37, label %38, label %.thread4.i.i.i
 
 38:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i"
   %39 = getelementptr inbounds nuw i8, ptr %12, i64 3
@@ -84,7 +84,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   %47 = or disjoint i32 %44, %46
   %48 = or disjoint i32 %47, %43
   %.not.i.i.i.i = icmp eq i32 %48, 1114112
-  br i1 %.not.i.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i.i.thread", label %.thread5.i.i.i
+  br i1 %.not.i.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i.i.thread", label %.thread4.i.i.i
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i.i.thread": ; preds = %38
   %49 = add nsw i64 %10, 1
@@ -95,13 +95,13 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   tail call void @llvm.assume(i1 %52)
   br label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.i.i.i
 
-.thread5.i.i.i:                                   ; preds = %38, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i", %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i.i"
-  %.sroa.4.0.i.ph8.i.i.i = phi i32 [ %48, %38 ], [ %27, %26 ], [ %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i" ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i.i" ]
-  %53 = icmp samesign ult i32 %.sroa.4.0.i.ph8.i.i.i, 65536
+.thread4.i.i.i:                                   ; preds = %38, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i", %26, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i.i"
+  %.sroa.4.0.i.ph7.i.i.i = phi i32 [ %48, %38 ], [ %27, %26 ], [ %36, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit15.i.i.i.i" ], [ %24, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i.i" ]
+  %53 = icmp samesign ult i32 %.sroa.4.0.i.ph7.i.i.i, 65536
   %..i.i.i.i.i.i = select i1 %53, i64 1, i64 2
   %54 = add i64 %..i.i.i.i.i.i, %11
   store i64 %54, ptr %3, align 8, !alias.scope !17, !noalias !25
-  switch i32 %.sroa.4.0.i.ph8.i.i.i, label %55 [
+  switch i32 %.sroa.4.0.i.ph7.i.i.i, label %55 [
     i32 10, label %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i
     i32 11, label %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i
     i32 12, label %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i
@@ -111,7 +111,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
     i32 8233, label %_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i
   ]
 
-55:                                               ; preds = %.thread5.i.i.i
+55:                                               ; preds = %.thread4.i.i.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !26)
   br i1 %15, label %_ZN8unscanny7Scanner4peek17h6027515a2c68546fE.exit.thread.thread.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc03ec5e9a41b9d16E.exit13.i.i.i.i.i"
 
@@ -192,8 +192,8 @@ _ZN8unscanny7Scanner3eat17h7eda3949b49f0e96E.exit.i.i: ; preds = %_ZN8unscanny7S
   %86 = icmp eq i64 %85, %7
   br i1 %86, label %"_ZN12typst_syntax6source10lines_from28_$u7b$$u7b$closure$u7d$$u7d$17h196b5759909aedf3E.exit", label %9
 
-_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i: ; preds = %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %.thread5.i.i.i, %2
-  %87 = phi i64 [ %5, %2 ], [ %10, %.thread5.i.i.i ], [ %10, %.thread5.i.i.i ], [ %10, %.thread5.i.i.i ], [ %10, %.thread5.i.i.i ], [ %10, %.thread5.i.i.i ], [ %10, %.thread5.i.i.i ], [ %10, %.thread5.i.i.i ]
+_ZN8unscanny7Scanner9eat_until17hf8ab2ff2dfe2fa62E.exit.i: ; preds = %.thread4.i.i.i, %.thread4.i.i.i, %.thread4.i.i.i, %.thread4.i.i.i, %.thread4.i.i.i, %.thread4.i.i.i, %.thread4.i.i.i, %2
+  %87 = phi i64 [ %5, %2 ], [ %10, %.thread4.i.i.i ], [ %10, %.thread4.i.i.i ], [ %10, %.thread4.i.i.i ], [ %10, %.thread4.i.i.i ], [ %10, %.thread4.i.i.i ], [ %10, %.thread4.i.i.i ], [ %10, %.thread4.i.i.i ]
   %88 = icmp eq i64 %87, %7
   br i1 %88, label %"_ZN12typst_syntax6source10lines_from28_$u7b$$u7b$closure$u7d$$u7d$17h196b5759909aedf3E.exit", label %89
 

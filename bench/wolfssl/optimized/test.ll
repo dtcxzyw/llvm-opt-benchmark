@@ -6212,15 +6212,15 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   br label %6
 
 6:                                                ; preds = %0, %77
-  %.0108160 = phi ptr [ @tls13KdfTestVectors, %0 ], [ %79, %77 ]
-  %.0109159 = phi i32 [ 0, %0 ], [ %78, %77 ]
+  %.0108159 = phi ptr [ @tls13KdfTestVectors, %0 ], [ %79, %77 ]
+  %.0109158 = phi i32 [ 0, %0 ], [ %78, %77 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
-  %7 = load i32, ptr %.0108160, align 4, !tbaa !85
+  %7 = load i32, ptr %.0108159, align 4, !tbaa !85
   %8 = call i32 @wc_HashGetDigestSize(i32 noundef %7) #19
   %9 = icmp eq i32 %8, -173
   br i1 %9, label %.thread, label %10
@@ -6231,23 +6231,23 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   br i1 %.not, label %12, label %.thread
 
 12:                                               ; preds = %10
-  %13 = getelementptr inbounds nuw i8, ptr %.0108160, i64 4
+  %13 = getelementptr inbounds nuw i8, ptr %.0108159, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !87
   %15 = icmp eq i32 %14, 0
-  %16 = getelementptr inbounds nuw i8, ptr %.0108160, i64 12
+  %16 = getelementptr inbounds nuw i8, ptr %.0108159, i64 12
   %17 = select i1 %15, ptr %4, ptr %16
   %18 = call i32 @wc_Tls13_HKDF_Extract(ptr noundef nonnull %2, ptr noundef null, i32 noundef 0, ptr noundef nonnull %17, i32 noundef %14, i32 noundef %7) #19
   %.not134 = icmp eq i32 %18, 0
   br i1 %.not134, label %19, label %.thread
 
 19:                                               ; preds = %12
-  %20 = getelementptr inbounds nuw i8, ptr %.0108160, i64 92
+  %20 = getelementptr inbounds nuw i8, ptr %.0108159, i64 92
   %21 = call i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef nonnull %1, i32 noundef %8, ptr noundef nonnull %2, i32 noundef %8, ptr noundef nonnull @protocolLabel, i32 noundef 6, ptr noundef nonnull @ceTrafficLabel, i32 noundef 11, ptr noundef nonnull %20, i32 noundef %8, i32 noundef %7) #19
   %.not135 = icmp eq i32 %21, 0
   br i1 %.not135, label %22, label %.thread
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw i8, ptr %.0108160, i64 348
+  %23 = getelementptr inbounds nuw i8, ptr %.0108159, i64 348
   %24 = sext i32 %8 to i64
   %25 = call i32 @memcmp(ptr noundef nonnull %23, ptr noundef nonnull %1, i64 noundef %24) #20
   %.not136 = icmp eq i32 %25, 0
@@ -6259,7 +6259,7 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   br i1 %.not137, label %28, label %.thread
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw i8, ptr %.0108160, i64 412
+  %29 = getelementptr inbounds nuw i8, ptr %.0108159, i64 412
   %30 = call i32 @memcmp(ptr noundef nonnull %29, ptr noundef nonnull %1, i64 noundef %24) #20
   %.not138 = icmp eq i32 %30, 0
   br i1 %.not138, label %31, label %.thread
@@ -6270,23 +6270,23 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   br i1 %.not139, label %33, label %.thread
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw i8, ptr %.0108160, i64 8
+  %34 = getelementptr inbounds nuw i8, ptr %.0108159, i64 8
   %35 = load i32, ptr %34, align 4, !tbaa !88
   %36 = icmp eq i32 %35, 0
-  %37 = getelementptr inbounds nuw i8, ptr %.0108160, i64 52
+  %37 = getelementptr inbounds nuw i8, ptr %.0108159, i64 52
   %38 = select i1 %36, ptr %4, ptr %37
   %39 = call i32 @wc_Tls13_HKDF_Extract(ptr noundef nonnull %2, ptr noundef nonnull %3, i32 noundef %8, ptr noundef nonnull %38, i32 noundef %35, i32 noundef %7) #19
   %.not140 = icmp eq i32 %39, 0
   br i1 %.not140, label %40, label %.thread
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw i8, ptr %.0108160, i64 156
+  %41 = getelementptr inbounds nuw i8, ptr %.0108159, i64 156
   %42 = call i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef nonnull %1, i32 noundef %8, ptr noundef nonnull %2, i32 noundef %8, ptr noundef nonnull @protocolLabel, i32 noundef 6, ptr noundef nonnull @cHsTrafficLabel, i32 noundef 12, ptr noundef nonnull %41, i32 noundef %8, i32 noundef %7) #19
   %.not141 = icmp eq i32 %42, 0
   br i1 %.not141, label %43, label %.thread
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %.0108160, i64 476
+  %44 = getelementptr inbounds nuw i8, ptr %.0108159, i64 476
   %45 = call i32 @memcmp(ptr noundef nonnull %44, ptr noundef nonnull %1, i64 noundef %24) #20
   %.not142 = icmp eq i32 %45, 0
   br i1 %.not142, label %46, label %.thread
@@ -6297,7 +6297,7 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   br i1 %.not143, label %48, label %.thread
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw i8, ptr %.0108160, i64 540
+  %49 = getelementptr inbounds nuw i8, ptr %.0108159, i64 540
   %50 = call i32 @memcmp(ptr noundef nonnull %49, ptr noundef nonnull %1, i64 noundef %24) #20
   %.not144 = icmp eq i32 %50, 0
   br i1 %.not144, label %51, label %.thread
@@ -6313,13 +6313,13 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   br i1 %.not146, label %55, label %.thread
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw i8, ptr %.0108160, i64 220
+  %56 = getelementptr inbounds nuw i8, ptr %.0108159, i64 220
   %57 = call i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef nonnull %1, i32 noundef %8, ptr noundef nonnull %2, i32 noundef %8, ptr noundef nonnull @protocolLabel, i32 noundef 6, ptr noundef nonnull @cAppTrafficLabel, i32 noundef 12, ptr noundef nonnull %56, i32 noundef %8, i32 noundef %7) #19
   %.not147 = icmp eq i32 %57, 0
   br i1 %.not147, label %58, label %.thread
 
 58:                                               ; preds = %55
-  %59 = getelementptr inbounds nuw i8, ptr %.0108160, i64 604
+  %59 = getelementptr inbounds nuw i8, ptr %.0108159, i64 604
   %60 = call i32 @memcmp(ptr noundef nonnull %59, ptr noundef nonnull %1, i64 noundef %24) #20
   %.not148 = icmp eq i32 %60, 0
   br i1 %.not148, label %61, label %.thread
@@ -6330,7 +6330,7 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   br i1 %.not149, label %63, label %.thread
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %.0108160, i64 668
+  %64 = getelementptr inbounds nuw i8, ptr %.0108159, i64 668
   %65 = call i32 @memcmp(ptr noundef nonnull %64, ptr noundef nonnull %1, i64 noundef %24) #20
   %.not150 = icmp eq i32 %65, 0
   br i1 %.not150, label %66, label %.thread
@@ -6341,19 +6341,19 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   br i1 %.not151, label %68, label %.thread
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds nuw i8, ptr %.0108160, i64 732
+  %69 = getelementptr inbounds nuw i8, ptr %.0108159, i64 732
   %70 = call i32 @memcmp(ptr noundef nonnull %69, ptr noundef nonnull %1, i64 noundef %24) #20
   %.not152 = icmp eq i32 %70, 0
   br i1 %.not152, label %71, label %.thread
 
 71:                                               ; preds = %68
-  %72 = getelementptr inbounds nuw i8, ptr %.0108160, i64 284
+  %72 = getelementptr inbounds nuw i8, ptr %.0108159, i64 284
   %73 = call i32 @wc_Tls13_HKDF_Expand_Label(ptr noundef nonnull %1, i32 noundef %8, ptr noundef nonnull %2, i32 noundef %8, ptr noundef nonnull @protocolLabel, i32 noundef 6, ptr noundef nonnull @resMasterLabel, i32 noundef 10, ptr noundef nonnull %72, i32 noundef %8, i32 noundef %7) #19
   %.not153 = icmp eq i32 %73, 0
   br i1 %.not153, label %74, label %.thread
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %.0108160, i64 796
+  %75 = getelementptr inbounds nuw i8, ptr %.0108159, i64 796
   %76 = call i32 @memcmp(ptr noundef nonnull %75, ptr noundef nonnull %1, i64 noundef %24) #20
   %.not154 = icmp eq i32 %76, 0
   br i1 %.not154, label %77, label %.thread
@@ -6373,8 +6373,8 @@ define dso_local i32 @tls13_kdf_test() local_unnamed_addr #0 {
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  %78 = add nuw nsw i32 %.0109159, 1
-  %79 = getelementptr inbounds nuw i8, ptr %.0108160, i64 860
+  %78 = add nuw nsw i32 %.0109158, 1
+  %79 = getelementptr inbounds nuw i8, ptr %.0108159, i64 860
   %exitcond.not = icmp eq i32 %78, 6
   br i1 %exitcond.not, label %.loopexit, label %6, !llvm.loop !89
 
@@ -8883,7 +8883,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %28 = and i32 %27, 2047
   %narrow.neg335 = mul nsw i32 %28, -100000
   %29 = add nsw i32 %narrow.neg335, -536886365
-  br label %.thread346
+  br label %.thread344
 
 30:                                               ; preds = %24
   %31 = call i32 @wc_AesInit(ptr noundef nonnull %2, ptr noundef null, i32 noundef -2) #19
@@ -8895,7 +8895,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %34 = and i32 %33, 2047
   %narrow.neg332 = mul nsw i32 %34, -100000
   %35 = add nsw i32 %narrow.neg332, -536886368
-  br label %.thread346
+  br label %.thread344
 
 36:                                               ; preds = %30
   %37 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %1, ptr noundef nonnull %5, i32 noundef 32) #19
@@ -8907,7 +8907,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %40 = and i32 %39, 2047
   %narrow.neg329 = mul nsw i32 %40, -100000
   %41 = add nsw i32 %narrow.neg329, -536886374
-  br label %.thread346
+  br label %.thread344
 
 42:                                               ; preds = %36
   %43 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 60, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -8919,17 +8919,17 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %46 = and i32 %45, 2047
   %narrow.neg326 = mul nsw i32 %46, -100000
   %47 = add nsw i32 %narrow.neg326, -536886383
-  br label %.thread346
+  br label %.thread344
 
 48:                                               ; preds = %42
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(60) @__const.aesgcm_test.c1, ptr noundef nonnull dereferenceable(60) %15, i64 60)
   %.not193 = icmp eq i32 %bcmp, 0
-  br i1 %.not193, label %49, label %.thread346
+  br i1 %.not193, label %49, label %.thread344
 
 49:                                               ; preds = %48
   %bcmp194 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @__const.aesgcm_test.t1, ptr noundef nonnull dereferenceable(16) %13, i64 16)
   %.not195 = icmp eq i32 %bcmp194, 0
-  br i1 %.not195, label %50, label %.thread346
+  br i1 %.not195, label %50, label %.thread344
 
 50:                                               ; preds = %49
   %51 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %2, ptr noundef nonnull %5, i32 noundef 32) #19
@@ -8941,7 +8941,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %54 = and i32 %53, 2047
   %narrow.neg323 = mul nsw i32 %54, -100000
   %55 = add nsw i32 %narrow.neg323, -536886394
-  br label %.thread346
+  br label %.thread344
 
 56:                                               ; preds = %50
   %57 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 60, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -8953,23 +8953,23 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %60 = and i32 %59, 2047
   %narrow.neg320 = mul nsw i32 %60, -100000
   %61 = add nsw i32 %narrow.neg320, -536886402
-  br label %.thread346
+  br label %.thread344
 
 62:                                               ; preds = %56
   %bcmp198 = call i32 @bcmp(ptr noundef nonnull dereferenceable(60) %3, ptr noundef nonnull dereferenceable(60) %14, i64 60)
   %.not199 = icmp eq i32 %bcmp198, 0
-  br i1 %.not199, label %.preheader353, label %.thread346
+  br i1 %.not199, label %.preheader351, label %.thread344
 
-.preheader353:                                    ; preds = %62, %.preheader353
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader353 ], [ 0, %62 ]
+.preheader351:                                    ; preds = %62, %.preheader351
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader351 ], [ 0, %62 ]
   %63 = trunc i64 %indvars.iv to i8
   %64 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
   store i8 %63, ptr %64, align 1, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 1024
-  br i1 %exitcond.not, label %65, label %.preheader353, !llvm.loop !108
+  br i1 %exitcond.not, label %65, label %.preheader351, !llvm.loop !108
 
-65:                                               ; preds = %.preheader353
+65:                                               ; preds = %.preheader351
   %66 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 1024, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
   %.not200 = icmp eq i32 %66, 0
   br i1 %.not200, label %71, label %67
@@ -8979,45 +8979,45 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %69 = and i32 %68, 2047
   %narrow.neg317 = mul nsw i32 %69, -100000
   %70 = add nsw i32 %narrow.neg317, -536886421
-  br label %.thread346
+  br label %.thread344
 
 71:                                               ; preds = %65
   %72 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef nonnull %19, i32 noundef 1024, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
   %bcmp201 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1024) %18, ptr noundef nonnull dereferenceable(1024) %20, i64 1024)
   %.not202 = icmp eq i32 %bcmp201, 0
-  br i1 %.not202, label %73, label %.thread346
+  br i1 %.not202, label %73, label %.thread344
 
 73:                                               ; preds = %71
   %.not203 = icmp eq i32 %72, 0
-  br i1 %.not203, label %.preheader352, label %74
+  br i1 %.not203, label %.preheader350, label %74
 
 74:                                               ; preds = %73
   %75 = sub nsw i32 0, %72
   %76 = and i32 %75, 2047
   %narrow.neg314 = mul nsw i32 %76, -100000
   %77 = add nsw i32 %narrow.neg314, -536886433
-  br label %.thread346
+  br label %.thread344
 
 78:                                               ; preds = %85
-  %79 = add nuw nsw i32 %.0142363, 1
-  %exitcond386.not = icmp eq i32 %79, 32
-  br i1 %exitcond386.not, label %.preheader351, label %.preheader352, !llvm.loop !109
+  %79 = add nuw nsw i32 %.0142361, 1
+  %exitcond384.not = icmp eq i32 %79, 32
+  br i1 %exitcond384.not, label %.preheader349, label %.preheader350, !llvm.loop !109
 
-.preheader352:                                    ; preds = %73, %78
-  %.0142363 = phi i32 [ %79, %78 ], [ 1, %73 ]
-  %80 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 60, ptr noundef nonnull %5, i32 noundef %.0142363, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
+.preheader350:                                    ; preds = %73, %78
+  %.0142361 = phi i32 [ %79, %78 ], [ 1, %73 ]
+  %80 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 60, ptr noundef nonnull %5, i32 noundef %.0142361, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
   %.not304 = icmp eq i32 %80, 0
   br i1 %.not304, label %85, label %81
 
-81:                                               ; preds = %.preheader352
+81:                                               ; preds = %.preheader350
   %82 = sub nsw i32 0, %80
   %83 = and i32 %82, 2047
   %narrow.neg311 = mul nsw i32 %83, -100000
   %84 = add nsw i32 %narrow.neg311, -536886446
   br label %244
 
-85:                                               ; preds = %.preheader352
-  %86 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 60, ptr noundef nonnull %5, i32 noundef %.0142363, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
+85:                                               ; preds = %.preheader350
+  %86 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 60, ptr noundef nonnull %5, i32 noundef %.0142361, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
   %.not305 = icmp eq i32 %86, 0
   br i1 %.not305, label %78, label %87
 
@@ -9029,25 +9029,25 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   br label %244
 
 91:                                               ; preds = %98
-  %92 = add nuw nsw i32 %.1149364, 1
-  %exitcond387.not = icmp eq i32 %92, 60
-  br i1 %exitcond387.not, label %.preheader350, label %.preheader351, !llvm.loop !110
+  %92 = add nuw nsw i32 %.1149362, 1
+  %exitcond385.not = icmp eq i32 %92, 60
+  br i1 %exitcond385.not, label %.preheader348, label %.preheader349, !llvm.loop !110
 
-.preheader351:                                    ; preds = %78, %91
-  %.1149364 = phi i32 [ %92, %91 ], [ 0, %78 ]
-  %93 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 60, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %3, i32 noundef %.1149364) #19
+.preheader349:                                    ; preds = %78, %91
+  %.1149362 = phi i32 [ %92, %91 ], [ 0, %78 ]
+  %93 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %15, ptr noundef nonnull %3, i32 noundef 60, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %3, i32 noundef %.1149362) #19
   %.not296 = icmp eq i32 %93, 0
   br i1 %.not296, label %98, label %94
 
-94:                                               ; preds = %.preheader351
+94:                                               ; preds = %.preheader349
   %95 = sub nsw i32 0, %93
   %96 = and i32 %95, 2047
   %narrow.neg303 = mul nsw i32 %96, -100000
   %97 = add nsw i32 %narrow.neg303, -536886469
   br label %244
 
-98:                                               ; preds = %.preheader351
-  %99 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 60, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %3, i32 noundef %.1149364) #19
+98:                                               ; preds = %.preheader349
+  %99 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 60, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %3, i32 noundef %.1149362) #19
   %.not297 = icmp eq i32 %99, 0
   br i1 %.not297, label %91, label %100
 
@@ -9059,25 +9059,25 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   br label %244
 
 104:                                              ; preds = %111
-  %105 = add nuw nsw i32 %.0151365, 1
-  %exitcond388.not = icmp eq i32 %105, 1024
-  br i1 %exitcond388.not, label %117, label %.preheader350, !llvm.loop !111
+  %105 = add nuw nsw i32 %.0151363, 1
+  %exitcond386.not = icmp eq i32 %105, 1024
+  br i1 %exitcond386.not, label %117, label %.preheader348, !llvm.loop !111
 
-.preheader350:                                    ; preds = %91, %104
-  %.0151365 = phi i32 [ %105, %104 ], [ 1, %91 ]
-  %106 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef %.0151365, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
+.preheader348:                                    ; preds = %91, %104
+  %.0151363 = phi i32 [ %105, %104 ], [ 1, %91 ]
+  %106 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef %.0151363, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
   %.not288 = icmp eq i32 %106, 0
   br i1 %.not288, label %111, label %107
 
-107:                                              ; preds = %.preheader350
+107:                                              ; preds = %.preheader348
   %108 = sub nsw i32 0, %106
   %109 = and i32 %108, 2047
   %narrow.neg295 = mul nsw i32 %109, -100000
   %110 = add nsw i32 %narrow.neg295, -536886544
-  br label %.thread346
+  br label %.thread344
 
-111:                                              ; preds = %.preheader350
-  %112 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef nonnull %19, i32 noundef %.0151365, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
+111:                                              ; preds = %.preheader348
+  %112 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef nonnull %19, i32 noundef %.0151363, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
   %.not289 = icmp eq i32 %112, 0
   br i1 %.not289, label %104, label %113
 
@@ -9086,7 +9086,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %115 = and i32 %114, 2047
   %narrow.neg292 = mul nsw i32 %115, -100000
   %116 = add nsw i32 %narrow.neg292, -536886554
-  br label %.thread346
+  br label %.thread344
 
 117:                                              ; preds = %104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, i8 0, i64 32, i1 false)
@@ -9102,17 +9102,17 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %122 = and i32 %121, 2047
   %narrow.neg287 = mul nsw i32 %122, -100000
   %123 = add nsw i32 %narrow.neg287, -536886597
-  br label %.thread346
+  br label %.thread344
 
 124:                                              ; preds = %117
   %bcmp205 = call i32 @bcmp(ptr noundef nonnull dereferenceable(60) @__const.aesgcm_test.c2, ptr noundef nonnull dereferenceable(60) %15, i64 60)
   %.not206 = icmp eq i32 %bcmp205, 0
-  br i1 %.not206, label %125, label %.thread346
+  br i1 %.not206, label %125, label %.thread344
 
 125:                                              ; preds = %124
   %bcmp207 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @__const.aesgcm_test.t2, ptr noundef nonnull dereferenceable(16) %13, i64 16)
   %.not208 = icmp eq i32 %bcmp207, 0
-  br i1 %.not208, label %126, label %.thread346
+  br i1 %.not208, label %126, label %.thread344
 
 126:                                              ; preds = %125
   %127 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 60, ptr noundef nonnull %8, i32 noundef 60, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -9124,12 +9124,12 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %130 = and i32 %129, 2047
   %narrow.neg284 = mul nsw i32 %130, -100000
   %131 = add nsw i32 %narrow.neg284, -536886610
-  br label %.thread346
+  br label %.thread344
 
 132:                                              ; preds = %126
   %bcmp210 = call i32 @bcmp(ptr noundef nonnull dereferenceable(60) %3, ptr noundef nonnull dereferenceable(60) %14, i64 60)
   %.not211 = icmp eq i32 %bcmp210, 0
-  br i1 %.not211, label %133, label %.thread346
+  br i1 %.not211, label %133, label %.thread344
 
 133:                                              ; preds = %132
   %134 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %1, ptr noundef nonnull %7, i32 noundef 24) #19
@@ -9137,13 +9137,13 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   br label %136
 
 136:                                              ; preds = %133, %136
-  %indvars.iv389 = phi i64 [ 0, %133 ], [ %indvars.iv.next390, %136 ]
-  %137 = trunc i64 %indvars.iv389 to i8
-  %138 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv389
+  %indvars.iv387 = phi i64 [ 0, %133 ], [ %indvars.iv.next388, %136 ]
+  %137 = trunc i64 %indvars.iv387 to i8
+  %138 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv387
   store i8 %137, ptr %138, align 1, !tbaa !19
-  %indvars.iv.next390 = add nuw nsw i64 %indvars.iv389, 1
-  %exitcond392.not = icmp eq i64 %indvars.iv.next390, 1024
-  br i1 %exitcond392.not, label %139, label %136, !llvm.loop !112
+  %indvars.iv.next388 = add nuw nsw i64 %indvars.iv387, 1
+  %exitcond390.not = icmp eq i64 %indvars.iv.next388, 1024
+  br i1 %exitcond390.not, label %139, label %136, !llvm.loop !112
 
 139:                                              ; preds = %136
   %140 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 1024, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -9155,7 +9155,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %143 = and i32 %142, 2047
   %narrow.neg281 = mul nsw i32 %143, -100000
   %144 = add nsw i32 %narrow.neg281, -536886631
-  br label %.thread346
+  br label %.thread344
 
 145:                                              ; preds = %139
   %146 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef nonnull %19, i32 noundef 1024, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -9167,12 +9167,12 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %149 = and i32 %148, 2047
   %narrow.neg278 = mul nsw i32 %149, -100000
   %150 = add nsw i32 %narrow.neg278, -536886641
-  br label %.thread346
+  br label %.thread344
 
 151:                                              ; preds = %145
   %bcmp214 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1024) %18, ptr noundef nonnull dereferenceable(1024) %20, i64 1024)
   %.not215 = icmp eq i32 %bcmp214, 0
-  br i1 %.not215, label %152, label %.thread346
+  br i1 %.not215, label %152, label %.thread344
 
 152:                                              ; preds = %151
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, i8 0, i64 32, i1 false)
@@ -9188,17 +9188,17 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %157 = and i32 %156, 2047
   %narrow.neg275 = mul nsw i32 %157, -100000
   %158 = add nsw i32 %narrow.neg275, -536886660
-  br label %.thread346
+  br label %.thread344
 
 159:                                              ; preds = %152
   %bcmp217 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @__const.aesgcm_test.c3, ptr noundef nonnull dereferenceable(16) %15, i64 16)
   %.not218 = icmp eq i32 %bcmp217, 0
-  br i1 %.not218, label %160, label %.thread346
+  br i1 %.not218, label %160, label %.thread344
 
 160:                                              ; preds = %159
   %bcmp219 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) @__const.aesgcm_test.t3, ptr noundef nonnull dereferenceable(16) %13, i64 16)
   %.not220 = icmp eq i32 %bcmp219, 0
-  br i1 %.not220, label %161, label %.thread346
+  br i1 %.not220, label %161, label %.thread344
 
 161:                                              ; preds = %160
   %162 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 16, ptr noundef nonnull %11, i32 noundef 1, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %12, i32 noundef 16) #19
@@ -9210,12 +9210,12 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %165 = and i32 %164, 2047
   %narrow.neg272 = mul nsw i32 %165, -100000
   %166 = add nsw i32 %narrow.neg272, -536886675
-  br label %.thread346
+  br label %.thread344
 
 167:                                              ; preds = %161
   %bcmp222 = call i32 @bcmp(ptr noundef nonnull dereferenceable(16) %9, ptr noundef nonnull dereferenceable(16) %14, i64 16)
   %.not223 = icmp eq i32 %bcmp222, 0
-  br i1 %.not223, label %168, label %.thread346
+  br i1 %.not223, label %168, label %.thread344
 
 168:                                              ; preds = %167
   %169 = call i32 @wc_AesGcmSetKey(ptr noundef nonnull %1, ptr noundef nonnull %10, i32 noundef 16) #19
@@ -9223,13 +9223,13 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   br label %171
 
 171:                                              ; preds = %168, %171
-  %indvars.iv393 = phi i64 [ 0, %168 ], [ %indvars.iv.next394, %171 ]
-  %172 = trunc i64 %indvars.iv393 to i8
-  %173 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv393
+  %indvars.iv391 = phi i64 [ 0, %168 ], [ %indvars.iv.next392, %171 ]
+  %172 = trunc i64 %indvars.iv391 to i8
+  %173 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv391
   store i8 %172, ptr %173, align 1, !tbaa !19
-  %indvars.iv.next394 = add nuw nsw i64 %indvars.iv393, 1
-  %exitcond396.not = icmp eq i64 %indvars.iv.next394, 1024
-  br i1 %exitcond396.not, label %174, label %171, !llvm.loop !113
+  %indvars.iv.next392 = add nuw nsw i64 %indvars.iv391, 1
+  %exitcond394.not = icmp eq i64 %indvars.iv.next392, 1024
+  br i1 %exitcond394.not, label %174, label %171, !llvm.loop !113
 
 174:                                              ; preds = %171
   %175 = call i32 @wc_AesGcmEncrypt(ptr noundef nonnull %1, ptr noundef nonnull %19, ptr noundef nonnull %18, i32 noundef 1024, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -9241,7 +9241,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %178 = and i32 %177, 2047
   %narrow.neg269 = mul nsw i32 %178, -100000
   %179 = add nsw i32 %narrow.neg269, -536886696
-  br label %.thread346
+  br label %.thread344
 
 180:                                              ; preds = %174
   %181 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %2, ptr noundef nonnull %20, ptr noundef nonnull %19, i32 noundef 1024, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %13, i32 noundef 16, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -9253,12 +9253,12 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %184 = and i32 %183, 2047
   %narrow.neg266 = mul nsw i32 %184, -100000
   %185 = add nsw i32 %narrow.neg266, -536886706
-  br label %.thread346
+  br label %.thread344
 
 186:                                              ; preds = %180
   %bcmp226 = call i32 @bcmp(ptr noundef nonnull dereferenceable(1024) %18, ptr noundef nonnull dereferenceable(1024) %20, i64 1024)
   %.not227 = icmp eq i32 %bcmp226, 0
-  br i1 %.not227, label %187, label %.thread346
+  br i1 %.not227, label %187, label %.thread344
 
 187:                                              ; preds = %186
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %13, i8 0, i64 32, i1 false)
@@ -9275,17 +9275,17 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %193 = and i32 %192, 2047
   %narrow.neg263 = mul nsw i32 %193, -100000
   %194 = add nsw i32 %narrow.neg263, -536886730
-  br label %.thread346
+  br label %.thread344
 
 195:                                              ; preds = %187
   %bcmp229 = call i32 @bcmp(ptr noundef nonnull dereferenceable(60) @__const.aesgcm_test.c1, ptr noundef nonnull dereferenceable(60) %15, i64 60)
   %.not230 = icmp eq i32 %bcmp229, 0
-  br i1 %.not230, label %196, label %.thread346
+  br i1 %.not230, label %196, label %.thread344
 
 196:                                              ; preds = %195
   %bcmp231 = call i32 @bcmp(ptr noundef nonnull dereferenceable(15) @__const.aesgcm_test.t1, ptr noundef nonnull dereferenceable(15) %189, i64 15)
   %.not232 = icmp eq i32 %bcmp231, 0
-  br i1 %.not232, label %197, label %.thread346
+  br i1 %.not232, label %197, label %.thread344
 
 197:                                              ; preds = %196
   %198 = call i32 @wc_AesGcmDecrypt(ptr noundef nonnull %1, ptr noundef nonnull %14, ptr noundef nonnull %15, i32 noundef 60, ptr noundef nonnull %6, i32 noundef 12, ptr noundef nonnull %189, i32 noundef 15, ptr noundef nonnull %4, i32 noundef 20) #19
@@ -9297,12 +9297,12 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   %201 = and i32 %200, 2047
   %narrow.neg260 = mul nsw i32 %201, -100000
   %202 = add nsw i32 %narrow.neg260, -536886744
-  br label %.thread346
+  br label %.thread344
 
 203:                                              ; preds = %197
   %bcmp234 = call i32 @bcmp(ptr noundef nonnull dereferenceable(60) %3, ptr noundef nonnull dereferenceable(60) %14, i64 60)
   %.not235 = icmp eq i32 %bcmp234, 0
-  br i1 %.not235, label %204, label %.thread346
+  br i1 %.not235, label %204, label %.thread344
 
 204:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -9348,15 +9348,15 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   br label %.thread
 
 .preheader:                                       ; preds = %217, %.preheader
-  %indvars.iv397 = phi i64 [ %indvars.iv.next398, %.preheader ], [ 0, %217 ]
-  %.0146369 = phi i32 [ %226, %.preheader ], [ 0, %217 ]
-  %223 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv397
+  %indvars.iv395 = phi i64 [ %indvars.iv.next396, %.preheader ], [ 0, %217 ]
+  %.0146367 = phi i32 [ %226, %.preheader ], [ 0, %217 ]
+  %223 = getelementptr inbounds nuw i8, ptr %17, i64 %indvars.iv395
   %224 = load i8, ptr %223, align 1, !tbaa !19
   %225 = zext i8 %224 to i32
-  %226 = add i32 %.0146369, %225
-  %indvars.iv.next398 = add nuw nsw i64 %indvars.iv397, 1
-  %exitcond400.not = icmp eq i64 %indvars.iv.next398, 12
-  br i1 %exitcond400.not, label %227, label %.preheader, !llvm.loop !114
+  %226 = add i32 %.0146367, %225
+  %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395, 1
+  %exitcond398.not = icmp eq i64 %indvars.iv.next396, 12
+  br i1 %exitcond398.not, label %227, label %.preheader, !llvm.loop !114
 
 227:                                              ; preds = %.preheader
   %.not239 = icmp eq i32 %226, 0
@@ -9390,36 +9390,36 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
 241:                                              ; preds = %235
   %bcmp242 = call i32 @bcmp(ptr noundef nonnull dereferenceable(60) %3, ptr noundef nonnull dereferenceable(60) %14, i64 60)
   %.not243 = icmp eq i32 %bcmp242, 0
-  br i1 %.not243, label %.thread341, label %.thread
+  br i1 %.not243, label %.thread340, label %.thread
 
-.thread341:                                       ; preds = %241
+.thread340:                                       ; preds = %241
   %242 = call i32 @wc_FreeRng(ptr noundef nonnull %16) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread346
+  br label %.thread344
 
 .thread:                                          ; preds = %206, %213, %219, %231, %237, %241
   %.0143.ph = phi i32 [ -15899, %241 ], [ %240, %237 ], [ %234, %231 ], [ %222, %219 ], [ %216, %213 ], [ %209, %206 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread346
+  br label %.thread344
 
 243:                                              ; preds = %227
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %.thread346
+  br label %.thread344
 
 244:                                              ; preds = %0, %81, %87, %94, %100
   %.2 = phi i32 [ %84, %81 ], [ %90, %87 ], [ %97, %94 ], [ %103, %100 ], [ -125, %0 ]
-  br i1 %21, label %.thread346, label %245
+  br i1 %21, label %.thread344, label %245
 
-.thread346:                                       ; preds = %128, %120, %124, %125, %132, %.thread, %.thread341, %243, %199, %191, %182, %176, %163, %155, %147, %141, %113, %107, %74, %67, %58, %52, %44, %38, %32, %26, %48, %49, %62, %71, %151, %159, %160, %167, %186, %195, %196, %203, %244
-  %.2349 = phi i32 [ %.2, %244 ], [ -15834, %203 ], [ -15823, %196 ], [ -15821, %195 ], [ -15796, %186 ], [ -15765, %167 ], [ -15753, %160 ], [ -15751, %159 ], [ -15731, %151 ], [ -15519, %71 ], [ -15492, %62 ], [ -15476, %49 ], [ -15474, %48 ], [ %202, %199 ], [ %194, %191 ], [ %185, %182 ], [ %179, %176 ], [ %166, %163 ], [ %158, %155 ], [ %150, %147 ], [ %144, %141 ], [ %116, %113 ], [ %110, %107 ], [ %77, %74 ], [ %70, %67 ], [ %61, %58 ], [ %55, %52 ], [ %47, %44 ], [ %41, %38 ], [ %35, %32 ], [ %29, %26 ], [ %.0143.ph, %.thread ], [ -15879, %243 ], [ 0, %.thread341 ], [ -15700, %132 ], [ -15689, %125 ], [ -15687, %124 ], [ %131, %128 ], [ %123, %120 ]
+.thread344:                                       ; preds = %128, %120, %124, %125, %132, %.thread, %.thread340, %243, %199, %191, %182, %176, %163, %155, %147, %141, %113, %107, %74, %67, %58, %52, %44, %38, %32, %26, %48, %49, %62, %71, %151, %159, %160, %167, %186, %195, %196, %203, %244
+  %.2347 = phi i32 [ %.2, %244 ], [ -15834, %203 ], [ -15823, %196 ], [ -15821, %195 ], [ -15796, %186 ], [ -15765, %167 ], [ -15753, %160 ], [ -15751, %159 ], [ -15731, %151 ], [ -15519, %71 ], [ -15492, %62 ], [ -15476, %49 ], [ -15474, %48 ], [ %202, %199 ], [ %194, %191 ], [ %185, %182 ], [ %179, %176 ], [ %166, %163 ], [ %158, %155 ], [ %150, %147 ], [ %144, %141 ], [ %116, %113 ], [ %110, %107 ], [ %77, %74 ], [ %70, %67 ], [ %61, %58 ], [ %55, %52 ], [ %47, %44 ], [ %41, %38 ], [ %35, %32 ], [ %29, %26 ], [ %.0143.ph, %.thread ], [ -15879, %243 ], [ 0, %.thread340 ], [ -15700, %132 ], [ -15689, %125 ], [ -15687, %124 ], [ %131, %128 ], [ %123, %120 ]
   call void @wolfSSL_Free(ptr noundef nonnull %18) #19
   br label %245
 
-245:                                              ; preds = %.thread346, %244
-  %.2348 = phi i32 [ %.2349, %.thread346 ], [ %.2, %244 ]
+245:                                              ; preds = %.thread344, %244
+  %.2346 = phi i32 [ %.2347, %.thread344 ], [ %.2, %244 ]
   br i1 %22, label %246, label %247
 
 246:                                              ; preds = %245
@@ -9451,7 +9451,7 @@ define dso_local range(i32 -741586809, 1) i32 @aesgcm_test() local_unnamed_addr 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
-  ret i32 %.2348
+  ret i32 %.2346
 }
 
 ; Function Attrs: nounwind uwtable
@@ -11199,9 +11199,9 @@ ecc_sig_test.exit.thread.i:                       ; preds = %222, %215, %209, %2
   ]
 
 ecc_ssh_test.exit.thread.i:                       ; preds = %240, %235, %233, %231, %229, %226
-  %.sink76.i = phi i32 [ %228, %226 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %.1.i.i, %240 ]
+  %.sink75.i = phi i32 [ %228, %226 ], [ %230, %229 ], [ %232, %231 ], [ %234, %233 ], [ %236, %235 ], [ %.1.i.i, %240 ]
   %.sink.i = phi i32 [ -536902804, %226 ], [ -536902807, %229 ], [ -536902810, %231 ], [ -536902813, %233 ], [ -536902820, %235 ], [ -536902835, %240 ]
-  %241 = sub nsw i32 0, %.sink76.i
+  %241 = sub nsw i32 0, %.sink75.i
   %242 = and i32 %241, 2047
   %narrow.neg51.i.i = mul nsw i32 %242, -100000
   %243 = add nsw i32 %narrow.neg51.i.i, %.sink.i
@@ -11226,12 +11226,12 @@ ecc_ssh_test.exit.thread.i:                       ; preds = %240, %235, %233, %2
   br i1 %251, label %.thread.i, label %256
 
 .thread.i:                                        ; preds = %247, %244
-  %.sink77.i = phi i32 [ -1073773828, %244 ], [ -1073773833, %247 ]
+  %.sink76.i = phi i32 [ -1073773828, %244 ], [ -1073773833, %247 ]
   %252 = tail call ptr @__errno_location() #21
   %253 = load i32, ptr %252, align 4, !tbaa !22
   %254 = and i32 %253, 2047
   %narrow.neg36.i = mul nsw i32 %254, -100000
-  %255 = add nsw i32 %narrow.neg36.i, %.sink77.i
+  %255 = add nsw i32 %narrow.neg36.i, %.sink76.i
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %ecc_def_curve_test.exit.thread
 

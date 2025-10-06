@@ -911,34 +911,34 @@ define dso_local noundef ptr @_ZN11cmXMLParser13FindAttributeEPPKcS1_(ptr nounde
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
-  br i1 %or.cond, label %.preheader, label %.critedge.thread
+  br i1 %or.cond, label %.preheader, label %.critedge
 
 .preheader:                                       ; preds = %2
   %5 = load ptr, ptr %0, align 8, !tbaa !55
-  %.not22 = icmp eq ptr %5, null
-  br i1 %.not22, label %.critedge.thread, label %.lr.ph
+  %.not20 = icmp eq ptr %5, null
+  br i1 %.not20, label %.critedge, label %.lr.ph
 
 6:                                                ; preds = %12
-  %7 = getelementptr inbounds nuw i8, ptr %.01123, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %.01121, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !55
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %.critedge.thread, label %.lr.ph, !llvm.loop !56
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !56
 
 .lr.ph:                                           ; preds = %.preheader, %6
   %9 = phi ptr [ %8, %6 ], [ %5, %.preheader ]
-  %.01123 = phi ptr [ %7, %6 ], [ %0, %.preheader ]
-  %10 = getelementptr inbounds nuw i8, ptr %.01123, i64 8
+  %.01121 = phi ptr [ %7, %6 ], [ %0, %.preheader ]
+  %10 = getelementptr inbounds nuw i8, ptr %.01121, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %.not17 = icmp eq ptr %11, null
-  br i1 %.not17, label %.critedge.thread, label %12
+  br i1 %.not17, label %.critedge, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %1) #21
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %.critedge.thread, label %6
+  br i1 %14, label %.critedge, label %6
 
-.critedge.thread:                                 ; preds = %6, %.lr.ph, %12, %.preheader, %2
-  %.1 = phi ptr [ null, %2 ], [ null, %.preheader ], [ null, %6 ], [ null, %.lr.ph ], [ %11, %12 ]
+.critedge:                                        ; preds = %12, %6, %.lr.ph, %.preheader, %2
+  %.1 = phi ptr [ null, %2 ], [ null, %.preheader ], [ %11, %12 ], [ null, %6 ], [ null, %.lr.ph ]
   ret ptr %.1
 }
 

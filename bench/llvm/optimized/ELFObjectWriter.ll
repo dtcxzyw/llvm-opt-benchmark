@@ -996,74 +996,74 @@ _ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread31:  ; preds = %13, %_ZNK4llvm8MCSy
 
 25:                                               ; preds = %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread31
   %26 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF10getBindingEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
-  %switch = icmp eq i32 %26, 0
-  br i1 %switch, label %27, label %.critedge
+  %27 = icmp eq i32 %26, 0
+  br i1 %27, label %28, label %.critedge
 
-27:                                               ; preds = %25
-  %28 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
-  %29 = icmp eq i32 %28, 10
-  br i1 %29, label %.critedge, label %30
+28:                                               ; preds = %25
+  %29 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
+  %30 = icmp eq i32 %29, 10
+  br i1 %30, label %.critedge, label %31
 
-30:                                               ; preds = %27
-  %31 = tail call noundef zeroext i1 @_ZNK4llvm8MCSymbol11isInSectionEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-  br i1 %31, label %32, label %54
+31:                                               ; preds = %28
+  %32 = tail call noundef zeroext i1 @_ZNK4llvm8MCSymbol11isInSectionEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  br i1 %32, label %33, label %55
 
-32:                                               ; preds = %30
-  %33 = tail call noundef nonnull align 8 dereferenceable(148) ptr @_ZNK4llvm8MCSymbol10getSectionEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 152
-  %35 = load i32, ptr %34, align 8, !tbaa !186
-  %36 = and i32 %35, 16
-  %.not26 = icmp eq i32 %36, 0
-  br i1 %.not26, label %53, label %37
+33:                                               ; preds = %31
+  %34 = tail call noundef nonnull align 8 dereferenceable(148) ptr @_ZNK4llvm8MCSymbol10getSectionEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 152
+  %36 = load i32, ptr %35, align 8, !tbaa !186
+  %37 = and i32 %36, 16
+  %.not26 = icmp eq i32 %37, 0
+  br i1 %.not26, label %54, label %38
 
-37:                                               ; preds = %32
+38:                                               ; preds = %33
   %.not27 = icmp eq i64 %4, 0
-  br i1 %.not27, label %38, label %.critedge
+  br i1 %.not27, label %39, label %.critedge
 
-38:                                               ; preds = %37
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %40 = load ptr, ptr %39, align 8, !tbaa !57
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 10
-  %42 = load i16, ptr %41, align 2, !tbaa !190
-  %43 = icmp eq i16 %42, 3
-  %44 = icmp eq i32 %5, 9
-  %or.cond = and i1 %44, %43
-  br i1 %or.cond, label %.critedge, label %45
+39:                                               ; preds = %38
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %41 = load ptr, ptr %40, align 8, !tbaa !57
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 10
+  %43 = load i16, ptr %42, align 2, !tbaa !190
+  %44 = icmp eq i16 %43, 3
+  %45 = icmp eq i32 %5, 9
+  %or.cond = and i1 %45, %44
+  br i1 %or.cond, label %.critedge, label %46
 
-45:                                               ; preds = %38
-  %46 = icmp eq i16 %42, 8
-  br i1 %46, label %47, label %53
+46:                                               ; preds = %39
+  %47 = icmp eq i16 %43, 8
+  br i1 %47, label %48, label %54
 
-47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %49 = load i8, ptr %48, align 4
-  %50 = and i8 %49, 1
-  %51 = icmp ne i8 %50, 0
-  %52 = and i32 %35, 1024
-  %.not28 = icmp eq i32 %52, 0
-  %or.cond33 = and i1 %.not28, %51
-  br i1 %or.cond33, label %54, label %.critedge
+48:                                               ; preds = %46
+  %49 = getelementptr inbounds nuw i8, ptr %41, i64 12
+  %50 = load i8, ptr %49, align 4
+  %51 = and i8 %50, 1
+  %52 = icmp ne i8 %51, 0
+  %53 = and i32 %36, 1024
+  %.not28 = icmp eq i32 %53, 0
+  %or.cond33 = and i1 %.not28, %52
+  br i1 %or.cond33, label %55, label %.critedge
 
-53:                                               ; preds = %45, %32
-  %.old = and i32 %35, 1024
+54:                                               ; preds = %46, %33
+  %.old = and i32 %36, 1024
   %.not28.old = icmp eq i32 %.old, 0
-  br i1 %.not28.old, label %54, label %.critedge
+  br i1 %.not28.old, label %55, label %.critedge
 
-54:                                               ; preds = %47, %53, %30
-  %55 = tail call noundef zeroext i1 @_ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(364) %1, ptr noundef nonnull %3) #19
-  br i1 %55, label %.critedge, label %56
+55:                                               ; preds = %48, %54, %31
+  %56 = tail call noundef zeroext i1 @_ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE(ptr noundef nonnull align 8 dereferenceable(364) %1, ptr noundef nonnull %3) #19
+  br i1 %56, label %.critedge, label %57
 
-56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %58 = load ptr, ptr %57, align 8, !tbaa !57
-  %59 = load ptr, ptr %58, align 8, !tbaa !18
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %61 = load ptr, ptr %60, align 8
-  %62 = tail call noundef zeroext i1 %61(ptr noundef nonnull align 8 dereferenceable(13) %58, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %5) #19
+57:                                               ; preds = %55
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %59 = load ptr, ptr %58, align 8, !tbaa !57
+  %60 = load ptr, ptr %59, align 8, !tbaa !18
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %62 = load ptr, ptr %61, align 8
+  %63 = tail call noundef zeroext i1 %62(ptr noundef nonnull align 8 dereferenceable(13) %59, ptr noundef nonnull align 8 dereferenceable(28) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, i32 noundef %5) #19
   br label %.critedge
 
-.critedge:                                        ; preds = %15, %12, %8, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread31, %37, %38, %47, %56, %54, %27, %25, %53, %6
-  %.0 = phi i1 [ false, %6 ], [ true, %12 ], [ false, %8 ], [ true, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit ], [ true, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread31 ], [ true, %53 ], [ true, %25 ], [ true, %27 ], [ true, %54 ], [ %62, %56 ], [ true, %47 ], [ true, %38 ], [ true, %37 ], [ true, %15 ]
+.critedge:                                        ; preds = %15, %12, %8, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread31, %38, %39, %48, %57, %55, %28, %25, %54, %6
+  %.0 = phi i1 [ false, %6 ], [ true, %12 ], [ false, %8 ], [ true, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit ], [ true, %_ZNK4llvm8MCSymbol11isUndefinedEb.exit.thread31 ], [ true, %54 ], [ true, %25 ], [ true, %28 ], [ true, %55 ], [ %63, %57 ], [ true, %48 ], [ true, %39 ], [ true, %38 ], [ true, %15 ]
   ret i1 %.0
 }
 
@@ -3576,16 +3576,16 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11MCSymbolELFES4_NS_12DenseMapInfoIS4_
   br i1 %813, label %_ZNSt6vectorIN12_GLOBAL__N_19ELFWriter13ELFSymbolDataESaIS2_EE9push_backERKS2_.exit.i, label %814
 
 814:                                              ; preds = %809, %.critedge.i.i
-  %brmerge25.i.i = or i1 %spec.select.i145, %793
-  br i1 %brmerge25.i.i, label %_ZN12_GLOBAL__N_19ELFWriter10isInSymtabERKN4llvm11MCAssemblerERKNS1_11MCSymbolELFEbb.exit.i, label %._crit_edge.i.i
+  %brmerge26.i.i = or i1 %spec.select.i145, %793
+  br i1 %brmerge26.i.i, label %_ZN12_GLOBAL__N_19ELFWriter10isInSymtabERKN4llvm11MCAssemblerERKNS1_11MCSymbolELFEbb.exit.i, label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %814
   %.pre42.i.i = load i64, ptr %762, align 8
   br label %816
 
 815:                                              ; preds = %_ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_11MCSymbolELFES4_NS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E5countES4_.exit.i
-  %brmerge26.i.i = or i1 %spec.select.i145, %793
-  br i1 %brmerge26.i.i, label %_ZN12_GLOBAL__N_19ELFWriter10isInSymtabERKN4llvm11MCAssemblerERKNS1_11MCSymbolELFEbb.exit.i, label %816
+  %brmerge27.i.i = or i1 %spec.select.i145, %793
+  br i1 %brmerge27.i.i, label %_ZN12_GLOBAL__N_19ELFWriter10isInSymtabERKN4llvm11MCAssemblerERKNS1_11MCSymbolELFEbb.exit.i, label %816
 
 816:                                              ; preds = %815, %._crit_edge.i.i
   %817 = phi i64 [ %.pre42.i.i, %._crit_edge.i.i ], [ %794, %815 ]
@@ -7118,12 +7118,12 @@ define internal fastcc void @_ZN12_GLOBAL__N_19ELFWriter11writeSymbolERKN4llvm11
   %20 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
   %21 = trunc i32 %20 to i8
   %22 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %7) #19
-  %.not23.i = icmp eq i32 %22, 10
-  br i1 %.not23.i, label %_ZL7isIFuncPKN4llvm11MCSymbolELFE.exit, label %.lr.ph.i
+  %.not22.i = icmp eq i32 %22, 10
+  br i1 %.not22.i, label %_ZL7isIFuncPKN4llvm11MCSymbolELFE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %17, %_ZL15mergeTypeForSethh.exit.i
-  %.0824.i = phi ptr [ %40, %_ZL15mergeTypeForSethh.exit.i ], [ %7, %17 ]
-  %23 = getelementptr inbounds nuw i8, ptr %.0824.i, i64 8
+  %.0823.i = phi ptr [ %40, %_ZL15mergeTypeForSethh.exit.i ], [ %7, %17 ]
+  %23 = getelementptr inbounds nuw i8, ptr %.0823.i, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = and i64 %24, 28672
   %26 = icmp eq i64 %25, 8192
@@ -7132,11 +7132,11 @@ define internal fastcc void @_ZN12_GLOBAL__N_19ELFWriter11writeSymbolERKN4llvm11
 27:                                               ; preds = %.lr.ph.i
   %28 = or i64 %24, 8
   store i64 %28, ptr %23, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.0824.i, i64 24
+  %29 = getelementptr inbounds nuw i8, ptr %.0823.i, i64 24
   %30 = load ptr, ptr %29, align 8, !tbaa !17
   %31 = load i8, ptr %30, align 8, !tbaa !364
-  %.not22.i = icmp eq i8 %31, 2
-  br i1 %.not22.i, label %32, label %_ZL7isIFuncPKN4llvm11MCSymbolELFE.exit
+  %.not21.i = icmp eq i8 %31, 2
+  br i1 %.not21.i, label %32, label %_ZL7isIFuncPKN4llvm11MCSymbolELFE.exit
 
 32:                                               ; preds = %27
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 1
@@ -7146,7 +7146,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_19ELFWriter11writeSymbolERKN4llvm11
   br i1 %.not12.i, label %36, label %_ZL7isIFuncPKN4llvm11MCSymbolELFE.exit
 
 36:                                               ; preds = %32
-  %37 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %.0824.i) #19
+  %37 = tail call noundef i32 @_ZNK4llvm11MCSymbolELF7getTypeEv(ptr noundef nonnull align 8 dereferenceable(40) %.0823.i) #19
   %38 = and i32 %37, 255
   %cond.i = icmp eq i32 %38, 6
   br i1 %cond.i, label %_ZL7isIFuncPKN4llvm11MCSymbolELFE.exit, label %_ZL15mergeTypeForSethh.exit.i
@@ -7282,9 +7282,9 @@ _ZN12_GLOBAL__N_19ELFWriter11symbolValueERKN4llvm11MCAssemblerERKNS1_8MCSymbolE.
   br i1 %.not52, label %101, label %.thread.thread
 
 .thread.thread:                                   ; preds = %92, %.thread
-  %.0448 = phi ptr [ %.044, %.thread ], [ %96, %92 ]
+  %.0447 = phi ptr [ %.044, %.thread ], [ %96, %92 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %97 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateKnownAbsoluteERlRKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(16) %.0448, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(364) %0) #19
+  %97 = call noundef zeroext i1 @_ZNK4llvm6MCExpr21evaluateKnownAbsoluteERlRKNS_11MCAssemblerE(ptr noundef nonnull align 8 dereferenceable(16) %.0447, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(364) %0) #19
   br i1 %97, label %99, label %98
 
 98:                                               ; preds = %.thread.thread

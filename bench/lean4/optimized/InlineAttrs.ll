@@ -6339,7 +6339,7 @@ define nonnull ptr @l_Lean_Compiler_hasAlwaysInlineAttribute___boxed(ptr noundef
 define zeroext range(i8 0, 2) i8 @l___private_Lean_Compiler_InlineAttrs_0__Lean_Compiler_hasInlineAttrAux(ptr noundef %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, 1
-  %.not87 = icmp eq i64 %5, 0
+  %.not85 = icmp eq i64 %5, 0
   br label %lean_dec.exit46
 
 lean_dec.exit46:                                  ; preds = %lean_dec.exit46.backedge, %3
@@ -6375,9 +6375,9 @@ lean_inc.exit50:                                  ; preds = %13, %12, %10
 lean_inc.exit50.thread:                           ; preds = %lean_dec.exit46
   %16 = tail call zeroext i8 @lean_is_eager_lambda_lifting_name(ptr noundef %.033) #7
   %17 = icmp eq i8 %16, 0
-  br i1 %17, label %.thread85, label %lean_dec.exit40
+  br i1 %17, label %.thread83, label %lean_dec.exit40
 
-.thread85:                                        ; preds = %lean_inc.exit50.thread
+.thread83:                                        ; preds = %lean_inc.exit50.thread
   %18 = load i8, ptr @l_Lean_Compiler_instInhabitedInlineAttributeKind, align 1, !tbaa !18
   %19 = load ptr, ptr @l_Lean_Compiler_setInlineAttribute___closed__1, align 8, !tbaa !10
   br label %lean_inc.exit49
@@ -6402,14 +6402,14 @@ lean_inc.exit50.thread:                           ; preds = %lean_dec.exit46
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %.033) #7
   br label %lean_inc.exit49
 
-lean_inc.exit49:                                  ; preds = %.thread85, %27, %26, %24
-  %.in.in.in.in = phi i8 [ %18, %.thread85 ], [ %21, %27 ], [ %21, %26 ], [ %21, %24 ]
-  %28 = phi ptr [ %19, %.thread85 ], [ %22, %27 ], [ %22, %26 ], [ %22, %24 ]
+lean_inc.exit49:                                  ; preds = %.thread83, %27, %26, %24
+  %.in.in.in.in = phi i8 [ %18, %.thread83 ], [ %21, %27 ], [ %21, %26 ], [ %21, %24 ]
+  %28 = phi ptr [ %19, %.thread83 ], [ %22, %27 ], [ %22, %26 ], [ %22, %24 ]
   %.in.in.in = zext i8 %.in.in.in.in to i64
   %.in.in = shl nuw nsw i64 %.in.in.in, 1
   %.in = or disjoint i64 %.in.in, 1
   %29 = inttoptr i64 %.in to ptr
-  br i1 %.not87, label %30, label %lean_inc.exit48
+  br i1 %.not85, label %30, label %lean_inc.exit48
 
 30:                                               ; preds = %lean_inc.exit49
   %.val.i71 = load i32, ptr %0, align 4, !tbaa !4
@@ -6479,7 +6479,7 @@ lean_obj_tag.exit:                                ; preds = %39, %42
   br label %lean_dec.exit47
 
 lean_dec.exit47:                                  ; preds = %56, %55, %53, %49
-  br i1 %.not87, label %57, label %138
+  br i1 %.not85, label %57, label %138
 
 57:                                               ; preds = %lean_dec.exit47
   %58 = load i32, ptr %0, align 4, !tbaa !4
@@ -6546,7 +6546,7 @@ lean_dec.exit46.backedge:                         ; preds = %64, %69, %71, %72
   br label %lean_dec.exit44
 
 lean_dec.exit44:                                  ; preds = %80, %79, %77, %73
-  br i1 %.not87, label %81, label %lean_dec.exit43
+  br i1 %.not85, label %81, label %lean_dec.exit43
 
 81:                                               ; preds = %lean_dec.exit44
   %82 = load i32, ptr %0, align 4, !tbaa !4
@@ -6571,8 +6571,8 @@ lean_dec.exit43:                                  ; preds = %87, %86, %84, %lean
   %89 = load ptr, ptr %88, align 8, !tbaa !10
   %90 = ptrtoint ptr %89 to i64
   %91 = and i64 %90, 1
-  %.not88 = icmp eq i64 %91, 0
-  br i1 %.not88, label %92, label %lean_inc.exit
+  %.not86 = icmp eq i64 %91, 0
+  br i1 %.not86, label %92, label %lean_inc.exit
 
 92:                                               ; preds = %lean_dec.exit43
   %.val.i76 = load i32, ptr %89, align 4, !tbaa !4
@@ -6616,7 +6616,7 @@ lean_inc.exit:                                    ; preds = %97, %96, %94, %lean
 lean_dec.exit42:                                  ; preds = %104, %103, %101, %lean_inc.exit
   %105 = lshr i64 %90, 1
   %106 = trunc i64 %105 to i8
-  br i1 %.not88, label %107, label %lean_dec.exit41
+  br i1 %.not86, label %107, label %lean_dec.exit41
 
 107:                                              ; preds = %lean_dec.exit42
   %108 = load i32, ptr %89, align 4, !tbaa !4
@@ -6702,7 +6702,7 @@ l_Lean_Compiler_beqInlineAttributeKind____x40_Lean_Compiler_InlineAttrs___hyg_18
   br label %lean_dec.exit40
 
 lean_dec.exit40:                                  ; preds = %lean_inc.exit50.thread, %130, %129, %127
-  br i1 %.not87, label %131, label %138
+  br i1 %.not85, label %131, label %138
 
 131:                                              ; preds = %lean_dec.exit40
   %132 = load i32, ptr %0, align 4, !tbaa !4

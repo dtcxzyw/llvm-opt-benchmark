@@ -958,15 +958,15 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket9cas_
   br label %89
 
 89:                                               ; preds = %.thread, %88
-  %.1.ph82 = phi i1 [ true, %.thread ], [ false, %88 ]
-  %.1.i60.ph80 = phi i64 [ %.1.i61, %.thread ], [ %67, %88 ]
+  %.1.ph81 = phi i1 [ true, %.thread ], [ false, %88 ]
+  %.1.i60.ph79 = phi i64 [ %.1.i61, %.thread ], [ %67, %88 ]
   %.not45 = icmp eq ptr %5, null
   br i1 %.not45, label %95, label %90
 
 90:                                               ; preds = %89
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %92 = load i64, ptr %91, align 8
-  %93 = icmp ugt i64 %.1.i60.ph80, %92
+  %93 = icmp ugt i64 %.1.i60.ph79, %92
   %94 = zext i1 %93 to i8
   store i8 %94, ptr %5, align 1
   br label %95
@@ -980,7 +980,7 @@ _ZN19ConcurrentHashTableI28G1CodeRootSetHashTableConfigL8MEMFLAGS5EE6Bucket9cas_
   br label %97
 
 97:                                               ; preds = %96, %95
-  ret i1 %.1.ph82
+  ret i1 %.1.ph81
 }
 
 declare void @_ZN2os11naked_yieldEv() local_unnamed_addr #5

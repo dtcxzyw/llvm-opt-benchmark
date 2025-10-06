@@ -854,10 +854,10 @@ png_free_buffer_list.exit:                        ; preds = %20, %17, %11
 
 44:                                               ; preds = %.backedge, %34
   %.0 = phi i64 [ %2, %34 ], [ %50, %.backedge ]
-  %spec.select102 = tail call i64 @llvm.umin.i64(i64 %.0, i64 4294967295)
-  %spec.select = trunc nuw i64 %spec.select102 to i32
+  %spec.select100 = tail call i64 @llvm.umin.i64(i64 %.0, i64 4294967295)
+  %spec.select = trunc nuw i64 %spec.select100 to i32
   store i32 %spec.select, ptr %36, align 8, !tbaa !78
-  %45 = sub i64 %.0, %spec.select102
+  %45 = sub i64 %.0, %spec.select100
   %.not86 = icmp ult i64 %.0, 4294967296
   %46 = select i1 %.not86, i32 %3, i32 0
   %47 = tail call i32 @deflate(ptr noundef nonnull %35, i32 noundef %46) #12
@@ -967,7 +967,7 @@ optimize_cmf.exit:                                ; preds = %83, %73, %66, %63, 
 
 108:                                              ; preds = %106
   %109 = icmp eq i32 %3, 4
-  br i1 %109, label %110, label %.thread
+  br i1 %109, label %110, label %167
 
 110:                                              ; preds = %108
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.11) #13
@@ -1061,7 +1061,7 @@ optimize_cmf.exit98:                              ; preds = %145, %135, %128, %1
   %163 = or i32 %162, 12
   store i32 %163, ptr %40, align 4, !tbaa !24
   store i32 0, ptr %5, align 8, !tbaa !68
-  br label %.thread
+  br label %167
 
 164:                                              ; preds = %111
   tail call void @png_zstream_error(ptr noundef nonnull %0, i32 noundef %47) #12
@@ -1070,7 +1070,7 @@ optimize_cmf.exit98:                              ; preds = %145, %135, %128, %1
   tail call void @png_error(ptr noundef nonnull %0, ptr noundef %166) #13
   unreachable
 
-.thread:                                          ; preds = %108, %161
+167:                                              ; preds = %161, %108
   ret void
 }
 
@@ -1810,9 +1810,9 @@ define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 nounde
   %.068 = phi ptr [ %9, %8 ], [ %.169, %39 ]
   %.066 = phi i64 [ %10, %8 ], [ %44, %39 ]
   %.065 = phi i32 [ 1024, %8 ], [ %.1, %39 ]
-  %spec.select105 = tail call i64 @llvm.umin.i64(i64 %.066, i64 4294967295)
-  %spec.select = trunc nuw i64 %spec.select105 to i32
-  %19 = sub i64 %.066, %spec.select105
+  %spec.select104 = tail call i64 @llvm.umin.i64(i64 %.066, i64 4294967295)
+  %spec.select = trunc nuw i64 %spec.select104 to i32
+  %19 = sub i64 %.066, %spec.select104
   store i32 %spec.select, ptr %13, align 8, !tbaa !78
   %20 = load i32, ptr %16, align 8, !tbaa !76
   %21 = icmp eq i32 %20, 0
@@ -1864,19 +1864,19 @@ define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 nounde
   br i1 %45, label %18, label %.thread91, !llvm.loop !124
 
 .thread91:                                        ; preds = %22, %28, %39
-  %.3101 = phi i32 [ %.1, %39 ], [ %.065, %28 ], [ %.065, %22 ]
-  %.167100 = phi i64 [ %44, %39 ], [ %19, %28 ], [ %19, %22 ]
-  %.27699 = phi i32 [ %41, %39 ], [ -4, %28 ], [ -4, %22 ]
+  %.3100 = phi i32 [ %.1, %39 ], [ %.065, %28 ], [ %.065, %22 ]
+  %.16799 = phi i64 [ %44, %39 ], [ %19, %28 ], [ %19, %22 ]
+  %.27698 = phi i32 [ %41, %39 ], [ -4, %28 ], [ -4, %22 ]
   %46 = load i32, ptr %16, align 8, !tbaa !76
-  %47 = sub i32 %.3101, %46
+  %47 = sub i32 %.3100, %46
   store i32 0, ptr %16, align 8, !tbaa !76
   %48 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store i32 %47, ptr %48, align 8, !tbaa !112
   %49 = add i32 %47, %3
   %50 = icmp ugt i32 %49, 2147483646
-  br i1 %50, label %.thread102, label %53
+  br i1 %50, label %.thread101, label %53
 
-.thread102:                                       ; preds = %.thread91
+.thread101:                                       ; preds = %.thread91
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 368
   store ptr @.str.47, ptr %51, align 8, !tbaa !74
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -1884,11 +1884,11 @@ define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 nounde
   br label %optimize_cmf.exit
 
 53:                                               ; preds = %.thread91
-  tail call void @png_zstream_error(ptr noundef nonnull %0, i32 noundef %.27699) #12
+  tail call void @png_zstream_error(ptr noundef nonnull %0, i32 noundef %.27698) #12
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 312
   store i32 0, ptr %54, align 8, !tbaa !68
-  %55 = icmp eq i32 %.27699, 1
-  %56 = icmp eq i64 %.167100, 0
+  %55 = icmp eq i32 %.27698, 1
+  %56 = icmp eq i64 %.16799, 0
   %or.cond = select i1 %55, i1 %56, i1 false
   br i1 %or.cond, label %57, label %optimize_cmf.exit
 
@@ -1943,8 +1943,8 @@ define internal fastcc i32 @png_text_compress(ptr noalias noundef %0, i32 nounde
   store i8 %90, ptr %81, align 1, !tbaa !3
   br label %optimize_cmf.exit
 
-optimize_cmf.exit:                                ; preds = %77, %67, %60, %57, %.thread102, %53, %4
-  %.078 = phi i32 [ %7, %4 ], [ %.27699, %53 ], [ -4, %.thread102 ], [ 0, %57 ], [ 0, %60 ], [ 0, %67 ], [ 0, %77 ]
+optimize_cmf.exit:                                ; preds = %77, %67, %60, %57, %.thread101, %53, %4
+  %.078 = phi i32 [ %7, %4 ], [ %.27698, %53 ], [ -4, %.thread101 ], [ 0, %57 ], [ 0, %60 ], [ 0, %67 ], [ 0, %77 ]
   ret i32 %.078
 }
 
